@@ -13,6 +13,7 @@ class Sqlsmith < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia:  "52535012f25283205af92afbf333d0926e9910c9a05ae96708a4c4eb018cffeb"
     sha256 cellar: :any,                 arm64_sonoma:   "243870da20774ace2bb0fb2d151d7c13c17476f6709778fcad73d3daf775c10e"
     sha256 cellar: :any,                 arm64_ventura:  "a73bf5da9f72029581e9d94f8881cd68a5d76619070c072a3eaba963960dff7a"
     sha256 cellar: :any,                 arm64_monterey: "17f2807af8ea421abfbfd1006324003e830a635bfb6c72157643e229b497882b"

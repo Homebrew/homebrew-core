@@ -7,6 +7,7 @@ class Akku < Formula
   head "https://gitlab.com/akkuscm/akku.git", branch: "master"
 
   bottle do
+    sha256 arm64_sequoia:  "0f13478e5f6f3b41e6e75beac905b2aaae1df9d9a1eb7d600bf0f6bf70b076f0"
     sha256 arm64_sonoma:   "565a1f1bba15ccfbe640704c86b1752a03fe8935b86fefe5c02f946d51cf6b0a"
     sha256 arm64_ventura:  "dac9e5f8e17d8b88899acb8fcd0678e863c028737aa921c07ad982804c3ab656"
     sha256 arm64_monterey: "a0a5fc11cd13c9ebb25ad4d8e46c607a67b061852e4d3ef17ec1ace4758d8962"

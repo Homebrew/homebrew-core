@@ -17,6 +17,7 @@ class Libbladerf < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "2651db296521b2728bc29c789eeb500044d640a0a9a8483c089412154577701e"
     sha256 cellar: :any,                 arm64_sonoma:   "a1f53b13340f34c10cd6472165c539b94c6b99ccfc2dd0e0b010ae989276223e"
     sha256 cellar: :any,                 arm64_ventura:  "981e3c3b94703b88a9d9f7e341a16ad8ea969fdcc1ce06ce9edf514d8bd9d7e0"
     sha256 cellar: :any,                 arm64_monterey: "c2a39382f86a2a39efc8e8c136f5a2aa9b350b46fda72a395f36800f92bceff6"
@@ -32,9 +33,11 @@ class Libbladerf < Formula
   depends_on "pkg-config" => :build
   depends_on "libusb"
 
+  uses_from_macos "libedit"
+
   def install
     ENV.prepend "CFLAGS", "-I#{MacOS.sdk_path}/usr/include/malloc" if OS.mac?
-    system "cmake", "-S", "host", "-B", "build", *std_cmake_args, "-DUDEV_RULES_PATH=#{lib}/udev/rules.d"
+    system "cmake", "-S", "host", "-B", "build", "-DUDEV_RULES_PATH=#{lib}/udev/rules.d", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end

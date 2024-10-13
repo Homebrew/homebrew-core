@@ -11,6 +11,7 @@ class Stk < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "140113c25ddb581acbd291f3671b2657562ff8237c62abe8db42ba2e3e3297f7"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2b50969de86e485eb0ea91411ecfa5ef8c531fa5da68a0d8f1df49c196339aed"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "8cf614b99101345ec67c8bf4d63bee7b765ce0025cff30b9e61487b112768437"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d55edfca37504873b9b03ee40c0b369a804c6623b33e0e46937f4c97f9513efe"

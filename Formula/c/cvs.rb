@@ -17,6 +17,7 @@ class Cvs < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "395bcc270613244fc0be159a5cc843cff6696397961958634363d4b1a2241454"
     sha256 cellar: :any,                 arm64_sonoma:   "e561f130192a57e7fe98eab345f97fd548bdabb62e78a9131a91c3c87f0a4429"
     sha256 cellar: :any,                 arm64_ventura:  "b04bc5783e3ce63a89075a9f824c2f3257ddb6974f22827315bd2848a0d96a05"
     sha256 cellar: :any,                 arm64_monterey: "facb582f400a539914188f2c526148db296f6a9c626b298b6749a528a6955b6e"
@@ -31,10 +32,15 @@ class Cvs < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-  depends_on "gettext"
+  depends_on "gettext" => :build
 
+  uses_from_macos "krb5"
   uses_from_macos "libxcrypt"
   uses_from_macos "zlib"
+
+  on_macos do
+    depends_on "gettext"
+  end
 
   on_linux do
     depends_on "vim" => :build # a text editor must be detected by the configure script
@@ -91,10 +97,7 @@ class Cvs < Formula
     # Fix compile with newer Clang
     ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1200
 
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--infodir=#{info}",
+    system "./configure", "--infodir=#{info}",
                           "--mandir=#{man}",
                           "--sysconfdir=#{etc}",
                           "--with-gssapi",
@@ -103,7 +106,8 @@ class Cvs < Formula
                           "--with-external-zlib",
                           "--enable-case-sensitivity",
                           "--with-editor=vim",
-                          "ac_cv_func_working_mktime=no"
+                          "ac_cv_func_working_mktime=no",
+                          *std_configure_args
     system "make"
     ENV.deparallelize
     system "make", "install"
@@ -112,11 +116,11 @@ class Cvs < Formula
   test do
     cvsroot = testpath/"cvsroot"
     cvsroot.mkpath
-    system "#{bin}/cvs", "-d", cvsroot, "init"
+    system bin/"cvs", "-d", cvsroot, "init"
 
     mkdir "cvsexample" do
       ENV["CVSROOT"] = cvsroot
-      system "#{bin}/cvs", "import", "-m", "dir structure", "cvsexample", "homebrew", "start"
+      system bin/"cvs", "import", "-m", "dir structure", "cvsexample", "homebrew", "start"
     end
   end
 end

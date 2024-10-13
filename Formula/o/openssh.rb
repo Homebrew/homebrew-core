@@ -1,10 +1,10 @@
 class Openssh < Formula
   desc "OpenBSD freely-licensed SSH connectivity tools"
   homepage "https://www.openssh.com/"
-  url "https://cdn.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-9.8p1.tar.gz"
-  mirror "https://cloudflare.cdn.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-9.8p1.tar.gz"
-  version "9.8p1"
-  sha256 "dd8bd002a379b5d499dfb050dd1fa9af8029e80461f4bb6c523c49973f5a39f3"
+  url "https://cdn.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-9.9p1.tar.gz"
+  mirror "https://cloudflare.cdn.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-9.9p1.tar.gz"
+  version "9.9p1"
+  sha256 "b343fbcdbff87f15b1986e6e15d6d4fc9a7d36066be6b7fb507087ba8f966c02"
   license "SSH-OpenSSH"
 
   livecheck do
@@ -13,13 +13,12 @@ class Openssh < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "f484ac194ed2ff05cdaf496ee0367e937c4ddabc0361fb8320554517b64ac357"
-    sha256 arm64_ventura:  "324d887462c376b8f0dc5846551ba7f2db8cb774b2bbb5ec47bff5ce3a02db43"
-    sha256 arm64_monterey: "e39cea5297b10f417e37cfc9be250ba78cc9d5e16c3fb4eb8d8c399510bbef70"
-    sha256 sonoma:         "e2460518b0d5cae58bfbed8d6d1b697e062304e36e367ffc9747d1418e303eed"
-    sha256 ventura:        "9a13519bcfb152dfe990ef60cc6156bacc5093e8dcd8938d3de469c189d1d35b"
-    sha256 monterey:       "58e3046677e55eac1aa5c4a36b0fb9d08e3e51852033414705896e6cce6d774a"
-    sha256 x86_64_linux:   "f954c44e3a99c6811cfcd0325162bd727c6e5d675499cc5ea613df2878d2bc97"
+    sha256 arm64_sequoia: "2ba0e61df6c04f777659a421a6937411cd95ef2c035316d9295191d3bc68c244"
+    sha256 arm64_sonoma:  "699ae8ec8c7b253b48ffb936f7ecffc34a4a9d5bd776711f045c9f764f982ffd"
+    sha256 arm64_ventura: "66d29a2929b68f63cfd37238299a4fe6553ae0e49379aa75492b48da773e3958"
+    sha256 sonoma:        "57286063c3fc2873ff7ae968457632e064cf6c6616fd73b61c9302f5a414f455"
+    sha256 ventura:       "97383292a3b259beba9375cc7ffdf193f81c40c70299793aee6fd4bcac753ce0"
+    sha256 x86_64_linux:  "dcc2214edc8aff762f7ffa125767e4636c332c0c533b7bac0af13adc4bc8a9b5"
   end
 
   # Please don't resubmit the keychain patch option. It will never be accepted.

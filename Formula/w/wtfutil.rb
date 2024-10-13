@@ -8,6 +8,7 @@ class Wtfutil < Formula
   head "https://github.com/wtfutil/wtf.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "03d23e7f87fdcd1c568743ca4bf4261f2d90b8f83932325521f14aee6a683c1d"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "56f84f075efbdd2db2a81171b4e1574cb0b9aac21f600ab3a41d9662ae12093c"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "3d811c8da851a06afb1aa0f1396755385a3eace99e2abdbf58719619efecdd3b"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "2dde8a7584268f28be28e4ff1e98f8895314c2950d88d002830f7ed79ec51c52"
@@ -69,7 +70,7 @@ class Wtfutil < Formula
 
     begin
       pid = fork do
-        exec "#{bin}/wtfutil", "--config=#{testconfig}"
+        exec bin/"wtfutil", "--config=#{testconfig}"
       end
     ensure
       Process.kill("HUP", pid)

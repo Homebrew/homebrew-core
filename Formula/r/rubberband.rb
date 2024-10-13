@@ -12,6 +12,7 @@ class Rubberband < Formula
   end
 
   bottle do
+    sha256 cellar: :any, arm64_sequoia:  "0dbc4dfca618f3b7772772a96a267cf39e8a81f2da4e369d11faa47d2892a857"
     sha256 cellar: :any, arm64_sonoma:   "83e5b2a1828926769eb43c37b1ed95fc6acb52b7b80717c628248ba06dcc4b59"
     sha256 cellar: :any, arm64_ventura:  "206c609c7172b67789074a7cf6d7f488754c36385c8fa192be5b7d79250baa9f"
     sha256 cellar: :any, arm64_monterey: "b5f0bd10292d5ae466dbd52a08675add720790e38844439fae7539fd90ac8ab3"

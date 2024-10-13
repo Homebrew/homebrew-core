@@ -3,14 +3,14 @@ class Libmagic < Formula
   homepage "https://www.darwinsys.com/file/"
   url "https://astron.com/pub/file/file-5.45.tar.gz"
   sha256 "fc97f51029bb0e2c9f4e3bffefdaf678f0e039ee872b9de5c002a6d09c784d82"
-  # libmagic has a BSD-2-Clause-like license
-  license :cannot_represent
+  license all_of: ["BSD-2-Clause-Darwin", "BSD-2-Clause", :public_domain]
 
   livecheck do
     formula "file-formula"
   end
 
   bottle do
+    sha256 arm64_sequoia:  "163d317bd1b513db98785b0c6b60b451dd4fb09e925ba61013147efd8fbc13a3"
     sha256 arm64_sonoma:   "4175e9bd00edb289020b1412fe1762554ccea7f5073050134995fc1578062341"
     sha256 arm64_ventura:  "ec5c143e70bff4635e77a831ac3a03a059d11fdf0512d37e6ab7de977dca8ad9"
     sha256 arm64_monterey: "a2e6411d29aaeff36e1e458fa9ac152d5f16a6093f8dd7c724c70da1afbd1f88"

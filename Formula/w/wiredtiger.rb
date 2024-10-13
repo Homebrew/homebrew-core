@@ -11,6 +11,7 @@ class Wiredtiger < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "e7f3509ad95e4eb2a1d81ce017407033273919dd1f6be6c4c84e94562f964afe"
     sha256 cellar: :any,                 arm64_sonoma:   "e197fa1445bd63c676205773ce8e923ddd41710fdf9538f71ba17607630254eb"
     sha256 cellar: :any,                 arm64_ventura:  "85bcc6b06e613f65e191e0a7d62a0f7f270b20c56cbff82f3ece7b7c12f3a2cd"
     sha256 cellar: :any,                 arm64_monterey: "56d763ad1949f872340d073ffee0a856bb93b36c95cf4677efece640d276b59b"
@@ -43,7 +44,7 @@ class Wiredtiger < Formula
   end
 
   test do
-    system "#{bin}/wt", "create", "table:test"
-    system "#{bin}/wt", "drop", "table:test"
+    system bin/"wt", "create", "table:test"
+    system bin/"wt", "drop", "table:test"
   end
 end

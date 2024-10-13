@@ -11,6 +11,7 @@ class Dnsperf < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "105e91000e93fa837ba43661cac925cbfab0bfdc679fa7e9920c590c0f0269f3"
     sha256 cellar: :any,                 arm64_sonoma:   "1f56f85a5973c690c2d511f197d2af107391cb2d73fc165a10b2bc604095b7b6"
     sha256 cellar: :any,                 arm64_ventura:  "0c6940568620597ca23ab89c37dbd3cafa038e4491020c020a491ef852b07bee"
     sha256 cellar: :any,                 arm64_monterey: "7b523397aaeb7d710a9310cec381eadc01b32b0d19bf9f50bd9813d14c1f6bb8"
@@ -33,7 +34,7 @@ class Dnsperf < Formula
   end
 
   test do
-    system "#{bin}/dnsperf", "-h"
-    system "#{bin}/resperf", "-h"
+    system bin/"dnsperf", "-h"
+    system bin/"resperf", "-h"
   end
 end

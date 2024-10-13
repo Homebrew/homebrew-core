@@ -20,6 +20,7 @@ class Qrencode < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "cecf1e7ce43e8748061ac53002415715527fa1f3edb8ae27d0cb406c988a2185"
     sha256 cellar: :any,                 arm64_sonoma:   "3226384aaa7dfe12685ac35c627a0bf3878c98e119e7057d8f86a6b8360fc65b"
     sha256 cellar: :any,                 arm64_ventura:  "c3065a87ad978bc0c2b3ff5a60371ad8f0d6f1f29d0584ac070e6cd998469561"
     sha256 cellar: :any,                 arm64_monterey: "6fa3a670e9708cf84470f82fd966e5610d0ad9d8c96c1f5987645b4db3fa65cb"
@@ -54,6 +55,6 @@ class Qrencode < Formula
   end
 
   test do
-    system "#{bin}/qrencode", "123456789", "-o", "test.png"
+    system bin/"qrencode", "123456789", "-o", "test.png"
   end
 end

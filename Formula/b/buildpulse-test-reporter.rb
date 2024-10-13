@@ -12,6 +12,7 @@ class BuildpulseTestReporter < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "5fa7bdd1ab10afc961caea3a0e669e917f1af32c315ddfd24d95accc4febf4bd"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "210c03916b8e4ec0d2172f9b7a4f52ca5447a81e6517979609b0d958d8b4fcc5"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "5446e9c167595aa6e31a558b0ba82d5505d58cd07f6168dac76474f57bf4417a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "04e6c06647c7d0dc90497ffaf4cffa437f41259e53070fee8bac6cf465941a52"

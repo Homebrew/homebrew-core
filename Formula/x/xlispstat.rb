@@ -4,9 +4,19 @@ class Xlispstat < Formula
   url "https://homepage.cs.uiowa.edu/~luke/xls/xlispstat/current/xlispstat-3-52-23.tar.gz"
   version "3.52.23"
   sha256 "9bf165eb3f92384373dab34f9a56ec8455ff9e2bf7dff6485e807767e6ce6cf4"
+  license "HPND-sell-variant"
   revision 1
 
+  livecheck do
+    url "https://homepage.cs.uiowa.edu/~luke/xls/xlispstat/current/"
+    regex(/href=.*?xlispstat[._-]v?(\d+(?:[.-]\d+)+)\.t/i)
+    strategy :page_match do |page, regex|
+      page.scan(regex).map { |match| match[0].tr("-", ".") }
+    end
+  end
+
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "455b2e247dd57ef595e2576a56d707ec8ced866ec15d808fc2cf93089aff07b6"
     sha256 cellar: :any,                 arm64_sonoma:   "10e7f44257e5722b9d044d17e1797df027796f291010ea9ccb5a4c3999424208"
     sha256 cellar: :any,                 arm64_ventura:  "3b11acb44e728fb2b1707b8700d5b0be9a68ff522884827fe824d44d6333ca33"
     sha256 cellar: :any,                 arm64_monterey: "e11e76582f1aa365ed04b44c6caac0a786b63f12b612399e27ed909803c1bdcf"
@@ -24,7 +34,10 @@ class Xlispstat < Formula
   depends_on "libx11"
 
   def install
-    system "./configure", "--prefix=#{prefix}", "--disable-debug", "--disable-dependency-tracking"
+    # Fix compile with newer Clang
+    ENV.append "CC", "-Wno-implicit-int -Wno-int-conversion" if DevelopmentTools.clang_build_version >= 1403
+
+    system "./configure", *std_configure_args
     ENV.deparallelize # Or make fails bytecompiling lisp code
     system "make"
     system "make", "install"

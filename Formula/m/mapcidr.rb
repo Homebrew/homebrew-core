@@ -7,6 +7,7 @@ class Mapcidr < Formula
   head "https://github.com/projectdiscovery/mapcidr.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "0f78e69af4afb917cf0a41804f2519b6bea04bdb690b01510b7101fddcc13d19"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "cb89cba8eb2951d6031b6596f645ff095a0a45fa32e801eba3428112e9805262"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "14c162c1728ed3a4db440a87a7c50a83a56e1850cf3b63ffe6141a13dea3685f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d6bdc1c16bde927ed10481ae997d383d1cc8e51ba21c8c8d70f287dc16607939"

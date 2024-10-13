@@ -3,10 +3,11 @@ class Mpg321 < Formula
   homepage "https://mpg321.sourceforge.net/"
   url "https://downloads.sourceforge.net/project/mpg321/mpg321/0.3.2/mpg321_0.3.2.orig.tar.gz"
   sha256 "056fcc03e3f5c5021ec74bb5053d32c4a3b89b4086478dcf81adae650eac284e"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
   revision 3
 
   bottle do
+    sha256 arm64_sequoia:  "ed6f4de0b208b65bdc562fefd7f6cd8dbad5b6489b52bc24b4bf9109de4b6f35"
     sha256 arm64_sonoma:   "00b92592cadd767c25fe24941095b6f6f088cf319b25ab78a83d0a75797e7a43"
     sha256 arm64_ventura:  "963826c2df80f72ba7e5ca28ca63c29484ce57dee4056ab4e54677e166a2f4a2"
     sha256 arm64_monterey: "7060caabffb689d03eae5d98b62caa894655c7e29201c432afe5ec1ae5864301"
@@ -33,10 +34,13 @@ class Mpg321 < Formula
     sha256 "a856292a913d3d94b3389ae7b1020d662e85bd4557d1a9d1c8ebe517978e62a1"
   end
 
-  def install
-    # Fix compile with newer Clang
-    ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
+  # Apply Gentoo patch for Clang 16
+  patch do
+    url "https://gitweb.gentoo.org/repo/gentoo.git/plain/media-sound/mpg321/files/mpg321-0.3.2-clang16.patch?id=ba6b4630d2b4cc294a3057b1f4770650bcb12c87"
+    sha256 "bafc5868a8293fe465449ab27bececc6039001b1519af872ecf4178afabc1a5c"
+  end
 
+  def install
     # Fix compilation with GCC 11
     ENV.append_to_cflags "-fcommon" if OS.linux?
 
@@ -50,6 +54,6 @@ class Mpg321 < Formula
   end
 
   test do
-    system "#{bin}/mpg321", "--version"
+    system bin/"mpg321", "--version"
   end
 end

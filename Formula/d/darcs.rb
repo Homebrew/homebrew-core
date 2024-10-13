@@ -6,6 +6,7 @@ class Darcs < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "fb416212ff5a4d443454522e6938697a9d959e2fe3eff545dc2c069f22e96dd0"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "35f0cf18f12c485e5c17c9e40a72bffe3c041bfccd2c52fa6e8c417c83754494"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "beeef441e9e24f1d7a5e72dd5c29188432217aae6b151afdf0d7de17b8c3ca30"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d14752765fad87efc247348ed1a21ccd8d4a5521d009a5e60bfeac2c18be725f"
@@ -16,7 +17,7 @@ class Darcs < Formula
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc" => :build
+  depends_on "ghc@9.8" => :build
   depends_on "gmp"
 
   uses_from_macos "ncurses"

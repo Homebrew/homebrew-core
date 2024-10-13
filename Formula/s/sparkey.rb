@@ -7,6 +7,7 @@ class Sparkey < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "452230974e3670cd4241c74f20a71fdeee5ce9f89ab939a5356745e5207bb43e"
     sha256 cellar: :any,                 arm64_sonoma:   "a7fc1a935b2c374f931ba2cef61f4c2a5fab149398dd95524d382423afca230b"
     sha256 cellar: :any,                 arm64_ventura:  "b5b1dd6314393471c6d94f5cd9417add5c2fb18cae43a8aadb55bc27782ff521"
     sha256 cellar: :any,                 arm64_monterey: "17187c82468ffb126744c6ac8f4bc318a11234923dd70759ed0b2204d949516f"
@@ -37,9 +38,10 @@ class Sparkey < Formula
   end
 
   test do
-    system "#{bin}/sparkey", "createlog", "-c", "snappy", "test.spl"
-    system "echo foo.bar | #{bin}/sparkey appendlog -d . test.spl"
-    system "#{bin}/sparkey", "writehash", "test.spl"
-    system "#{bin}/sparkey get test.spi foo | grep ^bar$"
+    system bin/"sparkey", "createlog", "-c", "snappy", "test.spl"
+    assert_empty pipe_output("#{bin}/sparkey appendlog -d . test.spl 2>&1", "foo.bar")
+
+    system bin/"sparkey", "writehash", "test.spl"
+    assert_empty shell_output("#{bin}/sparkey get test.spi foo", 2)
   end
 end

@@ -11,6 +11,7 @@ class Taktuk < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "0e5cd1f34fc2bc09417324bf325f1b3bfea7cc9e2b97ac622cd52fc1dceb6513"
     sha256 cellar: :any,                 arm64_sonoma:   "6516efccc7a1a557ba95ca0694659a17f1e9a2f38e4ff58ff918b34a3c80273d"
     sha256 cellar: :any,                 arm64_ventura:  "f2ee8a7c0e82af568fa8106af14fe3b9e0247cd7a6f87b4e76c3fa21880577e2"
     sha256 cellar: :any,                 arm64_monterey: "ea5b8b832ba022f7545be2eea7ca316cd2d079263b87b0f93d669e26b06d6f3c"

@@ -6,6 +6,7 @@ class Gitsign < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "d6c2a86406153bdbc9df02dbe63b5ed0128dc2a5f672b19bfcdaa0604c1ac72d"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "71846aea29a40741ea36933822898fe0396bee2df3f21fe67be9e4944425840c"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "696538039df77ee84503a2954d9036367cc9efd79b2930f66ecec1fe26ce40d9"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "20b0c9a9876bfff9f0f750c38b384efc1f36b66e1a7ce2dc46990eb9cccbfd88"

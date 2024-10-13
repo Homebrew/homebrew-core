@@ -1,5 +1,3 @@
-require "language/node"
-
 class HttpServer < Formula
   desc "Simple zero-configuration command-line HTTP server"
   homepage "https://github.com/http-party/http-server"
@@ -9,13 +7,23 @@ class HttpServer < Formula
   head "https://github.com/http-party/http-server.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "8e9d67691b2b1afcbff2ecaf2730ad9306e3d04f546d466a963bc8c9d0e0de6f"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "bb1d84d1666919ec7a065dbb8d7a33a6b66ec0d853566efb9fbef8257202c827"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b8798ac5ea1972bc153b971db14968ada2527c73c4ac4c442f3c3e2c2d2b0802"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b8798ac5ea1972bc153b971db14968ada2527c73c4ac4c442f3c3e2c2d2b0802"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b8798ac5ea1972bc153b971db14968ada2527c73c4ac4c442f3c3e2c2d2b0802"
+    sha256 cellar: :any_skip_relocation, sonoma:         "b8798ac5ea1972bc153b971db14968ada2527c73c4ac4c442f3c3e2c2d2b0802"
+    sha256 cellar: :any_skip_relocation, ventura:        "b8798ac5ea1972bc153b971db14968ada2527c73c4ac4c442f3c3e2c2d2b0802"
+    sha256 cellar: :any_skip_relocation, monterey:       "b8798ac5ea1972bc153b971db14968ada2527c73c4ac4c442f3c3e2c2d2b0802"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f9f714a6e9f2aae98529f5cf3c01587a9c3ff867ad8aa8446453a62688ff4bb4"
   end
 
   depends_on "node"
 
+  conflicts_with "http-server-rs", because: "both install a `http-server` binary"
+
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", *std_npm_args
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 
@@ -23,7 +31,7 @@ class HttpServer < Formula
     port = free_port
 
     pid = fork do
-      exec "#{bin}/http-server", "-p#{port}"
+      exec bin/"http-server", "-p#{port}"
     end
     sleep 3
     output = shell_output("curl -sI http://localhost:#{port}")

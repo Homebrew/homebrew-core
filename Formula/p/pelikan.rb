@@ -7,6 +7,7 @@ class Pelikan < Formula
   head "https://github.com/twitter/pelikan.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "cf1eea879a3b1eb8ec2d34616519f383cadea119d9dfec32ef89f93c5de3f248"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6074fdbebf10e608f76145fc4d41cf9be62d3b3ac67cf6b50ab1a1c21c0da76f"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "395c03af1bab96be9a15937c4e3c997b8755a53abda5ab1f53227ebbc2cc6f7a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a20c89a4c6828864b1b8d5361b97357795ef49ef517668237211c00a92bb0d80"
@@ -26,14 +27,16 @@ class Pelikan < Formula
   depends_on "cmake" => :build
 
   def install
-    mkdir "_build" do
-      system "cmake", "..", *std_cmake_args
-      system "make"
-      system "make", "install"
-    end
+    # Work around failure from GCC 10+ using default of `-fno-common`
+    # multiple definition of `signals'; ../buffer/cc_buf.c.o:(.bss+0x20): first defined here
+    ENV.append_to_cflags "-fcommon" if OS.linux?
+
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
-    system "#{bin}/pelikan_twemcache", "-c"
+    system bin/"pelikan_twemcache", "-c"
   end
 end

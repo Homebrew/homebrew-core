@@ -23,7 +23,7 @@ class Runcocoa < Formula
 
     objc_code = "[[NSFileHandle fileHandleWithStandardOutput] " \
                 "writeData:[@\"#{string}\" dataUsingEncoding:NSNEXTSTEPStringEncoding]]"
-    objc_output = pipe_output("#{bin}/runcocoa", objc_code, 0)
+    objc_output = pipe_output(bin/"runcocoa", objc_code, 0)
     assert_match string, objc_output
 
     c_code = "printf(\"#{string}\");"

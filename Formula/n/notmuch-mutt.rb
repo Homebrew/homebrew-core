@@ -11,6 +11,7 @@ class NotmuchMutt < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "32096e64265140be4430d5c5bed09c2f23c7758a07b347556ab76bc42717debf"
     sha256 cellar: :any,                 arm64_sonoma:   "a97fab20e7c81079f03221d342cf9ffb337d707cf1fc2aecf62701f4c8fd4728"
     sha256 cellar: :any,                 arm64_ventura:  "c12fcbb4288c848b59e8ac48617ee928afbd665cc3248d4d2ac2e6f09b593690"
     sha256 cellar: :any,                 arm64_monterey: "e5786019af8789331d40ff9fb9a4c46dda6f87b7abdfe5db90a71e9040ca6d81"
@@ -23,6 +24,8 @@ class NotmuchMutt < Formula
   depends_on "notmuch"
   depends_on "perl"
   depends_on "readline"
+
+  uses_from_macos "ncurses"
 
   resource "Date::Parse" do
     url "https://cpan.metacpan.org/authors/id/A/AT/ATOOMIC/TimeDate-2.33.tar.gz"
@@ -112,6 +115,6 @@ class NotmuchMutt < Formula
   end
 
   test do
-    system "#{bin}/notmuch-mutt", "search", "Homebrew"
+    system bin/"notmuch-mutt", "search", "Homebrew"
   end
 end

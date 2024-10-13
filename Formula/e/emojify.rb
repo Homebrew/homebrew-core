@@ -7,7 +7,8 @@ class Emojify < Formula
   head "https://github.com/mrowa44/emojify.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "72ddd114d1c2d038b9aaeaaf0a5b27e1aeccd151214e28f3c6e12ada800792f9"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "753bd40adda1ec6d8ee6f762d3cc4abc79d64150b19ae8e56024d97dfcb9b062"
   end
 
   depends_on "bash"

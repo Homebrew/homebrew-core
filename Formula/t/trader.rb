@@ -11,6 +11,7 @@ class Trader < Formula
   end
 
   bottle do
+    sha256 arm64_sequoia:  "9be56b4808087e536b25a7728556b09a959e1f41fd17a512de2b911645fbbccf"
     sha256 arm64_sonoma:   "6ae36dfc033af6586d9b339653b74796de0bfca17e12e94a8ad74848ceef2b8c"
     sha256 arm64_ventura:  "38906420c79cc92198a4b560f8d4ab6862c8379b608cb833d0798c9b2cb2126e"
     sha256 arm64_monterey: "659237e8c041b9122c2792770c8e320ed6678782e214d2c65c2fb0febeb89427"
@@ -40,6 +41,6 @@ class Trader < Formula
   test do
     # Star Traders is an interactive game, so the only option for testing
     # is to run something like "trader --version"
-    system "#{bin}/trader", "--version"
+    system bin/"trader", "--version"
   end
 end

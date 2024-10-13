@@ -7,6 +7,7 @@ class Kustomizer < Formula
   head "https://github.com/stefanprodan/kustomizer.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "0614a810f33b3319820a68d23aee72b4af6f04d937435e2b9df8c3a6c8991caa"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "db4028189fa70a68b0c6c33a0837b864a9fce38f0b9e232c8adc3adfbf7a6efc"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "3ba254b8051b47aa5f1fb36236027a7ba73cda8218c504b43065ab3ad7677584"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "cc06563ebe12218833949dd690e7c3ffbe71d815e16581657ba4971af6ad1a64"

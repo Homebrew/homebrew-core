@@ -6,6 +6,7 @@ class Libwebm < Formula
   license "BSD-3-Clause"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "49e659cf7620ec30ffecd7654da70d28120cd409ae68d7a48a646d2e57bcba1b"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "bdcfe9ac4d4a025957c618aee58539cad66931b0d74e17f05b049337cbebe651"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "21a08a2111b19d647ae24038c95ebafe8bcfb2db68d512e3e84615b27bf85c34"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6233852ce953b18eb356b7af0f5433984d770cfa50a9bf067a67469e9a4aa489"
@@ -18,12 +19,11 @@ class Libwebm < Formula
   depends_on "cmake" => :build
 
   def install
-    mkdir "macbuild" do
-      system "cmake", "..", *std_cmake_args
-      system "make"
-      lib.install "libwebm.a"
-      bin.install %w[mkvparser_sample mkvmuxer_sample vttdemux webm2pes]
-    end
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build"
+    lib.install "build/libwebm.a"
+    bin.install Dir["build/{mkvparser_sample,mkvmuxer_sample,vttdemux,webm2pes}"]
+
     include.install Dir.glob("mkv*.hpp")
     (include/"mkvmuxer").install Dir.glob("mkvmuxer/mkv*.h")
     (include/"common").install Dir.glob("common/*.h")
@@ -34,13 +34,26 @@ class Libwebm < Formula
   test do
     (testpath/"test.cpp").write <<~EOS
       #include <mkvwriter.hpp>
-      int main()
-      {
+      #include <iostream>
+
+      int main() {
         mkvmuxer::MkvWriter writer;
+
+        std::string test_mkv = "#{testpath}/test.mkv";
+
+        if (!writer.Open(test_mkv.c_str())) {
+          std::cerr << "Failed to open the MKV file." << std::endl;
+          return 1;
+        }
+
+        writer.Close();
+        std::cout << "MkvWriter test completed successfully." << std::endl;
         return 0;
       }
     EOS
-    system ENV.cxx, "-std=c++11", "test.cpp", "-L#{lib}", "-lwebm", "-o", "test"
+
+    system ENV.cxx, "-std=c++11", "test.cpp", "-o", "test", "-I#{include}", "-L#{lib}", "-lwebm"
     system "./test"
+    assert_predicate testpath/"test.mkv", :exist?
   end
 end

@@ -11,6 +11,7 @@ class Terraform < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "87e8faf4dc4090ff8259a2cc258ac20518c154989af694475a3105d5ad57d664"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "82a9dcb1351fa533ea106fe0222678c89814a42ce4939d17c01178f4dbff4713"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "b9f647f7ab0dc2c8878c6f4ab51bcd412197bc02e30389b15cc37de2b0dfaf8b"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "8b14e9ffc5a5d154e5d6b58b94c18372c2f69c5ce1fd5735b351c1a1bac0187f"
@@ -75,7 +76,7 @@ class Terraform < Formula
         count         = 4
       }
     EOS
-    system "#{bin}/terraform", "init"
-    system "#{bin}/terraform", "graph"
+    system bin/"terraform", "init"
+    system bin/"terraform", "graph"
   end
 end

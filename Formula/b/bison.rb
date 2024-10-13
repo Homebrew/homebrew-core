@@ -9,6 +9,7 @@ class Bison < Formula
   version_scheme 1
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "d45a8c193646a25d281a6d3fd62d6f756d4e392cc2948e605a62f3d88ccbf188"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d4c06638f63876867e8fc485129ea6683487a249f0b2bc98bfaa6f1dab4ff6a4"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f877d389e78b14a070d21c554e39abff55d2fb6d7f0ae58de746f6edd4509ca1"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "78ce4e93936c37005e944b21e4b4d305725bc66f6c675acf2eb13cf72bac01cc"
@@ -57,7 +58,7 @@ class Bison < Formula
       int yylex () { cin.get(c); return c; }
       int main() { yyparse(); }
     EOS
-    system "#{bin}/bison", "test.y"
+    system bin/"bison", "test.y"
     system ENV.cxx, "test.tab.c", "-o", "test"
     assert_equal "pass", shell_output("echo \"((()(())))()\" | ./test")
     assert_equal "fail", shell_output("echo \"())\" | ./test")

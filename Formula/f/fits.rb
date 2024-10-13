@@ -11,6 +11,7 @@ class Fits < Formula
   end
 
   bottle do
+    sha256 cellar: :any, arm64_sequoia:  "34bbd71f26444e39865a8ae104c8371e2b549eba524b039fe08e69037063fe6e"
     sha256 cellar: :any, arm64_sonoma:   "e0b3cf87e22a873e51a2c746c7af622718b49caff51022a85724b84dc549e553"
     sha256 cellar: :any, arm64_ventura:  "83066fb495a516bd75b4d36e08b5861a0b1520d3803e650a111db6a235f73b12"
     sha256 cellar: :any, arm64_monterey: "83066fb495a516bd75b4d36e08b5861a0b1520d3803e650a111db6a235f73b12"
@@ -35,7 +36,7 @@ class Fits < Formula
 
     # Remove Windows-only directories
     %w[exiftool/windows file_utility_windows mediainfo/windows].each do |dir|
-      (buildpath/"tools"/dir).rmtree
+      rm_r(buildpath/"tools"/dir)
     end
 
     libexec.install "lib", "tools", "xml", *buildpath.glob("*.properties")

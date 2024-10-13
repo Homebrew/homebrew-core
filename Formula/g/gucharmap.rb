@@ -1,18 +1,17 @@
 class Gucharmap < Formula
   desc "GNOME Character Map, based on the Unicode Character Database"
   homepage "https://wiki.gnome.org/Apps/Gucharmap"
-  url "https://gitlab.gnome.org/GNOME/gucharmap/-/archive/15.1.5/gucharmap-15.1.5.tar.bz2"
-  sha256 "45c46e854a7de1a6491e6b3b0f3acd6363de1110208bdf5ba88d4e9460e9a897"
+  url "https://gitlab.gnome.org/GNOME/gucharmap/-/archive/16.0.1/gucharmap-16.0.1.tar.bz2"
+  sha256 "d687d3a3d4990ea7aff4066e17768ec9fefe7b3129b98090c750b8d7074b4764"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 arm64_sonoma:   "6181ec66a373136d5765f09efc5b5b687c5e5549b0294f2db6cc79e09a9d2a36"
-    sha256 arm64_ventura:  "82d10e4ed476e505ab8c1b9427bf81ce7170402f38056cf10d3b91ce0316221f"
-    sha256 arm64_monterey: "57d6bc5ff1cdc0668a3dbfae4a79c1d1c36eddaf8b5eb081a9915c4123de493f"
-    sha256 sonoma:         "fa4b6775364ca42b9b38a1f6f585eefe12ec7d9e46b741c50297b196494e2588"
-    sha256 ventura:        "174846632adfc2bf1c9454ae6a7b9cccbb895805494bb53e07e395975e1eb7ce"
-    sha256 monterey:       "7b1d2c6728fa21a5792c3ee9d539e3bf59ff315e9510777d0afa26ea2e05bebf"
-    sha256 x86_64_linux:   "d2855332956cb1366282c73fcc3517262981bc33fff198fa20e0ae4b6e6ced66"
+    sha256 arm64_sequoia: "59c2078b02091d1593f343e119926f473cd2aa5359eee1534cc11b441578a42d"
+    sha256 arm64_sonoma:  "117758c84c20d2567903bf4b651651d2dc9f9eb753be9f1950db0ee53cb7ba4c"
+    sha256 arm64_ventura: "b65e687de46f9ceedd7ff3ebd80eca45972e53d6a436a5cbdd9bec771e7b1253"
+    sha256 sonoma:        "d6e92e03ec4db37ebe3462f0c4cd447906b792b77d81bd94bd290a01c9f5e575"
+    sha256 ventura:       "00753bea75c91a51c05f257b25c18f7154a927cf5c9a2af0470fd7a8f9402826"
+    sha256 x86_64_linux:  "e632139ec368f5c381680b3c9ee46990694899d9148f61bba94c7bcb7aa1818a"
   end
 
   depends_on "desktop-file-utils" => :build
@@ -39,13 +38,13 @@ class Gucharmap < Formula
   end
 
   resource "ucd" do
-    url "https://www.unicode.org/Public/15.1.0/ucd/UCD.zip"
-    sha256 "cb1c663d053926500cd501229736045752713a066bd75802098598b7a7056177"
+    url "https://www.unicode.org/Public/16.0.0/ucd/UCD.zip"
+    sha256 "c86dd81f2b14a43b0cc064aa5f89aa7241386801e35c59c7984e579832634eb2"
   end
 
   resource "unihan" do
     url "https://www.unicode.org/Public/16.0.0/ucd/Unihan.zip", using: :nounzip
-    sha256 "faed0321cf85bbc18fd3edb5f03dbae9d7099ea712d75f08d1fb2f87dcc197e1"
+    sha256 "b8f000df69de7828d21326a2ffea462b04bc7560022989f7cc704f10521ef3e0"
   end
 
   def install
@@ -68,6 +67,6 @@ class Gucharmap < Formula
   end
 
   test do
-    system "#{bin}/gucharmap", "--version"
+    system bin/"gucharmap", "--version"
   end
 end

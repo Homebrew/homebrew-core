@@ -7,6 +7,7 @@ class Gemgen < Formula
   head "https://git.sr.ht/~kota/gemgen", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "6230c57aec303ceb06a41f2d9d78a15c648ec1b65db9cf68a2b12ef0cf7b1fcc"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "009380fe36065169a44964c2ecde5b6092370a414633b343f47f0cd7f7a52af6"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "a129ec247cbe122db92d70316a6fc144f7a282c36fbe4a69b4b1b3ca2d958897"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "784c371394fa6476daea9391ef69a942f02e0a7086cf0daaeacea8ceaca8eae4"

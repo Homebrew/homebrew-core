@@ -13,9 +13,12 @@ class BbftpClient < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "f705530c05b923cc4de503817876fc96cf776f351aae554a64b144aef23c729a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "00799fab3efd0fd9c823854c0113ec44d2c4d13d7c191d79165e0ddc75ec71e0"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "2f99da3815fbef62edb3391bdf9dab41055ed1ace3f0b30cd69c45e719be6149"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d429a71fe3b54e34d75efd1480062c322cee2a9b471628a671de3e9f1b91b201"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bd7a47c27111d4dc064a7009f919a3283360738329dcfde7eb6522ee280e78fd"
+    sha256 cellar: :any_skip_relocation, sonoma:         "86903930a6e0fc3e443e2520b0cbaa595203e1bc4f2475d7cb714dc5e28611b9"
     sha256 cellar: :any_skip_relocation, ventura:        "7808120a9bee27c473f0f59b5223c9d709add5ed8d8609992d51efb4288fb89c"
     sha256 cellar: :any_skip_relocation, monterey:       "e50848489c6ad43604cbc0730d027939830ddc50d46fdd8d18dc6f729a910503"
     sha256 cellar: :any_skip_relocation, big_sur:        "f30650734e1829a0c399153c78088ccd987f28ede25b8eb13ecde6b138d55076"
@@ -27,19 +30,19 @@ class BbftpClient < Formula
   uses_from_macos "zlib"
 
   def install
+    # Workaround for Xcode 14.3
+    ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
+
     # Fix ntohll errors; reported 14 Jan 2015.
     ENV.append_to_cflags "-DHAVE_NTOHLL" if OS.mac?
 
     cd "bbftpc" do
-      system "./configure", "--disable-debug",
-                            "--disable-dependency-tracking",
-                            "--without-ssl",
-                            "--prefix=#{prefix}"
+      system "./configure", "--without-ssl", *std_configure_args
       system "make", "install"
     end
   end
 
   test do
-    system "#{bin}/bbftp", "-v"
+    system bin/"bbftp", "-v"
   end
 end

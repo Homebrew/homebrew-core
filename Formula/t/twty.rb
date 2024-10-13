@@ -18,6 +18,10 @@ class Twty < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "fb45326df2a5cb80531378ae156fc20400346d5c5c8d82548429b62463ec603e"
   end
 
+  # see discussions in https://github.com/mattn/twty/issues/28
+  # and https://github.com/orakaro/rainbowstream/issues/342
+  deprecate! date: "2024-08-18", because: "twitter API changed"
+
   depends_on "go" => :build
 
   def install

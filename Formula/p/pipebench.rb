@@ -13,6 +13,7 @@ class Pipebench < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "4e0843adb8181028ccf82ae98d94804996f5ca6f13bb2499049748de186c454c"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b30b6b4a2108fbe48632fcb4c9a65a40d7dcff2e7757dd8b0ae67d5c9482d0ae"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "09e7033208ec037cf78d7fca9c3ffcbaeb06a2a51ae8b6b53915c83b9745ed3a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "7704012e0f066c3a9ffa837df9e1f346a3dacbd37047aefce2d4d3f427e00562"
@@ -41,6 +42,6 @@ class Pipebench < Formula
   end
 
   test do
-    system "#{bin}/pipebench", "-h"
+    system bin/"pipebench", "-h"
   end
 end

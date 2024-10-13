@@ -7,6 +7,7 @@ class Libnids < Formula
   revision 2
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "d746ed3de1862ca17be880cebad94a8a66579dedf5c33ddf40890b740917e1a1"
     sha256 cellar: :any,                 arm64_sonoma:   "39c7a9270f72443e129a815d5c6599739198425e9266e8adea4f14b577d8186c"
     sha256 cellar: :any,                 arm64_ventura:  "a9b786affb4887f607fabbe0df202bdf0d1601ae3210afbf6337577a23ca49ef"
     sha256 cellar: :any,                 arm64_monterey: "085e5576236a751d84a975412ef34f206f2eb0c639c826dde4a7298cea4f00d3"

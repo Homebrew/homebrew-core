@@ -11,6 +11,7 @@ class IrcdHybrid < Formula
   end
 
   bottle do
+    sha256 arm64_sequoia:  "ad947c9098ff51224cf64839f4cb44eac442696d49377a311322b9e5feeca7da"
     sha256 arm64_sonoma:   "3300892aed735776d3f13175baa889f5d7c9d483d7748418c0909f8415531e97"
     sha256 arm64_ventura:  "23adcd2ed7ea0ec6f2d1697bd9a3387320056d9675da6c7674fadf91a543e8c7"
     sha256 arm64_monterey: "88fb3d88a5c22db625840ab9c5e0b56602249c398a66a5ec588b384dab3f8dc9"
@@ -56,6 +57,6 @@ class IrcdHybrid < Formula
   end
 
   test do
-    system "#{bin}/ircd", "-version"
+    system bin/"ircd", "-version"
   end
 end

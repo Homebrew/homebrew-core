@@ -7,6 +7,7 @@ class Metashell < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "9de8b8eddbb354a0ed45d39d24e06cee5f05b57a0810155817a7362f45df635a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "842e31ef53f8bd669b6e7344f028ab4de0255a77a593635b9720a451d2e2d47d"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "4533ad286ccc480236aebbfd1f16b0dd2db015b5c3ffd154c3747e2a25096bac"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "2958abbe2881a59769b0638d4418acd8d3d5ebd3ab909221f72df4c1354eaf57"
@@ -25,6 +26,12 @@ class Metashell < Formula
 
   on_linux do
     depends_on "readline"
+  end
+
+  # include missing cstddef, upstream PR ref, https://github.com/metashell/metashell/pull/303
+  patch do
+    url "https://github.com/metashell/metashell/commit/0d81415616d33e39ff6d1add91e71f9789ea8657.patch?full_index=1"
+    sha256 "31472db5ae8e67483319dcbe104d5c7a533031f9845af2ddf5147f3caabf3ac2"
   end
 
   def install

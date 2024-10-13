@@ -8,13 +8,8 @@ class Nodeenv < Formula
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9d7e012463ab68ddcdeb13be8e80d8db2767d7294dcea241c613ee1a3b63e91d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9d7e012463ab68ddcdeb13be8e80d8db2767d7294dcea241c613ee1a3b63e91d"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9d7e012463ab68ddcdeb13be8e80d8db2767d7294dcea241c613ee1a3b63e91d"
-    sha256 cellar: :any_skip_relocation, sonoma:         "9d7e012463ab68ddcdeb13be8e80d8db2767d7294dcea241c613ee1a3b63e91d"
-    sha256 cellar: :any_skip_relocation, ventura:        "9d7e012463ab68ddcdeb13be8e80d8db2767d7294dcea241c613ee1a3b63e91d"
-    sha256 cellar: :any_skip_relocation, monterey:       "9d7e012463ab68ddcdeb13be8e80d8db2767d7294dcea241c613ee1a3b63e91d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9fcdb3e228efb7be8356c9c1c3a2fd32bb3e2332be7fe38288f6911e9025fdad"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "d1109702686c7f630b61ee8fc84746139594fdd512b04c1019e30adcaec2a7ac"
   end
 
   uses_from_macos "python"

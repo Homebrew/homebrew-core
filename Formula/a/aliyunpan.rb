@@ -1,19 +1,18 @@
 class Aliyunpan < Formula
   desc "Command-line client tool for Alibaba aDrive disk"
   homepage "https://github.com/tickstep/aliyunpan"
-  url "https://github.com/tickstep/aliyunpan/archive/refs/tags/v0.3.2.tar.gz"
-  sha256 "d47ba49da29c831509883585df9683c2557debba077edb8114188c258349a0b9"
+  url "https://github.com/tickstep/aliyunpan/archive/refs/tags/v0.3.4.tar.gz"
+  sha256 "fc657cc752c6818f6658ce46cb3931004f55b7bb536de25be56f80a756ecd911"
   license "Apache-2.0"
   head "https://github.com/tickstep/aliyunpan.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7586081a844bbb72a15cf21784e6beeae9fff16e65a2b8efc28f6039341a165d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "58b05384c438b32391594f947ab8d7b34dbc33b90f71889256b8b26d982b0730"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "53dea5c0d8e8f561c5bb30b434e7c378ec93e370307bb68b589120e63134f668"
-    sha256 cellar: :any_skip_relocation, sonoma:         "0fc1820ecce9f3ef510e9bde7b985629d39620e854cc118156e76c29e5247c77"
-    sha256 cellar: :any_skip_relocation, ventura:        "c8b333807ee8312e467388f30fc2d724b8f189bb5d260f1c5118255419ebb4ea"
-    sha256 cellar: :any_skip_relocation, monterey:       "0cb67308bea17af873a5345126137c66c6408264b6567729f398c61e6c8bf6fa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cce09c84f4d2f1693945d82ab873d0a419913a8bfc3b87d4acd160803abe76b1"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f569e3b67095bfcaef12ad472152f4c0f37ce5179c103b8d61ad5e0b91025575"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f569e3b67095bfcaef12ad472152f4c0f37ce5179c103b8d61ad5e0b91025575"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "f569e3b67095bfcaef12ad472152f4c0f37ce5179c103b8d61ad5e0b91025575"
+    sha256 cellar: :any_skip_relocation, sonoma:        "95236bc14906d4459ccc5384feaaf5eb13bc65ab505dd43b7dfe2124d22ffbdc"
+    sha256 cellar: :any_skip_relocation, ventura:       "95236bc14906d4459ccc5384feaaf5eb13bc65ab505dd43b7dfe2124d22ffbdc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8d4a976ba7fcee08561b378a671bc31f5cbc089e7f058d838c85fe8efe25b67f"
   end
 
   depends_on "go" => :build

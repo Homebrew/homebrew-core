@@ -7,6 +7,7 @@ class Catimg < Formula
   head "https://github.com/posva/catimg.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "e9760742a6ba00bbdef67c27c773d24b546c5060ef8be91965a6a3ae4f8b1d1a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "edf6de7eb7ba34dd5fc9387bfb41aae9a5f2f76eedaeeb01e644320d6465180f"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f7c748a7eab313176ecf7f82a9a4bafb26417dfec707fe041dd5f16033968e26"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ae44d54095f21fcd876b32c951923a3da0f2fd8f3ba2fe80520ee61ce5972992"
@@ -29,6 +30,6 @@ class Catimg < Formula
   end
 
   test do
-    system "#{bin}/catimg", test_fixtures("test.png")
+    system bin/"catimg", test_fixtures("test.png")
   end
 end

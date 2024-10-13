@@ -13,6 +13,7 @@ class Zip < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "525f3c06d55dd30c2c67b44f28070a53c258328b669ce3a36b8d12fb5d533750"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "99265457598a09b6312520471980b7b8429ebfef5be40d3e00a0980544ff12c2"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "7dcf7b9f3dd27efa70508ea258ccaa218e7c87fd9412b9ff15ac5814e3f3555d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "eccd9c527ca597b460197f731bf726623475b239c9372267d8c667d8ac1b68e1"
@@ -66,13 +67,13 @@ class Zip < Formula
     (testpath/"test2").write "Bonjour!"
     (testpath/"test3").write "Moien!"
 
-    system "#{bin}/zip", "test.zip", "test1", "test2", "test3"
+    system bin/"zip", "test.zip", "test1", "test2", "test3"
     assert_predicate testpath/"test.zip", :exist?
     # zip -T needs unzip, disabled under Linux to avoid a circular dependency
     assert_match "test of test.zip OK", shell_output("#{bin}/zip -T test.zip") if OS.mac?
 
     # test bzip2 support that should be automatically linked in using the bzip2 library in macOS
-    system "#{bin}/zip", "-Z", "bzip2", "test2.zip", "test1", "test2", "test3"
+    system bin/"zip", "-Z", "bzip2", "test2.zip", "test1", "test2", "test3"
     assert_predicate testpath/"test2.zip", :exist?
     # zip -T needs unzip, disabled under Linux to avoid a circular dependency
     assert_match "test of test2.zip OK", shell_output("#{bin}/zip -T test2.zip") if OS.mac?

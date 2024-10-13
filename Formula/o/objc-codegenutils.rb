@@ -7,6 +7,7 @@ class ObjcCodegenutils < Formula
   head "https://github.com/puls/objc-codegenutils.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "689a1e289323d187c0e1c89d5fb9c7c1292eb304ae9cbf265303ce701e14407a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "fd3e144fa7f8cddb59b171eae398fbf10d5d72b98bc0053da553e57213e26c7b"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "d068aa1c50d2e54ceddf2d21a04295829b30e7f3f5504c88364a1bddae5b1a1a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d5ddfb8ef11849ea3ef38002ca27c492fb9802886ac6cbaf611baa51606de4b7"
@@ -52,8 +53,8 @@ class ObjcCodegenutils < Formula
 
   test do
     # Would do more verification here but it would require fixture Xcode projects not in the main repo
-    system "#{bin}/objc-assetgen", "-h"
-    system "#{bin}/objc-colordump", "-h"
-    system "#{bin}/objc-identifierconstants", "-h"
+    system bin/"objc-assetgen", "-h"
+    system bin/"objc-colordump", "-h"
+    system bin/"objc-identifierconstants", "-h"
   end
 end

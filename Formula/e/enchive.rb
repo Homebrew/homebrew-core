@@ -7,6 +7,7 @@ class Enchive < Formula
   head "https://github.com/skeeto/enchive.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "e5167a67337419271ca6275a8ee178da5c3b417dd29721ed7c954c2cecaa8dfa"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ea632e41797ea8ac720c8e0ded7eafe6b580fecb092bbe0d25e0c2a805189a9d"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "d4031f7e6516988ab5a83c2e1b9f88af552d71575772348383860a6015fe121b"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "bfc24708c8b6d000fc36f7d2fd305af3ad5a1f3718e0d0c92cf122e140866e57"

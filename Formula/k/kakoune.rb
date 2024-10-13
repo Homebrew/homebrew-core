@@ -12,6 +12,7 @@ class Kakoune < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "574e7864ad00cf1450df98b4e6e442d6809018fc3f2f03e517cbb90f512bbb81"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "42850e284b85aad3865b80947c8a2b74644148ec3b05f8e1470f5438453a4f4b"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f261b85b550552526b4d3fef66f1da40c4e4d84089196b6d066b3c2a271fbd21"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "8a9bde4e123c7b07770794f92dc225da5da862d42c739cbae0d2498d3280a0d7"

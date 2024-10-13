@@ -1,18 +1,19 @@
 class Dartsim < Formula
   desc "Dynamic Animation and Robotics Toolkit"
   homepage "https://dartsim.github.io/"
-  url "https://github.com/dartsim/dart/archive/refs/tags/v6.14.4.tar.gz"
-  sha256 "f5fc7f5cb1269cc127a1ff69be26247b9f3617ce04ff1c80c0f3f6abc7d9ab70"
+  url "https://github.com/dartsim/dart/archive/refs/tags/v6.14.5.tar.gz"
+  sha256 "eb89cc01f4f48c399b055d462d8ecd2a3f846f825a35ffc67f259186b362e136"
   license "BSD-2-Clause"
 
   bottle do
-    sha256                               arm64_sonoma:   "2968a3ebda640c3bd79929c52ba4435528a60cd445c8bc62872ab0faacbad21e"
-    sha256                               arm64_ventura:  "da79facaef6b70d098589b22df75a1d3b7d6395663758a1459005e22496c9765"
-    sha256                               arm64_monterey: "6e3561edfe03f146623fee343381a328734301d4c905a10b7001359d3d33f14b"
-    sha256                               sonoma:         "b2b2317f71a894727f67612166af9c806d476c2b4a3e4f2b22b7e9aa046963aa"
-    sha256                               ventura:        "54a488353181fbe09453796c1941967cc4ac7e268e97a116c5108a1582da0a4c"
-    sha256                               monterey:       "ee2bcde574495fc446d5320c2ebfbe50a166191ab1f9278723b35d001af2a4f3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3d6029b69bef9a1a978c9101213b5b076d6c520c68ecc7ebe3763a2c8f9a5840"
+    sha256                               arm64_sequoia:  "324071ed085c1271aadf3888188dbc191ffddf7826dcba046cde62852a079818"
+    sha256                               arm64_sonoma:   "c678fa87d190dce71e5ec19caeb042172a4c1eefd6312814942381a907d8015f"
+    sha256                               arm64_ventura:  "8df0a41bfac187753b2d80c375fb40f8b9a95362a5ed2748184e27ffe0d38bc2"
+    sha256                               arm64_monterey: "8d33767ef55aab5b8c02a41ffa78a720b99e5bfc4dfec20bd7de3afd6635e93c"
+    sha256                               sonoma:         "d19c0f8573569a152c5471758cdaac3250879ded991bef01cb6db03fc512e41b"
+    sha256                               ventura:        "17bb38e1f132ebf5a05dc2a12e73d649d7cf598b46c03c0f8d544fba97e9d825"
+    sha256                               monterey:       "f53b33790e3b73a7f272bac4074eb0a1f77d65e3d312764fe5891263c79373e7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6fdb43f54568034d5f8ae62e172a11102b6147c877ad430b986a74fb8a1db990"
   end
 
   depends_on "cmake" => :build

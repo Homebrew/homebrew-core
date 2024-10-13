@@ -1,5 +1,3 @@
-require "language/node"
-
 class Dockly < Formula
   desc "Immersive terminal interface for managing docker containers and services"
   homepage "https://lirantal.github.io/dockly/"
@@ -8,13 +6,15 @@ class Dockly < Formula
   license "MIT"
 
   bottle do
-    sha256                               arm64_sonoma:   "19a1212ebc54f897be5b13dbd9d404293d4cbca9aee9f9084d24e71c35deb83d"
-    sha256                               arm64_ventura:  "ca1a2006d49625c5d29bc7dec3a517fc809ebf3f8160519dc2805eccde606dc6"
-    sha256                               arm64_monterey: "833f43dfd7eb0780c0b64f54aee43a574b9af012dcdbfd65b09641989bfeb48a"
-    sha256                               sonoma:         "b8431fa56abb1f35506f5864e5c8b0fe5360f5345088ad27ae90c2c22fb71c3d"
-    sha256                               ventura:        "9c480dbf9c4f6dce0998464b8555c0c22025e87677a21b44daddf4c12f84f42c"
-    sha256                               monterey:       "37cee7a7e33c2735d085fe8a6125c59855928eeff1cca8289d71fc73c0a2df07"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6c8d8ed0cd780b10c2c0f191ef6f2741bfbddc57f7d91a767acab9d12afdf7cb"
+    rebuild 1
+    sha256                               arm64_sequoia:  "0dd40f2f0850ba036bdc93a1fc471b0ed3e4c1f8ed443245c01486a3e3f43839"
+    sha256                               arm64_sonoma:   "ee7e39240a8e4017526ecb770228cc52bf30e022bff0342cf914ddf8962d6a01"
+    sha256                               arm64_ventura:  "c9c59d9621bf60c835ee39a326dfe2139cca675ff1bef2e4d8d78b2bc126fd6e"
+    sha256                               arm64_monterey: "453c7bcc52e314d2e1af4b261cf3e109174b4fb59786b64267e015c4cfda0aed"
+    sha256                               sonoma:         "4b33d715efe6a38e9d4340e2511f289ab422d4ae7cab70b6c05880fca76f9857"
+    sha256                               ventura:        "7be2fcbcaf3b00eb2881b215dc3afff9f6426ee7b9b9d1a0c8f55f8374596f33"
+    sha256                               monterey:       "70ac7382b4faaa4a13abb067225aa06a9140309e29f0a0c0bd0b8acd50178a37"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dfb3be9c9648d45b2b73cc768da86ef8470c3144acf6df65e164f0a3eb8c2567"
   end
 
   depends_on "node"
@@ -24,11 +24,11 @@ class Dockly < Formula
   end
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", *std_npm_args
     bin.install_symlink Dir["#{libexec}/bin/*"]
 
     clipboardy_fallbacks_dir = libexec/"lib/node_modules/#{name}/node_modules/clipboardy/fallbacks"
-    clipboardy_fallbacks_dir.rmtree # remove pre-built binaries
+    rm_r(clipboardy_fallbacks_dir) # remove pre-built binaries
     if OS.linux?
       linux_dir = clipboardy_fallbacks_dir/"linux"
       linux_dir.mkpath

@@ -6,6 +6,7 @@ class Sniffer < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "1e4896b43b3ea3b7a8065fd9de52737c9e56adef3b5aa8cbe7e05b29fafbb725"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f5aac7f08562aeaef83c298a129f8749a3c94f37ed31a771c0fb098fb9926c1a"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "426df2385cf9a2725bb85856e9e825177c7ebfba07baf662f7e15c03cb934d18"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "14357cfb10b5c6a0dfd256265b0a15381696714e841bb88bceb59b0c1d8f0ed8"

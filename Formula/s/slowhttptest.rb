@@ -8,6 +8,7 @@ class Slowhttptest < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia:  "2708483fcbd6bb9badf73319ba021792a02638eae74315f9b7489cfa1b1ed526"
     sha256 cellar: :any,                 arm64_sonoma:   "69e91887b20b8954627ba289b3eb711567f93a75582cc9df504d11036cf97a10"
     sha256 cellar: :any,                 arm64_ventura:  "68f9552d0393f75f8530f7e2100e7325178dff70197e0db2df7037f4396bc55f"
     sha256 cellar: :any,                 arm64_monterey: "f44686a2cd459960a69bba155aadf7d83e1bd550d894b349dc6f457a7232c13d"
@@ -28,7 +29,7 @@ class Slowhttptest < Formula
   end
 
   test do
-    system "#{bin}/slowhttptest", "-u", "https://google.com",
+    system bin/"slowhttptest", "-u", "https://google.com",
                                   "-p", "1", "-r", "1", "-l", "1", "-i", "1"
 
     assert_match version.to_s, shell_output("#{bin}/slowhttptest -h", 1)

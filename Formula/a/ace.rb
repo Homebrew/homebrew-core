@@ -1,8 +1,8 @@
 class Ace < Formula
   desc "ADAPTIVE Communication Environment: OO network programming in C++"
   homepage "https://www.dre.vanderbilt.edu/~schmidt/ACE.html"
-  url "https://github.com/DOCGroup/ACE_TAO/releases/download/ACE%2BTAO-8_0_0/ACE+TAO-8.0.0.tar.bz2"
-  sha256 "dc49e7e4b3116fcb57ccbb187ed2480184d54e62269057e4f22c76078b4969c3"
+  url "https://github.com/DOCGroup/ACE_TAO/releases/download/ACE%2BTAO-8_0_1/ACE+TAO-8.0.1.tar.bz2"
+  sha256 "2940b7c73a6f100e733b8eb35315509e1340781f08c756eb64cef262998c8849"
   license "DOC"
 
   livecheck do
@@ -14,13 +14,14 @@ class Ace < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "ac9c7e43ccb61d15d93548aca81fa333c0dc142b55f860dd638ffc8e399d9b18"
-    sha256 cellar: :any,                 arm64_ventura:  "bdaec0419bfd90395dccd4cd33c0f5351e8238531b261b24761f95dc386343cf"
-    sha256 cellar: :any,                 arm64_monterey: "6e5819bbd942acbdf4840586c90d25dbfc28c656f495c490ccb6ba6d99be12e7"
-    sha256 cellar: :any,                 sonoma:         "adf3900bd19645c123da4d28ea0801bdb66df39eeaf0bba1b1604c0dab3b9a2d"
-    sha256 cellar: :any,                 ventura:        "25cc9c8513e6f06767be9ec8f5e3ba29168e580549777904ad65bf9c2607c744"
-    sha256 cellar: :any,                 monterey:       "257bcbe9063e065718dc17fa3f17ae5aed4e88bbf025567dae373ab92218c32c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "164697b83486f3e168d8f5fc5f77d153e591badef94ae74ce75b6ac27b8c6504"
+    sha256 cellar: :any,                 arm64_sequoia:  "e10a2e57e6d68c6b6e1e8e47b13864562ce59a4afd0886aba8a7f6910492328a"
+    sha256 cellar: :any,                 arm64_sonoma:   "95324bd849e938e8ffa9c69fe08eb1e3c57838c26baabe14674f38a55a02ca20"
+    sha256 cellar: :any,                 arm64_ventura:  "f225810e91d4085913245f0210800d7ae92a2d8894db52facbd1dd6be9187ec8"
+    sha256 cellar: :any,                 arm64_monterey: "16afa166a37efc1f4e2370c509895b3ac681224c342fe1a28ef069d766afd726"
+    sha256 cellar: :any,                 sonoma:         "ef7379a595663c725e5a8f39045423e23d2f866687067afb27d6dd8ef27bd397"
+    sha256 cellar: :any,                 ventura:        "a797074bd595eb2c85c3df21175cbe435eef470e4f3feaa07166cb77248ef9f7"
+    sha256 cellar: :any,                 monterey:       "85ddc8f3ad06ae8848a3713f0ad3762c4f5ed06a95c8f7723d21ebe7b4966e3a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cc1d135b4369783a6d3e02ae50acc63f2738e57befe4ee407b47ce30b1fd6e15"
   end
 
   def install

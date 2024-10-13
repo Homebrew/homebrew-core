@@ -13,22 +13,13 @@ class Rcm < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7b5aa9414359e08d20bee9c048616d9d7e0dca08491423378b6aec8e570ce674"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "71cd9064bce03baa3db0f2cf099d4e103d910508ef14306a32b0f75877a5c2b0"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "71cd9064bce03baa3db0f2cf099d4e103d910508ef14306a32b0f75877a5c2b0"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "71cd9064bce03baa3db0f2cf099d4e103d910508ef14306a32b0f75877a5c2b0"
-    sha256 cellar: :any_skip_relocation, sonoma:         "7b5aa9414359e08d20bee9c048616d9d7e0dca08491423378b6aec8e570ce674"
-    sha256 cellar: :any_skip_relocation, ventura:        "71cd9064bce03baa3db0f2cf099d4e103d910508ef14306a32b0f75877a5c2b0"
-    sha256 cellar: :any_skip_relocation, monterey:       "71cd9064bce03baa3db0f2cf099d4e103d910508ef14306a32b0f75877a5c2b0"
-    sha256 cellar: :any_skip_relocation, big_sur:        "71cd9064bce03baa3db0f2cf099d4e103d910508ef14306a32b0f75877a5c2b0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "005d4a522f959bc42ac42573cce793a33a6cf5742f34405efd1c7025370f347e"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "bc964820b4e236614e4a76ea1a6913b25abbe68cfa00a106aae40944b3af8d3f"
   end
 
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}"
+    ENV["CONFIG_SHELL"] = "/bin/bash"
+    system "./configure", "--disable-silent-rules", *std_configure_args
     system "make", "install"
   end
 

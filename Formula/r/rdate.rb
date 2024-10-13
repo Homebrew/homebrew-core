@@ -3,7 +3,7 @@ class Rdate < Formula
   homepage "https://www.aelius.com/njh/rdate/"
   url "https://www.aelius.com/njh/rdate/rdate-1.5.tar.gz"
   sha256 "6e800053eaac2b21ff4486ec42f0aca7214941c7e5fceedd593fa0be99b9227d"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url :homepage
@@ -12,6 +12,7 @@ class Rdate < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "bbf44b1f5bca7ad76c78766af7c76e1897e391a40841c1f373d4172e0fa88dea"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "896cdf111b9e81a2c1fb3d1c17bce92ac51a4a8af14d0b02979543013353acc7"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "a0bd69ad7d1cf67af981ff2b0ea4d6bda4f7860a8568de2dca05f5b2bb96e222"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "0de4bc85f7374d04a639fb682bdb6108a4b2a2bd2d97c4a7f2d79ce897e5350e"
@@ -38,6 +39,6 @@ class Rdate < Formula
 
   test do
     # NOTE: The server must support RFC 868
-    system "#{bin}/rdate", "-p", "-t", "10", "time-b-b.nist.gov"
+    system bin/"rdate", "-p", "-t", "10", "time-b-b.nist.gov"
   end
 end

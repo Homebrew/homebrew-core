@@ -6,6 +6,7 @@ class Smartmontools < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256 arm64_sequoia:  "0e5d1e5a5d10a828dbab10ff12bf9eb2a47b1400fbbe048acc2e7d8c538cc6e2"
     sha256 arm64_sonoma:   "44d675190914c3c633fb3c28ccc7da1de5d6957d1c4e0a8a77cda217c3f5111f"
     sha256 arm64_ventura:  "eadf0136194babe18f8ba718079138758e6c01c2d46fbc2c0b8926e9acbb2bf8"
     sha256 arm64_monterey: "7f22083ffb3f4e1a58c2ecaa898746d920f088eebb58861576b5a10b5c1ee59d"
@@ -33,7 +34,7 @@ class Smartmontools < Formula
   end
 
   test do
-    system "#{bin}/smartctl", "--version"
-    system "#{bin}/smartd", "--version"
+    system bin/"smartctl", "--version"
+    system bin/"smartd", "--version"
   end
 end

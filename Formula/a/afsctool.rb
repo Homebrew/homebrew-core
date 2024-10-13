@@ -8,6 +8,7 @@ class Afsctool < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "9eab0e700160a5bf2d1f62f8e67a017280e10315030cb09134933ee782974a95"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a1596705cff076205b68f6fa301394e2feb6bdfc071543679db46aa38eec7aae"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "6528c95eb0a3b0b57a72eeb847ceab4e4887cbcbaf46a019f9e47d875b6deb9b"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "54700cfb61f7a32df0346997ccb3a181e1b7bef7613ad8bee751b75aaab9500d"
@@ -42,11 +43,11 @@ class Afsctool < Formula
 
     test_options = [[], ["-T", "LZFSE"]]
     test_options.each do |x|
-      system "#{bin}/afsctool", "-c", *x, path
-      system "#{bin}/afsctool", "-v", path
+      system bin/"afsctool", "-c", *x, path
+      system bin/"afsctool", "-v", path
       raise "Did not compress" unless File.stat(path).blocks.between?(1, 10)
 
-      system "#{bin}/afsctool", "-d", path
+      system bin/"afsctool", "-d", path
       raise "Did not decompress" if File.stat(path).blocks != original_size
       raise "Data corruption" if path.read != sample
     end

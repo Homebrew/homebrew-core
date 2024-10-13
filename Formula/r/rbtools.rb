@@ -9,18 +9,17 @@ class Rbtools < Formula
   head "https://github.com/reviewboard/rbtools.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "38d5825e27ad85c722f3e78e80f1bc21a82eac187a47aa2619ff14e32d3f9a19"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "38d5825e27ad85c722f3e78e80f1bc21a82eac187a47aa2619ff14e32d3f9a19"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "38d5825e27ad85c722f3e78e80f1bc21a82eac187a47aa2619ff14e32d3f9a19"
-    sha256 cellar: :any_skip_relocation, sonoma:         "2eefc63ea578bde4b44d7569c3872de0e2c4c49730c362a9628c79799f9d2adb"
-    sha256 cellar: :any_skip_relocation, ventura:        "2eefc63ea578bde4b44d7569c3872de0e2c4c49730c362a9628c79799f9d2adb"
-    sha256 cellar: :any_skip_relocation, monterey:       "2eefc63ea578bde4b44d7569c3872de0e2c4c49730c362a9628c79799f9d2adb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "70f81739763e06deb2602141cddb3542f457f3ca490c1d69c47cffd9f96b3084"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7f6f3c1b2adf2177005228ea83bb9bc292e517b868e25dfe74210f032c793e6e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7f6f3c1b2adf2177005228ea83bb9bc292e517b868e25dfe74210f032c793e6e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "7f6f3c1b2adf2177005228ea83bb9bc292e517b868e25dfe74210f032c793e6e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "3cbb8aa0f8effbef4ab39a688d44ddf975a7014d37277cca9b6f78a396fc72f9"
+    sha256 cellar: :any_skip_relocation, ventura:       "3cbb8aa0f8effbef4ab39a688d44ddf975a7014d37277cca9b6f78a396fc72f9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7f6f3c1b2adf2177005228ea83bb9bc292e517b868e25dfe74210f032c793e6e"
   end
 
   depends_on "certifi"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "colorama" do
     url "https://files.pythonhosted.org/packages/d8/53/6f443c9a4a8358a93a6792e2acffb9d9d5cb0a5cfd8802644b7b1c9a02e4/colorama-0.4.6.tar.gz"

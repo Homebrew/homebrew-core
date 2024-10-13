@@ -7,6 +7,7 @@ class Guetzli < Formula
   head "https://github.com/google/guetzli.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "a9d736ee968abfde99d6ccc42c9ca5793ea9d7b1e52b7127314a1f8fcfcf32fc"
     sha256 cellar: :any,                 arm64_sonoma:   "48791444d83a6bff9ff37b33b55422cebcca2c162e0d6c8daf3bbdaf62cc5bc7"
     sha256 cellar: :any,                 arm64_ventura:  "e914138a9bf24f33e5b66a2ae0721f64551a6d0e342d2aab989417a5290da0ee"
     sha256 cellar: :any,                 arm64_monterey: "72334c25e95e54a5c5622b1e0e3f494f32117604f7d2a151a5f3dcbe15581907"
@@ -37,6 +38,6 @@ class Guetzli < Formula
   end
 
   test do
-    resource("test_image").stage { system "#{bin}/guetzli", "bees.png", "bees.jpg" }
+    resource("test_image").stage { system bin/"guetzli", "bees.png", "bees.jpg" }
   end
 end

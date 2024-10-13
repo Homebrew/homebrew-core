@@ -7,6 +7,7 @@ class Airspy < Formula
   head "https://github.com/airspy/airspyone_host.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "6e66f0c2d5fe94466e432a57c49fdcf7cfb6a01f9d71896f74b06e9a3c16777d"
     sha256 cellar: :any,                 arm64_sonoma:   "8c086845772a91ed241283aa4175e0ba598e9e80530b660fceb413857211901f"
     sha256 cellar: :any,                 arm64_ventura:  "e32975089469cf19d14495a2ebfc86815aa431efeefaf11d24afd42e0fe8780b"
     sha256 cellar: :any,                 arm64_monterey: "9c2f5b4cc0c698d7f2690ea8091c8ce99b73ea659dc281916dbac0fb71ae3b05"
@@ -25,19 +26,32 @@ class Airspy < Formula
   depends_on "libusb"
 
   def install
-    args = std_cmake_args
-
-    libusb = Formula["libusb"]
-    args << "-DLIBUSB_INCLUDE_DIR=#{libusb.opt_include}/libusb-1.0"
-    args << "-DLIBUSB_LIBRARIES=#{libusb.opt_lib}/#{shared_library("libusb-1.0")}"
-
-    mkdir "build" do
-      system "cmake", "..", *args
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/airspy_lib_version").chomp
+    (testpath/"test.c").write <<~EOS
+      #include <stdio.h>
+      #include <libairspy/airspy.h>
+
+      int main() {
+        airspy_lib_version_t lib_version;
+        airspy_lib_version(&lib_version);
+
+        printf("Airspy library version: %d.%d.%d\\n",
+               lib_version.major_version,
+               lib_version.minor_version,
+               lib_version.revision);
+
+        return 0;
+      }
+    EOS
+
+    system ENV.cc, "test.c", "-L#{lib}", "-lairspy", "-o", "test"
+    assert_match version.to_s, shell_output("./test")
+
+    assert_match version.to_s, shell_output("#{bin}/airspy_lib_version --version")
   end
 end

@@ -12,6 +12,7 @@ class Capnp < Formula
   end
 
   bottle do
+    sha256 arm64_sequoia:  "86158801e5d5a2131d80c2526855da900d3f333080b19f8ed77ec4489b258721"
     sha256 arm64_sonoma:   "19bd2ac85d9b982d0f5bb2cbf728823aeb1ceed838096c55459f1b973f6d9733"
     sha256 arm64_ventura:  "f9f10d39ccda6aac9d9e4dee159dd2e882ba5cd027a8b19216f498fd1c39ae72"
     sha256 arm64_monterey: "d4db0fb57022ca7980f402cdde520987d37ee66caaaa61b78037136b4476225f"
@@ -68,7 +69,7 @@ class Capnp < Formula
         email @2 :Text;
       }
     EOS
-    system "#{bin}/capnp", "compile", "-oc++", testpath/"person.capnp"
+    system bin/"capnp", "compile", "-oc++", testpath/"person.capnp"
 
     (testpath/"test.cpp").write <<~EOS
       #include "person.capnp.h"

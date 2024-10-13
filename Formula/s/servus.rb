@@ -4,9 +4,10 @@ class Servus < Formula
   url "https://github.com/HBPVIS/Servus.git",
       tag:      "1.5.2",
       revision: "170bd93dbdd6c0dd80cf4dfc5926590cc5cef5ab"
-  license "LGPL-3.0"
+  license "LGPL-3.0-only"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "e4e1dc29b490f71552d5037b7eec4b049884e7ab5942f543fc65392f856f6ce0"
     sha256 cellar: :any,                 arm64_sonoma:   "1ca10abd68ab48408bc5d5db44e2512345ceab9ba48765c61f6ac2079268dcb5"
     sha256 cellar: :any,                 arm64_ventura:  "1efa83c497c61c33ffaa0217aebd141898bd6b1ae4302116d8a9e7deb1737f53"
     sha256 cellar: :any,                 arm64_monterey: "ed3be1f83df1a364a0eb5161853e369777ee882950c8a7237ee5dd10fa6cf6b4"
@@ -23,11 +24,18 @@ class Servus < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "boost"
+  depends_on "boost" => :test
+
+  # Backport missing header
+  patch do
+    url "https://github.com/HBPVIS/Servus/commit/53bf825cd995a7d2f569157f20431daf0cc860f8.patch?full_index=1"
+    sha256 "bb5d44dd39b63a091c9cc89fcdfc25e914f184eac5af9256b54975cf300575a5"
+  end
 
   def install
-    system "cmake", ".", *std_cmake_args
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
@@ -123,8 +131,7 @@ class Servus < Formula
       }
     EOS
     system ENV.cxx, "test.cpp", "-L#{lib}", "-lServus", "-DBOOST_TEST_DYN_LINK",
-                    "-L#{Formula["boost"].opt_lib}",
-                    "-lboost_unit_test_framework-mt",
+                    "-L#{Formula["boost"].opt_lib}", "-lboost_unit_test_framework",
                     "-std=gnu++11", "-o", "test"
     system "./test"
   end

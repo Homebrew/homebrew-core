@@ -18,6 +18,7 @@ class Smpeg2 < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia:  "dbbac559473f137fb4f16051e47fdab335581c72076ddab6535a9fba87c21749"
     sha256 cellar: :any,                 arm64_sonoma:   "d5228a92c9648cecb15aedbf8620e684f5b6b21d55b5e577f0c0564865211e46"
     sha256 cellar: :any,                 arm64_ventura:  "1287239a0f8877f88abba30316694f2e453be55143ab33748e850ea35ccdacce"
     sha256 cellar: :any,                 arm64_monterey: "f37c33bf42b5cbb9b849e4f2eba7484a3197a003d72d65e06ce663d803ed4ec2"
@@ -50,12 +51,12 @@ class Smpeg2 < Formula
     system "make", "install"
 
     # To avoid a possible conflict with smpeg 0.x
-    mv "#{bin}/plaympeg", "#{bin}/plaympeg2"
-    mv "#{man1}/plaympeg.1", "#{man1}/plaympeg2.1"
+    mv bin/"plaympeg", bin/"plaympeg2"
+    mv man1/"plaympeg.1", man1/"plaympeg2.1"
   end
 
   test do
-    system "#{bin}/plaympeg2", "--version"
+    system bin/"plaympeg2", "--version"
   end
 end
 
@@ -90,3 +91,30 @@ index 7dfd109..f8b1ac0 100644
      ;;
    esac
      if test "$lt_cv_apple_cc_single_mod" = "yes"; then
+diff --git a/audio/hufftable.cpp b/audio/hufftable.cpp
+index 6bc8e86..1ef2d7e 100644
+--- a/audio/hufftable.cpp
++++ b/audio/hufftable.cpp
+@@ -550,11 +550,11 @@ htd33[ 31][2]={{ 16,  1},{  8,  1},{  4,  1},{  2,  1},{  0,  0},{  0,  1},
+
+ const HUFFMANCODETABLE MPEGaudio::ht[HTN]=
+ {
+-  { 0, 0-1, 0-1, 0,  0, htd33},
++  { 0, 0u-1, 0u-1, 0,  0, htd33},
+   { 1, 2-1, 2-1, 0,  7,htd01},
+   { 2, 3-1, 3-1, 0, 17,htd02},
+   { 3, 3-1, 3-1, 0, 17,htd03},
+-  { 4, 0-1, 0-1, 0,  0, htd33},
++  { 4, 0u-1, 0u-1, 0,  0, htd33},
+   { 5, 4-1, 4-1, 0, 31,htd05},
+   { 6, 4-1, 4-1, 0, 31,htd06},
+   { 7, 6-1, 6-1, 0, 71,htd07},
+@@ -564,7 +564,7 @@ const HUFFMANCODETABLE MPEGaudio::ht[HTN]=
+   {11, 8-1, 8-1, 0,127,htd11},
+   {12, 8-1, 8-1, 0,127,htd12},
+   {13,16-1,16-1, 0,511,htd13},
+-  {14, 0-1, 0-1, 0,  0, htd33},
++  {14, 0u-1, 0u-1, 0,  0, htd33},
+   {15,16-1,16-1, 0,511,htd15},
+   {16,16-1,16-1, 1,511,htd16},
+   {17,16-1,16-1, 2,511,htd16},

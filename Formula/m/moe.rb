@@ -7,6 +7,7 @@ class Moe < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256 arm64_sequoia:  "2028254daf3ea1c11dd72a8a610a15888bfae96927730822db150c126c4f3bd8"
     sha256 arm64_sonoma:   "0de135b01234f6354fb00606af75d2e49a321cde092c48e7cee9a8a8949c9413"
     sha256 arm64_ventura:  "338d5a85cc8df7d059646a5990e9a5d1767f55d39f390eb8fe14bd829c66f8e5"
     sha256 arm64_monterey: "1474f3002a8bc09df542f2ba4fc1c3142386f44495dbd1cebcd2f04a8f98e70e"
@@ -24,6 +25,6 @@ class Moe < Formula
   end
 
   test do
-    system "#{bin}/moe", "--version"
+    system bin/"moe", "--version"
   end
 end

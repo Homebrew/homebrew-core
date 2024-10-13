@@ -6,6 +6,7 @@ class Stoken < Formula
   license "LGPL-2.1-only"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "07719ef72ddd93085d5cea66cf89371b128668f37532f9996d595f7280f46ef7"
     sha256 cellar: :any,                 arm64_sonoma:   "ef8f9c9c4a3edbf707c41392dc366204f0a65ed60420b192108cf20f5a84c18e"
     sha256 cellar: :any,                 arm64_ventura:  "d8f2d8b3a88c1361a7f82da8aeccc3272f568d9ec9fb031dd547f76bc865d76e"
     sha256 cellar: :any,                 arm64_monterey: "bd715ff4141234ceacd14910254d1b372b98fca4e490286017055b9345a66b69"
@@ -21,6 +22,7 @@ class Stoken < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
+  depends_on "gmp"
   depends_on "nettle"
 
   uses_from_macos "libxml2"
@@ -34,6 +36,6 @@ class Stoken < Formula
   end
 
   test do
-    system "#{bin}/stoken", "show", "--random"
+    system bin/"stoken", "show", "--random"
   end
 end

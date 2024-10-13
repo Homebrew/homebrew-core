@@ -1,24 +1,27 @@
 class Unibilium < Formula
   desc "Very basic terminfo library"
   homepage "https://github.com/neovim/unibilium"
-  url "https://github.com/neovim/unibilium/archive/refs/tags/v2.1.1.tar.gz"
-  sha256 "6f0ee21c8605340cfbb458cbd195b4d074e6d16dd0c0e12f2627ca773f3cabf1"
+  url "https://github.com/neovim/unibilium/archive/refs/tags/v2.1.2.tar.gz"
+  sha256 "370ecb07fbbc20d91d1b350c55f1c806b06bf86797e164081ccc977fc9b3af7a"
   license "LGPL-3.0-or-later"
 
   bottle do
-    rebuild 3
-    sha256 cellar: :any,                 arm64_sonoma:   "fe23eecccadee9f6dd9c28cab31fde6f708428b4b381080f65eb639a9757836b"
-    sha256 cellar: :any,                 arm64_ventura:  "d9089f06243f3f86c73d4480e6fc7aa0bfdfc59d359c190601f8c9f13b4e38f7"
-    sha256 cellar: :any,                 arm64_monterey: "2d241d597c1db3b4431147b57fdfc943f60b3ecc876808501514c5f06f544228"
-    sha256 cellar: :any,                 sonoma:         "ea8a5e33c52996bc397a2b15e525c73ac9af26e7f7611ebe045fec9f61b569d5"
-    sha256 cellar: :any,                 ventura:        "31ed55e023b40282074973529a224d94d195a885dbac72ff912c5ff2c5398eee"
-    sha256 cellar: :any,                 monterey:       "1fa9505ecff50e96b7da87f20e8e7a195e5a8619236d41759061eccd1947d015"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "00566865c6a2a0fde041269e20fc1afe0f239720fa588016843e5409bf0e909d"
+    sha256 cellar: :any,                 arm64_sequoia: "c154ef3c2f532ebb1e73372a76230d144057983813624abbad7ca85d1ce3a2b8"
+    sha256 cellar: :any,                 arm64_sonoma:  "dbd59e13386ef0e756eac19424e54c8b3d30ae65eb4c7c7f7d102a290fd409f7"
+    sha256 cellar: :any,                 arm64_ventura: "db2c6a451a395ff30ceff7e6dbfd30f7b02343bf08e850ae9d0e20d6c9da42b1"
+    sha256 cellar: :any,                 sonoma:        "19a58769977601b8bbc47959efeefb4bad5cc938d7dcde0c083c8227d8296026"
+    sha256 cellar: :any,                 ventura:       "0fc063e7d4d00b0b93b8b71c5d57921afad9d09d21ddb044e4e6cc44cecfe9ba"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "62bf69d2c9fe15ec8c9fe12e690befc1d8971c05b7f3f2fb890e2f4740e88798"
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
   depends_on "libtool" => :build
 
   def install
+    system "autoreconf", "--force", "--install", "--verbose"
+    system "./configure", *std_configure_args
+
     # Check Homebrew ncurses terminfo if available.
     terminfo_dirs = [Formula["ncurses"].opt_share/"terminfo"]
 

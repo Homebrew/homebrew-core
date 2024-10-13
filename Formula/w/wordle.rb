@@ -7,6 +7,7 @@ class Wordle < Formula
   license "AGPL-3.0-only"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "8186eac18fc030dd6a97de477d2fe257a9824dd542b917a57398bb5ef0fd7acd"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b89d59b09b23910b03bd3e7f6ad9e976043ad50202a79aeee9ea43037451e6bd"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "6a9db0e2f7b058f74ca8098312cdffa5d5cf60e5f9de7feb115e9eb43be2eb62"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e488788ecd598f500999af6b5ea4f30a026302b1cd0378cfac67c92e361a8ee9"
@@ -27,7 +28,7 @@ class Wordle < Formula
 
   test do
     require "pty"
-    stdout, _stdin, _pid = PTY.spawn("#{bin}/wordle")
+    stdout, _stdin, _pid = PTY.spawn(bin/"wordle")
     prompt_first_line = stdout.readline
     striped_line = prompt_first_line.strip
     assert_equal striped_line, "Guess a 5-letter word.  You have 6 tries."

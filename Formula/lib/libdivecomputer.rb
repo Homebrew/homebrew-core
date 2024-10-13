@@ -12,6 +12,7 @@ class Libdivecomputer < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "2d1fcffb41e208dda7721558578c6c6f212d758b9782449ce1f800d89e05c1cb"
     sha256 cellar: :any,                 arm64_sonoma:   "8dd4c53baa97fba521444635e28477af5651cb22ab242ce6a6cb3725175b7056"
     sha256 cellar: :any,                 arm64_ventura:  "94af44c0b407fae8f45e0d5f5fb86fe92f5464efe57d316eb71526aa68eac264"
     sha256 cellar: :any,                 arm64_monterey: "84b1aab56409e9842deab38dab5dc8a9f7ddd1c7f0ea5ad68b9bcd31733645fb"

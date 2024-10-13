@@ -1,8 +1,8 @@
 class Coq < Formula
   desc "Proof assistant for higher-order logic"
   homepage "https://coq.inria.fr/"
-  url "https://github.com/coq/coq/releases/download/V8.19.2/coq-8.19.2.tar.gz"
-  sha256 "18035624bcda4f8cffe5f348e02f0ae2503af1c40de165788d7d45578e6c5725"
+  url "https://github.com/coq/coq/releases/download/V8.20.0/coq-8.20.0.tar.gz"
+  sha256 "b08b364e6d420c58578d419247c5a710f4248bab962a46e542d452edac9e7914"
   license "LGPL-2.1-only"
   head "https://github.com/coq/coq.git", branch: "master"
 
@@ -12,13 +12,14 @@ class Coq < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "0f0c69959c6fbb5ad52e0e450c944eabb3f18820cde79d243e1610fd69991398"
-    sha256 arm64_ventura:  "e11d1435807f4c6f7b8d78b1227fc84f468fb30ab8238cffacd08b1ced35d608"
-    sha256 arm64_monterey: "cc5a5286a2773c13a8f236668effa6e4d4ad7e3dbb1420c938230dcff167d749"
-    sha256 sonoma:         "634040df2917f725db2ded48ff6d9a905133d78f9d50957b6bd521cf531d61b0"
-    sha256 ventura:        "68a39ec1b317ebdc28b9be0d355e4bd49c580c41cc950cdfc1841fb238e3fb7f"
-    sha256 monterey:       "0994ccb597ba1d4729e542eba344ead8aaac81a78ccc03ef93188cb4c3d5a697"
-    sha256 x86_64_linux:   "53292ddc6831b7974932e6211731aaa648fbef06b8ca3852eee0cdbfc57cdb17"
+    sha256 arm64_sequoia:  "9f68a54cbb1bb6e0173b19d1155528bdb5af2bd42e79a4e6fb50687254645b93"
+    sha256 arm64_sonoma:   "9b37523b7a81e0b65f32be8e9819f550ad447a7ce85d9ba3339c12ab1d64d761"
+    sha256 arm64_ventura:  "933a1f82dbb42abe22500503584ce32084edc10ccae800e0ca43807893f99320"
+    sha256 arm64_monterey: "49d59c06072012b6be03172d4b32cdaac38346c803922a99eed355653c11531e"
+    sha256 sonoma:         "bd63cf09a169f8cf524446fb080d6c7ee43c8d0714e8e5391eda1ba7209fe81b"
+    sha256 ventura:        "cc829211940dbc3c3f9dac65917d6c18de62c4357ce37e80f31bdad9e6cf96c9"
+    sha256 monterey:       "c2172b4cf694464685bd0fecfab74b831184c744b3d502e971c84268448ce2c1"
+    sha256 x86_64_linux:   "fce09d526b91ac0bcb12cb777f7366d53ae4cf769830d9e8400ecf6db39d1a43"
   end
 
   depends_on "dune" => :build

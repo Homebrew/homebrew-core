@@ -35,6 +35,6 @@ class Dterm < Formula
   end
 
   test do
-    system "#{bin}/dterm", "help"
+    system bin/"dterm", "help"
   end
 end

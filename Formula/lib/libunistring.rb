@@ -8,6 +8,7 @@ class Libunistring < Formula
   license any_of: ["GPL-2.0-only", "LGPL-3.0-or-later"]
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "5b70acd6aa97435ecb2abbfdc04f4e31fa3861a37ae7590b0da64704c5c311b5"
     sha256 cellar: :any,                 arm64_sonoma:   "4a1c0f956e528e0fe9a5040da6a2002e221024835916fdc198b5d734e3c2638d"
     sha256 cellar: :any,                 arm64_ventura:  "317dccbd509f4703664238e8d61b1f15c83d298b6d1945578eac33c1e18eab25"
     sha256 cellar: :any,                 arm64_monterey: "4f2cc0abb15a3e11a9b5fe64f874f2b3aff4e763133ba499d91bc65e8745cb21"
@@ -22,7 +23,7 @@ class Libunistring < Formula
                           "--disable-silent-rules",
                           "--prefix=#{prefix}"
     system "make"
-    system "make", "check" if !OS.mac? || MacOS.version != :sonoma
+    system "make", "check" if !OS.mac? || MacOS.version < :sonoma
     system "make", "install"
   end
 

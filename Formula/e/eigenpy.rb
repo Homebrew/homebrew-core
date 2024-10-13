@@ -1,27 +1,24 @@
 class Eigenpy < Formula
   desc "Python bindings of Eigen library with Numpy support"
   homepage "https://github.com/stack-of-tasks/eigenpy"
-  url "https://github.com/stack-of-tasks/eigenpy/releases/download/v3.7.0/eigenpy-3.7.0.tar.gz"
-  sha256 "c88df6b44ccf8ac4cddc4c1015a3f1c3cbd7425cac1342f07ac16bc6f2b33f87"
+  url "https://github.com/stack-of-tasks/eigenpy/releases/download/v3.10.0/eigenpy-3.10.0.tar.gz"
+  sha256 "041ca892a9dab2cd81ba828aeb247adfd44438db5d6037ed61fde1e833a3edbe"
   license "BSD-2-Clause"
-  revision 1
   head "https://github.com/stack-of-tasks/eigenpy.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "33717fa77182d22a9dc6cec13b400b596b97aab3b63e70adceac9fd2e1c80223"
-    sha256 cellar: :any,                 arm64_ventura:  "95817dccd2c33f98ac17b53a5be7a749b05bfd7f50bad9a29ce524c852554678"
-    sha256 cellar: :any,                 arm64_monterey: "5b17021cd2cb7f0377ab546fac16aa5fb61aff6a1b521b72504bd5b339f0f290"
-    sha256 cellar: :any,                 sonoma:         "dcda63e220946b6991a1df2ce1d030ad3063d77a7a48b6146ec901291e0c8c8e"
-    sha256 cellar: :any,                 ventura:        "dbfba41da1dd5ac8e612ea43aa499612fa4841e499fcf3831913d64d619c07c4"
-    sha256 cellar: :any,                 monterey:       "d4d9de6fb0c2e55ccdf5fc3ec1fbf59e56e38dee97293a1eae7b83e4d60680d1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d6f84c13af52d7b0a69aea7ec2c13c3a9c108808f448a6d3c565bccbc2335288"
+    sha256 cellar: :any,                 arm64_sequoia: "6755fd097be0a2af177d1fc502a7f26ac7ade3e9129b5401b1808d4318a3ce96"
+    sha256 cellar: :any,                 arm64_sonoma:  "d295b64c7a85cb8d508188164db5e1629e34387e2388da5b3fed67c745c273e0"
+    sha256 cellar: :any,                 arm64_ventura: "67edbc7ee532f0817c082d3e7e965f0ce137fafa43e5c6a89b9be98450e32934"
+    sha256 cellar: :any,                 sonoma:        "50eb458e69802b78a77c63005f53781b965a5a853dd63d5d4df9bdc6c9a3e586"
+    sha256 cellar: :any,                 ventura:       "3e20a28dd0787593b8bf1c44c68b28fb21440792cf95f7b525725e94fe34c928"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b389d8b06851055dbf2a54f9ea0d02ecd524c77c88b2e5a724c86e8fa1c91d94"
   end
 
   depends_on "boost" => :build
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
   depends_on "pkg-config" => :build
-  depends_on "python-setuptools" => :build
   depends_on "boost-python3"
   depends_on "eigen"
   depends_on "numpy"

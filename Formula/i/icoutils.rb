@@ -3,7 +3,7 @@ class Icoutils < Formula
   homepage "https://www.nongnu.org/icoutils/"
   url "https://savannah.nongnu.org/download/icoutils/icoutils-0.32.3.tar.bz2"
   sha256 "17abe02d043a253b68b47e3af69c9fc755b895db68fdc8811786125df564c6e0"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
 
   livecheck do
     url "https://download.savannah.gnu.org/releases/icoutils/"
@@ -12,6 +12,7 @@ class Icoutils < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any, arm64_sequoia:  "1f134eb8d5bfda13e1afd2742d87488abb2bd651f0ec059b6bbea76add8a647f"
     sha256 cellar: :any, arm64_sonoma:   "273cfd4c47669dcb185b256f41952316faeb9c7f263c86e602b81e5b1d4c9302"
     sha256 cellar: :any, arm64_ventura:  "6d0b6015b32488d5eadeed7af574b0b07c8071dfaae487a41f5306585eb8510b"
     sha256 cellar: :any, arm64_monterey: "cca2c49761f3c0c2c4d8261af392cb156b43d49e99d16af0962584717c1e2ad3"

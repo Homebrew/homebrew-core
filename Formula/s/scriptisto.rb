@@ -6,6 +6,7 @@ class Scriptisto < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "b817e471743b6cc577956edf5f23e94c9f3187e7acd2836c1536d61555bb70ff"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "962438fd18d9f434b593e0b4f3e5ae907993a6538c225f8a7c92adae3ded797c"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "02658b3baaeb3fba08067cb154742902c83e0cc5365428fecea581d59075f9b1"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "019c58e7262b36e0c58dfe2b691c240ed95a61fbf1e632628794856b28262f3f"

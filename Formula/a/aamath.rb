@@ -11,6 +11,7 @@ class Aamath < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "c62dab89088d46d52193768e3dd863939963ca8fbcf2eb67ecfd52c928117dfd"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "38e8b1fcd51f2be7c3b27818ffddf2b4fbf3de14da75b884e57bdbc8b4a3819b"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "0fdc50f0e8165ff7de731e092ddfa57149185bd1c1e1cf463e819645364d25ee"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e823e4d89ae67660af61746c7472d80f0eb2ea70503471ac1190f9c0c691faf0"
@@ -51,7 +52,7 @@ class Aamath < Formula
   end
 
   test do
-    s = pipe_output("#{bin}/aamath", (prefix/"testcases").read)
+    s = pipe_output(bin/"aamath", (prefix/"testcases").read)
     assert_match "f(x + h) = f(x) + h f'(x)", s
   end
 end

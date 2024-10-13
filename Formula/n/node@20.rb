@@ -1,9 +1,10 @@
 class NodeAT20 < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v20.16.0/node-v20.16.0.tar.xz"
-  sha256 "cd6c8fc3ff2606aadbc7155db6f7e77247d2d0065ac18e2f7f049095584b8b46"
+  url "https://nodejs.org/dist/v20.18.0/node-v20.18.0.tar.xz"
+  sha256 "7d9433e91fd88d82ba8de86e711ec41907638e227993d22e95126b02f6cd714a"
   license "MIT"
+  revision 1
 
   livecheck do
     url "https://nodejs.org/dist/"
@@ -11,13 +12,12 @@ class NodeAT20 < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "df42f678dad680563028a73512ef64a98b2d5af362e805b8a92c08cbbf60fc6e"
-    sha256 arm64_ventura:  "46670327779c802181c1388d164e7e5dbe0f4f81c9b39974408e3eb3893798d6"
-    sha256 arm64_monterey: "30071bfc012ad9f38ddaedab087c0a1bff2efd47d2557536a0c22ff188d3294a"
-    sha256 sonoma:         "6a0700d5b3f5470f72f463c9074f08063a5c6bfe576050dd15cdec5c39ec4b76"
-    sha256 ventura:        "691212e104f81294639719d8825cd0cb7eac8e70bcd8c5a0dffe969646056c1e"
-    sha256 monterey:       "85af4c8e8c5a50ce9df7a6ce7e1da1f93f4bc23e5f50f9caa11bfc0129362064"
-    sha256 x86_64_linux:   "0fc0c39c2ad321f07595845428270856e4f5fae8ea3735a015fc18d4b57a5908"
+    sha256 arm64_sequoia: "fd0df56bde79e20cbc279997e65e58c4924f868b70098f67a26c569622adaaff"
+    sha256 arm64_sonoma:  "fa339fffcdfe46f2e559a8f970e4877fffdba8fda457feaac05efa94503e7f30"
+    sha256 arm64_ventura: "74d229c42c021499276264761ec95f278a92a42efb1ed7098771407f50f1d738"
+    sha256 sonoma:        "212936d2f3c6d162c694a5c42e0713c125b2c0720a777ea2a4331d5f98389832"
+    sha256 ventura:       "bcfa8a4c57aa961914fcf5602e7260f0b69db140263c91c142bdd11fe9806c49"
+    sha256 x86_64_linux:  "ecc3904b5fef9a53271e8eb60dec9f740a4a4b130e25f0c425391df0c59f2083"
   end
 
   keg_only :versioned_formula
@@ -30,7 +30,7 @@ class NodeAT20 < Formula
   depends_on "python@3.12" => :build
   depends_on "brotli"
   depends_on "c-ares"
-  depends_on "icu4c"
+  depends_on "icu4c@75"
   depends_on "libnghttp2"
   depends_on "libuv"
   depends_on "openssl@3"
@@ -119,7 +119,7 @@ class NodeAT20 < Formula
     assert_predicate bin/"npm", :executable?, "npm must be executable"
     npm_args = ["-ddd", "--cache=#{HOMEBREW_CACHE}/npm_cache", "--build-from-source"]
     system bin/"npm", *npm_args, "install", "npm@latest"
-    system bin/"npm", *npm_args, "install", "ref-napi" unless head?
+    system bin/"npm", *npm_args, "install", "ref-napi"
     assert_predicate bin/"npx", :exist?, "npx must exist"
     assert_predicate bin/"npx", :executable?, "npx must be executable"
     assert_match "< hello >", shell_output("#{bin}/npx --yes cowsay hello")

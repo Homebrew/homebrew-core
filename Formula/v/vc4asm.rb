@@ -3,8 +3,10 @@ class Vc4asm < Formula
   homepage "https://maazl.de/project/vc4asm/doc/index.html"
   url "https://github.com/maazl/vc4asm/archive/refs/tags/V0.3.tar.gz"
   sha256 "f712fb27eb1b7d46b75db298fd50bb62905ccbdd7c0c7d27728596c496f031c2"
+  license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "c66f2ce86c71a5c824c8e0f19edd39b714ae56d6f3ebdfc287fa7549e66a8f2d"
     sha256 cellar: :any,                 arm64_sonoma:   "8292e0e5586e00d1e0c74c5b411ac925547a0b46dbdbd3ca54b7ffc95eed2248"
     sha256 cellar: :any,                 arm64_ventura:  "49337c5ba68c5868f9804568af0ab0fc29223eee04b6f50154fa30ef49fb23f1"
     sha256 cellar: :any,                 arm64_monterey: "af417dc649bc49003da98b9756e05da700076907cc4963818b839b817f721bc5"
@@ -38,6 +40,6 @@ class Vc4asm < Formula
       add.unpack8ai r0, r4, ra1
       add r0, r4.8a, ra1
     EOS
-    system "#{bin}/vc4asm", "-o test.hex", "-V", "#{share}/vc4inc/vc4.qinc", "test.qasm"
+    system bin/"vc4asm", "-o test.hex", "-V", "#{share}/vc4inc/vc4.qinc", "test.qasm"
   end
 end

@@ -1,5 +1,3 @@
-require "language/node"
-
 class GulpCli < Formula
   desc "Command-line utility for Gulp"
   homepage "https://github.com/gulpjs/gulp-cli"
@@ -8,25 +6,27 @@ class GulpCli < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f07bd7a6d69f5b7e2476bcd3ea6ad2346d131c435267d551a6c2dd66ecf4369f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f07bd7a6d69f5b7e2476bcd3ea6ad2346d131c435267d551a6c2dd66ecf4369f"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f07bd7a6d69f5b7e2476bcd3ea6ad2346d131c435267d551a6c2dd66ecf4369f"
-    sha256 cellar: :any_skip_relocation, sonoma:         "3e874ad640e88888810e0b31f362efca2a993c5312f292cb82b172e0633bc662"
-    sha256 cellar: :any_skip_relocation, ventura:        "3e874ad640e88888810e0b31f362efca2a993c5312f292cb82b172e0633bc662"
-    sha256 cellar: :any_skip_relocation, monterey:       "3e874ad640e88888810e0b31f362efca2a993c5312f292cb82b172e0633bc662"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f07bd7a6d69f5b7e2476bcd3ea6ad2346d131c435267d551a6c2dd66ecf4369f"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "e4705be7a88b79dd85745a81118909d722e59a0d3d81a2766d5ee873b4f98089"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b6b78b8a649dc8b662a2fa39814d039991950450e52b20692ff9756955f642d6"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b6b78b8a649dc8b662a2fa39814d039991950450e52b20692ff9756955f642d6"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b6b78b8a649dc8b662a2fa39814d039991950450e52b20692ff9756955f642d6"
+    sha256 cellar: :any_skip_relocation, sonoma:         "97e82d635666e3f778dd12285f8881701110370eaefe6c22fb902b493ae2ba58"
+    sha256 cellar: :any_skip_relocation, ventura:        "97e82d635666e3f778dd12285f8881701110370eaefe6c22fb902b493ae2ba58"
+    sha256 cellar: :any_skip_relocation, monterey:       "97e82d635666e3f778dd12285f8881701110370eaefe6c22fb902b493ae2ba58"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7ca11835e27a0ab600dc0ce1c92b06791fb15b3f7c75d71d97ca4984983deff8"
   end
 
   depends_on "node"
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", *std_npm_args
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 
   test do
     system "npm", "init", "-y"
-    system "npm", "install", *Language::Node.local_npm_install_args, "gulp"
+    system "npm", "install", *std_npm_args(prefix: false), "gulp"
 
     output = shell_output("#{bin}/gulp --version")
     assert_match "CLI version: #{version}", output

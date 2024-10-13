@@ -6,6 +6,7 @@ class Daktilo < Formula
   license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "08b93c796ccf69e6ad63d6a0109ddd3e497ba5dafcf0d050f818ea1ea4211b0d"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "da61f9a129b3f86817d89889f0495546ab29e75c26aa4e0bfaf876cad604b19f"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "546b3ee3d5da434c32614c51c92610ce80486b3685cc656c3228f1307c4188c9"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "5c6934cd904014b23e31eff5febfd720868a370c85875a7662e8322e7e409aef"
@@ -20,6 +21,7 @@ class Daktilo < Formula
 
   on_linux do
     depends_on "alsa-lib"
+    depends_on "libx11"
     depends_on "libxi"
     depends_on "libxtst"
   end

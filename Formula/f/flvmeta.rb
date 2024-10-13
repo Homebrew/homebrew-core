@@ -7,6 +7,7 @@ class Flvmeta < Formula
   head "https://github.com/noirotm/flvmeta.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "7b4a5ecf8a1e932fb391017b6f08d08f37ff1b405a34e9e7b7e4c7e20641a0fe"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0ba117a6573cabe3ccb7b5ae11483fe4fee639ccdb638512d338704604951fc8"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "d758531df2c34ec2ecec08d3a9e9cc9f250b720a38abff2fa5745d2c8ed16aaf"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "0b62fd205c68ecd0eb7c13b8d550844f4b7d5d7e48eae9b9f6d8d7ab6f9d84d5"

@@ -11,6 +11,7 @@ class Certstrap < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "d9bf9827e91f136d8e5b85211375f3130beabfd11963c8a7f6145f8870856816"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c49235a2ea7bfbf33766c4434aa3ad53321d02387bff504f963317f3f8c9797f"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "c5d6395c92d4c7e13c3f56b8d9e6a640583fa3644321093850cb106af2e91877"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "cd72ace92ab23822ee98e6e0a374132f17b24ed473029266918891a4c6eea074"
@@ -31,6 +32,6 @@ class Certstrap < Formula
   end
 
   test do
-    system "#{bin}/certstrap", "init", "--common-name", "Homebrew Test CA", "--passphrase", "beerformyhorses"
+    system bin/"certstrap", "init", "--common-name", "Homebrew Test CA", "--passphrase", "beerformyhorses"
   end
 end

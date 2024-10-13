@@ -7,6 +7,7 @@ class Rage < Formula
   head "https://github.com/str4d/rage.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "202d0052dd387139980340ba7988fcd8a3406fb3fe08de49f999b32209bb9f04"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "fe679e4dd957148d5c62d465aae7f451c0160ef7ec02629abecc31ef48a76355"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "5528b1d13be084d4889823a2343aa3ce5c194add31ddb1f845f9b48673ecdd8a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a6c1eb10260bdc634ff9e9c6a0ccd160b8d6761d0f60cf4a134b166b04de8499"
@@ -34,12 +35,12 @@ class Rage < Formula
 
   test do
     # Test key generation
-    system "#{bin}/rage-keygen", "-o", "#{testpath}/output.txt"
+    system bin/"rage-keygen", "-o", "#{testpath}/output.txt"
     assert_predicate testpath/"output.txt", :exist?
 
     # Test encryption
     (testpath/"test.txt").write("Hello World!\n")
-    system "#{bin}/rage", "-r", "age1y8m84r6pwd4da5d45zzk03rlgv2xr7fn9px80suw3psrahul44ashl0usm",
+    system bin/"rage", "-r", "age1y8m84r6pwd4da5d45zzk03rlgv2xr7fn9px80suw3psrahul44ashl0usm",
       "-o", "#{testpath}/test.txt.age", "#{testpath}/test.txt"
     assert_predicate testpath/"test.txt.age", :exist?
     assert File.read(testpath/"test.txt.age").start_with?("age-encryption.org")

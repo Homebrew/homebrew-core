@@ -12,6 +12,7 @@ class Etsh < Formula
   end
 
   bottle do
+    sha256                               arm64_sequoia:  "d67ffc1ce7bd60251ea6a60da6f2c4676d2ee3c32cdf22743398de0c2eb7cb05"
     sha256                               arm64_sonoma:   "94f5918f0bc1416a3a10328e6297dd831c2f65b588245cd7612bfbeedd169007"
     sha256                               arm64_ventura:  "8d172ed230004a39a1010ea98a5d6acfcf36e611a37fadb1ec4c354edd4cb42b"
     sha256                               arm64_monterey: "3ca74ea1e75dabe8babfe8e2213e5235f7f5feab2971115379a5aa8a2d40708d"
@@ -26,7 +27,7 @@ class Etsh < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "3b63d3ead94501c6b8a1f2fd2e6cf5465e7d0f36dc1d2e1303b0ed23254141d2"
   end
 
-  conflicts_with "omake", because: "both install `osh` binaries"
+  conflicts_with "oil", "oils-for-unix", "omake", because: "both install `osh` binaries"
   conflicts_with "teleport", because: "both install `tsh` binaries"
 
   def install

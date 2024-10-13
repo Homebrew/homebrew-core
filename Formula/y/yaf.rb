@@ -1,8 +1,8 @@
 class Yaf < Formula
   desc "Yet another flowmeter: processes packet data from pcap(3)"
   homepage "https://tools.netsa.cert.org/yaf/"
-  url "https://tools.netsa.cert.org/releases/yaf-2.15.0.tar.gz"
-  sha256 "3743d2f7b9bac3ac2ee2017dc26f6d7c5775dfdf95062ef7fa29c8c793e9472f"
+  url "https://tools.netsa.cert.org/releases/yaf-2.16.1.tar.gz"
+  sha256 "6005b8165831039e616cbcd7a450ac3e6daae051b4421d6294ad9c00688a14a2"
   license "GPL-2.0-only"
 
   # NOTE: This should be updated to check the main `/yaf/download.html`
@@ -13,13 +13,12 @@ class Yaf < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "f4c454dd111e81d96fe4b7a96ffd9e5206a81d4b43f7eb5d587ac790414db79a"
-    sha256 cellar: :any,                 arm64_ventura:  "2a412f316dad9f799eb94a6ace746fcea6de0a76f1283235470820f8d7d48dff"
-    sha256 cellar: :any,                 arm64_monterey: "fe779f22669ae77e31393122ff3f286d76d832361b05fcfc749610ae99a7112f"
-    sha256 cellar: :any,                 sonoma:         "ab2ba75307eab5e71027153bbc9cedcf6a40a6700f570e8b22690a6b1f18d0be"
-    sha256 cellar: :any,                 ventura:        "6a68fde3aab87006a0e9b77db3e54489bee1c9d50db666ab7873d4e40027296d"
-    sha256 cellar: :any,                 monterey:       "e1a127564d3362b3f95ffed00d2661c1ee21ecc5e85f89547de996d3959c2af0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "95a12e2afcaa5a2746a4a56dd489b04905e60a5bd716ad6774a120928a4331d7"
+    sha256 cellar: :any,                 arm64_sequoia: "741606b6161f1b09dfd4f897570961ae624c88176cd97dbd3a41130b47b530a1"
+    sha256 cellar: :any,                 arm64_sonoma:  "1d52b1b512e7cb6007fa22894a859a02e660505290cf0bc99bff38487a2e447c"
+    sha256 cellar: :any,                 arm64_ventura: "0bc3213396cc078555b6d6059effef5946d06eb87406a70961f47150a8cd0de7"
+    sha256 cellar: :any,                 sonoma:        "1399ebb7bf5d482c87f119c588fa350c378d626c378ea1afa803aed0d51fd2ea"
+    sha256 cellar: :any,                 ventura:       "47690d5e3d016b95501e23eb80b8bc18b79bbcf1ffd513fa367546d2b4a3a9ef"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b0b09048f7e10ddaa4c419542f5ec672437103d257712a6ea6b43444670db950"
   end
 
   depends_on "pkg-config" => :build

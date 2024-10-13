@@ -3,9 +3,10 @@ class Mergelog < Formula
   homepage "https://mergelog.sourceforge.net/"
   url "https://downloads.sourceforge.net/project/mergelog/mergelog/4.5/mergelog-4.5.tar.gz"
   sha256 "fd97c5b9ae88fbbf57d3be8d81c479e0df081ed9c4a0ada48b1ab8248a82676d"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "b831541094e323e374a379048f0f9beb6fba7267c03b282e1974cc59900dfa75"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4216fbee6feb598e05ec9c55932afb3c291e6764492a95ae0c7ae07cfa3296e3"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "a536e75a6e41c182c1eb0e0328bc2ab2a6aef63e9617a7206048c5006527d0ac"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c1c9f43d4bc60ec22734380dff9843797661be4e0b1b0ab2d861d25a9886cfd7"
@@ -25,16 +26,17 @@ class Mergelog < Formula
   uses_from_macos "zlib"
 
   def install
+    # Workaround for newer Clang
+    ENV.append_to_cflags "-Wno-implicit-int" if DevelopmentTools.clang_build_version >= 1403
+
     # Temporary Homebrew-specific work around for linker flag ordering problem in Ubuntu 16.04.
     # Remove after migration to 18.04.
     inreplace "src/Makefile.in", "mergelog.c -o", "mergelog.c $(LIBS) -o" unless OS.mac?
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--mandir=#{man}"
+    system "./configure", "--mandir=#{man}", *std_configure_args
     system "make", "install"
   end
 
   test do
-    system "#{bin}/mergelog", "/dev/null"
+    system bin/"mergelog", "/dev/null"
   end
 end

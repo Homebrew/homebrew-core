@@ -3,8 +3,10 @@ class Fex < Formula
   homepage "https://www.semicomplete.com/projects/fex/"
   url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/semicomplete/fex-2.0.0.tar.gz"
   sha256 "03043c8eac74f43173068a2e693b6f73d5b45f453a063e6da11f34455d0e374e"
+  license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "d0777ac160fda3d6860d6a7077e98e05e0a7a80f75c4c15e39c58699bd9c22ff"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0265e802a5e8b6d206890f636723f6ba34c0da506b1de7b47f84208d8d93f278"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "1baf47daa289d9a7d09cfdb695a4a1a51841458d992bbadc68a27780f81d7182"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "55ee2c09154b30ee5c0ec51ee562d4efc6528e1d69761810cb1eae30fec98bea"

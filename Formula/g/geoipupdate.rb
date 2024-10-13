@@ -7,6 +7,7 @@ class Geoipupdate < Formula
   head "https://github.com/maxmind/geoipupdate.git", branch: "main"
 
   bottle do
+    sha256 arm64_sequoia:  "8b837513d3e95ad9f14d9ae09233ceb662140b875b13c6e9afacd129fbdf890a"
     sha256 arm64_sonoma:   "ff0063a996d01a0b1072191a821f42c85ddf94cade101d39b47a24b2ab5488bb"
     sha256 arm64_ventura:  "207a09ecc2abd3cbeec899b7c070e7d4a77961d24f8d5fe723e23e454b784635"
     sha256 arm64_monterey: "936095b925f1eee1921482dd93f0e5ebcb942d215db8e962faaa3e29446a0a14"
@@ -36,6 +37,6 @@ class Geoipupdate < Formula
   end
 
   test do
-    system "#{bin}/geoipupdate", "-V"
+    system bin/"geoipupdate", "-V"
   end
 end

@@ -6,6 +6,7 @@ class Cmix < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "8eebb90a33656eaff7664633fa0422d594d6c5e3fd2c8270e9831516844b610a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4e9ba39f214720c1b65d25eb08fd16b0a84cfc424143817bb8fcbb33a863cea3"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "fe893125d8092e5bdabbb902ff589d2368a012c863cfe71def0d98652ad6fb8f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "301859a5c0ae275d3e4bd543662fa0e8ec55c80f386c95acc82aca75bf3adf1f"
@@ -22,8 +23,8 @@ class Cmix < Formula
 
   test do
     (testpath/"foo").write "test"
-    system "#{bin}/cmix", "-c", "foo", "foo.cmix"
-    system "#{bin}/cmix", "-d", "foo.cmix", "foo.unpacked"
+    system bin/"cmix", "-c", "foo", "foo.cmix"
+    system bin/"cmix", "-d", "foo.cmix", "foo.unpacked"
     assert_equal "test", shell_output("cat foo.unpacked")
   end
 end

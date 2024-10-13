@@ -12,6 +12,7 @@ class Fizsh < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "df5876c3cbe6a7389c95edc4e72f7037012b3287ac58ad7b26f27895c85c1a6c"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3cbf2b10f9ad45e0c2fa5d94a53a7718359221fe69fbbd197bf09fc68192d402"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "202375740d8f12d64c37f907f2812aa101422ed5b167565b01732eba0b82dd31"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "2575105118020a32990c4a46d7c39067a2d68c4bf2f30d657332a322e6dc44c6"

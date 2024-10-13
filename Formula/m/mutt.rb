@@ -15,6 +15,7 @@ class Mutt < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256 arm64_sequoia:  "527fd3e12cb049c4415b6b7353aae1036684daa1733a83253caa84a0ecc7c2ce"
     sha256 arm64_sonoma:   "40c414cbb65f0e9be27d487c9b7c87c63a822060e0afcc3f815848db10909892"
     sha256 arm64_ventura:  "7d0e947b105c9787a9c90f97ff52ac4c89614de091af864c304cef72ce7a8350"
     sha256 arm64_monterey: "87c4c4462ef88fd861ca8eb19611206b0cdb4175b478af24dba1448be962fc5a"
@@ -34,7 +35,9 @@ class Mutt < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
+
   depends_on "gpgme"
+  depends_on "libgpg-error"
   depends_on "libidn2"
   depends_on "ncurses"
   depends_on "openssl@3"
@@ -45,6 +48,11 @@ class Mutt < Formula
   uses_from_macos "krb5"
   uses_from_macos "zlib"
 
+  on_macos do
+    depends_on "gettext"
+    depends_on "libunistring"
+  end
+
   conflicts_with "tin", because: "both install mmdf.5 and mbox.5 man pages"
 
   def install
@@ -52,10 +60,7 @@ class Mutt < Formula
     effective_group = Etc.getgrgid(Process.egid).name
 
     args = %W[
-      --disable-dependency-tracking
       --disable-warnings
-      --prefix=#{prefix}
-      --enable-debug
       --enable-gpgme
       --enable-hcache
       --enable-imap
@@ -69,7 +74,7 @@ class Mutt < Formula
       --with-tokyocabinet
     ]
 
-    system "./prepare", *args
+    system "./prepare", *args, *std_configure_args
     system "make"
 
     # This permits the `mutt_dotlock` file to be installed under a group

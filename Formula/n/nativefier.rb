@@ -1,5 +1,3 @@
-require "language/node"
-
 class Nativefier < Formula
   desc "Wrap web apps natively"
   homepage "https://github.com/nativefier/nativefier"
@@ -8,15 +6,15 @@ class Nativefier < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3e752430f545faa200121374e77a086329a1d9bd6c00e90f77f72e6cce8553ed"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d43221afa1e9e1cf3cf8e09ae10f485602f7be6951e2e8f2a92a8cbdfc3325fc"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d43221afa1e9e1cf3cf8e09ae10f485602f7be6951e2e8f2a92a8cbdfc3325fc"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d43221afa1e9e1cf3cf8e09ae10f485602f7be6951e2e8f2a92a8cbdfc3325fc"
-    sha256 cellar: :any_skip_relocation, sonoma:         "455b791378f61bb5670bcec324beb48a61e0b2d86189849bdca6d7a927dad5e9"
-    sha256 cellar: :any_skip_relocation, ventura:        "81d8ff02c4ab134272fb633f797551e98c1e6bce213fff65b52a178017f7b64d"
-    sha256 cellar: :any_skip_relocation, monterey:       "81d8ff02c4ab134272fb633f797551e98c1e6bce213fff65b52a178017f7b64d"
-    sha256 cellar: :any_skip_relocation, big_sur:        "81d8ff02c4ab134272fb633f797551e98c1e6bce213fff65b52a178017f7b64d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d43221afa1e9e1cf3cf8e09ae10f485602f7be6951e2e8f2a92a8cbdfc3325fc"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "8217c3f9582943a6a195dff3efcd428a54028e108693ecb6e361e38f8cda83ad"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c8b34ad78186093473325fd42ce2ba129f7a112a7b1d1b978bcc016a643ae1d1"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c8b34ad78186093473325fd42ce2ba129f7a112a7b1d1b978bcc016a643ae1d1"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c8b34ad78186093473325fd42ce2ba129f7a112a7b1d1b978bcc016a643ae1d1"
+    sha256 cellar: :any_skip_relocation, sonoma:         "4148739ce73c42af24207638a6ebf6a7d1821421b8566218e865509f1891b09e"
+    sha256 cellar: :any_skip_relocation, ventura:        "4148739ce73c42af24207638a6ebf6a7d1821421b8566218e865509f1891b09e"
+    sha256 cellar: :any_skip_relocation, monterey:       "4148739ce73c42af24207638a6ebf6a7d1821421b8566218e865509f1891b09e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1f12e3086887b5424fc4a6b718a323f2bc207069ebb4a9419f35680e8ef82fdd"
   end
 
   deprecate! date: "2024-01-06", because: :repo_archived
@@ -24,7 +22,7 @@ class Nativefier < Formula
   depends_on "node"
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", *std_npm_args
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 

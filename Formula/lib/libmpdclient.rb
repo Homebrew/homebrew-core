@@ -12,6 +12,7 @@ class Libmpdclient < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "16973541660ff3601f6ea87f1553bac63e63cef2cce49a83d078293b0c66d56f"
     sha256 cellar: :any,                 arm64_sonoma:   "3920adaed9ddbc3361b4f47aa15bd3f3fca316238b22b52ba22df4402f1482f9"
     sha256 cellar: :any,                 arm64_ventura:  "23c5829dd8a2703925dbb711266cc62892d436bdc05fa2cbbf1dc280fd3e73f5"
     sha256 cellar: :any,                 arm64_monterey: "076cb8bf82d2ff6a0ed354a09a649526d02fe7c43bab9febb3ec1ad20b6a5281"
@@ -21,14 +22,13 @@ class Libmpdclient < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "a3e56f369d58e7d23eafe3d6d8dcfa0f5eca8daa9c732582f4938ff99abad183"
   end
 
-  depends_on "doxygen" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
 
   def install
-    system "meson", *std_meson_args, ".", "output"
-    system "ninja", "-C", "output"
-    system "ninja", "-C", "output", "install"
+    system "meson", "setup", "build", *std_meson_args
+    system "meson", "compile", "-C", "build", "--verbose"
+    system "meson", "install", "-C", "build"
   end
 
   test do

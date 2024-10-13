@@ -4,6 +4,7 @@ class Reop < Formula
   url "https://flak.tedunangst.com/files/reop-2.1.1.tgz"
   mirror "https://bo.mirror.garr.it/OpenBSD/distfiles/reop-2.1.1.tgz"
   sha256 "fa8ae058c51efec5bde39fab15b4275e6394d9ab1dd2190ffdba3cf9983fdcac"
+  license "ISC"
   revision 1
 
   livecheck do
@@ -11,6 +12,7 @@ class Reop < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "b1329c9bb7f9a9adb0ccf90c4c045cfa032215406f48c4fbe5d5f010019091a9"
     sha256 cellar: :any,                 arm64_sonoma:   "0a34d7d7270cd31264c8064b44f2fd1475a6edec8d159f2455ba6d5f6a5dce80"
     sha256 cellar: :any,                 arm64_ventura:  "8068e06ca891b71c1a18097fff6be93b18f56bade43aa6855d1490dfef7ad4c4"
     sha256 cellar: :any,                 arm64_monterey: "55cc0d36de154d5a561c5f02c64ea5498283cf83eba356433712e17f9be81a15"
@@ -53,6 +55,6 @@ class Reop < Formula
       -----END REOP SIGNATURE-----
     EOS
 
-    system "#{bin}/reop", "-V", "-x", "sig", "-p", "pubkey", "-m", "msg"
+    system bin/"reop", "-V", "-x", "sig", "-p", "pubkey", "-m", "msg"
   end
 end

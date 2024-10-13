@@ -11,6 +11,7 @@ class Dmagnetic < Formula
   end
 
   bottle do
+    sha256 arm64_sequoia:  "9f840a9ccf56d119e074527daa5b430d0670bd1425a44efa2882459e279ba40c"
     sha256 arm64_sonoma:   "4a2cb2a7d9d5334b230ec1f3e475239b3b780aa686d3ccacc8a1d5a014332ca0"
     sha256 arm64_ventura:  "53df75a05a62e3cf42f523b646e8e98bc24f918c86461417f7c58460ad7bb5fe"
     sha256 arm64_monterey: "46ece6d5aeee62439640ef8ac80332d959ccf26e4e152bb217b6e4ee4578a71a"

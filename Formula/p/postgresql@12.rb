@@ -1,9 +1,10 @@
 class PostgresqlAT12 < Formula
   desc "Object-relational database system"
   homepage "https://www.postgresql.org/"
-  url "https://ftp.postgresql.org/pub/source/v12.19/postgresql-12.19.tar.bz2"
-  sha256 "617e3de52c22e822f4f57d01d5b2240503e198a9eccaf598a851109bd18e6fbb"
+  url "https://ftp.postgresql.org/pub/source/v12.20/postgresql-12.20.tar.bz2"
+  sha256 "2d543af3009fec7fd5af35f7a70c95085d3eef6b508e517aa9493e99b15e9ea9"
   license "PostgreSQL"
+  revision 1
 
   livecheck do
     url "https://ftp.postgresql.org/pub/source/"
@@ -11,13 +12,12 @@ class PostgresqlAT12 < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "c495f2744811977b0b97d14a3e4fc5d37636160d4fe0e9d6c6a16d360947b002"
-    sha256 arm64_ventura:  "3226c2e9ca18c75a68f4db5d1e8a52f287ccf55684e4e73ad55ea6de491070a4"
-    sha256 arm64_monterey: "00efb295b38b313ad73c4bfb076fc0da2a8f0fead3463edf25d18974fa9d8b6a"
-    sha256 sonoma:         "41c01e8165dcb0e6fb6d4ffecf758bcbf8a9fe176e5ed690252fb0a9ea79c0f1"
-    sha256 ventura:        "dadbee8a89b6e6a1eb014eb62c7402c63cc6bba76a667a3ac5afbdb1b9f6c0be"
-    sha256 monterey:       "56518762dd9b4b9969753b4778013c7117400c332ed19671b8e62693d2906cdc"
-    sha256 x86_64_linux:   "74f1f45268fba58f42b5ab974c3fa04397950c29af50d03403fbefddcebfe1dc"
+    sha256 arm64_sequoia: "96d2d8acaf1fbe9e7ff89c45012b859349baa3fa6727fa95c3483003322cc726"
+    sha256 arm64_sonoma:  "9b85ef425587f9817e18c3a2b1ae095c53c5dcb460573578f916527f6174025e"
+    sha256 arm64_ventura: "edd1c5855962e667a48b16e1f7efa76286642d335231d034cdde468cee183136"
+    sha256 sonoma:        "a0e92d9720543ed2c92248136b8e2c231d5414d39101cd0820e73ce991ff5b85"
+    sha256 ventura:       "cb62c501bc2f49e5e98f0e6671572140d3e6906cbedc50d089386720ba7d1801"
+    sha256 x86_64_linux:  "6feea907198b1bfc2448fdf25639ac0676ae67880d9de7b75967588c5ad7cb10"
   end
 
   keg_only :versioned_formula
@@ -26,7 +26,7 @@ class PostgresqlAT12 < Formula
   deprecate! date: "2024-11-14", because: :unsupported
 
   depends_on "pkg-config" => :build
-  depends_on "icu4c"
+  depends_on "icu4c@75"
 
   # GSSAPI provided by Kerberos.framework crashes when forked.
   # See https://github.com/Homebrew/homebrew-core/issues/47494.
@@ -39,6 +39,7 @@ class PostgresqlAT12 < Formula
   uses_from_macos "libxslt"
   uses_from_macos "openldap"
   uses_from_macos "perl"
+  uses_from_macos "zlib"
 
   on_linux do
     depends_on "linux-pam"
@@ -69,12 +70,7 @@ class PostgresqlAT12 < Formula
       --with-perl
       --with-uuid=e2fs
     ]
-    if OS.mac?
-      args += %w[
-        --with-bonjour
-        --with-tcl
-      ]
-    end
+    args += %w[--with-bonjour --with-tcl] if OS.mac?
 
     # PostgreSQL by default uses xcodebuild internally to determine this,
     # which does not work on CLT-only installs.
@@ -96,12 +92,11 @@ class PostgresqlAT12 < Formula
                                     "pkgincludedir=#{include}/postgresql",
                                     "includedir_server=#{include}/postgresql/server",
                                     "includedir_internal=#{include}/postgresql/internal"
+    return unless OS.linux?
 
-    if OS.linux?
-      inreplace lib/"postgresql/pgxs/src/Makefile.global",
-                "LD = #{HOMEBREW_PREFIX}/Homebrew/Library/Homebrew/shims/linux/super/ld",
-                "LD = #{HOMEBREW_PREFIX}/bin/ld"
-    end
+    inreplace lib/"postgresql/pgxs/src/Makefile.global",
+              "LD = #{Superenv.shims_path}/ld",
+              "LD = #{HOMEBREW_PREFIX}/bin/ld"
   end
 
   def post_install
@@ -111,7 +106,7 @@ class PostgresqlAT12 < Formula
     # Don't initialize database, it clashes when testing other PostgreSQL versions.
     return if ENV["HOMEBREW_GITHUB_ACTIONS"]
 
-    system "#{bin}/initdb", "--locale=C", "-E", "UTF-8", postgresql_datadir unless pg_version_exists?
+    system bin/"initdb", "--locale=C", "-E", "UTF-8", postgresql_datadir unless pg_version_exists?
   end
 
   def postgresql_datadir
@@ -159,8 +154,6 @@ class PostgresqlAT12 < Formula
     caveats += <<~EOS
       This formula has created a default database cluster with:
         initdb --locale=C -E UTF-8 #{postgresql_datadir}
-      For more details, read:
-        https://www.postgresql.org/docs/#{version.major}/app-initdb.html
     EOS
 
     caveats
@@ -175,7 +168,7 @@ class PostgresqlAT12 < Formula
   end
 
   test do
-    system "#{bin}/initdb", testpath/"test" unless ENV["HOMEBREW_GITHUB_ACTIONS"]
+    system bin/"initdb", testpath/"test" unless ENV["HOMEBREW_GITHUB_ACTIONS"]
     assert_equal opt_pkgshare.to_s, shell_output("#{bin}/pg_config --sharedir").chomp
     assert_equal opt_lib.to_s, shell_output("#{bin}/pg_config --libdir").chomp
     assert_equal (opt_lib/"postgresql").to_s, shell_output("#{bin}/pg_config --pkglibdir").chomp

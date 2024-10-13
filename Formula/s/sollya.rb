@@ -12,6 +12,7 @@ class Sollya < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "c54e2cc2ef4d7ffc701e70dd86fc4b8af5fbd7caca7b3926e649d35802f7e7f9"
     sha256 cellar: :any,                 arm64_sonoma:   "f2be4f14eb0f2876410793baae2a0116992755d1cfd78437f4e93a26750ddc66"
     sha256 cellar: :any,                 arm64_ventura:  "2f573d2f31f5e3bca82f0d2b3e27fe6b3e20d6b4b7c1a98e7a26cc55d7c2d2f1"
     sha256 cellar: :any,                 arm64_monterey: "77a5e82516a3ef1c359bde51cbc1d1f81eef19dd493e3953e9fdc755a954444e"

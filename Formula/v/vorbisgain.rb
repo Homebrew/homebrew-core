@@ -11,6 +11,7 @@ class Vorbisgain < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "1e173fbe7ad9eff215301e6c55c6b8e30a8299c5f946a4102ef15cbbc5080b1f"
     sha256 cellar: :any,                 arm64_sonoma:   "8d09f799836dc2108d73030122904158aefd8b4a61df21be1084d2732f730feb"
     sha256 cellar: :any,                 arm64_ventura:  "5d6e594f8ec28faf2891f44a74881f69332db9a43a8e3058032a32d2d00612c1"
     sha256 cellar: :any,                 arm64_monterey: "5d007797235d2075ef13137bbbc16f2781e7657501f5d8c023acdd1b8a67fb91"
@@ -40,6 +41,6 @@ class Vorbisgain < Formula
   end
 
   test do
-    system "#{bin}/vorbisgain", "--version"
+    system bin/"vorbisgain", "--version"
   end
 end

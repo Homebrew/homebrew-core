@@ -11,6 +11,7 @@ class Lame < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "0ae0dcb09c908b80ffbdb1bb168674e5190d6b9ae006d5282b7ab4f06eac9f36"
     sha256 cellar: :any,                 arm64_sonoma:   "a5116a219d70f3bb6728a0dfe6801413b9fd70e6c864257691cdb0ea272c2c1e"
     sha256 cellar: :any,                 arm64_ventura:  "dde2fd627f56465b34aa521ec5ea789a2b6672f0336f5f9a0b6b831342b1052e"
     sha256 cellar: :any,                 arm64_monterey: "67ee7aa900fa0b411c3731783ee53b17517145a03a90b1f35068b01d17b5c347"
@@ -42,6 +43,6 @@ class Lame < Formula
   end
 
   test do
-    system "#{bin}/lame", "--genre-list", test_fixtures("test.mp3")
+    system bin/"lame", "--genre-list", test_fixtures("test.mp3")
   end
 end

@@ -6,6 +6,7 @@ class Libxau < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "49cc37e73988074d48d1942e5d0d865a10a67692aa4752b5ac30c91a89ef4d79"
     sha256 cellar: :any,                 arm64_sonoma:   "5af5678065c243a7d199b76facc8be615dd6aa6de65d03778e9b403e8b2827d6"
     sha256 cellar: :any,                 arm64_ventura:  "d8cc440c5804ecf424d96d3cd4e92e88c83d43e7f927126c768caee2dffe36a8"
     sha256 cellar: :any,                 arm64_monterey: "8f7c0378757601370d13539c5f1a11f560326464d9ba1f9fb9f5e2631163d559"

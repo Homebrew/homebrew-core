@@ -7,6 +7,7 @@ class Networkit < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "d1ee1f4207bd871fe8ff61585cdef1b3e4c60c4fb81cc83d9d7735a78aa477fa"
     sha256 cellar: :any,                 arm64_sonoma:   "70c1c15cd23f64eebc96c298bd0f14568713859c88a4a0d3c4e3750162ff16cc"
     sha256 cellar: :any,                 arm64_ventura:  "440bf3494d183b0fedd042d315715cd846309e1e4376989b67b61d1ac3a96737"
     sha256 cellar: :any,                 arm64_monterey: "3d760b478449d4868f3b1f2512ae7de755143bdedb18e2fa7049c9e81c328fea"

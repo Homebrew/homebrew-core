@@ -11,6 +11,7 @@ class Avce00 < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "cbfe81486e3dc61f284643a89726e5d94927eaa359f3fe63664baaae8c9bc0ec"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c3cbade903948049d8a8ce0e7d367d5740fcdd72c4f1fb67a355e1d43380c3b9"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "9078894641a0060c43d87875285e11baab6f2a7f24c36f109f56687b2eaf5674"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "5d68b4c2b28928e6f435666ae990ecc9f6ad4b082158374c24437c7d18d6a84f"
@@ -38,6 +39,6 @@ class Avce00 < Formula
 
   test do
     touch testpath/"test"
-    system "#{bin}/avctest", "-b", "test"
+    system bin/"avctest", "-b", "test"
   end
 end

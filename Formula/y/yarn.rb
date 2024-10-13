@@ -6,11 +6,12 @@ class Yarn < Formula
   license "BSD-2-Clause"
 
   livecheck do
-    skip("1.x line is frozen and features/bugfixes only happen on 2.x")
+    skip("1.x line is frozen and features/bugfixes only happen on 2+")
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "9a80ed679d05f019e217f737a7d531f4578144b65be6a1a19d3322ef41d25683"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "edb63a1b15d560263270324b63bee4c2aa8145197636a755436cc14424fc1e12"
   end
 
   depends_on "node" => :test
@@ -21,7 +22,7 @@ class Yarn < Formula
   def install
     libexec.install buildpath.glob("*")
     (bin/"yarn").write_env_script libexec/"bin/yarn.js", PREFIX: HOMEBREW_PREFIX
-    (bin/"yarnpkg").write_env_script libexec/"bin/yarn.js", PREFIX: HOMEBREW_PREFIX
+    bin.install_symlink bin/"yarn" => "yarnpkg"
     inreplace libexec/"lib/cli.js", "/usr/local", HOMEBREW_PREFIX
     inreplace libexec/"package.json", '"installationMethod": "tar"',
                                       "\"installationMethod\": \"#{tap.user.downcase}\""

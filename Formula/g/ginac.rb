@@ -12,6 +12,7 @@ class Ginac < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia:  "9a87dbb3381c9eb502f9f4d1c25cecb5d8517705017440d05d0d497d294faac6"
     sha256 cellar: :any,                 arm64_sonoma:   "aacdfd913aacfa3202e10d9c37ea5bac1c64a0d80db396b5163c043d51b64f4f"
     sha256 cellar: :any,                 arm64_ventura:  "e661fec026b0f5c59ed31cb8d24674ba15751983a2e5353b40049e51f8407d18"
     sha256 cellar: :any,                 arm64_monterey: "4eacaea3545f31689873bc9ee681c96608bfd346f99ebcd52996a2a47a9684ec"

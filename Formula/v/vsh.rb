@@ -6,6 +6,7 @@ class Vsh < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "bfb05cd63316f9a7785b2f0bec45c313c0db18f2b1c3f862ae6a3794c10c068a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1eddab680208703797754eac3642e5a2a37ae1f38f1ccaa508b19c1708c911c2"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "223c2d94808d93148a39f0c878979d2356368d0f027a81481f6ecc278f1b07e4"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a1d07760031eaf0abf803b3c6fe8b9efe8e0fa7bdb42787654a4ba8de46ac099"

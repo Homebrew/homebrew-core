@@ -12,6 +12,7 @@ class R3 < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "0e983875043e6a6111ce6f46615faf14adb57a8fa96c7a1cf5ae10d7d415a879"
     sha256 cellar: :any,                 arm64_sonoma:   "9648d6bd8f125398cc101581e8ee3b8b304fa6e8ab92f018dc538843c04fd920"
     sha256 cellar: :any,                 arm64_ventura:  "fa1e649709ce6c6d16c631a2192d2dd7fea34b7398e55eabe5f7bd51953745ab"
     sha256 cellar: :any,                 arm64_monterey: "2f26748893003e7e0b99a574126c06c451222144979b0230babe37128328214f"

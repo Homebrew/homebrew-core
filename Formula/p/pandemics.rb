@@ -1,5 +1,3 @@
-require "language/node"
-
 class Pandemics < Formula
   desc "Converts your markdown document in a simplified framework"
   homepage "https://pandemics.gitlab.io"
@@ -8,13 +6,15 @@ class Pandemics < Formula
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e903551f020b611f22d074a0c0c9d57ecfc474755cd8265c09847e86778f0bd1"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e903551f020b611f22d074a0c0c9d57ecfc474755cd8265c09847e86778f0bd1"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e903551f020b611f22d074a0c0c9d57ecfc474755cd8265c09847e86778f0bd1"
-    sha256 cellar: :any_skip_relocation, sonoma:         "3f9f657ee8034b2a8f061362e8eb9a74019dc990f54fdb3d75e87c4642857155"
-    sha256 cellar: :any_skip_relocation, ventura:        "3f9f657ee8034b2a8f061362e8eb9a74019dc990f54fdb3d75e87c4642857155"
-    sha256 cellar: :any_skip_relocation, monterey:       "a0e63b2bcee0890cf82a0dcf37eec467dc860dbdc1ec807c24aa4e44f907f725"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e903551f020b611f22d074a0c0c9d57ecfc474755cd8265c09847e86778f0bd1"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "445777877cbca7a8c5e0c8096b16948aa2b93c2a5ae41b71cb75e660ba2710d5"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ba38e44b4f4b7d27ff08bb11cfc4d0ff0c3acc0643748668cdd9cca3e015f365"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ba38e44b4f4b7d27ff08bb11cfc4d0ff0c3acc0643748668cdd9cca3e015f365"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ba38e44b4f4b7d27ff08bb11cfc4d0ff0c3acc0643748668cdd9cca3e015f365"
+    sha256 cellar: :any_skip_relocation, sonoma:         "a759108afc20634004c21dde25897cf10004a275c33706af36f4c6a2e19bbaf0"
+    sha256 cellar: :any_skip_relocation, ventura:        "a759108afc20634004c21dde25897cf10004a275c33706af36f4c6a2e19bbaf0"
+    sha256 cellar: :any_skip_relocation, monterey:       "a759108afc20634004c21dde25897cf10004a275c33706af36f4c6a2e19bbaf0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c286b0bc6887c50d894e25699b0e312a2663b40e5d8c44dbc73501cca334d8e4"
   end
 
   depends_on "librsvg"
@@ -26,9 +26,9 @@ class Pandemics < Formula
     ENV["PANDEMICS_DEPS"]="0"
     # npm ignores config and ENV when in global mode so:
     # - install without running the package install script
-    system "npm", "install", "--ignore-scripts", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", "--ignore-scripts", *std_npm_args
     # - call install script manually to ensure ENV is respected
-    system "npm", "run", "--prefix", "#{libexec}/lib/node_modules/pandemics", "install"
+    system "npm", "run", "--prefix", libexec/"lib/node_modules/pandemics", "install"
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 
@@ -37,7 +37,7 @@ class Pandemics < Formula
     assert_equal version, shell_output("#{libexec}/bin/pandemics --version")
     # does compile to pdf?
     touch testpath/"test.md"
-    system "#{bin}/pandemics", "publish", "--format", "html", "#{testpath}/test.md"
+    system bin/"pandemics", "publish", "--format", "html", "#{testpath}/test.md"
     assert_predicate testpath/"pandemics/test.html", :exist?
   end
 end

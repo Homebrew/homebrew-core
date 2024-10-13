@@ -6,7 +6,8 @@ class MultiGitStatus < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "53e83339d5b1ba46e4522cb29684f64fc3ff879c8bc94a0b02436048778a29a7"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "fac5b19bd31bb3fd744b2603b9b8f58636d6d51902a046c5d5fbcc774515d1ad"
   end
 
   def install

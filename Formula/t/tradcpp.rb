@@ -12,6 +12,7 @@ class Tradcpp < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "794a2163ec873f752cfa605b86a1cb8cba108bebe9d41f371bd444e63a51b2dd"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "98a960df81fa5a9d651e084529ffdbe2732d92e6b452ddb8530845abf29043d2"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "ae50daead4edf3e9669b42267182a9bae1f57720bbeb635e9dcc50341ceb27b3"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f4a656232f875bcb230883e1f5ed126b4a548d0cece88453a487a4e2cfc4dd89"

@@ -11,6 +11,7 @@ class Posh < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "4521f3540d2fab592dafd00531ecb265fb361568e62a608eb3965258f3de58ea"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "bdbfb5bbceaa13a46364fc19af24197741066064ab0a158f0ea3d46e550b9ef7"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f3c1625c3fcfbf58672e6870e8ab89869ca68dc90978d2bd518d21f5f9fcac86"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6678d5df02415c5e8bb866a7c5e7819f10ef23dd7bb19ba61f8f2cdad612e01f"

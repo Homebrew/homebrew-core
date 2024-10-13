@@ -7,6 +7,7 @@ class Rhash < Formula
   head "https://github.com/rhash/RHash.git", branch: "master"
 
   bottle do
+    sha256 arm64_sequoia:  "185980a787a26133954964d2453e7855beb3ed4bf3c55f9a594a3d456750fbb3"
     sha256 arm64_sonoma:   "ec69940028e8fcb9278ebba41f8f4eaf9c2fd551b361ebadb57b46724aaf92af"
     sha256 arm64_ventura:  "85e7a1577e11e64ede19b413af736fbc8cf54e2d1461906a6ff6b41fd709d694"
     sha256 arm64_monterey: "729cb8f7351431505bb7f57d4efbda5b7b3c97a11104c83af055fda35dd15b95"
@@ -29,6 +30,6 @@ class Rhash < Formula
   test do
     (testpath/"test").write("test")
     (testpath/"test.sha1").write("a94a8fe5ccb19ba61c4c0873d391e987982fbbd3 test")
-    system "#{bin}/rhash", "-c", "test.sha1"
+    system bin/"rhash", "-c", "test.sha1"
   end
 end

@@ -1,9 +1,9 @@
 class I386ElfGdb < Formula
   desc "GNU debugger for i386-elf cross development"
   homepage "https://www.gnu.org/software/gdb/"
-  url "https://ftp.gnu.org/gnu/gdb/gdb-15.1.tar.xz"
-  mirror "https://ftpmirror.gnu.org/gdb/gdb-15.1.tar.xz"
-  sha256 "38254eacd4572134bca9c5a5aa4d4ca564cbbd30c369d881f733fb6b903354f2"
+  url "https://ftp.gnu.org/gnu/gdb/gdb-15.2.tar.xz"
+  mirror "https://ftpmirror.gnu.org/gdb/gdb-15.2.tar.xz"
+  sha256 "83350ccd35b5b5a0cba6b334c41294ea968158c573940904f00b92f76345314d"
   license "GPL-3.0-or-later"
   head "https://sourceware.org/git/binutils-gdb.git", branch: "master"
 
@@ -12,13 +12,12 @@ class I386ElfGdb < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "f23d46b347becb5885f78a4ada3aefb47ba32d595e980e00250ac12083941250"
-    sha256 arm64_ventura:  "5e0ae19737a7a7b3ecadb2502f192c44399efe642add40d19139cc407c4a98fe"
-    sha256 arm64_monterey: "ea2e6be08a6452eb2c1e28877e01009c8f8997376d3c32c14615ca8c88c5f598"
-    sha256 sonoma:         "a06e3267f25adeebeec1270a1bbe46c807f7ba052f31c95ad0aa598aef2ab35a"
-    sha256 ventura:        "d64aa7d5e66b4efb52e96aa85eb69263110078d105b54ed2feaa890f91d8eb35"
-    sha256 monterey:       "b244991b18043c406a0e61ffdb992127984c56ac937ce262e64d677af513e0fa"
-    sha256 x86_64_linux:   "3bb7816e229e35895731d884cad604080ffa61ff64defcacf24948d435a253c5"
+    sha256 arm64_sequoia: "be8a2a2f0f18a53349a0f6103a4ef0859768f7ab41e5c2c52d604b2429ed8039"
+    sha256 arm64_sonoma:  "6070a72caa2528c08bff3f308faa1bb181e106415a7fda814b88b3d9dc068943"
+    sha256 arm64_ventura: "516c2c1674652d852968a86967e603fecca37b0c011f9e41c3b53d1289964585"
+    sha256 sonoma:        "f42540c98d2ecd220c569272d1f0dce591f38fde394c70bf7b5ea513ea78144c"
+    sha256 ventura:       "c524423fa98380fcb953e7ef6bc539f1822dc1c36e9a6706997515877121f66c"
+    sha256 x86_64_linux:  "1167a22ec9850be75bf301911ceb7250f0964e491a92fd50d50d2896d517c783"
   end
 
   depends_on "i686-elf-gcc" => :test

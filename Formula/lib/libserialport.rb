@@ -3,7 +3,7 @@ class Libserialport < Formula
   homepage "https://sigrok.org/wiki/Libserialport"
   url "https://sigrok.org/download/source/libserialport/libserialport-0.1.1.tar.gz"
   sha256 "4a2af9d9c3ff488e92fb75b4ba38b35bcf9b8a66df04773eba2a7bbf1fa7529d"
-  license "LGPL-3.0"
+  license "LGPL-3.0-or-later"
 
   livecheck do
     url "https://sigrok.org/wiki/Downloads"
@@ -11,6 +11,7 @@ class Libserialport < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "e3903ca8a1448fb69213adf607c5b7c6280d2c9019532bb4ff70cdd1945db53a"
     sha256 cellar: :any,                 arm64_sonoma:   "f4b8d4b9994f2f1329439e9896f839d44098fa69f2a1e6cfa3e48428ee92284f"
     sha256 cellar: :any,                 arm64_ventura:  "a098b8aa4d66fea6cdc78e340af45f3e87844075e38e28ccded1bddd3aa6bffb"
     sha256 cellar: :any,                 arm64_monterey: "98634bbc472a1c93a19a2dab32765f0f5fce4b9991988283477254f7d7b30085"

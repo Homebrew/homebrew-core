@@ -1,5 +1,3 @@
-require "language/node"
-
 class Kubevious < Formula
   desc "Detects and prevents Kubernetes misconfigurations and violations"
   homepage "https://github.com/kubevious/cli"
@@ -8,19 +6,21 @@ class Kubevious < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ac3c8e3b7eea3982848c1d7d39f20e8a3486f5ca45ed163cfd7328afe2e69748"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ac3c8e3b7eea3982848c1d7d39f20e8a3486f5ca45ed163cfd7328afe2e69748"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ac3c8e3b7eea3982848c1d7d39f20e8a3486f5ca45ed163cfd7328afe2e69748"
-    sha256 cellar: :any_skip_relocation, sonoma:         "7b68ec2a3f12842af1d837943008ac6db58a356669df33e393336a65bae41094"
-    sha256 cellar: :any_skip_relocation, ventura:        "7b68ec2a3f12842af1d837943008ac6db58a356669df33e393336a65bae41094"
-    sha256 cellar: :any_skip_relocation, monterey:       "7b68ec2a3f12842af1d837943008ac6db58a356669df33e393336a65bae41094"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "94541fa917a9f52ef7cb859f25f941e6e98539590574ed7abb6eee6a834c3bb7"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "60adc1c535afa83c9a9b6140f70314166fb94d393f5a933888672d8c50b34deb"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8c78495efcec217c11bf5780a765b5871294883e82447087bf3fc53451e1fb84"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8c78495efcec217c11bf5780a765b5871294883e82447087bf3fc53451e1fb84"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "8c78495efcec217c11bf5780a765b5871294883e82447087bf3fc53451e1fb84"
+    sha256 cellar: :any_skip_relocation, sonoma:         "824d2b7a07241392f336672c7d3f514b4345ac1a78189fd422372ec611e4c691"
+    sha256 cellar: :any_skip_relocation, ventura:        "824d2b7a07241392f336672c7d3f514b4345ac1a78189fd422372ec611e4c691"
+    sha256 cellar: :any_skip_relocation, monterey:       "824d2b7a07241392f336672c7d3f514b4345ac1a78189fd422372ec611e4c691"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "51a9d36844726c3ffc2749818ffe30b8d9b45e5a4806e7b947b61d0d0270da96"
   end
 
   depends_on "node"
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", *std_npm_args
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 

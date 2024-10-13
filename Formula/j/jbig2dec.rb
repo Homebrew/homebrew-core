@@ -6,6 +6,7 @@ class Jbig2dec < Formula
   license "AGPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "f581562914f78e334b62715f38a94884e133a0f5fd9f865bd51a6404250a650b"
     sha256 cellar: :any,                 arm64_sonoma:   "30f0053c48d777cdbf482bcffeb449fe173e3471e344c97bc129b8fe2f883629"
     sha256 cellar: :any,                 arm64_ventura:  "973a40cc673a331249be09ddef83537889f45f8934925c36e9b17e73cb852c40"
     sha256 cellar: :any,                 arm64_monterey: "7e52f5520ff0970c61fea2293db287b162b4de29c69f5032ae17a2cdab8fed22"

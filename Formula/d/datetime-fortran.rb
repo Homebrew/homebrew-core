@@ -7,6 +7,7 @@ class DatetimeFortran < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "3f396ad5136d8087e6de3dfdbf70616503a1b929fae3bf4cca376bc88d3eea23"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a58282caee75e7ce6eab6efde945c00d6a025c34bb0c835462592e229d51924d"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "bcc7d71f13bb6e54b53bafe5755a5c44d8bf9af567347420206d32fadf2a08c2"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "17b99bbbc87ea9bdc282aa0138a56d91922e19de55208ecb8110d2f5cb32d488"

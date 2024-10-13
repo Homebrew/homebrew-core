@@ -1,30 +1,25 @@
 class Libffcall < Formula
   desc "GNU Foreign Function Interface library"
   homepage "https://www.gnu.org/software/libffcall/"
-  url "https://ftp.gnu.org/gnu/libffcall/libffcall-2.4.tar.gz"
-  mirror "https://ftpmirror.gnu.org/gnu/libffcall/libffcall-2.4.tar.gz"
-  sha256 "8ef69921dbdc06bc5bb90513622637a7b83a71f31f5ba377be9d8fd8f57912c2"
+  url "https://ftp.gnu.org/gnu/libffcall/libffcall-2.5.tar.gz"
+  mirror "https://ftpmirror.gnu.org/gnu/libffcall/libffcall-2.5.tar.gz"
+  sha256 "7f422096b40498b1389093955825f141bb67ed6014249d884009463dc7846879"
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "cb0b3113b4075bd871c9dbc7c1c0af213e77b700aaedc4cf5532b1944015defc"
-    sha256 cellar: :any,                 arm64_monterey: "58dd56d1ab429bde2b8078bb3737682b57a37a7d67b70e8c27bcc023f988e2fd"
-    sha256 cellar: :any,                 arm64_big_sur:  "d7ace5f73fe02c38febe33718fbb293e765f7d1909763b39dc280d410e2a1488"
-    sha256 cellar: :any,                 sonoma:         "3b70f3916012c4240807ddb397c4138d174367c587b6814b7f1970a282f2569e"
-    sha256 cellar: :any,                 ventura:        "ee2b7df162625a59cd9ac90a61a91a238138cf244a385c1c94dc50d90319d546"
-    sha256 cellar: :any,                 monterey:       "947d7c231e88bbf9a4037e15c75abb158334b895efb9ea15e698e340e0d95f6b"
-    sha256 cellar: :any,                 big_sur:        "61cb42231c842a5559808582e374420e058fe76cc60b47f08b383c2751536caa"
-    sha256 cellar: :any,                 catalina:       "1412d8bb030690981a6322f18a3ef686aaa3f7b1ab3e390be2767e83cb5160a5"
-    sha256 cellar: :any,                 mojave:         "093534e26c77187ebd27234802635357c458cfe6956edc618d6292e707bc5fdc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4b9ade24ffa94a150150dd446d25f7fdee0497c98d334cbf9d4b3cc0ed649990"
+    sha256 cellar: :any,                 arm64_sequoia:  "e93c50e4766acad117fedb1330c4f90b07d0badda4f3d63aa9a19aa648ac4432"
+    sha256 cellar: :any,                 arm64_sonoma:   "ec1b54aeab6d34a9ab35e7e376ed02847f08a29de71a3d4768fa96954327127c"
+    sha256 cellar: :any,                 arm64_ventura:  "958171b0bcdc0974726cfff41c6de58c7e4f90017b4fb9d881b968e8d1612fdf"
+    sha256 cellar: :any,                 arm64_monterey: "89ae257133dd08f737b51cafdbb62ee4aa5d6896d21f78e95673985a6639d265"
+    sha256 cellar: :any,                 sonoma:         "39a00f8aa8c633d254f3dd8de7cd584e825a71d135b9ca3455dad8b1efe4169f"
+    sha256 cellar: :any,                 ventura:        "ad7787776409d59f5b45119a6b799af71c09a7ab6f50970e4b563cb1b6d5e150"
+    sha256 cellar: :any,                 monterey:       "d625f99cb896c08b3aeccfda72807c229e079f923f83be78a96d9d0433d47a03"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5d42265685ccd225935b647212b027cabcf753fdd4c7f2596d9e30f3be1e8d40"
   end
 
   def install
     ENV.deparallelize
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}"
+    system "./configure", "--disable-silent-rules", *std_configure_args
     system "make"
     system "make", "install"
   end

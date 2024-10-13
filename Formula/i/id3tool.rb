@@ -11,6 +11,7 @@ class Id3tool < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "c0c5fde02924517f49e33c33f18430726f0b613bb013fa73d0eb035a6d34755f"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e67faa6f3ae68053ff10e5e16e3dfad49dd3f67a578114109a143c6131c44391"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "bd6e6e24689e48d6ec5c67fef4ab113b40d92b91a02d85a8d67744ad454e820e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "eaab957f04597caeef0f4d080d4e936743d154c3c0c2e62e228678f5d5123b58"
@@ -36,11 +37,12 @@ class Id3tool < Formula
   end
 
   test do
-    mp3 = "#{testpath}/test.mp3"
-    cp test_fixtures("test.mp3"), mp3
+    test_mp3 = testpath/"test.mp3"
+    # needs to write the file to set the tags
+    cp test_fixtures("test.mp3"), test_mp3
 
-    system "#{bin}/id3tool", "-t", "Homebrew", mp3
+    system bin/"id3tool", "-t", "Homebrew", test_mp3
     assert_match(/Song Title:\s+Homebrew/,
-                 shell_output("#{bin}/id3tool #{mp3}").chomp)
+                 shell_output("#{bin}/id3tool #{test_mp3}").chomp)
   end
 end

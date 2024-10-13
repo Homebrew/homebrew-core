@@ -6,6 +6,7 @@ class Gptfdisk < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "ba4643273f140cbd13365868699724cf632eb57dd3e5557d416437f84462b0c1"
     sha256 cellar: :any,                 arm64_sonoma:   "09a2999c7d63ed2b2b1d1653b8b0eefc58e6a34f44deea18621b8c0137fc3382"
     sha256 cellar: :any,                 arm64_ventura:  "f3950162cf89ae6ea39989311535d838e8c2d7989ccddadcfcafd90733056c14"
     sha256 cellar: :any,                 arm64_monterey: "51ac0f2d9d070772afbe428ea9ed3dc424e2b9b9eea017d78cc43c62d5ed9836"

@@ -11,6 +11,7 @@ class Libgcrypt < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "170e800538f420a2e11b58cc8561b592b4cda07d5e6b76bd0edded6ef8d33192"
     sha256 cellar: :any,                 arm64_sonoma:   "4cb7e27bd6c2531421aff6abe9a232ec6b6b074d70661ae2b2131992bea42845"
     sha256 cellar: :any,                 arm64_ventura:  "7ed0f3acffe52376da207b2257249c899ebc5bf601f9d503e43092400a991e16"
     sha256 cellar: :any,                 arm64_monterey: "ea034d81eb942145882668557e02d7d18460628af5c272d065dabd5a762dccf7"

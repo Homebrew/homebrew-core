@@ -1,8 +1,8 @@
 class Taplo < Formula
   desc "TOML toolkit written in Rust"
   homepage "https://taplo.tamasfe.dev"
-  url "https://github.com/tamasfe/taplo/archive/refs/tags/0.9.2.tar.gz"
-  sha256 "0debff1ceede3ca57b0eed98b2dbfd3b2f32abb74a3e5942acb1357c2f249314"
+  url "https://github.com/tamasfe/taplo/archive/refs/tags/0.9.3.tar.gz"
+  sha256 "65510664071252541e66f603dc9aa04016c38d62299061419c95d3bffaa73125"
   license "MIT"
   head "https://github.com/tamasfe/taplo.git", branch: "master"
 
@@ -18,13 +18,14 @@ class Taplo < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "16ef0edc62e7d1ebb0bc30c97c6685b00cbbe0c6d69f35d4ba260b6150239156"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2459502c0142857600faf038bb8bf81611874807e2bd4e8bb73cd04a91733a09"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "894b1c0234ae49229ab11ff33cc461e81a4a8e8b7857bf2379bccfd46cb7934d"
-    sha256 cellar: :any_skip_relocation, sonoma:         "ce85a787ee246a3062cd7358e522a51bdac9bb44229a7c7cb8f0f54a6f004445"
-    sha256 cellar: :any_skip_relocation, ventura:        "3af02442ea74bed751355c875ea1fa5b666d6348bf7f87305485e07729f1d5ef"
-    sha256 cellar: :any_skip_relocation, monterey:       "737652b3ea0aaf42a5b0fcf0a219e37df4f1b39f8ff7070bf9c759930cbcb340"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fe7aec5f9d4d1dbfbda5c02aba68d2e03f4d2689a9cd8e0f6bd3bda656a30cd7"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "da36eb11dac5c0f350bb591c2b7ea79bdae70e404280a1264b416b68c49e9c16"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f866b21d8b368f7a9514e55c10ef5ab404a3a2ddd5acb0f49654637560cacdc4"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "67ca79bc3aa55e7bf9e4b9e58ef6e60156765d9d8b02f0e289de1cf8496212ca"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "280ebeecf1512ff5d7fc178b4286fcf25425e63c9c43aad7504262444a897968"
+    sha256 cellar: :any_skip_relocation, sonoma:         "9c17cc64bb627ac1c19defc9ccc611c4827b69722bd9a906373384ef66bf60ef"
+    sha256 cellar: :any_skip_relocation, ventura:        "ccda266bc89ec48f95c5b13f03d93cd1ebd46ad9f19fbbb6a7aa997b6d217e84"
+    sha256 cellar: :any_skip_relocation, monterey:       "ce4fb0fa18cc75c449de18061f8f1a43b89628e317e0a8df0474721b37805d0c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0be45406d8eace4a2e68edecbdc12343573bb1cc68da7caafe71c2218b38448e"
   end
 
   depends_on "rust" => :build

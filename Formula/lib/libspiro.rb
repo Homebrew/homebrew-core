@@ -1,22 +1,20 @@
 class Libspiro < Formula
   desc "Library to simplify the drawing of curves"
   homepage "https://github.com/fontforge/libspiro"
-  url "https://github.com/fontforge/libspiro/releases/download/20221101/libspiro-dist-20221101.tar.gz"
-  sha256 "5984fb5af3e4e1f927f3a74850b705a711fb86284802a5e6170b09786440e8be"
+  url "https://github.com/fontforge/libspiro/releases/download/20240903/libspiro-dist-20240903.tar.gz"
+  sha256 "1412a21b943c6e1db834ee2d74145aad20b3f62b12152d475613b8241d9cde10"
   license "GPL-3.0-or-later"
   version_scheme 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "d571e640cca9b461fd540bf4b0ee34bfe8d94e659061b0c025e95e08479d6c42"
-    sha256 cellar: :any,                 arm64_ventura:  "51c8921af221ce78f184e95a55a79e81d38fc1fa84abe2dc46625a57788e6b0e"
-    sha256 cellar: :any,                 arm64_monterey: "1e90fd585fcaa84a166d7a77c2ae5aeb97fd8692c98dc5b2f6952d9d9033bf9a"
-    sha256 cellar: :any,                 arm64_big_sur:  "d2d54755d2a1a15ab93350e6a74697357a7e7478f9a53e78d7c40b2c47fd9651"
-    sha256 cellar: :any,                 sonoma:         "501665be51496d3b753051529c9876aef0f9fe784a8b3841d757c70c9e0987e0"
-    sha256 cellar: :any,                 ventura:        "5721b7e65026b5a86e387c4f648925b6e9166825b158226fbfb6a4ce2387c2f4"
-    sha256 cellar: :any,                 monterey:       "946ef3d6e92c177e4456421353ed3090128d8eebca4630bcd8f1ee1cd4bb9b49"
-    sha256 cellar: :any,                 big_sur:        "f95068a1f9cb22591a2e37cb2b061199f8f624cbab15d743b1176438020fb119"
-    sha256 cellar: :any,                 catalina:       "a4487593a91bce4bdd4456bee4f3a31219d03ed1c6960e6d998d551e50e186df"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b4dfa30c267a3b79aa235c9569a0289ebce4cd3d8f0a570c4fc48fea840d9ff3"
+    sha256 cellar: :any,                 arm64_sequoia:  "ca6d88ca75e54af10d0342111a00a6bb3d2f6b5b80504a97d354c6b93ac114b9"
+    sha256 cellar: :any,                 arm64_sonoma:   "e7631acf319b2660d2ae284cb33084fd3eadcd99311192ef8fea522929e7868a"
+    sha256 cellar: :any,                 arm64_ventura:  "177d17bb91576650898dbdcc8de1676d83fb65131a0b5cf9b1972ab0b59d5503"
+    sha256 cellar: :any,                 arm64_monterey: "ef628c12ea5473facb76eba3200e60d71a3ef1282625bb876caabe6d85448df9"
+    sha256 cellar: :any,                 sonoma:         "993047020b74cfc6c22f4b7f6ccc71d177b76b0804729cdcc03af63ac5d9ffd0"
+    sha256 cellar: :any,                 ventura:        "92806cce5c7b5384bdbf277025d4b2b92bf9934b0c689f480bd4af25312fbf34"
+    sha256 cellar: :any,                 monterey:       "559b51f880b7392ceef800f586bdb5a0bca48dd2c1da24cde626f7a2b7d647e7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "27ecaaf681b49db47d118fe90a1fe0b9600dceb7b95f770233d8a218a67fe438"
   end
 
   head do

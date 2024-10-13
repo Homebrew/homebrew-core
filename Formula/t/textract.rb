@@ -9,6 +9,7 @@ class Textract < Formula
 
   bottle do
     rebuild 3
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "9d99fe84d6451dad89f286e0fd1b66279c5f33da07e712f51f6ab3cc51d7e719"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "28dc3b359e04b6aef1709e193f9d9f9ae624e036ceaf0b346f398286b9e6d8af"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "6ba581b23948e522b8b98ef0fd8347ae001157a6e2bfe179c53abc7f4a58c88f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "7e6d5d68ae37d5b7ddc85e6a4c0120e4275e16d834deb34c19bf9ed247c1e846"

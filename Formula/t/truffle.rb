@@ -1,5 +1,3 @@
-require "language/node"
-
 class Truffle < Formula
   desc "Development environment, testing framework and asset pipeline for Ethereum"
   homepage "https://trufflesuite.com"
@@ -8,21 +6,21 @@ class Truffle < Formula
   license "MIT"
 
   bottle do
-    sha256                               arm64_sonoma:   "591334d7e1f9933905e6d66abc5f11c80dc477c991559dc4a1eec8921cdafd4e"
-    sha256                               arm64_ventura:  "e6500d8c656acc698debd2bf71f07d066f3d8d519af39e6c7f4e7162c18ac550"
-    sha256                               arm64_monterey: "ffc2638a4a690d9eb22045d16d61fc365c42075608dcb297c48c6ab7461d4700"
-    sha256                               arm64_big_sur:  "52f39e675bdc15b89d03d6e12308f6438dcd96e40a349cd398c45da848a2e823"
-    sha256                               sonoma:         "b1257f21b1ffaaa5fe5216361f3713c460f305ac2641cfcc7403b9646d46c87d"
-    sha256                               ventura:        "b6b357828877823d3d474cd9c4bd6008328b1c111f4089eddbba2cb1c8798a65"
-    sha256                               monterey:       "4291e2238faa646201e16850404c1970a1de34d1ea794cb0011a4e452e02dd93"
-    sha256                               big_sur:        "a7dbb72f08ba81bb4580699ea23b55d9ebf031a9bed7c1f032f077e9736d545f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0ab14a38e62ada678dfff3ade0d31ad5d66f922c2a5851444259622e2248ca5a"
+    rebuild 2
+    sha256                               arm64_sequoia:  "faf61c11f0243979a4bed2ebccbfc71cd540b1d72faded9b7bbfc871bbd8ae74"
+    sha256                               arm64_sonoma:   "92ad4c83b95c30319d61cfe06957a32f10b288c01cbcc8fec77dd1377d2f53ad"
+    sha256                               arm64_ventura:  "7e859053402f47674c30baebf3b5aa05ad21609471ab14d222dd9aee2b62a3b4"
+    sha256                               arm64_monterey: "dc749938200b0b6aed95ac1103daf87ac555b729862e55767163936f0b1c26e8"
+    sha256                               sonoma:         "3f7dbf05369a67669711f1d7358446c46380a5caf38b599d1653156441d5e60e"
+    sha256                               ventura:        "7fda9c9211a1884fe42f87dcdfe896eb35d8e5dd332e324d0fb25230417e3c1a"
+    sha256                               monterey:       "ea609ec0150beda892f4bdad71aff910c78fbe91338798e8a6a65c37a0434f11"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9db01e2a5e1d9ab923419eafc7a0588dd02bca55f62310277838a41d4cc5c653"
   end
 
   depends_on "node"
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", *std_npm_args
     bin.install_symlink Dir[libexec/"bin/*"]
 
     truffle_dir = libexec/"lib/node_modules/truffle"
@@ -40,7 +38,7 @@ class Truffle < Formula
         else
           # Remove incompatible pre-built binaries
           dir.glob("*.musl.node").map(&:unlink)
-          dir.rmtree if dir.basename.to_s != "#{os}-#{arch}"
+          rm_r(dir) if dir.basename.to_s != "#{os}-#{arch}"
         end
       end
     end

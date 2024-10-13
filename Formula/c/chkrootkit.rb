@@ -12,6 +12,7 @@ class Chkrootkit < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "fe29a10c285df79b49a35471df0da20208774ec8436932cddc09e4bc2099a215"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7c24f28d8f90e8f0aa3eea0978e1f518dce8a288919927b24ebb5d77a6aa9121"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "bbd2dd4ac20e747293eedd01d9ccc8c9bfbd56d75b4cc269f33c9e3cd793ceda"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d7d9ddf16ed810c46ebc3aa73063bb35887722d115a317b5c4ab9d099c12bb82"

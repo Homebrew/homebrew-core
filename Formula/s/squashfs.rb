@@ -13,6 +13,7 @@ class Squashfs < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "e18983058459bb34a878aa55400fdb33fffe5dd01d7ed52601f8228cb1e3d8f2"
     sha256 cellar: :any,                 arm64_sonoma:   "21f37d4cd4db720d9c1f15ce0cad88397a816b7801f30d715cf2f28fc91df08d"
     sha256 cellar: :any,                 arm64_ventura:  "2d8bf130f1b58fa03252b6cccbab2f0d4ffa600b33996a40e61d91d73f7fd55f"
     sha256 cellar: :any,                 arm64_monterey: "6cef6a569617ae5135c3eb170ee09f7fea7736da13b953f2efb44d024e947a4e"
@@ -86,13 +87,13 @@ class Squashfs < Formula
 
     # Test mksquashfs can make a valid squashimg.
     #   (Also tests that `xz` support is properly linked.)
-    system "#{bin}/mksquashfs", "in/test1", "in/test2", "in/test3", "test.xz.sqsh", "-quiet", "-comp", "xz"
+    system bin/"mksquashfs", "in/test1", "in/test2", "in/test3", "test.xz.sqsh", "-quiet", "-comp", "xz"
     assert_predicate testpath/"test.xz.sqsh", :exist?
     assert_match "Found a valid SQUASHFS 4:0 superblock on test.xz.sqsh.",
       shell_output("#{bin}/unsquashfs -s test.xz.sqsh")
 
     # Test unsquashfs can extract files verbatim.
-    system "#{bin}/unsquashfs", "-d", "out", "test.xz.sqsh"
+    system bin/"unsquashfs", "-d", "out", "test.xz.sqsh"
     assert_predicate testpath/"out/test1", :exist?
     assert_predicate testpath/"out/test2", :exist?
     assert_predicate testpath/"out/test3", :exist?

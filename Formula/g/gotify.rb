@@ -1,19 +1,20 @@
 class Gotify < Formula
   desc "Command-line interface for pushing messages to gotify/server"
   homepage "https://github.com/gotify/cli"
-  url "https://github.com/gotify/cli/archive/refs/tags/v2.2.4.tar.gz"
-  sha256 "6a7adfb7910a29342b106f5e79d7bbbe955b268bb34c994ed3d31350ee62caa3"
+  url "https://github.com/gotify/cli/archive/refs/tags/v2.3.2.tar.gz"
+  sha256 "e3b798d89138fdbc355a66d0fc2ca96676591366460f72c8f38b81365bebe5ba"
   license "MIT"
   head "https://github.com/gotify/cli.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1377bb103cdc435951868b928ab8f1c940d08d8d187e5aa18ce06f8e122ec752"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c9298e8a450bfe79af36395869f09ac5dc6da0656e735bf2465527c2924a75e7"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c8d689fcd5e4f449a526a8e2c9a2a4cb0609d19fb0e2bd568a0889a7fece78fd"
-    sha256 cellar: :any_skip_relocation, sonoma:         "2677559d48fef384b532e425a2b00e2d6323dbbda9566183c258db300a0b3a8f"
-    sha256 cellar: :any_skip_relocation, ventura:        "10d48a803787baadf6fe9f8bfb5bb55b8377cd325080e4f411cc4b60ba4bd608"
-    sha256 cellar: :any_skip_relocation, monterey:       "bd6ee3e04f73e62ac0474ebc67cd385cc2e233753589c83f5810dbd56536aae1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9f60b21853ee118f5532cfa5f7fe36b99308c2b1127ca4bee142ca6a01a8cdab"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "b5118c65596ed810a05c95b3731c8c36a5a824dd7bfd380acb5f573944d13814"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "fd17f980e45205d7a3f690de4fe7992d555487acc023fa62e439f8222309307b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4bf1e3860bb0d1a53948e4174fce8d13cf505f56e3409a3ece711cd769fa3acc"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "2ab4cbb2a80a93e69b68e61ace5035653ad900319d01fe6399e4b2da8cfb440b"
+    sha256 cellar: :any_skip_relocation, sonoma:         "40afcc3ea3466ac846ea96f3c765b7df3fc54a0a51751aad7b73d2a3a1e77201"
+    sha256 cellar: :any_skip_relocation, ventura:        "0204c9cf61f9995f105044a97bef070f3d8b918f58d62c3a8a26b4d76319230a"
+    sha256 cellar: :any_skip_relocation, monterey:       "93c7095233c6bf440ea8d4aa8005af752c54127f393e40b116a70c58c685f794"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "815ef341c2802be6f1aca49fbd9a7fa040cd8e9971ccdb3df258e48cf67cafb5"
   end
 
   depends_on "go" => :build

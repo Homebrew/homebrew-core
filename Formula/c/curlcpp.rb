@@ -6,6 +6,7 @@ class Curlcpp < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "02d6013f6cebe3e32f938baf215bc25a97b6b20b04e7639f59f360f81c0984a1"
     sha256 cellar: :any,                 arm64_sonoma:   "a7d90c04040339eb2d284bb2c1510806df36bc0fa37ddd8445db1dd63e9e5016"
     sha256 cellar: :any,                 arm64_ventura:  "c3f9991c295224065b7df591bf5f28c1ec9247e16ebfa3318d20d99fcd20aa62"
     sha256 cellar: :any,                 arm64_monterey: "0e9dad877d6c11ed3243c0463f69daaeabe74dcd54ccf80dad016d85c5951546"

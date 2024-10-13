@@ -1,18 +1,17 @@
 class OsctrlCli < Formula
   desc "Fast and efficient osquery management"
   homepage "https://osctrl.net"
-  url "https://github.com/jmpsec/osctrl/archive/refs/tags/v0.3.7.tar.gz"
-  sha256 "39649f2db1b523293df2874dbfcb65840d3091c8341cc415d50ef53797cf994f"
+  url "https://github.com/jmpsec/osctrl/archive/refs/tags/v0.4.0.tar.gz"
+  sha256 "c6f0a1970c78c06c183756c26bddd11b142a004ff623e4546dc98446f7888e58"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "dfc288f90bd7bc332b3eb814e315267bf7734793f96b5fa2469c8a13a15e2271"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ab46a244d3040056210c4f3a8cb38ce7af0eac6e10a50bc77283a01e642c1e4b"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ef90c57682735d45f2d770fe9081bb35a9fd35253787c5070fbb0785263223b6"
-    sha256 cellar: :any_skip_relocation, sonoma:         "2e52648f1fe2e66bf3a95ac1e5bd7a33c71860002088b6c46a1721d9ac943eca"
-    sha256 cellar: :any_skip_relocation, ventura:        "4a9d2fbcf08b3fa1c2926f82704004c06fb5e7d39f66695bd30f91fe193f36d2"
-    sha256 cellar: :any_skip_relocation, monterey:       "729211505b74bd7b8292541a859538940de10cead814c32ba22a28edd459bd8b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "67c512a0dc81d04437f94ccdcebb57a54ab672185f8dab494c68710544fb70e1"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "742a060e252a041287f6303f3a2ce89987d97dca52a66fa47a0fabf92b772acb"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "742a060e252a041287f6303f3a2ce89987d97dca52a66fa47a0fabf92b772acb"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "742a060e252a041287f6303f3a2ce89987d97dca52a66fa47a0fabf92b772acb"
+    sha256 cellar: :any_skip_relocation, sonoma:        "72d7ef5029612fb328c8e4638228d4db4654fbec9b021e799979e3f25e4ee564"
+    sha256 cellar: :any_skip_relocation, ventura:       "72d7ef5029612fb328c8e4638228d4db4654fbec9b021e799979e3f25e4ee564"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ed0a44956ce7f35a83ae7669c89e563254ada2b23ad9872572dcb75813cfbab1"
   end
 
   depends_on "go" => :build
@@ -25,6 +24,6 @@ class OsctrlCli < Formula
     assert_match version.to_s, shell_output("#{bin}/osctrl-cli --version")
 
     output = shell_output("#{bin}/osctrl-cli check-db 2>&1", 1)
-    assert_match "failed to initialize database", output
+    assert_match "Failed to execute - Failed to create backend", output
   end
 end

@@ -12,6 +12,7 @@ class Tth < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "9de28731b96776948549eece755898c358e0df99e6078f8b6eb07baaa489efd9"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "85bba0ec3b07964610a39b5686c62e7ccb25a058b8883184061aaffe3fa55306"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "8a630245be3f0b2b1f83a21d6af1525ee257d6211bc1c6845e31ab398eae6767"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "2e2fb5e9595c2687fecaf6a24da03d4a97c53ed99621750aa9d76f66e6bd7271"
@@ -31,6 +32,6 @@ class Tth < Formula
   end
 
   test do
-    assert_match(/version #{version}/, pipe_output("#{bin}/tth", ""))
+    assert_match(/version #{version}/, pipe_output(bin/"tth", ""))
   end
 end

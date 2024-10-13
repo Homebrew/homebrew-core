@@ -3,6 +3,7 @@ class Mhash < Formula
   homepage "https://mhash.sourceforge.net/"
   url "https://downloads.sourceforge.net/project/mhash/mhash/0.9.9.9/mhash-0.9.9.9.tar.gz"
   sha256 "3dcad09a63b6f1f634e64168dd398e9feb9925560f9b671ce52283a79604d13e"
+  license all_of: ["LGPL-2.0-or-later", "LGPL-2.1-or-later", "GPL-2.0-or-later"]
 
   livecheck do
     url :stable
@@ -10,6 +11,7 @@ class Mhash < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "f9b2ec3b67100dfe39ef4bb32671b26b5dbff6044b02ddae177b9bb1429ae036"
     sha256 cellar: :any,                 arm64_sonoma:   "d9cc9da019d2ce0fe3aab219247d9ebd9f2fb744af69871d13dc97925e0e7295"
     sha256 cellar: :any,                 arm64_ventura:  "63173c41e68e4510a36b6c3301d8f556a5c15010bff40258853f4ec735c74c68"
     sha256 cellar: :any,                 arm64_monterey: "f4f6e0a5a12cde078c2397874e309565d84a5599cbad4d5772ee13131deba98e"

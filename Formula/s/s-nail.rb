@@ -18,6 +18,7 @@ class SNail < Formula
   end
 
   bottle do
+    sha256 arm64_sequoia:  "38bef1a5706829568846930febb7f0544d2ae65bf05bc099e3d0d0cec63ab89e"
     sha256 arm64_sonoma:   "84aaf90c9666df6a015cacc2e9f7598bebe010904e7c67432a7cd647ceaf22f3"
     sha256 arm64_ventura:  "d12aaf7bef7b6b6df01c85628df68acee52d95a6581c6f10c1f4cf3e8e88ec86"
     sha256 arm64_monterey: "64a71a850ff155293b889b74aaf448cafd3a7cb0e4dbf5e907374cf3be97073d"

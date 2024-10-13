@@ -78,8 +78,9 @@ class Openmodelica < Formula
   end
 
   test do
-    system "#{bin}/omc", "--version"
-    system "#{bin}/OMSimulator", "--version"
+    system bin/"omc", "--version"
+    system bin/"OMSimulator", "--version"
+
     (testpath/"test.mo").write <<~EOS
       model test
       Real x;

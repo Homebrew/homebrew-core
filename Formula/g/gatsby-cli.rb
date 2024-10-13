@@ -1,5 +1,3 @@
-require "language/node"
-
 class GatsbyCli < Formula
   desc "Gatsby command-line interface"
   homepage "https://www.gatsbyjs.org/docs/gatsby-cli/"
@@ -8,13 +6,15 @@ class GatsbyCli < Formula
   license "MIT"
 
   bottle do
-    sha256                               arm64_sonoma:   "93e8f4c67f5e0ab8914bbc762a37c6f21dc6795b1962273d1c2954778e61fcb7"
-    sha256                               arm64_ventura:  "4af3f7d83f71ba6be1011f33c0d401cec382f5e4f6ef47cdd6da230f849c2238"
-    sha256                               arm64_monterey: "7de68bc0f132452013a46b0f1c3bcedeff429d80e6cd4784a4d1996b8a34da71"
-    sha256                               sonoma:         "30507a2a4f791c8de4282012cb752822a46e7fe98f27db441c86d3cda10c2a39"
-    sha256                               ventura:        "b4b496ab46b78d0980a5b5555b4cbd4dc41c10ef7dae267dee8d4cc82ca2a727"
-    sha256                               monterey:       "71bab880233972938f092c4420aa4abdbbbc88c48504fb403df161fc3a1e40d7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8a83fd61a35c2e589e0f4f07d8f3ac1caa00076c4304b1bc193e687c2b49662b"
+    rebuild 1
+    sha256                               arm64_sequoia:  "f7db10ee18620b1843ff8cd40dab82efe76c49c28f9cb9be0fd4c09c5dd4f010"
+    sha256                               arm64_sonoma:   "b8fe2d5de1dd51bad67a53ebe805254ebd9e503a98c9812a16236eeef69c08e0"
+    sha256                               arm64_ventura:  "5d245f32ae46a4fa1592417d2cf745c4a7446c3546991ab494e3f27ff6416086"
+    sha256                               arm64_monterey: "25049c42733ca1a7df09263eccbcdf1be5545c41d81c33ca5b42979f1e34bc33"
+    sha256                               sonoma:         "20a2a322dc10ed9a59548605a0887b4f924c69fbf654bc1dc353b7d911b5d107"
+    sha256                               ventura:        "78b5062144fe068949bd4ee0bad05d93969f1b8cee88dc936411bfa95da06b9b"
+    sha256                               monterey:       "85597b5631817d7ee9f5d37b36f20666b756909dc0f9057a5c35a8019784a42c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "42e95da9728038e6b7a8a8916700f4853f1157703a90c3cc6e99c6a887e1f624"
   end
 
   depends_on "node"
@@ -24,7 +24,7 @@ class GatsbyCli < Formula
   end
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", *std_npm_args
     bin.install_symlink Dir[libexec/"bin/*"]
 
     # Remove incompatible pre-built binaries
@@ -39,7 +39,7 @@ class GatsbyCli < Formula
     end
 
     clipboardy_fallbacks_dir = node_modules/"clipboardy/fallbacks"
-    clipboardy_fallbacks_dir.rmtree # remove pre-built binaries
+    rm_r(clipboardy_fallbacks_dir) # remove pre-built binaries
     if OS.linux?
       linux_dir = clipboardy_fallbacks_dir/"linux"
       linux_dir.mkpath

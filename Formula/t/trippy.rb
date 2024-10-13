@@ -1,25 +1,26 @@
 class Trippy < Formula
   desc "Network diagnostic tool, inspired by mtr"
   homepage "https://trippy.cli.rs/"
-  url "https://github.com/fujiapple852/trippy/archive/refs/tags/0.10.0.tar.gz"
-  sha256 "3dd15f6219b9b18da773c7af48e8bf35dec581975742ada5b3d930a1642a73d8"
+  url "https://github.com/fujiapple852/trippy/archive/refs/tags/0.11.0.tar.gz"
+  sha256 "2745d5b02b32bc9de8944ec9c37f27c5dea4c5dedb2b0a9b969e515f2aafdf84"
   license "Apache-2.0"
   head "https://github.com/fujiapple852/trippy.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "94d0e4337ad2b2789c27706bd7d794946c66bc3d9107b711439d183cdf3889bc"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e9b1375a41aadd51727978890690e8148f731663a1d60ced7ad04293f6f91df7"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a5ec6faf9c22e407da85a2e1e74cc7b47c5b0f15be6cd7bb8e12472d51ba1339"
-    sha256 cellar: :any_skip_relocation, sonoma:         "8360b6300af514aba82a09d5b346132711bd1bd6605d861eff24286fa8fe5581"
-    sha256 cellar: :any_skip_relocation, ventura:        "91dd4c75e182e9421efa9fc49f63da8c160c82f71b7073b581212eba11b82315"
-    sha256 cellar: :any_skip_relocation, monterey:       "d4dc112315b997a9c1b83ad02fda511f0aa636f356ff93bdca096b85dbd32435"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4061342b19b5ca0cfff66bac80187303e6d207abadd3f085c448d395d710d2b5"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "b931aba2b55ec4a741cb5a57998888bcaef264b2491ac28d53bb0bcd5caa7c7b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "370b96d59fd465ec7a8a5c39fef98f6b88be6873a2671518b8819809a060c704"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a60acd7116fed2c316bafbd8647363e7b37fafe80428e729f506c2dc4ca896a8"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "38222938365a3a786f621ce9af1672d5fbd53a60887e29c62c661787245e1a7c"
+    sha256 cellar: :any_skip_relocation, sonoma:         "cefe35c2de58594c77918734e998e332e27a62efde1c02069e98c548d22b65a1"
+    sha256 cellar: :any_skip_relocation, ventura:        "a50a74be065ee5cef0d82854a20536c19a9c536933d884b99675d04777a7adb3"
+    sha256 cellar: :any_skip_relocation, monterey:       "dfc782754039b753ebfd7e43d3a154e3182cbd56a791a0235f3a7ccde7fb3ec2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2703305f12b597d0829b02f99c9a2f839b9706d08996df206b60a921c1e3c721"
   end
 
   depends_on "rust" => :build
 
   def install
-    system "cargo", "install", *std_cargo_args
+    system "cargo", "install", *std_cargo_args(path: "crates/trippy")
   end
 
   test do

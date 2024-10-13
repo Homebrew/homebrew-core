@@ -12,6 +12,7 @@ class MdaLv2 < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any,                 arm64_sequoia:  "03b6f32b385004d948a37114897d206e9a879834820b54316c755c637ebdabbf"
     sha256 cellar: :any,                 arm64_sonoma:   "c2da908303e1eae13da7cc9cb09cd25664d3fd4a35d49453aa8017337cd5fb3d"
     sha256 cellar: :any,                 arm64_ventura:  "f0e9e93e3e7d6a66b7a8a123e23e41a722443899a30351938dc98bdf5f37f4ec"
     sha256 cellar: :any,                 arm64_monterey: "858cb75b9d207ea3a38a0f3752a1976bfd0c9f8bebb5f69581c9c5d0e1ea4252"

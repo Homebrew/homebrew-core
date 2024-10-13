@@ -7,6 +7,7 @@ class Cppi < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "ad3274881902eed64b3d3a8d0c846e7dcb09e13d6dd972551de0cc2fa09f89a0"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "60bcb5a1dba625e152384d1dfbcebbec2bfc552a6744a42ac8c9131a50d22f51"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "95ef8763f3cea6d0b2e699b1a7a0fcfbc8a60e568ee6d2587927b591b772940f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "bbc7be8b21e6ba9f0f4eec49b22f43f5900af2628c8437c5b14e235169a8c22d"
@@ -38,7 +39,7 @@ class Cppi < Formula
       #include <homebrew.h>
       #endif
     EOS
-    assert_equal <<~EOS, pipe_output("#{bin}/cppi", test, 0)
+    assert_equal <<~EOS, pipe_output(bin/"cppi", test, 0)
       #ifdef TEST
       # include <homebrew.h>
       #endif

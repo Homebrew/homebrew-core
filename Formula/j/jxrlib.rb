@@ -18,6 +18,7 @@ class Jxrlib < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "e7aae93b96e812a888ab0a4da737a40fef17bb389a7e3bcc5106ff81c33a7841"
     sha256 cellar: :any,                 arm64_sonoma:   "437e4ba50db36d58d3c043f6a3a1e34939f0e80f1318160d9d142da27f222e47"
     sha256 cellar: :any,                 arm64_ventura:  "a81a86a6bc199eac66b8c9ae3b40a942c2acd8986b2c901e165f2ebb99e466f1"
     sha256 cellar: :any,                 arm64_monterey: "2faf5cbf70c5f9fc6d93dd9449b53db9304bbfcb73a48bf58e935f5cee6f9939"

@@ -16,7 +16,8 @@ class RustcCompletion < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "c4f9d8b0d48e56ed56ccf9a3124dda1868afc003326defce3e9d6ededc7b4468"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "25c56cce81d2dbed3850ae8bcfc984a605ce5e734bacb82aefece825e896b9db"
   end
 
   def install

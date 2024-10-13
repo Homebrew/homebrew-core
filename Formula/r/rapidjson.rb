@@ -7,8 +7,8 @@ class Rapidjson < Formula
   head "https://github.com/Tencent/rapidjson.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "97a2dc11fc6d7359450d3bee8c9b06b4ad1f141ea23b2b1b57eae9f9c9bcb0cf"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "b16b08efb12ae55a25ac840b757e8cb8cb6cdcdfca37004e1f864f753960e40a"
   end
 
   depends_on "cmake" => :build

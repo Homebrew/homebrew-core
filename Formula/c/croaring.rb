@@ -1,19 +1,18 @@
 class Croaring < Formula
   desc "Roaring bitmaps in C (and C++)"
   homepage "https://roaringbitmap.org"
-  url "https://github.com/RoaringBitmap/CRoaring/archive/refs/tags/v4.1.0.tar.gz"
-  sha256 "0596c6e22bcccb56f38260142b435f1f72aef7721fa370fd9f2b88380245fc1d"
+  url "https://github.com/RoaringBitmap/CRoaring/archive/refs/tags/v4.2.1.tar.gz"
+  sha256 "3514728e9eb8c90dbc00a9e337302eb458c65be2f9501a3e882d051599c4a74c"
   license "Apache-2.0"
   head "https://github.com/RoaringBitmap/CRoaring.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8c29bc3895233843f3f1b922d2100cd88d40ce12463521f3d2400106477c3131"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "701f03e1e3473e0949afb2a97e8fdc7fe2e657dd5ea01949b7b1979c1e0822f8"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f07fb4fb72da8497959e0457f9b9a2bc48b8ebb554e1239c594a394125ee51c9"
-    sha256 cellar: :any_skip_relocation, sonoma:         "dec51a6108c44466f81d22576a1e0763c4a3ebc2b11a698bd4b63e634a559b04"
-    sha256 cellar: :any_skip_relocation, ventura:        "439559adeb43418d7467182d6db9c47954e93fa4ac17baa1359e5f88fea626d7"
-    sha256 cellar: :any_skip_relocation, monterey:       "f3a41f0a100551bc8d333ac009adf142d50d7ff4e64dcf3b59256029f57ef2c4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d12ae1220a35115189295dc3179a1b5127d7aea06f1c160d38b135d325fb8e47"
+    sha256 cellar: :any,                 arm64_sequoia: "e974350f88d48b01a67889db048adc10afedc58b30bbd7b0ff1713caa5e3593e"
+    sha256 cellar: :any,                 arm64_sonoma:  "ddc34aa730264ea9dd5888b5ad4921d274b689800b8f7d34d92e88ff49b3e23a"
+    sha256 cellar: :any,                 arm64_ventura: "37cdf56f107ffce5f8e057ed7af3e3fccc858cba7186a8a34245baccc8e83d81"
+    sha256 cellar: :any,                 sonoma:        "7d80e56d7ddac82b599a7294d46675be1ba649551512df0d1f3ae83b91d52457"
+    sha256 cellar: :any,                 ventura:       "5edef7cff1281ddf4bad1334417073a514072c1e927a319f280bcd298e2e7480"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "64d7133a9ff1cc475fb901116c344424df59b73f396de49804da23b72a37db6a"
   end
 
   depends_on "cmake" => :build
@@ -21,7 +20,9 @@ class Croaring < Formula
   def install
     system "cmake", "-S", ".", "-B", "build",
                     "-DENABLE_ROARING_TESTS=OFF",
-                    "-DROARING_BUILD_STATIC=ON",
+                    "-DROARING_BUILD_STATIC=OFF",
+                    "-DBUILD_SHARED_LIBS=ON",
+                    "-DROARING_BUILD_LTO=ON",
                     *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"

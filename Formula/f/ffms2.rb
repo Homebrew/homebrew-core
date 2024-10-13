@@ -7,6 +7,7 @@ class Ffms2 < Formula
   # The FFMS2 source is licensed under the MIT license, but its binaries
   # are licensed under the GPL because GPL components of FFmpeg are used.
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/FFMS/ffms2.git", branch: "master"
 
   livecheck do
@@ -15,20 +16,21 @@ class Ffms2 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "95cb1629607cc749fbb2539b42d859e18d8324a98fec677c95915bf1059d3398"
-    sha256 cellar: :any,                 arm64_ventura:  "379c741a8043b236ee007ea7a135a1c337e92f790c1496d1d9c72c6439ae5db6"
-    sha256 cellar: :any,                 arm64_monterey: "8a2b14cdb1755b0e19878ada11e8c13d86235e4acfdbac3c79a5f65422bacc11"
-    sha256 cellar: :any,                 sonoma:         "42e9ceb2071f6e3b545540e54137b0706654ec7564fe89778ac0a7178ddb45bf"
-    sha256 cellar: :any,                 ventura:        "765b489b7d023cb5518d390e48e5499d115d487a4fbddc7a120be1002279a638"
-    sha256 cellar: :any,                 monterey:       "dc2780271ad98a3f7499d056064fc9e95cc4dde8e2bafa61c03c237de73bde9d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bf354f0c181a7467b964788baf63363a4bdbea743da40fd725965ada086d4b3a"
+    sha256 cellar: :any,                 arm64_sequoia:  "03575bd3c5cd87878dc46b92f96f7e0b16ceca81b69492d2968cf596ad93778e"
+    sha256 cellar: :any,                 arm64_sonoma:   "13954ff5340289c90c5db2366c1893cd48b30c62a65625df74a8df0e3340a891"
+    sha256 cellar: :any,                 arm64_ventura:  "64fc6597466170a7d8c595ab3a3c9b56005f5a47c571111944012aa7dbd1e047"
+    sha256 cellar: :any,                 arm64_monterey: "563a1537a4c8573205e5ca1bdaf03928c5dac901ecbdd9a2a85b6a51a300e2a1"
+    sha256 cellar: :any,                 sonoma:         "8d659a7c438d83d9894c177e6f3b66aaf77535732761f9fc8db04aa4c2837f6a"
+    sha256 cellar: :any,                 ventura:        "5fd68b4056bbc5a74134479eff08729bbb9cc0c3bcd0f4917236feaea232ae62"
+    sha256 cellar: :any,                 monterey:       "61cd167e26cca0414ba2d91c7d09a2a9cd7056e845dc67b1f3136ebddb28abd3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0c34b82acbfacbdddbf99efb5fd55d7b6e2d27498f76e62f354d275af69da706"
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
-  depends_on "ffmpeg@6"
+  depends_on "ffmpeg"
 
   uses_from_macos "zlib"
 

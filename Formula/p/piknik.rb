@@ -7,6 +7,7 @@ class Piknik < Formula
   head "https://github.com/jedisct1/piknik.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "90b49184f4c9e4452340c534682d3d53d9d68df3d599222384a29ca7c1e4b454"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1fa42c88345003d888aaac97e08272e03348766992a383fb875039b39cbb99c4"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "ad21c6f5534120bf7b51f809e0441ed40d6c1647fd3df8ae5324f44b4b11d04f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "3b11a027946eda7b8937861f4458d6d0a8e320fb297fa44ea8a84883e5614b9f"
@@ -46,14 +47,14 @@ class Piknik < Formula
     lines = genkeys.lines.grep(/\s+=\s+/).map { |x| x.gsub(/\s+/, " ").gsub(/#.*/, "") }.uniq
     conffile.write lines.join("\n")
     pid = fork do
-      exec "#{bin}/piknik", "-server", "-config", conffile
+      exec bin/"piknik", "-server", "-config", conffile
     end
     begin
       sleep 1
-      IO.popen([{}, "#{bin}/piknik", "-config", conffile, "-copy"], "w+") do |p|
+      IO.popen([{}, bin/"piknik", "-config", conffile, "-copy"], "w+") do |p|
         p.write "test"
       end
-      IO.popen([{}, "#{bin}/piknik", "-config", conffile, "-move"], "r") do |p|
+      IO.popen([{}, bin/"piknik", "-config", conffile, "-move"], "r") do |p|
         clipboard = p.read
         assert_equal clipboard, "test"
       end

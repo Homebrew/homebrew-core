@@ -11,6 +11,7 @@ class Cln < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "2279ade96381f9ac79cf40c1e29b2ea4fc998a25895b54a7fc0f77cc72d1782d"
     sha256 cellar: :any,                 arm64_sonoma:   "128ed65c291ea5059320c7618340ca04b5a59126a36b6e22de91622175d62339"
     sha256 cellar: :any,                 arm64_ventura:  "c47f98e423d29abd0de4bb322a4587817db8652d09909b07ec2eff44ff08b0fa"
     sha256 cellar: :any,                 arm64_monterey: "a7a3af1288376ee0313842c9212c7e33743fcb6d8d17df95348d5360ea657d9c"

@@ -7,6 +7,7 @@ class Vde < Formula
   head "https://github.com/virtualsquare/vde-2.git", branch: "master"
 
   bottle do
+    sha256 arm64_sequoia:  "1e3ffe05a0f354b3909f74d3374fc036156c438147f5ac8dd34a8f747071e9f8"
     sha256 arm64_sonoma:   "3d2231810ad7229ba6a68178d648ab1f13bdfe50b214cb2d299d644d66e03762"
     sha256 arm64_ventura:  "982a56825cbd1bd374001330e3492e83a1d82825ed7228d33705ffad3b927e8e"
     sha256 arm64_monterey: "0cd674a5b677c8e4deb2735884366f6a384b0867aa7483e7293e361cbaab350e"
@@ -30,6 +31,6 @@ class Vde < Formula
   end
 
   test do
-    system "#{bin}/vde_switch", "-v"
+    system bin/"vde_switch", "-v"
   end
 end

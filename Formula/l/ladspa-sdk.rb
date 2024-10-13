@@ -11,8 +11,8 @@ class LadspaSdk < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 x86_64_linux: "da76569f843d73b4ef572e9956f936ee65ae2b7325a2da00a90d39642454d434"
+    rebuild 2
+    sha256 x86_64_linux: "f05cf54a06c2c0e50295cd52f63f5fc096a5812470e0a3248c790c228cd5db8f"
   end
 
   depends_on "libsndfile"

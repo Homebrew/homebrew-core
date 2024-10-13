@@ -3,9 +3,11 @@ class Wdc < Formula
   homepage "https://cloudpolis.github.io/webdav-client-cpp"
   url "https://github.com/CloudPolis/webdav-client-cpp/archive/refs/tags/v1.1.5.tar.gz"
   sha256 "3c45341521da9c68328c5fa8909d838915e8a768e7652ff1bcc2fbbd46ab9f64"
+  license "curl"
   revision 1
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "2366db8bc76ff72d3237f9f5de3b9f2a714e247fcb104e96357a7a0ff5ec0cb1"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d2e092c3df85fc7ebb07e6ac2f0b7a19fea8a9366733fb9eb8b04a7f629c40e1"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "4bf82be52c38f175bcfbf0e4bd06af35bfadc8c9f5d59efcb7e40a9afbaca0ca"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "89c0f41a2fb78d5f63e5242652f8a7b5e14991b0ae04949b46ad73d09690f179"

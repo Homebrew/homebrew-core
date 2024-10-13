@@ -1,19 +1,19 @@
 class Weechat < Formula
   desc "Extensible IRC client"
   homepage "https://www.weechat.org"
-  url "https://weechat.org/files/src/weechat-4.3.5.tar.xz"
-  sha256 "e6dbc4c832da5c5b85e496fefc15237fbbe2a8f7ba2fbe81ee071dc0c66b4be3"
+  url "https://weechat.org/files/src/weechat-4.4.2.tar.xz"
+  sha256 "d4df289a9c5bca03a6d4fae006e52037064ef03bad6fbe959c538f3197434dec"
   license "GPL-3.0-or-later"
   head "https://github.com/weechat/weechat.git", branch: "master"
 
   bottle do
-    sha256 arm64_sonoma:   "ab70eb9c68cba4494a9df1a94ab835a634e41f5e81851efde93ac27850beda04"
-    sha256 arm64_ventura:  "80d8b850d77efeddd210c32023bed60e50e8a301f156e887e7e93ea0c5c7d6d4"
-    sha256 arm64_monterey: "927cd5e5279204f34a1ccbdc10c93147c3a25dedea96fe47d1f813317b2015c2"
-    sha256 sonoma:         "eb03de462230bc6fcec5b2ab9a180b78def0584760fed6fc1daeda6bd1f69ea7"
-    sha256 ventura:        "b72899bbef5031af14573309dbc54b64ed48f4405b24fac1595bf6cc8dd7f472"
-    sha256 monterey:       "eb892dfef7893fad909d6579889790b97ad4018f5d8b21320c7b96de0a054c4a"
-    sha256 x86_64_linux:   "b43ee6aed5cad62a5660c6cd17171f960b43d8c72a73ff91a0757454b7479b79"
+    rebuild 1
+    sha256 arm64_sequoia: "414ec5dbac1074369636c3abf3f63bd55eebf2aaa27cc1da1843a30a83794f5e"
+    sha256 arm64_sonoma:  "f3e1dc302a9662e1fb11ff5231a202a6b103fa682e35c758148d5450f1c4b564"
+    sha256 arm64_ventura: "c06b518c8f0863961f92d9f534892fb8e2d011bea9f95509ced75b76211834ba"
+    sha256 sonoma:        "b017f4c2c74e7d56dbe6c17e24bbe2d2d54b42bb0512e3ae5e1b86846d7683a1"
+    sha256 ventura:       "01e96a9d1400742e0cd922c9cda4af40dc9bb35b5628057613f5e8bb0705dc03"
+    sha256 x86_64_linux:  "bec747add7e5341a1f76711402538da57090812daad10276f7d745e6bf86bcb4"
   end
 
   depends_on "asciidoctor" => :build
@@ -27,7 +27,7 @@ class Weechat < Formula
   depends_on "lua"
   depends_on "ncurses"
   depends_on "perl"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
   depends_on "ruby"
   depends_on "zstd"
 
@@ -40,7 +40,7 @@ class Weechat < Formula
   end
 
   def python3
-    which("python3.12")
+    which("python3.13")
   end
 
   def install
@@ -67,6 +67,6 @@ class Weechat < Formula
   end
 
   test do
-    system "#{bin}/weechat", "-r", "/quit"
+    system bin/"weechat", "-r", "/quit"
   end
 end

@@ -11,6 +11,7 @@ class ExactImage < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "5547398e3385e3d81258ff62723ab69598bf9d22d09837c71e176c6dd1124d75"
     sha256 cellar: :any,                 arm64_sonoma:   "6080a2fb1a62a57b5593cb549a93c038aa4eab44175a534e1ed4878d9ee2f804"
     sha256 cellar: :any,                 arm64_ventura:  "20317cde1b2c2c9478ee7dd8b35a68f1d3b3360b36362af190a3323cb5429cd8"
     sha256 cellar: :any,                 arm64_monterey: "a11e0789738c798fc3cf6785353e023e4e27b0328aa7ccb5dd63c39b988a0691"
@@ -38,6 +39,6 @@ class ExactImage < Formula
   end
 
   test do
-    system "#{bin}/bardecode"
+    system bin/"bardecode"
   end
 end

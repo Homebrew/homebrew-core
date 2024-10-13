@@ -4,6 +4,7 @@ class Tinycdb < Formula
   url "https://www.corpit.ru/mjt/tinycdb/tinycdb-0.81.tar.gz"
   sha256 "469de2d445bf54880f652f4b6dc95c7cdf6f5502c35524a45b2122d70d47ebc2"
   license :public_domain
+  revision 1
 
   livecheck do
     url :homepage
@@ -11,18 +12,37 @@ class Tinycdb < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "84a0722cb1e3e74c5771ddf3e58ec4c6181baac4705e9d8c824b5c1a943b7b29"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b56128230eae3a7c00d7673e75878e87b17c29a1a417934f8f70e20d7672adff"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f3c14e7e96bf04a5732dbe8f3004368a95cfcfb5e8f9cc3efad43b8d4eb39982"
-    sha256 cellar: :any_skip_relocation, sonoma:         "244ae0d966d0d1ccd93c3a9c23983865a89cf4da0859a87fc84021ca56ad55b8"
-    sha256 cellar: :any_skip_relocation, ventura:        "d15dfde4eaf2332e3a362020c1a46eebc4aadb429bb08650f094c26d49e39601"
-    sha256 cellar: :any_skip_relocation, monterey:       "90dcf17edde006c16827865c1448fcb9a6c0bf1eee39eca0be8e41253fc0031d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d208e49ab4a661837a4490712ad50e7cbca6b240cbf9e91b4d8989d113707cfe"
+    sha256 cellar: :any,                 arm64_sequoia: "680cfcfc325b233fe7340563af3250740568b8a3689fae20f477e108ed673a8e"
+    sha256 cellar: :any,                 arm64_sonoma:  "345b0faa2f7c6d23974d5c2428eb7961fbf0934a5064e39f1d957469c6ca491c"
+    sha256 cellar: :any,                 arm64_ventura: "29a4f84b5a7f2f4eeb6301260a9dd6dc063428a9550bb646b526c3cca3d96565"
+    sha256 cellar: :any,                 sonoma:        "00517e16683f21a47b6f985fd00927be4fca3c501aa34e445008aad1f9bbf7ea"
+    sha256 cellar: :any,                 ventura:       "c803d0c447413f5d29e43172e75c6a6ac54f6b23b2c85c469e1d0a2930932b95"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e936f20c0ba2216f0ead62448ee2793eb96181c32bb381b9f3207e34e3ce46b5"
+  end
+
+  def libcdb_soversion
+    # This value is used only on macOS.
+    # If the test block fails only on Linux, then this value likely needs updating.
+    "1"
   end
 
   def install
     system "make"
     system "make", "install", "prefix=#{prefix}", "mandir=#{man}"
+
+    shared_flags = ["prefix=#{prefix}"]
+    shared_flags += if OS.mac?
+      %W[
+        SHAREDLIB=#{shared_library("$(LIBBASE)", libcdb_soversion)}
+        SOLIB=#{shared_library("$(LIBBASE)")}
+        LDFLAGS_SONAME=-Wl,-install_name,$(prefix)/
+        LDFLAGS_VSCRIPT=
+        LIBMAP=
+      ]
+    end.to_a
+
+    system "make", *shared_flags, "shared"
+    system "make", *shared_flags, "install-sharedlib"
   end
 
   test do
@@ -50,5 +70,15 @@ class Tinycdb < Formula
     EOS
     system ENV.cc, "test.c", "-L#{lib}", "-lcdb", "-o", "test"
     system "./test"
+    return unless OS.linux?
+
+    # Let's test whether our hard-coded `libcdb_soversion` is correct, since we don't override this on Linux.
+    # If this test fails, the the value in the `libcdb_soversion` needs updating.
+    versioned_libcdb_candidates = lib.glob(shared_library("libcdb", "*")).reject { |so| so.to_s.end_with?(".so") }
+    assert_equal versioned_libcdb_candidates.count, 1, "expected only one versioned `libcdb`!"
+
+    versioned_libcdb = versioned_libcdb_candidates.first.basename.to_s
+    soversion = versioned_libcdb[/\.(\d+)$/, 1]
+    assert_equal libcdb_soversion, soversion
   end
 end

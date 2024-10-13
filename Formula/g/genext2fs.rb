@@ -6,6 +6,7 @@ class Genext2fs < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "cc9fdd7364d47e9a525a63f18f8556678f95c84785aafa586cfd3ccf22ae29cf"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "77fe02e5ebd064e2a70deb8e2a69dbc105f5f7535c7a01cf599575856b02940e"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "566e773ad73882df019f3b1963a37837e22db06d6b1f622da0187fbf0b86244d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "0800a81e18bda856d6aa1ab72aaa8587d43ea589fbfa41ecc14c6eba40bb8356"
@@ -34,7 +35,7 @@ class Genext2fs < Formula
   test do
     rootpath = testpath/"img"
     (rootpath/"foo.txt").write "hello world"
-    system "#{bin}/genext2fs", "--root", rootpath,
+    system bin/"genext2fs", "--root", rootpath,
                                "--block-size", "4096",
                                "--size-in-blocks", "100",
                                "#{testpath}/test.img"

@@ -1,8 +1,8 @@
 class Spot < Formula
   desc "Platform for LTL and ω-automata manipulation"
   homepage "https://spot.lre.epita.fr"
-  url "https://www.lrde.epita.fr/dload/spot/spot-2.12.tar.gz"
-  sha256 "26ba076ad57ec73d2fae5482d53e16da95c47822707647e784d8c7cec0d10455"
+  url "https://www.lrde.epita.fr/dload/spot/spot-2.12.1.tar.gz"
+  sha256 "5477c08d4e1d062f164c2e486a83556925d07d70f2180de706af7aa949c6ff5c"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -11,13 +11,12 @@ class Spot < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "e4c76f482118ead7179f160c066dfdf0ab3a2e1c7d00b2c90c00278921ab527f"
-    sha256 cellar: :any,                 arm64_ventura:  "0820204a038373d059598cc87c0e65a9302abff79d89fe16b8726d746b6d06a8"
-    sha256 cellar: :any,                 arm64_monterey: "af8c2ecf6ccf310913e30dd943b3020814adb5fd771e2884471f4b26e64c478b"
-    sha256 cellar: :any,                 sonoma:         "ceefbedede95d7a74cecdce0b0c0616c3130a5fe72094be2590b37f0522d87f3"
-    sha256 cellar: :any,                 ventura:        "b263cfe52f46515fb7ed5cf8bb60a480135bc3ba75e4cb167da98c456f648e54"
-    sha256 cellar: :any,                 monterey:       "6c7200f7ad180a1a54caa6b19380c53934f7e6697a9891916a0b8945d3115992"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2729262b1b52510bf7f256f7d54bbb7b4a99e820c19f718947785ad33b541a72"
+    sha256 cellar: :any,                 arm64_sequoia: "01d1ac07f4a1bf163dcbfd6ae3afe55e043fae1e0d1fc962ff1f09a9e03d8c1b"
+    sha256 cellar: :any,                 arm64_sonoma:  "ed49be41281df5dd496cade6dd2c8ff4ee1d3b643f5d3a62d89680e7ae227790"
+    sha256 cellar: :any,                 arm64_ventura: "0d50f5e1859224e180115300d041298bd456f7e13b661f48129e3525d8c24773"
+    sha256 cellar: :any,                 sonoma:        "7e8da640c93b94394c0e83b0566e97d328499748c29e9afd944fb0f7cacfbf23"
+    sha256 cellar: :any,                 ventura:       "310fe4d8351581ae79291aa7fab20af5fc9db374324133363f98db39c2f439f3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7cf4d03cbb661f19e3c654305363fe7209982b24896ca63ac421789c8d6e9724"
   end
 
   depends_on "python@3.12" => :build

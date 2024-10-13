@@ -7,6 +7,7 @@ class Libtcod < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia:  "b2c555de7f9465b453c278c706c9da6a43d7d903e8fda2b013a4c03ff209b938"
     sha256 cellar: :any,                 arm64_sonoma:   "d8385601d9030f40b547ef423f77d33ae522de513e64057a99efbe8c7c48a54b"
     sha256 cellar: :any,                 arm64_ventura:  "f7d1c2301eff1200bb7172cd81dcfd7d564b529a4381f0cf1146c8a541523dad"
     sha256 cellar: :any,                 arm64_monterey: "2b092c9be43872f96b312cfa9065db010719bbf263f78ab99d21bc0c585d8c1e"

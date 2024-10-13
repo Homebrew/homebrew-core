@@ -8,6 +8,7 @@ class LicenseEye < Formula
   head "https://github.com/apache/skywalking-eyes.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "3745e11daa3f162dfdb8b9227b365fc38a6b8c7c47fed39a5513b1bdb3590aee"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "32960a241b58ff4392f75d02fa08c1bab86a694ec24d839f36dde8d68c90cf77"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "c178b17ffbdac22ee74067560320bb31da0417e9527679c2f335f236133c7614"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ac62c503e1d693cda38478e6f80430f67349575182354926bbcccb026196953e"

@@ -3,7 +3,7 @@ class Joe < Formula
   homepage "https://joe-editor.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/joe-editor/JOE%20sources/joe-4.6/joe-4.6.tar.gz"
   sha256 "495a0a61f26404070fe8a719d80406dc7f337623788e445b92a9f6de512ab9de"
-  license "GPL-2.0"
+  license "GPL-1.0-or-later"
 
   livecheck do
     url :stable
@@ -12,6 +12,7 @@ class Joe < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_sequoia:  "f38fa4459c7448db87ddfa85c7baeb98202c4e8b64b189607606f1fce906bef5"
     sha256 arm64_sonoma:   "3ec4da98c72ff269ce6a608524a8463ec43ed55c081b859f0b172cb44ad1dad2"
     sha256 arm64_ventura:  "5e8ac5942ca4dd172e198fe4f756d9b8bfb7f614766485dbf361aa77c6843c42"
     sha256 arm64_monterey: "affefc197630adfb4ae357d8e144dabd0920022d9b9a9e4a3cad537629c3048b"

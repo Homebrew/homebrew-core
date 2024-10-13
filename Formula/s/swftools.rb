@@ -3,6 +3,7 @@ class Swftools < Formula
   homepage "http://www.swftools.org/"
   url "http://www.swftools.org/swftools-0.9.2.tar.gz"
   sha256 "bf6891bfc6bf535a1a99a485478f7896ebacbe3bbf545ba551298080a26f01f1"
+  license "GPL-2.0-or-later"
   revision 1
 
   livecheck do
@@ -12,6 +13,7 @@ class Swftools < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_sequoia:  "f61324276719da51b51203bba9f88739b126e242ee458f65b98cf04492e01114"
     sha256 arm64_sonoma:   "748aa1b21377ed7009f151bb4e9f8beb240f52bc8b8e5cb68e88b4a5928eafdf"
     sha256 arm64_ventura:  "e5d604b100f9911bd2d61f4f4c2bfc5bc3121734de1cef9beedb7b5ae06b1a67"
     sha256 arm64_monterey: "f580bc8117485a0a4be18f76ffa5d3c5764aa04e1d4eb6b3e17b64239d88fb4d"
@@ -44,7 +46,7 @@ class Swftools < Formula
   end
 
   test do
-    system "#{bin}/png2swf", "swftools_test.swf", test_fixtures("test.png")
+    system bin/"png2swf", "swftools_test.swf", test_fixtures("test.png")
   end
 end
 

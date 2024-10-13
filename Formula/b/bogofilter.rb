@@ -7,6 +7,7 @@ class Bogofilter < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "9cdd5e3131e6b0880369ac2070e25880f55225b18eb6750bbcf997ffe7864555"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "99c59d02b18ed1ef58f8c21ebc774ed67be9c694fc0807702c7e675daaad74da"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "fea13db3d925728149dcfb2349e1b1d9d720f96805f0302ba60f6896005163b7"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1c8c1bdc849bd6b97a1ef962222e0c0f856da11e2f174eb4d7e9d587d971b0ea"
@@ -26,6 +27,6 @@ class Bogofilter < Formula
   end
 
   test do
-    system "#{bin}/bogofilter", "--version"
+    system bin/"bogofilter", "--version"
   end
 end

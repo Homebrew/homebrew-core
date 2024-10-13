@@ -7,6 +7,7 @@ class Libsigsegv < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "16a1585583f11d4c40adf7ae16c750c506349b40c4d8ead824dd553cdacf8c2c"
     sha256 cellar: :any,                 arm64_sonoma:   "fef1842ef744948241c8362ea8f3f2fc63651fea3756ccd1ea21d851a132b964"
     sha256 cellar: :any,                 arm64_ventura:  "22818cb45d09dd84f4fc68ecf1eee1484cb9a98b75fa72b89913206cf46bf19c"
     sha256 cellar: :any,                 arm64_monterey: "e8cae8734eafabb8c3bcfeba2449b1d6e309cea6ca0647ca7bdf62aca7e331db"

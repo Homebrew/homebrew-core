@@ -4,6 +4,7 @@ class Mcabber < Formula
   url "https://mcabber.com/files/mcabber-1.1.2.tar.bz2"
   sha256 "c4a1413be37434b6ba7d577d94afb362ce89e2dc5c6384b4fa55c3e7992a3160"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url :homepage
@@ -11,18 +12,14 @@ class Mcabber < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "fdf9128bc17cba261cb9bcb48363229832717e81a0efd23f966a7a055119683a"
-    sha256 arm64_ventura:  "9b70cf1483eede96a3c5b8df075a0e2cc92bf4ab3d84c83b8cf017b6b0c53677"
-    sha256 arm64_monterey: "e7537262f19fcd123302a9a97d1e22af75f61881dff731375abc421291eb40eb"
-    sha256 arm64_big_sur:  "b9660212f5a994bd663e5795d9f707da933f95b8aad23bf11f5e724c2e59a1ef"
-    sha256 sonoma:         "8f3dd85bd0238082ff5115a9e95a6dc09551cd3d5d68f611c15817cfd88535d7"
-    sha256 ventura:        "0f7cf3a039d23f52158294751d3488ba744f3489f1bb57d256f81cd48e6f0166"
-    sha256 monterey:       "0f50f2e71d3afcd45bf61301a9695e4ac58bf3fc7ec13c7d6769c6482f60ba51"
-    sha256 big_sur:        "639edfef4ad26bdaea6a714b18acbda1d4d240f658ee8813b9b49f17f85952c4"
-    sha256 catalina:       "f5296e7fffbc0702dcce5794e2f47c77a998f002b0852416c8411ac5ad44b31e"
-    sha256 mojave:         "301d1883a89bcf494b5ab8c2c6dc4f267b29124d479d47483f562e8c3739d531"
-    sha256 high_sierra:    "73d4da3e1e562308e3d4a3b3318f2b5de951d50a44eec9115780170f282022b6"
-    sha256 x86_64_linux:   "7e2642576b5ae1c8a05f0dc894fd9775b6b941f2a1dcae6cb8d7a0840d744dd9"
+    sha256 arm64_sequoia:  "22148b4dac302fc1e66326cd0a1790831aa8b2a1fe8911b41944125056d2cd20"
+    sha256 arm64_sonoma:   "4360dd97e2380a7f382a3b7c2ca1a0e75525b6611c72f28e65709cafe6b30bb1"
+    sha256 arm64_ventura:  "7815be33fdbe1617a9bd769ddcefb123668d13957690faf188608d569570242e"
+    sha256 arm64_monterey: "7e1900fb7c58c6a948cb2329a3e52f9dcdf7fe69afa5519cc7d8b096db950c31"
+    sha256 sonoma:         "5d40492fc3afb54bcce4b07f51feb4139af51e968ad0b70a876fd36a33e77df3"
+    sha256 ventura:        "0ba512ce535bed85a080c9117179e67e9e7f49243b02989a7b09456d0f50faa3"
+    sha256 monterey:       "498e9db79846d370de50a85ce3eef354bc27b6f6a6ea7ecd43008a65a3d7eef2"
+    sha256 x86_64_linux:   "9dd90456ae959bdf7893656a4ab0177937fc9d25f618a753a54e5730095d18b8"
   end
 
   head do

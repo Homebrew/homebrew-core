@@ -10,6 +10,7 @@ class GhzWeb < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "41a6553616554277541ebff12075da8d72be1d17bb21f9608785f09de3c00710"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4aaf95d9bb2d035676ce06f3b6650eacfdd5c149e771dbf4e26f3881aed47c6c"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "88cdd543eb268e47d62dcc27a67a620071b3842b53bdcdeb975aa5357550523c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "dcaa8c8a1f4648b9eb480a316275d3499e6ae93aca2167ea98a8a6a82a206d4a"
@@ -20,7 +21,6 @@ class GhzWeb < Formula
   end
 
   depends_on "go" => :build
-  depends_on xcode: :build
 
   def install
     ldflags = "-s -w -X main.version=#{version}"
@@ -32,7 +32,7 @@ class GhzWeb < Formula
     port = free_port
     ENV["GHZ_SERVER_PORT"] = port.to_s
     fork do
-      exec "#{bin}/ghz-web"
+      exec bin/"ghz-web"
     end
     sleep 1
     cmd = "curl -sIm3 -XGET http://localhost:#{port}/"

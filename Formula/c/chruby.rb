@@ -8,6 +8,7 @@ class Chruby < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "8caeb54fdc29211e038cb6723c1109ae708ec30b6aeadbd5390af4e8de50cfc1"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "64a6475437b898659d47bded2e62cd7df312d5eb92b87008877755c11a041e34"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "64a6475437b898659d47bded2e62cd7df312d5eb92b87008877755c11a041e34"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "64a6475437b898659d47bded2e62cd7df312d5eb92b87008877755c11a041e34"

@@ -1,8 +1,8 @@
 class Butane < Formula
   desc "Translates human-readable Butane Configs into machine-readable Ignition Configs"
   homepage "https://github.com/coreos/butane"
-  url "https://github.com/coreos/butane/archive/refs/tags/v0.21.0.tar.gz"
-  sha256 "44c1ff13c01b4dd8ab8310fd4703c3e7ec411b15925cecb434ad5f595f9d17d6"
+  url "https://github.com/coreos/butane/archive/refs/tags/v0.22.0.tar.gz"
+  sha256 "1a91ea42a7d952fd91078c7492e8f813e0e69d312225ee1903c157024da7e643"
   license "Apache-2.0"
   head "https://github.com/coreos/butane.git", branch: "main"
 
@@ -12,13 +12,12 @@ class Butane < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "570b9e8ef564d279566ee4741860f46f05d0f4a3fea1c3135379d3ddc041a8fd"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "323077ac66cc7e737f43e0b270acbb753dfa498c0a6cf2a676035c591bf6c566"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "03f18f4f7a0e7a4a25ae70f8b22cf0f6103bb4aaa19a7a1ee41c227cc9a4d9c1"
-    sha256 cellar: :any_skip_relocation, sonoma:         "face021d24a529596709f2b314d8b79ea884b06452f509ccfd7c45b4e31583b5"
-    sha256 cellar: :any_skip_relocation, ventura:        "80132d87e55e6378b818e134d6b38012c0732ce5d912d4e8f27fe0fa9a511b50"
-    sha256 cellar: :any_skip_relocation, monterey:       "fbdaf2e88ef5bd930e81ac464381ae0820916358b58157cca38f8eeec78fc54e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bc916a83969028e7b7b2d1714fd9e88ced52ad0fd5182534ce535fc653429f98"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7761c658646399a2c13e657ba181a8002dd083ceb49be5be6c109b67fd3cddf3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7761c658646399a2c13e657ba181a8002dd083ceb49be5be6c109b67fd3cddf3"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "7761c658646399a2c13e657ba181a8002dd083ceb49be5be6c109b67fd3cddf3"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f86a1faf586ac1e7252e06b70d875e5174419ca74b88926b903c28d1f48ede9b"
+    sha256 cellar: :any_skip_relocation, ventura:       "f86a1faf586ac1e7252e06b70d875e5174419ca74b88926b903c28d1f48ede9b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c3aa4a8ee4f2d41e27334ee2ece8853a321dad4c52d8189e1120c093559df52c"
   end
 
   depends_on "go" => :build
@@ -49,7 +48,7 @@ class Butane < Formula
               - ssh-rsa mykey
     EOS
 
-    system "#{bin}/butane", "--strict", "--output=#{testpath}/example.ign", "#{testpath}/example.bu"
+    system bin/"butane", "--strict", "--output=#{testpath}/example.ign", "#{testpath}/example.bu"
     assert_predicate testpath/"example.ign", :exist?
     assert_match(/.*"sshAuthorizedKeys":\["ssh-rsa mykey"\].*/m, File.read(testpath/"example.ign").strip)
 

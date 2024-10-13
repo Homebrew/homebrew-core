@@ -6,6 +6,7 @@ class Orcania < Formula
   license "LGPL-2.1-only"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "4c6bcdc1d22075f81c8d4660d2e7f26bf495a7d3b71ba07dc73cec9cb60df3ac"
     sha256 cellar: :any,                 arm64_sonoma:   "d40e5c622f0f94b0ace12b30ee6401d198f4a988e8e2874fbc8816529c7c72d0"
     sha256 cellar: :any,                 arm64_ventura:  "8b7f8c6ad6bef28777ffa342338aae906c0c8d62c060fd66b89f7b5219e39a0e"
     sha256 cellar: :any,                 arm64_monterey: "60cca6feb94ed04aed4ee902980e7f98115efe4f44c03d3279c217776dfe23d3"

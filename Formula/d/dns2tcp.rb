@@ -3,7 +3,7 @@ class Dns2tcp < Formula
   homepage "https://packages.debian.org/sid/dns2tcp"
   url "https://deb.debian.org/debian/pool/main/d/dns2tcp/dns2tcp_0.5.2.orig.tar.gz"
   sha256 "ea9ef59002b86519a43fca320982ae971e2df54cdc54cdb35562c751704278d9"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url "https://deb.debian.org/debian/pool/main/d/dns2tcp/"
@@ -11,6 +11,7 @@ class Dns2tcp < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "0eb7cacef30472d6ca9cd59507d8fe3f078ad731b1e779ff8147bb2730547adb"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2a0bd389f540e25443deede0d0d2e1a3a5f3247cff3b49cac4d00c386f67b6e2"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "e6476349ed65c44a7cbeddff8ce0322f80ed347b7382a5108dc4128be0871161"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6bcfed251acce767235024339591706ee761691a01b447acfb289f447a662cc8"

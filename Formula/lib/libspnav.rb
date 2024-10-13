@@ -6,6 +6,7 @@ class Libspnav < Formula
   license "BSD-3-Clause"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "d82e7c5ecb4060c9d5301501c62d73cdb70827f02b561fb10c969cdb8b7d3ce6"
     sha256 cellar: :any,                 arm64_sonoma:   "59c106ad2742952f55dcdfe28881537b12cbbd2f4dc3550192b2a87a88cc31c9"
     sha256 cellar: :any,                 arm64_ventura:  "5bffbb2a231c0c4ae6b4cbcfe58d5a6aa1fd2459681462fafae815b965f754c7"
     sha256 cellar: :any,                 arm64_monterey: "805c36825ae869487c0e122ad802cbc9ae65ef9e025579199f1462e0f90ed9bb"

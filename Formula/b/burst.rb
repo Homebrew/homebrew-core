@@ -7,7 +7,8 @@ class Burst < Formula
   head "https://github.com/izvolov/burst.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "2eff842d73b54a3df54ba7c6d5547c507736c15fe155905d49dde29090ad5c0a"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "aba413390562e5c52f5ebfc88bc53280094805ae1440081e2d3bcf54267c4586"
   end
 
   depends_on "cmake" => [:build, :test]

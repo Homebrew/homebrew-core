@@ -11,6 +11,7 @@ class Apparix < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "c47c60a9ddde3d173404c7337080bf1cbd8c8d314b78092f02068a3fa5a689e0"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "15fd7b26fab6e5f2f5d2874ec6d7790b17b6df6fef078d8f2691560e86fb1295"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "185b92258d1ca2a1aeb6cb068f1fc1fdd13415aa3f730fac1eaa998fef099653"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "376d5af089ec2f8fc405e043142976cff8f2005b0338711e572008062298326f"
@@ -35,7 +36,7 @@ class Apparix < Formula
 
   test do
     mkdir "test"
-    system "#{bin}/apparix", "--add-mark", "homebrew", "test"
+    system bin/"apparix", "--add-mark", "homebrew", "test"
     assert_equal "j,homebrew,test",
       shell_output("#{bin}/apparix -lm homebrew").chomp
   end

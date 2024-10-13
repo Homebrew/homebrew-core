@@ -3,6 +3,7 @@ class Jhiccup < Formula
   homepage "https://www.azul.com/products/components/jhiccup/"
   url "https://www.azul.com/files/jHiccup-2.0.10-dist.zip"
   sha256 "7bb1145d211d140b4f81184df7eb9cea90f56720ad7504fac43c0c398f38a7d8"
+  license any_of: ["CC0-1.0", "BSD-2-Clause"]
 
   livecheck do
     url :homepage
@@ -10,7 +11,8 @@ class Jhiccup < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "c64865c4dbe96fa89824f7f7d974a9561c019b204dbb3007a24875a3ca7707dd"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "010529211ca43ed531a37e60a1c33ee7a38b823038d204992713461c4ef4b56c"
   end
 
   def install

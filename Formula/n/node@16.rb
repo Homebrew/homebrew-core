@@ -4,16 +4,15 @@ class NodeAT16 < Formula
   url "https://nodejs.org/dist/v16.20.2/node-v16.20.2.tar.xz"
   sha256 "576f1a03c455e491a8d132b587eb6b3b84651fc8974bb3638433dd44d22c8f49"
   license "MIT"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "631a5ed1cd7834f440c6165474fe9affca55e9731d21abb42f01ebf3aa8fd1f6"
-    sha256 cellar: :any,                 arm64_ventura:  "7efc4bbee5dcd2bfce309895cf9870fa0c652c641d887c37e1061fcbc13c1cf0"
-    sha256 cellar: :any,                 arm64_monterey: "1541329ebab112c5c0ad0cf81d0f81e4ad646587bab5e0824ca7b6849c0d53f6"
-    sha256 cellar: :any,                 sonoma:         "70b178141af156260fbd2d1e7d03c1b74bc5878b11b9e4897f9e123e5626518d"
-    sha256 cellar: :any,                 ventura:        "bd526bbf8a16f7da6349fb7a0fb3b182784512bf4b527d622529c8c907f3d8d7"
-    sha256 cellar: :any,                 monterey:       "e3a8ed83a860e58ff03d4b3045715a26510b988dbeca39ded563cbf679da17e9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "769953ce120b601f5523298a89df52db171e50053c9311daf3cd9f0ecee71944"
+    sha256 cellar: :any,                 arm64_sequoia: "1ddecac75c7cc914a727d10838f2856536f81c35b53dc2bb91ee9340523f6009"
+    sha256 cellar: :any,                 arm64_sonoma:  "9262e2a60efc4c39e3520ac3a7baeb699430cf99a75e84ab86f27815068a2fd9"
+    sha256 cellar: :any,                 arm64_ventura: "abb0f112bb7f62ae80e0ddbb99bb458935a737b791ff6decd8e806d294fb7eae"
+    sha256 cellar: :any,                 sonoma:        "6bf19cbb09ea5274d4284e6efe276375eeb582f8e3adbb376cbe85a09a52052a"
+    sha256 cellar: :any,                 ventura:       "300a11d0820826d4a6656a6012ca186fb39776ef277904ee72960d4135b401b0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4859f731a7afe82b2393f76fb0f0fdf5fa880dc71307c6054e5c6f157bc57f3d"
   end
 
   keg_only :versioned_formula
@@ -25,7 +24,7 @@ class NodeAT16 < Formula
   depends_on "python@3.11" => :build
   depends_on "brotli"
   depends_on "c-ares"
-  depends_on "icu4c"
+  depends_on "icu4c@75"
   depends_on "libnghttp2"
   depends_on "libuv"
   depends_on "openssl@3"
@@ -45,6 +44,8 @@ class NodeAT16 < Formula
   fails_with gcc: "5"
 
   def install
+    # icu4c 75+ needs C++17. Node 16 uses `-std=gnu++14` so keep GNU extensions
+    ENV.append "CXXFLAGS", "-std=gnu++17"
     # ../deps/v8/src/base/bit-field.h:43:29: error: integer value 7 is outside
     # the valid range of values [0, 3] for this enumeration type
     # [-Wenum-constexpr-conversion]
@@ -105,8 +106,8 @@ class NodeAT16 < Formula
     assert_predicate bin/"npm", :exist?, "npm must exist"
     assert_predicate bin/"npm", :executable?, "npm must be executable"
     npm_args = ["-ddd", "--cache=#{HOMEBREW_CACHE}/npm_cache", "--build-from-source"]
-    system "#{bin}/npm", *npm_args, "install", "npm@latest"
-    system "#{bin}/npm", *npm_args, "install", "ref-napi"
+    system bin/"npm", *npm_args, "install", "npm@latest"
+    system bin/"npm", *npm_args, "install", "ref-napi"
     assert_predicate bin/"npx", :exist?, "npx must exist"
     assert_predicate bin/"npx", :executable?, "npx must be executable"
     assert_match "< hello >", shell_output("#{bin}/npx --yes cowsay hello")

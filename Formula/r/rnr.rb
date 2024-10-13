@@ -6,6 +6,7 @@ class Rnr < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "313748371894c9f870ab24febef4a8d6fb1f3a33a1568addba6cc47f760d369e"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "62be4b10381726dd1c6ca96de3473303a32a8b318bb275be2963a992cb4b086a"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "13e613c2d00e9e996d6b0bd2b43e1e23bc60f4a5a6d5f0e1a7c33058be9cd98e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c47dbe0a3e417a52175e9af2d05752ba236ff850f6278b8829efc1a60bdbcb55"
@@ -34,7 +35,7 @@ class Rnr < Formula
     mkdir "one"
     touch "one/foo.doc"
 
-    system "#{bin}/rnr", "-f", "doc", "txt", "foo.doc", "one/foo.doc"
+    system bin/"rnr", "-f", "doc", "txt", "foo.doc", "one/foo.doc"
     refute_predicate testpath/"foo.doc", :exist?
     assert_predicate testpath/"foo.txt", :exist?
   end

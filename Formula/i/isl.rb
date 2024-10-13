@@ -7,8 +7,8 @@ class Isl < Formula
   # package detection.
   desc "Integer Set Library for the polyhedral model"
   homepage "https://libisl.sourceforge.io/"
-  url "https://libisl.sourceforge.io/isl-0.26.tar.xz"
-  sha256 "a0b5cb06d24f9fa9e77b55fabbe9a3c94a336190345c2555f9915bb38e976504"
+  url "https://libisl.sourceforge.io/isl-0.27.tar.xz"
+  sha256 "6d8babb59e7b672e8cb7870e874f3f7b813b6e00e6af3f8b04f7579965643d5c"
   license "MIT"
 
   livecheck do
@@ -17,15 +17,15 @@ class Isl < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "00b4bed8680e65a16f0594b92e6413237fef625b79320ccdb3f6bb3f085e44c6"
-    sha256 cellar: :any,                 arm64_ventura:  "1814fe867c61b34cd5c763cf2ebda99d7883db78348c8b663f98cc95a1348d16"
-    sha256 cellar: :any,                 arm64_monterey: "0a3e83c458420e4b469ad7464d16d6c9cd26a888059358eb5f1f9d3cff54bbd7"
-    sha256 cellar: :any,                 arm64_big_sur:  "a68a647249ad644cd8d1e1057bac65e5b4e1e08f9adaf15a07121853b0ed40cc"
-    sha256 cellar: :any,                 sonoma:         "879bd3d644e9a8a8b43b771de24d56999faf6ab47d961a316cc469de10a6fb7b"
-    sha256 cellar: :any,                 ventura:        "0301489db7b26967657be0f6c89f11ea7e1e5fb50631686f86c597b01c00dc85"
-    sha256 cellar: :any,                 monterey:       "0dcc555fd2517c6c93bca8999c741029bbdd821bfeb397505ec1f98deb79c551"
-    sha256 cellar: :any,                 big_sur:        "91965ce2f54c7d1b16747ed05de989a3a122f5dbee67546bbf9bf065873b13c5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "db14ba1e4ea23ab41e06930dcf25ae9023c5e395c88602da2a9b6a98d54c92d3"
+    sha256 cellar: :any,                 arm64_sequoia:  "de143fddb0e20b6b73016ead1e625ebd429db53918200d093e4da98f1e758889"
+    sha256 cellar: :any,                 arm64_sonoma:   "8f1af90ff2967e80c1a757e8e6aae61c9f6876a8ad98c1613e252f7daaa8a483"
+    sha256 cellar: :any,                 arm64_ventura:  "7d74b1abc36c01f14202d8d4f3105826cca0a1ac5db3fd831c8fd3673097e2d6"
+    sha256 cellar: :any,                 arm64_monterey: "f09ed357251a8f1771f93c22b5c18441299cf4ecbabf4f83a63b71abba565904"
+    sha256 cellar: :any,                 sequoia:        "edae3d6050998a8b6c40d79244d1c73231537371e7a36a3a72f756ed965088be"
+    sha256 cellar: :any,                 sonoma:         "23be453b3fbe9ab4a1baeb8a99eea31a6362825f03f74a1c7015bb0bda9ad4d8"
+    sha256 cellar: :any,                 ventura:        "df3c2c3161184a8cea83dfda47bbf31f81e3527951c2dc72bdeb2ac1638e2709"
+    sha256 cellar: :any,                 monterey:       "fea18e3734c269de46cb70dc7a263e5784e0e67d16e59598aaea22618c6a4650"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "25c8bf618d4e3c68c27eed634bd7695104ff5daa37246253aabce80d7c1ac7f5"
   end
 
   head do

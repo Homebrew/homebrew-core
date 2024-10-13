@@ -1,8 +1,8 @@
 class Librdkafka < Formula
   desc "Apache Kafka C/C++ library"
   homepage "https://github.com/confluentinc/librdkafka"
-  url "https://github.com/confluentinc/librdkafka/archive/refs/tags/v2.5.0.tar.gz"
-  sha256 "3dc62de731fd516dfb1032861d9a580d4d0b5b0856beb0f185d06df8e6c26259"
+  url "https://github.com/confluentinc/librdkafka/archive/refs/tags/v2.6.0.tar.gz"
+  sha256 "abe0212ecd3e7ed3c4818a4f2baf7bf916e845e902bb15ae48834ca2d36ac745"
   license "BSD-2-Clause"
   head "https://github.com/confluentinc/librdkafka.git", branch: "master"
 
@@ -12,13 +12,12 @@ class Librdkafka < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "a8fe68b05e077d9fcc4b56dfce0464b2de12945b4f1456ca18613640c1d15846"
-    sha256 cellar: :any,                 arm64_ventura:  "98b46b50c48c052a562d621c39f9dfa07fa9780bde0de32470499dc5e4ffe6a1"
-    sha256 cellar: :any,                 arm64_monterey: "6103608170fa619a4ad6aa4276dc889c86140ef0bc78019f4197ce8019da26dc"
-    sha256 cellar: :any,                 sonoma:         "2423f0e26db407d1bc02ed4022b6a2e6aadf2567b866e28f46231127a0684dce"
-    sha256 cellar: :any,                 ventura:        "a2c7322e256621f5722c2a6f8e1b9bc300916d3bf29fb717a3c035a3cec0b9f7"
-    sha256 cellar: :any,                 monterey:       "8d76e1d2e176f7900fdc4d762a7d9392d71b67188fa555c82a55d2da64e1eec4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6f765cf7002aaacbba352b14147904383fcddeefe599648edd73afe0f8fee4bb"
+    sha256 cellar: :any,                 arm64_sequoia: "693a6fe34842b1d47c891be46f8e3908431bd4623e501053506387aa01c46800"
+    sha256 cellar: :any,                 arm64_sonoma:  "0a350ffbe5862f1280f05d60b42ad56be84b96b59c6bc80b1f6f8e7c2dfaa486"
+    sha256 cellar: :any,                 arm64_ventura: "45b7755b4be54acf3da779deebe109ce15c07c0f21736e776eeb6fac50d62cbf"
+    sha256 cellar: :any,                 sonoma:        "9055f279bd0e7509a3f44017ca28b62528b6573141d94faad31604739947ca25"
+    sha256 cellar: :any,                 ventura:       "9a47205ff702facd739a9fb17c658a4e5267f512b32f79fb352fbc1f356fd37e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1c41229a894e19c9d4442d1883b12dbd362694fdc531f3d42fc56a6f573e5345"
   end
 
   depends_on "pkg-config" => :build

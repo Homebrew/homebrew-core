@@ -1,5 +1,3 @@
-require "language/node"
-
 class MarkdownToc < Formula
   desc "Generate a markdown TOC (table of contents) with Remarkable"
   homepage "https://github.com/jonschlinkert/markdown-toc"
@@ -8,13 +6,14 @@ class MarkdownToc < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "1fcb47b953cf9becfdcf24c6de36fbff454877e4c05ac47bc40be8d2df76ba0f"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "2817812b6a1d6a1e613ad337524dbd04afcc3ee306c8ddecab56c6835468d11c"
   end
 
   depends_on "node"
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", *std_npm_args
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 

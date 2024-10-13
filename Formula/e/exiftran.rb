@@ -3,7 +3,7 @@ class Exiftran < Formula
   homepage "https://www.kraxel.org/blog/linux/fbida/"
   url "https://www.kraxel.org/releases/fbida/fbida-2.14.tar.gz"
   sha256 "95b7c01556cb6ef9819f358b314ddfeb8a4cbe862b521a3ed62f03d163154438"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
   revision 2
 
   livecheck do
@@ -13,6 +13,7 @@ class Exiftran < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia:  "66bbdb1194918c7a35edce9ec143a5ff05cc719e129e6e613cd5e600da2fbced"
     sha256 cellar: :any,                 arm64_sonoma:   "53793d2d72884e10ddf5d26a6af3b0c4b3fe28f8b28e4f96127612a2ca5c1a44"
     sha256 cellar: :any,                 arm64_ventura:  "00bbfab43b25d8747630f7a724302fa81a0cf142872c015e5083b24773678cf2"
     sha256 cellar: :any,                 arm64_monterey: "102fc92b15a47eaa70d675d6ab35dc54376dafa8f094acebc48178307f969064"
@@ -25,6 +26,7 @@ class Exiftran < Formula
   end
 
   depends_on "pkg-config" => :build
+
   depends_on "jpeg-turbo"
   depends_on "libexif"
   depends_on "pixman"
@@ -34,11 +36,15 @@ class Exiftran < Formula
     depends_on "fontconfig"
     depends_on "freetype"
     depends_on "ghostscript"
+    depends_on "giflib"
     depends_on "libdrm"
     depends_on "libepoxy"
     depends_on "libpng"
     depends_on "libtiff"
+    depends_on "libx11"
+    depends_on "libxext"
     depends_on "libxpm"
+    depends_on "libxt"
     depends_on "mesa"
     depends_on "openmotif"
     depends_on "poppler"
@@ -61,6 +67,6 @@ class Exiftran < Formula
   end
 
   test do
-    system "#{bin}/exiftran", "-9", "-o", "out.jpg", test_fixtures("test.jpg")
+    system bin/"exiftran", "-9", "-o", "out.jpg", test_fixtures("test.jpg")
   end
 end

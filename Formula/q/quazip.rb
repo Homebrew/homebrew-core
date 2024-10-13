@@ -21,6 +21,9 @@ class Quazip < Formula
   depends_on xcode: :build
   depends_on "qt"
 
+  uses_from_macos "bzip2"
+  uses_from_macos "zlib"
+
   fails_with gcc: "5" # C++17
 
   def install
@@ -41,7 +44,7 @@ class Quazip < Formula
       CONFIG         -= app_bundle
       TARGET          = test
       SOURCES        += test.cpp
-      INCLUDEPATH    += #{include}
+      INCLUDEPATH    += #{include} #{Formula["zlib"].include}
       LIBPATH        += #{lib}
       LIBS           += -lquazip#{version.major}-qt#{Formula["qt"].version.major}
       QMAKE_RPATHDIR += #{lib}

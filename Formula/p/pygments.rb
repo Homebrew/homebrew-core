@@ -9,16 +9,11 @@ class Pygments < Formula
   head "https://github.com/pygments/pygments.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c5305b796d4c8118bfe3e186adb9726df52be21dd085edd99e934ec49bf16e40"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c5305b796d4c8118bfe3e186adb9726df52be21dd085edd99e934ec49bf16e40"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c5305b796d4c8118bfe3e186adb9726df52be21dd085edd99e934ec49bf16e40"
-    sha256 cellar: :any_skip_relocation, sonoma:         "c5305b796d4c8118bfe3e186adb9726df52be21dd085edd99e934ec49bf16e40"
-    sha256 cellar: :any_skip_relocation, ventura:        "c5305b796d4c8118bfe3e186adb9726df52be21dd085edd99e934ec49bf16e40"
-    sha256 cellar: :any_skip_relocation, monterey:       "c5305b796d4c8118bfe3e186adb9726df52be21dd085edd99e934ec49bf16e40"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2d0ad45bd306af2760a03127431c43846a8df9e2f49daa4ee14eaab1c62dc47b"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "5037962de309d66c8e911926c625c979fb4d414c756aef3c74542d8e50c02355"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   def install
     virtualenv_install_with_resources

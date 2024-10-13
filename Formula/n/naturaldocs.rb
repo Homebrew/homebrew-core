@@ -25,8 +25,6 @@ class Naturaldocs < Formula
   depends_on "mono"
 
   def install
-    rm_f "libNaturalDocs.Engine.SQLite.Mac32.so"
-
     os = OS.mac? ? "Mac" : "Linux"
     arch = Hardware::CPU.intel? ? "x64" : Hardware::CPU.arch.to_s
 

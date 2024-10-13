@@ -13,14 +13,8 @@ class Eigen < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "17e1238a80ca448a9e2a1090fd3c0bf54634470757e5dacc08efb730b4fb9fca"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "17e1238a80ca448a9e2a1090fd3c0bf54634470757e5dacc08efb730b4fb9fca"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "17e1238a80ca448a9e2a1090fd3c0bf54634470757e5dacc08efb730b4fb9fca"
-    sha256 cellar: :any_skip_relocation, sonoma:         "d19fbee3104b5302413c25c2a619dac3fc38e41e4c3f972cf2496d032fde2d96"
-    sha256 cellar: :any_skip_relocation, ventura:        "d19fbee3104b5302413c25c2a619dac3fc38e41e4c3f972cf2496d032fde2d96"
-    sha256 cellar: :any_skip_relocation, monterey:       "17e1238a80ca448a9e2a1090fd3c0bf54634470757e5dacc08efb730b4fb9fca"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "17e1238a80ca448a9e2a1090fd3c0bf54634470757e5dacc08efb730b4fb9fca"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "b7d3fc4023e664e69392994530a88aa0b6f2a81067da6d64727cf983db2c1bd1"
   end
 
   depends_on "cmake" => :build
@@ -28,12 +22,8 @@ class Eigen < Formula
   conflicts_with "freeling", because: "freeling ships its own copy of eigen"
 
   def install
-    mkdir "eigen-build" do
-      args = std_cmake_args
-      args << "-Dpkg_config_libdir=#{lib}" << ".."
-      system "cmake", *args
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "eigen-build", "-Dpkg_config_libdir=#{lib}", *std_cmake_args
+    system "cmake", "--install", "eigen-build"
     (share/"cmake/Modules").install "cmake/FindEigen3.cmake"
   end
 

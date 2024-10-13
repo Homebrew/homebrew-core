@@ -1,13 +1,23 @@
 class IkeScan < Formula
   desc "Discover and fingerprint IKE hosts"
   homepage "https://github.com/royhills/ike-scan"
-  url "https://github.com/royhills/ike-scan/archive/refs/tags/1.9.5.tar.gz"
-  sha256 "5152bf06ac82d0cadffb93a010ffb6bca7efd35ea169ca7539cf2860ce2b263f"
   license "GPL-3.0-or-later" => { with: "openvpn-openssl-exception" }
   head "https://github.com/royhills/ike-scan.git", branch: "master"
 
+  stable do
+    url "https://github.com/royhills/ike-scan/archive/refs/tags/1.9.5.tar.gz"
+    sha256 "5152bf06ac82d0cadffb93a010ffb6bca7efd35ea169ca7539cf2860ce2b263f"
+
+    # Backport fix for implicit-int
+    patch do
+      url "https://github.com/royhills/ike-scan/commit/9949ce4bdf9f4bcb616b2a5d273708a7ea9ee93d.patch?full_index=1"
+      sha256 "99e46df8b50e26982f0462d633cf3638f9b3ff2f65b7b4588241f17628e0f9d7"
+    end
+  end
+
   bottle do
     rebuild 1
+    sha256 arm64_sequoia:  "ab952b41aca2d112e8238ac293c43b90382a49fa9afca8f1726a5f1b138dd1aa"
     sha256 arm64_sonoma:   "a26d56aa62837f5f384c928cdcb10db12c18608365bb8de3606db95fd9a2ab69"
     sha256 arm64_ventura:  "4962babb485008c4ca7365744527389c7f100c26a37e286f4131f554d8d30e76"
     sha256 arm64_monterey: "2cdc49f704f821bd0aaa51534c4d9b8b73524fae1737ca302308b026c4d48db9"
@@ -27,9 +37,9 @@ class IkeScan < Formula
 
   def install
     system "autoreconf", "--force", "--install", "--verbose"
-    system "./configure", *std_configure_args,
-                          "--mandir=#{man}",
-                          "--with-openssl=#{Formula["openssl@3"].opt_prefix}"
+    system "./configure", "--mandir=#{man}",
+                          "--with-openssl=#{Formula["openssl@3"].opt_prefix}",
+                          *std_configure_args
     system "make", "install"
   end
 

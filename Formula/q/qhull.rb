@@ -16,6 +16,7 @@ class Qhull < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia:  "03294d7f8db8437cdf8d4d679ae41808a195b733907bf638671f99089592dc17"
     sha256 cellar: :any,                 arm64_sonoma:   "f2d64f8e284b65fd97bb19b8add86502b3b88c71e9338723aa38ac5a34361f91"
     sha256 cellar: :any,                 arm64_ventura:  "33bd3b7b6225c502fa1a21501cdd2ce72f92ab942bc9b5092f3c9172a2312f22"
     sha256 cellar: :any,                 arm64_monterey: "6d207280ccb3591c233825c16707691f2502b2e1d65d5e0c18fa66342cd8bea3"
@@ -30,12 +31,9 @@ class Qhull < Formula
   depends_on "cmake" => :build
 
   def install
-    ENV.cxx11
-
-    cd "build" do
-      system "cmake", "..", *std_cmake_args
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do

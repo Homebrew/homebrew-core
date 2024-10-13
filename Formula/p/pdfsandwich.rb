@@ -3,10 +3,12 @@ class Pdfsandwich < Formula
   homepage "http://www.tobias-elze.de/pdfsandwich/"
   url "https://downloads.sourceforge.net/project/pdfsandwich/pdfsandwich%200.1.7/pdfsandwich-0.1.7.tar.bz2"
   sha256 "9795ffea84b9b6b501f38d49a4620cf0469ddf15aac31bac6dbdc9ec1716fa39"
+  license "GPL-2.0-or-later"
   revision 4
   head "https://svn.code.sf.net/p/pdfsandwich/code/trunk/src"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "8f02d04e6517c0a842df56f9e7e381a2c3520f20669507f9fe52412c462baa6d"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0f7cd2c1676f390f9e5951408248c6b8d8682d4b70835ce67af1b89b2acefd74"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "93a40fb73e99c341323d434d2d03b7db027dd7b931aec4c2aed61f640f649b08"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a6af2fc71eb56e9f121e035b6348a1fa984989096a7158b963a84d5f7b92cc44"
@@ -39,7 +41,7 @@ class Pdfsandwich < Formula
   end
 
   test do
-    system "#{bin}/pdfsandwich", "-o", testpath/"test_ocr.pdf",
+    system bin/"pdfsandwich", "-o", testpath/"test_ocr.pdf",
            test_fixtures("test.pdf")
     assert_predicate testpath/"test_ocr.pdf", :exist?,
                      "Failed to create ocr file"

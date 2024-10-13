@@ -4,10 +4,11 @@ class Hqx < Formula
   url "https://github.com/grom358/hqx.git",
       tag:      "v1.2",
       revision: "124c9399fa136fb0f743417ca27dfa2ca2860c2d"
-  license "LGPL-2.1"
+  license "LGPL-2.1-or-later"
 
   bottle do
     rebuild 2
+    sha256 cellar: :any,                 arm64_sequoia:  "d0546464bc8981a17a079d2e9264ae9bbca9cbd7db380b0c2d8c76addf18f4e5"
     sha256 cellar: :any,                 arm64_sonoma:   "1d690216c9ec6dedb23e318b8d83da3687dcedf9f1a533ad59e58e6fcf6be39b"
     sha256 cellar: :any,                 arm64_ventura:  "83b6c8f9ae3cfcf01fd4745bf1170829206069830a119324cf382c7a258ea66b"
     sha256 cellar: :any,                 arm64_monterey: "09abea6af7106f8bdcf0e58e7b17cd91e1c22074139596a2c4f23afdbf9c9a07"

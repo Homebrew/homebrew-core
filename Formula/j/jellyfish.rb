@@ -6,6 +6,7 @@ class Jellyfish < Formula
   license any_of: ["BSD-3-Clause", "GPL-3.0-or-later"]
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "5e944e1abeae0a321ff68872f400954fb3ba458043a0a2234e993168ecca40c7"
     sha256 cellar: :any,                 arm64_sonoma:   "0417631105929539a2126368a9bc8128eaa1f97ad30819bfc9a9cb72e5313e28"
     sha256 cellar: :any,                 arm64_ventura:  "12d4462803ed8c86dde8eb3079fa40f0e921605f484317b2fdbb9ea01ba381c1"
     sha256 cellar: :any,                 arm64_monterey: "e348f51e3326d59d9944bcf7778c876d83aa4e6a5173a8f967e8284751bb5b31"
@@ -35,7 +36,7 @@ class Jellyfish < Formula
       >Homebrew
       AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTAAAAAAAGAGTGTCTGATAGCAGC
     EOS
-    system "#{bin}/jellyfish", "count", "-m17", "-s100M", "-t2", "-C", "test.fa"
+    system bin/"jellyfish", "count", "-m17", "-s100M", "-t2", "-C", "test.fa"
     assert_match "1 54", shell_output("#{bin}/jellyfish histo mer_counts.jf")
     assert_match(/Unique:\s+54/, shell_output("#{bin}/jellyfish stats mer_counts.jf"))
   end

@@ -6,19 +6,18 @@ class Phpbrew < Formula
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "125ae77481d8d739cd5d86e02e1fa689a00773437681c676d3ecfee4e67d5d49"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "125ae77481d8d739cd5d86e02e1fa689a00773437681c676d3ecfee4e67d5d49"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "125ae77481d8d739cd5d86e02e1fa689a00773437681c676d3ecfee4e67d5d49"
-    sha256 cellar: :any_skip_relocation, sonoma:         "af93880514fa5ce7028bd090cbd8decdbac43dc16fa61a73618011726b8abfac"
-    sha256 cellar: :any_skip_relocation, ventura:        "af93880514fa5ce7028bd090cbd8decdbac43dc16fa61a73618011726b8abfac"
-    sha256 cellar: :any_skip_relocation, monterey:       "af93880514fa5ce7028bd090cbd8decdbac43dc16fa61a73618011726b8abfac"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "125ae77481d8d739cd5d86e02e1fa689a00773437681c676d3ecfee4e67d5d49"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "5313331a47dc3d43289333b1a1345dd53fcfd6b1cff99db2ee2483302288b1d8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5313331a47dc3d43289333b1a1345dd53fcfd6b1cff99db2ee2483302288b1d8"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5313331a47dc3d43289333b1a1345dd53fcfd6b1cff99db2ee2483302288b1d8"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5313331a47dc3d43289333b1a1345dd53fcfd6b1cff99db2ee2483302288b1d8"
+    sha256 cellar: :any_skip_relocation, sonoma:         "593e3afb0ab7517aba5f5576cb14b11ef5c1f58de3d6707688d1d6a751835b3f"
+    sha256 cellar: :any_skip_relocation, ventura:        "593e3afb0ab7517aba5f5576cb14b11ef5c1f58de3d6707688d1d6a751835b3f"
+    sha256 cellar: :any_skip_relocation, monterey:       "593e3afb0ab7517aba5f5576cb14b11ef5c1f58de3d6707688d1d6a751835b3f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5313331a47dc3d43289333b1a1345dd53fcfd6b1cff99db2ee2483302288b1d8"
   end
 
-  # TODO: When `php` 8.2+ support is landed, switch back to `php`.
-  # https://github.com/phpbrew/phpbrew/blob/#{version}/composer.json#L27
-  depends_on "php@8.1"
+  depends_on "php"
 
   # Keg-relocation breaks the formula when it replaces `/usr/local` with a non-default prefix
   on_macos do
@@ -28,14 +27,7 @@ class Phpbrew < Formula
   end
 
   def install
-    # When switched back to `php`, use `bin.install` instead.
-    # bin.install "phpbrew.phar" => "phpbrew"
-
-    libexec.install "phpbrew.phar"
-    (bin/"phpbrew").write <<~EOS
-      #!#{Formula["php@8.1"].opt_bin}/php
-      <?php require '#{libexec}/phpbrew.phar';
-    EOS
+    bin.install "phpbrew.phar" => "phpbrew"
   end
 
   test do

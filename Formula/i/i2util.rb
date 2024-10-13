@@ -1,38 +1,42 @@
 class I2util < Formula
   desc "Internet2 utility tools"
-  homepage "https://software.internet2.edu/"
-  url "https://software.internet2.edu/sources/I2util/I2util-1.2.tar.gz"
-  sha256 "3b704cdb88e83f7123f3cec0fe3283b0681cc9f80c426c3f761a0eefd1d72c59"
-  revision 1
+  homepage "https://github.com/perfsonar/i2util"
+  url "https://github.com/perfsonar/i2util/archive/refs/tags/v5.1.3.tar.gz"
+  sha256 "6f57d13a7a31c23f17834e280fff57496d63cad66331d83649f915c09fed850a"
+  license "Apache-2.0"
 
   livecheck do
-    url "https://software.internet2.edu/sources/I2util/"
-    regex(/href=.*?I2util[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "52d210671de538ef15aab122ceba167767ec35486a094adec7d286bb0a0cf515"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "17d5e12958f6a8bbb119feb21e88c381862116578af66f4b6b8e6bb6f7ce256f"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b81238983a3407032564f7a7242a8ed42b62ac4193a07d6c62a03e2afdfd6445"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "df33b627a3f7c69eb99d4ebb107a8ffabe49a16341ec845de5de3de7c868806b"
-    sha256 cellar: :any_skip_relocation, sonoma:         "3352f75e937c413f0dcfa6475adef55849e2b9ffdfe653d55b0bc452ce1d23b8"
-    sha256 cellar: :any_skip_relocation, ventura:        "2f474b97d35ce2c1eb1814278a4c39f8bc7d9ed32f5e27942646ff5ac486bc7c"
-    sha256 cellar: :any_skip_relocation, monterey:       "d5a60fa5cf61312c0a4b9f9307b94d09cbbe87addad19e9214ac3c2a5bd867f4"
-    sha256 cellar: :any_skip_relocation, big_sur:        "9f721b6a003be8ebc978c69619126625075dfdc013eaadc4ffc67192bd62a1a7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "07f9267aa3c7fc30361824939ba10a259cdeb1ea62485cc0410955b5b08ec3e7"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "ae741bfa11cfd4848bb06b7b3d6bbabcce66baed3dd45ae335d58c9761760827"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "52c6a69943271922d78c82a47ee894e3486464a21555a443490ceb15fd416abb"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c4c1eb6c23de99d8bbd158a619913f6f204f23b8c63a6f413da2bacc0505649b"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "3bf30b71256d3672b411f2eec92b99a76f4709a45d3d6e6f9633f06a34cee3f2"
+    sha256 cellar: :any_skip_relocation, sonoma:         "fbaf0516c5fee7069c16329536b0917ba004df47773ecdd840226c01c672c8ba"
+    sha256 cellar: :any_skip_relocation, ventura:        "5df96be2426f548786a6d62260c6b359d7317e688c1b9485985562daf7dc39d4"
+    sha256 cellar: :any_skip_relocation, monterey:       "d4fa503635af9bbe7b7df74ecb25aaf8468762df99b5dd8d90a0a9cbc50fce36"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7a8088a9038586208b40e8e36df6ff88f1753d53200b0d8a96e2d88186add182"
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--mandir=#{man}"
-    system "make", "install"
+    cd "I2util/I2util" do
+      system "./bootstrap"
+      system "./configure", "--disable-silent-rules", *std_configure_args
+      system "make", "install"
+    end
   end
 
   test do
     (testpath/"test.c").write <<~EOS
       #include <I2util/util.h>
       #include <string.h>
+
       int main() {
         uint8_t buf[2];
         if (!I2HexDecode("beef", buf, sizeof(buf))) return 1;

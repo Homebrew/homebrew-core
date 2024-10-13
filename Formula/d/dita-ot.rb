@@ -11,6 +11,7 @@ class DitaOt < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "fe5acc56df080446f49d303825327daad4e273c9505c3775de21899b213d1443"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1dc3d5be57fe24e3b464ff897421958cc3a963d7511f5e56b01c8581cffabf01"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "1dc3d5be57fe24e3b464ff897421958cc3a963d7511f5e56b01c8581cffabf01"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1dc3d5be57fe24e3b464ff897421958cc3a963d7511f5e56b01c8581cffabf01"
@@ -23,7 +24,7 @@ class DitaOt < Formula
   depends_on "openjdk"
 
   def install
-    rm_f Dir["bin/*.bat", "config/env.bat", "startcmd.*"]
+    rm(Dir["bin/*.bat", "config/env.bat", "startcmd.*"])
     libexec.install Dir["*"]
     (bin/"dita").write_env_script libexec/"bin/dita", JAVA_HOME: Formula["openjdk"].opt_prefix
   end

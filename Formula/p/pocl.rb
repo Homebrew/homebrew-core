@@ -4,6 +4,7 @@ class Pocl < Formula
   url "https://github.com/pocl/pocl/archive/refs/tags/v6.0.tar.gz"
   sha256 "de9710223fc1855f833dbbf42ea2681e06aa8ec0464f0201104dc80a74dfd1f2"
   license "MIT"
+  revision 1
   head "https://github.com/pocl/pocl.git", branch: "main"
 
   livecheck do
@@ -12,33 +13,37 @@ class Pocl < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "7b3835607078ca4df3dbc06854f76b5e549c50d4ed09bf3563492a2be94fd620"
-    sha256 arm64_ventura:  "9448e2ec4c6f9759cf5acf4ff4d8b24c50b68851599c2e873097c5441f1f5d72"
-    sha256 arm64_monterey: "2d090450167c159d1083b9df2ade36d85a0d17e362c0a13f8bf08b632a80efba"
-    sha256 sonoma:         "bae9b3cdceb4f661361ca8b8e4a707b39e38486ae561fbd4afc5ec4a9a092586"
-    sha256 ventura:        "22cc146f8f6755af636e50044bebd2a447c5d32c34081ddde727746ba678e128"
-    sha256 monterey:       "4e5c6cd2e3605ebdc7a3425586dbdecb525e1e1279eb701460a7a3ce19b409f7"
-    sha256 x86_64_linux:   "f2f04dd95cf7e74bc2a34094500c4850047365b41bc1ec206672c4e4a95a392e"
+    sha256 arm64_sequoia: "37c8ffad1dc251ad96358273fa375ee12c54f760c422545aeb6ca8d2e7f64345"
+    sha256 arm64_sonoma:  "bf1d743d75558e518e6bf58c9b1414259ba4c715429d99fb4d5aa18ebe1f01d5"
+    sha256 arm64_ventura: "d267fbd4dd48b16abaa5d8d7ae1d321848f48bf029bdc2850a7236f94fb576b5"
+    sha256 sonoma:        "8e04092d421186a60170dadaa223f2bbe3b58702a3d1b7188a38b85635cf643b"
+    sha256 ventura:       "f5b3f006dabc0dedeb515e70a641938917550889cdfc1bbdb1671b24bc9b4a05"
+    sha256 x86_64_linux:  "5eb94f47dc4e2c6a34259afa0fb0ac297ee9b985c1934f8fc3e25d48ce009b14"
   end
 
   depends_on "cmake" => :build
   depends_on "opencl-headers" => :build
   depends_on "pkg-config" => :build
   depends_on "hwloc"
-  depends_on "llvm"
+  depends_on "llvm@18"
   depends_on "opencl-icd-loader"
   uses_from_macos "python" => :build
 
   fails_with gcc: "5" # LLVM is built with GCC
 
+  def llvm
+    deps.map(&:to_formula).find { |f| f.name.match?(/^llvm(@\d+)?$/) }
+  end
+
   def install
-    llvm = Formula["llvm"]
     # Install the ICD into #{prefix}/etc rather than #{etc} as it contains the realpath
     # to the shared library and needs to be kept up-to-date to work with an ICD loader.
     # This relies on `brew link` automatically creating and updating #{etc} symlinks.
+    rpaths = [loader_path, rpath(source: lib/"pocl")]
+    rpaths << llvm.opt_lib.to_s if OS.linux?
     args = %W[
       -DPOCL_INSTALL_ICD_VENDORDIR=#{prefix}/etc/OpenCL/vendors
-      -DCMAKE_INSTALL_RPATH=#{loader_path};#{rpath(source: lib/"pocl")}
+      -DCMAKE_INSTALL_RPATH=#{rpaths.join(";")}
       -DENABLE_EXAMPLES=OFF
       -DENABLE_TESTS=OFF
       -DWITH_LLVM_CONFIG=#{llvm.opt_bin}/llvm-config

@@ -3,7 +3,7 @@ class RandomizeLines < Formula
   homepage "https://arthurdejong.org/rl/"
   url "https://arthurdejong.org/rl/rl-0.2.7.tar.gz"
   sha256 "1cfca23d6a14acd190c5a6261923757d20cb94861c9b2066991ec7a7cae33bc8"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url :homepage
@@ -11,6 +11,7 @@ class RandomizeLines < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "8ec08636ac3e5aa68060b1f43a1bd6a5cad418f489a4bbc9b9554053aa06188e"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "194a2a869a8ecdeab95baf1f6b5f9d5d13c12eba7b6acd1378817da3e01a9740"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "9c351e68f794607d01893bca67180a80b721b597260304eb258f3108227950f8"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6aa2233b5cb7b9dd6ca98f51a6afee212967af3a1dd5b5d27f4ef0a7359c7bd0"
@@ -39,6 +40,7 @@ class RandomizeLines < Formula
       2
       4
     EOS
-    system "#{bin}/rl", "-c", "1", testpath/"test.txt"
+
+    system bin/"rl", "-c", "1", testpath/"test.txt"
   end
 end

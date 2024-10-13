@@ -1,18 +1,19 @@
 class Argc < Formula
   desc "Easily create and use cli based on bash script"
   homepage "https://github.com/sigoden/argc"
-  url "https://github.com/sigoden/argc/archive/refs/tags/v1.19.0.tar.gz"
-  sha256 "1c4b67d3adecdd7d36a01af370db8aec628b113f5181bcd388ded84081c9f889"
+  url "https://github.com/sigoden/argc/archive/refs/tags/v1.20.1.tar.gz"
+  sha256 "d46c0ce07c4ae7c2a01556842e09884ccf70adbfae5354f831cfe7a70cf7a2c4"
   license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1e86d10d302d6a793ce9aff67e358b5be739d7965072607fcc16279824229955"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d72ac99fe30862d45a1d3fe0ade17aedeac36b3f91970d80d983c768838ae1c5"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "46dd22f413f7a7ee55852042c1e99b48356c3d7e9dbfb8217458b5de1041dd33"
-    sha256 cellar: :any_skip_relocation, sonoma:         "f0c8e58a234b127500fca8534d99b631a23d47a79897e9b46cbc2c184fd9378d"
-    sha256 cellar: :any_skip_relocation, ventura:        "1db03913fe1a91a52b3fbd954aee0d04b815c876564c5bfad7a559053a599755"
-    sha256 cellar: :any_skip_relocation, monterey:       "58d3aec0efc74500ce2a17d3cde67c4d28279a92eb7a2ea41cf2ecc501961fad"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "04b0b3f37e5bb2c826a761ca4186bae19d270ca21b7afeffae457b08046870f1"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "8012bb90f3ae74c4697e88bbea7d121d771565a4420fc35e645ec9096375562c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "394874707693f4abe3b9d3e7a9d1b645fc9bdf8120c04ea68ec61b30ef2b08b2"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0286f8170906df35ddc02e9be1ad4fb2c37b566edc598cac1dc37ecdb64c5ff4"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "287c3c7db3a9fef28fa02c8d09c1bb18217f52dbd7db48f9b248d1514610930e"
+    sha256 cellar: :any_skip_relocation, sonoma:         "bdc7da6917e04cb62570b94d977203657cba75f46fed2c0766d3000b7a535a23"
+    sha256 cellar: :any_skip_relocation, ventura:        "883890699261800b37edb30327238afa5001cab1bf3bf1302863bf1bbf6d211b"
+    sha256 cellar: :any_skip_relocation, monterey:       "115e207d65095fef271b26f89011c2e4f72b1d0389a593ab0df733cdfd7a3e7c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b475259aec9f56bdb89455201d22683c99aa5d86ee9fddd801b9c9ba1aa7a016"
   end
 
   depends_on "rust" => :build

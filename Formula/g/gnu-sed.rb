@@ -8,6 +8,7 @@ class GnuSed < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "7bf9b1bc4e946b0f316cfe1aeacc5fbf418d0045588d381f35439d96dba64f4c"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5ffd49517ed790e52a088e720de77f1dd4de4e88816fb6a1d244be3f6b01314d"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "3770e9098033bc1f32427d3b6502a1ab10082b3945e204286c87060d82d03d19"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e41980dc2d528301c562ed7ec59ee8bcfe43d1f9a4dc734652e9c216ac3fbdf4"
@@ -57,15 +58,16 @@ class GnuSed < Formula
   end
 
   test do
-    (testpath/"test.txt").write "Hello world!"
+    test_file = testpath/"test.txt"
+    test_file.write "Hello world!"
     if OS.mac?
-      system "#{bin}/gsed", "-i", "s/world/World/g", "test.txt"
-      assert_match "Hello World!", File.read("test.txt")
+      system bin/"gsed", "-i", "s/world/World/g", "test.txt"
+      assert_match "Hello World!", test_file.read
 
-      system "#{opt_libexec}/gnubin/sed", "-i", "s/world/World/g", "test.txt"
+      system opt_libexec/"gnubin/sed", "-i", "s/world/World/g", "test.txt"
     else
-      system "#{bin}/sed", "-i", "s/world/World/g", "test.txt"
+      system bin/"sed", "-i", "s/world/World/g", "test.txt"
     end
-    assert_match "Hello World!", File.read("test.txt")
+    assert_match "Hello World!", test_file.read
   end
 end

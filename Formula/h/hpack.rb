@@ -7,6 +7,7 @@ class Hpack < Formula
   head "https://github.com/sol/hpack.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "e23ea1c56e7a987105a80b4c54d14ac248ac89731b13af28c49f8dbba17a51a2"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5c9a4675bb72bc2fe3e8335fc830c16a6c56e879d1979acfff71ec995de5eca0"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "e5d0c25fba0d13f0c209bd62a4645c6a9d580a7f80f75d0d795a6eb51d52f814"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "57e145e9a7bf924201a002e423ae6a137d1e018b8eb3daa18ad42ba43712ac7c"
@@ -53,7 +54,7 @@ class Hpack < Formula
         default-language: Haskell2010
     EOS
 
-    system "#{bin}/hpack"
+    system bin/"hpack"
 
     # Skip the first lines because they contain the hpack version number.
     assert_equal expected, (testpath/"homebrew.cabal").read.lines[6..].join

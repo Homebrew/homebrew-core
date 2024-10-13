@@ -6,6 +6,7 @@ class Lexbor < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "a0aa4db60e4ea8b69f80c2c6b2a613a20cc303eca5c21b60d105db4fd6a4836d"
     sha256 cellar: :any,                 arm64_sonoma:   "76084d38a071e5e5d39feb88a361e79c7dc06d54ce9e2b3358666c167d8836df"
     sha256 cellar: :any,                 arm64_ventura:  "eccf6f7558e767bee5354ab18cc6d28c673531999900f56f4785c1e736c23ebd"
     sha256 cellar: :any,                 arm64_monterey: "c2cfb1247d22a00a0e7f626496c2a8149db81b8e53ef1761f5de864aa76a2456"

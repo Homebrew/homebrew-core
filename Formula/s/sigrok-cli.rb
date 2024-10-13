@@ -11,6 +11,7 @@ class SigrokCli < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "fd787456a3085648cbf83f56294acc9c37579a5dba2338d8d56c74710c03ee90"
     sha256 cellar: :any,                 arm64_sonoma:   "a5e82221775d890da9132fdc4326606838e1622c0e692248e2e2efd54839893e"
     sha256 cellar: :any,                 arm64_ventura:  "c829705552edd7e001c393e73954a4f95a3b50319994943897c05858e3734998"
     sha256 cellar: :any,                 arm64_monterey: "f097768e26c50de6aafacfb8e1e1db78837620683d42dd1cca848c0797794bd0"
@@ -50,6 +51,6 @@ class SigrokCli < Formula
 
   test do
     # Make sure that we can capture samples from the demo device
-    system "#{bin}/sigrok-cli", "-d", "demo", "--samples", "1"
+    system bin/"sigrok-cli", "-d", "demo", "--samples", "1"
   end
 end

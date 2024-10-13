@@ -23,6 +23,7 @@ class DosboxStaging < Formula
   end
 
   bottle do
+    sha256 arm64_sequoia:  "48aa9079f0008e0c3e9f841f3d91ae891a27021f592918b95da2afa35b642c49"
     sha256 arm64_sonoma:   "d9c7de5c2c373cbd38b42779d5af89ca1c3efc2a236e2d1be1885db9c17404a4"
     sha256 arm64_ventura:  "b253f715e507d4a1231a11ebc5cecd3f47efea1c6d5f70ff31047bdeb9e93677"
     sha256 arm64_monterey: "9ec95a30a281c9aad5be2661f76ae7dbb931da3f9459ccc105769beb829e260c"
@@ -58,7 +59,7 @@ class DosboxStaging < Formula
   fails_with gcc: "5"
 
   def install
-    (buildpath/"subprojects").rmtree # Ensure we don't use vendored dependencies
+    rm_r(buildpath/"subprojects") # Ensure we don't use vendored dependencies
     args = %w[-Ddefault_library=shared -Db_lto=true -Dtracy=false]
 
     system "meson", "setup", "build", *args, *std_meson_args

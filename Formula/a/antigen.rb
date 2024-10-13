@@ -7,7 +7,8 @@ class Antigen < Formula
   head "https://github.com/zsh-users/antigen.git", branch: "develop"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "a7e25e7e84045a565f89b862af543154fa8564a4b2ca875fa894a641927b099f"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "c5b90cbbac10593d4cdc737303340894b65b0598a564cc9eafe1466f33936503"
   end
 
   uses_from_macos "zsh"

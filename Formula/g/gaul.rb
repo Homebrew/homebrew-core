@@ -3,9 +3,10 @@ class Gaul < Formula
   homepage "https://gaul.sourceforge.net/"
   url "https://downloads.sourceforge.net/project/gaul/gaul-devel/0.1850-0/gaul-devel-0.1850-0.tar.gz"
   sha256 "7aabb5c1c218911054164c3fca4f5c5f0b9c8d9bab8b2273f48a3ff573da6570"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "f6ef6f6e6711082dd49cae45e516aa9f8fdf0f2942ff4224f6c30d9e75976dcc"
     sha256 cellar: :any,                 arm64_sonoma:   "619d02cf0a65573901c3b83a642203dae07540475bb5e1ea054b67e9ae1ed086"
     sha256 cellar: :any,                 arm64_ventura:  "75cba0ced64826f1b48b0622ae5c7a3b2acbe99c33f7b97ec02378b3f97db95a"
     sha256 cellar: :any,                 arm64_monterey: "26e4e30f26cf04cd953e2ec43503a616d52a4024d2131cbcce5bc13d28ad93ea"

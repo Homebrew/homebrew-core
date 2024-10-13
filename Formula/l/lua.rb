@@ -11,6 +11,7 @@ class Lua < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "925b155912162179d777cde03b60fdd8b5507f0bfc3c7adf2f7a49e1b3b00461"
     sha256 cellar: :any,                 arm64_sonoma:   "84862c80e0cba6ae50dc62a560bbff91a2607a2952d037da127588b5582bb272"
     sha256 cellar: :any,                 arm64_ventura:  "751b91605496a0ca76301b9dbfbdd151b6dd807dfd0acc3d517f631bf7dac110"
     sha256 cellar: :any,                 arm64_monterey: "9fa819a1bf2476966556690ca374e34543e33395af8147c7d9fc163bec02fc0b"

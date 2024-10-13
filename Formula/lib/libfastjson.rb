@@ -6,6 +6,7 @@ class Libfastjson < Formula
   license "BSD-2-Clause"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "e9a8424dc257099992210434ed1b30517d31ea60793715f5b2878421144ffa9e"
     sha256 cellar: :any,                 arm64_sonoma:   "a9ca39524509a82daa588a69d3f7cf2c930a9fd4343279a3ecf86ec47391852a"
     sha256 cellar: :any,                 arm64_ventura:  "60241a76f124b053b86c2d2aae88bc9655dde27ac892314e557e609346f42a9a"
     sha256 cellar: :any,                 arm64_monterey: "f609552d56e43460541b5727b4eeca56b6e1fe1869d2568a9f169391d7a8babb"

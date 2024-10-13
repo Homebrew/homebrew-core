@@ -12,6 +12,7 @@ class Ott < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "65546813bc9828857309b7c5263650f4a6cac03a48d6b070e13172bd4a000f13"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7c138f305f0c33843f5c9b69298f1ab095680bd72aef50f091635d74d3d8ce5b"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "41c6201ade0bebc2bb75696d6e53e5fb589692aa716f3fd09178d5050e4bc00e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "bfff4519a3ba70b177252aa268bee375fd93d59a4d0dc6adbe1b26169400f555"
@@ -24,6 +25,7 @@ class Ott < Formula
   depends_on "gmp" => :build
   depends_on "ocaml" => :build
   depends_on "opam" => :build
+  depends_on "pkg-config" => :build
 
   def install
     opamroot = buildpath/".opam"
@@ -40,7 +42,7 @@ class Ott < Formula
   end
 
   test do
-    system "#{bin}/ott", "-i", pkgshare/"examples/peterson_caml.ott",
+    system bin/"ott", "-i", pkgshare/"examples/peterson_caml.ott",
       "-o", "peterson_caml.tex", "-o", "peterson_caml.v"
   end
 end

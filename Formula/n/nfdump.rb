@@ -7,6 +7,7 @@ class Nfdump < Formula
   head "https://github.com/phaag/nfdump.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "e9c04f86eb62658e20cc3819e101b29b09ce7d12fcecd2c7889b9a8f61554d92"
     sha256 cellar: :any,                 arm64_sonoma:   "42fa76feef300134d762f24e8d44867855ad1f43641fec68998d39df23dce6cb"
     sha256 cellar: :any,                 arm64_ventura:  "543982b0fe73e4278ae50a28305e2503f6f0923114b0793e5f848a49055d6b92"
     sha256 cellar: :any,                 arm64_monterey: "798c9f5fa5609a306c20de9a6521792152aefd2e027f8144ec6f4a6a342aaca5"

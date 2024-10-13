@@ -7,6 +7,7 @@ class Dsocks < Formula
   head "https://github.com/dugsong/dsocks.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "9130e47d1bfae90594a9127a2aa63144b9101563558cf1fa704205c874bf23a5"
     sha256 cellar: :any,                 arm64_sonoma:   "07f6f3c0e0ca8250eccd463a6cc728bf5ba0400727232ccbfada5137087085b6"
     sha256 cellar: :any,                 arm64_ventura:  "5c950e6047a1c85b8107378594822cc7e563a87a7bce9547f3b21617362b8245"
     sha256 cellar: :any,                 arm64_monterey: "932d52fc3ff219d56ce68f2214e06b045d5a38d8b8fe517269a7664d9757568a"

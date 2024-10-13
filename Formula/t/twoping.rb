@@ -10,17 +10,11 @@ class Twoping < Formula
   head "https://github.com/rfinnie/2ping.git", branch: "main"
 
   bottle do
-    rebuild 3
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ef33ac789c154cbf0eba01c1af9e4c31d9a491258ae97bb15b4686ff600104ee"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ef33ac789c154cbf0eba01c1af9e4c31d9a491258ae97bb15b4686ff600104ee"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ef33ac789c154cbf0eba01c1af9e4c31d9a491258ae97bb15b4686ff600104ee"
-    sha256 cellar: :any_skip_relocation, sonoma:         "ef33ac789c154cbf0eba01c1af9e4c31d9a491258ae97bb15b4686ff600104ee"
-    sha256 cellar: :any_skip_relocation, ventura:        "ef33ac789c154cbf0eba01c1af9e4c31d9a491258ae97bb15b4686ff600104ee"
-    sha256 cellar: :any_skip_relocation, monterey:       "ef33ac789c154cbf0eba01c1af9e4c31d9a491258ae97bb15b4686ff600104ee"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "aafa2c41be4f9c5d9a83d80f83fd81560da9e1edfafe157ef010781be9afc083"
+    rebuild 5
+    sha256 cellar: :any_skip_relocation, all: "5153c17a69826ba8fa3274c858acc3c608cf7b9208fa683043fcda9bed6311c1"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   def install
     virtualenv_install_with_resources

@@ -4,42 +4,48 @@ class Tracebox < Formula
   url "https://github.com/tracebox/tracebox.git",
       tag:      "v0.4.4",
       revision: "4fc12b2e330e52d340ecd64b3a33dbc34c160390"
-  license "GPL-2.0-only"
+  license all_of: [
+    "GPL-2.0-only",
+    "BSD-3-Clause", # noinst/libcrafter
+  ]
   revision 3
   head "https://github.com/tracebox/tracebox.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sonoma:   "b893f78ab5c78f4e9c88c9ef2f08463307cadebdd317080bb01fc94e85b4ce67"
-    sha256 cellar: :any,                 arm64_ventura:  "5e87f5abfd04eb0bb0e9c7e45279863164c5dc484835073d4fbde7f2fa989bdf"
-    sha256 cellar: :any,                 arm64_monterey: "cc4ac9edfdc0765525644d4af89bece91cf0b184d960bfb44998b8261c6402c3"
-    sha256 cellar: :any,                 arm64_big_sur:  "ad820978e61f8d526c9116d5f87cf834761575819e7034937c446199a912d2f6"
-    sha256 cellar: :any,                 sonoma:         "d1687badf55d564d44e4e6436f10cebcf0035387b4da2efacc33317bc6f05056"
-    sha256 cellar: :any,                 ventura:        "db08b21082094820c08a16361030e689aa21c6f03574b4d46659dd12ee02f1b4"
-    sha256 cellar: :any,                 monterey:       "951aba2156c33b56e146e3d8f69b3405f66ec650f17796254c0a2bcc6af59b4b"
-    sha256 cellar: :any,                 big_sur:        "b972c4ea4a3c130bb45f8b9a97441ea3e9b7aae20de0c1c33d5e1a19596825c1"
-    sha256 cellar: :any,                 catalina:       "cf183ba6385036080157a7dc032453e4c28bde55a2ebf4830e8b990b3c83e1c8"
-    sha256 cellar: :any,                 mojave:         "ba193e6a2a415a8fefd90890daaa21a19c3bdabeb14504699a558207affdc216"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8cec9a216221eedd1e87a7bb434cacbe58c050fd278693b59a9a4e09dfe23638"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_sequoia:  "4477778df4c958271cb1d399c2a61efd383a466ef5ebf73d0710dd9d7ff55eeb"
+    sha256 cellar: :any,                 arm64_sonoma:   "2932a710d67503cee019ef902088ab3f5000017f737dfa3818fd76db9d39d048"
+    sha256 cellar: :any,                 arm64_ventura:  "9705e61653def47f938f0ec3f16fb21080f295a511a49c293e2c852574e656b3"
+    sha256 cellar: :any,                 arm64_monterey: "b64f5f9a5ddb03779fd042bc15a95940e618c4de3fe7e2fcb9b5ad8959fab0f0"
+    sha256 cellar: :any,                 sonoma:         "6abeaa63adac2a5329f9e40368963e975ba14f5cc86ce98fb28371c1299c7e37"
+    sha256 cellar: :any,                 ventura:        "64fbec3f29837959980185a6df8c454f1fbfcc9eeff0f337acb80076b740482a"
+    sha256 cellar: :any,                 monterey:       "8de9a06925cc930fd05d09f08924e323080d0cf375e5153781ffb4ba0071cce7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "534c62a00f80541550000853b7656fba20be0e72dc879df166f7172b93460321"
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "json-c"
-  depends_on "libpcap"
   depends_on "lua"
 
+  uses_from_macos "libpcap"
+
   def install
-    ENV.append_to_cflags "-I#{Formula["libpcap"].opt_include}"
-    ENV.append "LIBS", "-L#{Formula["libpcap"].opt_lib} -lpcap -lm"
+    unless OS.mac?
+      ENV.cxx11 # work around error: reference to 'byte' is ambiguous
+      ENV.append_to_cflags "-I#{Formula["libpcap"].opt_include}"
+      ENV.append "LDFLAGS", "-L#{Formula["libpcap"].opt_lib}"
+    end
+    # Work around limited `libpcap` and `lua` search paths in configure.ac
+    ENV.append "LIBS", "-lpcap -lm"
     ENV["LUA_INCLUDE"] = "-I#{Formula["lua"].opt_include}/lua"
     ENV["LUA_LIB"] = "-L#{Formula["lua"].opt_lib} -llua"
-    ENV.libcxx
+
     system "autoreconf", "--install"
-    system "./configure", *std_configure_args,
-                          "--disable-silent-rules",
-                          "--with-libpcap=yes"
+    system "./configure", "--disable-silent-rules",
+                          "--with-libpcap=yes",
+                          *std_configure_args
     system "make"
     system "make", "install"
   end

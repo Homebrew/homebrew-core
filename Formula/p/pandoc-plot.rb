@@ -1,18 +1,17 @@
 class PandocPlot < Formula
   desc "Render and include figures in Pandoc documents using many plotting toolkits"
   homepage "https://github.com/LaurentRDC/pandoc-plot"
-  url "https://hackage.haskell.org/package/pandoc-plot-1.8.0/pandoc-plot-1.8.0.tar.gz"
-  sha256 "bdcb2c424e4f031ef8520943e5b61679cae01f51ca35887c28fd92eb17f8e241"
+  url "https://hackage.haskell.org/package/pandoc-plot-1.9.1/pandoc-plot-1.9.1.tar.gz"
+  sha256 "a34a08faf483ed7c9c5e7c439ac275077b9262bb3384d1f551e47d6aa59dd434"
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "61f9c2fc41122b2a2253b5725a5c14cbcfa55a5ae152907c38efc1542d7d3ee5"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e578a6cc80a3a404b105f54e33e9fc288d179af4812a39e3361067b774a823cc"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "2f5c003812b407609d816b0b220b638b71a15fb63daab763006fe37a38d1efcf"
-    sha256 cellar: :any_skip_relocation, sonoma:         "34d076508cdaa73d033699df89b2d4404e688eafe7f555a034296af85ba05c40"
-    sha256 cellar: :any_skip_relocation, ventura:        "0647ceb0880cae41840143dc4f176dffd6ddecf59077311fd5b492793a8fa0b3"
-    sha256 cellar: :any_skip_relocation, monterey:       "ccc2183be46b10b56fe79a62c54ec3947e7c2092db6be08dc3077e8d9b7d3a9d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "494066c10c56cea658b48546412e5da45ac6033b97a9c2062218d9704ce76c5b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "277fe6f242119166f8d77f2b07b109129425ed673547fbaaa2d6f01e68c5d7c3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4647b4e4e30b594f08bd6c871dac82b26d7bb1fbe75d850a77d8c445a1b8774a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "a576bb85965c0aaab47ea0d10b1ce99310ce7ea453361e28f90fd6142644da7c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "eb0f022f0722c571818a6d9a4786e6aa92ed6a7ce0af8e47ce43bae83dd0c193"
+    sha256 cellar: :any_skip_relocation, ventura:       "624f4ee454a269b92a633a306632b99e0365e952b0bd2de17e40bfec21443fb6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "177f0c90f6cb82159908834ad1ad93a3b60d4df9e282036862a9b9634f29bb2f"
   end
 
   depends_on "cabal-install" => :build

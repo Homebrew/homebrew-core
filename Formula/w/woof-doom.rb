@@ -7,6 +7,7 @@ class WoofDoom < Formula
   head "https://github.com/fabiangreffrath/woof.git", branch: "master"
 
   bottle do
+    sha256 arm64_sequoia:  "06be4613a778d07539868cb95f9eaa64987ca5da3f133049d26499cf3f820f33"
     sha256 arm64_sonoma:   "b36d61351eb20860130ebef15f2d351aa57c1b53a7144941ceb55c0e15954795"
     sha256 arm64_ventura:  "6512b577a17cc18d6b33892d6bcfdd4b1b39b8c97602ad6dbe0a0af00075c683"
     sha256 arm64_monterey: "e3926cf17f95f3c9e522c5780664fc7140503d58ba4b30957cb3c73d26cd5c33"
@@ -23,6 +24,10 @@ class WoofDoom < Formula
   depends_on "openal-soft"
   depends_on "sdl2"
   depends_on "sdl2_net"
+
+  on_linux do
+    depends_on "alsa-lib"
+  end
 
   conflicts_with "woof", because: "both install `woof` binaries"
 

@@ -6,6 +6,7 @@ class Detox < Formula
   license "BSD-3-Clause"
 
   bottle do
+    sha256 arm64_sequoia:  "481ed92a26b1e26953107580c9a6baa6e4c3c3fd6d773395125de4038a83e46e"
     sha256 arm64_sonoma:   "8faa1e95922d876ff01d233893f0cb83d07bcf2e916c231d15e94765d16efa21"
     sha256 arm64_ventura:  "79122f4f58434d19c69c182bc1709630b052dd7141e6810691b1f1e91175083f"
     sha256 arm64_monterey: "b105a28c660493298adf8cac087529dbafe41196b4f97b5e7d28a8543236b208"

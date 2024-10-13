@@ -7,6 +7,7 @@ class Base16384 < Formula
   head "https://github.com/fumiama/base16384.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "9c046b845fe6857efb4263bc958ae54f86716c14999710d91451727eab219719"
     sha256 cellar: :any,                 arm64_sonoma:   "71adec1b444f7b121e2cc126a876d3ca84df3a8cbe2dad781eac1b7c1c8c0736"
     sha256 cellar: :any,                 arm64_ventura:  "581c0cb53c4ec53655015c1477a749ae53f63c18ea5b4c56cd28ac4c42fcaf97"
     sha256 cellar: :any,                 arm64_monterey: "870a9f826384af1e7958de7cc4577c4a7bc536f25b27c70d377685a3616df453"

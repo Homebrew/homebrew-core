@@ -7,7 +7,8 @@ class BrewPhpSwitcher < Formula
   head "https://github.com/philcook/brew-php-switcher.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "e0825664daa7aa3179f0893c1293a4db3c9fc7255f23f4c84b5a3d9e7f3f2f0a"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "8c51cf96644238337f5e47ff322fc06d15d0597b96bfd15daeb20909346c87d8"
   end
 
   depends_on "php" => :test
@@ -19,6 +20,6 @@ class BrewPhpSwitcher < Formula
 
   test do
     assert_match "usage: brew-php-switcher version",
-                 shell_output("#{bin}/brew-php-switcher")
+                 shell_output(bin/"brew-php-switcher")
   end
 end

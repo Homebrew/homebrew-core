@@ -4,16 +4,17 @@ class Ivtools < Formula
   url "https://github.com/vectaport/ivtools/archive/refs/tags/ivtools-2.1.tar.gz"
   sha256 "6a5a55883399cbfef317d8bbf553e57e54945188666b344d9efa98ba3edb57ad"
   license "MIT"
-  revision 5
+  revision 6
 
   bottle do
-    sha256 cellar: :any, arm64_sonoma:   "b7832b61ea89442eb47365df80d62c135ab747575829be850b9cc44e25b6679f"
-    sha256               arm64_ventura:  "308901dd8cea56dc89e58fefd63dea889dd2ad0cdcfae6309b1030366cf5acdd"
-    sha256               arm64_monterey: "915a9016e85be3aa2f8cf5ca803d3b3eff5ec24c6e82bec01000206ed1f11b95"
-    sha256 cellar: :any, sonoma:         "8609c55cc742badffacb1d04ce702bf1ba18237dec5d010b8adb736232f6a8bc"
-    sha256               ventura:        "37bd9d56364c6fb1de7ff35ac1546b71ea9284d682346fe713d60637f5dac06b"
-    sha256               monterey:       "11fe86c640c678230dca2bee5bac746faf5993b27a51ef073e163405b1e89095"
-    sha256               x86_64_linux:   "73e14906aa2298300b5f6986d0da662cbe8374f163dafb5f25a85b40414bc9ef"
+    sha256 cellar: :any, arm64_sequoia:  "8c0c13fec5d7dbb494964ba3e1468c26e75d16d2fd455d067670c7509c757cdb"
+    sha256 cellar: :any, arm64_sonoma:   "9aff849b29d9ff8c26c9fa6f2465fed83432940fa92e0bbf02de4ec9f056e537"
+    sha256               arm64_ventura:  "983f0e8636e109d5908cb785451ccf63b0c50ca080d8ebcc9479396d92d81989"
+    sha256               arm64_monterey: "40498e4bc74223a345b5558cd13a15f201cc68c79aed787d20bf9bbbacf552f9"
+    sha256 cellar: :any, sonoma:         "fa6dca449abf1dbf670ca9ef2256f99e843618f923d897767c0629d6671f78e4"
+    sha256               ventura:        "40cdf0f8b141813718e9f4d4b7b3a32752f3cac1b5024014fce5e2405b9ed14b"
+    sha256               monterey:       "eecf13aa53e64d6b6deb95d05c8e633d1c8ecb5c28bbbc19250a9ce3a7f44483"
+    sha256               x86_64_linux:   "1a57b1289fa8c1ea7c42a4f96fd9dfbf4082aa96f23d19ad7942c2cf4af4eeda"
   end
 
   depends_on "ace"
@@ -42,6 +43,6 @@ class Ivtools < Formula
   end
 
   test do
-    system "#{bin}/comterp", "exit(0)"
+    system bin/"comterp", "exit(0)"
   end
 end

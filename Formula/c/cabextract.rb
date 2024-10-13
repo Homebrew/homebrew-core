@@ -11,6 +11,7 @@ class Cabextract < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "8101eb79dccd718a2568420757be4c4f191ee6e11a8c8107a000f1691b081456"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "624bed1dfb0c77ecba2f8d6bd3deb022caae6d47af7d4edc314008aa001b036b"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "8e4cd53d32db9ea97656f399dd9033eaa5ef5c8cc3226de8de09865e6c610435"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "371a13fefca5fbd78edd570020e5f0eaf82536c55e54a8efd01fe7570103cd01"
@@ -37,7 +38,7 @@ class Cabextract < Formula
     EOS
     (testpath/"test.cab").binwrite [cab].pack("H*")
 
-    system "#{bin}/cabextract", "test.cab"
+    system bin/"cabextract", "test.cab"
     assert_predicate testpath/"a", :exist?
   end
 end

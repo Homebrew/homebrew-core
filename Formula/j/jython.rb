@@ -1,8 +1,8 @@
 class Jython < Formula
   desc "Python implementation written in Java (successor to JPython)"
   homepage "https://www.jython.org/"
-  url "https://search.maven.org/remotecontent?filepath=org/python/jython-installer/2.7.3/jython-installer-2.7.3.jar"
-  sha256 "3ffc25c5257d2028b176912a4091fe048c45c7d98218e52d7ce3160a62fdc9fc"
+  url "https://search.maven.org/remotecontent?filepath=org/python/jython-installer/2.7.4/jython-installer-2.7.4.jar"
+  sha256 "6001f0741ed5f4a474e5c5861bcccf38dc65819e25d46a258cbc0278394a070b"
   license "PSF-2.0"
 
   livecheck do
@@ -11,16 +11,14 @@ class Jython < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "007d10bd54160f4ecca96a5a8bce295912bc8e3b10286a94d85e55a0421af083"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "eafebcb36c11b6406b8c314e932317482257acabee5594d3c50eb874201dd8a8"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "68df644ec1a6d98aa9fa16a928d935d9a0a5b22f4d5b0dfaa19c9352ae3f35c7"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d118994b7fb4b6353adf4bd24fcd64556a06755c8f5409995cb11a225b950798"
-    sha256 cellar: :any_skip_relocation, sonoma:         "5ce1f8884d55e37c4220b7f13d4e56a902dbbdb6add852b56fa8760f9f569ca8"
-    sha256 cellar: :any_skip_relocation, ventura:        "e3b34345a333541f41a7fad39d180764c39767506c8c30de05ee034301a9d165"
-    sha256 cellar: :any_skip_relocation, monterey:       "0e4b255160c9cf926c8d0960ad4c304fed55479e07b3182749eb11dd90d74051"
-    sha256 cellar: :any_skip_relocation, big_sur:        "9fea67ce3f805db15d3dc5e263efb3bc949d1ab3c474533ee15a5207686aeb27"
-    sha256 cellar: :any_skip_relocation, catalina:       "b1a7f234b54746d1127bf17ec5a95122ef0d942b2ca97fef87bc32d0e71bcc91"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f9964506ee25d6ef2336c9d27e443f463a48d59df07f550070833bd29b91ea78"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "13e057d004350aeb89d008269280f5342064efc7cb4e66779bbb7661097a4492"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5f4cdcbf4f97999a663ea4251aa810cf84835e70da8a50c4bb4b0fc378a476b9"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4d0f3bf41ef89c336e81c06e08d2aff10a9e9917459b0a4a7a5e1dd1f6f5a9c6"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "1c85fbc0ccfa9e3ba0b11fc2996716ed2da5578d6b385b921a50100882604d33"
+    sha256 cellar: :any_skip_relocation, sonoma:         "fd1fb28373af09ab635cf1ba9a4531bdfd0ca61f777c880844daa8d6df426673"
+    sha256 cellar: :any_skip_relocation, ventura:        "c24c368c2bdd03928c74e6807c2954343c05d72ea0bde7d048add87354d49d12"
+    sha256 cellar: :any_skip_relocation, monterey:       "48be7bdcbcd3be1e5733a1181eb4f1a02f75d7d3a442a7a52e0aef7b7a29fb4f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ace9b3d90e73ef28c68731acdb4ace7ff14889380da8c07c0b3ddb425e8d43b0"
   end
 
   depends_on "openjdk"

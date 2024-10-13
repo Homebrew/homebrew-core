@@ -7,6 +7,7 @@ class Libde265 < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia:  "1fed239f2b1a5a9e61745084d2c36041218f378970bc89ab84b0d1016ab7e585"
     sha256 cellar: :any,                 arm64_sonoma:   "cb6a409ae8d92ad4c96bf94b14e4987e102faf7ebdf264eeaee2180d091dccaa"
     sha256 cellar: :any,                 arm64_ventura:  "d72d238b5d13f6a9731cf29ace23fcf4f6538059ba1c0b7b9bcf06f49ce3aa52"
     sha256 cellar: :any,                 arm64_monterey: "29b0a2838055970a932a9f5a2a3c338d13bb9785066b33c745ed8f0b75a6e115"

@@ -19,7 +19,7 @@ class Ncp < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "5d98c3fe0c92f5a8713caa0edb66dc409712bc8d0b8b08ebdda19ee22f9bcd68"
   end
 
-  disable! date: "2023-10-18", because: "no license for the project"
+  disable! date: "2023-10-18", because: :no_license
 
   depends_on "libowfat"
 

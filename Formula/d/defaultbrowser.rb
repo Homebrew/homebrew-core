@@ -6,6 +6,7 @@ class Defaultbrowser < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "d7921f729c6afa9a924ffc175918d74e9767059e645491af9cae1df09fa80bfa"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "babed0d9771439d08249d6ca58d8c468a2f646074a44ba3f8f1b90505054ad7f"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "75b63c5b51b3304105737dbbc18f4acca44aa2355dc06a06160220e5c07f42ef"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "fdbee46ea9cdc0bf6adbea67eed257663c77d745af838f4a2e71f69987242d6c"
@@ -30,6 +31,6 @@ class Defaultbrowser < Formula
   test do
     # defaultbrowser outputs a list of browsers by default;
     # safari is pretty much guaranteed to be in that list
-    assert_match "safari", shell_output("#{bin}/defaultbrowser")
+    assert_match "safari", shell_output(bin/"defaultbrowser")
   end
 end

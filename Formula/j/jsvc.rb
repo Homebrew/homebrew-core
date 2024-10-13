@@ -8,6 +8,7 @@ class Jsvc < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "0749b79fd00320427bac85b639dcf2349f005b17cb3ce673289fc059cb96b685"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "da8011ddc9b79a39530d7f5c14b6ca044c5a1fb1811adc52a0bb4fb399a58dd1"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "252dedd105372cc567919abb4a076feb4b47ecb55babafad8fa8c96499ab2769"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "560dad0bc6f713b936aea6cf9e26043cfcfae79488f71f9f5cde0b8e3cbd3900"

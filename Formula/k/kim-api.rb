@@ -12,6 +12,7 @@ class KimApi < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "811ee36c198aa16f4c386447742ac00e8fd201e4e94ba600914db99b97f8ab9a"
     sha256 cellar: :any,                 arm64_sonoma:   "38c367b05aa6f93acdc85720ff28641867cf76675fe1c3f971c5490fce66e9cb"
     sha256 cellar: :any,                 arm64_ventura:  "86f1c14a312882376a61772792e0da4265f84bdd432db6db42afd2355b4c142f"
     sha256 cellar: :any,                 arm64_monterey: "a18d11cf459f99ca0c0f8a1d08d3f6a2ea762a1ca029e282b77227cdd3f432a9"
@@ -31,7 +32,7 @@ class KimApi < Formula
   uses_from_macos "xz"
 
   def install
-    args = std_cmake_args + [
+    args = [
       "-DCMAKE_INSTALL_RPATH=#{rpath}",
       # adjust libexec dir
       "-DCMAKE_INSTALL_LIBEXECDIR=lib",
@@ -52,12 +53,10 @@ class KimApi < Formula
       args << "-DKIM_API_CMAKE_CXX_COMPILER=/usr/bin/g++"
     end
 
-    mkdir "build" do
-      system "cmake", "..", *args
-      system "make"
-      system "make", "docs"
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--build", "build", "--target", "docs"
+    system "cmake", "--install", "build"
   end
 
   test do

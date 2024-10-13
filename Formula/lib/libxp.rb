@@ -11,6 +11,7 @@ class Libxp < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "58ea4743cac65c66cd744b26ab6cd8e83a282e2da52ef872898e2237c948b563"
     sha256 cellar: :any,                 arm64_sonoma:   "ebdf40af1b62e90da723be29ff1c9a2f636bb09dbd7b4caa69975f2928123c71"
     sha256 cellar: :any,                 arm64_ventura:  "f92106b34661b7a8d39636a544ee208e724b2ac68395ca4a9b2ef264359190f9"
     sha256 cellar: :any,                 arm64_monterey: "c2e8285bdd8edb318e57e2b9d47e692d283cc05ac7ba811468ce946a9070fa1f"

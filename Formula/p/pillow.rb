@@ -4,21 +4,22 @@ class Pillow < Formula
   url "https://files.pythonhosted.org/packages/cd/74/ad3d526f3bf7b6d3f408b73fde271ec69dfac8b81341a318ce825f2b3812/pillow-10.4.0.tar.gz"
   sha256 "166c1cd4d24309b30d61f79f4a9114b7b2313d7450912277855ff5dfd7cd4a06"
   license "HPND"
+  revision 1
   head "https://github.com/python-pillow/Pillow.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_sonoma:   "ccb180b86306c317c1bb86d0851af16db3cd9201ec73075a3f41de4ff45bf671"
-    sha256 cellar: :any, arm64_ventura:  "2c597522196c225fe2894826aeb6383dfc2238aed96434b9070c214f5957e97c"
-    sha256 cellar: :any, arm64_monterey: "ebe4315cc2b641f01e16b0935903ff67b468a6f9bef8d6e765a312f34429fc47"
-    sha256 cellar: :any, sonoma:         "144bb6d5a53ee094cd62bd3afb170e56a504b11f7473a09d66e8a3cb4a645bd8"
-    sha256 cellar: :any, ventura:        "b7a6bd36c51f17bdfa08b70e28043c17d03ce684c4b8386ff239c8a2d9d36051"
-    sha256 cellar: :any, monterey:       "e33f426090c7351563c784b9f7553e57d91648ae296d7240a0ae38592ee97f0d"
-    sha256               x86_64_linux:   "87f4aaed2277535ec83f77355fa3c3351c1b56ed688bd4225a87b2b54b1ef038"
+    sha256 cellar: :any, arm64_sequoia: "0117a48ed458639fbeb31a7972bafd3c0a9b06104011ccd4a7b0f5812b08b626"
+    sha256 cellar: :any, arm64_sonoma:  "ff97f4d05a95efb8b0fee5ecd488d3ec4d1a08a42fb83419cb4c187bb8ac36e4"
+    sha256 cellar: :any, arm64_ventura: "9c499f2ee136fdd5ebfb9a5882ec68c4a6e6eaf36a23f65cbd7f155b77cabf4c"
+    sha256 cellar: :any, sonoma:        "6187bc4583f25d0217dcfb6f9f6fc79d934d8cb1a3fe3e40205b4e902abeac6b"
+    sha256 cellar: :any, ventura:       "c7bca225a92ee3b57d2816f1323fd3d080294c8fe20c9ae6cb63fbb42dd32ac2"
+    sha256               x86_64_linux:  "72460570398320cf0bf3b17fd673258121bd61b60baf8b49d75dfdde99ee4269"
   end
 
   depends_on "pkg-config" => :build
   depends_on "python@3.11" => [:build, :test]
   depends_on "python@3.12" => [:build, :test]
+  depends_on "python@3.13" => [:build, :test]
   depends_on "freetype"
   depends_on "jpeg-turbo"
   depends_on "libimagequant"

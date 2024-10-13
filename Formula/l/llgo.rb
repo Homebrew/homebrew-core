@@ -1,41 +1,46 @@
 class Llgo < Formula
   desc "Go compiler based on LLVM integrate with the C ecosystem and Python"
   homepage "https://github.com/goplus/llgo"
-  url "https://github.com/goplus/llgo/archive/refs/tags/v0.9.2.tar.gz"
-  sha256 "a3bf64aadefee0d145f823b8271c08e1ee24ca182bd2b354d8c667a6d4fdcc28"
+  url "https://github.com/goplus/llgo/archive/refs/tags/v0.9.7.tar.gz"
+  sha256 "f9721be0b41d1e622923b4aa1d4e8071af93753f36f4c9285697e6af009fa0dc"
   license "Apache-2.0"
+  revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_sonoma:   "416bc5f4f991dc57675db343caded2d87d5005fae4e5d9235f0c3541338b1409"
-    sha256 cellar: :any, arm64_ventura:  "fadfbff07c6d431da832d258add1e4a44a6ad5a6085a551f4407ec9ac232601c"
-    sha256 cellar: :any, arm64_monterey: "9ddb406673e6e7c5ded6585d9043e155eebf4fc43016cfc6bfeb8f405bba4f7f"
-    sha256 cellar: :any, sonoma:         "b75dd458eb731d05d91eb47bdc4ece03a717e2bf1134309d16afe2f11972103e"
-    sha256 cellar: :any, ventura:        "4c78c7dd099f3fb0c60b2f1cfe61c5854a2052d79b52cf8faba5fa8117c737c1"
-    sha256 cellar: :any, monterey:       "c199cdc38680c021476adc2a47b8bdf7e22889c951f15609a54cdac3db24aac9"
-    sha256               x86_64_linux:   "1250c4dda1151db845be75acf9076a0ba403d1a2c423690a73dcba5e27885ee8"
+    sha256 cellar: :any, arm64_sequoia: "c2843ed4c34662cd4efb4332efc801ebd481623ccc1cff1448be0804ad197038"
+    sha256 cellar: :any, arm64_sonoma:  "02e5fbd91b3ec0560cd653cd113eaff7d7899521fe56efb95bf76da703e88c9f"
+    sha256 cellar: :any, arm64_ventura: "ee9649478a6a5327d9c7c28880b1cf203cdc4e88c09cc59ce9d8f06e275749db"
+    sha256 cellar: :any, sonoma:        "1a21fcc15688f58e760474cb36700411865591f1dc88608a7434866017af43ae"
+    sha256 cellar: :any, ventura:       "50fd0b364c4ff977f5bc1c64d54a048dce67fcc06e12a0fb228cb2f2d6eabce0"
+    sha256               x86_64_linux:  "ec6fb4fdba58e39f7008ffa6311278e155a7e37856c78b88e953afa4f0a61cec"
   end
 
   depends_on "bdw-gc"
   depends_on "go"
-  depends_on "llvm"
+  depends_on "llvm@18"
+  depends_on "openssl@3"
   depends_on "pkg-config"
+
+  def llvm
+    deps.map(&:to_formula).find { |f| f.name.match?(/^llvm(@\d+)?$/) }
+  end
 
   def install
     if OS.linux?
       ENV.prepend "CGO_CPPFLAGS",
-        "-I#{Formula["llvm"].opt_include} " \
+        "-I#{llvm.opt_include} " \
         "-D_GNU_SOURCE " \
         "-D__STDC_CONSTANT_MACROS " \
         "-D__STDC_FORMAT_MACROS " \
         "-D__STDC_LIMIT_MACROS"
-      ENV.prepend "CGO_LDFLAGS", "-L#{Formula["llvm"].opt_lib} -lLLVM"
+      ENV.prepend "CGO_LDFLAGS", "-L#{llvm.opt_lib} -lLLVM"
     end
 
     ldflags = %W[
       -s -w
-      -X github.com/goplus/llgo/xtool/env.buildVersion=v#{version}
-      -X github.com/goplus/llgo/xtool/env.buildDate=#{time.iso8601}
-      -X github.com/goplus/llgo/xtool/env/llvm.ldLLVMConfigBin=#{Formula["llvm"].opt_bin/"llvm-config"}
+      -X github.com/goplus/llgo/x/env.buildVersion=v#{version}
+      -X github.com/goplus/llgo/x/env.buildTime=#{time.iso8601}
+      -X github.com/goplus/llgo/xtool/env/llvm.ldLLVMConfigBin=#{llvm.opt_bin/"llvm-config"}
     ]
     build_args = *std_go_args(ldflags:)
     build_args += ["-tags", "byollvm"] if OS.linux?
@@ -43,8 +48,8 @@ class Llgo < Formula
 
     libexec.install "LICENSE", "README.md"
 
-    path = %w[go llvm pkg-config].map { |f| Formula[f].opt_bin }.join(":")
-    opt_lib = %w[bdw-gc].map { |f| Formula[f].opt_lib }.join(":")
+    path = llvm.opt_bin + ":" + %w[go pkg-config].map { |f| Formula[f].opt_bin }.join(":")
+    opt_lib = %w[bdw-gc openssl@3].map { |f| Formula[f].opt_lib }.join(":")
 
     (libexec/"bin").children.each do |f|
       next if f.directory?
@@ -57,12 +62,12 @@ class Llgo < Formula
   end
 
   test do
-    opt_lib = %w[bdw-gc].map { |f| Formula[f].opt_lib }.join(":")
+    opt_lib = %w[bdw-gc openssl@3].map { |f| Formula[f].opt_lib }.join(":")
     ENV.prepend_path "LD_LIBRARY_PATH", opt_lib
 
     goos = shell_output(Formula["go"].opt_bin/"go env GOOS").chomp
     goarch = shell_output(Formula["go"].opt_bin/"go env GOARCH").chomp
-    assert_equal "llgo v#{version} #{goos}/#{goarch}", shell_output("#{bin}/llgo version").chomp unless head?
+    assert_equal "llgo v#{version} #{goos}/#{goarch}", shell_output("#{bin}/llgo version").chomp
 
     (testpath/"hello.go").write <<~EOS
       package main

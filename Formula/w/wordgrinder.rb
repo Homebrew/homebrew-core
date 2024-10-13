@@ -8,6 +8,7 @@ class Wordgrinder < Formula
   head "https://github.com/davidgiven/wordgrinder.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "281cb8b0ac7c49861af74607ffa9ff36aed7f7899a46bbd18d686cf958c90c1f"
     sha256 cellar: :any,                 arm64_sonoma:   "01e1ab04fb507afd5e62ddfee96e629ae7405671a3a6ad107eca9f30771b76b8"
     sha256 cellar: :any,                 arm64_ventura:  "b89498bd5c54678e5460ccf146084abdde90853f465f17775657298fe1ba5c91"
     sha256 cellar: :any,                 arm64_monterey: "3eb4bf8cff526d9a6e6c9e285ba2a63879eb157a6ba091dff6be7ad49da749b3"
@@ -37,7 +38,7 @@ class Wordgrinder < Formula
   end
 
   test do
-    system "#{bin}/wordgrinder", "--convert", "#{doc}/README.wg", "#{testpath}/converted.txt"
+    system bin/"wordgrinder", "--convert", "#{doc}/README.wg", "#{testpath}/converted.txt"
     assert_predicate testpath/"converted.txt", :exist?
   end
 end

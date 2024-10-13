@@ -11,6 +11,7 @@ class Privoxy < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "4ec5910c8e67367112560e96440ab88fdee51cf3c276d41565ab5cce5bd90d51"
     sha256 cellar: :any,                 arm64_sonoma:   "2d271db67276295a3c0a95713d1bef904015c7729615380ada8f9228196b2632"
     sha256 cellar: :any,                 arm64_ventura:  "9e9553d35f57d1857a1518216b4263eb9ffce10cf9e93da7a38f688f23606610"
     sha256 cellar: :any,                 arm64_monterey: "1b0028627cbd63a818a043537b4357b7bb0105fb56ba0b4d92efe3300cc953f9"

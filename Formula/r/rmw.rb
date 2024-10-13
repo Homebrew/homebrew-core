@@ -12,6 +12,7 @@ class Rmw < Formula
   end
 
   bottle do
+    sha256 arm64_sequoia:  "9ad3f588bf06a21b78cf3bd4e5a5bf3cae6178b05cb545ec71efadef334ec6dd"
     sha256 arm64_sonoma:   "29b9e30ceb600ae6b8af8f170a72228b6734aee040fd8c48b79d98fed477be32"
     sha256 arm64_ventura:  "9f1dc8c2a1ba4631f3502959d988473e9a55f915a02a0ba8f06f1279846538df"
     sha256 arm64_monterey: "89fda4126f92fe441a6bbd56640aabdcddfc4383aca9214e82914c4f8b79cead"
@@ -41,7 +42,7 @@ class Rmw < Formula
     touch file
     assert_match "removed", shell_output("#{bin}/rmw #{file}")
     refute_predicate file, :exist?
-    system "#{bin}/rmw", "-u"
+    system bin/"rmw", "-u"
     assert_predicate file, :exist?
     assert_match "/.local/share/Waste", shell_output("#{bin}/rmw -l")
     assert_match "purging is disabled", shell_output("#{bin}/rmw -vvg")

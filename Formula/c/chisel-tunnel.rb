@@ -1,19 +1,18 @@
 class ChiselTunnel < Formula
   desc "Fast TCP/UDP tunnel over HTTP"
   homepage "https://github.com/jpillora/chisel"
-  url "https://github.com/jpillora/chisel/archive/refs/tags/v1.9.1.tar.gz"
-  sha256 "7323fb3510a36f14949337cd03efd078f4a5d6159259c20539e3a8e1960a7c7e"
+  url "https://github.com/jpillora/chisel/archive/refs/tags/v1.10.1.tar.gz"
+  sha256 "85d121087ea3e1139f63eaa389642bd6d8c2584728ec80d16315b17410844269"
   license "MIT"
   head "https://github.com/jpillora/chisel.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f5037b5ae58ec1a0eb1fe11b26efa6838587c624a37c2bd770a1628ac9cb3316"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "99d3c362ac14ef78c792399308994e9be4509a0b2ea31aea95e82b10f37e271f"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d50fca28c7c5be10d023efb49e9ac2be728e90285491e39ffba5a3afed39eabc"
-    sha256 cellar: :any_skip_relocation, sonoma:         "3e0fc64e4471956b20c175cec8a06cd27363648d71856207d20b6b883271cbf6"
-    sha256 cellar: :any_skip_relocation, ventura:        "825b46a233b6a10768e50f06d53bd8cec945457ee8be0889fa65901749aa6d48"
-    sha256 cellar: :any_skip_relocation, monterey:       "7b1fb7177adbcaa8ba3ba3a5fd0a0c7d51ffccea5da2a46f3d3c2bf3094461ea"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "955d2db76211bd1fef5a447b7281d7f058144fcfde65b087970d188fbaf613e3"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8b397a8a01fc38a83f555b0f13e7ff9a35aebb841429fc2fd3b3eac677a710c6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8b397a8a01fc38a83f555b0f13e7ff9a35aebb841429fc2fd3b3eac677a710c6"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "8b397a8a01fc38a83f555b0f13e7ff9a35aebb841429fc2fd3b3eac677a710c6"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c340b49c0b6562f7b6e27750cb5ae2b0e693a9705277a7e6b0294c51044effa6"
+    sha256 cellar: :any_skip_relocation, ventura:       "c340b49c0b6562f7b6e27750cb5ae2b0e693a9705277a7e6b0294c51044effa6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "636bb604a3dc5845c89843386b4ef6c877f72110c3099403471239a6fbd1e0ba"
   end
 
   depends_on "go" => :build

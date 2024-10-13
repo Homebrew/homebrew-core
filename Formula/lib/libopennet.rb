@@ -3,7 +3,7 @@ class Libopennet < Formula
   homepage "https://www.rkeene.org/oss/libopennet"
   url "https://www.rkeene.org/files/oss/libopennet/libopennet-0.9.9.tar.gz"
   sha256 "d1350abe17ac507ffb50d360c5bf8290e97c6843f569a1d740f9c1d369200096"
-  license "LGPL-2.1"
+  license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
 
   livecheck do
     url :homepage
@@ -11,6 +11,7 @@ class Libopennet < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "e5e9c1ebe5ba34938705b7b0b1f70569348096a58d96b2a7327526f5d3aeb5f7"
     sha256 cellar: :any,                 arm64_sonoma:   "cb4414cd607a9de6b0cf79edc026805665037051c6cb17b289cd5a5e5ecda5a1"
     sha256 cellar: :any,                 arm64_ventura:  "1ce4bb615aaa4579a6719a21eaaea4cdcf6beba142a9191e9aca597d6fbdf726"
     sha256 cellar: :any,                 arm64_monterey: "7adee83fdb8fc7a65bd7a4f34b2cedfe58a2ef51e66892fd9ecd89732c1b779c"

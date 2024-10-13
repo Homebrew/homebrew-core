@@ -11,7 +11,8 @@ class Xtitle < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "c463ee3a0d4e7e17b1dbcdced8c6ed5eb50d2815a56cc28ac037848735fe1803"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "62511b7ce2a8440cd64bdf6fb05a1015920d610f254f95d01fb020c1c58c819e"
   end
 
   def install

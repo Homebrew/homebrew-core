@@ -12,6 +12,7 @@ class Clib < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "d55c0d80cdf3962c6f472fbf9f977bbc1f38108789a35f28083eb901be9a1d51"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "adaa04956400da4720ab59df6f5751b1f04e98dd297890f3289eafd55bcd7f3a"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "7209d89f9749907745dffd80fa70d85b722ce4e907020cc55a63dd3d9066e6d0"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f1a9ccc23f7f02055c2df418f3131adea4c9341c0d859d7fe1b84e37d2b82e08"
@@ -29,6 +30,6 @@ class Clib < Formula
   end
 
   test do
-    system "#{bin}/clib", "install", "stephenmathieson/rot13.c"
+    system bin/"clib", "install", "stephenmathieson/rot13.c"
   end
 end

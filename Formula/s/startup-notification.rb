@@ -7,6 +7,7 @@ class StartupNotification < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "a8443bdbe68a6ad0d3cfb6e762cf01b88eb719d243691b8070b024ad5c8ab70e"
     sha256 cellar: :any,                 arm64_sonoma:   "688da3d5c9f204ab402e2d419b2925bdf6087a1d6fc8d604e0e11be639904be8"
     sha256 cellar: :any,                 arm64_ventura:  "10d94fd081a6867bae73ef9bf9a47b7abb32d92aa50ed920c423cf1f35163265"
     sha256 cellar: :any,                 arm64_monterey: "9272c92348ee82fc166a46ad129d860019f9dbacbd1effc8f612cbd1dff3f049"

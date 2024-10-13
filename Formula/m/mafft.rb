@@ -12,6 +12,7 @@ class Mafft < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "435f07a25b111e3acb645fdb613854e7872c0fa7cb0134a084efcd45f5df5099"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c6bc4e37e3c7e5ee2d37791927eb80e1ab0704029765cfad46d604cd093ab4fa"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "ad09be10bf7387c18b0ed95d7a3f5a497902299744ef101914e87e4b651cb155"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "bf69c5b35b4a713690785897d4543e0bb7e5c92ff580c8e005ae6d258bf1d082"

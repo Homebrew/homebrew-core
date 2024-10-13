@@ -8,6 +8,7 @@ class Pup < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "011465853c0a2aa9712231f8aa3cd4e40037c9050ffa90a56fadc32f8dfbb822"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c0a8a91d48aeea561d2a0f1cb092b9dfd0c0d4ab97ddaf86aefade8602af326c"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "8023f82224007c85960698b96baa60a1749de8ecc9aeb24e56cda2fc2208433a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b6854a47afc836d12ed5447f9d285484e200f0d4350411f5aac7bf5e30f33a07"

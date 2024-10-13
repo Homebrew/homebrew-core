@@ -7,6 +7,7 @@ class Ncmdump < Formula
   head "https://github.com/taurusxin/ncmdump.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "5cb059fc2cc8ec831eef8e54ccbf72efbada242917cbe95ce19b33a129ba6949"
     sha256 cellar: :any,                 arm64_sonoma:   "6b6ea8422cf6c07ba41cdec25cd75e74881a0b9d131ca4fc4e7fa5a36a45ccae"
     sha256 cellar: :any,                 arm64_ventura:  "78c634b892549c682cd00c6962208eb52b451c184356d7d1629f6c1206beeab3"
     sha256 cellar: :any,                 arm64_monterey: "af2c32f41f65892c7b8d2e09972e438827624e440d438d65ec13c56508f8445c"
@@ -37,7 +38,7 @@ class Ncmdump < Formula
     end
 
     resources.each { |r| r.stage(testpath) }
-    system "#{bin}/ncmdump", "#{testpath}/test.ncm"
+    system bin/"ncmdump", "#{testpath}/test.ncm"
     assert_predicate testpath/"test.flac", :exist?
     assert_equal File.read("test.flac"), File.read("expect.bin")
   end

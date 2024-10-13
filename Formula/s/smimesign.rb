@@ -6,6 +6,7 @@ class Smimesign < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "c9e2064fefc808679e20024cbb97402c88921c56c9638b04cc76a6c816a13f21"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f5979116c40aaefd0b504137d670d0cd8e649cca54709a8cb41dfbe390d26762"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "8709e59254d883223d8aa3f565054cacce97135da8d7c1b7c941596a75898f4a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d103d54144838e83f98e76260c5f3f546729cfa59b52002889ba6716951ba529"
@@ -28,7 +29,7 @@ class Smimesign < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/smimesign --version")
-    system "#{bin}/smimesign", "--list-keys"
+    system bin/"smimesign", "--list-keys"
     assert_match "could not find identity matching specified user-id: bad@identity",
       shell_output("#{bin}/smimesign -su bad@identity 2>&1", 1)
   end

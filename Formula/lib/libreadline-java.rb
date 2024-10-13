@@ -6,6 +6,7 @@ class LibreadlineJava < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "69be2c1c7e2604d6c01ef986fd8f1107976d4e1cec7784eaf971d7e2e69cb301"
     sha256 cellar: :any,                 arm64_sonoma:   "d4329ed0409bc232ed32b32af891e7eb7c1ec29945a58acdbb0f8ad2d0d7130d"
     sha256 cellar: :any,                 arm64_ventura:  "30d029bd66f3e09eb495ba7fa8a7c537bb8d7c2fbf1fe92767918e74affb14db"
     sha256 cellar: :any,                 arm64_monterey: "584fd1a58765d929a2671476e64994b1de6e85da1e031d47169992afc33384a5"

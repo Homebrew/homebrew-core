@@ -1,5 +1,3 @@
-require "language/node"
-
 class DockerfileLanguageServer < Formula
   desc "Language server for Dockerfiles powered by Node, TypeScript, and VSCode"
   homepage "https://github.com/rcjsuen/dockerfile-language-server"
@@ -9,19 +7,21 @@ class DockerfileLanguageServer < Formula
   head "https://github.com/rcjsuen/dockerfile-language-server.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8aabd17fbdaf0480be3a769abb74e4b48c97dc60742c38a7054d9e6336e9c97a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8aabd17fbdaf0480be3a769abb74e4b48c97dc60742c38a7054d9e6336e9c97a"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8aabd17fbdaf0480be3a769abb74e4b48c97dc60742c38a7054d9e6336e9c97a"
-    sha256 cellar: :any_skip_relocation, sonoma:         "a05541b349d4d4e2998f12f9b5683a3028635c0b1435d8faedf8674604923347"
-    sha256 cellar: :any_skip_relocation, ventura:        "a05541b349d4d4e2998f12f9b5683a3028635c0b1435d8faedf8674604923347"
-    sha256 cellar: :any_skip_relocation, monterey:       "a05541b349d4d4e2998f12f9b5683a3028635c0b1435d8faedf8674604923347"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "35ea4c4c48e6f7eda7df3b66823d4b8c4a5ff2ec28e90a27a24edee1596a8392"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "fc0733c32b23d413bc930039532ba81099fea104efd7e50c5ad87830bb52bea0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0acd811cad164eaa55ff4fb328759defae0ee5c12995cd11fa2a2688615fbf53"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0acd811cad164eaa55ff4fb328759defae0ee5c12995cd11fa2a2688615fbf53"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "0acd811cad164eaa55ff4fb328759defae0ee5c12995cd11fa2a2688615fbf53"
+    sha256 cellar: :any_skip_relocation, sonoma:         "59e9066fafdb05c780c640814cd2aeec5180f8ff184e61e60dda6c732164b8fd"
+    sha256 cellar: :any_skip_relocation, ventura:        "59e9066fafdb05c780c640814cd2aeec5180f8ff184e61e60dda6c732164b8fd"
+    sha256 cellar: :any_skip_relocation, monterey:       "59e9066fafdb05c780c640814cd2aeec5180f8ff184e61e60dda6c732164b8fd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dee4c193b8f1eabb362140936b430f8e8138329a9e164cad55ffeed21ddd827f"
   end
 
   depends_on "node"
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", *std_npm_args
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 

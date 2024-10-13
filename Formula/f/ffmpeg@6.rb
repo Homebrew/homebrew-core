@@ -1,12 +1,12 @@
 class FfmpegAT6 < Formula
   desc "Play, record, convert, and stream audio and video"
   homepage "https://ffmpeg.org/"
-  url "https://ffmpeg.org/releases/ffmpeg-6.1.1.tar.xz"
-  sha256 "8684f4b00f94b85461884c3719382f1261f0d9eb3d59640a1f4ac0873616f968"
+  url "https://ffmpeg.org/releases/ffmpeg-6.1.2.tar.xz"
+  sha256 "3b624649725ecdc565c903ca6643d41f33bd49239922e45c9b1442c63dca4e38"
   # None of these parts are used by default, you have to explicitly pass `--enable-gpl`
   # to configure to activate them. In this case, FFmpeg's license changes to GPL v2+.
   license "GPL-2.0-or-later"
-  revision 2
+  revision 3
 
   livecheck do
     url "https://ffmpeg.org/download.html"
@@ -14,13 +14,12 @@ class FfmpegAT6 < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "d7406998c6199ac77f95d3f283da4954b15d9cb22ec9a9e4c3dec5d44d4074a1"
-    sha256 arm64_ventura:  "402e29ff33381f5a69725366ca7ca1dc2d5b2b9fc83e4bf8aaf48080cb3b33a8"
-    sha256 arm64_monterey: "66a75bae262cd177120305ab9d5a69d8fca364e1a109285125310c574dc3d51a"
-    sha256 sonoma:         "fbaeb2b7395aea1059e333b4800fdf3c80144e93be06ae18cfa80d599bce1870"
-    sha256 ventura:        "d832aff7012091b0103f8ea6404ca083e0dd343988fde91cbc116cc0d15db4e5"
-    sha256 monterey:       "87b1c8327e55422e7c9fd59594daacf0294f44a10211164c8a10307963788c91"
-    sha256 x86_64_linux:   "d7eb88f3cfedf728ce1f194b586d512fbbeabc75085adf54419b54720d6dba7a"
+    sha256 arm64_sequoia: "5d54158b8f70b18c48e92abb63f797820bc5c981f62cfa9b7bc5fd2c1148bfe2"
+    sha256 arm64_sonoma:  "d2912673745744ea72f55451ef21e02a0cd68969834d7c6e6891867bf4589452"
+    sha256 arm64_ventura: "0d795c9b56ee515ba67998cbec4242b831e716b6d4c39be202f6d3767335f1a8"
+    sha256 sonoma:        "16d21d6a68bda3ade7c8de491290ea3447ab7134dc2f16b6d5e84e3477a3604b"
+    sha256 ventura:       "d6c1f00cd256e57e28bab5885c385119ba338e49a6649cf5d2bd77702cb261c6"
+    sha256 x86_64_linux:  "670438f630a20352e5aa5b825fbc7c082a80bd9b583b1c3d64f2a5abe855cc68"
   end
 
   keg_only :versioned_formula
@@ -49,7 +48,6 @@ class FfmpegAT6 < Formula
   depends_on "libxcb"
   depends_on "opencore-amr"
   depends_on "openjpeg"
-  depends_on "openvino"
   depends_on "opus"
   depends_on "rav1e"
   depends_on "rubberband"
@@ -76,8 +74,6 @@ class FfmpegAT6 < Formula
     depends_on "libarchive"
     depends_on "libogg"
     depends_on "libsamplerate"
-    depends_on "pugixml"
-    depends_on "tbb"
   end
 
   on_linux do
@@ -148,7 +144,6 @@ class FfmpegAT6 < Formula
       --enable-libopencore-amrnb
       --enable-libopencore-amrwb
       --enable-libopenjpeg
-      --enable-libopenvino
       --enable-libspeex
       --enable-libsoxr
       --enable-libzmq

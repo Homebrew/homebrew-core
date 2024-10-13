@@ -11,6 +11,7 @@ class Castget < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "4ef2a3166dbe4c983bc4a83b891b28b430ecb348e0043da7f0a512cdf7391444"
     sha256 cellar: :any,                 arm64_sonoma:   "a2f710b3cc40945afaef214606dc94e036ab266e176158fcd5dbd3e11b3de117"
     sha256 cellar: :any,                 arm64_ventura:  "85bc8985e90ece6ae58bf9d7a1f68eda1d2d2b3744694f5d7dfcfaf82d9b33df"
     sha256 cellar: :any,                 arm64_monterey: "dab2c9c9952ce1ecd3263ed1d6c1c002c772c9e7c310bde0b6277c46fd424edf"

@@ -3,9 +3,12 @@ class Teem < Formula
   homepage "https://teem.sourceforge.net/"
   url "https://downloads.sourceforge.net/project/teem/teem/1.11.0/teem-1.11.0-src.tar.gz"
   sha256 "a01386021dfa802b3e7b4defced2f3c8235860d500c1fa2f347483775d4c8def"
+  # License is LGPL-2.1-or-later with a non-SPDX license exception for linking
+  license :cannot_represent
   head "https://svn.code.sf.net/p/teem/code/teem/trunk"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "81b45cdf2ea8755adac691f6e58accc314cf9ddfe9152c3f017fd839df3da9c2"
     sha256 cellar: :any,                 arm64_sonoma:   "3e9555bbe75fe5a36a3f62a36434158fa024153accdb69266ffce6d59254fed7"
     sha256 cellar: :any,                 arm64_ventura:  "675bc15ec206fbcdd01c475ae95b82f8fbb5f8143bd781ee87ba09971eb75d84"
     sha256 cellar: :any,                 arm64_monterey: "1c2da9c13e69b5cf2729b29ee33b48208963735e6e0394a17709993e6457a0e3"
@@ -38,6 +41,6 @@ class Teem < Formula
   end
 
   test do
-    system "#{bin}/nrrdSanity"
+    system bin/"nrrdSanity"
   end
 end

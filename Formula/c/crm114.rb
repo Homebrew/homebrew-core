@@ -1,11 +1,12 @@
 class Crm114 < Formula
   desc "Examine, sort, filter or alter logs or data streams"
-  homepage "https://crm114.sourceforge.net/"
-  url "https://crm114.sourceforge.net/tarballs/crm114-20100106-BlameMichelson.src.tar.gz"
+  homepage "https://sourceforge.net/projects/crm114/"
+  url "http://deb.debian.org/debian/pool/main/c/crm114/crm114_20100106.orig.tar.gz"
   sha256 "fb626472eca43ac2bc03526d49151c5f76b46b92327ab9ee9c9455210b938c2b"
   license "GPL-3.0-only"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "bdadfd33ce2fbca99f2c353e6a59651f68de4353cf8ba8ec319986a39531e3d5"
     sha256 cellar: :any,                 arm64_sonoma:   "02293e7f49287e46515f25f788207339c207a9caed0b57c31853b691a9e0358c"
     sha256 cellar: :any,                 arm64_ventura:  "9791c36069114cb7235007258500b450c2d28aec42bc0753fae806bb2ef71dd4"
     sha256 cellar: :any,                 arm64_monterey: "0cdce09555c1d90f1e577367c906921bbd8ea8fb37af61598a8ec80307fe7bf5"
@@ -30,6 +31,7 @@ class Crm114 < Formula
 
   def install
     ENV.append "CFLAGS", "-std=gnu89"
+    ENV.append "CFLAGS", "-fcommon" if OS.linux?
     inreplace "Makefile", "LDFLAGS += -static -static-libgcc", ""
     bin.mkpath
     system "make", "prefix=#{prefix}", "install"

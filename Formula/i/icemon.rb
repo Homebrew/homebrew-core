@@ -8,6 +8,7 @@ class Icemon < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia:  "ee2a82f839e771368531ab54f76b5b17b54fbfdbe1ce4ff77671321b5913c35a"
     sha256 cellar: :any,                 arm64_sonoma:   "17248733e176763f0279735fd42c504e3e52f0845279e41a27e3c019703a607e"
     sha256 cellar: :any,                 arm64_ventura:  "93377ed3f7d1b598aa9b2c4f0dd5df364e5612fa91d1501282a35ce598e946fe"
     sha256 cellar: :any,                 arm64_monterey: "ddd8e4ef2a9f056c9b1ea46968ce4e69b281816ef9c405514164d2ca65e4e61c"
@@ -24,23 +25,35 @@ class Icemon < Formula
   depends_on "extra-cmake-modules" => :build
   depends_on "pkg-config" => :build
   depends_on "sphinx-doc" => :build
+
   depends_on "icecream"
   depends_on "lzo"
   depends_on "qt@5"
+  depends_on "zstd"
+
+  on_macos do
+    depends_on "libarchive"
+  end
+
+  on_linux do
+    depends_on "libcap-ng"
+  end
 
   fails_with gcc: "5"
 
   def install
-    system "cmake", ".", "-DECM_DIR=#{Formula["extra-cmake-modules"].opt_share}/ECM/cmake", *std_cmake_args
-    system "make", "install"
+    args = "-DECM_DIR=#{Formula["extra-cmake-modules"].opt_share}/ECM/cmake"
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
     if OS.mac?
-      system "#{bin}/icemon", "--version"
+      system bin/"icemon", "--version"
     else
-      assert_match("qt.qpa.xcb: could not connect to display",
-                         shell_output("#{bin}/icemon --version 2>&1", 134))
+      output = shell_output("#{bin}/icemon --version 2>&1", 134)
+      assert_match "qt.qpa.xcb: could not connect to display", output
     end
   end
 end

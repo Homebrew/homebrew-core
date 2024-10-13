@@ -3,6 +3,7 @@ class Sdedit < Formula
   homepage "https://sdedit.sourceforge.net/"
   url "https://downloads.sourceforge.net/project/sdedit/sdedit/4.2/sdedit-4.2.1.jar"
   sha256 "270af857e6d2823ce0c18dee47e1e78ef7bc90c7e8afeda36114d364e0f4441c"
+  license "BSD-2-Clause"
   revision 1
 
   livecheck do
@@ -11,8 +12,8 @@ class Sdedit < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "cf1ff79f7e7bd0648236f1a1aca45fe7204501dd69bb0ef30f1f8104569130f7"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "b53e1a2647aa46c3b1955e0aa26329c42d4bb5defd34d3dab8d4a6b2897bdaeb"
   end
 
   depends_on "openjdk"

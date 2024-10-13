@@ -1,8 +1,8 @@
 class GnupgAT22 < Formula
   desc "GNU Pretty Good Privacy (PGP) package"
   homepage "https://gnupg.org/"
-  url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.2.43.tar.bz2"
-  sha256 "a3b34c40f455d93054d33cf4cf2a8ce41149d499eca2fbb759619de04822d453"
+  url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.2.44.tar.bz2"
+  sha256 "735b8b3e6d2330f66ab98336b060d5852a1a67cb2bc47ec7d1e5411577a8cadd"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -11,16 +11,19 @@ class GnupgAT22 < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "40c89c2b75dfc5664f23467620eca04ce2a521df71c3c27e8d8458fd83e7945c"
-    sha256 arm64_ventura:  "d07caa67766ee2a38396ff98c3a40f8c1706ace3bd74a952fe53e813c3ab002b"
-    sha256 arm64_monterey: "0dde167623f5f5b5b665d9d6bb0dcc17d8c6b323fc93f7dc7c05b262e348e239"
-    sha256 sonoma:         "78b9e6163f29dc21ee8bb2a80949062f85b46a46e6ba930a821ad26752596ca2"
-    sha256 ventura:        "34835eb5e3d0fab2ad90b09d493ade94c95a74ea2a4d7f1d80541caa150f367e"
-    sha256 monterey:       "ef89f38a4413e5b5f0df140c7a555064b861a31dcd4b18ad040a1fb2bdfba6a1"
-    sha256 x86_64_linux:   "9079309d3412821c6edb7710a9cbfce8dfc6b14792bd60a1a2aaff77940c1aa9"
+    sha256 arm64_sequoia:  "ae04fa9bdd10750f7bf1a3d04c93228eba086a8a54efa222812cd8664a8aacc2"
+    sha256 arm64_sonoma:   "a59f561a3a6fc4255ff5b78474a8eb8a0e2a85acd2324eea26b8d5825189f1d9"
+    sha256 arm64_ventura:  "3a627f6f953e005d0dfa7849553a0b446f174c19f2efa5a28289a2e76112cd30"
+    sha256 arm64_monterey: "a8902f2057eb44a5943166494dba399814f45fc8ff0681b1e15000a0378123aa"
+    sha256 sonoma:         "27d7cb6a0b415c83a1be4eb618f907d862ed5ff6201be03866255ff9f211c9b1"
+    sha256 ventura:        "06ab494804b1da7784aee8a385821b30e583ac257b8c4c89827db941ef285d54"
+    sha256 monterey:       "378c0adda9293a26265a25e08a176e39ff0ef1f6ca72e85650063e1c684dc8fc"
+    sha256 x86_64_linux:   "d6aa79c116ce67e2476a5fd3c95a7fa630f1ea8904ffac69d3418e6353a4ef8e"
   end
 
   keg_only :versioned_formula
+
+  disable! date: "2025-04-01", because: :versioned_formula
 
   depends_on "pkg-config" => :build
   depends_on "gnutls"

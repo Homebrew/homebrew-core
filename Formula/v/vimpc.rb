@@ -3,10 +3,11 @@ class Vimpc < Formula
   homepage "https://sourceforge.net/projects/vimpc/"
   url "https://github.com/boysetsfrog/vimpc/archive/refs/tags/v0.09.2.tar.gz"
   sha256 "caa772f984e35b1c2fbe0349bc9068fc00c17bcfcc0c596f818fa894cac035ce"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
   head "https://github.com/boysetsfrog/vimpc.git", branch: "master"
 
   bottle do
+    sha256 arm64_sequoia:  "d7224868acdc3f21753f66baf1e1a5631651da85e89d7885f49b48137d9a1e67"
     sha256 arm64_sonoma:   "08b6a0c50415af4361a442810e8d4fb190e64f123230087604359fd00b10e654"
     sha256 arm64_ventura:  "a738652b8bbf20ab0449d5eea600f10aa602d5d7a490324c17efe2961afbbce5"
     sha256 arm64_monterey: "80a71521b623830617733116cbce155ba0598dac8604c7e19438207946ec1406"
@@ -26,20 +27,21 @@ class Vimpc < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
+
   depends_on "libmpdclient"
   depends_on "pcre"
   depends_on "taglib"
 
   uses_from_macos "curl"
+  uses_from_macos "ncurses"
 
   def install
     system "./autogen.sh"
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    system "./configure", *std_configure_args
     system "make", "install"
   end
 
   test do
-    system "#{bin}/vimpc", "-v"
+    system bin/"vimpc", "-v"
   end
 end

@@ -7,13 +7,13 @@ class Richgo < Formula
   head "https://github.com/kyoh86/richgo.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7c1bb646af1a17b66efb00c745ee6d27b14d9a5e492af3bf822e3867c7e2fde7"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7c1bb646af1a17b66efb00c745ee6d27b14d9a5e492af3bf822e3867c7e2fde7"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7c1bb646af1a17b66efb00c745ee6d27b14d9a5e492af3bf822e3867c7e2fde7"
-    sha256 cellar: :any_skip_relocation, sonoma:         "49fe050b51a058b64c0807e93830cb7ae9ea18ce86483fa1893c9e5aee8a15c1"
-    sha256 cellar: :any_skip_relocation, ventura:        "49fe050b51a058b64c0807e93830cb7ae9ea18ce86483fa1893c9e5aee8a15c1"
-    sha256 cellar: :any_skip_relocation, monterey:       "49fe050b51a058b64c0807e93830cb7ae9ea18ce86483fa1893c9e5aee8a15c1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "064fa2fd7163441e7bf38121a82c8e87f2d7b5123a6c2a6c33c2361d685e5b75"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "967353f6b2bfa1c35a96f76eb85b98d3e6ea91d8b424a2655e80ab957884591b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "967353f6b2bfa1c35a96f76eb85b98d3e6ea91d8b424a2655e80ab957884591b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "967353f6b2bfa1c35a96f76eb85b98d3e6ea91d8b424a2655e80ab957884591b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "31d3f488ac0adb8874295408a1ea9c56acfbf9a90484d90b3e34d76ffcf20927"
+    sha256 cellar: :any_skip_relocation, ventura:       "31d3f488ac0adb8874295408a1ea9c56acfbf9a90484d90b3e34d76ffcf20927"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "da63b93248cf2292a4c287cc5973c39eded1d3c349ebfba315b3913883045d3c"
   end
 
   depends_on "go" => [:build, :test]

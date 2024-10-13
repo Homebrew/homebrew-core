@@ -14,6 +14,7 @@ class Libsigrokdecode < Formula
 
   bottle do
     rebuild 2
+    sha256 arm64_sequoia:  "1426c59e7f3789f4372d38d9ae8b937baedf7c4836ffe50f1eb83a5564d9aac7"
     sha256 arm64_sonoma:   "7c1edc6950ff24f926767a8de0721445d5f3c1ea7a103cc17b9313043f396e5b"
     sha256 arm64_ventura:  "fbf08d6b2fde951731f3dac27737defa3680dae8f865accdb40c554eef0302f5"
     sha256 arm64_monterey: "afbc25b9237db3cbfa5d9fe544b9f6f8e6ddf19e93164f4126da0697e1fce0f2"

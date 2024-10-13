@@ -13,6 +13,7 @@ class Autogen < Formula
   end
 
   bottle do
+    sha256 arm64_sequoia:  "6e840d15bd4394ae8d7896f12bc04d5531f182dd9b21c855b2d5752cf1f3fce7"
     sha256 arm64_sonoma:   "00050be1bb38030c899331d274860d7b90a6938d59800b5930669ee7887c8b71"
     sha256 arm64_ventura:  "3158365c07858e79995b689eb2e3d91c3e666db591d7b932d73c895aefc9ad0e"
     sha256 arm64_monterey: "002ff8cce7e99ea4013348ada75389cb74804dcf3fa810488aeed5812f160b81"
@@ -27,9 +28,14 @@ class Autogen < Formula
 
   depends_on "coreutils" => :build
   depends_on "pkg-config" => :build
+
   depends_on "guile"
 
   uses_from_macos "libxml2"
+
+  on_macos do
+    depends_on "bdw-gc"
+  end
 
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
@@ -45,10 +51,8 @@ class Autogen < Formula
     inreplace %w[agen5/mk-stamps.sh build-aux/run-ag.sh config/mk-shdefs.in], "mktemp", "gmktemp"
     # Upstream bug regarding "stat" struct: https://sourceforge.net/p/autogen/bugs/187/
     system "./configure", "ac_cv_func_utimensat=no",
-                          "--disable-debug",
-                          "--disable-dependency-tracking",
                           "--disable-silent-rules",
-                          "--prefix=#{prefix}"
+                          *std_configure_args
 
     # make and install must be separate steps for this formula
     system "make"
@@ -68,7 +72,7 @@ Index: autogen-5.18.16/agen5/guile-iface.h
 @@ -9,16 +9,13 @@
  # error AutoGen does not work with this version of Guile
    choke me.
- 
+
 -#elif GUILE_VERSION < 203000
 +#else
  # define AG_SCM_IS_PROC(_p)           scm_is_true( scm_procedure_p(_p))
@@ -76,12 +80,12 @@ Index: autogen-5.18.16/agen5/guile-iface.h
  # define AG_SCM_PAIR_P(_p)            scm_is_true( scm_pair_p(_p))
  # define AG_SCM_TO_LONG(_v)           scm_to_long(_v)
  # define AG_SCM_TO_ULONG(_v)          ((unsigned long)scm_to_ulong(_v))
- 
+
 -#else
 -# error unknown GUILE_VERSION
 -  choke me.
  #endif
- 
+
  #endif /* MUTATING_GUILE_IFACE_H_GUARD */
 Index: autogen-5.18.16/configure
 ===================================================================

@@ -7,6 +7,7 @@ class LibpahoMqtt < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "6abe3ddd5894700c4236244f923ef92a1145c71d2098caa2e3aea10cda9f2111"
     sha256 cellar: :any,                 arm64_sonoma:   "4c81ade278b4fc5b5ae9d673b1b767eda05122076cf31630536fd2a39b6fd1a0"
     sha256 cellar: :any,                 arm64_ventura:  "39dc0450eb42667c233984346e8a66f03725aae6e19489613c6409add367abeb"
     sha256 cellar: :any,                 arm64_monterey: "5207a2f947557bd0ebd6c8a19fc4d4a2e625bc72c5c66ed0791f7e4daa19389c"

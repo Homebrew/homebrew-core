@@ -1,18 +1,17 @@
 class Fwup < Formula
   desc "Configurable embedded Linux firmware update creator and runner"
   homepage "https://github.com/fwup-home/fwup"
-  url "https://github.com/fwup-home/fwup/releases/download/v1.10.2/fwup-1.10.2.tar.gz"
-  sha256 "b1fa346e02b984816d5914bfc5f37a55639a147d24a87727dfc01aa9d7ae90f9"
+  url "https://github.com/fwup-home/fwup/releases/download/v1.11.0/fwup-1.11.0.tar.gz"
+  sha256 "782ed26e25c2e27a416aced1eda7f0cc8ebefe0a73eef01fd8b108b4728104af"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "e483cc908d13ca2c5f77329acfc9f0a2e07c309eaa5cd654cbb92fabebb9521e"
-    sha256 cellar: :any,                 arm64_ventura:  "c4a7b6a2f48c2ec1193f646f627db6a185af212913bf171be2d46ebbd8f3a90f"
-    sha256 cellar: :any,                 arm64_monterey: "6ce4ca5b3844c3930db020e6088482170c4efb57dbdbb31f1bf6aff9bba05527"
-    sha256 cellar: :any,                 sonoma:         "5165cc003d518893dec2538c500b7eaaa15137b304a9511e06ac08b057bc4a3c"
-    sha256 cellar: :any,                 ventura:        "ec75edba64377a46b630c10c89aed8be8a45ee5e5889ff86497141b48cfe7374"
-    sha256 cellar: :any,                 monterey:       "c11de80f300f46bd049904f89b1745e02a581fb30763632c74b9da812bffa493"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "538295ec30530fcee960c6e56c7e40bfe0899c16e95d9b4b0b97f9aefe9cd94e"
+    sha256 cellar: :any,                 arm64_sequoia: "115cdea755621e9587d6534a5184bf21742ae0491202fccbd5e96bcb39dca9b8"
+    sha256 cellar: :any,                 arm64_sonoma:  "12db65bb45b7ebf37e617e5125af0dace338e6a5eb82910744e880460cc50b54"
+    sha256 cellar: :any,                 arm64_ventura: "d2d2eefd55cd8f4e0a46dfa0df0f2528111cc337f3f25228797a6f09895e69ba"
+    sha256 cellar: :any,                 sonoma:        "e2133ddb40c6d7b980711c7f7153dca476a00e32addf28f71ae4f757d0f95d34"
+    sha256 cellar: :any,                 ventura:       "68299bb9ebc2b5225c62cf0b609c599d55fdc9d1f101af4c51de38a1dea1710d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1267aba26b012ba18bc6f2c57a046d5a3633f3886e6c934ee6620db096a9b164"
   end
 
   depends_on "pkg-config" => :build

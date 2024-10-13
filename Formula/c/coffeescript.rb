@@ -1,5 +1,3 @@
-require "language/node"
-
 class Coffeescript < Formula
   desc "Unfancy JavaScript"
   homepage "https://coffeescript.org/"
@@ -9,7 +7,8 @@ class Coffeescript < Formula
   head "https://github.com/jashkenas/coffeescript.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "ca7fa9078c1169f542f4b95ed89dfacbc69b02f50345c03656763f801ffc9cb3"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "8b60f70c34df82c6fb506f905b11ecf0cda8421c03fb775e19ac0a2e9f348edf"
   end
 
   depends_on "node"
@@ -17,7 +16,7 @@ class Coffeescript < Formula
   conflicts_with "cake", because: "both install `cake` binaries"
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", *std_npm_args
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 

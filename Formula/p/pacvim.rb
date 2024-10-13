@@ -8,6 +8,7 @@ class Pacvim < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "eb53c0d2669f9aa5eb5cb3a955cd07986eedf27c51c278faa0f39f694e629aba"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "861543e913875822f7d20ee5fec8079993723f299866ba251e7ba4dc49e48449"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "49f67bf7c8bd084178d6574b3871ba35f9f2b960382af02317c28ecf203a9210"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "802d9f2831e1cc5fc3e4eede8440f63596b642aead5ceffabbc612495555261f"

@@ -3,7 +3,7 @@ class Mpegdemux < Formula
   homepage "http://www.hampa.ch/mpegdemux/"
   url "http://www.hampa.ch/mpegdemux/mpegdemux-0.1.5.tar.gz"
   sha256 "05015755d45e50cbd3018baeaa8abcedc003b1162fa28237a72ab25c1bc00023"
-  license "GPL-2.0"
+  license "GPL-2.0-only"
 
   livecheck do
     url :homepage
@@ -11,6 +11,7 @@ class Mpegdemux < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "596de6513b152e156fcffbfb37e42b097606fc3efed168190998049ddef8b9ff"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0a5ac9ee81a39717100b75106922b741f5adf919ff9351dd72abdd659f0575a6"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "7b4354702d4ee60e1833b2f000b5af4cc5c84a27af849019ea75098d99db68b3"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e64ed694831f706e6cfd725a80b26d30c2bb1cdef38f38d21be95a2e99a59163"
@@ -29,6 +30,6 @@ class Mpegdemux < Formula
   end
 
   test do
-    system "#{bin}/mpegdemux", "--help"
+    system bin/"mpegdemux", "--help"
   end
 end

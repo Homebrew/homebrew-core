@@ -9,6 +9,8 @@ class Cabocha < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_sequoia:  "10a190b7fea68a71d42b2b95bbae271c6e9c86792c46023b85d8197d9fc1b1f5"
+    sha256 arm64_sonoma:   "245d5a46edaedab3ee594cc9aa77d702087daae32db1ff28a70c6207bc0b01b2"
     sha256 arm64_ventura:  "50e7ebda3eb0424fd7e9f7654ecf854c8f3dff2673e257225013f3d3085e7967"
     sha256 arm64_monterey: "c61f5a8df81d52575b991108e2683c27d94a4dcd62cd50d4396cb65234453b22"
     sha256 arm64_big_sur:  "6db92d4bc14b2b1045601758c9ad2d528fda7ce0029316a2b296c63c4953c54d"

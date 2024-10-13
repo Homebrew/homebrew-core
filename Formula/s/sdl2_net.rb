@@ -14,6 +14,7 @@ class Sdl2Net < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "3d7c644db9335046fa38cb4ab1f0396572a1cbb1aa748c6458f9a8ac37ac820d"
     sha256 cellar: :any,                 arm64_sonoma:   "370799a594bbe1c431dac68cf7c6c19a048c15923a659bcb3db36ab7b5d9bf5e"
     sha256 cellar: :any,                 arm64_ventura:  "9e154cc5085e0f5f8d6c21e3656c1ff871497b1d79136105535f6fefc189aafc"
     sha256 cellar: :any,                 arm64_monterey: "293d3240dd1ac9c5aa76317ff632fb216c5a2768632a84400479ba6befcdd6c0"

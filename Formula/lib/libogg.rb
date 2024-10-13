@@ -8,6 +8,7 @@ class Libogg < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any,                 arm64_sequoia:  "13592df33977148bd6ca571b333892b42b1d988289a47f4efd3979fd48964b3e"
     sha256 cellar: :any,                 arm64_sonoma:   "f5da0b4874b723ca02947cd2312df9cdd37bc7b6e000e9e6cdd9bbbb290dc0e9"
     sha256 cellar: :any,                 arm64_ventura:  "d241e81018d3b64ec0d491d5d43f5409496747d57fb8d0eff75c534bd84dd19a"
     sha256 cellar: :any,                 arm64_monterey: "aa2b793e007a3eb86a8b225b91561ecf1dc941071596d23f810ca41e83904d5d"

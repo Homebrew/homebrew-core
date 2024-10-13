@@ -6,6 +6,7 @@ class Alass < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "efa1a388ee9ecf5193edd9c9003af0f035ed138bf6a79b45e6b22654c32888e4"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4f42a7b7ef244c6018d9d16f3979f14758ca54a50a568b269011f9ccdcae5f39"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "93ea3d2535b7d2f339a736efbbf28f952abf06fdcb8186a72b1f706a77c9c3c1"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c20460b0e920c4165d4f2e0fda02055564277562ca0707d7417279f3c1a70a4f"

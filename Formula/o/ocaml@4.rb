@@ -17,6 +17,7 @@ class OcamlAT4 < Formula
   end
 
   bottle do
+    sha256 arm64_sequoia:  "76e0588c99b9497463259b330659ce2f53d1c0763f89639c5f42e5503117bac5"
     sha256 arm64_sonoma:   "6abe32932e41a40ff75c1d429fc01ea3492f7a0c3281707c5ae472fba7c5db15"
     sha256 arm64_ventura:  "e63d8b519711cb181b4528efa61771cc1f0075d469fd84a7878b6efb849b6efa"
     sha256 arm64_monterey: "ea41a63891e8e0200aa517fcd0d8030cb721735d19e4cd119651d31cf2c428de"

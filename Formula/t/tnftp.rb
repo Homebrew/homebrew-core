@@ -12,6 +12,7 @@ class Tnftp < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "14d89deb1cf265a42cfa512173e91ee2e2eef8bc7e2748eb744fcdb4548e85a3"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "11e76e93e1069f6e77346bde84e5d637d1b1b45dbfe22b5da7373c6724ec37c7"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "d9e3947ab41a6dd004ec70c6126d4ba9c7c34816e8a8c984f67f0d80617852ac"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e744b3ad973c717d4d41d5b81629d3ee5239a8ac72a4ff7dafd5269da4ee574b"

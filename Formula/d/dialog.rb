@@ -11,6 +11,7 @@ class Dialog < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "9f7090669978888d1cac3055e3eb119055cbbf63d5adef3cd370480096253d6a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c5c48877fe16832b1ab4898c94a642e8b5bf78683202a9996498a0049e0217c5"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "bf1e44f6a3456d9fc125a5c980df2a45cb104cd8d6b3883c7617743ff0ef9a15"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "0a639f7053e72045fd49d4ea0d48d89d56d82261c881bdedc9f48806489cdd99"
@@ -28,6 +29,6 @@ class Dialog < Formula
   end
 
   test do
-    system "#{bin}/dialog", "--version"
+    system bin/"dialog", "--version"
   end
 end

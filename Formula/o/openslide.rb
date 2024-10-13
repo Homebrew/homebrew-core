@@ -6,6 +6,7 @@ class Openslide < Formula
   license "LGPL-2.1-only"
 
   bottle do
+    sha256 cellar: :any, arm64_sequoia:  "cc59b3af87286b37130ec9a898f182814aa291268a9e2548e5525e765f4996df"
     sha256 cellar: :any, arm64_sonoma:   "5bdd7e9c3409e9a540d861b0cb58ff7e94b51f38ec1c04d2b07dbf8d69d01933"
     sha256 cellar: :any, arm64_ventura:  "389ba9d6f9bb8e28d960277976ba1159083ded06ca6b6d01cbbdb5688296579b"
     sha256 cellar: :any, arm64_monterey: "413e235cb5da773c304affa0719c5b8d1e0031d0f17fbc4263ad411d4c97b784"

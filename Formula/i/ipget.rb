@@ -1,29 +1,21 @@
 class Ipget < Formula
   desc "Retrieve files over IPFS and save them locally"
   homepage "https://github.com/ipfs/ipget/"
-  url "https://github.com/ipfs/ipget/archive/refs/tags/v0.10.0.tar.gz"
-  sha256 "a9bffe36f23284fa691cca0bc85d1890782ca0c7bc69a25f9881b712914a96cb"
+  url "https://github.com/ipfs/ipget/archive/refs/tags/v0.11.0.tar.gz"
+  sha256 "b0ee2198cbaa0b68626eac9a77f8e63efa033fcdc90af79cf7d4500e88daad14"
   license "MIT"
   head "https://github.com/ipfs/ipget.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9751c89c7cca300ed66833d95b90c237444411ee7749de9a77dc22524bf75f7b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d7b81dbd9f3069c91d2379c9f7f4a6a792024513d5eed979f6b9c5b4cecfd997"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "eb635acd8e0287f7b6b17bb4fd2d6e2b908e035fd122a91238dd6a24a5f69a83"
-    sha256 cellar: :any_skip_relocation, sonoma:         "0e6ffd097a8a372c5322abe054329678f2eca450d4ba73c754dfd5ba6e26cc09"
-    sha256 cellar: :any_skip_relocation, ventura:        "975a7db2409f90e92ecc37e361ff032e8442829abb5c45f12134beaa385dfa55"
-    sha256 cellar: :any_skip_relocation, monterey:       "a3baad50d018574421224f09325c2308e65ce584da1d270f208f4f131ce2baa7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "779aa12c179ffab409d0658b5a748666c241bbd959aec17baf5eb08a104b78b3"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0a8488bf496b10eb52dfb7cc75a8f013d97f9bff841a54ac7572a5da969b88e2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7e1e44e31731336f3b8833ea24a5847dd19d136f2bc8b59e0421ff5583024b21"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "5ec21db435018020b6e76f77565bcc01dc6fa416c08bbd844a45639e99fe3044"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f9c3bc4d15edbf857e849cd59dc0438f8e59b88c84338b9e53ea754681d56b5b"
+    sha256 cellar: :any_skip_relocation, ventura:       "c6030d43c74ffd804c434db3d3bda8b4fab47a4a119d4a5c7e91f5fc59a5463e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5e20411b76204d12a1a7b66d49781157fbd950a8720abeecdc9ac69cb0e00088"
   end
 
   depends_on "go" => :build
-
-  # patch version to match with the release
-  # upstream PR ref, https://github.com/ipfs/ipget/pull/147
-  patch do
-    url "https://github.com/ipfs/ipget/commit/1716f2298e54394123f3dda283ad30f0390b5640.patch?full_index=1"
-    sha256 "cb3faa2d66702f1df82fbf04e78778422d7634b5e1fd831c249be06845cca82c"
-  end
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w")
@@ -36,7 +28,7 @@ class Ipget < Formula
     # An example content identifier (CID) used in IPFS docs:
     # https://docs.ipfs.tech/concepts/content-addressing/
     cid = "bafybeihkoviema7g3gxyt6la7vd5ho32ictqbilu3wnlo3rs7ewhnp7lly"
-    system "#{bin}/ipget", "ipfs://#{cid}/"
+    system bin/"ipget", "ipfs://#{cid}/"
     assert_match "JPEG image data", shell_output("file #{cid}")
   end
 end

@@ -10,13 +10,8 @@ class AvroTools < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "057e636f05ecbb4b3bc843446726e58a763fc09fa96fa48b75811ca7824975bf"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "057e636f05ecbb4b3bc843446726e58a763fc09fa96fa48b75811ca7824975bf"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "057e636f05ecbb4b3bc843446726e58a763fc09fa96fa48b75811ca7824975bf"
-    sha256 cellar: :any_skip_relocation, sonoma:         "057e636f05ecbb4b3bc843446726e58a763fc09fa96fa48b75811ca7824975bf"
-    sha256 cellar: :any_skip_relocation, ventura:        "057e636f05ecbb4b3bc843446726e58a763fc09fa96fa48b75811ca7824975bf"
-    sha256 cellar: :any_skip_relocation, monterey:       "057e636f05ecbb4b3bc843446726e58a763fc09fa96fa48b75811ca7824975bf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1bea5aa11cdf528f3c6de08510048a4f1d58e9a1055cb14b591ba7cc4512470c"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "0c9a211ec08bf395ec8ee998b5ba200da009d31918e1046b8fc4560d8c6fb57a"
   end
 
   depends_on "maven" => :build

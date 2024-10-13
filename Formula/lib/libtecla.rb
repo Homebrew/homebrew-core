@@ -3,6 +3,7 @@ class Libtecla < Formula
   homepage "https://sites.astro.caltech.edu/~mcs/tecla/"
   url "https://sites.astro.caltech.edu/~mcs/tecla/libtecla-1.6.3.tar.gz"
   sha256 "f2757cc55040859fcf8f59a0b7b26e0184a22bece44ed9568a4534a478c1ee1a"
+  license "ICU"
 
   livecheck do
     url :homepage
@@ -10,6 +11,7 @@ class Libtecla < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "389b4e8a32591e201b3c174ce301bfaeb27a38dd8398992eff9171678d1b4bfc"
     sha256 cellar: :any,                 arm64_sonoma:   "30529250bd3e6f9e4533145538200757b6c0abc0592d192b3c3bb5f4fe25d8fc"
     sha256 cellar: :any,                 arm64_ventura:  "b2bad924df3143f0253bf5bee8dcb8522b905812bafd7134e64fabc2b278e94d"
     sha256 cellar: :any,                 arm64_monterey: "8153bfc3fe19fea63cc58b318cd4878c426f0e4256b5a381171e9b11b36d4bf4"
@@ -33,6 +35,9 @@ class Libtecla < Formula
   uses_from_macos "ncurses"
 
   def install
+    # Workaround for newer Clang
+    ENV.append_to_cflags "-Wno-incompatible-function-pointer-types" if DevelopmentTools.clang_build_version >= 1500
+
     ENV.deparallelize
 
     %w[config.guess config.sub].each do |fn|

@@ -19,6 +19,7 @@ class Vgrep < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "0533a4c02c2376d7e5d41a529de7519be4092d4c66b4ad66cfd4cd277fb1fc6b"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "61e6682d7f0a226d7f0a58d29540c30caf07f6cc49ed243bdde5a8e64f238dab"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "fa7ba93c9e1de2091f5aa809bc772e383160c14bc1c53fc623be305ebb8053a3"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "875458d3eafd19ab0490d73130dc93e75e09c6080dbd65080855b2b53dad6bb0"

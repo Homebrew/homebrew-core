@@ -7,6 +7,7 @@ class WCalc < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "6e58f6ee9e2c2996498fbdefc112993bf9462421d1523e46360eebd7fbb975c8"
     sha256 cellar: :any,                 arm64_sonoma:   "22c9fbdad127cb9d4a7bb8cdf77a9a42a07e3849e222e16004ceff2b9a913b97"
     sha256 cellar: :any,                 arm64_ventura:  "2140a067af2aa1e613e7dfc8ec7ef33ff4650f4519b4e989ad7d36d00636ffa2"
     sha256 cellar: :any,                 arm64_monterey: "710c2684d517f0f0f522008f77b8e3cced2aa51e5e7f5a42d1c9441ad40c24db"
@@ -27,6 +28,9 @@ class WCalc < Formula
   depends_on "mpfr"
 
   def install
+    # Workaround for build with newer clang
+    ENV.append_to_cflags "-Wno-incompatible-function-pointer-types" if DevelopmentTools.clang_build_version >= 1500
+
     system "./configure", "--prefix=#{prefix}"
     system "make"
     system "make", "install"

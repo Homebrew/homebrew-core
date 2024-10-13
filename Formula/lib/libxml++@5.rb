@@ -1,8 +1,8 @@
 class LibxmlxxAT5 < Formula
   desc "C++ wrapper for libxml"
   homepage "https://libxmlplusplus.github.io/libxmlplusplus/"
-  url "https://download.gnome.org/sources/libxml++/5.2/libxml++-5.2.0.tar.xz"
-  sha256 "e41b8eae55210511585ae638615f00db7f982c0edea94699865f582daf03b44f"
+  url "https://download.gnome.org/sources/libxml++/5.4/libxml++-5.4.0.tar.xz"
+  sha256 "e9a23c436686a94698d2138e6bcbaf849121d63bfa0f50dc34fefbfd79566848"
   license "LGPL-2.1-or-later"
 
   livecheck do
@@ -11,13 +11,14 @@ class LibxmlxxAT5 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "682c427814f5cf041d88f80df70413978bcfdf54e87b402c971199c707a86b2e"
-    sha256 cellar: :any,                 arm64_ventura:  "be487d7fde818a30c0024a729cee52144b7e07a6611cbc2b5f252afa1f25586d"
-    sha256 cellar: :any,                 arm64_monterey: "d210f4920daa0b562c25423a47d4f02ddd90ba13c79ef50f57228f4f6808aea3"
-    sha256 cellar: :any,                 sonoma:         "3735d367bb98aade3530e2e7cb6d8dc5a574fad0209bb9648096522effd43e30"
-    sha256 cellar: :any,                 ventura:        "e9393ece09c9e6a22b772cc5f2372f6491b3e27d6e47e1c869db3325af73fa30"
-    sha256 cellar: :any,                 monterey:       "eef6ef1f94bfa796766633ef91840ded6319ff56b6a81f1d0312679861da7b62"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9476f20000685eb9c8db5bc4d762ca47a462a3a39d5f0711cbec7b071617d0b8"
+    sha256 cellar: :any,                 arm64_sequoia:  "8b1741fec20807f621a0565fad5b10fff46bdb5e092f7545ccbe7c776d394b5b"
+    sha256 cellar: :any,                 arm64_sonoma:   "5437f74e7361d06081dc6da97cd8f7726a0ae705e8157e1a0fc631214904eb37"
+    sha256 cellar: :any,                 arm64_ventura:  "4e43cbec05cadeb4a37ac6c820e23e83ab127c5b06660fb2942c3bb9f1bf2927"
+    sha256 cellar: :any,                 arm64_monterey: "ea823fac5dc9c1bb716221a7ebe7567e612ac76bb3b6d2a8c146d69f96b0492e"
+    sha256 cellar: :any,                 sonoma:         "d55199dafe752477e6db5375a0635b9ca76ae444288f6ef3d1de9c5ce6e58ddd"
+    sha256 cellar: :any,                 ventura:        "fc8d4eb8e4bd8d3eb20b7942557202b9628c5933058bb83c5621f93f4c0b047a"
+    sha256 cellar: :any,                 monterey:       "b38022f1cbc5d07e4c5969b98849c218823863f8ec97faf3680cb77545c4c343"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7e0691b094a3ab56f2add27e4cf43a8d7f6d79a13a61d9fe97d243e2956c6fff"
   end
 
   depends_on "meson" => :build

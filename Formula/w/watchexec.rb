@@ -12,6 +12,7 @@ class Watchexec < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "dfa3be338b5b0015ec7d18489aba334bb068e4b21a1870a93f393ee2941af532"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "20f4dfbd8c6119f7e150bd60f8235899b25fd5d0ccf3a7d3364139754f82b06b"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "1cbb35219912da7329b1f5461b47028d55b134b3fce321b8b18a8918827fe417"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "bb290152092cbb8bbddc1a01eb5e817e2951a3ed8f3aa3c0f53001c714742958"

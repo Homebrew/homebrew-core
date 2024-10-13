@@ -14,6 +14,7 @@ class Fragroute < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any, arm64_sequoia:  "23765e32fc33a439c133cea31e2e6c700d24bd1fe6f421cb973dab6db91dc69b"
     sha256 cellar: :any, arm64_sonoma:   "5e54c1e3b6e247a78a26be191c9919b3dde5ed5b9e8615f71706c008a934f9c9"
     sha256 cellar: :any, arm64_ventura:  "81e64dc3533f9469fbf91253816511df14307fe3260fbf3b4c3d2b0c2945adac"
     sha256 cellar: :any, arm64_monterey: "7a01636214817acbaffacc3eb4f5c38b5a44c3b63d0239e548c923cc22e17381"
@@ -48,6 +49,9 @@ class Fragroute < Formula
   end
 
   def install
+    # Workaround for newer Clang
+    ENV.append_to_cflags "-Wno-implicit-int" if DevelopmentTools.clang_build_version >= 1403
+
     # pcaputil.h defines a "pcap_open()" helper function, but that name
     # conflicts with an unrelated function in newer versions of libpcap
     inreplace %w[pcaputil.h pcaputil.c tun-loop.c fragtest.c], /pcap_open\b/, "pcap_open_device_named"

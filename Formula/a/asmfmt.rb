@@ -7,6 +7,7 @@ class Asmfmt < Formula
   head "https://github.com/klauspost/asmfmt.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "2c6bd7b97cd140278a84fc6f839c13b5ec3f6baced91eb0cba54601959f87d5e"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d6204249317abd8ab8e64945e5f2604d4c81f1945a1bfecf6afc8cffe08df5bb"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "d6204249317abd8ab8e64945e5f2604d4c81f1945a1bfecf6afc8cffe08df5bb"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d6204249317abd8ab8e64945e5f2604d4c81f1945a1bfecf6afc8cffe08df5bb"

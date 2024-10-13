@@ -8,6 +8,7 @@ class Nap < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "4f0de3f0692843a24c7130ca77e99d116432ae35d6c9282fe8fe578558c1fdc5"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "840fb8373a2c069dc80e54d6bf831597eb781c595bcdc6ad0c564ff9d4bb9a44"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "5e5ac9b5da7d19b91650509c620c45620a57230df2d487f6c43cdc2e6dcabe9d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "5e5ac9b5da7d19b91650509c620c45620a57230df2d487f6c43cdc2e6dcabe9d"

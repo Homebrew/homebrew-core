@@ -1,5 +1,3 @@
-require "language/node"
-
 class Cortexso < Formula
   desc "Drop-in, local AI alternative to the OpenAI stack"
   homepage "https://jan.ai/cortex"
@@ -9,13 +7,15 @@ class Cortexso < Formula
   head "https://github.com/janhq/cortex.git", branch: "dev"
 
   bottle do
-    sha256                               arm64_sonoma:   "949ddfffd7080fd4784d41336a04f9d5563ce6d36e0603c5afb7c3cceaf82f1a"
-    sha256                               arm64_ventura:  "343b1cf9fa6816b06ff85c3baff74c9f97ac667fbcc221e5161fb2608765914b"
-    sha256                               arm64_monterey: "c0d0a6f242e4bb9863fc9bc2df0770996945144b544b71b1dfd33bad388d589a"
-    sha256                               sonoma:         "e9374a6c7f5f98fa106a64917bc7d0d266a225f20613d1885215cf4d4723d9b2"
-    sha256                               ventura:        "4ce108f4edbdd437d5136e85497ab8e90dd0caf4d491db970c4e3e36512f10a6"
-    sha256                               monterey:       "d31c77f913d8af0fc3eeee913b293f63242a5bcad0399d2e8a7e2039bb9308cb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "68a5b223387791ba534e7c06126c8938c62bc898176585d0d27755d575445696"
+    rebuild 1
+    sha256                               arm64_sequoia:  "c5b000f80754025ef2e26c62a74172b0b70dbde1217544f602d29e933f221b6e"
+    sha256                               arm64_sonoma:   "5a40692000193b98c8274e0f4b6cd366558fc464e91fbc9222af2e16b4238b2b"
+    sha256                               arm64_ventura:  "e505143e5417668b3027c83e923871bacbbaf5ac0a86bde0e0b156bfad7e0c36"
+    sha256                               arm64_monterey: "0d30abe3e770dc4596348ba52c39bdeadbc270d61213a563c8f655c694858362"
+    sha256                               sonoma:         "33d3271364280efa43bdf39ff61532e4e6f1ec5e1d0a2c3e9c70695cd6f5977f"
+    sha256                               ventura:        "9dc575f5fcdb463e7fd8e00159329fe29080b76e3c563de647c90b2affaf9141"
+    sha256                               monterey:       "30aa7c29ce75ef1429af1393073d4970a6b101bad2ddc638164e9b22cbb6b54e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f02d924016dcab7dce2faecaac5a77ba04ad4ba20dcac3e0fcc753d248364264"
   end
 
   depends_on "node"
@@ -29,7 +29,7 @@ class Cortexso < Formula
   conflicts_with "cortex", because: "both install `cortex` binaries"
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", *std_npm_args
     bin.install_symlink Dir["#{libexec}/bin/*"]
 
     # Remove incompatible pre-built binaries

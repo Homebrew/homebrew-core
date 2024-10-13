@@ -7,7 +7,13 @@ class Xsd < Formula
   license "GPL-2.0-only" => { with: "Classpath-exception-2.0" }
   revision 1
 
+  livecheck do
+    url "https://www.codesynthesis.com/products/xsd/download.xhtml"
+    regex(/href=.*?xsd[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "c7f2c3f100b6be3456b87a921c886ab484fedd7d66a0767cefda94971a084e57"
     sha256 cellar: :any,                 arm64_sonoma:   "38ef3b6d2a550b72917403304382646605650696cdcfd193d98788b97c9d838e"
     sha256 cellar: :any,                 arm64_ventura:  "145cc4cc5c80f28c500b9366ef04f21722d30bd5b35494c2a387d22981e6dc34"
     sha256 cellar: :any,                 arm64_monterey: "95198623fcf033077d6ecd6b4e5f1f63801f2fd3d627360e7688b59e11e72647"
@@ -82,7 +88,7 @@ class Xsd < Formula
           return 0;
       }
     EOS
-    system "#{bin}/xsd", "cxx-tree", schema
+    system bin/"xsd", "cxx-tree", schema
     assert_predicate testpath/"meaningoflife.hxx", :exist?
     assert_predicate testpath/"meaningoflife.cxx", :exist?
     system ENV.cxx, "-o", "xsdtest", "xsdtest.cxx", "meaningoflife.cxx", "-std=c++11",

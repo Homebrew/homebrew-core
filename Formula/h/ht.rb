@@ -7,6 +7,7 @@ class Ht < Formula
 
   bottle do
     rebuild 3
+    sha256 cellar: :any,                 arm64_sequoia:  "4dcd72bf389cc8babbb16008ededd722842fa9a5fb3141cac62719e06931f7ff"
     sha256 cellar: :any,                 arm64_sonoma:   "94baa4793d98e0b2b965672e0881cbf1a5b4c85fab1f6f32b1a13553ffd4dddd"
     sha256 cellar: :any,                 arm64_ventura:  "f429f9b9cd7181b2f6ab5f7d75314c975657fe21ab2dbcb4a193b1a090f12bfb"
     sha256 cellar: :any,                 arm64_monterey: "c3cc295c38e1b904ca509a7bbbac2d1a927aa07eb7c1be789c9228b329387be4"

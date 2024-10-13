@@ -11,6 +11,7 @@ class Gwenhywfar < Formula
   end
 
   bottle do
+    sha256 arm64_sequoia:  "62a3746f10e2264779137d156e68697b40f562690434cbb83d3bf9ce1dad6fbb"
     sha256 arm64_sonoma:   "8fcdcb168c435353e08b7faae158c672ada3b908db6c1a73435226d77203f2c6"
     sha256 arm64_ventura:  "8dd914e47edf5ed454e4cace3c2aa4cf3fc1a05f20bea019a8c018032cf2b8ab"
     sha256 arm64_monterey: "040d7ecc2deb34655f6c56912114c515e7243a53e291d3a751290bf725bd8a68"

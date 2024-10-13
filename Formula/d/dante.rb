@@ -3,6 +3,7 @@ class Dante < Formula
   homepage "https://www.inet.no/dante/"
   url "https://www.inet.no/dante/files/dante-1.4.3.tar.gz"
   sha256 "418a065fe1a4b8ace8fbf77c2da269a98f376e7115902e76cda7e741e4846a5d"
+  license "BSD-Inferno-Nettverk"
 
   livecheck do
     url "https://www.inet.no/dante/download.html"
@@ -10,6 +11,7 @@ class Dante < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "faaa4cd7569aecef761e0866519c5ed7c73b6bbf8fc6ccb3adf043c812b4f11c"
     sha256 cellar: :any,                 arm64_sonoma:   "3b273465c7d070d8d338d692180991fe27908c2c959ef367dcb9eb20eb27cdfa"
     sha256 cellar: :any,                 arm64_ventura:  "a922a104d5d267fffd6cbc3a7e476ecf9ac4ffe71c6b3b90880fd3c2df661a04"
     sha256 cellar: :any,                 arm64_monterey: "6ba49e77d7e95f26793d9283ea19a0fd2649480808873491ce1263087e0bab0f"

@@ -8,6 +8,7 @@ class Hfsutils < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "2a486e1123355f24eb17dd33821edbfa4c9f7f505ffa9009f8380a0000b4f45f"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6d2cb41e60bac6d99365b3efc77078c76f6d13c92d9cc5413065db01f739a8c9"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "a8245a9a524d4f34c9a005a09a56f6d190ec20583c43fb8c1317fbc13827fc37"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4d74c98e3e180254629b1dbcf8898a6de9167d28feaabed35b76d3aebcf84b5b"
@@ -22,12 +23,15 @@ class Hfsutils < Formula
   end
 
   def install
+    # Workaround for newer Clang
+    ENV.append_to_cflags "-Wno-implicit-int" if DevelopmentTools.clang_build_version >= 1403
+
     # hpwd.c:55:7: error: call to undeclared library function 'strcmp' with type 'int (const char *, const char *)';
     # ISO C99 and later do not support implicit function declarations
     # Notified the author via email on 2023-01-05
     inreplace "hpwd.c", "# include <stdio.h>\n", "# include <stdio.h>\n# include <string.h>\n"
 
-    system "./configure", "--prefix=#{prefix}", "--mandir=#{man}"
+    system "./configure", "--mandir=#{man}", *std_configure_args
     bin.mkpath
     man1.mkpath
     system "make", "install"

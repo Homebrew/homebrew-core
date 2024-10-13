@@ -11,6 +11,7 @@ class Vmdktool < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "d87c022cf0446ab70cc9a23de9548969cf6cab3d276a11990456db9e2ba69e31"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f33e91edf4a6492ba75404b0b6ef39e7cc3075eb170f135724aa8db9db1476d3"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "1a9371495c777605438ae7e124289e79bc22fc0c546b230046cd9e7010ca5d52"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "7823dbeb8f044ce3183f1ea2d6ebec16ce30fc9fe2951cc55b84c5a9043f8569"
@@ -60,7 +61,7 @@ class Vmdktool < Formula
     # Create a blank disk image in raw format
     system "dd", "if=/dev/zero", "of=blank.raw", "bs=512", "count=20480"
     # Use vmdktool to convert to streamOptimized VMDK file
-    system "#{bin}/vmdktool", "-v", "blank.vmdk", "blank.raw"
+    system bin/"vmdktool", "-v", "blank.vmdk", "blank.raw"
     # Inspect the VMDK with vmdktool
     output = shell_output("#{bin}/vmdktool -i blank.vmdk")
     assert_match "RDONLY 20480 SPARSE", output

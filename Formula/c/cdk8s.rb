@@ -1,26 +1,23 @@
-require "language/node"
-
 class Cdk8s < Formula
   desc "Define k8s native apps and abstractions using object-oriented programming"
   homepage "https://cdk8s.io/"
-  url "https://registry.npmjs.org/cdk8s-cli/-/cdk8s-cli-2.198.175.tgz"
-  sha256 "5197c186faab4d26982d3f318d95548b58d3a14086831deafc430b061737f07e"
+  url "https://registry.npmjs.org/cdk8s-cli/-/cdk8s-cli-2.198.245.tgz"
+  sha256 "fd588227df99561d520e6e0e2f5c15088e18d6d5e558506ca46b97d692a17882"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1ae78073b90cd6875886dfcf8155b80ab865068cdfce32e0e96a234ecf292463"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1ae78073b90cd6875886dfcf8155b80ab865068cdfce32e0e96a234ecf292463"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "1ae78073b90cd6875886dfcf8155b80ab865068cdfce32e0e96a234ecf292463"
-    sha256 cellar: :any_skip_relocation, sonoma:         "abca0122f464bb6bb07d851030f235cf6e74ff0d105a372ccb7e4d99b38af4a3"
-    sha256 cellar: :any_skip_relocation, ventura:        "abca0122f464bb6bb07d851030f235cf6e74ff0d105a372ccb7e4d99b38af4a3"
-    sha256 cellar: :any_skip_relocation, monterey:       "abca0122f464bb6bb07d851030f235cf6e74ff0d105a372ccb7e4d99b38af4a3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6826ec421eae6850dd2dd345fa80847def9f6a0226e2c2a8bbdb4f7caecb9de6"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "886821f4795e38325196b6aa22156cfbfb31c61a847f01fbd5a5270ca42bcb4b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "886821f4795e38325196b6aa22156cfbfb31c61a847f01fbd5a5270ca42bcb4b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "886821f4795e38325196b6aa22156cfbfb31c61a847f01fbd5a5270ca42bcb4b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b9e26a19ec0aaa239d86cc3e1b97a00613459404aaafff66928da00bbfd70997"
+    sha256 cellar: :any_skip_relocation, ventura:       "b9e26a19ec0aaa239d86cc3e1b97a00613459404aaafff66928da00bbfd70997"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "886821f4795e38325196b6aa22156cfbfb31c61a847f01fbd5a5270ca42bcb4b"
   end
 
   depends_on "node"
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", *std_npm_args
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 

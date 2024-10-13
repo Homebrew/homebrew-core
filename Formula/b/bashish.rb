@@ -3,9 +3,11 @@ class Bashish < Formula
   homepage "https://bashish.sourceforge.net/"
   url "https://downloads.sourceforge.net/project/bashish/bashish/2.2.4/bashish-2.2.4.tar.gz"
   sha256 "3de48bc1aa69ec73dafc7436070e688015d794f22f6e74d5c78a0b09c938204b"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "59c20f75c252012ce33ccf199fdd626e569343d5af03a9ccd890b43d760e04cf"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6c3b9d7c65a09230d87d35fbc141576dc991932032e990ebdfec261ecf6c8c94"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "9de9a34d40236aa4fc76c38f69fa2b30b6d66bb1d6289a7552b543300abc753c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "9de9a34d40236aa4fc76c38f69fa2b30b6d66bb1d6289a7552b543300abc753c"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c18a9d6903c20ae676bfdae2152d8c71b86d2a918298fa9276878002e4ed3320"
@@ -30,6 +32,6 @@ class Bashish < Formula
   end
 
   test do
-    system "#{bin}/bashish", "list"
+    system bin/"bashish", "list"
   end
 end

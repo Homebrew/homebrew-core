@@ -7,6 +7,7 @@ class Rcs < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "ec09df25d02575ef0506a90cc81def4001a17eb02fce6adf9933b6e359541282"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "538f4c9f1747041c737c8c57f49ca2becc2cca7cd0c31f88cf14142d5d00c873"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "7f9cf6ea9614d1286230615b81443f0941b32cd7768769378039df8463d71fbf"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "579a458898062f0b99c455e69e93cbf4c2b5637ae72806d4ee74f4063f2a25ff"
@@ -22,6 +23,9 @@ class Rcs < Formula
   uses_from_macos "ed" => :build
 
   def install
+    # Workaround for newer Clang
+    ENV.append_to_cflags "-Wno-incompatible-function-pointer-types" if DevelopmentTools.clang_build_version >= 1500
+
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}"

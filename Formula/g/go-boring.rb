@@ -6,12 +6,8 @@ class GoBoring < Formula
   sha256 "4ced930d738cb30f4c4b28b7281d1e2e397eda2353b4c8f7c6de82ef589acc0b"
   license "BSD-3-Clause"
 
-  livecheck do
-    url "https://go-boringcrypto.storage.googleapis.com/"
-    regex(/>go[._-]?(\d+(?:\.\d+)+b\d+)[._-]src\.t/i)
-  end
-
   bottle do
+    sha256 arm64_sequoia:  "d3a8bebf95e0be877fae27cbe73a5619ead13a2a1635c7a38c180646cc6c5c2f"
     sha256 arm64_sonoma:   "a10ce7882dadd6ae0a965a5c8e5bff377f790d57f2ca2fa6b2f92c1dc1b2402d"
     sha256 arm64_ventura:  "df09a9ebf2f79a2066d339e217915cd783ea68ec7e61e25ee70faa4ca9ac7069"
     sha256 arm64_monterey: "56c292eaeabc94b48d5fde63cad4fe76af0c00d8842f7c1402a095ba6a14e93c"
@@ -25,6 +21,10 @@ class GoBoring < Formula
 
   keg_only "it conflicts with the Go formula"
 
+  # From the homepage:
+  # This branch is no more. GOEXPERIMENT=boringcrypto on the standard branch does the job now.
+  disable! date: "2025-07-01", because: :unmaintained
+
   depends_on "go" => :build
 
   def install
@@ -35,7 +35,7 @@ class GoBoring < Formula
       system "./make.bash", "--no-clean"
     end
 
-    (buildpath/"pkg/obj").rmtree
+    rm_r(buildpath/"pkg/obj")
     libexec.install Dir["*"]
     bin.install_symlink Dir[libexec/"bin/go*"]
 
@@ -43,7 +43,7 @@ class GoBoring < Formula
 
     # Remove useless files.
     # Breaks patchelf because folder contains weird debug/test files
-    Dir.glob(libexec/"**/testdata").each { |testdata| rm_rf testdata }
+    Dir.glob(libexec/"**/testdata").each { |testdata| rm_r(testdata) }
   end
 
   test do

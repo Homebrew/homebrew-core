@@ -6,6 +6,7 @@ class Alac < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "726f02f4e73857ebafaf7d5d554e6c659b4795ef682aa0ce46c3ee21ffef952c"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "78ed3a6e07c6093f26c14a5f0a468369a4b2822f456101c0539386e2aeb2c4ad"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "71a71cbbe491b65fd89198aab4168b7ec3d2436896c913a43858c806469a56ea"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "71cd043cec976255c6ae78ad79021dd5ba499b5678e5163e6353f571cae2eb6d"

@@ -15,6 +15,7 @@ class Squirrel < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "c208328e416371ac27e3ae7a78bfd4e319b972848e47647526d282ff36539eb1"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "55b91fac014d0478c05c654b6a4d45edc116a7c4853933a7a8d1ee27643a61b5"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "631ffa6eed034f912c1a23b1f52cca805632e175caa1a1dc22a4a7718fc61fe1"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4a1b1eaad58270a2b924e75720f9c3a1ce63ca408868ce31637e26fd27d66062"
@@ -26,6 +27,8 @@ class Squirrel < Formula
     sha256 cellar: :any_skip_relocation, catalina:       "749bb90e798990994fa79d8846661f95fa7e150d3606b889c0351697c82add62"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "747575d9f05e9496d0eecf8ea4d6db59711396eac5feca1ae2f61794a53a6a64"
   end
+
+  conflicts_with "sq", because: "both install `sq` binaries"
 
   def install
     # The tarball files are in a subdirectory, unlike the upstream repository.

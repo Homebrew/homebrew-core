@@ -6,6 +6,7 @@ class Dssim < Formula
   license "AGPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "f6db8dac4f58b2a2ca49883851816c647e73be760cb139941241c46ddd78a70e"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0dfd2b5a1c056ff3884f49982d7ac8d6960a7bf0e908cf0d5d926a84dd99eec4"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "2cd17c98c89c6d8e62ae6c95f4c642c99c57ffa52744347bfd15e75cae9abfb9"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "20c10ef5485635eab7e246dad306a17147d46e27939ea1780eed38b328497f01"
@@ -23,6 +24,6 @@ class Dssim < Formula
   end
 
   test do
-    system "#{bin}/dssim", test_fixtures("test.png"), test_fixtures("test.png")
+    system bin/"dssim", test_fixtures("test.png"), test_fixtures("test.png")
   end
 end

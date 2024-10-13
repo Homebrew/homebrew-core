@@ -1,8 +1,8 @@
 class Libgweather < Formula
   desc "GNOME library for weather, locations and timezones"
   homepage "https://wiki.gnome.org/Projects/LibGWeather"
-  url "https://download.gnome.org/sources/libgweather/4.4/libgweather-4.4.2.tar.xz"
-  sha256 "a6e427b4770ada48945f3aa906af710fc833cff0d42df91f1828302740d794ec"
+  url "https://download.gnome.org/sources/libgweather/4.4/libgweather-4.4.4.tar.xz"
+  sha256 "7017677753cdf7d1fdc355e4bfcdb1eba8369793a8df24d241427a939cbf4283"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
   version_scheme 1
 
@@ -16,13 +16,14 @@ class Libgweather < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "e0ef8f8736b53583da15408c467a9dfb8feb135c4c904838bf64d3aa5d0202cd"
-    sha256 arm64_ventura:  "6c52028e226233657fc77cbd8a887e368b261d1b50ccdfc68173573e6e06cff2"
-    sha256 arm64_monterey: "7a4e4e256b900deb768298bc9b2e41cf454f1f712a9fe86d308979add8cf93d0"
-    sha256 sonoma:         "d4cad5470dd1b33ad275bac768106918947e666e41c6cb07aa923ce26655a4aa"
-    sha256 ventura:        "6df289e4c7b64757696490a044e23003b26884e744709830c4016e10d1760a92"
-    sha256 monterey:       "c2c8b1a04db977e88bcf56384a715be5b48af5175339c23644cd47508203aae1"
-    sha256 x86_64_linux:   "5489a2ac860e4a8bbeb4545939d78eaa5b975a6cd6bd7e619f0ddb15a357f00b"
+    sha256 arm64_sequoia:  "c7697434e255dd1ceb91bed8baa441dce6be4c8f6eab61906f42a9aea4f57426"
+    sha256 arm64_sonoma:   "02c91201c18a93a45588abf946d3b636890dc31761978d0630d8ab7446aa0dc3"
+    sha256 arm64_ventura:  "d2d0765dc966fa1299d58c4c279380f0da767d6ce0d47a8ae32200afeb1ccdc9"
+    sha256 arm64_monterey: "afee30653b964979c9f1e10d068faa99de4fcec840ae6ae62a6561b12eb6baf3"
+    sha256 sonoma:         "1b10edad1de33da77f30b0253d12f8b1f094fa3bcebeb2d507f8dfc668a96b68"
+    sha256 ventura:        "66e04fe281db63f8c3f31efe8af83c04364a94d38622a39ea814a4add7fc9947"
+    sha256 monterey:       "1b16600b10b73bac96dcf7bcf174318d4c80e80d34388a672f28a247b780f9e7"
+    sha256 x86_64_linux:   "8836ddf538d68d22693e2f916410c6872d9a22ae51ddf1176436580eecf5e192"
   end
 
   depends_on "gettext" => :build
@@ -32,11 +33,18 @@ class Libgweather < Formula
   depends_on "pkg-config" => [:build, :test]
   depends_on "pygobject3" => :build
   depends_on "python@3.12" => :build
+
   depends_on "geocode-glib"
+  depends_on "glib"
   depends_on "gtk+3"
+  depends_on "json-glib"
   depends_on "libsoup"
 
   uses_from_macos "libxml2"
+
+  on_macos do
+    depends_on "gettext"
+  end
 
   def install
     ENV["DESTDIR"] = "/"

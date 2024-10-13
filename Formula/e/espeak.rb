@@ -13,6 +13,7 @@ class Espeak < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_sequoia:  "c3130662b76d81b56b2202aa390e49548bf4c657781a82e2a411ab85962ee29a"
     sha256 arm64_sonoma:   "d36a7fc671b9d843dd352df7969883226346c0393a92878ec5c5692e70afcd49"
     sha256 arm64_ventura:  "d2ded3f1dd697a128defd54554a3ebee69a2ed566734449b755fbf649a76e885"
     sha256 arm64_monterey: "03f0966e004a09d71f4607a458cd168a5b055eb110487158f723f602eb20e91b"
@@ -63,6 +64,6 @@ class Espeak < Formula
   end
 
   test do
-    system "#{bin}/espeak", "This is a test for Espeak.", "-w", "out.wav"
+    system bin/"espeak", "This is a test for Espeak.", "-w", "out.wav"
   end
 end

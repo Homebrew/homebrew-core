@@ -6,6 +6,7 @@ class Diamond < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "7f29903daf1b665089c445986352c34fdfbf6d329425729b579074b1719a97f2"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8073e591bbda4cc5584b3c9fb144ab2a878ddb9581f2121c6033c73eed1a2155"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "8bb29de8405333bb24e9b63db81331235c8a91583cf53cddc792b8e2ae3468e4"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "682642aa18cd3fdab51d2257b7ba322f0eb94515ec04e969013ea5dd68e12dcf"

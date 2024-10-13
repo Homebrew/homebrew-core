@@ -14,6 +14,14 @@ class Ctags < Formula
       url "https://gist.githubusercontent.com/naegelejd/9a0f3af61954ae5a77e7/raw/16d981a3d99628994ef0f73848b6beffc70b5db8/Ctags%20r782"
       sha256 "26d196a75fa73aae6a9041c1cb91aca2ad9d9c1de8192fce8cdc60e4aaadbcbb"
     end
+
+    # Use Debian patch to fix build with glibc 2.34+
+    patch do
+      on_linux do
+        url "https://sources.debian.org/data/main/e/exuberant-ctags/1%3A5.9~svn20110310-18/debian/patches/use-conventional-unused-marker.patch"
+        sha256 "65e92a8472e00386466888e441fd0f1223aabcf1d3812102f41fa34be003a668"
+      end
+    end
   end
 
   livecheck do
@@ -22,6 +30,7 @@ class Ctags < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "614a735ab93afb5ed2a2f12a66819e0b35a1c644021670057d0cac0fbe9910ae"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b28f3ab751719782670837ff160aa2aee6889b8e0e064da834ac525d383b2e7a"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "1663c12c3c741cbb744beaeeeeef5b149e3683aa62f3bdb41c8516bb161194e3"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "fe6b329a45efc1ac2048d4fce13b8fed5758f1814b5cc8a55bd4f542d846b59f"
@@ -44,8 +53,10 @@ class Ctags < Formula
 
   # fixes https://sourceforge.net/p/ctags/bugs/312/
   patch :p2 do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/85fa66a9/ctags/5.8.patch"
-    sha256 "9b5b04d2b30d27abe71094b4b9236d60482059e479aefec799f0e5ace0f153cb"
+    on_macos do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/85fa66a9/ctags/5.8.patch"
+      sha256 "9b5b04d2b30d27abe71094b4b9236d60482059e479aefec799f0e5ace0f153cb"
+    end
   end
 
   def install
@@ -56,6 +67,7 @@ class Ctags < Formula
 
     # Fix compile with newer Clang
     ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1200
+    ENV.append_to_cflags "-Wno-implicit-int" if DevelopmentTools.clang_build_version >= 1403
 
     system "./configure", "--prefix=#{prefix}",
                           "--enable-macro-patterns",

@@ -7,6 +7,7 @@ class Rex < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "20f59893fa2dda833429d39b23d872855fe7a54c7bc3422dfdb7f04437bacd13"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e4ed59ecebc57d3c14c8c4556a1ffb351bd1471b4e02675f60b4fd97938da2c6"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "2cbae6519c968141a6c04d9ac0c139a81d3877b3b483be31094532d0290a61a9"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "2cbae6519c968141a6c04d9ac0c139a81d3877b3b483be31094532d0290a61a9"

@@ -11,6 +11,7 @@ class CharmTools < Formula
   revision 4
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "b26c9fb6f134c54caf77f35fda9cb1077cbe86bcc80d74a742815e071555a10f"
     sha256 cellar: :any,                 arm64_sonoma:   "bc4112e2b32b244d26264506858218e39de4a3df92780adc956c5c460382a10b"
     sha256 cellar: :any,                 arm64_ventura:  "fca8a687ef7fabd6a13cca9035d9eaa61cc862ed0548aa2e0e0ad8157949fbed"
     sha256 cellar: :any,                 arm64_monterey: "120309fcfa7fc3cd7eae506c2efc8f6b091bca86f38d5eb49f17f177f4969597"
@@ -229,7 +230,7 @@ class CharmTools < Formula
   end
 
   test do
-    system "#{bin}/charm-create", "brewtest"
+    system bin/"charm-create", "brewtest"
     assert_predicate testpath/"brewtest/metadata.yaml", :exist?
 
     assert_match version.to_s, shell_output("#{bin}/charm-version")

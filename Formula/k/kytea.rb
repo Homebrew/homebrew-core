@@ -20,6 +20,7 @@ class Kytea < Formula
   end
 
   bottle do
+    sha256 arm64_sequoia:  "0afb996003e2ad0e1443b6a260fcebf6ae349022a1e082ae467bc96d77000b1f"
     sha256 arm64_sonoma:   "80b6a9d85ab58a17b68cf889c413a5bae57c27839ec5e77a787a2a4ae7753c71"
     sha256 arm64_ventura:  "ef9042105ea5b55cfc0dde6e495c287601ec8aad58d8e14342702e127a7d97dd"
     sha256 arm64_monterey: "5de2fbf7e068e2c61aac03c0b672990f22280ab377d7034dc708d96b5ce76ce6"
@@ -51,6 +52,6 @@ class Kytea < Formula
   end
 
   test do
-    system "#{bin}/kytea", "--version"
+    system bin/"kytea", "--version"
   end
 end

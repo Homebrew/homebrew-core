@@ -4,8 +4,12 @@ class Ent < Formula
   # This tarball is versioned and smaller, though non-official
   url "https://github.com/psm14/ent/archive/refs/tags/1.0.tar.gz"
   sha256 "6316b9956f2e0cc39f2b934f3c53019eafe2715316c260fd5c1e5ef4523ae520"
+  # Official git has added "CC-BY-SA-4.0" license but this is not included in current release
+  # Ref: https://github.com/Fourmilab/ent_random_sequence_tester/blob/master/LICENSE.md
+  license :public_domain
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "b575b8008e74224742c5e78c22a496ee80c8a7efa3c62ba1856472f786d86d73"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f95e748a208f421f6d85b9e5445139c9f688f277ce72fbaed93449322b96abef"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "b9870a5d35b78ac2198a5f793e861dacb1961226df38d8d14dc3538a2f36775b"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "711e6b4a66e2ca5ecb20bf7bdc9f74d2b8b8c30e9b5e78bd5f2b24717fc5c008"

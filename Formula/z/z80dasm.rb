@@ -1,16 +1,19 @@
 class Z80dasm < Formula
   desc "Disassembler for the Zilog Z80 microprocessor and compatibles"
-  homepage "https://www.tablix.org/~avian/blog/articles/z80dasm/"
+  # use debian site for now, cannot use debian mirror as it is still with 1.1.6
+  homepage "https://packages.debian.org/sid/z80dasm"
   url "https://www.tablix.org/~avian/z80dasm/z80dasm-1.2.0.tar.gz"
+  mirror "https://geeklan.co.uk/files/z80dasm-1.2.0.tar.gz"
   sha256 "8da2c4a58a3917a8229dec0da97e718f90ede84985424d74456575bf5acfeec8"
   license "GPL-2.0-or-later"
 
   livecheck do
-    url "https://www.tablix.org/~avian/z80dasm/"
+    url "https://geeklan.co.uk/files/"
     regex(/href=.*?z80dasm[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "49cc209ae7b34afcfe58fd310bdcb228f6d35cadeee692049a61202bed11176f"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2a83c07ded5a4004a80cd9fbd9554f2a4395412279c43f50bc8482060c978a6c"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "b7c9cd6783586e4b42b3e23a608fa20e232a70ae2d5754bad8bf317a2f125359"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "33d28a1075ff42df7f06221f652dea247c1da6c94eeae6df9169160b3bcfc0a2"

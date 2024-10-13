@@ -6,7 +6,8 @@ class Jsmn < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "d693358164f7361ac2402a5ecce87a0c1a2f2fb793c9c0c054759b38782717f9"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "14d421cf40a85a3edc9d909bf6ea5be806deee891e3f08b086292f1c1a9eee57"
   end
 
   def install

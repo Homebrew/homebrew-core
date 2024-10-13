@@ -6,6 +6,7 @@ class KotlinLanguageServer < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "5e8892927c6542dadd2e505e3d05a1c23ad1c01733e7f9f26a3cba8ccac86cd7"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7e92605918e7da83a9e1dc913d204ccd74c5f4b8e9aac0cbae0768222203f2a4"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "b585c23e483af862f96b3e418616275c77f91250dcc9d6c0a10875c4d83574d4"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4bb729d83ecf63175071e4954dff5b85f729893512018ba8e23a53aa20711038"
@@ -39,7 +40,7 @@ class KotlinLanguageServer < Formula
       "processId\":88075,\"rootUri\":null,\"capabilities\":{},\"trace\":\"ver" \
       "bose\",\"workspaceFolders\":null}}\r\n"
 
-    output = pipe_output("#{bin}/kotlin-language-server", input, 0)
+    output = pipe_output(bin/"kotlin-language-server", input, 0)
 
     assert_match(/^Content-Length: \d+/i, output)
   end

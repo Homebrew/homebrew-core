@@ -11,6 +11,7 @@ class Mediaconch < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "b1c07f44e462b03a77dfcc566a7d2c814e8d9f6c366c84f33d52116e86e5437e"
     sha256 cellar: :any,                 arm64_sonoma:   "939859b3e6b27cea95e30dd0249430f53e50dd2482d9e5910089372e1442bc2b"
     sha256 cellar: :any,                 arm64_ventura:  "e377a3a11dd83320786791b39c255446d8097c154a61d5bcb49409a156faf526"
     sha256 cellar: :any,                 arm64_monterey: "aa33f61f409e854a4a03ca69de8371ed7a47b872b33928b650662325776ad206"

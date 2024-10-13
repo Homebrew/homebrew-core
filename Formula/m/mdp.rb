@@ -3,10 +3,11 @@ class Mdp < Formula
   homepage "https://github.com/visit1985/mdp"
   url "https://github.com/visit1985/mdp/archive/refs/tags/1.0.15.tar.gz"
   sha256 "3edc8ea1551fdf290d6bba721105e2e2c23964070ac18c13b4b8d959cdf6116f"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
   head "https://github.com/visit1985/mdp.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "e9f0539ae98eb89b4de2ae0048c6d79bedfe28757a11d09ef99879fa6ab2dd04"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f016a8106040ad6eb3d2d5ec053b87559f48752588177ef6165e7bee1e91166c"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "24f08fa3b94a8f8c5e29944011c5604bdf7b15669db7df886bdfef39a8691929"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a05d67cc6d17e503937cb9ee56b48b96028f095ca8e4a2aced6cac4086bb519b"

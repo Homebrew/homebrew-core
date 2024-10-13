@@ -8,6 +8,7 @@ class Cayley < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "1886c195583c5d68c87f6e2cc50a52801990ea7bf973f2b8a61e2228e931adcf"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "827ae743c95d1689023e7b2ed5bbdd09e0d2d773c5b4928a02fcba8800023995"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "3e67bcaea36c86606ed3578e19600d4afc712f7a611260881a633236b2a9ffc6"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "63e5659661c157f2eec496d2c0075a7d91cd25d4985a35935a34fa5a4cdb6142"
@@ -73,7 +74,7 @@ class Cayley < Formula
 
     http_port = free_port
     fork do
-      exec "#{bin}/cayley", "http", "--host=127.0.0.1:#{http_port}"
+      exec bin/"cayley", "http", "--host=127.0.0.1:#{http_port}"
     end
     sleep 3
     response = shell_output("curl -s -i 127.0.0.1:#{http_port}")

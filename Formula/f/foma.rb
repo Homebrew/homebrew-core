@@ -7,6 +7,7 @@ class Foma < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia:  "cac3217fb92f4bdd36f498474518fef5dabd74dbaa606e5ced0cbcea2686f555"
     sha256 cellar: :any,                 arm64_sonoma:   "8e14b1f28eb40350b2f337bd468a4a3971dbfab55ef04c5bc0d4732daf090913"
     sha256 cellar: :any,                 arm64_ventura:  "c5378bb8f0183650512e47377197a74d7603a8f05c6d6e27cc1c67cbc478b524"
     sha256 cellar: :any,                 arm64_monterey: "bad60b2c29b968a05b7c9f7cc7a7d3350bb0dfd831e9f788d2eb1a102dd6403b"
@@ -52,6 +53,6 @@ class Foma < Formula
       apply down> abrakadabra
     EOS
 
-    system "#{bin}/foma", "-f", "toysyllabify.script"
+    system bin/"foma", "-f", "toysyllabify.script"
   end
 end

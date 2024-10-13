@@ -6,6 +6,7 @@ class GitHound < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "373e91c48dda4ac71e85490387430dbfdb73d27d72a0964a33933e8e6d5f1753"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "741af126dfc7d95d6d5b17efd48a36335e60fc1cf4847a5487e36a969739b2a0"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "5d2d41fc442a37b2902a182cb034a023bfcdb992fd27e7d668ddab3077bd07cd"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "af1391d6c19eb3b2aa550fc169c4015d3b9302577f699d26e01a8def2d1bc196"

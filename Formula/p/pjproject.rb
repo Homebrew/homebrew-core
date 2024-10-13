@@ -12,6 +12,7 @@ class Pjproject < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "a882227300ae2beb98068eeb7f732a67c3b2ebf7b653f1062534091de876487e"
     sha256 cellar: :any,                 arm64_sonoma:   "7cbe740f0f13ea2c0d8dcc6384d1acc6357476f58fcd50f815549c1c3f92704f"
     sha256 cellar: :any,                 arm64_ventura:  "da372046133e86b3d10be588ab7fb5908f07a722d4a3510ea69034b575f3c9bf"
     sha256 cellar: :any,                 arm64_monterey: "4fd17966fa4c58310768ded4332fb3dc5472d528e129d9bd6dbd10418e2fdbae"

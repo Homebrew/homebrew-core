@@ -8,6 +8,7 @@ class Nu < Formula
   head "https://github.com/programming-nu/nu.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "fcaf8ccfbf8cfe4bcfb4503ec20191de5e87b24468fe5b826ab877c61cbc8046"
     sha256 cellar: :any,                 arm64_sonoma:   "b333e5e5a6f47ef0b6c8e3146f9e7d220f7c0c91cd5133579932e88dcf5eb672"
     sha256 cellar: :any,                 arm64_ventura:  "c8eeb76f76f94dd1e92d32bc28801850ce163221f52eeb0ff5eb0edd98ae3409"
     sha256 cellar: :any,                 arm64_monterey: "cda6e75c378552f53b6ef15a7105cc8afb0f0cf138cb3bc579a8e9fcd410374d"
@@ -96,7 +97,7 @@ class Nu < Formula
     end
 
     # Remove bundled libffi
-    (buildpath/"libffi").rmtree
+    rm_r(buildpath/"libffi")
 
     # Remove unused prefix from ffi.h to match directory structure of libffi formula
     include_path = (OS.mac? && Hardware::CPU.arm?) ? "ffi" : "x86_64-linux-gnu"

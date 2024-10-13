@@ -8,16 +8,11 @@ class Chardet < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "db732b50f0ce62bfc6f1fe0472ad5e406617d5586299629c2d17e98233916fc3"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "db732b50f0ce62bfc6f1fe0472ad5e406617d5586299629c2d17e98233916fc3"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "db732b50f0ce62bfc6f1fe0472ad5e406617d5586299629c2d17e98233916fc3"
-    sha256 cellar: :any_skip_relocation, sonoma:         "db732b50f0ce62bfc6f1fe0472ad5e406617d5586299629c2d17e98233916fc3"
-    sha256 cellar: :any_skip_relocation, ventura:        "db732b50f0ce62bfc6f1fe0472ad5e406617d5586299629c2d17e98233916fc3"
-    sha256 cellar: :any_skip_relocation, monterey:       "db732b50f0ce62bfc6f1fe0472ad5e406617d5586299629c2d17e98233916fc3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "32a2dd8cdfbe1e564ea6b433c966262ed3d470420c5f34951361aef20bbd0215"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "5abd9f3f6191b67dd5c0a9912225873d1aea2371883c7aee8fcc3077e414dc96"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   def install
     virtualenv_install_with_resources

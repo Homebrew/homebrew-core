@@ -1,19 +1,20 @@
 class Cpufetch < Formula
   desc "CPU architecture fetching tool"
   homepage "https://github.com/Dr-Noob/cpufetch"
-  url "https://github.com/Dr-Noob/cpufetch/archive/refs/tags/v1.05.tar.gz"
-  sha256 "82c8195cc535ad468fa2e61fa9648bb09d55cbcc59f76a72b66bd99fd290a7e6"
+  url "https://github.com/Dr-Noob/cpufetch/archive/refs/tags/v1.06.tar.gz"
+  sha256 "b8ec1339cf3a3bb9325cde7fb0748dd609043e8d2938c292956da7e457bdb7d9"
   license "GPL-2.0-only"
   head "https://github.com/Dr-Noob/cpufetch.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b1fd10b7b02ae3ac52263173df652214f69d518f848f8acf2fe6702ec286fd05"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bd1b608ca4be72a36e654d33800830b6d1c735bf1350bf2b62a8f5bc025eb777"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "0b2254b88d3cf4cbbb5fae4b9c80f2263025cec75fdfec9385dbcd2de49ea385"
-    sha256 cellar: :any_skip_relocation, sonoma:         "6ff146795e24bd3e4262df01fde1ac233d9a21aa1ff48bc085294facad4e93cb"
-    sha256 cellar: :any_skip_relocation, ventura:        "904d80b81bb1e327da03ef8d63053466ca20a25a642ff16844a7cbbfcb14353c"
-    sha256 cellar: :any_skip_relocation, monterey:       "ebc001cff3f632df7ed4674a80e6220c65c3652118dde380173c329f3d7b7552"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c427921cffbc00a2323693c14db9f4584146bb2988e7062b84340f7292df038d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "5ab3dcf28e559af53759e191e76639f453a84a1707c615d5238a2e575b5eb7cc"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "098d557d887f19ad7094306afcc07f8f0ee0346badd16f704c97df60a01f8c44"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "be2768d3f1d3a912e569e4dbaf407e4e7c881646275d2352d5d36e380568de05"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f696fa4865ae44d9390086d69318c6ad51d2b3425d77df5b3d17f45857e9a48e"
+    sha256 cellar: :any_skip_relocation, sonoma:         "0faccde150115bfff166681b0f0fc22afeace6893f9f41972bfe7eb6026880bc"
+    sha256 cellar: :any_skip_relocation, ventura:        "7f7c1ee72012d279f55cc50be333ad179c419e2d58b86035da5b24fb6a9070a3"
+    sha256 cellar: :any_skip_relocation, monterey:       "f3a3ec4943787e4407d8b3c0d096739d71e0e15e90090121d74c3e0b590493ce"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f0c449650a3358d7038e5b73831cc000ce0af1610c84abac26e506e5ff33e802"
   end
 
   def install
@@ -23,6 +24,9 @@ class Cpufetch < Formula
   end
 
   test do
+    # This fails in our Docker container.
+    return if ENV["HOMEBREW_GITHUB_ACTIONS"].present? && OS.linux?
+
     ephemeral_arm = ENV["HOMEBREW_GITHUB_ACTIONS"].present? &&
                     Hardware::CPU.arm? &&
                     OS.mac? &&
@@ -37,7 +41,7 @@ class Cpufetch < Formula
     actual = shell_output("#{bin}/cpufetch --debug 2>&1", expected_result).lines[line].strip
 
     system_name = OS.mac? ? "macOS" : OS.kernel_name
-    arch = (OS.mac? && Hardware::CPU.arm?) ? "ARM" : Hardware::CPU.arch
+    arch = (OS.mac? && Hardware::CPU.arm?) ? "ARM" : "x86 / x86_64"
     expected = "cpufetch v#{version} (#{system_name} #{arch} build)"
 
     assert_match expected, actual

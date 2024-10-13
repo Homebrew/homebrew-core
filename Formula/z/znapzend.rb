@@ -15,6 +15,7 @@ class Znapzend < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "2a9e6930ad18a76b4bf38a65dccf94f805adb88442ac6515980b936f5214836d"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "894fb42d2fab9740dc12eb446afc08a6884aeff713dfedc7bb4f36758ecbc541"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "d8381b64efa6aceba6574825aa1f3088fd32ffbccc0b2ebda001b6a30e8d1931"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e827d72e828c64112d249b8e138b12ab69545d3125b4a548e0b850440054d543"
@@ -56,7 +57,9 @@ class Znapzend < Formula
     EOS
     chmod 0755, fake_zfs
     ENV.prepend_path "PATH", testpath
-    system "#{bin}/znapzendzetup", "list"
+
+    system bin/"znapzendzetup", "list"
+
     assert_equal <<~EOS, (testpath/"znapzendzetup_said.txt").read
       list
       -H

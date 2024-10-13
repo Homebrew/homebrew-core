@@ -6,6 +6,7 @@ class Tut < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "51d7ac8bcdb9eff188e5480de11bc29d8b0adca36c195cf3adaddd631a4db1d4"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "36cee035f905ca3370c02f3ce18a6447a9cc10a299675001933607f80480b3f2"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "73a5450eb16784d6c42f63e497748c837d663e796d910ac7a1a839f694d6d91a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "af53e3fc39990fc439f5613e1931c24bc38d05526cebd108edcc24d298ad9f86"

@@ -8,6 +8,7 @@ class Tag < Formula
   head "https://github.com/jdberry/tag.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "0276d10f3dbc55011085ba7d45f74a29760a8985108e946be3d2c6abf0bdfb34"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "22c9b07c4317b1d90da2431a3679babf1381a98c6c1311f565bdd83b94c88389"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f02aa65b8800efb9bc93089aded8bff111549d41f28e7ba223b02a1240d5c7b2"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "87582cbaf5cadbc19c6d8c2c9ea6793d3116a119d7de6b18b7b5a6d898b4ffd4"
@@ -32,7 +33,7 @@ class Tag < Formula
     test_tag = "test_tag"
     test_file = Pathname.pwd+"test_file"
     touch test_file
-    system "#{bin}/tag", "--add", test_tag, test_file
+    system bin/"tag", "--add", test_tag, test_file
     assert_equal test_tag, `#{bin}/tag --list --no-name #{test_file}`.chomp
   end
 end

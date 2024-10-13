@@ -12,6 +12,7 @@ class Wmctrl < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "76d0afbd8d8a925bf3d2137457f49f03f9550733358079820150adc2976010c3"
     sha256 cellar: :any,                 arm64_sonoma:   "6a1a692f4cb4c2246cb4e1f3e53dfe9e6c56486dd706a7910704e9a09def7cb9"
     sha256 cellar: :any,                 arm64_ventura:  "388c8eb49eeca6f9ced7eb9d3c7418e7b2f6a5f4cc4a77263e4ddb92ae135b8b"
     sha256 cellar: :any,                 arm64_monterey: "fb8c3a7dcd11a32b075ba4181f5825bfd9b55a8ee1453f4ad8454c7dd56cf6cf"
@@ -49,6 +50,6 @@ class Wmctrl < Formula
   end
 
   test do
-    system "#{bin}/wmctrl", "--version"
+    system bin/"wmctrl", "--version"
   end
 end

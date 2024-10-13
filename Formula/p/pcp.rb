@@ -8,6 +8,7 @@ class Pcp < Formula
   head "https://github.com/dennis-tra/pcp.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "b70326a9568fb548f3ce008619104436192af8cd247f06eb722057d8188e828d"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1aaac9b306226ce54909757ccdb10996d84803605c1e01f6f08e907ba7b30ec0"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "b1bfa73d57867b1d14809dca455e97ebcb4cb36c67080f64f8a44b242719cf79"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "127549faab2d9cb13ebd4ea2d7dfd17f0054776367769631b387aada1f7eacd6"
@@ -21,7 +22,8 @@ class Pcp < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "be128448d96fd7005c9cbda1c1ba2c71e7f7a58468c1c5bb3ec7a1f75c5109c5"
   end
 
-  depends_on "go" => :build
+  # use "go" again after https://github.com/dennis-tra/pcp/issues/30 is fixed and released
+  depends_on "go@1.22" => :build
 
   def install
     ldflags = "-X main.RawVersion=#{version} -X main.ShortCommit=#{Utils.git_short_head(length: 7)}"

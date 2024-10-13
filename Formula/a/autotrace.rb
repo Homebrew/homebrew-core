@@ -12,6 +12,7 @@ class Autotrace < Formula
   end
 
   bottle do
+    sha256 arm64_sequoia:  "c2d1d03bc042ec69198132771c0f609e20e53bb2902ae38318803ad22a642dd5"
     sha256 arm64_sonoma:   "bb7e5e2c27bd3da06e535a8a06baa26600dd95e864e18bf8600a2aba988069ad"
     sha256 arm64_ventura:  "d976e8f28196b677548bb11fee10be185632451b5cd5a8d1b0d4752d052118b3"
     sha256 arm64_monterey: "f75fb3dec8f93b6cd85ba5520010a28103a0c9259f0f4321691651f9b2f5da0f"

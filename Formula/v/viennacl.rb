@@ -3,10 +3,12 @@ class Viennacl < Formula
   homepage "https://viennacl.sourceforge.net/"
   url "https://downloads.sourceforge.net/project/viennacl/1.7.x/ViennaCL-1.7.1.tar.gz"
   sha256 "a596b77972ad3d2bab9d4e63200b171cd0e709fb3f0ceabcaf3668c87d3a238b"
+  license "MIT"
   revision 1
   head "https://github.com/viennacl/viennacl-dev.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "dd97554d6b9c07ca2fcf625dec5198ef86dffba1b1723e9e83796ccba63c2d7a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b0190d51c44ab429c844d6c7d74d85aaa447639e320ad460f491e5b5a6fff8f1"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "a55d8851ffa58afce58203d6ed577321fa309f02c63f472794c35e147bbee696"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "8088de8835167e42aa0271cd230cea442279337a2108576fd46a1db4610c72c2"

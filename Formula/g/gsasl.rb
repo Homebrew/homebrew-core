@@ -7,6 +7,7 @@ class Gsasl < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 arm64_sequoia:  "f101f94bb553856010b49dac82e42362cbf8cfb8d2934db50360418c77cac450"
     sha256 arm64_sonoma:   "08a3d6b5d9118239db46ac525dc8ff6dfcdb751aaf71c26d563e248ffe321601"
     sha256 arm64_ventura:  "e41f99e5a461ff905df7786838db28b8cf714a69e64d97074ac4d60192f1931e"
     sha256 arm64_monterey: "c99076a61434cfb716df47fe5ed29ce21765456effdd0eafbf7b645cff4fe85a"

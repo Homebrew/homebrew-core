@@ -1,13 +1,22 @@
 class ParallelHashmap < Formula
   desc "Family of header-only, fast, memory-friendly C++ hashmap and btree containers"
   homepage "https://greg7mdp.github.io/parallel-hashmap/"
-  url "https://github.com/greg7mdp/parallel-hashmap/archive/refs/tags/1.37.tar.gz"
-  sha256 "2ac652be0552fcb53a1163c08c1f28f29f0756594fcc587eebb4d8b363153709"
+  url "https://github.com/greg7mdp/parallel-hashmap/archive/refs/tags/v1.4.0.tar.gz"
+  sha256 "766e05d19c27d9c09e6f9a627868daf451f4fbdd1b617f1bb875fb9402bfb78b"
   license "Apache-2.0"
+  version_scheme 1
   head "https://github.com/greg7mdp/parallel-hashmap.git", branch: "master"
 
+  # Upstream switched from a version format like 1.37 to semantic versions like
+  # 1.3.8. We're working around this by checking the "latest" release on GitHub
+  # until there are newer versions higher than 1.37 (e.g. 1.38.0, 2.0.0).
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "d35958ae9cb30dbf15d9cca4b5dc4a6b3d50aced16db2cca21b96d1c2a550216"
+    sha256 cellar: :any_skip_relocation, all: "0920c771bf89baa1f22a1ada160394365100de407e5544dc3b8fbdc011875f65"
   end
 
   depends_on "cmake" => :build

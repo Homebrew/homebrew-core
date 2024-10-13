@@ -12,6 +12,7 @@ class Rlwrap < Formula
   end
 
   bottle do
+    sha256 arm64_sequoia:  "b9e569a7c00c9fd78141b579eeeeef23afc1fb54ed91505b0ee3a5ca93e195c1"
     sha256 arm64_sonoma:   "62d18bcd615a559341ee325e3a8ed7266b952efd2c1d45ca4fdddb095575fa47"
     sha256 arm64_ventura:  "6cc64e120040bde8ff3680d02a5233073756f3a9ecfa159230636574747be809"
     sha256 arm64_monterey: "800128c200ac5cd3ba45d50a835bd48f9ffb62e04886d1d615604477a599b91b"
@@ -38,6 +39,6 @@ class Rlwrap < Formula
   end
 
   test do
-    system "#{bin}/rlwrap", "--version"
+    system bin/"rlwrap", "--version"
   end
 end

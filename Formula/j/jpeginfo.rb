@@ -12,6 +12,7 @@ class Jpeginfo < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "4f5080a068fc3c4e0dbd1f4a1797a633ed8c28e50ab57eecf33b2ee70eb464ae"
     sha256 cellar: :any,                 arm64_sonoma:   "d2ea4f763ff7c44c860bcc04fb737e0a5e258faf6931775349542160ee034e55"
     sha256 cellar: :any,                 arm64_ventura:  "37e8663841268bae70369793b49e98ab351b9213c4e80577042d17e9e45df308"
     sha256 cellar: :any,                 arm64_monterey: "428ba50fee1f9a5a20af595fc15de9482f27c5d81321caf6c96abb7b627757b8"
@@ -34,6 +35,6 @@ class Jpeginfo < Formula
   end
 
   test do
-    system "#{bin}/jpeginfo", "--help"
+    system bin/"jpeginfo", "--help"
   end
 end

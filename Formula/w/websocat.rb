@@ -11,6 +11,7 @@ class Websocat < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "7e56370851e151ca46fa1008212799a29cb1415aa9959afd0595a83ae94cdf01"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ad69943ce0768290eef524aa9b69d2d3313199853586bc18c32fda8a04e20532"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "d75ddc5d4523e2127bd679e6e6436e306f43bf6caac96641fa52d38428ddb45b"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "7b28525e3861934de268b3599e868d134d4f5979e1ab571e6de3154516a340b8"
@@ -32,6 +33,6 @@ class Websocat < Formula
   end
 
   test do
-    system "#{bin}/websocat", "-t", "literal:qwe", "assert:qwe"
+    system bin/"websocat", "-t", "literal:qwe", "assert:qwe"
   end
 end

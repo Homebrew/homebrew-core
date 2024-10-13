@@ -1,4 +1,3 @@
-require "language/node"
 class TerraformRover < Formula
   desc "Terraform Visualizer"
   homepage "https://github.com/im2nguyen/rover"
@@ -8,6 +7,7 @@ class TerraformRover < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "0c8bae1c6ef570dad674bd7984d2f20ee36b55d92c2c73e9ea6fb96d1fbad622"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "190f1c6618d6c0ce1b895f0337e312d2db36c4c0e9020b97384b6ac7140eaae3"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "1818e26e098b7c82f51fae7441e753503c7e4a75276d251febef3d4857f0c6d1"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "565e31665caca943d71cc52d6c7b59b688fa54f02455091f7c6770bae0742a4a"
@@ -40,9 +40,8 @@ class TerraformRover < Formula
   end
 
   def install
-    Language::Node.setup_npm_environment
     cd "ui" do
-      system "npm", "install", *Language::Node.local_npm_install_args
+      system "npm", "install", *std_npm_args(prefix: false)
       system "npm", "run", "build"
     end
     system "go", "build", *std_go_args(ldflags: "-s -w")

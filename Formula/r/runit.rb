@@ -1,8 +1,8 @@
 class Runit < Formula
   desc "Collection of tools for managing UNIX services"
   homepage "https://smarden.org/runit/"
-  url "https://smarden.org/runit/runit-2.1.2.tar.gz"
-  sha256 "6fd0160cb0cf1207de4e66754b6d39750cff14bb0aa66ab49490992c0c47ba18"
+  url "https://smarden.org/runit/runit-2.2.0.tar.gz"
+  sha256 "95ef4d2868b978c7179fe47901e5c578e11cf273d292bd6208bd3a7ccb029290"
   license "BSD-3-Clause"
 
   livecheck do
@@ -11,31 +11,17 @@ class Runit < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9b5382dabe0f132590739a602c4f5e5acf54c7aaff32fa0af6800ae8c330e6f3"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8f052bec9af60ed628dec6fd235468b4cbb88d5b02c2570d1e1cddd0596e64be"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "39e047730d34a1981348cee841295648336b6ff705a200ef5f99130dc0cfde3c"
-    sha256 cellar: :any_skip_relocation, ventura:        "fa85ac5365da0fd4ee8e5516b2256dedeaaac2708bd746581863de454ae8aec6"
-    sha256 cellar: :any_skip_relocation, monterey:       "80de201022723bb21ff78b50bd6dd1501ea8fb8a4d062e4974ad219d0971d1f4"
-    sha256 cellar: :any_skip_relocation, big_sur:        "a619f4f93c0a243b27e229916a5c7fc0371c7f38db7a608e5232d27eca9e9987"
-    sha256 cellar: :any_skip_relocation, catalina:       "d0e17adfaaf02589b498e362596486515b37a0fda917ee8f0e51ac8e2409afd6"
-    sha256 cellar: :any_skip_relocation, mojave:         "ec6f4b2f1b323aba830a5f26daed8615395b0f774de82e074ee699627b1c106a"
-    sha256                               x86_64_linux:   "4f36fd98073523f04cebacef60f30fae7501f351c4a885e3a7a4540e41cafb14"
-  end
-
-  on_macos do
-    # Resolve `call to undeclared function` errors on macOS 13
-    patch :DATA
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5c6d9fe18b8ab5e4f85de166d9300367cbdb8c4157ae7ba26d6f891376bb248d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e48a87a97472f98638753b03e3a9fd5aa6b622cbd59c114c1ab3b4b2dca4158f"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "a02febc253e32ca872f45183b70298c703b86a69d756850170b10454f921efcb"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f820d9806a8247bd514c135b926100b205fa13aaded0f77ef73c22156ebd8309"
+    sha256 cellar: :any_skip_relocation, ventura:       "2fb88364202380b041df206331f369cd8b90cb7b38407e83195ab5c5cecb4d6f"
+    sha256                               x86_64_linux:  "84004a0ce4e354a57c901166bfd58276a281c22f56fccae2690b3c7c158f055d"
   end
 
   def install
     # Runit untars to 'admin/runit-VERSION'
     cd "runit-#{version}" do
-      # Work around build error from root requirement: "Oops. Your getgroups() returned 0,
-      # and setgroups() failed; this means that I can't reliably do my shsgr test. Please
-      # either ``make'' as root or ``make'' while you're in one or more supplementary groups."
-      inreplace "src/Makefile", "( cat warn-shsgr; exit 1 )", "cat warn-shsgr" if OS.linux?
-
       # Per the installation doc on macOS, we need to make a couple changes.
       system "echo 'cc -Xlinker -x' >src/conf-ld"
       inreplace "src/Makefile", / -static/, ""
@@ -83,58 +69,3 @@ class Runit < Formula
     assert_match "usage: #{bin}/runsvdir [-P] dir", shell_output("#{bin}/runsvdir 2>&1", 1)
   end
 end
-
-__END__
-diff -ur a/runit-2.1.2/src/lock_ex.c b/runit-2.1.2/src/lock_ex.c
---- a/runit-2.1.2/src/lock_ex.c 2014-08-10 14:22:34
-+++ b/runit-2.1.2/src/lock_ex.c 2024-03-24 17:21:11
-@@ -3,6 +3,7 @@
- #include <sys/types.h>
- #include <sys/file.h>
- #include <fcntl.h>
-+#include <unistd.h>
- #include "hasflock.h"
- #include "lock.h"
-
-diff -ur a/runit-2.1.2/src/lock_exnb.c b/runit-2.1.2/src/lock_exnb.c
---- a/runit-2.1.2/src/lock_exnb.c 2014-08-10 14:22:35
-+++ b/runit-2.1.2/src/lock_exnb.c 2024-03-24 17:21:22
-@@ -3,6 +3,7 @@
- #include <sys/types.h>
- #include <sys/file.h>
- #include <fcntl.h>
-+#include <unistd.h>
- #include "hasflock.h"
- #include "lock.h"
-
-diff -ur a/runit-2.1.2/src/pathexec_run.c b/runit-2.1.2/src/pathexec_run.c
---- a/runit-2.1.2/src/pathexec_run.c  2014-08-10 14:22:35
-+++ b/runit-2.1.2/src/pathexec_run.c  2024-03-24 17:21:32
-@@ -1,5 +1,6 @@
- /* Public domain. */
-
-+#include <unistd.h>
- #include "error.h"
- #include "stralloc.h"
- #include "str.h"
-diff -ur a/runit-2.1.2/src/prot.c b/runit-2.1.2/src/prot.c
---- a/runit-2.1.2/src/prot.c  2014-08-10 14:22:35
-+++ b/runit-2.1.2/src/prot.c  2024-03-24 17:21:40
-@@ -1,5 +1,6 @@
- /* Public domain. */
-
-+#include <unistd.h>
- #include "hasshsgr.h"
- #include "prot.h"
-
-diff -ur a/runit-2.1.2/src/seek_set.c b/runit-2.1.2/src/seek_set.c
---- a/runit-2.1.2/src/seek_set.c  2014-08-10 14:22:34
-+++ b/runit-2.1.2/src/seek_set.c  2024-03-24 17:21:51
-@@ -1,6 +1,7 @@
- /* Public domain. */
-
- #include <sys/types.h>
-+#include <unistd.h>
- #include "seek.h"
-
- #define SET 0 /* sigh */

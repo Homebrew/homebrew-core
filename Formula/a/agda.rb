@@ -1,8 +1,10 @@
 class Agda < Formula
   desc "Dependently typed functional programming language"
   homepage "https://wiki.portal.chalmers.se/agda/"
-  license "BSD-3-Clause"
-  revision 1
+  # agda2hs.cabal specifies BSD-3-Clause but it installs an MIT LICENSE file.
+  # Everything else specifies MIT license and installs corresponding file.
+  license all_of: ["MIT", "BSD-3-Clause"]
+  revision 2
 
   stable do
     url "https://github.com/agda/agda/archive/refs/tags/v2.6.4.3-r1.tar.gz"
@@ -10,8 +12,8 @@ class Agda < Formula
     version "2.6.4.3"
 
     resource "stdlib" do
-      url "https://github.com/agda/agda-stdlib/archive/refs/tags/v2.0.tar.gz"
-      sha256 "14eecb83d62495f701e1eb03ffba59a2f767491f728a8ab8c8bb9243331399d8"
+      url "https://github.com/agda/agda-stdlib/archive/refs/tags/v2.1.tar.gz"
+      sha256 "72ca3ea25094efa0439e106f0d949330414232ec4cc5c3c3316e7e70dd06d431"
     end
 
     resource "cubical" do
@@ -38,13 +40,14 @@ class Agda < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "c5ad14e8d9384d04112c8e786acc1c2f3746d6e0da40b9035a4a1418f1fbeadd"
-    sha256 arm64_ventura:  "c6ce41a5ab626c84211b9edbff313fac292a1816ddb939dba75196a1e62debb3"
-    sha256 arm64_monterey: "d6b81a5524508cee748e5331424c4e849c81ae7d3221f8edd66db423143f7054"
-    sha256 sonoma:         "cdbb9865d08ea102cd43a5a4fa51d299e8ab189cda36b00e4a5d8e8161a4ec39"
-    sha256 ventura:        "ef022f20c61c681b344a01bd9b9f198fd219b0a669d5c23529b994cfe7831b23"
-    sha256 monterey:       "29c8b74ca117e2053f35e65155993bc102ca5fea9a76f72059d172c346c195d8"
-    sha256 x86_64_linux:   "b033a7e961f4ea7e749557ba20cc60a79db23e02576ed6516c167d33804cf12c"
+    sha256 arm64_sequoia:  "efcb6bc585745b2967257a989c96dc870b7e42e8605c36594e0ee204e4b71302"
+    sha256 arm64_sonoma:   "37754c8fe159f96685467a321a30c35c7088c2fa7a5bf9912ba67c972d79399b"
+    sha256 arm64_ventura:  "34042e188e7e31f2c6dbc1596499524f25418d6336484820851f023245133e8d"
+    sha256 arm64_monterey: "d8b64716f20cd7037b6c3bc099b4260cd76d15404a6ace0ffa71313f8cf8a332"
+    sha256 sonoma:         "6aff1192bdc412c72806011171db6e07a3f8f5bcc389f8bb23924810fef15bfd"
+    sha256 ventura:        "341696bc1ea2218202bed2823be2ab56d75410570b25b83274958f63ca463939"
+    sha256 monterey:       "2a81118ecccc5e080caf92f85426a81eda64df40378fc6a1eca0e27e9fac6ddc"
+    sha256 x86_64_linux:   "921f03e6fc741c7be27df3982e9254214688fc9e9e51722950d327ae8d427f5d"
   end
 
   head do
@@ -75,11 +78,13 @@ class Agda < Formula
   uses_from_macos "zlib"
 
   def install
+    cabal_args = std_cabal_v2_args.reject { |s| s["installdir"] }
+
     system "cabal", "v2-update"
     # expose certain packages for building and testing
     system "cabal", "--store-dir=#{libexec}", "v2-install",
            "base", "ieee754", "text", "directory", "--lib",
-           *(std_cabal_v2_args.reject { |s| s["installdir"] })
+           *cabal_args
     agdalib = lib/"agda"
 
     # install main Agda library and binaries
@@ -90,14 +95,26 @@ class Agda < Formula
     # relying on the Agda library just installed
     resource("agda2hs").stage "agda2hs-build"
     cd "agda2hs-build" do
+      # Use previously built Agda binary to work around build error with Cabal 3.12
+      # Issue ref: https://github.com/agda/agda/issues/7401
+      # TODO: Try removing workaround when Agda 2.7.0 is released
+      if build.stable?
+        odie "Try to remove Setup.hs workaround!" if version > "2.6.4.3"
+        Pathname("cabal.project.local").write "packages: ./agda2hs.cabal ../Agda.cabal"
+        inreplace buildpath/"Setup.hs", ' agda = bdir </> "agda" </> "agda" <.> agdaExeExtension',
+                                        " agda = \"#{bin}/agda\" <.> agdaExeExtension"
+      end
+
+      # Work around to build agda2hs with GHC 9.10
+      # Issue ref: https://github.com/agda/agda2hs/issues/347
+      inreplace "agda2hs.cabal", /( base .*&&) < 4\.20,/, "\\1 < 4.21,", build.stable?
+
       system "cabal", "--store-dir=#{libexec}", "v2-install", *std_cabal_v2_args
     end
 
     # generate the standard library's documentation and vim highlighting files
     resource("stdlib").stage agdalib
     cd agdalib do
-      cabal_args = std_cabal_v2_args.reject { |s| s["installdir"] }
-      system "cabal", "v2-update"
       system "cabal", "--store-dir=#{libexec}", "v2-install", *cabal_args, "--installdir=#{lib}/agda"
       system "./GenerateEverything"
       cd "doc" do
@@ -106,7 +123,7 @@ class Agda < Formula
     end
 
     # Clean up references to Homebrew shims in the standard library
-    rm_rf "#{agdalib}/dist-newstyle/cache"
+    rm_r("#{agdalib}/dist-newstyle/cache")
 
     # generate the cubical library's documentation files
     cubicallib = agdalib/"cubical"

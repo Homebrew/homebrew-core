@@ -6,6 +6,7 @@ class Mp3cat < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "5320e93de9cf583fc6b074a45c450c4ebb0fc6b86dbf887c9d77196a34655271"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e5c88c18fd159e395849b60bea5da8355546c7e3de34a521c5d5e9eb5f6ddd83"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "48fda37f67df97cd462cbcda6e81dddb94bb1aea9615b899225ca8ca0f4a6d49"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "11c1d1c6470951c00be5c9bc094686503ef53fb1a8ac7231c2de57232f2177f1"
@@ -27,6 +28,6 @@ class Mp3cat < Formula
   end
 
   test do
-    pipe_output("#{bin}/mp3cat -v --noclean - -", test_fixtures("test.mp3"))
+    pipe_output("#{bin}/mp3cat -v --noclean - -", test_fixtures("test.mp3").to_s)
   end
 end

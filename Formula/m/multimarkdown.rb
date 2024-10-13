@@ -7,6 +7,7 @@ class Multimarkdown < Formula
   head "https://github.com/fletcher/MultiMarkdown-6.git", branch: "develop"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "eea3968401cd2eca776486368efbf1572da6dee6bb9cf5c5396448f0da811578"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f04dd2552dc7725620fc3e64e6b803652c0510e20e33242f4bd00bbde327ea74"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "d889681d3fd0ed644c4a80e951aed473b5ad9d26256e7e8f2f1922d0f2673b15"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "10659d4c872d03814f36e999ec7db8a2340272bbab6ecf190726a727be05caf4"
@@ -25,11 +26,9 @@ class Multimarkdown < Formula
   conflicts_with "discount", because: "both install `markdown` binaries"
 
   def install
-    mkdir "build" do
-      system "cmake", "..", *std_cmake_args
-      system "make"
-      bin.install "multimarkdown"
-    end
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build"
+    bin.install "build/multimarkdown"
 
     bin.install Dir["scripts/*"].reject { |f| f.end_with?(".bat") }
   end

@@ -1,5 +1,3 @@
-require "language/node"
-
 class AnsibleLanguageServer < Formula
   desc "Language Server for Ansible Files"
   homepage "https://github.com/ansible/vscode-ansible"
@@ -8,6 +6,7 @@ class AnsibleLanguageServer < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "f77d8d03dd3d1c02a29ba66785d2628274f5478363f8fce75a41ca3e6febcc32"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ea600142aba89658a7896fa5c65ce40a2648b61f8535d569c552416ba38cd5c8"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "4575717c98b81f527b192d6687372445551f11c94b1f47058698e1b6cede67e3"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "db9a066966f1c8a6abd1ce7e7a453a7199bdf34f17d3fb2c333113764d0cad84"
@@ -20,7 +19,7 @@ class AnsibleLanguageServer < Formula
   depends_on "node"
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", *std_npm_args
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 
@@ -39,7 +38,7 @@ class AnsibleLanguageServer < Formula
       }
     JSON
 
-    Open3.popen3("#{bin}/ansible-language-server", "--stdio") do |stdin, stdout|
+    Open3.popen3(bin/"ansible-language-server", "--stdio") do |stdin, stdout|
       stdin.write "Content-Length: #{json.size}\r\n\r\n#{json}"
       sleep 3
       assert_match(/^Content-Length: \d+/i, stdout.readline)

@@ -8,6 +8,7 @@ class LibsoupAT2 < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_sequoia:  "70298df345576271d6db06032e4497bf1fd769af3e33cc67687196469c61b8ef"
     sha256 arm64_sonoma:   "9d50f2ce85396610a34a8b73c2f90f065a61958f5b5aa5f31df1a5e6d1c6b901"
     sha256 arm64_ventura:  "b6b1f722faecc11f7f0f7d59da96b6582815179e2998e06c9d7d9a9b6221b8bc"
     sha256 arm64_monterey: "c9a5a1b8cdbad59ea9bb297e382dd1165a3ada3d8145f4da3cec8183c34be647"
@@ -22,16 +23,23 @@ class LibsoupAT2 < Formula
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkg-config" => [:build, :test]
   depends_on "python@3.12" => :build
   depends_on "vala" => :build
+
+  depends_on "glib"
   depends_on "glib-networking"
   depends_on "gnutls"
   depends_on "libpsl"
+  depends_on "sqlite"
 
   uses_from_macos "krb5"
   uses_from_macos "libxml2"
-  uses_from_macos "sqlite"
+  uses_from_macos "zlib"
+
+  on_macos do
+    depends_on "gettext"
+  end
 
   on_linux do
     depends_on "brotli"
@@ -58,24 +66,10 @@ class LibsoupAT2 < Formula
         return 0;
       }
     EOS
-    ENV.libxml2
-    gettext = Formula["gettext"]
-    glib = Formula["glib"]
-    flags = %W[
-      -I#{gettext.opt_include}
-      -I#{glib.opt_include}/glib-2.0
-      -I#{glib.opt_lib}/glib-2.0/include
-      -I#{include}/libsoup-2.4
-      -D_REENTRANT
-      -L#{gettext.opt_lib}
-      -L#{glib.opt_lib}
-      -L#{lib}
-      -lgio-2.0
-      -lglib-2.0
-      -lgobject-2.0
-      -lsoup-2.4
-    ]
-    system ENV.cc, "test.c", "-o", "test", *flags
+
+    ENV.prepend_path "PKG_CONFIG_PATH", lib/"pkgconfig"
+    pkg_config_flags = shell_output("pkg-config --cflags --libs libsoup-2.4").chomp.split
+    system ENV.cc, "test.c", "-o", "test", *pkg_config_flags
     system "./test"
   end
 end

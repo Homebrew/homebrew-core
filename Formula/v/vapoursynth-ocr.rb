@@ -8,13 +8,13 @@ class VapoursynthOcr < Formula
   head "https://github.com/vapoursynth/vs-ocr.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "2c20c4ffb3ea7354b2cf70e66a713409b9b62cba6ddda5eb3e9b98af8b913359"
-    sha256 cellar: :any,                 arm64_ventura:  "23f4b1b3d4db7e4147bb0814440dbfc7fd48caa629135d8438feceb05d79357d"
-    sha256 cellar: :any,                 arm64_monterey: "972228660132a42823e45a5a2a6403f06a2db8ff240d7191b0eb692c93154143"
-    sha256 cellar: :any,                 sonoma:         "35eae2559c4b298569ee7581a46a988d6d597143f00c227cc783757b9c1de40e"
-    sha256 cellar: :any,                 ventura:        "96b4371b0a405577847782fba92187ce377ffc5d93037c1de836acd7aada60b6"
-    sha256 cellar: :any,                 monterey:       "173146b8ced3df6b4b944474afffd9a7a4204af4425f7c197ecf035d2abc96e2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "80abfe935f66ee87e061ce9d1241bcde2a481280a8f4bd2b7fc249590e5b0b84"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "59e7198e55f020269ef5dba9f54c07b67c5a789379df455ec634e6b236a129b0"
+    sha256 cellar: :any,                 arm64_sonoma:  "780ee3e48072500cbe2847c42e301fae220ec8a6d5cb2104c5c43cecc7a7feb7"
+    sha256 cellar: :any,                 arm64_ventura: "cd5724d21e95a31025bf0d0bad580406d2b3921a1afbd0778a3fafe123809b70"
+    sha256 cellar: :any,                 sonoma:        "2106c78c52a64e3dee5fffaf924358216e2a4d962614d47dc1055721d0e535fe"
+    sha256 cellar: :any,                 ventura:       "04e3d8edb77293bb176d2757f36ad28deb8d1c4fd571c7de3a95e04395ed731f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3ba3f2ce6d29c86e69853b445c6b8a4a4f95c26f88dc7e3947ecea9845009882"
   end
 
   depends_on "meson" => :build

@@ -11,6 +11,7 @@ class BaculaFd < Formula
   end
 
   bottle do
+    sha256                               arm64_sequoia:  "30b99d348ab468244a22a3b427a61b97318b374886c3134e62610ab320a8911c"
     sha256                               arm64_sonoma:   "dc5d2dec89a360588b9a03b6d02957d5e6d52d4bbd372942ff7c92a2d479f7a6"
     sha256                               arm64_ventura:  "c69f5533858ba83175376a7bc2a8f3646a7bf7da113979cd65380962fa327dd5"
     sha256                               arm64_monterey: "27eda5572a2b67bf8aac9e1282d4582e6121b9cbe3cf9d7ca198f1f9ea66020d"

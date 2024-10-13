@@ -1,11 +1,12 @@
 class Pangomm < Formula
   desc "C++ interface to Pango"
-  homepage "https://www.pango.org/"
+  homepage "https://pango.gnome.org"
   url "https://download.gnome.org/sources/pangomm/2.54/pangomm-2.54.0.tar.xz"
   sha256 "4a5b1fd1b7c47a1af45277ea82b5abeaca8e08fb10a27daa6394cf88d74e7acf"
   license "LGPL-2.1-only"
 
   bottle do
+    sha256 cellar: :any, arm64_sequoia:  "cde5d1708cdc2ffcef559a334b4155e9913f40814894004a0f1b3263a4a41f99"
     sha256 cellar: :any, arm64_sonoma:   "96d6b86cb3c3d9b8df92e5a2d9cbf25a0be17d3fbf6575af6a64d6e7cdcab3f8"
     sha256 cellar: :any, arm64_ventura:  "a970a47d003c8802cb36f05742d3ba0040b6711801e593ca124a8e7f5d39c7fe"
     sha256 cellar: :any, arm64_monterey: "27d31ee025f795002d2656cc9bac32d2973f5840c8efccc00999be221d196283"

@@ -6,6 +6,7 @@ class Kalign < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "bc9e036810b16032845850321289b1a916eecb4dfbe3456792c4440f487f5287"
     sha256 cellar: :any,                 arm64_sonoma:   "9f9ae5f0efca17061afa699b3e9e489e9cdc5c4a1367658c2dd771ab697820de"
     sha256 cellar: :any,                 arm64_ventura:  "5931fed281e39a795d5efcb0f796ef1b9d87ed6962d99d1e593a5360bf919c66"
     sha256 cellar: :any,                 arm64_monterey: "05f998084e702cf47c8db2b57b1ecfbb4339200f66e4279f5a0d343073ae76a7"

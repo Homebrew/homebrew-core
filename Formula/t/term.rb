@@ -22,6 +22,8 @@ class Term < Formula
     sha256 cellar: :any_skip_relocation, mojave:         "bd69041cc6a4321552e29381fbdb0d5cbb09d84e89be8344a3ed90611ba7d51a"
   end
 
+  disable! date: "2024-08-12", because: :no_license
+
   depends_on :macos
 
   def install

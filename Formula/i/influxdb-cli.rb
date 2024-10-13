@@ -13,6 +13,7 @@ class InfluxdbCli < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "d319d1a5eb3d7643f4b6b767e0eacf8f1af03eeab6586c6d062a8350d9f95acb"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3c3c36b35e1fe4d4f4712f72c5ddd12709846f32088f1bc7637e6b3ed24b2fbe"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f07a68d82c3075c6bf62922c646998bb362c4ea26166f4ecd31738da4e2af9ba"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "91dc24269127d0a41b7faef7d93e61a6ffec9ecb50d0a0cab69465cd66d9c706"
@@ -60,7 +61,7 @@ class InfluxdbCli < Formula
     assert_match "OK", shell_output("#{bin}/influx ping")
 
     # Perform initial DB setup.
-    system "#{bin}/influx", "setup", "-u", "usr", "-p", "fakepassword", "-b", "bkt", "-o", "org", "-f"
+    system bin/"influx", "setup", "-u", "usr", "-p", "fakepassword", "-b", "bkt", "-o", "org", "-f"
 
     # Assert that initial resources show in CLI output.
     assert_match "usr", shell_output("#{bin}/influx user list")

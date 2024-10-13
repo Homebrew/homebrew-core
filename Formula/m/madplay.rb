@@ -3,6 +3,7 @@ class Madplay < Formula
   homepage "https://www.underbit.com/products/mad/"
   url "https://downloads.sourceforge.net/project/mad/madplay/0.15.2b/madplay-0.15.2b.tar.gz"
   sha256 "5a79c7516ff7560dffc6a14399a389432bc619c905b13d3b73da22fa65acede0"
+  license "GPL-2.0-or-later"
   revision 3
 
   livecheck do
@@ -11,6 +12,7 @@ class Madplay < Formula
   end
 
   bottle do
+    sha256 arm64_sequoia:  "ba09b6ca2c1a89b49f0df90e4d4330c7271dd39f11d35cf165cb26a9899a6584"
     sha256 arm64_sonoma:   "bb53d0d999f2179e53c438c9fbcfc1fa57a6dfb0a0e87b144fe8d9f5c91689de"
     sha256 arm64_ventura:  "544e014609eb4449054c2cb5ec02f550ec5ab3619e48faf881db9b71bf9a390b"
     sha256 arm64_monterey: "e66c7d9d05cd323ad4091b07d063ce9ea5d65dd86fbc06e78ac9316522710432"
@@ -42,6 +44,6 @@ class Madplay < Formula
   end
 
   test do
-    system "#{bin}/madplay", "--version"
+    system bin/"madplay", "--version"
   end
 end

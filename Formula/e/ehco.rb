@@ -1,8 +1,8 @@
 class Ehco < Formula
   desc "Network relay tool and a typo :)"
   homepage "https://github.com/Ehco1996/ehco"
-  url "https://github.com/Ehco1996/ehco/archive/refs/tags/v1.1.4.tar.gz"
-  sha256 "7409064ad97040988826c86ae62a6230943f6ae1667571f39798e311e535fb79"
+  url "https://github.com/Ehco1996/ehco/archive/refs/tags/v1.1.5.tar.gz"
+  sha256 "d6883b1ecdf4551f0b8fcbc8863089de0c5971944d0d2fa778835fd2ec76cfe8"
   license "GPL-3.0-only"
   head "https://github.com/Ehco1996/ehco.git", branch: "master"
 
@@ -12,13 +12,14 @@ class Ehco < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "231df470a08a92dcf5e904ceda7c3f5b530cd88c3694517dc00f99cbf5249eb6"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "39979432527f45f8cf6eddc335257d73f43b4ffae65d84cce6217496599b9241"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "faf1404fef3eebb3c1389e43df065fb520b5a13a0039f0f024597c488721737e"
-    sha256 cellar: :any_skip_relocation, sonoma:         "4fd4b56fff548abc18353aad3589158d27984261141cf58933e3205c65c0a833"
-    sha256 cellar: :any_skip_relocation, ventura:        "35b4e206605a39dd73c657cb7175abb63da2c3efa55a6f3394e034072dcc7115"
-    sha256 cellar: :any_skip_relocation, monterey:       "288e20c323998e9748e09f3642b30d0347021bb15e33b6be421c57d829aafe96"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cb470e778aeeeb162968f48a891d7fedb1aae67df0f2e81ca2003dcfe8378062"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "f18885bbcbafe2095ce0f0d3d7c180d8e2a646d69525a7528b38499ffa2ed065"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7a922799139ed0c48b58976708f27d3d59976c91f39db062720c3b502f70ec52"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ace45d76fd53671e7c3bbe1a75f7cf5b1e5c2098f5ba41c2a35ab10d71b050f6"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "10ba3e478b23911fc098632347f408b9cfc4a38e2a46f86c6d6c7ee3582aa4d0"
+    sha256 cellar: :any_skip_relocation, sonoma:         "321d48abbed4fd8b95819fe99bb469fd6003ffd8f1b2d5604cbbc61235edbf86"
+    sha256 cellar: :any_skip_relocation, ventura:        "702dad8245708582ae80e98b18e421cfabf625446a7367c0f91f59ce9fb4ea40"
+    sha256 cellar: :any_skip_relocation, monterey:       "4f6e8ee224725f9d7d5fe78ebf9db83950b878a8432856846c54cbd639510678"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6fc15a224177b50b7f245e3071f6d1116e77f4e9317424decedb3b38a4d346e6"
   end
 
   depends_on "go" => :build

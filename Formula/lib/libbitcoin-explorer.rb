@@ -3,10 +3,11 @@ class LibbitcoinExplorer < Formula
   homepage "https://github.com/libbitcoin/libbitcoin-explorer"
   url "https://github.com/libbitcoin/libbitcoin-explorer/archive/refs/tags/v3.8.0.tar.gz"
   sha256 "c10993ab4846e98ec4618ca2d2aab31669dc091fa2feb17d421eb96b9c35c340"
-  license "AGPL-3.0"
+  license "AGPL-3.0-or-later"
   revision 2
 
   bottle do
+    sha256 arm64_sequoia:  "92fd7ff6e8e5caaaf8da563fc8c024fd9d29501a3b46a52eb2275370a9ccfa6f"
     sha256 arm64_sonoma:   "7ce16a07286ba0403891fe6db304e4d2db29d5358b1d8b8b8eb827e6568756bb"
     sha256 arm64_ventura:  "b273e60879e4345bfd9c2eb9f82261748db1eafbbe108d81b5fb97e829b29196"
     sha256 arm64_monterey: "b7685b9d3f2bce471a847685b0bd22a66066af0f8e9540c7904d48e475fe1d48"

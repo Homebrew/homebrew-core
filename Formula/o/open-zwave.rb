@@ -17,7 +17,7 @@ class OpenZwave < Formula
     sha256 x86_64_linux:   "32e72b176dcd28b5876df5dca595f9d9a93c159d475fbbe2affb9e21d6e1c30b"
   end
 
-  deprecate! date: "2023-08-14", because: :unmaintained
+  disable! date: "2024-08-24", because: :unmaintained
 
   depends_on "doxygen" => :build
   depends_on "pkg-config" => :build

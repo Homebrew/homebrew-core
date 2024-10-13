@@ -1,19 +1,18 @@
 class Noseyparker < Formula
   desc "Finds secrets and sensitive information in textual data and Git history"
   homepage "https://github.com/praetorian-inc/noseyparker"
-  url "https://github.com/praetorian-inc/noseyparker/archive/refs/tags/v0.18.1.tar.gz"
-  sha256 "065729ad1c2b3c618603f0eebfff1a235aaa6fe44fda64dc535f63d9466fd44c"
+  url "https://github.com/praetorian-inc/noseyparker/archive/refs/tags/v0.20.0.tar.gz"
+  sha256 "517655be7377a9636dbf15ede998f4229a47ada1e3844e086e50c6fd137b5574"
   license "Apache-2.0"
   head "https://github.com/praetorian-inc/noseyparker.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "eca50788a846a424fdc503f8c8e47099180391dcff57ed35b2561c8d5a345508"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "443da5d69a86795794aaff0f95a5c38ae02224ba16cec02d086b2fc7a9e472f8"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d3a977146968cec30dc650baafe9087460d531fc8f9f8104f4e9540cc03126fb"
-    sha256 cellar: :any_skip_relocation, sonoma:         "96a2f93b435c0129b66cf998fc8b41518a7db5ba9668f30e6e730ef7f8d59d8e"
-    sha256 cellar: :any_skip_relocation, ventura:        "2a68b236aa2baf366a87767cd58daf3efe5adcab0b0af66a62d52571e340ecad"
-    sha256 cellar: :any_skip_relocation, monterey:       "1796d6dc599a1ea7242cd347289cb5055897cd1dfb29964171ea4147b28da1be"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "59ad3090724af7999d21a9ed072a605ec05c01b243c840ff6ec09a5c30ec337a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5b889595bce7f5825c70e7fa77b63feb13b276879c79d21688c046d4adeca9a9"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9efd9e3d3ce4e0fb0e5a6b7f7ffc04b964b2ac93b83afca277212ba34e2323bc"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "215e0dc70e747e537246982a4e6b78b13f46cf72dee5c9202eab69b622fbd8bc"
+    sha256 cellar: :any_skip_relocation, sonoma:        "35ad9ac233495d3b233c0c416f48fb8661e7a5bdfc0ddd802a1080095d06c245"
+    sha256 cellar: :any_skip_relocation, ventura:       "7b7812e53e4ffa48a2df49b45efa317f71655a84f5a45dbed9b732619044ab8a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f661d1b8128a4b07fc26709247c751e779e471fa786bb47bc01fddcd38cf5b2b"
   end
 
   depends_on "boost" => :build
@@ -38,7 +37,7 @@ class Noseyparker < Formula
   test do
     assert_match version.to_s, shell_output("#{bin}/noseyparker -V")
 
-    output = shell_output(bin/"noseyparker scan --git-url https://github.com/Homebrew/brew")
+    output = shell_output(bin/"noseyparker scan --git-url https://github.com/homebrew/.github")
     assert_match "0/0 new matches", output
   end
 end

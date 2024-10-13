@@ -4,19 +4,17 @@ class Openmotif < Formula
   url "https://downloads.sourceforge.net/project/motif/Motif%202.3.8%20Source%20Code/motif-2.3.8.tar.gz"
   sha256 "859b723666eeac7df018209d66045c9853b50b4218cecadb794e2359619ebce7"
   license "LGPL-2.1-or-later"
-  revision 2
+  revision 3
 
   bottle do
-    sha256 arm64_sonoma:   "55a73021c505f7ff8a2e8964ed56a98367acf21913ee52d9fb26a3bc32ae713e"
-    sha256 arm64_ventura:  "d89a76242fafca764691044cab4fc7e5b3bf0eaa1756b07732e6645ff3642c75"
-    sha256 arm64_monterey: "3942656be5f95807753f8549c98d5263cc9bd510a9b73e4bb6256dfa8928bd76"
-    sha256 arm64_big_sur:  "004bb6002de4b145d78adfb0dfd3dc69de01012daa7632770329bf658cb52420"
-    sha256 sonoma:         "9bc38b13491771e81f2e8716e6d1a6e03840cde63ebd8b6d94c155859603de4a"
-    sha256 ventura:        "be57abbebbed852db219a8b1052cb6dc19bc816a9bfa39c02d4f5fe563fa9be5"
-    sha256 monterey:       "3d8e123bd66804492e9c029dd8cf4f5c6eee742f55558e8aeda6cc80f41021cc"
-    sha256 big_sur:        "186bd2c9a8f7d69e31e4d00e206036f8128483627e1af8310b847d2e327bb413"
-    sha256 catalina:       "3cc1aea00676992dc09e499f10737729e964cab6fb8750d0d54c51a3716d1166"
-    sha256 x86_64_linux:   "a7ec8d4e5739b6c130dadce451e3d2ee44658e87958a93e67548afe2b36e6b62"
+    sha256 arm64_sequoia:  "a8bc176639f8fb38b41aab636e20c407232203d408d07098042a68e3f4ed610f"
+    sha256 arm64_sonoma:   "088de6041cdf83f4d5ab19861a340937bb78e13d455d1c5819926a8a77842488"
+    sha256 arm64_ventura:  "1019a2b092f310c8ee4d777401dd907b59e07f0c7b6ea18735a50932e2f42c1a"
+    sha256 arm64_monterey: "7abd4f014f6171882ad37dc0c7eea95d79f80c8ae23dca71341745e83564b211"
+    sha256 sonoma:         "7a3a027c94087fbae8276b1b1ea1d5005aedf1e9a5c50f5bb5045f58678ebee9"
+    sha256 ventura:        "f812e91446ca3ac40eb384466f591a41548b8a8c48b566f68cb32180a10246b7"
+    sha256 monterey:       "14ef0a26ccc456c032334f4013d8938098f8dabcd4297f31b64c787794ed8be9"
+    sha256 x86_64_linux:   "48f58afdf62747a75241a1be50fde497d04d74fe09e4385c47e01bcc4a572e4f"
   end
 
   depends_on "pkg-config" => :build
@@ -42,6 +40,14 @@ class Openmotif < Formula
     sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
   end
 
+  # Fix 2-level namespace using MacPorts patch
+  patch :p0 do
+    on_macos do
+      url "https://raw.githubusercontent.com/macports/macports-ports/8c436a9c53a7b786da8d42cda16eead0fb8733d4/x11/openmotif/files/patch-lib-xm-vendor.diff"
+      sha256 "697ac026386dec59b82883fb4a9ba77164dd999fa3fb0569dbc8fbdca57fe200"
+    end
+  end
+
   def install
     if OS.linux?
       # This patch is needed for Ubuntu 16.04 LTS, which uses
@@ -54,8 +60,9 @@ class Openmotif < Formula
 
     # Fix compile with newer Clang
     ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
+    ENV.append_to_cflags "-Wno-incompatible-function-pointer-types" if DevelopmentTools.clang_build_version >= 1500
 
-    system "./configure", *std_configure_args, "--disable-silent-rules"
+    system "./configure", "--disable-silent-rules", *std_configure_args
     system "make"
     system "make", "install"
 

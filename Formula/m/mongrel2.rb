@@ -20,9 +20,17 @@ class Mongrel2 < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux: "d117a88b346fc34a3a279f08abd2707876d73aa6cd2e6a46eb085c67f440ea32"
   end
 
+  # https://github.com/mongrel2/mongrel2/issues/345
+  deprecate! date: "2024-09-29", because: :unmaintained
+
   depends_on "zeromq"
 
   uses_from_macos "sqlite"
+
+  on_macos do
+    # https://github.com/mongrel2/mongrel2/issues/345#issuecomment-998972199
+    depends_on arch: :x86_64
+  end
 
   # Fix src/server.c:185:23: error: #elif with no expression
   # PR ref: https://github.com/mongrel2/mongrel2/pull/358

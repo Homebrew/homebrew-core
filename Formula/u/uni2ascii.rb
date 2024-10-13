@@ -11,6 +11,7 @@ class Uni2ascii < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "df56e8714e5ed1d14033b28e4315bc472b5166613a5b25730f6d379f5c661c69"
     sha256 cellar: :any,                 arm64_sonoma:   "d3a472d2c31cfa9dc963c26fe7f15d7a3f782a937d7026c4ad59bbd986729af5"
     sha256 cellar: :any,                 arm64_ventura:  "2e92a28331236f4d0a7a3f14a2be9acfe64f4fcc61394a8e0eba9211c1a4415d"
     sha256 cellar: :any,                 arm64_monterey: "12397160ce567ec3d0d101b0028c9c962d82a0861873bbc0172492d975dfb3ac"

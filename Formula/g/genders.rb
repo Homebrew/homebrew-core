@@ -1,9 +1,9 @@
 class Genders < Formula
   desc "Static cluster configuration database for cluster management"
   homepage "https://github.com/chaos/genders"
-  url "https://github.com/chaos/genders/archive/refs/tags/genders-1-28-1.tar.gz"
-  version "1.28.1"
-  sha256 "3ca8b4771b2bf39383a3c383d36d308fa113de5c481e16fdef9cabd643359d09"
+  url "https://github.com/chaos/genders/archive/refs/tags/genders-1-29-1.tar.gz"
+  version "1.29.1"
+  sha256 "42c37c53a831e007b4fd5a5596060417186724e18cbd5c9dbb3a7185144200c2"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -15,15 +15,14 @@ class Genders < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "437ba4a56efa72c010639e4aa88f5a0d244d52ea51f69c76d339e60de86d65d2"
-    sha256 cellar: :any,                 arm64_ventura:  "4afbf91d200629d7de4d997001f1257ad288f3c9dcb3b1c267189d55ce47115d"
-    sha256 cellar: :any,                 arm64_monterey: "f01d9982f8779d112b416c036e0f0179e1b0f9d4a7a19fb7b9901029f42f2b20"
-    sha256 cellar: :any,                 arm64_big_sur:  "c006a6102181fe3e5ab3739497a8262d097a85697cd4e723bc0ec5d0729c5950"
-    sha256 cellar: :any,                 sonoma:         "1f524f2ac014e2602a48e365d03dd815f871662ada2981615645a2d3e8b1e192"
-    sha256 cellar: :any,                 ventura:        "e6cb4a85978c83c60d9d16cc1a7c204cdf4e8978cc34cf100514b225836e39b9"
-    sha256 cellar: :any,                 monterey:       "2f39ce129041a6b85659bea7b9e928d3930054a4a7a5c6203b8a93fa09e74cfa"
-    sha256 cellar: :any,                 big_sur:        "9b83b2e1ff95368310d065d3d2ca2866511a03bd32ca160b556b7b0c34b00908"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "acc1b66d1ec7f76ca49fa929b7909bd7058ba0c4e4c6fd741d1cb3843c8f37b5"
+    sha256 cellar: :any,                 arm64_sequoia:  "e4fb31da5615e88dcc18ad6c9ef273e4af10e79bd9c3e5a1a6184988277295de"
+    sha256 cellar: :any,                 arm64_sonoma:   "24687149f4c7eae6083d96d72ab233d6f15f009d86fc0aca12459f9bf7da5996"
+    sha256 cellar: :any,                 arm64_ventura:  "987feaf1eba85ac7554b72e1b341779dec8e5b5785daa0cf490079345256f1d5"
+    sha256 cellar: :any,                 arm64_monterey: "568666f7f26b9d68df7c5bce2db3f953b09fe9ef5e92d8adf2f48f81a6e1d388"
+    sha256 cellar: :any,                 sonoma:         "9fcca30c146588f81f9fadf833022d70898612723f2526eef1e2836fc395b4ea"
+    sha256 cellar: :any,                 ventura:        "dbe0fbc6daf625e29b3db27cb6b7ddc8416145f41db930bdec9d0d66c905eacf"
+    sha256 cellar: :any,                 monterey:       "fbfe9f9bd3d171bc75d73c7cee9dc009370f052d134aee3a5fda3aabe95bf5c1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3eb2859efed178704493b7801a8b182f82068c1d6bae6962a30ff8a169b79eef"
   end
 
   uses_from_macos "bison" => :build
@@ -31,15 +30,21 @@ class Genders < Formula
   uses_from_macos "perl" => :build
   uses_from_macos "python" => :build
 
+  # upstream issue to drop distutils usage, https://github.com/chaos/genders/issues/65
+  on_linux do
+    depends_on "python-setuptools" => :build
+  end
+
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-pre-0.4.2.418-big_sur.diff"
-    sha256 "83af02f2aa2b746bb7225872cab29a253264be49db0ecebb12f841562d9a2923"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
+    sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
   end
 
   def install
     ENV["PYTHON"] = which("python3")
-    system "./configure", "--prefix=#{prefix}", "--with-java-extensions=no"
+
+    system "./configure", "--with-java-extensions=no", *std_configure_args
     system "make", "install"
 
     # Move man page out of top level mandir on Linux

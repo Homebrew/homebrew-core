@@ -6,6 +6,7 @@ class Evernote2md < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "2c9834f05f9113dbc7c62003fb60463b071b6b7391d4060cabd1e2b9f62efc4c"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ccb9aac82b25b78b834109a161d48b357342e716af6e88f384c4709cfb7712aa"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "01f1aad2d6a402313f960430ce120e07a8613a6eae066bfb2cc1480da4b0bdea"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "91e8e4e938de5aeb9544c33319d88e41f70d98dec7fd21008d1c0b79774860cd"

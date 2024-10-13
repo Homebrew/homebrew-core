@@ -13,6 +13,7 @@ class GitAppraise < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "57018642d15c7cb5e4a6d1b897e3f1c369c1e81e22eb8dbdef0c6f6fdd8909d4"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "47ed51bc965177d94d4d1ef000fa1b62d25e923f1ad569fff3298c42bfebf3da"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "987bab897e08380d91b10c6fdd7202c7a8e067d1417fb9887196b6cb5cdde19c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "117d03b5537210ab8f3efa3a76ff1a29394e66125d005b13183b9414d322c101"

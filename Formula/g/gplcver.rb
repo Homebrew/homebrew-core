@@ -3,6 +3,7 @@ class Gplcver < Formula
   homepage "https://gplcver.sourceforge.net/"
   url "https://downloads.sourceforge.net/project/gplcver/gplcver/2.12a/gplcver-2.12a.src.tar.bz2"
   sha256 "f7d94677677f10c2d1e366eda2d01a652ef5f30d167660905c100f52f1a46e75"
+  license "GPL-2.0-or-later"
 
   # This regex intentionally matches seemingly unstable versions, as the only
   # available version at the time of writing was `2.12a`.
@@ -12,6 +13,7 @@ class Gplcver < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "0add15edb99e15d1f6436b96c3030d44351f54bb81196948a16ee292d5d8b5b6"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "dde704f0707db66fc51b44e80096d941e26737b98ea99f43e78be17a32f9963c"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "cfc01eb32389c8d3d48139c0fce48a1b2ccca7776a7cbef7e0a304851eacdb6e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "43a7946fa8079b469acfcd95ba308b4ffa110280d6da04955243514a505cad80"

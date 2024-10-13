@@ -1,4 +1,6 @@
 class Pidcat < Formula
+  include Language::Python::Shebang
+
   desc "Colored logcat script to show entries only for specified app"
   homepage "https://github.com/JakeWharton/pidcat"
   url "https://github.com/JakeWharton/pidcat/archive/refs/tags/2.1.0.tar.gz"
@@ -7,16 +9,24 @@ class Pidcat < Formula
   head "https://github.com/JakeWharton/pidcat.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "040e4e6968c1b152d7b25104e3b4cd27c86df790bc0d863f6ad7371c761d5386"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "2d0412351f2c3bc45c8b43d8aa9a9e3f1892f22824db054008d1efbef344a3d4"
   end
 
+  depends_on "python@3.12"
+
   def install
+    rewrite_shebang detected_python_shebang, "pidcat.py"
     bin.install "pidcat.py" => "pidcat"
+
     bash_completion.install "bash_completion.d/pidcat"
     zsh_completion.install "zsh-completion/_pidcat"
   end
 
   test do
-    assert_match(/^usage: pidcat/, shell_output("#{bin}/pidcat --help").strip)
+    output = shell_output("#{bin}/pidcat com.oprah.bees.android 2>&1", 1)
+    assert_match "No such file or directory: 'adb'", output
+
+    assert_match version.to_s, shell_output("#{bin}/pidcat --version")
   end
 end

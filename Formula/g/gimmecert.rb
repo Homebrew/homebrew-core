@@ -8,6 +8,7 @@ class Gimmecert < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "975ac251c006b05622cd2d37e62308fe7ee4b5d6122f5867d07f851f1feba17b"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5c5201da0004e7f9585bd5cb41aab648ab5f1039f1dd207685aed98812cdab14"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "1752190b88dd16f222c29ffeefb8e4273ce41272df77f653140ece125909e897"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "35c4e73239bff368cf4f6aaa72a0b4b90c76e48039b74a3d89c1199ff1cfdda5"

@@ -6,6 +6,7 @@ class Massren < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "83501d3e172358a56956abef5e4639522500a3dfeec5b8306259294ff736c606"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ed675b6bb854325a93f66dfc2b2d7508361392700b0845f55de62e623442b8ac"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "55e1859aa5bca0987dd3fb314243b5d589bd17dbdcb21aea6aa635ee734203c1"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e4f3dfe97777a1e9526c15d1f68c635dd742e6aa3474905eed26de63688eb86d"

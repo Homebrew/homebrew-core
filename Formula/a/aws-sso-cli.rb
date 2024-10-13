@@ -7,6 +7,7 @@ class AwsSsoCli < Formula
   head "https://github.com/synfinatic/aws-sso-cli.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "4d361605d74a8ec19f5a983a00f636f3a55dbfd2eda3bdbe7a787191f2794b93"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "914ff263326925c0aeffa103d0429f0ca536952a0eb2cb67df10fb8754ee8238"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "9f1a770539479dda48289f4bb66e3256dba65d7ee94e49c8121b60e3536b1bf1"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "298cdc26302183335e4c7469c7360d352b445484db107c5e378b04e36ac8dd18"
@@ -17,7 +18,6 @@ class AwsSsoCli < Formula
   end
 
   depends_on "go" => :build
-  depends_on xcode: :build
 
   def install
     ldflags = %W[

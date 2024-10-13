@@ -12,6 +12,7 @@ class Blast < Formula
   end
 
   bottle do
+    sha256 arm64_sequoia:  "b5317b48fe420d58afd074b19f0d36380788ef46a4a75593b9ed1b2cb397de90"
     sha256 arm64_sonoma:   "8e77abd1cdf1e35d25d701327042d1e33902f968cc34ed36951c6b784fd12f7d"
     sha256 arm64_ventura:  "7a33345e002e745fe513ee84e81074259e3225e9e45fdec0531feb9af097f76e"
     sha256 arm64_monterey: "2ea7535bc0267077b6afdd622a1860a50509a1d3c3cb9d91df9b8a3b5fe4de7c"

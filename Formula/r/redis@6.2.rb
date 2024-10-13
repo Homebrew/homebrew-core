@@ -1,9 +1,15 @@
 class RedisAT62 < Formula
   desc "Persistent key-value database, with built-in net interface"
   homepage "https://redis.io/"
-  url "https://download.redis.io/releases/redis-6.2.14.tar.gz"
-  sha256 "34e74856cbd66fdb3a684fb349d93961d8c7aa668b06f81fd93ff267d09bc277"
-  license "BSD-3-Clause"
+  url "https://download.redis.io/releases/redis-6.2.16.tar.gz"
+  sha256 "846bff83c26d827d49f8cc8114ea9d1e72eea1169f7de36b8135ea2cec104e7d"
+  license all_of: [
+    "BSD-3-Clause",
+    "BSD-2-Clause", # deps/jemalloc, deps/linenoise, src/lzf*
+    "BSL-1.0", # deps/fpconv
+    "MIT", # deps/lua
+    any_of: ["CC0-1.0", "BSD-2-Clause"], # deps/hdr_histogram
+  ]
 
   livecheck do
     url "https://download.redis.io/releases/"
@@ -11,13 +17,12 @@ class RedisAT62 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "490de5da0159c8f9bbca63d8197fd4dfa84ee00d6bd6d9c2db30f101b26199c6"
-    sha256 cellar: :any,                 arm64_ventura:  "660d4d10da10417b93f151fdf275071703486ba0cda4fc383850eeddfd338916"
-    sha256 cellar: :any,                 arm64_monterey: "1baaf744178c1f676f12c5d1ec57ec0a1a0bda9cdb67a0b52b4dd8497c417ce8"
-    sha256 cellar: :any,                 sonoma:         "a50745638f337dce51e148a1d6cf053d4e891d4dfe45886256908c0bbb22be34"
-    sha256 cellar: :any,                 ventura:        "d60b0fd9f914206ba80d3f23c0a203054999b42f0c5bc088ecbd5c6cab82dbd6"
-    sha256 cellar: :any,                 monterey:       "efe3813770c6148cfd5c552106ac9b799d07e9c4b2223dfdf0fc5d6a9f756353"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c70f66eefc29797406f92f2ec1096b66a34e229ce600e936388b0dd957999f37"
+    sha256 cellar: :any,                 arm64_sequoia: "7abba1a6474a28e8c444628a467866c6bdf5e83d5108f365945b53063f2b7a80"
+    sha256 cellar: :any,                 arm64_sonoma:  "fcbc749f74fee167434140ced5e181b06f64d0c09857bf96b1986389f6d083a1"
+    sha256 cellar: :any,                 arm64_ventura: "b9d07d49325e680c1e4f43365b51a82f002819bed1b5b5fed34e988456738a86"
+    sha256 cellar: :any,                 sonoma:        "184f870adf82d884dcf46ad56a3d32fba9fe4752ef228d05c3f8f50865d4b699"
+    sha256 cellar: :any,                 ventura:       "40cf7191cd0e7124189f6b03e5d581978f12cc2c232d1056a1ace4ba6f6347b1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b3c272df283ec4c41f8aa34eea6bd294a28b8d859e9892091133d92904f277f6"
   end
 
   keg_only :versioned_formula

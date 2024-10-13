@@ -1,8 +1,8 @@
 class Cbc < Formula
   desc "Mixed integer linear programming solver"
   homepage "https://github.com/coin-or/Cbc"
-  url "https://github.com/coin-or/Cbc/archive/refs/tags/releases/2.10.11.tar.gz"
-  sha256 "1fb591dd88336fdaf096b8e42e46111e41671a5eb85d4ee36e45baff1678bd33"
+  url "https://github.com/coin-or/Cbc/archive/refs/tags/releases/2.10.12.tar.gz"
+  sha256 "9ed71e4b61668462fc3794c102e26b4bb01a047efbbbcbd69ae7bde1f04f46a8"
   license "EPL-2.0"
 
   livecheck do
@@ -11,53 +11,48 @@ class Cbc < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "20cf15d9f4b94bda6dec714179f0bf8f4b2041befd318d47b818a2aa8f5d6544"
-    sha256 cellar: :any,                 arm64_ventura:  "ab9a31d37001cccbbe991f9185c6cf579ea7c8358936838144090362f52d8f9c"
-    sha256 cellar: :any,                 arm64_monterey: "6bbaea4a01bd7fde7a1eb81ac1558c5a6532b091a3934b1a6452deb7e1057251"
-    sha256 cellar: :any,                 sonoma:         "92ac8263cb8afc9d316a8831a9ee0cf00c7af1443896abfd5daf2405b16728d1"
-    sha256 cellar: :any,                 ventura:        "7f7abb311e436c0f62792a072a6fd5ff716fb3aad1bfedf1adada1c86faf96e5"
-    sha256 cellar: :any,                 monterey:       "653963fc07b1b37d2256bc928620cf086469d1c4ad0122e1402c444f2c6f6bce"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "15e5afed407b3fea202f1c18c8637c15b1c909121ae22b2560e6521f182621d4"
+    sha256 cellar: :any,                 arm64_sequoia:  "c4383cabc2ad9d393dc2a042d11c36b2c67e080b094e82492d92448671c52853"
+    sha256 cellar: :any,                 arm64_sonoma:   "d962ac44681d69aab487032695474a6086701f67836717d92600457f1425403c"
+    sha256 cellar: :any,                 arm64_ventura:  "b92f1a725cbf6d7dbdf498a8210612c378d7f4d01d8c449f41a9b29392baadbf"
+    sha256 cellar: :any,                 arm64_monterey: "75ee66a89db37032f0c32c8a3e5ff2f96ef38d30d87c7c6ed784f2756e5a1efb"
+    sha256 cellar: :any,                 sonoma:         "d5f563de373bec931482fd4c4bbc47da6f5fd1a2de1fcd3593758d27f936495b"
+    sha256 cellar: :any,                 ventura:        "24e0a951fa96cc00f232bc99fd59d2ba3c1617e3ac186a918ada15da579c8521"
+    sha256 cellar: :any,                 monterey:       "8ada2dccef40eb4b06a043c3189e82add6b9d60f14f75cd7a3a8723fc718b2fb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a29a22d7f976bd09ed6a0473f64c8bf0ab84a6729fb3d9635133c9bc36dc3fd5"
   end
 
-  depends_on "pkg-config" => :build
+  depends_on "pkg-config" => [:build, :test]
+
   depends_on "cgl"
   depends_on "clp"
   depends_on "coinutils"
   depends_on "osi"
+
+  on_macos do
+    depends_on "openblas"
+  end
 
   conflicts_with "libcouchbase", because: "both install `cbc` binaries"
 
   def install
     # Work around for:
     # Error 1: "mkdir: #{include}/cbc/coin: File exists."
-    mkdir include/"cbc/coin"
+    (include/"cbc/coin").mkpath
 
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}",
+    system "./configure", "--disable-silent-rules",
                           "--includedir=#{include}/cbc",
-                          "--enable-cbc-parallel"
-    system "make"
+                          "--enable-cbc-parallel",
+                          *std_configure_args
     system "make", "install"
+
     pkgshare.install "Cbc/examples"
   end
 
   test do
     cp_r pkgshare/"examples/.", testpath
-    system ENV.cxx, "-std=c++11", "sudoku.cpp",
-                    "-L#{lib}", "-lCbc",
-                    "-L#{Formula["cgl"].opt_lib}", "-lCgl",
-                    "-L#{Formula["clp"].opt_lib}", "-lClp", "-lOsiClp",
-                    "-L#{Formula["coinutils"].opt_lib}", "-lCoinUtils",
-                    "-L#{Formula["osi"].opt_lib}", "-lOsi",
-                    "-I#{include}/cbc/coin",
-                    "-I#{Formula["cgl"].opt_include}/cgl/coin",
-                    "-I#{Formula["clp"].opt_include}/clp/coin",
-                    "-I#{Formula["coinutils"].opt_include}/coinutils/coin",
-                    "-I#{Formula["osi"].opt_include}/osi/coin",
-                    "-o", "sudoku"
+
+    pkg_config_flags = shell_output("pkg-config --cflags --libs cbc").chomp.split
+    system ENV.cxx, "-std=c++11", "sudoku.cpp", *pkg_config_flags, "-o", "sudoku"
     assert_match "solution is valid", shell_output("./sudoku")
   end
 end

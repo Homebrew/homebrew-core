@@ -1,18 +1,17 @@
 class SocketVmnet < Formula
   desc "Daemon to provide vmnet.framework support for rootless QEMU"
   homepage "https://github.com/lima-vm/socket_vmnet"
-  url "https://github.com/lima-vm/socket_vmnet/archive/refs/tags/v1.1.4.tar.gz"
-  sha256 "38ee9a3aa6e990ae35128813d6927b64f95bfb5b9e13f8ac8885ab71394499b8"
+  url "https://github.com/lima-vm/socket_vmnet/archive/refs/tags/v1.1.5.tar.gz"
+  sha256 "2abeb0510f495ffcc114b6fbdc1f7c92cc87832970b285038f1029c0294d6fdd"
   license "Apache-2.0"
   head "https://github.com/lima-vm/socket_vmnet.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b3fdabd6b7f9902acebb939a7e291ea5f97f3e36aedf1e8fb3a18c0b1fc6c8eb"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f8597587e961d4482d83739489badf3cb8c6a75402692d613c045229203c8392"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a6c24f2176c97e6061015d76ad48a1c468f85b3c4198fa4f2d0e43d229a50fca"
-    sha256 cellar: :any_skip_relocation, sonoma:         "565371131fde789b35b61c90ebfdc1f97295ac36b8732fa9ef850e02610af506"
-    sha256 cellar: :any_skip_relocation, ventura:        "29533f07316e19eb86a4a0e1986185c059344df516f8798c2056ca7128e3ea01"
-    sha256 cellar: :any_skip_relocation, monterey:       "1339b46316025f75bd1206d941c399155b0287422b8ac5e8c5bedeb84458e3d2"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "340765da735e3f033b0cf09fc439f3157eb96a340305e9bfefccc19e6ea31f4b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "afe451de9b6a438b81c0c7828b0cd4b320a18e7f51468559833682c376059088"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "3df991639d7ecd68d3d5c7beea8d49af2b339e5889b7e365cbe810ee6852baaf"
+    sha256 cellar: :any_skip_relocation, sonoma:        "16bd4b33d299b8a70630a86f2d49e464199e048df22a8094d18199edcdc0a481"
+    sha256 cellar: :any_skip_relocation, ventura:       "7e8b732c98054229755cd83a58be7becfa94acb0555c061333cf44b68ce6e614"
   end
 
   keg_only "Homebrew's bin directory is often writable by a non-admin user"

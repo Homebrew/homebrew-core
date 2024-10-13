@@ -3,10 +3,11 @@ class Osxutils < Formula
   homepage "https://github.com/specious/osxutils"
   url "https://github.com/specious/osxutils/archive/refs/tags/v1.9.0.tar.gz"
   sha256 "9c11d989358ed5895d9af7644b9295a17128b37f41619453026f67e99cb7ecab"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
   head "https://github.com/specious/osxutils.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "740ef31720ead876a8af81736ee00b5e74e29c0e77b84c7d9702cc6c7460f6c9"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9fedf0f63481a28280cbca3c4f9aaa8a9d1cae884e4287290c80d5376108aea8"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "6b0ede5abb14b36d57990316d9f77a47af1ba28bf3b11b908d0da7a5d2672e5c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ba6b55b6d292736fcc636f2afdc9f36e357ff2c4634936a1c357ab292b7e7817"
@@ -25,11 +26,15 @@ class Osxutils < Formula
   depends_on :macos
 
   def install
+    # workaround for newer clang
+    # upstream bug report, https://github.com/specious/osxutils/issues/11
+    ENV.append_to_cflags "-Wno-int-conversion" if DevelopmentTools.clang_build_version >= 1403
+
     system "make"
     system "make", "PREFIX=#{prefix}", "install"
   end
 
   test do
-    assert_match "osxutils", shell_output("#{bin}/osxutils")
+    assert_match "osxutils", shell_output(bin/"osxutils")
   end
 end

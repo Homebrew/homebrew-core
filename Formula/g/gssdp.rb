@@ -6,6 +6,7 @@ class Gssdp < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
+    sha256 cellar: :any, arm64_sequoia:  "97111b046784bdbc49f2216a33602e3a5081c79371e4c25388f99f82a7c9cff5"
     sha256 cellar: :any, arm64_sonoma:   "1883e3ff3aabb0e94c3655d0730c9ef57197e179882fce345968718d9d706b05"
     sha256 cellar: :any, arm64_ventura:  "6780845ffd82b7162e83933d15c02a40f14173c46c42aaa3048c78a368741173"
     sha256 cellar: :any, arm64_monterey: "90ce94882c16fabbcae645e03ac1f1e4653e05e71ff79847d4849ede89ec13d4"
@@ -21,17 +22,20 @@ class Gssdp < Formula
   depends_on "pandoc" => :build
   depends_on "pkg-config" => :build
   depends_on "vala" => :build
-  depends_on "gettext"
   depends_on "glib"
   depends_on "libsoup"
 
   uses_from_macos "python" => :build
 
+  on_macos do
+    depends_on "gettext"
+  end
+
   def install
     ENV.prepend_path "XDG_DATA_DIRS", HOMEBREW_PREFIX/"share"
 
-    system "meson", *std_meson_args, "build", "-Dsniffer=false"
-    system "meson", "compile", "-C", "build", "-v"
+    system "meson", "setup", "build", "-Dsniffer=false", *std_meson_args
+    system "meson", "compile", "-C", "build", "--verbose"
     system "meson", "install", "-C", "build"
   end
 

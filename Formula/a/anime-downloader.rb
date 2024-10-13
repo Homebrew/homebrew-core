@@ -21,7 +21,7 @@ class AnimeDownloader < Formula
   end
 
   # https://github.com/anime-dl/anime-downloader/commit/24de83d
-  deprecate! date: "2023-11-08", because: :unmaintained
+  disable! date: "2024-09-09", because: :unmaintained
 
   depends_on "aria2"
   depends_on "certifi"

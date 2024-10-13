@@ -7,6 +7,7 @@ class Log4cxx < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "8c5489d45bf2b3bc855f59dbacbd6399b3d9f92ac00a1d11e51617bd48eefe77"
     sha256 cellar: :any,                 arm64_sonoma:   "ae968c162e73526143bcaeea0522ee360a8e2adb760907deb985e0f403eeaf4a"
     sha256 cellar: :any,                 arm64_ventura:  "97fb128001e637e57e029e2b2bf49de3fe7a066948c7b07e6efe1ac632a04f2c"
     sha256 cellar: :any,                 arm64_monterey: "12f426219bc428535331856f114e9cc62ee7c6e27562a19bd99f687d1a9bea92"
@@ -22,11 +23,9 @@ class Log4cxx < Formula
   fails_with gcc: "5" # needs C++17 or Boost
 
   def install
-    mkdir "build" do
-      system "cmake", "..", *std_cmake_args, "-DBUILD_SHARED_LIBS=ON"
-      system "make"
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build", "-DBUILD_SHARED_LIBS=ON", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
@@ -43,6 +42,7 @@ class Log4cxx < Formula
         return 1;
       }
     EOS
+
     (testpath/"log4cxx.config").write <<~EOS
       log4j.rootLogger=debug, stdout, R
 
@@ -62,6 +62,7 @@ class Log4cxx < Formula
       log4j.appender.R.layout=org.apache.log4j.PatternLayout
       log4j.appender.R.layout.ConversionPattern=%p %t %c - %m%n
     EOS
+
     system ENV.cxx, "-std=c++17", "test.cpp", "-o", "test", "-L#{lib}", "-llog4cxx"
     assert_match(/ERROR.*Foo/, shell_output("./test", 1))
   end

@@ -3,7 +3,7 @@ class Ogmtools < Formula
   homepage "https://www.bunkus.org/videotools/ogmtools/"
   url "https://www.bunkus.org/videotools/ogmtools/ogmtools-1.5.tar.bz2"
   sha256 "c8d61d1dbceb981dc7399c1a85e43b509fd3d071fb8d3ca89ea9385e6e40fdea"
-  license "GPL-2.0"
+  license "GPL-2.0-only"
 
   livecheck do
     url :homepage
@@ -11,6 +11,7 @@ class Ogmtools < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "789b9bad9d0902bf85da322c80b14401105d4307a1affc78e523e9c9e22fd8ce"
     sha256 cellar: :any,                 arm64_sonoma:   "3a941c51496636669cd52f1d4b81195b7dd35c29af3333014f9d34070bdc8dbf"
     sha256 cellar: :any,                 arm64_ventura:  "93842b3845c01a1b3efc05d7b6f3f06957205733537e84a3b743b2df41ba692c"
     sha256 cellar: :any,                 arm64_monterey: "21c37a98fe73b81c34dbeb8abfb29f6bc30bb7af9d1d9b8d7b379667eb84de30"

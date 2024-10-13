@@ -11,6 +11,7 @@ class Xpipe < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "d889986ca2f5379e8f1d22e5add2ce9a3295b5625a93e4416bc737625ded5ea4"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "98fdb15f477e02081958ff3a24be3d78c9d4387fce7ccba7107fbf5aa9debdac"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "a3575ecac45489a48910ea50fcba01e11128b12f761f8a123edbda73967482c1"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "67c0fd303c2cf6076676cacd1efb20db78ba3de9282d57b901c0cfdf550bd742"

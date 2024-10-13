@@ -12,6 +12,7 @@ class Showkey < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "b6d6a1358818a0884df47d8720be947074ba1e261f22856c546161ed620dafbb"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "40f2d4aa914a8823995425bbae6f33e4e8a8a3c2c0bc406e7bf4e0299b52cbca"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "ff8fa9772d85597f5c8caaf9642f3ad0e8f622de71080cb6a29089bb47445b66"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a86590d6ec04487c561c424ea8d870dbda92fc2981ea31627a79193abf76f097"

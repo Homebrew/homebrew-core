@@ -12,6 +12,7 @@ class Fcrackzip < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "5e8664e8c1bc24e41f3d6c16b32eec831c057d13c191245d0d9d726709a23cb5"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "700f97b777acb4ab39338dc9b973e5ab40ffee93835841df970a6a392a17e6b7"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f647bed7b093952f1bb75429f8f7f00105d0468c7d6b5648db46d8b1ea39c190"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "46183b85780286b34ec981a6f694271bcb62270238c94eafd02bbf0cbeb6beae"
@@ -27,6 +28,9 @@ class Fcrackzip < Formula
   uses_from_macos "zip" => :test
 
   def install
+    # Workaround for newer Clang
+    ENV.append_to_cflags "-Wno-implicit-int" if DevelopmentTools.clang_build_version >= 1403
+
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make"

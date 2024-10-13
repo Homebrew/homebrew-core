@@ -1,9 +1,10 @@
 class Cherrytree < Formula
   desc "Hierarchical note taking application featuring rich text and syntax highlighting"
   homepage "https://www.giuspen.com/cherrytree/"
-  url "https://www.giuspen.com/software/cherrytree_1.1.4.tar.xz"
-  sha256 "46cb974efe050584c2ec7bcc36eb6bb52b1360288c9da1b00746762e3bc823d8"
+  url "https://www.giuspen.com/software/cherrytree_1.2.0.tar.xz"
+  sha256 "b9d9c9a0d7853e846657ceccdf74730f79190e19af296eeb955e5f4b54425ec2"
   license "GPL-3.0-or-later"
+  head "https://github.com/giuspen/cherrytree.git", branch: "master"
 
   livecheck do
     url :homepage
@@ -11,23 +12,34 @@ class Cherrytree < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "d196ba00e013cc32ae23638035d4adfc8e62ee75288d9311f4b5fe3e0e409c49"
-    sha256 arm64_ventura:  "c78be26262606035f6e05b5ab12741b6ac78f7072d3d34a56a687068d65c3417"
-    sha256 arm64_monterey: "1ad5508d49caa1272e95a51ce5a4c47c68b5a91c7af7a7fe4d11641d0a234b92"
-    sha256 sonoma:         "daa4cf7ff12d95ed28876df597246f80dfa84682d7552ecc8f7d72bfde47080d"
-    sha256 ventura:        "abd80e3468f90fd27e0839003e638f6d2776ba902b672dbf9d5c636a15646edc"
-    sha256 monterey:       "9b1d7962d71c56022f0f8066add44e900dc28300af50c97122ffbb0426075c52"
-    sha256 x86_64_linux:   "3044c3403fc6ac03a77f217e0e96aaa8cb8940573ca90d62ccd314bbdaaf43cb"
+    rebuild 1
+    sha256 arm64_sequoia: "64f3af6155b04f791d4bec1387a170d4fd4a152297eba87d53429819fa6e8391"
+    sha256 arm64_sonoma:  "95075e73b231b11df15837588b0946f3dc6c3f1e43587ec99eaf3faf48c8320f"
+    sha256 arm64_ventura: "5023f91619b122b29afa19e98acc5aa4ef07050142986a84d97e3dbf7f62621a"
+    sha256 sonoma:        "f3e131c3c3451283ce32188bff0ed0729d8f67eb51e44589744efe46bb09bc2c"
+    sha256 ventura:       "a6e50efecc1a2db0dc282715e6d9586c63f10469d268b22bd42b1296af989765"
+    sha256 x86_64_linux:  "35e48edc21af1376ead137d04af69bc4d3ffa6736391c79b889bfdc181816a66"
   end
 
   depends_on "cmake" => :build
-  depends_on "ninja" => :build
+  depends_on "gettext" => :build
   depends_on "pkg-config" => :build
   depends_on "adwaita-icon-theme"
+  depends_on "atkmm@2.28"
+  depends_on "cairo"
+  depends_on "cairomm@1.14"
   depends_on "fmt"
+  depends_on "fribidi"
+  depends_on "glib"
+  depends_on "glibmm@2.66"
   depends_on "gspell"
-  depends_on "gtksourceviewmm3"
+  depends_on "gtk+3"
+  depends_on "gtkmm3"
+  depends_on "gtksourceview4"
+  depends_on "libsigc++@2"
   depends_on "libxml++"
+  depends_on "pango"
+  depends_on "pangomm@2.46"
   depends_on "spdlog"
   depends_on "sqlite" # try to change to uses_from_macos after python is not a dependency
   depends_on "uchardet"
@@ -35,13 +47,22 @@ class Cherrytree < Formula
 
   uses_from_macos "python" => :build
   uses_from_macos "curl"
+  uses_from_macos "libxml2"
+
+  on_macos do
+    depends_on "at-spi2-core"
+    depends_on "enchant"
+    depends_on "gdk-pixbuf"
+    depends_on "gettext"
+    depends_on "harfbuzz"
+  end
 
   fails_with gcc: "5" # Needs std::optional
 
   def install
-    system "cmake", ".", "-DBUILD_TESTING=''", "-GNinja", *std_cmake_args
-    system "ninja"
-    system "ninja", "install"
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
@@ -69,7 +90,7 @@ class Cherrytree < Formula
         </node>
       </cherrytree>
     EOS
-    system "#{bin}/cherrytree", testpath/"homebrew.ctd", "--export_to_txt_dir", testpath, "--export_single_file"
+    system bin/"cherrytree", testpath/"homebrew.ctd", "--export_to_txt_dir", testpath, "--export_single_file"
     assert_predicate testpath/"homebrew.ctd.txt", :exist?
     assert_match "rich text", (testpath/"homebrew.ctd.txt").read
     assert_match "this is a simple command line test for homebrew", (testpath/"homebrew.ctd.txt").read

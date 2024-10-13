@@ -11,7 +11,8 @@ class Wdfs < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "795f6e2939f798aeea462d891b102cb80e32c5abb3586f8d57841843d2120f91"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "8e9e8b67d2d470f355a46983ac2a52cb2c34a6ebd63e1720e5ceb010c7bd9298"
   end
 
   depends_on "pkg-config" => :build
@@ -27,6 +28,6 @@ class Wdfs < Formula
   end
 
   test do
-    system "#{bin}/wdfs", "-v"
+    system bin/"wdfs", "-v"
   end
 end

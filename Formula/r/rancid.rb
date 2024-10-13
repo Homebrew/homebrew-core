@@ -4,6 +4,7 @@ class Rancid < Formula
   url "https://www.shrubbery.net/pub/rancid/rancid-3.13.tar.gz"
   mirror "https://deb.debian.org/debian/pool/main/r/rancid/rancid_3.13.orig.tar.gz"
   sha256 "7241d2972b1f6f76a28bdaa0e7942b1257e08b404a15d121c9dee568178f8bf5"
+  license "BSD-3-Clause"
 
   livecheck do
     url :homepage
@@ -11,6 +12,7 @@ class Rancid < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "b492a1542eb00fcc51a437603be9c22d399d9062684c026ca4b13d36cc294d46"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4fcffc1e68b2a8ee0342ce2848d7dcd73cf3b3561351f31a0a783b1be6acae0f"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "ad23b3238d8cdef43a40e060103a58416ffb5043abd8fb94747d467357b8cdd2"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d22337b82b06224e0c44739c33fbc91b938168533acccde6d6c4293e6fd1e4a1"
@@ -22,12 +24,20 @@ class Rancid < Formula
     sha256 cellar: :any_skip_relocation, catalina:       "6840b7e2cb719007f53317491e8fe88a56820c121d52ff2bda4403bbcd0ea151"
     sha256 cellar: :any_skip_relocation, mojave:         "28b5457df20fc95e94e12925073469ba25d31924e622bfca882721fc2852dba7"
     sha256 cellar: :any_skip_relocation, high_sierra:    "3f2863b14389c488ace412c10ac68fc82dd01d6d26457c356f58d7de7c7d2d0a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c531340985f4299eda3b5f30a1ed7a13df5ab107dd460f8be89cd06fcdf8ec75"
+  end
+
+  uses_from_macos "expect"
+  uses_from_macos "perl"
+
+  on_linux do
+    depends_on "iputils"
   end
 
   conflicts_with "par", because: "both install `par` binaries"
 
   def install
-    system "./configure", "--prefix=#{prefix}", "--exec-prefix=#{prefix}", "--mandir=#{man}"
+    system "./configure", "--disable-silent-rules", *std_configure_args
     system "make", "install"
   end
 
@@ -39,6 +49,6 @@ class Rancid < Formula
       RCSSYS=git; export RCSSYS
       LIST_OF_GROUPS="backbone aggregation switches"
     EOS
-    system "#{bin}/rancid-cvs", "-f", testpath/"rancid.conf"
+    system bin/"rancid-cvs", "-f", testpath/"rancid.conf"
   end
 end

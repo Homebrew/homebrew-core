@@ -3,9 +3,10 @@ class Dbacl < Formula
   homepage "https://dbacl.sourceforge.net/"
   url "https://downloads.sourceforge.net/project/dbacl/dbacl/1.14.1/dbacl-1.14.1.tar.gz"
   sha256 "ff0dfb67682e863b1c3250acc441ce77c033b9b21d8e8793e55b622e42005abd"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "9caea8b960e8ffc974ad321a472a70e46f5cb401dacfbef096309743c49e2c9d"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "239b148299a11f7847b2ee32de7d24cd4cdc2f4f0dfbb36c61b57a18a6332142"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "09a812fe378bbee0cfaeb31af232529e2e682379077a6435fcd2acb268047825"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "66ed22f1faf6f76848af60768dc3cd915f92859fb4c527657e06768d0499e443"
@@ -56,8 +57,8 @@ class Dbacl < Formula
       The course of true love never did run smooth.
     EOS
 
-    system "#{bin}/dbacl", "-l", "twain", "mark-twain.txt"
-    system "#{bin}/dbacl", "-l", "shake", "william-shakespeare.txt"
+    system bin/"dbacl", "-l", "twain", "mark-twain.txt"
+    system bin/"dbacl", "-l", "shake", "william-shakespeare.txt"
 
     output = pipe_output("#{bin}/dbacl -v -c twain -c shake", "to be or not to be")
     assert_equal "shake", output.strip

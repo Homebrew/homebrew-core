@@ -12,6 +12,7 @@ class Sic < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "f028ab4b890ec81ff5bf82098d31f3f805d3a9efed26328bc83fc3929980af92"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "181b20a9474e97e9650248f715220259b3716ee65258beb6e511d9513fd7d752"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "6c210a33d10989dd50a31cabeee9e2a560befb330f79e13a0a561a7be515cbae"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "fe8b5bc082f2ee0489f175edb22dd2c8e3128f584f9f6ee7777f852d90340644"

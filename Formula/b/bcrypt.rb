@@ -12,6 +12,7 @@ class Bcrypt < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "ea8bb418fb65a4cded15e0a83c3fecfb5081b435211e832df5c663af5d3007ef"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "10bbb3038fb8cf6be37e831c3296895c997edfa59335acabe8da991fd556730b"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "19491cbd69ead5d58ce19e714d0b4705a08f50f65e3a5553b97f1f8b63a78175"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4f04889e8272f7ed1efdcf2abd53fc9a108d2a33c72ba75c7da9aca1030cee43"

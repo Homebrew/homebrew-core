@@ -11,6 +11,8 @@ class LsusbLaniksj < Formula
 
   depends_on :macos
 
+  conflicts_with "lsusb", "usbutils", because: "both provide an `lsusb` binary"
+
   def install
     bin.install "lsusb"
     man8.install "man/lsusb.8"

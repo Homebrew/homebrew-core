@@ -6,6 +6,7 @@ class Shadowenv < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "ef47a7fc35e2237552519f2c962586288fa8e2f797a028a41ed0ee079ef29781"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1b488bee260253a43d92f439d4e303c8940451622a9f2d3c3c3b13eb37d16209"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "c0783ccae890c38c58f22ebd20090a58c4918c5e22c5e7d52cb281a7e6cbed0d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "af967d51f98c69a2b402d8da33b363675168298752ad5dff824daffc811c55b9"

@@ -3,23 +3,22 @@ class Peru < Formula
 
   desc "Dependency retriever for version control and archives"
   homepage "https://github.com/buildinspace/peru"
-  url "https://files.pythonhosted.org/packages/8e/c7/c451e70443c0b82440384d51f4b9517b921d4fe44172d63dc10a09da114f/peru-1.3.1.tar.gz"
-  sha256 "31cbcc3b1c0663866fcfb2065cb7ac26fda1843a3e5638f260cc0d78b3372f39"
+  url "https://files.pythonhosted.org/packages/fe/0e/b78315545923029f18669d083826bc59a12006cd3bc430c8141f896310cc/peru-1.3.2.tar.gz"
+  sha256 "161d9fd85d8d37ef10eed1d8b38da126d7ba9554b585e40ed2964138fc3b2f00"
   license "MIT"
 
   bottle do
-    rebuild 5
-    sha256 cellar: :any,                 arm64_sonoma:   "6bbfa6021acb4de8dc1031932083f0e0ca2acc3296dec9dd87c9e77e389d9d49"
-    sha256 cellar: :any,                 arm64_ventura:  "8dade0a9d43215a49d727c92312ca7bfa777ce0f4e91dea0c98944abee794ed3"
-    sha256 cellar: :any,                 arm64_monterey: "806150274ee7f2e12348d7025968174a01c12cf4da437fa6c1ae191fc8e19136"
-    sha256 cellar: :any,                 sonoma:         "5b2f8e9640bf44828878d727ec08acc4d4aa74fc07dd2cb9819c395491950fb4"
-    sha256 cellar: :any,                 ventura:        "73263481f1bd20dd689d255565e8c93a5c86e9475a86922af76cb83634910e04"
-    sha256 cellar: :any,                 monterey:       "c70dc90087a362d3c131be4b2a54a14cc9f1c21828433ef73c5e2ed1d125a44e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "52fdcc8015a74fbb3c94714c8113f53cc1ede04a363044f2392a2af9990076b8"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "3a505d5ae83c37d1c03a701730080b6c5ea64845e49e5b559092f8e456f7861c"
+    sha256 cellar: :any,                 arm64_sonoma:  "3f43433b133723e78ac768cbbf3cdf75727ec56ce717d0032b5a477c5b108933"
+    sha256 cellar: :any,                 arm64_ventura: "6ad7e31af06a24c12d7554db4cc6484efcc36ea223eb55b58f6afb1c44564159"
+    sha256 cellar: :any,                 sonoma:        "1f1cb4aff42105b14711d19944b4d7fe8d0f35ccf4d7f473e762605770adac1d"
+    sha256 cellar: :any,                 ventura:       "ed6ef91406a4e6391239f3d8a9d4608bb2f9c3133051c11b088bdaa64fcb365e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c9b15bfa66cac8e7e571c11213ab84b55d5deb0de4d742d94b36c489ba63349e"
   end
 
   depends_on "libyaml"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "docopt" do
     url "https://files.pythonhosted.org/packages/a2/55/8f8cab2afd404cf578136ef2cc5dfb50baa1761b68c9da1fb1e4eed343c9/docopt-0.6.2.tar.gz"
@@ -27,14 +26,14 @@ class Peru < Formula
   end
 
   resource "pyyaml" do
-    url "https://files.pythonhosted.org/packages/cd/e5/af35f7ea75cf72f2cd079c95ee16797de7cd71f29ea7c68ae5ce7be1eda0/PyYAML-6.0.1.tar.gz"
-    sha256 "bfdf460b1736c775f2ba9f6a92bca30bc2095067b8a9d77876d1fad6cc3b4a43"
+    url "https://files.pythonhosted.org/packages/54/ed/79a089b6be93607fa5cdaedf301d7dfb23af5f25c398d5ead2525b063e17/pyyaml-6.0.2.tar.gz"
+    sha256 "d584d9ec91ad65861cc08d42e834324ef890a082e591037abe114850ff7bbc3e"
   end
 
   def install
     # Fix plugins (executed like an executable) looking for Python outside the virtualenv
     Dir["peru/resources/plugins/**/*.py"].each do |f|
-      inreplace f, "#! /usr/bin/env python3", "#!#{libexec}/bin/python3.12"
+      inreplace f, "#! /usr/bin/env python3", "#!#{libexec}/bin/python3.13"
     end
 
     virtualenv_install_with_resources
@@ -47,7 +46,8 @@ class Peru < Formula
       git module peru:
         url: https://github.com/buildinspace/peru.git
     EOS
-    system "#{bin}/peru", "sync"
+
+    system bin/"peru", "sync"
     assert_predicate testpath/".peru", :exist?
     assert_predicate testpath/"peru", :exist?
   end

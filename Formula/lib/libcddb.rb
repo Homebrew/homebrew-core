@@ -3,10 +3,12 @@ class Libcddb < Formula
   homepage "https://libcddb.sourceforge.net/"
   url "https://downloads.sourceforge.net/project/libcddb/libcddb/1.3.2/libcddb-1.3.2.tar.bz2"
   sha256 "35ce0ee1741ea38def304ddfe84a958901413aa829698357f0bee5bb8f0a223b"
+  license "LGPL-2.0-or-later"
   revision 4
 
   bottle do
     rebuild 2
+    sha256 cellar: :any,                 arm64_sequoia:  "eef9f2fe8b5a7994d21a6b2f53103e6a85b116c94c5f7bf69aa1f990a14c30d5"
     sha256 cellar: :any,                 arm64_sonoma:   "a12e153d3e00e99bbd7ccde361edd5ae2a1bf7aba9fa24c86478181d246385a8"
     sha256 cellar: :any,                 arm64_ventura:  "6955c8dbcc4de9ca756070ac11c0ea5da3d873f974d53b477bda94a09835f388"
     sha256 cellar: :any,                 arm64_monterey: "f12def876ae4aef3aed938fea3342da5eefd80ee164c05926b4bac8b7ea9d93a"

@@ -5,16 +5,16 @@ class GnomeRecipes < Formula
   url "https://gitlab.gnome.org/GNOME/recipes.git",
       tag:      "2.0.4",
       revision: "d5e9733c49ea4f99e72c065c05ee1a35ef65e67d"
-  revision 1
+  license "GPL-3.0-or-later"
+  revision 2
 
   bottle do
-    sha256 arm64_sonoma:   "3b9c974d968a76db7c9b4c7b331f80a4c18f4ae239def0e0a14cabbc8b9a1f15"
-    sha256 arm64_ventura:  "f85b23251c9f5708f83dfe7838bd5d60ebdbc9b744bffd7781bacb7c2723de98"
-    sha256 arm64_monterey: "0da13a1bfba07c7d16367844b7b9374f64011b25795abded3503254b43ed833c"
-    sha256 sonoma:         "d6fa50383dd116d412c80161ff94e0017f20d3f3c1cf3961271b5c65e6b9f519"
-    sha256 ventura:        "9d3ec2b10fe2a963b2dc27bcaac37dcec4947b2efcc7a9a3ec09655f592e1cf0"
-    sha256 monterey:       "279fda299d0eda6b7848117d9c024d9b8dbafa308a105533ed2ffc683e522fed"
-    sha256 x86_64_linux:   "405e49631806535c5717ada6b62b82a22db1eb7144e81c9d1a83e02b9c53716b"
+    sha256 arm64_sequoia: "aeca025b7378f47ce41dc347deb424d0944de6e7da3408c6e775570ec25a321c"
+    sha256 arm64_sonoma:  "b65f11b25c9f58fa146f4a60b1c8ac1f1f807ffb48c91234b73736ae9d8d3ad6"
+    sha256 arm64_ventura: "839f681efb2bc6d86d2c399a1bb4236f852a177f0c1899b65580a5ef55511acb"
+    sha256 sonoma:        "056abd76e963efbe48a5459b8a0a6c7d97b51efaacdd4ae7ec401c1c433e1f58"
+    sha256 ventura:       "cbb8cda97c299ad0c43bc5536923992ce0aee73ce2757956c17d477e588de34c"
+    sha256 x86_64_linux:  "0cbf9ab64b5ab37f4ea338f445b5f53d50ee6cd5cf91d66da1bdd348a3982775"
   end
 
   depends_on "gettext" => :build
@@ -22,7 +22,11 @@ class GnomeRecipes < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
+
   depends_on "adwaita-icon-theme"
+  depends_on "cairo"
+  depends_on "gdk-pixbuf"
+  depends_on "glib"
   depends_on "gnome-autoar"
   depends_on "gspell"
   depends_on "gtk+3"
@@ -32,6 +36,14 @@ class GnomeRecipes < Formula
   depends_on "librest" # for goa
   depends_on "libsoup@2" # libsoup 3 issue: https://gitlab.gnome.org/GNOME/recipes/-/issues/155
   depends_on "libxml2"
+  depends_on "pango"
+
+  on_macos do
+    depends_on "at-spi2-core"
+    depends_on "enchant"
+    depends_on "gettext"
+    depends_on "harfbuzz"
+  end
 
   resource "goa" do
     url "https://download.gnome.org/sources/gnome-online-accounts/3.43/gnome-online-accounts-3.43.1.tar.xz"
@@ -77,6 +89,6 @@ class GnomeRecipes < Formula
   end
 
   test do
-    system "#{bin}/gnome-recipes", "--help"
+    system bin/"gnome-recipes", "--help"
   end
 end

@@ -12,6 +12,7 @@ class Npth < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "43b266d6b31d03496cb2635869fa4e650b359ed52471531d846a38436ba0b4cf"
     sha256 cellar: :any,                 arm64_sonoma:   "7a27b607cf154ad94b9d28f46f82d80077f93c04a6ac99a9318e94fa2323056e"
     sha256 cellar: :any,                 arm64_ventura:  "db0711bb0c5d9a5ae7d2cac37c726c7663c54519dc8fe9f1f8a234efe3e519e9"
     sha256 cellar: :any,                 arm64_monterey: "a88c8c762a7517924f816f92ea4ae300a411e35664585dcc0c5ed9b176c54a08"

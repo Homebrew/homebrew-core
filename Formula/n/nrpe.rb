@@ -1,19 +1,18 @@
 class Nrpe < Formula
   desc "Nagios remote plugin executor"
   homepage "https://www.nagios.org/"
-  url "https://github.com/NagiosEnterprises/nrpe/releases/download/nrpe-4.1.0/nrpe-4.1.0.tar.gz"
-  sha256 "a1f14aa8aaf935b576cc55ab5d77b7cb9c920d7702aff44c9d18c4c841ef8ecc"
-  license "GPL-2.0"
+  url "https://github.com/NagiosEnterprises/nrpe/releases/download/nrpe-4.1.1/nrpe-4.1.1.tar.gz"
+  sha256 "0e716a7d904e0a441be52a0ef82c1138b949bad81c1da93056a81405aabcc0d7"
+  license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any, arm64_sonoma:   "fa4fe7e4587d3525a1d33a16e626a18358e5e14d9701b1055928c8f8a53abefd"
-    sha256 cellar: :any, arm64_ventura:  "1fc4928fdac6257f935fac1840c39f68a70e9634cc1bf9a6087011ea1804698c"
-    sha256 cellar: :any, arm64_monterey: "c8ce52dc60241ee1e361db1085c8b341c2b72dbf946932efcada9e221add88dd"
-    sha256 cellar: :any, arm64_big_sur:  "09b54c81df11d937d138916c8eaa5cd22795cd003f9ffa59f47927668af0b93d"
-    sha256 cellar: :any, sonoma:         "f982bf7a11c80191f85378a90c61fc232300874ecaa7e5d0eb649fe90d4fb409"
-    sha256 cellar: :any, ventura:        "7a52a2a6506171a6ed4c859899cfde0614fdff521002d97098f3844e99d1f7b9"
-    sha256 cellar: :any, monterey:       "83bca8ddf7e379b010c390cfd7a0bb42ff9b0d08ae09f9c81af4a44c769737dc"
-    sha256 cellar: :any, big_sur:        "af5068970374e0d732400f3de3f6013215fbe95aea879109a399c5724df059f5"
+    sha256 cellar: :any, arm64_sequoia:  "847516e87f59235f0f6216150cecdeba6393f994d820e0c46998394734f9529a"
+    sha256 cellar: :any, arm64_sonoma:   "ed1b4fc625aa2edf55576d46dce47f9d1e25f0b89f8e4f855079d1be44e175d0"
+    sha256 cellar: :any, arm64_ventura:  "66a47ab90443c6996a4c768ab3dd07a8843cfdbc6f94458414fa1418ad41b975"
+    sha256 cellar: :any, arm64_monterey: "a9d6f414b26a3608d12424c3b5434b0e2551e00d76a9e3130784cdbdc9908b59"
+    sha256 cellar: :any, sonoma:         "ada3b8f8a310d1ea89c946b639b7357668478bacf15738e867f3dc2c8a15bdba"
+    sha256 cellar: :any, ventura:        "576e707062926c833070c951194740183cb0c473b6e412142e979aafa6e66c8e"
+    sha256 cellar: :any, monterey:       "df2c2fcc8e1e18a6c47bb5fe5436bf6a6e00786ed46a4d47244e18d01130a562"
   end
 
   depends_on "nagios-plugins"
@@ -56,7 +55,7 @@ class Nrpe < Formula
 
   test do
     pid = fork do
-      exec "#{bin}/nrpe", "-n", "-c", "#{etc}/nrpe.cfg", "-d"
+      exec bin/"nrpe", "-n", "-c", "#{etc}/nrpe.cfg", "-d"
     end
     sleep 2
 

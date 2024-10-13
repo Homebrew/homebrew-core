@@ -12,6 +12,7 @@ class Gmssl < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "352a3e4a2a51ef7a60363f8c2edc6d780132b8b24cef552449c5e3ec0e0c7184"
     sha256 cellar: :any,                 arm64_sonoma:   "33e55c6a9023a0e8a7868b466131f94078ad80547ce2ce5d97b64d1a5df4890b"
     sha256 cellar: :any,                 arm64_ventura:  "9114f6d41defc40bb2b10fc627f22090485a7f6094d27cf872c7166078eae3fd"
     sha256 cellar: :any,                 arm64_monterey: "ec6a86111951bfcf6072e771e7ee82880aefe5d9dae3d58ed229cc3064e6a0fa"

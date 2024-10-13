@@ -7,6 +7,7 @@ class Wiiuse < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia:  "d195756409e861db5fe17343c412d3ba38f06723e59854596fc22f44df843ddd"
     sha256 cellar: :any,                 arm64_sonoma:   "064957c4b98791d37e374c115eda18ab973c3fb28121e2c21948249b28101def"
     sha256 cellar: :any,                 arm64_ventura:  "d28f310e6c24c3e2edc8f21831ccedf4a0db4b3460a0efb62ad0824edce82dc0"
     sha256 cellar: :any,                 arm64_monterey: "0f4fb0dc5bb825e093e2122ec79b3bfcc581977139084a76342fd84313e945f6"

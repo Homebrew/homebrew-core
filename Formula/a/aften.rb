@@ -14,6 +14,7 @@ class Aften < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "c158dd1b9124db377e0119b6d4dc34ce9ecb14e458379ab023165ce6b83715fb"
     sha256 cellar: :any,                 arm64_sonoma:   "918b76d55d51e34cd63b83041517d0a06dd9b10f24a2d35ec8b68fc97a04f589"
     sha256 cellar: :any,                 arm64_ventura:  "b210014aa83271ec35261c51fc2d32914b33090deb3fda59993e30aba4b324de"
     sha256 cellar: :any,                 arm64_monterey: "a1a669de1fd73431993f57c52603cb68d5794590bb175084de3ffac408d50c13"
@@ -50,7 +51,7 @@ class Aften < Formula
 
   test do
     resource("sample_wav").stage testpath
-    system "#{bin}/aften", "#{testpath}/1kHz_44100Hz_16bit_05sec.wav", "sample.ac3"
+    system bin/"aften", "#{testpath}/1kHz_44100Hz_16bit_05sec.wav", "sample.ac3"
   end
 end
 __END__

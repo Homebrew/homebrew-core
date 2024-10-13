@@ -12,6 +12,7 @@ class Fossil < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "c642f8df75725e973c7cf30951651ce536baaad12d4dc5c3959920d88078c0b5"
     sha256 cellar: :any,                 arm64_sonoma:   "57017ccd96af0539aa018cf48940242f0c5b32cd2fd31ce25e7faa047924e644"
     sha256 cellar: :any,                 arm64_ventura:  "40dc9b1f55904916ebdc854d88dc6573ba919f43e2266d0323a954c1e6d68243"
     sha256 cellar: :any,                 arm64_monterey: "65798cc7241b7a750814d3b16329a93824ee82a2e71356403ac8b038dfbbd831"
@@ -47,6 +48,6 @@ class Fossil < Formula
   end
 
   test do
-    system "#{bin}/fossil", "init", "test"
+    system bin/"fossil", "init", "test"
   end
 end

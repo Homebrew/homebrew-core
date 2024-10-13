@@ -11,29 +11,48 @@ class ClawsMail < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "260cc6ed26555448097f742c63e73bcedd1c29e6255593c04ac9c7534c82fbd6"
-    sha256 arm64_ventura:  "01403c8a41e6e0c6712ecdc32353139671b4c784c916de9e5bbf8ee3f2b499d6"
-    sha256 arm64_monterey: "6f6056afe0b0dd10c3e9d37127f50a9498db8beb0a764cd78188fa030dc59bd7"
-    sha256 sonoma:         "1819b7c665b74c617018dcadd6b479d19db69ed4678683eb866fef502b0b1899"
-    sha256 ventura:        "e916c03bc2f8b9a17237783044ae9c13fb039bbe06a0cb10b00e365c70be3472"
-    sha256 monterey:       "9a22338fd482708205faeecd789eddd4b8d692f0dea74aad135d595e5ab3b86a"
+    rebuild 1
+    sha256 arm64_sequoia: "eb436dc59303f44da3ab375d860a40a778ca8c42cf9433d3154de49a1155a5df"
+    sha256 arm64_sonoma:  "56ee41c9c2477cee478bb0ee5af18780c54b430ef4277630d98399a015fab8af"
+    sha256 arm64_ventura: "4da3da8b0fa9a94f764ff5729ccefe866bd2e2cdd37900a46d596b3b607468e0"
+    sha256 sonoma:        "defbe49f59b83d9d7dddd419ce018c6d3e40b0f57d3df3b5e2f8022fa6a9238e"
+    sha256 ventura:       "1c35e345b1267be409074f4d15c18a5cd94fed8eb315e640528928bb635afd72"
+    sha256 x86_64_linux:  "6d08c23e20dc8679ed712a4709e976bbd722d7e0030114e43e322c88c0b39356"
   end
 
   depends_on "pkg-config" => :build
   depends_on "cairo"
+  depends_on "gdk-pixbuf"
   depends_on "glib"
   depends_on "gnutls"
   depends_on "gtk+3"
   depends_on "libetpan"
   depends_on "nettle"
+  depends_on "pango"
+
+  uses_from_macos "zlib"
+
+  on_macos do
+    depends_on "at-spi2-core"
+    depends_on "gettext"
+    depends_on "harfbuzz"
+  end
+
+  on_linux do
+    depends_on "libice"
+    depends_on "libsm"
+  end
 
   def install
-    ENV.append "LDFLAGS", "-Wl,-framework -Wl,Security" if OS.mac?
-    system "./configure", *std_configure_args,
-                          "--disable-silent-rules",
+    if OS.mac?
+      ENV["LIBETPAN_CFLAGS"] = "-I#{Formula["libetpan"].opt_include}"
+      ENV["LIBETPAN_LIBS"] = "-F#{Formula["libetpan"].opt_frameworks} -framework libetpan"
+    end
+    system "./configure", "--disable-silent-rules",
                           "--disable-archive-plugin",
                           "--disable-dillo-plugin",
-                          "--disable-notification-plugin"
+                          "--disable-notification-plugin",
+                          *std_configure_args
     system "make", "install"
   end
 

@@ -1,18 +1,18 @@
 class Pkl < Formula
   desc "CLI for the Pkl programming language"
   homepage "https://pkl-lang.org"
-  url "https://github.com/apple/pkl/archive/refs/tags/0.26.2.tar.gz"
-  sha256 "f3b57e744eb6b7d2976fe81c04d4f496a76ef69c1a21b7287771c6ec9bf533c6"
+  url "https://github.com/apple/pkl/archive/refs/tags/0.26.3.tar.gz"
+  sha256 "80f77fc551bc6ba9460476676e9440f42e9a69852e15500dfb13b4378291290b"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4f342f0b0705348b3a117a556c54d7507c232f1954643957e0f974d5d2dd7a0f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "95723a4e52511a72875e7e6247e3caaaf8ae5b9e3c599a67716e164b3c4be7c3"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b95845d305f20920ed31d6a277228f49603b7c1d4cfc4d264b7abead3a5fe8f9"
-    sha256 cellar: :any_skip_relocation, sonoma:         "aca2659df73f9633ea360b912ab75c87be729606cbea388f581654e7552e0f8c"
-    sha256 cellar: :any_skip_relocation, ventura:        "06441f831c8df31e09ccc65f54d33426239e63cf1d327a5cb5c8622f2f511eba"
-    sha256 cellar: :any_skip_relocation, monterey:       "370265b58dec92cdbf9a173a67ac6853e54c0489d31d1b63d6bccfb56011f280"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6073660a32d15af78f1c5169969596aa93f799b4203b4c8fe208ed76de62965f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "39445d274181a050e8e4f587561c055e0372faf9eea2eba15026c223f7aba425"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "954714b47744162cd625786206881bad5e316b1fdc039cb2f4bf9fb610c06044"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e067cef3ecf9c3128a5dc98d99120574fa86cd71847db5bb0ae009efc58658ce"
+    sha256 cellar: :any_skip_relocation, sonoma:         "4e3249b9de8259e3df769d013fa1809c49abc4d602c7db81ad68cb9c0197fa09"
+    sha256 cellar: :any_skip_relocation, ventura:        "40ff6039e06bfd8df14f0056ef5b03c64c618198aad79ec6558bfd548dae924a"
+    sha256 cellar: :any_skip_relocation, monterey:       "6b909bbfffa891bbf1303d18adb09e4720220111e8aaa10e6a8cb192a2b96f66"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a8f9968d2957c0ff98e97b171388f8decb94b9deeebbe982639c151d539c4e84"
   end
 
   # Can change this to 21 in later releases.

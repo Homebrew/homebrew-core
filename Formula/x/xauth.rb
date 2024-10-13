@@ -6,6 +6,7 @@ class Xauth < Formula
   license "MIT-open-group"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "d18d0f0f1e63dde3fc2c20836df3fcab78f1b877ffceaac0093fd1cab3484221"
     sha256 cellar: :any,                 arm64_sonoma:   "9a7b83983740064b18141730a40ffd71feb3d08388a091370f6a82eebbbb78b2"
     sha256 cellar: :any,                 arm64_ventura:  "57ccb291fc8506937db119ac70270ba101733e50425a719a0857ed31abbf3f72"
     sha256 cellar: :any,                 arm64_monterey: "b6f3debf7f9b937e5096c7f8c6996daccfea756ef5186ff90c0c811d37a916f3"

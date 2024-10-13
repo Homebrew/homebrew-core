@@ -28,6 +28,6 @@ class Dislocker < Formula
   end
 
   test do
-    system "#{bin}/dislocker", "-h"
+    system bin/"dislocker", "-h"
   end
 end

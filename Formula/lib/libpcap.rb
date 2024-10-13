@@ -1,8 +1,8 @@
 class Libpcap < Formula
   desc "Portable library for network traffic capture"
   homepage "https://www.tcpdump.org/"
-  url "https://www.tcpdump.org/release/libpcap-1.10.4.tar.gz"
-  sha256 "ed19a0383fad72e3ad435fd239d7cd80d64916b87269550159d20e47160ebe5f"
+  url "https://www.tcpdump.org/release/libpcap-1.10.5.tar.gz"
+  sha256 "37ced90a19a302a7f32e458224a00c365c117905c2cd35ac544b6880a81488f0"
   license "BSD-3-Clause"
   head "https://github.com/the-tcpdump-group/libpcap.git", branch: "master"
 
@@ -12,15 +12,14 @@ class Libpcap < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "9bcecfe2faea9a6a3f1361792150add6a8a9d0e0d210f60e6e2d75221b09f76a"
-    sha256 cellar: :any,                 arm64_ventura:  "c9ab92960280af2f6677af5adac6400c0fcbc989e10c82539abd5e6fa07ace6c"
-    sha256 cellar: :any,                 arm64_monterey: "57cf3e889d51c5fb5b7a9337080efcae4580f6903c2c6bfe428da8f3149d9da3"
-    sha256 cellar: :any,                 arm64_big_sur:  "8229a0d02cb1294ca286d70aa197c439b60270a64b08985127b2c85e28c34062"
-    sha256 cellar: :any,                 sonoma:         "f1270a86135dcf0b112b622ca73f4cef4a0fcd5acc24014d5d9e3f3ddb7f9ad8"
-    sha256 cellar: :any,                 ventura:        "b9e4f0cfacd43b79b0966420ec5306920847ffca235efc22cdf566765b2fb37a"
-    sha256 cellar: :any,                 monterey:       "f7883aecab73688e915f71f86d1c0def30f8ed2b316a557412761dc106d65652"
-    sha256 cellar: :any,                 big_sur:        "28ce01f0924dc297d43fb493929d9dd0ecc8235f7e1fe5797652a4f14be9b60d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3ecc72e233bad9575bf92185d05b526ecae130e0598cf47613ce472fd3dc73aa"
+    sha256 cellar: :any,                 arm64_sequoia:  "2469721ab279d0e988bb6659dfd8bb3ab9317ca4ff20018eaa7a86f1749ba0e4"
+    sha256 cellar: :any,                 arm64_sonoma:   "25f894b36f2bed3c1ec09f53b733cb79221e0264d0e995097c66a303815ac6ea"
+    sha256 cellar: :any,                 arm64_ventura:  "8f55c62e20c74ecdcc8975ab8885659dd446bf6cf4b873f29695370de24b7815"
+    sha256 cellar: :any,                 arm64_monterey: "1878536fd135dc9674a6c82f71f349bb7e4b57785aebaa419509b5ea1f90b89b"
+    sha256 cellar: :any,                 sonoma:         "515263fb7383b3bc74e5976472d79097a979ac0a521b94c024b3701f133dbeee"
+    sha256 cellar: :any,                 ventura:        "7792689ed0fb4e70cf87216b4e81dc20361c67ba6b7aa4a1531a445c54c69686"
+    sha256 cellar: :any,                 monterey:       "042224e1182717afa4663273c410c7d9758ce60301d8ecfafb5096f4a2ae7f17"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7bc07f0a5bb3072c9f715cdb0799eaf1bd7a897c9ccc3373542845af931b4d32"
   end
 
   keg_only :provided_by_macos
@@ -29,9 +28,9 @@ class Libpcap < Formula
   uses_from_macos "flex" => :build
 
   def install
-    system "./configure", "--prefix=#{prefix}",
-                          "--enable-ipv6",
-                          "--disable-universal"
+    # Exclude unrecognized options
+    std_args = std_configure_args.reject { |s| s["--disable-debug"] || s["--disable-dependency-tracking"] }
+    system "./configure", "--enable-ipv6", "--disable-universal", *std_args
     system "make", "install"
   end
 

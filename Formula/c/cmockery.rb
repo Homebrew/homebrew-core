@@ -9,6 +9,7 @@ class Cmockery < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia:  "8c4679ab8e8779a11746c1d18156b83b3446ff6d332b06e6548585b84fc51101"
     sha256 cellar: :any,                 arm64_sonoma:   "96b7a50e99334762c47dbc4bb42797533aca4aa0141ec6f424f507a292bd69a4"
     sha256 cellar: :any,                 arm64_ventura:  "0f6c19c77f86e9f39f372d29d58e853214b1b6b3fcf20f6373caac86703c2279"
     sha256 cellar: :any,                 arm64_monterey: "9e210bb4657cf606373fa730ab8b6d7d730fd98d61b1d5d0b06f81221e33b3c9"

@@ -6,6 +6,7 @@ class Mighttpd2 < Formula
   license "BSD-3-Clause"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "55f9e72b534493ca05a670a39548097f87d215f5cecdd989deab5ac2d1ad3392"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9ce8b2007ade99047af65d374ba0b01bea3f382006db449857be9f196cf3df20"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "be986030a6d0bf9e7bcfc5218f57d350f30fdaff17b905ef45ed4d6623e44f53"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "0b3fc20fd35255a3b98d9d4150ceb05a532944e24168f07c82341f66c7775d85"
@@ -26,7 +27,7 @@ class Mighttpd2 < Formula
   end
 
   test do
-    system "#{bin}/mighty-mkindex"
+    system bin/"mighty-mkindex"
     assert (testpath/"index.html").file?
   end
 end

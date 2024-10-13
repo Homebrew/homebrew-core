@@ -3,6 +3,7 @@ class John < Formula
   homepage "https://www.openwall.com/john/"
   url "https://www.openwall.com/john/k/john-1.9.0.tar.xz"
   sha256 "0b266adcfef8c11eed690187e71494baea539efbd632fe221181063ba09508df"
+  license "GPL-2.0-or-later"
   revision 1
 
   livecheck do
@@ -11,6 +12,7 @@ class John < Formula
   end
 
   bottle do
+    sha256 arm64_sequoia:  "a185d4e78b71cbe1a8f08a8e3d9ad17d7a2ea43f83b08308f3a2b5d92c6a5c19"
     sha256 arm64_sonoma:   "301d009f0b0ebe220d69e495ffb686c01ebc0448732427302431cdd8a6207684"
     sha256 arm64_ventura:  "a80fb6428f4645134c126624c4516244aae4dee1b8eccfa024c0b0a16ba61bb5"
     sha256 arm64_monterey: "eb3f2d751c1721126e5c5e578ab5863d88ac5fce9f7c5633b123d000acca61d9"

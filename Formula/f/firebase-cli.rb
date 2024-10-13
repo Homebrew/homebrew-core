@@ -1,21 +1,18 @@
-require "language/node"
-
 class FirebaseCli < Formula
   desc "Firebase command-line tools"
   homepage "https://firebase.google.com/docs/cli/"
-  url "https://registry.npmjs.org/firebase-tools/-/firebase-tools-13.14.0.tgz"
-  sha256 "25ee4533a9db3e20b5b483102c34d00be790c77aa4500e90abea7478121dd577"
+  url "https://registry.npmjs.org/firebase-tools/-/firebase-tools-13.22.0.tgz"
+  sha256 "3e402a3d9d954f893ffc7abceb385e136d4ba6c90578b08d71b6a49a08beb931"
   license "MIT"
   head "https://github.com/firebase/firebase-tools.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "03b42449982c60f78135e5efd75ee2d35aada3917d5206828f4f67ed47bae11d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "03b42449982c60f78135e5efd75ee2d35aada3917d5206828f4f67ed47bae11d"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "03b42449982c60f78135e5efd75ee2d35aada3917d5206828f4f67ed47bae11d"
-    sha256 cellar: :any_skip_relocation, sonoma:         "1d416d45f64f217704db4587888704dce9473eaec8ffa8d48338e8122cc56951"
-    sha256 cellar: :any_skip_relocation, ventura:        "d8f79fa50e6c2d710759a13a1941c4350a0e42ad9fb948c80121369e18344596"
-    sha256 cellar: :any_skip_relocation, monterey:       "d8f79fa50e6c2d710759a13a1941c4350a0e42ad9fb948c80121369e18344596"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9f083f229f154a544c5371b973d232b0d29e7af2d96531ae409699e81d505cc2"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e68291a93816867eb2125b3aa29edcb24fe04530a3d71bf5ac1deaf650a8a905"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e68291a93816867eb2125b3aa29edcb24fe04530a3d71bf5ac1deaf650a8a905"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "e68291a93816867eb2125b3aa29edcb24fe04530a3d71bf5ac1deaf650a8a905"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c398f1c901d6d2a0ef342f6105ba1203814a449bb0d5d8502ca32053dd07b58d"
+    sha256 cellar: :any_skip_relocation, ventura:       "c398f1c901d6d2a0ef342f6105ba1203814a449bb0d5d8502ca32053dd07b58d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6a38c761ce517a732eb38d618223a5521ee79f8f29b3a83fc03c829960c4c385"
   end
 
   depends_on "node"
@@ -23,7 +20,7 @@ class FirebaseCli < Formula
   uses_from_macos "expect" => :test
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", *std_npm_args
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 

@@ -11,6 +11,7 @@ class Nut < Formula
   end
 
   bottle do
+    sha256 arm64_sequoia:  "dbfab84f13ae9c17fe130e2230f7dc957bbd1c01e6cb281fdd03d5cc3e82fc6a"
     sha256 arm64_sonoma:   "43c9c0fc601204d370924ebdfe1a51a68ceec7be66b9cbde21fa748ca705c05f"
     sha256 arm64_ventura:  "5c56ac1e0389d0991c2c94ed36e3cabb5dbedd8b695fa4a9747add1b3eca5c8f"
     sha256 arm64_monterey: "1858aeb052a2b605a7d2ba9f231db1f0d997b9ddeb2da4cabae29520978e57b1"
@@ -31,6 +32,10 @@ class Nut < Formula
   depends_on "pkg-config" => :build
   depends_on "libusb"
   depends_on "openssl@3"
+
+  on_linux do
+    depends_on "systemd"
+  end
 
   conflicts_with "rhino", because: "both install `rhino` binaries"
 
@@ -85,6 +90,6 @@ class Nut < Formula
   end
 
   test do
-    system "#{bin}/dummy-ups", "-L"
+    system bin/"dummy-ups", "-L"
   end
 end

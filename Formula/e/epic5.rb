@@ -1,9 +1,9 @@
 class Epic5 < Formula
   desc "Enhanced, programmable IRC client"
   homepage "https://www.epicsol.org/"
-  url "https://ftp.epicsol.org/pub/epic/EPIC5-PRODUCTION/epic5-2.1.13.tar.xz"
-  mirror "https://www.mirrorservice.org/sites/distfiles.macports.org/epic5/epic5-2.1.13.tar.xz"
-  sha256 "31a60b3a0d2bbe7eed38464278f1f7f369e0a05da5197a5cbb8b05a9251d0631"
+  url "https://ftp.epicsol.org/pub/epic/EPIC5-PRODUCTION/epic5-3.0.tar.xz"
+  mirror "https://www.mirrorservice.org/sites/distfiles.macports.org/epic5/epic5-3.0.tar.xz"
+  sha256 "96d47350c13a3d99019da0e6a04b0c7f80dab6ddba590bcc679dbb8acc1779a1"
   license "BSD-3-Clause"
   head "https://git.epicsol.org/epic5.git", branch: "master"
 
@@ -13,13 +13,14 @@ class Epic5 < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "6c36777b952d26e56acefec463a8de6c4a6254bba008d58867205d09c312d39a"
-    sha256 arm64_ventura:  "7b48f070da4284e3c4a2fb8d5e7480436b815f81c40a9d6fc3ac75c23fc69178"
-    sha256 arm64_monterey: "ae10698b79e0b7411984dd89cb91efdfcd158b6dad77ba0b7bc1fd57013624ec"
-    sha256 sonoma:         "51f0355fa90ddeb9cda75a4fab9997c3795359e1aeba9414e4f51815c3b142ed"
-    sha256 ventura:        "da22cd190847a7302c5d758b4aa26ae7496574df67dd02c9b0a1c3b929e82603"
-    sha256 monterey:       "eb652273658fe2015e2cd9b343aa2a4683881d4e61df4fc63bc4645fc6d93491"
-    sha256 x86_64_linux:   "9b97fb4e2c588d78b143d2a7bba09a3a67d0e23d05100891b3ee5fdd37a72cce"
+    sha256 arm64_sequoia:  "7967cdc3e555432aac46d1c4a868e325c0b49db4b68ec6f05fdac66cd6881548"
+    sha256 arm64_sonoma:   "728f124c2b5f362e4bbe8d6e3baecb2d5879b15c72bef7cd95e183efcbdbc243"
+    sha256 arm64_ventura:  "5bcc0fb914418bc0d0dbac3930c8c7e6b93140d60c8d99f15ca2ceee67a1131b"
+    sha256 arm64_monterey: "6aa3584946b99c7f84015cc7dc2d981cf7e2975a0198724377e0627c8bfd1089"
+    sha256 sonoma:         "6f4d3a6a16ed04870bd2078510fc609371175ae7fea48b059cf2579d611f317c"
+    sha256 ventura:        "204221a2c3f2c493ed7d3dd5ecc69ee3f3ea5bfda516dc39d7368b571d5e8303"
+    sha256 monterey:       "7eb33143e21bb1629c667ff5e2a6792598311b142c1ac052fae55402a869ef05"
+    sha256 x86_64_linux:   "304123953262a1054e6d0830b1f690f052deb6e3d4023aa7b02d601af6dedad3"
   end
 
   depends_on "openssl@3"

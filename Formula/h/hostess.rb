@@ -8,6 +8,7 @@ class Hostess < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "5af8f3803260637b3938948d0a18cf210279b7cd6b6abeb9e197e373feb5a53f"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0186aaf7affa768a218d00dc949003d663a5e13c0282c2b95b18135070254118"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "70fb5d0bdf6c6c22082affae3027953e8c59d51a795bd6983b30a58fecf5088c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "277bc64d736ab7413d771e469943d1037b196e6b3aafd987a5c09602ada6b499"

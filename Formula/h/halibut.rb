@@ -3,7 +3,7 @@ class Halibut < Formula
   homepage "https://www.chiark.greenend.org.uk/~sgtatham/halibut/"
   url "https://www.chiark.greenend.org.uk/~sgtatham/halibut/halibut-1.3/halibut-1.3.tar.gz"
   sha256 "aaa0f7696f17f74f42d97d0880aa088f5d68ed3079f3ed15d13b6e74909d3132"
-  license all_of: ["MIT", :cannot_represent]
+  license all_of: ["MIT", "APAFML"]
   head "https://git.tartarus.org/simon/halibut.git", branch: "main"
 
   livecheck do
@@ -12,6 +12,7 @@ class Halibut < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "f9fc41c88b7b3b7d2cc9ae9160316ea794a4316e1ed217c3dca842324cdbff54"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e5aa2f452b8152cfe1db12e63ebab5cc3884aeb0096a8e237382ffd91b4ea3d7"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "ed4000bb616ed6fcf26b2cb79659a1fec79d6e6728b05be5b3f53c1dea03ae7a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "15128f8454d3cbfbe26c615f8a49daeeb3f7a6566be8f390370bf1b789ec3aa1"
@@ -34,7 +35,7 @@ class Halibut < Formula
 
   test do
     (testpath/"sample.but").write("Hello, world!")
-    system "#{bin}/halibut", "--html=sample.html", "sample.but"
+    system bin/"halibut", "--html=sample.html", "sample.but"
 
     assert_match("<p>\nHello, world!\n</p>",
                  (testpath/"sample.html").read)

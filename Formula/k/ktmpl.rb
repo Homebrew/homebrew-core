@@ -8,6 +8,7 @@ class Ktmpl < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "2dc088f8bdd186bd390a9f26861ce4eaad7188aa36c5d8e269d0db6e4ca8dcb8"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "fbc4a95ff205822979bb6e785ae794efdeca86bdede06b3bc8c805a08536ce04"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "e549a6d1bf1f7d482349d5fcd6b592f7fe2281e2299ac0d8ecc1e8b45c3be605"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1714ecf6633220ed65b1c3283862d889552d8c189500614586501f72d4a6e863"

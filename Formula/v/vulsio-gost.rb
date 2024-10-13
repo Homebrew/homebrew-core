@@ -1,18 +1,17 @@
 class VulsioGost < Formula
   desc "Local CVE tracker & notification system"
   homepage "https://github.com/vulsio/gost"
-  url "https://github.com/vulsio/gost/archive/refs/tags/v0.4.5.tar.gz"
-  sha256 "2a76fb45307d2fd3f13fe3eff096b91f1b669dd18c6a0dc02a6951764d61c0e7"
+  url "https://github.com/vulsio/gost/archive/refs/tags/v0.5.0.tar.gz"
+  sha256 "106b40bd3061f5f8267497fc387d5ffaba9507a48378cf827c49e88c00142b19"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "fd0cf6c27a0ffa0c1e19fc1fabc88a8a29efdfc3a38f244ec38aaae5a32a4e6e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "645f39ac41d1759d4d1fc1752f2b402b7d104c6a53bfc012ab22cc7d8bbf0ebf"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "53984651214c75bf652b2a217e157410c79d062c35ffd517bde68174159e9ec5"
-    sha256 cellar: :any_skip_relocation, sonoma:         "aa538c63cfbe96adf509afabc06d6f0f4b0aff9cdc1c3f0624011443ff1f0ee1"
-    sha256 cellar: :any_skip_relocation, ventura:        "0f7a31a84529d0257b8f00458ed3f11a602a14ac88498f2559c6a2d1bf480643"
-    sha256 cellar: :any_skip_relocation, monterey:       "6eb7036d1f5c1d9b3ef062a604d40a5b7064c57ea18f398521575029ffe0e020"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c3b53548bf113b485ab313fc6b92a40aa753f4810af8443f6168b0a428946673"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a79a4969978031258e93980fe2da672e04d95f6c0b1faa23bb21dd58f7ce163d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a79a4969978031258e93980fe2da672e04d95f6c0b1faa23bb21dd58f7ce163d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "a79a4969978031258e93980fe2da672e04d95f6c0b1faa23bb21dd58f7ce163d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "763d57082d74e19b850975d4759d4ed07d7fe8c9df22c3253125819a458d2d17"
+    sha256 cellar: :any_skip_relocation, ventura:       "763d57082d74e19b850975d4759d4ed07d7fe8c9df22c3253125819a458d2d17"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ef7f3559d2c176bbc05c9a02c1e4f22e6c5cbcee92ac7317260bbc36fe17af5e"
   end
 
   depends_on "go" => :build

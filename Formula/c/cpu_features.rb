@@ -8,6 +8,7 @@ class CpuFeatures < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia:  "ae8b9832131a6a9d50cb1c811f945c5e5cb6725f4dfafb6dd6df8eec4c87ba4d"
     sha256 cellar: :any,                 arm64_sonoma:   "ce0a600098af980c41651295e62323e64312fc784b58894d8dda0c8ee3af7257"
     sha256 cellar: :any,                 arm64_ventura:  "a553042b0852ac60b9ffa9d84f1651316a2425a8eeb8c7e031850ef7d1d4b142"
     sha256 cellar: :any,                 arm64_monterey: "3b46124865d45cc7f9521e220bfa6d812fe2c72db6cb11cd5b100ae78bf7eefc"

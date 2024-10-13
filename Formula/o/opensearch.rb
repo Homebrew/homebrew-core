@@ -1,25 +1,21 @@
 class Opensearch < Formula
   desc "Open source distributed and RESTful search engine"
   homepage "https://github.com/opensearch-project/OpenSearch"
-  url "https://github.com/opensearch-project/OpenSearch/archive/refs/tags/2.15.0.tar.gz"
-  sha256 "047f0c26ec3ae54f6b0213d7191c346290c9d4ac2b8a6d21b0d947f9d36b83a6"
+  url "https://github.com/opensearch-project/OpenSearch/archive/refs/tags/2.17.0.tar.gz"
+  sha256 "6af45ea416cf72e08680726ef59f0379fcbfa889845fd2626c86d9ae8ebbd9c4"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7009f5630e705c55d869bac1e8d71ab30c70d022f11a879a72a5a82b0524c3ba"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ff23a724d03f9b84fb212fd339b28c5e94ba48ff4f621766f54a520bfce769ce"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c49d88837a1f367f7cf14679fc736305e1718151a73cfff2cbdd52f771784904"
-    sha256 cellar: :any_skip_relocation, sonoma:         "decd137e07a6c3ac8edae50e87814a8a8eaa83ba779bc911c2bff9952d4b4abf"
-    sha256 cellar: :any_skip_relocation, ventura:        "cf920fb2a2bda3823e9e97aa521abc0507be9ac2cdf0f7808d69f0c1a9c5e065"
-    sha256 cellar: :any_skip_relocation, monterey:       "26f99356e867594f9e3293f671822bec39f064b5bd7d4a3eea622a630257d5ba"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "433074e2aa4a053ee92018502ddd37bf527b27c6353a02feb810b4343d2760da"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ed3ec14eb26e1330288b9187999e92fd24bb57ca197bb04d9f36c24cdd3fc54e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "489f45c48258b6a4e2892c4bc11dbcf740b4a82490e70ee42bd1c209a96b1378"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "6369e4b29a325a4c2dad440bd281c1bbdc08c6e0838a6dc0c92f99a495e74df0"
+    sha256 cellar: :any_skip_relocation, sonoma:        "54d09deadd49d3ac1988c3ae596c0f84b4d086b1420aa69c6cddf27bbcbddc8e"
+    sha256 cellar: :any_skip_relocation, ventura:       "d9edc7bcec7b521ce01003b7c7925ce656c2a2fe7492b87dac18041c5695dc6c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1b66d042f32c6604bcf1ec127b79fe3bc26d4028c9733e62c66ff74acc4250d0"
   end
 
   depends_on "gradle" => :build
   depends_on "openjdk"
-
-  # upstream patch PR, https://github.com/opensearch-project/OpenSearch/pull/14182
-  patch :DATA
 
   def install
     platform = OS.kernel_name.downcase
@@ -106,21 +102,6 @@ class Opensearch < Formula
     output = shell_output("curl -s -XGET localhost:#{port}/")
     assert_equal "opensearch", JSON.parse(output)["version"]["distribution"]
 
-    system "#{bin}/opensearch-plugin", "list"
+    system bin/"opensearch-plugin", "list"
   end
 end
-
-__END__
-diff --git a/buildSrc/src/main/java/org/opensearch/gradle/info/GlobalBuildInfoPlugin.java b/buildSrc/src/main/java/org/opensearch/gradle/info/GlobalBuildInfoPlugin.java
-index 448ba8a..669a67e 100644
---- a/buildSrc/src/main/java/org/opensearch/gradle/info/GlobalBuildInfoPlugin.java
-+++ b/buildSrc/src/main/java/org/opensearch/gradle/info/GlobalBuildInfoPlugin.java
-@@ -199,7 +199,7 @@ public class GlobalBuildInfoPlugin implements Plugin<Project> {
-     }
-
-     private JvmInstallationMetadata getJavaInstallation(File javaHome) {
--        final InstallationLocation location = new InstallationLocation(javaHome, "Java home");
-+        final InstallationLocation location = InstallationLocation.userDefined(javaHome, "Java home");
-
-         try {
-             try {

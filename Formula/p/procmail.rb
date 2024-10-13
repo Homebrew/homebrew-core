@@ -7,9 +7,12 @@ class Procmail < Formula
   license any_of: ["GPL-2.0-or-later", "Artistic-1.0-Perl"]
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "3797ccaf0b1d12c6b04012265e1cbad538769cad66d9175e6fb0e8a7e0cfc54d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "791a9a4eb68e2bc3e190dc7ab66efa1c1516abe9457c7a6e00bfca199ae3564a"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "0ebd812ae059d9cfcdc313028d1a967093b2fcb54745308f3ac900f17f850822"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f36e2740c6191a3cc46063e606fa3bf9bd5f5da712e7ef191722ee1ef5c85810"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e39fb3a7e1b24091190e1348b3a0cecf28f189828c5b5b126e3de0bfedaa02ac"
+    sha256 cellar: :any_skip_relocation, sonoma:         "4702908a7f5fb3ce9fc5e08ad9d3978c69b2a5cafd5706672550eaf05fd78b8e"
     sha256 cellar: :any_skip_relocation, ventura:        "7b6228407ed3b8ad685845095e0d0ef126cefe4994a2ac87db15c4abc8b6bb23"
     sha256 cellar: :any_skip_relocation, monterey:       "68edea089a8cac07fe73a92c5c31ab7f8a17e4f57affad9acd8cc1d71e2bc8bf"
     sha256 cellar: :any_skip_relocation, big_sur:        "c29ed505600498218a3733d68ebff1eb29c259ac3789da32dc2c76d9aaa33527"
@@ -22,6 +25,12 @@ class Procmail < Formula
   end
 
   def install
+    # Fix compile with newer Clang
+    if DevelopmentTools.clang_build_version >= 1403
+      inreplace "procmail/Makefile", "CFLAGS0 = -O",
+                                     "CFLAGS0 = -Wno-implicit-function-declaration -Wno-implicit-int -O"
+    end
+
     system "make", "-C", "procmail", "BASENAME=#{prefix}", "MANDIR=#{man}",
            "LOCKINGTEST=1", "install"
   end

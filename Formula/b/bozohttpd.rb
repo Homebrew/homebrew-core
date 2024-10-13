@@ -1,21 +1,23 @@
 class Bozohttpd < Formula
   desc "Small and secure http version 1.1 server"
-  homepage "http://www.eterna.com.au/bozohttpd/"
-  url "http://www.eterna.com.au/bozohttpd/bozohttpd-20220517.tar.bz2"
-  sha256 "9bfd0942a0876e5529b0d962ddbcf50473bcf84cf5e4447043e4a0f4ea65597a"
+  homepage "https://pkgsrc.se/www/bozohttpd"
+  url "https://cdn.netbsd.org/pub/pkgsrc/distfiles/LOCAL_PORTS/bozohttpd-20240126.tar.bz2"
+  sha256 "576267bc5681c52b650294c3f2a85b8c8d8c239e75e71aaba7973771f852b56d"
   license "BSD-2-Clause"
 
-  bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "8ac292a7d26ffaa74a4b1ceeeebcdf67374e4e1dcd01f717f887963374caabe6"
-    sha256 cellar: :any,                 arm64_ventura:  "a347feb592ef7cb6891316a014a3623413904385760b8ced6d5bcf16b7fa4e75"
-    sha256 cellar: :any,                 arm64_monterey: "e82cf2e3855babaf2031b04dd743a09aa58ad3bc7797b19c986305af17a1a78b"
-    sha256 cellar: :any,                 sonoma:         "56191492a140d944c4e19f57d27dc6304721080efabbc60e0b8cf02474737a09"
-    sha256 cellar: :any,                 ventura:        "10b6530e5e25d4ace501a31511230df6361136eb6d240bbd606b1522d0a8ad6d"
-    sha256 cellar: :any,                 monterey:       "594536c4a63b2010b8f3d7939cbb64b160471b2b6c695c21106dc41309580f31"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cbd5ed984d13939f8c193b697794540e2b52294e246ed5da888f09f4f357b43f"
+  livecheck do
+    url "https://cdn.netbsd.org/pub/pkgsrc/distfiles/"
+    regex(/href=.*?bozohttpd[._-]v?(\d+(?:\.\d+)*)\.t/i)
   end
 
-  deprecate! date: "2024-07-20", because: :repo_removed
+  bottle do
+    sha256 cellar: :any,                 arm64_sequoia: "f91adb497f96847759c3427e7b14b81889547273bc078266abdcc0087e6f1c8f"
+    sha256 cellar: :any,                 arm64_sonoma:  "ad727b862019134b028cc9d5ee6893755dc001ab87ebc3625eca39779be2d65a"
+    sha256 cellar: :any,                 arm64_ventura: "5269de6704ed5507508a2bfba45dfb714d0a077bb86682cc013762a3e05dbaba"
+    sha256 cellar: :any,                 sonoma:        "58b534558d746a783487067bcb393d6908c9961f1e8e82e2c8ff0e2790e5c7aa"
+    sha256 cellar: :any,                 ventura:       "282ae1e2332c2dc426187b193fc943141bfd838b00818aa867da2eac281144c0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c8f662a5761fcd610221da12ac4476496fe39bb5254c0192a05e6170b495c988"
+  end
 
   depends_on "pkg-config" => :build
   depends_on "lua"

@@ -7,6 +7,7 @@ class Xorriso < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "9b8deb74524ee426ccfed55983d41f621de69ba1ffea7c574496b1bec72ef3ae"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4231bedc678f7cbb7151e5dd846ade6123811b472b7a378164b29d0edaaf8680"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "3e64ea078ab6659f5892db71cf6d2c72825cbefb80956ee88a8aaf5d0080594d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "0c7004800a9d909e5cbe3373dbb2d8fb71a943d022901f8a5b950c34c52215b5"

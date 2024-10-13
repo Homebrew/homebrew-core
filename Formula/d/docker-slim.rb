@@ -11,6 +11,7 @@ class DockerSlim < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "8f83b017c58d25f805e1346e803d5a356e04a39ba7ad860079909e2ed29fa423"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "855bfe260abb098215f7c1e776e37b00ae1e63f9e633c67675632d94bc1be5e1"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "c40b91f83138ae4309ca53a6b400847f3a1d27918711861e2b77d2f3bdf95fd8"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "9a6f07c033f409f6ec63e16b0094a7b9d4d8565d8a76857f190434db9fa00b11"

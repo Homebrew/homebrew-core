@@ -8,6 +8,7 @@ class Libusrsctp < Formula
   head "https://github.com/sctplab/usrsctp.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "26779b22a8b35e70131a4fb010839955453e8d703f682d77b411c5900d2543ab"
     sha256 cellar: :any,                 arm64_sonoma:   "d87af9c75847214b4101934141dd53dc3e5992304bd8f97aace95c683a2fa435"
     sha256 cellar: :any,                 arm64_ventura:  "27f59644b7711afcde95e34c6258a4f62bedaff91e7de90356494a511fa85f35"
     sha256 cellar: :any,                 arm64_monterey: "5aebfe223f88de1bd4b8177d85a4034f819c9957f2f56292e8961ea52af1f20c"

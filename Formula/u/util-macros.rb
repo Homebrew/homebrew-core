@@ -6,6 +6,7 @@ class UtilMacros < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "eb3545f4823ce88d8d452be96d91d6b6ffbdbd7fa3232854ef6b7c4185ee8465"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2b4af09c7a852f609925d9a8ead68653d67f80e2452000ec0e54b372d9b4b0cf"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "2b4af09c7a852f609925d9a8ead68653d67f80e2452000ec0e54b372d9b4b0cf"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "2b4af09c7a852f609925d9a8ead68653d67f80e2452000ec0e54b372d9b4b0cf"

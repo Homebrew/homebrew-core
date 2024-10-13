@@ -4,9 +4,11 @@ class Pth < Formula
   url "https://ftp.gnu.org/gnu/pth/pth-2.0.7.tar.gz"
   mirror "https://ftpmirror.gnu.org/pth/pth-2.0.7.tar.gz"
   sha256 "72353660c5a2caafd601b20e12e75d865fd88f6cf1a088b306a3963f0bc77232"
+  license "LGPL-2.1-or-later"
 
   bottle do
     rebuild 2
+    sha256 cellar: :any,                 arm64_sequoia:  "ebea43fc620e5a3ca68ab4b1f05222b45ff99430e0572ad43a26ba2dc08178d2"
     sha256 cellar: :any,                 arm64_sonoma:   "2d11f5c8d0c953bd31407c69a481501bac6a990a0ca174304b0e9eae67028a6f"
     sha256 cellar: :any,                 arm64_ventura:  "fab1a0762b2bb6d4a662d7584e7e53a40c0c6e0a47173ee1b352ba5df0307d4c"
     sha256 cellar: :any,                 arm64_monterey: "43290f4af74260a674cffc3fa75fc0576a89e4040f57473e0601ff3052eca8e9"
@@ -37,6 +39,6 @@ class Pth < Formula
   end
 
   test do
-    system "#{bin}/pth-config", "--all"
+    system bin/"pth-config", "--all"
   end
 end

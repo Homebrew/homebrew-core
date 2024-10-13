@@ -4,9 +4,10 @@ class Miruo < Formula
   url "https://github.com/KLab/miruo/archive/refs/tags/0.9.6b.tar.gz"
   version "0.9.6b"
   sha256 "0b31a5bde5b0e92a245611a8e671cec3d330686316691daeb1de76360d2fa5f1"
-  license "GPL-3.0"
+  license "GPL-3.0-only"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "07c790261ecabfbdd53bd0bec573d4e93148f906229f8e3e2fba8a6da213794e"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "55dcd6ea73bec9f341df715534d5bd504d048a8bee3f8d5627302cb734840f0b"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "b9bb44cd7fe123593bf3e89da14aa5b2987bf1b616ae671bfa5d7e1d9adb992b"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "3a56112e32e6ba542f3679e87d247d10850c74ad6e9d7f82504a40caa0737de1"

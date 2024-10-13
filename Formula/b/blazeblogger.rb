@@ -3,10 +3,11 @@ class Blazeblogger < Formula
   homepage "http://blaze.blackened.cz/"
   url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/blazeblogger/blazeblogger-1.2.0.tar.gz"
   sha256 "39024b70708be6073e8aeb3943eb3b73d441fbb7b8113e145c0cf7540c4921aa"
-  license "GPL-3.0"
+  license "GPL-3.0-only"
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "0045a7f2db5667ef5e70880950ca3b04ab2f0d0cb0525e4b11e14d4107af7443"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "87ca82760016e36f3dfc234df48a695e62a81479c799c54a5e7500014584fa69"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "971cf089545d50d6b751253a1ffe63b4bc3cb10c55287bf5f43cabcee9088afa"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "971cf089545d50d6b751253a1ffe63b4bc3cb10c55287bf5f43cabcee9088afa"

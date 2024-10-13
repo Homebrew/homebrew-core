@@ -11,6 +11,7 @@ class Serd < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "6da3bc12299d08bdd94b31b39eb398895133440589a08307fd59f27a41f1deb8"
     sha256 cellar: :any,                 arm64_sonoma:   "64998f0f202c9dc4d9db24962d225b8575691230c9529e9caf5f51ea1cfe6a51"
     sha256 cellar: :any,                 arm64_ventura:  "a90f4099dc15980f2d3434153cbb09b5cb4da1e359514f0ec5b7503fa3236d0f"
     sha256 cellar: :any,                 arm64_monterey: "1b92544391c0b1a50707d923824e5d6762ce7348b4078d108d122a950854f782"

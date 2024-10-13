@@ -11,6 +11,7 @@ class Libyaml < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "0ec9bf8082245c008803b42dcae3e6a0c8cd7a67aed589d9b6482b115c0a543b"
     sha256 cellar: :any,                 arm64_sonoma:   "98c0cf81bcdf7577d5fdc8cc18732970b9ae7e0e7423a733f88f0f566ba483ad"
     sha256 cellar: :any,                 arm64_ventura:  "11239e8f5066c6d0d0718208d4eab518da00c7289f33c9c76c0a09ba5c0417c9"
     sha256 cellar: :any,                 arm64_monterey: "a436da33a05f805258c5951a365dec4e8d70a908dbe5dacdeb6b2ecd0efd5024"

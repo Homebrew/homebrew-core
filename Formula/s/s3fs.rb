@@ -28,6 +28,6 @@ class S3fs < Formula
   end
 
   test do
-    system "#{bin}/s3fs", "--version"
+    system bin/"s3fs", "--version"
   end
 end

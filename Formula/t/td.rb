@@ -6,6 +6,7 @@ class Td < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "386a1ba61c06bcdafaa9afedf609caa8eba893e2dbe50326122e03495ad9eff1"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "cea6b716c9daded4db7c3f1da8515348cd5ab876eefc9c8e1e28e3a3833379ef"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "c4726f25e4fea482ddc0341f590311e2098e4e5a3b12f569376d85e1c5570d09"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "183862b016182f09f43d0c3092fdcb50894ca9f5814b83af816f1d4329368eab"
@@ -27,7 +28,7 @@ class Td < Formula
 
   test do
     (testpath/".todos").write "[]\n"
-    system "#{bin}/td", "a", "todo of test"
+    system bin/"td", "a", "todo of test"
     todos = (testpath/".todos").read
     assert_match "todo of test", todos
     assert_match "pending", todos

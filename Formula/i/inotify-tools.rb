@@ -6,7 +6,8 @@ class InotifyTools < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "f62767098bfb850cca4dfdbe57611611feadb89204ab76f9bf4177a3d62d70e8"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "c9a50d94145be77d8493bb7e2a8ee259784c209113e84b9ce5b1df586868f052"
   end
 
   depends_on "autoconf" => :build

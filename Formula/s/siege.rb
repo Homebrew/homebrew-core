@@ -11,6 +11,7 @@ class Siege < Formula
   end
 
   bottle do
+    sha256 arm64_sequoia:  "457fc9ee49f06855b9ff0e7c14a7ed82cdf8de7074a5d63e7732167c0b3c729f"
     sha256 arm64_sonoma:   "3726223d7f3dc7001f6f73167e09485babcd706f820270589bd5f3df71904c97"
     sha256 arm64_ventura:  "81ceb978079fb317ee9ed96c9cb5a25630e9047359777d79203210b144dfd8c4"
     sha256 arm64_monterey: "fcbfd35272354e1477efa43d2e908ef07c242995741fbf3edbbba4ed239528d6"
@@ -27,6 +28,10 @@ class Siege < Formula
   uses_from_macos "zlib"
 
   def install
+    # workaround for newer clang
+    # notified upstream on the site on 2024-09-10
+    ENV.append_to_cflags "-Wno-int-conversion" if DevelopmentTools.clang_build_version >= 1403
+
     # To avoid unnecessary warning due to hardcoded path, create the folder first
     (prefix/"etc").mkdir
 
@@ -62,6 +67,6 @@ class Siege < Formula
   end
 
   test do
-    system "#{bin}/siege", "--concurrent=1", "--reps=1", "https://www.google.com/"
+    system bin/"siege", "--concurrent=1", "--reps=1", "https://www.google.com/"
   end
 end

@@ -7,6 +7,7 @@ class Lxc < Formula
   head "https://github.com/canonical/lxd.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "4819357eca98fa9b3275b36c9aa346a9933c7cd3562fc84cc3551d9ce05836c2"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2a80b2547e2b6db519b582309a06f4f7905820aa626555cf4ec259ee6db58c92"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "d0a71f095561e5c2ed19054c16455079bae4d6fdbe367f45364fcc2535c395a2"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "5fd47741213d1e89b424321a723f6c5a3157cebd794d8a49899f7002e7b49f59"

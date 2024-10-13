@@ -7,6 +7,7 @@ class Msgpuck < Formula
   head "https://github.com/rtsisyk/msgpuck.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "f84409ca74ea32a8c71174901ecdbe9abbf3d459df7fc5d1eac35f59ad7fc267"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2d53fd2848632fe20526ee4808f269706c4788b7e3f8d41f329fbb9c2437b77b"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "26e05760c2486aec44bc8d1f4fb968bcb9fecb980c693a8134e034d6d7885877"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4ca7fca2ee5beb10e49b21dd3f810450442147158a291e023acc8e7982630c7f"

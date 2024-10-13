@@ -7,6 +7,7 @@ class Movgrab < Formula
   revision 7
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "a58b74f845a6ae4a6900ea01ef855ba07bacf0fd24032764114c4fc18dc23bdb"
     sha256 cellar: :any,                 arm64_sonoma:   "c04859b004d24cb057ef9bec210fbe2e5959d4344ba1c0bfa0d555f48797e76f"
     sha256 cellar: :any,                 arm64_ventura:  "a1eb0df51a2bb3d1f5e689eee0c4e1d4c25f186e62e3215ddcfc6c26eee887fa"
     sha256 cellar: :any,                 arm64_monterey: "364748c6707826fda84e14d5bdbc0ce0f35a1b23a5f3338e6023b4a06b4e3897"
@@ -69,6 +70,6 @@ class Movgrab < Formula
   end
 
   test do
-    system "#{bin}/movgrab", "--version"
+    system bin/"movgrab", "--version"
   end
 end

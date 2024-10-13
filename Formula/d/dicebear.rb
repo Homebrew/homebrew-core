@@ -1,20 +1,17 @@
-require "language/node"
-
 class Dicebear < Formula
   desc "CLI for DiceBear - An avatar library for designers and developers"
   homepage "https://github.com/dicebear/dicebear"
-  url "https://registry.npmjs.org/dicebear/-/dicebear-9.2.1.tgz"
-  sha256 "b837106ca2dc746611f0926d8faf57182d06294e7a8450139e34de5bf7bd25f8"
+  url "https://registry.npmjs.org/dicebear/-/dicebear-9.2.2.tgz"
+  sha256 "ac1d4abf73dce99db7535b2ccf43a8d55a4219ffa526b96db31809e77fe4aa23"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "91aec5fd7e75f6a161668097fd4fa6f54f32c4e3685130b4a54f91b831fea9ac"
-    sha256 cellar: :any,                 arm64_ventura:  "91aec5fd7e75f6a161668097fd4fa6f54f32c4e3685130b4a54f91b831fea9ac"
-    sha256 cellar: :any,                 arm64_monterey: "91aec5fd7e75f6a161668097fd4fa6f54f32c4e3685130b4a54f91b831fea9ac"
-    sha256 cellar: :any,                 sonoma:         "af649e54fdf8f9294e4543e5c286340cd59de18a6a01befad2bfe5fbbdcf1ed6"
-    sha256 cellar: :any,                 ventura:        "af649e54fdf8f9294e4543e5c286340cd59de18a6a01befad2bfe5fbbdcf1ed6"
-    sha256 cellar: :any,                 monterey:       "1e55eff8926e24ab415c892a43edd2f623a58f632cdd9da92892592fa93a24be"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "63ed81281a4201b1f6c8c79603749ec74db5e5c83d4d2bb8903c3305ad0edf29"
+    sha256 cellar: :any,                 arm64_sequoia: "5046d62bd429c224479312085090e5ffff58d13afc0296e39862a45478261a12"
+    sha256 cellar: :any,                 arm64_sonoma:  "5046d62bd429c224479312085090e5ffff58d13afc0296e39862a45478261a12"
+    sha256 cellar: :any,                 arm64_ventura: "5046d62bd429c224479312085090e5ffff58d13afc0296e39862a45478261a12"
+    sha256                               sonoma:        "51873d0358db2c72a4d0750e0d385b91f4956acf2bad9e6b5a53b46c695f5db2"
+    sha256                               ventura:       "51873d0358db2c72a4d0750e0d385b91f4956acf2bad9e6b5a53b46c695f5db2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d8e5304c29b9f49af28a870360fc2964e32b884a2c59ebbd66ab028bda584ff7"
   end
 
   depends_on "node"
@@ -24,7 +21,7 @@ class Dicebear < Formula
   end
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", *std_npm_args
     bin.install_symlink Dir["#{libexec}/bin/*"]
 
     node_modules = libexec/"lib/node_modules/dicebear/node_modules"
@@ -33,7 +30,7 @@ class Dicebear < Formula
     os = OS.kernel_name.downcase
     arch = Hardware::CPU.intel? ? "x64" : Hardware::CPU.arch.to_s
     node_modules.glob("{bare-fs,bare-os}/prebuilds/*")
-                .each { |dir| dir.rmtree if dir.basename.to_s != "#{os}-#{arch}" }
+                .each { |dir| rm_r(dir) if dir.basename.to_s != "#{os}-#{arch}" }
   end
 
   test do

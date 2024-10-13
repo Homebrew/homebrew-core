@@ -11,6 +11,7 @@ class Alluxio < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "93b9cc8998810d417c0b5524006f19802f6e0cf1abe6872ea7da8953f454c96c"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3d18718fb624fd2db394d87aaca2d4a35b81530e6c78f85970a08fc8c8cb9f74"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "3d18718fb624fd2db394d87aaca2d4a35b81530e6c78f85970a08fc8c8cb9f74"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "3d18718fb624fd2db394d87aaca2d4a35b81530e6c78f85970a08fc8c8cb9f74"
@@ -35,7 +36,7 @@ class Alluxio < Formula
     bin.env_script_all_files libexec/"bin", Language::Java.overridable_java_home_env("11")
     chmod "+x", Dir["#{libexec}/bin/*"]
 
-    rm_rf Dir["#{etc}/alluxio/*"]
+    rm_r(Dir["#{etc}/alluxio/*"])
 
     (etc/"alluxio").install libexec/"conf/alluxio-env.sh.template" => "alluxio-env.sh"
     ln_sf "#{etc}/alluxio/alluxio-env.sh", "#{libexec}/conf/alluxio-env.sh"

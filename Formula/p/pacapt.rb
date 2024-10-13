@@ -6,7 +6,8 @@ class Pacapt < Formula
   license "Fair"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "fb8be933786f8348cc9852b23098c5b3186c2111d0aa7f4a5fd637bec3dae051"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "6691ef309d2ebf4b001358e04a24bf93569f5dfc42c31811cadffd6c3e605444"
   end
 
   def install
@@ -15,6 +16,6 @@ class Pacapt < Formula
   end
 
   test do
-    system "#{bin}/pacapt", "-Ss", "wget"
+    system bin/"pacapt", "-Ss", "wget"
   end
 end

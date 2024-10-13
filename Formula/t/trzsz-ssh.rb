@@ -1,18 +1,19 @@
 class TrzszSsh < Formula
   desc "Simple ssh client with trzsz ( trz / tsz ) support"
   homepage "https://trzsz.github.io/ssh"
-  url "https://github.com/trzsz/trzsz-ssh/archive/refs/tags/v0.1.21.tar.gz"
-  sha256 "598d749e50af298700bfaa416690383bb16b9fc3d15ec66951857323726e2124"
+  url "https://github.com/trzsz/trzsz-ssh/archive/refs/tags/v0.1.22.tar.gz"
+  sha256 "ccf5a113d68156b409d89fead784256b4fd6a6bbae6a2d70df1e4403d383a962"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4fc241d56341ccfab04805ebf53411421bf880cec78e1183a1a9145178f943b3"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1b7034e0457fc755f00726e4919f6088548e12aa6c076b63f4515a1a4658c5cd"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3f25067ead93df518dd607b40907b2197ef9c96d98aa6bbb9682cfe632792f94"
-    sha256 cellar: :any_skip_relocation, sonoma:         "70618e84647032c512e2d7398a95589308787671a24d10c5f0d78eb4fafe4ee2"
-    sha256 cellar: :any_skip_relocation, ventura:        "50f459b092d9a07cd37c00649d7abfb55f8a8ab7cf13de3448441bfd34d07d62"
-    sha256 cellar: :any_skip_relocation, monterey:       "478dcf79558b757da67b0da9d03624c68712c37e282a74a76a198126f78ba35e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4fc300fcbbc0fb0c6380fd357f1ecad3b0806da8ba921fa9bb542e8d7d918eb9"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "e6b2a6b5b2c89403d127d93f50dc18f1e91472c94353530de7378330e7933dbc"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5492415379fbd7159f38b5075842a3662cabd815e77e7abc77f4bc67d39a14c6"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5492415379fbd7159f38b5075842a3662cabd815e77e7abc77f4bc67d39a14c6"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5492415379fbd7159f38b5075842a3662cabd815e77e7abc77f4bc67d39a14c6"
+    sha256 cellar: :any_skip_relocation, sonoma:         "f69d82fa4beb36e67df26a299536e170b980e8671e980c14cf532448055f4114"
+    sha256 cellar: :any_skip_relocation, ventura:        "f69d82fa4beb36e67df26a299536e170b980e8671e980c14cf532448055f4114"
+    sha256 cellar: :any_skip_relocation, monterey:       "f69d82fa4beb36e67df26a299536e170b980e8671e980c14cf532448055f4114"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "834702bbebecfa8ceb019bf703ac0d3c041e06f7ef78e10c0e3271fa53c07c8a"
   end
 
   depends_on "go" => :build
@@ -24,11 +25,11 @@ class TrzszSsh < Formula
   end
 
   test do
-    assert_match "trzsz ssh #{version}", shell_output("#{bin}/tssh -V")
-    assert_match "trzsz ssh #{version}", shell_output("#{bin}/tssh --version")
+    assert_match "trzsz ssh #{version}", shell_output("#{bin}/tssh -V 2>&1")
+    assert_match "trzsz ssh #{version}", shell_output("#{bin}/tssh --version 2>&1")
 
-    assert_match "invalid option", shell_output("#{bin}/tssh -o abc", 255)
-    assert_match "invalid bind specification", shell_output("#{bin}/tssh -D xyz", 255)
-    assert_match "invalid forward specification", shell_output("#{bin}/tssh -L 123", 255)
+    assert_match "invalid option", shell_output("#{bin}/tssh -o abc 2>&1", 255)
+    assert_match "invalid bind specification", shell_output("#{bin}/tssh -D xyz 2>&1", 255)
+    assert_match "invalid forward specification", shell_output("#{bin}/tssh -L 123 2>&1", 255)
   end
 end

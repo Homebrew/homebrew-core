@@ -1,8 +1,8 @@
 class Libpipeline < Formula
   desc "C library for manipulating pipelines of subprocesses"
   homepage "https://libpipeline.gitlab.io/libpipeline/"
-  url "https://download.savannah.nongnu.org/releases/libpipeline/libpipeline-1.5.7.tar.gz"
-  sha256 "b8b45194989022a79ec1317f64a2a75b1551b2a55bea06f67704cb2a2e4690b0"
+  url "https://download.savannah.nongnu.org/releases/libpipeline/libpipeline-1.5.8.tar.gz"
+  sha256 "1b1203ca152ccd63983c3f2112f7fe6fa5afd453218ede5153d1b31e11bb8405"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -11,16 +11,14 @@ class Libpipeline < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "d2e84d71cf594876701d90b6de242f1e730cb0ccc21bd2f98d5c522b4b769a71"
-    sha256 cellar: :any,                 arm64_ventura:  "35abc98e794d1de477dae0c1982a34e6be42caf701cfe4e08c335ac0ec180463"
-    sha256 cellar: :any,                 arm64_monterey: "2dff66f60f4e5256cbdc39fce9dafbe19c1a682620455e0e120d1b9d6b6e5bf4"
-    sha256 cellar: :any,                 arm64_big_sur:  "2d9eb02b496aa0dbb565bcfca50ccb294c37b9b6f8055bd41e472b4f8cf34b6c"
-    sha256 cellar: :any,                 sonoma:         "24d4b3ad3529fe0ce5fe58091996f0829e071953be301363130d6d8049eeeeee"
-    sha256 cellar: :any,                 ventura:        "3c8cc5bee3e315a280a8ab7d87078fa46177e44f25987482164354f61e6d243a"
-    sha256 cellar: :any,                 monterey:       "646e4743ba1587ccf3c768307121277d6379acdc3582392e0565d92fa7ba7345"
-    sha256 cellar: :any,                 big_sur:        "4a8a4755b0c043a39a0ea76ed633c2e4f256428c37f9ba5e6cc798394ee8d24d"
-    sha256 cellar: :any,                 catalina:       "a796215ec7260521454da16526254ab307461ae584e074df5a864a6b4257f9fc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "01849a18b428e505f03acab84ec2051994cb0b62935c350dba41c74a24dcadf8"
+    sha256 cellar: :any,                 arm64_sequoia:  "f67581fe73ae3c61a464f81517ad552826b5fa3583c5c6eb03f3da49cf514aee"
+    sha256 cellar: :any,                 arm64_sonoma:   "4b787bff3015387a503f742b68c364dad56e0af8d31a6a8935223bc65aad6015"
+    sha256 cellar: :any,                 arm64_ventura:  "0cc8c97d57a3b87b05aae33064e6c0da47423dc55b805045d867ef066e811911"
+    sha256 cellar: :any,                 arm64_monterey: "b28d5147cafc83783181d99cc612056d062b5e15a90543351043af3afda40879"
+    sha256 cellar: :any,                 sonoma:         "e0354d5f278901871e1fc4ba62668680a1c80fe90bd9f3345206e5e5ea798b71"
+    sha256 cellar: :any,                 ventura:        "a1f870458e27abf80d1664aea510dbb59cf38b330a94253050c9ef17b2d2b7bd"
+    sha256 cellar: :any,                 monterey:       "ae49773c27c293203ce8e82194ee64edf81aace1b517029698f0a104cb82d878"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d9767e66d73f174a20b3ea560643f30e3bb3e2b5764c0fc5de4196247e13feee"
   end
 
   def install

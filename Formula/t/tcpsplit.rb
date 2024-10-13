@@ -3,6 +3,8 @@ class Tcpsplit < Formula
   homepage "https://web.archive.org/web/20230609122227/https://www.icir.org/mallman/software/tcpsplit/"
   url "https://web.archive.org/web/20230609122227/https://www.icir.org/mallman/software/tcpsplit/tcpsplit-0.2.tar.gz"
   sha256 "885a6609d04eb35f31f1c6f06a0b9afd88776d85dec0caa33a86cef3f3c09d1d"
+  # The license is similar to X11 but with a different phrasing to the no advertising clause
+  license :cannot_represent
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "59062e48ff67f9fc5a6b0f8d0cc397c888b1914c2881ac663d6ce8f9a074a34d"
@@ -24,7 +26,7 @@ class Tcpsplit < Formula
   # Upstream has an incomplete certificate chain,
   # so fetching and livechecking no longer work.
   # Last release on 2013-02-27
-  deprecate! date: "2023-12-05", because: :unmaintained
+  disable! date: "2024-09-05", because: :unmaintained
 
   uses_from_macos "libpcap"
 
@@ -34,6 +36,6 @@ class Tcpsplit < Formula
   end
 
   test do
-    system "#{bin}/tcpsplit", "--version"
+    system bin/"tcpsplit", "--version"
   end
 end

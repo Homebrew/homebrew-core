@@ -3,9 +3,10 @@ class Bbe < Formula
   homepage "https://sourceforge.net/projects/bbe-/"
   url "https://downloads.sourceforge.net/project/bbe-/bbe/0.2.2/bbe-0.2.2.tar.gz"
   sha256 "baaeaf5775a6d9bceb594ea100c8f45a677a0a7d07529fa573ba0842226edddb"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "a207fd77fb072a948ca2261b0b2968e98932bea8c7afa112d310c6a6d9739d39"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "da94323f0ee1b72c623dd63f3198dd8e25e0cb627277ff1bfeb9c81373441be5"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "e1c7ca0dd8b2f4c9161de533964c1d783b3e09c9a108880d87236db9a7401eab"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "095d439542aced7baf7f5994fe1d8ca64da82039222c1c083d09262cf559d4a4"
@@ -31,6 +32,6 @@ class Bbe < Formula
   end
 
   test do
-    system "#{bin}/bbe", "--version"
+    system bin/"bbe", "--version"
   end
 end

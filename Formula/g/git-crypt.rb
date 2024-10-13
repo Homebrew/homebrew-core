@@ -12,6 +12,7 @@ class GitCrypt < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "2183efc250bd46ddc922be9a3be21a8843699267bd2a2f12e5cfd04a3af99478"
     sha256 cellar: :any,                 arm64_sonoma:   "a9e4eda2135a14c3a3a87fa5b3812858185361d5c4f04bf6d8c8603cc1700fdd"
     sha256 cellar: :any,                 arm64_ventura:  "4b3a389b9dbf8a9f3e03009ec3b591dbe4814799b42e8708dc7690d1cce6b362"
     sha256 cellar: :any,                 arm64_monterey: "8f36b845135fef7f95c1836cce21522ed8c95ab43d3392bd0221268fd61dd1fb"
@@ -37,6 +38,6 @@ class GitCrypt < Formula
   end
 
   test do
-    system "#{bin}/git-crypt", "keygen", "keyfile"
+    system bin/"git-crypt", "keygen", "keyfile"
   end
 end

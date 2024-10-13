@@ -13,6 +13,7 @@ class Jupp < Formula
   end
 
   bottle do
+    sha256 arm64_sequoia:  "69af220c327528966dd893daab6d625a5b5241b9273f7b53decb37c5f1e33efe"
     sha256 arm64_sonoma:   "501d87f4b79bf8ae4a8a67b811fbca484e6bc68f6b1e04d9abfb0b1948430880"
     sha256 arm64_ventura:  "821daf3c2f840c5a9942de15a4b0c226928e35808079db3f0d48e686a474f08d"
     sha256 arm64_monterey: "b5732141fc6bfe41e312ee4492c2680a3dcfba4a3951c8f6ab590b2e6c887a01"

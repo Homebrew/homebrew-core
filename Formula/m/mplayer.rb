@@ -12,17 +12,15 @@ class Mplayer < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sonoma:   "35abd74151d5a6a5dfa5e734760a561d988afb0bac7c1210049836bec80f0f97"
-    sha256 cellar: :any,                 arm64_ventura:  "7d050d5dcac278c608d5a152c95accda9294389636b902ef2f6267298d42c8da"
-    sha256 cellar: :any,                 arm64_monterey: "79154ab80a76e3ffe7346287c18480cc9762acdf638a520ac2f0610f1580406e"
-    sha256 cellar: :any,                 arm64_big_sur:  "caaee4a430194ac3e9f942c06390b92c505d7e01eb2345df067e6cd3fe44c477"
-    sha256 cellar: :any,                 sonoma:         "7550f1d761cb2f4f3e6af00570c5086d01660aaf6e76eec06f29f59e46ad9f9f"
-    sha256 cellar: :any,                 ventura:        "af54e0730489194bc2152761cbc244f7028a548c0b8d935ed2fe7e2446a73475"
-    sha256 cellar: :any,                 monterey:       "dfadfbf16c6f85e94145fa4c6f9333124ced9749744f68cb6f41ea34be422872"
-    sha256 cellar: :any,                 big_sur:        "c0b675e5aeb8354a52b73f12f22a47ed77ee765737a558280c2f9d80e388c398"
-    sha256 cellar: :any,                 catalina:       "ba3e8faff3e50f9d85d1b4ff0e28047883f9ad86e502c249ecc7be482d5f22bf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "897462e9d760c8737c08878e1dbbf8afec17c9dfec0fc09d2992e4f56a5e935d"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_sequoia:  "4d99950e65cb0275765a4b1c8b0ebfc33723d09d20b009a01751f991af55148e"
+    sha256 cellar: :any,                 arm64_sonoma:   "203e6bd9b216cf53d6042de09ed3c4dc1070cd56034279b7eebf3f8f18379b10"
+    sha256 cellar: :any,                 arm64_ventura:  "1b17dde1bb0e77e6b994464b92081b3be76df73ab89634c978711c5bb8f4e593"
+    sha256 cellar: :any,                 arm64_monterey: "c5516ace4b68e19b4ebcce79ca80ae09bdd7a950054963241333eec4275a80b0"
+    sha256 cellar: :any,                 sonoma:         "25f304026cc023e94a49693c47193d3068199cf978d270889fb514f4427495bf"
+    sha256 cellar: :any,                 ventura:        "6e159e7274b6c6a461eaf17a9121c97e840a1eeaf93228ee1508d57eed6ad230"
+    sha256 cellar: :any,                 monterey:       "ee6ac92f78cb0f428c78f4184ac2e5fb391f6a7cc6083541f3df483bf9a2239e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "364ce29a5a68f3ebbcf8dec1f198cfb84e7efb4de60064a06af90babc8ece54d"
   end
 
   head do
@@ -39,10 +37,24 @@ class Mplayer < Formula
   depends_on "freetype"
   depends_on "jpeg-turbo"
   depends_on "libcaca"
+  depends_on "libpng"
 
+  uses_from_macos "bzip2"
   uses_from_macos "libxml2"
+  uses_from_macos "ncurses"
+  uses_from_macos "zlib"
 
   def install
+    # Work around build failure with newer Clang
+    if DevelopmentTools.clang_build_version >= 1500
+      ENV.append_to_cflags "-Wno-int-conversion -Wno-incompatible-function-pointer-types"
+    end
+
+    # Fix x86_64 detection used to apply a workaround.
+    # TODO: Remove on the next release as code was removed.
+    # Issue ref: https://trac.mplayerhq.hu/ticket/2383
+    inreplace "libvo/osx_objc_common.m", " defined(x86_64)", " defined(__x86_64__)" if build.stable?
+
     # we disable cdparanoia because homebrew's version is hacked to work on macOS
     # and mplayer doesn't expect the hacks we apply. So it chokes. Only relevant
     # if you have cdparanoia installed.
@@ -63,7 +75,7 @@ class Mplayer < Formula
   end
 
   test do
-    system "#{bin}/mplayer", "-ao", "null", "/System/Library/Sounds/Glass.aiff"
+    system bin/"mplayer", "-ao", "null", "/System/Library/Sounds/Glass.aiff"
   end
 end
 

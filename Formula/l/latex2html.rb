@@ -11,6 +11,7 @@ class Latex2html < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "7df9f064562fec47973c8cf86aeda695d9c47afc538141972e4423606fe531ab"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f51edb7b0b1c5e91a3920324770d0140dabd25463a47a2637326cea1eb6ef096"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "4ac8a480f394fa974959d53a32fffb93ac1cfabce1e3fb391cb664742a8fae1e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f841da77f49f00b9a8a8414b4409d5fea0a0b2176fa398ec897af94f741a9791"
@@ -40,7 +41,7 @@ class Latex2html < Formula
       \\maketitle
       \\end{document}
     EOS
-    system "#{bin}/latex2html", "test.tex"
+    system bin/"latex2html", "test.tex"
     assert_match "Experimental Setup", File.read("test/test.html")
   end
 end

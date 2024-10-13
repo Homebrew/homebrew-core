@@ -15,6 +15,7 @@ class ChainBench < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "43d2b953458c68d99277c0e0ac73cb2f28c89b6257f5bb4cc4ca41c20ba76d1f"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7eb818aaaee9a6ac713d2736e6b8daab233d79c28dafe50179e45754e89b3245"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "cda1d20699ec3fc5285084a2add027d00aa96216143ece4e56fed47d66290ffb"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "141af4bf17cd7756e628464ad2be2b5ec6e4ff00eaa93cb24fac29058caf7eb6"

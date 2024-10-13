@@ -11,9 +11,12 @@ class Dynomite < Formula
   end
 
   bottle do
+    sha256                               arm64_sequoia:  "e1eb2ecffe6ef0e08d0cc80b5f5ca44a337e2c4d79dde61be3ad2002d2e31fd3"
+    sha256                               arm64_sonoma:   "1c273876dda80923311eed315f5c69de5e692fe4a666e7e937954895dd9f57c0"
     sha256 cellar: :any,                 arm64_ventura:  "757afdc3438ad136afef540fee6a07e42a51b3c1bbde3a25fb13bd19e5807d33"
     sha256 cellar: :any,                 arm64_monterey: "682e0e5ec05ccfdd2fe8142083153dc6a0c14d3b1d7cc8c0dc1cd425aded9e41"
     sha256 cellar: :any,                 arm64_big_sur:  "edd9fad6b17b83dbf2d2699c3873463ea169a996fed83e861652bb5f92de4d7a"
+    sha256                               sonoma:         "1f189756392ee5476ffd10499b054c0d21a71b5addd75632cd84a37a3a4f25ce"
     sha256 cellar: :any,                 ventura:        "98d4209a06b832e81859388bd4da429cdbd87f9103d31656b2d094375221e1fa"
     sha256 cellar: :any,                 monterey:       "5679f89f06a1f5ac53e3c4d2481f35e944238be44579423aab64077e5033c637"
     sha256 cellar: :any,                 big_sur:        "8a79d6ed731e5a44a26b5691723edc02ca0ed66e4c54fa08bdc183082dd8531b"
@@ -26,13 +29,27 @@ class Dynomite < Formula
   depends_on "libtool" => :build
   depends_on "openssl@3"
 
+  # Apply fix for -fno-common from gcc-10 branch
+  # Ref: https://github.com/Netflix/dynomite/issues/802
+  patch do
+    on_linux do
+      url "https://github.com/dmolik/dynomite/commit/303d4ecae95aee9540c48ceac9e7c0f2137a4b52.patch?full_index=1"
+      sha256 "a195c75e49958b4ffcef7d84a5b01e48ce7b37936c900e466c1cd2d96b52ac37"
+    end
+  end
+
   def install
-    system "autoreconf", "-fvi"
-    system "./configure", *std_configure_args,
-                          "--disable-silent-rules"
+    # Work around build failure on recent Clang
+    # Issue ref: https://github.com/Netflix/dynomite/issues/818
+    if DevelopmentTools.clang_build_version >= 1500
+      ENV.append_to_cflags "-Wno-implicit-function-declaration -Wno-int-conversion"
+    end
+
+    system "autoreconf", "--force", "--install", "--verbose"
+    system "./configure", "--disable-silent-rules", "--sysconfdir=#{pkgetc}", *std_configure_args
     system "make"
     system "make", "install"
-    (etc/"dynomite").install Dir["conf/*"]
+    pkgetc.install Dir["conf/*"]
   end
 
   test do

@@ -13,6 +13,7 @@ class Premake < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "3bfc9dcaa66a02d7a66b6dfe7ea26c30051bced4c021f213f918defb1400daa8"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2c98ca72530e48dbdc33ccb631a81beee53314e93d6f5312684472ac9175306a"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "b7c0e198ec64df063c624729b362aeffcf03b6a7c3d369a289553830aa84e76e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c1a2d677314bd928dbbe53c160bd3d67477b485904f7df4afe1e7d92876380d7"
@@ -47,7 +48,6 @@ class Premake < Formula
   end
 
   test do
-    expected_version = build.head? ? "-dev" : version.to_s
-    assert_match expected_version, shell_output("#{bin}/premake5 --version")
+    assert_match version.to_s, shell_output("#{bin}/premake5 --version")
   end
 end

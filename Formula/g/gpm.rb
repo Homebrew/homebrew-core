@@ -12,7 +12,7 @@ class Gpm < Formula
   end
 
   # https://tip.golang.org/doc/go1.22
-  deprecate! date: "2023-12-21", because: "go get is no longer supported outside of a module"
+  disable! date: "2024-08-03", because: "go get is no longer supported outside of a module"
 
   depends_on "go"
 

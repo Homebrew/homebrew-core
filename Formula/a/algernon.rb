@@ -13,6 +13,7 @@ class Algernon < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "c45f36e5ea025e82731d853ab05ead81ed7f214e87fefa46c4402a57463efb12"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7cb38b790c0fbc31648625a19b166089845ddaf8879fe746c3fa70c88d0de8a3"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "8a85309975e505544f0bfd3a80fea817463c3c859bb55610300781267005ca31"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e0f7fc7e6ab6af42a32ea004e8bd5f735da517364a034b9721a6bc6bc22d7cb4"
@@ -33,7 +34,7 @@ class Algernon < Formula
   test do
     port = free_port
     pid = fork do
-      exec "#{bin}/algernon", "-s", "-q", "--httponly", "--boltdb", "tmp.db",
+      exec bin/"algernon", "-s", "-q", "--httponly", "--boltdb", "tmp.db",
                               "--addr", ":#{port}"
     end
     sleep 20

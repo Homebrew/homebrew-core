@@ -7,6 +7,7 @@ class Helix < Formula
   head "https://github.com/helix-editor/helix.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "aca220707560d244dacaf31bdee297ea3fb06a0f0233950e7f79356d38b8e916"
     sha256 cellar: :any,                 arm64_sonoma:   "294f4104897fbacba617e5a36b03c0fd9b76045cc945b1e9d8724a6fe0b3c704"
     sha256 cellar: :any,                 arm64_ventura:  "a39d33d07ff5d24d1828fa73fdc3a9929f2eb117f69458343474bad381fa3be0"
     sha256 cellar: :any,                 arm64_monterey: "a805b9cf92bea4af28978aa01be47e92b03e33ab00f2b6af59a362c97fae159e"

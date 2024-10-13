@@ -3,9 +3,10 @@ class NoMoreSecrets < Formula
   homepage "https://github.com/bartobri/no-more-secrets"
   url "https://github.com/bartobri/no-more-secrets/archive/refs/tags/v1.0.1.tar.gz"
   sha256 "4422e59bb3cf62bca3c73d1fdae771b83aab686cd044f73fe14b1b9c2af1cb1b"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "49db28f730a1161803aea7fc495500e939e07c5b424491c8e55263a3d099a505"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8e5b8371902771d0fc72ecc7d5e85ebdbcc4cd84269b5397c6c7e87ad6e13e0b"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "3bdce162d45e3059543b396e4eda6481e47ec9dc3b44e9a8d439262bdcd8fb20"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "66520c02cdeb6c76be9f7e64353b63950e3c017ebfeb475a18c87c3b51a380d7"

@@ -1,18 +1,17 @@
 class S3scanner < Formula
   desc "Scan for misconfigured S3 buckets across S3-compatible APIs!"
   homepage "https://github.com/sa7mon/S3Scanner"
-  url "https://github.com/sa7mon/S3Scanner/archive/refs/tags/v3.0.4.tar.gz"
-  sha256 "a3bd4d4a224266723ee4002e252fd0a543a8f0b7ceb167d2126b4da30ded81ad"
+  url "https://github.com/sa7mon/S3Scanner/archive/refs/tags/v3.1.1.tar.gz"
+  sha256 "2d333c31909baa21e024d11db1b03647fff3d210d73fa7fa47f598d3d459a20c"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f1462135a4437ad39b1bb2b50d93a5c39db643f88a960e7e9af7b06cd34a194a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f3bfa121b90ddac8bdb8584a0624d02b96e19f48df759e94be62365b7d818d39"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3c57e3ddba57070fdcc0ce7bbb9176cafa62c0e7e3dde6beff24c08f1d12505c"
-    sha256 cellar: :any_skip_relocation, sonoma:         "5f44fd1937d5244aaafc94889946704e68fbcf8d2da27cea770292d290d2ad32"
-    sha256 cellar: :any_skip_relocation, ventura:        "26fda5ad547ce85b5bffb6ca5c47e7ed12908ed1f58c48739a927cda0185a442"
-    sha256 cellar: :any_skip_relocation, monterey:       "10c6628b566eb910fe07df427cdb62fe037f3e1772211b1f18af7cba502c8191"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "441f30f307e215d3ac9075b52be70bd2d4ca7a014cb63cf7465b1037a9877445"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2e8d161cfdd4356026c4625343354a2c58c59cc07542cb5b29b7117acffd19b3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2e8d161cfdd4356026c4625343354a2c58c59cc07542cb5b29b7117acffd19b3"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "2e8d161cfdd4356026c4625343354a2c58c59cc07542cb5b29b7117acffd19b3"
+    sha256 cellar: :any_skip_relocation, sonoma:        "aa0fdf4a17911994cb55fb32bb65a3f1eff54436f860fc87e4acd6207c06e048"
+    sha256 cellar: :any_skip_relocation, ventura:       "aa0fdf4a17911994cb55fb32bb65a3f1eff54436f860fc87e4acd6207c06e048"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5e76a8131cd2e58061e5bcfdfd351034b0222016877e349f58431b8b2d3400fb"
   end
 
   depends_on "go" => :build

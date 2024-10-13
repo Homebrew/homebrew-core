@@ -1,33 +1,30 @@
-require "language/node"
-
 class Mako < Formula
   desc "Production-grade web bundler based on Rust"
   homepage "https://makojs.dev"
-  url "https://registry.npmjs.org/@umijs/mako/-/mako-0.7.8.tgz"
-  sha256 "b0219ded0a0595688ddaebcf0415226d913d635988a6151d81b4678e69cbacc2"
+  url "https://registry.npmjs.org/@umijs/mako/-/mako-0.8.15.tgz"
+  sha256 "c9bda60ce9eef8ba37f7d37f3e4cb478807352c1d6415f1274930ff30c2893ec"
   license "MIT"
 
   bottle do
-    sha256                               arm64_sonoma:   "9694d708be0ddb5b84c287bbd4c7453571659080da33aaa11bf7590b2c80c1cc"
-    sha256                               arm64_ventura:  "82efc6f0297bc46ff92ab8d6f622fcb44e34d28effe5e03e0557447e8ad42cb1"
-    sha256                               arm64_monterey: "b6e51dc870283e0b1b5d93fa3d19d4e23cd59ae941e106d961a4ecc261722fe9"
-    sha256                               sonoma:         "1eeef55203dbeb5929d86d0a32a7d150cff98acb54d55f94e20b7af963ba5eb6"
-    sha256                               ventura:        "0792b15124e60e7a01f089bf42e5fd8c583dc899adbe2a508a2e8430bbac3a7c"
-    sha256                               monterey:       "0023ce3bd717511ab236499b86022d9565680b89cc691d6c81fee654451e3b8f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c7b7a6e38c9bc5fd39185e94f3e318bc27ff92ab219d89f918d1b88f46f6e68e"
+    sha256 cellar: :any,                 arm64_sequoia: "62c7f062019bf9a0e2672c1b3d71fdcfe9db095f377024ae459e9d3b014e0f3b"
+    sha256 cellar: :any,                 arm64_sonoma:  "62c7f062019bf9a0e2672c1b3d71fdcfe9db095f377024ae459e9d3b014e0f3b"
+    sha256 cellar: :any,                 arm64_ventura: "62c7f062019bf9a0e2672c1b3d71fdcfe9db095f377024ae459e9d3b014e0f3b"
+    sha256 cellar: :any,                 sonoma:        "298a584ada7cd3be692562fbba4d3352842031638020386b2501534c2cc7095c"
+    sha256 cellar: :any,                 ventura:       "298a584ada7cd3be692562fbba4d3352842031638020386b2501534c2cc7095c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9e00a2cf16e1dcc4ba1d0c3c83130a2b85a2037ca6cd339f68e5482f9c89ee39"
   end
 
   depends_on "node"
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", *std_npm_args
     bin.install_symlink Dir["#{libexec}/bin/*"]
 
     # Remove incompatible pre-built binaries
     os = OS.kernel_name.downcase
     arch = Hardware::CPU.intel? ? "x64" : Hardware::CPU.arch.to_s
     libexec.glob("lib/node_modules/@umijs/mako/node_modules/nice-napi/prebuilds/*")
-           .each { |dir| dir.rmtree if dir.basename.to_s != "#{os}-#{arch}" }
+           .each { |dir| rm_r(dir) if dir.basename.to_s != "#{os}-#{arch}" }
   end
 
   test do

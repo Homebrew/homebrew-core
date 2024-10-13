@@ -7,6 +7,7 @@ class Argtable < Formula
   license "LGPL-2.0-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "ac1c99cc90796da54dcfa48415939944d6608a1284d6c1eb2650d43717a4d622"
     sha256 cellar: :any,                 arm64_sonoma:   "0f2a92f017739cf52ff30229bbbb87fed5e9d818ae9655685227d5f72a94825a"
     sha256 cellar: :any,                 arm64_ventura:  "01d3903a4cc0bd3c007b2c8401479c8abcca6d2f0ace9ad7659e95ee241819db"
     sha256 cellar: :any,                 arm64_monterey: "988e6dea2d2b5b0d6fdd8d6d0b91430ce5e5e61e176550000068983614f4874e"

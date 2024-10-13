@@ -15,6 +15,7 @@ class Wandio < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "685add7045c60ef524de06b753866b39fcb9a35b25dc57041609b8661b2bf545"
     sha256 cellar: :any,                 arm64_sonoma:   "3653ed92c97fe1d0574bb854a16e54fce8c25740a75aaf6989bc065fbfe5477b"
     sha256 cellar: :any,                 arm64_ventura:  "ad3894a632efe3456a375e96358f0f1719a57856d8bce53d4d7f13095a3b62f8"
     sha256 cellar: :any,                 arm64_monterey: "755dd52c90ec7a3db4b475f24ebe60805b0d1ca1812cc65a2764e12bdbbcba54"
@@ -47,7 +48,7 @@ class Wandio < Formula
   end
 
   test do
-    system "#{bin}/wandiocat", "-z", "9", "-Z", "gzip", "-o", "test.gz",
+    system bin/"wandiocat", "-z", "9", "-Z", "gzip", "-o", "test.gz",
       test_fixtures("test.png"), test_fixtures("test.pdf")
     assert_predicate testpath/"test.gz", :exist?
   end

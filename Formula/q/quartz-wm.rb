@@ -7,6 +7,7 @@ class QuartzWm < Formula
   license "APSL-2.0"
 
   bottle do
+    sha256 cellar: :any, arm64_sequoia:  "4c47db2f95f422bf84be4900c8ed90c96f5337a34c0a6279f524b618671c2425"
     sha256 cellar: :any, arm64_sonoma:   "8383efc0dafe5d0f14b6dd255b3f4a336ff8b5ad347005fab412e0b466bf3253"
     sha256 cellar: :any, arm64_ventura:  "a6c735c400154429cb612b7886bdcab1337a7e1b65e2c94a14bef1404e6aa4dd"
     sha256 cellar: :any, arm64_monterey: "cabeb2c482930b2f1e03a6328659546bd6847497a56c838f48efb86678cf798b"
@@ -25,28 +26,29 @@ class QuartzWm < Formula
   depends_on "xorg-server" => :test
 
   depends_on "libapplewm"
+  depends_on "libx11"
+  depends_on "libxext"
   depends_on "libxinerama"
   depends_on "libxrandr"
   depends_on :macos
   depends_on "pixman"
 
   def install
-    configure_args = std_configure_args + %W[
-      --with-bundle-id-prefix=#{Formula["xinit"].plist_name.chomp ".startx"}
-    ]
-
-    system "autoreconf", "-i"
-    system "./configure", *configure_args
-    system "make"
+    system "autoreconf", "--force", "--install", "--verbose"
+    system "./configure", "--with-bundle-id-prefix=#{Formula["xinit"].plist_name.chomp ".startx"}",
+                          *std_configure_args.reject { |s| s["--disable-debug"] }
     system "make", "install"
   end
 
   test do
+    ENV["DISPLAY"] = ":1"
+
     fork do
       exec Formula["xorg-server"].bin/"Xvfb", ":1"
     end
-    ENV["DISPLAY"] = ":1"
-    sleep 10
+
+    sleep 5
+
     fork do
       exec bin/"quartz-wm"
     end

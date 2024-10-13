@@ -1,8 +1,8 @@
 class Libuv < Formula
   desc "Multi-platform support library with a focus on asynchronous I/O"
   homepage "https://libuv.org"
-  url "https://github.com/libuv/libuv/archive/refs/tags/v1.48.0.tar.gz"
-  sha256 "8c253adb0f800926a6cbd1c6576abae0bc8eb86a4f891049b72f9e5b7dc58f33"
+  url "https://github.com/libuv/libuv/archive/refs/tags/v1.49.1.tar.gz"
+  sha256 "94312ede44c6cae544ae316557e2651aea65efce5da06f8d44685db08392ec5d"
   license "MIT"
   head "https://github.com/libuv/libuv.git", branch: "v1.x"
 
@@ -12,13 +12,12 @@ class Libuv < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "803e5cefd2523e4f7fb2d70497df5df4b6bfbf3f285cfde9e9ff05f815bfb879"
-    sha256 cellar: :any,                 arm64_ventura:  "5106b72009a33f1d670f25cf5d32b6262b68e8e56f6c81ed44fe52dc51434b08"
-    sha256 cellar: :any,                 arm64_monterey: "d00a735e0a6d7d83a3e9a8194d6e98aac12b1d65a121c1b4355539fce0957593"
-    sha256 cellar: :any,                 sonoma:         "06b2dfb049b8962aab284b4e79f6c930a511a6d91e70055e3ee2ac8c53a36109"
-    sha256 cellar: :any,                 ventura:        "34884eec86c4979a89a979c513390a61b66c43cefc494f8379d7526b73032250"
-    sha256 cellar: :any,                 monterey:       "a4a9a1c0a453231b4e808ec26312c2f8da069ba085d3b748369c09298d35102d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d6a002656a1f5136d4e6c5bfb22051fd5156860ad7d3e01b70db240ad76a87a6"
+    sha256 cellar: :any,                 arm64_sequoia: "c18b0e0d1e2b638d3262a848b19041fd86207cf805780ece6e8ee2808309d493"
+    sha256 cellar: :any,                 arm64_sonoma:  "9c23ac1a83b934938a24173ac408644d656e353ad19bd7690cd9ab99d0fd6daa"
+    sha256 cellar: :any,                 arm64_ventura: "9afefc18232568a28ca3f5c2a66237f04d778834535d3256f1ed4684fcfb063d"
+    sha256 cellar: :any,                 sonoma:        "ca00d77194a448a0c5729ea0dc37924f0aac0f67098903d3863a762e5049bc98"
+    sha256 cellar: :any,                 ventura:       "f93080535137e4f547afccfc47e89afd1d1b0b5ff53405c04d2931c3dd833cd1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a71db46a99622b9c8a1819fe0225c676c8056fc71ae3b8f003d8ed99e88b1958"
   end
 
   depends_on "autoconf" => :build

@@ -13,6 +13,7 @@ class Lmdb < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "793c48c12fba8c6c49a9a390f1d142f9e21fbd67a300b89db0ad14e8c2b0b799"
     sha256 cellar: :any,                 arm64_sonoma:   "03945de1d7a1c49c341852a1efb8eaa431b4024a9920734b7e580c762be685cc"
     sha256 cellar: :any,                 arm64_ventura:  "013c00a97026bc02ebc64c1064ec4d91c8b0ca88e7de8905e7474ff04ad7bb17"
     sha256 cellar: :any,                 arm64_monterey: "6eb88efa4257b87f20ce077361aeef457f6939de01bb4131b33692e272fa3340"

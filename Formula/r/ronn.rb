@@ -12,6 +12,7 @@ class Ronn < Formula
   end
 
   bottle do
+    sha256                               arm64_sequoia:  "bdc72063db5be27dc1d34d941c0e249b39a9c7df448ef3914863948dad7ddc29"
     sha256                               arm64_sonoma:   "416aeca29910f0ce1822a255a7d73809d4dd1a29e5d6fb8375aaf5001343a293"
     sha256                               arm64_ventura:  "408a7986228c62661d63bd01bc2d3ba03e22641018915a3366bcb4b9aa1bf92a"
     sha256                               arm64_monterey: "5cf031f43f4b10d293293263784cebbfe3d1616412dce8ed94c78ea34297cfcf"

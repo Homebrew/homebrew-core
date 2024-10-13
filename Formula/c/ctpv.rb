@@ -6,6 +6,7 @@ class Ctpv < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "37152d389946123d23de9ee5d1bcda011032a94ba42e1df5ce82363c4224ae56"
     sha256 cellar: :any,                 arm64_sonoma:   "5b92c898bfc950574c2a7b15d19dc064610d2a7df9c0825839ae83d864d49a35"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "07d558283ff80cd3054aee902b229c0c0b23ae63190cb2ea1d0b235e1263ec15"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "5071c8b89a29f293d184780ec3214faca02fc5196329043f99a8cff76657982a"

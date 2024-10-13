@@ -6,48 +6,55 @@ class PgPartman < Formula
   license "PostgreSQL"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c56840f6d344008d864863de5feff7b47c2bd0c521083d07e5ef49b4924a3809"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bf48c9c38dcb45a5646e2148c49d0de6a7099ed316e52b9a3cca5faac1500b5e"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "eda23266bd52c4628e3882d906aa9dad2a7db08d862040c55ad8c946c4e29975"
-    sha256 cellar: :any_skip_relocation, sonoma:         "c1dbe58ee7d246699775795b63ef8163b9e0ee89b5b39ea8569872f0321b9413"
-    sha256 cellar: :any_skip_relocation, ventura:        "b97109681a98ef37ca016346f8a3133d1ed87d8da0fe55086a6001ff2b5996e5"
-    sha256 cellar: :any_skip_relocation, monterey:       "583ba02efc0220db153efbbbd30e8fea14310a60513056db634b5516ecb8309f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4fafe8ac83d791278343a73cd2d41511738305e51c099ada727d149481ededdd"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "995615e05892a4a62213fd7248beaef88fdd345b3a386b6378f93f28e42112de"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2c2e05b74290971c37bb8cd1af765a95e1b9f3241cdd73373a74b125619a74da"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "f44f771ad70e19ef41072b2a1465ce0aa1019cd77c475d6a9583484c284eaa0b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "1c474f3a11de006f0c84e159dc21971c5da027b0138f52d5f31689baad2afa53"
+    sha256 cellar: :any_skip_relocation, ventura:       "a9ce480d5188be5afa9ab08a75c12f2fc1f6993fa948d1350b2528c9d7687128"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "61a6d1327005efb276aa8487952bd916293aa83a33efc96307334faa2bbfa2d9"
   end
 
-  depends_on "postgresql@14"
+  depends_on "postgresql@14" => [:build, :test]
+  depends_on "postgresql@17" => [:build, :test]
 
-  def postgresql
-    Formula["postgresql@14"]
+  def postgresqls
+    deps.map(&:to_formula).sort_by(&:version).filter { |f| f.name.start_with?("postgresql@") }
   end
 
   def install
-    ENV["PG_CONFIG"] = postgresql.opt_bin/"pg_config"
+    postgresqls.each do |postgresql|
+      ENV["PG_CONFIG"] = postgresql.opt_bin/"pg_config"
 
-    system "make"
-    system "make", "install", "bindir=#{bin}",
-                              "docdir=#{doc}",
-                              "datadir=#{share/postgresql.name}",
-                              "pkglibdir=#{lib/postgresql.name}"
+      system "make"
+      system "make", "install", "bindir=#{bin}",
+                                "docdir=#{doc}",
+                                "datadir=#{share/postgresql.name}",
+                                "pkglibdir=#{lib/postgresql.name}"
+      system "make", "clean"
+    end
   end
 
   test do
     ENV["LC_ALL"] = "C"
-    pg_ctl = postgresql.opt_bin/"pg_ctl"
-    psql = postgresql.opt_bin/"psql"
-    port = free_port
+    postgresqls.each do |postgresql|
+      pg_ctl = postgresql.opt_bin/"pg_ctl"
+      psql = postgresql.opt_bin/"psql"
+      port = free_port
 
-    system pg_ctl, "initdb", "-D", testpath/"test"
-    (testpath/"test/postgresql.conf").write <<~EOS, mode: "a+"
+      datadir = testpath/postgresql.name
+      system pg_ctl, "initdb", "-D", datadir
+      (datadir/"postgresql.conf").write <<~EOS, mode: "a+"
 
-      shared_preload_libraries = 'pg_partman_bgw'
-      port = #{port}
-    EOS
-    system pg_ctl, "start", "-D", testpath/"test", "-l", testpath/"log"
-    begin
-      system psql, "-p", port.to_s, "-c", "CREATE EXTENSION \"pg_partman\";", "postgres"
-    ensure
-      system pg_ctl, "stop", "-D", testpath/"test"
+        shared_preload_libraries = 'pg_partman_bgw'
+        port = #{port}
+      EOS
+      system pg_ctl, "start", "-D", datadir, "-l", testpath/"log-#{postgresql.name}"
+      begin
+        system psql, "-p", port.to_s, "-c", "CREATE EXTENSION \"pg_partman\";", "postgres"
+      ensure
+        system pg_ctl, "stop", "-D", datadir
+      end
     end
   end
 end

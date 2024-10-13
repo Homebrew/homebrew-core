@@ -7,6 +7,7 @@ class Pdftilecut < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "3cbcdc3069541bb3a18e8fa0b9bf4931740bcd8f50febda125bc4b0765d2ab6b"
     sha256 cellar: :any,                 arm64_sonoma:   "5df716228987bac9092a9b4e82ecc40fba715e987125fc8b21004f77e0b227ea"
     sha256 cellar: :any,                 arm64_ventura:  "d96b83fed8d3cacfbf13526f6be72a4b6ac8602dcfe73248b9e60cdfda3f9d45"
     sha256 cellar: :any,                 arm64_monterey: "d8c459893d9b12984b346151d7828373281c6d69d26e4a60408b0b74712b4df9"
@@ -29,7 +30,7 @@ class Pdftilecut < Formula
 
   test do
     testpdf = test_fixtures("test.pdf")
-    system "#{bin}/pdftilecut", "-tile-size", "A6", "-in", testpdf, "-out", "split.pdf"
+    system bin/"pdftilecut", "-tile-size", "A6", "-in", testpdf, "-out", "split.pdf"
     assert_predicate testpath/"split.pdf", :exist?, "Failed to create split.pdf"
   end
 end

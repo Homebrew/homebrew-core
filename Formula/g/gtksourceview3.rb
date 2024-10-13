@@ -12,6 +12,7 @@ class Gtksourceview3 < Formula
   end
 
   bottle do
+    sha256 arm64_sequoia:  "224ac2e0b389c7042f62b4402665368612132e6c25715017700ad776bfff7524"
     sha256 arm64_sonoma:   "52fd0b688066b7ae0c5d9a87ddb185136dbeebd11b336ae776eeed43f4ce6399"
     sha256 arm64_ventura:  "c0e6dcec74dcad611bbd070ec935726d1a6e2ab55db8de33fd1aff89171cca21"
     sha256 arm64_monterey: "1478db6878ebe7cf4e472197126c565df4ea939aeb91470a610cfe88ce3de7b0"
@@ -24,7 +25,15 @@ class Gtksourceview3 < Formula
   depends_on "gobject-introspection" => :build
   depends_on "pkg-config" => [:build, :test]
   depends_on "vala" => :build
+
+  depends_on "at-spi2-core"
+  depends_on "cairo"
+  depends_on "gdk-pixbuf"
+  depends_on "glib"
   depends_on "gtk+3"
+  depends_on "pango"
+
+  uses_from_macos "libxml2"
 
   on_macos do
     depends_on "autoconf" => :build
@@ -32,14 +41,16 @@ class Gtksourceview3 < Formula
     depends_on "gtk-doc" => :build
     depends_on "libtool" => :build
     depends_on "gettext"
+    depends_on "harfbuzz"
   end
 
   def install
     system "autoreconf", "--verbose", "--install", "--force" if OS.mac?
-    system "./configure", *std_configure_args,
-                          "--disable-silent-rules",
+
+    system "./configure", "--disable-silent-rules",
                           "--enable-vala=yes",
-                          "--enable-introspection=yes"
+                          "--enable-introspection=yes",
+                          *std_configure_args
     system "make", "install"
   end
 
@@ -52,7 +63,7 @@ class Gtksourceview3 < Formula
         return 0;
       }
     EOS
-    ENV.libxml2
+
     flags = shell_output("pkg-config --cflags --libs gtksourceview-3.0").strip.split
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"

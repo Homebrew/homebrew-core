@@ -6,7 +6,8 @@ class Spark < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "c98b248ad29955ccf560e99cb9c325fb28d881391c5bf9c0888251a02f41792d"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "538b171dbbf8740d4bd1ead547ed1928f3fc03d6846fd9ab1cc4a6c37707d09c"
   end
 
   def install
@@ -14,6 +15,6 @@ class Spark < Formula
   end
 
   test do
-    system "#{bin}/spark"
+    system bin/"spark"
   end
 end

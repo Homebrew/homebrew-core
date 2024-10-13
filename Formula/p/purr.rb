@@ -7,19 +7,22 @@ class Purr < Formula
   head "https://github.com/google/purr.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "fa9f2b9771176c44263d83ed3735762d21d6811a5a57dcbfe8fae6e99a6a8690"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "fa9f2b9771176c44263d83ed3735762d21d6811a5a57dcbfe8fae6e99a6a8690"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "fa9f2b9771176c44263d83ed3735762d21d6811a5a57dcbfe8fae6e99a6a8690"
-    sha256 cellar: :any_skip_relocation, sonoma:         "fa9f2b9771176c44263d83ed3735762d21d6811a5a57dcbfe8fae6e99a6a8690"
-    sha256 cellar: :any_skip_relocation, ventura:        "fa9f2b9771176c44263d83ed3735762d21d6811a5a57dcbfe8fae6e99a6a8690"
-    sha256 cellar: :any_skip_relocation, monterey:       "fa9f2b9771176c44263d83ed3735762d21d6811a5a57dcbfe8fae6e99a6a8690"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "990020551f251f6ece2dfbc38957f50d7997b9945fbf6128e46ddea3f6832598"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "8b49680bea9c23c42497fb937f830479971b2c5aa6a7d1fb4ba14b7a83da6baf"
   end
 
   depends_on "fzf"
+
   uses_from_macos "zsh"
 
+  on_macos do
+    depends_on "gnu-sed" => :build
+  end
+
   def install
+    # For `sed -i` usage used to remove comments
+    ENV.prepend_path "PATH", Formula["gnu-sed"].libexec/"gnubin" if OS.mac?
+
     system "make"
     bin.install "out/purr"
 

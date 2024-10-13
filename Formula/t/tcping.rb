@@ -12,6 +12,7 @@ class Tcping < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "b43eafbc84776f3718d8fdcad688ca581d2b3e74de5de6f199d6af57ed810930"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3658deb0ed9da1938d4c2a6c4336fdc51ac8a2037365a9b9b19708d5c16d7cd9"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "126f8832750fd4260255814f399ca26fdd109a8bd52cde1737670b3be389213e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "8784cccfd9d750f59c8e9437fde962edc453147d4fdc960f34b047cc4b3eb909"
@@ -29,6 +30,6 @@ class Tcping < Formula
   end
 
   test do
-    system "#{bin}/tcping", "www.google.com", "80"
+    system bin/"tcping", "www.google.com", "80"
   end
 end

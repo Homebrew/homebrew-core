@@ -12,6 +12,7 @@ class Oggz < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "3a4b600721b1878e170776c736e6813a9d38697c64e2685be45a1b1c24e88cc4"
     sha256 cellar: :any,                 arm64_sonoma:   "968d866fb1da405c4ac4b9d1b20b28d7323cf3dd1c4ce7062388db6c7cf3cf17"
     sha256 cellar: :any,                 arm64_ventura:  "2584e2cdadba3d9c788b756b2bf5d65277f99cc79645693ce437e6edb62c003d"
     sha256 cellar: :any,                 arm64_monterey: "2865f35c71995a85ca99d1efe73f8c1607da93ed30647113a744e1992d366a0b"
@@ -45,6 +46,6 @@ class Oggz < Formula
   end
 
   test do
-    system "#{bin}/oggz", "known-codecs"
+    system bin/"oggz", "known-codecs"
   end
 end

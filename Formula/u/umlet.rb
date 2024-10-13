@@ -11,7 +11,8 @@ class Umlet < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "8c1f2fe34db9d230b2b4412488efa3ec266d994bd72f9df8871b320321862ce7"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "81e9e4e1e8f71f11e7ddc0468109c03b5fc37353620c24c34fca14eace0b1373"
   end
 
   depends_on "openjdk"
@@ -30,7 +31,7 @@ class Umlet < Formula
   end
 
   test do
-    system "#{bin}/umlet", "-action=convert", "-format=png",
+    system bin/"umlet", "-action=convert", "-format=png",
       "-output=#{testpath}/test-output.png",
       "-filename=#{libexec}/palettes/Plots.uxf"
   end

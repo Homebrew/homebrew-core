@@ -12,6 +12,7 @@ class WireguardGo < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "872f4056fe11ecc9565ee02972a2e1f888079e8ebaa94c9f58003333073e3878"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "fa94e0843c34e96aeed1f51927274413a08321624d0c197e0b541f6cc0500393"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "3acf6bab85bca095db52bbdcb62f13c9e74eb8422c2a1de6ef2783ebb568e43b"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "122189d1822022e73e9e525ea8a471560098a72953b1c166183e8b0db7036d65"
@@ -23,7 +24,7 @@ class WireguardGo < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "cea569e3ebb40ce3e341edacbb5b1c451c05534c2bdacc0d73aa2f0da73b2725"
   end
 
-  depends_on "go" => :build
+  depends_on "go@1.22" => :build
 
   def install
     system "make", "PREFIX=#{prefix}", "install"

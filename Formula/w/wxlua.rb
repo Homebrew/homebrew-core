@@ -7,6 +7,7 @@ class Wxlua < Formula
   head "https://github.com/pkulchenko/wxlua.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any, arm64_sequoia:  "eb6bd23314e5fae0077a40d2b2e749ccb5961a4d54c1271c08ecd35d7c90741f"
     sha256 cellar: :any, arm64_sonoma:   "9b88dcbd675bd41b9587b2756e9723ff7773c8352d32716c6635977cf8e2928c"
     sha256 cellar: :any, arm64_ventura:  "8323cdc3eb417a827b0573b09ec1ac9174363c34391aab08400ebb441a315136"
     sha256 cellar: :any, arm64_monterey: "275d472881910487ba3690284d876e350cd9bb0de114d721e025615226a8a370"

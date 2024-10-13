@@ -3,7 +3,7 @@ class Cuba < Formula
   homepage "https://feynarts.de/cuba/"
   url "https://feynarts.de/cuba/Cuba-4.2.2.tar.gz"
   sha256 "8d9f532fd2b9561da2272c156ef7be5f3960953e4519c638759f1b52fe03ed52"
-  license "LGPL-3.0"
+  license "LGPL-3.0-only"
 
   livecheck do
     url :homepage
@@ -11,6 +11,7 @@ class Cuba < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "5d9f2c34f9e6c4b4e8216db0ccaea18f75b925714037f9893da4aaf54de2b785"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "126460773e9096dfca2a9f028be96d8218e7bf3e8bfddd940477763b8b04b49f"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "357899b8a6077f7f5da7bf4c50b77a6947515b6a8ba1dfbe1fd8a8297795afac"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "8ce1fa8a1cf71b27ebeb02406214231dcafcab672b7c38bc5a664c9e2c69d424"

@@ -65,6 +65,6 @@ class Curaengine < Formula
       endsolid Star
     EOS
 
-    system "#{bin}/CuraEngine", "slice", "-j", "fdmprinter.def.json", "-l", "#{testpath}/t.stl"
+    system bin/"CuraEngine", "slice", "-j", "fdmprinter.def.json", "-l", "#{testpath}/t.stl"
   end
 end

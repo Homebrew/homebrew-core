@@ -6,6 +6,7 @@ class NicovideoDl < Formula
   # Canonical: https://osdn.net/dl/nicovideo-dl/nicovideo-dl-0.0.20190126.tar.gz
   url "https://dotsrc.dl.osdn.net/osdn/nicovideo-dl/70568/nicovideo-dl-0.0.20190126.tar.gz"
   sha256 "886980d154953bc5ff5d44758f352ce34d814566a83ceb0b412b8d2d51f52197"
+  license "MIT"
   revision 3
 
   livecheck do
@@ -14,8 +15,8 @@ class NicovideoDl < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, all: "b8867dbbcca56d5705cd9d9c89ca485ed7be4a181cc9ec29991337a0ef30592b"
+    rebuild 3
+    sha256 cellar: :any_skip_relocation, all: "d20fe029f025c4cadd5c3ed25d58cd88886e32fd6d6fe16f51bfc0e2233bb80a"
   end
 
   depends_on "python@3.12"
@@ -26,6 +27,6 @@ class NicovideoDl < Formula
   end
 
   test do
-    system "#{bin}/nicovideo-dl", "-v"
+    system bin/"nicovideo-dl", "-v"
   end
 end

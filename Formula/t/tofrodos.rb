@@ -1,41 +1,38 @@
 class Tofrodos < Formula
   desc "Converts DOS <-> UNIX text files, alias tofromdos"
   homepage "https://www.thefreecountry.com/tofrodos/"
-  # Upstream url does not work anymore
-  # url "https://tofrodos.sourceforge.io/download/tofrodos-1.7.13.tar.gz"
-  url "https://deb.debian.org/debian/pool/main/t/tofrodos/tofrodos_1.7.13+ds.orig.tar.xz"
-  version "1.7.13"
-  sha256 "c1c33f3f0b9e8152aa5790d233e8f1e8de14510433a6143ec582eba0fb6cbfaa"
-  license "GPL-2.0"
+  url "https://www.thefreecountry.com/tofrodos/tofrodos-1.8.3.zip"
+  sha256 "44d76fb024164982aa5e166c1a3c29fa7555c9e0ee8e196cc52595c57a4b55dc"
+  license "GPL-2.0-only"
 
   livecheck do
     url :homepage
-    regex(/href=.*?tofrodos[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    regex(/href=.*?tofrodos[._-]v?(\d+(?:\.\d+)+)\.(?:t|zip)/i)
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0d43491486f1234740ab2ef86ade227755187108410addb1e81e30f7ca64ce80"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "eeda32e08e9d8dca0de25bd428f85dd99c61a4fccf5ce0375558ed8cdf6f402b"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "14175b3d27a7498f9efd5d9b1f582d0d961cc59ce8507a555f8cf2d24916c821"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "abd0c2470073c169d8fdbca2f0f65fe458da25456a8ace5758d394988d0f5ed7"
-    sha256 cellar: :any_skip_relocation, sonoma:         "be25f46164831bf7df4dbe017f74bb5c4e831d839ef028a41f628c39bbe29947"
-    sha256 cellar: :any_skip_relocation, ventura:        "34578bc9c2442a699ee9e4c45d6156ab574aa17d2a5fb7aca5487206adba1e5a"
-    sha256 cellar: :any_skip_relocation, monterey:       "da302a65bf5663a98627baef883a7a8c50413c7cc02e58be009d414f78011292"
-    sha256 cellar: :any_skip_relocation, big_sur:        "11f0293ead8b99af5173c84b0e80cb63b3aefbddc6b411ce222f841383e8a4d8"
-    sha256 cellar: :any_skip_relocation, catalina:       "da493ab6311aa1363533c8958c93ab919bee5ba26dbdcfa6f0a5978a6e512d9d"
-    sha256 cellar: :any_skip_relocation, mojave:         "07d0fcc1ef5c69866787c61fc3cabafe08f873c111c22974758f1c4beae41f99"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "083975a39eaa51713f2eda153276ac95d8dfc1f038d25c4826be1ddcd540855b"
-    sha256 cellar: :any_skip_relocation, sierra:         "3d5363cda2170ce2fbcb7e03c84f715b62ead1e5646000dd06395f5677fd2269"
-    sha256 cellar: :any_skip_relocation, el_capitan:     "4a2b22ff08d0fb65c80be7359be2f04d12b70f4e6d490b96cb819ea69b3e3d88"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b0f32616234ccfd1984a590ef37cd25cf15ba64fe0316f1f0a2d8fdea2cfc6f3"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4f5b16d880a34a9f8f8bcf3c3a5520affe8356fcf24854fd23e09b07ee1b2de8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "55ad657b7068a6106e846311ca92abbbf94ed236d7c48b263a25eabc95acc434"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "ef7cc693cfb4c53110c3771bfd4c3843a314ad610417c4e47cf3af5ec4ef6d09"
+    sha256 cellar: :any_skip_relocation, sonoma:        "fbbecca042307e05f058ab8f8d95a97340cc7111114041581059f6815129f15b"
+    sha256 cellar: :any_skip_relocation, ventura:       "e4ea589dde1039b1732d7ada4b8f817b30d90aea37a3ece09c520316505688c3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6883c12d2a042937a3e93beacc2350d65dcdc5c99230b8325ef022488552a14b"
   end
 
   def install
-    cd "src" do
-      system "make"
-      bin.install %w[todos fromdos]
-      man1.install "fromdos.1"
-      man1.install_symlink "fromdos.1" => "todos.1"
-    end
+    mkdir_p [bin, man1]
+
+    system "make", "-C", "src", "all"
+    system "make", "-C", "src", "BINDIR=#{bin}", "MANDIR=#{man1}", "install"
+  end
+
+  test do
+    (testpath/"test.txt").write <<~EOS
+      Example text
+    EOS
+
+    shell_output("#{bin}/todos -b #{testpath}/test.txt")
+    shell_output("#{bin}/fromdos #{testpath}/test.txt")
+    assert_equal (testpath/"test.txt").read, (testpath/"test.txt.bak").read
   end
 end

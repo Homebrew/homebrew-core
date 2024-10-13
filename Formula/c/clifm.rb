@@ -1,26 +1,36 @@
 class Clifm < Formula
   desc "Command-line Interface File Manager"
   homepage "https://github.com/leo-arch/clifm"
-  url "https://github.com/leo-arch/clifm/archive/refs/tags/v1.19.tar.gz"
-  sha256 "98fe9a1d26b02d661440787ae811363c97da537a11fd3df78ff98d40f42dc487"
+  url "https://github.com/leo-arch/clifm/archive/refs/tags/v1.21.tar.gz"
+  sha256 "cb219ca6ce1b4a31ec98701a43da51142c8bc7f15a22cb81dda93f881e6f6877"
   license "GPL-2.0-or-later"
 
+  # Upstream creates releases that use a stable tag (e.g., `v1.2.3`) but are
+  # labeled as "pre-release" on GitHub before the version is released, so it's
+  # necessary to use the `GithubLatest` strategy.
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
-    sha256 arm64_sonoma:   "566d5eed9e988cc3d76bd16f985ab4feb47da1a6bd2b5d29ad71836778f722d9"
-    sha256 arm64_ventura:  "ca870dbb89899a9ec44a161c53a171e5e36c75689f8a79783717d5283793e566"
-    sha256 arm64_monterey: "3474dba76e59c7cb5cc89010807456933f21fc3eebe7a6479e9c37c204b0f164"
-    sha256 sonoma:         "ad385d76482e49975bb33f81bc5aaa2ed8996234ddf9b871a34fd7b0b46ad493"
-    sha256 ventura:        "9047512f207b137254029c2e50fb8f081bf25c4c801ce243528a7bf36923234a"
-    sha256 monterey:       "91deb6b2ed664e62d4c39c9f7d1008a7ec2797afe103d136276e24e42cebb30b"
-    sha256 x86_64_linux:   "c16f1032f1eb86e95ee9f49cb0e4960aef7b7dba0380f5cc30a165fb63b44d06"
+    sha256 arm64_sequoia: "813fcf5ca1ca698994f1a9676006a8994537493da00d3f04b853148d0a0b956a"
+    sha256 arm64_sonoma:  "bfd80b3ac7618b8fe15cb4fabe6a08f8e5d5cdb9e3d258a7def151c8a03f3578"
+    sha256 arm64_ventura: "6c0b56d150377237acd97158ef4a053abd9976231478416a77a75659ab92464d"
+    sha256 sonoma:        "8045b1e47890e2967a5bdc07a7b69bb9059fac00a566e7b3543c85fff6d39028"
+    sha256 ventura:       "d51436543ac15d87bb2413a94e1d5e8bc24167b00cb439afbaced448a4324b73"
+    sha256 x86_64_linux:  "15fe4caffb4840029995eb9cca88563e2bbd2b2997b3eeeca11fc6d9494ae3e9"
   end
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
 
-  depends_on "gettext"
   depends_on "libmagic"
   depends_on "readline"
+
+  on_macos do
+    depends_on "gettext"
+  end
 
   on_linux do
     depends_on "acl"

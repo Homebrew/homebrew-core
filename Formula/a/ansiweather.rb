@@ -7,7 +7,8 @@ class Ansiweather < Formula
   head "https://github.com/fcambus/ansiweather.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "0c1bc49161f466ba2c18219918f324c2aa22e63b0e1078e275d1832f1c349e2f"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "038fbe9d452985ee47b312d1c9cfcab030622d4d4e9e803e7062f0c7f2bb42c8"
   end
 
   depends_on "jq"
@@ -20,6 +21,6 @@ class Ansiweather < Formula
   end
 
   test do
-    assert_match "Wind", shell_output("#{bin}/ansiweather")
+    assert_match "Wind", shell_output(bin/"ansiweather")
   end
 end

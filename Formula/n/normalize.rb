@@ -3,7 +3,7 @@ class Normalize < Formula
   homepage "https://www.nongnu.org/normalize/"
   url "https://savannah.nongnu.org/download/normalize/normalize-0.7.7.tar.gz"
   sha256 "6055a2abccc64296e1c38f9652f2056d3a3c096538e164b8b9526e10b486b3d8"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url "https://download.savannah.gnu.org/releases/normalize/"
@@ -12,6 +12,7 @@ class Normalize < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any, arm64_sequoia:  "53b16243f5e01a1b903a687774320986f9a27f92efd6af821aef4e3d7f354467"
     sha256 cellar: :any, arm64_sonoma:   "d85f441176672bd7b8a65f4b7e3469e742a32e044e38a8cfde3d4277579c6878"
     sha256 cellar: :any, arm64_ventura:  "f579a1e316959c958663d8cff690f2ad7d06da059e0234478ef19d4f67561b14"
     sha256 cellar: :any, arm64_monterey: "bd34a009747e235d7049f560d836ca8be0a722807b8f2b936e24c6d4618890af"
@@ -46,6 +47,6 @@ class Normalize < Formula
 
   test do
     cp test_fixtures("test.mp3"), testpath
-    system "#{bin}/normalize", "test.mp3"
+    system bin/"normalize", "test.mp3"
   end
 end

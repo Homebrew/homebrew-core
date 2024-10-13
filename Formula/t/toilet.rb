@@ -12,6 +12,7 @@ class Toilet < Formula
   end
 
   bottle do
+    sha256 arm64_sequoia:  "2c559d7c5172c0f9751ecb6a75a550e1202cf3f09a0cf867799672beea54c2b5"
     sha256 arm64_sonoma:   "e357c586a77052ed8e040b211e693d1f420c2667caffe012d5e5d121659bc3e7"
     sha256 arm64_ventura:  "24f5a74c74de3d9dd4a7ee917c9e2faa072c1062189b6272d8bb041a91f8be6a"
     sha256 arm64_monterey: "76a5e77f5e0c747a41dc7f087a65b4eb9817ab59e0b81b33fc4a98cc7c44cbfe"
@@ -46,6 +47,6 @@ class Toilet < Formula
   end
 
   test do
-    system "#{bin}/toilet", "--version"
+    system bin/"toilet", "--version"
   end
 end

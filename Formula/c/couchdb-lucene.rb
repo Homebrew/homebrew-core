@@ -7,6 +7,7 @@ class CouchdbLucene < Formula
   revision 2
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "e51dc09d265658f719623e8e19ae3500b9e798fddb6baacbfe17f31d5ed41dfd"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f739d9de763e66d5ccfbfb3d14034352e0d9e0c4e37799aca78487b395f029a2"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "eaa814fcca3f76e89a767b2ee41759690e5cfe7b90fac27e9b1c8be31c54126b"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "5729f57b791c90e176835e8ec3b21889b0a8e8b9dcd57c3e995cf377b8b0cd84"

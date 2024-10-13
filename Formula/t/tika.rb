@@ -8,6 +8,7 @@ class Tika < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "89e7b0f61d59630154d92918f17993767376d902658adcccfce945dcb05ce89f"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c984095fbb5119c3890a5d26d8f038df3c988fb01195e67798b8618a137ee72c"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "c0e4e7bc2b02f578215cb979d37707e9a87ab2d8089bb8aa7949b1fa3c8456f0"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b43e8a3a2bb76daf386787c0d795a6145478a86702fee8a55641f44d8db7dba8"
@@ -40,7 +41,7 @@ class Tika < Formula
 
     port = free_port
     pid = fork do
-      exec "#{bin}/tika-rest-server", "--port=#{port}"
+      exec bin/"tika-rest-server", "--port=#{port}"
     end
 
     sleep 10

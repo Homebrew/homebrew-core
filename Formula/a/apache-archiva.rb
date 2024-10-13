@@ -26,8 +26,8 @@ class ApacheArchiva < Formula
 
   def install
     libexec.install Dir["*"]
-    rm_f libexec.glob("bin/wrapper*")
-    rm_f libexec.glob("lib/libwrapper*")
+    rm(libexec.glob("bin/wrapper*"))
+    rm(libexec.glob("lib/libwrapper*"))
     (bin/"archiva").write_env_script libexec/"bin/archiva", Language::Java.java_home_env
 
     wrapper = Formula["java-service-wrapper"].opt_libexec

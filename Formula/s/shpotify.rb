@@ -7,9 +7,8 @@ class Shpotify < Formula
   head "https://github.com/hnarayanan/shpotify.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma: "55b64a8511959f5d3e7b2d5743f5d8839263767fe22a59534d3d019e2bc8738b"
-    sha256 cellar: :any_skip_relocation, sonoma:       "55b64a8511959f5d3e7b2d5743f5d8839263767fe22a59534d3d019e2bc8738b"
-    sha256 cellar: :any_skip_relocation, all:          "e15fab27ffc271dd4fbb5317540b1628e30b79cb5cdaed0f51eb956873876565"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "a77b8a65c1e58b6bf20d640d688e62c01332f1663c7da3b37d7e0329280b4892"
   end
 
   def install
@@ -17,6 +16,6 @@ class Shpotify < Formula
   end
 
   test do
-    system "#{bin}/spotify"
+    system bin/"spotify"
   end
 end

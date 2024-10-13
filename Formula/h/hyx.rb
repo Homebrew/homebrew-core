@@ -11,6 +11,7 @@ class Hyx < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "dd26c1c352925782b4e7d45785b76f40f245fa2f1dbbc98f9cc4f2d3666cfa58"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7f55cd07a556e62e1b0264f158397ab1a13ee78ceed580c499b40b8f4158a8a7"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "fa1142ffce4cb48c51d90fa02b8dfcf43d9685bae6011f6ec072b71bc916035c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ab078d0fa36bef1b72850c4a355268afaeb8f889fb96cc14d4ac0fa0292727c8"

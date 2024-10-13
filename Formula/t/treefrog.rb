@@ -12,44 +12,33 @@ class Treefrog < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "6c780fca27734da1076f7483d8bb87b35799d25dce52b706e69d65fe5dcc7259"
-    sha256 arm64_ventura:  "f1eb50428c185ec2052a5c4bbdbe68818a020c9ba68505dbc19b58851f10e11e"
-    sha256 arm64_monterey: "063a507434d9c87b19a59d5d1bd0c73e82a73a268353cf9e989e0289fabdb6d4"
-    sha256 sonoma:         "942d2b7aec40f2630b90758724854dc45a6e58ced2e9085c6f0a4dd49fbff0dd"
-    sha256 ventura:        "e405fe58976f308f25e5d7924bff0f77589a592f4e1ff0f2db7bbed4efdba767"
-    sha256 monterey:       "27c89d9321cba0ef0301efe2ff663ffe5ddb79e198dc8f975975356c125bd2f8"
-    sha256 x86_64_linux:   "cb7320c8416c2d800ee3c744e9e48e22a957e0af6c03ffe31a2fed205f79dd6e"
+    rebuild 1
+    sha256 arm64_sonoma:  "a4653a846f4b9223f14887e6d9da5b3fd8e743fdfdef236d0f2e953c347a79ab"
+    sha256 arm64_ventura: "a3218c634e1b76e16154d467f62ca72ac88ba882320463035943b247c49d3a7f"
+    sha256 sonoma:        "6f58123d9af9dd89a79172b17defe9bd0c6a1c3ad32cd7101301f2a829dfff8f"
+    sha256 ventura:       "636ca70974a80bed833eea7c9b91cd66a887e01f7feaf26b4762339e20035df9"
+    sha256 x86_64_linux:  "0dadd26e6024a82c296e5faefa8576642ea0127aa69c22c868458ba55800eb3b"
   end
 
-  depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on xcode: :build
-  depends_on "gflags"
   depends_on "glog"
+  depends_on "lz4"
   depends_on "mongo-c-driver"
   depends_on "qt"
 
   fails_with gcc: "5"
 
   def install
-    # src/corelib.pro hardcodes different paths for mongo-c-driver headers on macOS and Linux.
-    if OS.mac?
-      inreplace "src/corelib.pro", "/usr/local", HOMEBREW_PREFIX
-    else
-      inreplace "src/corelib.pro", "/usr/lib", HOMEBREW_PREFIX/"lib"
-    end
+    rm_r("3rdparty")
+    # Skip unneeded CMake check
+    inreplace "configure", "if ! which cmake ", "if false "
 
-    system "./configure", "--prefix=#{prefix}", "--enable-shared-mongoc", "--enable-shared-glog"
-
-    cd "src" do
-      system "make"
-      system "make", "install"
-    end
-
-    cd "tools" do
-      system "make"
-      system "make", "install"
-    end
+    system "./configure", "--prefix=#{prefix}",
+                          "--enable-shared-glog",
+                          "--enable-shared-lz4",
+                          "--enable-shared-mongoc"
+    system "make", "-C", "src", "install"
+    system "make", "-C", "tools", "install"
   end
 
   test do

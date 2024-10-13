@@ -3,11 +3,11 @@ class PassOtp < Formula
   homepage "https://github.com/tadfisher/pass-otp"
   url "https://github.com/tadfisher/pass-otp/releases/download/v1.2.0/pass-otp-1.2.0.tar.gz"
   sha256 "5720a649267a240a4f7ba5a6445193481070049c1d08ba38b00d20fc551c3a67"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, all: "b0a96216fb3d12ceda70804c9995aea916716d476bcf9e18863cc84e78558198"
+    rebuild 3
+    sha256 cellar: :any_skip_relocation, all: "e79fd90d07ba181d43a57123d3dfa85abbf2abf93f58dcb431e64823fcc7a19a"
   end
 
   depends_on "gnupg" => :test

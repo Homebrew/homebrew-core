@@ -1,8 +1,8 @@
 class Mx < Formula
   desc "Command-line tool used for the development of Graal projects"
   homepage "https://github.com/graalvm/mx"
-  url "https://github.com/graalvm/mx/archive/refs/tags/7.28.0.tar.gz"
-  sha256 "e8e3bd5dce67995b5c87d940e34a97e3ebfdc6b2d2eaada2de00a2aeb8db6bd9"
+  url "https://github.com/graalvm/mx/archive/refs/tags/7.33.0.tar.gz"
+  sha256 "9d75d932e16e4d804e860813b25611e371c5435eb1a752bf40f952eda1b64628"
   license "GPL-2.0-only"
 
   livecheck do
@@ -11,21 +11,16 @@ class Mx < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b4c3b2640889ab040d688b348ff1f150adc7238fbebaf4d0744b4cd92edb94f9"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b4c3b2640889ab040d688b348ff1f150adc7238fbebaf4d0744b4cd92edb94f9"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b4c3b2640889ab040d688b348ff1f150adc7238fbebaf4d0744b4cd92edb94f9"
-    sha256 cellar: :any_skip_relocation, sonoma:         "b4c3b2640889ab040d688b348ff1f150adc7238fbebaf4d0744b4cd92edb94f9"
-    sha256 cellar: :any_skip_relocation, ventura:        "b4c3b2640889ab040d688b348ff1f150adc7238fbebaf4d0744b4cd92edb94f9"
-    sha256 cellar: :any_skip_relocation, monterey:       "b4c3b2640889ab040d688b348ff1f150adc7238fbebaf4d0744b4cd92edb94f9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f63f96f657b4ccfc28193e9d424fe1af21c7dbd3ca60af6606d3252c74272b25"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "d379d2c6ff3fb107ce68cfc82946b3dff2f348a3c7491abbb6672f32e18ae5c3"
   end
 
   depends_on "openjdk" => :test
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   def install
     libexec.install Dir["*"]
-    (bin/"mx").write_env_script libexec/"mx", MX_PYTHON: "#{Formula["python@3.12"].opt_libexec}/bin/python"
+    (bin/"mx").write_env_script libexec/"mx", MX_PYTHON: "#{Formula["python@3.13"].opt_libexec}/bin/python"
     bash_completion.install libexec/"bash_completion/mx" => "mx"
   end
 

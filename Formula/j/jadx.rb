@@ -35,7 +35,7 @@ class Jadx < Formula
 
   test do
     resource("homebrew-test.apk").stage do
-      system "#{bin}/jadx", "-d", "out", "redex-test.apk"
+      system bin/"jadx", "-d", "out", "redex-test.apk"
     end
   end
 end

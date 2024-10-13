@@ -2,19 +2,20 @@ class Aztfexport < Formula
   desc "Bring your existing Azure resources under the management of Terraform"
   homepage "https://azure.github.io/aztfexport/"
   url "https://github.com/Azure/aztfexport.git",
-      tag:      "v0.14.2",
-      revision: "523f5b841b8f9454638bdf0654f49aa370431380"
+      tag:      "v0.15.0",
+      revision: "f1f6ccee9a9f94a11f2006c393a8c27ba7b4d566"
   license "MPL-2.0"
   head "https://github.com/Azure/aztfexport.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9d4cfc49579b41fcd437ad3ad52e8b89c6938ea325057d23edfba12552f81b12"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9d4cfc49579b41fcd437ad3ad52e8b89c6938ea325057d23edfba12552f81b12"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9d4cfc49579b41fcd437ad3ad52e8b89c6938ea325057d23edfba12552f81b12"
-    sha256 cellar: :any_skip_relocation, sonoma:         "95de0a0332d9aad3abf2618c1a84ddfbf5ea8671741b406d7509e7f3b4f524ae"
-    sha256 cellar: :any_skip_relocation, ventura:        "95de0a0332d9aad3abf2618c1a84ddfbf5ea8671741b406d7509e7f3b4f524ae"
-    sha256 cellar: :any_skip_relocation, monterey:       "95de0a0332d9aad3abf2618c1a84ddfbf5ea8671741b406d7509e7f3b4f524ae"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ea8f3cdffab8792f9025dcbedbf8a9ad83dfa8b5e65241a53c1f5080d2d54e89"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "3334fbb3d5e7d57770565de8cad4a48c8d65e2df7b5c03bffc07708bef9f6bdc"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "209bceab0e2b561838c6885d68d0e6c5df55b23c3b22a88a3b114763414d9d0c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "209bceab0e2b561838c6885d68d0e6c5df55b23c3b22a88a3b114763414d9d0c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "209bceab0e2b561838c6885d68d0e6c5df55b23c3b22a88a3b114763414d9d0c"
+    sha256 cellar: :any_skip_relocation, sonoma:         "07234c2c61eef8680e788c6aee60212656545588870a7418164c65793c218651"
+    sha256 cellar: :any_skip_relocation, ventura:        "07234c2c61eef8680e788c6aee60212656545588870a7418164c65793c218651"
+    sha256 cellar: :any_skip_relocation, monterey:       "07234c2c61eef8680e788c6aee60212656545588870a7418164c65793c218651"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "680c5fa311acfb28554009f87a4d7caf8a5d3b2c97a61fd267d2ae52dcee5e43"
   end
 
   depends_on "go" => :build

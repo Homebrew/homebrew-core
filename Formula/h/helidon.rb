@@ -15,6 +15,7 @@ class Helidon < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "7c9501af89a38771d60a2615d6b5f14e689a193f4b6661493e2710c6ee916ba7"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4248959a9bfb64c7228ddd2e2e34863e59f513617cbe45f7de7c2c50cdd9ef2f"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "3517a8e1438fea1afb60a5d51da906a0e9c92d3cebce10f88298818974e3caf3"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4e0aa3e9cddf0f4892cadd4d96b6d48a887ac2a9f43a8e8693fc38c5a843bb8f"

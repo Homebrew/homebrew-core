@@ -27,20 +27,34 @@ class Gtkx < Formula
   end
 
   depends_on "gobject-introspection" => :build
+  # error: 'CGWindowListCreateImage' is unavailable: obsoleted in macOS 15.0 - Please use ScreenCaptureKit instead
+  # NOTE: We could potentially use an older deployment target; however, `gtk+` has been EOL since 2020.
+  # So rather than trying to workaround obsolete APIs, the limit is a deadline to deprecate `gtk+` and dependents.
+  depends_on maximum_macos: [:sonoma, :build]
   depends_on "pkg-config" => [:build, :test]
   depends_on "at-spi2-core"
+  depends_on "cairo"
   depends_on "gdk-pixbuf"
+  depends_on "glib"
   depends_on "hicolor-icon-theme"
   depends_on "pango"
 
+  on_macos do
+    depends_on "gettext"
+    depends_on "harfbuzz"
+  end
+
   on_linux do
-    depends_on "cairo"
+    depends_on "fontconfig"
+    depends_on "libx11"
     depends_on "libxcomposite"
     depends_on "libxcursor"
     depends_on "libxdamage"
+    depends_on "libxext"
     depends_on "libxfixes"
     depends_on "libxinerama"
     depends_on "libxrandr"
+    depends_on "libxrender"
   end
 
   # Fix -flat_namespace being used on Big Sur and later.
@@ -71,13 +85,18 @@ class Gtkx < Formula
   end
 
   def install
-    system "./configure", *std_configure_args,
-                          "--disable-silent-rules",
+    # Work-around for build issue with Xcode 15.3
+    if DevelopmentTools.clang_build_version >= 1500
+      ENV.append_to_cflags "-Wno-incompatible-function-pointer-types -Wno-implicit-int"
+    end
+
+    system "./configure", "--disable-silent-rules",
                           "--enable-static",
                           "--disable-glibtest",
                           "--enable-introspection=yes",
                           "--with-gdktarget=#{backend}",
-                          "--disable-visibility"
+                          "--disable-visibility",
+                          *std_configure_args
     system "make", "install"
 
     inreplace bin/"gtk-builder-convert", %r{^#!/usr/bin/env python$}, "#!/usr/bin/python"

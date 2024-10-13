@@ -9,6 +9,13 @@ class Kapacitor < Formula
         tag:      "v1.7.4",
         revision: "3470f6ae7f53acaca90459cc1128298548fdc740"
 
+    # TODO: Remove when release uses flux >= 0.195.0 to get following fix for rust >= 1.78
+    # Ref: https://github.com/influxdata/flux/commit/68c831c40b396f0274f6a9f97d77707c39970b02
+    resource "flux" do
+      url "https://github.com/influxdata/flux/archive/refs/tags/v0.194.5.tar.gz"
+      sha256 "85229c86d307fdecccc7d940902fb83bfbd7cff7a308ace831e2487d36a6a8ca"
+    end
+
     # build patch to upgrade flux so that it can be built with rust 1.72.0+
     # upstream PR ref, https://github.com/influxdata/kapacitor/pull/2811
     patch do
@@ -32,7 +39,9 @@ class Kapacitor < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "6007b9e8d7e2b33e36510923d1989d83ef86e36e724c118686cdd61ef32d38a1"
   end
 
-  depends_on "go" => :build
+  # Go 1.23 results in panic: failed to parse CA certificate.
+  # TODO: Switch to `go` when `kapacitor` updates gosnowflake
+  depends_on "go@1.22" => :build
   depends_on "rust" => :build
 
   on_linux do
@@ -47,6 +56,25 @@ class Kapacitor < Formula
   end
 
   def install
+    if build.stable?
+      # Check if newer `go` can be used
+      go_mod = (buildpath/"go.mod").read
+      gosnowflake_version = go_mod[%r{/influxdata/gosnowflake v(\d+(?:\.\d+)+)}, 1]
+      odie "Check if `go` can be used!" if gosnowflake_version.blank? || Version.new(gosnowflake_version) > "1.6.9"
+
+      # Workaround to skip dead_code lint. RUSTFLAGS workarounds didn't work.
+      flux_module = "github.com/influxdata/flux"
+      flux_version = go_mod[/#{flux_module} v(\d+(?:\.\d+)+)/, 1]
+      odie "Check if `flux` resource can be removed!" if flux_version.blank? || Version.new(flux_version) >= "0.195"
+      (buildpath/"vendored_flux").install resource("flux")
+      inreplace "vendored_flux/libflux/flux-core/src/lib.rs", "#![allow(\n", "\\0    dead_code,\n"
+      (buildpath/"go.work").write <<~EOS
+        go 1.22
+        use .
+        replace #{flux_module} => ./vendored_flux
+      EOS
+    end
+
     resource("pkg-config-wrapper").stage do
       system "go", "build", *std_go_args, "-o", buildpath/"bootstrap/pkg-config"
     end

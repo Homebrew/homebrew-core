@@ -1,20 +1,18 @@
 class Gdb < Formula
   desc "GNU debugger"
   homepage "https://www.gnu.org/software/gdb/"
-  url "https://ftp.gnu.org/gnu/gdb/gdb-15.1.tar.xz"
-  mirror "https://ftpmirror.gnu.org/gdb/gdb-15.1.tar.xz"
-  sha256 "38254eacd4572134bca9c5a5aa4d4ca564cbbd30c369d881f733fb6b903354f2"
+  url "https://ftp.gnu.org/gnu/gdb/gdb-15.2.tar.xz"
+  mirror "https://ftpmirror.gnu.org/gdb/gdb-15.2.tar.xz"
+  sha256 "83350ccd35b5b5a0cba6b334c41294ea968158c573940904f00b92f76345314d"
   license "GPL-3.0-or-later"
   head "https://sourceware.org/git/binutils-gdb.git", branch: "master"
 
   bottle do
-    sha256 sonoma:       "0bbcc58f6570f60b7a077157fbce8f838a5b6320298e6220f3bd89dd86d9d508"
-    sha256 ventura:      "4f70690e1f132c66629f14092ac8dcd9fc65583e6ed31afb009ee982be47df46"
-    sha256 monterey:     "6e77121eddb5bf69cdd731aa9375ea55916aa26e159c81a3da47dc19e6811bde"
-    sha256 x86_64_linux: "dd11325ca2297ad1be34eb940e64c3be5522e491daae7460e5b1b3ac63842206"
+    sha256 sonoma:       "9d92a3515e92e9da92688877b856fd36bdcc1117002f3e91e4d0db0e79ce0243"
+    sha256 ventura:      "d2c49ea2e03e06cb8e7144ee46fb2e611eab62119d75629a35e8c99863dd363a"
+    sha256 x86_64_linux: "c05fb7f13c497e1a01985ad57fd48d6467707e57c20143e7eb5457fa678a4152"
   end
 
-  depends_on arch: :x86_64 # gdb is not supported on macOS ARM
   depends_on "gmp"
   depends_on "mpfr"
   depends_on "python@3.12"
@@ -23,6 +21,10 @@ class Gdb < Formula
   uses_from_macos "expat"
   uses_from_macos "libxcrypt"
   uses_from_macos "ncurses"
+
+  on_macos do
+    depends_on arch: :x86_64 # gdb is not supported on macOS ARM
+  end
 
   on_system :linux, macos: :ventura_or_newer do
     depends_on "texinfo" => :build

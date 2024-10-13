@@ -11,6 +11,7 @@ class Dnsmasq < Formula
   end
 
   bottle do
+    sha256 arm64_sequoia:  "74e9c9906acf3ae44bf1c019d7ea85a08673a50bb817b2936fe93ef60e3ea0df"
     sha256 arm64_sonoma:   "b6897c95d454b3d7a0d488b3cba0f525a90c951d8690929a80794aee05f48ae7"
     sha256 arm64_ventura:  "96d78b8341adb55a2f3260fa4813102e7c08bc0d61306401de5bf4f1e49843b2"
     sha256 arm64_monterey: "740412d9203cd865d9cafb9c10a3bc69ef19e44291954d7c26e48b17fd378039"
@@ -29,13 +30,13 @@ class Dnsmasq < Formula
     inreplace %w[dnsmasq.conf.example src/config.h man/dnsmasq.8
                  man/es/dnsmasq.8 man/fr/dnsmasq.8].each do |s|
       s.gsub! "/var/lib/misc/dnsmasq.leases",
-              var/"lib/misc/dnsmasq/dnsmasq.leases", false
-      s.gsub! "/etc/dnsmasq.conf", etc/"dnsmasq.conf", false
-      s.gsub! "/var/run/dnsmasq.pid", var/"run/dnsmasq/dnsmasq.pid", false
-      s.gsub! "/etc/dnsmasq.d", etc/"dnsmasq.d", false
-      s.gsub! "/etc/ppp/resolv.conf", etc/"dnsmasq.d/ppp/resolv.conf", false
-      s.gsub! "/etc/dhcpc/resolv.conf", etc/"dnsmasq.d/dhcpc/resolv.conf", false
-      s.gsub! "/usr/sbin/dnsmasq", HOMEBREW_PREFIX/"sbin/dnsmasq", false
+              var/"lib/misc/dnsmasq/dnsmasq.leases", audit_result: false
+      s.gsub! "/etc/dnsmasq.conf", etc/"dnsmasq.conf", audit_result: false
+      s.gsub! "/var/run/dnsmasq.pid", var/"run/dnsmasq/dnsmasq.pid", audit_result: false
+      s.gsub! "/etc/dnsmasq.d", etc/"dnsmasq.d", audit_result: false
+      s.gsub! "/etc/ppp/resolv.conf", etc/"dnsmasq.d/ppp/resolv.conf", audit_result: false
+      s.gsub! "/etc/dhcpc/resolv.conf", etc/"dnsmasq.d/dhcpc/resolv.conf", audit_result: false
+      s.gsub! "/usr/sbin/dnsmasq", HOMEBREW_PREFIX/"sbin/dnsmasq", audit_result: false
     end
 
     # Fix compilation on newer macOS versions.

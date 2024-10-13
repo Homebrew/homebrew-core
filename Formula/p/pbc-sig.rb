@@ -3,7 +3,7 @@ class PbcSig < Formula
   homepage "https://crypto.stanford.edu/pbc/sig/"
   url "https://crypto.stanford.edu/pbc/sig/files/pbc_sig-0.0.8.tar.gz"
   sha256 "7a343bf342e709ea41beb7090c78078a9e57b833454c695f7bcad2475de9c4bb"
-  license "GPL-3.0"
+  license "GPL-3.0-only"
 
   livecheck do
     url "https://crypto.stanford.edu/pbc/sig/download.html"
@@ -12,10 +12,12 @@ class PbcSig < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any, arm64_sequoia:  "9af9663103707abefc59beba05f6b9e61d969944c35fb504245e9642c5d46d26"
     sha256 cellar: :any, arm64_sonoma:   "46b23a98ac077bfdf022b651cd1c0d465cf1a9a2e80780b024f7c4bb0df3f9ad"
     sha256 cellar: :any, arm64_ventura:  "a084822aa386425d1956ac3afdf2accbb8c813d371bbb20711e0f1d147f560ef"
     sha256 cellar: :any, arm64_monterey: "d2fde3522eb0285c965608483e1099f231df57528446ce3ebc59cee147459d58"
     sha256 cellar: :any, arm64_big_sur:  "f99446bcb7e5930651fc63d4a6bea1b34b489e13ad7318a026d0be3ed6fe39f9"
+    sha256 cellar: :any, sonoma:         "0ee9c968c5718f7742607473b2284e92acaf032cf78bc4195d8fd48299d2c89f"
     sha256 cellar: :any, ventura:        "8842495f3027ac174ab9c9118b3d5c32c87c197fbdb070e7f19308ad251b7947"
     sha256 cellar: :any, monterey:       "49ba0b0e8757276a5ab822f942f321e7fe5b7efbb2340946e21f3042dbe579bd"
     sha256 cellar: :any, big_sur:        "9889f70fc5cf42a096c750b61008bf48a97bfece6179db5e7a631010749f1106"
@@ -24,6 +26,7 @@ class PbcSig < Formula
     sha256 cellar: :any, high_sierra:    "79c31a3f1bcc2429648a2258974ccb1185cfe244d4fcbbfa2840c7393e7e058a"
   end
 
+  depends_on "gmp"
   depends_on "pbc"
 
   # Fix -flat_namespace being used on Big Sur and later.
@@ -39,9 +42,13 @@ class PbcSig < Formula
     # Disable -fnested-functions CFLAG on ARM, which will cause it to fail with:
     # incompatible redeclaration of library function 'pow'
     # Reported upstream here: https://groups.google.com/g/pbc-devel/c/WXwVWKoouj0.
-    inreplace "configure", "-fnested-functions", "" if Hardware::CPU.arm?
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    inreplace "configure", "-fnested-functions", "" if OS.mac?
+
+    args = []
+    # Help old config scripts identify arm64 linux
+    args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+
+    system "./configure", *args, *std_configure_args
     system "make", "install"
   end
 

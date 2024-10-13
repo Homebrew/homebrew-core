@@ -13,6 +13,7 @@ class Gor < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "a8ed8382f86dda7151fc370d5dd57a6df574581dd1a8b6220ae588350d374715"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "116b89358d585b7eece8d89c3c3d39c671c1036db379cdb775ed1f55c394174e"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "68be04c49961eaf2b9bfecd1711ee12670ca219541c9d7d0947207e6135264d7"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "fe66f6fc334df036e4fe3f6cd579bc73ac6eacef6848e2c46a6e475a4874c9c2"

@@ -6,6 +6,7 @@ class Pdfcrack < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "2b014cb16fb3c9c3d8d587c792f9d94d2c1c7efc6032cdffab864c3e8c93786f"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "db85d14c7177eed695a8947e0d8ffb49c9378ac5b5a704a27a9375736b063e2d"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "fedea0ab3ba0838a429e8ed114d60d4f58da156c5c744fc2d20346e3a48a7f06"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "cca12550f347ca49f8a11858013225bd36cd851c4ad43505d4ba6b205914c31a"
@@ -24,6 +25,6 @@ class Pdfcrack < Formula
   end
 
   test do
-    system "#{bin}/pdfcrack", "--version"
+    system bin/"pdfcrack", "--version"
   end
 end

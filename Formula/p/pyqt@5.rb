@@ -7,6 +7,7 @@ class PyqtAT5 < Formula
 
   bottle do
     rebuild 3
+    sha256 cellar: :any,                 arm64_sequoia:  "d4d4bf1fb19690cbe7acccb4ac2ddb98046d94a44623271e7221397a4de415c4"
     sha256 cellar: :any,                 arm64_sonoma:   "4d80fa381e5a71e813bdbb8a512f62f427da0735ae0907aeeaebe9991ff35b9b"
     sha256 cellar: :any,                 arm64_ventura:  "fb69149347b51e29edcc5a7f63316655056c5ce8642473253556194382ba9c24"
     sha256 cellar: :any,                 arm64_monterey: "1a9033ed91291ee6048cd8f65ccb01ab8af0ab921c14a9d0ca0b5642350499dc"

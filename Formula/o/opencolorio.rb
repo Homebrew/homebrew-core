@@ -1,19 +1,19 @@
 class Opencolorio < Formula
   desc "Color management solution geared towards motion picture production"
   homepage "https://opencolorio.org/"
-  url "https://github.com/AcademySoftwareFoundation/OpenColorIO/archive/refs/tags/v2.3.2.tar.gz"
-  sha256 "6bbf4e7fa4ea2f743a238cb22aff44890425771a2f57f62cece1574e46ceec2f"
+  url "https://github.com/AcademySoftwareFoundation/OpenColorIO/archive/refs/tags/v2.4.0.tar.gz"
+  sha256 "0ff3966b9214da0941b2b1cbdab3975a00a51fc6f3417fa860f98f5358f2c282"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/AcademySoftwareFoundation/OpenColorIO.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "0db0e5ebd3e423f988a351de2677cde0a027ab10212dd6535263e16900530f69"
-    sha256 cellar: :any,                 arm64_ventura:  "0a35033f31e6aa593f141238895b3fe383527f662592e106a76e175d919d0815"
-    sha256 cellar: :any,                 arm64_monterey: "68193cb0f8b28037f26bfcf1ade5e1ffcc757da8dd9d4782a47307e2f5183e5f"
-    sha256 cellar: :any,                 sonoma:         "583e1b16d1981250865d052511160b254ce71485b82107da6896e4642c254d76"
-    sha256 cellar: :any,                 ventura:        "1841a51311fce945dff91344b05fad32c1ca2e2e96a094ebc6b60b5cc74d0d2a"
-    sha256 cellar: :any,                 monterey:       "3f97660a1b3dff405779ed4480475da7c5389c345f35c4d5837f08fe53c4a725"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fd944816b1ccf312cd3471d87f0cee4fe2d85712a661d1bf13fa10be77d6a3b8"
+    sha256 cellar: :any,                 arm64_sequoia: "390ca8939046584908885edbe83e8b2ed305554bf171a36249b259d5dacd1b55"
+    sha256 cellar: :any,                 arm64_sonoma:  "90a1c59eb48ffa735a566c81a8fddfab4b7c66fe2abc8f77f2c49aa0c0c1997e"
+    sha256 cellar: :any,                 arm64_ventura: "f9ffd1513ea17add5e7c2fd686df92ce5c88e38f4c115ca7a5d2c9cc25be630c"
+    sha256 cellar: :any,                 sonoma:        "16be5891921c2d0ecd16d31703767e1e7ddc7b0948ab602aff3854863537fc7d"
+    sha256 cellar: :any,                 ventura:       "f58a5e868e1aae2cf19c9258353cc8cc0519d609075db2256ba8990de50f4cc6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b26d359f64be7f20b765ea57f872b99f3b009d188ad9bb95aded39063f554dc8"
   end
 
   depends_on "cmake" => :build
@@ -28,6 +28,10 @@ class Opencolorio < Formula
 
   uses_from_macos "expat"
   uses_from_macos "zlib"
+
+  on_arm do
+    depends_on "sse2neon" => :build
+  end
 
   def python3
     "python3.12"

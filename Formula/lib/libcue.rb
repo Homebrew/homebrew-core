@@ -3,9 +3,10 @@ class Libcue < Formula
   homepage "https://github.com/lipnitsk/libcue"
   url "https://github.com/lipnitsk/libcue/archive/refs/tags/v2.3.0.tar.gz"
   sha256 "cc1b3a65c60bd88b77a1ddd1574042d83cf7cc32b85fe9481c99613359eb7cfe"
-  license "GPL-2.0"
+  license "GPL-2.0-only"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "a981b4ff3dfc99ea87cd08ec0caef79fc30b4bed4255841555fcbc3a02454b86"
     sha256 cellar: :any,                 arm64_sonoma:   "82934a84b7755323aef43356f8239523839e05e42005233046994d33376ef104"
     sha256 cellar: :any,                 arm64_ventura:  "a5037a18c0f6d957a866a5e897ed52b07121f5484a0dad00725566d17dc7ff8c"
     sha256 cellar: :any,                 arm64_monterey: "668a55590220069e7b7711d37ff033aa36102a27cacd715bfabd0699bd3c2a22"

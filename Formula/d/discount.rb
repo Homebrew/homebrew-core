@@ -12,6 +12,7 @@ class Discount < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "a570a68edd737474736b516db39db9a072785ff13735f226d0cd8ea056648311"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "14e2177eb0728e9d8690a7e6854250f174f5d988a046dd3f071c9beecf930540"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "130512a4b6b48f7dc9352cf9591b27f1f3083a2ff22d88e71f47507178a87e43"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "19bff1a2b50eae855a70eb7e6ed839f37891b9001f77780245a8c484b009a108"
@@ -27,6 +28,9 @@ class Discount < Formula
   conflicts_with "multimarkdown", because: "both install `markdown` binaries"
 
   def install
+    # Workaround for newer Clang
+    ENV.append_to_cflags "-Wno-incompatible-function-pointer-types" if DevelopmentTools.clang_build_version >= 1500
+
     # Shared libraries are currently not built because they require
     # root access to build without patching.
     # Issue reported upstream here: https://github.com/Orc/discount/issues/266.

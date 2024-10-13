@@ -70,7 +70,7 @@ class Hdf5AT18 < Formula
         return 0;
       }
     EOS
-    system "#{bin}/h5cc", "test.c"
+    system bin/"h5cc", "test.c"
     assert_equal version.to_s, shell_output("./a.out").chomp
 
     (testpath/"test.f90").write <<~EOS
@@ -100,7 +100,7 @@ class Hdf5AT18 < Formula
       write (*,"(I0,'.',I0,'.',I0)") major, minor, rel
       end
     EOS
-    system "#{bin}/h5fc", "test.f90"
+    system bin/"h5fc", "test.f90"
     assert_equal version.to_s, shell_output("./a.out").chomp
   end
 end

@@ -1,5 +1,3 @@
-require "language/node"
-
 class Stepci < Formula
   desc "API Testing and Monitoring made simple"
   homepage "https://stepci.com"
@@ -8,19 +6,21 @@ class Stepci < Formula
   license "MPL-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2e3908fc84c52c88b2a15ef7034e8ca824653cd647ebb1374fcab6a354b12cc6"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2e3908fc84c52c88b2a15ef7034e8ca824653cd647ebb1374fcab6a354b12cc6"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "2e3908fc84c52c88b2a15ef7034e8ca824653cd647ebb1374fcab6a354b12cc6"
-    sha256 cellar: :any_skip_relocation, sonoma:         "77835aa9e8fea98c91c76937f3a407d44ee8996eee5599f49bc29353941f5d22"
-    sha256 cellar: :any_skip_relocation, ventura:        "77835aa9e8fea98c91c76937f3a407d44ee8996eee5599f49bc29353941f5d22"
-    sha256 cellar: :any_skip_relocation, monterey:       "77835aa9e8fea98c91c76937f3a407d44ee8996eee5599f49bc29353941f5d22"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7df98f52a5b404ad257877570bfc89f91d923520bd974e43666d55c9ba03ecc3"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "5734ebe30193bf703e1e8abf64b3c3085dfbbc3be250494fbae9607b81a42ca5"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b51a4218cbf325447634057a0362fa99de98611348196764ba954f53baeb2eba"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b51a4218cbf325447634057a0362fa99de98611348196764ba954f53baeb2eba"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b51a4218cbf325447634057a0362fa99de98611348196764ba954f53baeb2eba"
+    sha256 cellar: :any_skip_relocation, sonoma:         "c59c4b4fa04b0d69872f8bbe4a27a0b1313afcc689b4ac00104963f540fcfad7"
+    sha256 cellar: :any_skip_relocation, ventura:        "c59c4b4fa04b0d69872f8bbe4a27a0b1313afcc689b4ac00104963f540fcfad7"
+    sha256 cellar: :any_skip_relocation, monterey:       "c59c4b4fa04b0d69872f8bbe4a27a0b1313afcc689b4ac00104963f540fcfad7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f06503b493bdddd590715fc784086f1c9a4241c67450af3f07cd4077099d581a"
   end
 
   depends_on "node"
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", *std_npm_args
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 

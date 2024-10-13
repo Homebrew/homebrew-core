@@ -8,6 +8,7 @@ class Publish < Formula
   head "https://github.com/JohnSundell/Publish.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "db9748a2faf569ceb6dfe4e605adf0165c154082a1bb7fdd4e23dde2468e9114"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e44b652c06d262df22d5c4401a6d9bb5656d595e2b40a06251c49909fe920cc8"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "191eff0e5440c1fef78775f497ca8ba619c6ed4211105566449e7154d8c3fc8d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "edc955e9e2cece8065b4683a4fdad37a905fbfcfd84a2de5d4ee3ba95362bb8a"
@@ -31,7 +32,7 @@ class Publish < Formula
 
   test do
     mkdir testpath/"test" do
-      system "#{bin}/publish", "new"
+      system bin/"publish", "new"
       assert_predicate testpath/"test"/"Package.swift", :exist?
     end
   end

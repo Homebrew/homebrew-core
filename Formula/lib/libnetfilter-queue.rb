@@ -11,7 +11,8 @@ class LibnetfilterQueue < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "bdf2add88a3b0b9bd7be4498abbf4a7caa052e2bac225908cffbc2b46d39ee66"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "92a395a74268dd17a019cf43ca0a5bbe38ad52e045697e403657abc3250e3f6e"
   end
 
   depends_on "pkg-config" => :build

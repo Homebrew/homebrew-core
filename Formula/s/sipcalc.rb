@@ -3,6 +3,7 @@ class Sipcalc < Formula
   homepage "https://www.routemeister.net/projects/sipcalc/"
   url "https://www.routemeister.net/projects/sipcalc/files/sipcalc-1.1.6.tar.gz"
   sha256 "cfd476c667f7a119e49eb5fe8adcfb9d2339bc2e0d4d01a1d64b7c229be56357"
+  license "BSD-3-Clause"
 
   livecheck do
     url "https://www.routemeister.net/projects/sipcalc/download.html"
@@ -10,6 +11,7 @@ class Sipcalc < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "aff7a2b4ee9e42cb1137a8293b57d1e5bb8892dad88c72895fcc173c81083920"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "29b5769fb8239c6028db50d8e402ef56c49eb88b6add34c61cc1ab5d367cceab"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "80c8034d8d69fb6d1b28b5e04d4361f24cd54e90ed86542edeb75abc893f155f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ce581c927477b75b12e92cf656e7de4c93c304be04621a7a4a65a8f8aadeaa02"
@@ -34,6 +36,6 @@ class Sipcalc < Formula
   end
 
   test do
-    system "#{bin}/sipcalc", "-h"
+    system bin/"sipcalc", "-h"
   end
 end

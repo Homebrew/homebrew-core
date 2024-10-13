@@ -8,6 +8,7 @@ class Argon2 < Formula
   head "https://github.com/P-H-C/phc-winner-argon2.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "4fe5808e09d5c48eac1991bb19bca51ac39517ae46d8e9f696580dc004c0bd08"
     sha256 cellar: :any,                 arm64_sonoma:   "c503692d2a7d5538d5cb241b69c283d998bde91b38e3065c01bc79fdbe8cd197"
     sha256 cellar: :any,                 arm64_ventura:  "016bdb5f9f24c58d77c34daa974103a22a80d7ded572c2cb2d4586c97b43eb62"
     sha256 cellar: :any,                 arm64_monterey: "498cea03c8c9f5ab7b90a0c333122415f0360c09f837cafae6d8685d6846ced2"

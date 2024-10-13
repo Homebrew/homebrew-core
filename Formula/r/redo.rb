@@ -9,17 +9,11 @@ class Redo < Formula
   revision 2
 
   bottle do
-    rebuild 4
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d8b48f458241e4a50346dfd5b317794688a2af43c7bdc00c18e16466846b26a6"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d8b48f458241e4a50346dfd5b317794688a2af43c7bdc00c18e16466846b26a6"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d8b48f458241e4a50346dfd5b317794688a2af43c7bdc00c18e16466846b26a6"
-    sha256 cellar: :any_skip_relocation, sonoma:         "d8b48f458241e4a50346dfd5b317794688a2af43c7bdc00c18e16466846b26a6"
-    sha256 cellar: :any_skip_relocation, ventura:        "d8b48f458241e4a50346dfd5b317794688a2af43c7bdc00c18e16466846b26a6"
-    sha256 cellar: :any_skip_relocation, monterey:       "d8b48f458241e4a50346dfd5b317794688a2af43c7bdc00c18e16466846b26a6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dfa4beea88424e7b19d7938c44499dadec311a123cdb3a532db55a26b3ad5561"
+    rebuild 6
+    sha256 cellar: :any_skip_relocation, all: "1efbd77be03b0fe6a112cad4db0910ddb6eeb101f5999322589e8f9ed6ff9870"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   conflicts_with "goredo", because: "both install `redo` and `redo-*` binaries"
 
@@ -39,7 +33,7 @@ class Redo < Formula
   end
 
   def install
-    python3 = "python3.12"
+    python3 = "python3.13"
     # Prevent system Python 2 from being detected
     inreplace "redo/whichpython.do", " python python3 python2 python2.7;", " #{python3};"
 
@@ -53,6 +47,10 @@ class Redo < Formula
     ENV["DESTDIR"] = ""
     ENV["PREFIX"] = prefix
     system "./do", "install"
+
+    # Ensure this symlink is the same across all our bottles,
+    # otherwise the Linux bottle points to `/usr/bin/dash`.
+    ln_sf "/bin/dash", lib/"redo/sh"
   end
 
   test do

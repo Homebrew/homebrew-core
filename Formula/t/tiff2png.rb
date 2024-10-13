@@ -7,6 +7,7 @@ class Tiff2png < Formula
   revision 3
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "d8e03677d759133baf47f323bb3ca630c65cc7c66e53809ae8cb2458ea6e65c5"
     sha256 cellar: :any,                 arm64_sonoma:   "02a4646315bc8a2391938a856635056e7b64b372b6c2607960911eb772229bf1"
     sha256 cellar: :any,                 arm64_ventura:  "cb4f278f194339e85a3e75b701c29e471b718760ad14bb10580bb546a3314e89"
     sha256 cellar: :any,                 arm64_monterey: "0ae6b6e42ee87ba89102282f21f1b7e4bbe98ded275f363a91e47ec9f0ec3cb2"
@@ -28,6 +29,6 @@ class Tiff2png < Formula
   end
 
   test do
-    system "#{bin}/tiff2png", test_fixtures("test.tiff")
+    system bin/"tiff2png", test_fixtures("test.tiff")
   end
 end

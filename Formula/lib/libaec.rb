@@ -7,6 +7,7 @@ class Libaec < Formula
   head "https://gitlab.dkrz.de/k202009/libaec.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "52db38032d4613b1f47c6b6bc0d1da5326bc609e3326609c703cc11bf031c5de"
     sha256 cellar: :any,                 arm64_sonoma:   "c226a16104f6c585188316a0873bd793c71721f5c39648a346648d5a05a28d3c"
     sha256 cellar: :any,                 arm64_ventura:  "d16c49cbbc3255ee5acdf072ac7803bda2f25bdaa3feea465ad3add3abc882fd"
     sha256 cellar: :any,                 arm64_monterey: "c70deb367fb14342dae88999341df49e67ee77198c0c3b46b18d087923228664"
@@ -27,12 +28,12 @@ class Libaec < Formula
   link_overwrite "lib/libsz.so.2"
 
   def install
-    mkdir "build" do
-      # We run `make test` for libraries
-      system "cmake", "..", *std_cmake_args, "-DBUILD_TESTING=ON"
-      system "make", "install"
-      system "make", "test"
-    end
+    # run ctest for libraries, also added `"-DBUILD_TESTING=ON` in the end as
+    # `std_cmake_args` has `BUILD_TESTING` off
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DBUILD_TESTING=ON"
+    system "cmake", "--build", "build"
+    system "ctest", "--test-dir", "build", "--verbose"
+    system "cmake", "--install", "build"
   end
 
   test do

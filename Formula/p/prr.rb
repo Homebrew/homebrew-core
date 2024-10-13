@@ -8,6 +8,7 @@ class Prr < Formula
   head "https://github.com/danobi/prr.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "4a822cf091a1f6789490698744ac828c6d4f36a6421830e24c114f7b0c485916"
     sha256 cellar: :any,                 arm64_sonoma:   "28f80c091dcaf14c6fe7733f95dadcd2d0bd2fa7b0d78f1ba848cfd6d64fda7b"
     sha256 cellar: :any,                 arm64_ventura:  "a8944bd7c8638a6359224c2b3c0b0013a4886dbf9b8742604f6e7ea7d35255b9"
     sha256 cellar: :any,                 arm64_monterey: "ffae88ab388c852d1b2b901a936d97907ea92716a602c335dc4a3972bba56751"

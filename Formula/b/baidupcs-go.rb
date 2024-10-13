@@ -7,6 +7,7 @@ class BaidupcsGo < Formula
   head "https://github.com/qjfoidnh/BaiduPCS-Go.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "b1cd34b45af125bd0d93bd506f355f3ed112bf84b2d17cc19d3be76ae074723f"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c229a61457af705d9ac3058e72db12f12c8b2465e907b2466d88a5867bdace70"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "cbbc175c0c0dc615c264d8f5ba4cc24798d13c69da377593a16d964556ad8dc9"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "79e0af826ec7d7f69df4839116748cab078aff181c4e11bc783cafe8950ce1f9"
@@ -16,7 +17,8 @@ class BaidupcsGo < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "9c2c291fef9739671cc34200270e1f2f1d105332a6850f1d8e76af3e72834f31"
   end
 
-  depends_on "go" => :build
+  # use "go" again when https://github.com/qjfoidnh/BaiduPCS-Go/issues/336 is resolved and released
+  depends_on "go@1.22" => :build
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w")

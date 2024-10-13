@@ -7,6 +7,7 @@ class Eget < Formula
   head "https://github.com/zyedidia/eget.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "7792046d5f98175c044e8ad372d5668fdc8dee721bd6009e3823e02c2d193086"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3279e7e0353f0298b42f5b041b7aee988b714bea17f28811f83696e71e2bd55f"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "8005b8b5701eb72e3f8bd1a98fc79b533ed9400162b1d78b9714069c9ff5c235"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c5ffde8dc91bcd3d11b90b93bb32d115af36df948b2c380cb5b0422dfa05e537"

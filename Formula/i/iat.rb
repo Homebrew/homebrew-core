@@ -3,9 +3,10 @@ class Iat < Formula
   homepage "https://sourceforge.net/projects/iat.berlios/"
   url "https://downloads.sourceforge.net/project/iat.berlios/iat-0.1.7.tar.bz2"
   sha256 "fb72c42f4be18107ec1bff8448bd6fac2a3926a574d4950a4d5120f0012d62ca"
-  license "GPL-3.0"
+  license "GPL-2.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "f6bc109730274136edd66490ce1029a7e48d083a418924684adbd72154a1ea84"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b9bf951c493709c86c80ded9cfda13a70c2fb7c6736ed66403bd493cd4267c5e"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "a0db42bcd57f51e6e6ae308b4e5999449bd70113b22e1e581331b892895d1c52"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "093c585bccdf3c2befc96c8050fc922267769a8d11e5d8d613aaaf5771ccc5cb"
@@ -29,6 +30,6 @@ class Iat < Formula
   end
 
   test do
-    system "#{bin}/iat", "--version"
+    system bin/"iat", "--version"
   end
 end

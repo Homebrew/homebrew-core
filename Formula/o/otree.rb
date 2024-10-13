@@ -7,6 +7,7 @@ class Otree < Formula
   head "https://github.com/fioncat/otree.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "4a7c9a77e048fd48aafaf6cde49a86e7e590c2e3c9c06aab768cbe56d558906b"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0f4b04b2aae647bd6d76aa701fb9169daaccc83662c3f4b94698d380444dae9c"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "9709bd34263c5a6dfb0d1cde0dbe30fb513a4776818e25ab699bb252e5806da9"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "49e6a2a79ae6a2bb8ddbaafbcf8289819d3e27b3632cf0362029186527b46091"

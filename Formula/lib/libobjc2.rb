@@ -12,6 +12,7 @@ class Libobjc2 < Formula
   depends_on "cmake" => :build
   # While libobjc2 is built with clang, it does not use any LLVM runtime libraries.
   depends_on "llvm" => [:build, :test]
+  depends_on "robin-map" => :build
   depends_on "pkg-config" => :test
   # Clang explicitly forbids building Mach-O binaries of libobjc2.
   # https://reviews.llvm.org/D46052
@@ -21,14 +22,7 @@ class Libobjc2 < Formula
   # Clang must be used on Linux because GCC Objective-C support is insufficient.
   fails_with :gcc
 
-  resource "robin-map" do
-    url "https://github.com/Tessil/robin-map/archive/refs/tags/v1.2.1.tar.gz"
-    sha256 "2b54d2c1de2f73bea5c51d5dcbd64813a08caf1bfddcfdeee40ab74e9599e8e3"
-  end
-
   def install
-    (buildpath/"third_party/robin-map").install resource("robin-map")
-
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"

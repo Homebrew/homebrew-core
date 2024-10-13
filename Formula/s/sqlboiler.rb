@@ -7,6 +7,7 @@ class Sqlboiler < Formula
   head "https://github.com/volatiletech/sqlboiler.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "6f759cd888c85871333bcd1085045c261371523abd65cbbd32a38c8172c23a8f"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f8a10325fdfb7fa68999dd6e469e48b74d50641148a07da4505994efebbbc8a8"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "cf85c025cb7b30284ea00c1a7bcc0fd9a2e995a3374d027ea717cfc6f6d5bf98"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c0730d42769f760f1b51dabb7f5dad6f37606dfab87a8a6d8ad31d7f31775f16"

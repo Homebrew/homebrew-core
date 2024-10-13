@@ -2,22 +2,20 @@ class Haxe < Formula
   desc "Multi-platform programming language"
   homepage "https://haxe.org/"
   license all_of: ["GPL-2.0-or-later", "MIT"]
-  revision 1
   head "https://github.com/HaxeFoundation/haxe.git", branch: "development"
 
   stable do
+    # TODO: Remove `ctypes==0.21.1` pin when build fails from pointer mismatch (i.e. `luv >= 0.5.13`)
+    # Ref: https://github.com/HaxeFoundation/haxe/commit/e646e6f182c920694968ba7a28ad01ddfee4519a
+    # Ref: https://github.com/HaxeFoundation/haxe/commit/0866067940256afc9227a75f96baee6ec64ee373
     url "https://github.com/HaxeFoundation/haxe.git",
-        tag:      "4.3.5",
-        revision: "bd79571b89d719a45db7860d239da2164147dd15"
+        tag:      "4.3.6",
+        revision: "760c0dd9972abadceba4e72edb1db13b2a4fb315"
 
     # Backport support for mbedtls 3.x
     patch do
       url "https://github.com/HaxeFoundation/haxe/commit/c3258892c3c829ddd9faddcc0167108e62c84390.patch?full_index=1"
       sha256 "d92fa85053ed4303f147e784e528380f6a0f6f08d35b5d93fbdfbf072ca7ed3e"
-    end
-    patch do
-      url "https://github.com/HaxeFoundation/haxe/commit/8149e5e66436b5dac8f8b3f3fa09b2aac3e7f9d8.patch?full_index=1"
-      sha256 "ccd51482d2dd8f41788dbfce1a0b107206f7ba145045d63e0d5634b4633e754a"
     end
   end
 
@@ -27,14 +25,14 @@ class Haxe < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sonoma:   "22f348b27b26e056b6dc9670c06979d01db3cdd432500ddf14c8c95b8ece79f3"
-    sha256 cellar: :any,                 arm64_ventura:  "6eb064c4e1bdbb1fc09cddb7b2acf59496a9390ce380322bd8cfe10e5a909069"
-    sha256 cellar: :any,                 arm64_monterey: "71e2a7a551f21d8898cdb320abffcd7eee9b199731140b8b6e43072d40174f47"
-    sha256 cellar: :any,                 sonoma:         "15190dded793cb086fa7191b0ef1d55ed7ab37a442701838a9b7d9406fe2c300"
-    sha256 cellar: :any,                 ventura:        "9fc36e59a7b13e26de53226b20a59c5fa52c090fd2550ffc4eae884de768c22c"
-    sha256 cellar: :any,                 monterey:       "ab0fb58f43caaf6e228daa6d95de3c8b82aef1192f8c1c303eea4eddbadc6747"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "03784e3c2a636bcd32d265ab22fff659239826e21a43eaefa0dc089338ad55ac"
+    sha256 cellar: :any,                 arm64_sequoia:  "f46b8c3720cefeda7d771f46a73873a68e1db5e76d45102c3107644222416053"
+    sha256 cellar: :any,                 arm64_sonoma:   "d0b13478d395cf9ea455a25b7b07f6536b4bac3b041ad48790e85fb105b45fbb"
+    sha256 cellar: :any,                 arm64_ventura:  "4a33e2aa4d5749040521f96cba3d3d3aa713e97db701063e3566d129e8251f75"
+    sha256 cellar: :any,                 arm64_monterey: "026ce9fe643c092f45b85d6fb99842261583f5d1e4ecb83f43bc7ebb94d0341f"
+    sha256 cellar: :any,                 sonoma:         "9376bf9c2c01df7a8ee36e1e474e909ef8e9e784d3eccd21760760868be65510"
+    sha256 cellar: :any,                 ventura:        "c331d84365e3caf89e27f9b833c0b832a4b703c56b74d1e8c8895e810a9adca2"
+    sha256 cellar: :any,                 monterey:       "8edf54dd46a8a8a786abb80d233d7ec0cad854e0a8484a32bde012030e929aec"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "37602a38987f6d010d03170855f54f85fc5ce193809234f6c5a7de9fb7486f8e"
   end
 
   depends_on "cmake" => :build
@@ -82,6 +80,7 @@ class Haxe < Formula
       ENV["OPAMYES"] = "1"
       ENV["ADD_REVISION"] = "1" if build.head?
       system "opam", "init", "--no-setup", "--disable-sandboxing"
+      system "opam", "exec", "--", "opam", "pin", "add", "ctypes", "0.21.1"
       system "opam", "exec", "--", "opam", "pin", "add", "haxe", buildpath, "--no-action"
       system "opam", "exec", "--", "opam", "install", "haxe", "--deps-only", "--working-dir", "--no-depexts"
       system "opam", "exec", "--", "make"
@@ -108,9 +107,10 @@ class Haxe < Formula
   end
 
   test do
-    ENV["HAXE_STD_PATH"] = "#{HOMEBREW_PREFIX}/lib/haxe/std"
-    system "#{bin}/haxe", "-v", "Std"
-    system "#{bin}/haxelib", "version"
+    ENV["HAXE_STD_PATH"] = HOMEBREW_PREFIX/"lib/haxe/std"
+
+    system bin/"haxe", "-v", "Std"
+    system bin/"haxelib", "version"
 
     (testpath/"HelloWorld.hx").write <<~EOS
       import js.html.Console;
@@ -119,7 +119,7 @@ class Haxe < Formula
           static function main() Console.log("Hello world!");
       }
     EOS
-    system "#{bin}/haxe", "-js", "out.js", "-main", "HelloWorld"
+    system bin/"haxe", "-js", "out.js", "-main", "HelloWorld"
 
     cmd = if OS.mac?
       "osascript -so -lJavaScript out.js 2>&1"

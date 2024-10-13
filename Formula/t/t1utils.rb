@@ -6,6 +6,7 @@ class T1utils < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "bd84184aade118b7cbf5d85bf3f4265405a7120e4551f6fff8461fef9048abb7"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a516ec13b48bdbfbdf2265ca8bd31425936bb0a1f17868325789e4cdf76cb0f1"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "d4d23288e682bb4e3b023a9d18add81d799fa6d0c80c651c69a7497b82411605"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "fee7b36a362724bfbcfe108b289536233ebdef429b53e03066db92b1ae2c26d3"
@@ -36,6 +37,6 @@ class T1utils < Formula
   end
 
   test do
-    system "#{bin}/t1mac", "--version"
+    system bin/"t1mac", "--version"
   end
 end

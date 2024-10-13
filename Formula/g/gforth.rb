@@ -8,6 +8,7 @@ class Gforth < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_sequoia:  "d883e4eb6b087d2168148fcef85b3d792c38f748a0b18b7a303151d9247df073"
     sha256 arm64_sonoma:   "d630a48eba921bafb2c5ee8c6c92372c82eddca1c09b957fa6ed0546614f2d4a"
     sha256 arm64_ventura:  "5338b68e5c73e09b9bb05abe64d434d4a68df62a5ee07b45e6852ddb33d14ae9"
     sha256 arm64_monterey: "88e70671a76d3012c1a968056b7a48e006e10cf1e9115322e627c6d90ea3b504"

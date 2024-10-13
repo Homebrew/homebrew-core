@@ -1,5 +1,3 @@
-require "language/node"
-
 class Aicommits < Formula
   desc "Writes your git commit messages for you with AI"
   homepage "https://github.com/Nutlope/aicommits"
@@ -8,25 +6,26 @@ class Aicommits < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "a500d7ca5f6978eb4e3bb96677f8f332267c5b3070aafb8f8c7b4af851435bc3"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "a95d423b81063b3a9f2772969b4b627aacf2c173d841ab5cb6659c4224ecdf27"
   end
 
   depends_on "node"
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", *std_npm_args
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 
   test do
-    assert_match "The current directory must be a Git repository!", shell_output("#{bin}/aicommits", 1)
+    assert_match "The current directory must be a Git repository!", shell_output(bin/"aicommits", 1)
 
     system "git", "init"
     assert_match "No staged changes found. Stage your changes manually, or automatically stage all changes with the",
-      shell_output("#{bin}/aicommits", 1)
+      shell_output(bin/"aicommits", 1)
     touch "test.txt"
     system "git", "add", "test.txt"
     assert_match "Please set your OpenAI API key via `aicommits config set OPENAI_KEY=<your token>`",
-      shell_output("#{bin}/aicommits", 1)
+      shell_output(bin/"aicommits", 1)
   end
 end

@@ -13,6 +13,7 @@ class Mgba < Formula
   end
 
   bottle do
+    sha256 arm64_sequoia:  "2c4dbac84443147a058fcd1d4ae9c43ecc7e1a838279f92cdaf7765702b9d166"
     sha256 arm64_sonoma:   "d25d99aa5db8c8e0c860a7687b81fba01607282028f9e27cce4c1f92fddf7a6a"
     sha256 arm64_ventura:  "b7a07ec0ed66d699a0fa40a780aa46b2bf22491223beb111b33e16df6ae1e94c"
     sha256 arm64_monterey: "948767938e7aeaeabd951f600a1907018e42f3eabf559a97a5865074b2e1ca4f"
@@ -24,6 +25,7 @@ class Mgba < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
+
   depends_on "ffmpeg"
   depends_on "libepoxy"
   depends_on "libpng"
@@ -32,8 +34,10 @@ class Mgba < Formula
   depends_on "lua"
   depends_on "qt@5"
   depends_on "sdl2"
+  depends_on "sqlite"
 
-  uses_from_macos "sqlite"
+  uses_from_macos "libedit"
+  uses_from_macos "zlib"
 
   on_macos do
     # https://github.com/mgba-emu/mgba/issues/3129
@@ -42,6 +46,7 @@ class Mgba < Formula
 
   on_linux do
     depends_on "elfutils"
+    depends_on "mesa"
   end
 
   def install

@@ -3,11 +3,11 @@ class SimpleMtpfs < Formula
   homepage "https://github.com/phatina/simple-mtpfs"
   url "https://github.com/phatina/simple-mtpfs/archive/refs/tags/v0.4.0.tar.gz"
   sha256 "1d011df3fa09ad0a5c09d48d84c03e6cddf86390af9eb4e0c178193f32f0e2fc"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "0a3312b826ab7fd86c703b24855864bb86660bbcefde74ecb949ad8d09ff035e"
+    rebuild 3
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "c194161a8dbd1095e449cceb1b21e7e64f68d6541ab32c63ff78092260df8d49"
   end
 
   depends_on "autoconf" => :build
@@ -16,15 +16,12 @@ class SimpleMtpfs < Formula
   depends_on "pkg-config" => :build
   depends_on "libfuse@2"
   depends_on "libmtp"
+  depends_on "libusb"
   depends_on :linux # on macOS, requires closed-source macFUSE
-
-  fails_with gcc: "5"
 
   def install
     system "./autogen.sh"
-    system "./configure", "--prefix=#{prefix}",
-      "CPPFLAGS=-I/usr/local/include/osxfuse -I/usr/local/include/osxfuse/fuse",
-      "LDFLAGS=-L/usr/local/include/osxfuse"
+    system "./configure", "--disable-silent-rules", *std_configure_args
     system "make"
     system "make", "install"
   end

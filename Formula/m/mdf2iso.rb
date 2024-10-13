@@ -11,6 +11,7 @@ class Mdf2iso < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "cb7698f54dab58995f190cb1fa0b27206fdcc26df54ed14340042bbdf5e9bc22"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e6fe3b6e39dc1c0edc7258d2a36af055d21aba09074adb99f427a1c18f7e5fb1"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "7dad8470649a9874ce6321736a6a14d4a76cd2ea1ca5c379cadf10da1ab45c8b"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "7952ed81c8034b504bb0e55e147e2f601990494b35cfe1fea3ba3c2cd006bb0c"

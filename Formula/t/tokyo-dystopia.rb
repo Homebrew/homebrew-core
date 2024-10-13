@@ -3,7 +3,7 @@ class TokyoDystopia < Formula
   homepage "https://dbmx.net/tokyodystopia/"
   url "https://dbmx.net/tokyodystopia/tokyodystopia-0.9.15.tar.gz"
   sha256 "28b43c592a127d1c9168eac98f680aa49d1137b4c14b8d078389bbad1a81830a"
-  license "LGPL-2.1"
+  license "LGPL-2.1-or-later"
 
   livecheck do
     url :homepage
@@ -11,6 +11,7 @@ class TokyoDystopia < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "da35291f169e133bb8dcc321c5114ea62714f6e0eadab7a69cef121e0c76813f"
     sha256 cellar: :any,                 arm64_sonoma:   "16af9fb0facf080bd076d60cd306742fb641f7430cf0c14946e5e37d2d4dcb8c"
     sha256 cellar: :any,                 arm64_ventura:  "b668547ea69b42bff8b084ec960fb1d1b0233179b2b8b2ea5bb83b013ab81f84"
     sha256 cellar: :any,                 arm64_monterey: "6c120e05bb6ced87121536beab4895c0b03d0e94206fe6fafac4a96326bf2e32"
@@ -42,8 +43,8 @@ class TokyoDystopia < Formula
       81\tJapan
     EOS
 
-    system "#{bin}/dystmgr", "importtsv", "casket", "test.tsv"
-    system "#{bin}/dystmgr", "put", "casket", "83", "China"
-    system "#{bin}/dystmgr", "list", "-pv", "casket"
+    system bin/"dystmgr", "importtsv", "casket", "test.tsv"
+    system bin/"dystmgr", "put", "casket", "83", "China"
+    system bin/"dystmgr", "list", "-pv", "casket"
   end
 end

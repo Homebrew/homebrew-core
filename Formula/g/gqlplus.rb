@@ -3,12 +3,16 @@ class Gqlplus < Formula
   homepage "https://gqlplus.sourceforge.net/"
   url "https://downloads.sourceforge.net/project/gqlplus/gqlplus/1.16/gqlplus-1.16.tar.gz"
   sha256 "9e0071d6f8bc24b0b3623c69d9205f7d3a19c2cb32b5ac9cff133dc75814acdd"
+  license "GPL-2.0-only"
   revision 2
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "655578c016ff8dadbc3acec3696e90fb7fbab95af8a0f749ec4d2384ab977221"
+    sha256 cellar: :any,                 arm64_sonoma:   "c4534648d55a23ab49c6fd1e3a4c3c66ee928c7b4ab4cb1c10b9e132134a81f7"
     sha256 cellar: :any,                 arm64_ventura:  "a0306aa2fa07da51f02dec57525850ec4fe73e37d044fc34cb0b722cb83d1310"
     sha256 cellar: :any,                 arm64_monterey: "ced72667294e921a6625eff47bdb23df67595692f8f5b4d1ed253eefc4b708ac"
     sha256 cellar: :any,                 arm64_big_sur:  "e93b52a5967e87f0ccc282ad897c4d64b42e0bcf4e41f7ece17186f1fd36bcd6"
+    sha256 cellar: :any,                 sonoma:         "6708979566b6935a78ff20a3467a1f9444a20b890c554ae1d07050187db6703b"
     sha256 cellar: :any,                 ventura:        "7d53a459847266fa2e56d0c5a2ccaa5101106988b5d95448a987b4e8cff6ecc3"
     sha256 cellar: :any,                 monterey:       "9af9ffcfb971028cd45c552c13624d26aa5abd0a34df1bba31504070879b474b"
     sha256 cellar: :any,                 big_sur:        "6b4b7972c9c29e749bb0546aa83f756e967aca10793ff70de9bb1711536d929a"
@@ -22,15 +26,16 @@ class Gqlplus < Formula
   depends_on "readline"
 
   def install
+    # Fix compile with newer Clang
+    ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
+
     # Fix the version
     # Reported 18 Jul 2016: https://sourceforge.net/p/gqlplus/bugs/43/
     inreplace "gqlplus.c",
       "#define VERSION          \"1.15\"",
       "#define VERSION          \"1.16\""
 
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
-    system "make"
+    system "./configure", *std_configure_args.reject { |s| s["--disable-debug"] }
     system "make", "install"
   end
 

@@ -7,6 +7,7 @@ class Phoneinfoga < Formula
   head "https://github.com/sundowndev/phoneinfoga.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "7753aee0c8aa77f686eff25f3c74b9f53d620dee4f7be890afc31bddb631c95d"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d56737c84d3cbb5cf5e4545e77d5b5f2ddc9c589305b68bc929187381dfa0bff"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f08a417535abb3f01a6515580727b1f903ab3da8b4245f9c9cc4653fba8ec124"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d7d428e6d911e94cca96ba259e884d3019e699aa5d7579d84da3770e23f1bccd"
@@ -37,7 +38,7 @@ class Phoneinfoga < Formula
 
   test do
     assert_match "PhoneInfoga v#{version}-brew", shell_output("#{bin}/phoneinfoga version")
-    system "#{bin}/phoneinfoga", "scanners"
+    system bin/"phoneinfoga", "scanners"
     assert_match "given phone number is not valid", shell_output("#{bin}/phoneinfoga scan -n foobar 2>&1", 1)
   end
 end

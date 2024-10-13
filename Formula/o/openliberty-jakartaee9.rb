@@ -11,13 +11,14 @@ class OpenlibertyJakartaee9 < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "fcfacc1f22724be5be26e1e7ec478503d5b1ba1256ab340153975191c7ee9165"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "69434015835d5c9c2ca412ea3c6fbc6c96cc09f85a933581fe162b8d1f12a327"
   end
 
   depends_on "openjdk"
 
   def install
-    rm_rf Dir["bin/**/*.bat"]
+    rm_r(Dir["bin/**/*.bat"])
 
     libexec.install Dir["*"]
     (bin/"openliberty-jakartaee9").write_env_script "#{libexec}/bin/server",

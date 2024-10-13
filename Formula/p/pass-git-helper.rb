@@ -3,23 +3,22 @@ class PassGitHelper < Formula
 
   desc "Git credential helper interfacing with pass"
   homepage "https://github.com/languitar/pass-git-helper"
-  url "https://github.com/languitar/pass-git-helper/archive/refs/tags/v2.0.0.tar.gz"
-  sha256 "04a48285af405e1358139bb83193484b198e7b19f782f1b97165b62d2c964bfd"
+  url "https://github.com/languitar/pass-git-helper/archive/refs/tags/v3.0.0.tar.gz"
+  sha256 "3b0cda7a5eae2e93cc1ccec0ea02716db5a2ce3105c6d631f20fa20152b7a163"
   license "LGPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7abf528867c4773880eeaf96a61583677c6df91d1d33cb6260851995f0977f2c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7abf528867c4773880eeaf96a61583677c6df91d1d33cb6260851995f0977f2c"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7abf528867c4773880eeaf96a61583677c6df91d1d33cb6260851995f0977f2c"
-    sha256 cellar: :any_skip_relocation, sonoma:         "161f83037615891ef298cf97940553757ed09c84da60a404c509b08a9b270101"
-    sha256 cellar: :any_skip_relocation, ventura:        "161f83037615891ef298cf97940553757ed09c84da60a404c509b08a9b270101"
-    sha256 cellar: :any_skip_relocation, monterey:       "161f83037615891ef298cf97940553757ed09c84da60a404c509b08a9b270101"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1e320b0f7dcf2d5ecdc49312d2504817267b4bbf3b17a02c0aeb06b37f5e7a6e"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cc49479ad804837704f42f901f352a8b1b12c05eca21abb8bc20c51022cd51a1"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "cc49479ad804837704f42f901f352a8b1b12c05eca21abb8bc20c51022cd51a1"
+    sha256 cellar: :any_skip_relocation, sonoma:        "352862920179610c7c5414fff296d3f5c373f0cc983bbddc42c64a49306f8bbb"
+    sha256 cellar: :any_skip_relocation, ventura:       "352862920179610c7c5414fff296d3f5c373f0cc983bbddc42c64a49306f8bbb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1317d6bf961f2a4ca1b114e526d292153b332bbebba6c8b78682f075a04154c5"
   end
 
   depends_on "gnupg" => :test
   depends_on "pass"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "pyxdg" do
     url "https://files.pythonhosted.org/packages/b0/25/7998cd2dec731acbd438fbf91bc619603fc5188de0a9a17699a781840452/pyxdg-0.28.tar.gz"

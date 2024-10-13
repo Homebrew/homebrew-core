@@ -1,25 +1,22 @@
 class ZshSyntaxHighlighting < Formula
   desc "Fish shell like syntax highlighting for zsh"
   homepage "https://github.com/zsh-users/zsh-syntax-highlighting"
-  url "https://github.com/zsh-users/zsh-syntax-highlighting.git",
-      tag:      "0.8.0",
-      revision: "db085e4661f6aafd24e5acb5b2e17e4dd5dddf3e"
+  url "https://github.com/zsh-users/zsh-syntax-highlighting/archive/refs/tags/0.8.0.tar.gz"
+  sha256 "5981c19ebaab027e356fe1ee5284f7a021b89d4405cc53dc84b476c3aee9cc32"
   license "BSD-3-Clause"
   head "https://github.com/zsh-users/zsh-syntax-highlighting.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "603dabae4003cd3d95ab7f872a7fd9944e67cf0d963ffe42a07c8f3c191211ea"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "603dabae4003cd3d95ab7f872a7fd9944e67cf0d963ffe42a07c8f3c191211ea"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "603dabae4003cd3d95ab7f872a7fd9944e67cf0d963ffe42a07c8f3c191211ea"
-    sha256 cellar: :any_skip_relocation, sonoma:         "78a5770992ca645e5271e2a2b9aef6d99502ff99bace3a7470020b8dc34fcb4d"
-    sha256 cellar: :any_skip_relocation, ventura:        "78a5770992ca645e5271e2a2b9aef6d99502ff99bace3a7470020b8dc34fcb4d"
-    sha256 cellar: :any_skip_relocation, monterey:       "78a5770992ca645e5271e2a2b9aef6d99502ff99bace3a7470020b8dc34fcb4d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "603dabae4003cd3d95ab7f872a7fd9944e67cf0d963ffe42a07c8f3c191211ea"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "3cfaa693dab68d9a576ad1ad0a018e12b250a057963263733f6fcc9b4c4ce8a6"
   end
 
   uses_from_macos "zsh" => [:build, :test]
 
   def install
+    # Make the bottles uniform (modifying a comment with /usr/local path)
+    inreplace "highlighters/main/main-highlighter.zsh", "/usr/local/bin", "#{HOMEBREW_PREFIX}/bin"
+
     system "make", "install", "PREFIX=#{prefix}"
   end
 

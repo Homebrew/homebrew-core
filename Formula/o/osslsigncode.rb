@@ -6,6 +6,7 @@ class Osslsigncode < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "fe12f26f3bd487dc6663ffdc0d6091547e52b4c3f00f003eff28d932d23bddcf"
     sha256 cellar: :any,                 arm64_sonoma:   "917f9ac6b5ceaa7558b47929da67fa0aa3a7b3d6e4d2e7fb40f582c29bde91a2"
     sha256 cellar: :any,                 arm64_ventura:  "3024c29dd0838b5fa7c57edab3ed3e2373515e65dd211421d8384fe9088642cb"
     sha256 cellar: :any,                 arm64_monterey: "aa7c4c53ebf2aa83120b5883b0f8229e119fe1a4ac5bb97c1d3e9fcf141c1241"

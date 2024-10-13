@@ -7,14 +7,8 @@ class Jmeter < Formula
   license "Apache-2.0"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2ba8629c1a14bfd30658feb0e04a1274c8c148e8e80a1663ac7654d92a1476db"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2ba8629c1a14bfd30658feb0e04a1274c8c148e8e80a1663ac7654d92a1476db"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "2ba8629c1a14bfd30658feb0e04a1274c8c148e8e80a1663ac7654d92a1476db"
-    sha256 cellar: :any_skip_relocation, sonoma:         "2ba8629c1a14bfd30658feb0e04a1274c8c148e8e80a1663ac7654d92a1476db"
-    sha256 cellar: :any_skip_relocation, ventura:        "2ba8629c1a14bfd30658feb0e04a1274c8c148e8e80a1663ac7654d92a1476db"
-    sha256 cellar: :any_skip_relocation, monterey:       "2ba8629c1a14bfd30658feb0e04a1274c8c148e8e80a1663ac7654d92a1476db"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "952ad8cae3674686a6314b1e24e1a672f8901a60e7684c54f31bb2933fdb4bf2"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "13c89a34f46a525ba7131741a8c7c8f0ea789ed231762b20ac6e5dc5f0757b04"
   end
 
   depends_on "openjdk@21"
@@ -26,7 +20,7 @@ class Jmeter < Formula
 
   def install
     # Remove windows files
-    rm_f Dir["bin/*.bat"]
+    rm(Dir["bin/*.bat"])
 
     libexec.install Dir["*"]
     (bin/"jmeter").write_env_script libexec/"bin/jmeter", JAVA_HOME: Formula["openjdk@21"].opt_prefix

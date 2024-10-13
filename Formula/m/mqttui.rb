@@ -1,18 +1,19 @@
 class Mqttui < Formula
   desc "Subscribe to a MQTT Topic or publish something quickly from the terminal"
   homepage "https://github.com/EdJoPaTo/mqttui"
-  url "https://github.com/EdJoPaTo/mqttui/archive/refs/tags/v0.21.0.tar.gz"
-  sha256 "64453143e36f59a2fbb0dd67b02437b170d82fa15daf492cff2750cce0f5c126"
+  url "https://github.com/EdJoPaTo/mqttui/archive/refs/tags/v0.21.1.tar.gz"
+  sha256 "34caa9a540c107738b7156f8a67cbbd2d1f6a25522f964142943aae7d3099501"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9d92ce31d6947d8cc59b79b3b2981fd5dbfefca24b7eb6edb19e5423b60df4d2"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "48685db4c03887959fefa286aebb5fde71ef299628d23ad09d86042f06a01f59"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "15f32c048545ff1bf64b6e1ee3ad6fd9d69c222d099fe3192ca1ca37925712aa"
-    sha256 cellar: :any_skip_relocation, sonoma:         "e7795afa5ce635ffc40a7a795e8355205d842f28204aee95b4dc3cdf202430be"
-    sha256 cellar: :any_skip_relocation, ventura:        "2d69821b3c53d01f3f446956981e6d547f26078ce068c3e59c36e95cdd51a733"
-    sha256 cellar: :any_skip_relocation, monterey:       "a7a9ceda7689574b9a0a2a2f550ec4edef1207f368eb845bf67ca6d140364cd8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2c6ea9fff76a2f36fc2fc64991e0e2ad593248b53143bcc3f63ed9f92fd34e31"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "852000bbb6154a15aaeb04c16dea3debb51a37ae6e2aca62865703b69710897c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "78a4b50a7de81fdcf692ada8a6b8cf8ce4422f073f1eeaec4e342f311352d8eb"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0a83821074d07516d9b80c32718727bc1d2a62f772b2be2a8956493cc4682d65"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e95d225919d3ec405260a89a3c3cd3cbc273331ec899e29efb537884685ba337"
+    sha256 cellar: :any_skip_relocation, sonoma:         "6e26d91c0f38ed79f5d6afc91f7a5781fd000e0dc70257c678f7260718a3d2b4"
+    sha256 cellar: :any_skip_relocation, ventura:        "ea861b285a01185fec5ea5fc6663c8f99d205f5ca9158b40e7ed1068545cb7bf"
+    sha256 cellar: :any_skip_relocation, monterey:       "f7abd6ef1e8b517472124b35e7dc94127886ea30aabd2d7cf950c253b3438a55"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7ebeadc572d78a107c0b0e8e109804d2c17adc3a41d3abd4adce818378965dd2"
   end
 
   depends_on "rust" => :build

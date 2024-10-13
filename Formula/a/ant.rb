@@ -1,32 +1,33 @@
 class Ant < Formula
   desc "Java build tool"
   homepage "https://ant.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=ant/binaries/apache-ant-1.10.14-bin.tar.xz"
-  mirror "https://archive.apache.org/dist/ant/binaries/apache-ant-1.10.14-bin.tar.xz"
-  sha256 "a0456ecbf934b41dca74747413f2da7eafe40355fbdf5bfd38d8f3713dd828cd"
+  url "https://www.apache.org/dyn/closer.lua?path=ant/binaries/apache-ant-1.10.15-bin.tar.xz"
+  mirror "https://archive.apache.org/dist/ant/binaries/apache-ant-1.10.15-bin.tar.xz"
+  sha256 "4d5bb20cee34afbad17782de61f4f422c5a03e4d2dffc503bcbd0651c3d3c396"
   license "Apache-2.0"
   head "https://git-wip-us.apache.org/repos/asf/ant.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "82300ae2aeda1d532bcc652cd0658104a412ad11c91e45262d054955f6dd69dd"
+    sha256 cellar: :any_skip_relocation, all: "c666080c76ed9c83e4d6a62bf1f00514a01b6b2bc6db604e8ed91b5121a9f8fc"
   end
 
   depends_on "openjdk"
 
   resource "ivy" do
-    url "https://www.apache.org/dyn/closer.lua?path=ant/ivy/2.5.1/apache-ivy-2.5.1-bin.tar.gz"
-    mirror "https://archive.apache.org/dist/ant/ivy/2.5.1/apache-ivy-2.5.1-bin.tar.gz"
-    sha256 "ce9d3d5e37f6bc3c95a21efc94ae4ab73ec27b3e8d0d86515b44b562c4bb431e"
+    url "https://www.apache.org/dyn/closer.lua?path=ant/ivy/2.5.2/apache-ivy-2.5.2-bin.tar.gz"
+    mirror "https://archive.apache.org/dist/ant/ivy/2.5.2/apache-ivy-2.5.2-bin.tar.gz"
+    sha256 "c673ad3a8b09935c1a0cee8551fb6fd9eb7b0cf3b5e5104047af478ef60517a2"
   end
 
   resource "bcel" do
-    url "https://www.apache.org/dyn/closer.lua?path=commons/bcel/binaries/bcel-6.7.0-bin.tar.gz"
-    mirror "https://archive.apache.org/dist/commons/bcel/binaries/bcel-6.7.0-bin.tar.gz"
-    sha256 "d1bee25e9da24f0a9c808dc8137fcfc7fe662d3d3ac95eaee477586e8bb1ea2e"
+    url "https://www.apache.org/dyn/closer.lua?path=commons/bcel/binaries/bcel-6.9.0-bin.tar.gz"
+    mirror "https://archive.apache.org/dist/commons/bcel/binaries/bcel-6.9.0-bin.tar.gz"
+    sha256 "704ea422628e5c105dfb4f59878fa6a02cb7113932fb5c5997da30dc1b9740c6"
   end
 
   def install
     rm Dir["bin/*.{bat,cmd,dll,exe}"]
+
     libexec.install Dir["*"]
     bin.install_symlink Dir["#{libexec}/bin/*"]
     rm bin/"ant"
@@ -57,6 +58,7 @@ class Ant < Formula
         </target>
       </project>
     EOS
+
     (testpath/"src/main/java/org/homebrew/AntTest.java").write <<~EOS
       package org.homebrew;
       public class AntTest {
@@ -65,6 +67,7 @@ class Ant < Formula
         }
       }
     EOS
-    system "#{bin}/ant", "compile"
+
+    system bin/"ant", "compile"
   end
 end

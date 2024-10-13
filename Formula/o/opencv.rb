@@ -4,6 +4,7 @@ class Opencv < Formula
   url "https://github.com/opencv/opencv/archive/refs/tags/4.10.0.tar.gz"
   sha256 "b2171af5be6b26f7a06b1229948bbb2bdaa74fcf5cd097e0af6378fce50a6eb9"
   license "Apache-2.0"
+  revision 11
   head "https://github.com/opencv/opencv.git", branch: "4.x"
 
   livecheck do
@@ -12,13 +13,11 @@ class Opencv < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "8031982299b0e441f71a44410029bf22b6808a366ecd30f23b9811d42fab521d"
-    sha256 arm64_ventura:  "fa9251fa7a911abd017421ba0c51dee7397b7a18e0aefccc2dc18964546c2120"
-    sha256 arm64_monterey: "f1bbb6747490a4f6674fddab6d344d4304297712e209ea51d13e6d30213263c7"
-    sha256 sonoma:         "7f8dc0a72cf52b1373d80a6a7c659f7ad8158cdeeb830167c5a2690c329829be"
-    sha256 ventura:        "4b05d990ad1a3b8a68ec0e2b635ac910db07d96b6c2860a9289f9204246f0897"
-    sha256 monterey:       "50936e22b41f5d386fa282177fc2d50600396f879dcb7f4af479051422a9f0c0"
-    sha256 x86_64_linux:   "8167249db3953cf746015391fbb29b7513c2d36085f6f712050098abfca371de"
+    sha256 arm64_sonoma:  "3b056a2b5fe47fbad4128abfe9ca30e207116359fbad459a1492d6eb6ba72c74"
+    sha256 arm64_ventura: "5bfc81f73ec3a3c66fd8bdf79f9d95f7d5d3315120cc29216f6ccbb11b9ffa34"
+    sha256 sonoma:        "41f609f5ed694a68d6771b11fa9dad0ba985b1400151845d2d7deb89bf0178b6"
+    sha256 ventura:       "aae4e6d2de588e94c26471d1235ee73057228e18397b1076cf98bb12cd832602"
+    sha256 x86_64_linux:  "f8ba815fc2d4bb80709b5a3bd7476cea23d30b09cc5cfe75ad8e72119e779fc7"
   end
 
   depends_on "cmake" => :build
@@ -27,12 +26,13 @@ class Opencv < Formula
   depends_on "abseil"
   depends_on "ceres-solver"
   depends_on "eigen"
-  depends_on "ffmpeg@6"
+  depends_on "ffmpeg"
   depends_on "freetype"
   depends_on "gflags"
   depends_on "glog"
   depends_on "harfbuzz"
   depends_on "jpeg-turbo"
+  depends_on "jsoncpp"
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "numpy"
@@ -52,7 +52,6 @@ class Opencv < Formula
   on_macos do
     depends_on "glew"
     depends_on "imath"
-    depends_on "jsoncpp"
     depends_on "libarchive"
   end
 
@@ -85,7 +84,7 @@ class Opencv < Formula
 
     # Remove bundled libraries to make sure formula dependencies are used
     libdirs = %w[ffmpeg libjasper libjpeg libjpeg-turbo libpng libtiff libwebp openexr openjpeg protobuf tbb zlib]
-    libdirs.each { |l| (buildpath/"3rdparty"/l).rmtree }
+    libdirs.each { |l| rm_r(buildpath/"3rdparty"/l) }
 
     args = %W[
       -DCMAKE_CXX_STANDARD=17

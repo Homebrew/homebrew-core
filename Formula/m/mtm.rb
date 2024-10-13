@@ -6,6 +6,7 @@ class Mtm < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "7568a6130dc642b184063d2b470d2855e0cbc040e80c0f9409aeee9361c80b1b"
     sha256 cellar: :any,                 arm64_sonoma:   "5f63cd8a1cfeab4ed5e0b5b88f63482f88508ea4ee6d3c2c9c16b6fc1cbd8fab"
     sha256 cellar: :any,                 arm64_ventura:  "5e316854c5b156cbc12a6e70b274763c03f7a666ee8288d32bcf6f1d11fff3fb"
     sha256 cellar: :any,                 arm64_monterey: "8043a9272554d530d9c50c84818606c53b75b9178ae7e559be7fc2d87ac75da7"

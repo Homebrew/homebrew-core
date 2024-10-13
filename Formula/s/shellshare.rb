@@ -14,6 +14,6 @@ class Shellshare < Formula
   end
 
   test do
-    system "#{bin}/shellshare", "-v"
+    system bin/"shellshare", "-v"
   end
 end

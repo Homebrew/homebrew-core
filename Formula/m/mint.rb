@@ -6,6 +6,7 @@ class Mint < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "a754e28b7b9e4e13c31af783857de64d2550b8866c2c9eb3ac9216154ab0f25a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ada351985ef562807e7460f869c527bb314600311738a944219225226f43addf"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "250948fe6fc14179d7c381d084a90d6796861ba9a8456617cadda9ac62cbc2b8"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6546b80b980a45036415162189dd340b1f8d3f4e82a80d40a24e7b5dd672eb04"
@@ -28,8 +29,8 @@ class Mint < Formula
 
   test do
     # Test by showing the help scree
-    system "#{bin}/mint", "help"
+    system bin/"mint", "help"
     # Test showing list of installed tools
-    system "#{bin}/mint", "list"
+    system bin/"mint", "list"
   end
 end

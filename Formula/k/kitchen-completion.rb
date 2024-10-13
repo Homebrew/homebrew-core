@@ -7,7 +7,8 @@ class KitchenCompletion < Formula
   head "https://github.com/MarkBorcherding/test-kitchen-bash-completion.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "4477a44357f241518a1ebd61583623cfccee33e67c2046cd85ce6702a2ea54ce"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "2db54abff94a93a95e8cee31a46ad86210e556d2f2c25d1f7f3d8a8dd1853514"
   end
 
   def install

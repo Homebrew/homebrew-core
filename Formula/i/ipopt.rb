@@ -7,6 +7,7 @@ class Ipopt < Formula
   head "https://github.com/coin-or/Ipopt.git", branch: "stable/3.14"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "009c5caaad3fe3b204c0428bbb99037ee7c814ea2c908566721215099983420c"
     sha256 cellar: :any,                 arm64_sonoma:   "7ab15709c6d8d0911bac33f38b65f047766108a3b291b8f00a6ce765e9db0fc3"
     sha256 cellar: :any,                 arm64_ventura:  "f7ee0132a291e546eb7e0cf1be44b4a453896a96af88ce091e9e622b9def7914"
     sha256 cellar: :any,                 arm64_monterey: "2b8567b6ed6a773a7c5e1506d6dd0c7928d985a1f105907eceabe00dc43f4fe1"
@@ -95,6 +96,6 @@ class Ipopt < Formula
     pkg_config_flags = `pkg-config --cflags --libs ipopt`.chomp.split
     system ENV.cxx, "examples/hs071_cpp/hs071_main.cpp", "examples/hs071_cpp/hs071_nlp.cpp", *pkg_config_flags
     system "./a.out"
-    system "#{bin}/ipopt", "#{Formula["ampl-mp"].opt_pkgshare}/example/wb"
+    system bin/"ipopt", "#{Formula["ampl-mp"].opt_pkgshare}/example/wb"
   end
 end

@@ -12,6 +12,7 @@ class Rtmidi < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia:  "1c3e7eb76b81cc7b731bb82550bf888bec6add154b060f975b8f4ef0c907e4cd"
     sha256 cellar: :any,                 arm64_sonoma:   "739b40a37e29e6ec2b6f3f4a53cab1e489f7a9dd4698102604b227ea5c140b0b"
     sha256 cellar: :any,                 arm64_ventura:  "c18948de83007b0ca3e87cb01f9161c92038f8ad080c075a2a9746bcff14f78a"
     sha256 cellar: :any,                 arm64_monterey: "00a10d87416a8ce037c98b15bc67a4a5c8780f065f8d0f73c470c0eaf3dd5d9a"

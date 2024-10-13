@@ -3,6 +3,7 @@ class Libfreehand < Formula
   homepage "https://wiki.documentfoundation.org/DLP/Libraries/libfreehand"
   url "https://dev-www.libreoffice.org/src/libfreehand/libfreehand-0.1.2.tar.xz"
   sha256 "0e422d1564a6dbf22a9af598535425271e583514c0f7ba7d9091676420de34ac"
+  license "MPL-2.0"
   revision 5
 
   livecheck do
@@ -11,6 +12,7 @@ class Libfreehand < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "9eeb0bbec76d98ba004514dad9c9dc345a66fde115e25cada3fc837efcb764c7"
     sha256 cellar: :any,                 arm64_sonoma:   "10f6c8c203685f706e8290abc6a8c6833203142083d267f2ef271d34e998497b"
     sha256 cellar: :any,                 arm64_ventura:  "53c1bcbcf740c42c5900949f2859734be9f3aa4adfa28f42a521d6c1618a8797"
     sha256 cellar: :any,                 arm64_monterey: "7960ce23fc10f7c545aa6ff36704340626b5652cdf514e2cc30abfd06923f158"

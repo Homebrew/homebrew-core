@@ -7,6 +7,7 @@ class Libtommath < Formula
   head "https://github.com/libtom/libtommath.git", branch: "develop"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "180de0f47bf4ce7ec3a513db509d368e148b42e50cf310666bf9c60a78cf778b"
     sha256 cellar: :any,                 arm64_sonoma:   "6b17949dbb9a6a751816e0a39f441a6028b680d15960fe3fdb6686721dac70f3"
     sha256 cellar: :any,                 arm64_ventura:  "ebd34b24dcd868425c2ef5496fdb8d48c852c702cdd0cb77f2d9be123b308163"
     sha256 cellar: :any,                 arm64_monterey: "1e5ac48668cad1a316975799e6467708b5b0e20472ab7dca7bc167e9348e6f89"

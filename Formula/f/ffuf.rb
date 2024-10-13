@@ -6,6 +6,7 @@ class Ffuf < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "1b155bee7a2fb90ad42abeed41a16e2f5bb0dec4fc000d62abc790009785f051"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "65e3716152cf4581edd8886235fbf4901e3491128300c9a8deb643df4d385368"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "2718eac14605d5d402e211ef3c6b350a6fd164c2316c5b9f94d3f7aa55f222c7"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "bfac372c5eba036d336f91dc768754d25883ec774cf7ddb3875a8df436e2b80d"

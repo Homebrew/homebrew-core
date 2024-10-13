@@ -6,18 +6,17 @@ class Libgda < Formula
   # The executable tools are GPL-2.0-or-later, but these are considered experimental
   # and not installed by default. The license should be updated when tools are installed.
   license "LGPL-2.0-or-later"
-  revision 2
+  revision 3
 
   bottle do
-    sha256 arm64_sonoma:   "aed3116bda74be0c4710ef3ea32751eb6651c9446e5d06c61aaf852c08e7add0"
-    sha256 arm64_ventura:  "799870ada5491b29dfb5b8a9a0d4334f531166cc6fddb21fd82438fc08fed9b9"
-    sha256 arm64_monterey: "0256d4371104f081140440e55caa0574a6a50dfaa85b959a3dbeefd595cba19c"
-    sha256 arm64_big_sur:  "a3659901c2e025869a202521f3f002fa43dbebb2620c44991510e9ea480356f0"
-    sha256 sonoma:         "0cfe5ef27e321aad9fb3040ba28d01d9ab182ed8964e5f872148a3f04bdc9b80"
-    sha256 ventura:        "7d44fcfd33753ebb70cae62895997dfef29d22883eeaade00035bb7ba2dae1ae"
-    sha256 monterey:       "4639bf64ccd60afcdad48e70a95e3fa3f6949ce206588500e59c93909fa1bc12"
-    sha256 big_sur:        "b1765e96a889c64da0b3d8c841999fff887791c1e43f919a601f025acf632903"
-    sha256 x86_64_linux:   "ee867a6ff4b253fc4bf1f39757e68a03f4347d0856601e825e258fbefda22db5"
+    sha256 arm64_sequoia:  "78502d2ce3ec6ccb551bc071fdec675b27164f12972ead78da96f6c8a86fc08e"
+    sha256 arm64_sonoma:   "8f97eac2e7a6acd540858999d32bf2979e26ed90ce76bd15257d03d4f3dba762"
+    sha256 arm64_ventura:  "319769f163cc1bba6572a3df62bbb5b715e3f657268074a0bfe5f2ed6a209855"
+    sha256 arm64_monterey: "8bfa3cf3f54e34b76e1827e56e38c5c2f2c1d37ce817c12bf29f0104da791083"
+    sha256 sonoma:         "7a7ecb8cddda0d5c2e2bbb870a1ad80f90222c667018bd6ee64b5401247460f2"
+    sha256 ventura:        "b170024fb7eda7aa23309f95b2b3276d13862a6882f38ced5a8144a845cd6975"
+    sha256 monterey:       "7829d1f1439773d1ddf772506d420e0318172dc071f1c1d301ebf80a96bcfc22"
+    sha256 x86_64_linux:   "ef42593fdca5895f69d7c58b2af31e109979f05a72178ae435fc37cc5a1f8c0b"
   end
 
   depends_on "gettext" => :build
@@ -30,6 +29,7 @@ class Libgda < Formula
   depends_on "glib"
   depends_on "iso-codes"
   depends_on "json-glib"
+  depends_on "mysql-client"
   depends_on "sqlite"
 
   uses_from_macos "libxml2"

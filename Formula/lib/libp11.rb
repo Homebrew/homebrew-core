@@ -12,6 +12,7 @@ class Libp11 < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any,                 arm64_sequoia:  "69fa67771704383e9ca206beb447f4ab55860e78747347024d66372499592e90"
     sha256 cellar: :any,                 arm64_sonoma:   "a40c03cf47eee36fc36e7bb54291fd0ba8c97add6b785f1067628f8779a01345"
     sha256 cellar: :any,                 arm64_ventura:  "6af6b0d767af1cb7ec7c3a7265bbdeafb86921fc2e7f5966be2efc9007b8a3d2"
     sha256 cellar: :any,                 arm64_monterey: "0be4080fadb8580fe8b9618dc2a37670919dc21a0a22d4375d295c3fa40aee98"

@@ -50,6 +50,6 @@ class Rack < Formula
   end
 
   test do
-    system "#{bin}/rack"
+    system bin/"rack"
   end
 end

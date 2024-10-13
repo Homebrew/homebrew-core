@@ -7,6 +7,7 @@ class Mktorrent < Formula
   revision 2
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "7710b5cf4314030f0c38e8ade9ef142c269decf770b77527ae931882dcc5b921"
     sha256 cellar: :any,                 arm64_sonoma:   "2a6c0b4358e1b70f05757b6e016d039c645cfbc6e92cece0b69b1fc12dc5e97b"
     sha256 cellar: :any,                 arm64_ventura:  "5ecd805a7cab873d9a32dbecca561cb49cdc1e200dc1eb5e009e0e02a7202b78"
     sha256 cellar: :any,                 arm64_monterey: "bea6dc20b4e3276571b8dd0e42ab6d3bf6351d8746da085e65b4c3685f1d0fee"

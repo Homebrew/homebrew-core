@@ -16,6 +16,7 @@ class Corsixth < Formula
   end
 
   bottle do
+    sha256 arm64_sequoia:  "869c7e2ff9e9af71a6b8f7fd39444b3544471832c24334f189e77ecceabb5602"
     sha256 arm64_sonoma:   "753b467230849193995df1896fdad06d676fdf0b9d9a2874bfab2c884722097e"
     sha256 arm64_ventura:  "8f40760b12987c4563a65dfe7bb6797e5726ecfc615983660f0508f179d39aa2"
     sha256 arm64_monterey: "8f4a453fddd84c16c5a7359dd32343a08c3049c0297e3ee822d32b95f81e443b"
@@ -27,7 +28,6 @@ class Corsixth < Formula
 
   depends_on "cmake" => :build
   depends_on "luarocks" => :build
-  depends_on xcode: :build
   depends_on "ffmpeg"
   depends_on "freetype"
   depends_on "lpeg"

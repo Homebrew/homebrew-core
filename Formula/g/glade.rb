@@ -7,6 +7,7 @@ class Glade < Formula
   revision 1
 
   bottle do
+    sha256 arm64_sequoia:  "e162366f083df623dd7cd1854a781cdf3d520bfde698588abc9296ab33fd8804"
     sha256 arm64_sonoma:   "271ff90536f47461687153dc97dd25d5ba9ad4f22c1a087e303fc52f54646dda"
     sha256 arm64_ventura:  "a9a7c003418e9867e2ae9d1da7c4230a812638d06b1ff6626454c952e4107e16"
     sha256 arm64_monterey: "254b71a95a632595fc9314162cd89607fac7ee27890bf57155fc2882473258a2"

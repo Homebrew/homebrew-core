@@ -46,7 +46,7 @@ class Ykclient < Formula
   # Original deprecation date: 2021-05-24
   # New deprecation date set to 1 year after dependent issue:
   # https://github.com/Yubico/yubico-pam/issues/242
-  deprecate! date: "2023-07-29", because: :repo_archived
+  disable! date: "2024-08-03", because: :repo_archived
 
   depends_on "help2man" => :build
   depends_on "pkg-config" => :build

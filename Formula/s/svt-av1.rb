@@ -1,19 +1,20 @@
 class SvtAv1 < Formula
   desc "AV1 encoder"
   homepage "https://gitlab.com/AOMediaCodec/SVT-AV1"
-  url "https://gitlab.com/AOMediaCodec/SVT-AV1/-/archive/v2.1.2/SVT-AV1-v2.1.2.tar.bz2"
-  sha256 "a1d95875f7539d49f7c8fdec0623fbf984804a168da6289705d53268e3b38412"
+  url "https://gitlab.com/AOMediaCodec/SVT-AV1/-/archive/v2.2.1/SVT-AV1-v2.2.1.tar.bz2"
+  sha256 "3fd002b88816506f84b6d624659be5cbadb4cdf5a11258a5cbc6bfc488c82d01"
   license "BSD-3-Clause"
   head "https://gitlab.com/AOMediaCodec/SVT-AV1.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "5b2187052d417aa06ddb0b41d5381dd741fe74ba7caee30ad120df6050bf78bb"
-    sha256 cellar: :any,                 arm64_ventura:  "073dfc4e3cead69cd42db18976c891fdd4173bb66b53ee167bbbb90c55667c54"
-    sha256 cellar: :any,                 arm64_monterey: "8aa7ef9134d2e8b9f9d0c0d2983f72ee8fd27be900af88518bb588c4fe762834"
-    sha256 cellar: :any,                 sonoma:         "8805e49274f42b7224a2b5c22e567aede7c3fbd92b858e88d79bde8d4fe0ff44"
-    sha256 cellar: :any,                 ventura:        "0ee6775d220397e8e1baab5f53334062e61615a31c82b0082e700cb9a856de8b"
-    sha256 cellar: :any,                 monterey:       "163ee3c89d1c749268c69997b8dd62e08fd3ceaecd8f58a48c384f379581a7de"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "baa1ca4dbe40a28fbab5435f95288e1429c1bfdf24e3402c65d03f45d5f7540a"
+    sha256 cellar: :any,                 arm64_sequoia:  "b4ebfab3d3697247524c182b84ecdd03df646cb646aa922b7b844ddd9454032f"
+    sha256 cellar: :any,                 arm64_sonoma:   "c6286d14ed2e49b1258acc3c3a5f6eb8139ba6cbd99b72f4a9ee33704a7d3db5"
+    sha256 cellar: :any,                 arm64_ventura:  "60999334966012dfcd9697d0c9d5ba1659aa4260e061149d9e94272c37721810"
+    sha256 cellar: :any,                 arm64_monterey: "37e32b9bd08e1dcb6b1637a2f61fd81723e089f9d8cba24d874396256d9a8ca4"
+    sha256 cellar: :any,                 sonoma:         "974fe9df82f74045f99246c1960fd1d2a613a5d5387dc8edc024867a4d64a392"
+    sha256 cellar: :any,                 ventura:        "478337cfa8ea15ad1cc8f401f8cad22ca4879e7dfb2f8509f52f2a9f9ee8aba2"
+    sha256 cellar: :any,                 monterey:       "fc42a8ac4e250d8e75dd4633285341dbb228de0bc8710cbacccc0cac6fa0f55b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b5171551831f7bdb18ecd55525efbc1189ab6f772ccb586ff9ba19d5f0ef6575"
   end
 
   depends_on "cmake" => :build
@@ -32,7 +33,7 @@ class SvtAv1 < Formula
     end
 
     testpath.install resource("homebrew-testvideo")
-    system "#{bin}/SvtAv1EncApp", "-w", "64", "-h", "64", "-i", "video_64x64_yuv420p_25frames.yuv", "-b", "output.ivf"
+    system bin/"SvtAv1EncApp", "-w", "64", "-h", "64", "-i", "video_64x64_yuv420p_25frames.yuv", "-b", "output.ivf"
     assert_predicate testpath/"output.ivf", :exist?
   end
 end

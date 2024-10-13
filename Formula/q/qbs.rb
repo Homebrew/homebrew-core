@@ -1,9 +1,13 @@
 class Qbs < Formula
   desc "Build tool for developing projects across multiple platforms"
   homepage "https://wiki.qt.io/Qbs"
-  url "https://download.qt.io/official_releases/qbs/2.4.0/qbs-src-2.4.0.tar.gz"
-  sha256 "45ac69443222cd2d9e7a5ba01ee1962398996acbdd65a610c1e2118cad5270a6"
-  license :cannot_represent
+  url "https://download.qt.io/official_releases/qbs/2.4.2/qbs-src-2.4.2.tar.gz"
+  sha256 "0e158433c57c8089e1bc15497eb121d3010f6bdbf5210c1f5cff5018da0e86d1"
+  license all_of: [
+    { any_of: ["LGPL-3.0-only", "GPL-2.0-only"] },
+    { any_of: ["LGPL-3.0-only", "LGPL-2.1-only" => { with: "Qt-LGPL-exception-1.1" }] },
+    { "GPL-3.0-only" => { with: "Qt-GPL-exception-1.0" } },
+  ]
   head "https://code.qt.io/qbs/qbs.git", branch: "master"
 
   livecheck do
@@ -12,13 +16,11 @@ class Qbs < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "8a01a3ad4235cfa3baf6b696de7cd2f49ee349a0ab3c9eaf927f5f1da2c7efda"
-    sha256 cellar: :any,                 arm64_ventura:  "9566348eccda5f6c8a2796bb6871716c904f6dc50ff287f1bc6b2e95a6238b53"
-    sha256 cellar: :any,                 arm64_monterey: "2f7a44a1bc8e17a82d030c3d41a0b2906efaa6ac8184b49f6bc5319abc2a1962"
-    sha256 cellar: :any,                 sonoma:         "b0e8baf89f485582b137e06247fa74e025c69167073f6e2a8efb0279c15576ac"
-    sha256 cellar: :any,                 ventura:        "59f190ef43b564101e41faa54d590954235a32b0f03378e6a3ccdb6395ed01ef"
-    sha256 cellar: :any,                 monterey:       "4fed62972834894d013e0ba414ac87fa995b4c093e24c8a2661cac34abe75b59"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8cffb0a5c9f4250fea7bf222426bc1b34a3bc769263389e9de577a46ac64914a"
+    sha256 cellar: :any,                 arm64_sonoma:  "26987b0e86070deca3db4e55df1a8b418ef7050c4c2bdeb158efb9976d31f703"
+    sha256 cellar: :any,                 arm64_ventura: "6f0c88768def1926f8e026c4ffd759d5957074a4b9f0568a086383bfc7dba4cd"
+    sha256 cellar: :any,                 sonoma:        "e60a59eb73bc02915636c432a153f8814b97f04e56c7a6ae47ba72ab9cce8945"
+    sha256 cellar: :any,                 ventura:       "9a2f889778f555a90dd79b66e838b7fdfaebaa32ae772668efdf18368bd13a9e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e2be0ba3a5ffb4e999c405f68956cfc6aaa1934f24e986d81b4549738bdd0d2f"
   end
 
   depends_on "cmake" => :build
@@ -51,6 +53,6 @@ class Qbs < Formula
       }
     EOS
 
-    system "#{bin}/qbs", "run", "-f", "test.qbs"
+    system bin/"qbs", "run", "-f", "test.qbs"
   end
 end

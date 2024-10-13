@@ -7,6 +7,7 @@ class Edbrowse < Formula
   head "https://github.com/cmb/edbrowse.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "d2824e9e8c3391b47d6ad414b0b45256b5f857a9a8d1a0cb1c1760739223245f"
     sha256 cellar: :any,                 arm64_sonoma:   "2eee1c0542e0ded8ffe313fb87b85163f196a66e7f71f60095a9334ef868d676"
     sha256 cellar: :any,                 arm64_ventura:  "5474ecc1ac83b2105d4903ff021177e342bf836ee8cbbc9478bb82b9791b1124"
     sha256 cellar: :any,                 arm64_monterey: "f315ec5cbc69a61ca9ab3a9ebb5b60d72a3ad1ae83ff4ef66d342bdba33152a9"

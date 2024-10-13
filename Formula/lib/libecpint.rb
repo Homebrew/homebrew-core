@@ -7,6 +7,7 @@ class Libecpint < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia:  "a1e4ea8f5ae8f9516095177b10dc19154d4d808f7f66a9dec5b8094fafb7f92a"
     sha256 cellar: :any,                 arm64_sonoma:   "d754e834771a32fc1c9e09e0d90b72232970512fc889a84b5a9b9ce6ca110cd4"
     sha256 cellar: :any,                 arm64_ventura:  "2c6e35a7a116b61a0ce86a7c98ea815366bf50e05262ce95695402ec0963906f"
     sha256 cellar: :any,                 arm64_monterey: "354ad48d6548c4c14a11c7fe6906d3144b62970ed28b6945449bacd68070a654"

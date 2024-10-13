@@ -4,17 +4,18 @@ class ColladaDom < Formula
   url "https://github.com/rdiankov/collada-dom/archive/refs/tags/v2.5.0.tar.gz"
   sha256 "3be672407a7aef60b64ce4b39704b32816b0b28f61ebffd4fbd02c8012901e0d"
   license "MIT"
-  revision 9
+  revision 10
   head "https://github.com/rdiankov/collada-dom.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "1b96ee02cb3ba9976f95da7a9ad8480ae236075e2120f12da228d40bbb0468fc"
-    sha256 cellar: :any,                 arm64_ventura:  "1f9c4e85aff69a46deb4c726ce8bee8989b973c372fbdcb66706c7a1f9c07277"
-    sha256 cellar: :any,                 arm64_monterey: "121ba525d1bb601e360f898692cec0af348756d5edec73df0d701a42ba993350"
-    sha256 cellar: :any,                 sonoma:         "f9e6ed22404314db701d551d9b4d6507b1755689b3b8d930a38b890f4f4552fa"
-    sha256 cellar: :any,                 ventura:        "f1d8fa9ecaab9ec6cf16ab93e4941963c868d0b6a2cbffebd5717f1fbbd5bba8"
-    sha256 cellar: :any,                 monterey:       "75db596eb27853c04f15d4df1bfb5b6dd7b6205e05796f923cba10cec59282d1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8a032874ec251f8e8d8efb7a52fca15616e5fe4d66c4eae78b38f3633e2339a3"
+    sha256 cellar: :any,                 arm64_sequoia:  "93ee168d5e413ac9709071615535b1e41a69104a256874a88c455b93a69473cd"
+    sha256 cellar: :any,                 arm64_sonoma:   "a23c3731eff60bcd2dc079fa88da110bdfa807137fe18cdd7893677cd522fd3c"
+    sha256 cellar: :any,                 arm64_ventura:  "5f851bdfae69110c8648205d9f44267c722bbd424a2727649a0442c82c625e30"
+    sha256 cellar: :any,                 arm64_monterey: "46407af6b516e2a49f330278953d8d2fa6d0de217cfde68cfe53990f1dc5e33a"
+    sha256 cellar: :any,                 sonoma:         "4483eedf90d10b9c7306280fafc002e5c1f7c85f2925e1b13466c7c87c3683fb"
+    sha256 cellar: :any,                 ventura:        "90845ce55f8153dd85582570f9955e91b39a56c14a7543ac5412dee3577797cf"
+    sha256 cellar: :any,                 monterey:       "59f34d806302668ae9cbde4ac0cdec8f024f16b4d75b84ceadf04edf1334682f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "95b9bf434a46b41bf05bc4a847f8c560ef500e7ba4b6891ea2d49a8c6d271918"
   end
 
   depends_on "cmake" => :build

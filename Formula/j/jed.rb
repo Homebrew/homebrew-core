@@ -4,6 +4,7 @@ class Jed < Formula
   url "https://www.jedsoft.org/releases/jed/jed-0.99-19.tar.gz"
   mirror "https://deb.debian.org/debian/pool/main/j/jed/jed_0.99.19.orig.tar.gz"
   sha256 "5eed5fede7a95f18b33b7b32cb71be9d509c6babc1483dd5c58b1a169f2bdf52"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url "https://www.jedsoft.org/releases/jed/"
@@ -12,6 +13,7 @@ class Jed < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_sequoia:  "fb9ec5628c166beb0d57337b4c0fb126d53b57b2dd310f81dd8fb5e78d231c93"
     sha256 arm64_sonoma:   "17269b0bce430a0b636c27b6be4ecd349864794d546352a714d2862b5c56bb1f"
     sha256 arm64_ventura:  "bea3094bb9b2ba88a2b58c29c3b230674187d3b9ac0dbaf86b38495da3b69b2c"
     sha256 arm64_monterey: "1ffc68641f689cad733309255377425ffc6acf28d2bafa65dd6cd725489d52e2"

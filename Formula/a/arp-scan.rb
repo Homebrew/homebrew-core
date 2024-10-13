@@ -3,33 +3,37 @@ class ArpScan < Formula
   homepage "https://github.com/royhills/arp-scan"
   url "https://github.com/royhills/arp-scan/archive/refs/tags/1.10.0.tar.gz"
   sha256 "204b13487158b8e46bf6dd207757a52621148fdd1d2467ebd104de17493bab25"
-  license "GPL-3.0"
+  license all_of: [
+    "GPL-3.0-or-later",
+    "BSD-3-Clause", # mt19937ar.c
+    "ISC", # strlcpy.c (Linux)
+  ]
   head "https://github.com/royhills/arp-scan.git", branch: "master"
 
   bottle do
-    sha256 arm64_sonoma:   "d98ac1c8bbec39883366864095c7468571c48b3a2f92a8a8326e992b143cc9d2"
-    sha256 arm64_ventura:  "fe21f7f459c6191776b16a3887bb36477026e82c99a41822eb8d0c5a1b9e53df"
-    sha256 arm64_monterey: "22a509abffd38b079fcbbe1626784b892ef9d4a54b4a185bcb3d07b2557ecb73"
-    sha256 arm64_big_sur:  "55d92130a060b97994ed9a3007597ff0e6beb8db436d4df6107e8233e02254bf"
-    sha256 sonoma:         "e6e155812a6af49ddbe9cb468c473340498936c2c78336c678c3120c59d6ffdd"
-    sha256 ventura:        "5e3188f83074260c43c50ca061100949388f8a0f0278a2fd98fbd45dc445044e"
-    sha256 monterey:       "1eb810add3b6a2caaeb0d82ede9a7fee13ae4d279c32aa085de0e4ee04c90df2"
-    sha256 big_sur:        "40a2785e1f1cb92ae991ea335abf3fe73cedbd5758cc5e296c3360d60368b3b7"
-    sha256 x86_64_linux:   "6a24edcaa75d9069428f7d1a185d38c0ad1dbc5cc48bc98e9098900825a6806d"
+    rebuild 1
+    sha256 arm64_sequoia:  "14249f8af1f8fa4a87cec61eeed1b7d2e15bdbdf917736eeb0a0fb5ec2be5b81"
+    sha256 arm64_sonoma:   "bb46467cee8e1d7b24a8e7716cbdfacd2b8697c031d26a07658b8618557ff773"
+    sha256 arm64_ventura:  "190e487560ceb1e564444c501f9bd814b2401d034e792a9c44b3d5f9a65ba720"
+    sha256 arm64_monterey: "be3d37daa3c51629577fb423af1cec9549a7835673a737407a6746b529bbfc58"
+    sha256 sonoma:         "f5b3e8d47b51e2c3e822b19727ba50a05016a90f1a8e4d446bc5c5a33bed2ba9"
+    sha256 ventura:        "be308c8baf776004a152beedf6b75edccdd661090a6dfc09e6ac6580c156c784"
+    sha256 monterey:       "7f00b162c2af2f64d8697ca0e7e7f11137b361ee59f8f2be04fcf674ff4ef54f"
+    sha256 x86_64_linux:   "18935cd6c4a1d707abca5e0d3b0119d696bf6f834714393b018650f973287656"
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-  depends_on "libpcap"
+
+  uses_from_macos "libpcap"
 
   def install
-    system "autoreconf", "-fiv"
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    system "autoreconf", "--force", "--install", "--verbose"
+    system "./configure", "--disable-silent-rules", *std_configure_args
     system "make", "install"
   end
 
   test do
-    system "#{bin}/arp-scan", "-V"
+    system bin/"arp-scan", "-V"
   end
 end

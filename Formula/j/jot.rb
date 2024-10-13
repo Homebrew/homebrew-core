@@ -7,6 +7,7 @@ class Jot < Formula
   head "https://github.com/shashwatah/jot.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "93a520809e6790b6d9c41fedf1ef0702112bad61affb1b23cf51c9d8ef030cc3"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "beec04c6b8b43d679fc4bdfc9d079c2b4ae7fa6d07b526372f37fd56fa52b2b5"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "763cda455c13e6b801488dbf52e57ddceddfbf5e24937f247545a44b37558460"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "652c81a8996f43e8c8bca51bffa6f2c27f2253aeb3b5d1280628d674de263a97"

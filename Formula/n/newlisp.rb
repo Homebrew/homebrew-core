@@ -3,6 +3,7 @@ class Newlisp < Formula
   homepage "http://www.newlisp.org/"
   url "http://www.newlisp.org/downloads/newlisp-10.7.5.tgz"
   sha256 "dc2d0ff651c2b275bc4af3af8ba59851a6fb6e1eaddc20ae75fb60b1e90126ec"
+  license "GPL-3.0-or-later"
 
   livecheck do
     url "http://www.newlisp.org/index.cgi?Downloads"
@@ -10,6 +11,7 @@ class Newlisp < Formula
   end
 
   bottle do
+    sha256 arm64_sequoia:  "c650062494ac00fe19dc828930d6748e11cb89b40b8f9bb248425b7a8dec8cc7"
     sha256 arm64_sonoma:   "0e8d339d431c08f09ddf67a8dd660d483fd3938c0a59f8d7d829e1ead255014d"
     sha256 arm64_ventura:  "d09695295bc9ea5c143ab9dfb53757b6e932e71139247b3083df2fb47361d76f"
     sha256 arm64_monterey: "1fb90e4713da55257988e767547c82613586e3a441e007a629e878644955cc89"

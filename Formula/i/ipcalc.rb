@@ -6,7 +6,8 @@ class Ipcalc < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "5152662bf61c4a00cb8fde98f1f0ac84a5b4f8e5b652fd4e2f88277e76a60671"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "34f1ac1f3130d85231cf0af66acd5d46b21bbdaa9a32153ae71c7d9977c36c57"
   end
 
   def install
@@ -14,6 +15,6 @@ class Ipcalc < Formula
   end
 
   test do
-    system "#{bin}/ipcalc", "--nobinary", "192.168.0.1/24"
+    system bin/"ipcalc", "--nobinary", "192.168.0.1/24"
   end
 end

@@ -23,11 +23,23 @@ class Xsane < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "glib"
   depends_on "gtk+" # GTK3 issue: https://gitlab.com/sane-project/frontend/xsane/-/issues/34
   depends_on "jpeg-turbo"
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "sane-backends"
+
+  uses_from_macos "zlib"
+
+  on_macos do
+    depends_on "at-spi2-core"
+    depends_on "cairo"
+    depends_on "gdk-pixbuf"
+    depends_on "gettext"
+    depends_on "harfbuzz"
+    depends_on "pango"
+  end
 
   # Needed to compile against libpng 1.5, Project appears to be dead.
   patch :p0 do
@@ -39,7 +51,7 @@ class Xsane < Formula
     # Fix compile with newer Clang
     ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1200
 
-    system "./configure", "--prefix=#{prefix}"
+    system "./configure", *std_configure_args
     system "make", "install"
   end
 
@@ -47,6 +59,6 @@ class Xsane < Formula
     # (xsane:27015): Gtk-WARNING **: 12:58:53.105: cannot open display
     return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
 
-    system "#{bin}/xsane", "--version"
+    system bin/"xsane", "--version"
   end
 end

@@ -11,6 +11,7 @@ class Corkscrew < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "d17faa8d3e8eb0fe11107515daf53fd0f9d22caaaa0d32993ca6e961ee9559cf"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8f7a6be3731dfae7b92f6da9091b3e4665473c77b58c6f4d21d2cf6c6c511750"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "1bd52cc5c72e9ca3461dc63fdfb584ac3622a57effae88f14a8e7eab146a57b8"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d1add42728d114c019b0621bbd8aa9f3f95c433e006f38bdba71d9387e667357"
@@ -30,6 +31,9 @@ class Corkscrew < Formula
   depends_on "libtool" => :build
 
   def install
+    # Workaround for newer Clang
+    ENV.append_to_cflags "-Wno-implicit-int" if DevelopmentTools.clang_build_version >= 1403
+
     cp Dir["#{Formula["libtool"].opt_share}/libtool/*/config.{guess,sub}"], buildpath
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",

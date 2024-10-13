@@ -6,6 +6,7 @@ class Mbw < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "5d07a9cad29f80e14aa0abab7e8b5519729e401d876e84b59b400f5413a85a3a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "43bba75f10ec5e1d0dead83ec5b9549e9c5afaec052c3b5684fe8dbebd485819"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "8d8c490ebba8f65126392a3a5c15ecbd7531217b5f87a7e7f4c3de239d794c34"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c508f7394113b7bbfa8d128c8a67321a8539e212cca8384f63d16688a98c52dd"
@@ -26,6 +27,6 @@ class Mbw < Formula
   end
 
   test do
-    assert_match "AVG\tMethod: MEMCPY\tElapsed", pipe_output("#{bin}/mbw 8", 0)
+    assert_match "AVG\tMethod: MEMCPY\tElapsed", pipe_output("#{bin}/mbw 8", "0")
   end
 end

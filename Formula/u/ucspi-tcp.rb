@@ -11,6 +11,7 @@ class UcspiTcp < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "08361b13bd495c563f6340c7cf4aecabf43475f00a3e47116295de56a014c8cf"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "afe836f6e29e826d8e00da8a7f81909b65ebf51e18d3aa9d15709f991d28e5b1"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "283ab40c4100a1eba330dbb5392d4b88cf224acabfadda051a5040947da685fc"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1936ea190d3606211cbe6808e3a1d811662145cdf993900ef55730f62fb5daa6"
@@ -36,7 +37,7 @@ class UcspiTcp < Formula
 
   def install
     # Fix compile with newer Clang
-    inreplace "conf-cc", "gcc -O2", "gcc -O2 -Wno-implicit-function-declaration"
+    inreplace "conf-cc", "gcc -O2", "gcc -O2 -Wno-implicit-function-declaration -Wno-implicit-int"
 
     # Work around build error from root requirement: "Oops. Your getgroups() returned 0,
     # and setgroups() failed; this means that I can't reliably do my shsgr test. Please

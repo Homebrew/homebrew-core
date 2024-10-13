@@ -7,6 +7,7 @@ class Vrpn < Formula
   head "https://github.com/vrpn/vrpn.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "75a13c37fad4a005e8308fadcc7a98f75e9147f73fafe7c2f73709e4c3156b48"
     sha256 cellar: :any,                 arm64_sonoma:   "761817673c366cc4107359c8da2ad4d98c0b0baba8a804ac58f30d56a5ed81bc"
     sha256 cellar: :any,                 arm64_ventura:  "30798e598e05078f5ce75ca7451df08ccef3810848f61f6870a440c802c2008f"
     sha256 cellar: :any,                 arm64_monterey: "e16ae039e897123feecad339bba4ebdb34773a30924ac0046e5785c86c37e243"
@@ -23,15 +24,37 @@ class Vrpn < Formula
   depends_on "libusb" # for HID support
 
   def install
-    mkdir "build" do
-      cmake_args = [
-        "-DVRPN_BUILD_CLIENTS:BOOL=OFF",
-        "-DVRPN_BUILD_JAVA:BOOL=OFF",
-      ]
-      cmake_args << "-DCMAKE_OSX_SYSROOT=#{MacOS.sdk_path}" if OS.mac?
+    args = %w[
+      -DVRPN_BUILD_CLIENTS=OFF
+      -DVRPN_BUILD_JAVA=OFF
+      -DVRPN_USE_WIIUSE=OFF
+    ]
 
-      system "cmake", "..", *std_cmake_args, *cmake_args
-      system "make", "install"
-    end
+    args << "-DCMAKE_OSX_SYSROOT=#{MacOS.sdk_path}" if OS.mac?
+
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
+  end
+
+  test do
+    (testpath/"test.cpp").write <<~EOS
+      #include <iostream>
+      #include <vrpn_Analog.h>
+      int main() {
+        vrpn_Analog_Remote *analog = new vrpn_Analog_Remote("Tracker0@localhost");
+        if (analog) {
+          std::cout << "vrpn_Analog_Remote created successfully!" << std::endl;
+          delete analog;
+          return 0;
+        }
+        return 1;
+      }
+    EOS
+
+    system ENV.cxx, "test.cpp", "-o", "test", "-I#{include}", "-L#{lib}", "-lvrpn"
+    system "./test"
+
+    system bin/"vrpn_server", "-h"
   end
 end

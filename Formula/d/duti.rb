@@ -13,14 +13,14 @@ class Duti < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "396053ac173f80066c3ea7df5f61d6dbda8ddd26e97e8e4d269b382588a1e9e9"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9705d9ebf9ef5540335039879ae743ba9d9e9805016d2202e313eb81d73eaec5"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "15989262f5c7d544de82b10e38834bddfd9ecf301289204524974a383c5bca09"
-    sha256 cellar: :any_skip_relocation, ventura:        "cf7c2dc7ca5f80c72e318e387aac4b39ce096f407aa66d5a8a2f1d24e059665d"
-    sha256 cellar: :any_skip_relocation, monterey:       "a61ba323531971eceed2a6b07d3da8c9aaa69254584098b79067cb3de22c2f69"
-    sha256 cellar: :any_skip_relocation, big_sur:        "e959be16e48d745c3a3e6faf168e9fbb0ee11d4c2a287e5d51b62042d06fbcb5"
-    sha256 cellar: :any_skip_relocation, catalina:       "f162733347f2fa2218de556706632fd60ead9f750f8118db189a4db298b83d75"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "618006e5a13a64c6efbf793329f2b5a2778533103cc00d754deeea03c99cffe8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4d14d8b6965955bf2ac40e3b894a11285c734875ab1fd672ff6ce8dfeda273a1"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1854cbacdb3b91f469bb877a3498a45a7dc5035520d0c62e1963929ddc4a3c86"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c753d2d0d444ec7ba4b2b1035863da1e77ae5fd5d82eb75fa7a1a41858366663"
+    sha256 cellar: :any_skip_relocation, sonoma:         "53e88a9b0bb7c477056523e4c90920e0ba1bf5885a6e573722c0bd904586d23b"
+    sha256 cellar: :any_skip_relocation, ventura:        "dce7338c9367ac1b0ea16b2776ab33794d9b262e1abaa6edb3d831aa0b77e93c"
+    sha256 cellar: :any_skip_relocation, monterey:       "d1f488fdeb7eb2c5ca0dc3aaaf93bcb382004ff33b87439d0abf017dcb687cb7"
   end
 
   depends_on "autoconf" => :build
@@ -55,8 +55,13 @@ class Duti < Formula
   end
 
   def install
+    # Patch out the hard limit on macOS version. Don't set `-arch` which is dropped by superenv
+    inreplace "aclocal.m4", "AC_MSG_ERROR([${host_os} is not a supported system])", 'macosx_arches=""'
+
     system "autoreconf", "--force", "--install", "--verbose"
-    system "./configure", "--prefix=#{prefix}"
+    system "./configure", "--prefix=#{prefix}",
+                          "--with-macosx-deployment-target=#{MacOS.version}",
+                          "--with-macosx-sdk=#{MacOS.sdk_path}"
     system "make", "install"
   end
 

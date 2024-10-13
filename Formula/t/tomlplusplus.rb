@@ -6,6 +6,7 @@ class Tomlplusplus < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "3934d4a98565c6b3161550033341f13c4e74085b3de259e57f09007c5a03b940"
     sha256 cellar: :any,                 arm64_sonoma:   "40067a1ffc31cf6fdcb26161a1809b815a8d82a63afdf93232dd81521329e05d"
     sha256 cellar: :any,                 arm64_ventura:  "871c57fbe77aa04bba1388ac0ca4e0ccf4c125333a84b84a860a6548a2bffb8f"
     sha256 cellar: :any,                 arm64_monterey: "71e6c4e3940782e94ba05fb8357430b56c973b1ff867340ce966acfdc649f6c4"

@@ -12,6 +12,7 @@ class Libsndfile < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any,                 arm64_sequoia:  "10ef77f1b249abb5012c6bfa498aae3786894e4c4c475dfd4ac14a14562fe1dd"
     sha256 cellar: :any,                 arm64_sonoma:   "0e8ccf402d37e1be344af315c4b06c5faf3fb1307bce6d4a79d198ffbb9d2ad0"
     sha256 cellar: :any,                 arm64_ventura:  "a78c706387bf29a9df4ac87f6642334d92191fd641d868a15058e98ebc5d62cf"
     sha256 cellar: :any,                 arm64_monterey: "ff1229550d6d68c6de3258942addae073a9a6ffcfbd350716ada06a2573fb9c0"

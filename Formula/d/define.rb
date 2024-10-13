@@ -7,6 +7,7 @@ class Define < Formula
   head "https://github.com/Rican7/define.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "70a825ed3661f2536ed9680f5921d5074247464c0e7f3fd3d7c7c93bef9dc7c7"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4882bc1b7b4cf9f7bfa1181ab067820042a45077ba6941b9a0966546959e7e5f"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "c301e8ee5532ce47928989534de2bb2b07c2b1361b47dad059bb3aabbeb5642d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "301a61ee7318cdac3c0e4fdbec3bb4a38dfe7c59a33c56f73b5849024ecfc525"

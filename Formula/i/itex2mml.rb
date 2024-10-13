@@ -17,6 +17,7 @@ class Itex2mml < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "7218674b662a6415899e7eb4dc00ac2634c60837b7a4b9fa7a4019cf668d8890"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7d58887108a80df9633a6d0740d9c7c8e630ca95f440878d2b75bcd1ac626951"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "21fbfa1382c97a13c162899ec72451dccf4d9a4c368c3c0a3fc5e70db4173497"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f08478f4813d052ae7d98339582ca05b95674d7b08a254305bf8e4e6575b3327"

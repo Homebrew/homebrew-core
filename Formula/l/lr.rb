@@ -7,6 +7,7 @@ class Lr < Formula
   head "https://github.com/leahneukirchen/lr.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "bcb50db8cfcc644da655e8b676a18d7bc7345a98e0ed1fb6fea7ab59079ff6f5"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4f6e26a4e87af89c61b15d5b15dd275393b411153c40a35cd3e5e79bf9ccc10a"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "501cd972976041e65e066e2fcd49b0d6be2627ca686e230ee987dd3042bb3ea4"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c380adb162fc049ad50a96ea2277feffefbf014d3038b1ce62190bbbd6fb08a8"
@@ -23,6 +24,6 @@ class Lr < Formula
   end
 
   test do
-    assert_match(/^\.\n(.*\n)?Library\n/, shell_output("#{bin}/lr -1"))
+    assert_match(/^\.\n(.*\n)?\.bazelrc\n/, shell_output("#{bin}/lr -1"))
   end
 end

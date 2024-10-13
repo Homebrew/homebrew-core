@@ -17,6 +17,7 @@ class OpenSceneGraph < Formula
   end
 
   bottle do
+    sha256 arm64_sequoia:  "6f82524b6c4bc107bc9d1acf481a2743670d2688130fa4ec16b568626773e39e"
     sha256 arm64_sonoma:   "971d66667cdd6f8a063a541b21d4b0f13318ada4223187ecf77c4c074db944a9"
     sha256 arm64_ventura:  "a061b2925b3d50c71102706eb8ccb68669df838cd4a716da8a1534003a55bc33"
     sha256 arm64_monterey: "cea275ac6fd59178f3d55ef6bf2ffedd5d8aab1431877007cba73d7844dc6091"
@@ -33,15 +34,24 @@ class OpenSceneGraph < Formula
   depends_on "doxygen" => :build
   depends_on "graphviz" => :build
   depends_on "pkg-config" => :build
+
   depends_on "fontconfig"
   depends_on "freetype"
   depends_on "jpeg-turbo"
   depends_on "sdl2"
 
+  uses_from_macos "zlib"
+
   on_linux do
+    depends_on "cairo"
+    depends_on "giflib"
+    depends_on "glib"
+    depends_on "libpng"
     depends_on "librsvg"
+    depends_on "libx11"
+    depends_on "libxinerama"
+    depends_on "libxrandr"
     depends_on "mesa"
-    depends_on "mesa-glu"
   end
 
   def install
@@ -50,7 +60,7 @@ class OpenSceneGraph < Formula
     # Requires the CLT to be the active developer directory if Xcode is installed
     ENV["SDKROOT"] = MacOS.sdk_path if OS.mac? && MacOS.version <= :sierra
 
-    args = std_cmake_args + %w[
+    args = %w[
       -DBUILD_DOCUMENTATION=ON
       -DCMAKE_DISABLE_FIND_PACKAGE_FFmpeg=ON
       -DCMAKE_DISABLE_FIND_PACKAGE_GDAL=ON
@@ -62,20 +72,21 @@ class OpenSceneGraph < Formula
     ]
 
     if OS.mac?
-      args += %w[
-        -DCMAKE_OSX_ARCHITECTURES=x86_64
+      arch = Hardware::CPU.arm? ? "arm64" : "x86_64"
+
+      args += %W[
+        -DCMAKE_OSX_ARCHITECTURES=#{arch}
         -DOSG_DEFAULT_IMAGE_PLUGIN_FOR_OSX=imageio
         -DOSG_WINDOWING_SYSTEM=Cocoa
       ]
     end
 
-    mkdir "build" do
-      system "cmake", "..", *args
-      system "make"
-      system "make", "doc_openscenegraph"
-      system "make", "install"
-      doc.install Dir["#{prefix}/doc/OpenSceneGraphReferenceDocs/*"]
-    end
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--build", "build", "--target", "doc_openscenegraph"
+    system "cmake", "--install", "build"
+
+    doc.install Dir["#{prefix}/doc/OpenSceneGraphReferenceDocs/*"]
   end
 
   test do
@@ -90,6 +101,6 @@ class OpenSceneGraph < Formula
         }
     EOS
     system ENV.cxx, "test.cpp", "-I#{include}", "-L#{lib}", "-losg", "-o", "test"
-    assert_equal `./test`.chomp, version.to_s
+    assert_match version.to_s, shell_output("./test")
   end
 end

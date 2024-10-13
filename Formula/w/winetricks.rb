@@ -12,7 +12,8 @@ class Winetricks < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "05bbb807e30155dcb1aeabb9be0bc53090fa3c708f1a831bbd8dab7d99f0365f"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "5e5a84065b16e964ee5a9cd154fc62d453b54e9ff0b9e8aaf0bf0bcc0fb494bf"
   end
 
   depends_on "cabextract"
@@ -25,6 +26,6 @@ class Winetricks < Formula
   end
 
   test do
-    system "#{bin}/winetricks", "--version"
+    system bin/"winetricks", "--version"
   end
 end

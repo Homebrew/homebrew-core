@@ -12,6 +12,7 @@ class Homeworlds < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "1c9858b9293f5f31151e0365d9be0d80065fb353a0f5bb28d5f50c6bed5e91cf"
     sha256 cellar: :any,                 arm64_sonoma:   "4547a4dfb3768f8922cbc668493ef5021b7dee7d51ce6ef237ce78a652636f4a"
     sha256 cellar: :any,                 arm64_ventura:  "9a34aebc0071531698225b1e64a19a45c6eff1efecf4e948ee963d590e18f22f"
     sha256 cellar: :any,                 arm64_monterey: "c64318bee66cc6f65c77c7cb846b87a3a756f0fe92045824f32963341564669d"

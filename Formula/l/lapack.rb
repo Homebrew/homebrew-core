@@ -3,7 +3,8 @@ class Lapack < Formula
   homepage "https://www.netlib.org/lapack/"
   url "https://github.com/Reference-LAPACK/lapack/archive/refs/tags/v3.12.0.tar.gz"
   sha256 "eac9570f8e0ad6f30ce4b963f4f033f0f643e7c3912fc9ee6cd99120675ad48b"
-  license "BSD-3-Clause"
+  # LAPACK is BSD-3-Clause-Open-MPI while LAPACKE is BSD-3-Clause
+  license all_of: ["BSD-3-Clause-Open-MPI", "BSD-3-Clause"]
   head "https://github.com/Reference-LAPACK/lapack.git", branch: "master"
 
   livecheck do
@@ -13,6 +14,7 @@ class Lapack < Formula
 
   bottle do
     rebuild 1
+    sha256                               arm64_sequoia:  "83296d714b2d6e36d217c846347b6a8379c7c98abf41c78e04c6ccbe92b10c8c"
     sha256                               arm64_sonoma:   "bd21dff4c9a6b02755665bdc65ecd552225765120f99ed23c07cd60661b40c91"
     sha256                               arm64_ventura:  "146f145ece5043bc57054f286a40938090fbcbc89b3dffe65156eec700eff66a"
     sha256                               arm64_monterey: "0ac519dd79d49605b701100b8efed28473ab306956ebc5b7bd2a6e0ce6414e88"
@@ -34,13 +36,12 @@ class Lapack < Formula
   def install
     ENV.delete("MACOSX_DEPLOYMENT_TARGET")
 
-    mkdir "build" do
-      system "cmake", "..",
-                      "-DBUILD_SHARED_LIBS:BOOL=ON",
-                      "-DLAPACKE:BOOL=ON",
-                      *std_cmake_args
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build",
+                    "-DBUILD_SHARED_LIBS:BOOL=ON",
+                    "-DLAPACKE:BOOL=ON",
+                    *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do

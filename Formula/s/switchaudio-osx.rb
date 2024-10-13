@@ -7,6 +7,7 @@ class SwitchaudioOsx < Formula
   head "https://github.com/deweller/switchaudio-osx.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "d8d4c24b4029b788cdfc13bf36ddb650d220fd6fb43df0d60131c47034734f51"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4e6292b5cbda7b5b7dc412d6f787903cb9cdab68ad75c1a8ac0bf3e63985d782"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "bb34fa77825e8c7bbcceda397eea3155196039fcbafcd4e6ba419694d3f3d3b0"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4ca3cb57b3850bc4a520e1751d4e1e9ae224df74c8c74aff0f0faba4b3b6a444"
@@ -30,10 +31,10 @@ class SwitchaudioOsx < Formula
                "MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}"
     prefix.install Dir["build/Release/*"]
     bin.write_exec_script "#{prefix}/SwitchAudioSource"
-    chmod 0755, "#{bin}/SwitchAudioSource"
+    chmod 0755, bin/"SwitchAudioSource"
   end
 
   test do
-    system "#{bin}/SwitchAudioSource", "-c"
+    system bin/"SwitchAudioSource", "-c"
   end
 end

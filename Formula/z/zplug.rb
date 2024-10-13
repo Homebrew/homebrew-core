@@ -7,8 +7,11 @@ class Zplug < Formula
   head "https://github.com/zplug/zplug.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "88f086071ba188267046f170817aee4ad59fcdd9d9b7ad183b639306c5b8ef29"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "c99ea3312515bf7de844cbe43af641afebe319549ff5c8c719ccebff79810999"
   end
+
+  uses_from_macos "zsh"
 
   def install
     bin.install Dir["bin/*"]

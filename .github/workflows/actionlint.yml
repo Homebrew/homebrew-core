@@ -10,6 +10,10 @@ on:
     paths:
       - '.github/workflows/*.ya?ml'
 
+defaults:
+  run:
+    shell: bash -xeuo pipefail {0}
+
 concurrency:
   group: "actionlint-${{ github.ref }}"
   cancel-in-progress: ${{ github.event_name == 'pull_request' }}
@@ -35,7 +39,6 @@ jobs:
           test-bot: false
 
       - name: Set up actionlint
-        shell: bash
         env:
           HOMEBREW_TAP_REPOSITORY: ${{ steps.setup-homebrew.outputs.repository-path }}
         run: |
@@ -48,7 +51,7 @@ jobs:
 
           # Setting `shell: /bin/bash` prevents shellcheck from running on
           # those steps, so let's change them to `shell: bash` for linting.
-          sed -i 's:/bin/bash -e {0}:bash:' .github/workflows/*.y*ml
+          sed -i 's|shell: /bin/bash -x|shell: bash -x|' .github/workflows/*.y*ml
           # The JSON matcher needs to be accessible to the container host.
           cp "$(brew --repository)/.github/actionlint-matcher.json" "$HOME"
           echo "::add-matcher::$HOME/actionlint-matcher.json"

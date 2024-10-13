@@ -7,6 +7,7 @@ class Precomp < Formula
   head "https://github.com/schnaader/precomp-cpp.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "e17e36888fa003ff01ce0af6dd634576f21c2f303cea989f507730c95af6f827"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ac582dec76b87c1affdf3a0065385f587b7fb47a3c7bdecd391a0e067fbcbf1c"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "33c0801e82dd120a4300a93190e59d99da46d28acb0cef6f6946ec9a75cad1e0"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "5567c2d4a2a3e18046d75f916742f0d112c81c2c744e63aabfaa0f75bb3ab0a8"
@@ -35,12 +36,12 @@ class Precomp < Formula
   end
 
   test do
-    cp "#{bin}/precomp", testpath/"precomp"
+    cp bin/"precomp", testpath/"precomp"
     system "gzip", "-1", testpath/"precomp"
 
-    system "#{bin}/precomp", testpath/"precomp.gz"
+    system bin/"precomp", testpath/"precomp.gz"
     rm testpath/"precomp.gz", force: true
-    system "#{bin}/precomp", "-r", testpath/"precomp.pcf"
+    system bin/"precomp", "-r", testpath/"precomp.pcf"
     system "gzip", "-d", testpath/"precomp.gz"
   end
 end

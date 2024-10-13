@@ -7,6 +7,7 @@ class Fn < Formula
   head "https://github.com/fnproject/cli.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "214e553bc5dc60430659ab134923b1fc4d563f943991f7a1497fcef78a9a909e"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "eb96ee5b5378ffc71a777074b3356ee88bce54ae046f0cb19060236643e0a4a5"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "1774841f8fa3f267b2e07fe14c947088b613fa2102fbce9bfe19dabc0a0ba479"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "0c983120de02048e7ffe6557266e0f81d57b19a046090e04af3c9930c7e981a0"
@@ -24,7 +25,7 @@ class Fn < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/fn --version")
-    system "#{bin}/fn", "init", "--runtime", "go", "--name", "myfunc"
+    system bin/"fn", "init", "--runtime", "go", "--name", "myfunc"
     assert_predicate testpath/"func.go", :exist?, "expected file func.go doesn't exist"
     assert_predicate testpath/"func.yaml", :exist?, "expected file func.yaml doesn't exist"
     port = free_port

@@ -7,6 +7,7 @@ class DmtxUtils < Formula
   revision 6
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "4132090992b9abc13dc2f70a34d745240e4d82fe9731f97e3329fb9d3e9627d9"
     sha256 cellar: :any,                 arm64_sonoma:   "152c08bbdef851937b9b330243318d4d49a3d7563c9e85b703753d44b2e005b4"
     sha256 cellar: :any,                 arm64_ventura:  "c147ab73dac9c03562cf06d561a923ba70e30ecb4607d755622d0156805a7892"
     sha256 cellar: :any,                 arm64_monterey: "81be259b08bd67f4dab389bb326b4adbdd01cd201d5b98c77f4cc72e0f5c669a"

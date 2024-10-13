@@ -3,6 +3,7 @@ class Exiftags < Formula
   homepage "https://johnst.org/sw/exiftags/"
   url "https://johnst.org/sw/exiftags/exiftags-1.01.tar.gz"
   sha256 "d95744de5f609f1562045f1c2aae610e8f694a4c9042897a51a22f0f0d7591a4"
+  license "BSD-4-Clause"
 
   livecheck do
     url :homepage
@@ -10,6 +11,7 @@ class Exiftags < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "43f7d6a7bd08e653cfde12d0f3cdcdb371b27bb4912a8f2bcda42120da960cb7"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "499981c69ffb64e8bdc63a1b43a07884fa62a11034112483f00eca053836a031"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "5c0fa5c7f7ec7c138c3601aa24c6539210b2e8aa06694c2caa7edb936dbad92d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "066860c554be69f80330da1152b1d4ef3c6ff177dbb73a20367dbd5598ff0029"

@@ -1,39 +1,37 @@
 class Btop < Formula
   desc "Resource monitor. C++ version and continuation of bashtop and bpytop"
   homepage "https://github.com/aristocratos/btop"
-  url "https://github.com/aristocratos/btop/archive/refs/tags/v1.3.2.tar.gz"
-  sha256 "331d18488b1dc7f06cfa12cff909230816a24c57790ba3e8224b117e3f0ae03e"
+  url "https://github.com/aristocratos/btop/archive/refs/tags/v1.4.0.tar.gz"
+  sha256 "ac0d2371bf69d5136de7e9470c6fb286cbee2e16b4c7a6d2cd48a14796e86650"
   license "Apache-2.0"
   head "https://github.com/aristocratos/btop.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:  "e2d3ce97c7b2dab1c4647631687f4884cb9078fe59d9009ea54d5028c2669703"
-    sha256 cellar: :any,                 arm64_ventura: "ac19df269dc2da0586011c7e93ba0606d178f1f5840afd070c34d8e29404420d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "73b9683780fdc4fcb996644990f37524a424daf4ad6333d23ce9a1ad9eea3281"
-    sha256 cellar: :any,                 ventura:       "619e5e3fab0c6c5074d94baaa1c37837035731a729d48deba4a1db7bb2ce4ff4"
-    sha256 cellar: :any,                 monterey:      "5e509f11849bb625bfbd972a8078f9735b70448d5b3d73744d8c88e300651a90"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "16e1fa0055f26d4d30a7437fc2c41d6d626271c09fe1e092099d01b58aa340fb"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "dc8485b6b568348d6d5baad6b8683f7d4524c1c5128c2f4525d99c57d458c2bf"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "aed5321614a38bd8dd92b3a81cb171645baf433cb5710b805956b0e0ea9c1e4e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "0cfedfe5bab4746a667e6012323dd1e4457d00880cd9a60778d0a5aac0f2f70f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "60cea9a8675c4fee4b3c69f5c6da46715e34ae5347f0b9a44edd82fd9758139f"
+    sha256 cellar: :any_skip_relocation, ventura:       "caea296cb2d48dee3aefe6038a41a54fb6c1761dca20bd874a1f8dd83ef23663"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3bf71bc7a9e5ceab6fda7308ea326590a21dd7690d966830483f55c8dc9db8c5"
   end
+
+  depends_on "lowdown" => :build
 
   on_macos do
     depends_on "coreutils" => :build
-    depends_on "gcc" if DevelopmentTools.clang_build_version <= 1403
-
-    on_arm do
-      depends_on "gcc"
-      depends_on macos: :ventura
-      fails_with :clang
-    end
+    depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1499
   end
 
   on_ventura do
-    depends_on "gcc"
-    fails_with :clang
+    # Ventura seems to be missing the `source_location` header.
+    depends_on "llvm" => :build
   end
 
   # -ftree-loop-vectorize -flto=12 -s
+  # Needs Clang 16 / Xcode 15+
   fails_with :clang do
-    build 1403
+    build 1499
     cause "Requires C++20 support"
   end
 
@@ -43,11 +41,16 @@ class Btop < Formula
   end
 
   def install
+    ENV.llvm_clang if OS.mac? && (DevelopmentTools.clang_build_version <= 1499 || MacOS.version == :ventura)
     system "make", "CXX=#{ENV.cxx}", "STRIP=true"
     system "make", "PREFIX=#{prefix}", "install"
   end
 
   test do
+    # The build will silently skip the manpage if it can't be built,
+    # so let's double-check that it was.
+    assert_path_exists man1/"btop.1"
+
     require "pty"
     require "io/console"
 
@@ -61,7 +64,7 @@ class Btop < Formula
         log_level=DEBUG
       EOS
 
-      r, w, pid = PTY.spawn("#{bin}/btop")
+      r, w, pid = PTY.spawn(bin/"btop")
       r.winsize = [80, 130]
       sleep 5
       w.write "q"
@@ -70,6 +73,8 @@ class Btop < Formula
     end
 
     log = (config/"btop.log").read
+    # SMC is not available in VMs.
+    log = log.lines.grep_v(/ERROR:.* SMC /).join if Hardware::CPU.virtualized?
     assert_match "===> btop++ v.#{version}", log
     refute_match(/ERROR:/, log)
   ensure

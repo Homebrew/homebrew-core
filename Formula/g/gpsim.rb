@@ -13,6 +13,7 @@ class Gpsim < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia:  "0e00390c7ead8acdb2ecffe0c1181c0fdd1fbaa325cd50304c98652e61c2e15a"
     sha256 cellar: :any,                 arm64_sonoma:   "888ef0d3830e09344fe6f4851d2df34a9793dc3de9178e1d2dc99451fa612fde"
     sha256 cellar: :any,                 arm64_ventura:  "fcfd3aa9b7bbfd39292005f97e046513efb63f5f35723ed28d846fe63969c596"
     sha256 cellar: :any,                 arm64_monterey: "7d7bdb973048a0accf1f87f5773883e80cb98a3e80ec3e6a2ae2240f06b4f8d9"
@@ -41,7 +42,7 @@ class Gpsim < Formula
   end
 
   test do
-    system "#{bin}/gpsim", "--version"
+    system bin/"gpsim", "--version"
   end
 end
 

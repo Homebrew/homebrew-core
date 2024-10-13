@@ -1,6 +1,7 @@
 class Libcanberra < Formula
   desc "Implementation of XDG Sound Theme and Name Specifications"
   homepage "https://0pointer.de/lennart/projects/libcanberra/"
+  license "LGPL-2.1-or-later"
 
   stable do
     url "https://0pointer.de/lennart/projects/libcanberra/libcanberra-0.30.tar.xz"
@@ -20,6 +21,7 @@ class Libcanberra < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia:  "710648952f9dde5a4292a1d0911d3da6d471684f86eb2c0192b9a6110ae28acd"
     sha256 cellar: :any,                 arm64_sonoma:   "41b031dfdc5078762fa0e135ef5846d6a067999e1d2fa3ab567846dd19f5ef78"
     sha256 cellar: :any,                 arm64_ventura:  "1874b238a6e087b86523eec9845e8ea16934041295bf2833ae676261dc186204"
     sha256 cellar: :any,                 arm64_monterey: "2407b2f3645eb6d00b7aec1ea237c48a0e7131c8b8d7e5b5d3e8f97d4e07b8ad"

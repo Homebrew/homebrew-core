@@ -10,11 +10,6 @@ class GhcAT92 < Formula
     any_of: ["LGPL-3.0-or-later", "GPL-2.0-or-later"], # GMP
   ]
 
-  livecheck do
-    url "https://www.haskell.org/ghc/download.html"
-    regex(/href=.*?download[._-]ghc[._-][^"' >]+?\.html[^>]*?>\s*?v?(9\.2(?:\.\d+)+)\s*?</i)
-  end
-
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_sonoma:   "655bbab689b52ce774c6d02a43eb33ce53592b06440a088cedcee758876c50a7"
@@ -27,6 +22,10 @@ class GhcAT92 < Formula
   end
 
   keg_only :versioned_formula
+
+  # No longer maintained. 9.2 was removed from current releases on 2023-11-10 with 9.4.8 release.
+  # Ref: https://gitlab.haskell.org/ghc/homepage/-/commit/f8e37fc84e6bc3b72e651bc778a1d6a7f2614e4b
+  deprecate! date: "2024-08-15", because: :unmaintained
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
@@ -150,7 +149,7 @@ class GhcAT92 < Formula
   end
 
   def post_install
-    system "#{bin}/ghc-pkg", "recache"
+    system bin/"ghc-pkg", "recache"
   end
 
   test do

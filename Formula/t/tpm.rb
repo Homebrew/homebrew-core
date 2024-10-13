@@ -6,7 +6,8 @@ class Tpm < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "bc7fbd2e63cf09eb0dc299caa4447a2508b76341ada7a8f2e5ad31f948aaf629"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "585e25b7dbe7d14caa7056eb0cc5f180256d8833a0e2e8fbcf01e72016b74c08"
   end
 
   depends_on "tmux"

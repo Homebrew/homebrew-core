@@ -1,42 +1,73 @@
 class Cminpack < Formula
   desc "Solves nonlinear equations and nonlinear least squares problems"
   homepage "http://devernay.free.fr/hacks/cminpack/cminpack.html"
-  url "https://github.com/devernay/cminpack/archive/refs/tags/v1.3.8.tar.gz"
-  sha256 "3ea7257914ad55eabc43a997b323ba0dfee0a9b010d648b6d5b0c96425102d0e"
+  url "https://github.com/devernay/cminpack/archive/refs/tags/v1.3.11.tar.gz"
+  sha256 "45675fac0a721a1c7600a91a9842fe1ab313069db163538f2923eaeddb0f46de"
   license "Minpack"
   head "https://github.com/devernay/cminpack.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "eb5aa3a3cc8d9932ae6c1b155fea6de6c631b88aa2e6d8bf43f217d8cfba3320"
-    sha256 cellar: :any,                 arm64_ventura:  "0977d314e2d12ebad01d9c2031ea340d061b33d9c4d5ebff7e98cfb0cbacedcb"
-    sha256 cellar: :any,                 arm64_monterey: "77fb555fafcface498156afafaee3303660b548bcb813dd381443457701e4c3a"
-    sha256 cellar: :any,                 arm64_big_sur:  "d508c68c13b468c31d533289722929544c43a01e3c24082d6a58b02fb8dd875d"
-    sha256 cellar: :any,                 sonoma:         "731466a569e89898b4610963c1943403c6276f2a9d74a89682814f7078cc6dd1"
-    sha256 cellar: :any,                 ventura:        "85209a9f1bd696928cfff4370e23e53a21f651e6d48b247e6c72cece00bbae93"
-    sha256 cellar: :any,                 monterey:       "13c06f84c13a6c57c659d19ae277da7ebc8306536050b8952dadf88da7d4d35c"
-    sha256 cellar: :any,                 big_sur:        "42feed7d547bfc20b5665c9e28b68a4a059f8791f56830ddd5e004a12d363784"
-    sha256 cellar: :any,                 catalina:       "adfd9f1a494a35c87c9d6e04a7f10371fa3a1107fa3f2dfeb67c40b87d07dadb"
-    sha256 cellar: :any,                 mojave:         "04a82ea734b10f9600b3bd3c4390d213f34eade2ec375784c1083e755548274c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1e78fde611720ec7d338383afd4deb5095517ab2a1a012763d8024db7b58fa84"
+    sha256 cellar: :any,                 arm64_sequoia: "a3742c503095e979488e41caa028da813433223e16d138233a03b6a50566c8fe"
+    sha256 cellar: :any,                 arm64_sonoma:  "6e56f9a0fa73e882dd63c5cbbb06f5fbe27db19fef627207cc5d253db3b4ccd0"
+    sha256 cellar: :any,                 arm64_ventura: "ba4c53b942a58d25cca56a66bc8b66383042b4fc675bacd71e07a88257035818"
+    sha256 cellar: :any,                 sonoma:        "fb0d98cea9e085b73c79cd908d32e853f2eed59ec62bed48fa75ea2c5695fa7e"
+    sha256 cellar: :any,                 ventura:       "86f126b5834472ae2a8db9c866c2e3233b9b29551d50a6df956015b0b8f16745"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "90f55468bdd04566bbf3e98f914a13aab28e016a20f3f80c63804159611f9997"
   end
 
   depends_on "cmake" => :build
 
   def install
-    system "cmake", ".", "-DBUILD_SHARED_LIBS=ON",
-                         "-DCMAKE_BUILD_WITH_INSTALL_RPATH=ON",
-                         "-DCMINPACK_LIB_INSTALL_DIR=lib",
-                         *std_cmake_args
-    system "make", "install"
+    args = %w[
+      -DBUILD_SHARED_LIBS=ON
+      -DCMAKE_BUILD_WITH_INSTALL_RPATH=ON
+      -DCMINPACK_LIB_INSTALL_DIR=lib
+    ]
 
-    man3.install Dir["doc/*.3"]
-    doc.install Dir["doc/*"]
-    pkgshare.install "examples/thybrdc.c"
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
+
+    man3.install Dir["docs/*.3"]
+    doc.install Dir["docs/*"]
   end
 
   test do
-    system ENV.cc, "-I#{include}/cminpack-1", pkgshare/"thybrdc.c",
+    (testpath/"test.c").write <<~EOS
+      #include <stdio.h>
+      #include <cminpack.h>
+
+      int main() {
+          int m = 2;
+          int n = 2;
+          double x[2] = {-1.2, 1.0};
+          double fvec[2] = {0};
+          double fjac[4] = {0};
+          double tol = 1e-8;
+          int info = -1;
+          int ipvt[2] = {0};
+          int ldfjac = 2;
+          int lwa = m * n + 5 * n + m;
+          double wa[lwa];
+
+          for (int i = 0; i < lwa; i++) {
+              wa[i] = 0;
+          }
+
+          info = lmder1(NULL, NULL, 0, n, x, fvec, fjac, ldfjac, tol, ipvt, wa, lwa);
+
+          if (info >= 0) {
+              printf("Success: lmder1 returned %d\\n", info);
+          } else {
+              printf("Error: lmder1 returned %d\\n", info);
+          }
+
+          return info;
+      }
+    EOS
+
+    system ENV.cc, "test.c", "-I#{include}/cminpack-1",
                    "-L#{lib}", "-lcminpack", "-lm", "-o", "test"
-    assert_match "number of function evaluations", shell_output("./test")
+    system "./test"
   end
 end

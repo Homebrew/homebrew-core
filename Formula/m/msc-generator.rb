@@ -17,6 +17,7 @@ class MscGenerator < Formula
   end
 
   bottle do
+    sha256 arm64_sequoia:  "1bb7414a5ad949e5a749e09c6a536a41cf7bfa40c8719b7b8a6280f0f227fb8c"
     sha256 arm64_sonoma:   "5f94fd009e0b2fd06ed13995705298907f56a32111a9d4c489c49abf7519be72"
     sha256 arm64_ventura:  "1226239916c31e57bc51801d867655d282a32258141dd3a63d698b5569d4312f"
     sha256 arm64_monterey: "81caf56a7e9225793493479648d42c6233f0eca6892f11ce0e8dd21b95b3c99d"
@@ -87,10 +88,10 @@ class MscGenerator < Formula
 
   test do
     # Try running the program
-    system "#{bin}/msc-gen", "--version"
+    system bin/"msc-gen", "--version"
     # Construct a simple chart and check if PNG is generated (the default output format)
     (testpath/"simple.signalling").write("a->b;")
-    system "#{bin}/msc-gen", "simple.signalling"
+    system bin/"msc-gen", "simple.signalling"
     assert_predicate testpath/"simple.png", :exist?
     bytes = File.binread(testpath/"simple.png")
     assert_equal bytes[0..7], "\x89PNG\r\n\x1a\n".force_encoding("ASCII-8BIT")

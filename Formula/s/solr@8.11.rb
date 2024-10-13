@@ -1,9 +1,9 @@
 class SolrAT811 < Formula
   desc "Enterprise search platform from the Apache Lucene project"
   homepage "https://solr.apache.org/"
-  url "https://dlcdn.apache.org/lucene/solr/8.11.3/solr-8.11.3.tgz"
-  mirror "https://archive.apache.org/dist/lucene/solr/8.11.3/solr-8.11.3.tgz"
-  sha256 "178300ae095094c2060a1060cf475aa935f1202addfb5bacb38e8712ccb56455"
+  url "https://dlcdn.apache.org/lucene/solr/8.11.4/solr-8.11.4.tgz"
+  mirror "https://archive.apache.org/dist/lucene/solr/8.11.4/solr-8.11.4.tgz"
+  sha256 "163fbdf246bbd78910bc36c3257ad50cdf31ccc3329a5ef885c23c9ef69e0ebe"
   license "Apache-2.0"
 
   livecheck do
@@ -12,7 +12,7 @@ class SolrAT811 < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "9215d75465b9410dc267924991044a2b4e0e781e654583db2d01a7767d631bfa"
+    sha256 cellar: :any_skip_relocation, all: "65d79494d324de0e00931020fc1e1624c7929566a4d66cee0b33052111f6e523"
   end
 
   keg_only :versioned_formula

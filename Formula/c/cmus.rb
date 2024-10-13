@@ -7,6 +7,7 @@ class Cmus < Formula
   head "https://github.com/cmus/cmus.git", branch: "master"
 
   bottle do
+    sha256 arm64_sequoia:  "4d48fd259b20762d9c04a173efbf067aedfc63546c5e2d8b7cb60db0f0580e88"
     sha256 arm64_sonoma:   "db7240bb997b88208a1d1615eb318a2439c8c5c15bc3dc434f9056d6b0c563a0"
     sha256 arm64_ventura:  "e3c062549f70169a3ea7aba0785e8d1e77aaa5188e178efba38e6ce1edbfda52"
     sha256 arm64_monterey: "d83c3974dc01bc46172cf5603a3226a8b1363a1bd37fea7cac54154533254b0e"
@@ -31,6 +32,7 @@ class Cmus < Formula
 
   on_linux do
     depends_on "alsa-lib"
+    depends_on "pulseaudio"
   end
 
   def install

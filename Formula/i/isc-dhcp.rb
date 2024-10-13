@@ -5,12 +5,8 @@ class IscDhcp < Formula
   sha256 "0ac416bb55997ca8632174fd10737fd61cdb8dba2752160a335775bc21dc73c7"
   license "MPL-2.0"
 
-  livecheck do
-    url "https://www.isc.org/download/"
-    regex(%r{href=.*?/dhcp[._-]v?(\d+(?:\.\d+)+(?:-P\d+)?)\.t}i)
-  end
-
   bottle do
+    sha256 arm64_sequoia:  "d2757d9ace5037a47edaa968d947b51afbfe271b79e5655700167ff8985d6031"
     sha256 arm64_sonoma:   "620dbe4f0f6b3905627c1d41c597f2436ead691362ba8ebc8d435efa3ed0284e"
     sha256 arm64_ventura:  "ca26d2145b3c8040d94c1ee2b8065d1facdf47f00e4d26e93d8a15a9bab3b209"
     sha256 arm64_monterey: "53454eb5ae86cb4fe52825f7bcfec568ed205ee417d21526fa42d1c5b90141dd"

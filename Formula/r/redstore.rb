@@ -3,7 +3,7 @@ class Redstore < Formula
   homepage "https://www.aelius.com/njh/redstore/"
   url "https://www.aelius.com/njh/redstore/redstore-0.5.4.tar.gz"
   sha256 "58bd65fda388ab401e6adc3672d7a9c511e439d94774fcc5a1ef6db79c748141"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
 
   livecheck do
     url :homepage
@@ -11,9 +11,12 @@ class Redstore < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "722eb9bb530ade0f251ce260bc4f0dc3b519b164e86d2c3792d6559edfd1f01e"
+    sha256 cellar: :any,                 arm64_sonoma:   "17d341618995c10bb92327af09bc2af0fb295fc798fb229b5813db72e912f639"
     sha256 cellar: :any,                 arm64_ventura:  "55306289261abde9b677d1906bb58420dc0bd3a52b775c3257ccb80c5ba04cdb"
     sha256 cellar: :any,                 arm64_monterey: "6043b778fa8d393eb0505eca982e0f2dcba99354aa3c6bba9d1042de6425bac7"
     sha256 cellar: :any,                 arm64_big_sur:  "03952d80ba4b35e0a1a7a85a9ae9fe56e9e31bd6e2797729c28ffee377ee2fcf"
+    sha256 cellar: :any,                 sonoma:         "12fca2f939d2fe399dcff87f87ac6a2d0dc4448d4d2d2577faa5182681dd0e4d"
     sha256 cellar: :any,                 ventura:        "840637ec24ca832cad462cfbe3fa6f8693ccf86c5e74edeeccab5e12a3573633"
     sha256 cellar: :any,                 monterey:       "1ae97b18f1cb08f3872712accb48942d7c992a76f4dddae0b7a6566d22f40ec5"
     sha256 cellar: :any,                 big_sur:        "fa44b96b71ff73060973893222eb264f18c54f8c64ebb73c903eef2e544868ee"
@@ -26,12 +29,22 @@ class Redstore < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "raptor"
+  depends_on "rasqal"
   depends_on "redland"
 
   def install
+    # Fix compile with newer Clang
+    ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
+
     ENV.append "CFLAGS", "-D_GNU_SOURCE" unless OS.mac?
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+
+    system "./configure", *std_configure_args.reject { |s| s["--disable-debug"] }
     system "make", "install"
+  end
+
+  test do
+    output = shell_output("#{bin}/redstore --help 2>&1", 1)
+    assert_match "RedStore version #{version}", output
   end
 end

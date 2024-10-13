@@ -12,6 +12,7 @@ class Linkerd < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "38c1c491271ea2f1e76a50c01f919f24528b409311a6c5e0b5801b8d7b4df78e"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4dd8a49fcb56e1eab62825fa310ffe6966d9aac27ebf4356b0f2be56ccb7d2ca"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "ecd3045e2d699c0bb1a16619ec5b045fae1d92293a3276c754354c3d201cc2aa"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e5e275b3c5a026354bc0db5683f6044b75e551dafc0d40dd70144a9bc374b61c"
@@ -43,8 +44,7 @@ class Linkerd < Formula
     assert_match "linkerd manages the Linkerd service mesh.", run_output
 
     version_output = shell_output("#{bin}/linkerd version --client 2>&1")
-    assert_match "Client version: ", version_output
-    assert_match stable.specs[:tag], version_output if build.stable?
+    assert_match "Client version: #{stable.specs[:tag]}", version_output
 
     system bin/"linkerd", "install", "--ignore-cluster"
   end

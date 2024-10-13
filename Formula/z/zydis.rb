@@ -9,6 +9,7 @@ class Zydis < Formula
   head "https://github.com/zyantific/zydis.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "263d39ea63e80fa442ab2b1dd6891fcb87cc0941cb72825999a8150353392e3c"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2f7f72365b14908bbdfdf6b97cc058250e587f7edca69a75d3d63ac113f1933e"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "db12deb4305fb8967c2900ba080d5a02c7a57c8aaac3dee595b301115dc81276"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "7b9f1a1d12f1cf6db4a24835b7b2b4ba069d4003471b71615b5e56c5740cd325"

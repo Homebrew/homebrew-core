@@ -1,23 +1,20 @@
 class CargoBundle < Formula
   desc "Wrap rust executables in OS-specific app bundles"
   homepage "https://github.com/burtonageo/cargo-bundle"
-  url "https://github.com/burtonageo/cargo-bundle/archive/refs/tags/v0.6.0.tar.gz"
-  sha256 "1ab5d3175e1828fe3b8b9bed9048f0279394fef90cd89ea5ff351c7cba2afa10"
+  url "https://github.com/burtonageo/cargo-bundle/archive/refs/tags/v0.6.1.tar.gz"
+  sha256 "18270c983636582c7723b2b6447c76330d8372feb53140eec693f6c2db5e7e81"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/burtonageo/cargo-bundle.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "dd63c683ce123b173356801cfd94a8a734570562a9684155e4901eee9aa61bbf"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "80188536b9ea48f4bf2684a94f7a49cede6fa2df3363166d88dd9ab544863a8c"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d2a0a08c3bf07cb9cc441163497d39b59b9c7c4fdad0be8d3c40795b7cc93923"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3bd2d974ec9db345d90f862d0bcfdb73b09b829712b4c520522d1c3d1f05badc"
-    sha256 cellar: :any_skip_relocation, sonoma:         "7c83619aa88e26431dcbe515464adfc34acbdf655c8c5331829195c961984786"
-    sha256 cellar: :any_skip_relocation, ventura:        "ada7709197c98af0cda23f5abcb6cf5bbab3b96afef5f607d2a571ef8ac2b8da"
-    sha256 cellar: :any_skip_relocation, monterey:       "382768c4aeb9ec456bd70c770a3aff75ee4f8f2cf42f7fe9b8b481ed7f714fb7"
-    sha256 cellar: :any_skip_relocation, big_sur:        "e2698372a48dfea6db720b4cf70c2b7cfa13560798dd17f434e57d59016d7c23"
-    sha256 cellar: :any_skip_relocation, catalina:       "c5484070e73f28b33a947fe837f1b727b8329ba3857adcd148a8577cb82ca5fd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "03e2f7b9d02ba3b4e0c85d920d779d948a8855ac69b770f1a82720109543d1aa"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "97cee1a83c22efbcaac2b88f29faf09ff8f70957ae9150c3ac6bf645151f7081"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8d7d7fd8160402ae2884ef7e88e95cdaa56e163b62150e325c306ca1a2879927"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "aed77abf521dcc180bb87fe548ea79961d328c5443753aab5e982e46d0667a65"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "fa10b2892b2f4e59f8e5fb24921a07b70fcedadecc3e83c266e4c0da7de1b6d3"
+    sha256 cellar: :any_skip_relocation, sonoma:         "bfbb27620b4052f85a3e950fde37d646c8946f3f99f221026f7432b04806b606"
+    sha256 cellar: :any_skip_relocation, ventura:        "dca1765993664c75a803ad7570df1743e5c97b2d6d22db5a765ce6965f05a747"
+    sha256 cellar: :any_skip_relocation, monterey:       "f5cf9c786583b5bdae6755e9b44610a13c16a3d27b88a4b69829936a2bb9f702"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "65d1c04a423a5f9d8c17dc4cd83d7a2673c45f23f727e64a45f50dde0cdd0aa4"
   end
 
   depends_on "rust" => :build

@@ -1,23 +1,17 @@
 class Clac < Formula
   desc "Command-line, stack-based calculator with postfix notation"
   homepage "https://github.com/soveran/clac"
-  url "https://github.com/soveran/clac/archive/refs/tags/0.3.3.tar.gz"
-  sha256 "e751e31bd2d3cdf6daa80da0ea7761630767aa22df6954df35997d1fcc5fa8ae"
+  url "https://github.com/soveran/clac/archive/refs/tags/0.3.4.tar.gz"
+  sha256 "3ee19329cc2e2d3a4d70eab9aa9e89f0e6f07becaa89e9156e5eb2cf94dc568a"
   license "BSD-2-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4bd59227583efc4d66882810450c59dad080493f8f442ee5655e21158c2c1d67"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5c24643fb296c8c63366fcd003bcf1833bea55e17e596f3712d2c46d2924dacb"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "175565be3821dd977d0d0b59def680e2750c909e505a70c339c23672f051be23"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5579baf3a429639b0cab2098d4dd5711fef715b6599a34b4b5ce11c383e8dbd6"
-    sha256 cellar: :any_skip_relocation, sonoma:         "82c7e8e387b0208af2748c4f4105338aad6a534b303c392c39c3df3bbd1efe2c"
-    sha256 cellar: :any_skip_relocation, ventura:        "0a838fd0f803107e4e4315c8b9184f64f8727af3c3eb26362fe5e0880435484b"
-    sha256 cellar: :any_skip_relocation, monterey:       "eb6f4d5f2edbd8e82274f9424e09f1a0635868370285f98a747e2006bde83b45"
-    sha256 cellar: :any_skip_relocation, big_sur:        "8582b92bdb32ca857fc3b8a5a33d0f19797edc1d1331ef79ffd9dc86ced96303"
-    sha256 cellar: :any_skip_relocation, catalina:       "afa69f51c57695ae2e01a3ad9a44690fa746e925129ab2809550811cafe0fb3f"
-    sha256 cellar: :any_skip_relocation, mojave:         "af0e4194b84f969e0a701f32c102dd64a432f6f675e6913716b81b96e548d451"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "5be5ed82ad0b8669aef16942e39e9d60341ab6201ee019b9b997ab5ee4ea76b1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e4f3c451b138c9ecdd2e00693369295093f73c4dd4e8fa00e8a316ab5605b543"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f4567b96d52b717dcd08a39d9540400ec62706fef56604355c19d97be23fa263"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e7c0e290434255b7da84b9f7338d97fdfebfd94f1d644354630e7f4da4db61dc"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "18c5e0e27145bcbf03d697cad009393e0cc358a5c68d02a18d10f0d97934b9c5"
+    sha256 cellar: :any_skip_relocation, sonoma:        "99f0efd095f5a0ae1da2ed0251a1753cce042069a49a299c29b17c8edfc5c558"
+    sha256 cellar: :any_skip_relocation, ventura:       "f4b1d600a712d9d93e03393fc16bc762f6aeb33edd9840fb0df0d9d79aca8e47"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "388b23eacd1cd72f8101ce8f2858d9ad232de844cdcf7f3a9948f98e5d56cea2"
   end
 
   def install

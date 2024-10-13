@@ -19,6 +19,7 @@ class Qtkeychain < Formula
   depends_on "qt"
 
   on_linux do
+    depends_on "glib"
     depends_on "libsecret"
   end
 

@@ -11,6 +11,7 @@ class Vttest < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "ccdcaaabe61dece07d72f9b6077b0387c6f3a42ae1d678b6c5269e4aeb861271"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "69c97efb95a1b780b9ca1702a22084de2830c512db6df2f5e4b34bfe13c4fc8b"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "713a46c6a0df4a65d990814d46d956862776ccfc5be0931c08466206b8cdf5d0"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "77819cca774ece7bb3374e5ad014b47ac6cd26ef614facc5faa82e10adb51942"

@@ -6,6 +6,7 @@ class Rospo < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "d08305849940711f8643241b44247256b71a5d1ade1128981fa9f4d5a309e717"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "fe0201c29f66f23581de0677faa71d40a872ec49da490dd1fa713e55a9c14307"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "ea2f8be686aaf285dcf380da7b22735e79b5c94e7a9fedd73016dbe72f7f5306"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6ec7d9c311c08955f8e1a8372d60f573469cc5bc097d4a683207c2ea7798513c"

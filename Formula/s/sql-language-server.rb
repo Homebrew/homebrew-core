@@ -1,5 +1,3 @@
-require "language/node"
-
 class SqlLanguageServer < Formula
   desc "Language Server for SQL"
   homepage "https://github.com/joe-re/sql-language-server"
@@ -8,15 +6,15 @@ class SqlLanguageServer < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "66b0a9c98add7626efa6573768206b0bad41577b67bb28060e477dbcdde1f0f3"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a63e7d173e1c5354c92882c33f7fe031c2e1edfec6c9538f3b9a36cb4f0444b8"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "99b6e7f27dfbdfa08fc3b7f97c20c1f9b9b95e307e754e0d5b904da5eeff2e9d"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5753d4c1eebff055fbab64a447ff938b6c6743f73f0cd5fce96e13c526d7e1ac"
-    sha256 cellar: :any_skip_relocation, sonoma:         "1afe6494555cd33a62ac34470966e5dff1fff42c444da5f420fe6e9181ea32ac"
-    sha256 cellar: :any_skip_relocation, ventura:        "627204ccb373dfa3a9309b9a3a52f71567f2135df4d24cb32d319d09a98d690f"
-    sha256 cellar: :any_skip_relocation, monterey:       "3422ab64c3c24fb0c71c861b7111d3b6742435cdc3d4fb95e0db74ff1889bfd5"
-    sha256 cellar: :any_skip_relocation, big_sur:        "5df0c786a71bef62e093b568ca34aaf098b8c67c0e9fbd0d1f5638895649c2c5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "44a0a7bce4b1e6b7d5f4907956a0d1384029f3f3effdb7762aee5df3ef6b375b"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "42ed54577ebee0d08927ecfd9437c5fb34b86550f39ddbb267c8b80d91882321"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "236ad1d93cceec6914b58664d6a74deefd1fff1a40e10789c36d150bd7c14686"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3ecc11126b7d5fb48941ae187fbcd52853d3e7669c4a28f24f4a6a6d458d5812"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "499c3ccad48b255dbdd91736fb19390c712857f25b7940468a6591db647a6af9"
+    sha256 cellar: :any_skip_relocation, sonoma:         "e833963582391c35d8330ef634dd008f0c544df422aa5e420cdb2df5de835bb8"
+    sha256 cellar: :any_skip_relocation, ventura:        "8362d4f1dad11b2b775bd243a7068663b229424b5e78f72cc2b493a097d1186b"
+    sha256 cellar: :any_skip_relocation, monterey:       "27088ae48dbff0d606e82bea3a4e06376576a631bbf9f8dcbf64fecc7f940211"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1be90ee66b585a15ba9e4360e88d97beda26440fc581b28b2dd3907cabf2dea1"
   end
 
   depends_on "node"
@@ -32,12 +30,12 @@ class SqlLanguageServer < Formula
   end
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
-    bin.install_symlink Dir["#{libexec}/bin/*"]
+    system "npm", "install", *std_npm_args
+    bin.install_symlink libexec.glob("bin/*")
 
     # Remove vendored pre-built binary `terminal-notifier`
     node_notifier_vendor_dir = libexec/"lib/node_modules/sql-language-server/node_modules/node-notifier/vendor"
-    node_notifier_vendor_dir.rmtree # remove vendored pre-built binaries
+    rm_r(node_notifier_vendor_dir) # remove vendored pre-built binaries
 
     if OS.mac?
       terminal_notifier_dir = node_notifier_vendor_dir/"mac.noindex"
@@ -64,7 +62,7 @@ class SqlLanguageServer < Formula
       }
     JSON
 
-    Open3.popen3("#{bin}/sql-language-server", "up", "--method", "stdio") do |stdin, stdout|
+    Open3.popen3(bin/"sql-language-server", "up", "--method", "stdio") do |stdin, stdout|
       stdin.write "Content-Length: #{json.size}\r\n\r\n#{json}"
       assert_match(/^Content-Length: \d+/i, stdout.readline)
     end

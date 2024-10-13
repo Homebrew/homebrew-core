@@ -7,6 +7,7 @@ class Vaulted < Formula
   head "https://github.com/miquella/vaulted.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "a7d20c4d22958ce6a36c53ae40821c077a31bfcce9df74593bc83a7bcf318332"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7fde70166c645a842baec036f638bc3e0435f22bcc2c16fd2e81186ff200c882"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "43bb79ce25f0da8778ab20ed2bbb322674d256edb638cb00b502eb1dec31dee4"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "af4905ab6698699c3f794645c49052db9bac1a63f025f35ec81f21c057a38faf"
@@ -31,7 +32,7 @@ class Vaulted < Formula
   test do
     (testpath/".local/share/vaulted").mkpath
     touch(".local/share/vaulted/test_vault")
-    output = IO.popen(["#{bin}/vaulted", "ls"], &:read)
+    output = IO.popen([bin/"vaulted", "ls"], &:read)
     output == "test_vault\n"
   end
 end

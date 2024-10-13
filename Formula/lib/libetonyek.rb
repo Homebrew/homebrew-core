@@ -12,6 +12,7 @@ class Libetonyek < Formula
 
   bottle do
     rebuild 1
+    sha256               arm64_sequoia:  "647ec0cd1b38385cb21e641f287b3c241dded4492aac47dc4bf531e295523258"
     sha256               arm64_sonoma:   "277d4979dc6ed3a41dffd32885df1731ac00920ff217b0f97f0b96a5e2471d2b"
     sha256               arm64_ventura:  "7d0639b6a0326628a58a188d117e363b110ffb4f738f273add9b402425db5e07"
     sha256               arm64_monterey: "f3209b23826845190ee6d095526f88f18c7c9c488d7421f7e431884f4b8a586e"

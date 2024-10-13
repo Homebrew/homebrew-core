@@ -7,7 +7,8 @@ class RbenvBundler < Formula
   head "https://github.com/carsomyr/rbenv-bundler.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "3b3c53b05f0504b05399bd47595ef5134e91c1a15475765550498b027d135a8c"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "726653ee51529beb50ed43932c59c357198c1c61d252c644a88cc05b0fd1e0af"
   end
 
   depends_on "rbenv"

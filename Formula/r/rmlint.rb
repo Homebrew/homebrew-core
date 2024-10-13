@@ -6,6 +6,7 @@ class Rmlint < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "078bb44e98c88380cea69407a81edbee8f579718ce0610d4dc1c0d194a74909f"
     sha256 cellar: :any,                 arm64_sonoma:   "e0230b688d4affb228e377a0c26b0d5d32b00ac520c67f8c0a125638be50927d"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "b150afab45efddb5b6df4ea0e31698447aa772a9ffa4979d3af991723477fa54"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "dd0d1429fee2937667a3bfeefa62afa4d1844295c728e018a6aa73161bba365a"
@@ -48,6 +49,6 @@ class Rmlint < Formula
   test do
     (testpath/"1.txt").write("1")
     (testpath/"2.txt").write("1")
-    assert_match "# Duplicate(s):", shell_output("#{bin}/rmlint")
+    assert_match "# Duplicate(s):", shell_output(bin/"rmlint")
   end
 end

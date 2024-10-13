@@ -6,6 +6,7 @@ class Mandown < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any, arm64_sequoia:  "729bf8e294a1ad8f1f18a4555cf370cf6969e55b7fcf0abbafe1665422397ffc"
     sha256 cellar: :any, arm64_sonoma:   "77a810adcb13125cce9d5a965a9e2a81f7f8fb025ee35bbfeb5f8975f50dabbe"
     sha256 cellar: :any, arm64_ventura:  "8f38c697d7d7fff6d1de02483bbf49b3dcf3b65e127047fbc2a9b84228657a28"
     sha256 cellar: :any, arm64_monterey: "cc29dc5580e538cac4010354481a5e9081e90735583380c99bd070e612c8c7bf"
@@ -34,7 +35,7 @@ class Mandown < Formula
       <html><head><title>test.md(7)</title></head><body><h1>Hi from readme file!</h1>
       </body></html>
     EOS
-    system "#{bin}/mdn", "-f", "test.md", "-o", "test"
+    system bin/"mdn", "-f", "test.md", "-o", "test"
     assert_equal expected_output, File.read("test")
   end
 end

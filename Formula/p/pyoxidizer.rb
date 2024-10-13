@@ -12,6 +12,7 @@ class Pyoxidizer < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "fffc8fb7d0f4c1c4743521228edcb637b4ec0969c488f669ca0f49abba884f3c"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6124e2f8cd40cd7462fa28f70b719edce33751cda845bc1a56284b94290275a2"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "fa37a4ac504621090ea1f67abee2694e8c6798f5f8b35dba0f67411d70c9e133"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "32a2e334bd1345638385aa4d56b635b8faecb5095607ed4f177660965979478d"
@@ -24,11 +25,6 @@ class Pyoxidizer < Formula
   end
 
   depends_on "rust" => [:build, :test]
-  # Currently needs macOS 11 SDK due to checking for DeploymentTargetSettingName
-  # Remove when issue is fixed: https://github.com/indygreg/PyOxidizer/issues/431
-  on_catalina :or_older do
-    depends_on xcode: "12.2"
-  end
 
   def install
     system "cargo", "install", *std_cargo_args(path: "pyoxidizer")

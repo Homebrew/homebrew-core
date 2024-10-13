@@ -12,6 +12,7 @@ class Srtp < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "434b6f64c212cee50599b634ff07f3c9204bdf83514793b0e77a71ae1a5988c2"
     sha256 cellar: :any,                 arm64_sonoma:   "f4659edc90366755154d729abdc17c15cd3f0afd5db88a34e113570b123fb32f"
     sha256 cellar: :any,                 arm64_ventura:  "c3ce5d112378cb65da6076012f3e57071e449cec1624aed7cb643c6875325114"
     sha256 cellar: :any,                 arm64_monterey: "d5caefa466b896041eb0eeaf3da044b75d19e63361b3bee650ac7ab99dc79ae7"

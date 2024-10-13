@@ -3,8 +3,10 @@ class Lifelines < Formula
   homepage "https://lifelines.sourceforge.net/"
   url "https://downloads.sourceforge.net/project/lifelines/lifelines/3.0.62/lifelines-3.0.62.tar.gz"
   sha256 "2f00441ac0ed64aab8f76834c055e2b95600ed4c6f5845b9f6e5284ac58a9a52"
+  license "MIT"
 
   bottle do
+    sha256 arm64_sequoia:  "1f6bdc9020d5710b880583b1282be16a381ccc06e507fa708bba260fd5a256a0"
     sha256 arm64_sonoma:   "c7d6412aa87b5b3926d5bd6b04db7ca8005b31420b23120f76e5322b5b314fcf"
     sha256 arm64_ventura:  "a47b652141dd91cf3c2f88fc0fac232b93355645ce0319b9547504c6b8244145"
     sha256 arm64_monterey: "9be7a6bb235edd9eec5362c010a521403d4cb617e4ce3d18a4c94caf1df37a4d"

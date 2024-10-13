@@ -1,8 +1,9 @@
 class Mariadb < Formula
   desc "Drop-in replacement for MySQL"
   homepage "https://mariadb.org/"
-  url "https://archive.mariadb.org/mariadb-11.4.2/source/mariadb-11.4.2.tar.gz"
-  sha256 "8c600e38adb899316c1cb11c68b87979668f4fb9d858000e347e6d8b7abe51b0"
+  # TODO: Build with `-DWITH_LIBFMT=system` when fmt >= 11
+  url "https://archive.mariadb.org/mariadb-11.5.2/source/mariadb-11.5.2.tar.gz"
+  sha256 "e25fac00aeb34610faf62182836a14e3310c0ca5d882e9109f63bd8dfdc3542d"
   license "GPL-2.0-only"
 
   livecheck do
@@ -17,13 +18,14 @@ class Mariadb < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "6253930320e8fd6168af675711323cd5fca3802ded6fa8ebeaa2df25714786ad"
-    sha256 arm64_ventura:  "5a887e7ba084214d0ba6289905e0f21fe8117ccb1af8a896ced7fe65763aea72"
-    sha256 arm64_monterey: "29efafd48f2012151e4f6c1af55bf514a9c9f4cd94533d6ebaeb982075d75971"
-    sha256 sonoma:         "6259c09d06b8e83dce359a77dbfd11270f318b6333a6c0d05c2210e2aff17a40"
-    sha256 ventura:        "417990e729fd9acbf0c82bc061592b43a2efbf4247b224b2fee1d625007a4b76"
-    sha256 monterey:       "1983b7cc998e99f8e18a9a677d96ed6bdcb69e99eaebbd71138b351f21004557"
-    sha256 x86_64_linux:   "e47c30e2ada719213c21db0cf005ee541900de195b57a06c2303ecfd45bbe5ee"
+    sha256 arm64_sequoia:  "ed3cc36a98cceadab407cdd32e975cb61c7767e2b66287326da138088d9c4626"
+    sha256 arm64_sonoma:   "cda6f1a3253d69bc36dadff3cd9ed8e3c91795eb392c9f7b1a4ea0b63c19a8e3"
+    sha256 arm64_ventura:  "6b01259939dee3c888cb040265de4bdfe727d2dcfc154acfb0edfb44eef622b9"
+    sha256 arm64_monterey: "068f3c8199c47fe7b1ff2f15584884d5d61108378a4ec13289f850ff6a80b906"
+    sha256 sonoma:         "3d8d1e1dfcd957335e72f3f34ec2fd4e8fd22b918ed919bf8904e304f8e3c6bc"
+    sha256 ventura:        "9f525784840240948014eabcc7942a3753f7ad990e537a6109adc541c78c51eb"
+    sha256 monterey:       "9c1a9410159d97546186ac23f8d17d07186987200d923a2866eb884f3a61a657"
+    sha256 x86_64_linux:   "e25bd50056c5c14b3f851c20df8a809d5453d71fac929fddd590b26fa1f876b3"
   end
 
   depends_on "bison" => :build
@@ -32,6 +34,7 @@ class Mariadb < Formula
   depends_on "pkg-config" => :build
   depends_on "groonga"
   depends_on "lz4"
+  depends_on "lzo"
   depends_on "openssl@3"
   depends_on "pcre2"
   depends_on "xz"
@@ -45,9 +48,12 @@ class Mariadb < Formula
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
+  on_macos do
+    depends_on "openjdk" => :build
+  end
+
   on_linux do
     depends_on "linux-pam"
-    depends_on "readline" # uses libedit on macOS
   end
 
   conflicts_with "mysql", "percona-server",
@@ -59,8 +65,6 @@ class Mariadb < Formula
   fails_with gcc: "5"
 
   def install
-    ENV.cxx11
-
     # Set basedir and ldata so that mysql_install_db can find the server
     # without needing an explicit path to be set. This can still
     # be overridden by calling --basedir= when calling.
@@ -71,6 +75,8 @@ class Mariadb < Formula
 
     # Use brew groonga
     rm_r "storage/mroonga/vendor/groonga"
+    rm_r "extra/wolfssl"
+    rm_r "zlib"
 
     # -DINSTALL_* are relative to prefix
     args = %W[
@@ -80,7 +86,9 @@ class Mariadb < Formula
       -DINSTALL_DOCDIR=share/doc/#{name}
       -DINSTALL_INFODIR=share/info
       -DINSTALL_MYSQLSHAREDIR=share/mysql
+      -DWITH_PCRE=system
       -DWITH_SSL=system
+      -DWITH_ZLIB=system
       -DWITH_UNIT_TESTS=OFF
       -DDEFAULT_CHARSET=utf8mb4
       -DDEFAULT_COLLATION=utf8mb4_general_ci
@@ -94,9 +102,6 @@ class Mariadb < Formula
       args << "-DCONNECT_WITH_JDBC=OFF"
     end
 
-    # Disable RocksDB on Apple Silicon (currently not supported)
-    args << "-DPLUGIN_ROCKSDB=NO" if Hardware::CPU.arm?
-
     system "cmake", "-S", ".", "-B", "_build", *std_cmake_args, *args
     system "cmake", "--build", "_build"
     system "cmake", "--install", "_build"
@@ -107,13 +112,9 @@ class Mariadb < Formula
                                "!includedir #{etc}/my.cnf.d"
     touch etc/"my.cnf.d/.homebrew_dont_prune_me"
 
-    # Don't create databases inside of the prefix!
-    # See: https://github.com/Homebrew/homebrew/issues/4975
-    rm_rf prefix/"data"
-
     # Save space
-    (prefix/"mariadb-test").rmtree
-    (prefix/"sql-bench").rmtree
+    rm_r(prefix/"mariadb-test")
+    rm_r(prefix/"sql-bench")
 
     # Link the setup scripts into bin
     bin.install_symlink [
@@ -157,7 +158,7 @@ class Mariadb < Formula
 
     unless File.exist? "#{var}/mysql/mysql/user.frm"
       ENV["TMPDIR"] = nil
-      system "#{bin}/mysql_install_db", "--verbose", "--user=#{ENV["USER"]}",
+      system bin/"mysql_install_db", "--verbose", "--user=#{ENV["USER"]}",
         "--basedir=#{prefix}", "--datadir=#{var}/mysql", "--tmpdir=/tmp"
     end
   end
@@ -185,12 +186,12 @@ class Mariadb < Formula
       "--auth-root-authentication-method=normal"
     port = free_port
     fork do
-      system "#{bin}/mysqld", "--no-defaults", "--user=#{ENV["USER"]}",
+      system bin/"mysqld", "--no-defaults", "--user=#{ENV["USER"]}",
         "--datadir=#{testpath}/mysql", "--port=#{port}", "--tmpdir=#{testpath}/tmp"
     end
     sleep 5
     assert_match "information_schema",
       shell_output("#{bin}/mysql --port=#{port} --user=root --password= --execute='show databases;'")
-    system "#{bin}/mysqladmin", "--port=#{port}", "--user=root", "--password=", "shutdown"
+    system bin/"mysqladmin", "--port=#{port}", "--user=root", "--password=", "shutdown"
   end
 end

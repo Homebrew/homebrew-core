@@ -3,6 +3,7 @@ class Libgfshare < Formula
   homepage "https://www.digital-scurf.org/software/libgfshare"
   url "https://www.digital-scurf.org/files/libgfshare/libgfshare-2.0.0.tar.bz2"
   sha256 "86f602860133c828356b7cf7b8c319ba9b27adf70a624fe32275ba1ed268331f"
+  license "MIT"
 
   livecheck do
     url "https://www.digital-scurf.org/files/libgfshare/"
@@ -10,6 +11,7 @@ class Libgfshare < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "cb19a495ba9032a4bd0e0c5e52bf818c8283af8b29dcb25a0a2f9bb0338c2880"
     sha256 cellar: :any,                 arm64_sonoma:   "661368852f131d75f48672074dd635d04c95f30f61f1adae25c26db2cdc45dcc"
     sha256 cellar: :any,                 arm64_ventura:  "ff95631a45cf14842a1cb98a7496022a886360fad2d4a9bae3154ebd6113726a"
     sha256 cellar: :any,                 arm64_monterey: "0890a2e8ac99ea0497d467e1ab82bb8fe7a34d0f5cd75c01897f15b12ac65211"
@@ -43,7 +45,7 @@ class Libgfshare < Formula
 
   test do
     touch "test.in"
-    system "#{bin}/gfsplit", "test.in"
-    system "#{bin}/gfcombine test.in.*"
+    system bin/"gfsplit", "test.in"
+    system bin/"gfcombine test.in.*"
   end
 end

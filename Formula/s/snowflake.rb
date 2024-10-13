@@ -7,6 +7,7 @@ class Snowflake < Formula
   head "https://gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/snowflake.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "b63bb2c64d8b5a89200f1c1751b401215750c15cff5549f613212b44a8017ba4"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ca4bc60a204d685d9f055fb76134cdbe2e5c1f1399e50227547f56caa3b85cdd"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "7a6b5141e343ba5f4a85c4f936ce19ff3d3e457db142a5b80d02053c24344d98"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d9fdc390563164a85da485c593b98ad7c6d35c3ac5dfa4b19fa61f6109f6b7a2"

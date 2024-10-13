@@ -13,16 +13,13 @@ class Beast < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "0cd65d3171bde73b59cc5d5489eb2ab07c284225e3b30c2c160de61ec29df98a"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5f9d2180a3cecd5c8b361318f792a34496e958081b1d9fc731dbd933673498a5"
-    sha256 cellar: :any_skip_relocation, sonoma:         "a0f22074d46e0c0876a787f2807776f83010424fd0e964b1b3703bd7912dc8f1"
-    sha256 cellar: :any_skip_relocation, ventura:        "60b399b07572609d7661317b1e54c99cbb704d229ea78df4afdcf4adc74db659"
-    sha256 cellar: :any_skip_relocation, monterey:       "ec4938ae3249e4f6d1a312c14550ec4da837a7b572bbd0d4b7238fb5ca7f0728"
-    sha256 cellar: :any_skip_relocation, big_sur:        "90bc7bcf414bfc4d9a68e7dbade089260bb12483939a78a136cdb9b2ea1a3bcb"
-    sha256 cellar: :any_skip_relocation, catalina:       "5f4b312595410d83df9099dc15657241dc4cb758d58a5836565127275a6fb912"
-    sha256 cellar: :any_skip_relocation, mojave:         "d441fd3733557c8de6c227663566e9ac668562a7ecf113504a8c604490752763"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "2c157d2d74ef17b3fcf8f5cf11d62d1b7ba939f0d7d48872d83706cbeb2b2908"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cce35bb9ee56a4a093d8893c401609b868eea6782d269d716af31a620d0f82ab"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5f161a2d0544992fe9471b5b6b03dde90fdc0f02c7a92d1a56ba8e692026b9e8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8530ad41042e8638c8aaa89dcee67c4f9a1cce11e192722d8d10c055fb85d10e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "3475a2a399c4c91c538e8d5f802070826df46a9f1f7efcdc92ef643558013784"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b7f6d9ba542e77f28f82574b63097ef4a5000661ce725f9a7aa7e77e9d3f4e52"
+    sha256 cellar: :any_skip_relocation, ventura:       "5290a805fd0c62089889729bc188fd7ddb6ea51e077c1a33045e6b2ff630585e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4d830864a6ea1dd1d984b70cb438ce3b17dabb3120640decf0e8136b37483517"
   end
 
   depends_on "ant" => :build
@@ -56,7 +53,7 @@ class Beast < Formula
       return
     end
 
-    system "#{bin}/beast", "testUCRelaxedClockLogNormal.xml"
+    system bin/"beast", "testUCRelaxedClockLogNormal.xml"
 
     %w[ops log trees].each do |ext|
       output = "testUCRelaxedClockLogNormal." + ext

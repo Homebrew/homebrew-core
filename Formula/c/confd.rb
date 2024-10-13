@@ -7,6 +7,7 @@ class Confd < Formula
   head "https://github.com/kelseyhightower/confd.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "51310afd5fe23174446bd8cec35b69abf7f13075e1035b714a700f40582d05f8"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4320090003f15247aa5f860a784bf57f9791b917aab9504f27b576f7b692e028"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "99f4686a6b8780c84e9382061d6b1538aab608d6e33e7e208aef6ec39f1f4b79"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "346a9185c6665e85a0b7a810cfdabb1cd397d628a58a40935028a39d3dac6da0"

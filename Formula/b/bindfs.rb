@@ -38,6 +38,6 @@ class Bindfs < Formula
   end
 
   test do
-    system "#{bin}/bindfs", "-V"
+    system bin/"bindfs", "-V"
   end
 end

@@ -11,6 +11,7 @@ class TaskAT2 < Formula
   end
 
   bottle do
+    sha256                               arm64_sequoia:  "f8c1a9cf2878e0f0167b9ec74d1ef1ffb393048efa96309e6c39295e1a83843e"
     sha256                               arm64_sonoma:   "82df1c51fe66c7f8981adea3530dcb68c461a994e4f63eb3010b9478bf66ee76"
     sha256                               arm64_ventura:  "dfbe4a2d59a68aa0a67addcc9ffa8d2fe062f03083f9942c2273617d853e94c3"
     sha256                               arm64_monterey: "289d6b7e6297a61fd798ead189573672163738ff9b48d3f27cfba6bc2e251463"
@@ -39,14 +40,15 @@ class TaskAT2 < Formula
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
-    bash_completion.install "scripts/bash/task.sh"
+
+    bash_completion.install "scripts/bash/task.sh" => "task"
     zsh_completion.install "scripts/zsh/_task"
     fish_completion.install "scripts/fish/task.fish"
   end
 
   test do
     touch testpath/".taskrc"
-    system "#{bin}/task", "add", "Write", "a", "test"
+    system bin/"task", "add", "Write", "a", "test"
     assert_match "Write a test", shell_output("#{bin}/task list")
   end
 end

@@ -3,7 +3,7 @@ class Paperkey < Formula
   homepage "https://www.jabberwocky.com/software/paperkey/"
   url "https://www.jabberwocky.com/software/paperkey/paperkey-1.6.tar.gz"
   sha256 "a245fd13271a8d2afa03dde979af3a29eb3d4ebb1fbcad4a9b52cf67a27d05f7"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url :homepage
@@ -11,6 +11,7 @@ class Paperkey < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "c5f29efd5bd3c2ce18f744e141fbb9e3013a0474a3d391efcd1ccfdf31bc9c73"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b249d92841f7cada3fbbad6ebfa77672ba9ce1925f3e8d6b1169049e35d2c161"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "3334f86e54a5038f18b31f703a22981ef66b028cda73e2bc985db6a0c74a401e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e56628d74d3ba424c3c801ee83d03408a8fe0e72644b493504c1511d84eea422"
@@ -26,11 +27,6 @@ class Paperkey < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "065de554c087ac3f19246e81fdbf2a60b64c2307f420b91029d781ec901b2d94"
   end
 
-  resource "homebrew-test_sec" do
-    url "https://raw.githubusercontent.com/dmshaw/paperkey/46adad971458a798e203bf8ec65d6bc897494754/checks/papertest-rsa.sec"
-    sha256 "0f39397227339171209760e0f27aa60ecf7eae31c32d0ec3a358434afd38eacd"
-  end
-
   def install
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
     system "make"
@@ -39,8 +35,13 @@ class Paperkey < Formula
   end
 
   test do
+    resource "homebrew-test_sec" do
+      url "https://raw.githubusercontent.com/dmshaw/paperkey/46adad971458a798e203bf8ec65d6bc897494754/checks/papertest-rsa.sec"
+      sha256 "0f39397227339171209760e0f27aa60ecf7eae31c32d0ec3a358434afd38eacd"
+    end
+
     resource("homebrew-test_sec").stage do
-      system "#{bin}/paperkey", "--secret-key", "papertest-rsa.sec", "--output", "test"
+      system bin/"paperkey", "--secret-key", "papertest-rsa.sec", "--output", "test"
       assert_predicate Pathname.pwd/"test", :exist?
     end
   end

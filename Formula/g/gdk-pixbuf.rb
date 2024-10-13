@@ -6,6 +6,7 @@ class GdkPixbuf < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
+    sha256 arm64_sequoia:  "ed8778a0516a3998bc1522378a4391750c6e105611ae6ac9a062950ce6a43dc1"
     sha256 arm64_sonoma:   "25939bb8cc913348f52c3c72ad16089b15cd2293397b3a9a4bcec90dbd409987"
     sha256 arm64_ventura:  "b5d7e955fda95853264840a0f05fa7c9f1d7b45a08e0d1b4bcf15c16b3c03820"
     sha256 arm64_monterey: "a32e123ccc804f092841336600e33fc67c6ac912d5aee8f99465afd7390014db"
@@ -84,7 +85,7 @@ class GdkPixbuf < Formula
 
   def post_install
     ENV["GDK_PIXBUF_MODULEDIR"] = "#{module_dir}/loaders"
-    system "#{bin}/gdk-pixbuf-query-loaders", "--update-cache"
+    system bin/"gdk-pixbuf-query-loaders", "--update-cache"
   end
 
   test do

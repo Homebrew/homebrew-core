@@ -8,17 +8,13 @@ class Ubertooth < Formula
   head "https://github.com/greatscottgadgets/ubertooth.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "c8d773cb01afc9a71bcf1ba55f370d88da7fd34ba48f318d1d3c61ff18e0d35a"
-    sha256 cellar: :any,                 arm64_ventura:  "b34510a1d4e958346f4091110fcb555cdd7127857ae92aaf09f7cdfb364c1b08"
-    sha256 cellar: :any,                 arm64_monterey: "2fc607947bb5299bb3a4ae6e598db9d9f381bea18763c0b1375bb65217467ed0"
-    sha256 cellar: :any,                 arm64_big_sur:  "bc55cb49599e7d93d33472d76f0a77d189baa107849aacf6d50802fa90124e52"
-    sha256 cellar: :any,                 sonoma:         "4b28821ae71ac8a5bb32fffa5ff8ae0e0a86c31e5868c7f05bd43bd92757d389"
-    sha256 cellar: :any,                 ventura:        "cd8c21417d48b3a3fd7cee5a1548605a9475c7f862d736a5e7df415ad013cab8"
-    sha256 cellar: :any,                 monterey:       "64ad84dd474973f5f9a95e984c8960accfdb97fc5c6f8f149b5b73527fe27dab"
-    sha256 cellar: :any,                 big_sur:        "50379a3b1a31430683af82115ce1c4a77097c23d5b42cfc72d7df9bcb4f408a6"
-    sha256 cellar: :any,                 catalina:       "e08b27b20a6b1b0556e67320e8071e363e6ac0f19751218d87a701ac191b7677"
-    sha256 cellar: :any,                 mojave:         "6a17f9213d8e8bc61ae89b4b976679fd28cd75167b20a8eab55ceeb3282e0d7c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6d42bea5315bfff04b0684a7892c9c7a2d6c4066f1d3f8516cb71949446892a9"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "fa7215f06163e3333e33b92dd89476ced1eaa8f7ca3c2f5e790494832cb73cac"
+    sha256 cellar: :any,                 arm64_sonoma:  "640cbd39fd3290bec4eecaef753ba84135b5c000b08d7c0fe455971df354390e"
+    sha256 cellar: :any,                 arm64_ventura: "dbf1e2cf18fba265c0119a87fd659ee8331d2bd54dcdd3bf07eabda6de17cb41"
+    sha256 cellar: :any,                 sonoma:        "50f74c97eecde210eeb23a86df867e4824034605544048ae9e39f0e9bfd2d532"
+    sha256 cellar: :any,                 ventura:       "c6acf9ec2c33e2fdf289a33f52e1ca4e9c2e10c81225a06d6c41ffd9cd730fba"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2cd546fd818a705d9da6c089bf001471ca9d46b03fd6241a2528f0da22c71b9c"
   end
 
   depends_on "cmake" => :build
@@ -27,17 +23,17 @@ class Ubertooth < Formula
   depends_on "libusb"
 
   def install
-    mkdir "host/build" do
-      args = std_cmake_args
-      # Tell CMake to install udev rules in HOMEBREW_PREFIX/etc on Linux because it defaults to /etc.
-      args << "-DUDEV_RULES_PATH=#{etc}/udev/rules.d" unless OS.mac?
-      system "cmake", "..", *args
-      system "make", "install"
-    end
+    args = ["-DENABLE_PYTHON=OFF"]
+    # Tell CMake to install udev rules in HOMEBREW_PREFIX/etc on Linux because it defaults to /etc.
+    args << "-DUDEV_RULES_PATH=#{etc}/udev/rules.d" unless OS.mac?
+
+    system "cmake", "-S", "host", "-B", "build", *args, *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
     # Most ubertooth utilities require an ubertooth device present.
-    system "#{bin}/ubertooth-rx", "-i", "/dev/null"
+    system bin/"ubertooth-rx", "-i", "/dev/null"
   end
 end

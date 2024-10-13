@@ -3,7 +3,7 @@ class Bchunk < Formula
   homepage "http://he.fi/bchunk/"
   url "http://he.fi/bchunk/bchunk-1.2.2.tar.gz"
   sha256 "e7d99b5b60ff0b94c540379f6396a670210400124544fb1af985dd3551eabd89"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
   head "https://github.com/hessu/bchunk.git", branch: "master"
 
   livecheck do
@@ -12,6 +12,7 @@ class Bchunk < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "22c3f5e3b6a740a91ac5ddd9b384efc9fd9d399a9356f2bb5e0eabad6df25b97"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "68a57a42fd8bc5ba39762d9b0731fd2ade2a6ec3862e2d2179daee64d60593b7"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "577174425847ab641ddbd3dd9001c596c2dbcc69ad54272c412a0d338c0ddd68"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c361f431e4d301b9a0805db04d500f73c4247d06067aba3ec74944525bc7855c"
@@ -43,7 +44,7 @@ class Bchunk < Formula
 
     touch testpath/"foo.bin"
 
-    system "#{bin}/bchunk", "foo.bin", "foo.cue", "foo"
+    system bin/"bchunk", "foo.bin", "foo.cue", "foo"
     assert_predicate testpath/"foo01.iso", :exist?
   end
 end

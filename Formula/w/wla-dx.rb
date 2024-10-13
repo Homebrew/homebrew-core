@@ -12,6 +12,7 @@ class WlaDx < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "f89cc32f88279298a841ee744557214695dffdc76c35f43f28610715c38b35d1"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "01e0f38cf29c205e76cb0950a41847867d3ee007e877f6607e5e5c352fe222da"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "d86083d1dd34ccbb5f8309052d57e9b5ee52de04f7382510f41ba82e19d3b1ff"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "3ca9f57e6ed396fd20774c44c4619e4b9583a772d3d0751ea90751e3ddb06545"

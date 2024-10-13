@@ -3,7 +3,7 @@ class Svg2pdf < Formula
   homepage "https://cairographics.org/"
   url "https://cairographics.org/snapshots/svg2pdf-0.1.3.tar.gz"
   sha256 "854a870722a9d7f6262881e304a0b5e08a1c61cecb16c23a8a2f42f2b6a9406b"
-  license "LGPL-2.1"
+  license "HPND-sell-variant"
   revision 2
 
   livecheck do
@@ -12,6 +12,7 @@ class Svg2pdf < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "47d73aad7aae2d18a27bb902aa155f2f0a716ae9da58468a177c324de3307cc6"
     sha256 cellar: :any,                 arm64_sonoma:   "5d2e70a72f9a8858e35dd8f3103931091f755b8f23de7163b2a684fc5d2d54da"
     sha256 cellar: :any,                 arm64_ventura:  "dd7230495881424c8a87dab9fe1e076df3cb0d714a93070ae8239314bcb5ca13"
     sha256 cellar: :any,                 arm64_monterey: "059061cd7c6f0466c2ae93003220d0a4559659393d8c4d519511a08410dc9a09"
@@ -46,7 +47,7 @@ class Svg2pdf < Formula
 
   test do
     resource("svg.svg").stage do
-      system "#{bin}/svg2pdf", "svg.svg", "test.pdf"
+      system bin/"svg2pdf", "svg.svg", "test.pdf"
       assert_predicate Pathname.pwd/"test.pdf", :exist?
     end
   end

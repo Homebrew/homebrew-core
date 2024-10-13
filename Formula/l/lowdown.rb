@@ -1,19 +1,17 @@
 class Lowdown < Formula
   desc "Simple markdown translator"
   homepage "https://kristaps.bsd.lv/lowdown"
-  url "https://github.com/kristapsdz/lowdown/archive/refs/tags/VERSION_1_1_0.tar.gz"
-  sha256 "5cc997f742fd9e3268a2bf15cb9c58bfa173b303bc13f5c61f67dedfff3bccce"
+  url "https://github.com/kristapsdz/lowdown/archive/refs/tags/VERSION_1_1_2.tar.gz"
+  sha256 "2e71e6222af6043b95d6a4b737c23efa01e1750bd23db08c26abe0f2ba338403"
   license "ISC"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sonoma:   "9064bbd0e8bdcd10df4f8a1d3f8bdcd27a6224b82731e847983039ca51d3e499"
-    sha256 cellar: :any,                 arm64_ventura:  "dd24024c11c3428f24dd59166bd50fc789f3772bdd6bf9240f2fdf78b06a8ba2"
-    sha256 cellar: :any,                 arm64_monterey: "a4bce83c1f08f75c32fcf579793df1a50394d864b33021ecf70db2e4411a2efe"
-    sha256 cellar: :any,                 sonoma:         "2f0b741ea7d64e05661184e180eed830debd898f51ec19a64b566476c8267743"
-    sha256 cellar: :any,                 ventura:        "d31e6f38b70f15eac77f125317f07ec82d77130093e6519d651bfd37bf4a9293"
-    sha256 cellar: :any,                 monterey:       "dae8c835158aed0264c27acc70ce419adfa26854b997700335ce89444d47c58b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c31000c8f9ff4b60b2ba703ea57231d11bfe0ad774eba558aac98c2a7aaee474"
+    sha256 cellar: :any,                 arm64_sequoia: "3aa3f96df0a34b21c2a4ecdf2aa815b403c04d0bffcfdf04a32c0b920cdbbe54"
+    sha256 cellar: :any,                 arm64_sonoma:  "f656aadfe3547820928b7f0d27c5df9fe8ccd1cc2d1354642797f91561d87c23"
+    sha256 cellar: :any,                 arm64_ventura: "e8113e3b0c305ea06be673f6c3b70c20cbec5c53a50e59c2421837035ed1a134"
+    sha256 cellar: :any,                 sonoma:        "9a786997c5cfc7fe378b53e01b601c5c60f64d1a769a28f046740107e6d358a4"
+    sha256 cellar: :any,                 ventura:       "f96b3b2b43e6001212d89b705739352162a53774d90d437d033c4e4045fa4344"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "66588628495f2c8330719c4f54ff031afbead18ed6f13d8fda343431b01d896e"
   end
 
   def install

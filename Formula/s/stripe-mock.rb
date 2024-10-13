@@ -1,18 +1,17 @@
 class StripeMock < Formula
   desc "Mock HTTP server that responds like the real Stripe API"
   homepage "https://github.com/stripe/stripe-mock"
-  url "https://github.com/stripe/stripe-mock/archive/refs/tags/v0.186.0.tar.gz"
-  sha256 "16367a39793144e7a5c59170695b42face0b97328c811a7cd816d0bf4fc06a28"
+  url "https://github.com/stripe/stripe-mock/archive/refs/tags/v0.190.0.tar.gz"
+  sha256 "0506d442f7b60aa6a78374ea3b4c6a7f33c62589f0d1409a80ab4269d50bd0f3"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "09f9c37d683a9d022f898a2091633b9b8110926b9840c201532b88f3530b9862"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e845cb069dbf28699982063b023b852aa0d94aa3deaad66c995a486d2d9ae394"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d242c78b05f0bdff216b437bddefca3775a0082f8abdb6e5afe7db47ebee2672"
-    sha256 cellar: :any_skip_relocation, sonoma:         "dbd0e44ce2b0176ece1e3b1ac946c19e9eb6f7c94d1188373c5aab167be59de5"
-    sha256 cellar: :any_skip_relocation, ventura:        "bf86591baa8417f93d7b7c02207ddee7f65259167ba1d33b1657656ce4a45931"
-    sha256 cellar: :any_skip_relocation, monterey:       "4bcb342adfd0a0aaca13e8119232c4481d3168b8ba28e6f48a2f793e56fdf04f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9dcddddf5ab0fd232a28b8d4eff90e92d1f355ddc241b48e2090cb0f4b2ef60b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b8a8c5c4034aa499e00fad295890cd3cdd366483489286c9a6f32d34e21897ed"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b8a8c5c4034aa499e00fad295890cd3cdd366483489286c9a6f32d34e21897ed"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "b8a8c5c4034aa499e00fad295890cd3cdd366483489286c9a6f32d34e21897ed"
+    sha256 cellar: :any_skip_relocation, sonoma:        "23d70f0364a94695b38f0e637abd2c1012c75e3d31313ca5b113caa6ff722405"
+    sha256 cellar: :any_skip_relocation, ventura:       "23d70f0364a94695b38f0e637abd2c1012c75e3d31313ca5b113caa6ff722405"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c1d39e91c3b46d97e3ea04e14f48301c4d7dab95cbf5d4b8489c3902d4265e2f"
   end
 
   depends_on "go" => :build

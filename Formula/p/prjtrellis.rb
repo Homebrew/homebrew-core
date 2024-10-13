@@ -4,16 +4,17 @@ class Prjtrellis < Formula
   url "https://github.com/YosysHQ/prjtrellis/archive/refs/tags/1.4.tar.gz"
   sha256 "46fe9d98676953e0cccf1d6332755d217a0861e420f1a12dabfda74d81ccc147"
   license all_of: ["ISC", "MIT"]
-  revision 1
+  revision 2
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "6bc4a360866f5170cf35fa4724a9b2cb41c28b130fe44ce0e527e5d4a64350c1"
-    sha256 cellar: :any,                 arm64_ventura:  "6912bae90999af698d4943daa52afc2354c8a29d3f9c9063b0bb24819f96bb1a"
-    sha256 cellar: :any,                 arm64_monterey: "7a48a3e2134e3c54473eb657cc0a76dcd8c0d2414a6587e13e912eb2c161a8aa"
-    sha256 cellar: :any,                 sonoma:         "3e4ab876da7d52945c4fc083019c0203638eeff3c39601580ebfb3fb3b05ffdd"
-    sha256 cellar: :any,                 ventura:        "06b6cbb58cd2760de77100131868a016b673671ba2ce62cd1bd9592d319ed6f9"
-    sha256 cellar: :any,                 monterey:       "73c484c35fc52d6cbbd0cc19ca2426ba6a3a1d819d26b04513baec998514f4ed"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "432afb462ad23f6785ad820ff5765e2f92311a3edb2b815ab76320c28d3616f0"
+    sha256 cellar: :any,                 arm64_sequoia:  "d82061f57b9b550b7cc95d934e10dfdf0746b1fb16203ae210a95cb026827115"
+    sha256 cellar: :any,                 arm64_sonoma:   "ec5fe0a2aa4a9bb58d5b205281ac438f6da35278c37d576e2228c1c373f0d63a"
+    sha256 cellar: :any,                 arm64_ventura:  "e165698d107b10d8af68aedadf5d9e4be06c41164be52fb8b7c815f8ae3f0b77"
+    sha256 cellar: :any,                 arm64_monterey: "1118ded93339bb313e97d7fd94bd837a04ce042795ce884bbc10749cbefb6ca4"
+    sha256 cellar: :any,                 sonoma:         "038ef345fcf1239f9794e8ee4ae178bc9c4a2c397dcaeb6cdd7b32b59b5a945c"
+    sha256 cellar: :any,                 ventura:        "380d3b7d65f3bdb3596f4a2e2f0efb3a1e4636f6bbfd6b29dcf63e540a018522"
+    sha256 cellar: :any,                 monterey:       "b84610f825a7cddde9031c9af5c85541d257ce8aee5cd61d6c65013462016c23"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3b2a0a1f0fc8e65b51ba4b07c3e1cfe5d4d6f13730b0cdf7c5d770d5e7d4bdab"
   end
 
   depends_on "cmake" => :build

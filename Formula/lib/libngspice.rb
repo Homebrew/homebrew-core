@@ -10,6 +10,7 @@ class Libngspice < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "58d94f62b040d2233be90e43c2c245577b58a7ad26e3061f6c543cc836c7679c"
     sha256 cellar: :any,                 arm64_sonoma:   "08d34caae24bf2e5922e21bf6cc069fc0104d6a91bec5df245b2c10eda161ea5"
     sha256 cellar: :any,                 arm64_ventura:  "655107924c134dba8f4d014157a0dcd96a540e477cde0daf572e89606808ee5c"
     sha256 cellar: :any,                 arm64_monterey: "796bc6f9713683e875d6f8ddf1c34b961269791fa8b3543a3056e49c1b05d819"
@@ -43,7 +44,7 @@ class Libngspice < Formula
     system "make", "install"
 
     # remove script files
-    rm_rf Dir[share/"ngspice/scripts"]
+    rm_r(Dir[share/"ngspice/scripts"])
   end
 
   test do

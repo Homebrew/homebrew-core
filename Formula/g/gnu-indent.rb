@@ -8,6 +8,7 @@ class GnuIndent < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_sequoia:  "bd0bd4400bed0df025ba9e73add09aaa2c2e4ac341dfcc59d69f1cd4c6394f6a"
     sha256 arm64_sonoma:   "cc9469378596d13d421d77264e388158e614479d88256aab58d812f0746daf8e"
     sha256 arm64_ventura:  "97de44230879e486cbbc8730922fb70228f0fc74875eabc4656fcbf04bf87ec2"
     sha256 arm64_monterey: "959602e650c7712ac037b4cd37b1dcd4adbf237570e55060b32bfe77b51f451d"

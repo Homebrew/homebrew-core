@@ -4,6 +4,7 @@ class Glkterm < Formula
   url "https://www.eblong.com/zarf/glk/glkterm-104.tar.gz"
   version "1.0.4"
   sha256 "473d6ef74defdacade2ef0c3f26644383e8f73b4f1b348e37a9bb669a94d927e"
+  license "Glulxe"
 
   livecheck do
     url :homepage
@@ -12,6 +13,7 @@ class Glkterm < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "6c2738ad6a679729b197e17a7ed259e5e4440ba7076d9d496ee9dc8e107b634a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "01c72d9afa8307ad6e859d85d1bd33768446ec7c80d684534a51e44a7e8eab1a"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "a16c7170ae9eecce9419bbcb844b97ffd38cf62eba26c92f2d8bd4f1e5b1e88c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ce4ee770d5cb1136fae90036ffc18d14e8a910b61b5d17fa72e42c46df4a0333"

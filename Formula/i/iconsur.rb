@@ -1,5 +1,3 @@
-require "language/node"
-
 class Iconsur < Formula
   include Language::Python::Virtualenv
 
@@ -12,13 +10,14 @@ class Iconsur < Formula
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7e67e0fa5d12b5598bb3f6755547a50e20da472da57a7df5c68d2ca3380f7140"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "cdfdf024544f90244bfefea1697a7100c7e2adde6a05fd51a4e4e54c5f3ebc98"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "11889c0c42c2a044fe9dc081f50cf332f606e922837b5a765141ef2340e0cdb6"
-    sha256 cellar: :any_skip_relocation, sonoma:         "488565e07e909605382b2ed833216e8b87ac499225443e2b2ace61f1508b6a6b"
-    sha256 cellar: :any_skip_relocation, ventura:        "1a1f49255b7376a223d04e38c2dbd0ef278376e161670b0fca923b94e4d12227"
-    sha256 cellar: :any_skip_relocation, monterey:       "f9a727a3148a71fdda8a537c85028002fb33f7ff9a91db86a4d50971db5b4a42"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "e15acf0ca74a39af601070861cc784c36a10d6ec8b423723e42f18560bb20587"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "41e638854049735d75d8a5817f49c5751f423ecb8d4da508fa2546c0af6092e4"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "04e27b7499dedbce8368ea0bf753b37dc0ba0aa1e40afa60fbe1200f7c07363f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "bc350d8b15f1417e7b52a8ea40b7a3331d9153194a43e332878d5ea89dd1fb12"
+    sha256 cellar: :any_skip_relocation, sonoma:         "44693cd5a395695bf5900720a3049b9d87753c3b36d16807acf012bba65b422f"
+    sha256 cellar: :any_skip_relocation, ventura:        "83853903cd670285e187e2119a6ec16dea4a834bc36558a5821354d03391600c"
+    sha256 cellar: :any_skip_relocation, monterey:       "036e74c813e250b333a2ad2f767cfda92deacc144dad0f30e12ec6bc414ef439"
   end
 
   depends_on :macos
@@ -43,7 +42,7 @@ class Iconsur < Formula
   end
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", *std_npm_args
 
     if MacOS.version >= :monterey
       venv = virtualenv_create(libexec/"venv", "python3.12")

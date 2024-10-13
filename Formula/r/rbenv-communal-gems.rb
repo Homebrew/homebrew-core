@@ -7,7 +7,8 @@ class RbenvCommunalGems < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "4cd057a73659f1fdea3a0d266485367b960378c790eef4c6d7b707a4936c8481"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "a189879cf1fb24dfd135aaf5c9fafe5c4fc1251236da0476be32e7a3a9edb5ce"
   end
 
   deprecate! date: "2024-03-14", because: :repo_archived

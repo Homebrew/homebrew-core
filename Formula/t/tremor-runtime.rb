@@ -17,6 +17,8 @@ class TremorRuntime < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "df88e4137f9eb13a7f8c26324f7e97031335464d8505448131a8c6f1542352ac"
   end
 
+  deprecate! date: "2024-09-23", because: :does_not_build
+
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "rust" => :build

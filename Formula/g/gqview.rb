@@ -37,6 +37,6 @@ class Gqview < Formula
   end
 
   test do
-    system "#{bin}/gqview", "--version"
+    system bin/"gqview", "--version"
   end
 end

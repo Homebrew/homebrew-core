@@ -8,9 +8,11 @@ class Make < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_sequoia:  "f361639a5ec1a9355e12f985c511dd6631b6790452a52057032a3a07a690ca4e"
     sha256 arm64_sonoma:   "94377dc5a364da305c75fd7aa923a42897993de9edd1eb074428e13c3f2aaf93"
     sha256 arm64_ventura:  "389fd41ada645cde1c43c97f16fc829c80b2312db9c43f358ce774f19d0130d7"
     sha256 arm64_monterey: "49fa5e3e19d0793bdc32cc453a3c209697553ec1fd92964cfbdaf67c6a72a03f"
+    sha256 sequoia:        "cd86f41f2d02a827e15380a13a055606ba2f61819ad5100e4feba0400ef685a7"
     sha256 sonoma:         "3cc4a3aa1a3fe8ef30b2c7089708c5bdb04be3ae47ebc620f2cfd270941e96f2"
     sha256 ventura:        "e5b435315db19e1634289e888fcbd4282ed985a85591a7bec9661595a091d56f"
     sha256 monterey:       "d6d6e4b66e31ed8499dd7d1fecdc4d33b11af9073d0d884aedf9248bcbe6ac3e"
@@ -77,7 +79,7 @@ class Make < Formula
       assert_equal "Homebrew\n", shell_output("#{bin}/gmake")
       assert_equal "Homebrew\n", shell_output("#{opt_libexec}/gnubin/make")
     else
-      assert_equal "Homebrew\n", shell_output("#{bin}/make")
+      assert_equal "Homebrew\n", shell_output(bin/"make")
     end
   end
 end

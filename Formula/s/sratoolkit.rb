@@ -19,6 +19,7 @@ class Sratoolkit < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "9d051a20976c9212f9b57d78fbd7043d6c03380c598757c147b0fe3f8364c646"
     sha256 cellar: :any,                 arm64_sonoma:   "8b6581068ebb4d42908bed8f9be8fe44f896483d7f19cb15107ab315294513ef"
     sha256 cellar: :any,                 arm64_ventura:  "edf975289e9caef050ae49d59b2b677d44483b49583977175514422135eae15d"
     sha256 cellar: :any,                 arm64_monterey: "7dcf55c2e3ac299e2cecb44d71dcb1f0c50badeac8169076288217d4ce19187f"
@@ -63,7 +64,7 @@ class Sratoolkit < Formula
     system "cmake", "--install", "sra-tools-build"
 
     # Remove non-executable files.
-    (bin/"ncbi").rmtree
+    rm_r(bin/"ncbi")
   end
 
   test do

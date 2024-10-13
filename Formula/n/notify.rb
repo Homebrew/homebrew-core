@@ -7,6 +7,7 @@ class Notify < Formula
   head "https://github.com/projectdiscovery/notify.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "e411b5b9468f48b226fa153c02fa31d5c1cd8d0161d046f26cf71d86c1236640"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "cbcdeaddfa6e07bd0a384256e33a474a46c6dee7cb5aeac07b8c733a3b290979"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "214b76e2eac90c2840cf8674d8ec969d2eac99d7096962f8ad95e24d67342201"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6d0a64b137d86e2483df77243543f9f89312d3f3507fffb321869674ecf97f0e"

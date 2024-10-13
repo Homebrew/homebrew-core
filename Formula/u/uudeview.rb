@@ -13,6 +13,7 @@ class Uudeview < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "519dcd3ca61e2c1eac14d1e1b15dc2b87492421fa77bfc396163b6882df7c298"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a58cd61413eb8e656d8395b63d1542e9f256d669d227b23d7cf0f70181a420c3"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "28d8a4e08275d26926e19c32a6ca833ed3a1c3969ea5126c4def92e72442e66d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "8c72240dbc205cb79229af479b8dc1774b4eb11d0ffad47391102e033be4bb07"
@@ -44,6 +45,8 @@ class Uudeview < Formula
   end
 
   def install
+    # Fix for newer clang
+    ENV.append_to_cflags "-Wno-implicit-int" if DevelopmentTools.clang_build_version >= 1403
     ENV.append_to_cflags "-DSTDC_HEADERS"
     system "./configure", "--prefix=#{prefix}",
                           "--mandir=#{man}",
@@ -57,6 +60,6 @@ class Uudeview < Formula
   end
 
   test do
-    system "#{bin}/uudeview", "-V"
+    system bin/"uudeview", "-V"
   end
 end

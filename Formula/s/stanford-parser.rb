@@ -11,7 +11,8 @@ class StanfordParser < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "daf92097e7a2003ec918d2886b142ac6515755300082015c5c6e4b36e80b22d3"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "699a16febb7fd2e483deaa44dee2fafbbe29d00343efe37d31d01d3b0fa14fe1"
   end
 
   depends_on "openjdk"
@@ -23,6 +24,6 @@ class StanfordParser < Formula
   end
 
   test do
-    system "#{bin}/lexparser.sh", "#{libexec}/data/english-onesent.txt"
+    system bin/"lexparser.sh", libexec/"data/english-onesent.txt"
   end
 end

@@ -13,6 +13,7 @@ class Pkcs11Helper < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "02b61fe7186023ea090b8fab072d980451ef4edc5e860c247c2ccba6c422de2b"
     sha256 cellar: :any,                 arm64_sonoma:   "d5877e3655d952f137610ab0168b4e996dec23dfc16b1ac4db5ab0cdb46eb525"
     sha256 cellar: :any,                 arm64_ventura:  "720ab7371a01c2ffe4884736240afb22b32c04162a2f5bdf658658556ed7ff74"
     sha256 cellar: :any,                 arm64_monterey: "341be8334102c4305e939ec2b171724076afeb36182cbecc585b84a79de9eb04"

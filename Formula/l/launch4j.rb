@@ -36,6 +36,6 @@ class Launch4j < Formula
   end
 
   test do
-    system "#{bin}/launch4j", "--version"
+    system bin/"launch4j", "--version"
   end
 end

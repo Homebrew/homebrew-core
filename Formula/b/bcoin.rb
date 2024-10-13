@@ -1,5 +1,3 @@
-require "language/node"
-
 class Bcoin < Formula
   desc "Javascript bitcoin library for node.js and browsers"
   homepage "https://bcoin.io"
@@ -9,16 +7,15 @@ class Bcoin < Formula
   head "https://github.com/bcoin-org/bcoin.git", branch: "master"
 
   bottle do
-    rebuild 2
-    sha256                               arm64_sonoma:   "7ce0533a06a8fbf879814bb168ac8582def5d66a73fd341caf3d265dce7fe4bf"
-    sha256                               arm64_ventura:  "c3c02702652f0f567697cc614212a757d29fb3ee3d80ec9345dc7d00e10dd421"
-    sha256                               arm64_monterey: "777aa63316694628e1c88cd4ad73949ac2c32b97aac6d5e196c82d2a0040c13c"
-    sha256                               arm64_big_sur:  "304cc113c0dc1dec7d70745e73b816802f4f92068ece45298957ab6feb7edc7c"
-    sha256                               sonoma:         "682758b76301db696079f2cd43d8a604acbe41a6e8faec29117feb8c53fd74b9"
-    sha256                               ventura:        "746e792b08dd522e81d1440c159997cf231044da8299726eb4ebadb0d497ffe7"
-    sha256                               monterey:       "49abdb5b53e076417bc0c0431a8dc6aff1d3030e2e2c90625a273a1545dfc8c9"
-    sha256                               big_sur:        "875527a488aec56c22828e1d314097d984d1acacd83f6533203bbd7437a6c027"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "43047da636f3b6b7fc3f230f4f55c4805723429531e8c1887ea896b51fcd9a38"
+    rebuild 3
+    sha256                               arm64_sequoia:  "bcd872395d69686c004555e77f78998ca1a01e4d1a0f0d4f6315e5cc0a112be2"
+    sha256                               arm64_sonoma:   "c357454a7b33d7fe78ddad3a974eeb031642d8f82a49ad633c036d9a26657dcd"
+    sha256                               arm64_ventura:  "95e36e42caef34098e5802e9e8ede2cfa9b11c348eef528087ead3a1846647f9"
+    sha256                               arm64_monterey: "2fccc2d7ac70da7276f1b951913b0f4d85ecc5990f35a0b790a9a496d432c84a"
+    sha256                               sonoma:         "48ca919ef8d01a8332ed7ce0b86d8ec413a507eecc59b7ca57d28b90202bdc1e"
+    sha256                               ventura:        "4ad6a6a70e1ae53934f27d45aecabf79139a8cc9b007613e15d87301c80bb3b0"
+    sha256                               monterey:       "8f094aa7df3a4ee4fba05e5da0fc690b8f15e01515d5c31135d3d0f2267fd150"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cf6e4646d6f73fd463fe22799476324f382b7f86fe1bfcb1991ea930bcff5d56"
   end
 
   depends_on "node"
@@ -32,8 +29,8 @@ class Bcoin < Formula
   end
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
-    (bin/"bcoin").write_env_script libexec/"bin/bcoin", PATH: "#{node.opt_bin}:$PATH"
+    system "npm", "install", *std_npm_args
+    bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 
   test do

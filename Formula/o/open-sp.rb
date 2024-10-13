@@ -3,9 +3,11 @@ class OpenSp < Formula
   homepage "https://openjade.sourceforge.net/"
   url "https://downloads.sourceforge.net/project/openjade/opensp/1.5.2/OpenSP-1.5.2.tar.gz"
   sha256 "57f4898498a368918b0d49c826aa434bb5b703d2c3b169beb348016ab25617ce"
+  license "X11"
 
   bottle do
     rebuild 5
+    sha256 cellar: :any,                 arm64_sequoia:  "06f749f6c70ec8df9f8a171e3528d6d322b3d71cb59002fb4e02804f8b70bcdd"
     sha256 cellar: :any,                 arm64_sonoma:   "9e3db2e95f01de344894aad8d34353455085473885a961e3fbef3355cdaaf88f"
     sha256 cellar: :any,                 arm64_ventura:  "d6dc97e6caecf3c6090835b984cf03e7981f755e2a4e9bd884b874724fd62a34"
     sha256 cellar: :any,                 arm64_monterey: "803db865811e2af00d1ea784c7bf0ed5d8b837f9bd5afff47bca13a5b97e8955"
@@ -27,17 +29,21 @@ class OpenSp < Formula
   depends_on "xmlto" => :build
   depends_on "gettext"
 
+  # Apply Gentoo patch to fix build error: ISO C++11 does not allow access declarations
+  patch do
+    url "https://gitweb.gentoo.org/repo/gentoo.git/plain/app-text/opensp/files/opensp-1.5.2-c11-using.patch?id=688d9675782dfc162d4e6cff04c668f7516118d0"
+    sha256 "3ebd2526e0f41a12b9107a09ece834043678d499252c28941eeb2a5676b1ce5e"
+  end
+
   def install
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
 
     # The included ./configure file is too old to work with Xcode 12
     system "autoreconf", "--verbose", "--install", "--force"
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--mandir=#{man}",
+    system "./configure", "--mandir=#{man}",
                           "--enable-http",
-                          "--enable-default-catalog=#{etc}/sgml/catalog"
-
+                          "--enable-default-catalog=#{etc}/sgml/catalog",
+                          *std_configure_args
     system "make", "pkgdatadir=#{share}/sgml/opensp", "install"
   end
 
@@ -54,6 +60,6 @@ class OpenSp < Formula
       </TESTDOC>
     EOS
 
-    system "#{bin}/onsgmls", "--warning=type-valid", "eg.sgml"
+    system bin/"onsgmls", "--warning=type-valid", "eg.sgml"
   end
 end

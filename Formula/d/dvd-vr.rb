@@ -3,7 +3,7 @@ class DvdVr < Formula
   homepage "https://www.pixelbeat.org/programs/dvd-vr/"
   url "https://www.pixelbeat.org/programs/dvd-vr/dvd-vr-0.9.7.tar.gz"
   sha256 "19d085669aa59409e8862571c29e5635b6b6d3badf8a05886a3e0336546c938f"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url :homepage
@@ -11,6 +11,7 @@ class DvdVr < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "7ec179b825a5afc971de1205ec65943227d9c09257a16558a068bc47c024887d"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "553619321e617365b7e1a3f3dbb678840ac7824eb6424b5dc484ee75b8512639"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f134891dbbb4f74aa606a2f560ae6992764387c39e8d92977828d1983f04e575"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "09d9566df3e194af10ca708f99f20d0d7ca0f2d14dae84c797508c443cd5fb8e"
@@ -32,6 +33,6 @@ class DvdVr < Formula
   end
 
   test do
-    system "#{bin}/dvd-vr", "--version"
+    system bin/"dvd-vr", "--version"
   end
 end

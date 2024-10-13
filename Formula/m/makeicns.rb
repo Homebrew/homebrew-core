@@ -6,6 +6,7 @@ class Makeicns < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "89f7fec6280f4ff185da4d6bf07ba3f30f977bf40b5316c559a8af7a83f2a08c"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c13f31a5163d2ffcf745b43b76516445c2dc73b17d370c5ab6c7c601245cc0e7"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "cff65a9bd43bcbd780c508dd291ee72c386cee8540fd19182ef9c11a553ba62c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "aad8a9c2fb8884474a5b7b8bc0a2dcb1b0e55b19427a5f49b112b4c2879b1de4"

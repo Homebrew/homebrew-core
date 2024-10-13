@@ -7,6 +7,7 @@ class Nanomsgxx < Formula
   revision 3
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "e00674de838fa31a3eb50d9ce61925893777887d27fd28772cfc5baa2582069b"
     sha256 cellar: :any,                 arm64_sonoma:   "d792d22d76f9b3a2ca31eaaafa8853cd5d04a29bd0b635ecf6a2d1789e02bc7d"
     sha256 cellar: :any,                 arm64_ventura:  "edb680fdffb9c416a4d16175673b8a94f1ad2c84a668ff3814f749a811f98889"
     sha256 cellar: :any,                 arm64_monterey: "8436ab0a7b9ed4472dfa37e576b2003510ca115e1ae686b2352d3bb00c351d92"

@@ -13,6 +13,7 @@ class Mrbayes < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "bc112b0be314f46b96f507ec3741b7f915b7b384e162ff88d98076a0370a728f"
     sha256 cellar: :any,                 arm64_sonoma:   "e671f59ccb6371a26c1ff58c6bbb800a2bf7472f625ac83d756eeb8b281fd6a9"
     sha256 cellar: :any,                 arm64_ventura:  "67537897e78b18147e0a793ee201b270940fad606d3143ced31782e3fee12ef4"
     sha256 cellar: :any,                 arm64_monterey: "56f6d18191f9e66a4cd485f3b1831b8037fccae239ccf6dab3289cf2bf4f22e6"

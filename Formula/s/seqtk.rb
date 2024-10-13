@@ -6,6 +6,7 @@ class Seqtk < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "f144c4cd7e4b7fa0e8cb87924587294a4dc0e04464584894455bc3221b9c2c2d"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "cd2129e3b101791a70e29bfed5e63800779881c4d6cbefc06a53e9008cf9e919"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "10eca0327229b13765451786c03c7def8fd277d014f5a74e709915fc50a8fdbd"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "fb2ec54def8fadafa1c673e851180f0883e651582a78397394706602786d3559"

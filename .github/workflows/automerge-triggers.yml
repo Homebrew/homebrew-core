@@ -9,6 +9,10 @@ on:
       - unlabeled
       - ready_for_review
 
+defaults:
+  run:
+    shell: bash -xeuo pipefail {0}
+
 jobs:
   check:
     if: >

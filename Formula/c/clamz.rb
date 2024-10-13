@@ -7,6 +7,7 @@ class Clamz < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "60807a8f262d22bbae1e13db11d9a7d9765896cc3c0e08ab919194f94e114705"
     sha256 cellar: :any,                 arm64_sonoma:   "5a7a2bdd3815fdb9fd2647df980edcb43919b173cde53f5fd298b381b231d943"
     sha256 cellar: :any,                 arm64_ventura:  "b862bbcf8083563c7cd92b4325eabe6d69c8b7b178dd999181c2f0daa000e400"
     sha256 cellar: :any,                 arm64_monterey: "33fb7758d8552198b057d9ee8b7bf3e5c1e3b4ba580deb9a00f44edc468feda6"

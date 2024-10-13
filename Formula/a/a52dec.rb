@@ -11,6 +11,7 @@ class A52dec < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "bb6e3408f39a404770529cfce548dc2666e861077acd173825cb3138c27c205a"
     sha256 cellar: :any,                 arm64_sonoma:   "9619e592adb641635b8bc648e92149822e6564203088f33570c2da72283ba918"
     sha256 cellar: :any,                 arm64_ventura:  "1f40eee1f2254ecbeee873473dba633d2cc52f295aedb0ae3ae82db198d0c5b9"
     sha256 cellar: :any,                 arm64_monterey: "61a272a68f11e79ba690068f532728eda218a9d86f330d070826bf003aedacfa"
@@ -23,23 +24,17 @@ class A52dec < Formula
   end
 
   def install
-    if OS.linux?
-      # Fix error ld: imdct.lo: relocation R_X86_64_32 against `.bss' can not be
-      # used when making a shared object; recompile with -fPIC
-      ENV.append_to_cflags "-fPIC"
-    else
-      # Fixes duplicate symbols errors on arm64
-      ENV.append_to_cflags "-std=gnu89"
-    end
+    # Fixes duplicate symbols errors on arm64
+    ENV.append_to_cflags "-std=gnu89" if OS.mac?
 
-    system "./configure", *std_configure_args,
+    system "./configure", "--disable-silent-rules",
                           "--enable-shared",
-                          "--mandir=#{man}"
+                          *std_configure_args
     system "make", "install"
   end
 
   test do
     touch testpath/"test"
-    system "#{bin}/a52dec", "-o", "null", "test"
+    system bin/"a52dec", "-o", "null", "test"
   end
 end

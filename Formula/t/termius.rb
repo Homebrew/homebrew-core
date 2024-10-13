@@ -188,7 +188,7 @@ class Termius < Formula
   end
 
   test do
-    system "#{bin}/termius", "host", "--address", "localhost", "-L", "test_host"
-    system "#{bin}/termius", "host", "--delete", "test_host"
+    system bin/"termius", "host", "--address", "localhost", "-L", "test_host"
+    system bin/"termius", "host", "--delete", "test_host"
   end
 end

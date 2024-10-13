@@ -7,6 +7,7 @@ class Openfpgaloader < Formula
   head "https://github.com/trabucayre/openFPGALoader.git", branch: "master"
 
   bottle do
+    sha256 arm64_sequoia:  "2ebd6041d2ad37716bd9aeeb1d4954c246cd0a49e2b0f282f9c086ab5c06bd88"
     sha256 arm64_sonoma:   "4ea5de1bb729263aca9cd5a02f905bce83f33cd254066092f7743ddf8eee71f7"
     sha256 arm64_ventura:  "78f4b3627bd8442931c6eb2aee3710f9e85440797401e111c0026e681e287e71"
     sha256 arm64_monterey: "c39f654334abcaca0a6f06be85d10e84e1e11f17d87a1604c18c7e166d5b213d"
@@ -20,7 +21,12 @@ class Openfpgaloader < Formula
   depends_on "pkg-config" => :build
   depends_on "libftdi"
   depends_on "libusb"
+
   uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "systemd"
+  end
 
   def install
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args

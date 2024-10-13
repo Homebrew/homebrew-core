@@ -68,7 +68,7 @@ class Pythran < Formula
         return sum([x*y for x,y in zip(arr0, arr1)])
     EOS
     system pythran, testpath/"dprod.py"
-    rm_f testpath/"dprod.py"
+    rm(testpath/"dprod.py")
 
     assert_equal "11", shell_output("#{python3} -c 'import dprod; print(dprod.dprod([1,2], [3,4]))'").chomp
 
@@ -87,7 +87,7 @@ class Pythran < Formula
     with_env(CC: nil, CXX: nil) do
       system pythran, "-DUSE_XSIMD", "-fopenmp", "-march=native", testpath/"arc_distance.py"
     end
-    rm_f testpath/"arc_distance.py"
+    rm(testpath/"arc_distance.py")
 
     system python3, "-c", <<~EOS
       import numpy as np

@@ -15,6 +15,7 @@ class Mlton < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any,                 arm64_sequoia:  "203ad4b481a894afceb9aa087114983f22bc7035afea81c13601fee5617fc68a"
     sha256 cellar: :any,                 arm64_sonoma:   "ab72acae5b403f85995c18f3da2dc19341ef57ef1c8b5b2bc0f0c791bce41d7c"
     sha256 cellar: :any,                 arm64_ventura:  "47153e8fe8add04e420f69b4d5b1062ac2fa9abc1106cda2e5d0d0893ed0ca79"
     sha256 cellar: :any,                 arm64_monterey: "b63990802ceb1eab45673ca135e32aa1329a051fdd2ac3ca28c703d691e2f854"
@@ -85,7 +86,7 @@ class Mlton < Formula
     (testpath/"hello.sml").write <<~'EOS'
       val () = print "Hello, Homebrew!\n"
     EOS
-    system "#{bin}/mlton", "hello.sml"
+    system bin/"mlton", "hello.sml"
     assert_equal "Hello, Homebrew!\n", `./hello`
   end
 end

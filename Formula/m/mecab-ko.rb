@@ -4,6 +4,7 @@ class MecabKo < Formula
   url "https://bitbucket.org/eunjeon/mecab-ko/downloads/mecab-0.996-ko-0.9.2.tar.gz"
   version "0.996-ko-0.9.2"
   sha256 "d0e0f696fc33c2183307d4eb87ec3b17845f90b81bf843bd0981e574ee3c38cb"
+  license any_of: ["GPL-2.0-only", "LGPL-2.1-only", "BSD-3-Clause"]
 
   livecheck do
     url :stable
@@ -12,6 +13,7 @@ class MecabKo < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_sequoia:  "3c1c199bd50bf6df285b924549652b4cf357cad624603cd393b9d88b80353a80"
     sha256 arm64_sonoma:   "d1d8ceeb481323ec477598ad8c68fa706c75dd3292e09de28c1ba41fe4aeaa56"
     sha256 arm64_ventura:  "3b7edb46e117b0dd5df069ae3ce9be8d46df3a1905f2b5141550bf5f2be2124e"
     sha256 arm64_monterey: "188bfe25ec8b456e29e7668a704da223ef5999b5e9f5ff0dafb0b344e7094734"

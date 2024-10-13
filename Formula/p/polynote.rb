@@ -26,6 +26,7 @@ class Polynote < Formula
   end
 
   bottle do
+    sha256 cellar: :any, arm64_sequoia:  "f39090ba7cdd6a3687ad14a6fcf417fe52ea797811b9e0a3836093d0b3a047a4"
     sha256 cellar: :any, arm64_sonoma:   "e5ca852520d67545e8024fc00c164068768be2f80ff1362b96ba45e25d97d118"
     sha256 cellar: :any, arm64_ventura:  "adef7a68ddeabd34a5dfb6dbe09281a3432a7d1262a73638ba7b7936a82ed332"
     sha256 cellar: :any, arm64_monterey: "7f79ab9b7f726fd425b3fbe3c78fe412c31b0bcd8530ebd8cb005c00689707eb"
@@ -37,7 +38,7 @@ class Polynote < Formula
 
   depends_on "numpy" # used by `jep` for Java primitive arrays
   depends_on "openjdk"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "jep" do
     url "https://files.pythonhosted.org/packages/16/94/3bc40b4683442bd34e7c511cbe5c1a1bb8d5d6de1f4955991a07fe02c836/jep-4.2.0.tar.gz"
@@ -45,7 +46,7 @@ class Polynote < Formula
   end
 
   def install
-    python3 = "python3.12"
+    python3 = "python3.13"
 
     with_env(JAVA_HOME: Language::Java.java_home) do
       resource("jep").stage do

@@ -7,6 +7,7 @@ class Subnetcalc < Formula
   head "https://github.com/dreibh/subnetcalc.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "f412e72a2c7b247d83909cb660fc3595ec90c7d3b04a1d781553f6c4a1cb9420"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c68d8d3458b1880d69912904cf05fdac23daff520ff49d5c9b3c57dfb32c3c49"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "5faea6c8efcb60fe3982b9f40d025a84665e1add0a2911eff15c6155c5d8fb2f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "aa4e3a5bdcbfa06cd3887dfac1ed33fe914567aabed4cf32631dce70a9d7795e"

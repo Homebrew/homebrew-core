@@ -6,6 +6,7 @@ class Grpcurl < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "c5809c9dd0340f5a8a58850e2aedf505a26ddd3739fe719d00d6fc5a38f10875"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "efd68b0efcb47dad3279e83287d949c29a7006b30b6fd0f76703a1b493ea332d"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "fa42f3862cb0797efa42180319ce25ea635cfa3a682d1e359da1879323d43a54"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ace40839f0ecf9bedaeef3dc0ac75efcc872ab3c297f6f2cd3125d325a4fa5ac"
@@ -29,6 +30,6 @@ class Grpcurl < Formula
         string hello_world = 1;
       }
     EOS
-    system "#{bin}/grpcurl", "-msg-template", "-proto", "test.proto", "describe", "test.HelloWorld"
+    system bin/"grpcurl", "-msg-template", "-proto", "test.proto", "describe", "test.HelloWorld"
   end
 end

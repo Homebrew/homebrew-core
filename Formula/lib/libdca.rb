@@ -11,6 +11,7 @@ class Libdca < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "0737b7bd914efce32ae323ecbb5fca30b14b39ef31d704a482883598303518b5"
     sha256 cellar: :any,                 arm64_sonoma:   "f8040bc44c93b05569e5f2cbce08e3b2377bd2445c4f305c2fb49f63a22850be"
     sha256 cellar: :any,                 arm64_ventura:  "d7c6080f57c3de053cb1e94bfc535b783389d9fde51c1cfe6e5c0e8b0c5245d8"
     sha256 cellar: :any,                 arm64_monterey: "505dbd9ed35b7bede454672385472ed725d6fd84f15a984d3d3e1025725d996b"
@@ -31,11 +32,6 @@ class Libdca < Formula
 
   conflicts_with "dcadec", because: "both install `dcadec` binaries"
 
-  resource "homebrew-testdata" do
-    url "https://github.com/foo86/dcadec-samples/raw/fa7dcf8c98c6d/xll_71_24_96_768.dtshd"
-    sha256 "d2911b34183f7379359cf914ee93228796894e0b0f0055e6ee5baefa4fd6a923"
-  end
-
   def install
     # Fixes "duplicate symbol ___sputc" error when building with clang
     # https://github.com/Homebrew/homebrew/issues/31456
@@ -49,8 +45,13 @@ class Libdca < Formula
   end
 
   test do
+    resource "homebrew-testdata" do
+      url "https://github.com/foo86/dcadec-samples/raw/fa7dcf8c98c6d/xll_71_24_96_768.dtshd"
+      sha256 "d2911b34183f7379359cf914ee93228796894e0b0f0055e6ee5baefa4fd6a923"
+    end
+
     resource("homebrew-testdata").stage do
-      system "#{bin}/dcadec", "-o", "null", resource("homebrew-testdata").cached_download
+      system bin/"dcadec", "-o", "null", resource("homebrew-testdata").cached_download
     end
   end
 end

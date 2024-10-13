@@ -15,6 +15,7 @@ class Icu4c < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "ec52c07656afec651345fb9d1ddc4557982de778ad38bdfe584bf910d49286da"
     sha256 cellar: :any,                 arm64_sonoma:   "3facc22a7821e01d93a38e371e377f13275299d518929222ed34c77a4f4a65d3"
     sha256 cellar: :any,                 arm64_ventura:  "3c707a483df52f58010f3ab48f14e6e875cd99aefbac58ed6abf67f59b0a58d8"
     sha256 cellar: :any,                 arm64_monterey: "014d11c8918c732dc17f4436d1946584ab42a443355f18096e6d6f3280390330"
@@ -43,10 +44,10 @@ class Icu4c < Formula
 
   test do
     if File.exist? "/usr/share/dict/words"
-      system "#{bin}/gendict", "--uchars", "/usr/share/dict/words", "dict"
+      system bin/"gendict", "--uchars", "/usr/share/dict/words", "dict"
     else
       (testpath/"hello").write "hello\nworld\n"
-      system "#{bin}/gendict", "--uchars", "hello", "dict"
+      system bin/"gendict", "--uchars", "hello", "dict"
     end
   end
 end

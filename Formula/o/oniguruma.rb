@@ -12,6 +12,7 @@ class Oniguruma < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "378cec2d71c33ca25809db43e9fdd46957b3459fcd5b337c519fc74cc2cfdc20"
     sha256 cellar: :any,                 arm64_sonoma:   "53913ccbdad8ce504d0266fc20a867f2fc306d7331d066f2895f48d167102a24"
     sha256 cellar: :any,                 arm64_ventura:  "def0fa2c032e85b817ed3408867af987da1cafe3f2aa6aee2fb3c29df2d202d6"
     sha256 cellar: :any,                 arm64_monterey: "d0e0811b41b34a4fbbe65c9206b9969f8c469fca8cfe619caa7e5c74036921c3"

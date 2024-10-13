@@ -1,10 +1,10 @@
-require "language/node"
-
 class Emscripten < Formula
   desc "LLVM bytecode to JavaScript compiler"
   homepage "https://emscripten.org/"
-  url "https://github.com/emscripten-core/emscripten/archive/refs/tags/3.1.64.tar.gz"
-  sha256 "7ee24e77ed0a026d00c3df2e46bfe53106ef61db57059949a38bc5bfe5399686"
+  # To automate fetching the required resource revisions, you can use this helper script:
+  #   https://gist.github.com/carlocab/2db1d7245fa0cd3e92e01fe37b164021
+  url "https://github.com/emscripten-core/emscripten/archive/refs/tags/3.1.69.tar.gz"
+  sha256 "3ceb2acbf3551146753c1abef8feb24347403bf13713820ea9dddbd946f9e4ac"
   license all_of: [
     "Apache-2.0", # binaryen
     "Apache-2.0" => { with: "LLVM-exception" }, # llvm
@@ -18,13 +18,12 @@ class Emscripten < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "432af91f2ade1d8e85874f04e76df164f4548e62ac5fceb90a5cc2ac1eea58a3"
-    sha256 cellar: :any,                 arm64_ventura:  "1cf2e895e590b84b4c9e000181691a9cea7af38d33b960758f4a3ced60f0f280"
-    sha256 cellar: :any,                 arm64_monterey: "f8e523ac02a1a37db0d4f343374dd66ee6138c22139372dea4fd3796f2927d28"
-    sha256 cellar: :any,                 sonoma:         "53153d67b2309100dc8ec96e84a4220d0fae354ab111f2306640c568b870d9c6"
-    sha256 cellar: :any,                 ventura:        "0994b8038dcd1989438eb5d1d3107fc3a2649102184ce0d421fc5887add19b3f"
-    sha256 cellar: :any,                 monterey:       "fbf9feaac390941e527fb84a24bf6c52c2d841836069cef71708ad20072008c6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4390c874b43911d65c86b9dd5a0f8e447d56520f33e21e902b3eb3a5b3f29bc6"
+    sha256 cellar: :any,                 arm64_sequoia: "5f1bdf5a5b31dc764a55698577c19de2c1ccde0ccf322bd9bfe1358e56400c64"
+    sha256 cellar: :any,                 arm64_sonoma:  "b73510f701cd0569475b07a41ce28f16b52a53b09dac212e903c738ba90eaed1"
+    sha256 cellar: :any,                 arm64_ventura: "f40d73a708d4a11ce83b600ee8849fcc5c8555cd0dd46360b5be4727ce5271df"
+    sha256 cellar: :any,                 sonoma:        "8543bffab2b8e48870f206f27434fd03c24922ca8b14037a22974bda5dd8f4ed"
+    sha256 cellar: :any,                 ventura:       "20ff272c8048fc60e2e05f1d93a832b1767ac1c417afbf31e40c1c6e6e9911dc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "68b4b2de730a82e884fe2bbbb2da13a95e90e1738c9365d7524ad71cea374cf8"
   end
 
   depends_on "cmake" => :build
@@ -65,7 +64,7 @@ class Emscripten < Formula
   # Then use the listed binaryen_revision for the revision below.
   resource "binaryen" do
     url "https://github.com/WebAssembly/binaryen.git",
-        revision: "a8066e6618b93ea101e82b64690b9b62d7562609"
+        revision: "d8c1b0c0ceb4cc4eb59f3f3ab4840636c78e2a44"
   end
 
   # emscripten does not support using the stable version of LLVM.
@@ -73,8 +72,8 @@ class Emscripten < Formula
   # See binaryen resource above for instructions on how to update this.
   # Then use the listed llvm_project_revision for the tarball below.
   resource "llvm" do
-    url "https://github.com/llvm/llvm-project/archive/4d8e42ea6a89c73f90941fd1b6e899912e31dd34.tar.gz"
-    sha256 "149721d58bd9e0f93f68750ce0520001daf06480b2168a2d615c7879bba37563"
+    url "https://github.com/llvm/llvm-project/archive/5cc64bf60bc04b9315de3c679eb753de4d554a8a.tar.gz"
+    sha256 "29468bf46f23fa893ec1332bb70ae24f44897b9865fd4354a9f51ad1c8ff0174"
   end
 
   def install
@@ -168,7 +167,7 @@ class Emscripten < Formula
     end
 
     cd libexec do
-      system "npm", "install", *Language::Node.local_npm_install_args
+      system "npm", "install", *std_npm_args(prefix: false)
       # Delete native GraalVM image in incompatible platforms.
       if OS.linux?
         rm_r("node_modules/google-closure-compiler-linux")

@@ -1,15 +1,16 @@
 # Patches for Qt must be at the very least submitted to Qt's Gerrit codereview
 # rather than their bug-report Jira. The latter is rarely reviewed by Qt.
 class QtAT5 < Formula
+  include Language::Python::Virtualenv
+
   desc "Cross-platform application and UI framework"
   homepage "https://www.qt.io/"
   # NOTE: Use *.diff for GitLab/KDE patches to avoid their checksums changing.
-  url "https://download.qt.io/official_releases/qt/5.15/5.15.13/single/qt-everywhere-opensource-src-5.15.13.tar.xz"
-  mirror "https://mirrors.dotsrc.org/qtproject/archive/qt/5.15/5.15.13/single/qt-everywhere-opensource-src-5.15.13.tar.xz"
-  mirror "https://mirrors.ocf.berkeley.edu/qt/archive/qt/5.15/5.15.13/single/qt-everywhere-opensource-src-5.15.13.tar.xz"
-  sha256 "9550ec8fc758d3d8d9090e261329700ddcd712e2dda97e5fcfeabfac22bea2ca"
+  url "https://download.qt.io/official_releases/qt/5.15/5.15.15/single/qt-everywhere-opensource-src-5.15.15.tar.xz"
+  mirror "https://mirrors.dotsrc.org/qtproject/archive/qt/5.15/5.15.15/single/qt-everywhere-opensource-src-5.15.15.tar.xz"
+  mirror "https://mirrors.ocf.berkeley.edu/qt/archive/qt/5.15/5.15.15/single/qt-everywhere-opensource-src-5.15.15.tar.xz"
+  sha256 "b423c30fe3ace7402e5301afbb464febfb3da33d6282a37a665be1e51502335e"
   license all_of: ["GFDL-1.3-only", "GPL-2.0-only", "GPL-3.0-only", "LGPL-2.1-only", "LGPL-3.0-only"]
-  revision 1
 
   livecheck do
     url "https://download.qt.io/official_releases/qt/5.15/"
@@ -17,55 +18,72 @@ class QtAT5 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "3a497f2b6e427f72c52e52e979f655cea54e0d6eddffd1fbf3c4a25bb5eae101"
-    sha256 cellar: :any,                 arm64_ventura:  "a5098835cade678eb6d9193d393c3f7d0cbec5aa4f1833184fba56c13161a097"
-    sha256 cellar: :any,                 arm64_monterey: "02fff8012c9cba1d9a6e79bc500289c79fa1d64b345533b6e5ea5855d322875a"
-    sha256 cellar: :any,                 sonoma:         "5ab138b788d6fa1aeb7f5b1b3c041161efaeb6298771312628a4357fce0dc86f"
-    sha256 cellar: :any,                 ventura:        "2057642d6105bcf0d34c08dc1393be18e41ee36feb5aa48746f7a2d8c7920c28"
-    sha256 cellar: :any,                 monterey:       "f185f54474461f6d408f75a85afb25411b9a06409f2a29b97e3d2e069b7891c9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "792f32f138188fca968478186b361ca74b95770afd8066ee19275616d65a6e00"
+    sha256 cellar: :any,                 arm64_sequoia: "d1afd63dc1e62e946c88c80e4192be654df4ac2fc11b82a0f71cd64c0f08fbfa"
+    sha256 cellar: :any,                 arm64_sonoma:  "a0cfeeacfefeb3c3158b03fd3b35e04bdc72d627148bb00c4bc8f196b4d2c360"
+    sha256 cellar: :any,                 arm64_ventura: "0acdf9040c7100ed5750d146191f51d055888f05cb25e57b6cd551d5c11017fc"
+    sha256 cellar: :any,                 sonoma:        "57fb8ee5275428ee49452441bac8e0145c7cb2a6e3247a6f782359b56470df31"
+    sha256 cellar: :any,                 ventura:       "37819927d329989f6b6e6b76e71ecce8f1731488a4b95356d98ff34d6a31fcb3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0c8ac60dbe7163744f27d127a8d5e47f6074ab21e6412a156d5a6cf5b71bf7c3"
   end
 
   keg_only :versioned_formula
 
   depends_on "node" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.11" => :build # NOTE: Python 3.12+ would need additional backports due to imp usage
+  depends_on "python@3.12" => :build
   depends_on xcode: :build
   depends_on "freetype"
   depends_on "glib"
   depends_on "jpeg-turbo"
   depends_on "libpng"
+  depends_on "libtiff"
   depends_on macos: :sierra
+  depends_on "md4c"
   depends_on "pcre2"
+  depends_on "sqlite"
   depends_on "webp"
+  depends_on "zstd"
 
+  uses_from_macos "bison" => :build
+  uses_from_macos "flex" => :build
   uses_from_macos "gperf" => :build
-  uses_from_macos "bison"
-  uses_from_macos "flex"
   uses_from_macos "krb5"
-  uses_from_macos "libxslt"
-  uses_from_macos "sqlite"
+  uses_from_macos "zlib"
+
+  on_macos do
+    depends_on "gettext"
+  end
 
   on_linux do
     depends_on "alsa-lib"
     depends_on "at-spi2-core"
+    depends_on "dbus"
+    depends_on "double-conversion"
+    depends_on "expat"
     depends_on "fontconfig"
     depends_on "harfbuzz"
-    depends_on "icu4c"
+    depends_on "icu4c@75"
     depends_on "libdrm"
     depends_on "libevent"
     depends_on "libice"
-    depends_on "libproxy"
     depends_on "libsm"
     depends_on "libvpx"
+    depends_on "libx11"
+    depends_on "libxcb"
     depends_on "libxcomposite"
+    depends_on "libxdamage"
+    depends_on "libxext"
+    depends_on "libxfixes"
     depends_on "libxkbcommon"
     depends_on "libxkbfile"
+    depends_on "libxml2"
     depends_on "libxrandr"
+    depends_on "libxslt"
     depends_on "libxtst"
+    depends_on "llvm"
     depends_on "mesa"
     depends_on "minizip"
+    depends_on "nspr"
     depends_on "nss"
     depends_on "opus"
     depends_on "pulseaudio"
@@ -73,76 +91,61 @@ class QtAT5 < Formula
     depends_on "snappy"
     depends_on "systemd"
     depends_on "wayland"
-    depends_on "xcb-util"
     depends_on "xcb-util-image"
     depends_on "xcb-util-keysyms"
     depends_on "xcb-util-renderutil"
     depends_on "xcb-util-wm"
-    depends_on "zstd"
   end
 
   fails_with gcc: "5"
 
   resource "qtwebengine" do
     url "https://code.qt.io/qt/qtwebengine.git",
-        tag:      "v5.15.16-lts",
-        revision: "224806a7022eed6d5c75b486bec8715a618cb314"
+        tag:      "v5.15.17-lts",
+        revision: "17fd3176988586168bee8654008a097a5f23ec1d"
 
-    # Fix libxml2 2.12 compatibility
-    # https://codereview.qt-project.org/c/qt/qtwebengine-chromium/+/525714
-    # Remove with 5.15.17-lts
+    # Use Arch Linux's patch for ICU 75 support
     patch do
-      url "https://github.com/qt/qtwebengine-chromium/commit/c98d28f2f0f23721b080c74bc1329871a529efd8.patch?full_index=1"
-      sha256 "bcb946524e203ac7b8f7a681b3288a2da7ee1c18f440cb34cbf5849f22b7d649"
+      url "https://gitlab.archlinux.org/archlinux/packaging/packages/qt5-webengine/-/raw/a6348f22ac66f1337f400497a5b36057810acf97/qt5-webengine-icu-75.patch"
+      sha256 "7cac28ba784d24b4abf6414079548ada165343af507ecd8e23cbe7e4f63ae52f"
       directory "src/3rdparty"
     end
 
-    # Add Python 3 support to qt-webengine-chromium.
-    # Submitted upstream here: https://codereview.qt-project.org/c/qt/qtwebengine-chromium/+/416534
+    # Use Arch Linux / Debian patches for Python 3.12 support
     patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/7ae178a617d1e0eceb742557e63721af949bd28a/qt5/qt5-webengine-chromium-python3.patch?full_index=1"
-      sha256 "a93aa8ef83f0cf54f820daf5668574cc24cf818fb9589af2100b363356eb6b49"
-      directory "src/3rdparty"
+      url "https://gitlab.archlinux.org/archlinux/packaging/packages/qt5-webengine/-/raw/55a02804953a9035cdee7e6ff2e2dae0bf5c5fea/python3.12-imp.patch"
+      sha256 "1f4357708e985bb5aca61a7e5dc4c0c1285d2af00994bb49ff89ede78198e0d2"
+      directory "src/3rdparty/chromium"
     end
-
-    # Add Python 3 support to qt-webengine.
-    # Submitted upstream here: https://codereview.qt-project.org/c/qt/qtwebengine/+/416535
     patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/a6f16c6daea3b5a1f7bc9f175d1645922c131563/qt5/qt5-webengine-python3.patch?full_index=1"
-      sha256 "398c996cb5b606695ac93645143df39e23fa67e768b09e0da6dbd37342a43f32"
-    end
-
-    # Use Debian patch to support Python 3.11:
-    # * tools/grit/grit/util.py changes are part of upstream commit
-    #   Ref: https://chromium.googlesource.com/chromium/src/+/0991fc6acd3c85472000f2055af542515c3c6297
-    # * tools/metrics/ukm/ukm_model.py changes are part of upstream commit
-    #   Ref: https://chromium.googlesource.com/chromium/src/+/f90f49df8db04dcb72f7ce0c4d0b2fe329bab00c
-    # * tools/metrics/structured/model.py was refactored in Chromium 90
-    #   Ref: https://chromium.googlesource.com/chromium/src/+/1219c5a8e1e6d11adb3e098f1a983b8cd8f5932f
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/9758d3dd8ace5aaa9d6720b2e2e8ea1b863658d5/qt5/qtwebengine-py3.11.patch"
-      sha256 "652a612144ef4d87b6b2a4098f56ba6db1201e1a241259d0a227123cb0e566a2"
-    end
-
-    # Fix ffmpeg build with binutils
-    # https://www.linuxquestions.org/questions/slackware-14/regression-on-current-with-ffmpeg-4175727691/
-    patch do
-      url "https://github.com/FFmpeg/FFmpeg/commit/effadce6c756247ea8bae32dc13bb3e6f464f0eb.patch?full_index=1"
-      sha256 "9800c708313da78d537b61cfb750762bb8ad006ca9335b1724dbbca5669f5b24"
-      directory "src/3rdparty/chromium/third_party/ffmpeg"
-    end
-
-    # Use Gentoo's patch for ICU 74 support
-    patch do
-      url "https://gitweb.gentoo.org/repo/gentoo.git/plain/dev-qt/qtwebengine/files/qtwebengine-6.5.3-icu74.patch?id=ba397fa71f9bc9a074d9c65b63759e0145bb9fa0"
-      sha256 "ceee91eb3161b385f54c0070f0e4800202b0674c63c40c8556cb69ac522e6999"
+      url "https://gitlab.archlinux.org/archlinux/packaging/packages/qt5-webengine/-/raw/6b0c0e76e0934db2f84be40cb5978cee47266e78/python3.12-six.patch"
+      sha256 "ac87ec55ee5cbcf2d520e1ea433d041c0bf754271a17f859edbb9976f192ce3f"
+      directory "src/3rdparty/chromium"
     end
   end
 
-  # Update catapult to a revision that supports Python 3.
-  resource "catapult" do
-    url "https://chromium.googlesource.com/catapult.git",
-        revision: "5eedfe23148a234211ba477f76fc2ea2e8529189"
+  resource "html5lib" do
+    url "https://files.pythonhosted.org/packages/ac/b6/b55c3f49042f1df3dcd422b7f224f939892ee94f22abcf503a9b7339eaf2/html5lib-1.1.tar.gz"
+    sha256 "b2e5b40261e20f354d198eae92afc10d750afb487ed5e50f9c4eaf07c184146f"
+  end
+
+  resource "six" do
+    url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
+    sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
+  end
+
+  resource "webencodings" do
+    url "https://files.pythonhosted.org/packages/0b/02/ae6ceac1baeda530866a85075641cec12989bd8d31af6d5ab4a3e8c92f47/webencodings-0.5.1.tar.gz"
+    sha256 "b36a1c245f2d304965eb4e0a82848379241dc04b865afcc4aab16748587e1923"
+  end
+
+  # Fix build with ICU 75
+  patch do
+    on_linux do
+      url "https://invent.kde.org/qt/qt/qtlocation-mapboxgl/-/commit/35d566724c48180c9a372c2ed50a253871a51574.diff"
+      sha256 "9e61d46c0a8ae39903cbcbb228e384f2878a06e50448f3bba60ec65fe2890081"
+      directory "qtlocation/src/3rdparty/mapbox-gl-native"
+    end
   end
 
   # Fix build with Xcode 14.3.
@@ -180,68 +183,6 @@ class QtAT5 < Formula
     directory "qtbase"
   end
 
-  # CVE-2023-32573
-  # Original (malformed with CRLF): https://download.qt.io/official_releases/qt/5.15/CVE-2023-32573-qtsvg-5.15.diff
-  # Remove with Qt 5.15.14
-  patch do
-    url "https://invent.kde.org/qt/qt/qtsvg/-/commit/5b1b4a99d6bc98c42a11b7a3f6c9f0b0f9e56f34.diff"
-    sha256 "0a978cac9954a557dde7f0c01e059a227f2e064fe6542defd78f37a9f7dd7a3d"
-    directory "qtsvg"
-  end
-
-  # CVE-2023-32762
-  # Original (malformed with CRLF): https://download.qt.io/official_releases/qt/5.15/CVE-2023-32762-qtbase-5.15.diff
-  # Remove with Qt 5.15.14
-  patch do
-    url "https://invent.kde.org/qt/qt/qtbase/-/commit/1286cab2c0e8ae93749a71dcfd61936533a2ec50.diff"
-    sha256 "2fba1152067c60756162b7ad7a2570d55c9293dd4a53395197fd31ab770977d7"
-    directory "qtbase"
-  end
-
-  # CVE-2023-32763
-  # Original (malformed with CRLF): https://download.qt.io/official_releases/qt/5.15/CVE-2023-32763-qtbase-5.15.diff
-  # Remove with Qt 5.15.15
-  patch do
-    url "https://invent.kde.org/qt/qt/qtbase/-/commit/deb7b7b52b6e6912ff8c78bc0217cda9e36c4bba.diff"
-    sha256 "ceafd01b3e2602140bfe8b052a5ad80ec2f3b3b21aed1e2d6f27cd50b9fb60b7"
-    directory "qtbase"
-  end
-
-  # CVE-2023-33285
-  # Original (malformed with CRLF): https://download.qt.io/official_releases/qt/5.15/CVE-2023-33285-qtbase-5.15.diff
-  # Remove with Qt 5.15.14
-  patch do
-    url "https://invent.kde.org/qt/qt/qtbase/-/commit/21f6b720c26705ec53d61621913a0385f1aa805a.diff"
-    sha256 "d2cb352a506a30fa4f4bdf41f887139d8412dfe3dc87e8b29511bd0c990839c5"
-    directory "qtbase"
-  end
-
-  # CVE-2023-34410
-  # Original (malformed with CRLF): https://download.qt.io/official_releases/qt/5.15/CVE-2023-34410-qtbase-5.15.diff
-  # KDE patch excludes Windows-specific fixes
-  # Remove with Qt 5.15.15
-  patch do
-    url "https://invent.kde.org/qt/qt/qtbase/-/commit/2ad1884fee697e0cb2377f3844fc298207e810cc.diff"
-    sha256 "70496a602600a7133f5f10d8a7554efd7bcbe4d1998b16486da8fb82070b0138"
-    directory "qtbase"
-  end
-
-  # CVE-2023-37369
-  # Remove with Qt 5.15.15
-  patch do
-    url "https://download.qt.io/official_releases/qt/5.15/CVE-2023-37369-qtbase-5.15.diff"
-    sha256 "279c520ec96994d2b684ddd47a4672a6fdfc7ac49a9e0bdb719db1e058d9e5c0"
-    directory "qtbase"
-  end
-
-  # CVE-2023-38197
-  # Remove with Qt 5.15.15
-  patch do
-    url "https://download.qt.io/official_releases/qt/5.15/CVE-2023-38197-qtbase-5.15.diff"
-    sha256 "382c10ec8f42e2a34ac645dc4f57cd6b717abe6a3807b7d5d9312938f91ce3dc"
-    directory "qtbase"
-  end
-
   # CVE-2023-51714
   # Remove with Qt 5.15.17
   patch do
@@ -256,11 +197,13 @@ class QtAT5 < Formula
   end
 
   def install
-    (buildpath/"qtwebengine").rmtree
-    (buildpath/"qtwebengine").install resource("qtwebengine")
+    # Install python dependencies for QtWebEngine
+    venv = virtualenv_create(buildpath/"venv", "python3.12")
+    venv.pip_install resources.reject { |r| r.name == "qtwebengine" }
+    ENV.prepend_path "PATH", venv.root/"bin"
 
-    (buildpath/"qtwebengine/src/3rdparty/chromium/third_party/catapult").rmtree
-    (buildpath/"qtwebengine/src/3rdparty/chromium/third_party/catapult").install resource("catapult")
+    rm_r(buildpath/"qtwebengine")
+    (buildpath/"qtwebengine").install resource("qtwebengine")
 
     # FIXME: GN requires clang in clangBasePath/bin
     inreplace "qtwebengine/src/3rdparty/chromium/build/toolchain/mac/BUILD.gn",
@@ -278,9 +221,12 @@ class QtAT5 < Formula
       -proprietary-codecs
       -system-freetype
       -system-libjpeg
+      -system-libmd4c
       -system-libpng
       -system-pcre
+      -system-sqlite
       -system-zlib
+      -webengine-python-version python3
     ]
 
     if OS.mac?
@@ -310,6 +256,7 @@ class QtAT5 < Formula
       # On macOS chromium will always use bundled copies and the webengine_*
       # arguments are ignored.
       args += %w[
+        -system-doubleconversion
         -system-harfbuzz
         -webengine-alsa
         -webengine-icu
@@ -334,7 +281,6 @@ class QtAT5 < Formula
                 "\\0 \"-Wno-enum-constexpr-conversion\","
     end
 
-    ENV.prepend_path "PATH", Formula["python@3.11"].libexec/"bin"
     system "./configure", *args
     system "make"
     ENV.deparallelize
@@ -346,7 +292,7 @@ class QtAT5 < Formula
               "PKG_CONFIG_EXECUTABLE = #{Formula["pkg-config"].opt_bin}/pkg-config"
 
     # Fix find_package call using QtWebEngine version to find other Qt5 modules.
-    inreplace Dir[lib/"cmake/Qt5WebEngine*/*Config.cmake"],
+    inreplace lib.glob("cmake/Qt5WebEngine*/*Config.cmake"),
               " #{resource("qtwebengine").version} ", " #{version} "
 
     # Install a qtversion.xml to ease integration with QtCreator

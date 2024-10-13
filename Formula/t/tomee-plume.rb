@@ -14,9 +14,9 @@ class TomeePlume < Formula
 
   def install
     # Remove Windows scripts
-    rm_rf Dir["bin/*.bat"]
-    rm_rf Dir["bin/*.bat.original"]
-    rm_rf Dir["bin/*.exe"]
+    rm_r(Dir["bin/*.bat"])
+    rm_r(Dir["bin/*.bat.original"])
+    rm_r(Dir["bin/*.exe"])
 
     # Install files
     prefix.install %w[NOTICE LICENSE RELEASE-NOTES RUNNING.txt]

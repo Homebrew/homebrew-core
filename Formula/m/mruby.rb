@@ -7,6 +7,7 @@ class Mruby < Formula
   head "https://github.com/mruby/mruby.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "c4d17eb9265f8be0618b73de413ef2060619e8336557b1a296de86a46af0dcd9"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6c9cda4eea867a03f33cd61efb68484c5e0530fe644e38dbb87bc95cec0808ab"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "0fd6ddf89b8e721aee5370d3af42e119f55eb83d108b370f6be92442b4b93a03"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "5a3ced6e688ca7201054a3791dfaeb247a720381197785448884d070de5b5a3b"
@@ -41,6 +42,6 @@ class Mruby < Formula
   end
 
   test do
-    system "#{bin}/mruby", "-e", "true"
+    system bin/"mruby", "-e", "true"
   end
 end

@@ -1,19 +1,20 @@
 class Tio < Formula
   desc "Simple TTY terminal I/O application"
   homepage "https://tio.github.io"
-  url "https://github.com/tio/tio/releases/download/v3.6/tio-3.6.tar.xz"
-  sha256 "04a91686f8a19f157b885a7c146a138b4cff6a3fb8dba48723d1fdad15c61167"
+  url "https://github.com/tio/tio/releases/download/v3.7/tio-3.7.tar.xz"
+  sha256 "dbaef5dc6849229ce4eb474d4de77a7302cd2b0657731a8df86a44dd359e6afb"
   license "GPL-2.0-or-later"
   head "https://github.com/tio/tio.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_sonoma:   "e21b5db45b997387be149e757a17219d6a132520803f5b6ff9dc9876b99c4da3"
-    sha256 cellar: :any, arm64_ventura:  "7dca2cb864b1b26862c3497760537e291ad60f177aee4ef36097936f34c3a85c"
-    sha256 cellar: :any, arm64_monterey: "7a27b15f8631beb6a3b3f52294d61512d2fef4ba1a0ff12c421dc98938dd44a7"
-    sha256 cellar: :any, sonoma:         "553d53f3c409f4884f0ea0e0160673da5ac0a9bd4889d290f39183e9521fab97"
-    sha256 cellar: :any, ventura:        "712718a9a41bd8be856e4f99646f553a74db9937e2a10d1d145fa31b8ffe4e4c"
-    sha256 cellar: :any, monterey:       "0d527af33c975555de83a519cd0a50263be3311b36654567dd8cc09b0d38b892"
-    sha256               x86_64_linux:   "f46497f793be55fdf41963b13a870ec53d19c64cd874eb64518822dfe3a5b53d"
+    sha256 cellar: :any, arm64_sequoia:  "1afc83c0a8e2ec3ba362252dd4f5200a3cef1c1c00708fee1178789146edce85"
+    sha256 cellar: :any, arm64_sonoma:   "89f23caa67345fc27f68a17f75bc9571cc923c010ae5788aa801d396cb74293d"
+    sha256 cellar: :any, arm64_ventura:  "a365cc8f1ea4e4096377bc049a09205b5335a04975b29e619c6e62231e00db24"
+    sha256 cellar: :any, arm64_monterey: "ee6b98c13cfa6b4bb44c79a1415bf079ea469eed38556573414db3eb072d0761"
+    sha256 cellar: :any, sonoma:         "3cd0fe7d4f2e86aa7d27a57870dc1f655db87eba6186c04191cc082ad0b4b4d0"
+    sha256 cellar: :any, ventura:        "68f03dbd5e8c0a1bcbcf174a075d3ed8045f7ff6c4befa7372a5da5db72c2ebd"
+    sha256 cellar: :any, monterey:       "0ed639827a0e5c06d81aa6b9b9e8718644eb695ba5b2f1ec37bad35bb0d80661"
+    sha256               x86_64_linux:   "ec8d34efee793539378e9b80346e58ca4faaeb5dcc6e84f427ffbcbe0940f29b"
   end
 
   depends_on "meson" => :build
@@ -22,6 +23,10 @@ class Tio < Formula
   depends_on "gettext"
   depends_on "glib"
   depends_on "lua"
+
+  # fix function name conflict with system `send()`
+  # upstream bug report, https://github.com/tio/tio/issues/278
+  patch :DATA
 
   def install
     system "meson", "setup", "build", "-Dbashcompletiondir=#{bash_completion}", *std_meson_args
@@ -41,3 +46,27 @@ class Tio < Formula
     assert_match expected, output
   end
 end
+
+__END__
+diff --git a/src/script.c b/src/script.c
+index 46e6c4e..bfac3d9 100644
+--- a/src/script.c
++++ b/src/script.c
+@@ -181,7 +181,7 @@ static int modem_send(lua_State *L)
+ }
+
+ // lua: send(string)
+-static int send(lua_State *L)
++static int send_lua(lua_State *L)
+ {
+     const char *string = lua_tostring(L, 1);
+     int ret;
+@@ -455,7 +455,7 @@ static const struct luaL_Reg tio_lib[] =
+     { "msleep", msleep},
+     { "line_set", line_set},
+     { "modem_send", modem_send},
+-    { "send", send},
++    { "send", send_lua},
+     { "read", read_string},
+     { "expect", expect},
+     { "exit", exit_},

@@ -7,6 +7,7 @@ class Vapor < Formula
   head "https://github.com/vapor/toolbox.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "a0ba1020b0ae6649763e9867b853fe2161863afadb888717d626d628797e29ef"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5d0e1fa0fe4b21022520634975d94938e6cbb98938d3a0491b28303455c26119"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "16d95898c8fe2ef2354f3dcb09121378b9960fede73a3ddb6e3c44d32a235bd1"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "729bf1f69c66f2514b731679a62128f3ab3a4304434abb6b736ef8f17469fad7"

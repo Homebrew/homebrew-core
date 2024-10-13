@@ -1,10 +1,10 @@
 class ScalaAT213 < Formula
   desc "JVM-based programming language"
   homepage "https://www.scala-lang.org/"
-  url "https://downloads.lightbend.com/scala/2.13.14/scala-2.13.14.tgz"
-  mirror "https://www.scala-lang.org/files/archive/scala-2.13.14.tgz"
-  mirror "https://downloads.typesafe.com/scala/2.13.14/scala-2.13.14.tgz"
-  sha256 "5af0637545f674686697f1ac7c9046bda6db638b07e23d6cf8932fc56bdb84c1"
+  url "https://downloads.lightbend.com/scala/2.13.15/scala-2.13.15.tgz"
+  mirror "https://www.scala-lang.org/files/archive/scala-2.13.15.tgz"
+  mirror "https://downloads.typesafe.com/scala/2.13.15/scala-2.13.15.tgz"
+  sha256 "8d7219d2ad881c81cf7709a9e49534e6ce12d017ede1473eafd1e9bb287c39b1"
   license "Apache-2.0"
 
   livecheck do
@@ -13,7 +13,7 @@ class ScalaAT213 < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "80de117b46f247676ede207845cbb45859b70409df95349a2b7e329d9e6c95f4"
+    sha256 cellar: :any_skip_relocation, all: "4f5a969d57d01052f4efc32f510afde43d6b1d0edf0d7a3f826ddc73129070c8"
   end
 
   keg_only :versioned_formula

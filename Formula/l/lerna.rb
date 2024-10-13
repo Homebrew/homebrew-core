@@ -1,26 +1,25 @@
-require "language/node"
-
 class Lerna < Formula
   desc "Tool for managing JavaScript projects with multiple packages"
   homepage "https://lerna.js.org"
-  url "https://registry.npmjs.org/lerna/-/lerna-8.1.7.tgz"
-  sha256 "63608afc2f29b798f35b7b8acfd8ae21846d16cfe5467baae1479414e0a91080"
+  url "https://registry.npmjs.org/lerna/-/lerna-8.1.8.tgz"
+  sha256 "f2404d1e5596ee7a6af9906bdd1b6365423ec16e75f55737336870be2a41b0b0"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "47bf26dfc54078e6b02add5c53ecc876c04a97ac6d5f18c0c49f04edbe1b6da3"
-    sha256 cellar: :any,                 arm64_ventura:  "47bf26dfc54078e6b02add5c53ecc876c04a97ac6d5f18c0c49f04edbe1b6da3"
-    sha256 cellar: :any,                 arm64_monterey: "47bf26dfc54078e6b02add5c53ecc876c04a97ac6d5f18c0c49f04edbe1b6da3"
-    sha256 cellar: :any,                 sonoma:         "c977e5b362a5602513c93ebab36007828bf45a1174e76e855423a0de3cf48389"
-    sha256 cellar: :any,                 ventura:        "c977e5b362a5602513c93ebab36007828bf45a1174e76e855423a0de3cf48389"
-    sha256 cellar: :any,                 monterey:       "c977e5b362a5602513c93ebab36007828bf45a1174e76e855423a0de3cf48389"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fa2321bc39872469ccea2b2b0194bc1ccbc43ffe2dc29e78ed012276f40ecb6e"
+    sha256 cellar: :any,                 arm64_sequoia:  "ba6688a79382d26e0c7f4028994f65960cd345048cd4c437ac1283f0dd54ed3f"
+    sha256 cellar: :any,                 arm64_sonoma:   "c3d8dfa0f3fe17d6cc0a1249376aa5746e5bb5e80c3e24c08fdb7d6cd6cc012d"
+    sha256 cellar: :any,                 arm64_ventura:  "c3d8dfa0f3fe17d6cc0a1249376aa5746e5bb5e80c3e24c08fdb7d6cd6cc012d"
+    sha256 cellar: :any,                 arm64_monterey: "c3d8dfa0f3fe17d6cc0a1249376aa5746e5bb5e80c3e24c08fdb7d6cd6cc012d"
+    sha256 cellar: :any,                 sonoma:         "53eb46ccaa58156d095cef438f907dca9a2de1d5ae4b424dd3bc1179fa3d75e1"
+    sha256 cellar: :any,                 ventura:        "53eb46ccaa58156d095cef438f907dca9a2de1d5ae4b424dd3bc1179fa3d75e1"
+    sha256 cellar: :any,                 monterey:       "53eb46ccaa58156d095cef438f907dca9a2de1d5ae4b424dd3bc1179fa3d75e1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "38b853ee6dc578484b09d9c6e67bcac94a6625b23ef79d125e02e4671e445cdc"
   end
 
   depends_on "node"
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", *std_npm_args
     bin.install_symlink Dir["#{libexec}/bin/*"]
 
     # Replace universal binaries with native slices

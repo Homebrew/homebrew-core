@@ -6,7 +6,8 @@ class ApmBashCompletion < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "2801988299d591aeafbce230b0425f6f0b5737d0a37e702c47a19c4729cc492f"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "f86348dd9abdb4b7a8c6353f29374d7432375920a0281e806f14d50b8673bc1f"
   end
 
   def install

@@ -13,6 +13,7 @@ class BrigadeCli < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "297bad8cabf257b37796f62ce59aad4819642e6953fbf75aeedd5841b9ea0da1"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "37470ccf6183c82d4fbdc502adce51bafd52c44af60547a2c54b494bdb270d66"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "bcb3e8a2f7518bd173d3a0c0427b11b817495408fb91adbd5a7ea0b1345e2f1e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4e178e6bfe8c8a61e05b2ada8776a5604613048747225d3e9860dc1dad623ead"
@@ -42,10 +43,8 @@ class BrigadeCli < Formula
     system bin/"brig", "init", "--id", "foo"
     assert_predicate testpath/".brigade", :directory?
 
-    version_output = shell_output(bin/"brig version 2>&1")
+    version_output = shell_output("#{bin}/brig version 2>&1")
     assert_match "Brigade client:", version_output
-
-    return unless build.stable?
 
     commit = stable.specs[:revision][0..6]
     assert_match "Brigade client: version v#{version} -- commit #{commit}", version_output

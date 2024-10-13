@@ -3,8 +3,8 @@ class Cahute < Formula
 
   desc "Library and set of utilities to interact with Casio calculators"
   homepage "https://cahuteproject.org/"
-  url "https://ftp.cahuteproject.org/releases/cahute-0.4.tar.gz"
-  sha256 "a178389ac82e2e83cd55d8d80ee1771daae88331a0e799d5573d986428825648"
+  url "https://ftp.cahuteproject.org/releases/cahute-0.5.tar.gz"
+  sha256 "6206d8d9e2557dffa80a435ce96574c1bb2db16bc422afae8084d611963a2ba9"
   license "CECILL-2.1"
   head "https://gitlab.com/cahuteproject/cahute.git", branch: "develop"
 
@@ -14,18 +14,18 @@ class Cahute < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "2bdbb8f9a3a96e4464e4198b967d978495a0c5777ba60c056a651f7b159d43a8"
-    sha256 cellar: :any,                 arm64_ventura:  "f77183811692e901e0137ff22a56393bfbc98b5865c49024bbcb5e6979699ed2"
-    sha256 cellar: :any,                 arm64_monterey: "6bfdbc3ab88c8dd88af56205e18834212fa457c5e3766f041f046690024baa0e"
-    sha256 cellar: :any,                 sonoma:         "fe98c279c43a8782bd8384a68a4e18bf45006ed2509da114086d67352b821f2f"
-    sha256 cellar: :any,                 ventura:        "22f99a9106482a5ed4972667491e6ce853f0451ec33e615d35f313e007ed28ea"
-    sha256 cellar: :any,                 monterey:       "161ea8710adc8997525d327d4b3d939d21c42888096cdbba41b553ecc5fe7dad"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6ce0312a62d15a5b1f26391bd53c599805447e9f30a425699a5894979ee9a00c"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "4e87caab9efe6bbafa902f326b7f970ecb544b7ceb6dde814ad297052df9180d"
+    sha256 cellar: :any,                 arm64_sonoma:  "76c9b13ca029fc173d1b2a5cade69f65553df52b66939b85890d67af1d3fd281"
+    sha256 cellar: :any,                 arm64_ventura: "f4ddd7874435b2aea256f2c18d873ac6c1245e1111e329dde59829aeec68723b"
+    sha256 cellar: :any,                 sonoma:        "29963eec6d0daaff4836ad997cd9dfb711218bf4a954dda8d6e79d6c90843595"
+    sha256 cellar: :any,                 ventura:       "40d37194e9d0335d990f2ebadf5d735edfe5cfee429b92b1b37d5da3e9884d85"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f12f31c6f31c3a10bac5b6de716a73ad70778f0c764e3cbd0cdc2b870d81c1e6"
   end
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => [:build, :test]
-  depends_on "python@3.12" => :build
+  depends_on "python@3.13" => :build
   depends_on "libusb"
   depends_on "sdl2"
 
@@ -34,8 +34,12 @@ class Cahute < Formula
     sha256 "b3bda1d108d5dd99f4a20d24d9c348e91c4db7ab1b749200bded2f839ccbe68f"
   end
 
+  def python3
+    "python3.13"
+  end
+
   def install
-    venv = virtualenv_create(buildpath/"venv", "python3.12")
+    venv = virtualenv_create(buildpath/"venv", python3)
     venv.pip_install resources
 
     system "cmake", "-S", ".", "-B", "build", "-DPython3_EXECUTABLE=#{venv.root}/bin/python", *std_cmake_args
@@ -47,11 +51,7 @@ class Cahute < Formula
     # Assume that there is no calculator connected while testing
     assert_match "Could not connect to the calculator.", shell_output("#{bin}/p7 idle 2>&1", 1)
     assert_match "Could not connect to the calculator.", shell_output("#{bin}/p7screen 2>&1", 1)
-
-    # xfer9860 is a reimplementation of an older program of the same name, which does not indicate
-    # a failure exit code when a calculator isn't present. So here, we expect a successful exit
-    # status but an error message printed to the console.
-    assert_match "Could not connect to the calculator.", shell_output("#{bin}/xfer9860 -i 2>&1")
+    assert_match "Could not connect to the calculator.", shell_output("#{bin}/xfer9860 -i 2>&1", 1)
 
     # No calculator is connected, so this will also fail. Any test file will do.
     shell_output("#{bin}/p7os flash #{test_fixtures "test.ico"} 2>&1", 1)

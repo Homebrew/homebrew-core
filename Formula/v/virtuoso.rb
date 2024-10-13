@@ -6,6 +6,7 @@ class Virtuoso < Formula
   license "GPL-2.0-only" => { with: "openvpn-openssl-exception" }
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "1c07489e94dc7864ebac9cd3360b530aeb13d871ea3552c94caf86b8ece564a8"
     sha256 cellar: :any,                 arm64_sonoma:   "73ea2ae83de5dede38609a3bb93fbd170bfbc84ab81a46d3653704f546b84270"
     sha256 cellar: :any,                 arm64_ventura:  "aee80e84acb4348d360de4ec9d3fa868c5785983bc278d06cf25ac108493e564"
     sha256 cellar: :any,                 arm64_monterey: "67399c6e0e2f05a0474ba1687ad45d4a4a306c70cbe2a568f47ae33eece75b50"

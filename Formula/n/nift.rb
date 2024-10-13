@@ -6,6 +6,7 @@ class Nift < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "ec431ecc4b58ffa4a1a11fee47560dacd95b7868b4a49510d760e63c5d509d69"
     sha256 cellar: :any,                 arm64_sonoma:   "d956ac86be1b6ba12faa5fd44203b5528e7449118bf10529ccc92b9e99870cdd"
     sha256 cellar: :any,                 arm64_ventura:  "a7b8a8bb2bae90045ea083bb172b1209c3a9afb6cd7c23dcb9daaacb33a8a5e3"
     sha256 cellar: :any,                 arm64_monterey: "318f8e6c52625ac950dd133d0842f679b8fdfcfcf81291e7c62681dd9841833d"
@@ -33,7 +34,7 @@ class Nift < Formula
 
   test do
     mkdir "empty" do
-      system "#{bin}/nsm", "init", ".html"
+      system bin/"nsm", "init", ".html"
       assert_predicate testpath/"empty/output/index.html", :exist?
     end
   end

@@ -11,18 +11,19 @@ class Klee < Formula
   head "https://github.com/klee/klee.git", branch: "master"
 
   bottle do
-    sha256 arm64_sonoma:   "bf28322223d706f98283cdfb4b13c78aa0618a07d05f40e182be4ba8132cff1f"
-    sha256 arm64_ventura:  "097ba050132ae174c3a58168f05e6073aa822a45de959ccdbb5f2aec8caad405"
-    sha256 arm64_monterey: "fdb0f24f5c1a5fd4c3e44eebd50a754d803aeb0595319c80b3e46c9960914a77"
-    sha256 sonoma:         "69bfbed571b514d88c7bb32cec071074346ac807ae206bdcdd2946ee10322f14"
-    sha256 ventura:        "d7779014ed216f5c966c00179766ea6892a9b3fbd7930df33bd9397cb6ba36a6"
-    sha256 monterey:       "f8d3398a2292163f6468aeda5e3a3c497adef2dc370c0797b875794e016ee48d"
-    sha256 x86_64_linux:   "27f8ee812fc340d82871cdd27e40c2cc260dcbad6aed79dc5f79b9e01a301529"
+    rebuild 1
+    sha256 arm64_sequoia: "262a3321fd86fffaa6272a26fae9ffccde49bda2285893d31370347522abc8c4"
+    sha256 arm64_sonoma:  "b6afa2ba09a0726ddfea174a3a2662f9de112c1c4fc717a3499ad4d7b040a3c1"
+    sha256 arm64_ventura: "7add7340e6771b415d2144a610c175530e2f65ec3bd64533b763be1f7ea931ea"
+    sha256 sonoma:        "7de8d29c9fa862bac0789f3a37073df7921f3c3498efbab9ddc0299dfffab371"
+    sha256 ventura:       "295c6e0c2e66ec6d30ab71526ccb44e2f667decb1ac0c187fde988c617a1587f"
+    sha256 x86_64_linux:  "f18180b6872624ad20c474f8d998c942fefa20a3bde2bf5a01cff48b61f451d3"
   end
 
   depends_on "cmake" => :build
+
   depends_on "gperftools"
-  depends_on "llvm@14" # LLVM 16 PR: https://github.com/klee/klee/pull/1664
+  depends_on "llvm@16"
   depends_on "python@3.12"
   depends_on "sqlite"
   depends_on "stp"
@@ -31,16 +32,17 @@ class Klee < Formula
 
   uses_from_macos "zlib"
 
-  on_linux do
-    depends_on "python-setuptools" => :build # Remove with LLVM 15+
+  on_macos do
+    depends_on "cryptominisat"
+    depends_on "minisat"
   end
 
   fails_with gcc: "5"
 
   # klee needs a version of libc++ compiled with wllvm
   resource "libcxx" do
-    url "https://github.com/llvm/llvm-project/releases/download/llvmorg-14.0.6/llvm-project-14.0.6.src.tar.xz"
-    sha256 "8b3cfd7bc695bd6cea0f37f53f0981f34f87496e79e2529874fd03a2f9dd3a8a"
+    url "https://github.com/llvm/llvm-project/releases/download/llvmorg-16.0.6/llvm-project-16.0.6.src.tar.xz"
+    sha256 "ce5e71081d17ce9e86d7cbcfa28c4b04b9300f8fb7e78422b1feb6bc52c3028e"
   end
 
   resource "tabulate" do
@@ -60,8 +62,10 @@ class Klee < Formula
     # Use build configuration at
     # https://github.com/klee/klee/blob/v#{version}/scripts/build/p-libcxx.inc
     libcxx_args = std_cmake_args(install_prefix: libcxx_install_dir) + %W[
-      -DCMAKE_INSTALL_RPATH=#{rpath}
-      -DLLVM_ENABLE_PROJECTS=libcxx;libcxxabi
+      -DRUNTIMES_CMAKE_ARGS=-DCMAKE_INSTALL_RPATH=#{rpath}
+      -DLLVM_ENABLE_RUNTIMES=libcxx;libcxxabi
+      -DLLVM_ENABLE_PROJECTS=
+      -DLLVM_ENABLE_PROJECTS_USED:BOOL=ON
       -DLLVM_ENABLE_THREADS:BOOL=OFF
       -DLLVM_ENABLE_EH:BOOL=OFF
       -DLLVM_ENABLE_RTTI:BOOL=OFF
@@ -78,8 +82,8 @@ class Klee < Formula
       LLVM_COMPILER_PATH: llvm.opt_bin,
     ) do
       system "cmake", "-S", libcxx_src_dir/"llvm", "-B", "libcxx_build", *libcxx_args
-      system "cmake", "--build", "libcxx_build", "--target", "cxx"
-      system "cmake", "--build", "libcxx_build/projects", "--target", "install"
+      system "cmake", "--build", "libcxx_build", "--target", "runtimes"
+      system "cmake", "--install", "libcxx_build/runtimes"
     end
 
     libcxx_libs = libcxx_install_dir.glob("lib/{#{shared_library("*")},*.a}").reject(&:symlink?)
@@ -151,7 +155,7 @@ class Klee < Formula
                     "-c", "-g", "-O0", "-Xclang", "-disable-O0-optnone",
                     testpath/"get_sign.c"
 
-    total_instructions = 33
+    total_instructions = 32
     expected_output = <<~EOS
       KLEE: done: total instructions = #{total_instructions}
       KLEE: done: completed paths = 3

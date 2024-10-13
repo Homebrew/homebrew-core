@@ -4,12 +4,12 @@ class Audacious < Formula
   license "BSD-2-Clause"
 
   stable do
-    url "https://distfiles.audacious-media-player.org/audacious-4.4.tar.bz2"
-    sha256 "aadc5d26ea2954236a00153e424094d9e6eb55c5c324c08fd0491b7c2ae2f830"
+    url "https://distfiles.audacious-media-player.org/audacious-4.4.1.tar.bz2"
+    sha256 "260d988d168e558f041bbb56692e24c535a96437878d60dfd01efdf6b1226416"
 
     resource "plugins" do
-      url "https://distfiles.audacious-media-player.org/audacious-plugins-4.4.tar.bz2"
-      sha256 "3caf3a5fe5b6f2808f461f85132fbff4ae22a53ef9f3d26d9e6030f6c6d5baa2"
+      url "https://distfiles.audacious-media-player.org/audacious-plugins-4.4.1.tar.bz2"
+      sha256 "484ed416b1cf1569ce2cc54208e674b9c516118485b94ce577d7bc5426d05976"
     end
   end
 
@@ -19,13 +19,11 @@ class Audacious < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "e03058224d658019e61fbbc1c04a385e26e470ec902c6cdeb7d033b72614bf73"
-    sha256 arm64_ventura:  "f1cff5889746668db16352051f62bff287fd0c29f343de04f2d06d61851ef72c"
-    sha256 arm64_monterey: "79546d5bd47b5f3a5c44f73f89ff223301139f213e519c553ca76c564ee795c7"
-    sha256 sonoma:         "873a17be51d0898e05fa87a46b781822a0a22d31480e0bb25cb5bc18bed11279"
-    sha256 ventura:        "cd34f079dc5b8268ac03b5762ea1716b7a4ebc1145b4f1e64f22894111f68d66"
-    sha256 monterey:       "b1056a92f3c10f9d818e27d60e54f4ce9b0f42812a18a76510555b596a499986"
-    sha256 x86_64_linux:   "695f2ae08a9e8b2e3e34358b64eaa566d39121334abf57c913323ccbeb9e5483"
+    sha256 arm64_sonoma:  "53552087050d5e1c91c16c2d0fc98b7ebe9c8123b20f259245c0531b64de5609"
+    sha256 arm64_ventura: "0d943a692b27de31f4f0d2c01525727c9e9fe02865967bb2feec03ee71b3449a"
+    sha256 sonoma:        "d32510bb7caedfd26aa795b4e87d539579f19eafe8215acfa859dbef355f50f3"
+    sha256 ventura:       "a07ddaf905410b17e0cb40b534bfd18fb8cb2bd325a304fbf5359cda479fefc9"
+    sha256 x86_64_linux:  "3c5a0928cf6878761717b747d932b04a62d31924560ae973b0c8983d881cd1fb"
   end
 
   head do

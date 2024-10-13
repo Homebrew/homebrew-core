@@ -6,6 +6,7 @@ class Zenity < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
+    sha256 arm64_sequoia:  "236de42b38e56b0c28c42735ea43e13e407967fb1e0b35c230d2c5bb78b86fbe"
     sha256 arm64_sonoma:   "324af3731f3817b139c002ff323090fc082a0fd98d62bf7111301a9bf6b6315f"
     sha256 arm64_ventura:  "ced590fb6362f41d1ceb9783aa9ed4355991119d7775e13b5c7ca3a9ebc528b2"
     sha256 arm64_monterey: "f8f09e214c8a87f2b4b123047657e12d355a14d2c95def2b9f52f9dd5fecc04e"
@@ -23,7 +24,6 @@ class Zenity < Formula
   depends_on "pkg-config" => :build
 
   depends_on "glib"
-  depends_on "gtk+3"
   depends_on "gtk4"
   depends_on "libadwaita"
   depends_on "pango"
@@ -38,6 +38,10 @@ class Zenity < Formula
     system "meson", "setup", "build", *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"
     system "meson", "install", "-C", "build"
+  end
+
+  def post_install
+    system Formula["gtk4"].opt_bin/"gtk4-update-icon-cache", "-f", "-t", HOMEBREW_PREFIX/"share/icons/hicolor"
   end
 
   test do

@@ -7,7 +7,8 @@ class OpenCompletion < Formula
   head "https://github.com/moshen/open-bash-completion.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "277bb92070915a0d5cd8a76853d603ce6a4c02624c9bb0865c14e9fb04fc1b98"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "446d03e5ddceca4179f58fb2378d39f0cc1559f2b876ad53291c59ae1f43d548"
   end
 
   depends_on :macos

@@ -6,6 +6,7 @@ class Sh4d0wup < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "d271b4e7d8e501547f5f005334678566e0ef29ddea9ace526c46a1fba236e461"
     sha256 cellar: :any,                 arm64_sonoma:   "6400ac5b11c6bd5e7a057940a73a05824cbe3546ca57f7760f66862975d4dffe"
     sha256 cellar: :any,                 arm64_ventura:  "9b734ee54116c4288b832c79d3e722c057570e39129ba54163242a74bc0a089d"
     sha256 cellar: :any,                 arm64_monterey: "3ab07c4272e04dd6625f1c5071f903e3f98334e0055adbb32170df5ae307c565"
@@ -19,10 +20,21 @@ class Sh4d0wup < Formula
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
   depends_on "pgpdump" => :test
+
+  depends_on "gmp"
   depends_on "nettle"
   depends_on "openssl@3"
   depends_on "pcsc-lite"
+  depends_on "xz"
   depends_on "zstd"
+
+  uses_from_macos "bzip2"
+
+  # rust 1.80 build patch, upstream pr ref, https://github.com/kpcyrd/sh4d0wup/pull/32
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/31f5e08b1c7df4025d7042dafe756e5326151158/sh4d0wup/rust-1.80.patch"
+    sha256 "24f3fc3919ead47c6e38c68a55d8fed0370cfddd92738519de4bd41e4da71e93"
+  end
 
   def install
     # Work around an Xcode 15 linker issue which causes linkage against LLVM's

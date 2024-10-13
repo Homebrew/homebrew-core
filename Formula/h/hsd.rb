@@ -1,5 +1,3 @@
-require "language/node"
-
 class Hsd < Formula
   desc "Handshake Daemon & Full Node"
   homepage "https://handshake.org"
@@ -13,20 +11,22 @@ class Hsd < Formula
   end
 
   bottle do
-    sha256                               arm64_sonoma:   "61c2aa6a86c332b29b03754702df5e26cb6e263eb6a25df50c19ecf27794643a"
-    sha256                               arm64_ventura:  "2f3102a965e2e4ce59a7702309301cf448e89bdea3d370f489b38310aa1298d3"
-    sha256                               arm64_monterey: "42f2b274e0732cdde5412969b9200ffc32b1fd38818ea4c79901ac6b986448ab"
-    sha256                               sonoma:         "373070fc85e6e71ba588c7ed147c9ca5dfbfd7d8658687b8ff0b35b8f744bdac"
-    sha256                               ventura:        "ee3f6cc11f3a8b7d403a2881c68c2bc25046553f03f85b787115a918351b0cc8"
-    sha256                               monterey:       "2e68c505a331dce0c06e9dc3446d4d0586dbaee5caf4e4d9e35a5256654e915d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c48b88c9874c7717a3ca4ef378bd3a9233d3fe73cacc9ed56befbf8aeb316e17"
+    rebuild 1
+    sha256                               arm64_sequoia:  "38370bba9da2a34a815b8d9d2c1db0b4f966e7cdc80e9bcc2d56260c00fef966"
+    sha256                               arm64_sonoma:   "aca335ee9c1ce485ff2707794e8266a99364f54126c52aa51a017516416469a5"
+    sha256                               arm64_ventura:  "724d34587826a5fbc70b8261c6cd5731615db65885792ee06eabc465de47f641"
+    sha256                               arm64_monterey: "63016ff5b01c5817c264334ae73ec6563bf1407fe2c4d075e42fb9f48e9a4a20"
+    sha256                               sonoma:         "d868bb06dfe9b7249563131e6d0aefcb0ca78ec8edfafec38ed34127b740484f"
+    sha256                               ventura:        "92e1242289174273f88b61eaf3f27a17aee31498dd8f838fcee9eb76f0ae6195"
+    sha256                               monterey:       "e823e72e815659ec79d23f9232697bcb800da16d2634b47010e7e7e303b3d07b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9b725ebb4a9c05cc211b83a4932c53cd8054140bdbb62071bb7cccd34715be01"
   end
 
   depends_on "node"
   depends_on "unbound"
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", *std_npm_args
     bin.install_symlink Dir[libexec/"bin/*"]
   end
 

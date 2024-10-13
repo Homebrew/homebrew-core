@@ -3,9 +3,11 @@ class Odo < Formula
   homepage "https://github.com/atomicobject/odo"
   url "https://github.com/atomicobject/odo/archive/refs/tags/v0.2.2.tar.gz"
   sha256 "52133a6b92510d27dfe80c7e9f333b90af43d12f7ea0cf00718aee8a85824df5"
+  license "ISC"
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "42a837f21b67949d9a12872adc2b2b62553071b86d947ff7640eac9547a00261"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8aa9f769724fe6c4fe7e3d0e383db74f03100a7fd90a947cc2df1835505829aa"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "dd2fad51300e663cba126f61573c740198f66f1f8a505b8907605892ab1a0c48"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6ddc4ba217251c6827fcd32c3fda2df9c294305dddc68d976072cef25c4dd768"
@@ -33,6 +35,6 @@ class Odo < Formula
   end
 
   test do
-    system "#{bin}/odo", "testlog"
+    system bin/"odo", "testlog"
   end
 end

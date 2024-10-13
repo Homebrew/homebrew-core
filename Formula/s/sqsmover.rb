@@ -7,6 +7,7 @@ class Sqsmover < Formula
   head "https://github.com/mercury2269/sqsmover.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "71138465799d2eef41934e3c9af64946ba7568d99b33c26b4f139bcba0957342"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "fc16a425c148319663c2ed049384633fb3402c86cb919f7274eeb01850416056"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "ed7f54467803a8b532f6980792beda2deed1943b905377386086b99b4343951a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "fa8e6b9cc7c8df5f3bd6221092a8b90337e70afb21418b1ac386cbe6c1846dea"

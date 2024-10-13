@@ -6,6 +6,7 @@ class Sickle < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "14f29f9f78cfd733320efeca1a531d5a22db8908185bf5340f1d806c554fe7d9"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9c820fd16930b4e385a72a92abd1f57386b87ac03fee2ec19fb02996e22fc3ae"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "e777fe310603467d2feaa5702bca61f2444c2b2e1e82cd2ba0bc21dfb7a2ccd7"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "520c9e80b25890a25bb12baca208128352164a31aa7cb76111d9a4a918106c48"

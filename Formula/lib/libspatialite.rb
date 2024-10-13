@@ -2,6 +2,7 @@ class Libspatialite < Formula
   desc "Adds spatial SQL capabilities to SQLite"
   homepage "https://www.gaia-gis.it/fossil/libspatialite/index"
   license any_of: ["MPL-1.1", "GPL-2.0-or-later", "LGPL-2.1-or-later"]
+  revision 1
 
   stable do
     url "https://www.gaia-gis.it/gaia-sins/libspatialite-sources/libspatialite-5.1.0.tar.gz"
@@ -22,15 +23,14 @@ class Libspatialite < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "e2b131baa2cff3e6c1797baec3d6e3307af41074f3cd836328c86b328935b0de"
-    sha256 cellar: :any,                 arm64_ventura:  "93ad60cc9ec55d4f4472d83bf9775d2e1d75fc6d23b3cdf891086057bc76e465"
-    sha256 cellar: :any,                 arm64_monterey: "cd54cba79354b17f2a3d0b367a1cf0863ce134ce7441b4ec5b8538f6e51a2cf0"
-    sha256 cellar: :any,                 arm64_big_sur:  "51e6aa08cb016ed1b348cb7d4cdbddf43f5f99d0a21958eb8272b635df732c61"
-    sha256 cellar: :any,                 sonoma:         "bd2eed8c377d2e0e2894d2a62de0ed80428287bdbf4e2ff96fe197055f8d6db7"
-    sha256 cellar: :any,                 ventura:        "3baa41829944e9b089682dd3d4d96cd4a68d67d1a4668e935ad2387e626c196e"
-    sha256 cellar: :any,                 monterey:       "384f5f1304cf4dfd32e0a59e8c4669f5534a043cab13791d6dc56f696230d407"
-    sha256 cellar: :any,                 big_sur:        "1957739657a713ca553b78e3a9a7ac4626a50af9db64d207d5d2487a2df95de9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8a0a7b3bf5bd73224b24abefa5a0f709c4c6fd832d4868cf6fedf213a73971fd"
+    sha256 cellar: :any,                 arm64_sequoia:  "cd162e7a36e33bc982374bc2e8efced6d1669810852c6bef404967dc7507eefa"
+    sha256 cellar: :any,                 arm64_sonoma:   "efd80614ae13d20ae2af905b7b6a673455d5d281e14e75e6511d1d4a1fdeda8d"
+    sha256 cellar: :any,                 arm64_ventura:  "1a05eb0afc04b80535b62c3f6c602ed5ef6f7eaed37cf7bc940bf4539dab1753"
+    sha256 cellar: :any,                 arm64_monterey: "2222ce79b7ac80c9d858390e201da7a3bae3fb432e363b358c943171cfe0294b"
+    sha256 cellar: :any,                 sonoma:         "1f29fd1ce9216f960a3e22279b67cd0411ca3694160f6c5c0c769524dfa57567"
+    sha256 cellar: :any,                 ventura:        "a45dd6acc0e93aa02176b73e0ff7ed57ac6c020e6a72538d16cbdd67c19a4012"
+    sha256 cellar: :any,                 monterey:       "1bff63a0b2139edfa2d2df74870f98d6dba930d840973b6b523c1405e33c0279"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a5fbfff96039dfc137d483a59d19c45d97c57c461570073f7005c602edf8f356"
   end
 
   head do
@@ -48,9 +48,10 @@ class Libspatialite < Formula
   depends_on "minizip"
   depends_on "proj"
   depends_on "sqlite"
+  uses_from_macos "zlib"
 
   def install
-    system "autoreconf", "-fi" if build.head?
+    system "autoreconf", "--force", "--install", "--verbose" if build.head?
 
     # New SQLite3 extension won't load via SELECT load_extension("mod_spatialite");
     # unless named mod_spatialite.dylib (should actually be mod_spatialite.bundle)

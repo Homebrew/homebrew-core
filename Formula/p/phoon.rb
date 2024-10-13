@@ -4,6 +4,7 @@ class Phoon < Formula
   url "https://www.acme.com/software/phoon/phoon_14Aug2014.tar.gz"
   version "20140814"
   sha256 "bad9b5e37ccaf76a10391cc1fa4aff9654e54814be652b443853706db18ad7c1"
+  license "BSD-2-Clause"
   version_scheme 1
 
   # We check the site using HTTP (rather than HTTPS) because this server
@@ -20,6 +21,7 @@ class Phoon < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "eea7e8ab443ec3e74f55f9b0572fc1fdb041d4a484f05c523820d3c9c510d646"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4b1fb75a7e0219b4f893f0ffc74791a27e82e95e127e6f8c66680b046d6f8a72"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "dd15d230ce1c25ac23caf064b0468fcbb779b3c0ba264410f59f3d8796c9f0c6"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "16e0d7747e8d27e1d2070e9c0a977e978df8e050fcfec31ad4da2363450ac297"
@@ -40,6 +42,6 @@ class Phoon < Formula
   end
 
   test do
-    system "#{bin}/phoon"
+    system bin/"phoon"
   end
 end

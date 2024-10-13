@@ -12,6 +12,7 @@ class SpawnFcgi < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "4b40a192df0e2b7d85355b801a454ef931acfc5667bd6ce89cf954531329270f"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4de0d3bcce309cbdc05bf9a6a26817b6387138d7277f7e2d7370cd1ad3084d5c"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "9b8901315c6c844b9111dbfd8c6d7ddfcb42369700137fca1e415f3099241775"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "34d39121f6d102b995f16d7681ef5bbcf229212f4fff2ec26b8f8aba4140b40a"
@@ -28,6 +29,6 @@ class SpawnFcgi < Formula
   end
 
   test do
-    system "#{bin}/spawn-fcgi", "--version"
+    system bin/"spawn-fcgi", "--version"
   end
 end

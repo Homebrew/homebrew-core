@@ -7,6 +7,7 @@ class Dosfstools < Formula
   head "https://github.com/dosfstools/dosfstools.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "a865f34d1361ac215e3ec359fd524e4ee92ea63cac75ccaac99298c871aa4b28"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "574e8d06c7e0cfd4c57b7d3187a7ba4b0d59a4162e6550e5f49afcfb9de8090d"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "40a3ed816a04a4104a60aa95f8ae76bee9be12872e8147c0a41fa3f879f11ced"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "41e7da04f31a04e5ad7fc460b9c15b6526780fab0de0339fcdea540dfbaec964"

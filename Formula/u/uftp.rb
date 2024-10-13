@@ -11,6 +11,7 @@ class Uftp < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "a06f88677a1fc1815127a1e75dcc3855a46f70b9e23333883a23f9635095b466"
     sha256 cellar: :any,                 arm64_sonoma:   "24937667b9315c47cc2ddda94564cda1e1d96cc023c38ecf73be04d14ce3f451"
     sha256 cellar: :any,                 arm64_ventura:  "2b988c5f0d11e5c32152fcdd31b760f5d76ad87518e17b08bef428de1637c68f"
     sha256 cellar: :any,                 arm64_monterey: "7d5a837843772eb893e746c3cba51dc03fcd976ebfef1ffd51823a6e880e5bcb"
@@ -37,6 +38,6 @@ class Uftp < Formula
   end
 
   test do
-    system "#{bin}/uftp_keymgt"
+    system bin/"uftp_keymgt"
   end
 end

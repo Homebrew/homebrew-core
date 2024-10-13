@@ -1,19 +1,18 @@
 class Envio < Formula
   desc "Modern And Secure CLI Tool For Managing Environment Variables"
   homepage "https://envio-cli.github.io/home"
-  url "https://github.com/envio-cli/envio/archive/refs/tags/v0.5.1.tar.gz"
-  sha256 "d0009a19dc081d3e7e1b36e8e9fdc29f675d8ac80ddd08565777e6b7d7a99bb1"
+  url "https://github.com/envio-cli/envio/archive/refs/tags/v0.6.1.tar.gz"
+  sha256 "24cd7c485226be7f7921a95ae4edaf3cb510c90a339c51e51423c3eb4deee6dc"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/envio-cli/envio.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "3210967aeb023bebaf7821b7ac27c1ff1775bc46745109b49fb519ed4a8abc9c"
-    sha256 cellar: :any,                 arm64_ventura:  "636e7053c01dce88a72b925b30a718318dd3cad5beffc54182d79e7bbbbe140b"
-    sha256 cellar: :any,                 arm64_monterey: "9edd1d838e14c436423b94e56839e8138281c895a59b297507b6d0bc21be3fee"
-    sha256 cellar: :any,                 sonoma:         "20813b09153aa1ecebbc51fd62f1f6ef6e242535e94a139de8a9f7b4e3a657d6"
-    sha256 cellar: :any,                 ventura:        "6316547931cd2f68826260c789efe8f13699a73a84af76005d282c76dec8d0dd"
-    sha256 cellar: :any,                 monterey:       "413ac92043f661fc9cb9d1ba900245001e87664f0c87389d7ba0eebfb5091f74"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ffc838da1b8bcfcd5f4cfa0396f44d1a8e4193612651596910128bbc0bd21bac"
+    sha256 cellar: :any,                 arm64_sequoia: "f0d968440fe2fcddd6c39d2541817b3cd51267e520d06ecd2cb1e80f03ffd4a5"
+    sha256 cellar: :any,                 arm64_sonoma:  "1a0588163752bdb12f4b0d8e91646345b8c798006cf240328703d1e0a508ebce"
+    sha256 cellar: :any,                 arm64_ventura: "4f5305056a8165baf2b45d71b2a94f9800792923949c44a30c030d8b0072ef49"
+    sha256 cellar: :any,                 sonoma:        "6812bb1eca12a3c74c542d967d2930bbeb2a0a77ab4b0d3f04eba9df5196063c"
+    sha256 cellar: :any,                 ventura:       "777f696105129c6c3c49944c45854d9cc3f5f63cd2e5913d6692e2337c684f88"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "61427474955a6e35804f605178403e2ac41bda326841faf024ba873b88824c0d"
   end
 
   depends_on "pkg-config" => :build

@@ -6,6 +6,7 @@ class Jhead < Formula
   license :public_domain
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "891f4ab79df46ae9c29264f4cedff94944b4864c60db72d0e22ee015a381f3dc"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "71ace969a83c578f9c0c891286904fed354829f5cb0a44f9314e0d75972e615a"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "355d4bae9c9af01078c7c52425ab63e562d6b648c070b0a80e7504367fad0be6"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "8e1b0e10fee8f443caaa68cb131a4f1e073e006a1f944b07d58caae3320e6e82"
@@ -24,6 +25,6 @@ class Jhead < Formula
 
   test do
     cp test_fixtures("test.jpg"), testpath
-    system "#{bin}/jhead", "-autorot", "test.jpg"
+    system bin/"jhead", "-autorot", "test.jpg"
   end
 end

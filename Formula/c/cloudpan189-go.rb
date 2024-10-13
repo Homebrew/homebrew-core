@@ -7,6 +7,7 @@ class Cloudpan189Go < Formula
   head "https://github.com/tickstep/cloudpan189-go.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "793542588a08328d55060fc0faeb3808bde9656eee00e8df0b9ca98ad70ed9b0"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c66a3ce0426a356d4b5c05fe95fc6213ed4c867048157ebbc862ca9196af857e"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "b6870cbe4123a3eae721cc676130d2146794d9a3631268d48c579430a923173f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b6870cbe4123a3eae721cc676130d2146794d9a3631268d48c579430a923173f"
@@ -18,7 +19,8 @@ class Cloudpan189Go < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "21c193bc56690eef410bdbbce6d6b774fcf658f16b114ea0222afee18591d361"
   end
 
-  depends_on "go" => :build
+  # use "go" again when https://github.com/tickstep/cloudpan189-go/issues/101 is resolved and released
+  depends_on "go@1.22" => :build
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w")

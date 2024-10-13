@@ -4,6 +4,7 @@ class PopplerQt5 < Formula
   url "https://poppler.freedesktop.org/poppler-24.04.0.tar.xz"
   sha256 "1e804ec565acf7126eb2e9bb3b56422ab2039f7e05863a5dfabdd1ffd1bb77a7"
   license "GPL-2.0-only"
+  revision 1
   head "https://gitlab.freedesktop.org/poppler/poppler.git", branch: "master"
 
   livecheck do
@@ -11,13 +12,14 @@ class PopplerQt5 < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "f08fe036629f6df0514218e89c7f0dae4c686aa5caea6e9641f365ae47114760"
-    sha256 arm64_ventura:  "f20dca04b250d5f9e26355d308c1d48fb9abcb1e577f38846577a7a35303afa8"
-    sha256 arm64_monterey: "67331be704b6fdf64250926f0217843b9c50cf1f3dff215e4c1abf5fbbc5f107"
-    sha256 sonoma:         "39a49e6863eb8207d2f448ab281e8ed1e430b11b086ce3f4a6db27576c8544d5"
-    sha256 ventura:        "086bd249c3350ff3c488fde1897e05bf09583c1c20771a6d95eb1a32b60fbc97"
-    sha256 monterey:       "0a07395ab099f762e5a1b79f2197acb956dc440ccfc901dd49a1bef7c3d58905"
-    sha256 x86_64_linux:   "ff41c11021bcd1a25038892a82678ce35409055f76947b163eaf1772e4707cf7"
+    sha256 arm64_sequoia:  "8b5a420c83516ddfe6148a1b63b3016e1c6684a3ca7dc3599e8a639b8f2f7d09"
+    sha256 arm64_sonoma:   "68c70a13741b87792902219a6ba666354f4fdbbc7838a07f271ac77140d82fd1"
+    sha256 arm64_ventura:  "637369aae5fead971b1538a7a32d24f46fb9a44c63fb6125e97f2446e2e6f2f2"
+    sha256 arm64_monterey: "fcb94b326dd715acc439f3a152e14e50765d9a6867224f75f55c3ac2fdaf5c12"
+    sha256 sonoma:         "8787f6c0ba49344cdd34326076456192dbfc0dbd1e7644d6577a5b4cb13dd188"
+    sha256 ventura:        "ba9b7e9780e37c0c77fa370b981206c47a2d440055d065a16a0928b233fa93ec"
+    sha256 monterey:       "97e1ada0094dd0805b385f6698286f346740ae88b99cf526e6505e62c80bdb59"
+    sha256 x86_64_linux:   "1b22d0fd6dacf9bff211a3d31b265dc543be80ff8f7bd3860fed52ebaba508e9"
   end
 
   keg_only "it conflicts with poppler"
@@ -85,6 +87,6 @@ class PopplerQt5 < Formula
   end
 
   test do
-    system "#{bin}/pdfinfo", test_fixtures("test.pdf")
+    system bin/"pdfinfo", test_fixtures("test.pdf")
   end
 end

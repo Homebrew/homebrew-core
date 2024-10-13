@@ -7,6 +7,7 @@ class Bwa < Formula
   head "https://github.com/lh3/bwa.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "40d16f4f50fc39cc68f9d91d3b3931739f8411c871635f963d94e2d6e797f543"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0f6b87e89a46108e9c8f92ea8ceaf747ba0e8b759c685c0a0f9379e3f9733768"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "4ab4ac87cfd87c58980d86cd85ddbb254e8b3e283148f3589efe7e9f4fa58ac7"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "0a187c420db866dc844ea6f712656b4e4c86bc3640289ac63e71c3b2cbb90a4e"

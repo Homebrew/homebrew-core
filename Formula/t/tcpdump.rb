@@ -1,8 +1,8 @@
 class Tcpdump < Formula
   desc "Command-line packet analyzer"
   homepage "https://www.tcpdump.org/"
-  url "https://www.tcpdump.org/release/tcpdump-4.99.4.tar.gz"
-  sha256 "0232231bb2f29d6bf2426e70a08a7e0c63a0d59a9b44863b7f5e2357a6e49fea"
+  url "https://www.tcpdump.org/release/tcpdump-4.99.5.tar.gz"
+  sha256 "8c75856e00addeeadf70dad67c9ff3dd368536b2b8563abf6854d7c764cd3adb"
   license "BSD-3-Clause"
   head "https://github.com/the-tcpdump-group/tcpdump.git", branch: "master"
 
@@ -12,15 +12,14 @@ class Tcpdump < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "ea69752d486c8e690d770e13b7601823634dcee1edc3a29bf9b9f7564655af38"
-    sha256 cellar: :any,                 arm64_ventura:  "da8ef856d26aebf828f5f34df8f0db416824debbcc1ff3b608b3651e772410b7"
-    sha256 cellar: :any,                 arm64_monterey: "5741abd85abf4c21ee78ba80983c68351206d0129ce60c54bafd69146ce478b5"
-    sha256 cellar: :any,                 arm64_big_sur:  "1722402b5ee8397fe1c8bf5fb90e0e15ac277d65761b9f80d2b613d12da6a1d3"
-    sha256 cellar: :any,                 sonoma:         "e55b1c248e5b37594755066046aaecaac89b3a0fdf08d3c0b4d962dfd13e1f0b"
-    sha256 cellar: :any,                 ventura:        "b0711aab51b74e2ed9a6d067e006245d55d37c89bea9bdda21df92655aca2f00"
-    sha256 cellar: :any,                 monterey:       "b929cb0bf2ad6a9ff4d3c9fb62646d257dd095ff540bb44259b3bb5ab27b9704"
-    sha256 cellar: :any,                 big_sur:        "acdf5f172d82af424e721a51f37d55d646318ebd685c498ffeb2d5c785bc8c9d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3cb384cb6f8c9edcec6288d08bea8bf834da35b9d1c138c357e8765af2c7f1f7"
+    sha256 cellar: :any,                 arm64_sequoia:  "1148ef2fa8284dd4f3501fbb831e355d1802ff312588e964000e8bf6119d5f1a"
+    sha256 cellar: :any,                 arm64_sonoma:   "3f5043c5db6891bd831a8c669d502d7b648e94c5d7879bfc50bbd19c3206d966"
+    sha256 cellar: :any,                 arm64_ventura:  "fe74349a8c4053d8174b151fa0a5f08ad21bde866b32c98d17352cdaf2979407"
+    sha256 cellar: :any,                 arm64_monterey: "0931f78d5219508116403e1b5bc32c350f41391ecc09e91e79700ee6f6afacf3"
+    sha256 cellar: :any,                 sonoma:         "8b597346315197c4496008670bc19b707b9101f2fc3f8c3cb5ce27660b15f1af"
+    sha256 cellar: :any,                 ventura:        "c89ac387870a36878ec784a2596001604fb8e45bf08b843cc67bca65b6b8b2e8"
+    sha256 cellar: :any,                 monterey:       "747664cf9fe675ea183ab0296ac49e94b787cf7872d312796b44f389f4f9fe5e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "93fbba2a9bdd304e8aaa4c78e6f74b8e41de3312bd444833320f4dbe09b08dc9"
   end
 
   depends_on "libpcap"

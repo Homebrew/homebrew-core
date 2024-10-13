@@ -3,7 +3,7 @@ class Jcal < Formula
   homepage "https://savannah.nongnu.org/projects/jcal/"
   url "https://download.savannah.gnu.org/releases/jcal/jcal-0.4.1.tar.gz"
   sha256 "e8983ecad029b1007edc98458ad13cd9aa263d4d1cf44a97e0a69ff778900caa"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
 
   livecheck do
     url "https://download.savannah.gnu.org/releases/jcal/"
@@ -11,6 +11,7 @@ class Jcal < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "31377fb6a087e5e70e9ae8a1bc7ac390db8efa860f7a956a759b27e710fe21e2"
     sha256 cellar: :any,                 arm64_sonoma:   "45f6803d072d0989897f3f1995abd33b4f1036b8b7921fb9abfa59ee9467df90"
     sha256 cellar: :any,                 arm64_ventura:  "199711a3aa65d8d6b5d7ae804e99f0025ad8eb59c77f37d4058566edc6c0d1eb"
     sha256 cellar: :any,                 arm64_monterey: "6f1986d499d27fd07525390066318239e9efdac990a58578ef3fe2147d32563b"
@@ -42,7 +43,7 @@ class Jcal < Formula
   end
 
   test do
-    system "#{bin}/jcal", "-y"
-    system "#{bin}/jdate"
+    system bin/"jcal", "-y"
+    system bin/"jdate"
   end
 end

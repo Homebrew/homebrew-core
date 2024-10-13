@@ -12,6 +12,7 @@ class Never < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "1ec72ae68f2d53ebd8a8e21e712726b4b0ed35f083e95a7752db9ef4df9d2814"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "de0e6c32586534fa999011920ccdcbeb91429e16a1f032e9702be8c87556fed3"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "b4c74cff8a5b42c144b8936658171abc0ef544be17dd62a6552552de7f7ba781"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "94c676366e00825d3eab442451d7a9235af9df474e3431f775920607dddee761"
@@ -32,12 +33,10 @@ class Never < Formula
   def install
     ENV.append_to_cflags "-I#{MacOS.sdk_path_if_needed}/usr/include/ffi" if OS.mac?
 
-    mkdir "build" do
-      system "cmake", "..", *std_cmake_args
-      system "make"
-      bin.install "never"
-      lib.install "libnev.a"
-    end
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build"
+    bin.install "build/never"
+    lib.install "build/libnev.a"
     prefix.install "include"
   end
 

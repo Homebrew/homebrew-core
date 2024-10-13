@@ -7,6 +7,7 @@ class Mon < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "8be88943149d839ef8ffc37b1b81150f8c0325fc40a1878bd864df744fa96d67"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e6e93600a34a633e6d90e5096c5e13e6df1080197f84ffcb1ad4fab2cafa9a04"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "51930349a969998d73df25075032c233871f445a9e7419f90419103c223110f5"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "3f814c697e985f27214f721e5205baa19e3673f94b905975f2cf65bf8e47bd07"

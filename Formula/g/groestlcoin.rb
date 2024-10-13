@@ -1,19 +1,18 @@
 class Groestlcoin < Formula
   desc "Decentralized, peer to peer payment network"
   homepage "https://groestlcoin.org/groestlcoin-core-wallet/"
-  url "https://github.com/Groestlcoin/groestlcoin/releases/download/v27.0/groestlcoin-27.0.tar.gz"
-  sha256 "cf8de03ef104e67aa7c0c1f69fd78e19ea6fa3e8187d890d7916c1c72a3be530"
+  url "https://github.com/Groestlcoin/groestlcoin/releases/download/v28.0/groestlcoin-28.0.tar.gz"
+  sha256 "4446c49916c6f2c45fcf609270318dc114e166d1c833bb7d0b51d12cb42acba6"
   license "MIT"
   head "https://github.com/groestlcoin/groestlcoin.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "40bae4088292ac22e77b60cc99a83d538c281a7d94bf2ee2466cc7975b319c54"
-    sha256 cellar: :any,                 arm64_ventura:  "18cd32907ee3d648759cef09403911b9c38c58bea8c69e666c5008bb3f9ec8bf"
-    sha256 cellar: :any,                 arm64_monterey: "d303d76c742e6d6f80c16394b318388cb57795da1ca13db288163f9282b4c0fe"
-    sha256 cellar: :any,                 sonoma:         "23b6d0947f9895cb9974137dc24ae92c304d6017926c714257d9654c5f5e4d84"
-    sha256 cellar: :any,                 ventura:        "118c66a388597c33c4eb976e48bb68671527efc3e27c92c1c800f74112ceaee8"
-    sha256 cellar: :any,                 monterey:       "53b23a96a82c60fd48372a6b46bba388defd029275312192267310045def39a4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3a07a117acf2e654c599b1b4d3916d42e0c3d9cdb7b13da8f184a3fa4123ea97"
+    sha256 cellar: :any,                 arm64_sequoia: "7de5d4238e721cc097d4fa98d6ed2e49bbe507a84fd5a0541d5cc88633ddcb46"
+    sha256 cellar: :any,                 arm64_sonoma:  "1ea359dbb57581a60771e9035540808ea429aa8c840bb15c45afc84977af7c80"
+    sha256 cellar: :any,                 arm64_ventura: "f93b9e4a3cf6edecbbfcf241cf8244e17cd42f3dcc29259c0d47f9703a8d353d"
+    sha256 cellar: :any,                 sonoma:        "dfa6da522949bb1983269cd565d36cf94a340b0f8ffdbf0e92919f594c84950a"
+    sha256 cellar: :any,                 ventura:       "b6198d1cf90d785de75b3cb65048232af5e77c4e7e40bb0c9476f3aafb0271a6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b3d7dd592e8bc3b2fe5f3dc9dc7ecbc2b0e5d510c1f878e560a6cfcd06175df1"
   end
 
   depends_on "autoconf" => :build

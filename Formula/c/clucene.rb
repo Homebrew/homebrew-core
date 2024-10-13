@@ -3,25 +3,19 @@ class Clucene < Formula
   homepage "https://clucene.sourceforge.net/"
   url "https://downloads.sourceforge.net/project/clucene/clucene-core-unstable/2.3/clucene-core-2.3.3.4.tar.gz"
   sha256 "ddfdc433dd8ad31b5c5819cc4404a8d2127472a3b720d3e744e8c51d79732eab"
+  license any_of: ["Apache-2.0", "LGPL-2.1-only"]
   head "https://git.code.sf.net/p/clucene/code.git", branch: "master"
 
-  livecheck do
-    url :stable
-    regex(/url=.*?clucene-core[._-]v?(\d+(?:\.\d+)+[a-z]?)\.t/i)
-  end
-
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 sonoma:       "f574282f7bbf88b219a39b50160dde1c101ed8b95943242049d97b88229effb8"
-    sha256 cellar: :any,                 ventura:      "f3f128d222d9407a6572c7ea4cfc84d3bd76ba0359969b2e0f1c6433e5368674"
-    sha256 cellar: :any,                 monterey:     "c557e0403dce15f14e8584b4542fbe6dbd7ddc467d085d99e396b3fd16651dcb"
-    sha256 cellar: :any,                 big_sur:      "22366684958d7ee8fd5d0b07efe750a74347a4394dbc56ea80db1cf25db70c2f"
-    sha256 cellar: :any,                 catalina:     "c5b00eb94db40324fb66bc7f79737f3963ea5f0df6f7c07c39583fe95bfe0ae6"
-    sha256 cellar: :any,                 mojave:       "1e19a680030d8c4863deb4d5a5bc40675c58df5c21e5e7217f2ed8fcbc624d21"
-    sha256 cellar: :any,                 high_sierra:  "3986feb447660b2732e2983f54d22086b10da442cb2d7b6ceac45a91ad58f09b"
-    sha256 cellar: :any,                 sierra:       "5d25768dc355533553e6c1605a1dc89985ddd26b4d17d10078c39d6b085c03fb"
-    sha256 cellar: :any,                 el_capitan:   "5ee0c98072c18c75dd8c25fd309ccb49f033300d474367a8e325ec601c427f66"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "4c61f6b320d11670d29ae7294ede5bcd3c1d5684c41cc01ed689de688dbab6e7"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_sequoia:  "a72d28c7e47cae2af5817ed8f2765308aa0b4eac7eafb7fa46451cd8cb6eb039"
+    sha256 cellar: :any,                 arm64_sonoma:   "3923df21bb6184b548889e7d9ed0204048007bbe4fc537d57711a25db4d22558"
+    sha256 cellar: :any,                 arm64_ventura:  "ecbe0c9275432a532b57742e33a764144a27b26be4801db7d2c6b024f15eff75"
+    sha256 cellar: :any,                 arm64_monterey: "cbbe283763a33bd7c68aa833fef9209403f4de79cb991772dca74bb6e99b60dd"
+    sha256 cellar: :any,                 sonoma:         "2ea84f1cd35e34945fa6334d250ce6cd89f111f37e3986e78bbbd058b586ee87"
+    sha256 cellar: :any,                 ventura:        "e0ca763506918ccefd484e57ed1c3633ed58cf5948973fb69102b7a2a537bf4f"
+    sha256 cellar: :any,                 monterey:       "80cc75e161baf8ec7e7c37c7a1b835e86e2190a8a9209ae449318096cada552a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5a142b08aa18a0d5ddd94a39ba005c40fba111cd0bf0cef1cb4ace20ad3b4cea"
   end
 
   deprecate! date: "2023-12-16", because: :unmaintained
@@ -42,9 +36,11 @@ class Clucene < Formula
   end
 
   def install
-    mkdir "build" do
-      system "cmake", "..", *std_cmake_args
-      system "make", "install"
-    end
+    # Work around build failure on ARM macOS
+    inreplace "src/shared/CMakeLists.txt", ";fstat64;", ";" if OS.mac? && Hardware::CPU.arm?
+
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 end

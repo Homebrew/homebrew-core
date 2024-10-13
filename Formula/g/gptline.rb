@@ -11,6 +11,7 @@ class Gptline < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia:  "bf1c8484457d651a2de1511e085d10c9ae45e05538381d904520b1864465e717"
     sha256 cellar: :any,                 arm64_sonoma:   "e1e9cd0ad07a8275734b5bf80b044ab73e38ffe629125397a8704b8740026abe"
     sha256 cellar: :any,                 arm64_ventura:  "2ba692a1a5c19eb087ea848e91542ee391aa3fe89cce52c6d51a92c671b88e58"
     sha256 cellar: :any,                 arm64_monterey: "99a1a34002ab1691a47fbc394e32d0e7502807b50cabac32fad5104ef5df55c0"
@@ -253,7 +254,7 @@ class Gptline < Formula
   end
 
   test do
-    output = shell_output("#{bin}/gptline", 1)
+    output = shell_output(bin/"gptline", 1)
     assert_match "Set the environment variable OPENAI_KEY or OPENAI_API_KEY to your api secret key", output
   end
 end

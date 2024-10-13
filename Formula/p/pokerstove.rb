@@ -4,16 +4,17 @@ class Pokerstove < Formula
   url "https://github.com/andrewprock/pokerstove/archive/refs/tags/v1.1.tar.gz"
   sha256 "ee263f579846b95df51cf3a4b6beeb2ea5ea0450ce7f1c8d87ed6dd77b377220"
   license "BSD-3-Clause"
-  revision 2
+  revision 3
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "aca637d9472af5c1177f789c012193f2dab84a24631f5d7c5fb92296404e6c54"
-    sha256 cellar: :any,                 arm64_ventura:  "4ea6cc2ab4bd6ad7a5950a819a0eeda64d6812facd879ea4772ca63761fcfc86"
-    sha256 cellar: :any,                 arm64_monterey: "4994960373664eb3ab2f349659c9de1269072656064d628e3169a8c2a8f1c7cc"
-    sha256 cellar: :any,                 sonoma:         "547540b3c66d8a6c48e97e698dd840969a463843923d5cd6923668d0b3efe145"
-    sha256 cellar: :any,                 ventura:        "78e6bd8522c39c8826024bb759395b4882c185ecc2ba6ea25a0cb9c2faf3d112"
-    sha256 cellar: :any,                 monterey:       "09da893792a6821040a2c07523e4033b83ba78cefe2c8cab2b4dff8a9ff6fabe"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "aec9765e83ea140906be373c1c8e81a905413615831a6a4104a67818b9a246c9"
+    sha256 cellar: :any,                 arm64_sequoia:  "b88ef14c0527886d0b9b7f6e8862b8fcb5afd0e1a28b42feec0bd585dc4f8d01"
+    sha256 cellar: :any,                 arm64_sonoma:   "7a4ec7d32579b6a7f9febfc03b36d85647af76998c400153e34e101f98a22c7d"
+    sha256 cellar: :any,                 arm64_ventura:  "1091061709489217ae3bb88a361d6b2e70141d120a7dcf82ccd5eb82c63449df"
+    sha256 cellar: :any,                 arm64_monterey: "1fbf1d2e7d89dd9933bac8216ab6550387d1550c30d0f8784a5d325250c8658c"
+    sha256 cellar: :any,                 sonoma:         "3f49ed160e7deae494a3c3c73909c858ce92770ca8d9ecb78cd2f733bc108aec"
+    sha256 cellar: :any,                 ventura:        "9731a5df77144471ef6b063136fcc54707659344ccfba96f04431b71663cb7f2"
+    sha256 cellar: :any,                 monterey:       "388c8b1b5fc8a8ba4772b273041bae462c65f7120a35afab82dcfd57ac7ca362"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "25d70572e182ec74f00d572fa4ee7fae921c1f9df6bb15d369e25996c8f075ab"
   end
 
   depends_on "cmake" => :build

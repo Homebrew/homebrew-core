@@ -1,5 +1,3 @@
-require "language/node"
-
 class Json5 < Formula
   desc "JSON enhanced with usability features"
   homepage "https://json5.org/"
@@ -8,13 +6,14 @@ class Json5 < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "e56197088965d111aad8994191dfe4a8f180581f0c1ba66fb2b2fbf894ccf4ac"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "549882eb4bc333f0952050c2578e929cf4d653d3834467aa364ef0b07f4133d3"
   end
 
   depends_on "node"
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", *std_npm_args
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 

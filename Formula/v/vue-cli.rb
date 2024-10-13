@@ -1,5 +1,3 @@
-require "language/node"
-
 class VueCli < Formula
   desc "Standard Tooling for Vue.js Development"
   homepage "https://cli.vuejs.org/"
@@ -8,16 +6,15 @@ class VueCli < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "60789f77d6fca847d594f2b3251826a0a68d2ff9f79605281cfd92d96e95857d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1f3ffde156f1616113d4f4f4f899964e96ba0787a4fe21b50f73f973d416fbe5"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "44b550780fa0274fd769599d39e267e47f1ae8e3508ca935afd739c389d75a17"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "44b550780fa0274fd769599d39e267e47f1ae8e3508ca935afd739c389d75a17"
-    sha256 cellar: :any_skip_relocation, sonoma:         "b05cfaa37a0c8108d0be5d37d0dfc2ce19744a67c59a9abe104451bbf93df0ee"
-    sha256 cellar: :any_skip_relocation, ventura:        "4c98f36032ccb36802e6bc8e6baea973d45e73d44630b49e3f1d0c40d938792d"
-    sha256 cellar: :any_skip_relocation, monterey:       "6daa1544d8d602d0291c7206aa8833bc62a9b2f0c5a2b5c016d5cae3ce2bb1c5"
-    sha256 cellar: :any_skip_relocation, big_sur:        "6daa1544d8d602d0291c7206aa8833bc62a9b2f0c5a2b5c016d5cae3ce2bb1c5"
-    sha256 cellar: :any_skip_relocation, catalina:       "6daa1544d8d602d0291c7206aa8833bc62a9b2f0c5a2b5c016d5cae3ce2bb1c5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "918bbe94743ae4eb7124cdfb5f9d42017602e19fbdf899b88795c6e367a6dc5c"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "3b72fda6c0563cd941f67f7fcff7ce0562af8f248188775a0409c7c26e23a2fc"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c106882fcbc2627f6939d21aa711c75b8781a49a846b0a2c64a3a48d230f1bd6"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c106882fcbc2627f6939d21aa711c75b8781a49a846b0a2c64a3a48d230f1bd6"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c106882fcbc2627f6939d21aa711c75b8781a49a846b0a2c64a3a48d230f1bd6"
+    sha256 cellar: :any_skip_relocation, sonoma:         "566e867488804efc1ff36499d3abaf6d5d20bae6173f8577f54f8d50b120b6e2"
+    sha256 cellar: :any_skip_relocation, ventura:        "566e867488804efc1ff36499d3abaf6d5d20bae6173f8577f54f8d50b120b6e2"
+    sha256 cellar: :any_skip_relocation, monterey:       "566e867488804efc1ff36499d3abaf6d5d20bae6173f8577f54f8d50b120b6e2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f068d7c069a1dae0ecbba18a4537d4816d55d6357ff9feb4806923ee486e92e9"
   end
 
   depends_on "node"
@@ -27,7 +24,7 @@ class VueCli < Formula
   end
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", *std_npm_args
     bin.install_symlink Dir["#{libexec}/bin/*"]
 
     # Remove vendored pre-built binary `terminal-notifier`

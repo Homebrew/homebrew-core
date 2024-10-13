@@ -1,19 +1,20 @@
 class CriTools < Formula
   desc "CLI and validation tools for Kubelet Container Runtime Interface (CRI)"
   homepage "https://github.com/kubernetes-sigs/cri-tools"
-  url "https://github.com/kubernetes-sigs/cri-tools/archive/refs/tags/v1.30.1.tar.gz"
-  sha256 "f4aac1636c2a6bbf98e4ad314b8965ac1f417b8bb82640f3a297173f7e5551b5"
+  url "https://github.com/kubernetes-sigs/cri-tools/archive/refs/tags/v1.31.1.tar.gz"
+  sha256 "465bd14768a86a782c6e4b15b3683c4a5efd0363d68b241d5757a7bada9bcd21"
   license "Apache-2.0"
   head "https://github.com/kubernetes-sigs/cri-tools.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1e6a15ec7d79fe010ac47e59652e0583b3f53bddaa85b406a46e3187f5ad0cf9"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1e6a15ec7d79fe010ac47e59652e0583b3f53bddaa85b406a46e3187f5ad0cf9"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "1e6a15ec7d79fe010ac47e59652e0583b3f53bddaa85b406a46e3187f5ad0cf9"
-    sha256 cellar: :any_skip_relocation, sonoma:         "00c4dd913ef6237e138888a319e81f43dc9267aac1304e23f58c1b06ab6e26aa"
-    sha256 cellar: :any_skip_relocation, ventura:        "00c4dd913ef6237e138888a319e81f43dc9267aac1304e23f58c1b06ab6e26aa"
-    sha256 cellar: :any_skip_relocation, monterey:       "00c4dd913ef6237e138888a319e81f43dc9267aac1304e23f58c1b06ab6e26aa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "72d253e204ae08dc2f61b33d8f2c8dae7532f7e147e5652dc6e1e8f519fcf018"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "22360ee3f10a8868ce75f8f79f47a46307cd526a499948cf3a50882a7a3f0097"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0fa37dab5b7d97eafcabf743e4b0f10c9e58c0c589f01967c9944e8a3ad3b437"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0fa37dab5b7d97eafcabf743e4b0f10c9e58c0c589f01967c9944e8a3ad3b437"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "0fa37dab5b7d97eafcabf743e4b0f10c9e58c0c589f01967c9944e8a3ad3b437"
+    sha256 cellar: :any_skip_relocation, sonoma:         "37ab62d27f08b4ee61bfeffbcb2fc24b785d6fc28fdda98d00783ea3dcc8eb97"
+    sha256 cellar: :any_skip_relocation, ventura:        "37ab62d27f08b4ee61bfeffbcb2fc24b785d6fc28fdda98d00783ea3dcc8eb97"
+    sha256 cellar: :any_skip_relocation, monterey:       "37ab62d27f08b4ee61bfeffbcb2fc24b785d6fc28fdda98d00783ea3dcc8eb97"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b6ee084f2f349c9081bc67d2244f9478308c5c5d736fd303f5b46a03892cfc63"
   end
 
   depends_on "go" => :build

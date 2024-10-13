@@ -6,6 +6,7 @@ class Vegeta < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "f218f87374db19956afade887249429c7799b8cc379e06afd5c2d5db527229e1"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9c119a2544ff7ab95aaa931f1e17d5748598eca95f929c720ec87094d8e3fbcf"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "416e192e973c3090db2ff15f0671289baf9a5c1c22c1dce1bc0f595fc52e220d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b4f4c70fece8eecd588b5f99e1d1ae28143f71542d65396516a09d197dd5acc3"

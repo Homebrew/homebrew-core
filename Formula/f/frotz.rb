@@ -9,6 +9,7 @@ class Frotz < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_sequoia:  "c96fca92b26db27a63e7af61f8ebfbe6c17e0735208de53417ce04f8affb1233"
     sha256 arm64_sonoma:   "9268c52d9e973184f11ef416876c6c4363cb583437fd2fdadd31e8f54a916e85"
     sha256 arm64_ventura:  "6eb9830313b69d067df65c9e62af464f8126311e35169159a74699c0ae8e4886"
     sha256 arm64_monterey: "8f3a750df4256314233253f180352abbe52636744d5bf48675d0358108644f63"

@@ -3,23 +3,24 @@ class Uhdm < Formula
 
   desc "Universal Hardware Data Model, modeling of the SystemVerilog Object Model"
   homepage "https://github.com/chipsalliance/UHDM"
-  url "https://github.com/chipsalliance/UHDM/archive/refs/tags/v1.83.tar.gz"
-  sha256 "4b02ccf8dede2074f0906e1a447ebfd2af7e6774b518ccefcc52b6401200c658"
+  url "https://github.com/chipsalliance/UHDM/archive/refs/tags/v1.84.tar.gz"
+  sha256 "bb2acbdd294dd05660c78ba34704440032935b8bc77cae352c853533b5a7c583"
   license "Apache-2.0"
   head "https://github.com/chipsalliance/UHDM.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "f01a0475c1188c359c90b7d1754bb9340f53b8f305fc72a6eb07850656d3424e"
-    sha256 cellar: :any,                 arm64_ventura:  "68018fcc5c3db759937c2176d70dcbabe385605e430f5c5549e1ebb77c993696"
-    sha256 cellar: :any,                 arm64_monterey: "9b5c9f7cf6c9fed8de1f92d2300ba4c3776b65323b3908838921a61abc52e5fa"
-    sha256 cellar: :any,                 sonoma:         "1929f703df41e2983241fb570bf0d296d3cd8f20b9c000fea3a9695483d33588"
-    sha256 cellar: :any,                 ventura:        "07948bb5417743c768bd0d78b8931874873f388eaf6b096fc60493f4a6e36d2a"
-    sha256 cellar: :any,                 monterey:       "4102e88b6b3402767479ba292e674d4cb1b73eb49dce7c476fe843cca524724f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "882a02cbaa8b7aa427abe876c397c86063020e3851ffa121b163985000248036"
+    sha256 cellar: :any,                 arm64_sequoia:  "0cc479f9f9c9d2b4e6fb196ab0baf48dbbccea8ea125ff7796507746b4387973"
+    sha256 cellar: :any,                 arm64_sonoma:   "b5658a0a15d3f14adcd0d110c7cbe6525428882c69d696704f1fa9aad1aca607"
+    sha256 cellar: :any,                 arm64_ventura:  "b4f50710bff48e2cac91711af294791839eaf95c754e99e7caf4f780f1eafbab"
+    sha256 cellar: :any,                 arm64_monterey: "251b2278f62ad38d87f27f61a673e7dff0424fd648fbad2906bf6135db5f42a6"
+    sha256 cellar: :any,                 sonoma:         "9be120ce9adcfa44e75420b6d0bdf5a7400279579463c5ef5f007ad5792c4699"
+    sha256 cellar: :any,                 ventura:        "480c5e193ddd04d5ffa9e6c26f62cfdc85ec1e467028af964651691717ad1e57"
+    sha256 cellar: :any,                 monterey:       "f3c38678bb2e4b58e80c25602f1f9d0b23dacd4315c5c83fadef545b73198303"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9d9ee21ce3cfd7826139998d9b89f5530bf2673b9c9bc54bf2b4562336e8674e"
   end
 
   depends_on "cmake" => :build
-  depends_on "python@3.12" => :build
+  depends_on "python@3.13" => :build
   depends_on "pkg-config" => :test
   depends_on "capnp"
 
@@ -34,7 +35,7 @@ class Uhdm < Formula
   end
 
   def python3
-    which("python3.12")
+    which("python3.13")
   end
 
   def install

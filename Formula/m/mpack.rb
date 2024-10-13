@@ -7,16 +7,15 @@ class Mpack < Formula
   license "BSD-3-Clause"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "aa3b844e21d01085594dc4e3826d34f4aa5e9bfd371e31b0a04d6599095081b0"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "47bd4a5b967d0d67f6e71bde23a5578fc61a8afdd90b6bac7ae007b6ec1e7058"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "590ebe27e3a84b46df9a304a6207a0d6754ed71dd04892aa965eed9315240c48"
-    sha256 cellar: :any_skip_relocation, ventura:        "7fdef10282b191453bb625c95be3b29906c9b051d68654f8f2fadb1aef9b3887"
-    sha256 cellar: :any_skip_relocation, monterey:       "dc71738af5d7167731cd69a6608fefbd6ee509ca87cd57ede2680799344ce0de"
-    sha256 cellar: :any_skip_relocation, big_sur:        "b3ac3a2ad7ba9481bdbd6ce2c2a3e1d0e59128f4cf8cd846be7a75fc6f27d6b5"
-    sha256 cellar: :any_skip_relocation, catalina:       "561bc78b36f0b0cb8b67ff4c59407439fcb70d7f0b0ed23313cbe7579ad6a00f"
-    sha256 cellar: :any_skip_relocation, mojave:         "3da5fac96c17669d27049ec2b5eebc0b711258ece13dad09c609792b45498bbc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b67930d5c73b96f420f655232564bb6b48ca5b6d3689d0804390e9860a65610b"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "39ef950b3be79638f72addb1f2bd87c4c67f9bddeb55f62910175ab6c90b6dc8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "93385223f8645ef28a3a518b5eb932d7b17a55bc113fd22522190c5504670b1b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6aab109b96f77c14fb2f445ef2e1da17f9bb28169c9aef6e7806f32df5b6143d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "0ddea83dccaf311d5310e4147a3ba9a80523326bce98af5200e2e7bec7cc0782"
+    sha256 cellar: :any_skip_relocation, sonoma:         "a7a9affafe46b5198dc95c2b0cfb4bf9514f6a58d43fae6524b735a6a9cf76a1"
+    sha256 cellar: :any_skip_relocation, ventura:        "1cd7be9284fb871ac17b2cd0be687719104fa5a792c608f22f875c21c3fed004"
+    sha256 cellar: :any_skip_relocation, monterey:       "1622ba058cfb546fae179857ce3a9878d770ae2a16c801b3ef019c39a7a40a66"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f75abfc3198ea5dfd73192c148cf90a0a01e80143acde96fc9f18ff63e3e9514"
   end
 
   deprecate! date: "2024-07-21", because: :repo_removed
@@ -34,6 +33,11 @@ class Mpack < Formula
   end
 
   def install
+    # Workaround for newer Clang
+    if DevelopmentTools.clang_build_version >= 1403
+      ENV.append_to_cflags "-Wno-implicit-int -Wno-implicit-function-declaration"
+    end
+
     system "./configure", "--prefix=#{prefix}",
                           "--mandir=#{man}"
     system "make", "install"

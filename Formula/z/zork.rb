@@ -3,9 +3,11 @@ class Zork < Formula
   homepage "https://github.com/devshane/zork"
   url "https://github.com/devshane/zork/archive/refs/tags/v1.0.3.tar.gz"
   sha256 "929871abae9be902d4fb592f2e76e52b58b386d208f127c826ae1d7b7bade9ef"
+  license :public_domain
   head "https://github.com/devshane/zork.git", branch: "master"
 
   bottle do
+    sha256 arm64_sequoia:  "05e76a8e62d4bb0e55d7aa39d39b01082ac9f6dac9305feaccd466deb3e9b54c"
     sha256 arm64_sonoma:   "2abffab6441cae3c3ca7247d1f0d313571ae873f536fb647b605bec580688d55"
     sha256 arm64_ventura:  "ec4836e8f767968119feea70913b248475a549d10f9dc78f1777b0cffc78dde7"
     sha256 arm64_monterey: "506debc59ab6d891ce98da1bfe4c8a6e5604dc9a91cf225ed19fe3027544f3ea"
@@ -36,6 +38,6 @@ class Zork < Formula
         A leaflet.
       >
     EOS
-    assert_equal test_phrase, pipe_output("#{bin}/zork", "open mailbox", 0)
+    assert_equal test_phrase, pipe_output(bin/"zork", "open mailbox", 0)
   end
 end

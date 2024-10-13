@@ -6,6 +6,7 @@ class Leaps < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "43d3cbf4a3539d7309b2d12ddab84541f1360921b6d67d7b727096998329d952"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3bfac2abd2f5b64411fce7e91201e7680047747405ba719836d78fb74d8004c5"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "cadf303cd8afe3342acaa332833315822118c46e5a7bd0e2ac7f03d839c9b529"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a50cb3d2e58261495fc33607825dade069b92d7f6fdb70cae7f1052182895d34"
@@ -30,7 +31,7 @@ class Leaps < Formula
 
     # Start the server in a fork
     leaps_pid = fork do
-      exec "#{bin}/leaps", "-address", port
+      exec bin/"leaps", "-address", port
     end
 
     # Give the server some time to start serving

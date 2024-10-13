@@ -6,6 +6,7 @@ class Cdpr < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "dfd6f6ef21a6f1fbc38367d4000fdf6a6dd9910b5959bc7c418e2a89b94d1476"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9a2af70f28e705ac6064aa5d51bb4fe7d00483b6588673768fef2239a516ffcf"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f35e7e9e3c93e119f7357b74debf967a8703ec468e1f73f7dd7ebb79220ba631"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "09f09ac98ad3c7e738e0d31bc9d37bdec2cd3745aa5d8d28db3953ef27541561"
@@ -35,6 +36,6 @@ class Cdpr < Formula
   end
 
   test do
-    system "#{bin}/cdpr", "-h"
+    system bin/"cdpr", "-h"
   end
 end

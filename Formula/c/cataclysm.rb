@@ -14,6 +14,7 @@ class Cataclysm < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "fc475b0ecef7dc2d0739fc1ad7eec5c0fb220080a7722d3df9e221143776c6be"
     sha256 cellar: :any,                 arm64_sonoma:   "1f0baa0478cd23de28c5ad1d2b10b90979b0c627a6445f15b287193d760c8493"
     sha256 cellar: :any,                 arm64_ventura:  "99558da9dc0aff5d3e520504578ba4112a1ccd25be503414c8b35473b9b4e298"
     sha256 cellar: :any,                 arm64_monterey: "9e83a6fc0c9ae9ae1364fe3dcaa56192b9324f7d2423b8e4df309f1044a717b4"
@@ -26,13 +27,19 @@ class Cataclysm < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "gettext"
+
   depends_on "libogg"
   depends_on "libvorbis"
   depends_on "sdl2"
   depends_on "sdl2_image"
   depends_on "sdl2_mixer"
   depends_on "sdl2_ttf"
+
+  uses_from_macos "zlib"
+
+  on_macos do
+    depends_on "gettext"
+  end
 
   def install
     os = OS.mac? ? "osx" : OS.kernel_name.downcase

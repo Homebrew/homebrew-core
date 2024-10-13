@@ -7,6 +7,7 @@ class SsllabsScan < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "d639a0a8a695a23b9554d15893132fac16c35675d8e84651696f9b2f1a7ab1a8"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "bdd94308ce1a118aefc4cc9d6e9c4a349d5b85c256747732dbf1d1af91930428"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "1d77c5c9f38fe3c137fd3b3da69c56a0b5a1015f94eb5526a6b4a685d72fb4c4"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "21c59e50196234b6cabed14cd45c4e905dd8bf38f77491431c2da7427c3ede5e"
@@ -37,6 +38,6 @@ class SsllabsScan < Formula
   end
 
   test do
-    system "#{bin}/ssllabs-scan", "-grade", "-quiet", "-usecache", "ssllabs.com"
+    system bin/"ssllabs-scan", "-grade", "-quiet", "-usecache", "ssllabs.com"
   end
 end

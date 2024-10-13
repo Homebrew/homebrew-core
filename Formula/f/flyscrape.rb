@@ -7,6 +7,7 @@ class Flyscrape < Formula
   head "https://github.com/philippta/flyscrape.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "7501c0365f6a5545e4c0bc95b0a0d8eb47a3361f40bd73f02751409dd059a8d7"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0e79161770c219fdc28c98c0702e5a8edef45957c734799768a1aa76a2963a7c"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "66983affadaa35c25cd051e3f8e89be18ca5e52a2fe961efcbae4589b194c6fb"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "07d059096ef20417a0a5d3d72518c32f842c3d810095c151ba4170996d88e264"

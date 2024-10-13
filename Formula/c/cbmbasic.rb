@@ -7,6 +7,7 @@ class Cbmbasic < Formula
   head "https://github.com/mist64/cbmbasic.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "12b112458c348c5267a9dd565cd6eb627e77e5f7601aa8262192ef0547f5c824"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6009d0ea2c22b727d92fa669b8d2d2207caf0cd9651d74a771c2dd35f24596aa"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "8382a3a84c232895e8581de79435c6c7629079ec8dbdec6b8d193f73715e4ca8"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4e090b459f2e44ad8f04e3e70a25b909fe16771f4b2fa325cc06ea233b019803"
@@ -29,6 +30,6 @@ class Cbmbasic < Formula
   end
 
   test do
-    assert_match(/READY.\r\n 1/, pipe_output("#{bin}/cbmbasic", "PRINT 1\n", 0))
+    assert_match(/READY.\r\n 1/, pipe_output(bin/"cbmbasic", "PRINT 1\n", 0))
   end
 end

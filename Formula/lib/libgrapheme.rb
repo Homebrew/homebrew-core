@@ -6,7 +6,12 @@ class Libgrapheme < Formula
   license "ISC"
   head "https://git.suckless.org/libgrapheme/", using: :git, branch: "master"
 
+  livecheck do
+    url "git://git.suckless.org/libgrapheme"
+  end
+
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "15463cba352ca4de4ebd865ae7aeee520871711b7c0dca0cceebfba78dbe88c5"
     sha256 cellar: :any,                 arm64_sonoma:   "961545ff7d4e1825ee195a79d6522ba7ae226c401d72b655410d8a132933eb2e"
     sha256 cellar: :any,                 arm64_ventura:  "971fab94ac4bca569f0656596168b05847d4e25b566868e4c9ac3965ed336755"
     sha256 cellar: :any,                 arm64_monterey: "f2e9d7e0dbed9091c6ff0feb79e94ce68f73c6a83a1774efd75c3d0e76c7fbb8"

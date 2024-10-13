@@ -6,6 +6,7 @@ class Xrdb < Formula
   license "MIT-open-group"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "c623fd441390eaf1e39523477efd40c69f906eecc0e298db015fad002828a707"
     sha256 cellar: :any,                 arm64_sonoma:   "dd6633e16b4d7304c613cc88b59930d98bfc8bddf4e575e161c06fd74200d89a"
     sha256 cellar: :any,                 arm64_ventura:  "1b32536870feb4f744ec01f9b09dcc2b5a612b742ab527563ba5661f1f1777ee"
     sha256 cellar: :any,                 arm64_monterey: "dcb8e3ddd3e7c5fb5d362c5b761477029956d6ab1f2a7952e7a3e6e1112dc70b"
@@ -20,23 +21,23 @@ class Xrdb < Formula
   depends_on "pkg-config"  => :build
   depends_on "xorg-server" => :test
 
+  depends_on "libx11"
   depends_on "libxmu"
 
   def install
-    configure_args = std_configure_args + %w[
-      --with-cpp=/usr/bin/cpp
-    ]
-    system "./configure", *configure_args
-    system "make"
+    system "./configure", "--with-cpp=/usr/bin/cpp", *std_configure_args.reject { |s| s["--disable-debug"] }
     system "make", "install"
   end
 
   test do
+    ENV["DISPLAY"] = ":1"
+
     fork do
       exec Formula["xorg-server"].bin/"Xvfb", ":1"
     end
-    ENV["DISPLAY"] = ":1"
-    sleep 10
+
+    sleep 5
+
     system bin/"xrdb", "-query"
   end
 end

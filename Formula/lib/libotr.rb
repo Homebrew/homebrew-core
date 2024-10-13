@@ -3,7 +3,7 @@ class Libotr < Formula
   homepage "https://otr.cypherpunks.ca/"
   url "https://otr.cypherpunks.ca/libotr-4.1.1.tar.gz"
   sha256 "8b3b182424251067a952fb4e6c7b95a21e644fbb27fbd5f8af2b2ed87ca419f5"
-  license "GPL-2.0"
+  license all_of: ["LGPL-2.1-only", "GPL-2.0-only"]
 
   livecheck do
     url :homepage
@@ -12,6 +12,7 @@ class Libotr < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia:  "5e6fdf2cd7cc293066a7875b10c684b7058b553ad85ff949e18045d0aca47b6d"
     sha256 cellar: :any,                 arm64_sonoma:   "1a9fee4f64cdd96f0c0d0594e03a8855c2f0936a0c1c1272c433e591bc82ad4d"
     sha256 cellar: :any,                 arm64_ventura:  "758ad5aecffe69404a6b32062bbdef4a7c6b89dab5d635b1f1f41b46f676e12f"
     sha256 cellar: :any,                 arm64_monterey: "fe41c2686379f8b67aafc307e703775ab8060fb074734561e67cdc958a912e45"

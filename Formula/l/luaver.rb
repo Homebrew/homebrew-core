@@ -7,7 +7,8 @@ class Luaver < Formula
   head "https://github.com/DhavalKapil/luaver.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "423d7c791335f69639c53e2eb5ccbfd0120deeb61984a2744a72d0ab635317af"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "9bf33058878e1a0fcbec847bf8b5ec06912eda98647f05ab96e08e4c1197f93a"
   end
 
   depends_on "wget"

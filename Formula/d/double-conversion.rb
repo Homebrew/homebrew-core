@@ -7,6 +7,7 @@ class DoubleConversion < Formula
   head "https://github.com/google/double-conversion.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "98ff7ac5f00c5b3d65a3a335382b0d08e508ee9d6697064cb46d541d837b2975"
     sha256 cellar: :any,                 arm64_sonoma:   "5764a27a4392e020618a4a70c00d71f9a253419a55ae8c16dd965270eeb99cd1"
     sha256 cellar: :any,                 arm64_ventura:  "8945e3a31e2b8954f22e64dd6ebd1990bcf168151103264a8fcfd1eca21f9848"
     sha256 cellar: :any,                 arm64_monterey: "8280c82873f4b691376a017938aa3d3a1f59eb7b9e55130754d4e45fe4e0a8c6"

@@ -13,6 +13,7 @@ class Geomview < Formula
   end
 
   bottle do
+    sha256                               arm64_sequoia:  "43cff98337cb7c17de62b442639a7dbb9715c7eb28e32cdcc6eb853ec73d9545"
     sha256                               arm64_sonoma:   "c043de83033a9cfc8c98d746347c395612ddef4aaaeb810296306cd4abe03941"
     sha256                               arm64_ventura:  "a427349c7f4ab1b887d3c3370a85b8c2bd01a1c38ed40ac4a8a90b7521339f98"
     sha256                               arm64_monterey: "171b71c0d54b089d996a04f0a0febeea6d0cfdadc25d96c83cc30824db5c36ce"

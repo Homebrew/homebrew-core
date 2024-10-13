@@ -11,6 +11,7 @@ class SdlGfx < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "975c8ba619e76b078e5cab50d4b8b0185e4b238f9dd06c7330c56d7a0a062f0f"
     sha256 cellar: :any,                 arm64_sonoma:   "df95d076e726afc8058f9071a82279c82e27d8b997b2afefb59081a6d4ec7bb6"
     sha256 cellar: :any,                 arm64_ventura:  "becf09fc1b01e3e6a7ebfd8b9410ffc02f81bff17bca272b2141a425f5a363ea"
     sha256 cellar: :any,                 arm64_monterey: "aff5d8b5fedee006203c3e615b94c5be69ed55b1c91c771d7c7bf238bce3670d"

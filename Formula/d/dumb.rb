@@ -3,8 +3,12 @@ class Dumb < Formula
   homepage "https://dumb.sourceforge.net/"
   url "https://github.com/kode54/dumb/archive/refs/tags/2.0.3.tar.gz"
   sha256 "99bfac926aeb8d476562303312d9f47fd05b43803050cd889b44da34a9b2a4f9"
+  # Essentially Zlib but with modified and added clauses that aren't intended to restrict usage
+  # https://src.fedoraproject.org/rpms/dumb/blob/rawhide/f/license-clarification.eml
+  license :cannot_represent
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "7158a40eed75a578dd615fdf83840be91a4fd565b0ce5170c4e91d494e0a0a16"
     sha256 cellar: :any,                 arm64_sonoma:   "f9510e55b969457e77567594f6963a7a6470f86dac7f252ed3c01757314c44dd"
     sha256 cellar: :any,                 arm64_ventura:  "6ec724316f7ab409767fdb3b240bf6bd00c0753a66ea048b1a1527c19b659a6f"
     sha256 cellar: :any,                 arm64_monterey: "f046a0784378b98ac76156a7a5c306a8c4d931130309c64d6205b1bfd2d0dcfe"

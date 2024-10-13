@@ -32,6 +32,6 @@ class Ski < Formula
   end
 
   test do
-    assert_match "Bye!", pipe_output("#{bin}/ski", "")
+    assert_match "Bye!", pipe_output(bin/"ski", "")
   end
 end

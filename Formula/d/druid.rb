@@ -12,6 +12,7 @@ class Druid < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "235afa295befdc5794e104b3e18ccdb6515ed5fa2001fcb142b8282ce20f7f13"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ce41d8a91d03ea17758ff0a6863445d2aa03a7b0b7ae8dbc6d27e7424ff6fccc"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "ce41d8a91d03ea17758ff0a6863445d2aa03a7b0b7ae8dbc6d27e7424ff6fccc"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ce41d8a91d03ea17758ff0a6863445d2aa03a7b0b7ae8dbc6d27e7424ff6fccc"

@@ -12,6 +12,7 @@ class Ocp < Formula
   end
 
   bottle do
+    sha256 arm64_sequoia:  "eab30fc80b948680e2b3b6b90b9ade084237d5f7bd03ec0a470940dae7d5d741"
     sha256 arm64_sonoma:   "462d8e35f07308e170caa48842075baa49a1cc8f0f7ffb2d14929cf7e9d63e49"
     sha256 arm64_ventura:  "8680caad7650448489b181ef095e82a20f2a3757b6ed9e546f045ea1eab3b12b"
     sha256 arm64_monterey: "c522fdc20022948049c46fe8ff99f0d3e6702049c1fa65ed4dd598a3206aab27"
@@ -23,6 +24,7 @@ class Ocp < Formula
 
   depends_on "pkg-config" => :build
   depends_on "xa" => :build
+
   depends_on "ancient"
   depends_on "cjson"
   depends_on "flac"
@@ -35,11 +37,17 @@ class Ocp < Formula
   depends_on "mad"
   depends_on "sdl2"
 
+  uses_from_macos "bzip2"
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
+  on_macos do
+    depends_on "libogg"
+  end
+
   on_linux do
     depends_on "util-linux" => :build # for `hexdump`
+    depends_on "alsa-lib"
   end
 
   # pin to 15.0.6 to use precompiled fonts
@@ -76,6 +84,6 @@ class Ocp < Formula
   end
 
   test do
-    system "#{bin}/ocp", "--help"
+    system bin/"ocp", "--help"
   end
 end

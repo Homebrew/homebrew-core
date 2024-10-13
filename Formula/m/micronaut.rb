@@ -1,8 +1,8 @@
 class Micronaut < Formula
   desc "Modern JVM-based framework for building modular microservices"
   homepage "https://micronaut.io/"
-  url "https://github.com/micronaut-projects/micronaut-starter/archive/refs/tags/v4.5.1.tar.gz"
-  sha256 "2de62efd421f77923ef96c84fc70e9c963c970cdbf5fd5d1d42a56c3f3588e36"
+  url "https://github.com/micronaut-projects/micronaut-starter/archive/refs/tags/v4.6.3.tar.gz"
+  sha256 "8a7bf4e435bf2f6637155e9707c0e6e781802788f4a905e31ff2300ef0bb0334"
   license "Apache-2.0"
 
   livecheck do
@@ -11,13 +11,12 @@ class Micronaut < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f5f8e3b5edf243a7f9dcaf1009e6cb3827ebca9de5789306b38969c817cadccb"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "476300f397ce2bbbc6e23e21a0b0d39b600c411e1cd19dc7c5773553b54c663c"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "31639314aacb61b69b1af0564cef0d35a94311b0b6b4308c3ec4592b31f36c3a"
-    sha256 cellar: :any_skip_relocation, sonoma:         "94915bc5212645d6056753d41d3cf09534556c6469d7d2fa0b078c285e2cdceb"
-    sha256 cellar: :any_skip_relocation, ventura:        "df7992a09c4e07840120267a3aa931dcdf81ad903120bab36e02cfd6fd7c44d7"
-    sha256 cellar: :any_skip_relocation, monterey:       "23e497fc6ccfe9daff056c9ad2b47e6ba4581f70c97258e3bb1524b0c2ebd1ba"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "772ae8fd559082c673ec39ae801c62c6edc7e65683606d990e4fa56aca0047d0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "213f2be1f310682a38194eff1957de5a53a8913e2933ff5cb8087cb6694b2947"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "748205e93688bddc5788b62f29627cc3a55627d392aaea5920c1acf7c4c7099e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "e12cf8e57b85d77f7ec52c9dd8ac7aec53b84079b5cd201fe5254f0d88d3ad8c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e9550fe1241b29ff0d452202354afa861a3c07dffcd7baf248ec22cc37df293e"
+    sha256 cellar: :any_skip_relocation, ventura:       "94950a29594ff42730e38e75fbdf1426db8d128535a3fdf4e9ac21c32ad30fcc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e9d87f81c9427341de3f03a93eb948a5cc4448ccb505840184721c8b025661d7"
   end
 
   depends_on "gradle" => :build
@@ -36,7 +35,7 @@ class Micronaut < Formula
   end
 
   test do
-    system "#{bin}/mn", "create-app", "hello-world"
+    system bin/"mn", "create-app", "hello-world"
     assert_predicate testpath/"hello-world", :directory?
   end
 end

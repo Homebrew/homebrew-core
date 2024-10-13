@@ -3,6 +3,7 @@ class Libuecc < Formula
   homepage "https://git.universe-factory.net/libuecc/"
   url "https://git.universe-factory.net/libuecc/snapshot/libuecc-7.tar"
   sha256 "0120aee869f56289204255ba81535369816655264dd018c63969bf35b71fd707"
+  license "BSD-2-Clause"
   head "https://git.universe-factory.net/libuecc", using: :git, branch: "master"
 
   livecheck do
@@ -11,6 +12,7 @@ class Libuecc < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "a94e6f279789d442ddfce719d48af0c5a430e4d255f9c8dd16b7cb691062988f"
     sha256 cellar: :any,                 arm64_sonoma:   "53fdfd07055f10ff583e922b59b5fd2da445ce9f3926ea76b6aaa9da3a036a5b"
     sha256 cellar: :any,                 arm64_ventura:  "52bf8320fc75e714e3b8ba3b6421fdb5165ab1719597539d20de7371c2b3a64b"
     sha256 cellar: :any,                 arm64_monterey: "015dfe9431583fd7f8638500cbb3ea7f812feb0c8db8bcb54f60c865ed3ca820"

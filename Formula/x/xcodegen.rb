@@ -7,6 +7,7 @@ class Xcodegen < Formula
   head "https://github.com/yonaskolb/XcodeGen.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "133251357e73214796c570f3ae83a172265811b095072a763fdbe666444599b6"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4f381301ea4342d10902c1c32590174f1cb47eef5d39ee2084890aa7706ad7db"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "43d8b5908054352f54ea573d7fdb913c5a5d2727d234aad46a0e5f1d464e59b5"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "3ce790bad53805fb0a9a1765b956ca1285d127ee88433a75817052e7c50c1845"

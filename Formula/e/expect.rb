@@ -13,6 +13,7 @@ class Expect < Formula
 
   bottle do
     rebuild 2
+    sha256 arm64_sequoia:  "1155721ca9166f849b6ecc739a43ecfe6f20c056ff050f39e520f87f11ac8475"
     sha256 arm64_sonoma:   "25b5d92689067d186416b78ffa0524d5a02a3e1c7068db8998dffaed2dd02e0c"
     sha256 arm64_ventura:  "848515e0ab82921d9292b7a616d33dc02e9dfcaab91793ec4d5ef241c3e08f29"
     sha256 arm64_monterey: "753d526bf20551dde2c60c1580989292e8c8f5f436da14b6901ec92a8bc30f6a"
@@ -88,6 +89,6 @@ class Expect < Formula
   test do
     assert_match "works", shell_output("echo works | #{bin}/timed-read 1")
     assert_equal "", shell_output("{ sleep 3; echo fails; } | #{bin}/timed-read 1 2>&1")
-    assert_match "Done", pipe_output("#{bin}/expect", "exec true; puts Done")
+    assert_match "Done", pipe_output(bin/"expect", "exec true; puts Done")
   end
 end

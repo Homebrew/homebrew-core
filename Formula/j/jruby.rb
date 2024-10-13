@@ -11,6 +11,7 @@ class Jruby < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "84e37f6890b8d70f4b780807c0f54a17ee73b13059a976a7565bccbbb121d3d7"
     sha256 cellar: :any,                 arm64_sonoma:   "e286b22b4d2ba7e6c4059714851c7f45339955164babebc29a4c857ba51c396b"
     sha256 cellar: :any,                 arm64_ventura:  "e286b22b4d2ba7e6c4059714851c7f45339955164babebc29a4c857ba51c396b"
     sha256 cellar: :any,                 arm64_monterey: "e286b22b4d2ba7e6c4059714851c7f45339955164babebc29a4c857ba51c396b"
@@ -35,7 +36,7 @@ class Jruby < Formula
     end
 
     # Only keep the macOS native libraries
-    rm_rf Dir["lib/jni/*"] - ["lib/jni/Darwin"]
+    rm_r(Dir["lib/jni/*"] - ["lib/jni/Darwin"])
     libexec.install Dir["*"]
     bin.install Dir["#{libexec}/bin/*"]
     bin.env_script_all_files libexec/"bin", Language::Java.overridable_java_home_env
@@ -47,7 +48,7 @@ class Jruby < Formula
     end
     libfixposix_binary = libexec/"lib/ruby/stdlib/libfixposix/binary"
     libfixposix_binary.children
-                      .each { |dir| dir.rmtree if dir.basename.to_s != "#{arch}-#{os}" }
+                      .each { |dir| rm_r(dir) if dir.basename.to_s != "#{arch}-#{os}" }
 
     # Replace (prebuilt!) universal binaries with their native slices
     # FIXME: Build libjffi-1.2.jnilib from source.

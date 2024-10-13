@@ -6,6 +6,7 @@ class Hey < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "11d051b5a740c4932cdbb39fa8e3abb465b499b0dd24831b0649fc37fb9da5a2"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7240c725e9276fc11ea1a59f748219c34b26ef36fa299644cc676ebd459b92ca"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "04967df199323ca6ba0df1731c05185bdba45fb9379369608e2ba43806f6bf40"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "31facd23bb601b3b20819401fd535eb3415ae7849c3989923226e368897c3248"

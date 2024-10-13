@@ -1,9 +1,9 @@
 class Riscv64ElfGdb < Formula
   desc "GNU debugger for riscv64-elf cross development"
   homepage "https://www.gnu.org/software/gdb/"
-  url "https://ftp.gnu.org/gnu/gdb/gdb-15.1.tar.xz"
-  mirror "https://ftpmirror.gnu.org/gdb/gdb-15.1.tar.xz"
-  sha256 "38254eacd4572134bca9c5a5aa4d4ca564cbbd30c369d881f733fb6b903354f2"
+  url "https://ftp.gnu.org/gnu/gdb/gdb-15.2.tar.xz"
+  mirror "https://ftpmirror.gnu.org/gdb/gdb-15.2.tar.xz"
+  sha256 "83350ccd35b5b5a0cba6b334c41294ea968158c573940904f00b92f76345314d"
   license "GPL-3.0-or-later"
   head "https://sourceware.org/git/binutils-gdb.git", branch: "master"
 
@@ -12,13 +12,12 @@ class Riscv64ElfGdb < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "69e827ae4d9fb2557b7a0633b8fd465a8865f6c4f6368c06ab523f966a4d22fb"
-    sha256 arm64_ventura:  "b730c8115a9690e20c5e1c98c65d54098a786aabb522ef0e7fc05d369bcc368f"
-    sha256 arm64_monterey: "3ea7e8dd30bc0201ff6e193f36a2e393d62c279d7b18d93827ab6e789bf4e16f"
-    sha256 sonoma:         "98ef12be27a6faeb51b4e17a678f32c0efd916583669b9154dee85f7369fe2a9"
-    sha256 ventura:        "37720faaae0e249d4277efc26bf009d4689bd25d1f77a1cde0a6ada1d82374da"
-    sha256 monterey:       "75e0735658e3cc2a7ee2c12937c644f0eed406753bcaa28055f0bb48153daf2b"
-    sha256 x86_64_linux:   "fe6e9f6868e419a65137cbc5f71de460657c53f424c45a704810013356291286"
+    sha256 arm64_sequoia: "5f7aba797e29ac7a43b5e16bbd6681bf2f58579861177aea7c300daa16c11b66"
+    sha256 arm64_sonoma:  "ebfe7a157b16b5a2c6e88e45c02763892320fae8b320c33a044a239086e2c84b"
+    sha256 arm64_ventura: "74e7d45007b562aae45502f466309d751243941d92aba2a6499427d1acaa1685"
+    sha256 sonoma:        "54b820d8f942cc61441e84d0ee5ce3a2a471922ba098687a0f5278197b87f7e6"
+    sha256 ventura:       "a7f888e84f77af88871f0855a9c6a1d2210af7a15336fac06f9826a0fdeb95f8"
+    sha256 x86_64_linux:  "d9151e9effe890130f9d9d5114f36ce261aeddad7c27b17f831be109436c804d"
   end
 
   depends_on "riscv64-elf-gcc" => :test
@@ -27,6 +26,8 @@ class Riscv64ElfGdb < Formula
   depends_on "python@3.12"
   depends_on "xz" # required for lzma support
 
+  uses_from_macos "expat"
+  uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
   on_system :linux, macos: :ventura_or_newer do

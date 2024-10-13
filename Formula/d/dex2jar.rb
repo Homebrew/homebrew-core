@@ -11,14 +11,15 @@ class Dex2jar < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "e531f001f490218f7fc03902fa6012bcefd611ff63dadfb1caa057d4a8fc4978"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "ded18e9ed01974a255fca1641dfa790cf06c09ad819578f9e351d06f71a5ad83"
   end
 
   depends_on "openjdk"
 
   def install
     # Remove Windows scripts
-    rm_rf Dir["*.bat"]
+    rm_r(Dir["*.bat"])
 
     # Install files
     chmod 0755, Dir["*"]

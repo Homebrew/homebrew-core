@@ -6,7 +6,8 @@ class Shml < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "7889536dd02e87e8abafed38055e9cf416b0ff2236bfc9a522fe5972e2c8cb35"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "54617898e5fd7439756e61a1ccb2489d41ef4c5183b8b248156e4ecad3bf245e"
   end
 
   def install

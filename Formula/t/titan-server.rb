@@ -4,11 +4,7 @@ class TitanServer < Formula
   url "http://s3.thinkaurelius.com/downloads/titan/titan-1.0.0-hadoop1.zip"
   version "1.0.0"
   sha256 "67538e231db5be75821b40dd026bafd0cd7451cdd7e225a2dc31e124471bb8ef"
-
-  livecheck do
-    url "https://github.com/thinkaurelius/titan.git"
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
-  end
+  license "Apache-2.0"
 
   bottle do
     rebuild 1
@@ -24,6 +20,12 @@ class TitanServer < Formula
     sha256 cellar: :any_skip_relocation, mojave:         "6e84706c4de8f9288fe11a9c28d0b6901289ce45ddcd7ff51abc1ecfcc6f3ac3"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "c6d98726b834d82fe0adb786919652c5f0e0974ff3cb03969b2c69042cd4998c"
   end
+
+  # upstream is not responsive on the issues and no commits since 2015 dec
+  # community has forked the project to janusgraph
+  # https://github.com/thinkaurelius/titan/issues/1393
+  # https://github.com/thinkaurelius/titan/issues/1392
+  disable! date: "2025-01-01", because: :unmaintained
 
   on_linux do
     depends_on "openjdk"

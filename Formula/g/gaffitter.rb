@@ -6,6 +6,7 @@ class Gaffitter < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "99ba8c060b64df92ba624ecdf846c053658ff42c15d92221a79e705e664057bd"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9db231f5fd261b380cc7ef6840714a66e286bb3ad67c9643942d1d62eb79798d"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "b595fd07d59d03c35c504d66778fa5c6f0f245a37841c3155b7048463963f6f7"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "2e11de8d834a08f671619bf1c32bc7f3187243089e281ae6741728369c2a6abe"

@@ -10,6 +10,7 @@ class Unifdef < Formula
   head "https://github.com/fanf2/unifdef.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "d582e3e4238886e561523bdc7f0a1066ac4316c06efd6efd710ba0e6f7ea5898"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c67a592e10c3d607f6ea9676fe8bb6ac59472b2eec185261e9d382d186f65707"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "703fd0028a589e6862e6fb89564a0f1bbb17091dd5d9b35b7c338e172e8d554c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6f6b3c3f19a6bcf92928abedb4b6b77249fd8b88caa25495c6dd2367f34d6ac0"
@@ -31,6 +32,6 @@ class Unifdef < Formula
   end
 
   test do
-    pipe_output("#{bin}/unifdef", "echo ''")
+    pipe_output(bin/"unifdef", "echo ''")
   end
 end

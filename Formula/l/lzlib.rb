@@ -12,6 +12,7 @@ class Lzlib < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "e93a03a440d76fd50bb8d94cfa7ef964733bf4c0aa26cf36306131f41a233f21"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3cda6502902573c519aa6566a38a959550410e78b1236ca467034e4674293fef"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "e0afd75f6862c9ce55adaf597ac84ed35be36b1c2ab76496a7c6fceab4c6e454"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "92e5f7aa8732c745c1cc5bd41540aeff2fcb3538a9eb4a3060c82ff33d332067"

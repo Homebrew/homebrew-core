@@ -11,6 +11,7 @@ class Bibutils < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "9cd55399d769cbc1cab21cfad48bb843a8c8a7c0a966445c6530c88ba8361b7d"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "69d0da0d5cb6ef8cd905c782149b4212aa6e45beb171386672f0aa0fbe5a8f69"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "8a42ed6f44138819d700f274b2543a42e47e6f398039b23318d57a878a02cd07"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "085548415c78f47a9185a323cc633d3005de95d1422e882f18393d7f7cf665cb"
@@ -41,6 +42,6 @@ class Bibutils < Formula
       }
     EOS
 
-    system "#{bin}/bib2xml", "test.bib"
+    system bin/"bib2xml", "test.bib"
   end
 end

@@ -12,13 +12,8 @@ class Byteman < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "aac8e27679828cb79920b27d0e134477c136f3a2cad9fff8e4c1676401fa5736"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "aac8e27679828cb79920b27d0e134477c136f3a2cad9fff8e4c1676401fa5736"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "aac8e27679828cb79920b27d0e134477c136f3a2cad9fff8e4c1676401fa5736"
-    sha256 cellar: :any_skip_relocation, sonoma:         "aac8e27679828cb79920b27d0e134477c136f3a2cad9fff8e4c1676401fa5736"
-    sha256 cellar: :any_skip_relocation, ventura:        "aac8e27679828cb79920b27d0e134477c136f3a2cad9fff8e4c1676401fa5736"
-    sha256 cellar: :any_skip_relocation, monterey:       "aac8e27679828cb79920b27d0e134477c136f3a2cad9fff8e4c1676401fa5736"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "25a8d6c3fab2ebafd41e9663e8881c9934ad850b428f467404de710997f6fdf8"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "e65f5c3531d3c1f3de8fbbf2722d236c0bcc3dcf02e803587896ab6457ce619b"
   end
 
   depends_on "openjdk"

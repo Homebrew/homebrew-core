@@ -11,6 +11,7 @@ class Aescrypt < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "b4ec90c9ff44239c6cf43b35377e7ff709983c1b76577ea84cd8dbc638d763ee"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c7cb68631e925aa19e1e1c3cc513dab638b264b078d69a4033789e011876207b"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "6c6719bff5edd5e48eea46096d02b2818e94491901d419de070a0927fb53bd5d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "bbd0fab48f97fd829f8fddf38423158d950668f84dfaee6d87f45fa1af96b55c"
@@ -28,6 +29,13 @@ class Aescrypt < Formula
   end
 
   def install
+    # Workaround for newer Clang
+    ENV.append_to_cflags "-Wno-implicit-int" if DevelopmentTools.clang_build_version >= 1403
+
+    # Work around failure from GCC 10+ using default of `-fno-common`
+    # multiple definition of `ROUNDS'; aescrypt.o:(.bss+0x180): first defined here
+    ENV.append_to_cflags "-fcommon" if OS.linux?
+
     system "./configure"
     system "make"
     bin.install "aescrypt", "aesget"

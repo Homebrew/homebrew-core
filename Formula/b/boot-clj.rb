@@ -7,7 +7,8 @@ class BootClj < Formula
   revision 2
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "1e055fc4afde1c73066be6a183728ef6c714236c80b65af67723036d83c24041"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "fa2f333dd444cb3c41bd9252450e72fcb6c5182017df0012b67da09acc52d619"
   end
 
   depends_on "openjdk"
@@ -23,6 +24,6 @@ class BootClj < Formula
   end
 
   test do
-    system "#{bin}/boot", "repl", "-e", "(System/exit 0)"
+    system bin/"boot", "repl", "-e", "(System/exit 0)"
   end
 end

@@ -7,6 +7,7 @@ class IsaL < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia:  "4e89cb263385ca1c5f99b28cb64b2f1c5c0f9eac958b5dc9f0394ec09ea4ee7a"
     sha256 cellar: :any,                 arm64_sonoma:   "20183aa5fc7bdf83833ef924ad844a13bee2f95386cf783da45d2756577d00c1"
     sha256 cellar: :any,                 arm64_ventura:  "c0239e97ea4e8a1d185e49c646d51ec9ea498c70920a89247fadca5b84f5d68e"
     sha256 cellar: :any,                 arm64_monterey: "3a51e53bf3ad0bb50767d009ebb8697b6aba0b19109bcacf8ba5c9bcb1915ad0"

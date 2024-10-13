@@ -1,10 +1,9 @@
 class PureFtpd < Formula
   desc "Secure and efficient FTP server"
   homepage "https://www.pureftpd.org/"
-  url "https://download.pureftpd.org/pub/pure-ftpd/releases/pure-ftpd-1.0.51.tar.gz"
-  sha256 "4160f66b76615eea2397eac4ea3f0a146b7928207b79bc4cc2f99ad7b7bd9513"
+  url "https://download.pureftpd.org/pub/pure-ftpd/releases/pure-ftpd-1.0.52.tar.gz"
+  sha256 "1126f3a95856d08889ff89703cb1aa9ec9924d939d154e96904c920f05dc3c74"
   license all_of: ["BSD-2-Clause", "BSD-3-Clause", "BSD-4-Clause", "ISC"]
-  revision 2
 
   livecheck do
     url "https://download.pureftpd.org/pub/pure-ftpd/releases/"
@@ -12,13 +11,12 @@ class PureFtpd < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "3db4a9db54790a96731b2e7621e0406eb05bc066184ebd05e30ecc029207375c"
-    sha256 cellar: :any,                 arm64_ventura:  "a7fc20279fa1b5f56cb04279c6acdec39ea86bde3bf214cf915685b611010361"
-    sha256 cellar: :any,                 arm64_monterey: "cbecdae9932dfc6c3ac346665391820e90bc8acf18d28bc4efb8ea7c27d2c9bb"
-    sha256 cellar: :any,                 sonoma:         "443984b6215f2d30b153ff04f640618cd9ec634955be95761b697d2a02321199"
-    sha256 cellar: :any,                 ventura:        "189c84eb6bafec8086a55b8a7822a84cc329533371dd99695a4202621ac1657f"
-    sha256 cellar: :any,                 monterey:       "44e712432e352ccec44837fcc2e47bd792941138faa817ab7b547a78ae105299"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a0f34a618c6f5f5c663820dcda67629b086e638f92f01e3643d373f6198a8742"
+    sha256 cellar: :any,                 arm64_sequoia: "373b7548ab16130c222ce6d0d5f572058d9861ec3131646dbebe02e49c25f45c"
+    sha256 cellar: :any,                 arm64_sonoma:  "9bd6c0ac304fdd31a8add00908af3537ab6d1044d2f62845164fd77d04ae3b3e"
+    sha256 cellar: :any,                 arm64_ventura: "12f524ce868de1e8cba324a2247bcba19cb13554cc2e8bf1addea3193a1b9dbe"
+    sha256 cellar: :any,                 sonoma:        "0b042372d9d3d61067a8607a8dd6bbe6206344fac47bdf43c83affe0c12d4290"
+    sha256 cellar: :any,                 ventura:       "6b565281bbbaa6d6f1db74766b2eb631c93620efdaffe822707e4270ee4ee2ef"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bdb09570741e1b04ee89849d62cdc4b7440b2ab283cd7d6d90724009a122e442"
   end
 
   depends_on "libsodium"

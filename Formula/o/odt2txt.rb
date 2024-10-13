@@ -7,6 +7,7 @@ class Odt2txt < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "306d55c929e1ac95e7e4a0ae181c666b460e1e733ee3bedc106fa95f06187724"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f4fc587af2f55d58d15ab56763d66b80a471c9e3db19fd58c48e923f02b55a5a"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "6da6cd6c262ef01c0f0c7cf9de4e4897f255bcf5266313a373c6b89ebc15d162"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1990d5bd2ed1d5d9b5f7165ecd8285ded82ff8ed0d622b5f9820e9bc2123252c"
@@ -25,19 +26,17 @@ class Odt2txt < Formula
 
   uses_from_macos "zlib"
 
-  resource "sample" do
-    url "https://github.com/Turbo87/odt2txt/raw/samples/samples/sample-1.odt"
-    sha256 "78a5b17613376e50a66501ec92260d03d9d8106a9d98128f1efb5c07c8bfa0b2"
-  end
-
   def install
     system "make", "install", "DESTDIR=#{prefix}"
   end
 
   test do
-    resources.each do |r|
-      r.fetch
-      system "#{bin}/odt2txt", r.cached_download
+    resource "homebrew-sample" do
+      url "https://github.com/Turbo87/odt2txt/raw/samples/samples/sample-1.odt"
+      sha256 "78a5b17613376e50a66501ec92260d03d9d8106a9d98128f1efb5c07c8bfa0b2"
     end
+
+    testpath.install resource("homebrew-sample")
+    system bin/"odt2txt", "sample-1.odt"
   end
 end

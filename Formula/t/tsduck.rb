@@ -1,25 +1,27 @@
 class Tsduck < Formula
   desc "MPEG Transport Stream Toolkit"
   homepage "https://tsduck.io/"
-  url "https://github.com/tsduck/tsduck/archive/refs/tags/v3.37-3670.tar.gz"
-  sha256 "dbb7c654330108c509f2d8a97fe0346e3a1f55ad959e13dcee4a40dd04507886"
+  url "https://github.com/tsduck/tsduck/archive/refs/tags/v3.38-3822.tar.gz"
+  sha256 "18bb779584384197dbb72af406cdcd42fe06efbf4a6ca8fd3138eb518b7ad369"
   license "BSD-2-Clause"
   head "https://github.com/tsduck/tsduck.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "16e834c1f04b5645d51f215e4f40640a80018a014b1185330ef0cf66d0c6dee1"
-    sha256 cellar: :any,                 arm64_ventura:  "f003ac2228dfcdaf77324ceee4d1faa45a78a8aeed3a640404c38674da6661ce"
-    sha256 cellar: :any,                 arm64_monterey: "c2c8ccf8fa031f9504aab5928fa09f1543843ba8e739a5802593f757dfdaf7ed"
-    sha256 cellar: :any,                 sonoma:         "1642c6d9bed6f47ac1001a7c798120e0428ba307e79fa607580183c5d4994fdb"
-    sha256 cellar: :any,                 ventura:        "3a3b3dd3b7e3b14172ea736280ec2e2802109ad8f1e0f6e769ba6f3f4eda6501"
-    sha256 cellar: :any,                 monterey:       "fe7bb580dd6b5731487427b56762a246969c0ae013bf0bebd1f64cca2c316fe4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4d79b6b81e69a6b9ff7059eeecc0a54bddc467dfa9168b413cdd9bd66a81600d"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "96475b87976813903241cf98592d01cacf720e882a6e9ac98bbe934f82eef105"
+    sha256 cellar: :any,                 arm64_sonoma:  "da97a4845370eb1f506f0802fd8695e3f4ba496b6203a5e75cb37aed6bafad37"
+    sha256 cellar: :any,                 arm64_ventura: "c14a4574386893d0246638ef5596a9166aacfbe5bfdeba200bb9d15a1e21eed1"
+    sha256 cellar: :any,                 sonoma:        "20f54631fba2329f9658ecb5237e738359806be48f23ecd8b997fce35f9c6f32"
+    sha256 cellar: :any,                 ventura:       "a8ea6ad5d363de528af0c363c1c5c42114e1eaf1387e0a9ba0f38b32f1db0d6e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ec2639e010a13f3bbfac270123337df1be212d4215e9846851c969138b896196"
   end
 
+  depends_on "asciidoctor" => :build
   depends_on "dos2unix" => :build
   depends_on "gnu-sed" => :build
   depends_on "grep" => :build
   depends_on "openjdk" => :build
+  depends_on "qpdf" => :build
   depends_on "librist"
   depends_on "libvatek"
   depends_on "openssl@3"
@@ -30,11 +32,15 @@ class Tsduck < Formula
   uses_from_macos "libedit"
   uses_from_macos "pcsc-lite"
 
+  on_macos do
+    depends_on "make" => :build
+  end
+
   def install
     ENV["LINUXBREW"] = "true" if OS.linux?
-    system "make", "NOGITHUB=1", "NOTEST=1"
+    system "gmake", "NOGITHUB=1", "NOTEST=1"
     ENV.deparallelize
-    system "make", "NOGITHUB=1", "NOTEST=1", "install", "SYSPREFIX=#{prefix}"
+    system "gmake", "NOGITHUB=1", "NOTEST=1", "install", "SYSPREFIX=#{prefix}"
   end
 
   test do

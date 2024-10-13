@@ -6,6 +6,7 @@ class Ocmtoc < Formula
   license "APSL-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "76c855fd1977f72607d1a5e666eb281e43d39ed12d80195f2ac223ce23a0f72f"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "12fda27f6b2cd588a3d5bbea9cc63834f08cf32e6b62f78b8bcee54d3435519d"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "78b7bf8993b3b48e9844cd01811ae6365c9ffd3880d304977ae0833f4c0eaac3"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "3e754be1f248ee6535ac24a9b60a2bbcd4aedd7d8e6d3ade111ec7b0a34e30f7"
@@ -16,7 +17,9 @@ class Ocmtoc < Formula
     sha256 cellar: :any_skip_relocation, big_sur:        "ee2274b07ea977cf6b3b66815d5c91e9d01d1b9a7ebe8df60712aded4dc0cfbb"
   end
 
+  depends_on xcode: :build
   depends_on :macos
+
   conflicts_with "mtoc", because: "both install `mtoc` binaries"
 
   def install
@@ -47,6 +50,6 @@ class Ocmtoc < Formula
       #{testpath}/test.c
     ]
     system ENV.cc, *args
-    system "#{bin}/mtoc", "#{testpath}/test", "#{testpath}/test.pe"
+    system bin/"mtoc", testpath/"test", testpath/"test.pe"
   end
 end

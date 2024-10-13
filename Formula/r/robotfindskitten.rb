@@ -3,11 +3,12 @@ class Robotfindskitten < Formula
   homepage "http://robotfindskitten.org/"
   url "https://downloads.sourceforge.net/project/rfk/robotfindskitten-POSIX/ship_it_anyway/robotfindskitten-2.8284271.702.tar.gz"
   sha256 "020172e4f4630f7c4f62c03b6ffe2eeeba5637b60374d3e6952ae5816a9f99af"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
   revision 1
   head "https://github.com/robotfindskitten/robotfindskitten.git", branch: "main"
 
   bottle do
+    sha256 arm64_sequoia:  "ea748b3acc46a3b17408ae1f7989c8d37389eb92e9d0d325e66b134136b51904"
     sha256 arm64_sonoma:   "94751d896df7daed821dfd5ba1a5c89c05b9e014f9e44c3d9f5e0f09a9f512be"
     sha256 arm64_ventura:  "594de510a65fdc1d5e49721661badf9d65c66ffcd6948de794e3aa1ad7de0f90"
     sha256 arm64_monterey: "4b05b5753ba51c24aa690eb643d8abd4b471a4a417e061f3197e9f5ac9fe9b9a"

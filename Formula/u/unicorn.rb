@@ -1,9 +1,8 @@
 class Unicorn < Formula
   desc "Lightweight multi-architecture CPU emulation framework"
   homepage "https://www.unicorn-engine.org/"
-  url "https://github.com/unicorn-engine/unicorn/archive/refs/tags/2.0.1.post1.tar.gz"
-  version "2.0.1.post1"
-  sha256 "6b276c857c69ee5ec3e292c3401c8c972bae292e0e4cb306bb9e5466c0f14737"
+  url "https://github.com/unicorn-engine/unicorn/archive/refs/tags/2.1.1.tar.gz"
+  sha256 "8740b03053162c1ace651364c4c5e31859eeb6c522859aa00cb4c31fa9cbbed2"
   license all_of: [
     "GPL-2.0-only",
     "GPL-2.0-or-later", # glib, qemu
@@ -11,15 +10,12 @@ class Unicorn < Formula
   head "https://github.com/unicorn-engine/unicorn.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "19357aa9fc753df6791bf5a1764dbb2fdfeed8cdcc3a6b5c8174a052558cd8e2"
-    sha256 cellar: :any,                 arm64_ventura:  "4c9ea5656b2834aaa6a4fecd8bfc55ebc0b5fdd9f8ae360dca4ada9d25d7a484"
-    sha256 cellar: :any,                 arm64_monterey: "fc3a7ffad1c200b9dbb4eeb843d06eb9b6edf8313d42b38c9ca58f23e70810cc"
-    sha256 cellar: :any,                 arm64_big_sur:  "3ca1e960e66e83079c74b602e268db6f634cbd9c44ea52f18da8e71c29f67a43"
-    sha256 cellar: :any,                 sonoma:         "e092a3f6f7fbaa3483b3fa2b892da569adb0e3773aed3135aafe3eb9de132210"
-    sha256 cellar: :any,                 ventura:        "475d61a10d43ec74d07defb155d2ae5c53422d2fd4f9c3dd09f7fbaef3b6b4c5"
-    sha256 cellar: :any,                 monterey:       "37bdc2d1067fe898c5455cdb0c0d2a2b94b5f8190d41352ebf661716352d5ae4"
-    sha256 cellar: :any,                 big_sur:        "cfd01c643cfc2283b4e973ba0208bbed3ee081408796c7a95059ed98f758900d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f45a8a230a4a63c46fc1d9a63e4d3a8ea33e6448051200bb202c23081efc96f2"
+    sha256 cellar: :any,                 arm64_sequoia: "d883e9c493f37e9bb7e98824a64d2ecfbee8d03ce0a3bfce3558a3805ac9ae16"
+    sha256 cellar: :any,                 arm64_sonoma:  "b73d76012c194c5b982c12a36a380f7d3db64dbc828c3566ed783e8955a59640"
+    sha256 cellar: :any,                 arm64_ventura: "8cb9b6e44b8f70a0e9cf1da0ba23dc7f9a0cbafaa5e2044f83166918dc5560e0"
+    sha256 cellar: :any,                 sonoma:        "e435e55606cdbc842e79367eac3dc8974267616f08ea95b890c2086c634137b0"
+    sha256 cellar: :any,                 ventura:       "aeb5bf15f1613f87677b7bb539cac1bc9b3fcd339f06881437058ed19ac5313a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8935edc693fe1e8f5756c96913bf9de63aed9d22be914ef6a7b40dff96686e61"
   end
 
   depends_on "cmake" => :build

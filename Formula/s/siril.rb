@@ -1,24 +1,22 @@
 class Siril < Formula
   desc "Astronomical image processing tool"
   homepage "https://www.siril.org"
-  url "https://free-astro.org/download/siril-1.2.3.tar.bz2"
-  sha256 "8ac660542d2bec5d608eaf9bf25a25e6ba574b58b5410bdb6ad401e1f86fa756"
+  url "https://free-astro.org/download/siril-1.2.4.tar.bz2"
+  sha256 "6d9391558b4289615ad0567e953ef645df9a00965c6c6fbc723ad25f3ac0925a"
   license "GPL-3.0-or-later"
-  revision 1
   head "https://gitlab.com/free-astro/siril.git", branch: "master"
 
   bottle do
-    sha256 arm64_sonoma:   "f4049c40c420b8174844ba34b785415e5018116244e4b28ca558d2864c7674c5"
-    sha256 arm64_ventura:  "4f5bc9ae544f1afa038e851e6f166b9d4c1e614d5234a901a370269670746842"
-    sha256 arm64_monterey: "92a0d0e303aaad93236f7b24a7e6d2cdca3b8599632314edafed042349530eee"
-    sha256 sonoma:         "ccdbec9841ca4ea9288451aaee4db372f83b5ecb2545915c43560002122e290c"
-    sha256 ventura:        "fd680dfe41bf64caabcad453873e48ea04dca6ce0b2d92dfc3a2e9db6a6ac854"
-    sha256 monterey:       "318344d5a3a07f6d6ac4deaaa89f5bb5dd4d3058cd02890c4b1a03ecb362bddd"
-    sha256 x86_64_linux:   "e059dbcf1530ca4e6981213c00604acea83879e071cc5a24272b60174347ab3f"
+    sha256 arm64_sonoma:   "18d857fa2251085c51fabbe80fd0afcf4b04da7ac700f00063fbd49cd8fdf34b"
+    sha256 arm64_ventura:  "827f6ac0b787fcad63b1cbaaaf49e3cc2e75e7ada8259651f9581ca352584f77"
+    sha256 arm64_monterey: "84c02fc306787657281c512b983e6c91057f41738bee0c8158b02ac067c4d0fc"
+    sha256 sonoma:         "e271167f4688b1020d1e1dd907875b11f23e61c7ad76cb934a1bc3d0ccfc0c2a"
+    sha256 ventura:        "f1bfa543e11626e6e4736e87697f82210fa59f7ae7308e374db8c4828a0aa80b"
+    sha256 monterey:       "f73f021d14bd9eef882abe226d7cfc5f5a1000231735ffa41fe2a6f71e472136"
+    sha256 x86_64_linux:   "756fc0a1c9f6344351bece2c2161dd0ce52c5c1839fbb7322ee571172d7c98c3"
   end
 
   depends_on "cmake" => :build
-  depends_on "intltool" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
@@ -27,7 +25,7 @@ class Siril < Formula
   depends_on "cairo"
   depends_on "cfitsio"
   depends_on "exiv2"
-  depends_on "ffmpeg@6"
+  depends_on "ffmpeg"
   depends_on "ffms2"
   depends_on "fftw"
   depends_on "gdk-pixbuf"

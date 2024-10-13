@@ -6,6 +6,7 @@ class GnuGetopt < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "8025c5fff22016f9d616a7f7f94de79ece01db73f6e2ef3032a038621e894abb"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ab9985a8189d89d997042764ca3a413380798f7faddb032c77613c392724daae"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "d15c97983241a60691b09b15684351304f1d00933c46a103ef9521b985a34e52"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "63ab4b156e1fcc16b6e014f5a92fac3087c7c371004c134d12276e3f4f469d46"
@@ -15,7 +16,7 @@ class GnuGetopt < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "c0accfa7f1ff3844f5976a87e794812ffc3598251542dbb370cf0f4e43623f37"
   end
 
-  keg_only :provided_by_macos
+  keg_only :shadowed_by_macos, "macOS provides BSD getopt"
 
   depends_on "asciidoctor" => :build
   depends_on "autoconf" => :build
@@ -27,9 +28,9 @@ class GnuGetopt < Formula
   end
 
   def install
-    system "./configure", *std_configure_args,
-                          "--disable-silent-rules",
-                          "--disable-liblastlog2"
+    system "./configure", "--disable-silent-rules",
+                          "--disable-liblastlog2",
+                          *std_configure_args
 
     system "make", "getopt", "misc-utils/getopt.1"
 
@@ -40,9 +41,9 @@ class GnuGetopt < Formula
   end
 
   test do
-    system "#{bin}/getopt", "-o", "--test"
+    system bin/"getopt", "-o", "--test"
     # Check that getopt is enhanced
-    quiet_system "#{bin}/getopt", "-T"
+    quiet_system bin/"getopt", "-T"
     assert_equal 4, $CHILD_STATUS.exitstatus
   end
 end

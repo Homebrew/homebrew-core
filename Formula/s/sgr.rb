@@ -9,6 +9,7 @@ class Sgr < Formula
   revision 12
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "e4177ff9fefc0e71aa7176507e87d7a89777c5aa828a294e0495d31fb358d98a"
     sha256 cellar: :any,                 arm64_sonoma:   "307cb0fe6d3dc16b5015834648bfbe002dae28edcb3277129db1a8fae787e20c"
     sha256 cellar: :any,                 arm64_ventura:  "8ea136e242a1657b9659d43de45387b1a1d2ba62cfa2c50db5cc0512d3565067"
     sha256 cellar: :any,                 arm64_monterey: "c2dd65f7bf656db480a9f73f500a71a29e81f896d973a96ca2f57d741384ee9b"

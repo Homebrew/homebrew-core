@@ -11,6 +11,7 @@ class Nasm < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "7f641dcb5ae03d3eebbfe11b3284a1b655f794f79a9aabf8c396003d8940d059"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c04988e99839f591ced743c876289c18fb403b3a6826effaa3a0a9ba9385ddbc"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "265e501fd778167b9c9122097acbf94c0d0577b8c5e2e94722d88cc89a07ba3f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f354fd20ce32d149d1fe08b9cc5ba1c1facdd19d6c3ee16c88ecdeaef3d012e2"
@@ -42,7 +43,7 @@ class Nasm < Formula
       int 0x80
     EOS
 
-    system "#{bin}/nasm", "foo.s"
+    system bin/"nasm", "foo.s"
     code = File.open("foo", "rb") { |f| f.read.unpack("C*") }
     expected = [0x66, 0xb8, 0x00, 0x00, 0x00, 0x00, 0x66, 0xbb,
                 0x00, 0x00, 0x00, 0x00, 0xcd, 0x80]

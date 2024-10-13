@@ -7,6 +7,7 @@ class Lightgbm < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "6a9bae519a73dc0d0f9accacf7fa39e6fe973abd1203f69e472dbc97612e3440"
     sha256 cellar: :any,                 arm64_sonoma:   "978165b249362451083befd02d5a896a162576adf9e3d43f1f21e9013ca42468"
     sha256 cellar: :any,                 arm64_ventura:  "d045a7be5f3f48f88ce1b04c9c64c45c835110f4675f78f29d1302de708548b4"
     sha256 cellar: :any,                 arm64_monterey: "522a7d56a64386fde0e8b7df39c1a59a9040833b4063246abf0a229ec2d74fb6"
@@ -23,7 +24,7 @@ class Lightgbm < Formula
   end
 
   def install
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DAPPLE_OUTPUT_DYLIB=ON"
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
     pkgshare.install "examples"
@@ -32,7 +33,7 @@ class Lightgbm < Formula
   test do
     cp_r (pkgshare/"examples/regression"), testpath
     cd "regression" do
-      system "#{bin}/lightgbm", "config=train.conf"
+      system bin/"lightgbm", "config=train.conf"
     end
   end
 end

@@ -19,7 +19,7 @@ class Mathlibtools < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "749aa46ceb3aaf5e592562d7f952384543f65702848507e613b07684ce75d12d"
   end
 
-  deprecate! date: "2023-09-04", because: :repo_archived
+  disable! date: "2024-09-09", because: :repo_archived
 
   depends_on "certifi"
   depends_on "cryptography"

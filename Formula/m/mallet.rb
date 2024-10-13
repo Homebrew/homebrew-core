@@ -1,36 +1,35 @@
 class Mallet < Formula
   desc "MAchine Learning for LanguagE Toolkit"
-  homepage "https://mallet.cs.umass.edu/"
-  url "https://mallet.cs.umass.edu/dist/mallet-2.0.8.tar.gz"
-  sha256 "5b2d6fb9bcf600b1836b09881821a6781dd45a7d3032e61d7500d027a5b34faf"
-  revision 1
-
-  livecheck do
-    url "https://mallet.cs.umass.edu/download.php"
-    regex(/href=.*?mallet[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
+  homepage "https://mimno.github.io/Mallet/index"
+  # We use the zip as the 202108 tarball was generated with macOS metadata so
+  # it is unpacked incorrectly on Linux and prevents `all` bottle creation
+  url "https://github.com/mimno/Mallet/releases/download/v202108/Mallet-202108-bin.zip"
+  sha256 "874e682add31d638fb6b97c0ad485ff8fbc45e08c47305843139604b7dc15f62"
+  license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "66fcc304b6625b390cd2ddb5d3ab99a3049c5b21789d3b54dcc18bf82fa3c009"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "2a79370bb96c6b93c4e5ccea01dfd09deeea7bcd7410c34ebfbd0584e24939e3"
   end
 
   depends_on "openjdk"
 
-  resource "testdata" do
-    url "https://raw.githubusercontent.com/mimno/Mallet/master/sample-data/stackexchange/tsv/testing.tsv"
-    sha256 "06b4a0b3f27afa532ded841e8304449764a604fb202ba60eb762eaa79e9e02f3"
-  end
-
   def install
     rm Dir["bin/*.{bat,dll,exe}"] # Remove all windows files
+
     libexec.install Dir["*"]
     bin.install Dir["#{libexec}/bin/*"]
     bin.env_script_all_files(libexec/"bin", JAVA_HOME: Formula["openjdk"].opt_prefix)
   end
 
   test do
-    resource("testdata").stage do
-      system "#{bin}/mallet", "import-file", "--input", "testing.tsv", "--keep-sequence"
+    resource "homebrew-testdata" do
+      url "https://raw.githubusercontent.com/mimno/Mallet/master/sample-data/stackexchange/tsv/testing.tsv"
+      sha256 "06b4a0b3f27afa532ded841e8304449764a604fb202ba60eb762eaa79e9e02f3"
+    end
+
+    resource("homebrew-testdata").stage do
+      system bin/"mallet", "import-file", "--input", "testing.tsv", "--keep-sequence"
       assert_equal "seconds",
         shell_output("#{bin}/mallet train-topics --input text.vectors " \
                      "--show-topics-interval 0 --num-iterations 100 2>&1").split.last

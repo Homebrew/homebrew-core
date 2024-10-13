@@ -3,7 +3,7 @@ class Atool < Formula
   homepage "https://savannah.nongnu.org/projects/atool/"
   url "https://savannah.nongnu.org/download/atool/atool-0.39.0.tar.gz"
   sha256 "aaf60095884abb872e25f8e919a8a63d0dabaeca46faeba87d12812d6efc703b"
-  license "GPL-3.0"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url "https://download.savannah.gnu.org/releases/atool/"
@@ -12,6 +12,7 @@ class Atool < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "00e67b0e4ef80834a7d17d2f19720bef6d71e7024b39dfb5037fa8b39a26e57b"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7ff38c5e02e2ddc9958969caf192b57fb72137544c728e9abf61aa4c3ccb95e3"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "9772f860038b7901645159630516942318faf1c300f47ff7d393b018993c2927"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "9772f860038b7901645159630516942318faf1c300f47ff7d393b018993c2927"

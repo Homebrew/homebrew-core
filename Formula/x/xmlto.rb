@@ -1,49 +1,49 @@
 class Xmlto < Formula
   desc "Convert XML to another format (based on XSL or other tools)"
   homepage "https://pagure.io/xmlto/"
-  url "https://releases.pagure.org/xmlto/xmlto-0.0.28.tar.bz2"
-  sha256 "1130df3a7957eb9f6f0d29e4aa1c75732a7dfb6d639be013859b5c7ec5421276"
+  url "https://pagure.io/xmlto/archive/0.0.29/xmlto-0.0.29.tar.gz"
+  sha256 "40504db68718385a4eaa9154a28f59e51e59d006d1aa14f5bc9d6fded1d6017a"
   license "GPL-2.0-or-later"
 
   livecheck do
-    url "https://releases.pagure.org/xmlto/?C=M&O=D"
-    regex(/href=.*?xmlto[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    url "https://pagure.io/xmlto.git"
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "59b67fee304cc5d7be502ba1e4013d1ceb2528dee5c51df926e07b98109457eb"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ae8265ff1eca0fe879c1ece963369b58abe515726f99b53832a5aded92b51e58"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "2947a0d38d964b133b1452fa8277d59b333980c549141b990f3f8cbfe9db5c58"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bec2a4a7797f07fc73a636a40e85cb0504da4c5e34328456c28e78c84ce95324"
-    sha256 cellar: :any_skip_relocation, sonoma:         "78d522c9bf195e417c59949a583b479d8784c81e67e8eea8beb3d85c940a2473"
-    sha256 cellar: :any_skip_relocation, ventura:        "d90e8586c846dd0f299101e6ed940d0be828821d8e1c46cb1ca00b7febf83836"
-    sha256 cellar: :any_skip_relocation, monterey:       "d86630edcfc8976b0a7a22f314b7a7062814fec16d52b90d8c1b4d850907222e"
-    sha256 cellar: :any_skip_relocation, big_sur:        "95502b71000319da58971ea17c0dab0f326d20ce4c09d074fe4c7fe89c66d002"
-    sha256 cellar: :any_skip_relocation, catalina:       "d2c21b9b398191e21dcf6e7ac53e4dd46fb59d29173e4d8443ac296101cce58f"
-    sha256 cellar: :any_skip_relocation, mojave:         "8fca3be2271ae8e7fb646b011969ba4030f7421118a4ea6b11eca1ac0fe6979b"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "1214da1d14a8f01d8b8d0ead6606207ff5a29fb7ab104d6af47e57fbca4ffcc7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bd0f9ea84a854c7483a7eae5320c54baa3cb956e914044a522e3c3c041ab08eb"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "a131d56e2e03b70f96c405262bf31ab9944de622d799b7341c1fe9b07ea0e34a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "aeeb037d079947e51c9e743fd1c87dcf4eaa6db340afeceb880fa1e91fe86129"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3a3a8cc72243b732191e706c96bf4e9a827300d529a3226f6a4ca26ee5fef5ac"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "479938c37c2f5bda455b31dddc2a587f464b731cc887a698f0a90f89de3cd6ac"
+    sha256 cellar: :any_skip_relocation, sonoma:         "94b2d369c743d833b9e4fa2f6658c47f4a85fa8c94202ddcd6db88244f27e7d4"
+    sha256 cellar: :any_skip_relocation, ventura:        "fbcc16655585b93b6c3598bd2e712551f88e48bc6062f045914e7f22b4c6bf38"
+    sha256 cellar: :any_skip_relocation, monterey:       "6c44cf87fbed1ee9587e74be7fa06d5a8cc392509a05d9f6a37f69d99e765822"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "350a0d789e034e3717a5e03ce2110787ded5b6b9a4582b38152c670b10909e0e"
   end
+
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
 
   depends_on "docbook"
   depends_on "docbook-xsl"
-  # Doesn't strictly depend on GNU getopt, but macOS system getopt(1)
-  # does not support longopts in the optstring, so use GNU getopt.
-  depends_on "gnu-getopt"
 
   uses_from_macos "libxslt"
 
+  on_macos do
+    # Doesn't strictly depend on GNU getopt, but macOS system getopt(1)
+    # does not support longopts in the optstring, so use GNU getopt.
+    depends_on "gnu-getopt"
+  end
+
   def install
     # GNU getopt is keg-only, so point configure to it
-    ENV["GETOPT"] = Formula["gnu-getopt"].opt_bin/"getopt"
-    # Prevent reference to Homebrew shim
-    ENV["SED"] = "/usr/bin/sed"
+    ENV["GETOPT"] = Formula["gnu-getopt"].opt_bin/"getopt" if OS.mac?
     # Find our docbook catalog
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
 
     ENV.deparallelize
-    system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
+    system "autoreconf", "--install"
+    system "./configure", "--disable-silent-rules", *std_configure_args
     system "make", "install"
   end
 

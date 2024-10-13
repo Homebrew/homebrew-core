@@ -3,22 +3,26 @@ class EspeakNg < Formula
   homepage "https://github.com/espeak-ng/espeak-ng"
   url "https://github.com/espeak-ng/espeak-ng/archive/refs/tags/1.51.tar.gz"
   sha256 "f0e028f695a8241c4fa90df7a8c8c5d68dcadbdbc91e758a97e594bbb0a3bdbf"
-  license all_of: ["GPL-3.0-or-later", "BSD-2-Clause"]
+  # NOTE: We omit BSD-2-Clause as getopt.c is only used on Windows
+  license "GPL-3.0-or-later"
   head "https://github.com/espeak-ng/espeak-ng.git", branch: "master"
 
   bottle do
-    sha256                               arm64_sonoma:   "0a7e95c227995346735e241f7e405e1674fe3ffc2cd34dc0652b0759cf4e4e79"
-    sha256                               arm64_ventura:  "2ca85163fc22f4cbe289470309515a64644330088677dbfc52af0f9adf01f63e"
-    sha256                               arm64_monterey: "41c21e4d913066d098a03b0868560cf8dfd9c79536742f0f3ce7045d011e52d4"
-    sha256                               sonoma:         "66799720066a97ad3d683287919e83d99a95ec4ce8598c5f39fd6d9360801afc"
-    sha256                               ventura:        "c03369a85157c551b4f508bdae1c8501c1956f6ef4a6ebd6b090071e898597f8"
-    sha256                               monterey:       "0fce21cfbd719886ce37847283bdfef19d84e8409fe684735142e7df5102a696"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1be82b0f888a00ba2cf6b273bb2eb045431a4bbafe5c0a2dd1b982e8d39b7132"
+    rebuild 1
+    sha256                               arm64_sequoia:  "eeb1cfce58b5deb74cd23d1c29d72ace348cd7cfc76a645c94c090893201b8fb"
+    sha256                               arm64_sonoma:   "e65b67177aee6493487968b1532a4ada704eed109c5d8951007df69bfa19dfeb"
+    sha256                               arm64_ventura:  "d843709e08e8d930beb0f288fdd1b336d3bd628c63e2c2a812cd09748ac8a19c"
+    sha256                               arm64_monterey: "1332045a6452318d5515db38903ecf5d2b9c3aef20719242412236903bf2b0c6"
+    sha256                               sonoma:         "d244aff89f55c16198f0171e05ad9d567d21fe7bcacf78703bb840fb86979aec"
+    sha256                               ventura:        "7d30840a4c48e5ec210514f1620d9725ce817c447ff24789f32e72650c926add"
+    sha256                               monterey:       "582e2c1248240cf7f3126aba521b1aeae3aaa8dc25e19905f4f485da85245b21"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "42b6e4106a6a557f8f93622f5772e52398664b346fca36e165db10af96c6a8d0"
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
+  depends_on "pcaudiolib"
 
   conflicts_with "espeak", because: "both install `espeak` binaries"
 
@@ -28,11 +32,18 @@ class EspeakNg < Formula
     touch "ChangeLog"
 
     system "autoreconf", "--force", "--install", "--verbose"
-    system "./configure", *std_configure_args
+    system "./configure", "--disable-silent-rules", *std_configure_args
     system "make", "install"
   end
 
   test do
+    # Real audio output fails on macOS CI runner, maybe due to permissions
+    audio_output = if OS.mac? && ENV["HOMEBREW_GITHUB_ACTIONS"]
+      "AUDIO_OUTPUT_RETRIEVAL"
+    else
+      "AUDIO_OUTPUT_PLAYBACK"
+    end
+
     (testpath/"test.cpp").write <<~EOS
       #include <espeak/speak_lib.h>
       #include <iostream>
@@ -42,7 +53,7 @@ class EspeakNg < Formula
         std::cout << "Initializing espeak-ng..." << std::endl;
 
         espeak_POSITION_TYPE position_type = POS_CHARACTER;
-        espeak_AUDIO_OUTPUT output = AUDIO_OUTPUT_PLAYBACK;
+        espeak_AUDIO_OUTPUT output = #{audio_output};
         int options = 0;
         void* user_data = nullptr;
         unsigned int* unique_identifier = nullptr;

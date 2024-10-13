@@ -7,8 +7,8 @@ class Fmpp < Formula
   revision 2
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "1f8f90c6d1956ee6d8ed21f318e3c49fe9f40f9f877edee672019f6d502b626c"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "fd2a84f1e4cb90f27ac04f99af1b5da3499c81e111e78370ebd71f448dd97d12"
   end
 
   depends_on "openjdk"

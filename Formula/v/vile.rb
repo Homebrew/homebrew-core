@@ -11,6 +11,7 @@ class Vile < Formula
   end
 
   bottle do
+    sha256 arm64_sequoia:  "84034c614555bb446473e976341e350c73dcb4471d210c67fe602e958faef612"
     sha256 arm64_sonoma:   "e84be3fdb790f3335cd751171d55992f7bab1c53eebba6a06221a52665da04f4"
     sha256 arm64_ventura:  "cdaba9b9b3fc2a83aabc80a1b76481fa81bf861c0667d4c4e37929b4b92b5025"
     sha256 arm64_monterey: "a59ef3113b85e9b48da4bd05c297628d14aee271559257fc3bea1acac346ea72"

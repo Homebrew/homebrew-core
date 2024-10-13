@@ -8,6 +8,7 @@ class Vitetris < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "dd6ea28531dfab3328f90186dc273aec6bc0fe8aea3975c464fc69f780566547"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3e97501d1c6455a0f05c42b8ac32a26a11361329c13f031c29be0302303c3f8c"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "a7e9d7a5f17a0ecec24844b5170fa3a022e98e957bc8c957aed74278f90b5e6f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1abdb3a699387c63bb17e24037ba5f6233758ba792964c076db235622de37c0c"
@@ -22,6 +23,9 @@ class Vitetris < Formula
   end
 
   def install
+    # workaround for newer clang
+    ENV.append_to_cflags "-Wno-implicit-int" if DevelopmentTools.clang_build_version >= 1403
+
     # remove a 'strip' option not supported on OS X and root options for
     # 'install'
     inreplace "Makefile", "-strip --strip-all $(PROGNAME)", "-strip $(PROGNAME)"
@@ -31,6 +35,6 @@ class Vitetris < Formula
   end
 
   test do
-    system "#{bin}/tetris", "-hiscore"
+    system bin/"tetris", "-hiscore"
   end
 end

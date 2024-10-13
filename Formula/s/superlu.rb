@@ -1,8 +1,8 @@
 class Superlu < Formula
   desc "Solve large, sparse nonsymmetric systems of equations"
   homepage "https://portal.nersc.gov/project/sparse/superlu/"
-  url "https://github.com/xiaoyeli/superlu/archive/refs/tags/v6.0.1.tar.gz"
-  sha256 "6c5a3a9a224cb2658e9da15a6034eed44e45f6963f5a771a6b4562f7afb8f549"
+  url "https://github.com/xiaoyeli/superlu/archive/refs/tags/v7.0.0.tar.gz"
+  sha256 "d7b91d4e0bb52644ca74c1a4dd466a694ddf1244a7bbf93cb453e8ca1f6527eb"
   license "BSD-3-Clause-LBNL"
 
   livecheck do
@@ -11,15 +11,14 @@ class Superlu < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "a09972748fa9f0c51019515ee6f79c59dec305b445fdcb1df5eb3b03411a57ce"
-    sha256 cellar: :any,                 arm64_ventura:  "1b77c62e3df8fa74e225128bc3549a0fbcd100d20d3fdc8e69b8d5079ece5645"
-    sha256 cellar: :any,                 arm64_monterey: "416c4867f351007663616d1217a2f086fa8ea424b0cf8e2476706c6b89052321"
-    sha256 cellar: :any,                 arm64_big_sur:  "5c2aa2bf3500e11bcb847b2cdaeadedc4352a322d974224cfa9a11aa57c4cd6b"
-    sha256 cellar: :any,                 sonoma:         "45e6c7be8738def22a994d0331bf4c881e7a53ed39775dbc6857d973b600e0f1"
-    sha256 cellar: :any,                 ventura:        "b1ad99f7201436cd3311b48c5711b0fddb2ae4a1fcd7148c08d611a1fb12775f"
-    sha256 cellar: :any,                 monterey:       "d892bba3869f7729417657f2bff97e703a195c4194cfd9d6779c6e95708e9bed"
-    sha256 cellar: :any,                 big_sur:        "79a64f6e540d32863c701c044594d060eb4951daa25e71cb219d298525b403de"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4898aa53c8f5254013d20f299f162f60fbdfa10701917e9dd8f967c3f798047e"
+    sha256 cellar: :any,                 arm64_sequoia:  "4254178b07c9d3a726c6275a30e940b31f26e4ca674ec2cc5731974831a3b254"
+    sha256 cellar: :any,                 arm64_sonoma:   "a2b33d13c7cfc12be7928d7de630dc45c13afc610cdfb575fa1828a7c9ec2424"
+    sha256 cellar: :any,                 arm64_ventura:  "0d9bdc7fc5edac4991f85b6bcf533011bb6f399287fbe243a0ea80721cddbd84"
+    sha256 cellar: :any,                 arm64_monterey: "abf41ebe1584b1e8267de4464b1c3d9865a423709f4873e1cdd1cab5520d8f0a"
+    sha256 cellar: :any,                 sonoma:         "2a8abc054e2595a4a3dd57840449adabf159c812eaf7d9d1a24c31dc0e125396"
+    sha256 cellar: :any,                 ventura:        "595c90722cfb68db872db17c84ae8f85dcc6f296f4ce8a64cf5254c8c0b297d9"
+    sha256 cellar: :any,                 monterey:       "40d93c338aec89af15f42e2d8a807e013daa8608f4fd6bc3f62f9581b86536f2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7e2bfcb8dec3fae7f0fcd94ee5515dd0d1a27327ae79a657c09b44f00299cf95"
   end
 
   depends_on "cmake" => :build

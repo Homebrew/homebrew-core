@@ -6,6 +6,7 @@ class GlibNetworking < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
+    sha256               arm64_sequoia:  "3d424d6b858a6c4f66d44e51822d375a177c6e3f0b3c42a183c20037abd195ea"
     sha256               arm64_sonoma:   "30b0bc73d7307c7c10eefefdab0d4e5cbada6062d3af70e87eda5cae0d384078"
     sha256               arm64_ventura:  "77eaced4c03965b9708daa421f20d056f12e7bbf86b29d48aa5b942fe429d557"
     sha256               arm64_monterey: "afda408dd3bcd96460597c803669eff4e9c9bf435c2e5201f5b7f20e0295d8c4"
@@ -33,10 +34,12 @@ class GlibNetworking < Formula
     # stop gnome.post_install from doing what needs to be done in the post_install step
     ENV["DESTDIR"] = "/"
 
-    system "meson", *std_meson_args, "build",
-                    "-Dlibproxy=disabled",
-                    "-Dopenssl=disabled",
-                    "-Dgnome_proxy=disabled"
+    args = %w[
+      -Dlibproxy=disabled
+      -Dopenssl=disabled
+      -Dgnome_proxy=disabled
+    ]
+    system "meson", "setup", "build", *args, *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"
     system "meson", "install", "-C", "build"
   end

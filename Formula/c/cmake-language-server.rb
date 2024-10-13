@@ -9,16 +9,11 @@ class CmakeLanguageServer < Formula
   head "https://github.com/regen100/cmake-language-server.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "522357a6dc704e876a07ae04542aca9cb3308282c9d0a45f15464448d9a08fa0"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "522357a6dc704e876a07ae04542aca9cb3308282c9d0a45f15464448d9a08fa0"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "522357a6dc704e876a07ae04542aca9cb3308282c9d0a45f15464448d9a08fa0"
-    sha256 cellar: :any_skip_relocation, sonoma:         "522357a6dc704e876a07ae04542aca9cb3308282c9d0a45f15464448d9a08fa0"
-    sha256 cellar: :any_skip_relocation, ventura:        "522357a6dc704e876a07ae04542aca9cb3308282c9d0a45f15464448d9a08fa0"
-    sha256 cellar: :any_skip_relocation, monterey:       "522357a6dc704e876a07ae04542aca9cb3308282c9d0a45f15464448d9a08fa0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "121fcd6bee7edc1b8477636bad12a0094415aa17ef73be3d853bfae0bdfc93f5"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "86cdbf04946f27a7004d51e49f0513c6d0a77835289c1299da6653a5ec5f41aa"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "attrs" do
     url "https://files.pythonhosted.org/packages/e3/fc/f800d51204003fa8ae392c4e8278f256206e7a919b708eef054f5f4b650d/attrs-23.2.0.tar.gz"
@@ -40,6 +35,9 @@ class CmakeLanguageServer < Formula
     sha256 "140edceefa0da0e9b3c533547c892a42a7d2fd9217ae848c330c53d266a55018"
   end
 
+  # py3.13 build patch, upstream pr ref, https://github.com/regen100/cmake-language-server/pull/94
+  patch :DATA
+
   def install
     virtualenv_install_with_resources
   end
@@ -52,10 +50,38 @@ class CmakeLanguageServer < Formula
       "processId\":88075,\"rootUri\":null,\"capabilities\":{},\"trace\":\"ver" \
       "bose\",\"workspaceFolders\":null}}\r\n"
 
-    output = pipe_output("#{bin}/cmake-language-server", input)
+    output = pipe_output(bin/"cmake-language-server", input)
 
     assert_match(/^Content-Length: \d+/i, output)
 
     assert_match version.to_s, shell_output("#{bin}/cmake-language-server --version")
   end
 end
+
+__END__
+diff --git a/PKG-INFO b/PKG-INFO
+index 5f7bdbd..c47c4f2 100644
+--- a/PKG-INFO
++++ b/PKG-INFO
+@@ -13,7 +13,7 @@ Classifier: Topic :: Software Development
+ Classifier: Topic :: Text Editors :: Integrated Development Environments (IDE)
+ Classifier: Topic :: Utilities
+ Project-URL: Repository, https://github.com/regen100/cmake-language-server
+-Requires-Python: <3.13,>=3.8.0
++Requires-Python: <3.14,>=3.8.0
+ Requires-Dist: pygls>=1.1.1
+ Description-Content-Type: text/markdown
+ 
+diff --git a/pyproject.toml b/pyproject.toml
+index efff6d2..9e6b1c1 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -8,7 +8,7 @@ authors = [
+ dependencies = [
+     "pygls>=1.1.1",
+ ]
+-requires-python = ">=3.8.0,<3.13"
++requires-python = ">=3.8.0,<3.14"
+ readme = "README.md"
+ keywords = [
+     "cmake",

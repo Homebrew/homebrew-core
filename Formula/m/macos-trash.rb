@@ -7,6 +7,7 @@ class MacosTrash < Formula
   head "https://github.com/sindresorhus/macos-trash.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "291cf5358523a9a84842f779f09d36f7dccfe4c5f1cf6b5146b13e3098c4e3e6"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "34f68f4aaee66e7a5db78072b47c51b9926b11b03b4fad43a71338f5db9e06b7"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "14d22be61e2e75a7592b42234d0e62696340551aef10bb53d1996bd7e6af649d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "0cff573086ce20b6b3c1ace838570390605cd758965e455c1b36b097b3130ccb"
@@ -32,6 +33,6 @@ class MacosTrash < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/trash --version")
-    system "#{bin}/trash", "--help"
+    system bin/"trash", "--help"
   end
 end

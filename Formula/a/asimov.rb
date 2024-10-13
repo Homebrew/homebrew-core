@@ -7,7 +7,8 @@ class Asimov < Formula
   head "https://github.com/stevegrunwell/asimov.git", branch: "develop"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "241f2672b244e0f6913abab7ab03d52d2f757d9bf1d384f79e880753e0ade64d"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "acc00f632c9cf38cca02e619759b0239e00a3b3d1120b5b8f55066a1eb134322"
   end
 
   def install
@@ -24,6 +25,6 @@ class Asimov < Formula
 
   test do
     assert_match "Finding dependency directories with corresponding definition files…",
-                 shell_output("#{bin}/asimov")
+                 shell_output(bin/"asimov")
   end
 end

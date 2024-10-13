@@ -6,7 +6,8 @@ class GitOpen < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "b9a415294b615c483c64ea122544f80ccde480db013ced6c62b558c5cdabff74"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "142aaeed12d42b049c0414d59f19f8dfddf1c1c83dee8f208b1af1e745fd432d"
   end
 
   def install
@@ -14,6 +15,6 @@ class GitOpen < Formula
   end
 
   test do
-    system "#{bin}/git-open", "-v"
+    system bin/"git-open", "-v"
   end
 end

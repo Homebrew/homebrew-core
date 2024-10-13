@@ -2,25 +2,24 @@ class Libpano < Formula
   desc "Build panoramic images from a set of overlapping images"
   homepage "https://panotools.sourceforge.net/"
   url "https://downloads.sourceforge.net/project/panotools/libpano13/libpano13-2.9.22/libpano13-2.9.22.tar.gz"
-  version "13-2.9.22"
   sha256 "affc6830cdbe71c28d2731dcbf8dea2acda6d9ffd4609c6dbf3ba0c68440a8e3"
   license "GPL-2.0-or-later"
+  version_scheme 1
 
   livecheck do
     url :stable
-    regex(%r{url=.*?/libpano(\d+-\d+(?:\.\d+)+)\.t}i)
+    regex(%r{url=.*?/libpano13[._-]v?(\d+(?:\.\d+)+)\.t}i)
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "fa89b0c345b31acbd05ed19fe8b83430f0f8441baf35b7c1da5ca1b341a81911"
-    sha256 cellar: :any,                 arm64_ventura:  "09d3187f0a8b6590702191a736d39dc04c76ef206a2f393e07a0652f8d4f0799"
-    sha256 cellar: :any,                 arm64_monterey: "d68b6fdb9f52b179bc7fabaad1c8799e379dd98083a90a97ad5f44882e2490fa"
-    sha256 cellar: :any,                 arm64_big_sur:  "7518dd1633746b0b8d6aa05782d944b8d350a4264141170692b47d7bc5953849"
-    sha256 cellar: :any,                 sonoma:         "4f5047edffe197205f3aa8b855884ec32f51833184d630b292a62dc91afff718"
-    sha256 cellar: :any,                 ventura:        "e3790ccba7cf7d242b43bdf1c95138ed90d820ee9c95c1b96e4eb97a1f2200b4"
-    sha256 cellar: :any,                 monterey:       "6f01278cff267c140af795a8fcb77b931b67bf8873521fc820b4d439377cb28b"
-    sha256 cellar: :any,                 big_sur:        "864d4572804488806ef439af804ac7e3a317e7a088836af1f76236ae0e8c4292"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e19decc93a3e5c3205bcee01f256771af1fb2386d6d8848b2c74cf3c761972ad"
+    sha256 cellar: :any,                 arm64_sequoia:  "e0b93764142133cf6a62e5d9512bd7ba1a82ebabc2ae3660c62b345cf49c8af3"
+    sha256 cellar: :any,                 arm64_sonoma:   "42f3f8617fa4d805513768324ee0de1ab490e90078a7481c8c1344a75850b7dc"
+    sha256 cellar: :any,                 arm64_ventura:  "c2776938006e3a0b5bdc316e4a1dbcc4244a9193b43fa92b8dc04d251385af1f"
+    sha256 cellar: :any,                 arm64_monterey: "9446d3ebad930d7626cd713b2145c58a0f41a128669a26f7f8597a9836339b7b"
+    sha256 cellar: :any,                 sonoma:         "0af56e6b3b09c834eeb1e761601077adf59aa8182c2bb3e7bb6b0af281d7b786"
+    sha256 cellar: :any,                 ventura:        "7ed03995775f0db50976850f24874ea177cfb4dce9110ac0efbac4b9952f3bf3"
+    sha256 cellar: :any,                 monterey:       "8c972fc65b94671e0d619e86fbcdd48b04fd4223c3b3cdd9888ae4e944447919"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "30623a39cfd32fb1230f6ac0326235ef16c71e907fdfa0757c689e5d495b0980"
   end
 
   depends_on "cmake" => :build
@@ -33,9 +32,19 @@ class Libpano < Formula
   patch :DATA
 
   def install
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DCMAKE_INSTALL_RPATH=#{rpath}"
+    system "cmake", "-S", ".", "-B", "build", "-DCMAKE_INSTALL_RPATH=#{rpath}", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
+  end
+
+  test do
+    panoinfo = shell_output(bin/"panoinfo").encode("UTF-8", invalid: :replace)
+    assert_match(/Panotools version:\s*#{Regexp.escape(version)}\s*$/, panoinfo)
+
+    stable.stage { testpath.install Dir["tests/simpleStitch/{simple.txt,*.jpg,reference/tiff_m_uncropped0000.tif}"] }
+    system bin/"PTmender", "-o", "test", "simple.txt"
+    assert_match "051221_6054_750.jpg", shell_output("#{bin}/PTinfo test0000.tif")
+    assert_match "different values 0.000", shell_output("#{bin}/PTtiffdump test0000.tif tiff_m_uncropped0000.tif")
   end
 end
 

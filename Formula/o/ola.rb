@@ -22,6 +22,7 @@ class Ola < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_sequoia:  "71b88c9460210835e0adc7cc3c358f089f7a103d458e9be87962c6adaf746877"
     sha256 arm64_sonoma:   "9388c8bba01773aa91a9685a1cb4fc82e0a80dacf4f0414f5cc2a90db5302579"
     sha256 arm64_ventura:  "18f42878d05f104a389e40f8fe4999286fed25cbf1075bfec19f68b6719b61bc"
     sha256 arm64_monterey: "bed04ab8e79d59830d5ea03e2e3d66e64f3948d0f9b42374b6cf5cd046c81ebe"

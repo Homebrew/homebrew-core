@@ -15,6 +15,7 @@ class GtkVnc < Formula
   end
 
   bottle do
+    sha256 arm64_sequoia:  "2d43bed50ae8dec6f17f3fce8c398c44d362741e949df7104147f029aae9f11b"
     sha256 arm64_sonoma:   "1d86f05b499aca8550e57a6ee7da3aa3dbac6c71315a8fb99744e8dc6c00fe58"
     sha256 arm64_ventura:  "bf1f1b44af9394444c670557a75710c82d7b6f748150f80beec54eb30a81840e"
     sha256 arm64_monterey: "48885c5c13f4d2a23eb1d236a8ee89f9be610831ac7f129d610f6e7b984c2b40"
@@ -29,9 +30,23 @@ class GtkVnc < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
+
+  depends_on "cairo"
+  depends_on "gdk-pixbuf"
+  depends_on "glib"
   depends_on "gnutls"
   depends_on "gtk+3"
   depends_on "libgcrypt"
+
+  uses_from_macos "zlib"
+
+  on_macos do
+    depends_on "gettext"
+  end
+
+  on_linux do
+    depends_on "libx11"
+  end
 
   # coroutine: avoid ucontext impl on macOS M1 hardware. Remove in the next release
   patch do
@@ -46,6 +61,6 @@ class GtkVnc < Formula
   end
 
   test do
-    system "#{bin}/gvnccapture", "--help"
+    system bin/"gvnccapture", "--help"
   end
 end

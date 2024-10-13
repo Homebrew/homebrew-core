@@ -4,7 +4,7 @@ class Libmspub < Formula
   url "https://dev-www.libreoffice.org/src/libmspub/libmspub-0.1.4.tar.xz"
   sha256 "ef36c1a1aabb2ba3b0bedaaafe717bf4480be2ba8de6f3894be5fd3702b013ba"
   license "MPL-2.0"
-  revision 15
+  revision 16
 
   livecheck do
     url "https://dev-www.libreoffice.org/src/"
@@ -12,19 +12,18 @@ class Libmspub < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "8cb2377b7d0cfa029bc64851ccc621c7e75f28fd9d96ecdd87b46c043ef5fdcf"
-    sha256 cellar: :any,                 arm64_ventura:  "a17bfc0422565de7fade8199f23c2a97c1daf0834a34b113f11b83777c7138b7"
-    sha256 cellar: :any,                 arm64_monterey: "58d3b2c548f8d38cda3ade55681f0b41d045b33d36614f4eeb38e28ca0b2d763"
-    sha256 cellar: :any,                 sonoma:         "0e8a7db8b068af6009973bcf3a077c13f6107e1d0e9b0b92e109ad38429b0396"
-    sha256 cellar: :any,                 ventura:        "45ddab4bd14a6f2a5b8f0814cb10eb58328076d076e0444177f063a4c634d222"
-    sha256 cellar: :any,                 monterey:       "d792d2c08761c3e13de216ae3a4e8b516cd1a4d749c4397b9dc284901475c477"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "18293c8d8717b1fcf2388ee6eb6278295cc02c4e4b92335dbfe2ec9828479245"
+    sha256 cellar: :any,                 arm64_sequoia: "b33108e9f470c326457ce72597150776142fe65cef4e836ab316e1aa53efe419"
+    sha256 cellar: :any,                 arm64_sonoma:  "bd81708ab36ccd98ab4d0ae5b9c05358161168e1736270abf53ebfa3d4dd3bc5"
+    sha256 cellar: :any,                 arm64_ventura: "4f8fbeaa5611e8a8fdbd043689f5919e559364b2306dc030f937d40ef6d17110"
+    sha256 cellar: :any,                 sonoma:        "7b3a6c9a3272ca1ae667c95d708f1b9d2a61de80ee77d8767184e0be4ef05ddf"
+    sha256 cellar: :any,                 ventura:       "cebfac88c71d5c974b27d87383c8ea1226827688245697dcf794f481bd3a34bc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6392ab88071ddb41424b8ddb0698e9c45a0a89ae91bcb801938e00c46b155613"
   end
 
   depends_on "boost" => :build
   depends_on "libwpg" => :build
   depends_on "pkg-config" => :build
-  depends_on "icu4c"
+  depends_on "icu4c@75"
   depends_on "librevenge"
   depends_on "libwpd"
 
@@ -35,12 +34,15 @@ class Libmspub < Formula
   end
 
   def install
-    system "./configure", "--without-docs",
-                          "--disable-dependency-tracking",
-                          "--enable-static=no",
-                          "--disable-werror",
+    # icu4c 75+ needs C++17
+    ENV.append "CXXFLAGS", "-std=gnu++17"
+
+    system "./configure", "--disable-silent-rules",
+                          "--disable-static",
                           "--disable-tests",
-                          "--prefix=#{prefix}"
+                          "--disable-werror",
+                          "--without-docs",
+                          *std_configure_args
     system "make", "install"
   end
 

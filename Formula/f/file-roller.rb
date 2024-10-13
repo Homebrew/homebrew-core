@@ -6,13 +6,13 @@ class FileRoller < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 arm64_sonoma:   "60b36504d219e315c40a1d02a87695a9a7d07969af197c3828fcdfd6ccd9812c"
-    sha256 arm64_ventura:  "115a0a2c78fa688329b1d84faa06859c174f56bead3f8028e4657ee442e11c63"
-    sha256 arm64_monterey: "db73bc657ca7657bad19d95a662faa67314bcb27496abb6696168931f58f1663"
-    sha256 sonoma:         "56aa134dc0e94fd4a5ef6f0a40bd52f5c7a7910f9eb4132d4217f3273295dc54"
-    sha256 ventura:        "4c584885bf6027515a50a08c0bec615126612b8f42f2b46f2e941a1c0e49c33e"
-    sha256 monterey:       "2d15c4f88082ca31090bfa71ed2fc15de4d8ac613c67e832741228da03c697e5"
-    sha256 x86_64_linux:   "93441fcbc955bde70980558e9bafca1ee1808b688cebe7ae4bc024d73f4d0214"
+    rebuild 1
+    sha256 arm64_sequoia: "5fdf0e8f856b2937f7425adf1f76476a1c0c3040ae8cc19202ece4061f9e4003"
+    sha256 arm64_sonoma:  "3e315618dbfccb93103370898a2893f577200c18fb06b78a91de4d63eb7e621f"
+    sha256 arm64_ventura: "60d733ba2a88e1602239d9876d4544551514a2964132261fd3f20162f7cd606c"
+    sha256 sonoma:        "0323ebe54212e9a7ed78feac735f3efd2e8f7288cbd8b9431a280482836a6935"
+    sha256 ventura:       "1fac86edb73d530583e08a3df8a2fc8be8be38694a26cb26a0529483ef1b9b6f"
+    sha256 x86_64_linux:  "8dc9764c957dba2820dafc9d46b6651f12f471b137ff31380782461694cac58f"
   end
 
   depends_on "gettext" => :build
@@ -21,13 +21,13 @@ class FileRoller < Formula
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "adwaita-icon-theme"
+  depends_on "desktop-file-utils"
   depends_on "glib"
   depends_on "gtk4"
   depends_on "hicolor-icon-theme"
   depends_on "json-glib"
   depends_on "libadwaita"
   depends_on "libarchive"
-  depends_on "libmagic"
   depends_on "pango"
 
   on_macos do
@@ -35,15 +35,6 @@ class FileRoller < Formula
   end
 
   def install
-    # Patch out gnome.post_install to avoid failing when unused commands are missing.
-    # TODO: Remove when build no longer fails, which may be possible in following scenarios:
-    # - gnome.post_install avoids failing on missing commands when `DESTDIR` is set
-    # - gnome.post_install works with Homebrew's distribution of `gtk4`
-    # - `file-roller` moves to `gtk4`
-    inreplace "meson.build", /^gnome\.post_install\([^)]*\)$/, ""
-
-    ENV.append "CFLAGS", "-I#{Formula["libmagic"].opt_include}"
-    ENV.append "LIBS", "-L#{Formula["libmagic"].opt_lib}"
     ENV["DESTDIR"] = "/"
 
     system "meson", "setup", "build", "-Dpackagekit=false", "-Duse_native_appchooser=false", *std_meson_args
@@ -54,6 +45,7 @@ class FileRoller < Formula
   def post_install
     system "#{Formula["glib"].opt_bin}/glib-compile-schemas", "#{HOMEBREW_PREFIX}/share/glib-2.0/schemas"
     system "#{Formula["gtk4"].opt_bin}/gtk4-update-icon-cache", "-f", "-t", "#{HOMEBREW_PREFIX}/share/icons/hicolor"
+    system "#{Formula["desktop-file-utils"].opt_bin}/update-desktop-database", "#{HOMEBREW_PREFIX}/share/applications"
   end
 
   test do

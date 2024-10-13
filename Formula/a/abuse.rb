@@ -99,6 +99,6 @@ class Abuse < Formula
     # Fails in Linux CI with "Unable to initialise SDL : No available video device"
     return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
 
-    system "#{bin}/abuse", "--help"
+    system bin/"abuse", "--help"
   end
 end

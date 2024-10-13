@@ -15,6 +15,7 @@ class Irrlicht < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "045c5bc182a699319caede3eda01d1e51487e2bb176ed6609af6f045a3674068"
     sha256 cellar: :any,                 arm64_sonoma:   "52d4ef47d187ba97e3d75832e69650fe4c042019e379b9937c27f6e4864e4927"
     sha256 cellar: :any,                 arm64_ventura:  "d50090b7519be5ae7851a96f142261e094e1ae2bf0da926d2ba4f7f8d334a462"
     sha256 cellar: :any,                 arm64_monterey: "1f80ce9c03a5ebf3220c5d89bf6b99fb710cde5fccacd9d5a6002102a70260d7"

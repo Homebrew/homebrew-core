@@ -6,6 +6,7 @@ class Libxvmc < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "b98800f4d24c2f04f9ac826ed9365195847f7bd3c5aa758abf5ae6c2748256b0"
     sha256 cellar: :any,                 arm64_sonoma:   "ec6119429cbf4d4812c6b9aca9cfd33f1b63802d7536b886f5b4454a55241ecd"
     sha256 cellar: :any,                 arm64_ventura:  "e2990ee70324b5caa16cfb356d2066da14e66c7a9b4ed5c9e5da7867b779d618"
     sha256 cellar: :any,                 arm64_monterey: "7ee479ebc065e0587284e698515087d1f9187ae4b88640d01a333f5d38638d18"

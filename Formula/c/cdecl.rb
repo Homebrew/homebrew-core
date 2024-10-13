@@ -10,6 +10,7 @@ class Cdecl < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "14019e0b790a1321d87a8885ed9ed415a6ecfc4a74929cb567d393137389f65f"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "846241c80519b5d11e202535582176b22077b1460e53e14347ccdbca61abdc93"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "36acc58f38ee551b35a2c531d9bdfb8113aee61cbb4bdb9d43646ddcfeba9053"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "8dcff021c0d0078666c5a4781d738e8958fc52222bb2062b447f581d1b398971"
@@ -34,6 +35,9 @@ class Cdecl < Formula
   end
 
   def install
+    # Workaround for newer Clang
+    ENV.append_to_cflags "-Wno-incompatible-function-pointer-types" if DevelopmentTools.clang_build_version >= 1500
+
     # Fix namespace clash with Lion's getline
     inreplace "cdecl.c", "getline", "cdecl_getline"
 

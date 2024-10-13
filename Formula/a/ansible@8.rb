@@ -9,6 +9,7 @@ class AnsibleAT8 < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia:  "ce9a94bafb99153ee6fd0252e3f34f9324e0fe11d10a634390e2b0f20dd992a5"
     sha256 cellar: :any,                 arm64_sonoma:   "73f3eb38dfddf3ed1b5e6b5caef1bae05afe0179003a617d19ea0b6a9f211d76"
     sha256 cellar: :any,                 arm64_ventura:  "0f9af3b62efff761e1bd5a32f65adfd6141c40ac5dbffdb49ee0a2bb42d8450d"
     sha256 cellar: :any,                 arm64_monterey: "c463d00301e1c87110228610c6760b2d5b2348134d9d8e2d77c3c0aef0f2b751"

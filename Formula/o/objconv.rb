@@ -18,6 +18,7 @@ class Objconv < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "2b4714a356e16792f3980afc77dc4be1dc71f422b1f018581add5627a7029938"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4e8ce3fb8918b114d7db84a03abb75f67cdc66f19278aad8cde5b22e11db7522"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "85414b31d4d8ea9a57997b842eb53f709b5c72783c3bd5c7481b4b5004d72d99"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "203bc4a3d83551c9ad541a48616c8471affbe9560d16b36b302ae94d2b939f78"

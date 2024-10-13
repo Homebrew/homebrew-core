@@ -1,22 +1,23 @@
 class Gspell < Formula
   desc "Flexible API to implement spellchecking in GTK+ applications"
   homepage "https://gitlab.gnome.org/GNOME/gspell"
-  url "https://download.gnome.org/sources/gspell/1.12/gspell-1.12.2.tar.xz"
-  sha256 "b4e993bd827e4ceb6a770b1b5e8950fce3be9c8b2b0cbeb22fdf992808dd2139"
+  url "https://download.gnome.org/sources/gspell/1.14/gspell-1.14.0.tar.xz"
+  sha256 "64ea1d8e9edc1c25b45a920e80daf67559d1866ffcd7f8432fecfea6d0fe8897"
   license "LGPL-2.1-or-later"
-  revision 2
+  revision 1
 
   bottle do
-    sha256 arm64_sonoma:   "e3c60c553bc207bd79782ff8057f1a2a100ae83abdea680e07a80890d409de6f"
-    sha256 arm64_ventura:  "176a3af6ec71a5fbe2dba3c9ab5f931e4946ebbd9786670aa2c5bce827065d95"
-    sha256 arm64_monterey: "ad975f225b5ba1d0b103ec980f0ab083e3c48355e1cd95d3d9ec5924b29830ac"
-    sha256 sonoma:         "c8e7040dbfa7da13e66c7741a55c9d815dfd8ef5f17ab43f5ddfab3d5845eaf1"
-    sha256 ventura:        "c1cf683b898ebc84f913f2f44e83c8f8b89508e67acc691981901bbfee3df337"
-    sha256 monterey:       "403f2159375a438c99743db41c1275e27ab0d6b26c8ee6171e344dff847c02fe"
-    sha256 x86_64_linux:   "1e74d8a181bc1e6fc55d1eb36a737728077969bf83e6ea38ce643abf50df2a3b"
+    sha256 arm64_sequoia: "9dec60f563ca9e60d876333171bb564382d00ffa5da910784489db6bc208691e"
+    sha256 arm64_sonoma:  "2c033e3bc11d51365182cde9ee8cc20da5d574217a0a76beed0933d78ef3bc26"
+    sha256 arm64_ventura: "91c9177c3e408fc448da130b74fa20cdf3c265512758d10f1b630cdc3c38797b"
+    sha256 sonoma:        "1db0530819348525709667fef8100d88475ff6ab5af53ba31aff8a59bfebcf61"
+    sha256 ventura:       "4fc80046e658ae4c3fffbeeb587fb52efe430584a534842c13a9964fdeadeb92"
+    sha256 x86_64_linux:  "ce89b53e3952478331425ce95047ec8c93bbd74231cc654914cc78c829aea8a0"
   end
 
   depends_on "gobject-introspection" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => [:build, :test]
   depends_on "vala" => :build
 
@@ -27,28 +28,23 @@ class Gspell < Formula
   depends_on "glib"
   depends_on "gtk+3"
   depends_on "harfbuzz"
-  depends_on "icu4c"
+  depends_on "icu4c@75"
   depends_on "pango"
 
   on_macos do
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "gtk-doc" => :build
-    depends_on "libtool" => :build
-
     depends_on "gettext"
-    depends_on "gtk-mac-integration"
-
-    patch :DATA
   end
 
   def install
-    system "autoreconf", "--force", "--install", "--verbose" if OS.mac?
-    system "./configure", *std_configure_args,
-                          "--disable-silent-rules",
-                          "--enable-introspection=yes",
-                          "--enable-vala=yes"
-    system "make", "install"
+    args = %w[
+      -Dgtk_doc=false
+      -Dtests=false
+      -Dinstall_tests=false
+    ]
+
+    system "meson", "setup", "build", *args, *std_meson_args
+    system "meson", "compile", "-C", "build", "--verbose"
+    system "meson", "install", "-C", "build"
   end
 
   test do
@@ -60,7 +56,9 @@ class Gspell < Formula
         return 0;
       }
     EOS
-    ENV.prepend_path "PKG_CONFIG_PATH", Formula["icu4c"].opt_lib/"pkgconfig" if OS.mac?
+
+    icu4c = deps.map(&:to_formula).find { |f| f.name.match?(/^icu4c@\d+$/) }
+    ENV.prepend_path "PKG_CONFIG_PATH", icu4c.opt_lib/"pkgconfig"
     flags = shell_output("pkg-config --cflags --libs gspell-1").chomp.split
     system ENV.cc, "test.c", "-o", "test", *flags
     ENV["G_DEBUG"] = "fatal-warnings"
@@ -70,30 +68,3 @@ class Gspell < Formula
     system "./test"
   end
 end
-
-__END__
-diff --git a/gspell/Makefile.am b/gspell/Makefile.am
-index 076a9fd..6c67184 100644
---- a/gspell/Makefile.am
-+++ b/gspell/Makefile.am
-@@ -91,6 +91,7 @@ nodist_libgspell_core_la_SOURCES = \
-	$(BUILT_SOURCES)
-
- libgspell_core_la_LIBADD =	\
-+	$(GTK_MAC_LIBS) \
-	$(CODE_COVERAGE_LIBS)
-
- libgspell_core_la_CFLAGS =	\
-@@ -155,6 +156,12 @@ gspell_private_headers += \
- gspell_private_c_files += \
-	gspell-osx.c
-
-+libgspell_core_la_CFLAGS += \
-+	-xobjective-c
-+
-+libgspell_core_la_LDFLAGS += \
-+	-framework Cocoa
-+
- endif # OS_OSX
-
- if HAVE_INTROSPECTION

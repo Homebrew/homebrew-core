@@ -3,6 +3,7 @@ class Udunits < Formula
   homepage "https://www.unidata.ucar.edu/software/udunits/"
   url "https://artifacts.unidata.ucar.edu/repository/downloads-udunits/2.2.28/udunits-2.2.28.tar.gz"
   sha256 "590baec83161a3fd62c00efa66f6113cec8a7c461e3f61a5182167e0cc5d579e"
+  license "UCAR"
 
   livecheck do
     url "https://artifacts.unidata.ucar.edu/service/rest/repository/browse/downloads-udunits/current/"
@@ -10,6 +11,7 @@ class Udunits < Formula
   end
 
   bottle do
+    sha256 arm64_sequoia:  "8ba9d3ce2f87072bd50d40063a6db63a456ec9a934d381002d1c31587c0e10b1"
     sha256 arm64_sonoma:   "bb3b99a3627d9008b70648de70aee2014444eebc0eac4ad50d2cec00c4260a62"
     sha256 arm64_ventura:  "c6f54e9f07ec6617aeee1bd95a6ebd444e5b72adb9c3268b9fdb68cd443c26f6"
     sha256 arm64_monterey: "64af7e42ad61c45d6f1790d747c9e3d8bbd8634a86fc51961646b31a16f64edf"

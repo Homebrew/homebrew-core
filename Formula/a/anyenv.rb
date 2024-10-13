@@ -6,6 +6,7 @@ class Anyenv < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "f0c5c9923085a2a772fa142aa3d1ddb3e02015553306c6f3ce7747a9bc4d9e64"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e462542223d5607086423b094fc86298425826c8f82c8d9566e9e1598ec3017d"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "6fcafa1cbde4f24bb3e88597312c279ad4ad34e5ab80b51a2e1e96afb8b97157"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6fcafa1cbde4f24bb3e88597312c279ad4ad34e5ab80b51a2e1e96afb8b97157"

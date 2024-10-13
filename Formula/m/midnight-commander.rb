@@ -1,9 +1,9 @@
 class MidnightCommander < Formula
   desc "Terminal-based visual file manager"
   homepage "https://www.midnight-commander.org/"
-  url "https://www.midnight-commander.org/downloads/mc-4.8.31.tar.xz"
-  mirror "https://ftp.osuosl.org/pub/midnightcommander/mc-4.8.31.tar.xz"
-  sha256 "24191cf8667675b8e31fc4a9d18a0a65bdc0598c2c5c4ea092494cd13ab4ab1a"
+  url "https://www.midnight-commander.org/downloads/mc-4.8.32.tar.xz"
+  mirror "https://ftp.osuosl.org/pub/midnightcommander/mc-4.8.32.tar.xz"
+  sha256 "4ddc83d1ede9af2363b3eab987f54b87cf6619324110ce2d3a0e70944d1359fe"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -12,14 +12,14 @@ class MidnightCommander < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 arm64_sonoma:   "f0705dc478f5ee10d280de6b2d02b8dc6bf03e7e24857d461a878a74ae5d437e"
-    sha256 arm64_ventura:  "a370b58b90278689d30d71f15c120c9c6321d38ea94056c3b7fad38673ec8dd0"
-    sha256 arm64_monterey: "afbb203e238eb94049ed948fe4ecbfe0fd8faef2230f735e54c502c6c5d33eea"
-    sha256 sonoma:         "7ccb5bb2350689ba47c110d45b1cff222b8326f1fce7ecfec33e9914b2ef781e"
-    sha256 ventura:        "1a79c8c1f27b44573196c0be681ef7f1b55484c31b08216b1504daf815847c0d"
-    sha256 monterey:       "04a3ae62c176b08cb9e54d113bff88e8a7dbf855312c0a1a8b72c8e933f9f27c"
-    sha256 x86_64_linux:   "6195bb65394f9b17c85c9469764635054ff2daa9c3d2f68d68471790a1c6f119"
+    sha256 arm64_sequoia:  "d4a361245ce1023f004e6e8204b11ba919e59b297898e7a66cc96b81ef58a44a"
+    sha256 arm64_sonoma:   "4d8ff2cfd4c5016efb2b731d4266a83900cfd164edb522acb54d2b4d3f732274"
+    sha256 arm64_ventura:  "233f9256cac1000fe98e86173cf2abb1e4555759a888261f76d4e1a3786fd699"
+    sha256 arm64_monterey: "71b2eb7e58eda80f71b0be79e403cc23221ca879611bfa1d42c5fbd8e305c4b2"
+    sha256 sonoma:         "7402ed037582a4c6571c058b2a447abbc7ce7b8b97a4728a7a0d70aedccf385c"
+    sha256 ventura:        "fa3d7102a91c5febc694952d63d1bab5f113fcc79db982a8b7983cabed7f0716"
+    sha256 monterey:       "f7915e04544fe79dd00fe848f603cc500292879d54135c8d2820db50bc36f309"
+    sha256 x86_64_linux:   "10d00a3f8507c74d6128eeb7f93ab82b89cae4f396f7eb0b94516983e11d4fa7"
   end
 
   head do

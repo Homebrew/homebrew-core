@@ -7,6 +7,7 @@ class Hercules < Formula
   head "https://github.com/SDL-Hercules-390/hyperion.git", branch: "master"
 
   bottle do
+    sha256 arm64_sequoia:  "78ca0a33df7c8ffc07c41708f6222835e1d7819b180d2a182030fa35d0a0be72"
     sha256 arm64_sonoma:   "6335c4dd89a1abb2951183b3ec1b0b08fb67a31c40f037a79c55621670343f74"
     sha256 arm64_ventura:  "5329211fef90aff4b3eee6b92b28f00aec11d8d1c4de0f6b0fd3f785e735b64e"
     sha256 arm64_monterey: "4fc79b7305696102ac6f2adc908434782ab242b87594fcd018fb03beb5c39095"
@@ -46,7 +47,7 @@ class Hercules < Formula
   def install
     resources.each do |r|
       resource_prefix = buildpath/r.name
-      resource_prefix.rmtree
+      rm_r(resource_prefix)
       build_dir = buildpath/"#{r.name}64.Release"
 
       r.stage do
@@ -74,6 +75,7 @@ class Hercules < Formula
       TEST00 3390 10
       TEST.PDS EMPTY CYL 1 0 5 PO FB 80 6080
     EOS
-    system "#{bin}/dasdload", "test00.ctl", "test00.ckd"
+
+    system bin/"dasdload", "test00.ctl", "test00.ckd"
   end
 end

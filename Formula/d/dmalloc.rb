@@ -11,6 +11,7 @@ class Dmalloc < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "2406c340e3935d9f228d695c270eb5fd74abef38bafa84f10bded7826c8e8c80"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5326a45ed099179ae2f05299e3bf0e90b2f7b037594cf175da72830963687acf"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "dc77030dce1a9f169758cd306be4a70d322479044dd598ce74e7733bbe0a7d71"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "2f328197f63c96ff0ce40846bb242b3e1d04985567893adefd2d47f79f6f96d6"
@@ -30,6 +31,6 @@ class Dmalloc < Formula
   end
 
   test do
-    system "#{bin}/dmalloc", "-b", "runtime"
+    system bin/"dmalloc", "-b", "runtime"
   end
 end

@@ -6,14 +6,17 @@ class Selecta < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "c418f7d144207312dddff58fbffadb5d602d681c2704e73f65d9489ba5ff47a9"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "ec55655e3c404bba347f242a7b24e7504b181fd2f364a85dad9e4c770231a79d"
   end
+
+  uses_from_macos "ruby"
 
   def install
     bin.install "selecta"
   end
 
   test do
-    system "#{bin}/selecta", "--version"
+    system bin/"selecta", "--version"
   end
 end

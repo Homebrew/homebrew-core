@@ -3,9 +3,10 @@ class Bitwise < Formula
   homepage "https://github.com/mellowcandle/bitwise"
   url "https://github.com/mellowcandle/bitwise/releases/download/v0.50/bitwise-v0.50.tar.gz"
   sha256 "806271fa5bf31de0600315e8720004a8f529954480e991ca84a9868dc1cae97e"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "d7659a60e6cad87bc0dd72921475005c50340e66d7a6ba822a5769a67df1b91d"
     sha256 cellar: :any,                 arm64_sonoma:   "923c4828ff104f940038b9d6969759b08d90a3d2c89cb1c0e31b913a2d38769e"
     sha256 cellar: :any,                 arm64_ventura:  "85b482536f160a726ccf996c7653763a19c43b5b4926c8da4af4bb0b01ff63ca"
     sha256 cellar: :any,                 arm64_monterey: "7b2980226d0d6d231bf41898bbadd6c18a838bee766aa62dfff1c451d8c0357a"

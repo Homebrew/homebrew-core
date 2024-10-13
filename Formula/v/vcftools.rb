@@ -3,9 +3,10 @@ class Vcftools < Formula
   homepage "https://vcftools.github.io/"
   url "https://github.com/vcftools/vcftools/releases/download/v0.1.16/vcftools-0.1.16.tar.gz"
   sha256 "dbfc774383c106b85043daa2c42568816aa6a7b4e6abc965eeea6c47dde914e3"
-  license "LGPL-3.0"
+  license "LGPL-3.0-only"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "c7e2211951604cd7cb290190f4085fa8386da11ce4691be960966704664594b7"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "789091f23f949c8bb834001543ac748948ea8f6005f32e0a889f574a6db58cc8"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "b7e5d8712d69c3b8635ee3a626d21c512483e3f87272a36e1629eaa0ede2c12d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e3a70236094425a28dcebf4a60b84cc793c2e55e4198d0f40f25005cb8c33f86"
@@ -41,6 +42,7 @@ class Vcftools < Formula
       #CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO
       1	1	.	A	C	10	PASS	.
     EOS
-    system "#{bin}/vcf-validator", "test.vcf"
+
+    system bin/"vcf-validator", "test.vcf"
   end
 end

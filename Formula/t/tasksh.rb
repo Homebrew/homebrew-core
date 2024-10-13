@@ -14,6 +14,7 @@ class Tasksh < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia:  "71cf7963bf3f6eab310007ab05aafb9be4e4c766f6446f79671073cc7100a83f"
     sha256 cellar: :any,                 arm64_sonoma:   "e03ada11df6af02686b40955cd55f00851e00ec558cbedd71bf84c1ed5098b94"
     sha256 cellar: :any,                 arm64_ventura:  "1a8bbc54e5712ab5b9caa686e6348365da4c8bdaebeaae474be2edda28368d72"
     sha256 cellar: :any,                 arm64_monterey: "6c6390a79e5f4645f2cf2507a1c29ad1b935a5f51d87387412e557343688a11d"
@@ -41,8 +42,8 @@ class Tasksh < Formula
   end
 
   test do
-    system "#{bin}/tasksh", "--version"
+    system bin/"tasksh", "--version"
     (testpath/".taskrc").write "data.location=#{testpath}/.task\n"
-    assert_match "Created task 1.", pipe_output("#{bin}/tasksh", "add Test Task", 0)
+    assert_match "Created task 1.", pipe_output(bin/"tasksh", "add Test Task", 0)
   end
 end

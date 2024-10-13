@@ -6,6 +6,7 @@ class Soci < Formula
   license "BSL-1.0"
 
   bottle do
+    sha256 arm64_sequoia:  "6153858f4806accd079ba652dc3a1817a9ea95ba66b477ab15f548ec35e628f8"
     sha256 arm64_sonoma:   "b446260ca150f3d1451b8a44725d8532e4fe5157ac3e8040c008c07cff01b5e4"
     sha256 arm64_ventura:  "389f70f8884a86e67b2d9dde6d50796765d9360c2c3b31cc259ce32b8a87cd4e"
     sha256 arm64_monterey: "3071048f1067589c98521c479ad6ceeb317b70231072b227d67a7fc41bd81f27"

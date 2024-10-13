@@ -4,7 +4,7 @@ class WirouterKeyrec < Formula
   url "https://www.mirrorservice.org/sites/distfiles.macports.org/wirouterkeyrec/WiRouter_KeyRec_1.1.2.zip"
   mirror "https://distfiles.macports.org/wirouterkeyrec/WiRouter_KeyRec_1.1.2.zip"
   sha256 "3e59138f35502b32b47bd91fe18c0c232921c08d32525a2ae3c14daec09058d4"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
 
   livecheck do
     url :homepage
@@ -12,6 +12,7 @@ class WirouterKeyrec < Formula
   end
 
   bottle do
+    sha256 arm64_sequoia:  "cccb46ddcd0b30219ed24a351f2dfb1dacf796da3fdabe377b2d9300db62bf1d"
     sha256 arm64_sonoma:   "86c53e8b3f2532c768bb13ae50bd272e3b55866a674c3bf7aa9c370c80ab6084"
     sha256 arm64_ventura:  "d0f76ae3936a32cc3be17614e325503686400bd1c38abf3a072d0f0de9444628"
     sha256 arm64_monterey: "43c8cb4e4f1389c6a584c27b0407c11e31422cdb2802706f316a93f7e5d8c7a5"
@@ -43,6 +44,6 @@ class WirouterKeyrec < Formula
   end
 
   test do
-    system "#{bin}/wirouterkeyrec", "-s", "Alice-12345678"
+    system bin/"wirouterkeyrec", "-s", "Alice-12345678"
   end
 end

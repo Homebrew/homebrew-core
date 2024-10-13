@@ -7,6 +7,7 @@ class CmarkGfm < Formula
   license "BSD-2-Clause"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "85d7af0fca04c40443c4ed376656271c88814f43c935ec59a1704382fd59f35e"
     sha256 cellar: :any,                 arm64_sonoma:   "02ea9335249ea4b4749ebdb3770deadd78e9e135431ad4552ff23941fe83edb9"
     sha256 cellar: :any,                 arm64_ventura:  "db367b57679f3f5ff972e89fb35c51fb30bbb343ce8e13b9202bf202ca8ae24b"
     sha256 cellar: :any,                 arm64_monterey: "88f430ffc95c1e948082963bd58dc7b710033f69b7aa74b11d4f4fd7c567603a"

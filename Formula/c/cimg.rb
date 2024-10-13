@@ -1,8 +1,8 @@
 class Cimg < Formula
   desc "C++ toolkit for image processing"
   homepage "https://cimg.eu/"
-  url "https://cimg.eu/files/CImg_3.4.0.zip"
-  sha256 "d6b8e2ff696750d85d41eb4e6d692676584dfdf32a078caee18708f88789b6a6"
+  url "https://cimg.eu/files/CImg_3.4.3.zip"
+  sha256 "60a73922f2c6bb5b570eeda511aed029b3c9f3d7a3295ecb10fad14e41373e91"
   license "CECILL-2.0"
 
   livecheck do
@@ -11,13 +11,12 @@ class Cimg < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "da0d47b2cbfaefc4b8f87ee053bb8308d6b9375969ef7ab7902a9c62526f761c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "da0d47b2cbfaefc4b8f87ee053bb8308d6b9375969ef7ab7902a9c62526f761c"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "da0d47b2cbfaefc4b8f87ee053bb8308d6b9375969ef7ab7902a9c62526f761c"
-    sha256 cellar: :any_skip_relocation, sonoma:         "7dff1257405256c85c26e39024064c76c621bbc33edefebb617893db023d65e5"
-    sha256 cellar: :any_skip_relocation, ventura:        "7dff1257405256c85c26e39024064c76c621bbc33edefebb617893db023d65e5"
-    sha256 cellar: :any_skip_relocation, monterey:       "7dff1257405256c85c26e39024064c76c621bbc33edefebb617893db023d65e5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "da0d47b2cbfaefc4b8f87ee053bb8308d6b9375969ef7ab7902a9c62526f761c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "53c866c9ec6c066c5905bf7b732f70a6ecfa42b4490194563ad54f482db6d54a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "53c866c9ec6c066c5905bf7b732f70a6ecfa42b4490194563ad54f482db6d54a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "53c866c9ec6c066c5905bf7b732f70a6ecfa42b4490194563ad54f482db6d54a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "dcc4c691303eceb583195ad83b228b4d39a1da5e6d42eb6acd98e22b3e16a739"
+    sha256 cellar: :any_skip_relocation, ventura:       "dcc4c691303eceb583195ad83b228b4d39a1da5e6d42eb6acd98e22b3e16a739"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "53c866c9ec6c066c5905bf7b732f70a6ecfa42b4490194563ad54f482db6d54a"
   end
 
   fails_with gcc: "5" # C++ 17 is required

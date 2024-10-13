@@ -7,7 +7,7 @@ class SpirvCross < Formula
     "Apache-2.0",
     "MIT",
     "CC-BY-4.0",
-    :cannot_represent, # LicenseRef-KhronosFreeUse
+    "MIT-Khronos-old",
   ]
   version_scheme 1
   head "https://github.com/KhronosGroup/SPIRV-Cross.git", branch: "main"
@@ -18,6 +18,7 @@ class SpirvCross < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "7428ac6774e8369880858880d5a63217560a01ff157defef899305e8a10d39e8"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "86598042c486e94cb3670cbce05cd01306b1497dba631c6669265277a06b4edf"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "aaaaa405ae2209dc2aee082033f45d2f2f39673c788d77998b94c37b34188dee"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "9860bafb482eb79e5c2dcd9020aed4aeb8d1096ed1627c6c0c1b38c6263efc51"

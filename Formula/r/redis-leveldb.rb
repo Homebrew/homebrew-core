@@ -8,6 +8,7 @@ class RedisLeveldb < Formula
   head "https://github.com/KDr2/redis-leveldb.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "18a394308e77b5655a37776c66a468aaa71b5bb152b59c666ef1017f88f77257"
     sha256 cellar: :any,                 arm64_sonoma:   "2c4f724a8e484fe6949b3733a7c1d4201370dabbbbd3b5e4a7e4b4312a06bba7"
     sha256 cellar: :any,                 arm64_ventura:  "8ed6a3bbc7dcfb695d7d133bb5f87eb564288e0f1ab221099449b1dd4f8bbabe"
     sha256 cellar: :any,                 arm64_monterey: "6ae884a362ca96df3f67994461b0732d305e7dba323598dba029338a11d10cf3"
@@ -30,6 +31,6 @@ class RedisLeveldb < Formula
   end
 
   test do
-    system "#{bin}/redis-leveldb", "-h"
+    system bin/"redis-leveldb", "-h"
   end
 end

@@ -6,6 +6,7 @@ class Bandicoot < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "3ac4edc2d604981788ac093d8577689a6ef9c2544eb94dcc7f5913172934da6c"
     sha256 cellar: :any,                 arm64_sonoma:   "514515d6a43c9cabb86877d0a0f94983dfcd8ffbec74cb282406c79da5e0068f"
     sha256 cellar: :any,                 arm64_ventura:  "713cae9be9a4bd2124224dcb7d2618e940d80d56361bc31b596caa73cb2f0c40"
     sha256 cellar: :any,                 arm64_monterey: "2c389b73c8ac099b14432861726285d68789d1a626a12f550a45c121df2287a8"

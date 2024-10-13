@@ -13,6 +13,7 @@ class Png2ico < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any,                 arm64_sequoia:  "a6af9f89d575ccf1b4bb27b2b24eac106315c65775ca654859931a8b90cf09de"
     sha256 cellar: :any,                 arm64_sonoma:   "509b072c04016428a60fa1f3513e1dbcc71ff1706581b1e98998955914c42155"
     sha256 cellar: :any,                 arm64_ventura:  "6c622455e21df4ad015229e650548f113e34da96dc9e3fce58917ac55a2dc59c"
     sha256 cellar: :any,                 arm64_monterey: "065215647e66fd79ec6412ce65189d5f26ecda3e6f71220707e57952351a8c80"
@@ -42,7 +43,7 @@ class Png2ico < Formula
   end
 
   test do
-    system "#{bin}/png2ico", "out.ico", test_fixtures("test.png")
+    system bin/"png2ico", "out.ico", test_fixtures("test.png")
     assert_predicate testpath/"out.ico", :exist?
   end
 end

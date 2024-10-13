@@ -14,6 +14,7 @@ class Cryptominisat < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia:  "375e4707e22ee3af289feae7511a59f82a9ba27d94224c11019232432c549c01"
     sha256 cellar: :any,                 arm64_sonoma:   "2c8c6da7ff393d94511e7269bb60eecc62cf127d917ac277398d7e5cd68e6e62"
     sha256 cellar: :any,                 arm64_ventura:  "c2de3aa4b6473c9dc6203f411063688450605fe3ddb41c7f066b8b6fce6be8ea"
     sha256 cellar: :any,                 arm64_monterey: "14634ab5db2855aeb65c872845adf42008b7c765f1f79d82cda4697ab933f6ed"
@@ -25,7 +26,8 @@ class Cryptominisat < Formula
 
   depends_on "cmake" => :build
   depends_on "python@3.12" => [:build, :test]
-  depends_on "boost"
+
+  uses_from_macos "zlib"
 
   def python3
     "python3.12"

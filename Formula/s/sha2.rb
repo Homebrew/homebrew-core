@@ -3,6 +3,7 @@ class Sha2 < Formula
   homepage "https://aarongifford.com/computers/sha.html"
   url "https://aarongifford.com/computers/sha2-1.0.1.tgz"
   sha256 "67bc662955c6ca2fa6a0ce372c4794ec3d0cd2c1e50b124e7a75af7e23dd1d0c"
+  license "BSD-3-Clause"
 
   livecheck do
     url :homepage
@@ -11,6 +12,7 @@ class Sha2 < Formula
 
   bottle do
     rebuild 4
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "1f07e3e5d745947e51cedb4f9f9b76c8b23ad190f19f938845fecc2374e80a9d"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4e46a846584099eb7a7db235edacf0d2c5527f19bf61f31ff21da8d76d32b79f"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "4c81bda3e2841de58a9765ce09d13e28674da2ad2fbb746d89a5d17d08cbfa60"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "7178bff489d57934b0a2cce761b9712ba24d24bb10e7f117ffa5e9c15b87e6d4"

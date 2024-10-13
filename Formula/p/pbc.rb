@@ -1,10 +1,18 @@
 class Pbc < Formula
   desc "Pairing-based cryptography"
   homepage "https://crypto.stanford.edu/pbc/"
-  url "https://crypto.stanford.edu/pbc/files/pbc-0.5.14.tar.gz"
-  sha256 "772527404117587560080241cedaf441e5cac3269009cdde4c588a1dce4c23d2"
-  license "LGPL-3.0"
-  head "https://repo.or.cz/pbc.git", branch: "master"
+  license "LGPL-3.0-only"
+
+  stable do
+    url "https://crypto.stanford.edu/pbc/files/pbc-0.5.14.tar.gz"
+    sha256 "772527404117587560080241cedaf441e5cac3269009cdde4c588a1dce4c23d2"
+
+    # Fix -flat_namespace being used on Big Sur and later.
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-pre-0.4.2.418-big_sur.diff"
+      sha256 "83af02f2aa2b746bb7225872cab29a253264be49db0ecebb12f841562d9a2923"
+    end
+  end
 
   livecheck do
     url "https://crypto.stanford.edu/pbc/download.html"
@@ -13,6 +21,7 @@ class Pbc < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any, arm64_sequoia:  "566ef59675030399f76d4f7c067ca04cecaa3ebb4d9102aa480dbe39c24ba487"
     sha256 cellar: :any, arm64_sonoma:   "4e89883c3b22eccfdf0904017650418af4c2f50bc9ae41a535235ac1d235f27f"
     sha256 cellar: :any, arm64_ventura:  "e22db03b394884a0f34163c74d87b6c33210aefd98cc751d2ab61108c667fdf0"
     sha256 cellar: :any, arm64_monterey: "2397daa1cad88180149983c0f6557b6a48fa2124c24ac78a8d95dd0af9cac8a0"
@@ -26,17 +35,22 @@ class Pbc < Formula
     sha256 cellar: :any, high_sierra:    "adc712fd4cc68990b669922be5b8ab15e4d499176c09facb5b129c6d7c847262"
   end
 
-  depends_on "gmp"
+  head do
+    url "https://repo.or.cz/pbc.git", branch: "master"
 
-  # Fix -flat_namespace being used on Big Sur and later.
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-pre-0.4.2.418-big_sur.diff"
-    sha256 "83af02f2aa2b746bb7225872cab29a253264be49db0ecebb12f841562d9a2923"
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
   end
 
+  depends_on "gmp"
+
+  uses_from_macos "bison" => :build
+  uses_from_macos "flex" => :build
+
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    system "./setup" if build.head?
+    system "./configure", *std_configure_args
     system "make", "install"
   end
 
@@ -65,10 +79,10 @@ class Pbc < Formula
         element_pow_zn(gt2, gt1, a); // gt2 = gt1^a = e(g1, g2)^a
         element_pairing(gt3, g1a, g2); // gt3 = e(g1a, g2) = e(g1^a, g2)
         assert(element_cmp(gt2, gt3) == 0); // assert gt2 == gt3
-        pairing_clear(pairing);
         element_clear(g1); element_clear(g2); element_clear(gt1);
         element_clear(gt2); element_clear(gt3); element_clear(a);
         element_clear(g1a);
+        pairing_clear(pairing);
         return 0;
       }
     EOS

@@ -6,6 +6,7 @@ class Snzip < Formula
   license "BSD-2-Clause"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "2a7ea25f4be20815a6390501b5988ed110cde832197ec37c45287ea4420b43cf"
     sha256 cellar: :any,                 arm64_sonoma:   "f2a437e1ee2269927d61f695d0a8bfcb859433c77487dc3beb0f9ec56b50d989"
     sha256 cellar: :any,                 arm64_ventura:  "661bdc7469cf8ec9c6311512507b930896e62e5b86c97ee12b2ba5ef57c34dd4"
     sha256 cellar: :any,                 arm64_monterey: "f6e7e23067b3b7a345478140297d5eb874f3ab0d674fd1327e331ad44704c9c1"
@@ -27,7 +28,7 @@ class Snzip < Formula
 
   test do
     (testpath/"test.out").write "test"
-    system "#{bin}/snzip", "test.out"
-    system "#{bin}/snzip", "-d", "test.out.sz"
+    system bin/"snzip", "test.out"
+    system bin/"snzip", "-d", "test.out.sz"
   end
 end

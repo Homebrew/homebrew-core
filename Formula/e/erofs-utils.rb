@@ -1,19 +1,18 @@
 class ErofsUtils < Formula
   desc "Utilities for Enhanced Read-Only File System"
   homepage "https://git.kernel.org/pub/scm/linux/kernel/git/xiang/erofs-utils.git"
-  url "https://git.kernel.org/pub/scm/linux/kernel/git/xiang/erofs-utils.git/snapshot/erofs-utils-1.7.1.tar.gz"
-  sha256 "196083d63e5e231fb5799e7ce86a944bbca564daabce3de9225a8aca9dcaff15"
+  url "https://git.kernel.org/pub/scm/linux/kernel/git/xiang/erofs-utils.git/snapshot/erofs-utils-1.8.2.tar.gz"
+  sha256 "64b6ff7e899f62480283cee63787f37f0f9c4be7a6bc7a23d734aaa873a6cff4"
   license "GPL-2.0-or-later"
   head "https://git.kernel.org/pub/scm/linux/kernel/git/xiang/erofs-utils.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "70afb5eb22ceebcb1a3d6acc23a764b1ae0244cb588dd36909dcfa0869608a7c"
-    sha256 cellar: :any,                 arm64_ventura:  "cb3b3780c9df4ae7433ad11023283a6cbf7919addb024d694eab2b071ba3ab60"
-    sha256 cellar: :any,                 arm64_monterey: "c0c7164d525c7d59f169213d674dd9739c98a589ba175870ae322aab22f0f589"
-    sha256 cellar: :any,                 sonoma:         "280e7c817c99ac88a61b19ba31dd0d6dffdd8a2410eb0b7b7c793204f7af36b6"
-    sha256 cellar: :any,                 ventura:        "1153316e3eaae7bb86506bf224c0988909c348c3e93449644a6c83892f4c07ec"
-    sha256 cellar: :any,                 monterey:       "60e8cff8875bf6f1b567727234d465b4c77dd2ecac1656d2c2c7b116c34c8f24"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e6d3d584f064c10ebdcd206f01fc2148bd099e6fb3e3c506094ac0150399de6b"
+    sha256 cellar: :any,                 arm64_sequoia: "5035f77586cbf76d18023e795777e4432469ed3746affb79e8b4fa9b6126dd1f"
+    sha256 cellar: :any,                 arm64_sonoma:  "568801efa832bc9bb43396d4c9b9633e9aa484e3dc56c10c2476451201688b28"
+    sha256 cellar: :any,                 arm64_ventura: "d314c87ea1bb5cd2a2047395beaca24021e9e0d8dcaaab44f2ecdc0452de5933"
+    sha256 cellar: :any,                 sonoma:        "ec728a19423c18a82de1b43c594b22ac3d699e443984a92d43b415a865800457"
+    sha256 cellar: :any,                 ventura:       "29a2413f88d967810a0b0c73bc75d432a5704baeb9b33d7c2831687ea86988d1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "77e66fabf0edacf196349d1ee06eb0cb9423eda1b68ecc04216dae3c64a8337d"
   end
 
   depends_on "autoconf" => :build
@@ -21,32 +20,32 @@ class ErofsUtils < Formula
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "lz4"
-  depends_on "util-linux" # for libuuid
   depends_on "xz"
 
   uses_from_macos "zlib"
 
   on_linux do
-    depends_on "libfuse@2"
+    depends_on "libfuse"
+    depends_on "util-linux" # for libuuid
   end
 
   def install
-    system "./autogen.sh"
-    args = std_configure_args + %w[
+    args = %w[
       --disable-silent-rules
       --enable-lz4
       --enable-lzma
       --without-selinux
     ]
 
-    # Enable erofsfuse only on Linux for now
+    # Enable erofsfuse only on Linux
     args << if OS.linux?
       "--enable-fuse"
     else
       "--disable-fuse"
     end
 
-    system "./configure", *args
+    system "./autogen.sh"
+    system "./configure", *args, *std_configure_args
     system "make", "install"
   end
 
@@ -57,12 +56,12 @@ class ErofsUtils < Formula
 
     # Test mkfs.erofs can make a valid erofsimg.
     #   (Also tests that `lz4` support is properly linked.)
-    system "#{bin}/mkfs.erofs", "--quiet", "-zlz4", "test.lz4.erofs", "in"
+    system bin/"mkfs.erofs", "--quiet", "-zlz4", "test.lz4.erofs", "in"
     assert_predicate testpath/"test.lz4.erofs", :exist?
 
     # Test mkfs.erofs can make a valid erofsimg.
     #   (Also tests that `lzma` support is properly linked.)
-    system "#{bin}/mkfs.erofs", "--quiet", "-zlzma", "test.lzma.erofs", "in"
+    system bin/"mkfs.erofs", "--quiet", "-zlzma", "test.lzma.erofs", "in"
     assert_predicate testpath/"test.lzma.erofs", :exist?
 
     # Unfortunately, fsck.erofs doesn't support extraction for now, and

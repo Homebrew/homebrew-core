@@ -7,6 +7,7 @@ class Mp3splt < Formula
   revision 2
 
   bottle do
+    sha256 arm64_sequoia:  "2d21b2a3b74e156a07882dfc20c2707bf836f011b914c88f6245a06230eacfdf"
     sha256 arm64_sonoma:   "173c1125749f0ecc643c6b98b9b0d38f60c0e7521a6cc0cdcfef9a076e03953d"
     sha256 arm64_ventura:  "4e6894c387e086d64cb6ca49c9b980db9bd005244f6cde36408d362a4aee80d7"
     sha256 arm64_monterey: "49093f6c535038ac74f901f3ec328da4611621c554c9fd016170e7609b2bacac"
@@ -29,6 +30,6 @@ class Mp3splt < Formula
   end
 
   test do
-    system "#{bin}/mp3splt", "-t", "0.1", test_fixtures("test.mp3")
+    system bin/"mp3splt", "-t", "0.1", test_fixtures("test.mp3")
   end
 end

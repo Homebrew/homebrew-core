@@ -1,9 +1,9 @@
 class Riscv64ElfBinutils < Formula
   desc "GNU Binutils for riscv64-elf cross development"
   homepage "https://www.gnu.org/software/binutils/"
-  url "https://ftp.gnu.org/gnu/binutils/binutils-2.42.tar.bz2"
-  mirror "https://ftpmirror.gnu.org/binutils/binutils-2.42.tar.bz2"
-  sha256 "aa54850ebda5064c72cd4ec2d9b056c294252991486350d9a97ab2a6dfdfaf12"
+  url "https://ftp.gnu.org/gnu/binutils/binutils-2.43.1.tar.bz2"
+  mirror "https://ftpmirror.gnu.org/binutils/binutils-2.43.1.tar.bz2"
+  sha256 "becaac5d295e037587b63a42fad57fe3d9d7b83f478eb24b67f9eec5d0f1872f"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -11,13 +11,14 @@ class Riscv64ElfBinutils < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "09a3369af25004d0008a0ec7390f2ae1ba0ba3a7ad132ca018ee919e961f8df8"
-    sha256 arm64_ventura:  "e867436303e7352f3bd543a1300dae09237544bf4f8b1698c68f7d63ea2e3644"
-    sha256 arm64_monterey: "36f5c8b2032ac730408734462c70939001ee516c134140b8fe5ddce437d317f4"
-    sha256 sonoma:         "e3d07fffc1ece4c8f50ce5218210e5a46a493ead0955811708a46d74a12b88bc"
-    sha256 ventura:        "8f7f40be28d714274e65f8181cf07c159713db80654b207dcfa9e4b07426cd28"
-    sha256 monterey:       "77de440e53b00249fcd787dfee0b093dbb7f2fadfa727b0d6d1939feb04a5e62"
-    sha256 x86_64_linux:   "6491d27ff8c7c5c959db2d388aeb6a996536d01fbe5a79c7bd631a462ab08be1"
+    sha256 arm64_sequoia:  "7c6baf0c3f68119fcfd6e68e521db8144376374797b6c0f5e0eb6f8ecada2a0c"
+    sha256 arm64_sonoma:   "82f80d150e80febb95a4456fd579e51821b50aaac142245d621412218edcdd52"
+    sha256 arm64_ventura:  "da2d4ac1c40f9b48919d4f30821789f0619a18a9736f08ae22a21dba6cc0afc9"
+    sha256 arm64_monterey: "41828211729eef8dc3cdd1343766c9e9855292d887663e898fbc18a9de7f4a4d"
+    sha256 sonoma:         "23d6c77cfd5a03b1fd9c604506bfc44bd4a058a90c0bcb203ff19d5b06fac2ba"
+    sha256 ventura:        "548844c384553b11efa8e99f3505c1004ef34638b2140d3795d5229f8a7bdc9e"
+    sha256 monterey:       "bce11024383da5f640178d2adec1263730450eedb22690fef9e1cb7b7c4dd074"
+    sha256 x86_64_linux:   "2d20f3c9e5b38bd284237023d75cd87e34224390064af224929fd51cf740e0a2"
   end
 
   depends_on "pkg-config" => :build
@@ -51,7 +52,8 @@ class Riscv64ElfBinutils < Formula
           li a0, 0
           ecall
     EOS
-    system "#{bin}/riscv64-elf-as", "-o", "test-s.o", "test-s.s"
+
+    system bin/"riscv64-elf-as", "-o", "test-s.o", "test-s.s"
     assert_match "file format elf64-littleriscv",
                  shell_output("#{bin}/riscv64-elf-objdump -a test-s.o")
     assert_match "f()", shell_output("#{bin}/riscv64-elf-c++filt _Z1fv")

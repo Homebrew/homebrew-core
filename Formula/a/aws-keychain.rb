@@ -6,7 +6,8 @@ class AwsKeychain < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "ba317cf159adf639b08c5153cc69ded7671e948c7041a3fa441a6f34db6ec0ba"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "07b563b515bc0baa71f648ce63989009e50160d6ef87bd821e045be451cffb53"
   end
 
   depends_on :macos

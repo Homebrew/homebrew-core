@@ -6,6 +6,7 @@ class Gotpm < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "b4449cd7398f0784773d392c2836fef374ddb7730843c3af8e7c407f981ea4c2"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "930187e3e5837f74743d683cc103cdd3bd199d6e9bd6bbebebe742cf9b294b71"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "e1ea54bfff6542b961e3e5dd565fea80979fc92c98cdfe330610c7ba3430c099"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "8a49ea96a0bb71641b12bfccd051971e01dc76d1b8a7ef82aef69cf8dea549a5"

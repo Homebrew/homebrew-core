@@ -4,17 +4,15 @@ class NetcdfFortran < Formula
   url "https://github.com/Unidata/netcdf-fortran/archive/refs/tags/v4.6.1.tar.gz"
   sha256 "40b534e0c81b853081c67ccde095367bd8a5eead2ee883431331674e7aa9509f"
   license "NetCDF"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "7698830a4734e8db2ed6fd81b345ec8aa29717d12de539c86046ef0a9fbf039a"
-    sha256 cellar: :any,                 arm64_ventura:  "f69dec2020417b0e8199b02be5a47c4ca2da04c7877b71238017cec1eb7d0b14"
-    sha256 cellar: :any,                 arm64_monterey: "d37ff2c2dc92218abac1c96650ed04330748e4b2478b8af3a8191f1f09f82ce3"
-    sha256 cellar: :any,                 arm64_big_sur:  "656efd1986de89c62f46cc8cee403671e0b27f7a9c5c71462d46dd71bd5b7afc"
-    sha256 cellar: :any,                 sonoma:         "873b2d2777ebc868b7b1d42d3cc67490252e7a8734ac88e34403d1ca17324997"
-    sha256 cellar: :any,                 ventura:        "9f472b30b1122d65ec0200e712cfbc9fbc568fe5093f7766a54084d63ab01f94"
-    sha256 cellar: :any,                 monterey:       "e987324d04bfe2505ba86583d2c2fd3011ab57f946e75ff82179a126c0901aff"
-    sha256 cellar: :any,                 big_sur:        "5d8adc17ed018ac5a4f9db5b62466fe5a43de072a2156bfc7d190fcd072ee483"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8c6ed098da41febed8864e81d27d264cadca8d99e55bfad0281d98c99e025790"
+    sha256 cellar: :any,                 arm64_sequoia: "8b62a93777fedd65dc1fb67b84cde354588dab2352f216f89930aec00ed768f6"
+    sha256 cellar: :any,                 arm64_sonoma:  "993ceaa41b2e1fc8710ca48606136ff18f6bde953f563719b60528929b910a04"
+    sha256 cellar: :any,                 arm64_ventura: "17d6a2cf65bfdc1842136df9c62789b4ec21783d3989309bc795d7859235dd4b"
+    sha256 cellar: :any,                 sonoma:        "28c45ad6a04dc865332cb5ab992c24b595a0282263d8990a9b8d2f2441840a9b"
+    sha256 cellar: :any,                 ventura:       "5243be662389c3f85b0dc96d90cd6706dd2ff7393c493af3dbc3dbaab6a8a8fe"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b555cd5b1f9e6486a6804214836de433c9f97b118ba76d073949d37990f1da40"
   end
 
   depends_on "cmake" => :build
@@ -24,6 +22,11 @@ class NetcdfFortran < Formula
 
   def install
     args = std_cmake_args + %w[-DBUILD_TESTING=OFF -DENABLE_TESTS=OFF -DENABLE_NETCDF_4=ON -DENABLE_DOXYGEN=OFF]
+
+    # Help netcdf-fortran find netcf
+    # https://github.com/Unidata/netcdf-fortran/issues/301#issuecomment-1183204019
+    args << "-DnetCDF_LIBRARIES=#{Formula["netcdf"].opt_lib}/#{shared_library("libnetcdf")}"
+    args << "-DnetCDF_INCLUDE_DIR=#{Formula["netcdf"].opt_include}"
 
     system "cmake", "-S", ".", "-B", "build_shared", *args, "-DBUILD_SHARED_LIBS=ON"
     system "cmake", "--build", "build_shared"

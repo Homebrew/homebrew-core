@@ -7,6 +7,7 @@ class Wsk < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "d021a20a2281bc21cc5e1512fc566d655403d2e807b65108998766d9f2439db5"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "45818d930ab0aa766ddfbea6a15857d3e39c19dd78e86618cfd891ea30695d8d"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "3289f914e422c1ada3312a27103e11a726b22ad5e1a473171f8aa4abe798be04"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b1e31bfc35f96c00b8baad80a700475f277a1882d7cf888708eaab2f2cf01651"
@@ -33,6 +34,6 @@ class Wsk < Formula
   end
 
   test do
-    system "#{bin}/wsk", "property", "set", "--apihost", "https://127.0.0.1"
+    system bin/"wsk", "property", "set", "--apihost", "https://127.0.0.1"
   end
 end

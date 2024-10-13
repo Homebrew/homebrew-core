@@ -13,6 +13,7 @@ class Rtptools < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "06e5ec34e865108c33c8e34cc136a7d12758ace00639494adeafeabccea7d1e0"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3f7a817f96226b0cc4a1bd1dd656fcbd37b9a2bb4c0a562fdc5c8f40db60530b"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "5d06d42bddd550eb32476e7412d204a11795fa1295c9c68e0b608e652b5092df"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "3b656aa50230fbf083a0acd2bb82b6c9911b0c1e450280f2beba636aea4dd444"

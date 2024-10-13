@@ -1,25 +1,23 @@
 class GitSecrets < Formula
   desc "Prevents you from committing sensitive information to a git repo"
   homepage "https://github.com/awslabs/git-secrets"
-  url "https://github.com/awslabs/git-secrets/archive/refs/tags/1.3.0.tar.gz"
-  sha256 "f1d50c6c5c7564f460ff8d279081879914abe920415c2923934c1f1d1fac3606"
   license "Apache-2.0"
   head "https://github.com/awslabs/git-secrets.git", branch: "master"
 
+  stable do
+    url "https://github.com/awslabs/git-secrets/archive/refs/tags/1.3.0.tar.gz"
+    sha256 "f1d50c6c5c7564f460ff8d279081879914abe920415c2923934c1f1d1fac3606"
+
+    # Backport removal of unnecessary dependency on `say`
+    patch do
+      url "https://github.com/awslabs/git-secrets/commit/65891e23f341f159098300999edcce5983cd3ad8.patch?full_index=1"
+      sha256 "add9ad9f5778dd38885a23b8b394601061a203d1862b91cd64c5ca2a0c9a6ab2"
+    end
+  end
+
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "320ae81c1010cd7556cbaf858cda5183e0efd02829849563e578839c6da10d6d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3514dfa1af5dfeacdee08546d64f3d60766318d386af8ff7f9a0057314fe7d33"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3514dfa1af5dfeacdee08546d64f3d60766318d386af8ff7f9a0057314fe7d33"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e9de924f892439c26efd7c99bf498edb0425f2ca2ed1b2f6a41894f22a45e362"
-    sha256 cellar: :any_skip_relocation, sonoma:         "320ae81c1010cd7556cbaf858cda5183e0efd02829849563e578839c6da10d6d"
-    sha256 cellar: :any_skip_relocation, ventura:        "3514dfa1af5dfeacdee08546d64f3d60766318d386af8ff7f9a0057314fe7d33"
-    sha256 cellar: :any_skip_relocation, monterey:       "3514dfa1af5dfeacdee08546d64f3d60766318d386af8ff7f9a0057314fe7d33"
-    sha256 cellar: :any_skip_relocation, big_sur:        "847ce4314909e69c8c5e30d67599c1b7892ceb27016a1b4636a4b92a9996bb97"
-    sha256 cellar: :any_skip_relocation, catalina:       "92ae3c8447754b1f5d23b5e7e3a601fca133f4b691b51b5004ffe17f4d763622"
-    sha256 cellar: :any_skip_relocation, mojave:         "d77761ee552d2963788f2bcab6c695d1b52f9d0c1d68dad65230901c750e63aa"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "d77761ee552d2963788f2bcab6c695d1b52f9d0c1d68dad65230901c750e63aa"
-    sha256 cellar: :any_skip_relocation, sierra:         "fc2745b24be00e6b8e4b82d6768632810823ffff3f80ad99ca9943b31d003003"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "375d6c697493099bc84e7b61eadeadbb75a34c05d724b558a3ff03d7e267d196"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "826637bd7920ad23df848a7ffbfadb79a7d7c918b330d80bc7fea4dfb9fed1d5"
   end
 
   def install

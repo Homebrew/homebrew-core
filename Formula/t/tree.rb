@@ -6,6 +6,7 @@ class Tree < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "4f39e10fb168ba78da684d3341b9de003cc75de0fe69654816d24eda6d7d834f"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f0ff7ec061de0b347ca0c735aa199f30c57439134cc6ea1d8e66243986656924"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "b2c2977827a57759b2661878fe661284c4c72ddc0c6a7f8d49e2814392b4f976"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "0ef85c4b4b00b63b41159241eefb3f0712326b03f4a3a0f92468fdf339916c98"
@@ -29,6 +30,6 @@ class Tree < Formula
   end
 
   test do
-    system "#{bin}/tree", prefix
+    system bin/"tree", prefix
   end
 end

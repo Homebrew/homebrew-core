@@ -6,29 +6,29 @@ class Libvmaf < Formula
   license "BSD-2-Clause-Patent"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "bdc90ebc175c1f071be4ce895051586583177c3b1029817dc1078472a3da8261"
-    sha256 cellar: :any,                 arm64_ventura:  "cc4765c5f45c5f87bcc42dba73fada9659abbf47bb9adb68bd406c26ac23380a"
-    sha256 cellar: :any,                 arm64_monterey: "2c9b931ff4d557c6f731b1e834464f96e2620e77f1b857c2ec3061bb589e42da"
-    sha256 cellar: :any,                 sonoma:         "a3ad27257fe552feb0d8ba3f2285feb7a6a772b845514e8d97bf0f9a9c0f1830"
-    sha256 cellar: :any,                 ventura:        "28589a2b48fbd851749f57be19eda359e64056f289f899b80a52224dc3a6ad71"
-    sha256 cellar: :any,                 monterey:       "bb97b9845e37e7090fecfff2e47c32c08c18ea4161da8d88134a7f7be4e07c22"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5cb81b38b8c402fc0c12a8a639a7208406958d27a1f8a513c706a5636903cdc4"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia:  "0809635a529d0e53e927cb9834225210096c625b10ab7eb1211cadf63a1016c5"
+    sha256 cellar: :any,                 arm64_sonoma:   "56701b888674f0dfe0e67224cf1e851888b6ab044ac696ced31b13c8c7a61d0b"
+    sha256 cellar: :any,                 arm64_ventura:  "ca7a55e4abb5861b0bdc2fbb14fe298e466f9910298e043efc2d47d17332d686"
+    sha256 cellar: :any,                 arm64_monterey: "45a7329171c81b91618e385d2d35fedb8dfe91355d0ef4c1aa2951bb0c436aef"
+    sha256 cellar: :any,                 sonoma:         "64600bc64ae6dc61c6b9f31c7c4ee35a045b72966ba85d6de1e8f7b0fb575c6f"
+    sha256 cellar: :any,                 ventura:        "a021ade94bade88689b21bcf06e6055a9d700ababafe51200620eda29a1e0951"
+    sha256 cellar: :any,                 monterey:       "448eaea166d8f6f1c48d72c13fe8d1a46635b54556a6904d1fb351d2fc0d0a80"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d48ccc0729c4d04a062bc060518ea1370101fd52e718bc54fad10a9fb996d3cb"
   end
 
   depends_on "meson" => :build
   depends_on "ninja" => :build
-  depends_on "vim" => :build
+  uses_from_macos "vim" => :build # needed for xxd
 
   on_intel do
     depends_on "nasm" => :build
   end
 
   def install
-    Dir.chdir("libvmaf") do
-      system "meson", *std_meson_args, "build"
-      system "ninja", "-vC", "build"
-      system "ninja", "-vC", "build", "install"
-    end
+    system "meson", "setup", "build", "libvmaf", *std_meson_args
+    system "meson", "compile", "-C", "build", "--verbose"
+    system "meson", "install", "-C", "build"
     pkgshare.install "model"
   end
 

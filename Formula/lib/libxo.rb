@@ -6,6 +6,7 @@ class Libxo < Formula
   license "BSD-2-Clause"
 
   bottle do
+    sha256 arm64_sequoia:  "1dd19ecfae3f49f288fda04ded88e72b735284a1bb904e9df2e6c5ae64f26d50"
     sha256 arm64_sonoma:   "4c55e5145b840b968e7a3b02b7806034c7a7a463d0761ad405594518a3ba52ef"
     sha256 arm64_ventura:  "d032a1e05fa91f2d0ffc90c86361f9fcf3239ae11dc053583ef9d1d964d86c55"
     sha256 arm64_monterey: "7efad6f78bca7183e0ed73dbaa895d6e545e60b58e3b2e1cb9e18593a835c2c4"

@@ -1,19 +1,18 @@
 class Autocorrect < Formula
   desc "Linter and formatter to improve copywriting, correct spaces, words between CJK"
   homepage "https://huacnlee.github.io/autocorrect/"
-  url "https://github.com/huacnlee/autocorrect/archive/refs/tags/v2.11.1.tar.gz"
-  sha256 "c29b065db7733ede2da152dd8eb1be44dad86ec345e406715b8b487b1f9cd81d"
+  url "https://github.com/huacnlee/autocorrect/archive/refs/tags/v2.12.0.tar.gz"
+  sha256 "b1363155ef4a3e7379a1ac6540389f350955b3ea63e585143cfb539d1f63f8c5"
   license "MIT"
   head "https://github.com/huacnlee/autocorrect.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4ea22ef12c16dfa27eecac001844ac360da8cb99adcf850b34a4177735b0ae70"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "740565f33ef62699e9626fc19398b25bf45fd90a5baaea1f4e95a1e9eaf36a1a"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "467c779941ef6ee5959d611e39a1a95d651b8d72907755fcf9f503f5970edbe4"
-    sha256 cellar: :any_skip_relocation, sonoma:         "501af42cafafe55fb780445d9dfc3e064460fe27da6338984029fb9e9801c218"
-    sha256 cellar: :any_skip_relocation, ventura:        "60543b3ae4a76771e2a4fbfcde0d8a36603a2ed125c6f7cc3ad7360d0880347d"
-    sha256 cellar: :any_skip_relocation, monterey:       "89d1e3e7393eab2b09eaab6d59de7e69f80cb6effb6cb6bcab02b4069ed05cca"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cafdadcb921c8c8fb3e67ff21cddff0c89cdbb3aa762c3b1e201ebc623b61a41"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bc9c393239c1a01bd10d2d3842c53d769d320cb0491a63a7c8896bc6622eb182"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3b7407c0376017ef3880f17743419717e7d5b4bc4954e69502e6e5c03b97c596"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "3f8cf1ff667a784fc91a3d10afd86b6bbaecc8844d0ff072d501b867b18034c8"
+    sha256 cellar: :any_skip_relocation, sonoma:        "a43c298b348197a7e3c2f867454336bd370101724dc90cb6305598789a5a4457"
+    sha256 cellar: :any_skip_relocation, ventura:       "7f1de8a41a9bf187c51bd8ca3dd01e0d553ee3f981a13460b64028c617b9959d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e53e4ff41271e2bceffa43d128df889821b5a488c52c43b6d23dae41d18d4346"
   end
 
   depends_on "rust" => :build

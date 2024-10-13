@@ -1,19 +1,20 @@
 class Frpc < Formula
   desc "Client app of fast reverse proxy to expose a local server to the internet"
   homepage "https://github.com/fatedier/frp"
-  url "https://github.com/fatedier/frp/archive/refs/tags/v0.59.0.tar.gz"
-  sha256 "eb4848119a9684b7762171d7633aa5ee29d195e63f53e89e7b549096bdf4a5a9"
+  url "https://github.com/fatedier/frp/archive/refs/tags/v0.60.0.tar.gz"
+  sha256 "8feaf56fc3f583a51a59afcab1676f4ccd39c1d16ece08d849f8dc5c1e5bff55"
   license "Apache-2.0"
   head "https://github.com/fatedier/frp.git", branch: "dev"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4574f30fbaf792cd399969bb3128e27e86de0cea25d81a00d33d8f5b01390b98"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4574f30fbaf792cd399969bb3128e27e86de0cea25d81a00d33d8f5b01390b98"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "4574f30fbaf792cd399969bb3128e27e86de0cea25d81a00d33d8f5b01390b98"
-    sha256 cellar: :any_skip_relocation, sonoma:         "5934c1c84b5d667a4758c3ead2a5cce420cfa2a310120cb19e3c22b8640b9861"
-    sha256 cellar: :any_skip_relocation, ventura:        "5934c1c84b5d667a4758c3ead2a5cce420cfa2a310120cb19e3c22b8640b9861"
-    sha256 cellar: :any_skip_relocation, monterey:       "5934c1c84b5d667a4758c3ead2a5cce420cfa2a310120cb19e3c22b8640b9861"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7e7af61ad3008477e38da382834d221e3ea5b8d65d989d23df89e851ece4497c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "7e6342346d089b16b3f6ef139568c84a7cbeadebe63c66fccf53aab6bd9cf7a0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ef0ad7eceed7fb8dd4bea309eec8da365e12f53a5ffae9411fc39dc0ca0e2ad7"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ef0ad7eceed7fb8dd4bea309eec8da365e12f53a5ffae9411fc39dc0ca0e2ad7"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ef0ad7eceed7fb8dd4bea309eec8da365e12f53a5ffae9411fc39dc0ca0e2ad7"
+    sha256 cellar: :any_skip_relocation, sonoma:         "a9c8f0db6e6f5c6a406e9b8088c7dbf135a6d08024cd82a053dbd940b037e179"
+    sha256 cellar: :any_skip_relocation, ventura:        "a9c8f0db6e6f5c6a406e9b8088c7dbf135a6d08024cd82a053dbd940b037e179"
+    sha256 cellar: :any_skip_relocation, monterey:       "a9c8f0db6e6f5c6a406e9b8088c7dbf135a6d08024cd82a053dbd940b037e179"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cc2b35261551236ff961abc8bc3bfd30b81e85f253896310bbbdcef9c1179b43"
   end
 
   depends_on "go" => :build

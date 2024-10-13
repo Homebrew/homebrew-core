@@ -12,20 +12,19 @@ class Jailkit < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 arm64_sonoma:   "b6c0c3c1107be5a4bdc64133a96ff0825bee4f0e2e5137c8a936250b2c36c687"
-    sha256 arm64_ventura:  "5e555a333e8e410170f19a4a5d6cfeb18f35b93cafeb4fa36558c67ccccc3f04"
-    sha256 arm64_monterey: "9899513595b06db714f7e16c5020fc6af232e145134d950c62d755e290426489"
-    sha256 sonoma:         "392443c175a16f451cf4183f0d1443a87a7754f400e799e5c2851532264300a0"
-    sha256 ventura:        "d820a942947750a13ab6e2a2f47dedb3b2d11a512fabdad32e80dfe4b4e1a0dc"
-    sha256 monterey:       "8ca03d7e266f8d2a7f1e73431e12935b3a37fa81e07c749cbfe15fbf78ce8153"
-    sha256 x86_64_linux:   "449133e50ae1f47700b40ccfffdc78d7aaf390a393bc57178b39e1458ab0b397"
+    rebuild 3
+    sha256 arm64_sequoia: "076d8ccde7798b91dd5d4180fc2d2debb7ef02e2db89cd365c6deebf6bc6efdf"
+    sha256 arm64_sonoma:  "025053b284193b9d1c95198481f1590ff9215c899c37ef815af7112adf48be5d"
+    sha256 arm64_ventura: "0d93bf91fbfa2c9b28872305a2fffdedb7ea4a92c9e0322804f4ec876e77f65c"
+    sha256 sonoma:        "a06284e555f1de8ca3efe295422941c5707a6584ee0290db9c81bf65b73f16ed"
+    sha256 ventura:       "7f29c2242dee1509abeef79da62ae9a5f34b74185042157895ef13184aa9c7c4"
+    sha256 x86_64_linux:  "d8f26d192338a7f45ef9a376c983cc97d873249106c78807cacd7964c7007b8e"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   def install
-    ENV["PYTHONINTERPRETER"] = which("python3.12")
+    ENV["PYTHONINTERPRETER"] = which("python3.13")
 
     system "./configure", *std_configure_args
     system "make", "install"

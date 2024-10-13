@@ -1,20 +1,20 @@
 class Awk < Formula
   desc "Text processing scripting language"
   homepage "https://www.cs.princeton.edu/~bwk/btl.mirror/"
-  url "https://github.com/onetrueawk/awk/archive/refs/tags/20240422.tar.gz"
-  sha256 "4793404735db5ea79f790cf865bf4fe875f9c5c23b1b8da186349f54b3a32281"
-  # https://fedoraproject.org/wiki/Licensing:MIT?rd=Licensing/MIT#Standard_ML_of_New_Jersey_Variant
-  license "MIT"
+  url "https://github.com/onetrueawk/awk/archive/refs/tags/20240728.tar.gz"
+  sha256 "2d479817f95d5997fc4348ecebb1d8a1b25c81cebedb46ca4f59434247e08543"
+  license "SMLNJ"
   head "https://github.com/onetrueawk/awk.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ab0f6c0bd87940c78c8248e2237bf186ad68cfd1938049b1692c5da7e7acfe67"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ef91c2756e105eb6da2da397b1e349e7f34ec9cce138a8be93f24d784e4489c4"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9cc60e225008e6a90e2c014e760abdb6fb746ee5d29b9a37424a41ad47ac93be"
-    sha256 cellar: :any_skip_relocation, sonoma:         "10990a99e78c6fa3b03cd1f302b43ed6007264f4de507cda08b8fa5b08b368da"
-    sha256 cellar: :any_skip_relocation, ventura:        "8884561ebde218b1312f73ab1f6cbff753972db054984face4e7d42a58cffae0"
-    sha256 cellar: :any_skip_relocation, monterey:       "4bb9de2a01abd29de50eb68d8d1997250e85db278dd608cfe2af18dd5d935a23"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f6d1fab4ff8b522266e3f6e73a57c48f0f469f116dbfb3df0f0dfd9f175c909b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "f2b9331555d9feaeaf4bf73c070c7bd50d7fd1517fad22935bba33314d02e053"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a728d9ed877bfae84e267c64e81f09a511f3dd523bda31c7b0ec3a7076d6483f"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0b2e6af0767f18b30bde9bf047197aa8f861afe72b374892794993ecceaa4b2c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f71f833d37dd5ec5d675afb9c770997547e360c40ccac159cddeecedf40493fe"
+    sha256 cellar: :any_skip_relocation, sonoma:         "08df642292e0e58a9f8ba843bad3006105f544ef4b23adfa7d8a692836c78c15"
+    sha256 cellar: :any_skip_relocation, ventura:        "14169353ad436d7acc435813571a6df6153e722a7b72147d24921af0e69c5d6f"
+    sha256 cellar: :any_skip_relocation, monterey:       "37a1ff681d78a03940cf1fe2df53cfc3755edd8eecc6a50c3ab1fe85ac24253d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "04b4d84b57619e285f21b7f3cc8ed0550cd73fe047f4da676e23401c1ed7f12d"
   end
 
   uses_from_macos "bison" => :build

@@ -2,7 +2,7 @@ class Pius < Formula
   include Language::Python::Virtualenv
 
   desc "PGP individual UID signer"
-  homepage "https://www.phildev.net/pius/"
+  homepage "https://github.com/jaymzh/pius"
   url "https://github.com/jaymzh/pius/archive/refs/tags/v3.0.0.tar.gz"
   sha256 "3454ade5540687caf6d8b271dd18eb773a57ab4f5503fc71b4769cc3c5f2b572"
   license "GPL-2.0-only"
@@ -10,14 +10,8 @@ class Pius < Formula
   head "https://github.com/jaymzh/pius.git", branch: "master"
 
   bottle do
-    rebuild 4
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "862a5a7ce264a77363a1a3e1a48ee177a712579e68aa469b96f714ebb5a81043"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "862a5a7ce264a77363a1a3e1a48ee177a712579e68aa469b96f714ebb5a81043"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "862a5a7ce264a77363a1a3e1a48ee177a712579e68aa469b96f714ebb5a81043"
-    sha256 cellar: :any_skip_relocation, sonoma:         "862a5a7ce264a77363a1a3e1a48ee177a712579e68aa469b96f714ebb5a81043"
-    sha256 cellar: :any_skip_relocation, ventura:        "862a5a7ce264a77363a1a3e1a48ee177a712579e68aa469b96f714ebb5a81043"
-    sha256 cellar: :any_skip_relocation, monterey:       "862a5a7ce264a77363a1a3e1a48ee177a712579e68aa469b96f714ebb5a81043"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "45e8b7405f3fb6071e55b19cbb78beaf73289719a67aebeead7f317080db78a9"
+    rebuild 5
+    sha256 cellar: :any_skip_relocation, all: "955e8c9cf03a30cd3492596ed0e227eab2fa75c77120ccf763afbb437b940f8f"
   end
 
   depends_on "gnupg"

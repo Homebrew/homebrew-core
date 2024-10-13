@@ -12,6 +12,7 @@ class Sord < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any, arm64_sequoia:  "9534a78d2099f3cc7938d5c25b23e17d270e977dafd203bd3c5e3d5f292ee915"
     sha256 cellar: :any, arm64_sonoma:   "ccb2cea1a9eb0a3872148c76b00d4010c871b5c6d08b33a7cf558f44abbccdf6"
     sha256 cellar: :any, arm64_ventura:  "1f98b5a02176c345ebdfdde01c85ec692674f6e1915f7c78ed4121ff0d593bf3"
     sha256 cellar: :any, arm64_monterey: "0c86de68f0c8c679798fb812879a10bf1186c08df7d811f31b6ecaa36fbc42fc"

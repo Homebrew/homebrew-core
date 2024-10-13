@@ -1,29 +1,41 @@
 class Instead < Formula
   desc "Interpreter of simple text adventures"
   homepage "https://instead.hugeping.ru/"
-  url "https://github.com/instead-hub/instead/archive/refs/tags/3.5.1.tar.gz"
-  sha256 "53380f94be7f1ec46de309d513f7fe62a1c63d607a247715d87815e83a9c7d63"
+  url "https://github.com/instead-hub/instead/archive/refs/tags/3.5.2.tar.gz"
+  sha256 "589f80cbac9edf51b29d86e1528b9e72c576129fa5c95f1bac3e5bb25c210cf3"
   license "MIT"
-  revision 1
 
   bottle do
-    sha256 arm64_sonoma:   "71ac2a3f9df4d5ca2edd62c7976d058bbfbd8e7f68360055a779505e8a59d7e9"
-    sha256 arm64_ventura:  "9261abc6caf12141ca3d0b491959cc949c682de5dfaad1dab9b34575496d0939"
-    sha256 arm64_monterey: "b2fd66063eaa0bc277240aa16b8ff43ad20dc77db674d6cde03abad2b328aee3"
-    sha256 sonoma:         "efb9d9734907b7fdf04273dbdefe9429ed39ce0e8d1914baa47ca97f598a3fff"
-    sha256 ventura:        "2ebf2f27fa41788ce3bbcb0ec16cd696196a1a31cbba63526c8e858105611e10"
-    sha256 monterey:       "fd4f2bcdce248746df7ba6fa325b4cf6175c1e4e193bd5f540d65cd8aeb04eaf"
-    sha256 x86_64_linux:   "9ae0b409809658af1bc41fd1784e56e26fc5c5ba84d647979826bb8b64c4f3db"
+    sha256 arm64_sequoia:  "b27debf30bd17c51b94f24b9aed4d2a5be840d0af7a177bf32b6ad9e65221f6c"
+    sha256 arm64_sonoma:   "1387c5811cd5a12673f7c9ad9e0e53f1805cd4510112b4a348912d711f07d745"
+    sha256 arm64_ventura:  "a787fd3c5152c2c083ac5a5ecf474649d6e84ed5b49f8b4ea02681161ad57676"
+    sha256 arm64_monterey: "66f51dc5e4e785ea0c15e11a7ff63a0bd42bd9fbde2113cb8eb31100147b86e9"
+    sha256 sonoma:         "b923b24f39f86b55e4ea5e85570c83927dbc0fa96fa0edab5a2fcf0ca77c3c9a"
+    sha256 ventura:        "33d4f677954750c9bb4f4bf48cd36720bc80ae91e9a1be16c766cc1d9629f3b6"
+    sha256 monterey:       "b3bd5654c3d4e24858569437b6aad9dea3c568bf014abb94202e2f4e73f0d9dd"
+    sha256 x86_64_linux:   "06bea67b1d7d82de33cf429134b9f001bfd1a788ad10bbf61d666f10a1a18e1f"
   end
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
+  depends_on "gdk-pixbuf"
+  depends_on "glib"
   depends_on "gtk+3"
   depends_on "luajit"
   depends_on "sdl2"
   depends_on "sdl2_image"
   depends_on "sdl2_mixer"
   depends_on "sdl2_ttf"
+
+  uses_from_macos "zlib"
+
+  on_macos do
+    depends_on "at-spi2-core"
+    depends_on "cairo"
+    depends_on "gettext"
+    depends_on "harfbuzz"
+    depends_on "pango"
+  end
 
   def install
     system "cmake", "-S", ".", "-B", "build",

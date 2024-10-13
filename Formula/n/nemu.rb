@@ -6,6 +6,7 @@ class Nemu < Formula
   license "BSD-2-Clause"
 
   bottle do
+    sha256 arm64_sequoia:  "4c96f0430555710f094365598dddb0e2089ab38b1c756532a11f2a3303bd2768"
     sha256 arm64_sonoma:   "af6f110c24124397c439c2b8ffc7dd0b9186fcbfe9946ad0d45a4a3a094146de"
     sha256 arm64_ventura:  "7ee1275f2d0d4420779817a5379e3b5aba1189a2912ccc3bc099c0d149614bf6"
     sha256 arm64_monterey: "d1e08e1f8edafdf159a802c2f37e4413a61c15265f9cc2821b8d538d293a0a93"
@@ -23,6 +24,7 @@ class Nemu < Formula
   depends_on "ncurses"
   depends_on "openssl@3"
 
+  uses_from_macos "libxml2"
   uses_from_macos "sqlite"
 
   on_linux do

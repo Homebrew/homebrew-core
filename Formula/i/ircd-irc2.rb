@@ -4,6 +4,15 @@ class IrcdIrc2 < Formula
   url "http://www.irc.org/ftp/irc/server/irc2.11.2p3.tgz"
   version "2.11.2p3"
   sha256 "be94051845f9be7da0e558699c4af7963af7e647745d339351985a697eca2c81"
+  # The `:cannot_represent` is for a Digital Equipment Corporation license.
+  # TODO: See if SPDX will consider this a match for HPND License.
+  license all_of: [
+    "GPL-1.0-or-later",
+    "GPL-2.0-or-later", # ircd/fileio.*, ircd/patricia.c
+    "ISC", # ircd/res_comp.c
+    "BSD-4-Clause-UC", # ircd/{res_comp.c,res_init.c,res_mkquery.c,resolv_def.h}
+    :cannot_represent, # ircd/{res_comp.c,res_init.c,res_mkquery.c,resolv_def.h}
+  ]
 
   livecheck do
     url "http://www.irc.org/ftp/irc/server/"
@@ -11,18 +20,15 @@ class IrcdIrc2 < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_sonoma:   "531d4931922a5d7d0421a6d6de693ea17c43edf571839c3415e856c20f6b01e3"
-    sha256 arm64_ventura:  "8ca253a45db11738e82beb74dac8f6bc70fa455f738ec1252de0102826247697"
-    sha256 arm64_monterey: "9278b13e2b860697e5868ca1624103f2dc4d81b6bc0e6e58801c1bdb52bac550"
-    sha256 arm64_big_sur:  "ed3eac7c4635484c94d12579948947bff1eb6a671846fcd9273dd5ed226759fa"
-    sha256 sonoma:         "d8aa632b8c5493007c5911e292bb411c6b91c8d6526b1a0ceb5a75ec448cbc38"
-    sha256 ventura:        "dc5322bc271aae9ea0b3c84981f73ddfde9602a453335fa3ed3f164b048373c1"
-    sha256 monterey:       "d4c8fb409f40a0b28fd5058260e3ceef2520c654eda0398271e04a6fe9918c66"
-    sha256 big_sur:        "855bb8b0254ee0f410d6bdf3ad8479900f39f0ad120145485d9bdbe146f7a399"
-    sha256 catalina:       "35ae4defa513772b1e1b5b0400976d49cb213818a2272a9760a3da3a7e8c0765"
-    sha256 mojave:         "e0522b8f4eb95b0d60527e136e69474b4e9fe6f2b77a12919d5a6dd76bb2a4fa"
-    sha256 x86_64_linux:   "f8bad7fefb7315efe840f1f601b28ea1f9a83167fe40c8b9c5496330307363f6"
+    rebuild 2
+    sha256 arm64_sequoia:  "11a1e704e3078514219037593b14351817074e38045f95a056d048ced644fed1"
+    sha256 arm64_sonoma:   "c45a5b7682ca7ac5d07f883a2aa981c835ef3ecf2b25602099eb8c27331e4398"
+    sha256 arm64_ventura:  "692fa84b509e25774b65bd12c281990093c6f6563447d2a62ca6e1f13f04ea69"
+    sha256 arm64_monterey: "bd6adad56faafcb7ac533e5bb8668e689b8017a6b0ad336715d02b00b824b882"
+    sha256 sonoma:         "f5fcb1c6dea38be635adcc3bb4a6b32d8034d4c02ee5ea1034a66e6b64059cbd"
+    sha256 ventura:        "fcde6372721ec2700d587fd077cb410df0afdc5100d8181576a5f905728e7ed9"
+    sha256 monterey:       "90c0639ec3e7ab17eaa97b90af15b30b14896d23f7f3c492b88a3190555781ff"
+    sha256 x86_64_linux:   "524aef733a367cce6eb115c4453ec851ffe7ac7d731c3d5ce91195be201bddb1"
   end
 
   def default_ircd_conf
@@ -46,9 +52,19 @@ class IrcdIrc2 < Formula
     EOS
   end
 
+  uses_from_macos "libxcrypt"
+
   conflicts_with "ircd-hybrid", because: "both install `ircd` binaries"
 
+  # Replace usage of nameser_def.h which has incompatible IBM license.
+  # Ref: https://gitlab.com/fedora/legal/fedora-license-data/-/issues/53
+  patch :DATA
+
   def install
+    # Remove header with incompatible IBM license and add linker flags to use system library instead
+    rm("ircd/nameser_def.h")
+    ENV.append "LIBS", "-lresolv"
+
     system "./configure", "--prefix=#{prefix}",
                           "--localstatedir=#{var}",
                           "--sysconfdir=#{etc}",
@@ -67,7 +83,8 @@ class IrcdIrc2 < Formula
     # The directory is something like `i686-apple-darwin13.0.2'
     system "make", "install", "-C", build_dir
 
-    (etc/"ircd.conf").write default_ircd_conf
+    (buildpath/"ircd.conf").write default_ircd_conf
+    etc.install "ircd.conf"
   end
 
   service do
@@ -81,3 +98,52 @@ class IrcdIrc2 < Formula
     system "#{sbin}/ircd", "-version"
   end
 end
+
+__END__
+diff --git a/ircd/res_comp.c b/ircd/res_comp.c
+index b58d06c..a0ff2b9 100644
+--- a/ircd/res_comp.c
++++ b/ircd/res_comp.c
+@@ -64,6 +64,7 @@ static const volatile char rcsid[] = "$Id: res_comp.c,v 1.10 2004/10/01 20:22:14
+ #include "s_externs.h"
+ #undef RES_COMP_C
+
++#if 0
+ static int	ns_name_ntop (const u_char *, char *, size_t);
+ static int	ns_name_pton (const char *, u_char *, size_t);
+ static int	ns_name_unpack (const u_char *, const u_char *,
+@@ -75,6 +76,7 @@ static int	ns_name_uncompress (const u_char *, const u_char *,
+ static int	ns_name_compress (const char *, u_char *, size_t,
+ 				      const u_char **, const u_char **);
+ static int	ns_name_skip (const u_char **, const u_char *);
++#endif
+
+ /*
+  * Expand compressed domain name 'comp_dn' to full domain name.
+@@ -306,6 +308,7 @@ static int		dn_find (const u_char *, const u_char *,
+
+ /* Public. */
+
++#if 0
+ /*
+  * ns_name_ntop(src, dst, dstsiz)
+  *	Convert an encoded domain name to printable ascii as per RFC1035.
+@@ -749,6 +752,7 @@ static int	ns_name_skip(const u_char **ptrptr, const u_char *eom)
+ 	*ptrptr = cp;
+ 	return (0);
+ }
++#endif
+
+ /* Private. */
+
+diff --git a/ircd/s_defines.h b/ircd/s_defines.h
+index aaaf0d4..acd1378 100644
+--- a/ircd/s_defines.h
++++ b/ircd/s_defines.h
+@@ -37,4 +37,5 @@
+ #include "service_def.h"
+ #include "sys_def.h"
+ #include "resolv_def.h"
+-#include "nameser_def.h"
++#define BIND_8_COMPAT
++#include <arpa/nameser.h>

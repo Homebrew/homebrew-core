@@ -7,8 +7,8 @@ class Neofetch < Formula
   head "https://github.com/dylanaraps/neofetch.git", branch: "master"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, all: "78eb3e99dfde7f5fb1c3b192804a6d345f428c9effa6ea6ba54d7e5b7254387f"
+    rebuild 4
+    sha256 cellar: :any_skip_relocation, all: "1382d315f586920f24251b6cd7a79b1c940634d073b42c72007ed87a796d1efc"
   end
 
   deprecate! date: "2024-05-04", because: :repo_archived
@@ -23,7 +23,7 @@ class Neofetch < Formula
   end
 
   test do
-    system "#{bin}/neofetch", "--config", "none", "--color_blocks", "off",
+    system bin/"neofetch", "--config", "none", "--color_blocks", "off",
                               "--disable", "wm", "de", "term", "gpu"
   end
 end

@@ -8,19 +8,6 @@ class GrpcAT154 < Formula
   license "Apache-2.0"
   revision 1
 
-  # There can be a notable gap between when a version is tagged and a
-  # corresponding release is created, so we check releases instead of the Git
-  # tags. Upstream maintains multiple major/minor versions and the "latest"
-  # release may be for a different version, so we have to check multiple
-  # releases. However, the latest 1.54.x version has been pushed out of the
-  # latest releases, so we search the releases page instead of using the
-  # `GithubReleases` strategy.
-  livecheck do
-    url "https://github.com/grpc/grpc/releases?q=1.54+prerelease%3Afalse"
-    regex(%r{href=["']?[^"' >]*?/tag/v?(1\.54(?:\.\d+)*)["' >]}i)
-    strategy :page_match
-  end
-
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "cf92a1cc58e01fea2cc5344d1bf56cc4599a621a19221afefb973b8b54c8c324"
     sha256 cellar: :any,                 arm64_ventura:  "0631cf6a63fca83abd8ff53b0a41811957c8efaf7a422a9f1987f5ee2fa4f88e"

@@ -15,6 +15,7 @@ class Gpac < Formula
   head "https://github.com/gpac/gpac.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "5dd37f08f66d4cd6326954764aff8e02b44a534eb54ac5ebf336152153a1c65c"
     sha256 cellar: :any,                 arm64_sonoma:   "0db848b31b7bda589b829bef38fd0d99575d1303691a04a915d66548b3dac128"
     sha256 cellar: :any,                 arm64_ventura:  "e02c1581892fd72215874516724a24eb30fb7862a1e5d45ebd7cce0b840a3908"
     sha256 cellar: :any,                 arm64_monterey: "b15f699737dc4e58fda9c8753ea2aa2f323baa0423b5424230852bdb0e35b258"
@@ -28,8 +29,6 @@ class Gpac < Formula
   depends_on "openssl@3"
 
   uses_from_macos "zlib"
-
-  conflicts_with "bento4", because: "both install `mp42ts` binaries"
 
   def install
     args = %W[
@@ -46,7 +45,7 @@ class Gpac < Formula
   end
 
   test do
-    system "#{bin}/MP4Box", "-add", test_fixtures("test.mp3"), "#{testpath}/out.mp4"
+    system bin/"MP4Box", "-add", test_fixtures("test.mp3"), testpath/"out.mp4"
     assert_predicate testpath/"out.mp4", :exist?
   end
 end

@@ -3,6 +3,7 @@ class Fastme < Formula
   homepage "http://www.atgc-montpellier.fr/fastme/"
   url "https://gite.lirmm.fr/atgc/FastME/raw/v2.1.6.3/tarball/fastme-2.1.6.3.tar.gz"
   sha256 "09a23ea94e23c0821ab75f426b410ec701dac47da841943587443a25b2b85030"
+  license "GPL-3.0-or-later"
   revision 1
 
   livecheck do
@@ -12,6 +13,7 @@ class Fastme < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia:  "7429f457373fef2d2419f738d603b26316c7c605628332078ab9e0160887c27e"
     sha256 cellar: :any,                 arm64_sonoma:   "6a48e0909778d1439c1e582406533caf6be960f927ab8dc1fd932ca8f266c5b6"
     sha256 cellar: :any,                 arm64_ventura:  "cdc10bc105778a517f7072abccc2b5f7e743230f944c2ef7ec80cf949dbdf208"
     sha256 cellar: :any,                 arm64_monterey: "897103ed06501dc198084a1a2f9ddab6a6cf65f2662f2c76060cc328c6738a75"
@@ -43,7 +45,7 @@ class Fastme < Formula
       D 4.0 5.0 6.0 0.0
     EOS
 
-    system "#{bin}/fastme", "-i", "test.dist"
+    system bin/"fastme", "-i", "test.dist"
     assert_predicate testpath/"test.dist_fastme_tree.nwk", :exist?
   end
 end

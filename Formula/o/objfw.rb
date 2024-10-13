@@ -1,8 +1,8 @@
 class Objfw < Formula
   desc "Portable, lightweight framework for the Objective-C language"
   homepage "https://objfw.nil.im/"
-  url "https://objfw.nil.im/downloads/objfw-1.1.5.tar.gz"
-  sha256 "9d45d2009a0bb9b1a0918918e454b47b8161670df8016b5f3a85eccea91d8988"
+  url "https://objfw.nil.im/downloads/objfw-1.1.7.tar.gz"
+  sha256 "5107d8a0627e2270d211abf1b4f6c50fd89c8d672d2179b50daa7d3b66d68a70"
   license "LGPL-3.0-only"
   head "https://objfw.nil.im/", using: :fossil
 
@@ -12,13 +12,14 @@ class Objfw < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "6f16015b6c32e9de4d84855647117f3a2f74f74b2f24828a99d45bbf4e7153c4"
-    sha256 arm64_ventura:  "d078bacc667a7183f1c12079cd880ddb8db1050967d762a36e0343bb618d8102"
-    sha256 arm64_monterey: "e8f5fbc918bd805a9176ae994190f67521a469b25f8840f84bc016dfe283bce6"
-    sha256 sonoma:         "8c9ed071395c1bd1079fdbeb567afbcfb3323fa859d979455c32a364ff898b1c"
-    sha256 ventura:        "8b5fa0cc92ba275f8f8e993c4d7d76806d5159bed8cdf9d5ba23b93bac174e3d"
-    sha256 monterey:       "5abefcda2e911c206a82949bcf13199f365b1bc35b3f0e5e66769dd8c2254b63"
-    sha256 x86_64_linux:   "11e9e2b6b89d1de0c3a25e0e5b9d7f98db3b3c6cf1faf4541431a88fc7e4fa3e"
+    sha256 arm64_sequoia:  "9de39fb90e098e9756b64aa558325ba11b6c51f4a22c80a3cf97b72635e15e4c"
+    sha256 arm64_sonoma:   "2429582a6626f85edd6bfe3d3c698735a432456e0e7fc2631d79a44635862a36"
+    sha256 arm64_ventura:  "6645218d4d7b56003e053ce67c2d0ce844faf6d575f8b406ff5c426f6cbf1715"
+    sha256 arm64_monterey: "c670b6369e866ce49a54d5a09ebcc7552a3c98b6d46ca5416201d699851359ba"
+    sha256 sonoma:         "1bf9a5a758adc3325325ac8c373adbd96e4cf1b0a96be61c16c41e837fda675d"
+    sha256 ventura:        "a2b317e20e223746d43f72caac42483f4f0a862d5f87ddd3e4799dfcf630f19c"
+    sha256 monterey:       "efa792a0c0e55e170f6a6e5bd50141a818e6446dc984cb1f7ec178922e2b4590"
+    sha256 x86_64_linux:   "2e10b17a804df5c65d77018696953951bfe7e9e880f941730219bd3c09a9b911"
   end
 
   depends_on "autoconf" => :build
@@ -41,8 +42,8 @@ class Objfw < Formula
   end
 
   test do
-    system "#{bin}/objfw-new", "--app", "Test"
-    system "#{bin}/objfw-compile", "-o", "t", "Test.m"
+    system bin/"objfw-new", "--app", "Test"
+    system bin/"objfw-compile", "-o", "t", "Test.m"
     system "./t"
   end
 end

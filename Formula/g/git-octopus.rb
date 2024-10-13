@@ -3,11 +3,11 @@ class GitOctopus < Formula
   homepage "https://github.com/lesfurets/git-octopus"
   url "https://github.com/lesfurets/git-octopus/archive/refs/tags/v1.4.tar.gz"
   sha256 "e2800eea829c6fc74da0d3f3fcb3f7d328d1ac8fbb7b2eca8c651c0c903a50c3"
-  license "LGPL-3.0"
+  license "LGPL-3.0-only"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "06986d5465b1c7781cb3cfb2f64008ef3e91d240c97389dddbb90ffd3d3fdb4c"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "7ab7be1a2f2ae60aeaf6a8887b4d7c444e282a9d55d82ce974932279b2569c25"
   end
 
   def install

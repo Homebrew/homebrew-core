@@ -8,6 +8,7 @@ class Bc < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "7259afd8cd95916dc9408b624167b311b24abb1b46a7a011e921f8eb5ce2b586"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1fce187d114bc87c96d85817d7b01985b2b32c0d39688a14330bcd942ecec694"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "6d574576a87bf891aa1356c04abd75d736ae07dee9cfc23d9db1c1af31d5c02f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d93813bc695587363540bce018bd2216b2e32073170a61c1685bb6cd8326a124"
@@ -51,7 +52,7 @@ class Bc < Formula
   end
 
   test do
-    system "#{bin}/bc", "--version"
-    assert_match "2", pipe_output("#{bin}/bc", "1+1\n")
+    system bin/"bc", "--version"
+    assert_match "2", pipe_output(bin/"bc", "1+1\n")
   end
 end

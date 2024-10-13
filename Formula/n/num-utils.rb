@@ -13,6 +13,7 @@ class NumUtils < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "b9050e94a872a5cebd6502cb3c24a567ee0655dccd1ec48aa9c812c692d7875c"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5d0b3146e39ca9a5b2de51a779115566adca0deb68e2918f52cfba41fcbd70ac"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "8695350e220210f7a33ac87237a246a17bb0a05a7f1ccadf91dbc728421d8cf3"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "8695350e220210f7a33ac87237a246a17bb0a05a7f1ccadf91dbc728421d8cf3"
@@ -31,7 +32,6 @@ class NumUtils < Formula
   uses_from_macos "perl"
 
   conflicts_with "normalize", because: "both install `normalize` binaries"
-  conflicts_with "crush-tools", because: "both install an `range` binary"
   conflicts_with "argyll-cms", because: "both install `average` binaries"
 
   def install

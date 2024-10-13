@@ -14,17 +14,11 @@ class Isort < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2190b1a4860ba5e7ad437a5c0c37a6ba8ad54f19cb4fef15f914a9710356d636"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2190b1a4860ba5e7ad437a5c0c37a6ba8ad54f19cb4fef15f914a9710356d636"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "2190b1a4860ba5e7ad437a5c0c37a6ba8ad54f19cb4fef15f914a9710356d636"
-    sha256 cellar: :any_skip_relocation, sonoma:         "2190b1a4860ba5e7ad437a5c0c37a6ba8ad54f19cb4fef15f914a9710356d636"
-    sha256 cellar: :any_skip_relocation, ventura:        "2190b1a4860ba5e7ad437a5c0c37a6ba8ad54f19cb4fef15f914a9710356d636"
-    sha256 cellar: :any_skip_relocation, monterey:       "2190b1a4860ba5e7ad437a5c0c37a6ba8ad54f19cb4fef15f914a9710356d636"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "af37731a0ce2a0eca9cfad575039cf7a300ca79e0b705628d91de2130d92e03c"
+    rebuild 3
+    sha256 cellar: :any_skip_relocation, all: "40e77a6599b1898f4790a9d54cea3da7662a8012941c0156762e037f8e3ea390"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   def install
     virtualenv_install_with_resources

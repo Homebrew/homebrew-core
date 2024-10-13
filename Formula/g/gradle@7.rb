@@ -20,7 +20,7 @@ class GradleAT7 < Formula
   depends_on "openjdk@17"
 
   def install
-    rm_f Dir["bin/*.bat"]
+    rm(Dir["bin/*.bat"])
     libexec.install %w[bin docs lib src]
     env = Language::Java.overridable_java_home_env("17")
     (bin/"gradle").write_env_script libexec/"bin/gradle", env

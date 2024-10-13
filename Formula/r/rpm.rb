@@ -15,17 +15,19 @@ class Rpm < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:  "293ed8ed214f5f4bb6be87e38d7402d16a9ad5a197a310864a926bd443d247ce"
-    sha256 arm64_ventura: "f89c2a59eba2d3ba9c49ed5f789922a3ea434a1b463368ccb2ec232ce2c10ec8"
-    sha256 sonoma:        "512ac33fae3b71ed269e1824e84589a935b875720679d14794891354fbb62b84"
-    sha256 ventura:       "f15f6180f92ee0f5da9f430d1dd9d9c94d8d1edc3361958a7d971c92dabfea82"
-    sha256 x86_64_linux:  "0e48055f9f4476e08991b874320681dca27610ac55e8e7ca8a770769ec92aeb6"
+    rebuild 2
+    sha256 arm64_sequoia: "13c5452de71ad6162ef07c7712a9419734da128ea6c1d443abb7756a2a105551"
+    sha256 arm64_sonoma:  "dd2ff5b5bb9efbe1fff85619dd3d221291eb530f7d94558867c981a170bb54e4"
+    sha256 arm64_ventura: "64e55e92671e5947a51e69aaa7e95fad907f8b9790cc8481414e31144a6640c0"
+    sha256 sonoma:        "fda6009a2e5190fd74e8edb9cf8fe46d001d2fcacd71265eeb8c133b351cb3ae"
+    sha256 ventura:       "983e017cd82c4a2ff5b150fa9755c2a948d4e9566eccf216e407f29a568764f1"
+    sha256 x86_64_linux:  "66c98e854bc22abb034a74b2bbb44fcf3332c5a783250a971fc38f43768aa596"
   end
 
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
   depends_on "gawk" => :build
-  depends_on "python@3.12" => [:build, :test]
+  depends_on "python@3.13" => [:build, :test]
 
   depends_on "gettext"
   depends_on "libarchive"
@@ -51,7 +53,7 @@ class Rpm < Formula
   conflicts_with "rpm2cpio", because: "both install `rpm2cpio` binaries"
 
   def python3
-    "python3.12"
+    "python3.13"
   end
 
   def install
@@ -68,8 +70,9 @@ class Rpm < Formula
     inreplace "python/CMakeLists.txt", "${Python3_SITEARCH}", prefix/Language::Python.site_packages(python3)
 
     # WITH_INTERNAL_OPENPGP and WITH_OPENSSL are deprecated
+    rpaths = [rpath, rpath(source: lib/"rpm")]
     args = %W[
-      -DCMAKE_INSTALL_RPATH=#{rpath}
+      -DCMAKE_INSTALL_RPATH=#{rpaths.join(";")}
       -DCMAKE_INSTALL_SYSCONFDIR=#{etc}
       -DCMAKE_INSTALL_SHAREDSTATEDIR=#{var}/lib
       -DCMAKE_INSTALL_LOCALSTATEDIR=#{var}

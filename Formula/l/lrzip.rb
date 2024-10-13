@@ -11,6 +11,7 @@ class Lrzip < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "34d8b5415f33f6227a73dbc8ab1957c2b1e3591e1c3ee5b8d01ca6123b9d9525"
     sha256 cellar: :any,                 arm64_sonoma:   "06cde83e30ff4c3ceb76cf9c855fe24540429fb009ab3b4d9cf92a470138240d"
     sha256 cellar: :any,                 arm64_ventura:  "ad6e28ccfb37ce81646fb1b40b000e7172906ff50da4e9804c8d41f3562e0e63"
     sha256 cellar: :any,                 arm64_monterey: "187914857fc2edba04f069d8fbd4d69bb8d140a9194b77b5bf45dd0295682c96"

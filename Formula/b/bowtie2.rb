@@ -6,6 +6,7 @@ class Bowtie2 < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "3f8eca3ff38d6b573a73c160da0b80a8d20d29a5d11c07ad0c3de51f30986636"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "539b0d025ccf750ab75234c6b1ce0cbe2db9cd1cb3aac64e645ed2703d3f93d4"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "2f0ea46f0fb6351e20c753a488ab35b8af656b025dcd8529cf489391afa53a5d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "27fbcb3ea2f44568313fc80d900018727c376ce862a2e107540d73a5e118d7f9"
@@ -29,7 +30,7 @@ class Bowtie2 < Formula
   end
 
   test do
-    system "#{bin}/bowtie2-build",
+    system bin/"bowtie2-build",
            "#{pkgshare}/example/reference/lambda_virus.fa", "lambda_virus"
     assert_predicate testpath/"lambda_virus.1.bt2", :exist?,
                      "Failed to create viral alignment lambda_virus.1.bt2"

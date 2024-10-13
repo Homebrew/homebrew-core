@@ -34,8 +34,8 @@ class Lepton < Formula
 
   test do
     cp test_fixtures("test.jpg"), "test.jpg"
-    system "#{bin}/lepton", "test.jpg", "compressed.lep"
-    system "#{bin}/lepton", "compressed.lep", "test_restored.jpg"
+    system bin/"lepton", "test.jpg", "compressed.lep"
+    system bin/"lepton", "compressed.lep", "test_restored.jpg"
     cmp "test.jpg", "test_restored.jpg"
   end
 end

@@ -1,8 +1,8 @@
 class BoostMpi < Formula
   desc "C++ library for C++/MPI interoperability"
   homepage "https://www.boost.org/"
-  url "https://github.com/boostorg/boost/releases/download/boost-1.85.0/boost-1.85.0-b2-nodocs.tar.xz"
-  sha256 "09f0628bded81d20b0145b30925d7d7492fd99583671586525d5d66d4c28266a"
+  url "https://github.com/boostorg/boost/releases/download/boost-1.86.0/boost-1.86.0-b2-nodocs.tar.xz"
+  sha256 "a4d99d032ab74c9c5e76eddcecc4489134282245fffa7e079c5804b92b45f51d"
   license "BSL-1.0"
   head "https://github.com/boostorg/boost.git", branch: "master"
 
@@ -11,13 +11,14 @@ class BoostMpi < Formula
   end
 
   bottle do
-    sha256                               arm64_sonoma:   "854e2a1b25217ac7d71d5079dfab2ce2a112e94a6aedb71c0a09d7698cc1ccfb"
-    sha256                               arm64_ventura:  "e5af8f441eef5e0e352c96c75c35815227b99590919e6630cbc9ffc2ca0d71d8"
-    sha256                               arm64_monterey: "1e3c07e7da84a767b15f21f11cd62032c36724377101957fe772a2ea9fec082b"
-    sha256                               sonoma:         "0943c93e59801bd80efb3ff5961791a629c1d8fa8ad70234c8155cec857fab33"
-    sha256                               ventura:        "1b92ee1487f0cff5743cbddc6a04ae82dae3ae5e6126ecd75b4b25ec17e78237"
-    sha256                               monterey:       "a01e275f76e5305cd2b14ec85498ac54ab88275c250a7372e46e15e449a770ff"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "72c859d9c7a010c1cc2c8d50d5467dcb06b8249618cc38851097f6eca8209d86"
+    sha256                               arm64_sequoia:  "5dd36e209d2078c1dd41940ef9385c331858fd896258a3edb74e0b6241c42fd0"
+    sha256                               arm64_sonoma:   "cd8de39d924faafb79c70b7d84d738bda2f383bdfdcb035de6bdd2e81d71638e"
+    sha256                               arm64_ventura:  "77b901a01375abbb1632235485308a617b1e22ae004dd852208ee58bf9a4f209"
+    sha256                               arm64_monterey: "2f10f49dcb735c9b0622166f1de1e3ea24930cc49ebfd3b228496cc60794e989"
+    sha256                               sonoma:         "3f437798825e43afc6796611b586f892b74fd5543a194bbb5ccb1cde1e19f28f"
+    sha256                               ventura:        "e2bc177769687cf0a5cab2f1f2991a28a14955e135c8693ba0feb2a98c3cd537"
+    sha256                               monterey:       "0604125fbddfcba67572ac8a470d09bf3815c3019f2c324e1aebf276e31c990b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b9b97e0eee0f63baba700c64eca133f09445736c871f3cd0f9d396a302a33ca5"
   end
 
   # Test with cmake to avoid issues like:

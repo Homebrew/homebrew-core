@@ -13,6 +13,7 @@ class BerkeleyDb < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "422be2c8877f981442a27bd80d7a4494de3a515b54b1d206e51c4e710f9d83eb"
     sha256 cellar: :any,                 arm64_sonoma:   "f8a6da9be201214ca17efa824a335060a6f1ff4d72cc579a5878ee06ac2d9b61"
     sha256 cellar: :any,                 arm64_ventura:  "67fed25d26cb987106b346ee4088959b71306db6a016cb6f58cca9da9350c36d"
     sha256 cellar: :any,                 arm64_monterey: "e5416a45caf56653c4691f5d939df58d9da2254807efd6ab5425cfa63a472ac9"
@@ -36,6 +37,9 @@ class BerkeleyDb < Formula
   end
 
   def install
+    # Work around undefined NULL causing incorrect detection of thread local storage class
+    ENV.append "CFLAGS", "-include stddef.h" if DevelopmentTools.clang_build_version >= 1500
+
     # BerkeleyDB dislikes parallel builds
     ENV.deparallelize
 
@@ -60,7 +64,7 @@ class BerkeleyDb < Formula
       system "make", "install", "DOCLIST=license"
 
       # delete docs dir because it is huge
-      rm_rf prefix/"docs"
+      rm_r(prefix/"docs")
     end
   end
 

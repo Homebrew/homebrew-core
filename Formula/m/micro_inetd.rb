@@ -15,6 +15,7 @@ class MicroInetd < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "9693aed7c6ab1caf581335fefd2eea3fcde0e3b62fbbe1378cd81bba864410a4"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "232b03dbe326168f085f817aa5f54dfbd1d1793e6eced2991fcf5c27c932f3c4"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "2571772cdf0c887a13fa608f34a9bd4e866634f72c7df20a04aa6426e8e0f634"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "523ce480e35f50c093ebe4b0ae2c60b6a21007f0543a697b173c562c10a2639f"

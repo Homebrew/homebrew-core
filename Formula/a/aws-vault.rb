@@ -12,6 +12,7 @@ class AwsVault < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "20f344cb9d217bb3f6e633e651dfa98840ddd931a00837dba9c81c650c210be1"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7b0b3c72c3b9820f1856d16e4e22a4c90bb5bc9a25a790c4b4b30330bc63fcaf"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "7d4edf5be0c041f46ebac1c5cc20abb955d39b7da6a995f9b12dcf3cd3b3c0b7"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "da422ad42ec1da2e988d334eed3f5c10e82a7eb74a6896ffcdb324925ee9d43c"

@@ -7,7 +7,8 @@ class ZshViMode < Formula
   head "https://github.com/jeffreytse/zsh-vi-mode.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "ac68701f582b67a709e3a7c767418c7e819bd19fb4fd6811ce0a6991a7ff6bd6"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "cc8533232ab1bd33f01149924620063a71a744fa912c29b18241ab4211b57c8b"
   end
 
   uses_from_macos "zsh"

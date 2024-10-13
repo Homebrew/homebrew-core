@@ -11,6 +11,7 @@ class Jags < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "9ec17a748448aef193d0e71ca36c578a4b2b587d2a020d88331d38c07ea0f557"
     sha256 cellar: :any,                 arm64_sonoma:   "576bfc31090a7cc7bbae18111b04dd83bea17682c2262d287614727f72410e63"
     sha256 cellar: :any,                 arm64_ventura:  "c8ba96c00fb39ab7f4c3089238a555e27ce43f6ab60e9b6999584280340ecb21"
     sha256 cellar: :any,                 arm64_monterey: "3f1eacf3e53bf3189c9d196eb6de1d65a05f7e57f9b25d6d160941fe57325825"
@@ -51,6 +52,6 @@ class Jags < Formula
       update 100
       coda *
     EOS
-    system "#{bin}/jags", "script"
+    system bin/"jags", "script"
   end
 end

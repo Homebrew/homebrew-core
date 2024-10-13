@@ -6,6 +6,7 @@ class Killport < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "885c694ffb6da77a98deccc68e4eb85a289a8aa11126270599991e53c20ad431"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b468626ea9766cd30304bc5e526e2f1068a96ca5d261d27423f5ebe70d04a697"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "febe4f0877f477aa1648b4343ed1dcbbeb839753bd27fd36dd27a891951678de"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "21e41ff2e07c5ef20fdd2cda28dca4777d595084cd455b6dfa79d782498e9514"

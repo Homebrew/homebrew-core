@@ -7,6 +7,7 @@ class Flavours < Formula
   head "https://github.com/Misterio77/flavours.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "391fe5d4aea3816013cb4826e96fbfb8cc5c2d2c9e3cf00c43abbdc733e114aa"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1cd11ff2bc2a0b8eba4021394e80982f562b389609b0e532a78b5c115c9933a5"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "76fb0fc700fb8ca4b0782a6fe3c5929e41885d8fcedd8733801b15201efd37eb"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "95b55c5ca8366840c9f3aeed5d525b200fe2ecb8e590dbba957034c556a531f3"

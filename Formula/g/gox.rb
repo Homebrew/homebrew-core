@@ -8,6 +8,7 @@ class Gox < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "5f346f15730ace29a22a62e16507561338fea2dd9233fed1dd5ad79133de5396"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a7efd1b7189e075ac6eb9cac5f0d4bdba7c6faee4ab85e372e9cfbeb37cc92fa"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "fc3541078d72a1444271a84d0ab43b61a21a4cdd4abdbaca8c221875f3711056"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b0ca344c6ffbd3aadec83b8cd9368048f0dc69e8315e48cb153fc7a9854a81fd"

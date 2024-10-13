@@ -7,6 +7,7 @@ class Libiconv < Formula
   license all_of: ["GPL-3.0-or-later", "LGPL-2.0-or-later"]
 
   bottle do
+    sha256 cellar: :any, arm64_sequoia:  "37f96886eac70776677020e73744f32663789865d9289d171441f6c80d0b25d4"
     sha256 cellar: :any, arm64_sonoma:   "27006be36397f6c9d4b35ac2703819f10477049ca458f4dce68a1f49c698b102"
     sha256 cellar: :any, arm64_ventura:  "edbda472042394672e4696d79462d8a3eccad99c84684e216de70b3f0e934f65"
     sha256 cellar: :any, arm64_monterey: "2621f09f8681897e86d452876e64f73156042713db36beb52c95074f648c3ee6"
@@ -31,6 +32,9 @@ class Libiconv < Formula
 
   def install
     ENV.deparallelize
+
+    # Reported at https://savannah.gnu.org/bugs/index.php?66170
+    ENV.append_to_cflags "-Wno-incompatible-function-pointer-types" if DevelopmentTools.clang_build_version >= 1500
 
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",

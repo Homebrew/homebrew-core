@@ -3,10 +3,12 @@ class Rename < Formula
   homepage "http://plasmasturm.org/code/rename"
   url "https://github.com/ap/rename/archive/refs/tags/v1.601.tar.gz"
   sha256 "e8fd67b662b9deddfb6a19853652306f8694d7959dfac15538a9b67339c87af4"
+  license any_of: ["Artistic-1.0-Perl", "GPL-1.0-or-later"]
   head "https://github.com/ap/rename.git", branch: "master"
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "1232d9ed2233957356a6ae1cbc8760d231d74c4177c24a64ca2e37255d08fff0"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "49eb3fbea363a6fbeac6f9d237c88432fdd6260c35ef0dfd18cda4f637778e5b"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "1d7f81a8f319841108fb8082ea6cd5cf591224964e6f34bb0135cf851b7f951f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1d7f81a8f319841108fb8082ea6cd5cf591224964e6f34bb0135cf851b7f951f"
@@ -36,7 +38,7 @@ class Rename < Formula
 
   test do
     touch "foo.doc"
-    system "#{bin}/rename -s .doc .txt *.d*"
+    system bin/"rename -s .doc .txt *.d*"
     refute_predicate testpath/"foo.doc", :exist?
     assert_predicate testpath/"foo.txt", :exist?
   end

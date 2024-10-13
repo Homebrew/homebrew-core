@@ -11,6 +11,7 @@ class Nspr < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "d220323a9d8a2148a59e848d555d905c8478aa75c1174cd475dcbf418d985f75"
     sha256 cellar: :any,                 arm64_sonoma:   "64c2270786c71c700dce08a8abb8f8e626fae6b1f09f44f4e932491447e0e858"
     sha256 cellar: :any,                 arm64_ventura:  "f687611cbb5d48ff8a9e5312eebac9f12f31fb700c3cc1f5a8d2732c0cae9afc"
     sha256 cellar: :any,                 arm64_monterey: "466fd0ffb45153ddc9ce8d882440bc3f2c9c2e1e5ff1caf00ea3e5a7f2dbff0c"
@@ -51,6 +52,6 @@ class Nspr < Formula
   end
 
   test do
-    system "#{bin}/nspr-config", "--version"
+    system bin/"nspr-config", "--version"
   end
 end

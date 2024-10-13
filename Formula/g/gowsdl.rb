@@ -8,6 +8,7 @@ class Gowsdl < Formula
   head "https://github.com/hooklift/gowsdl.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "b9720d824c3c5726f0efb61954537792efaf5ccaa1710fa9395053b89208dc82"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ff97f048a29ed347f7473201f2a5a94a36ed36a039b0f9ef523b781801e1a626"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "4aa45e1319557557ca74011ec372ffa4d404a3d4199d0b2c7ae78480b68cf266"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "0391c1e4a9fdbd2f14d5daff2789d490802da3b4a09a227d021dcb1a58b2f92a"
@@ -29,6 +30,6 @@ class Gowsdl < Formula
   end
 
   test do
-    system "#{bin}/gowsdl"
+    system bin/"gowsdl"
   end
 end

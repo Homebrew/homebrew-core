@@ -7,6 +7,7 @@ class Chezscheme < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "383ef05d3d088270e9621611a269d5865c3486e3b64972f944d73bf4ae9c8908"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ee1fd372ef45e033935538cfad0a6362790260ef7b5d2784b491756c16adccca"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "333374134b8b06bed7b86532b46a10ad15756254a6dcd345b3206b9535291b3b"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "12d715a0ca6280e1f526deaf4a0e8f74282280be3062763e64aa5bdbc360fc57"

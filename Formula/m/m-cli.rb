@@ -7,6 +7,7 @@ class MCli < Formula
   head "https://github.com/rgcr/m-cli.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "6c34603cd51adaa1e6dabc3c9ca533b2b72e2eb2a0626ecbac725b04428a4f7e"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "16476d5b167268a327662d0aa26bf9c46aaf41bba5b08527f862b9ef2ce14034"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "dad744034a6378e1cac4bf308ed7b85beab6036667a4e1bed74842f095857ce6"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "dad811c6cd0ca58a310fe482101f036bfcfe99e4675bf0682b6736db7e3d8a80"

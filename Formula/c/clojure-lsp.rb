@@ -45,7 +45,7 @@ class ClojureLsp < Formula
       }
     JSON
 
-    Open3.popen3("#{bin}/clojure-lsp") do |stdin, stdout|
+    Open3.popen3(bin/"clojure-lsp") do |stdin, stdout|
       stdin.write "Content-Length: #{json.size}\r\n\r\n#{json}"
       assert_match(/^Content-Length: \d+/i, stdout.readline)
     end

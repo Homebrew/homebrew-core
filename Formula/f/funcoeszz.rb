@@ -11,7 +11,8 @@ class Funcoeszz < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "f2c2872df39cc30fc4cf4c277a2b37d299d27eb038d079584e4774cf146476ee"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "b9d4a7633bfd39f84797948a471e9d231cdc7539e472dc982cc33c2f4b6d3e88"
   end
 
   depends_on "bash"

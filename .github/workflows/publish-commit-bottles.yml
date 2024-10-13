@@ -11,6 +11,7 @@ on:
     inputs:
       pull_request:
         description: Pull request number
+        type: number
         required: true
       large_runner:
         description: "Run the upload job on a large runner? (default: false)"
@@ -30,6 +31,10 @@ on:
       message:
         description: "Message to include when autosquashing revision bumps, deletions, and rebuilds (requires autosquash)"
         required: false
+
+defaults:
+  run:
+    shell: bash -xeuo pipefail {0}
 
 env:
   PR: ${{inputs.pull_request}}
@@ -79,7 +84,7 @@ jobs:
               --header 'Accept: application/vnd.github+json' \
               --header 'X-GitHub-Api-Version: 2022-11-28' \
               --paginate \
-              "repos/{owner}/{repo}/pulls/$PR/reviews"
+              "repos/$GITHUB_REPOSITORY/pulls/$PR/reviews"
           )
 
       - name: Check PR branch for mergeability
@@ -172,7 +177,7 @@ jobs:
              [[ "$bottles" = "false" ]]
           then
             exit 0
-          elif "$pushable"
+          elif "$pushable" || [[ "$fork_type" = "Organization" ]]
           then
             MESSAGE="$ORG_FORK_MESSAGE"
           else
@@ -180,8 +185,8 @@ jobs:
           fi
 
           echo "replace=true" >> "$GITHUB_OUTPUT"
-          gh pr comment "$PR" --body "$MESSAGE"
-          gh pr edit --add-label 'no push access' "$PR"
+          gh pr comment "$PR" --body "$MESSAGE" --repo "$GITHUB_REPOSITORY"
+          gh pr edit --add-label 'no push access' "$PR" --repo "$GITHUB_REPOSITORY"
 
       - name: Dispatch replacement pull request
         if: >
@@ -197,7 +202,8 @@ jobs:
             --field autosquash=${{ inputs.autosquash }} \
             --field upload=${{ !inputs.autosquash }} \
             --field warn_on_upload_failure=false \
-            --field message="$INPUT_MESSAGE"
+            --field message="$INPUT_MESSAGE" \
+            --repo "$GITHUB_REPOSITORY"
 
       - name: Post comment on failure
         if: ${{!success()}}
@@ -249,9 +255,6 @@ jobs:
       actions: read # for `brew pr-pull`
       pull-requests: write # for `gh pr edit|review`
       repository-projects: write # for `gh pr edit`
-    defaults:
-      run:
-        shell: bash
     steps:
       - name: Post comment once started
         uses: Homebrew/actions/post-comment@master
@@ -285,7 +288,7 @@ jobs:
         working-directory: ${{steps.set-up-homebrew.outputs.repository-path}}
         env:
           GH_TOKEN: ${{secrets.GITHUB_TOKEN}}
-        run: gh pr checkout "$PR"
+        run: gh pr checkout "$PR" --repo "$GITHUB_REPOSITORY"
 
       - name: Pull PR bottles
         id: pr-pull
@@ -370,7 +373,7 @@ jobs:
           HOMEBREW_GPG_PASSPHRASE: ${{ secrets.BREWTESTBOT_GPG_SIGNING_SUBKEY_PASSPHRASE }}
 
       - name: Add CI-published-bottle-commits label
-        run: gh pr edit --add-label CI-published-bottle-commits "$PR"
+        run: gh pr edit --add-label CI-published-bottle-commits "$PR" --repo "$GITHUB_REPOSITORY"
         env:
           GH_TOKEN: ${{secrets.GITHUB_TOKEN}}
         working-directory: ${{steps.set-up-homebrew.outputs.repository-path}}
@@ -420,7 +423,7 @@ jobs:
             exit 1
           fi
 
-      - run: gh pr review --approve "$PR"
+      - run: gh pr review --approve "$PR" --repo "$GITHUB_REPOSITORY"
         id: approve
         env:
           GH_TOKEN: ${{secrets.GITHUB_TOKEN}}
@@ -449,7 +452,8 @@ jobs:
             --auto \
             --merge \
             --delete-branch \
-            --match-head-commit "$EXPECTED_SHA"
+            --match-head-commit "$EXPECTED_SHA" \
+            --repo "$GITHUB_REPOSITORY"
 
       - name: Post comment on failure
         if: >

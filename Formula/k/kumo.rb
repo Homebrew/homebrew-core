@@ -11,8 +11,8 @@ class Kumo < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "596af3ddc1bc9b8881fbc386ae85804fe999cee118a99fc13e123db2c5acefe1"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "964493ca566d7dc73ab4519fa820e7360981acd9d8d343920f843b83642cc008"
   end
 
   depends_on "openjdk"

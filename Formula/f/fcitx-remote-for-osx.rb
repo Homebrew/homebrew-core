@@ -6,6 +6,7 @@ class FcitxRemoteForOsx < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "ba0909f82f992a9c0cf6e883da59d3b9ceeb33a6a3e0e01a6ee4e885953b923e"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "08938e1cc1bcafa79ae3fe4adcf00b6e12bc8144a70aa796d3b974471a7d9bb1"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "19fd67359a908b63ee833bcca9c4fb8eb0ea07c3e91aeb3c0fe8a859b889bcd2"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b7b351e505dc719fa8835ddeb9675b58468332f3ceb6d084ae78adfb833ff98b"
@@ -29,6 +30,6 @@ class FcitxRemoteForOsx < Formula
   end
 
   test do
-    system "#{bin}/fcitx-remote", "-n"
+    system bin/"fcitx-remote", "-n"
   end
 end

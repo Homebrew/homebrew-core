@@ -11,20 +11,24 @@ class Fcp < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b05e5870698f28382af646dfe39b9a8d061b1f93f4d945a397ab0318b905b488"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2581bfc5df020bbe4b83660fcf8c41d98f1bbadc4b2eeaa9d38e5d732706e1f3"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "86e9ee14f358f313fd20742cbc3c499853973ae51801cbc2a05cb467e8564bdf"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bb23fde600b15782fbf8d35106510d6f7dd8fcf869fde6571b066b81bea90aca"
-    sha256 cellar: :any_skip_relocation, sonoma:         "46b5ba0e8a9e1f229857f94dd9bd290df4037fd551d8af8c81c4fd77282543de"
-    sha256 cellar: :any_skip_relocation, ventura:        "0ab8468cb87e1b8e4c98492da40a211ba4afe8871a7dee9eb14899411515dcb2"
-    sha256 cellar: :any_skip_relocation, monterey:       "c042caa2bd2172e276c0655553ce7009598ae0b34dfbe6c38641382b57a02eea"
-    sha256 cellar: :any_skip_relocation, big_sur:        "f6623580eb5027ceb5acbe4a77d90009b4e5f2a702dfe8088b85afd56562f3f3"
-    sha256 cellar: :any_skip_relocation, catalina:       "626455ae555f987dfc0f6d43a49be3bfdba29873622b0662ca05fb8c13ad70af"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "73706dfe2bc62121136bb6ee95c3bb98f6ab584193078386abc23afc1e6f5ca6"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "6e7d88353ca2875a9db0c92e402a0b6e3872dc6d09ffa332524238d50b1535f2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c5c7dd64a671f3be2b628cddb46a09bd5f7584d52b6b64ed0a1dd67f56b97564"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3b0e528ead3af345955bcd02b2793a037e0cf8593b2b94c834ef27eeab2785e5"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "4763ef14ff83f2fbea8fa7ed18a06cf3e8e1551524d41efd3cbc860724d1593d"
+    sha256 cellar: :any_skip_relocation, sonoma:         "8cff2c5b5be26264b89298a8387318b8dea3e005f8d66a6d09af4277ffe12e8c"
+    sha256 cellar: :any_skip_relocation, ventura:        "60b50e242a72308c45294e69ce7e49722d2de21e82897fef7bead52809056cb1"
+    sha256 cellar: :any_skip_relocation, monterey:       "cbae19b5f16fac050195c57c77c40dcf6d5737d0ed8dec5d7876274456e9581e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1c4dc5c096786f4581a3799e890ac3c98c86d32a9ef59f57ca525a4a717f4eab"
   end
 
   depends_on "rust" => :build
+
+  # rust 1.80 build patch, upstream pr ref, https://github.com/Svetlitski/fcp/pull/42
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/d4491a45e0f208e75d48bdc665db2d6e87813675/fcp/rust-1.80.patch"
+    sha256 "cd9057498c939c9a9999408128b0561a4a7c0bc618b0426216c7fe94e00a99da"
+  end
 
   def install
     system "cargo", "install", *std_cargo_args

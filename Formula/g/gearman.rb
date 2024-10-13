@@ -4,16 +4,17 @@ class Gearman < Formula
   url "https://github.com/gearman/gearmand/releases/download/1.1.21/gearmand-1.1.21.tar.gz"
   sha256 "2688b83e48f26fdcd4fbaef2413ff1a76c9ecb067d1621d0e0986196efecd308"
   license "BSD-3-Clause"
-  revision 2
+  revision 3
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "74f5aa57dbcf69a26944221ef18fba6b822087ea7b39277763014c48e38bd400"
-    sha256 cellar: :any,                 arm64_ventura:  "22708e244f0929d56c2d2a51c6c3aed5d696374836fac0d35cbd7a1e9292b8ad"
-    sha256 cellar: :any,                 arm64_monterey: "1bd6ee6cc9c64a344a0b5c0a19d6acc72abbe6ca4522ba82f6e95e84540f6854"
-    sha256 cellar: :any,                 sonoma:         "e13aa47f17d1aa91e3879baaf4a9ed56714b2ebf2fc0f9be3efe17e02b068156"
-    sha256 cellar: :any,                 ventura:        "69e8a9f74ab27c7625227fbb074d263dab038d5bb6ab1bcffeb816d142d18b62"
-    sha256 cellar: :any,                 monterey:       "eb6cb5c35772f870d9b09c899a9359625edb47d0fa1283997ac9832987aa4267"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d1a082418fa3b4fc4be651b4e8237b46f1a2b5c681e32553a144241323dce57e"
+    sha256 cellar: :any,                 arm64_sequoia:  "5cdfdb84c2102f65926d2265929435a919eca018f7535e7cc68c022923065b18"
+    sha256 cellar: :any,                 arm64_sonoma:   "9d1da4a4f4163500fa5526812bc3a0568378e01a89001545bf45cee7c61d5ed7"
+    sha256 cellar: :any,                 arm64_ventura:  "4b43f495ded047c9a8bbf9cd1007151049cebf7cefcde392d00b9e3bb16b6bdb"
+    sha256 cellar: :any,                 arm64_monterey: "93ccbc7bf2fe168924a57d16851206fbf781f3ff78460c66f1e97e5551287bfd"
+    sha256 cellar: :any,                 sonoma:         "af960e8b7736a776909060bb4544f46058ab065a4bef2472b02bd4119142f2c1"
+    sha256 cellar: :any,                 ventura:        "30f5a814200b4eef0fa30ed3a26d526c18cf8fd03e9466e37699c1f16a09ad07"
+    sha256 cellar: :any,                 monterey:       "157e08eabcf0400b1f4c79a678b77433fc3d6c10390b372c641478ed4e5352c4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "285adf59fe86f27e59a6292255c4d62b281db259ec4f6f49a88469a8e0491e3a"
   end
 
   depends_on "pkg-config" => :build

@@ -7,6 +7,7 @@ class Naml < Formula
   head "https://github.com/krisnova/naml.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "9419a7e317f004467aa1ce33906f4fcb74d33d5ea29e4b5959173f69a1e95117"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2d2757a3ba04823d969e9298bebf32444870a24d94e47e9db8ce8ab80cec512c"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "c77699304de1696f3c92d571ff1665310464ffd6b737bcaef0c90c68c624408f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "8620c41653aff4870bcc091d644b0f6845a38cb344c18ba61673fe4ef6bd04a0"

@@ -12,6 +12,7 @@ class Arpoison < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "5290454e5c88457099cf20619c7bbb8368c13c8a33365791781c7ef693fa6a1e"
     sha256 cellar: :any,                 arm64_sonoma:   "2c6f2456c9b2ba1ac193df313e5b48ffe0ec438d0a4abce2a0913a77783e04a1"
     sha256 cellar: :any,                 arm64_ventura:  "fda2504283a2fc1da565c46545d392afca3bf569aab288480f0d2521898a1967"
     sha256 cellar: :any,                 arm64_monterey: "26c33452df47e5d7ec7953bce6aab14f87ea5151363530593440964bacd36266"
@@ -37,6 +38,6 @@ class Arpoison < Formula
 
   test do
     # arpoison needs to run as root to do anything useful
-    assert_match "target MAC", shell_output("#{bin}/arpoison", 1)
+    assert_match "target MAC", shell_output(bin/"arpoison", 1)
   end
 end

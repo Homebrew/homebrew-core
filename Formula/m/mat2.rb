@@ -9,6 +9,7 @@ class Mat2 < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "42f38a593f24363d01036ac610dc2a4d564f3eab8b25d3aca1582c6fcae2d3c1"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "93860914251afac13dec74a1e14949d62f236b838b239dff07a87ae0c5638088"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "7697cd25b89af2341c18cf57ed4d23ab72522caa42c5a882af5fb3521c7193d2"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "40e247ea29cb0b1534646f29efefeef1f6fb74066dd2eb66f4765e95d2f84f1e"

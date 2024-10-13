@@ -3,6 +3,7 @@ class Tor < Formula
   homepage "https://www.torproject.org/"
   url "https://www.torproject.org/dist/tor-0.4.8.12.tar.gz"
   mirror "https://www.torservers.net/mirrors/torproject.org/dist/tor-0.4.8.12.tar.gz"
+  mirror "https://fossies.org/linux/misc/tor-0.4.8.12.tar.gz"
   sha256 "ca7cc735d98e3747b58f2f3cc14f804dd789fa0fb333a84dcb6bd70adbb8c874"
   # Complete list of licenses:
   # https://gitweb.torproject.org/tor.git/plain/LICENSE
@@ -19,6 +20,7 @@ class Tor < Formula
   end
 
   bottle do
+    sha256 arm64_sequoia:  "5f471c9b29171f938f84bec857248b00f60a52a9a285eb470bb7f4dd2a401959"
     sha256 arm64_sonoma:   "08619f6e0f621afa6eb43c65c0ac4ffaa31568f89dfa428afd467b1a55eb9a6f"
     sha256 arm64_ventura:  "c69f50f0e4607d5c0e2ce6e8360370d23a7d27247fd59303c5bdea52d0c263e6"
     sha256 arm64_monterey: "ede75266f6688ec46c38caeab8c6a1fb0e4dd0bbbbe102813256afc98f2d545c"

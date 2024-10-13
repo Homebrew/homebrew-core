@@ -6,6 +6,7 @@ class Xinit < Formula
   license all_of: ["MIT", "APSL-2.0"]
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "15d5a518d2a37401674216f24e90c812d27b7ce053f67325be0524152210df44"
     sha256 cellar: :any,                 arm64_sonoma:   "b5dbad520af878ccb170fb1924e58f0bcb0c384377ae7aaca2d64091aa8ff4ee"
     sha256 cellar: :any,                 arm64_ventura:  "0fbd33c0f3e8a01224d5f4c2f1437236957d9f9b80d0199f6bf729fe783320c9"
     sha256 cellar: :any,                 arm64_monterey: "b32fd947d6ab4e3d27cae884ecba3d25d618cc5df48869995db8211857a75cf9"
@@ -50,7 +51,7 @@ class Xinit < Formula
       (share/"fonts/X11").install share/"fonts/TTF"
 
       (prefix.glob "**/*").each do |f|
-        inreplace f, "/opt/X11", HOMEBREW_PREFIX, false if f.file?
+        inreplace f, "/opt/X11", HOMEBREW_PREFIX, audit_result: false if f.file?
       end
 
       inreplace bin/"font_cache" do |s|

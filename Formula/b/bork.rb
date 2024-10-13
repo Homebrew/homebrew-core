@@ -7,6 +7,7 @@ class Bork < Formula
   head "https://github.com/borksh/bork.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "148ee08c6e94140e1469ad74f46f8991ec6b843508011de9c73bd6a80200e089"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5706b3111e2ee682f2386893cf26773bd71e49cc636ef3e84b137b6108dac5db"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "5706b3111e2ee682f2386893cf26773bd71e49cc636ef3e84b137b6108dac5db"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "5706b3111e2ee682f2386893cf26773bd71e49cc636ef3e84b137b6108dac5db"

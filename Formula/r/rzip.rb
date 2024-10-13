@@ -11,6 +11,7 @@ class Rzip < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "e831e4f90ea7d39b9e846ab0d18048bca802d65a6ecd3b61bfe1e55bbe831345"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2632e94c5b807679406f19003c336b49ff755acd982d507ab3c2098e1fe91afb"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "419e465f3f605dff8d3eda647491f8d3651ed51a8b14eb5c524b507517c6c422"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "9a049590a86adc0c8c02acf6a869a37a45a47e4e455bf2b2ee2c0bd15128ab43"
@@ -30,6 +31,9 @@ class Rzip < Formula
   uses_from_macos "bzip2"
 
   def install
+    # Workaround for newer Clang
+    ENV.append_to_cflags "-Wno-implicit-int" if DevelopmentTools.clang_build_version >= 1403
+
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}"

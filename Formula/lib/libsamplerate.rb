@@ -6,6 +6,7 @@ class Libsamplerate < Formula
   license "BSD-2-Clause"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "5fc173532c2b6fce115a5e36266da6c2dab4b4508478132790befa5f0342199e"
     sha256 cellar: :any,                 arm64_sonoma:   "dc278cc14c1b7bfe2530935297bb3ab56d162420387702a38def3aaa26e03181"
     sha256 cellar: :any,                 arm64_ventura:  "3e9b241d45526b794f8f2a5873b1377ba909532da1bde00a235c8949edde1366"
     sha256 cellar: :any,                 arm64_monterey: "f9e2a83582d3ab964fd92d0aee6acffe5b73ab8981d80d4119beb1b45210f4ce"

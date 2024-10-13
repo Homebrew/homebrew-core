@@ -11,6 +11,7 @@ class Ftgl < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "a14fb054d0fbc1e6e11904e32c02be573d3db1c72981a6badbfc61f2f214d5cb"
     sha256 cellar: :any,                 arm64_sonoma:   "4dbee18442898c2c431d5ea8de6c67170906763eb4e4eb6775735809c34bee86"
     sha256 cellar: :any,                 arm64_ventura:  "9c7cd41984f3696dd61d7ecd78c32f68f35121a1f7f8f0b2d0a9ccb2825016c2"
     sha256 cellar: :any,                 arm64_monterey: "ed10911135d6af44315967a7fe2d81e5bf1bac34347274a49545ab777bb12c86"
@@ -27,11 +28,16 @@ class Ftgl < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "a53d8292298b4c6974e04fd8ab744860aec65b58149a704d9e2dad61aba0c4f6"
   end
 
+  depends_on "pkg-config" => :test
   depends_on "freetype"
 
   on_linux do
+    depends_on "mesa"
     depends_on "mesa-glu"
   end
+
+  # build patch to fix type mismatch
+  patch :DATA
 
   def install
     # If doxygen is installed, the docs may still fail to build.
@@ -40,10 +46,7 @@ class Ftgl < Formula
 
     # Skip building the example program by failing to find GLUT (MacPorts)
     # by setting --with-glut-inc and --with-glut-lib
-    args = %W[
-      --disable-debug
-      --disable-dependency-tracking
-      --prefix=#{prefix}
+    args = %w[
       --disable-freetypetest
       --with-glut-inc=/dev/null
       --with-glut-lib=/dev/null
@@ -51,8 +54,45 @@ class Ftgl < Formula
 
     args << "--with-gl-inc=#{Formula["mesa-glu"].opt_include}" if OS.linux?
 
-    system "./configure", *args
+    system "./configure", *args, *std_configure_args
 
     system "make", "install"
   end
+
+  test do
+    (testpath/"test.c").write <<~EOS
+      #include <FTGL/ftgl.h>
+      #include <stdio.h>
+
+      int main() {
+        FTGLfont *font = ftglCreatePixmapFont(NULL);
+
+        ftglSetFontFaceSize(font, 72, 72);
+
+        ftglDestroyFont(font);
+        printf("Font object created and destroyed successfully.\\n");
+
+        return 0;
+      }
+    EOS
+
+    pkg_config_flags = shell_output("pkg-config --cflags --libs ftgl").chomp.split
+    system ENV.cc, "test.c", "-o", "test", *pkg_config_flags
+    system "./test"
+  end
 end
+
+__END__
+diff --git a/src/FTVectoriser.cpp b/src/FTVectoriser.cpp
+index ea5c571..e0c4e2d 100644
+--- a/src/FTVectoriser.cpp
++++ b/src/FTVectoriser.cpp
+@@ -166,7 +166,7 @@ void FTVectoriser::ProcessContours()
+     for(int i = 0; i < ftContourCount; ++i)
+     {
+         FT_Vector* pointList = &outline.points[startIndex];
+-        char* tagList = &outline.tags[startIndex];
++        char* tagList = reinterpret_cast<char*>(&outline.tags[startIndex]);
+
+         endIndex = outline.contours[i];
+         contourLength =  (endIndex - startIndex) + 1;

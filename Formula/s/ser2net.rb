@@ -4,6 +4,7 @@ class Ser2net < Formula
   url "https://downloads.sourceforge.net/project/ser2net/ser2net/ser2net-4.6.2.tar.gz"
   sha256 "63bafcd65bb9270a93b7d5cdde58ccf4d279603ff6d044ac4b484a257cda82ce"
   license "GPL-2.0-only"
+  revision 1
 
   livecheck do
     url :stable
@@ -11,13 +12,14 @@ class Ser2net < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "9f65fbc6b7dcface5bb5d48a82e945339aa110ca5f0a3ed3b95c8209cad65fd7"
-    sha256 arm64_ventura:  "0f1c8705b3b085d9aade4e5c2632487498a9ea15223cfeca1b4e2bfd5bda6011"
-    sha256 arm64_monterey: "afeef419f4a6fbf363721e0f5bb77dc02334bb5f50c563ceeed509e69b26fde7"
-    sha256 sonoma:         "14b038140ebb72285b7d202246ef41d0f35c74790cc6d69bb4659ccef9e137e1"
-    sha256 ventura:        "77d05f05e19103853da14c10600cb01870e4921205479be60ec6677c6b711787"
-    sha256 monterey:       "0126e65262c42faced2977e87f9e813ec7ea01c410c0df33f227b78a89d3c97d"
-    sha256 x86_64_linux:   "3cf6b299e81f10fbe5add9ad8bcfe8e09a0ee97dc627e14119a7c8c73600d1e9"
+    sha256 arm64_sequoia:  "f3a48bb90a74bc4a7523165733ec373bde6dca179f82072484590b7626e41d9a"
+    sha256 arm64_sonoma:   "8b7b88a0bbbf4325b6f47ece8462d1750a624430d22cf86dd1ce04dc3c403fed"
+    sha256 arm64_ventura:  "6cb048373bba9403792c7516530d82f16f55546f4ffd28834552f3cc3863a8e8"
+    sha256 arm64_monterey: "84daf687cbd1d5a3868eacb728e89c836ed61c53317d72e66d87ed5f41926e40"
+    sha256 sonoma:         "9c80d4349d5cf1cf5468868dd002368e9e056e62e09c29e1554dd152ef561704"
+    sha256 ventura:        "d263b99458dc09221aa815d54ad59ce0515f73ff509814e858994f126a99930f"
+    sha256 monterey:       "37ebafecddf088adca232725b8ee53f43b42ce7a44599b25b8e7d921f1bcb397"
+    sha256 x86_64_linux:   "63c7c475b026aa201173d79bafbe0b50522e902da600c22466fa7f97aed52394"
   end
 
   depends_on "gensio"

@@ -1,8 +1,8 @@
 class Monetdb < Formula
   desc "Column-store database"
   homepage "https://www.monetdb.org/"
-  url "https://www.monetdb.org/downloads/sources/Dec2023-SP4/MonetDB-11.49.11.tar.xz"
-  sha256 "f7f8aa8cf641f79f92a269dfe4bc4dadb11a0c3bba49697e5d48f5c9e13a2157"
+  url "https://www.monetdb.org/downloads/sources/Aug2024/MonetDB-11.51.3.tar.xz"
+  sha256 "2f4499349e7917e12ec5d2d33d477bb50b4a302485cfcce1ca20129c7e791264"
   license "MPL-2.0"
   head "https://dev.monetdb.org/hg/MonetDB", using: :hg
 
@@ -12,13 +12,14 @@ class Monetdb < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "57e0541cad95c85cc6f3a17c1e3cb18efeff35d7b19d5d232f1b1f121f855b13"
-    sha256 arm64_ventura:  "695ed53fffd60368fc01b9cd15780d4b3aa9856717648723e21dd7246dc2a279"
-    sha256 arm64_monterey: "a1659635e58d9d7eec12d79fe7f12cc46ef6fc8c9cf264469a27c10425b9a781"
-    sha256 sonoma:         "a3faef64c3737442c80a04a3508eecba77d84df97d4ba4d32e2ca9448eb65416"
-    sha256 ventura:        "ff1f7c06784cc1e1dcd42cb2cebde1f5f9c685edb18b3ffaa3a8e9f9c4d4a060"
-    sha256 monterey:       "7e430782f40f1877b25da7b75584513780174901fc1a62549f528568c83fa412"
-    sha256 x86_64_linux:   "23fe6c31afa1549ef809461ccdee67b9a132a0783aea98c7d298aebb363a256d"
+    sha256 arm64_sequoia:  "96f96cb48088cdaa3c868a453c9b298538f4cb049035041a569d02afe51fe682"
+    sha256 arm64_sonoma:   "e0614266a5bec3fb9cb384151619f90cd029069a8ad1a2e7218db2fe31c56d26"
+    sha256 arm64_ventura:  "65981cd668538e4b9d79a8cd6297594a8c65e8cac03358d86e56620691cabbe7"
+    sha256 arm64_monterey: "854708fc0d738d4d4bb4e8a18b0b1e6febcf81b3643a9f83a7e423d6ab39958d"
+    sha256 sonoma:         "7d67c99b5bc5ecb03c06f0d96af1119730e7ce0c4e84a9a213da3ac1b330b187"
+    sha256 ventura:        "61fd24dc0a7e50526d29dc28a642904827ad1cc921c6ebbd1c1c52fe0bfc0ca8"
+    sha256 monterey:       "f3e27bb257cbe9f74b7564c9b2d17b26847ec588f702de6249786c9ad42a3ed8"
+    sha256 x86_64_linux:   "70f646cdad185a3ffebc909386b43fb2035e4ee81e7c03ff1ce3ae6ac4470f05"
   end
 
   depends_on "bison" => :build # macOS bison is too old
@@ -54,7 +55,6 @@ class Monetdb < Formula
                       "-DWITH_OPENSSL=ON",
                       "-DWITH_PCRE=ON",
                       "-DWITH_PROJ=OFF",
-                      "-DWITH_SNAPPY=OFF",
                       "-DWITH_XML2=ON",
                       "-DWITH_ZLIB=ON"
       # remove reference to shims directory from compilation/linking info

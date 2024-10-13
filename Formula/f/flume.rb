@@ -7,14 +7,15 @@ class Flume < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "44935d1696a0723df20bbf9b4426ea278eb4293d2c22bfad5d9baf448d718a6a"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "b212fda0b5caa76fc7ad1fa8004d263e96cd3ca19284cc2cdce2f3cd54dc4511"
   end
 
   depends_on "hadoop"
   depends_on "openjdk@11"
 
   def install
-    rm_f Dir["bin/*.cmd", "bin/*.ps1"]
+    rm(Dir["bin/*.cmd", "bin/*.ps1"])
     libexec.install %w[conf docs lib tools]
     prefix.install "bin"
 

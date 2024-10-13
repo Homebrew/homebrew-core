@@ -6,6 +6,7 @@ class PowerlineGo < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "c83752ade79c7914a786a0deba36b17c8f51c8c34238364e4c190c25d32f6be1"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5dbf3a93ca803663089d7b99842e15ec145101b6a19560a0d33b9fc935e7e74e"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "7b8f00ce64616d9a75c81e533783d118fd60d3e8ca412ae1af57701598efce67"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "bb9acae2a52e836ada9ecccdf9d5d7b35bd590f43af48a2a5845780f785e430b"
@@ -24,6 +25,6 @@ class PowerlineGo < Formula
   end
 
   test do
-    system "#{bin}/#{name}"
+    system bin/"powerline-go"
   end
 end

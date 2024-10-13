@@ -6,8 +6,8 @@ class RangeV3 < Formula
   license "BSL-1.0"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "02f3ca79cf8dbd85b63afb67fbecc0f0e6b753754d20dabffe444c311e132574"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "2fdd480cc63593645c0cc98d62a3607bd22600df59de39e7425bd3f89bd69c82"
   end
 
   depends_on "cmake" => :build

@@ -7,7 +7,8 @@ class PackerCompletion < Formula
   head "https://github.com/mrolli/packer-bash-completion.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "e607f862efdc7c44bbf62da84a69d6986251af7e8a030809bcacc3b24804258c"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "20e50c3d1419e8e86faefc8f726f79fa19d086e438db145679b84853cb6fddeb"
   end
 
   deprecate! date: "2024-03-12", because: :repo_archived

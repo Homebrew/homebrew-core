@@ -12,6 +12,7 @@ class Djbdns < Formula
 
   bottle do
     rebuild 3
+    sha256 arm64_sequoia:  "1e36d75e37885c9b6e9ecfc4fcebd3768092dc1f512bf6a52014d5edb2b30e5f"
     sha256 arm64_sonoma:   "8a9f3afe0b64bc8e2b08a1bb14df5d5b642d1e61fb34f0fe88807ea496d599a9"
     sha256 arm64_ventura:  "c22d9f6511649edb5496741a4c3e378cb94fd73fd75321272ed1a9c15f9766f4"
     sha256 arm64_monterey: "eb8f1b169c2ef3b24defe00ef952b8dab42b45d42517bce471aa6e9016c7b4b6"

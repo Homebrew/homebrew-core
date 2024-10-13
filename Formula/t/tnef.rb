@@ -3,9 +3,10 @@ class Tnef < Formula
   homepage "https://github.com/verdammelt/tnef"
   url "https://github.com/verdammelt/tnef/archive/refs/tags/1.4.18.tar.gz"
   sha256 "fa56dd08649f51b173017911cae277dc4b2c98211721c2a60708bf1d28839922"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "83bd5a4cd7402252e5b3652cb5660aa5ec15527623608cc08556dbb1c6b14b15"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3fa9d1e41b5eae6e4190c2d2a3a3c19c2ab8bffd9424aa69b6e0ea1f55d04f6e"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "920a01f591be96275e201cfd5dc6e34014cfe036cf255ad5c67daa3167f327e7"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1201de0e009993b46a273968cbcd8c9a43c468c30310807712052d398c7034f2"
@@ -31,6 +32,6 @@ class Tnef < Formula
   end
 
   test do
-    system "#{bin}/tnef", "--version"
+    system bin/"tnef", "--version"
   end
 end

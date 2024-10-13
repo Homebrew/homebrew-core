@@ -3,9 +3,10 @@ class Sampler < Formula
   homepage "https://sampler.dev"
   url "https://github.com/sqshq/sampler/archive/refs/tags/v1.1.0.tar.gz"
   sha256 "8b60bc5c0f94ddd4291abc2b89c1792da424fa590733932871f7b5e07e7587f9"
-  license "GPL-3.0"
+  license "GPL-3.0-only"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "2e9165271f6debe06db6e23f46c13a13b603924e65597f85bb428a1b27780ee1"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0122ac71d3af643458faa2633740d3fd8256bd943ae7d212a6397ce9ff6f39a6"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "ae4392df3f779677167dde63083627a60da11e80c1afac173f5ae67bd4e1f495"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "7ba9d52f3a2030da4c3c5464e5286907ff9f614d50f11555aa780f2087121f93"
@@ -31,6 +32,6 @@ class Sampler < Formula
   end
 
   test do
-    assert_includes "specify config file", shell_output("#{bin}/sampler")
+    assert_includes "specify config file", shell_output(bin/"sampler")
   end
 end

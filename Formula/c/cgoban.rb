@@ -7,6 +7,7 @@ class Cgoban < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "a775648cbc6f12427ef0a6b83a920bf6b565e3b70b60ce75974d926eba786595"
     sha256 cellar: :any,                 arm64_sonoma:   "22f4fb53b56e19bad2463577a3b74aafa0728e5b09946077cd997694d80f3fb4"
     sha256 cellar: :any,                 arm64_ventura:  "6cfdc10b3ee48e9bdf8d2017b7ef9d046c902e6dde142212c7dc901b4b8ecbff"
     sha256 cellar: :any,                 arm64_monterey: "a4c0a38fed9e2acdd4f7c33cf88f690a55c13fc102490da8220c649c967d2250"

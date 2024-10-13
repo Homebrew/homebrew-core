@@ -11,6 +11,7 @@ class Zbar < Formula
   end
 
   bottle do
+    sha256 arm64_sequoia:  "d75d246b7e2aafd6bd913171bd443a474616c47d73b3c7364d5c2d227161aee9"
     sha256 arm64_sonoma:   "23bfbc0c9ae6d16727058825feb8147bb7384cd4307fb6f4642ff94c9cf99c13"
     sha256 arm64_ventura:  "6d791bf71b217d0c7558f7becd6b38fcd6d3721002dd164bf01a23a356225259"
     sha256 arm64_monterey: "c7f601f54d7c8609406cb2e1fcbbb4abd8321b58849c64ba5622a6b8ac68a850"
@@ -31,8 +32,20 @@ class Zbar < Formula
 
   depends_on "pkg-config" => :build
   depends_on "xmlto" => :build
+
   depends_on "imagemagick"
   depends_on "jpeg-turbo"
+
+  on_macos do
+    depends_on "fontconfig"
+    depends_on "freetype"
+    depends_on "gettext"
+    depends_on "glib"
+    depends_on "liblqr"
+    depends_on "libomp"
+    depends_on "libtool"
+    depends_on "little-cms2"
+  end
 
   on_linux do
     depends_on "dbus"
@@ -42,14 +55,16 @@ class Zbar < Formula
 
   def install
     ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
+
     system "autoreconf", "--force", "--install", "--verbose" if build.head?
-    system "./configure", *std_configure_args,
-                          "--disable-silent-rules",
+
+    system "./configure", "--disable-silent-rules",
                           "--disable-video",
                           "--without-python",
                           "--without-qt",
                           "--without-gtk",
-                          "--without-x"
+                          "--without-x",
+                          *std_configure_args
     system "make", "install"
   end
 

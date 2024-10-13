@@ -3,27 +3,23 @@ class Storm < Formula
 
   desc "Distributed realtime computation system to process data streams"
   homepage "https://storm.apache.org"
-  url "https://dlcdn.apache.org/storm/apache-storm-2.6.3/apache-storm-2.6.3.tar.gz"
-  sha256 "79e6ffade8cfa1185bd00836e3f300cff88d830eb070ea2ec217442d1143d316"
+  url "https://dlcdn.apache.org/storm/apache-storm-2.6.4/apache-storm-2.6.4.tar.gz"
+  sha256 "ed1367cea880d093c3722c6f90a8dcdf89aaa59efeed38b607c9d8d405d43e5d"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "49413ea2ae2e639562f993bc53759064f5f58ad3b0ef9a6c7970b291c71359a6"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "49413ea2ae2e639562f993bc53759064f5f58ad3b0ef9a6c7970b291c71359a6"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "49413ea2ae2e639562f993bc53759064f5f58ad3b0ef9a6c7970b291c71359a6"
-    sha256 cellar: :any_skip_relocation, sonoma:         "49413ea2ae2e639562f993bc53759064f5f58ad3b0ef9a6c7970b291c71359a6"
-    sha256 cellar: :any_skip_relocation, ventura:        "49413ea2ae2e639562f993bc53759064f5f58ad3b0ef9a6c7970b291c71359a6"
-    sha256 cellar: :any_skip_relocation, monterey:       "49413ea2ae2e639562f993bc53759064f5f58ad3b0ef9a6c7970b291c71359a6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3c2eb54566fbfa46638747a9b200b7ebdc4e0b605184300ff6df59413d8e3ed6"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "96c59b0cd0af1e7e1b181d6303e2342d142603ebf7eacff6f954493b954cd51a"
   end
 
   depends_on "openjdk"
-  depends_on "python@3.12"
+
+  uses_from_macos "python"
 
   def install
     libexec.install Dir["*"]
     (bin/"storm").write_env_script libexec/"bin/storm", Language::Java.overridable_java_home_env
-    rewrite_shebang detected_python_shebang, libexec/"bin/storm.py"
+    rewrite_shebang detected_python_shebang(use_python_from_path: true), libexec/"bin/storm.py"
   end
 
   test do

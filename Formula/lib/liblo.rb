@@ -6,6 +6,7 @@ class Liblo < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "8373256cd53294a3a06252d55c8cc93d6c6a6f8c3b235084cab456931e67e1b3"
     sha256 cellar: :any,                 arm64_sonoma:   "c379d421a02f1afa3c6105e527dc71b5271450f2964f31b6f6117fd826c8f783"
     sha256 cellar: :any,                 arm64_ventura:  "1395a951f82712482f5f90cd4a4803d88044154029cd3cd1d2fb2fbaf0f357c1"
     sha256 cellar: :any,                 arm64_monterey: "e79362d970b3c7a741336f9e02e3d738f43169bc5fddd6972dfae327d4dfe8ee"

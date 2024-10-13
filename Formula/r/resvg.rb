@@ -1,19 +1,18 @@
 class Resvg < Formula
   desc "SVG rendering tool and library"
   homepage "https://github.com/RazrFalcon/resvg"
-  url "https://github.com/RazrFalcon/resvg/archive/refs/tags/v0.42.0.tar.gz"
-  sha256 "277ae58105d96e6ed6b22df75fab4eb93c3802623d675b9f4970a64e00c2a1e4"
+  url "https://github.com/RazrFalcon/resvg/archive/refs/tags/v0.44.0.tar.gz"
+  sha256 "b45c906b4c72ff46405d74eb98ec1b93842f1528a8e835860f22b057b210306a"
   license "MPL-2.0"
   head "https://github.com/RazrFalcon/resvg.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "cf44f3fc02ff87b16d6dd8dc7ae276796f1ec83bd589056489071ff670348f57"
-    sha256 cellar: :any,                 arm64_ventura:  "f82981fa19fac89e95ee41bba260e5c237560aa5b79d118217f7ac77409775cb"
-    sha256 cellar: :any,                 arm64_monterey: "ca62969f0b58e5557a4995c3d333d351990e09fb2a826e34c008b2ca0439eb8a"
-    sha256 cellar: :any,                 sonoma:         "d91c308787f442a6cd9176e8705695f245499745345fa7c72dbe77dcac54121a"
-    sha256 cellar: :any,                 ventura:        "9031d0283f0a3ecb001435eb98c7760cc7c68e274f9b0d9525b2f95be95e054a"
-    sha256 cellar: :any,                 monterey:       "c2b3cd4057b250fc4ec3bbf25e0f259fc203b44eb3bb2b44cce1310e9e677161"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "719dd2267b5b9ad5955cd8d626bda5f93ac19747aece72e3538ceec3ef7c58d8"
+    sha256 cellar: :any,                 arm64_sequoia: "28531276a8f61a155cd5d3a13fbb3a4a356b7c097251c204e17145f83693383a"
+    sha256 cellar: :any,                 arm64_sonoma:  "7c252685b1357316339380fa2d9b2234decc48e2225b02850ec62f4302c3d22b"
+    sha256 cellar: :any,                 arm64_ventura: "07ff4b74fc351966c5175af27bc02559f6dc9b4b24da217799f0c40742d1dc44"
+    sha256 cellar: :any,                 sonoma:        "498b1b2d02ff385020bd7d7fe6033b7a79a20903816ef378d1337f7eb1b232ed"
+    sha256 cellar: :any,                 ventura:       "e36cea208fde141c0c174d75b2b6e4a7772633c54c48c7a834e54e045b398395"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "11bf96aa1daaab9003c19e0daac5477387f61cc7132dc3069fb855ca92241e3a"
   end
 
   depends_on "rust" => :build

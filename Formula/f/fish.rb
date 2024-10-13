@@ -13,6 +13,7 @@ class Fish < Formula
   pour_bottle? only_if: :default_prefix
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "6f00c494ab15af26f19ec21c2ca954b3870d400d8b22203a5bf7f1cf86465570"
     sha256 cellar: :any,                 arm64_sonoma:   "479ae1960544dc4a84c961f125bb9cc42c194ec2a04f0ffb1591e0c3c1d7d577"
     sha256 cellar: :any,                 arm64_ventura:  "51719eb992cbea31b99828036479b510011c1b4eef131a7b684bf4835f01374e"
     sha256 cellar: :any,                 arm64_monterey: "0261f26bf449353f84f83ebfe3922fb2d6a0f98e65c551f3d3b14d0e26e78723"
@@ -52,6 +53,6 @@ class Fish < Formula
   end
 
   test do
-    system "#{bin}/fish", "-c", "echo"
+    system bin/"fish", "-c", "echo"
   end
 end

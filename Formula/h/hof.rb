@@ -14,6 +14,7 @@ class Hof < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "2f94e6653aa5030b3e177e6d6051f6733af0233509bb790c758bbd02a315a8a6"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4ccedb6755fdc995d502849ccffebb0a51e59ff3cbf6ce2232cd24d15c5bdaaf"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "e1b413667d13da04682d19bd40c8ab78ddbf48cb8fef4a1c79479eda809e58da"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1a0b74bf4992814717e57969cc7cc23c556275138e83f9c15aa225f0f35211ff"
@@ -23,7 +24,8 @@ class Hof < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "f2d2c72ae5c2d63f628e369a67798ed8bd8da5fe57856f448b961bf600d7f881"
   end
 
-  depends_on "go" => :build
+  # use "go" again after https://github.com/hofstadter-io/hof/issues/391 is fixed and released
+  depends_on "go@1.22" => :build
 
   def install
     arch = Hardware::CPU.intel? ? "amd64" : Hardware::CPU.arch.to_s

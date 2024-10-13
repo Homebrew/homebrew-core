@@ -16,7 +16,8 @@ class PipCompletion < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "51b5af04de256b9399c94fc7665f601b9636ea48257936afd7f4517fb5cc4414"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "ea3a13ea2cc0274e22c8afff04f203677ea90969ff2a6bcb9eb7eb7d072d1f17"
   end
 
   def install

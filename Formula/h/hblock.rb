@@ -6,13 +6,8 @@ class Hblock < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "391c16733d7103416777eec7a8d3bd53ea6df60c2ec1224ef298301bda0d4f19"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "391c16733d7103416777eec7a8d3bd53ea6df60c2ec1224ef298301bda0d4f19"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "391c16733d7103416777eec7a8d3bd53ea6df60c2ec1224ef298301bda0d4f19"
-    sha256 cellar: :any_skip_relocation, sonoma:         "391c16733d7103416777eec7a8d3bd53ea6df60c2ec1224ef298301bda0d4f19"
-    sha256 cellar: :any_skip_relocation, ventura:        "391c16733d7103416777eec7a8d3bd53ea6df60c2ec1224ef298301bda0d4f19"
-    sha256 cellar: :any_skip_relocation, monterey:       "391c16733d7103416777eec7a8d3bd53ea6df60c2ec1224ef298301bda0d4f19"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2ef9b376256dcd98aea51b20d2e8c85645b0286f599aa1b21b4d70feacc1651c"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "d4a7729a5bfcc2f71e04bbcf5d271c63ff768a82558b7389c15c90bf293aecca"
   end
 
   uses_from_macos "curl"

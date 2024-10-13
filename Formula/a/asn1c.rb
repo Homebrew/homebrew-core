@@ -7,6 +7,7 @@ class Asn1c < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_sequoia:  "92cbad00b77b014b9fc957b1fe1c3ceafe01c367355dbbce6b92321aa5dcacda"
     sha256 arm64_sonoma:   "81853752cb0f9b91cf9fa95ec52a83ae7a59c21f4aac0f09b213f45bff3f303e"
     sha256 arm64_ventura:  "3d72779b69c5ad5f2bf006ca514ad77d6cadf7512f5f8e21e7f7ca07399ff799"
     sha256 arm64_monterey: "d4a15a7420fc9ccf67b43823f117ff4ba4ecd8db6686ad2ed2748a3375d00c9b"
@@ -53,6 +54,6 @@ class Asn1c < Formula
       END
     EOS
 
-    system "#{bin}/asn1c", "test.asn1"
+    system bin/"asn1c", "test.asn1"
   end
 end

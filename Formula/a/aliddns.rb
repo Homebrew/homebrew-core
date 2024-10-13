@@ -8,6 +8,7 @@ class Aliddns < Formula
   head "https://github.com/OpenIoTHub/aliddns.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "7b1a8f12757738745c93af17367461d0f6a42482075f5b31fb093bd69ada590d"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "90af620562ae9c772f7d5cc14f6398c498d06ea9e77cd67bc759512ab677a94f"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "2b6ba33d055f1f0342f2aa3121593933125b2054b1fa9faae848ae71ad0d6d6d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c2eb96cb882b715a1d9427e5bb3f6bca9222bd24d3a2080b864632deab660582"

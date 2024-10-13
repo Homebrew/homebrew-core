@@ -1,21 +1,20 @@
 class Demumble < Formula
   desc "More powerful symbol demangler (a la c++filt)"
   homepage "https://github.com/nico/demumble"
-  url "https://github.com/nico/demumble/archive/refs/tags/v1.2.3.tar.gz"
-  sha256 "5546681f1997da4363eba464be49c1cc0af865d335e5e0990097ace04c37bc9a"
+  url "https://github.com/nico/demumble/archive/refs/tags/v1.3.0.tar.gz"
+  sha256 "29501fbd5522820a1672aea0292105b8706899e4e4b283ff51c126f79b3b2c41"
   license "Apache-2.0"
   head "https://github.com/nico/demumble.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "16ccd6311a79e9f37a2b048427f5589e507d029ddf4b2e0f586281d2e7ba113c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c9fb3bd64941ebfd31013c9190f82123ce1c03994354dbf5e5b869f8915e147c"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ba8d076ce6d470fa889394ed4f49fbb4d03607f43b96aaa35673c43063377458"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6a1adf034988625c2b5a332e206653999e2a48be3d5b02a30438bf3ab6741d99"
-    sha256 cellar: :any_skip_relocation, sonoma:         "54aec5a2a34dc242d4538ea583b0eb42569b1bf303dc34f38e62814e2b7a3558"
-    sha256 cellar: :any_skip_relocation, ventura:        "549c484ee6571ad0e1bf06da73eb3c752746661024405ace54d574c11207dee4"
-    sha256 cellar: :any_skip_relocation, monterey:       "02d1bf2b1a481e3f092995b4d908243f5bdae26fd34ed3ad88ca0318a5250410"
-    sha256 cellar: :any_skip_relocation, big_sur:        "d19a7b96469c227e0ef8d161a65bf9b1b5d5046978afe945a77579326a6779ae"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2adadec0de7c1f55c9b0b858540be94cefa9ff54985fb4eb505feefab3082ef9"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "a9d309fe6c5f674b30ec35a6e96839df670025d244eeaa5858ec82ec344e0088"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e34a9ee99465347fe0a36b113f79cdd98999262e29101b5a9699f0c190dde14e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a474a2fcc23b8ba6b7793248e428d1540601110a208e1ad0667fd2a7f8ed9751"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e5313425d4a9c7313925d1d36284a65d02ad1cc1a05ec63f3ae955bf70f321e7"
+    sha256 cellar: :any_skip_relocation, sonoma:         "82fd0c99b4a2fc69cfb3992bbd6d79d18db9426050f9a78d3fdda12e81ae0982"
+    sha256 cellar: :any_skip_relocation, ventura:        "3ba5801427e3a2ac99c397cb763935a7634eb7570e160d6b2f6024df4242a5d0"
+    sha256 cellar: :any_skip_relocation, monterey:       "681cdce237bff42a2aa28ba656a68a7d3be054238f835851d065527226b44d06"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e10f9d48f1ae69c4f432c8d1af2a69617a607d8f305cdf277062c1f764bafea3"
   end
 
   depends_on "cmake" => :build

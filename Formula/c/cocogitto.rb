@@ -7,6 +7,7 @@ class Cocogitto < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "9af39545522af295f59ee4be503a0416a32fdd409253a55c927752e20b2fc5f4"
     sha256 cellar: :any,                 arm64_sonoma:   "78143145d4ad6e3882c09189bda0c96adfc34ddb544bee9fa5658c9c0a09d42f"
     sha256 cellar: :any,                 arm64_ventura:  "4d250f3ca8f2d8883c89f0ca7ede68c7f3bc36ddf113f17e19a69e4bb4430c72"
     sha256 cellar: :any,                 arm64_monterey: "8234e0b85119c68705cffda63d43f31b86c0336e0365ff2bdd47b6ea9d523393"

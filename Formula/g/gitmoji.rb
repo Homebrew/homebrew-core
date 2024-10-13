@@ -1,26 +1,23 @@
-require "language/node"
-
 class Gitmoji < Formula
   desc "Interactive command-line tool for using emoji in commit messages"
   homepage "https://gitmoji.dev"
-  url "https://registry.npmjs.org/gitmoji-cli/-/gitmoji-cli-9.4.0.tgz"
-  sha256 "edc4ac35493f321e441ab63aa2cd04f5bd315edeaf0fad952b0344f176bbde95"
+  url "https://registry.npmjs.org/gitmoji-cli/-/gitmoji-cli-9.5.0.tgz"
+  sha256 "b9c89644fac844f521afcdc2b31e57da7ac7e123df92d16c4fdf79190622a5b4"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "bc7eeca9ccf87681979158459f5550231ff2de078d290276b2f25f60f0f8ab9d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bc7eeca9ccf87681979158459f5550231ff2de078d290276b2f25f60f0f8ab9d"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "bc7eeca9ccf87681979158459f5550231ff2de078d290276b2f25f60f0f8ab9d"
-    sha256 cellar: :any_skip_relocation, sonoma:         "03d761f9a271b391e1b21ccb08f9026fb4330599ea0454a0dc43294f4e74588c"
-    sha256 cellar: :any_skip_relocation, ventura:        "03d761f9a271b391e1b21ccb08f9026fb4330599ea0454a0dc43294f4e74588c"
-    sha256 cellar: :any_skip_relocation, monterey:       "03d761f9a271b391e1b21ccb08f9026fb4330599ea0454a0dc43294f4e74588c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e113035e41180403e15e0ba2a8f98c498c1fb57ce18009573d6bf03ee9c867b6"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "18d17cb63128d034310085647bce373ccf75c4649c7ab4ba07a396f10767d7de"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "18d17cb63128d034310085647bce373ccf75c4649c7ab4ba07a396f10767d7de"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "18d17cb63128d034310085647bce373ccf75c4649c7ab4ba07a396f10767d7de"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f37602e394aafe7488073a86ad39ea4bad7b61672b752980d8448dc05a7140bc"
+    sha256 cellar: :any_skip_relocation, ventura:       "f37602e394aafe7488073a86ad39ea4bad7b61672b752980d8448dc05a7140bc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "18d17cb63128d034310085647bce373ccf75c4649c7ab4ba07a396f10767d7de"
   end
 
   depends_on "node"
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", *std_npm_args
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 

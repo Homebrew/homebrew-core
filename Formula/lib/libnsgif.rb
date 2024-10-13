@@ -7,6 +7,7 @@ class Libnsgif < Formula
   head "https://git.netsurf-browser.org/libnsgif.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "1b496d526be94479c22a33a721be3f7c5afe6ec2c0c62d2a9be03b04cce5cb19"
     sha256 cellar: :any,                 arm64_sonoma:   "fb3bd5d0ed63cb47edc86bded832614216985a5f020d4d3e9acf28c05a7d0d8b"
     sha256 cellar: :any,                 arm64_ventura:  "4ab139b0fdd222e35bcbfed812dcc51b330b3ba6349177cb5032b48c5b4d7af8"
     sha256 cellar: :any,                 arm64_monterey: "8c885328683eea466ae2ca2006464e4c5b99417f73bd5cec07434509d64c734e"

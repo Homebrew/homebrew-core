@@ -12,6 +12,7 @@ class Hatari < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "fd62555b198d19de0d5afa2dcf6538030b015edbecbb67e7f71b6b0650b51e4e"
     sha256 cellar: :any,                 arm64_sonoma:   "c621abae9b430a09f6389df198a246bab810281201b4d7e87fbaac311db06d22"
     sha256 cellar: :any,                 arm64_ventura:  "cacb7a21109dc0377d2e24bcf8f183ea94c295fcae57688e9703de1e0ed6eceb"
     sha256 cellar: :any,                 arm64_monterey: "26032585bf8048b0987200009f9532d1a0281051644511269cc4918d94680b78"
@@ -40,7 +41,7 @@ class Hatari < Formula
   def install
     # Set .app bundle destination
     inreplace "src/CMakeLists.txt", "/Applications", prefix
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build", "-DCMAKE_OSX_ARCHITECTURES=#{Hardware::CPU.arch}", *std_cmake_args
     system "cmake", "--build", "build"
     if OS.mac?
       prefix.install "build/src/Hatari.app"

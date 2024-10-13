@@ -1,19 +1,18 @@
 class Sops < Formula
   desc "Editor of encrypted files"
   homepage "https://github.com/getsops/sops"
-  url "https://github.com/getsops/sops/archive/refs/tags/v3.9.0.tar.gz"
-  sha256 "eda01428a4178903b2d9552940fe441d93fab7b4582cd3f5fee7b6b73404d8cb"
+  url "https://github.com/getsops/sops/archive/refs/tags/v3.9.1.tar.gz"
+  sha256 "d79e8caaef3134d00f759231e8ef587b791996e2e45319ffe83dee1ab01aebda"
   license "MPL-2.0"
   head "https://github.com/getsops/sops.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5dab5974dd8ac923b4accda24ed7870e276be4c57c9ceea93ccbc8b9a4e17f16"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7324ab153b35c9a3a91dffa71f7439bdb2d55517a3cdbfba8c51e83563550a9a"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "4c5673e97c614897b740bfd2e73ccea03575604d32dc460896a3fd63673025b5"
-    sha256 cellar: :any_skip_relocation, sonoma:         "afc184e9aa7e08e5a3e1dafe30a84318e6620bd3a256a3ecacf4cc8959176080"
-    sha256 cellar: :any_skip_relocation, ventura:        "2efcf25ad7fcbaf94fcd05c4955712624695c9d1243ccce61ba91fd04a55af69"
-    sha256 cellar: :any_skip_relocation, monterey:       "aada106c2788e94fcf92d111e583f32311048f2b6ca75a8e0add655f0ed6cea1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "817550a1b32ce9ba87701d51a50d9eedcfba936fd7bd8dd41484c9f590e14056"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e22f5ce17fed2e4704f79bdffc815f283426fb623b9420e0be89658a26040e9d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e22f5ce17fed2e4704f79bdffc815f283426fb623b9420e0be89658a26040e9d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "e22f5ce17fed2e4704f79bdffc815f283426fb623b9420e0be89658a26040e9d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "1f16877a71f0526a575d3777303bc4ad3d2e911a0c5b57e7cbcfd879e0f46b30"
+    sha256 cellar: :any_skip_relocation, ventura:       "1f16877a71f0526a575d3777303bc4ad3d2e911a0c5b57e7cbcfd879e0f46b30"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a964b4b1c32e6343dedfb934d0bd29b42591a9c6408123a7f4ced3b094059be5"
   end
 
   depends_on "go" => :build

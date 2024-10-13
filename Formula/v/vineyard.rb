@@ -6,20 +6,20 @@ class Vineyard < Formula
   url "https://github.com/v6d-io/v6d/releases/download/v0.23.2/v6d-0.23.2.tar.gz"
   sha256 "2a2788ed77b9459477b3e90767a910e77e2035a34f33c29c25b9876568683fd4"
   license "Apache-2.0"
-  revision 1
+  revision 6
 
   bottle do
-    sha256                               arm64_sonoma:   "505a9a4e63d54c9b9bb323193d98f6ce81944a545a18615bc7031b600a6e605f"
-    sha256                               arm64_ventura:  "6cf361d1cb094f8d69f3ec1c8ccb1d878f21f1d6e8996bd2c14f8e4f80a2c562"
-    sha256                               arm64_monterey: "8a21aa2f9da488eecd0bb188d599fb79b4a37bc268c58caa396fa4d9b1d855af"
-    sha256                               sonoma:         "d96801cbad47c0a74007ce9764dd40ba82758183095aa63369f57ff13b3086ad"
-    sha256                               ventura:        "96a60af289a723b10666de2416207e1390926fdf9b8f628d4a293d983151092b"
-    sha256                               monterey:       "d34cce3e33a3ec987740508c1c0149a390c640eee25ae0e71be67112fe316b16"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7bb27474324ce0e9b643a4308c86c5e8ce4381896e17bbd3b16aeb010f2e9119"
+    sha256                               arm64_sequoia: "f207ec66068890b869177a0eadad0c42e5347f4da45b0536746d792b4559e76f"
+    sha256                               arm64_sonoma:  "55bd20736624b45cb6c1315f64fe92f11b8c401a9ae4a6208208ddd4d6351383"
+    sha256                               arm64_ventura: "15f8603be5c0d72954bf36b5b78b2690c29649f497ba28f96366f0355fe43676"
+    sha256                               sonoma:        "a813107094d2dd535d1e53133c397f8be7e6bf026812abe3528526b4c4aa903c"
+    sha256                               ventura:       "33a196fda4385724478f30de6323fd65c3b6e143797ca3f199142fec5fc426ee"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a858805f653607fb358050102b941bb00a06fecdf99dc97d2296e8f76966d961"
   end
 
   depends_on "cmake" => [:build, :test]
-  depends_on "llvm" => [:build, :test]
+  depends_on "llvm" => :build # for clang Python bindings
+  depends_on "openssl@3" => :build # indirect (not linked) but CMakeLists.txt checks for it
   depends_on "python@3.12" => :build
   depends_on "apache-arrow"
   depends_on "boost"
@@ -28,53 +28,46 @@ class Vineyard < Formula
   depends_on "etcd-cpp-apiv3"
   depends_on "gflags"
   depends_on "glog"
-  depends_on "grpc"
-  depends_on "hiredis"
   depends_on "libgrape-lite"
   depends_on "open-mpi"
-  depends_on "openssl@3"
-  depends_on "protobuf"
-  depends_on "redis"
-
-  on_macos do
-    depends_on "abseil"
-    depends_on "c-ares"
-    depends_on "re2"
-  end
-
-  fails_with gcc: "5"
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/1c/1c/8a56622f2fc9ebb0df743373ef1a96c8e20410350d12f44ef03c588318c3/setuptools-70.1.0.tar.gz"
-    sha256 "01a1e793faa5bd89abc851fa15d0a0db26f160890c7102cd8dce643e886b47f5"
+    url "https://files.pythonhosted.org/packages/27/b8/f21073fde99492b33ca357876430822e4800cdf522011f18041351dfa74b/setuptools-75.1.0.tar.gz"
+    sha256 "d59a21b17a275fb872a9c3dae73963160ae079f1049ed956880cd7c09b120538"
   end
 
   def install
-    python = "python3.12"
-    venv = virtualenv_create(libexec, python)
+    python3 = "python3.12"
+    venv = virtualenv_create(buildpath/"venv", python3)
     venv.pip_install resources
     # LLVM is keg-only.
-    ENV.prepend_path "PYTHONPATH", Formula["llvm"].opt_prefix/Language::Python.site_packages(python)
+    llvm = deps.map(&:to_formula).find { |f| f.name.match?(/^llvm(@\d+)?$/) }
+    ENV.prepend_path "PYTHONPATH", llvm.opt_prefix/Language::Python.site_packages(python3)
 
-    # Work around an Xcode 15 linker issue which causes linkage against LLVM's
-    # libunwind due to it being present in a library search path.
-    ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib
+    args = [
+      "-DBUILD_VINEYARD_PYTHON_BINDINGS=OFF",
+      "-DBUILD_VINEYARD_TESTS=OFF",
+      "-DCMAKE_CXX_STANDARD=17",
+      "-DCMAKE_CXX_STANDARD_REQUIRED=TRUE",
+      "-DCMAKE_FIND_PACKAGE_PREFER_CONFIG=ON", # for newer protobuf
+      "-DLIBGRAPELITE_INCLUDE_DIRS=#{Formula["libgrape-lite"].opt_include}",
+      "-DOPENSSL_ROOT_DIR=#{Formula["openssl@3"].opt_prefix}",
+      "-DPYTHON_EXECUTABLE=#{venv.root}/bin/python",
+      "-DUSE_EXTERNAL_ETCD_LIBS=ON",
+      "-DUSE_EXTERNAL_HIREDIS_LIBS=ON",
+      "-DUSE_EXTERNAL_REDIS_LIBS=ON",
+      "-DUSE_LIBUNWIND=OFF",
+    ]
+    args << "-DCMAKE_EXE_LINKER_FLAGS=-Wl,-dead_strip_dylibs" if OS.mac?
 
-    system "cmake", "-S", ".", "-B", "build",
-                    "-DCMAKE_CXX_STANDARD=17",
-                    "-DCMAKE_CXX_STANDARD_REQUIRED=TRUE",
-                    "-DPYTHON_EXECUTABLE=#{venv.root}/bin/python",
-                    "-DUSE_EXTERNAL_ETCD_LIBS=ON",
-                    "-DUSE_EXTERNAL_REDIS_LIBS=ON",
-                    "-DUSE_EXTERNAL_HIREDIS_LIBS=ON",
-                    "-DBUILD_VINEYARD_TESTS=OFF",
-                    "-DUSE_LIBUNWIND=OFF",
-                    "-DLIBGRAPELITE_INCLUDE_DIRS=#{Formula["libgrape-lite"].opt_include}",
-                    "-DOPENSSL_ROOT_DIR=#{Formula["openssl@3"].opt_prefix}",
-                    "-DBUILD_VINEYARD_SERVER_ETCD=OFF", # Fails with protobuf 27
-                    *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
+
+    # Replace `open-mpi` Cellar path that breaks on `open-mpi` version/revision bumps.
+    # CMake FindMPI uses REALPATH so there isn't a clean way to handle during generation.
+    openmpi = Formula["open-mpi"]
+    inreplace lib/"cmake/vineyard/vineyard-targets.cmake", openmpi.prefix.realpath, openmpi.opt_prefix
   end
 
   test do
@@ -108,20 +101,12 @@ class Vineyard < Formula
       target_link_libraries(vineyard-test PRIVATE ${VINEYARD_LIBRARIES})
     EOS
 
-    # Work around an Xcode 15 linker issue which causes linkage against LLVM's
-    # libunwind due to it being present in a library search path.
-    ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib
-
     # Remove Homebrew's lib directory from LDFLAGS as it is not available during
     # `shell_output`.
     ENV.remove "LDFLAGS", "-L#{HOMEBREW_PREFIX}/lib"
 
-    # macos AppleClang doesn't support -fopenmp
-    system "cmake", "-S", testpath, "-B", testpath/"build",
-                    "-DCMAKE_C_COMPILER=#{Formula["llvm"].bin}/clang",
-                    "-DCMAKE_CXX_COMPILER=#{Formula["llvm"].bin}/clang++",
-                    *std_cmake_args
-    system "cmake", "--build", testpath/"build"
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build"
 
     # prepare vineyardd
     vineyardd_pid = spawn bin/"vineyardd", "--norpc",

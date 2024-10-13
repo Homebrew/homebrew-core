@@ -6,6 +6,7 @@ class GdriveAT2 < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "0de9006717faf05041e145b7412c2b088aa858df265e08bccd4de81234984819"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0ad935c13ec41e8b5876ee821995bd6a853b67b38e17626b9a636c9e8680db60"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "4135e1686fca80cb9e6e4366af6e99d5631b896854500bae74907dd57b87d23f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "8c0222446c65a22470b13d3ae825599d125af37afe9fdfc1f73e3c4b99fa657d"

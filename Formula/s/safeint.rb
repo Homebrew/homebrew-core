@@ -16,7 +16,8 @@ class Safeint < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "5290276d5288c90d6cc8500ea2b05c236e94834fe06176aa258a1e68752b8b75"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "ffba215daf83f5a8a3beffae5f56f6e58288ff1f7c9f35d52edf19db5e935663"
   end
 
   def install

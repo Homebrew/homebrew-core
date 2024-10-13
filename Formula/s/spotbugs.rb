@@ -11,6 +11,7 @@ class Spotbugs < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "e44f0519c568b957cb32657ba6eca41c393e7983d0f61caf94eeaa03f00c6e5e"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "27e6002a2ee2a2c2664291af654541a77bb6a925e66393eb783423f072a1c830"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "27e6002a2ee2a2c2664291af654541a77bb6a925e66393eb783423f072a1c830"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "27e6002a2ee2a2c2664291af654541a77bb6a925e66393eb783423f072a1c830"

@@ -11,6 +11,7 @@ class Ice < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "7c514dfb78c4739a0e3a89fef4c6cb238fa944b43efab26bda3aea20ec4ae47e"
     sha256 cellar: :any,                 arm64_sonoma:   "9e16e4dc54af25f1f87ada450ac1179be3f2ddbdfaf53d75fc242f20dd093721"
     sha256 cellar: :any,                 arm64_ventura:  "c13e1bd19804740b88a1a91acb548a66a4407bb234c74423bf0fa5a4c529b59c"
     sha256 cellar: :any,                 arm64_monterey: "0193902362ba7001f9ada681d417b2ff2178a259e1742a1ef7b40a13a0c1659f"
@@ -33,6 +34,14 @@ class Ice < Formula
   end
 
   def install
+    # Workaround for Xcode 16 (LLVM 17) Clang bug that causes:
+    # include/Ice/OutgoingAsync.h: error: declaration shadows a local variable [-Werror,-Wshadow-uncaptured-local]
+    # Ref: https://github.com/llvm/llvm-project/issues/81307
+    # Ref: https://github.com/llvm/llvm-project/issues/71976
+    if DevelopmentTools.clang_build_version == 1600
+      inreplace "config/Make.rules.Darwin", "-Wno-shadow-field ", "\\0-Wno-shadow-uncaptured-local "
+    end
+
     args = [
       "prefix=#{prefix}",
       "V=1",

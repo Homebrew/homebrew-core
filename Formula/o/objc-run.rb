@@ -7,9 +7,12 @@ class ObjcRun < Formula
   head "https://github.com/iljaiwas/objc-run.git", branch: "master"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, all: "951d50ad3ee4ebb9d0717b4df365870b44626195378b9d5c64bcf7b320e8cc14"
+    rebuild 3
+    sha256 cellar: :any_skip_relocation, all: "50066d41f8749f1c5865836c1ce1e1a89b502357aebcbd1c8c088bd04b9abc79"
   end
+
+  # failed on linux with `-fobjc-arc is not supported on platforms using the legacy runtime`
+  depends_on :macos
 
   def install
     bin.install "objc-run"

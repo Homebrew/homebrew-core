@@ -7,15 +7,14 @@ class Tart < Formula
   sha256 "ca6a46c2373eb9c9e105d2a80229f7cbcdb03d5ce800173ec01b78424f5a5d7f"
   license "AGPL-3.0-or-later"
 
-  livecheck do
-    skip "1.x uses non-open source license"
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4dbd3a34414fec476db6ef5cb18ad889546b730e2f9e449ced3e2b14abd5dd30"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "2938ae8b794f0875409753bc21f34b306e4ee39e73157d28fc2b1407b7bd39c1"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "be32fd68c2c54a9c874b4278ae8599116c1bb74464c1ae94064097839ae64e09"
   end
+
+  # https://tart.run/blog/2023/02/11/changing-tart-license/
+  deprecate! date: "2024-09-16", because: "switched to a DFSG-incompatible license"
 
   depends_on "rust" => :build
   depends_on xcode: ["14.1", :build]

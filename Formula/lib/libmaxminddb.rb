@@ -1,18 +1,19 @@
 class Libmaxminddb < Formula
   desc "C library for the MaxMind DB file format"
   homepage "https://github.com/maxmind/libmaxminddb"
-  url "https://github.com/maxmind/libmaxminddb/releases/download/1.10.0/libmaxminddb-1.10.0.tar.gz"
-  sha256 "5e6db72df423ae225bfe8897069f6def40faa8931f456b99d79b8b4d664c6671"
+  url "https://github.com/maxmind/libmaxminddb/releases/download/1.11.0/libmaxminddb-1.11.0.tar.gz"
+  sha256 "b2eea79a96fed77ad4d6c39ec34fed83d45fcb75a31c58956813d58dcf30b19f"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "fc37a88eb58853f446041c5037084409dfd1231a3f5423baee8d7a8b6b21b328"
-    sha256 cellar: :any,                 arm64_ventura:  "441488a71c14a5763e593b750a47663651d243add42bc1c6e51e24ccfe2706d6"
-    sha256 cellar: :any,                 arm64_monterey: "6a0715b231f61ea2371ef793a7523b2984c2075a33a4ba2160712cd6f3f46266"
-    sha256 cellar: :any,                 sonoma:         "82c006307dfad319ed834da5b0b6270b8d3a290ba042a0093e8ab267a638e237"
-    sha256 cellar: :any,                 ventura:        "e34ea9b5a58f6e5993599f969f4d264a2680c54ac8b2d0d606daa5a4c8d7cbaf"
-    sha256 cellar: :any,                 monterey:       "8b2b30919eceafdc532ef0996b49a615e40810d3cd8bce2a3db1777b0d51c8ff"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "552c532eef7889d4bd30df015ff5507462022c7cd8c56dbd287119a1e3e9aec5"
+    sha256 cellar: :any,                 arm64_sequoia:  "43bb8e8a6415a6a8c876e862b172600de6aebf567d2b93679ea4c9635717a241"
+    sha256 cellar: :any,                 arm64_sonoma:   "a7c74a9f9e34cc8b67250f02c5d022f214cb87e7dc0546913f5673140058c98a"
+    sha256 cellar: :any,                 arm64_ventura:  "2bd3e2fc92434f37e9aafb939980db58958ff77e279fb61778ef3998a97b721a"
+    sha256 cellar: :any,                 arm64_monterey: "04eccd27e4c727935582e41dc01b773c98d39cedd5210ff9be8d85938e10f7ef"
+    sha256 cellar: :any,                 sonoma:         "584958143478cff5e55608958b26e823dfa193b2c0c896539a7ea35fdeb7e379"
+    sha256 cellar: :any,                 ventura:        "a879b5eded505525e03c0f9bb267828969219e1bc30f989d3017bbaa85593830"
+    sha256 cellar: :any,                 monterey:       "ac9b42405f8bd7453b7ed914fdf183db3d98bcf8f7ff333a380cbb3c1dbd177b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d267f70b18104171e39c55d8d08a6ebdd3e0e74205eff1b80611507e14f9880a"
   end
 
   head do
@@ -36,7 +37,7 @@ class Libmaxminddb < Formula
   end
 
   test do
-    system "#{bin}/mmdblookup", "-f", "#{share}/examples/GeoIP2-City-Test.mmdb",
+    system bin/"mmdblookup", "-f", "#{share}/examples/GeoIP2-City-Test.mmdb",
                                 "-i", "175.16.199.0"
   end
 end

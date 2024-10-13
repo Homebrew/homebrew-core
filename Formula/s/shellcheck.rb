@@ -7,6 +7,7 @@ class Shellcheck < Formula
   head "https://github.com/koalaman/shellcheck.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "5045be1e530288251353848343322f5a423617d061830b7ea7465fe550787364"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ef742b6992cfcdcd7289718ac64b27174e421d29ce3ad9b81e1856349059b117"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "6e60ee03edb09ac5bc852b8eb813849fa654400e21ffb4c746989678172f5a26"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d5e8407806dbf757e71930ce2cb9b0d23bae286f0c058d9ff246d851dd7aa871"

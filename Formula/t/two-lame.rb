@@ -3,9 +3,10 @@ class TwoLame < Formula
   homepage "https://www.twolame.org/"
   url "https://downloads.sourceforge.net/project/twolame/twolame/0.4.0/twolame-0.4.0.tar.gz"
   sha256 "cc35424f6019a88c6f52570b63e1baf50f62963a3eac52a03a800bb070d7c87d"
-  license "LGPL-2.1"
+  license "LGPL-2.1-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "8adffc94879ee562f0f12517db906144dffb3e5154318eb23bd33426834f32dd"
     sha256 cellar: :any,                 arm64_sonoma:   "0a0ff83aa3691d3f363db88871bcc231cb139461f7cb5d1fd8bffa80d52a09b4"
     sha256 cellar: :any,                 arm64_ventura:  "7ea2224ac3c69dcbbc8a2bced6b9bd1b478effea5ded33806420e70e51f396dd"
     sha256 cellar: :any,                 arm64_monterey: "3b49ddbaac0612e42ffcfa8cda457d5602063d645f124da8c6353f15abc5c9c5"
@@ -28,6 +29,6 @@ class TwoLame < Formula
   end
 
   test do
-    system "#{bin}/stwolame", test_fixtures("test.wav"), "test.mp2"
+    system bin/"stwolame", test_fixtures("test.wav"), "test.mp2"
   end
 end

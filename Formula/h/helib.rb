@@ -6,6 +6,7 @@ class Helib < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "7a0fdca928c8a547f654e16f831250201e5446eb0f5b2dc80a8dc6cb775a0975"
     sha256 cellar: :any,                 arm64_sonoma:   "3c872b546835221839113e47e3d5afe25e094e1e9f2ff45379a8e1f82a6c1d6e"
     sha256 cellar: :any,                 arm64_ventura:  "fcbf73389a3e7c97b6094b2fbac15446ceba4d79326c174cce1a136a4321edf9"
     sha256 cellar: :any,                 arm64_monterey: "fc4e3cdfee251e095c0dd3527d2b4ae11909c3b71a79f8d48166ee267492be0b"

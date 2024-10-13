@@ -1,19 +1,20 @@
 class Copa < Formula
   desc "Tool to directly patch container images given the vulnerability scanning results"
   homepage "https://github.com/project-copacetic/copacetic"
-  url "https://github.com/project-copacetic/copacetic/archive/refs/tags/v0.7.0.tar.gz"
-  sha256 "ce66b7befe2e69352cb1dff4ca9e99ee8ecc181f1870e6edc23c31975cc575bc"
+  url "https://github.com/project-copacetic/copacetic/archive/refs/tags/v0.8.0.tar.gz"
+  sha256 "97bc6a556bc662ea4c10f26835c2d10b2ebcf6c33303045520cc1aa43246148b"
   license "Apache-2.0"
   head "https://github.com/project-copacetic/copacetic.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2dac392c4aa445ae31d661f44a4052c382ccb362ddd0bbc669241f5db0e9c5a4"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "221d0b9bd5a23212f5ce6b014563d12ea822ab43302434ae24f8dad5940ecc30"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "bbea3eb028053c4b73b5a57e4279734ec549953760c55184344fd1e8683ad450"
-    sha256 cellar: :any_skip_relocation, sonoma:         "948f8869d1f622f8268bc0b7cb12a6932d4d62b59aa36758b2b1422a34dbdb10"
-    sha256 cellar: :any_skip_relocation, ventura:        "7b81a20545d3089a371099021e70bf2d2d970f7f008b9f73f688d0d4d812717c"
-    sha256 cellar: :any_skip_relocation, monterey:       "c7e8b444e13902ee4282d0f25a917ef93e3d649b4f89e1fa19ef1667082d4360"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "265014d37f8eeabb8c85567426c4d4f1fb95ebccc8bb8b9eb75a40fae9546548"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "b3d0a4c15be52280977e638e6e8bead27b8057b4435064efef812891a86f1557"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f89003148109d2178e69e3924b35e784f1c9a630c39f7b079ab2726c73831686"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d789f96fc651ef5c29aa9b9d49b9cd88123c7fef895811a98be5cf0f085a6fc6"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "cb1aa3526adb019558f307244ac3723f23804ef4f64d0f1bcc6a26f7f1ccaa0c"
+    sha256 cellar: :any_skip_relocation, sonoma:         "66af102888b4d465b61b51309f43f51ca20a1fb2453c21cd9b7bc1b9e66beba3"
+    sha256 cellar: :any_skip_relocation, ventura:        "49a13384112441714a39b2fbc9a9ccb4e20eca844b3723e14ae08dc982848db3"
+    sha256 cellar: :any_skip_relocation, monterey:       "c7299c0d8387635b261aca35e117d6aca653dea67ab0f8a9a60f9eafb4f5de6e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "feaac62ca9df59c13d4f26f86412a5a038dcf9da6609954fda26d3614546540a"
   end
 
   depends_on "go" => :build

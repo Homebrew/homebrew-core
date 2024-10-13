@@ -3,6 +3,8 @@ class Par < Formula
   homepage "http://www.nicemice.net/par/"
   url "http://www.nicemice.net/par/Par-1.53.0.tar.gz"
   sha256 "c809c620eb82b589553ac54b9898c8da55196d262339d13c046f2be44ac47804"
+  # par.doc includes a custom license and alternatively allows usage under MIT license
+  license any_of: [:cannot_represent, "MIT"]
 
   livecheck do
     url :homepage
@@ -10,6 +12,7 @@ class Par < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "e9ddecfb12a39ebdfba8f7b76364ad415565f182ab871210af61218645e5e438"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "39ef4ab70ff5a020f370b7cc1d8c1c70c70e1ed252ac542a1eeda1140a2d8d0f"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "4bc0eb239a205ede7064bb04ce4430af97633910eb2daea94ea414e8c72f6d2d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f1fb39385e25724a3f37b3376bfa2a977a9b38fd951fbc92459e4d932f770f42"

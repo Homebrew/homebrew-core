@@ -1,7 +1,7 @@
 class GitNow < Formula
   desc "Light, temporary commits for git"
   homepage "https://github.com/iwata/git-now"
-  license "GPL-2.0"
+  license "GPL-2.0-only"
   head "https://github.com/iwata/git-now.git", branch: "master"
 
   stable do
@@ -24,8 +24,8 @@ class GitNow < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "b93eca7e2871e9a7313b616286033f528bd1ae51347d27597eb2b5403c7ffadb"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "3ab8b27aefe8c9e0580cffc3c996028dbfcbca7f9c0c90a9141585d682f816b4"
   end
 
   depends_on "gnu-getopt"

@@ -7,6 +7,7 @@ class RedTldr < Formula
   head "https://github.com/Rvn0xsy/red-tldr.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "8a4763cc47c39163940cd6921068b6eabf24269fbc648f0f91c352ca46470eac"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f17f3eaa4917886c572dca60179e11abd40391fbf92863ebeaef7a239d3297db"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "2fc1ecafec88eae6a750b9813084c58cedffbf15cfa8a5c1c4d8223783f9b410"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "2f63431f0038bac796d94604322236db7f31b15759ccf3b1874597dc215a74ad"

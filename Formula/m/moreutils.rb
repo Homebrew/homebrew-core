@@ -15,6 +15,7 @@ class Moreutils < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "893d69604e34e0307ae8f329d6661dfd949ef46ed8daba2c702b80f83a071c9b"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8d670db1141e2452a4384a659743e919965b1f4bb15df8bf249a4e2de219a1fd"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "37630eb130415e996c7cf3c4333d788d3a6cb7eead141b06dc2b8ab48812c674"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "572eac728e9dfb5791dc1d7e5ec4c54d7afad32320ab71dff2c32038e41487ed"

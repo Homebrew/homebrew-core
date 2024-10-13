@@ -1,8 +1,8 @@
 class Pkgconf < Formula
   desc "Package compiler and linker metadata toolkit"
   homepage "https://github.com/pkgconf/pkgconf"
-  url "https://distfiles.ariadne.space/pkgconf/pkgconf-2.1.1.tar.xz"
-  sha256 "3a224f2accf091b77a5781316e27b9ee3ba82c083cc2e539e08940b68a44fec5"
+  url "https://distfiles.ariadne.space/pkgconf/pkgconf-2.3.0.tar.xz"
+  sha256 "3a9080ac51d03615e7c1910a0a2a8df08424892b5f13b0628a204d3fcce0ea8b"
   license "ISC"
 
   livecheck do
@@ -11,13 +11,15 @@ class Pkgconf < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "2a0ec1c727c62fafcb589fdc6e765325a7caaedde89a2fb9d94fdaafdc29c4c8"
-    sha256 arm64_ventura:  "9a23ebfbead02b5b57a6c815c3aa1043fa458e4e0476093aeb909c0c70f8471d"
-    sha256 arm64_monterey: "fa4a6587a441a45ca8ae4c6d32c4d558c391c219f7c57349f670c304b5bb8656"
-    sha256 sonoma:         "48982567258c35a554d37ed2e031ccd0c39e29d133fafc50512eb36691bd7005"
-    sha256 ventura:        "c096d91615f491e6899b7eb79647a66b2d201ef69bb14e8353daf941cdae0031"
-    sha256 monterey:       "c656440b85c1c44a952334fac8685456dcf3414b95b335ef67cd02551be4d796"
-    sha256 x86_64_linux:   "847855571701d1824bb455d49739acc993463864a5227c6dbbc02e49cd9c5a5e"
+    sha256 arm64_sequoia:  "18c4da47fd2032c4edfac853b772e1a16a745a0c67335b86931fb2bec8c10933"
+    sha256 arm64_sonoma:   "4d7c5803943bf2dcc8cb9ff8c838ea4283eeab24f49982df044cbc3031856fd8"
+    sha256 arm64_ventura:  "e0b2a95c807578a166fab8467305f1d54db32fe0656a4d6cb746c2356146b074"
+    sha256 arm64_monterey: "ac13529811ba6f3e57f7f4048711720d073e10a8797768073626f5d6daabbf76"
+    sha256 sequoia:        "9b44fe313d296fa10617d6b58ea1eab78bf217b6f00478ad98b01e0375475472"
+    sha256 sonoma:         "1db60da1d512bb109dd455f03856e790a156137f9d77f1f507ac72d538a1c1e2"
+    sha256 ventura:        "5f272a6b79920f7c236eaa01d94fc8da99ebc79947a56d1808a19d436571c9c8"
+    sha256 monterey:       "802a81f3ca1ea1a14699d6e2359e0ccd30ef310142c6c305b17d881cbd6d2ed0"
+    sha256 x86_64_linux:   "67710376078e1191ece25d69214d9ced135195b07c24a386db0d9aee590c8ead"
   end
 
   head do

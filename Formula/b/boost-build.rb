@@ -1,8 +1,8 @@
 class BoostBuild < Formula
   desc "C++ build system"
   homepage "https://www.boost.org/build/"
-  url "https://github.com/boostorg/build/archive/refs/tags/boost-1.85.0.tar.gz"
-  sha256 "508dd3ced744dce6a37ddc571743ccabec90bb9ebe8150fa8d46a9f7621111d7"
+  url "https://github.com/boostorg/build/archive/refs/tags/boost-1.86.0.tar.gz"
+  sha256 "243bc074d6ac3b55f91d6c16075ba73a1fd15918b2ccc5431c9be3c46ae06f21"
   license "BSL-1.0"
   version_scheme 1
   head "https://github.com/boostorg/build.git", branch: "develop"
@@ -13,13 +13,14 @@ class BoostBuild < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b1f8a4d05e3f068295b409eb6d4a5a14aeaa176ff6317fd9bded34764959813a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5566b6c70cfe8e8cfc84cea49caa3d002d5f8ee1ad23e20a01192d853e5ac8ed"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "acf43b8c0c865cb7f8f05926e7a9d85a3f9aa9467315784c5c873defba083242"
-    sha256 cellar: :any_skip_relocation, sonoma:         "22515cb9eda9d7c5ca411d54cdbccae0de62e6d6f3b3b0a3ac93f23ab13a09ea"
-    sha256 cellar: :any_skip_relocation, ventura:        "d442db24d6b4d94cd438309039404875c68343114228a094d375e473ea09f5da"
-    sha256 cellar: :any_skip_relocation, monterey:       "30235b0824740a2005eb2108b90205d1a576a56b1e2819185f4d22ac9db52984"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "19d168ebf3c81d59906688df26378364aada7c672ba817018d3c43e06b063c96"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "c752393f893651d507c3e0b2e985e7fa34948803de029c48318486189b1585db"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3c63aaf2e3aa3647a9acbd6a250898f6456d05715d9cf2b20bf23afca7a4ed1b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7b6cce6062de22313da350f857d57d64c69be7a22775e7561c6f4733ff40822f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f97fa77800303262285787363d0750b5cf54747ddcaa9c53af35396f761269b0"
+    sha256 cellar: :any_skip_relocation, sonoma:         "2befdb3a60a8a6416949dfb3d28a6365a37f273f0068afda7d59358e7cf71984"
+    sha256 cellar: :any_skip_relocation, ventura:        "50889a2ecfb1e640079f5022dd3906a0049efadbb6686eb60dd6252ba941d2b4"
+    sha256 cellar: :any_skip_relocation, monterey:       "52707a75c13a6a59c767a28504a92ca3cbf63dbdf5ee741bb5a520ea42045c31"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9c3f6c3a82eb63af4c594b6caae876b87de2a36a57815c1102adc28bd8555f03"
   end
 
   conflicts_with "b2-tools", because: "both install `b2` binaries"

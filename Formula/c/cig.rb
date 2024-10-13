@@ -8,6 +8,7 @@ class Cig < Formula
 
   bottle do
     rebuild 3
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "ba2a840628b58188b54acff96a557a2930ac6fa2a862cf3f075bc15a681dd0ea"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "37fe43627668c9628145abd430354349ebd669b3a1f5b78dc4a8ae69567619e1"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "e3b74f7b2d3b2d121ccb6946718893b4f0c09d6bae5e5a6a7d48b8144da9b452"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "48e80e3f418f825caceccd69e9ec911f5c03b8fa7f38883edfd66d353f70a481"
@@ -41,6 +42,6 @@ class Cig < Formula
     (testpath/".cig.yaml").write <<~EOS
       test_project: #{repo_path}
     EOS
-    system "#{bin}/cig", "--cp=#{testpath}"
+    system bin/"cig", "--cp=#{testpath}"
   end
 end

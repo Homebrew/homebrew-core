@@ -7,6 +7,7 @@ class OpusTools < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "767da6805391b531d325625a6585a6f6c9b243a5c5f9667f49d3af6fd6212d00"
     sha256 cellar: :any,                 arm64_sonoma:   "65212f43abec312d1197bd4e80d8d3f80ff075ab1810018986a82f0b9acc79c7"
     sha256 cellar: :any,                 arm64_ventura:  "e669aabf26e7442abf72f6da53fe076651f3f9ff78ccbce431e40aedc3d759b1"
     sha256 cellar: :any,                 arm64_monterey: "35645fc571599ef38123e90bb45de43ac7b7d088ba2c755dccc498655d7b2820"

@@ -7,14 +7,12 @@ class Ocicl < Formula
   revision 1
 
   bottle do
-    rebuild 1
-    sha256 arm64_sonoma:   "868705dc6d56812ef11a65338a5189201a666d07592fca056797edfd84b9290e"
-    sha256 arm64_ventura:  "c9b9bd7fd62ad64e41af5ce41366272099fbbd6e3db31438c684943cfffe3d7c"
-    sha256 arm64_monterey: "f90a4d359badfcce5c2e08b85388209212f47ce807b8dc77238f5d79738fcd73"
-    sha256 sonoma:         "7749c25f20111f4a2f63e644bd944f4137586f505d7ad798ff9a06d0d5925b34"
-    sha256 ventura:        "081ac94cc8d8d4c5de41d851bd8cb742eee8e8b28abcb54419c443e18cf9cb22"
-    sha256 monterey:       "07f470b507c463cbbc8ea90c23e6b70f8802691b835397e99fc7ec9d2d2f9a1c"
-    sha256 x86_64_linux:   "33b3c1b83795a2317c1668d037628bd6e05494ebd0c21aaa24fcb73034101cc5"
+    sha256 arm64_sequoia: "27c1ae029808d59116becded1c5c3e56ebdc97a59f28efd57990d794ed4eb0d5"
+    sha256 arm64_sonoma:  "969a90358f1c49235109791fc1645d33d1ab113abc7db1626adaf12005b2f2a8"
+    sha256 arm64_ventura: "7205ddadc8ab378df3f74c0b8f8bd91d21604099b5d271f538241c87aa0016c4"
+    sha256 sonoma:        "3ab63218d709395cfaa24be250f14528634899ed22ea3f5c06e6021a18fd1b8b"
+    sha256 ventura:       "5f9479b5afde6f52623906571685976be1e516d4a3a456e7e370b4a35e1e231b"
+    sha256 x86_64_linux:  "4f159f7d9c71da851b6140934ed0422739aba71ddfa60b65b69808ba3daa1906"
   end
 
   depends_on "sbcl"
@@ -48,7 +46,7 @@ class Ocicl < Formula
   end
 
   test do
-    system "#{bin}/ocicl", "install", "chat"
+    system bin/"ocicl", "install", "chat"
     assert_predicate testpath/"systems.csv", :exist?
 
     version_files = testpath.glob("systems/cl-chat*/_00_OCICL_VERSION")

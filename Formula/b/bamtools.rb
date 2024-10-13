@@ -4,20 +4,16 @@ class Bamtools < Formula
   url "https://github.com/pezmaster31/bamtools/archive/refs/tags/v2.5.2.tar.gz"
   sha256 "4d8b84bd07b673d0ed41031348f10ca98dd6fa6a4460f9b9668d6f1d4084dfc8"
   license "MIT"
-  revision 1
+  revision 2
   head "https://github.com/pezmaster31/bamtools.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "4971914ba3c1f62ef3b16f7d7605edea2a4163f9ccfed63602b1d61df323ddb9"
-    sha256 cellar: :any,                 arm64_ventura:  "58ddd12242c381fcae63a5142e1af12954965f1d4bf443c25a270fc35d5eba2d"
-    sha256 cellar: :any,                 arm64_monterey: "fd3594b78acee23bf5d260ecb30dbcc32a6c51f2c57b02fcd46f6bf6e0215741"
-    sha256 cellar: :any,                 arm64_big_sur:  "a09703edb44ac45c00f1ca338736af291def439419edf571500dfec776d7c71f"
-    sha256 cellar: :any,                 sonoma:         "f4c3d7841ef2523ce7e4b386d37b2f2051dbcb89cd988cb8ed82ef5845185ae3"
-    sha256 cellar: :any,                 ventura:        "b4066241fe612379ed5ef3086f50735d4fc3217fb8e171e04e9b4491766022f2"
-    sha256 cellar: :any,                 monterey:       "d81c6addc556c9d421e8a6974c3ae564c0de8291d64d0d9476dafe2cd9c8e5f0"
-    sha256 cellar: :any,                 big_sur:        "ae4c20d973c8ed46a430c668bcbc2b6ac4c32a9241bd989bf8c3afe3cc0f57da"
-    sha256 cellar: :any,                 catalina:       "4bd0d24b3301ba788bc79cdf12f07dbf499347dce3beb9250e7ec6e12b6670a9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5909b02859753489fe8e24652053afdca942f6d88b13f110a0d04650478c81a9"
+    sha256 cellar: :any,                 arm64_sequoia: "195840857da6e5e0c020ce41c66ad701845977133164ad6717fcde1bc7484ef6"
+    sha256 cellar: :any,                 arm64_sonoma:  "27089259ae4ea2993a81c7e635b5fbdd37a9e21623ace3dba86a75d967bf3ab3"
+    sha256 cellar: :any,                 arm64_ventura: "0104d42510158aced69f6108ab3de5c363e32ca9fc4b6eec8acb7f3858d3f5d7"
+    sha256 cellar: :any,                 sonoma:        "aa7b96819c55b2e59c375501932eee2e32d091bc64b9a5be8cdad68c18a071b3"
+    sha256 cellar: :any,                 ventura:       "90df0038551d0a60a82e5f9b43438d5e7731bbeb2a73f0054fe79fb9c97c594c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "696b432ed15581f9ddc4dd262c03e0b7cdee1ba19b387a86f10e88650740fbf0"
   end
 
   depends_on "cmake" => :build

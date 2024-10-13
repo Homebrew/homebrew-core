@@ -7,7 +7,8 @@ class Doubledown < Formula
   head "https://github.com/devstructure/doubledown.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "78f3d65bdfb3d5184fc3a10c8b161e9e41a4d14715c284d2a179ebf5fbe52209"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "7e93ea6b6323a89639c314a3f44364e2aa3ab4e5d7017d6b352c8761e5f13fa5"
   end
 
   def install
@@ -16,6 +17,6 @@ class Doubledown < Formula
   end
 
   test do
-    system "#{bin}/doubledown", "--help"
+    system bin/"doubledown", "--help"
   end
 end

@@ -6,6 +6,7 @@ class CargoFuzz < Formula
   license all_of: ["Apache-2.0", "MIT"]
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "a235fde06fab9e783557067a97c7703cdcbe6e8cbca04202c59552807b10aed7"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1d200bc751221a19ccf9146ba1a3f8e4e32a01586a937a509244219771a6b133"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "3dcb9c76b5715c04e78455be823a80a816d82a57cd2330edba5cd3627727a5ef"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ea92ed46cdb5a202dc759e529514b1d0a0a4b8bce42ce436e4f9137796e8aaef"
@@ -30,7 +31,7 @@ class CargoFuzz < Formula
     system "rustup", "set", "profile", "minimal"
 
     system "cargo", "init"
-    system "#{bin}/cargo-fuzz", "init"
+    system bin/"cargo-fuzz", "init"
     assert_predicate testpath/"fuzz/Cargo.toml", :exist?
   end
 end

@@ -7,6 +7,7 @@ class Rp < Formula
   head "https://github.com/0vercl0k/rp.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "f0159a4d76a32e6126b3ac1375eedebe325a25c182184945a9b57674b0daa0d6"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "437df8822a4b9866faf2043ec857a9b343b67e025fd5bc7b2a3aaf5740fc252e"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "35426462210f4dd5eaaceb8df295011bb12aa5b72a46e5cb5e44605d6dd946fe"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "281f5d8df4c7f005d0ddf5dffca73238d3e9bc0a81e73ce2cdf2808f31d9f286"

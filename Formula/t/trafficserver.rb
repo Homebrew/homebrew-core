@@ -7,6 +7,7 @@ class Trafficserver < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 arm64_sequoia:  "1f0d8a25462ed5eec7f678df11ba5632898866a9c5a7d447c114c3c2b1c039d8"
     sha256 arm64_sonoma:   "d47a61ccdcbef9f123fb6a6a8492249caae35749cb2bfbfbcc32751a14352101"
     sha256 arm64_ventura:  "e4029c3e5c6a223351211525993e8e29cbaea96d21d62f6b329e892153121129"
     sha256 arm64_monterey: "56e3716e6389aa87ae1e551b81ea647ae3d2d61a11a023eb5c81e24f06386f5a"

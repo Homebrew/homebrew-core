@@ -18,8 +18,7 @@ class MysqlClientAT57 < Formula
 
   keg_only :versioned_formula
 
-  # Same deprecation date as OpenSSL 1.1
-  deprecate! date: "2023-09-11", because: :unsupported
+  disable! date: "2024-08-01", because: :unsupported
 
   depends_on "cmake" => :build
   depends_on "openssl@1.1"

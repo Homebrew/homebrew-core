@@ -1,18 +1,17 @@
 class GitTown < Formula
   desc "High-level command-line interface for Git"
   homepage "https://www.git-town.com/"
-  url "https://github.com/git-town/git-town/archive/refs/tags/v14.4.1.tar.gz"
-  sha256 "8614df3c9906bfdf68ac0ce24a369e94b7bf65f134146eddff4c5d052e283a49"
+  url "https://github.com/git-town/git-town/archive/refs/tags/v16.4.1.tar.gz"
+  sha256 "5028be7dbdc42283deda25dbb6b6d1ff114581e081b38d30802ed4e8bd37cf42"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ae6db59819154514e6bc310721066156b6303bec3e75c994e77492bacb3295b7"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a117f5e509965d3459b1dd361e144f0ca299dfa8049310035664903d71e962e2"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "fd5d0917219d268f3239585e622af51e4306478e4b30c3061786a8356ca68abf"
-    sha256 cellar: :any_skip_relocation, sonoma:         "c4dab4f16ef146d9403b8010919004f6bdf54c41961d61cc60ec7d35df11beac"
-    sha256 cellar: :any_skip_relocation, ventura:        "801731e490e04fff988d015f02be8d7831cf3f45e7d523803663dc0f99e4f2ad"
-    sha256 cellar: :any_skip_relocation, monterey:       "c5be75c10878e6a3a419701cc22c098decc2e1a308c9f85141c9e687c2027499"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3d748ef1a0bb45753f043676ae5178de591fcc5c31aaa10b95d2de6dfd91d4ca"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "91d593f88f73b113f1737e9823d0ca9725f68df055cdc0e42eb6d2388ea2a7fe"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "91d593f88f73b113f1737e9823d0ca9725f68df055cdc0e42eb6d2388ea2a7fe"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "91d593f88f73b113f1737e9823d0ca9725f68df055cdc0e42eb6d2388ea2a7fe"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f1a4a16756562d12eaacbb702481c9ecda405de3064ae13d87f17e21697f3678"
+    sha256 cellar: :any_skip_relocation, ventura:       "f1a4a16756562d12eaacbb702481c9ecda405de3064ae13d87f17e21697f3678"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "890e60eeb66248f7579d32f27be4b7623314ed9e66d72398235a7591c0dd823b"
   end
 
   depends_on "go" => :build

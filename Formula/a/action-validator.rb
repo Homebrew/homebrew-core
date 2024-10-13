@@ -15,6 +15,7 @@ class ActionValidator < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "217670580f0191e931fb0881a7aeef50e1077537a2305e74de8c1b6960216871"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "347c3544b0c5726c557d949e4169d7e31e8e9b6ddb8d10fe30cd763dc7df030f"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "d788de5edb5dcc71093119528a77e9cdbfe62a3de062e42f437057c7c46d70b3"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "70fad7c8608b4e2ed2940a68b94a527cc609c279a422c326c18fae57e20095bd"

@@ -7,6 +7,7 @@ class Blogc < Formula
   head "https://github.com/blogc/blogc.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "1550db3be9b6c9bd21d1a522550644fbf0d524f51126ed55560c2e3d01b4444f"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4e277f0a14ca6504906fee7b93a4f08a9191694afa1a8eb6748a0f2bebd37bef"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "a042dd99d35a1bf290cf530b21adf7a248e1fc33010b64497e689c9e3ba49680"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c132ce8fffa573a857c2ce019118f46bf11b52748dc9da184f3cc42779f7cfd1"

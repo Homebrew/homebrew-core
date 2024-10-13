@@ -4,19 +4,17 @@ class PinentryMac < Formula
   url "https://github.com/GPGTools/pinentry/archive/refs/tags/v1.1.1.1.tar.gz"
   sha256 "1a414f2e172cf8c18a121e60813413f27aedde891c5955151fbf8d50c46a9098"
   license all_of: ["GPL-2.0-or-later", "GPL-3.0-or-later"]
+  revision 1
   head "https://github.com/GPGTools/pinentry.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_sonoma:   "3eea1993513dc5fa1c7aa1788ad3361bf12377df4f6eaed3ff7ee8b886b91feb"
-    sha256 cellar: :any, arm64_ventura:  "d074ebc5a9f85840c133efb2a023188d624f8f67b4111a32af645fcfbb4cef3c"
-    sha256 cellar: :any, arm64_monterey: "7ebbe0d43dcdf88c28e7df80ddb21ca669968107beaf7dd224efc461cc25474b"
-    sha256 cellar: :any, arm64_big_sur:  "64958e3763e548e154a485382fdab8525e7df237c9198ce5b60e4966ba91fc41"
-    sha256 cellar: :any, sonoma:         "14dcc4de65fea981887b24ce086abe2ff8ab6d7f78e9a95ea57f25351ee98a6e"
-    sha256 cellar: :any, ventura:        "b6bfaa395a1f59e0be3d481ac10cd33a287d68de10db2f87d014902d510a3718"
-    sha256 cellar: :any, monterey:       "3951ca662de62018c9a82921a29f9a06989f0efe25f68c84107c12f3a485be88"
-    sha256 cellar: :any, big_sur:        "44b9e026ae382505ac98e01aca3d97727deff1dc57e7a15e6aae08371142439c"
-    sha256 cellar: :any, catalina:       "2957715c9a914da6774f4f28523962aa512eb89858aae57a35bc299d2458932c"
-    sha256 cellar: :any, mojave:         "e7a94a9c022f0996b24ff4da4b9e5cee34cf681a8571320b0f49e129d6fde8e0"
+    sha256 cellar: :any, arm64_sequoia:  "1759d4b87b044210921e272a7b17088619a0926cc0cf2e6575ce41a67e23dd76"
+    sha256 cellar: :any, arm64_sonoma:   "d9b12bddf25fdd63200405e9d47e97b0f26f1a7072008f4a162a4904057ea793"
+    sha256 cellar: :any, arm64_ventura:  "16372bcfc0e902ab575e8e1cd8413c6e2079cec95b0b932713351f1e412fc23c"
+    sha256 cellar: :any, arm64_monterey: "b8cc948168aee564dee88bc7cd7d6ab027890a9f4535d2d5e097bbd7a4de9c33"
+    sha256 cellar: :any, sonoma:         "7274251e5bccbbb1bd94323d42a345e35eb5a963ee22f88d234d5624a1ec5dab"
+    sha256 cellar: :any, ventura:        "75d4f6ca57c0ee9b2f5bcb1160476dbe120d9208b234eb3e7e9cc39da11ef2d0"
+    sha256 cellar: :any, monterey:       "99e48f5cb775d70647132279317d6f3d1999f97df4db76e8631ddc76c88b79fe"
   end
 
   depends_on "autoconf" => :build
@@ -24,7 +22,7 @@ class PinentryMac < Formula
   depends_on "libtool" => :build
   depends_on xcode: :build
   depends_on "gettext"
-  depends_on "libassuan"
+  depends_on "libassuan@2"
   depends_on :macos
 
   on_ventura :or_newer do

@@ -4,6 +4,7 @@ class Md5sha1sum < Formula
   url "http://microbrew.org/tools/md5sha1sum/md5sha1sum-0.9.5.tar.gz"
   mirror "https://mirrorservice.org/sites/distfiles.macports.org/md5sha1sum/md5sha1sum-0.9.5.tar.gz"
   sha256 "2fe6b4846cb3e343ed4e361d1fd98fdca6e6bf88e0bba5b767b0fdc5b299f37b"
+  license "GPL-2.0-or-later"
   revision 1
 
   livecheck do
@@ -13,6 +14,7 @@ class Md5sha1sum < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia:  "18eabab184e2ab7e46b74aa8ff7dadd8b88239e604b64eaf64caed43846bea27"
     sha256 cellar: :any,                 arm64_sonoma:   "fdc098e39dd9d37a09189f285bcca2d3c2ebea1820dff398ac5bcb771f82a80a"
     sha256 cellar: :any,                 arm64_ventura:  "1055a4e7c14927621a28916d8847a9d07cd7c2fa3a0b7c5b9a087aa67350fbfb"
     sha256 cellar: :any,                 arm64_monterey: "6c1df5b7a603f00daa2d138d4e71d2f4e61316fb3e5de9f1dd7181a5d197feab"
@@ -27,7 +29,9 @@ class Md5sha1sum < Formula
 
   depends_on "openssl@3"
 
-  conflicts_with "coreutils", because: "both install `md5sum` and `sha1sum` binaries"
+  on_sonoma :or_older do
+    conflicts_with "coreutils", because: "both install `md5sum` and `sha1sum` binaries"
+  end
 
   def install
     openssl = Formula["openssl@3"]
@@ -47,6 +51,6 @@ class Md5sha1sum < Formula
     (testpath/"file.txt.sha1").write <<~EOS
       52623d47c33ad3fac30c4ca4775ca760b893b963  file.txt
     EOS
-    system "#{bin}/sha1sum", "--check", "file.txt.sha1"
+    system bin/"sha1sum", "--check", "file.txt.sha1"
   end
 end

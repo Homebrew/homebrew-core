@@ -7,6 +7,7 @@ class Diskonaut < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "519af087c51cd668213e975d31f7da4255f12c7be476a81ceb4bb448404c2286"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ae7e9d12dc33dcb7424f760021b2e85168f349771f81e48fe8ef6dc747738d1c"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "c286351912c9d217e5c1d5cce7ee3222d3b55558f114cc59f50c98f56ff0d2b9"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "607b84f58d50e14ca2bdac82a0d53f7e701a6673ee6d63d20b5a3c85e7232ee3"
@@ -26,7 +27,7 @@ class Diskonaut < Formula
   end
 
   test do
-    output = pipe_output("#{bin}/diskonaut", shell_output("ls"), 2)
+    output = pipe_output(bin/"diskonaut", shell_output("ls"), 2)
     assert_match "Error: IO-error occurred", output
 
     assert_match "diskonaut #{version}", shell_output("#{bin}/diskonaut --version")

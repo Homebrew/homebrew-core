@@ -11,6 +11,7 @@ class Testdisk < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "1726a772720eff30c93476660a6ce2ee68c89b400e5247086ebf6b77b27c1b84"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "76fe31d9656985c415243cdb7ab5a1f65696f8bcebebd2f2a1308517e870f205"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "843c14d99607b293dcbe021687205437023bc8a5a57813bac8214d2abe578179"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b599705f681955d6fcd094b44777dc29fa6b45886b3d47bef910579dbfd837de"
@@ -36,6 +37,6 @@ class Testdisk < Formula
     path = "test.dmg"
     cp test_fixtures(path + ".gz"), path + ".gz"
     system "gunzip", path
-    system "#{bin}/testdisk", "/list", path
+    system bin/"testdisk", "/list", path
   end
 end

@@ -18,34 +18,31 @@ class JsonSpirit < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "03207c614b09b112a539316e18f7b2eb5ec169e837aeb4b230be55264359b7d8"
-    sha256 cellar: :any,                 arm64_ventura:  "ff7bae0412c5ee77fbf5579e6b15df6f20af925b091c955115c7a002a7836172"
-    sha256 cellar: :any,                 arm64_monterey: "52958b3d198dfb427701516e4ee494219f60d4a9948fd435ddbb818a92c1e1a9"
-    sha256 cellar: :any,                 arm64_big_sur:  "ef7641e5dd587a4595e326e74f438c9f99e411acceaeee75dc7450835e126895"
-    sha256 cellar: :any,                 sonoma:         "9684455cb1c38e943e21a96c39d0373e6ad32f96325ddd49f867adc1cd848773"
-    sha256 cellar: :any,                 ventura:        "163cd63f53754c3c98eae77ad56d49a82061bc50f82cfd348efc9ca248d464a0"
-    sha256 cellar: :any,                 monterey:       "dd47e079b246ef23274d0ec78ad55c9ae7ce81fbc170913f21a6b150f5038539"
-    sha256 cellar: :any,                 big_sur:        "850ab2dda8c7ca10c88a25cf0fe971d8aeaee0d5942c44eea746fc44fc857f7d"
-    sha256 cellar: :any,                 catalina:       "31aaf302e4238b13797722028ac46a7deade1df4f042b46feb7d455cb05e4599"
-    sha256 cellar: :any,                 mojave:         "2cec376e843919e2f3693e73be0e3a2c6a6f3b283e503b51d42108c5471e8091"
-    sha256 cellar: :any,                 high_sierra:    "55299a7931b4bbbcf1ee5c576fe35283373279cc95b3b5126696ad5741f3d072"
-    sha256 cellar: :any,                 sierra:         "0dc2370a736a065b47f6f83f8ed292209fc978005a720de8653e32cc1c568cce"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "57927907795d2cb3812813f2c323e66dcc5e6522df5bb59a85ad4daa2f76b2ca"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "260f8a8fa379f57ff36cc4a962698ff2c68028b2534f1bfb001f4308cb7e9781"
+    sha256 cellar: :any,                 arm64_sonoma:  "e12a59472b1b8e24ae7d91467d5355c21df6cc09a3f833c2668de6da38179bd3"
+    sha256 cellar: :any,                 arm64_ventura: "b6a402f81d1433720746b73094e02b2160f47761ef3849ef42352aa374e9b45f"
+    sha256 cellar: :any,                 sonoma:        "8d6aebd68c1f523e42e9eef02d3feb3116b5995ae781f02d5be5a31ce1beb51a"
+    sha256 cellar: :any,                 ventura:       "0d753bf6024d053de0a479e014234dd2bf6c3cf05613385f2c80b768dcc06fed"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "968fe8f76818664ec719fa71cfee0f4c520f42b192ad61ad7b747f1f893ce557"
   end
 
   depends_on "cmake" => :build
   depends_on "boost"
 
   def install
-    args = std_cmake_args
-    args << "-DBUILD_STATIC_LIBRARIES=ON"
+    args = %w[
+      -DCMAKE_CXX_STANDARD=14
+      -DJSON_SPIRIT_DEMOS=OFF
+      -DJSON_SPIRIT_TESTS=OFF
+    ]
 
-    system "cmake", *args
-    system "make"
+    system "cmake", "-S", ".", "-B", "build_static", "-DBUILD_STATIC_LIBS=ON", *args, *std_cmake_args
+    system "cmake", "--build", "build_static"
+    system "cmake", "--install", "build_static"
 
-    args = std_cmake_args
-    args << "-DBUILD_STATIC_LIBRARIES=OFF"
-    system "cmake", *args
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build_shared", "-DBUILD_STATIC_LIBS=OFF", *args, *std_cmake_args
+    system "cmake", "--build", "build_shared"
+    system "cmake", "--install", "build_shared"
   end
 end

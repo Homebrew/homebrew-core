@@ -1,5 +1,3 @@
-require "language/node"
-
 class Bit < Formula
   desc "Distributed Code Component Manager"
   homepage "https://bit.dev"
@@ -10,16 +8,15 @@ class Bit < Formula
   head "https://github.com/teambit/bit.git", branch: "master"
 
   bottle do
-    sha256                               arm64_sonoma:   "b0c394b10c72d4adfb867fc1b506f6d6757a2bd9305d16d0a9cb792b773c7ed5"
-    sha256                               arm64_ventura:  "c61128513cd41645552e4438d6f86f6cd96778c77ca29aa4be380a7d0ff9bfe9"
-    sha256                               arm64_monterey: "25d35baef7bc17a6a2ab9d8f3083925f07c18dd40fa3c79c03e1a1eaeeab12fe"
-    sha256                               arm64_big_sur:  "4aef1c99d8073edb373e209c739a490c87c8956434e242aa8fd393419ba3baf7"
-    sha256                               sonoma:         "71e9cb25136a1825bbdc88a437999effbafbdd62fd1c22ecaee78e796145cdc7"
-    sha256                               ventura:        "ac8fc4aaef48145d1ceed6bbdaa63b58f2b6c993bf65a1ca29817154c04f108b"
-    sha256                               monterey:       "1b4cefb9480be0579cc849bed266ee8602d5d074f280c9e2c88c47ed28ac3404"
-    sha256                               big_sur:        "387868e05ed7c459fde2b0d7c6eb31f889002bfb2628fa54bcc8a33b91f3c6de"
-    sha256                               catalina:       "c8122cc1152f05f8daf5087cc02e864d68246412180c927bca1d2cd06123ac70"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c52d219252d60ad76c2cae5d1358d24d4e1de6b787beb6cf53832b972e89adcc"
+    rebuild 1
+    sha256                               arm64_sequoia:  "591d452238af32826df679aa962d6ce755294473c450bc5118dfac9e50a552f8"
+    sha256                               arm64_sonoma:   "b69b3a7ba901fd29b6ef35d47b7248a4219b55336ad1cf04dd2f5cd8268387b8"
+    sha256                               arm64_ventura:  "37e5de52910eb4d93ff0d8c1d4348b8d1131b691af23ec0db82be76ba32a6417"
+    sha256                               arm64_monterey: "47b532eb0b388e861e2da67c40cf213d4795277c4f7be59cc949fbac656d0e5f"
+    sha256                               sonoma:         "a5b469dc4bfc6937d12296c2c768b9dc3a210c8a9e1fe796213823b7ecd68c19"
+    sha256                               ventura:        "cbfe314c2c994b80648167a54ecca3cc3fb09c8824ef88f274d935d98ba8aafd"
+    sha256                               monterey:       "57c91e19fbc60897fa432f7028898f75d47395239fce208cb9222f83f78a1ac5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7d998d44c9e7d076515e9363153c1aeaa4c8ddee77f9554152f6af2fab077764"
   end
 
   depends_on "node"
@@ -31,7 +28,7 @@ class Bit < Formula
   conflicts_with "bit-git", because: "both install `bit` binaries"
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", *std_npm_args
     bin.install_symlink libexec.glob("bin/*")
 
     # Remove incompatible pre-built binaries

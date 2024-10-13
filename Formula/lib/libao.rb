@@ -3,11 +3,12 @@ class Libao < Formula
   homepage "https://www.xiph.org/ao/"
   url "https://github.com/xiph/libao/archive/refs/tags/1.2.2.tar.gz", using: :homebrew_curl
   sha256 "df8a6d0e238feeccb26a783e778716fb41a801536fe7b6fce068e313c0e2bf4d"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
   head "https://gitlab.xiph.org/xiph/libao.git", branch: "master"
 
   bottle do
     rebuild 3
+    sha256 arm64_sequoia:  "18630c73a7d4187e4ed527096e9450a4d26bcc4a5918bf94656fe641be16922a"
     sha256 arm64_sonoma:   "c3252aa3672c5a52882ad70a94219a4284b53415d996ebd21b334ea063ff4e58"
     sha256 arm64_ventura:  "cca7befa22b09e8ecfb3746d8c6de3cd1a519cf76ab970c8e78acde4dd92cef3"
     sha256 arm64_monterey: "87276ccd471ed61409cc6b1fc45b33e3b9ae60414695629cb519a2d7f03bb7e4"

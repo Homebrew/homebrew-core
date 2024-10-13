@@ -1,5 +1,3 @@
-require "language/node"
-
 class Charge < Formula
   desc "Opinionated, zero-config static site generator"
   homepage "https://charge.js.org"
@@ -25,12 +23,12 @@ class Charge < Formula
 
   # Does not work with supported Node versions
   # Last release on 2020-03-12
-  deprecate! date: "2023-12-07", because: :unmaintained
+  disable! date: "2024-09-09", because: :unmaintained
 
   depends_on "node"
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", *std_npm_args
     bin.install_symlink libexec.glob("bin/*")
 
     # Replace universal binaries with their native slices.

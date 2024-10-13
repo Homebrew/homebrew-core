@@ -7,6 +7,7 @@ class Shell2http < Formula
   head "https://github.com/msoap/shell2http.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "ee45c057aa5fb32f6c703e739af6a0bc6008541877f6a22cd6ee5d99b820e510"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f5aa3b3d987491267e475439e28ed32236b3a5983ac224f037ba5252b0857406"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "7cebeaf54ec1a81eccdaa79a135b6fa47402af330ef4011785fa813ddb4ceb12"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "14b86f0bd62e111c795277d5b02a09960759be90f5a6aaa745e2546ac8270a4b"
@@ -28,7 +29,7 @@ class Shell2http < Formula
   test do
     port = free_port
     pid = fork do
-      exec "#{bin}/shell2http", "-port", port.to_s, "/echo", "echo brewtest"
+      exec bin/"shell2http", "-port", port.to_s, "/echo", "echo brewtest"
     end
     sleep 1
     output = shell_output("curl -s http://localhost:#{port}")

@@ -11,12 +11,9 @@ class ImapUw < Formula
   license "Apache-2.0"
   revision 1
 
-  livecheck do
-    skip "Not maintained"
-  end
-
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia:  "1c6588d448256165bc075365c4261d53de52575e394b9661c7837e6cce5450f8"
     sha256 cellar: :any,                 arm64_sonoma:   "0c3e132c651b5e9b2a8deed4b0c512144c118d72df933fdc87046e2b631793c9"
     sha256 cellar: :any,                 arm64_ventura:  "853cb9eabed350f511e68b7198005a276b86efecf79846ed68858d226df546de"
     sha256 cellar: :any,                 arm64_monterey: "52ef7c6c326e06a85524eab3a22f29ff095877b1a640979958b72cede3dc8758"

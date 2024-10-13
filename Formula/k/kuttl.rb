@@ -1,22 +1,24 @@
 class Kuttl < Formula
   desc "KUbernetes Test TooL"
   homepage "https://kuttl.dev"
-  url "https://github.com/kudobuilder/kuttl/archive/refs/tags/v0.18.0.tar.gz"
-  sha256 "e43c701f7b663ee9a88b197a9fc7b794c71452bb50a0d2ecf4fea66e0a23c0d2"
+  url "https://github.com/kudobuilder/kuttl/archive/refs/tags/v0.19.0.tar.gz"
+  sha256 "ef47c24a52f0aabe7c7012166b9d7b132920f081573d142e0fb2926326ed4079"
   license "Apache-2.0"
   head "https://github.com/kudobuilder/kuttl.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d1eb2928fd65375d490e8f45a1c3104f182ce4c049b98b273fbf79e70951aa52"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6abb3dd1ff7e75be6d204ee0953db366fec96dc3d6d1fc66e0094cfa191865fd"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "0e8d3568c6afca2e0b2166af9902619300513ba992135d9a4b94b660a9400cbd"
-    sha256 cellar: :any_skip_relocation, sonoma:         "a0431b174a28e7486063538b378e2ee49486d5449407e4d50be2413dc809cdbc"
-    sha256 cellar: :any_skip_relocation, ventura:        "471d8aaa892d033480cd4f639d4191f875a3dfaf5a85b189f46ffd0267a0b3da"
-    sha256 cellar: :any_skip_relocation, monterey:       "83afd0ad8bb867382659bc37916f046d096d0823c8f5a22c72d12e64c5acca5c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4c9dd60a3e38f7c41d0135d509c7aa04ae14467cff3ef93e943ac23a4e54d431"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "6010669c7ec84f5932d93fa167adef32dd84d38a0d4b941f425b198b809fe7c9"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ca86b727630282d84095ff41272e525e266cc3a2b11106ea4db24ca49a2cd901"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "522c47471a07eeb596220d40bf2b50b60b9661fecddf5208032fe5d72e51319c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "13ac7755ba43edbc5b3703f7995a239c50ebccaafd3a2428a1258455e4a47abc"
+    sha256 cellar: :any_skip_relocation, sonoma:         "039b14d7c697d903e60f03cfd3e58b0fa42bdfe1475328b90894ee72bf545866"
+    sha256 cellar: :any_skip_relocation, ventura:        "2bfb8ac997969b4a101e97a0a72e7932a0ebc87ef7a75b8c36d90546b4486df8"
+    sha256 cellar: :any_skip_relocation, monterey:       "e0c5f11760d97d994e21fcb265fed7455adb6d90aa24fca441031141ea540a11"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f2729e0a0231afa10e0413ead3ecd05b16767a902aeed4a2549559d15c7e30a3"
   end
 
-  depends_on "go" => :build
+  # use "go" againg after https://github.com/kudobuilder/kuttl/issues/546 is fixed and released
+  depends_on "go@1.22" => :build
   depends_on "kubernetes-cli" => :test
 
   def install
@@ -34,10 +36,8 @@ class Kuttl < Formula
 
   test do
     version_output = shell_output("#{bin}/kubectl-kuttl version")
-    if build.stable?
-      assert_match version.to_s, version_output
-      assert_match stable.specs[:revision].to_s, version_output
-    end
+    assert_match version.to_s, version_output
+    assert_match stable.specs[:revision].to_s, version_output
 
     kubectl = Formula["kubernetes-cli"].opt_bin / "kubectl"
     assert_equal shell_output("#{kubectl} kuttl version"), version_output

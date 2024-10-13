@@ -4,6 +4,7 @@ class MecabUnidic < Formula
   # Canonical: https://osdn.net/dl/unidic/unidic-mecab-2.1.2_src.zip
   url "https://dotsrc.dl.osdn.net/osdn/unidic/58338/unidic-mecab-2.1.2_src.zip"
   sha256 "6cce98269214ce7de6159f61a25ffc5b436375c098cc86d6aa98c0605cbf90d4"
+  license any_of: ["GPL-2.0-only", "LGPL-2.1-only", "BSD-3-Clause"]
 
   livecheck do
     url "https://osdn.net/projects/unidic/releases/"
@@ -11,8 +12,8 @@ class MecabUnidic < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, all: "879c531b56d96abefea1809837e3309816fd442381766dea3675424ba7c6772e"
+    rebuild 3
+    sha256 cellar: :any_skip_relocation, all: "41360acf4a7845341e5aa6b3dbd168c083797ad7931f5eb3bd4b40730b02276b"
   end
 
   depends_on "mecab"

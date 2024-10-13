@@ -1,25 +1,30 @@
 class Wasmedge < Formula
   desc "Lightweight, high-performance, and extensible WebAssembly runtime"
   homepage "https://WasmEdge.org/"
-  url "https://github.com/WasmEdge/WasmEdge/releases/download/0.14.0/WasmEdge-0.14.0-src.tar.gz"
-  sha256 "3fc518c172329d128ab41671b86e3de0544bcaacdec9c9b47bfc4ce8b421dfd5"
+  url "https://github.com/WasmEdge/WasmEdge/releases/download/0.14.1/WasmEdge-0.14.1-src.tar.gz"
+  sha256 "e5a944975fb949ecda73d6fe80a86507deb2d0a221b2274338807b63758350b4"
   license "Apache-2.0"
   head "https://github.com/WasmEdge/WasmEdge.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "399f976e480353393923067c0edf8f3a9f0312181f6bc2ccbb469290a9e5480e"
-    sha256 cellar: :any,                 arm64_ventura:  "4674f87387d665ff79cc83537e29d9df1998e1e954bd7021e4d63e737e031feb"
-    sha256 cellar: :any,                 arm64_monterey: "6bb1b7caa562838c0a114d7705c3307a0eeb23c4fa535d59472b6c0e1d67b37d"
-    sha256 cellar: :any,                 sonoma:         "22c2e0bdd12b8221f50244e35671fe74822e6395fe40dcc210a2ee76f121f195"
-    sha256 cellar: :any,                 ventura:        "d6a8fa17e8f865eb722879534f76e30efb22cda34cbe8d9ef44f5b8c3608f298"
-    sha256 cellar: :any,                 monterey:       "4f17e4c8f22379c119c7a256bad3298dac9fb618cdcd21841b3dcaabb9ea09fc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "55740f2580c4903debfe3e6882e5080aeb70f56387123b201437e5c74d92b3b9"
+    sha256 cellar: :any,                 arm64_sequoia: "a693459d38049adbf9cb43699facc22a13e6a784071fd0167f9d8dbde15d0342"
+    sha256 cellar: :any,                 arm64_sonoma:  "64a272c92a5f2e25cecbd3df9ecc9b7032eb4319e20473de1ff818dedb0b882e"
+    sha256 cellar: :any,                 arm64_ventura: "ec30d58b059463024d7c2837d585aeb6c785e5ec5efbe7cbb66673095085e2c8"
+    sha256 cellar: :any,                 sonoma:        "94bee0da6e4d65de8a4cfe093ffffe65e36e217f062e162e4d5288e7c8c46d54"
+    sha256 cellar: :any,                 ventura:       "e3a3b9b1a8f8892869188b072ac3b39eec17fdbcb37ead5298daecde9062da7f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6ae2b2152cf63e8e71604973052596aed2a77d5de08a8959135eae1c8321a703"
   end
 
   depends_on "cmake" => :build
   depends_on "fmt"
   depends_on "llvm"
   depends_on "spdlog"
+
+  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zstd"
+  end
 
   def install
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args

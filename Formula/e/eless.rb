@@ -6,7 +6,8 @@ class Eless < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "cc720394c1e88326fb9a2f76457a1edb4efa081313fe7fc914e1e9375b1e5ade"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "562c9ae16a0fc87aa6752e240e261fa0634f908867f19d716846dceb43ecc72b"
   end
 
   depends_on "emacs"
@@ -19,6 +20,6 @@ class Eless < Formula
   test do
     assert_match version.to_s, shell_output("#{bin}/eless -V")
     expected = "This script is not supposed to send output to a pipe"
-    assert_equal expected, pipe_output("#{bin}/eless").chomp
+    assert_equal expected, pipe_output(bin/"eless").chomp
   end
 end

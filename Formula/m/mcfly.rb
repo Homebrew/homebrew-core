@@ -1,19 +1,20 @@
 class Mcfly < Formula
   desc "Fly through your shell history"
   homepage "https://github.com/cantino/mcfly"
-  url "https://github.com/cantino/mcfly/archive/refs/tags/v0.9.1.tar.gz"
-  sha256 "3f2f7ff1d8c4ccf5e7f98b185723c415a38883068cb8533ddd551ed4a8f059e9"
+  url "https://github.com/cantino/mcfly/archive/refs/tags/v0.9.2.tar.gz"
+  sha256 "bfb6ca73c6a03047e3c61edf2b3c770e24ddbb0720e2a7dad3ea13a759572bb6"
   license "MIT"
   head "https://github.com/cantino/mcfly.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "63b7c2d3d5bf59c4553917a45a59fef1755f7a07846dd3b7c6118e3c66725ac3"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "fc9ee8537b0fbfcf91477802c6b95319a7d22d42f64e4764a41edec9cfd9904e"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "66cdcb54ce07e32d723b254f28edb7d9c0c2730e1853bf3d664ef00eb4681d81"
-    sha256 cellar: :any_skip_relocation, sonoma:         "79cbf318f882a393b241c506fbce4639bb14f2da03b9864c4d687785c0e130a2"
-    sha256 cellar: :any_skip_relocation, ventura:        "f28b2d4ddddb3c0efdbadb9daa564fee476e86d94c4bc01965db82757a774517"
-    sha256 cellar: :any_skip_relocation, monterey:       "8c29db42d0a022141d9548db7b1657a8e657ba474a2ad0ef2da1bc6903938a03"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "044d160ca6d8ac6b031a395eddb07635893703a2c5427461e65c1c768758ac55"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "d2ef4c04d2447315ff42c4a8507d3523001ccac08ef87565419a666f33300c7b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "55854b95297ca2160ce80bde27eaedfe75f2fa19459619922ddc3a7bcd494cf1"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "705fb8c356ed1350d6ddd08497d6c31a5ecac6e2a83d87477adf4af0bc47224f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c7503ca23d5f95900b6e08ce5dafc4124b56d7a0e5aad08434a5b98e72f5536f"
+    sha256 cellar: :any_skip_relocation, sonoma:         "fe78e7f12b1e2b96324f7a812cda5d7452cfd1e27ba572c3d04771ab51d37474"
+    sha256 cellar: :any_skip_relocation, ventura:        "9e1585ab4d9ad2fac90c1120f3c29067bfbc023dd644186bcb87e6efbc5c9ab5"
+    sha256 cellar: :any_skip_relocation, monterey:       "f5acc675a5f1b3530c61a813749085ecc956b1278f83c9c4e424765b3c447b64"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "66d9ac4a4e4b41c3f4c86b7d894bec633ed22ce69e10a82836303ae2ad021a0b"
   end
 
   depends_on "rust" => :build

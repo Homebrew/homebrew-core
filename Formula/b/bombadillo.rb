@@ -6,6 +6,7 @@ class Bombadillo < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "704af144b953977108282ec76083d51d8d359b2f08402aa71da7822a79491591"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "48693234c0c87251efbb8f2d4cf5c23a4d4585c9b6ba00907122dbc59a6a5add"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "5b792d8b1afcc6cb894aec708268f8099e8b70a3f8a629db32d0290a535a6800"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d78dae1cc03b2b801036ba0dfd19dbb9d47e491acac9ad1ea141a40eb6b4961b"

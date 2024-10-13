@@ -1,9 +1,9 @@
 class GccAT11 < Formula
   desc "GNU compiler collection"
   homepage "https://gcc.gnu.org/"
-  url "https://ftp.gnu.org/gnu/gcc/gcc-11.4.0/gcc-11.4.0.tar.xz"
-  mirror "https://ftpmirror.gnu.org/gcc/gcc-11.4.0/gcc-11.4.0.tar.xz"
-  sha256 "3f2db222b007e8a4a23cd5ba56726ef08e8b1f1eb2055ee72c1402cea73a8dd9"
+  url "https://ftp.gnu.org/gnu/gcc/gcc-11.5.0/gcc-11.5.0.tar.xz"
+  mirror "https://ftpmirror.gnu.org/gcc/gcc-11.5.0/gcc-11.5.0.tar.xz"
+  sha256 "a6e21868ead545cf87f0c01f84276e4b5281d672098591c1c896241f09363478"
   license "GPL-3.0-or-later" => { with: "GCC-exception-3.1" }
 
   livecheck do
@@ -12,14 +12,13 @@ class GccAT11 < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256                               arm64_sonoma:   "6830796d81027581c69442d278013022888a60a76034db4971e07330ef7097fc"
-    sha256                               arm64_ventura:  "e79c8fd9a323d7c6a9b65c1b0cc1dab073876ae3de9197c711f5395f6254fc1f"
-    sha256                               arm64_monterey: "00abee0f0cdbe8981d5d9f93cdbdecb1fb1add7f38c9a0a8d9c725104b194817"
-    sha256                               sonoma:         "975a07adf4b2cac89331e793a0b8f6ddb412e91a740a113b384c63fdb8315fff"
-    sha256                               ventura:        "032d53ea0b07d286503249c37a11f1a852c918e7e4b99b1b5c187da3514aa4bf"
-    sha256                               monterey:       "8438aca63c9e89340053a8e8acde3647aebc8c224ba25e75b145142b3ac5f762"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ec2b9b1a17f4bd5a468d5882d9c71ccce8ed8bd8ad52621c931cc626af52881b"
+    sha256                               arm64_sonoma:   "55ec3e36278e110b74b148fefe5ccacf82223d0fb2fceb3c8230a03bfbc2857f"
+    sha256                               arm64_ventura:  "b0936cf63d97795bfe8e17a9e4a4f75be0fd3f9407e467d5d02df1fba5caa499"
+    sha256                               arm64_monterey: "85d430ddf596edf1f14639ca164d7370a46456c017008723392fcf9cd1f91bfa"
+    sha256                               sonoma:         "9c0f839a23e3b7f12c72f3833823ca9cbd9d2b0e3a744e1d436daeeffc77cc82"
+    sha256                               ventura:        "ceae737d0fe4ec0e8fc10356007d09c9250401443b5ccd632ee960a00004cba1"
+    sha256                               monterey:       "af5d635ec43e4fc786abafe5f963ea26ac147ac10880d3ab4e2eea49948051cc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c7f02fea0754abb9c33f142cfc8d30bdc16d5d80a27ad2ca72ba562540bb1a44"
   end
 
   # The bottles are built on systems with the CLT installed, and do not work
@@ -44,8 +43,8 @@ class GccAT11 < Formula
   # Branch from the Darwin maintainer of GCC, with a few generic fixes and
   # Apple Silicon support, located at https://github.com/iains/gcc-11-branch
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/c233b1a8d81b9c9f5827510d8d285080ee11de2e/gcc/gcc-11.4.0.diff"
-    sha256 "440f6e965966c86a7925506e63eb06f7f54c00b1d146db8d0c567bdb8820072f"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/5c9419923ddb3e5302ddd277bc524f4d4b0f8722/gcc/gcc-11.5.0.diff"
+    sha256 "213b332bd09452e0cf081f874f32d028911fa871875f85b200b55c5b588ce193"
   end
 
   def install
@@ -126,11 +125,11 @@ class GccAT11 < Formula
     # Rename man7.
     man7.glob("*.7") { |file| add_suffix file, version.major }
     # Even when we disable building info pages some are still installed.
-    info.rmtree
+    rm_r(info)
 
     # Work around GCC install bug
     # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=105664
-    rm_rf bin.glob("*-gcc-tmp")
+    rm_r(bin.glob("*-gcc-tmp"))
   end
 
   def add_suffix(file, suffix)
@@ -164,7 +163,7 @@ class GccAT11 < Formula
       specs = libgcc/"specs"
       ohai "Creating the GCC specs file: #{specs}"
       specs_orig = Pathname.new("#{specs}.orig")
-      rm_f [specs_orig, specs]
+      rm([specs_orig, specs].select(&:exist?))
 
       system_header_dirs = ["#{HOMEBREW_PREFIX}/include"]
 
@@ -229,7 +228,7 @@ class GccAT11 < Formula
         return 0;
       }
     EOS
-    system "#{bin}/gcc-#{version.major}", "-o", "hello-c", "hello-c.c"
+    system bin/"gcc-#{version.major}", "-o", "hello-c", "hello-c.c"
     assert_equal "Hello, world!\n", shell_output("./hello-c")
 
     (testpath/"hello-cc.cc").write <<~EOS
@@ -244,7 +243,7 @@ class GccAT11 < Formula
         return 0;
       }
     EOS
-    system "#{bin}/g++-#{version.major}", "-o", "hello-cc", "hello-cc.cc"
+    system bin/"g++-#{version.major}", "-o", "hello-cc", "hello-cc.cc"
     assert_equal "Hello, world!\n", shell_output("./hello-cc")
 
     (testpath/"test.f90").write <<~EOS
@@ -258,7 +257,7 @@ class GccAT11 < Formula
       write(*,"(A)") "Done"
       end
     EOS
-    system "#{bin}/gfortran-#{version.major}", "-o", "test", "test.f90"
+    system bin/"gfortran-#{version.major}", "-o", "test", "test.f90"
     assert_equal "Done\n", shell_output("./test")
 
     return unless Hardware::CPU.intel?
@@ -271,7 +270,7 @@ class GccAT11 < Formula
         return 0;
       }
     EOS
-    system "#{bin}/gdc-#{version.major}", "-o", "hello-d", "hello_d.d"
+    system bin/"gdc-#{version.major}", "-o", "hello-d", "hello_d.d"
     assert_equal "Hello, world!\n", shell_output("./hello-d")
   end
 end

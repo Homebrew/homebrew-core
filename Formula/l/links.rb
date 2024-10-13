@@ -11,6 +11,7 @@ class Links < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "8b643d830760363e4ff40491b2c1476dfdd28cdfbf1d2290f6a33ef8b025f717"
     sha256 cellar: :any,                 arm64_sonoma:   "b73e7b5fcce9fa2b81c1d05c3ad32e5e891c548f5c4980e6e44e674930680f5b"
     sha256 cellar: :any,                 arm64_ventura:  "1e3c4427a90752290d9277535ed94089b9ecef307afa6d8853c643b4e9b01fd3"
     sha256 cellar: :any,                 arm64_monterey: "5a1c32ba972a310b39aea75b5025652f0dfac0e673b0a72ac201ca98b9afd0e1"

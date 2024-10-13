@@ -12,6 +12,7 @@ class Daemontools < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "5f93a24d9a69ffa3bad993a4a92a5ebc5023ac175741f71d5a61491f01a1c1c6"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a4d55eb82da586265d67f9fdb355715ee396417a002ed2e121d40b51ac3d0863"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "991fcc92f0c958384e3f434fab21761059a51fa58cac8c345ce61cfc98972863"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "5c9a82746468fb2b1eaea00ff04d1202099d6a0af27dc7e6287f1745a44028e9"
@@ -30,8 +31,8 @@ class Daemontools < Formula
 
   # Fix build failure due to missing headers for POSIX-related functions.
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/36d482722d0959abc80a8b0b944c9bc266e6fe5f/daemontools/posix-headers.patch"
-    sha256 "4c8f57406e5d077dbcaf7c92ba0febf59a5ac00b96309220f7723d135ea82c42"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/e52085ff249263bdf9a21229e0d806ea4e2b9e95/daemontools/posix-headers.patch"
+    sha256 "288afdf9b7ba4f05a791f714ddea22b0a18020f54face020e45311135f0c92c1"
   end
 
   def install

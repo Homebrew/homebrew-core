@@ -1,8 +1,8 @@
 class LibxmlxxAT4 < Formula
   desc "C++ wrapper for libxml"
   homepage "https://libxmlplusplus.github.io/libxmlplusplus/"
-  url "https://download.gnome.org/sources/libxml++/4.0/libxml++-4.0.3.tar.xz"
-  sha256 "a29c980339af67a4ad51af0c76d459e26c2ff97d2ab838ec8bc4aaac777d1a1b"
+  url "https://download.gnome.org/sources/libxml++/4.2/libxml++-4.2.0.tar.xz"
+  sha256 "898accd9c6fa369da36bfebb5fee199d971b86d26187418796ba9238a6bd4842"
   license "LGPL-2.1-or-later"
 
   livecheck do
@@ -11,13 +11,14 @@ class LibxmlxxAT4 < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_sonoma:   "910221bf89290de87c2aef652df706e1e30e31bfc9d44c9f0a4b5ff3edbb777b"
-    sha256 cellar: :any, arm64_ventura:  "c5bd0dd135e7f4d4d9ac6327b06300876eb0d1d29ababa5ef2d4b424e1eb7d40"
-    sha256 cellar: :any, arm64_monterey: "e22b5ecadff523e4c4a2a2957d4d2819d05a85785c9e734f1e723f05b2bff1cd"
-    sha256 cellar: :any, sonoma:         "70c07bdaf2ff55083ad9308a244b7b96ab010339cb397e624fe55c1f04adffa2"
-    sha256 cellar: :any, ventura:        "08a4a583c0e8e65d65e92bd4764b5d7576292275cdcd8fb96665facf6f12b109"
-    sha256 cellar: :any, monterey:       "39128c65dbd4d4afe593e11f5d07635657d8ca406bee5e72d94bd15cc70802e2"
-    sha256               x86_64_linux:   "1d7e028d6d08082a42531cbd2615b2d7dc9c24be4fe12b6cf07198dfdcca299d"
+    sha256 cellar: :any, arm64_sequoia:  "313eb1af5b040a240c54769a0ea30007bb2ade22d25b0858a457922a37fa53f1"
+    sha256 cellar: :any, arm64_sonoma:   "987e41fbe309acddde459a94d9ad151f8644cefee95be180366f3b774b3d6ff6"
+    sha256 cellar: :any, arm64_ventura:  "35b445c5b312aa2a990ad57372c57f3c00d3b79d6247ac6007d5b00397467a9d"
+    sha256 cellar: :any, arm64_monterey: "4d431e0cb82051dcf01c8e05d75c067ab5716852a61fc10f7d65655628c5c010"
+    sha256 cellar: :any, sonoma:         "3784bffd82c84684b1c75fa7ea33adff114727fffebe2ccef5fcdb590c92c937"
+    sha256 cellar: :any, ventura:        "bc1972685d7e69a840ebdb2c53b0596055ec1f5371c94508d02f04d9c70b5124"
+    sha256 cellar: :any, monterey:       "1d4f0949c6e5caafd5e0d4476241bf827244bca988698aa9d78a8d03ad3e12c9"
+    sha256               x86_64_linux:   "02e771bea9bfa9710d1425f7bce4e387eafb8056c8fd526935f5a661ccc74281"
   end
 
   depends_on "meson" => :build

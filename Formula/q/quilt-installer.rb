@@ -11,6 +11,7 @@ class QuiltInstaller < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "9d76f93e7f4080f45508942471391f95140785ccadce9e804d5310ec094ed6df"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6eb2f59fd287c6438034f837f7587d8b6722e8047d40635640e8440c5e811fcb"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "4c81e39b17984d71015ed187fe5fac096c858d1a67043c5af9b84f174831de5a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "32636008188294029e0d28719651aa98a3853827287bfa13bed7531afe3d7ae6"
@@ -28,7 +29,7 @@ class QuiltInstaller < Formula
   end
 
   test do
-    system "#{bin}/quilt-installer", "install", "server", "1.19.2"
+    system bin/"quilt-installer", "install", "server", "1.19.2"
     assert_predicate testpath/"server/quilt-server-launch.jar", :exist?
   end
 end

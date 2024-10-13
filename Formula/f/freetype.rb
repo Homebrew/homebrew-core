@@ -1,9 +1,9 @@
 class Freetype < Formula
   desc "Software library to render fonts"
   homepage "https://www.freetype.org/"
-  url "https://downloads.sourceforge.net/project/freetype/freetype2/2.13.2/freetype-2.13.2.tar.xz"
-  mirror "https://download.savannah.gnu.org/releases/freetype/freetype-2.13.2.tar.xz"
-  sha256 "12991c4e55c506dd7f9b765933e62fd2be2e06d421505d7950a132e4f1bb484d"
+  url "https://downloads.sourceforge.net/project/freetype/freetype2/2.13.3/freetype-2.13.3.tar.xz"
+  mirror "https://download.savannah.gnu.org/releases/freetype/freetype-2.13.3.tar.xz"
+  sha256 "0550350666d427c74daeb85d5ac7bb353acba5f76956395995311a9c6f063289"
   license "FTL"
 
   livecheck do
@@ -12,16 +12,14 @@ class Freetype < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sonoma:   "8966d44484907e98ea2b0fa4b3708627285d0eae3ca0eeb5d3f158cc0437e3f7"
-    sha256 cellar: :any,                 arm64_ventura:  "cfafda736bbfdd0b89b0e278d31253139f5b33762fdee1f6aae7da27edb22c65"
-    sha256 cellar: :any,                 arm64_monterey: "44789663febc92d337e87ad94ca1ba7ae643748ceeea25f6beb3c11c9d80fa9f"
-    sha256 cellar: :any,                 arm64_big_sur:  "22f5d7b4377c712581793d54bcec7b85c9f6edafdc4a7a50241318f3ddcc6a24"
-    sha256 cellar: :any,                 sonoma:         "a8813d5f4045ff8e30755a708eb0da84188b47b04d279c860ffdda3188112444"
-    sha256 cellar: :any,                 ventura:        "352a82fcc4a51411403697f53703a4f46c92219963344ed66f499688fc036a2c"
-    sha256 cellar: :any,                 monterey:       "ecd47039beaf32c82cb68cc38a7ea07951dd5ff3ac2c5fd22a33bf987462047c"
-    sha256 cellar: :any,                 big_sur:        "1a049a8b0ce1d6cca6429bd4274895d053990c916e8ce937aa212821d5802d6c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7f4f7449ac197844846126b6e002f7faf10b5da5b333f203e3a0a8573b970835"
+    sha256 cellar: :any,                 arm64_sequoia:  "bcd39d3a523690cb0673df46122ff62763c5cd93bfff21bdcab856501d2dfb49"
+    sha256 cellar: :any,                 arm64_sonoma:   "939f90de3dd92919020832ba03d6617a0d2ec9a8e185f6a2c518f149c7b299f4"
+    sha256 cellar: :any,                 arm64_ventura:  "47122c7d025f841f3816f1bc2c14ad1e6b4227ccc56eae2827fa585d3b58dbc5"
+    sha256 cellar: :any,                 arm64_monterey: "ace9a5d707a94eb85c67fe349e48c9264287c2d80e0ce60f9bfe5772be2983f4"
+    sha256 cellar: :any,                 sonoma:         "e79e0ffb36311b2abbd0cd44abcf5e938768b2d63d6268e68d5eaa4d34d9323e"
+    sha256 cellar: :any,                 ventura:        "495efbb088b72c7a2881133bcd53375dd99925124d2bf1f0e0882a3c1a332b10"
+    sha256 cellar: :any,                 monterey:       "eb6099180cefba47b4e31f9680494fa8a1a60e50f190232b281f6beed53874a0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4d847168ffbda85c4470d7599436263b0fd8623687863e26ee434db56cd5dde9"
   end
 
   depends_on "pkg-config" => :build

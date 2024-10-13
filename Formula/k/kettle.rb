@@ -11,6 +11,7 @@ class Kettle < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "3e400084e76ae50cfe0f49ceb13805e9a696654a361d11231bada9a00874ae9d"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "498274b3176021bcb65b0ccbc12403b8be03d086230cfe0640e760220a201fea"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "1bbc81ed932e900450ca07207a502ceff327fb1bf9f08936969aa2c3cf72daa1"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1bbc81ed932e900450ca07207a502ceff327fb1bf9f08936969aa2c3cf72daa1"
@@ -50,6 +51,6 @@ class Kettle < Formula
   end
 
   test do
-    system "#{bin}/pdipan", "-file=#{libexec}/samples/transformations/Encrypt Password.ktr", "-level=RowLevel"
+    system bin/"pdipan", "-file=#{libexec}/samples/transformations/Encrypt Password.ktr", "-level=RowLevel"
   end
 end

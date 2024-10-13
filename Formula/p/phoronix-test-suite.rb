@@ -13,6 +13,7 @@ class PhoronixTestSuite < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "8d8beb2d827d15178d10e085be46ed6a5c752dfc26a7a471379700dcac98f152"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8d864f4ef6757c34a9633f69b1096ade2927797be0493d5e9d5969cba375f512"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "8d864f4ef6757c34a9633f69b1096ade2927797be0493d5e9d5969cba375f512"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "8d864f4ef6757c34a9633f69b1096ade2927797be0493d5e9d5969cba375f512"
@@ -29,11 +30,6 @@ class PhoronixTestSuite < Formula
     system "./install-sh", prefix
     prefix.install (buildpath/"dest/#{prefix}").children
     bash_completion.install "dest/#{prefix}/../etc/bash_completion.d/phoronix-test-suite"
-  end
-
-  # 7.4.0 installed files in the formula's rack so clean up the mess.
-  def post_install
-    rm_rf [prefix/"../etc", prefix/"../usr"]
   end
 
   test do

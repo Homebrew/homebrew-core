@@ -3,9 +3,11 @@ class Vmtouch < Formula
   homepage "https://hoytech.com/vmtouch/"
   url "https://github.com/hoytech/vmtouch/archive/refs/tags/v1.3.1.tar.gz"
   sha256 "d57b7b3ae1146c4516429ab7d6db6f2122401db814ddd9cdaad10980e9c8428c"
+  license "BSD-3-Clause"
   head "https://github.com/hoytech/vmtouch.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "71ea80f43e78935336818c646b4561db14301e5590d0e726f221a944cb9efb73"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "af6dca4823cffd3272dce9a60743bfe9d7fd9a8bd467b3ae55ba370b8bb37d00"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "291bc54c646fa540129601fd7dad8a46756f8bc739a3cd505e5d8241a0000177"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c301e4360ef07fffe67a5860df289c3ec091bb4c51793b65054370b6a997040b"

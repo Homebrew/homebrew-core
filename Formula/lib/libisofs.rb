@@ -12,6 +12,7 @@ class Libisofs < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "c4321671d1170bb88b23b8bf3e14dd9046d025341fb428a640c705cf5f8934ee"
     sha256 cellar: :any,                 arm64_sonoma:   "34b5564fd603417946cc498df54e7b8b59380b08259728709446efd2be7680c5"
     sha256 cellar: :any,                 arm64_ventura:  "3ecb31fd37dae4b455187e9fafc86b965d76d998a011b9559bd3bf4b6a422e77"
     sha256 cellar: :any,                 arm64_monterey: "3c9c7c449618b5c4325821877d77d30797b2f972c7247918efeb60456cb99c47"

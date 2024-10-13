@@ -8,6 +8,7 @@ class Tea < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "8c12a9d559cd244dbae08c5576befbeb130106654a28840949dec0ae5eb078a9"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3c846ba5d6f06a8023e00fb1660ab42fe5b5721bec548d4ad8d081f1f1162808"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "101a036947f27a6850e4356266d655f3a9eca0e4ddf945d03a0e87edd44c77b5"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "fa5154683b587810feeff9fb1610addacb6f767458615b16cdf7f2716b8f8bc7"

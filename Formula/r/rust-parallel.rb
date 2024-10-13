@@ -6,6 +6,7 @@ class RustParallel < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "29117d2a2c1b7b34bc3c29851d1cca1cda40b19af17c1d289080698728d8d8de"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "feafbea73109a1318a247f7156d3ef30df30a622b1d41903b0fe96aa8c20457d"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "80bc4041a159932504d276de3f647c07cf86c060dc05d03c2eb7e1a14380ff29"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a66c827258c777803d3f7d5df5a4ba50f52b00b022c37f2438f1fae15b29790c"

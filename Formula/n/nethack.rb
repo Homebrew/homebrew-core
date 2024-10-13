@@ -26,6 +26,7 @@ class Nethack < Formula
   end
 
   bottle do
+    sha256 arm64_sequoia:  "4bd7bdd2aa9ce9dae7f450ffaeda07c1279f597ef35ee3bd7ee52086b54160e1"
     sha256 arm64_sonoma:   "ce30c296e474a239cb110c54a7b16950de538e9782414718290606a8cc9424d1"
     sha256 arm64_ventura:  "e51292f937dbfdb68feb969552da8ab484a8728d5fb85fc6e389cdfd0ed57922"
     sha256 arm64_monterey: "f546283d68a22ff79a4a382a05fb9f7c1949b8057e52f478c8cead4300d424b4"
@@ -96,7 +97,7 @@ class Nethack < Formula
   end
 
   test do
-    system "#{bin}/nethack", "-s"
+    system bin/"nethack", "-s"
     assert_match (HOMEBREW_PREFIX/"share/nethack").to_s,
                  shell_output("#{bin}/nethack --showpaths")
   end

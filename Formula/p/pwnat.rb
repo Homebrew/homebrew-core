@@ -8,6 +8,7 @@ class Pwnat < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "cad8dc7797afa7c06b216dd8c22990593fcdf4c020ac76a23ec4c7de3c7413d7"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a483fb305ae5edf4765c7fc1e881aafaf4d6ecab13267057c6434b7eda572760"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "c5ddbd4df3ba08892d85b2a3dd4a09df2530b1e6c65eab0ece114d756245ef8e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4a54673faf81eda9764a05196c50daa8c5b078d171bbf94b9b3213c478b265a4"

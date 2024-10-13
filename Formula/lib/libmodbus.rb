@@ -7,6 +7,7 @@ class Libmodbus < Formula
   head "https://github.com/stephane/libmodbus.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "9e12029c9ec0782bd5fac20b46e2521b604cab4f73f387660265a1c4987b12da"
     sha256 cellar: :any,                 arm64_sonoma:   "3b9c2f9582962d98481e78df8ee431118ca2725cd6db782087f99f9e4e43656d"
     sha256 cellar: :any,                 arm64_ventura:  "585781b5c3f26d145faf3b0c06e58bd9789ace242f6631689edfc4dee3ab5b1f"
     sha256 cellar: :any,                 arm64_monterey: "782038c57d82103f1c245d8d76f9acec4fd25b9bbb38c90fc8558c63ff00ddb5"

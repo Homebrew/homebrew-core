@@ -20,6 +20,7 @@ class Libdvdread < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "6aaf06a46650503ddadff95be7584a8fc86ee6e2d3c357475d26566cfda2b10c"
     sha256 cellar: :any,                 arm64_sonoma:   "6d2583d6d35a5b71d45cfbfc63e3e76dd9757c85973752b1583c4af9502d723c"
     sha256 cellar: :any,                 arm64_ventura:  "221b4cb3ad771cc650454a1624a89348973c3ef5bedc5f526b77e4bbb281b938"
     sha256 cellar: :any,                 arm64_monterey: "7c258b5c5be30d3ee53dacd0b137d7faadb5e21e06e5cf98859e7728e91cf303"

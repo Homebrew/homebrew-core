@@ -7,6 +7,7 @@ class Xplanet < Formula
   revision 6
 
   bottle do
+    sha256                               arm64_sequoia:  "1c5fb1f5235c56e1aa7f84415b49428ed1c92532b47697800982f01dcfb4d842"
     sha256                               arm64_sonoma:   "1092db3b7841f3a9e16d41baa7b4370ab212ec0523275e2b96cad8f2235873e7"
     sha256                               arm64_ventura:  "aa69c74fc48645353401ccfeb35f7bf0527b696f34523754e2c81077459bbc64"
     sha256                               arm64_monterey: "07924721350d8ca211611b26b4e78729062cb040cb1031f88d9fb621106cbf60"
@@ -80,13 +81,13 @@ class Xplanet < Formula
 
   # Test all the supported image formats, jpg, png, gif and tiff, as well as the -num_times 2 patch
   test do
-    system "#{bin}/xplanet", "-target", "earth", "-output", "#{testpath}/test.jpg",
-                             "-radius", "30", "-num_times", "2", "-random", "-wait", "1"
-    system "#{bin}/xplanet", "-target", "earth", "--transpng", "#{testpath}/test.png",
-                             "-radius", "30", "-num_times", "2", "-random", "-wait", "1"
-    system "#{bin}/xplanet", "-target", "earth", "--output", "#{testpath}/test.gif",
-                             "-radius", "30", "-num_times", "2", "-random", "-wait", "1"
-    system "#{bin}/xplanet", "-target", "earth", "--output", "#{testpath}/test.tiff",
-                             "-radius", "30", "-num_times", "2", "-random", "-wait", "1"
+    system bin/"xplanet", "-target", "earth", "-output", "#{testpath}/test.jpg",
+                          "-radius", "30", "-num_times", "2", "-random", "-wait", "1"
+    system bin/"xplanet", "-target", "earth", "--transpng", "#{testpath}/test.png",
+                          "-radius", "30", "-num_times", "2", "-random", "-wait", "1"
+    system bin/"xplanet", "-target", "earth", "--output", "#{testpath}/test.gif",
+                          "-radius", "30", "-num_times", "2", "-random", "-wait", "1"
+    system bin/"xplanet", "-target", "earth", "--output", "#{testpath}/test.tiff",
+                          "-radius", "30", "-num_times", "2", "-random", "-wait", "1"
   end
 end

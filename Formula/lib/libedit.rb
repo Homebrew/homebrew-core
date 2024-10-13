@@ -1,9 +1,9 @@
 class Libedit < Formula
   desc "BSD-style licensed readline alternative"
   homepage "https://thrysoee.dk/editline/"
-  url "https://thrysoee.dk/editline/libedit-20240517-3.1.tar.gz"
-  version "20240517-3.1"
-  sha256 "3a489097bb4115495f3bd85ae782852b7097c556d9500088d74b6fa38dbd12ff"
+  url "https://thrysoee.dk/editline/libedit-20240808-3.1.tar.gz"
+  version "20240808-3.1"
+  sha256 "5f0573349d77c4a48967191cdd6634dd7aa5f6398c6a57fe037cc02696d6099f"
   license "BSD-3-Clause"
 
   livecheck do
@@ -12,13 +12,14 @@ class Libedit < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "d4190db11789aeda7fb60afb3316a8a46145899e6976b3b6577c25a37e39a91a"
-    sha256 cellar: :any,                 arm64_ventura:  "4c7b70562b9e2cc617554283d5b83ea52bdf2a06288bd4c927a781716482106c"
-    sha256 cellar: :any,                 arm64_monterey: "f665cbc9c6a187b9eb592d8c74cb9dcb9e1de82d87af65e725cf66f7252b26d7"
-    sha256 cellar: :any,                 sonoma:         "3897ed8b457a813b437acd32a74c989b955d0294b8473c03c9663ec3a7e62541"
-    sha256 cellar: :any,                 ventura:        "38f2acd95585e42c83f407f54af077ba34cb8b5800930fe3536c1f707171bba9"
-    sha256 cellar: :any,                 monterey:       "b6405804a036f4088513e757ddb940f53b86486d4fd968c786dc4eb6259f9baf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a5eda364492fa30e07098bea7259d970c221dffce51f570594a5b94c50a435ee"
+    sha256 cellar: :any,                 arm64_sequoia:  "e138b0994b5fad0a3ccf46324e49b91a11620876f89228c7a39f6b71bef74138"
+    sha256 cellar: :any,                 arm64_sonoma:   "1b2f271a1d771dc8fca96672fd33b564508d47d4af3450e704ed6d1a0337fdd2"
+    sha256 cellar: :any,                 arm64_ventura:  "7443c1df6b2898548a22e8b0210a75418c9673ae9930a1c1f5c3908dc1da66ba"
+    sha256 cellar: :any,                 arm64_monterey: "b278fa5ff18ed71504139964cc50926de622036e0917dfe268e93888ece63e4f"
+    sha256 cellar: :any,                 sonoma:         "c4906d27a10fe0317c1641366586a0188f02e8620ddcab99a30d5cd4d19f95f9"
+    sha256 cellar: :any,                 ventura:        "198740611f787c5704c53bea9ab99cde30a0266184aaf8a84cf37b40d4c83da7"
+    sha256 cellar: :any,                 monterey:       "9ec96e9f9d9e00cb0a2bfecee5c4f36caf5b12a39353241d351e74d515227eda"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8e574e7c9d236e3c6d12b208934ebe3159e27b50bfd700f73fad765b67ce86e8"
   end
 
   keg_only :provided_by_macos
@@ -30,11 +31,6 @@ class Libedit < Formula
                           "--disable-silent-rules",
                           "--prefix=#{prefix}"
     system "make", "install"
-
-    if OS.linux?
-      # Conflicts with readline.
-      mv man3/"history.3", man3/"history_libedit.3"
-    end
   end
 
   test do

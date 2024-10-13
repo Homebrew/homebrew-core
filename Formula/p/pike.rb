@@ -14,6 +14,7 @@ class Pike < Formula
   end
 
   bottle do
+    sha256 arm64_sequoia:  "68afe655f82c2d097fefafb82f5133063d1afe41d14b22552142e55cae905052"
     sha256 arm64_sonoma:   "70b0fbdddedbb800cb84877cc859c3f877809937e372ce220d7b01d0526948c7"
     sha256 arm64_ventura:  "6e208572c05918a3f7b848e774ca2399c513e1f5f016f3c6c6af4d28f1000080"
     sha256 arm64_monterey: "92ed5696e91b3f72bdc57a1558857113d166deb19688442518f3c26f9e2e435a"

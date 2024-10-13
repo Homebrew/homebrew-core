@@ -7,6 +7,7 @@ class Kconf < Formula
   head "https://github.com/particledecay/kconf.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "c7ff80bea648574258dd8824d20fba4332346ddb89dc566b6286a674a3a730a6"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ed57d62a2cfcb32f238460071f886311c492f9587ab87cfa3f23eb524e1ef490"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "e32cdeb9dfbc9027d5dbce3599fed6d051b2d5a64519b09a766c219b4c829934"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a495204a9089651402915a598e0771df6f1e4818ff7cf37847976f06f0487289"

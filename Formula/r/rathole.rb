@@ -6,19 +6,27 @@ class Rathole < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c50a599d6af659f38e664edc68a64e310d4644e393cd6bbb3305a30742d9a359"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "17c4060ee9ee8843616218c57079814ffab9e8d6985ccc433da9b5d4796d1693"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "70de936393eb4685c9b4e5cb525ede6aa057622555fb17bbcf8eb9e2141bc175"
-    sha256 cellar: :any_skip_relocation, sonoma:         "3c511f72f60fc490db1e891416a0b279e7d5ade7984bd70d505e86b4f8859613"
-    sha256 cellar: :any_skip_relocation, ventura:        "acbf4897dd9560e0f0e9597f020b9b434e349edb5b9ec70251fa08a237bcf923"
-    sha256 cellar: :any_skip_relocation, monterey:       "87be8e479e7d36ca01aa450fd7b6f5e820054ade4a06b43ca967f0828eddee17"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9258fe59a3e086fa53c499d8a086c31fe7a779b8cd0426f85d53b6124916ce02"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "d668cd71d085b210e33c711837fc58c97fcfebf3417f0c3c7d722df711d45ae9"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "bcb8141198492a1cafa8833e4b5b1f872a292b0b4a583de7f71aeeb6f3376b86"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e9dff11d616e36a7e3fb42bf83f8a0ba908382562fd5ab26abd4ab08a99f6c0b"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "bff2c4cd4cbfd16cd46672656d6388613c4b2481d29c3774e7468a218378488e"
+    sha256 cellar: :any_skip_relocation, sonoma:         "616f267223b7bc2142ec93df13af511a672fa8dd85ae1e114eb036a901a8623e"
+    sha256 cellar: :any_skip_relocation, ventura:        "da508621aa73060eee88b3b1771c80aae6d593210575e15b4ed101b6dd60bd73"
+    sha256 cellar: :any_skip_relocation, monterey:       "db9a05658116a968398b3f184a1e6bd63dc90ec3f7b56487d79d3210b6006846"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "418e67c95c4f95329a0564f4fe78c4c8ff23bda1be98eed056a9ef45fc558b39"
   end
 
   depends_on "rust" => :build
 
   on_linux do
     depends_on "openssl@3"
+  end
+
+  # rust 1.80 build patch, upstream bug report, https://github.com/rapiz1/rathole/issues/380
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/bd353c6adb3601f32de0fa87f3acd34a98da6ec1/rathole/rust-1.80.patch"
+    sha256 "deca6178df16517f752c309f6290678cbddb24cd3839057f746d0817405965f9"
   end
 
   def install

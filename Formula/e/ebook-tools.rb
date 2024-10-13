@@ -7,6 +7,7 @@ class EbookTools < Formula
   revision 3
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "f5941a8ccff53411313a9126e9414bb6ee069ac5ac3b4ebf819d0b98bc757460"
     sha256 cellar: :any,                 arm64_sonoma:   "62256c5eb6880252f8110c8c35d9c84bd9838bce63de8af4377497d19da21d82"
     sha256 cellar: :any,                 arm64_ventura:  "019f7789541693a154f71bb507db24ab2cd3901f539e08e2ce2e51f53aae48da"
     sha256 cellar: :any,                 arm64_monterey: "ea1b7dcf30a98ec82dbe77c369168185565450ee4c4af8e4d77f9ae2ffaa360d"
@@ -36,6 +37,6 @@ class EbookTools < Formula
   end
 
   test do
-    system "#{bin}/einfo", "-help"
+    system bin/"einfo", "-help"
   end
 end

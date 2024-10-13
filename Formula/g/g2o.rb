@@ -12,6 +12,7 @@ class G2o < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "a4cf0e133686f2d44f48b84f43f8cb43992db9f08cc2166520e768e13750fe1c"
     sha256 cellar: :any,                 arm64_sonoma:   "cbb981a42b19ca21f85263240d4d4659886ff14ba366ae4dd5643074b1c23909"
     sha256 cellar: :any,                 arm64_ventura:  "d1cbe8ce20b3b583d8390364a2d76a745cf3cdfd7dbed194fa456b4ea9a251db"
     sha256 cellar: :any,                 arm64_monterey: "8945d0ec8a2a00ce3e5bda9e3bd83953e37d2f5828b0f078b45dab8b35aaeb70"

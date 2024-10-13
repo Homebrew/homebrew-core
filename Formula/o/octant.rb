@@ -1,5 +1,3 @@
-require "language/node"
-
 class Octant < Formula
   desc "Kubernetes introspection tool for developers"
   homepage "https://octant.dev"
@@ -37,8 +35,6 @@ class Octant < Formula
   def install
     ENV["GOFLAGS"] = "-mod=vendor"
 
-    Language::Node.setup_npm_environment
-
     # Work around build error: "npm ERR! Invalid Version: ^3.0.8"
     # Issue is due to `npm-force-resolutions` not working with
     # npm>=8.6, which is used in node>=16 formulae.
@@ -48,7 +44,7 @@ class Octant < Formula
     # Issue ref: https://github.com/rogeriochaves/npm-force-resolutions/issues/56
     ENV.prepend_path "PATH", Formula["node@14"].opt_bin
     cd "web" do
-      system "npm", "install", *Language::Node.local_npm_install_args
+      system "npm", "install", *std_npm_args(prefix: false)
     end
 
     system "go", "run", "build.go", "go-install"

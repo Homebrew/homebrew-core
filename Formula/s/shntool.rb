@@ -13,6 +13,7 @@ class Shntool < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "c5d116fc457d0cb26ccaea1e50b59a4edae2af2e89064c473aa420717dc0a9c6"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9147bd0667159d62ea4493ae1524f8779f4fb19eb34ac4fc109695e09cdcd7ef"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "ec3c0feb069099563b7359c7e3f926ac1840aaf0364bf40be1a2cf1462865764"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "02dd5226afa9d564374ab0e56a1edd08d7b61ac8c9c7fb09ec2dc011d47cb955"
@@ -33,6 +34,6 @@ class Shntool < Formula
   end
 
   test do
-    system "#{bin}/shninfo", test_fixtures("test.wav")
+    system bin/"shninfo", test_fixtures("test.wav")
   end
 end

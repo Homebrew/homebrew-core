@@ -7,6 +7,7 @@ class Jump < Formula
   head "https://github.com/gsamokovarov/jump.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "fde11425f5d359b95bab0dc05ef78746c8f25e0d4e0ba64d08a6f571c7c30365"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "401b76cacc9038c0df59f48eca22bd5edf35c33ac5e2dd9ae9e885e5fd404dfc"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "90378306728d3520372749d0632558adc2ee809652145a720545ffcc80328c92"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "530e68bb757c889ad241551f9312b147bb349463c854d72708590dc128798227"
@@ -30,7 +31,7 @@ class Jump < Formula
   test do
     (testpath/"test_dir").mkpath
     ENV["JUMP_HOME"] = testpath.to_s
-    system "#{bin}/jump", "chdir", "#{testpath}/test_dir"
+    system bin/"jump", "chdir", "#{testpath}/test_dir"
 
     assert_equal (testpath/"test_dir").to_s, shell_output("#{bin}/jump cd tdir").chomp
   end

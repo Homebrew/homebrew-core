@@ -6,6 +6,7 @@ class Xdpyinfo < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "6dbc9389db6707290660a6d54963d4a047e6243e94a24b61b265931bd6bfde8f"
     sha256 cellar: :any,                 arm64_sonoma:   "baf82ff9c8adc230c5a18e342b1fa449560d2f52940f568756a8fdc41fca3f15"
     sha256 cellar: :any,                 arm64_ventura:  "e4f808deface10045a57d8b83baee19ec7737b239af0e3638f5bb4fe879197f2"
     sha256 cellar: :any,                 arm64_monterey: "ca1b56d68034d1414cec3f638b17a81fcaa5434505ac0c1beb38003599e2a78a"
@@ -18,21 +19,20 @@ class Xdpyinfo < Formula
   end
 
   depends_on "pkg-config" => :build
+
   depends_on "libx11"
   depends_on "libxcb"
   depends_on "libxext"
+  depends_on "libxi"
   depends_on "libxtst"
 
   def install
     args = %W[
-      --prefix=#{prefix}
       --sysconfdir=#{etc}
       --localstatedir=#{var}
-      --disable-dependency-tracking
       --disable-silent-rules
     ]
-    system "./configure", *args
-    system "make"
+    system "./configure", *args, *std_configure_args.reject { |s| s["--disable-debug"] }
     system "make", "install"
   end
 
@@ -40,6 +40,6 @@ class Xdpyinfo < Formula
     # xdpyinfo:  unable to open display "".
     return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
 
-    assert_match("xdpyinfo #{version}", shell_output("DISPLAY= xdpyinfo -version 2>&1"))
+    assert_match("xdpyinfo #{version}", shell_output("DISPLAY= xdpyinfo -version"))
   end
 end

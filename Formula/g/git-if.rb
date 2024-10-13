@@ -8,6 +8,7 @@ class GitIf < Formula
   head "https://github.com/DavidKinder/Git.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "2918859c7196c31d059c74c800d7207bb77aa90b6b1ee67f07348a8d9871151a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "bfcee8f4eaa935d5d9ae04a218a2c6e23b3a61dc28efcc07c6e2324951270f52"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f35fdcc34084acb96613f2cb035fd16d349fcd7f5dcc82dc33eafe76f45aff12"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "12fb6bc8de954d79ceb96ea55d9701791e5594a904975bf83ca44553b137c458"

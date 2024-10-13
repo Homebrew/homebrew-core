@@ -4,15 +4,17 @@ class Gource < Formula
   url "https://github.com/acaudwell/Gource/releases/download/gource-0.55/gource-0.55.tar.gz"
   sha256 "c8239212d28b07508d9e477619976802681628fc25eb3e04f6671177013c0142"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
-    sha256 arm64_sonoma:   "3596c21ecd8e3c2b225d9ff98defa38a5496d52c8e9f34464a2e414f8c9ec8f6"
-    sha256 arm64_ventura:  "7356eb34bd94d8a6aefedd18cf85d09b3fd19d7ab09363e9d20c5e45eab71a81"
-    sha256 arm64_monterey: "7a59b2bf59553a8a20a83cf6a2c4dbd89438fee6d3959e06c6e27bbd84f84a3f"
-    sha256 sonoma:         "b1bfbbb3b3e6c635cea3dacf66167842135a9d6648c0eafa40d899fa7e1166cf"
-    sha256 ventura:        "c2c1c4c00db4ebb316b6b7797440f7851b08c14bbf259701c4a71e57bbcbfaaa"
-    sha256 monterey:       "ecf466f251a966b38fb9d7ddf4a7ebb234b0396205d380b39bc83ecb063400ad"
-    sha256 x86_64_linux:   "2008fd1997753832a8377facbaabcd081d96e1fa5d1128f23624d11f26e5ca5a"
+    sha256 arm64_sequoia:  "c735cd51d9e849ddae9f6fe7fee81279a997eed45faee857806e0f3fc0f7d560"
+    sha256 arm64_sonoma:   "0e04c59ea31bcac42b276ddb55c793c3965c7c95863ee93980321a20768ba82b"
+    sha256 arm64_ventura:  "f0c75e3218b79997ea769dc36701f78cd9c3471184f984b60ffb5d0dbec86268"
+    sha256 arm64_monterey: "bd2bad94832bbc7e1a668c70b97dd7a2c432a43cdf316d753c29c5c739c04319"
+    sha256 sonoma:         "e5b2f41f0a965a3dd857ff701ba535b85fe08719e395b1ddcb4aea54f81f3d63"
+    sha256 ventura:        "99b2e09613f40fe201663c5e72d2688214358dc97373cfce90d8f73232eb61d5"
+    sha256 monterey:       "bcbe2dbfcb48406b6f28a3579dc45a9c8a1c0c60cc8a6563301e1b52c2c9d73a"
+    sha256 x86_64_linux:   "164916b7277e4beb805bd690735a859475dcd5d83690f5daff348eebb62d0374"
   end
 
   head do
@@ -25,6 +27,7 @@ class Gource < Formula
 
   depends_on "glm" => :build
   depends_on "pkg-config" => :build
+
   depends_on "boost"
   depends_on "freetype"
   depends_on "glew"
@@ -32,6 +35,11 @@ class Gource < Formula
   depends_on "pcre2"
   depends_on "sdl2"
   depends_on "sdl2_image"
+
+  on_linux do
+    depends_on "mesa"
+    depends_on "mesa-glu"
+  end
 
   def install
     ENV.cxx11
@@ -51,6 +59,6 @@ class Gource < Formula
   end
 
   test do
-    system "#{bin}/gource", "--help"
+    system bin/"gource", "--help"
   end
 end

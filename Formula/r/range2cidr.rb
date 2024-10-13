@@ -11,6 +11,7 @@ class Range2cidr < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "8ce7fa7b06bdbc333fb6b71d512de6d2c6f040df3123fe3b77662e1562606be4"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9b538cd77fd79f1edbf41c0c74ba289c62ae51d8870712f2b56f5be2f7a1031e"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "719332735abc456c90e585fc8f802e418bb9a1d56c6871f5c27247f077577894"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "cb9471b5f9b4ea6abefb2a8a3b0ee68125098c66565efb77385e5a5e1a46bbbd"

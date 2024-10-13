@@ -12,6 +12,7 @@ class Classads < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any,                 arm64_sequoia:  "5ed81428780f7cec908f7100cf6acaa0e6dc048636e9b0154c50b45ac4373e13"
     sha256 cellar: :any,                 arm64_sonoma:   "661d3187c8f61482409ea38879746f2d43e6f2a910b8ea361b4e3507668383af"
     sha256 cellar: :any,                 arm64_ventura:  "0eab6257d1140e45a9de7be3672d4d78e62a639348cc30b00fab1f68048b5e84"
     sha256 cellar: :any,                 arm64_monterey: "7f4e50e3dc7c4c163e872815a050edb28feca33f5a56998023a187f11da1fcae"

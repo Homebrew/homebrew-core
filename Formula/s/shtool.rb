@@ -4,9 +4,10 @@ class Shtool < Formula
   url "https://ftp.gnu.org/gnu/shtool/shtool-2.0.8.tar.gz"
   mirror "https://ftpmirror.gnu.org/shtool/shtool-2.0.8.tar.gz"
   sha256 "1298a549416d12af239e9f4e787e6e6509210afb49d5cf28eb6ec4015046ae19"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "9a07b590184786375b1faecf0b3cc9cdd24c17b88eae56888a5aa115ce3242a4"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "dca989d435af4e89422e5d3290d90075732d2ec3daf671c95a30eba9a91aa653"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "6f5de9d85e4a603a10f6a5807bfe6a917d7f18360206524091d5abadbdf45e3b"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6f5de9d85e4a603a10f6a5807bfe6a917d7f18360206524091d5abadbdf45e3b"

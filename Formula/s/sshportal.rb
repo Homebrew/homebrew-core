@@ -6,6 +6,7 @@ class Sshportal < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "e41e72b749adc2be38fd48aa7bc7414b1e06cefe22e2ee83cd1e62108403d583"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2d2011f8a00406373f0f08fe0d6ae9bc24319328644de51f42cb67047bf26005"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "924cfb73822486729a932a912d17d4fe202dbe081c8cbc552634c16e9586bb20"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "cf5a4040d0111c3ad348506ef5e454cf106626950e024fd270065bb13e56f96c"

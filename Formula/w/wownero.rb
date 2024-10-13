@@ -6,7 +6,7 @@ class Wownero < Formula
       tag:      "v0.11.1.0",
       revision: "1b8475003c065b0387f21323dad8a03b131ae7d1"
   license "BSD-3-Clause"
-  revision 4
+  revision 5
 
   # The `strategy` code below can be removed if/when this software exceeds
   # version 10.0.0. Until then, it's used to omit a malformed tag that would
@@ -25,19 +25,20 @@ class Wownero < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "66aee0c27f86ecb1b0e3caaf93ae25ee27da25b6df902abad0184cc0aec2a183"
-    sha256 cellar: :any,                 arm64_ventura:  "e7463d258b3e5fb8e8f727a826e3c5e0d3b31333a4c47af297a9156ad5cd0420"
-    sha256 cellar: :any,                 arm64_monterey: "adeaa5de1a95f628dac6a7e0c297156fdb682a1c88506d497836cf6bebf0210d"
-    sha256 cellar: :any,                 sonoma:         "88ab320c55493c28d1f555a53bdd812b271de7a1c7b49718bfeddd8958f29970"
-    sha256 cellar: :any,                 ventura:        "8df745706752ed9c52d12d55901cfeb99392c1e35ec814bfa3300966474f4a16"
-    sha256 cellar: :any,                 monterey:       "ebff9bdbe435cabcfd404dde72bd1d6f2b462c81fd358601034125a665e474d1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "309674cbecc3d3b542d345f5501716da422b7cfb40ac4d6cb93c5129942f8193"
+    sha256 cellar: :any,                 arm64_sequoia:  "c6350d120c92aa80675a64133daa98ce1de82f536130bf52f0cea6b68dbf1c66"
+    sha256 cellar: :any,                 arm64_sonoma:   "17da92001eeaa1c252c3998ec8bf5e36a67a7e024bf7017dc0d7bb2f6f339b9b"
+    sha256 cellar: :any,                 arm64_ventura:  "58f6790548e4d11d3345a630988c91136c0e12bcb0fb5cb818d6dbb7a161bafc"
+    sha256 cellar: :any,                 arm64_monterey: "3082d89d0fe7b93cf50920f1cdcefd3fd24c930b8de2c6107c9a823fde779e55"
+    sha256 cellar: :any,                 sonoma:         "82fb6f7b89fb7e39ac0723ce4555c4439249627966054fd4b95a02d2ebfa4cc3"
+    sha256 cellar: :any,                 ventura:        "08418e9fa1c07124a675e867a77f2fec294b45058f8e33fd308ed3573793d2b7"
+    sha256 cellar: :any,                 monterey:       "d9c2ea323635f520503e9b8c53db1d599d8c5e192420743470da97c0a918d4f6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d08b8e26383ff1a7b709f65214b0f59505ca308f3b675bff55838c91de33a375"
   end
 
   depends_on "cmake" => :build
   depends_on "miniupnpc" => :build
   depends_on "pkg-config" => :build
-  depends_on "boost"
+  depends_on "boost@1.85"
   depends_on "hidapi"
   depends_on "libsodium"
   depends_on "libusb"

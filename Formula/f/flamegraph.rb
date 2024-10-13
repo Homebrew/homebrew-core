@@ -8,7 +8,8 @@ class Flamegraph < Formula
   head "https://github.com/brendangregg/FlameGraph.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "621349d1ff958232ca392b15d7154a7092ed3479a18521df49f6ef291fc40067"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "97511f43f573d3f64674b4ca16d9e9f2175366d769741f8c49407c8aefdaa4ec"
   end
 
   uses_from_macos "perl"
@@ -65,8 +66,8 @@ class Flamegraph < Formula
     EOS
 
     output = shell_output "#{bin}/stackcollapse-perf.pl #{testpath}/perf-mirageos-stacks-01.txt"
-    assert_match File.read("#{testpath}/perf-mirageos-stacks-01-collapsed-all.txt"), output
+    assert_match (testpath/"perf-mirageos-stacks-01-collapsed-all.txt").read, output
 
-    system "#{bin}/flamegraph.pl", "#{testpath}/perf-mirageos-stacks-01-collapsed-all.txt"
+    system bin/"flamegraph.pl", "#{testpath}/perf-mirageos-stacks-01-collapsed-all.txt"
   end
 end

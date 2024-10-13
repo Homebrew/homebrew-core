@@ -6,6 +6,7 @@ class Libcbor < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "1316d2dd79be63a69f00cf06f50dc76fd24ad9e08552cff8afcfac0ef405e858"
     sha256 cellar: :any,                 arm64_sonoma:   "173091f8ffca1b73c4c17bbe5a7a6034da4e561b9e13d6e78ca536f56e364015"
     sha256 cellar: :any,                 arm64_ventura:  "2adc8eddfa152c381152c94e3514cbabcc1594b56db0f89ac0d63a1461254f15"
     sha256 cellar: :any,                 arm64_monterey: "a50c96cf0fd55aff2d31a5b2115f9464b65d7f405339bbbde736413a29d67a59"
@@ -18,27 +19,29 @@ class Libcbor < Formula
   depends_on "cmake" => :build
 
   def install
-    mkdir "build" do
-      system "cmake", "..", "-DWITH_EXAMPLES=OFF", "-DBUILD_SHARED_LIBS=ON", *std_cmake_args
-      system "make"
-      system "make", "install"
-    end
+    args = %w[
+      -DWITH_EXAMPLES=OFF
+      -DBUILD_SHARED_LIBS=ON
+    ]
+
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
     (testpath/"example.c").write <<-EOS
-    #include "cbor.h"
-    #include <stdio.h>
-    int main(int argc, char * argv[])
-    {
-      printf("Hello from libcbor %s\\n", CBOR_VERSION);
-      printf("Pretty-printer support: %s\\n", CBOR_PRETTY_PRINTER ? "yes" : "no");
-      printf("Buffer growth factor: %f\\n", (float) CBOR_BUFFER_GROWTH);
-    }
+      #include "cbor.h"
+      #include <stdio.h>
+
+      int main() {
+        printf("Hello from libcbor %s\\n", CBOR_VERSION);
+        printf("Pretty-printer support: %s\\n", CBOR_PRETTY_PRINTER ? "yes" : "no");
+        printf("Buffer growth factor: %f\\n", (float) CBOR_BUFFER_GROWTH);
+      }
     EOS
 
-    system ENV.cc, "-std=c99", "example.c", "-L#{lib}", "-lcbor", "-o", "example"
-    system "./example"
-    puts `./example`
+    system ENV.cc, "-std=c99", "example.c", "-o", "test", "-L#{lib}", "-lcbor"
+    system "./test"
   end
 end

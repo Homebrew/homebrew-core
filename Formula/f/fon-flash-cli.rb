@@ -7,6 +7,7 @@ class FonFlashCli < Formula
   head "https://github.com/ericpaulbishop/gargoyle.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "f3f3e955e9c78f33084b9ad4a915383ff41a9decff3b638c605a407bf8d877c1"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3578903bdf423bf0f5a01a50073bfe90c47aaf25b5a744156fa5d743c1db0086"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "086af945c76e6c4799d32edf90e501c888a39b70e38fc8624e2d4299f5d2cad6"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ab5a378106425caea9f5dfc715e23d920bb7f20b9b906e7206ce25ab1c003c2a"
@@ -28,6 +29,6 @@ class FonFlashCli < Formula
   end
 
   test do
-    system "#{bin}/fon-flash"
+    system bin/"fon-flash"
   end
 end

@@ -6,6 +6,7 @@ class DiffPdf < Formula
   license "GPL-2.0-only"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "53f6848c95819dd903f468dc4072a91a098c1639fee29b033c8a87dedf841ea8"
     sha256 cellar: :any,                 arm64_sonoma:   "aeebc69df89c64b855b491899951b9b19e9736924c7ffe824237cea86dd4301a"
     sha256 cellar: :any,                 arm64_ventura:  "5a9824bb9190b9bdc41c27dc0b435cddbd3ee6b31c74280c36513eb413b7fd1b"
     sha256 cellar: :any,                 arm64_monterey: "29339f3026c7bc502a35b2247ef1309d69e74b0efca3f08ce168d31c497f5c80"

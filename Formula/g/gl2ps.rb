@@ -11,6 +11,7 @@ class Gl2ps < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "37edb5bfe08b0943cc9edf1418be8ab73c680074942be25048b3e72af2980f90"
     sha256 cellar: :any,                 arm64_sonoma:   "7c29529c685fb40aa712dc427ff463ac2823b0a2d93a062be9382bdf3ef449e1"
     sha256 cellar: :any,                 arm64_ventura:  "63a6c39737be3e9507fb5113de445ad7db930409e5bd74ee117b0ac447022e66"
     sha256 cellar: :any,                 arm64_monterey: "e08ec8cea6a733012aadbd5b2eeef661030005c1a7b24f77f5371385191ed921"

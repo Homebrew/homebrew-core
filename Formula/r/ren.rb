@@ -10,6 +10,7 @@ class Ren < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "7a3c1d2e3849aad71fa4b7f54cfbae86184153159a8019839ac7fb69747cebc0"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7e228ed14477809a0b2e182d476e09213ac70ffa87469e637e3c8d0f446be2a1"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "9277aaf4732d7c2ab0b9590bf81a1dfe82a1e8e40dd4d5c2e4369d839bd781c5"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f6b10a80274e2cd7b78b8bbf90e8132511c321ec104bd9418b89814fa6dd2a4e"
@@ -28,7 +29,9 @@ class Ren < Formula
 
   def install
     # Fix compile with newer Clang
-    ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
+    if DevelopmentTools.clang_build_version >= 1403
+      ENV.append_to_cflags "-Wno-implicit-int -Wno-implicit-function-declaration"
+    end
 
     system "make"
     bin.install "ren"

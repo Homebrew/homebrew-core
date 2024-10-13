@@ -7,6 +7,7 @@ class Blink < Formula
   head "https://github.com/jart/blink.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "94d6d0c9e64d540ada078f6a89d0e9d35936ae9a05f5f98c70d91e2022150de2"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2de61fd64e8fbe185bf583189710c8dc8793c13fe5535489638dc4e1116b7901"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "ed08f66b03fb447aac0c38f232f6d0ddf3d193f11e1ccfda27141e1de452d5b5"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "22ddedacbb9166f752850e36aa9b787c66671f0338a452ea465c6bd8e37885d4"
@@ -21,6 +22,10 @@ class Blink < Formula
   uses_from_macos "zlib"
 
   def install
+    # newer linker cause issue as `pointer not aligned at _kWhence+0x4`
+    # upstream bug report, https://github.com/jart/blink/issues/166
+    ENV.append "LDFLAGS", "-Wl,-ld_classic" if DevelopmentTools.clang_build_version >= 1500
+
     system "./configure", "--prefix=#{prefix}", "--enable-vfs"
     # Call `make` as `gmake` to use Homebrew `make`.
     system "gmake" # must be separate steps.

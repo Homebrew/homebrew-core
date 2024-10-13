@@ -6,6 +6,7 @@ class Youplot < Formula
   license "MIT"
 
   bottle do
+    sha256                               arm64_sequoia:  "38af94e0b042576027ea48ddacfa7328a06da03115fd979ffe51ea78f20cce04"
     sha256                               arm64_sonoma:   "34886703341b58e351283223a6fe19717d404120c709ed1a518753ac07f16e85"
     sha256                               arm64_ventura:  "224f2643f50bbd531e19ec45f9a56ec760304379a943420a42c0038b0d5ca2c2"
     sha256                               arm64_monterey: "e2f7ef7149fec5451496cdc50394a718084180d792d08f7b7db3085db1f56fa3"

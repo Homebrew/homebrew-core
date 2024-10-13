@@ -1,8 +1,8 @@
 class ExtraCmakeModules < Formula
   desc "Extra modules and scripts for CMake"
   homepage "https://api.kde.org/frameworks/extra-cmake-modules/html/index.html"
-  url "https://download.kde.org/stable/frameworks/6.4/extra-cmake-modules-6.4.0.tar.xz"
-  sha256 "ced3f20741ddad24185dc1280a0c0d9171ba2508f84762417d74808561295add"
+  url "https://download.kde.org/stable/frameworks/6.7/extra-cmake-modules-6.7.0.tar.xz"
+  sha256 "d81de82692d3d2bb77110332a65c8266252becc2c3f307ce814990ce5607b8dc"
   license all_of: ["BSD-2-Clause", "BSD-3-Clause", "MIT"]
   head "https://invent.kde.org/frameworks/extra-cmake-modules.git", branch: "master"
 
@@ -12,13 +12,7 @@ class ExtraCmakeModules < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "adb037066e20dba7a0ab283dbf60907ab56f23a44bc4724898056258b0052aa7"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "adb037066e20dba7a0ab283dbf60907ab56f23a44bc4724898056258b0052aa7"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "adb037066e20dba7a0ab283dbf60907ab56f23a44bc4724898056258b0052aa7"
-    sha256 cellar: :any_skip_relocation, sonoma:         "7649fd93f545227223d2e37dc464797a13795700de3b2b50184e10c625d315d2"
-    sha256 cellar: :any_skip_relocation, ventura:        "7649fd93f545227223d2e37dc464797a13795700de3b2b50184e10c625d315d2"
-    sha256 cellar: :any_skip_relocation, monterey:       "7649fd93f545227223d2e37dc464797a13795700de3b2b50184e10c625d315d2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "adb037066e20dba7a0ab283dbf60907ab56f23a44bc4724898056258b0052aa7"
+    sha256 cellar: :any_skip_relocation, all: "8e5488dde4cdbb0fbda40bb97bd1662394b88efcc9719375e12e9422b4296e0d"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -33,6 +27,10 @@ class ExtraCmakeModules < Formula
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
+
+    # Ensure uniform bottles.
+    inreplace_files = %w[prefix.sh.cmake prefix.sh.fish.cmake].map { |f| share/"ECM/kde-modules"/f }
+    inreplace inreplace_files, "/usr/local", HOMEBREW_PREFIX
   end
 
   test do

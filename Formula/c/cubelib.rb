@@ -11,6 +11,7 @@ class Cubelib < Formula
   end
 
   bottle do
+    sha256                               arm64_sequoia:  "a75f38bf5b5d38ddccdee16c72c4a3612edd497933e5f05c4cbb212ac60644d2"
     sha256                               arm64_sonoma:   "2b11087f52488b50b2828f240d8ab658c30c92aa29512b59d8b18dfe3366df43"
     sha256                               arm64_ventura:  "1d811d0574291b83062360b03a449d381dac2b229296bea739f33aeb1a17edfb"
     sha256                               arm64_monterey: "aadd710f61fc65f005f5e07ba91eebd5b4d7c91d47779b0fde316b9eeeb36992"

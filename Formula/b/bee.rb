@@ -6,13 +6,8 @@ class Bee < Formula
   license "MPL-1.1"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1b9536814860357752a5f4eaff76f26e4a1f28bb48dad82639e0fb285359254f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1b9536814860357752a5f4eaff76f26e4a1f28bb48dad82639e0fb285359254f"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "1b9536814860357752a5f4eaff76f26e4a1f28bb48dad82639e0fb285359254f"
-    sha256 cellar: :any_skip_relocation, sonoma:         "1b9536814860357752a5f4eaff76f26e4a1f28bb48dad82639e0fb285359254f"
-    sha256 cellar: :any_skip_relocation, ventura:        "1b9536814860357752a5f4eaff76f26e4a1f28bb48dad82639e0fb285359254f"
-    sha256 cellar: :any_skip_relocation, monterey:       "1b9536814860357752a5f4eaff76f26e4a1f28bb48dad82639e0fb285359254f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7ace438ba7c6eeced9c133566f3cccb1b0f5ec9daf106c7628ff6d73735e690a"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "99eb856182015001c6458a1b1010d14f2330f92e616da5388e6e64e191b81c76"
   end
 
   depends_on "openjdk"

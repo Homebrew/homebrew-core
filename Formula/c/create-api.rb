@@ -7,6 +7,7 @@ class CreateApi < Formula
   head "https://github.com/CreateAPI/CreateAPI.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "125fe793fe54ddf9e5603cabd21b699a1e8453b4cd3fd969e0cb4f124d310ac2"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8d17d4dbb015aa085d070861eae7aaac01bf63a5897b48489582fa88f350a620"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "1a23b2e7e6929d586771bcab06de3f1dd785918828dab95d9f58ae19e646c3ae"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f65b99b02709736555a41e9ae392c921acde1eac1a6cacc04e1977a3fd34228d"

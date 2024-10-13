@@ -7,6 +7,7 @@ class Lpc21isp < Formula
   license "LGPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "dc0f9ced6f8764ed8c4b7502ea6a4643621c3a4694530fbb9cfa02378b5ac760"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d7c6c595025ea9682779d982ece6f0bd5038a5e1284724aba37f93274ef35077"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "4ab5cc792a65bd498458aa93dc79e77e921c2cff17e1f17629915332b4e4134b"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "df672a0be96a7703b2f4ff5db9c8c5b322de22822ea0fc6749becea3d3a0cc21"

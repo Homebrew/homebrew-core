@@ -1,5 +1,3 @@
-require "language/node"
-
 class Postgraphile < Formula
   desc "GraphQL schema created by reflection over a PostgreSQL schema"
   homepage "https://www.graphile.org/postgraphile/"
@@ -9,20 +7,22 @@ class Postgraphile < Formula
   head "https://github.com/graphile/postgraphile.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "93aa60a1cb7e1f15b1efafc8e26b7e0474aaa6b30900bca94acd506df8ad5d1c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "93aa60a1cb7e1f15b1efafc8e26b7e0474aaa6b30900bca94acd506df8ad5d1c"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "93aa60a1cb7e1f15b1efafc8e26b7e0474aaa6b30900bca94acd506df8ad5d1c"
-    sha256 cellar: :any_skip_relocation, sonoma:         "166a675cb3012afad87ba3e40697d8c938f2bbefaa428f8fe2236eb86777b1fd"
-    sha256 cellar: :any_skip_relocation, ventura:        "166a675cb3012afad87ba3e40697d8c938f2bbefaa428f8fe2236eb86777b1fd"
-    sha256 cellar: :any_skip_relocation, monterey:       "166a675cb3012afad87ba3e40697d8c938f2bbefaa428f8fe2236eb86777b1fd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "93aa60a1cb7e1f15b1efafc8e26b7e0474aaa6b30900bca94acd506df8ad5d1c"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "e0c2fcfe4e73f4224b5b6a8605933278dda3c3be9e58c4547cbb0726e095133c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0d559cbf994b6369a77a7df1876d347add8774960443be089a655f28862f1400"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0d559cbf994b6369a77a7df1876d347add8774960443be089a655f28862f1400"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "0d559cbf994b6369a77a7df1876d347add8774960443be089a655f28862f1400"
+    sha256 cellar: :any_skip_relocation, sonoma:         "1f781319e03509553933493a7c96234f84ac88b9c0afde001b70e13b768bec23"
+    sha256 cellar: :any_skip_relocation, ventura:        "1f781319e03509553933493a7c96234f84ac88b9c0afde001b70e13b768bec23"
+    sha256 cellar: :any_skip_relocation, monterey:       "1f781319e03509553933493a7c96234f84ac88b9c0afde001b70e13b768bec23"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "680fa557c1ebef6293aa26a8b2003bba8b009e5e82d99d0bb4805b57e6e921bd"
   end
 
   depends_on "postgresql@16" => :test
   depends_on "node"
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", *std_npm_args
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 
@@ -39,7 +39,7 @@ class Postgraphile < Formula
     begin
       sleep 2
       system "#{pg_bin}/createdb", "test"
-      system "#{bin}/postgraphile", "-c", "postgres:///test", "-X"
+      system bin/"postgraphile", "-c", "postgres:///test", "-X"
     ensure
       Process.kill 9, pid
       Process.wait pid

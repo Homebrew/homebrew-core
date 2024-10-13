@@ -4,9 +4,11 @@ class Libtar < Formula
   url "https://repo.or.cz/libtar.git",
       tag:      "v1.2.20",
       revision: "0907a9034eaf2a57e8e4a9439f793f3f05d446cd"
+  license "NCSA"
 
   bottle do
     rebuild 2
+    sha256 cellar: :any,                 arm64_sequoia:  "4c4e12298ea2527d81b280592e4442f703eb59473e9b22c171ca70be11c90575"
     sha256 cellar: :any,                 arm64_sonoma:   "63c312ae75aea7e67be7285c6abb9a34ce0079fd4a9629f02c48fe23fb0a6ca0"
     sha256 cellar: :any,                 arm64_ventura:  "5b5d861d3e7a24bfbb41d37e9ab4efe883e9f9403d01b6dc1509480f23f7f80f"
     sha256 cellar: :any,                 arm64_monterey: "02f257866b2d60bc629d5c35f70f41889ab2254de7f29533ab01d600979d74c2"

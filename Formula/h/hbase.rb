@@ -8,6 +8,7 @@ class Hbase < Formula
   license all_of: ["Apache-2.0", "GPL-3.0-or-later"]
 
   bottle do
+    sha256 arm64_sequoia:  "19dea241e696a5e1c12a58990b808bc824db65c09818d7477aafc0dbc05d2707"
     sha256 arm64_sonoma:   "11ba47e0afce881f2c83dd1e2509afa361e34f8ec88d40af1e39d2e93907af05"
     sha256 arm64_ventura:  "93780e9e8890d52fa9fe5abb65a6b0a3fa3c62bad7c3537c7d5af91df82536fb"
     sha256 arm64_monterey: "48a35c5ca383c0aab3908f213dd0109277aba48d2f57582a5eccdc62403e4783"
@@ -42,7 +43,7 @@ class Hbase < Formula
 
   def install
     java_home = Language::Java.java_home("11")
-    rm_f Dir["bin/*.cmd", "conf/*.cmd"]
+    rm(Dir["bin/*.cmd", "conf/*.cmd"])
     libexec.install %w[bin conf lib hbase-webapps]
 
     # Some binaries have really generic names (like `test`) and most seem to be
@@ -161,12 +162,12 @@ class Hbase < Formula
     ENV["HBASE_CONF_DIR"] = testpath/"conf"
     ENV["HBASE_PID_DIR"]  = testpath/"pid"
 
-    system "#{bin}/start-hbase.sh"
+    system bin/"start-hbase.sh"
     sleep 15
     begin
       assert_match "Zookeeper", pipe_output("nc 127.0.0.1 #{port} 2>&1", "stats")
     ensure
-      system "#{bin}/stop-hbase.sh"
+      system bin/"stop-hbase.sh"
     end
   end
 end

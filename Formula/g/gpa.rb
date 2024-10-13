@@ -1,7 +1,8 @@
 class Gpa < Formula
   desc "Graphical user interface for the GnuPG"
   homepage "https://www.gnupg.org/related_software/gpa/"
-  revision 3
+  license "GPL-3.0-or-later"
+  revision 4
 
   stable do
     url "https://gnupg.org/ftp/gcrypt/gpa/gpa-0.10.0.tar.bz2"
@@ -17,13 +18,13 @@ class Gpa < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "61cec27ce8123b84e46f47630a9167e70b30c9ef6166c3a62260f242e48b4969"
-    sha256 arm64_ventura:  "1b4cca4d1ed836422734ca61db7900a99d7e2f9f7149b004dedef0c138f1dca8"
-    sha256 arm64_monterey: "f9f340091302287952e582f36bbe28762de66004dcbc430d7995d773e6417904"
-    sha256 sonoma:         "2686eeaf74794536fac813bbace0ab49100de3a53e8839fb2756b9cc4ec2275f"
-    sha256 ventura:        "c20a1ab617533f04bd338f57fa9ccd8b0e299faff92b080a9bbd05ba3a1b4a45"
-    sha256 monterey:       "b64fce454547afc4392698cbacb5780f05923ab26baf60843e68766d4817f10a"
-    sha256 x86_64_linux:   "a0ea367820fa2702f1f04dde97fb0fb8632dfe69221148a3a2bd0dba1170c818"
+    sha256 arm64_sonoma:   "9623cd359c6d3fa33bc0e24f05511b18a9302683aa9517d3ff462055d794780b"
+    sha256 arm64_ventura:  "d7b108de57be92858293117242e4936bd8c89d04d0eb2beda5651054bf3281dc"
+    sha256 arm64_monterey: "1fd644f78fd079f2cba7855e3972307dae86c0f9153589c23cd45c1ec69e5dc3"
+    sha256 sonoma:         "3ff853e6943714626477e904c5b18b033e2177355eb61fad5ef8c701878cadad"
+    sha256 ventura:        "0e82a2924eb523bc86d8008c89a8f05b99a4bc5b9b3c8d26e0758e8187b9da16"
+    sha256 monterey:       "49fa165f0c5dab39320c4f586fd6129dd770956b2296c32b1d3c4b45267bd21d"
+    sha256 x86_64_linux:   "5c8b02af48db9fe00d090e86c47d0977d10cb4427f8da5a83610b941aa59c5f2"
   end
 
   head do
@@ -34,18 +35,35 @@ class Gpa < Formula
     depends_on "gtk+3"
   end
 
+  depends_on "desktop-file-utils" => :build
   depends_on "pkg-config" => :build
-  depends_on "desktop-file-utils"
+
+  depends_on "gdk-pixbuf"
+  depends_on "glib"
   depends_on "gpgme"
+  depends_on "libassuan"
+  depends_on "libgpg-error"
+
+  uses_from_macos "zlib"
+
+  on_macos do
+    depends_on "at-spi2-core"
+    depends_on "cairo"
+    depends_on "gettext"
+    depends_on "harfbuzz"
+    depends_on "pango"
+  end
 
   def install
+    inreplace "configure", "NEED_LIBASSUAN_API=2", "NEED_LIBASSUAN_API=3"
+
     system "./autogen.sh" if build.head?
-    system "./configure", *std_configure_args, "--disable-silent-rules"
+    system "./configure", "--disable-silent-rules", *std_configure_args.reject { |s| s["--disable-debug"] }
     system "make"
     system "make", "install"
   end
 
   test do
-    system "#{bin}/gpa", "--version"
+    system bin/"gpa", "--version"
   end
 end

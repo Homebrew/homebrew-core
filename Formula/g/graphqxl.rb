@@ -7,6 +7,7 @@ class Graphqxl < Formula
   head "https://github.com/gabotechs/graphqxl.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "18eac4ebc83fcdae08fbc9fb551a1bcb8482c335a6fb8e8dcbbf4094b2d68a54"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "db650e0cf356bd6d3110efdee992a5fa0274aefe1c1234f3346088892f5fb4ef"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "da797791cfabeead0366235dac708006bfedb1484dee814bc50099c8fbb63b74"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "eaa39d46d3686e1333450664b027cbc6c3647da3500f7dcd579562cb7be434fd"

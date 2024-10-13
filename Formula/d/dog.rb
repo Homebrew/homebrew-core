@@ -20,8 +20,7 @@ class Dog < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "55daa95c827fd102b2599978ebbc0fb60d497395388531533891c8d2a28ff3b4"
   end
 
-  # Match deprecation date of `openssl@1.1`
-  deprecate! date: "2023-09-11", because: :unmaintained
+  disable! date: "2024-08-01", because: :unmaintained
 
   depends_on "just" => :build
   depends_on "pandoc" => :build

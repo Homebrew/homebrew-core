@@ -8,6 +8,7 @@ class Xcdiff < Formula
   head "https://github.com/bloomberg/xcdiff.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "06240c49805b2754aa58f4af7ef68d27cc040617edfe955197425c664aec8909"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4832eb6d349280c80983cdbe96bf82e7e50c90b84415af332f9d052d2e45a67c"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "ae3e9ee0a986720d74a76539312f5a3d7c2e1ea4551863ecc87da4438dd94c5a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "3fe13c6d9dff8984aa4a448e01cefeec459bd5ab2a0ee0c7334de9671d4ba1d0"

@@ -1,25 +1,25 @@
 class Libzim < Formula
   desc "Reference implementation of the ZIM specification"
   homepage "https://github.com/openzim/libzim"
-  url "https://github.com/openzim/libzim/archive/refs/tags/9.2.2.tar.gz"
-  sha256 "458d89638606eeabaad5098b0ede7a76396cbcb6c13fb2413afee601b5c1e0c6"
+  url "https://github.com/openzim/libzim/archive/refs/tags/9.2.3.tar.gz"
+  sha256 "7c6e7fcaf5bc82447edb12c6c573779af6d77b3b79227da57586e81c4e13f1bf"
   license "GPL-2.0-or-later"
+  revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_sonoma:   "f83fd067641489425d3fa3ae7f3cf2a627696a5541fa3ffa1ac572371af9e4b2"
-    sha256 cellar: :any, arm64_ventura:  "42621239e15d98381be121547ae72a934002803960b24e0024389dee5a47483c"
-    sha256 cellar: :any, arm64_monterey: "da7e67709552664de6c396e147ce17856a6e016f0f44c4e12e5d329c6cd0b3ef"
-    sha256 cellar: :any, sonoma:         "4a71785c0b0f098e415e15a8459e60c39303fc8483d6020670761e51cfb6cacf"
-    sha256 cellar: :any, ventura:        "a5bf445ba0ee120e54258115f155a4c209fbdfc825239f8ce33c932dc51e0764"
-    sha256 cellar: :any, monterey:       "a0152ba9f6a7d6886e262920998baaf7d150288a1da632410896af708337c62f"
-    sha256               x86_64_linux:   "c364201ab0b742ab021eeff51c753f88b303e38a6266ca6398193f06c171c059"
+    sha256 cellar: :any, arm64_sequoia: "d339d5a5890ded1fb8757e081dd2e4d528e3e67e40076b10a0dd15cc82d56723"
+    sha256 cellar: :any, arm64_sonoma:  "aae5883407ff954530cb2821d78c0915d7136114cc4248fde3273c391eefc6c0"
+    sha256 cellar: :any, arm64_ventura: "590039265eea1d2575e5762ca1dcf3da86fa5227030452ea7153e567e6a50bd6"
+    sha256 cellar: :any, sonoma:        "f93174721a118c10a1a457910848da7bd9362276c5e7783ee5c8c6d0b3eaa2df"
+    sha256 cellar: :any, ventura:       "ce832e8ec4c125cb7a1a16b6ba016f36a4d2b2759df2c50a05ae74b0a5b5604f"
+    sha256               x86_64_linux:  "60f68c10567a9b1f4268af4ac89b9a910e4e69f9c864ec7d96a4e154a86521a7"
   end
 
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
 
-  depends_on "icu4c"
+  depends_on "icu4c@75"
   depends_on "xapian"
   depends_on "xz"
   depends_on "zstd"

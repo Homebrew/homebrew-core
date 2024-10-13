@@ -6,6 +6,7 @@ class Soapyremote < Formula
   license "BSL-1.0"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "45db2916465bc4c352d69c0089f03f2fc39f1fe7c0dd193f657dd21f44b5be43"
     sha256 cellar: :any,                 arm64_sonoma:   "ffe12b4564bf9090e8d20a8befd7f1ae66783c90395052fe016f44bd0ada6343"
     sha256 cellar: :any,                 arm64_ventura:  "2bfd849620a751a566c7eea4101c31ee70b685bd220275171f5d3fa5ab615fee"
     sha256 cellar: :any,                 arm64_monterey: "abbd8323df9212a717d9d6dbf19fdb24fd55665548bdb5bd27111c7dbd523e6f"

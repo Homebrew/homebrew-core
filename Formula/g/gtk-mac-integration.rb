@@ -34,6 +34,7 @@ class GtkMacIntegration < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_sequoia:  "f59ce737b0f88f41843b30e34d87c58769e99e2f0d59d217d9ddefecc7b2d4db"
     sha256 arm64_sonoma:   "b538f4f624bda8680cf08cd1a26a41f3dd8e0d16c4c52db4543a737554c068a2"
     sha256 arm64_ventura:  "f134dfb863936707bcf6927e9fcba8c50fee3faed9084e0fba72b1f7f8352df7"
     sha256 arm64_monterey: "581818e7d81cb28e844189d94bea6bbd186f166b32bfd36991bc37b662946ab9"
@@ -53,18 +54,25 @@ class GtkMacIntegration < Formula
 
   depends_on "gobject-introspection" => :build
   depends_on "pkg-config" => [:build, :test]
+  depends_on "at-spi2-core"
+  depends_on "cairo"
+  depends_on "gdk-pixbuf"
   depends_on "gettext"
+  depends_on "glib"
   depends_on "gtk+3"
+  depends_on "harfbuzz"
   depends_on :macos
+  depends_on "pango"
 
   def install
     configure = build.head? ? "./autogen.sh" : "./configure"
-    system configure, *std_configure_args,
-                      "--disable-silent-rules",
+
+    system configure, "--disable-silent-rules",
                       "--without-gtk2",
                       "--with-gtk3",
                       "--enable-introspection=yes",
-                      "--enable-python=no"
+                      "--enable-python=no",
+                      *std_configure_args
     system "make", "install"
   end
 

@@ -9,6 +9,7 @@ class Jnethack < Formula
   head "https://github.com/jnethack/jnethack-release.git", branch: "master"
 
   bottle do
+    sha256 arm64_sequoia:  "05dc1796a9fb75fac1d0d63a9fc31a7773f1ddd4e3a0351301899847ca6aba48"
     sha256 arm64_sonoma:   "bae280dd42e8d357d686b2482676de03a1acd4b65b5eefcae753bba91fc42951"
     sha256 arm64_ventura:  "44ca7f443ece59eef081c6d4a270d6aa63f6bd4d6bc173c7cfbd991dd2fb743b"
     sha256 arm64_monterey: "3f4432dcdbf52b38e53446c0f35ec23d6d7438cc019b3b7587aaf5a28187e799"
@@ -78,7 +79,7 @@ class Jnethack < Formula
   end
 
   test do
-    system "#{bin}/jnethack", "-s"
+    system bin/"jnethack", "-s"
     assert_match (HOMEBREW_PREFIX/"share/jnethack").to_s,
       shell_output("#{bin}/jnethack --showpaths")
   end

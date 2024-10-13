@@ -11,6 +11,7 @@ class Gtkx3 < Formula
   end
 
   bottle do
+    sha256 arm64_sequoia:  "abbf588f64811f61c3e36cedabbc6d3cbe1187124e15c34362dd73b7fc9fb3ce"
     sha256 arm64_sonoma:   "b3981b071d6b1214820c5be272256d1058a5f7db57fccb70da713516e2bad714"
     sha256 arm64_ventura:  "b28221d07db5b16ce517acde4a9bdf2527f1c7f95e98a203278655f1149063d4"
     sha256 arm64_monterey: "a026a7b6e8b6004a4090552abfb8eb458571773edcab0f3c71fd2cdb7eca0c3f"
@@ -27,21 +28,38 @@ class Gtkx3 < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => [:build, :test]
+
   depends_on "at-spi2-core"
+  depends_on "cairo"
+  depends_on "fribidi"
   depends_on "gdk-pixbuf"
   depends_on "glib"
   depends_on "gsettings-desktop-schemas"
+  depends_on "harfbuzz"
   depends_on "hicolor-icon-theme"
   depends_on "libepoxy"
   depends_on "pango"
 
   uses_from_macos "libxslt" => :build # for xsltproc
 
+  on_macos do
+    depends_on "gettext"
+  end
+
   on_linux do
     depends_on "cmake" => :build
-    depends_on "cairo"
+
+    depends_on "fontconfig"
     depends_on "iso-codes"
+    depends_on "libx11"
+    depends_on "libxdamage"
+    depends_on "libxext"
+    depends_on "libxfixes"
+    depends_on "libxi"
+    depends_on "libxinerama"
     depends_on "libxkbcommon"
+    depends_on "libxrandr"
+    depends_on "wayland"
     depends_on "wayland-protocols"
     depends_on "xorgproto"
   end
@@ -75,7 +93,7 @@ class Gtkx3 < Formula
   def post_install
     system "#{Formula["glib"].opt_bin}/glib-compile-schemas", "#{HOMEBREW_PREFIX}/share/glib-2.0/schemas"
     system bin/"gtk3-update-icon-cache", "-f", "-t", "#{HOMEBREW_PREFIX}/share/icons/hicolor"
-    system "#{bin}/gtk-query-immodules-3.0 > #{HOMEBREW_PREFIX}/lib/gtk-3.0/3.0.0/immodules.cache"
+    system bin/"gtk-query-immodules-3.0 > #{HOMEBREW_PREFIX}/lib/gtk-3.0/3.0.0/immodules.cache"
   end
 
   test do
@@ -87,6 +105,7 @@ class Gtkx3 < Formula
         return 0;
       }
     EOS
+
     flags = shell_output("pkg-config --cflags --libs gtk+-3.0").chomp.split
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"

@@ -9,6 +9,7 @@ class Licensefinder < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "79f4e016ce9a7863fb1a8af0b6d05fbddda4d7bd73e0eb88e5fcdc167c0576be"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f393a73ba947c00a0a5c85d6ad643711f88b8432a8b02240e95fbc6897ae7b0c"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "d67039d8af9f8d4cb432b87d702b63596c32a3df5ee9873c827a2d65c73c387c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "94181e5784a74c2ce1c6ef53ca3036abfdacaf79a44c4cc0a36bacd316e57f67"

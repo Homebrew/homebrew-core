@@ -6,7 +6,8 @@ class HopscotchMap < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "b6648668ff7fc81f659f054a309842d77531b155a292f20ecdff5fa776ab7082"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "c7e9170bcfbca171cce4515cad7ff32963dfc5ae0f364a5e99ee20839c8682cb"
   end
 
   depends_on "cmake" => :build

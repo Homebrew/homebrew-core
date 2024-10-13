@@ -7,6 +7,7 @@ class Jvgrep < Formula
   head "https://github.com/mattn/jvgrep.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "963ff6621f2dc1267f68d17325513c073972ccbf6d49593426755d3431af5179"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "75446e73d07e20f8f669a8aad8d06afa0ce4af12646e77c76cc985df3190a6a0"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "75446e73d07e20f8f669a8aad8d06afa0ce4af12646e77c76cc985df3190a6a0"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "75446e73d07e20f8f669a8aad8d06afa0ce4af12646e77c76cc985df3190a6a0"

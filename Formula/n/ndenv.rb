@@ -7,6 +7,7 @@ class Ndenv < Formula
   head "https://github.com/riywo/ndenv.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "8650428e672ef45ea98634ed9e024064c9c23e4604fb7f423fe5d7e12cd13f96"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "64537c94265589e52b05cd90de6998880d58960ee25ea3c2d207e92107b6b10d"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "3e3e31b092194e5f29f15cd18ce26de6fa69dc372b05850f86effa058de0c681"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "3e3e31b092194e5f29f15cd18ce26de6fa69dc372b05850f86effa058de0c681"
@@ -36,7 +37,7 @@ class Ndenv < Formula
     end
 
     prefix.install "bin", "completions", "libexec"
-    system "#{bin}/ndenv", "rehash"
+    system bin/"ndenv", "rehash"
   end
 
   test do

@@ -9,11 +9,12 @@ class VagrantCompletion < Formula
   head "https://github.com/hashicorp/vagrant.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "1e505842b21fff086e13163e635da612316a8d1c3ef598744f773996c692ffa3"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "b0d411d4cb2f9c85c5f2fb8443dd25bcf8b7624c49019abf613ebd8caa38314f"
   end
 
   # https://www.hashicorp.com/blog/hashicorp-adopts-business-source-license
-  deprecate! date: "2023-09-27", because: "will change its license to BUSL on the next release"
+  disable! date: "2024-09-27", because: "will change its license to BUSL on the next release"
 
   def install
     bash_completion.install "contrib/bash/completion.sh" => "vagrant"

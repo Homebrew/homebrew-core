@@ -7,6 +7,7 @@ class SwitchLanPlay < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "62c1155ae43a4751ab7efaeee9e02c57e8782186aac73312eb874289f7e6aec4"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8281272397493ebd6fad9f2f53d61c62bd0302c1d3e898a0002874ab6c4ffce4"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "b4caf1d51243835a1c8816372f07bce843840f38f0a8ceaad42dbd19c15fe9c5"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f119af26760223542641ba4596c31ae3b4418b6ed955a2d5198fdc15aa6d23d5"
@@ -26,10 +27,9 @@ class SwitchLanPlay < Formula
   uses_from_macos "libpcap"
 
   def install
-    mkdir "build" do
-      system "cmake", "..", *std_cmake_args
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do

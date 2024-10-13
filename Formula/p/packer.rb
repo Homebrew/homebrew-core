@@ -10,6 +10,7 @@ class Packer < Formula
   head "https://github.com/hashicorp/packer.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "d67db7e0fdf90d1d7531d79c42383ded2451fe88b6c3da67342a3b29e2cda2f8"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a88ef4032fc80f0347ece6d35b91a41ebed9aed3ed04af63d1dd03e809d324aa"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "e14a06bebe83306fa56aade8483619adaf96fd85fb1a00ee7b6369b55b631995"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "05ab86d40ff440b8ccc078834079db25b5c1b68503e43cd6a04770dd73a6630c"
@@ -22,7 +23,7 @@ class Packer < Formula
   end
 
   # https://www.hashicorp.com/blog/hashicorp-adopts-business-source-license
-  deprecate! date: "2023-09-27", because: "will change its license to BUSL on the next release"
+  disable! date: "2024-09-27", because: "will change its license to BUSL on the next release"
 
   depends_on "go" => :build
 
@@ -66,6 +67,6 @@ class Packer < Formula
         }]
       }
     EOS
-    system "#{bin}/packer", "validate", "-syntax-only", minimal
+    system bin/"packer", "validate", "-syntax-only", minimal
   end
 end

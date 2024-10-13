@@ -12,6 +12,7 @@ class Sentencepiece < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "5865d6a86cf12fb46ad1c78801df76607ff5f06e85688f5a2f50eb62ab229065"
     sha256 cellar: :any,                 arm64_sonoma:   "be81111eedcf3e3052c9a5732545334e05e639266e65da1de411b4f9ae2ec087"
     sha256 cellar: :any,                 arm64_ventura:  "c01378960b8a4033dd3d46e91cd4d539efc0338a13e275c4c1e0e2a93cc5259d"
     sha256 cellar: :any,                 arm64_monterey: "05052dcf7866538c81635dc87207357c0e76a01da049495877c876b6daa21851"
@@ -26,16 +27,15 @@ class Sentencepiece < Formula
   fails_with gcc: "5"
 
   def install
-    mkdir "build" do
-      system "cmake", "..", *std_cmake_args
-      system "make"
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
+
     pkgshare.install "data"
   end
 
   test do
     cp (pkgshare/"data/botchan.txt"), testpath
-    system "#{bin}/spm_train", "--input=botchan.txt", "--model_prefix=m", "--vocab_size=1000"
+    system bin/"spm_train", "--input=botchan.txt", "--model_prefix=m", "--vocab_size=1000"
   end
 end

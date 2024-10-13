@@ -6,6 +6,7 @@ class PayloadDumperGo < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "0bfc3c97eee0d98c057f01c4c385e41d509ddf652d3af6fd2ffbe4180671e165"
     sha256 cellar: :any,                 arm64_sonoma:   "2ab52724e453a1251da160820b365beffcdb4cb3d6dd33181a8ee2d38acf46f6"
     sha256 cellar: :any,                 arm64_ventura:  "25c0c53def464b6cceea25fa70841e56d0b9e11f3f52101443bd6032bf6958e0"
     sha256 cellar: :any,                 arm64_monterey: "8f6b5106876e00cf046896bd48778bf29ad23f2455ff22bc005a5f4fa65c5353"

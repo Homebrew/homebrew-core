@@ -7,6 +7,7 @@ class Hamlib < Formula
   head "https://github.com/hamlib/hamlib.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "8406c21b77dcaec4da05c92bcd6427e71cd7b3d287857b52d9f1bb7586292ec4"
     sha256 cellar: :any,                 arm64_sonoma:   "458b25ee925c1e679efe780813e20c1a7477fdf86ac0cdcb77d7921e2301ec3f"
     sha256 cellar: :any,                 arm64_ventura:  "273a45da72d9e209e76bd20c4b699207f6fea5b6483dfa2f3a6f5837ed596ce9"
     sha256 cellar: :any,                 arm64_monterey: "2d2952caeac114ef9bb6794cd7e609fcd275508eef0cb6e536802a4741b74145"
@@ -22,18 +23,22 @@ class Hamlib < Formula
   depends_on "automake" => :build
   depends_on "pkg-config" => :build
   depends_on "libtool"
+  depends_on "libusb"
   depends_on "libusb-compat"
+
+  on_linux do
+    depends_on "readline"
+  end
 
   fails_with gcc: "5"
 
   def install
     system "./bootstrap" if build.head?
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    system "./configure", "--disable-silent-rules", *std_configure_args
     system "make", "install"
   end
 
   test do
-    system "#{bin}/rigctl", "-V"
+    system bin/"rigctl", "-V"
   end
 end

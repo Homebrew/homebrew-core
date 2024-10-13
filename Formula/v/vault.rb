@@ -24,7 +24,7 @@ class Vault < Formula
   end
 
   # https://www.hashicorp.com/blog/hashicorp-adopts-business-source-license
-  deprecate! date: "2023-09-27", because: "will change its license to BUSL on the next release"
+  disable! date: "2024-09-27", because: "will change its license to BUSL on the next release"
 
   depends_on "go" => :build
   depends_on "node" => :build

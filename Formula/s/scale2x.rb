@@ -3,9 +3,10 @@ class Scale2x < Formula
   homepage "https://www.scale2x.it/"
   url "https://github.com/amadvance/scale2x/releases/download/v4.0/scale2x-4.0.tar.gz"
   sha256 "996f2673206c73fb57f0f5d0e094d3774f595f7e7e80fcca8cc045e8b4ba6d32"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "15f0e0d3d8c68339cfd69eacf4c0fe5ae65ddb27e69ce289df33875c730b4559"
     sha256 cellar: :any,                 arm64_sonoma:   "74863678d188209041dd4746830686ec7a93f2acf7dc492d647ca8f3d23802fd"
     sha256 cellar: :any,                 arm64_ventura:  "bff379927979a35d8106edb039f4654afee5c4d973fd26a2b1f6d6a6979540ed"
     sha256 cellar: :any,                 arm64_monterey: "fdc15180cc28f6677f0a14647292744970707eb9e0302bbc95ec65f902f935ce"

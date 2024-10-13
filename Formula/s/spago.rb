@@ -23,6 +23,11 @@ class Spago < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "aa71b6e0cbd41ac5c0bb966030f1fe4ca2d1dbc11c19162a9407cd0d0d5d82ab"
   end
 
+  # Current release is for deprecated `spago-legacy` that does not build with GHC 9.4+
+  # due to `spago -> bower-json -> aeson-better-errors -> aeson<2.1 -> ghc-prim<0.9`.
+  # Can be un-deprecated/restored if PureScript rewrite has a stable release.
+  deprecate! date: "2024-08-15", because: "depends on GHC 9.2 to build"
+
   depends_on "ghc@9.2" => :build
   depends_on "haskell-stack" => :build
   depends_on "purescript"

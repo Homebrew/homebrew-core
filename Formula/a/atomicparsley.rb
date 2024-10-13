@@ -9,6 +9,7 @@ class Atomicparsley < Formula
   head "https://github.com/wez/atomicparsley.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "8a224c8a6e91bac8c95b78e70797b63f260e0958cb724e2884868b7720739f93"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f08cfa8a20add56a8a17d2356dccdfd59065dc969e6d3fc1ede0978d46185f9d"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "05d19096d14878111b050374bbdafcc19cb453c068cd24106766edb5e6889d6f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "bb99a7c912436b15676ed135f18c3e687eeef23b4dc2f92c962f40c6ec4aae19"
@@ -32,7 +33,8 @@ class Atomicparsley < Formula
 
   test do
     cp test_fixtures("test.m4a"), testpath/"file.m4a"
-    system "#{bin}/AtomicParsley", testpath/"file.m4a", "--artist", "Homebrew", "--overWrite"
+
+    system bin/"AtomicParsley", testpath/"file.m4a", "--artist", "Homebrew", "--overWrite"
     output = shell_output("#{bin}/AtomicParsley file.m4a --textdata")
     assert_match "Homebrew", output
   end

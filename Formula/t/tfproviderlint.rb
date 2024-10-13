@@ -7,6 +7,7 @@ class Tfproviderlint < Formula
   head "https://github.com/bflad/tfproviderlint.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "899b4934ed99c3cfaa213808c2122a7041fd05fddd7a1a5ffae477eb51b391bc"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0c2c25e4b2784edc72ad3b250a15a1770b75be362bc7a852efbc39f19fc158b0"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "0c2c25e4b2784edc72ad3b250a15a1770b75be362bc7a852efbc39f19fc158b0"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "0c2c25e4b2784edc72ad3b250a15a1770b75be362bc7a852efbc39f19fc158b0"

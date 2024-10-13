@@ -12,6 +12,7 @@ class Pixman < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia:  "f215e1e85be34c4b7ba664ee965ad4c76c6af611884b3af4cf7a3ae36e13351c"
     sha256 cellar: :any,                 arm64_sonoma:   "d355a294d3f9152479c2c0905efbeb329aef9cb27b9ae12e2a4ea6a4f41f2174"
     sha256 cellar: :any,                 arm64_ventura:  "e27867c503bd9cf858159261e053184d19ae00357dc89426810f80734aaaefd0"
     sha256 cellar: :any,                 arm64_monterey: "5270c55dc707a887b832b47324b82a6e69657ebb7ecd72843080f1e54a5bfc8b"

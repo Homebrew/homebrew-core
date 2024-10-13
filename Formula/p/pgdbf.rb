@@ -3,9 +3,10 @@ class Pgdbf < Formula
   homepage "https://github.com/kstrauser/pgdbf"
   url "https://downloads.sourceforge.net/project/pgdbf/pgdbf/0.6.2/pgdbf-0.6.2.tar.xz"
   sha256 "e46f75e9ac5f500bd12c4542b215ea09f4ebee638d41dcfd642be8e9769aa324"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "a1747cf572e94ce2d46311dc5f7d13f736e22f0b1be93a3abd0fb8e1c3d781ac"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "35cd208c6ab173a31b1732a64b19ae4a9f34d127ec6dbfed163452e5227c6e50"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "c2ecba3b5b9e4803f45f71afbaf66d85333ec329f74513123dbfdc9822b803c6"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "2743386480c1d76708d184813b77daadec3bc7a70a542647308c9fb414aa65e3"

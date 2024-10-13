@@ -11,6 +11,7 @@ class Enigma < Formula
   end
 
   bottle do
+    sha256 arm64_sequoia:  "17fdbd4347b8e2adb9e1459f25c8669c1e3cd155099451d5ec0d6ebf70faeec2"
     sha256 arm64_sonoma:   "d3eae767601812b3250106ccaaccdfb1106e94e9e1242ef0537fbb09e47936c3"
     sha256 arm64_ventura:  "29d4ab1fe62d50bf1ff571784ce4f58bfc52bfdf1dc5c745566a59220ec0dda4"
     sha256 arm64_monterey: "d03595cec1ddb59025fcecbf6888f4aa111ea3109248dad844afff91da8589cc"
@@ -33,9 +34,9 @@ class Enigma < Formula
 
   depends_on "imagemagick" => :build
   depends_on "pkg-config" => :build
+
   depends_on "enet"
   depends_on "freetype"
-  depends_on "gettext"
   depends_on "libpng"
   depends_on "sdl2"
   depends_on "sdl2_image"
@@ -43,12 +44,16 @@ class Enigma < Formula
   depends_on "sdl2_ttf"
   depends_on "xerces-c"
 
+  uses_from_macos "curl"
+  uses_from_macos "zlib"
+
+  on_macos do
+    depends_on "gettext"
+  end
+
   def install
     system "./autogen.sh" if build.head?
-    system "./configure", "--disable-dependency-tracking",
-                          "--with-system-enet",
-                          "--prefix=#{prefix}"
-    system "make"
+    system "./configure", "--with-system-enet", *std_configure_args
     system "make", "install"
   end
 

@@ -6,6 +6,7 @@ class GitGrab < Formula
   license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "0c36c3682e20265f64e618b402fcdddd2294c5c4b539dbf4e2e4b4290df60b7b"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "346664a21b98d75605e66a33e2153205aa74ea192a8ed245b159091a4badba16"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "96ac1b16e32435e070d1cc16440117a5ca97fcc72e1d7532f9905142bcce4081"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "407ed850f5b4f7ee7b0d575e1013517ecc19333048e59ff5d582b9d828f68134"

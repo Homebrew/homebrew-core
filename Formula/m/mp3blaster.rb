@@ -3,10 +3,11 @@ class Mp3blaster < Formula
   homepage "https://mp3blaster.sourceforge.io"
   url "https://downloads.sourceforge.net/project/mp3blaster/mp3blaster/mp3blaster-3.2.6/mp3blaster-3.2.6.tar.gz"
   sha256 "43d9f656367d16aaac163f93dc323e9843c3dd565401567edef3e1e72b9e1ee0"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
   revision 1
 
   bottle do
+    sha256 arm64_sequoia:  "63db46a60c041370f9850800c5db80e4aae38d3bf3f2320cbbfcc03e5bffa2d5"
     sha256 arm64_sonoma:   "8ead649ae9cf1daec1f1c2d15c527c9beb9b51039668fed085857a33e83f7cae"
     sha256 arm64_ventura:  "301c45f8598765fdfacdbd773046f77406714c334946c6778cf7334b18004dbb"
     sha256 arm64_monterey: "7ec5e7135245bad785d3267ee2dcca69442a9bf6e8e2922ef8cfd2d4632cdb4a"
@@ -32,6 +33,6 @@ class Mp3blaster < Formula
   end
 
   test do
-    system "#{bin}/mp3blaster", "--version"
+    system bin/"mp3blaster", "--version"
   end
 end

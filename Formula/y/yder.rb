@@ -6,6 +6,7 @@ class Yder < Formula
   license "LGPL-2.1-only"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "742de6bb638644e32ac9153a26fb2cecbaa8575b765ab4166221389efc71b80e"
     sha256 cellar: :any,                 arm64_sonoma:   "17f19f57371282f824f622fbc956fbdb620cc2f41558e2b7a046ee80afab7594"
     sha256 cellar: :any,                 arm64_ventura:  "1a40a4adeff343167112cb5887cf8e91bfdcad589eb56197d4b3ceffa38ac6c0"
     sha256 cellar: :any,                 arm64_monterey: "4619ff198f36c61f6f6602cb33ef2f440eb69d694fcd9cad88f8f9d82db9d028"

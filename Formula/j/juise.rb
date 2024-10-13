@@ -6,6 +6,7 @@ class Juise < Formula
   license "BSD-3-Clause"
 
   bottle do
+    sha256 arm64_sequoia:  "6af556ee98a8a762f5721c50f86c9048a55746ff3cb3dabf2e2cc20779fd3c6e"
     sha256 arm64_sonoma:   "b395c2ab2ea0eb3b6bd27e6a22c6e4f42c25ecec3e4234fc1cb93043fe045ef9"
     sha256 arm64_ventura:  "aa41977eccd9e96859f15b224c284e7c023c2ecb295bbe26d623f8e4a6a17428"
     sha256 arm64_monterey: "75d29b3e43dcb50f2d05c5884bfdd6c224c6bcd161461e9dff7f8a5c2ca26933"

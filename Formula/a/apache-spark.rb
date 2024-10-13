@@ -1,10 +1,10 @@
 class ApacheSpark < Formula
   desc "Engine for large-scale data processing"
   homepage "https://spark.apache.org/"
-  url "https://dlcdn.apache.org/spark/spark-3.5.1/spark-3.5.1-bin-hadoop3.tgz"
-  mirror "https://archive.apache.org/dist/spark/spark-3.5.1/spark-3.5.1-bin-hadoop3.tgz"
-  version "3.5.1"
-  sha256 "5df15f8027067c060fe47ebd351a1431a61dbecc9c28b8dd29e2c6e1935c23eb"
+  url "https://dlcdn.apache.org/spark/spark-3.5.3/spark-3.5.3-bin-hadoop3.tgz"
+  mirror "https://archive.apache.org/dist/spark/spark-3.5.3/spark-3.5.3-bin-hadoop3.tgz"
+  version "3.5.3"
+  sha256 "173651a8a00f5bf0ee27b74d817e0e52eed9daa49fd66d59718994974d1d367d"
   license "Apache-2.0"
   head "https://github.com/apache/spark.git", branch: "master"
 
@@ -16,7 +16,7 @@ class ApacheSpark < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "79ec442b9aaf93f302007436b8c5194b67e2cdfbcf57f89a7cffb3bf90a3cf54"
+    sha256 cellar: :any_skip_relocation, all: "57a6975ec946b5e729579e522a0c5fd733a3f951c3ac47b0954805c573ffad13"
   end
 
   depends_on "openjdk@17"
@@ -25,7 +25,7 @@ class ApacheSpark < Formula
     # Rename beeline to distinguish it from hive's beeline
     mv "bin/beeline", "bin/spark-beeline"
 
-    rm_f Dir["bin/*.cmd"]
+    rm(Dir["bin/*.cmd"])
     libexec.install Dir["*"]
     bin.install Dir[libexec/"bin/*"]
     bin.env_script_all_files(libexec/"bin", JAVA_HOME: Language::Java.overridable_java_home_env("17")[:JAVA_HOME])

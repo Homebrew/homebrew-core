@@ -6,6 +6,7 @@ class Wasm3 < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "e1474dcff8363a2a7dcb417ad9283451a35d4093b04b6ab3733322fff4e7ccd8"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "680ffd68e28697616852a52512fb9f5554be62d626bead5fd48f88c1467e7c15"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "4c9cf7f5b53013777afa1f71208a33be93101782cd587b1b4820e6e734849260"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "cb3038ca004157e4e7275ecfb3bce34d430651fda20dfe6044658bdb3c2b3afe"
@@ -22,17 +23,20 @@ class Wasm3 < Formula
   depends_on "cmake" => :build
 
   def install
-    mkdir "build" do
-      system "cmake", "..", *std_cmake_args
-      system "cmake", "--build", "."
-      bin.install "wasm3"
-    end
-    # fib32.wasm is used for testing
-    prefix.install "test/lang/fib32.wasm"
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build"
+    bin.install "build/wasm3"
   end
 
   test do
+    resource "homebrew-fib32.wasm" do
+      url "https://github.com/wasm3/wasm3/raw/ae7b69b6d2f4d8561c907d1714d7e68b48cddd9e/test/lang/fib32.wasm"
+      sha256 "80073d9035c403b6caf62252600c5bda29cf2fb5e3f814ba723640fe047a6b87"
+    end
+
+    testpath.install resource("homebrew-fib32.wasm")
+
     # Run function fib(24) and check the result is 46368
-    assert_equal "Result: 46368", shell_output("#{bin}/wasm3 --func fib #{prefix}/fib32.wasm 24 2>&1").strip
+    assert_equal "Result: 46368", shell_output("#{bin}/wasm3 --func fib fib32.wasm 24 2>&1").strip
   end
 end

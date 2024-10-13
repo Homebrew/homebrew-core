@@ -6,6 +6,7 @@ class Qstat < Formula
   license "Artistic-2.0"
 
   bottle do
+    sha256                               arm64_sequoia:  "bcce7c206dbb478fe19b9e6560c5c480d613fefeab90d30c0720b5e24ddb0090"
     sha256                               arm64_sonoma:   "f2a21de14cf56f81071c54f323b70b96d745203b3e7cc4343e3b49e9ca683dfa"
     sha256                               arm64_ventura:  "11a9a33fc7615e85441444af37ed41d87f0659f672d958824f7cca77eacd2729"
     sha256                               arm64_monterey: "407570a7c868ec0815588e1b2c5ed8716b1392bc7452fcc31ab1b16f217febaf"
@@ -32,6 +33,6 @@ class Qstat < Formula
   end
 
   test do
-    system "#{bin}/qstat", "--help"
+    system bin/"qstat", "--help"
   end
 end

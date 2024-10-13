@@ -7,6 +7,7 @@ class Ponyc < Formula
   license "BSD-2-Clause"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "7d856824ad5ebd02852922ee5700c6b93d8f745c8974db5522b707772db60d73"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "67f3dd596e2c63c86b6fd65d0c83b6e999ddaab62bb62cdc0da0527f3723d3cc"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "4b877bcf39456ae61aa2c8c9f39c725ea3c0ceb15ea1545bb303f0ba17105581"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f5a75887dac274c00d0461c8a86dce6442f49a1e3599a88ab9c895bc0830e7d4"
@@ -47,14 +48,14 @@ class Ponyc < Formula
     # ENV["CC"] returns llvm_clang, which does not work in a test block.
     ENV.clang
 
-    system "#{bin}/ponyc", "-rexpr", "#{prefix}/packages/stdlib"
+    system bin/"ponyc", "-rexpr", "#{prefix}/packages/stdlib"
 
     (testpath/"test/main.pony").write <<~EOS
       actor Main
         new create(env: Env) =>
           env.out.print("Hello World!")
     EOS
-    system "#{bin}/ponyc", "test"
+    system bin/"ponyc", "test"
     assert_equal "Hello World!", shell_output("./test1").strip
   end
 end

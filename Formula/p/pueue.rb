@@ -7,6 +7,7 @@ class Pueue < Formula
   head "https://github.com/Nukesor/pueue.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "bb6f6bff43b00d41920ab98ee941fd5a275cdc885b48e1e15a72f51fe4bf56c0"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "08b84e59e008d5991d5130b37a3e14522d9e62bbee1700303ec04a9680420582"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "bbecc5333cee858957a8aa932d13274d1b47273abc84e361238bb03109b366b0"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1c2d616bd61a583dff5ce25d7a989913f12d52fe1d425a25c8e7b6597c18ae05"
@@ -22,11 +23,11 @@ class Pueue < Formula
     system "cargo", "install", *std_cargo_args(path: "pueue")
 
     mkdir "utils/completions" do
-      system "#{bin}/pueue", "completions", "bash", "."
+      system bin/"pueue", "completions", "bash", "."
       bash_completion.install "pueue.bash" => "pueue"
-      system "#{bin}/pueue", "completions", "fish", "."
+      system bin/"pueue", "completions", "fish", "."
       fish_completion.install "pueue.fish" => "pueue.fish"
-      system "#{bin}/pueue", "completions", "zsh", "."
+      system bin/"pueue", "completions", "zsh", "."
       zsh_completion.install "_pueue" => "_pueue"
     end
   end

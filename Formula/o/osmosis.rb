@@ -11,7 +11,8 @@ class Osmosis < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "f1827ecda866771598f0f547d497e53793a646f91600292ef9c424079fe526ed"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "bbf0840fce8067bb973ff59a7e9d9774178ae11b9af976aa0842e80b90264b00"
   end
 
   depends_on "openjdk"
@@ -46,7 +47,7 @@ class Osmosis < Formula
       </osm>
     EOS
 
-    system("#{bin}/osmosis", "--read-xml", "file=#{path}", "--write-null")
+    system(bin/"osmosis", "--read-xml", "file=#{path}", "--write-null")
   end
 end
 

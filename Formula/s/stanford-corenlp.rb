@@ -14,7 +14,8 @@ class StanfordCorenlp < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "6fd51a09939a5a8f42a65ddf821319894d5d9a754026426ef8b8fc56a88e0860"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "8965174f2f1eec79bd63df245a2b37fe04ed0c73fdef0703317520439f2bfe1f"
   end
 
   depends_on "openjdk"
@@ -27,7 +28,7 @@ class StanfordCorenlp < Formula
 
   test do
     (testpath/"test.txt").write("Stanford is a university, founded in 1891.")
-    system "#{bin}/corenlp.sh", "-annotators tokenize,ssplit,pos", "-file test.txt", "-outputFormat json"
+    system bin/"corenlp.sh", "-annotators tokenize,ssplit,pos", "-file test.txt", "-outputFormat json"
     assert_predicate (testpath/"test.txt.json"), :exist?
   end
 end

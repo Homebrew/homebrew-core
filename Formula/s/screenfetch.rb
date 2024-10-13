@@ -3,10 +3,11 @@ class Screenfetch < Formula
   homepage "https://github.com/KittyKatt/screenFetch"
   url "https://github.com/KittyKatt/screenFetch/archive/refs/tags/v3.9.1.tar.gz"
   sha256 "aa97dcd2a8576ae18de6c16c19744aae1573a3da7541af4b98a91930a30a3178"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
   head "https://github.com/KittyKatt/screenFetch.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "f74fe3ee436f07d7d28ac69073daae1a8c44c2a0d1ddf151cb44544e5d39587e"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9a459983edd65f80429e748088c315bafbb3d378f398305ffee34524d0a61c88"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "0d88f370f36c942227b1beb20c7fd27934beb6f8edcc3b8c1e713c1bf0910672"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "7a8a196b1d61f4515270b2009a878dd0ca86052333ef1fea478f085c53b9b042"
@@ -30,6 +31,6 @@ class Screenfetch < Formula
   end
 
   test do
-    system "#{bin}/screenfetch"
+    system bin/"screenfetch"
   end
 end

@@ -13,6 +13,7 @@ class Pianobar < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "a4715216185de4b73a4a5595733ce0e929fda2991151a04c8ac4c58f2245e8a8"
     sha256 cellar: :any,                 arm64_sonoma:   "dfecf674a95a0dfcdffe9d0faca825d61e4733c4f9cd9b41a2bfa75635209783"
     sha256 cellar: :any,                 arm64_ventura:  "ee7d2deecd2fa234a9c14882d25d2828d061de6f5c8b8bbf338a9b97ae040d4b"
     sha256 cellar: :any,                 arm64_monterey: "6332b45b23dfbd4839745039b7a09150874bee615adba4224407f3e0aa8269e2"

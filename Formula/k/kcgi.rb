@@ -1,8 +1,8 @@
 class Kcgi < Formula
   desc "Minimal CGI and FastCGI library for C/C++"
   homepage "https://kristaps.bsd.lv/kcgi/"
-  url "https://kristaps.bsd.lv/kcgi/snapshots/kcgi-0.13.3.tgz"
-  sha256 "1c13538e21511086a6ba1a87f40543de257fc3d8871840b17626c16d714d2f5a"
+  url "https://kristaps.bsd.lv/kcgi/snapshots/kcgi-0.13.4.tgz"
+  sha256 "cc5f75ea75e42ed4f67e9ef831c0387717cedbc65c2261a828bee7956e46a259"
   license "ISC"
 
   livecheck do
@@ -11,13 +11,12 @@ class Kcgi < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "3a05d82cb4e3c9265061d0cf05872cf12c591d4793dc6b7114232fd3ccdc3614"
-    sha256 cellar: :any,                 arm64_ventura:  "4a3714eb957ab3622c4eecb9add25a5e136971ad1030e32a712f08d3571efe94"
-    sha256 cellar: :any,                 arm64_monterey: "34d3a40ea1e1ab174589142b356ef3a758cead1806f823fc4413babd7e29342c"
-    sha256 cellar: :any,                 sonoma:         "b8a07a81577401eb7dac933817ab86d2cb62947c507cdb4697ddb49d3934681b"
-    sha256 cellar: :any,                 ventura:        "b0adefa894690c1f14ea7cd1bbf8de7d38c628bcc5ccc31c3f281bd06c3d6e63"
-    sha256 cellar: :any,                 monterey:       "72ebe7b1b8a88ec1b3567b05ff53200c37e6ccf88a434aac5ed8e39697dac8b4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9d9897e21cb8c9fe721e367847ddb11443b9793c73efe975c369e215ae0a66c9"
+    sha256 cellar: :any,                 arm64_sequoia: "1ede6da1f7d9ea340cc19bf6a539948dd87a0aa20bb179e4c669a7fa94a6bd99"
+    sha256 cellar: :any,                 arm64_sonoma:  "9da91cadc2de7c8b9736dd73a28f2e9f39f5d7fb25acae212efdb5d6e52a25ef"
+    sha256 cellar: :any,                 arm64_ventura: "0314195b4c86b877610fd9035b7906122316bddd3cfaa2982395797a4bb75912"
+    sha256 cellar: :any,                 sonoma:        "4bd93297c59a4102abb6ddb1ef0e1d53de162e7c71aeb53e8da29824d3a1dbbe"
+    sha256 cellar: :any,                 ventura:       "ea274424cd3b9f8b69bb7e7a78c89aeda17728716a4b4576b73bdfb8253f5ad1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "be1d317a28397ff207c48149f3b9d4241bbf44b88f6f712091dfcb5b1f6963a2"
   end
 
   depends_on "bmake" => :build

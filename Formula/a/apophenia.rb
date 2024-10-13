@@ -7,6 +7,7 @@ class Apophenia < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "45407a002d3d36f5c0e0e1b286a7097074d389691e119c42b17681e086b48473"
     sha256 cellar: :any,                 arm64_sonoma:   "46a4119ca0d9f934fad32688b6a85ae8206a5f86f8e64b9d3680201398c1bee2"
     sha256 cellar: :any,                 arm64_ventura:  "4cfac020f8c94bf825b0b21b2c56eb77d815d8eff4b935eecc7f69825ac7f69d"
     sha256 cellar: :any,                 arm64_monterey: "dad0483f7c96479a293715d97dab14df9cc1fbec0378f2bf97fc17b64aa2c2e5"

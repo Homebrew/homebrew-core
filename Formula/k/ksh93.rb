@@ -1,19 +1,20 @@
 class Ksh93 < Formula
   desc "KornShell, ksh93"
   homepage "https://github.com/ksh93/ksh"
-  url "https://github.com/ksh93/ksh/archive/refs/tags/v1.0.9.tar.gz"
-  sha256 "c58d618b551c594580541a0759e32ea6ddadd7b7a84f9f3ebea2ffb9a5d9d580"
+  url "https://github.com/ksh93/ksh/archive/refs/tags/v1.0.10.tar.gz"
+  sha256 "9f4c7a9531cec6941d6a9fd7fb70a4aeda24ea32800f578fd4099083f98b4e8a"
   license "EPL-2.0"
   head "https://github.com/ksh93/ksh.git", branch: "dev"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "b2746bb53c6263126f54469e74088054c2b48bb38a960e2a5aa7ce3ee4685469"
-    sha256 cellar: :any,                 arm64_ventura:  "6d95995b7eb5daf05c38f633cbeb9e4be2c0a75eaa25b264f9373c6a8ff59d1b"
-    sha256 cellar: :any,                 arm64_monterey: "40b15c75e35fd8148a9808e756c70c6e5fbf530e5ef88d6e8c2728454d88facf"
-    sha256                               sonoma:         "cec9285ad645b16acf320a94f7cd4d167e67ce5a3d1459d4d72b72c75f1aff1d"
-    sha256                               ventura:        "c5350c423d8b7b6f483d7e6322ff9a50d5002aed286549e1dc5f2d07513388c7"
-    sha256                               monterey:       "ed70b7a230a7a64259bea12eeadb787e14311b48679694fb75a50c1e9a4fc8e2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d244513bfb52e3d6e589db05f56fe6009b8de018cf02f0313dd2d10398eb80fe"
+    sha256 cellar: :any,                 arm64_sequoia:  "5deb3b81fd3f590988dd88c80311891ca93a33af176c47156a1451bd7aabac87"
+    sha256 cellar: :any,                 arm64_sonoma:   "c19642595db560b792a462a2754cdd1c9dcf9cce1206f831e9445f364ddeee9d"
+    sha256 cellar: :any,                 arm64_ventura:  "35617322f558cb0e43a0f265eefaffbe447061bc24acd75452b2b5b084e56acd"
+    sha256 cellar: :any,                 arm64_monterey: "2f7f6d16223a34599d8f5d7a109e3c0b9bf16dbd98758b8c643d9c43ba40001d"
+    sha256                               sonoma:         "b15cd1a4a1052c29217a92cdcc890755a1af17031b0375d2c48218e37de17ed3"
+    sha256                               ventura:        "fd2c2ab5ef6b79db5b99b18775c36806ab45f06dbfde1a19dbba879c88ff02a3"
+    sha256                               monterey:       "4a18d30f5bd6874f925b389150c77864955c33d546025ab87ba95dc36e6287be"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6e1e57baceef185a21b476c489ec150cbf00729c4b0b31243dd13d5f560376b1"
   end
 
   def install

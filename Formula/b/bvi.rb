@@ -6,6 +6,7 @@ class Bvi < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 arm64_sequoia:  "155c163fed69d7c9468c119e2714fbf9cf0ddaa1a6af01efb6932127ce08ec11"
     sha256 arm64_sonoma:   "72f5bcbe7c2d3b197378232499cb50417317569deaa681cc4d96bb470c5e4bc4"
     sha256 arm64_ventura:  "9ecba9b40b9d8684f4f0e60ec9a75b25b4eae26064a1eabf44d23d6a1476f17d"
     sha256 arm64_monterey: "a429b07fde21a16b3fb9352affee6ff4f8687f791e552e8fb1555ff762e620d0"
@@ -29,7 +30,7 @@ class Bvi < Formula
       out = shell_output("#{bin}/bvi -c q", 1)
       assert_match out, "Input is not from a terminal"
     else
-      system "#{bin}/bvi", "-c", "q"
+      system bin/"bvi", "-c", "q"
     end
   end
 end

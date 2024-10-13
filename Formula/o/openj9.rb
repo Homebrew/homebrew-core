@@ -17,6 +17,7 @@ class Openj9 < Formula
   end
 
   bottle do
+    sha256 cellar: :any, arm64_sequoia:  "6b2ff068feb251240a81896db502226cde740b0f649c7270a46bfc0f02efca68"
     sha256 cellar: :any, arm64_sonoma:   "f3711d4ad441e50305a78958ef36d75fd0fb8077d7edc17dff6019e24e712c05"
     sha256 cellar: :any, arm64_ventura:  "b6264f5110df71fe05f0ccf3891b1115075554d4208a8bde477abc4bd02c1e5b"
     sha256 cellar: :any, arm64_monterey: "8f1ba8afb4421165fa50c03192a445515b92edf077fc03337775f0dddc456565"
@@ -161,7 +162,7 @@ class Openj9 < Formula
       libexec.install Dir["build/*/images/jdk-bundle/*"].first => "openj9.jdk"
       jdk /= "openj9.jdk/Contents/Home"
       rm jdk/"lib/src.zip"
-      rm_rf Dir.glob(jdk/"**/*.dSYM")
+      rm_r(Dir.glob(jdk/"**/*.dSYM"))
     else
       libexec.install Dir["build/linux-x86_64-server-release/images/jdk/*"]
     end

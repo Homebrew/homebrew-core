@@ -2,8 +2,8 @@ class KubernetesCliAT129 < Formula
   desc "Kubernetes command-line interface"
   homepage "https://kubernetes.io/docs/reference/kubectl/"
   url "https://github.com/kubernetes/kubernetes.git",
-      tag:      "v1.29.7",
-      revision: "4e4a18878ce330fefda1dc46acca88ba355e9ce7"
+      tag:      "v1.29.9",
+      revision: "114a1f58037bd70f90d9e630e591c5e52dd9b298"
   license "Apache-2.0"
 
   livecheck do
@@ -12,13 +12,14 @@ class KubernetesCliAT129 < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c11a7686388adb42bac0d61d03f9fe38f3541d854b4bf671c9ddc62781e3b8e6"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2eef1dc46e8467d6a27b8716e29dbdb004f6077988b9e1b898f0e5e9dc44b919"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e908fc84d9fea81bc6cc12a82e7bcd5491d9496c816b9fe99655adfdf1d4e1f6"
-    sha256 cellar: :any_skip_relocation, sonoma:         "a014cd1bbd0f782a2465c1deecef33d60ce668e61ea5423a58a7f1f7f674a676"
-    sha256 cellar: :any_skip_relocation, ventura:        "4b6d170a66b9e00a567e31b6e9dfc8717059fc227d641dd0ed57a59cdd97fb8a"
-    sha256 cellar: :any_skip_relocation, monterey:       "bf3341290056341fbe6ecf096e283e7c11148be904b7c1e73c33eed36e9a9195"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8680be648f50562da21f4fc3a90458ebea2253d580c6a8171a082732d7d25f8a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "825162b8b3a8320b76141e69ce58e7d1cc75941bc105215f39190a1d944be97a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f5d3a71c54a5c040d9dfdacd0484940b499858bbfbe679071ae877d88bc7c5f6"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "68fc40f300cc8e0d8bf9903d3d49506fbc6d178d11301178e0b07a7c5c6ecfdc"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "2d714e41181cb8ddbb03915fabcb061c40fc081ab3a8d3c237a336d466ff33db"
+    sha256 cellar: :any_skip_relocation, sonoma:         "0fc76b060d7b81efc537a2af2626d705321cdc52e10046500d1eb63332d7bbf4"
+    sha256 cellar: :any_skip_relocation, ventura:        "e94042ba85828eea215df44469314dcbfc13a96c6618c1dbce1fc42a5fc9827b"
+    sha256 cellar: :any_skip_relocation, monterey:       "4f4de36a18c478e123b330db1cddd0135e5e91fafa861f97fdfb9a0b3d37bdd3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "efbc027439945f906717159bc91505257f94d41c8767099391d1a71b3bad33a2"
   end
 
   keg_only :versioned_formula
@@ -27,13 +28,17 @@ class KubernetesCliAT129 < Formula
   disable! date: "2025-02-28", because: :deprecated_upstream
 
   depends_on "bash" => :build
-  depends_on "coreutils" => :build
-  depends_on "go@1.21" => :build
+  depends_on "go" => :build
 
   uses_from_macos "rsync" => :build
 
+  on_macos do
+    depends_on "coreutils" => :build
+  end
+
   def install
-    ENV.prepend_path "PATH", Formula["coreutils"].libexec/"gnubin" # needs GNU date
+    ENV.prepend_path "PATH", Formula["coreutils"].libexec/"gnubin" if OS.mac? # needs GNU date
+    ENV["FORCE_HOST_GO"] = "1"
     system "make", "WHAT=cmd/kubectl"
     bin.install "_output/bin/kubectl"
 
@@ -51,9 +56,6 @@ class KubernetesCliAT129 < Formula
 
     version_output = shell_output("#{bin}/kubectl version --client --output=yaml 2>&1")
     assert_match "gitTreeState: clean", version_output
-    if build.stable?
-      revision = stable.specs[:revision]
-      assert_match revision.to_s, version_output
-    end
+    assert_match stable.specs[:revision].to_s, version_output
   end
 end

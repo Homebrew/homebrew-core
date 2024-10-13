@@ -5,6 +5,10 @@ on:
     types:
       - unlabeled
 
+defaults:
+  run:
+    shell: bash -xeuo pipefail {0}
+
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.number }}-${{ github.event.label.name }}
   cancel-in-progress: true
@@ -25,6 +29,7 @@ jobs:
       contains(fromJson('["workflows"]'), github.event.label.name)
     steps:
       - name: Re-label PR
-        run: gh pr edit "$PR" --add-label '${{ github.event.label.name }}'
+        run: gh pr edit "$PR" --add-label "$LABEL" --repo "$GITHUB_REPOSITORY"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          LABEL: ${{ github.event.label.name }}

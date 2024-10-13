@@ -14,14 +14,14 @@ class JbossForge < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "e60122e8ee18ddd1352a46447c0247f72dfd0aa385744aaf85ecb3ee29d2c298"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "f94f4ca9e8be07c5fbcf13f5c685b071091e4ee55dbe6e0bb33cbfc378fa9d07"
   end
 
   depends_on "openjdk"
 
   def install
-    rm_f Dir["bin/*.bat"]
+    rm(Dir["bin/*.bat"])
     libexec.install %w[addons bin lib logging.properties]
     bin.install libexec/"bin/forge"
     bin.env_script_all_files libexec/"bin", Language::Java.overridable_java_home_env

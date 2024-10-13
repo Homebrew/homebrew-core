@@ -1,8 +1,8 @@
 class Pypy310 < Formula
   desc "Implementation of Python 3 in Python"
   homepage "https://pypy.org/"
-  url "https://downloads.python.org/pypy/pypy3.10-v7.3.16-src.tar.bz2"
-  sha256 "4a3a3177d0a1f51d59982bb981d1d485403bda3419d5437b9e077f55f59424ff"
+  url "https://downloads.python.org/pypy/pypy3.10-v7.3.17-src.tar.bz2"
+  sha256 "6ad74bc578e9c6d3a8a1c51503313058e3c58c35df86f7485453c4be6ab24bf7"
   license "MIT"
   head "https://github.com/pypy/pypy.git", branch: "main"
 
@@ -12,13 +12,14 @@ class Pypy310 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "ade823aa590461009d952824a9f19a74cae00dfd2842cd3816cf07aefec95a1b"
-    sha256 cellar: :any,                 arm64_ventura:  "0d02fa763dbbc79e6df6264310d2c28e6323eb151e2be156bbb5e1e770e318d1"
-    sha256 cellar: :any,                 arm64_monterey: "fbf24ed94c122e648ebc761da85c3c114708822601e57fb82cd839f9f4c77220"
-    sha256 cellar: :any,                 sonoma:         "b09861a9c9d4ec530fd1e9679c6deae9174b9ed5c2958011f9acfa97006412aa"
-    sha256 cellar: :any,                 ventura:        "1888faab65c74715f6fb049f0c92cfcaca5f7c009d243d591ce7e11e5bf4fbce"
-    sha256 cellar: :any,                 monterey:       "3d8db5b2bfed31b89b2a18ab01048edc683a0074ee13ac9486fb4e9fda8a5ec7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0e9894e2100fce3941dd92a83c037a49ed0276b0fe1106de627260e34c014579"
+    sha256 cellar: :any,                 arm64_sequoia:  "2b71143af68fed0d461de766331241bc08fafc1a000f240966d6001f00447b29"
+    sha256 cellar: :any,                 arm64_sonoma:   "ead38c7d6776e9c9916ad90918ae34f065689c9f1a0597e5373eb4a2d79dc1ea"
+    sha256 cellar: :any,                 arm64_ventura:  "183c46077da49d96f2a12248f662ae47277f74830c22d926ef20e0320e94e071"
+    sha256 cellar: :any,                 arm64_monterey: "a31cd246f9659570eca181aeb7b61f51e0ae5c177a95a36f74229a417fce599f"
+    sha256 cellar: :any,                 sonoma:         "5233e3dd7975518f8a761d648092a7812da80728d3deb471117469dd2bd9adae"
+    sha256 cellar: :any,                 ventura:        "f7a7df8744dc2dffb956ec782776151428fadf6eee0b948489fac64754a5b6da"
+    sha256 cellar: :any,                 monterey:       "4ab31d517486f9426eb7004caba11ad598e9c97f91182ec68fe9159ea3927f1a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d2c372b858fe7e493e7bb62aa3093b584b728901e0d9129bd2df78cdf52999a3"
   end
 
   depends_on "pkg-config" => :build
@@ -47,12 +48,6 @@ class Pypy310 < Formula
   resource "pip" do
     url "https://files.pythonhosted.org/packages/b7/06/6b1ad0ae8f97d7a0d6f6ad640db10780578999e647a9593512ceb6f06469/pip-23.3.2.tar.gz"
     sha256 "7fd9972f96db22c8077a1ee2691b172c8089b17a5652a44494a9ecb0d78f9149"
-  end
-
-  # Fix mismatch in test definition of ncurses
-  patch do
-    url "https://github.com/pypy/pypy/commit/13e2004d86a3431d27a2ac98c7d591473ca9ef9c.patch?full_index=1"
-    sha256 "b84c2593f10cb4698f21ff8cb5b7318f718f92f2c35eef271ccb2d504d9436d6"
   end
 
   # Build fixes:
@@ -130,7 +125,7 @@ class Pypy310 < Formula
 
     # Delete two files shipped which we do not want to deliver
     # These files make patchelf fail
-    rm_f [libexec/"bin/libpypy#{abi_version}-c.so.debug", libexec/"bin/pypy#{abi_version}.debug"]
+    rm([libexec/"bin/libpypy#{abi_version}-c.so.debug", libexec/"bin/pypy#{abi_version}.debug"])
   end
 
   def post_install
@@ -147,7 +142,7 @@ class Pypy310 < Formula
     # Create a site-packages in the prefix.
     site_packages(HOMEBREW_PREFIX).mkpath
     touch site_packages(HOMEBREW_PREFIX)/".keepme"
-    site_packages(libexec).rmtree
+    rm_r(site_packages(libexec))
 
     # Symlink the prefix site-packages into the cellar.
     site_packages(libexec).parent.install_symlink site_packages(HOMEBREW_PREFIX)

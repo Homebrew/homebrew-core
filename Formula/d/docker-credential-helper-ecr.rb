@@ -1,8 +1,8 @@
 class DockerCredentialHelperEcr < Formula
   desc "Docker Credential Helper for Amazon ECR"
   homepage "https://github.com/awslabs/amazon-ecr-credential-helper"
-  url "https://github.com/awslabs/amazon-ecr-credential-helper/archive/refs/tags/v0.8.0.tar.gz"
-  sha256 "7014f4c972ef360b7204d376bbd771aeebb8f1e9281948688de1bcebb0d0b0a4"
+  url "https://github.com/awslabs/amazon-ecr-credential-helper/archive/refs/tags/v0.9.0.tar.gz"
+  sha256 "6067a2cb36f8b451878b4336e4bef202999281b6c31727bcda97f62cfb4aa19a"
   license "Apache-2.0"
 
   livecheck do
@@ -11,13 +11,12 @@ class DockerCredentialHelperEcr < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3f873d6f0c3a04233146794507346b99f55abfd85a130ec35bcf9a8d29dd82b4"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3f873d6f0c3a04233146794507346b99f55abfd85a130ec35bcf9a8d29dd82b4"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3f873d6f0c3a04233146794507346b99f55abfd85a130ec35bcf9a8d29dd82b4"
-    sha256 cellar: :any_skip_relocation, sonoma:         "c46a758bda76377f33b87d2f612dbda72b990aeee931429aee3d7b18650c27e4"
-    sha256 cellar: :any_skip_relocation, ventura:        "c46a758bda76377f33b87d2f612dbda72b990aeee931429aee3d7b18650c27e4"
-    sha256 cellar: :any_skip_relocation, monterey:       "c46a758bda76377f33b87d2f612dbda72b990aeee931429aee3d7b18650c27e4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2f4418572e63b5dfae324fd48ebf7fbc6d1cc5add18698b88cc6ae95579c0e44"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "162b30db65989114c0d53c3866eabcdd14ad39e656e52968a602441dd7315af8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "162b30db65989114c0d53c3866eabcdd14ad39e656e52968a602441dd7315af8"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "162b30db65989114c0d53c3866eabcdd14ad39e656e52968a602441dd7315af8"
+    sha256 cellar: :any_skip_relocation, sonoma:        "0698aafc16bf4a94fe87a73fad1845f6fdfc3d62bc256590698bed8958c365ae"
+    sha256 cellar: :any_skip_relocation, ventura:       "0698aafc16bf4a94fe87a73fad1845f6fdfc3d62bc256590698bed8958c365ae"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b778b0daccf6fd640c2d3dc04355ed2fbb8791971d79cd4f4650c1a7b0a331ff"
   end
 
   depends_on "go" => :build

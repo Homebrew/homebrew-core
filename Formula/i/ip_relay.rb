@@ -11,7 +11,8 @@ class IpRelay < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "35934dd4047dc1c1966fca089d71bc870e23f5a6370368fad9861ff3e3f76064"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "ea932a50ad3b1643e87dab5b41be2a75c2ac1f22392930e1cf3f05e85beef8ed"
   end
 
   def install

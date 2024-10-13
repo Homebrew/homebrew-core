@@ -3,10 +3,11 @@ class FormatUdf < Formula
   homepage "https://github.com/JElchison/format-udf"
   url "https://github.com/JElchison/format-udf/archive/refs/tags/1.8.0.tar.gz"
   sha256 "52854097db9044d729fbd7cff012f4b554df01c15225ee17ec159c71da174c8d"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "b108eb2ba15d5bcf6458a29f6f05e57f9629370d4677f4e09930aad406f92da6"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "ba8a2952eb6a60e6660c71d6054d6a0adc3d450d5532ef270f2849a0fd13849d"
   end
 
   def install
@@ -14,6 +15,6 @@ class FormatUdf < Formula
   end
 
   test do
-    system "#{bin}/format-udf", "-h"
+    system bin/"format-udf", "-h"
   end
 end

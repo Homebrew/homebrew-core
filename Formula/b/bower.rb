@@ -1,5 +1,3 @@
-require "language/node"
-
 class Bower < Formula
   desc "Package manager for the web"
   homepage "https://bower.io/"
@@ -8,22 +6,21 @@ class Bower < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4a7cf654c72c83b4a8174d3f7032d23973f2ea006af124d89b22572112c391f0"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4f83f0b7576c438668ad19edcfab2606901bcd5f9092cf62c45b70d8b4778235"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "4f83f0b7576c438668ad19edcfab2606901bcd5f9092cf62c45b70d8b4778235"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4f83f0b7576c438668ad19edcfab2606901bcd5f9092cf62c45b70d8b4778235"
-    sha256 cellar: :any_skip_relocation, sonoma:         "838735f8ef3d7b581bc7380ef13c7f0cb14b04d556ef5d5f97137670b6292234"
-    sha256 cellar: :any_skip_relocation, ventura:        "f155eb229286bef7f21e55ada513c525913b38cc8db1d86a3b47fc7ee9a1f1fe"
-    sha256 cellar: :any_skip_relocation, monterey:       "f155eb229286bef7f21e55ada513c525913b38cc8db1d86a3b47fc7ee9a1f1fe"
-    sha256 cellar: :any_skip_relocation, big_sur:        "f155eb229286bef7f21e55ada513c525913b38cc8db1d86a3b47fc7ee9a1f1fe"
-    sha256 cellar: :any_skip_relocation, catalina:       "f155eb229286bef7f21e55ada513c525913b38cc8db1d86a3b47fc7ee9a1f1fe"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4f83f0b7576c438668ad19edcfab2606901bcd5f9092cf62c45b70d8b4778235"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "27cfa496a8b8d490f3dd6eeba235e0b64561da813d88bcc89fe1b03114dc091c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3e6ffe74d0b616fce08852c9b92624829b867149d990bd0bcc36f45b802e0016"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3e6ffe74d0b616fce08852c9b92624829b867149d990bd0bcc36f45b802e0016"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "3e6ffe74d0b616fce08852c9b92624829b867149d990bd0bcc36f45b802e0016"
+    sha256 cellar: :any_skip_relocation, sonoma:         "5e40c22cfa9946b9bf731953c371b9793808754b6903037276be89b7c4c479b5"
+    sha256 cellar: :any_skip_relocation, ventura:        "5e40c22cfa9946b9bf731953c371b9793808754b6903037276be89b7c4c479b5"
+    sha256 cellar: :any_skip_relocation, monterey:       "5e40c22cfa9946b9bf731953c371b9793808754b6903037276be89b7c4c479b5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "771a98dc248a03e567cf7dee75bb4711dd51ff9ff36df04186642c86d8f22263"
   end
 
   depends_on "node"
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", *std_npm_args
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 

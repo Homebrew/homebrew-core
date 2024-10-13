@@ -2,19 +2,18 @@ class Heartbeat < Formula
   desc "Lightweight Shipper for Uptime Monitoring"
   homepage "https://www.elastic.co/beats/heartbeat"
   url "https://github.com/elastic/beats.git",
-      tag:      "v8.14.3",
-      revision: "71819961045386b23edc18455f1b54764292816c"
+      tag:      "v8.15.2",
+      revision: "26daf71e4ec87172523af7f0e916cba9f79dc0d0"
   license "Apache-2.0"
   head "https://github.com/elastic/beats.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "94a586c8236ef9a19b01cb6a145d5d6562468311d44d2a35ce68636865f318aa"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a78d4a41fe3fb3f9734a183c62145fcf5edcad3cc5af56aef4979b3168204f2e"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "aae71eb7f577596b56968c4e15cc7d16a40c21d06b4cbb7c488600d36e5597cc"
-    sha256 cellar: :any_skip_relocation, sonoma:         "1dc1a5afb4ad96fcb4689fa4c327f33d44629a8aa1cdc6dc2d93ba969099bc62"
-    sha256 cellar: :any_skip_relocation, ventura:        "d0a09e545f924619b4dc89652e1637c4e3a44aae11b679bf8feb3bce2e074a93"
-    sha256 cellar: :any_skip_relocation, monterey:       "c56d1f7ed83d7b3d5072feecc761277dc51f4fdf192a056c05085cc040f502db"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8f683ebeda129dc2cc1d035ca254c420185001923a3388b0a1de2c67330fe7c6"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0c7d0f039387af0e895370f5a566062d806f01dbed5f1505f238260aefd75651"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d80be675d7c85742214786d7c38b46c41c2034eeccf433db9d7c6f2fc4f29214"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "26a9d278e089244b39310acedbf6179faf95eb08b8bc9ba01aed129ae1dd43dc"
+    sha256 cellar: :any_skip_relocation, sonoma:        "aa60acc469553f05291aecd4ad6cd51d7df09a4e0408969bb29c0566cdef7c61"
+    sha256 cellar: :any_skip_relocation, ventura:       "da42911e49b5267904d1afc01e70091542301a33ba8480d36c4f938bcc77d68c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "829596118e75773038117a4ce09b62f9734845677037f85c47ff4b6b0490f468"
   end
 
   depends_on "go" => :build
@@ -25,7 +24,7 @@ class Heartbeat < Formula
 
   def install
     # remove non open source files
-    rm_rf "x-pack"
+    rm_r("x-pack")
 
     cd "heartbeat" do
       # prevent downloading binary wheels during python setup

@@ -7,7 +7,8 @@ class C < Formula
   head "https://github.com/ryanmjacobs/c.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "61a07ffb8d1f341bf995e6aae382b6053d2cb8ba7864c02d6832e988f3df795f"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "eebb1128fae6df85637e7549c813991361c29fe62b02d4b003ebf2b5d37404ca"
   end
 
   def install

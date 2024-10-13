@@ -6,6 +6,7 @@ class Libdc1394 < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "78ede809109f1cdc74263480e2088879534546d1a2ef2e85abe793d9bb053546"
     sha256 cellar: :any,                 arm64_sonoma:   "36f71e3ace8c9a94a732f397eda9e2c703c8ea45f02cd9ce3a87ca5b9d961770"
     sha256 cellar: :any,                 arm64_ventura:  "38a5b54a9c968f7cf4ad345b6c679cf752c3634492158dfbe120c6f5e086cefd"
     sha256 cellar: :any,                 arm64_monterey: "48b4198b7d90c2a14d4a66075e2342c1cf4d6c03fb88670b0424a51b3dd9a4b3"

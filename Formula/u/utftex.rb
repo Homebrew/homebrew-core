@@ -6,6 +6,7 @@ class Utftex < Formula
   license "GPL-3.0-only"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "2600f08ffa67d205a11c72fb8edaa16bc5b25e0b1ef5b6a7d88e4dbee325d7cf"
     sha256 cellar: :any,                 arm64_sonoma:   "fcefa68f71397e48ca164144e5c78eacc458462b440ee3406379e8fc281b0b5e"
     sha256 cellar: :any,                 arm64_ventura:  "73dc2f438c0c50b6a443aa39a102520bd3f524bb2710729ecc8f2f908c7d497b"
     sha256 cellar: :any,                 arm64_monterey: "0810afd3a4807c93ecaaf60b948ebc54d669b5b199c7e34ef06e3962abdb5b05"

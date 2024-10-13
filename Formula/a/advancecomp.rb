@@ -6,6 +6,7 @@ class Advancecomp < Formula
   license "GPL-3.0-only"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "5777e7f8547c26b139edefeaf97664e1f8140947043ac1edc932ff03d58eac66"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "847145cf9a8712c77732c65eb448cba870e669606e84a9014cb9757a02a8ed2c"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "5c1276ea10b780d85270c5a8147dccfedbc646ced65525deecf797b52e480396"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "2cba21d82da0f9bdb1971dcf7eea4b452aebef5ce609e286bdfc12a546b3e768"

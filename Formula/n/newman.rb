@@ -1,26 +1,25 @@
-require "language/node"
-
 class Newman < Formula
   desc "Command-line collection runner for Postman"
   homepage "https://www.getpostman.com"
-  url "https://registry.npmjs.org/newman/-/newman-6.1.3.tgz"
-  sha256 "9358f14b52fe8c835a27557a98e9ec9df2df5cacf286195b4ccbebdaccb1e942"
+  url "https://registry.npmjs.org/newman/-/newman-6.2.1.tgz"
+  sha256 "38e457fafaadb7b4ff79f5669306bb8504223c4041cf5e5b6fc592f355af7a0e"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ecc6f8a704e46ca38d99f0d8d980f910dd6ad9f3d8c0b9e23b3abf29b452e1dd"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ecc6f8a704e46ca38d99f0d8d980f910dd6ad9f3d8c0b9e23b3abf29b452e1dd"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ecc6f8a704e46ca38d99f0d8d980f910dd6ad9f3d8c0b9e23b3abf29b452e1dd"
-    sha256 cellar: :any_skip_relocation, sonoma:         "1fa16f67b6cce040a5048f7247833b663d31da026eb327c702e795324bc610be"
-    sha256 cellar: :any_skip_relocation, ventura:        "1fa16f67b6cce040a5048f7247833b663d31da026eb327c702e795324bc610be"
-    sha256 cellar: :any_skip_relocation, monterey:       "1fa16f67b6cce040a5048f7247833b663d31da026eb327c702e795324bc610be"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "667de2f36c865416e3a585c619fbb2274588fff370e644e4748bfd97b24ada73"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "572ef9f591942dec78b5810920a2cba00b28f5267f4d06e82e6ac942817e9683"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "fa712cc0a93477ee5448241048937ca8ad4b9f4a21d19a29f30a359e4f4cb833"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "fa712cc0a93477ee5448241048937ca8ad4b9f4a21d19a29f30a359e4f4cb833"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "fa712cc0a93477ee5448241048937ca8ad4b9f4a21d19a29f30a359e4f4cb833"
+    sha256 cellar: :any_skip_relocation, sonoma:         "1e795f5512a9fe59808b928884c3026a9ee5c2962053faef9f053d08214a1705"
+    sha256 cellar: :any_skip_relocation, ventura:        "1e795f5512a9fe59808b928884c3026a9ee5c2962053faef9f053d08214a1705"
+    sha256 cellar: :any_skip_relocation, monterey:       "1e795f5512a9fe59808b928884c3026a9ee5c2962053faef9f053d08214a1705"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fa712cc0a93477ee5448241048937ca8ad4b9f4a21d19a29f30a359e4f4cb833"
   end
 
   depends_on "node"
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", *std_npm_args
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 

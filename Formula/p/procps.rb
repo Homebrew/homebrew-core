@@ -7,7 +7,8 @@ class Procps < Formula
   head "https://gitlab.com/procps-ng/procps.git", branch: "master"
 
   bottle do
-    sha256 x86_64_linux: "da827925a4c781da3e980e2e243176ca8933387bb856a03479035ee017e08276"
+    rebuild 1
+    sha256 x86_64_linux: "79434886665c5ef94464c83bf595cba0c449be107fcc70f05ec249d96814a1a7"
   end
 
   depends_on "autoconf" => :build
@@ -32,7 +33,7 @@ class Procps < Formula
   end
 
   test do
-    system "#{bin}/ps", "--version"
+    system bin/"ps", "--version"
     assert_match "grep homebrew", shell_output("#{bin}/ps aux | grep homebrew")
   end
 end

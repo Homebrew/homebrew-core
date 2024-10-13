@@ -6,6 +6,7 @@ class TemplateGlib < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
+    sha256 cellar: :any, arm64_sequoia:  "7887fb177fae9618c344c0b89c051295c177afcc8ae7965c5b1ecc4286b94dfc"
     sha256 cellar: :any, arm64_sonoma:   "2daee9e38dd1b1ef69dffd166f01fced59f2b995503bfa0b535217b75b0d9978"
     sha256 cellar: :any, arm64_ventura:  "7fd444eaf0477d2faddb96a278f30c2c3d2073ab4e6b3bb8860262e1e4652812"
     sha256 cellar: :any, arm64_monterey: "d1ad92f56762b7dc87a65ebcbeb0cbac29235c0a6234a07b07dcaf8e6efa9840"
@@ -18,15 +19,19 @@ class TemplateGlib < Formula
   depends_on "bison" => :build # does not appear to work with system bison
   depends_on "meson" => :build
   depends_on "ninja" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkg-config" => [:build, :test]
   depends_on "vala" => :build
   depends_on "glib"
   depends_on "gobject-introspection"
 
-  uses_from_macos "flex"
+  uses_from_macos "flex" => :build
+
+  on_macos do
+    depends_on "gettext"
+  end
 
   def install
-    system "meson", "setup", "build", "-Dvapi=true", "-Dintrospection=enabled", *std_meson_args
+    system "meson", "setup", "build", "-Dvapi=true", "-Dintrospection=enabled", "-Dtests=false", *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"
     system "meson", "install", "-C", "build"
   end
@@ -41,32 +46,8 @@ class TemplateGlib < Formula
         return 0;
       }
     EOS
-    gettext = Formula["gettext"]
-    glib = Formula["glib"]
-    pcre = Formula["pcre"]
-    flags = (ENV.cflags || "").split + (ENV.cppflags || "").split + (ENV.ldflags || "").split
-    flags += %W[
-      -I#{gettext.opt_include}
-      -I#{glib.opt_include}/glib-2.0
-      -I#{glib.opt_lib}/glib-2.0/include
-      -I#{include}/template-glib-1.0
-      -I#{pcre.opt_include}
-      -D_REENTRANT
-      -L#{gettext.opt_lib}
-      -L#{glib.opt_lib}
-      -L#{lib}
-      -lgio-2.0
-      -lglib-2.0
-      -lgobject-2.0
-      -ltemplate_glib-1.0
-    ]
-    if OS.mac?
-      flags += %w[
-        -lintl
-        -Wl,-framework
-        -Wl,CoreFoundation
-      ]
-    end
+
+    flags = shell_output("pkg-config --cflags --libs template-glib-1.0").chomp.split
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end

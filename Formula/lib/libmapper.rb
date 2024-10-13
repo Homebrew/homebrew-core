@@ -1,18 +1,17 @@
 class Libmapper < Formula
   desc "Distributed system for media control mapping"
   homepage "http://www.libmapper.org"
-  url "https://github.com/libmapper/libmapper/releases/download/2.4.8/libmapper-2.4.8.tar.gz"
-  sha256 "f693e9ec36fc4836710979e84cf7e02aefbda4af1a17cd401428b5d028957359"
+  url "https://github.com/libmapper/libmapper/releases/download/2.4.12/libmapper-2.4.12.tar.gz"
+  sha256 "84eaa87c609416f152747b112d7823b293af70589449e795981d6c2f3ab36cad"
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "81b47b0e2cbfb67e056a2121ae66b3cb79689b1ea99a9a0201d1be1687d190b8"
-    sha256 cellar: :any,                 arm64_ventura:  "486a786b8303d2978fdccba302e7cee8430c9ca986314b3eace32fe1bffd9574"
-    sha256 cellar: :any,                 arm64_monterey: "5c8cd6c21ddb4bad018ee01d1e91bb543b7372caba8ccd410e2d4fc6ff1d4959"
-    sha256 cellar: :any,                 sonoma:         "ca0cbf97ec05f8d6a24170d4f80938b03d4fc728e091d08989ad1bc009bee5ff"
-    sha256 cellar: :any,                 ventura:        "93ffca45e31a2f4b099e51a4f7ab6d60898b6142106181ddb7402e29aca7221d"
-    sha256 cellar: :any,                 monterey:       "c688da82378745e3f87ecb7a8093ac489b374ee0afbf37d25af6d0f1f9515d36"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "49b3ce992216bdbdea511dc8bc3a833dbe951a82bb65780a133091244bb51462"
+    sha256 cellar: :any,                 arm64_sequoia: "8ea077234bd2081203a62d8850db85b2f429f0d17d2e5ee465d60a1bdb53daf2"
+    sha256 cellar: :any,                 arm64_sonoma:  "5085301bb85a200309aacdef50ce40bfcc73754b0b48af7d2e9b01b54ca75f5c"
+    sha256 cellar: :any,                 arm64_ventura: "fb0dc4d510f7a4d4686b91007d513344cc41b54d3fa5a9b658fb8a13ea4e3ef5"
+    sha256 cellar: :any,                 sonoma:        "7d9e7f9ce666c61467d5bfb3a2ec4d8883eb1c9582bfa0b25b3b07cd3e3de6c4"
+    sha256 cellar: :any,                 ventura:       "9dc9d06fdab3767de70d2dcbf2d920356286db60176d504f0cd28c2f5d9d38c8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b906b25b9ed8d6712cf8383fe4c16d20c23917fcf788a41cfc7d56f6266b6b02"
   end
 
   depends_on "autoconf" => :build

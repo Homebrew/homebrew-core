@@ -3,10 +3,11 @@ class Libdrawtext < Formula
   homepage "http://nuclear.mutantstargoat.com/sw/libdrawtext/"
   url "https://github.com/jtsiomb/libdrawtext/archive/refs/tags/v0.6.tar.gz"
   sha256 "714d94473622d756bfe7d70ad6340db3de7cc48f4f356a060e3cb48900c6da01"
-  license "LGPL-3.0"
+  license "LGPL-3.0-or-later"
   head "https://github.com/jtsiomb/libdrawtext.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any, arm64_sequoia:  "4aead494f4798e4f16eaec6f6c8c251c8de2604995969537295e9d4d0447f2a3"
     sha256 cellar: :any, arm64_sonoma:   "8a58fb6c5c3b800f97788698dde639a9fd99cf3beb4bd8bb56f781ca816ab5cd"
     sha256 cellar: :any, arm64_ventura:  "4b01f03d8831ce1af64b7ee299948ebcbc719f07482925519a6ee53ce283ff9e"
     sha256 cellar: :any, arm64_monterey: "ab6261d82ad121caeeb5945709def507dcef52d04afd1162f1473e973bc97a90"
@@ -19,6 +20,11 @@ class Libdrawtext < Formula
 
   depends_on "pkg-config" => :build
   depends_on "freetype"
+
+  on_linux do
+    depends_on "mesa"
+    depends_on "mesa-glu"
+  end
 
   def install
     system "./configure", "--disable-dbg", "--enable-opt", "--prefix=#{prefix}"
@@ -33,15 +39,17 @@ class Libdrawtext < Formula
   end
 
   test do
-    ext = if OS.mac? && MacOS.version >= :high_sierra
-      "otf"
-    else
-      "ttf"
+    ext = "ttf"
+    font_name = "DejaVuSans"
+    font_path = "/usr/share/fonts/truetype/dejavu"
+    if OS.mac?
+      ext = "otf" if MacOS.version >= :high_sierra
+      font_name = "LastResort"
+      font_path = "/System/Library/Fonts"
     end
 
-    cp "/System/Library/Fonts/LastResort.#{ext}", testpath
-    system bin/"font2glyphmap", "LastResort.#{ext}"
-    bytes = File.read("LastResort_s12.glyphmap").bytes.to_a[0..12]
-    assert_equal [80, 53, 10, 53, 49, 50, 32, 53, 49, 50, 10, 35, 32], bytes
+    cp "#{font_path}/#{font_name}.#{ext}", testpath
+    system bin/"font2glyphmap", "#{font_name}.#{ext}"
+    assert_match(/P5\n512 (256|512)\n# size: 12/, shell_output("head -3 #{font_name}_s12.glyphmap"))
   end
 end

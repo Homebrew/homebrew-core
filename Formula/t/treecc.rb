@@ -3,7 +3,7 @@ class Treecc < Formula
   homepage "https://gnu.org/software/dotgnu/treecc/treecc.html"
   url "https://download.savannah.gnu.org/releases/dotgnu-pnet/treecc-0.3.10.tar.gz"
   sha256 "5e9d20a6938e0c6fedfed0cabc7e9e984024e4881b748d076e8c75f1aeb6efe7"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url "https://download.savannah.gnu.org/releases/dotgnu-pnet/"
@@ -11,6 +11,7 @@ class Treecc < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "9d079ee6685d1432e363a820725469f633d8d649e235e7bf95a549d8a34b7789"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c98884b6106530ec5a9e7984d5bd9c18637794f9e52168c4877a7f72c0f068a5"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "8a9f078361781eeb11f2a5f595c0728c6753af61f8b2876c390d469bde5f1467"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "55d7a609393fe94689f48ae77c7e5c579fcfd408fb3c1fc3ea265bbac0dc842f"
@@ -34,6 +35,6 @@ class Treecc < Formula
   end
 
   test do
-    system "#{bin}/treecc", "-v"
+    system bin/"treecc", "-v"
   end
 end

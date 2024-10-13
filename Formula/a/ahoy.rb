@@ -1,20 +1,19 @@
 class Ahoy < Formula
   desc "Creates self documenting CLI programs from commands in YAML files"
   homepage "https://ahoy-cli.readthedocs.io/"
-  url "https://github.com/ahoy-cli/ahoy/archive/refs/tags/v2.1.1.tar.gz"
-  sha256 "38189a92e39e3ae3a34be491dd2cd010928debe46b112ad82336fafa852556b9"
+  url "https://github.com/ahoy-cli/ahoy/archive/refs/tags/v2.2.0.tar.gz"
+  sha256 "9131747774cbb6641b8f7104fd5fb239cbb6fe53656c74d2c29eb95d2db6f9f8"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b0ff980df2002a55329beeff9be13e0fb87c21b2c21d8ea134a15a1e2e2a5b77"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "af46c291ed8074770313676100c783c09f3e89f8513cf0772c49e2fa577fb684"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "af46c291ed8074770313676100c783c09f3e89f8513cf0772c49e2fa577fb684"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "af46c291ed8074770313676100c783c09f3e89f8513cf0772c49e2fa577fb684"
-    sha256 cellar: :any_skip_relocation, sonoma:         "6a24eb00ed3deb45025094df3034b3fb9fbf3eda0a0832e5e3073251d8c21433"
-    sha256 cellar: :any_skip_relocation, ventura:        "50400846fb4102aa87185c75b2b962e1fe8c2a2ed4a5ba59dcff3c7a48427feb"
-    sha256 cellar: :any_skip_relocation, monterey:       "50400846fb4102aa87185c75b2b962e1fe8c2a2ed4a5ba59dcff3c7a48427feb"
-    sha256 cellar: :any_skip_relocation, big_sur:        "50400846fb4102aa87185c75b2b962e1fe8c2a2ed4a5ba59dcff3c7a48427feb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "14b0c30a235c3f027727b48728ff36daaf63489df699cd99c04281270b01ae98"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "3df3575f32c3f7f4b035763fb50c321691ee21a55cd09b0f1b7db7456e8b8a80"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ff34fd831db681f141430674f747592b0d25b0fced2b7b06eca000904bd93c29"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ff34fd831db681f141430674f747592b0d25b0fced2b7b06eca000904bd93c29"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ff34fd831db681f141430674f747592b0d25b0fced2b7b06eca000904bd93c29"
+    sha256 cellar: :any_skip_relocation, sonoma:         "94456698ccb845385b3eecd9f567a51e763ce69f42b2c3cee43f23eb371a94e8"
+    sha256 cellar: :any_skip_relocation, ventura:        "94456698ccb845385b3eecd9f567a51e763ce69f42b2c3cee43f23eb371a94e8"
+    sha256 cellar: :any_skip_relocation, monterey:       "94456698ccb845385b3eecd9f567a51e763ce69f42b2c3cee43f23eb371a94e8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8cbaee24adf9c44204beec7e6b43d13a123aedc2be7e7382327630727a857700"
   end
 
   depends_on "go" => :build

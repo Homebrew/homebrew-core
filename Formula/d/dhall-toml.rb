@@ -7,6 +7,7 @@ class DhallToml < Formula
   head "https://github.com/dhall-lang/dhall-haskell.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "780e0f69804e6ec42753ddab457ba65206b731e68ee6e1b655f3dba777507978"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "77850e914f5774c848519d088375e566ac96946ded3ca7428da4fac4394464ec"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "7d7f38cc68cd120e3869d3a535cd7c1c4b81d094f1754f395cb7864b66fdac94"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a8a362df2578a98f41e80638d7adefa2863c96ba616ba47d4d97c4e8b71c9d54"
@@ -17,7 +18,7 @@ class DhallToml < Formula
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc@9.4" => :build
+  depends_on "ghc@9.8" => :build
 
   uses_from_macos "ncurses"
   uses_from_macos "zlib"

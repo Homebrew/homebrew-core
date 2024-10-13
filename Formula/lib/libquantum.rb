@@ -12,6 +12,7 @@ class Libquantum < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "1104c2f6a72d4e1576077b6bb549f7e579ccd5d0869ff4e7ea7753655dd5c370"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "cbea5e8c46c96ca5adb46cd719b625261e63965deb8884f0fa71814edf2d589e"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "2a4a3d3b7b1525e1105b5fd4212a2b13bdc9e74ae182a4b76b3d5501c4cc8940"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d18cc1cd910ad5b7a0922bb290b9eb79053144d32dcd2071db5658c1e2a4e2fb"

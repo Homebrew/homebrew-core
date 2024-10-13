@@ -7,6 +7,7 @@ class DejaGnu < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "267d87a1d746750a3797ad46513431e790f9a454c3d6d6d46e0e6b8cdb644702"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ada72df0280151e894c2d132b423a69cce43ffd27de25cf94439f78aa4df4da3"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "aae2cc17f126ef380eadd7d9a4909320f38d3b62c5722a2f9a777090cfe61720"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "aae2cc17f126ef380eadd7d9a4909320f38d3b62c5722a2f9a777090cfe61720"
@@ -41,6 +42,6 @@ class DejaGnu < Formula
   end
 
   test do
-    system "#{bin}/runtest"
+    system bin/"runtest"
   end
 end

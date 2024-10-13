@@ -20,6 +20,7 @@ class Opencascade < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "16410eed828af2c6c730eacf374043f61689b92fcf3b996d7e58f70fa12c3d0f"
     sha256 cellar: :any,                 arm64_sonoma:   "725b60ffcfcdc50edb28dd8c5d8d87c44fd9e2c5267c64c677b6098e64b68f83"
     sha256 cellar: :any,                 arm64_ventura:  "ebd45601d545eeeb65ac441d57a1a90b0cc615707eb9b0896d6161e9ace3ee2d"
     sha256 cellar: :any,                 arm64_monterey: "55758e47849fa92c48982fb5c0898d4c53a034d4de6cbb64f69a555f36de2a8c"
@@ -41,6 +42,12 @@ class Opencascade < Formula
   on_linux do
     depends_on "libx11"
     depends_on "mesa" # For OpenGL
+  end
+
+  # Backport fix for incorrect type
+  patch do
+    url "https://github.com/Open-Cascade-SAS/OCCT/commit/7236e83dcc1e7284e66dc61e612154617ef715d6.patch?full_index=1"
+    sha256 "ed8848b3891df4894de56ae8f8c51f6a4b78477c0063d957321c1cace4613c29"
   end
 
   def install
@@ -95,7 +102,7 @@ class Opencascade < Formula
       (\.dylib)? # 5
     /x
     inreplace (lib/"cmake/opencascade").glob("*.cmake") do |s|
-      s.gsub! tbb_regex, 'libtbb\1\2.\3\5', false
+      s.gsub! tbb_regex, 'libtbb\1\2.\3\5', audit_result: false
     end
 
     bin.env_script_all_files(libexec, CASROOT: prefix)

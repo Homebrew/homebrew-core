@@ -4,17 +4,18 @@ class QuickLintJs < Formula
   url "https://c.quick-lint-js.com/releases/3.2.0/source/quick-lint-js-3.2.0.tar.gz"
   sha256 "f17b39726622637946136076c406e89d3a98ae363d5e3c2a93ab1139bf0e828d"
   license "GPL-3.0-or-later"
-  revision 2
+  revision 3
   head "https://github.com/quick-lint/quick-lint-js.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "684ea752246efb50fe3c143434d9e0659f3838325b8e9a82b12e8d74dd87171b"
-    sha256 cellar: :any,                 arm64_ventura:  "28273a5f14474f69289bead2122afd55936d3cdec961007dd4c8c32f573435ce"
-    sha256 cellar: :any,                 arm64_monterey: "6221c492b1521579a5c0c916d1d2376d9069537ab558d7c475d23e6b0d176a89"
-    sha256 cellar: :any,                 sonoma:         "fa27c44cdcc83e94f5b62d862d182cd662b18411291832ddd8c1454fa9c5a541"
-    sha256 cellar: :any,                 ventura:        "3376f7a5fbba018cee99ba40c69d7db8660e3ac3e67742a4cbe4b0c555d8a0ed"
-    sha256 cellar: :any,                 monterey:       "3b716c8ed3460b71a1d79e6a2162f77023765037c881a1fa4115d8f8b27c1c7b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "970aa31fd1b6499e8c107d179c44bc833c717226962c549365a92bfb7f0f843b"
+    sha256 cellar: :any,                 arm64_sequoia:  "a01d77385e35693b39d0d6b53bcedc80e451adae99c17dc7736f3c1d0dde676b"
+    sha256 cellar: :any,                 arm64_sonoma:   "1c699e9d0d9055c43969f64b41b42e747b072e65e84b758d02ae7997c15e353e"
+    sha256 cellar: :any,                 arm64_ventura:  "5cd781a6b0b50689f316ee6d27d503ec4343bc63c59596828f46867304b4ee76"
+    sha256 cellar: :any,                 arm64_monterey: "69ee58c007063145b36659d42a4c3fa045caabecc20e2a9b4254aa039d29f53a"
+    sha256 cellar: :any,                 sonoma:         "8a1bc3c66806e5072d5eda62708201d7b9a29028f2152d084f23fbb52559f48a"
+    sha256 cellar: :any,                 ventura:        "ec13d355b3a67bfac798e9afc7fe35cd316ee06a568e031e0d73da957b5ba7cd"
+    sha256 cellar: :any,                 monterey:       "586efbd26ac2d272a193fde740c9c626a46fde8b71b8d911b55ae6307b9cf454"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "62079260e74d945d2d2a9f6a23c98212df617e295ed30adfb35c95b43cc7676b"
   end
 
   depends_on "cmake" => :build

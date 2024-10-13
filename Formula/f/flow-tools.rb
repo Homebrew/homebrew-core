@@ -7,6 +7,7 @@ class FlowTools < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_sequoia:  "f99aa518b7c94faa3be0ea9d263a7de70ef5778f65c5f620cee6b6e03f42b2d5"
     sha256 arm64_sonoma:   "84db73f5e249e77d5aaef609008c7fcc3d3667262a9e0c1c7f07b14870e31f51"
     sha256 arm64_ventura:  "c90987ead84d52f84bf1f156cd04ef871b4aa2a47ceeb26dcef0a4c6d97f25fb"
     sha256 arm64_monterey: "21de46ca9080f98898aaeb06a9b33b0c56c7246dc8f01443939b9b621186fc92"

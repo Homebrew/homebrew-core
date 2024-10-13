@@ -11,6 +11,7 @@ class YazeAg < Formula
   end
 
   bottle do
+    sha256 arm64_sequoia:  "bfd9c7701ebbea4917f2874690b38b6c1cf129bc228305dfd64d5e56222d69e3"
     sha256 arm64_sonoma:   "7c92d3d3d2b899192243ca7951d22183d4f2ebdcc5ab999c51742797b5f52d7d"
     sha256 arm64_ventura:  "dfde75b6e01c854c6e368e7c0b1e6ad1041595c7f7c3c4564aee651a3db1e239"
     sha256 arm64_monterey: "e16e79f90ea2bc48a220d2e4d3ce8e72acefe6a3f6382709d1d69b0cc4e0f221"

@@ -6,6 +6,7 @@ class Lci < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256                               arm64_sequoia:  "03e706a199e3f12966157114b96fac64536ca93e3c8cbfc60f2152aba1250b28"
     sha256                               arm64_sonoma:   "c4d21727f797911c504241d45f2fabf93835e650ec5fdfe5bc86a53caf5b6a53"
     sha256                               arm64_ventura:  "21afc33909d59c974988a19f1189c56451430b0ff1bd687d421fbcb227e3c215"
     sha256                               arm64_monterey: "7fb1ab319d3340b759042f184cd043f50f3897bf8f0650885fe8b679b630c52c"
@@ -30,6 +31,6 @@ class Lci < Formula
   end
 
   test do
-    assert_match "[I, 2]", pipe_output("#{bin}/lci", "Append [1] [2]\n")
+    assert_match "[I, 2]", pipe_output(bin/"lci", "Append [1] [2]\n")
   end
 end

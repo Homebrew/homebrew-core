@@ -7,6 +7,10 @@ on:
     types:
       - completed
 
+defaults:
+  run:
+    shell: bash -xeuo pipefail {0}
+
 concurrency:
   group: triage-ci-${{ github.event.workflow_run.event }}-${{ github.event.workflow_run.id }}
   cancel-in-progress: true
@@ -66,7 +70,7 @@ jobs:
             gh api \
               --header 'Accept: application/vnd.github+json' \
               --header 'X-GitHub-Api-Version: 2022-11-28' \
-              "repos/{owner}/{repo}/pulls/$PR"
+              "repos/$GITHUB_REPOSITORY/pulls/$PR"
           )"
           comments_api_url="$(jq --raw-output '.comments_url' <<< "$response")"
 
@@ -104,7 +108,7 @@ jobs:
 
       - name: Post comment
         if: fromJson(steps.check.outputs.comment)
-        run: gh pr comment "$PR" --body-file "$COMMENT_BODY_FILE"
+        run: gh pr comment "$PR" --body-file "$COMMENT_BODY_FILE" --repo "$GITHUB_REPOSITORY"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR: ${{ steps.pr.outputs.number }}

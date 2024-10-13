@@ -3,9 +3,11 @@ class Xmlcatmgr < Formula
   homepage "https://xmlcatmgr.sourceforge.net/"
   url "https://downloads.sourceforge.net/project/xmlcatmgr/xmlcatmgr/2.2/xmlcatmgr-2.2.tar.gz"
   sha256 "ea1142b6aef40fbd624fc3e2130cf10cf081b5fa88e5229c92b8f515779d6fdc"
+  license "BSD-3-Clause"
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "a5001b714208e85e53c79584088d9f1d710f82e450119e27ab4a4cd037f914b3"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2173a5a30ce2c4d47c35e9fef2eb19bc08e50203d59d4728d18ece3209cb2118"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "ab7701704b492dcdb3b27fba5423a0d45fd572188cb51461dbe344d83b10909a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "919144de2d285295b51f2fd50c480a89700c746ffcb3430ee8bb8c2dd6a12338"
@@ -29,6 +31,6 @@ class Xmlcatmgr < Formula
   end
 
   test do
-    system "#{bin}/xmlcatmgr", "-v"
+    system bin/"xmlcatmgr", "-v"
   end
 end

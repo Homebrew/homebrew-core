@@ -4,6 +4,7 @@ class Vlmcsd < Formula
   url "https://github.com/Wind4/vlmcsd/archive/refs/tags/svn1113.tar.gz"
   version "svn1113"
   sha256 "62f55c48f5de1249c2348ab6b96dabbe7e38899230954b0c8774efb01d9c42cc"
+  license "LGPL-2.1-or-later"
   head "https://github.com/Wind4/vlmcsd.git", branch: "master"
 
   livecheck do
@@ -14,6 +15,7 @@ class Vlmcsd < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "42bed0ef59c540a54cc77bf71002b8229414ed077be0bceecd568fe37b33a4be"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0ea7a29e62f3886e4c495c373cf3976109b0e08010d1c28ace15f9bfc426238f"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "58a2efe9d5940bc384b74ed21b81599146942ea924e9844a7b6060558f8ca621"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "20f3ba285635e158a02b7cb528e25eda9fa45b6a832f5893536e88b6e965a332"
@@ -69,7 +71,7 @@ class Vlmcsd < Formula
     assert_match "vlmcs", output
     begin
       pid = fork do
-        exec "#{bin}/vlmcsd", "-D"
+        exec bin/"vlmcsd", "-D"
       end
       # Run vlmcsd, then use vlmcs to check
       # the running status of vlmcsd

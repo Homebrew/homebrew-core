@@ -6,6 +6,7 @@ class Ata < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "e4e98e4c055e41cc706441024e03f621e29598cf9889dd8735542dea055a34e1"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f61ec72f7a185910b29a9209a746cd3ab5b951bc114479692fbe59a679292ac7"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "cca453b1df61a1bfb7c6e4121c6f2885b3558907c8275f871e79a252cee4582d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "26a3a3e71ffed54d77329208d9c74ae3eb9be88f5e69cf7fca46f8254aa1ad67"
@@ -22,7 +23,7 @@ class Ata < Formula
   end
 
   test do
-    system "#{bin}/ata", "--version"
+    system bin/"ata", "--version"
 
     config_file = testpath/"config/ata.toml"
     config_file.write <<~EOS

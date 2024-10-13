@@ -1,18 +1,17 @@
 class GitCliff < Formula
   desc "Highly customizable changelog generator"
   homepage "https://github.com/orhun/git-cliff"
-  url "https://github.com/orhun/git-cliff/archive/refs/tags/v2.4.0.tar.gz"
-  sha256 "d5791600e440d0842e42f3b0dbc8d503f4902920675054a23f046fbb1c252636"
+  url "https://github.com/orhun/git-cliff/archive/refs/tags/v2.6.1.tar.gz"
+  sha256 "96d2759bb276bfddf4f6653a06afe2982d0bdc9678a5d2cb3880685a681a8a3e"
   license all_of: ["Apache-2.0", "MIT"]
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "1bad06f26baac7f0221892aca5b1acc0900ba7d302d16a758de42588079b9c05"
-    sha256 cellar: :any,                 arm64_ventura:  "fe46ef9c25cb57e4ab01e62bc2327eb19fe4b2768f4e966c885a4f158654fdc2"
-    sha256 cellar: :any,                 arm64_monterey: "3ab5b74d79888c5d344e3d317a2ce572b31eb20b6292b61acf1eed3128ce7166"
-    sha256 cellar: :any,                 sonoma:         "799e11a01fe28b60f87db38473c1b3ec9cce267ffe466683c76a8e4a9608cb65"
-    sha256 cellar: :any,                 ventura:        "00ad01967b2e0b0883e425d5a2f636cfa61b07c6ec6046169c75a8057b0c8228"
-    sha256 cellar: :any,                 monterey:       "24de5cefc74db91f258bfeb05d5308dd44c8f9f813e017dbfe229e4b8a82eb78"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9e11c07cd67b47a9886b0d8e176132f4af00c824935ca044e47fdb64a27352d2"
+    sha256 cellar: :any,                 arm64_sequoia: "e38be5334e0b66baf08b69e292d52f27abc22aea4970dc14c1d3c2ededc8e841"
+    sha256 cellar: :any,                 arm64_sonoma:  "cbb83919485ca184cb109f6f3aa27719251dfd9efc9b534c57132819055ccb64"
+    sha256 cellar: :any,                 arm64_ventura: "a3dab23f71833ee3ed1a818fd8633242f59375690029f4f16c006a9af4f0f6df"
+    sha256 cellar: :any,                 sonoma:        "13d20ac72e3f380d6aab5f4f0160be881b252b5f5501d79f047f7b2b66507a8f"
+    sha256 cellar: :any,                 ventura:       "adc87f385c104c034cbb0914e81ba5b1fcf774d6f3d7e92998eaa57dea5a4c46"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8d736d2e383cb6c3eb64091b40d8c71b2f9a510a6131767bf47c46efd413af7d"
   end
 
   depends_on "pkg-config" => :build

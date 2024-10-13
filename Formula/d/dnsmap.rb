@@ -3,9 +3,13 @@ class Dnsmap < Formula
   homepage "https://github.com/resurrecting-open-source-projects/dnsmap"
   url "https://github.com/resurrecting-open-source-projects/dnsmap/archive/refs/tags/0.36.tar.gz"
   sha256 "f52d6d49cbf9a60f601c919f99457f108d51ecd011c63e669d58f38d50ad853c"
+  # Code is all GPL-2.0-or-later but license file was changed to GPL-3.0 in following commit
+  # Ref: https://github.com/resurrecting-open-source-projects/dnsmap/commit/408ecfd62a0b2c089dda6f3be5d396ed2662797e
+  license all_of: ["GPL-2.0-or-later", "GPL-3.0-or-later"]
   head "https://github.com/resurrecting-open-source-projects/dnsmap.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "61337c7ece0f713abedf4081d0519dc7979872a5f0142467a419d892332dcaff"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3f4f7d4275680826270912ddd68aa2c5e69e83a620004465a412815695388d47"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "62d1f525a5c4d2770b488d65670cde33d377a460987e5e0568eea506b592ebd0"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "8eb47816e6f0177b5e7a7358540055bf5d0346888bc921f6220ebd2e4a15cfda"
@@ -28,6 +32,6 @@ class Dnsmap < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/dnsmap", 1)
+    assert_match version.to_s, shell_output(bin/"dnsmap", 1)
   end
 end

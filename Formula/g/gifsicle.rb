@@ -11,6 +11,7 @@ class Gifsicle < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "ba90fe9c8699b146bf0b44d09fcd82de129ecd4b13adbecfdebcfa13f8a80fa2"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "47546a82fae6efc95d68737cfeb31d602d7ad2f33cd2ba2fa35caf8a22d2b3fa"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "77137576a3a3cfc1ce005b89934f59e33bf20129004597dfdd35a986144a25ae"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "eef0d504edee2dc94eba412e0d9a9e72a4954deb9286e4d95044d04d62784895"
@@ -40,6 +41,6 @@ class Gifsicle < Formula
   end
 
   test do
-    system "#{bin}/gifsicle", "--info", test_fixtures("test.gif")
+    system bin/"gifsicle", "--info", test_fixtures("test.gif")
   end
 end

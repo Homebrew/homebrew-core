@@ -33,8 +33,8 @@ class Nexus < Formula
     system "mvn", "install", "-DskipTests"
     system "unzip", "-o", "-d", "target", "assemblies/nexus-base-template/target/nexus-base-template-#{version}.zip"
 
-    rm_f Dir["target/nexus-base-template-#{version}/bin/*.bat"]
-    rm_f "target/nexus-base-template-#{version}/bin/contrib"
+    rm(Dir["target/nexus-base-template-#{version}/bin/*.bat"])
+    rm_r("target/nexus-base-template-#{version}/bin/contrib")
     libexec.install Dir["target/nexus-base-template-#{version}/*"]
 
     env = {
@@ -61,7 +61,7 @@ class Nexus < Formula
     mkdir "data"
     fork do
       ENV["NEXUS_KARAF_DATA"] = testpath/"data"
-      exec "#{bin}/nexus", "server"
+      exec bin/"nexus", "server"
     end
     sleep 100
     assert_match "<title>Nexus Repository Manager</title>", shell_output("curl --silent --fail http://localhost:8081")

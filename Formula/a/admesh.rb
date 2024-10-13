@@ -3,9 +3,10 @@ class Admesh < Formula
   homepage "https://github.com/admesh/admesh"
   url "https://github.com/admesh/admesh/releases/download/v0.98.5/admesh-0.98.5.tar.gz"
   sha256 "0d7994bfa587c4e958b2ac7c7d2fb90dfb6c5463d32513ada169cf710a438535"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "c88ef051413ca638240add2cd10c366fc81c3b8d1cd29387cb137d7d3ef411c8"
     sha256 cellar: :any,                 arm64_sonoma:   "d8be2d072ff47a331d5a749e91598d85da1079f65e2f5f9a222f3f8bb386daff"
     sha256 cellar: :any,                 arm64_ventura:  "574b1956bd94a641fac2f06a85f9cfe3aaf5969a14ec3d88a5431230cbd36e49"
     sha256 cellar: :any,                 arm64_monterey: "3c0ddb99e13c88ae4197e0822e1bb616f1c681f38a907da42099f0bcb763f3a7"
@@ -38,6 +39,6 @@ class Admesh < Formula
       ENDFACET
       ENDSOLID Untitled1
     EOS
-    system "#{bin}/admesh", "test.stl"
+    system bin/"admesh", "test.stl"
   end
 end

@@ -1,5 +1,3 @@
-require "language/node"
-
 class Astgen < Formula
   desc "Generate AST in json format for JS/TS"
   homepage "https://github.com/joernio/astgen"
@@ -8,13 +6,8 @@ class Astgen < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ed39988aab49ef7a4f34118af779465a330dd25bf0a793146552c2c659aed178"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ed39988aab49ef7a4f34118af779465a330dd25bf0a793146552c2c659aed178"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ed39988aab49ef7a4f34118af779465a330dd25bf0a793146552c2c659aed178"
-    sha256 cellar: :any_skip_relocation, sonoma:         "ed39988aab49ef7a4f34118af779465a330dd25bf0a793146552c2c659aed178"
-    sha256 cellar: :any_skip_relocation, ventura:        "ed39988aab49ef7a4f34118af779465a330dd25bf0a793146552c2c659aed178"
-    sha256 cellar: :any_skip_relocation, monterey:       "ed39988aab49ef7a4f34118af779465a330dd25bf0a793146552c2c659aed178"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f050211f92e11b55282dcefa185607a3eccd2dc3ea481a3fe84ccab532e46fc4"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "cca01b477e6e5b6406f09290be047f05dfef76226d17e004a42d2fcfb33b1ec2"
   end
 
   depends_on "node"
@@ -23,7 +16,7 @@ class Astgen < Formula
 
   def install
     # Disable custom postinstall script
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec), "--ignore-scripts"
+    system "npm", "install", *std_npm_args, "--ignore-scripts"
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 

@@ -1,24 +1,24 @@
 class AdaUrl < Formula
   desc "WHATWG-compliant and fast URL parser written in modern C++"
   homepage "https://github.com/ada-url/ada"
-  url "https://github.com/ada-url/ada/archive/refs/tags/v2.9.0.tar.gz"
-  sha256 "8b992f0ce9134cb4eafb74b164d2ce2cb3af1900902162713b0e0c5ab0b6acd8"
+  url "https://github.com/ada-url/ada/archive/refs/tags/v2.9.2.tar.gz"
+  sha256 "f41575ad7eec833afd9f6a0d6101ee7dc2f947fdf19ae8f1b54a71d59f4ba5ec"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/ada-url/ada.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "91f04f40ba240053b2ba991e6b52668e5f53f3f4b5e04d0abc58bc33b0927b2d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8d336ca4c0f90426fd502f40ded7346d98e45bf99f5152a59050de66717b2104"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "70021323c8ec3859d736153d87c6781b7363a7aaf028d02b71887a64b5734499"
-    sha256 cellar: :any_skip_relocation, sonoma:         "6d7a6487df6f4cf80aca1af62121043677e4e045b642d7d14b047588dfa96313"
-    sha256 cellar: :any_skip_relocation, ventura:        "e6a4596e5d40dec898078d22e9719c13200498f1a91baa451144ff701590d970"
-    sha256 cellar: :any_skip_relocation, monterey:       "2c3f2e749467ec94fb38e19c9666c32030ea42278d140970d70bf096359d4c4b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1452b6f3286ea9311f1f642983929727a9b265507094471d6c5ae75e3d19c2f7"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "7ee5631616c184991a427c6ccd82b4ae49928524dc61dd21444d5f31c2202421"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1b8a8d3bc904c61fe3b13a2c9ea6cb1627c3b6ff2b139da50c00d5eec2f6344c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a46f54bfb577dc5bfa1431269fa1b93af030640ef7107881fe4f295045fb3475"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "4a8a04764f60f6857276d5591649367b0c52527d7245248b76b8aaf7992792a2"
+    sha256 cellar: :any_skip_relocation, sonoma:         "be0939349107d85265afacf22f9afdba7cccab84023f299f3d3a247e1832b580"
+    sha256 cellar: :any_skip_relocation, ventura:        "53d01ad1cacb696ea8313e7e0b559e3b3e124012768a48a9c608c1271ba7355c"
+    sha256 cellar: :any_skip_relocation, monterey:       "3235a61e579ec0b15c8b70e57dae70d7b00255e2c2e9fec2844058491f6ec2fa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c9fbc1dd0f5485a000e353d552aa41b25b8cf355f44c615e7f6533b64b7f0198"
   end
 
   depends_on "cmake" => :build
-  depends_on "python@3.12" => :build
-  depends_on macos: :catalina
+  uses_from_macos "python" => :build
 
   def install
     system "cmake", "-B", "build", *std_cmake_args

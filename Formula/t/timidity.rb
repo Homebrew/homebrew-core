@@ -13,6 +13,7 @@ class Timidity < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_sequoia:  "192d64a9d4bd9425e399baacb67512c94fc60f52ee81016ed71afd9482ea5c47"
     sha256 arm64_sonoma:   "4c35935f5ab6bef4f133601dcee29c8f992dc4ceaa35541d4a881dd414b128fd"
     sha256 arm64_ventura:  "733c42a66bbbef0581bfffd17818184d7739f7388284f8aa8474d590e2fb023e"
     sha256 arm64_monterey: "d471c899e61b20c831429a9e98b9e2980c182438c2ebd4eb4b5e6c4760fe725b"
@@ -62,6 +63,6 @@ class Timidity < Formula
   end
 
   test do
-    system "#{bin}/timidity"
+    system bin/"timidity"
   end
 end

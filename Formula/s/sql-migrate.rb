@@ -7,6 +7,7 @@ class SqlMigrate < Formula
   head "https://github.com/rubenv/sql-migrate.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "2870e77f02a2991804ddc0bcc7f26b33a91d21adf2ed85b0d2cae1374f076bfe"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9b58e698410d64d8b2e4780b39974729a09d00bab1434ce7b5c68a75f08cc472"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "b67c564eb19177f28740d68d95b706a46b371a1fb9dacdb0fe134f3fa2307fe3"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "26fc163f48bf785441f423f14effb740ddd5005be9733f589d13e9ec8c197080"

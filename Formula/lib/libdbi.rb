@@ -3,10 +3,11 @@ class Libdbi < Formula
   homepage "https://libdbi.sourceforge.net/"
   url "https://downloads.sourceforge.net/project/libdbi/libdbi/libdbi-0.9.0/libdbi-0.9.0.tar.gz"
   sha256 "dafb6cdca524c628df832b6dd0bf8fabceb103248edb21762c02d3068fca4503"
-  license "LGPL-2.1"
+  license "LGPL-2.1-or-later"
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia:  "2ad28ca963e05bb6c228aa9d10507b53b2ff673a3a2953f6eb05f89a36bbccd9"
     sha256 cellar: :any,                 arm64_sonoma:   "c108e50e26857c7fc725363e27c4b069c5c2271b1b7a04e7603d1977bc53eb9b"
     sha256 cellar: :any,                 arm64_ventura:  "65d1ef64a864021ad09a860db2dc4388216dc840d565c7a9a1e24e6dfe5b30e8"
     sha256 cellar: :any,                 arm64_monterey: "3e46a3c790195ad94277912f505bce7d29aee03dddc112f1473e5094b6f1de97"

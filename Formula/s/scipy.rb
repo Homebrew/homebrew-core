@@ -1,20 +1,20 @@
 class Scipy < Formula
   desc "Software for mathematics, science, and engineering"
   homepage "https://www.scipy.org"
-  url "https://files.pythonhosted.org/packages/4e/e5/0230da034a2e1b1feb32621d7cd57c59484091d6dccc9e6b855b0d309fc9/scipy-1.14.0.tar.gz"
-  sha256 "b5923f48cb840380f9854339176ef21763118a7300a88203ccd0bdd26e58527b"
+  url "https://files.pythonhosted.org/packages/62/11/4d44a1f274e002784e4dbdb81e0ea96d2de2d1045b2132d5af62cc31fd28/scipy-1.14.1.tar.gz"
+  sha256 "5a275584e726026a5699459aa72f828a610821006228e841b94275c4a7c08417"
   license "BSD-3-Clause"
-  revision 1
   head "https://github.com/scipy/scipy.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "8d67847d431450f294b50115b771a84e1aeb14917b5c05e23724bedca528d548"
-    sha256 cellar: :any,                 arm64_ventura:  "c397f3ea73abf01756d662f612eefc63e7ecbde23afb225ea24e98df07bcb669"
-    sha256 cellar: :any,                 arm64_monterey: "f68095516dcb6a316dabab2f5296a9415a71204f5e9e1e9267cb1e53db138c91"
-    sha256 cellar: :any,                 sonoma:         "188cc838894029b318b485b4276ba7e0537824b5f34889612d6585b6c84df9fd"
-    sha256 cellar: :any,                 ventura:        "2b1b6945f4e073e63b7506dbbeca67731d073b13a10e8974c8b4f6fadc27783b"
-    sha256 cellar: :any,                 monterey:       "e33c90c4d050595f3e710f3e2605aaeb0826d024f55b6ef57914f3f18679e627"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1bb68c0e41e2bb894a43025119c4938a8ebf805b5fa89b901fce309d444a2046"
+    sha256 cellar: :any,                 arm64_sequoia:  "6727575f0867f1039c2b473e01404f3e1e5c0dd40a5f589251be77cf3aa0d771"
+    sha256 cellar: :any,                 arm64_sonoma:   "2148d339325ed35253ab5932b2f1173dc27ccc2dd0fd5824fac8803afb109090"
+    sha256 cellar: :any,                 arm64_ventura:  "694ff1f342f3c8a2bf9e5395fc0880702dd916af27223fc978d3da3886f1a524"
+    sha256 cellar: :any,                 arm64_monterey: "2b7727f7d9ac60e357a1bfa0a11d1dfa6923ee6c2ed5afbedb8c6bd46630ec46"
+    sha256 cellar: :any,                 sonoma:         "ca1af7099de12b5621f76f51d903c19bcffa59a8915ae2f903a60a87e17d0b6c"
+    sha256 cellar: :any,                 ventura:        "e812b863c129425d46d5e85a7b066f0313ce3380a17d1b3a720e33ab05708dff"
+    sha256 cellar: :any,                 monterey:       "c4092245f269cec545011209abbde8c4d628ec10c831d18ad321157e3bebd52b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d350cfed231253b7ea035004e390fb90c7609e773b264e5c959997a02470c808"
   end
 
   depends_on "meson" => :build
@@ -45,7 +45,7 @@ class Scipy < Formula
   # cleanup leftover .pyc files from previous installs which can cause problems
   # see https://github.com/Homebrew/homebrew-python/issues/185#issuecomment-67534979
   def post_install
-    rm_f Dir["#{HOMEBREW_PREFIX}/lib/python*.*/site-packages/scipy/**/*.pyc"]
+    rm(Dir["#{HOMEBREW_PREFIX}/lib/python*.*/site-packages/scipy/**/*.pyc"])
   end
 
   test do

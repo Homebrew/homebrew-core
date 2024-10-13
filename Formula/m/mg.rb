@@ -3,10 +3,11 @@ class Mg < Formula
   homepage "https://github.com/ibara/mg"
   url "https://github.com/ibara/mg/releases/download/mg-7.3/mg-7.3.tar.gz"
   sha256 "1fd52feed9a96b93ef16c28ec4ff6cb25af85542ec949867bffaddee203d1e95"
-  license all_of: [:public_domain, "ISC", :cannot_represent]
+  license all_of: [:public_domain, "ISC", "BSD-2-Clause", "BSD-3-Clause", "BSD-4-Clause"]
   version_scheme 1
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "14c363b5eeea07b8f117cb74b9676ae6a92dc26a9f1f39d9d9169fda5577a242"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "31940ad999d42c596d86df83651fea272faf4da53ec9b69b71b05165ec01d5bb"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "22b26617c6ce69d7c1e5e69a0628aac1db8f60e164c788bb7784841fd02818a5"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f367179c081b6bd5f234d68d8134466d1d7a7e457b3258053da668e454b087bb"

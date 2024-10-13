@@ -1,10 +1,13 @@
 class Phodav < Formula
   desc "WebDav server implementation using libsoup (RFC 4918)"
   homepage "https://gitlab.gnome.org/GNOME/phodav"
-  url "https://gitlab.gnome.org/GNOME/phodav.git", tag: "v3.0", revision: "d733fd853f0664ad8035b1b85604c62de0e97098"
+  url "https://download.gnome.org/sources/phodav/3.0/phodav-3.0.tar.xz"
+  sha256 "392ec2d06d50300dcff1ef269a2a985304e29bce3520002fca29f2edc1d138d1"
   license "LGPL-2.1-only"
+  head "https://gitlab.gnome.org/GNOME/phodav.git", branch: "master"
 
   bottle do
+    sha256 arm64_sequoia:  "d6beac9ae63de2d6fa449ca75e45a768f2b42fbe01739a6480867a969942f111"
     sha256 arm64_sonoma:   "e71f34ceed2c0b5ac310099aa989f2899c3d6b8a2c135aca3898e112e737437a"
     sha256 arm64_ventura:  "7f62bb9ee32a97be3e81f9fa437e60de55e25ac8b33fcc3a90862616afcbd3cc"
     sha256 arm64_monterey: "84935f58bd6529731b3f854f3afccb7abd495b4545fd753a0414d1352586faad"
@@ -18,10 +21,14 @@ class Phodav < Formula
   depends_on "ninja" => :build
   depends_on "pkg-config" => [:build, :test]
 
+  depends_on "glib"
   depends_on "libsoup"
-  depends_on "xmlto"
 
   uses_from_macos "libxml2"
+
+  on_macos do
+    depends_on "gettext"
+  end
 
   def install
     system "meson", "setup", "build", *std_meson_args
@@ -52,10 +59,10 @@ class Phodav < Formula
         return 0;
       }
     EOS
-    ENV.prepend_path "PKG_CONFIG_PATH", "#{Formula["icu4c"].lib}/pkgconfig"
-    system ENV.cc, "test.cpp",
-                   *shell_output("pkg-config --libs --cflags libphodav-3.0").chomp.split,
-                   "-o", "test"
+
+    ENV.prepend_path "PKG_CONFIG_PATH", Formula["icu4c"].lib/"pkgconfig" if OS.mac?
+    flags = shell_output("pkg-config --libs --cflags libphodav-3.0").chomp.split
+    system ENV.cc, "test.cpp", "-o", "test", *flags
     system "./test"
   end
 end

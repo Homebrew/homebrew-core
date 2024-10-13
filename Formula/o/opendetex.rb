@@ -6,6 +6,7 @@ class Opendetex < Formula
   license "BSD-3-Clause"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "f9d5e6e37677f7f89079cb9180df7a7b3446abd47c410fe81eb1c75afc8ceb76"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "23938ef4f3e39053df242eace39677f290ec1e1ff000569635443df5fa062a70"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "78f98d7aadb714d796f32b60c3becd898c9ef6a88d14e58fb9c303b8d2ec368e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "55f421f5f7b3500f5ceb9fc05f76b947e012bc2c79b5695ce81b106576cfcba9"

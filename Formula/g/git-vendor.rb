@@ -7,7 +7,8 @@ class GitVendor < Formula
   head "https://github.com/brettlangdon/git-vendor.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "8123246395ec3af5b972d961eda517a523b8c0807b6cc3e25aba2bc09c46230b"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "787b5a6895706acdec2ad5cc6dade2cef8dbdfcd0d0352b6fbc45a6a40489f0e"
   end
 
   def install

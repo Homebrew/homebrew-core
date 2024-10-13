@@ -6,6 +6,7 @@ class Asyncplusplus < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "a2ca3a7427e54dd1ea149c113238b5dd4b3b2343ef529cd46e6c1e5dd36b588b"
     sha256 cellar: :any,                 arm64_sonoma:   "467985bb99af085a4a77b67bcaba1e944ebe42b900e72ff75fff9eb8eaf0091e"
     sha256 cellar: :any,                 arm64_ventura:  "898eddc5042c1c1022f157a250372b55a373d1c2a9d54c929280f60c3ea503f1"
     sha256 cellar: :any,                 arm64_monterey: "b6d8ffe80f5931825874903e480010524c9ce2d3a2d3f19b0152897459748bf9"

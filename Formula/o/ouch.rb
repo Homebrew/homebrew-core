@@ -7,6 +7,7 @@ class Ouch < Formula
   head "https://github.com/ouch-org/ouch.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "01207f623492615b563e7607f2f992f72c4904126c4e79861bd60a00479fa6ed"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "96516fad49dade5fd195d9b6610c189750a29e19d8151b63d30e9bc5eed7ccb0"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "045659db08dc4821578de4fe5f31acf36bcbe46ef8112e5e10b283bbd0c9826a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e5e4e6cf4f26e98a708f3f6d0d017d70dfbb60982c71e43bcad1abcab948ccc1"

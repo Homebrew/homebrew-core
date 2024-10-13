@@ -13,6 +13,7 @@ class Thrax < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "37202fbbf90594ea9f2769f80b28cedbd692f4622d15227ab79901ab632500bb"
     sha256 cellar: :any,                 arm64_sonoma:   "9d668a3b488757d8586f0db1184f6f5df31f6bb9f2630b4115ab04fb17e07091"
     sha256 cellar: :any,                 arm64_ventura:  "cc655cae62d5c58638cc40e1c3f32e9e9ad3ea8741120e4f16418be4f7add2cc"
     sha256 cellar: :any,                 arm64_monterey: "20858036b8aae42f7a46f5829fbe4928d9f6c44058c466495b22ce922261d5db"
@@ -44,9 +45,9 @@ class Thrax < Formula
     # see https://www.openfst.org/twiki/bin/view/GRM/ThraxQuickTour
     cp_r pkgshare/"grammars", testpath
     cd "grammars" do
-      system "#{bin}/thraxmakedep", "example.grm"
+      system bin/"thraxmakedep", "example.grm"
       system "make"
-      system "#{bin}/thraxrandom-generator", "--far=example.far", "--rule=TOKENIZER"
+      system bin/"thraxrandom-generator", "--far=example.far", "--rule=TOKENIZER"
     end
   end
 end

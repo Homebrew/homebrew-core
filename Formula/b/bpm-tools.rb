@@ -3,7 +3,7 @@ class BpmTools < Formula
   homepage "https://www.pogo.org.uk/~mark/bpm-tools/"
   url "https://www.pogo.org.uk/~mark/bpm-tools/releases/bpm-tools-0.3.tar.gz"
   sha256 "37efe81ef594e9df17763e0a6fc29617769df12dfab6358f5e910d88f4723b94"
-  license "GPL-2.0"
+  license "GPL-2.0-only"
   head "https://www.pogo.org.uk/~mark/bpm-tools.git", branch: "master"
 
   livecheck do
@@ -13,6 +13,7 @@ class BpmTools < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "8b1d300cf51e9fa05e8eb82ca8b2bfec3203c2c8cc12f0bf9813545a668a11fc"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4dacfbda1751d63d7e6920d2201ff8b1eaa3a85a2317ce89f0c54595666540b5"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f2b2f0588023837c6a2340024fce562029370273c22a79296756223907c8dc7c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "34949c1ed18d4065930654bb35f1fb88c4b5ab53a3571d1cbf52e6e79b452005"

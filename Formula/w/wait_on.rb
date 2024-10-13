@@ -4,8 +4,10 @@ class WaitOn < Formula
   url "https://pkg.freebsd.org/ports-distfiles/wait_on-1.1.tar.gz"
   mirror "https://mirrorservice.org/sites/distfiles.macports.org/wait_on/wait_on-1.1.tar.gz"
   sha256 "d7f40655f5c11e882890340826d1163050e2748de66b292c15b10d32feb6490f"
+  license "BSD-4-Clause"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "ffd8be74922f931670be9f5bb8fbea47735ddef928a74d44562bcf0e2969c01d"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "866722ebcb399e5524776cc6ffdd2022112287368e4fa768b8b9bbfe2a8a30cc"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "2d6736732caacfe89a285f06256c397fefb2e47f11032f282d84e874b384fd21"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "5d7664213ff9c0136cb6e8add7a2bfc87f2bf316594f9305e53a287834b12c72"
@@ -22,6 +24,7 @@ class WaitOn < Formula
   end
 
   depends_on "bsdmake" => :build
+  depends_on :macos # needs BSD kqueue
 
   def install
     system "bsdmake"
@@ -30,6 +33,6 @@ class WaitOn < Formula
   end
 
   test do
-    system "#{bin}/wait_on", "-v"
+    system bin/"wait_on", "-v"
   end
 end

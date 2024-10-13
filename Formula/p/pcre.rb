@@ -26,6 +26,7 @@ class Pcre < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "50b8e2100e02a8649ac963449bf83bd8036608816b58412baad2310046d44d1f"
     sha256 cellar: :any,                 arm64_sonoma:   "fbc1ec29701c2c3f0eb750a0aecf03b90acb6d47f1bbf1dc07eb8a7c9340650e"
     sha256 cellar: :any,                 arm64_ventura:  "542a6e5dcf5f1ac6592992f949687a56515d154abf1bfdd71327edcfb5183fb6"
     sha256 cellar: :any,                 arm64_monterey: "11193fd0a113c0bb330b1c2c21ab6f40d225c1893a451bba85e8a1562b914a1c"
@@ -75,6 +76,6 @@ class Pcre < Formula
   end
 
   test do
-    system "#{bin}/pcregrep", "regular expression", "#{prefix}/README"
+    system bin/"pcregrep", "regular expression", prefix/"README"
   end
 end

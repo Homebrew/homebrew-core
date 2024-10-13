@@ -6,10 +6,6 @@ class TomcatAT8 < Formula
   sha256 "163abe51289dd09dc375791888d6f2d5508c06050548dc4fc7700251f4bebaca"
   license "Apache-2.0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, all: "8704ee4ff0be3b0acdadf62c2fd3fd8aaf12944b49f2a2621886b8f935ed397c"
   end
@@ -23,7 +19,7 @@ class TomcatAT8 < Formula
 
   def install
     # Remove Windows scripts
-    rm_rf Dir["bin/*.bat"]
+    rm_r(Dir["bin/*.bat"])
 
     # Install files
     prefix.install %w[NOTICE LICENSE RELEASE-NOTES RUNNING.txt]

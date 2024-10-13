@@ -1,19 +1,19 @@
 class Elvis < Formula
   desc "Erlang Style Reviewer"
   homepage "https://github.com/inaka/elvis"
-  url "https://github.com/inaka/elvis/archive/refs/tags/3.2.5.tar.gz"
-  sha256 "d5e606009bb2d5e535a97c0ed9242f95910163447381d90a3b2ea92669694672"
+  url "https://github.com/inaka/elvis/archive/refs/tags/3.2.6.tar.gz"
+  sha256 "55edcd5c0c995b3c093c83f51bce1f00ea4d3322234531e03b6181a99cb42ff9"
   license "Apache-2.0"
   head "https://github.com/inaka/elvis.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b7f9111c73fa741d40c21d07f0c5cb7411f74456200d565b566eb7b4b5d639a6"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d9db2d9c74d6a759d7d186aaa2ddbf6d0ed800bbce3446a48bff8b5c9198e0af"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5d13803656fed62a3464ff0d5a62d887322c6ef7e655d13d9c0ee80fad350864"
-    sha256 cellar: :any_skip_relocation, sonoma:         "245955f0758d89d1b3fcd9c77c8468951a95a46f794488da1f4470b4dd4366be"
-    sha256 cellar: :any_skip_relocation, ventura:        "9525c2aedc0b0ea4a95bff2d36cd30f779d0f6581edc40bbb7514b5db94dcd38"
-    sha256 cellar: :any_skip_relocation, monterey:       "d71510d9b011e7c6266264fe34b4a86faf4f5b57065cf95b3f38d1c11662f53c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "427f6c74dd17899542862787c271e61486513f1817ff049fa62385c042f40dc4"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c294e25fa6cebdfb3bfb99d34018d6a24dccdacc7f0cb52b521c1a6ab3fb0c63"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8e14ca75d06019d005cca1c6f1519742a3194176e57aafec3ffb5cc914293984"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "d3098513d6bbb4cf61672d57c6949816db49d7335b5f8db683a504b4bab020b4"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2e8af221781d3edec43170f5291c11bd1d12e5b9b784eb9fa4ce43152f7cba06"
+    sha256 cellar: :any_skip_relocation, ventura:       "4e7fe17f8a2cbe5198095ca431331f68e56e641b1192eef4f74bf953349fce21"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dd362818e6ddbb536713dc715923e2fd82e26549209629bbf2bf2647dce431b7"
   end
 
   depends_on "rebar3" => :build
@@ -23,6 +23,9 @@ class Elvis < Formula
     system "rebar3", "escriptize"
 
     bin.install "_build/default/bin/elvis"
+
+    bash_completion.install "priv/bash_completion/elvis"
+    zsh_completion.install "priv/zsh_completion/_elvis"
   end
 
   test do

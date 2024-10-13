@@ -1,5 +1,3 @@
-require "language/node"
-
 class Graphqlviz < Formula
   desc "GraphQL Server schema visualizer"
   homepage "https://github.com/sheerun/graphqlviz"
@@ -8,13 +6,14 @@ class Graphqlviz < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "62665fa4b145517916c55a51b222a0f896106797a5cf7d63d2967da10f75b0e8"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "4db2299d2acc437a3c3603bd69bca3baceade220abde52ae69b2146c9746cdd9"
   end
 
   depends_on "node"
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", *std_npm_args
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 
@@ -26,7 +25,7 @@ class Graphqlviz < Formula
       }
     EOS
 
-    output = pipe_output("#{bin}/graphqlviz", test_file.read)
+    output = pipe_output(bin/"graphqlviz", test_file.read)
     assert_match "digraph erd", output
     assert_match version.to_s, shell_output("#{bin}/graphqlviz --version")
   end

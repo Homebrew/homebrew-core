@@ -12,6 +12,7 @@ class OcamlFindlib < Formula
   end
 
   bottle do
+    sha256 arm64_sequoia:  "b87ed1fe983ab11326fec9a012141bd8a3b880354e478dcdef6ab8359e26cbe1"
     sha256 arm64_sonoma:   "27db02a3efa66607b5131c5c7e2fe171540b3967ab0e80da5c62252b2cf8936b"
     sha256 arm64_ventura:  "c9b81ddf8a113a064ef29cc3f0477a608367cec59a87885101ae5ab7063010dd"
     sha256 arm64_monterey: "e37c0b5bf1940cbbc4bfb6406e10d060aa76164bb77d598adf82834a9b725a07"
@@ -42,7 +43,7 @@ class OcamlFindlib < Formula
                               "OCAML_CORE_STDLIB=#{lib}/ocaml"
 
     # Avoid conflict with ocaml-num package
-    rm_rf Dir[lib/"ocaml/num", lib/"ocaml/num-top"]
+    rm_r(Dir[lib/"ocaml/num", lib/"ocaml/num-top"])
 
     # Save extra findlib.conf to work around https://github.com/Homebrew/homebrew-test-bot/issues/805
     libexec.mkpath

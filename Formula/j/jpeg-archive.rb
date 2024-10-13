@@ -7,6 +7,7 @@ class JpegArchive < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "01115c8c03cc35f2460ef29b711a0a2bb26c847d7363e352a720c2c6d71d62e6"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "baf9261d5b80bc442cbf7ea1e7f4f98f8e52339009dfecad4175e8622f283382"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "fab1849787fa6dc209963175b418748a9b92bdb64f0a39a4329afac2d8b262f0"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "cbaf592384b0d9906eb44217daa1971ec19d571cbc4cd25c2a14caa2451428e8"
@@ -28,6 +29,6 @@ class JpegArchive < Formula
   end
 
   test do
-    system "#{bin}/jpeg-recompress", test_fixtures("test.jpg"), "output.jpg"
+    system bin/"jpeg-recompress", test_fixtures("test.jpg"), "output.jpg"
   end
 end

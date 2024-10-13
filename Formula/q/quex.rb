@@ -15,14 +15,14 @@ class Quex < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, all: "1d191fac735ddaccea99244e3d9a23b1f9384d0f204256bc5a69b9bbcf38d3e1"
+    rebuild 4
+    sha256 cellar: :any_skip_relocation, all: "f2d44465311851dc3bf25c68adc4d5041315e089d91ba9fce5d34a47f8a26782"
   end
 
-  depends_on "python@3.12"
+  uses_from_macos "python"
 
   def install
-    rewrite_shebang detected_python_shebang, "quex-exe.py"
+    rewrite_shebang detected_python_shebang(use_python_from_path: true), "quex-exe.py"
     libexec.install "quex", "quex-exe.py"
     doc.install "README", "demo"
 

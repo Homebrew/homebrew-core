@@ -60,7 +60,7 @@ class Gwyddion < Formula
   end
 
   test do
-    system "#{bin}/gwyddion", "--version"
+    system bin/"gwyddion", "--version"
     (testpath/"test.c").write <<~EOS
       #include <libgwyddion/gwyddion.h>
 

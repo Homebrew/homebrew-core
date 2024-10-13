@@ -1,24 +1,25 @@
 class Libzzip < Formula
   desc "Library providing read access on ZIP-archives"
   homepage "https://github.com/gdraheim/zziplib"
-  url "https://github.com/gdraheim/zziplib/archive/refs/tags/v0.13.77.tar.gz"
-  sha256 "50e166e6a879c2bd723e60e482a91ec793a7362fa2d9c5fe556fb0e025810477"
+  url "https://github.com/gdraheim/zziplib/archive/refs/tags/v0.13.78.tar.gz"
+  sha256 "feaeee7c34f18aa27bd3da643cc6a47d04d2c41753a59369d09102d79b9b0a31"
   license any_of: ["LGPL-2.0-or-later", "MPL-1.1"]
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "7e15ef1c410977d744afa77ab826ddd6de188c16ded3ff91712b3cf84606f4dd"
-    sha256 cellar: :any,                 arm64_ventura:  "7333db2f19438375bdf8b944b536073837656092ff6327beb123baa4e4590644"
-    sha256 cellar: :any,                 arm64_monterey: "ca0251aef25c7acbc42c311b5cb5f5f7ae6640f757766051de82c70536e2dd35"
-    sha256 cellar: :any,                 sonoma:         "06dc5fb4ef2e7dd925921a2fff0a1ac9dfc733d8c073b7d25e94deca5853f38a"
-    sha256 cellar: :any,                 ventura:        "d4b57372da09eea95f1a5d2fa86d261ebfdcbe2c7d29686a309b44e5141ec3af"
-    sha256 cellar: :any,                 monterey:       "f55c8a81717f1b9676b56990eda4fcefed7d6706d562332acbdcbe54464869a7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "df661b10d55b6b58a5e8e28a237665549cdf964cb08fe7925ffc29789e7141c9"
+    sha256 cellar: :any,                 arm64_sequoia:  "be7a20cbb58b97c8e21592d1388b80b0d87cf4fbe26ea63cb86b60ae17795d71"
+    sha256 cellar: :any,                 arm64_sonoma:   "dfe584a561bf184555dd1cb0f5fce07d900a466444cdde7d968e756abcd03c79"
+    sha256 cellar: :any,                 arm64_ventura:  "830a5c48de37071f87aabff06fef3bbd19e9ffacb06a550621eb3ec38858f730"
+    sha256 cellar: :any,                 arm64_monterey: "59aed17c6a583e3a6d7b9d500c0eff2cd79e6f9c8c8e7f9a96b55152b0a0b5ab"
+    sha256 cellar: :any,                 sonoma:         "193c19913f3d8f32c917dc5bec67cb7d6b5faed07c9342f8d03f54d2eed23b90"
+    sha256 cellar: :any,                 ventura:        "95b6daea1b5be5ca6101f342874d207aef6c8b8186970438cadb144f9c33564b"
+    sha256 cellar: :any,                 monterey:       "b81fae11a942992eb933f8d9ee2391727363009ec9dbc5521b07546606031f5c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e595cd977c07fdbde35b70ab99fd3f65f1f919c436d999506eb8117f875d0d99"
   end
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.12" => :build
 
+  uses_from_macos "python" => :build
   uses_from_macos "zip" => :test
   uses_from_macos "zlib"
 

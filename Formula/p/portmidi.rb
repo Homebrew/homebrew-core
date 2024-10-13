@@ -8,6 +8,7 @@ class Portmidi < Formula
   version_scheme 1
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "a02a8f130081aeda7fd82a826b510f4b2afdcf7af21cffe1d22963fcd3560065"
     sha256 cellar: :any,                 arm64_sonoma:   "c24a75dda06927ed08b718df274d6eae2f6f8ded0601673ccd4311a210f89681"
     sha256 cellar: :any,                 arm64_ventura:  "2d722c4357f6263f73456060dc5d131eb0b3b34ea54bef1cfe47d15bdc4ed75f"
     sha256 cellar: :any,                 arm64_monterey: "94415b613563629ea6425c629dc768e3c9319823870e948c4060742d24401588"

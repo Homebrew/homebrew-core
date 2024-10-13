@@ -6,6 +6,7 @@ class XcbUtilWm < Formula
   license "X11"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "78b8c05d6a387da472f24f9b4fa8a60eb3c1815a2b013a5cd9c379d54362f058"
     sha256 cellar: :any,                 arm64_sonoma:   "f2e885b4eefb54d3e9b5f2d4a8dbf4fd93141e8b3c12fbcaa99b318a3dfdad1e"
     sha256 cellar: :any,                 arm64_ventura:  "e8b4f5a806743173240d8259ac7f8ac502e945df8f9269aa40d5f35fc2140291"
     sha256 cellar: :any,                 arm64_monterey: "1774d0e39c97fc328e73411c8ad083d1bc0592576c427c2f6cea4ae9f1f7ba1b"

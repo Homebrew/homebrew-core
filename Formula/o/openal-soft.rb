@@ -12,6 +12,7 @@ class OpenalSoft < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "b5653fb0187830c2b11ae0d51a56cd06ce7dd0a2222db55ba40dc60a772efe0e"
     sha256 cellar: :any,                 arm64_sonoma:   "8b59e267c5b74eb1589b16ed65d920e8b4cf5761d318190ffa89c2557e6fb981"
     sha256 cellar: :any,                 arm64_ventura:  "43fb6822edf9040a20c291059d8c5058a2eb8e128cca5b5fb17a6cda796ed568"
     sha256 cellar: :any,                 arm64_monterey: "483d541fed84fa7a29cc2669acc996590b78fc7558a62fe99c9c3fd99248ec68"

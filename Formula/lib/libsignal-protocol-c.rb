@@ -3,9 +3,10 @@ class LibsignalProtocolC < Formula
   homepage "https://github.com/signalapp/libsignal-protocol-c"
   url "https://github.com/signalapp/libsignal-protocol-c/archive/refs/tags/v2.3.3.tar.gz"
   sha256 "c22e7690546e24d46210ca92dd808f17c3102e1344cd2f9a370136a96d22319d"
-  license "GPL-3.0"
+  license "GPL-3.0-only"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "9a8ecae4c6099cd0732fddcd94730e7e8dc361e9f625fab00279792700e64130"
     sha256 cellar: :any,                 arm64_sonoma:   "5ea0c5c2b3ae7de38ab640492eb6e0627d1bd329413a18520c93c0699309f29d"
     sha256 cellar: :any,                 arm64_ventura:  "c2e2d424032060b1ea5eaad3e977c6bc2d2704c8aa1a43c371e119c06d68f1f1"
     sha256 cellar: :any,                 arm64_monterey: "28c12c6c31a0950b035347de5e67aca8a0057793bf35feb2b4dbe1d342a2682d"
@@ -19,6 +20,8 @@ class LibsignalProtocolC < Formula
     sha256 cellar: :any,                 high_sierra:    "9dc54604cd42340d8e1ab2da73b54fd19d4cfdb87144921bdb6bcf03e2b41993"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "3d3f06b8dc3938b4dc6912a65606713000e6ad910c4bfcb4af4e9c0dca899e0c"
   end
+
+  deprecate! date: "2024-08-01", because: :repo_archived
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build

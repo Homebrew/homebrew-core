@@ -6,6 +6,7 @@ class Gitbatch < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "0a46587ffb66c2c071a4052ee70f81ddd41b93151e09b19404f789b5fe9f1b1e"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f02f2110548020dc68f4086aa3590791ca4366a8bb8f14a6e2641b71d226b0d4"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "5ae6361b3bc790e3b226978f4a841f3dbae69050e0214ad1ee6d30a383249a42"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "019454b03cd4d76a4fd4921b211dd74a1ac5d21263e5c81119b02fc56b4de151"

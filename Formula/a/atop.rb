@@ -39,8 +39,8 @@ class Atop < Formula
 
   test do
     assert_match "Version:", shell_output("#{bin}/atop -V")
-    system "#{bin}/atop", "1", "1"
-    system "#{bin}/atop", "-w", "atop.raw", "1", "1"
-    system "#{bin}/atop", "-r", "atop.raw", "-PCPU,DSK"
+    system bin/"atop", "1", "1"
+    system bin/"atop", "-w", "atop.raw", "1", "1"
+    system bin/"atop", "-r", "atop.raw", "-PCPU,DSK"
   end
 end

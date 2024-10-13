@@ -3,12 +3,15 @@ class Dcfldd < Formula
   homepage "https://dcfldd.sourceforge.net/"
   url "https://downloads.sourceforge.net/project/dcfldd/dcfldd/1.3.4-1/dcfldd-1.3.4-1.tar.gz"
   sha256 "f5143a184da56fd5ac729d6d8cbcf9f5da8e1cf4604aa9fb97c59553b7e6d5f8"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "a28ec4ab8df3647cab4cca66a369850d29ca7f4bb17ce74cb3f1be9149b06433"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "37b1c9ad23641e604ddad99580bf187c658c2cefd4b961ecae719d5b2eb059fb"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "0a1e4bce6c8af34771e2f96e5c15f22f90388a39a7f44022e9efd51e4b007a94"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "985ab7c04a8b19079d969c4984327bd680cf4e03d9352816201c6d0808270e75"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0467bb8c411c332e45b3dc5c5cfa82a0ee98d7d3c53e73357306986f81cd5b53"
+    sha256 cellar: :any_skip_relocation, sonoma:         "567fe142ee1dae2600387ff27e560db9a7c1bfd8b8b94dacffabf21849d920ee"
     sha256 cellar: :any_skip_relocation, ventura:        "96920378fc450ebd2f65cb63a78aebadc19356a4af7f60c11266876b306a0215"
     sha256 cellar: :any_skip_relocation, monterey:       "1ef108ea64574e6434232a84245ec5993c4a88667c76e4e4ea29950b6797814b"
     sha256 cellar: :any_skip_relocation, big_sur:        "e9355a9c6885f7c22087b05988e99e5fcf563c1bcd9856ee5de0d207e1dfa54e"
@@ -21,13 +24,16 @@ class Dcfldd < Formula
   end
 
   def install
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--mandir=#{man}"
+    # Workaround for Xcode 14.3
+    if DevelopmentTools.clang_build_version >= 1403
+      ENV.append_to_cflags "-Wno-implicit-function-declaration -Wno-implicit-int"
+    end
+
+    system "./configure", "--mandir=#{man}", *std_configure_args
     system "make", "install"
   end
 
   test do
-    system "#{bin}/dcfldd", "--version"
+    system bin/"dcfldd", "--version"
   end
 end

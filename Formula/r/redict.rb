@@ -1,19 +1,18 @@
 class Redict < Formula
   desc "Distributed key/value database"
   homepage "https://redict.io/"
-  url "https://codeberg.org/redict/redict/archive/7.3.0.tar.gz"
-  sha256 "733880c043c04d6038c28e77f2e826143142929be9c4a68f82a4f66e7a0caf5c"
+  url "https://codeberg.org/redict/redict/archive/7.3.1.tar.gz"
+  sha256 "6dbe80d28503a9252048ab81856efcfec109cdf3f924e840411c30237cf8f634"
   license "LGPL-3.0-only"
   head "https://codeberg.org/redict/redict.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "8ca12acea855c46b02c65d36f63b9810aad63ed14ac83473fb498cfe0768ed4f"
-    sha256 cellar: :any,                 arm64_ventura:  "6ef318d2319f9b5f18cffd399f96dcbc035cf8cf3b75fa489cd9955e6ab1cf4d"
-    sha256 cellar: :any,                 arm64_monterey: "8b302580ed161bb8384e30bd0b50eadbe1047acb28e6bf6b5b38341e82395efe"
-    sha256 cellar: :any,                 sonoma:         "d25a7b2be916065e911a12c603f456ab0a4c1989657c0a3771def4bc3b37d4da"
-    sha256 cellar: :any,                 ventura:        "dcdb052b3a407a79dac689eb75e2717244262dee5dffe5f960cca18f7098bf19"
-    sha256 cellar: :any,                 monterey:       "0dc52fb15437fabbf7751b6af6d08821abb7ace122be254dff821da411ee31d1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8d93edbb84f2a3a547296b8a8afa0c33f9d5687ddf0ae8b2699207df9ddb8f65"
+    sha256 cellar: :any,                 arm64_sequoia: "c51d3048902188eb14e48540acf61f15953e3dfa9e79f4768a879770c0260b36"
+    sha256 cellar: :any,                 arm64_sonoma:  "49a97f9241ac71005818654b5cf3df94b723c3aa1d93b215843b1dc47aa5e580"
+    sha256 cellar: :any,                 arm64_ventura: "53252f2cbe9d604eb839e7f3ea35ddeb247e10751faa60ff1045e486ccc54d4a"
+    sha256 cellar: :any,                 sonoma:        "861eda33ab95c62769b9049203817c5a18e1ed04cf6b9b31ff9a56debf00644d"
+    sha256 cellar: :any,                 ventura:       "d59873868022041578819a5f65fdb85390e24433f241582dbb6568e4d8f00d62"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e260e15a6db308008c1608f3cb7d3c75e2a281cb8261a5ea37eeb9edab12f4a9"
   end
 
   depends_on "openssl@3"

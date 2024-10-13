@@ -1,20 +1,18 @@
 class ClangUml < Formula
   desc "Customizable automatic UML diagram generator for C++ based on Clang"
   homepage "https://github.com/bkryza/clang-uml"
-  url "https://github.com/bkryza/clang-uml/archive/refs/tags/0.5.3.tar.gz"
-  sha256 "e830363ec510f14cc738c6509107b3f52bc55ececc2e27c068cadb093604e943"
+  url "https://github.com/bkryza/clang-uml/archive/refs/tags/0.5.5.tar.gz"
+  sha256 "95585b59c822f3c135dae04574055384e1f904ac69c75c8570b4eb65eca6fd37"
   license "Apache-2.0"
   head "https://github.com/bkryza/clang-uml.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sonoma:   "ae11b22d67d7ea38967de689b7257574138dfae301cfb3aef21358bce38f4044"
-    sha256 cellar: :any,                 arm64_ventura:  "711a1c13d68ef7b5e8853ffa5732566df3e62d88759a2dcbd61b60a136bb068f"
-    sha256 cellar: :any,                 arm64_monterey: "f7bf5af198bbe107ab545e16d79bbb280363db0addd85409e21065757e03918b"
-    sha256 cellar: :any,                 sonoma:         "8ef84c0c0ff33aa76f7a777776d17cf13eb8e3ba7af2bc2ef323468e2634dbf0"
-    sha256 cellar: :any,                 ventura:        "dabc45f366e1d0d8d8b0cec7475fea52e2f0422844c3547065033b34b0007616"
-    sha256 cellar: :any,                 monterey:       "da1344a9733f0bf84eef780601019bd45e0799adf5713e097441cf72823306cf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a75868a2b3fd4e753c13bbf417b318356915f75072d6f8f6097512bef0de1a4c"
+    sha256 cellar: :any,                 arm64_sequoia: "14b3ad29b42c1c86e0de3681e7207c5e83ef996d3d8f06303deaad0d8ea5869f"
+    sha256 cellar: :any,                 arm64_sonoma:  "740293a5bd8a3887c0ae601e721754a6b9d49d9a621e081c565ce0b00ce7080e"
+    sha256 cellar: :any,                 arm64_ventura: "fa735fd5af8835a3b170a87fd31c08794d403601e726637b751b1ee266f2d86e"
+    sha256 cellar: :any,                 sonoma:        "5c6751a5cbce1640b7b16c28ce1d8d7b7c44b963461ea9a99adc500ec0610e3d"
+    sha256 cellar: :any,                 ventura:       "91f342d39e27ee11f5f82fb06659d8948f04609962cc99bf7abc8d9fcf525ea3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a249d17300e6cfa62dba4babf4e0367c8d4a2aa12e1c8170b5e74337220adae1"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -30,6 +28,7 @@ class ClangUml < Formula
   end
 
   def install
+    ENV.append "LDFLAGS", "-Wl,-rpath,#{rpath(target: llvm.opt_lib)}" if OS.linux? && llvm.versioned_formula?
     args = %w[
       -DBUILD_TESTS=OFF
     ]
@@ -38,27 +37,12 @@ class ClangUml < Formula
     # to provide the version using a CMake option
     args << "-DGIT_VERSION=#{version}" if build.stable?
 
-    # Use LLVM-provided libc++
-    args << "-DCMAKE_EXE_LINKER_FLAGS=-L#{llvm.opt_lib}/c++ -L#{llvm.opt_lib} -lunwind" if OS.mac?
-
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
     bash_completion.install "packaging/autocomplete/clang-uml"
     zsh_completion.install "packaging/autocomplete/_clang-uml"
-  end
-
-  def caveats
-    on_macos do
-      <<~EOS
-        If you see errors such as `fatal: 'stddef.h' file not found`, try
-        adding `--query-driver .` to the `clang-uml` command line in order to
-        ensure that proper system headers are available to Clang.
-
-        For more information see: https://clang-uml.github.io/md_docs_2troubleshooting.html
-      EOS
-    end
   end
 
   test do

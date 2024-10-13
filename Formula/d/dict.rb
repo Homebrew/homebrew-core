@@ -7,6 +7,7 @@ class Dict < Formula
   revision 1
 
   bottle do
+    sha256 arm64_sequoia:  "4175e6d386524d1f9ad1b71cef3b595b2f735cb239ced16ffb7ff56ac43372e5"
     sha256 arm64_sonoma:   "72952615034fd444a7b5d98c38c0f86ad93b6658b03656a3565e677acc8d7a06"
     sha256 arm64_ventura:  "4c103b9ceaf30219f6172ec2f23ea4da33c91b6aeddfc8f5fb06306b1fa526a0"
     sha256 arm64_monterey: "5905bf4d882c4377c3158a91411b2909e8c5bfe9cf6f738f1b349deb499c3a7d"

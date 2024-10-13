@@ -8,12 +8,17 @@ on:
       formula:
         description: Formula name
         required: true
+      reason:
+        description: Reason for rebottling
+        required: true
       timeout:
         description: "Build timeout (in minutes, default: 60 minutes)"
-        default: "60"
+        type: number
+        default: 60
         required: false
       issue:
         description: Issue number, where comment on failure would be posted
+        type: number
         required: false
       upload:
         description: "Upload built bottles? (default: false)"
@@ -26,6 +31,10 @@ on:
         default: true
         required: false
 
+defaults:
+  run:
+    shell: bash -xeuo pipefail {0}
+
 # Intentionally the same as dispatch-build-bottle
 concurrency: bottle-${{ github.event.inputs.formula }}
 
@@ -37,12 +46,14 @@ env:
   HOMEBREW_GITHUB_ACTIONS: 1
   HOMEBREW_NO_AUTO_UPDATE: 1
   HOMEBREW_NO_INSTALL_FROM_API: 1
+  HOMEBREW_NO_BUILD_ERROR_ISSUES: 1
   RUN_URL: ${{github.event.repository.html_url}}/actions/runs/${{github.run_id}}
   DISPATCH_REBOTTLE_SENDER: ${{ github.event.sender.login }}
   DISPATCH_REBOTTLE_FORMULA: ${{ inputs.formula }}
   DISPATCH_REBOTTLE_TIMEOUT: ${{ inputs.timeout }}
   DISPATCH_REBOTTLE_ISSUE: ${{ inputs.issue }}
   DISPATCH_REBOTTLE_UPLOAD: ${{ inputs.upload }}
+  DISPATCH_REBOTTLE_REASON: ${{ inputs.reason }}
 
 jobs:
   setup:
@@ -77,7 +88,7 @@ jobs:
     timeout-minutes: ${{fromJson(inputs.timeout)}}
     defaults:
       run:
-        shell: /bin/bash -e {0}
+        shell: /bin/bash -xeuo pipefail {0}
         working-directory: ${{matrix.workdir || github.workspace}}
     env:
       GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
@@ -91,6 +102,7 @@ jobs:
           echo timeout="${DISPATCH_REBOTTLE_TIMEOUT}"
           echo issue="${DISPATCH_REBOTTLE_ISSUE}"
           echo upload="${DISPATCH_REBOTTLE_UPLOAD}"
+          echo reason="${DISPATCH_REBOTTLE_REASON}"
 
       - name: Pre-test steps
         uses: Homebrew/actions/pre-build@master
@@ -126,9 +138,6 @@ jobs:
     if: inputs.upload
     container:
       image: ghcr.io/homebrew/ubuntu22.04:master
-    defaults:
-      run:
-        shell: bash
     env:
       HOMEBREW_SIMULATE_MACOS_ON_LINUX: 1
       GH_REPO: ${{github.repository}}
@@ -173,14 +182,18 @@ jobs:
         run: git checkout -b "$BOTTLE_BRANCH" origin/master
 
       - name: Upload bottles to GitHub Packages
+        id: upload
         env:
           HOMEBREW_GITHUB_PACKAGES_USER: brewtestbot
           HOMEBREW_GITHUB_PACKAGES_TOKEN: ${{secrets.HOMEBREW_CORE_GITHUB_PACKAGES_TOKEN}}
           HOMEBREW_GPG_PASSPHRASE: ${{ secrets.BREWTESTBOT_GPG_SIGNING_SUBKEY_PASSPHRASE }}
           BREWTESTBOT_NAME_EMAIL: "BrewTestBot <1589480+BrewTestBot@users.noreply.github.com>"
+          HOMEBREW_CORE_PATH: ${{steps.set-up-homebrew.outputs.repository-path}}
         working-directory: ${{ env.BOTTLES_DIR }}
         run: |
           brew pr-upload --verbose --committer="$BREWTESTBOT_NAME_EMAIL" --root-url="https://ghcr.io/v2/homebrew/core" --debug
+          echo "title=$(git -C "$HOMEBREW_CORE_PATH" log -1 --format='%s' "$BOTTLE_BRANCH")" >> "$GITHUB_OUTPUT"
+          echo "head_sha=$(git -C "$HOMEBREW_CORE_PATH" rev-parse HEAD)" >> "$GITHUB_OUTPUT"
 
       - name: Push commits
         uses: Homebrew/actions/git-try-push@master
@@ -195,43 +208,79 @@ jobs:
 
       - name: Open PR with bottle commit
         id: create-pr
-        working-directory: ${{steps.set-up-homebrew.outputs.repository-path}}
-        env:
-          GH_TOKEN: ${{secrets.HOMEBREW_GITHUB_PUBLIC_REPO_TOKEN}}
-        run: |
-          gh pr create \
-            --base "$GITHUB_REF" \
-            --body "Created by [\`dispatch-rebottle.yml\`]($RUN_URL)" \
-            --title "$(git log -1 --format='%s' "$BOTTLE_BRANCH")" \
-            --head "$BOTTLE_BRANCH" \
-            --reviewer '${{github.actor}}'
+        uses: Homebrew/actions/create-pull-request@master
+        with:
+          token: ${{secrets.HOMEBREW_GITHUB_PUBLIC_REPO_TOKEN}}
+          base: ${{github.ref}}
+          head: ${{env.BOTTLE_BRANCH}}
+          title: ${{steps.upload.outputs.title}}
+          body: |
+            Created by [`dispatch-rebottle.yml`](${{env.RUN_URL}})
 
-          pull_number="$(gh pr list --head "$BOTTLE_BRANCH" --limit 1 --json number --jq '.[].number')"
-          echo "pull_number=$pull_number" >> "$GITHUB_OUTPUT"
-          echo "head_sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+            -----
 
-      # There is a GitHub bug where labels are not properly recognised by workflows
-      # when added by `gh pr create`. We use the CI-published-bottle-commits label in
-      # the `formulae_detect` step in `tests.yml`, so let's add the label separately
-      # to avoid the bug.
-      - name: Label PR
-        env:
-          GH_TOKEN: ${{secrets.GITHUB_TOKEN}}
-          PR: ${{steps.create-pr.outputs.pull_number}}
-        run: gh pr edit --add-label CI-published-bottle-commits "$PR"
+            ${{env.DISPATCH_REBOTTLE_REASON}}
+          labels: CI-published-bottle-commits
+          reviewers: ${{github.actor}}
 
       - name: Enable automerge
-        run: gh pr merge --auto --merge --delete-branch --match-head-commit "$SHA" "$PR"
         env:
           GH_TOKEN: ${{secrets.HOMEBREW_GITHUB_PUBLIC_REPO_TOKEN}}
-          PR: ${{steps.create-pr.outputs.pull_number}}
-          SHA: ${{steps.create-pr.outputs.head_sha}}
+          NODE_ID: ${{steps.create-pr.outputs.node_id}}
+          SHA: ${{steps.upload.outputs.head_sha}}
+          MUTATION: |-
+            mutation ($input: EnablePullRequestAutoMergeInput!) {
+              enablePullRequestAutoMerge(input: $input) {
+                clientMutationId
+              }
+            }
+        run: |
+          gh api graphql \
+            --field "input[pullRequestId]=$NODE_ID" \
+            --field "input[expectedHeadOid]=$SHA" \
+            --raw-field query="$MUTATION"
 
       - name: Approve PR
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PR: ${{ steps.create-pr.outputs.pull_number }}
-        run: gh pr review --approve "$PR"
+          PR: ${{steps.create-pr.outputs.number}}
+        run: |
+          gh api \
+            --method POST \
+            --header "Accept: application/vnd.github+json" \
+            --header "X-GitHub-Api-Version: 2022-11-28" \
+            "/repos/$GITHUB_REPOSITORY/pulls/$PR/reviews" \
+            --field "event=APPROVE"
+
+      - name: Wait until PR is merged
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR: ${{ steps.create-pr.outputs.number }}
+        run: |
+          # Hold the `concurrency` lock for up to another 10 minutes while the PR has not yet been merged.
+          sleep 300
+
+          attempt=0
+          max_attempts=5
+          sleep_time=10
+
+          while (( attempt < max_attempts ))
+          do
+            if jq --exit-status .merged_at
+            then
+              break
+            fi < <( # We could use `gh pr view`, but that uses 2 API calls.
+              gh api \
+                --header "Accept: application/vnd.github+json" \
+                --header "X-GitHub-Api-Version: 2022-11-28" \
+                "/repos/$GITHUB_REPOSITORY/pulls/$PR"
+            )
+
+            sleep "$sleep_time"
+
+            sleep_time=$(( sleep_time * 2 ))
+            attempt=$(( attempt + 1 ))
+          done
 
   comment:
     permissions:

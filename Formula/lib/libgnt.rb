@@ -12,6 +12,7 @@ class Libgnt < Formula
   end
 
   bottle do
+    sha256 cellar: :any, arm64_sequoia:  "06e99df7a279d7a4f75274f96a0db2f6afe0c6b234bbc92d967f289d001cc4c5"
     sha256 cellar: :any, arm64_sonoma:   "92cb079a6648bbd97c733c00ab6d0ca2bbaa10fa07dd7edafe0e467d59cd928d"
     sha256 cellar: :any, arm64_ventura:  "cef0929d73436e28d17b5373a7088b7cbebddb53cd2aa5ae332e8b3c7264b2d5"
     sha256 cellar: :any, arm64_monterey: "0345644c556d7cca3a1974f1d716ca906b3a9819122b8832af2f5fe436febe44"

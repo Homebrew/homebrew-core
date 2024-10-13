@@ -3,7 +3,7 @@ class Libresample < Formula
   homepage "https://ccrma.stanford.edu/~jos/resample/Available_Software.html"
   url "https://deb.debian.org/debian/pool/main/libr/libresample/libresample_0.1.3.orig.tar.gz"
   sha256 "20222a84e3b4246c36b8a0b74834bb5674026ffdb8b9093a76aaf01560ad4815"
-  license "LGPL-2.1"
+  license "LGPL-2.1-or-later"
 
   livecheck do
     url "https://deb.debian.org/debian/pool/main/libr/libresample/"
@@ -12,6 +12,7 @@ class Libresample < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "79e7e1ab8736164c5c9c6ceb299995ec9771f0cbc3be4d692799595a5ae844bf"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0f8fad6a20232a3f3bd9e1ee90d9242c283c325d2c118ca6b051eb79ab5adbea"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "9232e1b1d90ad2bb9f8801092358ef64a1a4297196c927dc521ce62229d47d13"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "2f0ec7fbf2140acc1295c7397d2e6bb0722c21103941108045f35addd6440fdd"

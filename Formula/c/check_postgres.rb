@@ -12,6 +12,7 @@ class CheckPostgres < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "357245d50daeb670b0e7acdf6ba808e045a3246a6a1666cded448100b78ffda5"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8138d47d70f097677e5f9ae0d88e797e66395026b1d0615781492cb28294b96d"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "af79787c77281d36ab2852d98a020ed94c4360e494ad58ac8fff38852c0f9cab"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "af79787c77281d36ab2852d98a020ed94c4360e494ad58ac8fff38852c0f9cab"

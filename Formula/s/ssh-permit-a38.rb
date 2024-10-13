@@ -22,7 +22,7 @@ class SshPermitA38 < Formula
 
   # Match deprecation date of `openssl@1.1`. openssl-sys==0.9.27 doesn't support `openssl@3`
   # Last release on 2018-08-18
-  deprecate! date: "2023-09-11", because: :unmaintained
+  disable! date: "2024-08-01", because: :unmaintained
 
   depends_on "cmake" => :build
   depends_on "rust" => :build

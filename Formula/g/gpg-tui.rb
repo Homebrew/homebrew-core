@@ -6,6 +6,7 @@ class GpgTui < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "83318b5d6c2572642cd4cdabadf1f4411c3b59d4b8d1d36efdb5440a84ecc726"
     sha256 cellar: :any,                 arm64_sonoma:   "8a5f8cfea861d52c8e83459bab25140df30632087ccb626f3b37b6342a94900f"
     sha256 cellar: :any,                 arm64_ventura:  "b2b9e2574869dd0a954d772e3baa52833e6353e8ddaf500d69e8bb12502e8987"
     sha256 cellar: :any,                 arm64_monterey: "839bd1b54c25768ee1a8a7c86dd96c38ca313eb2cbe3c9029e9780d43423ac67"
@@ -31,8 +32,8 @@ class GpgTui < Formula
     fish_completion.install "gpg-tui.fish"
     zsh_completion.install "_gpg-tui"
 
-    rm_f bin/"gpg-tui-completions"
-    rm_f Dir[prefix/".crates*"]
+    rm(bin/"gpg-tui-completions")
+    rm(Dir[prefix/".crates*"])
   end
 
   test do
@@ -41,7 +42,7 @@ class GpgTui < Formula
 
     (testpath/"gpg-tui").mkdir
     begin
-      r, w, pid = PTY.spawn "#{bin}/gpg-tui"
+      r, w, pid = PTY.spawn bin/"gpg-tui"
       r.winsize = [80, 43]
       sleep 1
       w.write "q"

@@ -8,6 +8,7 @@ class Help2man < Formula
   revision 2
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "302508e981921582b36f4846678b1ea739815f9bcc7b9cf96b0b40b3197ba9e3"
     sha256 cellar: :any,                 arm64_sonoma:   "cbbe4be42473a8911941a77ab20a064a3e5429c943d8fd55b187008e1687009e"
     sha256 cellar: :any,                 arm64_ventura:  "c875f5b7412c9b503a3a6c855530d01d014217eba3589e6618b1a0678e0790ee"
     sha256 cellar: :any,                 arm64_monterey: "e2bc370f6b6e9bed84fc77b6ca5536c545299b63f4898303dcdbc3af7324a13f"
@@ -42,7 +43,7 @@ class Help2man < Formula
 
     system "./configure", "--prefix=#{prefix}", *args
     system "make", "install"
-    (libexec/"bin").install "#{bin}/help2man"
+    (libexec/"bin").install bin/"help2man"
     (bin/"help2man").write_env_script("#{libexec}/bin/help2man", PERL5LIB: ENV["PERL5LIB"])
   end
 

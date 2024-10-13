@@ -2,7 +2,7 @@ class Creduce < Formula
   desc "Reduce a C/C++ program while keeping a property of interest"
   homepage "https://github.com/csmith-project/creduce"
   license "BSD-3-Clause"
-  revision 4
+  revision 5
   head "https://github.com/csmith-project/creduce.git", branch: "master"
 
   # Remove when patches are no longer needed.
@@ -57,18 +57,16 @@ class Creduce < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_sonoma:   "a84e7830c2d4c2f038abf3bade992a13223b0f64ce7880f889938d791b207ce4"
-    sha256 cellar: :any,                 arm64_ventura:  "4ff607af8b4a7f7b713e58c660272d700ba6ea8ad004865342205aecf1aaec4b"
-    sha256 cellar: :any,                 arm64_monterey: "f2cd0d3b84053296246e0e226e80c4177da63c0a5d260fa44963c8e34ed26a59"
-    sha256 cellar: :any,                 sonoma:         "533902d5ef71e899ab1851933b694390929df4f4152762528334e374943c0b9d"
-    sha256 cellar: :any,                 ventura:        "b06ebf7952eb3abe4d34f800e85cc740df03a7739ee36a7b25f08f8c64dd51c5"
-    sha256 cellar: :any,                 monterey:       "4deb4eee650c1477905563c8424885dc51e430eb5ba53a25a7a706d0cfcfac6e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ac89ad126d791e4e7b3e30406b31656e9c383b82b93ac88742c2410320bb3899"
+    sha256 cellar: :any,                 arm64_sequoia: "752bcd060b5ab5d04efc96dfd67d9128e6fd66a2d9b14b5e59735ba758d2d61b"
+    sha256 cellar: :any,                 arm64_sonoma:  "c489f889cd95d689d226e4965582120a96b1119eb4fb2902c481c6b9338122aa"
+    sha256 cellar: :any,                 arm64_ventura: "56cd23ed4e8cdf7a2928f740332b07eed6f3d5b8a22416cf30ab746fbecbe0a7"
+    sha256 cellar: :any,                 sonoma:        "487aebd04b8609040875fb262122692867f20507b7c71e25a8914a920521242d"
+    sha256 cellar: :any,                 ventura:       "937ef76ad140358b5458b394b8376746972ce80915e3fa91fc7b6065a94bc5ef"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "299566ba27c179eb7e3aa48dfc766b6b3bfe6a4892a929b5777aede0b4e54a05"
   end
 
   depends_on "astyle"
-  depends_on "llvm"
+  depends_on "llvm@18"
 
   uses_from_macos "flex" => :build
   uses_from_macos "perl"
@@ -146,6 +144,6 @@ class Creduce < Formula
     EOS
 
     chmod 0755, testpath/"test1.sh"
-    system "#{bin}/creduce", "test1.sh", "test1.c"
+    system bin/"creduce", "test1.sh", "test1.c"
   end
 end

@@ -1,6 +1,6 @@
 class Aspectj < Formula
   desc "Aspect-oriented programming for Java"
-  homepage "https://www.eclipse.org/aspectj/"
+  homepage "https://eclipse.dev/aspectj/"
   url "https://github.com/eclipse-aspectj/aspectj/releases/download/V1_9_22_1/aspectj-1.9.22.1.jar"
   sha256 "348c98561248197cfebcd568010cd8b037e639873842b47324659e4234b85f45"
   license "EPL-2.0"
@@ -17,6 +17,7 @@ class Aspectj < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "54aabd2f689a5d4d2ca3a2ee88a03cae442f4316af396e68a919182d321b0e8c"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3e54988e0976a8353299cf6834d7b7a0081f0937cadef5a9d2bf901fdcb4c0cf"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "b35032d71ef261589b7c13fd826300db39032c0b683058f4066919b9dca4db15"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "425f8a5c1a68e427643c38437b0a2538e1e11a05fdba830de9c681f93e23634e"

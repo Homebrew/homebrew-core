@@ -1,5 +1,3 @@
-require "language/node"
-
 class Jscpd < Formula
   desc "Copy/paste detector for programming source code"
   homepage "https://github.com/kucherenko/jscpd"
@@ -8,19 +6,21 @@ class Jscpd < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d8abada5224d18bacad2a11a48c0b7efaa8fc198556660193a193489a63d1e5c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d8abada5224d18bacad2a11a48c0b7efaa8fc198556660193a193489a63d1e5c"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d8abada5224d18bacad2a11a48c0b7efaa8fc198556660193a193489a63d1e5c"
-    sha256 cellar: :any_skip_relocation, sonoma:         "70d55d47a1144b062afa4812ff066830148fc314c33b1b55b1f8ea2d5adfd6b5"
-    sha256 cellar: :any_skip_relocation, ventura:        "70d55d47a1144b062afa4812ff066830148fc314c33b1b55b1f8ea2d5adfd6b5"
-    sha256 cellar: :any_skip_relocation, monterey:       "70d55d47a1144b062afa4812ff066830148fc314c33b1b55b1f8ea2d5adfd6b5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a05371abbe1efa2d0331af9bdcf74bbe1daad9cc91a0ddb329cbf8b242266428"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "e98285802ac160668e23cd901cec1b45ff0d66fbbaa7e9e4ea1798b317dcf180"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "541ad78931d710438b9489495ff9c534354286e397e20b9c5998af960512d04c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "541ad78931d710438b9489495ff9c534354286e397e20b9c5998af960512d04c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "541ad78931d710438b9489495ff9c534354286e397e20b9c5998af960512d04c"
+    sha256 cellar: :any_skip_relocation, sonoma:         "2e76cf1e82fe5ae1995207ff03b8ef0856452f10febcb7b00305897b8e20bc8a"
+    sha256 cellar: :any_skip_relocation, ventura:        "2e76cf1e82fe5ae1995207ff03b8ef0856452f10febcb7b00305897b8e20bc8a"
+    sha256 cellar: :any_skip_relocation, monterey:       "2e76cf1e82fe5ae1995207ff03b8ef0856452f10febcb7b00305897b8e20bc8a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3659994d220039eff175732b7ba2d5cd3c0213e6ff2d4129e2b9b3b93611efe1"
   end
 
   depends_on "node"
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", *std_npm_args
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 

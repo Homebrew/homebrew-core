@@ -7,6 +7,7 @@ class ZshFastSyntaxHighlighting < Formula
   head "https://github.com/zdharma-continuum/fast-syntax-highlighting.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "e2246a1ba134c420f80f1236b4fc1fb8f10ba870e2c8264620c4e5fd57a20149"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "83b98c528f9b7705fe70b6b37a13737691f3f6eabdbb8596be5144a786624888"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "5491428e00739fd9a4f66c979e2a1cd132b42279c2088052e071797a88fb9f28"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "5491428e00739fd9a4f66c979e2a1cd132b42279c2088052e071797a88fb9f28"

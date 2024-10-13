@@ -8,13 +8,8 @@ class Sophus < Formula
   head "https://github.com/strasdat/Sophus.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ee9bcc65b3d55a8d993a9912b411a746943dab25894e97de5f821e8192396a3c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ee9bcc65b3d55a8d993a9912b411a746943dab25894e97de5f821e8192396a3c"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ee9bcc65b3d55a8d993a9912b411a746943dab25894e97de5f821e8192396a3c"
-    sha256 cellar: :any_skip_relocation, sonoma:         "ee9bcc65b3d55a8d993a9912b411a746943dab25894e97de5f821e8192396a3c"
-    sha256 cellar: :any_skip_relocation, ventura:        "ee9bcc65b3d55a8d993a9912b411a746943dab25894e97de5f821e8192396a3c"
-    sha256 cellar: :any_skip_relocation, monterey:       "ee9bcc65b3d55a8d993a9912b411a746943dab25894e97de5f821e8192396a3c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c57213d298fbbdccb8ca68f7141091c853357ccfc9a67590e4c9671f6cfa72eb"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "04f59dd02e4845866fc1513e4292e87432b29310adc0ebbc3c39f5ba4a1588ea"
   end
 
   depends_on "cmake" => [:build, :test]

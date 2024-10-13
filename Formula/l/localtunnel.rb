@@ -1,5 +1,3 @@
-require "language/node"
-
 class Localtunnel < Formula
   desc "Exposes your localhost to the world for easy testing and sharing"
   homepage "https://theboroer.github.io/localtunnel-www/"
@@ -8,14 +6,15 @@ class Localtunnel < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "c430fe4d9468d9eaeeabe3c32ffd51c2c93913c3e01bc6a41b947e1acba0bb19"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "b5425789666cab50aa13978b6bec08b978f7be5d53e13b9e447ed712dc2b3c60"
   end
 
   depends_on "node"
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
-    bin.install_symlink Dir["#{libexec}/bin/*"]
+    system "npm", "install", *std_npm_args
+    bin.install_symlink libexec.glob("bin/*")
   end
 
   test do

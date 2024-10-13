@@ -7,6 +7,7 @@ class Cpulimit < Formula
   head "https://github.com/opsengine/cpulimit.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "7eca714845ccc7a47497489a5075812b50700960acc1eb7eeefbfd5921851a76"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8dab4e4b11b19e8c01a57593d15ec399ab4f25b8ccdc72299e3f67092d1beaf8"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "e94ecdb44d2b8f104510da469aaa27a879cbf41518c88315f346116203b9c944"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "993f9fe777c7feb2f2da49486e0b7febf6a6d822e64ff4f40f578ddc0f21d7f4"
@@ -37,6 +38,6 @@ class Cpulimit < Formula
   end
 
   test do
-    system "#{bin}/cpulimit", "--limit=10", "ls"
+    system bin/"cpulimit", "--limit=10", "ls"
   end
 end

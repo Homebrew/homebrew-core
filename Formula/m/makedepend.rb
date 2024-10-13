@@ -11,6 +11,7 @@ class Makedepend < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "9b0e3a47a0d4bf48d695e8e2cb8353cc49acf3cf470f45b3b1ba48d049cdb190"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "065db2cad1fdc8a5da5cb54ff2ed60820fa3db8c5d0a643b99e46769ca1d89c6"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "90aefc577a198b25cdd9d0ac5e873b3d33741416db9dcdcc3277664af8c07fad"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "25e7994da9aa7cc77c32388b041bb3dabd5885dbfc0e9d88e890289ec71853ae"
@@ -33,6 +34,6 @@ class Makedepend < Formula
 
   test do
     touch "Makefile"
-    system "#{bin}/makedepend"
+    system bin/"makedepend"
   end
 end

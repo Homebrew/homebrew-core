@@ -6,7 +6,8 @@ class Termcolor < Formula
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "559fc780d17bbeaf1e09e1178775a0e88322d1f000a3bbe5e4937ba189468fbd"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "d521f9450ba8bfd71eb601ff8d6ac8e8705c12caf6d10bf8d3f2808463d48091"
   end
 
   depends_on "cmake" => :build

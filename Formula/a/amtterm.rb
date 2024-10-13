@@ -12,7 +12,8 @@ class Amtterm < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "51e227741242bb67cb8b195667372ec40a4010f167bc82010ae3fdbcfa44bb9d"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "18584332d73c1ec0c92903282b8363ec3d459b2bfacd19748f69607652cc40c8"
   end
 
   depends_on "gtk+3"

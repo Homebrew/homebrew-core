@@ -11,7 +11,8 @@ class Keychain < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "38a9acfd004abd466201585d76285f1bc852b4e517d0324908f8b628ff8508ac"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "a042cd95caaaa27f769687a242b244213ff4af6ec93194e03fc1014a2fca2175"
   end
 
   def install
@@ -20,9 +21,9 @@ class Keychain < Formula
   end
 
   test do
-    system "#{bin}/keychain"
+    system bin/"keychain"
     hostname = shell_output("hostname").chomp
     assert_match "SSH_AGENT_PID", File.read(testpath/".keychain/#{hostname}-sh")
-    system "#{bin}/keychain", "--stop", "mine"
+    system bin/"keychain", "--stop", "mine"
   end
 end

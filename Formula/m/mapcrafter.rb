@@ -3,17 +3,18 @@ class Mapcrafter < Formula
   homepage "https://mapcrafter.org"
   url "https://github.com/mapcrafter/mapcrafter/archive/refs/tags/v.2.4.tar.gz"
   sha256 "f3b698d34c02c2da0c4d2b7f4e251bcba058d0d1e4479c0418eeba264d1c8dae"
-  license "GPL-3.0"
-  revision 11
+  license "GPL-3.0-or-later"
+  revision 12
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "686ca81e6553b20137845a249547dd5c0bc9eca21e795dee7238784aed8da0af"
-    sha256 cellar: :any,                 arm64_ventura:  "2691f7edbb01d1f8972ab1c808025f404463ec86fa9af943fb18a9ac783adf9a"
-    sha256 cellar: :any,                 arm64_monterey: "cf591739bbe4f5de38d18348856455adcebf191e1276d527ad62f4dcf6aae79b"
-    sha256 cellar: :any,                 sonoma:         "16b5995c15d49481dd4c5b9379607aa178be523df840b29c700a58e3703093e0"
-    sha256 cellar: :any,                 ventura:        "1ad1854d8ae46de7df1004772050985b62b75dce9ca12ec5c85a21b80c563865"
-    sha256 cellar: :any,                 monterey:       "7055def0f7806a90f0cd64b12015cf65725ac7e7097d0a8978accd61411590af"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "48422e315761b9032fdba7b4736a17089f0db8d265007656525f8f4188042daf"
+    sha256 cellar: :any,                 arm64_sequoia:  "60fca734c298eb1039dc344ade09695af622b5f95dc7e11c79be16a9fbcf068e"
+    sha256 cellar: :any,                 arm64_sonoma:   "0ac68289b87661674d36a17db3f8d5e2b7d62157b498f8f61303ba9cc03d2bb1"
+    sha256 cellar: :any,                 arm64_ventura:  "adc4706a3918b77f0e24d5be8368bc541ab17aa4b54f1f37c0cb1381ab0826a9"
+    sha256 cellar: :any,                 arm64_monterey: "3d9064ce98db9b600d973ac52b2f7f7cb5c54e86cbd64b306f80672380a55c95"
+    sha256 cellar: :any,                 sonoma:         "a505e7b1c29277a49fa93fb323ef245bf51375f8e912d36c433ea717de78d650"
+    sha256 cellar: :any,                 ventura:        "f202f39f3ba25cf97451252e430467bf2433529fb5a39c494589900fcc214e2e"
+    sha256 cellar: :any,                 monterey:       "cb1448294bbf586aad34ec1943a34faba19a973e0ac4f415daafe46f7a234f0f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6e3a10dac4592c2582e0fe73ed16f0e9234a39c69f9115584a01b157440681d4"
   end
 
   depends_on "cmake" => :build

@@ -1,35 +1,23 @@
-require "language/node"
-
 class ApifyCli < Formula
-  include Language::Node::Shebang
-
   desc "Apify command-line interface"
   homepage "https://docs.apify.com/cli"
-  url "https://registry.npmjs.org/apify-cli/-/apify-cli-0.20.2.tgz"
-  sha256 "dfe8bf7a168cf221ef85380b78c3b7b56c1b19b059f8ec4003f3e9c9c2bd6bb0"
+  url "https://registry.npmjs.org/apify-cli/-/apify-cli-0.20.9.tgz"
+  sha256 "179e6f1543d2149af82e3cba4c4bd3e7cfaa872506c0df902d5714689a9ae1c3"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b4a1a87d5b03c8ba002b879b6254aa8edde076a7adeeee92c186eef31f2efdd2"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b4a1a87d5b03c8ba002b879b6254aa8edde076a7adeeee92c186eef31f2efdd2"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b4a1a87d5b03c8ba002b879b6254aa8edde076a7adeeee92c186eef31f2efdd2"
-    sha256 cellar: :any_skip_relocation, sonoma:         "3b827b72e552d84f7783133d1c8bbc8c9970e4152a0ff5c6680713d1fb65ca5a"
-    sha256 cellar: :any_skip_relocation, ventura:        "3b827b72e552d84f7783133d1c8bbc8c9970e4152a0ff5c6680713d1fb65ca5a"
-    sha256 cellar: :any_skip_relocation, monterey:       "3b827b72e552d84f7783133d1c8bbc8c9970e4152a0ff5c6680713d1fb65ca5a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f37274bf651075a49f2bcfea9071fbce5d0e5539b210641df7e7fa36186b8882"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "42d08e6d26dd93e1fa2cfb9147f1fcc10f886f0b7acf2fa56533a201107f3d39"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "42d08e6d26dd93e1fa2cfb9147f1fcc10f886f0b7acf2fa56533a201107f3d39"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "42d08e6d26dd93e1fa2cfb9147f1fcc10f886f0b7acf2fa56533a201107f3d39"
+    sha256 cellar: :any_skip_relocation, sonoma:        "0994cc43fc123fddfc4df322d1fc7a46ece484f26dbda0a73062d3d2342dcdb3"
+    sha256 cellar: :any_skip_relocation, ventura:       "0994cc43fc123fddfc4df322d1fc7a46ece484f26dbda0a73062d3d2342dcdb3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f9dbb57de9c2892b982e2d73d247696ed9304fd19b12b6f36b1a0ee9cfd5b84f"
   end
 
   depends_on "node"
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
-    # We have to replace the shebang in the main executable from "/usr/bin/env node"
-    # to point to the Homebrew-provided `node`,
-    # because otherwise the CLI will run with the system-provided Node.js,
-    # which might be a different version than the one installed by Homebrew,
-    # causing issues that `node_modules` were installed with one Node.js version
-    # but the CLI is running them with another Node.js version.
-    rewrite_shebang detected_node_shebang, libexec/"lib/node_modules/apify-cli/bin/run.js"
+    system "npm", "install", *std_npm_args
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 

@@ -7,6 +7,7 @@ class Libimobiledevice < Formula
   revision 3
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "cfb98ddb4dd90260eb28f3d1d2b44fac69c1341a926a221dda85e0afde956bb3"
     sha256 cellar: :any,                 arm64_sonoma:   "f496e32077cc020a7ffcb6a6afee3034fc4c55ced685ba0b2155c0355bbf7a95"
     sha256 cellar: :any,                 arm64_ventura:  "c0f9da975e59842256875121304fdb0825909f3c43b8cf1271b505cd7436955e"
     sha256 cellar: :any,                 arm64_monterey: "b465efbb59cafd4d9ea16cefd5b0d33c1411da49855e14b5864ce139b65df8c6"
@@ -52,6 +53,6 @@ class Libimobiledevice < Formula
   end
 
   test do
-    system "#{bin}/idevicedate", "--help"
+    system bin/"idevicedate", "--help"
   end
 end

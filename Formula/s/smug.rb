@@ -1,21 +1,19 @@
 class Smug < Formula
   desc "Automate your tmux workflow"
   homepage "https://github.com/ivaaaan/smug"
-  url "https://github.com/ivaaaan/smug/archive/refs/tags/v0.3.3.tar.gz"
-  sha256 "9d864d71edc31e47ddc18e32f70b579c5e6863e7a767d9ae3167d75467553474"
+  url "https://github.com/ivaaaan/smug/archive/refs/tags/v0.3.4.tar.gz"
+  sha256 "c398b2d7094cb961a8c8f42338b669462d4f2413363ef704d10fc004fceabb02"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "08d048e84d104562893f61c087f368375793c4241b81dd56251a9b063cb4d173"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "dc3016d43d79171ad8e05c23a0271257a987145782c1efd88c40bb0b8bbe8a72"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7e3775ed32ea58015f2dd92c2c3bcb91018a27ea1c9c44e09daf5c2970206716"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0af8b169e09d23a1fc1c44c9e6c02a2fd9bb902b07b00637551bb7256cda7b5f"
-    sha256 cellar: :any_skip_relocation, sonoma:         "27d575bc173fffcf1ed325f5c5500570b86cbbe2e196b7865c10c466da4ae810"
-    sha256 cellar: :any_skip_relocation, ventura:        "170a42c8b5c0cb776be3979e0f03336cdc1534e254bebc72cd869740ed1a16c5"
-    sha256 cellar: :any_skip_relocation, monterey:       "059b9dc5449ecdbabd67977f1ce687ccc8e1044061dc361a6147af7a91b3485b"
-    sha256 cellar: :any_skip_relocation, big_sur:        "d3ff2185fd39b6314436d02a2f29832e142d494967435b3747a4b69c843d61a9"
-    sha256 cellar: :any_skip_relocation, catalina:       "e4010fa44ea654c03f767a1c36ffed817346e77cb449138714c73770800f0621"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "34f256c0bd39e632e707b96f3ae4a2720f30bec53bcbf13e9705e1f743a3317f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "5f27c6f9c94d78089203eef03cffad372469da86999b5ada164cfd24b3809e23"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f1bf817ecb24dd75664860b906815595e7300a0983d4fef6d5c712c69ecd9dcc"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f1bf817ecb24dd75664860b906815595e7300a0983d4fef6d5c712c69ecd9dcc"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f1bf817ecb24dd75664860b906815595e7300a0983d4fef6d5c712c69ecd9dcc"
+    sha256 cellar: :any_skip_relocation, sonoma:         "0c0f3f6da2ea72eb42b1c70b9097c5711405ea34e5b445f211d5ebf1930e50b5"
+    sha256 cellar: :any_skip_relocation, ventura:        "0c0f3f6da2ea72eb42b1c70b9097c5711405ea34e5b445f211d5ebf1930e50b5"
+    sha256 cellar: :any_skip_relocation, monterey:       "0c0f3f6da2ea72eb42b1c70b9097c5711405ea34e5b445f211d5ebf1930e50b5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "909c57aee9501f38fa537ce3b6a1519bd1bea0fbaa28e16af77aca8ff36630fe"
   end
 
   depends_on "go" => :build
@@ -32,7 +30,7 @@ class Smug < Formula
         - name: test
     EOF
 
-    assert_equal(version, shell_output("#{bin}/smug").lines.first.split("Version").last.chomp)
+    assert_equal(version, shell_output(bin/"smug").lines.first.split("Version").last.chomp)
 
     with_env(TERM: "screen-256color") do
       system bin/"smug", "start", "--file", testpath/"test.yml", "--detach"

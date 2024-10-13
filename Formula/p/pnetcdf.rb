@@ -11,6 +11,7 @@ class Pnetcdf < Formula
   end
 
   bottle do
+    sha256 arm64_sequoia:  "be08323df5fc823707c7ad6dd37b8501de0f07a0bb3752050e64c64a07edb781"
     sha256 arm64_sonoma:   "e52824c134f9eb96f275957299545a72e92963705e05dfa59698951375d75a38"
     sha256 arm64_ventura:  "04676a0d86731dbaca40fd17affa92edba088ea67a0bad5a32ad12d286a20b18"
     sha256 arm64_monterey: "d6403f0fed304282c8aebedc23201ed53bc423e82e5a530a01261b9787187bc4"

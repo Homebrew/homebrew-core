@@ -8,6 +8,7 @@ class Ssdb < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "b781dfcd8a19c986f0595815cb3e9bcc8c6a98fc818e90b6d3c4b505b6379e45"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "dc7bc37501d29396dd766ca625925eef5175823250c3dac87f1b36d814ed783f"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "79bb5aad0a9002af14f96810f62717cd0249479368fecaa7e9481a7ab2b7a05e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "fd19fa3f456c5dd8b460280a7dac3953032564b280484346376b3f3f217e1592"
@@ -72,7 +73,7 @@ class Ssdb < Formula
   test do
     pid = fork do
       Signal.trap("TERM") do
-        system("#{bin}/ssdb-server", "-d", "#{HOMEBREW_PREFIX}/etc/ssdb.conf")
+        system(bin/"ssdb-server", "-d", "#{HOMEBREW_PREFIX}/etc/ssdb.conf")
         exit
       end
     end

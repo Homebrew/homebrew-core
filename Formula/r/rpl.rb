@@ -3,21 +3,21 @@ class Rpl < Formula
 
   desc "Text replacement utility"
   homepage "https://github.com/rrthomas/rpl"
-  url "https://files.pythonhosted.org/packages/9f/1d/3ee12488a69bfc3857636e262247f4b1d28eb149431e27fff5b0af0266d4/rpl-1.15.6.tar.gz"
-  sha256 "e2f52715fc623efca0f60b708901379c76419ea06d055c21337290ce48f3c3f2"
+  url "https://files.pythonhosted.org/packages/40/ad/840b679493c49e0c4368662e2ddd6296f9bac41e8ee992e0d43d144b4f35/rpl-1.15.7.tar.gz"
+  sha256 "5eadc62dad539d2e27a1b3c71c2905504a3dbe02380c6c98dbf8505ad9303510"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "083e8e4e93cf1cdc2d27927a5fcc9d940cf5836a627a56eb7909c53c2aec3cbb"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "304dcb7bae1af1dd89e70a7f251b085e8cbdbdf854a380085a7455cf2a6cbd02"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "0eafe2b59387da30fbb13720583057ca3918c640a65e29c1122e67a9ea88bbcc"
-    sha256 cellar: :any_skip_relocation, sonoma:         "3e88507cb5ba53208592f4af66acfd4ea87e12fe96518022fd62e48af4b6f158"
-    sha256 cellar: :any_skip_relocation, ventura:        "dae63f9ab024feeff2322915a4d6f72305c6dd043f67241fc8f53fe9d7a1d107"
-    sha256 cellar: :any_skip_relocation, monterey:       "7104efc1ff0ff1ae068c4d7909d507e10f57bb455ca06c5162af566929eccb4a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8c195d7aafecce96a9a509ef41ff8647cff2fc38d0886814d80ec6e92a4be02a"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "dad4ab4a2e6499b351a9810927238c86e845914a4704e1d8b90006ff58f81c67"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2e2d9ef725b9958789e8be6289991f41860e36bd698692b3847b2a5aa5c87494"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "d32ea48792da526f31c50274047ad1552d12e6d6e2ce141ffb2c0f8d4cf4b379"
+    sha256 cellar: :any_skip_relocation, sonoma:        "57400d05345044f6ddc33fc40396e2e335b1cb894abd2b489693043859b39f92"
+    sha256 cellar: :any_skip_relocation, ventura:       "669ac7a78dc10e7dbafbffc0a5e91ecec53b9e86e01bcfc9612b5d5c1bf5cab1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bc886c7312e09183d3035bf33bfbb985d98593ae88e3ec4f707bbc12c2ba3943"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "chainstream" do
     url "https://files.pythonhosted.org/packages/44/fd/ec0c4df1e2b00080826b3e2a9df81c912c8dc7dbab757b55d68af3a51dcf/chainstream-1.0.1.tar.gz"
@@ -30,8 +30,8 @@ class Rpl < Formula
   end
 
   resource "regex" do
-    url "https://files.pythonhosted.org/packages/b5/39/31626e7e75b187fae7f121af3c538a991e725c744ac893cc2cfd70ce2853/regex-2023.12.25.tar.gz"
-    sha256 "29171aa128da69afdf4bde412d5bedc335f2ca8fcfe4489038577d05f16181e5"
+    url "https://files.pythonhosted.org/packages/f9/38/148df33b4dbca3bd069b963acab5e0fa1a9dbd6820f8c322d0dd6faeff96/regex-2024.9.11.tar.gz"
+    sha256 "6c188c307e8433bcb63dc1915022deb553b4203a70722fc542c363bf120a01fd"
   end
 
   def install
@@ -41,7 +41,7 @@ class Rpl < Formula
   test do
     (testpath/"test").write "I like water."
 
-    system "#{bin}/rpl", "-v", "water", "beer", "test"
+    system bin/"rpl", "-v", "water", "beer", "test"
     assert_equal "I like beer.", (testpath/"test").read
   end
 end

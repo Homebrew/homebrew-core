@@ -16,6 +16,7 @@ class Cafeobj < Formula
   end
 
   bottle do
+    sha256 arm64_sequoia:  "1b36ca85d0a9c664f7bd2622b26cece63f73d930e31b464bab88bcc1f02bc4a4"
     sha256 arm64_sonoma:   "5e0f6023e2d9a5b48533e89e09aeca6d7d5c7d5c3c5f91e106e755c6114ca168"
     sha256 arm64_ventura:  "4be3e504840ca27a601164e8bca0f8edaf6c6f6cda044f7c50736041957e8492"
     sha256 arm64_monterey: "795c8a702f4db1bdb7e64c100f5959cfdbdeacefe813f4acbbd09fb38460eef3"

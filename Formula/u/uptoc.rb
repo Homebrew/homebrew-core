@@ -8,6 +8,7 @@ class Uptoc < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "08d4c187e6b815cf9700234440df6fee4b43a1b434f849b0a198df53b7643c96"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6af1eb82ab71a0b60e91a89799ae844a36b8c5744c34aa3995d138551e057ffd"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "942cacc0ae14be9ca4c89497326c0c2d2a80dd9387489ba12de73da0fd98cb62"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "09100a8e6f85e66cd71378e628bc57cf200f224750a000be31b6bef6be1a1ae2"

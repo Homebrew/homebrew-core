@@ -8,6 +8,7 @@ class Abricate < Formula
   head "https://github.com/tseemann/abricate.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "b6b72078ed6855b2db59381b920405a5025e15ec92624637bfa3ed774f131e4a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4e05f6bc80f04e8706e082b21e944921b6de7811be3388f099dfb9df298825da"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "312093ac29b9f9c387d802172e05fbed5ea0cf0d0ef664718ecc1d7a520b2361"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ff3521c9a86fbf51387785500f2006106a11362c5223923e00191db3d43c1d1f"
@@ -165,7 +166,7 @@ class Abricate < Formula
   end
 
   def post_install
-    system "#{bin}/abricate", "--setupdb"
+    system bin/"abricate", "--setupdb"
   end
 
   test do

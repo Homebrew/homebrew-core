@@ -7,13 +7,14 @@ class Fpp < Formula
   head "https://github.com/facebook/pathpicker.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "dfbe5a6badfc4d4f4d0c21d04b0270457cfcf0d78eed4a93f7c6b8ce18433f93"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "3cd7e3e25d729646c8cbb993eaa2c3d517dc128693dcdbc39bd1362c11429390"
   end
 
   uses_from_macos "python", since: :catalina
 
   def install
-    (buildpath/"src/tests").rmtree
+    rm_r(buildpath/"src/tests")
     # we need to copy the bash file and source python files
     libexec.install "fpp", "src"
     # and then symlink the bash file

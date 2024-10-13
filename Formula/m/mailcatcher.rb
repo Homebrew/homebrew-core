@@ -6,6 +6,7 @@ class Mailcatcher < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "b2e53d4fee8a25e01abeaa5e827e4fa0713c4ec4bcadaaad95db6f53b2b5139e"
     sha256 cellar: :any,                 arm64_sonoma:   "b1e3e8c79312f8a9cfc995ebf3323750c1673da1bcc46129a516124575dd4116"
     sha256 cellar: :any,                 arm64_ventura:  "48ba775de03b394c5c7981e4e990094c1e7d98781af790f0658d8596f6126250"
     sha256 cellar: :any,                 arm64_monterey: "72fd292521f629a91abc5a99d386689e263553cee6fe70be5ed87f1feec8a3cd"
@@ -169,7 +170,7 @@ class Mailcatcher < Formula
     # Remove temporary logs that reference Homebrew shims.
     # TODO: See if we can handle this better:
     #       https://github.com/sparklemotion/sqlite3-ruby/discussions/394
-    rm_rf libexec/"gems/sqlite3-#{resource("sqlite").version}/ext/sqlite3/tmp"
+    rm_r(libexec/"gems/sqlite3-#{resource("sqlite").version}/ext/sqlite3/tmp")
   end
 
   service do

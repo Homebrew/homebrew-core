@@ -1,5 +1,3 @@
-require "language/node"
-
 class Gtop < Formula
   desc "System monitoring dashboard for terminal"
   homepage "https://github.com/aksakalli/gtop"
@@ -8,21 +6,21 @@ class Gtop < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8e3c41671b0b6c453ad948118263f7a089943033d8783e645a8012c748c879cb"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ad8728e8e6ab40ea7a850cacbe732ccf45bdf413023a9f2d053c8f704707a019"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ad8728e8e6ab40ea7a850cacbe732ccf45bdf413023a9f2d053c8f704707a019"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ad8728e8e6ab40ea7a850cacbe732ccf45bdf413023a9f2d053c8f704707a019"
-    sha256 cellar: :any_skip_relocation, sonoma:         "009993faa4cb9d7a197625d1a48179560a65b4e9ad9fee9ef0a82a51a989d43e"
-    sha256 cellar: :any_skip_relocation, ventura:        "6ef92b38dab30566604d6ac2af7c720e413b3a441620926c12d0cd04150afb11"
-    sha256 cellar: :any_skip_relocation, monterey:       "6ef92b38dab30566604d6ac2af7c720e413b3a441620926c12d0cd04150afb11"
-    sha256 cellar: :any_skip_relocation, big_sur:        "6ef92b38dab30566604d6ac2af7c720e413b3a441620926c12d0cd04150afb11"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f83b92a41c3b7628440739661039bc4b6fc82628e266c322d5b389a094af0b3b"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "19886395a17a873daab79bd8e8970e7a9606d4389586123e68d875c2fd192c0f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9a4641e216717d7a5a9b15b74823300c209d4b524bfb67044eef2feb1269a014"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9a4641e216717d7a5a9b15b74823300c209d4b524bfb67044eef2feb1269a014"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9a4641e216717d7a5a9b15b74823300c209d4b524bfb67044eef2feb1269a014"
+    sha256 cellar: :any_skip_relocation, sonoma:         "c553e5fc33023ca5721afcfa8a427ee24728fe83c4b3b959f7c2f297d9d7765b"
+    sha256 cellar: :any_skip_relocation, ventura:        "c553e5fc33023ca5721afcfa8a427ee24728fe83c4b3b959f7c2f297d9d7765b"
+    sha256 cellar: :any_skip_relocation, monterey:       "c553e5fc33023ca5721afcfa8a427ee24728fe83c4b3b959f7c2f297d9d7765b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "51f39616a98ddb6a0f1bf391b3c2155e1b0ba0c192ddb8c735dfb6ae5a24fed7"
   end
 
   depends_on "node"
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", *std_npm_args
     bin.install_symlink Dir[libexec/"bin/*"]
   end
 

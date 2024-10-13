@@ -7,6 +7,7 @@ class Dsvpn < Formula
   head "https://github.com/jedisct1/dsvpn.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "2798e3025b267d17e1aabee53f9340abd9f38327278913165a305a4749d87dae"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f0c26df1e9f03e517ac0db4f266b348cdd95104a250c4da9f7acbb6c73341d3c"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "889d8f51fbe721906b84001adfcced14178739901beead09b88977a8b194c97f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "533ca096976136d7eeb0923c0164a0b3e8305d344036c1ad095a586f8768f5a2"

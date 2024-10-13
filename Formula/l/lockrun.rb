@@ -14,6 +14,7 @@ class Lockrun < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "fa9f904cbb5c509a1aeef7afb173599b212352054380f017c9ff657a90aa866c"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "60567111dd2a82dc49b2c4687b16cf29a21543d68f533e2ec8b34e4f1da2bd77"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "faddfa34e58f779eb9881ab52b8623f41a875b6198a40a6588e7048c42d210a3"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "64cb6e7d6280221f945c12e4489844d66757705911ff807932073c91a06e60fd"
@@ -36,6 +37,6 @@ class Lockrun < Formula
   end
 
   test do
-    system "#{bin}/lockrun", "--version"
+    system bin/"lockrun", "--version"
   end
 end

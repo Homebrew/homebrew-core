@@ -6,6 +6,7 @@ class Imlib2 < Formula
   license "Imlib2"
 
   bottle do
+    sha256 arm64_sequoia:  "d6e559c4ee70c8d822c87db6278486da760e73bf34ef2d4be40a1152a989275f"
     sha256 arm64_sonoma:   "9085e6232c5f55a28549db1a2f5175ed3956307b894feee4c96e079136e0b0ad"
     sha256 arm64_ventura:  "4e51a7001b37bc1b970df359ad757b3c6c86d94a95723e07e53b92a586d9fc64"
     sha256 arm64_monterey: "854c0238df0cea22cefe702a71f4e411c0c68e1df76817430c75116ca75421f3"
@@ -44,6 +45,6 @@ class Imlib2 < Formula
   end
 
   test do
-    system "#{bin}/imlib2_conv", test_fixtures("test.png"), "imlib2_test.png"
+    system bin/"imlib2_conv", test_fixtures("test.png"), "imlib2_test.png"
   end
 end

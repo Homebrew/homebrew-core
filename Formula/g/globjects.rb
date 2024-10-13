@@ -13,6 +13,7 @@ class Globjects < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "51e3056d71789e3db8e17d7fc966a530ecb1120c0e91bec0edc3c5b6b524db1d"
     sha256 cellar: :any,                 arm64_sonoma:   "85b4f1d5eb729806747d7590376b8a4803615e12b1020f857ed953bc26e90438"
     sha256 cellar: :any,                 arm64_ventura:  "8ff9f80163b64a4737dc2d0e0e28002d55194091d5c2d9cdb361cf02661778d4"
     sha256 cellar: :any,                 arm64_monterey: "6b91d3162b931f8964893b23126b8d337ccfd3ef0d7b9ab889b1d65601541bd7"

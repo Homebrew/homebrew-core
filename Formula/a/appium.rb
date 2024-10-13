@@ -1,21 +1,18 @@
-require "language/node"
-
 class Appium < Formula
   desc "Automation for Apps"
   homepage "https://appium.io/"
-  url "https://registry.npmjs.org/appium/-/appium-2.11.2.tgz"
-  sha256 "18629149331ab369dec4a5ce84da91d54be78ed2dfe7205138785c155a7020e7"
+  url "https://registry.npmjs.org/appium/-/appium-2.11.5.tgz"
+  sha256 "dce25417dcda0a199b065376b499f99db56ebbd2b5ac05b26d8940404a6b438e"
   license "Apache-2.0"
   head "https://github.com/appium/appium.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "6c865da6b3e20f1824100550abd39adb4d45028e471421e0c50d6406abc9e16f"
-    sha256 cellar: :any,                 arm64_ventura:  "6c865da6b3e20f1824100550abd39adb4d45028e471421e0c50d6406abc9e16f"
-    sha256 cellar: :any,                 arm64_monterey: "6c865da6b3e20f1824100550abd39adb4d45028e471421e0c50d6406abc9e16f"
-    sha256 cellar: :any,                 sonoma:         "c2ec6078122e767d139391e4e95e20ca1aa8cd4ced6b2bf0bd2a39ebf46ad44b"
-    sha256 cellar: :any,                 ventura:        "c2ec6078122e767d139391e4e95e20ca1aa8cd4ced6b2bf0bd2a39ebf46ad44b"
-    sha256 cellar: :any,                 monterey:       "c2ec6078122e767d139391e4e95e20ca1aa8cd4ced6b2bf0bd2a39ebf46ad44b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1c4faa09090377833f7f1f53cbecdc721a78fa1d560f2adc3b30cae05fe7ed53"
+    sha256 cellar: :any,                 arm64_sequoia: "cc04b1f65472bd7db69f603d387bf147bedc1df649a14ecf1fb7b8ba41cabf50"
+    sha256 cellar: :any,                 arm64_sonoma:  "cc04b1f65472bd7db69f603d387bf147bedc1df649a14ecf1fb7b8ba41cabf50"
+    sha256 cellar: :any,                 arm64_ventura: "cc04b1f65472bd7db69f603d387bf147bedc1df649a14ecf1fb7b8ba41cabf50"
+    sha256                               sonoma:        "5acea70e7e0808046fb3e1301d6647e1aeb9bf950867c6cfc4b50ce9f19f12b3"
+    sha256                               ventura:       "5acea70e7e0808046fb3e1301d6647e1aeb9bf950867c6cfc4b50ce9f19f12b3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f4bc9732a1ba1f52727dd1bbd3f5478952b4a773f056f7a05c64b4338083701e"
   end
 
   depends_on "node"
@@ -25,7 +22,7 @@ class Appium < Formula
   end
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec), "--chromedriver-skip-install"
+    system "npm", "install", *std_npm_args, "--chromedriver-skip-install"
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 

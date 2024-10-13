@@ -8,6 +8,7 @@ class Osm2pgrouting < Formula
   head "https://github.com/pgRouting/osm2pgrouting.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any, arm64_sequoia:  "8d266eab6016b6da8563a322d14fc3ba50c16ac96bdf0731cd26ab93251b8263"
     sha256 cellar: :any, arm64_sonoma:   "65d7687ba5f23d47d7ee737050706fcd2663cf185d6a8e35a6e8e6ff5cec2d87"
     sha256 cellar: :any, arm64_ventura:  "88adc64e52319b44b1f3f0e73d9511a3e36db0040859d9b528aa76a02570666d"
     sha256 cellar: :any, arm64_monterey: "81565a691a1f95000e45594e0f7c938d7960694c5e4722d013bc4fe4c54401ca"

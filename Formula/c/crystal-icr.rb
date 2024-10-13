@@ -8,6 +8,7 @@ class CrystalIcr < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_sequoia:  "39cdaf2148c5f0a4bd256139cda76e88414ff6f88546030ff3897f879f066e13"
     sha256 arm64_sonoma:   "8dced8d90ae05f60022cad48273fe5dedbdb270c676f1f814bee7600f8b6451b"
     sha256 arm64_ventura:  "a541b6b20507872a2b45a244c6842a1509553d178a596e1d0d19a799f1ab3e56"
     sha256 arm64_monterey: "3944027c41242611a14ec6226bc7eaf63e6275483df6b6820115d39c27ca76f2"

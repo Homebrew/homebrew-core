@@ -22,6 +22,6 @@ class Brag < Formula
   end
 
   test do
-    system "#{bin}/brag", "-s", "nntp.perl.org", "-L"
+    system bin/"brag", "-s", "nntp.perl.org", "-L"
   end
 end

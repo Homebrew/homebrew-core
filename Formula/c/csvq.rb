@@ -11,6 +11,7 @@ class Csvq < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "303a36f17339ff457769472ba232b72a6fbee8e92f08ff5c84e72f5293a03090"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2fd21285e2daab0a8c6e02fbec8b218b72f6347b9f5e281d7184ef36bf638ae1"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "4da92f08fc5206cb67e4748463b1d29289da9630dd5e3b5e394063ff48e465da"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "16b40bdb339f355cea536c697d0f1990c20e6ec3bf9f606d50a3c494b56ef23a"
@@ -29,7 +30,7 @@ class Csvq < Formula
   end
 
   test do
-    system "#{bin}/csvq", "--version"
+    system bin/"csvq", "--version"
 
     (testpath/"test.csv").write <<~EOS
       a,b,c

@@ -12,6 +12,7 @@ class Djview4 < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "50f358049ae7371431b1640620050d40f9075e998695efc69e3cfc228955d189"
     sha256 cellar: :any,                 arm64_sonoma:   "aeec9249493e568780d0760a7c11d597c51e9a89835d9d7be3a3512510dd6e09"
     sha256 cellar: :any,                 arm64_ventura:  "a852adaa4bb85ae49414a271aa1b183595b523d994d338567a18384097ce1abf"
     sha256 cellar: :any,                 arm64_monterey: "7386959e5881c110ca398bd1ec94f962a4d726ea659ef26c804cbf68aaf4fceb"
@@ -28,6 +29,7 @@ class Djview4 < Formula
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "djvulibre"
+  depends_on "libtiff"
   depends_on "qt@5"
 
   # Fix QT detection when multiple Xcode installations are present.
@@ -37,12 +39,11 @@ class Djview4 < Formula
   def install
     system "autoreconf", "-fiv"
 
-    system "./configure", "--disable-debug",
-                          "--prefix=#{prefix}",
-                          "--with-x=no",
+    system "./configure", "--with-x=no",
                           "--disable-nsdejavu",
                           "--disable-desktopfiles",
-                          "--with-tiff=#{Formula["libtiff"].opt_prefix}"
+                          "--with-tiff=#{Formula["libtiff"].opt_prefix}",
+                          *std_configure_args
     system "make", "CC=#{ENV.cc}", "CXX=#{ENV.cxx}"
 
     # From the djview4.8 README:

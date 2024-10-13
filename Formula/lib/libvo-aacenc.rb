@@ -11,6 +11,7 @@ class LibvoAacenc < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "364ec1b50f38e6b1b0dc5e1ea7b12b624e249aea41810491669c9356ff96feac"
     sha256 cellar: :any,                 arm64_sonoma:   "1e337ddc61248e2bba763f27de3fd1f3699a68e03fdf369e95ef39fd3dd5fac2"
     sha256 cellar: :any,                 arm64_ventura:  "0f29497bb74d3fb95f6197085ff4894d2cffb6b6cbc92beb43131bbdc088824b"
     sha256 cellar: :any,                 arm64_monterey: "f25bbd61ab93bfe115c37ad611aad07bf0c553903078748803a813e907a783c1"
@@ -28,8 +29,7 @@ class LibvoAacenc < Formula
   end
 
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    system "./configure", *std_configure_args
     system "make", "install"
   end
 
@@ -41,7 +41,7 @@ class LibvoAacenc < Formula
       {
         VO_MEM_INFO info; info.Size = 1;
         VO_S32 uid = 0;
-        VO_PTR pMem = cmnMemAlloc(uid, &info);
+        VO_PTR pMem = (VO_PTR)cmnMemAlloc(uid, &info);
         cmnMemFree(uid, pMem);
         return 0;
       }

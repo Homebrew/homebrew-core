@@ -6,6 +6,7 @@ class Libconfig < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "8e26840a43c310e9dff1843c58a380ac07163f304996c224e137975a37ab76a1"
     sha256 cellar: :any,                 arm64_sonoma:   "9e363cc4e1dbc5f70fc60aa16d54c1c09b39a096b3d5ffb75a340c3203110cae"
     sha256 cellar: :any,                 arm64_ventura:  "2bf05c92de1c235a0ba6f4ff4fb37d2451bf50057b5af52ecabb1a03ea3892fd"
     sha256 cellar: :any,                 arm64_monterey: "8074ac817099b848dfda57a98dcb10eac98781d1aeb85425d6e1713650da8c09"

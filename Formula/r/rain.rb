@@ -1,18 +1,17 @@
 class Rain < Formula
   desc "Command-line tool for working with AWS CloudFormation"
   homepage "https://github.com/aws-cloudformation/rain"
-  url "https://github.com/aws-cloudformation/rain/archive/refs/tags/v1.13.1.tar.gz"
-  sha256 "97cabab71ed9aa1eb77203c8419856d52a0443b317014a698b152ee3b0385b88"
+  url "https://github.com/aws-cloudformation/rain/archive/refs/tags/v1.16.1.tar.gz"
+  sha256 "0c73ddedd02317ec2cc80c183c0c60a6fc871aaff58602623d4e17668054aa8f"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "02fdd8bb06a93d574700374eb63a43b3d3990636851f6bf2c93076958a7afc88"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "fbdb40b44250ce28f28606599584cc11f7212686b7dfd1cea39a135c57890706"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "964ce0778765a15b3af7e1371fb6f15d6fad8acd90d3298834a9742b46e50821"
-    sha256 cellar: :any_skip_relocation, sonoma:         "088a315d9e4b55cf304093960127382e5cf0894e9787a843e7ece14af8f03d74"
-    sha256 cellar: :any_skip_relocation, ventura:        "7c270e9fd1e83a4540a11030985df013c61b1555801fbcce6080f9490a151c2f"
-    sha256 cellar: :any_skip_relocation, monterey:       "388fc1b077b27370b078f4f396a5411f5544b8ad8184078990bc431d6ae25e37"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8b6e176dfbf8b38a6e5dd0d16f2eb7069183e8a18c35e88ce1162f24dc34272c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9174b6846184d7f22b6355dec5e8805ab0abc15e956d144ac6a1db657e773b24"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fa6d8cd37964f23aacdc5c7e2be10e06d3e920567f04e29e1c766dedfcc588e1"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "663577a44b7edb71cb6203a01583344a713377a4ab584d227b87f6e2dcf798f0"
+    sha256 cellar: :any_skip_relocation, sonoma:        "9e1667e496d7a0f7db0d671ec2d96052f6486df733c8849dfc5f0c6e12bb7121"
+    sha256 cellar: :any_skip_relocation, ventura:       "4f06ff7f74620fa31a2654c796f03cc944598937efd83bdc2abfcfedd14d6793"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "830aed5ee06212c170f1c8036ba2ba7815585267f2118b162cfdd058eb830991"
   end
 
   depends_on "go" => :build

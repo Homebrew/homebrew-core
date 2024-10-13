@@ -1,19 +1,18 @@
 class ThreeBody < Formula
   desc "三体编程语言 Three Body Language written in Rust"
   homepage "https://github.com/rustq/3body-lang"
-  url "https://github.com/rustq/3body-lang/archive/refs/tags/0.6.1.tar.gz"
-  sha256 "ec8eda8a795608fcf187ac4ecbf3b7e6d8be80ca6cdefebf7c586837383694cb"
+  url "https://github.com/rustq/3body-lang/archive/refs/tags/0.6.3.tar.gz"
+  sha256 "bcdf74ac50c9132e359e6eed1e198edc5db126be979608849dd410460e822aac"
   license "MIT"
   head "https://github.com/rustq/3body-lang.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a28c16d9aaac1bcfedd8613deae8c20bc991748040da8c7f4e92be1b7703c86e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "192469a2ec581db2fb21910005eb950e05ed7dd3ee8110e2546605c8fc7b8dc4"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "49986a35eae81a6e43ca80e7a84bf5de313eac163332eb3007b85e558146df59"
-    sha256 cellar: :any_skip_relocation, sonoma:         "f3c7c9e0852b7ac16d3a3bcf6befef1facf5440e27bb62c016e1b0d060306827"
-    sha256 cellar: :any_skip_relocation, ventura:        "626a0c17be6e761fd133245ea759b54e7398bb1051bd2b763b7ac94a29abc9d3"
-    sha256 cellar: :any_skip_relocation, monterey:       "5dd8aa04bb52acac4dca8e5fb321e626b9a744bb936eba575aa6175a461eb349"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a343096eaf0db518ad9d408e7e9be8686f6bb9a18f44597648f06b5601644237"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2c86e0b06c8e264a8a7ae0d33591c69380625989bc1aec6c4a0727cc216f95fb"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e3ae4e7e9acafbfe587790151944084e09afeafa43415555567fbe9c817dbcfa"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "131aa9b76e07145d6588677be7d671ead9dd935197c3beab53e2f591d7a6d17f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e14620a0ad363e7dec91f812f786f76f7a8065ca39a209e00b9d816c961fb6cd"
+    sha256 cellar: :any_skip_relocation, ventura:       "b9b8a2d05f18d2a9c7ea644127975c7ff746430fe3b86d9791fa273aeeab0151"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0304bbd3d0106edee56473df768b6bef99ee07c5a17b85e8b4d3333e7a2333fa"
   end
 
   depends_on "rust" => :build

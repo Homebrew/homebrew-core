@@ -8,6 +8,7 @@ class Libbi < Formula
   head "https://github.com/lawmurray/LibBi.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "5fef4f3574955d3f11d14e49034c502988764eb169d5b4a74fc8dbbfce461225"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a6cacb6474adcb43e3e4cc0434721b474a8a9749102c397fd0e69fe3ff4e8333"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "ccf5a58e1570912775cc3899a89e5567ac5f657956833947bb2888c4949b4169"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c0882b756fb10921769635c9c858998d5cf85630a954af71eb7e2380c888937a"
@@ -150,7 +151,7 @@ class Libbi < Formula
 
   test do
     cp Dir[pkgshare/"Test.bi", pkgshare/"test.conf"], testpath
-    system "#{bin}/libbi", "sample", "@test.conf"
+    system bin/"libbi", "sample", "@test.conf"
     assert_predicate testpath/"test.nc", :exist?
   end
 end

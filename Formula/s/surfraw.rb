@@ -7,6 +7,7 @@ class Surfraw < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "8d04a21e14ecb8b591159c55dbc4a0af5ea0eadaa5dcb581c6c6c4a74d0b0e7a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a8369f05a6c7e4b5e99a6e41d94143ad66c598cdfd40aef9402302bb4a6e51c7"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "eafd188589a5aaa870da8aa6e44a6e970dfed59dac958b3abc426414f670061d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "eafd188589a5aaa870da8aa6e44a6e970dfed59dac958b3abc426414f670061d"

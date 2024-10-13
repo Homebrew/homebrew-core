@@ -7,6 +7,7 @@ class Pstoedit < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_sequoia:  "710d9fe3382069ec8a04acca8b0eaf886c0bdb732dcad0d82418709570d8f1e3"
     sha256 arm64_sonoma:   "b90928f94bd8fad92f0d728b5bc63eefdc7c6033bc957cdacfb1cbe00db0aed6"
     sha256 arm64_ventura:  "95d05bfcb5d1ed195c74b93104ebc1891774dec5daae6e91b81fb965a50d7ea2"
     sha256 arm64_monterey: "9f4bedee7e78de9078d4d799cbc52dc799b715668b10977a96d0858e17c024ef"

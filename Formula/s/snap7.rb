@@ -3,10 +3,12 @@ class Snap7 < Formula
   homepage "https://snap7.sourceforge.net/"
   url "https://downloads.sourceforge.net/project/snap7/1.4.2/snap7-full-1.4.2.7z"
   sha256 "1f4270cde8684957770a10a1d311c226e670d9589c69841a9012e818f7b9f80e"
+  license "LGPL-3.0-or-later"
   revision 1
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia:  "0251dac8097c7643fbbf1003e422e44773bc86d6c356a8497b2a07bfa163fbdf"
     sha256 cellar: :any,                 arm64_sonoma:   "62a3c97124e8c82bd49a94b9c1273eb8745ccf6e1a9e179bfed9bbc6e117e43a"
     sha256 cellar: :any,                 arm64_ventura:  "e3169f10899c5bbc65ca3982e7ad9ddb27ebaff7577f9f9c8c0c74be8fb0f271"
     sha256 cellar: :any,                 arm64_monterey: "3ec8ebc46f5b20dafc71b4a2f3c55e0323df337d7fd01e959e2f98c439fe0afa"

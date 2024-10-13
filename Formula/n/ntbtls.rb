@@ -11,6 +11,7 @@ class Ntbtls < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "0b1672e39923c23daf86bb20ba920ba31144e4a2ab95218cab6c8b45d979a534"
     sha256 cellar: :any,                 arm64_sonoma:   "ab4d5a53bb700d479e6be04b5d749b8c65947be1bf2800120ccb706b2608af1d"
     sha256 cellar: :any,                 arm64_ventura:  "acec598404ed6699950460cb1df48690c6439eb2c79310c29c81a020fee5cbe7"
     sha256 cellar: :any,                 arm64_monterey: "d5406167e6466323874ab9402e80e9ee0bde98c6b623f89a819f710483f3b62a"

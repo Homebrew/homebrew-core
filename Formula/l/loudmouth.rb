@@ -20,6 +20,7 @@ class Loudmouth < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "43729c1c6d565d8c39c43603f74ed9d9cec9c0245449e2b8e19f9b991fc44ea1"
     sha256 cellar: :any,                 arm64_sonoma:   "5c27c1b17205765db82cf291a090e65e50b6a5194fda067d000d70d58cf3717e"
     sha256 cellar: :any,                 arm64_ventura:  "439e0305cb6c6fa9305ef3ddeb6d35e330d35d245ac836fce6435c34bfa88e89"
     sha256 cellar: :any,                 arm64_monterey: "56ce5d15bd9625075e7160268936d0197a1116c1b3a095ebbbf190d2ac9becc7"

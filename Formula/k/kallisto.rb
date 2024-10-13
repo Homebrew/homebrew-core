@@ -1,22 +1,24 @@
 class Kallisto < Formula
   desc "Quantify abundances of transcripts from RNA-Seq data"
   homepage "https://pachterlab.github.io/kallisto/"
-  url "https://github.com/pachterlab/kallisto/archive/refs/tags/V0.51.0.tar.gz"
-  sha256 "efeb0191c1a6a0d6de69111fb66f4bda51ff31fb40c513280f072bd44556f80d"
+  url "https://github.com/pachterlab/kallisto/archive/refs/tags/v0.51.1.tar.gz"
+  sha256 "a8bcc23bca6ac758f15e30bb77e9e169e628beff2da3be2e34a53e1d42253516"
   license "BSD-2-Clause"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "cd8d0834c5c6426824aa215d5c2f1a89d42a0adb5e8ff48b1ef4398fd432cfb9"
-    sha256 cellar: :any,                 arm64_ventura:  "f823ddc6d52f2ad690007bf638560086d09b781d3b67cf934dca4dc83e189027"
-    sha256 cellar: :any,                 arm64_monterey: "0680066baf90e1e27b093dc12b453ee71902d498e77b01836950f31e4ea57999"
-    sha256 cellar: :any,                 sonoma:         "d2a8d404b8fd448dd4c221ee52f3af4d0dcb73e7a09e8e9754dbae4cf1c85dc1"
-    sha256 cellar: :any,                 ventura:        "2ff18ec926f91197f615780bb905763b53a177fa4f62fd6d1e66e33b09812b72"
-    sha256 cellar: :any,                 monterey:       "501c9dedb5a462f429784266916d7fa8bbb4b7f603a8780120d0ff8691dc04b6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d7a815fb9879dd352e5f446e53bb670c2c6ddde8cb2324f7e9f6876b4bd2db47"
+    sha256 cellar: :any,                 arm64_sequoia: "952ef6635a1537aeb609ea82597d95e6411a5cf351e5916a5507acf833f9fa0b"
+    sha256 cellar: :any,                 arm64_sonoma:  "bd9eb12bce6d33e5640a0e0c0fc3f76f8f68c4732e09e22398740132d42af405"
+    sha256 cellar: :any,                 arm64_ventura: "1628bb7528f5118ab8a2739b279604dd01fcb6b1175e01fc6c93246e5b6a62eb"
+    sha256 cellar: :any,                 sonoma:        "872bfc8d27e0c9d83e7c35e67904492807acae02d145d79491289cd1f343fa91"
+    sha256 cellar: :any,                 ventura:       "368d851057292860af1245b39a7daa8ec873a2bcd64fdc8a6bdbf5186d1f53f8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a85a57db730f00c05d2adeff1493065baa6d23480bd36db9ca5f5e17634f42b9"
   end
 
   depends_on "cmake" => :build
   depends_on "hdf5"
+
+  uses_from_macos "zlib"
 
   def install
     ENV["SDKROOT"] = MacOS.sdk_path if OS.mac?

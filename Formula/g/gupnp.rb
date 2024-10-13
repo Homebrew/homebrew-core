@@ -3,18 +3,17 @@ class Gupnp < Formula
 
   desc "Framework for creating UPnP devices and control points"
   homepage "https://wiki.gnome.org/Projects/GUPnP"
-  url "https://download.gnome.org/sources/gupnp/1.6/gupnp-1.6.6.tar.xz"
-  sha256 "c9dc50e8c78b3792d1b0e6c5c5f52c93e9345d3dae2891e311a993a574f5a04f"
+  url "https://download.gnome.org/sources/gupnp/1.6/gupnp-1.6.7.tar.xz"
+  sha256 "4a61d8a5a8a7270e60ce9cfe9661cc4fa326f045a65718d2eb8ff68afdbef805"
   license "LGPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any, arm64_sonoma:   "015196de1b4d30bf9f813483e62b405b254ffd59f0ada46fc5131743a755b05c"
-    sha256 cellar: :any, arm64_ventura:  "15f2967d08d7bb95e3fd9ac8b7eba0aa6c197d64ddd78ece41c454d9cd0754d0"
-    sha256 cellar: :any, arm64_monterey: "f6499c492c8347a8f769db41634df06deb88fd2d0f8b0bd9e2e4035d64007640"
-    sha256 cellar: :any, sonoma:         "99d916fbba332bb2642a41f1a21961aa9d5d270b3d0bcf605c40db3a9640f1ea"
-    sha256 cellar: :any, ventura:        "44565ee4eb34af29dad778fc5f042af5cdf152208f69c0919bed2a2a5a823169"
-    sha256 cellar: :any, monterey:       "e95283c0946443b136d9a080e14f1493e3d737a5f2a4de65a5907254f4e0e8e9"
-    sha256               x86_64_linux:   "04cf309eee9f3047e8ae8d13a21d58d0e2e9ddd6756a8c29b646d4c5f8cde1ae"
+    sha256 cellar: :any, arm64_sequoia: "29d88e4f5264b6fa7fb0ac8f639f430d8e0d9ff27ed5c55c55e35b273a60f77d"
+    sha256 cellar: :any, arm64_sonoma:  "8ad508ff6e4534e480751b8e7d13a779c315b86fa684c5c3e623fba2646c4ce4"
+    sha256 cellar: :any, arm64_ventura: "accd605b048a9f1da2563805ef1a1fccee2b3bfecc90f70d485cea7b3af872eb"
+    sha256 cellar: :any, sonoma:        "89f4e49877c5e9f0e60a149dd87d58badb46e6ede255eecca6e7437c9eb35e29"
+    sha256 cellar: :any, ventura:       "973f38fb49c3c9d03aa96aef88935d5295721ac34186e08f3a570cbfb5846863"
+    sha256               x86_64_linux:  "c3ee66eef6d62af9934ac331a4fdfd718129216a0ab7fd8a3b30730b7a87ed33"
   end
 
   depends_on "docbook-xsl" => :build
@@ -29,12 +28,6 @@ class Gupnp < Formula
   depends_on "libsoup"
   depends_on "libxml2"
   depends_on "python@3.12"
-
-  # Backport fix for libxml 2.12. Remove in the next release.
-  patch do
-    url "https://gitlab.gnome.org/GNOME/gupnp/-/commit/00514fb62ebd341803fa44e26a6482a8c25dbd34.diff"
-    sha256 "2b8ead2dc0824bf30dc606421cff3cddc7d8ad785910b1228602bb861601f61c"
-  end
 
   def install
     ENV.prepend_path "XDG_DATA_DIRS", HOMEBREW_PREFIX/"share"

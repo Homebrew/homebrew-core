@@ -12,6 +12,7 @@ class Librasterlite2 < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "1c3ebad3c0e8d461961ff6e1ea785d762a411493caa8dc0df62f85cc2fd039d8"
     sha256 cellar: :any,                 arm64_sonoma:   "d31a806dc93f565780c5704c3d4ac4d4925f02f3682a1638ee85f384470ceae3"
     sha256 cellar: :any,                 arm64_ventura:  "594f332c68d15b51bb405623131a630fa528693ee21f2f220d3220bc280fd2dc"
     sha256 cellar: :any,                 arm64_monterey: "3733644a6d712a0be663b99b9b153cba11d05cfb34dc5c207fab8df8a4077a56"
@@ -36,6 +37,7 @@ class Librasterlite2 < Formula
   depends_on "librttopo"
   depends_on "libspatialite"
   depends_on "libtiff"
+  depends_on "libxml2"
   depends_on "lz4"
   depends_on "minizip"
   depends_on "openjpeg"
@@ -47,7 +49,6 @@ class Librasterlite2 < Formula
   depends_on "zstd"
 
   uses_from_macos "curl"
-  uses_from_macos "libxml2"
   uses_from_macos "zlib"
 
   # Fix -flat_namespace being used on Big Sur and later.

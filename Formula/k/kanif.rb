@@ -6,20 +6,8 @@ class Kanif < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2dd777f1bab51dc02c59975aa8440299558d57cd9a4d92bbee1f29fedd0d871d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c9976ca3c9f4b867f909300da1ac522ea0aa81db1beba857edb033b7475d5b16"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c9976ca3c9f4b867f909300da1ac522ea0aa81db1beba857edb033b7475d5b16"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cfc06314d243173b2b0f0de1188570adde896ef6002dcbb75e7ce9fe056ae172"
-    sha256 cellar: :any_skip_relocation, sonoma:         "2dd777f1bab51dc02c59975aa8440299558d57cd9a4d92bbee1f29fedd0d871d"
-    sha256 cellar: :any_skip_relocation, ventura:        "c9976ca3c9f4b867f909300da1ac522ea0aa81db1beba857edb033b7475d5b16"
-    sha256 cellar: :any_skip_relocation, monterey:       "c9976ca3c9f4b867f909300da1ac522ea0aa81db1beba857edb033b7475d5b16"
-    sha256 cellar: :any_skip_relocation, big_sur:        "ea9c4a641227762b26e89a7015aa328d16fdfdb23796c29abcdb83ab19638b59"
-    sha256 cellar: :any_skip_relocation, catalina:       "e69f751ab52a8f0892e452bcd3e2e43df27a94cd5e3a5b8cc972529758e0ebf0"
-    sha256 cellar: :any_skip_relocation, mojave:         "4de62a3ee570ed87d4a6c5ec559e901323bfc333e67714b618f9bafc9eb6b6e9"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "adcf3a42f6db8afb8011bbc0e5bcae234ad1d218b0f3b9a0ea884ff6499ab4f0"
-    sha256 cellar: :any_skip_relocation, sierra:         "8a89062ef7794743c32bc611c1969f42941af573c8dd9973abee7d4255293df1"
-    sha256 cellar: :any_skip_relocation, el_capitan:     "ebe67d82aa8745a8ff29a82b9520e0fb4892a9645e17a12e8aeae4fda96cc8b4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e78e474800a775d718770f2682e00735ed52963da4605be8ca023f1109798723"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "f8e0c833384c4479f288c31b55223157190f271ca6489bbcc47cfb8c9c2042e8"
   end
 
   depends_on "taktuk"

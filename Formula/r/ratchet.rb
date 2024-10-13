@@ -7,6 +7,7 @@ class Ratchet < Formula
   head "https://github.com/sethvargo/ratchet.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "ebede08c8ce709ae39e9bc0f62c3544dad4abf496283830e0cd90f60a2453829"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4e904d78b0e6c10d5bf551a16ed857252d24ead2e9f516f26e461b69508fb196"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "579509ef8e3f5f20d185c8662620613b7aff6131a53f17d510068d91c7200370"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "8e42a349f8878e4ff5adb0daddba625e93488b1042123e4deb28e2eb0ed68154"

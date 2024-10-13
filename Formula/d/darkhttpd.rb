@@ -6,6 +6,7 @@ class Darkhttpd < Formula
   license "ISC"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "8acef684427142565d90c96db616fa7bcf1a28bf0d4fca71aacea8fc8cab2996"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5e57b5d8505d7a4073aa5d3bc46d06482332241cc7e28bfa2ba6a1257100ceec"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "0754b61bb91a3ffc1ac81c6b9caa11d3f165025abc78ea02faf114c8680ed236"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f3eba7b21645b53ce4129a5225d757046ed601d2ca937686aebd11b80bd381be"
@@ -21,6 +22,6 @@ class Darkhttpd < Formula
   end
 
   test do
-    system "#{bin}/darkhttpd", "--help"
+    system bin/"darkhttpd", "--help"
   end
 end

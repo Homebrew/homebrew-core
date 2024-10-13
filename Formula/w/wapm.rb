@@ -7,6 +7,7 @@ class Wapm < Formula
   head "https://github.com/wasmerio/wapm-cli.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "34251ab13608ada57daca8bb40d97979ec895c7a1e9ba1c9f6ccd2e5e0307068"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "64bcf4597cca94cacbe81f5171e942822148f75e4a5a6996c4a03755f853695d"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "8b08738bc1b9beda9d2a865bff6cafe3fa4216bf96c9252c35646718f5f1607d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ff4e64b42f0dc537ce9ff5dfc463af0adda2fe75526eee5d42da45484747646c"
@@ -48,6 +49,6 @@ class Wapm < Formula
     EOF
     assert_equal expected_output, shell_output("#{bin}/wapm run cowsay hello wapm!")
 
-    system "#{bin}/wapm", "uninstall", "cowsay"
+    system bin/"wapm", "uninstall", "cowsay"
   end
 end

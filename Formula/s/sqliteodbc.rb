@@ -11,6 +11,7 @@ class Sqliteodbc < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "61de52252306e865b3c14e8ef775b1c4ccd22da7c7e5ea2b0f91c54c7877e08c"
     sha256 cellar: :any,                 arm64_sonoma:   "015eee63671fc01c778e6e663529ace8d63a7d71f2654be9b9556ccd9e29154f"
     sha256 cellar: :any,                 arm64_ventura:  "dd59b3db3e696d538dea72e84c5602c17f24fe119104a705a0662adee36547e0"
     sha256 cellar: :any,                 arm64_monterey: "8ed399c5e2eb6497973a1f8576febd0a60c4470fbb16e29b2b919aa875bf3565"

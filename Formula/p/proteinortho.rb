@@ -6,6 +6,7 @@ class Proteinortho < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "6eb6089f3e60e2136f11ea8997536fd76ae83d94455c23ad88f439a0a47397c3"
     sha256 cellar: :any,                 arm64_sonoma:   "a3966fa66db6edea9c7b12fb65213bec1e6641860b6d05ff28b74b7af9e13996"
     sha256 cellar: :any,                 arm64_ventura:  "0edd33e29ad7d95644c83f9412329ce80356424ce61ee89c84004f6d746653d8"
     sha256 cellar: :any,                 arm64_monterey: "b4b9d0a86d9e83e902f506ddd48633134727d9a0caacb03bb52751edf3e1084b"
@@ -27,7 +28,7 @@ class Proteinortho < Formula
   end
 
   test do
-    system "#{bin}/proteinortho", "-test"
-    system "#{bin}/proteinortho_clustering", "-test"
+    system bin/"proteinortho", "-test"
+    system bin/"proteinortho_clustering", "-test"
   end
 end

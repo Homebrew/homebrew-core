@@ -11,6 +11,7 @@ class Ncview < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "9c32e0c8d61208d3573870a33349e73dd07aed488fa950efc9209aad3499d464"
     sha256 cellar: :any,                 arm64_sonoma:   "5b5169eca0a60caf8ecf81577a4defc72f8d18f97836fbdd69cddf1ec9d4215e"
     sha256 cellar: :any,                 arm64_ventura:  "96ab79560d36c63a53c61ed9974738627eb217cbe69bea25b625ac2f4a8deba2"
     sha256 cellar: :any,                 arm64_monterey: "5e634d2eb02f6a4e7fb1e35ef14920816262def3495d76697edeb76af115c2fb"

@@ -6,6 +6,7 @@ class Xmlstarlet < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "4adaaf3c7da18a5c7349ccf69fadf95ea8cd878f5cac627a2b9f90b89c519f4b"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f5e323357004f390e9362f5949b0e396b2436c0ed66a4c81603f79eee1d8eeea"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "a0c3177bfbd5b1a22f17a4088a81dc5826960f4df15347d975e4facbc1883a6e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "86e4e8bd44e5a7c143dd2a4395c535ddcac9c08bb6e910688ab0138ad3151d1e"
@@ -22,9 +23,11 @@ class Xmlstarlet < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "6c682deca05e96d3b8d42c2ab783a36cf06f6a6e3733cc4830395f9db26d51b3"
   end
 
+  uses_from_macos "libxml2"
   uses_from_macos "libxslt"
 
   def install
+    ENV.append_to_cflags "-Wno-incompatible-function-pointer-types" if DevelopmentTools.clang_build_version >= 1500
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--mandir=#{man}"
@@ -34,6 +37,6 @@ class Xmlstarlet < Formula
   end
 
   test do
-    system "#{bin}/xmlstarlet", "--version"
+    system bin/"xmlstarlet", "--version"
   end
 end

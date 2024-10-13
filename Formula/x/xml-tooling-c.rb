@@ -11,6 +11,7 @@ class XmlToolingC < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "f76efd3281936cb832a574976783f056e66766f473d849aae63c746e188d6f39"
     sha256 cellar: :any,                 arm64_sonoma:   "672e8c185c451dad3d04b70756130b8d634115a694ae4cfbdf559d2876685d27"
     sha256 cellar: :any,                 arm64_ventura:  "ae4ac6f8e8c3316ecde0a3ee93a9ccb6378cda802cc091cd171a4730e677f17f"
     sha256 cellar: :any,                 arm64_monterey: "5a8b264c7570c6ad106eb2edd451c11157373f206346eb8a4b8998e9ed62a851"
@@ -30,15 +31,13 @@ class XmlToolingC < Formula
   depends_on "xml-security-c"
 
   uses_from_macos "curl"
+  uses_from_macos "zlib"
 
   def install
     ENV.cxx11
-
     ENV.prepend_path "PKG_CONFIG_PATH", "#{Formula["openssl@3"].opt_lib}/pkgconfig"
 
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    system "./configure", "--disable-silent-rules", *std_configure_args
     system "make", "install"
   end
 end

@@ -7,6 +7,7 @@ class Teip < Formula
   head "https://github.com/greymd/teip.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "dc593ddc6816e59c32a3c28434566875dd30036937ed24fb6fbaf0b11c813f21"
     sha256 cellar: :any,                 arm64_sonoma:   "4df0b07d8bd0edaf62e6daac722039dc3dfb1f1e8340439e41c2631cb3eeec4c"
     sha256 cellar: :any,                 arm64_ventura:  "939622ea9607368b299e1eb0a3c19c01320a0399f8c01fa8502d14794fc1e983"
     sha256 cellar: :any,                 arm64_monterey: "924342e2ea29ddf0eaa9906e74c6cf03b1356d00091bf24b54788bf61136b7b4"

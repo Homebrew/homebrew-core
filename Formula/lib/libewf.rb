@@ -14,6 +14,7 @@ class Libewf < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "cc1ee22a4c919dcbcc09d7b8e6c63c212648cbb47d709271390a5b0ffab316f9"
     sha256 cellar: :any,                 arm64_sonoma:   "f921e6618b878d66acb4b02db137244115b0e721dd935ae5b151b681000ea86c"
     sha256 cellar: :any,                 arm64_ventura:  "0c994929653ecf3f7a487f17231db932301058a5883b0e6076dea4ba4b8468bd"
     sha256 cellar: :any,                 arm64_monterey: "9b990ae7f7866c4f3600f0ab65f88782812a2bc47e83d0a869081ca87e594746"

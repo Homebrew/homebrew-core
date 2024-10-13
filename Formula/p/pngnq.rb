@@ -8,6 +8,7 @@ class Pngnq < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia:  "06007a7ead893b75a74fa9f5cc7c466219fe2be5149a245e0ae560dd52503aae"
     sha256 cellar: :any,                 arm64_sonoma:   "951d02bef2eeb1252344215eb818f95c269506f4f678b3755df4a0c483277f8e"
     sha256 cellar: :any,                 arm64_ventura:  "871a8ea613320d94c57aae21e6fb9e3d42016d8ab88a6fd30b1f4e915591badf"
     sha256 cellar: :any,                 arm64_monterey: "31c85fafb9fd2051db06856042a3f216f9fd24fbfd8acf95f5a51bf695989a02"

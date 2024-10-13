@@ -41,6 +41,6 @@ class FuseEmulator < Formula
   end
 
   test do
-    system "#{bin}/fuse", "--version"
+    system bin/"fuse", "--version"
   end
 end

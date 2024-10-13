@@ -25,6 +25,7 @@ class Getdns < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "4de6139ffb48649141f2de34aa4525625427e92f6c663a228457e0d66c0bb4d2"
     sha256 cellar: :any,                 arm64_sonoma:   "f8db532094127a5756d5ee9aa4ac55efe191eda4f5407a95aef2c59ec2e8f32e"
     sha256 cellar: :any,                 arm64_ventura:  "c2f1f059c36f76d0e32acfee307bc6f02a8bb91f850f666704dfe503b79e6035"
     sha256 cellar: :any,                 arm64_monterey: "78497b3d08f57ad15ff67fc0834e7d087b2660fa81863f4f5dd4c7e208de5db8"

@@ -6,6 +6,7 @@ class Aspcud < Formula
   license "MIT"
 
   bottle do
+    sha256 arm64_sequoia:  "429008eb29edff4d08e840bd0eb373ea061c357d01ebab4e416f9d4681b95b0a"
     sha256 arm64_sonoma:   "f9754209fbab844fa1dc333dd669715fb973838a82f87c44580f9198a56b94ea"
     sha256 arm64_ventura:  "559e837a693b869dd122da250d57f222501b1f352bf57258eb4305530f8d30a0"
     sha256 arm64_monterey: "99122c4ae30f0760d00103191fb33b4fd793ac65e45f662a64d1386e0775d85f"
@@ -41,6 +42,6 @@ class Aspcud < Formula
 
       request: foo >= 1
     EOS
-    system "#{bin}/aspcud", "in.cudf", "out.cudf"
+    system bin/"aspcud", "in.cudf", "out.cudf"
   end
 end

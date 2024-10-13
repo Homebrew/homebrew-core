@@ -6,6 +6,7 @@ class Senpai < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "6a78d94af426d9f72498b278f3669f95cfa6ac2820acd5f27ef70b21a6419b63"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2bb02acb8e2a7f36313a9f0fcb3ee751896e569ee419ebcbf7ca544fb3890245"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "3fa5c2f51f224cf6d7b50d46a6bc0138779df6893e9bfe99d058605e568904e1"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "59ec7f2e76e79c6273cbab8849b59fe974c4fa161588f0d7aeff0e87efe06acc"
@@ -26,7 +27,7 @@ class Senpai < Formula
   test do
     require "pty"
 
-    stdout, _stdin, _pid = PTY.spawn "#{bin}/senpai"
+    stdout, _stdin, _pid = PTY.spawn bin/"senpai"
     _ = stdout.readline
     assert_equal "Configuration assistant: senpai will create a configuration file for you.\r\n", stdout.readline
   end

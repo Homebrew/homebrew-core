@@ -6,17 +6,32 @@ class LibfuseAT2 < Formula
   license any_of: ["LGPL-2.1-only", "GPL-2.0-only"]
 
   bottle do
-    sha256 x86_64_linux: "b13b4780fa7d33cd2e6fb7f55d44e693579264923381f934d417d108c0a246cc"
+    rebuild 1
+    sha256 x86_64_linux: "2f5566126dd96e6a9c0329b6321db145d1815690cf5d4cf51d62b762493ca19b"
   end
 
   keg_only :versioned_formula
 
+  # TODO: Remove `autoconf`, `automake`, `gettext`, and `libtool` when we no longer need the patch.
+  # TODO: Consider generating a `configure` patch so that we don't need these.
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "gettext" => :build
+  depends_on "libtool" => :build
   depends_on :linux
+
+  # Fix build failure with new glibc.
+  patch do
+    url "https://github.com/libfuse/libfuse/commit/5a43d0f724c56f8836f3f92411e0de1b5f82db32.patch?full_index=1"
+    sha256 "94d5c6d9785471147506851b023cb111ef2081d1c0e695728037bbf4f64ce30a"
+  end
 
   def install
     ENV["INIT_D_PATH"] = etc/"init.d"
     ENV["UDEV_RULES_PATH"] = etc/"udev/rules.d"
     ENV["MOUNT_FUSE_PATH"] = bin
+    # TODO: Remove `autoreconf` when patch is no longer needed.
+    system "autoreconf", "--force", "--install", "--verbose"
     system "./configure", *std_configure_args, "--enable-lib", "--enable-util", "--disable-example"
     system "make"
     system "make", "install"

@@ -11,6 +11,7 @@ class Abnfgen < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "e2396295b6a6b0952355321d37830f2a2f42b2b2deda9a7ec9162d7f224f0c98"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ebbd726f391652bf3bd3c84107de75d1302ec42551c7355f9760c416915e2291"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "77649fae7599272e9602a0b31d1c821f4f09b364d9e782a146a27bc961066194"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "dbb853413b291a12a931c32fe4698d1e97f263c70ea9635875afcdf2bf3a63d8"
@@ -31,6 +32,6 @@ class Abnfgen < Formula
 
   test do
     (testpath/"grammar").write 'ring = 1*12("ding" SP) "dong" CRLF'
-    system "#{bin}/abnfgen", (testpath/"grammar")
+    system bin/"abnfgen", (testpath/"grammar")
   end
 end

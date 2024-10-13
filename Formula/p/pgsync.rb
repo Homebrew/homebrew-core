@@ -6,6 +6,7 @@ class Pgsync < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "943687f8e9f670920d7eeaee1a271cdc66d6433010d03375832e12478755ab1f"
     sha256 cellar: :any,                 arm64_sonoma:   "d0fca0241bcd1370d86a97de70e9a6255eb8233e732da09777c2b5894c493374"
     sha256 cellar: :any,                 arm64_ventura:  "cf0802b4607cd6561a44ab652c5d6fcee8606d30ee2ab26fd6dc173a2861b225"
     sha256 cellar: :any,                 arm64_monterey: "140280805ff038e3ac4acaebe412c00cefc83ab4ead853f4ae118df3ce9ec1cd"

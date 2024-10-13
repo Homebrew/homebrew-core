@@ -11,7 +11,8 @@ class Fastqc < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "98115fa6cc5acc2f8ac59e42843802c5e4d1484be2b030edbeafc32ccdac89f6"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "b55cf3f17b3c62267f72029429f662fe70e19c817bbe61872f7b85b5149d7564"
   end
 
   depends_on "openjdk"

@@ -6,8 +6,15 @@ class Haiti < Formula
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "9a79f8a170104a1ac3909ae0425458f8840bc7e3636a5b291959223585235c32"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_sequoia:  "fa0a92d2a68ff948075c2bf610e4dc3d721e7b54bccf38852bf101d109b39bb6"
+    sha256 cellar: :any,                 arm64_sonoma:   "b630e0baaeecbf8a0d48a8ef709f9d365ebb44d01190d7a0acb1a3f3354f7dd2"
+    sha256 cellar: :any,                 arm64_ventura:  "cb9dea0523928f4364481c92dba1aecdec578dcac5104c1fa7e6e946e03928c4"
+    sha256 cellar: :any,                 arm64_monterey: "b9f0b8155503ec782e57a1d73065418da594a0707027a9b504388a055efd6b56"
+    sha256 cellar: :any,                 sonoma:         "a3d90fbc8e007f998d1e4caae9aa3a3db0c1157b5a9225b6bb03d4fead7509db"
+    sha256 cellar: :any,                 ventura:        "3c043707acf1a26407eb2942148a3051cf91e9154e70c846e7fae715e89423b6"
+    sha256 cellar: :any,                 monterey:       "38793f6eeab5f02817b672e214670a1b2292990c4fff9aa7db933e1e7413d040"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "582eba154c239bff3e1a1080dec23a34e638beb975c5846a15b3248146dd92ab"
   end
 
   # Requires Ruby >= 2.7

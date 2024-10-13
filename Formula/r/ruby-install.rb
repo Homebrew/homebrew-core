@@ -7,14 +7,8 @@ class RubyInstall < Formula
   head "https://github.com/postmodern/ruby-install.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "73c1bedce047ff55b1fbabf5dea434652a014aaef1af51cfe01c48ae015c8119"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "73c1bedce047ff55b1fbabf5dea434652a014aaef1af51cfe01c48ae015c8119"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "73c1bedce047ff55b1fbabf5dea434652a014aaef1af51cfe01c48ae015c8119"
-    sha256 cellar: :any_skip_relocation, sonoma:         "3d004f550287b5f06a7435c139b8971c1b86322a900ade4ba236be8d5239df98"
-    sha256 cellar: :any_skip_relocation, ventura:        "3d004f550287b5f06a7435c139b8971c1b86322a900ade4ba236be8d5239df98"
-    sha256 cellar: :any_skip_relocation, monterey:       "73c1bedce047ff55b1fbabf5dea434652a014aaef1af51cfe01c48ae015c8119"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "73c1bedce047ff55b1fbabf5dea434652a014aaef1af51cfe01c48ae015c8119"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "f0f38dd79961d78a317bbdc6d0c72db9119812dae220526b011b653b40bf8ddc"
   end
 
   depends_on "xz"

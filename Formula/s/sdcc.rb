@@ -12,33 +12,37 @@ class Sdcc < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "1b9ecefe9331bd7932a5b277188f2c05bab3d883bd22e0210336ce070a068b96"
-    sha256 arm64_ventura:  "a3feae25c1dc7b0e760862cdcea40bf246bb8367fb7e32713d60a72ca67b0198"
-    sha256 arm64_monterey: "b8d1facd553ec7e49cfe80d7ab70e81c89bed40920e82bf4dd02c5b93b1053ab"
-    sha256 sonoma:         "9e7802e6ad9355271be8782121f5ac27fa4de082f82e010f24e136eafc08d764"
-    sha256 ventura:        "473634c817b54b4709c3579e571c4005eb6ae4d856114f6c85bc2f271e5a1ade"
-    sha256 monterey:       "470dc349d2a3e87b91d0874d788199d31cbb1a2d8e74d2e98013cd11e67ea8fb"
-    sha256 x86_64_linux:   "41d0b195b867e851a31290fa8d2b51a5f53f47ae0873d7dc3ca54e6442219fc2"
+    rebuild 1
+    sha256 arm64_sequoia: "c820ee7d47b15c893f034833e48d7f031d358203f01f7e0103a3e3c0ab82f241"
+    sha256 arm64_sonoma:  "81c0b441730890c79c4d3485e73b9e71e4ad5d634a53f243969f209f36d2b327"
+    sha256 arm64_ventura: "aa82c793aed1656d4dfc86c3dd1b9991c3f8fd404650b9d79a830c98ef9bd12d"
+    sha256 sonoma:        "b260a444278d16f818706fa08567143b966bf98ba70a466c58fa3f7116cd58db"
+    sha256 ventura:       "71c542578133d8caa260042424fb5e0d3ad861da5f3114cecf22d39b7c1d078c"
+    sha256 x86_64_linux:  "13d055d8246179d6ef18d6e91d96e4da3e77493476b4992c57880bef0f66e472"
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-  depends_on "boost"
+  depends_on "boost" => :build
   depends_on "gputils"
   depends_on "readline"
 
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
+  uses_from_macos "zlib"
+
+  on_macos do
+    depends_on "zstd"
+  end
 
   on_system :linux, macos: :ventura_or_newer do
     depends_on "texinfo" => :build
   end
 
   def install
-    system "./configure", "--prefix=#{prefix}"
-    system "make", "all"
+    system "./configure", "--disable-non-free", "--without-ccache", *std_configure_args
     system "make", "install"
-    rm Dir["#{bin}/*.el"]
+    elisp.install bin.glob("*.el")
   end
 
   test do
@@ -47,7 +51,7 @@ class Sdcc < Formula
         return 0;
       }
     EOS
-    system "#{bin}/sdcc", "-mz80", "#{testpath}/test.c"
+    system bin/"sdcc", "-mz80", "#{testpath}/test.c"
     assert_predicate testpath/"test.ihx", :exist?
   end
 end

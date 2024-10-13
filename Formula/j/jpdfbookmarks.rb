@@ -6,6 +6,7 @@ class Jpdfbookmarks < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "60bddeddc1d35f34e2bcd8a56d86d52153532cbb26ffaadc4c286f72cae60a82"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1d99055fa011a56f11a4fdcdcca268d9a1e7dbb524d0f474142ce2de853c3b21"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "13bd17ff83235a1e154915b59a521ffe910ecb2ca4ae837203441813b32eb176"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "13bd17ff83235a1e154915b59a521ffe910ecb2ca4ae837203441813b32eb176"

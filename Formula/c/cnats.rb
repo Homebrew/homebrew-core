@@ -1,18 +1,17 @@
 class Cnats < Formula
   desc "C client for the NATS messaging system"
   homepage "https://github.com/nats-io/nats.c"
-  url "https://github.com/nats-io/nats.c/archive/refs/tags/v3.8.2.tar.gz"
-  sha256 "083ee03cf5a413629d56272e88ad3229720c5006c286e8180c9e5b745c10f37d"
+  url "https://github.com/nats-io/nats.c/archive/refs/tags/v3.9.1.tar.gz"
+  sha256 "56836bb30a2da93eaa6df0dfa27e796e6be0933b5b3d4d83b5c76d3b80304290"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "a85b87a12ef0711c647cbc9d5dd4d8e6340f4382483fdd9bd68d521601e47aed"
-    sha256 cellar: :any,                 arm64_ventura:  "0ebd50389b71aafb3eb9634a2d42b75d70c99b62eeb45373e73669bb4ee4ddf5"
-    sha256 cellar: :any,                 arm64_monterey: "0aef56d8fe8fdbcd66eca99e7b3c5af119ae4eaf712552106135ae60dd0b97a0"
-    sha256 cellar: :any,                 sonoma:         "1c02a3280c07e2f283fb197e75497c91791b6081fc4ca6196773bd0a05e729d1"
-    sha256 cellar: :any,                 ventura:        "751e5adda134e3c8fca555bf78b23287e929fe89508f8b9633539393416fc25b"
-    sha256 cellar: :any,                 monterey:       "1c929ab71ac2139f0e693eacbdac44145dcac2f1320c4e374b0c43636cfc7d2b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "78aadfaf79af653641fefb5ca63359db3a5e367c56f4b8741d73d00c157b23c8"
+    sha256 cellar: :any,                 arm64_sequoia: "4048aab049238b3973504ecca6c09eee64097e344a5c233a8ed6c13b89cdde15"
+    sha256 cellar: :any,                 arm64_sonoma:  "c9ecd9f8bd0e02961699b17bd1fcdc3dd561ff0e98612b7859560836e539194d"
+    sha256 cellar: :any,                 arm64_ventura: "4c8191751fedea59c00d3f4411e501bc4da323ee55f23031a201cf6f8154fee2"
+    sha256 cellar: :any,                 sonoma:        "a1c6d852e068568d59be12ce391306d8445fc8e26edd686851791102d2d970ec"
+    sha256 cellar: :any,                 ventura:       "f1f0aede9202ebf802dd168400e81234cf68c01d03e955c3f8d6286fd4a9a547"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "01d69e37e34e3d3bf1abd1b198069042c424542a65d126256407e4198d1856b7"
   end
 
   depends_on "cmake" => :build

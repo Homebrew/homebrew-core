@@ -4,17 +4,18 @@ class Hydra < Formula
   url "https://github.com/vanhauser-thc/thc-hydra/archive/refs/tags/v9.5.tar.gz"
   sha256 "9dd193b011fdb3c52a17b0da61a38a4148ffcad731557696819d4721d1bee76b"
   license "AGPL-3.0-only"
-  revision 3
+  revision 4
   head "https://github.com/vanhauser-thc/thc-hydra.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "5ad7aec614f7ac261d41ec4f660e306e65e769c56c73cdf1204e57ac44b66166"
-    sha256 cellar: :any,                 arm64_ventura:  "ff55d918b7f9a730a709012d4922c35b6b5bd221a1071403c0a058acaa976347"
-    sha256 cellar: :any,                 arm64_monterey: "99fd99189f3dbf44a50d20599ec11ff6d8d1f32ef8ca3357b16ca04008e1e50d"
-    sha256 cellar: :any,                 sonoma:         "5fb5582746b0afa585bed71fe301ae44f4fc5712529439c012d180988b9d7ff0"
-    sha256 cellar: :any,                 ventura:        "ae70b33f5e3e3b3e92ef53060e9a5279a2b0330029952163e8dd35469f4dcabf"
-    sha256 cellar: :any,                 monterey:       "a186bb6c18e2f1ae836f4e4bab5b9a94e0b8b6d7050470b700d90beb435ff92d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f86b73a438c67e1ef36971fe212ff8e51d8f915473d45e16e423570f86714fea"
+    sha256 cellar: :any,                 arm64_sequoia:  "5fde2d1c22b0a5028645283b6692517e0e15d18e1460754dc0cbe7d3918a0874"
+    sha256 cellar: :any,                 arm64_sonoma:   "d9af4495a0d5abb4b06610fc318f59cbebe1e2da7add59eb6fc2b9ddbcc64329"
+    sha256 cellar: :any,                 arm64_ventura:  "67bc1df2d95effb418e766e7e4c193ce5b52edd2c8afe39e026b369aa839baa9"
+    sha256 cellar: :any,                 arm64_monterey: "dee157bd05914bb135e8d441e1e8046407041988a7efd9b6c95895305662f951"
+    sha256 cellar: :any,                 sonoma:         "d899e3a522e8a1b5354298b87f439753cd840582e52492f66831ed2749c5f270"
+    sha256 cellar: :any,                 ventura:        "bd32c29f4788e9b9f815cfa35ddfaf2b07abb060f306c0896353922e0cc6f112"
+    sha256 cellar: :any,                 monterey:       "92398562b54c347d26d4d14f0b01839af9fba7ea382dcc3142b37a77ba30a018"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9844343bce3a35c77ac050dd02a30f765921e0f5b69cc04d9fd62e0d4f49116b"
   end
 
   depends_on "pkg-config" => :build
@@ -71,6 +72,6 @@ class Hydra < Formula
   end
 
   test do
-    assert_match(/ mysql .* ssh /, shell_output("#{bin}/hydra", 255))
+    assert_match(/ mysql .* ssh /, shell_output(bin/"hydra", 255))
   end
 end

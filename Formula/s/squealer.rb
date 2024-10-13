@@ -1,19 +1,20 @@
 class Squealer < Formula
   desc "Scans Git repositories or filesystems for secrets in commit histories"
   homepage "https://github.com/owenrumney/squealer"
-  url "https://github.com/owenrumney/squealer/archive/refs/tags/v1.2.3.tar.gz"
-  sha256 "001683802233e79c2063d866fb7953a36a8331a441a537bd9f7d66c0c10fb92e"
+  url "https://github.com/owenrumney/squealer/archive/refs/tags/v1.2.4.tar.gz"
+  sha256 "8ac30e914780f2f7f495afd93a20d0b7835cee712577ef680f7a2ec9d276758e"
   license "Unlicense"
   head "https://github.com/owenrumney/squealer.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "67cabdd9ed5a27e56d42ae5e7e11f84ce8a8e6d8c122dc907a2e594e100f840e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2444b45b2ab83c10b577953e3b81bfecd528a0b9b1ee6fe90849687916da78f1"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "261c89ccacbc0f3597b6123604019191b1fdf17635795ec1008fc6348769f1da"
-    sha256 cellar: :any_skip_relocation, sonoma:         "52a30dcb323eb7bcf28ff4a6c22cebfd7b1e14189ee937bfc0bab0a4023f1cba"
-    sha256 cellar: :any_skip_relocation, ventura:        "5e25732cdaa1567b34973f47eea215c031b04078973c1d79c99b17a348325e22"
-    sha256 cellar: :any_skip_relocation, monterey:       "0832649e0602783978553546d21e6af92f4ff6791c05f54586c2d766a63548ef"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d1fea9cfe464827fcec4d3ccb3439a3fc1a0788724c868a19c850526c88a37eb"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "e4da7568fde2169f0fb08a9f0d15e997be2fcf1004fea517389e7608bca79d13"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2a7041bdb10db0ffa95f42b76a87bd830d7b950ba9848379a7f0af586d0a0ecc"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2943ac5832058d7766aa71a7e986a05c759a21c6b3d18febf7e95f20a7489a7b"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c59845814f814552514911196624bdb2a061ba5b0cb75a9181fe8e6552e2d422"
+    sha256 cellar: :any_skip_relocation, sonoma:         "d40545360874e17e53ef0c6e0a04524d54fff27bd563bcb6b3cb9ccf7fd64ada"
+    sha256 cellar: :any_skip_relocation, ventura:        "439566e9aac89dcaf4282ee347f63cee9e92ecae438141b8e0ac25bdb43f8a3f"
+    sha256 cellar: :any_skip_relocation, monterey:       "deac7c42fe6d50c7ffc7ea841a7269829b7d334e8d3d5fcc55bdd380d4a3859e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4e86fb9ce09801e79caab1090ad564baf942794d92624f8bab93cb7db83c1922"
   end
 
   depends_on "go" => :build

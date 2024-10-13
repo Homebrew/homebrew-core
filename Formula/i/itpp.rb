@@ -3,7 +3,7 @@ class Itpp < Formula
   homepage "https://itpp.sourceforge.net/"
   url "https://downloads.sourceforge.net/project/itpp/itpp/4.3.1/itpp-4.3.1.tar.bz2"
   sha256 "50717621c5dfb5ed22f8492f8af32b17776e6e06641dfe3a3a8f82c8d353b877"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
   head "https://git.code.sf.net/p/itpp/git.git", branch: "master"
 
   livecheck do
@@ -13,6 +13,7 @@ class Itpp < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia:  "58f42ea3453634e3160598380eedb74e3917eec37fe55c5e57b09db4f4ca2314"
     sha256 cellar: :any,                 arm64_sonoma:   "ea1d6f7812b08ab488e3029479f886c293bec4ace34c3f6fa69dbce73823161e"
     sha256 cellar: :any,                 arm64_ventura:  "0a42ca8d1cb49fb7b8af53e5c62b6ebb327dee7d81555d58e3b47518ab2105af"
     sha256 cellar: :any,                 arm64_monterey: "23dde1c42eafdbba4fb7f2d5f26ae5115706fca6104de839903d1394e48a525d"
@@ -34,10 +35,27 @@ class Itpp < Formula
     # Reported upstream at: https://sourceforge.net/p/itpp/bugs/262/
     mv "VERSION", "VERSION.txt"
 
-    mkdir "build" do
-      system "cmake", "..", *std_cmake_args
-      system "make"
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
+  end
+
+  test do
+    (testpath/"test.cpp").write <<~EOS
+      #include <itpp/itcomm.h>
+      #include <iostream>
+
+      int main() {
+        itpp::BPSK bpsk;
+        itpp::bvec input_bits = "0 1 0 1";
+        itpp::vec modulated_signal;
+        bpsk.modulate_bits(input_bits, modulated_signal);
+        std::cout << "Modulated signal: " << modulated_signal << std::endl;
+        return 0;
+      }
+    EOS
+
+    system ENV.cxx, "test.cpp", "-o", "test", "-I#{include}", "-L#{lib}", "-litpp"
+    system "./test"
   end
 end

@@ -6,11 +6,8 @@ class Antiword < Formula
   sha256 "8e2c000fcbc6d641b0e6ff95e13c846da3ff31097801e86702124a206888f5ac"
   license "GPL-2.0-or-later"
 
-  livecheck do
-    skip "Not actively developed or maintained"
-  end
-
   bottle do
+    sha256 arm64_sequoia:  "f3a917d197df7b1a9e21a9e604593783436adff1b8c6854a85ef417abc3ca21b"
     sha256 arm64_sonoma:   "393500bd0690bd7fdb9ed258a1ce7882f518db42ec14d380421f771467080bf6"
     sha256 arm64_ventura:  "c4d6bfce24638c2f087af1f8bab031848f27584bbc4497d2b11913d9562a0047"
     sha256 arm64_monterey: "3d34f162686148d496bee36265f1434f11daf29957de15c4bdce8ba386f90fc9"

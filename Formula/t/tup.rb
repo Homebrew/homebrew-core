@@ -24,6 +24,6 @@ class Tup < Formula
   end
 
   test do
-    system "#{bin}/tup", "-v"
+    system bin/"tup", "-v"
   end
 end

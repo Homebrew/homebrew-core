@@ -1,8 +1,8 @@
 class QtMysql < Formula
   desc "Qt SQL Database Driver"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/6.7/6.7.0/submodules/qtbase-everywhere-src-6.7.0.tar.xz"
-  sha256 "11b2e29e2e52fb0e3b453ea13bbe51a10fdff36e1c192d8868c5a40233b8b254"
+  url "https://download.qt.io/official_releases/qt/6.7/6.7.2/submodules/qtbase-everywhere-src-6.7.2.tar.xz"
+  sha256 "c5f22a5e10fb162895ded7de0963328e7307611c688487b5d152c9ee64767599"
   license any_of: ["GPL-2.0-only", "GPL-3.0-only", "LGPL-3.0-only"]
 
   livecheck do
@@ -10,13 +10,11 @@ class QtMysql < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "0946c75dcdb6aebaedb6fa7d0cf11f7c3dd50d2342986931575343fc492d1c0c"
-    sha256 cellar: :any,                 arm64_ventura:  "70f6f7a536783575e73c318388e0cad7c4c0a3cbaf223f9caae3711c682d356d"
-    sha256 cellar: :any,                 arm64_monterey: "ceb74b27837a961f2fb6b2850cd25f4d663e7ca125fccc8b5f20e244f561b088"
-    sha256 cellar: :any,                 sonoma:         "fe1def6055f949b7b0e63b548cc8f188f1f43758b9395517c829f5e89c7ee9ec"
-    sha256 cellar: :any,                 ventura:        "08ded99ead3e3ea843c58426f5b766a7aa2d1fda59614c61f692581bb35d1870"
-    sha256 cellar: :any,                 monterey:       "87c5b4339aed038b58679d81be8de7dc5306959d5c635b578b7e588e7dd00461"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b8d73010ffe1be2420fdabfd3290d25175c5cf2a10a2e61d9bbb38daa9936396"
+    sha256 cellar: :any,                 arm64_sonoma:  "440dc27791dfa15b9776140512556842fbc59651d31f4e8cebc707de8dec2e22"
+    sha256 cellar: :any,                 arm64_ventura: "cefd7d38e5830538e6f4334db6d2caeeb43342b2c90863fe9583e17c4f074b87"
+    sha256 cellar: :any,                 sonoma:        "546033f6fc6d05cdc0b94d87a5000fd1c8f59d438979e11e5534ad15d3137af6"
+    sha256 cellar: :any,                 ventura:       "c57c2c3d365c8745843c1dac0cd814a52e0042a9a37efa43aee5353026017311"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1ac8068580a16d1ad03ff7d9aad88fc796cd4409ebf83e4291de3629d8609055"
   end
 
   depends_on "cmake" => [:build, :test]

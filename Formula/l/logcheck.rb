@@ -11,15 +11,8 @@ class Logcheck < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6ecd94f7128daaac16cb1dc0d371259d177878e6d727cb189fe93d017d175de2"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6ecd94f7128daaac16cb1dc0d371259d177878e6d727cb189fe93d017d175de2"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6ecd94f7128daaac16cb1dc0d371259d177878e6d727cb189fe93d017d175de2"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6ecd94f7128daaac16cb1dc0d371259d177878e6d727cb189fe93d017d175de2"
-    sha256 cellar: :any_skip_relocation, sonoma:         "6ecd94f7128daaac16cb1dc0d371259d177878e6d727cb189fe93d017d175de2"
-    sha256 cellar: :any_skip_relocation, ventura:        "6ecd94f7128daaac16cb1dc0d371259d177878e6d727cb189fe93d017d175de2"
-    sha256 cellar: :any_skip_relocation, monterey:       "6ecd94f7128daaac16cb1dc0d371259d177878e6d727cb189fe93d017d175de2"
-    sha256 cellar: :any_skip_relocation, big_sur:        "6ecd94f7128daaac16cb1dc0d371259d177878e6d727cb189fe93d017d175de2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c228270104abb0e7f124a9e278a94e3863a8e17ca9739f83c097e38cde56377a"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "2108089f5ec41e1a09d4ee019baa9129713f445efea218138d079bcb6df60d67"
   end
 
   on_macos do

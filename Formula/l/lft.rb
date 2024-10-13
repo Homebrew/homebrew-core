@@ -11,6 +11,7 @@ class Lft < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "a4af876936c86efc3ca9b7be19fb9092f3b948548fd0692cc5bc305254ccfb19"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1a390234c6e3a17e0739170ed9ebff073fdad5507c7a77f31be0effd72b16538"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "d4998dceece639fbf748a880b3d4f5c7305d749c5fa32c1b414e7bc6e88c8a33"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4acd9a1fbaaafb14cd67002cf70cb78e262150995f7deea1f32c4f616de322b5"

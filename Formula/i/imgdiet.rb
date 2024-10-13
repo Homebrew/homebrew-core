@@ -7,6 +7,7 @@ class Imgdiet < Formula
   head "https://git.sr.ht/~jamesponddotco/imgdiet-go", branch: "trunk"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "de0bd1adbf88ec69dac95d8bfe3c033898ae4ed0ca028a70dc72ecc6c7c0cec3"
     sha256 cellar: :any,                 arm64_sonoma:   "b27da1482b19dfef907b7641e7fcbdcf7cf410152e4d445e8bbe0b9b7f03c795"
     sha256 cellar: :any,                 arm64_ventura:  "0e0134db0d4bb1b9f51ce1807c1c833403ada6e6a0e4e316a6be6fc74097de03"
     sha256 cellar: :any,                 arm64_monterey: "bda9f00c3b2beed5f2ec9458264d5a87c4941de5c5ae9ebc4fb65cbdd73bbf07"

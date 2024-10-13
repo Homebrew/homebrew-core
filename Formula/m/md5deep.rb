@@ -3,11 +3,12 @@ class Md5deep < Formula
   homepage "https://github.com/jessek/hashdeep"
   url "https://github.com/jessek/hashdeep/archive/refs/tags/release-4.4.tar.gz"
   sha256 "dbda8ab42a9c788d4566adcae980d022d8c3d52ee732f1cbfa126c551c8fcc46"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
   revision 1
   head "https://github.com/jessek/hashdeep.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "6d92356eb626035ee2f2e8b412b0a5ca36fa31a8d6d16fe583f9dfcd6ed57a19"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2e4229518a382d9eb9d0b5fe87118a0f4a532c33b535791db257432502ac9e31"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "34dc60be87a6f4d9306468492222ea35455aa08359603f2e1bffa3ae221405de"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1b64f262b089ff96008078a6dc0f84cce93deec0740b3476279931d982bc9636"
@@ -32,10 +33,15 @@ class Md5deep < Formula
 
   # Fix compilation error due to pointer comparison
   patch do
-    on_sierra :or_newer do
-      url "https://github.com/jessek/hashdeep/commit/8776134.patch?full_index=1"
-      sha256 "3d4e3114aee5505d1336158b76652587fd6f76e1d3af784912277a1f93518c64"
-    end
+    url "https://github.com/jessek/hashdeep/commit/8776134.patch?full_index=1"
+    sha256 "3d4e3114aee5505d1336158b76652587fd6f76e1d3af784912277a1f93518c64"
+  end
+
+  # Fix literal and identifier spacing as dictated by C++11
+  # upstream pr ref, https://github.com/jessek/hashdeep/pull/385
+  patch do
+    url "https://github.com/jessek/hashdeep/commit/18a6b5d57f7a648d2b7dcc6e50ff00a1e4b05fcc.patch?full_index=1"
+    sha256 "a48a214b06372042e4e9fc06caae9d0e31da378892d28c4a30b4800cedf85e86"
   end
 
   def install

@@ -48,7 +48,7 @@ class Perkeep < Formula
 
       # Vendored version of gopherjs requires go 1.10, so use the newest available gopherjs, which
       # supports newer Go versions.
-      rm_rf buildpath/"src/perkeep.org/vendor/github.com/gopherjs/gopherjs"
+      rm_r(buildpath/"src/perkeep.org/vendor/github.com/gopherjs/gopherjs")
       resource("gopherjs").stage buildpath/"src/perkeep.org/vendor/github.com/gopherjs/gopherjs"
 
       cd "src/perkeep.org" do

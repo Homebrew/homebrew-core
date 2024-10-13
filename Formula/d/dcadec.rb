@@ -8,6 +8,7 @@ class Dcadec < Formula
   head "https://github.com/foo86/dcadec.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "3ae8134706fc28f0b3e951bd4dddbba4c3e13b58b61484e5988180fba679570f"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0a38744f8f827e1d1b9b8cec9c825699c2d2b3f5186a05d9dc72b44ad1c5f390"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "47bf0a1d239ce33c7fd85c57dd7b8aad67e69aaca2a28206d45a6f7f14d189d1"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d458c3484034748b9b1fee9074d5f3018354447d11914f132c6e41899de17491"
@@ -41,7 +42,7 @@ class Dcadec < Formula
 
   test do
     resource("homebrew-testdata").stage do
-      system "#{bin}/dcadec", resource("homebrew-testdata").cached_download
+      system bin/"dcadec", resource("homebrew-testdata").cached_download
     end
   end
 end

@@ -7,68 +7,111 @@ class ExtractUrl < Formula
   revision 2
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7fbcf24dcd91a69b5f8df429b98a735c2227e7fb6563c7bb487f40fc8f434de6"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "04be0c8d96101e5200f1a27a4acc69406d365cd890365583b42d40ec6945d6de"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8ba8599dd1ea5209f84290c6f0f904e04962681c5c84311dfea7b63a7f8aacc8"
-    sha256 cellar: :any_skip_relocation, sonoma:         "701cc9b1995de5d6b84996b5319f5f596864c3ef06fddd2408ac470c16215c0b"
-    sha256 cellar: :any_skip_relocation, ventura:        "a70f7a9fe4bf2cb3c21a88686c306d1c1f38fca1e2a12af4f0aa3debc603110b"
-    sha256 cellar: :any_skip_relocation, monterey:       "7eb00e81607e9e53ebd8e2d07eee49a09070bc76071705ee0ff51cfad5927b98"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9c78463b54407c3c65b81c26270e36bb31b3be1788734f97e7e918ad8f0bc0bb"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f169a0f7a1fff066bdf267b67b46595ea0da8fb157af360cb3e01fe6ef3b1d51"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "eef6247cb3184212f0cecd7f0c7795a56e53c67a19470314c17e4ae50d8f79cd"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "ef4852ea2709ac8d635cf366557669d9d0ab30fafd43fc73c542e29b1a7c1209"
+    sha256 cellar: :any_skip_relocation, sonoma:        "1480cb0931ab9a63632b6a9f09c60484f4096f50db9692b3bdc40fafd800c937"
+    sha256 cellar: :any_skip_relocation, ventura:       "3595f0dfb0b4ceacbab89fe4a037d19bbd08b560d0e6c4eaafed88f05401263a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d97df796fd86bf3cda4b8722898be68d047334b34b642f90366b0d979d350695"
   end
 
   uses_from_macos "ncurses"
   uses_from_macos "perl"
 
   on_linux do
-    resource "YAML::Tiny" do
-      url "https://cpan.metacpan.org/authors/id/E/ET/ETHER/YAML-Tiny-1.73.tar.gz"
-      sha256 "bc315fa12e8f1e3ee5e2f430d90b708a5dc7e47c867dba8dce3a6b8fbe257744"
-    end
-
-    resource "Module::Install" do
-      url "https://cpan.metacpan.org/authors/id/E/ET/ETHER/Module-Install-1.19.tar.gz"
-      sha256 "1a53a78ddf3ab9e3c03fc5e354b436319a944cba4281baf0b904fa932a13011b"
-    end
-
+    # URI::Find -> Module::Build (build-only)
     resource "Module::Build" do
-      url "https://cpan.metacpan.org/authors/id/L/LE/LEONT/Module-Build-0.4231.tar.gz"
-      sha256 "7e0f4c692c1740c1ac84ea14d7ea3d8bc798b2fb26c09877229e04f430b2b717"
+      url "https://cpan.metacpan.org/authors/id/L/LE/LEONT/Module-Build-0.4234.tar.gz"
+      sha256 "66aeac6127418be5e471ead3744648c766bd01482825c5b66652675f2bc86a8f"
     end
 
-    resource "Mail::Header" do
-      url "https://cpan.metacpan.org/authors/id/M/MA/MARKOV/MailTools-2.21.tar.gz"
-      sha256 "4ad9bd6826b6f03a2727332466b1b7d29890c8d99a32b4b3b0a8d926ee1a44cb"
+    # URI::Find -> URI -> MIME::Base32
+    resource "MIME::Base32" do
+      url "https://cpan.metacpan.org/authors/id/R/RE/REHSACK/MIME-Base32-1.303.tar.gz"
+      sha256 "ab21fa99130e33a0aff6cdb596f647e5e565d207d634ba2ef06bdbef50424e99"
     end
 
+    # URI::Find -> URI
+    resource "URI" do
+      url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/URI-5.29.tar.gz"
+      sha256 "a34b9f626c3ff1e20c0d4a23ec5c8b7ae1de1fb674ecefed7e46791388137372"
+    end
+
+    # MIME::Parser -> Mail::Internet -> Date::Format
     resource "Date::Format" do
       url "https://cpan.metacpan.org/authors/id/A/AT/ATOOMIC/TimeDate-2.33.tar.gz"
       sha256 "c0b69c4b039de6f501b0d9f13ec58c86b040c1f7e9b27ef249651c143d605eb2"
     end
+
+    # MIME::Parser -> Mail::Internet
+    resource "Mail::Internet" do
+      url "https://cpan.metacpan.org/authors/id/M/MA/MARKOV/MailTools-2.21.tar.gz"
+      sha256 "4ad9bd6826b6f03a2727332466b1b7d29890c8d99a32b4b3b0a8d926ee1a44cb"
+    end
+
+    # HTML::Parser -> HTML::Tagset
+    resource "HTML::Tagset" do
+      url "https://cpan.metacpan.org/authors/id/P/PE/PETDANCE/HTML-Tagset-3.24.tar.gz"
+      sha256 "eb89e145a608ed1f8f141a57472ee5f69e67592a432dcd2e8b1dbb445f2b230b"
+    end
+
+    # HTML::Parser -> HTTP::Headers -> Clone
+    resource "Clone" do
+      url "https://cpan.metacpan.org/authors/id/A/AT/ATOOMIC/Clone-0.47.tar.gz"
+      sha256 "4c2c0cb9a483efbf970cb1a75b2ca75b0e18cb84bcb5c09624f86e26b09c211d"
+    end
+
+    # HTML::Parser -> HTTP::Headers -> Encode::Locale
+    resource "Encode::Locale" do
+      url "https://cpan.metacpan.org/authors/id/G/GA/GAAS/Encode-Locale-1.05.tar.gz"
+      sha256 "176fa02771f542a4efb1dbc2a4c928e8f4391bf4078473bd6040d8f11adb0ec1"
+    end
+
+    # HTML::Parser -> HTTP::Headers -> HTTP::Date
+    resource "HTTP::Date" do
+      url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Date-6.06.tar.gz"
+      sha256 "7b685191c6acc3e773d1fc02c95ee1f9fae94f77783175f5e78c181cc92d2b52"
+    end
+
+    # HTML::Parser -> HTTP::Headers -> IO::HTML
+    resource "IO::HTML" do
+      url "https://cpan.metacpan.org/authors/id/C/CJ/CJM/IO-HTML-1.004.tar.gz"
+      sha256 "c87b2df59463bbf2c39596773dfb5c03bde0f7e1051af339f963f58c1cbd8bf5"
+    end
+
+    # HTML::Parser -> HTTP::Headers -> LWP::MediaTypes
+    resource "LWP::MediaTypes" do
+      url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/LWP-MediaTypes-6.04.tar.gz"
+      sha256 "8f1bca12dab16a1c2a7c03a49c5e58cce41a6fec9519f0aadfba8dad997919d9"
+    end
+
+    # HTML::Parser -> HTTP::Headers
+    resource "HTTP::Headers" do
+      url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Message-6.46.tar.gz"
+      sha256 "e27443434150d2d1259bb1e5c964429f61559b0ae34b5713090481994936e2a5"
+    end
+
+    # Curses::UI -> Term::ReadKey
+    resource "Term::ReadKey" do
+      url "https://cpan.metacpan.org/authors/id/J/JS/JSTOWE/TermReadKey-2.38.tar.gz"
+      sha256 "5a645878dc570ac33661581fbb090ff24ebce17d43ea53fd22e105a856a47290"
+    end
   end
 
   resource "MIME::Parser" do
-    url "https://cpan.metacpan.org/authors/id/D/DS/DSKOLL/MIME-tools-5.508.tar.gz"
-    sha256 "adffe86cd0b045d5a1553f48e72e89b9834fbda4f334c98215995b98cb17c917"
+    url "https://cpan.metacpan.org/authors/id/D/DS/DSKOLL/MIME-tools-5.515.tar.gz"
+    sha256 "c1ba1dd9f0b2cd82a0e75caedec51e48233f9f01dc29a0971bdff1cb53be9013"
   end
 
   resource "HTML::Parser" do
-    url "https://cpan.metacpan.org/authors/id/G/GA/GAAS/HTML-Parser-3.72.tar.gz"
-    sha256 "ec28c7e1d9e67c45eca197077f7cdc41ead1bb4c538c7f02a3296a4bb92f608b"
-  end
-
-  resource "Pod::Usage" do
-    url "https://cpan.metacpan.org/authors/id/M/MA/MAREKR/Pod-Usage-1.69.tar.gz"
-    sha256 "1a920c067b3c905b72291a76efcdf1935ba5423ab0187b9a5a63cfc930965132"
-  end
-
-  resource "Env" do
-    url "https://cpan.metacpan.org/authors/id/F/FL/FLORA/Env-1.04.tar.gz"
-    sha256 "d94a3d412df246afdc31a2199cbd8ae915167a3f4684f7b7014ce1200251ebb0"
+    url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTML-Parser-3.83.tar.gz"
+    sha256 "7278ce9791256132b26a71a5719451844704bb9674b58302c3486df43584f8c0"
   end
 
   resource "Getopt::Long" do
-    url "https://cpan.metacpan.org/authors/id/J/JV/JV/Getopt-Long-2.49.1.tar.gz"
-    sha256 "98fad4235509aa24608d9ef895b5c60fe2acd2bca70ebdf1acaf6824e17a882f"
+    url "https://cpan.metacpan.org/authors/id/J/JV/JV/Getopt-Long-2.58.tar.gz"
+    sha256 "1305ed46ea21f794304e97aa3dcd3a38519059785e9db7415daf2c218506c569"
   end
 
   resource "URI::Find" do
@@ -76,9 +119,10 @@ class ExtractUrl < Formula
     sha256 "e213a425a51b5f55324211f37909d78749d0bacdea259ba51a9855d0d19663d6"
   end
 
+  # Curses::UI -> Curses
   resource "Curses" do
-    url "https://cpan.metacpan.org/authors/id/G/GI/GIRAFFED/Curses-1.36.tar.gz"
-    sha256 "a414795ba031c5918c70279fe534fee594a96ec4b0c78f44ce453090796add64"
+    url "https://cpan.metacpan.org/authors/id/G/GI/GIRAFFED/Curses-1.45.tar.gz"
+    sha256 "84221e0013a2d64a0bae6a32bb44b1ae5734d2cb0465fb89af3e3abd6e05aeb2"
   end
 
   resource "Curses::UI" do
@@ -91,16 +135,15 @@ class ExtractUrl < Formula
     ENV.prepend_path "PERL5LIB", libexec/"lib"
     ENV["PERL_MM_USE_DEFAULT"] = "1"
 
-    # Disable dynamic selection of perl, which may cause "Can't locate
-    # Mail/Header.pm in @INC" if brew perl is picked up. If the missing modules
-    # are added to the formula, mismatched perl will cause segfault instead.
-    perl = OS.mac? ? "/usr/bin/perl" : Formula["perl"].opt_bin/"perl"
-    inreplace "extract_url.pl", "#!/usr/bin/env perl", "#!#{perl}"
-
     resources.each do |r|
       r.stage do
         if File.exist? "Makefile.PL"
-          system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
+          with_env(PERL_USE_UNSAFE_INC: nil) do
+            # https://rt.cpan.org/Public/Bug/Display.html?id=121041
+            ENV["PERL_USE_UNSAFE_INC"] = "1" if r.name == "Curses::UI"
+
+            system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
+          end
           system "make"
           system "make", "install"
         else

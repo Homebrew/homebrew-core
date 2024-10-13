@@ -8,6 +8,7 @@ class Pixz < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia:  "a92eaf0c89c34b5db225090adeedd24d26e3481d46e43eca1e94a2fdd509a98a"
     sha256 cellar: :any,                 arm64_sonoma:   "b563d62f32ca6b6382d1ed936be2bde9d83259081ff18b709ef4537d3aaa83b5"
     sha256 cellar: :any,                 arm64_ventura:  "8b8196d1d48f4104e40bd0963e7ffa5eca16e4499b746802fb55ff528e2fad25"
     sha256 cellar: :any,                 arm64_monterey: "c4b1e3fe61fa37f1e6854d8adc032e18d16093b17060a97cd81f421bf9b1c9fc"
@@ -42,6 +43,6 @@ class Pixz < Formula
     ENV["LC_ALL"] = "en_US.UTF-8"
     testfile = testpath/"file.txt"
     testfile.write "foo"
-    system "#{bin}/pixz", testfile, "#{testpath}/file.xz"
+    system bin/"pixz", testfile, "#{testpath}/file.xz"
   end
 end

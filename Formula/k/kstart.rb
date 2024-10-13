@@ -3,6 +3,7 @@ class Kstart < Formula
   homepage "https://www.eyrie.org/~eagle/software/kstart/"
   url "https://archives.eyrie.org/software/kerberos/kstart-4.3.tar.xz"
   sha256 "7a3388ae79927c6698dc1bf20b29717e6bc34f692e00f12b3369d896f6702060"
+  license all_of: ["MIT", "FSFAP", "ISC"]
 
   livecheck do
     url :homepage
@@ -10,6 +11,7 @@ class Kstart < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "e4406b6bbb8c07dce6d556cafddb099811130501c3c377dd057f4c997ba2033c"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c7ca3f10529d5a1651d1e2d0a5a2940720825e35f996cb46b52ad543f7f63328"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "a9e3c45b4365b8c742dd32f9117cc04f297136162ce1a533c0d6d5c6ed96182b"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "95e851996c1269e8e1bff896243972ccfb236db690f448aad6b2369b84f366de"
@@ -33,6 +35,6 @@ class Kstart < Formula
   end
 
   test do
-    system "#{bin}/k5start", "-h"
+    system bin/"k5start", "-h"
   end
 end

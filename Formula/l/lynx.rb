@@ -14,6 +14,7 @@ class Lynx < Formula
   end
 
   bottle do
+    sha256 arm64_sequoia:  "77b514e4f24993fdb1bf4f332f2552e45971f1aef49d348dc18f0fd4b84436aa"
     sha256 arm64_sonoma:   "1c1ef4b6949b00b43d737ba5e8ccf3e124fed1b494a0cfc65734d5e17612cebf"
     sha256 arm64_ventura:  "9ad07e45267b2d2a0fa26be01b173f83215d032e0bf8b69433088c7d417125a0"
     sha256 arm64_monterey: "76e51e0b9ba892fbb5878889350ea77fe937bd2e0c9818b9ae362725f401526d"
@@ -54,6 +55,6 @@ class Lynx < Formula
   end
 
   test do
-    system "#{bin}/lynx", "-dump", "https://example.org/"
+    system bin/"lynx", "-dump", "https://example.org/"
   end
 end

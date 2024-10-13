@@ -7,7 +7,8 @@ class Shellspec < Formula
   head "https://github.com/shellspec/shellspec.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "bed9352ffb54daed0056141f7f37ce2de38a8e2465b64afb1291233eaa05dc56"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "c39e6acfcb13b4e82fdaf4e2a2788c5b43eacd7be9d2f98d5d786d0e741befad"
   end
 
   def install

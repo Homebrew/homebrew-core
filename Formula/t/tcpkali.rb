@@ -6,6 +6,7 @@ class Tcpkali < Formula
   license "BSD-2-Clause"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "d3356d233dace7efe54b216d5ba97ed31a4ad7e800bb94ad5bc078dcdda8e7a0"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e39e3dddac6717a918e86cb86f552ccc71c2a828b361599083a0d36fa3e79780"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "a4e360c9b9f4e392e429075847cf3d4f02d0318668d19d5745a7f0108c381330"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1da7a44e7f3a40440cbb5ac8fa5fde5156c22125080daf5c6afc884b3f8dc264"
@@ -31,6 +32,6 @@ class Tcpkali < Formula
   end
 
   test do
-    system "#{bin}/tcpkali", "-l1237", "-T0.5", "127.1:1237"
+    system bin/"tcpkali", "-l1237", "-T0.5", "127.1:1237"
   end
 end

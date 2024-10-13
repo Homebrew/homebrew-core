@@ -6,7 +6,8 @@ class Xbitmaps < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "9af9c5dc615a960c3db2d58d06aad4176426991d1bbeb62895386002b1c285dd"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "a2d50475647c9d98e3822fbbf383231d0757fcbfd429d6999ad263ff692dcfb2"
   end
 
   depends_on "pkg-config" => :build

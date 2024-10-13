@@ -13,6 +13,7 @@ class Vsftpd < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_sequoia:  "5ac5faad1e4829126b7931a343b155cadcbdd26fe63b59f7aa38328ba8e35036"
     sha256 arm64_sonoma:   "10ade18438fd789667c16f0933ce41b8d377a98702c3757f72df91f5661f9e5f"
     sha256 arm64_ventura:  "27443bc7161d3d6e4576fba4a3a597f56b892c46821f219e7b4ba529f7f26f59"
     sha256 arm64_monterey: "40040ca15be416c21fc08f8f5cd19d17c273381b8a5a5aa0cbf7c35940c8a7ea"

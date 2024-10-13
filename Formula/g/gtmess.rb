@@ -8,6 +8,7 @@ class Gtmess < Formula
 
   bottle do
     rebuild 1
+    sha256                               arm64_sequoia:  "89e1ecfa7ac4a5fe6aeefeb3596be4602112e32ca6bd2a6de51da26abaaad0f5"
     sha256                               arm64_sonoma:   "2a4138a4ba629449a00d75128520da749d92a1baeb648a14d765072722a81765"
     sha256                               arm64_ventura:  "b900139985694c245c0211f9fea3ccdaa14fbde5094d7201bccb51029fd9ce41"
     sha256                               arm64_monterey: "19e8f974e8f84874a9d06a195d5a45b8c2d881689f767706eec5692589a6af4c"
@@ -33,12 +34,15 @@ class Gtmess < Formula
   uses_from_macos "ncurses"
 
   def install
+    # Workaround for newer Clang
+    ENV.append_to_cflags "-Wno-implicit-int" if DevelopmentTools.clang_build_version >= 1403
+
     system "autoreconf", "--force", "--install", "--verbose" if build.head?
-    system "./configure", *std_configure_args, "--with-ssl=#{Formula["openssl@3"].opt_prefix}"
+    system "./configure", "--with-ssl=#{Formula["openssl@3"].opt_prefix}", *std_configure_args
     system "make", "install"
   end
 
   test do
-    system "#{bin}/gtmess", "--version"
+    system bin/"gtmess", "--version"
   end
 end

@@ -6,6 +6,7 @@ class Ulfius < Formula
   license "LGPL-2.1-only"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "6020a868ce69b336b8ef6dd3b37bd70cd21eb8a246ddae1ae45a9b713b672e42"
     sha256 cellar: :any,                 arm64_sonoma:   "453e5f09539969edae37b6aeafbe2165a455a91b12df2d0c4920d7db20b20ced"
     sha256 cellar: :any,                 arm64_ventura:  "4ba9e5737a26c0feece3bfe0ab61c5e48668352323c32d6be741ee7e210b23ff"
     sha256 cellar: :any,                 arm64_monterey: "7729359e1306b5f7a7d1a7624cbe743002f67b4e59d61f681e48c9e1f226b599"

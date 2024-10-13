@@ -11,6 +11,7 @@ class Cppp < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "4b14311322cdff7ec30e93ba573bf916eae962c7d2488e7f85a88a4b8bead0a6"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a2fe122f6b616feaab1f4ef815061564ace5069c55fdc8c5fc568a35bb6e2fec"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "86f812c4083a5ef978178a692f617081b97377aaf2f8fb063cc49abecc65538f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d1926109416735a823a7ab9a534be30f4c5a64f9cc72d36b52e125c70f8d28d3"
@@ -45,6 +46,6 @@ class Cppp < Formula
       # endif
       #endif
     EOS
-    system "#{bin}/cppp", "-DFOO", "hello.c"
+    system bin/"cppp", "-DFOO", "hello.c"
   end
 end

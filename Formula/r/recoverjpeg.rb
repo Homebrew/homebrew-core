@@ -3,7 +3,7 @@ class Recoverjpeg < Formula
   homepage "https://rfc1149.net/devel/recoverjpeg.html"
   url "https://rfc1149.net/download/recoverjpeg/recoverjpeg-2.6.3.tar.gz"
   sha256 "db996231e3680bfaf8ed77b60e4027c665ec4b271648c71b00b76d8a627f3201"
-  license "GPL-2.0"
+  license "GPL-2.0-only"
 
   livecheck do
     url "https://rfc1149.net/download/recoverjpeg/"
@@ -12,6 +12,7 @@ class Recoverjpeg < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "d5246787a0e2678f90c0df0da8f43a4eb2de1ec4ab3fcc6398f66854db6571ac"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8acee12074e5c4e6990042383385e5c4056e35ec43f1ee39a779768f5720a0c3"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "2f34e1452d02fd2e51fb1235a43821519c7811eaf0dea534429901ef2f948921"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "09b65d282127e64583e422741ae3d2980cfbd7dbc8a471fa05e3a39dea3d7efd"

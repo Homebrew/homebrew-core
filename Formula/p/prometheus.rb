@@ -1,8 +1,8 @@
 class Prometheus < Formula
   desc "Service monitoring system and time series database"
   homepage "https://prometheus.io/"
-  url "https://github.com/prometheus/prometheus/archive/refs/tags/v2.53.1.tar.gz"
-  sha256 "6a36ad9fd6ce2813c78aab1da98d7725143bcb73e4fe1e2597c873537f7072af"
+  url "https://github.com/prometheus/prometheus/archive/refs/tags/v2.54.1.tar.gz"
+  sha256 "3ee88a80f82e069073028862b3c92b1938bd932b059d25b37d093a6e221090d9"
   license "Apache-2.0"
 
   # There can be a notable gap between when a version is tagged and a
@@ -14,13 +14,14 @@ class Prometheus < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ec90a82b3c14aa4f4bb7192291f3856e033a0875f7be2586899526894a879f3c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "74f5bdfb454a853f459da2feade2248e35ec0e2b858f54f4867360ca42b2cef0"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9c5ab9359083c25220ebaf57a4d9ba668ad7df1dec709c1b01c9cfb672843458"
-    sha256 cellar: :any_skip_relocation, sonoma:         "85b35af4d6a1711003a5de84e01526bad1f8bab0c030ddb0b4cf71893c1157c9"
-    sha256 cellar: :any_skip_relocation, ventura:        "fa443c6c5df8580ebabb161feae00084d25877a4adac0681f1ecfd2f2fa5198c"
-    sha256 cellar: :any_skip_relocation, monterey:       "057834c7baeaa9ff95cb45562e4e418eb66c44d7ca72050d5db2f120c4856fb6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "16c909c294dbaadf7085d8080b1a115b3cdd41328f257d207db97e63ca8ba1da"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "e2ec4e280ce4226174a560a7843fdf0c72a5d163d6846b2d44f28de0cb2cb87d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "567d22d22c75b829a80d19116597ac96b602848215355caad3f1d8095f9feec8"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "feed8cc8398f6ea1cb80457c20385fb48be87d4941ad156bced358e7f2837fa8"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b6820a3ce376353d61f35ba8d7d43cfdfaaf8f955dbb6a0731f967675cd9be9f"
+    sha256 cellar: :any_skip_relocation, sonoma:         "a503b60145ecb286de31a993adb021cb32e27a4c716da0754e544ff92a5848e7"
+    sha256 cellar: :any_skip_relocation, ventura:        "02d412c2bbaf2b5bdb315487d5ef6c077865886135b820f7d3713c2741a87dfc"
+    sha256 cellar: :any_skip_relocation, monterey:       "12e5ad99ef9337c1707f96bfa75d1a152404008f1c54d9870e41e37d7ac5f414"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0969669cbd8b9a2325ed160dd06c83a0621ee93238211d6b4fa608ad3a61e6c8"
   end
 
   depends_on "gnu-tar" => :build
@@ -86,6 +87,7 @@ class Prometheus < Formula
         - record: job:http_inprogress_requests:sum
           expr: sum(http_inprogress_requests) by (job)
     EOS
-    system "#{bin}/promtool", "check", "rules", testpath/"rules.example"
+
+    system bin/"promtool", "check", "rules", testpath/"rules.example"
   end
 end

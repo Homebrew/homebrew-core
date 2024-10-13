@@ -6,6 +6,7 @@ class Webdis < Formula
   license "BSD-2-Clause"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "89dc2354f2b41bc455c2f786e930056fc352095ca52d3d22bb6e37cbc3321afc"
     sha256 cellar: :any,                 arm64_sonoma:   "f13baa947b72dccf1e0d6cd43bedd62a52652a09b504260ad753c7ebc33dea6d"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "cc9a4b2972b379a2eb1b8d17f92dd59605ffdddf80bafbb5eab82a6ee0dc878d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "708958851d482d0d79df358fe54e33e3e9c8b153c9d54c0e58120fa738180c24"
@@ -47,7 +48,7 @@ class Webdis < Formula
     inreplace "#{testpath}/webdis.json", "\"http_port\":\t7379,", "\"http_port\":\t#{port},"
 
     server = fork do
-      exec "#{bin}/webdis", "#{testpath}/webdis.json"
+      exec bin/"webdis", "#{testpath}/webdis.json"
     end
     sleep 0.5
     # Test that the response is from webdis

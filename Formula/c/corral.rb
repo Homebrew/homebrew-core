@@ -7,6 +7,7 @@ class Corral < Formula
   head "https://github.com/ponylang/corral.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "5cf45220c4c9b518a043fd6b79afb77619f9f9f85f3920b64938c10bc8987203"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "47042034b51889ffb4e5c8e2e39bc6bee3b07913df912830e1ce7be697884de2"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "9e777fcf9a0d25fe2c433d1585abe5364313d83d17b479fc2ceba6f70f1fec08"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "02719312b46a15d2f5adc1bb9c1f7358f65c564e5a6106d36ff69c8ca28d2089"
@@ -28,7 +29,7 @@ class Corral < Formula
         new create(env: Env) =>
           env.out.print("Hello World!")
     EOS
-    system "#{bin}/corral", "run", "--", "ponyc", "test"
+    system bin/"corral", "run", "--", "ponyc", "test"
     assert_equal "Hello World!", shell_output("./test1").chomp
   end
 end

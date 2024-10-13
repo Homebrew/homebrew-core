@@ -11,10 +11,10 @@ class Bigloo < Formula
   end
 
   bottle do
-    sha256 sonoma:       "87f739f5dc22555f9d914efbfaacb4715df51f21bdb44e17f43abe82f4503b5f"
-    sha256 ventura:      "b0dd80c2dbea9dd76a2bac9a37b876fd0d038702314703e4533a417395306519"
-    sha256 monterey:     "9032ae31c02e46332ac3f6c9a541a8ab254143a9cae1e3af6dcf951e40070455"
-    sha256 x86_64_linux: "00415bbace966492d5a38ef6d0c6b650b78fa2df060a334581f2db746a4b4f08"
+    rebuild 1
+    sha256 sonoma:       "7c420cdf1da7454605ebda44ec9ab6c90dad2d9e3a8f6cb43bfb6341479f4971"
+    sha256 ventura:      "c9c8be5bd55652c23c05de35d1c7f704a851003a0a2759741a1fbe50c75bc458"
+    sha256 x86_64_linux: "57660e09f1eea22c2e2faae872353d1c1229e76a19d4dddbee07978bbe94e312"
   end
 
   depends_on "autoconf" => :build
@@ -37,6 +37,10 @@ class Bigloo < Formula
   end
 
   def install
+    # Remove when included in a release:
+    # https://github.com/manuel-serrano/bigloo/commit/8b2a912c7c668a2a0bfa2ec30bc68bfdd05d2d7f
+    ENV.append_to_cflags "-Wno-incompatible-function-pointer-types" if DevelopmentTools.clang_build_version >= 1500
+
     # Force bigloo not to use vendored libraries
     inreplace "configure", /(^\s+custom\w+)=yes$/, "\\1=no"
 

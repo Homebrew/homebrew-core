@@ -7,6 +7,7 @@ class Svlint < Formula
   head "https://github.com/dalance/svlint.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "8e0f4520274a9d65fa8c5355950064f9bf7ba4545e1e4fa59d2dc78f98dbceb4"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0650e00432f1b1bea694d145e8d82793ac8c2803b6584c77626bc6ff9734bb09"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "3a597239fb738c494719baf5ebc71c4be2b8f28fa94b6397fd49d0170c0f17f5"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "2d28d81b6d76eb7678bb61783f4d31ec4f54d4ddf609da3ce097175e571a6f46"

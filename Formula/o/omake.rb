@@ -12,6 +12,7 @@ class Omake < Formula
   end
 
   bottle do
+    sha256 arm64_sequoia:  "e6f7078311531e5160b87ecc20e5e8cff4bc6cca6aff53a802d94f361d7e4eb5"
     sha256 arm64_sonoma:   "f04d59c0ab2c129aff0e9bae5aa757a83e58f48dc10eea0ba7984e187bbd186b"
     sha256 arm64_ventura:  "94c636910242c5431bf03e0cd3d5c8f2972a48ad821ba36443ce603c44c84f70"
     sha256 arm64_monterey: "40ad54dcd5bef35cfb5ab3e7cb7b5f81e03c1b313b1f7c74e715b6ea6c6353f7"

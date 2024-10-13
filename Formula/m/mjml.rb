@@ -1,5 +1,3 @@
-require "language/node"
-
 class Mjml < Formula
   desc "JavaScript framework that makes responsive-email easy"
   homepage "https://mjml.io"
@@ -8,19 +6,21 @@ class Mjml < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "64d69529fb3fe96f881c82d4c47a3b72685aa3a34b83382444c54e9fc2dc51d2"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "64d69529fb3fe96f881c82d4c47a3b72685aa3a34b83382444c54e9fc2dc51d2"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "64d69529fb3fe96f881c82d4c47a3b72685aa3a34b83382444c54e9fc2dc51d2"
-    sha256 cellar: :any_skip_relocation, sonoma:         "2714ac758656a73a6fdffa5aa9e3c49dc201c9f576ca8c7c93502d3538b4eeca"
-    sha256 cellar: :any_skip_relocation, ventura:        "2714ac758656a73a6fdffa5aa9e3c49dc201c9f576ca8c7c93502d3538b4eeca"
-    sha256 cellar: :any_skip_relocation, monterey:       "2714ac758656a73a6fdffa5aa9e3c49dc201c9f576ca8c7c93502d3538b4eeca"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9c5aade520e88337c5f63a724fd87e092542806bcb360979740128db65e0f538"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "bcde646a47d51238258b06388c69a52115f850eef26ea76c218ad5e7318a2f57"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1a681f3fa1b9bfc3159325c2faa63b1cbe148e94d4cfd1a2b2c94587c30b25de"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1a681f3fa1b9bfc3159325c2faa63b1cbe148e94d4cfd1a2b2c94587c30b25de"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "1a681f3fa1b9bfc3159325c2faa63b1cbe148e94d4cfd1a2b2c94587c30b25de"
+    sha256 cellar: :any_skip_relocation, sonoma:         "464b8c2813c2c1a80ac3f4b91fbb5fc3e2a9e189191ee6858c210d0674e00868"
+    sha256 cellar: :any_skip_relocation, ventura:        "464b8c2813c2c1a80ac3f4b91fbb5fc3e2a9e189191ee6858c210d0674e00868"
+    sha256 cellar: :any_skip_relocation, monterey:       "464b8c2813c2c1a80ac3f4b91fbb5fc3e2a9e189191ee6858c210d0674e00868"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b7056b342d8ea37e7da098cc2b2cc3764d3a418e5d36d3d2f07058f634fe12b2"
   end
 
   depends_on "node"
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", *std_npm_args
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 

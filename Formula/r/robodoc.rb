@@ -12,6 +12,7 @@ class Robodoc < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_sequoia:  "20487c94420045784329d4f876f1292f4ddf54e015153bda4999ef5365b0e770"
     sha256 arm64_sonoma:   "becedbbed4480801e9f68683d8b4d360699e4538b435a6f2da766b6142d02a31"
     sha256 arm64_ventura:  "daac2544b28bf80b15e7e55dc680058443e3c34b8c0405e3e8bc14b2bc1da871"
     sha256 arm64_monterey: "2b8577eec80c48eab7323c77dadb33617b8fde3ac834abbd8df2923cd4bc7748"

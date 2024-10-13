@@ -15,6 +15,7 @@ class Httrack < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_sequoia:  "49d241f3883e9342da2bc7b3344f3bb4ae0e17fb2bd4f476834dbdaf3c190c6d"
     sha256 arm64_sonoma:   "38f84248540e95dd51ab69cc3ec049b03b7193e0e4b628e2d1d5ab9d9bc3e56b"
     sha256 arm64_ventura:  "82366a7496c4dad900d7c5de609becac2493bfaca4101e77b43120450ab9ff4b"
     sha256 arm64_monterey: "0345ae5cd642cad43051144018ad7716f91ba9c2a7b94f3068c5b7c855a6e8ba"
@@ -42,7 +43,7 @@ class Httrack < Formula
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
     system "make", "install"
     # Don't need Gnome integration
-    rm_rf Dir["#{share}/{applications,pixmaps}"]
+    rm_r(Dir["#{share}/{applications,pixmaps}"])
   end
 
   test do

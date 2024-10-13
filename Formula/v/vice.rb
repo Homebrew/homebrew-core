@@ -12,6 +12,7 @@ class Vice < Formula
   end
 
   bottle do
+    sha256 arm64_sequoia:  "27ee6052b18ef33d3506287af4026da0058bafcbba1c4f2c42653b2ebff55275"
     sha256 arm64_sonoma:   "163a28f5f228bda4494e240c888a18f33d9fc92a45999d65431c91d196bb4279"
     sha256 arm64_ventura:  "649950d292263d4acd2003e830bcc8d5f53d570f71ae9b9c1d15b0ee17e95ed1"
     sha256 arm64_monterey: "f1ae86341d60851431b2500e01047610456dee0d4f5173ad0e44b921dd143859"
@@ -30,30 +31,43 @@ class Vice < Formula
   depends_on "yasm" => :build
 
   depends_on "adwaita-icon-theme"
+  depends_on "at-spi2-core"
+  depends_on "cairo"
   depends_on "flac"
+  depends_on "gdk-pixbuf"
   depends_on "giflib"
   depends_on "glew"
+  depends_on "glib"
   depends_on "gtk+3"
   depends_on "lame"
   depends_on "libogg"
   depends_on "libpng"
   depends_on "librsvg"
   depends_on "libvorbis"
-  depends_on "readline" # Possible opportunistic linkage. TODO: Check if this can be removed.
+  depends_on "pango"
 
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
   uses_from_macos "curl"
+  uses_from_macos "zlib"
+
+  on_macos do
+    depends_on "gettext"
+    depends_on "harfbuzz"
+  end
 
   on_linux do
     depends_on "alsa-lib"
+    depends_on "fontconfig"
+    depends_on "libx11"
+    depends_on "mesa"
     depends_on "pulseaudio"
   end
 
   def install
     system "./autogen.sh"
-    system "./configure", *std_configure_args,
-                          "--disable-arch",
+
+    system "./configure", "--disable-arch",
                           "--disable-pdf-docs",
                           "--enable-gtk3ui",
                           "--enable-midi",
@@ -63,7 +77,8 @@ class Vice < Formula
                           "--with-flac",
                           "--with-vorbis",
                           "--with-gif",
-                          "--with-png"
+                          "--with-png",
+                          *std_configure_args
     system "make", "install"
   end
 

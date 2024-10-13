@@ -7,6 +7,7 @@ class Tproxy < Formula
   head "https://github.com/kevwan/tproxy.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "dbe9eb41efb8f2bd94a30e1675db6cc5778c0fd50cec078aede144a545699890"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "cb06f411cc40f326f48954e8d94460c263d1f3f7bd85a039ccd3ae561931fc3a"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "e68cf3e95c0cd12044d42c914b9abb0ddda44cb291f7619d773e151c1121d7e0"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "79bcfec2219b2dacb014ccb0e8630438399bc61d6a85bcf94ad0361259958f7f"

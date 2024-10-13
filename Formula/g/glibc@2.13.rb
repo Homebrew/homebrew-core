@@ -183,7 +183,7 @@ class GlibcAT213 < Formula
 
   test do
     assert_match "Usage", shell_output("#{lib}/ld-#{version}.so 2>&1", 127)
-    safe_system "#{lib}/libc-#{version}.so", "--version"
-    safe_system "#{bin}/locale", "--version"
+    safe_system lib/"libc-#{version}.so", "--version"
+    safe_system bin/"locale", "--version"
   end
 end

@@ -7,6 +7,7 @@ class Glpk < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "d1711f363503b065183cf833d4d58ecd91dd06ac2b168af7bb217727a46e8f7b"
     sha256 cellar: :any,                 arm64_sonoma:   "6aec19422fa4617706d7caa84be09caa9a78511ae904ac42382eccb39572f71e"
     sha256 cellar: :any,                 arm64_ventura:  "2fb927d88ff2f1e242e8909a153449ddaf2e6264d28efe7cf11e6a1e84065ce4"
     sha256 cellar: :any,                 arm64_monterey: "c6f0f13896167f69d3dc9fed18ea36e19745006516abbff71d4dbf1a1a0c569b"

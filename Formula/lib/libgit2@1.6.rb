@@ -6,6 +6,7 @@ class Libgit2AT16 < Formula
   license "GPL-2.0-only" => { with: "GCC-exception-2.0" }
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "8582aec95e53ef6fd672e6c2a5cb8f98f6b62b8e2ef18dce00e8488e5cc1262f"
     sha256 cellar: :any,                 arm64_sonoma:   "83f4ee26d02fbfda076cdebe727390dd4db92ec8cb3791115212f43d6047eeed"
     sha256 cellar: :any,                 arm64_ventura:  "fdd0c3045a62a5abd4668b43bb384e4586cb79520bfc89c53f96af6cbf86b362"
     sha256 cellar: :any,                 arm64_monterey: "735c54cafdf705104f516c73f808c7b58e746402c5e5fd7d9de991b26b0ee3a1"

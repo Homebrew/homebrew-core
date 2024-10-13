@@ -3,8 +3,10 @@ class Wy60 < Formula
   homepage "https://code.google.com/archive/p/wy60/"
   url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/wy60/wy60-2.0.9.tar.gz"
   sha256 "f7379404f0baf38faba48af7b05f9e0df65266ab75071b2ca56195b63fc05ed0"
+  license "GPL-2.0-or-later"
 
   bottle do
+    sha256 arm64_sequoia:  "6e8b275623922f42137e8d90712e41890ac44f9218dc7ff8d8476068d7497f01"
     sha256 arm64_sonoma:   "e40096fbc12217c535cf856513e7a659c5e496f0a03ac1f3cbbc2c82782dbb5f"
     sha256 arm64_ventura:  "4416be14e5f87f206fd75dca1e15f6b2a1ec3a0fc2e1264c3d242c57dadf1217"
     sha256 arm64_monterey: "af9022e78bcd0a863d72bcc0c7ddeb5fa004318e7d3e39f17f630b0e6d3f25cc"
@@ -29,6 +31,6 @@ class Wy60 < Formula
   end
 
   test do
-    system "#{bin}/wy60", "--version"
+    system bin/"wy60", "--version"
   end
 end

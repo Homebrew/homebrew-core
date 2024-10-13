@@ -6,15 +6,13 @@ class LxiTools < Formula
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "75be3338f9fca193241c6abee6c540f5e1139deab210b0f9b383c9d8984c2186"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1ca1f9223772ee912d686f6652c7b699324850fb4dccc03d5a77be23c66afcf3"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b6090dd52015d0d7d17a705742793a8986b9339d5e2c9aed7595f0a9b142b992"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f1531d09c7f93a01b13b413a708f076c05c08c828c6e42092cd8e670c8aca36c"
-    sha256 cellar: :any,                 sonoma:         "706944ebfca46a511b43ba0336cc1727ca21d61c90b06954d8c41655d2cd62a9"
-    sha256 cellar: :any_skip_relocation, ventura:        "69b704762e5a07d767978da9109a8980bcf86374c4d537b5eb034f7dbdd31413"
-    sha256 cellar: :any_skip_relocation, monterey:       "acd842a43b3b4c9e2476728f8e40884b701d31c6a85452559cb61a89adfbc0ce"
-    sha256 cellar: :any_skip_relocation, big_sur:        "b9bcbc6c149c2ca24dbcb1cae8f07b0ccba087cd1d6fe4c2ebe1b479b17fe842"
-    sha256                               x86_64_linux:   "4dd930cc0b1e29dbdbe11595e0112fd420729776cf0dedcdb76bc73d092a1df6"
+    rebuild 1
+    sha256 cellar: :any, arm64_sequoia: "8abe1db4feed78939aad2fcb5ff3691ef65bb5568d4720c08eefcd7ed764f20c"
+    sha256 cellar: :any, arm64_sonoma:  "6e54d6184b33c8505b2d1fcdb9e30941b4dcb11c5af0eeaf6a58bf51f02a05d8"
+    sha256 cellar: :any, arm64_ventura: "db91c6caf54ba2cfefe385fa604294ba010cde1e3361914f509e886359c7573b"
+    sha256 cellar: :any, sonoma:        "8f59f9f854d0d1c50f59305b9f0895b2d57f3bae5260e57e8aa97f9149cf9cc9"
+    sha256 cellar: :any, ventura:       "d9d421a14b487c82d19b18492d5f4149e127ef5061d9197171a38bca907378ce"
+    sha256               x86_64_linux:  "26ad09a5de577c6994732332c41db9abd9eead9ff22752fa89286e1faf7b960e"
   end
 
   depends_on "meson" => :build
@@ -39,16 +37,16 @@ class LxiTools < Formula
   end
 
   def install
+    ENV["DESTDIR"] = "/"
     system "meson", "setup", "build", *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"
     system "meson", "install", "-C", "build"
-
-    rm_f "#{share}/glib-2.0/schemas/gschemas.compiled"
   end
 
   def post_install
-    system "#{Formula["glib"].opt_bin}/glib-compile-schemas", "#{HOMEBREW_PREFIX}/share/glib-2.0/schemas"
-    system "#{Formula["gtk4"].opt_bin}/gtk4-update-icon-cache", "-f", "-t", "#{HOMEBREW_PREFIX}/share/icons/hicolor"
+    system Formula["glib"].opt_bin/"glib-compile-schemas", HOMEBREW_PREFIX/"share/glib-2.0/schemas"
+    system Formula["gtk4"].opt_bin/"gtk4-update-icon-cache", "-f", "-t", HOMEBREW_PREFIX/"share/icons/hicolor"
+    system Formula["desktop-file-utils"].opt_bin/"update-desktop-database", HOMEBREW_PREFIX/"share/applications"
   end
 
   test do

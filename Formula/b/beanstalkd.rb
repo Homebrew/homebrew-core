@@ -6,6 +6,7 @@ class Beanstalkd < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "74b984c41b74f63386b6125681be1f37529341179a754f0556ed9d2d621b9088"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0c0cd544f3007bc3fc55d863ddacab823698188bd12e8a5b15e71aa81d071f50"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "128bb476a00fb682cbc27ce9859d44efdb752221458b8bc33dd358313f1dd54e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d00ef3ef848ab20b6a0e8673134ddda3711e3b7ade51d5a143920038081de2be"
@@ -30,6 +31,6 @@ class Beanstalkd < Formula
   end
 
   test do
-    system "#{bin}/beanstalkd", "-v"
+    system bin/"beanstalkd", "-v"
   end
 end

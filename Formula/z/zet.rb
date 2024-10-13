@@ -11,18 +11,24 @@ class Zet < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3802468d07a81cf690e8bfc4c2784f6b4b19bbdf13606a4148b9906eb5f02298"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a977d485854acff1b6b576819a3b9686da637c5bf575354bb018cb714df729ad"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8eeb54767d8aa63e78d9edc5e89206bdd834deec2493646206f8c443e0a1b125"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a5819d888c2a9660cde2099fd573f14fb0ac22d285c7ee0b02a9a7b64b5cbd5d"
-    sha256 cellar: :any_skip_relocation, sonoma:         "d7898690785d25ec0ce0deda78cc95a730023b89048765374ee4d4f95e86b02c"
-    sha256 cellar: :any_skip_relocation, ventura:        "872a4d30a206f9005d0499433381274d42845e6d0d59d7f7a5011523f1b05be4"
-    sha256 cellar: :any_skip_relocation, monterey:       "a7f6ad7f96700aed729f8cd4ff4dec39d5fec30d8339cce3c6593a623c87db96"
-    sha256 cellar: :any_skip_relocation, big_sur:        "db4fbf1c9b0f2d3353b5f7c871c53af25d20b3f9e5f801349fa37ad2f5ad1c39"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4330a52a92ce81dfc0e26bbeacfd8141e176c09e9a9dd05905d5e84c277197e5"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "53c70e56c15f910f0da22bb3bc5203c5574ba2847bd79a940e6c0bec1ed98302"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5ad3c94f7c59db72d11e2443f81f65c81fe07985040da61df8266fbf0f02b187"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d5c53469bc92408c6554f1d2fe342752c54b038ce953a5b36b641973c1337284"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f9e32e3a4567f0e85ca9cdb39089afd19fc27eb14e12c36bc4a398494cfe292d"
+    sha256 cellar: :any_skip_relocation, sonoma:         "680526ad804b26e3028dbef1d6ccc7bf97dba1cbb5d184d57d3b9cb27ff71aca"
+    sha256 cellar: :any_skip_relocation, ventura:        "0055f89e1ea739132aabddab22e2dd39318686938349b2f8682ccb3ac4c18463"
+    sha256 cellar: :any_skip_relocation, monterey:       "5fd368452ffd4879a2eafa2d1c068551685ca79c89d7e82b82cee222d20c49fd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "77d31e1f9c755fed55bed70f31de9c61dced7aa03f178dd1d6f06bfb3d9a4b23"
   end
 
   depends_on "rust" => :build
+
+  # rust 1.80 build patch, upstream new release request, https://github.com/yarrow/zet/issues/11
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/cbe90824d66a4c3a967ba6bda7806f8159534114/zet/rust-1.80.patch"
+    sha256 "494881322c1e9f47b62b7e786d22e2d5ab1cc649021c7224f790e96f2b12c619"
+  end
 
   def install
     system "cargo", "install", *std_cargo_args

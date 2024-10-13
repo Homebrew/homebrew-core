@@ -141,7 +141,7 @@ class Arangodb < Formula
     assert_equal "it works!", output.chomp
 
     ohai "#{bin}/arangodb --starter.instance-up-timeout 1m --starter.mode single"
-    PTY.spawn("#{bin}/arangodb", "--starter.instance-up-timeout", "1m",
+    PTY.spawn(bin/"arangodb", "--starter.instance-up-timeout", "1m",
               "--starter.mode", "single", "--starter.disable-ipv6",
               "--server.arangod", "#{sbin}/arangod",
               "--server.js-dir", "#{share}/arangodb3/js") do |r, _, pid|

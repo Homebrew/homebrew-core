@@ -7,20 +7,8 @@ class Ry < Formula
   head "https://github.com/jneen/ry.git", branch: "master"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "63d31e87529debad50cd49e16b6acabcdfd5305f3a9b9da65445ccbe27a0c3f7"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f877d1b934d03d73ec0fb2a11021a5eafa08d057a9c3c0e9e52883e6cf9f51c2"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f877d1b934d03d73ec0fb2a11021a5eafa08d057a9c3c0e9e52883e6cf9f51c2"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4df5abf69ebfc48335682ce491e2dec93750d1f7247fcec40f9c32fa16653895"
-    sha256 cellar: :any_skip_relocation, sonoma:         "63d31e87529debad50cd49e16b6acabcdfd5305f3a9b9da65445ccbe27a0c3f7"
-    sha256 cellar: :any_skip_relocation, ventura:        "f877d1b934d03d73ec0fb2a11021a5eafa08d057a9c3c0e9e52883e6cf9f51c2"
-    sha256 cellar: :any_skip_relocation, monterey:       "f877d1b934d03d73ec0fb2a11021a5eafa08d057a9c3c0e9e52883e6cf9f51c2"
-    sha256 cellar: :any_skip_relocation, big_sur:        "3ad95cc81d14e2844234bec25236dca63e31404dfe7e57bef41ab3e4a638047a"
-    sha256 cellar: :any_skip_relocation, catalina:       "b82b9243f4e89e24608f21a9a46e55cad5708224749ee07da18841c3d50e38d2"
-    sha256 cellar: :any_skip_relocation, mojave:         "835c360df374f5ca94a753b1ce79ba61dfc9fc14e54a2bf064367b9094909677"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "3e2e0b1e4104b9856ef6f5ad05caa4100ba209850c84c1db759f788eed042740"
-    sha256 cellar: :any_skip_relocation, sierra:         "3e2e0b1e4104b9856ef6f5ad05caa4100ba209850c84c1db759f788eed042740"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fff90c674fd9f8f96903b8e1d51a24fe2a201e9597a422b10828f867f99f939b"
+    rebuild 3
+    sha256 cellar: :any_skip_relocation, all: "8b92938f20452bf4ad49ef46d0788aac93d5b7f5846cfd3fbaa387da67a2e56e"
   end
 
   depends_on "bash-completion"

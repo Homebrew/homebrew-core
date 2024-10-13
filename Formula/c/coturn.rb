@@ -12,6 +12,7 @@ class Coturn < Formula
   end
 
   bottle do
+    sha256                               arm64_sequoia:  "f7c39ae1c05a2070ae697a9faa8eb6eb0a12c49369156c6113e5b285a678a371"
     sha256                               arm64_sonoma:   "bc53417a3443680592e2fdea9159781f7c8fb5ea7ec7be327fd9df6987fadf83"
     sha256                               arm64_ventura:  "29aca0c706485a911b2a21de41235d9b592919508585d626425709518e30a9ea"
     sha256                               arm64_monterey: "618cbd141e1e439b749b24147e26c49d1d75da27009f565ce03040c73d24d559"
@@ -57,6 +58,6 @@ class Coturn < Formula
   end
 
   test do
-    system "#{bin}/turnadmin", "-l"
+    system bin/"turnadmin", "-l"
   end
 end

@@ -1,8 +1,8 @@
 class Packetq < Formula
   desc "SQL-like frontend to PCAP files"
   homepage "https://www.dns-oarc.net/tools/packetq"
-  url "https://www.dns-oarc.net/files/packetq/packetq-1.7.1.tar.gz"
-  sha256 "a1b087335fcb018a5ded3d067d22ee906d24b6e932f018e959302be9b527c620"
+  url "https://www.dns-oarc.net/files/packetq/packetq-1.7.3.tar.gz"
+  sha256 "faa9a3700bf6010347fbfa595b7777d32059a77abbb027f6e070b419369d7718"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -11,16 +11,14 @@ class Packetq < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1e6b0ba7c6c0bc4e0dd92e76744571c0ab3b4db39490fbd615b5fb8901050cbb"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "772e29dc8f04711cdfeab1d1930db27433f609372ecec6f1a9ea8b3459431519"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "05b37ea2ed6f049d5d85235a5713fb7e355ae63ec870847503424651f0b5b0ed"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c985f67ce185fe618952564a9eccf7927cb325be1ffec0b040f64b73061bff51"
-    sha256 cellar: :any_skip_relocation, sonoma:         "281f7fbc4ad70060f5d9710200fde1bce56dae33f753f942f65e9296df5483a9"
-    sha256 cellar: :any_skip_relocation, ventura:        "294b415eb4de3152240592d854f2b4c9a9212ae730deecf50926978533d91b6b"
-    sha256 cellar: :any_skip_relocation, monterey:       "085d057f267c86b2bb471deccb2768100ce3c75b87111c673b25d7b173852291"
-    sha256 cellar: :any_skip_relocation, big_sur:        "d7866c5cecef9997ef4a37966479be14c80d79a914b5c5d2b99123eb910cb1e9"
-    sha256 cellar: :any_skip_relocation, catalina:       "2f3b0e6dfcbee17aea1f379bb91eb51dee2805637447174ebdd7d6179bf5f23e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7409419d5186439ecb79302d818df6331bcfe63bd3a245f0738205f4702c047c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "30d4e340a8cb4181ac18e1a0861114366072fd9e7285403dede913b6d43c46d3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9c417535f739789d04d7738608d54fe38b4ef64031c4ff594f5e0405782ef7ba"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "55fcb7a4a4cea35b2508da5a7431dd3f62724a2e74d0e7f5e9fbbdf07d9266f6"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "242b9c3cb3def53cf305ace64795c75dc548fb094b5820a53885db9343fba998"
+    sha256 cellar: :any_skip_relocation, sonoma:         "ba48fbdbb805d7cd4d98a01729cf039c0d712055119a67f2b9718f01bab6c24d"
+    sha256 cellar: :any_skip_relocation, ventura:        "38abae3b37b0e57c4f6cadc99d35d21d1e5ea1dc1712420812a65391bf943ab9"
+    sha256 cellar: :any_skip_relocation, monterey:       "379eeee8cd1a9b095adc60ff2147aa950cf81c98afeaffcb860e200a4500113b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "95b224f56ea3ceec3c1e6a13030405cb285de6861cee6987bfb0c472c68f7b5d"
   end
 
   uses_from_macos "zlib"

@@ -3,6 +3,9 @@ class Ttf2pt1 < Formula
   homepage "https://ttf2pt1.sourceforge.net/"
   url "https://downloads.sourceforge.net/project/ttf2pt1/ttf2pt1/3.4.4/ttf2pt1-3.4.4.tgz"
   sha256 "ae926288be910073883b5c8a3b8fc168fde52b91199fdf13e92d72328945e1d0"
+  # Uses a BSD license that removes a different clause from BSD-4-Clause than BSD-3-Clause,
+  # i.e. it omits the non-endorsement clause (4) and retains the acknowledgement clause (3)
+  license :cannot_represent
 
   livecheck do
     url :stable
@@ -10,6 +13,7 @@ class Ttf2pt1 < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "b6ad2fb422b592e707adf8a5e622a1aba01994fdeee1979ce0810e1a7fea435d"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "35473cb3d10d199702745a66cbd1219309eb884b517d5a1f3356c2b83ec717dc"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "a6dae9b03e84c199e865c7b0852804a408627bcc5251dc219841371e391a8753"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "821e641a7addc5001641aac0fb7f610cc2ede29766dd09df88dea12968d3eda8"

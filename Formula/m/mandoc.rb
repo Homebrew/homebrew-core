@@ -13,6 +13,7 @@ class Mandoc < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "cc7045b49fb8f8d57fae60c7ddcd9ea21ebb3abbf4f79e8e9a276273a122fd56"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e52aaa74b6654469741aa21738507e636c4b09576109ff602f78a445a4ce30dc"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "086aeecdaad50178bb76546745cf350195ed758d02a495e4128c1dc210ec5b5f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "86fc7de6ddf02952dd6615916d2a787d0e87954337d7b214c760f3871575a771"
@@ -89,7 +90,7 @@ class Mandoc < Formula
   end
 
   test do
-    system "#{bin}/mandoc", "-Thtml",
+    system bin/"mandoc", "-Thtml",
       "-Ostyle=#{share}/examples/example.style.css", "#{man1}/mandoc.1"
   end
 end

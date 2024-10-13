@@ -15,6 +15,7 @@ class UnittestCpp < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "8477bf1fd9cd1f227c003d267c92492e60b169896c2e9e04b23ba7473b89201a"
     sha256 cellar: :any,                 arm64_sonoma:   "618082a8d57ee7c5a285bd1f2e8fffc2edc76ba703e0764baf13f34236d44813"
     sha256 cellar: :any,                 arm64_ventura:  "28ee0e0de478207bb7eedd6520545049ef6c56c7a552aca7c3376c57c1d7a51d"
     sha256 cellar: :any,                 arm64_monterey: "f2a8bed855277f7c67eb1c174b323cbac98d332db7cd30e69f6d4982eb9c4bd1"

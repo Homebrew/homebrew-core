@@ -1,8 +1,8 @@
 class Pdal < Formula
   desc "Point data abstraction library"
   homepage "https://www.pdal.io/"
-  url "https://github.com/PDAL/PDAL/releases/download/2.7.2/PDAL-2.7.2-src.tar.bz2"
-  sha256 "f6ae0f3dc012b19c70dde2361799ecac0cdcbeb9cad5cfd96313c9fdc8608f32"
+  url "https://github.com/PDAL/PDAL/releases/download/2.8.0/PDAL-2.8.0-src.tar.bz2"
+  sha256 "8a6d7646912a4e7a382f06451b14a1f5f2e8aa4e0b391dc91c30701222198b77"
   license "BSD-3-Clause"
   head "https://github.com/PDAL/PDAL.git", branch: "master"
 
@@ -17,13 +17,12 @@ class Pdal < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "21d4f2320e136d8c7d87d299d0984feb8f6aab0f6dab4e7a676d2b21ba593959"
-    sha256 cellar: :any,                 arm64_ventura:  "ac56d6c29ebf15e1712aea4e32a556b9990176495e499403066537cab2b2ece5"
-    sha256 cellar: :any,                 arm64_monterey: "043b657f0abf3e90d8fe5f6a9ceebfc0a2cb34b7b5d533b9dae9526528e0b5dd"
-    sha256 cellar: :any,                 sonoma:         "75c2fecb49a5d8029a38a0f2c2872acd540a27a3aef6da7ef33589ea7179fe96"
-    sha256 cellar: :any,                 ventura:        "27b9308832346b0ce1d59ec1658883e4cd9f76d12b20010e689f297e3b2b276e"
-    sha256 cellar: :any,                 monterey:       "9d7f89d8ee77abb37ff4dc86e105671c094b22651cfe3de2bb92f310a0d568fe"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d46e3c1ec5dbca3550598e86b7d25f49f36749bc303f09ae1c7771eddf9628b7"
+    sha256 cellar: :any,                 arm64_sequoia: "a25042b13f64a56887847c637ad85aab17c4ce08a19c06060ce345f5e6bd689f"
+    sha256 cellar: :any,                 arm64_sonoma:  "9671dee48a02a2c78c165396c216baf6b475195d8f9e5edc7a0d93d9830555c4"
+    sha256 cellar: :any,                 arm64_ventura: "7b3a5b812869b67f33d1a9b654ff94f32d3f04c49cbf96612918aeca1633f631"
+    sha256 cellar: :any,                 sonoma:        "d07fb31b3f5ca9f2508aaa5316d11ce7f4882b51a6a660fb34b7035750e4da34"
+    sha256 cellar: :any,                 ventura:       "e6157fa9e4d634dc0b792798acc7268aa6071838ac38093edadb0536219913bb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f0fc029b89a567e31ab49e4b6828e7450d09543e1179a504f94d6d0498745e33"
   end
 
   depends_on "cmake" => :build
@@ -78,7 +77,7 @@ class Pdal < Formula
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
-    rm_rf "test/unit"
+    rm_r("test/unit")
     doc.install "examples", "test"
   end
 

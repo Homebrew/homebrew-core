@@ -7,6 +7,7 @@ class CyrusSasl < Formula
   revision 2
 
   bottle do
+    sha256 arm64_sequoia:  "da30f7a99a52b40b17ca249fe2a518a556aba23a8bec5cca7b1c5b4dac577239"
     sha256 arm64_sonoma:   "8cb90c0b643e0626e2dc31287654b45a6bbda61a2077879a8d29a47b793ded55"
     sha256 arm64_ventura:  "a842b727db6d438e03d495a94f5dd63e2f7a6634809cbe3b621195e180d56f64"
     sha256 arm64_monterey: "ac7a6ac5d43047181241674de948c84e57fd26e2ae070dcb2bad243f57ffb0db"

@@ -3,10 +3,12 @@ class Libgtop < Formula
   homepage "https://gitlab.gnome.org/GNOME/libgtop"
   url "https://download.gnome.org/sources/libgtop/2.40/libgtop-2.40.0.tar.xz"
   sha256 "78f3274c0c79c434c03655c1b35edf7b95ec0421430897fb1345a98a265ed2d4"
+  license "GPL-2.0-or-later"
   revision 1
 
   bottle do
     rebuild 2
+    sha256 arm64_sequoia:  "558ead5d7327e92a4997128e3c0f48679ed64aedc06868e508b54ad054e4aeea"
     sha256 arm64_sonoma:   "70be94bdf1f981d45870143f0d93cca108a8c2a21da4530433edb0c0191d0829"
     sha256 arm64_ventura:  "7ec6391d407997898f52778846034783e0d1f8fd88c3c5dce7e31fa7a7c9214a"
     sha256 arm64_monterey: "efd17d53f38b17e4dbce28b8ce2b47cb3f832010107b44800f16f109eca55929"
@@ -28,9 +30,11 @@ class Libgtop < Formula
   depends_on "libxau"
 
   def install
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--without-x"
+    # workaround for newer clang
+    # upstream bug report, https://gitlab.gnome.org/GNOME/libgtop/-/issues/73
+    ENV.append_to_cflags "-Wno-int-conversion" if DevelopmentTools.clang_build_version >= 1403
+
+    system "./configure", "--without-x", *std_configure_args
     system "make", "install"
   end
 

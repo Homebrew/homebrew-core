@@ -6,6 +6,7 @@ class Syntaxerl < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "33837e94cbdb2721705f5fe69069caabf858455790d9bc7d47c2d73d8f035120"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "cee18e0e209e6dba8a575cf868e38cbaf37fb17d5d6d1c4bf893b73a26e8c14e"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "b8b0d346a0d701c3146aa9c6beedf9122be2efd84112b78b05d07e45d343cb00"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "3b345b0ceabb3e230634ef5f9d8fe3bfee1500f94dc94a79b504bbf6173a6758"

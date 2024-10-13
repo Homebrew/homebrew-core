@@ -1,18 +1,19 @@
 class Inlyne < Formula
   desc "GPU powered yet browserless tool to help you quickly view markdown files"
   homepage "https://github.com/Inlyne-Project/inlyne"
-  url "https://github.com/Inlyne-Project/inlyne/archive/refs/tags/v0.4.2.tar.gz"
-  sha256 "f454581844f48fbcc9dcb769e607cae768ed9070baea03fb31b1fa8064b45d7c"
+  url "https://github.com/Inlyne-Project/inlyne/archive/refs/tags/v0.4.3.tar.gz"
+  sha256 "5ef5b54f572d93e96fc9bb0621c698098d4c6747d1ccdda4bd95af4f0b988b80"
   license "MIT"
   head "https://github.com/Inlyne-Project/inlyne.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "fa900a5c1ee938d9652a354e5032a64edd4a795373c8a217e056444005f349d0"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "78d2b141bc9bfc43731e7a66e65c1ea8f8f4115b28a351442fcb86cb54df054b"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7ca14b5cea4bfd5ae7f1e3c3f839292670b92466ef9ab1276d2865e6bf389d2b"
-    sha256 cellar: :any_skip_relocation, sonoma:         "817345580436541a81897180e423dbfa8de52b8c1e4d2168e14b3c4618cbb3a6"
-    sha256 cellar: :any_skip_relocation, ventura:        "cd9630e5a0402ea0aaa17754fead8f7c0e616c495cdaf5bd314c609ecef4afd5"
-    sha256 cellar: :any_skip_relocation, monterey:       "d21cfcf5ad2d7e6fd62eca897c1608f1fce5f5c9bfc3f9c51badf8f2687ec6c8"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "7056568b68182c6c19157e720aebba6b36b087d2ec4d2b877dc35137889f1717"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "795b49b70f6791d35eacf4f8cc5d7ce33fbf6e29de86cc09c331b9919b3f7c6d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4a1bd6b797573bcb83ce72dfe79e6310404910b593c63be8d7bbf90268bc685c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "4ff421f43c095b86b55de237be33d739ca2509420dad914daff591147ac3d849"
+    sha256 cellar: :any_skip_relocation, sonoma:         "cfa5319173f6ee8ec5d80acd001f8ae1b764db1b3b6096d4a7cde527070b2696"
+    sha256 cellar: :any_skip_relocation, ventura:        "97cbbe8e9fea277396d4ad34e9ef1faa527ec89b284bf87495f9cb8208c0565b"
+    sha256 cellar: :any_skip_relocation, monterey:       "0c148c1c99fa14a56d0e4c8ebddd0e21000dca044577aa21633923aae552b36a"
   end
 
   depends_on "pkg-config" => :build

@@ -4,6 +4,7 @@ class Dcraw < Formula
   url "https://www.dechifro.org/dcraw/archive/dcraw-9.28.0.tar.gz"
   mirror "https://mirrorservice.org/sites/distfiles.macports.org/dcraw/dcraw-9.28.0.tar.gz"
   sha256 "2890c3da2642cd44c5f3bfed2c9b2c1db83da5cec09cc17e0fa72e17541fb4b9"
+  license "GPL-2.0-or-later"
   revision 3
 
   livecheck do
@@ -12,6 +13,7 @@ class Dcraw < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "a083652ace0c260b03d51e3a34412dd5f9213cf146dca60f6d5d2a1ecbc8c191"
     sha256 cellar: :any,                 arm64_sonoma:   "031ab39857064c76f12dd142d9d95aab39f43b0474049c846c82fe3b024876c8"
     sha256 cellar: :any,                 arm64_ventura:  "5c293d628459ac1405a5d558d975f2e655e6a59626a4a634fd6496b094a7589c"
     sha256 cellar: :any,                 arm64_monterey: "3335474ee80fb8359df924187d878380b76ee055ca0ade45f1b8872cf71b1614"
@@ -35,6 +37,6 @@ class Dcraw < Formula
   end
 
   test do
-    assert_match "\"dcraw\" v9", shell_output("#{bin}/dcraw", 1)
+    assert_match "\"dcraw\" v9", shell_output(bin/"dcraw", 1)
   end
 end

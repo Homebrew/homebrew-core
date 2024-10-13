@@ -6,6 +6,7 @@ class FontsEncodings < Formula
   license :public_domain
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "d9eda2b888cf0341ae65cca2b90c91e86967c8afdb6d9c2bd43424fc2a26fe12"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "59c87e4e30083b75e3018ad22f97910fad4e0a836078f4004dd317e5fe15a0bd"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "59c87e4e30083b75e3018ad22f97910fad4e0a836078f4004dd317e5fe15a0bd"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "59c87e4e30083b75e3018ad22f97910fad4e0a836078f4004dd317e5fe15a0bd"

@@ -3,8 +3,10 @@ class Libcmph < Formula
   homepage "https://cmph.sourceforge.net/"
   url "https://downloads.sourceforge.net/project/cmph/v2.0.2/cmph-2.0.2.tar.gz"
   sha256 "365f1e8056400d460f1ee7bfafdbf37d5ee6c78e8f4723bf4b3c081c89733f1e"
+  license any_of: ["LGPL-2.1-only", "MPL-1.1"]
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "43f6a25f51d2e29fc992882901b8fae82353d80efe71305bc6acf5bd852ff6c7"
     sha256 cellar: :any,                 arm64_sonoma:   "72be852d28eec60c8526c263938023f4eb33dfd58edbbcd77b33d1e319816f82"
     sha256 cellar: :any,                 arm64_ventura:  "dc5c4b140ee2e3ed459271e26f0fc47b9294626fbcad98a86d6326593a2ca764"
     sha256 cellar: :any,                 arm64_monterey: "85743179d6c3127e57f41d11b451f708a653b3b033e1b725b30fa0c1c6712b9e"

@@ -3,9 +3,10 @@ class Wput < Formula
   homepage "https://wput.sourceforge.net/"
   url "https://downloads.sourceforge.net/project/wput/wput/0.6.2/wput-0.6.2.tgz"
   sha256 "229d8bb7d045ca1f54d68de23f1bc8016690dc0027a16586712594fbc7fad8c7"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "c7b895351c316eeb37308ac163b54d36c997c2909a00b7ecf3837081af4a1e4d"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "396180470ace5f8d7640f2097bded1f66af50bac01ba8470ea3023968bc39d6b"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "7f892df6bfff0d575edbbd428c2decb1005b7c8faac2a709976c6489fc7e6719"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "0899932c8dc9e51846277c672a4e4a9dcc36c1d999cb460d2e337a927b702a76"
@@ -49,6 +50,6 @@ class Wput < Formula
   end
 
   test do
-    system "#{bin}/wput", "--version"
+    system bin/"wput", "--version"
   end
 end

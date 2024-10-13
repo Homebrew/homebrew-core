@@ -4,7 +4,7 @@ class Maxima < Formula
   url "https://downloads.sourceforge.net/project/maxima/Maxima-source/5.47.0-source/maxima-5.47.0.tar.gz"
   sha256 "9104021b24fd53e8c03a983509cb42e937a925e8c0c85c335d7709a14fd40f7a"
   license "GPL-2.0-only"
-  revision 12
+  revision 14
 
   livecheck do
     url :stable
@@ -12,13 +12,11 @@ class Maxima < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b4985122399ad9567afa2d3009a4840555ea45aac3e496f5a461a6b2b67af085"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8875a9370620eeda820b578155bd5bc62ab209357424a7df1e662557b7de89ac"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6d54b2bf9b85024ad3d9771df8a7e5332d1fe4163d02e296f93017305fd59994"
-    sha256 cellar: :any_skip_relocation, sonoma:         "455464ed0219067e3b919bb887df3b5c7b044bd7efd053f1628398a7edbc9a44"
-    sha256 cellar: :any_skip_relocation, ventura:        "f16aa73fcd45da27f4b7903c9cfd5420f5e8c26445b0da55a8871954f6753219"
-    sha256 cellar: :any_skip_relocation, monterey:       "5231eceaf972080662fc4e8a75a33e71a8d2bb212b09746b101d90845f125323"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d2571ae260b0a458d29edef16f676c2d6750acde36b9046040eb06dd280387fe"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8f4c8d126981cde367e0c4ed884c5211c6615e01ddcabf6d9d4a030080cb384b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "ed5688d2f920624365a04f2aca441a7e2667927340ba1a97f56684add83cf3f9"
+    sha256 cellar: :any_skip_relocation, sonoma:        "305feeb086315fc27a10edf6fe88f5c42309e0bea51510f82c3dad7cedf47ed7"
+    sha256 cellar: :any_skip_relocation, ventura:       "836fb583af4714814493cbba9639dbb15493cf1fb365eb9699101fb70ecfcf64"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a3c047cef0016317357b2d14cb2f7c2709472cac3648156fc77e6f341baafd35"
   end
 
   depends_on "gawk" => :build
@@ -45,6 +43,6 @@ class Maxima < Formula
   end
 
   test do
-    system "#{bin}/maxima", "--batch-string=run_testsuite(); quit();"
+    system bin/"maxima", "--batch-string=run_testsuite(); quit();"
   end
 end

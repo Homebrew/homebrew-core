@@ -11,6 +11,7 @@ class Minicom < Formula
   end
 
   bottle do
+    sha256 arm64_sequoia:  "3fffa1688f76eecf53156914c4e793b55bc98ec39ef9d1012dd71e6d036ef959"
     sha256 arm64_sonoma:   "b92b70950bd1142625c5a91bb815cc6b5a6e302bac3d2deb2ba6a27346275a82"
     sha256 arm64_ventura:  "c0027370447eb9cfb68179a1d27bbecc4a0682351b454da5dd563f0641f6d9e1"
     sha256 arm64_monterey: "3ffb59047f0ddedd946f3396ff160438b6d7642824f5a1a63a1d2d37e3aa9c6e"

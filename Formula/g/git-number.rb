@@ -6,6 +6,7 @@ class GitNumber < Formula
   license "ISC"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "23cddce68e786aeecedd7b1d119a121c7af3fe53e86ada7bf2ba998af14f50c3"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c9a99641367e1379e7150b0b4a4d82265e02f4262b35eb791c057595a14f14ae"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "c9a99641367e1379e7150b0b4a4d82265e02f4262b35eb791c057595a14f14ae"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c9a99641367e1379e7150b0b4a4d82265e02f4262b35eb791c057595a14f14ae"
@@ -46,6 +47,6 @@ class GitNumber < Formula
   end
 
   test do
-    system "#{bin}/git-number", "-v"
+    system bin/"git-number", "-v"
   end
 end

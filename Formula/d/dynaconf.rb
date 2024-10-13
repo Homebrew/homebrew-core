@@ -8,16 +8,11 @@ class Dynaconf < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ae16a3ed04f32f1764291fe0eeeec4151d1ddd397d088c26e85934dc45c1aa91"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ae16a3ed04f32f1764291fe0eeeec4151d1ddd397d088c26e85934dc45c1aa91"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ae16a3ed04f32f1764291fe0eeeec4151d1ddd397d088c26e85934dc45c1aa91"
-    sha256 cellar: :any_skip_relocation, sonoma:         "ae16a3ed04f32f1764291fe0eeeec4151d1ddd397d088c26e85934dc45c1aa91"
-    sha256 cellar: :any_skip_relocation, ventura:        "ae16a3ed04f32f1764291fe0eeeec4151d1ddd397d088c26e85934dc45c1aa91"
-    sha256 cellar: :any_skip_relocation, monterey:       "ae16a3ed04f32f1764291fe0eeeec4151d1ddd397d088c26e85934dc45c1aa91"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "91906d1735ffd3409f662ad4395dbc5a86e59eccbcb344be99ac68d3e72aee56"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "dd470da2064bfb5d2a4c5dcabc7d09dcda5a986c66586c2c98d931d8e06321db"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   def install
     virtualenv_install_with_resources

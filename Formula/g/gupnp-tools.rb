@@ -7,25 +7,34 @@ class GupnpTools < Formula
   revision 1
 
   bottle do
-    sha256 arm64_sonoma:   "b832bd754f0cd4821f07a2e4556dba4467547fce6349fd6ba94d9d94e07bd3d3"
-    sha256 arm64_ventura:  "f904ad26e367038de7e62d3225dbadb45d5ecc92576522c9cccee555b3b09ca5"
-    sha256 arm64_monterey: "a39bd9b1a678af3d0d27c68ed8be15672c0bd67226e69cef83b6f7ce573cc84a"
-    sha256 sonoma:         "0ea8c6cfc95af42593b4fd26d7a8d3fb9144a047a987f340c526385182fd73aa"
-    sha256 ventura:        "1bd809d560c4a5b64932ce1b8e2961c22a82f13a0b8319c520c358ffa44037b6"
-    sha256 monterey:       "100acb67f8f3093207efece8e95ed53d5308f2c985eea3c7f58bc2f02cf77958"
-    sha256 x86_64_linux:   "53ee8f67fed3bb529c2b44ab34c6bacc2bf2ca839fd1147c02e4a5456f1c411b"
+    rebuild 1
+    sha256 arm64_sequoia:  "0250ac0349cfb699686b66f5e51ab129e081f96dd40202d79d56ad33d3741bc7"
+    sha256 arm64_sonoma:   "e33bfb2942a1ca1efc68fe987d8a8be8c19c69c5b17f0a4b8d59d7ccd8b8b777"
+    sha256 arm64_ventura:  "7e53eb43413d211922c3b631f04263d4856b30041a8fc7ffb8c427397b96fe5f"
+    sha256 arm64_monterey: "c4909d493392f97185eb1f155ef2c22a084092066052acc33465c462de0542d6"
+    sha256 sonoma:         "f308ed29fd55ed3fffba76505cc9247b0651773b32708b9fe8464ee76b96d8f9"
+    sha256 ventura:        "824675ba1db8c43795fcbfa08dd1b6e1f8b66bdfcb2fe8c93772c661b05cf050"
+    sha256 monterey:       "e347b8ea0441314d43cb0d0dc483d838dbbdd2616da0dadb50a0170e1e9bf149"
+    sha256 x86_64_linux:   "cb048c2652775c18c131c4298ade3bd54521434e980d9956a0c23277c0106ff9"
   end
 
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "gettext"
+
+  depends_on "gdk-pixbuf"
+  depends_on "glib"
   depends_on "gssdp"
   depends_on "gtk+3"
   depends_on "gtksourceview4"
   depends_on "gupnp"
   depends_on "gupnp-av"
   depends_on "libsoup"
+  depends_on "libxml2"
+
+  on_macos do
+    depends_on "gettext"
+  end
 
   # Backport fix for libxml 2.12. Remove in the next release.
   patch do
@@ -40,7 +49,7 @@ class GupnpTools < Formula
   end
 
   test do
-    system "#{bin}/gupnp-universal-cp", "-h"
-    system "#{bin}/gupnp-av-cp", "-h"
+    system bin/"gupnp-universal-cp", "-h"
+    system bin/"gupnp-av-cp", "-h"
   end
 end

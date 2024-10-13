@@ -6,7 +6,8 @@ class Sshfs < Formula
   license any_of: ["LGPL-2.1-only", "GPL-2.0-only"]
 
   bottle do
-    sha256 x86_64_linux: "a98d273e64706971684935a3ae87da16b1dda98f7289eb79e82f4cdfb7f12bb8"
+    rebuild 1
+    sha256 x86_64_linux: "0eb28ad70ce9c608b66eed7f32169f6e5201fd68e3a4fd8a48a6194499cc82af"
   end
 
   depends_on "meson" => :build
@@ -23,6 +24,6 @@ class Sshfs < Formula
   end
 
   test do
-    system "#{bin}/sshfs", "--version"
+    system bin/"sshfs", "--version"
   end
 end

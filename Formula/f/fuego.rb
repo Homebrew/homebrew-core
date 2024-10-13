@@ -4,7 +4,7 @@ class Fuego < Formula
   url "https://svn.code.sf.net/p/fuego/code/trunk", revision: "1981"
   version "1.1"
   license any_of: ["GPL-3.0-only", "LGPL-3.0-only"]
-  revision 11
+  revision 12
   version_scheme 1
   head "https://svn.code.sf.net/p/fuego/code/trunk"
 
@@ -14,13 +14,14 @@ class Fuego < Formula
   end
 
   bottle do
-    sha256                               arm64_sonoma:   "4efea019ce107615d44cb7e953b9cb8cb1a75ad64247cb0a62f9a7a821e02d65"
-    sha256                               arm64_ventura:  "d93f77ed5fe2e7e6f68dcedd67453d5648c3f47485b594815b712bf383042f40"
-    sha256                               arm64_monterey: "0a5a466446e91d45f7be39b5a6e0e9973a9875cc585ba47d48b5cad1bc61b03f"
-    sha256                               sonoma:         "f911631864a16c00781379c907d725e38098e5f5894dba700093af6eb3b8437b"
-    sha256                               ventura:        "a49aeab701ca4152243dfcc2bbe3833945b3599e6d26f623c0155884609c80cd"
-    sha256                               monterey:       "e0ce16f58174e8fc0e23ab87683d42988f9054b7a8f19aa6a1abf4d0ea1e9ecb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "61f2f5e9664488211903b1883f92c9a9c18905095a0d15b3a1be81507fbbc0d5"
+    sha256                               arm64_sequoia:  "ba5cd9af8fe11684d0dfffcd393417b2874849666cbe77cfcfde03d461074d5f"
+    sha256                               arm64_sonoma:   "728de8edc4b06d36d3160d14071d41a398d7baf7a25e7d549d58ab577acce36e"
+    sha256                               arm64_ventura:  "5e8cc9ada632b70b903ddcbf541dc53a2f32382108000988c5c8314c931a37a2"
+    sha256                               arm64_monterey: "44f70fc2fc2c52d9cbe6c58cf66a1d707e9f4e8625d3f168c583dd2a5c1efbd4"
+    sha256                               sonoma:         "39cbea7e8175ec689dccb15259cceba74e74e0886092067b2f3792a5a2b63aed"
+    sha256                               ventura:        "0d50385a7d97bd9972812775a070f4d1439ff222507e17ffbf3bc06467751a62"
+    sha256                               monterey:       "4a91c2ccaa69c0b765c61f9a77185e652190d2b1576419d38fb67cbd21090e0d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9a413e72174860b5211d482c1a1b1e69ecd90ff314236c86dbc1f3287aeaa7f6"
   end
 
   depends_on "autoconf" => :build

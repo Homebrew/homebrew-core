@@ -1,10 +1,10 @@
 class Lz4 < Formula
   desc "Extremely Fast Compression algorithm"
   homepage "https://lz4.github.io/lz4/"
-  url "https://github.com/lz4/lz4/archive/refs/tags/v1.9.4.tar.gz"
-  mirror "http://fresh-center.net/linux/misc/lz4-1.9.4.tar.gz"
-  mirror "http://fresh-center.net/linux/misc/legacy/lz4-1.9.4.tar.gz"
-  sha256 "0b0e3aa07c8c063ddf40b082bdf7e37a1562bda40a0ff5272957f3e987e0e54b"
+  url "https://github.com/lz4/lz4/archive/refs/tags/v1.10.0.tar.gz"
+  mirror "http://fresh-center.net/linux/misc/lz4-1.10.0.tar.gz"
+  mirror "http://fresh-center.net/linux/misc/legacy/lz4-1.10.0.tar.gz"
+  sha256 "537512904744b35e232912055ccf8ec66d768639ff3abe5788d90d792ec5f48b"
   license "BSD-2-Clause"
   head "https://github.com/lz4/lz4.git", branch: "dev"
 
@@ -14,20 +14,22 @@ class Lz4 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "5a8b7116d978e403c525e61794c60b43480d0afc83e499a763f7f14641bbc9b1"
-    sha256 cellar: :any,                 arm64_ventura:  "cd29e40287b0a2d665a647acbea5512e8db4c371687147aab5c60bf9059b2cca"
-    sha256 cellar: :any,                 arm64_monterey: "284fa580570efdc8056e4fc95dc05f7b0546aa0c346795dd616d4cec8eb99426"
-    sha256 cellar: :any,                 arm64_big_sur:  "8cf59a354786ad0ed95a7b531d7149ae03612081818dcdf2d9ca8cb4fe28c07a"
-    sha256 cellar: :any,                 sonoma:         "2bad368b2869db32b1b22cea76a6e65da2f4e599ac8ee327b4825d54c4579445"
-    sha256 cellar: :any,                 ventura:        "6a911ee2a3ea072f414d2983d532b28c34b63a68ff388a0008e1528dc0668838"
-    sha256 cellar: :any,                 monterey:       "88b369cea90a0a119c24aa96a614fe7d77de58d18cb1803023dc925679eb905f"
-    sha256 cellar: :any,                 big_sur:        "aafb93487e108d302d060265898e4eaa82f5c806ff36dec50871db1c33fdc04d"
-    sha256 cellar: :any,                 catalina:       "ddb59c42498843638f1f9d80bd0c7b7126910c4fc8ee7c69fa8784dd4bc95c1f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1757fefc3840e11c4822e4c2a95aa62aca44a4eaccce6f5c414ea51d1e58bf8e"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia:  "5bd143b7b784989e549637ea4e484af85ba481e640dde69bc35f3843ae25abc6"
+    sha256 cellar: :any,                 arm64_sonoma:   "6590245dc4a919c46afa16366914cd4b5c0c4a8f4fb35a4f6ab89053f289ae5d"
+    sha256 cellar: :any,                 arm64_ventura:  "03119aa78b7a96d4b8fde7553f5601ff104d59156aca4086a2af7aaec6cba5a4"
+    sha256 cellar: :any,                 arm64_monterey: "3ace9946a02899abcc0b8852863a62e70e1eec91deffa579512f0e6c493738a3"
+    sha256 cellar: :any,                 sequoia:        "f75cb29a4d25d37e1db38d95c5970cc45de7ec63ce43cfa881a877b424154a42"
+    sha256 cellar: :any,                 sonoma:         "96c1ed07b013308a9c205a56c0232e45ae7da70e28200c9adb03ec78b294bffd"
+    sha256 cellar: :any,                 ventura:        "c7bd3ba214fd8713268012f5bd71a95dee9623de0e373a38dc3426ea8b9293c3"
+    sha256 cellar: :any,                 monterey:       "f78cc448808d04a0c31b108d7da962020e062179e29c7d0a2303db7866d8e449"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a8082c2e40dc6d63850f43ea8fa095e55adf18fb0f25ec66bcaee2c4b4438205"
   end
 
   def install
     system "make", "install", "PREFIX=#{prefix}"
+    # Prevent dependents from hardcoding Cellar paths.
+    inreplace lib/"pkgconfig/liblz4.pc", prefix, opt_prefix
   end
 
   test do

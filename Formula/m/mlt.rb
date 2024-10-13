@@ -1,26 +1,25 @@
 class Mlt < Formula
   desc "Author, manage, and run multitrack audio/video compositions"
   homepage "https://www.mltframework.org/"
-  url "https://github.com/mltframework/mlt/releases/download/v7.24.0/mlt-7.24.0.tar.gz"
-  sha256 "8cde7c22a1a5395abe913976c2edafb498f81ed81a5f49dd0e6e2d86d68bcec0"
+  url "https://github.com/mltframework/mlt/releases/download/v7.28.0/mlt-7.28.0.tar.gz"
+  sha256 "bc425bf9602213f5f4855b78cfbbcd43eeb78097c508588bde44415963955aa1"
   license "LGPL-2.1-only"
-  revision 1
   head "https://github.com/mltframework/mlt.git", branch: "master"
 
   bottle do
-    sha256 arm64_sonoma:   "e059360652d0d922307d8ac9fa183322dee526d50ae1c9efe31d99e535b99d88"
-    sha256 arm64_ventura:  "f1b617de121e9e9aca3ba3da5d349d5752574995c22f51e4f26e501ec91224fe"
-    sha256 arm64_monterey: "76e3e6d5b1cf2a9f3005990f38f79b12948920990cdd18502079200ead1a6dec"
-    sha256 sonoma:         "39fc84f9e283e7db8b2d97d3d373751ea208aa7248d71b2fb40653a9ddc7fe4c"
-    sha256 ventura:        "487a3f84f939bc29c8ed2391741cee07f6c9dba31b718c701aa205526d3efad7"
-    sha256 monterey:       "6458f0bcf36f5b7fecd0f089734ed49f35141ee68062b5b131d0e56a81e1fac0"
-    sha256 x86_64_linux:   "fc30f4414d09163aad57fae6702b01ca86098e265c1ba437692419717ff844d5"
+    sha256 arm64_sonoma:   "5fdf077b8f22a6504af534516cc3e4fff6ce9cfe2bc2bd24fcd022fd6ecda08b"
+    sha256 arm64_ventura:  "4b23883a06273748bdd195e6d79ed57bdc6442ef00aaba81014de46f4c4fd036"
+    sha256 arm64_monterey: "a2151d1e9b01de46825920802c7d69cde820ab277d8b5714f439f8f8a4e7ece5"
+    sha256 sonoma:         "6db195573da77805d7162a9c496e36241ba9e6261e670adc0dc8445b14c84d27"
+    sha256 ventura:        "1c77b4fce2d5bd9e570a14559b466fdc74beae0e00e7407731787f5957ae448c"
+    sha256 monterey:       "cfec4b04ec534a31c694ab6d50789614f18d05c5678082ad7ca2145f6f4431f8"
+    sha256 x86_64_linux:   "190642ee62312b496773bb7b4b65caf8d34bd24cd608ee929110adf28c1c66c3"
   end
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
 
-  depends_on "ffmpeg@6"
+  depends_on "ffmpeg"
   depends_on "fftw"
   depends_on "fontconfig"
   depends_on "frei0r"

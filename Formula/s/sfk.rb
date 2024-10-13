@@ -12,6 +12,7 @@ class Sfk < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "c15f73f78d4a56308802648f0cfe42b8dd9e95a74265ce125f83e5cc76b1c2f0"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "cb8fbb8e7011a96a46b2360621cef69dfa4ba2abe3351311b0d9a8e98cac979b"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "3c83a6b2240645182e4fee20eba8b2f1cd4839e8d303e7ad2b2b27ea3f56d004"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e2643c14bcd03fb0329cac96cc7618e1d5c0043b897a2ef052f95742864b11d7"
@@ -30,6 +31,6 @@ class Sfk < Formula
   end
 
   test do
-    system "#{bin}/sfk", "ip"
+    system bin/"sfk", "ip"
   end
 end

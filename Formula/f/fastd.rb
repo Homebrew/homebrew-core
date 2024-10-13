@@ -9,6 +9,7 @@ class Fastd < Formula
   head "https://github.com/neocturne/fastd.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any, arm64_sequoia:  "dec129faf709276bc51ace4b7f75b3c5ad0bd7054d16f6732e7d17af88d214dc"
     sha256 cellar: :any, arm64_sonoma:   "47546d8f19b4aa18516f976cd4da96dacc190ac1d29ed97724baed9240d4e8c9"
     sha256 cellar: :any, arm64_ventura:  "024b4441f467477b61a7ed9dbce3bb5eaae293a77131abd6293741679d122a77"
     sha256 cellar: :any, arm64_monterey: "5c53118d30669c0aafb1662819055f9c21e1344142f61a1219791c10ccf505ce"
@@ -46,6 +47,6 @@ class Fastd < Formula
   end
 
   test do
-    system "#{bin}/fastd", "--generate-key"
+    system bin/"fastd", "--generate-key"
   end
 end

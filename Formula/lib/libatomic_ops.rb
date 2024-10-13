@@ -4,6 +4,7 @@ class LibatomicOps < Formula
   url "https://github.com/ivmai/libatomic_ops/releases/download/v7.8.2/libatomic_ops-7.8.2.tar.gz"
   sha256 "d305207fe207f2b3fb5cb4c019da12b44ce3fcbc593dfd5080d867b1a2419b51"
   license all_of: ["GPL-2.0-or-later", "MIT"]
+  head "https://github.com/ivmai/libatomic_ops.git", branch: "master"
 
   livecheck do
     url :stable
@@ -11,19 +12,31 @@ class LibatomicOps < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0656f3850ed197d3bc92adabea46679ff74785393166e0c0c507ce794687e792"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "186e0da537cb1acb541a2e30fbf504cbee435e2a545b916f2cdfe2cbe215446f"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "2438dc4e1e5f181153c8d3dc4322479b005cb62332dca92d305ef1b1d03c6294"
-    sha256 cellar: :any_skip_relocation, sonoma:         "d8ca9d29909dbebf999ac0c27122fdcf119f76d5c884b62916e5e0ecfe235d08"
-    sha256 cellar: :any_skip_relocation, ventura:        "639fd6de155ad0f4a0ba53bf43c0a286eb84ac8dddc6695eeb37d850452a1a7e"
-    sha256 cellar: :any_skip_relocation, monterey:       "24988ecc4bbf4449f78fa70a3703f1415eddb879a91dd81fc6b2e53fedfdd81e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cdf260b5bda03963ab662e75b08bd82b11188bb9d87113a0c0a28eb0e9dc5564"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia:  "27c948cb8ca7db52ae09a76402fd1180ca110ece2ba7a20c88b16902967980f4"
+    sha256 cellar: :any,                 arm64_sonoma:   "b1b86350238369d9aeec01fe06db92fa0bda5aadabdc6867e4d7f34eca09b72f"
+    sha256 cellar: :any,                 arm64_ventura:  "df3aefc169055fa94ec868131c894b8fcae8dc7ea33e64a700e3746576e93ebb"
+    sha256 cellar: :any,                 arm64_monterey: "81dde253b3f27f98a1b64110ec13ba9181e8ab34bc0060fc878e98e6090777ba"
+    sha256 cellar: :any,                 sonoma:         "4f402b92483d9647fc328a8b02e2ea1abeb25d3460720f4530d3cc432c5c5550"
+    sha256 cellar: :any,                 ventura:        "37d4fa5e739558798fc23471ba5efe49043ec46a8c07242fcc790f28f9940806"
+    sha256 cellar: :any,                 monterey:       "e673e4f5126a4c2d43a98209bd9165413fc6d189d22e3481824bca60f74ec4c4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d1eac8d8ea0bd234b72ce311c92d02dc2ca33029b819327b6c2236309d549bca"
   end
 
+  depends_on "cmake" => :build
+
   def install
-    system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
-    system "make"
-    system "make", "check"
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build",
+                    "-DBUILD_SHARED_LIBS=ON",
+                    "-DCMAKE_INSTALL_RPATH=#{rpath}",
+                    "-Dbuild_tests=ON",
+                    *std_cmake_args,
+                    "-DBUILD_TESTING=ON" # Pass this last to override `std_cmake_args`
+    system "cmake", "--build", "build"
+    system "ctest", "--test-dir", "build",
+                    "--parallel", ENV.make_jobs,
+                    "--rerun-failed",
+                    "--output-on-failure"
+    system "cmake", "--install", "build"
   end
 end

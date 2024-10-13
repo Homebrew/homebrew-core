@@ -7,6 +7,7 @@ class GerritTools < Formula
   head "https://github.com/indirect/gerrit-tools.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "7b31d68ce7d851d1f47f4b57adf7d6b1ba7c05ee7f8ff003afb32d2529d25d08"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "54c8b2ce064088d0947df4c17fa2b876610cd9bcccd76501255726e389d71b98"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "e944c907ac7f5bb3d468a7adfa14bdd52c22d0f0261b201f006407f2dc425506"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1d1eb15677d4ed0974a06c21e3ad17fe49b543acbea1ebc0052ef0b2900f65f0"
@@ -33,8 +34,10 @@ class GerritTools < Formula
     hook = (testpath/".git/hooks/commit-msg")
     touch hook
     hook.chmod 0744
+
     ENV["GERRIT"] = "example.com"
-    system "#{bin}/gerrit-setup"
+
+    system bin/"gerrit-setup"
     assert_equal "github\norigin\n", shell_output("git remote")
   end
 end

@@ -12,6 +12,7 @@ class Ncompress < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "f7e39b3e6471d9335023fcc1434352de41fe4521adff432f237c4167c7de71fc"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f28dac0e82ae6c3642abb0648dbc64959c1822ca44f2b73a1afce7fb1335328a"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f5a549a65439192ba3656d246d95c57979228f95d5c9ccfe26be0fd9744dae1d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "9dbd83bf79e6dc3934b84e104305dc7772100aafe85a724275a821d3a4c68762"

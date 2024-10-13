@@ -7,6 +7,7 @@ class Gops < Formula
   head "https://github.com/google/gops.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "6e6424f29a0624aa928ab6604ea0bfebd30fbf1359343c94a827deb39dc32561"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9705e404ae430eef52e18a9bd0efcd7aba007de76ef17d967a1da2c949e73130"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f7680e1666c0a84e516a2d8cfc5882137a3ceec2f766ed52fd329c5f2381c2fb"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "73b0acd3e244d661ad8afb34b2deae54ce4fae4ff0915a96fe74d97d869f55dd"
@@ -50,7 +51,7 @@ class Gops < Formula
     pid = fork { exec "./brew-test" }
     sleep 1
     begin
-      assert_match(/\d+/, shell_output("#{bin}/gops"))
+      assert_match(/\d+/, shell_output(bin/"gops"))
     ensure
       Process.kill("SIGINT", pid)
       Process.wait(pid)

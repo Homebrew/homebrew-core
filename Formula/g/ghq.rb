@@ -8,6 +8,7 @@ class Ghq < Formula
   head "https://github.com/x-motemen/ghq.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "0b1e5f1d94c1342f87b9ab5772b932b6b7249dd31d5191c993f11911aceed228"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0de47f832a39f6a6fadc1efb785798fc30b96095241c0e26abafa214beaffeb4"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "c1d5ccc6c9d8d68f72a0a53b78ba47a42085b3d54a3ebf9d1ee813f677af263d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "9b255e56677ea5870dbfa2431f8ef8434320df212c8c0dceb241d483aa0c9c49"

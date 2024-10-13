@@ -1,8 +1,8 @@
 class Dovecot < Formula
   desc "IMAP/POP3 server"
   homepage "https://dovecot.org/"
-  url "https://dovecot.org/releases/2.3/dovecot-2.3.21.tar.gz"
-  sha256 "05b11093a71c237c2ef309ad587510721cc93bbee6828251549fc1586c36502d"
+  url "https://dovecot.org/releases/2.3/dovecot-2.3.21.1.tar.gz"
+  sha256 "2d90a178c4297611088bf7daae5492a3bc3d5ab6328c3a032eb425d2c249097e"
   license all_of: ["BSD-3-Clause", "LGPL-2.1-or-later", "MIT", "Unicode-DFS-2016", :public_domain]
 
   livecheck do
@@ -11,15 +11,12 @@ class Dovecot < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "b3d70604dcf10caaf9cf9505f3bd90ed48bdee2ba891ef891ae1c10fe0a7a4e2"
-    sha256 arm64_ventura:  "b89589ccfe9620e87c163c99ed504fb875585dd23d4a53487dc7935b02866c0e"
-    sha256 arm64_monterey: "5ae2a7172bf487a36f90ee0115e57572f7a52e5b1dabdfd8929ee4f01b78d2be"
-    sha256 arm64_big_sur:  "ff928eaeb4ec664bd5e8cba3060a4745a9f6a34f667ff288e0f119c930692f3a"
-    sha256 sonoma:         "5f21b1c455dc089610cf936add3d7e6c3318da234aa945c3e98191663b9b6022"
-    sha256 ventura:        "5c6db5e542ce460ccfc2168b3f14ec80279a621cd076fc5836bad88eb93f5d55"
-    sha256 monterey:       "dd17baa57200f7d95ebc5f8870cca4cf9e48c570840e42c9b1f51d02ec1dbbec"
-    sha256 big_sur:        "e3cba8498560c19191205b503aad5093a1dde6bf45c3e01319f94d89f554321d"
-    sha256 x86_64_linux:   "9740a847f5221216150086de18bd43e93500f6d988ad8989f9f98f9458392097"
+    sha256 arm64_sequoia: "6e3f7b7e6aae562c02ddb68a1d7fc39da82f10bad221803a9c60fc60d027ebfc"
+    sha256 arm64_sonoma:  "97e1c6443d5546139a4584cc87c80b20d090eb8d228d97774356cdda65c5f278"
+    sha256 arm64_ventura: "2152eb14bd601eab60ac6fe646b59665dc73632ae8a8be07fcc6f4c3a8119da2"
+    sha256 sonoma:        "81efa1c3b5985fa1ca367731c0229125a798f88c94ff5c3de491f7e832287f9b"
+    sha256 ventura:       "cdd2b83bc98d4fe5081cfa0cf1018aa9c329189462786f324946ada25f44497d"
+    sha256 x86_64_linux:  "f4f03b65d28a0345273fcee911937a6894980e476c7d6af6bf19d4af77352ae5"
   end
 
   depends_on "openssl@3"
@@ -27,9 +24,12 @@ class Dovecot < Formula
   uses_from_macos "bzip2"
   uses_from_macos "libxcrypt"
   uses_from_macos "sqlite"
+  uses_from_macos "zlib"
 
   on_linux do
     depends_on "linux-pam"
+    depends_on "lz4"
+    depends_on "xz"
     depends_on "zstd"
   end
 

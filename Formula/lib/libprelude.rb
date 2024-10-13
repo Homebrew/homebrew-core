@@ -13,6 +13,7 @@ class Libprelude < Formula
 
   bottle do
     rebuild 2
+    sha256 arm64_sequoia:  "85b094bb36c75510e7cae400478972591a03082b8164e7b183fd0b014fffcec2"
     sha256 arm64_sonoma:   "2ab78aeb01f7a0d2d369ccc3c91e8c14e0e4b192545a222272e7577ded59d56c"
     sha256 arm64_ventura:  "b036b329b9cd3385fdc29af3504dc3cfe66874dd48e3143816d2809b8be86517"
     sha256 arm64_monterey: "1cbcd9a92e12218283d47970e23e4619c8480018dc5e2f503b5b2b02e689e262"

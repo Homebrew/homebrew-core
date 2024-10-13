@@ -7,17 +7,15 @@ class NetsurfBuildsystem < Formula
   head "https://git.netsurf-browser.org/buildsystem.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "940a502f39ef0cda291801f35221b65d3d21aeee215322ad935d2b829b687e6d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "940a502f39ef0cda291801f35221b65d3d21aeee215322ad935d2b829b687e6d"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "940a502f39ef0cda291801f35221b65d3d21aeee215322ad935d2b829b687e6d"
-    sha256 cellar: :any_skip_relocation, sonoma:         "7594be02107747afd03a214ad6baeb160ef751b62727ff94c8379cb9c7154277"
-    sha256 cellar: :any_skip_relocation, ventura:        "7594be02107747afd03a214ad6baeb160ef751b62727ff94c8379cb9c7154277"
-    sha256 cellar: :any_skip_relocation, monterey:       "7594be02107747afd03a214ad6baeb160ef751b62727ff94c8379cb9c7154277"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "940a502f39ef0cda291801f35221b65d3d21aeee215322ad935d2b829b687e6d"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "7698443194711b12a21395fe67c378a2d9cb323ace8f590cfeb79ff730c2ed98"
   end
 
   def install
     system "make", "install", "PREFIX=#{prefix}"
+
+    # Consistently replace /usr/local with HOMEBREW_PREFIX for reproducible bottles
+    inreplace pkgshare/"makefiles/Makefile.tools", "/usr/local", HOMEBREW_PREFIX
   end
 
   test do

@@ -7,7 +7,8 @@ class Autoenv < Formula
   head "https://github.com/hyperupcall/autoenv.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "879dc65b4f4740aed9cf1960c2b2da66f877f10c4ad774084373e36097d8efb0"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "7336af16659bda14e0ee3e36fca9cd526236c4261b9b801950cc2dcdf617a2d7"
   end
 
   def install

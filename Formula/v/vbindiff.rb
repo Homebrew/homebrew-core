@@ -11,6 +11,7 @@ class Vbindiff < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "4a3b8297335705d8d6c97b391d707bd8c19d30b84d36e8f045065490230a1298"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "dba50c94e878fd349ce1d2b73a8029d0441d22a59aac179e717ad32839f4a9af"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "2765e76b73db2ad73a57dacd123cebc482dbc90dcded199f38d45fa5b3b63fad"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d8075454b11304c47a1e77537da4abe37c6188b0cd53c8d74cf920ec9f0015a1"
@@ -37,6 +38,6 @@ class Vbindiff < Formula
   end
 
   test do
-    system "#{bin}/vbindiff", "-L"
+    system bin/"vbindiff", "-L"
   end
 end

@@ -9,16 +9,11 @@ class Netaddr < Formula
   head "https://github.com/netaddr/netaddr.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "172666490f282e237f0226fc0351afdc61761e33a5b03a6ad2a2fe6894861b49"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "172666490f282e237f0226fc0351afdc61761e33a5b03a6ad2a2fe6894861b49"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "172666490f282e237f0226fc0351afdc61761e33a5b03a6ad2a2fe6894861b49"
-    sha256 cellar: :any_skip_relocation, sonoma:         "172666490f282e237f0226fc0351afdc61761e33a5b03a6ad2a2fe6894861b49"
-    sha256 cellar: :any_skip_relocation, ventura:        "172666490f282e237f0226fc0351afdc61761e33a5b03a6ad2a2fe6894861b49"
-    sha256 cellar: :any_skip_relocation, monterey:       "172666490f282e237f0226fc0351afdc61761e33a5b03a6ad2a2fe6894861b49"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1ac44529ab10d5361449ac9335565ce86e1f5b03b13e1fa6111c37203765a048"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "956b7206ec84b8593a134a61a6239ebd708be777740155aee63d8f8d0731c2d9"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   def install
     virtualenv_install_with_resources

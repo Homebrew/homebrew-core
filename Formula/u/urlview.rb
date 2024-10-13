@@ -1,8 +1,11 @@
 class Urlview < Formula
   desc "URL extractor/launcher"
   homepage "https://packages.debian.org/sid/misc/urlview"
+  # TODO: Consider switching to new Debian maintainer's fork if it is adopted
+  # by other repositories as allowed by our documented policy. Alternatively,
+  # we could introduce the fork as `urlview-ng` and deprecate this formula.
   url "https://deb.debian.org/debian/pool/main/u/urlview/urlview_0.9.orig.tar.gz"
-  version "0.9-24"
+  version "0.9-23.1"
   sha256 "746ff540ccf601645f500ee7743f443caf987d6380e61e5249fc15f7a455ed42"
   license "GPL-2.0-or-later"
 
@@ -15,15 +18,12 @@ class Urlview < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b7573ee9d9ec6ad057e1942b86cdc5f87d1200edfa87671394efd95fef009908"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6bd9f4ace151dc3bdd13ab54546319f4c3453a4d4255fd0acad4b720a683fc6e"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b567514b30c1ee47b2ccd0d37913b753fe12b5f8171a50df6a27f084cee86764"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8bf235ca8f0965c5f2ed2fed715ba1ef442edf015e815804d88a5f4ee9c6810e"
-    sha256 cellar: :any_skip_relocation, sonoma:         "b2b0b467e190129c65fdbf47e5d71d5f78d80fd438f9587ee0ccd8f9dc752b1f"
-    sha256 cellar: :any_skip_relocation, ventura:        "f23b48aa03b4a6bbbff88712b5ae0b854d384aba75782ba4d9c9729f150d3653"
-    sha256 cellar: :any_skip_relocation, monterey:       "758abed3f78263e758f923d939501ad1a020f6a13a2f517f96114686cd235141"
-    sha256 cellar: :any_skip_relocation, big_sur:        "4f33d54be1cd6b13f0f164bed70ef1aae7785d981a05eb2465baf11fa85fdb5a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6adb97eddda5ed91facdbc759340569c66ce895d603120b17e6b271f03348f1e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b2a05f008302affc74e6cab2a4fc76d212678746d4d167252e21d0a7f50d49e0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ceb55a63116f409bce3870150eda3310cc48f57813c79e6cb6d8a082e9be2eb0"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "cef111adfd85ccdf8ae30eda094940acc688c8454679b3432c2c8b39e54c32ea"
+    sha256 cellar: :any_skip_relocation, sonoma:        "3197e439d22f3e5dcbfa8b38f2e73c40f52e89252b3279c3c5d236b6605165be"
+    sha256 cellar: :any_skip_relocation, ventura:       "b39f7e2238dbb7ec1e87a121aa48a88bac18b1e269e3a9b84b601ca410260eea"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "eb73442a4c8cac047d120ec566f4bbc59ce23b6eece8fdedd67db4bb9832c2dd"
   end
 
   uses_from_macos "ncurses"
@@ -33,8 +33,8 @@ class Urlview < Formula
   end
 
   patch do
-    url "http://ftp.debian.org/debian/pool/main/u/urlview/urlview_0.9-24.debian.tar.xz"
-    sha256 "2dd710baa5af98f5dc32ffedfa051220a83cb8b1d7250e75966d7658cf2e2228"
+    url "http://ftp.debian.org/debian/pool/main/u/urlview/urlview_0.9-23.1.debian.tar.xz"
+    sha256 "bdb3b403b165ff1fe7d1a7c05275b6c865e4740d9ed46fd9c81495be1fbe2b9f"
     apply "patches/debian.patch",
           "patches/Fix-warning-about-implicit-declaration-of-function.patch",
           "patches/invoke-AM_INIT_AUTOMAKE-with-foreign.patch",
@@ -43,6 +43,9 @@ class Urlview < Formula
   end
 
   def install
+    # Workaround for newer Clang
+    ENV.append_to_cflags "-Wno-implicit-int" if DevelopmentTools.clang_build_version >= 1403
+
     man1.mkpath
 
     url_handler = OS.mac? ? "open" : etc/"urlview/url_handler.sh"

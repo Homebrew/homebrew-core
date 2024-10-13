@@ -11,6 +11,7 @@ class Msieve < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "2260d591d00ad9854b38b43ccacae829d03ca030b0f5e50ec5989d7ce2b3e616"
     sha256 cellar: :any,                 arm64_sonoma:   "e2048a031203ed1bb7bb3ee4becb928faa9f6d40b96ce62d3718873dd25bc83e"
     sha256 cellar: :any,                 arm64_ventura:  "b5fd08185a6cccac73b0cbdbc912880cababcee826bf5dbd3a07a6b6a590b53d"
     sha256 cellar: :any,                 arm64_monterey: "58f7c8472236d7c6213d11a6160e9b58a07de88dd07f0cb2c6281d3d800ce942"

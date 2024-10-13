@@ -6,7 +6,8 @@ class DropboxUploader < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "3507a9fb25fad0ae5909e461ea6b63c41d80a0793bce95a210e388e0baafaeae"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "7c75671b625c28098f9e47ca1290b976943c041666e1250798f2a0cc5d73135d"
   end
 
   def install

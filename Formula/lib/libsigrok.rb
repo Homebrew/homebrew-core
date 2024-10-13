@@ -41,6 +41,7 @@ class Libsigrok < Formula
   end
 
   bottle do
+    sha256                               arm64_sequoia:  "ce3817f9869539b5e7f9c19c9178211484b99ace89dd9ff7a26233013649acb6"
     sha256                               arm64_sonoma:   "531edfde4ad0fde8bc06d1380d62b85bed86415f2ea63f76706b2369f2fa70d1"
     sha256                               arm64_ventura:  "632dc0050579c516cadca7127de3b89104b0b16088735934a0857412c31a5b3e"
     sha256                               arm64_monterey: "09286cd2262fc0cfbfa1a29abfab61e92b88c0a031acee695b0eac837aaa44c1"

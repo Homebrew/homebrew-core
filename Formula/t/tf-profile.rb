@@ -7,6 +7,7 @@ class TfProfile < Formula
   head "https://github.com/datarootsio/tf-profile.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "04527d6579538a00dd90c798782c63527abf3e9439d2fe9dd1ef200ba68a907e"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "40caf3f66f08e25fc07275866f62f83beb5a181cda8e8a669b5de97adc834be5"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "55e6cb67d424f1ba45cd147a430d6c8043618af1cd8cd458c7c104b0cd0c1328"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "55e6cb67d424f1ba45cd147a430d6c8043618af1cd8cd458c7c104b0cd0c1328"

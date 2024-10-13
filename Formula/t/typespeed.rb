@@ -3,9 +3,10 @@ class Typespeed < Formula
   homepage "https://typespeed.sourceforge.net/"
   url "https://downloads.sourceforge.net/project/typespeed/typespeed/0.6.5/typespeed-0.6.5.tar.gz"
   sha256 "5c860385ceed8a60f13217cc0192c4c2b4705c3e80f9866f7d72ff306eb72961"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   bottle do
+    sha256 arm64_sequoia:  "ab447d0e1c0d2482ef500191eb296b9da4a5d49735d9326e5c738cb496aaaa43"
     sha256 arm64_sonoma:   "5515f9db04d81a28229879b3c60150bde9f9d22d77c95a124f4d862d82645712"
     sha256 arm64_ventura:  "5b61f01011a8cd0315d07703f8efcba7fc009f9efa4a4c7a75254a1ac239e681"
     sha256 arm64_monterey: "f34485cb16d4e55ec320c2ed3a5a0f5c681a73ef7950c8f8c609b7b93a8a34e8"

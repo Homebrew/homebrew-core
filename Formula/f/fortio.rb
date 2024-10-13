@@ -2,8 +2,8 @@ class Fortio < Formula
   desc "HTTP and gRPC load testing and visualization tool and server"
   homepage "https://fortio.org/"
   url "https://github.com/fortio/fortio.git",
-      tag:      "v1.66.0",
-      revision: "4a1aff9df0c5102caba93b9aadb5d190eeeb6de7"
+      tag:      "v1.67.1",
+      revision: "16186b8ff17306f9e4a30c925911916faa641fe5"
   license "Apache-2.0"
 
   # There can be a notable gap between when a version is tagged and a
@@ -15,13 +15,12 @@ class Fortio < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "700a49b0f97703f34e7bb6eeb52822fca77a37b60aeec4919b8f8f4e05aa6bce"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a4d657212f3d4eb3d751d11f60655ef04e0add705d7a68fb569ef7ecaa1540c3"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b75b7cc0e8f6f6570ed171e42d863425eb36dceae45485507e776ceedb413822"
-    sha256 cellar: :any_skip_relocation, sonoma:         "473dd547583a734cf541e03877679e276c9c73d37642d711c1759bcee26c6b67"
-    sha256 cellar: :any_skip_relocation, ventura:        "8c81014d9596e7cdb17edb21802f01f11ddd86c8de52f43b1fdadc6dd57e9f50"
-    sha256 cellar: :any_skip_relocation, monterey:       "e83d9a8a4483d928c4a71aa334ebc8a2cb8e40d310ce6545b34722f36516f4d9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "82165d45d16de5afafa3cddd7f4acdd23d10196d83af0c086a3dca9656c5bd8d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0be942de75b61e42e52285ac3b0e96cef94a90bd73b2a49865df8217a02034cf"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6126ba24ec10d2a7c69c23cace0207a4af2591d591479c45e9cc92d15e56a210"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "9b28c294ab63523a8955312cb16c5dad7bde80256258686cf9721857a9b0990f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e9ec859b4dd5db8b2be13d6bb984ccc0eb9820103a4d1b12957d73543396722a"
+    sha256 cellar: :any_skip_relocation, ventura:       "fe701efd1db9de289a17205c25575492c3554db8f97866f9304d51d933d72436"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d7e43c41239e8040819de59d98e7b62409aaa63a6fd8cad980b8d85d9e60dc28"
   end
 
   depends_on "go" => :build

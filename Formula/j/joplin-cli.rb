@@ -1,5 +1,3 @@
-require "language/node"
-
 class JoplinCli < Formula
   desc "Note taking and to-do application with synchronization capabilities"
   homepage "https://joplinapp.org/"
@@ -8,13 +6,15 @@ class JoplinCli < Formula
   license "MIT"
 
   bottle do
-    sha256                               arm64_sonoma:   "7c23561c606fd689fb6557fe9492ee4cfd91fa65671649838d4d08e9c538b590"
-    sha256                               arm64_ventura:  "ae900752b55e7c9f534f30d5c6c8e73aa708b968d9091844f78a63129f015f2a"
-    sha256                               arm64_monterey: "ad732ce0027491099b535ea810f29afa113b9a47b5c70ff4d177893b2e96e243"
-    sha256                               sonoma:         "dfab9e98f7525cc364e16e6369ec877927aca251900e5d72ba276d605ea5fab3"
-    sha256                               ventura:        "8c51271183c0f6b374c353b145fdfc8cb0b64a6d14ac8c28fcafd6030827845a"
-    sha256                               monterey:       "6a74e4b6448d14732a02e3bc3f00f06b14d6d438b5f03f5063529ca14dd556f0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "af8c54fbe05e626e923a8e68de949d83df5ad0cb62d473bcef0db1893d76c612"
+    rebuild 1
+    sha256                               arm64_sequoia:  "5e5fe3221c830d5daf68074d89a1dc7e90d2ef3cef9bd109db1ebe2680c27c54"
+    sha256                               arm64_sonoma:   "268c55e18469316597519d382404d819ab5cc6919add24c64f8905ade49d12b2"
+    sha256                               arm64_ventura:  "0556a2e4a45eeca512fe5a84dd89e074ee6f235ee836ca368b9ae9a15de88c31"
+    sha256                               arm64_monterey: "bb9f103a62ec68f52a32739e367319ff5056c2a5f11ca6006926ad348e6093da"
+    sha256                               sonoma:         "bfc5d70e1b43b75510a7e76a60d26f5faec96007194116fd7e9d1f06b953e8eb"
+    sha256                               ventura:        "fc3bda1b535e6c489599ffc83b1d80e949c22f6cb0919078b7e140efe5b6a664"
+    sha256                               monterey:       "7e86a5257f01beb0e79aeba8cfee23baa69604f6e88e1d78cd1780790e33674e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a74a3425df0c9686ce10e748a6da188fd235f4b4ee861004a161b146e60732ae"
   end
 
   depends_on "pkg-config" => :build
@@ -37,11 +37,11 @@ class JoplinCli < Formula
   def install
     # Need node-addon-api v7+: https://github.com/lovell/sharp/issues/3920
     system "npm", "add", "node-addon-api@8.0.0"
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
-    bin.install_symlink Dir["#{libexec}/bin/*"]
+    system "npm", "install", *std_npm_args
+    bin.install_symlink libexec.glob("bin/*")
 
     node_notifier_vendor_dir = libexec/"lib/node_modules/joplin/node_modules/node-notifier/vendor"
-    node_notifier_vendor_dir.rmtree # remove vendored pre-built binaries
+    rm_r(node_notifier_vendor_dir) # remove vendored pre-built binaries
 
     if OS.mac?
       terminal_notifier_dir = node_notifier_vendor_dir/"mac.noindex"

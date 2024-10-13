@@ -16,6 +16,7 @@ class GitBranchless < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "31c9a297b2edcb5cf217248a6e4c48e36cb0899fd38ea12d17f224758bf81989"
     sha256 cellar: :any,                 arm64_sonoma:   "47147ac474e471683944e538c51247e38cdbf0807490538de8e29df3f7f6bbf3"
     sha256 cellar: :any,                 arm64_ventura:  "326b1e0ee09e7adcfc272ad867949d3a6a24887a4f1964c18d9515ea8426d067"
     sha256 cellar: :any,                 arm64_monterey: "c477b93819d928cf1f49809da31fa435f0200502ca72082a12b63a7e33cb8cd5"

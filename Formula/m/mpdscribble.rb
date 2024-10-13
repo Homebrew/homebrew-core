@@ -11,6 +11,7 @@ class Mpdscribble < Formula
   end
 
   bottle do
+    sha256 arm64_sequoia:  "b3c8401d8bd06997be951e75b158905c4fa35cdeceffee5e6b242ec1843b0074"
     sha256 arm64_sonoma:   "bb677d73c33aa3c1a22f8c85b5c0e829ba230ce3faf3ea433c6662ee33496c0e"
     sha256 arm64_ventura:  "44fe41a3ba49b3b70de39f3b36067ce5011a2d12f92b27848234db79bc561242"
     sha256 arm64_monterey: "cd70d1bf103b1abddfb3396a77f5a8ff373b42103f1d56b679c560e63d577e69"

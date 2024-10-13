@@ -6,6 +6,7 @@ class RonnNg < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "3a36bd1699825e23e988f88430a33992b0d1cb846897e93b7e55d4f48c1c6d0e"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f31d048c5ebca214ad11c695656894dc560ca865000a78e659985289abcd31ab"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "4bee63a22338f66fedbcca8ba2c67035ef78024d8b44462819737c37ff2f62cf"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a1c684641c1b5361e3100e634364d39823eaa4067c7ce2b99993c15c7a9f952f"

@@ -7,6 +7,7 @@ class Lolcat < Formula
   license "BSD-3-Clause"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "5fbed8371f5d94b68f747973aa5c5f2d5fa5a9d0fb7a389d0417af3eac6924e9"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7951f0c60d29956b4b12ba502297f0fa75210d66ed59a6d4f9819f14579d254d"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f9525a05daefb242035ef0eebe35f63b4a6fd1c90b8a2d7aaec906d770aa4997"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f9525a05daefb242035ef0eebe35f63b4a6fd1c90b8a2d7aaec906d770aa4997"

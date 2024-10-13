@@ -7,6 +7,7 @@ class LibunwindHeaders < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "24ed849a21c0cb1b8eda429fb00a9c9ecdc2483195d84de351f5806071ce19fb"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ddc5b02449351bb8ddc11fea2d25ca79ecf87657dde6c7cd7c15f1b5d6ff17c5"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "ddc5b02449351bb8ddc11fea2d25ca79ecf87657dde6c7cd7c15f1b5d6ff17c5"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ddc5b02449351bb8ddc11fea2d25ca79ecf87657dde6c7cd7c15f1b5d6ff17c5"

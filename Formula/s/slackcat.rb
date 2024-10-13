@@ -6,6 +6,7 @@ class Slackcat < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "e7b6ecee653c1b0cf06e619a0ce9a3bc753774fbfac2a695a2ad18d77d15eb17"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4066c904442557a6e928e96374693212809796558ca8fd35df519620b70cdf8e"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "3056663a7ab0abf18ce63db1cf7dc853be37fcd8aa88e0935bc2c6eef2094437"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f485580b0cf05cf5d7dc4efd6e6dc9aa29545d119ebc843b06d53c84b87f2f29"

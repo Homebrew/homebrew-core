@@ -1,8 +1,8 @@
 class Zabbix < Formula
   desc "Availability and monitoring solution"
   homepage "https://www.zabbix.com/"
-  url "https://cdn.zabbix.com/zabbix/sources/stable/7.0/zabbix-7.0.2.tar.gz"
-  sha256 "4279415bccef72ec85f9f9ab21ffe8e3731feb5be89416117917800e945fa180"
+  url "https://cdn.zabbix.com/zabbix/sources/stable/7.0/zabbix-7.0.4.tar.gz"
+  sha256 "06fdb4d70a8a1fd2012ed01f84d0562a94a46163719f21cb11cb4116b6ffb5c2"
   license "AGPL-3.0-only"
   head "https://github.com/zabbix/zabbix.git", branch: "master"
 
@@ -12,13 +12,13 @@ class Zabbix < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "189dcaee0c26505a416e25f881c88ce00410aa02b8f872889a8e9666ec50c02f"
-    sha256 arm64_ventura:  "46d29001b177587341cc217cd8ca2da42d324f19fce6f67e8ee6b034ea87f884"
-    sha256 arm64_monterey: "8b4b018d42daa857faf421f911c7e71904b42356838e2439725c1ce34a873ec0"
-    sha256 sonoma:         "e6684655b47ca859579e8085fbdd086c4420503fa8219a2892258375f9197f40"
-    sha256 ventura:        "08eb69fa8bf11e1d33410d0299b755941c9cfaeaa744e6b2242e565693ea947a"
-    sha256 monterey:       "7217e11d3b46662e10fb816472e68ce7e97637f9760783812efc5daacf77baea"
-    sha256 x86_64_linux:   "31faa04bc5a5439f850cfcec041eaa225671f54b16aba97991ef20c429a4a577"
+    rebuild 1
+    sha256 arm64_sequoia: "20b5924a3f4eec8a1f9eafdd459f6b7198586434b1d64b191c2022d774ae48a1"
+    sha256 arm64_sonoma:  "0fdf1fc44b067082fe5bf0f7df3a703a7be2bdfaac0695b99746508a977e65cf"
+    sha256 arm64_ventura: "3f601e9a20984d1919d55ed14998ecbe678c7150379c3b72e29b4275614ca521"
+    sha256 sonoma:        "086326103709a6c3eb340aa374ef5fc81b38481c6a0fb9f22ae8a16f1c972a25"
+    sha256 ventura:       "c146f602125ac121162029a259f694fac4560912a0e547d3af98d443a6249f89"
+    sha256 x86_64_linux:  "4b79b6130b1f79994d08117e5722023d6de15ff47ce44f94755d5ca06bad377a"
   end
 
   depends_on "pkg-config" => :build
@@ -28,6 +28,7 @@ class Zabbix < Formula
   def install
     args = %W[
       --enable-agent
+      --enable-ipv6
       --with-libpcre2
       --sysconfdir=#{pkgetc}
       --with-openssl=#{Formula["openssl@3"].opt_prefix}

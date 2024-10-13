@@ -3,8 +3,10 @@ class Hostdb < Formula
   homepage "https://code.google.com/archive/p/hostdb/"
   url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/hostdb/hostdb-1.004.tgz"
   sha256 "beea7cfcdc384eb40d0bc8b3ad2eb094ee81ca75e8eef7c07ea4a47e9f0da350"
+  license "GPL-2.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "09b528afa8eb8c14becf6bc4240d82b1d40320be2e4a5718af35769e0ba663db"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "507656584e0ec815556008dea547944116e8e6c99a3646c3b7ae31b489e337b6"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "d1c397eae6bba51e1082904159e462f7cede76d7c3d1def04a0cfbc65cec17d5"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d1c397eae6bba51e1082904159e462f7cede76d7c3d1def04a0cfbc65cec17d5"

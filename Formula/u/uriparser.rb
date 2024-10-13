@@ -7,6 +7,7 @@ class Uriparser < Formula
   head "https://github.com/uriparser/uriparser.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "7cee35b2ea5693567cabf7ef30e9a6c8f35423ccad4cba6fa4f9dff90727d79e"
     sha256 cellar: :any,                 arm64_sonoma:   "1afad33dd8c8d67dd454030f96ca7b71fd625b088ba4e7354f52eb789995d2af"
     sha256 cellar: :any,                 arm64_ventura:  "71f1d1f2919cd33409df57ff9464007a85aaf5ed23b496b1fc3311be22edb07e"
     sha256 cellar: :any,                 arm64_monterey: "0f9231a7cc6bd6bf5578ec959b4951a9fa2bdf22a9f1ed571c5f3d9c2eccdc65"

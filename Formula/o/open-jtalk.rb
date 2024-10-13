@@ -3,8 +3,10 @@ class OpenJtalk < Formula
   homepage "https://open-jtalk.sourceforge.net/"
   url "https://downloads.sourceforge.net/project/open-jtalk/Open%20JTalk/open_jtalk-1.11/open_jtalk-1.11.tar.gz"
   sha256 "20fdc6aeb6c757866034abc175820573db43e4284707c866fcd02c8ec18de71f"
+  license all_of: ["BSD-3-Clause", "CC-BY-3.0"]
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "51df7e0512ffe97b112a49dcb57c51da678a0cce2893cf8e3a9430044aef7d7f"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "01962b472c100d6d7e9e3b908f31bed428eabf103cdd8c0a64d5611b59bccb58"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "481210a86e81dd0e1deee82d4e046025d9b1cb273352b75744404f7bc30c9400"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a6fb63e85e6e7e5b3e6bc4071fe38e9bca7f3f820deb6838a4a6b700529b02c5"

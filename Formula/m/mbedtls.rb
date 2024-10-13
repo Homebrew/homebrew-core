@@ -1,8 +1,8 @@
 class Mbedtls < Formula
   desc "Cryptographic & SSL/TLS library"
   homepage "https://tls.mbed.org/"
-  url "https://github.com/Mbed-TLS/mbedtls/releases/download/v3.6.0/mbedtls-3.6.0.tar.bz2"
-  sha256 "3ecf94fcfdaacafb757786a01b7538a61750ebd85c4b024f56ff8ba1490fcd38"
+  url "https://github.com/Mbed-TLS/mbedtls/releases/download/mbedtls-3.6.1/mbedtls-3.6.1.tar.bz2"
+  sha256 "fc8bef0991b43629b7e5319de6f34f13359011105e08e3e16eed3a9fe6ffd3a3"
   license "Apache-2.0"
   head "https://github.com/Mbed-TLS/mbedtls.git", branch: "development"
 
@@ -13,17 +13,18 @@ class Mbedtls < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "22f2f5791b39dd7b4c0e23de2f5ccdbc1d2d5646d8ae4e0f383e28c7bfec0447"
-    sha256 cellar: :any,                 arm64_ventura:  "da8283d7f4d91000050d79a3182689fe0fc457164c49b2b543c2bb3bdf7ca00d"
-    sha256 cellar: :any,                 arm64_monterey: "2f88e3981d628a7e2ba865ffe8a503665275f37cc3670b037ff03da44fb7fe70"
-    sha256 cellar: :any,                 sonoma:         "fcf016e3b79048dd5706d1d194f944d67603f872d50ba7735cc9c397eb540fbb"
-    sha256 cellar: :any,                 ventura:        "6e4b4b99da5c8c4fd8895a55dd70571282a10f2757d53e8954b93b783ab3a8aa"
-    sha256 cellar: :any,                 monterey:       "9133411777538739ca2650304d440cc1ae16884e3b601835cf2d2429c3063f39"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "88af2c1e1d18b6b99d6256a3308d90a7ccb599ea6848e04bdeb85fa0a594123a"
+    sha256 cellar: :any,                 arm64_sequoia:  "19178129a2b03ef21d5ea5d51067bf7a8a734d72c9a779207bc9ea9c5a4c9280"
+    sha256 cellar: :any,                 arm64_sonoma:   "85ebbef174334a956d09467ae5f96664a80ddff5e4907d29b19f6dba93312323"
+    sha256 cellar: :any,                 arm64_ventura:  "24958180338112358f8d047c0dacb29d142b9ef7991ecea44c065ce3a31a395c"
+    sha256 cellar: :any,                 arm64_monterey: "9da50d1a90d39a1a72b682de00b11f9525f4966dc2274ad3254072360247c6a4"
+    sha256 cellar: :any,                 sonoma:         "00860dfbfe01e85918c698b95c50a40c1cd7e102ffaa548d17be6d7c1e27ab81"
+    sha256 cellar: :any,                 ventura:        "2d4f92d6cc330d519f999550cb1b2dc3e29bd3d10724bec8a5a5dca4cdff8189"
+    sha256 cellar: :any,                 monterey:       "8a5d71363939adf144c111501bcfa530e729c6a8d975d141415db895f8c3a182"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ccbe393ef900a7aa55413c62c8a5e39cdd0b17a3e69edacc213cacb68faf59c5"
   end
 
   depends_on "cmake" => :build
-  depends_on "python@3.12" => :build
+  depends_on "python@3.13" => :build
 
   def install
     inreplace "include/mbedtls/mbedtls_config.h" do |s|
@@ -37,7 +38,7 @@ class Mbedtls < Formula
 
     system "cmake", "-S", ".", "-B", "build",
                     "-DUSE_SHARED_MBEDTLS_LIBRARY=On",
-                    "-DPython3_EXECUTABLE=#{which("python3.12")}",
+                    "-DPython3_EXECUTABLE=#{which("python3.13")}",
                     "-DCMAKE_INSTALL_RPATH=#{rpath}",
                     "-DGEN_FILES=OFF",
                     *std_cmake_args
@@ -50,7 +51,7 @@ class Mbedtls < Formula
     system "cmake", "--install", "build"
 
     # Why does Mbedtls ship with a "Hello World" executable. Let's remove that.
-    rm_f bin/"hello"
+    rm(bin/"hello")
     # Rename benchmark & selftest, which are awfully generic names.
     mv bin/"benchmark", bin/"mbedtls-benchmark"
     mv bin/"selftest", bin/"mbedtls-selftest"

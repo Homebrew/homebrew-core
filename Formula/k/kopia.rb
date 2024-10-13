@@ -7,6 +7,7 @@ class Kopia < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "0b6cb37f31d59d27430e58a36d9ed0c0959e8211451ad68065fc1e50ca8b138e"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a8a66cd5ba41a032336a449856bb176e3a6891ea75eb85421ac9ba706d94d5cd"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "b5ed85392bb79104cfb3a444ac9fcee57491bd4d5565bc95927bb80235548718"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ca58ad4ddf8815aa955d467cdca949fbee9b6abcb58152f47be8b0b3dcc76ed1"
@@ -47,10 +48,10 @@ class Kopia < Formula
     # verify version output, note we're unable to verify the git hash in tests
     assert_match(%r{#{version} build: .* from:}, output)
 
-    system "#{bin}/kopia", "repository", "create", "filesystem", "--path", testpath/"repo", "--no-persist-credentials"
+    system bin/"kopia", "repository", "create", "filesystem", "--path", testpath/"repo", "--no-persist-credentials"
     assert_predicate testpath/"repo/kopia.repository.f", :exist?
-    system "#{bin}/kopia", "snapshot", "create", testpath/"testdir"
-    system "#{bin}/kopia", "snapshot", "list"
-    system "#{bin}/kopia", "repository", "disconnect"
+    system bin/"kopia", "snapshot", "create", testpath/"testdir"
+    system bin/"kopia", "snapshot", "list"
+    system bin/"kopia", "repository", "disconnect"
   end
 end

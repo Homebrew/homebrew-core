@@ -1,5 +1,3 @@
-require "language/node"
-
 class Quicktype < Formula
   desc "Generate types and converters from JSON, Schema, and GraphQL"
   homepage "https://github.com/glideapps/quicktype"
@@ -9,19 +7,21 @@ class Quicktype < Formula
   head "https://github.com/glideapps/quicktype.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f3835e6f164868aaec4537e04dd0aa46fa94c4b8167f73fb6bf0bcae2c25f9a0"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f3835e6f164868aaec4537e04dd0aa46fa94c4b8167f73fb6bf0bcae2c25f9a0"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f3835e6f164868aaec4537e04dd0aa46fa94c4b8167f73fb6bf0bcae2c25f9a0"
-    sha256 cellar: :any_skip_relocation, sonoma:         "9272e6f82df99189c7487df54b134f7649424e283eebc95857eed36a06d9a5e7"
-    sha256 cellar: :any_skip_relocation, ventura:        "9272e6f82df99189c7487df54b134f7649424e283eebc95857eed36a06d9a5e7"
-    sha256 cellar: :any_skip_relocation, monterey:       "9272e6f82df99189c7487df54b134f7649424e283eebc95857eed36a06d9a5e7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5a57d6a5aee7eed9ed6840c933d1d5359d8921e44c0afce217cf88dd6e025b61"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "a0165ecdfca165b21db3bf3ea97076058bd2a2b58d822ea665532030f69359c8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2e197f59d0b6c2e62f03322b0e4f014671c657515a16d3bdac7ae1da3369ba16"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2e197f59d0b6c2e62f03322b0e4f014671c657515a16d3bdac7ae1da3369ba16"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "2e197f59d0b6c2e62f03322b0e4f014671c657515a16d3bdac7ae1da3369ba16"
+    sha256 cellar: :any_skip_relocation, sonoma:         "4e037edc65fcbe0cd256eef1142fe93ed25cf604af3a5ec9432f9a2381e6f614"
+    sha256 cellar: :any_skip_relocation, ventura:        "4e037edc65fcbe0cd256eef1142fe93ed25cf604af3a5ec9432f9a2381e6f614"
+    sha256 cellar: :any_skip_relocation, monterey:       "4e037edc65fcbe0cd256eef1142fe93ed25cf604af3a5ec9432f9a2381e6f614"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a741aad8272c2f841c25a8ce5a919843e84006dfd224eba6395ffbb9f22319f3"
   end
 
   depends_on "node"
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", *std_npm_args
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 

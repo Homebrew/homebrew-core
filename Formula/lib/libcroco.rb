@@ -1,12 +1,13 @@
 class Libcroco < Formula
   desc "CSS parsing and manipulation toolkit for GNOME"
-  homepage "https://gitlab.gnome.org/GNOME/libcroco"
+  homepage "https://gitlab.gnome.org/Archive/libcroco"
   url "https://download.gnome.org/sources/libcroco/0.6/libcroco-0.6.13.tar.xz"
   sha256 "767ec234ae7aa684695b3a735548224888132e063f92db585759b422570621d4"
   license "LGPL-2.1-or-later"
   revision 1
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "3e12a1334fe355c94acfe3f0bb286825a508b50164619031f7cd3ade763b303c"
     sha256 cellar: :any,                 arm64_sonoma:   "7b0586fbf8a45f772b65aad663dd6c6331657ede394f58bc789bf42f15c26c4e"
     sha256 cellar: :any,                 arm64_ventura:  "1936cc9609cb8de2360e762984a4a40d7c6ba2c92c6b2fd4133243a0b93426b0"
     sha256 cellar: :any,                 arm64_monterey: "0c7ea7611c087cead41eabbc6e7680a7d47c8c3fd6736d7f97742f1311f61eaf"
@@ -21,6 +22,9 @@ class Libcroco < Formula
     sha256 cellar: :any,                 sierra:         "a95e3733bd72b789cc9a3cb9dfc9a92153939b984c4d1d47b8aa806e99e99552"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "e0b5c4b0de56d524a572a2bd8c93f65ed827c80093776bfd7681fd6351df6e13"
   end
+
+  # Ref: https://gitlab.gnome.org/Archive/libcroco/-/issues/8
+  deprecate! date: "2024-08-04", because: :repo_archived
 
   depends_on "intltool" => :build
   depends_on "pkg-config" => :build

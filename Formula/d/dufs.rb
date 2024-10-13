@@ -1,18 +1,19 @@
 class Dufs < Formula
   desc "Static file server"
   homepage "https://github.com/sigoden/dufs"
-  url "https://github.com/sigoden/dufs/archive/refs/tags/v0.41.0.tar.gz"
-  sha256 "8c0549678a4954a498e0f1f99fe4beec2acd3cb0084fc611cf20431313b05033"
+  url "https://github.com/sigoden/dufs/archive/refs/tags/v0.42.0.tar.gz"
+  sha256 "76439a01c142d6a378912930de4b74821aa2fef54ccfb7dbb00d6ea3b1a0ab4c"
   license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "09d12364717ce43d02181db124d3eb1cf5c366b417190a6002bc14acf96c0ae4"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "28999d5b0e1dc24bdaa4c38ff8cf8642ad531cfcd43b31a82a3fe4c23146037d"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "4475dc148bdc74b27395805ee113bbda358c4ecde493a4c6efb1bb21eb72632e"
-    sha256 cellar: :any_skip_relocation, sonoma:         "733ef95274ffe10c44a790765bf68ee0d79f6b4181c16b3213293f765d90e38d"
-    sha256 cellar: :any_skip_relocation, ventura:        "709da7d0b1d757fcf4939716ccc30b072316766ff7d9d8c3087b28ac1b9663aa"
-    sha256 cellar: :any_skip_relocation, monterey:       "407e3e17eb39494141f79ff647fc6af149486e1db3618b484d6356a7b7b6a98a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "de418b9b6c1ce412cc721e06987f3080cda7a06be44342f099e57bf65b9fa43d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "ac3566fe5294fe2426e911b28acf6daefac058dc8c0d94e50e902b55323c9d45"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e6429c8756124168ff779a3fb1ce09ada5fb25e02374ab7b168555763a4b971a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "341a66c050fb0af6a9afff679f5a6e65bbb6d6d5c16199f8d925c80330069a64"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e07983bebda8931266dce4c3e23153d22c8d8fe3cd5409425bdd2d7481b726d7"
+    sha256 cellar: :any_skip_relocation, sonoma:         "679ca39d82ad40dbb24376f17746ed7ba8e2e72b3262b5b6d948080eff91dae8"
+    sha256 cellar: :any_skip_relocation, ventura:        "db19c77860c925734e58f5cf06d6640c76f2fe20464c380b1a873af813656aaa"
+    sha256 cellar: :any_skip_relocation, monterey:       "3ae3007836b1297ec00bfcbb8bb31afb54e9d2f9e28454e04bd482788a629c35"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "379ad8a7c76a0775f5f17dea369a746d2f67e74248d3595234ce7ebb834399f2"
   end
 
   depends_on "rust" => :build
@@ -26,7 +27,7 @@ class Dufs < Formula
   test do
     port = free_port
     pid = fork do
-      exec "#{bin}/dufs", bin.to_s, "-b", "127.0.0.1", "--port", port.to_s
+      exec bin/"dufs", bin.to_s, "-b", "127.0.0.1", "--port", port.to_s
     end
 
     sleep 2

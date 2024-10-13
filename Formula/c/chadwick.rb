@@ -3,7 +3,7 @@ class Chadwick < Formula
   homepage "https://chadwick.sourceforge.net/doc/index.html"
   url "https://downloads.sourceforge.net/project/chadwick/chadwick-0.7/chadwick-0.7.2/chadwick-0.7.2.tar.gz"
   sha256 "f7b3af15281106e101e2ccc4cb182a3f15dbdc3327f2bcb045bfc486a8fda46e"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url :stable
@@ -11,6 +11,7 @@ class Chadwick < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "ea8f3deb32e7ade5b361904026269eab8b02b7fd47a85f68742949a28b33c9bb"
     sha256 cellar: :any,                 arm64_sonoma:   "855a048e94a4e914cede20351ea1984f9d70dbfeddcd8e91977c7258e3a320ce"
     sha256 cellar: :any,                 arm64_ventura:  "0686220c29d180a3aa51a536564ae3289dca57e26fc74b15076a7b00af5121dc"
     sha256 cellar: :any,                 arm64_monterey: "38685dff8c84293981d24cb109e29e7daab5054c8b643e5d4f4345a6ca5b68ab"

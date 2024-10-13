@@ -8,6 +8,7 @@ class Kn < Formula
   head "https://github.com/knative/client.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "c42b2ee3fa22e70e49de0ea5a67fa55b600f77e7a30a6ab5a4590d7e063b5224"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f214605c37805783058d0e347cba6118e33885c807d343af05cf4fdb09984cae"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f214605c37805783058d0e347cba6118e33885c807d343af05cf4fdb09984cae"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f214605c37805783058d0e347cba6118e33885c807d343af05cf4fdb09984cae"
@@ -34,7 +35,7 @@ class Kn < Formula
   end
 
   test do
-    system "#{bin}/kn", "service", "create", "foo",
+    system bin/"kn", "service", "create", "foo",
       "--namespace", "bar",
       "--image", "gcr.io/cloudrun/hello",
       "--target", "."

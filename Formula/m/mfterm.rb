@@ -3,10 +3,11 @@ class Mfterm < Formula
   homepage "https://github.com/4ZM/mfterm"
   url "https://github.com/4ZM/mfterm/releases/download/v1.0.7/mfterm-1.0.7.tar.gz"
   sha256 "b6bb74a7ec1f12314dee42973eb5f458055b66b1b41316ae0c5380292b86b248"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
   revision 3
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "c39d49d9fc6ecddfb36e2e6f92b5e0e130ab8f02a9e8865a33a5cf022479a528"
     sha256 cellar: :any,                 arm64_sonoma:   "f8fe27bad6cfa36a2883513d7d5656022c08cd96974fe350a5e77f51a668fca1"
     sha256 cellar: :any,                 arm64_ventura:  "d6700be1830322a6b2c164cecdfcdbeb2285c4ab2db1518a0782f820e842b63b"
     sha256 cellar: :any,                 arm64_monterey: "a8910ab8b9320d26fb258e95f1d2d8a1d5d8dfcbed739464c916e6f0b6b8b896"
@@ -26,11 +27,14 @@ class Mfterm < Formula
   end
 
   depends_on "libnfc"
-  depends_on "libusb"
   depends_on "openssl@3"
 
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
+
+  on_linux do
+    depends_on "readline"
+  end
 
   def install
     ENV.prepend "CPPFLAGS", "-I#{Formula["openssl@3"].opt_include}"
@@ -40,11 +44,11 @@ class Mfterm < Formula
       chmod 0755, "./autogen.sh"
       system "./autogen.sh"
     end
-    system "./configure", "--prefix=#{prefix}", "--disable-dependency-tracking"
+    system "./configure", "--disable-silent-rules", *std_configure_args
     system "make", "install"
   end
 
   test do
-    system "#{bin}/mfterm", "--version"
+    system bin/"mfterm", "--version"
   end
 end

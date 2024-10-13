@@ -1,22 +1,20 @@
 class Nlopt < Formula
   desc "Free/open-source library for nonlinear optimization"
   homepage "https://nlopt.readthedocs.io/"
-  url "https://github.com/stevengj/nlopt/archive/refs/tags/v2.7.1.tar.gz"
-  sha256 "db88232fa5cef0ff6e39943fc63ab6074208831dc0031cf1545f6ecd31ae2a1a"
+  url "https://github.com/stevengj/nlopt/archive/refs/tags/v2.8.0.tar.gz"
+  sha256 "e02a4956a69d323775d79fdaec7ba7a23ed912c7d45e439bc933d991ea3193fd"
   license "MIT"
   head "https://github.com/stevengj/nlopt.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "6e028c84b18b298cec89e695032458b7d9ef9a5f26a7becafdc14077d998e6e8"
-    sha256 cellar: :any,                 arm64_ventura:  "50c557edfb63b6bcc13096c6f45d4edf44d6a3858251f607a207bacb42fd27dd"
-    sha256 cellar: :any,                 arm64_monterey: "1b9da35eee41e6edae359ce403cf555e7a8b2335ebe78b940c61bbe9516a3c17"
-    sha256 cellar: :any,                 arm64_big_sur:  "4f42df05985991ae1a5c41c090936fde6a52cef297667a268ff3d6f6c90622e9"
-    sha256 cellar: :any,                 sonoma:         "4c522a49f6b7222cfd3014a18686eae33be2a5d449c149b1a9855c944b66dc73"
-    sha256 cellar: :any,                 ventura:        "6f8391873db69306ca067a87f0db752b3b6f80830179d5eb79838cc282dd16e3"
-    sha256 cellar: :any,                 monterey:       "b4fdf154903fc00284e3a37e58bb699ac75a067c355a9ee7efb80c1722b1c522"
-    sha256 cellar: :any,                 big_sur:        "062d705f7d1c94fa4dc93ea2aea8a6674c35d94aaf0f22a6fdad10ea8dc2677e"
-    sha256 cellar: :any,                 catalina:       "dac5c573f40f2ae2e15ef67bff4a8ec178f7c7b19940500d51a25d993c19e79d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "760bd7b65c434a8ab61c18f3c036b64ce367de7818edc82785af4f95e80a5460"
+    sha256 cellar: :any,                 arm64_sequoia:  "6cc504a8ae9faaa179ccdc53f2c60e798d094171bfaf8cccd6b2b21daaeb29f5"
+    sha256 cellar: :any,                 arm64_sonoma:   "20f0cac5105fa0ddc82842091aeb29a1efa7ad3f3a6ef6141f6fb733d0a51175"
+    sha256 cellar: :any,                 arm64_ventura:  "c1d084e9e02aeea9590837a4f589c5366809bb0b2a8ffa89db52a547fb587b81"
+    sha256 cellar: :any,                 arm64_monterey: "bc0304fa0a34d1331a3114d06cbeae705625ca482f3412bd89880b7d7ca4a061"
+    sha256 cellar: :any,                 sonoma:         "79efb55e1183b61a70e6ae3a976fadb8c2f63da6af7ed84bc4e88ad43ced3b4c"
+    sha256 cellar: :any,                 ventura:        "1cacc860d735502e1557cbfce2822acf99b2c54f256717801bb87af4bb2c87d9"
+    sha256 cellar: :any,                 monterey:       "748a39a74580c9985953d94b6fccfaf79f7070a27835cc8225c848987dd79576"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3f51af4ef62578c001a8967c868d2206e54e35f0226d2296c2aa13a86fee4d82"
   end
 
   depends_on "cmake" => [:build, :test]

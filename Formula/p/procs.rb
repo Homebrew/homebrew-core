@@ -1,11 +1,12 @@
 class Procs < Formula
-  desc "Modern replacement for ps written by Rust"
+  desc "Modern replacement for ps written in Rust"
   homepage "https://github.com/dalance/procs"
   url "https://github.com/dalance/procs/archive/refs/tags/v0.14.6.tar.gz"
   sha256 "3d5cd529c858ca637b166bac908e0d8429c33bdfa9d8db6282f36d5732e4e30a"
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "e72517ce6f45e95d05646668f91d8bc4cd4bb2a0c2b247fa602572c30cc7244a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4403e855affce7f84a54fc32729e302d30324979ca3709653d1ffc22f8a5a13f"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f4e55542abfdf250b389dbf60b7cfaa9363268c3e944aff27f9a82dc5dd28003"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ccd5d1466ad95922827367ecf97bb07ca1e5aa1a8fad0521b712cb1f5fc417cb"

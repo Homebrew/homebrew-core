@@ -1,8 +1,8 @@
 class Acpica < Formula
   desc "OS-independent implementation of the ACPI specification"
-  homepage "https://www.intel.com/content/www/us/en/developer/topic-technology/open/acpica/overview.html"
-  url "https://downloadmirror.intel.com/819451/acpica-unix-20240321.tar.gz"
-  sha256 "54a299487925fd3e0551c95f9d5cee4f4984930273983eff67aa5cd46f8f338b"
+  homepage "https://github.com/acpica/acpica"
+  url "https://downloadmirror.intel.com/835329/acpica-unix2-20240927.tar.gz"
+  sha256 "4471a9c92f2f68b84be0647c4376a176fcb68a6289d7679c1b3a430507f65d71"
   license any_of: ["Intel-ACPI", "GPL-2.0-only", "BSD-3-Clause"]
   head "https://github.com/acpica/acpica.git", branch: "master"
 
@@ -12,13 +12,12 @@ class Acpica < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "aca6ac27a50ddca345af0b68560b7ed98f99cc7f1e1f54e05baa9dc3ab2d8256"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8fc6c354fbf85c390a73453899e19012702ce2b3f70892fddec69cbdb3999d72"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "37f3095f9e790bea7e22700aaee279bb701634b2433b497c79ef9e427556b20b"
-    sha256 cellar: :any_skip_relocation, sonoma:         "9d9463522f0ba27672ad9481cc8b61446fdb687a38f7304697c5fd1eae28ff38"
-    sha256 cellar: :any_skip_relocation, ventura:        "08911b72f49ee6010719948991cbc0477cfc415d5bba6727e8e037ef9b7c194c"
-    sha256 cellar: :any_skip_relocation, monterey:       "75b6722b526aa97a9b61da965c99200903ba36a7699a4da20603333e8020dbef"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "13212ac69dfdbe188c0b91a0d80de8e99483dc76c90d60c62b016ba75469c769"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e365a4578890fecb9ca994a2a7bc162b01aeab1726450d3facfcd4838dd72f89"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4933bbf4367e5b2996e9090e367cf06381105b6881e7c66d0f387ddc62abb530"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "d3c66ef224e8cd8aab50fa7a8d776a6d3315db285c73cc40efa30c7769d85199"
+    sha256 cellar: :any_skip_relocation, sonoma:        "0d013f9272915ad9bc4521a7b1057a87a381a9858332f52cb19472067f80aee0"
+    sha256 cellar: :any_skip_relocation, ventura:       "aece8fec1058cc8c0046ef059bda98ec3301f08da7d2cc224631be2e079a65b3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a885756d3404a92a82f1a077e5ee31b8acb9e511b62e474ab4d48ea94218f8c8"
   end
 
   uses_from_macos "bison" => :build
@@ -33,6 +32,6 @@ class Acpica < Formula
   end
 
   test do
-    system "#{bin}/acpihelp", "-u"
+    system bin/"acpihelp", "-u"
   end
 end

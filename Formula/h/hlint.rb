@@ -7,6 +7,7 @@ class Hlint < Formula
   head "https://github.com/ndmitchell/hlint.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "1a79fe9800a476c55ea668a9594da108f23635df72bb426d6d3976da27e14ec8"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "93280e9808e8d43e4d01945354fb77440c661f0b3d92e6686ddc9899212c9799"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "616ff80e2cbaf17bfae3a60fed8ac681f876afa4002f284ac73009763e87aa3c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6c5a25193ca8218a016a076089372b90c1486c6eeb2277703e5a07c837482c24"
@@ -17,7 +18,7 @@ class Hlint < Formula
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc" => :build
+  depends_on "ghc@9.8" => :build
 
   uses_from_macos "ncurses"
 

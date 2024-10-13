@@ -70,6 +70,6 @@ class Cdparanoia < Formula
   end
 
   test do
-    system "#{bin}/cdparanoia", "--version"
+    system bin/"cdparanoia", "--version"
   end
 end

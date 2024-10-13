@@ -12,6 +12,7 @@ class Sleuthkit < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "bc97ef36de9b6624b24bc4714892ed4463cbe5a53d1885c2ca73cb846ae97d15"
     sha256 cellar: :any,                 arm64_sonoma:   "3990023db44a7191cbfc5318b11cf1c9a9765792551aca8e4745928844356c03"
     sha256 cellar: :any,                 arm64_ventura:  "b0d6b888b6dc5d2b56529e5248819ce846247d4d3d032bb5ac1d8dc1e9f9e000"
     sha256 cellar: :any,                 arm64_monterey: "024475cedc9b7c93d859d7f0d9d1f3caf1a230c0031057ccdf25358dd52f547d"
@@ -24,12 +25,14 @@ class Sleuthkit < Formula
   end
 
   depends_on "ant" => :build
+
   depends_on "afflib"
   depends_on "libewf"
   depends_on "libpq"
   depends_on "openjdk"
+  depends_on "sqlite"
 
-  uses_from_macos "sqlite"
+  uses_from_macos "zlib"
 
   conflicts_with "ffind", because: "both install a `ffind` executable"
 
@@ -50,6 +53,6 @@ class Sleuthkit < Formula
   end
 
   test do
-    system "#{bin}/tsk_loaddb", "-V"
+    system bin/"tsk_loaddb", "-V"
   end
 end

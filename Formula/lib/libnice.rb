@@ -11,13 +11,13 @@ class Libnice < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_sonoma:   "561998831e0aa0fd61bd6ba913249959b5990a527f3b201151acebb9ba36e166"
-    sha256 cellar: :any, arm64_ventura:  "864676854f73e9d95de61dfd004f4e49e161fcca41a58b2aab7e6d2f03e1715d"
-    sha256 cellar: :any, arm64_monterey: "c0b2d5e710b9748cb14804ccfc32b8f08949f4212313c0c3eed8b74fb0b2e3a9"
-    sha256 cellar: :any, sonoma:         "e05d0d12b548e049380c972439f152ebc10a58312eb1a2d3666df570e174a6b7"
-    sha256 cellar: :any, ventura:        "9848b98bcee8122cc9d4867332d4dc372faba88cfecf4a58e54ef6cbdb803f76"
-    sha256 cellar: :any, monterey:       "73566f6bbd1496154268a114ef5bc53f1b03330fd8f7b62a15d87de7dde35793"
-    sha256               x86_64_linux:   "392d7eb8bea2d013695a4d57d7a5849d702d018f9d1e2009accd01edbc979784"
+    rebuild 1
+    sha256 cellar: :any, arm64_sequoia: "e1f4f8532d745a6555e861c342f56ec7a0d0b827f13b4e80c4d6218857b3ae2f"
+    sha256 cellar: :any, arm64_sonoma:  "9582197a0a9f71c2e6751c739c24027e55294303a1ca878091a751513898417d"
+    sha256 cellar: :any, arm64_ventura: "14745e9ade6980ce27101f8be9ea209180aabd691628f908acac939e8249a3e2"
+    sha256 cellar: :any, sonoma:        "bfa1f6813b1bc1fe0be25937d85b2eeff7288b8f93b1c5e70c3a1e72562febfb"
+    sha256 cellar: :any, ventura:       "e50b4f94bf2ec4bf8248bf41a32ea1af1fdc512037b1d6d7919cbbf14048d00b"
+    sha256               x86_64_linux:  "6805ee9bd44ec5f3573d1fc688d2beac5971904de5996c1239d406de74a37965"
   end
 
   depends_on "meson" => :build
@@ -26,7 +26,6 @@ class Libnice < Formula
 
   depends_on "glib"
   depends_on "gnutls"
-  depends_on "gstreamer"
 
   on_macos do
     depends_on "gettext"
@@ -37,7 +36,7 @@ class Libnice < Formula
   end
 
   def install
-    system "meson", "setup", "build", *std_meson_args
+    system "meson", "setup", "build", "-Dgstreamer=disabled", *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"
     system "meson", "install", "-C", "build"
   end

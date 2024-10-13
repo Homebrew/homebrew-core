@@ -11,6 +11,7 @@ class Cscope < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "690ea8542348fc155da1a174f6e98cf08d81be181a222853a504124c9071c08b"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "45fbc22efa33e380eeca6976ad47869871115e9be506b16dfce771783ccd7c0a"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "955599d1da5c49055ac99ef74278c40fa33079472e106115a5b3d754758167e0"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b85e2ad5e9ddcdb57a2cca430520e64f70cefd2b182bae70c216360e72757611"
@@ -51,7 +52,7 @@ class Cscope < Formula
       }
     EOS
     (testpath/"cscope.files").write "./test.c\n"
-    system "#{bin}/cscope", "-b", "-k"
+    system bin/"cscope", "-b", "-k"
     assert_match(/test\.c.*func/, shell_output("#{bin}/cscope -L1func"))
   end
 end

@@ -6,6 +6,7 @@ class Arss < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "02051c251dcf51557823a6ae6effb432c9c892a42a3ab19e80c9b8f0e61327ad"
     sha256 cellar: :any,                 arm64_sonoma:   "b0bf1ad20a051b16f65fbbe1ee4780b674ae2a12953291e51de2ca4fd1d478d8"
     sha256 cellar: :any,                 arm64_ventura:  "8daf9486dc32c8698fa1fb731ceb12b04d00019043a803803a71e7472a0781ee"
     sha256 cellar: :any,                 arm64_monterey: "89e8bfca3e620702bbf44ad9f75dcf18c48ef90b5ea97709a657be4cf15e6d25"
@@ -33,6 +34,6 @@ class Arss < Formula
   end
 
   test do
-    system "#{bin}/arss", "--version"
+    system bin/"arss", "--version"
   end
 end

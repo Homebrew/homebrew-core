@@ -8,6 +8,7 @@ class ProofGeneral < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "f0afc78703aed0f2cdd4ec47dc841b5bf2ecc69b52d7f4a1b3ef7c2189a127b4"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b0c27f7ce047eac700c1aa07cf9a723b54f4bb0d2f62ee2375bde197a5434af9"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "b87a94e0c06c19d5d57aedd9a628b69a22d559cfd331f563dcb93c02b5f0a402"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b87a94e0c06c19d5d57aedd9a628b69a22d559cfd331f563dcb93c02b5f0a402"

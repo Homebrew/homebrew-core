@@ -11,6 +11,7 @@ class Hq < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "98303f1643d1cae4cd2c7c12b89eca81e9861cb85a3ff9259b7e91e21cdc81e1"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "bb2ff0f3f904b95e1de83afa9df496e1cdb9e7b884f8bc6d6752e1d4f2e5add2"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "eb0f1f15deae5619464b105b1fb9ac5c3086e9d74146d8d41155390f48a4eac6"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "97c09153ae3ec35218ea7b371ecc89404e391eefa4b8e1510f7aa7ec98b3a0b8"

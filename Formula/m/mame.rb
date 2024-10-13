@@ -1,9 +1,9 @@
 class Mame < Formula
   desc "Multiple Arcade Machine Emulator"
   homepage "https://mamedev.org/"
-  url "https://github.com/mamedev/mame/archive/refs/tags/mame0267.tar.gz"
-  version "0.267"
-  sha256 "c6dacd02080ab20512a7d15fc6a1715879912d7482df6b4d5f36849e1ae5813f"
+  url "https://github.com/mamedev/mame/archive/refs/tags/mame0270.tar.gz"
+  version "0.270"
+  sha256 "0364b670478883902c2bc618908192b0590235b47fbe073fcac2d13b82541437"
   license "GPL-2.0-or-later"
   head "https://github.com/mamedev/mame.git", branch: "master"
 
@@ -19,13 +19,13 @@ class Mame < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "dbc49f88f95a756c9adf66ace1753be1a05bc5d42dac36e9d386600fd9959c0a"
-    sha256 cellar: :any,                 arm64_ventura:  "b4d2855a4d63d7c30a8b0ae90d813dfccda79c4f33444516fde169f91e503a3b"
-    sha256 cellar: :any,                 arm64_monterey: "380dabbfbcc99b6f4933f2b98753fd5fb5ef6061442672b18980f0b951770749"
-    sha256 cellar: :any,                 sonoma:         "232b2e9e80c30cfba204fcd62c3d00d749cdd8bc2a6493d9fff7adbd4064bf72"
-    sha256 cellar: :any,                 ventura:        "ed711aef6ed678782ed4e10cdbe289c9372c1aa0aacf436ef26d8c7d4dce068e"
-    sha256 cellar: :any,                 monterey:       "5c712d8159c97d98132793e99a17529bde103c354c4046c5614709da7a4d54ab"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a01c37616f8dfb2d9fd0796b521f7f948968b01f681ec8942dafda69c135efe6"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "655b0ee403eb625726129c3a91992926b5b1a24435f3e732ac4cac9ca4331320"
+    sha256 cellar: :any,                 arm64_sonoma:  "9b5b74a72460aee2691ffc904bf542d2888cb9ac082a0c56bf290c3e1fd5375d"
+    sha256 cellar: :any,                 arm64_ventura: "c338a60149366261430fa1bf6a710cebf65e69ea94ceb67ba6e99657a6d3ddb8"
+    sha256 cellar: :any,                 sonoma:        "8ca7940a3f89c2b7d0c18738a34dc716ac38ca2d67cdb41eca29e2d58fc81e83"
+    sha256 cellar: :any,                 ventura:       "28461f747b1ff834336dd4f41f2b6e894aeec8baa68bfc2ce9085bcc8a882ae5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c2c042479a6f4cf61b2a2687955d3081423878b77208bd19c5272cd477504196"
   end
 
   depends_on "asio" => :build
@@ -50,15 +50,25 @@ class Mame < Formula
   uses_from_macos "zlib"
 
   on_linux do
+    depends_on "fontconfig"
+    depends_on "libx11"
+    depends_on "libxi"
+    depends_on "mesa"
     depends_on "pulseaudio"
-    depends_on "qt@5"
+    depends_on "qt"
     depends_on "sdl2_ttf"
   end
 
-  fails_with gcc: "5"
-  fails_with gcc: "6"
+  # Support alternate Qt libexec directories
+  # PR ref: https://github.com/mamedev/mame/pull/12870
+  patch do
+    url "https://github.com/mamedev/mame/commit/f1604dbe7e51f519bb98cf4c52c8b0e41184384b.patch?full_index=1"
+    sha256 "42204cbf23c6a20a8b2dba515ce50e119870b5037fe224da45c53782170fb1df"
+  end
 
   def install
+    ENV["QT_HOME"] = Formula["qt"].opt_prefix if OS.linux?
+
     # Cut sdl2-config's invalid option.
     inreplace "scripts/src/osd/sdl.lua", "--static", ""
 

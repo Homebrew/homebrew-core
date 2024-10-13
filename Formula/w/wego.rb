@@ -1,21 +1,20 @@
 class Wego < Formula
   desc "Weather app for the terminal"
   homepage "https://github.com/schachmat/wego"
-  url "https://github.com/schachmat/wego/archive/refs/tags/2.2.tar.gz"
-  sha256 "e7a6d40cb44f4408aedceebbed5854b3b992936cc762df6b76f5a9dca7909321"
+  url "https://github.com/schachmat/wego/archive/refs/tags/2.3.tar.gz"
+  sha256 "6a7501ab537709d1d9fc04f14e5a2c5a8f99309591a8dae75260caf4a74ce567"
   license "ISC"
   head "https://github.com/schachmat/wego.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "85a6d02edc64b7bc6b8c3b8ae12a85a0b04d8d3692b58ac79fc87658a806867b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1f5b23391824baaec44fd2319999c09b6ffac91b2985889b1ea73a2974ad19ef"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "1f5b23391824baaec44fd2319999c09b6ffac91b2985889b1ea73a2974ad19ef"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1f5b23391824baaec44fd2319999c09b6ffac91b2985889b1ea73a2974ad19ef"
-    sha256 cellar: :any_skip_relocation, sonoma:         "2f89ef4a6e4da50aa1804029e2d364c3469f9d13b238484d9f0af024ac8ab25d"
-    sha256 cellar: :any_skip_relocation, ventura:        "dc2004af7cbb8e2a43f2d498784920a7352828bf4a605a2a8035c8e5fa41787b"
-    sha256 cellar: :any_skip_relocation, monterey:       "dc2004af7cbb8e2a43f2d498784920a7352828bf4a605a2a8035c8e5fa41787b"
-    sha256 cellar: :any_skip_relocation, big_sur:        "dc2004af7cbb8e2a43f2d498784920a7352828bf4a605a2a8035c8e5fa41787b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6c8b6f1f1a2f2234517e996ffda49f1ee0d4c6ed648c6d08de6ccdaa2df7ef7e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "c018b940e572be3adf5d7813f7bef94a36ffe8733bd8afadb53e115de28b7a2c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3a72b006e5227806f20935e88d2f8eb85617f32fe1c56904acb986305157885c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3a72b006e5227806f20935e88d2f8eb85617f32fe1c56904acb986305157885c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "3a72b006e5227806f20935e88d2f8eb85617f32fe1c56904acb986305157885c"
+    sha256 cellar: :any_skip_relocation, sonoma:         "b6d7829893896b8576788a0d7df2f95c59c4ca98df57af9a66f87547a14d01a3"
+    sha256 cellar: :any_skip_relocation, ventura:        "b6d7829893896b8576788a0d7df2f95c59c4ca98df57af9a66f87547a14d01a3"
+    sha256 cellar: :any_skip_relocation, monterey:       "b6d7829893896b8576788a0d7df2f95c59c4ca98df57af9a66f87547a14d01a3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5028e25c825625552b1788d3ce16572f52eeff6837c983279b1f5c10b44ff74e"
   end
 
   depends_on "go" => :build

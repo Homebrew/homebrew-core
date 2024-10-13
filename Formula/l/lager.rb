@@ -6,14 +6,8 @@ class Lager < Formula
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "cc095435132c064037c0cd2da9fb6ea76bfff6d8e2b57e68845f0026e7e8afe9"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "cc095435132c064037c0cd2da9fb6ea76bfff6d8e2b57e68845f0026e7e8afe9"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "cc095435132c064037c0cd2da9fb6ea76bfff6d8e2b57e68845f0026e7e8afe9"
-    sha256 cellar: :any_skip_relocation, sonoma:         "cc095435132c064037c0cd2da9fb6ea76bfff6d8e2b57e68845f0026e7e8afe9"
-    sha256 cellar: :any_skip_relocation, ventura:        "cc095435132c064037c0cd2da9fb6ea76bfff6d8e2b57e68845f0026e7e8afe9"
-    sha256 cellar: :any_skip_relocation, monterey:       "cc095435132c064037c0cd2da9fb6ea76bfff6d8e2b57e68845f0026e7e8afe9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "90ed225918215d18f941fde3c5d49197caa83c78b9eed0511d35e8e8fd059366"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "092b29ac8e64b817faba834b6b03d4970ce7cf939a271e812bdfcfd09dd081ff"
   end
 
   depends_on "cmake" => :build

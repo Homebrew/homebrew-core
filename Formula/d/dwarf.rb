@@ -3,10 +3,11 @@ class Dwarf < Formula
   homepage "https://github.com/elboza/dwarf-ng/"
   url "https://github.com/elboza/dwarf-ng/archive/refs/tags/dwarf-0.4.0.tar.gz"
   sha256 "a64656f53ded5166041ae25cc4b1ad9ab5046a5c4d4c05b727447e73c0d83da0"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
   revision 1
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "18e5a2ac12431c5fd538a6c1101b53b8fb2c45652d0c6c9c84b30c36534293e9"
     sha256 cellar: :any,                 arm64_sonoma:   "2178e68ea91b6f9482ba9370ff84700d32689188cdcdf0de7eddacd650a42b66"
     sha256 cellar: :any,                 arm64_ventura:  "d0244af1e2cc656fa2c4d040caef6910ffdc6a8cff2480d315db3bc9fbe0a9e3"
     sha256 cellar: :any,                 arm64_monterey: "0bd56303a2a78e899a035597b779d5a3701f911ebfdf586d4a41d660f13253fe"
@@ -28,6 +29,11 @@ class Dwarf < Formula
   uses_from_macos "bison" => :build
 
   def install
+    # Workaround for newer Clang
+    if DevelopmentTools.clang_build_version >= 1500
+      inreplace "src/Makefile", "-Wall", "-Wall -Wno-incompatible-function-pointer-types"
+    end
+
     # Work around failure from GCC 10+ using default of `-fno-common`
     # /usr/bin/ld: repl.o:(.bss+0x20): multiple definition of `fc_ptr'
     args = ENV.compiler.to_s.start_with?("gcc") ? ["CC=#{ENV.cc} -fcommon"] : []

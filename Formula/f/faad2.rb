@@ -6,6 +6,7 @@ class Faad2 < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "2235c9a4c2e4dfe500c185e191f6a3487c0e18706a401b1fd403f2ad009dca8c"
     sha256 cellar: :any,                 arm64_sonoma:   "0130a83d47053aa23ad1687d1eac324f9bde6b1f22ab758e640bf3922c962bd5"
     sha256 cellar: :any,                 arm64_ventura:  "5f0fab6de9cf4dc35864e5ce8a7b8b5549dce4757da5f24d26bf7df058bbe628"
     sha256 cellar: :any,                 arm64_monterey: "8c1b8e4f6a5381a051289223200107587f040bbb76e4187785e59e0887d27d75"

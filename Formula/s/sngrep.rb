@@ -6,6 +6,7 @@ class Sngrep < Formula
   license "GPL-3.0-or-later" => { with: "openvpn-openssl-exception" }
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "0bfc56c0e4f1b9ffdea333a9fe372928b81b6bc0b931e3629b1c822bb062272f"
     sha256 cellar: :any,                 arm64_sonoma:   "af78fe4604a4b205135a31f113a35907d121d08bd7352f5747f82afbfbf7b964"
     sha256 cellar: :any,                 arm64_ventura:  "024eb3f86b15664e9cdae3dec40226b91432a2abe44bd3e6c72fbcff0f9c6167"
     sha256 cellar: :any,                 arm64_monterey: "2ce85bce10e93345e1991e4d23d92f46df955cf90c20bf47a0abe4eea4d9c0f7"

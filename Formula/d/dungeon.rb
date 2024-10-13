@@ -7,6 +7,7 @@ class Dungeon < Formula
   revision 3
 
   bottle do
+    sha256                               arm64_sequoia:  "d50cc1299d0c1d287a9528d49f0f93e2e208eb7cc6e766cab75a892063e2264f"
     sha256                               arm64_sonoma:   "465920dcc443e450f3043dbe316c10c57cd640393b1640fb4756f4acee9e72f1"
     sha256                               arm64_ventura:  "3c9c893622d3b9051d0c42929ecc64774e4bc9669a50cf2a088f32de229e05f2"
     sha256                               arm64_monterey: "7738a32ea7545be8c7bfa3e5c0deb5f675b34c89d72d352088cfe6e985673ea0"
@@ -45,7 +46,7 @@ class Dungeon < Formula
 
   test do
     require "open3"
-    Open3.popen3("#{bin}/dungeon") do |stdin, stdout, _|
+    Open3.popen3(bin/"dungeon") do |stdin, stdout, _|
       stdin.close
       assert_match " Welcome to Dungeon.\t\t\t", stdout.read
     end

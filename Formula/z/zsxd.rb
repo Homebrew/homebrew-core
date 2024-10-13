@@ -3,10 +3,12 @@ class Zsxd < Formula
   homepage "https://www.solarus-games.org/games/the-legend-of-zelda-mystery-of-solarus-xd/"
   url "https://gitlab.com/solarus-games/games/zsxd/-/archive/v1.12.2/zsxd-v1.12.2.tar.bz2"
   sha256 "656ac2033db2aca7ad0cd5c7abb25d88509b312b155ab83546c90abbc8583df1"
+  license all_of: ["CC-BY-SA-4.0", "GPL-3.0-only"]
   head "https://gitlab.com/solarus-games/games/zsxd.git", branch: "dev"
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "7f0acd40f96b33fa5dfb02c86c7c5565d0c02043888ab1824e9c65bc515cbd8e"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "913089c3f580b340c83ee2a0146e76cc5537d8ace0b27a053413ad130e37e5b3"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "d3210e812054b1162800685d3a548822065dbe07053515f4e1185fe8a6c5a7fe"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ee42ed381fd488a0e538e30eeff539346f71c0822fcc899907792fc4acc5988a"
@@ -28,8 +30,9 @@ class Zsxd < Formula
   uses_from_macos "unzip" => :test
 
   def install
-    system "cmake", ".", *std_cmake_args, "-DSOLARUS_INSTALL_DATADIR=#{share}"
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build", "-DSOLARUS_INSTALL_DATADIR=#{share}", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do

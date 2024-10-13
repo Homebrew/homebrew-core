@@ -6,6 +6,7 @@ class Roll < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "fb1ee4685b24f925ca41abe63c8e7703a9656b96088c4fba6b483cfcdeea9e76"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7a4fb62e0cf82c19e312fa67b94af3ffecae251323a0a327fd7b99aec74a85e6"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "6ffc7291577ef075aa3c1369419b6d92389b19ad6cd0d841bc613f3eae48c016"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "3a8e1ac1b898c674f5a752ca03e7952d011f7b115529d3ab1f92f745392ecfe4"
@@ -32,6 +33,6 @@ class Roll < Formula
   end
 
   test do
-    system "#{bin}/roll", "1d6"
+    system bin/"roll", "1d6"
   end
 end

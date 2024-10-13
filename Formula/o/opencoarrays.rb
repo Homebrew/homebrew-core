@@ -4,17 +4,16 @@ class Opencoarrays < Formula
   url "https://github.com/sourceryinstitute/OpenCoarrays/releases/download/2.10.2/OpenCoarrays-2.10.2.tar.gz"
   sha256 "e13f0dc54b966b0113deed7f407514d131990982ad0fe4dea6b986911d26890c"
   license "BSD-3-Clause"
-  revision 4
+  revision 5
   head "https://github.com/sourceryinstitute/opencoarrays.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "184ee097de916fb71dbe738503878b7065b08b18f7f6d845ed840c1965fdf911"
-    sha256 cellar: :any,                 arm64_ventura:  "99a88e8b98865f4e49a6b45668ae9ce17a2cb16a16a27601592867431f0556ed"
-    sha256 cellar: :any,                 arm64_monterey: "2a75417b713d0ac5bd92e3fa3f8c9b5f6d2d6ce3112e760bca0857d9204cbcb4"
-    sha256 cellar: :any,                 sonoma:         "789d54b40e2e9e7d887f579e7fda857a85ee724ebb719c476acf0515276cab07"
-    sha256 cellar: :any,                 ventura:        "849c075171928fac437f75c62e716a0fbb646ddcdfab88852d4919d9309fde25"
-    sha256 cellar: :any,                 monterey:       "19bc44371dbcb4bd9fc179ce0e5c2e4d29658dfb36d37017d85188c80c6b0411"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0b39e050aa00ddf5a88737051b4984cac7ea0550058ab6c036872c2252cffaa9"
+    sha256 cellar: :any,                 arm64_sequoia: "e263b0b0243719cdaf1ef02de84c8d70c52b1ba4b75254e75eec540daba88fde"
+    sha256 cellar: :any,                 arm64_sonoma:  "8c6e809fff5e543d60f2ee038ca04aa99e398a69b3aec9db067249c84b2beef0"
+    sha256 cellar: :any,                 arm64_ventura: "343c2414094be734db3423e6c2fab208320996971c0475f27e9b4328e20307a3"
+    sha256 cellar: :any,                 sonoma:        "bf66d20a900e5b7880971a9d5c0801cc9b18f3f4fded8be925bf482fb9b86d00"
+    sha256 cellar: :any,                 ventura:       "6918670d6f5c0b401d2aaea00dc994ac8a5879ec7430c0212c058c7a8654f90e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3be56cc15f1203f55853c88f265444b90868d9228e88fc3c405b5219e401eab5"
   end
 
   depends_on "cmake" => :build
@@ -25,6 +24,12 @@ class Opencoarrays < Formula
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
+
+    # Replace `open-mpi` Cellar path that breaks on `open-mpi` version/revision bumps.
+    # CMake FindMPI uses REALPATH so there isn't a clean way to handle during generation.
+    openmpi = Formula["open-mpi"]
+    inreplace_files = [bin/"caf", lib/"cmake/opencoarrays/OpenCoarraysTargets.cmake"]
+    inreplace inreplace_files, openmpi.prefix.realpath, openmpi.opt_prefix
   end
 
   test do
@@ -48,8 +53,8 @@ class Opencoarrays < Formula
         if (this_image()==1) write(*,*) "Test passed"
       end program
     EOS
-    system "#{bin}/caf", "tally.f90", "-o", "tally"
-    system "#{bin}/cafrun", "-np", "3", "--oversubscribe", "./tally"
-    assert_match Formula["open-mpi"].lib.realpath.to_s, shell_output("#{bin}/caf --show")
+    system bin/"caf", "tally.f90", "-o", "tally"
+    system bin/"cafrun", "-np", "3", "--oversubscribe", "./tally"
+    assert_match Formula["open-mpi"].opt_lib.to_s, shell_output("#{bin}/caf --show")
   end
 end

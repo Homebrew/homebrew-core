@@ -7,6 +7,7 @@ class TtyClock < Formula
   head "https://github.com/xorg62/tty-clock.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "7068bc510258482b8643c72d3cd98e5aeb11ec1c870a4f843b4dab323adc5437"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d9d3a157ca3d9c96d55c96e377ce0adf1033d388971438793fce2646976d5ab2"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "fa482bfe16706d591d196d62b30fd517e4b0e677ee9c320466a0f4021e6ad361"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "da788fd6f94799b9cb8fe52dae41d592871e9c7e422e216d90d08350f2f51a48"
@@ -34,6 +35,6 @@ class TtyClock < Formula
   end
 
   test do
-    system "#{bin}/tty-clock", "-i"
+    system bin/"tty-clock", "-i"
   end
 end

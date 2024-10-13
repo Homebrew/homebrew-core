@@ -6,19 +6,20 @@ class Jbake < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "a42be6c55ddee9fe328892805530b868a71b31d82a3439c003e7246e0666cfb2"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "1dba6c35944fe67596c7203fcbf3e291f0a48ce159afde7b943a446ed61c76b9"
   end
 
   depends_on "openjdk"
 
   def install
-    rm_f Dir["bin/*.bat"]
+    rm(Dir["bin/*.bat"])
     libexec.install Dir["*"]
     bin.install libexec/"bin/jbake"
     bin.env_script_all_files libexec/"bin", JAVA_HOME: Formula["openjdk"].opt_prefix
   end
 
   test do
-    assert_match "Usage: jbake", shell_output("#{bin}/jbake")
+    assert_match "Usage: jbake", shell_output(bin/"jbake")
   end
 end

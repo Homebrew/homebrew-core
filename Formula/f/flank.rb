@@ -11,13 +11,8 @@ class Flank < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a0abb98eb09b14724c649c732d9fb0940a7778f5d0901feae8c2227dda0afa39"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a0abb98eb09b14724c649c732d9fb0940a7778f5d0901feae8c2227dda0afa39"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a0abb98eb09b14724c649c732d9fb0940a7778f5d0901feae8c2227dda0afa39"
-    sha256 cellar: :any_skip_relocation, sonoma:         "a0abb98eb09b14724c649c732d9fb0940a7778f5d0901feae8c2227dda0afa39"
-    sha256 cellar: :any_skip_relocation, ventura:        "a0abb98eb09b14724c649c732d9fb0940a7778f5d0901feae8c2227dda0afa39"
-    sha256 cellar: :any_skip_relocation, monterey:       "a0abb98eb09b14724c649c732d9fb0940a7778f5d0901feae8c2227dda0afa39"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "20e5506a59b1f5688bb0688dccb223160c11bf3463b5588768a91d653abe4606"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "f6c1c7a433156099db3565266cc19220b34233bd230df04b5845c952c8462100"
   end
 
   depends_on "openjdk"

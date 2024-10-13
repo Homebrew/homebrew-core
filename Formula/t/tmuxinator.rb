@@ -1,25 +1,19 @@
 class Tmuxinator < Formula
   desc "Manage complex tmux sessions easily"
   homepage "https://github.com/tmuxinator/tmuxinator"
-  url "https://github.com/tmuxinator/tmuxinator/archive/refs/tags/v3.3.0.tar.gz"
-  sha256 "e15cf0d7fc8fc88b89adbeeebacd8061620c759da060b1bccf93bf8541679061"
+  url "https://github.com/tmuxinator/tmuxinator/archive/refs/tags/v3.3.1.tar.gz"
+  sha256 "8b41f7c56b42ea13e37c99f4cd818a571859f473ae5acbed12f343a75e3fa1be"
   license "MIT"
   head "https://github.com/tmuxinator/tmuxinator.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f18812397a278c916be489808a93e554e690962b000e870628c34698c1168bf7"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f18812397a278c916be489808a93e554e690962b000e870628c34698c1168bf7"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f18812397a278c916be489808a93e554e690962b000e870628c34698c1168bf7"
-    sha256 cellar: :any_skip_relocation, sonoma:         "cafc0fa320f381a2f74791d160a582f4d042446c9d4246233f269265b8db97f0"
-    sha256 cellar: :any_skip_relocation, ventura:        "cafc0fa320f381a2f74791d160a582f4d042446c9d4246233f269265b8db97f0"
-    sha256 cellar: :any_skip_relocation, monterey:       "cafc0fa320f381a2f74791d160a582f4d042446c9d4246233f269265b8db97f0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "79bbeb63619d0b16c99322d7574c8d34fba73adc6ff6bb0970ef0fe9e21656d6"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "f212df9e9c4a67b19bdd885170998c3dea7d35383230451cbcf173f912058744"
   end
 
   depends_on "ruby"
   depends_on "tmux"
-
-  conflicts_with "tmuxinator-completion", because: "the tmuxinator formula includes completion"
+  depends_on "tmuxinator-completion"
 
   resource "xdg" do
     url "https://rubygems.org/downloads/xdg-2.2.5.gem"
@@ -27,8 +21,8 @@ class Tmuxinator < Formula
   end
 
   resource "thor" do
-    url "https://rubygems.org/downloads/thor-1.3.1.gem"
-    sha256 "fa7e3471d4f6a27138e3d9c9b0d4daac9c3d7383927667ae83e9ab42ae7401ef"
+    url "https://rubygems.org/downloads/thor-1.3.2.gem"
+    sha256 "eef0293b9e24158ccad7ab383ae83534b7ad4ed99c09f96f1a6b036550abbeda"
   end
 
   resource "erubi" do
@@ -49,17 +43,14 @@ class Tmuxinator < Formula
     bin.install libexec/"bin/tmuxinator"
     bin.env_script_all_files(libexec/"bin", GEM_HOME: ENV["GEM_HOME"])
 
-    bash_completion.install "completion/tmuxinator.bash" => "tmuxinator"
-    zsh_completion.install "completion/tmuxinator.zsh" => "_tmuxinator"
-    fish_completion.install Dir["completion/*.fish"]
+    # Make sure tmuxinator checks HOMEBREW_PREFIX for data files. Also ensures uniform bottles.
+    inreplace_files = libexec.glob("gems/xdg-*/lib/xdg/base_dir{,/extended}.rb")
+    inreplace inreplace_files, "/usr/local", HOMEBREW_PREFIX
   end
 
   test do
     version_output = shell_output("#{bin}/tmuxinator version")
     assert_match "tmuxinator #{version}", version_output
-
-    completion = shell_output("bash -c 'source #{bash_completion}/tmuxinator && complete -p tmuxinator'")
-    assert_match "-F _tmuxinator", completion
 
     commands = shell_output("#{bin}/tmuxinator commands")
     commands_list = %w[
@@ -74,7 +65,7 @@ class Tmuxinator < Formula
     list_output = shell_output("#{bin}/tmuxinator list")
     assert_match "tmuxinator projects:", list_output
 
-    system "#{bin}/tmuxinator", "new", "test"
+    system bin/"tmuxinator", "new", "test"
     list_output = shell_output("#{bin}/tmuxinator list")
     assert_equal "tmuxinator projects:\ntest\n", list_output
   end

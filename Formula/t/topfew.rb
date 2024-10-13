@@ -6,6 +6,7 @@ class Topfew < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "bed91d915da3735f3b96723b744cbed823de57da2f096a5c337a6b170ddd5f19"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4d7f6c39d1e8eaed9de48d13494541f44f5aa09b74eb8a6436f8eb662026cccc"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "4d7f6c39d1e8eaed9de48d13494541f44f5aa09b74eb8a6436f8eb662026cccc"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4d7f6c39d1e8eaed9de48d13494541f44f5aa09b74eb8a6436f8eb662026cccc"

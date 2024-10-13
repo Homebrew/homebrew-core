@@ -1,12 +1,22 @@
 class Qcli < Formula
   desc "Report audiovisual metrics via libavfilter"
   homepage "https://bavc.org/preserve-media/preservation-tools"
-  url "https://github.com/bavc/qctools.git",
-      tag:      "v1.3.1",
-      revision: "0573c33953d02db53812a2420f174d6b1233751e"
   license "GPL-3.0-or-later"
   revision 1
   head "https://github.com/bavc/qctools.git", branch: "master"
+
+  stable do
+    url "https://github.com/bavc/qctools.git",
+        tag:      "v1.3.1",
+        revision: "0573c33953d02db53812a2420f174d6b1233751e"
+
+    # Backport fix for Qt 6.7
+    patch do
+      url "https://github.com/valbok/QtAVPlayer/commit/a24033d6636426d4fc1f97b6ee483bf6a7ab6072.patch?full_index=1"
+      sha256 "44396f114cd81c85949cd6dfc017ef51a3255d79be9ba42ae82c57e6a326b0e3"
+      directory "Project/QtCreator/qctools-QtAVPlayer"
+    end
+  end
 
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "74f2414ccaac5d53bb8b4649f36df6a1d71affd563f9659a2234ceb0c81805ed"
@@ -19,14 +29,16 @@ class Qcli < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "ffmpeg@6"
+  depends_on "ffmpeg@6" # Issue ref: https://github.com/bavc/qctools/issues/552
   depends_on "qt"
   depends_on "qwt"
+
+  uses_from_macos "zlib"
 
   fails_with gcc: "5" # ffmpeg is compiled with GCC
 
   def install
-    ENV["USE_BREW"]="true"
+    ENV["USE_BREW"] = "true"
 
     cd "Project/QtCreator/qctools-lib" do
       system "qmake", "qctools-lib.pro"

@@ -1,18 +1,17 @@
 class Fribidi < Formula
   desc "Implementation of the Unicode BiDi algorithm"
   homepage "https://github.com/fribidi/fribidi"
-  url "https://github.com/fribidi/fribidi/releases/download/v1.0.15/fribidi-1.0.15.tar.xz"
-  sha256 "0bbc7ff633bfa208ae32d7e369cf5a7d20d5d2557a0b067c9aa98bcbf9967587"
+  url "https://github.com/fribidi/fribidi/releases/download/v1.0.16/fribidi-1.0.16.tar.xz"
+  sha256 "1b1cde5b235d40479e91be2f0e88a309e3214c8ab470ec8a2744d82a5a9ea05c"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "b952c91e6ee4e12897cf70898359a4d60bf232339b3f4977bf37d427327764b2"
-    sha256 cellar: :any,                 arm64_ventura:  "89815cfe07145e78cb6f9ac9df621f200d28a9aaf00c8da074d5c8202664e3bc"
-    sha256 cellar: :any,                 arm64_monterey: "cb3fb68e4c5c4ad8c007209db9ad7276d52252e849f6596d5348acc4eac54574"
-    sha256 cellar: :any,                 sonoma:         "8fe7124ecc6586a136b380d73edf070c9dc16a122127139d2f15247bb9751143"
-    sha256 cellar: :any,                 ventura:        "664ed32cf6eb7682b3ff7e86bd4fb3df5f86eb97ebfecf136c6312479c5b15bd"
-    sha256 cellar: :any,                 monterey:       "7b5e17ea92b11e12f2d73faf9b61b829b42e95f656a57d9c61333177188d5824"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f03a729ae535ac53791205a6be4e929e981fbd431c04eb2acb21ef132306629b"
+    sha256 cellar: :any,                 arm64_sequoia: "4904bb3375c1b1f2539cb657fbf17b0d93c050904febbba51e9dd690f3540e3b"
+    sha256 cellar: :any,                 arm64_sonoma:  "0b03218a59bba62ca5a27b1a59d8c63f40478e3a957192121e1b2c593fcdb80c"
+    sha256 cellar: :any,                 arm64_ventura: "334c412359217397f5e5c5ad082540ac3d5d494ef543d81c01f4e482b36b699b"
+    sha256 cellar: :any,                 sonoma:        "abda3f3925574ac53d9fa5a7629102dda29132a64cf1a9f756eedc3258d1e855"
+    sha256 cellar: :any,                 ventura:       "70e46d9ac5dafc34d891f6d4e1fea8416e23383c30a3ef7b52250295a9643643"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "da83ac3be7e395ab2444c0968fb3dce389161f10c2b481ddd4b18a9056bc2d60"
   end
 
   def install

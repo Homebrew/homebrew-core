@@ -11,6 +11,7 @@ class Ghz < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "96497f728b99b55e9e5f780436677c788a862c911cbd04f3c2c0ce68fbd14ebc"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b401ea03c0ecd684e119a75498403d33fb819da7f2d4c846aec1b0f9ece93ce4"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "2bf690f5896de5d29b8fef7c10584cb20d5dc56cf12966f9438fdf5296463d58"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f417a9adde4cb59711d35b85aef26d48b22c6d2c36342bb3164b38c4bd13de7e"

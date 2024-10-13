@@ -1,9 +1,9 @@
 class Metview < Formula
   desc "Meteorological workstation software"
   homepage "https://metview.readthedocs.io/en/latest/"
-  url "https://confluence.ecmwf.int/download/attachments/51731119/MetviewBundle-2024.4.0-Source.tar.gz"
-  version "5.22.0"
-  sha256 "ec8b04db35968d1851c32c2600fc44928abcfc3b8a3d5e052d101e88530e23dc"
+  url "https://confluence.ecmwf.int/download/attachments/51731119/MetviewBundle-2024.9.0-Source.tar.gz"
+  version "5.23.0"
+  sha256 "b59e1804a55c16ab623bc3fa6b71cb956b4c383ce7d067a27c7c5140b9acf909"
   license "Apache-2.0"
 
   livecheck do
@@ -12,13 +12,11 @@ class Metview < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "acb23385168d8ae5e8562486c43810bbb171d298e6865a99455c1c5beacaacb8"
-    sha256 arm64_ventura:  "6c1e59523ecf1721d44188cd539af4a4fa7c391cd8d11322f37d118cd3f3491a"
-    sha256 arm64_monterey: "ebf98c1043aeec1bee93777fb2fd40006703e796cfa4d504c26e50b76c0f4330"
-    sha256 sonoma:         "33af8f64bbddbcf56d93ef0462d4ccfdcf464a6d1c28dd36a8d793efaf1d3f09"
-    sha256 ventura:        "93a4110779ba74ef222d9ce6f257a6a23734fe9ac7c2ae9817b63774992a64e4"
-    sha256 monterey:       "0a79a846f34ff65fa956aa22ddb022ab789bd9fd730f5da5216818bf807eb345"
-    sha256 x86_64_linux:   "4f445d199a4e2ddec19008d389dc535653db51d33d6e1e95bdf5aeb72045b325"
+    sha256 arm64_sonoma:  "71f69e736adf1818e28f077b4cf59da1be7c92e7df927f73e5f5c713a6254785"
+    sha256 arm64_ventura: "9ef4c41437fdb20a4d5114cec99b1390a71a2b11069890b36ea61f194a7a87a1"
+    sha256 sonoma:        "f0b17046ec81d82a92180699ab840585d7bb1692f2e4bded376587ef48f3b65b"
+    sha256 ventura:       "86fb26e306b0c42d56f9b003e3dda7f833368851998d1b624eae27b9712e4404"
+    sha256 x86_64_linux:  "3c443f625d1f690aed1f12eef3e9411938f17e775ef9be8a0771ce307b18c10f"
   end
 
   depends_on "cmake" => :build
@@ -28,6 +26,10 @@ class Metview < Formula
   depends_on "eigen"
   depends_on "fftw"
   depends_on "gdbm"
+  depends_on "glib"
+  depends_on "libaec"
+  depends_on "libpng"
+  depends_on "lz4"
   depends_on "netcdf"
   depends_on "openssl@3"
   depends_on "pango"
@@ -36,9 +38,19 @@ class Metview < Formula
 
   uses_from_macos "bison" => :build
   uses_from_macos "flex"  => :build
+  uses_from_macos "bzip2"
+  uses_from_macos "curl"
+  uses_from_macos "expat"
+
+  on_macos do
+    depends_on "gettext"
+    depends_on "harfbuzz"
+  end
 
   on_linux do
     depends_on "libtirpc"
+    depends_on "openblas"
+    depends_on "snappy"
   end
 
   def install
@@ -93,7 +105,7 @@ class Metview < Formula
       setoutput(png_output(output_name:"test"))
       plot(grib, grid_shading)
     EOS
-    system "#{bin}/metview", "-nocreatehome", "-b", "test_binary_run_grib_plot.mv"
+    system bin/"metview", "-nocreatehome", "-b", "test_binary_run_grib_plot.mv"
     assert_predicate testpath/"test.1.png", :exist?
   end
 end

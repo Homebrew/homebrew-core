@@ -11,6 +11,7 @@ class Sponge < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "c2222a13d620121800f207f8af1b345e1cbf9e771c322e910e4f65b100c5d160"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9c72b740a203d02fd12bd27949f90e1662fdbbf1c9e19abcde0b66b9d032a9b2"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "82d216473d739f924c7b973b4aae9f311c481c3412ebe6f0c1d58f46186327e8"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "35c308698a3368f0e2182e5a0a0b167222ed57f6bac9a0c28f1e13fc45e254b0"

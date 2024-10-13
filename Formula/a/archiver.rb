@@ -7,6 +7,7 @@ class Archiver < Formula
   head "https://github.com/mholt/archiver.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "5b6c238c7e684837a57ff1038a05b92a89b1db0311443ff3f66da556eeeb873a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "247cc8a86532c7e40d47ee84872895a7790a87c0c732cb1d4dfd19a25e8b724f"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "50eb72205f3ffce1c6b64a7182454213c07cf6396469046875c5687f5f7018a9"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "9194e883ec240998c4c2ec26a4cc8d79d1ad29964b592ac0cc45c9b6c5da7dd8"
@@ -33,7 +34,7 @@ class Archiver < Formula
     (testpath/"test2").write "Bonjour!"
     (testpath/"test3").write "Moien!"
 
-    system "#{bin}/arc", "archive", "test.zip",
+    system bin/"arc", "archive", "test.zip",
            "test1", "test2", "test3"
 
     assert_predicate testpath/"test.zip", :exist?

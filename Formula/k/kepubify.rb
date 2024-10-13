@@ -8,6 +8,7 @@ class Kepubify < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "29e8dc9bcdbb61a0f99ebf14a051b7022b216debcbf110352dd68904d935609e"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8be21c3880319f056357894fc1f425efd3daf2375f126ab5395e5a4182c74c3e"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "254db72d4558093188d4b9e164494549590e7edfa6ec59923db9f73722d1d972"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "190fcf71bfa7069608000948821b08e64ebf230bef805c6285d365bf3bc22a04"

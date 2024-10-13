@@ -7,6 +7,7 @@ class Skeema < Formula
   head "https://github.com/skeema/skeema.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "59007048cbe47e11e566d3b3950ad05f1b7501cb13bae573f3f9d82fdbeffae5"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c17e6175dabaddc7d9e35fbb137c6ae3286d68d336169aaadce8a0bd93366a1b"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "0a8f547747704a5e1c591e0f1406dd241b35c02d1c3c05875932272157343362"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "cb48f4f2bfbd51e84ff37a760f9a8ac86553c95ddde6184d4212b684ce9447b9"

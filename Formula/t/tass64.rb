@@ -6,6 +6,7 @@ class Tass64 < Formula
   license all_of: ["GPL-2.0-or-later", "LGPL-2.0-or-later", "LGPL-2.1-only", "MIT"]
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "486369e3e99fbd90b74d4db304c6a817af75affb2bb4f2dceae3fc72a0e942e5"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d9ab17c0cf37a48c51e51973648c4bf753512e1eccaa58c384d1d9329466977f"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "48e41ebee6b426610d59bfd3e89e2eb8204cfeabe63c7eb6375c04ac5388e6a5"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4e91e45d0c55cd2072eb2889604bcfd11ec41fb10671f496ae156bc3c4904f67"
@@ -42,7 +43,7 @@ class Tass64 < Formula
         RTS
     EOS
 
-    system "#{bin}/64tass", "-a", "hello.asm", "-o", "hello.prg"
+    system bin/"64tass", "-a", "hello.asm", "-o", "hello.prg"
     assert_predicate testpath/"hello.prg", :exist?
   end
 end

@@ -6,7 +6,8 @@ class MypaintBrushes < Formula
   license "CC0-1.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "ea16090070ac3b74d22f1bf9a4fd67087603bb9157785add7af285b1d439281e"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "c919364f08de423bd1b2e8c674b76e277adebee4157b49c75dfdf38d84777878"
   end
 
   depends_on "autoconf" => :build

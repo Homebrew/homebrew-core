@@ -4,16 +4,18 @@ class Passenger < Formula
   url "https://github.com/phusion/passenger/releases/download/release-6.0.23/passenger-6.0.23.tar.gz"
   sha256 "897555224fb11340677780d929b5099da62303b1ae15f2e7c65cd3f6d3e7920c"
   license "MIT"
+  revision 1
   head "https://github.com/phusion/passenger.git", branch: "stable-6.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "403399c4ed7bca3447a27048c80802e2c0bef18341ae92b9b24898ebcc1863f3"
-    sha256 cellar: :any,                 arm64_ventura:  "a3267ad962d1ab8a50214a4c001eefe2fbfec7546f3660cc0147a0c362e3023a"
-    sha256 cellar: :any,                 arm64_monterey: "e5491b8320dc570d26b65f29303be9071529498ef286acc96817b155ae8ebcc8"
-    sha256 cellar: :any,                 sonoma:         "d6a9800e7125eb83e747351fa4e2ff623eea995f1ce76743413468b07dcc3f20"
-    sha256 cellar: :any,                 ventura:        "1b100c8490a2ed8c9aa3b8c30f01fd9b25721d7d9a0d77e685955ffeaa5ae33d"
-    sha256 cellar: :any,                 monterey:       "b6ec7c599b35542d3d29c06d6ad6d5c15bc70e512835b5403ca9f549224f3ba1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "736f98042134674ddd93a2542a373e24b1a5721d594491036c300c49798fc75b"
+    sha256 cellar: :any,                 arm64_sequoia:  "9b1f73191f92ceb5c526b9885aad05759ac4c6e4a909cd8e0beaa0020dac4e9f"
+    sha256 cellar: :any,                 arm64_sonoma:   "79f60c4023ee36c7e47b1801445cf4ba38b350cf25fcb26fe7ddc2198e52bf09"
+    sha256 cellar: :any,                 arm64_ventura:  "6c184a9ae2b1a922b6f23174b3d067ac03eab16710cd7d92d3115869c8d96446"
+    sha256 cellar: :any,                 arm64_monterey: "885f4d69b85b038c933c112df4678378bf46ad99b5a13f7c6ee1282585ab65d9"
+    sha256 cellar: :any,                 sonoma:         "5e96513e5869fcf3fcd927cfa48a43182a4f90112f825c5cfc7a181ac8ca8105"
+    sha256 cellar: :any,                 ventura:        "1311f6dba4092fc24a590aae6baef40b81a08a414ed596782ee3f60486b338aa"
+    sha256 cellar: :any,                 monterey:       "34ae177cedc8c215f6c348ec26af94ef1e1552abc86f2d8cfb341b4f66c04c2e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "73dc0accc1d2762db2aa5fd7e91fb6216e83d3976b49c09de9569c8011acf227"
   end
 
   depends_on "httpd" => :build # to build the apache2 module
@@ -59,9 +61,9 @@ class Passenger < Formula
     (libexec/"download_cache").mkpath
 
     # Fixes https://github.com/phusion/passenger/issues/1288
-    rm_rf "buildout/libev"
-    rm_rf "buildout/libuv"
-    rm_rf "buildout/cache"
+    rm_r("buildout/libev")
+    rm_r("buildout/libuv")
+    rm_r("buildout/cache")
 
     necessary_files = %w[configure Rakefile README.md CONTRIBUTORS
                          CONTRIBUTING.md LICENSE CHANGELOG package.json

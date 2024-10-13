@@ -6,6 +6,7 @@ class GlbindingAT2 < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "05fe3756c9e2f1a9efec689a64cbc3d55c7d00831af9d19411f9572b71ca81c4"
     sha256 cellar: :any,                 arm64_sonoma:   "53bd1ac2798e131aa19966dbd5ff886f4614a020e20c1804dad580f018f2d0b4"
     sha256 cellar: :any,                 arm64_ventura:  "7b509031915859038fbc43e27ea66fbf7b7448f0169cb8f1c10931499924314a"
     sha256 cellar: :any,                 arm64_monterey: "a71c860331ba72a181b2b3d124ce21919ae28df45490806af7cfeac6e11e60b6"

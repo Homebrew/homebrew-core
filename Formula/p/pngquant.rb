@@ -3,11 +3,12 @@ class Pngquant < Formula
   homepage "https://pngquant.org/"
   url "https://static.crates.io/crates/pngquant/pngquant-3.0.3.crate"
   sha256 "68a12bdd8825f9989f4ee9a6ab0b42727dae57728b939ef63453366697a07232"
-  license :cannot_represent
+  license all_of: ["GPL-3.0-or-later", "HPND", "BSD-2-Clause"]
   head "https://github.com/kornelski/pngquant.git", branch: "main"
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia:  "3ebc758f4e803c26bf87d7a0cb1d34b7e3048958e360eae18de7579f02eb081e"
     sha256 cellar: :any,                 arm64_sonoma:   "7304b28d6ac4803b515bc6d5f7a56115f993d0af414cc20173ac5e766e6b8dd6"
     sha256 cellar: :any,                 arm64_ventura:  "8fe4369e28cadb40f580f8788202124e9c8cecc8adf160422d941df8132b7105"
     sha256 cellar: :any,                 arm64_monterey: "c142cd5a58cbcc5dc2a642bd87ab7696dcd371c4c87db5138b8a54735adb37d6"
@@ -35,7 +36,7 @@ class Pngquant < Formula
   end
 
   test do
-    system "#{bin}/pngquant", test_fixtures("test.png"), "-o", "out.png"
+    system bin/"pngquant", test_fixtures("test.png"), "-o", "out.png"
     assert_predicate testpath/"out.png", :exist?
   end
 end

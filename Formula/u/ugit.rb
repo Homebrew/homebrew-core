@@ -21,6 +21,6 @@ class Ugit < Formula
 
   test do
     assert_match "ugit version #{version}", shell_output("#{bin}/ugit --version")
-    assert_match "Ummm, you are not inside a Git repo", shell_output("#{bin}/ugit")
+    assert_match "Ummm, you are not inside a Git repo", shell_output(bin/"ugit")
   end
 end

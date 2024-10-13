@@ -14,6 +14,7 @@ class MitScheme < Formula
   end
 
   bottle do
+    sha256 arm64_sequoia:  "5b2f5cddeb07d989aeb50ed587357c3da57bc2cfbe13dd5e3cc29b754ec6dfc9"
     sha256 arm64_sonoma:   "da2acf2666e321393c150917e783456c04942de61a2b4db2eebfaeaac094168b"
     sha256 arm64_ventura:  "23923b9cbbf60f33e46325ec788edaf149b1d43b62ddd69beff33528b14453c3"
     sha256 arm64_monterey: "cfdb8ea9127c65a67e727fe75c293cde238172a18de91343540ff49c949f8449"
@@ -22,11 +23,6 @@ class MitScheme < Formula
     sha256 monterey:       "72fcee689c1ca44d5834d654490f8368f099e939f4065c4f9f06d24c0022bd19"
     sha256 x86_64_linux:   "0e910ffb8aff109164099832f8d465f54e9e0c731a0580cb0c794970e3f6ce11"
   end
-
-  # Has a hardcoded compile check for /Applications/Xcode.app
-  # Dies on "configure: error: SIZEOF_CHAR is not 1" without Xcode.
-  # https://github.com/Homebrew/homebrew-x11/issues/103#issuecomment-125014423
-  depends_on xcode: :build
 
   uses_from_macos "m4" => :build
   uses_from_macos "ncurses"
@@ -72,7 +68,7 @@ class MitScheme < Formula
     end
 
     inreplace "edwin/compile.sh" do |s|
-      s.gsub! "mit-scheme", "#{bin}/mit-scheme"
+      s.gsub! "mit-scheme", bin/"mit-scheme"
     end
 
     ENV.prepend_path "PATH", buildpath/"staging/bin"

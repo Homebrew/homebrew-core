@@ -1,18 +1,17 @@
 class Popeye < Formula
   desc "Kubernetes cluster resource sanitizer"
   homepage "https://popeyecli.io"
-  url "https://github.com/derailed/popeye/archive/refs/tags/v0.21.3.tar.gz"
-  sha256 "9f8f5b46a942ec7fcaf777ec7f16e6d64317cfdc7080e3d637018d778656ee94"
+  url "https://github.com/derailed/popeye/archive/refs/tags/v0.21.5.tar.gz"
+  sha256 "0dfd7cce12ad0520afea4d39cc43b1bb83ba21659215081cd5aef481fb0a32b7"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "dc9b26b43fc91067ebf4a5c39e0326fa77637ec4f0b3d6cd44e543bb7f2e94fe"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2240a4317ad953f08642deed1e4155aceb921bf2b2b8a6d3adb58b2602b7240c"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "73efd455efcb25766afadee9ea50286fe0598cd53adec7b31eacf7e5b4d35d30"
-    sha256 cellar: :any_skip_relocation, sonoma:         "1915c4db3a9e5a51ab8cfad694f5bb93a1b21c5ad4816734edbde9fa5f0d618c"
-    sha256 cellar: :any_skip_relocation, ventura:        "612214672ece1851568821efbabd314cb96cc293c686c9723578dcf333e915fa"
-    sha256 cellar: :any_skip_relocation, monterey:       "45d5ea2df07c4706c6d3cbe1826a58014e6be8384e6c3d155f997276f2ddc05d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "766e4649aabbed1589d86a72a8f9f53bcdf5139195f71aac9ea871f4a573ce78"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2c26fadd31514d523704d7951098ef173c861d05d9543ab9980cc79e549b0ba7"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b12ef373326ecb6fd1be6f8a31da6b2c2795a39023eb110c1b55863b3040e09d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "f32240f54aab2e3dcc1a58cf7c796a31f6a3adaad0460142cdc6c7f2dd3e96e9"
+    sha256 cellar: :any_skip_relocation, sonoma:        "5ec39d372bd2f5537765e1543e2c234ba7f966d73f087b24249a264a12aba924"
+    sha256 cellar: :any_skip_relocation, ventura:       "81df6b8a947c95be6d130bda01a94d84fd602ffe2d811246575f499de87e4f08"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f015d9ac7d0c4ccd32040fb1150f27362f35aca3eb9b5a31570415c24de4c1f8"
   end
 
   depends_on "go" => :build

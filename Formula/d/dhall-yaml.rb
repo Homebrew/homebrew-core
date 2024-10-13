@@ -8,6 +8,7 @@ class DhallYaml < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "dfe3dab1ecaaf096cc239883255676d3f441a446b8fe43c7928cf355a5f37467"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f9f9399367012591352d6df9fd8c1c66a3956a9ed6d31707cb9a45ca1397f58a"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "47ddd725cf808f4ee04e3bb217e3a54a23dc3c91db1c77fb4b0985ea6a6edd51"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "45441a856fa1a3b3794608ecc0c9500fae68ad089adcc3698f5a59ba7125ea7a"
@@ -18,7 +19,7 @@ class DhallYaml < Formula
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc@9.4" => :build
+  depends_on "ghc@9.6" => :build
 
   uses_from_macos "ncurses"
   uses_from_macos "zlib"

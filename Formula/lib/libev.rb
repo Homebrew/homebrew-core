@@ -4,6 +4,7 @@ class Libev < Formula
   url "http://dist.schmorp.de/libev/Attic/libev-4.33.tar.gz"
   mirror "https://fossies.org/linux/misc/libev-4.33.tar.gz"
   sha256 "507eb7b8d1015fbec5b935f34ebed15bf346bed04a11ab82b8eee848c4205aea"
+  license any_of: ["BSD-2-Clause", "GPL-2.0-or-later"]
 
   livecheck do
     url "http://dist.schmorp.de/libev/"
@@ -11,6 +12,7 @@ class Libev < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "67740e5ba01e82c140ceadc512aa26a3990bfadaef0f4b545ba7f9aaf24c50bf"
     sha256 cellar: :any,                 arm64_sonoma:   "e476d7fb265b97275a91a5cb3acfa0357e4f722d44a550ab3bc22388add80614"
     sha256 cellar: :any,                 arm64_ventura:  "45855fb985e74c97e1764ae481f1699e846441089cc3da65bdca5d8fc1b41243"
     sha256 cellar: :any,                 arm64_monterey: "2ae425f0f4435a6a01577bdf04723791f2c7bb67d6eeaacafca7aaca9450c55b"

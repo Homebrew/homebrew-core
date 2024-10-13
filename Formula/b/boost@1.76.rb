@@ -7,13 +7,13 @@ class BoostAT176 < Formula
   revision 5
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "5c718e08e1de8256b50673bc799eaaef9cb4ce5f577fbc00936066a1f263b734"
-    sha256 cellar: :any,                 arm64_ventura:  "4c6562993352d34504fe22d22bf0a9e6a6a965b9090de894aeec1be216e9943e"
-    sha256 cellar: :any,                 arm64_monterey: "ca5c2e872449f5a9b703778fcb268f455cc643d2581e303e346b11def9897c38"
-    sha256 cellar: :any,                 sonoma:         "022c82f06180646e3374ba911ccc9ff4a668517e8cf8345ff3bf7282bca66653"
-    sha256 cellar: :any,                 ventura:        "4d0f733689e2dc7b832affec363bdb52343cd3c0b3e27c574910ae2e46c5f25a"
-    sha256 cellar: :any,                 monterey:       "7bcdaaa05e334ad957101fc7d523d4a9a2d9ac725204b99b3c882d0b471b4f48"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6019846913e6219bad58cc55b2d6d4d0faeb443b999526e198f558048f3757f5"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "c7c8cc8bd09779df0a40a6fe16d8e612f6a5d174dd88acbde286318467d209a3"
+    sha256 cellar: :any,                 arm64_sonoma:  "07110e60f42479e7799caf5df0804f6b81b9ca3030c07cdfef75c472378caf28"
+    sha256 cellar: :any,                 arm64_ventura: "2f8a3286570c5712de16e37aa64be508ff50db5769b969b103f60516f947366e"
+    sha256 cellar: :any,                 sonoma:        "7d651936577579b8db24bd0a653ffc318c2e8a7067a6ae59f6a79f1ba1daddde"
+    sha256 cellar: :any,                 ventura:       "f414216de17cfe464e62e35ad1d5ee7b66a9cd0bf730d6a6dc44c02653231843"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8d7e35e3faf5fa529284cba3dd88b3a247417deca04bef1dd0debc28962ef649"
   end
 
   keg_only :versioned_formula
@@ -24,6 +24,16 @@ class BoostAT176 < Formula
 
   uses_from_macos "bzip2"
   uses_from_macos "zlib"
+
+  # Backport fixes for newer Clang
+  patch :p2 do
+    url "https://github.com/boostorg/numeric_conversion/commit/50a1eae942effb0a9b90724323ef8f2a67e7984a.patch?full_index=1"
+    sha256 "d96761257f7efc2edc8414f1a2522fc07a3d7d56bb55a51d14af9abd39e389c8"
+  end
+  patch :p2 do
+    url "https://github.com/boostorg/mpl/commit/b37b709cbdb6b2c285fb808dab985aa005786351.patch?full_index=1"
+    sha256 "b8013ad3e6b63698158319f5efc2fe1558a00c1d2e32193086f741e774acc3e4"
+  end
 
   def install
     # Force boost to compile with the desired compiler

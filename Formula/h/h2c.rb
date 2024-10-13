@@ -6,7 +6,8 @@ class H2c < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "6fd6c532ca1267e809b95532aae4a7663fe2c16375266530672ace7602fb2ab4"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "1380fd71175ca3911be9411e849ff6a739dca5b676771a42a6437c629216983e"
   end
 
   def install
@@ -18,6 +19,6 @@ class H2c < Formula
 
     # test if h2c can convert HTTP headers to curl options.
     assert_match "curl --head --http1.1 --header Accept: --header \"Shoesize: 12\" --user-agent \"moo\" https://example.com/",
-      pipe_output("#{bin}/h2c", "HEAD  / HTTP/1.1\nHost: example.com\nUser-Agent: moo\nShoesize: 12")
+      pipe_output(bin/"h2c", "HEAD  / HTTP/1.1\nHost: example.com\nUser-Agent: moo\nShoesize: 12")
   end
 end

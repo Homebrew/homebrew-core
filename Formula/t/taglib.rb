@@ -3,10 +3,11 @@ class Taglib < Formula
   homepage "https://taglib.org/"
   url "https://taglib.github.io/releases/taglib-1.13.1.tar.gz"
   sha256 "c8da2b10f1bfec2cd7dbfcd33f4a2338db0765d851a50583d410bacf055cfd0b"
-  license "LGPL-2.1"
+  license any_of: ["LGPL-2.1-only", "MPL-1.1"]
   head "https://github.com/taglib/taglib.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "394ab63cec3e1288117fe9076afce0952b31a549db29de41c4a5f5cc8905aead"
     sha256 cellar: :any,                 arm64_sonoma:   "5b79928275529b55ab078a708cbfb98e174f7e5b7d668bf86bccb0634f443f0f"
     sha256 cellar: :any,                 arm64_ventura:  "c921c460750f74d8c025ed12189704bba122e1883c1e034b2cc86d451e81dfbe"
     sha256 cellar: :any,                 arm64_monterey: "5d012c93d5f25fded733a3b8cb3d834ab25ff121e32265d5bfcf38634b1171e5"
@@ -23,9 +24,10 @@ class Taglib < Formula
   uses_from_macos "zlib"
 
   def install
-    system "cmake", "-DWITH_MP4=ON", "-DWITH_ASF=ON", "-DBUILD_SHARED_LIBS=ON",
-                    *std_cmake_args
-    system "make", "install"
+    args = ["-DWITH_MP4=ON", "-DWITH_ASF=ON", "-DBUILD_SHARED_LIBS=ON"]
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do

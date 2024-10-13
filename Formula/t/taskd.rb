@@ -9,6 +9,7 @@ class Taskd < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any,                 arm64_sequoia:  "61cffe43c79c6f9b87120529a75db6303a304526f47426999b22a3115418ee7a"
     sha256 cellar: :any,                 arm64_sonoma:   "e3bb75dc9d5d281fcdd7a9eb5604d5d17f36791458bf69c91a88403c385913f3"
     sha256 cellar: :any,                 arm64_ventura:  "dff5f74888539c8a37113ff4f0cdb5c4753a6bcfd8cba312978eada666286b6e"
     sha256 cellar: :any,                 arm64_monterey: "d965204a53afd9cb1f71824fffda964a63ca016560d31d8eabe7d1e2d87f804a"
@@ -33,6 +34,6 @@ class Taskd < Formula
   end
 
   test do
-    system "#{bin}/taskd", "init", "--data", testpath
+    system bin/"taskd", "init", "--data", testpath
   end
 end

@@ -4,17 +4,17 @@ class Pcb2gcode < Formula
   url "https://github.com/pcb2gcode/pcb2gcode/archive/refs/tags/v2.5.0.tar.gz"
   sha256 "96f1b1b4fd58e86f152b691202a15593815949dc9250fab9ab02f2346f5c2c52"
   license "GPL-3.0-or-later"
-  revision 6
+  revision 7
   head "https://github.com/pcb2gcode/pcb2gcode.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "27ed86df9a677b86d0f3b5da18174f4bae523b83194eb2a823c00df5eae5e598"
-    sha256 cellar: :any,                 arm64_ventura:  "7ae936306e87c7a2f53bb0a9b178dfb8fa5db8fb85120553b2cfa0167a9583c2"
-    sha256 cellar: :any,                 arm64_monterey: "adf83b9e81bc4365daba6683f49fca7a34be8eb17e9fe194944134a05b07e37a"
-    sha256 cellar: :any,                 sonoma:         "1aaeb26437220ca3b1e23fab234a1a207dd1c2986d6a0b756e5bce9a27957813"
-    sha256 cellar: :any,                 ventura:        "ec0216c497ec9f81f9b6d2896b0f2a7961b9bb730a7202c2367003efee8a1cff"
-    sha256 cellar: :any,                 monterey:       "39fa779c59ff7f2559137e5140b4f82d5cf70df44da690b564f2cc7071bab23d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3d622e3292f5c3a7ba71def4dcd7c27a19cde4f0a17b47a8e7a4604b7d502a92"
+    sha256 cellar: :any,                 arm64_sonoma:   "c4e27b06c9b08465ccd35d9aac9e7af2aa67b851d1f38da06e05ef27eec0c887"
+    sha256 cellar: :any,                 arm64_ventura:  "7d74520a15eff48b437e22e80850a0d279264e97bb2f99de5dc06c4a285cc3cb"
+    sha256 cellar: :any,                 arm64_monterey: "bed2db59671ee1b0cd94a3358e3044fa49b0e9085336e64945d144cac16db505"
+    sha256 cellar: :any,                 sonoma:         "1f1c281f21c9ca692c83c8b024dfd0558231a9e71d74a76cc9dff3d1046478d0"
+    sha256 cellar: :any,                 ventura:        "d82fe1f18c13b4781d08259739358023aff5dedd548cbac6253d0abdf29a4620"
+    sha256 cellar: :any,                 monterey:       "734ccab75d650d7c4414371ae7a5e0b974b25d8d99a3ce47f15b10e790c7cb21"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4d201496bdb5241906be8b746e76f212d694c4b3c67909899c9d51eed141cee8"
   end
 
   depends_on "autoconf" => :build
@@ -118,7 +118,7 @@ class Pcb2gcode < Formula
       al-y=15
       software=LinuxCNC
     EOS
-    system "#{bin}/pcb2gcode", "--front=front.gbr",
+    system bin/"pcb2gcode", "--front=front.gbr",
                                "--outline=edge.gbr",
                                "--drill=drill.drl"
   end

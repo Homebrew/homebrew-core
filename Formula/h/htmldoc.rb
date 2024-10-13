@@ -7,6 +7,7 @@ class Htmldoc < Formula
   head "https://github.com/michaelrsweet/htmldoc.git", branch: "master"
 
   bottle do
+    sha256 arm64_sequoia:  "b5862b0ead7bad774ddea06553f4fed4adab8b7c2eba4d9be47d212892149e30"
     sha256 arm64_sonoma:   "b3daefc48f25c937c30c5a7d8dcc4b74e042ba33c24d804b4c9a5ac8f8112182"
     sha256 arm64_ventura:  "195a8758cd0ed5bc3bd6acb57786bc44ec896a4c340429e31278ad5076730086"
     sha256 arm64_monterey: "5bebc747c06a7a7a1126786f9b55a516dd7ba93d517639eae4f0327ace137296"
@@ -36,6 +37,6 @@ class Htmldoc < Formula
   end
 
   test do
-    system "#{bin}/htmldoc", "--version"
+    system bin/"htmldoc", "--version"
   end
 end

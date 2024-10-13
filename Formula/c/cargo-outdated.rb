@@ -13,13 +13,15 @@ class CargoOutdated < Formula
   head "https://github.com/kbknapp/cargo-outdated.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "94522bad259cf98624503bd1c36b359489a4e3e80e88892f28619d9edffe3287"
-    sha256 cellar: :any,                 arm64_ventura:  "ec799ae4a8928ead673a50feec7067a5e0568c96fe6c862b0cb9535adc1dadac"
-    sha256 cellar: :any,                 arm64_monterey: "e639384993b506125e86d0059712187857c328a944bd096ad32889865b35be2e"
-    sha256 cellar: :any,                 sonoma:         "414ac82417f8b68cf77b882cc95b40de2a4a7a29a78f1e34111b4e4d54b05982"
-    sha256 cellar: :any,                 ventura:        "1c0734e31857ad16ec0b49bc471aa33b4c8a3c83ac26613f665300e1538bdcad"
-    sha256 cellar: :any,                 monterey:       "da4b0dce1d17bd596a0ac310407782ccab9c27e91edcd487f52c94c8e4a491f0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "37d1ad865261d4ed2dd5e3b19f3f843aa5e27fed0e3126b628417c6c9ca3d9e3"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia:  "86b57b5f303ed5b7244fa35577ab22e976c93d156c98cab15fce93fa8ac3bed3"
+    sha256 cellar: :any,                 arm64_sonoma:   "bd1d9196b5442029200c34d51c23175f61c899ac4e9cc95ebbe7ff4f3641d177"
+    sha256 cellar: :any,                 arm64_ventura:  "d75a6a4ab730f471c3cebea7e2993f09454e14d9faf2162175a02bdbb1424339"
+    sha256 cellar: :any,                 arm64_monterey: "9cc2cc42be17e9f3c89c8389f4df8191e2d4eb60f9036ca79ab2e70c67bb1e51"
+    sha256 cellar: :any,                 sonoma:         "1fbf19e465ae01e3de9156a71da3a9c31a958bc81793ca981688ccee6e03b1e8"
+    sha256 cellar: :any,                 ventura:        "66736cba56267d3a8fa366e8caa54b4f327864561a984d74592a4f7cdff9997e"
+    sha256 cellar: :any,                 monterey:       "393cc224deb953a44ec760626f335df0e5fac89aac7e1a74defb7c572c27bc91"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0bb39e0bca108a5dfb5b579d31d17986faa32ea3b7d8ae486a21199de3e591b0"
   end
 
   depends_on "pkg-config" => :build
@@ -29,6 +31,12 @@ class CargoOutdated < Formula
   depends_on "openssl@3"
 
   uses_from_macos "zlib"
+
+  # rust 1.80 build patch, upstream pr ref, https://github.com/kbknapp/cargo-outdated/pull/397
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/c17b2163d305f02e8b63639bfa50fc98a74cf72b/cargo-outdated/rust-1.80.patch"
+    sha256 "6e014843621fa897952ea0ff35c44693156109db60e344190157a7805ace60c5"
+  end
 
   def install
     ENV["LIBGIT2_NO_VENDOR"] = "1"

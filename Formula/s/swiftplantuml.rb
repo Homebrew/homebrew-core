@@ -22,6 +22,6 @@ class Swiftplantuml < Formula
   end
 
   test do
-    system "#{bin}/swiftplantuml", "--help"
+    system bin/"swiftplantuml", "--help"
   end
 end

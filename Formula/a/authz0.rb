@@ -7,6 +7,7 @@ class Authz0 < Formula
   head "https://github.com/hahwul/authz0.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "76f92010b14aae9dae0ead727ef643ce0b0edc8a5361530ffdfd549b9895e2ae"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "14381da4ed533631835222d21cd916381953a087c3b1335bb4d30a8c26acd382"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "b2a469a36c22f19b0ecc5ee81c8aae79cdd1f826a6ee917865666b7f004ab3a0"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "68a16964db28dc0169285a3a7dc06c19544ec0f53fcc83396d7944700aea3826"

@@ -7,6 +7,7 @@ class SpringCompletion < Formula
   head "https://github.com/jacaetevha/spring_bash_completion.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "4b3ae7469be600ebd63ca8f9bb7f59677dc2d766c05b75becf477923dade4cca"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b31b990436b19546a9fe8d392496e6d8b14c1bd0f1e622d1ad01baee4fd4383e"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "cff62b143ba4126ebde03eca3822b4e1b3af6977a3a26b798d94286fd423cf47"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "bd4aeec3cfd7ef58699e3db575729670c459ed5476a65b717c8ffae6ac8850c3"

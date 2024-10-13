@@ -12,6 +12,7 @@ class Conserver < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "1d058954be5b4a37f181a78bcff594873c263c8173ba390161dd1a26be990260"
     sha256 cellar: :any,                 arm64_sonoma:   "6070a08f377c33c31c8aea3edabfdeb4c9bdf830c6d4a6586ee44b0444d47eda"
     sha256 cellar: :any,                 arm64_ventura:  "74dc851dc7fbf69e4ef2dd38eb0d60f6741a16cb2a22d0d963d26aca9dc8c5ca"
     sha256 cellar: :any,                 arm64_monterey: "52680e8e2d323b4cde6de75a037d04e729c4321b238135ac58a7565fced2bd5b"

@@ -13,6 +13,7 @@ class Dcm2niix < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "150c1a7727e7f520b84ad40598a2e06b7d637f7976fd29a5c7958a50dbb4bde7"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f15f3bcddae629bf3491a9aa564e2746c80102b81452e427d331d58459a41e29"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "8faddf2f767f588c92f49feb4596387ad9d0fb2cb4dd59ceb3d684374205c8b7"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "02cc2718e8b43c5061208ea668c85eeb9a72167c7b3a23e2016414161d7b0acf"
@@ -37,7 +38,7 @@ class Dcm2niix < Formula
     end
 
     resource("homebrew-sample.dcm").stage testpath
-    system "#{bin}/dcm2niix", "-f", "%d_%e", "-z", "n", "-b", "y", testpath
+    system bin/"dcm2niix", "-f", "%d_%e", "-z", "n", "-b", "y", testpath
     assert_predicate testpath/"localizer_1.nii", :exist?
     assert_predicate testpath/"localizer_1.json", :exist?
   end

@@ -2,18 +2,19 @@ class Lc0 < Formula
   desc "Open source neural network based chess engine"
   homepage "https://lczero.org/"
   url "https://github.com/LeelaChessZero/lc0.git",
-      tag:      "v0.31.0",
-      revision: "018f28bad2fc0a6214e73bc937ae46e8c770bf0e"
+      tag:      "v0.31.1",
+      revision: "8229737a73fff12498828d90db099914adaa4a08"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a599cbd6a5e3cb80a4c85e19bcc36ae84d6bac787ff5d6b4e8c46c84de5c242f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1079a0e3b693569b0907ef68813f7850bd5fe69e46073b3670bb35644c0efd7d"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e1889e860e75f05901ab9801ad22e664c930d29300e64a8481a702148ab98ce2"
-    sha256 cellar: :any_skip_relocation, sonoma:         "43d2caabce024410302728eeba787263dd7859d99cadcbadb67ced3549c3cfc3"
-    sha256 cellar: :any_skip_relocation, ventura:        "2e6e0ecc756b4fe727bbb462b61a9752340b4c23f8f3eaf99a6a86be4868ebd7"
-    sha256 cellar: :any_skip_relocation, monterey:       "66edcc0e9029723c948a6c9121365deabd2cefee003302920c36ba4de99db677"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fc810dd1a50558bc10e2ce6d0070089a31bccd97937915fb9032b6fc8a71f769"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "4e1284325ad80b5d4c6e589e8adc23372a56cf3482e84da096d8c675d0183e78"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4b20580ad124635d2565de067f55fab0d6663e37115b06ff75ad2cdf0b61322d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c2998b62f8be1dcf216104dbc1ed18156fb139811e37bf6bead68607f5cf74ee"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "2d118b214854355d4f480ccc5951afc51d4397b98fee0957d0f64b009e56f2d8"
+    sha256 cellar: :any_skip_relocation, sonoma:         "15fc89e21bf23719ba83534d1d84b9649f9421f20dad4039bd3b800c9e4e193e"
+    sha256 cellar: :any_skip_relocation, ventura:        "4efba4aa60d5d2c8b256680a75fbd87ad1631b0d613cd5ecd6802d5d6f262f46"
+    sha256 cellar: :any_skip_relocation, monterey:       "cf2605d4e7a521fa245742b315c57c0fb60050c976c1de7bc3c7b6ae81f271c9"
+    sha256                               x86_64_linux:   "fe1dabe4d6b203d5f48510a08af48fe5b644fbead57a64c47c4a27d2652421de"
   end
 
   depends_on "cmake" => :build
@@ -39,7 +40,7 @@ class Lc0 < Formula
   end
 
   def install
-    args = ["-Dgtest=false"]
+    args = ["-Dgtest=false", "-Dbindir=libexec"]
 
     if OS.mac?
       # Disable metal backend for older macOS
@@ -49,12 +50,10 @@ class Lc0 < Formula
       args << "-Dopenblas_include=#{Formula["openblas"].opt_include}"
       args << "-Dopenblas_libdirs=#{Formula["openblas"].opt_lib}"
     end
-    system "meson", *std_meson_args, *args, "build/release"
 
-    cd "build/release" do
-      system "ninja", "-v"
-      libexec.install "lc0"
-    end
+    system "meson", "setup", "build", *args, *std_meson_args
+    system "meson", "compile", "-C", "build", "--verbose"
+    system "meson", "install", "-C", "build"
 
     bin.write_exec_script libexec/"lc0"
     resource("network").stage { libexec.install Dir["*"].first => "42850.pb.gz" }

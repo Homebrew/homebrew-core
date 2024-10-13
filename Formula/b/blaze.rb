@@ -7,6 +7,7 @@ class Blaze < Formula
   head "https://bitbucket.org/blaze-lib/blaze.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "a80081c26f45e68615e6ef2dcde4f354ee8dc05cf2744d20d75efee48f7e7864"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "808bf2b3fe945e77161aa0878ab93310708d2c1417a437940f4b3fb72f729822"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "7517ce89404f505648d0a6c8581bee0037e03dbe9e2ff59a46ea331bbe03bbe3"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e47ffe3bc0d4b023cb6aeb3a368b3758daa8f06fab8c5b701eb5e30733591bf2"

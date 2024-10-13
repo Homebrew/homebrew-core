@@ -1,56 +1,68 @@
 class Cling < Formula
   desc "C++ interpreter"
-  homepage "https://root.cern.ch/cling"
-  url "https://github.com/root-project/cling.git",
-      tag:      "v0.9",
-      revision: "f3768a4c43b0f3b23eccc6075fa178861a002a10"
-  license any_of: ["LGPL-2.1-only", "NCSA"]
+  homepage "https://root.cern/cling/"
+  url "https://github.com/root-project/cling/archive/refs/tags/v1.1.tar.gz"
+  sha256 "e8b33b5e99c6267a85be71fc6eb8e5622ce8aee864c60587cb71f43c27e97032"
+  license all_of: [
+    { any_of: ["LGPL-2.1-only", "NCSA"] },
+    { "Apache-2.0" => { with: "LLVM-exception" } }, # llvm
+  ]
 
-  bottle do
-    sha256               arm64_monterey: "ae9ec74f889a58e57f00394e3b46dd1793d975ce7dc5907c71e2e15853610a62"
-    sha256 cellar: :any, arm64_big_sur:  "82134eeea0ba90008355120b137908d828011e302b62ec97de10b152777d9651"
-    sha256               monterey:       "90f4150c5bcc027fe76db2f53948eb31e757124da337639303eee2ac768c8999"
-    sha256 cellar: :any, big_sur:        "e894d9476bc9ed0edb1ca8d3ca1d9fa6cefc8fc50befc93f1d1c25d1f1bee721"
-    sha256 cellar: :any, catalina:       "fd178b38640189a9b096d9c98fe3b1dedc934a504ddc0d3dc1c6bbfea144f09f"
-    sha256 cellar: :any, mojave:         "5135fc901ba316ca0e02f5598af21cd42a264994111252964f239b2576c7829b"
-    sha256               x86_64_linux:   "315073c45b0684a970493476b9c8476ddf90eb7d69bd5326efdf97b79ec55e25"
+  # There can be a notable gap between when a version is tagged and a
+  # corresponding release is created, so we check the "latest" release instead
+  # of the Git tags.
+  livecheck do
+    url :stable
+    strategy :github_latest
   end
 
-  # Does not build on Ventura
-  # https://github.com/Homebrew/homebrew-core/pull/131473
-  # https://github.com/root-project/cling/issues/492#issuecomment-1555938334
-  deprecate! date: "2023-08-24", because: :does_not_build
+  bottle do
+    sha256 arm64_sequoia:  "08656cf9226092658a6151287f836f4f9a954ba10aa4a260e24196b94a0691fc"
+    sha256 arm64_sonoma:   "19b0412143d83a482fd5252d3a5a298ad5867f187f750a260be09be6889d31d2"
+    sha256 arm64_ventura:  "ac3b9dd399d88c74c4c3c0b88edc49ededd1922fd1cf1f03c23bed338697765d"
+    sha256 arm64_monterey: "6cf7a996760a1f5e5d79e5cbf4f258754c4d999691b74fdf37ab36629a0bce8b"
+    sha256 sonoma:         "cda39b9bbadc8473dce97cc997ba974630cdd80774f9ff78cccf5dfa9738a3a8"
+    sha256 ventura:        "c3ae49562e7dce88ff71708a1fac0813347f374d27b7f4afe3be1570271a61fa"
+    sha256 monterey:       "9462386c62c760c5826399df87f677f99ecc238348421230ec95032dad3ae0e7"
+    sha256 x86_64_linux:   "75a5918cdc9831cf4e42d32ab616fdcc95ca5a5e734273b12d7671385d063a09"
+  end
 
   depends_on "cmake" => :build
 
+  uses_from_macos "python" => :build, since: :catalina
+  uses_from_macos "libedit"
   uses_from_macos "libxml2"
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
-  resource "clang" do
-    url "http://root.cern.ch/git/clang.git",
-        tag:      "cling-v0.9",
-        revision: "b7fa7dcfd21cac3d67688be9bdc83a35778e53e1"
-  end
-
+  # https://github.com/root-project/cling?tab=readme-ov-file#building-from-source
+  # grab the latest tag from cling-latest branch
   resource "llvm" do
-    url "http://root.cern.ch/git/llvm.git",
-        tag:      "cling-v0.9",
-        revision: "85e42859fb6de405e303fc8d92e37ff2b652b4b5"
+    url "https://github.com/root-project/llvm-project/archive/refs/tags/cling-llvm16-20240621-02.tar.gz"
+    sha256 "51bcf665422be228fbc730cac8bd6bd78258fab80de97c90f629411f14021243"
   end
 
   def install
-    (buildpath/"src").install resource("llvm")
-    (buildpath/"src/tools/cling").install buildpath.children - [buildpath/"src"]
-    (buildpath/"src/tools/clang").install resource("clang")
-    mkdir "build" do
-      system "cmake", *std_cmake_args, "../src",
-                      "-DCMAKE_INSTALL_PREFIX=#{libexec}",
-                      "-DCLING_CXX_PATH=clang++"
-      system "make", "install"
-    end
-    bin.install_symlink libexec/"bin/cling"
-    prefix.install_metafiles buildpath/"src/tools/cling"
+    # Skip modification of CLING_OSX_SYSROOT to the unversioned SDK path
+    # Related: https://github.com/Homebrew/homebrew-core/issues/135714
+    # Related: https://github.com/root-project/cling/issues/457
+    inreplace "lib/Interpreter/CMakeLists.txt", '"MacOSX[.0-9]+\.sdk"', '"SKIP"'
+
+    (buildpath/"llvm").install resource("llvm")
+
+    system "cmake", "-S", "llvm/llvm", "-B", "build",
+                    "-DCLING_CXX_PATH=clang++",
+                    "-DLLVM_BUILD_TOOLS=OFF",
+                    "-DLLVM_ENABLE_PROJECTS=clang",
+                    "-DLLVM_EXTERNAL_CLING_SOURCE_DIR=#{buildpath}",
+                    "-DLLVM_EXTERNAL_PROJECTS=cling",
+                    "-DLLVM_TARGETS_TO_BUILD=host;NVPTX",
+                    *std_cmake_args(install_prefix: libexec)
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
+
+    # We use an exec script as a symlink causes issues finding headers
+    bin.write_exec_script libexec/"bin/cling"
   end
 
   test do

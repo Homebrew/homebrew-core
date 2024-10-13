@@ -20,6 +20,7 @@ class Codec2 < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "c440a292877b0280780fead2695c9693ab407f28189cccf7ffe3f23e9957e2d0"
     sha256 cellar: :any,                 arm64_sonoma:   "ffb282985d9999fa657f2b7975abb94b565728ccb48e35dd91b731f5836bc9fe"
     sha256 cellar: :any,                 arm64_ventura:  "011a69e95c4b665d2d1581d2c357d5cb0eb68c69ff5b6923035d5aeaab50d495"
     sha256 cellar: :any,                 arm64_monterey: "49b0ee03a567601d41a18395e125cd93722d7dfc5431839b2abc55b463c1d509"
@@ -46,6 +47,6 @@ class Codec2 < Formula
   test do
     # 8 bytes of raw audio data (silence).
     (testpath/"test.raw").write([0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00].pack("C*"))
-    system "#{bin}/c2enc", "2400", "test.raw", "test.c2"
+    system bin/"c2enc", "2400", "test.raw", "test.c2"
   end
 end

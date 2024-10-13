@@ -7,6 +7,7 @@ class GoogleSparsehash < Formula
   head "https://github.com/sparsehash/sparsehash.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "172ff956a189cea419801e2ce07c5fd7c80f1e7a2372d1c02270a392e272204c"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5fe99f9acb9ab292d249f8c1bc05382687e8a24399447f135f707da6f402ef11"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "18714795cfeeeaed655d978a981e4c831fe39e46743ed79c0c219c695cf281e3"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1cee10f1f45f9aa17c0a63573fb8065dea21f9f79c075fafeee699649d50f28d"

@@ -12,6 +12,7 @@ class Sparse < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "56f5a3f7e3acbbd57f46ef1bf435a2a5130d719dd9f28e3578eabe79097aef3a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b4bf9baccb8ffe407b9f59f8933d72d4676e08adbeffcd4f3dcea9c3b0db9ca5"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "c1c53b9ca28fe2ce54ff72f0f9642289704ccae97868a2a90e2cb02095e8d7df"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "3afb8b9256e015fcb1fc49608cea9fe6c02e6a93fa1df0a7720a30c5e8057699"
@@ -46,6 +47,6 @@ class Sparse < Formula
 
   test do
     (testpath/"test.C").write("int main(int a) {return a;}\n")
-    system "#{bin}/sparse", testpath/"test.C"
+    system bin/"sparse", testpath/"test.C"
   end
 end

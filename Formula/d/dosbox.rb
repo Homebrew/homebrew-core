@@ -3,7 +3,7 @@ class Dosbox < Formula
   homepage "https://www.dosbox.com/"
   url "https://downloads.sourceforge.net/project/dosbox/dosbox/0.74-3/dosbox-0.74-3.tar.gz"
   sha256 "c0d13dd7ed2ed363b68de615475781e891cd582e8162b5c3669137502222260a"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
   revision 1
 
   bottle do
@@ -49,6 +49,6 @@ class Dosbox < Formula
   end
 
   test do
-    system "#{bin}/dosbox", "-version"
+    system bin/"dosbox", "-version"
   end
 end

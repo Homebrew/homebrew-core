@@ -7,6 +7,7 @@ class IosDeploy < Formula
   head "https://github.com/ios-control/ios-deploy.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "4c69eb7279d465db83c5d996a519fdc0f045338adaef8a92eb426a67f9733ee9"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6d9ac2ff01049d41618a63ef47738fe9e01cf9b77154b9773bde884a42dd31e1"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "5c87b96b6692afa7b56724cb2e1a0f1cf1e8065f803266c8d83a7d5623496896"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "eae3172eaea91a064b40f05f508d4d4a3d9c18cdba920fec27be57477cfd5ec4"
@@ -35,6 +36,6 @@ class IosDeploy < Formula
   end
 
   test do
-    system "#{bin}/ios-deploy", "-V"
+    system bin/"ios-deploy", "-V"
   end
 end

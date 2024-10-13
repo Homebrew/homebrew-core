@@ -7,6 +7,7 @@ class Libfreefare < Formula
   revision 4
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "2a601550aaba3113176cbb9c284f263faab1cacdadaa841ca48ffac4cc36ea70"
     sha256 cellar: :any,                 arm64_sonoma:   "be04856cd0edfb30a50104ea7fd3a5b7ce66c25921179415eddd8542b328d3a0"
     sha256 cellar: :any,                 arm64_ventura:  "6d9f13777430e1e406a80bb919603e2e1f823a84628ff9a6c27786e97077015b"
     sha256 cellar: :any,                 arm64_monterey: "dd6a7123a899f9ea2e0f2f1bb96ee61510d384db5dcda776968e5f642cdb3b1a"
@@ -22,6 +23,10 @@ class Libfreefare < Formula
   depends_on "libnfc"
   depends_on "openssl@3"
 
+  on_macos do
+    depends_on "libusb-compat"
+  end
+
   # Upstream commit for endianness-related functions, fixes
   # https://github.com/nfc-tools/libfreefare/issues/55
   patch do
@@ -36,9 +41,7 @@ class Libfreefare < Formula
   end
 
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}"
+    system "./configure", "--disable-silent-rules", *std_configure_args
     system "make", "install"
   end
 
@@ -50,6 +53,7 @@ class Libfreefare < Formula
         return 0;
       }
     EOS
+
     system ENV.cc, "test.c", "-L#{lib}", "-lfreefare", "-o", "test"
     system "./test"
   end

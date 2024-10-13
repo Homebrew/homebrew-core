@@ -7,6 +7,7 @@ class Jprq < Formula
   head "https://github.com/azimjohn/jprq.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "405bae408ae0f4b6cc16b2397fad514dfbc78615775a9505dd157fef0e412a54"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b2ac3c91e30779722a50d98b44dd8b29d33ce020676761b232d0100c27c8e97e"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "66a0567935070ced5c8a72278654c0c5dfc1980943896e61bc94530c90c36a06"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c566cb561847a5bbdcba4320d510ae68654e669c48565c8c654cf2dc012ec9cb"

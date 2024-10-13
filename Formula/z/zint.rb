@@ -12,6 +12,7 @@ class Zint < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "a5ef81a0327576c485d43464a9c83f58e900424df09618110063e36b482672d5"
     sha256 cellar: :any,                 arm64_sonoma:   "6fa2b89bbdb82d0a6beb39c37a3e449c16ef001d061afa494c88a214fd8202b9"
     sha256 cellar: :any,                 arm64_ventura:  "84bd1d082df48a9534db60ec62c89125078019740ca2c5e19f099e8d69b86e81"
     sha256 cellar: :any,                 arm64_monterey: "3007752c499d7ec86f7ead26a836e244416e47fecdfa89e77b03e88259a1f550"
@@ -28,13 +29,39 @@ class Zint < Formula
     # Sandbox fix: install FindZint.cmake in zint's prefix, not cmake's.
     inreplace "CMakeLists.txt", "${CMAKE_ROOT}", "#{share}/cmake"
 
-    mkdir "zint-build" do
-      system "cmake", "..", *std_cmake_args
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
-    system "#{bin}/zint", "-o", "test-zing.png", "-d", "This Text"
+    (testpath/"test.c").write <<~EOS
+      #include <zint.h>
+      #include <stdio.h>
+      #include <stdlib.h>
+
+      int main() {
+        struct zint_symbol *my_symbol;
+
+        my_symbol = ZBarcode_Create();
+        my_symbol->symbology = BARCODE_CODE128;
+        ZBarcode_Encode(my_symbol, (unsigned char *)"Test123", 7);
+        ZBarcode_Print(my_symbol, 0);
+
+        printf("Barcode successfully saved to out.png\\n");
+        ZBarcode_Delete(my_symbol);
+
+        return 0;
+      }
+    EOS
+
+    system ENV.cc, "test.c", "-o", "test", "-I#{include}", "-L#{lib}", "-lzint"
+    system "./test"
+    assert_predicate testpath/"out.png", :exist?, "Failed to create barcode PNG"
+
+    system bin/"zint", "-o", "test-zing.png", "-d", "This Text"
+    assert_predicate testpath/"test-zing.png", :exist?, "Failed to create barcode PNG"
+
+    assert_match version.to_s, shell_output("#{bin}/zint --version")
   end
 end

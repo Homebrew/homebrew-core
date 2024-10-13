@@ -1,8 +1,8 @@
 class Sccache < Formula
   desc "Used as a compiler wrapper and avoids compilation when possible"
   homepage "https://github.com/mozilla/sccache"
-  url "https://github.com/mozilla/sccache/archive/refs/tags/v0.8.1.tar.gz"
-  sha256 "30b951b49246d5ca7d614e5712215cb5f39509d6f899641f511fb19036b5c4e5"
+  url "https://github.com/mozilla/sccache/archive/refs/tags/v0.8.2.tar.gz"
+  sha256 "2b3e0ef8902fe7bcdcfccf393e29f4ccaafc0194cbb93681eaac238cdc9b94f8"
   license "Apache-2.0"
   head "https://github.com/mozilla/sccache.git", branch: "main"
 
@@ -12,13 +12,12 @@ class Sccache < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9445c581fefc0228a6d7eb919ffe144e712202cf5f1daebbcf2704de948abae5"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "507c9974e7a268b18f4c5c895b45817a328773da80337196761c2d6d70c38f60"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "fb8cefb8c0f8065c87e85059c699664904f5e6e2cc55bc221dd2fc6ecf662458"
-    sha256 cellar: :any_skip_relocation, sonoma:         "275afdbfd37682c86aee198fc32867c8470ccbc7264765d0737865bc8096462d"
-    sha256 cellar: :any_skip_relocation, ventura:        "a6e9e14187f20b1c6994332e05af34601229832bdd5b72d4c122e27f379fa2b9"
-    sha256 cellar: :any_skip_relocation, monterey:       "f7e6a46b744ef7ecdd88facaf809281ce2310f827cd5d0600fb6a310474c6fe3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "25e9e67a8fa6a94e150c83629220cb97da8a16cc83f00ddde9974e8a2d78f448"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "03c9225e0e31879bf3ccbd68790a3d9827097be7f350116e15383a0928cd3120"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1a92467361c756770c553b1199e3f45ace1a809afff888c674582af984a95b3a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "da6f81c594991203232eeddc36554e63d5b70ac7c6a869be4ae499e6c451e2e3"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8770becca139afcdd082429a14919758a9f24f48552b6cad05f1712a3f2bd3be"
+    sha256 cellar: :any_skip_relocation, ventura:       "56142a6a5f62aad1bd1aee1db0b4c1ab2bf3170b3b1b7cabe372214c88a08d1f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "19eb01412ded79a71a508a3c727541921720b8d543ef7f021749c8f5b37fbcc9"
   end
 
   depends_on "rust" => :build
@@ -43,7 +42,7 @@ class Sccache < Formula
         return 0;
       }
     EOS
-    system "#{bin}/sccache", "cc", "hello.c", "-o", "hello-c"
+    system bin/"sccache", "cc", "hello.c", "-o", "hello-c"
     assert_equal "Hello, world!", shell_output("./hello-c").chomp
   end
 end

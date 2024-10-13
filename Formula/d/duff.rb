@@ -3,8 +3,10 @@ class Duff < Formula
   homepage "https://github.com/elmindreda/duff"
   url "https://downloads.sourceforge.net/project/duff/duff/0.5.2/duff-0.5.2.tar.gz"
   sha256 "15b721f7e0ea43eba3fd6afb41dbd1be63c678952bf3d80350130a0e710c542e"
+  license "Zlib"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "c424b8c034bc699eee2d55c766aad34f4f7ea1f46a5c6f0a6a221159917fd396"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "bd400550da914ee690f2ff0798da5a8438afcbc68dd337da29b85f694724bdb6"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "176be0397d77a2aacf76fffda32a3d6e203eb7a803c626c52db2e563c2c49c3f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "668a1d24b8d48ec315a92dff088af45703c461c93fb8b865ff76eb7e932eab03"

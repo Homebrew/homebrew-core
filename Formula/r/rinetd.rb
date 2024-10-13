@@ -15,6 +15,7 @@ class Rinetd < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "1aa4fa0021a1509710ef1b13f7e76d7ec8b1f819f941835040807ce8255599d2"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b64c37c93190bdea6d086f34832b7db19ee69cd22ce7046e6c371a0c6b292a22"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "8de3030cc0499320d112d4d07a4379a4068efab0c5b7e027d7f4a45be33d1d6a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "35efe356153b47c973f2548d1b02c27c503dbc6cc360bec5eaa60a94049b5dbd"

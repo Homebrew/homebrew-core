@@ -6,6 +6,7 @@ class CargoDeps < Formula
   license "BSD-3-Clause"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "0822ff6250873cd04ec984afff6d6ca66363496d268d8902dc406f29bdafb403"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6817f6aba18ea54427289043559801aabc573370c80aed691e9ae78893046348"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "dbfa6ef183d5a237a74186f332915c4704ce9926be46f30bf67d21a93443fc50"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "72e3032013ef5a554be4c6c0d1ce750a863cc8d6ba0d5aeb631bac9f96dbe832"

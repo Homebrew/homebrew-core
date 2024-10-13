@@ -1,20 +1,19 @@
 class Jimtcl < Formula
   desc "Small footprint implementation of Tcl"
   homepage "https://jim.tcl.tk/index.html"
-  url "https://github.com/msteveb/jimtcl/archive/refs/tags/0.82.tar.gz"
-  sha256 "e8af929b815e4d30e54ff116b2b933e56c00a02b9110529d1a58660b2469aea7"
+  url "https://github.com/msteveb/jimtcl/archive/refs/tags/0.83.tar.gz"
+  sha256 "6f2df00009f5ac4ad654c1ae1d2f8ed18191de38d1f5a88a54ea99cc16936686"
   license "BSD-2-Clause"
 
   bottle do
-    sha256 arm64_sonoma:   "702afd6aae1bfeafc5b1e8b5c44886ad47b4bd7d91d5f6b0e61cb1125aba0fbf"
-    sha256 arm64_ventura:  "f80310436f9d2bc8d96178eb91a2ed561a3d935ca55046784c5e6a46a61895a1"
-    sha256 arm64_monterey: "ee69a018ea4c1fcad3d71040c0cf0d76fb886b493ac7b70345208ce0504ae0bc"
-    sha256 arm64_big_sur:  "43167817009a55f2d14e7378356d6c00d46570e1ccd7fe9bf012c23495c77398"
-    sha256 sonoma:         "13a9d0b0287b0f5571b8426be5b88c863820910827e684a5529d1686564c6f47"
-    sha256 ventura:        "b55f9946c4311018d373f84a7a02c5ed128793e0f1df7519a5848d4baf286c6f"
-    sha256 monterey:       "bcb43b78367cc5b8f0814055268befc4ca46ee23afc007f36e14b534477a9668"
-    sha256 big_sur:        "b6f6bfd82e8514a83dd2a5ff0b3d8a172c85c102df7b87d1ecc4e85753fa72ac"
-    sha256 x86_64_linux:   "4b1193b996cd8fb9c7c6e41c9bb047c7a7b04238fc56fc8f9f6c67a58b291c1c"
+    sha256 arm64_sequoia:  "855f8a678aa16fa313e1e74b4ca765afb34f3fce0a5eb130bc8f4d14da5aed6f"
+    sha256 arm64_sonoma:   "73774db53edbfc7791a6f2c328f63ef7a7555b103c1ada101e110590aeeea3d4"
+    sha256 arm64_ventura:  "a5a65010c3d6c3d72a8d6bdf0dc6a230232d1d5477e065f3bc4a631f6b4e3c1a"
+    sha256 arm64_monterey: "cde5346b6488d9224d512b678eb500ee9f63c95b16eea5001775f998ad9c789a"
+    sha256 sonoma:         "802498062a817cb2055c3d30c5a5945f369ca08b08bc8945d36aec2942b711b9"
+    sha256 ventura:        "37aeca2006f2608fd5d788839b4c51505df48b4bbe94bbb44f3122404993adfc"
+    sha256 monterey:       "4b9b6ed2f15335aebba924e148b4907c9b199634b718ad9460270ebc8f434d8d"
+    sha256 x86_64_linux:   "66fc34a8124311fd4888cfbadf04c6bb1a1f4804ed20f19fb08a39417322ca62"
   end
 
   depends_on "openssl@3"
@@ -23,19 +22,19 @@ class Jimtcl < Formula
   uses_from_macos "sqlite"
   uses_from_macos "zlib"
 
+  # patch to include `stdio.h``
+  patch do
+    url "https://github.com/msteveb/jimtcl/commit/35e0e1f9b1f018666e5170a35366c5fc3b97309c.patch?full_index=1"
+    sha256 "50f66a70d130c578f57d9569b62cf7071f7a3a285ca15efefd3485fa385469ba"
+  end
+
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}",
-                          "--full",
+    system "./configure", "--disable-silent-rules",
                           "--with-ext=readline,rlprompt,sqlite3",
                           "--shared",
                           "--docdir=#{doc}",
-                          "--maintainer",
-                          "--math",
                           "--ssl",
-                          "--utf8"
+                          *std_configure_args
     system "make"
     system "make", "install"
     pkgshare.install Dir["examples*"]

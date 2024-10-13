@@ -6,6 +6,7 @@ class TtySolitaire < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "46e8d8d54feff2319e57f46b3cd015e293ddfb6e621554c253ae996463783573"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "af1c2e75d43cf1cd2472ddd7f43a3b65be13d391458c749829f6ecd4361cbab6"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "c6e0d4124e3f8a37e045611694d87d3b5a7399eb14487ce2e1b874fce96149eb"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a8ea8909f9e522b9e6fbbbe1db5901a0f584ef25bb788099267ee6e035f84580"
@@ -27,6 +28,6 @@ class TtySolitaire < Formula
   end
 
   test do
-    system "#{bin}/ttysolitaire", "-h"
+    system bin/"ttysolitaire", "-h"
   end
 end

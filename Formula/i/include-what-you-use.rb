@@ -4,6 +4,7 @@ class IncludeWhatYouUse < Formula
   url "https://include-what-you-use.org/downloads/include-what-you-use-0.22.src.tar.gz"
   sha256 "859074b461ea4b8325a73418c207ca33b5e6566b08e6b587eb9164416569a6dd"
   license "NCSA"
+  revision 1
   head "https://github.com/include-what-you-use/include-what-you-use.git", branch: "master"
 
   # This omits the 3.3, 3.4, and 3.5 versions, which come from the older
@@ -16,17 +17,16 @@ class IncludeWhatYouUse < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "93ba651f774544e0224b878b6de5afe956ce54f5dc54aa2c3d6e31e03f6b840b"
-    sha256 cellar: :any,                 arm64_ventura:  "6331a210a2b7e4a7e44835ffe2d53f34efc6b32ac08eb4795a1b465a951ecfb2"
-    sha256 cellar: :any,                 arm64_monterey: "2cc192ed26e63db781901d83cc33bb7aa4ef36ebe209b54761f1aae7c5f87ff2"
-    sha256 cellar: :any,                 sonoma:         "272438e21d63b31b571feaf3751d63ae1d3db2caac84bb5c48d111fade0ff433"
-    sha256 cellar: :any,                 ventura:        "bcb25f4816f40bce3c3f3a9c214ca7a36248f4d2ac7886aac0ceddfa351dfecd"
-    sha256 cellar: :any,                 monterey:       "acfac454bf31ba77ef0b45579b0fa82f9b0a246c029a6c6a37c9e02c726c44b3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "51f9b21421453b7189f229e0ce41782da2d239b7a15d5f8f0f44a94d73bafd71"
+    sha256 cellar: :any,                 arm64_sequoia: "4ed20fb4c62baae23a67013b1bb285f4cf0c778a852725e5ea4cce31139003c5"
+    sha256 cellar: :any,                 arm64_sonoma:  "efb3d600d636270fc665c6f3d64aa81caff7c5cc2ef94b2d84267a9dc4e94648"
+    sha256 cellar: :any,                 arm64_ventura: "933355061e43480f8722c0d8ab8d69f0fb9b6fe0c86a1b0722f6fe3e8bcfab5e"
+    sha256 cellar: :any,                 sonoma:        "15ea39d4a8af3fc9ffc9e77fb2850494464ce24188f6b0519badd941e65048cf"
+    sha256 cellar: :any,                 ventura:       "eb459172046d8b587994857fc8adc042d309f228e5bda5019eec35fbf77e526d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c3a1e76cb95512dba345a66ddcd90d17ffc6aa855faa95350c335b5c867cd919"
   end
 
   depends_on "cmake" => :build
-  depends_on "llvm"
+  depends_on "llvm@18"
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 

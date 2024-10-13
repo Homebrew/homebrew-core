@@ -3,11 +3,12 @@ class Qjson < Formula
   homepage "https://qjson.sourceforge.net/"
   url "https://github.com/flavio/qjson/archive/refs/tags/0.9.0.tar.gz"
   sha256 "e812617477f3c2bb990561767a4cd8b1d3803a52018d4878da302529552610d4"
-  license "LGPL-2.1"
+  license "LGPL-2.1-only"
   revision 2
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia:  "d2d3a43592241e2217ea2508fa0ac418058d95d774f5d9fac89cbfe6ec031af0"
     sha256 cellar: :any,                 arm64_sonoma:   "c38d82d6a5e21a82d588066f62825febd4710d2826349ac5bddbe517f22d60a3"
     sha256 cellar: :any,                 arm64_ventura:  "7b927cd12810ef0c8bca41a65c906af9021ef100fcfd1a4686e81607c213fc7e"
     sha256 cellar: :any,                 arm64_monterey: "f9bf3676c0e2b53c3820eb8b9fc6b8a3b3222c86836a925531c4a1ec902bb346"

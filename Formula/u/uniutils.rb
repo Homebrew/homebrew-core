@@ -14,6 +14,7 @@ class Uniutils < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "b1e77b1c7bb772f82fa4f847d6d08f8b7b4da149516636d45ec0aaa662937490"
     sha256 cellar: :any,                 arm64_sonoma:   "d2e0b6cb5b9a69c9c3b7741b22d800538287c470d377c7796487146cb7875f33"
     sha256 cellar: :any,                 arm64_ventura:  "a7487de087156bf2db6b8db4966e4d8864a822c21da7c07d9c740a17be5771b9"
     sha256 cellar: :any,                 arm64_monterey: "3c4ddbab225f52bd4b6b2b46f35a3a01f827f52367b3cf709251c7eeda260ede"
@@ -41,7 +42,9 @@ class Uniutils < Formula
     system "autoreconf", "--force", "--install", "--verbose"
 
     # workaround for Xcode 14.3
-    ENV.append "CFLAGS", "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
+    if DevelopmentTools.clang_build_version >= 1403
+      ENV.append "CFLAGS", "-Wno-implicit-function-declaration -Wno-implicit-int"
+    end
 
     # fix `_libintl_bindtextdomain` and `_libintl_textdomain` symbols not found
     gettext = Formula["gettext"]

@@ -8,6 +8,7 @@ class Dtrx < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "3ed9145d7343c6ae56e052ad0b8c3e369290fe84668dde3f6658d1b3ffb6b9ca"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1736cb60f34a0ab94077e3a6981d03d9a533fcdf67cec3b047579b87a606b2db"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "1f5c7f156466e498729c08b514d71653924a8e80608c25d834d6c19af38d6be3"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6afd2b7089bcc4778cdcc0785ee5aeec4bfa7e3f1f325823185873e993ba7cac"
@@ -44,7 +45,7 @@ class Dtrx < Formula
       refute_predicate testpath/f, :exist?, "Text files should have been removed!"
     end
 
-    system "#{bin}/dtrx", "--flat", "test.zip"
+    system bin/"dtrx", "--flat", "test.zip"
 
     %w[test1 test2 test3].each do |f|
       assert_predicate testpath/f, :exist?, "Failure unzipping test.zip!"

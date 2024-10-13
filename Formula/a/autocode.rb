@@ -1,5 +1,3 @@
-require "language/node"
-
 class Autocode < Formula
   desc "Code automation for every language, library and framework"
   homepage "https://autocode.readme.io/"
@@ -9,6 +7,7 @@ class Autocode < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "b77a0c5a2addfbdb49c0c77c50d5ef04b56462c3882588527dba9bbb81feefd8"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f91b10fe03c30d860728b43972b1d261bf0bcd51eaaff8bb086a7f68f69c76a6"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "fc6e30959f70b915afd2f6808c21150f2b818d9ea2bce0990aa81a960ff185ab"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "829180e4ff87058eedda5560d335a3e1e35ae8ae37747e4be41cde83e505c3a7"
@@ -28,7 +27,7 @@ class Autocode < Formula
   depends_on "node"
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", *std_npm_args
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 

@@ -3,7 +3,7 @@ class Libmatroska < Formula
   homepage "https://www.matroska.org/"
   url "https://dl.matroska.org/downloads/libmatroska/libmatroska-1.7.1.tar.xz"
   sha256 "572a3033b8d93d48a6a858e514abce4b2f7a946fe1f02cbfeca39bfd703018b3"
-  license "LGPL-2.1"
+  license "LGPL-2.1-or-later"
   head "https://github.com/Matroska-Org/libmatroska.git", branch: "master"
 
   livecheck do
@@ -12,6 +12,7 @@ class Libmatroska < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "59abce74d2eef80b0ec6751dd6d9357c2c130d9d8d11dce0ef9d0f47fbe7007a"
     sha256 cellar: :any,                 arm64_sonoma:   "297b69d493d6b09441e452745dee037ed4c211642a30ab4acfb3f229423e9995"
     sha256 cellar: :any,                 arm64_ventura:  "029766b0222c5d9a72a3cc63410c18a1d6b485243bdb4430f42e515ab24e18dd"
     sha256 cellar: :any,                 arm64_monterey: "7648ded88703290bc998629288b942f2ac26585c9945d1443d14fe454654e306"
@@ -28,9 +29,23 @@ class Libmatroska < Formula
   depends_on "libebml"
 
   def install
-    mkdir "build" do
-      system "cmake", "..", "-DBUILD_SHARED_LIBS=YES", *std_cmake_args
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build", "-DBUILD_SHARED_LIBS=ON", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
+  end
+
+  test do
+    (testpath/"test.cpp").write <<~EOS
+      #include <matroska/KaxVersion.h>
+      #include <iostream>
+
+      int main() {
+        std::cout << "libmatroska version: " << libmatroska::KaxCodeVersion << std::endl;
+        return 0;
+      }
+    EOS
+
+    system ENV.cxx, "-std=c++11", "test.cpp", "-o", "test", "-I#{include}", "-L#{lib}", "-lmatroska"
+    assert_match version.to_s, shell_output("./test")
   end
 end

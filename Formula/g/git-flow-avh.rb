@@ -15,6 +15,7 @@ class GitFlowAvh < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "83117a1c5f1d2fe98c1009a665ce42682e185c922c44c4a877dbe03b3bc2bd3c"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "47a5de1eb23ab6abb2022a128704c4bd4315c1cb0932f48cdb2e619cff4c5b5b"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f559b035f16d9f56bb1750bfd441785df1f094a3838b20c1c51503cc75c2f319"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f559b035f16d9f56bb1750bfd441785df1f094a3838b20c1c51503cc75c2f319"
@@ -58,8 +59,8 @@ class GitFlowAvh < Formula
 
   test do
     system "git", "init"
-    system "#{bin}/git-flow", "init", "-d"
-    system "#{bin}/git-flow", "config"
+    system bin/"git-flow", "init", "-d"
+    system bin/"git-flow", "config"
     assert_equal "develop", shell_output("git symbolic-ref --short HEAD").chomp
   end
 end

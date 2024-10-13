@@ -4,9 +4,9 @@ class Thrift < Formula
   license "Apache-2.0"
 
   stable do
-    url "https://www.apache.org/dyn/closer.lua?path=thrift/0.20.0/thrift-0.20.0.tar.gz"
-    mirror "https://archive.apache.org/dist/thrift/0.20.0/thrift-0.20.0.tar.gz"
-    sha256 "b5d8311a779470e1502c027f428a1db542f5c051c8e1280ccd2163fa935ff2d6"
+    url "https://www.apache.org/dyn/closer.lua?path=thrift/0.21.0/thrift-0.21.0.tar.gz"
+    mirror "https://archive.apache.org/dist/thrift/0.21.0/thrift-0.21.0.tar.gz"
+    sha256 "9a24f3eba9a4ca493602226c16d8c228037db3b9291c6fc4019bfe3bd39fc67c"
 
     # Fix -flat_namespace being used on Big Sur and later.
     patch do
@@ -16,13 +16,12 @@ class Thrift < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "93a5538c94151be23ff7ecb1aa8dcd88738217fc7092f8b6a20d033f99c63206"
-    sha256 cellar: :any,                 arm64_ventura:  "41e37eea7e17eb56ac112fcd2c6ef55dad48a162356d5d3059b7cb343e6f2712"
-    sha256 cellar: :any,                 arm64_monterey: "c226249f0a56ab2f1bbcd82034309db8fa93c26e6dfe34b6fce4c146d7ba47ef"
-    sha256 cellar: :any,                 sonoma:         "d30ef2a3176a45cbcb7e2e72a83b812b296bb01b28d8ac30861c22dcf9a16e03"
-    sha256 cellar: :any,                 ventura:        "859125a35b08285676003bcb591b4c4c8f201c1fd3e29a7101861da3eceda6f0"
-    sha256 cellar: :any,                 monterey:       "f6675b3a7a9d65d3f110a115137e43f5de6d35c60d9aba1a6ce1b1ed56752c17"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "710a77b27ffa924c1ea308bb8eb779a50562f32678843f8c8c5b8f00613b3907"
+    sha256 cellar: :any,                 arm64_sequoia: "eeb71b60993855c21f047fea4ce798bc758e5e7131e2e0c5c34657ac0bcc4848"
+    sha256 cellar: :any,                 arm64_sonoma:  "04d15c0e6be86946302dfd384f904a0849819a47f4940ef3e00f85a73e6d0b93"
+    sha256 cellar: :any,                 arm64_ventura: "93b2fe6a55f5ae205627808ffcdabb30bf33f6853af28fd13d83a218f26cac67"
+    sha256 cellar: :any,                 sonoma:        "74376f8d45a9663628a53a5460b6c900a2e2c01b06a20203e0b3d008b74abac5"
+    sha256 cellar: :any,                 ventura:       "cb800f4e59d0ebd83f4feda5b39400d651539707b7be074c939eb64282c044db"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "591acbcb3495f691cc81fdd51a6b4196c2a8a40dddbe654045209e157c667632"
   end
 
   head do
@@ -89,7 +88,7 @@ class Thrift < Formula
       }
     EOS
 
-    system "#{bin}/thrift", "-r", "--gen", "cpp", "test.thrift"
+    system bin/"thrift", "-r", "--gen", "cpp", "test.thrift"
 
     system ENV.cxx, "-std=c++11", "gen-cpp/MultiplicationService.cpp",
       "gen-cpp/MultiplicationService_server.skeleton.cpp",

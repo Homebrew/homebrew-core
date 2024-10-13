@@ -12,6 +12,7 @@ class Prover9 < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "dc3e744b9971aabf272db720d2fb90a8b99dca8cb8799ef9d9d89beb306eb291"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "92508ef60be4768b9567c677c4aae881f04ef84de98d2bbff299739f906198ba"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "e4ab7e6152098318be4a839b1fa2c6e50dc6868ef6b08c8d34d2175aac1736fe"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4f864bc7f43cde5bf0e7f5b69e26879833b53e5d1c3a8b9404c16062cbe7ca14"
@@ -35,6 +36,9 @@ class Prover9 < Formula
   end
 
   def install
+    # Workaround for newer Clang
+    ENV.append "XFLAGS", "-Wno-implicit-int" if DevelopmentTools.clang_build_version >= 1403
+
     ENV.deparallelize
     system "make", "all"
     bin.install "bin/prover9", "bin/mace4"

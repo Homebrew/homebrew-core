@@ -2,19 +2,13 @@ class Mvnvm < Formula
   desc "Maven version manager"
   # upstream homepage bug report, https://bitbucket.org/mjensen/mvnvm/issues/41/https-mvnvmorg-is-not-reachable
   homepage "https://bitbucket.org/mjensen/mvnvm/"
-  url "https://bitbucket.org/mjensen/mvnvm/get/mvnvm-1.0.28.tar.gz"
-  sha256 "0f0cb35c70d47404f0713e19fe625c28fce04f7b4b9b9302b655a306ada2755d"
+  url "https://bitbucket.org/mjensen/mvnvm/get/mvnvm-1.0.29.tar.gz"
+  sha256 "f3004baa68051fe64b2ab212fea57cb05dcc598e334f2529b9ca936a3b275b0e"
   license "Apache-2.0"
   head "https://bitbucket.org/mjensen/mvnvm.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3adbd5be39a2aa867449bea8686dd3b55b451cdf18a4b4303b0bbcc19b507c52"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3adbd5be39a2aa867449bea8686dd3b55b451cdf18a4b4303b0bbcc19b507c52"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3adbd5be39a2aa867449bea8686dd3b55b451cdf18a4b4303b0bbcc19b507c52"
-    sha256 cellar: :any_skip_relocation, sonoma:         "3adbd5be39a2aa867449bea8686dd3b55b451cdf18a4b4303b0bbcc19b507c52"
-    sha256 cellar: :any_skip_relocation, ventura:        "3adbd5be39a2aa867449bea8686dd3b55b451cdf18a4b4303b0bbcc19b507c52"
-    sha256 cellar: :any_skip_relocation, monterey:       "3adbd5be39a2aa867449bea8686dd3b55b451cdf18a4b4303b0bbcc19b507c52"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "494854b1b1051b9e45fc86a28d68978601043bd848000d9767c67bbdeae235db"
+    sha256 cellar: :any_skip_relocation, all: "03af6e6b002c6e176d523f5d182400b70066fa9f2350155a2cd51abd249b122a"
   end
 
   depends_on "openjdk"
@@ -56,6 +50,6 @@ class Mvnvm < Formula
         }
       }
     EOS
-    system "#{bin}/mvn", "-gs", "#{testpath}/settings.xml", "compile"
+    system bin/"mvn", "-gs", testpath/"settings.xml", "compile"
   end
 end

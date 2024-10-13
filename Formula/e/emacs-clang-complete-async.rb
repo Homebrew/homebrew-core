@@ -1,7 +1,7 @@
 class EmacsClangCompleteAsync < Formula
   desc "Emacs plugin using libclang to complete C/C++ code"
   homepage "https://github.com/Golevka/emacs-clang-complete-async"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
   revision 7
   head "https://github.com/Golevka/emacs-clang-complete-async.git", branch: "master"
 
@@ -14,6 +14,7 @@ class EmacsClangCompleteAsync < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "171855a6a36e55afe0109bf492172c3718b566a6de8a962f5db0557ed1e16e43"
     sha256 cellar: :any,                 arm64_sonoma:   "33e186cda9570a911bd5e90a213c6abfb6960f7f8c8f5ba1d5bd3c4da0e373be"
     sha256 cellar: :any,                 arm64_ventura:  "d98ddff053cb22024c2edf5a57d87f3e0c6ce35a7564cd02d77de2df76617204"
     sha256 cellar: :any,                 arm64_monterey: "35afe0fc0c8a0e576b2dda2f27235d51b993bb125d308b4eca8e8cf785d6feb6"

@@ -11,6 +11,7 @@ class Gpp < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "e45058ae226c20f00bdbbef60d201a6a15831da191ddb73cad7d5f487fd79ffa"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "746aea08bdba427094f11b0ea24eaf8794860d18a10b6e5ca73bf961d51c2e6a"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "37210d847eafe6cca690ffce819b5d7b7f2fdaf4224dbf6469518ba54a722b28"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6ba62bc595cda191e4a27c907f7fafc6fc29b97a7c365e903345f574cabb85a2"

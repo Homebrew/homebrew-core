@@ -4,9 +4,10 @@ class GnuBarcode < Formula
   url "https://ftp.gnu.org/gnu/barcode/barcode-0.99.tar.gz"
   mirror "https://ftpmirror.gnu.org/barcode/barcode-0.99.tar.gz"
   sha256 "7c031cf3eb811242f53664379aebbdd9fae0b7b26b5e5d584c31a9f338154b64"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "30ba34d1c972ec24c6f5ccd484585cd114456d7a6523f16f31dcf58c81089663"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d037ed37810d7bd12b7e915857ec6789445d67ac197ba328102099ce8e00e781"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "ef4c6bfacdcb641696dbc98dd7baf68fadab846c1e80c5e42e75ad068e327336"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ed996c9d8421dcd926b85eefc7e3dd04cc9d9430f72f0b466f62647a5f322e94"
@@ -42,7 +43,7 @@ class GnuBarcode < Formula
 
   test do
     (testpath/"test.txt").write("12345")
-    system "#{bin}/barcode", "-e", "CODE39", "-i", "test.txt", "-o", "test.ps"
+    system bin/"barcode", "-e", "CODE39", "-i", "test.txt", "-o", "test.ps"
     assert File.read("test.ps").start_with?("")
   end
 end

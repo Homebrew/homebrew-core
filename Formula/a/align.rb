@@ -11,8 +11,8 @@ class Align < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "c9faae10da1b1c4bcec6d0c36e63b5dc9320c1bf7751c771b11da859a56a1146"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "59752d9b714819dca9ca9a6bd4cf70a9a78645aad65a2b5d031812ee84b52c5c"
   end
 
   conflicts_with "speech-tools", because: "both install `align` binaries"

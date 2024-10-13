@@ -3,8 +3,10 @@ class Pcal < Formula
   homepage "https://pcal.sourceforge.net/"
   url "https://downloads.sourceforge.net/project/pcal/pcal/pcal-4.11.0/pcal-4.11.0.tgz"
   sha256 "8406190e7912082719262b71b63ee31a98face49aa52297db96cc0c970f8d207"
+  license :cannot_represent
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "e9cb1a02b94bf537f5f1aab6ee035a1ade559ce499f53afabff16e0795b21868"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "19b81c568f2c5aae1c0d148f8c9746f858613c11c2fb5196264f73297dbcb7b7"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "d837d4b3cb7b1133b733c4c688a1d36ef7117fd5b9668e8c671a38f46f6ed9b3"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4b4a76aed457b08622d910fadeacd998972ed4c16a9c2747fac5c26d4ecfbab4"
@@ -35,6 +37,6 @@ class Pcal < Formula
   end
 
   test do
-    system "#{bin}/pcal"
+    system bin/"pcal"
   end
 end

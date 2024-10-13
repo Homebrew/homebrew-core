@@ -40,9 +40,9 @@ class Dronedb < Formula
   end
 
   test do
-    system "#{bin}/ddb", "--version"
-    system "#{bin}/ddb", "info", "."
-    system "#{bin}/ddb", "init"
+    system bin/"ddb", "--version"
+    system bin/"ddb", "info", "."
+    system bin/"ddb", "init"
     assert_predicate testpath/".ddb/dbase.sqlite", :exist?
   end
 end

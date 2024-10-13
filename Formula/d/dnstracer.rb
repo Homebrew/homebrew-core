@@ -16,6 +16,7 @@ class Dnstracer < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "154b03978527a24ea93fa486de2f90f51bba19a873cd8fc7760027b7cf9e965d"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d9f0cef649625b90f8b813401e0cee3b0d26abb2ad5eabdb8b80bea6d93106d1"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "c90d0674735e546310ec3e6052242171258f29faf127138282ea4e396946d737"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "07ec9123818d074dcbd378fc46fcf0bf17557f1f4ceccb631aef4669af57373d"

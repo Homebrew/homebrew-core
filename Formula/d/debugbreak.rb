@@ -6,7 +6,8 @@ class Debugbreak < Formula
   license "BSD-2-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "28fd8c0c9145f462c3a20f34c9ddc837f6719446cc562473f9822539321b8d36"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "c3d74ba626694bb1db1d81d3efac9b1a9ca9c71521212bb937bfd897d677272f"
   end
 
   def install
@@ -23,6 +24,7 @@ class Debugbreak < Formula
       }
     EOS
     system ENV.cc, "-I#{include}", "test.c", "-o", "test"
-    assert_empty shell_output("./test", nil)
+    pid = Process.spawn("./test")
+    assert_equal Signal.list.fetch("TRAP"), Process::Status.wait(pid).termsig
   end
 end

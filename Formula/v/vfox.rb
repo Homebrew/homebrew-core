@@ -1,19 +1,18 @@
 class Vfox < Formula
   desc "Version manager with support for Java, Node.js, Flutter, .NET & more"
   homepage "https://vfox.lhan.me"
-  url "https://github.com/version-fox/vfox/archive/refs/tags/v0.5.4.tar.gz"
-  sha256 "e07101dc13a01968b8c63dfb1942fe39c841a801d7b2e06ee528e3ae169ba2b9"
+  url "https://github.com/version-fox/vfox/archive/refs/tags/v0.6.0.tar.gz"
+  sha256 "741233cb5fa7bd10cab117713816a1771484db7149fbe87b294bc09072e15d33"
   license "Apache-2.0"
   head "https://github.com/version-fox/vfox.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "17a8ad3a976f53aed7f1d3c44157df1a9cb20a32b8c0f3befd5eec8cac9184d4"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9b9644e908403404a16afd161e80b5a2d1f672747e3de63c945f87c297fbd8c3"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "0ce017836ae2c6254cfc8165b40a8b3ea0d3241327c05be30f66a9422fd3797c"
-    sha256 cellar: :any_skip_relocation, sonoma:         "5caa0e226020accbee9630d9ff581e992bcae636dfd93db0ae82e1f3dbd23b05"
-    sha256 cellar: :any_skip_relocation, ventura:        "b52635accb5d432d5556cd6a037a295c5ce7d8bb1389ff3e9520bae1f0687cde"
-    sha256 cellar: :any_skip_relocation, monterey:       "c00f4da21199d44b8aa6321effc8c212ff208a9e0495b6d415fd44d1090a5171"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e20ed996185f0fa516fa78e0e2faf0905606f7a1b5494c48828c54de5a98774d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b3007b40e4f8f30c6cda56a405304439138f3c070442d5bad6fb99c93dd99290"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b3007b40e4f8f30c6cda56a405304439138f3c070442d5bad6fb99c93dd99290"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "b3007b40e4f8f30c6cda56a405304439138f3c070442d5bad6fb99c93dd99290"
+    sha256 cellar: :any_skip_relocation, sonoma:        "cfd76fb771686f2cbdf57e8a53f9dcb33d5429ce63e44d39ae0f0dd821bf3c98"
+    sha256 cellar: :any_skip_relocation, ventura:       "cfd76fb771686f2cbdf57e8a53f9dcb33d5429ce63e44d39ae0f0dd821bf3c98"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f3507aac6a17e567affe87f32061b3f300bea26e3f353199aad2ff401d894d8a"
   end
 
   depends_on "go" => :build

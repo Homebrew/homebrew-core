@@ -7,6 +7,10 @@ on:
     types:
       - completed
 
+defaults:
+  run:
+    shell: bash -xeuo pipefail {0}
+
 concurrency:
   group: automerge-merge_queue-${{ github.event.workflow_run.event }}-${{ github.event.workflow_run.id }}
   cancel-in-progress: true
@@ -85,7 +89,7 @@ jobs:
           if [[ -z "$number" ]]
           then
             commit_sha="$(jq --raw-output '.oid' <<<"$head_commit_data")"
-            number="$(gh pr list --search "$commit_sha" --state open --limit 1 --json number --jq '.[].number')"
+            number="$(gh pr list --search "$commit_sha" --state open --limit 1 --json number --jq '.[].number' --repo "$GITHUB_REPOSITORY")"
           fi
 
           if [[ -z "$number" ]]
@@ -113,6 +117,8 @@ jobs:
             }
         run: |
           publishable=true
+          GITHUB_REPOSITORY_NAME="${GITHUB_REPOSITORY#"${GITHUB_REPOSITORY_OWNER}"/}"
+
           while IFS='' read -r label
           do
             if [[ "$label" = "pre-release" ]] ||
@@ -125,14 +131,14 @@ jobs:
             gh api \
               --header 'Accept: application/vnd.github+json' \
               --header 'X-GitHub-Api-Version: 2022-11-28' \
-              "repos/{owner}/{repo}/pulls/$PR" \
+              "repos/$GITHUB_REPOSITORY/pulls/$PR" \
               --jq '.labels[].name'
           )
 
           removed_from_merge_queue_count="$(
             gh api graphql \
-              --field owner='{owner}' \
-              --field name='{repo}' \
+              --field owner="$GITHUB_REPOSITORY_OWNER" \
+              --field name="$GITHUB_REPOSITORY_NAME" \
               --field pr="$PR" \
               --raw-field query="$QUERY" \
               --jq '.data.repository.pullRequest.timelineItems.totalCount'
@@ -180,6 +186,7 @@ jobs:
           attempt=0
           max_attempts=5
           timeout=5
+          GITHUB_REPOSITORY_NAME="${GITHUB_REPOSITORY#"${GITHUB_REPOSITORY_OWNER}"/}"
 
           while [[ "$attempt" -lt "$max_attempts" ]]
           do
@@ -187,8 +194,8 @@ jobs:
 
             query_response="$(
               gh api graphql \
-                --field owner='{owner}' \
-                --field name='{repo}' \
+                --field owner="$GITHUB_REPOSITORY_OWNER" \
+                --field name="$GITHUB_REPOSITORY_NAME" \
                 --field pr="$PR" \
                 --raw-field query="$QUERY" \
                 --jq '.data.repository.pullRequest'
@@ -208,7 +215,7 @@ jobs:
               gh api \
                 --header 'Accept: application/vnd.github+json' \
                 --header 'X-GitHub-Api-Version: 2022-11-28' \
-                "repos/{owner}/{repo}/pulls/$PR" \
+                "repos/$GITHUB_REPOSITORY/pulls/$PR" \
                 --jq '(.mergeable_state == "clean") and (.draft | not)'
             )"
 
@@ -249,9 +256,6 @@ jobs:
       contents: read
       pull-requests: read
       actions: write # to dispatch publish workflow
-    defaults:
-      run:
-        shell: bash
     steps:
       - name: Set up Homebrew
         uses: Homebrew/actions/setup-homebrew@master

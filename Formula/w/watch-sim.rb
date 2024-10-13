@@ -7,6 +7,7 @@ class WatchSim < Formula
   head "https://github.com/alloy/watch-sim.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "ef6e2048bbcb961e59e3e5f25602fd685222f49c4cad51da8bbb12bc3de3d7c4"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2551be702d19489b5bc7224b2312c132df7a5090fda12c5c0e305b4982e828b4"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "b0bfc458d4d6388c5a56247f39d543f46a28ec27031a2c28da38d29a729ff74d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c5ce9e4c33120183ab5666c3a33b4c98550d4dbfa2da0f8aa8c0b265ce6e985e"

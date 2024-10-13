@@ -13,6 +13,7 @@ class Libsmi < Formula
 
   bottle do
     rebuild 1
+    sha256               arm64_sequoia:  "87f549d798e971b862119e43a800b4e647a9e9dd9eab7c6effe0a17277da3acb"
     sha256               arm64_sonoma:   "338426ca6bd52ced087751e568d7711a5e7fd1bcc6490bb89983bf3dde016749"
     sha256               arm64_ventura:  "5d7aab3f390daeca40fef88271d3bd76c3ba2cf0fa1ad2866f2adf58d20eb6c2"
     sha256               arm64_monterey: "c53376c22e3acb2770cfa6eca3ae698dd5386a8be8ebe4099a47a8fcd73104ae"

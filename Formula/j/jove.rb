@@ -7,6 +7,7 @@ class Jove < Formula
   license :cannot_represent
 
   bottle do
+    sha256 arm64_sequoia:  "b90d580ff61490eff7f6032cc91842fa5d2c89a75ec2d3941ea12293bd7f3ea7"
     sha256 arm64_sonoma:   "319ebbfa519908f368108b4f2b5840fc8bef0182d081167fa80daf2274e267d6"
     sha256 arm64_ventura:  "bdfb0a74c8674460b1aacfeebfab0d7c645b392bb171eb4bc3bf4e71213cae31"
     sha256 arm64_monterey: "a46f4789b7af164cd5154cda01dc75417012c92ad0edf97a0f2b445d247c46d7"

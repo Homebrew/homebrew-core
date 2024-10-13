@@ -6,6 +6,7 @@ class Xorgrgb < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "4cc8217eee8a4df6d597f4f6ab26718712256edd2bb0c5babcd646719ef052c0"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4148ce78e43c9aae8e75e639f5ebab603d20cd3aabd2e6421b71d967ac92aab7"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "25ddac19c5361bd478b8c9ac4fab8210be7b8811f9b2edf586156604badfce23"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "8d9bb5c41b1ef76f04324db74b789330210d48be78c751ce4d0439e3b24a8b49"

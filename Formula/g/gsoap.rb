@@ -19,6 +19,7 @@ class Gsoap < Formula
   end
 
   bottle do
+    sha256 arm64_sequoia:  "63cfd0fe9a94907975213a9272919131e33ce2faaf1c4872c2557221fde118c2"
     sha256 arm64_sonoma:   "b60301b1d6f420406092b734929f40efddb4668d1c51d3fb9d3fa5f3703e3737"
     sha256 arm64_ventura:  "bb05a9f9c36288ad8e2c5d09316c8a0e3ca6d5575655f74f814f128c15fa4b3a"
     sha256 arm64_monterey: "68302fa08d48563abfefe24dcc8b54f7986a4ad01376e8a4b6b1cff88d49b9ab"
@@ -42,8 +43,8 @@ class Gsoap < Formula
   end
 
   test do
-    system "#{bin}/wsdl2h", "-o", "calc.h", "https://www.genivia.com/calc.wsdl"
-    system "#{bin}/soapcpp2", "calc.h"
+    system bin/"wsdl2h", "-o", "calc.h", "https://www.genivia.com/calc.wsdl"
+    system bin/"soapcpp2", "calc.h"
     assert_predicate testpath/"calc.add.req.xml", :exist?
   end
 end

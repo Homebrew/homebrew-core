@@ -12,6 +12,7 @@ class Udis86 < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "552bcddb3008d7acd654983862ce26f6bf71969bc2e94cc2cd2d1b9e89998815"
     sha256 cellar: :any,                 arm64_sonoma:   "0a1f4f4ba4fd2a3187075c2390eab0ac8ea0e3aa49d74e6ca74752269cd383b6"
     sha256 cellar: :any,                 arm64_ventura:  "4b94655d1de023c07b206dc196d082d727fb4d912b712e4c43ace873236ec5ed"
     sha256 cellar: :any,                 arm64_monterey: "d21c7de8ded29dbf2218802883f3a2e702e338722345b06aeab3a5146b81b29e"
@@ -24,7 +25,7 @@ class Udis86 < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "a8a15d4f3b8bad23184fdace5ddc482e4d1b5d7f98030791ecf91983ec909d5a"
   end
 
-  depends_on "python@3.12" => :build
+  depends_on "python@3.13" => :build
 
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
@@ -35,7 +36,7 @@ class Udis86 < Formula
   def install
     system "./configure", "--prefix=#{prefix}",
                           "--enable-shared",
-                          "--with-python=#{which("python3.12")}"
+                          "--with-python=#{which("python3.13")}"
     system "make"
     system "make", "install"
   end

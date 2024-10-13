@@ -6,6 +6,7 @@ class Libxcursor < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "e9f543907a8a1f887857c96890146464bb3a99e41f3eadb1270e6ee381d02554"
     sha256 cellar: :any,                 arm64_sonoma:   "315d7f2482fc10ff82ce990f9b3bce98a81fbe273e10e0a8d89bfe7cd79afe77"
     sha256 cellar: :any,                 arm64_ventura:  "0716d39d1e8ec92ce9bab7477ccb2cb6caea6cb66d8633f6ccfce8b056b9b3c9"
     sha256 cellar: :any,                 arm64_monterey: "00ac4f325ce5028dcfcf1c6ba9c8126b4b8468b2cf3b86a4dadccc3585843905"

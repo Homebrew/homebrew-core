@@ -8,18 +8,17 @@ class GitBigPicture < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2cdbaab936da0256565622a77bcbb1294910f17a0ac75c94a78f5f17df4b0781"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2cdbaab936da0256565622a77bcbb1294910f17a0ac75c94a78f5f17df4b0781"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "2cdbaab936da0256565622a77bcbb1294910f17a0ac75c94a78f5f17df4b0781"
-    sha256 cellar: :any_skip_relocation, sonoma:         "2cdbaab936da0256565622a77bcbb1294910f17a0ac75c94a78f5f17df4b0781"
-    sha256 cellar: :any_skip_relocation, ventura:        "2cdbaab936da0256565622a77bcbb1294910f17a0ac75c94a78f5f17df4b0781"
-    sha256 cellar: :any_skip_relocation, monterey:       "2cdbaab936da0256565622a77bcbb1294910f17a0ac75c94a78f5f17df4b0781"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "447fa107a56fb283f0fa4837f087da0149b352a0a0bbba1c92d217c69a243e63"
+    rebuild 3
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0427911937b4a1b43a56835c6a4d80f1c3513d32cfe571739f56f12979620851"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0427911937b4a1b43a56835c6a4d80f1c3513d32cfe571739f56f12979620851"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "0427911937b4a1b43a56835c6a4d80f1c3513d32cfe571739f56f12979620851"
+    sha256 cellar: :any_skip_relocation, sonoma:        "0427911937b4a1b43a56835c6a4d80f1c3513d32cfe571739f56f12979620851"
+    sha256 cellar: :any_skip_relocation, ventura:       "0427911937b4a1b43a56835c6a4d80f1c3513d32cfe571739f56f12979620851"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "12e262c0aa73b5a7be00a9b803134175ad2856493590e0f80f2385fcaa3f3c6d"
   end
 
   depends_on "graphviz"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   def install
     virtualenv_install_with_resources

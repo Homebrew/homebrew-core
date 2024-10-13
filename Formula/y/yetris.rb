@@ -3,9 +3,10 @@ class Yetris < Formula
   homepage "https://github.com/alexdantas/yetris"
   url "https://github.com/alexdantas/yetris/archive/refs/tags/v2.3.0.tar.gz"
   sha256 "720c222325361e855e2dcfec34f8f0ae61dd418867a87f7af03c9a59d723b919"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "b5358a7a07d701232e1a75a4b28f2e66879d973ef3eb9c848552347505f16ea2"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5c29c804faf6d9d78ecec1eeccc4ffe85e94550c222bba9e793e307f805c1d97"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "bde6f3b8d260bc2b35e850b59223578400c2fda5e97e1ef4b425eb446f9b68b3"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "0aa127e1a907e08cf4b65d83fe0de8c59785457f744ecc2c1e91fd37310037b5"

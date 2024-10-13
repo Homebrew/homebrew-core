@@ -7,6 +7,7 @@ class Optipng < Formula
   head "http://hg.code.sf.net/p/optipng/mercurial", using: :hg
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "d7f218d549637362a08fa6f6ee66b1557ab007472ede88d63957de611b15ad34"
     sha256 cellar: :any,                 arm64_sonoma:   "c1b42258526f71e84ecda4f7e72ca8c8a9e6685179a7b0b792d37c29cbbb03a2"
     sha256 cellar: :any,                 arm64_ventura:  "ad99b4693060ef805451b6d3a3bc9c2fbbdec2284d18395a686eeba68d33a5d3"
     sha256 cellar: :any,                 arm64_monterey: "c560ecc7ba7c3f33620b4d808e498ee8d1cdb693da8830424aa2de76fc8561a9"
@@ -29,6 +30,6 @@ class Optipng < Formula
   end
 
   test do
-    system "#{bin}/optipng", "-simulate", test_fixtures("test.png")
+    system bin/"optipng", "-simulate", test_fixtures("test.png")
   end
 end

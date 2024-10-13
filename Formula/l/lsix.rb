@@ -6,13 +6,8 @@ class Lsix < Formula
   license "GPL-3.0-only"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "24d1e4ecae9bc35d3c0c9c027c9aa8dd08b85e77494e2dece0fda02274e2a4a4"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "24d1e4ecae9bc35d3c0c9c027c9aa8dd08b85e77494e2dece0fda02274e2a4a4"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "24d1e4ecae9bc35d3c0c9c027c9aa8dd08b85e77494e2dece0fda02274e2a4a4"
-    sha256 cellar: :any_skip_relocation, sonoma:         "24d1e4ecae9bc35d3c0c9c027c9aa8dd08b85e77494e2dece0fda02274e2a4a4"
-    sha256 cellar: :any_skip_relocation, ventura:        "24d1e4ecae9bc35d3c0c9c027c9aa8dd08b85e77494e2dece0fda02274e2a4a4"
-    sha256 cellar: :any_skip_relocation, monterey:       "24d1e4ecae9bc35d3c0c9c027c9aa8dd08b85e77494e2dece0fda02274e2a4a4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f8bde10359a7cad3e60dbd77bbb0e89eeefbc7f914de6ac27d3e038681c90523"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "1236a71809bd24fd1cedb055f51286a8af6ce959d54c6669b8849eee706b050e"
   end
 
   depends_on "bash"

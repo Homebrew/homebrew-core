@@ -4,15 +4,17 @@ class Colmap < Formula
   url "https://github.com/colmap/colmap/archive/refs/tags/3.10.tar.gz"
   sha256 "61850f323e201ab6a1abbfb0e4a8b3ba1c4cedbf55e0a5716bdea1df8ae1813a"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "0e66ed8897969562e2f7f1064904a1378ba1215d0496e73b879af43f77f50455"
-    sha256 cellar: :any,                 arm64_ventura:  "59b95f21f9a19a6d300ccd8732d4c2fbccae6b516efa9ef2512f1268c7cbe792"
-    sha256 cellar: :any,                 arm64_monterey: "a398f35d16d695514364a838157b3e675d01a6093ace52a6e084c7b3e5bb79b0"
-    sha256 cellar: :any,                 sonoma:         "7b5d4f750563fa282bdf0e51896696d86c438d58e57cb1c9ae8946227fc36245"
-    sha256 cellar: :any,                 ventura:        "f34cbcfe17fff0582a91d9b6f8a7c295fa64a65a63919e322ebdea82ec79825f"
-    sha256 cellar: :any,                 monterey:       "67d6f2823721734595ddb680d50ee2d14a1952b7d4dfe778f282dfaad366a59b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e8a87578e228dc96603dc715fda37f342be6b94bda5095dfa47d6b271c7df19c"
+    sha256 cellar: :any,                 arm64_sequoia:  "46c7b82e649ec870d6d3cc2c0afa10e6440415a106c7125b5e32c4f0fddd9ce1"
+    sha256 cellar: :any,                 arm64_sonoma:   "e81fa40995450b6f13fb3675bac57aeca83380faa146bed41304de45e3938bda"
+    sha256 cellar: :any,                 arm64_ventura:  "fd260454a7b9caca630278659b1e7398a63d36ee2abfacaabf0bf5c15d032915"
+    sha256 cellar: :any,                 arm64_monterey: "0741dc2a9c7f9228764e05de9bcb407ef3c063ac0a224b2732f40bf4b4631c99"
+    sha256 cellar: :any,                 sonoma:         "7cd8b4df89b8563f087459d460cb93845bc897376a520fe4efe0c4ad2fd9bb43"
+    sha256 cellar: :any,                 ventura:        "76d2391ad2721e30a94002a04a7bb66bebff4ecdf2319e0083fffbc06749cb7d"
+    sha256 cellar: :any,                 monterey:       "6fee96fd5d7bbe0a860fa4ac80c7548af1785a18746eef4636e8ea1a1156c7ca"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8d67735677d48bb53f47c636ba0a34c3440235ca394d68767e88caeb709ed99c"
   end
 
   depends_on "cmake" => :build
@@ -56,7 +58,7 @@ class Colmap < Formula
   end
 
   test do
-    system "#{bin}/colmap", "database_creator", "--database_path", (testpath / "db")
+    system bin/"colmap", "database_creator", "--database_path", (testpath / "db")
     assert_path_exists (testpath / "db")
   end
 end

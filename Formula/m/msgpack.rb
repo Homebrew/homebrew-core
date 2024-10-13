@@ -1,8 +1,8 @@
 class Msgpack < Formula
   desc "Library for a binary-based efficient data interchange format"
   homepage "https://msgpack.org/"
-  url "https://github.com/msgpack/msgpack-c/releases/download/c-6.0.2/msgpack-c-6.0.2.tar.gz"
-  sha256 "5e90943f6f5b6ff6f4bda9146ada46e7e455af3a77568f6d503f35618c1b2a12"
+  url "https://github.com/msgpack/msgpack-c/releases/download/c-6.1.0/msgpack-c-6.1.0.tar.gz"
+  sha256 "674119f1a85b5f2ecc4c7d5c2859edf50c0b05e0c10aa0df85eefa2c8c14b796"
   license "BSL-1.0"
   head "https://github.com/msgpack/msgpack-c.git", branch: "c_master"
 
@@ -15,13 +15,14 @@ class Msgpack < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "a161e2fb828f231162c3e36ecbebe93dbaa1270ff0e5a7fd531af138e4108d33"
-    sha256 cellar: :any,                 arm64_ventura:  "a25d6e1381f812f45212ee16ab624dfc5b210a05f6d9ae4b77eeade014e16f87"
-    sha256 cellar: :any,                 arm64_monterey: "062b0bc0266345dd2aa0dde051c19bbdc676c377a2cec821c2da952fef92f328"
-    sha256 cellar: :any,                 sonoma:         "09430eae7575fad0f32c836bd000cf053c3bc12258ac17bed3fba74ffec280f6"
-    sha256 cellar: :any,                 ventura:        "204dbc8810c0bf3f975817ab3d14be4e6a250a670e6e4f54784db9dcc06d26a9"
-    sha256 cellar: :any,                 monterey:       "be4e47cda2cb1ebb6b878bd10170b550fc470725647fd1e394ece15180fb8ed6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7021b9a2421afcc1614788d01b4e4d7cbe44d90c7805a1d950f672f23f72c72c"
+    sha256 cellar: :any,                 arm64_sequoia:  "fef7b080476f8c2ea5d3478775fb8ba7861cb2c5b25a5c06a575eabf303d6085"
+    sha256 cellar: :any,                 arm64_sonoma:   "7a4291f35809d557ff65bdec687fc12468b557d8c27499fad634b84fc27c6a65"
+    sha256 cellar: :any,                 arm64_ventura:  "9798f9eb15c335c663271387feedb42a24953c8a869d657e1b3d58868fb97177"
+    sha256 cellar: :any,                 arm64_monterey: "eb59d97db589ebe5afa0c0ae7f8ac4f07ae39433c323e6d90532301ff19a6c69"
+    sha256 cellar: :any,                 sonoma:         "f8a10c653f0e071f725866c790eebef4161f4c172315388aefdada07682c46bd"
+    sha256 cellar: :any,                 ventura:        "c7e8c2eddc2b55a71e6e6a6a3f63c90cb66369727b990cc553470b7b91ceb599"
+    sha256 cellar: :any,                 monterey:       "0c0c337dad512678ec60426c448aded9965daef3b4ee89eec9f98faad1789012"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "95d7d9a41f1c13c5ce0e1a2ec77f119a3b55e2ad88f0f98d3e5a04d323896171"
   end
 
   depends_on "cmake" => :build

@@ -42,8 +42,8 @@ class ApachePulsar < Formula
     system "tar", "-xf", "distribution/server/target/#{binpfx}-bin.tar.gz"
     libexec.install "#{binpfx}/bin", "#{binpfx}/lib", "#{binpfx}/instances", "#{binpfx}/conf", "#{binpfx}/trino"
     libexec.glob("bin/*.cmd").map(&:unlink)
-    (libexec/"trino/bin/procname/Linux-aarch64").rmtree
-    (libexec/"trino/bin/procname/Linux-ppc64le").rmtree
+    rm_r(libexec/"trino/bin/procname/Linux-aarch64")
+    rm_r(libexec/"trino/bin/procname/Linux-ppc64le")
     pkgshare.install "#{binpfx}/examples"
     (etc/"pulsar").install_symlink libexec/"conf"
 

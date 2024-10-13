@@ -1,24 +1,20 @@
 class ParquetCli < Formula
   desc "Apache Parquet command-line tools and utilities"
   homepage "https://parquet.apache.org/"
-  url "https://github.com/apache/parquet-java/archive/refs/tags/apache-parquet-1.14.1.tar.gz"
-  sha256 "e187ec57c60e1057f4c91a38fd9fb10a636b56b0dac5b2d25649e85901a61434"
+  url "https://github.com/apache/parquet-java/archive/refs/tags/apache-parquet-1.14.3.tar.gz"
+  sha256 "fe1a8f22879e3670ef14b13c20754f31b90e8f95f92b7d528528e68350adfba7"
   license "Apache-2.0"
-  revision 1
   head "https://github.com/apache/parquet-mr.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "03f56b713e81de3fa9d7e4a3f221f0f1b750d1f11fc58d5d4598b92cef8fcbe2"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "03f56b713e81de3fa9d7e4a3f221f0f1b750d1f11fc58d5d4598b92cef8fcbe2"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "03f56b713e81de3fa9d7e4a3f221f0f1b750d1f11fc58d5d4598b92cef8fcbe2"
-    sha256 cellar: :any_skip_relocation, sonoma:         "03f56b713e81de3fa9d7e4a3f221f0f1b750d1f11fc58d5d4598b92cef8fcbe2"
-    sha256 cellar: :any_skip_relocation, ventura:        "03f56b713e81de3fa9d7e4a3f221f0f1b750d1f11fc58d5d4598b92cef8fcbe2"
-    sha256 cellar: :any_skip_relocation, monterey:       "03f56b713e81de3fa9d7e4a3f221f0f1b750d1f11fc58d5d4598b92cef8fcbe2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2f326610a01ab876bd7c14384ea07d3765ac83f77dcd034f76640ec3277ba11c"
+    sha256 cellar: :any_skip_relocation, all: "4fcdce1b4936433d5914e3e7143f9e429e651d1139fed1610b73bfd5c1e7ba66"
   end
 
   depends_on "maven" => :build
-  depends_on "openjdk"
+  # Try switching back to `openjdk` when the issue below is resolved and
+  # Hadoop dependency is updated to include the fix/workaround.
+  # https://issues.apache.org/jira/browse/HADOOP-19212
+  depends_on "openjdk@21"
 
   def install
     cd "parquet-cli" do
@@ -29,7 +25,7 @@ class ParquetCli < Formula
       (bin/"parquet").write <<~EOS
         #!/bin/sh
         set -e
-        exec "#{Formula["openjdk"].opt_bin}/java" -cp "#{libexec}/*" org.apache.parquet.cli.Main "$@"
+        exec "#{Formula["openjdk@21"].opt_bin}/java" -cp "#{libexec}/*" org.apache.parquet.cli.Main "$@"
       EOS
     end
 

@@ -1,8 +1,8 @@
 class Antlr < Formula
   desc "ANother Tool for Language Recognition"
   homepage "https://www.antlr.org/"
-  url "https://www.antlr.org/download/antlr-4.13.1-complete.jar"
-  sha256 "bc13a9c57a8dd7d5196888211e5ede657cb64a3ce968608697e4f668251a8487"
+  url "https://www.antlr.org/download/antlr-4.13.2-complete.jar"
+  sha256 "eae2dfa119a64327444672aff63e9ec35a20180dc5b8090b7a6ab85125df4d76"
   license "BSD-3-Clause"
 
   livecheck do
@@ -11,15 +11,7 @@ class Antlr < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "77ff82e85d57fe33e619c83a8ab8ebd954c527e90a3e47623dc5951f50293a5b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0b8ee72b41f1587e73efe3dedb7e60ba1f8f388ab8588da30fb60762bddea053"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "0b8ee72b41f1587e73efe3dedb7e60ba1f8f388ab8588da30fb60762bddea053"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0b8ee72b41f1587e73efe3dedb7e60ba1f8f388ab8588da30fb60762bddea053"
-    sha256 cellar: :any_skip_relocation, sonoma:         "77ff82e85d57fe33e619c83a8ab8ebd954c527e90a3e47623dc5951f50293a5b"
-    sha256 cellar: :any_skip_relocation, ventura:        "0b8ee72b41f1587e73efe3dedb7e60ba1f8f388ab8588da30fb60762bddea053"
-    sha256 cellar: :any_skip_relocation, monterey:       "0b8ee72b41f1587e73efe3dedb7e60ba1f8f388ab8588da30fb60762bddea053"
-    sha256 cellar: :any_skip_relocation, big_sur:        "0b8ee72b41f1587e73efe3dedb7e60ba1f8f388ab8588da30fb60762bddea053"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "27ef7591dae5ec3510ce90298ae0909292406d245780c470d6c3cdab168728a6"
+    sha256 cellar: :any_skip_relocation, all: "51675080a8ca4a12f374f985f7ca5867606ef491b680a84d0e83484849f907ef"
   end
 
   depends_on "openjdk"
@@ -53,7 +45,7 @@ class Antlr < Formula
     EOS
     ENV.prepend "CLASSPATH", "#{prefix}/antlr-#{version}-complete.jar", ":"
     ENV.prepend "CLASSPATH", ".", ":"
-    system "#{bin}/antlr", "Expr.g4"
+    system bin/"antlr", "Expr.g4"
     system "#{Formula["openjdk"].bin}/javac", *Dir["Expr*.java"]
     assert_match(/^$/, pipe_output("#{bin}/grun Expr prog", "22+20\n"))
   end

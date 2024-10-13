@@ -1,19 +1,18 @@
 class Openjazz < Formula
   desc "Open source Jazz Jackrabit engine"
   homepage "https://www.alister.eu/jazz/oj/"
-  url "https://github.com/AlisterT/openjazz/archive/refs/tags/20231028.tar.gz"
-  sha256 "c45ff414dc846563ad7ae4b6c848f938ab695eb4ae6f958856b3fa409da0b8ac"
+  url "https://github.com/AlisterT/openjazz/archive/refs/tags/20240919.tar.gz"
+  sha256 "c50193b630c375840026d729bb9dda6c7210b1523e62d7ae019ce2e37f806627"
   license "GPL-2.0-only"
   head "https://github.com/AlisterT/openjazz.git", branch: "master"
 
   bottle do
-    sha256 arm64_sonoma:   "07a222337046a16eb095259f2a5952d2893279bb5dea456df5db6a04d0a464a3"
-    sha256 arm64_ventura:  "c5c520f1a957586f0d8a9a624db938ab0310f1beaa6b89e5b0ed8a64cef6337c"
-    sha256 arm64_monterey: "df4726038828be4f5c0297724794355b57988a3418d82f184d26345c3fe29bcf"
-    sha256 sonoma:         "bee571f4da0e9d27a0e165e349fe3bb0987e781367bd6e1d951ac841d63973a7"
-    sha256 ventura:        "319618c494484856acb274b82f8a32232e9a2a022bf704ad638b599885b4009a"
-    sha256 monterey:       "a420f6753dd4676cd8c2952e81c46d75f9c558d1ea07dfb5de95f1c69b272cff"
-    sha256 x86_64_linux:   "f6f7b98ac0aa8679388825ae164c71441c5b4e54c24344d7041b2c178a22a51c"
+    sha256 arm64_sequoia: "a7187b8961dddc281206ef88cda1c3f4a58814d0f55b3d6f526ceb8d3c9db01e"
+    sha256 arm64_sonoma:  "1fdf7bc6cc7a1e571240965ef4ba7a404aad892fb358223cfee277d1a0532dd0"
+    sha256 arm64_ventura: "d0520016ae1625393667870d16f357d577492da14f0786b68f15e3779e723aaf"
+    sha256 sonoma:        "19b1f3221c3f5c2ebd7adfc04a31678e5b977f1ddbdbd8bc7f4a98c547fd21b2"
+    sha256 ventura:       "f97fe8756255c753917f6983306e91dd7744e30ad8192b982f661f448c726786"
+    sha256 x86_64_linux:  "828353e6344b50b4fba0f4603e4f7794495bed782e220186129e1c9d37800daa"
   end
 
   depends_on "cmake" => :build
@@ -32,8 +31,6 @@ class Openjazz < Formula
   end
 
   def install
-    # see https://github.com/AlisterT/openjazz/pull/100, can be removed once merged
-    inreplace "ext/psmplug/stdafx.h", "#include <malloc.h>", ""
     system "cmake", "-S", ".", "-B", "build", "-DDATAPATH=#{pkgshare}", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
@@ -53,5 +50,6 @@ class Openjazz < Formula
 
   test do
     system bin/"OpenJazz", "--version"
+    assert_predicate testpath/"openjazz.log", :exist?
   end
 end

@@ -5,15 +5,15 @@ class Emacs < Formula
   mirror "https://ftpmirror.gnu.org/emacs/emacs-29.4.tar.xz"
   sha256 "ba897946f94c36600a7e7bb3501d27aa4112d791bfe1445c61ed28550daca235"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
-    sha256 arm64_sonoma:   "20e7866b16eaa06b26353cafaf9711eb1666617c22fc4b49ed04e3049e6d569b"
-    sha256 arm64_ventura:  "8f8df523a30e54eb217adc577d6618c9c2d1da1718a15050b6921d9076fa7ca8"
-    sha256 arm64_monterey: "894efa66a9caa6f2e20de12cea7d67f1709d94d702485ae7bbf472e25243cd32"
-    sha256 sonoma:         "5b900dc9417f61ce1cc348df7e6d5c3fcfb3fa82254473379b3883f097633b29"
-    sha256 ventura:        "88d3bf3ff1d9d7b10bf2c19bd4dda3143f9b886887f5e22a867725a5d000f276"
-    sha256 monterey:       "a5be71f542b675dd3eb4d7aee4ea94d42446c984813284c04ad7f70bc7059d2d"
-    sha256 x86_64_linux:   "75407dd7ca74edf2fab75546fd7a387c6477a360fb5ffb7ba63ef38b53ff0a71"
+    sha256 arm64_sequoia: "5376b954c6c3fd35f02da9b1ed23aac0913cd8bd9d6bf110cd1fd3a816b39d55"
+    sha256 arm64_sonoma:  "09ccb2eee64880983ba6a72a701595a9e726e3b41c57a59133ced426623c815e"
+    sha256 arm64_ventura: "6eee1db5e350003fbeb7bd62db6c7e61f391d1a9484b3fb04ce89dacc6d9b526"
+    sha256 sonoma:        "a668788fa630fc8e8dcb1b086556575a217a37d9e7c4607cf8e7d0abcaf8e65f"
+    sha256 ventura:       "341f78dbf3e0e995659556bd29ee732e042b670d603bd092a205d6bf1f731a32"
+    sha256 x86_64_linux:  "48de655711d958db670aadf3caa604bcd492e41de351523581d03bb6ce51884c"
   end
 
   head do

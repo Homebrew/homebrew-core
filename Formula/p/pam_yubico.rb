@@ -5,11 +5,6 @@ class PamYubico < Formula
   sha256 "63d02788852644d871746e1a7a1d16c272c583c226f62576f5ad232a6a44e18c"
   license "BSD-2-Clause"
 
-  livecheck do
-    url "https://developers.yubico.com/yubico-pam/Releases/"
-    regex(/href=.*?pam_yubico[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
-
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "7fc128f00d5170584104e0c4c49e4307043fd3ba3db125792138dab3279853b9"
     sha256 cellar: :any,                 arm64_ventura:  "e763d80b575c27eb381f559494636cb7737a0721f884d98523d0452911262273"
@@ -26,7 +21,7 @@ class PamYubico < Formula
 
   # Deprecation date set to 1 year after upstream issue was created.
   # Issue opened on 2022-07-29: https://github.com/Yubico/yubico-pam/issues/242
-  deprecate! date: "2023-07-29", because: "uses deprecated `ykclient`"
+  disable! date: "2024-08-03", because: "uses deprecated `ykclient`"
 
   depends_on "pkg-config" => :build
   depends_on "libyubikey"
@@ -48,6 +43,6 @@ class PamYubico < Formula
 
   test do
     # Not much more to test without an actual yubikey device.
-    system "#{bin}/ykpamcfg", "-V"
+    system bin/"ykpamcfg", "-V"
   end
 end

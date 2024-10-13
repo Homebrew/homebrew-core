@@ -8,6 +8,7 @@ class Osm < Formula
   head "https://github.com/openservicemesh/osm.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "3290438783446cf475bf7eb660b0f83d61bf3b6634e79ed1490ac9961dfd80e2"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "355b38a1dbff9c3aaa823e43908a3f8f35896ff53b6841be6049a93a27749e6e"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "6f9fc9b20e79dbd991464f6226b5d3d06ec6831cb3def39ba96604f7570875fb"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "5eef76b97e7a512dd02b7e29a699cc570b25e7e2f91ee6ea9032cc8d4f4cd197"

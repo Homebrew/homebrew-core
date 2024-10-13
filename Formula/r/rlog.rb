@@ -3,9 +3,10 @@ class Rlog < Formula
   homepage "https://github.com/vgough/rlog"
   url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/rlog/rlog-1.4.tar.gz"
   sha256 "a938eeedeb4d56f1343dc5561bc09ae70b24e8f70d07a6f8d4b6eed32e783f79"
-  license "LGPL-2.1"
+  license "LGPL-2.1-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "17aeadbbb0c7138389b80f0cecf0c59b6a329176eda02d38a9566502110f72f4"
     sha256 cellar: :any,                 arm64_sonoma:   "408100778814811a72a063dd53302248c2d291baa55534a3a58daf16a14a1ffe"
     sha256 cellar: :any,                 arm64_ventura:  "d33c09168d248f72b7c81e8a61f3d8f69a1d13127f8f75d7526a28220e5d7f4c"
     sha256 cellar: :any,                 arm64_monterey: "cd251b465737a2c5d9cd4aaeff4a625d1c48d50778bc8c93ad4e683b04ca82c5"
@@ -30,6 +31,40 @@ class Rlog < Formula
 
     system "./configure", "--disable-debug", "--disable-dependency-tracking", "--prefix=#{prefix}"
     system "make", "install"
+  end
+
+  test do
+    (testpath/"test.cpp").write <<~EOS
+      #include <stdio.h>
+      #include <unistd.h>
+      #include <rlog/rlog.h>
+      #include <rlog/RLogChannel.h>
+      #include <rlog/RLogNode.h>
+      #include <rlog/StdioNode.h>
+      int main(int argc, char **argv)
+      {
+          rlog::RLogInit(argc, argv);
+          rlog::StdioNode stdLog(STDOUT_FILENO);
+          stdLog.subscribeTo(rlog::GetGlobalChannel(""));
+          const char *name = "Dave";
+          rDebug("num = %i", 299792458);
+          int ans = 6 * 9;
+          if (ans != 42) rWarning("ans = %i, expecting 42", ans);
+          rError("I'm sorry %s, I can't do that.", name);
+      }
+    EOS
+
+    expected_outputs = [
+      "(test.cpp:13) num = 299792458",
+      "(test.cpp:15) ans = 54, expecting 42",
+      "(test.cpp:16) I'm sorry Dave, I can't do that.",
+    ]
+
+    system ENV.cxx, "-I#{include}", "-L#{lib}", "test.cpp", "-lrlog", "-o", "test"
+    output = shell_output("./test")
+    expected_outputs.each do |expected|
+      assert_match expected, output
+    end
   end
 end
 

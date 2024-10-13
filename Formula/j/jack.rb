@@ -12,6 +12,7 @@ class Jack < Formula
   end
 
   bottle do
+    sha256 arm64_sequoia:  "e3cd7f8ab3b70baa1766b3a131b16ffe7a62a398f20a3ce7b6d6935c222b5925"
     sha256 arm64_sonoma:   "39affd1f135d3745a22bf4907e46509cdb4b1b3a8e654e23179e1a1ad92193bc"
     sha256 arm64_ventura:  "6210ae0eeab831aa965d6d737f22b7476224d1cd1daa1105cee116dd37a3627a"
     sha256 arm64_monterey: "e9ff1f4cef83787cd63bb788cd2c1818b64798d85c7081ed3b2ba42a8f40b149"
@@ -37,6 +38,12 @@ class Jack < Formula
   on_linux do
     depends_on "alsa-lib"
     depends_on "systemd"
+  end
+
+  # Backport new waf to fix build on Python 3.12
+  patch do
+    url "https://github.com/jackaudio/jack2/commit/250420381b1a6974798939ad7104ab1a4b9a9994.patch?full_index=1"
+    sha256 "919f94a5eb4a00854f90b6618a35be4ba9ab3d8cc56f09a1fba2277030363b20"
   end
 
   def install

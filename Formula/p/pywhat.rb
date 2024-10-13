@@ -10,17 +10,11 @@ class Pywhat < Formula
   head "https://github.com/bee-san/pyWhat.git", branch: "main"
 
   bottle do
-    rebuild 5
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ae683721117722526f328e7e38c2672219a7e0889699cb0d2ae4494c475d1ef3"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ae683721117722526f328e7e38c2672219a7e0889699cb0d2ae4494c475d1ef3"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ae683721117722526f328e7e38c2672219a7e0889699cb0d2ae4494c475d1ef3"
-    sha256 cellar: :any_skip_relocation, sonoma:         "ae683721117722526f328e7e38c2672219a7e0889699cb0d2ae4494c475d1ef3"
-    sha256 cellar: :any_skip_relocation, ventura:        "ae683721117722526f328e7e38c2672219a7e0889699cb0d2ae4494c475d1ef3"
-    sha256 cellar: :any_skip_relocation, monterey:       "ae683721117722526f328e7e38c2672219a7e0889699cb0d2ae4494c475d1ef3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e184362e5a2a4f936e45251596339088d58eb322223ea0c1fa9cc9e5b582b9d0"
+    rebuild 7
+    sha256 cellar: :any_skip_relocation, all: "eecfe7a731f32a7dfb75fb042843e4042df47df756abcabeb8fa9b5216cc3584"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "click" do
     url "https://files.pythonhosted.org/packages/27/6f/be940c8b1f1d69daceeb0032fee6c34d7bd70e3e649ccac0951500b4720e/click-7.1.2.tar.gz"

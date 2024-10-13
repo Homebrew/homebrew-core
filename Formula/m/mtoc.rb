@@ -6,6 +6,7 @@ class Mtoc < Formula
   license "APSL-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "324c3cfd0929d2e9b08d320206080109caa7dc89682359d179e68d20f9f40e26"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9a2e0cff36af9f659bcbb7165d1f180ef4408a0423af23b85c2f4312db8806f6"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "eb9f6732da0297987d62d37c6f662a9679527fa7a3c80f45f7edf6c0ebda7b6b"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "18bf5ccdeeea52a6e5c0172e623b62142c8e52fca847720bbb88fa441c4f31c5"
@@ -15,7 +16,9 @@ class Mtoc < Formula
   end
 
   depends_on "llvm" => :build
+  depends_on xcode: :build
   depends_on :macos
+
   conflicts_with "ocmtoc", because: "both install `mtoc` binaries"
 
   patch do
@@ -54,7 +57,7 @@ class Mtoc < Formula
       #{testpath}/test.c
     ]
     system ENV.cc, *args
-    system "#{bin}/mtoc", "#{testpath}/test", "#{testpath}/test.pe"
+    system bin/"mtoc", "#{testpath}/test", "#{testpath}/test.pe"
   end
 end
 

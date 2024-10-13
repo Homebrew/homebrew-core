@@ -7,6 +7,7 @@ class Kdoctor < Formula
   head "https://github.com/Kotlin/kdoctor.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "e41df6918eb2c57cc4b16ef1687fb7c1aac3907e93613c166921d00993432ffa"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ae7b5e68925f38cb7ba4dbe3503da29bffa7b863afb2062cc1bd08b3ed119627"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "2bb2c0149a4c88f6e80b7431d5a2bb8a4552a36524127976091655a678cccdd4"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "243b8e7f3d9e352eea87a69763ae977a27fd109bbd3d092190ce8080d469f70b"

@@ -12,6 +12,7 @@ class Ncftp < Formula
   end
 
   bottle do
+    sha256 arm64_sequoia:  "d83a44de643f84beafe658ac72254cc4076969ba0d21af37fcb8657e5e111009"
     sha256 arm64_sonoma:   "d19dfe3a0904aed345087215372912f60d56b9d4d45d0ecb3a53d56df63f7b08"
     sha256 arm64_ventura:  "bf0baa98f6a3d4f479fa472bc07e0fc1b30e1e52ee74033e6512546b10ffa167"
     sha256 arm64_monterey: "b04b6ca30d0613e686747b504c398c9379f50a8d3ccf0f2164e515a78387e44f"
@@ -40,7 +41,7 @@ class Ncftp < Formula
   end
 
   test do
-    system "#{bin}/ncftp", "-F"
+    system bin/"ncftp", "-F"
   end
 end
 

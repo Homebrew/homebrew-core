@@ -6,6 +6,7 @@ class Nef < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "13b82b8e2f7ba23ae87d20f575790635cd3d8ffb92bd2b89cc5fc970b39f2aee"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "62d050e082d72b3f41568569a48da9c75847f834339dd3973ebd9e552defc8be"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "6cd8f9c972f707a1c3a05f95c68387f56d9a730bb4a3d42a06fde72ecb481984"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "8918c48c922141c187e2271884864118e01b8cc821d53d3bf82f25ed61cf6075"
@@ -24,7 +25,7 @@ class Nef < Formula
   end
 
   test do
-    system "#{bin}/nef", "markdown",
+    system bin/"nef", "markdown",
            "--project", "#{share}/tests/Documentation.app",
            "--output", "#{testpath}/nef"
     assert_path_exists "#{testpath}/nef/library/apis.md"

@@ -12,6 +12,7 @@ class Ats2Postiats < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "32296b820ff276f1de0eed59460f9dd48ca47132a77fdee78ee19fed9ba46923"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "53cc8a637f0375080c8071792bef06c870579bab915aa44f7525ae580e9fd8f2"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "edc96757ad3e2248e4d87f904edeb0af670f07989406e0f5a4ae5e9e342ef959"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "bd07b22230211e0dd486209ccf7e4e370ae0f23cd651b57ad53ecd897143affd"
@@ -38,7 +39,8 @@ class Ats2Postiats < Formula
       val _ = print ("Hello, world!\n")
       implement main0 () = ()
     EOS
-    system "#{bin}/patscc", "hello.dats", "-o", "hello"
+
+    system bin/"patscc", "hello.dats", "-o", "hello"
     assert_match "Hello, world!", shell_output(testpath/"hello")
   end
 end

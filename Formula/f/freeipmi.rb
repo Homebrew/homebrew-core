@@ -7,6 +7,7 @@ class Freeipmi < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 arm64_sequoia:  "c7b6059c94b4f7ff4ab7fab5087dc2e38a85bac93bed5585971984e64c4615ac"
     sha256 arm64_sonoma:   "21b95705b044601921f5af96f9afb8c0fcb4ce6bcf0097a634532a4dde1f8079"
     sha256 arm64_ventura:  "da196e655271b9882ba03f3d8c01dc2fe92ef6c6c8e11639843c20160c96d834"
     sha256 arm64_monterey: "412e0b5e5af95ace23a2ec53cf12d63ca2d37d8a1530aaac6e7559149c33ae2b"

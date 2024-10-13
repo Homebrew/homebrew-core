@@ -3,6 +3,7 @@ class Libmikmod < Formula
   homepage "https://mikmod.sourceforge.net/"
   url "https://downloads.sourceforge.net/project/mikmod/libmikmod/3.3.11.1/libmikmod-3.3.11.1.tar.gz"
   sha256 "ad9d64dfc8f83684876419ea7cd4ff4a41d8bcd8c23ef37ecb3a200a16b46d19"
+  license "LGPL-2.0-or-later"
 
   livecheck do
     url :stable
@@ -10,6 +11,7 @@ class Libmikmod < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "e992d9202fbda5e658ade602460071b3b3b8eace5d3afb00bab1b5e39ec51216"
     sha256 cellar: :any,                 arm64_sonoma:   "2d395a79c20373d140f5786ee97d73bf8111cc19ec8e4515049e1c2fb14fa1b3"
     sha256 cellar: :any,                 arm64_ventura:  "e8683d4aede6aeb630bbfe23dc57c246d4c54d853fd170e4658be9a11b8b7132"
     sha256 cellar: :any,                 arm64_monterey: "74a5601641751f0e90dd3a5a274a257161c26b86443e77f2d605b3be9ff67115"
@@ -36,6 +38,6 @@ class Libmikmod < Formula
   end
 
   test do
-    system "#{bin}/libmikmod-config", "--version"
+    system bin/"libmikmod-config", "--version"
   end
 end

@@ -11,6 +11,7 @@ class Krb5 < Formula
   end
 
   bottle do
+    sha256 arm64_sequoia:  "75d0ce70b754c159e642f7e9afff27add08203423792f34c240a20ea014bfcec"
     sha256 arm64_sonoma:   "c7e8ec4458b77cb3bdc1bea7b6db6f6dfa6bb6c377cc0e6bd48f6d3f89d98f6b"
     sha256 arm64_ventura:  "e13b0f482b86a0139a13b482c4203540d1da19e82f29abd11ce155179a847c78"
     sha256 arm64_monterey: "b776903543fdcbf9af790c1ee6a6197b51bd00ad4f67c1f03e1741a352b0a756"
@@ -40,7 +41,7 @@ class Krb5 < Formula
   end
 
   test do
-    system "#{bin}/krb5-config", "--version"
+    system bin/"krb5-config", "--version"
     assert_match include.to_s,
       shell_output("#{bin}/krb5-config --cflags")
   end

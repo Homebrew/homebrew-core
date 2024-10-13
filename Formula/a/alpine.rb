@@ -15,6 +15,7 @@ class Alpine < Formula
 
   bottle do
     rebuild 2
+    sha256 arm64_sequoia:  "0299b3f80c9193359059909396ebf74078a263d0e0987e086741398bac68d566"
     sha256 arm64_sonoma:   "7ad58b222ed8fa4ef1a7609c1223796de0a349d3d5b408109c408793586dfee5"
     sha256 arm64_ventura:  "9b7a5da6cd88ce590ec0c1c2ef8dc45da8a4fa45d108eb976157ddd505cf2b2a"
     sha256 arm64_monterey: "b1c884c5cc1d84813284e85e74ae3c78db147b46da0d0b8d18ade4ff2ee550ac"
@@ -65,7 +66,7 @@ class Alpine < Formula
   end
 
   test do
-    system "#{bin}/alpine", "-conf"
+    system bin/"alpine", "-conf"
   end
 end
 

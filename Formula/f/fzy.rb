@@ -7,6 +7,7 @@ class Fzy < Formula
   head "https://github.com/jhawthorn/fzy.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "8cbf2b486b0abed29cf5fb45fc5580fc74881ceacae68cd11e53bdbeabae52ea"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "250fc5952135704c7a93c1066a13fbb27322358dedc115d7792da91cd56d12ed"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "aa5003d2177cfab28c1a44199fc9aeea2351c2480b5ee4cdbfe03f3b855569b3"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "594f670b4c7aead7e05fb1ee3b756d6373abe49c8a05c9422acee94a932ebfcb"

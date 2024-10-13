@@ -3,9 +3,10 @@ class Libpointing < Formula
   homepage "https://github.com/INRIA/libpointing"
   url "https://github.com/INRIA/libpointing/releases/download/v1.0.8/libpointing-mac-1.0.8.tar.gz"
   sha256 "b19a701b9181be05c3879bbfc901709055c27de7995bd59ada4e3f631dfad8f2"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   bottle do
+    sha256 cellar: :any, arm64_sequoia:  "fc963b2d475b92c4a7fd7a525d0ae301cedad7c825d50bd47f1e174be955ab51"
     sha256 cellar: :any, arm64_sonoma:   "2d7abf099808b966f2e79ff4ee050ae9ba2dcaa009577575a8ceceeb657e3cda"
     sha256 cellar: :any, arm64_ventura:  "79773a252a784d765237674545e3355bec847c95f9ac82cc89826936954f8990"
     sha256 cellar: :any, arm64_monterey: "777a0f897878a4da3693f9d8a5717f42ff70fc281a81b57b4841a31ce17e7100"

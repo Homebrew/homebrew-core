@@ -9,16 +9,16 @@ class Keepassc < Formula
   revision 5
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "59ab2d959aa8bbaad5ac6c7f208a7ed22374f694bae1f96725342b9dfd2d8b70"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b2a9652625bc12ad0456f3f3c2d5a0cc619629e162b14bc2b58963f44aca1a2c"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "1a1e3179e658e703e11f18f6927cbfd0d1d23f3a0932abe737b04512eb31a303"
-    sha256 cellar: :any_skip_relocation, sonoma:         "1e6f5ef6929d5cf02571b46280c3f1fe215adc30d3250078840dd0bdb1e0164d"
-    sha256 cellar: :any_skip_relocation, ventura:        "06b888038774bbdad203f571c00ea8e5b6511276d2bc7336d5846160138f55db"
-    sha256 cellar: :any_skip_relocation, monterey:       "f84c91130f612fcdfb3fc58543f551cb9ff945c93155ce6dd48470c8cbb1861a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "882f680f1d047d0b327bb499a284bcfac9e5661f5a427e41f74aa3f3a513ec02"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2447d5f8a051b1d15efec850c60e58bd372e871270fe494c9a4882309783fc11"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "95ceec5e889bfc089f375a75b99b516efdf0bfc88a09a2d0ddbee81c53812e5d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "86f49118750ea97315199c2d5b3822e27886649707d35705f51fca775654916c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "57a9a7e5649c8cf0a95930e8ecc11db4f7348bf3de3c532e4c224d9347e67cf8"
+    sha256 cellar: :any_skip_relocation, ventura:       "653a4503ecbbc3d060c0ec6154e5fd564f5ee7496959578796416c057c1228c7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "46c34fbb29c6d70d3966fb5a4b0e8afa57fe9a58aa68f1a41f2c534dd94c7932"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "kppy" do
     url "https://files.pythonhosted.org/packages/c8/d9/6ced04177b4790ccb1ba44e466c5b67f3a1cfe4152fb05ef5f990678f94f/kppy-1.5.2.tar.gz"
@@ -26,8 +26,8 @@ class Keepassc < Formula
   end
 
   resource "pycryptodomex" do
-    url "https://files.pythonhosted.org/packages/3f/13/84f2aea851d75e12e7f32ccc11a00f1defc3d285b4ed710e5d049f31c5a6/pycryptodomex-3.19.1.tar.gz"
-    sha256 "0b7154aff2272962355f8941fd514104a88cb29db2d8f43a29af900d6398eb1c"
+    url "https://files.pythonhosted.org/packages/11/dc/e66551683ade663b5f07d7b3bc46434bf703491dbd22ee12d1f979ca828f/pycryptodomex-3.21.0.tar.gz"
+    sha256 "222d0bd05381dd25c32dd6065c071ebf084212ab79bab4599ba9e6a3e0009e6c"
   end
 
   def install

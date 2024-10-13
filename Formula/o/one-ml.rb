@@ -13,6 +13,7 @@ class OneMl < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "518403a9c2d724be15ba74440476759174fa0f95e7e5e18d799df42dc406d0f1"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "207e335ea41c537930e2683266f8995d50faa3619d9ae8ed5de3b671aafcbfdb"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "64459d8c45af5876e383b215b4e717ae48d897a33c0dd456bf8ba33cb383a4a8"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "368f5935a15438e05e77d4293c36e2922b552b890e16819848de0c0d67a63856"
@@ -43,6 +44,6 @@ class OneMl < Formula
   end
 
   test do
-    system "#{bin}/1ml", "#{pkgshare}/stdlib/prelude.1ml", "#{pkgshare}/stdlib/paper.1ml"
+    system bin/"1ml", pkgshare/"stdlib/prelude.1ml", pkgshare/"stdlib/paper.1ml"
   end
 end

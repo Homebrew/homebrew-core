@@ -6,6 +6,7 @@ class Clive < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "d1018d56e8435e55660cddbd5d663eb1842334c7fa1a57f621ef1c12c3290a0e"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2cb3ffc2a6c8cbff5315e13924888eccc9698666454cdc5a231709b699a67a21"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "fc7de9e0c5ef2285ca5f5eaee9d73a9275421d9c4504ecadffda72248cdbfb65"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "bb85d61873f4e0f3fae6fd901dbac6cb75af53f6d78b6ed885fe394ea41518e7"

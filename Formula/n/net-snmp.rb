@@ -3,7 +3,7 @@ class NetSnmp < Formula
   homepage "http://www.net-snmp.org/"
   url "https://downloads.sourceforge.net/project/net-snmp/net-snmp/5.9.4/net-snmp-5.9.4.tar.gz"
   sha256 "8b4de01391e74e3c7014beb43961a2d6d6fa03acc34280b9585f4930745b0544"
-  license "Net-SNMP"
+  license all_of: ["MIT-CMU", "MIT", "BSD-3-Clause"]
   head "https://github.com/net-snmp/net-snmp.git", branch: "master"
 
   livecheck do
@@ -12,6 +12,7 @@ class NetSnmp < Formula
   end
 
   bottle do
+    sha256 arm64_sequoia:  "fdeaf56a79dfe93f7ed48765a26f6b34f030f1a0d96950410c7c4a3100eb0e7f"
     sha256 arm64_sonoma:   "9d0ea2f793065eab2cb7c858d5926bb9ec40dfd0460a31c4d9f09932ae1c2455"
     sha256 arm64_ventura:  "8d1f5f1b9c27087c08b7fb17c97445d925c7c0afa77e4939979778ca9fc39fa4"
     sha256 arm64_monterey: "0ee61805fb803dc4126a163c1f41438fbae869158cab3c5f9fb4db626ace6059"

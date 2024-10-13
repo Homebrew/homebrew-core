@@ -3,10 +3,11 @@ class Curseofwar < Formula
   homepage "https://a-nikolaev.github.io/curseofwar/"
   url "https://github.com/a-nikolaev/curseofwar/archive/refs/tags/v1.3.0.tar.gz"
   sha256 "2a90204d95a9f29a0e5923f43e65188209dc8be9d9eb93576404e3f79b8a652b"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
   head "https://github.com/a-nikolaev/curseofwar.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "e7cb41ed1daf26dfe62143dec8cc795d6fe88d2748eac64f6ec5df187f8695b9"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4503064e7da38e232ca3d43b46d1ccc8739312ca92bd18b352707e115333f854"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "7b2f8bf83947f4824e28c212a1fd901c499aab1c20b7c7310cebd07b0da6600f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "25ddaaccdd08f5cb640149db8d7c78b01dcab50eff1c610b4e6f674b790d3629"

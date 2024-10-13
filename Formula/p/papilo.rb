@@ -1,19 +1,18 @@
 class Papilo < Formula
   desc "Parallel Presolve for Integer and Linear Optimization"
   homepage "https://www.scipopt.org"
-  url "https://github.com/scipopt/papilo/archive/refs/tags/v2.3.0.tar.gz"
-  sha256 "7e8727b8fcb9c58712e00276d6c342b0319652d0f1c665472af9d22475bce9c1"
+  url "https://github.com/scipopt/papilo/archive/refs/tags/v2.3.1.tar.gz"
+  sha256 "7491ebec89480b124e24c74e05d5fd4bb289ed7ada01f218145734ad65ec3fd8"
   license all_of: ["LGPL-3.0-only", "GPL-3.0-only"]
   version_scheme 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "aedf3b57e9bba79c4f68ba77ecae2343335457badc86bcb8ff8e203fa01d189e"
-    sha256 cellar: :any,                 arm64_ventura:  "93568788db903fe17b2e80eb2b8cafe9c735ca89426ddf75271995415e76228f"
-    sha256 cellar: :any,                 arm64_monterey: "2de8750104ae2046911cf16052b8261330d1074d495f75bc75fd20afa52531dc"
-    sha256 cellar: :any,                 sonoma:         "b0f1519abf0e4a152309036f7209f643329f8a2a29245754ef3e7f0cb30ed796"
-    sha256 cellar: :any,                 ventura:        "91d56f85209d76eff2d1f6f780014a5739444f2d778013c56e41a06b9170be8d"
-    sha256 cellar: :any,                 monterey:       "b9c58199c086a50610baf724cba38fbcef5ab25ee6415ccc10cfb320416d1f2b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2a2c663a672311dda26cbc875bfbdfb272303e359e60bb7812dba8a34766037a"
+    sha256 cellar: :any,                 arm64_sequoia: "a5eebdb6be06d3aeca007dbdb30692b21aaa6f298531a194d783ec5a48f2e23d"
+    sha256 cellar: :any,                 arm64_sonoma:  "426c9cbda9247dbc835d9ffb5d4e282425877e697a6b8677aa2baf3cbe526afb"
+    sha256 cellar: :any,                 arm64_ventura: "2b38a6f936a7a09ab0b30a5363cca533f286776dd88cbca5669695e88e6ac755"
+    sha256 cellar: :any,                 sonoma:        "f4cc5a507afd948db0978cfbf0ae492291353c57a09aac181bed5c7707e2d1da"
+    sha256 cellar: :any,                 ventura:       "78e9849c6b3d9e3756739f8eca4ba098a1d179360c45b12d2a2fac400c5192c7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "61f7b8bb39a67a66786a9eca8cb64a25fe72ff3e6b3315e0dc5f14abc736763b"
   end
 
   depends_on "cmake" => :build

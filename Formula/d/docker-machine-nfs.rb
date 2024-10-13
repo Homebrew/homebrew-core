@@ -6,8 +6,8 @@ class DockerMachineNfs < Formula
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "60013891064b34bbcf702f8d811d5e64ba9046efd057c7a9d65f9082edab8b8c"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "7adcced71d07397c241cf4999adf40d17b6f773aa28fc53625df5982484d4c6e"
   end
 
   def install
@@ -16,6 +16,6 @@ class DockerMachineNfs < Formula
   end
 
   test do
-    system "#{bin}/docker-machine-nfs"
+    system bin/"docker-machine-nfs"
   end
 end

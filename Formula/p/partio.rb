@@ -6,18 +6,20 @@ class Partio < Formula
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "797ccfe2fbd825a19397be286127b6324e0f667adbfe1cb7ed55e3dbebb0738d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f94e796a8de500173d1f38abb5dfd2df90efd79b53f3eb0c720a29a262178c68"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a454868fbfb8cae81d7378f2cceb8a0a80090e68be97b951fcf8112e286416e1"
-    sha256 cellar: :any_skip_relocation, sonoma:         "b6471ee7399bb0a5716d8da41ebd57a67650f65829b56d36ad74732b29e489a2"
-    sha256 cellar: :any_skip_relocation, ventura:        "a962b61c79ebbf651f653e5199a44ca809057dc3c771b511bd354babfe711880"
-    sha256 cellar: :any_skip_relocation, monterey:       "673b079ad6d8a85208d26a41412e6d9f79182e200fa9e8f56ef74f099ce61b32"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "484bcec4c5896ca121126bf1a1ea79f82e4babfac09461e164a8aa77c8d9d752"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "156678f075f4be856918ad93364d8fabc320a1d21c3604091ae0a6ba80b13377"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1ac54c92b0170c31766af0d7bb486361b091bfba772fc410fb33132071f06652"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "0da7b8ea9d0aed2ea12fbbb4e525d5a300552911bd1cf11f018f69cdd59c2e99"
+    sha256 cellar: :any_skip_relocation, sonoma:        "ded84cbbbbafe20305db9f3bf9b64f5b041d2a6d76059a3235d442736d689a0e"
+    sha256 cellar: :any_skip_relocation, ventura:       "8f6c84a190bd21fa1461172c3915aaf4b8e9f6912760a05854d7bd526e8f91ad"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "15f6f86a2f0bcc8e1add259eaad579075a719f0c7bd53ed0301f54177ff72586"
   end
 
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
-  depends_on "python@3.12"
+  depends_on "python@3.13"
+
+  uses_from_macos "zlib"
 
   on_linux do
     depends_on "freeglut"
@@ -29,12 +31,11 @@ class Partio < Formula
     args = std_cmake_args
     args << "-DPARTIO_USE_GLVND=OFF" unless OS.mac?
 
-    mkdir "build" do
-      system "cmake", "..", *args
-      system "make"
-      system "make", "doc"
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", ".", *args
+    system "cmake", "--build", "."
+    system "cmake", "--build", ".", "--target", "doc"
+    system "cmake", "--install", "."
+
     pkgshare.install "src/data"
   end
 

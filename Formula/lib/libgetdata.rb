@@ -7,6 +7,7 @@ class Libgetdata < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "3b5f4791ca06a1e3186d30960db969d333d46cc3a81439b72695a0580f495ec3"
     sha256 cellar: :any,                 arm64_sonoma:   "b27b52a5f22dee5ee8c81f983b8a1f828b93b9d137c68abe5ada2f05df3d9bbf"
     sha256 cellar: :any,                 arm64_ventura:  "917a20050ad2954e99688f9fd7306a5b6dd9da6f41d38085535620de42fdebc4"
     sha256 cellar: :any,                 arm64_monterey: "4e167251c910442b10cd6c7da9c7dd0f3ded3926669c87d618f2330e8c76af82"

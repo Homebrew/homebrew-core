@@ -1,5 +1,3 @@
-require "language/node"
-
 class Graphqurl < Formula
   desc "Curl for GraphQL with autocomplete, subscriptions and GraphiQL"
   homepage "https://github.com/hasura/graphqurl"
@@ -8,19 +6,21 @@ class Graphqurl < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4064bcc041ef4ac42c73311786e16ac5db1d223dc7548e5e29d256ba9dbbe23f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4064bcc041ef4ac42c73311786e16ac5db1d223dc7548e5e29d256ba9dbbe23f"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "4064bcc041ef4ac42c73311786e16ac5db1d223dc7548e5e29d256ba9dbbe23f"
-    sha256 cellar: :any_skip_relocation, sonoma:         "4bcd953f3b05d9f84d62ab7f2d90e992cc292608a6c4ce5364a7dcad8a196c97"
-    sha256 cellar: :any_skip_relocation, ventura:        "4bcd953f3b05d9f84d62ab7f2d90e992cc292608a6c4ce5364a7dcad8a196c97"
-    sha256 cellar: :any_skip_relocation, monterey:       "4bcd953f3b05d9f84d62ab7f2d90e992cc292608a6c4ce5364a7dcad8a196c97"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4064bcc041ef4ac42c73311786e16ac5db1d223dc7548e5e29d256ba9dbbe23f"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "7d29fea61417e781508114b37928fdf1337a17d0234f83aa5a2dbbd7652eaea1"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "eeb0c8c2c3e60b9b3806aeec12e9bf33db690e253f67fe041019249de96c8e2c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "eeb0c8c2c3e60b9b3806aeec12e9bf33db690e253f67fe041019249de96c8e2c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "eeb0c8c2c3e60b9b3806aeec12e9bf33db690e253f67fe041019249de96c8e2c"
+    sha256 cellar: :any_skip_relocation, sonoma:         "43e1db21f854ac858fd2daa71b122158ca3d0df06be07f901995feb26c4f67e6"
+    sha256 cellar: :any_skip_relocation, ventura:        "43e1db21f854ac858fd2daa71b122158ca3d0df06be07f901995feb26c4f67e6"
+    sha256 cellar: :any_skip_relocation, monterey:       "43e1db21f854ac858fd2daa71b122158ca3d0df06be07f901995feb26c4f67e6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c810c89e48bc94b6b72d5dee1b950dda7fe604ad25949edeb4d163be64056d51"
   end
 
   depends_on "node"
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", *std_npm_args
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 

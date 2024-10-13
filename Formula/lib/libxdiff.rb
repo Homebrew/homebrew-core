@@ -3,7 +3,7 @@ class Libxdiff < Formula
   homepage "http://www.xmailserver.org/xdiff-lib.html"
   url "http://www.xmailserver.org/libxdiff-0.23.tar.gz"
   sha256 "e9af96174e83c02b13d452a4827bdf47cb579eafd580953a8cd2c98900309124"
-  license "LGPL-2.1"
+  license "LGPL-2.1-or-later"
 
   livecheck do
     url :homepage
@@ -12,6 +12,7 @@ class Libxdiff < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia:  "044f8ca7045a788d7096478af46442537dd601d92b6d73c8808f6c2337d0990c"
     sha256 cellar: :any,                 arm64_sonoma:   "ed60064f8f7f516a9b4d240ed4c7b585867c9da39cdcb22560a4ece5e8660509"
     sha256 cellar: :any,                 arm64_ventura:  "2eac99be7b74fae52532e808461ec21675681d64e25ece6e99b54176a20618ab"
     sha256 cellar: :any,                 arm64_monterey: "418d1252e31f6107429fd06539f95a4bede475d382ef351ff311fc577ef05fc0"

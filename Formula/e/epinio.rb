@@ -13,6 +13,7 @@ class Epinio < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "918cc4970f4144f7a3486167e19835edaf3e757e21a0c38753e05d07c908baf0"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "36f7c49a38a4db43af6cb055a05ac5926b70f4e02be0b78bf3e105542b5b8deb"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "1e6b187a3c9bcc242f33ef94d1e4b0c66405037e7703db7fc7c1581c8c9d9dae"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "39fc412fbb38d64fda1653f4e0268dc22f6616902ccdc16d26a925e9e3cf8b79"

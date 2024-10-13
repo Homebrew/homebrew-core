@@ -7,6 +7,7 @@ class Jid < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "285b46fb790b33b8516dbd0a7053fa76e64b54a04006f50c74b1539dca991cb9"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9835df7952c4170d1bfd899026e1cace590dce8abaa64b01f8784760533ae5d9"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "2aa9387c65b9577a1e7d6fa2a73e9da8102809d2275fa1d97db02c0ed6622bc0"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "af3284fbdac510d46260cd52b4b1db36cb2baa71f02ee68758bea6be4af5ffb3"

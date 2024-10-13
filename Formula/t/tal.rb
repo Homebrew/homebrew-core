@@ -6,7 +6,13 @@ class Tal < Formula
   sha256 "5d450cee7162c6939811bca945eb475e771efe5bd6a08b520661d91a6165bb4c"
   license :public_domain
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?tal[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "dd3c811b07d428e7beccf39eda7c3a0af73695f03188dfc7ea652472d492c794"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "94631ec0dafade563c1652e557981e5b4ed4f3583f3586bc9091be4d96c2b7b3"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "717e28a9ea9f325fd72962d66372a1e4edc3b27e81ea54a861f8c54dceea0a56"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "94237b7f329c30c17aed19d82bb18a790abf2abcbfc404a57ef9e237db4a0735"
@@ -30,6 +36,6 @@ class Tal < Formula
   end
 
   test do
-    system "#{bin}/tal", "/etc/passwd"
+    system bin/"tal", "/etc/passwd"
   end
 end

@@ -3,7 +3,7 @@ class Minidjvu < Formula
   homepage "https://minidjvu.sourceforge.net/"
   url "https://downloads.sourceforge.net/project/minidjvu/minidjvu/0.8/minidjvu-0.8.tar.gz"
   sha256 "e9c892e0272ee4e560eaa2dbd16b40719b9797a1fa2749efeb6622f388dfb74a"
-  license "GPL-2.0"
+  license "GPL-2.0-only"
   revision 1
 
   livecheck do
@@ -12,6 +12,7 @@ class Minidjvu < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "a7e2ca4daf17bffbee72e2513829e5835d4d271e9daa28c5c62e806ca05ca6d1"
     sha256 cellar: :any,                 arm64_sonoma:   "affa202294a94626e2135bc65c2e2aacc5e3e5bfba4dc37f9c968d21c917cf09"
     sha256 cellar: :any,                 arm64_ventura:  "2d49c0d30645a4fced0469d6a8e01e0e2e01a2df825a294f8c1f2f96c2e1a88c"
     sha256 cellar: :any,                 arm64_monterey: "99e77ef6ad2913838bb979ef9e675e1f1ca194713cf7e8faf5f1b807e84b927c"

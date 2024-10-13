@@ -3,6 +3,7 @@ class Pod2man < Formula
   homepage "https://www.eyrie.org/~eagle/software/podlators/"
   url "https://archives.eyrie.org/software/perl/podlators-v6.0.2.tar.xz"
   sha256 "22f5941c848756c05396356437dc799b32703f4fc282f0f281b9c83696500183"
+  license any_of: ["Artistic-1.0-Perl", "GPL-1.0-or-later"]
 
   livecheck do
     url "https://archives.eyrie.org/software/perl/"
@@ -10,6 +11,7 @@ class Pod2man < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "0937a01be86e0dd18adaca7675da973dfbfa8c9d5dbca3e0a2eacad020aa8ef7"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b40bf5470087e943cc5a965f9788962d4dd44c831d08e95105a50bc5c325123c"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "c0a9a958c8614e6452f8e1d893f0a277011ca50b8160929b307139c911511b14"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c0a9a958c8614e6452f8e1d893f0a277011ca50b8160929b307139c911511b14"

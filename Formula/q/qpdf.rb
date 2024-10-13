@@ -6,6 +6,7 @@ class Qpdf < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "b01a2a7b9b940ef234c0832f0d1482c3ea5509049c969b46f39e446045609f20"
     sha256 cellar: :any,                 arm64_sonoma:   "a4aa3f1a65544861debcfbf6c5df9283e17e4a2f40b14b8c680fa9e8636c0ae9"
     sha256 cellar: :any,                 arm64_ventura:  "e9f29cb2c999847320165614618f92d9487172a6c5ca09a2691159b934072399"
     sha256 cellar: :any,                 arm64_monterey: "546a9271c1e4fa88c50a15ed0a6baf4a10e6729e249cdda7642337c125d309fc"
@@ -32,6 +33,6 @@ class Qpdf < Formula
   end
 
   test do
-    system "#{bin}/qpdf", "--version"
+    system bin/"qpdf", "--version"
   end
 end

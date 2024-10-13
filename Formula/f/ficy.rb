@@ -13,6 +13,7 @@ class Ficy < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "a74c5666c5779883383e3e98926f165056a5c2b1c4489c344390c8cea1700354"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "80755ff2ff4f5143809aaa0bc23f8a999337cb583add0ccc3271cf464eb32def"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "1886cf04ca32f5bdde1f3bc5489ac636cfdaabcf8ea7ef2a4a902e7b2a91843c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c25a3ab155e4dea715aa37ef9fc544adc571300c67aab77e93fb66423337052a"
@@ -33,6 +34,6 @@ class Ficy < Formula
 
   test do
     cp test_fixtures("test.mp3"), testpath
-    system "#{bin}/fResync", "-n", "1", "test.mp3"
+    system bin/"fResync", "-n", "1", "test.mp3"
   end
 end

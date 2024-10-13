@@ -7,6 +7,7 @@ class Spek < Formula
   revision 2
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "58bc8505cebc07a5e85064476565f3201263f69562a8fff4d180b71e85980143"
     sha256 cellar: :any,                 arm64_sonoma:   "a434f5f525998ad4de94e89af65453dab86c371546d1b0468a799a77ba22f445"
     sha256 cellar: :any,                 arm64_ventura:  "4da941a0a603896fd2c7c9bbf6a2fc111fff0378e04471d9ef4d1b6932212790"
     sha256 cellar: :any,                 arm64_monterey: "09a5c514d629a475c0f27c2899719a27a3e84db8d93304f568a15b8aed03fa0f"

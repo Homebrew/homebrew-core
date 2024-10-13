@@ -24,7 +24,7 @@ class Jose < Formula
   uses_from_macos "zlib"
 
   def install
-    system "meson", *std_meson_args, "build"
+    system "meson", "setup", "build", *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"
     system "meson", "install", "-C", "build"
   end

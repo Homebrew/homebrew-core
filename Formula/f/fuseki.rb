@@ -7,13 +7,8 @@ class Fuseki < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f44dda213f4230b6eb0cc41fbffc7a22760de441e22875f35a9f05b3ddb00e3d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f44dda213f4230b6eb0cc41fbffc7a22760de441e22875f35a9f05b3ddb00e3d"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f44dda213f4230b6eb0cc41fbffc7a22760de441e22875f35a9f05b3ddb00e3d"
-    sha256 cellar: :any_skip_relocation, sonoma:         "f44dda213f4230b6eb0cc41fbffc7a22760de441e22875f35a9f05b3ddb00e3d"
-    sha256 cellar: :any_skip_relocation, ventura:        "f44dda213f4230b6eb0cc41fbffc7a22760de441e22875f35a9f05b3ddb00e3d"
-    sha256 cellar: :any_skip_relocation, monterey:       "f44dda213f4230b6eb0cc41fbffc7a22760de441e22875f35a9f05b3ddb00e3d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5e3956585094480502279735cba84a79bbe82869518b392f480e55cffe74a07e"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "3e3bd1eea3ffeb5dbdb3300921ed87c5a2b69e797b72f2afd00fcb986cd67a93"
   end
 
   depends_on "openjdk"
@@ -49,6 +44,6 @@ class Fuseki < Formula
   end
 
   test do
-    system "#{bin}/fuseki-server", "--version"
+    system bin/"fuseki-server", "--version"
   end
 end

@@ -7,6 +7,7 @@ class Libgee < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia:  "2e94fefbe95465772e0676f4d0f65ae212867caeaf659921e069ae1f153e5c4e"
     sha256 cellar: :any,                 arm64_sonoma:   "0f3ac7bcee7e8a3ef342362cc6fb67c7f20f6e616ccaebe0b6d187069498f559"
     sha256 cellar: :any,                 arm64_ventura:  "648c253edc216944b0e678393a1376050dce9c2136a2e23543e0c2c399d9c27b"
     sha256 cellar: :any,                 arm64_monterey: "4db78ce506f169e6cf5e958f3fe5b53b53cd8b89658b27177021d38446705ec1"

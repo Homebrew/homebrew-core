@@ -3,11 +3,12 @@ class Huexpress < Formula
   homepage "https://github.com/kallisti5/huexpress"
   url "https://github.com/kallisti5/huexpress/archive/refs/tags/3.0.4.tar.gz"
   sha256 "76589f02d1640fc5063d48a47f017077c6b7557431221defe9e38679d86d4db8"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
   revision 2
   head "https://github.com/kallisti5/huexpress.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any, arm64_sequoia:  "c72017994c148e0c3320a90bcadb956732c96b544def28ff398892e578922c22"
     sha256 cellar: :any, arm64_sonoma:   "6e8a501836cd6c97ee3344adaff36f6be40a2ddd6d3266cb980cb32eab566006"
     sha256 cellar: :any, arm64_ventura:  "d69fc8ce360f304a6c9e95a8120196d5efaec9f77f02a82b0e5c3e4cab6b84da"
     sha256 cellar: :any, arm64_monterey: "a0919bd5024f7f197c262f0ba1dd5c57871506308bd7a4bfd98b5f18f04dbb50"
@@ -32,7 +33,16 @@ class Huexpress < Formula
     depends_on "mesa-glu"
   end
 
+  # Workaround for newer Clang
+  # upstream bug report, https://github.com/kallisti5/huexpress/issues/19
+  patch :DATA
+
   def install
+    # Work around failure from GCC 10+ using default of `-fno-common`
+    # multiple definition of `XBuf'; src/osd_sdl_machine.o:../src/osd_sdl_machine.c:13: first defined here
+    # upstream bug report, https://github.com/kallisti5/huexpress/issues/18
+    ENV.append "CC", "-fcommon" if OS.linux?
+
     # Don't statically link to libzip.
     inreplace "src/SConscript", "pkg-config --cflags --libs --static libzip", "pkg-config --cflags --libs libzip"
     system "scons"
@@ -43,3 +53,22 @@ class Huexpress < Formula
     assert_match(/Version #{version}$/, shell_output("#{bin}/huexpress -h", 1))
   end
 end
+
+__END__
+diff --git a/SConstruct b/SConstruct
+index 096a1ef..98216b9 100644
+--- a/SConstruct
++++ b/SConstruct
+@@ -40,5 +40,12 @@ env.Append(CPPDEFINES={'VERSION_MAJOR' : '3'})
+ env.Append(CPPDEFINES={'VERSION_MINOR' : '0'})
+ env.Append(CPPDEFINES={'VERSION_UPDATE' : '4'})
+ 
++# Workaround for newer Clang
++clang_version = env['CCVERSION']
++if env['PLATFORM'] == 'darwin' and 'clang' in env['CC']:
++    clang_version_parts = [int(part) for part in clang_version.split('.')]
++    if clang_version_parts >= [15, 0, 0]:
++        env.Append(CFLAGS=['-Wno-incompatible-function-pointer-types', '-Wno-int-conversion'])  # Pass as separate flags
++
+ Export("env")
+ SConscript('src/SConscript')

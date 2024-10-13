@@ -12,6 +12,7 @@ class Gnutls < Formula
   end
 
   bottle do
+    sha256 arm64_sequoia:  "e927eab61e775a8b65079c2163fb29b9f03c90caf68cc13788dfea249ed6201e"
     sha256 arm64_sonoma:   "46373a7206cc70289bfef2081508c62cc74a2589060b21ce26c44c4c86fbda41"
     sha256 arm64_ventura:  "7b18d9403f8cc6a5e2e3fd427a07e32ccb1d7969715fbf5b72cfb4b5a01d8a3c"
     sha256 arm64_monterey: "2a6bb19c341be5dcc2e351e68380b05f246407bd57b2dc7e94743d14e473cde8"
@@ -22,6 +23,7 @@ class Gnutls < Formula
   end
 
   depends_on "pkg-config" => :build
+
   depends_on "ca-certificates"
   depends_on "gmp"
   depends_on "libidn2"
@@ -33,19 +35,21 @@ class Gnutls < Formula
 
   uses_from_macos "zlib"
 
+  on_macos do
+    depends_on "gettext"
+  end
+
   def install
     args = %W[
-      --disable-dependency-tracking
       --disable-silent-rules
       --disable-static
-      --prefix=#{prefix}
       --sysconfdir=#{etc}
       --with-default-trust-store-file=#{pkgetc}/cert.pem
       --disable-heartbeat-support
       --with-p11-kit
     ]
 
-    system "./configure", *args
+    system "./configure", *args, *std_configure_args.reject { |s| s["--disable-debug"] }
     system "make", "install"
 
     # certtool shadows the macOS certtool utility
@@ -54,7 +58,7 @@ class Gnutls < Formula
   end
 
   def post_install
-    rm_f pkgetc/"cert.pem"
+    rm(pkgetc/"cert.pem") if (pkgetc/"cert.pem").exist?
     pkgetc.install_symlink Formula["ca-certificates"].pkgetc/"cert.pem"
   end
 

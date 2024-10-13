@@ -1,7 +1,7 @@
 class Uggconv < Formula
   desc "Universal Game Genie code converter"
-  homepage "https://wyrmcorp.com/software/uggconv/index.shtml"
-  url "https://wyrmcorp.com/software/uggconv/uggconv-1.0.tar.gz"
+  homepage "https://web.archive.org/web/20230505074213/https://wyrmcorp.com/software/uggconv/index.shtml"
+  url "https://web.archive.org/web/20230505074320/https://wyrmcorp.com/software/uggconv/uggconv-1.0.tar.gz"
   sha256 "9a215429bc692b38d88d11f38ec40f43713576193558cd8ca6c239541b1dd7b8"
   license "BSD-3-Clause"
 
@@ -12,6 +12,7 @@ class Uggconv < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "3802603d8a8f1cadf23ebd88778fdeff1a797cd6241cb0f7460e6784bba01971"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8b7da823890abb6aa5b02742c2b75d104883781b2c58bc3ae45469e936fadb1f"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "ad9e49d325916e5ae774fdb74c4ab2c9f8624316a920dfe8a1394d2a395ff049"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "27654b49d8d698a39c1e7592fad41eaa5c81a8151196b7eb054c0e711bee4a36"
@@ -27,6 +28,9 @@ class Uggconv < Formula
     sha256 cellar: :any_skip_relocation, el_capitan:     "5ab8b271f2ccc17e5229921f01b92ff7b0c297908902c83d24612bb47592af3c"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "70d91fd685adcb8943530056934bc1e8f0ed0c5502a9205c6b1c8fa982fdec53"
   end
+
+  # upstream is gone
+  deprecate! date: "2024-09-11", because: :repo_removed
 
   # Add missing `#include`.
   patch :DATA

@@ -6,6 +6,7 @@ class ValaLanguageServer < Formula
   license "LGPL-2.1-only"
 
   bottle do
+    sha256 cellar: :any, arm64_sequoia:  "7b298f02d9378880231ad35d238897b5fa76e7a0c92efc802676f114fe20ab9f"
     sha256 cellar: :any, arm64_sonoma:   "ac975caa3ddb69b060ade26f3fd96eb26d1ea002cb52742c0418a4edc23058ff"
     sha256 cellar: :any, arm64_ventura:  "8bceda4daa8845f577ab8133fff13b22ff342e9d9bc567a3b0e9c97eb6de8ab8"
     sha256 cellar: :any, arm64_monterey: "51eb75d062bfb8901eaeff0ca491584cfbc62bb266861ab760d9fd1c34aada5d"
@@ -50,7 +51,7 @@ class ValaLanguageServer < Formula
       "processId\":88075,\"rootPath\":\"#{testpath}\",\"capabilities\":{},\"trace\":\"ver" \
       "bose\",\"workspaceFolders\":null}}\r\n"
 
-    output = pipe_output("#{bin}/vala-language-server", input, 0)
+    output = pipe_output(bin/"vala-language-server", input, 0)
     assert_match(/^Content-Length: \d+/i, output)
   end
 end

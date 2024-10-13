@@ -7,6 +7,7 @@ class GnuComplexity < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "cd060b26ae921fe515fb597c86e07eb82c0cad595d8eab8547cd421db5a249e3"
     sha256 cellar: :any,                 arm64_sonoma:   "8e32f6384e57c2e21cce940fc39b2be2257b0a200367a48f85aee626988a9863"
     sha256 cellar: :any,                 arm64_ventura:  "c61d3b1a378d7debac6a79e092b3828b68b455d0b555edcb02129b34945947b1"
     sha256 cellar: :any,                 arm64_monterey: "d88523c95f66d61eab621059d46a31cae7da8964042c28499e49def45ddb6d40"
@@ -30,6 +31,10 @@ class GnuComplexity < Formula
   end
 
   def install
+    odie "check if autoreconf line can be removed" if version > "1.13"
+    # regenerate since the files were generated using automake 1.16.1
+    system "autoreconf", "--install", "--force", "--verbose"
+
     # Fix errors in opts.h. Borrowed from Debian:
     # https://salsa.debian.org/debian/complexity/-/blob/master/debian/rules
     cd "src" do

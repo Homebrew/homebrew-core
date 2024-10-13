@@ -6,6 +6,7 @@ class Xmodmap < Formula
   license "MIT-open-group"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "1a71168c6e5ae767004d75967ece8e8f41971b5e89072e05d1f68072c8857486"
     sha256 cellar: :any,                 arm64_sonoma:   "735be4fae3324a706814ab035dd4c7dbb9bf1a5095e15b00fed401376bab18cc"
     sha256 cellar: :any,                 arm64_ventura:  "7b0cf54bc0c8a2698037c366636a34d77fa31d3ae73e6024a51a5d6196e6a6e6"
     sha256 cellar: :any,                 arm64_monterey: "60bf2e38a007c44f962abaea1a1021c5c2fda7af694cebf2d5b0cafeec95f117"

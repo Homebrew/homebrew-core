@@ -12,7 +12,8 @@ class Mhonarc < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "36c8e9cffa163c7bd5bd949899d4fcc586edd38c865ee8e4aea28bead134576e"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "d0ee54ecef8975c8f168d0013f1266a4441661180be9475d858f712e40f78c8b"
   end
 
   depends_on "perl"
@@ -37,6 +38,6 @@ class Mhonarc < Formula
   end
 
   test do
-    system "#{bin}/mhonarc", "-v"
+    system bin/"mhonarc", "-v"
   end
 end

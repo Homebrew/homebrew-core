@@ -1,25 +1,22 @@
 class HopenpgpTools < Formula
   desc "Command-line tools for OpenPGP-related operations"
   homepage "https://hackage.haskell.org/package/hopenpgp-tools"
-  url "https://hackage.haskell.org/package/hopenpgp-tools-0.23.8/hopenpgp-tools-0.23.8.tar.gz"
-  sha256 "158be5544d28fcb3989376b6aee700aa6eed8390ffb8d41146b0aeff09433401"
+  url "https://hackage.haskell.org/package/hopenpgp-tools-0.23.10/hopenpgp-tools-0.23.10.tar.gz"
+  sha256 "5a89eab24143ed212b6d91e0df9cc00d9b0ebd3ccf7a0b65b4f29768c4044e29"
   license "AGPL-3.0-or-later"
   head "https://salsa.debian.org/clint/hOpenPGP.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "2594f0655586997352c9ee99763670060b8dce25c465991554336037c810b88a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a1e03da071e9e02873068fcd3ef5bc01b12eb7661f5a4144ca8bcfd08f9be96c"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c6e3ec151bf0dcdd8763a1e38b15f46d8f631387365f938e8e5a944605c25e86"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3dcb691db29afcb3c1230189085d41daad9f13e9d32dc0950daf18c102558e5b"
-    sha256 cellar: :any,                 sonoma:         "f913b18d2bf982b65591a1b9b0c4e721f23c863b85d5dae28214490738bb12b6"
-    sha256 cellar: :any_skip_relocation, ventura:        "8370937e307f6fe9abf7465cc83db8598598b05dfb65e327b0fc4679c03bfae8"
-    sha256 cellar: :any_skip_relocation, monterey:       "be3d61452b9b26924c2286162e7b013f7111ece5a2c59e7696dbf4877f33d039"
-    sha256 cellar: :any_skip_relocation, big_sur:        "e577fed1816884cb7fa00040b84f255ad3eb7f852ddbe4a1816506640b8d5a0a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5df863ac90d97fee229b7ef72eb22eae55841bd788f3d530d0aaa78ff1ebef5e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "454c7f1db4aa75a3b8645cbfdcd55b0c3a1c48faefe3f4ea5b9d7fddd862544d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "842b69bcbeacdb7a8debb729a1165d7ad16bc62e9938b20fbf98a136cf02a422"
+    sha256 cellar: :any,                 arm64_ventura: "8d996b1a36cd2565b0cc00dfde4a820220d905acbba85d41d0620888a11da727"
+    sha256 cellar: :any_skip_relocation, sonoma:        "824baa8add32bd98dda8c7a6358bbe789d1ee535c1ccc947eecc68e337544799"
+    sha256 cellar: :any,                 ventura:       "36be45e7e532005ef1c836aee093666fdddc2cae27855146c13ac0dbc0b37ee9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "522e51de7cf2aec5233d680e28502cc2f76deb153f5130a9a7ef89df87471f7e"
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc@9.4" => :build
+  depends_on "ghc@9.6" => :build
   depends_on "pkg-config" => :build
   depends_on "nettle"
 

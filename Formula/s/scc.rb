@@ -1,8 +1,8 @@
 class Scc < Formula
   desc "Fast and accurate code counter with complexity and COCOMO estimates"
   homepage "https://github.com/boyter/scc/"
-  url "https://github.com/boyter/scc/archive/refs/tags/v3.3.5.tar.gz"
-  sha256 "028869a7d053879a8e3f2872fdd792f165db13696918d08863475c638f08ef06"
+  url "https://github.com/boyter/scc/archive/refs/tags/v3.4.0.tar.gz"
+  sha256 "bdedb6f32d1c3d73ac7e55780021c742bc8ed32f6fb878ee3e419f9acc76bdaa"
   license any_of: ["MIT", "Unlicense"]
 
   livecheck do
@@ -11,13 +11,12 @@ class Scc < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0474b2efe2e1d6f8baa6dd033d193ba62bac2e8cb04428d44fff4f0fa208176a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a60a5efba1a6a1fad46ea821d1530d6e51fd560bcecf8415bed888d5decc8621"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a02324fec0834b4c51aea52dab4a3d2f45ebd787f6c339ed5150923e4f047b91"
-    sha256 cellar: :any_skip_relocation, sonoma:         "545a10d27482aa7ac0df050b4a371324c04ea29747599302e4c5bfe080fedb44"
-    sha256 cellar: :any_skip_relocation, ventura:        "00fd1132812004e0516dccd3ed1184c7be74d5987a82079abe3bedd05a1dae38"
-    sha256 cellar: :any_skip_relocation, monterey:       "fd5ade176301cc5dfa6f8267c05f6c0ededad115b971b10696ab10cd57ea14f0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2536f34d7049b22d596fb3e6d0d298f930668d2e2e69dfa8a6b327b7f1abe3b6"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "066e4ba3a8bdbfee0c55f526b329abc80436d9bdafd7f9a7ba4cc9dacf853aff"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "066e4ba3a8bdbfee0c55f526b329abc80436d9bdafd7f9a7ba4cc9dacf853aff"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "066e4ba3a8bdbfee0c55f526b329abc80436d9bdafd7f9a7ba4cc9dacf853aff"
+    sha256 cellar: :any_skip_relocation, sonoma:        "46dc8b9901b3c5129b8433cef45045c8967999b81bb8e12e67cd6432f520262e"
+    sha256 cellar: :any_skip_relocation, ventura:       "46dc8b9901b3c5129b8433cef45045c8967999b81bb8e12e67cd6432f520262e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f65cf401710b86fdad845db3d11ecd288b962eb4525878dde82cbb8929cdce6c"
   end
 
   depends_on "go" => :build

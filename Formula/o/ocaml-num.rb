@@ -3,10 +3,11 @@ class OcamlNum < Formula
   homepage "https://github.com/ocaml/num"
   url "https://github.com/ocaml/num/archive/refs/tags/v1.5.tar.gz"
   sha256 "7ae07c8f5601e2dfc5008a62dcaf2719912ae596a19365c5d7bdf2230515959a"
-  license "LGPL-2.1"
+  license "LGPL-2.1-only" => { with: "OCaml-LGPL-linking-exception" }
   revision 1
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "a50336b3ee1e973d360acb08d7b62f6945d73242a312ea047a1ad51912d96261"
     sha256 cellar: :any,                 arm64_sonoma:   "7e7b2d6adfef7295f25999b02b580412d2fa696c6930b664c012a3de467d3573"
     sha256 cellar: :any,                 arm64_ventura:  "75917ef34c2d9db4edb9e26c4032ed90e88b5b9c60d269a9d3eeec2d064b0010"
     sha256 cellar: :any,                 arm64_monterey: "9e62643f96acfd3196326a958182691dac900fab5968460d4b94278e90c5a862"

@@ -8,16 +8,17 @@ class AvroCpp < Formula
       tag:      "release-1.11.3",
       revision: "35ff8b997738e4d983871902d47bfb67b3250734"
   license "Apache-2.0"
-  revision 3
+  revision 4
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "9c18b3e6a70662c65940c9c801ee5922ce4e544bc72d43e46d152c82f2ecf9e8"
-    sha256 cellar: :any,                 arm64_ventura:  "383756d16a7283848668dce914fbe1a3c20bdcb940f17aefc164b0bee73bb28b"
-    sha256 cellar: :any,                 arm64_monterey: "3bc07ae9ff324a636b14711adf2fba1097a47cc29450349cc5c8aaf46f5495a5"
-    sha256 cellar: :any,                 sonoma:         "562b3515afee306e3b66c89cf6821057febf6ab5d7b33e8d750de315e2510b0d"
-    sha256 cellar: :any,                 ventura:        "4f83184b24b6d10f6f3112b3d9a60ce118f056ea47f3f220304acc88a76e328f"
-    sha256 cellar: :any,                 monterey:       "07b66ac00605ab6f36c1ade022db1f0799bb1c9c473bafe4494970d13bd83ecf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "583938354670ae2694cf6f543a906c471fed38b3c5299b5716302585bb94165b"
+    sha256 cellar: :any,                 arm64_sequoia:  "68cc14a37de162f0006e51cd24bf8732037333c8b4f83d93281f5fd027322854"
+    sha256 cellar: :any,                 arm64_sonoma:   "43b9420650c17df411a56b9ffa47824c265e909a116f63b5141d700f20ead267"
+    sha256 cellar: :any,                 arm64_ventura:  "e3a3876b799400d284f39109717924563302d548de3508b93499047321982e4f"
+    sha256 cellar: :any,                 arm64_monterey: "3d840f89e9fbef4334d1f3a1919f6c784ad787a108aabd4f156dd0ad5039add7"
+    sha256 cellar: :any,                 sonoma:         "b9193599165f9bd895789f9ea0429f1f1ef0cfeb4768d7cb6857109f8a282f6a"
+    sha256 cellar: :any,                 ventura:        "1732eb8f243b23187bfc41604a74e5b8c222489a72944686a97ad8cc9eca034e"
+    sha256 cellar: :any,                 monterey:       "b75fd0a64cacf35169c219ebea627c7f6f291a46e9d984b250fc3e4ea3a9acd6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c23da0cf62087e7ea7556c6c8359f05f22c97f49e35694dc0269ee8b83d730bd"
   end
 
   depends_on "cmake" => :build
@@ -43,6 +44,7 @@ class AvroCpp < Formula
           ]
       }
     EOS
+
     (testpath/"test.cpp").write <<~EOS
       #include "cpx.hh"
 
@@ -51,7 +53,8 @@ class AvroCpp < Formula
         return 0;
       }
     EOS
-    system "#{bin}/avrogencpp", "-i", "cpx.json", "-o", "cpx.hh", "-n", "cpx"
+
+    system bin/"avrogencpp", "-i", "cpx.json", "-o", "cpx.hh", "-n", "cpx"
     system ENV.cxx, "test.cpp", "-std=c++11", "-o", "test"
     system "./test"
   end

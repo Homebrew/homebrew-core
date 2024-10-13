@@ -7,15 +7,15 @@ class Jasmin < Formula
   revision 2
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "e1795ecda92b84db3d33eaeb6fec584eb948a6a010368d0b977265346d46c44b"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "5ca0d0e4caaf51963cbbc63ffa2b3b2506737c8c0cc8a2773acb76f185221b11"
   end
 
   depends_on "openjdk"
 
   def install
     # Remove Windows scripts
-    rm_rf Dir["*.bat"]
+    rm_r(Dir["*.bat"])
 
     libexec.install Dir["*.jar"]
     prefix.install %w[Readme.txt license-ant.txt license-jasmin.txt]
@@ -39,7 +39,7 @@ class Jasmin < Formula
          return
       .end method
     EOS
-    system "#{bin}/jasmin", "#{testpath}/test.j"
+    system bin/"jasmin", "#{testpath}/test.j"
     assert_equal "Hello Homebrew\n", shell_output("#{Formula["openjdk"].bin}/java HomebrewTest")
   end
 end

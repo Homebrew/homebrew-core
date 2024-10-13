@@ -7,6 +7,7 @@ class BerkeleyDbAT4 < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any,                 arm64_sequoia:  "de4afa55a39dde81bdc017b071d7ce98271d88bc440aecc89c21d426e27486e6"
     sha256 cellar: :any,                 arm64_sonoma:   "6a70bef2a6c9d8fcc8530348fdd1040aef31136d27ec7fcd3c2dfb009ae909f6"
     sha256 cellar: :any,                 arm64_ventura:  "dad3afeb395f771ec875428b208e25bb72a052f6b855832817491952ab9f5f02"
     sha256 cellar: :any,                 arm64_monterey: "ec19587b4fb0d7ee44a351aed1ed2912e327acdd4de816baee6ec9f3a9dfc7ff"
@@ -21,6 +22,10 @@ class BerkeleyDbAT4 < Formula
   end
 
   keg_only :versioned_formula
+
+  # This formula is less likely to get security patches than `berkeley-db@5`,
+  # which is the version shipped & patched by major Linux distros.
+  deprecate! date: "2024-08-17", because: :unmaintained
 
   # Fix build with recent clang
   patch do

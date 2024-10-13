@@ -4,7 +4,11 @@ class Usbutils < Formula
   homepage "http://www.linux-usb.org/"
   url "https://mirrors.edge.kernel.org/pub/linux/utils/usb/usbutils/usbutils-017.tar.gz"
   sha256 "f704c4cb78a060db88b43aac6ebfd3d93c2c5cf1d6dd0e42936faaf00814ab00"
-  license any_of: ["GPL-2.0-only", "GPL-3.0-only"]
+  license all_of: [
+    "GPL-2.0-only",
+    "GPL-2.0-or-later",
+    any_of: ["GPL-2.0-only", "GPL-3.0-only"],
+  ]
 
   livecheck do
     url "https://mirrors.edge.kernel.org/pub/linux/utils/usb/usbutils/"
@@ -12,6 +16,7 @@ class Usbutils < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "29214690f12e4b8adb6616dd47c41b43cec827637d09c1f4dab15a255050ca68"
     sha256 cellar: :any,                 arm64_sonoma:   "374ce8a0c6782808d4fd194dbfd177c779ca568e7d5b0a5687412add96cce4ed"
     sha256 cellar: :any,                 arm64_ventura:  "735a4d7ec2d7393bb3421c27583f1df30455c5a4c3b092786dfe3ee92144806e"
     sha256 cellar: :any,                 arm64_monterey: "eabe8a0f9cee89292386b2b0900677127c8827882bf43323dfb732013d6a2f1a"
@@ -27,7 +32,11 @@ class Usbutils < Formula
   depends_on "pkg-config" => :build
   depends_on "libusb"
 
-  conflicts_with "lsusb", because: "both provide an `lsusb` binary"
+  on_linux do
+    depends_on "systemd"
+  end
+
+  conflicts_with "lsusb", "lsusb-laniksj", because: "both provide an `lsusb` binary"
 
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/12f3d34/usbutils/portable.patch"
@@ -35,10 +44,8 @@ class Usbutils < Formula
   end
 
   def install
-    system "autoreconf", "--verbose", "--force", "--install"
-    system "./configure", "--disable-debug",
-                          *std_configure_args
-
+    system "autoreconf", "--force", "--install", "--verbose"
+    system "./configure", "--disable-silent-rules", *std_configure_args
     system "make", "install"
   end
 

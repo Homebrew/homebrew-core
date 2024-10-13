@@ -8,6 +8,7 @@ class DcosCli < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "ce669ecdf711ee9694e40d12a22866fae9e14c59ac55436cc6284133c25b88d5"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "566aeb81f1c506438c9f5b503f775c540dfef7a4aa5e728e710e50a2e0c10993"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "4cf3b69223bb06a5b08f8f48eb320a2b45ef2fcf8e3f63c2e5fb49881872b7bb"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4b7c3e8a7a0d91d84fd13cad41079bd7d718928b1acbaede6f7c5fc0f419b1bc"

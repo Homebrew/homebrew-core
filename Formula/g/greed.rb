@@ -6,12 +6,8 @@ class Greed < Formula
   license "BSD-2-Clause"
   head "https://gitlab.com/esr/greed.git", branch: "master"
 
-  livecheck do
-    url :homepage
-    regex(/href=.*?greed[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
-
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "7dd0a88d2965272e5c99454d0d94cb651ddb8379167b8ab7c796d4e94d146926"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7a3e7b7239960308e29bf2dfe2e74e0c8d8f668eba481d83b64235180f96efbb"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "fa7e8531d206c50da08b2e675a362e6a456476d177af8d31135e65f900e1f673"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "7d5d9248e0afb74bf84489914b4db0076f3d2ebcaf673410ddfebbd3b29cae2b"

@@ -28,11 +28,6 @@ class Upscaledb < Formula
     end
   end
 
-  livecheck do
-    url "https://files.upscaledb.com/dl/"
-    regex(/href=.*?upscaledb[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
-
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "f9e07f206aa8c7656e752da77826815d0bc704c2f71beaed6341817b60cb9ba5"
     sha256 cellar: :any,                 arm64_ventura:  "31263250b809be124c24d249704e8a84de26c46c12b1f9e4a7abea51dbd79c4f"
@@ -45,7 +40,7 @@ class Upscaledb < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "98b54b8cb472d3c1810899301aecbe116c1c0dd5120d476ace114f12ee725d84"
   end
 
-  deprecate! date: "2023-10-19", because: :does_not_build
+  disable! date: "2024-10-19", because: :does_not_build
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build

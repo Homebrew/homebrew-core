@@ -6,6 +6,7 @@ class FontUtil < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "debcf269b82d6b7503808ae95aed9f0a39df46ec3a323b272c545c57148f4254"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c330ddeddd9f3f0a53c3845c1b3d3bcf1524370135df06eea99a914659185fcd"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f797dc497bc5e95e9e9840bdad4dde1c083f7c7f2bd26d577897f2bc63b27e6c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "46ba2f844d8b9fcaaf5bd3c40d77e3e6f6d61306e430d87f5e2c6c9bc8238228"

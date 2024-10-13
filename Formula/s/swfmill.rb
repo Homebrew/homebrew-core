@@ -3,7 +3,7 @@ class Swfmill < Formula
   homepage "https://www.swfmill.org/"
   url "https://www.swfmill.org/releases/swfmill-0.3.6.tar.gz"
   sha256 "db24f63963957faec02bb14b8b61cdaf7096774f8cfdeb9d3573e2e19231548e"
-  license "GPL-2.0"
+  license "GPL-2.0-only"
 
   livecheck do
     url :homepage
@@ -11,6 +11,7 @@ class Swfmill < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "627251dcb91c98bea4455fb35da262880aae7f2f5897162616f62135f1fe9234"
     sha256 cellar: :any,                 arm64_sonoma:   "a9e8c77577b790f0e88eec48aa1e8091c7df0708731aab2d5b61f5379c4ee0ee"
     sha256 cellar: :any,                 arm64_ventura:  "0963f879f2401a1174f2d1536a1dbbec0cfea0ca85978943f5f00e9d98c7b62e"
     sha256 cellar: :any,                 arm64_monterey: "dde3958952f7a8f233e56a4a623f133ba07fd8f5fb06d5832d013f4e0ef59ffe"
@@ -31,7 +32,9 @@ class Swfmill < Formula
   depends_on "freetype"
   depends_on "libpng"
 
+  uses_from_macos "libxml2"
   uses_from_macos "libxslt"
+  uses_from_macos "zlib"
 
   def install
     system "./configure", "--prefix=#{prefix}"

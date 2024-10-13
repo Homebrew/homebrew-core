@@ -1,19 +1,20 @@
 class Nghttp2 < Formula
   desc "HTTP/2 C Library"
   homepage "https://nghttp2.org/"
-  url "https://github.com/nghttp2/nghttp2/releases/download/v1.61.0/nghttp2-1.61.0.tar.gz"
-  mirror "http://fresh-center.net/linux/www/nghttp2-1.61.0.tar.gz"
-  sha256 "aa7594c846e56a22fbf3d6e260e472268808d3b49d5e0ed339f589e9cc9d484c"
+  url "https://github.com/nghttp2/nghttp2/releases/download/v1.63.0/nghttp2-1.63.0.tar.gz"
+  mirror "http://fresh-center.net/linux/www/nghttp2-1.63.0.tar.gz"
+  sha256 "9318a2cc00238f5dd6546212109fb833f977661321a2087f03034e25444d3dbb"
   license "MIT"
 
   bottle do
-    sha256 arm64_sonoma:   "4946bbad571b81c2f4bd98e23193fa5580f61fc875cd603c36c528cf227c5b55"
-    sha256 arm64_ventura:  "83da0d138f6c05b6a2a5717b54565318ffa0f4e7310f3a44f58cbcc4ac036580"
-    sha256 arm64_monterey: "df1f53bed3f80ebeccc01b404fa3501f985819f8bee88e29527a480e5ec7ca46"
-    sha256 sonoma:         "aee77b84e83bf6145bd54727f5214466d65fb9616d3a64205e0138e132ec396c"
-    sha256 ventura:        "9aff06288db6cbeb942eca1b3db6adb184006a3e9609b22c5eae06082910e9dd"
-    sha256 monterey:       "d31eb933de7d8bd619ef340adacd9913e8ec708430546696886d041a6be588be"
-    sha256 x86_64_linux:   "648304c0ff49cbb5e1fa32cc46a8c0f57c72f7a25ff589489a76762dd94a8b2c"
+    sha256 arm64_sequoia:  "5c7d02e5e38397cc7ac2eaece928ce96086049905abf0be03d44df61fe74f465"
+    sha256 arm64_sonoma:   "1490d262d370565e6399f14557e025dd4d3ccf3e66429aa10752f53767b09396"
+    sha256 arm64_ventura:  "e8ce0af1e523291e56047e1634bb6e708586dc690c015db53284a3acf11ed002"
+    sha256 arm64_monterey: "e24a10fd5248deb0c987e7b275c0c1b6c9616b00edddf190849c205e95d7b443"
+    sha256 sonoma:         "8bf2e26f765f1e145e8f7fba8a9cd869498b867ca7e4c5b5c852248fb6cc72b4"
+    sha256 ventura:        "3640220afb57c9119758f684438af9f36eaeb7b1270f5387683b9415e5cf5202"
+    sha256 monterey:       "2896740b3d373771797a09e29dd1c6a65e64e3f02482295dd395e5dd06460ee9"
+    sha256 x86_64_linux:   "7a0b6480bad985d920b7d2394a05bfd8e56ad09df98b2a3e78bd2e847a3420fd"
   end
 
   head do
@@ -34,17 +35,25 @@ class Nghttp2 < Formula
   uses_from_macos "libxml2"
   uses_from_macos "zlib"
 
-  # Fix: shrpx_api_downstream_connection.cc:57:3: error:
-  # array must be initialized with a brace-enclosed initializer
-  # https://github.com/nghttp2/nghttp2/pull/1269
-  patch do
-    on_linux do
-      url "https://github.com/nghttp2/nghttp2/commit/829258e7038fe7eff849677f1ccaeca3e704eb67.patch?full_index=1"
-      sha256 "c4bcf5cf73d5305fc479206676027533bb06d4ff2840eb672f6265ba3239031e"
-    end
+  on_macos do
+    # macOS 12 or older
+    depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1400
   end
 
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with :clang do
+    build 1400
+    cause "Requires C++20 support"
+  end
+
+  fails_with gcc: "11"
+
   def install
+    ENV.llvm_clang if OS.mac? && DevelopmentTools.clang_build_version <= 1400
+
     # fix for clang not following C++14 behaviour
     # https://github.com/macports/macports-ports/commit/54d83cca9fc0f2ed6d3f873282b6dd3198635891
     inreplace "src/shrpx_client_handler.cc", "return dconn;", "return std::move(dconn);"
@@ -53,8 +62,8 @@ class Nghttp2 < Formula
     inreplace "Makefile.in", /(SUBDIRS =) lib/, "\\1"
     inreplace Dir["**/Makefile.in"] do |s|
       # These don't exist in all files, hence audit_result being false.
-      s.gsub!(%r{^(LDADD = )\$[({]top_builddir[)}]/lib/libnghttp2\.la}, "\\1-lnghttp2", false)
-      s.gsub!(%r{\$[({]top_builddir[)}]/lib/libnghttp2\.la}, "", false)
+      s.gsub!(%r{^(LDADD = )\$[({]top_builddir[)}]/lib/libnghttp2\.la}, "\\1-lnghttp2", audit_result: false)
+      s.gsub!(%r{\$[({]top_builddir[)}]/lib/libnghttp2\.la}, "", audit_result: false)
     end
 
     args = %W[

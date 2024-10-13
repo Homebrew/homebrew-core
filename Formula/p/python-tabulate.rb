@@ -9,17 +9,11 @@ class PythonTabulate < Formula
   revision 1
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0512d6d0541a35bb5f78c28b6d03f75dd5356f4214feec5d57ddf29dee8ab0b6"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0512d6d0541a35bb5f78c28b6d03f75dd5356f4214feec5d57ddf29dee8ab0b6"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "0512d6d0541a35bb5f78c28b6d03f75dd5356f4214feec5d57ddf29dee8ab0b6"
-    sha256 cellar: :any_skip_relocation, sonoma:         "0512d6d0541a35bb5f78c28b6d03f75dd5356f4214feec5d57ddf29dee8ab0b6"
-    sha256 cellar: :any_skip_relocation, ventura:        "0512d6d0541a35bb5f78c28b6d03f75dd5356f4214feec5d57ddf29dee8ab0b6"
-    sha256 cellar: :any_skip_relocation, monterey:       "0512d6d0541a35bb5f78c28b6d03f75dd5356f4214feec5d57ddf29dee8ab0b6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7f68075d1e03e127ee0fc20bcc6202d26823d36e7637ca2f52b9384b3d067a3b"
+    rebuild 4
+    sha256 cellar: :any_skip_relocation, all: "cea38c8f00045852ff2e04f39f4e1e9f1b1a83a4f21f8f94bd2765b2ed75240e"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   def install
     virtualenv_install_with_resources

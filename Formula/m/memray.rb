@@ -9,6 +9,7 @@ class Memray < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "225b47b059540d81c0759f42c7bb20b179260eedb9be02f79f8066d93af60fc8"
     sha256 cellar: :any,                 arm64_sonoma:   "e9143f4d9a3c3d482d954ea73c087807c4cfdb6dce59e4089d591d0f7a058787"
     sha256 cellar: :any,                 arm64_ventura:  "3acafce0da2ccd71ad600c19b5874bfc9ee631bbc97ebe3d9fcb2fa82244aef6"
     sha256 cellar: :any,                 arm64_monterey: "4290e4e4db85b37308fd49645d0811de4f890af44ea4afb5a569e45133f47122"
@@ -85,7 +86,7 @@ class Memray < Formula
   end
 
   test do
-    system "#{bin}/memray", "run", "--output", "output.bin", "-c", "print()"
+    system bin/"memray", "run", "--output", "output.bin", "-c", "print()"
     assert_predicate testpath/"output.bin", :exist?
 
     assert_match version.to_s, shell_output("#{bin}/memray --version")

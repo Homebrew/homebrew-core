@@ -8,6 +8,7 @@ class Carrot2 < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "42cb2196e42f3dcad47280ea9bd1e744084f0f68a609f39c9537c9f84900fa6d"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "63b10879de0b38414b6d3d0a77a7d1301d43e877f41e6c5a3f593f71da12378a"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "baf90c58c0de1fb56ec3d47d263ca2b2fd5596d26bd31cb5bd23f0000e7e94ac"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e2b5d97a750dae863513da210590e6f182c83c77e8485b4af3090d52002ca65f"

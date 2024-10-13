@@ -6,6 +6,7 @@ class Osqp < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "647ab37438a0017321a9e6f1182f805cef876a66a2f943d5f23dc59082fd9f0f"
     sha256 cellar: :any,                 arm64_sonoma:   "75737089a5452b23716c6e18c7ec61944a75334727292470db873e951be0ff64"
     sha256 cellar: :any,                 arm64_ventura:  "ca78e8724eade029e62543fd5c71024400dcf7af5e34fcd9b520aa6030ed6a50"
     sha256 cellar: :any,                 arm64_monterey: "037777df22a74ad68ede796d9004ac30939144e63507112f35011d552f6091fd"
@@ -33,7 +34,7 @@ class Osqp < Formula
     system "cmake", "--install", "build"
 
     # Remove unnecessary qdldl install.
-    rm_rf Dir[include/"qdldl", lib/"cmake/qdldl", lib/"libqdldl.a", lib/shared_library("libqdldl")]
+    rm_r(Dir[include/"qdldl", lib/"cmake/qdldl", lib/"libqdldl.a", lib/shared_library("libqdldl")])
   end
 
   test do

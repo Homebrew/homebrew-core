@@ -13,6 +13,7 @@ class Knock < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "6918a15821559b226ee8e3844a439277a1cf6b4dcd6fa503fd71531fe541fe8d"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c0705f9179784dc82526bc20a47df2b3a39b1b5e476cca49d4406c9c0e3f1ea1"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "326959f0e368e3b38816abdc5b45d483d1c4d46f0d26775171bd7d5ebeaa059d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4f84095e2b3b16af1f3d2263b79dd3432f9dbc9db27654377d520fdb54a0c520"
@@ -43,6 +44,6 @@ class Knock < Formula
   end
 
   test do
-    system "#{bin}/knock", "localhost", "123:tcp"
+    system bin/"knock", "localhost", "123:tcp"
   end
 end

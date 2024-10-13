@@ -7,6 +7,7 @@ class GoStatik < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "95aa24d379a2bbd53eef6bcac8f69bb4813aef3d5957ccf022ba5f34ba7e5281"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "24547268f10325a191888ab87a8e35b17d4d653a9c6ff6e1bbe60e1ad3f7cdf4"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "26f7b3d318ee90136abccb38d929251dd06a2b689191ad9c34a29acde10a4645"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1c5a13a7d21ea10888bdfb31153624ca587b2b3424ecf8c97f5bfa512aedf898"

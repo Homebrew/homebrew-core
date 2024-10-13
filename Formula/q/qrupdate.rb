@@ -12,6 +12,7 @@ class Qrupdate < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "5ea96ebb5b0af96ca5976f5c0a188c772eadc46fa52edb44cdb89f3d2e69436c"
     sha256 cellar: :any,                 arm64_sonoma:   "30d96fead1ad674156f1ca3121c2c5df27f3a2e42d226425ca6f83554628a86b"
     sha256 cellar: :any,                 arm64_ventura:  "883c11e84b2dcdd6ed46344697e8363a2c61e68d26aa6439d4684bc1a7abc76b"
     sha256 cellar: :any,                 arm64_monterey: "c8c154ece840edeeb4b4d0fe76383b60177ada3a525d96a124dc3fac80d9ae34"

@@ -1,19 +1,20 @@
 class Medusa < Formula
   desc "Solidity smart contract fuzzer powered by go-ethereum"
   homepage "https://github.com/crytic/medusa"
-  url "https://github.com/crytic/medusa/archive/refs/tags/v0.1.5.tar.gz"
-  sha256 "fd5b2f3a9dd4aad51397b892a695d644809f15194b200d0e4221d1a99f43f4f6"
+  url "https://github.com/crytic/medusa/archive/refs/tags/v0.1.6.tar.gz"
+  sha256 "9170cb72ba0adfd7762cc5eec122b62912cf7bbf1376ff4980f796e9e08d67ed"
   license "AGPL-3.0-only"
   head "https://github.com/crytic/medusa.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d7da2c1a7788838fc892489be36ad27f2d8cb2564f4a2c50c74f82c301d3e78c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "36dc3fcb097a7352b0a72f54b657b74bd5777eb06c936068350d715c89650117"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ab99ba1013332bb045b18dccd5d3bab3fb53c644106dce8bb5c2c2e1ab57dd01"
-    sha256 cellar: :any_skip_relocation, sonoma:         "360bcfc531563c9a0865368f09ac9c049efab421eeaf15c99e1340c58431ccb5"
-    sha256 cellar: :any_skip_relocation, ventura:        "e82619eaa049ad7d1521fc1ae85077dba87561627134b495131a3d22411aa0ee"
-    sha256 cellar: :any_skip_relocation, monterey:       "3e5b48d79d420b35432886deadf53bd635ce49d7df29c6230bd2fd084263df0a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0d4036fd354efc293b94fe230d4acfd3163eaa17df09759dad34db476dd80d48"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "4fe692e1268e471fc99d44255c9ea21d2abe06a13d8296adb362d0d379c88d31"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "71cbc01a3df8029c49364d6eec8394769f006d49b46ff817c9e7479eddb6725a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "07dba954197bf45222d566e64aed15e6f9e455de1537279d726a7301a32780b9"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "676975599c4e33681c3cb7fda6fe61acefa8f467232c41dd94d14d5614bfa23a"
+    sha256 cellar: :any_skip_relocation, sonoma:         "73e57934ddb56e5d9af8bd3747b0f752fa389d4aa40e4dd072dc1cd071768ff8"
+    sha256 cellar: :any_skip_relocation, ventura:        "3503e59ec34413ea894035c56ccec63197b01e9ac50c277c196331c62df7f67b"
+    sha256 cellar: :any_skip_relocation, monterey:       "d1076f1a85665251e550e721b645f5dc6a1cebbc4b6c5b16fffaf1995e5399fc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d5ca13068a4801ffeccbcef9409bb11b12b7f4f82e2184620832656fc0826828"
   end
 
   depends_on "go" => :build

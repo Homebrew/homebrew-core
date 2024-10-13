@@ -30,7 +30,9 @@ class AardvarkShellUtils < Formula
     conflicts_with "uutils-coreutils", because: "both install `realpath` binaries"
   end
 
-  conflicts_with "coreutils", because: "both install `realpath` binaries"
+  on_monterey :or_older do
+    conflicts_with "coreutils", because: "both install `realpath` binaries"
+  end
 
   def install
     system "./configure", "--disable-debug",

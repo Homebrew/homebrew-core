@@ -1,30 +1,27 @@
 class Liblxi < Formula
   desc "Simple C API for communicating with LXI compatible instruments"
   homepage "https://github.com/lxi-tools/liblxi"
-  url "https://github.com/lxi-tools/liblxi/archive/refs/tags/v1.20.tar.gz"
-  sha256 "4ee8dc2daea6bf581c1da32c51c4cb08e3f3b42d4c77d8a19777f5bbae93f57a"
+  url "https://github.com/lxi-tools/liblxi/archive/refs/tags/v1.21.tar.gz"
+  sha256 "0ed6ddc2caeaf292c05a3d80fadf0ea0776187ec609fd3874f6dbbb411cda7e3"
   license "BSD-3-Clause"
   head "https://github.com/lxi-tools/liblxi.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "f8b148d72e20e4613b694ae38ca3b032f4d105fb97e659887c7a86ab9adb42c1"
-    sha256 cellar: :any,                 arm64_ventura:  "3f9e513d0056908d8727d4a8b5b83d625d83bae479871a165a1432c5e3bbc22b"
-    sha256 cellar: :any,                 arm64_monterey: "bbba9e76bf693dfc99792ba17a350660ec2b76d8b3a13847f9d747578b6da241"
-    sha256 cellar: :any,                 arm64_big_sur:  "e4dcfd51df02803ec63669c335623e972a440c7097a69d02c3d7b5590e7163d7"
-    sha256 cellar: :any,                 sonoma:         "725dea2a1d77003f9bedf83d959f8ad659ffab5bf57987b730a0b7168525408b"
-    sha256 cellar: :any,                 ventura:        "d60e0c52667699e11433b2dfa11f6c1e22c471d80715477a1d9de63c0c352e02"
-    sha256 cellar: :any,                 monterey:       "6113392957d9239ab4c6910b7194fb18c8c3c732b2c4db312da53144d1d8935e"
-    sha256 cellar: :any,                 big_sur:        "65730aa0af2e582967a738edcad6a8640e7a40d36becd7be19e05c601f79649d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ab21945cac82d3233ce252006691421c03addb19a39abee90a1f9d9fe95cf80f"
+    sha256 cellar: :any, arm64_sequoia: "ba9f08d2c888fe83b95ee04bed636183570284335d9693b07deab14d5476f34b"
+    sha256 cellar: :any, arm64_sonoma:  "cafd14a894fe716196c2b384aa987466957ac95b17053cdae6c766466c560f12"
+    sha256 cellar: :any, arm64_ventura: "c542b037f1b237279be7d71ee0bf32b256164decf6c51f94d2d246aee6547719"
+    sha256 cellar: :any, sonoma:        "f490d08a779989026b594df8b93927a4d447c3b1f1be3124efce5526d171a785"
+    sha256 cellar: :any, ventura:       "af9a495a33df338841d3eb69ef146300c7782c132fb95e5a8168c1e17fa8d7af"
+    sha256               x86_64_linux:  "95c49c316da10f9a64559a1ae6d85f3eac043227d275f68196c696a29c167cb7"
   end
 
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
+
   uses_from_macos "libxml2"
 
   on_linux do
-    depends_on "libpthread-stubs"
     depends_on "libtirpc"
   end
 

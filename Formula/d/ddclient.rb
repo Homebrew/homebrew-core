@@ -12,6 +12,7 @@ class Ddclient < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "528b406d3d5259581701d70b58cfbab489a050f28ad638cd96fef4c7b717c8fb"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "414220db19df958c45f3d8ad699841ac8e115d1cba7a2c2b3768e36c9e0bbfbd"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "414220db19df958c45f3d8ad699841ac8e115d1cba7a2c2b3768e36c9e0bbfbd"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "414220db19df958c45f3d8ad699841ac8e115d1cba7a2c2b3768e36c9e0bbfbd"
@@ -23,7 +24,9 @@ class Ddclient < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
+
   uses_from_macos "perl"
+  uses_from_macos "zlib"
 
   on_linux do
     depends_on "openssl@3"
@@ -47,6 +50,12 @@ class Ddclient < Formula
       url "https://cpan.metacpan.org/authors/id/C/CH/CHRISN/Net-SSLeay-1.92.tar.gz"
       sha256 "47c2f2b300f2e7162d71d699f633dd6a35b0625a00cbda8c50ac01144a9396a9"
     end
+  end
+
+  # disable automake treating warnings as error, upstream pr ref, https://github.com/ddclient/ddclient/pull/746
+  patch do
+    url "https://github.com/ddclient/ddclient/commit/9eb4558772b84516363c960fe53c014575d80df9.patch?full_index=1"
+    sha256 "e491f223f033aad7c213cd9a1a761fefffc6220660e3f4ac150ca65e1381cf7a"
   end
 
   def install
@@ -88,7 +97,7 @@ class Ddclient < Formula
     ohai "Migrating `#{old_config_file}` to `#{new_config_file}`..."
     etc.install new_config_file => "ddclient.conf.default" if new_config_file.exist?
     etc.install old_config_file
-    pkgetc.rmtree if pkgetc.empty?
+    rm_r(pkgetc) if pkgetc.empty?
   end
 
   def caveats

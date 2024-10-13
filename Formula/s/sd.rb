@@ -6,6 +6,7 @@ class Sd < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "3cf7ab4495f622a4f245bb1c7c30225ef881dc390ee5edc59a1d3c4381cecca1"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6bc773a70934364157591cd888e617601a42ed1f615fda8f77364fa45631d08d"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "946a44f567e3528d380fbbee742c3abeed9952f53f7de172a846b63d2e21d5b1"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "60f079d38aa238a1e7109c6a0f988fe7033449d20f05db3b87219cbfd945fe58"

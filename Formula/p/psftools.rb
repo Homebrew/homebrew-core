@@ -5,7 +5,7 @@ class Psftools < Formula
   # You may still find it on some mirrors but it should not be used.
   url "https://www.seasip.info/Unix/PSF/psftools-1.0.14.tar.gz"
   sha256 "dcf8308fa414b486e6df7c48a2626e8dcb3c8a472c94ff04816ba95c6c51d19e"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
   version_scheme 1
 
   # The development release on the homepage uses the same filename format as
@@ -18,6 +18,7 @@ class Psftools < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "12640a4b3994e97fca6c888cdd660d554598bf8bcbb308ceeb9b84215e7d8fb3"
     sha256 cellar: :any,                 arm64_sonoma:   "7b3c2ecfcbac182eeb598a944eb04ae8506330cd0ae1b058a96679f52dad028b"
     sha256 cellar: :any,                 arm64_ventura:  "6d1a0f368538d9943d29048cc34f0db13a9df55d2c100f831dd2a66f987fa32d"
     sha256 cellar: :any,                 arm64_monterey: "1142f7422c522acca28091e7e522e384d00ea96148a74ac67bef674c59f44325"
@@ -55,7 +56,7 @@ class Psftools < Formula
   test do
     # The zip file has a fon in it, use fon2fnts to extract to fnt
     resource("pc8x8font").stage do
-      system "#{bin}/fon2fnts", "pc8x8.fon"
+      system bin/"fon2fnts", "pc8x8.fon"
       assert_predicate Pathname.pwd/"PC8X8_9.fnt", :exist?
     end
   end

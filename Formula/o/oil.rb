@@ -1,8 +1,8 @@
 class Oil < Formula
   desc "Bash-compatible Unix shell with more consistent syntax and semantics"
   homepage "https://www.oilshell.org/"
-  url "https://www.oilshell.org/download/oil-0.22.0.tar.gz"
-  sha256 "69b3f66d2d54059513355522198365038629eb5961216cd8481686cf818a7131"
+  url "https://www.oilshell.org/download/oil-0.23.0.tar.gz"
+  sha256 "9fcc3eabaacf1324c49aa583b9a6fcbf80dd9ea47088632722abc95de3629b6b"
   license "Apache-2.0"
 
   livecheck do
@@ -11,18 +11,19 @@ class Oil < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "e429bff192b3c095b6bc5756f07a6499bae832eac0f055f519d55c60d4963c4a"
-    sha256 arm64_ventura:  "d845e1bc46e684e3675a521134b70a3765759334a49647eb31aac929cf011c7c"
-    sha256 arm64_monterey: "61d3bc3aa2960c903cb4c8db235cbd8f75e890847e3333e291809329e43e606d"
-    sha256 sonoma:         "75778c951ee57305f2ba5990631ded8b2bf11e94903464aa1439aebe6d27167a"
-    sha256 ventura:        "173d6c29e86a6658caea9990e0a45803a0d7b30e766e1c7cf5c0fbb1f1c8d44d"
-    sha256 monterey:       "2491449ded44d3876a21f0bc0b4b707c8fee6afffa24baedd3b733f56b5e25cf"
+    sha256 arm64_sequoia:  "d9690ca442936dd7f511ea47b9f38dd8f1e912d750f2f973436484d9bbab5498"
+    sha256 arm64_sonoma:   "3bd17a6e3a21658e3ea556d2e83658a31ebacb4c44d2cf2a545d7fcc13d4be7b"
+    sha256 arm64_ventura:  "c6d90b4d1ed90b69341594a1c2cc5dad0b7589103117a8a56b1c35f67a3d1858"
+    sha256 arm64_monterey: "3a6ee4291d757da8bd9c7057b6b90e596717e8594968cbe822e656cedf7eab32"
+    sha256 sonoma:         "0f38753bfbf381e4a8095ffb66c1af9c0685c0f0c85fe3619e8385862a3fc030"
+    sha256 ventura:        "aa527672e7c1448cbcd46787f0e349431ffb0116a438593ddb451eae40fb441e"
+    sha256 monterey:       "cf0c11fb7b3a7a5826e9b25748060c298dee565bd16257b568a7c4bb0b9efd0c"
   end
 
   depends_on "readline"
 
   conflicts_with "oils-for-unix", because: "both install 'osh' and 'ysh' binaries"
-  conflicts_with "omake", because: "both install 'osh' binaries"
+  conflicts_with "etsh", "omake", because: "both install 'osh' binaries"
 
   def install
     system "./configure", "--prefix=#{prefix}",
@@ -33,10 +34,10 @@ class Oil < Formula
   end
 
   test do
-    system "#{bin}/osh", "-c", "shopt -q parse_backticks"
+    system bin/"osh", "-c", "shopt -q parse_backticks"
     assert_equal testpath.to_s, shell_output("#{bin}/osh -c 'echo `pwd -P`'").strip
 
-    system "#{bin}/oil", "-c", "shopt -u parse_equals"
+    system bin/"oil", "-c", "shopt -u parse_equals"
     assert_equal "bar", shell_output("#{bin}/oil -c 'var foo = \"bar\"; write $foo'").strip
   end
 end

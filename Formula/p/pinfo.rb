@@ -3,10 +3,11 @@ class Pinfo < Formula
   homepage "https://packages.debian.org/sid/pinfo"
   url "https://github.com/baszoetekouw/pinfo/archive/refs/tags/v0.6.13.tar.gz"
   sha256 "9dc5e848a7a86cb665a885bc5f0fdf6d09ad60e814d75e78019ae3accb42c217"
-  license "GPL-2.0"
+  license "GPL-2.0-only"
   revision 1
 
   bottle do
+    sha256 arm64_sequoia:  "156abee096126843dea45d4b863b41cfaf28f9acd4fd8932b1388b981b299e5f"
     sha256 arm64_sonoma:   "8cd30c690fd15b9a98a0c7ebf41c7529d6c1fd06467290d228eb585d5de04d9e"
     sha256 arm64_ventura:  "40d137796340727ecdbb3d1c82a2fe46852cd944eec6cc30d18fe2b8a11e1e97"
     sha256 arm64_monterey: "64b61bdd18dca5533f6bee2239e0c0eb8740b324697c58e03249c840b66d87d9"
@@ -41,6 +42,6 @@ class Pinfo < Formula
   end
 
   test do
-    system "#{bin}/pinfo", "-h"
+    system bin/"pinfo", "-h"
   end
 end

@@ -7,6 +7,7 @@ class Hotbuild < Formula
   head "https://github.com/wandercn/hotbuild.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "fbc85999d55d54744d2d91cb460717d72fc448bd5845222218bf3fcf510fd3ac"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ddd19c999dc3804ab7ce881c97e26f62c61579c59ae13aaa3b6d6cfdf8b5bb77"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "a9fc5a6d582ee188052e3daa22aa3c6063fb09aaef924deac5cbfe5f697e02f0"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "547bc3bac1e2621f3f6d1dbc83ed412897b2aa1def4a08a5fdbfd2a24e9cde2f"

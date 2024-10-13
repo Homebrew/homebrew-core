@@ -27,7 +27,7 @@ class Chrpath < Formula
     assert_match "a.out: RPATH=/usr/local/lib", shell_output("#{bin}/chrpath a.out")
     assert_match "a.out: new RPATH: /usr/lib/", shell_output("#{bin}/chrpath -r /usr/lib/ a.out")
     assert_match "a.out: RPATH=/usr/lib/",      shell_output("#{bin}/chrpath a.out")
-    system "#{bin}/chrpath", "-d", "a.out"
+    system bin/"chrpath", "-d", "a.out"
     assert_match "a.out: no rpath or runpath tag found.", shell_output("#{bin}/chrpath a.out", 2)
   end
 end

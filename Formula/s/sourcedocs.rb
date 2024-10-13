@@ -36,7 +36,7 @@ class Sourcedocs < Formula
       mkdir "foo" do
         system "swift", "package", "init"
         system "swift", "build", "--disable-sandbox"
-        system "#{bin}/sourcedocs", "generate",
+        system bin/"sourcedocs", "generate",
                "--spm-module", "foo",
                "--output-folder", testpath/"Documentation/Reference"
         assert_predicate testpath/"Documentation/Reference/README.md", :exist?

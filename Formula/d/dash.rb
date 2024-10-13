@@ -12,6 +12,7 @@ class Dash < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "0a20260fdd5e1e0906fe213cbd842e2240e885ef1b29b0e848f7c8667d91eccd"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "bc85379f2d9ff74f8e1afcf0d0cda498bd3ca785c911f0ae06e5486c7d5463f0"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f3f177c287fb59e325e09b7b94f5d64e3b562da1a4f6183cc49e06a1763a3502"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a5f99ef9dc765177761f70b92777cefb0f17df859cd263d1addc0669ed95a52d"
@@ -40,6 +41,6 @@ class Dash < Formula
   end
 
   test do
-    system "#{bin}/dash", "-c", "echo Hello!"
+    system bin/"dash", "-c", "echo Hello!"
   end
 end

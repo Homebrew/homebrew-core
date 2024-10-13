@@ -3,6 +3,7 @@ class Z80asm < Formula
   homepage "https://www.nongnu.org/z80asm/"
   url "https://download.savannah.gnu.org/releases/z80asm/z80asm-1.8.tar.gz"
   sha256 "67fba9940582cddfa70113235818fb52d81e5be3db483dfb0816acb330515f64"
+  license "GPL-3.0-or-later"
 
   livecheck do
     url "https://download.savannah.gnu.org/releases/z80asm/"
@@ -10,6 +11,7 @@ class Z80asm < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "ce392c70bff0caa5fd981cb09caca7a54d579c4e1f12c4f4e5644d2934e199fb"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "84f96f8b6e4797f885d8922150ff0faeb5994bf37e851d81941c0070a38aaada"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "ea09a44bb614b9dd6ed3ccdafc33b517a745a7f51274d2e557ad3f9dc5f2a034"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1b34635e2c41ccbd32935bc104c11a9899a49d9e235c96cfe50ea58ae4423671"

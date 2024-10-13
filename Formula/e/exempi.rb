@@ -11,6 +11,7 @@ class Exempi < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "e4a036c99bc1e87333deaecbd4d7fbaf08558b462acca4b295ed922505f31367"
     sha256 cellar: :any,                 arm64_sonoma:   "fffe2e2da9ff2117ed01b3055811aa6b3c0348f33ca7da88bed84bbab3345767"
     sha256 cellar: :any,                 arm64_ventura:  "f97b4edaedaf3346999176b2f790bee721e9684c4faba1fd6d8b4f95df5a512d"
     sha256 cellar: :any,                 arm64_monterey: "3ea8dc1aaca7c2c12bd2673bdcb73dcb4c6f8fb6a928c9369e4cfcad5841e302"
@@ -20,14 +21,47 @@ class Exempi < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "30ae54f527539c8f605086923bb33cb44560cb84bca42c06ec052d74a894f14c"
   end
 
-  depends_on "boost"
-
   uses_from_macos "expat"
+  uses_from_macos "zlib"
 
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--with-boost=#{HOMEBREW_PREFIX}"
+    system "./configure", "--disable-silent-rules",
+                          "--disable-unittest",
+                          *std_configure_args
     system "make", "install"
+  end
+
+  test do
+    cp test_fixtures("test.jpg"), testpath
+
+    (testpath/"test.cpp").write <<~EOS
+      #include <cassert>
+      #include <exempi/xmp.h>
+      #include <exempi/xmpconsts.h>
+
+      int main() {
+        const char *filename = "test.jpg";
+        assert(xmp_init());
+        assert(xmp_files_check_file_format(filename) == XMP_FT_JPEG);
+
+        XmpFilePtr f = xmp_files_open_new(filename, XMP_OPEN_FORUPDATE);
+        assert(f != NULL);
+        XmpPtr xmp = xmp_files_get_new_xmp(f);
+        assert(xmp != NULL);
+        assert(xmp_files_can_put_xmp(f, xmp));
+
+        assert(xmp_register_namespace(NS_CC, "cc", NULL));
+        assert(xmp_set_property(xmp, NS_CC, "license", "Foo", 0));
+        assert(xmp_files_put_xmp(f, xmp));
+
+        assert(xmp_free(xmp));
+        assert(xmp_files_close(f, XMP_CLOSE_SAFEUPDATE));
+        xmp_terminate();
+        return 0;
+      }
+    EOS
+
+    system ENV.cxx, "test.cpp", "-o", "test", "-I#{include}/exempi-2.0", "-L#{lib}", "-lexempi"
+    system "./test"
   end
 end

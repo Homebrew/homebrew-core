@@ -15,6 +15,7 @@ class GtkDoc < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "5bf40e0e038b25ac0243ed560836896c32503014b3ebe15cc21186525d140756"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "493c4822ad0d01b5a4933eedb58ae0860f276286b1e1eaf147d0e875c86b8794"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "fced52679062761343b1a541773a946c4b27c9586b86e7b279eb2385388948ab"
     sha256 cellar: :any,                 arm64_monterey: "a8cffe2b387f08da0853b204105d71b90c818237c7d0888fdb31b7882a9896f3"

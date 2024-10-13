@@ -2,7 +2,7 @@ class Fceux < Formula
   desc "All-in-one NES/Famicom Emulator"
   homepage "https://fceux.com/"
   license "GPL-2.0-only"
-  revision 2
+  revision 3
   head "https://github.com/TASEmulators/fceux.git", branch: "master"
 
   stable do
@@ -18,19 +18,19 @@ class Fceux < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "bfa825bc1b802bef0d363c3583d2b764003374b304b157a3e3cb60d8957906a6"
-    sha256 cellar: :any,                 arm64_ventura:  "20605deb4c81f581cf24f486481c6fd5a1a5d2c4f2c83cc83b099d970c276b24"
-    sha256 cellar: :any,                 arm64_monterey: "220b5099f902a7285fe7c25aebedb8160eef3d5d46bb5658a584faef9c50eb82"
-    sha256 cellar: :any,                 sonoma:         "c069a6d8df8620c67847c31a30940d85e5a8bf17be80ed33fb80135dc2d3eede"
-    sha256 cellar: :any,                 ventura:        "99f19db1ae480c85e5296511a4a549d3e0c15281d654e937e0dd6a0f06f623b1"
-    sha256 cellar: :any,                 monterey:       "3417ac4e49dfff539e550dbde05e59ad12d51fd3c1a3ecce532ea6e03950731f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "780831f1198865742b0547c7774bcfa8d0453c6bad9f759753853f11c7038d5d"
+    sha256 cellar: :any,                 arm64_sonoma:   "f19e8cc59d907ac3461882c01b7d6a7e6b740e1bb808e131f03351f437e18137"
+    sha256 cellar: :any,                 arm64_ventura:  "ad14c19cee60ac3ff7744574efefbc5f1b79cebbecb59889610897dcdc87e02c"
+    sha256 cellar: :any,                 arm64_monterey: "feef0ae851b641755c0ff1b6183e80946bd3af2a585195e1a70b3f4062a2a361"
+    sha256 cellar: :any,                 sonoma:         "5bb45a8a6be0636d8a8ff18d5f98c3c6c4c034e4c5badd35d63ae430b61f1141"
+    sha256 cellar: :any,                 ventura:        "cf540cf08ebc5b2bd3c4b3b73f03fe993097eb9155cf94cb52acb8c34de362e2"
+    sha256 cellar: :any,                 monterey:       "b512fb7f161b6ded4ca25c81b3986777363eb7ceaf5cbabbb74bd9e18ee9bce6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "173565783554d7ddc1e65ef4bd515c2418c805a6cc093d5577bdde389c57cc2b"
   end
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
 
-  depends_on "ffmpeg@6"
+  depends_on "ffmpeg"
   depends_on "libarchive"
   depends_on "minizip"
   depends_on "qt"
@@ -65,6 +65,6 @@ class Fceux < Formula
     # "This application failed to start because no Qt platform plugin could be initialized."
     ENV["QT_QPA_PLATFORM"] = "minimal" if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
 
-    system "#{bin}/fceux", "--help"
+    system bin/"fceux", "--help"
   end
 end

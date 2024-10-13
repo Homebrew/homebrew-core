@@ -3,7 +3,7 @@ class Libdaemon < Formula
   homepage "https://0pointer.de/lennart/projects/libdaemon/"
   url "https://0pointer.de/lennart/projects/libdaemon/libdaemon-0.14.tar.gz"
   sha256 "fd23eb5f6f986dcc7e708307355ba3289abe03cc381fc47a80bca4a50aa6b834"
-  license "LGPL-2.1"
+  license "LGPL-2.1-or-later"
 
   livecheck do
     url :homepage
@@ -12,6 +12,7 @@ class Libdaemon < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any,                 arm64_sequoia:  "5bb178b81ecf063f093a88970d991bd20550e492496e317a8617b1fb7c8874d4"
     sha256 cellar: :any,                 arm64_sonoma:   "e3311382ce2231961c035a35b3376f3d8ce9c852ca565fe35a971f6d9539b6ef"
     sha256 cellar: :any,                 arm64_ventura:  "48e59b83b13317a14504cc36b820781a8e55e2e11509eeacb3632535daa98988"
     sha256 cellar: :any,                 arm64_monterey: "0ba92f47214e34c065723f4dc24f0a0391b8d0cb9af18b4a0262ab74d6629757"

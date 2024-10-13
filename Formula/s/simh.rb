@@ -7,6 +7,7 @@ class Simh < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "1c035c21f19ee6b0418c5437901ae58c92f295db48755c0b17fed3e57359be4b"
     sha256 cellar: :any,                 arm64_sonoma:   "6a2f006ba70c8319a1eb4d8ece33be4a0a24e0f064d655bdf6f3d39209b586b8"
     sha256 cellar: :any,                 arm64_ventura:  "cc698568672a1c839e4bc5fe3005ab92d9369de3cf25f81be62c90084b2093a7"
     sha256 cellar: :any,                 arm64_monterey: "4bbbfacf19e812a3f551b11c3dc6222b30cba2ff789d10b7a0d3431c1c7816f8"
@@ -20,7 +21,8 @@ class Simh < Formula
   end
 
   # https://github.com/simh/simh/issues/1163
-  deprecate! date: "2023-12-07", because: "changed to a non-free license in master branch"
+  # Use open-simh instead
+  disable! date: "2024-10-11", because: "changed to a non-free license in master branch"
 
   depends_on "libpng"
   uses_from_macos "zlib"

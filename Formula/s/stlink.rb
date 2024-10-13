@@ -7,6 +7,7 @@ class Stlink < Formula
   head "https://github.com/stlink-org/stlink.git", branch: "develop"
 
   bottle do
+    sha256 arm64_sequoia:  "234d04d230556d8342bc80d9d8564e7c643f86ebd39c8e3d9cd10667076c4459"
     sha256 arm64_sonoma:   "182146c51940a4851235c5a1e66e0a1455d5833a112537c366b68314f4280d62"
     sha256 arm64_ventura:  "11f6ede1d7a55e0ceb814ea59df7e88560f317fd9ed9d1bf47c9905bb1b28b68"
     sha256 arm64_monterey: "5aec98fdb4a07aa5abfd1292ec15bf9c385869845fc107c905f35baf2c21bb75"

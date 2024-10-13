@@ -1,5 +1,3 @@
-require "language/node"
-
 class Insect < Formula
   desc "High precision scientific calculator with support for physical units"
   homepage "https://github.com/sharkdp/insect"
@@ -8,15 +6,15 @@ class Insect < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "18eb304364ec3dd645ab650432808b5c763ae2df8d06f43e274f8b5109674215"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7845c3b40dcbeb93032afe4eef3839e48a6f659770d0c19b5b38173e53b83c09"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7845c3b40dcbeb93032afe4eef3839e48a6f659770d0c19b5b38173e53b83c09"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7845c3b40dcbeb93032afe4eef3839e48a6f659770d0c19b5b38173e53b83c09"
-    sha256 cellar: :any_skip_relocation, sonoma:         "bc0cf1f74fd50e7ea3a781f70aaffaaa09d7185749be28e2a182a8ba193cf1ac"
-    sha256 cellar: :any_skip_relocation, ventura:        "b1c71d93eb2243de16f515679f49c65ee21997a8de9d73a6c1787391860c786c"
-    sha256 cellar: :any_skip_relocation, monterey:       "b1c71d93eb2243de16f515679f49c65ee21997a8de9d73a6c1787391860c786c"
-    sha256 cellar: :any_skip_relocation, big_sur:        "b1c71d93eb2243de16f515679f49c65ee21997a8de9d73a6c1787391860c786c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "aa5846fc2affc562455f3c03862eb02975249bb294658e1cf0269dc93fb0c09e"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "29f76c8e217cd55d3cda29df44ef5a8d18b795c72ffb408d2d81385ed7455bb7"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a246e04de19ce3736e0c839afc375de68b0358dd475676268b30f369caf4c85f"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a246e04de19ce3736e0c839afc375de68b0358dd475676268b30f369caf4c85f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a246e04de19ce3736e0c839afc375de68b0358dd475676268b30f369caf4c85f"
+    sha256 cellar: :any_skip_relocation, sonoma:         "8077869bde22d8f4f44fb25ba149c47c7b39d80b1f5b0ad0e364a477be7c829b"
+    sha256 cellar: :any_skip_relocation, ventura:        "8077869bde22d8f4f44fb25ba149c47c7b39d80b1f5b0ad0e364a477be7c829b"
+    sha256 cellar: :any_skip_relocation, monterey:       "8077869bde22d8f4f44fb25ba149c47c7b39d80b1f5b0ad0e364a477be7c829b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8988d5e206cae71f827f36d7085acc298f39c3d30c92abda00610f3e01151dac"
   end
 
   depends_on "node"
@@ -26,8 +24,8 @@ class Insect < Formula
   end
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
-    bin.install_symlink Dir[libexec/"bin/*"]
+    system "npm", "install", *std_npm_args
+    bin.install_symlink libexec.glob("bin/*")
 
     clipboardy_fallbacks_dir = libexec/"lib/node_modules/#{name}/node_modules/clipboardy/fallbacks"
     rm_r(clipboardy_fallbacks_dir) # remove pre-built binaries

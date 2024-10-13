@@ -7,6 +7,7 @@ class Plenv < Formula
   head "https://github.com/tokuhirom/plenv.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "9ae1be5da65e151734516a4c61d65dcdf5c64895c6477a28bce5351888f57627"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f269a34269c43edc721fe59d7d6bed6740c27544de3b7936290a52644957d2da"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "9b7e0d4973dfe5c197b36672d2d07f355d90b831b36189208c021770bfa1465d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "9b7e0d4973dfe5c197b36672d2d07f355d90b831b36189208c021770bfa1465d"
@@ -26,7 +27,7 @@ class Plenv < Formula
     prefix.install "bin", "plenv.d", "completions", "libexec"
 
     # Run rehash after installing.
-    system "#{bin}/plenv", "rehash"
+    system bin/"plenv", "rehash"
   end
 
   def caveats

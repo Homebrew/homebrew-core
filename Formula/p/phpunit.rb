@@ -1,8 +1,8 @@
 class Phpunit < Formula
   desc "Programmer-oriented testing framework for PHP"
   homepage "https://phpunit.de"
-  url "https://phar.phpunit.de/phpunit-11.2.8.phar"
-  sha256 "673f6bdb05af5ca98ae5882d35e7b2cc447b46bd7663e30585a9935a92eae826"
+  url "https://phar.phpunit.de/phpunit-11.4.1.phar"
+  sha256 "2e521c522ef3d8a2be2bb26cf68268a9c3017f7eb3bc874f2936ce34bdd93cac"
   license "BSD-3-Clause"
 
   livecheck do
@@ -12,13 +12,7 @@ class Phpunit < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ec1cef56426ceef8cfb4203ee3581555441f21db4744d1836d018ec30f20320b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ec1cef56426ceef8cfb4203ee3581555441f21db4744d1836d018ec30f20320b"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ec1cef56426ceef8cfb4203ee3581555441f21db4744d1836d018ec30f20320b"
-    sha256 cellar: :any_skip_relocation, sonoma:         "de8111ae223fa8acb1806886c2a6b2f5eef813f6b8b5f54d4033d9c0e3aac0b6"
-    sha256 cellar: :any_skip_relocation, ventura:        "c0294fdc2e350014d9add5180735c7687fe15d6b84548a8611947acc1dee68a7"
-    sha256 cellar: :any_skip_relocation, monterey:       "ec1cef56426ceef8cfb4203ee3581555441f21db4744d1836d018ec30f20320b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ec1cef56426ceef8cfb4203ee3581555441f21db4744d1836d018ec30f20320b"
+    sha256 cellar: :any_skip_relocation, all: "b58aec3a49de59e7955faee5718024212a3a33f89e3a66e1b67e4c0f8d322b21"
   end
 
   depends_on "php" => :test

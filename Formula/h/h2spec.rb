@@ -9,6 +9,7 @@ class H2spec < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "c838540f260b348701c7911092e08e52b6e6395ffb442ddd65e47ab7d4b606ff"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "eccfc65c379b50c2b3c83f6ef56c3cf581e9568e0ec1e8d23d55253dae5c180a"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "85916701e8dd7c4caaef314e26c48344423369b3b2197bd80111141a9b526a38"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b2589ab8277cf827e7903a523b666e8ceb1b4fe5b494f0fcd52ac5b40706a5c6"

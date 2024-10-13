@@ -7,6 +7,7 @@ class Ffsend < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "d6333b8a0787af4c44f98c9e267bda566d0e2e871904d682106ccd1d690e8fac"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "412d5d744c821a9de67c0ba7367de46696b9f51dac5b1edc82654880fb47c1d4"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "2dc95f39cd9bb2f8baeb56317a533574ca1131c7194d520de67f1db735de0cae"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "9f63f21a83b7dc43a87be7967553bd47609f9312e757c6f7507794db5cd8bdc8"
@@ -35,7 +36,7 @@ class Ffsend < Formula
   end
 
   test do
-    system "#{bin}/ffsend", "help"
+    system bin/"ffsend", "help"
 
     (testpath/"file.txt").write("test")
     url = shell_output("#{bin}/ffsend upload -Iq #{testpath}/file.txt").strip

@@ -6,6 +6,7 @@ class Erdtree < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "b309ec7d0b9b7dda1009adf18dd271b8939fb8a9640297d725467490b67fce96"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0f5178f4871d8670c042b77051d309cbe668fad8bbaaa1d68a5ac104b9527898"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "332620fdd7f4f144b7f1ca64cef8831c533d8171d060239480e00119d8d0e83b"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "3f7ed85e6c8acfbded5f12143c415dec9247026d2f7471d563393794936315dd"

@@ -6,6 +6,7 @@ class Libilbc < Formula
   license "BSD-3-Clause"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "3e5872934eb657baeb5b1a02dd4f1d41fccb539aa8470718644305bb5ab3cd28"
     sha256 cellar: :any,                 arm64_sonoma:   "4909ecace33503559f651e6bd82cc0cc4e3d1248572f42796ceaa07c85ccb47b"
     sha256 cellar: :any,                 arm64_ventura:  "36774c3a7db279a6932326411a82cd1ffe92e66ee0fead069d985e0e17231309"
     sha256 cellar: :any,                 arm64_monterey: "62792538776c6c61167769ce53ed0998c849b89ca9cc5ade0261be739bd8bf60"
@@ -22,10 +23,9 @@ class Libilbc < Formula
   depends_on "cmake" => :build
 
   def install
-    mkdir "build" do
-      system "cmake", "..", *std_cmake_args, "-DBUILD_SHARED_LIBS=ON"
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build", "-DBUILD_SHARED_LIBS=ON", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
@@ -41,6 +41,7 @@ class Libilbc < Formula
         return 0;
       }
     EOS
+
     system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lilbc", "-o", "test"
     system "./test"
   end

@@ -7,6 +7,7 @@ class Prefixsuffix < Formula
   revision 10
 
   bottle do
+    sha256                               arm64_sequoia:  "30ef0ba35485343f36734f212295160cedd798991dfa2abd35a6b60f7f95405e"
     sha256                               arm64_sonoma:   "6e197205c70b3923ae50f5f33bd203810348f2846a3eabaf86839a978c598426"
     sha256                               arm64_ventura:  "8a718e3a241904ac15db3d608b23d2450743cd649168f623d3033717ef604939"
     sha256                               arm64_monterey: "c61092d6a233b89eba50ad58cd33acdf79110cececfe86b4b9c00c1a8713af58"
@@ -19,9 +20,26 @@ class Prefixsuffix < Formula
   depends_on "gettext" => :build
   depends_on "intltool" => :build
   depends_on "pkg-config" => :build
+
+  depends_on "atkmm@2.28"
+  depends_on "glib"
+  depends_on "glibmm@2.66"
+  depends_on "gtk+3"
   depends_on "gtkmm3"
+  depends_on "libsigc++@2"
 
   uses_from_macos "perl" => :build
+
+  on_macos do
+    depends_on "at-spi2-core"
+    depends_on "cairo"
+    depends_on "cairomm@1.14"
+    depends_on "gdk-pixbuf"
+    depends_on "gettext"
+    depends_on "harfbuzz"
+    depends_on "pango"
+    depends_on "pangomm@2.46"
+  end
 
   on_linux do
     depends_on "perl-xml-parser" => :build
@@ -29,11 +47,10 @@ class Prefixsuffix < Formula
 
   def install
     ENV.prepend_path "PERL5LIB", Formula["perl-xml-parser"].libexec/"lib/perl5" unless OS.mac?
+
     ENV.cxx11
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}",
-                          "--disable-schemas-compile"
+    system "./configure", "--disable-silent-rules", "--disable-schemas-compile",
+                          *std_configure_args.reject { |s| s["--disable-debug"] }
     system "make", "install"
   end
 
@@ -43,6 +60,6 @@ class Prefixsuffix < Formula
 
   test do
     # Disable this part of the test on Linux because display is not available.
-    system "#{bin}/prefixsuffix", "--version" if OS.mac?
+    system bin/"prefixsuffix", "--version" if OS.mac?
   end
 end

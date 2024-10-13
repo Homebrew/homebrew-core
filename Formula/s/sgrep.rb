@@ -30,6 +30,13 @@ class Sgrep < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "4b9d7e430b35750659c93cfd9308b5cf32211eb19b79a8ee3bf0c0b62ef2712b"
   end
 
+  # The README and source code mention `sgrep` is under a GPL license detailed
+  # in COPYING, but the COPYING file is blank. Previous release 1.92a did include
+  # GPL 2.0 license and had code in common.c that printed copyright notice
+  # that specified GPL-2.0-or-later. Due to unknown reason for removal of this
+  # information, the formula has been disabled.
+  disable! date: "2024-08-13", because: "has a blank COPYING and is missing details on which GPL license"
+
   uses_from_macos "m4"
 
   on_arm do

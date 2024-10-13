@@ -59,7 +59,7 @@ class Litani < Formula
     man5.install libexec.glob("doc/out/man/*.5")
     man7.install libexec.glob("doc/out/man/*.7")
     doc.install libexec/"doc/out/html/index.html"
-    rm_rf libexec/"doc"
+    rm_r(libexec/"doc")
   end
 
   test do

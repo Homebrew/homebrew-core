@@ -12,6 +12,7 @@ class Mujs < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "774c344e1bbc23f97e3d91d4fcfaa04a7f818a65b58836682005e78c5f44187a"
     sha256 cellar: :any,                 arm64_sonoma:   "730e76d17786653ff4a36ce09f749b203b6883195f645fefb9958d413a5cef66"
     sha256 cellar: :any,                 arm64_ventura:  "bdc098dc98efa7aaa8ea6ddb60d8ee9213172c287a5c3118d0f9575b862f8305"
     sha256 cellar: :any,                 arm64_monterey: "21a773ee06aae5577d93ce0ac15e87074fe99e93f1f2cbebb25d6c3c3f828c7c"

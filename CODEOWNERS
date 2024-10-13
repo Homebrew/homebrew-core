@@ -15,7 +15,9 @@ tap_migrations.json               @Homebrew/tsc @MikeMcQuaid
 .github/PULL_REQUEST_TEMPLATE.md  @Homebrew/tsc @MikeMcQuaid 
 LICENSE.txt                       @Homebrew/tsc @MikeMcQuaid
 .github/workflows/                @Homebrew/core @MikeMcQuaid 
+.github/workflows/triage.yml      @Homebrew/tsc
 
+audit_exceptions/linux_only_gcc_dependency_allowlist.json               @Homebrew/tsc
 audit_exceptions/permitted_formula_license_mismatches.json              @Homebrew/tsc @MikeMcQuaid
 audit_exceptions/provided_by_macos_depends_on_allowlist.json            @Homebrew/tsc @MikeMcQuaid
 audit_exceptions/universal_binary_allowlist.json                        @Homebrew/tsc @carlocab 

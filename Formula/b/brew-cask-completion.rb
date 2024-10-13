@@ -8,6 +8,7 @@ class BrewCaskCompletion < Formula
   head "https://github.com/xyb/homebrew-cask-completion.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "1c72424ca568a228443546a65b49434e69e1c5b1388786281cb7cc3ec5413ecb"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b9918f7a001ce1fb6bb7817a3aacae658371039789f5243d17e8a326880732d8"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "fb88b0184cc69f44b9c0e9744a4ce7a46685aea6e1e529deae45f5edd4497788"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "fb88b0184cc69f44b9c0e9744a4ce7a46685aea6e1e529deae45f5edd4497788"

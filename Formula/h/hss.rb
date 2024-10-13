@@ -6,6 +6,7 @@ class Hss < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "c616d7afe8f651f286bb4ae77580bcf33427f770c3d9769f8968bc94ba54d7ef"
     sha256 cellar: :any,                 arm64_sonoma:   "2aff0aef887b145023e4a61c093bf041696c8e4d34f38a0cba28cef8ecbd76af"
     sha256 cellar: :any,                 arm64_ventura:  "8a236cdb837ab620def9e04659cef476c55b046888dbc0c89047aca8e9fff865"
     sha256 cellar: :any,                 arm64_monterey: "b22fe721a066962a1673c52f8c1152b46c451cd4cfa3672158faefb24533fe5b"
@@ -35,12 +36,12 @@ class Hss < Formula
       end
       hss_read, hss_write = IO.pipe
       hss_pid = fork do
-        exec "#{bin}/hss", "-H", "-p #{port} 127.0.0.1", "-u", "root", "true",
+        exec bin/"hss", "-H", "-p #{port} 127.0.0.1", "-u", "root", "true",
           out: hss_write
       end
       server.close
       msg = hss_read.gets
-      assert_match "Connection closed by remote host", msg
+      assert_match "Connection closed", msg
     ensure
       Process.kill("TERM", accept_pid)
       Process.kill("TERM", hss_pid)

@@ -7,6 +7,7 @@ class TerrapinScanner < Formula
   head "https://github.com/RUB-NDS/Terrapin-Scanner.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "3d313ceecb351ed4b58d37e59fefe4092122577466cf8df2eb21fac0aca78514"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e7f6c8f5b37b3e428566572156b3b2aafd3cbae6b682bb816e2a7383d12b3e87"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "debf3a1d1766ae89e3602df352d89cc6ae5e0d39c8f464c602a8f7bfb6bec82b"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6d10e5ad979f31d9b56e74f743ea6df1db26ee31e15e9bce07d55ae11355fc5b"

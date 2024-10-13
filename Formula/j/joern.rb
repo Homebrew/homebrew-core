@@ -12,6 +12,7 @@ class Joern < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "a386808e0e0942370582cd3d9aa6aac024eb7e0ff3e0511161028e3f7ec380f5"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "53ff3378b6b89834f687f4040e90961c21c96610985d68de0162ca3e425becc9"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "9b60bb59047770d4e8e70ec865f7461b4747c69768002443f5c5eafe9447bed2"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f037ffd828820a6bc0e2e857b217ee058405fbd4c646d32beb938bf373af0ac2"
@@ -31,7 +32,7 @@ class Joern < Formula
     system "sbt", "stage"
 
     cd "joern-cli/target/universal/stage" do
-      rm_f Dir["**/*.bat"]
+      rm(Dir["**/*.bat"])
       libexec.install Pathname.pwd.children
     end
 

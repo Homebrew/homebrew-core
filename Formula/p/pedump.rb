@@ -6,6 +6,7 @@ class Pedump < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "dc02ff28da3bafa97e0b32037e3d7d0a7d99ef2ce50f05b1e03e483be7c95465"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "16f4f904a046312881217b845df472a4a45f9f0caa7b2b1405b201fd952e8add"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "16f4f904a046312881217b845df472a4a45f9f0caa7b2b1405b201fd952e8add"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "16f4f904a046312881217b845df472a4a45f9f0caa7b2b1405b201fd952e8add"

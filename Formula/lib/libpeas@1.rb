@@ -4,28 +4,33 @@ class LibpeasAT1 < Formula
   url "https://download.gnome.org/sources/libpeas/1.36/libpeas-1.36.0.tar.xz"
   sha256 "297cb9c2cccd8e8617623d1a3e8415b4530b8e5a893e3527bbfd1edd13237b4c"
   license "LGPL-2.1-or-later"
+  revision 1
 
   bottle do
-    sha256 arm64_sonoma:   "296cfa4be7883c30a452192c5fc0af1114b3a95a85e7bd15f6ee2e6cd3b5b05b"
-    sha256 arm64_ventura:  "7f3aed830c0abca6806d100cb30ada639a223761b866b7d870a24cc29f7ceb95"
-    sha256 arm64_monterey: "9e6763a072391563182307fec28517f34fee434160b33760b2c63a06c691c5cb"
-    sha256 sonoma:         "b7f54ae9f76cf2d17335fd455e6a8708067e8250148194ef4903e9555fcb9879"
-    sha256 ventura:        "4a4c0eb59123d0f8a65af0c4c1b98f904375264858e3f9b67eb47ac12780ed4e"
-    sha256 monterey:       "9009e72591f1845fd6fb3c37a763c172efbc8c933421f7cc7092d5af56370df9"
-    sha256 x86_64_linux:   "2a9915d4ede2be0fd7a7816c4cafc285e235fc1188d83966011a2b4e611e7c85"
+    sha256 arm64_sequoia:  "ee7c799aac58e588628dc92bef9cdcf28a261b6b3151b33d94914120d2dd0510"
+    sha256 arm64_sonoma:   "d8ad718a3d4649bdf4c8c3981dd763682adf2904c1d089a747629447d937028b"
+    sha256 arm64_ventura:  "c03ce13e7f2f1251e069aeb9192a519c4d9c1e7a90e1e328b450d0f19d0b96e4"
+    sha256 arm64_monterey: "c8e6f7153853cb6bd93e328eda9eda5f86512f13ffb904e46b3c9c8473eb87d0"
+    sha256 sonoma:         "05933fc5c5f848da3a886f7b9d9570b80a1dc3f6c0790652fa89dee09e7ea698"
+    sha256 ventura:        "912fb7516d914d5f642acd85e634008e2c7684fdd11dd74825779092dfc2fe75"
+    sha256 monterey:       "6d15b2225ac18bf8177404a939d0327f6ee262a8bba7dbb8094b80d77eddb397"
+    sha256 x86_64_linux:   "b44e4a9f261b68e1ae0f92a08a962d53b7b56f7c90acdc664b062a87cc2d541c"
   end
-
-  keg_only :versioned_formula
 
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "vala" => :build
+
   depends_on "glib"
   depends_on "gobject-introspection"
   depends_on "gtk+3"
   depends_on "pygobject3"
   depends_on "python@3.12"
+
+  on_macos do
+    depends_on "gettext"
+  end
 
   def install
     pyver = Language::Python.major_minor_version "python3.12"

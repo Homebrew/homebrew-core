@@ -13,10 +13,12 @@ on:
         required: true
       timeout:
         description: "Build timeout (in minutes, default: 60 minutes)"
-        default: "60"
+        type: number
+        default: 60
         required: false
       issue:
         description: Issue number, where comment on failure would be posted
+        type: number
         required: false
       upload:
         description: "Upload built bottles? (default: false)"
@@ -29,6 +31,7 @@ env:
   HOMEBREW_GITHUB_ACTIONS: 1
   HOMEBREW_NO_AUTO_UPDATE: 1
   HOMEBREW_NO_INSTALL_FROM_API: 1
+  HOMEBREW_NO_BUILD_ERROR_ISSUES: 1
   RUN_URL: ${{github.event.repository.html_url}}/actions/runs/${{github.run_id}}
   DISPATCH_BUILD_BOTTLE_SENDER: ${{ github.event.sender.login }}
   DISPATCH_BUILD_BOTTLE_FORMULA: ${{ inputs.formula }}
@@ -36,6 +39,10 @@ env:
   DISPATCH_BUILD_BOTTLE_TIMEOUT: ${{ inputs.timeout }}
   DISPATCH_BUILD_BOTTLE_ISSUE: ${{ inputs.issue }}
   DISPATCH_BUILD_BOTTLE_UPLOAD: ${{ inputs.upload }}
+
+defaults:
+  run:
+    shell: bash -xeuo pipefail {0}
 
 # Intentionally the same as dispatch-rebottle
 concurrency: bottle-${{ github.event.inputs.formula }}
@@ -46,22 +53,33 @@ permissions:
 jobs:
   prepare:
     runs-on: ubuntu-22.04
+    container:
+      image: ghcr.io/homebrew/ubuntu22.04:master
     outputs:
       runners: ${{steps.runner-matrix.outputs.result}}
     steps:
+      - name: Set up Homebrew
+        id: set-up-homebrew
+        uses: Homebrew/actions/setup-homebrew@master
+        with:
+          core: true
+          cask: false
+          test-bot: false
+
       - name: Prepare runner matrix
         id: runner-matrix
         uses: actions/github-script@v7
         with:
           script: |
-            const macOSRegex = /^\d+(?:\.\d+)?(?:-arm64)?$/;
-            const linuxRegex = /^(ubuntu-|linux-self-hosted-)/;
+            const macOSRegex = /^(\d+(?:\.\d+)?)(?:-(arm64|x86_64))?$/;
+            const linuxRegex = /^(?:ubuntu-|linux-self-hosted-)/;
             return context.payload.inputs.runner.split(",")
                                                 .map(s => s.trim())
                                                 .filter(Boolean)
                                                 .map(s => {
-              if (macOSRegex.test(s) && s != "11-arm64") // Ephemeral runners
-                return {runner: `${s}-${context.runId}`, cleanup: false};
+              const macOSMatch = macOSRegex.exec(s);
+              if (macOSMatch && s != "11-arm64") // Ephemeral runners
+                return {runner: `${macOSMatch[1]}-${macOSMatch[2] ?? "x86_64"}-${context.runId}-dispatch`, cleanup: false};
               else if (linuxRegex.test(s))
                 return {
                   runner:    s,
@@ -76,6 +94,47 @@ jobs:
                 return {runner: s, cleanup: true};
             });
 
+      - name: Ensure homebrew/core is up-to-date
+        if: endsWith(github.ref, 'master')
+        run: brew update
+
+      - name: Check for existing bottle
+        shell: brew ruby {0}
+        env:
+          HOMEBREW_RUNNER_MATRIX: ${{ steps.runner-matrix.outputs.result }}
+          HOMEBREW_DISPATCHED_FORMULA: ${{ inputs.formula }}
+        run: |
+          matrix = JSON.parse(ENV.fetch("HOMEBREW_RUNNER_MATRIX"))
+          formula_name = ENV.fetch("HOMEBREW_DISPATCHED_FORMULA")
+          formula = Formulary.factory(formula_name)
+          exit_code = 0
+
+          matrix.each do |entry|
+            runner = entry.fetch("runner")
+
+            bottle_tag = if runner.start_with?("ubuntu") || runner.start_with?("linux")
+              Utils::Bottles.tag(:x86_64_linux)
+            elsif runner.match?(/^\d+-/)
+              os_version, arch, _ = *runner.split("-")
+              system = MacOSVersion.new(os_version).to_sym
+              arch = arch.to_sym
+
+              Utils::Bottles::Tag.new(system:, arch:)
+            end
+            next if bottle_tag.blank?
+
+            bottled_on_current_runner = formula.bottle_specification.tag?(bottle_tag, no_older_versions: true)
+            next unless bottled_on_current_runner
+
+            exit_code = 1
+            puts GitHub::Actions::Annotation.new(
+              :error,
+              "#{formula_name} already has a bottle for #{bottle_tag}!",
+            )
+          end
+
+          exit exit_code
+
   bottle:
     needs: prepare
     strategy:
@@ -88,7 +147,7 @@ jobs:
       contents: read
     defaults:
       run:
-        shell: /bin/bash -e {0}
+        shell: /bin/bash -xeuo pipefail {0}
         working-directory: ${{matrix.workdir || github.workspace}}
     env:
       GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
@@ -142,9 +201,6 @@ jobs:
     if: inputs.upload
     container:
       image: ghcr.io/homebrew/ubuntu22.04:master
-    defaults:
-      run:
-        shell: bash
     env:
       HOMEBREW_SIMULATE_MACOS_ON_LINUX: 1
       GH_REPO: ${{github.repository}}
@@ -189,14 +245,18 @@ jobs:
         run: git checkout -b "$BOTTLE_BRANCH" origin/master
 
       - name: Upload bottles to GitHub Packages
+        id: upload
         env:
           HOMEBREW_GITHUB_PACKAGES_USER: brewtestbot
           HOMEBREW_GITHUB_PACKAGES_TOKEN: ${{secrets.HOMEBREW_CORE_GITHUB_PACKAGES_TOKEN}}
           HOMEBREW_GPG_PASSPHRASE: ${{ secrets.BREWTESTBOT_GPG_SIGNING_SUBKEY_PASSPHRASE }}
           BREWTESTBOT_NAME_EMAIL: "BrewTestBot <1589480+BrewTestBot@users.noreply.github.com>"
+          HOMEBREW_CORE_PATH: ${{steps.set-up-homebrew.outputs.repository-path}}
         working-directory: ${{ env.BOTTLES_DIR }}
         run: |
           brew pr-upload --verbose --keep-old --committer="$BREWTESTBOT_NAME_EMAIL" --root-url="https://ghcr.io/v2/homebrew/core"
+          echo "title=$(git -C "$HOMEBREW_CORE_PATH" log -1 --format='%s' "$BOTTLE_BRANCH")" >> "$GITHUB_OUTPUT"
+          echo "head_sha=$(git -C "$HOMEBREW_CORE_PATH" rev-parse HEAD)" >> "$GITHUB_OUTPUT"
 
       - name: Push commits
         uses: Homebrew/actions/git-try-push@master
@@ -211,43 +271,74 @@ jobs:
 
       - name: Open PR with bottle commit
         id: create-pr
-        working-directory: ${{steps.set-up-homebrew.outputs.repository-path}}
-        env:
-          GH_TOKEN: ${{secrets.HOMEBREW_GITHUB_PUBLIC_REPO_TOKEN}}
-        run: |
-          gh pr create \
-            --base "$GITHUB_REF" \
-            --body "Created by [\`brew dispatch-build-bottle\`]($RUN_URL)" \
-            --title "$(git log -1 --format='%s' "$BOTTLE_BRANCH")" \
-            --head "$BOTTLE_BRANCH" \
-            --reviewer '${{github.actor}}'
-
-          pull_number="$(gh pr list --head "$BOTTLE_BRANCH" --limit 1 --json number --jq '.[].number')"
-          echo "pull_number=$pull_number" >> "$GITHUB_OUTPUT"
-          echo "head_sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
-
-      # There is a GitHub bug where labels are not properly recognised by workflows
-      # when added by `gh pr create`. We use the CI-published-bottle-commits label in
-      # the `formulae_detect` step in `tests.yml`, so let's add the label separately
-      # to avoid the bug.
-      - name: Label PR
-        env:
-          GH_TOKEN: ${{secrets.GITHUB_TOKEN}}
-          PR: ${{steps.create-pr.outputs.pull_number}}
-        run: gh pr edit --add-label CI-published-bottle-commits "$PR"
+        uses: Homebrew/actions/create-pull-request@master
+        with:
+          token: ${{secrets.HOMEBREW_GITHUB_PUBLIC_REPO_TOKEN}}
+          base: ${{github.ref}}
+          head: ${{env.BOTTLE_BRANCH}}
+          title: ${{steps.upload.outputs.title}}
+          body: Created by [`brew dispatch-build-bottle`](${{env.RUN_URL}})
+          labels: CI-published-bottle-commits
+          reviewers: ${{github.actor}}
 
       - name: Enable automerge
-        run: gh pr merge --auto --merge --delete-branch --match-head-commit "$SHA" "$PR"
         env:
           GH_TOKEN: ${{secrets.HOMEBREW_GITHUB_PUBLIC_REPO_TOKEN}}
-          PR: ${{steps.create-pr.outputs.pull_number}}
-          SHA: ${{steps.create-pr.outputs.head_sha}}
+          NODE_ID: ${{steps.create-pr.outputs.node_id}}
+          SHA: ${{steps.upload.outputs.head_sha}}
+          MUTATION: |-
+            mutation ($input: EnablePullRequestAutoMergeInput!) {
+              enablePullRequestAutoMerge(input: $input) {
+                clientMutationId
+              }
+            }
+        run: |
+          gh api graphql \
+            --field "input[pullRequestId]=$NODE_ID" \
+            --field "input[expectedHeadOid]=$SHA" \
+            --raw-field query="$MUTATION"
 
       - name: Approve PR
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PR: ${{ steps.create-pr.outputs.pull_number }}
-        run: gh pr review --approve "$PR"
+          PR: ${{steps.create-pr.outputs.number}}
+        run: |
+          gh api \
+            --method POST \
+            --header "Accept: application/vnd.github+json" \
+            --header "X-GitHub-Api-Version: 2022-11-28" \
+            "/repos/$GITHUB_REPOSITORY/pulls/$PR/reviews" \
+            --field "event=APPROVE"
+
+      - name: Wait until PR is merged
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR: ${{ steps.create-pr.outputs.number }}
+        run: |
+          # Hold the `concurrency` lock for up to another 10 minutes while the PR has not yet been merged.
+          sleep 300
+
+          attempt=0
+          max_attempts=5
+          sleep_time=10
+
+          while (( attempt < max_attempts ))
+          do
+            if jq --exit-status .merged_at
+            then
+              break
+            fi < <( # We could use `gh pr view`, but that uses 2 API calls.
+              gh api \
+                --header "Accept: application/vnd.github+json" \
+                --header "X-GitHub-Api-Version: 2022-11-28" \
+                "/repos/$GITHUB_REPOSITORY/pulls/$PR"
+            )
+
+            sleep "$sleep_time"
+
+            sleep_time=$(( sleep_time * 2 ))
+            attempt=$(( attempt + 1 ))
+          done
 
   comment:
     permissions:

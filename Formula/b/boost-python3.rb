@@ -1,8 +1,8 @@
 class BoostPython3 < Formula
   desc "C++ library for C++/Python3 interoperability"
   homepage "https://www.boost.org/"
-  url "https://github.com/boostorg/boost/releases/download/boost-1.85.0/boost-1.85.0-b2-nodocs.tar.xz"
-  sha256 "09f0628bded81d20b0145b30925d7d7492fd99583671586525d5d66d4c28266a"
+  url "https://github.com/boostorg/boost/releases/download/boost-1.86.0/boost-1.86.0-b2-nodocs.tar.xz"
+  sha256 "a4d99d032ab74c9c5e76eddcecc4489134282245fffa7e079c5804b92b45f51d"
   license "BSL-1.0"
   head "https://github.com/boostorg/boost.git", branch: "master"
 
@@ -11,18 +11,31 @@ class BoostPython3 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "75619380caacdbc14f461b65f31718918982cd78bed36bc94b6e66a645551f60"
-    sha256 cellar: :any,                 arm64_ventura:  "3e9f0925f97bc07b6114bc361c209b68d27c8c07bce233dd2cd6bfcadadc772e"
-    sha256 cellar: :any,                 arm64_monterey: "3515f99d2f5198836f7ede29d65b4a3d7452d29de7e0a176e43813a8f0f9ad25"
-    sha256 cellar: :any,                 sonoma:         "37ef3943e0a45f8c0663170f513159bc2b60b67318fc49b1f6a9959c0aff45de"
-    sha256 cellar: :any,                 ventura:        "f26d01c318e58e84c4140b28e2bfeddaae7c9d7eead184bfbeb2be1685ae5913"
-    sha256 cellar: :any,                 monterey:       "f49d9bbe2505905d59a1397febd3c27fcc24a55e8478445fb920543e3aac7624"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "89d9ce9c288bcb5f362890cdee900170efd3e7d7a9f02447ce5a372de08a2218"
+    sha256 cellar: :any,                 arm64_sequoia:  "66e23ad361052f87a6df6b7afaa5724df91f2ffaa482a6795ede1e0832d7b117"
+    sha256 cellar: :any,                 arm64_sonoma:   "f2f55396a7afed649ea03117ac9ac111ed9bcf9d3ce4a0d2bf709e17c41652fc"
+    sha256 cellar: :any,                 arm64_ventura:  "375db655b7ec5f3baa117e2159871434646d150217ab1505bb3e985c4ad66746"
+    sha256 cellar: :any,                 arm64_monterey: "398d0edf6be250a569c26c27f74fefa4582e98df83beabd16565b4fe1d275840"
+    sha256 cellar: :any,                 sonoma:         "37d7b06e4e101373807fa3d55ea0962bd7ca375734e63fcd05a0ded18b27a334"
+    sha256 cellar: :any,                 ventura:        "db5fd6cdd07b5fdc534a420a119dfab593733a25e0af55b6899c149fe63b8910"
+    sha256 cellar: :any,                 monterey:       "a0181c63ba6f93cbc495a6f0664fe7d45db3e1754a20ac8ffda46572866fa19a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8d0f76e68afe7ed1f5bfc311afc9a7b260b842081a3c988494ce121cea7fe12d"
   end
 
   depends_on "numpy" => :build
   depends_on "boost"
   depends_on "python@3.12"
+
+  # Backport support for numpy>=2
+  patch do
+    url "https://github.com/boostorg/python/commit/0474de0f6cc9c6e7230aeb7164af2f7e4ccf74bf.patch?full_index=1"
+    sha256 "ac4f3e7bd4609c464a493cfe6a0e416bcd14fdadfc5c9f59a4c7d14e19aea80b"
+    directory "libs/python"
+  end
+  patch do
+    url "https://github.com/boostorg/python/commit/99a5352b5cf790c559a7b976c1ba99520431d9d1.patch?full_index=1"
+    sha256 "6a15028cb172ebbf3480d3f00d7d5f6cf03d2d3f7f8baf20b9f4250b43da16aa"
+    directory "libs/python"
+  end
 
   def python3
     "python3.12"
@@ -82,7 +95,6 @@ class BoostPython3 < Formula
     lib.install buildpath.glob("install-python3/lib/*.*")
     (lib/"cmake").install buildpath.glob("install-python3/lib/cmake/boost_python*")
     (lib/"cmake").install buildpath.glob("install-python3/lib/cmake/boost_numpy*")
-    doc.install (buildpath/"libs/python/doc").children
   end
 
   test do

@@ -7,6 +7,7 @@ class Uncover < Formula
   head "https://github.com/projectdiscovery/uncover.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "bf50c7caa21e2c32631b723fdf73eff65ac98d1213fcbcc2350d3c9d39be5bdf"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3b99ac4fa55dffd880206929630abc2755c282c9fa1445ff95429321e7eeb60f"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "18c1721e4c516753727c64d3fe64e00c37a287da791f4a0c4de0581598100ae8"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "de26a7df9ae03999cdaf0159c5a72f6faaa477239478f591596c7f125e9f96c6"

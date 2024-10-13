@@ -7,6 +7,7 @@ class PerlXmlParser < Formula
   head "https://github.com/cpan-authors/XML-Parser.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "d9228ebaa793d92c595330933bae23f35eef1d8ecc2748b1491d1492cf8aa98e"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "abc5750010dbf09e17cad13f74162ce621f12f731e90841e613b805927146b1f"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "32325a1ebd1bb1e3254db3e55109102a0ccdf9ee4574af862096db23596ac84c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d49fad80145a196ee2546d8de14ed565a7b9f56038c6b1c323aa0fc1e1344fbd"

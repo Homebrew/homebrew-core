@@ -6,6 +6,7 @@ class ReginaRexx < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256 arm64_sequoia:  "79accedd5ee5e49f1a5f480dcc126702d604ba5c018a4c15502ff31a772121ff"
     sha256 arm64_sonoma:   "c66acc278833ab29504dea15de9e0982fe5e138e2d10452429721a2e69925c71"
     sha256 arm64_ventura:  "0f6d600a409156119c45453232d6d020023cb9aee2c063bfa30841d835e72521"
     sha256 arm64_monterey: "cf0cfee8e56e38403ac472aed56cde78850121b7b5adbd52ccc27387d763af5a"

@@ -15,6 +15,7 @@ class Ipmitool < Formula
   end
 
   bottle do
+    sha256 arm64_sequoia:  "e634c21dfd6a2f2966ea44cd06769913da9063173243544dc37581ffe997c12c"
     sha256 arm64_sonoma:   "706bd54ab2e1ba25915652b20b40a3fcef4611e185c5a6910a4c2b73d737df2b"
     sha256 arm64_ventura:  "9c793c56cdb44aab31470708ab208e9525d4a5782b313f3cf7dd12fad2759275"
     sha256 arm64_monterey: "c19e86e32583bceb9c38f2232c90726b2a529857d24638e62e355ad47eb8bfdb"

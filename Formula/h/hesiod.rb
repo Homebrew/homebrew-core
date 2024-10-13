@@ -8,6 +8,7 @@ class Hesiod < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia:  "b35e4acc79d9b6003e2358d0c508b8c0e8abd37b5668136f5b52ebdbec389bbc"
     sha256 cellar: :any,                 arm64_sonoma:   "4530f3f5f7f4402adcc86cd8a55a5427ce4c838b0193a126a0ddb21ef617e41c"
     sha256 cellar: :any,                 arm64_ventura:  "5eeb38db926fd0be3a2d565646b739000e20d3a9d556aadef81d6bd758c9255f"
     sha256 cellar: :any,                 arm64_monterey: "1887e1da4904dd97c1cb19c251cad52a79a8c83113075c65d7331ddff69cd99e"
@@ -28,7 +29,7 @@ class Hesiod < Formula
   depends_on "libidn"
 
   def install
-    system "autoreconf", "-fvi"
+    system "autoreconf", "--force", "--install", "--verbose"
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}"
@@ -36,7 +37,7 @@ class Hesiod < Formula
   end
 
   test do
-    system "#{bin}/hesinfo", "sipbtest", "passwd"
-    system "#{bin}/hesinfo", "sipbtest", "filsys"
+    system bin/"hesinfo", "sipbtest", "passwd"
+    system bin/"hesinfo", "sipbtest", "filsys"
   end
 end

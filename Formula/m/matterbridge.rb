@@ -6,6 +6,7 @@ class Matterbridge < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "6eec437022ff310f92909ef2f5e8b600f4e5cc2991fd7284fbed52d1d96a8ec0"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5bb186836451a870eeec2e4954cce09eb426da52534f2e9d1acd105de1fa07ea"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "db4bd660db3e42897f23bffa81d3a241a2e41b56d035e649bf0ec6001dee5916"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4a396b9c2aeb5a81600301142e52bca66298e8608e96f2355cec6dfcb07dbf31"

@@ -7,6 +7,7 @@ class LeanCli < Formula
   head "https://github.com/leancloud/lean-cli.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "da8e921555f9680a60ed796184600b597561f9e34342a2737307dabcfa1d8993"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9cc9aafc5e0974457ebcc7547750e85e25ebb50e5bb89340130e8b3d17fef9d4"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "7a358c0da0dd02839e235b9d2d4174be5bf5f9f397a0e2e8efddb4f958d95dbd"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "7a358c0da0dd02839e235b9d2d4174be5bf5f9f397a0e2e8efddb4f958d95dbd"

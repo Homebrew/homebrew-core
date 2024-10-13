@@ -11,6 +11,7 @@ class TaskSpooler < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "ec87fc500e93595c87fc6624bd6321ce23f58e72c3b6050992e6d0f0856f24b2"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4f452fc17ad06bee57a2b4ea77cc8f8dc353f75de71ff41220675f1d89db96fd"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "179ccb94441ab71e1ffbf12b2fbe50b8c74d209cd28f338fdd62afc7ebc73b32"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "592a592ddf965521fa01a4733b80524051f29e9edfff2a4d02eb7070d6a674ba"
@@ -27,6 +28,6 @@ class TaskSpooler < Formula
   end
 
   test do
-    system "#{bin}/ts", "-l"
+    system bin/"ts", "-l"
   end
 end

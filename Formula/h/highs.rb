@@ -14,6 +14,7 @@ class Highs < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "d0c9b3ec18e70565fd1173d938595705b7134ee59199d97a74b35b31364dd8b2"
     sha256 cellar: :any,                 arm64_sonoma:   "6e0a9593505baa0d95894861d7f201554d767ccac37cbf0692d7a3be055a5f3e"
     sha256 cellar: :any,                 arm64_ventura:  "094a768e4547999482bf4e10b5662e10cb0db453f57a4d749a81176a35d585a9"
     sha256 cellar: :any,                 arm64_monterey: "586be157934927ec7817305f333a1acd011c5d683dc458de08860f317fcc4d2c"

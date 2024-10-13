@@ -12,6 +12,7 @@ class Dos2unix < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "6782d0760a276f44db668e01a49edd85986d20a08fbd35fd1e72346591a37be3"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "34b49544a0f299d1b2b0c391927b7c07201274a2c8bf682c0991ced19209501d"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "e739f5c6536d3fc4fa9a8922197379137322925c4476ee28f52e8e02875f61b9"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "49bf57eaaa0a8fca72406d02a7b3b7d50107736cea3c3c01036543387b9668fc"
@@ -36,23 +37,23 @@ class Dos2unix < Formula
 
   test do
     # write a file with lf
-    path = testpath/"test.txt"
-    path.write "foo\nbar\n"
+    test_file = testpath/"test.txt"
+    test_file.write "foo\nbar\n"
 
     # unix2mac: convert lf to cr
-    system "#{bin}/unix2mac", path
-    assert_equal "foo\rbar\r", path.read
+    system bin/"unix2mac", test_file
+    assert_equal "foo\rbar\r", test_file.read
 
     # mac2unix: convert cr to lf
-    system "#{bin}/mac2unix", path
-    assert_equal "foo\nbar\n", path.read
+    system bin/"mac2unix", test_file
+    assert_equal "foo\nbar\n", test_file.read
 
     # unix2dos: convert lf to cr+lf
-    system "#{bin}/unix2dos", path
-    assert_equal "foo\r\nbar\r\n", path.read
+    system bin/"unix2dos", test_file
+    assert_equal "foo\r\nbar\r\n", test_file.read
 
     # dos2unix: convert cr+lf to lf
-    system "#{bin}/dos2unix", path
-    assert_equal "foo\nbar\n", path.read
+    system bin/"dos2unix", test_file
+    assert_equal "foo\nbar\n", test_file.read
   end
 end

@@ -11,6 +11,7 @@ class Base64 < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "17aef54e36b9c3ce2cd832c59d4cacbac0584a1a9db7af45e1728d6fceeb760e"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a8d7991eaf3b922668f4da81929e574d1ce879acf372ffc8a24679da63e83967"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "bc888655b142849238c7aa9764e462c4f30a94c80c682962bddea75c96dc581d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "aa86de79c32e57cf11fceeba4ab6ccdbd4bccbf88704e85b7f9bae100f9af236"

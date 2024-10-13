@@ -1,18 +1,17 @@
 class Sn0int < Formula
   desc "Semi-automatic OSINT framework and package manager"
   homepage "https://github.com/kpcyrd/sn0int"
-  url "https://github.com/kpcyrd/sn0int/archive/refs/tags/v0.26.0.tar.gz"
-  sha256 "4ce71f69410a9c9470edf922c3c09b6a53bfbf41d154aa124859bbce8014cf13"
+  url "https://github.com/kpcyrd/sn0int/archive/refs/tags/v0.26.1.tar.gz"
+  sha256 "cf10bff93098586ba7dd885bf56af489ce0177bd1889a13b004fc38f026e71ea"
   license "GPL-3.0-or-later"
-  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "4c653c908a5dcdd3cae0ccae42321a281e01f2530a35e4153997a2fe161d1b8d"
-    sha256 cellar: :any,                 arm64_ventura:  "42a404e0734f6c386b56b078919b20225d9fef3abf867801303babfa4ee734e7"
-    sha256 cellar: :any,                 arm64_monterey: "acdf793db2ffef84e021185aa89a1e388ddbd78f67e6e09398142dc4d9923ad2"
-    sha256 cellar: :any,                 ventura:        "95ffc0357363e5d4d526c35466e132857d9aeb93bfd0f201e7e309443912f8cb"
-    sha256 cellar: :any,                 monterey:       "32f7111dde2b5fdaed7236698c515d7cf59484d780e88b0decd24d1bfbaaeb26"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7407c25ca45288c49d33c2c091c09ec20223b561e92994bb5e6f02b94307be16"
+    sha256 cellar: :any,                 arm64_sequoia: "a547abaa3d17a2f4cae9faddc776c31076e73d6444d8e44eed29db9a7b702d51"
+    sha256 cellar: :any,                 arm64_sonoma:  "3e152a8c520739277a569718374479eab1623e54b7df52a73ac173c11a187830"
+    sha256 cellar: :any,                 arm64_ventura: "367b3eb6203589309734ce6419f41f318287dcbf395fd8410e5e61b5b722557f"
+    sha256 cellar: :any,                 sonoma:        "b00f3aa80e595baeb07464d03118671e43731845dd141209566869e44bce384a"
+    sha256 cellar: :any,                 ventura:       "dafedcdf4f30705f40d806d7725994bdf8fe012caa80591c197049e254e657c4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "799345e368ecb3b46e5ce18b62976a75707f78a3e717d33b5524d6af3b3a9819"
   end
 
   depends_on "pkg-config" => :build

@@ -7,13 +7,8 @@ class ApacheOpennlp < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "945990553a999f9bab2565debc3718311b21bcf0f430e69677c47b5026c595a2"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "945990553a999f9bab2565debc3718311b21bcf0f430e69677c47b5026c595a2"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "945990553a999f9bab2565debc3718311b21bcf0f430e69677c47b5026c595a2"
-    sha256 cellar: :any_skip_relocation, sonoma:         "945990553a999f9bab2565debc3718311b21bcf0f430e69677c47b5026c595a2"
-    sha256 cellar: :any_skip_relocation, ventura:        "945990553a999f9bab2565debc3718311b21bcf0f430e69677c47b5026c595a2"
-    sha256 cellar: :any_skip_relocation, monterey:       "945990553a999f9bab2565debc3718311b21bcf0f430e69677c47b5026c595a2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "38eda0c61729d3c02194953d57e397afcb5627e3e31ccff4af3522aad07f4bcc"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "42cf0a7445e9c93111baffa1bed63d57fddd3c73dce8fbdb33d9a741cefa2061"
   end
 
   depends_on "openjdk"

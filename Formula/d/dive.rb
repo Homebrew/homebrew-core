@@ -7,6 +7,7 @@ class Dive < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "bf611f1db98b6448498c325f832af72d2073dcf4341ed7d13b1e6c9a992d3704"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3d2f18e2bd91ef512aaa1dd5b973131c4ba4cf6925cbc9164bcad22f60b1aad1"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "9596d77ba519803a3180c20c0c331d2d6378531d8444b54a0b5453db94ecadde"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "27d97e07f727d8a28efb7cda0d9240828971f8f7b037d5eaeff6df48742dd106"

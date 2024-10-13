@@ -6,6 +6,7 @@ class SimpleScan < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 arm64_sequoia:  "a2cf3bd809f6f5ddd550bbb84aaa8645fdad54d614f4080dfb726e79cef74e1f"
     sha256 arm64_sonoma:   "1a630e40d1d5dd033d1797fbfc747b536565e025afff4d389983550a73541faf"
     sha256 arm64_ventura:  "710b448ae8e62de98dd11cbac8b58338fbef90f0fe7a7b7c288b01bd73885c6d"
     sha256 arm64_monterey: "bfb59ff1bb224ef61826a2015949a870abd29ff3ad0b62ef79d51dbdf41be9f7"
@@ -57,6 +58,6 @@ class SimpleScan < Formula
     # Errors with `Cannot open display`
     return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"].present?
 
-    system "#{bin}/simple-scan", "-v"
+    system bin/"simple-scan", "-v"
   end
 end

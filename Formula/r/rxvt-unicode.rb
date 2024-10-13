@@ -12,6 +12,7 @@ class RxvtUnicode < Formula
   end
 
   bottle do
+    sha256 arm64_sequoia:  "5e4d450d6dfc04b6953bf1899d1d3dbf70b55afba7664cce36b885aafd25b950"
     sha256 arm64_sonoma:   "70b29b652c086003e230952471da39a12032dd80242d86a631b928acc71e37ca"
     sha256 arm64_ventura:  "2f9c19525fe1dbce9500da67db6d0448f2e0e2ee26d66adeb15946ab07c55745"
     sha256 arm64_monterey: "82cee1ad76351a94e29e4d78a9ac8cb6f2931b211536dabe41b1cc25e0a4d0a4"
@@ -23,15 +24,20 @@ class RxvtUnicode < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
+
   depends_on "fontconfig"
   depends_on "freetype"
   depends_on "libx11"
+  depends_on "libxext"
   depends_on "libxft"
   depends_on "libxmu"
   depends_on "libxrender"
-  depends_on "libxt"
 
   uses_from_macos "perl"
+
+  on_macos do
+    depends_on "libxt"
+  end
 
   resource "libptytty" do
     url "http://dist.schmorp.de/libptytty/libptytty-2.0.tar.gz"
@@ -47,11 +53,13 @@ class RxvtUnicode < Formula
 
   def install
     ENV.cxx11
+
     resource("libptytty").stage do
       system "cmake", "-S", ".", "-B", "build", *std_cmake_args(install_prefix: buildpath), "-DBUILD_SHARED_LIBS=OFF"
       system "cmake", "--build", "build"
       system "cmake", "--install", "build"
     end
+
     ENV.prepend_path "PKG_CONFIG_PATH", buildpath/"lib/pkgconfig"
     ENV.append "LDFLAGS", "-L#{buildpath}/lib"
 

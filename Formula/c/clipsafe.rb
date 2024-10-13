@@ -12,6 +12,7 @@ class Clipsafe < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "862b39c5e931b4a28547bacfbe6eb131bf50c16bb7457ddeff56011fa30f271a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "91b31f7605e795f36954fef299c34ad311f4fef9027c17a5b1aca9b1857a90a6"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "33aef7e7318060323a89a5ebed54c1d5c7e43a9b619cc53754861d4657945b04"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d3d6523aefd213badb6fb3f1e7a86e30fd5b55ea8e3d5f47dc8f81295c7ae51a"

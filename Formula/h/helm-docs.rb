@@ -15,6 +15,7 @@ class HelmDocs < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "91c39e8d994bccf86a38142464dad370c4f90efd76f0708a44ad179a8616c192"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "83ae9a4b26f989027ccdb15b93bdf17cab1d501f1fe593f1c803399406b6be4a"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "cf56a0615e759c2723e4c01c05655e9c830f652cbaa0a6b97f72ede69a8d53a5"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4abcec8420c006dd7ecb2e120b1784a2ba037ca11f208461dd15daeba9d4ba80"

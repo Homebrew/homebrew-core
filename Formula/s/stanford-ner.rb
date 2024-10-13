@@ -11,7 +11,8 @@ class StanfordNer < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "f6aace4b941b03a278f815f240b6b8217a52b21ab48f4152a7e0e5b385e0f63f"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "caf1491537a74417f2d4070335d5c281ce60387d984726f77458b329b0fbe9c8"
   end
 
   depends_on "openjdk"
@@ -23,6 +24,6 @@ class StanfordNer < Formula
   end
 
   test do
-    system "#{bin}/ner.sh", "#{libexec}/sample.txt"
+    system bin/"ner.sh", libexec/"sample.txt"
   end
 end

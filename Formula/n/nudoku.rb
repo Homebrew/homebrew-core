@@ -1,19 +1,20 @@
 class Nudoku < Formula
   desc "Ncurses based sudoku game"
   homepage "https://jubalh.github.io/nudoku/"
-  url "https://github.com/jubalh/nudoku/archive/refs/tags/4.0.1.tar.gz"
-  sha256 "070dc06d9dad2a436fd44ff52a24f51c2522b13cc68e3d97765f4357f4dfc3d8"
+  url "https://github.com/jubalh/nudoku/archive/refs/tags/5.0.0.tar.gz"
+  sha256 "ba60a99c9832b5c950a00a0a9d1e0938fddf2cef32765bca18041e770afc3c4a"
   license "GPL-3.0-or-later"
   head "https://github.com/jubalh/nudoku.git", branch: "master"
 
   bottle do
-    sha256 arm64_sonoma:   "0af8b4c36a68855242d8c6b5c11edafa23d95b99f01c75ff5afe5e363fc5ffdf"
-    sha256 arm64_ventura:  "d36571bdc6681967b1b4c4415749977df1cf546dfe6e7497144ceb7dece98b26"
-    sha256 arm64_monterey: "b497e4ceb353928460e9a4b0d68d4cea8beefd949ac12997e24c830e74e47d59"
-    sha256 sonoma:         "0fff4919f933d9b8a591945215e69af29ebfc388d9ee3daad5ce8fdf2ba6cafa"
-    sha256 ventura:        "04242eff8300d13cb0a02454eb9499283995ae5694c32d4b4f5422abc9eb04bd"
-    sha256 monterey:       "03f8f7201d2d950ae6b02ae3cf6a29e55424af8942447801d0b5ba9a440c8ec1"
-    sha256 x86_64_linux:   "f7ba800fdbd5b5aeeba031362afb606cde57e93d1763c581212084793a23c267"
+    sha256 arm64_sequoia:  "f829eb3b002dc33ea48c3d58926a3ca3c5a0378941ce0b587737d4ed1a11a100"
+    sha256 arm64_sonoma:   "969ddf28f4eb7014b9c44cf6bac0106f2d00306fef670f08b8d57fa08873ca9f"
+    sha256 arm64_ventura:  "8e257d6a76e89ded708920215a7446a845c2ed74fe1cb31ee695de5f08129864"
+    sha256 arm64_monterey: "ad835249ee203dac6d4c7fdd7b95d1395e113f6aaa0ec7a4d2d14c9405e61cc3"
+    sha256 sonoma:         "d4f87f815b143cddae90e6bcf12bb8609a53e7f112cb19580585613e92a2fd49"
+    sha256 ventura:        "a58e28aa1ffac9ef8d792ef34190e7bd1605828aa2ae29550042e28740863023"
+    sha256 monterey:       "c208d8a2b1a5bbe9179a4969f284e2412ad354ee00da078f423552adc67698fa"
+    sha256 x86_64_linux:   "6050f8f3ab9a15cafee9cf73e62cfc236bd98f445015cbed8f2a48fb82de0efc"
   end
 
   depends_on "autoconf" => :build

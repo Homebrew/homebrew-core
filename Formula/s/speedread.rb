@@ -17,7 +17,8 @@ class Speedread < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "98128adedcde823bb5ac289120ae88f07d3d041b778cd5cf0c100eb87df303d2"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "84a404d8c1cbdb6d69501b347a9e50f87a34cce2136ebb12f97d4ab9b117443a"
   end
 
   def install
@@ -25,6 +26,6 @@ class Speedread < Formula
   end
 
   test do
-    system "#{bin}/speedread", "-w 1000", "<(echo This is a test)"
+    system bin/"speedread", "-w 1000", "<(echo This is a test)"
   end
 end

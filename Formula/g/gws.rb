@@ -6,7 +6,8 @@ class Gws < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "9d7e8f5b330c140793909af7a9717b943ce88b144c6bf25dce4c768b30df739c"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "0d31f65a9ff26f5e0d80055636889fe835445ffcdcccb144333e042ae2b771aa"
   end
 
   depends_on "bash"
@@ -20,7 +21,7 @@ class Gws < Formula
 
   test do
     system "git", "init", "project"
-    system "#{bin}/gws", "init"
+    system bin/"gws", "init"
     output = shell_output("#{bin}/gws status")
     assert_equal "project:\n  *                           Clean [Local only repository]\n", output
   end

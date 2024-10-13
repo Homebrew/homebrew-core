@@ -18,6 +18,7 @@ class Smpeg < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia:  "e7a1451326b54dd9107b43762c877fc91a8d9cb7fcae37aad8f4a354c98c56bf"
     sha256 cellar: :any,                 arm64_sonoma:   "d489427a87ed930d4d72e1536180d1781eb4f1f68992e5a2934c71df0dfbd7ed"
     sha256 cellar: :any,                 arm64_ventura:  "8023f2a680920c2c2184d38422b4111359ee56dad5a3fa5abcf66e06ebbc3242"
     sha256 cellar: :any,                 arm64_monterey: "f6bec866d75df98036cdf109c1f98fd0fa2be764e4f82a8d7382e4e5b4affa08"
@@ -39,6 +40,9 @@ class Smpeg < Formula
   patch :DATA
 
   def install
+    # Workaround for newer Clang
+    ENV.append_to_cflags "-Wno-c++11-narrowing" if DevelopmentTools.clang_build_version >= 1400
+
     args = %W[
       --prefix=#{prefix}
       --with-sdl-prefix=#{Formula["sdl12-compat"].opt_prefix}
@@ -58,11 +62,11 @@ class Smpeg < Formula
     system "make", "install"
 
     # Not present since we do not build with gtk+
-    rm_f "#{man1}/gtv.1"
+    rm(man1/"gtv.1")
   end
 
   test do
-    system "#{bin}/plaympeg", "--version"
+    system bin/"plaympeg", "--version"
   end
 end
 

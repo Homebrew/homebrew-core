@@ -6,6 +6,7 @@ class Uru < Formula
   license "BSD-3-Clause"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "b5422b52374d4e7de9f934714fabe3b984a1e76fb795cc82cdac81c7477bbcf5"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "19c329e3ad2a981d5edcf2f708608297f4b3d5da68c8344744cb78cffd513c42"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "e1c97e2f9106da354206149ff4138bc8731b9e68675d57e2080c19bd2951c23c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "afe47dce0be291a7c3c15d9723f5892164d4b72a481747bf2e1f74a1ba7b56fa"
@@ -39,6 +40,6 @@ class Uru < Formula
   end
 
   test do
-    system "#{bin}/uru_rt"
+    system bin/"uru_rt"
   end
 end

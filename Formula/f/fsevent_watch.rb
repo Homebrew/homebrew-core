@@ -7,6 +7,7 @@ class FseventWatch < Formula
   head "https://github.com/proger/fsevent_watch.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "0a96b52b8e7a56b8ee8c83f18d8bf32c1413a79a6f22192cd11d011e8f84c392"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b52aa2f7b37774ad1250f27ea993c494de0e338a1e27be12c16773c41a9a69e7"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "d22101fa98bbaa37a0b7926e3ea7b0c46b55888543b06d3ad3fe3126623058bd"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1a87436ee7bfcf74cf7c0383b32c809161fabedba58405c21d20ba591540a890"
@@ -27,6 +28,6 @@ class FseventWatch < Formula
   end
 
   test do
-    system "#{bin}/fsevent_watch", "--version"
+    system bin/"fsevent_watch", "--version"
   end
 end

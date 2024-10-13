@@ -8,17 +8,12 @@ class Touca < Formula
   revision 3
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "db63d5f14e5b12b46f6bf83f299fbdaa6c635785979ded9aad35861543f4f4b9"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "db63d5f14e5b12b46f6bf83f299fbdaa6c635785979ded9aad35861543f4f4b9"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "db63d5f14e5b12b46f6bf83f299fbdaa6c635785979ded9aad35861543f4f4b9"
-    sha256 cellar: :any_skip_relocation, sonoma:         "6b45015272a5d8987cd49b5e672f6a4fe382d4dda1d8b893b474952d542e4fe9"
-    sha256 cellar: :any_skip_relocation, ventura:        "6b45015272a5d8987cd49b5e672f6a4fe382d4dda1d8b893b474952d542e4fe9"
-    sha256 cellar: :any_skip_relocation, monterey:       "8572f59ccea2d9d4f3aca0de8e6b103d5d2e407ca5c83cb080e09ba81cdcdb6c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5eac5cb706608b3c375dd16029960ac67701c55ea254cd5bf8fdeeb19cc8b134"
+    rebuild 3
+    sha256 cellar: :any_skip_relocation, all: "28347dcea2a95cf714fad75fb909df2202c64a2ba9f9b83af3f99a7659e0bf17"
   end
 
   depends_on "certifi"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "commonmark" do
     url "https://files.pythonhosted.org/packages/60/48/a60f593447e8f0894ebb7f6e6c1f25dafc5e89c5879fdc9360ae93ff83f0/commonmark-0.9.1.tar.gz"
@@ -46,11 +41,13 @@ class Touca < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/c8/93/65e479b023bbc46dab3e092bda6b0005424ea3217d711964ccdede3f9b1b/urllib3-1.26.19.tar.gz"
-    sha256 "3e3d753a8618b86d7de333b4223005f68720bcd6a7d2bcb9fbd2229ec7c1e429"
+    url "https://files.pythonhosted.org/packages/e4/e8/6ff5e6bc22095cfc59b6ea711b687e2b7ed4bdb373f7eeec370a97d7392f/urllib3-1.26.20.tar.gz"
+    sha256 "40c2dc0c681e47eb8f90e7e27bf6ff7df2e677421fd46756da1161c39ca70d32"
   end
 
   def install
+    # Allow latest `certifi`: https://github.com/trytouca/trytouca/pull/663
+    inreplace "pyproject.toml", 'certifi = "^2022.12.7"', 'certifi = ">=2022.12.7"'
     virtualenv_install_with_resources
   end
 

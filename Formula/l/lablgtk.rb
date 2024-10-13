@@ -3,7 +3,7 @@ class Lablgtk < Formula
   homepage "https://github.com/garrigue/lablgtk"
   url "https://github.com/garrigue/lablgtk/archive/refs/tags/2.18.12.tar.gz"
   sha256 "43b2640b6b6d6ba352fa0c4265695d6e0b5acb8eb1da17290493e99ae6879b18"
-  license "LGPL-2.1"
+  license "LGPL-2.1-or-later" => { with: "OCaml-LGPL-linking-exception" }
   revision 1
 
   bottle do

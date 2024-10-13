@@ -8,6 +8,7 @@ class Healpix < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "17956635f91de106006ebae701bb34e54be932eb6c98df370ac5cac7cd7e090d"
     sha256 cellar: :any,                 arm64_sonoma:   "34ddbedc57f2755c48a4ac145afcdaabe45555f82a3f1027511282cf7efc8f6f"
     sha256 cellar: :any,                 arm64_ventura:  "cee714500355c2f6d2974df7c1942d7d04dc1a99e7c6b729d2c0dfb3e346d680"
     sha256 cellar: :any,                 arm64_monterey: "2c20fec2724b39f5216682928570fa0b397bde0b5967fcdba09220381900211e"

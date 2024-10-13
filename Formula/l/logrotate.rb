@@ -3,9 +3,10 @@ class Logrotate < Formula
   homepage "https://github.com/logrotate/logrotate"
   url "https://github.com/logrotate/logrotate/releases/download/3.22.0/logrotate-3.22.0.tar.xz"
   sha256 "42b4080ee99c9fb6a7d12d8e787637d057a635194e25971997eebbe8d5e57618"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "9ae7a765a604fa64a1f16f285f8d89dc4bf8d82e14e665c8a1f45b691721e247"
     sha256 cellar: :any,                 arm64_sonoma:   "cc989a616df04d37c0644ee673313f9a0b978c122000bccfa9fdbf3cce7e55dd"
     sha256 cellar: :any,                 arm64_ventura:  "9d16fd4af182a7110bed763ea092c38e6807bf98a2de15289052db9be87ac0ce"
     sha256 cellar: :any,                 arm64_monterey: "b4f8a2de9632fe60890087d05a3121caa140a133b629f98af4a1e5de704dcc33"

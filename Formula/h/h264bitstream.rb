@@ -3,9 +3,10 @@ class H264bitstream < Formula
   homepage "https://h264bitstream.sourceforge.net/"
   url "https://downloads.sourceforge.net/project/h264bitstream/h264bitstream/0.2.0/h264bitstream-0.2.0.tar.gz"
   sha256 "94912cb07ef67da762be9c580b325fd8957ad400793c9030f3fb6565c6d263a7"
-  license "LGPL-2.1"
+  license "LGPL-2.1-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "4616a724fcfbdc091a8be99a5746c3c1a20e9be058fd4acd09a3e4ac12ab7756"
     sha256 cellar: :any,                 arm64_sonoma:   "946ce648f0daf4e64a182e2f39811d0d78946a5150899dffe5984bb1926a88f2"
     sha256 cellar: :any,                 arm64_ventura:  "9fd917379072e27703bae053f19aefc1abbf328dfcf5857e6aa4192babe3fc48"
     sha256 cellar: :any,                 arm64_monterey: "21fef413b7c8c4ae235dcdd1aba11a77553cd382f74d328c5958ba7e6ed47c39"

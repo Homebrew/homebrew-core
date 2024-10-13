@@ -11,6 +11,7 @@ class Libgphoto2 < Formula
   end
 
   bottle do
+    sha256 arm64_sequoia:  "3fb2e9bda06e7f94540e798c31fca1f06d8028039eb2e558e501e4e85e68402f"
     sha256 arm64_sonoma:   "a755497f42fd0a62182de3d1ba2956af248282fc6b3462e700b8f9a5713110a4"
     sha256 arm64_ventura:  "989c4ffad8b8da9e9e7748e83989601d098c124274d971871c2088f1b98f78cc"
     sha256 arm64_monterey: "f291bfec3c081315cc530beb04e7ff103f5d4fc2fcae93f5afa10da435f7402f"

@@ -9,7 +9,8 @@ class Lorem < Formula
   head "https://github.com/per9000/lorem.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "79e38b6949ebd14157f0177fae6331e780f1889c76594c86dea7d649ef5c9057"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "8b19f09aa8ff1a1e6e6dae8a356ac8ae90992a3435540b0fd71b7d39a7d3f360"
   end
 
   uses_from_macos "python"

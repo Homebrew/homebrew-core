@@ -1,9 +1,9 @@
 class JsonC < Formula
   desc "JSON parser for C"
   homepage "https://github.com/json-c/json-c/wiki"
-  url "https://github.com/json-c/json-c/archive/refs/tags/json-c-0.17-20230812.tar.gz"
-  version "0.17"
-  sha256 "024d302a3aadcbf9f78735320a6d5aedf8b77876c8ac8bbb95081ca55054c7eb"
+  url "https://github.com/json-c/json-c/archive/refs/tags/json-c-0.18-20240915.tar.gz"
+  version "0.18"
+  sha256 "3112c1f25d39eca661fe3fc663431e130cc6e2f900c081738317fba49d29e298"
   license "MIT"
   head "https://github.com/json-c/json-c.git", branch: "master"
 
@@ -13,24 +13,22 @@ class JsonC < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "ba640ce5ab085d32c4a1dd2f631ba8940899f77c9d798ecc6ccc304598cc6ceb"
-    sha256 cellar: :any,                 arm64_ventura:  "f06d21bf49bb8378ef1648221ed367e7ead751b84925b255ef0b62f14d1824dc"
-    sha256 cellar: :any,                 arm64_monterey: "61480b16756199897acf340e53625706814566dcf89ecf546e267a08397a9f22"
-    sha256 cellar: :any,                 arm64_big_sur:  "bf59859457fc4fb5179ade327a515df884730b7ab8002d7f56eec828f0743bb8"
-    sha256 cellar: :any,                 sonoma:         "bc18ee5baf0bc8a6738efa43247397b79eea4d0a78898810d8d73c7284ea14c4"
-    sha256 cellar: :any,                 ventura:        "6964da23ee0822500168be2c7c15d2709a1c7cf22f9ad8a6fa1f38376ef039bd"
-    sha256 cellar: :any,                 monterey:       "2f05628637cfa60d6e03546c490d9a72065c378fe537ccb4b3373f00e7347608"
-    sha256 cellar: :any,                 big_sur:        "753822a39038451b42ecac7afc27da1bfc4acacfe1c8d9ac1d9ae0d365d946a5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "febcc3f9759d70c935f513a81e3fd9ea637de002fc5be4b2ecc8449160e90920"
+    sha256 cellar: :any,                 arm64_sequoia: "c5514d30b5249b6d2a92e4dff45f56e2b081aa8811d13a20c84a3b911f6604d7"
+    sha256 cellar: :any,                 arm64_sonoma:  "16b53cbbfaa2361f7e68f112f8ce706bc3d59738f377a26a1341c7122956e9b3"
+    sha256 cellar: :any,                 arm64_ventura: "e6da2f2e625b6d6cf141bb4c3fe05ff0d1d42617321da078b48f32c9b01ddb0b"
+    sha256 cellar: :any,                 sonoma:        "9630b473e74aa113e050b6ba4d3760d3f0d7c67c6460855217b312c597253eea"
+    sha256 cellar: :any,                 ventura:       "91286eebfd88f8989056b56dad509e5b42aadda51e29708ef550da8a6b3314ad"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6afd63b22756b317e0dd21aa71644f47ec11996366bc60c8d5c9306f87044caa"
   end
 
   depends_on "cmake" => :build
 
   def install
-    mkdir "build" do
-      system "cmake", "..", *std_cmake_args
-      system "make", "install"
-    end
+    # We pass `BUILD_APPS=OFF` since any built apps are never installed. See:
+    #   https://github.com/json-c/json-c/blob/master/apps/CMakeLists.txt#L119-L121
+    system "cmake", "-S", ".", "-B", "build", "-DBUILD_APPS=OFF", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
@@ -46,6 +44,7 @@ class JsonC < Formula
         return 0;
       }
     EOS
+
     system ENV.cc, "-I#{include}", "test.c", "-L#{lib}", "-ljson-c", "-o", "test"
     assert_equal '{ "key": "value" }', shell_output("./test").chomp
   end

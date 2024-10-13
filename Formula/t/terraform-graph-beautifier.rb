@@ -7,6 +7,7 @@ class TerraformGraphBeautifier < Formula
   head "https://github.com/pcasteran/terraform-graph-beautifier.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "e0baf8c158de8191e5c9cbbd0c77397e78d000045857e37784c3dd73cc9e042b"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "dcc2b1e8bb7321d175baf7210354cd1985c2caf162445b0ad0bb89edf0f9277a"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "ca9777ce209ebb0f9e47c71c583c89b15f0d07fcd35e5e074dc706674b37e5ec"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "23548a3575b9f6295ba84f0bf527aa30449cb20cc57096d5b781d7e1e7defbdb"

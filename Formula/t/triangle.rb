@@ -6,6 +6,7 @@ class Triangle < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "2d0f61e1189f94030e6d58917a972b58ed3097fddabc1d7b81d2c6261af44e7f"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "213bc5484b8bb951fcaae1220b5bddc4a042540f9db6da9884ef101a5cb9b8cd"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f567dea995e69a581eaf1b78d288c8193dfdb4068e8114f80794e7eadf4e108a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1a5c72d8022b7c7bc20511f07ff9f8dcd9637bffe596554ca7a9671dda8e713e"
@@ -21,11 +22,11 @@ class Triangle < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", "-mod=vendor", "-o", "#{bin}/triangle", "./cmd/triangle"
+    system "go", "build", "-mod=vendor", "-o", bin/"triangle", "./cmd/triangle"
   end
 
   test do
-    system "#{bin}/triangle", "-in", test_fixtures("test.png"), "-out", "out.png"
+    system bin/"triangle", "-in", test_fixtures("test.png"), "-out", "out.png"
     assert_predicate testpath/"out.png", :exist?
   end
 end

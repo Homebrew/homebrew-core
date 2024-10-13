@@ -7,18 +7,20 @@ env:
   GH_NO_UPDATE_NOTIFIER: 1
   GH_PROMPT_DISABLED: 1
 
+defaults:
+  run:
+    shell: bash -xeuo pipefail {0}
+
 concurrency:
   group: "triage-${{ github.event.number }}"
   cancel-in-progress: true
 
-permissions:
-  contents: read
-  issues: write
-  pull-requests: write
-  statuses: write
+permissions: {}
 
 jobs:
   upload-metadata:
+    permissions:
+      contents: read
     if: always() && github.repository_owner == 'Homebrew'
     runs-on: ubuntu-latest
     steps:
@@ -28,6 +30,10 @@ jobs:
           path: ${{ github.event_path }}
 
   workflows-label:
+    permissions:
+      contents: read
+      issues: write
+      pull-requests: write
     if: always() && github.repository_owner == 'Homebrew'
     runs-on: ubuntu-latest
     steps:
@@ -35,12 +41,13 @@ jobs:
         id: files
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR: ${{ github.event.number }}
         run: |
           workflow_modified="$(
             gh api \
               --header 'Accept: application/vnd.github+json' \
               --header 'X-GitHub-Api-Version: 2022-11-28' \
-              'repos/{owner}/{repo}/pulls/${{ github.event.number }}/files' \
+              "repos/$GITHUB_REPOSITORY/pulls/$PR/files" \
               --jq 'any(.[].filename; startswith(".github/workflows"))'
           )"
           # Fail closed.
@@ -55,13 +62,18 @@ jobs:
         if: always() && fromJson(steps.files.outputs.workflow_modified)
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh pr edit --add-label workflows '${{ github.event.number }}'
+          PR: ${{ github.event.number }}
+        run: gh pr edit --add-label workflows "$PR" --repo "$GITHUB_REPOSITORY"
 
   limit-pull-requests:
     if: >
       always() && github.repository_owner == 'Homebrew' &&
       (github.event_name == 'pull_request_target' &&
        github.event.action == 'opened')
+    permissions:
+      contents: read
+      issues: read
+      pull-requests: write
     runs-on: ubuntu-latest
     steps:
       - uses: Homebrew/actions/limit-pull-requests@master
@@ -70,13 +82,21 @@ jobs:
             BrewTestBot
           comment-limit: 15
           comment: |
-            Hi, thanks for your contribution to Homebrew! You already have >=15 open pull requests, so please get them ready to be merged or close them before you open more. If CI fails on any of them, please fix it or ask for help doing so.
+            Hi, thanks for your contribution to Homebrew! :heart:
+
+            You already have >=15 open pull requests, so please get them ready to be merged or close them before you open more. If CI fails on any of them, please fix it or ask for help doing so.
+
             If you are performing simple version bumps, @BrewTestBot automatically bumps [a list of formulae](https://github.com/${{ github.repository }}/blob/HEAD/.github/autobump.txt) so you don't need to. Please take a look at issues and pull requests labelled https://github.com/${{ github.repository }}/labels/help%20wanted and see if you can help to fix any of them. Thanks!
           close-limit: 30
           close: true
 
   triage:
     runs-on: ubuntu-22.04
+    permissions:
+      contents: read
+      issues: write
+      pull-requests: write
+      statuses: write
     steps:
       - name: Check commit format
         if: >
@@ -128,10 +148,10 @@ jobs:
                 - Formula/b/bash-completion@2.rb
                 - Formula/lib/libxml++@5.rb
                 - Formula/o/openssl@3.rb
-                - Formula/p/postgresql@16.rb
-                - Formula/p/python@3.12.rb
-                - Formula/p/python-gdbm@3.12.rb
-                - Formula/p/python-tk@3.12.rb
+                - Formula/p/postgresql@17.rb
+                - Formula/p/python@3.13.rb
+                - Formula/p/python-gdbm@3.13.rb
+                - Formula/p/python-tk@3.13.rb
 
             - label: missing license
               path: Formula/.+
@@ -241,7 +261,6 @@ jobs:
                 mlkit|\
                 mpich|\
                 node|\
-                nwchem|\
                 octave|\
                 opencascade|\
                 pcl|\
@@ -324,66 +343,19 @@ jobs:
               keep_if_no_match: true
 
             - label: CI-linux-self-hosted
-              path: Formula/.+/(dart-sdk|envoy|qt(@5)?|souffle|texlive).rb
+              path: Formula/.+/(dart-sdk|envoy|qt(@5)?|texlive).rb
               keep_if_no_match: true
               allow_any_match: true
 
             - label: CI-linux-self-hosted-deps
               path: "Formula/.+/(\
                 alsa-lib|\
-                aom|\
-                brotli|\
-                cups|\
-                dart-sdk|\
-                dbus|\
-                freetype|\
-                gdbm|\
                 glib|\
-                glslang|\
-                gmp|\
-                gtk4|\
-                gzip|\
-                harfbuzz|\
-                hdf5|\
-                icu4c|\
-                json-c|\
-                krb5|\
-                libarchive|\
-                libedit|\
-                libnghttp2|\
-                libsndfile|\
-                libssh2|\
-                libtiff|\
                 libva|\
-                libx11|\
-                libxcrypt|\
                 libxml2|\
-                libxrandr|\
-                llvm|\
-                mesa|\
-                minizip|\
-                mpfr|\
-                mysql-connector-c\\+\\+|\
-                nss|\
-                numpy|\
-                open-mpi|\
-                openexr|\
-                p11-kit|\
                 python@3.12|\
-                qt(@5)?|\
-                readline|\
-                remind|\
-                shared-mime-info|\
-                souffle|\
                 systemd|\
-                texlive|\
-                unbound|\
-                utf8cpp|\
-                util-linux|\
-                webp|\
-                xz|\
                 zlib|\
-                zstd\
                 ).rb"
               keep_if_no_match: true
               allow_any_match: true

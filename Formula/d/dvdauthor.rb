@@ -3,6 +3,7 @@ class Dvdauthor < Formula
   homepage "https://dvdauthor.sourceforge.net/"
   url "https://downloads.sourceforge.net/project/dvdauthor/dvdauthor-0.7.2.tar.gz"
   sha256 "3020a92de9f78eb36f48b6f22d5a001c47107826634a785a62dfcd080f612eb7"
+  license "GPL-2.0-or-later"
   revision 3
 
   livecheck do
@@ -12,6 +13,7 @@ class Dvdauthor < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia:  "527ecacf46ecfaa771b7d5cb556e7d0002e331a79edad4250743c096babdc2f6"
     sha256 cellar: :any,                 arm64_sonoma:   "a0b32d9b7bac066918dbbe7aa04bd718751317bc6284c3d7d87fcf77051deb46"
     sha256 cellar: :any,                 arm64_ventura:  "03d576e3150005a3c6524683afa2d234ac698fc9da7645645f43afb42ffac95a"
     sha256 cellar: :any,                 arm64_monterey: "0db62ec5affa472a427aecab0add45800f986518df8aba5026e01aff8fbee17e"

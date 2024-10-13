@@ -7,6 +7,7 @@ class Pyyaml < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "87a238bf1e44a97f54755f0e95ba11860884b186678d3ce163db3034b7b2d7cc"
     sha256 cellar: :any,                 arm64_sonoma:   "b538bcab64b4ab3f6351c219cff42e2d163201efcaa272e4ee7e58783ffb3ce6"
     sha256 cellar: :any,                 arm64_ventura:  "eb0cb94ff9dc6ac7926c1ee71ccdc42dc844ad3ab949b9105456cf131c25027d"
     sha256 cellar: :any,                 arm64_monterey: "d87fbc05ae74fc9f2c882c5047f6f9587bd782165776a2132ab26fd3fa11dab7"

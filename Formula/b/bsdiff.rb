@@ -13,6 +13,7 @@ class Bsdiff < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "5aa138e7ada53aa574d2bf31f2cfa65cd53692001a1d7e5ad6240fc72975d6b3"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5dac6fb313e1df3f6c05870f8accc2f65615924124b9b24b481dc0c4e5f77193"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "e83875207f8cc492079e701ba371bb08c89aaea95d47c0aa1d78069376dced12"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "141219925cf9d52e796d9bce068bf747d32e5f5c9b486c3eaf539b59980062dd"
@@ -42,7 +43,7 @@ class Bsdiff < Formula
     (testpath/"bin1").write "\x01\x02\x03\x04"
     (testpath/"bin2").write "\x01\x02\x03\x05"
 
-    system "#{bin}/bsdiff", "bin1", "bin2", "bindiff"
+    system bin/"bsdiff", "bin1", "bin2", "bindiff"
   end
 end
 

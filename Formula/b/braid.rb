@@ -8,6 +8,7 @@ class Braid < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "52f9ffcc5027360a52d67f1789201966ec0276777d997410ff21a3819d6aa7e5"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "37b6af924165c983beabe2fe2cf9bcb3fdf682e3b5bfca305934557268dbe6d3"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "37b6af924165c983beabe2fe2cf9bcb3fdf682e3b5bfca305934557268dbe6d3"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "37b6af924165c983beabe2fe2cf9bcb3fdf682e3b5bfca305934557268dbe6d3"

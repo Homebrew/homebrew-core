@@ -6,6 +6,7 @@ class XmlrpcC < Formula
   license "BSD-3-Clause"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "c50dd6bf5c7a278e7b7046bb4fc4c714f376e1ece6d2a2f6b9dc567b2591cbcf"
     sha256 cellar: :any,                 arm64_sonoma:   "a37de64bbd2ff69db08d29c18be9061c383273fb7a2f4c437bcc97609b2d921d"
     sha256 cellar: :any,                 arm64_ventura:  "6acfdb7a4974c9dd956b9395b78f0acc1b669e877b23ad6e8acdf162477d86f7"
     sha256 cellar: :any,                 arm64_monterey: "f81cd7a5a3abc242fda56cf730a27007bec239731168e72cc89711e3f16e5a16"
@@ -36,6 +37,6 @@ class XmlrpcC < Formula
   end
 
   test do
-    system "#{bin}/xmlrpc-c-config", "--features"
+    system bin/"xmlrpc-c-config", "--features"
   end
 end

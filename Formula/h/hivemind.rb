@@ -7,6 +7,7 @@ class Hivemind < Formula
   head "https://github.com/DarthSim/hivemind.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "703f51c01ebed71957e5579c9c753b3090443312b6d6c69a019b0be10a6aa4b9"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f4aff69e5552065591bb76b91c80ee7ea9b072e32b339cf6d7fe658cc8e3d5f3"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "607a7cc36605a2a8b01952dc7d5755995d57370cefa3ea320c77c893d1cd9e93"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f8ca06b6d2dde91c66cd6af2396a58b40e6be52e51fa738f24ff2e23376dc60a"
@@ -27,6 +28,6 @@ class Hivemind < Formula
 
   test do
     (testpath/"Procfile").write("test: echo 'test message'")
-    assert_match "test message", shell_output("#{bin}/hivemind")
+    assert_match "test message", shell_output(bin/"hivemind")
   end
 end

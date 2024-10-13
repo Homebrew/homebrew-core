@@ -15,6 +15,7 @@ class Citus < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "f32f83baf5052b4564c889b703206d260016b3f7e69b2693dab22338dda8d598"
     sha256 cellar: :any,                 arm64_sonoma:   "786b219283e84207a8cf2820c7c74e9e61b3f2bf0ba06a10bc32d9e781c1bdfc"
     sha256 cellar: :any,                 arm64_ventura:  "5bb67885ce15fa7298da6923126b7130310053504edc84d2aec88630af21e831"
     sha256 cellar: :any,                 arm64_monterey: "0422a4a7e7891f5102c12c289bea85c9f69f59fd3f36dae47bc297760c470ef0"

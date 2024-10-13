@@ -7,6 +7,7 @@ class Ghi < Formula
   head "https://github.com/drazisil/ghi.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "0574be1c2bb4fe60f4c7e9add399b4c90cb65ea4f822aeddd6233213f83ee10a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8d1a0a48ba1c295cef475eb7ebfdb13ab669619f53374a80abcf405bca5db766"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "43ccd9845bf6f7e2a99d4ced9f23ee0f9e859d15af547ce115d61c149ef12f4c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "43ccd9845bf6f7e2a99d4ced9f23ee0f9e859d15af547ce115d61c149ef12f4c"
@@ -39,6 +40,6 @@ class Ghi < Formula
   end
 
   test do
-    system "#{bin}/ghi", "--version"
+    system bin/"ghi", "--version"
   end
 end

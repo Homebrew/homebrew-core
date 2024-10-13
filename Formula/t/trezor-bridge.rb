@@ -8,6 +8,7 @@ class TrezorBridge < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "026eae2c42ba181bbb882176d03e3592558cb7d2d946d3de7c1766c30dd4fdce"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2ed7f24a07138a009a6ae6f962138c0ea9bee316ebe730b534ba072140b48629"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "c207cb9221f8c6ce8e813200cc98bd0cca5dd3e29e85e5ece6c74b0dce071db7"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "34ad3a642fda0faf46777da05d3a0deb9f691e4a0bf60a4db5da213c2b1e413a"

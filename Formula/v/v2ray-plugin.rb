@@ -23,7 +23,7 @@ class V2rayPlugin < Formula
 
   # v2ray-plugin does not even build with go1.19,
   # upstream bug report https://github.com/shadowsocks/v2ray-plugin/issues/292
-  deprecate! date: "2023-08-13", because: :unmaintained
+  disable! date: "2024-08-24", because: :unmaintained
 
   depends_on "go" => :build
 

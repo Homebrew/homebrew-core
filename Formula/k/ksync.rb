@@ -13,21 +13,21 @@ class Ksync < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9225ba6ae709cf6a380d536a065b68e9ceefb59f0529db7e100fc824119acdcc"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "17050b5e32529174fb9607999c5cae39cab8951647d1cc50efb5c2bf1492c0ec"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a58b20d7cf681598f94c777200474e1419890fb24e3d6217cc0233a91a266bab"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4fe9c12efd8e73fd794edecca04b0270e4dc2229adad3953f25635c3432fc313"
-    sha256 cellar: :any_skip_relocation, sonoma:         "04bfb7f75cedea8872b1ee0dba41787fd3447506e0e6a610ae40d809b0104213"
-    sha256 cellar: :any_skip_relocation, ventura:        "3582cd7dab286bc699ef63abb25d5ab2ec69f9b2d5046ef4e9b96a949bee53b9"
-    sha256 cellar: :any_skip_relocation, monterey:       "2add85f6b9b1daa3aa4cde7791fec5e36873f2440155c6cb20a1ab08a0be92c7"
-    sha256 cellar: :any_skip_relocation, big_sur:        "0e497912738482d6fa2d1161c6a26b62a781b25ba4280f7ac8e2487b757cda9d"
-    sha256 cellar: :any_skip_relocation, catalina:       "ccee0b1bd4f7d3af674d1c2901965e7140b4408a794a781fc8e7640276936f98"
-    sha256 cellar: :any_skip_relocation, mojave:         "6128a2e80da17e718001cd9a9a240d27b4dcac7a3e893b2e00316b886c04a3d3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0b5ae17908d10f2c602df06a8a4c03fb92403b11019b9471a3f2d0def2c94376"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "1620949d8da595167314a38d77d648496ae8f643d95b41020ac84618cbc341a2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a3552681fcab8cb7f7dfe63812571245c0da18d06393a41bf561f9e812342085"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "270b540aa1ca3ebc1986174383b922ca0c6d8638f86b782bf7f1318d5f537574"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "728e06453e95f4ec8cc1e96f0f9c3f651595dd2c23e72e9ed755fef4c3d87031"
+    sha256 cellar: :any_skip_relocation, sonoma:         "d2af057006526b92353cb99608b2cb06565b9a08d3e72783d33a948df7c031ed"
+    sha256 cellar: :any_skip_relocation, ventura:        "d3aa2e52fe35f59dc31ce6b1db46f74d8212b2f266c0255a6c28e3752a7dc79b"
+    sha256 cellar: :any_skip_relocation, monterey:       "45a3f6d24f45ff5b154e4729d7ebd9017c8c328c5a991c9e1c9def407c84fc53"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8252f654f5d54ab8b359866a358f2e439c7dcc2f061c8330fe42917a5b00724e"
   end
 
-  depends_on "go" => :build
+  # no release since 2021-03-23, https://github.com/ksync/ksync/issues/616
+  deprecate! date: "2024-08-02", because: :unmaintained
+
+  depends_on "go@1.22" => :build
 
   # Support go 1.17, remove after next release
   # Patch is equivalent to https://github.com/ksync/ksync/pull/544,

@@ -6,6 +6,7 @@ class Kwok < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "9f5506c72f4bf76ff90f9f65eb16bcec253c644e64f3fd1093de96d206ac3643"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a6139018d596f2b3a6eee4ade78527ac2beab6c76ab00a3f59a76e533db3da6f"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "fe7b96b2c2b158b0a067693230bd8860f22229db4161f732a3446fcfa9ee5e15"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "fca9403e495eacec9197b9640187d10d541f4cd8c7816e2beb62af295854f8c8"

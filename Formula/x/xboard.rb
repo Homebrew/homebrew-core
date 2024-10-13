@@ -19,17 +19,27 @@ class Xboard < Formula
 
   head do
     url "https://git.savannah.gnu.org/git/xboard.git", branch: "master"
+
     depends_on "autoconf" => :build
     depends_on "automake" => :build
+    depends_on "gettext" => :build
   end
 
   depends_on "pkg-config" => :build
   depends_on "cairo"
   depends_on "fairymax"
-  depends_on "gettext"
+  depends_on "gdk-pixbuf"
+  depends_on "glib"
   depends_on "gtk+"
   depends_on "librsvg"
+  depends_on "pango"
   depends_on "polyglot"
+
+  on_macos do
+    depends_on "at-spi2-core"
+    depends_on "gettext"
+    depends_on "harfbuzz"
+  end
 
   on_system :linux, macos: :ventura_or_newer do
     depends_on "texinfo" => :build
@@ -39,13 +49,11 @@ class Xboard < Formula
     ENV.append_to_cflags "-fcommon" if OS.linux?
 
     system "./autogen.sh" if build.head?
-    args = ["--prefix=#{prefix}",
-            "--with-gtk",
-            "--without-Xaw",
-            "--disable-zippy"]
-
-    system "./configure", *args
-    system "make"
+    system "./configure", "--disable-silent-rules",
+                          "--disable-zippy",
+                          "--with-gtk",
+                          "--without-Xaw",
+                          *std_configure_args
     system "make", "install"
   end
 

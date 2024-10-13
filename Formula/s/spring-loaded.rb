@@ -7,16 +7,8 @@ class SpringLoaded < Formula
   license "Apache-2.0"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "cf07fe442b529bea88c9a3e8b0476184179150c03c2a5751c0d8ac98911ef2ee"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "cf07fe442b529bea88c9a3e8b0476184179150c03c2a5751c0d8ac98911ef2ee"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "cf07fe442b529bea88c9a3e8b0476184179150c03c2a5751c0d8ac98911ef2ee"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cf07fe442b529bea88c9a3e8b0476184179150c03c2a5751c0d8ac98911ef2ee"
-    sha256 cellar: :any_skip_relocation, sonoma:         "cf07fe442b529bea88c9a3e8b0476184179150c03c2a5751c0d8ac98911ef2ee"
-    sha256 cellar: :any_skip_relocation, ventura:        "cf07fe442b529bea88c9a3e8b0476184179150c03c2a5751c0d8ac98911ef2ee"
-    sha256 cellar: :any_skip_relocation, monterey:       "cf07fe442b529bea88c9a3e8b0476184179150c03c2a5751c0d8ac98911ef2ee"
-    sha256 cellar: :any_skip_relocation, big_sur:        "cf07fe442b529bea88c9a3e8b0476184179150c03c2a5751c0d8ac98911ef2ee"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "eabd6199b0de8ccd7824ae2ccb41e60197c431ba028bae644a2661d6732f3b41"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "56e262bc88aebe0ac04e149b8ae57d346e60d2c04e4306a53ba57b69947acb01"
   end
 
   depends_on "openjdk" => :test

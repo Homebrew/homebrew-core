@@ -1,5 +1,3 @@
-require "language/node"
-
 class Sloc < Formula
   desc "Simple tool to count source lines of code"
   homepage "https://github.com/flosse/sloc"
@@ -8,13 +6,14 @@ class Sloc < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "401c79fd025169082d6f2a07f7855dc67af62872f54bc7d22f0ec59aeef416fe"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "24e858bb8b1a883aa3bff9443299ab2be4b978dbede386c35047ede3958584c5"
   end
 
   depends_on "node"
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", *std_npm_args
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 

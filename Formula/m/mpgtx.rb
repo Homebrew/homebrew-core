@@ -3,7 +3,7 @@ class Mpgtx < Formula
   homepage "https://mpgtx.sourceforge.net/"
   url "https://downloads.sourceforge.net/project/mpgtx/mpgtx/1.3.1/mpgtx-1.3.1.tar.gz"
   sha256 "8815e73e98b862f12ba1ef5eaaf49407cf211c1f668c5ee325bf04af27f8e377"
-  license "GPL-2.0"
+  license "GPL-2.0-only"
 
   livecheck do
     url :stable
@@ -11,6 +11,7 @@ class Mpgtx < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "2ad9aa8dd08b96ea82867c569333e92438e2e7131c287a1f4a2f9ab8be6a3755"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "82dd83969a60031ab766c86fa4859dad5fe9469f457f93ca034418daf00b8ff8"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "b9086ca4f3b6b2448255352f89972039b6695fead5f4a3f7c310b0c27fb6ad9e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "09eb55b5471006050d5a0d02a756c8474d2500ce289ebe8dfbe22a95cfbebc14"
@@ -38,6 +39,6 @@ class Mpgtx < Formula
   end
 
   test do
-    system "#{bin}/mpgtx", "--version"
+    system bin/"mpgtx", "--version"
   end
 end

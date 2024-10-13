@@ -12,6 +12,7 @@ class Nickle < Formula
   end
 
   bottle do
+    sha256 arm64_sequoia:  "3abcc077797e31d2f31e328e30c1ef7153c40309188b1b29ff9243b8b59dbc5d"
     sha256 arm64_sonoma:   "06ce54ef4e9cc8659594d9b7cbc237bc1fee359879e182065b5c37a6d4de67c1"
     sha256 arm64_ventura:  "414a1b8ab2c399266c6d75ce56a01631497d6085af5a85b96ea9a5c8bd87e422"
     sha256 arm64_monterey: "6542cfb65ae60b1c894450498a82c019288985d44c3c041a019c6b5e49f6a063"

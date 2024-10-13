@@ -2,19 +2,20 @@ class Micro < Formula
   desc "Modern and intuitive terminal-based text editor"
   homepage "https://github.com/zyedidia/micro"
   url "https://github.com/zyedidia/micro.git",
-      tag:      "v2.0.13",
-      revision: "68d88b571de6dca9fb8f03e2a3caafa2287c38d4"
+      tag:      "v2.0.14",
+      revision: "04c577049ca898f097cd6a2dae69af0b4d4493e1"
   license "MIT"
   head "https://github.com/zyedidia/micro.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d8090777c1195b1a6b02310097fe38b49f465ee288f74afc7412b5e59b9f154f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d9477ebf70e505a818742f44e12a70fda5befcb658fd87b57e1b0dd338df5bd4"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "0fec4fd7a536df52cbd85b482f465fa1194ee6edba0ba8b4ed8bf5e3af4deab4"
-    sha256 cellar: :any_skip_relocation, sonoma:         "e2c1b9da068a6ad3ff89f01e26b93549d7d64b7db32c3a426d2a2213711d2e75"
-    sha256 cellar: :any_skip_relocation, ventura:        "bb96a61bfa285c4909dd328c513a8e782a3eed5cdedf3442e847dbffb066219e"
-    sha256 cellar: :any_skip_relocation, monterey:       "af0dd24f7dddf4d70a945b1be2853d8cb41975b02486974426780e24065d8bbf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a19f6dbad44db8af101b7b6e7f0b465961f8b6744262e0d66ab5bf00629dee59"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "73b14a51ea6138cc9dd4892ac69c1f1621824315c7d2e40ee8867b39db8e1bcc"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0c51f1a11fe4f9fa233ce8459e4fc4b0105c9d24f3f0855e50979d35b2a3de0e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1875a20cb2321214d7cf88b3f98c045d6d1e303b7889544b04a0c7b234217e4d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "cf26b77b02d965b093ca4dc67710792d8009ede8634a523dbadac3d340b19a6a"
+    sha256 cellar: :any_skip_relocation, sonoma:         "f72a6f86533a0065f6e29964b5f6b88d20528b6cec86411a4cb22fe2aa5a2e89"
+    sha256 cellar: :any_skip_relocation, ventura:        "bf44beaab0f1a685d5bca117b0aa86ce0bfe4edcbd44c12dbcb493fdb5b27c29"
+    sha256 cellar: :any_skip_relocation, monterey:       "05906fffbde05ec39f1f1d2b05c2f73fa43c4f5c5b7bd233fea1a9292a8c9265"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bbb3b288471091c23205f85c2dd964c4c855fb60165f075f5eca4f23ec998a08"
   end
 
   depends_on "go" => :build

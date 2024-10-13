@@ -11,6 +11,7 @@ class Wimlib < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "dc46d8e6c9dd8a394459c8735c03e02dd0ff8e4f887e3849e87793553492a0c6"
     sha256 cellar: :any,                 arm64_sonoma:   "8cbbeec3b621170d4577412d4c0a240e27a07a9471ffa6f28186ccb26c601592"
     sha256 cellar: :any,                 arm64_ventura:  "295512a48ab0166b7e217a83b106bc7e7e01cbf3a6f343eaedfa97a899eb4d92"
     sha256 cellar: :any,                 arm64_monterey: "9f8f4f22847e831915fccdeedfc885108dc2d6f6d80e276d4932484015bba54a"
@@ -47,10 +48,10 @@ class Wimlib < Formula
     system "dd", "if=/dev/random", "of=foo/bar", "bs=#{size}", "count=1"
     # capture an image
     ENV.append "WIMLIB_IMAGEX_USE_UTF8", "1"
-    system "#{bin}/wimcapture", "foo", "bar.wim"
+    system bin/"wimcapture", "foo", "bar.wim"
     assert_predicate testpath/"bar.wim", :exist?
 
     # get info on the image
-    system "#{bin}/wiminfo", "bar.wim"
+    system bin/"wiminfo", "bar.wim"
   end
 end

@@ -1,10 +1,10 @@
 class ScalaAT212 < Formula
   desc "JVM-based programming language"
   homepage "https://www.scala-lang.org/"
-  url "https://downloads.lightbend.com/scala/2.12.19/scala-2.12.19.tgz"
-  mirror "https://www.scala-lang.org/files/archive/scala-2.12.19.tgz"
-  mirror "https://downloads.typesafe.com/scala/2.12.19/scala-2.12.19.tgz"
-  sha256 "d1876659c9298b6664f91aa7ef4b2c5baca6356ff47a9a598070045058968fb2"
+  url "https://downloads.lightbend.com/scala/2.12.20/scala-2.12.20.tgz"
+  mirror "https://www.scala-lang.org/files/archive/scala-2.12.20.tgz"
+  mirror "https://downloads.typesafe.com/scala/2.12.20/scala-2.12.20.tgz"
+  sha256 "cc29d91ad390dc8e9a68d1e2ec6892711b64116f549fecd67a928361d33a39c0"
   license "Apache-2.0"
 
   livecheck do
@@ -13,7 +13,7 @@ class ScalaAT212 < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "abbae8ff17e1068a9a53d595801dc8e34dcbca87c912b871ede0fb6577f19745"
+    sha256 cellar: :any_skip_relocation, all: "c21bd2462426fdcdea41f7f960376c275dc101b2b32e7534647a2c3141081125"
   end
 
   keg_only :versioned_formula
@@ -23,7 +23,7 @@ class ScalaAT212 < Formula
   def install
     inreplace Dir["man/man1/scala{,c}.1"], "/usr/local", HOMEBREW_PREFIX
 
-    rm_f Dir["bin/*.bat"]
+    rm(Dir["bin/*.bat"])
     doc.install Dir["doc/*"]
     share.install "man"
     libexec.install "bin", "lib"

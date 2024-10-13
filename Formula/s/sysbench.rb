@@ -8,13 +8,15 @@ class Sysbench < Formula
   head "https://github.com/akopytov/sysbench.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "17c56c40b2c5ab0b9771892471db04149ca177750717be9ce5af114b6f893b62"
-    sha256 cellar: :any,                 arm64_ventura:  "2cd8825fab0c36c7cadd7e8cd6251323f54f52733ea5d46927dfb47b946ca217"
-    sha256 cellar: :any,                 arm64_monterey: "7873462239a08bd00fae9c58e5d4d32c353c1ea2358cacb70128540c2ad99f9e"
-    sha256 cellar: :any,                 sonoma:         "a6fa13a7b2d27f397dbc1f0b5e81bba22f719fa7d239c0e4fce2481ad82b553a"
-    sha256 cellar: :any,                 ventura:        "3e6f1e3c2daec2950ce462463dbab70c16aa8d89f71a174262167471d91259e6"
-    sha256 cellar: :any,                 monterey:       "afbac084c8d329226293a3150c99e89b6d9cf8cebc45c1c2db8587fb0c5530a2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "26773367916c37a8a6eb26390cd72c953e199cf6d0bd61cf38531aa82b991453"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia:  "7d0ec825d215ef6254a94b211fac3f8e0dd8c9216161f94fb60b452736efbe9e"
+    sha256 cellar: :any,                 arm64_sonoma:   "4e92ceff385e3387f6f15d7c77394c2be82ff22adafd9d00f080548bca4adfe7"
+    sha256 cellar: :any,                 arm64_ventura:  "e3ee9a9bd7ff39e36970756e135e4bef97c78cd9530be51f1d2597f6a0f504bb"
+    sha256 cellar: :any,                 arm64_monterey: "78ea88f48d0c55422c01c0b58c890f1dcbfa5841446c549a32186ea37fada432"
+    sha256 cellar: :any,                 sonoma:         "c68d555ecd70155bd61acae1f1300572b5caf0106b730c3d4e2b2219fa20db13"
+    sha256 cellar: :any,                 ventura:        "b32eb719d9495d239f5be45126d2c2477a9db451e19fc69933cf9460ef8f7a06"
+    sha256 cellar: :any,                 monterey:       "e3add99698c5fe878ea1d89dc51ff49802b466e6d96875faabf7fbb77ccf2733"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d7875147b492684aa098117c40d2a6f2cc8997945ef94d27cb83a7f1a20e8ec2"
   end
 
   depends_on "autoconf" => :build
@@ -23,10 +25,15 @@ class Sysbench < Formula
   depends_on "pkg-config" => :build
   depends_on "libpq"
   depends_on "luajit"
-  depends_on "mysql-client@8.0" # Does not build with > 8.3 https://github.com/akopytov/sysbench/issues/522
+  depends_on "mysql-client"
   depends_on "openssl@3"
 
   uses_from_macos "vim" # needed for xxd
+
+  on_macos do
+    depends_on "zlib"
+    depends_on "zstd"
+  end
 
   def install
     system "./autogen.sh"
@@ -35,6 +42,6 @@ class Sysbench < Formula
   end
 
   test do
-    system "#{bin}/sysbench", "--test=cpu", "--cpu-max-prime=1", "run"
+    system bin/"sysbench", "--test=cpu", "--cpu-max-prime=1", "run"
   end
 end

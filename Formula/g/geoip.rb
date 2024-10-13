@@ -8,6 +8,7 @@ class Geoip < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any,                 arm64_sequoia:  "5ecf048e55f55fd13e12a4a818f5ecb4147f1cce670463b933983972dd9399f6"
     sha256 cellar: :any,                 arm64_sonoma:   "8654c865535c713142b5c4ac3dffc246a0651c06b60111983c043fcad880da3e"
     sha256 cellar: :any,                 arm64_ventura:  "40ef31c663a905f3786b8e410f651ee97cc0ae805d7c22d52c20b9c518ba12ba"
     sha256 cellar: :any,                 arm64_monterey: "c2ae63b815cc930a90d57c78a1d7a51a57085d67aa20431db716982353a950b2"

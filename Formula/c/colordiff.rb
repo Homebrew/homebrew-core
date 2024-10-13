@@ -29,6 +29,6 @@ class Colordiff < Formula
   test do
     cp HOMEBREW_PREFIX+"bin/brew", "brew1"
     cp HOMEBREW_PREFIX+"bin/brew", "brew2"
-    system "#{bin}/colordiff", "brew1", "brew2"
+    system bin/"colordiff", "brew1", "brew2"
   end
 end

@@ -7,6 +7,7 @@ class Ddrescue < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "418bae4890b661d379f4e813cfe45e7b903ce4719ce3fb3b86c1d3aa3b5ae84c"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "66bc1164eadaa4c7c96e26c87aaa8fdf2a2e9b22cae76895f79c65000bbf6fb3"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "677aa1abaed0f26eab73b60d098e20c32aa8dd653c8d75ec94415f35544f158c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "9108e368d2922faeaf63696575756fd87a4b8f63a135699c165945f3b9408c41"

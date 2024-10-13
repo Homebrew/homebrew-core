@@ -3,10 +3,11 @@ class LibbitcoinClient < Formula
   homepage "https://github.com/libbitcoin/libbitcoin-client"
   url "https://github.com/libbitcoin/libbitcoin-client/archive/refs/tags/v3.8.0.tar.gz"
   sha256 "cfd9685becf620eec502ad53774025105dda7947811454e0c9fea30b27833840"
-  license "AGPL-3.0"
+  license "AGPL-3.0-or-later"
   revision 2
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "cb3c6f9dfbbc5aa63e4eed52279f6fe51adb275a0116661eac8e250297c0d205"
     sha256 cellar: :any,                 arm64_sonoma:   "7aab15e9fbacb91b793be00809efb2634813fb719f171d698d8acdc9b73bab9d"
     sha256 cellar: :any,                 arm64_ventura:  "82d9f59cee3f405fe35961470c6404a1a44d026935414bdce4baff5401c2b2e9"
     sha256 cellar: :any,                 arm64_monterey: "30cfca391b2f95c09305b27b952c23151e59e9a85c767ec314ac125dee9985ab"

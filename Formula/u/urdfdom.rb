@@ -1,10 +1,9 @@
 class Urdfdom < Formula
   desc "Unified Robot Description Format (URDF) parser"
   homepage "https://wiki.ros.org/urdf/"
-  url "https://github.com/ros/urdfdom/archive/refs/tags/4.0.0.tar.gz"
-  sha256 "9848d106dc88dc0b907d5667c09da3ca53241fbcf17e982d8c234fe3e0d6ddcc"
+  url "https://github.com/ros/urdfdom/archive/refs/tags/4.0.1.tar.gz"
+  sha256 "46b122c922f44ec32674a56e16fd4b5d068b53265898cbea2c3e1939ecccc62a"
   license "BSD-3-Clause"
-  revision 1
 
   # Upstream uses Git tags (e.g. `1.0.0`) to indicate a new version. They
   # created a few releases on GitHub in the past but now they simply use tags.
@@ -15,13 +14,12 @@ class Urdfdom < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "23ef43afad8dc543b4160fce22b692cfcbf4cb720412dbc43116eb23a56ef6c9"
-    sha256 cellar: :any,                 arm64_ventura:  "662d33ada7489c772466fe72ab7efaf60aad3e05b8e083ef7e5519e948304287"
-    sha256 cellar: :any,                 arm64_monterey: "93c2592a0fe16506c95af1cf603e1011ac1d0ee49cb620ed9e2605a2af9d8589"
-    sha256 cellar: :any,                 sonoma:         "52347646204fb3ce2334a627162a120fcabbeb210f1663b3b4d0e2a5daa7246e"
-    sha256 cellar: :any,                 ventura:        "af0bd85409870501150192c1972fcff204702f82facb6a03ed8c149c05e2cad4"
-    sha256 cellar: :any,                 monterey:       "cd1914b68c197c8b4f67274a2d67d134fcc281404bb6809d6280147f6a8954fc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c0ed65ec038f541dcb4554b4e6f663efd8aca05e27fb6cab4146cf4a2928a3b9"
+    sha256 cellar: :any,                 arm64_sequoia: "d9c585056b45fa2d64da4613371f508b31ad4611f6510c7fe4f90ead4586fbfd"
+    sha256 cellar: :any,                 arm64_sonoma:  "2fc91d9d915c001a4bb09644ed81c3826da2bf2ac9c28c344d39f1bc68c635d5"
+    sha256 cellar: :any,                 arm64_ventura: "dd66ef35d29fcb96739777b2861277b7f26aa4300595d6c32d52a391c80a575b"
+    sha256 cellar: :any,                 sonoma:        "0c1cfbccf4ec391988a01790b5bc2c2d50d2335f74c55599772465c13e6f0505"
+    sha256 cellar: :any,                 ventura:       "fc7e201c27e4dff5f55208e03489194374f0b237b09cf4151561fb172e9b60f9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b3c2301cc4856402689959e4d995486c4c1b754a4fe3ca18128b2a202a986669"
   end
 
   depends_on "cmake" => :build
@@ -93,6 +91,6 @@ class Urdfdom < Formula
       </robot>
     EOS
 
-    system "#{bin}/check_urdf", testpath/"test.xml"
+    system bin/"check_urdf", testpath/"test.xml"
   end
 end

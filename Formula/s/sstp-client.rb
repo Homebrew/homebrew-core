@@ -1,20 +1,21 @@
 class SstpClient < Formula
   desc "SSTP (Microsoft's Remote Access Solution for PPP over SSL) client"
   homepage "https://sstp-client.sourceforge.net/"
-  url "https://gitlab.com/sstp-project/sstp-client/-/releases/1.0.19/downloads/dist-gzip/sstp-client-1.0.19.tar.gz"
-  sha256 "f14647a58eaa5e6aa65e348225dd3331a11a28ecd2e8ce6234bce25c53144505"
+  url "https://gitlab.com/sstp-project/sstp-client/-/releases/1.0.20/downloads/dist-gzip/sstp-client-1.0.20.tar.gz"
+  sha256 "6c84b6cdcc21ebea6daeb8c5356dcdfd8681f4981a734f8485ed0b31fc30aadd"
   license "GPL-2.0-or-later"
   version_scheme 1
   head "https://gitlab.com/sstp-project/sstp-client.git", branch: "master"
 
   bottle do
-    sha256 arm64_sonoma:   "2953f037ec852640b2b7d14354e8a9419b43141cd9809145d7a9eb14c99a3ced"
-    sha256 arm64_ventura:  "ad03a3a56ce84af2eeb91380f6b5effbff184506e43959319604186a199e9c18"
-    sha256 arm64_monterey: "5ceac69e2991116fe7ac5c77784aa296495fa15ace1885172a6752fb1f4b8029"
-    sha256 sonoma:         "1ec6f61f44a78d8989b253f0c5880d99318326ddd46e745b6ab7c4b247cf30a8"
-    sha256 ventura:        "f299f9f56b2d9a71172762a8fdfcff2af9b0398905329b25c9329c44088b9c16"
-    sha256 monterey:       "e52800df6c7a1b575f7bc10bcb3977f0d494f553f3f77ec3cdac58713ddf20f0"
-    sha256 x86_64_linux:   "7c50dd78ef394ec8eb4ec18347a3c13e529b3a01315be32a048a0da282488006"
+    sha256 arm64_sequoia:  "ff9e147017fa32a2f65c2ec46fdca292e7e92f3bb7cd6bdfa5d8ef77b34acf82"
+    sha256 arm64_sonoma:   "4c4f9aa5820641e408e0106b9db844be89615c289b52ca07c5e421b157a1a4c6"
+    sha256 arm64_ventura:  "26446c059cd275fc49d4f4475757f2a700ecef734fef50e99d55e352f4c04c93"
+    sha256 arm64_monterey: "c6d91a90c2988a96b4be0ea9ce0120944471c0164ea8052fb45356710fbbf8bd"
+    sha256 sonoma:         "184766c884ccf2bd80dd683a219ceb022038474b7a620e2c3ce496625c1302ed"
+    sha256 ventura:        "d1cf3956def117437343e10197b14bcbc03fd6a2dc96278b5036f2153085dc09"
+    sha256 monterey:       "015cfdcec2002f2c9ec54e06d070e86c28222f776ef651625f255ff5238e0a5c"
+    sha256 x86_64_linux:   "30078ed4805a4e3b52753c60ad87590d21a8a5289b31fde3d27be0116f179b2b"
   end
 
   depends_on "pkg-config" => :build

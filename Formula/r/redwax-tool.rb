@@ -11,6 +11,7 @@ class RedwaxTool < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "8b0971fe2ff49ae26fc853202920ecaa633f5512352b1127da457087b6e7559a"
     sha256 cellar: :any,                 arm64_sonoma:   "7c0cbe89dac3c1b0f7ebf39a437453b374524835836a56fc6439e7ea6b4f7f82"
     sha256 cellar: :any,                 arm64_ventura:  "72fa28659675b26f3b9bed25274a49616ea13d44d0f2434f7b8af67cbe2ceae8"
     sha256 cellar: :any,                 arm64_monterey: "f49ac977fb00a25483f510c8ff21cb0b49700f3f0f931019d6b697a5cafa52e4"

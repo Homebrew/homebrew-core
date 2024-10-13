@@ -10,6 +10,7 @@ class Waypoint < Formula
   head "https://github.com/hashicorp/waypoint.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "d2e806498a739c6cb8d80559fb39dc50809ac44e8eabec1a6ddd3897d6179865"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5cb2babffdd9b657b72c097f1806e99654797855aa12c0f3d51fd3f4fb318064"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "a4367345e7868f66e6a09973b4f4b6ca3ac6a677eb206aeb5ad2b110aee837fa"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d55315b0a0f124132b146eb42ad222556c60e97c26b28975f1ac500fab5b2b53"
@@ -22,7 +23,7 @@ class Waypoint < Formula
   end
 
   # https://www.hashicorp.com/blog/hashicorp-adopts-business-source-license
-  deprecate! date: "2023-09-27", because: "will change its license to BUSL on the next release"
+  disable! date: "2024-09-27", because: "will change its license to BUSL on the next release"
 
   depends_on "go" => :build
   depends_on "go-bindata" => :build

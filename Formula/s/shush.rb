@@ -7,6 +7,7 @@ class Shush < Formula
   head "https://github.com/realestate-com-au/shush.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "2abec620d598ba0b7655e71007dc4e0bd77c7ecf89f540c85c7cce5b9594a766"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e4eddd05ead07c7e5aba121ce9f52d9ebde508f13582e309b2cc94f9e7594775"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "235bbae46feb07e98354987aa2b7139dc0124af9f6420bd8427218468239649f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "8d895bc3945dc850cbabfed017e8fe0bdaad6ac2db22e0eef6b61e28dac59a45"

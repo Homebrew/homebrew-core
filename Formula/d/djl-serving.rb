@@ -13,20 +13,15 @@ class DjlServing < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "766701b17c16290592067f32366742f212902faac116aa1f1230c8ff2f3b81a8"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "766701b17c16290592067f32366742f212902faac116aa1f1230c8ff2f3b81a8"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "766701b17c16290592067f32366742f212902faac116aa1f1230c8ff2f3b81a8"
-    sha256 cellar: :any_skip_relocation, sonoma:         "766701b17c16290592067f32366742f212902faac116aa1f1230c8ff2f3b81a8"
-    sha256 cellar: :any_skip_relocation, ventura:        "766701b17c16290592067f32366742f212902faac116aa1f1230c8ff2f3b81a8"
-    sha256 cellar: :any_skip_relocation, monterey:       "766701b17c16290592067f32366742f212902faac116aa1f1230c8ff2f3b81a8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "06c0535de1e8451be38bd6098c8c2f353a3791859e5f4749ca374f14497a3d79"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "bc72e64ae3ce5bfd466043690f54a5834348ed8ab3b45d1599e32a5ac26c2642"
   end
 
   depends_on "openjdk"
 
   def install
     # Install files
-    rm_rf Dir["bin/*.bat"]
+    rm_r(Dir["bin/*.bat"])
     mv "bin/serving", "bin/djl-serving"
     libexec.install Dir["*"]
     env = { MODEL_SERVER_HOME: "${MODEL_SERVER_HOME:-#{var}}" }

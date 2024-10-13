@@ -1,8 +1,8 @@
 class Cdi < Formula
   desc "C and Fortran Interface to access Climate and NWP model Data"
   homepage "https://code.mpimet.mpg.de/projects/cdi"
-  url "https://code.mpimet.mpg.de/attachments/download/29309/cdi-2.4.0.tar.gz"
-  sha256 "91fca015b04c6841b9eab8b49e7726d35e35b9ec4350922072ec6e9d5eb174ef"
+  url "https://code.mpimet.mpg.de/attachments/download/29658/cdi-2.4.3.tar.gz"
+  sha256 "7bf3df83968e15d718857a4823c0bae7d9c16ea17ca95524e1e5b68ab73d2c0d"
   license "GPL-2.0-only"
 
   livecheck do
@@ -11,13 +11,12 @@ class Cdi < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "8c26a7e5b5908520142602d64d6f6f3cd418d7c074a33bdce4797a46d7ef6e69"
-    sha256 cellar: :any,                 arm64_ventura:  "38380367199754d9dda02b4a7ceeabed762b97f5dfced787341e99fbf87d394d"
-    sha256 cellar: :any,                 arm64_monterey: "2cec357ca25bc45418fbb8e088ef6dd01eb479c15571cf34026c3d69ef8c2161"
-    sha256 cellar: :any,                 sonoma:         "cefbb36095b6131ed994d93c0110671e1e9e32f3b17b5333726b0eb185379b95"
-    sha256 cellar: :any,                 ventura:        "3f2a8147426eef4ba20cb40b8e1d866e78eee21c9b016c0fb4515e2372c21c94"
-    sha256 cellar: :any,                 monterey:       "980dbd3e42b386ce5380a54be7bc4e97303562d43c28567adc4215f729d64d23"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2fc0b60386f888ccd9d9acb0d628d8f432fe1b0a9732343f023f586dc37e82e1"
+    sha256 cellar: :any,                 arm64_sequoia: "40afb9a4266c870e3b8a6cc4eedab7c3911fe3b72ae520c3fff92fabe00b6b66"
+    sha256 cellar: :any,                 arm64_sonoma:  "bdf7e3284f561677b004b52473f13894a406ecd49fe60f1e1577aa2623950baf"
+    sha256 cellar: :any,                 arm64_ventura: "ec51ac120f66ba071d6f16067730974b41bb5326ec9e21f827d93943a0f4e956"
+    sha256 cellar: :any,                 sonoma:        "4652de47f7701dd0ddaae4905bd0e9ce6fed470c92bbc5beb3676c0ec10c4d46"
+    sha256 cellar: :any,                 ventura:       "a6523b754420a7653b26e08e8180c24a412b393194ffc1a2a4ff915a97de8d04"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7977e0ed395f88c6aa0d80b9a0e8765bf1a147baa70fc6a08244a1271a8c1c7e"
   end
 
   depends_on "eccodes"
@@ -25,7 +24,12 @@ class Cdi < Formula
   depends_on "libaec"
   depends_on "netcdf"
   depends_on "proj"
+
   uses_from_macos "python" => :build
+
+  on_linux do
+    depends_on "util-linux"
+  end
 
   def install
     args = %W[
@@ -51,6 +55,7 @@ class Cdi < Formula
         return 0;
       }
     EOF
+
     system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lcdi", "-o", "test"
     assert_match "CDI library version : #{version}", shell_output("./test")
   end

@@ -12,6 +12,7 @@ class NagaCli < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "c188ac74312bf3101d075a5246df61b578278f07762fb6e8493ad2b2624649af"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "42e71c4549c315dc91834ce7d227b9d9f0415be3597df973fa34704270ac6ab8"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "0001ad2fdf8d515a98cb9e6bbcdcb6fd758adc93a0a38e326b36a0c812e05d1b"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "08a1b293aaf4ba443bb0659b02392025643e86f6411cf5dfd9f5271392341e06"

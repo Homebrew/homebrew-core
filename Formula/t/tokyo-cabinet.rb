@@ -13,6 +13,7 @@ class TokyoCabinet < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_sequoia:  "4f3639469a608b0ad65b82a7529849eb87808348165e167cb3ff347cfb92dd54"
     sha256 arm64_sonoma:   "2b6225400e5958eca5bc1c1b2539e4b511020af2c268b4d955f3a05bffbaa7db"
     sha256 arm64_ventura:  "50d14af6225ba943a9fda88ddfa7527525ace16d00fa6a67bb47a58bde2bad17"
     sha256 arm64_monterey: "8613d58abe525cbea2a46d918013fc2372666dd3a158c49d71cc44c82aaad340"

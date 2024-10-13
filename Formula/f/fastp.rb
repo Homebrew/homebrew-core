@@ -7,6 +7,7 @@ class Fastp < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia:  "71fe30d7e3a8c3dc5db10da66d8972a7387e357ae9f86b5e6bbb04e22e7e72a6"
     sha256 cellar: :any,                 arm64_sonoma:   "6bace081bf270bce7cb74c99ae3a6e6969ed390f5eb1eecabd2c4d25b17e0ad6"
     sha256 cellar: :any,                 arm64_ventura:  "e4af98afd3553bc385ecf1c723f21f15932f9bef5819f340e593a5782817ff45"
     sha256 cellar: :any,                 arm64_monterey: "0d91c6bf282d1ec7fa7b91a15e0daa6387788b5b0ee816334e3ae521daa7013f"

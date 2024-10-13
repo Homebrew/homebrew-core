@@ -7,13 +7,13 @@ class Arpack < Formula
   head "https://github.com/opencollab/arpack-ng.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "6a70cd362206df794dd14f27e7bf9e5ada8a72218c58f75ac0fab36ef48040b5"
-    sha256 cellar: :any,                 arm64_ventura:  "e5f2b6aba178d03d4f6368e592c272494d5764388c2569dfe3f6ca983a47b848"
-    sha256 cellar: :any,                 arm64_monterey: "4ae01098f213d600751ca24a8ca22f3c28fb756ad76cb0002fd41e3f72e4ce57"
-    sha256 cellar: :any,                 sonoma:         "bb47818fc86810a6d9e244b45444dd5dee5994141b2114add32e13a233bf4c8e"
-    sha256 cellar: :any,                 ventura:        "65324d54d28be2d0da3d0e4eb2d6512b7138cae0caae95cd0365f06cd2fcf126"
-    sha256 cellar: :any,                 monterey:       "962692830a8f4e558d76f3110d9b7238db3ab07e5db507350cd182f7691eccd5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a61fbf37c63dc2c05c91f824d48bffa2c77c6d824384b14ecf40f02130a55985"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "bbc370902c31da397dea1116ad0cea384c2ab8fabebfcf57a5b59dead58ed53d"
+    sha256 cellar: :any,                 arm64_sonoma:  "2a38b56bc96151574fd11c85f0244f63a31f3d51305b1902b2cf2bd21c7784fa"
+    sha256 cellar: :any,                 arm64_ventura: "653947ce18a5e7189e1e45a568e96670a847583cc46d979fde56f8fc295f2704"
+    sha256 cellar: :any,                 sonoma:        "1694ae0fc82302280d5c96327965ca61e32bcc2c4aa75a41ba1eec6e2b0ec38f"
+    sha256 cellar: :any,                 ventura:       "965eca12081b1cc6152ae3ec03c97bc9e3e90ee82c5211350e476cb90b88214e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a96492c90636b4f299ae95a9dfcf92a9b19caa8219dd6cd27bbd73c1d7d4d9f0"
   end
 
   depends_on "autoconf" => :build
@@ -34,7 +34,7 @@ class Arpack < Formula
       F77=mpif77
       --enable-mpi
       --enable-icb
-      --enable-icb-exmm
+      --enable-eigen
     ]
 
     system "./bootstrap"
@@ -50,9 +50,10 @@ class Arpack < Formula
 
   test do
     ENV.fortran
-    system ENV.fc, "-o", "test", pkgshare/"dnsimp.f", pkgshare/"mmio.f",
-                       "-L#{lib}", "-larpack",
-                       "-L#{Formula["openblas"].opt_lib}", "-lopenblas"
+    args = (OS.mac? && MacOS.version >= :sequoia) ? ["-O2"] : []
+    system ENV.fc, *args, "-o", "test", pkgshare/"dnsimp.f", pkgshare/"mmio.f",
+                   "-L#{lib}", "-larpack",
+                   "-L#{Formula["openblas"].opt_lib}", "-lopenblas"
     cp_r pkgshare/"testA.mtx", testpath
     assert_match "reached", shell_output("./test")
   end

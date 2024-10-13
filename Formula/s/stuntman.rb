@@ -13,6 +13,7 @@ class Stuntman < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "0fb5a56446295b44863623d302e1d87d56304f6e48d8afa3b465fd6cb191c891"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7f074ff4dfa646a4ddd4bca3606f9e0b69667e79670fbc119b3c538db13fe58a"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f9ff0ae91033b2b01cc9f72180bc752ef48318ec70f538caf943f0baf1fd3bff"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "54d82da2aa9283edd6641bd761cd1c45411d4305ae648672ae3e98079d841894"
@@ -33,11 +34,13 @@ class Stuntman < Formula
   end
 
   def install
+    ENV.cxx11
+
     system "make"
     bin.install "stunserver", "stunclient", "stuntestcode"
   end
 
   test do
-    system "#{bin}/stuntestcode"
+    system bin/"stuntestcode"
   end
 end

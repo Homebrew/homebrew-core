@@ -7,14 +7,17 @@ class Rmate < Formula
   head "https://github.com/textmate/rmate.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "f17a839cae2678598895cdbd94ecceb0197ddd0c6e94e17768a5580c3cf9cc98"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "fb6dd771050399730a0a7592fe0a135705a294b10fd02263bd6cfcbc284cee2a"
   end
+
+  uses_from_macos "ruby"
 
   def install
     bin.install "bin/rmate"
   end
 
   test do
-    system "#{bin}/rmate", "--version"
+    system bin/"rmate", "--version"
   end
 end

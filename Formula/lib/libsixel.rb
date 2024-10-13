@@ -3,10 +3,12 @@ class Libsixel < Formula
   homepage "https://github.com/saitoha/sixel"
   url "https://github.com/libsixel/libsixel/archive/refs/tags/v1.10.3.tar.gz"
   sha256 "028552eb8f2a37c6effda88ee5e8f6d87b5d9601182ddec784a9728865f821e0"
+  license "MIT"
   revision 1
   head "https://github.com/libsixel/libsixel.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "5d4dacdde6bc424422336bf8ca28625f63f724a9c86bf89cd959c1535c4c55e0"
     sha256 cellar: :any,                 arm64_sonoma:   "1bef85a71ca069c1cd5a951828e375c28bb7632ed17fbca03abbe132711e47e5"
     sha256 cellar: :any,                 arm64_ventura:  "22e14314971f7e675545480da01b9b9d32ffb8109f71520071dfe88f82504455"
     sha256 cellar: :any,                 arm64_monterey: "056f4c105631db9ec5d1ac420ec491a51a130c03707147d5962383611d4d4aba"
@@ -25,13 +27,13 @@ class Libsixel < Formula
   depends_on "libpng"
 
   def install
-    system "meson", *std_meson_args, "build", "-Dgdk-pixbuf2=disabled", "-Dtests=disabled"
-    system "meson", "compile", "-C", "build", "-v"
+    system "meson", "setup", "build", "-Dgdk-pixbuf2=disabled", "-Dtests=disabled", *std_meson_args
+    system "meson", "compile", "-C", "build", "--verbose"
     system "meson", "install", "-C", "build"
   end
 
   test do
     fixture = test_fixtures("test.png")
-    system "#{bin}/img2sixel", fixture
+    system bin/"img2sixel", fixture
   end
 end

@@ -6,6 +6,7 @@ class Julius < Formula
   license "BSD-3-Clause"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "d0918ba6c8c4c755b0a7ad73e0efcc5e6a20924490acebf3ff0af45aef2dcfd1"
     sha256 cellar: :any,                 arm64_sonoma:   "3b9b28223b4853e92cc9be12a3e46ab876cdf7e48fe7fce4ce2c22459ce91db3"
     sha256 cellar: :any,                 arm64_ventura:  "345963770e4eaa6cd0a4308d657f4b0a45b00d30e23d5e7aba9143dee08f418b"
     sha256 cellar: :any,                 arm64_monterey: "61e0a2f95974a4fdfaee2253963fe3ab20284c4325e0f34aa22bc4a9e40a09c0"

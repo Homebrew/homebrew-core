@@ -13,6 +13,7 @@ class Voroxx < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "40c5b9958a43980587fa479d8569ca415ff2482d4143e8d5da22e2bc3b891dd4"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "228c952c3cfcc45947c874a2d01425da52cfb8e2a3f25b58093e7d4982881ef6"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "294a569cec4996cd68d73f2e5d12d168c1640c6ff8fcd6813d2249e2724787c2"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "234c18e07a682ad148639ee65409b11eeda9582c05dfec5fb10e5cae5419b0ad"

@@ -11,6 +11,7 @@ class Libpst < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "9f11e376789aaaa81e57b01967f3c9bf1148a6d14885045c311df75e80fad7f9"
     sha256 cellar: :any,                 arm64_sonoma:   "507bcf7846c89dac455e346c2c6bc713df84a70f5888660dd74bbc9b65c38d16"
     sha256 cellar: :any,                 arm64_ventura:  "7c34f9d5b589d9b126e0da006753bc9dcb8eba59aa3f2440bda561d7cea7521e"
     sha256 cellar: :any,                 arm64_monterey: "19a3a8b7fde2b29f509e69232fd8ff7d924c5df201d63cf40512cd7b4831056d"
@@ -25,19 +26,19 @@ class Libpst < Formula
   end
 
   depends_on "pkg-config" => :build
+
   depends_on "boost"
-  depends_on "gettext"
+  depends_on "glib"
   depends_on "libgsf"
 
-  def install
-    args = %W[
-      --disable-dependency-tracking
-      --prefix=#{prefix}
-      --disable-python
-    ]
+  uses_from_macos "zlib"
 
-    system "./configure", *args
-    system "make"
+  on_macos do
+    depends_on "gettext"
+  end
+
+  def install
+    system "./configure", "--disable-python", *std_configure_args.reject { |s| s["--disable-debug"] }
     system "make", "install"
   end
 

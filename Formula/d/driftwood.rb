@@ -7,6 +7,7 @@ class Driftwood < Formula
   head "https://github.com/trufflesecurity/driftwood.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "248ffb3e4e1f77251d56f7a9c0a0ed6be2b90c4d31e151ad0ea96a1914f47403"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "05adc63ca02329151e5f5b07639f7dec8de81608b3806ee9dbe3319798bfda5d"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "bedf93a308a393359152d89abfd3a7abe810ad639e70f76291997b846e85dd24"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "bedf93a308a393359152d89abfd3a7abe810ad639e70f76291997b846e85dd24"

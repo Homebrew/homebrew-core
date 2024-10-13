@@ -7,6 +7,7 @@ class OrocosKdl < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia:  "56fb6d1bb7796ec39b73f9a1cd8da6f9f946549e90517b526139761bfbd2f820"
     sha256 cellar: :any,                 arm64_sonoma:   "1f64cef75b8d38a0f735e2e173b8fbfe1eaec26519bfee0f05ee5be52e0fd26e"
     sha256 cellar: :any,                 arm64_ventura:  "819c0a9c91a7572f68752d59feb7af82a9b91426d8cd7c14f1614a353f0e7a6e"
     sha256 cellar: :any,                 arm64_monterey: "5b68c4676de398ade876c5c31510527a2b77be2c4b5cb992f5a8beb208d89d52"

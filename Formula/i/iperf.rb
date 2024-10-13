@@ -11,6 +11,7 @@ class Iperf < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "5b7d862bff39bacaa05bc8998eb26dc12e5a2d40894d5e5b0a73565d32bca7a0"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9bf46728f92fbd32daabb6a35d6ac65ed54a5285b017a4b544f9a9cefabaa5a5"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "e49f0e744808cb351870679663cbd622597a6c9513389f8857f9461fac26f2ee"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "39d2a630219f6ae3fe31912068260c1419feac89de34fd3944207a5f6303a820"

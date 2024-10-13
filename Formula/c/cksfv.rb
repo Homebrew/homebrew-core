@@ -11,6 +11,7 @@ class Cksfv < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "96608dc540a21f5e14b2a1731b0d6350c00063db4528a1bcb56186188a157c00"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "25cb1cccb8aed81f49c5c9eee87e80c6148164a13060e59f429a61d91307a1c1"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "0664f91348b09bb20a99e87161d8d54d4ea946ff10a1f4798098441b2f1badd5"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "581d29d48ab1ac605ffae68890cbd12419387331fdeb794f0055300a00af7ca5"

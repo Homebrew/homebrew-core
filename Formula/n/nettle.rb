@@ -7,6 +7,7 @@ class Nettle < Formula
   license any_of: ["GPL-2.0-or-later", "LGPL-3.0-or-later"]
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "8dd077a363c69d5d31968c7cfbc79dd5ec856b58957bc081f6f38632d59029cf"
     sha256 cellar: :any,                 arm64_sonoma:   "79f26a53dfc0202c437153961d441a8793fb651d1eb61930f1558d139cdfd99a"
     sha256 cellar: :any,                 arm64_ventura:  "cc13fe4481bb5c606b811561da643eace9e0da7f30de62ced74811659b8bb41d"
     sha256 cellar: :any,                 arm64_monterey: "8be68cdd3cc9b2df465840fd843b50e6bb10fda11c5711e50f002bb31267cb1f"

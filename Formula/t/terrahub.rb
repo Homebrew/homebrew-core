@@ -1,5 +1,3 @@
-require "language/node"
-
 class Terrahub < Formula
   desc "Terraform automation and orchestration tool"
   homepage "https://docs.terrahub.io"
@@ -13,22 +11,21 @@ class Terrahub < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3190af7ca474630c4d8ee445b0dbb8241d64d876621ffb326a4b7334f34bd86c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "53cdaed21f507b80fef55ee2f4fd0ac0b6f0b5b381cb513e1b8d95c5c10cfab5"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d58eef3198f6b31645a2917117c6a993fdc4cc9210c1ba094fd3eca7ead44fb6"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d58eef3198f6b31645a2917117c6a993fdc4cc9210c1ba094fd3eca7ead44fb6"
-    sha256 cellar: :any_skip_relocation, sonoma:         "80e878ac2cf7f29ac02df99f02f2e05fa528aa791314199819d2deef0e40b704"
-    sha256 cellar: :any_skip_relocation, ventura:        "cd5ed45a5ebea49b52f67d81f04a5a5c2236e797c38b14a5927be87df64bb9c3"
-    sha256 cellar: :any_skip_relocation, monterey:       "340fc28fb08e1437212792e0bbd02220d2af586f6234b326a5bcc6b3274869c7"
-    sha256 cellar: :any_skip_relocation, big_sur:        "340fc28fb08e1437212792e0bbd02220d2af586f6234b326a5bcc6b3274869c7"
-    sha256 cellar: :any_skip_relocation, catalina:       "340fc28fb08e1437212792e0bbd02220d2af586f6234b326a5bcc6b3274869c7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d58eef3198f6b31645a2917117c6a993fdc4cc9210c1ba094fd3eca7ead44fb6"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "338bea3d5cf73bd46b3c98463c61454328de8bd281762ee4e504408e851622c6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c1c3889a86c9e36878ef3e3e9695c1033e06ba5843c58a9dc852684f0ee9911b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c1c3889a86c9e36878ef3e3e9695c1033e06ba5843c58a9dc852684f0ee9911b"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c1c3889a86c9e36878ef3e3e9695c1033e06ba5843c58a9dc852684f0ee9911b"
+    sha256 cellar: :any_skip_relocation, sonoma:         "bf9b067ad0af2c0b17f573103306810203382430682d497201701f944d4394b8"
+    sha256 cellar: :any_skip_relocation, ventura:        "bf9b067ad0af2c0b17f573103306810203382430682d497201701f944d4394b8"
+    sha256 cellar: :any_skip_relocation, monterey:       "bf9b067ad0af2c0b17f573103306810203382430682d497201701f944d4394b8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4916e5335be420a247d7aa5785bb29ac1e17d3bd55015e3cb8d75e726b73d656"
   end
 
   depends_on "node"
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", *std_npm_args
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 

@@ -6,6 +6,7 @@ class LibvisualProjectm < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256                               arm64_sequoia:  "e1413357ae5900e2662f197184b631759a12af9015317566a99db4d70bdc6ffe"
     sha256                               arm64_sonoma:   "b14e174621f4a80eaab94df8972bc26ec2a834a8d84bf66485deceb4b77e0a85"
     sha256                               arm64_ventura:  "7e9ba6250e71e8005b0e00cc6f50f9991cf5158272a439788c0e4f024d9e8eb5"
     sha256                               arm64_monterey: "2d7f170c6c1b1d8fcb45fe09e6a7e44c3662a6d56f78e48fbfe818e8881a39e9"

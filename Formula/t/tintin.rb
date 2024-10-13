@@ -11,6 +11,7 @@ class Tintin < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "dac578a0c6c96217dd1dcd1d0c4be5716ca9876798fbc990bf00ef6a0c34f643"
     sha256 cellar: :any,                 arm64_sonoma:   "64acefaf2f1dae303c72b1c27e507a16198b2dd38fe051aa98bfcc96beb413e5"
     sha256 cellar: :any,                 arm64_ventura:  "93a881b57f3f805973ddf227470ed4b3f6d71ab49f4dfab877d8997a1f390a89"
     sha256 cellar: :any,                 arm64_monterey: "807575c3e4722326d51bb213a11d9bb62d22e30c27494e0e3b09eef34d60b1dd"
@@ -22,6 +23,8 @@ class Tintin < Formula
 
   depends_on "gnutls"
   depends_on "pcre" # PCRE2 issue: https://github.com/scandum/tintin/issues/163
+
+  uses_from_macos "zlib"
 
   def install
     # find Homebrew's libpcre

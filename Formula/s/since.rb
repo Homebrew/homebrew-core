@@ -3,7 +3,7 @@ class Since < Formula
   homepage "http://welz.org.za/projects/since"
   url "http://welz.org.za/projects/since/since-1.1.tar.gz"
   sha256 "739b7f161f8a045c1dff184e0fc319417c5e2deb3c7339d323d4065f7a3d0f45"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
 
   livecheck do
     url :homepage
@@ -11,6 +11,7 @@ class Since < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "07893929437e39dacfc617af4ec38af1153bbd8a3655992293b1ac8c415ac240"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ccf2421f8310655e3579181a2127aa8897340b05ee8c1d1a2fe5ae8d856793b8"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "70fe591dc225eb74e0f27c8d8f913771f6873665fd9441498ffeba1c277358ba"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "be177eae27c7bc16dcabf649437a4b99dc2bcba9b4771d2038844785a3150b7a"
@@ -38,7 +39,7 @@ class Since < Formula
       foo
       bar
     EOS
-    system "#{bin}/since", "-z", "test"
+    system bin/"since", "-z", "test"
     assert_predicate testpath/".since", :exist?
   end
 end

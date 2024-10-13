@@ -1,5 +1,3 @@
-require "language/node"
-
 class Seam < Formula
   desc "This utility lets you control Seam resources"
   homepage "https://github.com/seamapi/seam-cli"
@@ -8,19 +6,21 @@ class Seam < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "95b294db393a09b5ad522e2caf6d838d5da5057be7e8c4a4622d2df29a5c502c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "95b294db393a09b5ad522e2caf6d838d5da5057be7e8c4a4622d2df29a5c502c"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "95b294db393a09b5ad522e2caf6d838d5da5057be7e8c4a4622d2df29a5c502c"
-    sha256 cellar: :any_skip_relocation, sonoma:         "82e467fcc5944ff9d411a2acbdfa5ad32f7be7dbd88c8c153be3e09749975676"
-    sha256 cellar: :any_skip_relocation, ventura:        "82e467fcc5944ff9d411a2acbdfa5ad32f7be7dbd88c8c153be3e09749975676"
-    sha256 cellar: :any_skip_relocation, monterey:       "82e467fcc5944ff9d411a2acbdfa5ad32f7be7dbd88c8c153be3e09749975676"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c2da746fbe8decc9ebd66e5fdd3a985666a427f48613cb386229559ce193b59a"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "45d2d5cabe04b4732bd621e5122be6c13c21801bcc9f640f3c5fd75566b1b5db"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7af7bf5604302bd96ca405f8a0c87899dcfb28b5a2ec42683056bd927e35e014"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7af7bf5604302bd96ca405f8a0c87899dcfb28b5a2ec42683056bd927e35e014"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "7af7bf5604302bd96ca405f8a0c87899dcfb28b5a2ec42683056bd927e35e014"
+    sha256 cellar: :any_skip_relocation, sonoma:         "e1bd4461658238c02a202e46eced58172c0bf36840fade819102da0f246dcdf2"
+    sha256 cellar: :any_skip_relocation, ventura:        "e1bd4461658238c02a202e46eced58172c0bf36840fade819102da0f246dcdf2"
+    sha256 cellar: :any_skip_relocation, monterey:       "1b6030d3be6465d7850db0bc306026c1d21d7d23c7cf12948cbf5a68aa402cbc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ce4c220ea57c03eaa23b1789b72ab2b02b1e2b6f3bec9a563631e358302926c0"
   end
 
   depends_on "node"
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", *std_npm_args
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 

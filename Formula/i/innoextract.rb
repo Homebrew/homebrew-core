@@ -4,7 +4,7 @@ class Innoextract < Formula
   url "https://constexpr.org/innoextract/files/innoextract-1.9.tar.gz"
   sha256 "6344a69fc1ed847d4ed3e272e0da5998948c6b828cb7af39c6321aba6cf88126"
   license "Zlib"
-  revision 8
+  revision 9
   head "https://github.com/dscharrer/innoextract.git", branch: "master"
 
   livecheck do
@@ -13,13 +13,14 @@ class Innoextract < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "9f2ca2ec92ed901109a7b6e58a76ee317d005789802a99c1eac42cf864a123b5"
-    sha256 cellar: :any,                 arm64_ventura:  "d92956e6f247321985b2e5ab306dc982679dbe753f1064bdf855613818025c84"
-    sha256 cellar: :any,                 arm64_monterey: "aa0796b56c364212a2acaaf00e88a895aa28b3f1b27e1df0031351058c2ed472"
-    sha256 cellar: :any,                 sonoma:         "6bd4b35fbab4381c5c4641aea04c3a9c6d05a18ba437904b486336c58321a1a2"
-    sha256 cellar: :any,                 ventura:        "fb354b7b22cc5c586c135ab1db0a7801c3212881d7057990e9b0ce72bf4f608b"
-    sha256 cellar: :any,                 monterey:       "a0106888f740f7da1b967f9e841b305fe377048185c092621b11ce9db3cdb54b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "842ce66d5a1cc8187b9dc53482b7811b633bad34df863b7480ad42bccd3942da"
+    sha256 cellar: :any,                 arm64_sequoia:  "bdb79b724eb71b85cacb7911da0fc14d442b8b668162c8745b4e6257df495c28"
+    sha256 cellar: :any,                 arm64_sonoma:   "2d60ed6571f7d230035575cfe3630f7b2b7243bd911f69313dad3f981257fca6"
+    sha256 cellar: :any,                 arm64_ventura:  "19c8b7a38bd209c865695899c1cbb894569756751e22706a500a97598552dc77"
+    sha256 cellar: :any,                 arm64_monterey: "377142c8b5f00721c84f3a00157b7b26f270cbb3026da05f504f34f3bec80506"
+    sha256 cellar: :any,                 sonoma:         "c5a9bddd53d55669ac2203d86bae7f7feb864fd63bfd47f79e79885337cf10cf"
+    sha256 cellar: :any,                 ventura:        "8369c9af2fbd6cd7243b7d193e24d5402580537d0649738c67bc76ec8905d723"
+    sha256 cellar: :any,                 monterey:       "75e199d52822c846a48beab97ee091b028ccd757c0dc4abc25cd857e6bd29958"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4492c1d8f175a20dbeaefca61a2c0d3525750c9939b210dff39fd6a123e1b439"
   end
 
   depends_on "cmake" => :build
@@ -40,6 +41,6 @@ class Innoextract < Formula
   end
 
   test do
-    system "#{bin}/innoextract", "--version"
+    system bin/"innoextract", "--version"
   end
 end

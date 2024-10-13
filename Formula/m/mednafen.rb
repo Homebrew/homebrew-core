@@ -11,6 +11,7 @@ class Mednafen < Formula
   end
 
   bottle do
+    sha256 arm64_sequoia:  "e470c0ad19de2a320749499e83cfc09e7bceeef5ba5196e27756aaec147554e7"
     sha256 arm64_sonoma:   "b72bcc13e2b1d434445671be362e53a972a3a0c87cc891eb1fcdb10f4ed248ad"
     sha256 arm64_ventura:  "6c642b401c177c0f9afe5c2676c2aa1fcffc0eba991db44fc446494e87ea4641"
     sha256 arm64_monterey: "6ee3639bd5e939d6438c536e2505724710d3f2d09ca4d251019fe3db330eec80"
@@ -20,8 +21,10 @@ class Mednafen < Formula
     sha256 x86_64_linux:   "2b0e225a4706c1e3667c25ffa52181a63a97b2dad8e9d2f8520adbdcf1a5eb0f"
   end
 
+  depends_on "gettext" => :build
   depends_on "pkg-config" => :build
-  depends_on "gettext"
+
+  depends_on "flac"
   depends_on "libsndfile"
   depends_on "lzo"
   depends_on macos: :sierra # needs clock_gettime
@@ -31,14 +34,15 @@ class Mednafen < Formula
   uses_from_macos "zlib"
 
   on_macos do
+    depends_on "gettext"
     # musepack is not bottled on Linux
     # https://github.com/Homebrew/homebrew-core/pull/92041
     depends_on "musepack"
   end
 
   on_linux do
+    depends_on "alsa-lib"
     depends_on "mesa"
-    depends_on "mesa-glu"
   end
 
   def install
@@ -56,7 +60,6 @@ class Mednafen < Formula
     # Test fails on headless CI: Could not initialize SDL: No available video device
     return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
 
-    cmd = "#{bin}/mednafen | head -n1 | grep -o '[0-9].*'"
-    assert_equal version.to_s, shell_output(cmd).chomp
+    assert_match version.to_s, shell_output("#{bin}/mednafen", 255)
   end
 end

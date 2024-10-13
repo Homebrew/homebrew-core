@@ -6,6 +6,7 @@ class Libfido2 < Formula
   license "BSD-2-Clause"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "b07f0c07f5b2bc30b51b11ab15bb6424bc6f12c2d777af1c88f5fc51eabd0456"
     sha256 cellar: :any,                 arm64_sonoma:   "af63db962f5466784b450d1052475668fdb7fd8588f6f0f52c952e4445739fda"
     sha256 cellar: :any,                 arm64_ventura:  "33c05cce853e59f211ae4dd2bac144b57d27a94537a79ffbee97c5efa34cbd4a"
     sha256 cellar: :any,                 arm64_monterey: "451806f5a0f08d301a6789d705614f2cf1c7dceeaa88005c584280f907924447"
@@ -17,9 +18,11 @@ class Libfido2 < Formula
 
   depends_on "cmake" => :build
   depends_on "mandoc" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkg-config" => [:build, :test]
   depends_on "libcbor"
   depends_on "openssl@3"
+
+  uses_from_macos "zlib"
 
   on_linux do
     depends_on "systemd" # for libudev
@@ -30,36 +33,36 @@ class Libfido2 < Formula
 
     args << "-DUDEV_RULES_DIR=#{lib}/udev/rules.d" if OS.linux?
 
-    mkdir "build" do
-      system "cmake", "..", *args
-      system "make"
-      system "make", "man_symlink_html"
-      system "make", "man_symlink"
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", ".", *args
+    system "cmake", "--build", "."
+    system "cmake", "--build", ".", "--target", "man_symlink_html"
+    system "cmake", "--build", ".", "--target", "man_symlink"
+    system "cmake", "--install", "."
   end
 
   test do
     (testpath/"test.c").write <<-EOF
-    #include <stddef.h>
-    #include <stdio.h>
-    #include <fido.h>
-    int main(void) {
-      fido_init(FIDO_DEBUG);
-      // Attempt to enumerate up to five FIDO/U2F devices. Five is an arbitrary number.
-      size_t max_devices = 5;
-      fido_dev_info_t *devlist;
-      if ((devlist = fido_dev_info_new(max_devices)) == NULL)
-        return 1;
-      size_t found_devices = 0;
-      int error;
-      if ((error = fido_dev_info_manifest(devlist, max_devices, &found_devices)) == FIDO_OK)
-        printf("FIDO/U2F devices found: %s\\n", found_devices ? "Some" : "None");
-      fido_dev_info_free(&devlist, max_devices);
-    }
+      #include <stddef.h>
+      #include <stdio.h>
+      #include <fido.h>
+
+      int main(void) {
+        fido_init(FIDO_DEBUG);
+        // Attempt to enumerate up to five FIDO/U2F devices. Five is an arbitrary number.
+        size_t max_devices = 5;
+        fido_dev_info_t *devlist;
+        if ((devlist = fido_dev_info_new(max_devices)) == NULL)
+          return 1;
+        size_t found_devices = 0;
+        int error;
+        if ((error = fido_dev_info_manifest(devlist, max_devices, &found_devices)) == FIDO_OK)
+          printf("FIDO/U2F devices found: %s\\n", found_devices ? "Some" : "None");
+        fido_dev_info_free(&devlist, max_devices);
+      }
     EOF
-    system ENV.cc, "test.c", "-I#{include}", "-I#{Formula["openssl@3"].include}", "-o", "test",
-                   "-L#{lib}", "-lfido2"
+
+    pkg_config_flags = shell_output("pkg-config --cflags --libs libfido2").chomp.split
+    system ENV.cc, "test.c", "-I#{include}", "-o", "test", *pkg_config_flags
     system "./test"
   end
 end

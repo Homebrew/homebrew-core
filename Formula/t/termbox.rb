@@ -7,6 +7,7 @@ class Termbox < Formula
   head "https://github.com/termbox/termbox.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "571090957f2e0ff1cc0bf2f15802e7e1585e769e14ebdaf2fd6ac649d5a26602"
     sha256 cellar: :any,                 arm64_sonoma:   "4f40420e806ed17a377452472803016909039a1d5054483e14bde23583ca2ea8"
     sha256 cellar: :any,                 arm64_ventura:  "1c91ef6f8297e7e77925b8810b50c495ee1fa90907aeafb540993c83421534a1"
     sha256 cellar: :any,                 arm64_monterey: "a1371f4a993d30d381ab3bf5ea2fda669e23f0ea982c3de4c6bf8b01a2ec1747"

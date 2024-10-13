@@ -1,8 +1,8 @@
 class Osi < Formula
   desc "Open Solver Interface"
   homepage "https://github.com/coin-or/Osi"
-  url "https://github.com/coin-or/Osi/archive/refs/tags/releases/0.108.10.tar.gz"
-  sha256 "614c2b329caf57c00326412266299fdfd93c5691492034fbb46990b5e71cc5a7"
+  url "https://github.com/coin-or/Osi/archive/refs/tags/releases/0.108.11.tar.gz"
+  sha256 "1063b6a057e80222e2ede3ef0c73c0c54697e0fee1d913e2bef530310c13a670"
   license "EPL-2.0"
 
   livecheck do
@@ -11,35 +11,36 @@ class Osi < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "69ddf7a23bba809d9441015863497c1d3d0e0ddcdddaefaff7944bd4a7132a73"
-    sha256 cellar: :any,                 arm64_ventura:  "389be0113a8ce6ba6029c02349f741c64545c17e005a4c12a5f45b1c82cb70a0"
-    sha256 cellar: :any,                 arm64_monterey: "8d385949e281b7def59a9e58eb167dbbb1b5b5c2722ce1e283a2c388976c88c2"
-    sha256 cellar: :any,                 sonoma:         "54aa80a08f1ee551ba675399b4f32566e6863d7ab27b48f29c7a9edee3a0acc1"
-    sha256 cellar: :any,                 ventura:        "cf9bfa64985fccad356d97a647c86ef7a83ef970a57ea6bf0c66ca1a1697441b"
-    sha256 cellar: :any,                 monterey:       "e46614c22e5b59f788fba4ca37825f136341664659105c027ad5c6219ae287ae"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e86dd7bc283f1cd8b3026074e78e6cf17267557325d0ce547bc95ff3c4573aaa"
+    sha256 cellar: :any,                 arm64_sequoia:  "d481d371981a212968f123ab295b4a2f891040f411dfa9cbf6b537adc851c155"
+    sha256 cellar: :any,                 arm64_sonoma:   "92e1f220abefbedf5afa236f48941731101b6bc6cf3c0a5a3a42c4ded4af2a58"
+    sha256 cellar: :any,                 arm64_ventura:  "62ff3b164a73eb23614ab0bf0ae1fcca5bb41e83fd64ebccb8f245cc5aa23c0c"
+    sha256 cellar: :any,                 arm64_monterey: "ab536eb79add604baa066582abcda1ad72018ce2aa1e74144d11d4a4988ad259"
+    sha256 cellar: :any,                 sonoma:         "c24c4a4d44b819fa097e9b3f77602f8d21175a1ca94199933396ffb334575306"
+    sha256 cellar: :any,                 ventura:        "d83b00f27e81af9188cc1066ec87b0375c3c8dcc32c71d2ea6a89aacae006003"
+    sha256 cellar: :any,                 monterey:       "d05eb1c3f01d1687b03107578ed1054bfb34424c2b388a0b5c98cd2bcc0e442b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "093a334ad180ed10951e23866b1d6df68087fc29aee54a749899bb8b5d629780"
   end
 
   depends_on "pkg-config" => :build
   depends_on "coinutils"
+
+  on_macos do
+    depends_on "openblas"
+  end
 
   def install
     # Work around - same as clp formula
     # Error 1: "mkdir: #{include}/osi/coin: File exists."
     mkdir include/"osi/coin"
 
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}",
-                          "--includedir=#{include}/osi"
-    system "make"
+    system "./configure", "--disable-silent-rules", "--includedir=#{include}/osi", *std_configure_args
     system "make", "install"
   end
 
   test do
     (testpath/"test.cpp").write <<~EOS
       #include <OsiSolverInterface.hpp>
+
       int main() {
         OsiSolverInterface *si;
       }

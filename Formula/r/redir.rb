@@ -6,6 +6,7 @@ class Redir < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "1ce8939d5e0af67f4f665173bf072ec914148afaecf141b155c399776fb14e5e"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2f440dee539a0814120a94614749b73c2ab46e22e1521dc6fbd2b05a35c442cd"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "236941203f68e2338ee2e31c8fc621d97188f8961d691621ae7d4df16c7dcb8d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "31d05c824bc5c340c1bbd775c00bc8803a39e528f8435e78bc7ef284316ce07e"
@@ -32,7 +33,7 @@ class Redir < Formula
 
   test do
     redir_pid = fork do
-      exec "#{bin}/redir", "--cport=12345", "--lport=54321"
+      exec bin/"redir", "--cport=12345", "--lport=54321"
     end
     Process.detach(redir_pid)
 

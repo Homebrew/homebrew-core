@@ -3,9 +3,10 @@ class Libgadu < Formula
   homepage "https://libgadu.net/"
   url "https://github.com/wojtekka/libgadu/releases/download/1.12.2/libgadu-1.12.2.tar.gz"
   sha256 "28e70fb3d56ed01c01eb3a4c099cc84315d2255869ecf08e9af32c41d4cbbf5d"
-  license "LGPL-2.1"
+  license "LGPL-2.1-only"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "f4f5668e14d2fb3565732fb50bb526d106a8a26d396b3d54eeff627658a159ab"
     sha256 cellar: :any,                 arm64_sonoma:   "c0a47f65b2950adc32a349c14f576ce66da2f34b2fc342c1f37b11dfb8ab28ed"
     sha256 cellar: :any,                 arm64_ventura:  "ea113337d33a26b40502ef72b239b0e7eba6a01290372cb70f857e21d4daf2f1"
     sha256 cellar: :any,                 arm64_monterey: "74b16aeaa51b6e018a7548cf7e9197836af9b6da578b86b44917813a23fdf380"

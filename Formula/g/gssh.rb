@@ -7,6 +7,7 @@ class Gssh < Formula
 
   bottle do
     rebuild 3
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "908725192316eb3e9c9d54688d6233261998fc248c0196d5c518fc504ee5ec79"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "fee6aa3a10a6bc1427d48fcd271b055a8c7f4f7fedc7164519e2be8b7aa81b98"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "701b4eb639074e1e7b39d3358531836bf142f3751123145e701aaa71fd17cb03"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "3f5ed2374501abd977eb5c67490489ebe7354094c48f878d01543bd3d69a8782"

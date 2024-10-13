@@ -9,16 +9,11 @@ class SshAudit < Formula
   head "https://github.com/jtesta/ssh-audit.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e52d6192b5ca6851ead47cd60f94820beaf7e8daa570100fb29cfa434bea2764"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e52d6192b5ca6851ead47cd60f94820beaf7e8daa570100fb29cfa434bea2764"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e52d6192b5ca6851ead47cd60f94820beaf7e8daa570100fb29cfa434bea2764"
-    sha256 cellar: :any_skip_relocation, sonoma:         "e52d6192b5ca6851ead47cd60f94820beaf7e8daa570100fb29cfa434bea2764"
-    sha256 cellar: :any_skip_relocation, ventura:        "e52d6192b5ca6851ead47cd60f94820beaf7e8daa570100fb29cfa434bea2764"
-    sha256 cellar: :any_skip_relocation, monterey:       "e52d6192b5ca6851ead47cd60f94820beaf7e8daa570100fb29cfa434bea2764"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "50405aed6aa6e102ad1bce2902670ff28b47b9c02d2c9adcff3c0497fbd11271"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "a4f3117d4b6497b359028e5b3365a9552d0255d79feb30328ceeb0e54dda340d"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   def install
     virtualenv_install_with_resources

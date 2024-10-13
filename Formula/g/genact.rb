@@ -6,6 +6,7 @@ class Genact < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "b47c77b95e1ad1b3d53ef03ce4f7798d2b3e12da6d1ec809038eeed2d45b06e2"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b942eed75c111fcdafe3445553e2b8ef861db535dd503f653df91744b9202ccd"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "8537ed041674f1d9418bf57d04af4857a76063454d3721fef418e88c3869b286"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "942880050979de965ede2a91030cd3a49bed2a79ae268242e99b9576b2749b07"

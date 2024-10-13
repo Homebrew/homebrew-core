@@ -6,6 +6,7 @@ class Flac123 < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "9e700b54a0a992a7383e2eb9bceccf66da63c51895d58931c37512334f0ec690"
     sha256 cellar: :any,                 arm64_sonoma:   "a1c6d6d2d1d764ba31918fb6f0c50756771a04ee3868944484f5bbdd05775ecf"
     sha256 cellar: :any,                 arm64_ventura:  "8a3a466680bff98485b1be1f5ec2be0d68522debbec2206d08b122981af0abfb"
     sha256 cellar: :any,                 arm64_monterey: "3b98b988e1528c56b970fa9984663916ea59173ca4b6fd09979be8832abe5ab0"
@@ -34,6 +35,6 @@ class Flac123 < Formula
 
   test do
     driver = OS.mac? ? "macosx" : "oss"
-    system "#{bin}/flac123", "-d=#{driver}"
+    system bin/"flac123", "-d=#{driver}"
   end
 end

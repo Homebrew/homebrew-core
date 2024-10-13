@@ -3,11 +3,12 @@ class Httpry < Formula
   homepage "https://github.com/jbittel/httpry"
   url "https://github.com/jbittel/httpry/archive/refs/tags/httpry-0.1.8.tar.gz"
   sha256 "b3bcbec3fc6b72342022e940de184729d9cdecb30aa754a2c994073447468cf0"
-  license "GPL-2.0"
+  license "GPL-2.0-only"
   head "https://github.com/jbittel/httpry.git", branch: "master"
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "efbe819748288998ac0d955481db2aee1846e2e70db91a72ea2c4652accb95e4"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4b00d782c62d0ecf4e4b784178575ce77075887d1a614f3c4cc16127cd1ee37e"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "2a55a20ab1f6989ce19201f8f542961cf83dedb772a32006f600270ee199b551"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "35b7bf13b5cb242152bddbdd26ffc2d3102849a0ff8c95f5b7fac5ee818cd0ae"

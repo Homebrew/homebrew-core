@@ -28,6 +28,7 @@ class Parrot < Formula
   end
 
   bottle do
+    sha256 arm64_sequoia:  "a51d427d1063c4e9a7bf13f9039a29fb6f9f690cfc751e6d100376435cd3c3ad"
     sha256 arm64_sonoma:   "33247f7453684d5af68220cb3aa6590adaeadeb6f4f45fe51e3e4584502e9b33"
     sha256 arm64_ventura:  "8d4542d74d3269cd5f1f8a096a8a6efb53b2300a22c1e0604c379da3499216b2"
     sha256 arm64_monterey: "91f7d2f17e362ea66be0f7706414a1241d5af6f8bce0c7054c1e0ef1ba39bad5"
@@ -44,11 +45,27 @@ class Parrot < Formula
     sha256 x86_64_linux:   "26b301714008aa6c10ecd25b10d01bf361ed4772b90af0a9d50936d2108f9013"
   end
 
+  uses_from_macos "perl" => :build
   uses_from_macos "zlib"
 
   conflicts_with "rakudo-star"
 
+  resource "Pod::Parser" do
+    on_system :linux, macos: :sonoma_or_newer do
+      url "https://cpan.metacpan.org/authors/id/M/MA/MAREKR/Pod-Parser-1.67.tar.gz"
+      sha256 "5deccbf55d750ce65588cd211c1a03fa1ef3aaa15d1ac2b8d85383a42c1427ea"
+    end
+  end
+
   def install
+    if OS.linux? || MacOS.version >= :sonoma
+      ENV.prepend_create_path "PERL5LIB", buildpath/"build_deps/lib/perl5"
+      resource("Pod::Parser").stage do
+        system "perl", "Makefile.PL", "INSTALL_BASE=#{buildpath}/build_deps"
+        system "make", "install"
+      end
+    end
+
     system "perl", "Configure.pl", "--prefix=#{prefix}",
                                    "--mandir=#{man}",
                                    "--debugging=0",
@@ -57,7 +74,7 @@ class Parrot < Formula
     system "make"
     system "make", "install"
     # Don't install this file in HOMEBREW_PREFIX/lib
-    rm_rf lib/"VERSION"
+    rm_r(lib/"VERSION")
   end
 
   test do

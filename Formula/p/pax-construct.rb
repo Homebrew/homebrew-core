@@ -17,7 +17,7 @@ class PaxConstruct < Formula
   depends_on "maven"
 
   def install
-    rm_rf Dir["bin/*.bat"]
+    rm_r(Dir["bin/*.bat"])
     prefix.install_metafiles "bin" # Don't put these in bin!
     libexec.install Dir["*"]
     bin.write_exec_script Dir["#{libexec}/bin/*"].select { |f| File.executable? f }

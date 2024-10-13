@@ -13,6 +13,7 @@ class Fortune < Formula
 
   bottle do
     rebuild 4
+    sha256 arm64_sequoia:  "cec3df1e416f4c47846f0fd770bb29bce8185f4832bb897d5cb4e5f94fa86c32"
     sha256 arm64_sonoma:   "c41455674cf0ff7332fc390420ce86c9e92a876cecfde07856a254706167b162"
     sha256 arm64_ventura:  "4c2c46f7e506de4349b370e2bdd61fef3ada89564446d0eb23969fa3f5ef369c"
     sha256 arm64_monterey: "9412148af6d5be4f3256e07427834522e5c241b5ba7d6b71fefa1112774bf337"
@@ -53,7 +54,7 @@ class Fortune < Formula
   end
 
   test do
-    system "#{bin}/fortune"
+    system bin/"fortune"
   end
 end
 

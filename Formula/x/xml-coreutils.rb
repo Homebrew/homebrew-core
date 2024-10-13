@@ -3,10 +3,11 @@ class XmlCoreutils < Formula
   homepage "https://xml-coreutils.sourceforge.net/"
   url "https://downloads.sourceforge.net/project/xml-coreutils/xml-coreutils-0.8.1.tar.gz"
   sha256 "7fb26d57bb17fa770452ccd33caf288deee1d757a0e0a484b90c109610d1b7df"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia:  "f0416be37c963bcfec7ccdab87e91272d03f68a314ceda3b287f154397e9481c"
     sha256 cellar: :any,                 arm64_sonoma:   "790f661b91e380a378cd57afab0a102398fd23bb51f08cd793bdcb8a84806716"
     sha256 cellar: :any,                 arm64_ventura:  "0074dde2a0a868040ad32a09cba6947f7e27e0b69dcf95c9f05a478764e3a858"
     sha256 cellar: :any,                 arm64_monterey: "27121488a3c491191c025a484e1f76d0ad162f19ba6cddf733a5826cdddf05a9"

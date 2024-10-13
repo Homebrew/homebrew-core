@@ -12,6 +12,7 @@ class Minimodem < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "4bf7e151ffff1de41f8ce86bab303b7afb6e40b0f5417fdfada6a73fe633b6d6"
     sha256 cellar: :any,                 arm64_sonoma:   "8e4dc030caca81ca64460297f68f5f4d03d51a9836b4e9b7da4b30c63a9f3d89"
     sha256 cellar: :any,                 arm64_ventura:  "c3b2dedf19a1253a4e9b5eef4ae278875eda2759f82c8ec9d503ead44ce0fcd2"
     sha256 cellar: :any,                 arm64_monterey: "d2eae4352ba72db26b2b38798cfb1c48f937df4e4cad3a5d50036abe2a2b8f52"
@@ -41,6 +42,6 @@ class Minimodem < Formula
   end
 
   test do
-    system "#{bin}/minimodem", "--benchmarks"
+    system bin/"minimodem", "--benchmarks"
   end
 end

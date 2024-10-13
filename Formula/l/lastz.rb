@@ -7,6 +7,7 @@ class Lastz < Formula
   head "https://github.com/lastz/lastz.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "e171bea5d447d6d860eab8b2c878739c7280ed060e8de64cacb4d85fc8a65809"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "11f902131e41dc1f91a235e30fac2fd5eabc1267edec376cb1a65efb8845ae45"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "78b2de045fb9e026d2d83f13711c67109c2e0b76acbd9a3e55ce589e4d74156b"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "0079336e54ddda2906063ae8e1345c285b907945ee992908bf2911298995a9e4"

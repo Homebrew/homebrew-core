@@ -5,8 +5,8 @@ class Ipv6calc < Formula
 
   desc "Small utility for manipulating IPv6 addresses"
   homepage "https://www.deepspace6.net/projects/ipv6calc.html"
-  url "https://github.com/pbiering/ipv6calc/archive/refs/tags/4.2.0.tar.gz"
-  sha256 "767dbd3d21d04e21aa9764275e2aae726f04daf66bca21fc65f0a652bdc8b50e"
+  url "https://github.com/pbiering/ipv6calc/archive/refs/tags/4.2.1.tar.gz"
+  sha256 "49ed6995a3fdc680d45d6cfdcb613477feef071d2f791cee72ead5a7744eea85"
   license "GPL-2.0-only"
 
   # Upstream creates stable version tags (e.g., `v1.2.3`) before a release but
@@ -18,13 +18,14 @@ class Ipv6calc < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "449741fc376d45ad6ad5eaf55a3b0486fb5613e3e255ca718e709f5feea182af"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "fe7aa11b4cbdfc83cfe29620e330d08c2905d3d437e48ac071c1c95429f10765"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "30a1095481a93e153ff99927ad4ac31a252404624e187624b7b304b17bf455c3"
-    sha256 cellar: :any_skip_relocation, sonoma:         "b4db2ff2d576e5c667257eafbab162300486e254a9afb81f043c5b67d1a557fc"
-    sha256 cellar: :any_skip_relocation, ventura:        "79fcdae0bf897739a0284ac19a7021fa6bfb9e7bf7c455332b116b33c410bf24"
-    sha256 cellar: :any_skip_relocation, monterey:       "bddbf775f72a8ba060450946f2a982a99425ecdfc17ae856f88d196e6e2873f9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "16ac88b7281e67599a381e82df9d7b70d4276dcb17d416c90ad0cfacfe394b7d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "6854927b5bc7b18fbbc2ce526b978f810d3840fd19781254f4a8f2f068e5d135"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "efc2d877e4e9802105c46b0573082df300be4cdb0ba15f8f39dc9782267a2d0e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3dbaaea9720b9f9a89f237c1148f757ba8ee45e3aa87bdfc693307b15f88c971"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5e4bb76c43ffbf095f46999a8b4db50ebe6a1c6619c9eadb79a2914a788262ea"
+    sha256 cellar: :any_skip_relocation, sonoma:         "6178b1f1ccbe61eb6b6789e8f65e835ebbe3d4664c1d395a031e092bc4521b4c"
+    sha256 cellar: :any_skip_relocation, ventura:        "d6b432b89c69d947a609688f2819572d2eb0396b205906466032655ba93bfcf3"
+    sha256 cellar: :any_skip_relocation, monterey:       "3da5205804fabd86e7bb9aa3dacaaef90bc90fe116c5e7748c65bc2c7ed77f2a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "89069ec93737f3755f54de8a6e8304d96e59be4ddc5adedd0f841aefe19ea62a"
   end
 
   uses_from_macos "perl"

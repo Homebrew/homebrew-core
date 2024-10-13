@@ -6,8 +6,8 @@ class Archivemount < Formula
   license "LGPL-2.0-or-later"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "ac01adc4cf171af9509390a108469579aaaccb9eada8a57e54c10419ad239b3e"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "238d9539e81cdafd6d74dee82438d06c4348b5570260102811a2a1362088527c"
   end
 
   depends_on "pkg-config" => :build

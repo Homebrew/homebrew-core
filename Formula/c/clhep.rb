@@ -12,6 +12,7 @@ class Clhep < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "8e9dd4065ed1dfa0f4542454189540d428093451a913bd59ccfda465c51ffd47"
     sha256 cellar: :any,                 arm64_sonoma:   "0e69dfb6c076d3b6c87ff2fa67018eabf9e2d33ecfcc60505e614958a8baa748"
     sha256 cellar: :any,                 arm64_ventura:  "7394489e65b6b3b4eb7af0878e70fa4d77a93ff343093594cb591022cf193239"
     sha256 cellar: :any,                 arm64_monterey: "f46bbb06f3914fe69fa4e59c1eba50702765c0143f3f0b5fbc974ca1e53fae20"

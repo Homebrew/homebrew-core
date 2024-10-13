@@ -7,6 +7,7 @@ class Sl < Formula
   head "https://github.com/mtoyoda/sl.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "154511be7a41ffedfc392b2be2134fc6e5a0a7de8a34c27cc00b41dce1f6cd38"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c867d7c636940322cd83ce8edc47d04be3b67293194fecc6ffafcba71a464bc3"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "d6689964bcfe1c68de131e77999ea19ceadcb28e304d453f6136db063a9ece0f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6d4212674cc9cc1628689d014efd992a03ab913f44b0a0411c6eb65f8e25bf95"
@@ -34,6 +35,6 @@ class Sl < Formula
   end
 
   test do
-    system "#{bin}/sl", "-c"
+    system bin/"sl", "-c"
   end
 end

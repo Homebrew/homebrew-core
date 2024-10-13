@@ -16,6 +16,7 @@ class Rubyfmt < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "8793acc1768054494843921cbf1708faea486a165a21d6f346afc721284057f2"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "53a6870d51b42778724d9f6d051a16e2769701cf3c4946d5b464ac0da0656fe5"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "bd0e320c01c7848a26b51e6d06f9d96d2d8d765eb4b943ca570a546bc063d503"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "54ac9bdaab5905b208a7b80f6f8c1f0fd6752636821322d27d33458cd94988fd"
@@ -36,6 +37,10 @@ class Rubyfmt < Formula
   uses_from_macos "ruby"
 
   def install
+    # Work around build failure with recent Rust
+    # Issue ref: https://github.com/fables-tales/rubyfmt/issues/467
+    ENV["RUSTFLAGS"] = "--allow dead_code"
+
     system "cargo", "install", *std_cargo_args
     bin.install "target/release/rubyfmt-main" => "rubyfmt"
   end

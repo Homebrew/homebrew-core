@@ -7,6 +7,7 @@ class Takt < Formula
   revision 2
 
   bottle do
+    sha256 arm64_sequoia:  "89999aa891436126770e5d390013ec55a9f2eff6e569e046443de74b9cd648d5"
     sha256 arm64_sonoma:   "9cf5685481804bc8482d1f8d9eaa3b7e41465e70e8d04662e81243d9ac139aef"
     sha256 arm64_ventura:  "d9787c5847508262a9e7f4e61165e94c80a39efc54587a804a2fc20904acf42b"
     sha256 arm64_monterey: "1e8949e4e3457701233d4f72fd01e9852dafc3e1373124b9de0eaa08b7f6dca9"

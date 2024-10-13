@@ -17,6 +17,7 @@ class Fetchmail < Formula
   end
 
   bottle do
+    sha256 cellar: :any, arm64_sequoia:  "531a98d2af949d23b2de33b7e9cedfe3c7aa39a49d59f52023531d3184ba6119"
     sha256 cellar: :any, arm64_sonoma:   "91549ee97ce356ed5b3b7004a06f04195d528413f2dbf02fdda99cac0c162090"
     sha256 cellar: :any, arm64_ventura:  "104754306bfc7cf87ab281d313496931d9b34252efdf981e512dbd1d4f101e0c"
     sha256 cellar: :any, arm64_monterey: "6cdcdf18636df7649a006751f4f2e0c548c6d1d23f687dcb8ae57caf9402040b"
@@ -36,6 +37,6 @@ class Fetchmail < Formula
   end
 
   test do
-    system "#{bin}/fetchmail", "--version"
+    system bin/"fetchmail", "--version"
   end
 end

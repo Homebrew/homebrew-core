@@ -6,7 +6,8 @@ class GitFresh < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "d795746e41935ed5e81b80b5ff9231e2f39ec2be5b1aa5e0972739955bbdf334"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "2ef148bdcba28587b794c4a63178151165c088648dcedda3fc6ecb1bd1ecf09e"
   end
 
   def install
@@ -15,6 +16,7 @@ class GitFresh < Formula
   end
 
   test do
-    system "#{bin}/git-fresh", "-T"
+    system "git", "config", "--global", "init.defaultBranch", "master"
+    system bin/"git-fresh", "-T"
   end
 end

@@ -11,10 +11,8 @@ class Dupseek < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_sonoma: "720586d53bf31359e7c5cc25e127dcf7d62a959573951ce43d13759fce1391d9"
-    sha256 cellar: :any_skip_relocation, sonoma:       "720586d53bf31359e7c5cc25e127dcf7d62a959573951ce43d13759fce1391d9"
-    sha256 cellar: :any_skip_relocation, all:          "027dd10f7bd0d393e01a0ea75e43a09428dd2d4aa4c18d2178b77d4a59229f96"
+    rebuild 3
+    sha256 cellar: :any_skip_relocation, all: "af5b3ecacae9c0ace4403ba786d09138413571a9dc52d95ed59b289118683ff4"
   end
 
   def install

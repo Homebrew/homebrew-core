@@ -9,6 +9,7 @@ class Pyspelling < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia:  "49fc5a8b3e017c6c87715004c6149398c25eb0f2ac40a26756f3f15803e6d23b"
     sha256 cellar: :any,                 arm64_sonoma:   "31af3ab0a1d1140f67e88cc63b4f79f9163b1511851426ccb417a8ca9edc1c3a"
     sha256 cellar: :any,                 arm64_ventura:  "a8d008f4df13c54a997fe861c9650641e6e3de2606ed45a25af69e8ae6ffd3e2"
     sha256 cellar: :any,                 arm64_monterey: "8df71eca0c124434e4f916acfdbc1f7490c55a1264ac9eb639d5fe54ac7dddce"
@@ -96,7 +97,7 @@ class Pyspelling < Formula
         - #{testpath}/text.txt
     EOS
 
-    output = shell_output("#{bin}/pyspelling", 1)
+    output = shell_output(bin/"pyspelling", 1)
     assert_match <<~EOS, output
       Misspelled words:
       <text> #{testpath}/text.txt

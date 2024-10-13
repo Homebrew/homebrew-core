@@ -12,6 +12,7 @@ class Fatsort < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "47f7e484d7283c661836b9cc8418b84c31865c546828f593cca451b4683271dc"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "19232a80ff846e801ac176cbc07b67be6ae337b4b411159f98f3f1510659f982"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "592fcf0abcecbd68e972ef3d30f307913f332bd43c44bcf7fa61ebfd19014bc5"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "17602321477fe03dd60ae1cef95f8c28e0d390b360ba5702ebff7eb6c0903713"
@@ -32,6 +33,6 @@ class Fatsort < Formula
   end
 
   test do
-    system "#{bin}/fatsort", "--version"
+    system bin/"fatsort", "--version"
   end
 end

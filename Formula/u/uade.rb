@@ -4,19 +4,17 @@ class Uade < Formula
   license "GPL-2.0-only"
 
   stable do
-    url "https://zakalwe.fi/uade/uade3/uade-3.03.tar.bz2"
-    sha256 "e0a091cdbd5a11d314f48526212ba34cdb71bbdf5622dfc1f28aa6291c93ede8"
+    url "https://zakalwe.fi/uade/uade3/uade-3.05.tar.bz2"
+    sha256 "1a2dd9fdf8cf47c4587dcc09df16f1bb49374a9e7f8f53cdb4816d50c87e4f4c"
 
-    # release tag request, https://gitlab.com/hors/libzakalwe/-/issues/1
     resource "libzakalwe" do
-      url "https://gitlab.com/hors/libzakalwe.git",
-        revision: "521bc3ba81d78859fb3cabae88dae6ebe41f9c03"
+      url "https://gitlab.com/hors/libzakalwe/-/archive/v1.0.0/libzakalwe-v1.0.0.tar.bz2"
+      sha256 "cb503c557b04f34069654083963a056deb85a6dea25ba4b69aaaa2bbf7290a98"
     end
 
-    # release tag request, https://gitlab.com/heikkiorsila/bencodetools/-/issues/13
     resource "bencode-tools" do
-      url "https://gitlab.com/heikkiorsila/bencodetools.git",
-        revision: "ffde760bcb83182f6a4994f585773d5af264601d"
+      url "https://gitlab.com/heikkiorsila/bencodetools/-/archive/v1.0.1/bencodetools-v1.0.1.tar.bz2"
+      sha256 "e41ae682525cf335b5f5ec0ba9b954abfe7b448e8ed13e2aa2a44e49fce2ca12"
     end
   end
 
@@ -26,15 +24,12 @@ class Uade < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "ca6ab0d34ad18f7f1af0024fe14cb9cd6bef936ef02f3d77eef3d5fa369eaf58"
-    sha256 arm64_ventura:  "ff3b1f1c5f687a21cd58cf8b27a057dde20cc10f416bc88dcf0397c58f9bbbe0"
-    sha256 arm64_monterey: "9af83e4001e9d24b2fc574e0c878e7d4d30df953cb343d5538cc3cb4b8487daa"
-    sha256 arm64_big_sur:  "ce39bfc4de99db6404766c3922d6592bdba45c1149dea31561a87561bfc247f1"
-    sha256 sonoma:         "5f3a536ef40fb4f7210c907e27af3422126cf2c364ab542cf2b3bac7c6221ebe"
-    sha256 ventura:        "666c380c57fe9e14b2f3852de79e8c77933300fbcf636d1cd20abec84c3cd7e3"
-    sha256 monterey:       "d8892c99c748919747c3b80898256647642ebad0078aed6c9f3db7bce2693561"
-    sha256 big_sur:        "ccfc305a99a2b9e01ea0e61e2d9d90494822da2029411e19a7c8b9e0adb24bc6"
-    sha256 x86_64_linux:   "6a5220023b7fb15a23f57a52f7c73c42e547264ee0682177f612046f907519ab"
+    sha256 arm64_sequoia: "bd88580d311132e6f8989d53759a3f4014c3bd2a799a4beeda45917443bd24b1"
+    sha256 arm64_sonoma:  "ebc44bdc2b0985767cfc0e758b626bdc7a4fd25d46fd131f9a345b49f1637170"
+    sha256 arm64_ventura: "dd63456268436dad18fad3257239338d9be764a2c65f66a116ec38dc9ad523c7"
+    sha256 sonoma:        "8efa9e1dc22e259d2608f0300414f326405fa336fa8bc7323a1894cc9eba424f"
+    sha256 ventura:       "c6c24f4dad586bede8ea9cb93103e5b7acdd4694503ffaa00bc66022022c2365"
+    sha256 x86_64_linux:  "57119bf1df980db377ed2a47e16a386060756151ca74a3506bac17685834c4b9"
   end
 
   head do

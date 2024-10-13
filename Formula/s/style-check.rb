@@ -3,7 +3,7 @@ class StyleCheck < Formula
   homepage "https://www.cs.umd.edu/~nspring/software/style-check-readme.html"
   url "https://www.cs.umd.edu/~nspring/software/style-check-0.14.tar.gz"
   sha256 "2ae806fcce9e3b80162c64634422dc32d7f0e6f8a81ba5bc7879358744b4e119"
-  license "GPL-2.0"
+  license "GPL-2.0-only"
   revision 1
 
   # The homepage links to an unversioned tarball (style-check-current.tar.gz)
@@ -14,7 +14,8 @@ class StyleCheck < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "0e16c4ab38be982971253cf502fea88db6ee637c3dcdee98c5256ac663ab7dad"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "fb1e03c25875d0cf1b78f401e403452420169250d6fd6cee1be00d4d8bb51725"
   end
 
   uses_from_macos "ruby"
@@ -34,7 +35,7 @@ class StyleCheck < Formula
     (testpath/".style-censor").write "homebrew % capitalize Homebrew\n"
     (testpath/"paper.tex").write "Today I worked on homebrew\n"
 
-    system "#{bin}/style-check.rb", "-v", "paper.tex"
+    system bin/"style-check.rb", "-v", "paper.tex"
   end
 end
 __END__

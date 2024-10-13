@@ -24,7 +24,7 @@ class KnownHosts < Formula
 
   # upstream issue tracker for license
   # https://github.com/markmcconachie/known_hosts/issues/7
-  disable! date: "2023-10-13", because: "no license for the project"
+  disable! date: "2023-10-13", because: :no_license
 
   depends_on "cmake" => :build
 
@@ -35,6 +35,6 @@ class KnownHosts < Formula
   end
 
   test do
-    system "#{bin}/known_hosts", "version"
+    system bin/"known_hosts", "version"
   end
 end

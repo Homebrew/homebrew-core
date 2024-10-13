@@ -7,7 +7,8 @@ class Ivy < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "803cdd933fe5396b49bd0b04ac3470f0761a6462bb1ac29acefb7e18847d923a"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "c42e8ba023f1686707a52c7aedd6379798d1faa80a781f6c8d2b0169cad93888"
   end
 
   depends_on "openjdk"

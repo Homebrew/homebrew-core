@@ -12,6 +12,7 @@ class Inframap < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "a082886e9254728b9425ecb668c9bb747d55b4b4860029fd5bd58c13125df5eb"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "80770fc43ea2135c2e0d5b570613f6be76f793f27c6fd4a789bbccf0f2a055fc"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f0b7cb30405634f07640eb264e406d472f155719b0b7bb51e6a39728ff5cedd1"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ef9bc0bde009c80f6d1e4c5646936799fccfecaec04077fc91f34ff83f260a41"

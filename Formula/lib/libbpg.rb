@@ -3,14 +3,11 @@ class Libbpg < Formula
   homepage "https://bellard.org/bpg/"
   url "https://bellard.org/bpg/libbpg-0.9.8.tar.gz"
   sha256 "c0788e23bdf1a7d36cb4424ccb2fae4c7789ac94949563c4ad0e2569d3bf0095"
+  license all_of: ["MIT", "BSD-3-Clause", "LGPL-2.1-or-later", "GPL-2.0-or-later"]
   revision 1
 
-  livecheck do
-    url :homepage
-    regex(/href=.*?libbpg[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
-
   bottle do
+    sha256 cellar: :any, arm64_sequoia:  "8141450054340a9cab2a9a349c2a8445eb31e7312a918f90e20c9b06d60754fd"
     sha256 cellar: :any, arm64_sonoma:   "bf5d06c9fc78777d99c50c65585e3f295046d2619adcaa0c93c5349e1a650d15"
     sha256 cellar: :any, arm64_ventura:  "6efc300826fc1217ec39625cd01b93617fb9ea95f11a88c990751fed2e27eabb"
     sha256 cellar: :any, arm64_monterey: "6a4d3e8d365795072c819aaca5b6e662e047b80ebe05b555a8f0fb1e6d898ad7"
@@ -21,7 +18,7 @@ class Libbpg < Formula
   end
 
   # Test fails, email sent to upstream on Aug 2023, no response
-  deprecate! date: "2023-09-26", because: :unmaintained
+  disable! date: "2024-09-26", because: :unmaintained
 
   depends_on "cmake" => :build
   depends_on "yasm" => :build

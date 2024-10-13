@@ -11,6 +11,7 @@ class Potrace < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "dec55e697af533180d68158fd557f596e65887a1e5043214dc0532464aa6ef27"
     sha256 cellar: :any,                 arm64_sonoma:   "003f7041bd6b4ea6de5ac2c8fbe9e2537a6a6dbd169f0c872627c5e2daa00afa"
     sha256 cellar: :any,                 arm64_ventura:  "a7201a2a7bc8af588056ef0319281dab31dd376af60a379430edc495eea29041"
     sha256 cellar: :any,                 arm64_monterey: "cc774c2a6d82a036c9ccf80ed467aabbf39697e8a36ef210cb5b793fb4b6be05"
@@ -42,7 +43,7 @@ class Potrace < Formula
 
   test do
     resource("head.pbm").stage testpath
-    system "#{bin}/potrace", "-o", "test.eps", "head.pbm"
+    system bin/"potrace", "-o", "test.eps", "head.pbm"
     assert_predicate testpath/"test.eps", :exist?
   end
 end

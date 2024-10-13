@@ -1,5 +1,3 @@
-require "language/node"
-
 class Vsce < Formula
   desc "Tool for packaging, publishing and managing VS Code extensions"
   homepage "https://code.visualstudio.com/api/working-with-extensions/publishing-extension#vsce"
@@ -14,25 +12,27 @@ class Vsce < Formula
   end
 
   bottle do
-    sha256                               arm64_sonoma:   "e2aa2ae7394da50aff107c46c1d1c33f7828bdf2c0d73880e035ad94029df4f2"
-    sha256                               arm64_ventura:  "7f4a3b3b9f799b1a9c9512d7ef494b9824addf2a905eddd82e64bf9d63144442"
-    sha256                               arm64_monterey: "bdf14a9463ff09ed539eb806fa32ea0f696211393b63b0e863c5fd84b3b7c9c4"
-    sha256                               arm64_big_sur:  "a2f3f741154cf72545c2040069ef9b46bd0bbf1dc5fb2a44d7e316b46459b75b"
-    sha256                               sonoma:         "70915ce3da8641c5ec0d195a5ef1073859f7f6141610939be450a5fba087b634"
-    sha256                               ventura:        "8a63015f35cb184f30152a9c6436a49cbbea4d69360862dadd7727e6cc78f8ea"
-    sha256                               monterey:       "58550e96cc292bebc2f160606a487dfe586f7a1f1b420ecdd9f834cd9a6f647f"
-    sha256                               big_sur:        "d663fa67753a57eb4a82253bffcc7ae2563a0b8721e3ead316554ac7c305e830"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f848e56aeabd87e89ccd59771bfc6a7e5fb165d3b942b1cd75fc59d3ed040727"
+    rebuild 1
+    sha256                               arm64_sequoia:  "d7d5e25141636a36255d73df15ecae04c954ec71f3066b232c28b4ce3cfd1cb4"
+    sha256                               arm64_sonoma:   "48d0726cf723c7bc8a7cc6dc70ac7264acd991fb754d3f532221b30f46f69b06"
+    sha256                               arm64_ventura:  "0c6eb6b03b64e309d96faf44d2472a96d7fbcd3f6159530f46dd735b30ebd8a4"
+    sha256                               arm64_monterey: "3095ea99be11fdcba4cd2e1c5e347c6a11b68e32c401fd0e361262e0328b00ac"
+    sha256                               sonoma:         "afe4a6cf108c2aee2a672a8dff18b1161ca6c66da40a95527f366233000020fd"
+    sha256                               ventura:        "aad312e494c4dab3ec434fc833fe4d3390a0e2419b2ab4f9336cb43aafc1d318"
+    sha256                               monterey:       "d6d5b20923a47882415980fd659a0c3b5313811fa747fba41ed47acc2ab91dda"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "67ee6be7fadd75c972f68455ac4c3c75a9fa7f8de4ac1205dbb80df6d9889e66"
   end
 
   depends_on "node"
+
   on_linux do
     depends_on "pkg-config" => :build
+    depends_on "glib"
     depends_on "libsecret"
   end
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", *std_npm_args
     bin.install_symlink Dir[libexec/"bin/*"]
   end
 

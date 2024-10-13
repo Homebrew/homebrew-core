@@ -7,6 +7,7 @@ class Ctop < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "cd09dd7c11239dd436500639b817a7c935a16033630cfc78b5f6a3acbb763089"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "217bb4ee91c955c570491fc44d7ed650854aaa3cb6e08f6269b33b1595bc36f0"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "010e50edd98d6e9a43e3d4351281eae20f62df79a3f9d82d4da5309e2b30b2a4"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "cacf1e287ff25e701de9c1472d462377e8bf90cc5733defe595b5c0f5848ab64"
@@ -27,6 +28,6 @@ class Ctop < Formula
   end
 
   test do
-    system "#{bin}/ctop", "-v"
+    system bin/"ctop", "-v"
   end
 end

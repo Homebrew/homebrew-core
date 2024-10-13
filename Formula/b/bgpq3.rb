@@ -12,6 +12,7 @@ class Bgpq3 < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "4eca4f5cc688d7bfca7689f337cbe77112e688ade4a640718f32270d750959df"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a26e86fbe0f158032564b36c316161d6296e2f13a6f37887e860454ebf0c5fbf"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "18d4d294bcd85daa37e3285a34aa7ed2d45513cd708a2eadc203d5d62ae7b5a3"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "890ade49fae97d8e9967362b464b57cc172fb5305e05dee84d7c3b5ab5e869bd"
@@ -35,7 +36,7 @@ class Bgpq3 < Formula
   end
 
   test do
-    system "#{bin}/bgpq3", "AS-ANY"
+    system bin/"bgpq3", "AS-ANY"
   end
 end
 

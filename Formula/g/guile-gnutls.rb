@@ -7,6 +7,7 @@ class GuileGnutls < Formula
   head "https://gitlab.com/gnutls/guile.git", branch: "master"
 
   bottle do
+    sha256 arm64_sequoia:  "01a683c88e2e7f41743b06a5324571c3c9b76a26d5f38cd2085fac6c24b2f66e"
     sha256 arm64_sonoma:   "fa04d75c5e4ce832178da0dd59c0903976517ec88bab6e447c2635f8efabcf86"
     sha256 arm64_ventura:  "904211d84327edf97c2f981c332cfa4b87f9ae6acead1bd3fb03dbf730f86eb7"
     sha256 arm64_monterey: "4a838b2cf2c2dd0e6709cd43201a9c8dc5cc7e09705a00eb2523cb9785048c07"
@@ -21,12 +22,16 @@ class GuileGnutls < Formula
   depends_on "gnutls"
   depends_on "guile"
 
+  on_macos do
+    depends_on "bdw-gc"
+  end
+
   def install
-    system "./configure", *std_configure_args.reject { |s| s["--disable-debug"] },
-                          "--with-guile-site-dir=#{share}/guile/site/3.0",
+    system "./configure", "--with-guile-site-dir=#{share}/guile/site/3.0",
                           "--with-guile-site-ccache-dir=#{lib}/guile/3.0/site-ccache",
                           "--with-guile-extension-dir=#{lib}/guile/3.0/extensions",
-                          "--disable-silent-rules"
+                          "--disable-silent-rules",
+                          *std_configure_args.reject { |s| s["--disable-debug"] }
     system "make", "install"
   end
 

@@ -13,6 +13,7 @@ class Agedu < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "1b9c17df6a3fea5e8ca285d5de89cee23f4eb5d324da61f639bd34b57e5700bd"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7bd1f24bf4d884c1afbb2b3eb070983781cd9aa6b3aba84fd5920d7684e92719"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "16f825c8f7835ec0b733278b2843541eb1dbcb47c3c50d225dde4be1116465ed"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4ec8e3dfc1b9888fd099ea557c70f9618009330a7350491ee6c59629de112e16"

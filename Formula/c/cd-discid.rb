@@ -1,7 +1,7 @@
 class CdDiscid < Formula
   desc "Read CD and get CDDB discid information"
   homepage "https://linukz.org/cd-discid.shtml"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
   revision 2
   head "https://github.com/taem/cd-discid.git", branch: "master"
 
@@ -24,6 +24,7 @@ class CdDiscid < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "9956c0cddca69b3a816e8bc553c0455adac71f67ee30041a9065ac7c4384c219"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6714fb89edba30f77536f171b99da060ec3fa80a419a0f27f5ab2b9a26f2a266"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "618a12cac73126b2818a93e91870571b7c78604ac0c4ab4e9f93e6c398a9d33a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "671ac240cb3b94484690d12ec1d85cc96d90ffbf848cfb4adeebd8f5f32c1fbd"

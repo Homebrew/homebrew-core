@@ -8,6 +8,7 @@ class Dex < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_sequoia:  "961f06389b30d15e9464ece560955feff630b3b025d5e02fcc41e8778ced1597"
     sha256 arm64_sonoma:   "4ff6003727f7e76f429e07040495e6c27dcd6d0375771ec774b4eb35f89b5d90"
     sha256 arm64_ventura:  "54736c90fa2e3b234dfbbbecb1cc573bfe0a810933638297cb0efea717ca3c3d"
     sha256 arm64_monterey: "b0862918ef89cb4018a08662ec18ca36fab573fdf1e44696fd32813b9f40957c"

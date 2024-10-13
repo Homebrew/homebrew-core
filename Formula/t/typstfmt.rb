@@ -7,6 +7,7 @@ class Typstfmt < Formula
   head "https://github.com/astrale-sharp/typstfmt.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "840ef206e895decf1e2e6f6d4667f0cb5ffc106720664f8651183ddbfa43942f"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "844ad26eecdbd64cc9e98bea828c52772bb45a0f6fdc0e79a8ac8a8092679cc2"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "582d6c33840b510206e0e80d85406a2f16de67fdcb93102f480330cb226b81d3"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "bb0272d469193fa0dadcca3ee4d379204a58774ad69b84ec3330064793fecaa8"

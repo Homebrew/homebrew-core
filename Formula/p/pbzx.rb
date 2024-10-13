@@ -7,6 +7,7 @@ class Pbzx < Formula
   head "https://github.com/NiklasRosenstein/pbzx.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any, arm64_sequoia:  "ecaa1ce184ca795a79c535697ba31b5a4149599641d561248263f27bf175c9ca"
     sha256 cellar: :any, arm64_sonoma:   "37c826c9cf597002de46eeec44865b96760d06533ca6eee7352721f2fb8cf1c4"
     sha256 cellar: :any, arm64_ventura:  "2daae05cf14027d7cefc132e705bf69a04e4fd5425c4856bda3ba33da6ce575f"
     sha256 cellar: :any, arm64_monterey: "52198369eac9a2ce3b84a3d293517c84dd9fbea20010379ece7ac849cedeba2c"

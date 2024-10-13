@@ -1,18 +1,17 @@
 class Berglas < Formula
   desc "Tool for managing secrets on Google Cloud"
   homepage "https://github.com/GoogleCloudPlatform/berglas"
-  url "https://github.com/GoogleCloudPlatform/berglas/archive/refs/tags/v2.0.2.tar.gz"
-  sha256 "e00382df4ca08e777fb773c83bd67d54e54dc423a493f993a3f023d38f811aab"
+  url "https://github.com/GoogleCloudPlatform/berglas/archive/refs/tags/v2.0.6.tar.gz"
+  sha256 "08460ae3b50b61c97e77377b46f1815154f6d5ad5d0300bd3ec2efd545310e0b"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "cedb09bebbe4c8f6933a1b810d8e0d9ed236d050c273a66952a57fd324348318"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f3a8aa66bb4c340a5d4fcf3c9a57f3d989c161a131ff93e13e1fd11db7886f37"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "860f22ab116f25a3a31ce31c6972dc9bf69a67e79fb0bc1fb69f300873cf1ea2"
-    sha256 cellar: :any_skip_relocation, sonoma:         "d972024d5e88d62857df6303f1ad06cf9edbd6071c02f334c99fe12107835358"
-    sha256 cellar: :any_skip_relocation, ventura:        "b4c0cba269b5c51fd1a43c2f05209eebc0e32a8d4d2b3660c9620724b9282e13"
-    sha256 cellar: :any_skip_relocation, monterey:       "e3a61386af637a62a61dff1e1cd0c05c5e7ad543fb7bf40aeadbad38aecf8a98"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "161cd8874099448d3ca75b02d426c9cc9aec558fba0318477970bbf9c6d5bb57"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "87bbcd1e2ae89f5fd3cfd7f44627e84bc530777a42d874b715c40adb43f22db8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "87bbcd1e2ae89f5fd3cfd7f44627e84bc530777a42d874b715c40adb43f22db8"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "87bbcd1e2ae89f5fd3cfd7f44627e84bc530777a42d874b715c40adb43f22db8"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7fe0179ad31b2e73b28eae4fda8f31861a4503159410ad928ac5e31b568dbc96"
+    sha256 cellar: :any_skip_relocation, ventura:       "7fe0179ad31b2e73b28eae4fda8f31861a4503159410ad928ac5e31b568dbc96"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "107d44fafc6f9fdd29ae907139da5f4455ac4f13dee3e1c269a25f1beadd49cd"
   end
 
   depends_on "go" => :build

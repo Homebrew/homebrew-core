@@ -6,6 +6,7 @@ class Prs < Formula
   license "GPL-3.0-only"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "36d53ab5768b10b70fadeb2545e976adadf6079f7e0a32f93f245cac7cd525b6"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8a93fda36c4e71d0530ff82829b8834ca2798503b07ddbd215736a99c5692d45"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f1f84a217868717c2d34388ab151d771f6cb1366c03e9113600c710dcec8731d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1ebb272933f7017e878eafbf46a779451361504a38dfbf4701b8daf0b2b96376"

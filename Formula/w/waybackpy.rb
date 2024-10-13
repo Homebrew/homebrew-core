@@ -9,6 +9,7 @@ class Waybackpy < Formula
   revision 6
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "876c3c23633e1a2516a7a9ec2687164f69809c07aa00fa9d694bf5c7797cc09a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b180352f39d35fdfc2950fc0291fb9d990a6961eb686aad5f4313783d0f90170"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "b180352f39d35fdfc2950fc0291fb9d990a6961eb686aad5f4313783d0f90170"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b180352f39d35fdfc2950fc0291fb9d990a6961eb686aad5f4313783d0f90170"

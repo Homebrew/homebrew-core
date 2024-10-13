@@ -12,7 +12,8 @@ class Attr < Formula
   end
 
   bottle do
-    sha256 x86_64_linux: "2c131520e0e49f68b20bce55f7efe36909ede3f95e484606d3f721b1d39a5f15"
+    rebuild 1
+    sha256 x86_64_linux: "46697ba4e0414c6acfe43dcbbb14df9e2c96b323c7e1255fa8debb75de58f5ee"
   end
 
   depends_on :linux
@@ -28,7 +29,7 @@ class Attr < Formula
 
   test do
     (testpath/"test.txt").write("Hello World!\n")
-    system bin/"attr", "-s", "name", "test.txt"
+    pipe_output "#{bin}/attr -s name test.txt", ""
     assert_match 'Attribute "name" has a 0 byte value for test.txt',
                  shell_output(bin/"attr -l test.txt")
   end

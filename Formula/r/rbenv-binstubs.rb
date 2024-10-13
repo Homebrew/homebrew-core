@@ -8,7 +8,8 @@ class RbenvBinstubs < Formula
   head "https://github.com/Purple-Devs/rbenv-binstubs.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "6c6c87e94079363fe4305e4798c2e26af71c71662ec3cdc9cc62cf55a6fb41f5"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "cf92d2a4a872f49ddf33d4e4132ab0d1de390bf0c027a0f0e27925110bb01fe5"
   end
 
   depends_on "rbenv"

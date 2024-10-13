@@ -12,6 +12,7 @@ class Fizmo < Formula
   end
 
   bottle do
+    sha256 arm64_sequoia:  "4e3cac7e500d651ad426903ea1016ab8c1814b75c9f8bd421a089b308c8a2ce7"
     sha256 arm64_sonoma:   "40879942bfcd0d7fe5b9ffbf4ae0392d0e93b3ffc148aaa06b803388284ab23f"
     sha256 arm64_ventura:  "878df159a06663acf65f7038069c45e7b679269c5e8dcb9c4490f512f1cd2826"
     sha256 arm64_monterey: "869fedbd10336fffd09d9f28cb0459dba50d54e5d99f9977c57359a4af33f6fb"
@@ -41,10 +42,11 @@ class Fizmo < Formula
   end
 
   test do
-    system "#{bin}/fizmo-console", "--help"
+    system bin/"fizmo-console", "--help"
+
     # Unable to test headless ncursew client
     # https://github.com/Homebrew/homebrew-games/pull/366
-    # system "#{bin}/fizmo-ncursesw", "--help"
-    system "#{bin}/fizmo-sdl2", "--help"
+    # system bin/"fizmo-ncursesw", "--help"
+    system bin/"fizmo-sdl2", "--help"
   end
 end

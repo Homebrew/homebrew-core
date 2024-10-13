@@ -3,8 +3,12 @@ class Thrulay < Formula
   homepage "https://sourceforge.net/projects/thrulay/"
   url "https://downloads.sourceforge.net/project/thrulay/thrulay/0.9/thrulay-0.9.tar.gz"
   sha256 "373d5613dfe371f6b4f48fc853f6c27701b2981ba4100388c9881cb802d1780d"
+  # Similar to BSD-3-Clause-LBNL (i.e. BSD-3-Clause with an additional default
+  # contribution licensing clause) but different phrasing from the SPDX license
+  license :cannot_represent
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "8980e64ea2ecc17ba2e111d4798a39c7789fc1b0009c2f0ae5664b0fcff8603f"
     sha256 cellar: :any,                 arm64_sonoma:   "d26583fd1ddd768813b4b89c02d46862821e356bf6c009cd1ecf985363ab4317"
     sha256 cellar: :any,                 arm64_ventura:  "bfbbc0ce92dbcfda1209154db22b59916f996348b77bf8421a4c70a6b5bcbba1"
     sha256 cellar: :any,                 arm64_monterey: "d9520dcaf88a54de7a0cbab36185a133a20b003332ae0e9b7bc6abde9fd10da2"

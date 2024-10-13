@@ -7,6 +7,7 @@ class GitSeries < Formula
   revision 11
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "07cdafe7f171d1aac9404902f0d201721c7dbda7bb75919091912e327994b682"
     sha256 cellar: :any,                 arm64_sonoma:   "524192ede385b910c7a60b441a37eb2c38e6b8cc0520c46a97242264040601a1"
     sha256 cellar: :any,                 arm64_ventura:  "534069e9ffcbf292060e4ef30fca7c1379314d5bcd43a413ce8f2ac793058abe"
     sha256 cellar: :any,                 arm64_monterey: "57110db5cd6e45abc2512b7481fb0058a6735efef1b1aa8620afbd218ad8ffc9"

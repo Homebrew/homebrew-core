@@ -7,6 +7,7 @@ class Caire < Formula
   head "https://github.com/esimov/caire.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "bb2c519976ca78b44da796efd32fe65e5a982713b25de280bdb324e7490ddfb4"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4b6ba688df352152e050e2a1c8bc8af7e21d375f9a083fbe4e8eae3b9f284571"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "de8d5498c8a7225927089e78b74262da38c07c25676149e254ed2f51dca071b3"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "bc8a8ce5ea3d3f5641ea6d92fb82e49c4eba64d6d3396740de5b49afedd666c2"
@@ -23,7 +24,9 @@ class Caire < Formula
   on_linux do
     depends_on "pkg-config" => :build
     depends_on "vulkan-headers" => :build
+    depends_on "libx11"
     depends_on "libxcursor"
+    depends_on "libxfixes"
     depends_on "libxkbcommon"
     depends_on "mesa"
     depends_on "wayland"

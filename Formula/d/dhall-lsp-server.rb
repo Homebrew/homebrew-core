@@ -52,7 +52,7 @@ class DhallLspServer < Formula
       "\r\n" \
       "{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"exit\"}\r\n"
 
-    output = pipe_output("#{bin}/dhall-lsp-server", input, 0)
+    output = pipe_output(bin/"dhall-lsp-server", input, 0)
 
     assert_match(/^Content-Length: \d+/i, output)
     assert_match "dhall.server.lint", output

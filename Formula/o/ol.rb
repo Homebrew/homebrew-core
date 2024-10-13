@@ -7,6 +7,7 @@ class Ol < Formula
   head "https://github.com/yuriy-chumak/ol.git", branch: "master"
 
   bottle do
+    sha256 arm64_sequoia:  "81826d1dabeac36decb539b87e72acd37bdd505c44738ceec818fe181c007388"
     sha256 arm64_sonoma:   "4a26bf8cd860169a30d295300867cd39b9055edcb33df3bfcf52f0e22041c358"
     sha256 arm64_ventura:  "89ef88d3303f2ba434c19ff40955cc125c65d856c1f9884fb20ad8081c0218fb"
     sha256 arm64_monterey: "5bd128ae10e3d5f087cd52701e013d42615a847628f0c082a6ef33a29d8c616e"
@@ -21,6 +22,9 @@ class Ol < Formula
   conflicts_with "radamsa", because: "both install `ol` binaries"
 
   def install
+    # Workaround for newer Clang
+    ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
+
     system "make", "all", "PREFIX=#{prefix}"
     system "make", "install", "PREFIX=#{prefix}"
   end

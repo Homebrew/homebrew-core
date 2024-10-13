@@ -195,15 +195,15 @@ class Glibc < Formula
       include /etc/ld.so.conf
     EOS
 
-    rm_f etc/"ld.so.cache"
+    rm(etc/"ld.so.cache")
   ensure
     # Delete bootstrap binaries after build is finished.
-    rm_rf bootstrap_dir
+    rm_r(bootstrap_dir)
   end
 
   def post_install
     # Rebuild ldconfig cache
-    rm_f etc/"ld.so.cache"
+    rm(etc/"ld.so.cache") if (etc/"ld.so.cache").exist?
     system sbin/"ldconfig"
 
     # Compile locale definition files
@@ -259,8 +259,8 @@ class Glibc < Formula
 
   test do
     assert_match "Usage", shell_output("#{bin}/ld.so --help")
-    safe_system "#{lib}/libc.so.6", "--version"
-    safe_system "#{bin}/locale", "--version"
+    safe_system lib/"libc.so.6", "--version"
+    safe_system bin/"locale", "--version"
   end
 
   def ld_so_conf_d

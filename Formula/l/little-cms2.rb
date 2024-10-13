@@ -18,6 +18,7 @@ class LittleCms2 < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "cbd8af49cc4b8454636a2cdcfae87b7005f11cbb7466994f0bf419968f33ea5d"
     sha256 cellar: :any,                 arm64_sonoma:   "d1ed5796de3f00d4b1301e9062cb54b2337c8e8dcf2ae9be8e03f3ed7af791e0"
     sha256 cellar: :any,                 arm64_ventura:  "c7eee75a83a2be3f19aa53ad043da4a316af7bc7f57e6aaf8f311f9e6e354be8"
     sha256 cellar: :any,                 arm64_monterey: "2f155dd797f8d008616c61677d7b7ebc49b349feb06a1c86239d49e1b9a5118d"
@@ -36,7 +37,7 @@ class LittleCms2 < Formula
   end
 
   test do
-    system "#{bin}/jpgicc", test_fixtures("test.jpg"), "out.jpg"
+    system bin/"jpgicc", test_fixtures("test.jpg"), "out.jpg"
     assert_predicate testpath/"out.jpg", :exist?
   end
 end

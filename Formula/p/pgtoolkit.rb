@@ -6,7 +6,8 @@ class Pgtoolkit < Formula
   license "PostgreSQL"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "855d67c931981dc3d62ce39fb663f0ece72efc919001352be2902ae1ad491b12"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "2ff68677e0eea7a722a102fabbb166117a3e199cb010d10a65f73a2427026a71"
   end
 
   def install

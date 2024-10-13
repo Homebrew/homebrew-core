@@ -12,6 +12,7 @@ class Ares < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "6b698cc90e5f474391cb7a574b84ba9a3c9d4e70f4de900676375856a58408a6"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3d2827a8036416c4adba83c9a6fd43eeddf76f6bd7902107ab728cf3369d3d90"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "97a85bf81a02c6a8264a4ea153adc2190d2da0d88920a6f789e38605ffd3cee4"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c2bcc31382c5987f72cc62f942178fd2048d7d4acc71e94b36e15f9e77fc2e8d"

@@ -6,7 +6,8 @@ class Kommit < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "1fdd89c3c3c5e6c30817ddfa6e41ae587f80d05afe22b729fa4de0541e28e5a8"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "e27d05c078699c3a5c3ba379e6a598cd4b96142358bf41fca14cf2faa83251ff"
   end
 
   def install
@@ -15,7 +16,7 @@ class Kommit < Formula
 
   test do
     system "git", "init"
-    system "#{bin}/git-kommit", "-m", "Hello"
+    system bin/"git-kommit", "-m", "Hello"
     assert_match "Hello", shell_output("#{bin}/git-kommit -s /dev/null 2>&1")
   end
 end

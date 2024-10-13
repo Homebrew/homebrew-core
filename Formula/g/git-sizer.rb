@@ -6,6 +6,7 @@ class GitSizer < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "ccae14c242e55c103e138e715a48f7a1c7210ce2c749dc18635a60386ccace44"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a7436b19c338834afaf2a042ce8cf4468a1bdafbe20175caefca0ef69fea2fbd"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f6d81ce3b3553755497bfc41658af2f441ed1084c03ea8a19812f665cec082ce"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f996c81d0b80e56313f6c187b498c5d3c71001bbac8bd704fd30e5f59c593d67"
@@ -26,7 +27,7 @@ class GitSizer < Formula
 
   test do
     system "git", "init"
-    output = shell_output("#{bin}/git-sizer")
+    output = shell_output(bin/"git-sizer")
     assert_match "No problems above the current threshold were found", output
   end
 end

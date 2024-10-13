@@ -6,16 +6,25 @@ class CloudformationGuard < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e85551c6efc0bc9749403de993f0e2cfee43c1e0839cafecddf797f92210ed90"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b1f9b0163980146193564d347e7f042c226850c9518f931edeb350c0645c4c3a"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c6baf6f0deb18323592252b17316589062dce7fe54296b6f2827b68c6629231e"
-    sha256 cellar: :any_skip_relocation, sonoma:         "92ede39ca7745763c47da6c9a6da61084b5d7a7c6b3e5e07c135fd286794e359"
-    sha256 cellar: :any_skip_relocation, ventura:        "ae8ea3e6f9295868eaec3c63e409739c900d69d956753aa92ce47e3331a31d08"
-    sha256 cellar: :any_skip_relocation, monterey:       "6f64bcc66ef1c0c0db113aa215b6c8ba0c8e1f34f0709788347df54105618726"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "36c2a82c1b64b8bbaac3fea7c446f8cbccdfb39e3b6aae5a47b8e8d03280b139"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "08c62a7e48efab86f6b8a3cb5db91e9cdb7a8002ea7a4e2e0d10704ed58c1cb2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "69df0ef961736b2539d92dcdf69a9c99567d71f477f5b43c836ab7b150d96869"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b82ecbceaf9cf79e11b6c34e08019467a71c61804099c060bf4ec499a174c861"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "8dfca33d74c6078b054a611495e07c51b66c42d60c5a269f21e48877654e6afd"
+    sha256 cellar: :any_skip_relocation, sonoma:         "76ee3e3e239d94dc811b58625d691207efedd427630d2e386d861689c93bbddf"
+    sha256 cellar: :any_skip_relocation, ventura:        "af5a5b8c5ae48f77786f47b9cd142d0056912270f85e35670bb91d7b8100626b"
+    sha256 cellar: :any_skip_relocation, monterey:       "052eb9cdaa12167fb31fb4d276960b5eda60ff38aafeb9cd5e7c23080f60c4e5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "51ad19d2266387ba1ba3d5c99b6ef1baf3f03606de7c46b2dc077cddc703bbfd"
   end
 
   depends_on "rust" => :build
+
+  # build patch for `unused return value of `must_use` that must be used`
+  # upstream pr ref, https://github.com/aws-cloudformation/cloudformation-guard/pull/528
+  patch do
+    url "https://github.com/aws-cloudformation/cloudformation-guard/commit/4fa3ffe30ea164ee9d508de71024ca4fd0366dad.patch?full_index=1"
+    sha256 "bb3cd7128801e3d41f410a39dd63d336570bb3060f61fa80e7d70067f1744f1f"
+  end
 
   def install
     cd "guard" do

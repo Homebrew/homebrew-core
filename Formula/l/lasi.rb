@@ -9,6 +9,7 @@ class Lasi < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any,                 arm64_sequoia:  "cacfb48c1b73960804bf1471d86942b79e306cbf737242f31456fd41588798c0"
     sha256 cellar: :any,                 arm64_sonoma:   "784a47e3a5a0eba53a4a1ffcc00b0aecddf0b04a588ef2ad10b0ee8d90803c61"
     sha256 cellar: :any,                 arm64_ventura:  "b13ac894940a19c92183c5fad1f5058232af01fb4d6a7c8c1a490d5f289c3fc2"
     sha256 cellar: :any,                 arm64_monterey: "7316df1ac91816fd9ee342a973b4b96dd3e2bb4ce9eb93fedfe96b30a109d8f8"
@@ -25,21 +26,25 @@ class Lasi < Formula
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
   depends_on "pkg-config" => :build
+  depends_on "freetype"
+  depends_on "glib"
   depends_on "pango"
 
+  on_macos do
+    depends_on "fontconfig"
+    depends_on "gettext"
+    depends_on "harfbuzz"
+  end
+
   def install
-    args = std_cmake_args.dup
-
-    # std_cmake_args tries to set CMAKE_INSTALL_LIBDIR to a prefix-relative
-    # directory, but lasi's cmake scripts don't like that
-    args.map! { |x| x.start_with?("-DCMAKE_INSTALL_LIBDIR=") ? "-DCMAKE_INSTALL_LIBDIR=#{lib}" : x }
-
     # If we build/install examples they result in shim/cellar paths in the
     # installed files.  Instead we don't build them at all.
     inreplace "CMakeLists.txt", "add_subdirectory(examples)", ""
 
-    system "cmake", ".", *args
-
-    system "make", "install"
+    # std_cmake_args tries to set CMAKE_INSTALL_LIBDIR to a prefix-relative
+    # directory, but lasi's cmake scripts don't like that
+    system "cmake", "-S", ".", "-B", "build", "-DCMAKE_CXX_STANDARD=11", *std_cmake_args(install_libdir: lib)
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 end

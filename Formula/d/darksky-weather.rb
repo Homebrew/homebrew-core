@@ -7,6 +7,7 @@ class DarkskyWeather < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "478916227ceed88c3c7a55485f8c1edbd1e610e36949fb333e659b84a71c6f2e"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "06d6793a769708b4644292ae99aed057e15c9f95fa5f38c8e058bca7c791915e"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "65acd7270545c3451f69c5fb5e3a6fc819c3f86f7ee6f687769ccdf8ce41a86d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "3908f2bff7bb30a6c668211e255cdb4edfb073e90db2d4fd75addc316b061fc2"
@@ -20,7 +21,7 @@ class DarkskyWeather < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "8f27ed1995e056157202f4785d0d4d28a8181d77cd0a971d6b778aafcbca7abc"
   end
 
-  deprecate! date: "2023-12-30", because: "uses the shutdown darksky.net API"
+  disable! date: "2024-10-11", because: "uses the shutdown darksky.net API"
 
   depends_on "go" => :build
 

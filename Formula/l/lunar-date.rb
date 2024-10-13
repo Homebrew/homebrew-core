@@ -6,6 +6,7 @@ class LunarDate < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
+    sha256 arm64_sequoia:  "0edc08d00796351d91ad00136c32df5dacaaf76301cd9464ce2cb733ac976f91"
     sha256 arm64_sonoma:   "97f9d852239c52563215dcc32f17208dcdfc5c35abfa95ca71c04f7cb58257e9"
     sha256 arm64_ventura:  "19aff5df6a94c6367cefb6e970257d1533c6db1d7159f2ae8c1e0ec295ac9cbb"
     sha256 arm64_monterey: "01779a26cab511a07b5c288ada2ced6acedf252b1b58425f406068fc20e9aec7"

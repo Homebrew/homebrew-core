@@ -11,6 +11,7 @@ class Libntlm < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "bebdb2ee8c5ef33fc95cd079147d06234b5661f869b6a88d23d68d4abd6fb28f"
     sha256 cellar: :any,                 arm64_sonoma:   "2629d0038710546db1d05c77d273189bed4554ab7b6f7e67444a80b6fd52cb0d"
     sha256 cellar: :any,                 arm64_ventura:  "6a07ff33c447c44d0271951ff00810244d7e46fbdbbefa3697533d442e807f31"
     sha256 cellar: :any,                 arm64_monterey: "3cdeede8fb7af5aeaf2e29d7a2c1b8d77f49602830eb7cda1bd541bcc468d379"

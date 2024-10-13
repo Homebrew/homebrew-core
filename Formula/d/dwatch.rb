@@ -3,7 +3,7 @@ class Dwatch < Formula
   homepage "https://siag.nu/dwatch/"
   url "https://siag.nu/pub/dwatch/dwatch-0.1.1.tar.gz"
   sha256 "ba093d11414e629b4d4c18c84cc90e4eb079a3ba4cfba8afe5026b96bf25d007"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url "https://siag.nu/pub/dwatch/"
@@ -12,6 +12,7 @@ class Dwatch < Formula
 
   bottle do
     rebuild 2
+    sha256 arm64_sequoia:  "5a80233a94231468b47d75de46c5687c8c274771ead2c2131634c7acc224390f"
     sha256 arm64_sonoma:   "615de415e77a4739ef13fa2b3de259c3974409c5b94436b852fcb3e563706e2f"
     sha256 arm64_ventura:  "77ffa4908916dc6f0777a4c04e56bfa3009b4bc9472881830c84c07f926fe3e6"
     sha256 arm64_monterey: "496581eb99331049567945d3772d07f035a21f5275cf0408183dfb87375b6f6a"
@@ -42,6 +43,6 @@ class Dwatch < Formula
 
   test do
     # '-h' is not actually an option, but it exits 0
-    system "#{bin}/dwatch", "-h"
+    system bin/"dwatch", "-h"
   end
 end

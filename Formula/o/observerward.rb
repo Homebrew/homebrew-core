@@ -1,18 +1,17 @@
 class Observerward < Formula
   desc "Web application and service fingerprint identification tool"
   homepage "https://emo-crab.github.io/observer_ward/"
-  url "https://github.com/emo-crab/observer_ward/archive/refs/tags/v2024.7.25.tar.gz"
-  sha256 "82c4420270b0322d1f1f31bcc9e46a9a2d5d105c802a4134537a202058c48849"
+  url "https://github.com/emo-crab/observer_ward/archive/refs/tags/v2024.10.9.tar.gz"
+  sha256 "4f3a739a6083d9f58d9f2f3e97c659b50a0b0bbaab325ff920d7042a966e702b"
   license "GPL-3.0-only"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "5d81cddb3af5ec867647624118992f145ef71368065479bf7a227bf4ca560cb8"
-    sha256 cellar: :any,                 arm64_ventura:  "0775ebb5fdb97c67eb9b4e966e75112d361a9c44f3e24513911e2292ee659472"
-    sha256 cellar: :any,                 arm64_monterey: "eda9f0b3ddf7f81fb6317618501c1e01069d1a351b3b0f124b5917203d84585c"
-    sha256 cellar: :any,                 sonoma:         "0b385019fb81d2a9622254644892c7c20870289d205e9c4549c7ef7991c3cb0b"
-    sha256 cellar: :any,                 ventura:        "32bb16088ff84118a480f6bbbd9965c3003c57a62f2a41aad245ca3731cfdcf8"
-    sha256 cellar: :any,                 monterey:       "f9513dc8a9864fa905c1f53989d427043f8320f82a3764bc73724c38840541d2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "19741a8b8b4914c882cb3ca54a2b8f208e32c5bbd2c4c86dad79875482cb6dc7"
+    sha256 cellar: :any,                 arm64_sequoia: "f1a20cdf2b58044ff318562fcc7a2ab43e6e1349f7c3e87338b831ca12e237f8"
+    sha256 cellar: :any,                 arm64_sonoma:  "627d10dc2e456ee3930b478095dacf459ba6c816a0eea4ac621af227faee7831"
+    sha256 cellar: :any,                 arm64_ventura: "a0d551da65846a90fd808f22798db4997a3b41cdf744fc9c63894de2da93f4ce"
+    sha256 cellar: :any,                 sonoma:        "59f513d30e079d23506f46068fedbf81f7f57fd2296515987a9e5efc475c0fcb"
+    sha256 cellar: :any,                 ventura:       "78a60b611afb3d304723f01aec94f8af55ae6ae365c773850e2db96c8abd0633"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "20a88b07f8f8d0fc0e68495aa755253867d59ccb2c7fd9aa56f444907b8740b5"
   end
 
   depends_on "rust" => :build

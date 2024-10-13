@@ -42,6 +42,7 @@ class OpenjdkAT8 < Formula
     depends_on "fontconfig"
     depends_on "libx11"
     depends_on "libxext"
+    depends_on "libxi"
     depends_on "libxrandr"
     depends_on "libxrender"
     depends_on "libxt"

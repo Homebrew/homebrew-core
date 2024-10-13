@@ -29,6 +29,6 @@ class Texapp < Formula
   end
 
   test do
-    assert_match "trying to find cURL ...", pipe_output("#{bin}/texapp", "^C")
+    assert_match "trying to find cURL ...", pipe_output(bin/"texapp", "^C")
   end
 end

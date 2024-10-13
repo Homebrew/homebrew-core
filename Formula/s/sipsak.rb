@@ -7,6 +7,7 @@ class Sipsak < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia:  "fc163d012b766abeb36447d0077a3711ba87868aafaee12c1ddd4a68e8e650af"
     sha256 cellar: :any,                 arm64_sonoma:   "267cd68ed07f710be35f79c815be4d80af199a7409d97f3dab329cc23ce124f9"
     sha256 cellar: :any,                 arm64_ventura:  "fdf8e854dbe1034dbf7a71760e4246bc6550a322954888fd0673284eedfcbe55"
     sha256 cellar: :any,                 arm64_monterey: "e125f43909ca4f4a28524262a30f0e9428db17ba255c9ebe99fae92d031ee1f2"
@@ -31,6 +32,6 @@ class Sipsak < Formula
   end
 
   test do
-    system "#{bin}/sipsak", "-V"
+    system bin/"sipsak", "-V"
   end
 end

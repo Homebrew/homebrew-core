@@ -11,6 +11,7 @@ class Minizip < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "3641776397e76574fcfe89466a78fd4dfedf9318a3c773fbfaffb0f0ec696547"
     sha256 cellar: :any,                 arm64_sonoma:   "3bc53490be71be5fcf8c018ba2db9b061dbedf50a12c6f6fabcc9f4df003cfc5"
     sha256 cellar: :any,                 arm64_ventura:  "d60c0678b1ac599448e1dd216aa3e44a9b9f11c00bfd7271eaa5c9e4296a3ad4"
     sha256 cellar: :any,                 arm64_monterey: "437e23f93e1777d4b4f4d849bc6026361ba46591ba8081d8ab289a3d6dba45c3"

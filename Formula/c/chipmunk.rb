@@ -13,6 +13,7 @@ class Chipmunk < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "97effc6e461bf5caddcf2b7c219b694f45468cae26870becc75f66e5d1c89076"
     sha256 cellar: :any,                 arm64_sonoma:   "da4db92c9a17fdc20990b5e994a3034c89506fe0ce2800275bcfeb128be6d1e8"
     sha256 cellar: :any,                 arm64_ventura:  "41cbccebde6b4a35fe046c12cef11eafa6e5ed1e096837a490ca4c6d0bc67a9d"
     sha256 cellar: :any,                 arm64_monterey: "544c8185e3366a6b067ad4cafb6272610014f0b5787b0c35a735b2c6bc3c7588"

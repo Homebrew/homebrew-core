@@ -1,13 +1,13 @@
 class Typewritten < Formula
   desc "Minimal zsh prompt"
   homepage "https://typewritten.dev"
-  url "https://github.com/reobin/typewritten/archive/refs/tags/v1.5.1.tar.gz"
-  sha256 "db9165ea4490941d65bfa6d7d74ba0312e1667f5bbe712922a6d384bb5166aa6"
+  url "https://github.com/reobin/typewritten/archive/refs/tags/v1.5.2.tar.gz"
+  sha256 "03dcd8239e66cbeac7fa31457bae8355d1fc05fb49dcb05b77ed40f4771226fd"
   license "MIT"
   head "https://github.com/reobin/typewritten.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "0ad832359f435b0616e314ad96ac7d067632edb2c70f983b019d1ab3503784ba"
+    sha256 cellar: :any_skip_relocation, all: "8a6b8fe7ec007b83306cbb94c0d4fed1f6a39fb4f3f053cce9420e4ddbca6137"
   end
 
   depends_on "zsh" => :test

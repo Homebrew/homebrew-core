@@ -3,10 +3,11 @@ class Ssdeep < Formula
   homepage "https://ssdeep-project.github.io/ssdeep/"
   url "https://github.com/ssdeep-project/ssdeep/releases/download/release-2.14.1/ssdeep-2.14.1.tar.gz"
   sha256 "ff2eabc78106f009b4fb2def2d76fb0ca9e12acf624cbbfad9b3eb390d931313"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia:  "e15c23668877e2528d0ef6a446904c5c9802095b19bcbaf037ce382376c50fb2"
     sha256 cellar: :any,                 arm64_sonoma:   "b3e4cc557c4481853959fe15a61314d395df95e655e6809c89dae20db8eb8429"
     sha256 cellar: :any,                 arm64_ventura:  "4c852376c9936badb32f51835c1c71622b5ef3c6c9ca9206ae43dd99a23e7d73"
     sha256 cellar: :any,                 arm64_monterey: "90d04d23cbaa964e22b512fc048d6b7c07c268ea1560ec8e9a9e62f7e8f32182"

@@ -12,6 +12,7 @@ class AmplMp < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "a54c96171166e097c5ca01df439f990b477c55ed19d197a1f112f1373e0d6465"
     sha256 cellar: :any,                 arm64_sonoma:   "d73bc6d66f6b77daf6ba643fade064b9bf281196d136a5d36832a4dc74ad95d1"
     sha256 cellar: :any,                 arm64_ventura:  "0a6ec6b35631a0156e62ed56554b734b7d621ce0933784cf154d09c9d6419a30"
     sha256 cellar: :any,                 arm64_monterey: "27fdafce7e558441048fe2107a783304a5ebb275fdb1c435f0f30a6135d3bbf5"

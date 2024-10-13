@@ -1,10 +1,19 @@
 class Spotifyd < Formula
   desc "Spotify daemon"
   homepage "https://github.com/Spotifyd/spotifyd"
-  url "https://github.com/Spotifyd/spotifyd/archive/refs/tags/v0.3.5.tar.gz"
-  sha256 "59103f7097aa4e2ed960f1cc307ac8f4bdb2f0067aad664af32344aa8a972df7"
   license "GPL-3.0-only"
   head "https://github.com/Spotifyd/spotifyd.git", branch: "master"
+
+  stable do
+    url "https://github.com/Spotifyd/spotifyd/archive/refs/tags/v0.3.5.tar.gz"
+    sha256 "59103f7097aa4e2ed960f1cc307ac8f4bdb2f0067aad664af32344aa8a972df7"
+
+    # rust 1.80 build patch, upstream pr ref, https://github.com/Spotifyd/spotifyd/pull/1297
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/7cb21d6370a1eae320f06a4f9150111db0bbf952/spotifyd/rust-1.80.patch"
+      sha256 "0bfc8c4805cc99c249d1411aff29a0d9107c3ce69f1fabbdc3ab41701ca4f2f6"
+    end
+  end
 
   livecheck do
     url :stable
@@ -12,15 +21,15 @@ class Spotifyd < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "95e7793371f6653dd0bafcecbdc3a3ad9df502a1019911aceb2476f0de4f39d3"
-    sha256 cellar: :any,                 arm64_ventura:  "c20ff1077a0340d3b3f8324bb0476a277e173a4454c9738b4d85d3864333ef8a"
-    sha256 cellar: :any,                 arm64_monterey: "2cdbfff4f46c77b505cb10d50f7779baaf31682f34998d60a744c4ac902791f7"
-    sha256 cellar: :any,                 arm64_big_sur:  "dd7e1f611771ad76903e7f9ab922d3ad8f01266390a0e28361e526a75fea58e8"
-    sha256 cellar: :any,                 sonoma:         "c601ce737baf1da96f6ee4a94c8ee332e1eccaeb9521ca12b7f1d16e871b7bb7"
-    sha256 cellar: :any,                 ventura:        "64249703160dc45cc48743e309d85165ce37cd220550fcbf1a460e221353d453"
-    sha256 cellar: :any,                 monterey:       "464c5f5825b68ba8c81340314467d078537b8c72fe1a0176d6c671756b2f2b18"
-    sha256 cellar: :any,                 big_sur:        "7ffffa9cb731bc19954c5c39163183aafd74cfc6aaedd7275ebf17ee8ce1bb62"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d34d078fa63f06d7ee94589559b01b92d50cd22ddc5425b3628512800e8e36ae"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia:  "dd6598774377cc653a1e34568c6afff11509e3fac350dc0084532ad1eaad97ec"
+    sha256 cellar: :any,                 arm64_sonoma:   "a2305bcd95c814f04cf6bef9d9c01a2cd1b6ab1c3f0c9e2dc1cb6ee85f468556"
+    sha256 cellar: :any,                 arm64_ventura:  "3237a0154b6fddbf87eaea3b4460c8a992b72217899637d479a31f2bcd7ba53e"
+    sha256 cellar: :any,                 arm64_monterey: "25689c32e31f1b2990ffb54fe34ba61856951b8c81d09bea1a4cc4d02d8c6fd9"
+    sha256 cellar: :any,                 sonoma:         "7f9e21a27e9b6af17a131d62c23758ba6e7649c9a8ef38bd51b63d7e76dbcbff"
+    sha256 cellar: :any,                 ventura:        "af948d2987f9c1f31f7217981ab42a62356b51c6793dc4091005795a917845fb"
+    sha256 cellar: :any,                 monterey:       "00d7a5bfb6a4b4cb59e52b6d154e7268b576ed255df3ac199eceed6e7f84ff26"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4baab23fe6181c526b89960d0fb9db63bafea067a4ac9c6f5ac6af658267eea9"
   end
 
   depends_on "pkg-config" => :build

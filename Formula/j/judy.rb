@@ -6,6 +6,7 @@ class Judy < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "9c845c66e4c08af1feb840119e2013109cbfba280a96022e15aa1fe703fa8c61"
     sha256 cellar: :any,                 arm64_sonoma:   "a4aae192c5fb922c184bb6468f445a680549206575f4e78a3494430234465d00"
     sha256 cellar: :any,                 arm64_ventura:  "624e8a5e7c44ff6c509097ee350f165247701cedd4fd67541fe9ca48aafad391"
     sha256 cellar: :any,                 arm64_monterey: "fb900402a39c752744d668c072a7e62fc4ad51468d2fad49dae6f49c8721e96d"

@@ -7,6 +7,7 @@ class Biber < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia:  "c3ea4ec23f241784f3141c50ded0bad178b9a3ed8bb1189f3279df9a56756c97"
     sha256 cellar: :any,                 arm64_sonoma:   "f018ab37e28a17160227cd2628a212c1118e19295d0d9eb90b42ad7f0b7761bb"
     sha256 cellar: :any,                 arm64_ventura:  "36185def50483b55f1eca670196469b4fef358ea861260bc1f40062d1535204f"
     sha256 cellar: :any,                 arm64_monterey: "0bd8bb16155244410aaca2fe01bf11f560e6a97aa0941a3f190d26f8d911662e"

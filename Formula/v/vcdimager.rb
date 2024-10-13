@@ -4,9 +4,11 @@ class Vcdimager < Formula
   url "https://ftp.gnu.org/gnu/vcdimager/vcdimager-2.0.1.tar.gz"
   mirror "https://ftpmirror.gnu.org/vcdimager/vcdimager-2.0.1.tar.gz"
   sha256 "67515fefb9829d054beae40f3e840309be60cda7d68753cafdd526727758f67a"
+  license "GPL-2.0-or-later"
   revision 1
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "85fbe503d6e9e641b2624d2a35840df34515ee12c018e269e6a536a553c59187"
     sha256 cellar: :any,                 arm64_sonoma:   "51ea4ab8dd85928de3e593c7a5125ccd4d4e9329095f586384d59d2423a261f9"
     sha256 cellar: :any,                 arm64_ventura:  "1468d801a2ebe345de5a8f0705aa9aed25dba7e667d050fefdaf860bb7bc1bd5"
     sha256 cellar: :any,                 arm64_monterey: "1b7326b090a4da9db5da22bc68ddbbb5f2544fb4a9070d3d4bfbb56a8b6e8d67"

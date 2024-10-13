@@ -11,6 +11,7 @@ class Ncdc < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "13803ef57b3a3d6667f18f905028c90bfb530d9e5acd8111f45b437d0cb737c4"
     sha256 cellar: :any,                 arm64_sonoma:   "f884fa65e0a6aaa95760bdb4d91c12afacdf22b74ffb375a39a2972d43fabf1c"
     sha256 cellar: :any,                 arm64_ventura:  "f124ac7652a0e93dde6d7c6c510f480f16ffea499e6c961231d039148dfc6ffb"
     sha256 cellar: :any,                 arm64_monterey: "376708c070cc338a43aa667c5c630cc68bbd7c42210b7575037362ff3bd7c164"

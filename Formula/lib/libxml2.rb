@@ -1,9 +1,10 @@
 class Libxml2 < Formula
   desc "GNOME XML library"
   homepage "http://xmlsoft.org/"
-  url "https://download.gnome.org/sources/libxml2/2.12/libxml2-2.12.8.tar.xz"
-  sha256 "43ad877b018bc63deb2468d71f95219c2fac196876ef36d1bee51d226173ec93"
+  url "https://download.gnome.org/sources/libxml2/2.13/libxml2-2.13.4.tar.xz"
+  sha256 "65d042e1c8010243e617efb02afda20b85c2160acdbfbcb5b26b80cec6515650"
   license "MIT"
+  revision 2
 
   # We use a common regex because libxml2 doesn't use GNOME's "even-numbered
   # minor is stable" version scheme.
@@ -13,13 +14,12 @@ class Libxml2 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "0615b18f4e0089dbc3a350d5e2c56bbd87052c17386128500413b857ce0b1f88"
-    sha256 cellar: :any,                 arm64_ventura:  "95fc101400de6205dd55127c67a035127cd74ae3374e157fff8ae8159c22b429"
-    sha256 cellar: :any,                 arm64_monterey: "1e3c987fb48b4e15f129ed713aa0808b8774bf36584c358a2f5b7627ff54c2a7"
-    sha256 cellar: :any,                 sonoma:         "15583249513a6844e95a41a9126bd9bfc0e18a1e1b2fb5520ea85904ac202c01"
-    sha256 cellar: :any,                 ventura:        "53ce0db80ca3161b27f238a2516e78237f43bc5d1d1191bf8591ee838427fb19"
-    sha256 cellar: :any,                 monterey:       "5d61a00a0694e8be7aebe53de8a4b9744b6ca68fedefa6f6b06ba0363eacb772"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fb5cd905b75c9bed36f3deb284e6a6f4c3338f78368cff9f52356b48590897a7"
+    sha256 cellar: :any,                 arm64_sequoia: "e3da26e48d36ae965d6b6382868b8c4e76819255d961b9d50f0e907e027f2196"
+    sha256 cellar: :any,                 arm64_sonoma:  "d05f1c3c1ac62a534fd64a5b6b9242381e2ddd85afe3d91bed859c908c586215"
+    sha256 cellar: :any,                 arm64_ventura: "c455c5e0f4d98beade4bc108a9e810da9af9b63245624c7688420d342a59c2d6"
+    sha256 cellar: :any,                 sonoma:        "f2025b32b04925a6586ab983660435d2d678ea321bf671f9455d8c1d68ee4442"
+    sha256 cellar: :any,                 ventura:       "274643e3f77ebffc1f4c38082453c1c15446f277e233ac07a5006b5c63c1cb6e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e93c2ad1c67a4e949a149d3d742bd672b37259d15bb765930b25ccae582ed7bf"
   end
 
   head do
@@ -33,11 +33,11 @@ class Libxml2 < Formula
 
   keg_only :provided_by_macos
 
-  depends_on "python-setuptools" => :build
   depends_on "python@3.11" => [:build, :test]
   depends_on "python@3.12" => [:build, :test]
+  depends_on "python@3.13" => [:build, :test]
   depends_on "pkg-config" => :test
-  depends_on "icu4c"
+  depends_on "icu4c@75"
   depends_on "readline"
 
   uses_from_macos "zlib"
@@ -49,11 +49,18 @@ class Libxml2 < Formula
   end
 
   def install
+    # Work around build failure due to icu4c 75+ adding -std=c11 to installed
+    # files when built without manually setting "-std=" in CFLAGS. This causes
+    # issues on Linux for `libxml2` as `addrinfo` needs GNU extensions.
+    # nanohttp.c:1019:42: error: invalid use of undefined type 'struct addrinfo'
+    ENV.append "CFLAGS", "-std=gnu11" if OS.linux?
+
     system "autoreconf", "--force", "--install", "--verbose" if build.head?
     system "./configure", *std_configure_args,
                           "--sysconfdir=#{etc}",
                           "--disable-silent-rules",
                           "--with-history",
+                          "--with-http",
                           "--with-icu",
                           "--without-python",
                           "--without-lzma"
@@ -79,7 +86,8 @@ class Libxml2 < Formula
       # https://github.com/Homebrew/homebrew-core/pull/154551#issuecomment-1820102786
       with_env(PYTHONPATH: buildpath/"python") do
         pythons.each do |python|
-          system python, "-m", "pip", "install", *std_pip_args, "."
+          build_isolation = Language::Python.major_minor_version(python) >= "3.12"
+          system python, "-m", "pip", "install", *std_pip_args(build_isolation:), "."
         end
       end
     end

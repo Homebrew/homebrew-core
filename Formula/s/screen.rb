@@ -1,32 +1,21 @@
 class Screen < Formula
   desc "Terminal multiplexer with VT100/ANSI terminal emulation"
   homepage "https://www.gnu.org/software/screen/"
+  url "https://ftp.gnu.org/gnu/screen/screen-5.0.0.tar.gz"
+  mirror "https://ftpmirror.gnu.org/screen/screen-5.0.0.tar.gz"
+  sha256 "f04a39d00a0e5c7c86a55338808903082ad5df4d73df1a2fd3425976aed94971"
   license "GPL-3.0-or-later"
   head "https://git.savannah.gnu.org/git/screen.git", branch: "master"
 
-  stable do
-    url "https://ftp.gnu.org/gnu/screen/screen-4.9.1.tar.gz"
-    mirror "https://ftpmirror.gnu.org/screen/screen-4.9.1.tar.gz"
-    sha256 "26cef3e3c42571c0d484ad6faf110c5c15091fbf872b06fa7aa4766c7405ac69"
-
-    # This patch is to disable the error message
-    # "/var/run/utmp: No such file or directory" on launch
-    patch :p2 do
-      url "https://gist.githubusercontent.com/yujinakayama/4608863/raw/75669072f227b82777df25f99ffd9657bd113847/gistfile1.diff"
-      sha256 "9c53320cbe3a24c8fb5d77cf701c47918b3fabe8d6f339a00cfdb59e11af0ad5"
-    end
-  end
-
   bottle do
-    sha256 arm64_sonoma:   "7eb9de9e4d0e2afb4c4ae8f243a680195a407ff90b52a621bc6381b949175890"
-    sha256 arm64_ventura:  "04ad8f56bd2779a33507db4dc0c4d2bde8adf55c55f498a73b958a6d284480a4"
-    sha256 arm64_monterey: "95c6ca795cac6af997554d8516cd1ff33bd4bd60987a988e298c33671743a422"
-    sha256 arm64_big_sur:  "d16af53c7667ddb58d38ec09bcd410824d05df09d18a30e368856df2e0970a6f"
-    sha256 sonoma:         "9cfcc7667c004261be837a37d3a3cbe8ea445e114a323f5498f1abc7ae016b9e"
-    sha256 ventura:        "946970f422fa285f5a3154612630444e98a6a7bcc7579caf174b13456b16664c"
-    sha256 monterey:       "8fa812527fbbe1786423f29310caa993858b7bd5b95922aca7713078135397b4"
-    sha256 big_sur:        "7d5f4d3be91c4aec072defd3fb083fd38dc56e9ba111e7acaab15e71ae073ad9"
-    sha256 x86_64_linux:   "576d96f72e6e6a6b533adb65a016cf068bf97937baff72fbf7b4beec1f5e3c3d"
+    sha256 arm64_sequoia:  "a3bc5d7cdcceeccd9b72dbe6a91be12d2fa1198afbd8c412c1b64248468924f6"
+    sha256 arm64_sonoma:   "799fb23e0d4fa3080d3c0d1fa7313232e187a08339ebc120dbe774e4d7283fb8"
+    sha256 arm64_ventura:  "ae03adaaab11ea47b40168ca31316b9910027864836d9c11780f910b8d003152"
+    sha256 arm64_monterey: "bb3591af4348104c63bfb58afab5b22f2b6df98e36963c9c08be6ca1e01b8a27"
+    sha256 sonoma:         "adc56240e8ecaf23de62dfe67017b64eeda8538554c29ba5b4411f5fd8ec0e64"
+    sha256 ventura:        "5caa5be6136e3844d66ac11b609caef27f59553e4f596998bc5bf4817b830337"
+    sha256 monterey:       "8c8d9322b5d5230f3a245668c1ff8117b0128077ae79adfe8a657cd70cc2434d"
+    sha256 x86_64_linux:   "cf41a2d3353e0653d07a095b56d554a55fc72ac6c74fc4a34bc056f3d95463f5"
   end
 
   depends_on "autoconf" => :build
@@ -35,31 +24,22 @@ class Screen < Formula
   uses_from_macos "libxcrypt"
   uses_from_macos "ncurses"
 
+  on_linux do
+    depends_on "linux-pam"
+  end
+
   def install
-    cd "src" if build.head?
-
-    # Fix error: dereferencing pointer to incomplete type 'struct utmp'
-    ENV.append_to_cflags "-include utmp.h"
-
-    # Fix compile with newer Clang
-    # https://savannah.gnu.org/bugs/index.php?59465
-    ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1200
-
-    # master branch configure script has no
-    # --enable-colors256, so don't use it
-    # when `brew install screen --HEAD`
-    args = [
-      "--prefix=#{prefix}",
-      "--mandir=#{man}",
-      "--infodir=#{info}",
-      "--enable-pam",
+    args = %W[
+      --mandir=#{man}
+      --infodir=#{info}
+      --enable-pam
     ]
-    args << "--enable-colors256" unless build.head?
 
     system "./autogen.sh"
-    system "./configure", *args
 
-    system "make"
+    # Exclude unrecognized options
+    std_args = std_configure_args.reject { |s| s["--disable-debug"] || s["--disable-dependency-tracking"] }
+    system "./configure", *args, *std_args
     system "make", "install"
   end
 

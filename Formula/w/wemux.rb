@@ -7,19 +7,8 @@ class Wemux < Formula
   head "https://github.com/zolrath/wemux.git", branch: "master"
 
   bottle do
-    rebuild 3
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8b4c8f55ec38043e063fe00e73571d3c0592b02a6f4e505f088c36fddd66f2af"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d847810b075ffcc34b7d1ec081bc955bdeca349769a3b8079e08db3f9eb572a8"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d847810b075ffcc34b7d1ec081bc955bdeca349769a3b8079e08db3f9eb572a8"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "57909369808e5a5b85c118d3cbab8a5ad2ef9c5139102ee3bf934a53e0467b09"
-    sha256 cellar: :any_skip_relocation, sonoma:         "8b4c8f55ec38043e063fe00e73571d3c0592b02a6f4e505f088c36fddd66f2af"
-    sha256 cellar: :any_skip_relocation, ventura:        "d847810b075ffcc34b7d1ec081bc955bdeca349769a3b8079e08db3f9eb572a8"
-    sha256 cellar: :any_skip_relocation, monterey:       "d847810b075ffcc34b7d1ec081bc955bdeca349769a3b8079e08db3f9eb572a8"
-    sha256 cellar: :any_skip_relocation, big_sur:        "977fdbcc9dcbb4a9d6149d043cd1ac3e5887421e76eee644d1e3703be1e111cb"
-    sha256 cellar: :any_skip_relocation, catalina:       "5fb4eaf177d1766716003032bfc632d02ebed302c57e00dc752ed3de4b9cf1f6"
-    sha256 cellar: :any_skip_relocation, mojave:         "5fb4eaf177d1766716003032bfc632d02ebed302c57e00dc752ed3de4b9cf1f6"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "5fb4eaf177d1766716003032bfc632d02ebed302c57e00dc752ed3de4b9cf1f6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0141da5136178a7dd857688ba9ec076c9a03f04bbe2710cd925619561885e947"
+    rebuild 4
+    sha256 cellar: :any_skip_relocation, all: "41e9a8eaac236f236653d1867f1b5de10a03d5de49e1764628284742dc27bc24"
   end
 
   depends_on "tmux"
@@ -28,9 +17,11 @@ class Wemux < Formula
     inreplace "wemux", "/usr/local/etc", etc
     bin.install "wemux"
     man1.install "man/wemux.1"
-
-    inreplace "wemux.conf.example", "change_this", ENV["USER"]
     etc.install "wemux.conf.example" => "wemux.conf"
+  end
+
+  def post_install
+    inreplace etc/"wemux.conf", "change_this", ENV["USER"], audit_result: false
   end
 
   def caveats
@@ -47,6 +38,6 @@ class Wemux < Formula
   end
 
   test do
-    system "#{bin}/wemux", "help"
+    system bin/"wemux", "help"
   end
 end

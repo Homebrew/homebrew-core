@@ -6,6 +6,7 @@ class Clens < Formula
   license "ISC"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "27badceb51069c0b5dcc5673744b149caa21eaf48719005480dbc0b6dcd8a153"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2c2082a66bc51ab50ef09640e4a4526111455a6545a21e9907c62469ea686d82"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "6e42ef7f7f467d0bbe324659c9fe2a89c0049968a580bd1115d93a8423af0fe1"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "513fdfc8d9f7c710d81ade46ff26f9d74283c096029c55c99282e03682ffba97"

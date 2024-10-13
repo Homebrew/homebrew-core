@@ -12,6 +12,7 @@ class Libsvg < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "e0f24ee9236415330cf795a256e7b03af615239c4e81d2a26ada7f2995baf776"
     sha256 cellar: :any,                 arm64_sonoma:   "f2adf0b4734d218b0ebdab5ae4c0eada74f36edb628d6a8a2c41d7ab7b4421ea"
     sha256 cellar: :any,                 arm64_ventura:  "331a886e259749749bbaeed305a1727a8c4ecea79e1eca5949be34d87f0abfa0"
     sha256 cellar: :any,                 arm64_monterey: "9b82d4f937112bd04869cb7089cf8af73a5bcaf9273c0078be79c2bd5aac6510"

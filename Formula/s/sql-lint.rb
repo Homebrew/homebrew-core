@@ -1,5 +1,3 @@
-require "language/node"
-
 class SqlLint < Formula
   desc "SQL linter to do sanity checks on your queries and bring errors back from the DB"
   homepage "https://github.com/joereynolds/sql-lint"
@@ -8,22 +6,21 @@ class SqlLint < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ffa887739285504f66ddd05f1a6ebb7b8757243ab89a5e95536c2b3d75227409"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "40e19503b278a973ee143e996728f5226235886ff2b1a42b08e63715b6ae2004"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c41585b38889006247a0d7a66278ba037138d2395321031d0ac899892fa19255"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c41585b38889006247a0d7a66278ba037138d2395321031d0ac899892fa19255"
-    sha256 cellar: :any_skip_relocation, sonoma:         "85d847d4e48b37b17edf99dd502fe42c122aa24615bbbcc7fc09559dfcc86bea"
-    sha256 cellar: :any_skip_relocation, ventura:        "71d7fcfd2c05ff837511c0599ee227e06ecbb49a4a5dc0166f91e765d239e802"
-    sha256 cellar: :any_skip_relocation, monterey:       "56ec39a2f7cd18626231790aaeab98c6f4d7fa648dc6227cd65884dfdddd3d15"
-    sha256 cellar: :any_skip_relocation, big_sur:        "56ec39a2f7cd18626231790aaeab98c6f4d7fa648dc6227cd65884dfdddd3d15"
-    sha256 cellar: :any_skip_relocation, catalina:       "56ec39a2f7cd18626231790aaeab98c6f4d7fa648dc6227cd65884dfdddd3d15"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c41585b38889006247a0d7a66278ba037138d2395321031d0ac899892fa19255"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "4b460da40ab03af6d48fa557a567c21d06d3e5cc3718392d7daafd9d89e922a6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2365c7675f29386b8de28968310fc9dbf242c59f260ed552bc249854b41396a5"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2365c7675f29386b8de28968310fc9dbf242c59f260ed552bc249854b41396a5"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "2365c7675f29386b8de28968310fc9dbf242c59f260ed552bc249854b41396a5"
+    sha256 cellar: :any_skip_relocation, sonoma:         "73b4fe6c09ec7143938b2c938dfebc764c86063ed2eaa593c028c69003ce7b84"
+    sha256 cellar: :any_skip_relocation, ventura:        "73b4fe6c09ec7143938b2c938dfebc764c86063ed2eaa593c028c69003ce7b84"
+    sha256 cellar: :any_skip_relocation, monterey:       "73b4fe6c09ec7143938b2c938dfebc764c86063ed2eaa593c028c69003ce7b84"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7a8391c3cdbf4c3876e3c7a88978c03ae3fa8ef53fde71ce9e04faa59511af14"
   end
 
   depends_on "node"
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", *std_npm_args
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 

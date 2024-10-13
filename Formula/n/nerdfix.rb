@@ -6,6 +6,7 @@ class Nerdfix < Formula
   license any_of: ["MIT", "Apache-2.0"]
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "548bbdbad743bb28524493de7787f61c17f5275a3213825364a197e7a6e8e001"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1d5798e7f09af5bb1fcb64a7e502ecfddb3fc4ead85c5611e3e2bd7210fe13cd"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "daef9dbadb1db61fefd923a3699b3a9edbf8d8e9ace06db181fdd4e150d181bc"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f757476796838ce2f18d9dc9e9b25f9e561f6c3fed81b85a2b91bcab03b4480f"

@@ -6,6 +6,7 @@ class Scdoc < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "8800df45f7cd670d5638e4acd2fad0905fdae6f5216b71bd6d897fcda12c4cd7"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6eeed5394fb071aa14153ebe3cb3eb2edb4458c1b25d91adf6a32116fe1eb16b"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "bb0a27fea684b0a8caa7aa98c64df84c9db68c7003fffd827055449bbff373e5"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "3206d11b5d62c3cee98c1cb2f0da0e6674261f4dccd22f7e8f833685c6c53112"

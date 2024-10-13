@@ -6,6 +6,7 @@ class Aria2 < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256 arm64_sequoia:  "fa42d58d43ca08575c6df1b9c8b6141edc97fdeec4c60fc3e39c50fffc7a301e"
     sha256 arm64_sonoma:   "89117256b91a5a87d4e31fb4054f7a0b45681a97627547b4db7498930486ff05"
     sha256 arm64_ventura:  "fd06b5b187243559c5f286767ab8f7f7d5f16d361bbd3ff9faf0909643920849"
     sha256 arm64_monterey: "515cf8d197ec78753fa6b7462f775a3e625340e04f02207ae6dd1b6135afecdd"
@@ -53,7 +54,7 @@ class Aria2 < Formula
   end
 
   test do
-    system "#{bin}/aria2c", "https://brew.sh/"
+    system bin/"aria2c", "https://brew.sh/"
     assert_predicate testpath/"index.html", :exist?, "Failed to create index.html!"
   end
 end

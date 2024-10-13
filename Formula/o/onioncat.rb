@@ -7,6 +7,7 @@ class Onioncat < Formula
   head "https://github.com/rahra/onioncat.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "29b153e2b454faccfb935cf8524b3b37fafb5b17a86ba38377d887ca0bbd86a0"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "58d3c104e6597baefa21599dead5423ea1a7be37f40ca84d398c1f39458db474"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "313d9bc109a8fdd7f9ceb5995e359e071e6ea822f4f20a550b6c84687e638894"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d8c8dba362799a9d9646efb169e854dc964dd0f76c3837a746f074a436e0f6b9"

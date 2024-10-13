@@ -1,19 +1,20 @@
 class JsonFortran < Formula
   desc "Fortran 2008 JSON API"
   homepage "https://github.com/jacobwilliams/json-fortran"
-  url "https://github.com/jacobwilliams/json-fortran/archive/refs/tags/9.0.1.tar.gz"
-  sha256 "1a6fd50220527d27ba0a46113b09b4f5cb5a48a0d090ddc36d3fddf6cf412e56"
+  url "https://github.com/jacobwilliams/json-fortran/archive/refs/tags/9.0.2.tar.gz"
+  sha256 "a599a77e406e59cdb7672d780e69156b6ce57cb8ce515d21d1744c4065a85976"
   license "BSD-3-Clause"
   head "https://github.com/jacobwilliams/json-fortran.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "18a825c6290c6e125fc8132817bf0ef18fd347e009fa6fdebd18cf748450488d"
-    sha256 cellar: :any,                 arm64_ventura:  "5679db7855d5649e88ba81eb75b154ef3fbadadde933ca696c7a5ead23b10378"
-    sha256 cellar: :any,                 arm64_monterey: "73e456818c12d2b5c3aab5ec6266bef8ce0c2c5213a3da3f14292bfe4a2ed94c"
-    sha256 cellar: :any,                 sonoma:         "24de693925d52392fbf9ddf04b016f4fe27cddce7354a259aa59271ed6fe6179"
-    sha256 cellar: :any,                 ventura:        "342a619d26bd30cd693d78c1e6251dad291a1575857e6d44b2a8a79c28e5c55b"
-    sha256 cellar: :any,                 monterey:       "6d6fb70e2f8978026661991296b9cce9c15aba7a6ee17a903e2718130e4d328f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "81649d3140d1f3ac4aa924c865e0758999702f8a45e4e0268b4456975b2fd57b"
+    sha256 cellar: :any,                 arm64_sequoia:  "8ffb42ea8a194a6029d0ad47bd3d4bae4adbdf8f0b14726af48afd7fc6343963"
+    sha256 cellar: :any,                 arm64_sonoma:   "5e034a7f658d0ff3da94c19e60ec9ddaf77d51ae9ac42f66dfa9901e598877ea"
+    sha256 cellar: :any,                 arm64_ventura:  "4f598bd25a89c0083106c0064fd8c0ea39ef1986e92d0eb11dffe277b28d9dab"
+    sha256 cellar: :any,                 arm64_monterey: "1aecb3d0ca1917d36097e193c3341df8443c8e069cdd190cb2a097bc5132e715"
+    sha256 cellar: :any,                 sonoma:         "3e6a8204ff675886107d82f1e175ed4c67472a964d9aad4cb9e5bb08beb8702b"
+    sha256 cellar: :any,                 ventura:        "161aa3a9eaa9563dba768fdefa281950875746784ac4793264b524a57f012fb3"
+    sha256 cellar: :any,                 monterey:       "575e8d419b6d12e6cc57d7081b947d8c40ca346321f5443c647160ecbcb02ba3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d86458d665027a9eefc14813ce813d6e056ca431532a5b929ad1deabcd93eaca"
   end
 
   depends_on "cmake" => :build
@@ -21,12 +22,14 @@ class JsonFortran < Formula
   depends_on "gcc" # for gfortran
 
   def install
-    mkdir "build" do
-      system "cmake", "..", *std_cmake_args,
-                            "-DUSE_GNU_INSTALL_CONVENTION:BOOL=TRUE",
-                            "-DENABLE_UNICODE:BOOL=TRUE"
-      system "make", "install"
-    end
+    args = %w[
+      -DUSE_GNU_INSTALL_CONVENTION:BOOL=TRUE
+      -DENABLE_UNICODE:BOOL=TRUE
+    ]
+
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do

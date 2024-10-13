@@ -7,6 +7,7 @@ class Jinx < Formula
   head "https://github.com/JamesBoer/Jinx.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "640fd3707ccc9262904729a97da5789a22e9cb46c658b7d20aecbb323749a1a2"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "24313e091b9222029e7d5e6e4aea87ef70e20facef9a6b82e0a0d4abfffcc511"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "76c5986afd50a5bbe9ee092ab25dfe8633ae63e1895b5ee90107f508a6297673"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "362834274bbb963b081203c47ece5ccbae44ab6959177d293f2d6af86b2063bf"
@@ -26,11 +27,9 @@ class Jinx < Formula
     # disable building tests
     inreplace "CMakeLists.txt", "if(NOT jinx_is_subproject)", "if(FALSE)"
 
-    mkdir "build" do
-      system "cmake", "..", *std_cmake_args
-      system "make"
-      lib.install "libJinx.a"
-    end
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build"
+    lib.install "build/libJinx.a"
 
     include.install Dir["Source/*.h"]
   end

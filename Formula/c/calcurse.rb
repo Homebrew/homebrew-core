@@ -11,6 +11,7 @@ class Calcurse < Formula
   end
 
   bottle do
+    sha256 arm64_sequoia:  "22c2e293ade2672fe101d3ce0d0c1522b5b5123ec5fc9675c44c196b43c9ea80"
     sha256 arm64_sonoma:   "a65cd721971bc53914ae926c110cdea2da1a07e56cc39d27baa927c36f6f4934"
     sha256 arm64_ventura:  "06aed9c114caf7eb4c2d9377053a1ad7c38068668073392471776041005fad65"
     sha256 arm64_monterey: "6fa82c03f449fac7c9ac5147bfec928eafc4fb954e8b83237f7dd12ec841ca0f"
@@ -30,13 +31,16 @@ class Calcurse < Formula
     depends_on "automake" => :build
   end
 
-  depends_on "gettext"
+  uses_from_macos "ncurses"
+
+  on_macos do
+    depends_on "gettext"
+  end
 
   def install
     system "./autogen.sh" if build.head?
 
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    system "./configure", *std_configure_args.reject { |s| s["--disable-debug"] }
 
     # Specify XML_CATALOG_FILES for asciidoc
     system "make", "XML_CATALOG_FILES=/usr/local/etc/xml/catalog"

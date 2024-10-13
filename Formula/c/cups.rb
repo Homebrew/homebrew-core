@@ -3,8 +3,8 @@ class Cups < Formula
   homepage "https://github.com/OpenPrinting/cups"
   # This is the author's fork of CUPS. Debian have switched to this fork:
   # https://lists.debian.org/debian-printing/2020/12/msg00006.html
-  url "https://github.com/OpenPrinting/cups/releases/download/v2.4.10/cups-2.4.10-source.tar.gz"
-  sha256 "d75757c2bc0f7a28b02ee4d52ca9e4b1aa1ba2affe16b985854f5336940e5ad7"
+  url "https://github.com/OpenPrinting/cups/releases/download/v2.4.11/cups-2.4.11-source.tar.gz"
+  sha256 "9a88fe1da3a29a917c3fc67ce6eb3178399d68e1a548c6d86c70d9b13651fd71"
   license "Apache-2.0"
   head "https://github.com/OpenPrinting/cups.git", branch: "master"
 
@@ -14,13 +14,12 @@ class Cups < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "58df6136f3aa5f3a1d634892ee4b742e5170f6aaa7b91ab8ca041af5baf5cf54"
-    sha256 arm64_ventura:  "bd58946f6e800d91d6a08cafe8910941885563a70855356ff21777bcd7f17ab1"
-    sha256 arm64_monterey: "2846fedb1ef7d4333ea499a08fbb267507633089d5152a68df6c07ca90709889"
-    sha256 sonoma:         "fac480f1a065d47433e18718383686596d7b646902afa45b14fd50ee7c61f63b"
-    sha256 ventura:        "67251db05865a0bab70a1d3ad170eba578b031b034b82012b5c78dd49c37cfbf"
-    sha256 monterey:       "3c488b7f512b7122c274465d849b023bb1c906c57d46ef3a60ee52fd5510aa15"
-    sha256 x86_64_linux:   "6a3a570c6a30876b79da8c94e64f0e75a523a24ee6146adb7cc4d4cb8835db9b"
+    sha256 arm64_sequoia: "9ce97cb2305aa0b8fb73d5f104b47a5d0e22ea9583d1b15b8e9091962fbcd48c"
+    sha256 arm64_sonoma:  "da9bb8ae69dc9c9b741d06cc4c3143961d2c084367ec60e50360e67a0c89be43"
+    sha256 arm64_ventura: "e8b56d92ae803cbce09b2390b90705c520a3475607fb9c61ec6d2b9095000f3e"
+    sha256 sonoma:        "bfdb13e6164cc005e1387d8d53df0e3aa5fb21c85546ff36e2838bf22a2a4102"
+    sha256 ventura:       "0d1726c5edfcdba47a6ab127d39e8cbfa72c000746692db8f3fdc0213dbbfaf2"
+    sha256 x86_64_linux:  "450c1b750daf7df268f6107c5bd585c9a1d20fe20914ff9f038e9f5bbf028380"
   end
 
   keg_only :provided_by_macos

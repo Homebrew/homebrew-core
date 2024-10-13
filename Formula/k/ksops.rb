@@ -6,6 +6,7 @@ class Ksops < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "f604e40fd467bb4d15cc7276fefe05377c058a834f65207f517eebd6eae63617"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "750543395b6a58066887ebc207765a51608d6afa405e2cef7a25b5521d701d37"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "46bfb57914bba8ebd9d5626b3e81a07a38a31332ac3663b5dba3fe75ee1c241b"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "917914ce6ae88b4d6faca79f4029e686116f4d2e1dee6ef6eff7df431ab0cde1"

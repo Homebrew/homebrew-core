@@ -5,17 +5,17 @@ class Groff < Formula
   mirror "https://ftpmirror.gnu.org/groff/groff-1.23.0.tar.gz"
   sha256 "6b9757f592b7518b4902eb6af7e54570bdccba37a871fddb2d30ae3863511c13"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
-    sha256 arm64_sonoma:   "ce07a3e98fa6cfff23826e993d638c12f833b9fb5fc9c2a3593364b0be162031"
-    sha256 arm64_ventura:  "c6d152d002365b25c67782fed7ca0141ee3dafaaa0e726bf3df427d469fb73ce"
-    sha256 arm64_monterey: "4926259bc0c75eb28f9d288c618ae84dc1a1a14952f3f414054e01ef5be345d0"
-    sha256 arm64_big_sur:  "e4dfe40ef95e535d7f9c98e3743ce42112ae74c8aa3cfc4f30089c53aa123ba4"
-    sha256 sonoma:         "e5763fdbb5fb595f8b4588f19b9a5785739568075884563f79dc35fb3c1d2580"
-    sha256 ventura:        "841d00a033f005f7e9eefed0d1190402879de5568a6624e494a52c581353bf5a"
-    sha256 monterey:       "a0bfb5d123ae6766a69b8d245bcc8d0323e8f6bce3f7c55c89403939ba176d46"
-    sha256 big_sur:        "8e8f79c4969912bf20f183dc3450001dc952b94967dca5cea18a7379d9d54f55"
-    sha256 x86_64_linux:   "621ff79fc4f7ff2d66f78b96e1b3229aed81c49cb13831a46918841696b35428"
+    sha256 arm64_sequoia:  "46fa52805546514d174798f2a8723a84827c13c2c7c106e246c9ff77b43eb4cf"
+    sha256 arm64_sonoma:   "14b00074485891c952dbb2a72627569a39f9f5ad7f0d0dd96c82474dfbc93811"
+    sha256 arm64_ventura:  "5a8b3ab0c971b1667066be5f6e16581f533ceb035a4990a906ad04bcc5386738"
+    sha256 arm64_monterey: "ecbb5f2eaea937aeaf4182cb9b92a6a8ad20d7bbf7379769879ad70421fb6483"
+    sha256 sonoma:         "9574ff7b3847c05c48197519ad4ce3a9084311f166b579801d58b892e336641a"
+    sha256 ventura:        "6843e8adc54c9f26440aa7772111e5865f206b911199811a2874a48a5bcc197b"
+    sha256 monterey:       "ad660d68652c600a83c0e2ab13c2cf083a3af3e85a0c7dfd0251b527f7094a93"
+    sha256 x86_64_linux:   "4fed3742a3cf824d5753a3ae998097d1a36d8c2c97ae459d6a813bd766b7c2ae"
   end
 
   depends_on "pkg-config" => :build
@@ -36,7 +36,13 @@ class Groff < Formula
   end
 
   def install
-    system "./configure", "--prefix=#{prefix}", "--without-x", "--with-uchardet"
+    # Local config needs to survive upgrades
+    inreplace "Makefile.in" do |s|
+      s.change_make_var! "localfontdir", "@sysconfdir@/groff/site-font"
+      s.change_make_var! "localtmacdir", "@sysconfdir@/groff/site-tmac"
+    end
+    system "./configure", "--sysconfdir=#{etc}", "--without-x",
+           "--with-uchardet", *std_configure_args
     system "make" # Separate steps required
     system "make", "install"
   end

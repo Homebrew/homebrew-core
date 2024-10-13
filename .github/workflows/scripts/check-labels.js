@@ -75,7 +75,7 @@ module.exports = async ({github, context, core}, formulae_detect, dependent_test
     test_bot_formulae_args.push(`--deleted-formulae="${formulae_detect.deleted_formulae}"`)
 
     const test_bot_dependents_args = ["--only-formulae-dependents", "--junit"]
-    test_bot_dependents_args.push(`--testing-formulae="${formulae_detect.testing_formulae}"`)
+    test_bot_dependents_args.push(`--tested-formulae="${formulae_detect.testing_formulae}"`)
 
     if (label_names.includes(`CI-test-bot-fail-fast${deps_suffix}`)) {
       console.log(`CI-test-bot-fail-fast${deps_suffix} label found. Passing --fail-fast to brew test-bot.`)

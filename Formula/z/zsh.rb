@@ -1,7 +1,12 @@
 class Zsh < Formula
   desc "UNIX shell (command interpreter)"
   homepage "https://www.zsh.org/"
-  license "MIT-Modern-Variant"
+  license all_of: [
+    "MIT-Modern-Variant",
+    "GPL-2.0-only", # Completion/Linux/Command/_qdbus, Completion/openSUSE/Command/{_osc,_zypper}
+    "GPL-2.0-or-later", # Completion/Unix/Command/_darcs
+    "ISC", # Src/openssh_bsd_setres_id.c
+  ]
 
   # TODO: Switch to `pcre2` on next release and remove stable block
   stable do
@@ -18,6 +23,7 @@ class Zsh < Formula
 
   bottle do
     rebuild 2
+    sha256 arm64_sequoia:  "15e9037c0726a957c252406d8dcd10b92bf96f080ffd6a21f252f88cfe2328b2"
     sha256 arm64_sonoma:   "2724270ffc9ec802c84de94466076bbff2e9de712dc4542e2b98646d5bdf9120"
     sha256 arm64_ventura:  "de824bdff0cf68af18e1ca615d3e0646968a9cc0411cde518c86ff4e446e75ed"
     sha256 arm64_monterey: "9f2b18137c50145752b9c64f02a2be3ffbfedfcbff5b91ebe3f0d20358fe2a07"
@@ -46,10 +52,9 @@ class Zsh < Formula
   end
 
   def install
-    # Fix compile with newer Clang
-    # https://www.zsh.org/mla/workers/2020/index.html
-    # https://github.com/Homebrew/homebrew-core/issues/64921
-    ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1200
+    # Fix compile with newer Clang. Remove in the next release
+    # Ref: https://sourceforge.net/p/zsh/code/ci/ab4d62eb975a4c4c51dd35822665050e2ddc6918/
+    ENV.append_to_cflags "-Wno-implicit-int" if DevelopmentTools.clang_build_version >= 1403
 
     system "Util/preconfig" if build.head?
 

@@ -1,8 +1,8 @@
 class Aptos < Formula
   desc "Layer 1 blockchain built to support fair access to decentralized assets for all"
   homepage "https://aptosfoundation.org/"
-  url "https://github.com/aptos-labs/aptos-core/archive/refs/tags/aptos-cli-v3.5.1.tar.gz"
-  sha256 "172e9332d240ab20641b8ca20f7bfd2df9350f505355185fd4db9ebb4e7cdd96"
+  url "https://github.com/aptos-labs/aptos-core/archive/refs/tags/aptos-cli-v4.2.3.tar.gz"
+  sha256 "59a15ff1f7394430d192e3c91d3a003c76f95f8d2addc8c2a31c685dc2f0b272"
   license "Apache-2.0"
   head "https://github.com/aptos-labs/aptos-core.git", branch: "main"
 
@@ -12,18 +12,17 @@ class Aptos < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f023f1ce37aabef6226026e8853b2abd64c9e0bdf30498de865c0778762e869b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a7b33be900aa7ee1a65d9a623397b82a9d89d08d1c38f155c973a480c670aedb"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "14a4dc335ac61f7dddf0eaa0a3b6f2d879105acb15e24c5cad4586f8fbcecec2"
-    sha256 cellar: :any_skip_relocation, sonoma:         "fecad063e7ac76641f6e604a6467f177792fa5aeb980936b1de105c09bee449a"
-    sha256 cellar: :any_skip_relocation, ventura:        "386b757a8acdc4ae3f4d6f17a3c797f6d62ca6763025cfbd15fc6943179d35d5"
-    sha256 cellar: :any_skip_relocation, monterey:       "2328a6b883ed4f8b0367066caa8a04c18ccdec493b2cfdfc9c0050f9ae83e866"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6dc31af4a6ad2695b6a90878047fdfd63cf3ab56b893acd0aeb57130e1813b9a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5f36c3ce127be71f99d3a5ac46203bc20eb693edfa2cea297419ba3fe895a7ad"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8ae86900262963e766c103ad115675f365ebc18cd71370b6ab6a1fe0cf25a4b5"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "ccfaa92846675cddd5eec19016ac6c20b2c05b6bf41406ae3003ef51d0320784"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d09bf7f00c281a9805ffc554a9464bdc4aca635db2958cad5abdeb99aa2214d4"
+    sha256 cellar: :any_skip_relocation, ventura:       "79b271d8f971210b56887ee2d17c1cb39ffc372a90496402336d858dc3f7858f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "879d87c1054a486db3ea7f3d40dcf589e42cee0d00c5408f080e43f12a32b894"
   end
 
   depends_on "cmake" => :build
   depends_on "rust" => :build
-  depends_on "rustfmt" => :build
+
   uses_from_macos "llvm" => :build
 
   on_linux do
@@ -33,9 +32,16 @@ class Aptos < Formula
     depends_on "systemd"
   end
 
+  # rust 1.80.0 build patch, upstream pr ref, https://github.com/aptos-labs/aptos-core/pull/14272
+  patch do
+    url "https://github.com/aptos-labs/aptos-core/commit/72b9657316c699cfbef75216f578a0bd99e0be46.patch?full_index=1"
+    sha256 "f93b4f8b0a61d245e13d6776834cec9ecdd3b0103d53b43dcc79cda3e3f787ed"
+  end
+
   def install
-    # FIXME: Figure out why cargo doesn't respect .cargo/config.toml's rustflags
-    ENV["RUSTFLAGS"] = "--cfg tokio_unstable -C force-frame-pointers=yes -C force-unwind-tables=yes"
+    # FIXME: Look into a different way to specify extra RUSTFLAGS in superenv as they override .cargo/config.toml
+    # Ref: https://github.com/Homebrew/brew/blob/master/Library/Homebrew/extend/ENV/super.rb#L65
+    ENV.append "RUSTFLAGS", "--cfg tokio_unstable -C force-frame-pointers=yes -C force-unwind-tables=yes"
     system "cargo", "install", *std_cargo_args(path: "crates/aptos"), "--profile=cli"
   end
 

@@ -14,6 +14,7 @@ class Hevea < Formula
   end
 
   bottle do
+    sha256 arm64_sequoia:  "bdfe564bb63675879e20d1f8d2958a658b10a062010af2cb2634ba08987ae135"
     sha256 arm64_sonoma:   "37c9173e633f015bdac3ded26af7827373fbfc24816bb4224e788c288f6b502c"
     sha256 arm64_ventura:  "a1f2662024a74ebcb1a5fe6d6066030899abcd9586942136b19db4ecb36da59b"
     sha256 arm64_monterey: "c390ecca1b09d574110a2394049497f058b9fe2dec4a1cc89647b624dc91b404"
@@ -41,6 +42,6 @@ class Hevea < Formula
       \\begin{document}
       \\end{document}
     EOS
-    system "#{bin}/hevea", "test.tex"
+    system bin/"hevea", "test.tex"
   end
 end

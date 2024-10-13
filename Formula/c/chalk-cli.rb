@@ -1,5 +1,3 @@
-require "language/node"
-
 class ChalkCli < Formula
   desc "Terminal string styling done right"
   homepage "https://github.com/chalk/chalk-cli"
@@ -8,13 +6,14 @@ class ChalkCli < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "36202571cae4f3cf1dfdf4b03739e501beef3c46ec3dc76a1df41f831ebcd0aa"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "34ba6623e9eb8c3903a10be845faa920fec20d6133e17390a16326cb670964c9"
   end
 
   depends_on "node"
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", *std_npm_args
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 

@@ -3,10 +3,11 @@ class Libiscsi < Formula
   homepage "https://github.com/sahlberg/libiscsi"
   url "https://github.com/sahlberg/libiscsi/archive/refs/tags/1.20.0.tar.gz"
   sha256 "6321d802103f2a363d3afd9a5ae772de0b4052c84fe6a301ecb576b34e853caa"
-  license "GPL-2.0"
+  license all_of: [:public_domain, "LGPL-2.1-or-later", "GPL-2.0-or-later"]
   head "https://github.com/sahlberg/libiscsi.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "7ed4c8fcbca1477bae283a7263f35afd777bad5c52701fc4613c1a04d2eb97f9"
     sha256 cellar: :any,                 arm64_sonoma:   "b8b214472ef93143e0d926b7b44a4b8f31ab658a4d32c072bd70290185490ab6"
     sha256 cellar: :any,                 arm64_ventura:  "e9cade19921a1d5abfe5b3fcde749ea27ac0169ccefe2ad641cbf335041407db"
     sha256 cellar: :any,                 arm64_monterey: "43ac5887c657c6b82c77fbdef9a4cf0d7619f8aa6d224886bcec9a9441f16695"

@@ -1,3 +1,4 @@
+# typed: strict
 # frozen_string_literal: true
 
 require "abstract_command"
@@ -15,6 +16,7 @@ module Homebrew
         EOS
       end
 
+      sig { override.void }
       def run
         dictionary_url = "https://ftp.gnu.org/gnu/aspell/dict"
         dictionary_mirror = "https://ftpmirror.gnu.org/aspell/dict"

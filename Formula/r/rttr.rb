@@ -7,6 +7,7 @@ class Rttr < Formula
   head "https://github.com/rttrorg/rttr.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "fb6ba7f707377b4817a16a4e9afa427d8e4117d8ea02b82d8af5e198c04cd6f6"
     sha256 cellar: :any,                 arm64_sonoma:   "e82299210a49d335b1563afe4dc0abaa3bcf1b6aeab8876f1904e9015b6cc101"
     sha256 cellar: :any,                 arm64_ventura:  "fa3316e83f1ef591accfaf47c509009633178b817e6a6d064c293faa53445bf0"
     sha256 cellar: :any,                 arm64_monterey: "4aeeb410f8918197af10c1f52ed56d98c7d150b6c08ea3da94b1ef176abfc75b"
@@ -24,13 +25,13 @@ class Rttr < Formula
   depends_on "doxygen" => :build
 
   def install
-    args = std_cmake_args
-    args << "-DBUILD_UNIT_TESTS=OFF"
-
-    mkdir "build" do
-      system "cmake", "..", *args
-      system "make", "install"
-    end
+    args = %w[
+      -DBUILD_UNIT_TESTS=OFF
+      -DCMAKE_CXX_FLAGS=-Wno-deprecated-declarations
+    ]
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
@@ -38,6 +39,7 @@ class Rttr < Formula
     (testpath/"test.cpp").write <<~EOS
       #include <iostream>
       #include <rttr/registration>
+
       static void f() { std::cout << "#{hello_world}" << std::endl; }
       using namespace rttr;
       RTTR_REGISTRATION

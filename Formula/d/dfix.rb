@@ -45,13 +45,13 @@ class Dfix < Formula
   end
 
   test do
-    system "#{bin}/dfix", "--help"
+    system bin/"dfix", "--help"
 
     cp "#{pkgshare}/testfile_master.d", "testfile.d"
-    system "#{bin}/dfix", "testfile.d"
+    system bin/"dfix", "testfile.d"
     system "diff", "testfile.d", "#{pkgshare}/testfile_expected.d"
     # Make sure that running dfix on the output of dfix changes nothing.
-    system "#{bin}/dfix", "testfile.d"
+    system bin/"dfix", "testfile.d"
     system "diff", "testfile.d", "#{pkgshare}/testfile_expected.d"
   end
 end

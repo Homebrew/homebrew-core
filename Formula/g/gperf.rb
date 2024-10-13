@@ -7,6 +7,7 @@ class Gperf < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "5ec8c7339cd6c690a346df8c40753073eaf4d57ae2692a08166be933cf1a8059"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "87af223b320453ae21bde7bc3327d7c37bb7269ef0a249e717072f7d759169f6"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "002ce456681a7390458015c7fe781113dd7bdf48aa5137682147e1feb7666e25"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "af16e90596878170e8235696dd8093a4953b2b5948b054e76ccd1741ce0e47d3"
@@ -30,6 +31,6 @@ class Gperf < Formula
 
   test do
     assert_match "TOTAL_KEYWORDS 3",
-      pipe_output("#{bin}/gperf", "homebrew\nfoobar\ntest\n")
+      pipe_output(bin/"gperf", "homebrew\nfoobar\ntest\n")
   end
 end

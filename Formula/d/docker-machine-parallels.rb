@@ -9,6 +9,7 @@ class DockerMachineParallels < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "6ce0f85c64a896c155ffdd93fe2b55d085384af3b04779c03a4b672b8f2339c2"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0cee48786886656ce8e484a4e04b9bcbf91bf0b1ce1f36688d8a3c7407263f2c"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "aa5a4b3ed1af696dddb33878a013f92e5b3e72635231f0a3a59eacf483c67c2a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "07f4935abdf9bd29eac8ad226a63410530ad37324f23d1865cb78585a9d077b2"
@@ -20,7 +21,7 @@ class DockerMachineParallels < Formula
   end
 
   # https://github.com/Parallels/docker-machine-parallels/issues/111
-  deprecate! date: "2023-09-19", because: :unmaintained
+  disable! date: "2024-09-23", because: :unmaintained
 
   depends_on "go" => :build
   depends_on "docker-machine"

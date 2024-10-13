@@ -2,21 +2,20 @@ class Jabba < Formula
   desc "Cross-platform Java Version Manager"
   # fork blessed by previous maintener https://github.com/shyiko/jabba/issues/833#issuecomment-1338648294
   homepage "https://github.com/Jabba-Team/jabba"
-  url "https://github.com/Jabba-Team/jabba/archive/refs/tags/0.13.0.tar.gz"
-  sha256 "113124e3235cce0e8d66425ceef541c664f2dd8034c611caf04f566191d2628c"
+  url "https://github.com/Jabba-Team/jabba/archive/refs/tags/0.14.0.tar.gz"
+  sha256 "9de92172ba62cbdf6e38cc9831466682717b3573bc2dfa8213baa5766c9ce2e3"
   license "Apache-2.0"
   head "https://github.com/Jabba-Team/jabba.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "263ae4edfbebdf8a49b0182510cac8cb3998245ee4c40ab75e51da084a0964e3"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1b3a32d39f59e117e03b8f80d7b3e99e407c2829389e5998f02bf52925318a70"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "0d1859dac7d8b95df9af78ff90f8ef51ee3e0136d99cbf0b976febb01699dab0"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3974cb813f27fb01b15460627d08523297d71c8b0db42a29700945e2a377bf42"
-    sha256 cellar: :any_skip_relocation, sonoma:         "b8966004869954c807d4e039455f99f5c4514efb5755858e7c5c0c36e76a6742"
-    sha256 cellar: :any_skip_relocation, ventura:        "aa6409d1ec75a1f2655870d8ee7b3ba69b74f8e479be8b4141e4ce0f5601a03f"
-    sha256 cellar: :any_skip_relocation, monterey:       "7a3e1964113c9c264750cdb56194b9cae1fac077f3f4085736ae6693b70418ac"
-    sha256 cellar: :any_skip_relocation, big_sur:        "675cc7a5d6ef3c770d94125f2a70f7886f28f68c4b573e419f164dcae49f62a7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8b010997b4372c1297fac71595397b396684ccc5c399f485b1ceb11ddd6fbfeb"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "ca270e89401f037f27bbba15909d74e3bd2caaaaec257a68720fec024b53e3fc"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d7ca771e6e62bfe218b66cca1345f0fadf74231d6b5b0264816582102ade7ec4"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e3e0407cf46ffb79d431e20da70d23080391585438fef6681415d4bde01f8094"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "12f33d23591f130fcd82fb08d02ef355cc359819e9f690a8412b4c46486feadf"
+    sha256 cellar: :any_skip_relocation, sonoma:         "beb282b92dc05fdbc6547d8abb9c1adcb4af6baf23182faa40272090b6fd1d29"
+    sha256 cellar: :any_skip_relocation, ventura:        "030068b5dbb9d739d9020d94f038bdfa0263fc7b96d6c1986a93322d9ff6972d"
+    sha256 cellar: :any_skip_relocation, monterey:       "bdd8ffb05d7136a668b135865e4ec2e3a3d76d04fd89352113ad94664c7de909"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7c3d858b92c8729670829b405334bcdec1a46e375133996510e0a318afa5f9dc"
   end
 
   depends_on "go" => :build

@@ -9,13 +9,13 @@ class Libxmlb < Formula
   head "https://github.com/hughsie/libxmlb.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_sonoma:   "b777a7b297501a29a04d2c6329935a82d64ae89dcf090de28c0036a700e94390"
-    sha256 cellar: :any, arm64_ventura:  "e3bfe1743a29e3966da4eab2327c871912bda318318b9c6430c7fefbe1f47cdb"
-    sha256 cellar: :any, arm64_monterey: "a798d76e1bc87c30496af800eee986d24f03e75e5fbde0e9555756f33ad642f8"
-    sha256 cellar: :any, sonoma:         "714df40e63e33e3a92ce69851e8ab7d32968db10545ee63da73b8e4d64a16a75"
-    sha256 cellar: :any, ventura:        "dae509b7bd28a60c8e54170f99cfdb6a3e4790b269ca49b9038fd1bd49aee11f"
-    sha256 cellar: :any, monterey:       "127f052e1b0e8fb561d0107209e66ac257579797af402d5af7f3965cdf2aaea8"
-    sha256               x86_64_linux:   "41146b757dcff6c8f462d6acc6f734a4e3352f70518534fbaa2f97fe28cfe204"
+    rebuild 1
+    sha256 cellar: :any, arm64_sequoia: "ae76cf27ea21430a5098d5ffa1d8813079b0816ccfdad3d8d2088a3fffac9357"
+    sha256 cellar: :any, arm64_sonoma:  "2d4c34c93a8b89653aecb8e6b8822a6934dddfd4699f9e9976e349a4efc72981"
+    sha256 cellar: :any, arm64_ventura: "b2b5faafb46f4d5a3d655a8584ea77195e3be9b5094e2109bdcc392cd9c258e1"
+    sha256 cellar: :any, sonoma:        "c87786e37f9658b303a59f10284924c7ec6bef668f061a5f35a2397ee0ce37b8"
+    sha256 cellar: :any, ventura:       "649ab7af700178f2b26159af86bc1ea626d34171b8ac3de2ac143214fcd3d6ab"
+    sha256               x86_64_linux:  "977cd7ed73b7bf40c28d1fc452ce79b0459ef5fa0b185fef93a353fe74dff903"
   end
 
   depends_on "gi-docgen" => :build
@@ -30,7 +30,7 @@ class Libxmlb < Formula
   depends_on "zstd"
 
   def install
-    rewrite_shebang detected_python_shebang, "src/generate-version-script.py"
+    rewrite_shebang detected_python_shebang(use_python_from_path: true), "src/generate-version-script.py"
 
     system "meson", "setup", "build",
                     "-Dgtkdoc=false",
@@ -40,7 +40,8 @@ class Libxmlb < Formula
   end
 
   test do
-    system "#{bin}/xb-tool", "-h"
+    system bin/"xb-tool", "-h"
+
     (testpath/"test.c").write <<~EOS
       #include <xmlb.h>
       int main(int argc, char *argv[]) {

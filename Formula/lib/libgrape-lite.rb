@@ -6,6 +6,7 @@ class LibgrapeLite < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "a9b43421f7640ae0bf58c960c15c1f6ef7ea8dbffd6114085f51cf1ec786da4b"
     sha256 cellar: :any,                 arm64_sonoma:   "169a84d962028247357fb70d3fd9a00eef09d04043bfc599c547b29545204dc6"
     sha256 cellar: :any,                 arm64_ventura:  "fb65f947aab53a0b99aecdfe1eb27d7b3ebd3bf2deaae44983106d79be23324a"
     sha256 cellar: :any,                 arm64_monterey: "669d5c4c46c62ca376f7d88d6ccd8ca1af65e4c5c496c22d59239dcc64aa7bb7"
@@ -18,15 +19,12 @@ class LibgrapeLite < Formula
   end
 
   depends_on "cmake" => :build
-
+  depends_on "gflags"
   depends_on "glog"
   depends_on "open-mpi"
 
   def install
-    ENV.cxx11
-
-    system "cmake", "-S", ".", "-B", "build",
-                    *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end

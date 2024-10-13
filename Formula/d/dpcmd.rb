@@ -11,6 +11,7 @@ class Dpcmd < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "bb586c3508f4200d44ab3140682b2fe9e1e0e9856a88c22fe064026e2ee3c696"
     sha256 cellar: :any,                 arm64_sonoma:   "75beaf85ba617a3d9a72ac7d2a5d6408b08bd511eadadc966321eff923b20efb"
     sha256 cellar: :any,                 arm64_ventura:  "4ae065587a1a8343e1716b7cfd8c1e397ada6c2851b6f59caab3a30a2cf5e18a"
     sha256 cellar: :any,                 arm64_monterey: "8706a95254b2a2edc441bb83f9d3d442e4b0ca2f48591a0f0dec9759e7d6c708"

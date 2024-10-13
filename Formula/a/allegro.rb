@@ -12,6 +12,7 @@ class Allegro < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "e7cb14592b50dd4cecf96f955fc51cdd42971d10beb3d3c3916177fe49abdc20"
     sha256 cellar: :any,                 arm64_sonoma:   "b97f4ec79c8d719f8fbdc13ba2f8a22ccccffe0f2018b24a1e07da97d0f9b657"
     sha256 cellar: :any,                 arm64_ventura:  "aa6bb7451473ddcdd561b18320ab796b8b49da42298051d4cc3296bac2bdd1a2"
     sha256 cellar: :any,                 arm64_monterey: "519864e5f46d08950e520c5b6e78a2862870bb75c104fa39f49d23b03d3e12e7"
@@ -32,11 +33,19 @@ class Allegro < Formula
   depends_on "theora"
   depends_on "webp"
 
+  on_macos do
+    depends_on "opus"
+  end
+
   on_linux do
     depends_on "jpeg-turbo"
     depends_on "libpng"
     depends_on "libx11"
     depends_on "libxcursor"
+    depends_on "libxi"
+    depends_on "libxinerama"
+    depends_on "libxrandr"
+    depends_on "libxscrnsaver"
     depends_on "mesa"
     depends_on "mesa-glu"
   end

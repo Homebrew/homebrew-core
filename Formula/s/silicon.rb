@@ -1,27 +1,26 @@
 class Silicon < Formula
   desc "Create beautiful image of your source code"
   homepage "https://github.com/Aloxaf/silicon/"
-  url "https://github.com/Aloxaf/silicon/archive/refs/tags/v0.5.2.tar.gz"
-  sha256 "815d41775dd9cd399650addf8056f803f3f57e68438e8b38445ee727a56b4b2d"
+  url "https://github.com/Aloxaf/silicon/archive/refs/tags/v0.5.3.tar.gz"
+  sha256 "56e7f3be4118320b64e37a174cc2294484e27b019c59908c0a96680a5ae3ad58"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "88fa342ff94f00149044ecd6f5fb126e104f13058b784e17cfe344eb6ca50b6b"
-    sha256 cellar: :any,                 arm64_ventura:  "766d31b996f3b41dd4a8b1dd34e7ff6a7fe68d6f05dd27f7e7205f7176b892c5"
-    sha256 cellar: :any,                 arm64_monterey: "ca9541fb80cb28ef973767d8dd0f1db2979f40653ca253b67491f3ea9f984259"
-    sha256 cellar: :any,                 sonoma:         "218d94bdbf0f5c1e6ceff4bad2a5945094b1a7baadef0177c1ad3f9cde18fc1b"
-    sha256 cellar: :any,                 ventura:        "051ac7f4d0d21dda5cb5a9372b0d9dedacf3c8b37fe7ae35b1860101c8ec7aa3"
-    sha256 cellar: :any,                 monterey:       "310caff3239a9e6b7bd16db58bf203224d51ea7f0b12fdf5acfe3f0522e72b12"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2fa0cec538c14c858cd237c54b4660861fd9f0d60807134fde42fe971f6b8ee6"
+    sha256 cellar: :any,                 arm64_sequoia: "3344abcb48d22efadadc415e5beff9ba197e3309e813549a3afdd459a99324f3"
+    sha256 cellar: :any,                 arm64_sonoma:  "27d8515dce15d3bef3d394794192c6b8b6b33786152c6df4ef524ca6de112126"
+    sha256 cellar: :any,                 arm64_ventura: "8e64e4602354dff22bd4b5a7ca430842491c3b18ada1c63fc7f5cbb2ed9da945"
+    sha256 cellar: :any,                 sonoma:        "6dddd3c3a90fcbf06dfade35bc46e276bbe6027d74326b8315fe9307a0d98146"
+    sha256 cellar: :any,                 ventura:       "7fb5ed4ce9e2e6ed6ed44ad1e115090161852f129cb444a352547aca3c7b4002"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "afe03c08e0975b4d4b1a90fdbfdf9c82767bd7b85becc71e72b4e63ed59b3074"
   end
 
   depends_on "rust" => :build
+  depends_on "fontconfig"
+  depends_on "freetype"
   depends_on "harfbuzz"
 
   on_linux do
     depends_on "pkg-config" => :build
-    depends_on "fontconfig"
-    depends_on "freetype"
     depends_on "libxcb"
     depends_on "xclip"
   end

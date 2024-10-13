@@ -12,6 +12,7 @@ class ShibbolethSp < Formula
   end
 
   bottle do
+    sha256 arm64_sequoia:  "5f9d2ea91d30aea4c625a41b46d92d6c8f2046efc425aa7d420e76f50185f3d2"
     sha256 arm64_sonoma:   "dd40b2194765feea63309c8b7c23abdab493d83bd9c3a430c780dfe8b2b17db4"
     sha256 arm64_ventura:  "c99c11c8ebc76a48690cfe691b9ceb24839f2c720a28e147acbf49107222e730"
     sha256 arm64_monterey: "dd191ccaf4626eccceea95ba9a5df763d9504c2e2b6acb45351376ab4c35308d"
@@ -23,9 +24,10 @@ class ShibbolethSp < Formula
     sha256 x86_64_linux:   "ec22788a7519d49dfbf12c13f652f8c80fc8adc32a9363e40a30c31568f9483f"
   end
 
-  depends_on "apr" => :build
-  depends_on "apr-util" => :build
   depends_on "pkg-config" => :build
+
+  depends_on "apr"
+  depends_on "apr-util"
   depends_on "boost"
   depends_on "httpd"
   depends_on "log4shib"
@@ -36,13 +38,13 @@ class ShibbolethSp < Formula
   depends_on "xml-security-c"
   depends_on "xml-tooling-c"
 
+  uses_from_macos "krb5"
+
   def install
     ENV.cxx11
+
     args = %W[
-      --disable-debug
-      --disable-dependency-tracking
       --disable-silent-rules
-      --prefix=#{prefix}
       --localstatedir=#{var}
       --sysconfdir=#{etc}
       --with-xmltooling=#{Formula["xml-tooling-c"].opt_prefix}
@@ -52,7 +54,7 @@ class ShibbolethSp < Formula
       DYLD_LIBRARY_PATH=#{lib}
     ]
 
-    system "./configure", *args
+    system "./configure", *args, *std_configure_args
     system "make", "install"
   end
 

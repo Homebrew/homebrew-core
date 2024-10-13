@@ -30,7 +30,7 @@ class Viewvc < Formula
 
     begin
       pid = fork do
-        exec "#{bin}/viewvc-standalone.py", "--port=#{port}"
+        exec bin/"viewvc-standalone.py", "--port=#{port}"
       end
       sleep 2
 

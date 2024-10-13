@@ -12,6 +12,7 @@ class Dmenu < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "cd2aa831875be36cf4b70d2ca1b74ed2d8a652fbc040738a65ca31affeb2a312"
     sha256 cellar: :any,                 arm64_sonoma:   "351c0e07f7f4d729ccc4aa68c72aa5c0a4a58b612b07ff395d90dcf43d36a8d9"
     sha256 cellar: :any,                 arm64_ventura:  "51802214393325c58ee3cbc2571b7a9b92e82d3121f46149ce35aae78e1bd9dd"
     sha256 cellar: :any,                 arm64_monterey: "0fd492daa5a3cd89f23dde5c292784faf55926d49278fa1094d79521bfb6b993"

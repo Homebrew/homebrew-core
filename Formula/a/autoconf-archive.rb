@@ -7,6 +7,7 @@ class AutoconfArchive < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "ad375a956bd246edd6a9f6a08118572a33d2c0c4732e56343eb557e81ef9e762"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ea643bc91c9234ccfe254e4a510ef3da869c6a7497203b01a94c1c984b25dccc"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "eff12d495e12588faaececedf65651baef736dd31af94bb3025998a2dcc35ee4"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "eff12d495e12588faaececedf65651baef736dd31af94bb3025998a2dcc35ee4"

@@ -14,6 +14,7 @@ class Augeas < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_sequoia:  "235513308423f52fd6d049cf16b5e0c31b0862bce0d8aa6afb11ce2e8208020a"
     sha256 arm64_sonoma:   "72892294927f45da15836ea628404d5ea93597344d93dfe1ba3889dc9c1daf68"
     sha256 arm64_ventura:  "9d42d73d125f3aa9e859ecf4e0029b9e0e4a9354b166d7d7d96e4753bf99348c"
     sha256 arm64_monterey: "6ce2ccf218f4ac51eae364b50a74eae014820ddb0e2073700da3e8b3b58735e3"

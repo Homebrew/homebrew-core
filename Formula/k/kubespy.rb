@@ -6,6 +6,7 @@ class Kubespy < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "6249e8404da965e941fd171832b722cc052ae5431475dc02afabd2b85a61c54b"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "fda3f73dff9a59dff79bdc79351361a6f737e298c02bef4b585f0991e80e793c"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "e78222b47bc21a5c77b73dbe032ad775d8a22d6e468029c5c3e10e23b89f39ca"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1cfb8c02d7e116cee63aa1e520d774ea7ca40869eabce292a529058c40072ba4"

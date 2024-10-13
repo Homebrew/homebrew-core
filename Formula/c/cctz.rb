@@ -6,26 +6,29 @@ class Cctz < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "12f4fd08ce0235acfae73b1af5f3cd618fe5d4c7675fd448ba0affe004df3f64"
-    sha256 cellar: :any,                 arm64_ventura:  "29b3eda980b49d6194c0f6c84fef48e506430fd5e01742e8778bf54c7b6340ab"
-    sha256 cellar: :any,                 arm64_monterey: "0b0c26679d5fade184996abebcb2c2f3d5403b5d3ab49195c8649bed52690dbf"
-    sha256 cellar: :any,                 sonoma:         "067e248e5286cd504f20909c5ce08b8747533a99dfdb100c6d82a729961c3e9b"
-    sha256 cellar: :any,                 ventura:        "5b47b57312c19fddd60a02d403dfcb80920de82b9691bed95364f764c40760af"
-    sha256 cellar: :any,                 monterey:       "a0f00e1a70014af1dd61f874e232a20059e26aeed1c2d941c3bcc1785f2e947b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "62ae3155aafe87fc71fbbecdd8b2ceaa0e57c03d32e29b6349614b73ce0c4192"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia:  "43ec1e3404f1eb3f05f967649c764aa06a7e4a8c32902214343a72676ffda5c7"
+    sha256 cellar: :any,                 arm64_sonoma:   "eba6f2dc7740b64f07d96b4f408c51ed5adb7b948f7c6261155ee5da4e43c991"
+    sha256 cellar: :any,                 arm64_ventura:  "dc5b93076b8c9637ebd074539ed68f79a967234d1ed59451e80b708aa438a499"
+    sha256 cellar: :any,                 arm64_monterey: "2279fd2c826ddff71e1162f8b67829b34295a21f271352c0640b6f44c3e331c6"
+    sha256 cellar: :any,                 sonoma:         "0ab1b384f0a647a473f481323cfa13164494affa91cbffc5dfa6b41ebc97da72"
+    sha256 cellar: :any,                 ventura:        "160d4ac726f11db6d03d917e0a1acb9d61bb5a45a24b120b8f094a5000d7d127"
+    sha256 cellar: :any,                 monterey:       "a8256df066d659ca817adab5b1054633547514c650248f479ec6e31a3c12732e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "897ed11efc1b5804873b9c64315d78f99cb4e242f3ceb554dfc8d760ac65b03e"
   end
 
   depends_on "cmake" => :build
 
   def install
-    args = std_cmake_args
-    args << "-DBUILD_TESTING=OFF"
-    args << "-DCMAKE_POSITION_INDEPENDENT_CODE=ON"
+    args = ["-DBUILD_TESTING=OFF", "-DCMAKE_POSITION_INDEPENDENT_CODE=ON"]
 
-    system "cmake", ".", "-DBUILD_SHARED_LIBS=ON", *args
-    system "make", "install"
-    system "cmake", ".", "-DBUILD_SHARED_LIBS=OFF", *args
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build_shared", "-DBUILD_SHARED_LIBS=ON", *args, *std_cmake_args
+    system "cmake", "--build", "build_shared"
+    system "cmake", "--install", "build_shared"
+
+    system "cmake", "-S", ".", "-B", "build_static", "-DBUILD_SHARED_LIBS=OFF", *args, *std_cmake_args
+    system "cmake", "--build", "build_static"
+    lib.install "build_static/libcctz.a"
   end
 
   test do

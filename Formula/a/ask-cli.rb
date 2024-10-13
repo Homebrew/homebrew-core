@@ -1,5 +1,3 @@
-require "language/node"
-
 class AskCli < Formula
   desc "CLI tool for Alexa Skill Kit"
   homepage "https://github.com/alexa/ask-cli"
@@ -8,6 +6,7 @@ class AskCli < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "a883f88d9896627c807417adb1d23d9884dbbd65f7fbc1060b80315fc1093150"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "26fa2cfd5a670de545967dc8aecf123ac3e0e71b9f92735a82dd81e8e2219458"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "0fee36de070aab95a6baf2f7e6a8310a5d109e543f5edeeebca4a8fb75eff82e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "2a726d74c5e74806f900274563d143f998b4d9222ab310ac43ed0345e39d2b07"
@@ -20,7 +19,7 @@ class AskCli < Formula
   depends_on "node"
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", *std_npm_args
     bin.write_exec_script libexec/"bin/ask"
 
     # Replace universal binaries with native slices

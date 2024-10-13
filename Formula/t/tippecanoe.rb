@@ -1,8 +1,8 @@
 class Tippecanoe < Formula
   desc "Build vector tilesets from collections of GeoJSON features"
   homepage "https://github.com/felt/tippecanoe"
-  url "https://github.com/felt/tippecanoe/archive/refs/tags/2.57.0.tar.gz"
-  sha256 "34d77da8d71b27db4d3ac7ae014f70f0105b8af96b570dee1b9278640b1203ed"
+  url "https://github.com/felt/tippecanoe/archive/refs/tags/2.64.0.tar.gz"
+  sha256 "5f352793cee4f2e29d0bc53a144f04b1bf35f65f900bad952a1d14b5ed79bad6"
   license "BSD-2-Clause"
 
   livecheck do
@@ -11,13 +11,12 @@ class Tippecanoe < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0d5397d3a032add1022578a0043b36d6e02f1d6867676de673436a8318e87ee8"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ce465e64a951146f870b333034cbd1bb05a2be6a5d1941d463969e02bfde3935"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "dd36b11cc102dcfe33afd5482efffb17ac7b1787b03e7b55f970409e49d486f1"
-    sha256 cellar: :any_skip_relocation, sonoma:         "eae3f081a9620b7865f2f79b5d331836e774312b06bd5fbd5ba5e40298813812"
-    sha256 cellar: :any_skip_relocation, ventura:        "2c29421f30f28577891259fd459b2fc60df10dc66d9c79ce1d31e6bdf7e25175"
-    sha256 cellar: :any_skip_relocation, monterey:       "18313f9d716109e1bbf56f3ca02ee428392a820f58d50bc45a2d4a2536b4f57e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3b3aab4c60d387bff3f1f8ab8bc2b92cbbe7a94e788c0d50febd3fda1e496f67"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "aeccc217fb67ef9a3ba5a393c1a3a048ba2579437adcc98f3e428a6b1a378ec9"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8b715be7e4f0376fb911384b1f65507b0974bcc7a9fc23b7c7c795e91fdf1ca8"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "217804e4c1ea1f3427dca9adb5105b90b7484bda935d72ce7990602efc371bd6"
+    sha256 cellar: :any_skip_relocation, sonoma:        "fea7763e62a63501cb40e3ba10e10561dea8479a2741189f1a6f448d5461c675"
+    sha256 cellar: :any_skip_relocation, ventura:       "89021d22a4923fc6f4ee38d2a1588d81156791cc626a8239296f158819f1ec7e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ab69759ba8f5a960a8945378b1024e428169da8f2ab538cf59a1b082da5a21c7"
   end
 
   uses_from_macos "sqlite"
@@ -31,7 +30,7 @@ class Tippecanoe < Formula
     (testpath/"test.json").write <<~EOS
       {"type":"Feature","properties":{},"geometry":{"type":"Point","coordinates":[0,0]}}
     EOS
-    safe_system "#{bin}/tippecanoe", "-o", "test.mbtiles", "test.json"
+    safe_system bin/"tippecanoe", "-o", "test.mbtiles", "test.json"
     assert_predicate testpath/"test.mbtiles", :exist?, "tippecanoe generated no output!"
   end
 end

@@ -1,8 +1,8 @@
 class Ffmpeg < Formula
   desc "Play, record, convert, and stream audio and video"
   homepage "https://ffmpeg.org/"
-  url "https://ffmpeg.org/releases/ffmpeg-7.0.1.tar.xz"
-  sha256 "bce9eeb0f17ef8982390b1f37711a61b4290dc8c2a0c1a37b5857e85bfb0e4ff"
+  url "https://ffmpeg.org/releases/ffmpeg-7.1.tar.xz"
+  sha256 "40973d44970dbc83ef302b0609f2e74982be2d85916dd2ee7472d30678a7abe6"
   # None of these parts are used by default, you have to explicitly pass `--enable-gpl`
   # to configure to activate them. In this case, FFmpeg's license changes to GPL v2+.
   license "GPL-2.0-or-later"
@@ -14,13 +14,12 @@ class Ffmpeg < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "06ad4d7e0449e6e67c8d2b2ba042144f2fb054e90d8591b6786bcb3248d95b00"
-    sha256 arm64_ventura:  "49434f6076d93bf098f5ecfcfde2ac1c220d815766c715ff6546e9121394f72b"
-    sha256 arm64_monterey: "a4b1fee69ddef209e93fde6c7c56c45b4c91bd819489589f1c8a5c753df1e1f1"
-    sha256 sonoma:         "c8f0f6538655d4565e8a053e0550c5c48aa921db45a73f27cd8d5b671718efff"
-    sha256 ventura:        "11b6013b9ac14bf78cc30e280b528b27038a1661f6156b4813165417b88083a5"
-    sha256 monterey:       "fe01e3f04bbf7ee881bd0672e829102b9dfec7d27fed478fe231a30e58ab7c3b"
-    sha256 x86_64_linux:   "a2fc976d61219c95b9bd97d66fac2313370e34c270901d5fd3696bbb67a6621c"
+    sha256 arm64_sequoia: "de10a2403eba75884ef6471cdc6b32b259f0fd7cec98b5710a29617f5a529b9f"
+    sha256 arm64_sonoma:  "d954df5c7e6e554a3cda5fe88a225e4ac6b79d290b01f9428c5b4faf93c51837"
+    sha256 arm64_ventura: "fd3a4b85b46d42af5f300f4158facbd1e7dbd2471ea90536a8c5ba0c7880660e"
+    sha256 sonoma:        "07a275e99d7d93bccf910f6da7d11899f5ac327dfef00d00046d04ba7de3498f"
+    sha256 ventura:       "aa5f716290e0d68f45ee5225298e864d91cdb90de3a876fd9fbec32b1ef26ef1"
+    sha256 x86_64_linux:  "442af13d09560e76518045a7e104a39ab13f68aa488e20637c6e45a01575a72e"
   end
 
   depends_on "pkg-config" => :build

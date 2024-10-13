@@ -1,8 +1,8 @@
 class Stockfish < Formula
   desc "Strong open-source chess engine"
   homepage "https://stockfishchess.org/"
-  url "https://github.com/official-stockfish/Stockfish/archive/refs/tags/sf_16.1.tar.gz"
-  sha256 "a5f94793b5d4155310397ba89e9c4266570ef0f24cd47de41a9103556f811b82"
+  url "https://github.com/official-stockfish/Stockfish/archive/refs/tags/sf_17.tar.gz"
+  sha256 "8f9b52285c3348c065b7cb58410626df16d7416a2e60a3b04f3ec7c038e67ad1"
   license "GPL-3.0-only"
   head "https://github.com/official-stockfish/Stockfish.git", branch: "master"
 
@@ -12,13 +12,14 @@ class Stockfish < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "da1930a5c5a3d8bf6114cd44cd19c7bdc32ab8db3d986ab7ed3eb373149b8d57"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "192db669ced3f8274f846f6e10b0a00a5c9c7b65be23c9b7fc109921f7e6ec3d"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "88d8364bebb769bda3ab8afbc7b15594da730fe8c318ee49ea8169e116ba1d76"
-    sha256 cellar: :any_skip_relocation, sonoma:         "b8ddab5e047308b049e48d2a535b58c388def6dae99a9e6f88378008e14dba80"
-    sha256 cellar: :any_skip_relocation, ventura:        "ad2f1d36b3378417e9ad77729f21dda76526d2f624cd88e55ab0c7da5e0522b8"
-    sha256 cellar: :any_skip_relocation, monterey:       "c4074394b6956768b9af3128b7739814c8dcc039fd06257132d43d6fdc2726ab"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7f82e1a7783b5bafc5af9517e555c1729bf8c439cbe93717b33bec72988b1f97"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "a5f6a739d346d51452584203e1ee9d4073a23bede03f57a2be353cbd9e414d1f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "912b422a2d146ee732c4cde82393546be33ebc530061277b76af0d0520dd31ec"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "21f84fd184baf6d59bd0bb2181b9757cd7e0eefb902b8aee1caa773aaa50ff67"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "18b5450bae791e55f07994c3fc5cf1b355df928e4c08e3e122d4616167de4cc4"
+    sha256 cellar: :any_skip_relocation, sonoma:         "710b857f281feefa4d483092a4ec85a603ec346712dfd53b4116ad7b4f80f8a0"
+    sha256 cellar: :any_skip_relocation, ventura:        "00a1a04692ce42912e4c965d6d4825bcf7e78bd998c18eb5df74f8d82903e772"
+    sha256 cellar: :any_skip_relocation, monterey:       "6a1e9587ef0018e5490ab8a610d52eae4cf9abf9c55e49c08305234a7d9add16"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "64e5258684ddb0eba1731a862ea563030fa502849c970022678e2bab5e3fb8d6"
   end
 
   fails_with gcc: "5" # For C++17
@@ -31,6 +32,6 @@ class Stockfish < Formula
   end
 
   test do
-    system "#{bin}/stockfish", "go", "depth", "20"
+    system bin/"stockfish", "go", "depth", "20"
   end
 end

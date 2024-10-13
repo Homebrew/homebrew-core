@@ -13,6 +13,7 @@ class Otf2 < Formula
 
   bottle do
     rebuild 2
+    sha256 arm64_sequoia:  "9d97ad4308648acfa2192bb8abd4216543babca9c937f2d888274202e3b442f8"
     sha256 arm64_sonoma:   "80ae5483e293499a103208036e71dfc89bb3d6a07c5db49b7a4542fa9f4fa5bb"
     sha256 arm64_ventura:  "3025d4a7f4abb1bb0daf3f63242cfb3587106ce2841c9974ca88272ca5db1459"
     sha256 arm64_monterey: "d27a2cf721638980b8068b1ec834d7fd791d93a00351ee18ed59c47c27a7a5eb"
@@ -95,7 +96,7 @@ class Otf2 < Formula
       system "./otf2_writer_example"
       assert_predicate workdir/"ArchivePath/ArchiveName.otf2", :exist?
       system "./otf2_reader_example"
-      rm_rf "./ArchivePath"
+      rm_r("./ArchivePath")
       system Formula["open-mpi"].opt_bin/"mpirun", "-n", "2", "./otf2_mpi_writer_example"
       assert_predicate workdir/"ArchivePath/ArchiveName.otf2", :exist?
       2.times do |n|
@@ -103,7 +104,7 @@ class Otf2 < Formula
       end
       system Formula["open-mpi"].opt_bin/"mpirun", "-n", "2", "./otf2_mpi_reader_example"
       system "./otf2_reader_example"
-      rm_rf "./ArchivePath"
+      rm_r("./ArchivePath")
       system "./otf2_pthread_writer_example"
       assert_predicate workdir/"ArchivePath/ArchiveName.otf2", :exist?
       system "./otf2_reader_example"

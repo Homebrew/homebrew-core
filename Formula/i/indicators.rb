@@ -7,7 +7,8 @@ class Indicators < Formula
   head "https://github.com/p-ranav/indicators.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "722fdcb2c0acf2eb576eaec0f91171d503b65c10910ec70abf1bf50bd45979bf"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "2322751e34abbf99f523edd2f22119089ce3ce2935ffc919e6ba6c2e2b6f72bc"
   end
 
   depends_on "cmake" => :build

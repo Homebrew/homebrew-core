@@ -1,20 +1,18 @@
 class Gptscript < Formula
   desc "Develop LLM Apps in Natural Language"
   homepage "https://gptscript.ai"
-  url "https://github.com/gptscript-ai/gptscript/archive/refs/tags/v0.9.2.tar.gz"
-  sha256 "d0eafd87b503a193e47fc0b2fbe926b27fbaa871455ac318da67079f28ffc852"
+  url "https://github.com/gptscript-ai/gptscript/archive/refs/tags/v0.9.5.tar.gz"
+  sha256 "48cc2e6ec6425c030e9d10a81135a5e20ab15ec8eee0a49d35a83eda06c5cc92"
   license "Apache-2.0"
   head "https://github.com/gptscript-ai/gptscript.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "872e389dc19a9383d72c638954f1948533de5b0325747ad06dc1b4a883d54235"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "75d358441d8304b71dfdaa96e508f8269f2e35f9e7a83395e6167f624e0ed12f"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d01e1b0fe74517bd3aafdfe3a203fb95fbea706d4b79a2a1c5f7800015716e91"
-    sha256 cellar: :any_skip_relocation, sonoma:         "74a0c9cf7752729ec56af0391b39c95b915a3b066ab5fbbab1fa374e2eeca17a"
-    sha256 cellar: :any_skip_relocation, ventura:        "0e1df46aa0487df360902f4c319ffae88b16d9e31f7f3e28adfc5e8cd52678c8"
-    sha256 cellar: :any_skip_relocation, monterey:       "d5459ef88997c2182d49d8dc2c427aa16e484ab6b9d271de0a83e5cb56490e29"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9abc33c32ca0702cf1b238bb808a9d79c4f5f05dbfb5f82b3bcd267bd7ef87d0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fc050c14ef0a51596c4273df592c16c5d400d3e14b9094990f46029e227967b6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fc050c14ef0a51596c4273df592c16c5d400d3e14b9094990f46029e227967b6"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "fc050c14ef0a51596c4273df592c16c5d400d3e14b9094990f46029e227967b6"
+    sha256 cellar: :any_skip_relocation, sonoma:        "0ca84273cc3c87fe0ae551ac4cd981b60400e4a8205c6748484ccd3944c3bad9"
+    sha256 cellar: :any_skip_relocation, ventura:       "0ca84273cc3c87fe0ae551ac4cd981b60400e4a8205c6748484ccd3944c3bad9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bf7dcf27cef7f521453a62a5db71d452ceb23236d17679e4ae1682914df6a50d"
   end
 
   depends_on "go" => :build

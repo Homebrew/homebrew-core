@@ -7,6 +7,7 @@ class Makefile2graph < Formula
   head "https://github.com/lindenb/makefile2graph.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "f81db552d0aeb5eeed846fe79b930bf69aae6b2b9552bec55ab68db856162a10"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "19431085aae2ceefa936a5a426a0d56d30ffd2f1385723741dd8b0fba4d7b624"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "d99f194c17cf570aac2bf56cea06e6bfb319e8fbaeba1ec5c536fa04c38bedfc"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "96deab75f00bf9fa63e78af5b6623816b3a390c32adc0c4667099f3879938883"
@@ -38,8 +39,8 @@ class Makefile2graph < Formula
       ook:
     EOS
     system "make -Bnd >make-Bnd"
-    system "#{bin}/make2graph <make-Bnd"
-    system "#{bin}/make2graph --root <make-Bnd"
-    system "#{bin}/makefile2graph"
+    system bin/"make2graph <make-Bnd"
+    system bin/"make2graph --root <make-Bnd"
+    system bin/"makefile2graph"
   end
 end

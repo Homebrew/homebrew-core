@@ -14,10 +14,15 @@ env:
   HOMEBREW_NO_INSTALL_FROM_API: 1
   HOMEBREW_TEST_BOT_ANALYTICS: 1
   HOMEBREW_ENFORCE_SBOM: 1
+  HOMEBREW_NO_BUILD_ERROR_ISSUES: 1
   GH_REPO: ${{github.repository}}
   GH_NO_UPDATE_NOTIFIER: 1
   GH_PROMPT_DISABLED: 1
   SCRIPTS_PATH: .github/workflows/scripts
+
+defaults:
+  run:
+    shell: bash -xeuo pipefail {0}
 
 concurrency:
   group: "tests-${{ github.ref }}"
@@ -56,7 +61,7 @@ jobs:
           key: style-cache-${{ matrix.stable && 'stable-' || 'master-' }}${{ github.sha }}
           restore-keys: style-cache-${{ matrix.stable && 'stable-' || 'master-' }}
 
-      - run: brew test-bot --only-tap-syntax
+      - run: brew test-bot --only-tap-syntax ${{ matrix.stable && '--stable' || '' }}
 
   formulae_detect:
     if: github.repository_owner == 'Homebrew' && github.event_name != 'push'
@@ -91,6 +96,7 @@ jobs:
   report_analytics:
     runs-on: ubuntu-latest
     needs: formulae_detect
+    if: github.repository_owner == 'Homebrew' && github.event_name == 'pull_request'
     steps:
       - name: Publish Analytics to Summary
         env:
@@ -211,7 +217,7 @@ jobs:
     timeout-minutes: ${{ matrix.timeout }}
     defaults:
       run:
-        shell: /bin/bash -e {0}
+        shell: /bin/bash -xeuo pipefail {0}
         working-directory: ${{matrix.workdir || github.workspace}}
     env:
       GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
@@ -330,12 +336,13 @@ jobs:
     timeout-minutes: ${{ matrix.timeout }}
     defaults:
       run:
-        shell: /bin/bash -e {0}
+        shell: /bin/bash -xeuo pipefail {0}
         working-directory: ${{matrix.workdir || github.workspace}}
     env:
       GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
       HOMEBREW_GITHUB_API_TOKEN: ${{secrets.GITHUB_TOKEN}}
       BOTTLES_DIR: ${{matrix.workdir || github.workspace}}/bottles
+      TESTING_FORMULAE: ${{matrix.testing_formulae}}
     steps:
       - name: Pre-test steps
         uses: Homebrew/actions/pre-build@master
@@ -344,7 +351,7 @@ jobs:
           cleanup: ${{ matrix.cleanup }}
           download-bottles: true
 
-      - run: brew test-bot ${{ needs.setup_dep_tests.outputs.test-bot-dependents-args }}
+      - run: brew test-bot ${{ needs.setup_dep_tests.outputs.test-bot-dependents-args }} --testing-formulae="$TESTING_FORMULAE"
         working-directory: ${{ env.BOTTLES_DIR }}
 
       - name: Steps summary and cleanup
@@ -376,6 +383,15 @@ jobs:
             # Silence lint error about backtick usage inside single quotes.
             # shellcheck disable=SC2016
             printf '::error ::`tests` job %s.\n' "$result"
+
+            deps_result='${{ needs.test_deps.result }}'
+            if [[ "$deps_result" = "skipped" ]]
+            then
+              # Silence lint error about backtick usage inside single quotes.
+              # shellcheck disable=SC2016
+              printf '::error ::`test_deps` job skipped. Do not merge until re-run with `CI-no-fail-fast-deps`\n'
+            fi
+
             exit 1
           fi
 

@@ -1,24 +1,22 @@
 class GitWorkspace < Formula
   desc "Sync personal and work git repositories from multiple providers"
   homepage "https://github.com/orf/git-workspace"
-  url "https://github.com/orf/git-workspace/archive/refs/tags/v1.4.0.tar.gz"
-  sha256 "fb66b03f4068950ba2fac73b445a964b2b941137f9b31f5db9f4fba1a73d3d4d"
+  url "https://github.com/orf/git-workspace/archive/refs/tags/v1.6.0.tar.gz"
+  sha256 "c99e821710b45d2c2639c1abea45ad9f2d63d3b5b81e19e1fd29604dca05e5e2"
   license "MIT"
-  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "3687a7078673bec581e010035dff68102c1b9b99483603c186293b76435c9b67"
-    sha256 cellar: :any,                 arm64_ventura:  "e85ea0736d8f5d773c493919ef07c29546d24711bdb97bac501cbdf11afd00aa"
-    sha256 cellar: :any,                 arm64_monterey: "53450fe5c00e6ecfee12d92325b6e2024ef4d03f0cef5a585f8ca2838a9a6e5c"
-    sha256 cellar: :any,                 sonoma:         "1d9e9b3fe351fd75c43b4dd8b39b8cb852b19d13880fb23836554e568e433f94"
-    sha256 cellar: :any,                 ventura:        "e650a4387afe3dccf972b9f0e6d28e7615eb8f7ddcc2d47b1f322aa2ba449b58"
-    sha256 cellar: :any,                 monterey:       "fd39b3eff416154c10b38860e687f5e58260b3ef39dcdd64e64572f545100e10"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4a18e7dac33b65e6fc4b430cb2e6f87e2df7ded08f59f7b2612c1828d756e5d2"
+    sha256 cellar: :any,                 arm64_sequoia: "e8748befe2d9116fdb60da448121643e9bb49401f9a1e7833343b4ef6fe5d5e3"
+    sha256 cellar: :any,                 arm64_sonoma:  "772d39bc35073c662e160ea86d20d153bdd689f360ad7538bd524fddedaa24ee"
+    sha256 cellar: :any,                 arm64_ventura: "6e918ed11da60bb72542f68d82e950a54db29f50674de061ec6de5c76267f456"
+    sha256 cellar: :any,                 sonoma:        "300b87932cafbc4e4f4bf4576b08cb6aaa89c89fb0cca029f0c55dbb146e05e1"
+    sha256 cellar: :any,                 ventura:       "30846356f2db9395c0bb3f4bd07679a0df35d07e8d04e19a76a17b6fc5111d03"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "54272b0971fea5d5d82b27831cad8d4f109ea9db91031ddeb20c47885dfa293a"
   end
 
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
-  depends_on "libgit2@1.7"
+  depends_on "libgit2"
   depends_on "openssl@3"
 
   def install
@@ -29,7 +27,7 @@ class GitWorkspace < Formula
   test do
     ENV["GIT_WORKSPACE"] = Pathname.pwd
     ENV["GITHUB_TOKEN"] = "foo"
-    system "#{bin}/git-workspace", "add", "github", "foo"
+    system bin/"git-workspace", "add", "github", "foo"
     assert_match "provider = \"github\"", File.read("workspace.toml")
     output = shell_output("#{bin}/git-workspace update 2>&1", 1)
     assert_match "Error fetching repositories from Github user/org foo", output
@@ -37,7 +35,7 @@ class GitWorkspace < Formula
     linkage_with_libgit2 = (bin/"git-workspace").dynamically_linked_libraries.any? do |dll|
       next false unless dll.start_with?(HOMEBREW_PREFIX.to_s)
 
-      File.realpath(dll) == (Formula["libgit2@1.7"].opt_lib/shared_library("libgit2")).realpath.to_s
+      File.realpath(dll) == (Formula["libgit2"].opt_lib/shared_library("libgit2")).realpath.to_s
     end
 
     assert linkage_with_libgit2, "No linkage with libgit2! Cargo is likely using a vendored version."

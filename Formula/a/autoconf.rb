@@ -10,13 +10,16 @@ class Autoconf < Formula
   ]
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "bb39057e87dd9cb940bee15ff5b5172952a0350e59b14a6f55b8006a07813186"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bb39057e87dd9cb940bee15ff5b5172952a0350e59b14a6f55b8006a07813186"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "bb39057e87dd9cb940bee15ff5b5172952a0350e59b14a6f55b8006a07813186"
-    sha256 cellar: :any_skip_relocation, sonoma:         "12368e33b89d221550ba9e261b0c6ece0b0e89250fb4c95169d09081e0ebb2dd"
-    sha256 cellar: :any_skip_relocation, ventura:        "12368e33b89d221550ba9e261b0c6ece0b0e89250fb4c95169d09081e0ebb2dd"
-    sha256 cellar: :any_skip_relocation, monterey:       "12368e33b89d221550ba9e261b0c6ece0b0e89250fb4c95169d09081e0ebb2dd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d760774b6bcad93822e666a8a2ee8557f674eba7f784b9ab9e397313378474b8"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "b1d110e2efd457a5e56c4469f2d6741109d542801a401fe08b750d0614581a9a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c3674a4dfa3794e022b1adbcd9c954c91192d38822080c7162d073d6609b903a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c3674a4dfa3794e022b1adbcd9c954c91192d38822080c7162d073d6609b903a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c3674a4dfa3794e022b1adbcd9c954c91192d38822080c7162d073d6609b903a"
+    sha256 cellar: :any_skip_relocation, sequoia:        "a0d9eae5c0acae66c817cba6c01e872d475cd756ea6af10a7e72be27e5b80d02"
+    sha256 cellar: :any_skip_relocation, sonoma:         "32c6ff07058a61e7fada66d171fee246502fcd1f5b98b65a1ef5b0acfcfa28c2"
+    sha256 cellar: :any_skip_relocation, ventura:        "32c6ff07058a61e7fada66d171fee246502fcd1f5b98b65a1ef5b0acfcfa28c2"
+    sha256 cellar: :any_skip_relocation, monterey:       "ab03a9de5759022fd4c341a085adc41ef34b00829a21d5f98a76538ce7ec4908"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "55e5cfc7d6f3d91895fe5a345b2158498f8e96b05574b073edf667de4122413d"
   end
 
   depends_on "m4"
@@ -35,7 +38,7 @@ class Autoconf < Formula
     system "./configure", "--prefix=#{prefix}", "--with-lispdir=#{elisp}"
     system "make", "install"
 
-    rm_f info/"standards.info"
+    rm(info/"standards.info")
   end
 
   test do

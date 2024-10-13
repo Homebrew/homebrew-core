@@ -13,6 +13,7 @@ class B43Fwcutter < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "feebcb5d44b93e56fb3057568f06a25214d0c0aa2b03c48c0e8a068ecf5a1986"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "de90ea58c943e6a3a4da88710cfc5b1e29e646e1033ca280dac8730184346572"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "e4d24a045df3b788ed629cd5f67509f5a0c5bff70fcd213f72107c2db166e3d9"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "22dc022f54852b54e28b799378fcbd2ca877eb815332d90199881dbfe291d84b"
@@ -39,6 +40,6 @@ class B43Fwcutter < Formula
   end
 
   test do
-    system "#{bin}/b43-fwcutter", "--version"
+    system bin/"b43-fwcutter", "--version"
   end
 end

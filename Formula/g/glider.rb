@@ -1,21 +1,20 @@
 class Glider < Formula
   desc "Forward proxy with multiple protocols support"
   homepage "https://github.com/nadoo/glider"
-  url "https://github.com/nadoo/glider/archive/refs/tags/v0.16.3.tar.gz"
-  sha256 "709b17ed90b41ec6da063b4598f32350f5e849d93a9ca77ca19b1978c500cb97"
+  url "https://github.com/nadoo/glider/archive/refs/tags/v0.16.4.tar.gz"
+  sha256 "91aa9ad6d56b164b30abedc88a0d371b3af6ff96cfe92f18525fa8e110aaee1d"
   license "GPL-3.0-or-later"
   head "https://github.com/nadoo/glider.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "20fe3b519f03a24285ca44ff869b7d3808fb1ad76662dbcc0e1a9650d1022419"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "526b4ff13b74f255865b113d747f3fecabae3a66b22f7755879292580f7cb4b0"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "526b4ff13b74f255865b113d747f3fecabae3a66b22f7755879292580f7cb4b0"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "526b4ff13b74f255865b113d747f3fecabae3a66b22f7755879292580f7cb4b0"
-    sha256 cellar: :any_skip_relocation, sonoma:         "74da3527cc114c621e5a235ddb3c66c6963bcd8966d9ccd26b64143210d29ce7"
-    sha256 cellar: :any_skip_relocation, ventura:        "ab7563d4c05ccabdbc569b10ecb9d9cbf479b463f4491aeb35e17f9ab64b75a4"
-    sha256 cellar: :any_skip_relocation, monterey:       "ab7563d4c05ccabdbc569b10ecb9d9cbf479b463f4491aeb35e17f9ab64b75a4"
-    sha256 cellar: :any_skip_relocation, big_sur:        "ab7563d4c05ccabdbc569b10ecb9d9cbf479b463f4491aeb35e17f9ab64b75a4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "079c2ddbf5802380f01e8bdb17ac4b90aa488e9eb8be87497c532531c779c9af"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "69178a2d743839266c81d46c2da244ecd9079e0e45c2d6b7d4bda44be9f758bd"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a618322e9f26480347e3ca8109ac5fb9e07c40361842e41ba9f29ec651af3f5d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2d61e633784a9ab172b4f4e00840f469f29703fb85a0524a60ee76f6e3f62e8e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b8da5e672c3936b9e182bda3358b6e10c19ae4f11b4fd6d8e9efe35a5a9e05de"
+    sha256 cellar: :any_skip_relocation, sonoma:         "2cadbadff220b62c8c07db3672aea7160407b5b3e4f0b06e73cfc55285c6125a"
+    sha256 cellar: :any_skip_relocation, ventura:        "254249a7b25bb02d6d21516eabbb0992e47030a8cf1570a7a11d433262e2583d"
+    sha256 cellar: :any_skip_relocation, monterey:       "790df16eb1b61f3ac61d9619d9fe25e91309b4010504362f9a3b4343e73f7ff1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "66726d56a1303bd8f9aa06a36ae3694630a7ec53cf084dbf060ecfff2485767b"
   end
 
   depends_on "go" => :build
@@ -39,7 +38,7 @@ class Glider < Formula
 
   test do
     proxy_port = free_port
-    glider = fork { exec "#{bin}/glider", "-listen", "socks5://:#{proxy_port}" }
+    glider = fork { exec bin/"glider", "-listen", "socks5://:#{proxy_port}" }
 
     sleep 3
     begin

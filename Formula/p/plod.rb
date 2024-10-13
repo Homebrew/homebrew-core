@@ -1,12 +1,13 @@
 class Plod < Formula
   desc "Keep an online journal of what you're working on"
-  homepage "https://deer-run.com/users/hal/"
-  url "https://deer-run.com/~hal/plod/plod.shar"
+  homepage "https://web.archive.org/web/20240510181918/https://deer-run.com/users/hal/"
+  url "https://web.archive.org/web/20160821040241/https://deer-run.com/~hal/plod/plod.shar"
   version "1.9"
   sha256 "1b7b8267c41b11c2f5413a8d6850099e0547b7506031b0c733121ed5e8d182f5"
   license any_of: ["Artistic-1.0-Perl", "GPL-1.0-or-later"]
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "c66eae9ec8211f26b1dd03894db3be83acd71fac5b27d39a6381482bf7f22d9a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4b9c9cd2b570e27155488643d25109a5782ef3acbf76aa86ce249630999c5043"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "8361343544ac10cdf1c2c6b37b4a8a4882d199c2d49ac22fc35b776199527fbf"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "8361343544ac10cdf1c2c6b37b4a8a4882d199c2d49ac22fc35b776199527fbf"
@@ -19,6 +20,10 @@ class Plod < Formula
     sha256 cellar: :any_skip_relocation, mojave:         "7398f28822ffb0a9b2d84ba2bf98ed4bb49dea0c26ed4d8b6b0c16360173ca4b"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "8361343544ac10cdf1c2c6b37b4a8a4882d199c2d49ac22fc35b776199527fbf"
   end
+
+  # Upstream site shows error 503. As of deprecation date,
+  # install-on-request: 0 (30 days), 1 (90 days), 12 (365 days)
+  deprecate! date: "2024-09-14", because: :unmaintained
 
   def install
     system "sh", "plod.shar"
@@ -79,7 +84,7 @@ class Plod < Formula
 
   test do
     ENV["LOGDIR"] = testpath/".logdir"
-    system "#{bin}/plod", "this", "is", "Homebrew"
+    system bin/"plod", "this", "is", "Homebrew"
     assert File.directory? "#{testpath}/.logdir"
     assert_match(/this is Homebrew/, shell_output("#{bin}/plod -P"))
   end

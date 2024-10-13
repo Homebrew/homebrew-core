@@ -1,19 +1,18 @@
 class Aichat < Formula
   desc "All-in-one AI-Powered CLI Chat & Copilot"
   homepage "https://github.com/sigoden/aichat"
-  url "https://github.com/sigoden/aichat/archive/refs/tags/v0.19.0.tar.gz"
-  sha256 "ad18bcca2264c467c98e3f3fda86c02b140e201e0d253895a23a3ee5e7e1a9ee"
+  url "https://github.com/sigoden/aichat/archive/refs/tags/v0.22.0.tar.gz"
+  sha256 "a0f108c7da9c361fd30c1c8ba386cb33b6f9861c90bab663bcd3bdc89c9f29c7"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/sigoden/aichat.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "09425e6b454676341baeedb03c46a59e65f96fad2b16a73d693225090b1f5b98"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ceaaaf8fb4e731a875e62c1eb268c704718a3f1b945b026d50de29c9f42ca527"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8349543e507133bf0b44514fc9b4cf0772dbffef33dbaa42ab5ab81bd70114b1"
-    sha256 cellar: :any_skip_relocation, sonoma:         "4fe72542334956b3e127b6d60432cf3db240520aa307208e4a8271c18ec85f5f"
-    sha256 cellar: :any_skip_relocation, ventura:        "d98779b5e7bc2623057251ab74f0770ff52554a721476b5f5679f9d51f250765"
-    sha256 cellar: :any_skip_relocation, monterey:       "9feb47659a700f5e0713ec1f60e1a2181e59814915eeab59406a37306a8b64a3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0173c96ced6e53624a1ce92e24a12d5bf2bf9cd2f1e7d4425bdfd4e0a3499c04"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "eacf9842cb989f0ae90683756bd57ef34766a2b0b97d8119536a390bb4828eb7"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3a94c1e934b03a2998d418f77b444b9130815a390e4eeac5f2abf2898c7eb15e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "75205014faefb9a261021f8e07caa9d7c101e155dab4c56ad17df0d73355211b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b48787fead508e32989d2bf5e3dceba3de12b7e483d3f0808ca669b99b67199d"
+    sha256 cellar: :any_skip_relocation, ventura:       "964c158291ca9dcf62b119eb8694cc259406fefd7757ef2963d35829ede1d2c8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a6be13bc0404398a2efdf279990feb6636ba3fb54a95a6a4fb5879b71a9bd730"
   end
 
   depends_on "rust" => :build

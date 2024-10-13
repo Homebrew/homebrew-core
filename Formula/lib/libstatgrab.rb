@@ -15,6 +15,7 @@ class Libstatgrab < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "666c2bc394e1533387652704633873d2ad01670f67503bc8dbf8c66e6b53e4ac"
     sha256 cellar: :any,                 arm64_sonoma:   "896492a8a90fe3c6f335ad15785a8fb7521b1200c3e88d1989136a17eebdab60"
     sha256 cellar: :any,                 arm64_ventura:  "7c52741c5bc27ba569e9d97c89ab5258f51f0b66c46e678f35fc8770f0fa6655"
     sha256 cellar: :any,                 arm64_monterey: "d8fe01051dd20bebd918d8d4e0634218121d1a9b3b0be2e5830cdf24bc1d9fd5"
@@ -43,6 +44,6 @@ class Libstatgrab < Formula
   end
 
   test do
-    system "#{bin}/statgrab"
+    system bin/"statgrab"
   end
 end

@@ -3,6 +3,7 @@ class Openslp < Formula
   homepage "http://www.openslp.org"
   url "https://downloads.sourceforge.net/project/openslp/2.0.0/2.0.0%20Release/openslp-2.0.0.tar.gz"
   sha256 "924337a2a8e5be043ebaea2a78365c7427ac6e9cee24610a0780808b2ba7579b"
+  license "BSD-3-Clause"
 
   bottle do
     sha256 sonoma:       "9e94160f7db637d08229abcd518e0a67e876cb712e48273fa90ddf00a1b4a994"

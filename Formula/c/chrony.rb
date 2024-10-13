@@ -1,8 +1,8 @@
 class Chrony < Formula
   desc "Versatile implementation of the Network Time Protocol (NTP)"
   homepage "https://chrony-project.org"
-  url "https://chrony-project.org/releases/chrony-4.5.tar.gz"
-  sha256 "19fe1d9f4664d445a69a96c71e8fdb60bcd8df24c73d1386e02287f7366ad422"
+  url "https://chrony-project.org/releases/chrony-4.6.1.tar.gz"
+  sha256 "571ff73fbf0ae3097f0604eca2e00b1d8bb2e91affe1a3494785ff21d6199c5c"
   license "GPL-2.0-only"
 
   livecheck do
@@ -11,14 +11,12 @@ class Chrony < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sonoma:   "bc58ccdf1b33884df65fb79542cfc45af28590788d116480dc2e446b013f150f"
-    sha256 cellar: :any,                 arm64_ventura:  "42da0b2102be878e2e0257d04d6cca105e0bb3a0c20ce794ea808f457a2cf901"
-    sha256 cellar: :any,                 arm64_monterey: "ecd3bb560ede140523b97307b027f4ee8b2f252cec6756276a168a9dd1797063"
-    sha256 cellar: :any,                 sonoma:         "fb8e16572fe7fbeb87bfd146a2896672b3f5c48d8c08fac207c23731349f3054"
-    sha256 cellar: :any,                 ventura:        "c1e580842a2eabec7365f5095bab50930e87e9c4d0006e482c30a2018a6f2ebd"
-    sha256 cellar: :any,                 monterey:       "b214a11d12b514dc499ed28ea3d6ee66e667a55c553146ed5160d0d9f5dafc8a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4ead26245ab117713fb7783c065a33e60b1b2144f74d2ebfc6388e9909c8549a"
+    sha256 cellar: :any,                 arm64_sequoia: "4c6e88d135fc7248907d23dfeeb0dc7d7d59fdb3e4b4bf5d64cb88cbde144e7b"
+    sha256 cellar: :any,                 arm64_sonoma:  "7e9968c5ec5ea5eef8f8e8067102aa76abe5ba51f743ff128ce5a65f77187d38"
+    sha256 cellar: :any,                 arm64_ventura: "92e281e61b4343f5e1adc70edfbd7ef37cee3a810f7ebcbaaaee8494095d73e9"
+    sha256 cellar: :any,                 sonoma:        "47023cbf95a7711a26f5077d40b0a4564b864fbae5eb7d371952120bb4620d53"
+    sha256 cellar: :any,                 ventura:       "a2b6f67ac680be5e10d64b0a8e1c580a64bbd9e53fdabb1b0884562db5b4cef5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "55cd6ef009f00d493b55f8ced8b850f4029c6bc9f17e628303d65d4391df69d4"
   end
 
   depends_on "pkg-config" => :build

@@ -7,6 +7,7 @@ class TheSilverSearcher < Formula
   head "https://github.com/ggreer/the_silver_searcher.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "30781ad800cf0e58f863b36727ef2d78e8c2a84061a8e57cf6c269ab3a3e9594"
     sha256 cellar: :any,                 arm64_sonoma:   "fb4b711bc05b5c42950dffd4b21b867989524a9f8ee0ff91da42c09dbbf2fce2"
     sha256 cellar: :any,                 arm64_ventura:  "817b92ceac05e4860cdd5f7102289f55494359bb67c9fe4c8213d87b53261d7c"
     sha256 cellar: :any,                 arm64_monterey: "b567416368a9b131cf32f2c81400327a059da194c6d95df7368aa039fac73dfb"
@@ -29,19 +30,19 @@ class TheSilverSearcher < Formula
   depends_on "pcre"
   depends_on "xz"
 
-  def install
-    # Stable tarball does not include pre-generated configure script
-    system "autoreconf", "-fiv"
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
-    system "make"
-    system "make", "install"
+  uses_from_macos "zlib"
 
-    bash_completion.install "ag.bashcomp.sh"
+  def install
+    ENV.append_to_cflags "-fcommon" if ENV.compiler.to_s.start_with?("gcc")
+    # Stable tarball does not include pre-generated configure script
+    system "./autogen.sh"
+    system "./configure", "--disable-silent-rules", *std_configure_args
+    system "make"
+    system "make", "install", "bashcompdir=#{bash_completion}"
   end
 
   test do
     (testpath/"Hello.txt").write("Hello World!")
-    system "#{bin}/ag", "Hello World!", testpath
+    system bin/"ag", "Hello World!", testpath
   end
 end

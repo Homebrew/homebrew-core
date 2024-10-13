@@ -2,6 +2,7 @@ class Pidof < Formula
   desc "Display the PID number for a given process name"
   homepage "http://www.nightproductions.net/cli.htm"
   url "http://www.nightproductions.net/downloads/pidof_source.tar.gz"
+  mirror "https://distfiles.macports.org/pidof/pidof_source.tar.gz"
   version "0.1.4"
   sha256 "2a2cd618c7b9130e1a1d9be0210e786b85cbc9849c9b6f0cad9cbde31541e1b8"
   license :cannot_represent
@@ -13,6 +14,7 @@ class Pidof < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "4ec5871a736544b3d218e48cb3883ae457aa097eb0b9a37e666d069d00080fb4"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b066475e9ddce61ef79c68b32e46f173c2c8c685a7269f30fb966efc137bccd8"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "964d09783be4f829eeac50a16939ba0f289fa2c88dc7fba155f258683f009884"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6b299aebe4224da62d4f287f46a6816362986a9a78089c3315ab2c4e2f946420"

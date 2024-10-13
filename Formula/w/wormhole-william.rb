@@ -7,6 +7,7 @@ class WormholeWilliam < Formula
   head "https://github.com/psanford/wormhole-william.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "fb99b03e310e83fd5d670103515bbd28cc44fc63e1a9ba4f0af87cb6c3701e1b"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "95c69d404efc9bb7b9711c6aa10ffdab4200b5b9907dbd0f2d40d62d405fd7c6"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "5a2dc8b4b71e6dbabc0ee97d41fb611cd3e4cc6535e31945ccfc33aa4199b341"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "477dbe264a083cb10887a36ae9e67d0166f9f75325eaaea8c45dd3dfdfde23ef"
@@ -28,7 +29,7 @@ class WormholeWilliam < Formula
     # Send "foo" over the wire
     code = "#{rand(1e12)}-test"
     pid = fork do
-      exec "#{bin}/wormhole-william", "send", "--code", code, "--text", "foo"
+      exec bin/"wormhole-william", "send", "--code", code, "--text", "foo"
     end
 
     # Give it some time

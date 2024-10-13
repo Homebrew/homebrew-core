@@ -11,13 +11,15 @@ class SaneBackends < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "97de2c6a250cb1b8111547467d266161b842e2592c742276fc35b09193833b5a"
-    sha256 arm64_ventura:  "8c8de024315a21d793327cb837dde29fd42c5adf74588be71d4fb0b3a0c638dd"
-    sha256 arm64_monterey: "9306dcf8e0d171fad08538e45f4006528bc0a30e8c8317f6ae48c19eabc56890"
-    sha256 sonoma:         "ebfb6563c7dd81bcf3e64458e300b3bf796a655745dff4dfda9827217f98b05c"
-    sha256 ventura:        "fbacaf2ea55d47657fcd54e4f888ee3b8c9082ac5a5a3caa468b039f1e74a803"
-    sha256 monterey:       "52b9c4bc5ecc9612cd8a3a02ee0e6968ce3df07658ff14849547611205f022bc"
-    sha256 x86_64_linux:   "5958543bd7bd0b1d3f542bf8b98bcbd863e682a2ddda08ec2b4c1f55b4cb572b"
+    rebuild 1
+    sha256 arm64_sequoia:  "73d9e6f08781212504191af29da392c4f0896ba8b7f8192276af15b97db1d32d"
+    sha256 arm64_sonoma:   "0719713dac96d44d1f64d0e427c8c210e55796d93819693e796f8712759e1f70"
+    sha256 arm64_ventura:  "2c26a72e1a02d2989c5f961635c40e28da1ca235d9fec0c89f6647e326761d08"
+    sha256 arm64_monterey: "aac23e69bcfcdcdaf83b2ac5cc0dca17f324621a2a034bdcacffffd4138ec99b"
+    sha256 sonoma:         "43895d634e21a8c8d4cb472cef60d106f72c15507483d055d30fb0a553908fa4"
+    sha256 ventura:        "8379299b3089d0f27f9ae1c419338909509302a08c3108b92d7d25d6b04ad61c"
+    sha256 monterey:       "6ac5e0c8740a6353dd927f01a7324a88f2deacdbebad1a0de9594d40e09eadfe"
+    sha256 x86_64_linux:   "2ffeeb34668acc8fe57e84f36ffe4c9cae0d00261c7e19558f62e1ec3eb02b11"
   end
 
   head do
@@ -42,6 +44,13 @@ class SaneBackends < Formula
 
   on_linux do
     depends_on "systemd"
+  end
+
+  # Fix compilation failure with clang 16, remove in next version
+  # https://gitlab.com/sane-project/backends/-/issues/774
+  patch do
+    url "https://gitlab.com/sane-project/backends/-/commit/e45ba84b665e3ac339e27e594d8651ee1577d638.diff"
+    sha256 "4cdb099c77cf94aad013f8b8c4e064c5d009629a84da5b67947ce2c7b0829c3d"
   end
 
   def install

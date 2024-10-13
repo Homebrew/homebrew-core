@@ -3,7 +3,7 @@ class Mmsrip < Formula
   homepage "https://nbenoit.tuxfamily.org/index.php?page=MMSRIP"
   url "https://nbenoit.tuxfamily.org/projects/mmsrip/mmsrip-0.7.0.tar.gz"
   sha256 "5aed3cf17bfe50e2628561b46e12aec3644cfbbb242d738078e8b8fce6c23ed6"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url :homepage
@@ -12,6 +12,7 @@ class Mmsrip < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "ba19c7e871dd33876bdbd931af577e633a3c2eeb1f0fb25c9d3ade606a0b8c1f"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "55daa14e690e02d12277a19443906bfbf3fa4bd20a4415a8cc362fa954eead44"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "bd7b148f1a0c9017f7a141493d40fd0c4e764fe34a458f151ccb5925bcbc2a13"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c834ca9c19e7b5bc37a0895b146f99d6075760948468a2c8b1bbd4cc67191c2e"

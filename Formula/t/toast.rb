@@ -7,6 +7,7 @@ class Toast < Formula
   head "https://github.com/stepchowfun/toast.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "32d64e56a321339f6c83f3df40c5078da1b9327bdda1db3c96a1f0d59fb2cb27"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e1dad05bd1a76d6196771c60a29cc3c2256daa2aefd8d0876f24456e5d53a920"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "c7fa6a46b5891777ee8e5b5bb1b89aaf35a5cdad3f21baeea98e80f7aa699a1c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "58486cde44a6b9b49599967271149cff9530b74993ba06246fbbd98bb5c362e9"

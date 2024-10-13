@@ -6,6 +6,7 @@ class LibvisualPlugins < Formula
   license all_of: ["GPL-2.0-or-later", "GPL-3.0-or-later", "LGPL-2.1-or-later"]
 
   bottle do
+    sha256 arm64_sequoia:  "0203c2ea44c5978e092b682a966a72ec4099bca267a56814bdcb1d350ffac738"
     sha256 arm64_sonoma:   "2f8be28190eb7037ae6b9d2022e52b97f9fd16f0b7ce663f12725fec703951de"
     sha256 arm64_ventura:  "09cc228afa0d75814145656bd4ccc19417bd91267f76e536a031e1e6774fd09b"
     sha256 arm64_monterey: "1ed5a81fc26770e18092cf6ed205635a0a14986a2a9f8b7d1b066125a31db4bc"

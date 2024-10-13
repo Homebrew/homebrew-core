@@ -7,6 +7,7 @@ class Tgif < Formula
   revision 1
 
   bottle do
+    sha256 arm64_sequoia:  "d25b56e8a0c3f77e501a9a9bb0e1214a0c50b28885be6971ad522d6d18bf54fb"
     sha256 arm64_sonoma:   "c50b1a8d587e78480c0b90da2aac56ff3439668b3d59fa44e2ba1ee1cc2a2674"
     sha256 arm64_ventura:  "27cafeb5046eb26fd967d69564c384d1a8e3ae9aabe890d3337f791d3fbc1f48"
     sha256 arm64_monterey: "82ff8e9a80be770347e07f11fc83c8fdc06856200cc5507b020ada88368f258c"
@@ -36,7 +37,10 @@ class Tgif < Formula
   patch :DATA
 
   def install
-    system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
+    # Workaround for newer Clang
+    inreplace "Makefile.in", "-Wall", "-Wall -Wno-implicit-int" if DevelopmentTools.clang_build_version >= 1403
+
+    system "./configure", *std_configure_args
     system "make", "install"
   end
 
@@ -73,7 +77,7 @@ class Tgif < Formula
       ]).
 
     EOS
-    system "#{bin}/tgif", "-print", "-text", "-quiet", "test.obj"
+    system bin/"tgif", "-print", "-text", "-quiet", "test.obj"
     assert_predicate testpath/"test.txt", :exist?
   end
 end

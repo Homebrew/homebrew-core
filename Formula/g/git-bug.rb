@@ -8,6 +8,7 @@ class GitBug < Formula
   head "https://github.com/MichaelMure/git-bug.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "d84ee9c53e3b44bd7a46a4723a70ea7f80070f5c2d77482afab6fcadaf063f99"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "51c0e3dab2333e1efdd7e072b5887ab00c6b082ef987a517a07fcb88ed42bab7"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "be920be6f96dbd7da1c1054238ce09eca5b50c3402f8eedb7a603869ea00e6f1"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1240cbfd96aefb7b6db471836b3cd67a622ad265bab6482c6998243177326cca"

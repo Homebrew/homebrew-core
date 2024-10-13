@@ -6,6 +6,7 @@ class Menhir < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "14dd16a69a570a455240d296e6f44805c9ae87eeb98b54daf50d5201a3b031eb"
     sha256 cellar: :any,                 arm64_sonoma:   "981738a0ed04e59a302c4195b157870e59dc8f7be663f1bb0bd9493cbdcf9277"
     sha256 cellar: :any,                 arm64_ventura:  "83193b946be4684240e7ccfdf7cb722fb1791e0dfbea95bc47f7afa2c347f61c"
     sha256 cellar: :any,                 arm64_monterey: "a32cf574977558f2dfa79b986e7a20f7340a32b0d998d65759e7b7db45d1d5c0"
@@ -42,7 +43,7 @@ class Menhir < Formula
                 | TIMES { fun x y -> x * y }
     EOS
 
-    system "#{bin}/menhir", "--dump", "--explain", "--infer", "test.mly"
+    system bin/"menhir", "--dump", "--explain", "--infer", "test.mly"
     assert_predicate testpath/"test.ml", :exist?
     assert_predicate testpath/"test.mli", :exist?
   end

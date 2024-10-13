@@ -4,19 +4,15 @@ class Libsbol < Formula
   url "https://github.com/SynBioDex/libSBOL/archive/refs/tags/v2.3.2.tar.gz"
   sha256 "c85de13b35dec40c920ff8a848a91c86af6f7c7ee77ed3c750f414bbbbb53924"
   license "Apache-2.0"
-  revision 2
+  revision 3
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "c896cb97e12ea65a08e1be38e5f8b48d249445338069cb3f22bf4db3f5f8adef"
-    sha256 cellar: :any,                 arm64_ventura:  "729d76ef1e1d5e94eafdc91d985e51dfa2d71f5d65c972b64c72c64e136759fb"
-    sha256 cellar: :any,                 arm64_monterey: "424c45f889a942cdf2a91db6a0e27fcefed1b6300dfe2715c77971a0bb63ae6f"
-    sha256 cellar: :any,                 arm64_big_sur:  "abe3ed20d3307039f2518d0ada34a5410f808cef2cb7d7f48c0b8547b37bce92"
-    sha256 cellar: :any,                 sonoma:         "2597336431f9610f1f3e2cdf932a0e9e5d31e6aedfa8f4db76c081361403959f"
-    sha256 cellar: :any,                 ventura:        "e3a3301d2e33f394d3ab874f7f42ce8a155e94e219970f92c70dfd8873314103"
-    sha256 cellar: :any,                 monterey:       "1b3317cfc73dc8930c89754110b46f33f32c13950bf4e0606bb7d17618808ec1"
-    sha256 cellar: :any,                 big_sur:        "fd852551cf8ecc596eeb82fa82922307d1ea710b96bbe25fd769acb57d6c5db8"
-    sha256 cellar: :any,                 catalina:       "fa4fabe7e100011c6a0d48e6286c509bc66680a631e52ae5dd7a2163d732486b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0b6876a8bc254eb892a4def5c2d6c1c4d4875407dbf235b607c675aa9b3aefb4"
+    sha256 cellar: :any,                 arm64_sequoia: "b09a89a225eb9340d711c26788bc531b1ca5e3f37fc7be1dcc1419124210fd7f"
+    sha256 cellar: :any,                 arm64_sonoma:  "751b7e6d933a55e321f83d57b1bd7a9035530bba45ff8e30e497ff52a539d359"
+    sha256 cellar: :any,                 arm64_ventura: "82dca670a8ca74e4f974727a4b895a2664dbf74601a79e59c657fa1fbfd8f546"
+    sha256 cellar: :any,                 sonoma:        "ee16f7b504002ebc4845c479d3b6abf3858deabc1ff9f0671b100f7a58c85af4"
+    sha256 cellar: :any,                 ventura:       "34f6fef82f97d5be5834994ce870e42a643b3334e9b4c0539b7a922edcdc7e6a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2ef4f70407b40a1c4791f08309df2075a15cac5a038f0085ecfa23ff0d460258"
   end
 
   depends_on "cmake" => :build

@@ -4,7 +4,7 @@ class Libcdr < Formula
   url "https://dev-www.libreoffice.org/src/libcdr/libcdr-0.1.7.tar.xz"
   sha256 "5666249d613466b9aa1e987ea4109c04365866e9277d80f6cd9663e86b8ecdd4"
   license "MPL-2.0"
-  revision 6
+  revision 7
 
   livecheck do
     url "https://dev-www.libreoffice.org/src/"
@@ -12,29 +12,29 @@ class Libcdr < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "f9050c5671437ef41f32f01e36337d77359436c7913fe2c1eafd50c24a8e31a7"
-    sha256 cellar: :any,                 arm64_ventura:  "d37e72ea423ca2086e3f87ec773c49b0351694f893f1772591c4abc2d6bf157d"
-    sha256 cellar: :any,                 arm64_monterey: "e889940ab6cc809ad837aafa2db7a99bd3cc387d92862094ab95d6e137761217"
-    sha256 cellar: :any,                 sonoma:         "ed24ca5c4b6e751c2a4b477fa8e42a97fe5479b435afc72b645971748bd1f909"
-    sha256 cellar: :any,                 ventura:        "52d744f03a1dea741d4f29df0752d3bfc651a60bec17f88e3f56120d0950c250"
-    sha256 cellar: :any,                 monterey:       "9c9b29e42893031a882597fe254fad73a068532bcfb11bd83fb72e580a2819c4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "eeef15aa50abe575cfa2619864dac8112f58e7eaf577a6d27766dfb15157bac4"
+    sha256 cellar: :any,                 arm64_sequoia: "22b81a0cc297bc61961801314d1c8c2c4ea90851ef69c506adb4b63f83ca9f90"
+    sha256 cellar: :any,                 arm64_sonoma:  "db2451f83efc9b3cf1e08518890cdd059fa844d54e767a3ec6b1f793870ffdad"
+    sha256 cellar: :any,                 arm64_ventura: "f4edcb56add80d1f5efed45d1e4c22ea9b1c2f355dad220eec15972bb915be03"
+    sha256 cellar: :any,                 sonoma:        "0a6289b75868cef5545240da3c9843c42981a9762e937c8be64fdf1b312d7ffa"
+    sha256 cellar: :any,                 ventura:       "610325d1a71956e0c49d6797fa6c8c97589f2b5e0577576030c1e322ef45eb24"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "03adb0de9bdd5f562bb2cee2df5e7ec3006acec4edfa376c32b6177e52034c09"
   end
 
-  depends_on "cppunit" => :build
+  depends_on "boost" => :build
   depends_on "pkg-config" => :build
-  depends_on "boost"
-  depends_on "icu4c"
+  depends_on "icu4c@75"
   depends_on "librevenge"
   depends_on "little-cms2"
 
   def install
-    ENV.cxx11
-    # Needed for Boost 1.59.0 compatibility.
-    ENV["LDFLAGS"] = "-lboost_system-mt"
-    system "./configure", "--disable-werror",
+    # icu4c 75+ needs C++17
+    ENV.append "CXXFLAGS", "-std=gnu++17"
+
+    system "./configure", "--disable-silent-rules",
+                          "--disable-tests",
+                          "--disable-werror",
                           "--without-docs",
-                          "--prefix=#{prefix}"
+                          *std_configure_args
     system "make", "install"
   end
 

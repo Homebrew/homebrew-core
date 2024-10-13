@@ -15,6 +15,7 @@ class Peg < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "f2404175aa4fe06bfa03b4cd11cd1aa8ae657e85353062c11c73c553544a032e"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0ed0bb60eaf375b862b8c0b33deb2cdf50ac0926ebcdf0570f06f1a28e5ffa00"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "ebbeb402eb35f2b4cf3c7d6ea4ad2a69aa5e820ab79a82009ed829a56ea6945a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "8b03363610a4e6408dddc5c5b5aa6db243cb48def84e14cd910dc40e3ecbf5a4"
@@ -35,7 +36,7 @@ class Peg < Formula
       start <- "username"
     EOS
 
-    system "#{bin}/peg", "-o", "username.c", "username.peg"
+    system bin/"peg", "-o", "username.c", "username.peg"
 
     assert_match 'yymatchString(yy, "username")', File.read("username.c")
   end

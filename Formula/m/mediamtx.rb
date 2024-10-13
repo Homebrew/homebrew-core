@@ -1,27 +1,26 @@
 class Mediamtx < Formula
   desc "Zero-dependency real-time media server and media proxy"
   homepage "https://github.com/bluenviron/mediamtx"
-  url "https://github.com/bluenviron/mediamtx/archive/refs/tags/v1.8.4.tar.gz"
-  sha256 "e87f8fdb977c7c221f83b3050c6b2a62e459c958de0667b70eac810f9c11d59b"
+  # need to use the tag to generate the version info
+  url "https://github.com/bluenviron/mediamtx.git",
+      tag:      "v1.9.2",
+      revision: "32d3fc55ccc631ad125462063b7bf387595209fe"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "427681157ca4dc8c1d838f6c7e05f65db666262cf6a8fdab0df4895b7f25c12b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "62bc598c1fb016d23f1e6b830057cee194fadc2388cceaed727b6c9cf40efa5a"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9d4c3784c4a120aa6f62154cbba56f5a0835538886419bf47a56348665a99c40"
-    sha256 cellar: :any_skip_relocation, sonoma:         "f439910acd4c6fe404fccf7c15ad1b28a36854b27bf4a0f2a89678ee6b926c96"
-    sha256 cellar: :any_skip_relocation, ventura:        "54e78691179d9b904004e267bda8b6597d1fa24d4f1a775a6824cbb3f20b509f"
-    sha256 cellar: :any_skip_relocation, monterey:       "75e21ec0ebe0a47261e699ae92d478872999a75153df0ea0c8b864b95e8cf9e3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3e694f004a77687cc637c2f7f2858671ec002d7bdc9ee62f9cf2bc49265ac19c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "55994a5f8b83fadb20ceeaf20fb56c81048b9e31945418108d67c04fb78ca8a7"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "55994a5f8b83fadb20ceeaf20fb56c81048b9e31945418108d67c04fb78ca8a7"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "55994a5f8b83fadb20ceeaf20fb56c81048b9e31945418108d67c04fb78ca8a7"
+    sha256 cellar: :any_skip_relocation, sonoma:        "067bbd596e8fa826a9c90631bb1808413b5cff232bc3446241f5b4256dd64719"
+    sha256 cellar: :any_skip_relocation, ventura:       "067bbd596e8fa826a9c90631bb1808413b5cff232bc3446241f5b4256dd64719"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "173e617560b1d7ee8f711354a9a7b5799f55d9544e5e32d41a521bc096f58210"
   end
 
   depends_on "go" => :build
 
   def install
     system "go", "generate", "./..."
-
-    ldflags = "-s -w -X github.com/bluenviron/mediamtx/internal/core.version=#{version}"
-    system "go", "build", *std_go_args(ldflags:)
+    system "go", "build", *std_go_args(ldflags: "-s -w")
 
     # Install default config
     (etc/"mediamtx").install "mediamtx.yml"
@@ -40,10 +39,13 @@ class Mediamtx < Formula
   end
 
   test do
-    assert_equal version, shell_output(bin/"mediamtx --version")
+    port = free_port
 
-    mediamtx_api = "127.0.0.1:#{free_port}"
-    mediamtx = fork do
+    # version report has some issue, https://github.com/bluenviron/mediamtx/issues/3846
+    assert_match version.to_s, shell_output("#{bin}/mediamtx --help")
+
+    mediamtx_api = "127.0.0.1:#{port}"
+    pid = fork do
       exec({ "MTX_API" => "yes", "MTX_APIADDRESS" => mediamtx_api }, bin/"mediamtx", etc/"mediamtx/mediamtx.yml")
     end
     sleep 3
@@ -52,7 +54,7 @@ class Mediamtx < Formula
     curl_output = shell_output("curl --silent http://#{mediamtx_api}/v3/config/global/get")
     assert_match "\"apiAddress\":\"#{mediamtx_api}\"", curl_output
   ensure
-    Process.kill("TERM", mediamtx)
-    Process.wait mediamtx
+    Process.kill("TERM", pid)
+    Process.wait pid
   end
 end

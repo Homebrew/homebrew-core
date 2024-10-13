@@ -4,6 +4,7 @@ class Clazy < Formula
   url "https://download.kde.org/stable/clazy/1.12/src/clazy-1.12.tar.xz"
   sha256 "611749141d07ce1e006f8a1253f9b2dbd5b7b44d2d5322d471d62430ec2849ac"
   license "LGPL-2.0-or-later"
+  revision 1
   head "https://invent.kde.org/sdk/clazy.git", branch: "master"
 
   livecheck do
@@ -12,20 +13,18 @@ class Clazy < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sonoma:   "d77728a15bb8ce9880ca58de6be9c2d797070005fdc0eced91fc8842919114b9"
-    sha256 cellar: :any,                 arm64_ventura:  "f320bb50dd45f262013bb6d6874b13096e5c1f5f7a1527d164e6a76ea0e6590a"
-    sha256 cellar: :any,                 arm64_monterey: "6d3d5b87bd999a455c4b3a37af0c1ffd557c730c0c9d8dfe1f0a6dab7e32bb96"
-    sha256 cellar: :any,                 sonoma:         "f651d79d2e47ec4e3dd66a33238b4350133a6bdd9d00b20ab5c02ab1055ff831"
-    sha256 cellar: :any,                 ventura:        "c088cb0b2ea3c7469aaf6faa065834e1569dc9ab2ee6a051f97f231d82c9499a"
-    sha256 cellar: :any,                 monterey:       "34e24dcff3ec435541d3d87928dd74cc7d8dc7ca9f81020e67c9a3dd740fc090"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fa742df2bd9d966a119da1e9f82788e4d1e942a43e8c4f8b9da96fa452408388"
+    sha256 cellar: :any,                 arm64_sequoia: "4c414da467a6431fa3fcb801a9782193e4bc33c79e5c46ce89225d59ad89f0cd"
+    sha256 cellar: :any,                 arm64_sonoma:  "de510c93eac7168ae31e41ddf5c016a143ca82cfd303155dc00869ea58a777d6"
+    sha256 cellar: :any,                 arm64_ventura: "48c9b07863a47b5d5e53a97ccaf6e1ae5dfa19c9ee484a800cf342fd43b9967f"
+    sha256 cellar: :any,                 sonoma:        "c1ea2d9d4092095114db97f32bb67c008c865e0724366724305d13272d495e5b"
+    sha256 cellar: :any,                 ventura:       "2795771a1d25fd000c81613aedf48ffaf9a394fa30e2e4ff140d83b85e69076f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "60afe9ee7a03dbee90248110fd343c0c3a4be1192e86050562d76ff0add050d4"
   end
 
   depends_on "cmake" => [:build, :test]
   depends_on "qt" => :test
   depends_on "coreutils"
-  depends_on "llvm"
+  depends_on "llvm@18"
 
   uses_from_macos "libxml2"
   uses_from_macos "ncurses"

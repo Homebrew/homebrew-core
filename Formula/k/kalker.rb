@@ -1,18 +1,17 @@
 class Kalker < Formula
   desc "Full-featured calculator with math syntax"
   homepage "https://kalker.strct.net"
-  url "https://github.com/PaddiM8/kalker/archive/refs/tags/v2.2.0.tar.gz"
-  sha256 "4f34d34e922308e586fd9f7077e1cba126f3e75d269f4859d0472bb565ce1d4d"
+  url "https://github.com/PaddiM8/kalker/archive/refs/tags/v2.2.1.tar.gz"
+  sha256 "a6ccf096301a37d2bbb14fdacfc8c801a8b058b0fd38929639d03c4868564adf"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c7e8a9929f77a7fd009e0290793fe22518d945ef362cf980876ce62cc48f25b6"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "00c3b095d17680177a8aa6de792b5086f6eeb11291543b5fb57bca8cfa31562f"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "69fdaed91c5a9ce2cecb38ad7873ca317617ae727bcad99f34b705344263fa5f"
-    sha256 cellar: :any_skip_relocation, sonoma:         "9c68b74e2490526623a47f2f4195c1824f1eda787fccb20da9a8a34d49bb918f"
-    sha256 cellar: :any_skip_relocation, ventura:        "b0a2540f5dda3f93061e7432fd9180b03c76bbe9c08f267241099a11e8bcb0c2"
-    sha256 cellar: :any_skip_relocation, monterey:       "185cf3399accd7bf448e22b20360aaceccf9e94c4d57b86c3577bf0f8b574e94"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2ed47375080db64cb26b84b1733f093216e808f4b87d55bcfdf5218104adb084"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "91f75ce981113d7d6b63574b888ae22023185635dfb5968643fc2b43fca91fea"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b0ee506655ff64b7b980067d810d059f9c9be9edf6092a3d74bb234e4212e92b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "ec9f56867f6ee6c7e6ad1db5fb877dbbad8c54be4aca84a8a94aa358761eea71"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c091228e608726810a31e9e7e338e7d852c4e0a275218e78bcda94c711a81cf2"
+    sha256 cellar: :any_skip_relocation, ventura:       "f131822bae272a41dc67c5b38459e6dd839858c75002d5f9971753d177c9044e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d4750ee527662c50e8d604af19a2db3d29c35f5ba40323fa8cbc6755abb7ccdc"
   end
 
   depends_on "rust" => :build

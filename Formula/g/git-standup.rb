@@ -7,8 +7,8 @@ class GitStandup < Formula
   head "https://github.com/kamranahmedse/git-standup.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "b0bd8d9ae367c4eb026f0ce046e7c33fbfa861249425d47fd2c9b81e69ca6706"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "592920ec8fc670fd61e01e6526d4e016e9cbfd7585fed0803c418e62705696d8"
   end
 
   conflicts_with "git-extras", because: "both install `git-standup` binaries"

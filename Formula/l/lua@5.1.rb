@@ -128,7 +128,7 @@ class LuaAT51 < Formula
   end
 
   test do
-    system "#{bin}/lua5.1", "-e", "print ('Ducks are cool')"
+    system bin/"lua5.1", "-e", "print ('Ducks are cool')"
   end
 end
 

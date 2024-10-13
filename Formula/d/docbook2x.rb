@@ -3,6 +3,7 @@ class Docbook2x < Formula
   homepage "https://docbook2x.sourceforge.net/"
   url "https://downloads.sourceforge.net/project/docbook2x/docbook2x/0.8.8/docbook2X-0.8.8.tar.gz"
   sha256 "4077757d367a9d1b1427e8d5dfc3c49d993e90deabc6df23d05cfe9cd2fcdc45"
+  license all_of: ["MIT", "DocBook-XML"]
 
   livecheck do
     url :stable
@@ -10,6 +11,7 @@ class Docbook2x < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "6515ef361ee9ad2b83b539b46bb8869a09e98819fdb23277340e0557be168635"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e4f01a96cb46dee789a5d363b8c5b169f25d1698b93b7c81d82cc99ce434fdf5"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "986216ef87f311cd1a823db850f45fd8228be0f0f1db35cf875d2cf57d29cec4"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c3012b908f1a415b3ff679474eb15f97842b96eb61a03ba8d4c68f83c0a9dfba"
@@ -28,6 +30,7 @@ class Docbook2x < Formula
 
   depends_on "docbook"
 
+  uses_from_macos "expat"
   uses_from_macos "libxslt"
   uses_from_macos "perl"
 

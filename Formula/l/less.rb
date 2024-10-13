@@ -11,6 +11,7 @@ class Less < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "8595f05fe334627e7645ef3c3b06dc82e33fe8df63ce750d56f06beadff26ac1"
     sha256 cellar: :any,                 arm64_sonoma:   "cfb63b0a54db503b382df1eb92658b09e9e3234e25e8dc6973dedd1026e57c4e"
     sha256 cellar: :any,                 arm64_ventura:  "8f013221c467b8a71d8c19251139f46cb727173adef7e11a1071be0c705d267e"
     sha256 cellar: :any,                 arm64_monterey: "b21ce2f938836916b41daec8a906f64c9cf27b14cdc4ea4fe900a9e6dddc87dc"
@@ -37,6 +38,6 @@ class Less < Formula
   end
 
   test do
-    system "#{bin}/lesskey", "-V"
+    system bin/"lesskey", "-V"
   end
 end

@@ -1,8 +1,8 @@
 class PythonTkAT39 < Formula
   desc "Python interface to Tcl/Tk"
   homepage "https://www.python.org/"
-  url "https://www.python.org/ftp/python/3.9.19/Python-3.9.19.tar.xz"
-  sha256 "d4892cd1618f6458cb851208c030df1482779609d0f3939991bd38184f8c679e"
+  url "https://www.python.org/ftp/python/3.9.20/Python-3.9.20.tar.xz"
+  sha256 "6b281279efd85294d2d6993e173983a57464c0133956fbbb5536ec9646beaf0c"
   license "Python-2.0"
 
   livecheck do
@@ -10,13 +10,14 @@ class PythonTkAT39 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "7f6272ad30e48e306397b068f2064a36d405e795d4805aae4c925f1073a385dc"
-    sha256 cellar: :any,                 arm64_ventura:  "8efc8964d31d301ae4e9382e0903f40061ec6a832da0def5fc9c4820d2045f82"
-    sha256 cellar: :any,                 arm64_monterey: "a67ae974fc6d23bffd2bb902df0f848ae47569ff367dadaca3fd435a08147323"
-    sha256 cellar: :any,                 sonoma:         "e06800ab45ed107d7a5ef009d53af144ead2da982802bd346442ff56eb4c5ea5"
-    sha256 cellar: :any,                 ventura:        "6385f4fee0e4035239afa1057a563ef94127a4424fcbb32aaec5777b2cfb0dec"
-    sha256 cellar: :any,                 monterey:       "4c7b09a65e0a6445a3f582f81de8088e0a8bc0dca50dbf10f554c08f01ee95e3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2a98bba397c793b56ace409f02712fe57c8e60840ffbce3fa3e4037090c57133"
+    sha256 cellar: :any,                 arm64_sequoia:  "69337728fbfe63387f3ee052e3cf13bcfea91fff4932594d8c568e5fc028b5a6"
+    sha256 cellar: :any,                 arm64_sonoma:   "d3e96db3185c125a680051a4984927651a69d9ecc832189f97f1c422944d9484"
+    sha256 cellar: :any,                 arm64_ventura:  "70aeb0283d3308c7a1f3a0ef6895c212499e9e3de7dc2892c815665d1e5a0a9e"
+    sha256 cellar: :any,                 arm64_monterey: "46c8166a4af72baa91d6ab36862fe0cd2acdef77813cd31e9658a4b94d808456"
+    sha256 cellar: :any,                 sonoma:         "e32cc2c7f3aca1968c0038ea6f001f0eb804b55548bfe0f7205d4b21c2180a79"
+    sha256 cellar: :any,                 ventura:        "5e1a52536fa875ec37b7a4ea42474ae8e1c13dea57f2973ce5db489685fd331f"
+    sha256 cellar: :any,                 monterey:       "93ef0db67efabc9e0f9ece2d93735baa7a1f315a26bed1dbcbb19bc39fe2b8d2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "10b7ce74afeed87b5374e042a7bb0a6d7db6e6a019815fc607e20c628217856d"
   end
 
   depends_on "python@3.9"

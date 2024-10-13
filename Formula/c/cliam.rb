@@ -7,6 +7,7 @@ class Cliam < Formula
   head "https://github.com/securisec/cliam.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "97fc79aa1d589ee7a6deff3bee41579070570cb721217851da1a327c9a9a9efb"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "437320520b17ed0562c0aaa5cb931385823cdb79396d80e1a00b38502f3ef1e5"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "692e06fb736fd26d5e37dbe2a17c29df8903ac8ebf268ad12540dc07b1cc86c4"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f9b5d99ab7fe62e8f523bd2db18f4353aa586cbebdec4f57b19e309039b4d6df"

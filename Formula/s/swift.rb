@@ -506,16 +506,16 @@ class Swift < Formula
     assert_match "www.swift.org\n", output
 
     # Test compiler
-    system "#{bin}/swiftc", "-module-cache-path", module_cache, "-v", "foundation-test.swift", "-o", "foundation-test"
+    system bin/"swiftc", "-module-cache-path", module_cache, "-v", "foundation-test.swift", "-o", "foundation-test"
     output = shell_output("./foundation-test")
     assert_match "www.swift.org\n", output
 
     # Test Swift Package Manager
     ENV["SWIFTPM_MODULECACHE_OVERRIDE"] = module_cache
     mkdir "swiftpmtest" do
-      system "#{bin}/swift", "package", "init", "--type=executable"
+      system bin/"swift", "package", "init", "--type=executable"
       cp "../foundation-test.swift", "Sources/main.swift"
-      system "#{bin}/swift", "build", "--verbose", "--disable-sandbox"
+      system bin/"swift", "build", "--verbose", "--disable-sandbox"
       assert_match "www.swift.org\n", shell_output("#{bin}/swift run --disable-sandbox")
     end
 

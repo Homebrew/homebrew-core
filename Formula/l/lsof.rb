@@ -6,6 +6,7 @@ class Lsof < Formula
   license "lsof"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "83cbe3772b52f1671f6f82da0c4aea7aba23b40add373c9d8230e769fc6b9a24"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "16ebd7a5811316080caab9d8c4a78edaca53b03a99cbf5f097374276ec765cad"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "7dfd73c75338d29b2ca1200367012c71ff4c0f60aa209f646f18f37b467928bb"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b5133599dd0cef604aa86392ce6127abb0a25b27502b6de91df7a194fa5fb7b6"
@@ -44,7 +45,7 @@ class Lsof < Formula
 
   test do
     (testpath/"test").open("w") do
-      system "#{bin}/lsof", testpath/"test"
+      system bin/"lsof", testpath/"test"
     end
   end
 end

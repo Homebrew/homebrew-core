@@ -11,6 +11,7 @@ class Bochs < Formula
   end
 
   bottle do
+    sha256 arm64_sequoia:  "829ff76b53d139c6e587138fbdbcf4ad8ddc587a42867df4485e8a734019650c"
     sha256 arm64_sonoma:   "cbf7d0822dc3621c522b35dd08f0c6b13229b09cc8486b03714cdc9720c13b8a"
     sha256 arm64_ventura:  "554222dd225e1e45dbbcc66835e725b8e7ee948819bee598332baccda2a74361"
     sha256 arm64_monterey: "863d294eb8184e8c789f1d10d6d317033da4b0e29b975f8fd9e5b04ace9e017d"
@@ -25,6 +26,10 @@ class Bochs < Formula
   depends_on "sdl2"
 
   uses_from_macos "ncurses"
+
+  on_linux do
+    depends_on "readline"
+  end
 
   def install
     args = %W[

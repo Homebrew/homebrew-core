@@ -1,11 +1,13 @@
 class Ltl2ba < Formula
   desc "Translate LTL formulae to Buchi automata"
-  homepage "https://www.lsv.ens-cachan.fr/~gastin/ltl2ba/"
-  url "https://www.lsv.fr/~gastin/ltl2ba/ltl2ba-1.3.tar.gz"
+  homepage "http://www.lsv.fr/~gastin/ltl2ba/"
+  url "http://www.lsv.fr/~gastin/ltl2ba/ltl2ba-1.3.tar.gz"
+  mirror "https://pkg.freebsd.org/ports-distfiles/ltl2ba-1.3.tar.gz"
   sha256 "912877cb2929cddeadfd545a467135a2c61c507bbd5ae0edb695f8b5af7ce9af"
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "18b178bd47a42ca3c5ab755e80cb5ec5a087807c1bef4fc064aa97a3ff18d76a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5527191de9afab610f9d220b2c62ceed062df2e5e2c99b1743381c57067b9535"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "89c79976b12030dc618c9466ad4f1f9f14fe9dff815850ac6ecc38ab10f63981"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1e35ea05ee9b358df863d969c190abea48b61ec737c7aaa5fb01f9f7de455330"

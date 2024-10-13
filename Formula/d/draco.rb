@@ -6,6 +6,7 @@ class Draco < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "19a11fa538c294619e4fa59d43b660a82b4dc7132280839c5cd9e646265cd837"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1f4fe7b05ef229486843e184c0697489dbb3e989d1445000639a203ab46f6930"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "3af268ae6b1611e6110f380caebb21c017909d63aa9d1fb06432410159038763"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "52eb3ca3d3ec7aa77a70d4b985096409ed2a4c17d27718426a43bf1c9427435b"

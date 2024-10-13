@@ -15,6 +15,7 @@ class Libmp3splt < Formula
   end
 
   bottle do
+    sha256 arm64_sequoia:  "e31a09566eee7d33d8651ab83872b7901e404bc536806dacb359becf2c784fdd"
     sha256 arm64_sonoma:   "ee6cd10b82e446a48c36e769b33e4a7d706c832111e72a9d3847d18f727524da"
     sha256 arm64_ventura:  "590a704b1d379b286d91f152ec8e9dda4bdac13635d7621a61e7a69d049c8d0f"
     sha256 arm64_monterey: "71fd93524a5a30b9c643151e376e16271b6ebdb7158a89a0d67761c84f0f4667"

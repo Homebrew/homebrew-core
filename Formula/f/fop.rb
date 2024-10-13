@@ -1,13 +1,13 @@
 class Fop < Formula
   desc "XSL-FO print formatter for making PDF or PS documents"
   homepage "https://xmlgraphics.apache.org/fop/index.html"
-  url "https://www.apache.org/dyn/closer.lua?path=xmlgraphics/fop/binaries/fop-2.9-bin.tar.gz"
-  mirror "https://archive.apache.org/dist/xmlgraphics/fop/binaries/fop-2.9-bin.tar.gz"
-  sha256 "b698bfba5d6dea9d01aafd94d1a1359e443ebfb6b2b9ea69c6ed2852ab554784"
+  url "https://www.apache.org/dyn/closer.lua?path=xmlgraphics/fop/binaries/fop-2.10-bin.tar.gz"
+  mirror "https://archive.apache.org/dist/xmlgraphics/fop/binaries/fop-2.10-bin.tar.gz"
+  sha256 "f9bd842a349ac35914a13eed97fb6bfa66361c24350cd1182c0aaa0de98d0cff"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "1b6a33e57663ce5811f9e82fa1c093cf01a971a07a341ba13fc22c7c3d5d6841"
+    sha256 cellar: :any_skip_relocation, all: "aee61bf7c93fa7e9e12c27282369242f91e710684cae59405c30a5967aa4d5d2"
   end
 
   depends_on "openjdk"
@@ -18,7 +18,7 @@ class Fop < Formula
   end
 
   def install
-    rm_rf Dir["fop/*.bat"] # Remove Windows files.
+    rm_r(Dir["fop/*.bat"]) # Remove Windows files.
     libexec.install Dir["*"]
 
     executable = libexec/"fop/fop"

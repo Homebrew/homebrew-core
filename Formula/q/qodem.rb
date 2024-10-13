@@ -6,6 +6,7 @@ class Qodem < Formula
   license :public_domain
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "82b1c05936cabb7c92111db07b6443f9dcf4313bb092321cdfb32b9b0866e675"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "cf3db8bf2f510749816adf4d24e383033ac3211742e922788dd0b0686287985b"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "c88b2b10336d0562d9858744dac90f4f895efa643ae7441170a2c33fafd76c23"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "230b60c0f6dbd68eb6842acc073e21b0fb2bb5e4e47a8f37b2fd812980849c7f"
@@ -36,7 +37,7 @@ class Qodem < Formula
   end
 
   test do
-    system "#{bin}/qodem", "--exit-on-completion", "--capfile", testpath/"qodem.out", "uname"
+    system bin/"qodem", "--exit-on-completion", "--capfile", testpath/"qodem.out", "uname"
     assert_match OS.kernel_name, File.read(testpath/"qodem.out")
   end
 end

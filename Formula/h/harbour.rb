@@ -1,7 +1,7 @@
 class Harbour < Formula
   desc "Portable, xBase-compatible programming language and environment"
   homepage "https://harbour.github.io"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
   revision 2
   head "https://github.com/harbour/core.git", branch: "master"
 
@@ -21,11 +21,15 @@ class Harbour < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 ventura:      "13fe75a5b0b0a3608f7b096525179800dda87cfb391642cd786b59e01220f2e3"
-    sha256 cellar: :any,                 monterey:     "1bf87ebc6134674eb11edfe42cdfc03b06c21ea915b038a6a2a8add2126ad4f4"
-    sha256 cellar: :any,                 big_sur:      "47f824bb06b67e53dddff036c7d193680a9ab3ce54fb3c887edf37baee3000ba"
-    sha256 cellar: :any,                 catalina:     "a36cdb7043bb20f9aafac0ee9a5a88843b93e585fde0a8556ac5ba44821b89da"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "99139cf0fc916c5af14279c6ae2def30a96b27b373450f3d9a99571ada9533f3"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia:  "c391f2098164917feb69d3e4820c3c7495dbb84689c5fe2b5dcf5f0d5940d82c"
+    sha256 cellar: :any,                 arm64_sonoma:   "7e80473b90f18a1d0825801e625bb117f69551e6d04f11fd65b113b2ab8e53cb"
+    sha256 cellar: :any,                 arm64_ventura:  "ad3d5b72015a0fb027952c207b4637adb47a3535e8492cb3553e687720b20b59"
+    sha256 cellar: :any,                 arm64_monterey: "b767ebd7a0e600631d6d61ce3a8bbd907f3f8fd305270ac85053684ecce5ebea"
+    sha256 cellar: :any,                 sonoma:         "cc37a07184ba91033dc4b4e824a302f9ef54abbee7026fbd0cda30f2d2cbeb57"
+    sha256 cellar: :any,                 ventura:        "3f888b135d92845905b0926aef1623e5c4bcc72b4c71cc4d6f45554c5200f78b"
+    sha256 cellar: :any,                 monterey:       "407f06fad0eac6ca57c858185ebe6e77bb4dcd7740c5b91a6c0e7524d72642c6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2087353cafad551175524915a162da8520c6401686c1d4d70414553fbc2d1f1b"
   end
 
   depends_on "jpeg-turbo"
@@ -38,6 +42,7 @@ class Harbour < Formula
   uses_from_macos "bzip2"
   uses_from_macos "curl"
   uses_from_macos "expat"
+  uses_from_macos "ncurses"
   uses_from_macos "sqlite"
   uses_from_macos "zlib"
 
@@ -72,6 +77,8 @@ class Harbour < Formula
     if OS.mac?
       ENV["HB_COMPILER"] = ENV.cc
       ENV["HB_USER_DFLAGS"] = "-L#{MacOS.sdk_path}/usr/lib"
+      ENV.append "HB_USER_DFLAGS", "-ld_classic" if DevelopmentTools.clang_build_version >= 1500
+      ENV.append "HB_USER_DFLAGS", "-macosx_version_min #{MacOS.version}.0" if Hardware::CPU.arm?
       ENV["HB_WITH_BZIP2"] = MacOS.sdk_path/"usr/include"
       ENV["HB_WITH_CURL"] = MacOS.sdk_path/"usr/include"
       ENV["HB_WITH_CURSES"] = MacOS.sdk_path/"usr/include"

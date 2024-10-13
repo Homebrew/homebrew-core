@@ -4,15 +4,15 @@ class Libmatio < Formula
   url "https://downloads.sourceforge.net/project/matio/matio/1.5.27/matio-1.5.27.tar.gz"
   sha256 "0a6aa00b18c4512b63a8d27906b079c8c6ed41d4b2844f7a4ae598e18d22d3b3"
   license "BSD-2-Clause"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "12a723da0082d255f8061cee5512636fbbda001bf3d7fc9b104b707f36898c31"
-    sha256 cellar: :any,                 arm64_ventura:  "19d3701ee1d0070997c54c3a52e5e909603f52c9ab0a9e938ea7cf194cd003d8"
-    sha256 cellar: :any,                 arm64_monterey: "75ae243a0b2a566a6d6d3988cf3e773749aae9330348d0e9006acee1311baf39"
-    sha256 cellar: :any,                 sonoma:         "874958e993f5f822d0daec8b96dfcc1ced8cddacc3be282ec37d3cc708578be6"
-    sha256 cellar: :any,                 ventura:        "9217e3824e9362d77369caf48248d9bb4d7195f076a8330f58bac8e30c7f538b"
-    sha256 cellar: :any,                 monterey:       "7787bc49255f84702ef1c07d318521962d3d136eac128c714bf96b18599e7784"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7991c3e1a4419ef357741d862a946098a17048097f42e4648bb06bf59005f4e9"
+    sha256 cellar: :any,                 arm64_sequoia: "7bfbaa9c2de6d92700c10352d5558bc10e1257ea31cfe20a3b595ad7f16d3c51"
+    sha256 cellar: :any,                 arm64_sonoma:  "e4b7ba02b711df4335d9086e72cb20668fc1d353cac2d21f2d4958de980e1f2c"
+    sha256 cellar: :any,                 arm64_ventura: "288e89283a9015d9d60d590f182e6a702bbf08b799b063b0e028a66c756955cb"
+    sha256 cellar: :any,                 sonoma:        "6448a61dcaa62861d5c9577f2107a1df81a796f5e70dea9da803799456c91773"
+    sha256 cellar: :any,                 ventura:       "39385330a5ad873eadb670181cce882cfd56ff62e541382adcb43636a6926252"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "34f93f1a1b59dff1ca2a03c5ce0cbe6bdd73452661917fa16641d0311187f7f7"
   end
 
   depends_on "pkg-config" => :test

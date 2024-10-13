@@ -6,6 +6,7 @@ class Mockolo < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "5900b760035156f21faaddbc8a8ffed59f70444d12307e3f98e725801fdfdeef"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "75af27726b09a0df48665d7dbe8a28a84c1eb742f50ebfbf9339ed95d18792b2"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "463d59df9541d099375564265fc22dbee15bbf2dd17291d3eb080685ed427a91"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "006af0dbe99288c6ae3d1f9158d4f9e53200164d73eec4e2ddff909959efb452"
@@ -32,7 +33,7 @@ class Mockolo < Formula
           func bar(arg: Float) -> String
       }
     EOS
-    system "#{bin}/mockolo", "-srcs", testpath/"testfile.swift", "-d", testpath/"GeneratedMocks.swift"
+    system bin/"mockolo", "-srcs", testpath/"testfile.swift", "-d", testpath/"GeneratedMocks.swift"
     assert_predicate testpath/"GeneratedMocks.swift", :exist?
     output = <<~EOS.gsub(/\s+/, "").strip
       ///

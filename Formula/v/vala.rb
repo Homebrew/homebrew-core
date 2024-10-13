@@ -6,13 +6,13 @@ class Vala < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 arm64_sonoma:   "08ca53b37c7464bc3990246568ca344ddfa7ee9e38b8cffdea01a5fe9c183a17"
-    sha256 arm64_ventura:  "867b615ee4cb52de204837b74acb80d203c62cef97efe1b68117744390a4512b"
-    sha256 arm64_monterey: "7a23986c89b3f2ee3583cf8119932b624f436c923f489d9e8bdbf79f74fa014d"
-    sha256 sonoma:         "ba82671da132ae4ea92c29778f8c13e8d92770bfb8d28a282f257d808ad33c8c"
-    sha256 ventura:        "f0845abb3bcd9b8a091b5f44aa98f6cbc2d49391dcc9f893df93692f4b1cbd8b"
-    sha256 monterey:       "90bbb65556e3c267dc893f2380fd7d9cb7f54544da3f0434e378d353984a0743"
-    sha256 x86_64_linux:   "7a61d8199a2837ca08d9a400f9a4eb9c72559e5962c62b53b4fbcaa80bf3fe08"
+    rebuild 1
+    sha256 arm64_sequoia: "d7b95eef607afc1c5d6e142d258a3ffcc532e5b50e982083a9e971bbea2cd615"
+    sha256 arm64_sonoma:  "97567ffe29dacc84af84a2abc1d67a83a04ec3c7b37dee093ab0a34b454fc55c"
+    sha256 arm64_ventura: "643a79f04dce15f6a65deeebc7137965d842befcdb716fbefa2f528a0046e6be"
+    sha256 sonoma:        "b4aed882d3810fa13006a72460796c14b970b6802c8783c9e49af34bbf43ba92"
+    sha256 ventura:       "9c3bfb8a007ebcdd431eaee96807b3730b3a621ea5842c522621c24547272f20"
+    sha256 x86_64_linux:  "39bd5991d99ae03c4f00e6b1c1f5e7216d5ac7543c34f620c39151a00d931c49"
   end
 
   depends_on "gobject-introspection" => :build
@@ -43,6 +43,7 @@ class Vala < Formula
         print ("#{test_string}");
       }
     EOS
+
     valac_args = [
       # Build with debugging symbols.
       "-g",
@@ -53,7 +54,8 @@ class Vala < Formula
       # Vala source code path.
       path.to_s,
     ]
-    system "#{bin}/valac", *valac_args
+
+    system bin/"valac", *valac_args
     assert_predicate testpath/"hello.c", :exist?
 
     assert_equal test_string, shell_output("#{testpath}/hello")

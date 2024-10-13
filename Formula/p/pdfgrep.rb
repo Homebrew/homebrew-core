@@ -6,13 +6,15 @@ class Pdfgrep < Formula
   license "GPL-2.0-only"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "c0762f91b0ca5ad841b06af3bf2203fe9acd86a0f8e19847d1c33c3d461184cd"
-    sha256 cellar: :any,                 arm64_ventura:  "02a024177be543d2744302ea206c3ba02ffeb87a84c8e8e26f66a1847c0b84c9"
-    sha256 cellar: :any,                 arm64_monterey: "ff8abcf9a428a1a30b177dc2cb61fce86ad3832a1f4ebb7d328c673f4ec3a6c4"
-    sha256 cellar: :any,                 sonoma:         "4bb38a435fdbd3054fc17ef953d3d1af7d9b667c021ed50522e2eb0e259cf21d"
-    sha256 cellar: :any,                 ventura:        "b101752d7babcffe86816fe6ea2d153e73b55150b1b7dc3348f05129b785012c"
-    sha256 cellar: :any,                 monterey:       "9d20ab009e555a217357e45ba7289a4869264e867daebe4f622bd9ffd5ea21ee"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e1cf1566232f3a00551158c128251dbaeefa86008f83c6e7ce3191eec5929910"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia:  "3d659c7c01fe49631881b5b324c9951cd570ab8a1c57fd82515718245007bf33"
+    sha256 cellar: :any,                 arm64_sonoma:   "633fdf9703a8e5bf2e912cc6005566ae42bf2b54658b611f911967afd7d1db14"
+    sha256 cellar: :any,                 arm64_ventura:  "27acab326508534e95f2188d3c7bb6c4233fba992e1ff764099063498c4be597"
+    sha256 cellar: :any,                 arm64_monterey: "881bdac5140488c24e2bbfd7943bb2c70438ab5eee974f702d62108c2dbd26cc"
+    sha256 cellar: :any,                 sonoma:         "d9c657ebf312c7e65b013f4e3dd2d056ddff7d8a25ff6bd34fc8ad90fdc6c28e"
+    sha256 cellar: :any,                 ventura:        "c3e85542c3a9556194e659652477bb90a04d487c68177849cbae3b71225576e2"
+    sha256 cellar: :any,                 monterey:       "3f6beec10ef5fefe10b2edbd79e5a29c2e4bc1f22441bf2e39a190da83e3c692"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2d612d28c6b3c3b38ddb2501561ab464eab78afce88d1fb2537f3aa266ee6778"
   end
 
   head do
@@ -24,18 +26,22 @@ class Pdfgrep < Formula
 
   depends_on "pkg-config" => :build
   depends_on "libgcrypt"
-  depends_on "pcre" # PCRE2 issue: https://gitlab.com/pdfgrep/pdfgrep/-/issues/58
+  depends_on "pcre2"
   depends_on "poppler"
+
+  on_macos do
+    depends_on "libgpg-error"
+  end
 
   fails_with gcc: "5"
 
   def install
+    ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
+
     ENV.cxx11
     system "./autogen.sh" if build.head?
 
-    system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
-
-    ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
+    system "./configure", *std_configure_args.reject { |s| s["--disable-debug"] }
     system "make", "install"
   end
 

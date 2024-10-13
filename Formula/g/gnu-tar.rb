@@ -7,15 +7,15 @@ class GnuTar < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "15a0dbc1fe67cae4498891493686afca6d745b001a2913760ce79cd52c918079"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0b5debb34f53626f09c119c96ab75e46dfcc9c816ca5ccbf4ce1b051251c3752"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "78bbae315786562366b35a1c1d25c391824281aab63421e4243ec927dbe647b1"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "98ce20547135be57ef9ee9b6e85df5081ba8b907f113c6d19b3e4a296b3930fc"
-    sha256 cellar: :any_skip_relocation, sonoma:         "da82f5abafab8ba2bfc25a33e500a546985e0b2789ea915d7ad05292b41a373b"
-    sha256 cellar: :any_skip_relocation, ventura:        "5078709c3c1643d2ac42da4fc354baee127d06e4a4f8b04c9770867ec5166188"
-    sha256 cellar: :any_skip_relocation, monterey:       "b083b4ca16eea4b23615ce1b90b7e1a3ee52dd90cd5a4275567cb0ea55339ee4"
-    sha256 cellar: :any_skip_relocation, big_sur:        "d7947a84f5bd5458a1faf9854a90d788c7661a6aba37b7ff7f8fba1e9d04ac24"
-    sha256                               x86_64_linux:   "5209eb2c2693093b26bc232c09df1caf0b5254f9a2003aa88b81a7c7f9f2391a"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "731785debae0adb1e95cb3775f6b71f16ab39d710e84e9fb2f3fb02c69e57520"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "83fe22ea67dab39a7b2bc533a5ff958e201f99e6d5bb335897d2013319060c0f"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1939dfc961ed8aaf821f40b70d17a8f02a59370e092a933747f1dbc2b309fed4"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "02a1aed6abdf277b926a056d95e6fd187a41b4aca6ec913588725d17af8996a1"
+    sha256 cellar: :any_skip_relocation, sonoma:         "a9a0d278cd686a626b45cbfd43aa8f34adbf8347c1f58c3849e9dc7f78016b4b"
+    sha256 cellar: :any_skip_relocation, ventura:        "a5a14e7862c152e90e14c3efaf4973f0e93db2c24b23e793b7e2938ef4174ec7"
+    sha256 cellar: :any_skip_relocation, monterey:       "cfc20759e66fb504327deba772787d6b9780b09c11c8fe64000cee054dbc9aa0"
+    sha256                               x86_64_linux:   "c990300939509bf4ad6eb70e19d5bf47d8812295bf591de75e84ca163942ced6"
   end
 
   head do
@@ -58,7 +58,7 @@ class GnuTar < Formula
     # Symlink the executable into libexec/gnubin as "tar"
     (libexec/"gnubin").install_symlink bin/"gtar" => "tar"
     (libexec/"gnuman/man1").install_symlink man1/"gtar.1" => "tar.1"
-    libexec.install_symlink "gnuman" => "man"
+    (libexec/"gnubin").install_symlink "../gnuman" => "man"
   end
 
   def caveats

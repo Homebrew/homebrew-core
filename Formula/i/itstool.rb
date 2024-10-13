@@ -7,14 +7,8 @@ class Itstool < Formula
   revision 1
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ca64b6795a975cff894c9f7a7d83f350155b69b361fb8992468faddde193ad5d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ca64b6795a975cff894c9f7a7d83f350155b69b361fb8992468faddde193ad5d"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ca64b6795a975cff894c9f7a7d83f350155b69b361fb8992468faddde193ad5d"
-    sha256 cellar: :any_skip_relocation, sonoma:         "74c85e558123ab5ff7b98d87b40909c1455785ad91a8b25d56090be6a8e36ddc"
-    sha256 cellar: :any_skip_relocation, ventura:        "74c85e558123ab5ff7b98d87b40909c1455785ad91a8b25d56090be6a8e36ddc"
-    sha256 cellar: :any_skip_relocation, monterey:       "74c85e558123ab5ff7b98d87b40909c1455785ad91a8b25d56090be6a8e36ddc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ca64b6795a975cff894c9f7a7d83f350155b69b361fb8992468faddde193ad5d"
+    rebuild 4
+    sha256 cellar: :any_skip_relocation, all: "71c806c3d88f9f19ed3e561e48dac34aab652f2ebacd156f2ce8ccf9192b0f40"
   end
 
   head do
@@ -39,6 +33,9 @@ class Itstool < Formula
     bin.env_script_all_files libexec/"bin", PYTHONPATH: ENV["PYTHONPATH"]
     pkgshare.install_symlink libexec/"share/itstool/its"
     man1.install_symlink libexec/"share/man/man1/itstool.1"
+
+    # Check for itstool data files in HOMEBREW_PREFIX. This also ensures uniform bottles.
+    inreplace libexec/"bin/itstool", "/usr/local", HOMEBREW_PREFIX
   end
 
   test do

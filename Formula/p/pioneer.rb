@@ -7,6 +7,7 @@ class Pioneer < Formula
   head "https://github.com/pioneerspacesim/pioneer.git", branch: "master"
 
   bottle do
+    sha256 arm64_sequoia:  "021f05a8f45ced0f1f7e6caf947157db8b253077670a23426ede21bd582ebea7"
     sha256 arm64_sonoma:   "f987336d46f0d5541dff2ef1aacfb20d632e2c345db9b4428f5e64155d2b9293"
     sha256 arm64_ventura:  "6629891c8f8f85d32796a2e984675b3a543d19b9bd17e86daa3001e108a6649f"
     sha256 arm64_monterey: "95f82fcc3dc1c3b12189ee417dda7ee2517bdc0bd850af9247b98dfa6e5c1e14"
@@ -20,6 +21,7 @@ class Pioneer < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
+
   depends_on "assimp"
   depends_on "freetype"
   depends_on "glew"
@@ -28,6 +30,10 @@ class Pioneer < Formula
   depends_on "libvorbis"
   depends_on "sdl2"
   depends_on "sdl2_image"
+
+  on_linux do
+    depends_on "mesa"
+  end
 
   fails_with gcc: "5"
 

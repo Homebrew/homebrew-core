@@ -7,6 +7,7 @@ class Libstxxl < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "30d099063deeb524f2ebe459a34fccb9236780abee29b1a8487f131922b015b3"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2fa5cbb1eb4ac3bf9d3603d0eb56d2e75db5b4962ed87c625f45deb988713a6b"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "c553b5d40fc2b5c081634ce666570017b82f4c74c0f5915173bd9024d959de1c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e487af039d6286b34dc4aeac3c0eaba10668054b33a368e54f9cb8647834ed55"

@@ -1,30 +1,29 @@
 class PandocCrossref < Formula
   desc "Pandoc filter for numbering and cross-referencing"
   homepage "https://github.com/lierdakil/pandoc-crossref"
-  url "https://github.com/lierdakil/pandoc-crossref/archive/refs/tags/v0.3.17.1b.tar.gz"
-  version "0.3.17.1b"
-  sha256 "39e81ac089c23aa302ba3925147135df1425c63c5fe497b26f47e3c04789b638"
+  url "https://github.com/lierdakil/pandoc-crossref/archive/refs/tags/v0.3.18.0b.tar.gz"
+  version "0.3.18.0b"
+  sha256 "a71043e86104951815886d560dd1173308bd7f7e556ce80530b4de03c1bcd9a5"
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5ea253a9acc52534c9bfa7f05385b103d8506ecc56c6cd9c7f76b4a2bf7bdaae"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "813c3b125b31a31b77cbc3c96a261ab1bd80a42a00773101807c4987b97c2f18"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d4913cd23bb0ed2f4891ecdf76dd2fcb1991273fb68303ade55851edd2a031d9"
-    sha256 cellar: :any_skip_relocation, sonoma:         "1be9f3d75c708281d9c98c057599738b9f097cdd63d3063f6434ba40842bec28"
-    sha256 cellar: :any_skip_relocation, ventura:        "5317c834e38cbded5d487c41e8251af0ac01f6c9d795c8e3ee4da729aab515a5"
-    sha256 cellar: :any_skip_relocation, monterey:       "7615c007eb1bbe27b74e139cce79bac576b62113b13f16b00e1cb658bfd8c4f7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4ae507e54307d81edee2261458f4a8cbcd1506b7f288806f86037c8a1c63762f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "454b100be09864162dff118c2490ec0e0bc597e2d832f926510ffe4486a98221"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a942e0c90660465a0b1dc9e5b509336e9beae20ee7b1e94ffdb8fc04e69525e5"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "efc0398a828f9c0bdf9637244423aa7b7ad6c98aa2d1b64d08a8013c255e5cac"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2c7a8bebdfa52ce8ef133cc14b464fc5ddb7a1ae60e6fa156ec3992aa2bfb711"
+    sha256 cellar: :any_skip_relocation, ventura:       "f756208d8a05afd7332cc5fb2872bb4d2358b0bb76c63bacb4ac9cc6eb4e8f4d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "63b421075b72824a3132beafb12730eaebfbf1dcd907eae0e89eed3ac1ed1468"
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc@9.6" => :build
+  depends_on "ghc" => :build
   depends_on "pandoc"
 
   uses_from_macos "unzip" => :build
   uses_from_macos "zlib"
 
   def install
-    rm_f "cabal.project.freeze"
+    rm("cabal.project.freeze")
 
     system "cabal", "v2-update"
     system "cabal", "v2-install", *std_cabal_v2_args

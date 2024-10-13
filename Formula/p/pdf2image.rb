@@ -7,6 +7,7 @@ class Pdf2image < Formula
   revision 1
 
   bottle do
+    sha256 arm64_sequoia:  "412c25b88af18ef42fc4c705a409449b38f3fab9a792b40067ce2c510e524903"
     sha256 arm64_sonoma:   "caf804519e1009c069f081987d8cf3a9052649c7fa2359bf9749df195bbdbb21"
     sha256 arm64_ventura:  "fd39ba0dc18b50fd76f8be5b8d85335cc2b7fc40ab14e3a096890ed60f6f50b1"
     sha256 arm64_monterey: "0794342647f54210c52fef1f96675b041240c046011a2cd2f1f10ccdd5e0d726"
@@ -43,6 +44,6 @@ class Pdf2image < Formula
   end
 
   test do
-    system "#{bin}/pdf2image", "--version"
+    system bin/"pdf2image", "--version"
   end
 end

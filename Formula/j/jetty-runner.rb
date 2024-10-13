@@ -1,8 +1,8 @@
 class JettyRunner < Formula
   desc "Use Jetty without an installed distribution"
   homepage "https://jetty.org/"
-  url "https://search.maven.org/remotecontent?filepath=org/eclipse/jetty/jetty-runner/11.0.22/jetty-runner-11.0.22.jar"
-  sha256 "0eca610f8fc7d1fb1a1fdf1235c5e10df9f7e9b028d058e1343e3c31062fb371"
+  url "https://search.maven.org/remotecontent?filepath=org/eclipse/jetty/jetty-runner/11.0.24/jetty-runner-11.0.24.jar"
+  sha256 "4f00fac144cc16ef3e628e678d808f6979a662e39f55087ed124b59bfcdb0933"
   license any_of: ["Apache-2.0", "EPL-1.0"]
 
   livecheck do
@@ -11,13 +11,7 @@ class JettyRunner < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "73e870a530ee72131d8289ee947c715cccc3be1d7ce6c731106ef554e2d98451"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "73e870a530ee72131d8289ee947c715cccc3be1d7ce6c731106ef554e2d98451"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "73e870a530ee72131d8289ee947c715cccc3be1d7ce6c731106ef554e2d98451"
-    sha256 cellar: :any_skip_relocation, sonoma:         "73e870a530ee72131d8289ee947c715cccc3be1d7ce6c731106ef554e2d98451"
-    sha256 cellar: :any_skip_relocation, ventura:        "73e870a530ee72131d8289ee947c715cccc3be1d7ce6c731106ef554e2d98451"
-    sha256 cellar: :any_skip_relocation, monterey:       "73e870a530ee72131d8289ee947c715cccc3be1d7ce6c731106ef554e2d98451"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "92e613ec3d4ade529fde790ea149de19261cc96ea574597d620a146affbdae76"
+    sha256 cellar: :any_skip_relocation, all: "a758369d5fc8879cea803b07635e425dba98faeca8367e5f3e7d0a9dd396f44d"
   end
 
   depends_on "openjdk"

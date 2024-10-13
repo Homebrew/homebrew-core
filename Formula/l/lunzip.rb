@@ -11,6 +11,7 @@ class Lunzip < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "0c2a4ab213f104a7cf35f3b6185a22b34aee823ba4365d61d07673d76c331321"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6b230466f83c116406a40d69f52a03609adb66a4f04195e6056989495bc4bfb9"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "a3de34eb3bf231ce9f3c3d7837e1375f03d67451da7b10999f41ec1295ab4154"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "767465b8ee2df577b48e8dded31e30f985afca3d22bea32878ea935da69b9b33"

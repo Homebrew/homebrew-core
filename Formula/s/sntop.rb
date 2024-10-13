@@ -3,7 +3,7 @@ class Sntop < Formula
   homepage "https://sntop.sourceforge.net/"
   url "https://downloads.sourceforge.net/project/sntop/sntop/1.4.3/sntop-1.4.3.tar.gz"
   sha256 "943a5af1905c3ae7ead064e531cde6e9b3dc82598bbda26ed4a43788d81d6d89"
-  license "GPL-2.0"
+  license "GPL-2.0-only"
 
   livecheck do
     url :stable
@@ -12,6 +12,7 @@ class Sntop < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_sequoia:  "f815f00571ebdc127b745bd5e895cc486b35b3a38380c3be316ec453c47c0e62"
     sha256 arm64_sonoma:   "40fa74f055bb892c9e7b31a1269ab2d0cda8f13fd214132a79fc2c04944e29dc"
     sha256 arm64_ventura:  "b482ea74af9def4d942033c23ddacc43c16935bcd7e9094506e0008e8c69eed0"
     sha256 arm64_monterey: "88c1bf529d00acd5093a911407aae68da341df753371f81d319862e9bafe2407"
@@ -33,10 +34,12 @@ class Sntop < Formula
   uses_from_macos "ncurses"
 
   def install
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--mandir=#{man}",
-                          "--sysconfdir=#{etc}"
+    # Workaround for newer Clang
+    ENV.append_to_cflags "-Wno-implicit-int" if DevelopmentTools.clang_build_version >= 1403
+
+    system "./configure", "--mandir=#{man}",
+                          "--sysconfdir=#{etc}",
+                          *std_configure_args
     etc.mkpath
     bin.mkpath
     man1.mkpath
@@ -52,6 +55,6 @@ class Sntop < Formula
   end
 
   test do
-    system "#{bin}/sntop", "--version"
+    system bin/"sntop", "--version"
   end
 end

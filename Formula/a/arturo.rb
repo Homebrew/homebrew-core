@@ -7,6 +7,7 @@ class Arturo < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any,                 arm64_sequoia:  "8a85e164420eed7be9149784ed3186c27e475ac4249396bf7cab23d0cbb9d612"
     sha256 cellar: :any,                 arm64_sonoma:   "a5ec87e6b0b78f8f9c7488ee60fba66fa32b820ad0beb17a2a2ad609cf0db4ef"
     sha256 cellar: :any,                 arm64_ventura:  "18491874794e510a5ceab9f85b056dd5338869c63d6590bd8d2e5e5eb451e081"
     sha256 cellar: :any,                 arm64_monterey: "97ada88c358d6b8fee6731bc2fb5a2b6f869ff0d9798b831801aa16096db0e40"
@@ -24,6 +25,10 @@ class Arturo < Formula
     url "https://nim-lang.org/download/nim-1.6.14.tar.xz"
     sha256 "d070d2f28ae2400df7fe4a49eceb9f45cd539906b107481856a0af7a8fa82dc9"
   end
+
+  # Workaround for newer Clang
+  # upstream pr ref, https://github.com/arturo-lang/arturo/pull/1635
+  patch :DATA
 
   def install
     (buildpath/"nim").install resource("nim")
@@ -54,3 +59,18 @@ class Arturo < Formula
     assert_equal "hello", shell_output("#{bin}/arturo #{testpath}/hello.art").chomp
   end
 end
+
+__END__
+diff --git a/build.nims b/build.nims
+index 9c3f812..c4ed4c0 100755
+--- a/build.nims
++++ b/build.nims
+@@ -104,7 +104,7 @@ var
+                           "--skipUserCfg:on --colors:off -d:danger " &
+                           "--panics:off --mm:orc -d:useMalloc --checks:off " &
+                           "-d:ssl --cincludes:extras --opt:speed --nimcache:.cache --passL:'-pthread' " & 
+-                          "--path:src "
++                          "--path:src --passC:\"-Wno-error=incompatible-pointer-types\""
+     CONFIG              ="@full"
+ 
+     ARGS: seq[string]   = @[] 

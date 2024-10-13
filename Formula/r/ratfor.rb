@@ -3,6 +3,7 @@ class Ratfor < Formula
   homepage "http://www.dgate.org/ratfor/"
   url "http://www.dgate.org/ratfor/tars/ratfor-1.05.tar.gz"
   sha256 "826278c5cec11f8956984f146e982137e90b0722af5dde9e8c5bf1fef614853c"
+  license :public_domain
 
   livecheck do
     url :homepage
@@ -10,6 +11,7 @@ class Ratfor < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "d696bf039296100b25caf37f8ec0b2908f52041a236f7aa1c2170411fc5bcbff"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "efc66cbe4abb7718b598d525a8f9070503110455e2b61d7a9abf5924f27f61cf"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "02426cb3f91d13a212cfdd581c550ce0c02a769ffc472b7497b5110426268760"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "7b7dd12c9a6ec7c9b817cc0f6179dd4b23a517b99a9645818b6dfdf297336ea6"
@@ -61,7 +63,7 @@ class Ratfor < Formula
       end
     EOS
 
-    system "#{bin}/ratfor", "-o", "test.f", testpath/"test.r"
+    system bin/"ratfor", "-o", "test.f", testpath/"test.r"
     system "gfortran", "test.f", "-o", "test"
     system "./test"
   end

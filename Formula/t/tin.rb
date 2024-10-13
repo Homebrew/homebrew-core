@@ -11,6 +11,7 @@ class Tin < Formula
   end
 
   bottle do
+    sha256                               arm64_sequoia:  "0c24e34c9826132f8b79ab510c972948b6dfe5398deff08b918d86aed357271b"
     sha256                               arm64_sonoma:   "9b40007fa88eb76e74741528e34dc7418d27a7f0b14138998f6e886f7dd75125"
     sha256                               arm64_ventura:  "c355639ee07efc5e91c2a83bef8f43d1b1065b71ae275c34141cc52e36a17e9d"
     sha256                               arm64_monterey: "feb75a463cbc2f5773e421daa639681b62fec4070bddc9471bfc43773dee1339"
@@ -34,7 +35,7 @@ class Tin < Formula
 
   def install
     # Remove bundled libraries
-    %w[intl pcre].each { |l| (buildpath/l).rmtree }
+    %w[intl pcre].each { |l| rm_r(buildpath/l) }
 
     system "./configure", *std_configure_args,
                           "--mandir=#{man}",
@@ -44,6 +45,6 @@ class Tin < Formula
   end
 
   test do
-    system "#{bin}/tin", "-H"
+    system bin/"tin", "-H"
   end
 end

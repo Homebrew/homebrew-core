@@ -5,6 +5,7 @@ class VampPluginSdk < Formula
   url "https://deb.debian.org/debian/pool/main/v/vamp-plugin-sdk/vamp-plugin-sdk_2.10.0.orig.tar.gz"
   mirror "https://code.soundsoftware.ac.uk/attachments/download/2691/vamp-plugin-sdk-2.10.0.tar.gz"
   sha256 "aeaf3762a44b148cebb10cde82f577317ffc9df2720e5445c3df85f3739ff75f"
+  license all_of: ["X11", "BSD-3-Clause"]
   head "https://code.soundsoftware.ac.uk/hg/vamp-plugin-sdk", using: :hg
 
   # code.soundsoftware.ac.uk has SSL certificate verification issues, so we're
@@ -17,6 +18,7 @@ class VampPluginSdk < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "6b8edd5860223b4cbce7f7e5b699b5005a7f58f2d7fe0a58c0d0756bd6be7f75"
     sha256 cellar: :any,                 arm64_sonoma:   "512e071cd37ef5a5a4c930402fb4ceaf215732c18e4b62cf848d9d3b0ad39065"
     sha256 cellar: :any,                 arm64_ventura:  "44b58e44044cc29d6a56f0e4feeb15db3fb619f393c63800c91240eb82ab16f4"
     sha256 cellar: :any,                 arm64_monterey: "e10a03b4cbf89602757ef2f2bd43757bc7a734d3c200ca2a4258b304c05e9351"

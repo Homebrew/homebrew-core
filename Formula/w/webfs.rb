@@ -13,6 +13,7 @@ class Webfs < Formula
 
   bottle do
     rebuild 2
+    sha256 arm64_sequoia:  "3291625be9eb1abecfaf361089d2cfcd6ae76f8123cd08280b2e8d41d176686c"
     sha256 arm64_sonoma:   "ef56fd774bdf47267b3247e82de6c75e875afdb0e1afab06169c16434dca2cc6"
     sha256 arm64_ventura:  "49156fc8ba3a476cf63f719f17e679ad66b96f1494ccf387ce7c0c6007150a56"
     sha256 arm64_monterey: "047b4b7404e97147da732a96019fa8e1bfb5f7e541ac9cc7178492ac12653b65"

@@ -11,6 +11,7 @@ class Reprepro < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "badeb1ae69e64807080d2a9a593d5195e784998e9fd7ac3c38666f90c3ac3aea"
     sha256 cellar: :any,                 arm64_sonoma:   "6ae8f574c8fbfa13776901135cf93d2764d7fc039d7ab6727c959310785769b6"
     sha256 cellar: :any,                 arm64_ventura:  "074ecc0f03f9b65eee888d3c80da0b236267cea25fdca49f6a77f25da6bbcb45"
     sha256 cellar: :any,                 arm64_monterey: "4bd034f17d9a86c6e85173977ad58cbb2affa18678bd471b35216337be0f050f"
@@ -25,8 +26,12 @@ class Reprepro < Formula
   depends_on "berkeley-db@5"
   depends_on "gpgme"
   depends_on "libarchive"
+  depends_on "libgpg-error"
   depends_on "xz"
   depends_on "zstd"
+
+  uses_from_macos "bzip2"
+  uses_from_macos "zlib"
 
   on_macos do
     depends_on "gcc"
@@ -38,14 +43,12 @@ class Reprepro < Formula
 
   def install
     system "./autogen.sh"
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}",
+    system "./configure", "--disable-silent-rules",
                           "--with-gpgme=#{Formula["gpgme"].opt_lib}",
                           "--with-libarchive=#{Formula["libarchive"].opt_lib}",
                           "--with-libbz2=yes",
-                          "--with-liblzma=#{Formula["xz"].opt_lib}"
+                          "--with-liblzma=#{Formula["xz"].opt_lib}",
+                          *std_configure_args
     system "make", "install"
   end
 

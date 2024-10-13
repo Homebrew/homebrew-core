@@ -8,16 +8,11 @@ class Ydiff < Formula
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "71785c20c88c11d4ad640dc8b166f23daa74a95d95c274ab5c0028a0f42499a8"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "71785c20c88c11d4ad640dc8b166f23daa74a95d95c274ab5c0028a0f42499a8"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "71785c20c88c11d4ad640dc8b166f23daa74a95d95c274ab5c0028a0f42499a8"
-    sha256 cellar: :any_skip_relocation, sonoma:         "71785c20c88c11d4ad640dc8b166f23daa74a95d95c274ab5c0028a0f42499a8"
-    sha256 cellar: :any_skip_relocation, ventura:        "71785c20c88c11d4ad640dc8b166f23daa74a95d95c274ab5c0028a0f42499a8"
-    sha256 cellar: :any_skip_relocation, monterey:       "71785c20c88c11d4ad640dc8b166f23daa74a95d95c274ab5c0028a0f42499a8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e7d5d05030eb906207ab27c47e708de68ee5b5a037e86b7f7300cafc46a69071"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "8837c75ec79bbf951b76ac5b0013a6b7c275d0763b871f92581e81741857bbcd"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   def install
     virtualenv_install_with_resources

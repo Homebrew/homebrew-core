@@ -13,6 +13,7 @@ class Talisman < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "589190a842deb2f63ad319a47cf50a4eafeadc4117aaf9bdd6b965a2f072dd9d"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7789c90531ec94bdee710f9d6c83b4e86cb28d2a735b32971af98fc4576bb3a5"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "50c984d272b1407a5fc1c84ca1088ef6630d4734f98a4b29bb268fcfd74ba168"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ecef5b4b9328debcf9969851dfd49153978c19f557b04841fa625a16f114066b"

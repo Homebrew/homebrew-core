@@ -11,6 +11,7 @@ class X3270 < Formula
   end
 
   bottle do
+    sha256 arm64_sequoia:  "71e53c693ce7cd9f487526df27c6c9c7464420bd32239f1a1b72b9ae7f3c8839"
     sha256 arm64_sonoma:   "a73dbd7599c2dfa7535c0f53868622863f71423f0ee61eb4fc9358098d0d8cb2"
     sha256 arm64_ventura:  "aa9b6a05284b8f991f128016b8fad45bd48546ffebe24149fce1e76d28d7821a"
     sha256 arm64_monterey: "c51104f8fa4adfd6c4e8a0ab976e728a1345072e870044b13b825127cba4c10b"

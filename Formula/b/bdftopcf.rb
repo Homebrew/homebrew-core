@@ -6,6 +6,7 @@ class Bdftopcf < Formula
   license "MIT-open-group"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "139f30526b3c42e502bd80de766f015a154f1b543935f0b5c8205485b90bc03a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c50937d505d08e9f61fff7856403b39704a350a08fc8ecd60a75f44bf25e2068"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "b26742fa879001426b039393e683b586cae8ef449215e736816b7c036ee80f2b"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "8ef52728cea826773128a733b91368ca316f638c0f5762cc46e7564bc4464b09"

@@ -11,6 +11,7 @@ class Fig2dev < Formula
   end
 
   bottle do
+    sha256 arm64_sequoia:  "8f173110cd35df498c9d4297ae73fc5d46a9dcdd65f36b5551c75f70fb839b72"
     sha256 arm64_sonoma:   "6269b97dcb35b0fa282b40f3b58c7851feafdb947f8f0119333054a5605bae76"
     sha256 arm64_ventura:  "f8fbe5bb954be25f1c4160c0b2c0a021568dabee8e9df8e0039c161476f0a840"
     sha256 arm64_monterey: "26ed11b4a0ee2a8f4f89838165814985efa9bd05aca297ec49b43c7defd3370a"
@@ -44,7 +45,7 @@ class Fig2dev < Formula
   end
 
   test do
-    system "#{bin}/fig2dev", "-L", "png", "#{pkgshare}/patterns.fig", "patterns.png"
+    system bin/"fig2dev", "-L", "png", "#{pkgshare}/patterns.fig", "patterns.png"
     assert_predicate testpath/"patterns.png", :exist?, "Failed to create PNG"
   end
 end

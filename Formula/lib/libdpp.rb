@@ -1,22 +1,20 @@
 class Libdpp < Formula
   desc "C++ Discord API Bot Library"
   homepage "https://github.com/brainboxdotcc/DPP"
-  url "https://github.com/brainboxdotcc/DPP/releases/download/v10.0.30/DPP-10.0.30.tar.gz"
-  sha256 "fb7019770bd5c5f0539523536250da387ee1fa9c92e59c0bcff6c9adaf3d77e8"
+  url "https://github.com/brainboxdotcc/DPP/releases/download/v10.0.32/DPP-10.0.32.tar.gz"
+  sha256 "b366c0eb05539208e8d6c81f59de87b2aa6158250968d1bd6360676d576851e7"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "a0759936e0da422d6d309aeec3169885b981e48944c4efba9af5735734543957"
-    sha256 cellar: :any,                 arm64_ventura:  "8d57b4ec0e3484b19ee6b8fc7dc3af8bf46dc62d44ae991c6739a692837e1087"
-    sha256 cellar: :any,                 arm64_monterey: "0195d7d7cd9eb05b10fbe61f93743510a838098e4d88cfba235ee2b7e2243ad8"
-    sha256 cellar: :any,                 sonoma:         "d2ebaec5d95a2820597ef5d2440c6e06a4582c1712a6ccc623bfb9391e12f5c0"
-    sha256 cellar: :any,                 ventura:        "1866708cc97ad4b04d16c792239c274e70cace4b5abd7cfc0cdb832d75069635"
-    sha256 cellar: :any,                 monterey:       "edd0ad267a355cd823b8e82ca622f90cdeaa4f500904085ca2a206dd30281958"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "67abbbb8662f9ce21445ece6a9c23e8e55e84b0f07dcb49ed8b82ea61db8bb92"
+    sha256 cellar: :any,                 arm64_sequoia: "d977977d4ac22288d30548b82e3358f494b5d6f64e51d370c4f8df06f1ecc924"
+    sha256 cellar: :any,                 arm64_sonoma:  "4656e6702663a308e57643ee4feb5bd746d2bbc2ff06445bf3f01e3c2e4f3921"
+    sha256 cellar: :any,                 arm64_ventura: "e8f4483d710c3c98738b62140becaad0aeb2017dce8732f6d9ceeba2422b64a5"
+    sha256 cellar: :any,                 sonoma:        "3ec206aabfffc6de9c3511cf1a069b3e6d631fef0688ea681d1729969dc17a7e"
+    sha256 cellar: :any,                 ventura:       "e50da46249ae37dd800a7ffc8a8448226fcacfe9a80568669fec87d4bb96c977"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d5973b055af4262f2c7cc1f91a92039fd32f896bcabd0f778e00b0272e6345cf"
   end
 
   depends_on "cmake" => :build
-  depends_on xcode: ["12.0", :build]
   depends_on "libsodium"
   depends_on "openssl@3"
   depends_on "opus"
@@ -42,14 +40,18 @@ class Libdpp < Formula
         try {
           bot.start(dpp::st_wait);
         }
+        catch (const dpp::connection_exception& e) {
+          std::cout << "Connection error: " << e.what() << std::endl;
+          return 1;
+        }
         catch(dpp::invalid_token_exception& e) {
           std::cout << "Invalid token." << std::endl;
-          return 0;
+          return 1;
         }
         return 0;
       }
     EOS
     system ENV.cxx, "-std=c++17", "-L#{lib}", "-I#{include}", "test.cpp", "-o", "test", "-ldpp"
-    assert_equal "Invalid token.", shell_output("./test").strip
+    assert_match "Connection error", shell_output("./test 2>&1", 1)
   end
 end

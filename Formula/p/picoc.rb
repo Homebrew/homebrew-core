@@ -20,6 +20,7 @@ class Picoc < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "43e537db7d3f77463969b213bbb8fcaed5bef26c4c1600989140bc4c8ce77f80"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "10344b6c0e17692656a97e7ef1149cc7ab5797df714986bd420a211f6cd4cde3"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "37c038b18d6e2dd02636901429fabaced73eb533eb1254e06bb3a74f53906a66"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4a572c33c2dc1b913132786154a5013d4c380bd1dcc5d64a696071ccb15b2589"

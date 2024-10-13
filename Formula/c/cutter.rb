@@ -1,9 +1,9 @@
 class Cutter < Formula
   desc "Unit Testing Framework for C and C++"
-  homepage "https://cutter.osdn.jp/"
+  homepage "https://github.com/clear-code/cutter"
   url "https://osdn.mirror.constant.com/cutter/73761/cutter-1.2.8.tar.gz"
   sha256 "bd5fcd6486855e48d51f893a1526e3363f9b2a03bac9fc23c157001447bc2a23"
-  license "LGPL-3.0"
+  license "LGPL-3.0-or-later"
   head "https://github.com/clear-code/cutter.git", branch: "master"
 
   livecheck do
@@ -12,6 +12,7 @@ class Cutter < Formula
   end
 
   bottle do
+    sha256 arm64_sequoia:  "64e7611a4932840b48802b8f628f0d1e8cbb7b639f774def7ab734679d35e1d4"
     sha256 arm64_sonoma:   "16bad5398ee66928c15164f769470028aca2912c9b634b45c11cd708f05de11f"
     sha256 arm64_ventura:  "37e55863dc6c7a518de33492c6afe7618604ffbc4871ea756bee1782325987e4"
     sha256 arm64_monterey: "3e314f0acebc224eabaa266508356e09142f2834d7b6b2b1611d66eacc2496e3"
@@ -26,12 +27,16 @@ class Cutter < Formula
     sha256 x86_64_linux:   "1f0d55c82c767d2f7d947bdc054a43d381bc6c1b2b09adc2bd3e7e8381059eb2"
   end
 
+  depends_on "gettext" => :build
   depends_on "intltool" => :build
   depends_on "pkg-config" => :build
-  depends_on "gettext"
   depends_on "glib"
 
   uses_from_macos "perl" => :build
+
+  on_macos do
+    depends_on "gettext"
+  end
 
   on_linux do
     depends_on "perl-xml-parser" => :build

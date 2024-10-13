@@ -3,6 +3,7 @@ class Stone < Formula
   homepage "https://www.gcd.org/sengoku/stone/"
   url "https://www.gcd.org/sengoku/stone/stone-2.4.tar.gz"
   sha256 "d5dc1af6ec5da503f2a40b3df3fe19a8fbf9d3ce696b8f46f4d53d2ac8d8eb6f"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url :homepage
@@ -10,6 +11,7 @@ class Stone < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "ea5e1f4e87879d1281b96a0ee7950c74e639429d622fe4e4ecfa2c2155ddc051"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8db3b91a892716e56362887cdc17006d43abdb00f9897be80c1a06953cbed0ed"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "fd7a8b20854a50d343960a965e340d0178fd82728e7c74025146b2ac053b24a0"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a4274010ee7d7f736080d17b23ee12250fc7f68a530c9149a0a625922a9db1bc"

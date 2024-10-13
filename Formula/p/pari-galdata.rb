@@ -18,8 +18,8 @@ class PariGaldata < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "effebc421eaf8df8474e3b80d5e7da743545fba06faf96750a19103884d0cf57"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "736af19f4079ffbca94f96cc0b4c7d8c325995ccc0c01cef244240d61758b02f"
   end
 
   depends_on "pari"

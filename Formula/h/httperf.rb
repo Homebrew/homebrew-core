@@ -1,7 +1,7 @@
 class Httperf < Formula
   desc "Tool for measuring webserver performance"
   homepage "https://github.com/httperf/httperf"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
   revision 2
 
   stable do
@@ -24,6 +24,7 @@ class Httperf < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia:  "777ac05c7372517913a1dc06a7cfa1499480ed89708baf56d57749bfaf9b3375"
     sha256 cellar: :any,                 arm64_sonoma:   "4f3dbaee84b9ecec246b11f1da959850d5ec283d28dd0ec11e40c7d93975734e"
     sha256 cellar: :any,                 arm64_ventura:  "cf626f3e9d749e395728ce1ca02b1441be6321989841a0b1135baef10455b739"
     sha256 cellar: :any,                 arm64_monterey: "a6976f04d98a5195075909f77587f0c113ed94389a49ab1ff4ddfc263c14c3ea"
@@ -52,6 +53,6 @@ class Httperf < Formula
   end
 
   test do
-    system "#{bin}/httperf", "--version"
+    system bin/"httperf", "--version"
   end
 end

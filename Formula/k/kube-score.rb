@@ -2,19 +2,18 @@ class KubeScore < Formula
   desc "Kubernetes object analysis recommendations for improved reliability and security"
   homepage "https://kube-score.com"
   url "https://github.com/zegl/kube-score.git",
-      tag:      "v1.18.0",
-      revision: "0fb5f668e153c22696aa75ec769b080c41b5dd3d"
+      tag:      "v1.19.0",
+      revision: "a0a0f48c808611965e2690d8af1b1d8a5415fd0b"
   license "MIT"
   head "https://github.com/zegl/kube-score.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c4e98d0912c56136708f76febcb5c21aa4120694aa176c510061ec0839382d23"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "43e478d458c20b767beaf3450f8c0d2639aeac1f5f347b3f1da6a933c29a660e"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e16120280e27daad25243b31ac6852b7b0952b72e1efd690e14fd1a06849be24"
-    sha256 cellar: :any_skip_relocation, sonoma:         "795074d42d93536ba29ce24b5da559113c6c2eed6a00be74b357973bdbdf0ad8"
-    sha256 cellar: :any_skip_relocation, ventura:        "e42709aa48593bc08b62d2797fe5176194696228366bbf1a9bb5067711140b38"
-    sha256 cellar: :any_skip_relocation, monterey:       "750a7a9aa2a6d45fd1931918e4e2853fd3e05761b92a11b43f47a272b631837c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a5d1502c621b5960c422725ef8ab00ead69120d9e6056431c62e5b6efd079d34"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f0983996db902e80972d36c5603393d1acbdcdb5dddc27372ca6aefc3a6bce4d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f0983996db902e80972d36c5603393d1acbdcdb5dddc27372ca6aefc3a6bce4d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "f0983996db902e80972d36c5603393d1acbdcdb5dddc27372ca6aefc3a6bce4d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "6dec538635aec13f3bfe6b3ce099865dce2e44d702a7bc8cccf2bac1a11d9546"
+    sha256 cellar: :any_skip_relocation, ventura:       "6dec538635aec13f3bfe6b3ce099865dce2e44d702a7bc8cccf2bac1a11d9546"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "65d549417ebbcbd918ee04ec73f56d0032a8bbd5909862fd3b1929ec186b224e"
   end
 
   depends_on "go" => :build

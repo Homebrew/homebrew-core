@@ -7,6 +7,7 @@ class Gokey < Formula
   head "https://github.com/cloudflare/gokey.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "65505988ee30e521ce2a597550d9c340048fde87b7a50940b5e12d634d7aeead"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0ae5486ec1ab213ec6288012f1d9b3c71edaf8e384b314e7d2a09786606fda76"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "3213372d1b8e6a45657d9ca0c7f6e14bae6086f20c428f3146474260c5dcdaea"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "979193bc7c66e5e0d14eae989218ee81585b896ada2051657eed4fa025c19b58"

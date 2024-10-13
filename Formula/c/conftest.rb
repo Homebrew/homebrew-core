@@ -7,6 +7,7 @@ class Conftest < Formula
   head "https://github.com/open-policy-agent/conftest.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "8fda5e949ad4b2e6588ba8c5d92136190668310616494bc1f73e2a59ac25865f"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "97faabe0071274267d32e4f1b557034139e25e32c9920ea8b269d7f7bc2fd52c"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "3c08d354576f9ce7c7c762ff1a382484a76000c2c88f82149ec87d886aeb3a9d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "295bb7ba97435b76193b2d65632ab23f0c5a5b84ab141ac9e29a0e126fd953b7"
@@ -30,6 +31,6 @@ class Conftest < Formula
     # Using the policy parameter changes the default location to look for policies.
     # If no policies are found, a non-zero status code is returned.
     (testpath/"test.rego").write("package main")
-    system "#{bin}/conftest", "verify", "-p", "test.rego"
+    system bin/"conftest", "verify", "-p", "test.rego"
   end
 end

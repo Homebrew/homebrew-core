@@ -3,7 +3,7 @@ class Flvstreamer < Formula
   homepage "https://www.nongnu.org/flvstreamer/"
   url "https://download.savannah.gnu.org/releases/flvstreamer/source/flvstreamer-2.1c1.tar.gz"
   sha256 "e90e24e13a48c57b1be01e41c9a7ec41f59953cdb862b50cf3e667429394d1ee"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url "https://download.savannah.gnu.org/releases/flvstreamer/source/"
@@ -12,6 +12,7 @@ class Flvstreamer < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "dcbbbb87db99f0140c73453fd12af2023b37d44c42302d99156335b0cd69891d"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "116c69614242e07bfb2be2d34177335c12a19ef86c8ab5a70e2b3157695f3368"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "3de5f4ef4be5bd145b783b309b8be860215f308abbd3134d6def0734861ae63d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c96f83be0a0a72e6172cd9d1459d268cd58c16c930bf2a5c5e60de50654faef3"
@@ -36,6 +37,6 @@ class Flvstreamer < Formula
   end
 
   test do
-    system "#{bin}/flvstreamer", "-h"
+    system bin/"flvstreamer", "-h"
   end
 end

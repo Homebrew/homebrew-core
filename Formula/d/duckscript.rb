@@ -1,19 +1,19 @@
 class Duckscript < Formula
   desc "Simple, extendable and embeddable scripting language"
   homepage "https://sagiegurari.github.io/duckscript"
-  url "https://github.com/sagiegurari/duckscript/archive/refs/tags/0.9.3.tar.gz"
-  sha256 "c73827af830b4c54903143839ea29651a991574ce6aded613fc077d095ac0c14"
+  url "https://github.com/sagiegurari/duckscript/archive/refs/tags/v0.9.4-01.tar.gz"
+  version "0.9.4"
+  sha256 "f341b81724e2f6bc2ea824155f5aea38a17d3c9a79d274aa2aba96c3890695d1"
   license "Apache-2.0"
   head "https://github.com/sagiegurari/duckscript.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f99441500bd4b4f1d679761fad30c40af7dc7507cded285b3051ed762fbb22c6"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "41c6eaea6bb193ea64b815068454f6079dd810359a20005d5a5e3934ce5872de"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "929fd5c227aa1391145ad124780188dc9630bdc6f6eac43b7a621f1bbc34906e"
-    sha256 cellar: :any_skip_relocation, sonoma:         "3e6f6deec2c5bbf8cee875daeeeb8c72173fb98f3366af2d2d5ee4953f764de5"
-    sha256 cellar: :any_skip_relocation, ventura:        "147d01070177af9d864e7685db3a484b807f266790c3232ff872c6c70b38ea58"
-    sha256 cellar: :any_skip_relocation, monterey:       "9c9b387692bc68d3f0373c57dade64a24c617ec2d4b6f08ce1d49d81008aefff"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7d3f766580f60b4fadffb56a49c0186b6417a682a74bc0e433b78fd6c464d7dc"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b987b8107ace0db8d7cd3761d0808fc627d4bad33fc866220e7bb411c01355f3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7d3cefd642d7aeff32073fb23cb0f1505de36dd46d15bdf0b1c72bf6f324e00a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "2d47f018e1f6453ae50ab10fe59be44630b66c097f0689badf43d62b793b7ea8"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f4030501fa35a536b72fecd0dc305bf195d9ae96bbf4efa8a159191cf9ae0892"
+    sha256 cellar: :any_skip_relocation, ventura:       "9e574c5420c6c165c284e64a7430baba8f5b52e3750a6aea459725327e021b55"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1b9cd4f260f3acb474fea9acbc4ae2dddd3f2aef3efd7a2d72d7311877c0721a"
   end
 
   depends_on "rust" => :build

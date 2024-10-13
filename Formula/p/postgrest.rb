@@ -1,8 +1,8 @@
 class Postgrest < Formula
   desc "Serves a fully RESTful API from any existing PostgreSQL database"
   homepage "https://github.com/PostgREST/postgrest"
-  url "https://github.com/PostgREST/postgrest/archive/refs/tags/v12.2.2.tar.gz"
-  sha256 "dadd6adfeb5cde85b66efe330c6c06ff92a5f7d550a7cdc5223f9b9014aa7b6f"
+  url "https://github.com/PostgREST/postgrest/archive/refs/tags/v12.2.3.tar.gz"
+  sha256 "52b814cb9255c43d7f59f3be50336ae761e103c7c9b083dc4833d2579dd2abcf"
   license "MIT"
   head "https://github.com/PostgREST/postgrest.git", branch: "main"
 
@@ -12,21 +12,25 @@ class Postgrest < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "c158053a9b1bb01485be62f1721c3c056a2e91173281634163a96dca5d651022"
-    sha256 cellar: :any,                 arm64_ventura:  "4e0a0c9b1ce832caa4f625c9b6bb80d865f777cd59515dae740928b432289b7e"
-    sha256 cellar: :any,                 arm64_monterey: "7a5e6327e5a858e4f94599b94d261079d1c13d72fe09d77d251dda45507c2fc4"
-    sha256 cellar: :any,                 sonoma:         "b8f8500a41f91970c16fec56d1e154658c2f2348c439ca913f5e7b14a433a802"
-    sha256 cellar: :any,                 ventura:        "c2f686401fb4a5518eee68f395cc7cb59e172c3051a1204f406d9b2a9e6444c0"
-    sha256 cellar: :any,                 monterey:       "d1730bc658c4c3f499fbcd16d415a26d9b6e5c52773c84990e8690a9942674a6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c5c174942d0184c4ae7fc1d124cbd882bfa6f8f1d49b2ea09d724a5216053d41"
+    sha256 cellar: :any,                 arm64_sequoia:  "eba1e995f952f401c16c7ea727555c2cde35fb099639c3692de26fa6ca2b0ede"
+    sha256 cellar: :any,                 arm64_sonoma:   "68a1b201a0396ca4a9332f68f4a1a039c4239e984dbdd23558778809686237cf"
+    sha256 cellar: :any,                 arm64_ventura:  "73a1a4b53994141d9a64eac3fccc2d174dd899c5ce1c1140b11840929b9ddc25"
+    sha256 cellar: :any,                 arm64_monterey: "d4da709edbc6a334700db58c596495f19690486095c109d175d694346b1c3efc"
+    sha256 cellar: :any,                 sonoma:         "3f8f1332d9b871f608427b742e9d41384a829f21b34bdf1a71a05da6067f8c1e"
+    sha256 cellar: :any,                 ventura:        "24e0aa645cdb647163b94695315dd0cd93d172aed47159caf43e818dee8649a2"
+    sha256 cellar: :any,                 monterey:       "9bc1e3654ec2c4792ca13434f6551af3233d5121db50e1bdfe70c559a041cf5e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "859074efdeb538c72381300a6a9c9e0454fd0927ef4205dbde0ca6bc69cd60b8"
   end
 
-  depends_on "ghc@9.6" => :build
-  depends_on "haskell-stack" => :build
+  depends_on "cabal-install" => :build
+  depends_on "ghc@9.8" => :build
   depends_on "libpq"
 
+  uses_from_macos "zlib"
+
   def install
-    system "stack", "install", "--system-ghc", "--no-install-ghc", "--skip-ghc-check", "--local-bin-path=#{bin}"
+    system "cabal", "v2-update"
+    system "cabal", "v2-install", "--ignore-project", *std_cabal_v2_args
   end
 
   test do

@@ -11,6 +11,7 @@ class Dropbear < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "99ea6ec88ce13db09061ed158a21799705665cfdc42cdca89143270d05f580fe"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5b065409784d08f2f399e6825aeec939262bdf0f83b55de7b0116dec210215c3"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "1ccc4def7f687eefdf87d3a858be0b7a816f1125d0f65177c00e1ac2e089934d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "8e9de7a77f87fe18ce1854b4fe9f44222ae44c8def0b5f0a4b5121e95a20809f"
@@ -52,8 +53,8 @@ class Dropbear < Formula
 
   test do
     testfile = testpath/"testec521"
-    system "#{bin}/dbclient", "-h"
-    system "#{bin}/dropbearkey", "-t", "ecdsa", "-f", testfile, "-s", "521"
+    system bin/"dbclient", "-h"
+    system bin/"dropbearkey", "-t", "ecdsa", "-f", testfile, "-s", "521"
     assert_predicate testfile, :exist?
   end
 end

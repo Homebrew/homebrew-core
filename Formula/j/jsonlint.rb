@@ -1,5 +1,3 @@
-require "language/node"
-
 class Jsonlint < Formula
   desc "JSON parser and validator with a CLI"
   homepage "https://github.com/zaach/jsonlint"
@@ -8,19 +6,19 @@ class Jsonlint < Formula
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "b86612463c369b8b32c1a7522cb48a5cb7b6c682f94042d179ed312c8eda5486"
+    rebuild 3
+    sha256 cellar: :any_skip_relocation, all: "97762cc27f840903d10f585400d3a9019ff18813ce89ffc25cf4d13390479a13"
   end
 
   depends_on "node"
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", *std_npm_args
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 
   test do
     (testpath/"test.json").write('{"name": "test"}')
-    system "#{bin}/jsonlint", "test.json"
+    system bin/"jsonlint", "test.json"
   end
 end

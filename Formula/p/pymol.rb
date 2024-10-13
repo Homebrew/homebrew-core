@@ -10,6 +10,7 @@ class Pymol < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any,                 arm64_sequoia:  "74f27308354b79dd6fa37f983f45de35c1fe35331e3da135c8304279c2946902"
     sha256 cellar: :any,                 arm64_sonoma:   "d903427e21c3999f8801d4ab41bc6840a36a7f08214b93a9ecb161e5e3530daf"
     sha256 cellar: :any,                 arm64_ventura:  "176d90f7f194ad152a51f3294dae1be6fc21ed32ab9013e6222668412e111186"
     sha256 cellar: :any,                 arm64_monterey: "a9e0d72ca12accc15f1492b44ae2cd9dbfdcc2ffb1219a1753b7a0041be20ef2"
@@ -23,6 +24,7 @@ class Pymol < Formula
   depends_on "glm" => :build
   depends_on "msgpack-cxx" => :build
   depends_on "sip" => :build
+
   depends_on "freetype"
   depends_on "glew"
   depends_on "libpng"
@@ -30,10 +32,12 @@ class Pymol < Formula
   depends_on "numpy"
   depends_on "pyqt@5"
   depends_on "python@3.12"
+
   uses_from_macos "libxml2"
 
   on_linux do
     depends_on "freeglut"
+    depends_on "mesa"
   end
 
   resource "mmtf-cpp" do
@@ -100,6 +104,7 @@ class Pymol < Formula
       cmd.zoom()
       cmd.png("test.png", 200, 200)
     EOS
+
     system bin/"pymol", "-cq", testpath/"test.py"
     assert_predicate testpath/"test.png", :exist?, "Amino acid image should exist"
     system python3, "-c", "import pymol"

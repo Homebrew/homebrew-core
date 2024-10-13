@@ -1,6 +1,6 @@
 class PangommAT246 < Formula
   desc "C++ interface to Pango"
-  homepage "https://www.pango.org/"
+  homepage "https://pango.gnome.org"
   url "https://download.gnome.org/sources/pangomm/2.46/pangomm-2.46.4.tar.xz"
   sha256 "b92016661526424de4b9377f1512f59781f41fb16c9c0267d6133ba1cd68db22"
   license "LGPL-2.1-only"
@@ -11,20 +11,22 @@ class PangommAT246 < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_sonoma:   "3cf37600a12ca5691e1d64c0f7572bfb45e0c643d63fb8936b766cbae72d0df4"
-    sha256 cellar: :any, arm64_ventura:  "ef7f19ac203a1a078fa13ae8aaae8e18e9c556ceab1058788c3aa9614693d8f4"
-    sha256 cellar: :any, arm64_monterey: "11178d48ea9263be36a481a52e51f1b9e2b44b39edbe9c766eb29e54cc68b663"
-    sha256 cellar: :any, sonoma:         "f42c650716f05968becd9918aaf5ca74f8a8f0826181d5618358f94f3a7c042d"
-    sha256 cellar: :any, ventura:        "08bad306d38ff22f21682b3871a34f3e05bbb31a241727638bd4be7d15b6a5e1"
-    sha256 cellar: :any, monterey:       "fe4f2c198e5a74c30d053024a6294655ae945b86885fdf2699618f0d10b27e37"
-    sha256               x86_64_linux:   "8d8758b6e19e684ef9db90d3ae3413503798cb0c15a7df7f8981a6dcf84bf223"
+    rebuild 1
+    sha256 cellar: :any, arm64_sequoia: "c5c43ab69df3ee85326bb0abf15fd4057a46ce3900015be64abb8c8573d3202e"
+    sha256 cellar: :any, arm64_sonoma:  "6468295dc13b7795464c8acbeb4d790c15b33e6431ff71401c05929cf2f9f3ff"
+    sha256 cellar: :any, arm64_ventura: "b323db7914c80c804a6804b16cb58c8cb9a11d38ce52826b1cc469fa8dfd2510"
+    sha256 cellar: :any, sonoma:        "ee486c1037b89986dec5c26f870d092f4510ba0e121dbb96525fab6a61d358f7"
+    sha256 cellar: :any, ventura:       "1fc51b4f1d0ffde9fffb314a586bcf812fe84496c2a5c56f9fa362cfa91e9cf2"
+    sha256               x86_64_linux:  "6b6a26c7bf0e1ba43a9a87dcf9c5b669da81070f282c6b26a70204207713bde3"
   end
 
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => [:build, :test]
   depends_on "cairomm@1.14"
+  depends_on "glib"
   depends_on "glibmm@2.66"
+  depends_on "libsigc++@2"
   depends_on "pango"
 
   def install

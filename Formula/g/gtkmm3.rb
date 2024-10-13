@@ -11,6 +11,7 @@ class Gtkmm3 < Formula
   end
 
   bottle do
+    sha256 cellar: :any, arm64_sequoia:  "34f51a1502979c61cb7b92921770e9bf0a388acf0cac71f15c589b9ee583c8ee"
     sha256 cellar: :any, arm64_sonoma:   "fb81c07b62bf93741751146db60e01d13dd0f2e2f10686286703133e8356668a"
     sha256 cellar: :any, arm64_ventura:  "a96cef2e81067ac9239b8eeadd95f1e13f33f02058e43a6f2b349b56b5579c2c"
     sha256 cellar: :any, arm64_monterey: "417c16642451874e4444883262d2850241e35607d87e8bf02c534b041b798f3d"
@@ -23,9 +24,14 @@ class Gtkmm3 < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => [:build, :test]
+
   depends_on "atkmm@2.28"
   depends_on "cairomm@1.14"
+  depends_on "gdk-pixbuf"
+  depends_on "glib"
+  depends_on "glibmm@2.66"
   depends_on "gtk+3"
+  depends_on "libsigc++@2"
   depends_on "pangomm@2.46"
 
   def install
@@ -37,6 +43,7 @@ class Gtkmm3 < Formula
   test do
     (testpath/"test.cpp").write <<~EOS
       #include <gtkmm.h>
+
       class MyLabel : public Gtk::Label {
         MyLabel(Glib::ustring text) : Gtk::Label(text) {}
       };
@@ -44,7 +51,8 @@ class Gtkmm3 < Formula
         return 0;
       }
     EOS
-    flags = shell_output("#{Formula["pkg-config"].opt_bin}/pkg-config --cflags --libs gtkmm-3.0").strip.split
+
+    flags = shell_output("pkg-config --cflags --libs gtkmm-3.0").chomp.split
     system ENV.cxx, "-std=c++11", "test.cpp", "-o", "test", *flags
     system "./test"
   end

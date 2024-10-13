@@ -11,6 +11,7 @@ class Xa < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "1e7cb61c60ee5fc683a25d3b2569089a26d4cb1fad041c31c42c9bcfd738ff4d"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4faf66bc33b40db687358b44c1e3e20c1c6c0bb4d5b524a3cce3071907fb573e"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "fca7bd74aa55cd1f8ac78ae44ecb698c2c79e3226aea4c5c59a24bf9677c0ba7"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "15866623bc504d49b48f87805ce45b3812b0cf1e063a144d9c41ba967cd26f70"
@@ -30,7 +31,7 @@ class Xa < Formula
   test do
     (testpath/"foo.a").write "jsr $ffd2\n"
 
-    system "#{bin}/xa", "foo.a"
+    system bin/"xa", "foo.a"
     code = File.open("a.o65", "rb") { |f| f.read.unpack("C*") }
     assert_equal [0x20, 0xd2, 0xff], code
   end

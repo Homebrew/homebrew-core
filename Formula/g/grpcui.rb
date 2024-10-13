@@ -6,6 +6,7 @@ class Grpcui < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "8218f707ed3b76afbbb444c2470c68a816a23da38ad2c5cfe338f27cff6a580a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "409cbd513224c978af314d09819f9b5127d210f5a183f30ecc75904c9d95527b"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "cec2bb7927963fdf92deb9a40696594a3a30089ef6face9ca74adf3941cbde52"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6b629edca9f7ce2e5bb9e0945e52f801dd5ebed5a02254933f067ebb6348a50c"

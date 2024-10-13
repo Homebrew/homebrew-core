@@ -3,10 +3,11 @@ class Npush < Formula
   homepage "https://npush.sourceforge.net/"
   url "https://downloads.sourceforge.net/project/npush/npush/0.7/npush-0.7.tgz"
   sha256 "f216d2b3279e8737784f77d4843c9e6f223fa131ce1ebddaf00ad802aba2bcd9"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
   head "https://svn.code.sf.net/p/npush/code/"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "52bb1bf2c16219188637e18260db7c52d8eead9d02dd9f65bb9d7cfb7adf6520"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "58edd27febec742ef46cf8e1b6fca1bf8053a99c953fbd53743a6b12387d924c"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "ee910410e365aa4d509068cb68d14bf871b9a679cfff678db620bbb6603838fc"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ae543262c4b86f3d0babffd21d015739bf5db0838fc7ee604df46cf8e26e3178"

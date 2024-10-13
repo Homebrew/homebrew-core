@@ -6,6 +6,7 @@ class Cdrdao < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256 arm64_sequoia:  "e743e2ad68e18dab5d0c92398fe17efabfe6a0bdc3ff070680446b6cb40ab6e9"
     sha256 arm64_sonoma:   "e4d1ccc44373ea37015384940c9bdfef60f847aa866cbb4406e7e39e50251b46"
     sha256 arm64_ventura:  "9bba142c6ea1c60866164731f20b0318488bef4e95dc337e471da95a44a3e6fc"
     sha256 arm64_monterey: "d2ff09195a2c3bba86481154a011e24ead7e9c5b21b3d62555a73fb1b2474928"

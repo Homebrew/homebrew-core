@@ -6,6 +6,7 @@ class Shmux < Formula
   license "BSD-3-Clause"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "1c6c5f0ff3534ed4ad1c56180b80e0c1963b25c803789492c130ab0620eccb64"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2b5156cf3563aa2cca9be5a0de4e8bdd23fbd78854910a8fd25e0cf83b0d0172"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "b4629c31e6233a8e7d7c4caf6491c3e585f8b7eaa5964f426ceab66562cb4fb7"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e32cab0e2063d5b3d43f9e796e5b00b89f7ac2bae966efe236b1e69d8ae6e8bc"
@@ -29,6 +30,6 @@ class Shmux < Formula
   end
 
   test do
-    system "#{bin}/shmux", "-h"
+    system bin/"shmux", "-h"
   end
 end

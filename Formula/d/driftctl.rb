@@ -16,6 +16,7 @@ class Driftctl < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "d87de2f3a5e0374a88d7ea3cbdedd603f88a7567a230aa48812e9e0457555540"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f3ea52c1d74b676c7a9ead834f1d2d21515330c78b3a603361099b68f26184ff"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "950108c93c9b3b586dd38225b9500c3567bb450c48c2167aa0f77065c69976ca"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6f77e681d25b272b43d33ceffc3e267b96bb19e24849680ff8dcb655b9ee1194"

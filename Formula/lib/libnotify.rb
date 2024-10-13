@@ -6,6 +6,7 @@ class Libnotify < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
+    sha256 cellar: :any, arm64_sequoia:  "680394cbbed255bcdd9409f9db99b18b5e636086d4097d2508eadce044f66790"
     sha256 cellar: :any, arm64_sonoma:   "2fff04fdd870fef44affe2aacd76d6bb9cb571ce4fe94f38da720f57f5b7c065"
     sha256 cellar: :any, arm64_ventura:  "1d8682206a13d9aad42501c9e4f2f4c9629342020daacf33a5e0e29e80e58b62"
     sha256 cellar: :any, arm64_monterey: "ca2cef7f1cdf9ce2ee7ce8ed88adf6c5926baf6c6361f046ea4e9d790b164242"
@@ -21,7 +22,13 @@ class Libnotify < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => [:build, :test]
+
   depends_on "gdk-pixbuf"
+  depends_on "glib"
+
+  on_macos do
+    depends_on "gettext"
+  end
 
   def install
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"

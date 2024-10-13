@@ -1,9 +1,9 @@
 class Doxygen < Formula
   desc "Generate documentation for several programming languages"
   homepage "https://www.doxygen.nl/"
-  url "https://doxygen.nl/files/doxygen-1.11.0.src.tar.gz"
-  mirror "https://downloads.sourceforge.net/project/doxygen/rel-1.11.0/doxygen-1.11.0.src.tar.gz"
-  sha256 "c9edfdf8c5f3e8bee0c4c967850caead27099883ee7ff8b11044e6d63faf3607"
+  url "https://doxygen.nl/files/doxygen-1.12.0.src.tar.gz"
+  mirror "https://downloads.sourceforge.net/project/doxygen/rel-1.12.0/doxygen-1.12.0.src.tar.gz"
+  sha256 "a3a3dba2018ef409d83d81a2fc42a0d19bdbe087252ef342bf214b51b8b01634"
   license "GPL-2.0-only"
   head "https://github.com/doxygen/doxygen.git", branch: "master"
 
@@ -13,13 +13,14 @@ class Doxygen < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3563bf8fb8ef84bf1bb3fbcf70cc91b35a1d6bccecc97ebeb9f6de8ce8266f74"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "62d0f4cdb2e1b99efde1ca2437b19b2532784fc50becc1ed8464544f7cad162a"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "20d0a7d6c962e71bd1191d422573621aa3f5b90f5323744e4a20d4e155b873fc"
-    sha256 cellar: :any_skip_relocation, sonoma:         "f2095539b2bc24893b171c477967e473ae7940cc7c30fb60a15bbb5d8c790b96"
-    sha256 cellar: :any_skip_relocation, ventura:        "8d4065e87a6a7e45a1f08f3da7fbdbb228f6377125907ac249f58c9ae78a6b1e"
-    sha256 cellar: :any_skip_relocation, monterey:       "03d4746629c4f60bafc6b09a4975cee0a70806cfd35bc39132c2e740e4528d2f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cfb35d6329584d7ff43e14d2d071b37d099dbc773e513f4a5f1a6df73081d72f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "358a28534368ec74031160dc4a91f66400740594c6f81ae1ccfd720fc77b26e6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "056c2729260fb3189ec107c5e1186f7634f4fea1bc28f69a14467dc1af549c38"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "cff27865073a17e2264711120fd13561c26773a6db4cff17336b8930980e1c27"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "63c7b68e43b7f03a7c9c5f95aca5244baf5794b590762004518659e54c1d9a1c"
+    sha256 cellar: :any_skip_relocation, sonoma:         "c051c47ee4982ad11f2c23a7aa8fbb664874d799685852f350ef08eaf2c7bb2a"
+    sha256 cellar: :any_skip_relocation, ventura:        "dd2dfbfacff168cf29f003af6b29fa1b51ca8bad4a5630e8224098695fb82b78"
+    sha256 cellar: :any_skip_relocation, monterey:       "51940f39a1836b55266901fa4ae03eb941cc3ffff635cb0da0a041d1c9e746fe"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "42e0f9dbdaaa5bfdf811cc4e349773ae6f712a5bb5be0887d436fa21775bea86"
   end
 
   depends_on "bison" => :build

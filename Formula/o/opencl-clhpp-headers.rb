@@ -7,6 +7,7 @@ class OpenclClhppHeaders < Formula
   head "https://github.com/KhronosGroup/OpenCL-CLHPP.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "ce515366ce3d34a5587222e51fea930bb46020017af3fe6432bf77d19aae0b36"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "925332e79f15cd246f2f26a1dd68b91a9d3678304a0a50e951f777b60c2bcfad"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "4cf4798ecf063feeda3b9a3e1cb4a67efadc04e2a724af911f10e2c4cc973083"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "9011d58d7d6a7942b74d70a4155b9192cf6d576e1712be5d988cea7359da709b"

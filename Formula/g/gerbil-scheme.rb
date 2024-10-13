@@ -12,6 +12,7 @@ class GerbilScheme < Formula
   end
 
   bottle do
+    sha256 arm64_sequoia:  "dec01c0ea7481d9d9d04be4d4ba2dee210ddad512dee22dd4c4842fcdd66eaaf"
     sha256 arm64_sonoma:   "d14934e41e373d08361070ee4ae92941c5933eb9afea231d289a9c66c1726067"
     sha256 arm64_ventura:  "5568e6b56fed556b8c0145de4d54d6dc256c0d75af3e43a88a34c4f3b4922a0f"
     sha256 arm64_monterey: "eea0039afa114fcf1329ca303a4b1829141a8b94d95520409109b362ffe459f6"
@@ -31,6 +32,7 @@ class GerbilScheme < Formula
 
   uses_from_macos "libxml2"
   uses_from_macos "sqlite"
+  uses_from_macos "zlib"
 
   on_macos do
     depends_on "gcc"

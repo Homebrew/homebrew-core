@@ -7,6 +7,7 @@ class Httpflow < Formula
   head "https://github.com/six-ddc/httpflow.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "ac62f29bcb5a484af3755990f8ddd109dce6df7a261e281f9846a383457f815a"
     sha256 cellar: :any,                 arm64_sonoma:   "2c7c2232e112599cf10e22ac013df5cf5823f6071292fa91a5252480539c85b7"
     sha256 cellar: :any,                 arm64_ventura:  "4b3f8c7e2ac615472630e7913d4e0461199a5f9fc6204db04802c6829d359b1d"
     sha256 cellar: :any,                 arm64_monterey: "90a537d7db4c639129394ae490211a16378c9549a777e80b3e050197fac49d84"
@@ -32,6 +33,6 @@ class Httpflow < Formula
   end
 
   test do
-    system "#{bin}/httpflow", "-h"
+    system bin/"httpflow", "-h"
   end
 end

@@ -1,8 +1,8 @@
 class PythonTkAT310 < Formula
   desc "Python interface to Tcl/Tk"
   homepage "https://www.python.org/"
-  url "https://www.python.org/ftp/python/3.10.14/Python-3.10.14.tgz"
-  sha256 "cefea32d3be89c02436711c95a45c7f8e880105514b78680c14fe76f5709a0f6"
+  url "https://www.python.org/ftp/python/3.10.15/Python-3.10.15.tgz"
+  sha256 "a27864e5ba2a4474f8f6c58ab92ff52767ac8b66f1646923355a53fe3ef15074"
   license "Python-2.0"
 
   livecheck do
@@ -10,13 +10,14 @@ class PythonTkAT310 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "eab4f85a507614392363f2705884baaa355e61733d6e9fe6e4047fda518941b2"
-    sha256 cellar: :any,                 arm64_ventura:  "142e2c05a6bafe287b5bbe0442b3c7987f0d031ca46b6646cd164bfbe5fc0115"
-    sha256 cellar: :any,                 arm64_monterey: "a7e71d0cc888c025be7356593656571afc280c4d0acbeaa6c503eeb40211a9e0"
-    sha256 cellar: :any,                 sonoma:         "4582ff8ebe562049ac5d5052295620bf312e50e2fe3631f5079200adfe441bf1"
-    sha256 cellar: :any,                 ventura:        "9d281e192995af91cf001e68a5a95950cd2b089b56cc8a58a3ff3f1c761a69eb"
-    sha256 cellar: :any,                 monterey:       "a435c9b37522c57fae99691c34d045f6778da7ca2c342ebdaa0a0422a8261a71"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7a109110be289f8b1b6393c1915f12399a037820fb1aef89ff6f851a4a3d7352"
+    sha256 cellar: :any,                 arm64_sequoia:  "b5dbb1ded91e663c20c3de0e5c2785332633095b48e13316369a683cf7c26eb3"
+    sha256 cellar: :any,                 arm64_sonoma:   "48ad8d54f4e0cdf0112d7af29c7ae8477bc636a298464b122016359d7fde5361"
+    sha256 cellar: :any,                 arm64_ventura:  "16db2ba9fc83f08baea56726c3f73fa6ed618b049593c72e5c0caccd68e5588d"
+    sha256 cellar: :any,                 arm64_monterey: "5f11a8483cb9934671522a9f7785f0dab137dc23a86c9af1d292419efcc66c72"
+    sha256 cellar: :any,                 sonoma:         "35e19ce66c25923835b2b3451917f032f1df24131db3addc22b72e61c0c29559"
+    sha256 cellar: :any,                 ventura:        "d3f7f38c344f9be77e906d6ff7209693e19e298bf5d7c53e6a2f6c23be956640"
+    sha256 cellar: :any,                 monterey:       "f7c599e378442e0be4d1ffb392616d8e251a58deeee6be7bb0c1cbb4bd01f5f5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fbb8a51c62004b176e0a95d51bf3426fcbe88f01f6cb520bd4dc235dbc537b6c"
   end
 
   keg_only :versioned_formula

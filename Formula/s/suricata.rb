@@ -3,8 +3,8 @@ class Suricata < Formula
 
   desc "Network IDS, IPS, and security monitoring engine"
   homepage "https://suricata.io"
-  url "https://www.openinfosecfoundation.org/download/suricata-7.0.6.tar.gz"
-  sha256 "21824f7ff12087c0c9b9de207199a75a9c31b03036688c7cb9c178f0a3b57f8d"
+  url "https://www.openinfosecfoundation.org/download/suricata-7.0.7.tar.gz"
+  sha256 "26d0a36194d53080fc8b09b999b2b5a83c4049f40ad07ef6ae69c7225a728b86"
   license "GPL-2.0-only"
 
   livecheck do
@@ -13,13 +13,13 @@ class Suricata < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "04d5789273a379ec9f266fd9939081f5a6cc323848a293d13e25978ea5123b0b"
-    sha256 arm64_ventura:  "257ab453d4ccafc933372f60ab737ab4654e6a083b99cbed130356632f105802"
-    sha256 arm64_monterey: "80e9a9e85fb2f5377cbfece269ef766c06609a08585ce3e131c6cac126013511"
-    sha256 sonoma:         "f1c176d4b2be1ad5f7690700d36862919e4b252dc26fe6cf06fa65128ad0ba50"
-    sha256 ventura:        "85414e33be0f23c26b382c86bdf0405aee5d059fed2cebd1e469be0ca1744d52"
-    sha256 monterey:       "1e617fa86869e20f40e8270815418f92266cccd1312e5b67417d973ff850d2f2"
-    sha256 x86_64_linux:   "3f9f192fb72b176fd30a83783dffbe4acd29a950bbe104851ec48b3430cdcce5"
+    rebuild 1
+    sha256 arm64_sequoia: "e2ab474e372175d8f3905c33eb6b88498757c6d7589bf214344a79653c468b51"
+    sha256 arm64_sonoma:  "c1919fb164c68206031353fc6c7ac54afbcdc2bab06e6f202fa8f68802c050d6"
+    sha256 arm64_ventura: "ed28589c2b7f42021a350bd779a7a76e8e5f790eec03fa02f1ed34108bca89cf"
+    sha256 sonoma:        "6f2845a8a5000a06213834b5f795cc07e132fd419e9b7ce86f68a8257506c466"
+    sha256 ventura:       "0bcea933496d59cf8950f33f8084ae29c4835bcb811181b23573d56bad6cf2c9"
+    sha256 x86_64_linux:  "a7c52934a4c8f2df71be5d154b0308ebc8c1c92b103c5d33cc2c72301427568c"
   end
 
   depends_on "pkg-config" => :build
@@ -30,17 +30,22 @@ class Suricata < Formula
   depends_on "libyaml"
   depends_on "lz4"
   depends_on "pcre2"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   uses_from_macos "libpcap"
+  uses_from_macos "zlib"
 
   resource "pyyaml" do
-    url "https://files.pythonhosted.org/packages/cd/e5/af35f7ea75cf72f2cd079c95ee16797de7cd71f29ea7c68ae5ce7be1eda0/PyYAML-6.0.1.tar.gz"
-    sha256 "bfdf460b1736c775f2ba9f6a92bca30bc2095067b8a9d77876d1fad6cc3b4a43"
+    url "https://files.pythonhosted.org/packages/54/ed/79a089b6be93607fa5cdaedf301d7dfb23af5f25c398d5ead2525b063e17/pyyaml-6.0.2.tar.gz"
+    sha256 "d584d9ec91ad65861cc08d42e834324ef890a082e591037abe114850ff7bbc3e"
+  end
+
+  def python3
+    "python3.13"
   end
 
   def install
-    venv = virtualenv_create(libexec, "python3.12")
+    venv = virtualenv_create(libexec, python3)
     venv.pip_install resources
     ENV.prepend_path "PATH", venv.root/"bin"
 

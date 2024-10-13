@@ -17,37 +17,38 @@ class Libeatmydata < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sonoma:   "31d27501006e2d40b9d48c6d004e46ad2c2dab4709c7bb49cdac96f81e8f5984"
-    sha256 cellar: :any,                 arm64_ventura:  "ba431c20d2cfdca496b982172a5c1cfa54019e722d39d68452da7ba777b90364"
-    sha256 cellar: :any,                 arm64_monterey: "e85eba783c02da67dbba76f16de831769b13ce6fdaccf94e0404567b2a0646f4"
-    sha256 cellar: :any,                 arm64_big_sur:  "a0d61b1323d5efdcb7ad0d9a5c92e0196d75e0cc10ffa53acd65813dbfe5e152"
-    sha256 cellar: :any,                 sonoma:         "888117a3bf6892fa4276968ae237f45e1323629fb35608b98efd1a8c4d902f9a"
-    sha256 cellar: :any,                 ventura:        "03d011ca0e5c1a324b8ba45a10ddcb07fba2128ce0ae352a3c4c652ea060f347"
-    sha256 cellar: :any,                 monterey:       "c424091120ea1d287a7ac95cdbf2620cdc0adf8e251e79cbeb8b4326b800ae24"
-    sha256 cellar: :any,                 big_sur:        "4d2a2ee043f16c6215d03d286f27395cf40ed7d2de56bee098b36cad579dbe0f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "108aec33bd43ad8bb056cbe840019a5ec42f0f16a99c3b40d0ce8c5d891f0249"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_sequoia: "1d20eb672c446fa9b5c6f44e1f75a165f23b993be2f11ae203e5fe7a4d9a20ec"
+    sha256 cellar: :any,                 arm64_sonoma:  "75e170239996c79f9dd99439c460f42b7b902cb387d140bddaf5c824b88ab243"
+    sha256 cellar: :any,                 arm64_ventura: "91c07ca49009f2bd4e377efedf459a536d491c4250d06ece93fe63356a045bcc"
+    sha256 cellar: :any,                 sonoma:        "e5194f70fa35da7d6a2a199db97928ab5650c731cfb5235407ff464442bfe757"
+    sha256 cellar: :any,                 ventura:       "08c627a35daeae1fe9602ad44723640b8328485bb05ed832fce245060de86ba4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bc9b82e66d7d882d3a2b5579fcd31040feab74d5b6a333d1060b02a695fe8eca"
   end
 
-  depends_on "autoconf"         => :build
+  depends_on "autoconf" => :build
   depends_on "autoconf-archive" => :build
-  depends_on "automake"         => :build
-  depends_on "libtool"          => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
 
-  depends_on "coreutils"
+  on_monterey :or_older do
+    depends_on "coreutils"
+  end
 
   on_linux do
     depends_on "strace" => :test
   end
 
   def install
-    # macOS does not support `readlink -f` as used by the `eatmydata` shell wrapper script
-    inreplace "eatmydata.sh.in", "readlink", "#{Formula["coreutils"].opt_bin}/greadlink" if OS.mac?
+    # macOS before 12.3 does not support `readlink -f` as used by the `eatmydata` shell wrapper script
+    if OS.mac? && MacOS.version <= :monterey
+      inreplace "eatmydata.sh.in", "readlink", "#{Formula["coreutils"].opt_bin}/greadlink"
+    end
 
     system "autoreconf", "--force", "--install", "--verbose"
-    system "./configure", *std_configure_args,
-                          "--disable-option-checking",
-                          "--disable-silent-rules"
+    system "./configure", "--disable-option-checking",
+                          "--disable-silent-rules",
+                          *std_configure_args
     system "make", "install"
   end
 

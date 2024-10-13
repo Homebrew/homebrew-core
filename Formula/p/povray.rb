@@ -4,7 +4,7 @@ class Povray < Formula
   url "https://github.com/POV-Ray/povray/archive/refs/tags/v3.7.0.10.tar.gz"
   sha256 "7bee83d9296b98b7956eb94210cf30aa5c1bbeada8ef6b93bb52228bbc83abff"
   license "AGPL-3.0-or-later"
-  revision 10
+  revision 11
   head "https://github.com/POV-Ray/povray.git", branch: "master"
 
   livecheck do
@@ -13,13 +13,14 @@ class Povray < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "54b876f530a83175418a5475d4caddb67d196adfa973df16459390e53cac80a2"
-    sha256 arm64_ventura:  "f52e87ba1f5ee1d51e9b123d9eb3972037840cde7edd9982cfc5fcdc4009a64e"
-    sha256 arm64_monterey: "5e1a101c8ca4290509f9213df0bdb57b5459a43cd8c0de0c18593dc77d706e3b"
-    sha256 sonoma:         "b721a8180d2306e06d0d7ff209799c7cfc70f3df6649136dcb8af688338a0cd7"
-    sha256 ventura:        "15204901f60eed1990fca78bfa6186d5a5f7c0bcf057dc926a4f30f51bc5e160"
-    sha256 monterey:       "b2c5f35dd0a30130cff159e8c59b67e6f48955290a5c5fb70c7d06a5c02dc2c8"
-    sha256 x86_64_linux:   "d4e13b8bc59a7e7efacb75ca605d0c7ca3d4676b03a4dd0bf30928fd92e50a24"
+    sha256 arm64_sequoia:  "3814912ad793bb6f99aaec46a5b69a7365a07a4f7a776d6aee1573ecfd69efca"
+    sha256 arm64_sonoma:   "5cf35722079d7dd1d6f4f0829ae3cd625a4e9a1e43507fd0c8d8ad73f85ba5d7"
+    sha256 arm64_ventura:  "dfb40a725c12450107ae31a44a361e7b6e7b0a709bd4b53ee2f334b49d21dd3f"
+    sha256 arm64_monterey: "9e8e0917cce94395ae979af1eb47e3a657693fec4574e0b7195eb5bc31d7ecff"
+    sha256 sonoma:         "2eae82eac7281c82ac56a5df270f64801bb43d9cfce6ffecfcf34fe6cefeaeea"
+    sha256 ventura:        "8549b9706027eff9ac82d004592ee2b90bfd3a0033493455b2c4e39cfbf2fca1"
+    sha256 monterey:       "a8c775e06b2740fbf07fcc153a5b910429b71fa992907351d33e34b420162c86"
+    sha256 x86_64_linux:   "f88d3ae2c4a40f22fe92f18b9caff59887a9ac660f93c979b826931775e74b45"
   end
 
   depends_on "autoconf" => :build
@@ -30,6 +31,8 @@ class Povray < Formula
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "openexr"
+
+  uses_from_macos "zlib"
 
   def install
     ENV.cxx11

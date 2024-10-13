@@ -7,6 +7,7 @@ class Sloth < Formula
   head "https://github.com/slok/sloth.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "ce4ad62a11adf1950981a013b45c2ab33bd59b930046ce35b0d5722a46d100e6"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3d0d882935b6f9e2027ee01c260823b6dda8fb286abbef291f48bbe83b173171"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "af0dcf4b0c575bbce9cee6ebbb080245db9fe886bf55c1d4d77b0bd25f5acda9"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "18b6f8e012e7b22c325124fc7187d90a97282b6ef3087162b1737a733206c512"

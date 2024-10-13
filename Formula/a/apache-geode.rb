@@ -8,13 +8,14 @@ class ApacheGeode < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "5cf4c4a321ae1e5a768773e91021ee8d7d0c4555c2209e532b08efd26929d512"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "48da66d985afa6956fc68c6be0fc4b78c02d6a206282e9c1e5536fea83cd3bdb"
   end
 
   depends_on "openjdk@11"
 
   def install
-    rm_f "bin/gfsh.bat"
+    rm("bin/gfsh.bat")
     bash_completion.install "bin/gfsh-completion.bash" => "gfsh"
     libexec.install Dir["*"]
     (bin/"gfsh").write_env_script libexec/"bin/gfsh", Language::Java.java_home_env("11")

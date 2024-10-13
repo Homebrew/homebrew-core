@@ -4,6 +4,7 @@ class GnupgPkcs11Scd < Formula
   url "https://github.com/alonbl/gnupg-pkcs11-scd/releases/download/gnupg-pkcs11-scd-0.10.0/gnupg-pkcs11-scd-0.10.0.tar.bz2"
   sha256 "29bf29e7780f921c6d3a11f608e2b0483c1bb510c5afa8473090249dd57c5249"
   license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     url :stable
@@ -13,15 +14,12 @@ class GnupgPkcs11Scd < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any,                 arm64_sonoma:   "b109d8b331ed54697a9c26bf3af0e2ba6ac6611bc3fa43797c725f2005e4fefa"
-    sha256 cellar: :any,                 arm64_ventura:  "637d2da5209f612c115bfebe4cf6d3e5d1941c4498c077461091672ade772b45"
-    sha256 cellar: :any,                 arm64_monterey: "3c669ce77d7e6e31b830b1eaaab48b00ffda6d0c95151acf532b8f73407e9e04"
-    sha256 cellar: :any,                 arm64_big_sur:  "32861ea6eb6c72179d05684171a4ca32ce177d62deb4e1abeb7f47f7656fb54f"
-    sha256 cellar: :any,                 sonoma:         "ae9fcd61be5bafa086ed506880b470ff50040c3c278e3e64ea455f52dae8dc28"
-    sha256 cellar: :any,                 ventura:        "7883e6d5438dfecc6ec1e3d10b7afd8927f15cf8bad9760105cb2f2ec8606047"
-    sha256 cellar: :any,                 monterey:       "47c89528a70ed380c30748379e4a996e3081371e3140ae694ab98ac679e66a1f"
-    sha256 cellar: :any,                 big_sur:        "51530e19934fdb181f1f21f9c453cf234381bcaad2ea0626a77a5865ac68878c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5e1426c349e8f781f2ef03b2cc965e2ff9a12784c5416e3fcc34ab50902afb14"
+    sha256 cellar: :any,                 arm64_sequoia: "306ec3bbfc7f29c826c071461af2585f0759bab3e49c11aaa42181f0950ab8ab"
+    sha256 cellar: :any,                 arm64_sonoma:  "554ec82459c766488cfa01e5a2ac16b9c576badba3848ae5d2f90b89e2dadabb"
+    sha256 cellar: :any,                 arm64_ventura: "e4d76440af9ca88fe628307bcef9a9313ad8ae2d07c40ed3367fa82e8c386b7b"
+    sha256 cellar: :any,                 sonoma:        "271520fe7493472155570298cb379f0f08da53a7de947e448e5c499e3fe680b5"
+    sha256 cellar: :any,                 ventura:       "3e9b548b5a804619036a14524f563fc360846826868f700ac08057d3ddd68784"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c0635d9f5f524a8de9291d9608fe4eee289f973156f2d6e10dd58e4edefe7481"
   end
 
   depends_on "autoconf" => :build
@@ -34,19 +32,53 @@ class GnupgPkcs11Scd < Formula
   depends_on "openssl@3"
   depends_on "pkcs11-helper"
 
+  # Backport pkg-config usage to support newer `libassuan`
+  patch :DATA
+  patch do
+    url "https://github.com/alonbl/gnupg-pkcs11-scd/commit/de08969ae92d31b585d7055eb0734962f55a7282.patch?full_index=1"
+    sha256 "591833296a6e7401732f2ea104004d1dc57567ea2b661a2a1688bcd8e1f7fed8"
+  end
+
   def install
-    system "autoreconf", "-fiv"
-    system "./configure", "--disable-dependency-tracking",
-                          "--with-libgpg-error-prefix=#{Formula["libgpg-error"].opt_prefix}",
-                          "--with-libassuan-prefix=#{Formula["libassuan"].opt_prefix}",
-                          "--with-libgcrypt-prefix=#{Formula["libgcrypt"].opt_prefix}",
-                          "--prefix=#{prefix}"
+    system "autoreconf", "--force", "--install", "--verbose"
+    system "./configure", "--disable-silent-rules", *std_configure_args
     system "make"
     system "make", "check"
     system "make", "install"
   end
 
   test do
-    system "#{bin}/gnupg-pkcs11-scd", "--help"
+    system bin/"gnupg-pkcs11-scd", "--help"
   end
 end
+
+__END__
+diff --git a/configure.ac b/configure.ac
+index 816ab5b..5ec9323 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -168,21 +168,21 @@ AC_ARG_WITH(
+
+ AC_ARG_WITH(
+ 	[libgpg-error-prefix],
+-	[AC_HELP_STRING([--with-libgpg-error-prefix=DIR], [define libgpgp-error prefix])],
++	[AS_HELP_STRING([--with-libgpg-error-prefix=DIR], [define libgpgp-error prefix])],
+ 	,
+ 	[with_libgpg_error_prefix="/usr" ]
+ )
+
+ AC_ARG_WITH(
+ 	[libassuan-prefix],
+-	[AC_HELP_STRING([--with-libassuan-prefix=DIR], [define libassuan prefix])],
++	[AS_HELP_STRING([--with-libassuan-prefix=DIR], [define libassuan prefix])],
+ 	,
+ 	[with_libassuan_prefix="/usr" ]
+ )
+
+ AC_ARG_WITH(
+ 	[libgcrypt-prefix],
+-	[AC_HELP_STRING([--with-libgcrypt-prefix=DIR], [define libgcrypt prefix])],
++	[AS_HELP_STRING([--with-libgcrypt-prefix=DIR], [define libgcrypt prefix])],
+ 	,
+ 	[with_libgcrypt_prefix="/usr" ]
+ )

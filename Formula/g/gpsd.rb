@@ -5,6 +5,7 @@ class Gpsd < Formula
   mirror "https://download-mirror.savannah.gnu.org/releases/gpsd/gpsd-3.25.tar.xz"
   sha256 "7e5e53e5ab157dce560a2f22e20322ef1136d3ebde99162def833a3306de01e5"
   license "BSD-2-Clause"
+  head "https://gitlab.com/gpsd/gpsd.git", branch: "master"
 
   livecheck do
     url "https://download.savannah.gnu.org/releases/gpsd/"
@@ -13,6 +14,7 @@ class Gpsd < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia:  "9a3bb3d5594e1b63686b3d40b42f1d8dedf396b03c952a6a758d74d374c08452"
     sha256 cellar: :any,                 arm64_sonoma:   "938cf9f4d6bd4ad1ab1ef1f553921dbc6db46810fff2715f25ad8c0aae4a1258"
     sha256 cellar: :any,                 arm64_ventura:  "12a924778ab1fcc13aff5d84ac712db09bc964f85fc57b7677f1566c5e870008"
     sha256 cellar: :any,                 arm64_monterey: "7ce33dccf34d5beab1ebd4a98dfd1b3bb284be93a43e367e5bb446258da36144"
@@ -23,10 +25,15 @@ class Gpsd < Formula
   end
 
   depends_on "asciidoctor" => :build
-  depends_on "python-setuptools" => :build
   depends_on "scons" => :build
 
   uses_from_macos "ncurses"
+
+  # Replace setuptools in SConscript for python 3.12+
+  patch do
+    url "https://gitlab.com/gpsd/gpsd/-/commit/9157b1282d392b2cc220bafa44b656d6dac311df.diff"
+    sha256 "b2961524c4cd59858eb204fb04a8119a8554560a693093f1a37662d6f15326f9"
+  end
 
   def install
     system "scons", "chrpath=False", "python=False", "strip=False", "prefix=#{prefix}/"

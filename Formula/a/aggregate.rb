@@ -7,6 +7,7 @@ class Aggregate < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "acc66660e03c2394db8381da8ad5200a6a6f02fce14b1de748dd555f0f98ffa6"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0b7b89c9bc52c33559e7a3f8df32bb2a20b3fcdd1c5b5714452f1efe93f9467a"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "7ed5b3fee9fdcadb6278923b3776739ef63226ae5ad3dbc024ddfc54e1eea0fc"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "387184c17669967eb2af11d108d5bd53294ea7163a19ec3a2519449e3f8c24a6"
@@ -25,9 +26,10 @@ class Aggregate < Formula
 
   deprecate! date: "2024-05-04", because: :repo_removed
 
-  conflicts_with "crush-tools", because: "both install an `aggregate` binary"
-
   def install
+    # Workaround for newer Clang
+    ENV.append_to_cflags "-Wno-implicit-int" if DevelopmentTools.clang_build_version >= 1403
+
     bin.mkpath
     man1.mkpath
 
@@ -63,6 +65,6 @@ class Aggregate < Formula
       10.1.3.0/25
     EOS
 
-    assert_equal expected_output, pipe_output("#{bin}/aggregate", test_input), "Test Failed"
+    assert_equal expected_output, pipe_output(bin/"aggregate", test_input), "Test Failed"
   end
 end

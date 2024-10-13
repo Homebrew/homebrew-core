@@ -6,6 +6,7 @@ class Twm < Formula
   license "X11"
 
   bottle do
+    sha256 arm64_sequoia:  "7d372aede60284be434101e34f337807e2986e866bb5b1cdce0afd70e2727a89"
     sha256 arm64_sonoma:   "af71103ec9bf9cb7fb31d92b2006c97b91d9d494c53dd95347f13f95e9b0bdbf"
     sha256 arm64_ventura:  "a2c5a282d6a59cc729bbf0bed690e73b586ccffd90042057e43a2682605c896a"
     sha256 arm64_monterey: "19a684ac826452df3f0df71ab60e5a6a2589ffd8f7aef62e1c056895af2d15e2"
@@ -19,13 +20,18 @@ class Twm < Formula
 
   depends_on "pkg-config" => :build
 
+  depends_on "libice"
+  depends_on "libsm"
+  depends_on "libx11"
+  depends_on "libxext"
   depends_on "libxmu"
   depends_on "libxrandr"
+  depends_on "libxt"
 
   uses_from_macos "bison" => :build
 
   def install
-    system "./configure", *std_configure_args
+    system "./configure", "--disable-silent-rules", *std_configure_args
     system "make"
     system "make", "install"
   end

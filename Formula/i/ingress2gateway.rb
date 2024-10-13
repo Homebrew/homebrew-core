@@ -1,19 +1,20 @@
 class Ingress2gateway < Formula
   desc "Convert Kubernetes Ingress resources to Kubernetes Gateway API resources"
   homepage "https://github.com/kubernetes-sigs/ingress2gateway"
-  url "https://github.com/kubernetes-sigs/ingress2gateway/archive/refs/tags/v0.2.0.tar.gz"
-  sha256 "c77182394f38e39bb1c14a2e057d6d679e00ac0cec7ab314b6cb7ae9827c9315"
+  url "https://github.com/kubernetes-sigs/ingress2gateway/archive/refs/tags/v0.3.0.tar.gz"
+  sha256 "87813319e61b317f9c15e6df9db972a314518570c0b5fef5097c58fdba841a9d"
   license "Apache-2.0"
   head "https://github.com/kubernetes-sigs/ingress2gateway.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5cd6eedc90347967f37c2be2d5a472f2d59cb1ca4544fb845c82b8024aed5c48"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c37c69b9716141fe19a22b3e659533be4d6c09d161c2255b0c7eaa1e68563323"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a7d6297b75fa0c3aebe810ab8723179d24dd37da3bb65a982dbe3849d49a1c6a"
-    sha256 cellar: :any_skip_relocation, sonoma:         "b642d9684846de5bdac2011b773a11841438c8a59861b85631e0897f1f29ea92"
-    sha256 cellar: :any_skip_relocation, ventura:        "4619cd67314f0584cd5abcd42fbd0625ef5ed747a923eebed0c5320f13a174f6"
-    sha256 cellar: :any_skip_relocation, monterey:       "078352ac874427d894344820ac68d059798e018b386cb2014d3fa6766de29e00"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b11b0d725a6fad9bec4a62bf97ab9ce2121563648adac0fa16d7d4818f9c0719"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "af8bbcd1d0ae9124297ad6ffd754f3e409bff17d55ca7c846ce6c7fe61bc8a4c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a489fa8c94579d7efbc7627e15311f52d13ae194911fdef45599e2a0ceb8c968"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d20c2c56a8a896116278ae0d7f149d6a7b83c2e9ba2353c8a661d0fe8b244f76"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e87d2f0c51cc39169b3904b6056df027e8e29c894f0a1e2b83f52dc4909ed7b6"
+    sha256 cellar: :any_skip_relocation, sonoma:         "7414be1c00ccac9b96a3987ca25a6dc03234ecc0fda18e2f3ba9dc469b6be881"
+    sha256 cellar: :any_skip_relocation, ventura:        "d823fbdbeec96fd4da4c1a511a1e1b02adb1d1ff24d09fde5c9aa21c2c687969"
+    sha256 cellar: :any_skip_relocation, monterey:       "f7b496925d189bbcdd14c698d12154abffe893591ba975f6e4cef87fc312271c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "802c3e0ceb95f43c1cc4815728cfab1d826e5304209ff2676f9f91f02a4d50e5"
   end
 
   depends_on "go" => :build
@@ -109,7 +110,7 @@ class Ingress2gateway < Formula
     result = shell_output("#{bin}/ingress2gateway\
                           print\
                           --providers ingress-nginx\
-                          --input_file #{testpath}/test.yml\
+                          --input-file #{testpath}/test.yml\
                           -A")
 
     assert_equal expected.chomp, result.chomp

@@ -11,6 +11,7 @@ class Libdnet < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "e135b6343bf2e3a75c50e48663806ac62e315fd4cb8502e5e277bbf9b6e9f31a"
     sha256 cellar: :any,                 arm64_sonoma:   "d35b638124bc8708333c6d2db7958d11a29cdb4da95492586ce24b387b8d0e9b"
     sha256 cellar: :any,                 arm64_ventura:  "e00bca472fb8213147b83b87fd4df39acd20a50c0d35814f1d8ae1b50b0070d2"
     sha256 cellar: :any,                 arm64_monterey: "8ffb26e94d885f4091d9c3b93628e21dc795a12e53069b880cb69e93b0f2e47d"
@@ -36,6 +37,6 @@ class Libdnet < Formula
   end
 
   test do
-    system "#{bin}/dnet-config", "--version"
+    system bin/"dnet-config", "--version"
   end
 end

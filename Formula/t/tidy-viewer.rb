@@ -13,6 +13,7 @@ class TidyViewer < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "73a068ea1c90da7c42f7eb61e16429607c620c7519987417ba192aece9254d37"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a88cb1c9ee8fbcc0fbe1245b414bc396e331e1ee2722eca091b60ac204988a48"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "a19cf14db14c07f2ade52a99614d994acaac312c05c3143c60a6a5345f3a2896"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "42a42abecc4680536319b6bbbfba8ace4fd18d725e6a1c3bd1edc669a8877b64"

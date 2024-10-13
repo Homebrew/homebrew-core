@@ -1,18 +1,17 @@
 class Bkt < Formula
   desc "CLI utility for caching the output of subprocesses"
   homepage "https://www.bkt.rs"
-  url "https://github.com/dimo414/bkt/archive/refs/tags/0.8.0.tar.gz"
-  sha256 "c8b99f4540a3a083368db7d42d6947aa37217b32b443d97972e4536ed9404469"
+  url "https://github.com/dimo414/bkt/archive/refs/tags/0.8.2.tar.gz"
+  sha256 "d9128a13070ebc564bcc70210062bdd60eb757fd0f5d075c50e9aa7f714c6562"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f208dd72de9d4518a0624dc5cbaefa7edebd76e1b59af107d705ce36ad0ed7c9"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9f43a7716573ea97ca8d771a0aca2d0eeba2f3b4fb0a7c961acd00443fd515a7"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b4918fde1784c5f9857c270c071ca1419db44a34c8750e85313fa96d02cd8648"
-    sha256 cellar: :any_skip_relocation, sonoma:         "5474740470603f46600633932c9aea50fc6521aa78231f9663645c03fc3bb039"
-    sha256 cellar: :any_skip_relocation, ventura:        "003091dc33df2f6e13ed64cbe9ece53d6b5facb1799b7cb237b878c570e51681"
-    sha256 cellar: :any_skip_relocation, monterey:       "1cdcd41e666dc4c82cf59e768ac9a0fbeb47733c07a963d9f27df861d58e4db6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f8b0cbe97719769610f00faecb17cf49de17b5837b3cb23a102c28b133e0840f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b10047b912e99a0490844b80c06ad838dd05f85ff7e9e87f5c25447993b72ce7"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "dc1910c62ee9d66bb773f0633106edb03345905393999a29f056ab59b570e583"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "4ead41eec54fe52160bacbcd5305a521e7704c5fc6b19082aebb03163d0b02ab"
+    sha256 cellar: :any_skip_relocation, sonoma:        "fef406248481dabdb5e53ad4eb26be1f6984dbb261597a4f02e34a410d0b5141"
+    sha256 cellar: :any_skip_relocation, ventura:       "4d516657009e7793b2f9e2e3ee08a9349d613346481b4f03581f1cfd4a948851"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9f933949ff5c0945bc66c55380e42ca9e96d4292c241ba2ed8a147ea35e4b0a0"
   end
 
   depends_on "rust" => :build

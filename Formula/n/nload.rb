@@ -12,6 +12,7 @@ class Nload < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "a45171a86a39f2386824b9b9acafcdb1d054b43839513022859eac52693de221"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "06f18bf46c748111bb588cf2f2fbc63c38d255cfae76e33cc3a61fc642228e98"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "9744511493995a64c3af0ec5523840e73d204fb3a5c5ab69678a18f5e4a30ae7"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a179869cf1ff0fc1d62619d85a23004ca8f5ac9d17a2157fe86fdc717c2fc796"
@@ -51,7 +52,7 @@ class Nload < Formula
   end
 
   test do
-    system "#{bin}/nload", "--help"
+    system bin/"nload", "--help"
   end
 end
 

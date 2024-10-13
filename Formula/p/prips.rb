@@ -11,6 +11,7 @@ class Prips < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "53d2cf5aa372cdac9dbba0290b9e7796467762e2fd9a5be201982394fd51d333"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3f83b58387903ebf2bc10852a36d4d48beed06ec0eb0aef6a1967246a66d67fa"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "5c4217811128ab612a4433b630d1a3d2c9e4805e1c163bfa22eeec7d03e095b9"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "50a8faf4130d6ad1b281078e788aa0bdd8a34b32fda4f9dbde6247f0dcdbcfdf"

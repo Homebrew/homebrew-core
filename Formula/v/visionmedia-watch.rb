@@ -7,6 +7,7 @@ class VisionmediaWatch < Formula
   head "https://github.com/tj/watch.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "a1230c8458404ec82ba7142d81abed0964e482842427e0860bdd0590cc25ad88"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7ae623768a63f7e3c72abb3bc6b06dbcefad5c698195d8298b2e89de2cd04d63"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "483b9ff4d88bc672f1fbdaeecabda4c664f392efed8077af088449b5be541048"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "40495ba873ac4427ecab5da7d30a23594efd23d27b26996045ba1a38c357f3ca"

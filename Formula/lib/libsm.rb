@@ -6,6 +6,7 @@ class Libsm < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "8facc39e8b9c43bab30da7ec4c65f3db7d99f1db5f5c15a81361e9792f9e283d"
     sha256 cellar: :any,                 arm64_sonoma:   "5fe130e27fc7e0c59704c3ea1c2a817de72d69c2bed4174b92e0013567cec0da"
     sha256 cellar: :any,                 arm64_ventura:  "52aaa6c85c70e69100cfa6cb441148339eb5bdb8463c78bb38b59398944426cd"
     sha256 cellar: :any,                 arm64_monterey: "4b10e64bf30541fa93acc224b112edeeb7522296befcb9f1f1c1e485c7fc669b"

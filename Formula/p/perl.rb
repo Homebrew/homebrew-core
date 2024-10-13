@@ -13,6 +13,7 @@ class Perl < Formula
   end
 
   bottle do
+    sha256 arm64_sequoia:  "f3039ca342464845898d1f7dc9bd1aab6ef5929106cbf813dda587b583ad0411"
     sha256 arm64_sonoma:   "222658f33257e002c74b8720fba0b90d12eba566837014df20494a8721cb1642"
     sha256 arm64_ventura:  "dcbb3ecc956e00d07f6c17a242975fba48af6147ac732ed5ec78ffef006be7c7"
     sha256 arm64_monterey: "ac667b52851c7f6052ec88a7f7a922f8d85a25b96ba8d7e756d728338ddc5203"
@@ -84,6 +85,6 @@ class Perl < Formula
 
   test do
     (testpath/"test.pl").write "print 'Perl is not an acronym, but JAPH is a Perl acronym!';"
-    system "#{bin}/perl", "test.pl"
+    system bin/"perl", "test.pl"
   end
 end

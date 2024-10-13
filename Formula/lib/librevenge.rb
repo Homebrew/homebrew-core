@@ -11,6 +11,7 @@ class Librevenge < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "8c3a4c2ed4af0c16cffd5ac758a8dc3ccec9ea4f0e620ef9ddc401d506660515"
     sha256 cellar: :any,                 arm64_sonoma:   "0b4b3683933059632de09508e6d49273a7908cf93a729a2899518eeb2313ce5e"
     sha256 cellar: :any,                 arm64_ventura:  "113a4ee5774cf6c3a58e4ea202b3ff39ef2d25f0500236b202d0d164b302dc8c"
     sha256 cellar: :any,                 arm64_monterey: "39b114185ac16a714309ebfbeb02264016a9b72b75d1a1da33bdd0cba42d8ba6"
@@ -24,6 +25,8 @@ class Librevenge < Formula
 
   depends_on "pkg-config" => :build
   depends_on "boost"
+
+  uses_from_macos "zlib"
 
   def install
     system "./configure", *std_configure_args,

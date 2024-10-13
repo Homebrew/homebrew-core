@@ -1,5 +1,3 @@
-require "language/node"
-
 class TypescriptLanguageServer < Formula
   desc "Language Server Protocol implementation for TypeScript wrapping tsserver"
   homepage "https://github.com/typescript-language-server/typescript-language-server"
@@ -8,14 +6,15 @@ class TypescriptLanguageServer < Formula
   license all_of: ["MIT", "Apache-2.0"]
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "a8cb6820449852e3ef466eda32f7a5f55a3473d0fdde51624beaac49b21ae1f4"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "5414ce4cf796708772babd765b149723821d5641425227275f87df086201697a"
   end
 
   depends_on "node"
   depends_on "typescript"
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", *std_npm_args
 
     node_modules = libexec/"lib/node_modules"
     typescript = Formula["typescript"].opt_libexec/"lib/node_modules/typescript"
@@ -39,7 +38,7 @@ class TypescriptLanguageServer < Formula
       }
     JSON
 
-    Open3.popen3("#{bin}/typescript-language-server", "--stdio") do |stdin, stdout|
+    Open3.popen3(bin/"typescript-language-server", "--stdio") do |stdin, stdout|
       stdin.write "Content-Length: #{json.size}\r\n\r\n#{json}"
       assert_match(/^Content-Length: \d+/i, stdout.readline)
     end

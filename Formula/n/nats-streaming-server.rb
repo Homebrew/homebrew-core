@@ -7,6 +7,7 @@ class NatsStreamingServer < Formula
   head "https://github.com/nats-io/nats-streaming-server.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "6a7642a9e36f5b99989264273fae72a760bf12a8c97e1dd8d76d9a4fa76de246"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "206984a6cf01469dc3b1bb02c92bfea8d2b742be41d9b0f67f520efaeb743a18"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "faca0aecf3e91bc9647dcd85f617d6c8531641d79856895948601cb7151c5f7b"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1f1a114a043e845b36088cbe115f186966b3797b7a1298afa05c084ec81375e5"
@@ -30,7 +31,7 @@ class NatsStreamingServer < Formula
     port = free_port
     http_port = free_port
     pid = fork do
-      exec "#{bin}/nats-streaming-server",
+      exec bin/"nats-streaming-server",
            "--port=#{port}",
            "--http_port=#{http_port}",
            "--pid=#{testpath}/pid",

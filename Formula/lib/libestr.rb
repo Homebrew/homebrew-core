@@ -3,7 +3,7 @@ class Libestr < Formula
   homepage "https://libestr.adiscon.com/"
   url "https://libestr.adiscon.com/files/download/libestr-0.1.11.tar.gz"
   sha256 "46632b2785ff4a231dcf241eeb0dcb5fc0c7d4da8ee49cf5687722cdbe8b2024"
-  license "LGPL-2.1"
+  license "LGPL-2.1-or-later"
 
   livecheck do
     url "https://libestr.adiscon.com/download/"
@@ -11,6 +11,7 @@ class Libestr < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "c4ee35e1e3e47e5009e3fdb7be52737edebddcdd812e8c1811fcf73648a656cb"
     sha256 cellar: :any,                 arm64_sonoma:   "3fba48207a9ab79341e43e937560dfeae150dada3f5cb560a7a209fb45e726ef"
     sha256 cellar: :any,                 arm64_ventura:  "5acb64697d9ef2237c384b6b2f265e2c74770f218259707485fcdf99dfdca7d5"
     sha256 cellar: :any,                 arm64_monterey: "b186e7aa04c176161a97f6955e2d4cc5dff415be78213f0f842c03acd0614c4e"

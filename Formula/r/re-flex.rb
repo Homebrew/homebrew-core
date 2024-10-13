@@ -1,18 +1,19 @@
 class ReFlex < Formula
   desc "Regex-centric, fast and flexible scanner generator for C++"
   homepage "https://www.genivia.com/doc/reflex/html"
-  url "https://github.com/Genivia/RE-flex/archive/refs/tags/v4.4.0.tar.gz"
-  sha256 "3b34d0c88f91db6b5387355a64a84bfa6464d90fb182aab05c367605db28d2e8"
+  url "https://github.com/Genivia/RE-flex/archive/refs/tags/v4.5.0.tar.gz"
+  sha256 "30a503087c4ea7c2f81ef8b7f1c54ea10c3f26ab3a372d2c874273ee5e643472"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ada26cc2c9d1e3267fd3d21b94b394da2862f92064d846afd5122db1218e9ccd"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5c3411840dcfd31e2a1700452febcf6fa0d02e158f33dcde9b025eb9d5ccd8c9"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5c7112929045538e68e033035b5cd82a14a7f0028cec7109830b25047f48628e"
-    sha256 cellar: :any_skip_relocation, sonoma:         "3108751ef05e85bbc4af0d7ea38f5dd29a3b7c796fe7376d97e7c979785818ae"
-    sha256 cellar: :any_skip_relocation, ventura:        "9abda42f161087d4c015b3bf8867e93fb071550b57c8f2afd88764aba05f7faa"
-    sha256 cellar: :any_skip_relocation, monterey:       "713ad02e5f29c08d5c2b04d66dd1232c402cbe4a286a5e5b3964e58539f2f5c4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f17aaa049cdccb0663471ce45f6a54ab4de6cfeb643046aa0fdc1976a1f9564c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "2fae21f8f63d77f266cb35b47e719c0af4eb19d71eb44f5b3ca45c69b8954414"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d56dec266434d969c9f98a11e6e26de3288e02fd78d5f6dfd629a132406c1266"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ae8afca45f469217a31f70145b8cd1938c44e0cd5b9d47ca7a6d9ae61ad35d43"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "491b3a0dd92ddfac41d0cb8d8d5578e48c1ea22512a45b8fcb112f09acdabbaf"
+    sha256 cellar: :any_skip_relocation, sonoma:         "3e86003d5d03505c2cce6129a2d559f862aa081d9ce067f58562d67744998410"
+    sha256 cellar: :any_skip_relocation, ventura:        "3b907cd92a022c89cae7bf173dcf27537e25013d354b31ca029dc2e3554e3578"
+    sha256 cellar: :any_skip_relocation, monterey:       "3d23b20c585db8a7b136c5a13f3826784fbaf5a78bcc74752b5358761b0d7ebf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "84833f688d2b9ddd9b59723d17aca1b21069f46493d6837fa053f3eb95198717"
   end
 
   depends_on "pcre2"
@@ -36,7 +37,7 @@ class ReFlex < Formula
       .+  ECHO;
       %%
     EOS
-    system "#{bin}/reflex", "--flex", "echo.l"
+    system bin/"reflex", "--flex", "echo.l"
     assert_predicate testpath/"lex.yy.cpp", :exist?
   end
 end

@@ -12,6 +12,7 @@ class Hspell < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_sequoia:  "c40456d586f63147c43885dbad8c72e18bafae62f93305d96e29146465f053e8"
     sha256 arm64_sonoma:   "86f6240fcd352f4fe5579be572c0e50fb679b689b2e37e9c04c46ca485f8e6de"
     sha256 arm64_ventura:  "2fcc00698fda6279a021ece352de8c8c7597cabec4ae896416db031215e2dcbb"
     sha256 arm64_monterey: "743ad6762f4452a62702961c030950a6d70d36877140dd8728ce45f8d06411c3"
@@ -59,6 +60,6 @@ class Hspell < Formula
     File.open("test.txt", "w:ISO8859-8") do |f|
       f.write "שלום"
     end
-    system "#{bin}/hspell", "-l", "test.txt"
+    system bin/"hspell", "-l", "test.txt"
   end
 end

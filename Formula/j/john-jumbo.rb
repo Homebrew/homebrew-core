@@ -14,6 +14,7 @@ class JohnJumbo < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_sequoia:  "49a789c53d17a46d726ba98b5e4b2bbf8085a8735e57c610a28adfb2d2b22f25"
     sha256 arm64_sonoma:   "4cc3fcf34d2fdfb2595cd689475d5337267edd8273b2aee87b875e8bbb729017"
     sha256 arm64_ventura:  "82da2e81fdeedfb9a71f1740ff7bfef4641ccce5f31d51fa6d1ca7fdd576f6ef"
     sha256 arm64_monterey: "4bccbd52d70bbdffc767cf12cfe177bf32002504a300de3d52e91ec8d4d19691"

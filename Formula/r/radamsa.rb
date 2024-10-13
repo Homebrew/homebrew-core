@@ -6,33 +6,36 @@ class Radamsa < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0af48b970749d3140a384b58a3a154d7a2f772c3de5b82053adca2bfc51548f7"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8925ac2d6e3c32b78ef09e0b3d7c0403f3a210b99138b1833e9c55db97db2392"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d3f2f8360c3b5ef80433bf865cc828751fd4a53383ba92c7beb75ad629a63526"
-    sha256 cellar: :any_skip_relocation, sonoma:         "28fcd6c2a92bf81253ea11ca472b188e8b793d2ef188a9d79a191893a985a193"
-    sha256 cellar: :any_skip_relocation, ventura:        "bf286a9e8d072eeb26fe122b35f412e1a9d65d9594e4f7eca161d458f4f9d6de"
-    sha256 cellar: :any_skip_relocation, monterey:       "3576947047fad8d865becded6957f1656ccae7b1c270f3dc6b2b3e660e09378e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a4689407adfe023eb9ef82d62468d80460b1ce882066990b1d0decc65723b428"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "68a800cd47ad72dcaf605c67d01e86fab1af8c40b678f06317489887d3d1eeb3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4868ee9e0dcbe6da781d40d6a513e2185ba0b8e09a125eca2dbb36c8e5cb4ab3"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "568e7f3b24edb8d8aca56b0835eea5fcd32dff97d2c2a2985362329bf8555169"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2535c22f7a6faf37a7b7ffb7eab908de0a0d265e4f887718a65ef7b7d9d015f0"
+    sha256 cellar: :any_skip_relocation, ventura:       "1463cedbf5969dc913d6878fab2a860d9aefd4d9a80f960ee8383086c6d17806"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c32fe0dcf5a76ce7251b8caebf2ecdd09427990a52c88adfd993efeae138fe41"
   end
 
+  # TODO: Remove in follow up
   conflicts_with "ol", because: "both install `ol` binaries"
 
-  def install
-    system "make", "future"
-    man1.install "doc/radamsa.1"
-    prefix.install Dir["*"]
+  # https://gitlab.com/akihe/radamsa/-/blob/v#{version}/Makefile?ref_type=tags#L7
+  resource "ol.c" do
+    url "https://haltp.org/files/ol-0.2.2.c.gz"
+    version "0.2.2"
+    sha256 "fca85dae36910108598d8a4a244df7a8c2719e7803ac46d270762ece4aefc55c"
+
+    livecheck do
+      url "https://gitlab.com/akihe/radamsa/-/raw/v#{LATEST_VERSION}/Makefile?ref_type=tags"
+      regex(/OWLURL=.*?ol[._-]v?(\d+(?:\.\d+)+)\.c/i)
+    end
   end
 
-  def caveats
-    <<~EOS
-      The Radamsa binary has been installed.
-      The Lisp source code has been copied to:
-        #{prefix}/rad
-
-      Tests can be run with:
-        $ make .seal-of-quality
-
-    EOS
+  def install
+    resource("ol.c").stage { buildpath.install Dir["*"].first => "ol.c" }
+    system "make", "install", "PREFIX=#{prefix}"
+    # Manually replace the manpage which is not reproducible
+    rm(man1/"radamsa.1.gz")
+    man1.install Utils::Gzip.compress("doc/radamsa.1")
   end
 
   test do

@@ -6,6 +6,7 @@ class Imapfilter < Formula
   license "MIT"
 
   bottle do
+    sha256 arm64_sequoia:  "a86a7ded52a8e71bbc47227e350be23c75048abf12b600de513992d47036621c"
     sha256 arm64_sonoma:   "7d6c919f69f27c26027cb795c1e3aea7918c5331ad83c046e32fe25ad2f33705"
     sha256 arm64_ventura:  "0be43a3b47befd632437296ce2fcad1aeed742fe9fddbcb846c20ac10514c0b8"
     sha256 arm64_monterey: "18e5ff2520d2473cb31d88bb02d368dd195e85de6255906d31813c4b987d2787"
@@ -40,6 +41,6 @@ class Imapfilter < Formula
   end
 
   test do
-    system "#{bin}/imapfilter", "-V"
+    system bin/"imapfilter", "-V"
   end
 end

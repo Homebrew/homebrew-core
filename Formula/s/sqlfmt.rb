@@ -7,6 +7,7 @@ class Sqlfmt < Formula
   head "https://github.com/mjibson/sqlfmt.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "a38467e3035c2cd803a7d6eeb898500e8be48918cc2689202ca0affeed82ea53"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "05c503eec0cd5a79c9cc3e1027166051acbf6f2a44d2924cadb9898b4600ceb3"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "0d6d1bff83aa71623e857ddf1f53ae033646e5bdf71ec1d283fc1d344364d3ae"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ae54cf2b56248564f43b4ce61add06377a564115314d8c524892572abbc1c3bd"

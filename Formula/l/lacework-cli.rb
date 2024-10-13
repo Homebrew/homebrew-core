@@ -2,8 +2,8 @@ class LaceworkCli < Formula
   desc "CLI for managing Lacework"
   homepage "https://docs.lacework.com/cli"
   url "https://github.com/lacework/go-sdk.git",
-      tag:      "v1.51.0",
-      revision: "63e71b0fd8e96f606ed16de2fdb4bfad8c44cfec"
+      tag:      "v1.53.0",
+      revision: "a49e85f504b3b01e261fa84fdfcb327c706a5320"
   license "Apache-2.0"
   head "https://github.com/lacework/go-sdk.git", branch: "main"
 
@@ -16,13 +16,12 @@ class LaceworkCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7a44454725aa84150c88ddcb2d1e26a96202db3a8d600ad1e8bf1bb324ee645d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4dd4384456ba4e90d724b69eeab2631cbcfc5770f7ed6636e7979805e8ec243d"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "1e4feed013748addfb72320bbf3528e2d93e5bc16cc4dd1cbe7484c50dd5d04c"
-    sha256 cellar: :any_skip_relocation, sonoma:         "9d09db30cbfe3a47e6c9e5a9cb83468066092ca4b2561ef82277bcc37363dbab"
-    sha256 cellar: :any_skip_relocation, ventura:        "733797abbc02a78808af2d9e77116ba0c2feb243ce21737bdb86d2a4f441de16"
-    sha256 cellar: :any_skip_relocation, monterey:       "ce66bd99da93028ce0cabbbd6f6bc4a398cef5c61f2211af5bd576050b1449d0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ec4658d9e62690b3a3443b09deeb92a026624ff87ef281859f7a9843e888b92a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "caddf2b30b7504f6ace713cb18045e5092fc10946c9e9305e7a0fd37a324d496"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "caddf2b30b7504f6ace713cb18045e5092fc10946c9e9305e7a0fd37a324d496"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "caddf2b30b7504f6ace713cb18045e5092fc10946c9e9305e7a0fd37a324d496"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2e7e62156c8f2cbfac474bfb04b4f2619d013531eb329aca0894d7658d8ac6a7"
+    sha256 cellar: :any_skip_relocation, ventura:       "2e7e62156c8f2cbfac474bfb04b4f2619d013531eb329aca0894d7658d8ac6a7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0ed8739fb996cc7dc82ee7815d6cc401f470b67429e3be941292370cfaf42f52"
   end
 
   depends_on "go" => :build

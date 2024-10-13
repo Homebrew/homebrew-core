@@ -1,20 +1,19 @@
 class Iir1 < Formula
   desc "DSP IIR realtime filter library written in C++"
   homepage "https://berndporr.github.io/iir1/"
-  url "https://github.com/berndporr/iir1/archive/refs/tags/1.9.4.tar.gz"
-  sha256 "67d0982356f33fd37522e4711cda12f70a981a9c83de332386f89de3d7601d2b"
+  url "https://github.com/berndporr/iir1/archive/refs/tags/1.9.5.tar.gz"
+  sha256 "beb16142e08e5f68010c6e5014dea2276ea49b71a258439eff09c5ee3f781d88"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "8926699c96b4bc2271b28c2abcf375fdf8529fd5a1eb6364eb2a6b1a315232fb"
-    sha256 cellar: :any,                 arm64_ventura:  "511e19fc6d204436638fd7eb94142543cda82c696cba8d2ef91f6a828d55ffef"
-    sha256 cellar: :any,                 arm64_monterey: "f865356c4f33bde3c56cc57bc6094d16c8f733fa15f6274e7133b85fb5046b6f"
-    sha256 cellar: :any,                 arm64_big_sur:  "d8c9a57a73a2e21cd8ab7d52417695f43e0fd7e0e35565a64110a89b5368a808"
-    sha256 cellar: :any,                 sonoma:         "3c4ba1475cba9224783b76b225d01577f3df5b8c77f134d41e7f9d368b0e0c31"
-    sha256 cellar: :any,                 ventura:        "45476c001331f95dc7cb51848f24d411e745a52729e467f27ec3ec957f842897"
-    sha256 cellar: :any,                 monterey:       "b1aa46449591c4faf5a33de5cda71f5561794080fa1514cf5064efd248c059c5"
-    sha256 cellar: :any,                 big_sur:        "8abc8c8f703c81ca101ea20f36f2612279b9b5cf8e1f1642ce56dd4bb0a3a827"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b019772e5d336dac298e7380cbd611f5d7dc5cd02a22673717f656c8e94b0f96"
+    sha256 cellar: :any,                 arm64_sequoia:  "9e7224ee70fc1f78d5f1f031afe43b140badf13a4775ee36ba80f70710e6e79b"
+    sha256 cellar: :any,                 arm64_sonoma:   "2f0eaa182942ffef4f0b3be1475fe866355bdf312925af2548a63ae31e79d65b"
+    sha256 cellar: :any,                 arm64_ventura:  "00753cfc7f401ac5cdbc0b96f52455e446332cfa74e5d84a1d42331dec290a23"
+    sha256 cellar: :any,                 arm64_monterey: "4a6a10dd45465631eec4bc7536df754279c7d3ce1328c5bc05bd9a09e675dce1"
+    sha256 cellar: :any,                 sonoma:         "d911a4ef85de7d0ada39a6326a16c8bf7d4194edb35d2822701876cc6b364e73"
+    sha256 cellar: :any,                 ventura:        "15e5d5a25bd144ab9e0a1f2081a5a1ffd916576c0618f0a71f414d84a780720b"
+    sha256 cellar: :any,                 monterey:       "513efd0674e3ebc67f2ddd17f1911a3596fa2778948ad862cf71ef10da16545b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b623801ecd47f5dc48c230b15d7abc0fd05fc97404ad1ba1d8e3da9e536bb5aa"
   end
 
   depends_on "cmake" => :build

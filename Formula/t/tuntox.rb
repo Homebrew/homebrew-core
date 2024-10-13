@@ -7,6 +7,7 @@ class Tuntox < Formula
   head "https://github.com/gjedeer/tuntox.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "a89e240676e2a2acce9e69f80a92d36cf7a15f22668227aec6ac8cbd9aaffcc9"
     sha256 cellar: :any,                 arm64_sonoma:   "880d486454923edadb84110e8a318081260529b455c3efc848333b4ab798bdf9"
     sha256 cellar: :any,                 arm64_ventura:  "820efcfb534b933681932b0563ee91a092dd681e2bdfdcd16acec0f0a5615203"
     sha256 cellar: :any,                 arm64_monterey: "7f5d128f4ce928c72171e3ea664e67c3e0a565beb4a26eb788691b8cabe543be"
@@ -36,7 +37,7 @@ class Tuntox < Formula
   test do
     require "open3"
 
-    Open3.popen2e("#{bin}/tuntox") do |stdin, stdout_err, th|
+    Open3.popen2e(bin/"tuntox") do |stdin, stdout_err, th|
       pid = th.pid
       stdin.close
       sleep 2

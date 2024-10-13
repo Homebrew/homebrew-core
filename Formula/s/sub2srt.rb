@@ -11,8 +11,8 @@ class Sub2srt < Formula
   head "https://github.com/robelix/sub2srt.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "b13ea475d840e7fbe89a3c035e7552debd0e355abc8bfce97d476b8d912e2137"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "ea67deb8ff20129ec22608ac25dfa2928c935552cd1d8f480c54e2247f04b9fc"
   end
 
   uses_from_macos "perl"
@@ -39,7 +39,7 @@ class Sub2srt < Formula
       homebrew
       two
     EOS
-    system "#{bin}/sub2srt", "#{testpath}/test.sub"
+    system bin/"sub2srt", "#{testpath}/test.sub"
     assert_equal expected, (testpath/"test.srt").read.chomp
   end
 end

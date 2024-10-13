@@ -3,9 +3,10 @@
 class Mercurial < Formula
   desc "Scalable distributed version control system"
   homepage "https://mercurial-scm.org/"
-  url "https://www.mercurial-scm.org/release/mercurial-6.8.tar.gz"
-  sha256 "08e4d0e5da8af1132b51e6bc3350180ad57adcd935f097b6d0bc119a2c2c0a10"
+  url "https://www.mercurial-scm.org/release/mercurial-6.8.1.tar.gz"
+  sha256 "030e8a7a6d590e4eaeb403ee25675615cd80d236f3ab8a0b56dcc84181158b05"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url "https://www.mercurial-scm.org/release/"
@@ -13,19 +14,22 @@ class Mercurial < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "075dd1a68170ea4a2e687e62262c7f21eba8d1825bcfa4efb74eeeb93a1bd06a"
-    sha256 arm64_ventura:  "923b12be1779bffe7ebf0175a437b7964836efa7b00318c9dda264360e0ad132"
-    sha256 arm64_monterey: "492f5e7d27715594646b39d1c1c284b9455b65522351e2c534eb5c4439eb7004"
-    sha256 sonoma:         "42ffc44e24c155a09ff78eb5e47bd77b8f5b09d142841c039a97e1805ebc713f"
-    sha256 ventura:        "1210f189e2f7f01905a0912fcef2ff9ba36e35693695755b22cdc7c73c1307d0"
-    sha256 monterey:       "799e1d924154c778b6fd7dcf9f50936dfc65f9001242f4e798850d5e094945f4"
-    sha256 x86_64_linux:   "ca36c5108e6b6541c476af43d85516fd70c553e909b7234a1e1f4bcab7e07b90"
+    sha256 arm64_sequoia: "35a6ac7880d243ea479ce3050fd37393b4ff560c82dbb080f544a741c161b3d3"
+    sha256 arm64_sonoma:  "13f62f94b954d1a028a289d9eef7e96dcddd1160014be79ffb9038e6542b451f"
+    sha256 arm64_ventura: "f7d23fcee4b74c4d4919e1bb2c09d0706858fe32789a7923384fad9039e534ef"
+    sha256 sonoma:        "a14b4e2f09bd8f4cddfa447314c396d802ed11f5d17763847960cbd55e60d114"
+    sha256 ventura:       "763ee4b914fb66d6e207ec5be8ff82138babe77e60b2560cb820ab59c448e007"
+    sha256 x86_64_linux:  "16fb921a2d7747be5ef79365143ccc1e04c2c955af228df39ed993161683dbed"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
+
+  # py3.13 build patch, upstream bug report, https://bz.mercurial-scm.org/show_bug.cgi?id=6926
+  # proposed patch in https://lists.mercurial-scm.org/pipermail/mercurial-devel/2024-October/298120.html
+  patch :DATA
 
   def install
-    python3 = "python3.12"
+    python3 = "python3.13"
     system python3, "-m", "pip", "install", *std_pip_args(build_isolation: true), "."
 
     # Install chg (see https://www.mercurial-scm.org/wiki/CHg)
@@ -74,3 +78,17 @@ class Mercurial < Formula
     assert_match "initial commit", shell_output("#{bin}/chg log")
   end
 end
+
+__END__
+diff --git a/hgdemandimport/__init__.py b/hgdemandimport/__init__.py
+index 44a0a2d..a59c293 100644
+--- a/hgdemandimport/__init__.py
++++ b/hgdemandimport/__init__.py
+@@ -62,6 +62,7 @@ IGNORES = {
+     '_weakrefset',
+     'warnings',
+     'threading',
++    'collections.abc',
+ }
+
+ _pypy = '__pypy__' in sys.builtin_module_names

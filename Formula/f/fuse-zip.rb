@@ -7,7 +7,8 @@ class FuseZip < Formula
   head "https://bitbucket.org/agalanin/fuse-zip", using: :hg
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "5e038b72ce4c58d28d4a873c9ea4ba304d9cf6618d772b3397a2d682911cf568"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "0e87dbeae5e24ded35705e704caf66faec39dc8971742ff43c7a45882ef6e349"
   end
 
   depends_on "pkg-config" => :build

@@ -6,6 +6,7 @@ class Wildmidi < Formula
   license all_of: ["GPL-3.0-only", "LGPL-3.0-only"]
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "bb7178ae28716d1596dc04796b86318c2b96c3d5fc19a013fb63f3755aeccf7f"
     sha256 cellar: :any,                 arm64_sonoma:   "1957eaf82b32edbcd7efb37a209ccd6e2ceee82ec576e29b6d1666fc5e05945b"
     sha256 cellar: :any,                 arm64_ventura:  "5bda39b9e4b7c069bc80baa25a31dba900a78f2cc79f47d798a554e2670fe9e0"
     sha256 cellar: :any,                 arm64_monterey: "6dfb03870142cd1ca7496d24056f3dd6b501bf58c395e270b0261391fcc7ca40"

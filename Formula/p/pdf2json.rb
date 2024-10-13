@@ -3,9 +3,10 @@ class Pdf2json < Formula
   homepage "https://github.com/flexpaper/pdf2json"
   url "https://github.com/flexpaper/pdf2json/archive/refs/tags/0.71.tar.gz"
   sha256 "54878473a2afb568caf2da11d6804cabe0abe505da77584a3f8f52bcd37d9c55"
-  license "GPL-2.0"
+  license "GPL-2.0-only"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "6af0ae7d69db0ff147f44d9f987843ded25580c0d2c5d00b3909f18c4566bdb4"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a791ed61467ee9df00b0901fed7ffb14f97295d2139f01363bf433c879e7be94"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "323095faeba1b4fd27ec6040ef7a5037a1ecbbc7f077cbde173a72c5ab6c3396"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c113b37537d9cdd7e698502406a17d699eb823437a6d9086c68591146c074a54"

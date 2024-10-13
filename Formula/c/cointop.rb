@@ -7,6 +7,7 @@ class Cointop < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "748c6976d944ab4c0d683821fa1eded84813b7072c533fc88e8d3fc34a290b7f"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b47869b3c333a5ac0f97d68d6a6af6b2e9c2242f6bbc15409d223199f5821cce"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "1387a159944a0ae1559545b5bb501dcca6604d558852c6d8da0520758db8e6f0"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b6439f989983c4513b8d0744b6e05d56e7c79a7ca2e25ef6fa4ed0547c7aae90"

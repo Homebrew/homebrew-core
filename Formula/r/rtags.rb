@@ -2,7 +2,7 @@ class Rtags < Formula
   desc "Source code cross-referencer like ctags with a clang frontend"
   homepage "https://github.com/Andersbakken/rtags"
   license "GPL-3.0-or-later"
-  revision 2
+  revision 3
   head "https://github.com/Andersbakken/rtags.git", branch: "master"
 
   stable do
@@ -41,21 +41,20 @@ class Rtags < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_sonoma:   "f8b0c6d335f6247c80669d0a7b4c8dc84603bda12f3ee2caf44c49b0df108ebc"
-    sha256 cellar: :any, arm64_ventura:  "2ec2449f1dcf791262ee62099508bf16f3f5e8df47903d39c8f193c0964f82ae"
-    sha256 cellar: :any, arm64_monterey: "c0add9226d0f17dd7e5af52d971bfc2cc34fd8ac287e4d10f74ab58943707e0b"
-    sha256 cellar: :any, arm64_big_sur:  "433d1b112af6c1ce683cb70e4db8bf88f3e44ec8751b6e661cf48f7b5f8fbb42"
-    sha256 cellar: :any, sonoma:         "c813c8d0a9888971145b2474e74189e557fa18983c3e740d0845e4744be8ac8a"
-    sha256 cellar: :any, ventura:        "cc469412590ba876a5e613cbe8262af7288bde3afb390c2cf297c3267a0b3cab"
-    sha256 cellar: :any, monterey:       "99dc03192ec0a84923f9bf8fe19ad3d1395726bceb0d49295dc1ecb9109f7146"
-    sha256 cellar: :any, big_sur:        "5f59e2fe69f4fb60cf4f5517908f80998553fa0b9de2f9b7536a5740e7fffddb"
-    sha256               x86_64_linux:   "829f4a0e89e3fd837f0baa3ca0ab05244c7705222d9e75a2b81f2349390d4d64"
+    sha256 cellar: :any, arm64_sequoia: "7cbafd2962f2d48c3c6039a629551f7d6622ce4ac98f59bf77720bb8ae77dd74"
+    sha256 cellar: :any, arm64_sonoma:  "bb206bede3bd73fbfef3fc8cbe547f9b8dbe00a788f34470e6fdd1a4e1f3448e"
+    sha256 cellar: :any, arm64_ventura: "2179553e6e583a3f45e0473cab00aa2475a663b6a766b3e57eca70b74bcbd174"
+    sha256 cellar: :any, sonoma:        "8dba70a31d59037e8291637367451f6d51c32176e0f49165a921a43dee6737dd"
+    sha256 cellar: :any, ventura:       "7443ddcafb2ec4841d5b86893a0b7935f47615fc6e8eb173705e94564a08b097"
+    sha256               x86_64_linux:  "16ce83f28f301d27a3d8a127c5eed780b0e974014c075123147a2e14727b793a"
   end
 
   depends_on "cmake" => :build
   depends_on "emacs"
   depends_on "llvm"
   depends_on "openssl@3"
+
+  uses_from_macos "zlib"
 
   fails_with gcc: "5"
 
@@ -93,11 +92,11 @@ class Rtags < Formula
     end
 
     begin
-      sleep 1
+      sleep 5
       pipe_output("#{bin}/rc -c", "clang -c #{testpath}/src/foo.c", 0)
-      sleep 1
+      sleep 5
       assert_match "foo.c:1:6", shell_output("#{bin}/rc -f #{testpath}/src/foo.c:5:3")
-      system "#{bin}/rc", "-q"
+      system bin/"rc", "-q"
     ensure
       Process.kill 9, rdm
       Process.wait rdm

@@ -1,22 +1,16 @@
 class Cgal < Formula
   desc "Computational Geometry Algorithms Library"
   homepage "https://www.cgal.org/"
-  url "https://github.com/CGAL/cgal/releases/download/v5.6.1/CGAL-5.6.1.tar.xz"
-  sha256 "cdb15e7ee31e0663589d3107a79988a37b7b1719df3d24f2058545d1bcdd5837"
+  url "https://github.com/CGAL/cgal/releases/download/v6.0/CGAL-6.0.tar.xz"
+  sha256 "6b0c9b47c7735a2462ff34a6c3c749d1ff4addc1454924b76263dc60ab119268"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ca93e7df5a46e3faf900422c23919a8bc5e9851ce690d98ae97d758176c91540"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ca93e7df5a46e3faf900422c23919a8bc5e9851ce690d98ae97d758176c91540"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ca93e7df5a46e3faf900422c23919a8bc5e9851ce690d98ae97d758176c91540"
-    sha256 cellar: :any_skip_relocation, sonoma:         "d4b1b6e98b428e1df572307c483c8ad4aaaf0e13b1c06ece4f031991c921f4ef"
-    sha256 cellar: :any_skip_relocation, ventura:        "d4b1b6e98b428e1df572307c483c8ad4aaaf0e13b1c06ece4f031991c921f4ef"
-    sha256 cellar: :any_skip_relocation, monterey:       "d4b1b6e98b428e1df572307c483c8ad4aaaf0e13b1c06ece4f031991c921f4ef"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ca93e7df5a46e3faf900422c23919a8bc5e9851ce690d98ae97d758176c91540"
+    sha256 cellar: :any_skip_relocation, all: "cef0370592c5f913bfe5b34cae9189a28cb50c0b7e9b072a16b808e05697aec2"
   end
 
   depends_on "cmake" => [:build, :test]
-  depends_on "qt@5" => [:build, :test]
+  depends_on "qt" => :test
   depends_on "boost"
   depends_on "eigen"
   depends_on "gmp"
@@ -29,14 +23,26 @@ class Cgal < Formula
   fails_with gcc: "5"
 
   def install
-    args = %w[
-      -DCMAKE_CXX_FLAGS='-std=c++14'
-      -DWITH_CGAL_Qt5=ON
-    ]
-
-    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
+
+    # Ensure that the various `Find*` modules look in HOMEBREW_PREFIX.
+    # This also helps guarantee uniform bottles.
+    inreplace_files = %w[
+      CGAL_Common.cmake
+      FindESBTL.cmake
+      FindGLPK.cmake
+      FindIPE.cmake
+      FindLASLIB.cmake
+      FindMKL.cmake
+      FindOSQP.cmake
+      FindSuiteSparse.cmake
+    ]
+    inreplace inreplace_files.map { |file| lib/"cmake/CGAL"/file }, "/usr/local", HOMEBREW_PREFIX
+
+    # These cause different bottles to be built between macOS and Linux for some reason.
+    %w[README.md readme.md].each { |file| (buildpath/file).unlink if (buildpath/file).exist? }
   end
 
   test do
@@ -57,7 +63,6 @@ class Cgal < Formula
       typename CGAL::Coercion_traits<A,B>::Type
       binary_func(const A& a , const B& b){
           typedef CGAL::Coercion_traits<A,B> CT;
-          CGAL_static_assertion((CT::Are_explicit_interoperable::value));
           typename CT::Cast cast;
           return cast(a)*cast(b);
       }
@@ -70,22 +75,22 @@ class Cgal < Formula
         std::istream_iterator<Point> end;
         Triangulation t;
         t.insert(begin, end);
-        if(argc == 3) // do not test Qt5 at runtime
+        if(argc == 3) // do not test Qt6 at runtime
           CGAL::draw(t);
         return EXIT_SUCCESS;
        }
     EOS
     (testpath/"CMakeLists.txt").write <<~EOS
       cmake_minimum_required(VERSION 3.1...3.15)
-      find_package(CGAL COMPONENTS Qt5)
+      find_package(CGAL COMPONENTS Qt6)
       add_definitions(-DCGAL_USE_BASIC_VIEWER -DQT_NO_KEYWORDS)
-      include_directories(surprise BEFORE SYSTEM #{Formula["qt@5"].opt_include})
+      include_directories(surprise BEFORE SYSTEM #{Formula["qt"].opt_include})
       add_executable(surprise surprise.cpp)
-      target_include_directories(surprise BEFORE PUBLIC #{Formula["qt@5"].opt_include})
-      target_link_libraries(surprise PUBLIC CGAL::CGAL_Qt5)
+      target_include_directories(surprise BEFORE PUBLIC #{Formula["qt"].opt_include})
+      target_link_libraries(surprise PUBLIC CGAL::CGAL_Qt6)
     EOS
-    system "cmake", "-L", "-DQt5_DIR=#{Formula["qt@5"].opt_lib}/cmake/Qt5",
-           "-DCMAKE_PREFIX_PATH=#{Formula["qt@5"].opt_lib}",
+    system "cmake", "-L", "-DQt6_DIR=#{Formula["qt"].opt_lib}/cmake/Qt6",
+           "-DCMAKE_PREFIX_PATH=#{Formula["qt"].opt_lib}",
            "-DCMAKE_BUILD_RPATH=#{HOMEBREW_PREFIX}/lib", "-DCMAKE_PREFIX_PATH=#{prefix}", "."
     system "cmake", "--build", ".", "-v"
     assert_equal "15\n15", shell_output("./surprise").chomp

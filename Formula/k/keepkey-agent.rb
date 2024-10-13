@@ -6,21 +6,24 @@ class KeepkeyAgent < Formula
   url "https://files.pythonhosted.org/packages/65/72/4bf47a7bc8dc93d2ac21672a0db4bc58a78ec5cee3c4bcebd0b4092a9110/keepkey_agent-0.9.0.tar.gz"
   sha256 "47c85de0c2ffb53c5d7bd2f4d2230146a416e82511259fad05119c4ef74be70c"
   license "LGPL-3.0-only"
-  revision 8
+  revision 9
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "92931b4dd55f591f1aa1555e6d2385c9216c67bccdfac519c7d871b6abd9e931"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "45721329733cabb8fb60bf1bbd8c57f3d41ab3690517914e29fcb11e20609ad4"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "cc5256e11632f6398fa1e84affb5947adcc3aff627d7f23bcda175b9b120dade"
-    sha256 cellar: :any_skip_relocation, sonoma:         "09d44c2501298a21078ff77731689585a7df852f860fa7db0ada5a4b78814a18"
-    sha256 cellar: :any_skip_relocation, ventura:        "4d7ade556d31d47adfcb08c5cd3595170c3fd8bd587620a6799c003987659591"
-    sha256 cellar: :any_skip_relocation, monterey:       "0931fb228768e22b2a78e97a9716b4b016c6f46585c75bfc92d40d2e1a56a415"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4b9024586309813bd02ba23a1d0c558160f96e07fd40418df63ebdd0eb8e08d4"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "cf3cfe644beb655b7bc7ff031292e9ebf2a05c4356815f24af6bbb295dc4e116"
+    sha256 cellar: :any,                 arm64_sonoma:  "42dee0c562b9636bcc9fb06171f5808cb9e68052af00ded9f34a8f2422f147a5"
+    sha256 cellar: :any,                 arm64_ventura: "31a262bc9e3c20b85ba3658df71543a70208ec862d6b6dd3cb4800796b4a10c7"
+    sha256 cellar: :any,                 sonoma:        "7798f5a119621468b0d81c0bb78af6a2facbea65bae2a2e8bca15123d6a8c432"
+    sha256 cellar: :any,                 ventura:       "9156f398471cf629b5389a4252b04cdf6c1238407a6256d4b29bd2b9246f38f5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dd80c7e201077fcc73a8966faba3dfa0f3864abd1ddf08026218b91bf320f6cf"
   end
 
+  depends_on "pkg-config" => :build # for hidapi resource
   depends_on "cryptography"
-  depends_on "libusb"
-  depends_on "python@3.12"
+  depends_on "hidapi"
+  depends_on "libsodium" # for pynacl
+  depends_on "libusb" # for libusb1
+  depends_on "python@3.13"
 
   uses_from_macos "libffi"
 
@@ -40,8 +43,8 @@ class KeepkeyAgent < Formula
   end
 
   resource "docutils" do
-    url "https://files.pythonhosted.org/packages/1f/53/a5da4f2c5739cf66290fac1431ee52aff6851c7c8ffd8264f13affd7bcdd/docutils-0.20.1.tar.gz"
-    sha256 "f08a4e276c3a1583a86dce3e34aba3fe04d02bba2dd51ed16106244e8a923e3b"
+    url "https://files.pythonhosted.org/packages/ae/ed/aefcc8cd0ba62a0560c3c18c33925362d46c6075480bfa4df87b28e169a9/docutils-0.21.2.tar.gz"
+    sha256 "3a6b18732edf182daa3cd12775bbb338cf5691468f91eeeb109deff6ebfa986f"
   end
 
   resource "ecdsa" do
@@ -50,14 +53,8 @@ class KeepkeyAgent < Formula
   end
 
   resource "hidapi" do
-    url "https://files.pythonhosted.org/packages/95/0e/c106800c94219ec3e6b483210e91623117bfafcf1decaff3c422e18af349/hidapi-0.14.0.tar.gz"
-    sha256 "a7cb029286ced5426a381286526d9501846409701a29c2538615c3d1a612b8be"
-
-    # patch to build with Cython 3+, remove in next release
-    patch do
-      url "https://github.com/trezor/cython-hidapi/commit/749da6931f57c4c30596de678125648ccfd6e1cd.patch?full_index=1"
-      sha256 "e3d70eb9850c7be0fdb0c31bf575b33be5c5848def904760a6ca9f4c3824f000"
-    end
+    url "https://files.pythonhosted.org/packages/bf/6f/90c536b020a8e860f047a2839830a1ade3e1490e67336ecf489b4856eb7b/hidapi-0.14.0.post2.tar.gz"
+    sha256 "6c0e97ba6b059a309d51b495a8f0d5efbcea8756b640d98b6f6bb9fdef2458ac"
   end
 
   resource "keepkey" do
@@ -66,8 +63,8 @@ class KeepkeyAgent < Formula
   end
 
   resource "libagent" do
-    url "https://files.pythonhosted.org/packages/4e/0f/b48045dd9d12eea5c092aaad4c251443384da700c8d85349fc3c554a2320/libagent-0.14.7.tar.gz"
-    sha256 "8cea67fbe94216f61dbc22fac9d3d749b41b9cfc11393a76b0b0013c204adb98"
+    url "https://files.pythonhosted.org/packages/33/9f/d80eb0568f617d4041fd83b8b301fdb817290503ee4c1546024df916454e/libagent-0.15.0.tar.gz"
+    sha256 "c87caebdb932ed42bcd8a8cbe40ce3589587c71c3513ca79cadf7a040e24b4eb"
   end
 
   resource "libusb1" do
@@ -111,8 +108,8 @@ class KeepkeyAgent < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/4d/5b/dc575711b6b8f2f866131a40d053e30e962e633b332acf7cd2c24843d83d/setuptools-69.2.0.tar.gz"
-    sha256 "0ff4183f8f42cd8fa3acea16c45205521a4ef28f73c6391d8a25e92893134f2e"
+    url "https://files.pythonhosted.org/packages/27/b8/f21073fde99492b33ca357876430822e4800cdf522011f18041351dfa74b/setuptools-75.1.0.tar.gz"
+    sha256 "d59a21b17a275fb872a9c3dae73963160ae079f1049ed956880cd7c09b120538"
   end
 
   resource "six" do
@@ -126,16 +123,21 @@ class KeepkeyAgent < Formula
   end
 
   resource "wheel" do
-    url "https://files.pythonhosted.org/packages/b8/d6/ac9cd92ea2ad502ff7c1ab683806a9deb34711a1e2bd8a59814e8fc27e69/wheel-0.43.0.tar.gz"
-    sha256 "465ef92c69fa5c5da2d1cf8ac40559a8c940886afcef87dcf14b9470862f1d85"
+    url "https://files.pythonhosted.org/packages/b7/a0/95e9e962c5fd9da11c1e28aa4c0d8210ab277b1ada951d2aee336b505813/wheel-0.44.0.tar.gz"
+    sha256 "a29c3f2817e95ab89aa4660681ad547c0e9547f20e75b0562fe7723c9a2a9d49"
   end
 
   def install
-    # Workaround to avoid creating libexec/bin/__pycache__ which gets linked to bin
-    ENV["PYTHONPYCACHEPREFIX"] = buildpath/"pycache"
-    # Help gcc to find libusb headers on Linux.
-    ENV.append "CFLAGS", "-I#{Formula["libusb"].opt_include}/libusb-1.0" unless OS.mac?
-    virtualenv_install_with_resources
+    ENV["HIDAPI_SYSTEM_HIDAPI"] = "1"
+    ENV["SODIUM_INSTALL"] = "system"
+    venv = virtualenv_install_with_resources without: "python-daemon"
+
+    # Workaround breaking change in `setuptools`: https://pagure.io/python-daemon/issue/94
+    resource("python-daemon").stage do
+      inreplace "version.py", "import setuptools.extern.packaging.version", ""
+      inreplace "version.py", "self.validate_version(version)", ""
+      venv.pip_install Pathname.pwd
+    end
   end
 
   test do

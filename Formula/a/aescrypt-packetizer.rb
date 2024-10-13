@@ -1,16 +1,18 @@
 class AescryptPacketizer < Formula
   desc "Encrypt and decrypt using 256-bit AES encryption"
   homepage "https://www.aescrypt.com"
-  url "https://www.aescrypt.com/download/v3/linux/aescrypt-3.16.tgz"
+  # v3 source is currently removed. See https://forums.packetizer.com/viewtopic.php?t=1777
+  # url "https://www.aescrypt.com/download/v3/linux/aescrypt-3.16.tgz"
+  url "https://www.mirrorservice.org/sites/distfiles.gentoo.org/distfiles/13/aescrypt-3.16.tgz"
   sha256 "e2e192d0b45eab9748efe59e97b656cc55f1faeb595a2f77ab84d44b0ec084d2"
   license "GPL-2.0-or-later"
 
   livecheck do
-    url "https://www.aescrypt.com/download/"
-    regex(%r{href=.*?/linux/aescrypt[._-]v?(\d+(?:\.\d+)+)\.t}i)
+    skip "v4 is under a commercial license"
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "1039232a96b3efc3d8c4a1da6d48d8d37cc2991e8275dc467d0b8b16229ead5c"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d840ff8d10cb48274d58dac6bc26126ceba767c36e56b2e9e24f2b591dccca0d"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "b40247d58019bfa5346f2cf07d75dbe765f64d9fea747c088f0ac1d44555fe7e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "823e51604fff46f1cb74a791f7a94c35092393352861fee84c9e5517df795395"
@@ -31,28 +33,20 @@ class AescryptPacketizer < Formula
     depends_on "libtool" => :build
   end
 
-  depends_on xcode: :build
-
   def install
     if build.head?
-      cd "linux"
-      system "autoreconf", "-ivf"
+      cd "Linux"
+      system "autoreconf", "--force", "--install", "--verbose"
 
-      args = %W[
-        prefix=#{prefix}
-        --disable-gui
-      ]
+      args = ["--disable-gui"]
       args << "--enable-iconv" if OS.mac?
 
-      system "./configure", *args
+      system "./configure", *args, *std_configure_args
       system "make", "install"
     else
-      cd "src" do
-        system "make"
-
-        bin.install "aescrypt"
-        bin.install "aescrypt_keygen"
-      end
+      system "make"
+      bin.install "src/aescrypt"
+      bin.install "src/aescrypt_keygen"
       man1.install "man/aescrypt.1"
     end
 

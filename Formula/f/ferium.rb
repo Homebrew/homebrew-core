@@ -1,22 +1,22 @@
 class Ferium < Formula
   desc "Fast and multi-source CLI program for managing Minecraft mods and modpacks"
   homepage "https://github.com/gorilla-devs/ferium"
-  url "https://github.com/gorilla-devs/ferium/archive/refs/tags/v4.7.0.tar.gz"
-  sha256 "a7804e44d1949e3fe2c5e875d7d70fc6d2ecd16cbcb65619b9ad4f61ac3b1887"
+  url "https://github.com/gorilla-devs/ferium/archive/refs/tags/v4.7.1.tar.gz"
+  sha256 "a9b9fd966f47d5f8c32e483a21ea476f6883f194e7813f1f81b0001e14b046a5"
   license "MPL-2.0"
   head "https://github.com/gorilla-devs/ferium.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1d82961f18209d69cc4dbf752e085b70300d1fa370ef3d10cae0f56abcc3342b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b43b3cf699c980a5d05a89caee5f384b60275358d3921853974104991b1dc449"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "1be87cd871f574ed79b96b3b0cad43204e017f5edf10787621e1b11390070482"
-    sha256 cellar: :any_skip_relocation, sonoma:         "1a5aa67de799c8ed5c0df316937df94ed7918b88518f766adaab9b5ef70c0568"
-    sha256 cellar: :any_skip_relocation, ventura:        "a318e9abd4668880ea2689f1f989bb0b4872b43fd9872e9cae82fe0f3702c960"
-    sha256 cellar: :any_skip_relocation, monterey:       "0b8fa02e72985609b751aad3009af0958a28e3f7c6d1c8979c6bb0733f4d0915"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "af7b04a325169dd91ab9c36360fb70a8524a5ec552f57985ee2c26b600526b96"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6790e976ab796a3eba9bdaf990d338a1ba9fd4dd9af9b95be83971b3c0f08662"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "be43fc9aea34e8c638cb352048c5d7b856f3af46d4d920e3717efb923ca1b41c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "7d6f4734fa8edd8de7f1583b4a35e2460e8d73830a734ea0f53bd1a720f3e71a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "17bf54da7812220cc21c465ffa24dc296b6c7d96815712651a30ccf9fe10c540"
+    sha256 cellar: :any_skip_relocation, ventura:       "4c14295cc97f603fb82fed856fb6695ec9f32e4b6473fb95cca6c0c2a10b80a0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "139b6568724b1ff83342d0e33539425f3d0c74a34319e8bfbe17eecdb37f03f6"
   end
 
   depends_on "rust" => :build
+  uses_from_macos "bzip2"
 
   on_linux do
     depends_on "pkg-config" => :build

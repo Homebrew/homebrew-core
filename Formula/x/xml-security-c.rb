@@ -8,6 +8,7 @@ class XmlSecurityC < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "191f8cd399323f5a0be7664ab9f058ef7a4b252129ed5d7bf4603f88ade0fa94"
     sha256 cellar: :any,                 arm64_sonoma:   "934a7e2e26afeaa06c455b763598c2ea69fcb7d9aa0fd7820e67d85c6f921551"
     sha256 cellar: :any,                 arm64_ventura:  "fdb50f5de05f8d23f82c401d5e2a7bd948d66805c443fffcc13db9abce41d558"
     sha256 cellar: :any,                 arm64_monterey: "56b183bc43fcb0b7b06c5a8ef52ee47134bdc46c254bcc5a28582d7c6036762e"

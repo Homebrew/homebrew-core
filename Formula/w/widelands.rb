@@ -4,6 +4,7 @@ class Widelands < Formula
   url "https://github.com/widelands/widelands/archive/refs/tags/v1.2.tar.gz"
   sha256 "c6bed3717c541276fbed8a33adce230a2637297588c719268fcb963e076210e2"
   license "GPL-2.0-or-later"
+  revision 1
   version_scheme 1
 
   livecheck do
@@ -12,13 +13,12 @@ class Widelands < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "49df0bbc341c148bb09064dfdf41be0216f9c026e4cf78c803d5d58b15031028"
-    sha256 arm64_ventura:  "5286091b56fb4c2bbd15841ac7074e07933bc75d4e1699d959e7da2eeabf5b45"
-    sha256 arm64_monterey: "8b6883a14cd5732b4d71e423573a48da53f05329552f581775ac06ddb3f6bea5"
-    sha256 sonoma:         "07ea532a734d18fbb7d1cb08ad4fad5c5c2c742ab25b28ba597c10af765d821c"
-    sha256 ventura:        "8be55a2c96d0782a1195c0beae0221f52d52938af570835268fccc6339ffe205"
-    sha256 monterey:       "18ad1a1c68b547c4a7079cd546b7d9f07f0a9a75a04eeb9d1f1a85dbf9eeb402"
-    sha256 x86_64_linux:   "9cb4ef5b7a47e801e43e43c3b848fceaf2cdc510e94d9cbc00afc27bdcc4e518"
+    sha256 arm64_sequoia: "ef5011b7b2949d380e2793bd2805d64ae6df4ff121cbbc0a527832e517ee04f2"
+    sha256 arm64_sonoma:  "433046161980ec43882054adfe81d69b7a66be689816608d6436b027192af261"
+    sha256 arm64_ventura: "0c55b3ec21a434d72e4752b5da90111de2c9bf0118ea049221e30d538a84f224"
+    sha256 sonoma:        "ff50e8ef45cae5c807fc27267fbcb133b010cfa8c7acf1bb493fed0efa91cebe"
+    sha256 ventura:       "c629a2736fc3437abb528a9de87794edc8afb3fc22a4e0071322385ac2a601ad"
+    sha256 x86_64_linux:  "7664648dc80ec5a0d70fa674628244f8a652b1e326f1f1ee03b7187570f43169"
   end
 
   depends_on "asio" => :build
@@ -26,8 +26,9 @@ class Widelands < Formula
   depends_on "doxygen" => :build
   depends_on "gettext" => :build
   depends_on "pkg-config" => :build
+
   depends_on "glew"
-  depends_on "icu4c"
+  depends_on "icu4c@75"
   depends_on "libpng"
   depends_on "lua"
   depends_on "minizip"
@@ -41,6 +42,10 @@ class Widelands < Formula
 
   on_macos do
     depends_on "gettext"
+  end
+
+  on_linux do
+    depends_on "mesa"
   end
 
   def install

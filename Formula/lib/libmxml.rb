@@ -7,6 +7,7 @@ class Libmxml < Formula
   head "https://github.com/michaelrsweet/mxml.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "5c39687f789d954b9ff9a04deb407c5d1e526dde5b29f9cc1f1272a0b507d1b5"
     sha256 cellar: :any,                 arm64_sonoma:   "20677433e3db005bc0e9bf9e7ea446a3158c8f6f0b86f707e133079cfe694b4e"
     sha256 cellar: :any,                 arm64_ventura:  "5ad6a10df96c847aad61c2c4fbd10d33b38a88b5861c6547f4aab796cf472c6b"
     sha256 cellar: :any,                 arm64_monterey: "f517bd3382d55b87d2ab9e20be36965d5291eacca9f0ee438fd60e42f34c086c"
@@ -16,13 +17,10 @@ class Libmxml < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "c46e4fd4d9fd79ebeff1183abe4fca41d7d92698f418a9f01c1705c6b78b368f"
   end
 
-  depends_on xcode: :build # for docsetutil
   depends_on "pkg-config" => :test
 
   def install
-    system "./configure", "--disable-debug",
-                          "--enable-shared",
-                          "--prefix=#{prefix}"
+    system "./configure", "--enable-shared", *std_configure_args
     system "make"
     system "make", "install"
   end

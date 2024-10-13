@@ -6,6 +6,7 @@ class SofiaSip < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "c3097f4dedd66c5da27cea5bb43070acd0c131ffa1906cedcaed0c655600e808"
     sha256 cellar: :any,                 arm64_sonoma:   "18e0ab1bfa33dbb06af1169f0a7bdadd1e74513761079879a53eb2d23efb81df"
     sha256 cellar: :any,                 arm64_ventura:  "18af91a0199247226e541153739aafa4ba42b925f86b6519791ebed6a7c1bef5"
     sha256 cellar: :any,                 arm64_monterey: "26956b6d518f9e505bd877f40ec86d6c15f7a5731dc73bd42ea36e6e010da833"

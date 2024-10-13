@@ -14,6 +14,7 @@ class Openmsx < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia:  "89c7955a19d04416183cf4b4e6228524269998f4db8b487e1c65c0fe72688164"
     sha256 cellar: :any,                 arm64_sonoma:   "313d497452b11b20bfd53228bc5862f6df8134133ac441f680ff62b20404b6ee"
     sha256 cellar: :any,                 arm64_ventura:  "a5dd401bb3451678067ba95a1ad51fef42a0456cb2c7b6eb8828de8b2692f1f4"
     sha256 cellar: :any,                 arm64_monterey: "14de96e3de2aa91141c2c88574653e1b6de932c3a0f4769be4c54e2ed8b22b40"
@@ -42,6 +43,7 @@ class Openmsx < Formula
 
   on_linux do
     depends_on "alsa-lib"
+    depends_on "mesa"
   end
 
   fails_with :clang do
@@ -84,6 +86,6 @@ class Openmsx < Formula
   end
 
   test do
-    system "#{bin}/openmsx", "-testconfig"
+    system bin/"openmsx", "-testconfig"
   end
 end

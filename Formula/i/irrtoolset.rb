@@ -3,7 +3,7 @@ class Irrtoolset < Formula
   homepage "https://github.com/irrtoolset/irrtoolset"
   url "https://github.com/irrtoolset/irrtoolset/archive/refs/tags/release-5.1.3.tar.gz"
   sha256 "a3eff14c2574f21be5b83302549d1582e509222d05f7dd8e5b68032ff6f5874a"
-  license :cannot_represent
+  license all_of: ["MIT", "HPND", "GPL-2.0-or-later", "LGPL-2.0-or-later"]
   head "https://github.com/irrtoolset/irrtoolset.git", branch: "master"
 
   livecheck do
@@ -13,6 +13,7 @@ class Irrtoolset < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "c8f841c2b1f1181dfd110bb27a4d374ff43d204bda34a871aa260bd8c67c7e43"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "89d7ae76431629fd7703e8295dae62fbaae4ef6adba8b261e14d92ff409fc450"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "5834b05bb5b3280a60032cca1d759d1ffd7f513118fdabe5e9ded8c7d08252de"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "435c4b7b2a17d32046afab709f58dad5ce6b4372a064223eb9b695e939df097c"
@@ -46,6 +47,6 @@ class Irrtoolset < Formula
   end
 
   test do
-    system "#{bin}/peval", "ANY"
+    system bin/"peval", "ANY"
   end
 end

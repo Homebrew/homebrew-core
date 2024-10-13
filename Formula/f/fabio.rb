@@ -7,6 +7,7 @@ class Fabio < Formula
   head "https://github.com/fabiolb/fabio.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "c60703966ecd1882b0fd0a5c0122864a26c376552b662cfb408093e3bc7a3949"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e4a20558083c013910f2d092982c75243b8a358b1599fc75a1b18de6890d9526"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "ab8990ed9eeab8dee4b314bcb6189d50f4dc8eebee77de71bc496d4bf8c78b9b"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "93816978aba8f3872e86a77f0ccf1965d92d7377389af58fa12a58c97f23033c"
@@ -57,7 +58,7 @@ class Fabio < Formula
         sleep 30
       end
       fork do
-        exec "#{bin}/fabio"
+        exec bin/"fabio"
       end
       sleep 10
       assert_equal true, port_open?(localhost_ip, fabio_default_port)

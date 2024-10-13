@@ -1,18 +1,17 @@
 class Bbtools < Formula
   desc "Brian Bushnell's tools for manipulating reads"
   homepage "https://jgi.doe.gov/data-and-tools/bbtools/"
-  url "https://downloads.sourceforge.net/bbmap/BBMap_39.08.tar.gz"
-  sha256 "296f092ac5008575c656fba9c821e309d53eaac6c9f9ed17504765d592b244a6"
+  url "https://downloads.sourceforge.net/bbmap/BBMap_39.10.tar.gz"
+  sha256 "996aff05765ba5e64547f8a34c56da396ce7b18db96ffe7f1076f2d2f49c6148"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "5d07b7e1a1885a7d0805644ebfd6c9e6cf0754e4a79932a5eb4c2af370c8a6c7"
-    sha256 cellar: :any,                 arm64_ventura:  "b3a9e7b26e4383539052b5f5528bcab52fce890bba52b0533c96eaa3be484d06"
-    sha256 cellar: :any,                 arm64_monterey: "fa7711333a2a61aa3f61c173a9be1c327eb6cd7282686ed8da32a5f83426c1f2"
-    sha256 cellar: :any,                 sonoma:         "43e8e713b12cd81ea160b0540c83f97a77f5d2f157ae05ee2dbf24bfcb74ccfb"
-    sha256 cellar: :any,                 ventura:        "bbef67beb5786796b5d1ebad42ba7649dfa0a781cf59f1990e491aafae7f0926"
-    sha256 cellar: :any,                 monterey:       "7a6e1a6d4ceee293aa4a62b24832494ec0f010324210a7e8d2748299c256430d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4ea74f6be709f395cdecbde432729410bb747c8bb4da219a5e0601b83a3f4338"
+    sha256 cellar: :any,                 arm64_sequoia: "5c0fe9a575a8ad6331d5c8f9f2922fcdfc6c89d22a55a718b19efe79750134f8"
+    sha256 cellar: :any,                 arm64_sonoma:  "d86f1268c6cfe4bb3e35227ca9b9aa9be4c40ce642b2ce0730f944f50d6657c3"
+    sha256 cellar: :any,                 arm64_ventura: "017c4c6997e879a54634ecaf61de8c8627f95ceab57675caa52902fb6ed8fe70"
+    sha256 cellar: :any,                 sonoma:        "6220e590f5476aafdee633c8d732e782222816624dc912ed3e2d63e2c6beef5e"
+    sha256 cellar: :any,                 ventura:       "43f9e3fdb1d3af404891e7714c185da35ac0779d926aa17ae4d7819182eef5b1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "76022af912cc8f03766580166e6af7a95ec90aa1d1375e8ccd579740b70b761c"
   end
 
   depends_on "openjdk"
@@ -38,7 +37,8 @@ class Bbtools < Formula
               ref=#{res}/phix174_ill.ref.fa.gz
               k=31
               hdist=1]
-    system "#{bin}/bbduk.sh", *args
+
+    system bin/"bbduk.sh", *args
     assert_match "bbushnell@lbl.gov", shell_output("#{bin}/bbmap.sh")
     assert_match "maqb", shell_output("#{bin}/bbmap.sh --help 2>&1")
     assert_match "minkmerhits", shell_output("#{bin}/bbduk.sh --help 2>&1")

@@ -6,6 +6,7 @@ class Scmpuff < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "151580cd03c9b01f87b20dfe4b52cd1fd9a03306463bcca646291418fc37f952"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "228b81ed5e3cb6117d1c3f2d9ece048b52d0b3be7294a50818c78a3e818761c2"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "6b5220f190ab21c65e308ccee28de4ed4811fdacde23a98654cbb39433c8fd34"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "37bdb546a920a6c1c1fd70d047a37e872de2058469f4782cda61d349a28e00e7"

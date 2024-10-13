@@ -3,7 +3,7 @@ class Gputils < Formula
   homepage "https://gputils.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/gputils/gputils/1.5.0/gputils-1.5.2.tar.bz2"
   sha256 "8fb8820b31d7c1f7c776141ccb3c4f06f40af915da6374128d752d1eee3addf2"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url :stable
@@ -11,6 +11,7 @@ class Gputils < Formula
   end
 
   bottle do
+    sha256 arm64_sequoia:  "002f4b80984f18e0c836c7672e342110f8a1fa7f8d45572acf70610361047d61"
     sha256 arm64_sonoma:   "c09d1d95618d889cd0dc37285588a1925872389388f636c70764b8e6d8b9eb35"
     sha256 arm64_ventura:  "973d66004e773aa92968ddcfd79781b1eead7689771fe5c0629241a77b625e26"
     sha256 arm64_monterey: "ef9e856e54329ca707dbcda0c51cd85f2351a73de705f614f5936cc71baee4ad"
@@ -31,7 +32,7 @@ class Gputils < Formula
   test do
     # assemble with gpasm
     (testpath/"test.asm").write " movlw 0x42\n end\n"
-    system "#{bin}/gpasm", "-p", "p16f84", "test.asm"
+    system bin/"gpasm", "-p", "p16f84", "test.asm"
     assert_predicate testpath/"test.hex", :exist?
 
     # disassemble with gpdasm

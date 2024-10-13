@@ -1,8 +1,8 @@
 class Src < Formula
   desc "Simple revision control: RCS reloaded with a modern UI"
   homepage "http://www.catb.org/~esr/src/"
-  url "http://www.catb.org/~esr/src/src-1.39.tar.gz"
-  sha256 "4b6e6e7de450f9f2d77d1e44f2df04bd343e158d7f5fdadd01f93b35bbb006f5"
+  url "http://www.catb.org/~esr/src/src-1.41.tar.gz"
+  sha256 "5dc9302b161582149dbc191a0eeee43142b96386a542c870d56ac9fddb995d25"
   license "BSD-2-Clause"
 
   livecheck do
@@ -11,13 +11,7 @@ class Src < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7583e01995c8b884278faca98e316d051cc467acfcccd13c255952e6e3513bc8"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7583e01995c8b884278faca98e316d051cc467acfcccd13c255952e6e3513bc8"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7583e01995c8b884278faca98e316d051cc467acfcccd13c255952e6e3513bc8"
-    sha256 cellar: :any_skip_relocation, sonoma:         "7583e01995c8b884278faca98e316d051cc467acfcccd13c255952e6e3513bc8"
-    sha256 cellar: :any_skip_relocation, ventura:        "7583e01995c8b884278faca98e316d051cc467acfcccd13c255952e6e3513bc8"
-    sha256 cellar: :any_skip_relocation, monterey:       "7583e01995c8b884278faca98e316d051cc467acfcccd13c255952e6e3513bc8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e22fce644d8451d5d05072a85737fe8f15cb3c895d5a40c160a8dea615c503bd"
+    sha256 cellar: :any_skip_relocation, all: "56096c026d4c1de4b67f49b8cff61aa96ba2e29265b548b2f31561624b363c22"
   end
 
   head do

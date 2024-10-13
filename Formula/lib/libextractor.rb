@@ -7,6 +7,7 @@ class Libextractor < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 arm64_sequoia:  "3dc057f34f3a021d0485a2f04b581c8b77f118e6c12337717e200de09146f560"
     sha256 arm64_sonoma:   "e011f7851397a725c19c5774f33fd92a880476a8ae37c5c9f23a5d4aad084cac"
     sha256 arm64_ventura:  "10788f93e331dd93dab2eb899fa31593b72fedcb789a0c7c807c4647c495d7f9"
     sha256 arm64_monterey: "5eab278d0efbc37c53c5780bd0b7a709698d7339637268b13f0e943c06ef843b"

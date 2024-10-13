@@ -7,6 +7,7 @@ class Cassowary < Formula
   head "https://github.com/rogerwelin/cassowary.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "2c7bb0da64e5da6095a76bf02cd3b07f96c80f91fea181405dcf254e6fa49da6"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "da17173ae9736a4460e2fa1286ec5f93e83cc565f149095ac8b5675cd73ea44b"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "63022a7afe20a421a3db5cd6f8fbb26f07334ee09528cb54e06015a34dd3c717"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "037d14633d3862baa5512ad48f32077fbdfeb9e7d758899560d2a545b9ab47eb"
@@ -23,7 +24,7 @@ class Cassowary < Formula
   end
 
   test do
-    system("#{bin}/cassowary", "run", "-u", "http://www.example.com", "-c", "10", "-n", "100", "--json-metrics")
+    system(bin/"cassowary", "run", "-u", "http://www.example.com", "-c", "10", "-n", "100", "--json-metrics")
     assert_match "\"base_url\":\"http://www.example.com\"", File.read("#{testpath}/out.json")
 
     assert_match version.to_s, shell_output("#{bin}/cassowary --version")

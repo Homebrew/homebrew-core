@@ -19,7 +19,18 @@ class GnomeThemesExtra < Formula
   depends_on "gettext" => :build
   depends_on "intltool" => :build
   depends_on "pkg-config" => :build
+
+  depends_on "cairo"
+  depends_on "glib"
   depends_on "gtk+"
+
+  on_macos do
+    depends_on "at-spi2-core"
+    depends_on "gdk-pixbuf"
+    depends_on "gettext"
+    depends_on "harfbuzz"
+    depends_on "pango"
+  end
 
   on_linux do
     depends_on "perl-xml-parser" => :build

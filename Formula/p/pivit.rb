@@ -1,18 +1,17 @@
 class Pivit < Formula
   desc "Sign and verify data using hardware (Yubikey) backed x509 certificates (PIV)"
   homepage "https://github.com/cashapp/pivit"
-  url "https://github.com/cashapp/pivit/archive/refs/tags/v0.7.0.tar.gz"
-  sha256 "aa4668180c6b533fc027cc6e06e09c122edc17a87d4ba87cf9e56a50fef0ebce"
+  url "https://github.com/cashapp/pivit/archive/refs/tags/v0.9.2.tar.gz"
+  sha256 "dadaee7a84634c55087fbf6bf0d2de1838aa89ce31125eafbb0b5779757583f9"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9eeea547bd12d775c069be6bb92dcfd2f1d80f62e631aeedb1c56b145ad6b02f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "01cc3770325264967e888b5813b49acef716da349dbce54b7ab14ec58f203c63"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "da11b94d5b336c2b3bcab0f2d9962c3347df5e9c987b8d4f9cb8507fcbd301b5"
-    sha256 cellar: :any_skip_relocation, sonoma:         "10839d87733ef335a06d9ce4e652fe7a60c3343dfba22bb0f32c8dd5c4dc91b7"
-    sha256 cellar: :any_skip_relocation, ventura:        "04ab2d75412d539b86e27a343be253fae054ce1751aec1d3385e609dbb72583f"
-    sha256 cellar: :any_skip_relocation, monterey:       "d831473137e56b2e29db1edf2eade34b993fb43b0f8e7af28821105132ae22dc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a7891391fcbad7fac0050bf686f365fb5cb1c011ca89a25c63f1daf7b5b08559"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8905b125a058d154f33ba2c1315dbe971e988bb858a103c0266637fa49f05a72"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ab13cc17269b075c1d300cc957f21df8257fddf9e23404f88cb9ec3bc3ff22e6"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "a169ca42100f3fef700fae42d5e3eb74398c7ae474d90de841fcadee768d8cbc"
+    sha256 cellar: :any_skip_relocation, sonoma:        "0571959de174a34bb941d952b67f0026f071482842ce26ce3e3cf227213374ff"
+    sha256 cellar: :any_skip_relocation, ventura:       "1692ff7fce8b4d423a874a6aafc9b0e8e1628f54b357b850140d74d09917abb1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3fbef3ead98b26fa4a6459ff2eaa71c77e46c3d4989890a5ca7104dc89c0ac04"
   end
 
   depends_on "go" => :build

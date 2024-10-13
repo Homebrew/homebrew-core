@@ -3,7 +3,11 @@ class Zsync < Formula
   homepage "http://zsync.moria.org.uk/"
   url "http://zsync.moria.org.uk/download/zsync-0.6.2.tar.bz2"
   sha256 "0b9d53433387aa4f04634a6c63a5efa8203070f2298af72a705f9be3dda65af2"
-  license "Artistic-2.0"
+  license all_of: [
+    "Artistic-2.0",
+    "Zlib", # zlib/
+    :public_domain, # librcksum/md4.c, libzsync/sha1.c, zlib/inflate.c
+  ]
 
   livecheck do
     url "http://zsync.moria.org.uk/downloads"
@@ -11,6 +15,7 @@ class Zsync < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "242e3632a7cacc43f4b909c69bea7ae3c850921189867c6f6980523fea4f0364"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "eae952647fec12661f80edba535420196912e3fce0c3e3272e8584993a53df39"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "9c26ab39f23b57f14fcb5407541cc6785209d09c4408d516069d8fe8694f5e01"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "5d9c561ebe0167e590847ed7993ff01e098eed20ba1ab158ffc3fc6a1295d220"
@@ -31,15 +36,14 @@ class Zsync < Formula
     # Fix compile with newer Clang
     ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
 
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    system "./configure", *std_configure_args
     system "make", "install"
   end
 
   test do
-    touch "#{testpath}/foo"
-    system "#{bin}/zsyncmake", "foo"
+    touch testpath/"foo"
+    system bin/"zsyncmake", "foo"
     sha1 = "da39a3ee5e6b4b0d3255bfef95601890afd80709"
-    File.read("#{testpath}/foo.zsync") =~ /^SHA-1: #{sha1}$/
+    assert_match "SHA-1: #{sha1}", (testpath/"foo.zsync").read
   end
 end

@@ -13,6 +13,7 @@ class Mdzk < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "a5333fe224b57ed96d1e4696037b014ae42dab995f3a07d76394969a6e7b8946"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3c45aa016d02e2a7246ed02956b861e60cef5f67ede2b71526863b59fbf6f0b7"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "e395b411c4fd8c752152796aa860f24a44ac7d4540ffc838c6808a443ea271ac"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d5b825c14aa162c7b6e107d17a4a94db341b1dbbb57697f1001bd66a2ab9b45c"
@@ -39,7 +40,7 @@ class Mdzk < Formula
   end
 
   test do
-    system "#{bin}/mdzk", "init", "test_mdzk"
+    system bin/"mdzk", "init", "test_mdzk"
     assert_predicate testpath/"test_mdzk", :exist?
   end
 end

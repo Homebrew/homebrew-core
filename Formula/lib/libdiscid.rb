@@ -11,6 +11,7 @@ class Libdiscid < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "d75c302e47eb78bf4d56bc4e0cde309a944890f1d046b7078a2be9ea6c4f7f10"
     sha256 cellar: :any,                 arm64_sonoma:   "906bf782b5afdaa39be07081bfcf814c58987cd261b18689bb945dcd0bcc30b8"
     sha256 cellar: :any,                 arm64_ventura:  "ab8bab81ac4ed46d45902acfea78260d20e2ce0616d6073ebc8025ff6fa7979b"
     sha256 cellar: :any,                 arm64_monterey: "896b72d31f4c99fa8e1064807501c1588002c2d1d651cf3179ee5052504dea7f"

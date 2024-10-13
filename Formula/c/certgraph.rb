@@ -7,6 +7,7 @@ class Certgraph < Formula
   head "https://github.com/lanrat/certgraph.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "bb875c3150d6b112b81aa2e8fdec0393f8d1c62a052ccd53b4349550559307c0"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "87984362d6fa214b3adad55d4ee28ecf6f102e5fc3dc62f0f85b186210824518"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "303c6039381a5d9dfe1865103a5242c8ce6260a9391d02238c1a52051707538e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f7b5fee234dd83f986f53ea5a8491b82fa6a7eeaa9d2f598e26aef1023395c99"

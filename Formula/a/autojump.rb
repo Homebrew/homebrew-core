@@ -8,20 +8,14 @@ class Autojump < Formula
   head "https://github.com/wting/autojump.git", branch: "master"
 
   bottle do
-    rebuild 4
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "99ba23c9e74320381af33cef477c4258185ff0cc5ef5d54165a07ca3385a9237"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "99ba23c9e74320381af33cef477c4258185ff0cc5ef5d54165a07ca3385a9237"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "99ba23c9e74320381af33cef477c4258185ff0cc5ef5d54165a07ca3385a9237"
-    sha256 cellar: :any_skip_relocation, sonoma:         "99ba23c9e74320381af33cef477c4258185ff0cc5ef5d54165a07ca3385a9237"
-    sha256 cellar: :any_skip_relocation, ventura:        "99ba23c9e74320381af33cef477c4258185ff0cc5ef5d54165a07ca3385a9237"
-    sha256 cellar: :any_skip_relocation, monterey:       "99ba23c9e74320381af33cef477c4258185ff0cc5ef5d54165a07ca3385a9237"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dbdc660e87f1a4e80757a36c7ce9cda4235e79e490007b80b8c2d894206b1f8b"
+    rebuild 6
+    sha256 cellar: :any_skip_relocation, all: "b172a04f1d109b558ed126cc14250e41e804adecbdcf9f1ef68941825613b283"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   def install
-    python_bin = Formula["python@3.12"].opt_libexec/"bin"
+    python_bin = Formula["python@3.13"].opt_libexec/"bin"
     system python_bin/"python", "install.py", "-d", prefix, "-z", zsh_completion
 
     # ensure uniform bottles

@@ -12,6 +12,7 @@ class Gphoto2 < Formula
   end
 
   bottle do
+    sha256 arm64_sequoia:  "5ae6c7be0e9948d7fd7d0f473a4fcb0f62d37d8961c5e9ff33f42095fbc17463"
     sha256 arm64_sonoma:   "2c504b69c81e8ffa8b85422f2e253f728670335465411812dbdac5264cb721ec"
     sha256 arm64_ventura:  "0a2a57995067c69118a232642dfb89cd3e3040706f768e1102160ba07d5ee000"
     sha256 arm64_monterey: "f539f391b11d94317e0c1b693b0f8ed0abfa1a702111c2a8807ae17be5890e38"
@@ -25,15 +26,23 @@ class Gphoto2 < Formula
   end
 
   depends_on "pkg-config" => :build
+
   depends_on "jpeg-turbo"
   depends_on "libexif"
   depends_on "libgphoto2"
   depends_on "popt"
   depends_on "readline"
 
+  on_macos do
+    depends_on "gettext"
+  end
+
+  # fix incompatible pointer type issue
+  # upstream patch PR ref, https://github.com/gphoto/gphoto2/pull/569
+  patch :DATA
+
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    system "./configure", *std_configure_args.reject { |s| s["--disable-debug"] }
     system "make", "install"
   end
 
@@ -41,3 +50,26 @@ class Gphoto2 < Formula
     assert_match version.to_s, shell_output("#{bin}/gphoto2 -v")
   end
 end
+
+__END__
+diff --git a/gphoto2/main.c b/gphoto2/main.c
+index 2bf5964..cd84467 100644
+--- a/gphoto2/main.c
++++ b/gphoto2/main.c
+@@ -1215,14 +1215,14 @@ start_timeout_func (Camera *camera, unsigned int timeout,
+ 
+ 	pthread_create (&tid, NULL, thread_func, td);
+ 
+-	return (tid);
++	return (unsigned int)tid;
+ }
+ 
+ static void
+ stop_timeout_func (Camera __unused__ *camera, unsigned int id,
+ 		   void __unused__ *data)
+ {
+-	pthread_t tid = id;
++	pthread_t tid = (pthread_t)id;
+ 
+ 	pthread_cancel (tid);
+ 	pthread_join (tid, NULL);

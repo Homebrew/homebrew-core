@@ -6,6 +6,7 @@ class Wiggle < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "8887ecafbe844cb6e671f1b2d74668d28ee8116ad5efe005853c96f4bbe1255c"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2f756d49aaee957607f8578ae60fb771362fa3c97ed675c40d48b3165fbd3cbf"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "af2e82816a399f7da15006e81343855ef0c205ddc22bbc2a90047d0f99ac4339"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "2340430acf70ad6cff33fb034eda572c80f359b3847b90ebcce1c732cc2bb792"
@@ -25,6 +26,6 @@ class Wiggle < Formula
   end
 
   test do
-    system "#{bin}/wiggle", "--version"
+    system bin/"wiggle", "--version"
   end
 end

@@ -7,6 +7,7 @@ class RiemannClient < Formula
   head "https://git.madhouse-project.org/algernon/riemann-c-client.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "7c56837d9a12fad1b4c18ad219db98ff49775244355c29a797e40e8124d1ce78"
     sha256 cellar: :any,                 arm64_sonoma:   "4116feb76d22357c68e8c5a08ffef422c0e01c3b60aabeef4e3b4f05839a62a6"
     sha256 cellar: :any,                 arm64_ventura:  "b3507667a57c0d40ae48bab7c5e9dcf08cb0e17030a20b3f3d746973bbb8193e"
     sha256 cellar: :any,                 arm64_monterey: "a8afc4ddc4a4081a00908f94189611a642eb9cbf6419b41bef7db291960ad250"
@@ -34,6 +35,6 @@ class RiemannClient < Formula
   end
 
   test do
-    system "#{bin}/riemann-client", "send", "-h"
+    system bin/"riemann-client", "send", "-h"
   end
 end

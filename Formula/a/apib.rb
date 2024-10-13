@@ -8,6 +8,7 @@ class Apib < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia:  "16bdbdc8c1157d81ef431aa3c9065d08a8986f6f9863d6d1d9ec7b9bf9ba1a4c"
     sha256 cellar: :any,                 arm64_sonoma:   "6b82511a66880598cbb30560c46652203f7448dd5fecea99bf50a73cc248f18a"
     sha256 cellar: :any,                 arm64_ventura:  "0d3f8ebb9f43ccdebb3d1f0afea5decb6418aee36e2021d8c6eb2a182f023c09"
     sha256 cellar: :any,                 arm64_monterey: "c411bb84a6c9cedada2763065efefa16107e3d030108a0a56d58cbef1261ead7"
@@ -32,6 +33,6 @@ class Apib < Formula
   end
 
   test do
-    system "#{bin}/apib", "-c 1", "-d 1", "https://www.google.com"
+    system bin/"apib", "-c 1", "-d 1", "https://www.google.com"
   end
 end

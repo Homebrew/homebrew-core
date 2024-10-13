@@ -12,6 +12,7 @@ class Ntp < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "991683b9f1c1596bd5b8c518bc94efc07539371b2ef0c3ee49144e2db44d4e8e"
     sha256 cellar: :any,                 arm64_sonoma:   "41bfb9eea202e95df1a7aaaee2884019f7df5f3c0b8be100b4fc09f7ac26cdd1"
     sha256 cellar: :any,                 arm64_ventura:  "7ba3ffa6ba07c07ed7fbe369c179179771936d3c98393f5aec6cbedf7098eafe"
     sha256 cellar: :any,                 arm64_monterey: "e8a0cff26dafc8c15090033a5425ef996c16ff35e7517de4a6dda107a8e0535e"

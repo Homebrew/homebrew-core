@@ -13,6 +13,7 @@ class Verapdf < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "aaa936d8b40963c6729c9924b137b8a32903deb839d4e70349dbc6095ead3e86"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d4d90f5fed9950389a5fccbee6db56063c5d9ff6ceded3a503f021ac9c5eb152"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "8d5cd459ba8fc3787bb60e5b5c500d246f328ed6b950b2f352f9303875bdbf1e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4b60f29cb959ba7fd1cebe6a0d5577ac207d9bcdf56fc693c445ab75b6efde30"
@@ -38,7 +39,7 @@ class Verapdf < Formula
   end
 
   test do
-    with_env(VERAPDF: "#{bin}/verapdf", NO_CD: "1") do
+    with_env(VERAPDF: bin/"verapdf", NO_CD: "1") do
       system prefix/"tests/exit-status.sh"
     end
   end

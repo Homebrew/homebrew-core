@@ -12,6 +12,7 @@ class Sword < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_sequoia:  "0bbd46a628e21ec4c2cc033e16a03dca1a2ac3fb5e0ce282a5e60abf4c0b8f97"
     sha256 arm64_sonoma:   "12b0bef882eb3ccc8e41d2199726435ed32286fde77a8b9b6ba6792a6210acaf"
     sha256 arm64_ventura:  "2439903e03cee94fe9b519c1597d9bebda08eebb38f353f775202b637748403a"
     sha256 arm64_monterey: "639a1f62fdf085c51a76a685ece4432a26dddc2fe7d4ba65fce337d6adbfc500"
@@ -53,6 +54,6 @@ class Sword < Formula
     # This will call sword's module manager to list remote sources.
     # It should just demonstrate that the lib was correctly installed
     # and can be used by frontends like installmgr.
-    system "#{bin}/installmgr", "-s"
+    system bin/"installmgr", "-s"
   end
 end

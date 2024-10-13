@@ -11,6 +11,7 @@ class Mpc < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "db50052b3d26b915d7dc62a48b0a321a8c7508e1432db97da28d784011b267bd"
     sha256 cellar: :any,                 arm64_sonoma:   "f1e59f68f047fc8dd086e5e794345af28749a3d2b83e5d922c1245a6f32a1c36"
     sha256 cellar: :any,                 arm64_ventura:  "331071de8326f5a6fa77df9ccd4c0631935df430e87842561f2879c7c313c06d"
     sha256 cellar: :any,                 arm64_monterey: "cf09306f0bc1483fc89e9eaadf2804a451c679d1d2c5df6c22093de692edf3db"
@@ -26,9 +27,9 @@ class Mpc < Formula
   depends_on "libmpdclient"
 
   def install
-    system "meson", *std_meson_args, ".", "output"
-    system "ninja", "-C", "output"
-    system "ninja", "-C", "output", "install"
+    system "meson", "setup", "_build", *std_meson_args
+    system "meson", "compile", "-C", "_build", "--verbose"
+    system "meson", "install", "-C", "_build"
 
     bash_completion.install "contrib/mpc-completion.bash" => "mpc"
     rm share/"doc/mpc/contrib/mpc-completion.bash"

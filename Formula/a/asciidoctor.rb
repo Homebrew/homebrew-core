@@ -6,6 +6,7 @@ class Asciidoctor < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "0e22867759dbac0647abe6e8a89fbc85ff2abdfc8feca72b04a354e43ec82dd8"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "98d673578b71fc61fcfbae82914b8836d7cb8cf00943c453d1734412e76522ae"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "b633e081e4ac8c4f30ac1166c7ab756307724c788209b7b7981e0ebc4d2cf54a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4f1cd991e0e82b564540e53b37037c666e066ddeed28d32d7b178ee04ba59c41"

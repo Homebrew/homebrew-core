@@ -14,6 +14,7 @@ class Aalib < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "404c97537d65ca0b75c389e7d439dcefb9b56f34d3b98017669eda0d0501add7"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a4890d380658f2e1ebef37698c874b8711acfe9c0685313d8c93dbe2e9e08bbf"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "3bbe40492b5ff2d6bde6effd36a8fa0b179786032c1da624d0f6bd15e71cd044"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "292e704fb6cca01e6ab77baac8960df5c9b45f2fb209a0f670a7de16242c3ee0"
@@ -36,14 +37,15 @@ class Aalib < Formula
   end
 
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--mandir=#{man}",
+    # Workaround for newer Clang
+    ENV.append_to_cflags "-Wno-implicit-int" if DevelopmentTools.clang_build_version >= 1403
+
+    system "./configure", "--mandir=#{man}",
                           "--infodir=#{info}",
                           "--enable-shared=yes",
                           "--enable-static=yes",
-                          "--without-x"
+                          "--without-x",
+                          *std_configure_args
     system "make", "install"
   end
 

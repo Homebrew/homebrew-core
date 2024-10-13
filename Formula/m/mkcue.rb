@@ -3,10 +3,11 @@ class Mkcue < Formula
   homepage "https://packages.debian.org/sid/mkcue"
   url "https://deb.debian.org/debian/pool/main/m/mkcue/mkcue_1.orig.tar.gz"
   sha256 "2aaf57da4d0f2e24329d5e952e90ec182d4aa82e4b2e025283e42370f9494867"
-  license "LGPL-2.1"
+  license "LGPL-2.1-or-later"
 
   bottle do
     rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "86b0008a011b784913cbf754e986e22b8164c5d75cc872c599f668c7061f4f8b"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0e8c2ecae6dc26d0931ffb4f1c520a6c2a98aeb135000c9e3edcf67b3f91b5f2"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "d4e1acd72551015dad41df1ad038b7507f18b857a03e6653d4c9d1ecf3122125"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a13e835f8be46aa49ced89b84f232f40dc563b9a06481efe25e1d271ea56ab41"
@@ -33,11 +34,11 @@ class Mkcue < Formula
 
   test do
     touch testpath/"test"
-    system "#{bin}/mkcue", "test" unless ENV["HOMEBREW_GITHUB_ACTIONS"]
+    system bin/"mkcue", "test" unless ENV["HOMEBREW_GITHUB_ACTIONS"]
 
     if ENV["HOMEBREW_GITHUB_ACTIONS"]
       if OS.mac?
-        system "#{bin}/mkcue", "test"
+        system bin/"mkcue", "test"
       elsif OS.linux?
         assert_match "Cannot read table of contents", shell_output("#{bin}/mkcue test 2>&1", 2)
       end

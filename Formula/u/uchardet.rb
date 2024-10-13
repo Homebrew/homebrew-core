@@ -3,9 +3,11 @@ class Uchardet < Formula
   homepage "https://www.freedesktop.org/wiki/Software/uchardet/"
   url "https://www.freedesktop.org/software/uchardet/releases/uchardet-0.0.8.tar.xz"
   sha256 "e97a60cfc00a1c147a674b097bb1422abd9fa78a2d9ce3f3fdcc2e78a34ac5f0"
+  license any_of: ["MPL-1.1", "GPL-2.0-or-later", "LGPL-2.1-or-later"]
   head "https://gitlab.freedesktop.org/uchardet/uchardet.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "171e31b14ade23db98fd45f32cebdd1c278ce5b5d629d4e3be7c81a56bee03a7"
     sha256 cellar: :any,                 arm64_sonoma:   "70b2c779c315b71c067c8f4a743a90688dfa329c9d5e1c174345d0071fdf09d8"
     sha256 cellar: :any,                 arm64_ventura:  "a85a41114a32e8a455a0940c5d1f9b475a2dcb15b0041966cde44f632c5f8caf"
     sha256 cellar: :any,                 arm64_monterey: "b8da933deae20869dfec3d4d04688424230adc652863dc7015b73ed8ffbdc028"
@@ -27,6 +29,6 @@ class Uchardet < Formula
   end
 
   test do
-    assert_equal "ASCII", pipe_output("#{bin}/uchardet", "Homebrew").chomp
+    assert_equal "ASCII", pipe_output(bin/"uchardet", "Homebrew").chomp
   end
 end

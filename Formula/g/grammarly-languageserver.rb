@@ -1,5 +1,3 @@
-require "language/node"
-
 class GrammarlyLanguageserver < Formula
   desc "Language Server for Grammarly"
   homepage "https://github.com/znck/grammarly"
@@ -9,20 +7,17 @@ class GrammarlyLanguageserver < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "7433d92272f07c1cd865850dbf5db445aaef83b4ce00cebd49b8faad6aaf88b4"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "78d49db050951e7d62fd3773c446298ed08ecd2df7e064250c552cf134957816"
   end
 
-  deprecate! date: "2023-11-02", because: "uses deprecated `node@16`"
+  disable! date: "2024-10-10", because: :repo_archived
 
   depends_on "node@16" # try `node` after https://github.com/znck/grammarly/issues/334
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
-    (bin/"grammarly-languageserver").write <<~EOS
-      #! /usr/bin/env sh
-
-      #{Formula["node@16"].bin}/node #{libexec}/bin/grammarly-languageserver "$@"
-    EOS
+    system "npm", "install", *std_npm_args
+    bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 
   test do

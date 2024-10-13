@@ -8,6 +8,7 @@ class SourceToImage < Formula
   head "https://github.com/openshift/source-to-image.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "a98a5ab37e969669f685bccf2236196e23ff4c74778cce2a509b409dc65fdd74"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "86d37a7f6c6a702bb8d05d8c8796f76e55cc48ec156bd3bae5f9aa3933ae12e1"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "b3476682ae853b90d438748d48b7da496f871c2782a77d403f1a1835cd001084"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "76c32af61ebb5734abcb32df97317975b4dd8c02fc4d2e5b217e9a0947431436"
@@ -28,7 +29,7 @@ class SourceToImage < Formula
   end
 
   test do
-    system "#{bin}/s2i", "create", "testimage", testpath
+    system bin/"s2i", "create", "testimage", testpath
     assert_predicate testpath/"Dockerfile", :exist?, "s2i did not create the files."
   end
 end

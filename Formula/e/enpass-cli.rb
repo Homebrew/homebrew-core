@@ -6,6 +6,7 @@ class EnpassCli < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "6e6da1fb226a63e84791e495b0db8921bd6dcc975bc34c6704153fd9769610a6"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "50d816314d8d2c7ffd19e34af768d1d26b2b25f77c47d03701f1458a66c9c219"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f020f03b420e9863eea1b148f0f283b7c2b94d5abfa75dbebf4b6796ce2ca732"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4b45086b51461ca2843f3fc86f7a3b2ba774ecbbbca3ea7af02433930752d598"

@@ -7,6 +7,7 @@ class Himalaya < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "430d3049a25fdee8c6d38f80f0d2ef8103108d10ad81da506c2411caaf37cff1"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f39d7f7e22b4baab36d1f4c659624dce597812b171b89d421ae91d631117c638"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "d23ecffec7b5be31097be6e9f1049c669ca8d490e0a740a5066aa5319d1d55a9"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "2dde1d0e5189c39327b5d9f822cc0bfbe6052881933741ac5f11925efd8db45d"

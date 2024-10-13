@@ -1,10 +1,19 @@
 [
-  ["aarch64-elf-gcc", "arm-none-eabi-gcc", "i686-elf-gcc", "riscv64-elf-gcc", "x86_64-elf-gcc"],
+  [
+    "aarch64-elf-gcc",
+    "arm-none-eabi-gcc",
+    "i686-elf-gcc",
+    "m68k-elf-gcc",
+    "riscv64-elf-gcc",
+    "x86_64-elf-gcc"
+  ],
   [
     "aarch64-elf-binutils",
     "arm-linux-gnueabihf-binutils",
     "arm-none-eabi-binutils",
+    "binutils",
     "i686-elf-binutils",
+    "m68k-elf-binutils",
     "riscv64-elf-binutils",
     "x86_64-elf-binutils",
     "x86_64-linux-gnu-binutils"
@@ -13,6 +22,7 @@
   ["avro-c", "avro-cpp", "avro-tools"],
   ["aws-console", "cfn-format", "rain"],
   ["b3sum", "blake3"],
+  ["bcftools", "htslib", "samtools"],
   ["boost", "boost-bcp", "boost-build", "boost-mpi", "boost-python3"],
   ["bundler-completion", "gem-completion", "rails-completion", "ruby-completion"],
   ["cmake", "cmake-docs"],
@@ -32,6 +42,8 @@
   ["libnetworkit", "networkit"],
   ["libnghttp2", "nghttp2"],
   ["libngspice", "ngspice"],
+  ["libnice", "libnice-gstreamer"],
+  ["llvm", "lld", "flang"],
   ["qalculate-gtk", "qalculate-qt"],
   ["logcli", "loki", "promtail"],
   ["mame", "rom-tools"],
@@ -48,12 +60,12 @@
   ["python-tk@3.10", "python@3.10"],
   ["python-gdbm@3.11", "python-tk@3.11", "python@3.11"],
   ["python-gdbm@3.12", "python-tk@3.12", "python@3.12"],
+  ["python-gdbm@3.13", "python-tk@3.13", "python@3.13"],
   ["python-tk@3.9", "python@3.9"],
   ["qt", "qt-libiodbc", "qt-mariadb", "qt-mysql", "qt-percona-server", "qt-postgresql", "qt-unixodbc"],
   ["qwt", "qwt-qt5"],
   ["surelog", "uhdm"],
-  ["telnet", "telnetd"],
   ["tmuxinator", "tmuxinator-completion"],
-  ["vulkan-extensionlayer", "vulkan-headers", "vulkan-loader", "vulkan-tools", "vulkan-utility-libraries", "vulkan-validationlayers"],
+  ["vulkan-headers", "vulkan-loader", "vulkan-tools", "vulkan-utility-libraries", "vulkan-validationlayers"],
   ["wp-cli", "wp-cli-completion"]
 ]

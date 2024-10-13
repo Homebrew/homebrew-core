@@ -4,7 +4,7 @@ class Supertux < Formula
   url "https://github.com/SuperTux/supertux/releases/download/v0.6.3/SuperTux-v0.6.3-Source.tar.gz"
   sha256 "f7940e6009c40226eb34ebab8ffb0e3a894892d891a07b35d0e5762dd41c79f6"
   license "GPL-3.0-or-later"
-  revision 8
+  revision 9
   head "https://github.com/SuperTux/supertux.git", branch: "master"
 
   livecheck do
@@ -13,13 +13,14 @@ class Supertux < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "643998d036a5cb35fdd2b73bb22502ca2760261718a166722a73a2c2aba32d6c"
-    sha256 cellar: :any,                 arm64_ventura:  "30a29f905c961ace430d45d7c01dc11dc129d2aaf2d078c62bd2cf23ae500fab"
-    sha256 cellar: :any,                 arm64_monterey: "92121f94686a32a3fbf9a12ce3bc0a29b8f4af7dcd6885f088464d2b91bf3f30"
-    sha256 cellar: :any,                 sonoma:         "673eb3f2e6977afe5b21702c762ea85762aa44b13688d4f79ad2e070848fb979"
-    sha256 cellar: :any,                 ventura:        "0613b65b47e9447934a6c8f876a2dd626dcc8f4c915df6c7963ac45b25487a3b"
-    sha256 cellar: :any,                 monterey:       "a2560c895f0aaf27cdf75c0b66c802e2658a0d481ac63ee72ef7915bc48ac5f1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e7f4e08dd983b9849ea38e0d35de2641b4be25771ad307d747f079ed3630e111"
+    sha256 cellar: :any,                 arm64_sequoia:  "01535f3ec74e4f3e9956da66f52bb6d0e37696171d6d0169e498311589f2f1b6"
+    sha256 cellar: :any,                 arm64_sonoma:   "0e94fb77138b727f154c9dbb8ad6bafa6b0f5d0558f99b4ab0381b5241c9300c"
+    sha256 cellar: :any,                 arm64_ventura:  "5dde9e8355c08783ce8e120e29386139dcb625dac4eea60c293f74d94a0c9c0d"
+    sha256 cellar: :any,                 arm64_monterey: "3ee3e444f0ae273969dcffb6d4b2854cbcad4d3a13ecbe5485ed493c2df9b718"
+    sha256 cellar: :any,                 sonoma:         "e8b8f690bda931e2a87a285c296cc6e445ec689ae7f9c6c154949642ba12b37a"
+    sha256 cellar: :any,                 ventura:        "e6105c9ff04aedf7a60b21b42e5ec772aa8a3702422123eea5edd8887823d785"
+    sha256 cellar: :any,                 monterey:       "6c022c0e53b1cb0454412dd1f2e9a5d34cf08c23f4967ce3e6ac16533d981f7b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "91a815ea74c91611c4ba47b4201bc38b42e13d1ee4e7039724dd2c7a75d9224c"
   end
 
   depends_on "cmake" => :build
@@ -39,6 +40,7 @@ class Supertux < Formula
   uses_from_macos "zlib"
 
   on_linux do
+    depends_on "mesa"
     depends_on "openal-soft"
   end
 
@@ -55,9 +57,9 @@ class Supertux < Formula
     system "cmake", "--install", "build"
 
     # Remove unnecessary files
-    (share/"applications").rmtree
-    (share/"pixmaps").rmtree
-    (prefix/"MacOS").rmtree if OS.mac?
+    rm_r(share/"applications")
+    rm_r(share/"pixmaps")
+    rm_r(prefix/"MacOS") if OS.mac?
   end
 
   test do

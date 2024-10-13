@@ -1,19 +1,17 @@
 class Votca < Formula
   desc "Versatile Object-oriented Toolkit for Coarse-graining Applications"
   homepage "https://www.votca.org/"
-  url "https://github.com/votca/votca/archive/refs/tags/v2024.1.tar.gz"
-  sha256 "74d447f976a7d5c05ec65ab99f52b75379cafa3b40b8bc3b9b328f8402bc53dc"
+  url "https://github.com/votca/votca/archive/refs/tags/v2024.2.tar.gz"
+  sha256 "704d50f64bbfa2e19d0aa4b5726ac35c20c3b9b45554be5f1e1417d430e31c24"
   license "Apache-2.0"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sonoma:   "528f109aaeb4bad60365616e2ae9c69ba8520e40fc7b933ef05bdde967084266"
-    sha256 cellar: :any,                 arm64_ventura:  "626419cb9f450f1e806c069e08f2177fdced2f4b8e97fa7b2417aa6d11544e3a"
-    sha256 cellar: :any,                 arm64_monterey: "cd2e2b233adb416508c97793eae83959a50d773fa1d65feca4e7193d0678dcb7"
-    sha256 cellar: :any,                 sonoma:         "5507f809c1f1a79bf0b9bdc7d6882a0993444a895421762059f8b003dfbc1674"
-    sha256 cellar: :any,                 ventura:        "80036e2945f55198de413d036f9f4015866a92c0e26a2047c80b028db291bd21"
-    sha256 cellar: :any,                 monterey:       "917f3a6638f494825e97ae96901127a7c2bdeb2f10344b7161661e9933b2c497"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0502b5382574920108db15990f74d79f40fe10eee13aeb7cdd1bb4808cb85265"
+    sha256 cellar: :any,                 arm64_sequoia: "c851db85234aa35aa9155aaa4872a04aa58324f08fbb47bc3788541792b1d661"
+    sha256 cellar: :any,                 arm64_sonoma:  "ec44f7aac765b4b81260bcc1de2ea076b4b78c2dfa4bf7d993da8c74335bf2bc"
+    sha256 cellar: :any,                 arm64_ventura: "1c9dbd430fc9300fcc282269f596cada4beb8839ce7446dcde32194da234e3bc"
+    sha256 cellar: :any,                 sonoma:        "eef20cb56c41ed7c1d2413cdeaa5a4f9f3726e97798697cf601621a65d862f35"
+    sha256 cellar: :any,                 ventura:       "52dbdf32d36464cbc1bfc044246ca8f981410c9ecbf31e6b1e7e6f5eaaadc78e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5f4703fa99a47953c9648d617c618b4b810b768607225f5acec6b4f0e1a8ce99"
   end
 
   depends_on "cmake" => :build
@@ -51,12 +49,12 @@ class Votca < Formula
   end
 
   test do
-    system "#{bin}/csg_property", "--help"
+    system bin/"csg_property", "--help"
     (testpath/"table.in").write <<~EOS
       0 0 i
       1 1 i
     EOS
-    system "#{bin}/csg_resample", "--in", "table.in", "--out", "table.out", "--grid", "0:0.1:1", "--type", "linear"
+    system bin/"csg_resample", "--in", "table.in", "--out", "table.out", "--grid", "0:0.1:1", "--type", "linear"
     assert_path_exists "#{testpath}/table.out"
   end
 end

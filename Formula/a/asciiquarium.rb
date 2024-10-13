@@ -16,21 +16,23 @@ class Asciiquarium < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "0c6038b3b3d941069ce1d329a6641d29ef3e2d84ca391809836ae9c527f55478"
-    sha256 cellar: :any,                 arm64_ventura:  "b8062a7862f2dbc72be6734d7ea25b06e3acad719d8c44bed08059be02ae71d8"
-    sha256 cellar: :any,                 arm64_monterey: "e197deaee9423e203938370adb0c252c92372b1e7e196a6b33477c2c1cc29ccf"
-    sha256 cellar: :any,                 sonoma:         "081c78955c7ed4975d4bc660153b306675f3517a661f84c79f25fe823bfda7b3"
-    sha256 cellar: :any,                 ventura:        "e7cae33ae78d065af614e683c8d43e50053609a53936d5fb91af9a80b2daa87d"
-    sha256 cellar: :any,                 monterey:       "49a2c910973ea1e73abb2f350f3c2bbb932a009790c78b41f87538195bd59546"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "32a89a8d26c5fa6243a92d0b1bce5a8be721da358c461c6a4a9f2f932bc4274b"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia:  "080079f96aa210857f68ea0e376ce057dca85875e94df0a2da695559d37d08e9"
+    sha256 cellar: :any,                 arm64_sonoma:   "059912db660f5e55c48c425c6c227f9122d02055e13bdaf1633ce39e0a4f575e"
+    sha256 cellar: :any,                 arm64_ventura:  "6f9aa92e662714c05c5abebf715071a583eafdc0f639a1d0230a66043d28d088"
+    sha256 cellar: :any,                 arm64_monterey: "025b86916160e616180c3c84e58dbe678dafc777704d66ce9d7a2ba07df5241e"
+    sha256 cellar: :any,                 sonoma:         "821f581063ff102904f53455f6f7c412e060a0da3be1563dae89fe592b613986"
+    sha256 cellar: :any,                 ventura:        "d1774d0ec6069c399b4a40e49e7f98f7df94fa51b3f6ddd3a402e14c96c34f2b"
+    sha256 cellar: :any,                 monterey:       "0e107b8988ca4b01b6a7df53abb9fd894447836f3bca8af95528c5a26ca1da76"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c07d0ae91d74691fa184d850d1444412042d9302d52ef44c37f14ab6f00cb433"
   end
 
   depends_on "ncurses"
   depends_on "perl"
 
   resource "Curses" do
-    url "https://cpan.metacpan.org/authors/id/G/GI/GIRAFFED/Curses-1.37.tar.gz"
-    sha256 "74707ae3ad19b35bbefda2b1d6bd31f57b40cdac8ab872171c8714c88954db20"
+    url "https://cpan.metacpan.org/authors/id/G/GI/GIRAFFED/Curses-1.45.tar.gz"
+    sha256 "84221e0013a2d64a0bae6a32bb44b1ae5734d2cb0465fb89af3e3abd6e05aeb2"
   end
 
   resource "Term::Animation" do
@@ -44,7 +46,6 @@ class Asciiquarium < Formula
     resources.each do |r|
       r.stage do
         system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
-        system "make"
         system "make", "install"
       end
     end
@@ -75,7 +76,7 @@ class Asciiquarium < Formula
     require "pty"
     ENV["TERM"] = "xterm"
     PTY.spawn(bin/"asciiquarium") do |stdout, stdin, _pid|
-      sleep 1
+      sleep 5
       stdin.write "q"
       output = begin
         stdout.gets

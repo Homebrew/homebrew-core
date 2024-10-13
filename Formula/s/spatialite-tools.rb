@@ -11,6 +11,7 @@ class SpatialiteTools < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "a1096dff25f02e08e93d9f332765895404b255108324245eeab08cc1b0265c23"
     sha256 cellar: :any,                 arm64_sonoma:   "4bd025e06a9466bab7e2c623b67d793069852b860456c1b08e43b8c5365515f7"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "9ec7d078c58b3eef0e931c6f0bef1760eaf288501c2cb45efa78ab11f4934efa"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "095be35895db6bfe29a616f878845db1798cde3d97d27c9ac26003f85ea5f589"
@@ -23,9 +24,22 @@ class SpatialiteTools < Formula
   end
 
   depends_on "pkg-config" => :build
+
   depends_on "libspatialite"
+  depends_on "libxml2"
   depends_on "proj"
+  depends_on "readline"
   depends_on "readosm"
+  depends_on "sqlite"
+
+  uses_from_macos "expat"
+
+  on_macos do
+    depends_on "freexl"
+    depends_on "geos"
+    depends_on "librttopo"
+    depends_on "minizip"
+  end
 
   def install
     # See: https://github.com/Homebrew/homebrew/issues/3328

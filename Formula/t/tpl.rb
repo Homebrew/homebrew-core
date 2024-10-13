@@ -7,6 +7,7 @@ class Tpl < Formula
   head "https://github.com/troydhanson/tpl.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "563eee39c340a994167ebeaa62bba135164a2873031485754b3bd237e235a313"
     sha256 cellar: :any,                 arm64_sonoma:   "648d49fb0cd54c646e5257ba9aba1b88867913b5cb54e8accdbdf45dcd2b038d"
     sha256 cellar: :any,                 arm64_ventura:  "2bfb6b7bbdfecfa9aa8e25c3841dd9dbc6d333c746792a446ac729536c643475"
     sha256 cellar: :any,                 arm64_monterey: "cd423b01e4be55cc76cfc5c780582519f9583073f8b4e42a823c007cc59805e6"
@@ -29,10 +30,62 @@ class Tpl < Formula
 
   def install
     system "autoreconf", "-fvi"
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}"
+    system "./configure", "--disable-silent-rules",
+                          *std_configure_args.reject { |s| s["--disable-debug"] }
     system "make", "install"
-    system "make", "-C", "tests"
+  end
+
+  test do
+    (testpath/"store.c").write <<~EOS
+      #include <tpl.h>
+
+      int main(int argc, char *argv[]) {
+          tpl_node *tn;
+          int id = 0;
+          char *name, *names[] = { "Alice", "Bob", "Charlie" };
+
+          tn = tpl_map("A(is)", &id, &name);
+
+          for(name = names[0]; id < 3; name = names[++id]) {
+              tpl_pack(tn,1);
+          }
+
+          tpl_dump(tn, TPL_FILE, "users.tpl");
+          tpl_free(tn);
+      }
+    EOS
+
+    (testpath/"load.c").write <<~EOS
+      #include <stdio.h>
+      #include <stdlib.h>
+      #include <tpl.h>
+
+      int main(int argc, char *argv[]) {
+          tpl_node *tn;
+          int id;
+          char *name;
+
+          tn = tpl_map("A(is)", &id, &name);
+          tpl_load(tn, TPL_FILE, "users.tpl");
+
+          while (tpl_unpack(tn, 1) > 0) {
+              printf("%d: %s\\n", id, name);
+              free(name);
+          }
+          tpl_free(tn);
+      }
+    EOS
+
+    system ENV.cc, "store.c", "-I#{include}", "-L#{lib}", "-ltpl", "-o", "store"
+    system ENV.cc, "load.c", "-I#{include}", "-L#{lib}", "-ltpl", "-o", "load"
+
+    expected = <<~EOS
+      0: Alice
+      1: Bob
+      2: Charlie
+    EOS
+
+    system "./store"
+    assert_equal expected, shell_output("./load")
   end
 end

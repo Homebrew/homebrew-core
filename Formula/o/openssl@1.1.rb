@@ -12,21 +12,21 @@ class OpensslAT11 < Formula
   version_scheme 1
 
   bottle do
-    sha256 arm64_sonoma:   "38619f708ae1def3de15383de7cd351eaf0069a9862fcce645ddfaf516e4b8d5"
-    sha256 arm64_ventura:  "126ec75895d314da98734a62483aa8e39a6014fa9b02ce297599ce16643d7349"
-    sha256 arm64_monterey: "8a66fcf20bd135b51f72ae2c9403646a4b63ae4f9266283cfdb32c4af4299235"
-    sha256 arm64_big_sur:  "cd2ebe05eda4290183d5a25e870e5f1dea74d7164c29191247fbeff4d644bcca"
-    sha256 sonoma:         "0b560cead0f34ec152b4d12b0f27081ded5b988a5c4aecb76c415ac760435ca9"
-    sha256 ventura:        "96435b4afe916200ee997f8e99c4cd14191fbc6423c414e5e7f851ff3de0e961"
-    sha256 monterey:       "2736e0ee28d0cb5d494707c29b800a61c81c5c55a3b5d5bef95a8d14c2a36be5"
-    sha256 big_sur:        "18609f526ac2269751d2191ce10653d66f19ebe6b9277c4bc8a8d3e9e72117f7"
-    sha256 x86_64_linux:   "304d206010ac4a36677d6b3c799334aa4f5c4ac695e0816ecefeaac10599a22f"
+    rebuild 1
+    sha256 arm64_sequoia:  "e49b48327359eb6f1e1a0c67f4810105d803b560cd0d70c7247f2157f7cffe61"
+    sha256 arm64_sonoma:   "00fe912a43983918e60fa5b009e81347c7775c6bfbcd89ee067dc293f35547f9"
+    sha256 arm64_ventura:  "eaec02db0f43d4f11ff1299ecbcbe182ea30af62b22e5cfaaf6b77d5bbbddbbb"
+    sha256 arm64_monterey: "edb44a1452fe8d30491d156b0cdad749027f2daf80d4e0f04953ee2b192f7dc4"
+    sha256 sonoma:         "8b6e4ba1f184ffe1f74c66e028887aba08c1810ae7c5ed226fe491a6de8bc8e1"
+    sha256 ventura:        "8111bc5385b46990584fa3fc1ecd20b0f0532fa20a7efbef2a5f4ebe2ca5ba2d"
+    sha256 monterey:       "aee993c9e2f76f76b6015446c786ca9fbebf20486c34a52d5047a843bb50fc30"
+    sha256 x86_64_linux:   "076d0f3ec7d6938cd2b360ca39a4f70395214d0a545fe0fa8a6c5d23659b65c2"
   end
 
   keg_only :versioned_formula
 
   # See: https://www.openssl.org/policies/releasestrat.html
-  deprecate! date: "2023-10-24", because: :unsupported
+  disable! date: "2024-10-24", because: :unsupported
 
   depends_on "ca-certificates"
 
@@ -106,6 +106,9 @@ class OpensslAT11 < Formula
     system "make"
     system "make", "install", "MANDIR=#{man}", "MANSUFFIX=ssl"
     system "make", "test"
+
+    # Prevent `brew` from pruning the `certs` and `private` directories.
+    touch %w[certs private].map { |subdir| openssldir/subdir/".keepme" }
   end
 
   def openssldir
@@ -113,7 +116,7 @@ class OpensslAT11 < Formula
   end
 
   def post_install
-    rm_f openssldir/"cert.pem"
+    rm(openssldir/"cert.pem") if (openssldir/"cert.pem").exist?
     openssldir.install_symlink Formula["ca-certificates"].pkgetc/"cert.pem"
   end
 

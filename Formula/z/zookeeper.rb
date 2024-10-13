@@ -8,6 +8,7 @@ class Zookeeper < Formula
   head "https://gitbox.apache.org/repos/asf/zookeeper.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "653d7d7a1d4aadf7869f091c6bdb20b7203e2829691a1dff258fa7bafe519673"
     sha256 cellar: :any,                 arm64_sonoma:   "fecb79b2f25954d7fdca163d50f7a7ff160016a77c47cd7c41773a2cff9b9ebc"
     sha256 cellar: :any,                 arm64_ventura:  "c6a65b0a4b92f028aeb7abe65b64e8a622ccbc06ec489ea0364436778f639a43"
     sha256 cellar: :any,                 arm64_monterey: "ace58083a2443dcc624237bc6c20d7608acdd10256757217d3282635ebd93f3d"

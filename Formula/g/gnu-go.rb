@@ -4,10 +4,14 @@ class GnuGo < Formula
   url "https://ftp.gnu.org/gnu/gnugo/gnugo-3.8.tar.gz"
   mirror "https://ftpmirror.gnu.org/gnugo/gnugo-3.8.tar.gz"
   sha256 "da68d7a65f44dcf6ce6e4e630b6f6dd9897249d34425920bfdd4e07ff1866a72"
+  # The `:cannot_represent` is for src/gtp.* which is similar to ICU license if
+  # SPDX allowed replacing `this software ... (the "Software")` with `file gtp.c`
+  license all_of: ["GPL-3.0-or-later", :public_domain, :cannot_represent]
   revision 1
   head "https://git.savannah.gnu.org/git/gnugo.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "b638af6216ed0bd736823bab2fe42ca902dd9768a69fee4009726808aeeea448"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c4a8369ddd4c22df9f43cbc88b769da13639aacdde5876bf22f4e20f54789143"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "29d51049554c942b464d900b5bd264c2606af4775cec9c4c76cf1c170beefe91"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ed049166ae53dc93586ab3ac5b3a3b40209dc46c9acaec335683a6c6b2c104ea"

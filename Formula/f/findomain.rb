@@ -6,6 +6,7 @@ class Findomain < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "b9799caf0cac3e7984fc8af25bf4e0294ccb4191cef85c94c14c16b70210abb4"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d6d3c09f2e4ea8d9035512853daa278ef1233fb3fdd735c41579420e60d1e60f"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "7c0056cf6bdfcc01ceb24ba8a99d4e7ae192a0bb57b4366d568f6374f6c26398"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "069d0907873ab9492cf514ea7ed4b657057270996397c09feef6fabc11ffa4da"

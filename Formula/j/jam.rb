@@ -6,6 +6,7 @@ class Jam < Formula
   license "Jam"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "2ecb702317e3639199260d2431cb4df895ba1e72ca13fbd18d74526926f67c5a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "750191fa0660e62dee16dca7e7105fa4cbc783fa3b5dd87bddb727bddcbaa5a3"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "ae7aceb6a763b9da9860724b7347f2449f4983c004d3b58bdb21580deeb45482"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c63b8dd9caebb84eed84bd05412e698106c41dae126fefe7b5c4e713edcf827a"
@@ -27,8 +28,6 @@ class Jam < Formula
   # until further notice."
   deprecate! date: "2023-11-02", because: :unmaintained
 
-  conflicts_with "ftjam", because: "both install a `jam` binary"
-
   # * Ensure <unistd.h> is included on macOS, fixing the following error:
   #   `make1.c:392:8: error: call to undeclared function 'unlink'`.
   # * Fix a typo that leads to an undeclared function error:
@@ -39,6 +38,9 @@ class Jam < Formula
   end
 
   def install
+    # Workaround for newer Clang
+    ENV.append "CC", "-Wno-implicit-int" if DevelopmentTools.clang_build_version >= 1403
+
     system "make", "CC=#{ENV.cc}", "CFLAGS=#{ENV.cflags}", "LOCATE_TARGET=bin"
     bin.install "bin/jam", "bin/mkjambase"
   end

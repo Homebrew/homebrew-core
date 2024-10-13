@@ -3,10 +3,11 @@ class LtcTools < Formula
   homepage "https://github.com/x42/ltc-tools"
   url "https://github.com/x42/ltc-tools/archive/refs/tags/v0.7.0.tar.gz"
   sha256 "5b7a2ab7f98bef6c99bafbbc5605a3364e01c9c19fe81411ddea0e1a01cd6287"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
   head "https://github.com/x42/ltc-tools.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "50128bae6264b3239c9d2e8e0f9952e72c364349438382c36f35252c35eedcaa"
     sha256 cellar: :any,                 arm64_sonoma:   "539c3a74d0e1da9b7680063d41e735d3240bd2bb8454b2e93a7c42118b73c147"
     sha256 cellar: :any,                 arm64_ventura:  "bb595fe27ddac376f1ea097a824c17712c34dde20e01cb310388897b52f3f57d"
     sha256 cellar: :any,                 arm64_monterey: "d8d6d714abdb13a7c1a42503b1f367af936975d51454967bb445acb631b58259"

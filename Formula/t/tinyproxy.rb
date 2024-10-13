@@ -6,6 +6,7 @@ class Tinyproxy < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256 arm64_sequoia:  "2556f6c1aa3073beccdf952d8baf20c880300ef2d5067fe2588c43b7b58be0a2"
     sha256 arm64_sonoma:   "54a2231b4ad6b362db15d5709eb7ae1f171584e64725546b4ef5d5c384ca6b4c"
     sha256 arm64_ventura:  "38dd9771beb51039ef32c6f96e110726598387867c3bb22215298310e735aaeb"
     sha256 arm64_monterey: "77833ca6e2e9f3926d7f7a69c63aec9bb83da5241ba8ce6ed8c8ed1eaf2d1a6a"
@@ -55,7 +56,7 @@ class Tinyproxy < Formula
     inreplace testpath/"tinyproxy.conf", "Port 8888", "Port #{port}"
 
     pid = fork do
-      exec "#{bin}/tinyproxy", "-c", testpath/"tinyproxy.conf"
+      exec bin/"tinyproxy", "-c", testpath/"tinyproxy.conf"
     end
     sleep 2
 

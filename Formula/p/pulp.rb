@@ -1,5 +1,3 @@
-require "language/node"
-
 class Pulp < Formula
   desc "Build tool for PureScript projects"
   homepage "https://github.com/purescript-contrib/pulp"
@@ -13,7 +11,8 @@ class Pulp < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "9955ac49b00b61c6111d73f01fbe9b33316ed86f63517ee2cd1e1f8ddd0ad4a6"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "0de9300b253bf5fa068c578ff479fc02a5371a7367bfaf9b3563122b8163ae4a"
   end
 
   depends_on "bower"
@@ -21,14 +20,14 @@ class Pulp < Formula
   depends_on "purescript"
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", *std_npm_args
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 
   test do
     assert_match version.to_s, shell_output("#{bin}/pulp --version")
 
-    system("#{bin}/pulp", "init")
+    system bin/"pulp", "init"
     assert_predicate testpath/".gitignore", :exist?
     assert_predicate testpath/"bower.json", :exist?
   end

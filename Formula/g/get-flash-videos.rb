@@ -7,6 +7,7 @@ class GetFlashVideos < Formula
   revision 3
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "a811dc4868f63871e793262bdc8e600c4db0c7cb2d765185cb3c9a9cd6c169fd"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ad7d390da6c1be03c3de2e092694f00b52c9ab7904bd0d6077113a144c7cace4"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "4d868b0de04638b31496b1eade51c9d4c482d2d3dc96414a29e5b32e93fce112"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ed15861be06bfdb23115de813dc02c7518d4c1f04ecd47c6fe01e3ecddd25de4"

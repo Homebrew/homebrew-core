@@ -6,13 +6,14 @@ class Pacmc < Formula
   license "AGPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "f5491e8b8dc7af3c1bfc4fe1a06bffd1ec87e821380f029262cc40f4abfba9f2"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "9d54abfccc300901396d32f398dd0560690dca1f3414ed70a66156924ea8397f"
   end
 
   depends_on "openjdk"
 
   def install
-    rm_f Dir["bin/*.bat"]
+    rm(Dir["bin/*.bat"])
     libexec.install %w[bin lib]
     (bin/"pacmc").write_env_script libexec/"bin/pacmc", Language::Java.overridable_java_home_env
   end

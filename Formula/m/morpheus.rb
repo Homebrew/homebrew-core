@@ -1,8 +1,8 @@
 class Morpheus < Formula
   desc "Modeling environment for multi-cellular systems biology"
   homepage "https://morpheus.gitlab.io/"
-  url "https://gitlab.com/morpheus.lab/morpheus/-/archive/v2.3.7/morpheus-v2.3.7.tar.gz"
-  sha256 "ad5694a098e4752db53659ee983c3ae417a43747320e73c3005f6cf88b52d55c"
+  url "https://gitlab.com/morpheus.lab/morpheus/-/archive/v2.3.8/morpheus-v2.3.8.tar.gz"
+  sha256 "d4f4d3434fadbb149a52da2840d248176fe216a515f50a7ef904e22623f2e85c"
   license "BSD-3-Clause"
 
   livecheck do
@@ -11,13 +11,14 @@ class Morpheus < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "7499f7a4721755466ae1b38cb3b5a55ba2fc5ca471232cc7e320b5d04fcf0fcd"
-    sha256 cellar: :any,                 arm64_ventura:  "ce0249b648e88ae685c1379b4fc58869408782b6e50b883d67d2edd4d95066b3"
-    sha256 cellar: :any,                 arm64_monterey: "a5714a265b96b9a7c926a2d155f8f78d8c090770a064c52757df37e682d661ed"
-    sha256 cellar: :any,                 sonoma:         "1aec65d363df33f6b118d2c6689827fe94718e24570e6aaf74f1e85860a05ce1"
-    sha256 cellar: :any,                 ventura:        "681c8ba46b7daa01fa5aaaca1a02ac3bb710e078afa143699d2adcc9adbbb496"
-    sha256 cellar: :any,                 monterey:       "8f1c56a3f7ef13f0d6cb8438c9ddd62df813cf0912edf8e15cc93a1040458331"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a7e3beee556888d39c5447fa3e32d50e565529376dc153d93e419be0a025aa35"
+    sha256 cellar: :any,                 arm64_sequoia:  "fed9b4e1881854ccb426eb5d08509765e3c449f3bfbe6aacece88157ff754686"
+    sha256 cellar: :any,                 arm64_sonoma:   "62411dd8e6cd7ad86d4e20468224c0b2c07d4156b0985d868ef29549f916447c"
+    sha256 cellar: :any,                 arm64_ventura:  "7a9e5a6470fb2c847cf7ea02ea7684a02b0bb1a964696f8dc7d9fd8423805a05"
+    sha256 cellar: :any,                 arm64_monterey: "9a4bee42a65cb59f1706e24174927a7fca699eaa4fe6d766fbdd5e924c5218da"
+    sha256 cellar: :any,                 sonoma:         "35891458eaa826d5a06d5be21756cb552e829ce16a53c7c292a022a05fdb5dbd"
+    sha256 cellar: :any,                 ventura:        "ac28538de739b8825d66e3042aa27d3a8d740708b2ab9502b1f5d717e1d45ede"
+    sha256 cellar: :any,                 monterey:       "65b7e005a0575c0e1729d658bef5767ec721b2b8cf9bb7dac4627dc574d11a66"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "03b034c07167ea28a82d43f8893f5f82c7213d91d68db687409480cf274b94d2"
   end
 
   depends_on "boost" => :build

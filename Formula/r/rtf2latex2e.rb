@@ -12,6 +12,7 @@ class Rtf2latex2e < Formula
   end
 
   bottle do
+    sha256 arm64_sequoia:  "831e4f4beb242fc95b2fa79b14e9cd22cedf31675de00c15e39a63445a2f59cc"
     sha256 arm64_sonoma:   "20d8b8da32f9ff8602f0cbe64dec244a89825507fdfd805bb1d2d6cfc75a85d2"
     sha256 arm64_ventura:  "12f88e9bf99968693672ded4a3784e42558e15895be581c13df04a7c99e978d4"
     sha256 arm64_monterey: "dad0a2da5ef80b23fc0dfef461a75c8df8aea2d8c1fbe2714c0c1bc9cbf8f2fc"
@@ -29,6 +30,13 @@ class Rtf2latex2e < Formula
   end
 
   def install
+    # Workaround for newer Clang
+    ENV.append "CC", "-Wno-implicit-int" if DevelopmentTools.clang_build_version >= 1403
+
+    # Work around failure from GCC 10+ using default of `-fno-common`
+    # multiple definition of `eqn_start_inline'; src/eqn.o:(.bss+0x18): first defined here
+    ENV.append_to_cflags "-fcommon" if OS.linux?
+
     system "make", "install", "prefix=#{prefix}", "CC=#{ENV.cc}"
   end
 

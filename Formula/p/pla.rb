@@ -6,6 +6,7 @@ class Pla < Formula
   license "GPL-2.0-only"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "bb80455464cd182092c87cc0c242eda1050fdb3579ac6204338934741c5af632"
     sha256 cellar: :any,                 arm64_sonoma:   "34622b25b182676b0af0bcb5832d47a7d72672d3ad6e972036efdb551011fa7e"
     sha256 cellar: :any,                 arm64_ventura:  "7be71e6a234104ac6da8b3fdbf000f04345d08c4e1ba933bf736833628e1c415"
     sha256 cellar: :any,                 arm64_monterey: "f335f954b419f71258a566f1abee2db8211f21aee91bb98f1c97ea8d42e48761"
@@ -45,6 +46,6 @@ class Pla < Formula
           dep 2
           dep 6
     EOS
-    system "#{bin}/pla", "-i", "#{testpath}/test.pla", "-o test"
+    system bin/"pla", "-i", "#{testpath}/test.pla", "-o test"
   end
 end

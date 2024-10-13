@@ -7,6 +7,7 @@ class Mplayershell < Formula
   head "https://github.com/lisamelton/MPlayerShell.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "b95550c4987ef7c396da3dccfdd64e309be1d1945fec7f520215c674615174c8"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e13d71055ed301f6cb2ce85ad882a79d6d9bb89768a65d343924683fec3eedc2"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "bead3e2b5b52cc95ff824b0ff5fce66e0abade2cb0b6dc423ff95234e0f3d607"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "3003edef26c3863115869954941cff51ef7976b31ddef7130ea8931073011fbb"
@@ -40,6 +41,6 @@ class Mplayershell < Formula
   end
 
   test do
-    system "#{bin}/mps"
+    system bin/"mps"
   end
 end

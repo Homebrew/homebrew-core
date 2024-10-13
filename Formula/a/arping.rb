@@ -6,6 +6,7 @@ class Arping < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "73cb4e287549fd6085cdb4e8d3804ee4e0a9559f1cfd64ad54e53f74eaf63937"
     sha256 cellar: :any,                 arm64_sonoma:   "3d35ded0256f623d42b3f2e38bc998211432b1b779a60d6f4433de1398c9600b"
     sha256 cellar: :any,                 arm64_ventura:  "87d1d118843ce11929fa19841c739b1e0191f435d08d7583c9a7115942afc454"
     sha256 cellar: :any,                 arm64_monterey: "537f0fbf6282e143e13cecb4180d3e62450609c53d4ff0eac8e178ae37a2517b"

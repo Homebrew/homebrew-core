@@ -2,19 +2,18 @@ class Tygo < Formula
   desc "Generate Typescript types from Golang source code"
   homepage "https://github.com/gzuidhof/tygo"
   url "https://github.com/gzuidhof/tygo.git",
-      tag:      "v0.2.15",
-      revision: "2986c9a038b6d5e5babb55fb78dbad96a78e89b7"
+      tag:      "v0.2.17",
+      revision: "421f048c0ba2528d2cebe50fb8dbf3b0b5e36aac"
   license "MIT"
   head "https://github.com/gzuidhof/tygo.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d4f17c28b88367cdae42a6f18661e1e950c9437f73dc7771195d90d33b501136"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "076ab53d41892e8ec2dced7a3ed97e2f41e514dd9ff6984719566c7f8a9f3b52"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "24d969116e753863c168efc633d263f928679f48a6a8e709d773a530c2c87ea1"
-    sha256 cellar: :any_skip_relocation, sonoma:         "01b5ac6ba7c4ee07352a8230fb2aa5eb1585154b132989261942601565e4b279"
-    sha256 cellar: :any_skip_relocation, ventura:        "d21753faddc09f7c031d7de8049c8647fff9fb3328aaa4339adefe04f656944f"
-    sha256 cellar: :any_skip_relocation, monterey:       "f8381c7a1fe507fa4c319bb9a8210b591bdf21c6d3904abf46b1d8d02d7b86fe"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "52890861b2fb17f60bee0b9873378d8ad07d5212218203edaeb8f4406425c99b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ec71365ca25be8b0695248d573b60ed77bc5165d902049bb9842098a9097d562"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ec71365ca25be8b0695248d573b60ed77bc5165d902049bb9842098a9097d562"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "ec71365ca25be8b0695248d573b60ed77bc5165d902049bb9842098a9097d562"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d931db0194cded9eeb030acc08e037599e99931611082175012c611f70de21f8"
+    sha256 cellar: :any_skip_relocation, ventura:       "d931db0194cded9eeb030acc08e037599e99931611082175012c611f70de21f8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8a559c9e90fcf6faec5c8603121223975717d3912aa22acc252c9c326201aa89"
   end
 
   depends_on "go" => [:build, :test]

@@ -6,6 +6,7 @@ class Noweb < Formula
   license "BSD-2-Clause"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "f18c4be4fa20125e8adc57369970446c02ceed59304f52ef1e595967db4842dc"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f4a47b231de7c9f6e04f77ecf8ea59edb7658da0fae7b10d9d3d6d7b80577aeb"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "7a2984bbf74de88caf1026e1d940c45bd2288361b1f48458e04758b585e1d07a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "be96a5565ef49b6639fefad120cc677a9235fe665196f6b9d1ac353627a6abfe"

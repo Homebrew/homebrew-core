@@ -11,6 +11,7 @@ class Zig < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "0cd64ccf3ff42f7857000ead7b3b2f09b78c2d4e1e0f661f8f4cb6552b6ad88e"
     sha256 cellar: :any,                 arm64_sonoma:   "e2fdab9f70dba65551d21e6e9fc47d98336bcdb52658ff3f7799ad244aa2f500"
     sha256 cellar: :any,                 arm64_ventura:  "09cbcd8fdc15b0c5cdcbdecd2f0e42337a2ddac0070b50189fb02e5db1942633"
     sha256 cellar: :any,                 arm64_monterey: "2f197b24ce0a0d7167eacf89314407ef21103e963916c05c9a094d79d152ecc4"
@@ -67,7 +68,7 @@ class Zig < Formula
           try stdout.print("Hello, world!", .{});
       }
     EOS
-    system "#{bin}/zig", "build-exe", "hello.zig"
+    system bin/"zig", "build-exe", "hello.zig"
     assert_equal "Hello, world!", shell_output("./hello")
 
     # error: 'TARGET_OS_IPHONE' is not defined, evaluates to 0
@@ -80,7 +81,7 @@ class Zig < Formula
         return 0;
       }
     EOS
-    system "#{bin}/zig", "cc", "hello.c", "-o", "hello"
+    system bin/"zig", "cc", "hello.c", "-o", "hello"
     assert_equal "Hello, world!", shell_output("./hello")
   end
 end

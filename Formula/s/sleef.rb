@@ -1,19 +1,18 @@
 class Sleef < Formula
   desc "SIMD library for evaluating elementary functions"
   homepage "https://sleef.org"
-  url "https://github.com/shibatch/sleef/archive/refs/tags/3.6.1.tar.gz"
-  sha256 "441dcf98c0f22e5d5e553d007f3b93e89eb58e4c66e340da8af5e7f67d1dc24c"
+  url "https://github.com/shibatch/sleef/archive/refs/tags/3.7.tar.gz"
+  sha256 "1fb094c1ba4c9f6ba16013715d6fdbd5b893c68e1737b6115ba31e27807de591"
   license "BSL-1.0"
   head "https://github.com/shibatch/sleef.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "57b897afdfdb7f9d55a4e9923cc54c8ebac403941369e1c32dc21e8ecfd7b0b5"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3529a62931aa034cf06c291013d11ab3c1daf0990b2998843f67fa468c806ca3"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d2f235034b6168198c72fdb8ffff3de8faac3c30f7dad4f69e307dbbb87c1d8f"
-    sha256 cellar: :any_skip_relocation, sonoma:         "30eb6efcc98f1749e2b86f92c640b2d64cd6c4d05c96c40e2607fe4ea1d44ee1"
-    sha256 cellar: :any_skip_relocation, ventura:        "e682ffd594eef018494ad0b424bfba7b5aa61585071e77e463a916e5c28f807b"
-    sha256 cellar: :any_skip_relocation, monterey:       "67210cb8265cce9f713b1fec464c01106187ff3909847d89795a506205414f8f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bd22be8fbabf7cbe764a07b5cdb59deb4b0ae02f92409802d9b4b3b790cb172d"
+    sha256 cellar: :any,                 arm64_sequoia: "f314f76bab7b0a9e5c4a9c2fdce196f22a50104b9fb2a356a29fd265b0dc877b"
+    sha256 cellar: :any,                 arm64_sonoma:  "3c70ef4e6b934eab2b466aad8d12b00cd6c9521d7d8255c13e853b2db95e5b7b"
+    sha256 cellar: :any,                 arm64_ventura: "5a4428dda352365ebcb2575c19d6f7d6d31071ac0f02ee56a33dbac2a687390d"
+    sha256 cellar: :any,                 sonoma:        "4e7b7ee4466eb00f7508343e14a21bc82355cb2d6ecb7e6cf021e818316650a0"
+    sha256 cellar: :any,                 ventura:       "d7db46a5adc5a23bfe1073bb38099f6f6570b0242f1a463ac215d19463d4facd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e12c2a6d62246583630ecccc471d28e8f77b4263f551b23cdd5ec14c8dcf2265"
   end
 
   depends_on "cmake" => :build
@@ -21,6 +20,7 @@ class Sleef < Formula
   def install
     system "cmake", "-S", ".", "-B", "build",
                     "-DSLEEF_BUILD_INLINE_HEADERS=TRUE",
+                    "-DSLEEF_BUILD_SHARED_LIBS=ON",
                     "-DSLEEF_BUILD_TESTS=OFF",
                     "-DCMAKE_INSTALL_RPATH=#{rpath}",
                     *std_cmake_args

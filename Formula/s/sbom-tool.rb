@@ -1,24 +1,30 @@
 class SbomTool < Formula
   desc "Scalable and enterprise ready tool to create SBOMs for any variety of artifacts"
   homepage "https://github.com/microsoft/sbom-tool"
-  url "https://github.com/microsoft/sbom-tool/archive/refs/tags/v2.2.6.tar.gz"
-  sha256 "2f4f9f624c5bd4881bee920e5c2a8801c23889da9b61935912f28e27c7fc6aaf"
+  url "https://github.com/microsoft/sbom-tool/archive/refs/tags/v2.2.9.tar.gz"
+  sha256 "013dbd84214ae9b41918138fc0292570b0819cb9284a860363eb2532dda204e5"
   license "MIT"
   head "https://github.com/microsoft/sbom-tool.git", branch: "main"
 
+  # There can be a notable gap between when a version is tagged and a
+  # corresponding release is created, so we check the "latest" release instead
+  # of the Git tags.
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a74e432d437d743783f196da854c1978eeb523cb09f82ca40189fe7d6ac1dc4f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e2d245a508f38f49dbcd3fb7e00e5ebd9d4a4c3e3a9ec6e7fbfe82d4e8d1b46e"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "1c8bca177ee182cdb2c110868b32a6d0f19b96b0c1017ec111accf9ac20936d9"
-    sha256 cellar: :any_skip_relocation, sonoma:         "c189d8a5cdc6612bc40f3896d61c1b2fc8af2619f8cd86a03c133c08dc54fa90"
-    sha256 cellar: :any_skip_relocation, ventura:        "bf33692f2d9f549eb6827c05f94119decaa90548d06a992f25f3f099da426e2b"
-    sha256 cellar: :any_skip_relocation, monterey:       "72d777eaf070fd70ec865f41b8fbda10efee33428e423fc50564810aa045efa0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4336d259bb08ed15dffaa793fb63d26b8bd063342b6daa8d484abe6c2510d9ac"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ea0180cdb70b1aa227c07f460824d360726bc38476904158899795854017a2ac"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8187fac2b281d8031bbd3d86954f3fc71f5ab236ec08538a34f9752d8a59463b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "29bd6d62c85ca6c92d32909b3a9ec9d85ddbe1ea0273535b3dd834e2fb98e52f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "27604c0023bba19d5473c6ced252ab3ce2e7e5e40eb64d039e63b5ba06c5a454"
+    sha256 cellar: :any_skip_relocation, ventura:       "22d665ec20d1d79556a310d4457cb5222ad3078e957c3d8017824b9b88f07bf4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "31114583c0e2dbc15dd4fe35b5ac88085057fc012e04e9bfe7359eae9dc7f54b"
   end
 
   depends_on "dotnet"
 
-  uses_from_macos "icu4c" => :test
   uses_from_macos "zlib"
 
   def install

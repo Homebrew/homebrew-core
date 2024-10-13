@@ -12,6 +12,7 @@ class Ecl < Formula
   end
 
   bottle do
+    sha256 arm64_sequoia:  "04a0ce4228cb34b3dc85b14755a96f61c698d9a3b35c3459d6f228a0e87fe5df"
     sha256 arm64_sonoma:   "f511628793d569db33a5d91a96a052eff9a7bcc922717941c7e5dd3a08a32d34"
     sha256 arm64_ventura:  "6e4978801eb0b6cf26e5bccd502ce82e5b4c5ba7213aedd23fd39ee6e639d3e7"
     sha256 arm64_monterey: "38a0407a7998ec9218775d7eeafec3703cbbe823298383bee875b32113f23fae"

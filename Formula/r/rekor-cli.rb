@@ -6,6 +6,7 @@ class RekorCli < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "dcf0b5be6ad0a039d91d762466f00815291557f0a5b3082ae502cecba94ed3dd"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d3fc84c9e35f1246820c00ab49f8fd040be490378d7bee0e501c4e38049be54b"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "777537292bfb1e135878ee833fd25905af9dc24a24c04dde42286d8c2908dc55"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1233f61dca15831546ac17a78a767fb78998d7c114dd224a050ae159d175ba04"

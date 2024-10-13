@@ -11,6 +11,7 @@ class Ripmime < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "8c027eccffd894d36c64385cb6347681f51a16f3cf414ee28d1e72f4b24e74c8"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c2de1ea553f4d70ee9d4017a185dbfe3dc966a7e263bd7f6baeafffda55aa8b9"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "196b469fe408f1074e36d108ff2dd7472da2207d679b33c4dbde489040bf6bfd"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "da00b953f185e99b41682ed5a122a6404f1fb7b3e814639011f66748b56d748e"
@@ -35,5 +36,29 @@ class Ripmime < Formula
     system "make", *args
     bin.install "ripmime"
     man1.install "ripmime.1"
+  end
+
+  test do
+    (testpath/"message.eml").write <<~EOS
+      MIME-Version: 1.0
+      Subject: Test email
+      To: example@example.org
+      Content-Type: multipart/mixed;
+            boundary="XXXXboundary text"
+
+      --XXXXboundary text
+      Content-Type: text/plain;
+      name="attachment.txt"
+      Content-Disposition: attachment;
+      filename="attachment.txt"
+      Content-Transfer-Encoding: base64
+
+      SGVsbG8gZnJvbSBIb21lYnJldyEK
+
+      --XXXXboundary text--
+    EOS
+
+    system bin/"ripmime", "-i", "message.eml"
+    assert_equal "Hello from Homebrew!\n", (testpath/"attachment.txt").read
   end
 end

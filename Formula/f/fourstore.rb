@@ -7,6 +7,7 @@ class Fourstore < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 arm64_sequoia:  "92dd5f3276bc5832ebbb1611ea44d122938a630c5030587e103bc3f8e53cbb5e"
     sha256 arm64_sonoma:   "bae32c0d87c821c1f2bc596ec4c40a3cf0f9de0c9e664e1f3a69f3cfc2b37127"
     sha256 arm64_ventura:  "905ddab5e6fd155e2feb625631c5a6361b1375733d73bd133489812622db1a3d"
     sha256 arm64_monterey: "654280dc9f6aa7d50013a146db3bd7f77c1f3ca288718d5dea2f6dc9e75670cc"
@@ -22,7 +23,6 @@ class Fourstore < Formula
   depends_on "pkg-config" => :build
 
   depends_on "dbus"
-  depends_on "gettext"
   depends_on "glib"
   depends_on "pcre"
   depends_on "raptor"
@@ -30,6 +30,10 @@ class Fourstore < Formula
   depends_on "readline"
 
   uses_from_macos "zlib"
+
+  on_macos do
+    depends_on "gettext"
+  end
 
   on_linux do
     depends_on "util-linux"

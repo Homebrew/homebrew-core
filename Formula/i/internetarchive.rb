@@ -9,13 +9,8 @@ class Internetarchive < Formula
   revision 2
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "96ff7412b8276164101dd14d9d669a1c25e3f17be42d0a4a22212f45111d8b97"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "96ff7412b8276164101dd14d9d669a1c25e3f17be42d0a4a22212f45111d8b97"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "96ff7412b8276164101dd14d9d669a1c25e3f17be42d0a4a22212f45111d8b97"
-    sha256 cellar: :any_skip_relocation, sonoma:         "96ff7412b8276164101dd14d9d669a1c25e3f17be42d0a4a22212f45111d8b97"
-    sha256 cellar: :any_skip_relocation, ventura:        "96ff7412b8276164101dd14d9d669a1c25e3f17be42d0a4a22212f45111d8b97"
-    sha256 cellar: :any_skip_relocation, monterey:       "96ff7412b8276164101dd14d9d669a1c25e3f17be42d0a4a22212f45111d8b97"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d7880876b688a12b91d7f69e26efc8995d9e6f7ab7d1329ee96eb0e088a14cab"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "3703f5e6e19959e141adda100439d3983ebfbf9d47c5c65b45d984f904c31175"
   end
 
   depends_on "certifi"

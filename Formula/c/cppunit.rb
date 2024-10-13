@@ -3,7 +3,7 @@ class Cppunit < Formula
   homepage "https://wiki.freedesktop.org/www/Software/cppunit/"
   url "https://dev-www.libreoffice.org/src/cppunit-1.15.1.tar.gz"
   sha256 "89c5c6665337f56fd2db36bc3805a5619709d51fb136e51937072f63fcc717a7"
-  license "LGPL-2.1"
+  license "LGPL-2.1-only"
 
   livecheck do
     url "https://dev-www.libreoffice.org/src/"
@@ -11,6 +11,7 @@ class Cppunit < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "081175312ba1bb288369cb84ff8a8e3bf11cf9c451b80dac6cedc211590d020a"
     sha256 cellar: :any,                 arm64_sonoma:   "192272d9c0a8a984f6efd69def9b47c5f3eda974f27daebb448362501b8e81d2"
     sha256 cellar: :any,                 arm64_ventura:  "45a8c4e8ca0defb8adee6028c2d213c7868bac9fdc9a4e814ad1b45aea1c3c14"
     sha256 cellar: :any,                 arm64_monterey: "7acd81de05bc607287b7133050c269e2ea86ac4e1141cb71ae85af4cd62e7f50"

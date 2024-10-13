@@ -1,5 +1,3 @@
-require "language/node"
-
 class VscodeLangserversExtracted < Formula
   desc "Language servers for HTML, CSS, JavaScript, and JSON extracted from vscode"
   homepage "https://github.com/hrsh7th/vscode-langservers-extracted"
@@ -8,19 +6,14 @@ class VscodeLangserversExtracted < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0a7c513b71c7e19d575bffabe3720d26972fd30dd498f3cb39e167d5085d882c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1ae76e977c580714608211f6d1ec941e090e29796d6e8bb0f43be1fd4547283f"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c94084b34360c77bbd5e723dc98deae0cfc7de7eb87cc7e7f90f649f1cce8032"
-    sha256 cellar: :any_skip_relocation, sonoma:         "7bb7bd4273920acc2433277b4b22c55db6fbce9dc3bb7a3d516db7b50f8c6df8"
-    sha256 cellar: :any_skip_relocation, ventura:        "8f2efb458646504a94be80cb5e2b280f67c611f5cc0bce246bd70211865e9239"
-    sha256 cellar: :any_skip_relocation, monterey:       "d9849d01ed540ae75f1362c54c965804ff4fc3be7d74a0585117b965e99ab6a7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1a17a73ee7294466810e80001c5a728788413915fa97801e3cb5af47dbd2703e"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "1d95f2ff8fdf6fd36f817214ae5435cd51d0d6490a3e01e25780f8728d4c9999"
   end
 
   depends_on "node"
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", *std_npm_args
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 

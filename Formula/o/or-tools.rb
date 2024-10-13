@@ -1,10 +1,10 @@
 class OrTools < Formula
   desc "Google's Operations Research tools"
   homepage "https://developers.google.com/optimization/"
-  url "https://github.com/google/or-tools/archive/refs/tags/v9.10.tar.gz"
-  sha256 "e7c27a832f3595d4ae1d7e53edae595d0347db55c82c309c8f24227e675fd378"
+  url "https://github.com/google/or-tools/archive/refs/tags/v9.11.tar.gz"
+  sha256 "f6a0bd5b9f3058aa1a814b798db5d393c31ec9cbb6103486728997b49ab127bc"
   license "Apache-2.0"
-  revision 3
+  revision 1
   head "https://github.com/google/or-tools.git", branch: "stable"
 
   livecheck do
@@ -13,13 +13,12 @@ class OrTools < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "7986a565b53a7a62767d312094ce5d30b8b22bde897e6ad04281371cfdb6b60a"
-    sha256 cellar: :any,                 arm64_ventura:  "a5289e00c31c046a9cfaace8a05c9af252f6443d2c8cc8cc3e3a7fc37e4b63d8"
-    sha256 cellar: :any,                 arm64_monterey: "b75c04de3a092cb8bb0b1f70b82ff17bc626ae3f3a8cc782120db4256357fbcc"
-    sha256 cellar: :any,                 sonoma:         "9e46241c531a9ab77ee82d751b82956e1d9b9dfc3b0bb4679984b2a927f0e31e"
-    sha256 cellar: :any,                 ventura:        "bced90ca8c280435261b12e5ae5cd4f2f0e729600eb5be612f50914ec7c06e91"
-    sha256 cellar: :any,                 monterey:       "1ecddc034026e0d1a2a7765b3b44de7427e339c8f9ff0ec92fbb81d5752ad962"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f98bff4d5b29105d478d9a36bd5ea1ddba822d9d8c9984a65a6a1397e462c92c"
+    sha256 cellar: :any,                 arm64_sequoia: "d96a2474dcec3e479e493f9a2feea94fdba14d1142c3a03fd955a2ebe8ccabf0"
+    sha256 cellar: :any,                 arm64_sonoma:  "b334335e402ba2def5df45083b409feee658658fb144f91125f12c82846327fb"
+    sha256 cellar: :any,                 arm64_ventura: "944b2e33feaf16cbc65b85c389dc7c51b24c49cca9ff174a356cf7af617b7726"
+    sha256 cellar: :any,                 sonoma:        "e9a11426f2c10f3f084bbcfcac027b9c888b7b73be0d7db45bf16f6ca7530d35"
+    sha256 cellar: :any,                 ventura:       "bca479d83dbef1eef8370315db6e2258ab265fb23850a9404d5fd1c63b55b1b1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "813619753bab47c09c9eadea6d600301d90699ad56cb490104650b4663266586"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -38,6 +37,13 @@ class OrTools < Formula
   uses_from_macos "zlib"
 
   fails_with gcc: "5"
+
+  # Add missing `#include`s to fix incompatibility with `abseil` 20240722.0.
+  # https://github.com/google/or-tools/pull/4339
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/bb1af4bcb2ac8b2af4de4411d1ce8a6876ed9c15/or-tools/abseil-vlog-is-on.patch"
+    sha256 "0f8f28e7363a36c6bafb9b60dc6da880b39d5b56d8ead350f27c8cb1e275f6b6"
+  end
 
   def install
     # FIXME: Upstream enabled Highs support in their binary distribution, but our build fails with it.

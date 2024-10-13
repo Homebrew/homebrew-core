@@ -1,25 +1,25 @@
 class Cryptol < Formula
   desc "Domain-specific language for specifying cryptographic algorithms"
   homepage "https://www.cryptol.net/"
-  # TODO: Try to switch `ghc@9.6` to `ghc` on next release
-  # https://github.com/GaloisInc/cryptol/issues/1624
-  url "https://hackage.haskell.org/package/cryptol-3.1.0/cryptol-3.1.0.tar.gz"
-  sha256 "f2590f15b0119de5510eca2d02a58a399771bf4224f5a3cc9b8ec90aeb050b03"
+  # ghc 9.10 support request, https://github.com/GaloisInc/cryptol/issues/1737
+  url "https://hackage.haskell.org/package/cryptol-3.2.0/cryptol-3.2.0.tar.gz"
+  sha256 "ed078965bd7d2468eb403c698374d9525bc2314f9fc53fc7683a7cab5d2ba25b"
   license "BSD-3-Clause"
   head "https://github.com/GaloisInc/cryptol.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1be83ca0be77a60bfcf7a34c7dc0d13e1fdd54b450dde449c0f15329ba949dc0"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3ca83d6fc539c6e18d9c2b58bac75989aae2ddc23953435102cc33c1a14075d2"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "22388ee60dcb8763aac086a0a832ea43e698aced5856d3947d4f8b8545405869"
-    sha256 cellar: :any_skip_relocation, sonoma:         "17f366d8ea5018ca894f9e49954be47b0c5914e354ca2d0114abb6a45578884a"
-    sha256 cellar: :any_skip_relocation, ventura:        "87a41137441d109ec334949c400c82b338016ab8c2d25766e9614afe8b1d3bee"
-    sha256 cellar: :any_skip_relocation, monterey:       "5b90479b081bfb2a55ebdd6f8f5ebb2d5bf834fcf2a72482d7fb6310c419e53a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "01a860d5fde8f60bf6435f68c9283422d445269c509c9c3607fe9c1b2fbbbd7a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "a3cd1bc981bbce314d249fcb8ce40de3428e982fef1ec81c442ed53b912352f6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "053c643e95edb0e8aed995a5e7909047ceebeb4f53e412aa61e06bc0976d458b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "92d6857f01b3e2150a6a00c8893a0c85fada1f7ed00184a17a560b471b8f5b09"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f95a9fb6b26ac635b0a3d4542f726ed1a5bae87d1d9b171835ce045ff036765b"
+    sha256 cellar: :any_skip_relocation, sonoma:         "304b43329699d57c39fd693b03e7a03f98fbd8a4770d8c3c5419e767ca9db550"
+    sha256 cellar: :any_skip_relocation, ventura:        "ee70e56720b01975fd9efde49d877c6948304948277edca15b1cf7e3800717e1"
+    sha256 cellar: :any_skip_relocation, monterey:       "17a68673a6921f80e75186a76110027909d99ec92f4e43a2310859cd9b6cb595"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f302f1661f45a19b763d4e112ca16f398f4f6be79959ab1501ac65ed52e580c4"
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc@9.6" => :build
+  depends_on "ghc@9.8" => :build
   depends_on "z3"
 
   uses_from_macos "ncurses"

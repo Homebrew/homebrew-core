@@ -3,6 +3,7 @@ class Writerperfect < Formula
   homepage "https://sourceforge.net/p/libwpd/wiki/writerperfect/"
   url "https://downloads.sourceforge.net/project/libwpd/writerperfect/writerperfect-0.9.6/writerperfect-0.9.6.tar.xz"
   sha256 "1fe162145013a9786b201cb69724b2d55ff2bf2354c3cd188fd4466e7fc324e6"
+  license any_of: ["LGPL-2.1-or-later", "MPL-2.0"]
 
   livecheck do
     url :stable
@@ -11,6 +12,7 @@ class Writerperfect < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia:  "1bcef69c7269aac0ca31db30c82ca222f1ae0a9a9d4e19cb55d3bd7f28974327"
     sha256 cellar: :any,                 arm64_sonoma:   "ed3b788e7dfc919303efa063cf9a46553e132339c36016af524e4b5e021f6ec8"
     sha256 cellar: :any,                 arm64_ventura:  "27bbb6aa97e00bc78675eebde04a4b08754fca44b466df2f1c8dda4180293c6c"
     sha256 cellar: :any,                 arm64_monterey: "e5cbdebbad8e36cc2cd59a140c2eb4a8a5fd914b4ed9360fa3f1a4042cd74efe"
@@ -30,13 +32,13 @@ class Writerperfect < Formula
   depends_on "boost" => :build
   depends_on "pkg-config" => :build
   depends_on "libodfgen"
+  depends_on "librevenge"
   depends_on "libwpd"
   depends_on "libwpg"
   depends_on "libwps"
 
   def install
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    system "./configure", "--disable-silent-rules", *std_configure_args
     system "make", "install"
   end
 end

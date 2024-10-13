@@ -7,6 +7,7 @@ class ReattachToUserNamespace < Formula
   head "https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "cd39282391ec191e5421c47cf7dbc9c7c4a58ac1cf271d09b453d49e0068b3fb"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1c946e781c18777b2156251b59a44f1db80cd39d59c18dce460011a0176566b7"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "ff12e77b3cfc11ea931010a16a2c1a1ffb4bd893b6644f29966507fcdbe02b8c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ea86d8655e6e86620d1502bdf84edfb6950e4f36b2f6919541fcfe45817a4233"

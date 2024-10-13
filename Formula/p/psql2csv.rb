@@ -7,7 +7,8 @@ class Psql2csv < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "7b159e3b53c7d0b6bd568e504e918a1c96cff36007bcd009550c21e18c3cd269"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "2bd408af21ea8fd340ab8a95d11c4a0b0d0c106a2aa9b87cdd9d8f4c09390290"
   end
 
   depends_on "libpq"

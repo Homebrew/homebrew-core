@@ -1,6 +1,7 @@
 [
   "apr",
   "apr-util",
+  "libarchive",
   "libressl",
   "llvm",
   "openblas",

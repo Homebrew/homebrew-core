@@ -11,6 +11,7 @@ class Quickjs < Formula
   end
 
   bottle do
+    sha256 arm64_sequoia:  "9ac6a1c14a372f8e110aa703ccace27e88126187cb3af83c8182dfdad70dc0df"
     sha256 arm64_sonoma:   "d8e22767ae91c9911e9c4d2dcac7af64721903c7c90cb90a4ff5218b14c9e403"
     sha256 arm64_ventura:  "7470c608a6769f8269a9a66644291809ab3f453a974736973487a0e3abbbdee6"
     sha256 arm64_monterey: "0f7cbd908a98955c57b6ab1cd86614c560c98992107c9a0c4a565bec96e77168"
@@ -28,10 +29,9 @@ class Quickjs < Formula
     output = shell_output("#{bin}/qjs --eval 'const js=\"JS\"; console.log(`Q${js}${(7 + 35)}`);'").strip
     assert_match(/^QJS42/, output)
 
-    path = testpath/"test.js"
-    path.write "console.log('hello');"
-    system "#{bin}/qjsc", path
-    output = shell_output(testpath/"a.out").strip
-    assert_equal "hello", output
+    test_file = testpath/"test.js"
+    test_file.write "console.log('hello');"
+    system bin/"qjsc", test_file
+    assert_equal "hello", shell_output(testpath/"a.out").strip
   end
 end

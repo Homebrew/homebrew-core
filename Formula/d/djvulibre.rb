@@ -3,6 +3,7 @@ class Djvulibre < Formula
   homepage "https://djvu.sourceforge.net/"
   url "https://downloads.sourceforge.net/djvu/djvulibre-3.5.28.tar.gz"
   sha256 "fcd009ea7654fde5a83600eb80757bd3a76998e47d13c66b54c8db849f8f2edc"
+  license "GPL-2.0-or-later"
   revision 2
 
   livecheck do
@@ -11,6 +12,7 @@ class Djvulibre < Formula
   end
 
   bottle do
+    sha256 arm64_sequoia:  "251aeb1ba6581281a3742cac327422498cc251097f79c56e4b262a4a32f178b3"
     sha256 arm64_sonoma:   "509e80c15c07de6b03d1bf3d729537d0abb30849c55b4aac092f6d760391ad8d"
     sha256 arm64_ventura:  "03c2b8a0fd889f5286436b3b2b1b8b10ceec29ed133756d8bb64ac20f867d0bf"
     sha256 arm64_monterey: "f39559ac1a9d9e3351dcc2d77384875434a8aa7d84406d0f5214dd42e86759e5"

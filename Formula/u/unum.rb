@@ -12,6 +12,7 @@ class Unum < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "2bbbba3414c284badb1f16726092c9c2b0df15e584442b6f9a57a86b6136c7f5"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "da2908ba84393f040c3fd859a4c1f44c9ead4a5ce06cee7dd38625065e0631bb"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "da2908ba84393f040c3fd859a4c1f44c9ead4a5ce06cee7dd38625065e0631bb"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "da2908ba84393f040c3fd859a4c1f44c9ead4a5ce06cee7dd38625065e0631bb"

@@ -8,20 +8,20 @@ class FregeRepl < Formula
   revision 2
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "17666cf7857b6fbd4af5f30a97a5c0d36b90f0514e58af14b07173ddece6e9a3"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "f68a61801c7e99908489f6339d178107252377a08db65607849027d869df9bd0"
   end
 
   # TODO: Switch to `openjdk` on next release.
   depends_on "openjdk@17"
 
   def install
-    rm_f Dir["bin/*.bat"]
+    rm(Dir["bin/*.bat"])
     libexec.install "bin", "lib"
     (bin/"frege-repl").write_env_script libexec/"bin/frege-repl", JAVA_HOME: Formula["openjdk@17"].opt_prefix
   end
 
   test do
-    assert_match "65536", pipe_output("#{bin}/frege-repl", "println $ 64*1024\n:quit\n")
+    assert_match "65536", pipe_output(bin/"frege-repl", "println $ 64*1024\n:quit\n")
   end
 end

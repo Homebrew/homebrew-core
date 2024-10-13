@@ -22,7 +22,7 @@ class GoAT119 < Formula
 
   # EOL with Go 1.21 release (2023-08-08)
   # Ref: https://go.dev/doc/devel/release#policy
-  deprecate! date: "2023-08-13", because: :unsupported
+  disable! date: "2024-08-24", because: :unsupported
 
   depends_on "go" => :build
 
@@ -34,7 +34,7 @@ class GoAT119 < Formula
       system "./make.bash", "--no-clean"
     end
 
-    (buildpath/"pkg/obj").rmtree
+    rm_r(buildpath/"pkg/obj")
     libexec.install Dir["*"]
     bin.install_symlink Dir[libexec/"bin/go*"]
 
@@ -42,9 +42,9 @@ class GoAT119 < Formula
 
     # Remove useless files.
     # Breaks patchelf because folder contains weird debug/test files
-    (libexec/"src/debug/elf/testdata").rmtree
+    rm_r(libexec/"src/debug/elf/testdata")
     # Binaries built for an incompatible architecture
-    (libexec/"src/runtime/pprof/testdata").rmtree
+    rm_r(libexec/"src/runtime/pprof/testdata")
   end
 
   test do

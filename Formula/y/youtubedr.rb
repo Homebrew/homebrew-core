@@ -6,6 +6,7 @@ class Youtubedr < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "3662c7e71b59b9f4478005258f321f194a5af87299bbe15e04cfbdd45d0e1a6a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "bf51ce334055c76a3e088792bdb2afb76b93f80c0a62f999632963c26dc05081"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "bf51ce334055c76a3e088792bdb2afb76b93f80c0a62f999632963c26dc05081"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "bf51ce334055c76a3e088792bdb2afb76b93f80c0a62f999632963c26dc05081"

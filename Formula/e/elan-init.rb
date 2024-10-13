@@ -1,19 +1,30 @@
 class ElanInit < Formula
   desc "Lean Theorem Prover installer and version manager"
   homepage "https://github.com/leanprover/elan"
-  url "https://github.com/leanprover/elan/archive/refs/tags/v3.1.1.tar.gz"
-  sha256 "b3e3c7dc6cc23dd319725fccf58c898bf4920ff3440c97cb8f3a35fc0d5bbf5c"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/leanprover/elan.git", branch: "master"
 
+  stable do
+    url "https://github.com/leanprover/elan/archive/refs/tags/v3.1.1.tar.gz"
+    sha256 "b3e3c7dc6cc23dd319725fccf58c898bf4920ff3440c97cb8f3a35fc0d5bbf5c"
+
+    # rust 1.80 build patch, upstream pr ref, https://github.com/leanprover/elan/pull/134
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/815affb24bff77daad4e99e31afed8de42a31312/elan-init/rust-1.80.patch"
+      sha256 "244420efc73ba1fb4908023047fbb1650f783c30e73aa1facb82645d80c7136f"
+    end
+  end
+
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "be718756f24a38dfc2fdeabb6c1a8faa762f54e26bd7ba6c46a73ca6e7242a83"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d3eb50c0b149c00a1b4cdaeffe3083d9ed651e1db257a73f497ffb0328cfb33c"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e087e76a080ff632b3873e6fdcf490021d0708984c95c736d9e837dad82fd08f"
-    sha256 cellar: :any_skip_relocation, sonoma:         "f86a70914dac7f2cc72b4f7e8fa0e5a6833f38e1e0d407061f52f02014d6c297"
-    sha256 cellar: :any_skip_relocation, ventura:        "468fe8ba4bdfac9eb73ff28e27ae164028640a3ccde8bea22073f2ac08ee352e"
-    sha256 cellar: :any_skip_relocation, monterey:       "5a7e351d4f81b94d2e6538e41090c70f87ae125ca421dc59d586be3b2dca41a7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9351bed83126cf13aba8e95e1dcf4fd2dc9b477381b10fe41929f248b1cba8e3"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "9414f2c97133007a99261abfea1cb188f953939c0b62b85700b56e8042679461"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7aef59f7e264ecf7a2c856e2666e6aafd3ea7eace3eaf43437531490773e0102"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b82859cd41243cd8d4acfc1d28862c32261c4a9f588da90422641dd8992f8bea"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "dda8aedbfe1d28aa4d97b3269cf17088d0efa0843661e548c70c6b7615813db8"
+    sha256 cellar: :any_skip_relocation, sonoma:         "5c6589bc32c581d6d3c614ea1b46ee3497d0859adae548ab2a732ecd1008dafa"
+    sha256 cellar: :any_skip_relocation, ventura:        "efb5e621bf215f9c7061d05ca9f9b1fb251a0c270ea1d323cd5991606e897d93"
+    sha256 cellar: :any_skip_relocation, monterey:       "bfcde921f1b585c26c5150a8cf258d6d5c752ce4d67cab58cafb742562de8e88"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "45ca6bf10c24f0d45e7a81dfe66d94ae87b25ea61b0d635bbcaf46e1d20f153d"
   end
 
   depends_on "rust" => :build

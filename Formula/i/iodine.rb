@@ -7,6 +7,7 @@ class Iodine < Formula
   head "https://github.com/yarrick/iodine.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "78df44a424d8357cd348a96c8a3f87502229b37e8871687bf39e246ea02327fc"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6137123041fc9cc12bfb1ab7b5c89db1df5a8a53c46005894ed3a2928cfd0ed2"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "7d366cab32fff89cfe558c7b03fdf36931a100e2834e6d830a642cb4517eb5e0"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c56442257c490693ec92dce6ecf8b579c630460843e1bae51f46f48116a7e316"

@@ -14,17 +14,17 @@ class Asciidoc < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7289219aacccff18740c6234ac438cc39c8f1ebd2a31a5e5ddc5a62f222ca200"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7289219aacccff18740c6234ac438cc39c8f1ebd2a31a5e5ddc5a62f222ca200"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7289219aacccff18740c6234ac438cc39c8f1ebd2a31a5e5ddc5a62f222ca200"
-    sha256 cellar: :any_skip_relocation, sonoma:         "7ab32cd1cb6941a93ad04eede903bccef924de598f18ce3e3ceae24f352df018"
-    sha256 cellar: :any_skip_relocation, ventura:        "7ab32cd1cb6941a93ad04eede903bccef924de598f18ce3e3ceae24f352df018"
-    sha256 cellar: :any_skip_relocation, monterey:       "0d6d5e9be887a617249f785eb76402192778a5fc2885f17a9e8a9cc7595b9c29"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8f7189d7ff2776ad9f27dcb9403f90f435f48e615552eb16db2972fc43616e38"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ec67acbcd8040ec963e8d3c2cab2427254d2b8b411b65db720347518ab341559"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ec67acbcd8040ec963e8d3c2cab2427254d2b8b411b65db720347518ab341559"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "ec67acbcd8040ec963e8d3c2cab2427254d2b8b411b65db720347518ab341559"
+    sha256 cellar: :any_skip_relocation, sonoma:        "ec67acbcd8040ec963e8d3c2cab2427254d2b8b411b65db720347518ab341559"
+    sha256 cellar: :any_skip_relocation, ventura:       "ec67acbcd8040ec963e8d3c2cab2427254d2b8b411b65db720347518ab341559"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "51190b8ffe36e536f0208a5d0f420ed9be8c119051241188801d181a12bfd83a"
   end
 
   depends_on "docbook"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
   depends_on "source-highlight"
 
   def install
@@ -48,7 +48,7 @@ class Asciidoc < Formula
 
   test do
     (testpath/"test.txt").write("== Hello World!")
-    system "#{bin}/asciidoc", "-b", "html5", "-o", testpath/"test.html", testpath/"test.txt"
+    system bin/"asciidoc", "-b", "html5", "-o", testpath/"test.html", testpath/"test.txt"
     assert_match %r{<h2 id="_hello_world">Hello World!</h2>}, File.read(testpath/"test.html")
   end
 end

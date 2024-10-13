@@ -1,5 +1,3 @@
-require "language/node"
-
 class Kuto < Formula
   desc "Reverse JS bundler"
   homepage "https://github.com/samthor/kuto"
@@ -8,13 +6,14 @@ class Kuto < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "ef0cca54501f33ac8ec2b3610a5d0897035e0ba672301e5bd7a6f858d4eff110"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "d0b642c13ec7b23fd229ef06d6ab335cb2cb3eaea4785644006ab84572b0d8bf"
   end
 
   depends_on "node"
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", *std_npm_args
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 

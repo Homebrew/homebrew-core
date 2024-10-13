@@ -14,6 +14,7 @@ class Epsilon < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "00006841c371ebcd51bc9f3105d16bc690fa54fa0a37ee9b0acfd33cfcee9b1e"
     sha256 cellar: :any,                 arm64_sonoma:   "04b24b368a0881d8244800904fc5c3daa304e9333a1a1e87f25cf6962b057417"
     sha256 cellar: :any,                 arm64_ventura:  "547069ed37303eb1cd4e8757cc595338852617040c9eadb2493aca79ca014571"
     sha256 cellar: :any,                 arm64_monterey: "670034faf15b3c9d8aee0684969850959349bfe460dac4df70dd7b379a6103f2"
@@ -44,6 +45,6 @@ class Epsilon < Formula
   end
 
   test do
-    system "#{bin}/epsilon", "--version"
+    system bin/"epsilon", "--version"
   end
 end

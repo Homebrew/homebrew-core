@@ -11,6 +11,7 @@ class Libantlr3c < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "0b28c958040567aca016c773fe2d184aaf8bfe2a849a20265cae9e8980685ae9"
     sha256 cellar: :any,                 arm64_sonoma:   "c6fe962be8632362af50b3eb0bf10fe363ddc153d3624c29d0b5d7fdc8e443b0"
     sha256 cellar: :any,                 arm64_ventura:  "f3a6b9556e0e61c22a8602a2a593fc286716a1613567476af5c534a443844e57"
     sha256 cellar: :any,                 arm64_monterey: "ee99e528c204f5aaa77e00b6ec513992a663b20077ca6c916e53e759c6d5b544"

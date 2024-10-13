@@ -6,6 +6,7 @@ class Star < Formula
   license "CDDL-1.0"
 
   bottle do
+    sha256 arm64_sequoia:  "e6a35a48d1b10d83a521fba9d7351be44be87017b0b7a1c16d6db72aa3874ee2"
     sha256 arm64_sonoma:   "4f7d3a2831a685b8ff9881ff5b56fc2402b04c410d6a8b3640d4cb794154165d"
     sha256 arm64_ventura:  "800616aa187156f940ce52ad810e23b6fe385a633948f3d666372cba6fea9727"
     sha256 arm64_monterey: "066533943950ef805516fdd1e22b845c02ad7764b924f2922689a27549260cbb"
@@ -30,7 +31,7 @@ class Star < Formula
   end
 
   test do
-    system "#{bin}/star", "--version"
+    system bin/"star", "--version"
 
     (testpath/"test").write("Hello Homebrew!")
     system bin/"star", "-c", "-z", "-v", "file=test.tar.gz", "test"

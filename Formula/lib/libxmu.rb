@@ -6,6 +6,7 @@ class Libxmu < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "b44c421e544a4a88eacaec0155108a9ce86a7d6aebf39e735d7d8656b2c7d768"
     sha256 cellar: :any,                 arm64_sonoma:   "cf78ddb72afdc7e39ad0aa9421ef8c6ef215a588311fff8d7924fb7dfe33d644"
     sha256 cellar: :any,                 arm64_ventura:  "06a9985ef9c93b62954e604491eda08c17ff0121c4db57e816ecdd0a89fc0b9a"
     sha256 cellar: :any,                 arm64_monterey: "e95b65aa281742d32783fe3e81a791f83740724c6a67b47196ef8c0c3ead9bc9"
@@ -16,6 +17,7 @@ class Libxmu < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "libx11"
   depends_on "libxext"
   depends_on "libxt"
 

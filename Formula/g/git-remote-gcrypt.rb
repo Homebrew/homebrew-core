@@ -3,7 +3,7 @@ class GitRemoteGcrypt < Formula
   homepage "https://spwhitton.name/tech/code/git-remote-gcrypt/"
   url "https://github.com/spwhitton/git-remote-gcrypt/archive/refs/tags/1.5.tar.gz"
   sha256 "0a0b8359eccdd5d63eaa3b06b7a24aea813d7f1e8bf99536bdd60bc7f18dca03"
-  license "GPL-3.0"
+  license any_of: ["GPL-3.0-only", "GPL-2.0-or-later"]
 
   livecheck do
     url :stable
@@ -11,6 +11,7 @@ class GitRemoteGcrypt < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "0b60bf238fc835d16a3722c2169c060f08f3eab5182af7d3b67686d48a851391"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f7d518f6a84f6a88cd98739da37b80af97c109f5a6694052d1036c6ae9f23821"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "2ca9c6f99e37388e7e15b20f2980ad368dfa11e56d8724a92c360d142f81a44a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "45fa5421d67d07106e203704401040e36360a7acf4a39fec0dc2b718cd155369"
@@ -31,6 +32,6 @@ class GitRemoteGcrypt < Formula
   end
 
   test do
-    assert_match("fetch\npush\n", pipe_output("#{bin}/git-remote-gcrypt", "capabilities\n", 0))
+    assert_match("fetch\npush\n", pipe_output(bin/"git-remote-gcrypt", "capabilities\n", 0))
   end
 end

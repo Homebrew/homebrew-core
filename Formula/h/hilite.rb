@@ -6,6 +6,7 @@ class Hilite < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "f3535152f7fa6b54957f00de4158dd790073c81737140ae90c16cbda8d37ba51"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "428126844c77fdfab8f4d4d007a3e5c2a743511b4005e71f91b74a4a162836d1"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "8d2fa393a2cd13f75d3793c7d543ae3fd5a053cdfdd82ac722015912618fa596"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4f3e960b26ed8e81acab99dd342d1e2946b1ec8003fb99dd65b91add5af31c93"
@@ -28,6 +29,6 @@ class Hilite < Formula
   end
 
   test do
-    system "#{bin}/hilite", "bash", "-c", "echo 'stderr in red' >&2"
+    system bin/"hilite", "bash", "-c", "echo 'stderr in red' >&2"
   end
 end

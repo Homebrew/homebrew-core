@@ -13,6 +13,7 @@ class Libgxps < Formula
   end
 
   bottle do
+    sha256 cellar: :any, arm64_sequoia:  "fdca2abeb3cab442e39539689c5faf9c5540fc723f01c0596c11f2943874c45b"
     sha256 cellar: :any, arm64_sonoma:   "0bc7f03e4357779ac617e6750d70daff18da2a7da889387acdfe75891bcfce0e"
     sha256 cellar: :any, arm64_ventura:  "07d90913277ea1e2a74c547c02173058afa2588ede3e9236ff7f334c894a7b6a"
     sha256 cellar: :any, arm64_monterey: "50c2d473739fb423b1145baaf06f7585ee9a64e5021806bff07cb1f772c1f8f1"
@@ -52,7 +53,7 @@ class Libgxps < Formula
     # This is not the same variable as setting LD_LIBRARY_PATH!
     ENV.append "LIBRARY_PATH", Formula["zlib"].opt_lib unless OS.mac?
 
-    system "meson", *std_meson_args, "build", "-Denable-test=false"
+    system "meson", "setup", "build", "-Denable-test=false", *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"
     system "meson", "install", "-C", "build"
   end

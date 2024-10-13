@@ -7,6 +7,7 @@ class Snownews < Formula
   revision 1
 
   bottle do
+    sha256 arm64_sequoia:  "0a953106b529951a0e5900c9819c2df6ef3b26822fa3ce924c333546f9264734"
     sha256 arm64_sonoma:   "aeeabd29b3c85814440dad193c88e96de8bbdc802e38f5b6fc998425d90dfc1d"
     sha256 arm64_ventura:  "ab994b373b5e6a36f4c05d128dd2b4aff607a093d4bedbda6e0c3a38e63de933"
     sha256 arm64_monterey: "5e86f2dcc050b2bcb052eb43a4d8e146ff2f226d5c62476e356720c3b38484ff"
@@ -18,22 +19,21 @@ class Snownews < Formula
     sha256 x86_64_linux:   "dfd5d4c92583abd0e7b299f6ac41eb728e814f6aba8a7ebf9fca9e8392d80f9e"
   end
 
-  depends_on "coreutils" => :build
+  depends_on "gettext" => :build
   depends_on "pkg-config" => :build
-  depends_on "gettext"
   depends_on "ncurses"
   depends_on "openssl@3"
 
   uses_from_macos "curl"
   uses_from_macos "libxml2"
 
+  on_macos do
+    depends_on "gettext"
+  end
+
   def install
     system "./configure", "--prefix=#{prefix}"
-
-    # Must supply -lz because configure relies on "xml2-config --libs"
-    # for it, which doesn't work on OS X prior to 10.11
-    system "make", "install", "EXTRA_LDFLAGS=#{ENV.ldflags} -L#{Formula["openssl@3"].opt_lib} -lz",
-           "CC=#{ENV.cc}", "INSTALL=ginstall"
+    system "make", "install", "CC=#{ENV.cc}"
   end
 
   test do

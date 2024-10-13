@@ -16,6 +16,7 @@ class Wordnet < Formula
   end
 
   bottle do
+    sha256                               arm64_sequoia:  "c67aa85468482fee988beffc93bbe3dfa9d7e0f7a99f77e1f380dd6f26b58282"
     sha256                               arm64_sonoma:   "b950541da50b255f77a15f09e713f22472820da7e131c577a4b3f377fc2b44fe"
     sha256                               arm64_ventura:  "57a8ed88c01550f3fc44dd887ddd4ae3c9bbad47ea82c2793bfe167506aacfb6"
     sha256                               arm64_monterey: "6a7414051cb0af96f5b507dd61cd79fa9e63bede15c658bd20569171900e57d3"
@@ -38,6 +39,9 @@ class Wordnet < Formula
   end
 
   def install
+    # Workaround for newer Clang
+    ENV.append_to_cflags "-Wno-implicit-int" if DevelopmentTools.clang_build_version >= 1403
+
     (prefix/"dict").install resource("dict")
 
     # Disable calling deprecated fields within the Tcl_Interp during compilation.

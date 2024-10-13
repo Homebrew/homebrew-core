@@ -6,6 +6,7 @@ class BazelRemote < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "725a245b501ff5917c629d8457fa44df82a3e20d68b675a1153790131a6da691"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2d02dc2fc9308975dcd8288bf20d2ce30d44d2df318b2b95de38871a3cd031cb"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "68c09f83fdabd5e3a040ed6e60dfeb1c726e29881780f37916dd561bd6d22320"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4dee66da7e388f6c0c0b1418e1f36dd761ceafcd54ea5c2ba37415ab5d04fd93"
@@ -27,7 +28,7 @@ class BazelRemote < Formula
     ENV["BAZEL_REMOTE_MAX_SIZE"] = "10"
 
     begin
-      pid = fork { exec "#{bin}/bazel-remote" }
+      pid = fork { exec bin/"bazel-remote" }
       sleep 2
       assert_predicate testpath/"test", :exist?, "Failed to create test directory"
     ensure

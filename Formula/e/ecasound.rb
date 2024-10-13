@@ -11,6 +11,7 @@ class Ecasound < Formula
   end
 
   bottle do
+    sha256 arm64_sequoia:  "44c42355a7959b320035dc42229da1ea6996934e220820a8e51c8c9b45e882ed"
     sha256 arm64_sonoma:   "fdcc51560354d8507e799d8d6e9f61b77cc31daddcc76afb058e78049d10695f"
     sha256 arm64_ventura:  "0e52338802663453eb4ed6cd44967b7b2baf80b5cc133a4ae42c36f6e4208fed"
     sha256 arm64_monterey: "73ca5b440adf4626dea12d21da27ecc13d76829efee851e8160dedb78709023d"
@@ -29,15 +30,19 @@ class Ecasound < Formula
   depends_on "libsamplerate"
   depends_on "libsndfile"
 
+  uses_from_macos "ncurses"
+
+  on_linux do
+    depends_on "alsa-lib"
+  end
+
   def install
-    args = %W[
-      --disable-debug
-      --disable-dependency-tracking
-      --prefix=#{prefix}
+    args = %w[
       --enable-rubyecasound=no
       --enable-sys-readline=no
     ]
-    system "./configure", *args
+
+    system "./configure", *args, *std_configure_args
     system "make", "install"
   end
 

@@ -1,8 +1,8 @@
 class Json2tsv < Formula
   desc "JSON to TSV converter"
   homepage "https://codemadness.org/json2tsv.html"
-  url "https://codemadness.org/releases/json2tsv/json2tsv-1.1.tar.gz"
-  sha256 "eebe7e6286558af0aa0db7c552a4c1ff1e350eb662ec665155c2611990a9c34a"
+  url "https://codemadness.org/releases/json2tsv/json2tsv-1.2.tar.gz"
+  sha256 "113e5a7aeb295e7f8135f231cad900091f99aebd6c98316f761d377e9b50fd84"
   license "ISC"
 
   livecheck do
@@ -11,15 +11,14 @@ class Json2tsv < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "aa72517c329cedf0f5f2f552e21b6dcd72393e102d8d71cbe84120ca82f08720"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6a2fe44b339acb840974ae83059c75e9dcd7e6b2ea0c1ff0c2a489c7dc698455"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f8452946190ed92e8404f3d40675f8120c15d470f3b7e38ed7d2a4cd10d2096e"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ae51821f02f107a0b40da0345d0a4b6d31926e4cb568f1a48eabf5b577fdf5b0"
-    sha256 cellar: :any_skip_relocation, sonoma:         "8bd09d7e3a502b18bf78e6bf9967cb2326fbfa16f638cea8d145e194fb5a380e"
-    sha256 cellar: :any_skip_relocation, ventura:        "ffb069dca6da384b6989354dd7d00567b4169360035dda3901a8a7442a4c12a4"
-    sha256 cellar: :any_skip_relocation, monterey:       "e6c931d0a20605971fe6e9e2fa91050e7a84d9225709a1d55f38a4a756c72937"
-    sha256 cellar: :any_skip_relocation, big_sur:        "2f991360db7c5f9be2acb695f3efc6d9f5c67301cbb4cd50d630dc11dbc4073b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f31d004ff27bc78bfbb8880ce832cbbe128eeb2400cdfa2105e69e00dfc26101"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "f649f0d640ed1845545c98ff35aa5a07a4356d973fb294b4f088bdd7d2925222"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c11b56c49a1d5b59c1649b9524d63b7e44ec3205e50024decc99c4fd9be50155"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ff1e44a2251c7e15b30b0da83a6a5a47b7d1575372c95b934c429ac484acba61"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a84d66b1c1a8e36f64657560363d472a0461278a9782d15f4b250f3fadd5c983"
+    sha256 cellar: :any_skip_relocation, sonoma:         "5732c14998d7ab8666e00b7b3e3696fb482ea87fe64d5d2aeed9675b468586d5"
+    sha256 cellar: :any_skip_relocation, ventura:        "9703a23fa98d4ef797b35b6a3a1fcd338725489db90e477d53dc39ad8ee2f9ba"
+    sha256 cellar: :any_skip_relocation, monterey:       "470c686211ab55c5e4637c46d0a2b61b1a4453ab89053d145b612bc50728053c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1e86703c3724095305d07a924a8a8b69a919959df6f0456cb85d1442023c989e"
   end
 
   conflicts_with "jaq", because: "both install `jaq` binaries"

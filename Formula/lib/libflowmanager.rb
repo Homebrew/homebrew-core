@@ -13,6 +13,7 @@ class Libflowmanager < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia:  "4d11252d0bcaa2587f52e22e4ac3eb28c2115c7204aaf31594e542b2152bc3ef"
     sha256 cellar: :any,                 arm64_sonoma:   "3d90d67b16c2dbff2d04c17f234e4b4eba726191a60a284e5b1f5b4718a00570"
     sha256 cellar: :any,                 arm64_ventura:  "580edce84318af1d6c9a1fb34e131b54ee82c9f8c949f3fa1e314b240d44f514"
     sha256 cellar: :any,                 arm64_monterey: "a86cc22af11e7199cbdd65a190fb6621b816bf5b01c0e9e6d3cd9f69fa190656"

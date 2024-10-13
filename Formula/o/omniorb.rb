@@ -11,17 +11,19 @@ class Omniorb < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "8f30cde3ccdad77bf9eab6b1479eddf61b5fac1720562b583fa2f299ef611d08"
-    sha256 cellar: :any,                 arm64_ventura:  "0c95065778587f6e4b405c7db738f2a08b5aeb7fffd8e9ad0ee106e256ecebf9"
-    sha256 cellar: :any,                 arm64_monterey: "f2a6a5138718643cfd16256f7cc46040a96cab9a4daf450ed1965bceac4eebb9"
-    sha256 cellar: :any,                 sonoma:         "c5f6d4a6d03750e64208d038da5448b17d5121331f96a2b8227cd16e2854ea27"
-    sha256 cellar: :any,                 ventura:        "d637dcdb67360e997a38e45136c77874ec49239853dc0e038c6723851967051c"
-    sha256 cellar: :any,                 monterey:       "e723599e651a6da612005e20ff8081f75cd6a259c3ee000e4eb27a81624eee34"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7c6ed8ba241de3cc97f66834684d84262aadd78bf9f99436c7ad7a9f09255323"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_sequoia: "7dad83e3408b60a83ddd709184b764e22cecbed96ae9ace42bf3c39ab80779fc"
+    sha256 cellar: :any,                 arm64_sonoma:  "1142ccfc4a9440ed428bac77af4ebcd35486fcacec87c947522a1a2b0068fdfa"
+    sha256 cellar: :any,                 arm64_ventura: "bbc4041068f7bfe1b51e2a283b4aaf7a69a5a22a3b3c7fce853368895bb7873e"
+    sha256 cellar: :any,                 sonoma:        "5663bcf43193332bc6a3d75d44821ee05d1e386f638b6897f825c2afb6c7367f"
+    sha256 cellar: :any,                 ventura:       "6572ba9aea26b870f54e487a8b9dfbf8248e59df2b25416acdeb96ce60f24588"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4c9e139a01ab68b128a4cb5ca256ffb4c7f022542cc300e225483675b2a3aed3"
   end
 
   depends_on "pkg-config" => :build
-  depends_on "python@3.12"
+  depends_on "openssl@3"
+  depends_on "python@3.13"
+  uses_from_macos "zlib"
 
   resource "bindings" do
     url "https://downloads.sourceforge.net/project/omniorb/omniORBpy/omniORBpy-4.3.2/omniORBpy-4.3.2.tar.bz2"
@@ -31,12 +33,14 @@ class Omniorb < Formula
   def install
     odie "bindings resource needs to be updated" if version != resource("bindings").version
 
-    ENV["PYTHON"] = python3 = which("python3.12")
+    ENV["PYTHON"] = python3 = which("python3.13")
     xy = Language::Python.major_minor_version python3
     inreplace "configure",
               /am_cv_python_version=`.*`/,
               "am_cv_python_version='#{xy}'"
-    system "./configure", "--prefix=#{prefix}"
+    args = ["--with-openssl"]
+    args << "--enable-cfnetwork" if OS.mac?
+    system "./configure", *args, *std_configure_args
     system "make"
     system "make", "install"
 
@@ -44,7 +48,7 @@ class Omniorb < Formula
       inreplace "configure",
                 /am_cv_python_version=`.*`/,
                 "am_cv_python_version='#{xy}'"
-      system "./configure", "--prefix=#{prefix}"
+      system "./configure", *std_configure_args
       ENV.deparallelize # omnipy.cc:392:44: error: use of undeclared identifier 'OMNIORBPY_DIST_DATE'
       system "make", "install"
     end

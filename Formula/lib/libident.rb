@@ -3,6 +3,7 @@ class Libident < Formula
   homepage "https://www.remlab.net/libident/"
   url "https://www.remlab.net/files/libident/libident-0.32.tar.gz"
   sha256 "8cc8fb69f1c888be7cffde7f4caeb3dc6cd0abbc475337683a720aa7638a174b"
+  license :public_domain
 
   livecheck do
     url "https://www.remlab.net/files/libident/"
@@ -11,6 +12,7 @@ class Libident < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia:  "2446047586d94ec64540aae081f818a68642475be91609bb360772af74d8236f"
     sha256 cellar: :any,                 arm64_sonoma:   "ec5e66033f45c75ae856163de64dec8196438c77f2d7183595361d1cc2992a5b"
     sha256 cellar: :any,                 arm64_ventura:  "b3aacfbacdc98c637bc19401da959466566c13914d88be0a500a4ccd8c0e35fa"
     sha256 cellar: :any,                 arm64_monterey: "005fdffe6633e849bc26051b739a0fc10d72ecb25335bb04aea9286b19dbd196"

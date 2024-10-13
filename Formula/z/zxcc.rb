@@ -3,7 +3,7 @@ class Zxcc < Formula
   homepage "https://www.seasip.info/Unix/Zxcc/"
   url "https://www.seasip.info/Unix/Zxcc/zxcc-0.5.7.tar.gz"
   sha256 "6095119a31a610de84ff8f049d17421dd912c6fd2df18373e5f0a3bc796eb4bf"
-  license "GPL-2.0-or-later"
+  license all_of: ["GPL-2.0-or-later", "LGPL-2.0-or-later"]
 
   livecheck do
     url :homepage
@@ -11,6 +11,7 @@ class Zxcc < Formula
   end
 
   bottle do
+    sha256 arm64_sequoia:  "bddad2d64c555a4a13ba9cbc9c0cb6da0f249f6ef360c2274626a8b036c473a3"
     sha256 arm64_sonoma:   "8c8e1b35ae99069026c14d9cf0d35a14196d7be3e0a1e7bdbc9d6ec5fd6f5b13"
     sha256 arm64_ventura:  "e2fe6fa77252015a020de63bb4973171a8b9a9c90f866f2835f1e36e4e5714de"
     sha256 arm64_monterey: "b72dfe0dda214485bb604b56b731e04109c964d10f45eb3b6fedceffdedf61ca"
@@ -30,7 +31,7 @@ class Zxcc < Formula
   uses_from_macos "ncurses"
 
   def install
-    system "./configure", "--prefix=#{prefix}"
+    system "./configure", *std_configure_args
     system "make"
     system "make", "install"
   end

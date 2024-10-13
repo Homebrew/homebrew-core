@@ -3,6 +3,7 @@ class Unittest < Formula
   homepage "https://unittest.red-bean.com/"
   url "https://unittest.red-bean.com/tar/unittest-0.50-62.tar.gz"
   sha256 "9586ef0149b6376da9b5f95a992c7ad1546254381808cddad1f03768974b165f"
+  license "BSD-3-Clause"
 
   livecheck do
     url "https://unittest.red-bean.com/tar/"
@@ -10,6 +11,7 @@ class Unittest < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "21c093f62ed5f62198f1a5275ea0e1793db566cdf0b6893e0a153a84ed41253f"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "22d12ce92d27e2c6b3b1c137d6193c4295c6aadb4dd658fe0ee10822ca130367"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "4c301be0c1a8cabb9339ce5f1a2284c6c9d7c54a3f9458f92563d388ec418f0b"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "dc9de7f5271e4a57ce5f2bd565924006f39ebb8f136ba5f4493778007c019ff5"

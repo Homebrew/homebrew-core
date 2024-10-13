@@ -6,6 +6,7 @@ class Nyancat < Formula
   license "NCSA"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "bc5741eb96d5bd24301b288f9d2500c635c2b9c0ffc1654ed4ee1b1bfd02c303"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "63f328a8b248972e6d29b28116cd2e6b7396a7a09e2d8a02e85e037ced6d4016"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "7975892c912c11d73fae58e5cf972b6dc3beb8e9d10f03883002ad53f843f8f0"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "0c2fef45873d4944b918cdaad1f458b5ae1e863fbde1c91130ac0a73bc571e5f"
@@ -21,8 +22,6 @@ class Nyancat < Formula
     sha256 cellar: :any_skip_relocation, el_capitan:     "2484fb6eabaaa65a988191b9c2f920d7290bc20f73dbf41e4a996e0306827364"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "69b8c44133a399fddd0b6b6db41d2dcd9ba2420a5c5b53e62409d14cfacadc85"
   end
-
-  deprecate! date: "2024-04-05", because: :repo_archived
 
   # Makefile: Add install directory option
   # See https://github.com/klange/nyancat/pull/34

@@ -7,6 +7,7 @@ class Mpfrcx < Formula
   head "https://gitlab.inria.fr/enge/mpfrcx.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "e9d9fcb8796dc03e08d4f3b1d1e6e1cd054befac43f75f20f6592891e01c366f"
     sha256 cellar: :any,                 arm64_sonoma:   "3943e6b49295761e2d5ca64145d1f0ca80255d0d6c608c1dc2df5c8d964a9c55"
     sha256 cellar: :any,                 arm64_ventura:  "0525d37742602a124d2bc1631cf9d201d0e2d88002b57257ddb444d8407b5ac8"
     sha256 cellar: :any,                 arm64_monterey: "c10ab1b46750109d8d957074a1d876176b9e05c246c76302a4c88bf35a6ddc52"

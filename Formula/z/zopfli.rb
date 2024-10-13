@@ -8,6 +8,7 @@ class Zopfli < Formula
   head "https://github.com/google/zopfli.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "87b9f0523e7d1233fcaec2d394122f9aab234bf00a026f4f9322b47b1ef8f8ae"
     sha256 cellar: :any,                 arm64_sonoma:   "171ca3e9b77ac8ebac1b2c082c4938d845605d599e30c671003ca3b5f8f0f795"
     sha256 cellar: :any,                 arm64_ventura:  "68ec999fc21b6ea2e0a44fe4a9cb23dc6fbfac6f51ee153b268fd33408f6d801"
     sha256 cellar: :any,                 arm64_monterey: "31f0023436da6f38a1a1df31ca8b2fd82eaac4a7ce1bc2a2b7cf05a0c4ec2f05"
@@ -29,8 +30,8 @@ class Zopfli < Formula
   end
 
   test do
-    system "#{bin}/zopfli"
-    system "#{bin}/zopflipng", test_fixtures("test.png"), "#{testpath}/out.png"
+    system bin/"zopfli"
+    system bin/"zopflipng", test_fixtures("test.png"), "#{testpath}/out.png"
     assert_predicate testpath/"out.png", :exist?
   end
 end

@@ -6,8 +6,8 @@ class Briss < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "0dde9e491031441296ba34f985de7d37325c03f2f5aae9869da56578e17a3126"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "3aa9a79afde1e2530551aa220ea217676898bc939ac9341574079e126f4eaa83"
   end
 
   depends_on "openjdk"
@@ -19,7 +19,7 @@ class Briss < Formula
 
   test do
     cp test_fixtures("test.pdf"), testpath
-    system "#{bin}/briss", "-s", "test.pdf", "-d", "output.pdf"
+    system bin/"briss", "-s", "test.pdf", "-d", "output.pdf"
     assert_predicate testpath/"output.pdf", :exist?
   end
 end

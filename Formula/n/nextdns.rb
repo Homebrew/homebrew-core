@@ -7,6 +7,7 @@ class Nextdns < Formula
   head "https://github.com/nextdns/nextdns.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "92db43f128cccb0d1877b6b9138ac1152f798d3b1001c73595860f632ce17770"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "84c5f6aea03060da28c575ada2a8a0dfbd9b24a17c9a9866907946d43931b010"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "6d75dbc158e5cd0805c938c49b8e81f1ee8adb71e54e3ea63d4a104eb91e6a1f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "04fbd90d61c253e536942657dbc067b856eea479d095334b589911ecc71636a5"

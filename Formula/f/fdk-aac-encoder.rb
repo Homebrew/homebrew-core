@@ -6,6 +6,7 @@ class FdkAacEncoder < Formula
   license "Zlib"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "7984a593915d70746aa5802b6f4232ad56c5c5329192197fa10a45a7c4f09266"
     sha256 cellar: :any,                 arm64_sonoma:   "e9e4f37acb4d76dc6139145cacc2c1d9799104c60ee43d650f63f1ff6bf96b94"
     sha256 cellar: :any,                 arm64_ventura:  "fece94f860394daafbacfb656ea28592bd0f482b12227335952f84852b011094"
     sha256 cellar: :any,                 arm64_monterey: "09cd0ffbcfe2e83c3526a2ea97ae7fac02085c4682938f2714291ce09a1d0dd9"
@@ -61,7 +62,7 @@ class FdkAacEncoder < Formula
       f.syswrite(samples.flatten.pack("s*"))
     end
 
-    system "#{bin}/fdkaac", "-R", "--raw-channels", "1", "-m",
+    system bin/"fdkaac", "-R", "--raw-channels", "1", "-m",
            "1", "#{testpath}/tone.pcm", "--title", "Test Tone"
   end
 end

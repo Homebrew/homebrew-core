@@ -1,8 +1,8 @@
 class Cp2k < Formula
   desc "Quantum chemistry and solid state physics software package"
   homepage "https://www.cp2k.org/"
-  url "https://github.com/cp2k/cp2k/releases/download/v2024.1/cp2k-2024.1.tar.bz2"
-  sha256 "a7abf149a278dfd5283dc592a2c4ae803b37d040df25d62a5e35af5c4557668f"
+  url "https://github.com/cp2k/cp2k/releases/download/v2024.3/cp2k-2024.3.tar.bz2"
+  sha256 "a6eeee773b6b1fb417def576e4049a89a08a0ed5feffcd7f0b33c7d7b48f19ba"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -11,14 +11,14 @@ class Cp2k < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_sonoma:   "fc9760f1c03934d4b87c768b02195129e13babc78a174059ff4987b204dd0d98"
-    sha256 arm64_ventura:  "384e8884db6ec442a2fa0e57fcd3d44ea6004c516969b6dd82930d4c56b90ace"
-    sha256 arm64_monterey: "612fc3597eb8a74da99da978cbb97e8e67a4a33fd75c419a671782ab974663cd"
-    sha256 sonoma:         "65df5da13054e5c7e4023eaec235f0d16dbf339f1a5826150fa90e93798e9560"
-    sha256 ventura:        "a75d0ceac451e6ef213300f2f0179bdec7b0b889a3555f9fc70dcc47aeb1aee0"
-    sha256 monterey:       "d0fbe428294198e0eeaa64778c9ba08db0cd18cdd8b67e9bfacb1a5fe32102ea"
-    sha256 x86_64_linux:   "a2bd232db7d2a02767c8630db162127abbfc9b4467111d9b04ffb58dcee7d9c1"
+    sha256 arm64_sequoia:  "59f60c35b214532923c98cb06a3b32cfb9468d76e7383252f6e2262c092ee5f7"
+    sha256 arm64_sonoma:   "656ec352a778c93cf63db2b94fb0a8a4a625ee870cb1142577c37ff0ef955df2"
+    sha256 arm64_ventura:  "395bda322226be6c02c76f2f79c48c22d1a2cf2c1ba840862c5ddcc4f9fddaa8"
+    sha256 arm64_monterey: "2988a43d657dca0e9a8a040bf89cb0432775d20f517c6d26bb78c3c2c4a17ac5"
+    sha256 sonoma:         "34a1c2e1da903636686466c125879207cb1be94b81d7007db2bd2283441b0bd7"
+    sha256 ventura:        "492a1a316203602afc9641c274a3388892a2cf2b930b741f57138fc4c736ac7f"
+    sha256 monterey:       "9075e9f4e099b87b12cf06a413798927f997ba4c345bf676c06ea8e72123b3d5"
+    sha256 x86_64_linux:   "008ca4405c7596399de1a2c31261fa247b85603668f1f5ed86601d7ff1f9df2e"
   end
 
   depends_on "cmake" => :build

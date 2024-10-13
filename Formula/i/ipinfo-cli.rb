@@ -11,6 +11,7 @@ class IpinfoCli < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "0d429542dab200b1fe6efea35c8c1c6af0f619c8b3fb54ebb01953334d6daf68"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "24a4a6cf506fe7c3f61570df82ab98529c08de85cf884fc87251268670e2b322"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "a23d240ffde98765e7fe943aa1634f194df0d23cd9160060b892b6554316d911"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a612af30b534c65fa532a52be61ef3b74ced4a579439f90c1cff1200b5c9f346"

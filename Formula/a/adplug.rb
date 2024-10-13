@@ -16,6 +16,7 @@ class Adplug < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia:  "05138760d4846e2af8f5e13a0b2ddda09e700f1d9a0e20f950a81e3efe8b5c94"
     sha256 cellar: :any,                 arm64_sonoma:   "514028f94c34051f59df4b74c32ff78fc84b64d0fa18d0c5b4f8b43ef62a4283"
     sha256 cellar: :any,                 arm64_ventura:  "88af10e2c8f0262b54a4ce6f71ba1903e13abbeafad1ffd2d6612f44c140e7fb"
     sha256 cellar: :any,                 arm64_monterey: "daa3f1233e27cf292d303d51e3c6e3bdc423645ba71469ef9107af0df3f4f56a"
@@ -55,8 +56,8 @@ class Adplug < Formula
 
   test do
     resource("ksms").stage do
-      mkdir "#{testpath}/.adplug"
-      system "#{bin}/adplugdb", "-v", "add", "JAZZSONG.KSM"
+      (testpath/".adplug").mkpath
+      system bin/"adplugdb", "-v", "add", "JAZZSONG.KSM"
     end
   end
 end

@@ -4,7 +4,7 @@ class Libzdb < Formula
   url "https://tildeslash.com/libzdb/dist/libzdb-3.2.3.tar.gz"
   sha256 "a1957826fab7725484fc5b74780a6a7d0d8b7f5e2e54d26e106b399e0a86beb0"
   license "GPL-3.0-only"
-  revision 4
+  revision 5
 
   livecheck do
     url :homepage
@@ -12,27 +12,27 @@ class Libzdb < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "c33a3c53872c2cf138d6d36a30697feb3c772df7c3af38b18d06011b5c3dd1b3"
-    sha256 cellar: :any,                 arm64_ventura:  "9ced34617c452cd53fbb22fac4a25b00a7f747efe87bde70d8fac53478c94c19"
-    sha256 cellar: :any,                 arm64_monterey: "60a30c4782d5683eb45f4e516eddc2e826eae8e0be59496ab7b82d2775417244"
-    sha256 cellar: :any,                 sonoma:         "077224340fa1ac1f8cb9842ae4aa0db9cf306f0540189ecd1c16c298f2aa5e86"
-    sha256 cellar: :any,                 ventura:        "129e3bf0325c241fb4f8ae144c90e8e53845ada18ca753019d5705a22eca4148"
-    sha256 cellar: :any,                 monterey:       "645af9d42c7d9fb7b012f42bb2181d876f9b36e678cfd9441d8b74379c8eec8d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "787ffbba1df2908f13390d16ce3ffac1976f2f2acd937e3b2b33bc3f5af16fe4"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "c97a8bf09b5b6149e9b00055c7a41bdc44d30d24dba89057d10c692c66775ac8"
+    sha256 cellar: :any,                 arm64_sonoma:  "0b8ddfd01835494761c61f79bbf0268ed9970eda906751f394345132ee8f1e99"
+    sha256 cellar: :any,                 arm64_ventura: "2a68a90b4ae8eaf45dce9319688be51e9cbbed3f8906492641b04d7b03db03b2"
+    sha256 cellar: :any,                 sonoma:        "a60352d7b1e4544558bb754abfa0d792f4b30dec3ef8e3d36243885fde8005c2"
+    sha256 cellar: :any,                 ventura:       "a1d91f504e85283dade237952dd3872e28d253065de94e63ee3dd1b1509dfab6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "eac6ae172d51fd94fc04a71798011d683d07d46f0e52b5de22968289e74fd01a"
   end
 
   depends_on "libpq"
   depends_on macos: :high_sierra # C++ 17 is required
   depends_on "mysql-client"
-  depends_on "openssl@3"
   depends_on "sqlite"
-
-  fails_with gcc: "5"
 
   patch :DATA # Fix build error my mysql-client 8.3.0 https://bitbucket.org/tildeslash/libzdb/issues/67/build-error-with-mysql-83
 
   def install
-    system "./configure", *std_configure_args
+    # Reduce linkage on macOS from `mysql-client`
+    ENV.append "LDFLAGS", "-Wl,-dead_strip_dylibs" if OS.mac?
+
+    system "./configure", "--disable-silent-rules", "--enable-sqliteunlock", *std_configure_args
     system "make", "install"
     (pkgshare/"test").install Dir["test/*.{c,cpp}"]
   end

@@ -3,9 +3,10 @@ class Asciitex < Formula
   homepage "https://asciitex.sourceforge.net/"
   url "https://downloads.sourceforge.net/project/asciitex/asciiTeX-0.21.tar.gz"
   sha256 "abf964818833d8b256815eb107fb0de391d808fe131040fb13005988ff92a48d"
-  license "GPL-2.0"
+  license "GPL-2.0-only"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "d70918544a7191e90ce55d8b2cc02b5602ef6210dc6f0269e9667bdc0fce8a26"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "001ef3790d111bdafbaf5ab24d20a2c62c09fe3278a05d8115ec382c91b86a89"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f12101117b2b9663ac74cfed4d14daa32fbbbc0fbeba1463063c6a151cdb0040"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "99da7eb7e14ae19b86cbb881e662fbc6a67cd26c7aadd4cb038add368f9eeb3b"
@@ -30,6 +31,6 @@ class Asciitex < Formula
   end
 
   test do
-    system "#{bin}/asciiTeX", "-f", "#{pkgshare}/EXAMPLES"
+    system bin/"asciiTeX", "-f", "#{pkgshare}/EXAMPLES"
   end
 end

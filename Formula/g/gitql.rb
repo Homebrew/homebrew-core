@@ -7,6 +7,7 @@ class Gitql < Formula
   head "https://github.com/filhodanuvem/gitql.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "b9a80a375a5dd73ffcfbba747167f029ea4c3c97d631d9f4a8c75e83f415fef1"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "331949f049d7c58c277f5842a3dda54101c55499a070c22f1481f288d573fcfd"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f3aa2f078b36976dfbfe3b5a906ac43f625b04851fa400e03e21d5abcc965c9e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f8d5a45420e0c8696a821493c292c57a929d5571007fa0d6863a6c0479c17e0e"
@@ -19,6 +20,8 @@ class Gitql < Formula
   end
 
   depends_on "go" => :build
+
+  conflicts_with "gql", because: "both install `gitql` binaries"
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w")

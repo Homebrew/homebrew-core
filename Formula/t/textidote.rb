@@ -12,6 +12,7 @@ class Textidote < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "9e4522d1907e63af4baca1ff23513e7afebf5e4f1847607114011c939f5fd185"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e2ce5fbb2b7d8c45d6ec7fae3293ba8a40ebab77186d30e82138beb4597a8a7a"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "992cf16616bcb97600fe29bee363412c756c7c149b012a0d5009cd026b9b3a6f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c43727c26715f20b4f584dc84f451892795aa2a0ea7acd126b8f60e3b75a7ea6"

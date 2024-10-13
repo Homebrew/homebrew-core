@@ -6,6 +6,7 @@ class Libxdmcp < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "b09a915dae5b45371a86f20a4ccce13c16c7a8eadc843b665e91bc5b2d2143ce"
     sha256 cellar: :any,                 arm64_sonoma:   "789326aa88d1b6dbe5dd565e9e70e5031bf63fac39d22cd30d11c1dfc49ffbfb"
     sha256 cellar: :any,                 arm64_ventura:  "5c459f7ceb9793912b76f6a34019aa429a6963e938e685fc2e0cf2e75a88daf4"
     sha256 cellar: :any,                 arm64_monterey: "5aca31f04706d27335ba40875a3653336f470baa1cdacbad1dbea896ab7a4ace"

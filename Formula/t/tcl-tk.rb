@@ -1,9 +1,9 @@
 class TclTk < Formula
   desc "Tool Command Language"
   homepage "https://www.tcl-lang.org"
-  url "https://downloads.sourceforge.net/project/tcl/Tcl/8.6.14/tcl8.6.14-src.tar.gz"
-  mirror "https://fossies.org/linux/misc/tcl8.6.14-src.tar.gz"
-  sha256 "5880225babf7954c58d4fb0f5cf6279104ce1cd6aa9b71e9a6322540e1c4de66"
+  url "https://downloads.sourceforge.net/project/tcl/Tcl/8.6.15/tcl8.6.15-src.tar.gz"
+  mirror "https://fossies.org/linux/misc/tcl8.6.15-src.tar.gz"
+  sha256 "861e159753f2e2fbd6ec1484103715b0be56be3357522b858d3cbb5f893ffef1"
   license "TCL"
 
   livecheck do
@@ -12,13 +12,12 @@ class TclTk < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "fd7e83ade328ee3637f37f7df94ff33511602344486ba460f691aef19e8d22a9"
-    sha256 arm64_ventura:  "487f5c28c06b23a7a629ba591e3aaf4b49bc72afe4ae3d426b6a956bb6f66e0d"
-    sha256 arm64_monterey: "afc256f0efcbbc946a2400f9dd000a752a17822528890f85da544bde74a98a5e"
-    sha256 sonoma:         "9f9891e88796a9e5c2c3f4422824b3bc720e91e52b110a1ad94c37f0152b568c"
-    sha256 ventura:        "f2b933dbeb9d19730a11441f021017591194ea9715c4051267d7730539389326"
-    sha256 monterey:       "ea9f1f004014ce9c03d4556834ddc8443de9167eea09ac203e82da4bba444be6"
-    sha256 x86_64_linux:   "f38ded8ef2931e50e9108a007bce02a07c6a93a8c44ac82de2ae9ee2ffe1111a"
+    sha256 arm64_sequoia: "5c86b0e5af8d90d098b67726a67dcc2c6a526c8aac2cea25e8fce43e6f57839f"
+    sha256 arm64_sonoma:  "2a456668a99adffe53485ceb07961201aac42e582434530ac9e32870a3ac3190"
+    sha256 arm64_ventura: "c27c4de6f2e0059d9f8faa87d3f0dbffc5e86d93f4aa472fc2a032596f7e732e"
+    sha256 sonoma:        "f72b0c08a6e75d91441f827dde205c772cf0777b9ed9be1a5217e662c40051d5"
+    sha256 ventura:       "b7981ed65c43e615854eb40afda733fffa641d2f9d65d26f27cc6bfa90387de5"
+    sha256 x86_64_linux:  "f3d4fa58e986a465068f64d36c0a98dd37c3ed74da79b796b9fc90b467ce5bce"
   end
 
   depends_on "openssl@3"
@@ -51,9 +50,9 @@ class TclTk < Formula
   end
 
   resource "tk" do
-    url "https://downloads.sourceforge.net/project/tcl/Tcl/8.6.14/tk8.6.14-src.tar.gz"
-    mirror "https://fossies.org/linux/misc/tk8.6.14-src.tar.gz"
-    sha256 "8ffdb720f47a6ca6107eac2dd877e30b0ef7fac14f3a84ebbd0b3612cee41a94"
+    url "https://downloads.sourceforge.net/project/tcl/Tcl/8.6.15/tk8.6.15-src.tar.gz"
+    mirror "https://fossies.org/linux/misc/tk8.6.15-src.tar.gz"
+    sha256 "550969f35379f952b3020f3ab7b9dd5bfd11c1ef7c9b7c6a75f5c49aca793fec"
   end
 
   # "https://downloads.sourceforge.net/project/incrtcl/%5Bincr%20Tcl_Tk%5D-4-source/itk%204.1.0/itk4.1.0.tar.gz"
@@ -65,6 +64,8 @@ class TclTk < Formula
   end
 
   def install
+    odie "tk resource needs to be updated" if version != resource("tk").version
+
     args = %W[
       --prefix=#{prefix}
       --includedir=#{include}/tcl-tk

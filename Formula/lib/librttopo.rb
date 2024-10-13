@@ -12,6 +12,7 @@ class Librttopo < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "93fca6e17145fc8eacdc667787aa422507c03c5cc868907ef140892ac8be1394"
     sha256 cellar: :any,                 arm64_sonoma:   "4750f9f172259c35d54af6412a3d8c3af61fdc4454ceb0e527eab79a9e8a6685"
     sha256 cellar: :any,                 arm64_ventura:  "8e6b9b8c094d303209903b45c752ee33d4463751af18871da3f23cc960d779ce"
     sha256 cellar: :any,                 arm64_monterey: "9eee7c1b207b85c576f61e416c507d7b58d657f4d9e314e26ff3a964066965a3"

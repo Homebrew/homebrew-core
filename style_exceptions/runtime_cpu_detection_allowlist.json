@@ -2,12 +2,17 @@
   "abseil",
   "aom",
   "blis",
+  "botan",
   "fftw",
   "highway",
+  "knot",
   "libvpx",
+  "nsd",
   "openblas",
   "opencv",
   "open-mpi",
   "qt",
-  "vc"
+  "spidermonkey",
+  "vc",
+  "xxhash"
 ]

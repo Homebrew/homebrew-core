@@ -4,8 +4,10 @@ class Mp3gain < Formula
   url "https://downloads.sourceforge.net/project/mp3gain/mp3gain/1.6.2/mp3gain-1_6_2-src.zip"
   version "1.6.2"
   sha256 "5cc04732ef32850d5878b28fbd8b85798d979a025990654aceeaa379bcc9596d"
+  license "LGPL-2.1-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "2a9cae1ecdebe6daa0509f9841ecddb0c6a820919224caa5a1fcc2c62ec0d258"
     sha256 cellar: :any,                 arm64_sonoma:   "14fd6ea3919a61ab26359d1013eb3bedbe65cbe66d05efa179ba70be16fb1ba8"
     sha256 cellar: :any,                 arm64_ventura:  "d0b9afb6732e4f32ba35895a1616512871c41680e677880db81be8035514651e"
     sha256 cellar: :any,                 arm64_monterey: "30ce022d5614764c00f9013d2b718e11672680e2dde038604d133a4ad8bc4b02"
@@ -30,6 +32,6 @@ class Mp3gain < Formula
   end
 
   test do
-    system "#{bin}/mp3gain", "-v"
+    system bin/"mp3gain", "-v"
   end
 end

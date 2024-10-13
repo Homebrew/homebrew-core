@@ -12,6 +12,7 @@ class Ahcpd < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "4963298b5a52bcbef584be986fe4a4223a30aefffd2ab6f8372c63c6f8edf075"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b32065d48213f53843b0d0fbc736413cd84da5f87af3a6f1a3d283c6652538f3"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "8723c6d7d09c03950c296db788a025635ff54314925db39294d96f1d088111bc"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "3ca4d84aac5c8fe54641405340ea2a397a5c6916913b4bd70392d6beb08f8f2f"
@@ -53,7 +54,7 @@ class Ahcpd < Formula
       ntp-server 192.168.4.2
     EOS
 
-    system "#{bin}/ahcpd", "-c", "ahcpd.conf", "-I", pid_file, "-L", log_file, "-D", "lo0"
+    system bin/"ahcpd", "-c", "ahcpd.conf", "-I", pid_file, "-L", log_file, "-D", "lo0"
     sleep(2)
 
     assert_predicate pid_file, :exist?, "The file containing the PID of the child process was not created."

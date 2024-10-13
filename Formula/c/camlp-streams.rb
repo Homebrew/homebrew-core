@@ -7,6 +7,7 @@ class CamlpStreams < Formula
   revision 2
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "30108806277b639f8b7b9463eb73638b15ad0b885890afbb8c5353ab68eb4272"
     sha256 cellar: :any,                 arm64_sonoma:   "2e14df738f00604bcc6f5bd534dc4a6216486240427aa007b5fe8df7b187b0fd"
     sha256 cellar: :any,                 arm64_ventura:  "ca997e18666ae5d5a8e5763e33734b275cefe959a8f2e255d6851eb8f301978f"
     sha256 cellar: :any,                 arm64_monterey: "f0a77287617143cdfa16431336601bf3a6f8a0414361b0b67b4516fc738f3c81"

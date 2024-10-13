@@ -1,21 +1,20 @@
 class GitMediate < Formula
   desc "Utility to help resolve merge conflicts"
   homepage "https://github.com/Peaker/git-mediate"
-  url "https://github.com/Peaker/git-mediate/archive/refs/tags/1.0.9.tar.gz"
-  sha256 "ed9b4f5f1ccc295e69d5a368b1b5436968e2290b8e1792a768c0cfae7f91fefb"
+  url "https://github.com/Peaker/git-mediate/archive/refs/tags/1.1.0.tar.gz"
+  sha256 "f8bacc2d041d1bef9288bebdb20ab2ee6fbd7d37d4e23c84f8dda27ff5b8ba59"
   license "GPL-2.0-only"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "71de13c47e25de264c51721ea9bd639853ac2e27d37cb4b287ed82720a375c29"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4a7db9e71a7784d5bdd43d615c32705edf5c13db7478cf21175839c8a62245db"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8808be675fcc86cbbe5008f61d1c612177a112c7cc84e28c449758f51e060e39"
-    sha256 cellar: :any_skip_relocation, sonoma:         "a540d882dd95a4cb74294c8dc89d14733c91a408bc5aef8b18685cbd8ab5e3e5"
-    sha256 cellar: :any_skip_relocation, ventura:        "716b6e60cc97f262a16ddeedef3331420235505513b8ef4fde017eb673aeac1a"
-    sha256 cellar: :any_skip_relocation, monterey:       "3822dd197c6bb981da0880319c07e9c93ced515a0eef49de7aecaf72081fdd83"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0086a8e11d14f3f9b29e0d4972c61ab5daa2a7b357fcc54c29dfdf7699c436b6"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9c8be0d8c2ccb6e709e05b0744a8ae7485692993d492d3dbcac2ff7312bfb56a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f5fea46d5954c87f70437d452dc81625aacd6d8538649d7a5b535771d9822026"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "b57ee5c16d7e4747d9f255bc02109fc0da671ba7cfda9d13798286bf80958e38"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f9b46bfa29542509a7fa1b33dadf15a415dbd154066ea58ec7683861a9ab3544"
+    sha256 cellar: :any_skip_relocation, ventura:       "45a20d5499cf2ed0a7c0037459b50222cbcf0d18643142c66a3958bc227b2d09"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "54dd625814a87c231bc8d8fc83ddb4b3366ca87f068a0a6f63e17ace1e842744"
   end
 
-  depends_on "ghc" => :build
+  depends_on "ghc@9.6" => :build
   depends_on "haskell-stack" => :build
 
   def install

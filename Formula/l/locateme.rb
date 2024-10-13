@@ -11,6 +11,7 @@ class Locateme < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "fb9d44f815969d55f09881d36089f4a34a43f7d63ad665a5dec05d8c39c55d59"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "078afab4984cf539ac2a9f02d3c13c0756587637293c5b5db7399e835d12092d"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "ee7e0709959839eb57d29307a2f835a93cb69e36eddd389bd62fb2d58d7e95be"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "5c3de0a8398901fcfa93cce0b7dbaeb38989029d1eb2b76cac4246b042b3ef27"
@@ -35,6 +36,6 @@ class Locateme < Formula
   end
 
   test do
-    system "#{bin}/LocateMe", "-h"
+    system bin/"LocateMe", "-h"
   end
 end

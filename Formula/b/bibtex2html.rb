@@ -12,6 +12,7 @@ class Bibtex2html < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "ec23acda42eaa89ba7dba681bdf117a0abd5b083e57f718ab35c5402d31e1470"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "edf466eae14117ebf2bdc825cd21d26306067b62f15245be0a0ac96b099bffa6"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "91f93894cd23e18564b8ef53f832e8a754be6e49a00326fbb0a82325056bc8f4"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "48733e197e054f9681c722737a11503615cc2f7363de7ba78b6aa04c655c7d03"
@@ -56,7 +57,8 @@ class Bibtex2html < Formula
           pages   = {3--4}
       }
     EOS
-    system "#{bin}/bib2bib", "test.bib", "--remove", "pages", "-ob", "out.bib"
+
+    system bin/"bib2bib", "test.bib", "--remove", "pages", "-ob", "out.bib"
     assert(/pages\s*=\s*\{3--4\}/ !~ File.read("out.bib"))
     assert_match(/pages\s*=\s*\{3--4\}/, File.read("test.bib"))
   end

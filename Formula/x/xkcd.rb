@@ -7,6 +7,7 @@ class Xkcd < Formula
   license "AGPL-3.0-only"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "78fd0f7eb254f594cc5600317b385bcfa759d68b118d6be7ff71385ef1816bb2"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "781fa4a629feafbf0ff10ee3c99a956ee59464ae909018b5d619946e48a23fcb"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "395611b46f90c37e740d47e696f641cb2e4e9fbcd36404f29cc70e7d71fdc5dc"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a1402d9b256ef081a1667c1e26c6e53d3b8429bd1e58e831555ee27f235b3cde"

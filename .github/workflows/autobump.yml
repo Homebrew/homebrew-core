@@ -18,12 +18,18 @@ on:
 permissions:
   contents: read
 
+defaults:
+  run:
+    shell: bash -xeuo pipefail {0}
+
 jobs:
   autobump:
-    if: github.repository == 'Homebrew/homebrew-core'
+    if: github.repository_owner == 'Homebrew'
     runs-on: ubuntu-22.04
     container:
       image: ghcr.io/homebrew/ubuntu22.04:master
+    env:
+      GNUPGHOME: /tmp/gnupghome
     steps:
       - name: Set up Homebrew
         id: set-up-homebrew
@@ -38,15 +44,21 @@ jobs:
         with:
           username: ${{ (github.event_name == 'workflow_dispatch' && github.actor) || 'BrewTestBot' }}
 
-      - name: Get list of autobump formulae
-        id: autobump
-        run: echo "autobump_list=$(xargs < "$(brew --repo homebrew/core)"/.github/autobump.txt)" >> "$GITHUB_OUTPUT"
+      - name: Set up commit signing
+        uses: Homebrew/actions/setup-commit-signing@master
+        with:
+          signing_key: ${{ secrets.BREWTESTBOT_GPG_SIGNING_SUBKEY }}
 
       - name: Bump formulae
-        uses: Homebrew/actions/bump-packages@master
-        continue-on-error: true
-        with:
-          token: ${{ secrets.HOMEBREW_CORE_REPO_WORKFLOW_TOKEN }}
-          formulae: ${{ github.event.inputs.formulae || steps.autobump.outputs.autobump_list }}
         env:
           HOMEBREW_TEST_BOT_AUTOBUMP: 1
+          HOMEBREW_GITHUB_API_TOKEN: ${{ secrets.HOMEBREW_CORE_REPO_WORKFLOW_TOKEN }}
+          HOMEBREW_GPG_PASSPHRASE: ${{ secrets.BREWTESTBOT_GPG_SIGNING_SUBKEY_PASSPHRASE }}
+          FORMULAE: ${{ inputs.formulae }}
+        run: |
+          BREW_BUMP=(brew bump --no-fork --open-pr --formulae)
+          if [[ -n "${FORMULAE-}" ]]; then
+            xargs "${BREW_BUMP[@]}" <<<"${FORMULAE}"
+          else
+            "${BREW_BUMP[@]}" --auto --tap=Homebrew/core
+          fi

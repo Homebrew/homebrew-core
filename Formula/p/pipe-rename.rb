@@ -8,6 +8,7 @@ class PipeRename < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "79ceea8ede307d9f114d6d476bc2538a9fc2dbaba609c42821ef6206057e251a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a48ff406bcb8a5357d9c53071cba3f22c1cd76dd57677c1e5eae824688eb1857"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "0f2226ebc20e21cf3e60864f754b16858f9142e91c075dce3f40aca885a170ec"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e416289ce81261b7049d6373b155523194d248e71d30578d4dde81dd2acabf39"
@@ -30,7 +31,7 @@ class PipeRename < Formula
     (testpath/"rename.sh").write "#!/bin/sh\necho \"$(cat \"$1\").txt\" > \"$1\""
     chmod "+x", testpath/"rename.sh"
     ENV["EDITOR"] = testpath/"rename.sh"
-    system "#{bin}/renamer", "-y", "test.log"
+    system bin/"renamer", "-y", "test.log"
     assert_predicate testpath/"test.log.txt", :exist?
   end
 end

@@ -8,6 +8,7 @@ class Dockviz < Formula
   head "https://github.com/justone/dockviz.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "4a1770a99278e7fa43efce29515eefb0ae70d895590503b3ba4e13fbfcc27a3e"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1081dedcb9f5e575615a345d55b389cb61f1f5208745fa387d6cba861a06b525"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f0cbe120e8493fc17a646efd6bbeb83afa33a4139afe331dbbd2fdf8a4c78a4e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "156ba01d0f667ff0b607b53ca512ac44853d7ade5854f7101e9da9079eaf80ed"

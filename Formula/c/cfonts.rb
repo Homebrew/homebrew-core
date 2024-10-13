@@ -12,6 +12,7 @@ class Cfonts < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "0820bec21514d04c1f5195a1cd072eb0bebde76762c6684938610253886122dd"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "378d7e5f0548372945a13f72f2caf4deafbf2a27bfb3d9b8f26bcc01bde8d52f"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "7844d07086770b7ff3d8103dfe7c150370b857cf3dcee5d6812fc34bdb350b4a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "5a2d0be69dedd298b3217ca427c0dc2c429a911a82f847e4e37da811a0f20d43"

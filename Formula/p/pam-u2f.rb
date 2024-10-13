@@ -13,6 +13,7 @@ class PamU2f < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "fdbd7c54fa5226be9818e5885dfce1aec74ebeb01dfee779814ac6d979c69852"
     sha256 cellar: :any,                 arm64_sonoma:   "d319d3bb317cedcfa9505c05467673dc8f1a13fbc282518b0d6ee21a6cf59d8b"
     sha256 cellar: :any,                 arm64_ventura:  "45630c8a3a007708310edd878ce19476d8424244f90275748dde69ca059a8e38"
     sha256 cellar: :any,                 arm64_monterey: "a276d4e8b21f4b15c46e8d27fb84ba42076aa280a20e3b19ce8cae7c45eedb3d"
@@ -56,6 +57,6 @@ class PamU2f < Formula
   end
 
   test do
-    system "#{bin}/pamu2fcfg", "--version"
+    system bin/"pamu2fcfg", "--version"
   end
 end

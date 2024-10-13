@@ -10,6 +10,7 @@ class Fastbit < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "1474f36207d0c52b2b6f37570476043036fc324462ea4e641fc6c42684b69f0b"
     sha256 cellar: :any,                 arm64_sonoma:   "f7225849b4ad234bdc241a601ac7815c22fef58cc76c2a5a0c2e9efca5ed3db8"
     sha256 cellar: :any,                 arm64_ventura:  "d4860526007422d2c3f3d2857f4af11daac63b571050b1d60994b24a5170ad5b"
     sha256 cellar: :any,                 arm64_monterey: "cb5166c40241b15850b828ec9719276cea4931305701458adfe41c74f88cf72d"

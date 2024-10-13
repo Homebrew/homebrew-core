@@ -1,18 +1,19 @@
 class Primecount < Formula
   desc "Fast prime counting function program and C/C++ library"
   homepage "https://github.com/kimwalisch/primecount"
-  url "https://github.com/kimwalisch/primecount/archive/refs/tags/v7.13.tar.gz"
-  sha256 "0d9e2120efde10771020bd5e6f1c41442f08986edd019b6151e41934030a2e52"
+  url "https://github.com/kimwalisch/primecount/archive/refs/tags/v7.14.tar.gz"
+  sha256 "d867ac18cc52c0f7014682169988a76f39e4cd56f8ce78fb56e064499b1d66bb"
   license "BSD-2-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "ba73fb27f9c78f1944d3e584c419c2c1ea8dc0b9039eb81775e588d316004fa8"
-    sha256 cellar: :any,                 arm64_ventura:  "54f8fc15cc27a6c077c8ac73bbe0090f21cf5c62c73fefb2c5fc210d73fc93d3"
-    sha256 cellar: :any,                 arm64_monterey: "23128e2dab5c23308ac9c8082e464af42d2de4fdff51730722db13f527e6e989"
-    sha256 cellar: :any,                 sonoma:         "c67d0f3c222a1af7f61e7ef68bd8296d8a88bcde358e03d23d63351133442bdf"
-    sha256 cellar: :any,                 ventura:        "248ee4412c35d0ff938e771670bcb90fe46d6d2111afd4b3a651aeb7a7002c0e"
-    sha256 cellar: :any,                 monterey:       "0bf376087969757c0fcb2fd8c52ee6c8549fc9938c64b44bc87111bddb427317"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3df4ab62db1b10d92c49bd4985dd22dcc286b3b023c3ee3c8d896f2b798b6ab1"
+    sha256 cellar: :any,                 arm64_sequoia:  "dc7ef875d57b108a872b3e467cefb052cac8b734c08471267e179a922f092b50"
+    sha256 cellar: :any,                 arm64_sonoma:   "9a6b060bf62b2c9efc9f733d24ed0cb1b31602450762d3388a62688fe1258a9b"
+    sha256 cellar: :any,                 arm64_ventura:  "1adc1d48af39ae242318f4e48b0888cfa8266b4643116f21b9330eeec76ed41d"
+    sha256 cellar: :any,                 arm64_monterey: "2290f29ada9966da1336ac63417339a24fc2ac42352dfe4e2284f5a551c28976"
+    sha256 cellar: :any,                 sonoma:         "92f587e93b15db1517b646be60900037ff091882d8021c2a84543fb35100265d"
+    sha256 cellar: :any,                 ventura:        "d4fb3e4d646e1a9127a3fef855e67f7aa5199a99d4f533858e0f9374a10a5e69"
+    sha256 cellar: :any,                 monterey:       "b54ec74fc1b3ab3b07ae89bb871c58a9ab409038ee921f9b2a8b8b430e96f56b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "661f88d5c8155914a68aad5e50cc1b2e2f1db79adc3c708e1c10f10a25bd4726"
   end
 
   depends_on "cmake" => :build

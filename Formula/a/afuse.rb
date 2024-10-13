@@ -6,7 +6,8 @@ class Afuse < Formula
   license "GPL-2.0-only"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "357eeafd92b4c69381b5fdf9c08a9d2687b47f4280709f435385e3acfd77d7a4"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "2d36270c3d62319e03cf6f11756308f5a1f1daef36cebb7ef19376a795002014"
   end
 
   depends_on "autoconf" => :build

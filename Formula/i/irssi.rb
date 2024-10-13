@@ -13,6 +13,7 @@ class Irssi < Formula
   end
 
   bottle do
+    sha256 arm64_sequoia:  "4b7135b0f7e75fff21d2bb83a493bf2808f38e886ce53ad680734daeb52404c6"
     sha256 arm64_sonoma:   "9376608f394ab71d9f3ed2f89f39fb26d6673626f49b931028f0368599113ddc"
     sha256 arm64_ventura:  "46c6000387e22c3492210d205c60d371836a79070f4c9f28d1cba742bddb7c14"
     sha256 arm64_monterey: "5fa2114a1ed6bcfb0e7c0236b3f8411cf5d6bcec87d352f0a50ba2ee89ed7a37"

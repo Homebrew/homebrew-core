@@ -33,6 +33,6 @@ class Shairport < Formula
   end
 
   test do
-    system "#{bin}/shairport", "-h"
+    system bin/"shairport", "-h"
   end
 end

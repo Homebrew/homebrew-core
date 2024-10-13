@@ -7,6 +7,7 @@ class Vnstat < Formula
   head "https://github.com/vergoh/vnstat.git", branch: "master"
 
   bottle do
+    sha256 arm64_sequoia:  "70a572931b614b41fb3e5957961a0b42f4f6da7c5804c4cfba78e8008f10ed02"
     sha256 arm64_sonoma:   "b9f2f91ebb02d0abeac163c0964816202483cde13f53832cbb390e477fa344df"
     sha256 arm64_ventura:  "ba02bb2d0ae58290104e3ee06cdc915d16007f53c45833081083f52bddb4cf6f"
     sha256 arm64_monterey: "638b93276b154fc5339c440e98961d986fae27d855a1ad22e764cffa53818735"
@@ -23,12 +24,12 @@ class Vnstat < Formula
   def install
     inreplace %w[src/cfg.c src/common.h man/vnstat.1 man/vnstatd.8 man/vnstati.1
                  man/vnstat.conf.5].each do |s|
-      s.gsub! "/etc/vnstat.conf", "#{etc}/vnstat.conf", false
-      s.gsub! "/var/", "#{var}/", false
-      s.gsub! "var/lib", "var/db", false
+      s.gsub! "/etc/vnstat.conf", "#{etc}/vnstat.conf", audit_result: false
+      s.gsub! "/var/", "#{var}/", audit_result: false
+      s.gsub! "var/lib", "var/db", audit_result: false
       # https://github.com/Homebrew/homebrew-core/pull/84695#issuecomment-913043888
       # network interface difference between macos and linux
-      s.gsub! "\"eth0\"", "\"en0\"", false if OS.mac?
+      s.gsub! "\"eth0\"", "\"en0\"", audit_result: false if OS.mac?
     end
 
     system "./configure", "--disable-dependency-tracking",

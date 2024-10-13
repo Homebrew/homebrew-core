@@ -4,6 +4,12 @@ class Musepack < Formula
   url "https://files.musepack.net/source/musepack_src_r475.tar.gz"
   version "r475"
   sha256 "a4b1742f997f83e1056142d556a8c20845ba764b70365ff9ccf2e3f81c427b2b"
+  license all_of: [
+    "BSD-3-Clause", # mpc2sv8, mpccut, mpcdec, mpcgain, wavcmp
+    "LGPL-2.1-or-later", # mpcenc
+    "GPL-2.0-or-later", # mpcchap
+    "Zlib", # common/huffman-bcl.c
+  ]
 
   livecheck do
     url "https://www.musepack.net/index.php?pg=src"
@@ -12,6 +18,7 @@ class Musepack < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any, arm64_sequoia:  "d84a9ad759b25d445781d6e1e5af5247431427e00e90bfb0b1014d9c2e6e4bab"
     sha256 cellar: :any, arm64_sonoma:   "6b1cd3fb3a8b8beb5603ce39e237cd7fb04e71e8e46ac9d63b0904067e57e676"
     sha256 cellar: :any, arm64_ventura:  "72634f1bab6447c671827b1586e2161487273e4737b0cc7e47100a8d1f33cc4e"
     sha256 cellar: :any, arm64_monterey: "76db5599c7e47ab4317292c040ef16095f658ee3b524d89c0296a574380a4570"

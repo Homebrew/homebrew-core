@@ -6,6 +6,7 @@ class Libvidstab < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "f76b62fb9580b75861cc5a6d639500d095823d32bef7aa6f636fee2d87b724e9"
     sha256 cellar: :any,                 arm64_sonoma:   "f006d60e59a43562474571f2a7e2be72273cc9bd7b2df04d0c21da861ebfcab8"
     sha256 cellar: :any,                 arm64_ventura:  "25efabe3bf9a85b25065758c1ea62ef096bf2e334ce073450ef4478f7e469b38"
     sha256 cellar: :any,                 arm64_monterey: "0bff0aa6aba039cc22d6a65fbfd46f67c35ecc6db3baca439b9b1e45c3710002"

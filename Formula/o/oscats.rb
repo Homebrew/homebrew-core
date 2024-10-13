@@ -3,9 +3,11 @@ class Oscats < Formula
   homepage "https://code.google.com/archive/p/oscats/"
   url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/oscats/oscats-0.6.tar.gz"
   sha256 "2f7c88cdab6a2106085f7a3e5b1073c74f7d633728c76bd73efba5dc5657a604"
+  license "GPL-3.0-or-later"
   revision 7
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "14bdf254ea5eb224c087cc3bdc7ba53b46d52b77e2c440f738871e747ad7e33a"
     sha256 cellar: :any,                 arm64_sonoma:   "ee65d5fb7e853cf11866ad5d82e42443a2c899089538f7563a3d63268af2855e"
     sha256 cellar: :any,                 arm64_ventura:  "dae032204b3f3d0d874482bec11e6ba4cc34cdf088929e5e432e75960800ddd2"
     sha256 cellar: :any,                 arm64_monterey: "f348f164c17601c6fe88cbf6c0e403615f6466c286fdc6b7b5a809e0c4af0347"

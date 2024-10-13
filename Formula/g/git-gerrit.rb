@@ -7,6 +7,7 @@ class GitGerrit < Formula
   head "https://github.com/fbzhong/git-gerrit.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "d8c69cdc736d1b7d2a3977b735cca39493d5976c7c19abc3e7bc91e80712ecd6"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a80a111e62621f131aeb728ec3c4778a25a838d4ffd579b0921e3961c18cfaa1"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f787bba2e4465a7f5df3bebcdb625c3815331a721abc0024ab09b14b868b3ec5"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "865ffd990de756622dd9c3bb37fd0f8e7af04eba58bd38013cda9b6a6c551f95"

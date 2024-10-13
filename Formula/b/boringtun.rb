@@ -8,6 +8,7 @@ class Boringtun < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "779ff6709c03ba1affa9774f124bc4d3c5c2f66a4559420298c532aa11bd8009"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "705825d79061bfa8570fd52e484c9abab6862e9917d33a374ced1fefb0eebb06"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "771e9f8fd6958064233b4740b6802ec798ec64462c02a3a85c85c27c76138192"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "7918d4b24e6a15ae72e03d5ea2aa83c0feb7dc6b5be96b687f87352581327a6c"
@@ -34,7 +35,7 @@ class Boringtun < Formula
   end
 
   test do
-    system "#{bin}/boringtun-cli", "--help"
+    system bin/"boringtun-cli", "--help"
     assert_match "boringtun #{version}", shell_output("#{bin}/boringtun-cli -V")
 
     output = shell_output("#{bin}/boringtun-cli utun --foreground 2>&1", 1)

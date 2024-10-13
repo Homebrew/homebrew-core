@@ -4,6 +4,7 @@ class Xfig < Formula
   url "https://downloads.sourceforge.net/mcj/xfig-3.2.9.tar.xz"
   sha256 "13ed9d04d1bbc2dec09da7ef49ceec278382d290f6cd926474c2f2d016fec2f7"
   license "MIT"
+  revision 1
 
   livecheck do
     url :stable
@@ -11,18 +12,16 @@ class Xfig < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "2ce377c656dab395b95d498c03b8b3b95a1153f63cef176c3039291c55760834"
-    sha256 arm64_ventura:  "ab1c86c5044e495596fe576e1c053478251d70a5faece3f221d165d29b9c3ee5"
-    sha256 arm64_monterey: "39f08a4ba5383fa90cb2a4b76d0b8b5d6929843f6fac04450249e85ef647ac43"
-    sha256 arm64_big_sur:  "7626ebc11c73a512392640c29e57a1579ef4cfc4bbfe1ec774cc42692c44554d"
-    sha256 sonoma:         "c147b060e3cafb4a5932294471a3b808faffc1c46dc321a50471e6e22b27e4a2"
-    sha256 ventura:        "680fc82cd8fb6aeb17cfc09c4de0d98eeec23a86e71d580757bebaf857fe0688"
-    sha256 monterey:       "18fff7f110a0e27f75e4a99c3116900af986814aa1dadd3fc7cb947bffca2852"
-    sha256 big_sur:        "0ff1ddc946b12ba65d183737b31678b6c4baedcb0cc012557bec0128f74b28f7"
-    sha256 x86_64_linux:   "b07b185ca2339fe988e5b4b379da797c1760874feead0d5029131953e4a78427"
+    sha256 arm64_sequoia: "00065bb855d889cb03d1b9a6be6b8e379afbdc34eec9bd8a6b295c7c6569f66f"
+    sha256 arm64_sonoma:  "fc167af1203cd9c55c4b608d648ec787c0fab60d03addae286b93354edfa4a27"
+    sha256 arm64_ventura: "78a6256536cf3979802f06d9c739f1167a9dd1dc79e82973c426c84002616ade"
+    sha256 sonoma:        "248e1c225dbae1d8272f3fdde6e7d73ab7c200ced0855e6da9fdfea637b0fb2d"
+    sha256 ventura:       "45c8fe0a50ab221a983d50b39016857a07df1a6e753a1fa62d21b100624c7fcf"
+    sha256 x86_64_linux:  "d18838b6078735b2015842785ca34e48695ecd25a33569b406bfd125cda965da"
   end
 
   depends_on "fig2dev"
+  depends_on "fontconfig"
   depends_on "freetype"
   depends_on "ghostscript"
   depends_on "jpeg-turbo"
@@ -31,7 +30,6 @@ class Xfig < Formula
   depends_on "libx11"
   depends_on "libxaw3d"
   depends_on "libxft"
-  depends_on "libxi"
   depends_on "libxpm"
   depends_on "libxt"
 

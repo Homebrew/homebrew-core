@@ -1,23 +1,22 @@
 class JsonGlib < Formula
   desc "Library for JSON, based on GLib"
   homepage "https://wiki.gnome.org/Projects/JsonGlib"
-  url "https://download.gnome.org/sources/json-glib/1.8/json-glib-1.8.0.tar.xz"
-  sha256 "97ef5eb92ca811039ad50a65f06633f1aae64792789307be7170795d8b319454"
+  url "https://download.gnome.org/sources/json-glib/1.10/json-glib-1.10.0.tar.xz"
+  sha256 "1bca8d66d96106ecc147df3133b95a5bb784f1fa6f15d06dd7c1a8fb4a10af7b"
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 arm64_sonoma:   "fbe3c0724f164ccdee84f32d1b69c77d1a107e44a3da3a61143ac7c22f2fc1dd"
-    sha256 arm64_ventura:  "b593108eeb37d792eb9ef773159457d25516dabd2be4cea505154838c8878035"
-    sha256 arm64_monterey: "8996945cc14f5da7a9d99e9ef9d2ca8d72eeee82366a115376d8ec3e7fc84c87"
-    sha256 arm64_big_sur:  "51081c6d5e7536d4318e6e3242187b2e1ed6bbe8406c327c3d04718d468f4abc"
-    sha256 sonoma:         "2d5b69e36b373c3290404997fce2861ff93051d090893387d63ae46684327c19"
-    sha256 ventura:        "7029704cd9940fac2877a284b3af4b3cf357449e1655c732dd83a50ee1b7bb4e"
-    sha256 monterey:       "0613f8b663813f0437152fc6eda96d7b5b494a5b0e4fdc8812aa23a1c8823a58"
-    sha256 big_sur:        "c41242bb352c932355cee7f76f218765009635e8ccde86875b5ac8ca2ba5099a"
-    sha256 x86_64_linux:   "4cc13206b988e32ae264a4cc41e97fe7e0fa7d123f4903109e50583634d2140b"
+    sha256 arm64_sequoia:  "cd747264afa25b324bfdb8db502067ec3db1e4bf3f08aba588f85f6d0fd686e5"
+    sha256 arm64_sonoma:   "a5774cddeca544bfdfed17aa3d1c83dd8bcfa92404cd667388909ab8de5bb529"
+    sha256 arm64_ventura:  "980cdf31daf005701ca36e96802fea798fd75b47ba418c6d6fbef292e29899e4"
+    sha256 arm64_monterey: "c801e7e3532f910456f49da96b4069e383f6cab8b2b2a7396a277c7dc68e0407"
+    sha256 sonoma:         "8a5afc698f6d5c910a553d400b86452d11b78a16e1ca41b4b3644ca9795e5ced"
+    sha256 ventura:        "b626deb80ae8b8746bf73ef3ff8e0784c9c8b11081e0d2017b86e59515679f3a"
+    sha256 monterey:       "36d442758daaa2de90249d6902a0795f9c33270c0e2f0caf4ec232437b04372f"
+    sha256 x86_64_linux:   "5c542473aaf27baee38f1a953c4796ed5b564055b8aa58c395d9a3689145dda8"
   end
 
-  depends_on "docbook-xsl" => :build
+  depends_on "docutils" => :build # for rst2man
   depends_on "gettext" => :build
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
@@ -25,8 +24,6 @@ class JsonGlib < Formula
   depends_on "pkg-config" => :build
 
   depends_on "glib"
-
-  uses_from_macos "libxslt" => :build # for xsltproc
 
   on_macos do
     depends_on "gettext"

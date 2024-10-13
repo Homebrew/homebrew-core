@@ -6,6 +6,7 @@ class Pbzip2 < Formula
   license "bzip2-1.0.6"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "09d47c48c9c64a8c026c28f30e3e0074f1f0a195d5886d37e1a15f6925ab91bc"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "96fd12c7e49a4710a7d718412bc0d1cbda865873486489bb068ff49bd5c23dd9"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "ef28ddb3c52e0a2fba318d9a5e95dea37414a1a98d7e2c8277d2edccb8d09572"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "0f797274e8b39d8abd60046352780028c987a268a78e3229e6ce8ff845bcd424"
@@ -33,6 +34,6 @@ class Pbzip2 < Formula
   end
 
   test do
-    system "#{bin}/pbzip2", "--version"
+    system bin/"pbzip2", "--version"
   end
 end

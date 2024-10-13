@@ -1,30 +1,27 @@
-require "language/node"
-
 class Tailwindcss < Formula
   desc "Utility-first CSS framework"
   homepage "https://tailwindcss.com"
-  url "https://github.com/tailwindlabs/tailwindcss/archive/refs/tags/v3.4.7.tar.gz"
-  sha256 "eec408a6ae90764c72d644f83cbf711749a895301dde1a34fe8b473dfbd40bca"
+  url "https://github.com/tailwindlabs/tailwindcss/archive/refs/tags/v3.4.13.tar.gz"
+  sha256 "3ac83895e2351bac12479eaa1d4dffd5d6a929c82757521cbabbfebed85933da"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8d27c49f81d7235d86dfdacf4212bd5e541967e914e280e72771f3b201896f20"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4c50c6056c22a72b35374a30aa2a094b7c8c27a3900bb09d7d4dfb51679c4d88"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "4c50c6056c22a72b35374a30aa2a094b7c8c27a3900bb09d7d4dfb51679c4d88"
-    sha256 cellar: :any_skip_relocation, sonoma:         "bab433abcb45f14adf4612e2b7498b096e1fe80d3a0fc8787bbb9eaeba9a4168"
-    sha256 cellar: :any_skip_relocation, ventura:        "0e4bb2e3d9f65a95e8e40545bc8d822750d880b8378e5a86ad223ead76485aea"
-    sha256 cellar: :any_skip_relocation, monterey:       "9fb8c6304174372bd664c48945561b8dfeef522943495212576ce46159026a93"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7dbd40b813790067933d85ec9580cb85d3c55dfcca9b71958c39ebfd1ffce17b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "613ebe03c67b2f4c3f88a696b68cee1b723bc90378b2422fa563aa9b30c8bc2b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "613ebe03c67b2f4c3f88a696b68cee1b723bc90378b2422fa563aa9b30c8bc2b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "32f5fa0824ad4027ae85cb375ac51d11a7de54dfb1f959bc4d4aaedf0f3d550b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "121a3221bf548cc96ba10aff24cec95222c962030e8c5cdd55cb4c3b104df972"
+    sha256 cellar: :any_skip_relocation, ventura:       "b1dd365c794395f682186b495f8dc9eaa5f920eb0b63a5e972dcfe6921b35654"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fb09e9fabb76f2c2b4e7ce81a17e909ec97247e0e647b1b1cb71cb12b6d1d795"
   end
 
   depends_on "node" => :build
 
   def install
-    system "npm", "install", *Language::Node.local_npm_install_args
+    system "npm", "install", *std_npm_args(prefix: false)
     system "npm", "run", "build"
 
     cd "standalone-cli" do
-      system "npm", "install", *Language::Node.local_npm_install_args
+      system "npm", "install", *std_npm_args(prefix: false)
       system "npm", "run", "build"
       os = OS.mac? ? "macos" : "linux"
       cpu = Hardware::CPU.arm? ? "arm64" : "x64"

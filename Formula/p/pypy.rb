@@ -1,10 +1,9 @@
 class Pypy < Formula
   desc "Highly performant implementation of Python 2 in Python"
   homepage "https://pypy.org/"
-  url "https://downloads.python.org/pypy/pypy2.7-v7.3.16-src.tar.bz2"
-  sha256 "43721cc0c397f0f3560b325c20c70b11f7c76c27910d3df09f8418cec4f9c2ad"
+  url "https://downloads.python.org/pypy/pypy2.7-v7.3.17-src.tar.bz2"
+  sha256 "50e06840f4bbde91448080a4118068a89b8fbcae25ff8da1e2bb1402dc9a0346"
   license "MIT"
-  revision 1
   head "https://github.com/pypy/pypy.git", branch: "main"
 
   livecheck do
@@ -13,13 +12,14 @@ class Pypy < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "da1a01f89696f81729d396a0a8d7f8bbfd601064147bcdf26a9080a5d94e3acc"
-    sha256 cellar: :any,                 arm64_ventura:  "64b8f29a40a69dad3b2fbfe0f6b22b31baf0520189b70cccea9af48bfae85c7f"
-    sha256 cellar: :any,                 arm64_monterey: "8e33e35169131951c317964a1f20f8151958c99d60f4c8830679ea0c88daebb6"
-    sha256 cellar: :any,                 sonoma:         "e681af17dd443e7cf0be677356beb1285c365b9cd67cf0ba68fd7279f7f9fe3f"
-    sha256 cellar: :any,                 ventura:        "d89473f5b6a9cbd2f150bbd40c236efc562aefea65bf8674cf8a081af1f091b0"
-    sha256 cellar: :any,                 monterey:       "77e02724127fff79dcdc56d0a522c2e2ebca1127ad5e6788872b2e81af84e1af"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c6392a5a456bbbd9a7b3f690c9408f4b8a7ac990da4571d9e8d05d57bc3df422"
+    sha256 cellar: :any,                 arm64_sequoia:  "b2301fc69139f089a77227a002b737b14afa0c99619dfa7d6200d38e6ca831e0"
+    sha256 cellar: :any,                 arm64_sonoma:   "e9e1692654a5a54459c12935d7d76db83e7989e1e0053060352568c463186f41"
+    sha256 cellar: :any,                 arm64_ventura:  "257f74a40fdcab7bb8e7108e8194b7fa9a88b365679a3c7fa45966a6874612c3"
+    sha256 cellar: :any,                 arm64_monterey: "64714ae5428b2af013f92ce9f4480de7a71dbfa670a2913bb2fc7f08bb50cf8b"
+    sha256 cellar: :any,                 sonoma:         "6627476c297b9029617c8cb58c813c486f75a992971996a49e4aef963acf3243"
+    sha256 cellar: :any,                 ventura:        "e2d4ff49951bf76f28213309cded300c955787c8563ffa4789ea71ff315f8674"
+    sha256 cellar: :any,                 monterey:       "a0309fa68cbbf79b6daab43676f848d9ff2a83222e7a6d72c9f2577715b94d3c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f6c8401527975c32039611ee2f7f54ef68cb3317e56df56f64dde5c73232dbc5"
   end
 
   depends_on "pkg-config" => :build
@@ -135,9 +135,9 @@ class Pypy < Formula
     # Symlink the prefix site-packages into the cellar.
     unless (libexec/"site-packages").symlink?
       # fix the case where libexec/site-packages/site-packages was installed
-      rm_rf libexec/"site-packages/site-packages"
+      rm_r(libexec/"site-packages/site-packages") if (libexec/"site-packages/site-packages").exist?
       mv Dir[libexec/"site-packages/*"], prefix_site_packages
-      rm_rf libexec/"site-packages"
+      rm_r(libexec/"site-packages")
     end
     libexec.install_symlink prefix_site_packages
 

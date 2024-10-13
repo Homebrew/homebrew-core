@@ -12,6 +12,7 @@ class Liblinear < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "ebbb496439ed5cbd2934fe7204ccad94c56071a10ef3dbccbebb2d205798b000"
     sha256 cellar: :any,                 arm64_sonoma:   "447ba6aa36bec6cb65825dd9d6aad55e07e2eb9cb10537a4ad142546bb015e1f"
     sha256 cellar: :any,                 arm64_ventura:  "2f7f959e3a537760a29d4f4f4ff949bf5ef8f7206dbbb7f48492e8b733978f78"
     sha256 cellar: :any,                 arm64_monterey: "3c2ee17592c9ff78f3b58baf9bdae899be678d7c073b471896314896c854c540"
@@ -51,6 +52,6 @@ class Liblinear < Formula
       -1 99:1 3057:1 3957:1 5838:0.3
     EOS
 
-    system "#{bin}/train", "train_classification.txt"
+    system bin/"train", "train_classification.txt"
   end
 end

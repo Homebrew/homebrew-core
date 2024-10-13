@@ -6,6 +6,7 @@ class Pgrok < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "829b9137c3520212930e61c648dd5b2a16c0322bda187b459770682569bba3d5"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "37c6d36c1f6b0f22c3115b4be5c1d8af659b53bd845193319c7473d8653bb029"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "7edafb5ce275e575f5d4a99954805c417d98b39386267b6c4c033fb7f61efcf7"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "3ddb52a95411ce24a9369da24259ef59b37b1d86d7b3d92b513aff1ac9f59421"

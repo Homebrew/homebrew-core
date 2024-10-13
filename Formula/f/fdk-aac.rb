@@ -6,6 +6,7 @@ class FdkAac < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "d25f4bc81d87c69c9d26d29ae088caeae1778b87f6ca2e13e759ef9d5e723c9a"
     sha256 cellar: :any,                 arm64_sonoma:   "bf2bc2ad387a9d717432c105936aff9fd49b22b0f18fac097e59dd55778ca9e0"
     sha256 cellar: :any,                 arm64_ventura:  "51653e0466e96908261c0ee5af6e257df21a18b789227158018a7515c4daaca1"
     sha256 cellar: :any,                 arm64_monterey: "afd6e5b3398f20cbbac268cd4a992a24c3eeb253eea72ef36fd6235faa53dbd9"
@@ -32,7 +33,7 @@ class FdkAac < Formula
   end
 
   test do
-    system "#{bin}/aac-enc", test_fixtures("test.wav"), "test.aac"
+    system bin/"aac-enc", test_fixtures("test.wav"), "test.aac"
     assert_predicate testpath/"test.aac", :exist?
   end
 end

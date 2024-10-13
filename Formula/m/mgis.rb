@@ -4,17 +4,18 @@ class Mgis < Formula
   url "https://github.com/thelfer/MFrontGenericInterfaceSupport/archive/refs/tags/MFrontGenericInterfaceSupport-2.2.tar.gz"
   sha256 "b3776d7b3a534ca626525a42b97665f7660ae2b28ea57b3f53fd7e8538da1ceb"
   license any_of: ["LGPL-3.0-only", "CECILL-1.0"]
-  revision 2
+  revision 3
   head "https://github.com/thelfer/MFrontGenericInterfaceSupport.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "a9f2faeb46acb862f38f5f6e435a160455cfff1eb4fcd11ccf80139d3347fd65"
-    sha256 cellar: :any,                 arm64_ventura:  "537c4b219d812e0a65f1b83aed9c155987b9ba3685da2d798b7504c96be593fc"
-    sha256 cellar: :any,                 arm64_monterey: "96b812beca68e53cad35856bb68ce1ce3f87d555659fe2c68b16d457b068d181"
-    sha256 cellar: :any,                 sonoma:         "573f5b9d9dca499164b77712d2a47fad682f06b8fc6dc9363e96a2b489478851"
-    sha256 cellar: :any,                 ventura:        "c6e7eaab95307bcd5a9d5ed8aeec521de3e26f536f4a1b5b1fd0532ba7b297fa"
-    sha256 cellar: :any,                 monterey:       "12d833417be504c1ec72e197613929c34dbfa08a93e998bb94abee3736ce9378"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3ba60221ce64d021d5c7f867a3c70f6898f643593cd72c180787bc9958aa2e56"
+    sha256 cellar: :any,                 arm64_sequoia:  "b7779b3b5c38db9f720dfe50cf812955434ff9fa6eb9b42edb47583bcce28c45"
+    sha256 cellar: :any,                 arm64_sonoma:   "73c148a736218658862b6627cd7c2864bc74f01afeaa7f948f4af7e0bc991c1f"
+    sha256 cellar: :any,                 arm64_ventura:  "488f7e70c16abb8b4c6845717cda7df904f2d1d757614dfdd63bf80dc6d1beb5"
+    sha256 cellar: :any,                 arm64_monterey: "51acb9671ffeacc21b644d28e0fc5f7f9b874b1b928e06f8d93de061d013043b"
+    sha256 cellar: :any,                 sonoma:         "edd070e94b3729e3fb0313846ed723cfe12c8e9139dd63f2e52ace7c1c82a3e4"
+    sha256 cellar: :any,                 ventura:        "ec42419ee95dddba6b674c1f73687543d51dd07f938696cb6830d1ce2187c515"
+    sha256 cellar: :any,                 monterey:       "a4ae2c41254776a40b86c3a224369c5dacf2c8bc4515ff45f769e3957d27a24e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "16ffae790702d03708dde3d9465844e67f576d50f92b9e8e0d25c88815678797"
   end
 
   depends_on "cmake" => :build

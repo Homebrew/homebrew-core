@@ -6,13 +6,8 @@ class Lit < Formula
   license "Apache-2.0" => { with: "LLVM-exception" }
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "345fad1f0bcc64749305dc2b92af16357afffd2eb18b58dbbe1557f79813e427"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "345fad1f0bcc64749305dc2b92af16357afffd2eb18b58dbbe1557f79813e427"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "345fad1f0bcc64749305dc2b92af16357afffd2eb18b58dbbe1557f79813e427"
-    sha256 cellar: :any_skip_relocation, sonoma:         "345fad1f0bcc64749305dc2b92af16357afffd2eb18b58dbbe1557f79813e427"
-    sha256 cellar: :any_skip_relocation, ventura:        "345fad1f0bcc64749305dc2b92af16357afffd2eb18b58dbbe1557f79813e427"
-    sha256 cellar: :any_skip_relocation, monterey:       "345fad1f0bcc64749305dc2b92af16357afffd2eb18b58dbbe1557f79813e427"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "be87887f940ca0a898fcf6bf8efd732df71142b424260b2a512cf04b4e3e0964"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "752703098ad7bf62f5685a9d79a11acc872d83c7c82ebdcbee4a36d654c512ac"
   end
 
   depends_on "llvm" => :test

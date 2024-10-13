@@ -11,6 +11,7 @@ class WiremockStandalone < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "e330f5c5245c8709b79ea5cad3c2fe28e5ff2e320e0523e8f778b7bc6a53dae7"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d5416c1558773bd367f63bd53da82c5a2eefe036ff5dd4eacba3ded16e72ed9c"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "d5416c1558773bd367f63bd53da82c5a2eefe036ff5dd4eacba3ded16e72ed9c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d5416c1558773bd367f63bd53da82c5a2eefe036ff5dd4eacba3ded16e72ed9c"

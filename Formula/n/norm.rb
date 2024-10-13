@@ -7,6 +7,7 @@ class Norm < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia:  "42f6765ea93269821c415353a75e0439c050430e10d633d259667834b9d00da2"
     sha256 cellar: :any,                 arm64_sonoma:   "f249073b0e73e8f75fb755ea727165947c1c6ebc36f306ea93651a0d16abc066"
     sha256 cellar: :any,                 arm64_ventura:  "429a634be03412ac1b594de81d880673e719228b75ceddb6040d530b641ea4c1"
     sha256 cellar: :any,                 arm64_monterey: "3576daa38873bc40a81217a11164103c894f8266703024105fa1d4855f4d77f2"

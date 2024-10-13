@@ -4,10 +4,11 @@ class Osmfilter < Formula
   url "https://gitlab.com/osm-c-tools/osmctools.git",
       tag:      "0.9",
       revision: "f341f5f237737594c1b024338f0a2fc04fabdff3"
-  license "AGPL-3.0"
+  license "AGPL-3.0-only"
   head "https://gitlab.com/osm-c-tools/osmctools.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "1d86b7309f3fbd2c39a78416fe5dc0eac2b08c2ef0795e9c3d83c165ddf122e1"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "864446d5bf53f85f504188be4f59c5f1fc1b902a647a1666de49bf467fa0fd0a"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "06e67f6d61cc209499475b010c4bfe2375d5e3dcb4429e89485d6b03454322c6"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "daf330073a0fdad514305d1a2af9333705cc946c3bc8e52da4856ae2d0bba094"

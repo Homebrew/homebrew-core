@@ -3,9 +3,10 @@ class Doxymacs < Formula
   homepage "https://doxymacs.sourceforge.net/"
   url "https://downloads.sourceforge.net/project/doxymacs/doxymacs/1.8.0/doxymacs-1.8.0.tar.gz"
   sha256 "a23fd833bc3c21ee5387c62597610941e987f9d4372916f996bf6249cc495afa"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "d6f35d29f2d9bf0ab3a13916922b7fb4506e133d83fe26c10b00fe0c6c27be17"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2aa03231378a72916d1f1bdb3c63d47751fd1891d9d92daa680b44cbf80e3ce2"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "699c57cf8869c5eda84db1f8d58a160c6c821015c1c7bc4892d5ad2f1447c73e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "32c79209e9d8c2f8e47a4e6e28993954250060f74717a749e48ea04b381b63a8"
@@ -32,6 +33,8 @@ class Doxymacs < Formula
   depends_on "doxygen"
   depends_on "emacs"
 
+  uses_from_macos "libxml2"
+
   def install
     # https://sourceforge.net/p/doxymacs/support-requests/5/
     ENV.append "CFLAGS", "-std=gnu89"
@@ -42,10 +45,7 @@ class Doxymacs < Formula
     ENV.prepend_path "PATH", "#{MacOS.sdk_path}/usr/bin" if OS.mac?
 
     system "./bootstrap" if build.head?
-    system "./configure", "--prefix=#{prefix}",
-                          "--with-lispdir=#{elisp}",
-                          "--disable-debug",
-                          "--disable-dependency-tracking"
+    system "./configure", "--with-lispdir=#{elisp}", *std_configure_args
     system "make", "install"
   end
 
@@ -55,6 +55,7 @@ class Doxymacs < Formula
       (load "doxymacs")
       (print doxymacs-version)
     EOS
+
     output = shell_output("emacs -Q --batch -l #{testpath}/test.el").strip
     assert_equal "\"#{version}\"", output
   end

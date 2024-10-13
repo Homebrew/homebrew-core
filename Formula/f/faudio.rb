@@ -1,19 +1,18 @@
 class Faudio < Formula
   desc "Accuracy-focused XAudio reimplementation for open platforms"
   homepage "https://fna-xna.github.io/"
-  url "https://github.com/FNA-XNA/FAudio/archive/refs/tags/24.07.tar.gz"
-  sha256 "f7cd15ed111133fbc1ac387fa3e715b3a67d5e4cf59d8e290ac85d856d92367b"
+  url "https://github.com/FNA-XNA/FAudio/archive/refs/tags/24.10.tar.gz"
+  sha256 "9d123c5f20ead7824f718b5840b87b432dbf51a0514214e30c41b4ee32a344e0"
   license "Zlib"
   head "https://github.com/FNA-XNA/FAudio.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "93b38e0d432d0483a878fe3364730f1d4cc586b6e2beb007016aca552186c984"
-    sha256 cellar: :any,                 arm64_ventura:  "dec7e98e44be44d8b2035d6623176749e6fdee72d04e1007cf526168522950b3"
-    sha256 cellar: :any,                 arm64_monterey: "40555c329a69eaf627d0bde4245788075185fbecb6fc37969e4f80ce85482eb4"
-    sha256 cellar: :any,                 sonoma:         "f2f60f070358527b795341461821c542dd6579de25640662bde307421ab2fad0"
-    sha256 cellar: :any,                 ventura:        "bbebad65af54f5905b52a9a0fb607602d0ac8e68215e8c9782d8c3b9fcc86b47"
-    sha256 cellar: :any,                 monterey:       "88747ddd5a152321110e2aee904d0465aa6ccfa8bedf292dde39392d371590e0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "af8c010662f09a18de1ba34058cc5c8895a5094615f9c8fb97f05393743a1345"
+    sha256 cellar: :any,                 arm64_sequoia: "ce8247177d54550211702a13c418cc243d1035aec60684057ec98316c962ae84"
+    sha256 cellar: :any,                 arm64_sonoma:  "06d082b71a48a42d79c8b0eee9e328b18ddb0e00fcc69f48bc59dfd12d23fed8"
+    sha256 cellar: :any,                 arm64_ventura: "d0222fa949501b83ee23bee4c4168e15d874084e47a1a243cc5063085cd5eb82"
+    sha256 cellar: :any,                 sonoma:        "3c0d4aa208663ba5011139e6449793c8444caa4e8721bf0313d9f8d297beb306"
+    sha256 cellar: :any,                 ventura:       "e38584cc332fad98e20690bc8d656cd883a703df267fb8044f9903a47ecce26e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6ec2485cace2e4875630c2ba9c12d7eada0f5e77c0131c0032e8c3c9b76f500b"
   end
 
   depends_on "cmake" => :build

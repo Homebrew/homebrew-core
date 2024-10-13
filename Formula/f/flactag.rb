@@ -7,6 +7,7 @@ class Flactag < Formula
   revision 3
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "449102d72de85c2f778bdcd677aa9311be628fa5f68791c5b6e22aed954ecf81"
     sha256 cellar: :any,                 arm64_sonoma:   "4388799fc611e119668ae9a9addbdb2ec1b771d9cd509e07e46358dc90bb4507"
     sha256 cellar: :any,                 arm64_ventura:  "3001213e4495dbd9233ac08e813c08585b088ba64d745325f7e4535ea78dbb6d"
     sha256 cellar: :any,                 arm64_monterey: "b4597b28bbb74064cfaea808a8df076be45e2b880ee25cb31b2fd44458c96a3c"
@@ -47,6 +48,6 @@ class Flactag < Formula
   end
 
   test do
-    system "#{bin}/flactag"
+    system bin/"flactag"
   end
 end

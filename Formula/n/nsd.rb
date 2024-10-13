@@ -1,8 +1,8 @@
 class Nsd < Formula
   desc "Name server daemon"
   homepage "https://www.nlnetlabs.nl/projects/nsd/"
-  url "https://www.nlnetlabs.nl/downloads/nsd/nsd-4.9.1.tar.gz"
-  sha256 "a6c23a53ee8111fa71e77b7565d1b8f486ea695770816585fbddf14e4367e6df"
+  url "https://www.nlnetlabs.nl/downloads/nsd/nsd-4.10.1.tar.gz"
+  sha256 "c0190f923f0095995f2e6331dacd92c6e1f4d578b880d61690602b43a5acfd84"
   license "BSD-3-Clause"
 
   # We check the GitHub repo tags instead of
@@ -18,24 +18,27 @@ class Nsd < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "9958d6f7c15565c989ce8741993e4184b8b2825078de9938126d69d8472f4373"
-    sha256 arm64_ventura:  "cf40fce0970035dde8ead67267160852581ab08813bd0684d8c75c2d9e873304"
-    sha256 arm64_monterey: "d294f6e27ebaa7f10bb9f2fe69206323926902c97ffa56d8bd8dfbc1889ab67e"
-    sha256 sonoma:         "0aef0cdb96f73d5b621a9bf3cecacc1d0aa588817ac746679b4c13559ac82f7c"
-    sha256 ventura:        "a9220df020d868517f711f0ff79a5a70b7db2dc13cdeb72e8677f62142578e33"
-    sha256 monterey:       "9ab5c972729706233da0d5789d3db92293490046287c3d8ea1f17583728fef98"
-    sha256 x86_64_linux:   "001bbc937757a13e8dccf9732a129722f7d17952c1889c2da1c112679ff3bab0"
+    sha256 arm64_sequoia:  "7ae36d4553f3fc44b8e502fccf7029a594a6764f03d5881f7e5512641a7d565b"
+    sha256 arm64_sonoma:   "3460116714f6081ea1b1ff74aa6d69af3dcd90c5afdebe393aae19af8d052224"
+    sha256 arm64_ventura:  "6b051779b60b8d878dd094338c58fed35c7a54874297f3039a1c1e196b95e363"
+    sha256 arm64_monterey: "7a814959891aea2529609ab8e88f382956669f2ba69d194c7c4a57bf9085454f"
+    sha256 sonoma:         "cd6d2ed468d4183bcf79002d0f533f01380ba0eea2c606200b69bc4f56104e27"
+    sha256 ventura:        "93bbc4a2bd5b2f7cb8e764c011e262785a06398d5c7a362fe9955422d3c5c4ba"
+    sha256 monterey:       "2a607b26919ffce37e867e790d24bc6920fd6a6a2cb19393dab5f1f64ff0d608"
+    sha256 x86_64_linux:   "202a6511ed192c3cb3409f9ba7c50b8bfcb3dcb887037fe67b7317e34eb1f765"
   end
 
   depends_on "libevent"
   depends_on "openssl@3"
 
   def install
-    system "./configure", "--prefix=#{prefix}",
-                          "--sysconfdir=#{etc}",
+    ENV.runtime_cpu_detection if Hardware::CPU.intel?
+
+    system "./configure", "--sysconfdir=#{etc}",
                           "--localstatedir=#{var}",
                           "--with-libevent=#{Formula["libevent"].opt_prefix}",
-                          "--with-ssl=#{Formula["openssl@3"].opt_prefix}"
+                          "--with-ssl=#{Formula["openssl@3"].opt_prefix}",
+                          *std_configure_args
     system "make", "install"
   end
 

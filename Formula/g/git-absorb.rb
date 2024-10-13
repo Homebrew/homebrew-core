@@ -6,6 +6,7 @@ class GitAbsorb < Formula
   license "BSD-3-Clause"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "aca945b8aef34abbac4f2c98a725a55bc61963c5b2f05c6ec6036d02deb19a08"
     sha256 cellar: :any,                 arm64_sonoma:   "4ba2cc5db7997e70fe3126dcb72ce6b90ecc448522f84ecf256dbf83aa5b0f03"
     sha256 cellar: :any,                 arm64_ventura:  "3b0d0c694199a5737537e350d1f94a3c5578ad01f37fa606426961d815597a90"
     sha256 cellar: :any,                 arm64_monterey: "58047813577676e3087030dec2bcefa9092585097d206befda82b16d3a01cf65"

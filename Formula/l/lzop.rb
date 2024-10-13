@@ -3,7 +3,7 @@ class Lzop < Formula
   homepage "https://www.lzop.org/"
   url "https://www.lzop.org/download/lzop-1.04.tar.gz"
   sha256 "7e72b62a8a60aff5200a047eea0773a8fb205caf7acbe1774d95147f305a2f41"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url "https://www.lzop.org/download/"
@@ -11,6 +11,7 @@ class Lzop < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "e29c398855c02fe9980a6365c4285c941988a3baa6fae5357dde1ae2ffed178e"
     sha256 cellar: :any,                 arm64_sonoma:   "3cb9969e29778a627ab2a0c634bc43f30c73ffff9960c51fa27f6eb1945b3ea1"
     sha256 cellar: :any,                 arm64_ventura:  "f797bf586d6db6240f6984be8f115a91f0218e3db024668f926b8a694ff2b57a"
     sha256 cellar: :any,                 arm64_monterey: "32f4ffb33fda5a32802c7a37dcf41eef9b74185e726c6332912dc7d0d524381a"
@@ -40,11 +41,11 @@ class Lzop < Formula
     text = "This is Homebrew"
     path.write text
 
-    system "#{bin}/lzop", "test"
+    system bin/"lzop", "test"
     assert_predicate testpath/"test.lzo", :exist?
     rm path
 
-    system "#{bin}/lzop", "-d", "test.lzo"
+    system bin/"lzop", "-d", "test.lzo"
     assert_equal text, path.read
   end
 end

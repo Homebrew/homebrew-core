@@ -3,7 +3,7 @@ class Zboy < Formula
   homepage "https://zboy.sourceforge.net/"
   url "https://downloads.sourceforge.net/project/zboy/zBoy%20v0.71/zboy-0.71.tar.xz"
   sha256 "d359b87e3149418fbe1599247c9ca71e870d213b64a912616ffc6e77d1dff506"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
   head "https://svn.code.sf.net/p/zboy/code/trunk"
 
   livecheck do
@@ -12,6 +12,7 @@ class Zboy < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "cb8335a141f8e9a964288509aa204bee9b9a1672286ce0c97e236af7c8afc6a6"
     sha256 cellar: :any,                 arm64_sonoma:   "16735e77d0184557a36d147ba19935ef2ddf048a6cad3d63efe90c72065a8c4c"
     sha256 cellar: :any,                 arm64_ventura:  "4c1255995acd35d950d0625b1c505b32feeb5f92ba8428e5a91405aca49f5841"
     sha256 cellar: :any,                 arm64_monterey: "19932605bd410edb2aa29dca7ee24442f62323f35118faee2132434a68cf891f"
@@ -37,6 +38,6 @@ class Zboy < Formula
   end
 
   test do
-    system "#{bin}/zboy", "--help"
+    system bin/"zboy", "--help"
   end
 end

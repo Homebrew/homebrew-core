@@ -1,8 +1,8 @@
 class Hivex < Formula
   desc "Library and tools for extracting the contents of Windows Registry hive files"
   homepage "https://libguestfs.org"
-  url "https://download.libguestfs.org/hivex/hivex-1.3.23.tar.gz"
-  sha256 "40cf5484f15c94672259fb3b99a90bef6f390e63f37a52a1c06808a2016a6bbd"
+  url "https://download.libguestfs.org/hivex/hivex-1.3.24.tar.gz"
+  sha256 "a52fa45cecc9a78adb2d28605d68261e4f1fd4514a778a5473013d2ccc8a193c"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-only"]
 
   livecheck do
@@ -11,31 +11,39 @@ class Hivex < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_ventura:  "5b762d9899d0ae209079abae74a4f18d7e9f29824cf7c6c5144f6626d87debba"
-    sha256 cellar: :any, arm64_monterey: "ad381758881bcfa6a41864c472eacd4476d7a21ddef776b78d285d7139cb93c9"
-    sha256 cellar: :any, arm64_big_sur:  "837c408efabee26bb2edb3f354bfcff31987b57d1275acd0988bd2cd1ed0a5f8"
-    sha256 cellar: :any, ventura:        "65a4a0fb292c7d4989e08984b39470077a24950d75b54e18145b258d97afa28f"
-    sha256 cellar: :any, monterey:       "cc5e7f4536be0fe9560b4b1808c9015754d3e81d530866f7c349463b25d0479e"
-    sha256 cellar: :any, big_sur:        "758e1d6c28c1dfbe725b99fe7f3fe339ff8b1150f5c85e3f9368a5e1386aad45"
-    sha256               x86_64_linux:   "b080edd6e833144a7e66f2346171dd28a392cfec2013979bc4b6dee9c4c93156"
+    sha256 cellar: :any, arm64_sequoia:  "56591673b746f964c9a11aa5d00f3f7414aecaf44189650e7542eef6796a56a5"
+    sha256 cellar: :any, arm64_sonoma:   "fec44a3603f70ad668b8340f75d5c2efd21eec82d87dbdf9e7c6272f9e41ac87"
+    sha256 cellar: :any, arm64_ventura:  "2788843263f4b80761e8c47fd4c565a2b17c740ea786b6d3c07a56cb548e9cc9"
+    sha256 cellar: :any, arm64_monterey: "4f43e6cb50e86f7035276b2f80d5f158329c3320caa06eef2f7b7cd25799584f"
+    sha256 cellar: :any, sonoma:         "b02c58d064c1463fbb8375839a8a43d4511f9e7869f934e26dfd4471a3493b76"
+    sha256 cellar: :any, ventura:        "be3ab0e828697756aef7048c02c6c9be7f2e05b7eb1445822931371f11309093"
+    sha256 cellar: :any, monterey:       "bc1a776d2a57db7b102fb788d7b7c2a7fd3b6d753df57b4881c911c99a0c0928"
+    sha256               x86_64_linux:   "521ab163122aa40680fe0473ca6ea2f77fdb877ac4ef417dfff93eef66608a0b"
   end
 
   depends_on "pkg-config" => :build
-  depends_on "gettext"
   depends_on "readline"
 
   uses_from_macos "pod2man" => :build
   uses_from_macos "libxml2"
 
+  on_macos do
+    depends_on "gettext"
+  end
+
   def install
+    # Use `-ld_classic` to work around `-Wl,-M` usage
+    ENV.append "LDFLAGS", "-Wl,-ld_classic" if DevelopmentTools.clang_build_version >= 1500
+
     args = %w[
       --disable-ocaml
       --disable-perl
       --disable-python
       --disable-ruby
+      --disable-silent-rules
     ]
 
-    system "./configure", *args, *std_configure_args, "--disable-silent-rules"
+    system "./configure", *args, *std_configure_args
     system "make", "install"
     (pkgshare/"test").install "images/large"
   end

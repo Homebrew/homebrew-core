@@ -6,6 +6,7 @@ class Websocketd < Formula
   license "BSD-2-Clause"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "a3b32f5cb8758b74b70de5a6f552ddf5aef4cae18908df4b0d42e9c999a9b851"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a7ba51607007665381a1a42a51f888536174c3aa31264951aac1460e0aa00853"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "b7d6fde3236364942816c8578c1a5d6e436b562d2db34b9d0fb0fa9d501e8dde"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "256933f91abb70b0974f791cbbd8158f4399c27ed2ce99438f7ac566a560003e"
@@ -29,7 +30,7 @@ class Websocketd < Formula
 
   test do
     port = free_port
-    pid = Process.fork { exec "#{bin}/websocketd", "--port=#{port}", "echo", "ok" }
+    pid = Process.fork { exec bin/"websocketd", "--port=#{port}", "echo", "ok" }
     sleep 2
 
     begin

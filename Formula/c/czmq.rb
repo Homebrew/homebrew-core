@@ -24,6 +24,7 @@ class Czmq < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia:  "563fccc28279b87f02a5545f8e041090ead4e42f04f5df7e50b421abbb88f1eb"
     sha256 cellar: :any,                 arm64_sonoma:   "cce35246b601a70fecc64be08943a2c893d9ad2dd2567a3ec3c17a270a8a80b4"
     sha256 cellar: :any,                 arm64_ventura:  "e51e2cc5ccca8943ab12a1587eb9b6aa533603ea2575db6928827bdaa0d807d1"
     sha256 cellar: :any,                 arm64_monterey: "47bd6d29801b9d1a33d2d1e0655192e500e8c2a7698083d0838b178c068d5cd4"

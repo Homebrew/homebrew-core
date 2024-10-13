@@ -11,7 +11,8 @@ class Bar < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "9f0dd0a974b69b3420bc0fd4620506ff0308f1b94409e571daee22087b0ebb8a"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "fa55cacca64ca91bdb24888d6ad36cff103aac0a461a8d2f32ae5b6e69d47980"
   end
 
   def install

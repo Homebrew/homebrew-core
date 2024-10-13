@@ -6,6 +6,7 @@ class Libint < Formula
   license all_of: ["GPL-3.0-or-later", "LGPL-3.0-or-later"]
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "6519df8379bd847957c081d2dacdffb95ef347a66f2838d714e37428f1c77f41"
     sha256 cellar: :any,                 arm64_sonoma:   "8b9c9799736c041a79eabe1e5c0ff219572ad2c96dfaca6f325ac947ff76fff8"
     sha256 cellar: :any,                 arm64_ventura:  "5e6451aca0b1d84433f2b81c9eec8e4ab2440d2894018a70950c2eec74ef84b4"
     sha256 cellar: :any,                 arm64_monterey: "67e3ef568131a5a97526fb5481980cfb615826fff081db883abc59a32b622b80"

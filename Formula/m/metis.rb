@@ -2,6 +2,7 @@ class Metis < Formula
   desc "Programs that partition graphs and order matrices"
   homepage "http://glaros.dtc.umn.edu/gkhome/views/metis"
   url "http://glaros.dtc.umn.edu/gkhome/fetch/sw/metis/metis-5.1.0.tar.gz"
+  mirror "https://ftp.mcs.anl.gov/pub/pdetools/spack-pkgs/metis-5.1.0.tar.gz"
   sha256 "76faebe03f6c963127dbb73c13eab58c9a3faeae48779f049066a21c087c5db2"
   license "Apache-2.0"
 
@@ -11,6 +12,7 @@ class Metis < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "60ef633238eb902353465719c36fb64c5a325f823a203c1079c3e0358f72fd79"
     sha256 cellar: :any,                 arm64_sonoma:   "d1b85dedb77b4a578a06ba705e759768f3ad832fb744669e06f97bd233bf82ff"
     sha256 cellar: :any,                 arm64_ventura:  "5bea2beeae9e3394cc675df14dc30e078b6ed575f0bad4c05717ee3f75ed4aee"
     sha256 cellar: :any,                 arm64_monterey: "9924dff9c2995788c3e69a1affb9931035b66af7b2fef57fedbb0b2f14071d9f"
@@ -39,12 +41,12 @@ class Metis < Formula
   test do
     ["4elt", "copter2", "mdual"].each do |g|
       cp pkgshare/"graphs/#{g}.graph", testpath
-      system "#{bin}/graphchk", "#{g}.graph"
-      system "#{bin}/gpmetis", "#{g}.graph", "2"
-      system "#{bin}/ndmetis", "#{g}.graph"
+      system bin/"graphchk", "#{g}.graph"
+      system bin/"gpmetis", "#{g}.graph", "2"
+      system bin/"ndmetis", "#{g}.graph"
     end
     cp [pkgshare/"graphs/test.mgraph", pkgshare/"graphs/metis.mesh"], testpath
-    system "#{bin}/gpmetis", "test.mgraph", "2"
-    system "#{bin}/mpmetis", "metis.mesh", "2"
+    system bin/"gpmetis", "test.mgraph", "2"
+    system bin/"mpmetis", "metis.mesh", "2"
   end
 end

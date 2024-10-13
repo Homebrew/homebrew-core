@@ -27,7 +27,7 @@ class PySpy < Formula
   end
 
   depends_on "rust" => :build
-  depends_on "python@3.12" => :test
+  uses_from_macos "python" => :test
 
   on_linux do
     depends_on "libunwind"
@@ -43,7 +43,7 @@ class PySpy < Formula
   end
 
   test do
-    python = Formula["python@3.12"].opt_bin/"python3.12"
+    python = "python3"
     output = shell_output("#{bin}/py-spy record #{python} 2>&1", 1)
     assert_match "Try running again with elevated permissions by going", output
   end

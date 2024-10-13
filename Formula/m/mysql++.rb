@@ -7,31 +7,32 @@ class Mysqlxx < Formula
   revision 3
 
   livecheck do
-    url :homepage
-    regex(/href=.*?mysql\+\+[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    url "https://tangentsoft.com/mysqlpp/releases/"
+    regex(/>mysql\+\+[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "95302e1f418e66a49e6319092fd07ead89002dacada0fa0f0599d1b9207272b6"
-    sha256 cellar: :any,                 arm64_ventura:  "eecf11305d9b3b60433b3b35ee9e61d302a00069e9154b5ee3a7295197fbc75c"
-    sha256 cellar: :any,                 arm64_monterey: "4b533297eb952a04d97fc90ebfc3238b77b0b545fa714f9dbbf311df636cfde6"
-    sha256 cellar: :any,                 sonoma:         "9a801ba67ace648909f12a6e761688e471c449eb7ff20cafd7e11bea2e3e8782"
-    sha256 cellar: :any,                 ventura:        "80e894a5469e61b2c95fb0d8bbf14562059bdbb4c7d615c5f38d8d569199c736"
-    sha256 cellar: :any,                 monterey:       "4c26b0222a2ef150ba390c3004f4691ff9dc8591b4ed4479eed0aee5871c0f58"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "76988d129aaec0463f1aff16280ac948243f33f366e2a6466c894819173b7387"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia:  "5b06b157f278d4298095325e3a05118a1293fff3f542494ec594cb847fe88261"
+    sha256 cellar: :any,                 arm64_sonoma:   "feb7078de4fa2eabd483aa1e96a40f76a3194e964996f7e933ee9064074ead84"
+    sha256 cellar: :any,                 arm64_ventura:  "7733ee0ff347f47c24396f16366af6b46ac8ef02542b9cb8d85136d9a8c17c6b"
+    sha256 cellar: :any,                 arm64_monterey: "c0c11ebc7004bae617aeafa1bc621761e829401e8763c0e89d9e3045e3d83eb2"
+    sha256 cellar: :any,                 sonoma:         "635f18063d29b4a49b363c7637584a5c4a1ee624fa06a5bd7c1a02187ae8b799"
+    sha256 cellar: :any,                 ventura:        "1f498501658bd1f0ddeac3543ed35bd4a5eac3a26b436337b0d751abc390cf12"
+    sha256 cellar: :any,                 monterey:       "65dbdf422828f065d912f678f31606de6a808e43373aac6c1e5aca0ca491b4a7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "243beca649ebb4da087364acf8a7a10005d2e595e7513828e7397a45ffdc8ec5"
   end
 
-  depends_on "mysql-client@8.0" # Does not build with > 8.3: https://tangentsoft.com/mysqlpp/tktview/703152e2da
+  depends_on "mysql-client"
 
   fails_with gcc: "5"
 
   def install
-    mysql = Formula["mysql-client@8.0"]
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--with-field-limit=40",
+    mysql = Formula["mysql-client"]
+    system "./configure", "--with-field-limit=40",
                           "--with-mysql-lib=#{mysql.opt_lib}",
-                          "--with-mysql-include=#{mysql.opt_include}/mysql"
+                          "--with-mysql-include=#{mysql.opt_include}/mysql",
+                          *std_configure_args
 
     # Delete "version" file incorrectly included as C++20 <version> header
     # Issue ref: https://tangentsoft.com/mysqlpp/tktview/4ea874fe67e39eb13ed4b41df0c591d26ef0a26c
@@ -52,7 +53,7 @@ class Mysqlxx < Formula
         return 0;
       }
     EOS
-    system ENV.cxx, "test.cpp", "-I#{Formula["mysql-client@8.0"].opt_include}/mysql",
+    system ENV.cxx, "test.cpp", "-I#{Formula["mysql-client"].opt_include}/mysql",
                     "-L#{lib}", "-lmysqlpp", "-o", "test"
     system "./test", "-u", "foo", "-p", "bar"
   end

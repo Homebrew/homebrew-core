@@ -6,6 +6,7 @@ class Libvisual < Formula
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
 
   bottle do
+    sha256 cellar: :any, arm64_sequoia:  "a3cf1f8ac6ed58fce5959717d16802adeb1920abfe6c421145de66eff2e9a51a"
     sha256 cellar: :any, arm64_sonoma:   "c56b6225bce042d7c7984074c9c508e2ab4d4c17491f941d72dbfc0cee0c3caa"
     sha256 cellar: :any, arm64_ventura:  "ba00f3f40ff28fe23cfea28a9a4782dd8e344e51d318cd9843c74fc3d52fe65a"
     sha256 cellar: :any, arm64_monterey: "f9faaf86d813119e9c592781ec40405057118cc8567838bc77e30e757c6088da"

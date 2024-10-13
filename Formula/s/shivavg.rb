@@ -3,9 +3,10 @@ class Shivavg < Formula
   homepage "https://sourceforge.net/projects/shivavg/"
   url "https://downloads.sourceforge.net/project/shivavg/ShivaVG/0.2.1/ShivaVG-0.2.1.zip"
   sha256 "9735079392829f7aaf79e02ed84dd74f5c443c39c02ff461cfdd19cfc4ae89c4"
-  license "LGPL-2.1"
+  license "LGPL-2.1-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "65aec8af6d55bd324b1590d4e29d30cc3a3da50c4492bb6f5dd0c8906bb0fd58"
     sha256 cellar: :any,                 arm64_sonoma:   "b6ef4461bec2d6b8a9e7e0cf2aaf02b7fc871bddcbf631318a4f7d7e5b1fa530"
     sha256 cellar: :any,                 arm64_ventura:  "b662c161700f2148a68a780888457dce0567614772e8aa441bde37a1f40ebc4c"
     sha256 cellar: :any,                 arm64_monterey: "ba0da5a73889923ba7031099a70d0e69d683fbb90583b6c65d4335deb88323b0"

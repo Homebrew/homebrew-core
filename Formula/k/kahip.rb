@@ -7,6 +7,7 @@ class Kahip < Formula
   head "https://github.com/KaHIP/KaHIP.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "0821739473246533d6043038f905d07cfd071224b1b201a88f572930895ec64e"
     sha256 cellar: :any,                 arm64_sonoma:   "970fe2a3d90298de2d44a30bce8a60f9bbcf2e0be59f2035c617d825fd4713e7"
     sha256 cellar: :any,                 arm64_ventura:  "3ba222ed29cb5e903167de8216be60180d41a0f59d64edcaa00955e7c7670e0b"
     sha256 cellar: :any,                 arm64_monterey: "ecd60dda8182bfcbd93e030c93d42f7bdca84e36e4bb1a0e0b11f7c64637387e"

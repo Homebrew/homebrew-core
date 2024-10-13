@@ -1,23 +1,23 @@
 class Cdo < Formula
   desc "Climate Data Operators"
   homepage "https://code.mpimet.mpg.de/projects/cdo"
-  url "https://code.mpimet.mpg.de/attachments/download/29481/cdo-2.4.2.tar.gz"
-  sha256 "4df1fe2b8f92f54c27eb9f399edfab40d9322005a6732ca1524ef5c1627ac4e7"
+  url "https://code.mpimet.mpg.de/attachments/download/29649/cdo-2.4.4.tar.gz"
+  sha256 "49f50bd18dacd585e9518cfd4f55548f692426edfb3b27ddcd1c653eab53d063"
   license "GPL-2.0-only"
+  revision 1
 
   livecheck do
-    url "https://code.mpimet.mpg.de/projects/cdo/files"
-    regex(/href=.*?cdo[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    url "https://code.mpimet.mpg.de/projects/cdo/news"
+    regex(/Version (\d+(?:\.\d+)+) released/i)
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "783f4fd3db5f8d6cef3c120d09dcb40820dc8a94998018940352a036a763c372"
-    sha256 cellar: :any,                 arm64_ventura:  "2d4f548ad076f98849a68d5f6e0cc67f6249e44032643844bfb79048f7c00043"
-    sha256 cellar: :any,                 arm64_monterey: "a3b8989c73104456e42bd99e065ded170051feb8100a66bdeabc0f7e6a64cdda"
-    sha256 cellar: :any,                 sonoma:         "b0bbba46ae854c66318434d655cc8dd6f9116b369092a2d691f8a25bc1819b43"
-    sha256 cellar: :any,                 ventura:        "32bc4c9b10c6cd740d0b9659712603d3204f8468d84faa12c6fd9ac9ccbe65bb"
-    sha256 cellar: :any,                 monterey:       "0af145b7202b9d12627ace51f4050a7c75334afe61a11acade91c9bfd94776bb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2ac47db570b82c31351162ad052cac1b0fee7c289ee4d5df8e07227d7990bfa7"
+    sha256 cellar: :any,                 arm64_sequoia: "f5060169bd6908bb24eb3646dd108e4152c15ae02ccd97313488ee877cc8696d"
+    sha256 cellar: :any,                 arm64_sonoma:  "0dfc6b6bc0014245bde240d0a5d7c937861924a0fb23e1750e2c4734a7798c60"
+    sha256 cellar: :any,                 arm64_ventura: "f286a7c3da8e14dd0446e4f927e40c67c521a893ac0dc7cda03c3b659bdc5acb"
+    sha256 cellar: :any,                 sonoma:        "c0ab5a2f663b2957dad59d99d8840a9b43680bb6bcf2a31b18704db3fe31955d"
+    sha256 cellar: :any,                 ventura:       "dc63bef96d309e7a9e4fc6d6011e789deee8b44eff2bf490e112764fa107cd7e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a12fb6328178520d1017b1004ac3a0cea544117a57d62e0fd9e45d64f7d1427e"
   end
 
   depends_on "eccodes"
@@ -29,6 +29,10 @@ class Cdo < Formula
 
   on_macos do
     depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1500
+  end
+
+  on_linux do
+    depends_on "util-linux"
   end
 
   fails_with :clang do
@@ -56,7 +60,7 @@ class Cdo < Formula
       R1JJQgABvAEAABz/AAD/gAEBAABkAAAAAAEAAAoAAAAAAAAAAAAgAP8AABIACgB+9IBrbIABLrwA4JwTiBOIQAAAAAAAAXQIgAPEFI2rEBm9AACVLSuNtwvRALldqDul2GV1pw1CbXsdub2q9a/17Yi9o11DE0UFWwRjqsvH80wgS82o3UJ9rkitLcPgxJDVaO9No4XV6EWNPeUSSC7txHi7/aglVaO5uKKtwr2slV5DYejEoKOwpdirLXPIGUAWCya7ntil1amLu4PCtafNp5OpPafFqVWmxaQto72sMzGQJeUxcJkbqEWnOKM9pTOlTafdqPCoc6tAq0WqFarTq2i5M1NdRq2AHWzFpFWj1aJtmAOrhaJzox2nwKr4qQWofaggqz2rkHcog2htuI2YmOB9hZDIpxXA3ahdpzOnDarjqj2k0KlIqM2oyJsjjpODmGu1YtU6WHmNZ5uljcbVrduuOK1DrDWjGKM4pQCmfdVFprWbnVd7Vw1QY1s9VnNzvZiLmGucPZwVnM2bm5yFqb2cHdRQqs2hhZrrm1VGeEQgOduhjbWrqAWfzaANnZOdWJ0NnMWeJQA3Nzc3AAAAAA==
     EOF
     File.binwrite("test.grb", data)
-    system "#{bin}/cdo", "-f", "nc", "copy", "test.grb", "test.nc"
+    system bin/"cdo", "-f", "nc", "copy", "test.grb", "test.nc"
     assert_predicate testpath/"test.nc", :exist?
   end
 end

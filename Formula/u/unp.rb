@@ -12,7 +12,8 @@ class Unp < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "cff4524f4309c7215312f1a4408493e220c807c4040ef6a1c9bf3da00036a061"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "9d9e14ab7a49de2c7b75129cfde894bba09ab91ac9aa36b2fcf3214928ab0889"
   end
 
   depends_on "p7zip"
@@ -33,7 +34,7 @@ class Unp < Formula
     path = testpath/"test"
     path.write "Homebrew"
     system "gzip", "test"
-    system "#{bin}/unp", "test.gz"
+    system bin/"unp", "test.gz"
     assert_equal "Homebrew", path.read
   end
 end

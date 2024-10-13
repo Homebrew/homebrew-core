@@ -1,26 +1,18 @@
-require "language/node"
-
 class GitSplitDiffs < Formula
   desc "Syntax highlighted side-by-side diffs in your terminal"
   homepage "https://github.com/banga/git-split-diffs"
-  url "https://registry.npmjs.org/git-split-diffs/-/git-split-diffs-2.1.0.tgz"
-  sha256 "4d49a8d4fd4e674ecd639cd9057cd3e04a503af5322b61c62b82a8221fc60729"
+  url "https://registry.npmjs.org/git-split-diffs/-/git-split-diffs-2.2.0.tgz"
+  sha256 "13d6691e49a21b24d6cff14bbe992b18a5bb92eb8d96aa76a35ec2edb79a9d84"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2244f8a3edebc099c527930bb66a3af4ea97683b335be3c492f95c282c5ba1f0"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2244f8a3edebc099c527930bb66a3af4ea97683b335be3c492f95c282c5ba1f0"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "2244f8a3edebc099c527930bb66a3af4ea97683b335be3c492f95c282c5ba1f0"
-    sha256 cellar: :any_skip_relocation, sonoma:         "2244f8a3edebc099c527930bb66a3af4ea97683b335be3c492f95c282c5ba1f0"
-    sha256 cellar: :any_skip_relocation, ventura:        "2244f8a3edebc099c527930bb66a3af4ea97683b335be3c492f95c282c5ba1f0"
-    sha256 cellar: :any_skip_relocation, monterey:       "2244f8a3edebc099c527930bb66a3af4ea97683b335be3c492f95c282c5ba1f0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7c72733099ccedd81772f27388700abb6d5edfd9c77b27c8ca93dcb5af68a0bb"
+    sha256 cellar: :any_skip_relocation, all: "74fbd732352861601eab8397dcf20ce566e08f07ab2ceafc388df2fb842e54fb"
   end
 
   depends_on "node"
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", *std_npm_args
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 

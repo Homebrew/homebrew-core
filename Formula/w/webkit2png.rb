@@ -17,6 +17,6 @@ class Webkit2png < Formula
   end
 
   test do
-    system "#{bin}/webkit2png", "--version"
+    system bin/"webkit2png", "--version"
   end
 end

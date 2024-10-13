@@ -11,6 +11,7 @@ class Libvoikko < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "5aa1e0f646f3533e698c59cc3c281fc5498408c410567e9d19950d44ed9e9612"
     sha256 cellar: :any,                 arm64_sonoma:   "8957b0f49a5a0b2341645f36962a931cbe141000aef931db14cfdf0e303b194c"
     sha256 cellar: :any,                 arm64_ventura:  "b7a92f298b4e10b01505b6933f61bc858f0bc0713c825194802a8eae652dad20"
     sha256 cellar: :any,                 arm64_monterey: "a838e8ec04c3643544b3b832b31c8f62dddff8135f15c86548f07c1dcb78ebb3"

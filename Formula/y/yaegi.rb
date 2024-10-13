@@ -7,6 +7,7 @@ class Yaegi < Formula
   head "https://github.com/traefik/yaegi.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "a008ffc855ef384997cd8c8a826f9dc23fc82a5286012cf2c3e7c63fb42af971"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "89e8681d4dc369e762c31e42208290ede00c1d8972589b341bcfcb9efd006d5b"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "ee7a0dc7902daca4935063a8e4bb0ea6199bf55e9e189dd84ba7d57a98d926a2"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "fc2e80bb7ff631f962888c45a903a258c2f6301339e6c13a3cdb350163b8e4b5"
@@ -23,6 +24,6 @@ class Yaegi < Formula
   end
 
   test do
-    assert_match "4", pipe_output("#{bin}/yaegi", "println(3 + 1)", 0)
+    assert_match "4", pipe_output(bin/"yaegi", "println(3 + 1)", 0)
   end
 end

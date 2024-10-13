@@ -12,6 +12,7 @@ class Enet < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "c1785264ccb278a9595c68354604b48a02d1e05f5c1d9ce1e8f2d3d6baa704d9"
     sha256 cellar: :any,                 arm64_sonoma:   "e078c1459c03714c7bfacf48e92c9245ac4d4842479826b4f76d9e49cca66e45"
     sha256 cellar: :any,                 arm64_ventura:  "8bcb6508f5e8ff25fe137e0f3373a3f005c3d26797881cbce22cef4056e76c1f"
     sha256 cellar: :any,                 arm64_monterey: "e2c4a31201788842f820b7f90745e90286b7675940d3edb65f545e3e021b057c"

@@ -11,6 +11,7 @@ class Txt2man < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "a35a60cd90ffb17bd56c29b9a003eb5298a40f270670da3fd62238eea9337f40"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "02ec46f5c280b3f46b613be3394a713727e1765199f90d5240505803d75f4a19"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "665ae11624c51ed123faad382b4af7256b5e055c235d54f1d063e58589380909"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "665ae11624c51ed123faad382b4af7256b5e055c235d54f1d063e58589380909"

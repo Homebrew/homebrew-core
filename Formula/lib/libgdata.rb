@@ -8,6 +8,7 @@ class Libgdata < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any, arm64_sequoia:  "36b90319012266b453dbafde5737f7a9a0d0570494af7fd9f71c9ac836445d51"
     sha256 cellar: :any, arm64_sonoma:   "11ea8fc6cbcecdbf469a94c4d0f11fef09947c51781ca98a103648983be3c643"
     sha256 cellar: :any, arm64_ventura:  "5e030516ecc07a1b31b7db82b7eeda2d828f8a742f5daf9c1aced0dc33b4fb4f"
     sha256 cellar: :any, arm64_monterey: "b262fab7a6607c82f01cb2c46098e6acc0cd0f8ee50f34d56789df69f5f03bc7"
@@ -20,40 +21,47 @@ class Libgdata < Formula
     sha256               x86_64_linux:   "47559f0a3203d2274cf17141c8a8812b166d41b1a0522b00053d64e70c514085"
   end
 
+  depends_on "gettext" => :build
   depends_on "gobject-introspection" => :build
-  depends_on "intltool" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkg-config" => [:build, :test]
   depends_on "vala" => :build
+
+  depends_on "glib"
   depends_on "gtk+3"
   depends_on "json-glib"
   depends_on "liboauth"
   depends_on "libsoup@2" # libsoup 3 PR: https://gitlab.gnome.org/GNOME/libgdata/-/merge_requests/49
+
   uses_from_macos "curl"
   uses_from_macos "libxml2"
+
+  on_macos do
+    depends_on "gettext"
+  end
 
   def install
     ENV.prepend_path "PKG_CONFIG_PATH", Formula["libsoup@2"].opt_lib/"pkgconfig"
     ENV.prepend_path "XDG_DATA_DIRS", Formula["libsoup@2"].opt_share
     ENV.prepend_path "XDG_DATA_DIRS", HOMEBREW_PREFIX/"share"
 
-    curl_lib = OS.mac? ? MacOS.sdk_path_if_needed/"usr/lib" : Formula["curl"].opt_lib
+    curl_lib = OS.mac? ? "#{MacOS.sdk_path_if_needed}/usr/lib" : Formula["curl"].opt_lib
     ENV.append "LDFLAGS", "-L#{curl_lib} -lcurl"
 
-    mkdir "build" do
-      system "meson", *std_meson_args,
-        "-Dintrospection=true",
-        "-Doauth1=enabled",
-        "-Dalways_build_tests=false",
-        "-Dvapi=true",
-        "-Dgtk=enabled",
-        "-Dgoa=disabled",
-        "-Dgnome=disabled",
-        ".."
-      system "ninja"
-      system "ninja", "install"
-    end
+    args = %w[
+      -Dintrospection=true
+      -Doauth1=enabled
+      -Dalways_build_tests=false
+      -Dvapi=true
+      -Dgtk=enabled
+      -Dgoa=disabled
+      -Dgnome=disabled
+    ]
+
+    system "meson", "setup", "build", *args, *std_meson_args
+    system "meson", "compile", "-C", "build", "--verbose"
+    system "meson", "install", "-C", "build"
   end
 
   test do
@@ -65,40 +73,10 @@ class Libgdata < Formula
         return 0;
       }
     EOS
-    ENV.libxml2
-    gettext = Formula["gettext"]
-    glib = Formula["glib"]
-    json_glib = Formula["json-glib"]
-    liboauth = Formula["liboauth"]
-    libsoup = Formula["libsoup@2"]
-    libxml2_prefix = OS.mac? ? MacOS.sdk_path_if_needed/"usr" : Formula["libxml2"].opt_prefix
-    curl_lib = OS.mac? ? MacOS.sdk_path_if_needed/"usr/lib" : Formula["curl"].opt_lib
-    flags = %W[
-      -I#{gettext.opt_include}
-      -I#{glib.opt_include}/glib-2.0
-      -I#{glib.opt_lib}/glib-2.0/include
-      -I#{include}/libgdata
-      -I#{json_glib.opt_include}/json-glib-1.0
-      -I#{liboauth.opt_include}
-      -I#{libsoup.opt_include}/libsoup-2.4
-      -I#{libxml2_prefix}/include/libxml2
-      -D_REENTRANT
-      -L#{gettext.opt_lib}
-      -L#{glib.opt_lib}
-      -L#{json_glib.opt_lib}
-      -L#{libsoup.opt_lib}
-      -L#{curl_lib}
-      -L#{lib}
-      -lgdata
-      -lgio-2.0
-      -lglib-2.0
-      -lgobject-2.0
-      -ljson-glib-1.0
-      -lsoup-2.4
-      -lxml2
-      -lcurl
-    ]
-    flags << "-lintl" if OS.mac?
+
+    ENV.prepend_path "PKG_CONFIG_PATH", Formula["icu4c"].opt_lib/"pkgconfig" if OS.mac?
+    ENV.prepend_path "PKG_CONFIG_PATH", Formula["libsoup@2"].opt_lib/"pkgconfig"
+    flags = shell_output("pkg-config --cflags --libs libgdata").chomp.split
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end

@@ -20,6 +20,10 @@ env:
   HOMEBREW_DEVELOPER: 1
   HOMEBREW_NO_AUTO_UPDATE: 1
 
+defaults:
+  run:
+    shell: bash -xeuo pipefail {0}
+
 concurrency:
   group: cache-${{ github.event.pull_request.number }}
   cancel-in-progress: true

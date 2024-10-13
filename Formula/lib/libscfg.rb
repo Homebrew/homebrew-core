@@ -7,6 +7,7 @@ class Libscfg < Formula
   head "https://git.sr.ht/~emersion/libscfg", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "74d709bca0afdc5fc76a319c6aa32143345c13688faf76817316a4a89537ee95"
     sha256 cellar: :any,                 arm64_sonoma:   "6d14be1b7b275a2200ee9b3805b4e54263a61f59f052103741d54ea9e9e59725"
     sha256 cellar: :any,                 arm64_ventura:  "151dba4fa8ab28312b907dd4598df11c81cd8ed0986987faff0fce50263c49c5"
     sha256 cellar: :any,                 arm64_monterey: "e072b64d3301ffa6537dfd489761f376718445c727ae4a29f8d98e06d9f8de11"

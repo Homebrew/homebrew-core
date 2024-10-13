@@ -8,6 +8,7 @@ class Watch < Formula
   head "https://gitlab.com/procps-ng/procps.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "6a87db4955bd26f571c90378186d245a6dcc50a2c8b6c8026f69f81328679ec6"
     sha256 cellar: :any,                 arm64_sonoma:   "9d8b55c73a9b913186f6ef8dc7642e8a718b5edea93fc3301fff5f44ad42fe90"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f2e3977aacd949425257bb08b9ed66125e4cdff76a6e5b2464718139bc966d8c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "5f7ea5b77d12731688f4e2e72e8190f70c62763d4bdb94e8c30ea1c0625db9d6"

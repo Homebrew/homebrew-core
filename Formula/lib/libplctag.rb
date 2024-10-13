@@ -1,8 +1,8 @@
 class Libplctag < Formula
   desc "Portable and simple API for accessing AB PLC data over Ethernet"
   homepage "https://github.com/libplctag/libplctag"
-  url "https://github.com/libplctag/libplctag/archive/refs/tags/v2.6.1.tar.gz"
-  sha256 "f9a8c1092abaad40aa3330d402ac36028e88b4a50a93534b72b42716580c1b4e"
+  url "https://github.com/libplctag/libplctag/archive/refs/tags/v2.6.3.tar.gz"
+  sha256 "ebbcd659d5137d1299780e49b139d1e991b5a731df6dca0d7130b58555673a6d"
   license any_of: ["LGPL-2.0-or-later", "MPL-2.0"]
 
   livecheck do
@@ -11,13 +11,14 @@ class Libplctag < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "7a8e21912b889421526cbe388601a67446783b78107f10f26bdce210f2c7a804"
-    sha256 cellar: :any,                 arm64_ventura:  "04d67e008bf804a66b9331ad01f2af12d88f808024440471db677b00b3e2b29b"
-    sha256 cellar: :any,                 arm64_monterey: "c2bd3674aa6430d1613d15e74ae4171ab24474a9cccbe61c294458b95d5d2c7e"
-    sha256 cellar: :any,                 sonoma:         "82c931f491be52502cf856a9c2523b14e1f6ffea99e6aab391af02550e4ff20e"
-    sha256 cellar: :any,                 ventura:        "552f29c50e5981ff80a1fcca503fbeebe3d896a90dd2e24be5c843d05034a8bf"
-    sha256 cellar: :any,                 monterey:       "0e0e30ff9da68bf6d5e72df0cf3462eefe5b7d3feeb99f482b9f96b993c1e771"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c54adce2de479a93a16b27272ba9affa7154eeba80e46c0d2512e43076eb7f32"
+    sha256 cellar: :any,                 arm64_sequoia:  "531813b0902a9c6cee6547b724bd790dcc25bdd56ed8c4d83aa77b0ece77df95"
+    sha256 cellar: :any,                 arm64_sonoma:   "dc6b380ddabd0deb6356e5c4858539d5d93c467521127541c1178c60fdce213c"
+    sha256 cellar: :any,                 arm64_ventura:  "f05b40f9a1a1e7ce4836a9aafefccb0f0637293457b50af1011138df5115b72b"
+    sha256 cellar: :any,                 arm64_monterey: "8ee7a04c8066496aa7519a12acfca94b4e49d18fddfeb4b39722277146516ab0"
+    sha256 cellar: :any,                 sonoma:         "56c790736952cfeec473004b11a6e802a64632fbe0b6310137e24fd6ea27e034"
+    sha256 cellar: :any,                 ventura:        "c2f745ee79bbf95b4c48a80942954618c77a429ffeb9fb8525165f3ab8682d30"
+    sha256 cellar: :any,                 monterey:       "b6a35d8303c4198bc22f38a4f60ad6aba6cf4ec5593cd77eaa207dbb2779a13d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fceb54a005681b6071a970c62cf2e0ce0e2f1719bca67aaf34d648f22349a510"
   end
 
   depends_on "cmake" => :build

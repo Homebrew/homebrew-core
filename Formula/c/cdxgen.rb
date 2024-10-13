@@ -1,26 +1,23 @@
-require "language/node"
-
 class Cdxgen < Formula
   desc "Creates CycloneDX Software Bill-of-Materials (SBOM) for projects"
   homepage "https://github.com/CycloneDX/cdxgen"
-  url "https://registry.npmjs.org/@cyclonedx/cdxgen/-/cdxgen-10.8.9.tgz"
-  sha256 "f497786d587ad23226c5f5930bcf0ee64166a5f5a61f028244df042e4a5fcdd3"
+  url "https://registry.npmjs.org/@cyclonedx/cdxgen/-/cdxgen-10.10.4.tgz"
+  sha256 "a23eb5a4d6798b451896b2b40be3d1450fdad07d44f9721152f042d09302d0de"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6d314700d4c83a33efc3bef0c170d4c5b680c57c1ef1548100b6de2a2e6840c3"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "78b16d5914ebd046a8a755de4a8b72b7a20c040b7dc6768f64bd5d9731a97ee0"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "40b45a5f01323ce050f5fe50e47cbba33cbd6232158591c899898e5727f6a6fa"
-    sha256 cellar: :any_skip_relocation, sonoma:         "fe159cdf6644957668e6226488c99b2b73504ee02bb41942c146e7c7fdd8951e"
-    sha256 cellar: :any_skip_relocation, ventura:        "9819b87a78ea2d2923d1d62a7a10fc23bd18e8a7391ecb7b9bdc6b004524cea7"
-    sha256 cellar: :any_skip_relocation, monterey:       "25597a8bb0457bb97f79beab2f00256d66a771c4e75755fcb7550dbd877fb2e0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "445cbcba7dd799de8d3692a22c0a6d9ecb0f6193c740d6f901a8d88908da5ebb"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b3e06b26e9046bdb4840ab2acf32922e1c8b9b93105b7ff3316c1a9d8ef4ecf9"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d27f0048d82cff1f50fe87d789e431f7d4271c42975e1fc85225310ac63b34d2"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "ab1b34a650fb37aeb93cee742059f24e6f436c80d62748c3fcb656c92a0b0637"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2f90fffcf3a70f9be23de38dd4108a3abf7f75497b0b8601adcd33d43c1f8605"
+    sha256 cellar: :any_skip_relocation, ventura:       "84735f932cc1758ba6f3f49ec87cff60634288ec10dc6118b65ba081d62d1c56"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a2e565084e81dec36cddc4174034902fe72df0bbfe86d043aac0620322399f32"
   end
 
   depends_on "node"
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", *std_npm_args
     bin.install_symlink Dir["#{libexec}/bin/*"]
 
     # Remove incompatible pre-built binaries

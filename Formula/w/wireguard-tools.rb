@@ -14,6 +14,7 @@ class WireguardTools < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "b3cc085b5898b8e1b5a12ca32495d641af5cbe2085d64348d669a3277c0edf7a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "afec9bdf1a24e98a53e4568fb82cce22ca05ac4607f48a84e67fb9e5ed6a9df4"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "00c5b2ed459e7beae63c31d85c5be506b43dc2936439c5139bb92482a5df9b37"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "25c8ed67136dcaa8d5292aae40793fd68fe6b803d57fc698a9bc7712bfc1c37f"

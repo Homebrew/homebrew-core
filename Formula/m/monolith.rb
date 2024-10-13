@@ -1,18 +1,19 @@
 class Monolith < Formula
   desc "CLI tool for saving complete web pages as a single HTML file"
   homepage "https://github.com/Y2Z/monolith"
-  url "https://github.com/Y2Z/monolith/archive/refs/tags/v2.8.1.tar.gz"
-  sha256 "16bc9010f6a425ffa6cc71e01ab72bb3c9029f736c30918bff70157115b3ae9c"
+  url "https://github.com/Y2Z/monolith/archive/refs/tags/v2.8.3.tar.gz"
+  sha256 "51769e6505d5708ac296e5d93e280c9fefa7873452d471c5106aaeb7c3667f9f"
   license "CC0-1.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6706f0c92e08ef9a6ddde3909affb08c2bc73a182bba2743d9a749f2d04d1d4e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "53c97c6e153e089a3060cfd56e6cb3ac0b905acf04605fdd2504d624d61690f8"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9eb4b854965d62ff6cfa4d0dca120c1fa260c170763dc242afa43b36efee24eb"
-    sha256 cellar: :any_skip_relocation, sonoma:         "2b5fa9d548cf64fc872b6507abe24648215ee6bb7e6b9c1ecc8d0eed30aa53fc"
-    sha256 cellar: :any_skip_relocation, ventura:        "4ee9e494db43ce35bb963af6784d6ce3fdb99a5a5c8a381c0665cef324e6cc4f"
-    sha256 cellar: :any_skip_relocation, monterey:       "9d0a0eefb85a3193bae463e17820735abff925de23c2d9ef63ef3b870f6ee31e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "eaf5fe1cfb7273562ab9ab32697e869cf02f2e33cb85dda48b70c0157229c13d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "8add25f488753d8a34bcc51b3fa165788d5ebf32ad90ccba8fe2aaab0293247a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0ab9ecc0569d14a3e88d260a59e7c5e224d287d4c5c8845e50de25fc8cb7fc9f"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "39c6a4d727b1e5a295db251c3cf4dc7f6293648c1edbcee23d4cd44fda350495"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "97bf2afafa039b7ac7fb576efe1067dd669ca8eac30634f0defae4d13f326a65"
+    sha256 cellar: :any_skip_relocation, sonoma:         "84a2e97eb0d8709cd61f2ac96bbde95bcdee65234ff48816b38f9d70e5e9f759"
+    sha256 cellar: :any_skip_relocation, ventura:        "d82d1646266dcfee5c25a987152a7765ec689e4335991f2868c780207e246e15"
+    sha256 cellar: :any_skip_relocation, monterey:       "8b97aaeb90d8f53a8467bca19b27984e2edc6b4bfbd289563a80c0f5320a2ee0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ed61ceace599a74a98a764b29b5e86b5eb39a290ad831b093f8d1ab40222c31c"
   end
 
   depends_on "pkg-config" => :build

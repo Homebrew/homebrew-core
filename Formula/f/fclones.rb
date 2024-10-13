@@ -6,6 +6,7 @@ class Fclones < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "066372287675aca1dc5b9235734ad7eacd79945e6ace1992ba97fde2241e6701"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d720767853cc23dd6fb8a35008d39c8b005f99b367c0d260b1197d1a9d4c19dd"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "16fa6fb02ca993ef54bd942f18860dd602ea04946149c296fabaaecde93dd55c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "68841eacebe1435bb4e39325ed55522bc51d8668ceeb7f108fb9482c7c32f49f"

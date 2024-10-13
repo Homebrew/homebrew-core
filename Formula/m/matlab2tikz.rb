@@ -7,7 +7,8 @@ class Matlab2tikz < Formula
   head "https://github.com/matlab2tikz/matlab2tikz.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "e798fd3ffe10d075bc3d1c25838630d2cac7cea104eac0af823b5d91c8c50854"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "f76f11ee806e2256f088b5dd34b534e94e8bfd48f495152bb623d7519dc2b893"
   end
 
   def install

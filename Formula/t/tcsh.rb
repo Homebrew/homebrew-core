@@ -12,6 +12,7 @@ class Tcsh < Formula
   end
 
   bottle do
+    sha256 arm64_sequoia:  "0ceaf5267bed3efc85efcedebe5e32a5c83fe675c4b03eb0681882efea27de11"
     sha256 arm64_sonoma:   "b21a9a41ce1df413301c79c0cd433134cfa384c45270f1aca43170e81982cce3"
     sha256 arm64_ventura:  "f731e3a53d88baaefbdc5bbac669b55d2895ab6259d7f63d922d566e8b25dc42"
     sha256 arm64_monterey: "787dcae47ce234cdd6f3df70b6458ea955e73f936acbb53e0e9083464a109b17"

@@ -3,15 +3,11 @@ class MesalibGlw < Formula
   homepage "https://www.mesa3d.org"
   url "https://archive.mesa3d.org/glw/glw-8.0.0.tar.bz2"
   sha256 "2da1d06e825f073dcbad264aec7b45c649100e5bcde688ac3035b34c8dbc8597"
-  license :cannot_represent
+  license "SGI-OpenGL"
   revision 1
 
-  livecheck do
-    url "https://archive.mesa3d.org/glw/"
-    regex(/href=.*?glw[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
-
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "b127d5bb8ec7caceb1de9e05a28bf845242e04886ad39357558704b9ffd51e9b"
     sha256 cellar: :any,                 arm64_sonoma:   "e36a490fd422b17fc371870a0da3c657520cc1e90bb01a865c1356a6bb466acd"
     sha256 cellar: :any,                 arm64_ventura:  "a9fdf656540dc268519f8e3fded305c1e86c4690cf7cfa5571e3edbee9e56cc5"
     sha256 cellar: :any,                 arm64_monterey: "f19366ec40b0666882b3d10a0e6635ecc25e75446a85bb695f44ccaf35ca809a"
@@ -25,6 +21,12 @@ class MesalibGlw < Formula
     sha256 cellar: :any,                 high_sierra:    "fdd89421a230f4b3ea4c2b73cae82cd37d3b44bc61afd5b9e7274dc23491dc8b"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "f7ca035e7cb0fb4bb11fc7978a33f619b1adfb06678260f70df6b79f6dfcd91a"
   end
+
+  # Official[^1] git repository has been archived[^2]
+  #
+  # [^1]: https://docs.mesa3d.org/faq.html?highlight=glw#where-is-the-glw-library
+  # [^2]: https://gitlab.freedesktop.org/mesa/glw
+  deprecate! date: "2024-10-09", because: :repo_archived
 
   depends_on "pkg-config" => :build
   depends_on "libx11"

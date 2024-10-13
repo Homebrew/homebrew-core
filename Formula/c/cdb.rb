@@ -12,6 +12,7 @@ class Cdb < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "8ea510b1e7233cd4f071d380ee73c44e72ea5d220798faa58ee7ac41280350f6"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7a7bad3e2c174916e5e286dcf7e7d576a9996f8f199cf001b91d8232e0719c46"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "7516272a59a2e3f387bd50b183a2238d9c5333b788cd1f3484ca15ca3c198c8c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6641aee9a21258f66441e250aa172ea092731be3ead3ae1b85393188d16dd61d"
@@ -38,7 +39,7 @@ class Cdb < Formula
   def install
     inreplace "conf-home", "/usr/local", prefix
     # Fix compile with newer Clang
-    inreplace "conf-cc", "gcc -O2", "gcc -O2 -Wno-implicit-function-declaration"
+    inreplace "conf-cc", "gcc -O2", "gcc -O2 -Wno-implicit-function-declaration -Wno-implicit-int"
     system "make", "setup"
   end
 

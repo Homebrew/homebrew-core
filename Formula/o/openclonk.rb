@@ -89,7 +89,7 @@ class Openclonk < Formula
     File.open(buildpath/"tools/osx_bundle_libs", "w") { |f| f.puts "#!/bin/bash" }
 
     # Remove unneeded bundled library to avoid default fallback in build
-    (buildpath/"thirdparty/tinyxml").rmtree
+    rm_r(buildpath/"thirdparty/tinyxml")
 
     # Modify Linux install location for openclonk binary to bin directory
     inreplace "CMakeLists.txt", "install(TARGETS openclonk DESTINATION games)",

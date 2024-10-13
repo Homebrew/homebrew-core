@@ -3,9 +3,11 @@ class Ddate < Formula
   homepage "https://github.com/bo0ts/ddate"
   url "https://github.com/bo0ts/ddate/archive/refs/tags/v0.2.2.tar.gz"
   sha256 "d53c3f0af845045f39d6d633d295fd4efbe2a792fd0d04d25d44725d11c678ad"
+  license :public_domain
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "12ef0c2a08ae6e73c6cf73a94e662c513cd9d8cb46ed1567653236d5ca5e7b4a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "124fa6334391f5ba314292ba2e47b535cebe68a79272ee5a9d3ad9d457ef4558"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "fe29278ae4f80f7c8db1de60b5aebf6d80b309b8b3d7cf866f1d092f7a4c518f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "967dbd56914c5b0d578b93c936f311f2af91dade23abefb8d3e6d6d8814b142c"

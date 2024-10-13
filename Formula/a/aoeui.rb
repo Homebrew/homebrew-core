@@ -6,6 +6,7 @@ class Aoeui < Formula
   license "GPL-2.0-only"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "d884318d049fd6851389c8c37f7c0eb1042fbeb00c7cf7d0829ce6ab3d45d81d"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7a151b75fa791fe09b9b8e76783aeb89afdaafef9cd14e70208bde09334dfd84"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f595bfa77ba8b7c03b12866673e1104b82d2d9e269c781279010a149ee49597a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1591ca7ff3b44a5947dbe9502987b9eb5566d2670048f3317cdf96d8af28fd77"

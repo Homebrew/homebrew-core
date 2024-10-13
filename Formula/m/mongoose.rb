@@ -1,18 +1,19 @@
 class Mongoose < Formula
   desc "Web server build on top of Libmongoose embedded library"
   homepage "https://mongoose.ws/"
-  url "https://github.com/cesanta/mongoose/archive/refs/tags/7.14.tar.gz"
-  sha256 "7c4aecf92f7f27f1cbb2cbda3c185c385f2b7af84f6bd7c0ce31b84742b15691"
+  url "https://github.com/cesanta/mongoose/archive/refs/tags/7.15.tar.gz"
+  sha256 "efcb5aa89b85d40373dcff3241316ddc0f2f130ad7f05c9c964f8cc1e2078a0b"
   license "GPL-2.0-only"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "9139ae60d33a7a6f1cde266b0b36ebd6ad4bb0b64461f5e00096ae6ad3893a6e"
-    sha256 cellar: :any,                 arm64_ventura:  "73e48748cd2b02596a228b760bbca2369184dc6902b0fa100b218f79b70b6981"
-    sha256 cellar: :any,                 arm64_monterey: "655a8b98ec682257158274208686e4e51f53c9207810fdf94d70f056c0789ce8"
-    sha256 cellar: :any,                 sonoma:         "b8587f3fd232d8362cc1a18aa6246fa0d3774d6d0f1fae1b720612205b88e51a"
-    sha256 cellar: :any,                 ventura:        "68bddc1bacad47e7b48437e841d94707a9e5cdd15a9aa360280e38119c111662"
-    sha256 cellar: :any,                 monterey:       "1488dc6df62d74d2f77a21dba9882b364d91ac1883399c0484aeab0be6b39e55"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "db4a593ab08328030b3b998b48f988467e55df0658c6fffc3aab7a30bef21258"
+    sha256 cellar: :any,                 arm64_sequoia:  "22a4f3acc392f97710bbb2eb7b2a8652deb0e32c42a2372a273a97c780bd7654"
+    sha256 cellar: :any,                 arm64_sonoma:   "8fa426f24794e047d6b2ef627e70d7469dab6004b63a2da262273fabbf6fdd08"
+    sha256 cellar: :any,                 arm64_ventura:  "2f01277d6d1f691ad4dc55a26251a56fae6b85fdc4abac97fe19804b2cb700ae"
+    sha256 cellar: :any,                 arm64_monterey: "e796a72aa7601a0573f63e5d822fd24c018c4f2f49ba9c62fe9500f62a184e3e"
+    sha256 cellar: :any,                 sonoma:         "8b4feba3ce4d790de7cb53461a252769c86cac32c0ab676782856400ac73f9b4"
+    sha256 cellar: :any,                 ventura:        "2cc1fabb8af18a789cd2a90a64f31408306a02c65abc94b01c9682bd4c5fb54f"
+    sha256 cellar: :any,                 monterey:       "5ad700fcbe8d2be7f2ba8be80196cf47306d3c65d05d4293f8e756d2935eff2d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b3faf77782983cb1c0e662afb1321326c2742e656bb6e8af8ab678f9a417ae3a"
   end
 
   depends_on "openssl@3"
@@ -50,7 +51,7 @@ class Mongoose < Formula
     EOS
 
     begin
-      pid = fork { exec "#{bin}/mongoose" }
+      pid = fork { exec bin/"mongoose" }
       sleep 2
       assert_match "Hi!", shell_output("curl http://localhost:8000/hello.html")
     ensure

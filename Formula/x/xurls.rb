@@ -7,6 +7,7 @@ class Xurls < Formula
   head "https://github.com/mvdan/xurls.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "2e807c057433c0ed36d7143bd8996cf6e2f45d63b34fac89b2c8958928e3122f"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e1bff20d5c71c28fd1931855730748b6b45accd8282d399fd2d854db05d98830"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "c450839ae17f188495de308aba6e40980a624c456c0da546879685f527712529"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c450839ae17f188495de308aba6e40980a624c456c0da546879685f527712529"
@@ -25,7 +26,7 @@ class Xurls < Formula
   end
 
   test do
-    output = pipe_output("#{bin}/xurls", "Brew test with https://brew.sh.")
+    output = pipe_output(bin/"xurls", "Brew test with https://brew.sh.")
     assert_equal "https://brew.sh", output.chomp
 
     output = pipe_output("#{bin}/xurls --fix", "Brew test with http://brew.sh.")

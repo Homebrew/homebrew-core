@@ -1,18 +1,17 @@
 class Zoxide < Formula
   desc "Shell extension to navigate your filesystem faster"
   homepage "https://github.com/ajeetdsouza/zoxide"
-  url "https://github.com/ajeetdsouza/zoxide/archive/refs/tags/v0.9.4.tar.gz"
-  sha256 "ec002bdca37917130ae34e733eb29d4baa03b130c4b11456d630a01a938e0187"
+  url "https://github.com/ajeetdsouza/zoxide/archive/refs/tags/v0.9.6.tar.gz"
+  sha256 "e1811511a4a9caafa18b7d1505147d4328b39f6ec88b88097fe0dad59919f19c"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f676f976bc36f800fb3e1501dac29b579493d4cfe09217bd9a7a78d7a6289ed3"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1e0633546aacf6a5b61e8f4f3a3267fc2fe20437bdef451523bf6f6280441bc2"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7a8eb375e99c59cd6f24432d3dd80d4ad7d6e79f43de93c215cfa79f7a27ff33"
-    sha256 cellar: :any_skip_relocation, sonoma:         "117d3d68c603514fd9c0db890f2cfb6337748b897e15d0f60ff1f80adcf72535"
-    sha256 cellar: :any_skip_relocation, ventura:        "c57845be5b2e1c2b1c0a1830ea238790be6010ac8471bff993e52e29e3588a38"
-    sha256 cellar: :any_skip_relocation, monterey:       "599d8d2fcd5f2dddf52ba4815bb310e3344f2b30bae902a6aff8956ef4991f1d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "778fb5fd4766a8a149ad721195b626bf7efc8d11da7ae15b9a5d95a2b5a07365"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "964e6255290fc811c6cd48fbaa64c43aae2c02ff3428a9e3f80f0edbc80c813f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "56cffdc072dc292ff685eb356dd749989d11ddaa61ea25d9f491c366f1233fe0"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "8ae8e0ad889364e1c61e2e0e66abf2961758ca26893e76a00e771eba4a83ae4a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "a5bd1154c5fcb0fc2bfa696a22e7d5ee25ae83a7c3f06c27b155080c493f110d"
+    sha256 cellar: :any_skip_relocation, ventura:       "b311dbb14fadb2c043c5328b2b646d2224cac3a5abe522bf881b5ac0ab4bab9e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aec49f52a6ebf297cb4b1ab2f04a34cde413606979e017b27f92fb7ca3812c64"
   end
 
   depends_on "rust" => :build

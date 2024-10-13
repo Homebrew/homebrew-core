@@ -8,6 +8,7 @@ class Lux < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "098c398f3aab12f2479004b768757b98ec66c4473c392345b0bc5b5b37c690b7"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ec6c1ee606e93f2a6d69f052926d6646ea9b3d55b818392ce48b60bcbd2b5464"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "7efda3117e78deb37e8131758ebaac2ad7956ee9f874703baa273416d9854763"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ca4e5eb68eb6190a9121273861c7e54224ad8845854b3e28a57d775fc5ee5f70"

@@ -7,7 +7,8 @@ class Tailor < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "44e1ad8a024ce513684ef98d5cf0087a0c89b7aebbbc3cf2d5905ab71771db54"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "ff96b6b585afcd69215b88d8a797bfc4115c987b6dbd58c1e844c8d7ff268fec"
   end
 
   depends_on "openjdk"
@@ -20,6 +21,6 @@ class Tailor < Formula
 
   test do
     (testpath/"Test.swift").write "import Foundation\n"
-    system "#{bin}/tailor", testpath/"Test.swift"
+    system bin/"tailor", testpath/"Test.swift"
   end
 end

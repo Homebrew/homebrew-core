@@ -16,6 +16,7 @@ class OdoDev < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "32ed81abf7115b46fcaf8f41f9b50aa1e4bc907945e575c1ebb26a9f6d30e60c"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f0fe7015bd9afd3f18cd9c156ce2f6b21a9dd36c3b410dd759390562e3cf7722"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "e6e8bb684ac9d7ec17bfbdda63d976a60316d2c48771d8267f713291142d09bb"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "954ce19cd59112f50bd8c4cd6b29a9fe2906f914995dd05ccdcaed6a96e29424"

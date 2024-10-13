@@ -11,8 +11,8 @@ class Denominator < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "865e74e14f10ef0b2b6e12ecf3b01f78cc35301da7d85c27d189cc84ec7cad1d"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "3da7d5704460e94f75bd1241c7d285971b2c22f23633c2cea058cccefc6a65e5"
   end
 
   depends_on "openjdk"
@@ -23,6 +23,6 @@ class Denominator < Formula
   end
 
   test do
-    system "#{bin}/denominator", "providers"
+    system bin/"denominator", "providers"
   end
 end

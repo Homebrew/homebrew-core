@@ -11,6 +11,7 @@ class Cpmtools < Formula
   end
 
   bottle do
+    sha256 arm64_sequoia:  "e689ad1b8bec7b7fb8b2f39ddccca66072998a172b7ef8788eeb6e54d06c4395"
     sha256 arm64_sonoma:   "229e3ca8bb433a8ca06a17c2d7b433648e9705c56bdfdc8d8084440d8244a3e1"
     sha256 arm64_ventura:  "2fbd054f0433e92761ef5fa76de830ac7bfeeb08525eede726f9d3d969e165df"
     sha256 arm64_monterey: "2324010d143ab9616a622b9d147b7aaf256feed91b05ee18226c8bfaa14f956a"
@@ -43,20 +44,20 @@ class Cpmtools < Formula
   test do
     # make a disk image
     image = testpath/"disk.cpm"
-    system "#{bin}/mkfs.cpm", "-f", "ibm-3740", image
+    system bin/"mkfs.cpm", "-f", "ibm-3740", image
 
     # copy a file into the disk image
     src = testpath/"foo"
     src.write "a" * 128
     # Note that the "-T raw" is needed to make cpmtools work correctly when linked against libdsk:
-    system "#{bin}/cpmcp", "-T", "raw", "-f", "ibm-3740", image, src, "0:foo"
+    system bin/"cpmcp", "-T", "raw", "-f", "ibm-3740", image, src, "0:foo"
 
     # check for the file in the cp/m directory
     assert_match "foo", shell_output("#{bin}/cpmls -T raw -f ibm-3740 #{image}")
 
     # copy the file back out of the image
     dest = testpath/"bar"
-    system "#{bin}/cpmcp", "-T", "raw", "-f", "ibm-3740", image, "0:foo", dest
+    system bin/"cpmcp", "-T", "raw", "-f", "ibm-3740", image, "0:foo", dest
     assert_equal src.read, dest.read
   end
 end

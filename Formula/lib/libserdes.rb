@@ -8,6 +8,7 @@ class Libserdes < Formula
   head "https://github.com/confluentinc/libserdes.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "9cb58d9f9f6a564d219bd9a76ccde9e11b22ccb07bbad4e62e2f22f4cd7baff1"
     sha256 cellar: :any,                 arm64_sonoma:   "a335b839fa4fb5d79f5008bd8a277e5579f250cfe6adb48abeec4aa4b4fd759a"
     sha256 cellar: :any,                 arm64_ventura:  "8121b5492ec3631fb454765e917e234010bb6c0d314b3783062aeeaf00950111"
     sha256 cellar: :any,                 arm64_monterey: "6496f4d41457a209c42b3221b91be84209a6b1fa25f1be8fba95f1398dbadfb5"

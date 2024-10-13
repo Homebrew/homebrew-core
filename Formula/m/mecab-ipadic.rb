@@ -5,6 +5,7 @@ class MecabIpadic < Formula
   url "https://deb.debian.org/debian/pool/main/m/mecab-ipadic/mecab-ipadic_2.7.0-20070801+main.orig.tar.gz"
   version "2.7.0-20070801"
   sha256 "b62f527d881c504576baed9c6ef6561554658b175ce6ae0096a60307e49e3523"
+  license "NAIST-2003"
 
   # We check the Debian index page because the first-party website uses a Google
   # Drive download URL and doesn't list the version in any other way, so we
@@ -16,6 +17,7 @@ class MecabIpadic < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "b0b12716ef5436fca113fb97c824e532b50b86ef59cb5b035498d00f54579286"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2ab9a752833b99a87201dc1217e3774ca21aac1a87971dac1196bed13d1b428a"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "23c4ce0042e583b45fe99a339a10c481f80d5d2055ca896924e3e4c764460dc6"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "68eec45d5e084ffeab687ccd95391dcbb1cfd80ddb73232253304a1ea1fb0be0"

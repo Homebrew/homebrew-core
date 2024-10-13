@@ -7,6 +7,7 @@ class Lemmeknow < Formula
   head "https://github.com/swanandx/lemmeknow.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "03fae36a6ddc5d004cc3eaadbf554dacfb3a5d968835708de4b595e9acdbc90f"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c283216680e3331f7630e128ae29070f4710ee6175b237f8449cde10482a9d0b"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "90517e35b64697b70153db585ce845aa789762a3dd0aeec955a6ef4f516194f9"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "67edad348c761e6fb74da22ecd3fcfa511eed0b3239a9eb5ed5ac4df71abdf4d"

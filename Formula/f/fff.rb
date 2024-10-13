@@ -6,7 +6,8 @@ class Fff < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "3f3ef09db2afedd44ec883cfc9a050400e3a4c1526b9465185386a8494283467"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "a29ce06195d0e997c84daca50a89c6a22eb6ff81589974ea4e09601110989f25"
   end
 
   deprecate! date: "2024-05-04", because: :repo_archived

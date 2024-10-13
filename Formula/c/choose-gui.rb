@@ -6,6 +6,7 @@ class ChooseGui < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "6945adef420d93507a9b315deb745ede15be54bd5f3f7d2b739e66e63a641ae4"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e2f335db4a15c2bb6d13f34e2247b88537b30bdb29d88f315c00125a5ad510a7"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "ea87b1a590c751e812b4fada4882951b3cda17c489ab4f6a1fd4398acbe262aa"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "630408a8095e21ae5a7f25892d49edd0936e0bc397d85af335f898d3d8c45508"
@@ -29,6 +30,6 @@ class ChooseGui < Formula
   end
 
   test do
-    system "#{bin}/choose", "-h"
+    system bin/"choose", "-h"
   end
 end

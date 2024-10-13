@@ -1,18 +1,19 @@
 class Ktfmt < Formula
   desc "Kotlin code formatter"
   homepage "https://facebook.github.io/ktfmt/"
-  url "https://github.com/facebook/ktfmt/archive/refs/tags/v0.51.tar.gz"
-  sha256 "06bae556a9ee79b5a0942565795a9f8a12bb3501dad397ea07d6dc77c15ae3d7"
+  url "https://github.com/facebook/ktfmt/archive/refs/tags/v0.52.tar.gz"
+  sha256 "dc4e97265004e399ea14f49bb82944de88c29d1e8d105ed68caef453e0d8c6e0"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4046973aa73aa2decf3bf540866bf264885ea962945d0417dac0e453b4a1a4bc"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f4633eed12e0a7d03df41624ca88d3a25d79516b274d3bfbf52a0bfad103f9a6"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "4ac39b1493a0fd387bcbdd8271d3dc70c54ae504299264de75d6d1926af59639"
-    sha256 cellar: :any_skip_relocation, sonoma:         "72cf6bcb63ac7d9d2c640448ff25fc2402005b787d401a84cffe9a51609e6162"
-    sha256 cellar: :any_skip_relocation, ventura:        "229b92464bb74f0308f9df2fa0ab577d9a8d0fefe9e6db43f0839019abe84996"
-    sha256 cellar: :any_skip_relocation, monterey:       "46b17ce0d8dd14bc2ce92ef658ac59a64982adf0d66f2a602e4ab6cb17650595"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4fdc5694531f2ddfaef94e60e6776caf7ec01b7a21fb9aece33560a701cdc5ae"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "96edc276190c92a8d41329b1f227bcab7cc332fe265bb958b58dfe4c45153567"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7cb3c4429048ca0e1ed17659bc7aefd91d9ffca998a865df7d055cdfca9f390b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4a6c790dd70506352735b5c57f462a5dbb2110d98a4fdfb18c46cfd93b5112b1"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e7e0fd43e94ad260584746f0a085373582471a27db2724eff7cf7fa1d9713753"
+    sha256 cellar: :any_skip_relocation, sonoma:         "5190b5fb757806cad7a99ad542f0208994e75dd83b95c09a63d12ab4ad69f777"
+    sha256 cellar: :any_skip_relocation, ventura:        "7f04cab89f4c5132d1c2bf1a5eeb221d9b92c7e698521d09e4a69c5edfb5dd49"
+    sha256 cellar: :any_skip_relocation, monterey:       "e00c651910ab4555349263ac7def9060c78e698cbaeafa6b6e49cfc12341b287"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5bc616902973172d2888714b6aac280e042cda25b525c08452ffdb08e0daee88"
   end
 
   depends_on "maven" => :build

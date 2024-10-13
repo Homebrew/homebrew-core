@@ -7,7 +7,8 @@ class Xmlformat < Formula
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "65b8ac9770d3a9b885318529fd73469a4c341d790174568baba41f0b72c25b7f"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "cd9bb59ed3d0a6d32cbf62cf15a6fde64801d7ef21fd5d73070b1f3991dbef50"
   end
 
   deprecate! date: "2024-01-10", because: :repo_removed
@@ -17,6 +18,6 @@ class Xmlformat < Formula
   end
 
   test do
-    system "#{bin}/xmlformat", "--version"
+    system bin/"xmlformat", "--version"
   end
 end

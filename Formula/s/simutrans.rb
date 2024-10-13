@@ -1,25 +1,29 @@
 class Simutrans < Formula
   desc "Transport simulator"
   homepage "https://www.simutrans.com/"
-  url "svn://servers.simutrans.org/simutrans/trunk/", revision: "11351"
-  version "124.2"
+  url "svn://servers.simutrans.org/simutrans/trunk/", revision: "11395"
+  version "124.2.2"
   license "Artistic-1.0"
+  revision 1
   head "https://github.com/simutrans/simutrans.git", branch: "master"
 
   livecheck do
     url "https://sourceforge.net/projects/simutrans/files/simutrans/"
     regex(%r{href=.*?/files/simutrans/(\d+(?:[.-]\d+)+)/}i)
-    strategy :page_match
+    strategy :page_match do |page, regex|
+      page.scan(regex).map { |match| match[0].tr("-", ".") }
+    end
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "c2fbd52dc6359452a145c821d73c066f37da4db93041892d26b9c793ab2a53c5"
-    sha256 cellar: :any,                 arm64_ventura:  "b2be8ba9bdee787dcddd2fa3ced62ef0045033447d7d8bad6c83abbd309d0173"
-    sha256 cellar: :any,                 arm64_monterey: "00e11775d858f4da3409305e6466b017bf70fbbe361d64a3ec273eab699ec0f9"
-    sha256 cellar: :any,                 sonoma:         "5b63b20dabccc424807d9010893f0061785d563f8b392ecdfa3f05d1d0155670"
-    sha256 cellar: :any,                 ventura:        "8c1246cd704450f903734f8453bd70a6e8f66f7e93c39b43bb810e9da408462a"
-    sha256 cellar: :any,                 monterey:       "f1c54cb3e3fbe65542e2c474e62dfb3525c1686dc2b93ea7c6eaee7dbbc7fa89"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4cd54e58b98c90f1a716fd2cfdcfd125807ace32396871b14dadf96f5e4164dc"
+    sha256 cellar: :any,                 arm64_sequoia:  "57b2b227bd0962278b76f4281e424be3ec7e94227963ec877b63bc438732c2b1"
+    sha256 cellar: :any,                 arm64_sonoma:   "17e41bafcc374a208f3b8fee523624a11fae59833937424c73b1e95a46bd6a50"
+    sha256 cellar: :any,                 arm64_ventura:  "10f6e3b0a13418087ef4279cf6e8bab8749bde9c7cb96ed3d77d6940d9628f1b"
+    sha256 cellar: :any,                 arm64_monterey: "c4a92a1ec038f1e3e62b10eb65e0e924cd1a466a1f439bbdff5d188ed72e8ef0"
+    sha256 cellar: :any,                 sonoma:         "7f5744c508f30e94606b7fa3b80538496a046aaee1ddfd1979a4dd96ec631233"
+    sha256 cellar: :any,                 ventura:        "60fe1014db2324ad72cc22b3fac06e44e56ebaf7970b813dd8c548cd9c1b16d3"
+    sha256 cellar: :any,                 monterey:       "07e5d7e2df39a706705cc6500ff0729f909e8f9a1cc0bea88e276cd868756eb2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "75422ede98ee42a856d407977731f4dd909a00a4d44f657e972800ec5f113111"
   end
 
   depends_on "cmake" => :build
@@ -69,6 +73,6 @@ class Simutrans < Formula
   end
 
   test do
-    system "#{bin}/simutrans", "--help"
+    system bin/"simutrans", "--help"
   end
 end

@@ -8,6 +8,7 @@ class Csfml < Formula
   head "https://github.com/SFML/CSFML.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "02e7a77b215a808cd2948b295752ea660f0a9ce2065c4ebae68ff20dbfcf6364"
     sha256 cellar: :any,                 arm64_sonoma:   "51106a18de295924740040dfe451298bf81642b99085741ab536200be362a270"
     sha256 cellar: :any,                 arm64_ventura:  "49eef8514705e01c7bdaf6fb3c82aacee098eb42bcdbc671a937e100e51dec23"
     sha256 cellar: :any,                 arm64_monterey: "99aa119e5df305ad65af18397978c39e2f2ea88c3aaafbd9e4c62fb92a5e24b0"

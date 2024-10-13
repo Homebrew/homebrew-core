@@ -6,6 +6,7 @@ class Dhall < Formula
   license "BSD-3-Clause"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "92267cccea4fb48297611e098da0a5491a51e9a5b0e2ed1caab6d19c787a3855"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9b3adf9545d76acec8f309f2da83bcb9abc68f0784aad85bf63d06fde76d8d54"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "4a889ca9eed3abcf80ba989c87c2f4ad05c24a8573111583a30f3472ee2d0cc9"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b622f20190b66b0fa9ec8f16d64362a947bc42c24e59c7d1fd6ed6beb409b5e6"
@@ -16,7 +17,7 @@ class Dhall < Formula
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc" => :build
+  depends_on "ghc@9.8" => :build
 
   uses_from_macos "ncurses"
   uses_from_macos "zlib"

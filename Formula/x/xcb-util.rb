@@ -6,6 +6,7 @@ class XcbUtil < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "f23b606bbe08c4b9fc5ce87f19db91cec6fc152298157af1632cb109f669a83b"
     sha256 cellar: :any,                 arm64_sonoma:   "f29e26409668f49cdebd9f07f926deb60775d4d937ad688ea1676b138e2ac3ec"
     sha256 cellar: :any,                 arm64_ventura:  "9ccd3441ee24d90d2f4d8d62cf74d6d8bb0879b60d7b56b325b72ae0854459ee"
     sha256 cellar: :any,                 arm64_monterey: "215d383f16158649c221e28f4c4d3c1ceac50c38ec36acad63dcb95a8ae76373"

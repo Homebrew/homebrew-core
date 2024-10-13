@@ -6,7 +6,8 @@ class DockerClean < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "d23f5d1c32f2bd4a758bf8111008d0f6111080de861ca24abd0f8d5cd6ee6b86"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "8534cd2757101cb7ea6fc68d2175147769009a5b6bbab15d87bd5b83f46a06d6"
   end
 
   def install
@@ -14,6 +15,6 @@ class DockerClean < Formula
   end
 
   test do
-    system "#{bin}/docker-clean", "--help"
+    system bin/"docker-clean", "--help"
   end
 end

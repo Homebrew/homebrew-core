@@ -4,17 +4,17 @@ class Libxt < Formula
   url "https://www.x.org/archive/individual/lib/libXt-1.3.0.tar.xz"
   sha256 "52820b3cdb827d08dc90bdfd1b0022a3ad8919b57a39808b12591973b331bf91"
   license "MIT"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "d73d8d80bcd571049e6989933294d52eedc693a3c8fa8de5f60d127fec7bfc13"
-    sha256 cellar: :any,                 arm64_ventura:  "4e3291545ac676d5b024906375b74ba313640031b4e9d3ffb26917aee8b56025"
-    sha256 cellar: :any,                 arm64_monterey: "0f000fce8ea72ab0862fe2cbfa50441c891bf4c7203a3a2177b9942740aa906b"
-    sha256 cellar: :any,                 arm64_big_sur:  "aee8d6655e268c89ae05625a1a363952ae2940fc85df78e0cecae359cad2c55a"
-    sha256 cellar: :any,                 sonoma:         "b554b067cf13b7cabdf9df6badf29c9fc1d4ac91fba87c5e9842b63e8204e2f4"
-    sha256 cellar: :any,                 ventura:        "bc30b41126a8ec8f72d11833764191fb4d45dcb0cbf1e427985b0c140a712781"
-    sha256 cellar: :any,                 monterey:       "e1763954a423a89d5f6d833914b51ced89e74ada15f533db3433de1073f970e4"
-    sha256 cellar: :any,                 big_sur:        "73ec06570a424e3f99fb06cb51db5585b145e3e5a0562664081320ea3f488cc3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "86668ffaa52251771a4490bc843e4317a1b054c4ed3a0add190616f47d70124d"
+    sha256 cellar: :any,                 arm64_sequoia:  "9de6f181593f1f0be6a7cec1a999f747dbb0f7f5bab504a9c37aa58efa1b07ab"
+    sha256 cellar: :any,                 arm64_sonoma:   "08246691bf368897e4bcc80389962df8ffc1c6ec6c194f4731c754cfc275995b"
+    sha256 cellar: :any,                 arm64_ventura:  "48ca6ecece618b42eb2807955ceefa5f1e9f6f1ca4a3b9eff5962e4d1ae5a123"
+    sha256 cellar: :any,                 arm64_monterey: "eb7206d9e14872a778762922a39a59d06bdd5c8055474d573ad7f9c0976c6547"
+    sha256 cellar: :any,                 sonoma:         "784abc72bbb694244ba1f7cbfee0f5ecdc084c9d1ef41557c68fe06e6f4a17a4"
+    sha256 cellar: :any,                 ventura:        "e4a31758e6eba0e10e563977c680fa99a22eb80956a67f438851e7ba4996e3e1"
+    sha256 cellar: :any,                 monterey:       "5b492610e7277b9d9f80e03551db7ed45886cf362a2a399bf67f43344efb00b4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "505a098f0763f672253f047c75408e739da9956def530758db3476e21184b157"
   end
 
   depends_on "pkg-config" => :build
@@ -22,18 +22,26 @@ class Libxt < Formula
   depends_on "libsm"
   depends_on "libx11"
 
+  # Apply MacPorts patch to improve linking with widget libraries on macOS.
+  # Remove on the next release as patch was upstreamed, but commit doesn't apply cleanly.
+  # Ref: https://gitlab.freedesktop.org/xorg/lib/libxt/-/commit/cbbe13a9e0fd5908288e617b56f41ca1a66d9a0e
+  patch :p0 do
+    on_macos do
+      url "https://raw.githubusercontent.com/macports/macports-ports/37520eaf725382f025ea4ce636e4c30fc96bc48d/x11/xorg-libXt/files/patch-src-vendor.diff"
+      sha256 "93e806b5ba3fce793591d6521634553a28fd207e687366aac3ab055fbe316c55"
+    end
+  end
+
   def install
     args = %W[
-      --prefix=#{prefix}
       --sysconfdir=#{etc}
       --localstatedir=#{var}
       --with-appdefaultdir=#{etc}/X11/app-defaults
-      --disable-dependency-tracking
       --disable-silent-rules
-      --enable-specs=no
+      --disable-specs
     ]
 
-    system "./configure", *args
+    system "./configure", *args, *std_configure_args
     system "make"
     system "make", "install"
   end

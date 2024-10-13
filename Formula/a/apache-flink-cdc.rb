@@ -1,41 +1,41 @@
 class ApacheFlinkCdc < Formula
   desc "Flink CDC is a streaming data integration tool"
   homepage "https://nightlies.apache.org/flink/flink-cdc-docs-stable"
-  url "https://www.apache.org/dyn/mirrors/mirrors.cgi?action=download&filename=flink/flink-cdc-3.1.1/flink-cdc-3.1.1-bin.tar.gz"
-  mirror "https://archive.apache.org/dist/flink/flink-cdc-3.1.1/flink-cdc-3.1.1-bin.tar.gz"
-  sha256 "1f014be61fde2b881985f0928173f6f509a73556d247019843ccef282ad26504"
+  url "https://www.apache.org/dyn/mirrors/mirrors.cgi?action=download&filename=flink/flink-cdc-3.2.0/flink-cdc-3.2.0-bin.tar.gz"
+  mirror "https://archive.apache.org/dist/flink/flink-cdc-3.2.0/flink-cdc-3.2.0-bin.tar.gz"
+  sha256 "c3c9a4b78d7009a638ed088e0ec72ab5458e92e43ed179e8e2cf17341dbc8c56"
   license "Apache-2.0"
   head "https://github.com/apache/flink-cdc.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "2980ff1f34ddc49bd3d960256aacadbdd4713b8a0d62e2b6b08c60c6bf5810ea"
+    sha256 cellar: :any_skip_relocation, all: "34082266af28ae4ebf24efb1ad273ffcf1568a5fd24011ba81f70252f5fdea99"
   end
 
   depends_on "apache-flink" => :test
 
   resource "mysql-connector" do
-    url "https://search.maven.org/remotecontent?filepath=org/apache/flink/flink-cdc-pipeline-connector-mysql/3.1.1/flink-cdc-pipeline-connector-mysql-3.1.1.jar"
-    sha256 "82baa189c57720484dfbb95bc57e0090a670c53a4e7b51c0b12940e1abbb2168"
+    url "https://search.maven.org/remotecontent?filepath=org/apache/flink/flink-cdc-pipeline-connector-mysql/3.2.0/flink-cdc-pipeline-connector-mysql-3.2.0.jar"
+    sha256 "042e368fb9b82452fd160f749bc167225d8d784f077bfaefc1b8219312ee91b8"
   end
   resource "paimon-connector" do
-    url "https://search.maven.org/remotecontent?filepath=org/apache/flink/flink-cdc-pipeline-connector-paimon/3.1.1/flink-cdc-pipeline-connector-paimon-3.1.1.jar"
-    sha256 "85c4ca730bad4e1c43d16ba80116eeb541822eb195de7d54e8d4c659c43d49d8"
+    url "https://search.maven.org/remotecontent?filepath=org/apache/flink/flink-cdc-pipeline-connector-paimon/3.2.0/flink-cdc-pipeline-connector-paimon-3.2.0.jar"
+    sha256 "8dd4274f5e8b4e71bdb3ad765908c15de9ccacc95f2fa16afab143c6ddffcea8"
   end
   resource "kafka-connector" do
-    url "https://search.maven.org/remotecontent?filepath=org/apache/flink/flink-cdc-pipeline-connector-kafka/3.1.1/flink-cdc-pipeline-connector-kafka-3.1.1.jar"
-    sha256 "c8d34ed1fa4e5da99e120a4b66610a91d230a5ab7c0834aaa8c0eba9203c42cd"
+    url "https://search.maven.org/remotecontent?filepath=org/apache/flink/flink-cdc-pipeline-connector-kafka/3.2.0/flink-cdc-pipeline-connector-kafka-3.2.0.jar"
+    sha256 "f1b67168fd31b1b5a83253de305066c0b51178f1afd2e07b29f1b4c6931b1345"
   end
   resource "doris-connector" do
-    url "https://search.maven.org/remotecontent?filepath=org/apache/flink/flink-cdc-pipeline-connector-doris/3.1.1/flink-cdc-pipeline-connector-doris-3.1.1.jar"
-    sha256 "9e8d89275542592634feaad631533783728cc2f296f367c004654359d605204e"
+    url "https://search.maven.org/remotecontent?filepath=org/apache/flink/flink-cdc-pipeline-connector-doris/3.2.0/flink-cdc-pipeline-connector-doris-3.2.0.jar"
+    sha256 "249d8e61a561144c91f94d8d2aa1a5d6ce33514cce952e4079d66e8e27a1f79c"
   end
   resource "starrocks-connector" do
-    url "https://search.maven.org/remotecontent?filepath=org/apache/flink/flink-cdc-pipeline-connector-starrocks/3.1.1/flink-cdc-pipeline-connector-starrocks-3.1.1.jar"
-    sha256 "827b1b767d07d4c07f19170e4219b6b255c8d6920f012d447ef12a331fc0521e"
+    url "https://search.maven.org/remotecontent?filepath=org/apache/flink/flink-cdc-pipeline-connector-starrocks/3.2.0/flink-cdc-pipeline-connector-starrocks-3.2.0.jar"
+    sha256 "4034739181383511145c5175e7342f634cb0b87c73e59915ebf8fe443e9057ce"
   end
   resource "values-connector" do
-    url "https://search.maven.org/remotecontent?filepath=org/apache/flink/flink-cdc-pipeline-connector-values/3.1.1/flink-cdc-pipeline-connector-values-3.1.1.jar"
-    sha256 "bb22b67b6db89026d6279b3e4bfb21e45516ed179913e668e00f93d11516bb1f"
+    url "https://search.maven.org/remotecontent?filepath=org/apache/flink/flink-cdc-pipeline-connector-values/3.2.0/flink-cdc-pipeline-connector-values-3.2.0.jar"
+    sha256 "973d87b888c2a178f7ca239b01a1fd3416fb6c2a661d78303960fc593bd9e255"
   end
 
   def install

@@ -7,8 +7,8 @@ class G2 < Formula
   head "https://github.com/orefalo/g2.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "0b2e6dea68767e664e437ecb4b38edf34d57673cde3e64f40b42eeca88ca233e"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "db643e8eb1b3d9b685e605656c4116f38a91c3b716ee855d0c9909ec20ff18b8"
   end
 
   def install

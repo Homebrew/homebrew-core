@@ -6,6 +6,7 @@ class Udp2rawMultiplatform < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "5c9cec87f3f22ae136248cc81851645b561e7136008a7a2fcdba3787daf3daa2"
     sha256 cellar: :any,                 arm64_sonoma:   "f71f48884d9d19d40d3c04a4e0a99aa87a415a12614a5a02625e75018d6cb2f3"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "91759a9869401575af6f3a52a51aa4efff60aed38cb140d02e2f051bd34fb9ec"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a718e5fef4e3258d02331b824b55d336496163e4c7f94b3de712b8c1f0340d73"

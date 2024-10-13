@@ -8,6 +8,7 @@ class Glbinding < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia:  "19f89a79ed3b5e342660fcd1c0c700aa4efd16d4dd6fb1538814dbcfb820056c"
     sha256 cellar: :any,                 arm64_sonoma:   "80956bf8a0370c6264bd39643f4eafb464b709fc4424f704271b709e3c5656b6"
     sha256 cellar: :any,                 arm64_ventura:  "c9e26b3581c3e61c4ce3b18106e0d9fc2a92c1770822c3a93fcaad76fd3e7fcf"
     sha256 cellar: :any,                 arm64_monterey: "785ae1ae8e1aee4cf8dcd8843ed7e105d1c354d555c2819efba3756bc6b41a56"

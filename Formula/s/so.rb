@@ -1,21 +1,19 @@
 class So < Formula
   desc "Terminal interface for StackOverflow"
   homepage "https://github.com/samtay/so"
-  url "https://github.com/samtay/so/archive/refs/tags/v0.4.9.tar.gz"
-  sha256 "b6327268acf3e9652acebea49c1dfa5d855cf25db6c7b380f1a0a85737464a4a"
+  url "https://github.com/samtay/so/archive/refs/tags/v0.4.10.tar.gz"
+  sha256 "36d8bc53b9c05e242fd4c9ba8ae447fae6c4a35d8c7e071f8994a7c0f07c225d"
   license "MIT"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "88835451feca496b5c72d8933df8bf912490eeac95770d19ae0a6f91ca1e1288"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "06d9d49939df633028f759557787975e717b12e496a3d20da54afd375c3967e6"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9b94994807aa75017eaec7f76ea78cc80c3fbcf2c0a65dfba043a3ca2d62b663"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8afac14e917fad150dd5b06f28b96c14d49ca5c7b2894e7488f9dedbfcbfb9e8"
-    sha256 cellar: :any_skip_relocation, sonoma:         "c2fed87c3772c81c6f2fc5823a0c88147de9a3df4a591c26e85daf11c203e403"
-    sha256 cellar: :any_skip_relocation, ventura:        "f845494b286ee5b6301c5a347ca3df396cb071797cdf9fbfadb47d9309acddf1"
-    sha256 cellar: :any_skip_relocation, monterey:       "0feba955d0c7ffc8ce409df43b27831f263f9b1d85c4496ab4c4d31116e43b55"
-    sha256 cellar: :any_skip_relocation, big_sur:        "982259bab8f867dd1387facce0ee77c60610f478214f0579ccc46db24c87cd62"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c36a6333d2954cb49b323520e4e337b81d975c440c440aae10eb4f315cb210fd"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "82b3ba2bd29430167b84cbc7116ca22c70679e0c6a59b340c3349ead364c0e16"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4c26864040cdb083f702827d253cc9128d018f12eeeff0d4477908385c38eda3"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6e83c51f58acc449889bb035f202e9f0e9a4fe5b498c480c2a58e0982b93a820"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ade232aa606461f6c6a8fd543f6d9048d52f8931d4ecb952d323ea5cfcc63bd0"
+    sha256 cellar: :any_skip_relocation, sonoma:         "ffb713476e09d5bc6930cc1b550efd65d9556103f6641e2f2ca8bd9a8d9c374f"
+    sha256 cellar: :any_skip_relocation, ventura:        "e80a401d20434c2716eb29d1a3b80ff9647ea7b00e6797a8d35b260e4f7cf6c8"
+    sha256 cellar: :any_skip_relocation, monterey:       "72daa345f044b21902150324f5b8240d5625c96ae25a46f4696374da30965567"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dff017b24e8061f4c5ea8b37e9f675d636449f6206735d130dcde4db047729b5"
   end
 
   depends_on "rust" => :build

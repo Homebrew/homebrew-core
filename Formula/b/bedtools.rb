@@ -6,6 +6,7 @@ class Bedtools < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "2e84cd0c3fa3bfe3fe5c55304cb4d53edfbffba792c40e98fc5a2c057d8e81b1"
     sha256 cellar: :any,                 arm64_sonoma:   "6b96362dc4065246cfd8a311991b81b13d1901feb8edd5db27c2911b47432f00"
     sha256 cellar: :any,                 arm64_ventura:  "31c196dcf1892f9a483abacfe84ed3922e09842d27c396880657fafd2dc98c52"
     sha256 cellar: :any,                 arm64_monterey: "ad11f55f0de575280f25dea508fb8096bb80b4f1029cb1c0c7f8d88e81a0f4bb"

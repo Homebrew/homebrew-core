@@ -11,6 +11,7 @@ class Mozjpeg < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "93eea531e7d81f0aade7c403f3e0c65d545d9eade6e0e50bd43bf01cee48f110"
     sha256 cellar: :any,                 arm64_sonoma:   "5254d35ee2814e82b176fa779fc87a69468969dc28f750aaa602d17fd15d1646"
     sha256 cellar: :any,                 arm64_ventura:  "7b364b6311f2a0bcc20c22f66c38eee66427da82fd22293815456ff0f74027da"
     sha256 cellar: :any,                 arm64_monterey: "3b30413d731bd4ad5175dad5e460f6606757ccd4f7d595dd722ce265c839d10d"

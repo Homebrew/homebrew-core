@@ -7,6 +7,7 @@ class Regldg < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "95d8adc13413bbb6abd01895354b0e47b03ab86dff6c33de659516dc9b301d95"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "91af1452780b526334c5393e27c0a833d91175120733a19db43ce1c37b05544d"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "11ec4d993c71645c53d5eda04bc1fd8b54c3427b552331ff09b1dec8042cf244"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "98548aa0c1df33ee57ed002fa10dcc0abbe4d7c6cbd4ac5e03eca3cab08f6dec"
@@ -19,6 +20,9 @@ class Regldg < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "10b3273bf707f57edf849eb44f1eb7d86e61082cc899cdffe80aa04c550177fb"
   end
 
+  # Workaround for newer Clang
+  patch :DATA
+
   def install
     # Temporary Homebrew-specific work around for linker flag ordering problem in Ubuntu 16.04.
     # Remove after migration to 18.04.
@@ -28,6 +32,21 @@ class Regldg < Formula
   end
 
   test do
-    system "#{bin}/regldg", "test"
+    system bin/"regldg", "test"
   end
 end
+
+__END__
+diff --git a/Makefile b/Makefile
+index 5e18193..6dee9ae 100755
+--- a/Makefile
++++ b/Makefile
+@@ -1,7 +1,7 @@
+ # Makefile
+ # Project building instructions.
+
+-COMPILE=cc -O3 -Wall -g -c
++COMPILE=cc -O3 -Wall -Wno-int-conversion -g -c
+ LINK=gcc -O3 -Wall -g -lm
+
+ all: alt.o altlist.o build_structs.o char_set.o data.o debug.o \

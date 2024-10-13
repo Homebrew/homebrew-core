@@ -8,6 +8,7 @@ class Hiredis < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia:  "f330d6ee8e148d934c22b5db5bbe158b45a1687106ce09349f25cb29013c5026"
     sha256 cellar: :any,                 arm64_sonoma:   "cbf3d6f42b38399ecd917d2efc963457831c8992dd6dfc458ab5b8e169aa8c93"
     sha256 cellar: :any,                 arm64_ventura:  "9970a5ff45d25be488b5f3e843fb777624b4824510d8434b23565fc9b703a59a"
     sha256 cellar: :any,                 arm64_monterey: "bf180f8a975c907210d5c130be249f21a9cc050710c83acc9dd6b699c398ae24"

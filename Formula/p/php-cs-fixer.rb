@@ -1,18 +1,12 @@
 class PhpCsFixer < Formula
   desc "Tool to automatically fix PHP coding standards issues"
   homepage "https://cs.symfony.com/"
-  url "https://github.com/PHP-CS-Fixer/PHP-CS-Fixer/releases/download/v3.60.0/php-cs-fixer.phar"
-  sha256 "f18ce5ce2ed64ffee516dee061af7b5a0aa586c98ebf400099ba4d8f93f8c91c"
+  url "https://github.com/PHP-CS-Fixer/PHP-CS-Fixer/releases/download/v3.64.0/php-cs-fixer.phar"
+  sha256 "7d67bbf0635df7239e0a09aef9999f6f91bbc7ef55541ee06aaed727453bfa5e"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4d8c051e885f58d6a4f0c7b764e877455a3ef93428dc14e699ad51c50e8d6b3c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4d8c051e885f58d6a4f0c7b764e877455a3ef93428dc14e699ad51c50e8d6b3c"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "4d8c051e885f58d6a4f0c7b764e877455a3ef93428dc14e699ad51c50e8d6b3c"
-    sha256 cellar: :any_skip_relocation, sonoma:         "4d8c051e885f58d6a4f0c7b764e877455a3ef93428dc14e699ad51c50e8d6b3c"
-    sha256 cellar: :any_skip_relocation, ventura:        "4d8c051e885f58d6a4f0c7b764e877455a3ef93428dc14e699ad51c50e8d6b3c"
-    sha256 cellar: :any_skip_relocation, monterey:       "4d8c051e885f58d6a4f0c7b764e877455a3ef93428dc14e699ad51c50e8d6b3c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e860d34ba4ecc9b4806a3bc0e060fa2a958e104d5974426b1d2bbd040866e85b"
+    sha256 cellar: :any_skip_relocation, all: "5e7bb7d7d6389d482cb7f639e9aa630bf194b2e8564b07bdab4156f571f584b1"
   end
 
   depends_on "php"

@@ -14,6 +14,7 @@ class Befunge93 < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "d7cb92a7855edef8e243b3279f39eab303d89733524b215aeef9def5bb4273a6"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "def7c8d4722db8b8db0213eaee2bb178e072d0d1a5ceaf9a22e0677304d2f6f5"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "2599a525caf498002cb5680508784d8e650abce0d06eaba12ecbb162231791b1"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c40ed79d166ad25eec0fb9b75850d445d1cb2b6e9252e3fe40b0fc7d79b8fdb4"

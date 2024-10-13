@@ -3,7 +3,7 @@ class Autobench < Formula
   homepage "http://www.xenoclast.org/autobench/"
   url "http://www.xenoclast.org/autobench/downloads/autobench-2.1.2.tar.gz"
   sha256 "d8b4d30aaaf652df37dff18ee819d8f42751bc40272d288ee2a5d847eaf0423b"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url :homepage
@@ -11,6 +11,7 @@ class Autobench < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "e205a771a8b315d263fbfb8cac87e6cf90dec528afeb9d755908a9139a2499cd"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "33abbf1a79c47258e22ff62a94c7d1ec19b304cce3a50780097bd65de10eac99"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "1395f353dcbb83ca42019534ce574f19eabdfaf6e5fa203f9e16a5c5d199e0a0"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "feb1d05812e4ccfb525567d4193b0a567498c7aefe1bdf7b9c632b3100ea3e75"
@@ -38,7 +39,7 @@ class Autobench < Formula
   end
 
   test do
-    system "#{bin}/crfile", "-f", "#{testpath}/test", "-s", "42"
+    system bin/"crfile", "-f", "#{testpath}/test", "-s", "42"
     assert_predicate testpath/"test", :exist?
     assert_equal 42, File.size("test")
   end

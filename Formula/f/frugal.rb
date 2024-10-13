@@ -25,7 +25,7 @@ class Frugal < Formula
 
   test do
     (testpath/"test.frugal").write("typedef double Test")
-    system "#{bin}/frugal", "--gen", "go", "test.frugal"
+    system bin/"frugal", "--gen", "go", "test.frugal"
     assert_match "type Test float64", (testpath/"gen-go/test/f_types.go").read
   end
 end

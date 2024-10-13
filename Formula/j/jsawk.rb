@@ -7,7 +7,8 @@ class Jsawk < Formula
   head "https://github.com/micha/jsawk.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "e99db0c7e694b8d1171c5ea012d12442f708b8a2808ae136cc38b63309f71899"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "ad82c5334cd78f71f7faa8835d7c3315e0ea98f26a9a2615d8425a72d77242a5"
   end
 
   depends_on "spidermonkey"

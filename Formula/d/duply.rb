@@ -13,6 +13,7 @@ class Duply < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "5c249fda1aac473ba63b532dcc63add0deefeb5dc5cb704c58dd703f4334ee80"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4ed03ab07e478344d6e19dffc805f3d8c37bf5b4f3f2e0b9f38355a60a8841a3"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "4ed03ab07e478344d6e19dffc805f3d8c37bf5b4f3f2e0b9f38355a60a8841a3"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "80d56bc4cf519e9a39b1147b323885d5cd90eb18125ac5e6d976b67eb0993693"
@@ -29,6 +30,6 @@ class Duply < Formula
   end
 
   test do
-    system "#{bin}/duply", "-v"
+    system bin/"duply", "-v"
   end
 end

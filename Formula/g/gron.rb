@@ -7,6 +7,7 @@ class Gron < Formula
   head "https://github.com/tomnomnom/gron.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "8b0537d08cd5b8c60d561cdf84c3f9a2c51006506c36b4a5f54f28b686dd33a6"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "597c9c6fc6cdf0006dece77e1954e5112ebb2d61d996fc5d2273018a634a3ecd"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "3ab0e3eca90fad344508e30b818ad21ecb6bd4f0995bde86d0d8b86e47cbc3bf"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "856236ceb1dbc90437bd4a214ac5cbf9618ae17bb170f5187fc0acbd8110b174"
@@ -26,7 +27,7 @@ class Gron < Formula
   end
 
   test do
-    assert_equal <<~EOS, pipe_output("#{bin}/gron", "{\"foo\":1, \"bar\":2}")
+    assert_equal <<~EOS, pipe_output(bin/"gron", "{\"foo\":1, \"bar\":2}")
       json = {};
       json.bar = 2;
       json.foo = 1;

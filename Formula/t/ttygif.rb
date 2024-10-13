@@ -6,6 +6,7 @@ class Ttygif < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "b6e237ea0e9b4a23fd56ec73b8946859eebcc2b4fb732c6268a9ce942db6ad8e"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "440b8d0af646eb7601a60d54d5af8813aa268593ebc3edd5dd1961f19915aee0"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "5d782d59a6f04174b4d94642784cd3a3d3d3f9005c13f8e22a53d6c0473ebf4e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c953e6967a6bc0c649d81c226565818a223a509fc11e556c7bd242b347c888f0"
@@ -33,6 +34,6 @@ class Ttygif < Formula
     return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
 
     ENV["TERM_PROGRAM"] = "Something"
-    system "#{bin}/ttygif", "--version"
+    system bin/"ttygif", "--version"
   end
 end

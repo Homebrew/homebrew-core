@@ -5,8 +5,8 @@ class FreeradiusServer < Formula
   head "https://github.com/FreeRADIUS/freeradius-server.git", branch: "master"
 
   stable do
-    url "https://github.com/FreeRADIUS/freeradius-server/archive/refs/tags/release_3_2_5.tar.gz"
-    sha256 "928d4ab2092b013d1b6bc7daed06171ceb6bb39f7f4a05c40769bae98a87c61c"
+    url "https://github.com/FreeRADIUS/freeradius-server/archive/refs/tags/release_3_2_6.tar.gz"
+    sha256 "65e099edf5d72ac2f9f7198c800cf0199544f974aae13c93908ab739815b9625"
 
     # Fix -flat_namespace being used
     patch do
@@ -21,13 +21,14 @@ class FreeradiusServer < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "a2bb52ff286fba30bfd28d7dd60b4eb6c56e7861ce364e473a92e8c20aa970ec"
-    sha256 arm64_ventura:  "8539016342ec1ff39ca3058c1dc7710e201a56746c34e8adf3cf1952bcc58b4c"
-    sha256 arm64_monterey: "2148580948c2a0c30b3e67ccd82b8664ed85e8b4f8a02e2b2cf2bc80cda9774e"
-    sha256 sonoma:         "14ab923c6cd7ff7fb8322b5edd8cce89887910a58da8da6fd05b6ed16ca22f41"
-    sha256 ventura:        "aab1309c52e7adcaf281ed394208dbb0788ab766ae604e8724aaa14d1d49fd86"
-    sha256 monterey:       "992cd8dc0e31fde51da27c3b3b39dac6bc8488a154c141e1f24b29c8a6efdd62"
-    sha256 x86_64_linux:   "5d5000c90f4a69c183edada6fa349218d8597ef21b40db0b7966a70cbbdafac4"
+    sha256 arm64_sequoia:  "b57698488a0307b2f51fe141e52c4da6126901ce43516cc0bbf66bff100907d1"
+    sha256 arm64_sonoma:   "03ac0c2ee9d93ae9bc4b7f28b35d67eeba3b699078eaa782155a5c7355424dc4"
+    sha256 arm64_ventura:  "42af2bf53bd21966d2a2048881f5b6773c935d1db77227f2d42d96c074b93734"
+    sha256 arm64_monterey: "baf53a6faa43f12e55bdd0ad39ad7b1bd00e90db782bab615c261c165ea764f9"
+    sha256 sonoma:         "1c647250256f77554efdd419b2757e959ad0123ca8ac7ca342f26384c70ae88e"
+    sha256 ventura:        "da61e1b705d1af4903ce70f2d94e85b7abcc34ca4db039eaccdde4d0ba72e7d8"
+    sha256 monterey:       "677823159554422189b154388db1ac27c4300a911220e6135a8e9eb06b9571c5"
+    sha256 x86_64_linux:   "b2a0d3866dfdb56a732021856ce0dd4250f32adf595dc0353905eab037143877"
   end
 
   depends_on "collectd"

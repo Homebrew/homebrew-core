@@ -11,7 +11,8 @@ class Swaks < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "4680f9c22f57ee86564e8a405ca115c2e1ab3aaa07453c7244479c7128e98c95"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "c306783b36231b83d1c0935e526206911e61c3e1d58a011ea97b9132113e9f06"
   end
 
   def install
@@ -19,6 +20,6 @@ class Swaks < Formula
   end
 
   test do
-    system "#{bin}/swaks", "--version"
+    system bin/"swaks", "--version"
   end
 end

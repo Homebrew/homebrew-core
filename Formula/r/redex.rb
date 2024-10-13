@@ -5,7 +5,7 @@ class Redex < Formula
   desc "Bytecode optimizer for Android apps"
   homepage "https://github.com/facebook/redex"
   license "MIT"
-  revision 15
+  revision 17
   head "https://github.com/facebook/redex.git", branch: "main"
 
   stable do
@@ -39,13 +39,13 @@ class Redex < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "796e13f5b096ceb8ed2940ee6b1e4d525d7d556ecf535dddd877d8964c5ca320"
-    sha256 cellar: :any,                 arm64_ventura:  "b4032430c6eb9b61e5cfd651248c70ce418215a6138cabff8bca2b3c75aa96ed"
-    sha256 cellar: :any,                 arm64_monterey: "d023eb016daf0932e762ed4df0b1a49786bbd0cf651c200d4e0d30818c88cf13"
-    sha256 cellar: :any,                 sonoma:         "166edccd04b49a45ed731df6b9232af25bb55325967e8a417e9e884a25253ec5"
-    sha256 cellar: :any,                 ventura:        "bf6c0b14154d32fbd67644e3c80ac8ef6829e739dbde1ef3dba61caf9bfee57f"
-    sha256 cellar: :any,                 monterey:       "0714c5bdaa2a0e67ebe3dc3adbf2cfe9a12117f2d10cdb2661e55f1e6fa4b0a5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "01f66d660718365c9c8e9722981e2dbd94ac9dc14e56a039b5ff95162681f358"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "092b108e91c9aca93fc40d6b07532066d6e5a54c8d0815658550c88114380e1a"
+    sha256 cellar: :any,                 arm64_sonoma:  "9705d9104e7b028ea0b01caa7b221c1f2dded7823d2e3bb26e22d0e973dc14ba"
+    sha256 cellar: :any,                 arm64_ventura: "3629b26a8b0c5f31aae55121ba1ddbc6e5a8a274c4c6bc9b9861eb3298d94d55"
+    sha256 cellar: :any,                 sonoma:        "a411dfe04f3bf6a0c52f840d1fe385999a55ede5142aa94f13a13bdf44368e1b"
+    sha256 cellar: :any,                 ventura:       "2e6d68e04a55ab05b7f777999462a26a53f11e1c7b76ac39012dc59c2f66736b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f297bd9910b2e1b137e3027ec3942e50c34868eb39cc780128d01268da75f75b"
   end
 
   depends_on "autoconf" => :build
@@ -54,7 +54,7 @@ class Redex < Formula
   depends_on "libtool" => :build
   depends_on "boost"
   depends_on "jsoncpp"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "setuptools" do
     url "https://files.pythonhosted.org/packages/4d/5b/dc575711b6b8f2f866131a40d053e30e962e633b332acf7cd2c24843d83d/setuptools-69.2.0.tar.gz"
@@ -73,7 +73,7 @@ class Redex < Formula
       ENV.cxx11
     end
 
-    venv = virtualenv_create(libexec, "python3.12")
+    venv = virtualenv_create(libexec, "python3.13")
     venv.pip_install resources
 
     python_scripts = %w[

@@ -17,6 +17,7 @@ class Bioperl < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "f3a040d480845d4d81f48d9b166248dbdb805892c32408bb26e79a6cfd9f83fe"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7347de2dcd6d853ef48f4eaefb19f57965aac806dde9a9e69b0877986ad415d0"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "14640b78f907bc04201e49dc0c2e28627c81f9a0df71b2dec380ac27928ae9bf"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "2c8eb6a2300984f14864ded0694167956dbf20514efa7353ef9efa555132ec63"

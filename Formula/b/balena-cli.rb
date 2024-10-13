@@ -1,10 +1,8 @@
-require "language/node"
-
 class BalenaCli < Formula
   desc "Command-line tool for interacting with the balenaCloud and balena API"
   homepage "https://www.balena.io/docs/reference/cli/"
-  url "https://registry.npmjs.org/balena-cli/-/balena-cli-18.2.33.tgz"
-  sha256 "9bbec6f27fe46c9028a929e3a9cba679ada54fa527288d3e36f1f1e1c5bf6740"
+  url "https://registry.npmjs.org/balena-cli/-/balena-cli-19.1.0.tgz"
+  sha256 "fcef2ca3b5d94482df5de59df6e69a81a45c402ce6bc23e5c3225ed278bc07d2"
   license "Apache-2.0"
 
   livecheck do
@@ -13,13 +11,12 @@ class BalenaCli < Formula
   end
 
   bottle do
-    sha256                               arm64_sonoma:   "62642d0f10e8e647e12d2ca1fc7ad0d5bb054b649f0912876547ee6d744c75c5"
-    sha256                               arm64_ventura:  "c3b1b527bb1d488c2a12c47cc415240259a248b0e9f58803b36df474cd395adf"
-    sha256                               arm64_monterey: "c513534b5c7d60531df702301a387ff66bd9316ff98ce553c1bad7236522e6ed"
-    sha256                               sonoma:         "2d97e783bca2967d3abbffcd592ded35fe58e4a9d76ed12695c0ca09489cd2a4"
-    sha256                               ventura:        "3eb5bf6e93cd5620feaafc627a5dbe2a137cbdbadd65a6cef5b962cffd32a285"
-    sha256                               monterey:       "a14de5c0e6be6f0f0ff81d1b62d63f69d73e01cd88b14af65f4a5bcfccc0245e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "085c71bc99ec320fa3fe37b72d262689b8079316a1e89a2bb7cd05ca51063ef7"
+    sha256                               arm64_sequoia: "b672af9ea4da519663484c89a55c61fd0a514f92203c03a52e6202d51cc9d272"
+    sha256                               arm64_sonoma:  "728782d185b5784f9b435e0ab1499fb7e96a53f3ebcd6faf91944604649c5ca1"
+    sha256                               arm64_ventura: "58b53e6627003d3dcb1a4a501ce70f568e99703efe429c6adbaee12d8b681c7c"
+    sha256                               sonoma:        "395b2330931dd4eeb29539ea9408f0b90263c5634d9e16f06045d08fdece5b63"
+    sha256                               ventura:       "0fb3617b361c0c80603d52b8a9038807136696a1c9dbb328f94c80da66026ecb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "be18201dd9b354a8199299a5c7c451e1a0ff716f72ef1b15b05a58bba0f21212"
   end
 
   # need node@20, and also align with upstream, https://github.com/balena-io/balena-cli/blob/master/.github/actions/publish/action.yml#L21
@@ -34,8 +31,8 @@ class BalenaCli < Formula
   def install
     ENV.deparallelize
 
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
-    bin.install_symlink Dir["#{libexec}/bin/*"]
+    system "npm", "install", *std_npm_args
+    bin.install_symlink libexec.glob("bin/*")
 
     # Remove incompatible pre-built binaries
     os = OS.kernel_name.downcase
@@ -52,8 +49,6 @@ class BalenaCli < Formula
   end
 
   test do
-    ENV.prepend_path "PATH", Formula["node@20"].bin
-
     assert_match "Logging in to balena-cloud.com",
       shell_output("#{bin}/balena login --credentials --email johndoe@gmail.com --password secret 2>/dev/null", 1)
   end

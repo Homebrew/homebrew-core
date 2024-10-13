@@ -6,6 +6,7 @@ class Libnet < Formula
   license "BSD-2-Clause"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "e1aa2022d333a395e5add872c8f9facfdb1811b28bb2706bff2ce97923e671b9"
     sha256 cellar: :any,                 arm64_sonoma:   "9a0e1d5eb30194a4309588c383cc4e179804e88314b280e2d04c96069ebef867"
     sha256 cellar: :any,                 arm64_ventura:  "9f808a8325a153535d7b22da23d652929bfce526493dc0ee5a4505a971ae7b43"
     sha256 cellar: :any,                 arm64_monterey: "6d6326c365e861f65a1f13438ccb409600f2dc7783e8bfc42835f247e545d4c2"

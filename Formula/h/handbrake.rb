@@ -7,6 +7,7 @@ class Handbrake < Formula
   head "https://github.com/HandBrake/HandBrake.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "a1cd088e8531f4280b6e1504620e167de44498b357ed72d08ec14cadd54190dc"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "347873f90a91e53fa45ebbbc35e36616359c5579472b1b959c9385de469a324d"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "c3b32cc386437c1ccb01c2ad1ec36d05534a50eba83f971d0575a0ff161bf852"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d21dca5e31bcf0fad0295ca4bc9d2e941e2dfcbeb291d0cd3f722fa401311718"
@@ -24,7 +25,6 @@ class Handbrake < Formula
   depends_on "nasm" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on xcode: ["10.3", :build]
   depends_on "yasm" => :build
 
   uses_from_macos "m4" => :build

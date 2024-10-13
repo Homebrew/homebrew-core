@@ -6,6 +6,7 @@ class Jansson < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "c7e5911f2c6584585017a58c9bd62094473f13843803e1778d78cb5a3f1d6cf8"
     sha256 cellar: :any,                 arm64_sonoma:   "6652690ceed7b1425bc5f3ebb09951f5a77543283d755f54b4a002dc36d21f88"
     sha256 cellar: :any,                 arm64_ventura:  "81cb5066da1551e9a2d250c63b64393f7ba61d4a50d2132efa311757206e884b"
     sha256 cellar: :any,                 arm64_monterey: "f8a132e116364ead3e428b1ad39768791f7a11ad26c07f5040c41d3514b7dea2"

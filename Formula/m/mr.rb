@@ -8,7 +8,8 @@ class Mr < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "028ddae368f2d35962c98a20da7317f07aec39b167255aa7fc1b30fb004c9fb1"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "4013ab94225c8eafc1aa48b1b9b18220a7051eb8da0b98798b8dc99fd0266730"
   end
 
   # Use brewed pod2man to ensure consistent output between platforms

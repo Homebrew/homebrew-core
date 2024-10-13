@@ -11,6 +11,7 @@ class ApacheBrooklynCli < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "503ba57fecdd845c589d3d989e55389df542bf408d74c6b6bdaaaaa3b9fa9d7a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c5d4f837f66feb0e8ffd454caabde1262774b0146b9a41bc7b0e6c8db2f12d35"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "d3c1f6d82e0bded1a9caed523d74fc56bde05a5a11dade96496475ff43064f7e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "eb10e0929a320063dd6ff2bddef8b222600696bc54186be67d390194b4282c88"

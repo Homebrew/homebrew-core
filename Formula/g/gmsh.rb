@@ -13,6 +13,7 @@ class Gmsh < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "ed45482acf3bcbc86d9126c68718128f0ea1525f3fc546ab879f2926192791fb"
     sha256 cellar: :any,                 arm64_sonoma:   "9f3836c4ba6bc88d80f5b4b16bb75dfb424abc9cb6ad157eb66de1c0ead79f38"
     sha256 cellar: :any,                 arm64_ventura:  "b2eca4d0f50393fd431f2f4e35f6ef32b17b07f7edcca72f53ae526a2c639357"
     sha256 cellar: :any,                 arm64_monterey: "7c11588d5e558f65d930ce46f2c9587e9a846e5a7471cd8e86a7c1e7be6ebb60"
@@ -26,8 +27,23 @@ class Gmsh < Formula
   depends_on "cairo"
   depends_on "fltk"
   depends_on "gcc" # for gfortran
+  depends_on "gmp"
+  depends_on "jpeg-turbo"
+  depends_on "libpng"
   depends_on "open-mpi"
   depends_on "opencascade"
+
+  uses_from_macos "zlib"
+
+  on_macos do
+    depends_on "freetype"
+  end
+
+  on_linux do
+    depends_on "libx11"
+    depends_on "mesa"
+    depends_on "mesa-glu"
+  end
 
   def install
     # Fix compile with newer Clang
@@ -35,18 +51,21 @@ class Gmsh < Formula
 
     ENV["CASROOT"] = Formula["opencascade"].opt_prefix
 
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args,
-                    "-DENABLE_OS_SPECIFIC_INSTALL=0",
-                    "-DGMSH_BIN=#{bin}",
-                    "-DGMSH_LIB=#{lib}",
-                    "-DGMSH_DOC=#{pkgshare}/gmsh",
-                    "-DGMSH_MAN=#{man}",
-                    "-DENABLE_BUILD_LIB=ON",
-                    "-DENABLE_BUILD_SHARED=ON",
-                    "-DENABLE_NATIVE_FILE_CHOOSER=ON",
-                    "-DENABLE_PETSC=OFF",
-                    "-DENABLE_SLEPC=OFF",
-                    "-DENABLE_OCC=ON"
+    args = %W[
+      -DENABLE_OS_SPECIFIC_INSTALL=0
+      -DGMSH_BIN=#{bin}
+      -DGMSH_LIB=#{lib}
+      -DGMSH_DOC=#{pkgshare}/gmsh
+      -DGMSH_MAN=#{man}
+      -DENABLE_BUILD_LIB=ON
+      -DENABLE_BUILD_SHARED=ON
+      -DENABLE_NATIVE_FILE_CHOOSER=ON
+      -DENABLE_PETSC=OFF
+      -DENABLE_SLEPC=OFF
+      -DENABLE_OCC=ON
+    ]
+
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
@@ -55,6 +74,6 @@ class Gmsh < Formula
   end
 
   test do
-    system "#{bin}/gmsh", "#{share}/doc/gmsh/examples/simple_geo/tower.geo", "-parse_and_exit"
+    system bin/"gmsh", share/"doc/gmsh/examples/simple_geo/tower.geo", "-parse_and_exit"
   end
 end

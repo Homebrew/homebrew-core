@@ -20,7 +20,7 @@ class Bfgminer < Formula
   end
 
   # Upstream website is gone, cannot build from GitHub source, last release 6+ years ago
-  deprecate! date: "2024-01-17", because: :unmaintained
+  disable! date: "2024-09-05", because: :unmaintained
 
   depends_on "hidapi" => :build
   depends_on "libgcrypt" => :build

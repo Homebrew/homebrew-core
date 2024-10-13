@@ -1,19 +1,18 @@
 class Libmonome < Formula
   desc "Library for easy interaction with monome devices"
   homepage "https://monome.org/"
-  url "https://github.com/monome/libmonome/archive/refs/tags/v1.4.7.tar.gz"
-  sha256 "fb84198556623d0781efbd5f1dd2132594d6a86021043713995d06db4b2ef9ac"
+  url "https://github.com/monome/libmonome/archive/refs/tags/v1.4.8.tar.gz"
+  sha256 "b98bce2a99481fc3aa8a29fc60310180d24473fce86f5edb55ddfe84d9e9dd69"
   license "ISC"
   head "https://github.com/monome/libmonome.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "50f7458c3bb329d5a42369d4e6a225f539b053589021324722cffdfc299ebdc1"
-    sha256 cellar: :any,                 arm64_ventura:  "51b270c3e2424d2a9f139f89c0b928884a65a6553a96c88f6a2714ed386db4f4"
-    sha256 cellar: :any,                 arm64_monterey: "80ed33d9b675b1e28ba7edc6ec3dfdcc9b917aaa54c66917f7af2d34a5f9c522"
-    sha256 cellar: :any,                 sonoma:         "832ff6c908c972f83f87436442934610b13560348fa5305e992bf6c665fb40c4"
-    sha256 cellar: :any,                 ventura:        "68ada8b140b2bd0da7f83ed38b78f36d273f4f5047b0880b4b1104bb52b2426a"
-    sha256 cellar: :any,                 monterey:       "5aac1053b88e0c2f755962b2d83aac07c1bac36f7b501b07a7365f91d6a8b686"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4215e99a9570308489a1c16672809b387f9c2b251b285fa9b6b1ba9967987f41"
+    sha256 cellar: :any,                 arm64_sequoia: "50321cfdaca220bccec61c6ec8e142784c3f02879656218b88eaeb660f2b8dba"
+    sha256 cellar: :any,                 arm64_sonoma:  "c219343f215edf79464c897022ae2fe87c8e5c075279576330ddef92ef6d7274"
+    sha256 cellar: :any,                 arm64_ventura: "f1a92fb448fd91324d64ac05c4b7ee756d3bd24e2306a6e4f3f59633f5eec3e0"
+    sha256 cellar: :any,                 sonoma:        "034c7bbcda99a0adc3fdc38ca23f8692d1199291cacbb35a2bcee1c3ad79b2a1"
+    sha256 cellar: :any,                 ventura:       "ed75041e84f7adc92cdd481496634297651dd1974ba9289cbfcedc14d3554507"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "40da298d04ff272067c8f88b2b71e939eb0a7e98387a05f976c6d75d4e0c5ae6"
   end
 
   depends_on "liblo"

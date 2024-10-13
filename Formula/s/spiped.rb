@@ -3,6 +3,7 @@ class Spiped < Formula
   homepage "https://www.tarsnap.com/spiped.html"
   url "https://www.tarsnap.com/spiped/spiped-1.6.2.tgz"
   sha256 "05d4687d12d11d7f9888d43f3d80c541b7721c987038d085f71c91bb06204567"
+  license "BSD-2-Clause"
 
   livecheck do
     url :homepage
@@ -11,6 +12,7 @@ class Spiped < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia:  "cc2e11183a6531be2d0f36881f229173ed582f99b2072040c9a1a61364783694"
     sha256 cellar: :any,                 arm64_sonoma:   "cea06166086034d17454f12982c6ea352fb1d6cd9f3e7216c9727c223e414262"
     sha256 cellar: :any,                 arm64_ventura:  "fb49b420bd935b728f767276c0bb19133d745d52fe07a8ebad3877ff09996dfc"
     sha256 cellar: :any,                 arm64_monterey: "293b53d8433d104f8133539224e412209605bc40d2cacaeb253081b95eb65578"

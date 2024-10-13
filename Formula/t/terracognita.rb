@@ -7,6 +7,7 @@ class Terracognita < Formula
   head "https://github.com/cycloidio/terracognita.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "fa0ff02f1d9b52f3346855414e13cb1cff919534536e0fec444ebd82d75700fb"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "bbd00a7bc6811d48d638ac1e8b4b6a9a9845db156627566f50ecf6fd84b3b188"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "fca8f74b9f5fa7410e7abe7d6f5388ed960ab552b3da92064c57f44396c49a56"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "fca8f74b9f5fa7410e7abe7d6f5388ed960ab552b3da92064c57f44396c49a56"

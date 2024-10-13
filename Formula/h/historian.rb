@@ -6,8 +6,11 @@ class Historian < Formula
   license "BSD-2-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "f1887b168f03631cb1a51fb419940d8f2bee1e9fb658cc1cd130ded4aa0951eb"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "189a00a7ac7714b8c9c9f5aa6691278538a072629bc6fa24ab99812d37b9e58d"
   end
+
+  uses_from_macos "sqlite"
 
   def install
     bin.install "hist"

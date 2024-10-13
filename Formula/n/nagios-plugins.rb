@@ -1,18 +1,19 @@
 class NagiosPlugins < Formula
   desc "Plugins for the nagios network monitoring system"
   homepage "https://www.nagios-plugins.org/"
-  url "https://github.com/nagios-plugins/nagios-plugins/releases/download/release-2.4.10/nagios-plugins-2.4.10.tar.gz"
-  sha256 "e43d4a655141aa66132f92fe03dfc97db9dfb4173c4c845f1af9574001117a25"
+  url "https://github.com/nagios-plugins/nagios-plugins/releases/download/release-2.4.12/nagios-plugins-2.4.12.tar.gz"
+  sha256 "9a246245d8270f15759763160c48df5dcdc2af9632733a5238930fde6778b578"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 arm64_sonoma:   "5ce85db57c3dc0923a8789a256a0988860fa9ee901c61dac689f59954154f2dc"
-    sha256 arm64_ventura:  "9270fab5981c85fa19946b9b00dc1272436f15bb3e259216f2910d32c5e53679"
-    sha256 arm64_monterey: "99d0a352e1a7d585381eb38dc0424046139aba10e4b131e84d33123a262706e3"
-    sha256 sonoma:         "fd24f5c08a4ce32614badb99cfba011597d15fb72fbce798d53e9f1817f2e44c"
-    sha256 ventura:        "dd7e8b9882904a5970825de52f43c6f5103226a697a962fb2a2d93b6b386b8d2"
-    sha256 monterey:       "878ce6885758aba7703c79092721a46e91108a0391a4d979165599f6a4f937d5"
-    sha256 x86_64_linux:   "2d4c2f1929db65b411c24801fcb9b0935c99191521d631ac30fefbc0c961d369"
+    sha256 arm64_sequoia:  "10c5062b3d3edead969f7e18215628e643a7e71f8fdf5b25806305e767c1b999"
+    sha256 arm64_sonoma:   "1617bf68a8d2468f70a4e0e9d46cffee9883578dfa0eddcc1af71463bf55ef12"
+    sha256 arm64_ventura:  "2c4c5f8a661d01b36f7fc1a5fc5f4c24971516fc47f907da6818842e26fd51e0"
+    sha256 arm64_monterey: "4592b8a1585568faa9129f9b5ca5ff9f2eee674dac8763b684ba721bdacb2635"
+    sha256 sonoma:         "3a9c7c79fe4c09d02b7287c16b62d2f3d0870752f538b5e4a57857ba0e745803"
+    sha256 ventura:        "2fe347734de901c7483944d7c1538bffb740202f88920a626eccd6ec41c9c35e"
+    sha256 monterey:       "735a78ed14375db0a52fc95f6b93f9410f47717250e134d8c19c4c70e6bce23f"
+    sha256 x86_64_linux:   "dd70e314dbf872a7f0e54bc7364a3c86ed14b8ebe621825512a6421df14f15eb"
   end
 
   depends_on "gettext"

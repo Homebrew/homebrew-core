@@ -7,6 +7,7 @@ class Gistit < Formula
   head "https://github.com/jrbasso/gistit.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "512dd9f0ab0f762ef21cadb25d38e40bac914c1d7fdbc9210eb086427b555dd8"
     sha256 cellar: :any,                 arm64_sonoma:   "aa07e24a4a15c38c3859fad46d9e9d481b82779c3935ee0417167995b85d7938"
     sha256 cellar: :any,                 arm64_ventura:  "49d1941ce30616b39307aa87bb628785e9dbd1017f8b4c312f7d24ff2ebdc40b"
     sha256 cellar: :any,                 arm64_monterey: "a56fc428aa4bb3b6c0f81c25542fe92b5c78ddc7f10159b1e626dad75356c4f7"

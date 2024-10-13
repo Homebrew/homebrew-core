@@ -39,7 +39,7 @@ class Pdf2djvu < Formula
 
   test do
     cp test_fixtures("test.pdf"), "test.pdf"
-    system "#{bin}/pdf2djvu", "-o", "test.djvu", "test.pdf"
+    system bin/"pdf2djvu", "-o", "test.djvu", "test.pdf"
     assert_predicate testpath/"test.djvu", :exist?
   end
 end

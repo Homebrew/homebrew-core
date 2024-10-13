@@ -15,6 +15,7 @@ class Fox < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "03d4467da14575e4fc72068fc604e5b5881a3c872cc8ce0836b47cf7e0711935"
     sha256 cellar: :any,                 arm64_sonoma:   "a7d81645a79ad7dc2cfef61762146266c510354d0b8f47c58acc329d65f1adc2"
     sha256 cellar: :any,                 arm64_ventura:  "254668d35c9764f82cb174d6a5ea420497a25f4c73e897163daa0ebcb7da69cc"
     sha256 cellar: :any,                 arm64_monterey: "ebb32475c51e23f89bd5e88b425a90a074d9cfaf6863c07e21db2eba5eafd818"
@@ -32,13 +33,19 @@ class Fox < Formula
   depends_on "libx11"
   depends_on "libxcursor"
   depends_on "libxext"
-  depends_on "libxfixes"
   depends_on "libxft"
-  depends_on "libxi"
   depends_on "libxrandr"
-  depends_on "libxrender"
   depends_on "mesa"
   depends_on "mesa-glu"
+
+  uses_from_macos "bzip2"
+  uses_from_macos "zlib"
+
+  on_macos do
+    depends_on "libxfixes"
+    depends_on "libxi"
+    depends_on "libxrender"
+  end
 
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
@@ -49,10 +56,12 @@ class Fox < Formula
   def install
     # Needed for libxft to find ftbuild2.h provided by freetype
     ENV.append "CPPFLAGS", "-I#{Formula["freetype"].opt_include}/freetype2"
-    system "./configure", *std_configure_args,
-                          "--enable-release",
+
+    system "./configure", "--enable-release",
                           "--with-x",
-                          "--with-opengl"
+                          "--with-opengl",
+                          *std_configure_args
+
     # Unset LDFLAGS, "-s" causes the linker to crash
     system "make", "install", "LDFLAGS="
     (bin/"Adie.stx").unlink

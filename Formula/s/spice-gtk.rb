@@ -15,6 +15,7 @@ class SpiceGtk < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_sequoia:  "9b710c6b06c09f3b4c64937c7499df490e00294ab41e330657dd7025f0040abf"
     sha256 arm64_sonoma:   "9882ec3f69fc197c1ac475ad3422950df499d9b80a7c9bc624817d95506a0fe2"
     sha256 arm64_ventura:  "42600de9d33cc9d1c2e32eccf80cfa14f771457c3c39080d97ff3b611899dff8"
     sha256 arm64_monterey: "82ab9fac4205428b48ea403708e85e19a9a42fd6c64a114a949e773e94367bf2"

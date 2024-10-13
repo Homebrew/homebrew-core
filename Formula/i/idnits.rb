@@ -6,7 +6,8 @@ class Idnits < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "795ae8cca769fdcb2511087eef9634d4bfff8242364c34a28fc9ef7b36be2bd6"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "0821ceb278c9bb73ef75f4aa1ebeca58d6e5264d4360d63ccdf0d1b43e23d2e6"
   end
 
   def install

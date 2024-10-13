@@ -4,25 +4,38 @@ class Paps < Formula
   url "https://github.com/dov/paps/archive/refs/tags/v0.8.0.tar.gz"
   sha256 "8fd8db04e6f8c5c164806d2c1b5fea6096daf583f83f06d1e4813ea61edc291f"
   license "LGPL-2.0-or-later"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 cellar: :any, arm64_sonoma:   "78ee471e29dc3f714aadff0385280973225a6c1ae5116684a1a8edec97be517d"
-    sha256 cellar: :any, arm64_ventura:  "c3879ff04dc0f1f00c27b53cf77ee50381c0385509a5cfaa790229b6aaf4411c"
-    sha256 cellar: :any, arm64_monterey: "1c9dec96fe4e4a5de3265ba1e861bfd2b4fc1fe75a48f035472a1c5354f257c4"
-    sha256 cellar: :any, arm64_big_sur:  "fb997c783473d62aa8d86159c90397f89017e93e0c7f9f855926f6ec6936e096"
-    sha256 cellar: :any, sonoma:         "371a5486683174985fbc2f6ae16221979edecf5fd9d56c8fbed22dd4f683b827"
-    sha256 cellar: :any, ventura:        "403b5bfafbda176686cffdf04975f7afa0863df2a41df04215f9e72c8ccd51ef"
-    sha256 cellar: :any, monterey:       "06b336d256bd4147beed5266c02aeb34233dc2fbd0aba4f2d666819e8da856f9"
-    sha256 cellar: :any, big_sur:        "d7a38d585b97d3a04b947f13b79129d756f14c8bf44185c29aa780d182f32842"
-    sha256               x86_64_linux:   "1aaa98e10292d47452e9bd79f0664b026d6fc49779bcd9c86fb0ca510b927cec"
+    sha256 cellar: :any, arm64_sequoia:  "1dc9e0d4ae5edd03013091933251474c8dcd4b1bc4f72a4df502734228c62f6f"
+    sha256 cellar: :any, arm64_sonoma:   "df67721a4260dd63be5164d348ba57058f3a43298915726c7c1d0d3c43927794"
+    sha256 cellar: :any, arm64_ventura:  "fa4ca77e9a2dd79350b705ec7cfcb559cce5e726777431b9a286ebb9b2ec00d2"
+    sha256 cellar: :any, arm64_monterey: "b66abd39b5a6c8ee5b65603beb8e33357448af5a0fd8112610b63ffe6fc09df7"
+    sha256 cellar: :any, sonoma:         "d9cd43c14cd780ac32cbd23e42b129db879e0dc6f1dd13e1b6d554845b46cc11"
+    sha256 cellar: :any, ventura:        "eae81c50573f8ef3d0220e2237326bd8b712f15ed7c37cac40709feafdab7c86"
+    sha256 cellar: :any, monterey:       "82f0ec08cfa698dafb97b18e8f5508c8648c9f1a80445c2077a3ab80168c7829"
+    sha256               x86_64_linux:   "9edc0fa1b1d9b411f896f492b1bc10fe2c8e85c70065212630f358b1c8d5d771"
   end
 
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
+  depends_on "cairo"
   depends_on "fmt"
+  depends_on "glib"
   depends_on "pango"
+
+  on_macos do
+    depends_on "gettext"
+  end
+
+  # Apply open PR to fix build with recent `glib`. This restores behavior before
+  # https://gitlab.gnome.org/GNOME/glib/-/commit/c583162cc6d7078ff549c72615617092b0bc150a
+  # PR ref: https://github.com/dov/paps/pull/71
+  patch do
+    url "https://github.com/dov/paps/commit/e6ec698be127822661e31f7fca7d2e0107944b24.patch?full_index=1"
+    sha256 "52848f9618dab9bc98c1554cc8a7a0b3ce419cfca53781b909d543ec4e4b27ea"
+  end
 
   def install
     system "meson", "setup", "build", *std_meson_args

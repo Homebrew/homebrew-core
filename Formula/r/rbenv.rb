@@ -7,13 +7,8 @@ class Rbenv < Formula
   head "https://github.com/rbenv/rbenv.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6a9437cf6a6933473161ddcfcc9f9f8214ccbf8b1fcbf35e21662712dcfb80f3"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6a9437cf6a6933473161ddcfcc9f9f8214ccbf8b1fcbf35e21662712dcfb80f3"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6a9437cf6a6933473161ddcfcc9f9f8214ccbf8b1fcbf35e21662712dcfb80f3"
-    sha256 cellar: :any_skip_relocation, sonoma:         "75461707772b43f2f3037a2176b820d9fe3039fb9255487f7d8d1f8e88a051f9"
-    sha256 cellar: :any_skip_relocation, ventura:        "75461707772b43f2f3037a2176b820d9fe3039fb9255487f7d8d1f8e88a051f9"
-    sha256 cellar: :any_skip_relocation, monterey:       "75461707772b43f2f3037a2176b820d9fe3039fb9255487f7d8d1f8e88a051f9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "494c38f6026ed28e4fce71a2a75b2f4a612fa99711a5bd0d4dcc37c233bcbec4"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "8c1ae8d76748e0140a458cd4c83b2f6ed83da17777940f7878ce5348ede8aeff"
   end
 
   depends_on "ruby-build"
@@ -21,9 +16,8 @@ class Rbenv < Formula
   uses_from_macos "ruby" => :test
 
   def install
-    inreplace "libexec/rbenv" do |s|
-      s.gsub! ":/usr/local/etc/rbenv.d", ":#{HOMEBREW_PREFIX}/etc/rbenv.d\\0" if HOMEBREW_PREFIX.to_s != "/usr/local"
-    end
+    # Build an `:all` bottle.
+    inreplace "libexec/rbenv", "/usr/local", HOMEBREW_PREFIX
 
     if build.head?
       # Record exact git revision for `rbenv --version` output

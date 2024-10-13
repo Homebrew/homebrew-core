@@ -3,9 +3,10 @@ class Poster < Formula
   homepage "https://schrfr.github.io/poster/"
   url "https://github.com/schrfr/poster/archive/refs/tags/1.0.0.tar.gz"
   sha256 "1df49dfd4e50ffd66e0b6e279b454a76329a36280e0dc73b08e5b5dcd5cff451"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "e1d75eca414c1495f824f18e6b8007e5352233f9afb9c63d2b588f15f0a44cf8"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9391507786944573699dca31e2089215514fbc3785b8cac70bf3576db33328fc"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "3502b06b6c852fa6ba935acf4a862b72987beff8658b37a11f40cf349acbafde"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "33532f868bdc3667b1be77b533608c5f5837f19fe5683f0ee5d33ec945748e67"
@@ -29,6 +30,6 @@ class Poster < Formula
   end
 
   test do
-    system "#{bin}/poster", test_fixtures("test.ps")
+    system bin/"poster", test_fixtures("test.ps")
   end
 end

@@ -1,8 +1,8 @@
 class Envoy < Formula
   desc "Cloud-native high-performance edge/middle/service proxy"
   homepage "https://www.envoyproxy.io/index.html"
-  url "https://github.com/envoyproxy/envoy/archive/refs/tags/v1.30.1.tar.gz"
-  sha256 "8f0f34d4a2b2f07ffcd898d62773dd644a5944859e0ed2cdf20cd381d6ea7f9d"
+  url "https://github.com/envoyproxy/envoy/archive/refs/tags/v1.31.0.tar.gz"
+  sha256 "39ba37aed81a9d4988a5736cf558243179f2bf1490843da25687d1aafd9d01c6"
   license "Apache-2.0"
   head "https://github.com/envoyproxy/envoy.git", branch: "main"
 
@@ -12,13 +12,14 @@ class Envoy < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2ae57ea855d6e5a7a2fdb35d882bd829788c5e46eb04d9814bba0791d6da2b10"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7ad1ffe06849069c56ac2c764156144c0b2a0c4e86ea8bcac14ca413122b1e5a"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "461fe8d0ceac27a326c1d13a459fee8a987db8a422e6b3d767936b37737c0d40"
-    sha256 cellar: :any_skip_relocation, sonoma:         "4100f3a74a081767a7919a63de0cd2c69e7c298eaf2b2205d4816b5c9f13ba0e"
-    sha256 cellar: :any_skip_relocation, ventura:        "0539e51a7582f8361d23383385bbfba02056139905e0532927ef3f8903e85cb0"
-    sha256 cellar: :any_skip_relocation, monterey:       "055602c93dc9c90d480516f929eef303bc4769c8c8a572322862c5696dbd00ad"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d9bddbb9b0adc226b58fc707b9b87d27691acdc001213d2614dc5a55b14b8951"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "eafef893f82016ef51251355c42413d7b8a53460793f44222d9845ab7bcfafd3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e91a2e11066c3a0c871fa0d94153fe260d71c12ba7db9ea175b19e960e09d002"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "cc2137c9981786830eb65cac9ed6807bfd6a8eebe7764d59a7f621eef4999b9c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "af3de81847a5dc7704ac8d2e7e9b2a320653f362f7824e34aa631675ba1983a3"
+    sha256 cellar: :any_skip_relocation, sonoma:         "878b3d9a46bba9394b6f2b9b910e83d28ea262bcae3cb5ef4eb6dfb29d7c3c5b"
+    sha256 cellar: :any_skip_relocation, ventura:        "a14f5d3f5fef1b495018c639958ec1a5f1737de63f17034e097c92e3b3db9f7f"
+    sha256 cellar: :any_skip_relocation, monterey:       "cd1124efc8af189735d10f2cc4d0a66230905ad5ba2d4c6b7ac02ea544e260be"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3b255d9a8e2d3a99ca8049bac12ba2a094a5b21d7685f77b69b8435914f97ab4"
   end
 
   depends_on "automake" => :build
@@ -52,13 +53,12 @@ class Envoy < Formula
       --host_action_env=PATH=#{env_path}
     ]
 
-    # Work around build issue with Xcode 15.3 / LLVM 16+
-    # https://github.com/envoyproxy/envoy/issues/33225
-    # https://gitlab.freedesktop.org/pkg-config/pkg-config/-/issues/81
-    args << "--host_action_env=CFLAGS=-Wno-int-conversion"
-
     # GCC/ld.gold had some issues while building envoy so use clang/lld instead
     args << "--config=clang" if OS.linux?
+
+    # clang 18 introduced stricter thread safety analysis
+    # https://github.com/envoyproxy/envoy/issues/34233
+    args << "--copt=-Wno-thread-safety-reference-return" if DevelopmentTools.clang_version >= 18
 
     # Write the current version SOURCE_VERSION.
     system "python3", "tools/github/write_current_source_version.py", "--skip_error_in_git"

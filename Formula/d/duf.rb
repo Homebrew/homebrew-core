@@ -7,6 +7,7 @@ class Duf < Formula
   head "https://github.com/muesli/duf.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "643ad7ae4f361bb24fd34c0f0e0ece98bd541ac3be3fd78af2bc7648346318e7"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "44fd140c8e0bcc0e3620a3c1f6adf957e6c4e0cacf53862b5f6ae471eaf037cd"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "0957499928211de66a44dded811cac647a0916746a8d43ea2c6847ab5a34e48d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ecd8c737c799f637d764a08d6e6ca989987b8076ac128af8d3d69a98dba68002"

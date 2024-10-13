@@ -6,7 +6,8 @@ class Semtag < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "4d61d959bcec95146dc409dd098ed0dadaf578b7fec0df2d0f031838bad2f85b"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "933179267efd127dbeca0f0b337bdb6eb1150ef3c8706759195b00a0a30bb16b"
   end
 
   def install

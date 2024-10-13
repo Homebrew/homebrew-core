@@ -7,6 +7,7 @@ class Pachi < Formula
   head "https://github.com/pasky/pachi.git", branch: "master"
 
   bottle do
+    sha256 arm64_sequoia:  "fd4a7a487d1c0d4c7597970a99008f0def56e08ae402d1d63832b0b5d41f2823"
     sha256 arm64_sonoma:   "57b6e6f43f52e5ef856feccee3a1a828872a90fb45a9e72149147ef8aa1e129d"
     sha256 arm64_ventura:  "59b6a51156dc47e96991c92ce1fdd8060a4b9f2789f53ac515d9b08b8f117941"
     sha256 arm64_monterey: "cba618e09fd5920a22b9e96b44aff7daaf2c1de834cc9b30dc1d13e9b3ce9498"
@@ -43,6 +44,6 @@ class Pachi < Formula
   end
 
   test do
-    assert_match(/^= [A-T][0-9]+$/, pipe_output("#{bin}/pachi", "genmove b\n", 0))
+    assert_match(/^= [A-T][0-9]+$/, pipe_output(bin/"pachi", "genmove b\n", 0))
   end
 end

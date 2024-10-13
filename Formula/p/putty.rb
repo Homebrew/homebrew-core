@@ -7,6 +7,7 @@ class Putty < Formula
   head "https://git.tartarus.org/simon/putty.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "d4f1ebec6dc4712148681ee0322d1f0af99a0363e7807536470721c736754b94"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8323405dffcac446d027bee3e03848ce07d8c3d4a8f626eaa302cae659d78772"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "171c6e16fc9c4157a5f43da3de8af558349393ad80b51e78b583c6ac233c08d6"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6a3efb18c58c42f7c45e1432fef59dc26f3ff653b65d8b21c4f5a4524343f11d"

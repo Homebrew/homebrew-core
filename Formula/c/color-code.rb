@@ -11,6 +11,7 @@ class ColorCode < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "eca15102195ecbf35b9b5db261ad63a1e7849f68048a9872757c99a300af2198"
     sha256 cellar: :any,                 arm64_sonoma:   "5279b770c1208847aa8bc485ffe5d60a457a22867ba8ae3b9b72a6ccb10b9cee"
     sha256 cellar: :any,                 arm64_ventura:  "656617a979b49e4b6cb0ea002e6d2a5d715a042bbbab3d4d4c0524f0b0b93845"
     sha256 cellar: :any,                 arm64_monterey: "c295af784bbc09fa4459c60004d9b525f9e3b5b8796394e1127b20453bf2e724"
@@ -34,6 +35,6 @@ class ColorCode < Formula
   test do
     # We cannot write a more substantial test because executing the binary
     # opens a GUI, which is not supported by Homebrew's test environment
-    system "#{bin}/colorcode", "-h"
+    system bin/"colorcode", "-h"
   end
 end

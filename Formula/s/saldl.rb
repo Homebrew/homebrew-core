@@ -8,6 +8,7 @@ class Saldl < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia:  "f6ca14c2df72bbec447ff0fbcbfe0b1b76070808210ec18c6822fc0579bb9053"
     sha256 cellar: :any,                 arm64_sonoma:   "b5473268647d0fb55defbd170569644c7545fedc20487531717db503ec43e2ab"
     sha256 cellar: :any,                 arm64_ventura:  "45ec76ad15d5c9c04d96bb467fa4d06605afa85675c7f4979f15e8c10d2231e9"
     sha256 cellar: :any,                 arm64_monterey: "1251f81d7ec7ef2faf2368564aa094363b9f2b16bc9a2f14637a62b73b1bfe93"

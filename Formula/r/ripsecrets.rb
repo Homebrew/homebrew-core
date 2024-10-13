@@ -7,6 +7,7 @@ class Ripsecrets < Formula
   head "https://github.com/sirwart/ripsecrets.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "639780b0f64128ef351b9d42b74850ef30bb16adb2af696e578a6911b96d434d"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "97d6467ccc89611a01d5c6dc308a085cbf3ff6df1d54ddbe7e1c3cf47f860143"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "12e44af7c0222497ed34b983d84e857db3d97acdc89f33d1c378360d8e2662b0"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ecdf92bc91cda77a1d73866bdfdbc1f454513bb6565be60d55fd33030ca6e0dc"
@@ -29,6 +30,6 @@ class Ripsecrets < Formula
     # but mark it as allowed to test more of the program
     (testpath/"test.txt").write("ghp_#{fake_key.join} # pragma: allowlist secret")
 
-    system "#{bin}/ripsecrets", (testpath/"test.txt")
+    system bin/"ripsecrets", (testpath/"test.txt")
   end
 end

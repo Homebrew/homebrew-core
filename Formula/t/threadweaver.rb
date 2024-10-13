@@ -1,8 +1,8 @@
 class Threadweaver < Formula
   desc "Helper for multithreaded programming"
   homepage "https://api.kde.org/frameworks/threadweaver/html/index.html"
-  url "https://download.kde.org/stable/frameworks/6.4/threadweaver-6.4.0.tar.xz"
-  sha256 "a317ad5b4e0ae8dee7fd95026a3df3f5fc1c2e53aec6d5ccbadddfc753c29598"
+  url "https://download.kde.org/stable/frameworks/6.7/threadweaver-6.7.0.tar.xz"
+  sha256 "1ac3fc8051f31ac4f76dfd5d157e5c375d183bc0762152a44e1831cf5816a956"
   license "LGPL-2.0-or-later"
   head "https://invent.kde.org/frameworks/threadweaver.git", branch: "master"
 
@@ -12,13 +12,11 @@ class Threadweaver < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "4a65d015c21a457c3054371db7a81d6d7e27bc806e7432b05d2dcff461f9c772"
-    sha256 cellar: :any,                 arm64_ventura:  "91318871c9ed93fff1e0e2d6dcf1df6e16cee9d7ec227d54f11fb46d926b7f76"
-    sha256 cellar: :any,                 arm64_monterey: "d3fa0d5d46dfb9f6eac434d4b5d1d6eca16c71590124ed18bac6bd0ff2d940df"
-    sha256 cellar: :any,                 sonoma:         "e7e2323f078848a85aeb16b687dbada0553bc6b3107b45f71bda619803c78aef"
-    sha256 cellar: :any,                 ventura:        "7583ad8a6a368f0a1b1f6b926e5bfaf092d20293e86d898ac27341b8c479fe9b"
-    sha256 cellar: :any,                 monterey:       "bfc71a4487c6b31b2d17f8d8cb96f5cd82c5183f0efdbd2e6d74d626162e1341"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d609a02e5f360d9fbb6249dbd08d39e6b628181de7c99431d9f36bbe7aeb9b6d"
+    sha256 cellar: :any,                 arm64_sonoma:  "7c604c340eb5dec02c2ae95ea12d652292d034f3c037f4be741f300c584e56a6"
+    sha256 cellar: :any,                 arm64_ventura: "26c4653229b79c9ebb1e133b80efb98dd0026d32069b7d9a700a7204725d7c74"
+    sha256 cellar: :any,                 sonoma:        "e1cc2d1f8e0d2cf334b441eded0bbe40cf6191d68ea08bff3ced8afd74dba383"
+    sha256 cellar: :any,                 ventura:       "224124513a52af47db2c9104a4b603d6f31df4f7436f839f30a9bd30f2dcdc5f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "834ccd2b870499ac69572fb53bdf09af20a28ca82646bd6f4a359e92c9dfe0c7"
   end
 
   depends_on "cmake" => [:build, :test]

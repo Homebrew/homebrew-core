@@ -7,6 +7,7 @@ class Wally < Formula
   head "https://github.com/UpliftGames/wally.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "9eea75cb9e40ea07b81574797fbe351889814dc6100d7fc70cc353d185ff84ca"
     sha256 cellar: :any,                 arm64_sonoma:   "c98969ccbc9fcce5f9d14618ba96de22687718a8b82d3739ef5fa5b773b7082a"
     sha256 cellar: :any,                 arm64_ventura:  "c2342665f1ff90ae3b398b6f77f6a8b13a40cb28da096fd90396d311f49a6954"
     sha256 cellar: :any,                 arm64_monterey: "c89a4d262ef25cabd1314c9199386ad26293245329bc4b4f42ca61efe0e671ae"

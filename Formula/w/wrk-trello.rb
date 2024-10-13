@@ -12,6 +12,8 @@ class WrkTrello < Formula
     sha256 cellar: :any_skip_relocation, all: "255e64f8c821c3e05bf04b13424ff23883aa00291b5f30da474584a7b609d3a6"
   end
 
+  disable! date: "2024-08-10", because: :no_license
+
   conflicts_with "wrk", because: "both install `wrk` binaries"
 
   def script

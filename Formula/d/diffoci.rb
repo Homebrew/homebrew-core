@@ -1,19 +1,20 @@
 class Diffoci < Formula
   desc "Diff for Docker and OCI container images"
   homepage "https://github.com/reproducible-containers/diffoci"
-  url "https://github.com/reproducible-containers/diffoci/archive/refs/tags/v0.1.4.tar.gz"
-  sha256 "6baa31a25703bb70bc0de6640ac82f93abcba835df96a146a7456adf378b61cc"
+  url "https://github.com/reproducible-containers/diffoci/archive/refs/tags/v0.1.5.tar.gz"
+  sha256 "c71e9dac5854a61240f82fd31e67eb993bd4340e91b6dbf47d1eba52720a1eca"
   license "Apache-2.0"
   head "https://github.com/reproducible-containers/diffoci.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a1ffdfed56d2e050870055c282dd7a758535ea5974439a84f8d44af957e79dc2"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a845d400415c5fe8d10caff547efd1772b8c7ea56d3f237c42430b9dc6b6af60"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5512f17901d3690a1fa006688e1dc5b98390ed1b35a39cad902d4ed42f7b4ef5"
-    sha256 cellar: :any_skip_relocation, sonoma:         "5abe1a3dded720487f5fdfab7f6750a4d7d09932c0c26e978e4232fada96bb54"
-    sha256 cellar: :any_skip_relocation, ventura:        "51edbfaedd5716512376e506de78073648edce7c9fd9033a5a39bf8ff31a9419"
-    sha256 cellar: :any_skip_relocation, monterey:       "73f8dc64126696b74b6e18b125c46bb467069369f9a1767ff9200f7f64fa179d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f9358b6116bcb0dd04c68055fde85a51e02ef1d3c0ed1ed36a8763480e38e3ec"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "9f3f9f0dfeb9d3dbd1f8dc4aaff3843ddaf5ef034c56a0673266f10ebc7169d3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5bd31515137880ec63126e78d42a557167ae0e047d071b0ca2ca3909402d99fb"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "dac9edf366cffda07ebab92be1735b70e248dd2c723b5edb167bd18ee52c0127"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "2b21464f2d7d35799933ec1de2a432b3f10553f3c0b9f1f095e3ce158425ca52"
+    sha256 cellar: :any_skip_relocation, sonoma:         "a9101b986889a7c363159fd22ad74b95c4e3a52d49355a35f374e3b0a3f3d451"
+    sha256 cellar: :any_skip_relocation, ventura:        "bc520a463b7536730380ebd6d5ee2e2dd9e0a37ed611b2328f1980223f5e1c14"
+    sha256 cellar: :any_skip_relocation, monterey:       "25db3bd696e4c1bf6caf9d468dd84ea10889297ded14f8599c80499479859132"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d4a9db815bb968bb47a10edf9ce0b4fe5b4340807fc78ab493147e7b98a82a00"
   end
 
   depends_on "go" => :build

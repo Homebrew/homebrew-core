@@ -12,6 +12,7 @@ class Figlet < Formula
   end
 
   bottle do
+    sha256 arm64_sequoia:  "a157e5806797a85551f7773614157047dfa09fb38e76d6502cb93c79a207851c"
     sha256 arm64_sonoma:   "2af79123d12d6b8c4fc9a21fb3b7eae8405b2887bb06f14253e4a50166ac1220"
     sha256 arm64_ventura:  "0ebfa147cd1a513a86323167ab696a94b490dcd215d6685188bc376bf1313953"
     sha256 arm64_monterey: "87aa47afd19c8cd952a9a342a9afe32d0da2849ee1c1de2510949675a38327b8"
@@ -57,6 +58,6 @@ class Figlet < Formula
   end
 
   test do
-    system "#{bin}/figlet", "-f", "larry3d", "hello, figlet"
+    system bin/"figlet", "-f", "larry3d", "hello, figlet"
   end
 end

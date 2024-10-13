@@ -6,6 +6,7 @@ class Dhcpdump < Formula
   license "BSD-2-Clause"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "388478d6f5fa4261e7adb8c0ba1718d9a5bc50b25d50b7e30d7588bb290af79e"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ab4719be570abc658b8f8f46de37bad273e2b2389b0d1816bf38b7f1e28c0f47"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "e6e61cb0d3acc83a1c2c2ffc1f754b8017c05be420a7844e19fb17a5326365d1"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "41867afb73da85099eb1560fbea4872835ed2dc6117af80932cfb2e2a7460276"
@@ -25,6 +26,6 @@ class Dhcpdump < Formula
   end
 
   test do
-    system "#{bin}/dhcpdump", "-h"
+    system bin/"dhcpdump", "-h"
   end
 end

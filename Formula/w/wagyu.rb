@@ -20,6 +20,12 @@ class Wagyu < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "a81b1c07ee67f4e0cac9e8a7ca17720e440b40c14d66e76db3f5945f862eadb9"
   end
 
+  # cannot build with latest rust and upstream is not active
+  # https://github.com/howardwu/wagyu/issues/280
+  # https://github.com/howardwu/wagyu/issues/282
+  # https://github.com/howardwu/wagyu/issues/285
+  deprecate! date: "2024-09-11", because: :unmaintained
+
   depends_on "rust" => :build
 
   def install
@@ -27,6 +33,6 @@ class Wagyu < Formula
   end
 
   test do
-    system "#{bin}/wagyu", "bitcoin"
+    system bin/"wagyu", "bitcoin"
   end
 end

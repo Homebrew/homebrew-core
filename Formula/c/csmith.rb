@@ -12,6 +12,7 @@ class Csmith < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "8da68f418cb134b12223efaea3b1a32c75d51a975458ec0b95ea5cfb90b2810a"
     sha256 cellar: :any,                 arm64_sonoma:   "52a3fef01ef8a1161d9695787c592c17d405fba995615a6420d5723b8fd49e09"
     sha256 cellar: :any,                 arm64_ventura:  "289f49509657abe2bebc5f5b18f95df1c27860bb9cb9cfb6c5b740bb7ee77010"
     sha256 cellar: :any,                 arm64_monterey: "27b069ffcef5994e076353234fed07390d0a2462abc2b851669f619f30f6881c"
@@ -53,6 +54,6 @@ class Csmith < Formula
   end
 
   test do
-    system "#{bin}/csmith", "-o", "test.c"
+    system bin/"csmith", "-o", "test.c"
   end
 end

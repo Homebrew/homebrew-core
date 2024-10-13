@@ -11,6 +11,7 @@ class Texi2mdoc < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "9a769b9b0c164d2f296ef48c04dfa683a0605dbf55e93f12c34c273b9ca6f90c"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "10e2d836d65a262b58228fd05b6b09a9d069d2b889905b36a81239fd646aec7d"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "a6c15b6cfa57413d994f850c8e1175bbb2023859cbdfd8730b07795c543a40f3"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d24979a6eebabad2b16282ea9f5b1518a847c10874cd3fb0545c687a3569849f"

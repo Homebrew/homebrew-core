@@ -6,6 +6,7 @@ class Setweblocthumb < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "7765cc1aed9b92ae0460dfeace83a4c9fee7c63598953caf6e2bbdb581c5395c"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "bb99da3db71d9602d3c6ddf5b615a8b9b90ee253fc7561fe02116791050a2376"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "6eb231e7fa24dcebe8d1d863bc1bbbcec86943522f4391dce30c0d0a14a99e7e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6f306986d59d8d148fe8619ef3a14b12fc89235e199ab18cfd691885009cc47f"
@@ -33,6 +34,6 @@ class Setweblocthumb < Formula
 
   test do
     Pathname.new("google.webloc").write('{URL = "https://google.com";}')
-    system "#{bin}/setWeblocThumb", "google.webloc"
+    system bin/"setWeblocThumb", "google.webloc"
   end
 end

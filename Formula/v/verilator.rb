@@ -1,19 +1,20 @@
 class Verilator < Formula
   desc "Verilog simulator"
   homepage "https://www.veripool.org/wiki/verilator"
-  url "https://github.com/verilator/verilator/archive/refs/tags/v5.026.tar.gz"
-  sha256 "87fdecf3967007d9ee8c30191ff2476f2a33635d0e0c6e3dbf345cc2f0c50b78"
+  url "https://github.com/verilator/verilator/archive/refs/tags/v5.028.tar.gz"
+  sha256 "02d4b6f34754b46a97cfd70f5fcbc9b730bd1f0a24c3fc37223397778fcb142c"
   license any_of: ["LGPL-3.0-only", "Artistic-2.0"]
   head "https://github.com/verilator/verilator.git", branch: "master"
 
   bottle do
-    sha256 arm64_sonoma:   "373ecba639adda0f1bd50908959949071942780f5d0f61a2632088e65b02d4bc"
-    sha256 arm64_ventura:  "314e22fb7b4ace2901296a219eaf371246b141d980897735e1fe2ec59682bdcc"
-    sha256 arm64_monterey: "db32bbba379c6ab01e377c9ff8d00b84590c962f1c522ceebc8a0396d72fd434"
-    sha256 sonoma:         "5327ae46745289aac4bb24e49fe61e872d86f1352a0deaab2c312cf31bc65033"
-    sha256 ventura:        "19723c4eebceaa8de4c080f975678f70789f012f68f89c7ba3f3680587d77a98"
-    sha256 monterey:       "a0ea85a0515253664a80f7ac3c01e39818a59b7d89789a72bc6f6e90d4756f41"
-    sha256 x86_64_linux:   "b0053c65793301ca1412975345e54b4bd4e55dc45fee3b7ce289db669d2c463c"
+    sha256 arm64_sequoia:  "86d5089dbc7b6fda7be55c3660990ab0e735ca5236fe2eb9df3382d1d86ed299"
+    sha256 arm64_sonoma:   "3c10f1aae874605da7c4a4c0ec14796ee5b6777b063cd8a0f48822d7009a721b"
+    sha256 arm64_ventura:  "5f9002c993fe84421f2a4c571b4fab5d39de309adcea37d3871fb6376e2f6dcc"
+    sha256 arm64_monterey: "19fb0e165de3619a24042e6b0f65e95f431a419f4998fd94920d5662e1179e60"
+    sha256 sonoma:         "9743a9f0330921a39d8998d53c035c321f61546984b3c0b31923d359fc26d6e1"
+    sha256 ventura:        "feef2a655441433628976ea8b67e8ab95f37d63c492ee3ed61f72f44388ac625"
+    sha256 monterey:       "b3e4ed2ad6fbe4e1e8719533fc0e12031c16e59a3ce2e0bb5f7e49993077fb47"
+    sha256 x86_64_linux:   "6b2f9b5dee679f685b6f7e858a09e56a8ed521859aeaddd2550f563c84a8473f"
   end
 
   depends_on "autoconf" => :build

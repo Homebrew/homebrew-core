@@ -8,6 +8,7 @@ class Microplane < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "8dc27e2d55bf0879b38b4b87ba5ab8e681201cbb581802eec1d61da95ab876b1"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "37602331969805e506841912f3d581e39089a4442ad241d2d009d2ff5bce8ea2"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "bce2fccdf3bad8a263e334f78998abfa7e25153c3bd1c66fff8e538981bd481b"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "895647aa25e00a690a137ab0fae64e72f075d6bedd3d0f9f9105acc7e3c5c90a"

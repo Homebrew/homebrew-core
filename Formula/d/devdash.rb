@@ -6,6 +6,7 @@ class Devdash < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "d275e7fb55d70d47793d2e40e040eaef193055925a4174eed2606a45552b996a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "fdd9cb3b397734f91eed17ff9a4e401c7ba15e559a5f74cccf294f08f0f9a92b"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "521857b00245b916fc5e06de4232c73005a680e223d2474e75f3ce764ae39497"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f4e13f2e58d6e125a578aca41e192b4e655d8daf706e8c1fc154b77c4d884984"
@@ -21,7 +22,7 @@ class Devdash < Formula
 
   deprecate! date: "2024-01-20", because: :repo_archived
 
-  depends_on "go" => :build
+  depends_on "go@1.22" => :build
 
   def install
     system "go", "build", *std_go_args

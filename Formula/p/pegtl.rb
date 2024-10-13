@@ -1,13 +1,13 @@
 class Pegtl < Formula
   desc "Parsing Expression Grammar Template Library"
   homepage "https://github.com/taocpp/PEGTL"
-  url "https://github.com/taocpp/PEGTL/archive/refs/tags/3.2.7.tar.gz"
-  sha256 "d6cd113d8bd14e98bcbe7b7f8fc1e1e33448dc359e8cd4cca30e034ec2f0642d"
-  license "BSL-1.0"
+  url "https://github.com/taocpp/PEGTL/archive/refs/tags/3.2.8.tar.gz"
+  sha256 "319e8238daebc3a163f60c88c78922a8012772076fdd64a8dafaf5619cd64773"
+  # license got changed to BSL-1.0 in main per https://github.com/taocpp/PEGTL/commit/c7630f1649906daf08b8ddca1420e66b542bae2b
+  license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "7688f9b9cba1325c28f231fa6266c7a7c4177dfb5fe4467147878aec7b7778da"
+    sha256 cellar: :any_skip_relocation, all: "4cc6917959a4a5589e44b04a3f60a2c6be767b2d5ef302af832b62804af8a342"
   end
 
   depends_on "cmake" => :build
@@ -15,13 +15,16 @@ class Pegtl < Formula
   fails_with gcc: "5"
 
   def install
-    mkdir "build" do
-      system "cmake", "..", *std_cmake_args,
-                            "-DPEGTL_BUILD_TESTS=OFF",
-                            "-DPEGTL_BUILD_EXAMPLES=OFF",
-                            "-DCMAKE_CXX_STANDARD=17"
-      system "make", "install"
-    end
+    args = %w[
+      -DPEGTL_BUILD_TESTS=OFF
+      -DPEGTL_BUILD_EXAMPLES=OFF
+      -DCMAKE_CXX_STANDARD=17
+    ]
+
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
+
     rm "src/example/pegtl/CMakeLists.txt"
     (pkgshare/"examples").install (buildpath/"src/example/pegtl").children
   end

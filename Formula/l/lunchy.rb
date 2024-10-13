@@ -7,6 +7,7 @@ class Lunchy < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "5d4d7fbe50691decf026eee1496cad613275dc1d66c14bb4c7fa1260db3b49e7"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b9b014fb86d89a966e9bab11c17c8a408230a424ca20f8033ce360ed4d27bde6"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "3dfda20ef97fcf03fcef1a84ead6e043337be20dcef25ca9ea6b55425cf915c2"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "3dfda20ef97fcf03fcef1a84ead6e043337be20dcef25ca9ea6b55425cf915c2"

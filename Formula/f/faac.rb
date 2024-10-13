@@ -6,6 +6,7 @@ class Faac < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "18a110273bcd3cd08517ef6a86ded5a6ca8179b5444c593a5b6dfcf2d662febe"
     sha256 cellar: :any,                 arm64_sonoma:   "3701a45eecedf782012467d4b37393790d69bac55c08b8df5619dd57213ad7c7"
     sha256 cellar: :any,                 arm64_ventura:  "1af7b3a977137c5e1a3a3e8466fcbeddfb77f7656b07e790530ed90c3f85b819"
     sha256 cellar: :any,                 arm64_monterey: "413a14d54cc48a4fd7ae0363438f8ef75c0f0e076a889d3484cb93afa4b464aa"

@@ -6,6 +6,7 @@ class Gptsync < Formula
   license "BSD-3-Clause"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "ea49cd4b6cbba08342f764f78e56496a594edc524a8dd6ee3e0a475d6b558710"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "32b27f3cc32dfca25b1c1cbe4ca3518420cd1eb33cf867ec3d7d3941c536b4ba"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "81ad272478d34de44777be2688ad93d6bc82990ca97876a4ce7c4a9dee9be2fa"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a9fa1287dc7b267191451ad26d47a2a2c706ff784a0b12f007610aeb1fd4d81e"

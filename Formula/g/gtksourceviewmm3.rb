@@ -12,6 +12,7 @@ class Gtksourceviewmm3 < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "8de9f30c9a139c912211e4766370c1b2a3b4f78150a4342f6242f56581ebf3bb"
     sha256 cellar: :any,                 arm64_sonoma:   "dc3f50e8c5d192b4dc176878e95f4b7bf28d0a19e21c7c47b88f1c5905f64ebb"
     sha256 cellar: :any,                 arm64_ventura:  "fa886fba1a65986e976859a1c9714b8892695850e6c8325dc534532f31536f0a"
     sha256 cellar: :any,                 arm64_monterey: "9353790d382f15315725c82eb60364f0533d2cc4d3e7483abbc34ab4962f3688"
@@ -22,12 +23,29 @@ class Gtksourceviewmm3 < Formula
   end
 
   depends_on "pkg-config" => [:build, :test]
+
+  depends_on "atkmm@2.28"
+  depends_on "cairomm@1.14"
+  depends_on "glib"
+  depends_on "glibmm@2.66"
+  depends_on "gtk+3"
   depends_on "gtkmm3"
   depends_on "gtksourceview3"
+  depends_on "libsigc++@2"
+  depends_on "pangomm@2.46"
+
+  on_macos do
+    depends_on "at-spi2-core"
+    depends_on "cairo"
+    depends_on "gdk-pixbuf"
+    depends_on "gettext"
+    depends_on "harfbuzz"
+    depends_on "pango"
+  end
 
   def install
     ENV.cxx11
-    system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
+    system "./configure", *std_configure_args.reject { |s| s["--disable-debug"] }
     system "make", "install"
   end
 
@@ -40,10 +58,9 @@ class Gtksourceviewmm3 < Formula
         return 0;
       }
     EOS
-    ENV.libxml2
-    command = "#{Formula["pkg-config"].opt_bin}/pkg-config --cflags --libs gtksourceviewmm-3.0"
-    flags = shell_output(command).strip.split
-    system ENV.cxx, "-std=c++11", "test.cpp", "-o", "test", *flags
+
+    pkg_config_cflags = shell_output("pkg-config --cflags --libs gtksourceviewmm-3.0").chomp.split
+    system ENV.cxx, "-std=c++11", "test.cpp", "-o", "test", *pkg_config_cflags
     system "./test"
   end
 end

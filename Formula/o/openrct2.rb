@@ -2,19 +2,19 @@ class Openrct2 < Formula
   desc "Open source re-implementation of RollerCoaster Tycoon 2"
   homepage "https://openrct2.io/"
   url "https://github.com/OpenRCT2/OpenRCT2.git",
-      tag:      "v0.4.12",
-      revision: "1b5ff882d3e5902a80eec39a9c923eb8ed5c320d"
+      tag:      "v0.4.15",
+      revision: "c7c8fad822d10e7fbec26eeefbf2e552a02b8ea9"
   license "GPL-3.0-only"
+  revision 1
   head "https://github.com/OpenRCT2/OpenRCT2.git", branch: "develop"
 
   bottle do
-    sha256 cellar: :any, arm64_sonoma:   "007465140d76d532c4794aecafb8c6906412949fccf9b8aa5829e91b716e1359"
-    sha256 cellar: :any, arm64_ventura:  "a063398bbf2dcd8699e7c4e08ad741b20aac0f022c3239f715e4e03f526a2968"
-    sha256 cellar: :any, arm64_monterey: "0d192f9b6702d6a0f7359320fe0a749a8060438eca36e1f7937c55caa0397499"
-    sha256 cellar: :any, sonoma:         "8238bf13a0f9f634a6de7be21c10a4de757ac15bf1ea33f882e1f1ce9865f101"
-    sha256 cellar: :any, ventura:        "c6a4af216409042272cc8c8a946918c5f9d2bda9d0791ebcf61fc6126ab90fb3"
-    sha256 cellar: :any, monterey:       "5e8d6f77d98ae90704ab470f7b80eb541642144b02831eaa93ff3047c1a7c175"
-    sha256               x86_64_linux:   "0ebcfea5973c2fa2bfa9a2b948ae5e79642c653d00479cb1422efc593ca0531a"
+    sha256 cellar: :any, arm64_sequoia: "381626714fb116305a08b21c1e5a9ef05a195a080c28058ab8f90a6fe27c615e"
+    sha256 cellar: :any, arm64_sonoma:  "925bb4895592789e8084138a1a4f46fa9f9be1709b8b7568faa80136ee9048ed"
+    sha256 cellar: :any, arm64_ventura: "aa9d9bcfc540b18adb027d4bb9ebc143b6f0bfe4e4f3c3e467ec688941088440"
+    sha256 cellar: :any, sonoma:        "15b304d9f75f9d39f8a907ed7160f9e6fbcf1ddcdb4fe26807ee30670e344b57"
+    sha256 cellar: :any, ventura:       "f4c21cc47f958d045616e52dfc185f8467d3fbb67b307b3faa3d11b8076bd7ca"
+    sha256               x86_64_linux:  "1cb56645c4a54f24ab13112a00906021d44ffa2ba9d0af56006572080fda5e08"
   end
 
   depends_on "cmake" => :build
@@ -24,7 +24,7 @@ class Openrct2 < Formula
   depends_on "duktape"
   depends_on "flac"
   depends_on "freetype"
-  depends_on "icu4c"
+  depends_on "icu4c@75"
   depends_on "libogg"
   depends_on "libpng"
   depends_on "libvorbis"
@@ -45,13 +45,13 @@ class Openrct2 < Formula
   fails_with gcc: "5" # C++17
 
   resource "title-sequences" do
-    url "https://github.com/OpenRCT2/title-sequences/releases/download/v0.4.6/title-sequences.zip"
-    sha256 "24a189cdaf1f78fb6d6caede8f1ab3cedf8ab9f819cd2260a09b2cce4c710d98"
+    url "https://github.com/OpenRCT2/title-sequences/releases/download/v0.4.14/title-sequences.zip"
+    sha256 "140df714e806fed411cc49763e7f16b0fcf2a487a57001d1e50fce8f9148a9f3"
   end
 
   resource "objects" do
-    url "https://github.com/OpenRCT2/objects/releases/download/v1.4.6/objects.zip"
-    sha256 "5a8b54d021e167604051fd508da109d9ebc660638f57252bba729f76bb246387"
+    url "https://github.com/OpenRCT2/objects/releases/download/v1.4.8/objects.zip"
+    sha256 "ea78872f9f777fb6b27019e4b880e4cb9766658ee8ae95f76985af0b9658eb4d"
   end
 
   def install

@@ -1,6 +1,7 @@
 class Cherrybomb < Formula
   desc "Tool designed to validate your spec"
-  homepage "https://blstsecurity.com"
+  # Original homepage taken over: https://github.com/blst-security/cherrybomb/issues/158
+  homepage "https://github.com/blst-security/cherrybomb"
   url "https://github.com/blst-security/cherrybomb/archive/refs/tags/v1.0.1.tar.gz"
   sha256 "1cbea9046f2a6fb7264d82e1695661e93a759d1d536c6d1e742032e4689efe9f"
   license "Apache-2.0"
@@ -17,7 +18,7 @@ class Cherrybomb < Formula
   end
 
   # https://github.com/blst-security/cherrybomb/issues/156
-  deprecate! date: "2024-02-13", because: "service is no longer available"
+  disable! date: "2024-09-16", because: "service is no longer available"
 
   depends_on "rust" => :build
 

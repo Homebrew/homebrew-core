@@ -12,8 +12,8 @@ class PipesSh < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "da14dd754188372ac28504c4bf326749df47323c5179e96912ec1e0dd9fa6ad1"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "339995e9ef29b4952bf61b4fe406d71c4c6ad5fc96e3e8f291d98150c6789cb8"
   end
 
   depends_on "bash"

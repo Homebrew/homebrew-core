@@ -3,7 +3,7 @@ class Intercal < Formula
   homepage "http://catb.org/~esr/intercal/"
   url "http://catb.org/~esr/intercal/intercal-0.31.tar.gz"
   sha256 "93d842b81ecdc82b352beb463fbf688749b0c04445388a999667e1958bba4ffc"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   # The latest version tags in the Git repository are `0.31` (2019-06-12) and
   # `0.30` (2015-04-02) but there are older versions like `1.27` (2010-08-25)

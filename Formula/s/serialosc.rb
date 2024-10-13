@@ -3,19 +3,18 @@ class Serialosc < Formula
   homepage "https://github.com/monome/docs/blob/gh-pages/serialosc/osc.md"
   # pull from git tag to get submodules
   url "https://github.com/monome/serialosc.git",
-      tag:      "v1.4.4",
-      revision: "19ad3a211876c4434346ab2565eeec09cc949856"
+      tag:      "v1.4.5",
+      revision: "79ac58b0737bc8a6617d90ab41fb00b791a5a746"
   license "ISC"
   head "https://github.com/monome/serialosc.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "c9d79b6270b3a2e19e0154148b34f315f4396e62795d13ea6ed30306ee4e152e"
-    sha256 cellar: :any,                 arm64_ventura:  "dfc2861176110ab1853c2cd2f196f2081570b8280b27cd246a29d8d1879f8ce5"
-    sha256 cellar: :any,                 arm64_monterey: "972d810857722ce1b6fa7dd49f9a3b62623d81269267913bea17cbe845e35413"
-    sha256 cellar: :any,                 sonoma:         "203065f92d72654c7e957e3742b8df010254f4bdb5ead9f1b6ff8883c4ee0ad5"
-    sha256 cellar: :any,                 ventura:        "1be36c6a1de9496207dc9697788252f7b31036bad06a21683bf11bc5ee2534c2"
-    sha256 cellar: :any,                 monterey:       "d87477eb3bade445735ddae8ff084f67f376293fb744782f03895e398a96f280"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "56b10b96744fac9f1e5e476ab8d1600b963bdbbc1c54f25a8835cee647355d19"
+    sha256 cellar: :any,                 arm64_sequoia: "b1ba9d4682993c2b91b290ae127d7d3b4f9bf824096990f70680651a79390459"
+    sha256 cellar: :any,                 arm64_sonoma:  "84e6065faa98dbfb31e366907c0ad337472165ccffb3c8299cf2649811d19d6b"
+    sha256 cellar: :any,                 arm64_ventura: "f52aa361a0b6fcd4636a6e98d7b14d720ada9da0f2a78389f94296a54532d294"
+    sha256 cellar: :any,                 sonoma:        "594dd66c1a55996360013bad6a3f6fe042a5ee853b855b19e8703e0b501ac5cd"
+    sha256 cellar: :any,                 ventura:       "20f48d409724d37c319fd7595e47cc051be3e4343771168dfecbb9cd83e420d4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9b66b2d89de42e40b3f3659dbb4f461698d0ff515047af8fd58ca543efe2757c"
   end
 
   depends_on "confuse"
@@ -29,10 +28,6 @@ class Serialosc < Formula
     depends_on "avahi"
     depends_on "systemd" # for libudev
   end
-
-  # Uses fmemopen API (High Sierra) but defining a target macOS version of Leopard:
-  # https://github.com/monome/serialosc/pull/71
-  patch :DATA
 
   def install
     system "python3", "./waf", "configure", "--prefix=#{prefix}"
@@ -51,19 +46,3 @@ class Serialosc < Formula
     assert_match version.to_s, shell_output("#{bin}/serialoscd -v")
   end
 end
-__END__
-diff --git a/wscript b/wscript
-index 5026c5c..8af6e84 100644
---- a/wscript
-+++ b/wscript
-@@ -272,8 +272,8 @@ def configure(conf):
- 					'-Wl,--enable-stdcall-fixup'])
- 		conf.env.append_unique("WINRCFLAGS", ["-O", "coff"])
- 	elif conf.env.DEST_OS == "darwin":
--		conf.env.append_unique("CFLAGS", ["-mmacosx-version-min=10.5"])
--		conf.env.append_unique("LINKFLAGS", ["-mmacosx-version-min=10.5"])
-+		conf.env.append_unique("CFLAGS", ["-mmacosx-version-min=10.13"])
-+		conf.env.append_unique("LINKFLAGS", ["-mmacosx-version-min=10.13"])
- 
- 	if conf.options.disable_zeroconf:
- 		conf.define("SOSC_NO_ZEROCONF", True)

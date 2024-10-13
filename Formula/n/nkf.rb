@@ -4,6 +4,7 @@ class Nkf < Formula
   # Canonical: https://osdn.net/dl/nkf/nkf-2.1.4.tar.gz
   url "https://dotsrc.dl.osdn.net/osdn/nkf/70406/nkf-2.1.5.tar.gz"
   sha256 "d1a7df435847a79f2f33a92388bca1d90d1b837b1b56523dcafc4695165bad44"
+  license "Zlib"
 
   livecheck do
     url "https://osdn.net/projects/nkf/releases/"
@@ -11,6 +12,7 @@ class Nkf < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "67d8e9dea97994ba77574c0be558cb009448a7aa9d3d577b54e3d5728d1fb1d6"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "89c0a1d6d5886045189b7a3e393b451c84ea7abf7e6f68663819b96651c58f58"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "fcc652ba1cfeec1bec89e5108c3e6eae31652606bf7babd5af25dc6522dc44a1"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "cd946546a2e3f86974d8d6685e891efaca8e4b609ba64cb537629a9b371df518"
@@ -35,6 +37,6 @@ class Nkf < Formula
   end
 
   test do
-    system "#{bin}/nkf", "--version"
+    system bin/"nkf", "--version"
   end
 end

@@ -1,21 +1,18 @@
 class Tere < Formula
   desc "Terminal file explorer"
   homepage "https://github.com/mgunyho/tere"
-  url "https://github.com/mgunyho/tere/archive/refs/tags/v1.5.1.tar.gz"
-  sha256 "d7f657371ffbd469c4d8855c2a2734c20b53ae632fe3cbf9bb7cab94bd726326"
+  url "https://github.com/mgunyho/tere/archive/refs/tags/v1.6.0.tar.gz"
+  sha256 "7db94216b94abd42f48105c90e0e777593aaf867472615eb94dc2f77bb6a3cfb"
   license "EUPL-1.2"
   head "https://github.com/mgunyho/tere.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "54719b8dfd7e1d8d4f4c9b5169efeed05410bf4359b0262218032ded09275807"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e3142df42bb6de9d0cedcd83a22703ce70a69edb1d4950092673c4cabf04b5f2"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3a3335ebce1d748e862505d8282bc7aa7d2434585b0e89546dfd8c56a3436797"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "92748578aa9afe0aba87e7f936ca4c342e8fdd78ec00f69a663abb930029e9c3"
-    sha256 cellar: :any_skip_relocation, sonoma:         "1198b8f3118291e0eadaff8e960f1d850050efcae412959118f404a945ea2bcc"
-    sha256 cellar: :any_skip_relocation, ventura:        "0c873d05896d3ac5491cbd8b484c2dbe2ac3633ff3840e1b025f4618c283501c"
-    sha256 cellar: :any_skip_relocation, monterey:       "70e741a94ea5290b0e53fcdc3d8ce860d153180b3a311905ad31eea4a8f247f1"
-    sha256 cellar: :any_skip_relocation, big_sur:        "0ed3318ae636e59024e9e39c5e0851e50268265f17afe2f58b3f0ea21fd25df5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "78577c35467981482de8bfb2157be8d4d1c83bccad0574edae40c658cd784cfc"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4c9a60b3dc17b2a32d0ecf1836b3914099c6ddc58f19261dae3b5fa7166b28ae"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ec52070d45befb5b87f6e7785a336cd8966774c754bbc7a6f1f0107d66523b13"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "f59761f29b1ceeb7f633056dfac46d6293ef9ff320dcf3260a2e7ce5fb7d988a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "65ae7c433f4610971aa049108551e70bd6b89adb5dbd0966699ed4ae7ae23aab"
+    sha256 cellar: :any_skip_relocation, ventura:       "1330af75bc33de620228e27758d6bdef23e1956c7a249d3f7d6f644e4d40fa00"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9665ab7e423ec09d10dd3e85bec42d8a1e222ef3bfcfb7b229fcdafa5210d69c"
   end
 
   depends_on "rust" => :build

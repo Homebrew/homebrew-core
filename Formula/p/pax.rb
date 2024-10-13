@@ -11,6 +11,7 @@ class Pax < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "a439a16ce1f3c165a8f909e2fdcca2c0947e117365465d25517eec4f7760a060"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "47f4f096d2004842fb3da233b6ce4aaebd7689b3a78e652454859f32cab7f428"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "d53b2b5ce68a30ac206d6692afd3340abbb4b017922fee78db2f9fb1455c55a3"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4439e9d997f1e26eb76c01c5bded88103475e8867855e2b0928eae5175e974b5"
@@ -36,9 +37,9 @@ class Pax < Formula
 
   test do
     (testpath/"foo").write "test"
-    system "#{bin}/pax", "-f", "#{testpath}/foo.pax", "-w", "#{testpath}/foo"
+    system bin/"pax", "-f", "#{testpath}/foo.pax", "-w", "#{testpath}/foo"
     rm testpath/"foo"
-    system "#{bin}/pax", "-f", testpath/"foo.pax", "-r"
+    system bin/"pax", "-f", testpath/"foo.pax", "-r"
     assert_predicate testpath/"foo", :exist?
   end
 end

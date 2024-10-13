@@ -7,6 +7,7 @@ class Ttyd < Formula
   head "https://github.com/tsl0922/ttyd.git", branch: "main"
 
   bottle do
+    sha256 arm64_sequoia:  "546f6c28e74064f283eeab9770b1779544376272d25e83e9253feb9be9abed6b"
     sha256 arm64_sonoma:   "e561aa5ac9af88c33e697043bf1480261b50dab24f124986fedae77acc76bcec"
     sha256 arm64_ventura:  "eb7c74c84404c738198040209c88e13d594d422c647b19c57bfc16fee723f3dc"
     sha256 arm64_monterey: "74a57b3f5474faea250634bf2b41c975d972f0dad594d94640e345390079b754"
@@ -37,7 +38,7 @@ class Ttyd < Formula
   test do
     port = free_port
     fork do
-      system "#{bin}/ttyd", "--port", port.to_s, "bash"
+      system bin/"ttyd", "--port", port.to_s, "bash"
     end
     sleep 5
 

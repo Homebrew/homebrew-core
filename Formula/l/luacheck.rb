@@ -7,6 +7,7 @@ class Luacheck < Formula
   head "https://github.com/lunarmodules/luacheck.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "a169aee2121f7c2ed0b06c929b7d7af23ffc3307bdbf0422d55320eb28c4ada7"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "15a92f15305c2dd68712f301650a1e4dd44f125d877cce6805fe7c350a3d6846"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "afb2f3120e5fe5f65c04b23fb0b0c71b11aae1f568b0ee089ff571aa8f646760"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c6e14232fc83825fc5e95905a1494ff3871ea0b714304a1bbdd1341aa9a23e77"

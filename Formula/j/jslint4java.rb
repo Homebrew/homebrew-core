@@ -6,8 +6,8 @@ class Jslint4java < Formula
   license "BSD-2-Clause"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "6aa488cc941093b2d5be078041f08b5b90990519ed35f784960e0ea4c37dca29"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "96eda9ffe32e9dae5f01ef6dbad6c26ae7deeff1ad79163c18c0331819d44e46"
   end
 
   depends_on "openjdk"

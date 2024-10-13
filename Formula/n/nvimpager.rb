@@ -7,6 +7,7 @@ class Nvimpager < Formula
   head "https://github.com/lucc/nvimpager.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "9e64c6a58d03492445e9ea60bcd47d617310e062ed4a2039824a25050dcda0c9"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4d2255736ecfd77f610057c33437ac6422f8029e51ab588da789901047d950c5"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "247acb9bf098f61319d45b3c3ecd0ade4338506bf189f57e4a0e171b0d3ebdf0"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "73a19ab94071d95e746c648c8d5797dcccbdaf46cb0773026b72e0d13a3f660f"

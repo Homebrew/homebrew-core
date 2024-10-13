@@ -9,17 +9,11 @@ class Epr < Formula
   head "https://github.com/wustho/epr.git", branch: "master"
 
   bottle do
-    rebuild 4
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "17bf56c5d9c14a0bf540e7a9227150af4dfbe54ee1e067d31fec6e47d9b4ac4a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "17bf56c5d9c14a0bf540e7a9227150af4dfbe54ee1e067d31fec6e47d9b4ac4a"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "17bf56c5d9c14a0bf540e7a9227150af4dfbe54ee1e067d31fec6e47d9b4ac4a"
-    sha256 cellar: :any_skip_relocation, sonoma:         "17bf56c5d9c14a0bf540e7a9227150af4dfbe54ee1e067d31fec6e47d9b4ac4a"
-    sha256 cellar: :any_skip_relocation, ventura:        "17bf56c5d9c14a0bf540e7a9227150af4dfbe54ee1e067d31fec6e47d9b4ac4a"
-    sha256 cellar: :any_skip_relocation, monterey:       "17bf56c5d9c14a0bf540e7a9227150af4dfbe54ee1e067d31fec6e47d9b4ac4a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d28c29932295a86b7efcd95e2773063e936600fecf74e99670c7345004ed18c6"
+    rebuild 6
+    sha256 cellar: :any_skip_relocation, all: "966f587303e9f02e370a8664d4e94d27fcb9ec65567ca6c545fa254d1b04f0b3"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   def install
     virtualenv_install_with_resources

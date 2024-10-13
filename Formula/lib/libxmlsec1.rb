@@ -11,6 +11,7 @@ class Libxmlsec1 < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "8c05a4a3c421f3249e23fa62ca7351e1e9907a6c35521db8296d1ec93de11401"
     sha256 cellar: :any,                 arm64_sonoma:   "7731d32c5c2ee494f03870631d070debfa83466f08d72f6d4891144ca0f2fd1b"
     sha256 cellar: :any,                 arm64_ventura:  "e632fcf2cff2e0b5d3a08cc8ffbb47b339aaa9c57ea517e8a8d99f0ff4450a30"
     sha256 cellar: :any,                 arm64_monterey: "d6a3ea2f521670b52000d551dc86a1fb0433a16ea976b072d396ecb8cff07e13"
@@ -21,7 +22,6 @@ class Libxmlsec1 < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on xcode: :build
   depends_on "gnutls" # Yes, it wants both ssl/tls variations
   depends_on "libgcrypt"
   depends_on "libxml2"
@@ -47,8 +47,8 @@ class Libxmlsec1 < Formula
   end
 
   test do
-    system "#{bin}/xmlsec1", "--version"
-    system "#{bin}/xmlsec1-config", "--version"
+    system bin/"xmlsec1", "--version"
+    system bin/"xmlsec1-config", "--version"
   end
 end
 

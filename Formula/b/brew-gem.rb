@@ -15,13 +15,8 @@ class BrewGem < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "694721fcbd4b8c2c8d7db6135ca73aadf0cfe63646a1bfa9dc917d2fd138597a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "694721fcbd4b8c2c8d7db6135ca73aadf0cfe63646a1bfa9dc917d2fd138597a"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "694721fcbd4b8c2c8d7db6135ca73aadf0cfe63646a1bfa9dc917d2fd138597a"
-    sha256 cellar: :any_skip_relocation, sonoma:         "694721fcbd4b8c2c8d7db6135ca73aadf0cfe63646a1bfa9dc917d2fd138597a"
-    sha256 cellar: :any_skip_relocation, ventura:        "694721fcbd4b8c2c8d7db6135ca73aadf0cfe63646a1bfa9dc917d2fd138597a"
-    sha256 cellar: :any_skip_relocation, monterey:       "694721fcbd4b8c2c8d7db6135ca73aadf0cfe63646a1bfa9dc917d2fd138597a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5249679d614de6163b40a3a676d3895635ca03c916b35837c0d8ad701ecbd71a"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "8725b10550f4284125bd582c7c7e79cc732eaae73d5bf8e4475cf776030ea037"
   end
 
   uses_from_macos "ruby"
@@ -34,6 +29,6 @@ class BrewGem < Formula
   end
 
   test do
-    system "#{bin}/brew-gem", "help"
+    system bin/"brew-gem", "help"
   end
 end

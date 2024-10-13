@@ -11,23 +11,22 @@ class Seexpr < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "6e190a9b5d3db5beb483db33d39c1b7446269d6e088a9aef7b0bad7e77d8c1e0"
-    sha256 cellar: :any,                 arm64_monterey: "d525a96b58f896e76192699ed10018bc992287604d1902c7c8614ebc508b7fe7"
-    sha256 cellar: :any,                 arm64_big_sur:  "722581c38cd9860d5dc9b53f85b9560f3c1039b49a17180114c6f2370556fc86"
-    sha256 cellar: :any,                 sonoma:         "464a117ef85f5bd3d5c277fb79af14616e67d0642aa24d7b9467de293966312c"
-    sha256 cellar: :any,                 ventura:        "00301575495e4c6ff4493576f95647e070258e87630a20fd1d61baf98c5d4c51"
-    sha256 cellar: :any,                 monterey:       "45a50904ddbd4940674d0c844878effb7f7175af28c37feabb0f6ee52509e48d"
-    sha256 cellar: :any,                 big_sur:        "8045ec68c468b5db8a118006756e34c54425bbcc3e29306c16a52e86ccefdbb7"
-    sha256 cellar: :any,                 catalina:       "2a55400ad86255b300843f7cde1dbed4130d0ba26ffc4c8725fec83b50e7f9e3"
-    sha256 cellar: :any,                 mojave:         "e5ba2fcca24837fc43d11524fdeff04d9f4429f6c66421dec6c1925b60893f82"
-    sha256 cellar: :any,                 high_sierra:    "b5a3d64c08f692d25d3eb12dd9409c414939303b0b9f19396c95a13d07b46fa9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "701bb51401ec76db34e2e1a006c37abb5a4fe480980e34ec03adadd137efb150"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia:  "d568f50ded114a9116f96515049ba0938ab9d348e6254c649412426edb7a6909"
+    sha256 cellar: :any,                 arm64_sonoma:   "5da5b2e705b2aa90b55a91e3671c07bbad530694de37ad57d6be0441bcd4421f"
+    sha256 cellar: :any,                 arm64_ventura:  "b28dd49e3d0b93c67e39ed97067547643b9254119e9bc117b575739fda21ba9d"
+    sha256 cellar: :any,                 arm64_monterey: "164fa646ad87a1c238d9581a59f6d4cc2992aff2a70cb1c2467cd20eaea02823"
+    sha256 cellar: :any,                 sonoma:         "f996afede28403cf87f1cab3ce3d689358dc0f588cb056cea633beddc5e7b26d"
+    sha256 cellar: :any,                 ventura:        "ff14944ca49cfb596a51a60e99b4af150869d58ff50f4e696144dbc2f329198e"
+    sha256 cellar: :any,                 monterey:       "015e7bfe379958ce3e7cf76160b7db986bb3b64b352d9d7d7264408efacd5b3c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2e1e13ab5faa794301571ff544a072b4cc4398affe0f61113ff13918025e3680"
   end
 
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
   depends_on "libpng"
 
+  uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
 
   on_linux do
@@ -51,6 +50,7 @@ class Seexpr < Formula
 
   test do
     actual_output = shell_output("#{bin}/asciiGraph2 'x^3-8*x'").lines.map(&:rstrip).join("\n")
+    roundoff = "#" if Hardware::CPU.arm? && OS.mac? && MacOS.version >= :ventura
     expected_output = <<~EOS
                                     |        #
                               ##    |        #
@@ -79,7 +79,7 @@ class Seexpr < Formula
                           #         | #   #
                           #         | ##  #
                           #         |  #  #
-                                    |  ###
+                                    |  ####{roundoff}
                           #         |   ##
                           #         |
     EOS

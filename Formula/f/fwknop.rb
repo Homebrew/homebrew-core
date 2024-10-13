@@ -1,28 +1,31 @@
 class Fwknop < Formula
   desc "Single Packet Authorization and Port Knocking"
   homepage "https://www.cipherdyne.org/fwknop/"
-  url "https://github.com/mrash/fwknop/archive/refs/tags/2.6.10.tar.gz"
-  sha256 "a7c465ba84261f32c6468c99d5512f1111e1bf4701477f75b024bf60b3e4d235"
+  url "https://www.cipherdyne.org/fwknop/download/fwknop-2.6.11.tar.gz"
+  mirror "https://github.com/mrash/fwknop/releases/download/2.6.11/fwknop-2.6.11.tar.gz"
+  sha256 "bcb4e0e2eb5fcece5083d506da8471f68e33fb6b17d9379c71427a95f9ca1ec8"
   license "GPL-2.0-or-later"
   head "https://github.com/mrash/fwknop.git", branch: "master"
 
   bottle do
-    rebuild 2
-    sha256 arm64_sonoma:   "7aad6624e67267a7a4dd7dbe089cd9de6a0ec0420c646a033e7c03c30b70bee2"
-    sha256 arm64_ventura:  "15c2272173da7bc217dc32847ed34e9607952f2ee95d69269a79663eb6493e9d"
-    sha256 arm64_monterey: "8e8b947582a394a113c5c3fab41dc69c7528276edbf0a732a64c2589d0d09229"
-    sha256 sonoma:         "8e5985bc654aaa5f71525c60a74e68037c84ce3a21c5ad5778c62270fb91aa6d"
-    sha256 ventura:        "f199526a5fc0eead9499e4e811a7a0429067c04c828dd6cde1476f004224f97a"
-    sha256 monterey:       "28d812f4efb74c7749a744a8801b3b1ae12bf25f1941b2b910f19da3ed9b6fa8"
-    sha256 x86_64_linux:   "6041c174c567035e621ee9508aa89bd6af671cdfaf7bc99d88eccc473f69f9de"
+    sha256 arm64_sequoia:  "dd24ee01f0b52367ccb00111e7e3b28586cbe9b355b9461ac38175fcdaaa0b31"
+    sha256 arm64_sonoma:   "3729d1321c0430837a4dfd26d0f504a4ef05d9798e37f12bf56149c0a88badc7"
+    sha256 arm64_ventura:  "f30bdfd167ff41974f6df99b6305a3718fc6a032f742c71a45a8883060c09836"
+    sha256 arm64_monterey: "ed89fd42fc0d208e93f3f2ea2d1441b0192cd5dbb23280029fd23bc4aa47200a"
+    sha256 sonoma:         "b493935cf740cb8c95680dac3f7e5373a393d2f8127e96c7061b6e0142e1a7b6"
+    sha256 ventura:        "7da542df5fadb3288b83899e0411c3fa2d19f55cce185c1721992b1d500f6bee"
+    sha256 monterey:       "c8231997765dc550d2e0f61f6f6ba0bcbb85b3c4f985d10579ab058b2e8993d6"
+    sha256 x86_64_linux:   "9e00519d9c3b6cb6c39eb4da55bbed6b0ba8767b7adf5e8f30fba8d3784070e6"
   end
 
-  disable! date: "2023-10-17", because: :unmaintained
-
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
   depends_on "gpgme"
+
+  uses_from_macos "libpcap"
+
+  on_macos do
+    depends_on "libassuan"
+    depends_on "libgpg-error"
+  end
 
   on_system :linux, macos: :ventura_or_newer do
     depends_on "texinfo" => :build
@@ -33,29 +36,19 @@ class Fwknop < Formula
   end
 
   def install
-    # Work around failure from GCC 10+ using default of `-fno-common`
-    # fwknop-config_init.o:(.bss+0x4): multiple definition of `log_level_t'
-    # Issue ref: https://github.com/mrash/fwknop/issues/305
-    ENV.append_to_cflags "-fcommon" if OS.linux?
-
-    # Fix failure with texinfo while building documentation.
-    inreplace "doc/libfko.texi", "@setcontentsaftertitlepage", ""
-
-    system "./autogen.sh"
-    args = *std_configure_args + %W[
+    args = %W[
       --disable-silent-rules
       --sysconfdir=#{etc}
       --with-gpgme
       --with-gpg=#{Formula["gnupg"].opt_bin}/gpg
     ]
     args << "--with-iptables=#{Formula["iptables"].opt_prefix}" unless OS.mac?
-    system "./configure", *args
+    system "./configure", *std_configure_args, *args
     system "make", "install"
   end
 
   test do
-    touch testpath/".fwknoprc"
-    chmod 0600, testpath/".fwknoprc"
-    system "#{bin}/fwknop", "--version"
+    assert_match version.to_s, shell_output("#{bin}/fwknop --version")
+    assert_match(/KEY_BASE64:\s*.+/, shell_output("#{bin}/fwknop --key-gen"))
   end
 end

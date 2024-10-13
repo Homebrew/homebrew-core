@@ -1,19 +1,19 @@
 class Iamb < Formula
   desc "Matrix client for Vim addicts"
   homepage "https://iamb.chat"
-  url "https://github.com/ulyssa/iamb/archive/refs/tags/v0.0.9.tar.gz"
-  sha256 "7ef6d23a957bfab62decd48caa83c106a49d95760b4b2ccf5a6b6a8f4506e687"
+  url "https://github.com/ulyssa/iamb/archive/refs/tags/v0.0.10.tar.gz"
+  sha256 "f628cfbd9eba9e8881902b970e9432fec815044ec9bea901a8562ea3ef8f4615"
   license "Apache-2.0"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "df5468418a4a4af000aff2ab762e155d3839f52ee0c8f0c95fd5819cecee2a79"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5d9f06178e7513c05362bdfd4c8c213f0fe8ec31fc7c831d04b371b60e6f8e2e"
-    sha256 cellar: :any,                 arm64_monterey: "c928e483bb98d810c0198ebfb8f5fde3ea763da5fb279069aafaa8dde9893e71"
-    sha256 cellar: :any_skip_relocation, sonoma:         "070fdce3fb47521f17d979d6387b40a2338cda0555690c5bfd9bcb611ccc8cb3"
-    sha256 cellar: :any_skip_relocation, ventura:        "a72b6c388f13df9814173ed6b8f7980afc4d7d3f1262c694f9a94d7cfd614941"
-    sha256 cellar: :any,                 monterey:       "8244a873a5bc029bf2f359594ad64ede6d647ddd827a7cbc49b8232cf9c51ec8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b630ded350a73202b2d7d2813ec8d28889351186cb4281a3f232b0fa6214f6ef"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "1e1a4d58912f7dad8c353cb2ec05577693b21de7954e33b22e0314ae10039e17"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c09591eb3bc906830f85bbc406b20a8a5d1fca0bb3f8809c661d88360aa35d6c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b2124f6220a2c7354ac1435f15a6805adf0ecc617cd9febdfaae65a48ef58f6e"
+    sha256 cellar: :any,                 arm64_monterey: "4bf0b74795aea77ea0e1e10a763550d4a58409aa3a08fa5bdcd9c87194dda4ff"
+    sha256 cellar: :any_skip_relocation, sonoma:         "9333e920a2091887b025e048a61544c69c263610f261796b3844001d00084bca"
+    sha256 cellar: :any_skip_relocation, ventura:        "94f17c6cffebdd18ed8963bfd933925b9b182cf2879b84c80245f4be9cd1dd57"
+    sha256 cellar: :any,                 monterey:       "c0d27624f82d9978f2466e90e7e89629704d890c0d8461e9ec01113d6f1ae105"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f77262d3d6396f267d57ae41fa0d76d023dc5960ebb0eea743ebff4b9ea7f245"
   end
 
   depends_on "pkg-config" => :build

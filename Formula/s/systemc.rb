@@ -11,6 +11,7 @@ class Systemc < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "2740e733855c0ff23f257579f7dfd18457f6f3d24bc6a43bba6fd07ae051472a"
     sha256 cellar: :any,                 arm64_sonoma:   "cc59814681c92112b42bad9029facfd7142ee6b61d6000c10bc6d6d412aad0d8"
     sha256 cellar: :any,                 arm64_ventura:  "afb2a0c1006279804a2b73b4b2f38f085dd2931d11427ee773dfac5bd11bfe58"
     sha256 cellar: :any,                 arm64_monterey: "26d56ae7d9d1e3a9b1c9c14f023a26b0a2901b35ae48153783749d56ba9157bb"

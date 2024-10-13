@@ -1,19 +1,18 @@
 class Act < Formula
   desc "Run your GitHub Actions locally"
   homepage "https://github.com/nektos/act"
-  url "https://github.com/nektos/act/archive/refs/tags/v0.2.64.tar.gz"
-  sha256 "3ccc37c07203e02bceea1fb5a9b41827192285e1155fcc168d5a0f63c7b7ddea"
+  url "https://github.com/nektos/act/archive/refs/tags/v0.2.68.tar.gz"
+  sha256 "45653a9a73c8f5fe4bb6b05b49d3ef22589a6968ccf30a49cc399e7862870303"
   license "MIT"
   head "https://github.com/nektos/act.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d28bf9a8324be32131be57c4b9272275280b09866fcbb04357d2a24e52f600b0"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "16e7eb0086d01ec0ec4d3790f6ca57b8181787af050ba4b265a48d8c4f895fe1"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e5758dc43361d4ad1dc214e6d96d68927cdc1129778cb950b135e0b01a645c8f"
-    sha256 cellar: :any_skip_relocation, sonoma:         "75c5c1304a0b35e9dd3c9bddae15d83e032736c9190fce8d39efe1f0992748a8"
-    sha256 cellar: :any_skip_relocation, ventura:        "d70af17006e89732ad10fe2d3c6c5c6d6741f84a526bd94515d30ef206755531"
-    sha256 cellar: :any_skip_relocation, monterey:       "269ff3f51652c1c1ec20a4a9b9df07f278e81f14b5c9e9b1ce64ad68b5da5066"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0232814525c1623bc0327bb93a6a0598637b676ed090d518208da154a4c35157"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e43c4f730de795f03fea88b32c36378ebde55b5e7567dc7d42d7e2aeb08caf89"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ccb2ad702660b6cc02ecbb92fc7a216a7d4c18f35de8dec4b86d7a0d8d376c3c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "29b5c833d5699d491e9ea007656abb027ff69b4df01231b452e3e0bb9449184f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c649251faae652c11eabb9b684c62dfc523756781aeb88a5815134fa1462c029"
+    sha256 cellar: :any_skip_relocation, ventura:       "8a28158f375c52d7c3a401a0080d8f9de128651faa5b358174b1b500d6ee3d61"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "84d7d7afa6e1a226fcf2edcc34693edb339fd8b961f0837a4817de08434aa194"
   end
 
   depends_on "go" => :build

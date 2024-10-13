@@ -7,6 +7,7 @@ class Whois < Formula
   head "https://github.com/rfc1036/whois.git", branch: "next"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "6bbafe8f28a7bc249fa13317f3214a3d337514804fb2b08ad71249d4c6000d5c"
     sha256 cellar: :any,                 arm64_sonoma:   "8d6091c37f0dacdfc405f47bccf139e045b7e25c8a80308b39e0e86dcd52244e"
     sha256 cellar: :any,                 arm64_ventura:  "c57142742802829d13211473d7ec414d0d160aee0ac6d8d28c185add741c05c4"
     sha256 cellar: :any,                 arm64_monterey: "624fdd325d3df32e527638eebbcf96bf102a671b81edb03500a2f759874c53a6"
@@ -40,6 +41,6 @@ class Whois < Formula
   end
 
   test do
-    system "#{bin}/whois", "brew.sh"
+    system bin/"whois", "brew.sh"
   end
 end

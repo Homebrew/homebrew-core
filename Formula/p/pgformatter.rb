@@ -6,6 +6,7 @@ class Pgformatter < Formula
   license "PostgreSQL"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "0e7dbf0cda0abe59042912f4d489d53724ffe2a3f2a32ef915e948922936f2b6"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5bf3d26c14d04d969ffbda591452fad5676f730279e946ea83bb7b26d8a72eb6"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f55a58ffba124482444519c77f9e29cfab2bb7148b78da263eb20f64a3a184c4"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f55a58ffba124482444519c77f9e29cfab2bb7148b78da263eb20f64a3a184c4"
@@ -36,6 +37,6 @@ class Pgformatter < Formula
   test do
     test_file = (testpath/"test.sql")
     test_file.write("SELECT * FROM foo")
-    system "#{bin}/pg_format", test_file
+    system bin/"pg_format", test_file
   end
 end

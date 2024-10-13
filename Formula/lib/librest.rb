@@ -15,6 +15,7 @@ class Librest < Formula
 
   bottle do
     rebuild 1
+    sha256                               arm64_sequoia:  "b495dc3f46d8a9540285976f91890822b26bb33455aa22aad0d0c1eedbd542fc"
     sha256                               arm64_sonoma:   "83899cbb34ed5f7f1015a92854e0593d720bdbe31d1f44a0b29e24823e26503d"
     sha256                               arm64_ventura:  "5b9577e9c171c879a9fe98ed60239ac2997732b0d3d23be936ec4c8b51e660d7"
     sha256                               arm64_monterey: "b82cb89cd5181ce20e2bce9f9255bd7878a13d9badb6c0c8fe633be3c1fe748a"

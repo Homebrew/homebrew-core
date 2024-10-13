@@ -12,6 +12,7 @@ class Rtaudio < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia:  "91a97a9e4ed02b0fef4016d7ee2916edce3c41251bf9942f4aef4a9148c382f3"
     sha256 cellar: :any,                 arm64_sonoma:   "1d56ffbaacd143c4ce5215d42f5424d42dfd947bc26eaf57830eb51e7546068b"
     sha256 cellar: :any,                 arm64_ventura:  "483296d1cc1b969448614c1a22d004a1222270832842dce62be151465fd21753"
     sha256 cellar: :any,                 arm64_monterey: "87c6a5b3c3eeb5b176786c650f5606de4cf7936ddf152fb669456eca491512cb"

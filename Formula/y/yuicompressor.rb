@@ -13,6 +13,7 @@ class Yuicompressor < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "8f29cb084549e077a7ba1a0aaa2ad5c78d4067de0d3a019ef8ec831f55a542f9"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "39a0c85d86b163e85204877c02dc2028d458aaa93822a9744bd3ce6cf883163b"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "39a0c85d86b163e85204877c02dc2028d458aaa93822a9744bd3ce6cf883163b"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "39a0c85d86b163e85204877c02dc2028d458aaa93822a9744bd3ce6cf883163b"

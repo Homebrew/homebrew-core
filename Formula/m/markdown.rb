@@ -11,8 +11,8 @@ class Markdown < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "a52d03ea9f6a735b12194788f335bff854523af6bfb9303391ae583c65fd7001"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "ba5a95424267c48417d20a1ca2a253366c9741d7d2dcbe71fd7715c1babd1b8a"
   end
 
   conflicts_with "discount", because: "both install `markdown` binaries"
@@ -23,6 +23,6 @@ class Markdown < Formula
   end
 
   test do
-    assert_equal "<p>foo <em>bar</em></p>\n", pipe_output("#{bin}/markdown", "foo *bar*\n")
+    assert_equal "<p>foo <em>bar</em></p>\n", pipe_output(bin/"markdown", "foo *bar*\n")
   end
 end

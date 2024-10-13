@@ -11,6 +11,7 @@ class Fltk < Formula
   end
 
   bottle do
+    sha256 arm64_sequoia:  "b1f013906d83a39cbf3154b72c0834dfe0b5fddb18f091742d3d6209f5143986"
     sha256 arm64_sonoma:   "91c7ccb23fdc7ee40d62179d011655dcf4101a524d15378a8eab10b6cdd2479f"
     sha256 arm64_ventura:  "c5b71477f972a83b169634cda2e0dd9ad1cc7a050c4fc9e7e67e2ef67f9a30dc"
     sha256 arm64_monterey: "ce76c6264a6b286c50effde7467af19277f3aa6687ea3defb5a73f0152753652"
@@ -30,8 +31,14 @@ class Fltk < Formula
 
   on_linux do
     depends_on "pkg-config" => :build
+    depends_on "fontconfig"
+    depends_on "libx11"
+    depends_on "libxext"
+    depends_on "libxfixes"
     depends_on "libxft"
+    depends_on "libxrender"
     depends_on "libxt"
+    depends_on "mesa"
     depends_on "mesa-glu"
   end
 

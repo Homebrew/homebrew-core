@@ -11,6 +11,7 @@ class Libvdpau < Formula
   end
 
   bottle do
+    sha256 arm64_sequoia:  "8baf9479a1307dd3f6819d5953b200195a91d7c522f01b2b4930e9fc750b3615"
     sha256 arm64_sonoma:   "a683463e26fbc2b4d4d56865835d0aa94316c556aa56c1dc55263e307b8bc4cc"
     sha256 arm64_ventura:  "2e414f4fcb57c924669fae785354d36899e13cbb11375ad24483001ed0e0f19d"
     sha256 arm64_monterey: "983ddb3ecfdacb086fd056315553adf0e458e6f4da959a0381d4889e55947635"

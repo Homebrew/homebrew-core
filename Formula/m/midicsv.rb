@@ -3,6 +3,7 @@ class Midicsv < Formula
   homepage "https://www.fourmilab.ch/webtools/midicsv/"
   url "https://www.fourmilab.ch/webtools/midicsv/midicsv-1.1.tar.gz"
   sha256 "7c5a749ab5c4ebac4bd7361df0af65892f380245be57c838e08ec6e4ac9870ef"
+  license :public_domain
 
   livecheck do
     url :homepage
@@ -10,6 +11,7 @@ class Midicsv < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "d9f2a974d6a9eb331de0e371bcf96589dd6fdfec7a2f862ec5f0a591d3721825"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f4733fc9797f3a20fc40b127895631d0beca4f15e1dd289ff24e9010821b4731"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "bfc81631f34a7b6c244c9c0381b46f24da59332e10770501232a2cdcc564601c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "92dfc5dc808b233c4fbcf4b69a4f74f24c5d69ec409e687d716ddb04eeb78a45"
@@ -34,6 +36,6 @@ class Midicsv < Formula
   end
 
   test do
-    system "#{bin}/midicsv", "-u"
+    system bin/"midicsv", "-u"
   end
 end

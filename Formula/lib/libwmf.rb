@@ -12,6 +12,7 @@ class Libwmf < Formula
   end
 
   bottle do
+    sha256 arm64_sequoia:  "e0cc5c1d1e18f0a0ebf5bd15ece8c8b542c0838756d51a1b6c4ff6374cb8bc32"
     sha256 arm64_sonoma:   "877950d7e281db2ae95cb74cab50330b721416f6389f5f9bdc985bf2e2c5b926"
     sha256 arm64_ventura:  "bd3df915d0b9d87c94aab7ee63670f911c971c7733d7f4a5b711b65e4d6a05b0"
     sha256 arm64_monterey: "3e48bed98b30b6740c80267498806123a035d100711c6ed8afcb5399dabd2d06"
@@ -25,16 +26,20 @@ class Libwmf < Formula
   end
 
   depends_on "pkg-config" => :build
+
   depends_on "freetype"
   depends_on "gd"
   depends_on "jpeg-turbo"
   depends_on "libpng"
 
+  uses_from_macos "expat"
+  uses_from_macos "zlib"
+
   def install
-    system "./configure", *std_configure_args,
-                          "--with-png=#{Formula["libpng"].opt_prefix}",
+    system "./configure", "--with-png=#{Formula["libpng"].opt_prefix}",
                           "--with-freetype=#{Formula["freetype"].opt_prefix}",
-                          "--with-jpeg=#{Formula["jpeg-turbo"].opt_prefix}"
+                          "--with-jpeg=#{Formula["jpeg-turbo"].opt_prefix}",
+                          *std_configure_args
     system "make"
     ENV.deparallelize # yet another rubbish Makefile
     system "make", "install"

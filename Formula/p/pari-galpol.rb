@@ -18,8 +18,8 @@ class PariGalpol < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "133eb8e5276c678accb4f6a5b014ec43e86133aa5ea747d563037cb6f6e86863"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "e025e273d014cf89f901fd09c2fc60bf7d1e48650f930d6072bc33330e5ced97"
   end
 
   depends_on "pari"

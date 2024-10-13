@@ -11,6 +11,7 @@ class Rdfind < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "e4c5ee4e3e0e82d1de65d7a31db48d82aa7b4da10433f91a31cc0c1e9c960652"
     sha256 cellar: :any,                 arm64_sonoma:   "3823096b8f3b320247c7a20986a2923511aaddc13582d6d1be176f7a0a725d3c"
     sha256 cellar: :any,                 arm64_ventura:  "ac61318405080ae930560042e69a95081d0ef43bc78fe6f7e197af8739242924"
     sha256 cellar: :any,                 arm64_monterey: "3beae55c25f4c3e1b0b8167baf0b627527666563a38cd3f5fe4f880a3a2de69d"
@@ -37,7 +38,7 @@ class Rdfind < Formula
     (testpath/"folder/file1").write("foo")
     (testpath/"folder/file2").write("bar")
     (testpath/"folder/file3").write("foo")
-    system "#{bin}/rdfind", "-deleteduplicates", "true", "folder"
+    system bin/"rdfind", "-deleteduplicates", "true", "folder"
     assert_predicate testpath/"folder/file1", :exist?
     assert_predicate testpath/"folder/file2", :exist?
     refute_predicate testpath/"folder/file3", :exist?

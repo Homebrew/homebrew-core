@@ -12,7 +12,8 @@ class Blackbox < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "419360782c976255a478975376c6a504085ec82c56e16938a76f7a0fd322b2b6"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "55abf9c858ccaf04d8ab764718fa5810f09adb66c150ae3a9f263622a1cae753"
   end
 
   depends_on "gnupg"

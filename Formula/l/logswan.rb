@@ -6,6 +6,7 @@ class Logswan < Formula
   license "BSD-2-Clause"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "974dab0839e9b27ff17ae06429f35afa70dca195987f113d06c97d8cb8f76809"
     sha256 cellar: :any,                 arm64_sonoma:   "32ae83eb50fa25acf2381bb182f42c54480fb35f2e059d6e68cf32bf8d072601"
     sha256 cellar: :any,                 arm64_ventura:  "34a5d3784442be907bb3f1cdea2a8db5761b6434bf95e388ee613c4975d70eb5"
     sha256 cellar: :any,                 arm64_monterey: "44cf0367927f113091cb1050d5a5c6dd55b26eafb4a1842dc370ae1e2a866267"
@@ -22,11 +23,10 @@ class Logswan < Formula
   depends_on "libmaxminddb"
 
   def install
-    mkdir "build" do
-      system "cmake", "..", *std_cmake_args
-      system "make"
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
+
     pkgshare.install "examples"
   end
 

@@ -37,6 +37,6 @@ class Clojurescript < Formula
         (str "Hello " n))
     EOS
 
-    system "#{bin}/cljsc", testpath/"t.cljs"
+    system bin/"cljsc", testpath/"t.cljs"
   end
 end

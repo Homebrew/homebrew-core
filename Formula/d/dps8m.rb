@@ -12,6 +12,7 @@ class Dps8m < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "662b0842c1799d9a5321c24202d9769a4684ecf49fccb399c22f5602b278f401"
     sha256 cellar: :any,                 arm64_sonoma:   "8512a997de2d7157aa181b8230286d68336640af6056ec945d5f81033711e893"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "34bcbbb25c2dfd78c480cabc2fe15524079bbe3cb2a928166bebac1ef7599b34"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "23ce64ca8ce99c74b5b50e47ad924980659a4971e569718b88f384146d7ed06d"

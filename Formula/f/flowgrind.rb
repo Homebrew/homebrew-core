@@ -13,6 +13,7 @@ class Flowgrind < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "7d7a2e643709a80e87d6585e6d96af3c50ba5d310a20cb7f9ca902db989e2115"
     sha256 cellar: :any,                 arm64_sonoma:   "25f3197b68720e0e5858a73c2fb8dd78b576a1f153cb2f383f06179bd637a17e"
     sha256 cellar: :any,                 arm64_ventura:  "c2fa42177d8ca42b47f974a821c1359b2ccb88b0ef286733974fddf35e5e5e83"
     sha256 cellar: :any,                 arm64_monterey: "677e2405fd0fd400387c26291671a4324e29885c14176eed3586d019edd33004"
@@ -41,6 +42,6 @@ class Flowgrind < Formula
   end
 
   test do
-    system "#{bin}/flowgrind", "--version"
+    system bin/"flowgrind", "--version"
   end
 end

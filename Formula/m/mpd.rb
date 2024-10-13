@@ -1,20 +1,34 @@
 class Mpd < Formula
   desc "Music Player Daemon"
   homepage "https://github.com/MusicPlayerDaemon/MPD"
-  url "https://github.com/MusicPlayerDaemon/MPD/archive/refs/tags/v0.23.15.tar.gz"
-  sha256 "d2865d8f8ea79aa509b1465b99a2b8f3f449fe894521c97feadc2dca85a6ecd2"
   license "GPL-2.0-or-later"
-  revision 2
+  revision 4
   head "https://github.com/MusicPlayerDaemon/MPD.git", branch: "master"
 
+  stable do
+    url "https://github.com/MusicPlayerDaemon/MPD/archive/refs/tags/v0.23.15.tar.gz"
+    sha256 "d2865d8f8ea79aa509b1465b99a2b8f3f449fe894521c97feadc2dca85a6ecd2"
+
+    # Compatibility with fmt 11
+    patch do
+      url "https://github.com/MusicPlayerDaemon/MPD/commit/3648475f871c33daa9e598c102a16e5a1a4d4dfc.patch?full_index=1"
+      sha256 "5733f66678b3842c8721c75501f6c25085808efc42881847af11696cc545848e"
+    end
+
+    # Fix missing include
+    patch do
+      url "https://github.com/MusicPlayerDaemon/MPD/commit/e380ae90ebb6325d1820b6f34e10bf3474710899.patch?full_index=1"
+      sha256 "661492a420adc11a3d8ca0c4bf15e771f56e2dcf1fd0042eb6ee4fb3a736bd12"
+    end
+  end
+
   bottle do
-    sha256 cellar: :any, arm64_sonoma:   "75aaa76bf8c7ca80c95031dca7edb2f5d2be3be5ca4497f892991af5f46c84e1"
-    sha256 cellar: :any, arm64_ventura:  "edc7dc059af8a6e12743864c0c28350106562a28a97dd81d47c2be90a7a200e9"
-    sha256 cellar: :any, arm64_monterey: "69357ae80afb04a5280ee467d0fb57b80a4c45e7ee52a34e1900ebb3b0a19ead"
-    sha256 cellar: :any, sonoma:         "9b6fd7a48bca06aedc8b01189f34ede4885b128cd93b44b33a516b850c986dce"
-    sha256 cellar: :any, ventura:        "3264fcec94c16f31feda5ae7811f7afe0ef7577694a6824b62af86360b19e4a4"
-    sha256 cellar: :any, monterey:       "ab6395db650c07787ae9b76d68829abb7c8d651787ee4203b36a70f4f45472b0"
-    sha256               x86_64_linux:   "42f7bdc9e0f5eea39128ac7c3af0f3aac59488bbc58b12ffae15633e3ea38b92"
+    sha256 cellar: :any, arm64_sequoia: "8a12b2f699b5e35306f0202e23a8e70c4d4c91afb31d69dffd52d7bd5d6c9d48"
+    sha256 cellar: :any, arm64_sonoma:  "c075df5f4127773fd783ca601fe9c3db60aa44c258938c5d98f5ac2521e4f260"
+    sha256 cellar: :any, arm64_ventura: "81a28f9ac47a7ced4f3478668c8e191b4f3dd3be8f79618ec92ed9676ac413f7"
+    sha256 cellar: :any, sonoma:        "6e679a66d2b7620c4e17432701859b21aa702974380779f7cba8499a83544960"
+    sha256 cellar: :any, ventura:       "ec80333810dcdc8404eeac11a94ed3ac9517dd7a6a73035a16bcd38b1b12474a"
+    sha256               x86_64_linux:  "0686b5d3e7579ca2fa949fe9c85869a9808699eb58db6524fa73b5e4e3e03f73"
   end
 
   depends_on "boost" => :build
@@ -30,7 +44,7 @@ class Mpd < Formula
   depends_on "fluid-synth"
   depends_on "fmt"
   depends_on "glib"
-  depends_on "icu4c"
+  depends_on "icu4c@75"
   depends_on "lame"
   depends_on "libao"
   depends_on "libgcrypt"

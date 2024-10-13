@@ -6,6 +6,7 @@ class Yamdi < Formula
   license "BSD-3-Clause"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "d1682a7424cf30298588c37aa36158d5d39ec11729cd7dae34303d244b1ad15a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "423627352b9bd50656cb38b57ddd40faad37c001d52f9cf941a62f6d0fd0b997"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "385b4af3db0b7f734f690539553c250c0e08fb8a472c7bef07e31fb273f20fbd"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b50a1157642d1cf0bca8199e5da07b8a71788775d3d1425642cfd3739ee2db26"

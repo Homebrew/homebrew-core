@@ -3,7 +3,7 @@ class Bgpdump < Formula
   homepage "https://github.com/RIPE-NCC/bgpdump/wiki"
   url "https://github.com/RIPE-NCC/bgpdump/archive/refs/tags/v1.6.2.tar.gz"
   sha256 "415692c173a84c48b1e927a6423a4f8fd3e6359bc3008c06b7702fe143a76223"
-  license "GPL-2.0"
+  license "GPL-2.0-only"
 
   livecheck do
     url :stable
@@ -11,6 +11,7 @@ class Bgpdump < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "58a05ac326e701a6417482c33a5660c4cac2ad9a3995e64dd064bc088e9e8a8f"
     sha256 cellar: :any,                 arm64_sonoma:   "9845446b9c11faac51f1180ad9493fcc523ce44bc5f8179fd2ab4a985323e360"
     sha256 cellar: :any,                 arm64_ventura:  "7d108fc2cd142cecb17da960a4ec7db84bd63178879596c9f9811ce7caf6f015"
     sha256 cellar: :any,                 arm64_monterey: "d4fe975c315b68318f0c63ff6b0d4ab3d9c6477fde81f6a4feed97ebe0fc39e4"

@@ -5,7 +5,13 @@ class Libidn2 < Formula
   mirror "https://ftpmirror.gnu.org/libidn/libidn2-2.3.7.tar.gz"
   mirror "http://ftp.gnu.org/gnu/libidn/libidn2-2.3.7.tar.gz"
   sha256 "4c21a791b610b9519b9d0e12b8097bf2f359b12f8dd92647611a929e6bfd7d64"
-  license any_of: ["GPL-2.0-or-later", "LGPL-3.0-or-later"]
+  license all_of: [
+    { any_of: ["GPL-2.0-or-later", "LGPL-3.0-or-later"] }, # lib
+    { all_of: ["Unicode-TOU", "Unicode-DFS-2016"] }, # matching COPYING.unicode
+    "GPL-3.0-or-later", # bin
+    "LGPL-2.1-or-later", # parts of gnulib
+    "FSFAP-no-warranty-disclaimer", # man3
+  ]
 
   livecheck do
     url :stable
@@ -13,6 +19,7 @@ class Libidn2 < Formula
   end
 
   bottle do
+    sha256 arm64_sequoia:  "1da206a51b4e3550f75e2c980f7f32ad7c75a3824711c534e4b3a9a21fcbaa1a"
     sha256 arm64_sonoma:   "670f6ed3768acde8ce10b5dcfc88fef69cea994ff84491b253a5e818cd4f9a1b"
     sha256 arm64_ventura:  "df4d2b529ac1534d36e44c63aeee6e9be8ee856f3545e75511497de5c60e0e80"
     sha256 arm64_monterey: "621dbb561aeddc8c0d7e856e990414526c43d9da400d3a2a613d2be3c1ebb41f"
@@ -31,9 +38,12 @@ class Libidn2 < Formula
     depends_on "gettext" => :build
     depends_on "help2man" => :build
     depends_on "libtool" => :build
-    depends_on "ronn" => :build
 
     uses_from_macos "gperf" => :build
+
+    on_macos do
+      depends_on "coreutils" => :build
+    end
 
     on_system :linux, macos: :ventura_or_newer do
       depends_on "texinfo" => :build
@@ -51,8 +61,11 @@ class Libidn2 < Formula
     args = ["--disable-silent-rules", "--with-packager=Homebrew"]
     args << "--with-libintl-prefix=#{Formula["gettext"].opt_prefix}" if OS.mac?
 
-    system "./bootstrap", "--skip-po" if build.head?
-    system "./configure", *std_configure_args, *args
+    if build.head?
+      ENV.prepend_path "PATH", Formula["coreutils"].libexec/"gnubin" if OS.mac?
+      system "./bootstrap", "--skip-po"
+    end
+    system "./configure", *args, *std_configure_args
     system "make", "install"
   end
 

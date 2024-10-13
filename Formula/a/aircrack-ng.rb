@@ -3,7 +3,11 @@ class AircrackNg < Formula
   homepage "https://aircrack-ng.org/"
   url "https://download.aircrack-ng.org/aircrack-ng-1.7.tar.gz"
   sha256 "05a704e3c8f7792a17315080a21214a4448fd2452c1b0dd5226a3a55f90b58c3"
-  license all_of: ["GPL-2.0-or-later", "BSD-3-Clause", "OpenSSL"]
+  license all_of: [
+    "BSD-3-Clause", # include/aircrack-ng/third-party/{if_arp.h,if_llc.h}
+    "GPL-2.0-or-later",
+    "GPL-2.0-or-later" => { with: "cryptsetup-OpenSSL-exception" },
+  ]
   revision 1
 
   livecheck do
@@ -12,6 +16,7 @@ class AircrackNg < Formula
   end
 
   bottle do
+    sha256                               arm64_sequoia:  "52dbe4ce295e97351a0ec2dfbb986abf37b2665a1775aa580fb70b45e806cbe2"
     sha256                               arm64_sonoma:   "fe96a817b4755ca8a498ad1cd45666a04238d3ed1a7bd3ce97f27f0fd68ae2ef"
     sha256                               arm64_ventura:  "d3d59c186fb570afbf6c925fece858ae01ed7d0a7290e3cccbd45a1ae3789881"
     sha256                               arm64_monterey: "ae0d6fe850335049e70c0eed7486182be424fe7e9f1f449687ab2a4248e0816a"

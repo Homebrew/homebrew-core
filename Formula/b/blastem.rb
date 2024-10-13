@@ -13,12 +13,10 @@ class Blastem < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 sonoma:       "ecd7349a29964734c3639455aa169fb122b6610e1ad4e156b5b7a8da440565ea"
-    sha256 cellar: :any,                 ventura:      "e596f3a0411f92741ccfcd5e9f5112e48d586c6c7445c477e0954ef62d91a711"
-    sha256 cellar: :any,                 monterey:     "a05456feadfedff7fc89b7e018b801121e92d27cf280dce0bb5edcbb18fcb488"
-    sha256 cellar: :any,                 big_sur:      "5a1d5caf1b0fc3f0f7887432c80c6cb49f1b3dc336a9873558d5f6b7c94ae099"
-    sha256 cellar: :any,                 catalina:     "684ac27d7251db585b84112c9721fbafab44e24bb4dbee60a161f1b772ccb82d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "34eecdcd05c078faa3ca11075058a9fc3c5f4c80f69de0bdc927779fe623a9c9"
+    rebuild 1
+    sha256 cellar: :any,                 sonoma:       "75e62a0aec8b8d193ba3f9cb91194f7f6e72920f30be97bcb8e300e30ede759c"
+    sha256 cellar: :any,                 ventura:      "8cf2695a61831147a1d5a7c6c6a8e7a25eb2e1ef0e0f98168d5ffd38b0fc50b2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "9d41062027cdffe965a2a8c95a320b220eaaba1426eeceae9847d847b34ec589"
   end
 
   depends_on "imagemagick" => :build
@@ -30,6 +28,10 @@ class Blastem < Formula
   depends_on "sdl2"
 
   uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "mesa"
+  end
 
   resource "vasm" do
     url "http://phoenix.owl.de/tags/vasm1_8i.tar.gz"

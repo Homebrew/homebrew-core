@@ -9,6 +9,7 @@ class Dirt < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia:  "dc07b263a5ea080c3ae14aaaabe185d07c84189e6708cc2206ac74d62e67ec3f"
     sha256 cellar: :any,                 arm64_sonoma:   "dc0671b289e79190e0d962b995c11ba8d0f828fb9a9903c5981e8a7fddca28c0"
     sha256 cellar: :any,                 arm64_ventura:  "7b0e123381c73cf489c38368999dcf0886843f8223562f83db6b6a5fde4dcaf7"
     sha256 cellar: :any,                 arm64_monterey: "6ac9e97def1a071fda1e4fc145450cdafed11444358537d2824cea8d77e73155"
@@ -22,12 +23,19 @@ class Dirt < Formula
 
   depends_on "jack"
   depends_on "liblo"
+  depends_on "libsamplerate"
   depends_on "libsndfile"
 
   def install
+    # Work-around for newer clang
+    # upstream bug report, https://github.com/tidalcycles/Dirt/issues/66
+    ENV.append_to_cflags "-Wno-incompatible-function-pointer-types" if DevelopmentTools.clang_build_version >= 1500
+
     # Work around failure from GCC 10+ using default of `-fno-common`
     # multiple definition of `...'; ....o:(.bss+0x0): first defined here
     ENV.append_to_cflags "-fcommon" if OS.linux?
+
+    inreplace "Makefile", "gcc", ENV.cc
 
     system "make", "PREFIX=#{prefix}", "install"
   end

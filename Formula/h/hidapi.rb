@@ -3,10 +3,11 @@ class Hidapi < Formula
   homepage "https://github.com/libusb/hidapi"
   url "https://github.com/libusb/hidapi/archive/refs/tags/hidapi-0.14.0.tar.gz"
   sha256 "a5714234abe6e1f53647dd8cba7d69f65f71c558b7896ed218864ffcf405bcbd"
-  license :cannot_represent
+  license any_of: ["GPL-3.0-only", "BSD-3-Clause", "HIDAPI"]
   head "https://github.com/libusb/hidapi.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "ed4edcb94c18b6f2dfe35b9642a92bfb9198258e7c195d5100b1f84d7e9c0f41"
     sha256 cellar: :any,                 arm64_sonoma:   "8f665c92f1b3012852243abfc40b427cba3d4e581070cd4f2d8fa5dd185dd4d5"
     sha256 cellar: :any,                 arm64_ventura:  "a51ee174536f9f73d398c2b6a998df28c812a5baac14e4f07e8bb17c846d53cf"
     sha256 cellar: :any,                 arm64_monterey: "4330e0a273dcb943f27e2be002fad07c385737bd308478b73bf24be2898c9bf5"

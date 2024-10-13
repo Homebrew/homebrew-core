@@ -7,20 +7,20 @@ class Jsign < Formula
   head "https://github.com/ebourg/jsign.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8ac0ba259a072ae54609e8517bef751f0ad9f7dcb39ead1fbf7b529700754420"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8b4fb3b4a925e1faacc6bd36e654320bfef7ba2aecafffec465d785f216d4ab8"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7419e1205bfa7292c36a90060c73e83d430676776046f483f4ee64db7456c008"
-    sha256 cellar: :any_skip_relocation, sonoma:         "b4ec7f9196ccd3fca01c8a2cf28fe274d81968b8f6eb40cfde0639a605716571"
-    sha256 cellar: :any_skip_relocation, ventura:        "ef507130f59b62f107d16f75882fd7b23b4b6f85909842712675076dfa4b4669"
-    sha256 cellar: :any_skip_relocation, monterey:       "088b5ffdd75d9c8a3d059164646f3f39da3c58bbfbda531b76be0c87d891dec5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3ed7adce83e78177efa6e91e69d9973da4008661c095bf44f39957102c17f535"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "24033e21246e7d13267d179314ce519e859cf9bef4285049a652dc8790ff7e56"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4b8c8a17f4e9d31e48d26de1b4f4b576ea1167e3d9cfb11ba5a61cc6f58a0f23"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "e345dc02f318332b975d8c9cf046c3bc26d9e896b1fb19889f6970a6fb46c7ae"
+    sha256 cellar: :any_skip_relocation, sonoma:        "31f1d1de5c61a4b3d676736aee2a84ba9165602afeedbb00a85dfc5c90bdd976"
+    sha256 cellar: :any_skip_relocation, ventura:       "4e45ee386b5c2d0f48cf9fc0452faa2912f8269dc6e710b3d42da17146d944cb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1c8d5b9be18eb3997161637c60bc4e22058cde49ef23e5320398fe80c473ef61"
   end
 
   depends_on "maven" => :build
-  depends_on "openjdk@17" # The build fails with more recent JDKs
+  depends_on "openjdk@21" # The build fails with more recent JDKs
 
   def install
-    ENV["JAVA_HOME"] = Formula["openjdk@17"].opt_prefix
+    ENV["JAVA_HOME"] = Language::Java.java_home("21")
     system "mvn", "--batch-mode", "package",
                   "--projects", "jsign-core,jsign-cli,jsign-ant,jsign",
                   "-DskipTests",
@@ -47,15 +47,15 @@ class Jsign < Formula
     stable.stage testpath
     res = "jsign-core/src/test/resources"
 
-    system "#{bin}/jsign", "--keystore", "#{res}/keystores/keystore.p12",
+    system bin/"jsign", "--keystore", "#{res}/keystores/keystore.p12",
                            "--storepass", "password",
                            "#{res}/wineyes.exe"
 
-    system "#{bin}/jsign", "--keystore", "#{res}/keystores/keystore.jks",
+    system bin/"jsign", "--keystore", "#{res}/keystores/keystore.jks",
                            "--storepass", "password",
                            "#{res}/minimal.msi"
 
-    system "#{bin}/jsign", "--keyfile", "#{res}/keystores/privatekey.pvk",
+    system bin/"jsign", "--keyfile", "#{res}/keystores/privatekey.pvk",
                            "--certfile", "#{res}/keystores/jsign-test-certificate-full-chain.spc",
                            "--storepass", "password",
                            "#{res}/hello-world.vbs"

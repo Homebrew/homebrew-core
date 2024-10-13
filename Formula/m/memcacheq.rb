@@ -7,6 +7,7 @@ class Memcacheq < Formula
   revision 5
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "f056c80f984e46a6a4d683ff08eb5832a19d589fc6c0824d75c4d749655fbe2b"
     sha256 cellar: :any,                 arm64_sonoma:   "36f7c155704e3578ad22f4d8f1d6537a1720ebaba29abb52f61cb2d0d602bcd9"
     sha256 cellar: :any,                 arm64_ventura:  "76a6335c95617676d29dc17b89faa4871f1b48308bab35117fe3d59def21c621"
     sha256 cellar: :any,                 arm64_monterey: "a9be9de387a93adf837f45192ce234676c7d4199b39fa0ff4c21ea025c9e1956"

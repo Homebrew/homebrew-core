@@ -1,19 +1,17 @@
 class Esbuild < Formula
   desc "Extremely fast JavaScript bundler and minifier"
   homepage "https://esbuild.github.io/"
-  url "https://github.com/evanw/esbuild/archive/refs/tags/v0.23.0.tar.gz"
-  sha256 "473d4d322ddc35f3620d37ecd5d6f40890f33923eeaafa96f5d87db9587e77af"
+  url "https://github.com/evanw/esbuild/archive/refs/tags/v0.24.0.tar.gz"
+  sha256 "db289a2d668e42f81b93d7489c27ef665e86ef4e5c4974997526d46982f2b68a"
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "98279f532b870d25017a1fb370b308c179e25076a8a225ea5ec959428f111ce2"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0bbe6514b794d5f0e9aafdb4b7f08f418133273f4f1525f58b48d7e8604318b5"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ada0cf2a33099a5fc4a010e7dfca8309454d8915a70d37b07d7f82982776013c"
-    sha256 cellar: :any_skip_relocation, sonoma:         "1f0df1ef1dfd0fb24e8d274704535c5c43c72b6b3b6c49a6f10fbcb13200e922"
-    sha256 cellar: :any_skip_relocation, ventura:        "7f6f1549786b26bdc2137bb6cabfb0b9e7ff8301abfc111a5bf256b33938548d"
-    sha256 cellar: :any_skip_relocation, monterey:       "3cb9a7d924a11e2e3590a634aff74badc259f010dc9ea43bb3b6b6b7d9d39bd0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "85aff4baa388f5404943c781633f79efbd2d28f37f928350beb356f2dc0599d6"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fe0a47b1f1a4573fa5bc5955418a778e4255f869d6b9de95c207533e4e24b515"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fe0a47b1f1a4573fa5bc5955418a778e4255f869d6b9de95c207533e4e24b515"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "fe0a47b1f1a4573fa5bc5955418a778e4255f869d6b9de95c207533e4e24b515"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c84a7d059a4001db54eb4c45d3f955cf86167657192ac45d67110e20ff5f0e96"
+    sha256 cellar: :any_skip_relocation, ventura:       "c84a7d059a4001db54eb4c45d3f955cf86167657192ac45d67110e20ff5f0e96"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2c11fa0f62044d1a166acd2f5c393463ea5e557d5c12a5937b685e0785656056"
   end
 
   depends_on "go" => :build

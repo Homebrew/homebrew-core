@@ -11,6 +11,7 @@ class Eprover < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "65ad63b92572ae8df5e194af0220e5c53bbcfe0f2b2bbad3c56a8986957c005a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6174d343789b0dc0c306310375663846d88dcdc00fc537640cbff2a132b26fdb"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f511d4a64d7ba346c3606a6a73401fcebecaaf77982f2087864eab271b10b9d7"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "28b0ddd1441db834182b376f3ec50b9874c3161c2899a94a8e448b730ab6dad1"
@@ -28,6 +29,6 @@ class Eprover < Formula
   end
 
   test do
-    system "#{bin}/eprover", "--help"
+    system bin/"eprover", "--help"
   end
 end

@@ -6,6 +6,7 @@ class Tbb < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "a48d6e0d893bff7968187a07a7e953017f1bcda0741550ad6f6162083f01cb11"
     sha256 cellar: :any,                 arm64_sonoma:   "8e9ed982a18c3dac9d8db3d64fd2a8c0b157adb846103c0a9315d1f67eef25cd"
     sha256 cellar: :any,                 arm64_ventura:  "fcae42945dc2c556b9dabcc9645646fcb36a7ceb48c07dd0029e840d3bcb1b48"
     sha256 cellar: :any,                 arm64_monterey: "b5837d8c9c05831661606c47e210dfb2889a72e26b5d88b51ef081694410c76f"

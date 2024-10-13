@@ -11,7 +11,8 @@ class GradleProfiler < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "a995687e972bf699a77deffa4bed8fde8e1bdfcafdae76abcf10a734d12a9d78"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "3c4672186d1d0aa6e2ca78e547e8e62d8d2e165e7ebf7935451ed2938012b7b7"
   end
 
   # gradle currently does not support Java 17 (ARM)
@@ -20,7 +21,7 @@ class GradleProfiler < Formula
   depends_on "openjdk@11"
 
   def install
-    rm_f Dir["bin/*.bat"]
+    rm(Dir["bin/*.bat"])
     libexec.install %w[bin lib]
     env = Language::Java.overridable_java_home_env("11")
     (bin/"gradle-profiler").write_env_script libexec/"bin/gradle-profiler", env

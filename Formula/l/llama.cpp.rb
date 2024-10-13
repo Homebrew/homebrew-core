@@ -3,8 +3,8 @@ class LlamaCpp < Formula
   homepage "https://github.com/ggerganov/llama.cpp"
   # CMake uses Git to generate version information.
   url "https://github.com/ggerganov/llama.cpp.git",
-      tag:      "b3488",
-      revision: "75af08c475e285888f66556d0f459c533b7deb95"
+      tag:      "b3914",
+      revision: "c7181bd294757dd80a7904e3dd0fea2d0be914e7"
   license "MIT"
   head "https://github.com/ggerganov/llama.cpp.git", branch: "master"
 
@@ -14,13 +14,12 @@ class LlamaCpp < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "3b834a9648ef88a333a8e7f7847ef95553737d92b073b89af1812e8616559095"
-    sha256 cellar: :any,                 arm64_ventura:  "9a23aee6421941ebffcfdafa9e7e99b55b017a3c011f712882c3d2bd41862286"
-    sha256 cellar: :any,                 arm64_monterey: "5555bb346854479fbee8952bb31964f5b488bb52bcf137d1cdbdfc8c43f30f80"
-    sha256 cellar: :any,                 sonoma:         "72b0e9558cfe3a23aa6343089800d031b5d202b7a65c20ad380ef5983f80b968"
-    sha256 cellar: :any,                 ventura:        "3421109e56d92f0d71b8b594e92899bd9ef942cf2c01923f787cdd88a0815d6e"
-    sha256 cellar: :any,                 monterey:       "bd748a50135ad98b727b5194412684639b3492d85844cdc2ecb05d7db0909c5b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cfa38bc7ff4ebad4599539c5dd154b465ab295a7043111f537f885fce352b2cc"
+    sha256 cellar: :any,                 arm64_sequoia: "82dc220e429cb4664408eb638716850816130c2d96bfb716e0d1dc95c211931e"
+    sha256 cellar: :any,                 arm64_sonoma:  "8b711be32f7c98c35895a95772e432911b348c5634e1bdc919e1a8edb17ba4e6"
+    sha256 cellar: :any,                 arm64_ventura: "c9d96cb645bf4a806ffcdbb46404debd675b4c42fc0fb7519d581683833e025d"
+    sha256 cellar: :any,                 sonoma:        "c0862a644e803efa8fedb3ab8a7f67d6e03c5a8cb0631b44ace2346619cb2a85"
+    sha256 cellar: :any,                 ventura:       "8aec8372ff581062a44c9bdc21987a6b95fc5b7aa7c50f2e9d3621332b87d890"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "be7e647d6ad80796689c458766c397caa90f25efbd376720f9efd456ec42179b"
   end
 
   depends_on "cmake" => :build
@@ -34,17 +33,18 @@ class LlamaCpp < Formula
   def install
     args = %W[
       -DBUILD_SHARED_LIBS=ON
-      -DLLAMA_LTO=ON
-      -DLLAMA_CCACHE=OFF
-      -DLLAMA_ALL_WARNINGS=OFF
-      -DLLAMA_NATIVE=#{build.bottle? ? "OFF" : "ON"}
-      -DLLAMA_ACCELLERATE=#{OS.mac? ? "ON" : "OFF"}
-      -DLLAMA_BLAS=#{OS.linux? ? "ON" : "OFF"}
-      -DLLAMA_BLAS_VENDOR=OpenBLAS
-      -DLLAMA_METAL=#{OS.mac? ? "ON" : "OFF"}
-      -DLLAMA_METAL_EMBED_LIBRARY=ON
-      -DLLAMA_CURL=ON
       -DCMAKE_INSTALL_RPATH=#{rpath}
+      -DGGML_ACCELLERATE=#{OS.mac? ? "ON" : "OFF"}
+      -DGGML_ALL_WARNINGS=OFF
+      -DGGML_BLAS=ON
+      -DGGML_BLAS_VENDOR=#{OS.mac? ? "Apple" : "OpenBLAS"}
+      -DGGML_CCACHE=OFF
+      -DGGML_LTO=ON
+      -DGGML_METAL=#{(OS.mac? && !Hardware::CPU.intel?) ? "ON" : "OFF"}
+      -DGGML_METAL_EMBED_LIBRARY=#{OS.mac? ? "ON" : "OFF"}
+      -DGGML_NATIVE=#{build.bottle? ? "OFF" : "ON"}
+      -DLLAMA_ALL_WARNINGS=OFF
+      -DLLAMA_CURL=ON
     ]
     args << "-DLLAMA_METAL_MACOSX_VERSION_MIN=#{MacOS.version}" if OS.mac?
 
@@ -59,6 +59,10 @@ class LlamaCpp < Formula
   end
 
   test do
+    system libexec/"test-sampling"
+    # The test below is flaky on slower hardware.
+    return if OS.mac? && Hardware::CPU.intel? && MacOS.version <= :monterey
+
     system bin/"llama-cli", "--hf-repo", "ggml-org/tiny-llamas",
                             "-m", "stories260K.gguf",
                             "-n", "400", "-p", "I", "-ngl", "0"

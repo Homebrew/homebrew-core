@@ -8,6 +8,7 @@ class Lv < Formula
   revision 1
 
   bottle do
+    sha256                               arm64_sequoia:  "ac1682fd11e3bc9f5bb6ceefdcd060057aa066ebd58e95195c9bcfd4cffb1826"
     sha256                               arm64_sonoma:   "c831cf8f33a699f5176df7115c4d0918133782a78b610bae3a1d6952af562649"
     sha256                               arm64_ventura:  "40b16905a4cdbe254c41f5cec691b7363b8fefc543226fb5d0ca5f1b073510ed"
     sha256                               arm64_monterey: "8567f1d743b65f76bfebc80dc8a27e4604b283a07ee5e11ffd1173227c683946"
@@ -35,6 +36,9 @@ class Lv < Formula
   patch :DATA
 
   def install
+    # Work around for newer Clang
+    ENV.append_to_cflags "-Wno-implicit-int" if DevelopmentTools.clang_build_version >= 1403
+
     if OS.mac?
       # zcat doesn't handle gzip'd data on OSX.
       # Reported upstream to nrt@ff.iij4u.or.jp

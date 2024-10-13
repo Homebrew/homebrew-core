@@ -1,10 +1,10 @@
 class Vips < Formula
   desc "Image processing library"
   homepage "https://github.com/libvips/libvips"
-  url "https://github.com/libvips/libvips/releases/download/v8.15.2/vips-8.15.2.tar.xz"
-  sha256 "a2ab15946776ca7721d11cae3215f20f1f097b370ff580cd44fc0f19387aee84"
+  url "https://github.com/libvips/libvips/releases/download/v8.15.3/vips-8.15.3.tar.xz"
+  sha256 "3e27d9f536eafad64013958fe9e8a1964c90b564c731d49db7c1a1c11b1052a0"
   license "LGPL-2.1-or-later"
-  revision 1
+  revision 2
 
   livecheck do
     url :stable
@@ -12,13 +12,12 @@ class Vips < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "50c8d330fae9dd68f6949d9076cc9383a258988bc7539b1822e84419655b39c4"
-    sha256 arm64_ventura:  "6d370076f82459111c781a4f0d986d4a98a53e45938e5aedcf0d3553603dd6ff"
-    sha256 arm64_monterey: "9203d37040f877adc69533d06aa797d6d495b2a280759c6e5f88839b161836d5"
-    sha256 sonoma:         "2e9c8b59f7c6085466b6ca3262b38784ca20b010e1603acac2ddcb7bb55dbb1d"
-    sha256 ventura:        "9e36a24bcaec2528d5bec1b7cd432315dccbb95a5f0b054be85f59eef407cf7b"
-    sha256 monterey:       "58cb16ffcc869c425fe28da42e9e047e369f53dc00b4843d58e8093585096fc2"
-    sha256 x86_64_linux:   "0210e24b2f4c93ac6786d44dcb539fad4710343f0f23281f35deb7aaccb1842c"
+    sha256 arm64_sequoia: "fce13d6f9209ebad7ab6a1cf811031f4b0fe08b862d5eb57a2603c385f344068"
+    sha256 arm64_sonoma:  "a4e9481a8a8ccdfec359e9d1dd0cc4be2c7b808637cfbb478038c8b9a1bff743"
+    sha256 arm64_ventura: "c6f4321e5b9df29dd879841a82580bdd1a7111e186cf3520368b25a054c432c3"
+    sha256 sonoma:        "e8964412f1f0d5120e5e3dfc2b7e15d5fc15ab0f4f3d29b0e3a3754c44556c6f"
+    sha256 ventura:       "e13f252b4dd0fddbad75a34b052740229116401ca198ac097a81c62023d5c211"
+    sha256 x86_64_linux:  "2dc0a6e4aaf9021bd6c0403731b9c73df973f792fbccada27755a167705af88a"
   end
 
   depends_on "gobject-introspection" => :build
@@ -79,7 +78,7 @@ class Vips < Formula
   end
 
   test do
-    system "#{bin}/vips", "-l"
+    system bin/"vips", "-l"
     cmd = "#{bin}/vipsheader -f width #{test_fixtures("test.png")}"
     assert_equal "8", shell_output(cmd).chomp
 

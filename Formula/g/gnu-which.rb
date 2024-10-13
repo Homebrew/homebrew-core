@@ -9,6 +9,7 @@ class GnuWhich < Formula
 
   bottle do
     rebuild 4
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "1802def6291edf6fde37b1926cfc80cc41e1d95be8bc867d04d34cc21835133b"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6a984a5dacd2cc1fb1a408ef568cdd3219cfaea93e53de7cef4c263c832a6478"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "207bd913337ee0484767f38a161066d47e67b2d4328eed79b1652d2c52035d7e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "71f3da67b74f1d75cfdd05325b9ccc0d123d774291f11e1fa3395937ad04ba29"
@@ -50,10 +51,10 @@ class GnuWhich < Formula
 
   test do
     if OS.mac?
-      system "#{bin}/gwhich", "gcc"
-      system "#{opt_libexec}/gnubin/which", "gcc"
+      system bin/"gwhich", "gcc"
+      system opt_libexec/"gnubin/which", "gcc"
     else
-      system "#{bin}/which", "gcc"
+      system bin/"which", "gcc"
     end
   end
 end

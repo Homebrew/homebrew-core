@@ -11,6 +11,7 @@ class Build2 < Formula
   end
 
   bottle do
+    sha256 arm64_sequoia:  "70ffd3523f4b4d74bd22b1374963bbefc8308140252481c2fd97972360757619"
     sha256 arm64_sonoma:   "0e7160137ee4ed4148b5b7219224029a1120d0429425602711d3a175f743bcb2"
     sha256 arm64_ventura:  "8f144b91ef3c6cece42e79cfac3422f0c7c88291f0e5cd3cc8d93b7eaac09936"
     sha256 arm64_monterey: "56b872f3baf6900a98dbed0703dd9ea2e6aad437c9ae54b1aac417ec7d1be475"

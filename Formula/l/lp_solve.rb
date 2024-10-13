@@ -7,6 +7,7 @@ class LpSolve < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia:  "749a0bf9100c0d7ae567f6c119bec2320764c8a898300ffb352c0810e8c1886c"
     sha256 cellar: :any,                 arm64_sonoma:   "4612a045dc9d01f8edcc1d9a81c3696e665e2ff3f990de158e6e34fff0644241"
     sha256 cellar: :any,                 arm64_ventura:  "94b01c00f2c0fab83fef56cf4e1cfe30e400db29e33007cfcf0fa95a5737df2e"
     sha256 cellar: :any,                 arm64_monterey: "e496fe2ab54f35a44e66c68c54124260554b23194f38880fa934ff20d5a17b2b"
@@ -26,6 +27,13 @@ class LpSolve < Formula
       "osx64"
     else
       "ux64"
+    end
+
+    # Workaround for newer Clang
+    if DevelopmentTools.clang_build_version >= 1403
+      inreplace %W[lpsolve55/ccc#{target} lp_solve/ccc#{target}],
+                /^c=cc$/,
+                'c="cc -Wno-implicit-int"'
     end
 
     cd "lpsolve55" do

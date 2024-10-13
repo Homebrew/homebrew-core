@@ -12,6 +12,7 @@ class KyotoTycoon < Formula
   end
 
   bottle do
+    sha256 arm64_sequoia:  "f3b2c1708ea58985f5d0e9e70e17d44cd80eaaade96f77b298202356bc0b493c"
     sha256 arm64_sonoma:   "53cb82d8fa4502c0041623ae8cfbb609b37625963c1eea87e43e48c0b0a1d4dc"
     sha256 arm64_ventura:  "29d41775017c933fc6c6298daf48ea1d0e6c5b7158fb323f461e42672549ccc6"
     sha256 arm64_monterey: "887e108eab14901d52e4e0a8b6553bc9a4bf8dc04ae7814e0aa25da08492fec4"

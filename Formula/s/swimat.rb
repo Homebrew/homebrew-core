@@ -36,8 +36,8 @@ class Swimat < Formula
   end
 
   test do
-    system "#{bin}/swimat", "-h"
+    system bin/"swimat", "-h"
     (testpath/"SwimatTest.swift").write("struct SwimatTest {}")
-    system "#{bin}/swimat", "#{testpath}/SwimatTest.swift"
+    system bin/"swimat", "#{testpath}/SwimatTest.swift"
   end
 end

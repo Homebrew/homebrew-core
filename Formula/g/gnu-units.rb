@@ -8,6 +8,7 @@ class GnuUnits < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_sequoia:  "c9ef167a1cbb1045a908eebe83e1d88c94b569aa6cb59a5a2f70e3270e7da784"
     sha256 arm64_sonoma:   "473f619fae31245e4b4d04c66e74b0363cb64d43964a5e82307d2dae10e20254"
     sha256 arm64_ventura:  "e364dbbb0ad04977a9e1ac93c47355a153e4b3b73089b126ea708df02dd24029"
     sha256 arm64_monterey: "b0153e8b43b52bcdec45fd79d59208658fad30548138ccb8be565975daee2373"

@@ -6,6 +6,7 @@ class Sugarjar < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "0d00a073b001f340a4b71902f2ac6c8816750e65ac63ddd39d10f4991dd3d8ec"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "890a1d99d837faddc6905a810ced07d286467aa852fe832a9d7f201b6edff5d9"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "890a1d99d837faddc6905a810ced07d286467aa852fe832a9d7f201b6edff5d9"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "890a1d99d837faddc6905a810ced07d286467aa852fe832a9d7f201b6edff5d9"

@@ -7,6 +7,7 @@ class Swiftgen < Formula
   head "https://github.com/SwiftGen/SwiftGen.git", branch: "stable"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "49cf0b56d500cf87acc05ca32f5007b750469c865253bd6b070dffcd309d8065"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "dc57fa733294a7d4d27714cd3eb954f2f8de1231cc0f991e6c043e2528a25311"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "ab20119231242e90668b5129c07d7114abaa9e7af647fe3f9fa511999f0b6548"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6efea7084dd6e75732483d417abf476da8f41a0513059f0133c03b1711e92ac3"

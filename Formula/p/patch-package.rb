@@ -1,5 +1,3 @@
-require "language/node"
-
 class PatchPackage < Formula
   desc "Fix broken node modules instantly"
   homepage "https://github.com/ds300/patch-package"
@@ -8,19 +6,21 @@ class PatchPackage < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3755be156502d4299ffa798a6f4600e8c4397c3ae262a9bdd44eeb30f16732d9"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3755be156502d4299ffa798a6f4600e8c4397c3ae262a9bdd44eeb30f16732d9"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3755be156502d4299ffa798a6f4600e8c4397c3ae262a9bdd44eeb30f16732d9"
-    sha256 cellar: :any_skip_relocation, sonoma:         "aad33f8dbdd1315003bb356498affe9a92a3a75d83d6aa80ce8fdea95b88134d"
-    sha256 cellar: :any_skip_relocation, ventura:        "aad33f8dbdd1315003bb356498affe9a92a3a75d83d6aa80ce8fdea95b88134d"
-    sha256 cellar: :any_skip_relocation, monterey:       "aad33f8dbdd1315003bb356498affe9a92a3a75d83d6aa80ce8fdea95b88134d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3755be156502d4299ffa798a6f4600e8c4397c3ae262a9bdd44eeb30f16732d9"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "dcccd910c1f42974369839c896362e5ffcb2b29c6bcc71d74b13c2590a9e0291"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "431f269a2de6319327359c7fe0ce21b7d10b4dfa92bff4557527987a5efb810e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "431f269a2de6319327359c7fe0ce21b7d10b4dfa92bff4557527987a5efb810e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "431f269a2de6319327359c7fe0ce21b7d10b4dfa92bff4557527987a5efb810e"
+    sha256 cellar: :any_skip_relocation, sonoma:         "c658029b2ce64459dc717ef566600b5cba4d4228c2c0790769782e4868d550b4"
+    sha256 cellar: :any_skip_relocation, ventura:        "c658029b2ce64459dc717ef566600b5cba4d4228c2c0790769782e4868d550b4"
+    sha256 cellar: :any_skip_relocation, monterey:       "c658029b2ce64459dc717ef566600b5cba4d4228c2c0790769782e4868d550b4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1ac48440106abcb40eb35ade08df6ce7f0998ee7c6cf895905350ee23ead3944"
   end
 
   depends_on "node"
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", *std_npm_args
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 

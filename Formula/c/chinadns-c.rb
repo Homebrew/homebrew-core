@@ -3,9 +3,10 @@ class ChinadnsC < Formula
   homepage "https://github.com/shadowsocks/ChinaDNS"
   url "https://github.com/shadowsocks/ChinaDNS/releases/download/1.3.2/chinadns-1.3.2.tar.gz"
   sha256 "abfd433e98ac0f31b8a4bd725d369795181b0b6e8d1b29142f1bb3b73bbc7230"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "d7f5135d04a85b3d2eb3db7d807d091f45b6c7047613d73538fe8e3fd92d2fcd"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b959cce820a04d88db10395e6823303d9dba2a789215626b8eea0777f88dada1"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "962e197fda53c506ca1a8a11ab883c4e7b154a12ea747219b4add76e8fc2cc0d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b400b323f97ff6d0570ed5b2ccffc2325516dea3c12d6ee18c5903ee2d607f3e"
@@ -35,6 +36,6 @@ class ChinadnsC < Formula
   end
 
   test do
-    system "#{bin}/chinadns", "-h"
+    system bin/"chinadns", "-h"
   end
 end

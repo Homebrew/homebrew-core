@@ -13,6 +13,7 @@ class SharedMimeInfo < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any, arm64_sequoia:  "ad25e39cd436c77aa33f7d72259a8fbaf64ae326c483872fbce4e7cc70861bee"
     sha256 cellar: :any, arm64_sonoma:   "8bc2cab1abadcf5e1cae58ed5e7790836ca77bdffca2e822b166d1f0428f2043"
     sha256 cellar: :any, arm64_ventura:  "f93ab2e3969c2f220aeacbaebeb207e69dc7017ad482a0245800e4284edecf60"
     sha256 cellar: :any, arm64_monterey: "2a333234f3aeea4068ce80b4a2a9eef000efe8171ab8e0ae3c9ec47b9c048979"
@@ -40,7 +41,7 @@ class SharedMimeInfo < Formula
     system "meson", "compile", "-C", "build", "--verbose"
     system "meson", "install", "-C", "build"
     pkgshare.install share/"mime/packages"
-    rmdir share/"mime"
+    rm_r(share/"mime") if (share/"mime").exist?
   end
 
   def post_install
@@ -48,12 +49,10 @@ class SharedMimeInfo < Formula
     cellar_mime = share/"mime"
 
     # Remove bad links created by old libheif postinstall
-    rm_rf global_mime if global_mime.symlink?
+    rm_r(global_mime) if global_mime.symlink?
 
-    if !cellar_mime.exist? || !cellar_mime.symlink?
-      rm_rf cellar_mime
-      ln_sf global_mime, cellar_mime
-    end
+    rm_r(cellar_mime) if cellar_mime.exist? && !cellar_mime.symlink?
+    ln_sf(global_mime, cellar_mime)
 
     (global_mime/"packages").mkpath
     cp (pkgshare/"packages").children, global_mime/"packages"

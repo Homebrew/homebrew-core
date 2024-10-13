@@ -12,6 +12,7 @@ class Tkdiff < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "15f9df18aa34124ff7f07b82a010a222f31953c5b79d2023d1a3f73912012e42"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "29ddf811894c2d205d1e6eaa84b41a3f5797489c7c81fefb9de3a2681e6c1216"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "26825675a0f738bb090488f92fc3e938f6f46f8440818f7ee1ff9c2216683c49"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "61c316727032802b0c7b9c9c81dba91132576818ec91e6cb113a6e52bd8dcf46"
@@ -32,6 +33,6 @@ class Tkdiff < Formula
     # Fails with: no display name and no $DISPLAY environment variable on GitHub Actions
     return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"].present?
 
-    system "#{bin}/tkdiff", "--help"
+    system bin/"tkdiff", "--help"
   end
 end

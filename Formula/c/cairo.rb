@@ -1,8 +1,8 @@
 class Cairo < Formula
   desc "Vector graphics library with cross-device output support"
   homepage "https://cairographics.org/"
-  url "https://cairographics.org/releases/cairo-1.18.0.tar.xz"
-  sha256 "243a0736b978a33dee29f9cca7521733b78a65b5418206fef7bd1c3d4cf10b64"
+  url "https://cairographics.org/releases/cairo-1.18.2.tar.xz"
+  sha256 "a62b9bb42425e844cc3d6ddde043ff39dbabedd1542eba57a2eb79f85889d45a"
   license any_of: ["LGPL-2.1-only", "MPL-1.1"]
   head "https://gitlab.freedesktop.org/cairo/cairo.git", branch: "master"
 
@@ -12,13 +12,14 @@ class Cairo < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_sonoma:   "06c6aaadeca8f79c27867c56b8bb90fa9a7d00f84862cee7c837b611ffb8dbbc"
-    sha256 cellar: :any, arm64_ventura:  "e71518b5feb9f2c6a91152948fb8bb0492d7677581d9cd22f72e1a53e89753bb"
-    sha256 cellar: :any, arm64_monterey: "b4912ed29c6ef6796ae80480b8a806afeb55366d73661c5fe778500ada73ea7c"
-    sha256 cellar: :any, sonoma:         "18232de7a1880477f40f421262fa05f92278c7f494b3cabb1848dda92c545010"
-    sha256 cellar: :any, ventura:        "53fa7ded83d0f45fd7c8c25fedb970f1084bc4861f10988f36c2f2cfd6064552"
-    sha256 cellar: :any, monterey:       "a0368a0df2890afe6e66d1c45c55af4b2cd7eb8bdaf2b3e173fd711a2aad6fb6"
-    sha256               x86_64_linux:   "35cd3a9f81432449e9b0f457a20c8e94e0d2c804da0210a5deffe9e0b8549b4f"
+    sha256 cellar: :any, arm64_sequoia:  "d74a4f1916b9fe1254268c0b20c50d8a5e8cb101c914450d2c5a34066837a366"
+    sha256 cellar: :any, arm64_sonoma:   "8d7d5bc22a123340ce7092b9bf1438ce8e959157e38b784226f48b616a76122a"
+    sha256 cellar: :any, arm64_ventura:  "b87ffd7bf969bed012cdce5d639fb12849108a6864afa2d1fd990889856405e4"
+    sha256 cellar: :any, arm64_monterey: "3f8d520f1560515c17710512daba768af0ef5b9f7f620cdeec0a619f556b3487"
+    sha256 cellar: :any, sonoma:         "e20ab89a1a82b0ec40af53a5b131b46afb94022a3d97d3434710692ae8a90e32"
+    sha256 cellar: :any, ventura:        "a7a67c29e5456bd755e5a735fbe75421710b3bd3893da9ed854862f7c5281707"
+    sha256 cellar: :any, monterey:       "6069e82da93a9c3d0efe9efee7368674611dcf30c31f7e9e32cd0ab22e99b93d"
+    sha256               x86_64_linux:   "8ed937d16eca80e5acbf0b3ae533f933e2d30915abaafb9840026bd9149ed9ba"
   end
 
   depends_on "meson" => :build

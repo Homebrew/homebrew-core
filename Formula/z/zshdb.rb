@@ -3,7 +3,11 @@ class Zshdb < Formula
   homepage "https://github.com/rocky/zshdb"
   url "https://downloads.sourceforge.net/project/bashdb/zshdb/1.1.4/zshdb-1.1.4.tar.gz"
   sha256 "83749450ffe030c28e7b7d1d8b06aea63232504ff61f31f9becc5a5717e69638"
-  license all_of: ["GPL-2.0-or-later", "GPL-3.0-or-later"]
+  license all_of: [
+    "GPL-2.0-or-later",
+    "GPL-3.0-or-later",  # COPYING, lib/term-highlight.py
+    "HPND-sell-variant", # getopts_long.sh
+  ]
 
   # We check the "zshdb" directory page because the bashdb project contains
   # various software and zshdb releases may be pushed out of the SourceForge
@@ -20,6 +24,7 @@ class Zshdb < Formula
 
   head do
     url "https://github.com/rocky/zshdb.git", branch: "master"
+
     depends_on "autoconf" => :build
     depends_on "automake" => :build
   end
@@ -28,8 +33,9 @@ class Zshdb < Formula
 
   def install
     system "./autogen.sh" if build.head?
-
-    system "./configure", "--with-zsh=#{HOMEBREW_PREFIX}/bin/zsh", *std_configure_args
+    system "./configure", "--disable-silent-rules",
+                          "--with-zsh=#{HOMEBREW_PREFIX}/bin/zsh",
+                          *std_configure_args
     system "make", "install"
   end
 

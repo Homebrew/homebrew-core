@@ -6,6 +6,7 @@ class Shelltestrunner < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "b7efdd51d33de7f1a6d0faf5b7cba05a2d6958ab6f2b953cf24dbd1f452dc2d9"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "14e0822f1871ee0db643fdffff2dd6a9caae2093f9b14035c2303a1666917263"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "582cff21d33d8c6b12327c308028ab04c6bdf522e9dabc44768bce82f044034d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "70426f971815a9fc20296d6cc1cf37e4ec61eb474022c6adb36c4689ac352ea9"

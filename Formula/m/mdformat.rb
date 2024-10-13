@@ -8,16 +8,11 @@ class Mdformat < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "14024bedc37d382d69cf4bdc4d6da652920d83b238c17c5e4bfa5078bc40e2bc"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "14024bedc37d382d69cf4bdc4d6da652920d83b238c17c5e4bfa5078bc40e2bc"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "14024bedc37d382d69cf4bdc4d6da652920d83b238c17c5e4bfa5078bc40e2bc"
-    sha256 cellar: :any_skip_relocation, sonoma:         "14024bedc37d382d69cf4bdc4d6da652920d83b238c17c5e4bfa5078bc40e2bc"
-    sha256 cellar: :any_skip_relocation, ventura:        "14024bedc37d382d69cf4bdc4d6da652920d83b238c17c5e4bfa5078bc40e2bc"
-    sha256 cellar: :any_skip_relocation, monterey:       "14024bedc37d382d69cf4bdc4d6da652920d83b238c17c5e4bfa5078bc40e2bc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8c5d61f62ab333861eccbfeaf1a7a9f4b8d09f0fc68a620a0a1c90146af14a2f"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "a48017897bf41a9d8b3bb7a7915f1ed506b5739263cde85242a8cc569fd7130f"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "markdown-it-py" do
     url "https://files.pythonhosted.org/packages/38/71/3b932df36c1a044d397a1f92d1cf91ee0a503d91e470cbd670aa66b07ed0/markdown-it-py-3.0.0.tar.gz"
@@ -35,6 +30,6 @@ class Mdformat < Formula
 
   test do
     (testpath/"test.md").write("# mdformat")
-    system "#{bin}/mdformat", testpath
+    system bin/"mdformat", testpath
   end
 end

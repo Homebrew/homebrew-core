@@ -22,6 +22,8 @@ class Mongroup < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "16deb20baa844034c6a1c8bfcb61971a71f576fbebd0dd6170321aeed2866ee7"
   end
 
+  disable! date: "2024-08-10", because: :no_license
+
   depends_on "mon"
 
   def install
@@ -30,6 +32,6 @@ class Mongroup < Formula
   end
 
   test do
-    system "#{bin}/mongroup", "-V"
+    system bin/"mongroup", "-V"
   end
 end
