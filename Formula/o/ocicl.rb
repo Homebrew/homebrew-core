@@ -1,10 +1,10 @@
 class Ocicl < Formula
   desc "OCI-based ASDF system distribution and management tool for Common Lisp"
   homepage "https://github.com/ocicl/ocicl"
-  url "https://github.com/ocicl/ocicl/archive/refs/tags/v2.3.7.tar.gz"
-  sha256 "7199674fe545a0a80b1cf7aed9a52b51277beca3583c95478aae24e0c9af74f8"
+  url "https://github.com/ocicl/ocicl/archive/refs/tags/v2.5.2.tar.gz"
+  sha256 "c06e0891c9b3d6e58aabeeaac907a100329645a5f73d34797b585046bd3b9c4f"
   license "MIT"
-  revision 2
+  revision 1
 
   bottle do
     rebuild 1
@@ -17,7 +17,6 @@ class Ocicl < Formula
     sha256 x86_64_linux:   "33b3c1b83795a2317c1668d037628bd6e05494ebd0c21aaa24fcb73034101cc5"
   end
 
-  depends_on "oras"
   depends_on "sbcl"
   depends_on "zstd"
 
@@ -30,10 +29,12 @@ class Ocicl < Formula
     # such a way that the sbcl part of the binary can't find the image
     # cores.  For this reason, we are generating our own image core as
     # a separate file and loading it at runtime.
-    system "sbcl", "--dynamic-space-size", "3072", "--no-userinit", "--eval",
-           "(require 'asdf)", "--eval", <<~LISP
+    system "sbcl", "--dynamic-space-size", "3072", "--no-userinit",
+           "--eval", "(require 'asdf)", "--eval", <<~LISP
              (progn
-               (push (uiop:getcwd) asdf:*central-registry*)
+               (asdf:initialize-source-registry
+                 (list :source-registry
+                       :inherit-configuration (list :tree (uiop:getcwd))))
                (asdf:load-system :ocicl)
                (sb-ext:save-lisp-and-die "#{libexec}/ocicl.core"))
            LISP
@@ -43,12 +44,6 @@ class Ocicl < Formula
       #!/usr/bin/env -S sbcl --core #{libexec}/ocicl.core --script
       (uiop:restore-image)
       (ocicl:main)
-    EOS
-
-    # Write a shell script to wrap oras
-    (bin/"ocicl-oras").write <<~EOS
-      #!/bin/sh
-      oras "$@"
     EOS
   end
 
