@@ -1,21 +1,14 @@
 class Cyphernetes < Formula
   desc "Kubernetes Query Language"
   homepage "https://cyphernet.es"
-  url "https://github.com/AvitalTamir/cyphernetes/archive/refs/tags/v0.12.1.tar.gz"
-  sha256 "d2d11b1ceff178d4c6f3ced1007e5d6428eef95f27b66c67e8740907343f4d60"
-  license "MIT"
-
-  bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "027d7de889844224b6098738af42839bb6e63e0e0e7bd2c60177d3c4890b7774"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "027d7de889844224b6098738af42839bb6e63e0e0e7bd2c60177d3c4890b7774"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "027d7de889844224b6098738af42839bb6e63e0e0e7bd2c60177d3c4890b7774"
-    sha256 cellar: :any_skip_relocation, sonoma:        "4d100fa000f34051281d4dcef1a38e082765e6d4c8ea33bf3ff68dc612a462a8"
-    sha256 cellar: :any_skip_relocation, ventura:       "4d100fa000f34051281d4dcef1a38e082765e6d4c8ea33bf3ff68dc612a462a8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "93e2269f4c346d9235e84c0028bc7ee8407c2d7aa5b750c30c9b844604798636"
-  end
+  url "https://github.com/AvitalTamir/cyphernetes/archive/refs/tags/v0.13.0.tar.gz"
+  sha256 "cad9220829ad61429478cc08b2632063588ea763af3cd4806fa2ef94b7e3c354"
+  license "Apache-2.0"
 
   depends_on "go" => :build
   depends_on "goyacc" => :build
+  depends_on "node" => :build
+  depends_on "pnpm" => :build
 
   def install
     system "make", "operator-manifests", "gen-parser"
