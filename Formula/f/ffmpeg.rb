@@ -56,6 +56,7 @@ class Ffmpeg < Formula
   depends_on "svt-av1"
   depends_on "tesseract"
   depends_on "theora"
+  depends_on "vvenc"
   depends_on "webp"
   depends_on "x264"
   depends_on "x265"
@@ -129,6 +130,7 @@ class Ffmpeg < Formula
       --enable-libvmaf
       --enable-libvorbis
       --enable-libvpx
+      --enable-libvvenc
       --enable-libwebp
       --enable-libx264
       --enable-libx265
