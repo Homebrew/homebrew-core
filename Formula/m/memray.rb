@@ -20,7 +20,7 @@ class Memray < Formula
   end
 
   depends_on "lz4"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   on_linux do
     depends_on "libunwind"
