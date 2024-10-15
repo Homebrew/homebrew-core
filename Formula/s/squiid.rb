@@ -1,8 +1,9 @@
 class Squiid < Formula
   desc "Do advanced algebraic and RPN calculations"
   homepage "https://imaginaryinfinity.net/projects/squiid/"
-  url "https://gitlab.com/ImaginaryInfinity/squiid-calculator/squiid/-/archive/1.1.3/squiid-1.1.3.tar.gz"
-  sha256 "3944faeff6787e52bb045a0353c72a29acff919abfa41b275add7189355c01c9"
+  url "https://gitlab.com/ImaginaryInfinity/squiid-calculator/squiid/-/archive/1.1.3-flatpak-hotfix-2/squiid-1.1.3-flatpak-hotfix-2.tar.gz"
+  version "1.1.3-flatpak-hotfix-2"
+  sha256 "20eca09b39b4afe4c66ab74c08a392900f572f7fb7669c82b2e1d9d07f26b626"
   license "GPL-3.0-or-later"
 
   bottle do
