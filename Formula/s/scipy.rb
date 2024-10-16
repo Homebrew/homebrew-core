@@ -23,7 +23,7 @@ class Scipy < Formula
   depends_on "gcc" # for gfortran
   depends_on "numpy"
   depends_on "openblas"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
   depends_on "xsimd"
 
   on_linux do
@@ -35,7 +35,7 @@ class Scipy < Formula
   fails_with gcc: "5"
 
   def python3
-    "python3.12"
+    "python3.13"
   end
 
   def install
