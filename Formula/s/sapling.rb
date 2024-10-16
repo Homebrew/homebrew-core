@@ -35,7 +35,7 @@ class Sapling < Formula
   depends_on "gh"
   depends_on "node"
   depends_on "openssl@3"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   uses_from_macos "bzip2"
   uses_from_macos "zlib"
@@ -58,7 +58,7 @@ class Sapling < Formula
         'curl = { version = "\\1", features = ["http2", "force-system-lib-on-osx"] }'
     end
 
-    python3 = "python3.12"
+    python3 = "python3.13"
     ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
     ENV["PYTHON"] = ENV["PYTHON3"] = python3
     ENV["SAPLING_VERSION"] = if build.stable?
