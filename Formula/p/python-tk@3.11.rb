@@ -4,6 +4,7 @@ class PythonTkAT311 < Formula
   url "https://www.python.org/ftp/python/3.11.10/Python-3.11.10.tgz"
   sha256 "92f2faf242681bfa406d53a51e17d42c5373affe23a130cd9697e132ef574706"
   license "Python-2.0"
+  revision 1
 
   livecheck do
     formula "python@3.11"
@@ -21,7 +22,7 @@ class PythonTkAT311 < Formula
   end
 
   depends_on "python@3.11"
-  depends_on "tcl-tk"
+  depends_on "tcl-tk@8"
 
   def python3
     "python3.11"
@@ -29,8 +30,9 @@ class PythonTkAT311 < Formula
 
   def install
     cd "Modules" do
-      tcltk_version = Formula["tcl-tk"].any_installed_version.major_minor
-      (Pathname.pwd/"setup.py").write <<~EOS
+      tcltk = Formula["tcl-tk@8"]
+      tcltk_version = tcltk.any_installed_version.major_minor
+      Pathname("setup.py").write <<~EOS
         from setuptools import setup, Extension
 
         setup(name="tkinter",
@@ -39,9 +41,9 @@ class PythonTkAT311 < Formula
               ext_modules = [
                 Extension("_tkinter", ["_tkinter.c", "tkappinit.c"],
                           define_macros=[("WITH_APPINIT", 1)],
-                          include_dirs=["#{Formula["tcl-tk"].opt_include/"tcl-tk"}"],
+                          include_dirs=["#{tcltk.opt_include/"tcl-tk"}"],
                           libraries=["tcl#{tcltk_version}", "tk#{tcltk_version}"],
-                          library_dirs=["#{Formula["tcl-tk"].opt_lib}"])
+                          library_dirs=["#{tcltk.opt_lib}"])
               ]
         )
       EOS

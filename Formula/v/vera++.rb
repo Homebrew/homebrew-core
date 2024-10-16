@@ -4,6 +4,7 @@ class Veraxx < Formula
   url "https://bitbucket.org/verateam/vera/downloads/vera++-1.3.0.tar.gz"
   sha256 "9415657a09438353489db10ca860dd6459e446cfd9c649a1a2e02268da66f270"
   license "BSL-1.0"
+  revision 1
 
   bottle do
     rebuild 1
