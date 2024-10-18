@@ -1,4 +1,4 @@
-class PythonFreethreading < Formula
+class PythonFreeThreading < Formula
   desc "Interpreted, interactive, object-oriented programming language"
   homepage "https://www.python.org/"
   url "https://www.python.org/ftp/python/3.13.0/Python-3.13.0.tgz"
