@@ -1,10 +1,9 @@
 class Opensaml < Formula
   desc "Library for Security Assertion Markup Language"
   homepage "https://wiki.shibboleth.net/confluence/display/OpenSAML/Home"
-  url "https://shibboleth.net/downloads/c++-opensaml/3.2.1/opensaml-3.2.1.tar.bz2"
-  sha256 "b402a89a130adcb76869054b256429c1845339fe5c5226ee888686b6a026a337"
+  url "https://shibboleth.net/downloads/c++-opensaml/3.3.0/opensaml-3.3.0.tar.bz2"
+  sha256 "99ee5091a20783c85aca9c6827a2ea4eb8da8b47c4985f99366a989815d89ce8"
   license "Apache-2.0"
-  revision 3
 
   livecheck do
     url "https://shibboleth.net/downloads/c++-opensaml/latest/"
