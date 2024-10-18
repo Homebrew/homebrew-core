@@ -35,7 +35,6 @@
     "exclude_packages": ["certifi", "cffi", "pycparser", "pyyaml", "six"]
   },
   "ansible@8": {
-    "exclude_packages": ["certifi", "cryptography"],
     "extra_packages": [
       "apache-libcloud", "boto3", "dnspython", "docker",
       "junos-eznc", "jxmlease", "kerberos", "ntc-templates", "openshift",
