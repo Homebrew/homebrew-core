@@ -9,17 +9,18 @@ class Fennel < Formula
     sha256 cellar: :any_skip_relocation, all: "c76f783953158324a8398d7a2cb95bebfdfdeb3991f134fd013ef47febc27a26"
   end
 
+  depends_on "luajit" => [:build, :test]
   depends_on "lua"
 
   def install
-    system "make"
-    bin.install "fennel"
-
-    lua = Formula["lua"]
-    (share/"lua"/lua.version.major_minor).install "fennel.lua"
+    system "make", "PREFIX=#{prefix}", "install"
+    system "make", "LUA=luajit", "PREFIX=#{prefix}", "install"
+    share.install "man"
   end
 
   test do
     assert_match "hello, world!", shell_output("#{bin}/fennel -e '(print \"hello, world!\")'")
+    system "lua", "-e", "require 'fennel'"
+    system "luajit", "-e", "require 'fennel'"
   end
 end
