@@ -17,7 +17,7 @@ class YouGet < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "919d3f808e317229b5e32a4eecb1ec539388287d56fd177fe36900c74a9b3dab"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
   depends_on "rtmpdump"
 
   resource "dukpy" do
