@@ -5,6 +5,7 @@ class Nwchem < Formula
   version "7.2.3"
   sha256 "7788e6af9be8681e6384b8df4df5ac57d010b2c7aa50842d735c562d92f94c25"
   license "ECL-2.0"
+  revision 1
 
   livecheck do
     url :stable
