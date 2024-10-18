@@ -1,8 +1,8 @@
 class StripeCli < Formula
   desc "Command-line tool for Stripe"
   homepage "https://stripe.com/docs/stripe-cli"
-  url "https://github.com/stripe/stripe-cli/archive/refs/tags/v1.21.9.tar.gz"
-  sha256 "ecce61e1a5ef23f7c7780eb5fbaad6e2017ebccb3a12c9b8d92a6c6d19c8fa79"
+  url "https://github.com/stripe/stripe-cli/archive/refs/tags/v1.21.10.tar.gz"
+  sha256 "f5fe47c5a14be7a01ecd6204659f7c8357a4ade4e925a164f21330557a89e1c3"
   license "Apache-2.0"
 
   bottle do
