@@ -6,6 +6,7 @@ class Gettext < Formula
   mirror "http://ftp.gnu.org/gnu/gettext/gettext-0.22.5.tar.gz"
   sha256 "ec1705b1e969b83a9f073144ec806151db88127f5e40fe5a94cb6c8fa48996a0"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
     sha256 arm64_sequoia:  "7f005ca74e89d423f7be79f4c5eb7b646a19de23c23c4ca09cbe68d18da4fe10"
@@ -18,16 +19,20 @@ class Gettext < Formula
     sha256 x86_64_linux:   "11f57f3c216f3603a194fe96d22ee05b2d01fbbaeb4a0047ed43cee25d29f9aa"
   end
 
+  depends_on "libunistring"
   uses_from_macos "libxml2"
   uses_from_macos "ncurses"
 
+  on_sonoma :or_newer do
+    depends_on "libiconv"
+  end
+
   def install
     args = [
+      "--with-libunistring-prefix=#{Formula["libunistring"].opt_prefix}",
       "--disable-silent-rules",
       "--with-included-glib",
       "--with-included-libcroco",
-      "--with-included-libunistring",
-      "--with-included-libxml",
       "--with-emacs",
       "--with-lispdir=#{elisp}",
       "--disable-java",
@@ -37,6 +42,7 @@ class Gettext < Formula
       "--without-cvs",
       "--without-xz",
     ]
+    args << "--with-libiconv-prefix=#{Formula["libiconv"].opt_prefix}" if OS.mac? && MacOS.version >= :sonoma
     args << if OS.mac?
       # Ship libintl.h. Disabled on linux as libintl.h is provided by glibc
       # https://gcc-help.gcc.gnu.narkive.com/CYebbZqg/cc1-undefined-reference-to-libintl-textdomain
