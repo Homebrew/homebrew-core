@@ -6,6 +6,7 @@ class AzureCli < Formula
   url "https://github.com/Azure/azure-cli/archive/refs/tags/azure-cli-2.65.0.tar.gz"
   sha256 "e9d4503b82eca5c78ef0acbe83ad229e35821caef200d7b290f06c66e5749bcf"
   license "MIT"
+  revision 1
   head "https://github.com/Azure/azure-cli.git", branch: "dev"
 
   livecheck do
@@ -15,25 +16,23 @@ class AzureCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "3cef897e955f801cbcaff2fc6165bdbf81bbe47101300888e1c7924494186a8a"
-    sha256 cellar: :any,                 arm64_sonoma:  "1032e96b36f872bc670bb4d8948dfaf104597a042f5ae3958c6872b918234a16"
-    sha256 cellar: :any,                 arm64_ventura: "02435e946a7b5b7f6dfa2515dd4592cde21cf8f0e25aa7712dc8d7504ee66bb7"
-    sha256 cellar: :any,                 sonoma:        "db27f0e479d681018ebc14baac416766a5d1c2ffa99739e26d4993ccb65c24a0"
-    sha256 cellar: :any,                 ventura:       "22f2c563e3c5f0d81fabcc1cb416c6e7ea0596a646ef63a15eb56146669f716c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "927a9f1530000e2faa78416d9d067e0155c2ca4494d54cf5ce9ac996b5d28d1d"
+    sha256 cellar: :any,                 arm64_sequoia: "0ab9339062e93991d8da79e4f4b06e546ba9dbe336a870111d690163fc44166c"
+    sha256 cellar: :any,                 arm64_sonoma:  "30117a42ef78a755542541366cc6782789648cf3100dcd8d81bee670fbff94ad"
+    sha256 cellar: :any,                 arm64_ventura: "c6b68ac1f45900568175ba06e4473cb5d94622e6a6a79a7875cc2fe4649e3a69"
+    sha256 cellar: :any,                 sonoma:        "292b5dd4cf4ea62e181d12ae9dc65d98b5ed967bc48dabe6863793e5148b634d"
+    sha256 cellar: :any,                 ventura:       "cf492d1bed972a254e83981bc21b7310b1673cbf15f29fbad9fa618cdf11c287"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c4868c1e88575e0660810b20471d26f9b5235e6f29d605cf40979823ad5568be"
   end
 
   # `pkg-config`, `rust`, and `openssl@3` are for cryptography.
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
+  depends_on "libsodium"
+  depends_on "libyaml"
   depends_on "openssl@3"
-  depends_on "python@3.11" # Python 3.12 issue: https://github.com/Azure/azure-cli/issues/27673
+  depends_on "python@3.12"
 
   uses_from_macos "libffi"
-
-  on_linux do
-    depends_on "pkg-config" => :build
-  end
 
   resource "Deprecated" do
     url "https://files.pythonhosted.org/packages/92/14/1e41f504a246fc224d2ac264c227975427a85caf37c3979979edb9b1b232/Deprecated-1.2.14.tar.gz"
@@ -595,6 +594,11 @@ class AzureCli < Formula
     sha256 "aac08f26a31dc4dffd92821527d1682d99d52f9ef6851968114a8728f3c274d3"
   end
 
+  resource "pip" do
+    url "https://files.pythonhosted.org/packages/4d/87/fb90046e096a03aeab235e139436b3fe804cdd447ed2093b0d70eba3f7f8/pip-24.2.tar.gz"
+    sha256 "5b5e490b5e9cb275c879595064adce9ebd31b854e3e803740b72f9ccf34a45b8"
+  end
+
   resource "pkginfo" do
     url "https://files.pythonhosted.org/packages/54/6a/42056522e1d79fa9768712782f37365ef786d905e4efeed6db44cad1803b/pkginfo-1.8.2.tar.gz"
     sha256 "542e0d0b6750e2e21c20179803e40ab50598d8066d51097a0e382cba9eb02bff"
@@ -606,8 +610,8 @@ class AzureCli < Formula
   end
 
   resource "psutil" do
-    url "https://files.pythonhosted.org/packages/d6/0f/96b7309212a926c1448366e9ce69b081ea79d63265bde33f11cc9cfc2c07/psutil-5.9.5.tar.gz"
-    sha256 "5410638e4df39c54d957fc51ce03048acd8e6d60abc0f5107af51e5fb566eb3c"
+    url "https://files.pythonhosted.org/packages/18/c7/8c6872f7372eb6a6b2e4708b88419fb46b857f7a2e1892966b851cc79fc9/psutil-6.0.0.tar.gz"
+    sha256 "8faae4f310b6d969fa26ca0545338b21f73c6b15db7c4a8d934a5482faa818f2"
   end
 
   resource "pycparser" do
@@ -720,7 +724,7 @@ class AzureCli < Formula
     ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
     ENV["OPENSSL_NO_VENDOR"] = "1"
 
-    venv = virtualenv_create(libexec, "python3.11", system_site_packages: false, without_pip: false)
+    venv = virtualenv_create(libexec, "python3.12", system_site_packages: false)
     venv.pip_install resources
 
     # Get the CLI components we'll install
@@ -742,7 +746,8 @@ class AzureCli < Formula
       AZ_INSTALLER=HOMEBREW #{libexec}/bin/python -Im azure.cli "$@"
     EOS
 
-    bash_completion.install "az.completion" => "az"
+    generate_completions_from_executable(libexec/"bin/register-python-argcomplete", "az",
+                                         base_name: "az", shell_parameter_format: :arg)
   end
 
   test do

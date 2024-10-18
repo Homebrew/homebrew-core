@@ -4,18 +4,17 @@ class Openstackclient < Formula
   desc "Command-line client for OpenStack"
   homepage "https://openstack.org"
   # TODO: remove `setuptools` from pypi_formula_mappings.json after https://review.opendev.org/c/openstack/pbr/+/924216
-  url "https://files.pythonhosted.org/packages/a4/5b/039a64dee3e0a6bbe83baae2955217617d3142402eae8e9052385416826c/python-openstackclient-7.1.3.tar.gz"
-  sha256 "421b0804259325908762544c19feb09243e367348bbfa3a4d515a4c1184226e7"
+  url "https://files.pythonhosted.org/packages/0c/cf/e4a406f652ac42195b6643e0c5e2419be92a80b373d601bac73fc66daf57/python-openstackclient-7.2.0.tar.gz"
+  sha256 "f637b75bbf0f537899263cd53123d73f1059d2f318639c522c903dcc127b3b92"
   license "Apache-2.0"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia: "06ec67cd270dadbef7bf0c26daa760fd5c59b9156c70449efa393cf5f6a22955"
-    sha256 cellar: :any,                 arm64_sonoma:  "65f156bf65cb0b9560091e72a605a9630c893422761cf95d2f002458a8226cd2"
-    sha256 cellar: :any,                 arm64_ventura: "3d9fc8b0f4a2b9fc9a2bb82a3423fac2a636b2b0e4f934e33d607220164f239b"
-    sha256 cellar: :any,                 sonoma:        "109754a97f00fa86f157a7f6cde74fbce1c723c187ba23cc7c266f6c6a242ffc"
-    sha256 cellar: :any,                 ventura:       "d5f0d4f6176aedf7d3af438bc8155f0a5d7c6cdb3673bd68331b1f1c09d0842f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5cde7d1edda41373290b456da96a0b933cdf452f7c673b1f1b2167f233d1abb1"
+    sha256 cellar: :any,                 arm64_sequoia: "4fa328d4072dd2916c4a97777f7231e9ab5ff2d0c82becef6c48d3be1c439643"
+    sha256 cellar: :any,                 arm64_sonoma:  "5cc1c7301d64b0d5a5ccf487c466b6fa2f79b08ce1fcf58854a5893d2985c123"
+    sha256 cellar: :any,                 arm64_ventura: "53bbc2ed0fe160be910ad528cf3e5415d9c781ceda4ff988ac1558a9c4663050"
+    sha256 cellar: :any,                 sonoma:        "5b04955ec795a30864ba89718210fee493c5ab369963421b0c042e6264a80b64"
+    sha256 cellar: :any,                 ventura:       "901ea167d741ce3006b395c177237f887c3589ed9467918e0a1e3b19e379c03e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "64d6f66a1689a6c81e6f255c4d1c9ea7dffcce293c86347a5d675f1cfab64eed"
   end
 
   depends_on "rust" => :build # for rpds-py
@@ -147,8 +146,8 @@ class Openstackclient < Formula
   end
 
   resource "openstacksdk" do
-    url "https://files.pythonhosted.org/packages/f9/72/8c4f9c7c3aa662895e89823011909d910991a24e2f56ab4f7fbc9a7b1afe/openstacksdk-4.0.0.tar.gz"
-    sha256 "e7860dd96b7053130923c11d571d25802b968f1e3138845cb7cac7c6b333bf4b"
+    url "https://files.pythonhosted.org/packages/32/7b/42529e0014cf5c3e1a4f4c07ed43c1df357d57f5f61ca15cbdbfdd229654/openstacksdk-4.1.0.tar.gz"
+    sha256 "ccac9b158e3d36b959a3bdce71bd4f883d7758fef6856841c855ff2b22c941ea"
   end
 
   resource "os-client-config" do
@@ -232,8 +231,8 @@ class Openstackclient < Formula
   end
 
   resource "pyparsing" do
-    url "https://files.pythonhosted.org/packages/83/08/13f3bce01b2061f2bbd582c9df82723de943784cf719a35ac886c652043a/pyparsing-3.1.4.tar.gz"
-    sha256 "f86ec8d1a83f11977c9a6ea7598e8c27fc5cddfa5b07ea2241edbbde1d7bc032"
+    url "https://files.pythonhosted.org/packages/8c/d5/e5aeee5387091148a19e1145f63606619cb5f20b83fccb63efae6474e7b2/pyparsing-3.2.0.tar.gz"
+    sha256 "cbf74e27246d595d9a74b186b810f6fbb86726dbf3b9532efb343f6d7294fe9c"
   end
 
   resource "pyperclip" do
@@ -347,8 +346,8 @@ class Openstackclient < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/27/b8/f21073fde99492b33ca357876430822e4800cdf522011f18041351dfa74b/setuptools-75.1.0.tar.gz"
-    sha256 "d59a21b17a275fb872a9c3dae73963160ae079f1049ed956880cd7c09b120538"
+    url "https://files.pythonhosted.org/packages/07/37/b31be7e4b9f13b59cde9dcaeff112d401d49e0dc5b37ed4a9fc8fb12f409/setuptools-75.2.0.tar.gz"
+    sha256 "753bb6ebf1f465a1912e19ed1d41f403a79173a9acf66a42e7e6aec45c3c16ec"
   end
 
   resource "six" do

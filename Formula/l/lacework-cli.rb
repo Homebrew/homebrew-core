@@ -2,8 +2,8 @@ class LaceworkCli < Formula
   desc "CLI for managing Lacework"
   homepage "https://docs.lacework.com/cli"
   url "https://github.com/lacework/go-sdk.git",
-      tag:      "v1.53.0",
-      revision: "a49e85f504b3b01e261fa84fdfcb327c706a5320"
+      tag:      "v1.54.0",
+      revision: "2fdeab69e2819e3fc7e3ff385b0ee975b19724be"
   license "Apache-2.0"
   head "https://github.com/lacework/go-sdk.git", branch: "main"
 
@@ -16,12 +16,12 @@ class LaceworkCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "caddf2b30b7504f6ace713cb18045e5092fc10946c9e9305e7a0fd37a324d496"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "caddf2b30b7504f6ace713cb18045e5092fc10946c9e9305e7a0fd37a324d496"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "caddf2b30b7504f6ace713cb18045e5092fc10946c9e9305e7a0fd37a324d496"
-    sha256 cellar: :any_skip_relocation, sonoma:        "2e7e62156c8f2cbfac474bfb04b4f2619d013531eb329aca0894d7658d8ac6a7"
-    sha256 cellar: :any_skip_relocation, ventura:       "2e7e62156c8f2cbfac474bfb04b4f2619d013531eb329aca0894d7658d8ac6a7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0ed8739fb996cc7dc82ee7815d6cc401f470b67429e3be941292370cfaf42f52"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "64d62170fb9e7960a8a17403e334ca323a835e09b2a198800c5f1d4aa847a9f9"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "64d62170fb9e7960a8a17403e334ca323a835e09b2a198800c5f1d4aa847a9f9"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "64d62170fb9e7960a8a17403e334ca323a835e09b2a198800c5f1d4aa847a9f9"
+    sha256 cellar: :any_skip_relocation, sonoma:        "05249e5bd6f702be4d557a14786c8cad6b79073ce1669bfe281c55bb02d082ff"
+    sha256 cellar: :any_skip_relocation, ventura:       "05249e5bd6f702be4d557a14786c8cad6b79073ce1669bfe281c55bb02d082ff"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a414bfdd6018e48437be671e4aa6275d0ea004ac8559e0f84b0de46aa75fec90"
   end
 
   depends_on "go" => :build

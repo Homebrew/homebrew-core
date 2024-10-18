@@ -1,18 +1,18 @@
 class Bacon < Formula
   desc "Background rust code check"
   homepage "https://dystroy.org/bacon/"
-  url "https://github.com/Canop/bacon/archive/refs/tags/v3.0.0.tar.gz"
-  sha256 "ff2460da9f527f48c899fbf40fb7e2645dc3eb28e04677490d7fbab2bdaf8fea"
+  url "https://github.com/Canop/bacon/archive/refs/tags/v3.1.1.tar.gz"
+  sha256 "f078f2326da81cab31a3196d4ac43d0771d5679c7d5b32ce38309ff89f80559a"
   license "AGPL-3.0-or-later"
   head "https://github.com/Canop/bacon.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "63115e77fe6bb868db544cc5889c2b80c5436cf92d905474c0ce602969b75bd2"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "238fcce605b488082cb8391204869a8f7fb9036e51be13f16ddbdf6df0d2db15"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "7ac5336e8676277c395ec9b95407ae30d88c7f1378e8acdc0e98d6a2fe72f899"
-    sha256 cellar: :any_skip_relocation, sonoma:        "321d525118678bbffc6e3ca080b4f4f817da49a2fcc62ed0b69fd8ff2ba89fa4"
-    sha256 cellar: :any_skip_relocation, ventura:       "aea0dd43bff127e5bed0686b3aa2c653af58635fe4048224b7745106d2eef7ba"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8d1a47e5ca5913cffc3b4abf00bd95917a72df26aad789c56d9c3938bfb06b07"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "becdcc1bd46a4ea04d4d33e1904aa7c6a07c766319f69db0115804ba01a85afe"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2c0fcbc6a32bb5b6f8356e027d3bc8990c5514617a70dba7315eeaf8af2d354e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "1a8c0b53a24876c0615ba12dd4bef852c087518c73371b9444f54de5fbf4b212"
+    sha256 cellar: :any_skip_relocation, sonoma:        "adfe40bb65a0ac6a9645e8c09b4003ed835f57b5547524436fc8d1c8e63eeb53"
+    sha256 cellar: :any_skip_relocation, ventura:       "67a75ddd7f53bbbc9177c6896430bb4dfdfbae790a0ea24ef9ce1946a68bfa23"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "42b65fbe7f9afd9b479c87441894a72508d4d84e040805a60dae3c5b0735c53c"
   end
 
   depends_on "rust" => :build

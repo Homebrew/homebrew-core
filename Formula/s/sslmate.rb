@@ -1,8 +1,4 @@
-require "language/perl"
-
 class Sslmate < Formula
-  include Language::Perl::Shebang
-
   desc "Buy SSL certs from the command-line"
   homepage "https://sslmate.com"
   url "https://packages.sslmate.com/other/sslmate-1.9.1.tar.gz"
@@ -42,21 +38,21 @@ class Sslmate < Formula
   end
 
   def install
-    ENV.prepend_create_path "PERL5LIB", libexec/"vendor/lib/perl5"
+    if OS.linux?
+      ENV.prepend_create_path "PERL5LIB", libexec/"vendor/lib/perl5"
 
-    resources.each do |r|
-      r.stage do
-        system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}/vendor"
-        system "make"
-        system "make", "install"
+      resources.each do |r|
+        r.stage do
+          system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}/vendor"
+          system "make"
+          system "make", "install"
+        end
       end
     end
 
     system "make", "PREFIX=#{prefix}"
     system "make", "install", "PREFIX=#{prefix}"
-
-    bin.env_script_all_files libexec/"bin", PERL5LIB: ENV["PERL5LIB"]
-    rewrite_shebang detected_perl_shebang, libexec/"bin/sslmate"
+    bin.env_script_all_files(libexec/"bin", PERL5LIB: ENV["PERL5LIB"]) if OS.linux?
   end
 
   test do

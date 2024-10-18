@@ -6,20 +6,22 @@ class Fennel < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "c76f783953158324a8398d7a2cb95bebfdfdeb3991f134fd013ef47febc27a26"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "e5c53ecb0ddceec975d311bced6ae970a552f6a60880b1331ece1c2ab51076cc"
   end
 
+  depends_on "luajit" => [:build, :test]
   depends_on "lua"
 
   def install
-    system "make"
-    bin.install "fennel"
-
-    lua = Formula["lua"]
-    (share/"lua"/lua.version.major_minor).install "fennel.lua"
+    system "make", "PREFIX=#{prefix}", "install"
+    system "make", "LUA=luajit", "PREFIX=#{prefix}", "install"
+    share.install "man" if OS.mac? # macOS `make` doesn't install the manpages correctly.
   end
 
   test do
     assert_match "hello, world!", shell_output("#{bin}/fennel -e '(print \"hello, world!\")'")
+    system "lua", "-e", "require 'fennel'"
+    system "luajit", "-e", "require 'fennel'"
   end
 end

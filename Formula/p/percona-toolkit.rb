@@ -1,8 +1,4 @@
-require "language/perl"
-
 class PerconaToolkit < Formula
-  include Language::Perl::Shebang
-
   desc "Command-line tools for MySQL, MariaDB and system tasks"
   homepage "https://www.percona.com/software/percona-toolkit/"
   url "https://www.percona.com/downloads/percona-toolkit/3.6.0/source/tarball/percona-toolkit-3.6.0.tar.gz"
@@ -75,15 +71,8 @@ class PerconaToolkit < Formula
       end
     end
 
-    system "perl", "Makefile.PL", "INSTALL_BASE=#{prefix}"
+    system "perl", "Makefile.PL", "INSTALL_BASE=#{prefix}", "INSTALLSITEMAN1DIR=#{man1}"
     system "make", "install"
-    share.install prefix/"man"
-
-    # Disable dynamic selection of perl which may cause segfault when an
-    # incompatible perl is picked up.
-    # https://github.com/Homebrew/homebrew-core/issues/4936
-    rewrite_shebang detected_perl_shebang, *bin.children
-
     bin.env_script_all_files(libexec/"bin", PERL5LIB: libexec/"lib/perl5")
   end
 

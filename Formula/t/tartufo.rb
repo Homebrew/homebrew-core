@@ -3,14 +3,13 @@ class Tartufo < Formula
 
   desc "Searches through git repositories for high entropy strings and secrets"
   homepage "https://tartufo.readthedocs.io/en/stable/"
-  url "https://files.pythonhosted.org/packages/f3/be/a004a02e3b2be08c998f66f391df238de701320af3f0a0438e724db943e2/tartufo-5.0.1.tar.gz"
-  sha256 "5eda46cd6a68dfe35b61b0f18a63bc0a7fc9bb6c096e4a26c8e1aaec8dea9324"
+  url "https://files.pythonhosted.org/packages/52/70/2e1422e84b1f817cb4f626337a783e44c60d9c4c1ada8c9f1a671afadb33/tartufo-5.0.2.tar.gz"
+  sha256 "d7f680da7aadc91840d2bde2605a9e71fa635ac1c6ee39490fb11e9a1494ff58"
   license "GPL-2.0-only"
   head "https://github.com/godaddy/tartufo.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "4406f3e82768ef7b1e7c75e1f94c7692b9e31b0eaab1ed422c3ac02c2796bab2"
+    sha256 cellar: :any_skip_relocation, all: "d76cbe253e340e4123cf4bc7caa1a538a6d6affbf3b85b724a32b5312ad78dd4"
   end
 
   depends_on "pygit2"
@@ -44,13 +43,11 @@ class Tartufo < Formula
   end
 
   resource "tomlkit" do
-    url "https://files.pythonhosted.org/packages/4b/34/f5f4fbc6b329c948a90468dd423aaa3c3bfc1e07d5a76deec269110f2f6e/tomlkit-0.13.0.tar.gz"
-    sha256 "08ad192699734149f5b97b45f1f18dad7eb1b6d16bc72ad0c2335772650d7b72"
+    url "https://files.pythonhosted.org/packages/b1/09/a439bec5888f00a54b8b9f05fa94d7f901d6735ef4e55dcec9bc37b5d8fa/tomlkit-0.13.2.tar.gz"
+    sha256 "fff5fe59a87295b278abd31bec92c15d9bc4a06885ab12bcea52c71119392e79"
   end
 
   def install
-    # Allow python 3.13: https://github.com/godaddy/tartufo/pull/539
-    inreplace "pyproject.toml", 'python = ">=3.8, <3.13"', 'python = ">=3.8"'
     virtualenv_install_with_resources
   end
 

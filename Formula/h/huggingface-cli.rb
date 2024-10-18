@@ -3,18 +3,17 @@ class HuggingfaceCli < Formula
 
   desc "Client library for huggingface.co hub"
   homepage "https://huggingface.co/docs/huggingface_hub/index"
-  url "https://files.pythonhosted.org/packages/df/fd/5f81bae67096c5ab50d29a0230b8374f0245916cca192f8ee2fada51f4f6/huggingface_hub-0.25.2.tar.gz"
-  sha256 "a1014ea111a5f40ccd23f7f7ba8ac46e20fa3b658ced1f86a00c75c06ec6423c"
+  url "https://files.pythonhosted.org/packages/2e/dd/7269e0bedd685898a17a16375c2e4a5db8b58b17ac241e4f5d739fd261d0/huggingface_hub-0.26.0.tar.gz"
+  sha256 "524fe9281b015b76aa73ff1a83bf1cbe8cab851c9ac5ae5fcd2a25d5173ce629"
   license "Apache-2.0"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia: "2fff144739339636b5031c70e403dd88afb07b395a6354b81347d8d67a0f86be"
-    sha256 cellar: :any,                 arm64_sonoma:  "3ff1ee5e16d2b9a83c6f17755a8575e44bb6bf7600ccc60e54c39eccd0e65da3"
-    sha256 cellar: :any,                 arm64_ventura: "bb333142efe55c7b940b68b0eafeda2282605a530b2f905f925e8c3148ce1939"
-    sha256 cellar: :any,                 sonoma:        "44b04a9f4bd1bc78445339ccefb02f320cb69000748435f8e3ee1360841839d4"
-    sha256 cellar: :any,                 ventura:       "66a2120e63de88de619c6aa0ad32bf2479963a6e17d9095dd4dd121be8a0fb40"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "02a4636fc82a0af9caaa639705b2ad6b33a6188ea29855389405737b76f14f13"
+    sha256 cellar: :any,                 arm64_sequoia: "37a65e59a37e85e5b1d8990893fa9f4e719919580af1c48acbac915ea6d2801e"
+    sha256 cellar: :any,                 arm64_sonoma:  "99d3b7ec4ade3efb44bffa233c2b7bb2241ce980a9f219b1146492921229204d"
+    sha256 cellar: :any,                 arm64_ventura: "05f52c79e0cfd04504661619115247502761a793e5b2d33fb1284ae19414b700"
+    sha256 cellar: :any,                 sonoma:        "9bf9da6d324aa882226e380f73cf62d0662343e7e084c11a89e6eea26f72b2cc"
+    sha256 cellar: :any,                 ventura:       "71cb85ae75c2a8bb9ae2c544d52d760bd6f1904a95a9cdc377ec4c194c472ee9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b3adc36a138af0950dafb700e24371951d54697ecf91df88cb6a3d4bdbd41bf1"
   end
 
   depends_on "certifi"

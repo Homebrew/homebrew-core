@@ -7,12 +7,13 @@ class AstGrep < Formula
   head "https://github.com/ast-grep/ast-grep.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "25eb278e12d1ff3333412bc0ec3ac819dd9df0ee918c19037d2b578d4a8e3a87"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a5ef2a61cf8f0bcef41a8cc0c27a39cbf738bb09fb674af2cd32eeb2be8cc898"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "271fc245c7ce81e4f350efe0cae5f214b0953f6d83c107c2a71fffc53a1fb899"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e1233fc6842207b1f1e9ee2fa6a48ecd01e430e128f5df0839e9382bc80e1751"
-    sha256 cellar: :any_skip_relocation, ventura:       "409692422376e8e79d1f42be932138f6ac41d5d510f53830de728876bb8bf053"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5417bda578c563ed545a93d7a2ad354377cf2387e32f9607f556b456ade1634f"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1e695195dd021184b1be6b43e95b11b581fc23ddf675c372927034359b649a4a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "05754215b9e124f960181201775ed1ffde2a2eccfd572e1862892e0e756f1f40"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "a56d7884dba68b2078d67b3691590a3082c67f97c0051b3a801dadf656ce42c2"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8667ca673abaac35ee307c18d737de91ee0e5d8548c9e2fb6194441593145d40"
+    sha256 cellar: :any_skip_relocation, ventura:       "cd3b90ba7b6d8126806697141d73431593d9a380a166e626883c0d035cb3c88c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "252406f2bd1c937b3af980dc8f132ca05866e376b4f2320bb55859ddd01c5e7e"
   end
 
   depends_on "rust" => :build
@@ -21,7 +22,7 @@ class AstGrep < Formula
     system "cargo", "install", *std_cargo_args(path: "crates/cli")
 
     generate_completions_from_executable(bin/"ast-grep", "completions")
-    generate_completions_from_executable(bin/"sg", "completions")
+    generate_completions_from_executable(bin/"sg", "completions", base_name: "sg")
   end
 
   test do
