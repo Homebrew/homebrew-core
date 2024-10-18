@@ -31,4 +31,49 @@ class Libcmph < Formula
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
     system "make", "install"
   end
+
+  test do
+    (testpath/"test.c").write <<~C
+      #include <cmph.h>
+      #include <string.h>
+      #include <stdio.h>
+      int main(int argc, char **argv)
+      {
+          unsigned int i = 0;
+          const char *vector[] = {"aaaaaaaaaa", "bbbbbbbbbb", "cccccccccc", "dddddddddd", "eeeeeeeeee",
+              "ffffffffff", "gggggggggg", "hhhhhhhhhh", "iiiiiiiiii", "jjjjjjjjjj"};
+          unsigned int nkeys = 10;
+          FILE* mphf_fd = fopen("temp.mph", "w");
+          cmph_io_adapter_t *source = cmph_io_vector_adapter((char **)vector, nkeys);
+          cmph_config_t *config = cmph_config_new(source);
+          cmph_config_set_algo(config, CMPH_BRZ);
+          cmph_config_set_mphf_fd(config, mphf_fd);
+          cmph_t *hash = cmph_new(config);
+          cmph_config_destroy(config);
+          cmph_dump(hash, mphf_fd);
+          cmph_destroy(hash);
+          fclose(mphf_fd);
+          mphf_fd = fopen("temp.mph", "r");
+          hash = cmph_load(mphf_fd);
+          while (i < nkeys) {
+              const char *key = vector[i];
+              unsigned int id = cmph_search(hash, key, (cmph_uint32)strlen(key));
+              fprintf(stdout, "%s %u\\n", key, id);
+              i++;
+          }
+          cmph_destroy(hash);
+          cmph_io_vector_adapter_destroy(source);
+          fclose(mphf_fd);
+          return 0;
+      }
+    C
+
+    system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lcmph", "-o", "test"
+    output = shell_output(testpath/"test").lines
+    assert_equal 10, output.length
+    letters = output.map { |line| line.split.first }
+    numbers = output.map { |line| line.split.last.to_i }
+    ("a".."j").each { |letter| assert_equal 1, letters.count(letter * 10) }
+    (0..9).each { |i| assert_equal 1, numbers.count(i) }
+  end
 end
