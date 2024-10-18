@@ -27,6 +27,15 @@ class Leptonica < Formula
   def install
     system "./configure", "--with-libwebp", "--with-libopenjpeg", *std_configure_args
     system "make", "install"
+
+    # Remove broken CMake files. These are not usable as the variables haven't
+    # been substituted, e.g. @leptonica_VERSION@. Can consider switching to CMake
+    # build if these are wanted. This may need:
+    #
+    # 1. fixing up pkg-config file which gets installed as lept_Release.pc
+    # 2. multiple builds if we want to retain static library
+    # 3. some fixes (> 1.84.1) for libm which may be needed on Linux based on Fedora
+    rm_r(lib/"cmake")
   end
 
   test do
