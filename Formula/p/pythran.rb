@@ -21,16 +21,18 @@ class Pythran < Formula
   depends_on "gcc" # for OpenMP
   depends_on "numpy"
   depends_on "openblas"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
+
+  fails_with :clang # no OpenMP support
 
   resource "beniget" do
-    url "https://files.pythonhosted.org/packages/14/e7/50cbac38f77eca8efd39516be6651fdb9f3c4c0fab8cf2cf05f612578737/beniget-0.4.1.tar.gz"
-    sha256 "75554b3b8ad0553ce2f607627dad3d95c60c441189875b98e097528f8e23ac0c"
+    url "https://files.pythonhosted.org/packages/2e/27/5bb01af8f2860d431b98d0721b96ff2cea979106cae3f2d093ec74f6400c/beniget-0.4.2.post1.tar.gz"
+    sha256 "a0258537e65e7e14ec33a86802f865a667f949bb6c73646d55e42f7c45a052ae"
   end
 
   resource "gast" do
-    url "https://files.pythonhosted.org/packages/e4/41/f26f62ebef1a80148e20951a6e9ef4d0ebbe2090124bc143da26e12a934c/gast-0.5.4.tar.gz"
-    sha256 "9c270fe5f4b130969b54174de7db4e764b09b4f7f67ccfc32480e29f78348d97"
+    url "https://files.pythonhosted.org/packages/f4/85/d65445079010a6bf35041455b7b97e1bfca49f80b8aed41f89f7831cb02d/gast-0.5.5.tar.gz"
+    sha256 "5f4ae749ba7199034b6912af98f05b4058d6d48fc2f065037b241be819a22924"
   end
 
   resource "ply" do
@@ -39,8 +41,12 @@ class Pythran < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/aa/60/5db2249526c9b453c5bb8b9f6965fcab0ddb7f40ad734420b3b421f7da44/setuptools-70.0.0.tar.gz"
-    sha256 "f211a66637b8fa059bb28183da127d4e86396c991a942b028c6650d4319c3fd0"
+    url "https://files.pythonhosted.org/packages/27/b8/f21073fde99492b33ca357876430822e4800cdf522011f18041351dfa74b/setuptools-75.1.0.tar.gz"
+    sha256 "d59a21b17a275fb872a9c3dae73963160ae079f1049ed956880cd7c09b120538"
+  end
+
+  def python3
+    which("python3.13")
   end
 
   def install
@@ -59,7 +65,6 @@ class Pythran < Formula
   end
 
   test do
-    python3 = which("python3.12")
     pythran = Formula["pythran"].opt_bin/"pythran"
 
     (testpath/"dprod.py").write <<~EOS
@@ -84,9 +89,7 @@ class Pythran < Formula
         return distance_matrix
     EOS
     # Test with configured gcc to detect breakages from gcc major versions and for OpenMP support
-    with_env(CC: nil, CXX: nil) do
-      system pythran, "-DUSE_XSIMD", "-fopenmp", "-march=native", testpath/"arc_distance.py"
-    end
+    system pythran, "-DUSE_XSIMD", "-fopenmp", "-march=native", testpath/"arc_distance.py"
     rm(testpath/"arc_distance.py")
 
     system python3, "-c", <<~EOS
