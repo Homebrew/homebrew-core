@@ -1,8 +1,8 @@
 class Libdex < Formula
   desc "Future-based programming for GLib-based applications"
   homepage "https://gitlab.gnome.org/GNOME/libdex"
-  url "https://gitlab.gnome.org/GNOME/libdex/-/archive/0.8.0/libdex-0.8.0.tar.gz"
-  sha256 "4d213cda9432e05c7d8c3e8aa844d5357966d7aec5ff7e351661d6aaab0d107c"
+  url "https://gitlab.gnome.org/GNOME/libdex/-/archive/0.8.1/libdex-0.8.1.tar.gz"
+  sha256 "52b502ec163a08c96a557c0d1f6ac32bd15a2e135cef879d3b4cfd06b352b6a7"
   license "LGPL-2.1-or-later"
   head "https://gitlab.gnome.org/GNOME/libdex.git", branch: "main"
 

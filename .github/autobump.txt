@@ -1520,6 +1520,7 @@ libcss
 libcyaml
 libdap
 libdeflate
+libdex
 libdivide
 libdnet
 libdom
