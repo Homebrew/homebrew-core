@@ -522,6 +522,7 @@ coursier
 cp2k
 cpi
 cpm
+cpp-gsl
 cpp-httplib
 cppad
 cppcheck
