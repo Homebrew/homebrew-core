@@ -3,17 +3,17 @@ class Copier < Formula
 
   desc "Utility for rendering projects templates"
   homepage "https://copier.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/9f/39/4cd083ca92635a92432cdb441108205751fed98feb5d0cfc53073d97372a/copier-9.4.0.tar.gz"
-  sha256 "83b6b777b1e2e7cf13479ebfabe7ce4c02861c97bed9f533d5dce0b4822ab1d5"
+  url "https://files.pythonhosted.org/packages/c4/84/b99005e18cb07986a9fa1c1314c9bb461851dc115ab24d3d9ac668daad7f/copier-9.4.1.tar.gz"
+  sha256 "cc81d8204cb17fbc8c4a14996a8ce764166c34c77236de38cfbeb960c887b68f"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "00433345cf50a5d95b6f66d0ed11a6d659ac0b64862765112d4734203b49c4bf"
-    sha256 cellar: :any,                 arm64_sonoma:  "4e436d2c1aa4e97534e7a6b83af0593f7a418b61915afd6bf2448a99fc11a893"
-    sha256 cellar: :any,                 arm64_ventura: "7634e788f4080f8e420a5039deaee1364b941fcaebb56cbaffdd5fd0a52febeb"
-    sha256 cellar: :any,                 sonoma:        "c0233ca35e58207028df9168dcc57a665c36f8ef139ce152b0d3363dad1430f5"
-    sha256 cellar: :any,                 ventura:       "b7a4acec31b8276f1ac94ed6acc4a36d45afdcf5a0d4ef7d2ff94c7c119af1d6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9c800176237b2552a113d437cc35a57f21e35c68275eaebf5b902f080cf177de"
+    sha256 cellar: :any,                 arm64_sequoia: "aaff63b1e1bfa9d171afb2b789ffc23a93de28aca037721f64d273507ab7f641"
+    sha256 cellar: :any,                 arm64_sonoma:  "5e4fae01b0b7309228c2cad5e0ff597b955832549e14dff4316c16d461b19acc"
+    sha256 cellar: :any,                 arm64_ventura: "44e27911069203851db221131e4ba60d513571065f90dcc6755581233f4fa1e9"
+    sha256 cellar: :any,                 sonoma:        "938b34625225725e85459131ce94c4b7063bfed1fb09196468c820e1ebb663ed"
+    sha256 cellar: :any,                 ventura:       "c202806825db8d5aa42f817644bf228839ffc31f03b0d2d57b462b9b6780ace6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "908e6d8c626f4ddf08351b82b3705f0f3e41905427f41bcaa064c0f144ab9d3d"
   end
 
   depends_on "rust" => :build
@@ -51,8 +51,8 @@ class Copier < Formula
   end
 
   resource "markupsafe" do
-    url "https://files.pythonhosted.org/packages/b4/d2/38ff920762f2247c3af5cbbbbc40756f575d9692d381d7c520f45deb9b8f/markupsafe-3.0.1.tar.gz"
-    sha256 "3e683ee4f5d0fa2dde4db77ed8dd8a876686e3fc417655c2ece9a90576905344"
+    url "https://files.pythonhosted.org/packages/b2/97/5d42485e71dfc078108a86d6de8fa46db44a1a9295e89c5d6d4a06e23a62/markupsafe-3.0.2.tar.gz"
+    sha256 "ee55d3edf80167e48ea11a923c7386f4669df67d7994554387f84e7d8b0a2bf0"
   end
 
   resource "packaging" do
