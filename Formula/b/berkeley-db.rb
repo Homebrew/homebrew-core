@@ -39,12 +39,15 @@ class BerkeleyDb < Formula
   def install
     # Work around undefined NULL causing incorrect detection of thread local storage class
     ENV.append "CFLAGS", "-include stddef.h" if DevelopmentTools.clang_build_version >= 1500
+    ENV.append "CFLAGS", "-Wno-error=implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1200
 
     # BerkeleyDB dislikes parallel builds
     ENV.deparallelize
 
     # --enable-compat185 is necessary because our build shadows
     # the system berkeley db 1.x
+    # --enable-dump185 Builds the db_dump185 utility, which can dump Berkeley DB 1.85 and 1.86 databases.
+    # See: https://docs.oracle.com/cd/E17275_01/html/programmer_reference/build_unix_conf.html#build_unix_conf
     args = %W[
       --disable-debug
       --disable-static
@@ -52,6 +55,7 @@ class BerkeleyDb < Formula
       --mandir=#{man}
       --enable-cxx
       --enable-compat185
+      --enable-dump185
       --enable-sql
       --enable-sql_codegen
       --enable-dbm
