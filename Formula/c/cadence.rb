@@ -1,8 +1,8 @@
 class Cadence < Formula
   desc "Resource-oriented smart contract programming language"
   homepage "https://cadence-lang.org/"
-  url "https://github.com/onflow/cadence/archive/refs/tags/v1.0.1.tar.gz"
-  sha256 "2a7a9afb2bf984627638e98588f740e87d52f8c16199474b72044f2021d4a236"
+  url "https://github.com/onflow/cadence/archive/refs/tags/v1.1.0.tar.gz"
+  sha256 "67e2db6e812e87da43193d89a99ae140ec282156debf375cd67ad3236b1cc204"
   license "Apache-2.0"
   head "https://github.com/onflow/cadence.git", branch: "master"
 
@@ -28,7 +28,7 @@ class Cadence < Formula
   conflicts_with "cadence-workflow", because: "both install a `cadence` executable"
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "./runtime/cmd/main"
+    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/main"
   end
 
   test do
