@@ -4,6 +4,7 @@ class Libspelling < Formula
   url "https://gitlab.gnome.org/GNOME/libspelling/-/archive/0.4.3/libspelling-0.4.3.tar.bz2"
   sha256 "7ae594242b537513ffe333530dad752eeeffb9e52872468d73ceccbda58932b9"
   license "LGPL-2.1-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_sequoia: "ac974925bc8a42dd8d2e392fa97a0227d36b48cca4222fa12ef7a4201adb9ef5"
@@ -24,7 +25,7 @@ class Libspelling < Formula
   depends_on "glib"
   depends_on "gtk4"
   depends_on "gtksourceview5"
-  depends_on "icu4c@75"
+  depends_on "icu4c@76"
   depends_on "pango"
 
   on_macos do

@@ -4,7 +4,7 @@ class EasyrpgPlayer < Formula
   url "https://easyrpg.org/downloads/player/0.8/easyrpg-player-0.8.tar.xz"
   sha256 "06e6d034348d1c52993d0be6b88fc3502a6c7718e366f691401539d5a2195c79"
   license "GPL-3.0-or-later"
-  revision 5
+  revision 6
 
   livecheck do
     url "https://github.com/EasyRPG/Player.git"
@@ -24,7 +24,7 @@ class EasyrpgPlayer < Formula
   depends_on "fmt"
   depends_on "freetype"
   depends_on "harfbuzz"
-  depends_on "icu4c@75"
+  depends_on "icu4c@76"
   depends_on "liblcf"
   depends_on "libpng"
   depends_on "libsndfile"
