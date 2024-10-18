@@ -1,4 +1,4 @@
-class PythonNoGil < Formula
+class PythonFreethreading < Formula
   desc "Interpreted, interactive, object-oriented programming language"
   homepage "https://www.python.org/"
   url "https://www.python.org/ftp/python/3.13.0/Python-3.13.0.tgz"
@@ -7,7 +7,7 @@ class PythonNoGil < Formula
 
   livecheck do
     url "https://www.python.org/ftp/python/"
-    regex(%r{href=.*?v?(3\.13(?:\.\d+)*)/?["' >]}i)
+    regex(%r{href=.*?v?(\d(?:\.\d+)*)/?["' >]}i)
   end
 
   # setuptools remembers the build flags python is built with and uses them to
@@ -34,21 +34,6 @@ class PythonNoGil < Formula
     depends_on "libnsl"
     depends_on "libtirpc"
   end
-
-  link_overwrite "bin/idle3"
-  link_overwrite "bin/pip3t"
-  link_overwrite "bin/pydoc3"
-  link_overwrite "bin/python3t"
-  link_overwrite "bin/python3t-config"
-  link_overwrite "bin/wheel3"
-  link_overwrite "share/man/man1/python3.1"
-  link_overwrite "lib/libpython3t.so"
-  link_overwrite "lib/pkgconfig/python3t.pc"
-  link_overwrite "lib/pkgconfig/python3t-embed.pc"
-  link_overwrite "Frameworks/Python.framework/Headers"
-  link_overwrite "Frameworks/Python.framework/Python"
-  link_overwrite "Frameworks/Python.framework/Resources"
-  link_overwrite "Frameworks/Python.framework/Versions/Current"
 
   # Always update to latest release
   resource "flit-core" do
@@ -98,7 +83,7 @@ class PythonNoGil < Formula
   end
 
   def python3
-    bin/"python#{version.major_minor}"
+    bin/"python#{version.major_minor}t"
   end
 
   def install
@@ -344,19 +329,19 @@ class PythonNoGil < Formula
     rmdir site_packages/"bin"
 
     rm_r(bin/"pip")
-    mv bin/"wheel", bin/"wheel#{version.major_minor}"
-    bin.install_symlink "wheel#{version.major_minor}" => "wheel3"
+    mv bin/"wheel", bin/"wheel#{version.major_minor}t"
+    bin.install_symlink "wheel#{version.major_minor}t" => "wheel3"
 
     # Install unversioned symlinks in libexec/bin.
     {
-      "pip"   => "pip#{version.major_minor}",
-      "wheel" => "wheel#{version.major_minor}",
+      "pip"   => "pip#{version.major_minor}t",
+      "wheel" => "wheel#{version.major_minor}t",
     }.each do |short_name, long_name|
       (libexec/"bin").install_symlink (bin/long_name).realpath => short_name
     end
 
     # post_install happens after link
-    %W[wheel3 pip3 wheel#{version.major_minor} pip#{version.major_minor}].each do |e|
+    %W[wheel3t pip3t wheel#{version.major_minor}t pip#{version.major_minor}t].each do |e|
       (HOMEBREW_PREFIX/"bin").install_symlink bin/e
     end
 
@@ -455,10 +440,10 @@ class PythonNoGil < Formula
   def caveats
     <<~EOS
       Python has been installed as
-        #{HOMEBREW_PREFIX}/bin/python3
+        #{HOMEBREW_PREFIX}/bin/python3t
 
       Unversioned symlinks `python`, `python-config`, `pip` etc. pointing to
-      `python3`, `python3-config`, `pip3` etc., respectively, have been installed into
+      `python3t`, `python3t-config`, `pip3t` etc., respectively, have been installed into
         #{opt_libexec}/bin
 
       See: https://docs.brew.sh/Homebrew-and-Python
