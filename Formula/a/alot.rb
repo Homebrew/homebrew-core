@@ -7,6 +7,7 @@ class Alot < Formula
       tag:      "0.11",
       revision: "a8a108e2344656a13bca21211ccc0df2414cbef6"
   license "GPL-3.0-only"
+  revision 1
   head "https://github.com/pazz/alot.git", branch: "master"
 
   bottle do
@@ -23,7 +24,7 @@ class Alot < Formula
   depends_on "gpgme"
   depends_on "libmagic"
   depends_on "notmuch"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "attrs" do
     url "https://files.pythonhosted.org/packages/fc/0f/aafca9af9315aee06a89ffde799a10a582fe8de76c563ee80bbcdc08b3fb/attrs-24.2.0.tar.gz"
