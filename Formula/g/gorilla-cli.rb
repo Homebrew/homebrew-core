@@ -13,6 +13,9 @@ class GorillaCli < Formula
     sha256 cellar: :any_skip_relocation, all: "57ca6180e312d9d22460b8647d9bced414cd9a24fd234cdf33beb614bf9e3bf1"
   end
 
+  # upstream bug report, https://github.com/gorilla-llm/gorilla-cli/issues/64
+  disable! date: "2024-09-12", because: "cli does not work due to `LoadingServer is unreachable`"
+
   depends_on "certifi"
   depends_on "python@3.13"
 
