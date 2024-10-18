@@ -1,9 +1,7 @@
 class Typedb < Formula
   desc "Strongly-typed database with a rich and logical type system"
   homepage "https://vaticle.com/"
-  url "https://github.com/vaticle/typedb/releases/download/2.23.0/typedb-all-mac-2.23.0.zip"
-  sha256 "93a5540c02e3e4f4b7783a2d14a8907dcfde3c2b051984ca6b2df79abc3830ce"
-  license "AGPL-3.0-or-later"
+  license "MPL-2.0"
 
   bottle do
     rebuild 1
@@ -11,6 +9,27 @@ class Typedb < Formula
   end
 
   depends_on "openjdk"
+
+  on_arm do
+    on_macos do
+      url "https://github.com/typedb/typedb/releases/download/2.29.1/typedb-all-mac-arm64-2.29.1.zip"
+      sha256 "1270565acd7d5c61475831dac408f2069533ecf4ffee416ae474962ce1a71603"
+    end
+    on_linux do
+      url "https://github.com/typedb/typedb/releases/download/2.29.1/typedb-all-linux-arm64-2.29.1.tar.gz"
+      sha256 "4846e0496c9d90542fe677bd44ec78fe31a056a07770b5b53703ea0c781e99d6"
+    end
+  end
+  on_intel do
+    on_macos do
+      url "https://github.com/typedb/typedb/releases/download/2.29.1/typedb-all-mac-x86_64-2.29.1.zip"
+      sha256 "82ad962d3248d0a883d129a01b7593960031758283270128601a948be637854a"
+    end
+    on_linux do
+      url "https://github.com/typedb/typedb/releases/download/2.29.1/typedb-all-linux-x86_64-2.29.1.tar.gz"
+      sha256 "4b358ee8beb76f856ca21c61979828f9e082f00591942bf770a1cb2aa53fe4bf"
+    end
+  end
 
   def install
     libexec.install Dir["*"]
@@ -23,6 +42,6 @@ class Typedb < Formula
   end
 
   test do
-    assert_match "A STRONGLY-TYPED DATABASE", shell_output("#{bin}/typedb server --help")
+    assert_match "THE POLYMORPHIC DATABASE", shell_output("#{bin}/typedb server --help")
   end
 end
