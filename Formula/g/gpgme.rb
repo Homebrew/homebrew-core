@@ -4,7 +4,7 @@ class Gpgme < Formula
   url "https://www.gnupg.org/ftp/gcrypt/gpgme/gpgme-1.23.2.tar.bz2"
   sha256 "9499e8b1f33cccb6815527a1bc16049d35a6198a6c5fae0185f2bd561bce5224"
   license "LGPL-2.1-or-later"
-  revision 2
+  revision 3
 
   livecheck do
     url "https://gnupg.org/ftp/gcrypt/gpgme/"
@@ -23,14 +23,14 @@ class Gpgme < Formula
   end
 
   depends_on "python-setuptools" => :build
-  depends_on "python@3.12" => [:build, :test]
+  depends_on "python@3.13" => [:build, :test]
   depends_on "swig" => :build
   depends_on "gnupg"
   depends_on "libassuan"
   depends_on "libgpg-error"
 
   def python3
-    "python3.12"
+    "python3.13"
   end
 
   # Backport fix for newer setuptools
