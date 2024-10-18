@@ -2,7 +2,7 @@ class Mpd < Formula
   desc "Music Player Daemon"
   homepage "https://github.com/MusicPlayerDaemon/MPD"
   license "GPL-2.0-or-later"
-  revision 4
+  revision 5
   head "https://github.com/MusicPlayerDaemon/MPD.git", branch: "master"
 
   stable do
@@ -44,7 +44,7 @@ class Mpd < Formula
   depends_on "fluid-synth"
   depends_on "fmt"
   depends_on "glib"
-  depends_on "icu4c@75"
+  depends_on "icu4c@76"
   depends_on "lame"
   depends_on "libao"
   depends_on "libgcrypt"
