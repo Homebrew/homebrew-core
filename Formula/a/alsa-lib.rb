@@ -23,7 +23,7 @@ class AlsaLib < Formula
   end
 
   test do
-    (testpath/"test.c").write <<~EOS
+    (testpath/"test.c").write <<~C
       #include <alsa/asoundlib.h>
       int main(void)
       {
@@ -31,7 +31,7 @@ class AlsaLib < Formula
           snd_ctl_card_info_alloca(&info);
           return 0;
       }
-    EOS
+    C
     system ENV.cc, "test.c", "-L#{lib}", "-lasound", "-o", "test"
     system "./test"
   end
