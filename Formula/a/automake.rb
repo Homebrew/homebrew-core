@@ -35,9 +35,9 @@ class Automake < Formula
   end
 
   test do
-    (testpath/"test.c").write <<~EOS
+    (testpath/"test.c").write <<~C
       int main() { return 0; }
-    EOS
+    C
     (testpath/"configure.ac").write <<~EOS
       AC_INIT(test, 1.0)
       AM_INIT_AUTOMAKE
