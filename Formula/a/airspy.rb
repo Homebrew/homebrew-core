@@ -32,7 +32,7 @@ class Airspy < Formula
   end
 
   test do
-    (testpath/"test.c").write <<~EOS
+    (testpath/"test.c").write <<~C
       #include <stdio.h>
       #include <libairspy/airspy.h>
 
@@ -47,7 +47,7 @@ class Airspy < Formula
 
         return 0;
       }
-    EOS
+    C
 
     system ENV.cc, "test.c", "-L#{lib}", "-lairspy", "-o", "test"
     assert_match version.to_s, shell_output("./test")
