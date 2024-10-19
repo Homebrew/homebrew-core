@@ -38,7 +38,7 @@ class Airspyhf < Formula
   end
 
   test do
-    (testpath/"test.c").write <<~EOS
+    (testpath/"test.c").write <<~C
       #include <libairspyhf/airspyhf.h>
 
       int main() {
@@ -51,7 +51,7 @@ class Airspyhf < Formula
 
         return 1;
       }
-    EOS
+    C
 
     system ENV.cc, "test.c", "-o", "test", "-I#{include}", "-L#{lib}", "-lairspyhf", "-lm"
     system "./test"
