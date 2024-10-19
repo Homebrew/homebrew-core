@@ -56,14 +56,14 @@ class ArmNoneEabiGcc < Formula
   end
 
   test do
-    (testpath/"test-c.c").write <<~EOS
+    (testpath/"test-c.c").write <<~C
       int main(void)
       {
         int i=0;
         while(i<10) i++;
         return i;
       }
-    EOS
+    C
     system bin/"arm-none-eabi-gcc", "-c", "-o", "test-c.o", "test-c.c"
     assert_match "file format elf32-littlearm",
                  shell_output("#{Formula["arm-none-eabi-binutils"].bin}/arm-none-eabi-objdump -a test-c.o")
