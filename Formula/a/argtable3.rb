@@ -33,7 +33,7 @@ class Argtable3 < Formula
   end
 
   test do
-    (testpath/"test.c").write <<~EOS
+    (testpath/"test.c").write <<~C
       #include "argtable3.h"
       #include <assert.h>
       #include <stdio.h>
@@ -50,7 +50,7 @@ class Argtable3 < Formula
           puts ("Invalid option");
         }
       }
-    EOS
+    C
 
     system ENV.cc, "test.c", "-L#{lib}", "-I#{include}", "-largtable3",
                    "-o", "test"
