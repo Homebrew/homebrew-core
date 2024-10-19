@@ -51,7 +51,7 @@ class Acl < Formula
       other::r-x
     EOS
 
-    (testpath/"test.c").write <<~EOS
+    (testpath/"test.c").write <<~C
       #include <stdio.h>
       #include <sys/acl.h>
 
@@ -64,7 +64,7 @@ class Acl < Formula
         acl_free(acl_text);
         return 0;
       }
-    EOS
+    C
     system ENV.cc, "test.c", "-o", "test", "-I#{include}", "-L#{lib}", "-lacl"
     assert_equal <<~EOS, shell_output("./test").chomp
       user::rwx
