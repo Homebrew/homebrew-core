@@ -32,7 +32,7 @@ class Aribb24 < Formula
   end
 
   test do
-    (testpath/"test.c").write <<~EOS
+    (testpath/"test.c").write <<~C
       #include <aribb24/aribb24.h>
       #include <stdlib.h>
       int main() {
@@ -42,7 +42,7 @@ class Aribb24 < Formula
         arib_instance_destroy(ptr);
         return 0;
       }
-    EOS
+    C
     system ENV.cc, "-o", "test", "test.c", "-I#{include}",
                    "-L#{lib}", "-laribb24"
     system "./test"
