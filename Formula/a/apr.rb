@@ -49,14 +49,14 @@ class Apr < Formula
 
   test do
     assert_match opt_prefix.to_s, shell_output("#{bin}/apr-#{version.major}-config --prefix")
-    (testpath/"test.c").write <<~EOS
+    (testpath/"test.c").write <<~C
       #include <stdio.h>
       #include <apr-#{version.major}/apr_version.h>
       int main() {
         printf("%s", apr_version_string());
         return 0;
       }
-    EOS
+    C
     system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lapr-#{version.major}", "-o", "test"
     assert_equal version.to_s, shell_output("./test")
   end
