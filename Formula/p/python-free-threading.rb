@@ -330,12 +330,13 @@ class PythonFreeThreading < Formula
 
     rm_r(bin/"pip")
     mv bin/"wheel", bin/"wheel#{version.major_minor}t"
+    mv bin/"pip#{version.major_minor}", bin/"pip#{version.major_minor}t"
     bin.install_symlink "wheel#{version.major_minor}t" => "wheel3"
 
     # Install unversioned symlinks in libexec/bin.
     {
       "pip"   => "pip#{version.major_minor}t",
-      "wheel" => "wheel#{version.major_minor}t",
+       "wheel" => "wheel#{version.major_minor}t",
     }.each do |short_name, long_name|
       (libexec/"bin").install_symlink (bin/long_name).realpath => short_name
     end
@@ -488,7 +489,7 @@ class PythonFreeThreading < Formula
     EOS
     system python3, "dbm_test.py"
 
-    system bin/"pip#{version.major_minor}", "list", "--format=columns"
+    system bin/"pip#{version.major_minor}t", "list", "--format=columns"
 
     # Verify our sysconfig patches
     sysconfig_path = "import sysconfig; print(sysconfig.get_paths(\"osx_framework_library\")[\"data\"])"
