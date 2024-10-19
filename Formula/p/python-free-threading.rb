@@ -335,8 +335,8 @@ class PythonFreeThreading < Formula
 
     # Install unversioned symlinks in libexec/bin.
     {
-      "pip"    => "pip#{version.major_minor}t",
-      "wheel"  => "wheel#{version.major_minor}t",
+      "pip"   => "pip#{version.major_minor}t",
+      "wheel" => "wheel#{version.major_minor}t",
     }.each do |short_name, long_name|
       (libexec/"bin").install_symlink (bin/long_name).realpath => short_name
     end
