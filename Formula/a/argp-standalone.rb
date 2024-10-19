@@ -30,7 +30,7 @@ class ArgpStandalone < Formula
   end
 
   test do
-    (testpath/"test.c").write <<~EOS
+    (testpath/"test.c").write <<~C
       #include <stdio.h>
       #include <argp.h>
 
@@ -38,7 +38,7 @@ class ArgpStandalone < Formula
       {
         return argp_parse(0, argc, argv, 0, 0, 0);
       }
-    EOS
+    C
     system ENV.cc, "test.c", "-L#{lib}", "-largp", "-o", "test"
     system "./test"
   end
