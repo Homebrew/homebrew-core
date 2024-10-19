@@ -40,7 +40,7 @@ class Argtable < Formula
   end
 
   test do
-    (testpath/"test.c").write <<~EOS
+    (testpath/"test.c").write <<~C
       #include "argtable2.h"
       #include <assert.h>
       #include <stdio.h>
@@ -57,7 +57,7 @@ class Argtable < Formula
           puts ("Invalid option");
         }
       }
-    EOS
+    C
     system ENV.cc, "test.c", "-L#{lib}", "-I#{include}", "-largtable2",
                    "-o", "test"
     assert_match "Received option", shell_output("./test -a")
