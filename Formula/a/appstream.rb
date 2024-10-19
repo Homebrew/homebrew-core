@@ -79,7 +79,7 @@ class Appstream < Formula
         <name>Test App</name>
       </component>
     EOS
-    (testpath/"test.c").write <<~EOS
+    (testpath/"test.c").write <<~C
       #include "appstream.h"
 
       int main(int argc, char *argv[]) {
@@ -95,7 +95,7 @@ class Appstream < Formula
           g_clear_error (&error);
         }
       }
-    EOS
+    C
     flags = shell_output("pkg-config --cflags --libs appstream").strip.split
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
