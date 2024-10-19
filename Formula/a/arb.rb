@@ -33,7 +33,7 @@ class Arb < Formula
   end
 
   test do
-    (testpath/"test.c").write <<~EOS
+    (testpath/"test.c").write <<~C
       #include <arb.h>
 
       int main()
@@ -58,7 +58,7 @@ class Arb < Formula
           arb_clear(x); arb_clear(y);
           flint_cleanup();
       }
-    EOS
+    C
 
     system ENV.cc, "test.c", "-I#{include}", "-I#{Formula["flint"].opt_include}",
            "-L#{lib}", "-L#{Formula["flint"].opt_lib}",
