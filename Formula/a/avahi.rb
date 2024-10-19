@@ -51,7 +51,7 @@ class Avahi < Formula
   end
 
   test do
-    (testpath/"test.c").write <<~EOS
+    (testpath/"test.c").write <<~C
       #include <glib.h>
 
       #include <avahi-client/client.h>
@@ -97,7 +97,7 @@ class Avahi < Formula
 
           return 0;
       }
-    EOS
+    C
 
     pkg_config_flags = shell_output("pkg-config --cflags --libs avahi-client avahi-core avahi-glib").chomp.split
     system ENV.cc, "test.c", *pkg_config_flags, "-o", "test"
