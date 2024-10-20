@@ -62,7 +62,7 @@ class Czmq < Formula
   end
 
   test do
-    (testpath/"test.c").write <<~EOS
+    (testpath/"test.c").write <<~C
       #include <czmq.h>
 
       int main(void)
@@ -80,7 +80,7 @@ class Czmq < Formula
 
         return 0;
       }
-    EOS
+    C
 
     flags = ENV.cflags.to_s.split + %W[
       -I#{include}
