@@ -30,7 +30,7 @@ class Cflow < Formula
   end
 
   test do
-    (testpath/"whoami.c").write <<~EOS
+    (testpath/"whoami.c").write <<~C
       #include <pwd.h>
       #include <sys/types.h>
       #include <stdio.h>
@@ -64,7 +64,7 @@ class Cflow < Formula
           }
         return who_am_i ();
       }
-    EOS
+    C
 
     assert_match "getpwuid()", shell_output("#{bin}/cflow --main who_am_i #{testpath}/whoami.c")
   end
