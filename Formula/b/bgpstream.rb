@@ -25,7 +25,7 @@ class Bgpstream < Formula
   end
 
   test do
-    (testpath/"test.c").write <<~EOS
+    (testpath/"test.c").write <<~C
       #include <stdio.h>
       #include "bgpstream.h"
       int main()
@@ -35,7 +35,7 @@ class Bgpstream < Formula
           return -1;
         }
       }
-    EOS
+    C
     system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lbgpstream", "-o", "test"
     system "./test"
   end
