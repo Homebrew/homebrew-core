@@ -54,7 +54,7 @@ class BdwGc < Formula
   end
 
   test do
-    (testpath/"test.c").write <<~EOS
+    (testpath/"test.c").write <<~C
       #include <assert.h>
       #include <stdio.h>
       #include "gc.h"
@@ -73,7 +73,7 @@ class BdwGc < Formula
         }
         return 0;
       }
-    EOS
+    C
 
     system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lgc", "-o", "test"
     system "./test"
