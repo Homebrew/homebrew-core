@@ -34,7 +34,7 @@ class Cunit < Formula
   end
 
   test do
-    (testpath/"test.c").write <<~EOS
+    (testpath/"test.c").write <<~C
       #include <stdio.h>
       #include <string.h>
       #include "CUnit/Basic.h"
@@ -62,7 +62,7 @@ class Cunit < Formula
          CU_cleanup_registry();
          return CU_get_error();
       }
-    EOS
+    C
 
     system ENV.cc, "test.c", "-L#{lib}", "-lcunit", "-o", "test"
     assert_match "test of 42 ...passed", shell_output("./test")
