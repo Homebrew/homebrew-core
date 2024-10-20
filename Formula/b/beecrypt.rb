@@ -54,7 +54,7 @@ class Beecrypt < Formula
   end
 
   test do
-    (testpath/"test.c").write <<~EOS
+    (testpath/"test.c").write <<~C
       #include "beecrypt/base64.h"
       #include "beecrypt/sha256.h"
       #include <stdio.h>
@@ -76,7 +76,7 @@ class Beecrypt < Formula
 
         return 0;
       }
-    EOS
+    C
     system ENV.cc, "test.c", "-L#{lib}", "-lbeecrypt", "-o", "test"
     assert_match "FJOO", shell_output("./test")
   end
