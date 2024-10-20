@@ -27,7 +27,7 @@ class Blake3 < Formula
   end
 
   test do
-    (testpath/"test.c").write <<~EOS
+    (testpath/"test.c").write <<~C
       #include <errno.h>
       #include <stdio.h>
       #include <stdlib.h>
@@ -62,7 +62,7 @@ class Blake3 < Formula
         printf("\\n");
         return 0;
       }
-    EOS
+    C
     (testpath/"input.txt").write <<~EOS
       content
     EOS
