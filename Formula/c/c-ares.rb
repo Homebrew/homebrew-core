@@ -35,7 +35,7 @@ class CAres < Formula
   end
 
   test do
-    (testpath/"test.c").write <<~EOS
+    (testpath/"test.c").write <<~C
       #include <stdio.h>
       #include <ares.h>
 
@@ -45,7 +45,7 @@ class CAres < Formula
         ares_library_cleanup();
         return 0;
       }
-    EOS
+    C
     system ENV.cc, "test.c", "-L#{lib}", "-lcares", "-o", "test"
     system "./test"
 
