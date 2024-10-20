@@ -39,7 +39,7 @@ class Cheapglk < Formula
   end
 
   test do
-    (testpath/"test.c").write <<~EOS
+    (testpath/"test.c").write <<~C
       #include "glk.h"
       #include "glkstart.h"
 
@@ -56,7 +56,7 @@ class Cheapglk < Formula
       {
           glk_exit();
       }
-    EOS
+    C
     system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lcheapglk", "-o", "test"
     assert_match version.to_s, pipe_output("./test", "echo test", 0)
   end
