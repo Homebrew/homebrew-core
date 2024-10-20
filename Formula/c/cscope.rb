@@ -36,7 +36,7 @@ class Cscope < Formula
   end
 
   test do
-    (testpath/"test.c").write <<~EOS
+    (testpath/"test.c").write <<~C
       #include <stdio.h>
       #include <stdlib.h>
 
@@ -50,7 +50,7 @@ class Cscope < Formula
         func();
         return 0;
       }
-    EOS
+    C
     (testpath/"cscope.files").write "./test.c\n"
     system bin/"cscope", "-b", "-k"
     assert_match(/test\.c.*func/, shell_output("#{bin}/cscope -L1func"))
