@@ -44,7 +44,7 @@ class Cgns < Formula
   end
 
   test do
-    (testpath/"test.c").write <<~EOS
+    (testpath/"test.c").write <<~C
       #include <stdio.h>
       #include "cgnslib.h"
       int main(int argc, char *argv[])
@@ -54,7 +54,7 @@ class Cgns < Formula
           return 1;
         return 0;
       }
-    EOS
+    C
     flags = %W[-L#{lib} -lcgns]
     flags << "-Wl,-rpath,#{lib},-rpath,#{Formula["libaec"].opt_lib}" if OS.linux?
     system Formula["hdf5"].opt_prefix/"bin/h5cc", "test.c", *flags
