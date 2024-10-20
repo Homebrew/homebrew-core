@@ -24,12 +24,12 @@ class Clangql < Formula
   end
 
   test do
-    (testpath/"test.c").write <<~EOS
+    (testpath/"test.c").write <<~C
       int main()
       {
           return 0;
       }
-    EOS
+    C
 
     output = JSON.parse(shell_output("#{bin}/clangql -f test.c -q 'SELECT name FROM functions' -o json"))
     assert_equal "main", output.first["name"]
