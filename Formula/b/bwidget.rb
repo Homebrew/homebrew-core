@@ -4,6 +4,7 @@ class Bwidget < Formula
   url "https://downloads.sourceforge.net/project/tcllib/BWidget/1.10.0/bwidget-1.10.0.tar.gz"
   sha256 "eb5b02becb9af88bf74a574785de1e329cf30a36791153093a79114fac51c3ad"
   license "TCL"
+  revision 1
 
   livecheck do
     url "https://sourceforge.net/projects/tcllib/rss?path=/BWidget"
@@ -14,7 +15,8 @@ class Bwidget < Formula
     sha256 cellar: :any_skip_relocation, all: "ec27bb5573254a90ecabdce5169d750cd49865a0ffeebef139333feef2d97391"
   end
 
-  depends_on "tcl-tk"
+  # TCL 9 needs unreleased fixes and https://core.tcl-lang.org/bwidget/tktview/b78ac94ee6
+  depends_on "tcl-tk@8"
 
   def install
     (lib/"bwidget").install Dir["*"]
@@ -28,6 +30,6 @@ class Bwidget < Formula
       puts [package require BWidget]
       exit
     EOS
-    assert_equal version.to_s, pipe_output("#{Formula["tcl-tk"].bin}/tclsh", test_bwidget).chomp
+    assert_equal version.to_s, pipe_output("#{Formula["tcl-tk@8"].bin}/tclsh", test_bwidget).chomp
   end
 end
