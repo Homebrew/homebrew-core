@@ -55,13 +55,13 @@ class Bear < Formula
   end
 
   test do
-    (testpath/"test.c").write <<~EOS
+    (testpath/"test.c").write <<~C
       #include <stdio.h>
       int main() {
         printf("hello, world!\\n");
         return 0;
       }
-    EOS
+    C
     system bin/"bear", "--", "clang", "test.c"
     assert_predicate testpath/"compile_commands.json", :exist?
   end
