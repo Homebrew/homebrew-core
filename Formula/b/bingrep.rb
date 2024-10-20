@@ -25,14 +25,14 @@ class Bingrep < Formula
   end
 
   test do
-    (testpath/"test.c").write <<~EOS
+    (testpath/"test.c").write <<~C
       int homebrew_test() {
         return 0;
       }
       int main() {
         return homebrew_test();
       }
-    EOS
+    C
     system ENV.cc, testpath/"test.c"
     assert_match "homebrew_test", shell_output("#{bin}/bingrep a.out")
   end
