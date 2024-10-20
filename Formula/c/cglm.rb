@@ -27,7 +27,7 @@ class Cglm < Formula
   end
 
   test do
-    (testpath/"test.c").write <<~EOS
+    (testpath/"test.c").write <<~C
       #include <cglm/cglm.h>
       #include <assert.h>
 
@@ -41,7 +41,7 @@ class Cglm < Formula
         assert(glm_vec3_eqv_eps(r, z));
         return 0;
       }
-    EOS
+    C
     system ENV.cc, "-I#{include}", testpath/"test.c", "-o", "test"
     system "./test"
   end
