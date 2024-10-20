@@ -35,7 +35,7 @@ class Capstone < Formula
 
   test do
     # code comes from https://www.capstone-engine.org/lang_c.html
-    (testpath/"test.c").write <<~EOS
+    (testpath/"test.c").write <<~C
       #include <stdio.h>
       #include <inttypes.h>
       #include <capstone/capstone.h>
@@ -60,7 +60,7 @@ class Capstone < Formula
         cs_close(&handle);
         return 0;
       }
-    EOS
+    C
     system ENV.cc, "test.c", "-L#{lib}", "-lcapstone", "-o", "test"
     system "./test"
   end
