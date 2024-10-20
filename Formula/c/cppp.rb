@@ -30,7 +30,7 @@ class Cppp < Formula
   end
 
   test do
-    (testpath/"hello.c").write <<~EOS
+    (testpath/"hello.c").write <<~C
       /* Comments stand for code */
       #ifdef FOO
       /* FOO is defined */
@@ -45,7 +45,7 @@ class Cppp < Formula
       /* FOO & BAZ are undefined */
       # endif
       #endif
-    EOS
+    C
     system bin/"cppp", "-DFOO", "hello.c"
   end
 end
