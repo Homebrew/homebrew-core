@@ -41,9 +41,9 @@ class ClangFormatAT11 < Formula
 
   test do
     # NB: below C code is messily formatted on purpose.
-    (testpath/"test.c").write <<~EOS
+    (testpath/"test.c").write <<~C
       int         main(char *args) { \n   \t printf("hello"); }
-    EOS
+    C
 
     assert_equal "int main(char *args) { printf(\"hello\"); }\n",
         shell_output("#{bin}/clang-format-11 -style=Google test.c")
