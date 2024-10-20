@@ -29,7 +29,7 @@ class Croaring < Formula
   end
 
   test do
-    (testpath/"test.c").write <<~EOS
+    (testpath/"test.c").write <<~C
       #include <stdio.h>
       #include <roaring/roaring.h>
       int main() {
@@ -39,7 +39,7 @@ class Croaring < Formula
           roaring_bitmap_free(r1);
           return 0;
       }
-    EOS
+    C
     system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lroaring", "-o", "test"
     assert_equal "cardinality = 900\n", shell_output("./test")
   end
