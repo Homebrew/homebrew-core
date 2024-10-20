@@ -34,7 +34,7 @@ class Cmocka < Formula
   end
 
   test do
-    (testpath/"test.c").write <<~EOS
+    (testpath/"test.c").write <<~C
       #include <stdarg.h>
       #include <stddef.h>
       #include <setjmp.h>
@@ -50,7 +50,7 @@ class Cmocka < Formula
         };
         return cmocka_run_group_tests(tests, NULL, NULL);
       }
-    EOS
+    C
     system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lcmocka", "-o", "test"
     system "./test"
   end
