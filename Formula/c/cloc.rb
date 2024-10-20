@@ -89,12 +89,12 @@ class Cloc < Formula
   end
 
   test do
-    (testpath/"test.c").write <<~EOS
+    (testpath/"test.c").write <<~C
       #include <stdio.h>
       int main(void) {
         return 0;
       }
-    EOS
+    C
 
     assert_match "1,C,0,0,4", shell_output("#{bin}/cloc --csv .")
   end
