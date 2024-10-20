@@ -41,13 +41,13 @@ class Cbmc < Formula
 
   test do
     # Find a pointer out of bounds error
-    (testpath/"main.c").write <<~EOS
+    (testpath/"main.c").write <<~C
       #include <stdlib.h>
       int main() {
         char *ptr = malloc(10);
         char c = ptr[10];
       }
-    EOS
+    C
     assert_match "VERIFICATION FAILED",
                  shell_output("#{bin}/cbmc --pointer-check main.c", 10)
   end
