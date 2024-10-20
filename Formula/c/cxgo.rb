@@ -31,15 +31,15 @@ class Cxgo < Formula
   end
 
   test do
-    (testpath/"test.c").write <<~EOS
+    (testpath/"test.c").write <<~C
       #include <stdio.h>
       int main() {
         printf("Hello, World!");
         return 0;
       }
-    EOS
+    C
 
-    expected = <<~EOS
+    expected = <<~C
       package main
 
       import (
@@ -51,7 +51,7 @@ class Cxgo < Formula
       \tstdio.Printf("Hello, World!")
       \tos.Exit(0)
       }
-    EOS
+    C
 
     system bin/"cxgo", "file", testpath/"test.c"
     assert_equal expected, (testpath/"test.go").read
