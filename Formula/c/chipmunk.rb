@@ -39,7 +39,7 @@ class Chipmunk < Formula
   end
 
   test do
-    (testpath/"test.c").write <<~EOS
+    (testpath/"test.c").write <<~C
       #include <stdio.h>
       #include <chipmunk.h>
 
@@ -51,7 +51,7 @@ class Chipmunk < Formula
         cpSpaceFree(space);
         return 0;
       }
-    EOS
+    C
     system ENV.cc, testpath/"test.c", "-o", testpath/"test", "-pthread",
                    "-I#{include}/chipmunk", "-L#{lib}", "-lchipmunk"
     system "./test"
