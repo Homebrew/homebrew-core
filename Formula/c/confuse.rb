@@ -31,7 +31,7 @@ class Confuse < Formula
   end
 
   test do
-    (testpath/"test.c").write <<~EOS
+    (testpath/"test.c").write <<~C
       #include <confuse.h>
       #include <stdio.h>
 
@@ -49,7 +49,7 @@ class Confuse < Formula
         cfg_free(cfg);
         return 0;
       }
-    EOS
+    C
     system ENV.cc, "test.c", "-L#{lib}", "-lconfuse", "-o", "test"
     assert_match "world", shell_output("./test")
   end
