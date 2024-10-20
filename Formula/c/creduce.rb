@@ -132,16 +132,16 @@ class Creduce < Formula
   end
 
   test do
-    (testpath/"test1.c").write <<~EOS
+    (testpath/"test1.c").write <<~C
       int main() {
         printf("%d\n", 0);
       }
-    EOS
-    (testpath/"test1.sh").write <<~EOS
+    C
+    (testpath/"test1.sh").write <<~C
       #!/usr/bin/env bash
 
       #{ENV.cc} -Wall #{testpath}/test1.c 2>&1 | grep 'Wimplicit-function-declaration'
-    EOS
+    C
 
     chmod 0755, testpath/"test1.sh"
     system bin/"creduce", "test1.sh", "test1.c"
