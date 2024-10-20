@@ -17,17 +17,27 @@ class PerlXmlParser < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "876f84653f0c11dfe42194d77094ae883520e76a6c0cdf741ea7fa52afa749a7"
   end
 
-  uses_from_macos "perl"
+  # macOS Perl already has the XML::Parser module
+  depends_on "perl"
+  uses_from_macos "expat"
 
   def install
-    ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
-    system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
+    system "perl", "Makefile.PL", "INSTALL_BASE=#{prefix}"
     system "make", "PERL5LIB=#{ENV["PERL5LIB"]}"
     system "make", "install"
+
+    man.install prefix/"man"
+    perl_version = Formula["perl"].version.major_minor.to_s
+    site_perl = lib/"perl5/site_perl"/perl_version
+    (lib/"perl5").find do |pn|
+      next unless pn.file?
+
+      subdir = pn.relative_path_from(lib/"perl5").dirname
+      (site_perl/subdir).install_symlink pn
+    end
   end
 
   test do
-    ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5" if OS.linux?
-    system "perl", "-e", "require XML::Parser;"
+    system Formula["perl"].opt_bin/"perl", "-e", "require XML::Parser;"
   end
 end

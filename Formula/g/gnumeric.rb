@@ -4,6 +4,7 @@ class Gnumeric < Formula
   url "https://download.gnome.org/sources/gnumeric/1.12/gnumeric-1.12.57.tar.xz"
   sha256 "aff50b1b62340c24fccf453d5fad3e7fb73f4bc4b34f7e34b6c3d2d9af6a1e4f"
   license any_of: ["GPL-3.0-only", "GPL-2.0-only"]
+  revision 1
 
   bottle do
     sha256                               arm64_sequoia:  "dc450b2534ce288a9589fc5646898c49faae013c6027b3af43fb75a14d402036"
@@ -43,12 +44,10 @@ class Gnumeric < Formula
   end
 
   on_linux do
-    depends_on "perl-xml-parser"
+    depends_on "perl-xml-parser" => :build
   end
 
   def install
-    ENV.prepend_path "PERL5LIB", Formula["perl-xml-parser"].opt_libexec/"lib/perl5" unless OS.mac?
-
     # ensures that the files remain within the keg
     inreplace "component/Makefile.in",
               "GOFFICE_PLUGINS_DIR = @GOFFICE_PLUGINS_DIR@",

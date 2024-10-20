@@ -4,7 +4,7 @@ class PostgresqlAT14 < Formula
   url "https://ftp.postgresql.org/pub/source/v14.13/postgresql-14.13.tar.bz2"
   sha256 "59aa3c4b495ab26a9ec69f3ad0a0228c51f0fe6facf3634dfad4d1197d613a56"
   license "PostgreSQL"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://ftp.postgresql.org/pub/source/"
