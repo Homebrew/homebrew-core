@@ -26,7 +26,7 @@ class Cgif < Formula
   end
 
   test do
-    (testpath/"try.c").write <<~EOS
+    (testpath/"try.c").write <<~C
       #include <cgif.h>
       int main() {
         CGIF_Config config = {0};
@@ -36,7 +36,7 @@ class Cgif < Formula
 
         return 0;
       }
-    EOS
+    C
     system ENV.cc, "try.c", "-L#{lib}", "-lcgif", "-o", "try"
     system "./try"
   end
