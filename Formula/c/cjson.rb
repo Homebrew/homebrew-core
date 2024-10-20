@@ -30,7 +30,7 @@ class Cjson < Formula
   end
 
   test do
-    (testpath/"test.c").write <<~EOS
+    (testpath/"test.c").write <<~C
       #include <cjson/cJSON.h>
 
       int main()
@@ -47,7 +47,7 @@ class Cjson < Formula
         cJSON_Delete(json);
         return 0;
       }
-    EOS
+    C
     system ENV.cc, "test.c", "-L#{lib}", "-lcjson", "-o", "test"
     system "./test"
   end
