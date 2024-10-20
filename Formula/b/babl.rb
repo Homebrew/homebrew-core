@@ -39,7 +39,7 @@ class Babl < Formula
   end
 
   test do
-    (testpath/"test.c").write <<~EOS
+    (testpath/"test.c").write <<~C
       #include <babl/babl.h>
       int main() {
         babl_init();
@@ -49,7 +49,7 @@ class Babl < Formula
         babl_exit();
         return 0;
       }
-    EOS
+    C
     system ENV.cc, "-I#{include}/babl-0.1", testpath/"test.c", "-L#{lib}", "-lbabl-0.1", "-o", "test"
     system testpath/"test"
 
