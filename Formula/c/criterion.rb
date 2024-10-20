@@ -35,14 +35,14 @@ class Criterion < Formula
   end
 
   test do
-    (testpath/"test-criterion.c").write <<~EOS
+    (testpath/"test-criterion.c").write <<~C
       #include <criterion/criterion.h>
 
       Test(suite_name, test_name)
       {
         cr_assert(1);
       }
-    EOS
+    C
 
     system ENV.cc, "test-criterion.c", "-I#{include}", "-L#{lib}", "-lcriterion", "-o", "test-criterion"
     system "./test-criterion"
