@@ -34,7 +34,7 @@ class Calceph < Formula
   end
 
   test do
-    (testpath/"testcalceph.c").write <<~EOS
+    (testpath/"testcalceph.c").write <<~C
       #include <calceph.h>
       #include <assert.h>
 
@@ -50,7 +50,7 @@ class Calceph < Formula
         assert (errorfound==1);
         return 0;
       }
-    EOS
+    C
     system ENV.cc, "testcalceph.c", "-L#{lib}", "-lcalceph", "-o", "testcalceph"
     system "./testcalceph"
   end
