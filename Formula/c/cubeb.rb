@@ -58,7 +58,7 @@ class Cubeb < Formula
   end
 
   test do
-    (testpath/"test.c").write <<~EOS
+    (testpath/"test.c").write <<~C
       #include <stdio.h>
       #include <cubeb/cubeb.h>
 
@@ -107,7 +107,7 @@ class Cubeb < Formula
         cubeb_destroy(ctx);
         return 0;
       }
-    EOS
+    C
     system ENV.cc, "-o", "test", "#{testpath}/test.c", "-L#{lib}", "-lcubeb"
     refute_match(/FAIL:.*/, shell_output("#{testpath}/test"),
                     "Basic sanity test failed.")
