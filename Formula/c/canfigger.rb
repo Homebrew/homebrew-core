@@ -31,7 +31,7 @@ class Canfigger < Formula
       Numbers = list, one , two, three, four, five, six, seven
     EOS
 
-    (testpath/"test.c").write <<~EOS
+    (testpath/"test.c").write <<~C
       #include <canfigger.h>
       #include <stdio.h>
 
@@ -63,7 +63,7 @@ class Canfigger < Formula
 
         return 0;
       }
-    EOS
+    C
 
     system ENV.cc, "test.c", "-L#{lib}", "-lcanfigger", "-o", "test"
     assert_match <<~EOS, shell_output("./test")
