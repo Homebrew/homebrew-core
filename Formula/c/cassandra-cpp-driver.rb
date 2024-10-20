@@ -40,7 +40,7 @@ class CassandraCppDriver < Formula
   end
 
   test do
-    (testpath/"test.c").write <<~EOS
+    (testpath/"test.c").write <<~C
       #include <stdio.h>
       #include <cassandra.h>
 
@@ -64,7 +64,7 @@ class CassandraCppDriver < Formula
 
         return 0;
       }
-    EOS
+    C
     system ENV.cc, "test.c", "-L#{lib}", "-lcassandra", "-o", "test"
     assert_equal "connection failed", shell_output("./test")
   end
