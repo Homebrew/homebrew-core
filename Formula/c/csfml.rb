@@ -27,7 +27,7 @@ class Csfml < Formula
   end
 
   test do
-    (testpath/"test.c").write <<~EOS
+    (testpath/"test.c").write <<~C
       #include <SFML/Window.h>
 
       int main (void)
@@ -35,7 +35,7 @@ class Csfml < Formula
         sfWindow * w = sfWindow_create (sfVideoMode_getDesktopMode (), "Test", 0, NULL);
         return 0;
       }
-    EOS
+    C
     system ENV.cc, "test.c", "-L#{lib}", "-lcsfml-window", "-o", "test"
     # Disable this part of the test on Linux because display is not available.
     system "./test" if OS.mac?
