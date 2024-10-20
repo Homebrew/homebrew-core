@@ -33,7 +33,7 @@ class Concurrencykit < Formula
   end
 
   test do
-    (testpath/"test.c").write <<~EOS
+    (testpath/"test.c").write <<~C
       #include <ck_spinlock.h>
       int main()
       {
@@ -41,7 +41,7 @@ class Concurrencykit < Formula
         ck_spinlock_init(&spinlock);
         return 0;
       }
-    EOS
+    C
     system ENV.cc, "-I#{include}", "-L#{lib}", "-lck",
            testpath/"test.c", "-o", testpath/"test"
     system "./test"
