@@ -33,7 +33,7 @@ class Cminpack < Formula
   end
 
   test do
-    (testpath/"test.c").write <<~EOS
+    (testpath/"test.c").write <<~C
       #include <stdio.h>
       #include <cminpack.h>
 
@@ -64,7 +64,7 @@ class Cminpack < Formula
 
           return info;
       }
-    EOS
+    C
 
     system ENV.cc, "test.c", "-I#{include}/cminpack-1",
                    "-L#{lib}", "-lcminpack", "-lm", "-o", "test"
