@@ -36,9 +36,9 @@ class Cffi < Formula
 
   test do
     assert_empty resources, "This formula should not have any resources!"
-    (testpath/"sum.c").write <<~EOS
+    (testpath/"sum.c").write <<~C
       int sum(int a, int b) { return a + b; }
-    EOS
+    C
 
     libsum = testpath/shared_library("libsum")
     system ENV.cc, "-shared", "sum.c", "-o", libsum
