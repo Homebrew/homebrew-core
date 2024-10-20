@@ -46,13 +46,13 @@ class Chmlib < Formula
   end
 
   test do
-    (testpath/"test.c").write <<~EOS
+    (testpath/"test.c").write <<~C
       #include <chm_lib.h>
       int main() {
         struct chmFile* chm = chm_open("file-that-doesnt-exist.chm");
         return chm != 0; // Fail if non-null.
       }
-    EOS
+    C
     system ENV.cc, "test.c", "-L#{lib}", "-lchm", "-o", "test"
     system "./test"
   end
