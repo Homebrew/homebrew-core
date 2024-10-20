@@ -53,12 +53,12 @@ class Bic < Formula
   end
 
   test do
-    (testpath/"hello.c").write <<~EOS
+    (testpath/"hello.c").write <<~C
       #include <stdio.h>
       int main () {
         puts("Hello Homebrew!");
       }
-    EOS
+    C
     assert_equal "Hello Homebrew!", shell_output("#{bin}/bic -s hello.c").strip
   end
 end
