@@ -1,8 +1,8 @@
 class Renovate < Formula
   desc "Automated dependency updates. Flexible so you don't need to be"
   homepage "https://github.com/renovatebot/renovate"
-  url "https://registry.npmjs.org/renovate/-/renovate-38.128.0.tgz"
-  sha256 "7bd716c822ecf353e2a878d291304cc00fcf46f4b93df64df364dc92e2026d2b"
+  url "https://registry.npmjs.org/renovate/-/renovate-38.129.0.tgz"
+  sha256 "3bc148871211b3e3f04b930999f3872b493e47d5a6c215229beecf7e8558b4b3"
   license "AGPL-3.0-only"
 
   # There are thousands of renovate releases on npm and the page the `Npm`
@@ -17,12 +17,12 @@ class Renovate < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e55683f11bd2b41321ff847d0167b56272328ecd58f476f73f535aaad01a3c98"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "bb8eff11399cb8208eda5658cc2da21b4e1449c50c1dec48ca92be50398592b9"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "92e7688a5e2897c436d9add25c1f9759c1beb0e57a758568809ccbcad824e7ad"
-    sha256 cellar: :any_skip_relocation, sonoma:        "aa70fe6d4486fd989fa6569e6773b881ec00ccc65c918595f2d00b326caf30d8"
-    sha256 cellar: :any_skip_relocation, ventura:       "41833dd4eb6f165551c1a304924b15fd2bb6c5023cb47b1db601391f791fac30"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c9cccffd81b1489aaacacd967e89875dba00bdf812bbc2389ac8f058d6ee6306"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c8c8f4a03dbf5556638964554bfffd1a9bc58fc72318c9d872338496cfb18f8e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4f0568611481872a162697ddc660ae971be1a21eeceedeb77945c4e797c7504b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "f46e77a6ba751374203678e6f87d8ab07d48d356787fe79979ce79390e230e76"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b28c854a45c8e9a28d04eb8621630be816acb65f67a3119b0d4fe81e32f2435e"
+    sha256 cellar: :any_skip_relocation, ventura:       "29c48842c2e886231f94a4bfb5f788b7f4c9dcbb046c2d5cddde72e2f3249fbc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d0fa3d118220a009431e15bc7ea3ca3c7bc0680f17b82e7864a9793b362c23a4"
   end
 
   depends_on "node@20"

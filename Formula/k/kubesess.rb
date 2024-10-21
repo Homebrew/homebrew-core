@@ -1,17 +1,17 @@
 class Kubesess < Formula
   desc "Manage multiple kubernetes cluster at the same time"
   homepage "https://blog.rentarami.se/posts/2022-08-05-kube-context-2/"
-  url "https://github.com/Ramilito/kubesess/archive/refs/tags/2.0.0.tar.gz"
-  sha256 "5c9c5867679ed4826d24ad953ce2aa126b8b386e1c9e2f5f7e44a210e5a10e8a"
+  url "https://github.com/Ramilito/kubesess/archive/refs/tags/2.0.1.tar.gz"
+  sha256 "a013e1bfaf846ad769f149f19dde6b7656ec52c7d2b10c407c619e4c42c59057"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "eddc3334fc5b0fc15cd6c0f31966423bb78af73faa3a34952b172fc67c091e7f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "058f9533d7ca1b04f15f39e5d1b4bf7cda1f1c80b7312aa4428d991bdc14bc35"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "fab2ac0acbb58327285b1c968177cd003f1076dca948bc86897aa2888ff860e1"
-    sha256 cellar: :any_skip_relocation, sonoma:        "1fe06e9b0c099593ffa6f90c8e65d96105b7b5ab1a9299adfb5d1eca13ddbb30"
-    sha256 cellar: :any_skip_relocation, ventura:       "12ad0f02f1b486f250d34ccacc66169e69579702510f8651c0ada6672731ae62"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "af68f946a622ef231fbdb89a723461ca278ccce6bdc1c829821ec99cc7c9b24c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3f159cc145e44a8d89ab483ff2dbd682fef9f012a65f410b6e297539b1a91e2b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4a47911eb466b293073e7d020db9574935b86723eb50b9be3a2f8593a7ad5cc0"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "cb56a0e5a3b701228da24558eea2a652b180a3a2b1e46da960c5c3e5ec37bf86"
+    sha256 cellar: :any_skip_relocation, sonoma:        "5f15272e42dba00f32da68d8f2123196f6695883d2ebe66c3cb95aa30995bdb7"
+    sha256 cellar: :any_skip_relocation, ventura:       "828b19ce40e2fe4e81007fcd4975f6d881eb91bd49e6d30ec36a13e10126486a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8c5b83e3cc3ddcf5fc490a08b40d2d596f815281738661a461887e457863e763"
   end
 
   depends_on "rust" => :build

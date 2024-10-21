@@ -1,18 +1,18 @@
 class Bazelisk < Formula
   desc "User-friendly launcher for Bazel"
   homepage "https://github.com/bazelbuild/bazelisk/"
-  url "https://github.com/bazelbuild/bazelisk/archive/refs/tags/v1.22.0.tar.gz"
-  sha256 "4e136f6f1212f28d5c6fdd4cfa3f016d7443831fc98ce8b7ee3caee81ef956fa"
+  url "https://github.com/bazelbuild/bazelisk/archive/refs/tags/v1.22.1.tar.gz"
+  sha256 "64b584d1019d54cde34123d8da06c718c7a7c591f9fd49a29dccb825b9e95e8c"
   license "Apache-2.0"
   head "https://github.com/bazelbuild/bazelisk.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3cb08dd73eb1ef938f6921e5f25b3832d7aaf6c9befdcccba3b4f713a62a043d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3cb08dd73eb1ef938f6921e5f25b3832d7aaf6c9befdcccba3b4f713a62a043d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "3cb08dd73eb1ef938f6921e5f25b3832d7aaf6c9befdcccba3b4f713a62a043d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "d14bd1ef15d2fca1381839670a7c3562750d295712e1cb0f2d8927e9358c56f1"
-    sha256 cellar: :any_skip_relocation, ventura:       "d14bd1ef15d2fca1381839670a7c3562750d295712e1cb0f2d8927e9358c56f1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aa334b48d146e264c5321f317b3e9c6fba01405ee5d80d0d4f75f576a1071d46"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4eb1cbcac7e006930eea94c2b3bf1d22ad60040dd88334cafa2f727adcd9747f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4eb1cbcac7e006930eea94c2b3bf1d22ad60040dd88334cafa2f727adcd9747f"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "4eb1cbcac7e006930eea94c2b3bf1d22ad60040dd88334cafa2f727adcd9747f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "4a8da2c1b38a21cd432a029c90bbbe185913b4fb2096176ab46a7a46846e6970"
+    sha256 cellar: :any_skip_relocation, ventura:       "4a8da2c1b38a21cd432a029c90bbbe185913b4fb2096176ab46a7a46846e6970"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f19ac31ae0e5fe09b6b6f4f4164ceb02f3c7962ee1f50b2d8617e564556caf79"
   end
 
   depends_on "go" => :build
