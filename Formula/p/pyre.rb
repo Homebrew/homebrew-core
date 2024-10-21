@@ -122,7 +122,7 @@ class Pyre < Formula
     EOS
 
     output = shell_output("#{bin}/pyre check 2>&1", 1)
-    assert_match "ƛ Found 1 type error", output
+    assert_includes "Found 1 type error", output
     assert_match "test.py:1:0 Incompatible variable type [9]: i is declared to have type `int` " \
                  "but is used as type `str`.", output
   end
