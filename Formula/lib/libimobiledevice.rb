@@ -17,11 +17,12 @@ class Libimobiledevice < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "c418aa763659463002269201586cd356c69e6a233b2040ced02a352498b362d8"
   end
 
-  # libimobiledevice-glue is required for building future versions
+  # libimobiledevice-glue and libtatsu are required for building future versions
   # Move outside of HEAD clause when there's a new release.
   head do
     url "https://github.com/libimobiledevice/libimobiledevice.git", branch: "master"
     depends_on "libimobiledevice-glue"
+    depends_on "libtatsu"
   end
 
   depends_on "autoconf" => :build
