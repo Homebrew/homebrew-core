@@ -10,6 +10,7 @@ class Qt < Formula
     { "GPL-3.0-only" => { with: "Qt-GPL-exception-1.0" } },
     "LGPL-3.0-only",
   ]
+  revision 1
   head "https://code.qt.io/qt/qt5.git", branch: "dev"
 
   stable do
@@ -48,11 +49,11 @@ class Qt < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:  "ee963ae8db1a9aa4e704a8bd7661af582803a62b98ab01ceff7a30faaf84801d"
-    sha256 cellar: :any,                 arm64_ventura: "00211c4cdb53dcacceef31a7b86d1c86ce00a3888764fa8478d60eba0b3b2efd"
-    sha256 cellar: :any,                 sonoma:        "d6ad879c3f896c504c17622c070b4203676694410f7b3b0a34a2c108250002fe"
-    sha256 cellar: :any,                 ventura:       "ef5ef408a3ecb52066f08ec0554f3a771a1fed1efd77da39eb6758532f1892d1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0700ec3390554ab544a421e2aaa68f35634fafb6714369344e8718837dfba5bc"
+    sha256 cellar: :any,                 arm64_sonoma:  "de0596d68828545edb19f9b4fdbd4231f55665ffe24445982cde1d8cab158e76"
+    sha256 cellar: :any,                 arm64_ventura: "15292f50c614f96b44909d9e6bd7740332d6f0aaea7d58867b72b4a92bcc91c6"
+    sha256 cellar: :any,                 sonoma:        "dde328f798bab68dfec97e5e0531cbc2047f22d350bb59fc7bfdf5fd739f1ded"
+    sha256 cellar: :any,                 ventura:       "b4fb7663f99e75b5e46e909002c415f0e7619bf5c5d2370071ebd4e1683e3182"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "660595e4ee37395e5929df612556de6dc044bec8937f9e7ce584d10e8a593c74"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -72,7 +73,7 @@ class Qt < Formula
   depends_on "glib"
   depends_on "harfbuzz"
   depends_on "hunspell"
-  depends_on "icu4c"
+  depends_on "icu4c@75"
   depends_on "jasper"
   depends_on "jpeg-turbo"
   depends_on "libb2"

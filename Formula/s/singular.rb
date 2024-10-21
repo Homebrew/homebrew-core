@@ -36,12 +36,13 @@ class Singular < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "2545817c2a3bf6805ec8d6c0f4b68bdbf79f2b0e806f0960d41b469a1a354b00"
-    sha256 arm64_sonoma:  "8799c07b7d704e30890bed5683754edd5985455ef9f564042627dd245d76f4ef"
-    sha256 arm64_ventura: "3a9129e0e3b233f981cb6af0f407c71fc8993a22f703d0b7f7a4509dfabd01c4"
-    sha256 sonoma:        "8c7a0a365cbf858612410deaeacb8d21aeb000436f0e2d37d99dd171198932d1"
-    sha256 ventura:       "c310798143fff1172ddf0e53cebf57971a4cbea620e13310777a3a6e54c6a0f4"
-    sha256 x86_64_linux:  "242776f9cf894709375ec5971dca826231e9f6417f38b7945988ae2197d7d0e8"
+    rebuild 1
+    sha256 arm64_sequoia: "ac4346f71a06f0ae9ec36bdc498414d61cd9b6161f39ebfa4327817423f96e9e"
+    sha256 arm64_sonoma:  "4e18563cd04ba72fe3c22cc9a1146b21e02b14427adba5363bc5a9ca681604af"
+    sha256 arm64_ventura: "559b2f2a8d17deae3d3e47e1f0cfabf047e35c87232a7a59b1fb482a0b23e671"
+    sha256 sonoma:        "697102f51dc8667ddf7773a52ebae51f150cb15b248491c465ac653d9ce364a2"
+    sha256 ventura:       "7a114e9f033ff75acb94bf101359e68c63874b8698c85b71807fd82ac518fbe7"
+    sha256 x86_64_linux:  "1da41f69eaeba4d66f62b448514235837cfecc2193a433610bd18528eec35f3b"
   end
 
   head do
@@ -55,14 +56,14 @@ class Singular < Formula
   depends_on "gmp"
   depends_on "mpfr"
   depends_on "ntl"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
   depends_on "readline"
 
   def install
     system "./autogen.sh" if build.head?
     system "./configure", *std_configure_args,
                           "--disable-silent-rules",
-                          "--with-python=#{which("python3.12")}",
+                          "--with-python=#{which("python3.13")}",
                           "CXXFLAGS=-std=c++11"
     system "make", "install"
   end

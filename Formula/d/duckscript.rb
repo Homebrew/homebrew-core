@@ -1,19 +1,18 @@
 class Duckscript < Formula
   desc "Simple, extendable and embeddable scripting language"
   homepage "https://sagiegurari.github.io/duckscript"
-  url "https://github.com/sagiegurari/duckscript/archive/refs/tags/v0.9.4-01.tar.gz"
-  version "0.9.4"
-  sha256 "f341b81724e2f6bc2ea824155f5aea38a17d3c9a79d274aa2aba96c3890695d1"
+  url "https://github.com/sagiegurari/duckscript/archive/refs/tags/0.11.1.tar.gz"
+  sha256 "2e23b16359fb9b2c521f0bd250f6eb754bcb8ef40a7f8bf8076f87387276032a"
   license "Apache-2.0"
   head "https://github.com/sagiegurari/duckscript.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b987b8107ace0db8d7cd3761d0808fc627d4bad33fc866220e7bb411c01355f3"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7d3cefd642d7aeff32073fb23cb0f1505de36dd46d15bdf0b1c72bf6f324e00a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "2d47f018e1f6453ae50ab10fe59be44630b66c097f0689badf43d62b793b7ea8"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f4030501fa35a536b72fecd0dc305bf195d9ae96bbf4efa8a159191cf9ae0892"
-    sha256 cellar: :any_skip_relocation, ventura:       "9e574c5420c6c165c284e64a7430baba8f5b52e3750a6aea459725327e021b55"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1b9cd4f260f3acb474fea9acbc4ae2dddd3f2aef3efd7a2d72d7311877c0721a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5582ec1f3830f0ba37bd1562663c64df16dec7249edea7abf44b8d4a4283e912"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6d23b3da8b2b44581e7f0dfe911f8e1edd43279a88aded7ea8d5e025d35972ab"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "f462e56f82dcf7e2a30276ba5b9f43f310ee9de6c1143fc7da8d481cc195a436"
+    sha256 cellar: :any_skip_relocation, sonoma:        "0821ca6f519677e8504aeb4307b2f9c2fbfa6a7423eff300e2a8da4e6aae966a"
+    sha256 cellar: :any_skip_relocation, ventura:       "8dd3fca5e3317481cd6d2e8c0d4d83b66de311179eec5fd7fb04a43e14bd3ebc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5235e7033e0a8ed818f198f52df387bd1d82422000c9a32297b7265df247ac36"
   end
 
   depends_on "rust" => :build

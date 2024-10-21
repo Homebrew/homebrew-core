@@ -4,7 +4,7 @@ class Pktanon < Formula
   url "https://www.tm.kit.edu/software/pktanon/download/pktanon-1.4.0-dev.tar.gz"
   sha256 "db3f437bcb8ddb40323ddef7a9de25a465c5f6b4cce078202060f661d4b97ba3"
   license "GPL-2.0-or-later"
-  revision 4
+  revision 5
 
   # The regex below matches development versions, as a stable version isn't yet
   # available. If stable versions appear in the future, we should modify the
@@ -15,15 +15,12 @@ class Pktanon < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia:  "06412917c998e86cc7ba70272699a10fa2d2d76d662f36640ef9b0bb773ba761"
-    sha256 cellar: :any,                 arm64_sonoma:   "088984576d203e28d79b142e1d68996c88ff972f6959ad088ac80ad32780cada"
-    sha256 cellar: :any,                 arm64_ventura:  "a5f1e1035cdccf58ccdffb87c9baabf590f87f97da5bbf0334b0e598d97c102c"
-    sha256 cellar: :any,                 arm64_monterey: "596c0bd371e83b51b8fd5f5f0f992086db13622078e45193da2749178c280b93"
-    sha256 cellar: :any,                 sonoma:         "3285f89136d1a40bd4b87a425d09f995d4dd4e8969ac998dbaf0b2cfcf10a21f"
-    sha256 cellar: :any,                 ventura:        "48192cac76e6cee2ed1926e1a1f2cf6d337c4d756accbc5635ae2f04c4c24018"
-    sha256 cellar: :any,                 monterey:       "a9954ab7b82d9ce6e8aab1a95e8e47ef8979e53a03584b556b3c02fa61056b17"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d55f5090da3b26eaa66152213636fafabf34e6e1b22103cd430976f544504311"
+    sha256 cellar: :any,                 arm64_sequoia: "44134c55be8a09ccfa54203ccf2ce297df8c8a76e4ef3c94040a523c0bf50cda"
+    sha256 cellar: :any,                 arm64_sonoma:  "2cbb5ed4c7c0e22a3de3025fe12860026c7b8264a08374c4f662467ab91187f3"
+    sha256 cellar: :any,                 arm64_ventura: "0016600c5e396a07b502fe6060b8e83ad0659479a433e4baf7b0d1a3afba27eb"
+    sha256 cellar: :any,                 sonoma:        "202a34eac518440e7d191d05e083a66a424ba49e1df4bca38f83175ca6eafab8"
+    sha256 cellar: :any,                 ventura:       "af27c678d49a0928c17ee03cb2af56e3997ffa71c53efbb5edb9c2db3bab1491"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a169dd1f2a8226cb31c4039f5a34e62c2077d9667da21f4f6c9a23a7198ca852"
   end
 
   depends_on "boost" => :build

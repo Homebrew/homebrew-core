@@ -8,18 +8,17 @@ class Terminator < Formula
   license "GPL-2.0-only"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "cd9a4da25659541b070e94573fab3ab65c370ed538f246db565da65fdb4ef53d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "977d208ffe8ac59d8a5ff0ef577ac0e6e6af388ca5bd637632227ad232a72326"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6d7be7db387a5e11d7ed9f6f6e08c5638ec484680d923a2486f12f993ff1ded4"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c059276169ab3dc9d3307fd648252ea3f10ab046cab0c51b3f0fa7cd8a386ff1"
-    sha256 cellar: :any_skip_relocation, sonoma:         "d2e0770ff214ee3b3d0ea6d3674ede07b7a27216f933f1d5bfb7391c5c537dd8"
-    sha256 cellar: :any_skip_relocation, ventura:        "af1cf0b858e2341d6c5686d7eb36c6c277dbf3eb60522cb22fa58e62b5a5031b"
-    sha256 cellar: :any_skip_relocation, monterey:       "d9eebb2a1316d84ea194f18a2b0870c7cb332f3f0a513d656f518f84e48f6b7d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "de5eb10e4a24584a4db44a6f84d7f355dff428f380bed522ed69a44e373f78a9"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d823e29f9a03f186e2ff84443aca3348821632cab7a085068146bd0403383fe3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "241380e6ab7728c4cb1b46bf8a569a0a8527a4b4e97fbfab7fcd78a658c5bbe5"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "5440ad3063e68abe0e0bf3796021dfbbd4bae5f07c1c013f0265c47e0dcdcace"
+    sha256 cellar: :any_skip_relocation, sonoma:        "a18e427816b26610cec97cd87bf1915ee7aec6a86c2af90295a3bf0a5130ddd7"
+    sha256 cellar: :any_skip_relocation, ventura:       "60f289ff7f318d749a0523fbcb094c694ec1db2700ad6ee6899774d61dfe3fd4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "73119f14b2225e8557fb354ac8d53d1f58579893bbb69e1e74ddbfca62eede9e"
   end
 
   depends_on "pygobject3"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
   depends_on "vte3"
 
   on_linux do

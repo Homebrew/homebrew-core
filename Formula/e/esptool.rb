@@ -8,26 +8,27 @@ class Esptool < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "a6c251c00bcd0db0cf7a24cfc19d019964af4348784c3b6cf68698f8d5f859e9"
-    sha256 cellar: :any,                 arm64_sonoma:  "5c1fbe4c38793bf1cf0e35d5d9346f4022a559e8a6200ce96adc7409e834b148"
-    sha256 cellar: :any,                 arm64_ventura: "5b948b967078deeadf91209ae140128962fb97d30ec2a1c1a83e83dfce58355b"
-    sha256 cellar: :any,                 sonoma:        "189fbee589d3a52bcdea881875a157354051a5c48890698832e917d714e9fb1d"
-    sha256 cellar: :any,                 ventura:       "b46ee19677f2c554294b68c86e235abdc413f157dbd780f2ff98d25ac449f5c7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f00cc619d59c94294a641f12c44f4079f3e3a6a1cb64655895b0a06a0a850911"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "435a28b10ab6dc8fadc387f29e9d100f66a595bbdb3fa1ca1e5eb5c2ed7c12df"
+    sha256 cellar: :any,                 arm64_sonoma:  "b743da34300c646e201c1abfec19a0a8a7dfcd2944e12ebea17a47a47428cf4f"
+    sha256 cellar: :any,                 arm64_ventura: "e4874eaefae3706401f4e3402e984fed85216f2b1ea6931e6555d08d4e9bc1d4"
+    sha256 cellar: :any,                 sonoma:        "507146f1cf6fbb9c674c13caff0030099309d412ce6905893907eee54c28c0c4"
+    sha256 cellar: :any,                 ventura:       "e553aab2cc885e47e3b38f31bcbb622ea03e970054201d97ebe47794d7241826"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "331a891fb3f0af73d6f29687914a5377ceebc1b06f0d7d5e181b6983f8cc143a"
   end
 
   depends_on "cryptography"
   depends_on "libyaml"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "argcomplete" do
-    url "https://files.pythonhosted.org/packages/75/33/a3d23a2e9ac78f9eaf1fce7490fee430d43ca7d42c65adabbb36a2b28ff6/argcomplete-3.5.0.tar.gz"
-    sha256 "4349400469dccfb7950bb60334a680c58d88699bff6159df61251878dc6bf74b"
+    url "https://files.pythonhosted.org/packages/5f/39/27605e133e7f4bb0c8e48c9a6b87101515e3446003e0442761f6a02ac35e/argcomplete-3.5.1.tar.gz"
+    sha256 "eb1ee355aa2557bd3d0145de7b06b2a45b0ce461e1e7813f5d066039ab4177b4"
   end
 
   resource "bitarray" do
-    url "https://files.pythonhosted.org/packages/c7/bf/25cf92a83e1fe4948d7935ae3c02f4c9ff9cb9c13e977fba8af11a5f642c/bitarray-2.9.2.tar.gz"
-    sha256 "a8f286a51a32323715d77755ed959f94bef13972e9a2fe71b609e40e6d27957e"
+    url "https://files.pythonhosted.org/packages/0d/c7/a85f206e6b2fddb93964efe53685ad8da7d856e6975b005ed6a88f25b010/bitarray-2.9.3.tar.gz"
+    sha256 "9eff55cf189b0c37ba97156a00d640eb7392db58a8049be6f26ff2712b93fa89"
   end
 
   resource "bitstring" do

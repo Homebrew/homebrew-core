@@ -9,19 +9,20 @@ class Badkeys < Formula
   head "https://github.com/badkeys/badkeys.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "495481caa2debdf89862b19893af1a4462b08dec6b36b23c4051014db5b8935e"
-    sha256 cellar: :any,                 arm64_sonoma:  "c4a8709ae44d82257dd0b602374649c1f536aa5be1a9878f6103055df920f22e"
-    sha256 cellar: :any,                 arm64_ventura: "a3c5815c227230de6adf15626b51008ccbd91c715bdb576c6ea22d7a8b98df0d"
-    sha256 cellar: :any,                 sonoma:        "426d2bd679a81a323ee8e3ec5093365f205e2ff01a7cc9dddac72c4f0d67f8dd"
-    sha256 cellar: :any,                 ventura:       "e350e6b5366ad217226580150b624d7eb859015fe47124e77acebb1d2bd82c0a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ac37d3762c9eb6e6da7eaa5e0e62f2a22aeb7c2a8958b77d4ef3203da8bc8067"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "db0035f6d4086c363a198993d665cdbf62e6bdaa582feef7a53e42a75c78baa7"
+    sha256 cellar: :any,                 arm64_sonoma:  "a07c510effd9558e8702ec1dcbbd88011d0146ece0d30b9cefae5f952eeef64a"
+    sha256 cellar: :any,                 arm64_ventura: "3f63a5459c881ca65de269d7571320fa8dd8411bcca7e879406ca2d06097ebf7"
+    sha256 cellar: :any,                 sonoma:        "5add8b492ee854ae1b95edd548fd8d5befbf5b771ebd471ea9acde72afeba8db"
+    sha256 cellar: :any,                 ventura:       "91ccb32758b85cce386d29a2ac9f0b73555c5083323dd937c29db85887d1d3a6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "da77957bdd0858d8eb36a5ae4dc76bbc4cdde70f68b5a88347601db11fb046d4"
   end
 
   depends_on "cryptography"
   depends_on "gmp"
   depends_on "libmpc"
   depends_on "mpfr"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "gmpy2" do
     url "https://files.pythonhosted.org/packages/07/bd/c6c154ce734a3e6187871b323297d8e5f3bdf9feaafc5212381538bc19e4/gmpy2-2.2.1.tar.gz"

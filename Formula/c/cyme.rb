@@ -1,18 +1,18 @@
 class Cyme < Formula
   desc "List system USB buses and devices"
   homepage "https://github.com/tuna-f1sh/cyme"
-  url "https://github.com/tuna-f1sh/cyme/archive/refs/tags/v1.8.4.tar.gz"
-  sha256 "f9136c5794c4d199ee3d7745b82e901de4a15e4626f3bb4c9269e67c6e31885a"
+  url "https://github.com/tuna-f1sh/cyme/archive/refs/tags/v2.0.0.tar.gz"
+  sha256 "2b97ac1560ec96d28be21c1dfda62802c0149fc445fa64bd9df4da9bee8c9f16"
   license "GPL-3.0-or-later"
   head "https://github.com/tuna-f1sh/cyme.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "e18bd476d149849dca9e3d43b4a3c1eeb8c3560fee4def60208cb5fe8f070e77"
-    sha256 cellar: :any,                 arm64_sonoma:  "381e8ccf170104d9deef6fa283e347108bfd59c1d871d4fd7193c59ddfc60ce8"
-    sha256 cellar: :any,                 arm64_ventura: "540c3d6636ea6edbc92985328198b6046414d7e7efb68f1810e6bb333b3f6791"
-    sha256 cellar: :any,                 sonoma:        "08ebe554f70c67aeca385a4852da1ca76e31d24080831d0f9332974fa0bd090c"
-    sha256 cellar: :any,                 ventura:       "b60b15d2d2146619e340ea784adad284dff72f1bf03e45a13f16bbc8c2d891a9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5ecce228a0159f178bf7502e97a25397bfe8e468f103e8ee7881fd461c0ff22c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0ca9ef0ddd36d38c3c4088020ac5ac9acf934957917157cfcf05543c320ec7d0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "833f65766b9758a7bcdc9135a33018b1b57aee08cc5829a321fd4b729f792a05"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "3932cec2d04cd6ad8c9a6369c9bb9e18dcd56ce26a788c5f89bfec37bd92ddf9"
+    sha256 cellar: :any_skip_relocation, sonoma:        "616a6d487eace71b7d868d566fa3fb4f51ee8faa41c53b788b147d078c4ac0a6"
+    sha256 cellar: :any_skip_relocation, ventura:       "8df5a7571141f57b860b9030780db466b749250744174611fc50a6cdb8d5d9ad"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "daf58cebe16b7514616d3d877042c07438572553eef7f0d63c3f9987263bb96d"
   end
 
   depends_on "rust" => :build

@@ -9,18 +9,17 @@ class Aerleon < Formula
   head "https://github.com/aerleon/aerleon.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "8035c20f4b232aa3430edbb35e8c55cbb972dd74c096f3009cbe4387f1d5f96b"
-    sha256 cellar: :any,                 arm64_sonoma:   "66ed88e3888a7584e9574f20fda2afcd4535ce25c74d6694b1c1805502942cd8"
-    sha256 cellar: :any,                 arm64_ventura:  "7974e30641c93665207c6d6775118347f8acc75899a96a0f6463fbaf680eeae6"
-    sha256 cellar: :any,                 arm64_monterey: "31fbe5882a576becd288f72d63213654955713d4197621745a61bd995843d015"
-    sha256 cellar: :any,                 sonoma:         "0b6c03084055867198bcb9e9d6e87d15969fe814a3c393b9d2ac378b9a18cfee"
-    sha256 cellar: :any,                 ventura:        "b5fe4630ad59e7649acb26a635644428bf4c940e8f6435341782b135aaae174b"
-    sha256 cellar: :any,                 monterey:       "161cb0611f0565b6fb1b289190e6611dbca52b232da72df9b7783216c5fadb38"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "970a29563825fa5b291db0f44c4ababfa3e3528aed7c3511d0640f273a9772d2"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "389212deb7cf910a91832ac58ed041b870a18c871de006e282b257447cb21842"
+    sha256 cellar: :any,                 arm64_sonoma:  "5b9ba1c8e6fa33c3bec7ecf9ef3b41a0ec4491fe6b2b09b8f1d9fc221134b2bd"
+    sha256 cellar: :any,                 arm64_ventura: "6ab075ded353df9f5208e34509754c9859d5da633be8a3f81874394dfd690727"
+    sha256 cellar: :any,                 sonoma:        "028b7db26b68aa61e4ec40bb436f57ee24f7b12e22d3ebd73dd36797052e2f48"
+    sha256 cellar: :any,                 ventura:       "05c7771b35e78f9e4d9bfd64259ac0436499e8a625f7fafc17f57aa135139304"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "36eea78c33c7e127e0111415873ff23e282a1c25218a3ed4522901f67017de37"
   end
 
   depends_on "libyaml"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   conflicts_with "cgrep", because: "both install `cgrep` binaries"
 
@@ -35,13 +34,13 @@ class Aerleon < Formula
   end
 
   resource "pyyaml" do
-    url "https://files.pythonhosted.org/packages/cd/e5/af35f7ea75cf72f2cd079c95ee16797de7cd71f29ea7c68ae5ce7be1eda0/PyYAML-6.0.1.tar.gz"
-    sha256 "bfdf460b1736c775f2ba9f6a92bca30bc2095067b8a9d77876d1fad6cc3b4a43"
+    url "https://files.pythonhosted.org/packages/54/ed/79a089b6be93607fa5cdaedf301d7dfb23af5f25c398d5ead2525b063e17/pyyaml-6.0.2.tar.gz"
+    sha256 "d584d9ec91ad65861cc08d42e834324ef890a082e591037abe114850ff7bbc3e"
   end
 
   resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/f6/f3/b827b3ab53b4e3d8513914586dcca61c355fa2ce8252dea4da56e67bf8f2/typing_extensions-4.11.0.tar.gz"
-    sha256 "83f085bd5ca59c80295fc2a82ab5dac679cbe02b9f33f7d83af68e241bea51b0"
+    url "https://files.pythonhosted.org/packages/df/db/f35a00659bc03fec321ba8bce9420de607a1d37f8342eee1863174c69557/typing_extensions-4.12.2.tar.gz"
+    sha256 "1a7ead55c7e559dd4dee8856e3a88b41225abfe1ce8df57b7c13915fe121ffb8"
   end
 
   def install

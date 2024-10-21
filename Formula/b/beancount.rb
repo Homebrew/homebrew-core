@@ -9,20 +9,19 @@ class Beancount < Formula
   head "https://github.com/beancount/beancount.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "9ae7187acde4e1977a62e7d2c49a98b163662e4022438d5037c6ee9d85ba8815"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "10405080e1d55734bd3aa6ba0b53a0063d7cbf6314b82aac46b564a00415569b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "88055566d5a2da9aec14830ff8aa30be1c7cddb140462aa7282665b7d20bdaf9"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "0d2bac775d648799b393f5d5992ada6d139bed9c6e6db1d7749747dc4d7fdf7e"
-    sha256 cellar: :any_skip_relocation, sonoma:         "34f13ed6f8e78f2aed71aa0d44956807241ec58477f3024e253cfa82192729a7"
-    sha256 cellar: :any_skip_relocation, ventura:        "22d828be5a46d46de8049d88f34fd605b445b2b7cb8c8c45aef417e6f568048d"
-    sha256 cellar: :any_skip_relocation, monterey:       "70dc527ee42cb1691cf7e678fcda1fc5ef63f044b187a7a96f8b8081dc488e9d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e60fa9af11396db901daac24e910ed49c3f45186c1e6ecbb7565e54fce84f090"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bd46704b5f7378d8f22c21d28dd7889e5c4128e74fffad77abbd15c97690e0d9"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b3156bab6cb30a56af2bc10fde877271be206952204334f8cf6623e56baa37a5"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "53f9b70c1f228ae55aa911283407a2d2eaa535e9da434270c9e8328371c345a9"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7ee09aef497ae1937ef164f58f2894704b3fb0a362d01e42cd877abeea23a9b0"
+    sha256 cellar: :any_skip_relocation, ventura:       "9c8678874984a80f6df58b18f09bf90bc73cf180421299b403e7f91e062c0298"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6052aec81c41e933c8ba47c69673e45539088e07282b0b91dd5128c97acbb6af"
   end
 
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "certifi"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   uses_from_macos "libxml2", since: :ventura
   uses_from_macos "libxslt"
@@ -42,8 +41,8 @@ class Beancount < Formula
   end
 
   resource "regex" do
-    url "https://files.pythonhosted.org/packages/7a/db/5ddc89851e9cc003929c3b08b9b88b429459bf9acbf307b4556d51d9e49b/regex-2024.5.15.tar.gz"
-    sha256 "d3ee02d9e5f482cc8309134a91eeaacbdd2261ba111b0fef3748eeb4913e6a2c"
+    url "https://files.pythonhosted.org/packages/f9/38/148df33b4dbca3bd069b963acab5e0fa1a9dbd6820f8c322d0dd6faeff96/regex-2024.9.11.tar.gz"
+    sha256 "6c188c307e8433bcb63dc1915022deb553b4203a70722fc542c363bf120a01fd"
   end
 
   resource "six" do

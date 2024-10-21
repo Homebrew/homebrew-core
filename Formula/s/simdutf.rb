@@ -1,8 +1,8 @@
 class Simdutf < Formula
   desc "Unicode conversion routines, fast"
   homepage "https://github.com/simdutf/simdutf"
-  url "https://github.com/simdutf/simdutf/archive/refs/tags/v5.5.0.tar.gz"
-  sha256 "47090a770b8eecf610ac4d1fafadde60bb7ba3c9d576d2a3a545aba989a3d749"
+  url "https://github.com/simdutf/simdutf/archive/refs/tags/v5.6.0.tar.gz"
+  sha256 "98cc5761b638642b018a628b1609f1b2df489b555836fa88706055bb56a4d6fe"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/simdutf/simdutf.git", branch: "master"
 
@@ -12,17 +12,15 @@ class Simdutf < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia:  "2f9b5c974c697454c64207bb699dbe988139c7bc6d265f72ebf0d0cdb7c63173"
-    sha256 cellar: :any, arm64_sonoma:   "585ed9611fca65bedfdb8515176913390a290b394f10d0829a545b14df268e6a"
-    sha256 cellar: :any, arm64_ventura:  "c65475d47607e8dea2c68e0c3f2932340431e11cb18e1bfcddeb639b9d90ae9b"
-    sha256 cellar: :any, arm64_monterey: "888a5c340d08ee42f5253f62f0d710d4684ff8a9124a6a1bb8deaa78e2a85f52"
-    sha256 cellar: :any, sonoma:         "29fcd6954f014a2238c8b691fc9d5ad26be1ae0f66c7c7546aecafefc3900fa8"
-    sha256 cellar: :any, ventura:        "89e5773dea8ba07568de5ec3732caf408c89bb0af9de5931bbd3c3a35c979372"
-    sha256 cellar: :any, monterey:       "87100c5966e121734185c2b3d079c9eabf68c0978cb161dbbecc6b13bf61e1c2"
+    sha256 cellar: :any, arm64_sequoia: "dc353683d071621365c7aec115ae468b91fe1000b70ed5d7c1d92916930dedc6"
+    sha256 cellar: :any, arm64_sonoma:  "d15a9acc7882a59ccbbfe84d2995ce5a267fceb97afc0a60fcbf3e1919d62224"
+    sha256 cellar: :any, arm64_ventura: "abd012cd1ee98bcaad973b1ecaf82bf993190fb370b88dc09584143f9fdbaec7"
+    sha256 cellar: :any, sonoma:        "0dc994d9a1987c57d6c655338684247b351274e968398ba24bfa6b83b3c989f4"
+    sha256 cellar: :any, ventura:       "0e18dd000b52cf1b04f7a65acb0cf949864f14ddc164f0236fd6c5651fe6b58f"
   end
 
   depends_on "cmake" => :build
-  depends_on "icu4c"
+  depends_on "icu4c@75"
   depends_on macos: :catalina
 
   uses_from_macos "python" => :build

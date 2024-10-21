@@ -6,16 +6,13 @@ class DfuProgrammer < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "7a7d0387f7057032f8ae1db3d76ff331977b1709f9428b6f41dedcb0652c0dba"
-    sha256 cellar: :any,                 arm64_sonoma:   "6618b70e9b243bfdb165adbb46ee46c9c4dbe9d9913710351819f3055049e84b"
-    sha256 cellar: :any,                 arm64_ventura:  "c7abf3562a37b1356cdd4462aa7c6ada63c4b4393a1ab3f6e1491fd113abccba"
-    sha256 cellar: :any,                 arm64_monterey: "a8110021b2738f533615e1f7e961e2ef536f3a13fd3dbf2efc4d4bd1be0f7509"
-    sha256 cellar: :any,                 arm64_big_sur:  "23cbbc0db021a543e010b2fd56d2a391739183388f8c1428bcb54efa961dab14"
-    sha256 cellar: :any,                 sonoma:         "832ec017d2d128d991b48cd2f35d1260c10ec158714787971944a1adc41ecfbd"
-    sha256 cellar: :any,                 ventura:        "ef6b41b4e7597f4bd8fe3f0f829a3a1b17fc653267c40f6ae2662d2020ddd097"
-    sha256 cellar: :any,                 monterey:       "f0af0119d6d41fa35a9fb875d15270b842061e3fb557a195f904b8f76f5bf6aa"
-    sha256 cellar: :any,                 big_sur:        "9933ccea13d42b9fbc76c7539f46be4123cc3e17b17b0e595d7780fa7ddc4510"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4b49dbbfb38d200869a2aa405a699cecbaf7dda8fb7d50f45da43ea817345114"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "9d8e4b2ed240a48c18c466631c2157e6d7b3d640d205cdda06ddfe86a3751b7f"
+    sha256 cellar: :any,                 arm64_sonoma:  "f506d34a6fae7808ea684cfa1a293eba7ec7b21e3527229cad5e2d89c289f65d"
+    sha256 cellar: :any,                 arm64_ventura: "6bff3958c7c8e1b569b374e9e1cdec4843c70f7e2f9042c05a9fae9f6832fe27"
+    sha256 cellar: :any,                 sonoma:        "5b70cceeddad497b6a6f55d4ee1ee66caac51f8395f69f8389edee88427eab97"
+    sha256 cellar: :any,                 ventura:       "7924fe1214155edd5e6467e29c31981efaebad2d0aa92f484e5021e2f7c4ea3c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "775806218241479471ea7a2b823545e81d898f867f4c887119641aabda2c926a"
   end
 
   head do
@@ -25,12 +22,11 @@ class DfuProgrammer < Formula
     depends_on "automake" => :build
   end
 
-  depends_on "libusb-compat"
+  depends_on "libusb"
 
   def install
     system "./bootstrap.sh" if build.head?
-    system "./configure", *std_configure_args,
-                          "--disable-libusb_1_0"
+    system "./configure", "--disable-silent-rules", *std_configure_args
     system "make", "install"
   end
 

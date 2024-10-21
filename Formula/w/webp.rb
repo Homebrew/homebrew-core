@@ -6,6 +6,11 @@ class Webp < Formula
   license "BSD-3-Clause"
   head "https://chromium.googlesource.com/webm/libwebp.git", branch: "main"
 
+  livecheck do
+    url "https://developers.google.com/speed/webp/docs/compiling"
+    regex(/libwebp[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "31a5101ac333638f0b5ea2a2d3a7a40c0ff9a235a038158461cab52666a8f8f0"
     sha256 cellar: :any,                 arm64_sonoma:   "1ba924051fcd614b0841d704d8302233611aad0e5981657424e0ac16f1cdd6f9"

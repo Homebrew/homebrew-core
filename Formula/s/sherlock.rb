@@ -9,28 +9,27 @@ class Sherlock < Formula
   head "https://github.com/sherlock-project/sherlock.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "cf3ea1d6fa1797afc9217ff0751a2d4dae931a95432acac087ccbfb6e779408d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8345de85f112cc086ac469f31a31a8b3776845024c1187762ec07b966dc60560"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5ba7bf78a6649390a4ef1665e87ca89f7a2f1c2ab3d612aea1f542042be9a9b4"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "1bd1b1ef99db8e219b21417971000e2c26db6ff7f0b6bcb0f9bc2f7edd7aee80"
-    sha256 cellar: :any_skip_relocation, sonoma:         "ad04c2512b4831b2203d6ffff576e4cf607c635c7378db71c74c4f1f2c4ff05f"
-    sha256 cellar: :any_skip_relocation, ventura:        "20249260bca45b83eae5e37fd46e8a7bcb2f7fc57f08ae3b3853d7d26cb71566"
-    sha256 cellar: :any_skip_relocation, monterey:       "bf85f8c4823f023ff414ef55c7fd855ee73d2e592b23f144e04db3e718dbaf28"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "acd837d9f3ff0e6a9f643b079e015a869da0c7f3344c3cfab160ac14986fa621"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d0a2c6ae47e5d3391640067caee4469d69392912f6b9530b4dcfb214931739bf"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0bd9c312722b023cef80727d0d04fdc93ea873fe6e1f1be5f227043b9fc0a993"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "bee52eaddd8ff1343a2492973124ebd446d97c244c0dc5fdf918622bd46a0654"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e099213deecf92bc33dacab6de0116557f0de88040e28b8a267ced36d145c976"
+    sha256 cellar: :any_skip_relocation, ventura:       "fe46918102a66ef86fc84fbe0552392f4539726260cce77470892d3927050f6e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d7b9490e6049387495279cb2ca034791f732844af46231a352ff0c5973d08306"
   end
 
   depends_on "cmake" => :build
   depends_on "certifi"
   depends_on "numpy"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   on_linux do
     depends_on "patchelf" => :build
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/63/09/c1bc53dab74b1816a00d8d030de5bf98f724c52c1635e07681d312f20be8/charset-normalizer-3.3.2.tar.gz"
-    sha256 "f30c3cb33b24454a82faecaf01b19c18562b1e89558fb6c56de4d9118a032fd5"
+    url "https://files.pythonhosted.org/packages/f2/4f/e1808dc01273379acc506d18f1504eb2d299bd4131743b9fc54d7be4df1e/charset_normalizer-3.4.0.tar.gz"
+    sha256 "223217c3d4f82c3ac5e29032b3f1c2eb0fb591b72161f86d93f5719079dae93e"
   end
 
   resource "colorama" do
@@ -44,8 +43,8 @@ class Sherlock < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/21/ed/f86a79a07470cb07819390452f178b3bef1d375f2ec021ecfc709fc7cf07/idna-3.7.tar.gz"
-    sha256 "028ff3aadf0609c1fd278d8ea3089299412a7a8b9bd005dd08b9f8285bcb5cfc"
+    url "https://files.pythonhosted.org/packages/f1/70/7703c29685631f5a7590aa73f1f1d3fa9a380e654b86af429e0934a32f7d/idna-3.10.tar.gz"
+    sha256 "12f65c9b470abda6dc35cf8e63cc574b1c52b11df2c86030af0ac09b01b13ea9"
   end
 
   resource "openpyxl" do
@@ -54,8 +53,8 @@ class Sherlock < Formula
   end
 
   resource "pandas" do
-    url "https://files.pythonhosted.org/packages/88/d9/ecf715f34c73ccb1d8ceb82fc01cd1028a65a5f6dbc57bfa6ea155119058/pandas-2.2.2.tar.gz"
-    sha256 "9e79019aba43cb4fda9e4d983f8e88ca0373adbb697ae9c6c43093218de28b54"
+    url "https://files.pythonhosted.org/packages/9c/d6/9f8431bacc2e19dca897724cd097b1bb224a6ad5433784a44b587c7c13af/pandas-2.2.3.tar.gz"
+    sha256 "4f18ba62b61d7e192368b84517265a99b4d7ee8912f8708660fb4a366cc82667"
   end
 
   resource "pysocks" do
@@ -69,8 +68,8 @@ class Sherlock < Formula
   end
 
   resource "pytz" do
-    url "https://files.pythonhosted.org/packages/90/26/9f1f00a5d021fff16dee3de13d43e5e978f3d58928e129c3a62cf7eb9738/pytz-2024.1.tar.gz"
-    sha256 "2a29735ea9c18baf14b448846bde5a48030ed267578472d8955cd0e7443a9812"
+    url "https://files.pythonhosted.org/packages/3a/31/3c70bf7603cc2dca0f19bdc53b4537a797747a58875b552c8c413d963a3f/pytz-2024.2.tar.gz"
+    sha256 "2aa355083c50a0f93fa581709deac0c9ad65cca8a9e9beac660adcbd493c798a"
   end
 
   resource "requests" do
@@ -94,13 +93,13 @@ class Sherlock < Formula
   end
 
   resource "tzdata" do
-    url "https://files.pythonhosted.org/packages/74/5b/e025d02cb3b66b7b76093404392d4b44343c69101cc85f4d180dd5784717/tzdata-2024.1.tar.gz"
-    sha256 "2674120f8d891909751c38abcdfd386ac0a5a1127954fbc332af6b5ceae07efd"
+    url "https://files.pythonhosted.org/packages/e1/34/943888654477a574a86a98e9896bae89c7aa15078ec29f490fef2f1e5384/tzdata-2024.2.tar.gz"
+    sha256 "7d85cc416e9382e69095b7bdf4afd9e3880418a2413feec7069d533d6b4e31cc"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/43/6d/fa469ae21497ddc8bc93e5877702dca7cb8f911e337aca7452b5724f1bb6/urllib3-2.2.2.tar.gz"
-    sha256 "dd505485549a7a552833da5e6063639d0d177c04f23bc3864e41e5dc5f612168"
+    url "https://files.pythonhosted.org/packages/ed/63/22ba4ebfe7430b76388e7cd448d5478814d3032121827c12a2cc287e2260/urllib3-2.2.3.tar.gz"
+    sha256 "e7d814a81dad81e6caf2ec9fdedb284ecc9c73076b62654547cc64ccdcae26e9"
   end
 
   def install

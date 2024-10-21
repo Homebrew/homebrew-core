@@ -6,13 +6,13 @@ class MmCommon < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "53f9dec0824d8c0b71e69ceb76bb4d2fd36145fc03419592076f022bdd74681a"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "51e28647cb23b6c7259a8487adf36301731684c5d12bdccba36247ef0603312f"
   end
 
   depends_on "meson" => :build
   depends_on "ninja" => :build
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   def install
     system "meson", "setup", "build", *std_meson_args

@@ -3,8 +3,8 @@ class Mesa < Formula
 
   desc "Graphics Library"
   homepage "https://www.mesa3d.org/"
-  url "https://mesa.freedesktop.org/archive/mesa-24.2.4.tar.xz"
-  sha256 "5ea42a8bb6d58aec9754c9f553b1e413f67c09403741f8e2786c3f9e63d3461a"
+  url "https://mesa.freedesktop.org/archive/mesa-24.2.5.tar.xz"
+  sha256 "733d0bea242ed6a5bb5c806fe836792ce7f092d45a2f115b7b7e15897c9dd96f"
   license all_of: [
     "MIT",
     "Apache-2.0", # include/{EGL,GLES*,vk_video,vulkan}, src/egl/generate/egl.xml, src/mapi/glapi/registry/gl.xml
@@ -23,12 +23,12 @@ class Mesa < Formula
   head "https://gitlab.freedesktop.org/mesa/mesa.git", branch: "main"
 
   bottle do
-    sha256 arm64_sequoia: "f1c332decb7635b8c1752b2875cf58330f2b1606ec2f2b791a7fb650987acbd9"
-    sha256 arm64_sonoma:  "8b941cdd66accc8191f786f022d4a8b935cc8a2e49021c130db01d91462ea402"
-    sha256 arm64_ventura: "12afa87cff60326dd949206fe5013acfa2070fde09f7d5a62735b02b8c7e2830"
-    sha256 sonoma:        "313f8a90ccbc2c57cd741d8e2c26e7b065c934e0d1a5a5ce72bf2f016872804d"
-    sha256 ventura:       "fcda36b7ea6f129a2124baf2d639b1853d19301a814965496169b6737d802429"
-    sha256 x86_64_linux:  "c00dc57cc4e8947c926e214a7180d019862aacbc7a906abee44b3977f2dcf679"
+    sha256 arm64_sequoia: "27f93d2f56586058bbb444602921c15bed3d4c27c5c936b3a0a21ebfbd833587"
+    sha256 arm64_sonoma:  "77a34866295872ce2ce0a66778a158e44f5e8da716086042b3e43dd0daa8a54c"
+    sha256 arm64_ventura: "1b8056e4caccf47ec823cbfb7cf09c7df0ef269bcc09e68ae4ecbce7441b3367"
+    sha256 sonoma:        "e1e7542fea5fcafc5b5bd9518cfa5ccecae2553fe2544d602324e6dac2afe1b7"
+    sha256 ventura:       "a5e0f9c5ee5da190b4b50d659d5146d2fb9d879b323b7f68b2c2dc9e8269a3a2"
+    sha256 x86_64_linux:  "1bd785c722c5c5108668e32b52d9d73b2490ac1edcd3e2637a4b45ba8e7792d7"
   end
 
   depends_on "bison" => :build # can't use from macOS, needs '> 2.3'
@@ -36,7 +36,7 @@ class Mesa < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.12" => :build
+  depends_on "python@3.13" => :build
   depends_on "xorgproto" => :build
 
   depends_on "expat"
@@ -98,7 +98,7 @@ class Mesa < Formula
   end
 
   def python3
-    "python3.12"
+    "python3.13"
   end
 
   def install

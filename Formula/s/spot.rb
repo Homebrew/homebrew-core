@@ -11,15 +11,16 @@ class Spot < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "01d1ac07f4a1bf163dcbfd6ae3afe55e043fae1e0d1fc962ff1f09a9e03d8c1b"
-    sha256 cellar: :any,                 arm64_sonoma:  "ed49be41281df5dd496cade6dd2c8ff4ee1d3b643f5d3a62d89680e7ae227790"
-    sha256 cellar: :any,                 arm64_ventura: "0d50f5e1859224e180115300d041298bd456f7e13b661f48129e3525d8c24773"
-    sha256 cellar: :any,                 sonoma:        "7e8da640c93b94394c0e83b0566e97d328499748c29e9afd944fb0f7cacfbf23"
-    sha256 cellar: :any,                 ventura:       "310fe4d8351581ae79291aa7fab20af5fc9db374324133363f98db39c2f439f3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7cf4d03cbb661f19e3c654305363fe7209982b24896ca63ac421789c8d6e9724"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "13273a424546330dcb88457667df63bcc4441ba52748f1a2f998847e21579fe1"
+    sha256 cellar: :any,                 arm64_sonoma:  "3f3e6b30ada8fca2095c2f9e48543a7efb06a283c0c0be2fe58f16d9d77d058f"
+    sha256 cellar: :any,                 arm64_ventura: "8d0eeb9eb003a39959a556cc47c3c5680ec077a8cab4527fc2fb5126d96892eb"
+    sha256 cellar: :any,                 sonoma:        "14f6bc12870fb15b58cfee446186261c7acbfb785ff14fca2cd01377b71d1036"
+    sha256 cellar: :any,                 ventura:       "072a39a85251c944035b33d5463b7af0ffdc9b081014825a78a99c4d5f88c686"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e91723e2bf847484701af072c3bc4cd85aa22bfcde4b6b590a849e62c15ff7a4"
   end
 
-  depends_on "python@3.12" => :build
+  depends_on "python@3.13" => :build
 
   fails_with gcc: "5" # C++17
 

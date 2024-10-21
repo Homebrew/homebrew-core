@@ -7,6 +7,7 @@ class Paps < Formula
   revision 2
 
   bottle do
+    sha256 cellar: :any, arm64_sequoia:  "1dc9e0d4ae5edd03013091933251474c8dcd4b1bc4f72a4df502734228c62f6f"
     sha256 cellar: :any, arm64_sonoma:   "df67721a4260dd63be5164d348ba57058f3a43298915726c7c1d0d3c43927794"
     sha256 cellar: :any, arm64_ventura:  "fa4ca77e9a2dd79350b705ec7cfcb559cce5e726777431b9a286ebb9b2ec00d2"
     sha256 cellar: :any, arm64_monterey: "b66abd39b5a6c8ee5b65603beb8e33357448af5a0fd8112610b63ffe6fc09df7"

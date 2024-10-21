@@ -5,6 +5,7 @@ class PerconaServer < Formula
   url "https://downloads.percona.com/downloads/Percona-Server-8.0/Percona-Server-8.0.36-28/source/tarball/percona-server-8.0.36-28.tar.gz"
   sha256 "8a4b44bd9cf79a38e6275e8f5f9d4e8d2c308854b71fd5bf5d1728fff43a6844"
   license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     url "https://docs.percona.com/percona-server/latest/"
@@ -19,20 +20,18 @@ class PerconaServer < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia:  "cd76c0b42e96b03f9b42c3e49fbf3846a4df8bc46775213221b6ad083ffc6130"
-    sha256 arm64_sonoma:   "e8ddfcd137263345d70bdb98a10ce465e3afa3742e0340176ced344d7a76af09"
-    sha256 arm64_ventura:  "fece2bd93b32cc7798eae60ec05ffccb6ca8f1a2514f17413e5f60ac449851e0"
-    sha256 arm64_monterey: "792e8dc5522ae83089e3ad379d390a0b6830d386e9904945db9bdfb52e48a29a"
-    sha256 sonoma:         "343a4d8124a980e1c90e96978c4a648a1f14f8e0b2539cfd21584119729f76f7"
-    sha256 ventura:        "828ed28d3a9642ced256561c2d71c717ea95b85590e4aed2f2400e8af0a30bf7"
-    sha256 monterey:       "55b1d398b262723c6ca7db6bb4d9e11fbae6246d0294f7e63983b0ff5cb5bae4"
-    sha256 x86_64_linux:   "8220675cd32b2106a4d4d03f12189e17c4184e55f3662287108d559e9d1f979d"
+    sha256 arm64_sequoia: "c924c7a9f1cea7185b1bc83b2cb475e7ffcc42cfad09b37af89340e25cfec41c"
+    sha256 arm64_sonoma:  "3ec708717d596a91d01fa62adbf4a0416b5df8079bc7b62ee560170a86073cbb"
+    sha256 arm64_ventura: "a33c79982f16cacbfd20db032bed6c7ee3ab690c8090057c0099fea8f673eef7"
+    sha256 sonoma:        "b4bee41231557506fb1a0285698f132b4c3679ccfbd8459c8ad922511c84df67"
+    sha256 ventura:       "61752de2787798a6f255bd4d95448df58fa782e137e32374bd57dbd301999188"
+    sha256 x86_64_linux:  "1f9c75b6455a853ddd26051a612353ee852c2dc0785b08b1c3e8c3b79e6a608b"
   end
 
   depends_on "bison" => :build
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "icu4c"
+  depends_on "icu4c@75"
   depends_on "libevent"
   depends_on "libfido2"
   depends_on "lz4"

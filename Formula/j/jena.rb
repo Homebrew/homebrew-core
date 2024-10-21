@@ -1,14 +1,13 @@
 class Jena < Formula
   desc "Framework for building semantic web and linked data apps"
   homepage "https://jena.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=jena/binaries/apache-jena-5.1.0.tar.gz"
-  mirror "https://archive.apache.org/dist/jena/binaries/apache-jena-5.1.0.tar.gz"
-  sha256 "2ec367a3fb362852b293128dee49532df9855aefe3b5724257d4c53d7fceb21e"
+  url "https://www.apache.org/dyn/closer.lua?path=jena/binaries/apache-jena-5.2.0.tar.gz"
+  mirror "https://archive.apache.org/dist/jena/binaries/apache-jena-5.2.0.tar.gz"
+  sha256 "33659ba971c02fbedfbbd9214e06fb04e7b498b82653445c7fd28de0a9af6005"
   license "Apache-2.0"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "dffb5fdbed56c65060224008433699c3bb1fe28c0c7726084c695d71c56b764b"
+    sha256 cellar: :any_skip_relocation, all: "b69212cbd2a3d9337a7f82a0a15542f260e5b95daf0938b113e869f859795d30"
   end
 
   depends_on "openjdk"

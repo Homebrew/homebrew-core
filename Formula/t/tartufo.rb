@@ -3,24 +3,17 @@ class Tartufo < Formula
 
   desc "Searches through git repositories for high entropy strings and secrets"
   homepage "https://tartufo.readthedocs.io/en/stable/"
-  url "https://files.pythonhosted.org/packages/f3/be/a004a02e3b2be08c998f66f391df238de701320af3f0a0438e724db943e2/tartufo-5.0.1.tar.gz"
-  sha256 "5eda46cd6a68dfe35b61b0f18a63bc0a7fc9bb6c096e4a26c8e1aaec8dea9324"
+  url "https://files.pythonhosted.org/packages/52/70/2e1422e84b1f817cb4f626337a783e44c60d9c4c1ada8c9f1a671afadb33/tartufo-5.0.2.tar.gz"
+  sha256 "d7f680da7aadc91840d2bde2605a9e71fa635ac1c6ee39490fb11e9a1494ff58"
   license "GPL-2.0-only"
   head "https://github.com/godaddy/tartufo.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "a2d3ce41516c254e47ee05124c57fc3cd0180da845f23dc1a0b6296f27db981e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a6780d70ce53b81d93686023e0eb59ab1d8573b58ac59c9446d2f49d719388a8"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a6780d70ce53b81d93686023e0eb59ab1d8573b58ac59c9446d2f49d719388a8"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a6780d70ce53b81d93686023e0eb59ab1d8573b58ac59c9446d2f49d719388a8"
-    sha256 cellar: :any_skip_relocation, sonoma:         "f2cbdf5faa974325f07a9c7872c810c1720873f2b74ee45477933d26dc60421c"
-    sha256 cellar: :any_skip_relocation, ventura:        "f2cbdf5faa974325f07a9c7872c810c1720873f2b74ee45477933d26dc60421c"
-    sha256 cellar: :any_skip_relocation, monterey:       "f2cbdf5faa974325f07a9c7872c810c1720873f2b74ee45477933d26dc60421c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b3703dd93bb1d935240217e728662a06c0a87f150a625309fa58377a50db5cec"
+    sha256 cellar: :any_skip_relocation, all: "d76cbe253e340e4123cf4bc7caa1a538a6d6affbf3b85b724a32b5312ad78dd4"
   end
 
   depends_on "pygit2"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   uses_from_macos "libffi"
 
@@ -50,8 +43,8 @@ class Tartufo < Formula
   end
 
   resource "tomlkit" do
-    url "https://files.pythonhosted.org/packages/4b/34/f5f4fbc6b329c948a90468dd423aaa3c3bfc1e07d5a76deec269110f2f6e/tomlkit-0.13.0.tar.gz"
-    sha256 "08ad192699734149f5b97b45f1f18dad7eb1b6d16bc72ad0c2335772650d7b72"
+    url "https://files.pythonhosted.org/packages/b1/09/a439bec5888f00a54b8b9f05fa94d7f901d6735ef4e55dcec9bc37b5d8fa/tomlkit-0.13.2.tar.gz"
+    sha256 "fff5fe59a87295b278abd31bec92c15d9bc4a06885ab12bcea52c71119392e79"
   end
 
   def install

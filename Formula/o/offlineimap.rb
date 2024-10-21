@@ -10,19 +10,17 @@ class Offlineimap < Formula
   head "https://github.com/OfflineIMAP/offlineimap3.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "9e6ff9fe3683583b3fc4a53f29bd2faf0b669914b57753c78bcb4c25ce0cd30c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6a4fb717f5c09554cff4835520465f3b87e5df6f5b2f7ba583a7690d661f9bc1"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4ddee410fbb99b15f49fb1bef49ebe5b905ef36f6e58189962ee8ff3a93cb5b1"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "de998456c60464b63904087546e5fed6194ac4dad9a3c2e6aaf32407a6daefc6"
-    sha256 cellar: :any_skip_relocation, sonoma:         "bf354b0b7e7611f540f2ae50a70cac4a150a087086a40522cd3ecb3d834ac657"
-    sha256 cellar: :any_skip_relocation, ventura:        "2f8bc2f83bd2592c3c40b73be77d823eb8832ce7f42746e61c488294474a7c27"
-    sha256 cellar: :any_skip_relocation, monterey:       "5edb2356ccc7b985e9c93dbdb55de133bcc33721f7d9727986b95caa3f981b9e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "63baffe4fab72400e067ad56d8b0457ebfe54df5b6cf4a0f090c6c66d66243ca"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2182b73d2eb5f2fc88614f4cd78889da9a8fa1cf7cf78e83884856f5dbc9e2da"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f075541e1fe801e4f1aae1391e7042d8dfc763910e556d6cbb84b7ecd222c89f"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "8ed6b9597ffe2c607b0098e3bf9b228412dbf51e06ca9046722874d178400131"
+    sha256 cellar: :any_skip_relocation, sonoma:        "923fa39061bc987f7b370d44df0bc9af79e2c7fa1682b2cddbe8d102d1b122f4"
+    sha256 cellar: :any_skip_relocation, ventura:       "19482c631666b82f1d13bdb2e73dbcc9fd6b97b00c5f0449077ef7b6b24fc1e1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5be2017abd6712c16b557a9f64631f9ee673c707bc80d48a79fe74181902bd54"
   end
 
   depends_on "certifi"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   uses_from_macos "krb5"
 
@@ -37,8 +35,8 @@ class Offlineimap < Formula
   end
 
   resource "gssapi" do
-    url "https://files.pythonhosted.org/packages/13/e7/dd88180cfcf243be62308707cc2f5dae4c726c68f30b9367931c794fda16/gssapi-1.8.3.tar.gz"
-    sha256 "aa3c8d0b1526f52559552bb2c9d2d6be013d76a8e5db00b39a1db5727e93b0b0"
+    url "https://files.pythonhosted.org/packages/04/2f/fcffb772a00e658f608e657791484e3111a19a722b464e893fef35f35097/gssapi-1.9.0.tar.gz"
+    sha256 "f468fac8f3f5fca8f4d1ca19e3cd4d2e10bd91074e7285464b22715d13548afe"
   end
 
   resource "imaplib2" do

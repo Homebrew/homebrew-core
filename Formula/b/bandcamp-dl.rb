@@ -7,19 +7,15 @@ class BandcampDl < Formula
   url "https://github.com/iheanyi/bandcamp-dl/archive/refs/tags/v0.0.16.tar.gz"
   sha256 "78323070f0cf2f743673172d41df42f9cf1ab88f473915f56e5b284fb4de76ec"
   license "Unlicense"
+  revision 1
   head "https://github.com/iheanyi/bandcamp-dl.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "56055911efc483d56c9a9fd01367a3361da6455f85b51476f14ccb824ff9edb7"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "56055911efc483d56c9a9fd01367a3361da6455f85b51476f14ccb824ff9edb7"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "56055911efc483d56c9a9fd01367a3361da6455f85b51476f14ccb824ff9edb7"
-    sha256 cellar: :any_skip_relocation, sonoma:        "56055911efc483d56c9a9fd01367a3361da6455f85b51476f14ccb824ff9edb7"
-    sha256 cellar: :any_skip_relocation, ventura:       "56055911efc483d56c9a9fd01367a3361da6455f85b51476f14ccb824ff9edb7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e39cb8ff7f4d9a65524a60a23f69fbe153d42fc4e58bd183e2a19d7b3e11f597"
+    sha256 cellar: :any_skip_relocation, all: "c29447db1a3a1e82d583043b725a2814716a769574b96ad699bcebaedfc84436"
   end
 
   depends_on "certifi"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   uses_from_macos "libxml2", since: :ventura
   uses_from_macos "libxslt"

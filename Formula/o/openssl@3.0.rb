@@ -101,7 +101,7 @@ class OpensslAT30 < Formula
     system "perl", "./Configure", *(configure_args + arch_args)
     system "make"
     system "make", "install", "MANDIR=#{man}", "MANSUFFIX=ssl"
-    system "make", "test"
+    system "make", "HARNESS_JOBS=#{ENV.make_jobs}", "test"
 
     # Prevent `brew` from pruning the `certs` and `private` directories.
     touch %w[certs private].map { |subdir| openssldir/subdir/".keepme" }

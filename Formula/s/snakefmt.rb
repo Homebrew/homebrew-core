@@ -9,21 +9,20 @@ class Snakefmt < Formula
   head "https://github.com/snakemake/snakefmt.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "cbdb0ef20b9dfaa2c74fdc450f6562a547ffbae3ca4e662f4f56b75625cb36df"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c8fd280ae822515f5b14f7effad93e2f0df080d991903db385e1ea655e1b6f53"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1828c0bb7690ba94ccf9eacc96668a16310aca77cbb6fdfb290f1d8ceef2162f"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e3f32132484530b6322291005c4a3847d719e6d7cec79993da139b8f463432ab"
-    sha256 cellar: :any_skip_relocation, sonoma:         "16d9aa32e9501e241a408a31a5a3ee69372d0a60e44d68217e702966d5dcb61e"
-    sha256 cellar: :any_skip_relocation, ventura:        "e446de4b895a0b7215a441501ee9dc7deffc0a3f68fa9d78bc643155209d60fd"
-    sha256 cellar: :any_skip_relocation, monterey:       "b2bb2882075c72ddc84d5c5b8b76c9b0c2a876ac25cad77f557268d705cf0d46"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "99e31caf6a3286d9d105fc81902efa3fce86c9bc41b002b8e08f162c333aa763"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "11f68240857d9f3b6633e324772ebfa6e0c3ad0b428848d8fec8ef7fc138e887"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "11f68240857d9f3b6633e324772ebfa6e0c3ad0b428848d8fec8ef7fc138e887"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "11f68240857d9f3b6633e324772ebfa6e0c3ad0b428848d8fec8ef7fc138e887"
+    sha256 cellar: :any_skip_relocation, sonoma:        "eabb13081318cb5879ccf641dd404b84631431db0451b50327aeb4c22c96defc"
+    sha256 cellar: :any_skip_relocation, ventura:       "eabb13081318cb5879ccf641dd404b84631431db0451b50327aeb4c22c96defc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "69070a7b66ff5fa9529bd30d05db583218ac848c945e463e5fc5c68a9d16ddc2"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "black" do
-    url "https://files.pythonhosted.org/packages/a2/47/c9997eb470a7f48f7aaddd3d9a828244a2e4199569e38128715c48059ac1/black-24.4.2.tar.gz"
-    sha256 "c872b53057f000085da66a19c55d68f6f8ddcac2642392ad3a355878406fbd4d"
+    url "https://files.pythonhosted.org/packages/d8/0d/cc2fb42b8c50d80143221515dd7e4766995bd07c56c9a3ed30baf080b6dc/black-24.10.0.tar.gz"
+    sha256 "846ea64c97afe3bc677b761787993be4991810ecc7a4a937816dd6bddedc4875"
   end
 
   resource "click" do
@@ -37,8 +36,8 @@ class Snakefmt < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/ee/b5/b43a27ac7472e1818c4bafd44430e69605baefe1f34440593e0332ec8b4d/packaging-24.0.tar.gz"
-    sha256 "eb82c5e3e56209074766e6885bb04b8c38a0c015d0a30036ebe7ece34c9989e9"
+    url "https://files.pythonhosted.org/packages/51/65/50db4dda066951078f0a96cf12f4b9ada6e4b811516bf0262c0f4f7064d4/packaging-24.1.tar.gz"
+    sha256 "026ed72c8ed3fcce5bf8950572258698927fd1dbda10a5e981cdf0ac37f4f002"
   end
 
   resource "pathspec" do
@@ -47,8 +46,8 @@ class Snakefmt < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/b2/e4/2856bf61e54d7e3a03dd00d0c1b5fa86e6081e8f262eb91befbe64d20937/platformdirs-4.2.1.tar.gz"
-    sha256 "031cd18d4ec63ec53e82dceaac0417d218a6863f7745dfcc9efe7793b7039bdf"
+    url "https://files.pythonhosted.org/packages/13/fc/128cc9cb8f03208bdbf93d3aa862e16d376844a14f9a0ce5cf4507372de4/platformdirs-4.3.6.tar.gz"
+    sha256 "357fb2acbc885b0419afd3ce3ed34564c13c9b95c89360cd9563f73aa5e2b907"
   end
 
   resource "toml" do

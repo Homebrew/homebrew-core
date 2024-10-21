@@ -4,7 +4,6 @@ class Opensc < Formula
   url "https://github.com/OpenSC/OpenSC/releases/download/0.25.1/opensc-0.25.1.tar.gz"
   sha256 "23cbaae8bd7c8eb589b68c0a961dfb0d02007bea3165a3fc5efe2621d549b37b"
   license "LGPL-2.1-or-later"
-  head "https://github.com/OpenSC/OpenSC.git", branch: "master"
 
   livecheck do
     url :stable
@@ -12,46 +11,58 @@ class Opensc < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia:  "f42664ab93ade48bdee57762b891eaaff3b7b30bf3d9fa745de69fa33e900658"
-    sha256 arm64_sonoma:   "f0107f0b54f55535c337cb76d6158f68ce02cf1f8f4f10be9a65fac14bf7c5a2"
-    sha256 arm64_ventura:  "8c9ed4589ec37481862838d43f0d40954bc333ad3cf4505784e1850188652625"
-    sha256 arm64_monterey: "93b0d2c9be69a6f5eb221f0ffe6ab04a80b617fb2a26a5a95a11f3d93dbf41df"
-    sha256 sonoma:         "7073bab28896c1dc2a7af797200f91d322873a17b9dcc030154311a8e623064c"
-    sha256 ventura:        "860ff6efcbe2328dad7658fe939d64f5e60eed1ac857dfd7e5edded12072a989"
-    sha256 monterey:       "5cd706446f087b87f251880290c437200896ac3fd00616cf3c9ef402e6d59c70"
-    sha256 x86_64_linux:   "47a739239d0087a0204d56e6e459e7d0acf01df3b4c9e36122e4626d3e1091f9"
+    rebuild 1
+    sha256 arm64_sequoia: "fa9c58cdbe0076a73a0494b4273b094fc82ed3ccd59b981ed9349ba2e7caf2ad"
+    sha256 arm64_sonoma:  "617a60aa9c9b1c74eed3039bdb53b80e840dfb438961e9beddd2a35a1b2d4f18"
+    sha256 arm64_ventura: "796458b80c3b0db6ebd476e65bfce1390f17071af732eb92aec17bf0aeb0b9b8"
+    sha256 sonoma:        "a0557ac53fc3ec946b83608b41f34b409d9472f4819fa1b44c75f11c3e12e2e1"
+    sha256 ventura:       "79641f78c3042a850cb0b2a63d329f26a15e21c64cb2094bcd5422263511606d"
+    sha256 x86_64_linux:  "384bbb98200ae2b603cee378ce7723289fb4ac9d5ff62aca198392e1230dd8b2"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
+  head do
+    url "https://github.com/OpenSC/OpenSC.git", branch: "master"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   depends_on "docbook-xsl" => :build
-  depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "openssl@3"
 
+  uses_from_macos "libxslt" => :build # for xsltproc
   uses_from_macos "pcsc-lite"
+  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "glib"
+    depends_on "readline"
+  end
 
   def install
     args = %W[
-      --disable-dependency-tracking
-      --prefix=#{prefix}
+      --disable-silent-rules
       --enable-openssl
       --enable-pcsc
       --enable-sm
       --with-xsl-stylesheetsdir=#{Formula["docbook-xsl"].opt_prefix}/docbook-xsl
     ]
 
-    system "./bootstrap"
-    system "./configure", *args
+    system "./bootstrap" if build.head?
+    system "./configure", *args, *std_configure_args
     system "make", "install"
   end
 
   def caveats
-    <<~EOS
-      The OpenSSH PKCS11 smartcard integration will not work from High Sierra
-      onwards. If you need this functionality, unlink this formula, then install
-      the OpenSC cask.
-    EOS
+    on_high_sierra :or_newer do
+      <<~EOS
+        The OpenSSH PKCS11 smartcard integration will not work from High Sierra
+        onwards. If you need this functionality, unlink this formula, then install
+        the OpenSC cask.
+      EOS
+    end
   end
 
   test do

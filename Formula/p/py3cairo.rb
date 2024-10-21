@@ -4,16 +4,15 @@ class Py3cairo < Formula
   url "https://github.com/pygobject/pycairo/releases/download/v1.27.0/pycairo-1.27.0.tar.gz"
   sha256 "5cb21e7a00a2afcafea7f14390235be33497a2cce53a98a19389492a60628430"
   license any_of: ["LGPL-2.1-only", "MPL-1.1"]
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "be4c2db3569519aa7ca3520843c329b7c99d410d01ea1ae1fc2347efe71638df"
-    sha256 cellar: :any,                 arm64_sonoma:   "b284138413f9e2b04c52b8fd18bc692fdfe04216658cd6ec310329ff63962331"
-    sha256 cellar: :any,                 arm64_ventura:  "01ca0d75478aff40159ac72ed356774ea1a1ad54ca66872e709394b8b8a809af"
-    sha256 cellar: :any,                 arm64_monterey: "7e31aa454d6657f749a03618ae068374d00ad072cd31bbc577ecbef0e82aa645"
-    sha256 cellar: :any,                 sonoma:         "0bc26c13732313108821e0d311f72aed1f0c00b4ae12628478c42c10878fa701"
-    sha256 cellar: :any,                 ventura:        "7fbf1d90015cb8fbd343c560640cfc7eb5b3df75703583e576819125a6017d6b"
-    sha256 cellar: :any,                 monterey:       "7398ebaada254c54a241be654cc6d30f84b428b847d26f9ea30f7ef742dc0a1f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7edf63afb34c7e2289e393891509a701c644b81a396aa77093f263534978564c"
+    sha256 cellar: :any,                 arm64_sequoia: "83698156a1147d1961fa70a919496370251ab9bc57a18d813e932b13d180fc07"
+    sha256 cellar: :any,                 arm64_sonoma:  "6c550cef7d08a8051c8e33cf2882802e1636331437e401309889d78a9671d9a8"
+    sha256 cellar: :any,                 arm64_ventura: "8dfdae3387567f0970c43944f5867a7ebcf21529cf5ee7c87966166d899acd64"
+    sha256 cellar: :any,                 sonoma:        "8e74bae3953954ec52fcd20290ee8c10fb24dac1ca8d7a5a58c54fe41935fe76"
+    sha256 cellar: :any,                 ventura:       "2fcfb95901d05fc9c8726102a29eb4f280633e07fbda6bc684eb5268a7af2bfb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "284d541089d7afbb8b2270c87e51d5f2bf904ff821a4e2c503bf8692f6bad00d"
   end
 
   depends_on "meson" => :build
@@ -21,6 +20,7 @@ class Py3cairo < Formula
   depends_on "pkg-config" => :build
   depends_on "python@3.11" => [:build, :test]
   depends_on "python@3.12" => [:build, :test]
+  depends_on "python@3.13" => [:build, :test]
   depends_on "cairo"
 
   def pythons

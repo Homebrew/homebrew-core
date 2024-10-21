@@ -2,18 +2,18 @@ class AwsNuke < Formula
   desc "Nuke a whole AWS account and delete all its resources"
   homepage "https://github.com/ekristen/aws-nuke"
   url "https://github.com/ekristen/aws-nuke.git",
-      tag:      "v3.26.0",
-      revision: "5e33e8901f8786f2839fabbbc3bb26086b01fc2a"
+      tag:      "v3.29.1",
+      revision: "f8b391177dfed06dc85d16c33c18dbec58838d01"
   license "MIT"
   head "https://github.com/ekristen/aws-nuke.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "029791a3890dd6bd2701bde6947371e8165491a44efc0b49430b5fb57c315cf7"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "029791a3890dd6bd2701bde6947371e8165491a44efc0b49430b5fb57c315cf7"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "029791a3890dd6bd2701bde6947371e8165491a44efc0b49430b5fb57c315cf7"
-    sha256 cellar: :any_skip_relocation, sonoma:        "1357a775e699d929cdc5d287c5cc1da0581aa96c175588ffd4ace570c5e94878"
-    sha256 cellar: :any_skip_relocation, ventura:       "1357a775e699d929cdc5d287c5cc1da0581aa96c175588ffd4ace570c5e94878"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "732b925381778fd4f1ad2de44f205741bc6c1200a32d3e4c89ff1fe0124e5443"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "515cb56429b035e02ba64c5992a1ff262f7fabe8735285f62c72958512d4def1"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "515cb56429b035e02ba64c5992a1ff262f7fabe8735285f62c72958512d4def1"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "515cb56429b035e02ba64c5992a1ff262f7fabe8735285f62c72958512d4def1"
+    sha256 cellar: :any_skip_relocation, sonoma:        "4e17345becde19b1104f788a347549af7664b27925d0eee810707121e3fa34c2"
+    sha256 cellar: :any_skip_relocation, ventura:       "4e17345becde19b1104f788a347549af7664b27925d0eee810707121e3fa34c2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "396b53826e103434ae86b9be5e03a115fe34ef712cf4ac7cef8fac98e271d97f"
   end
 
   depends_on "go" => :build

@@ -10,11 +10,11 @@ class EulerPy < Formula
   head "https://github.com/iKevinY/EulerPy.git", branch: "master"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, all: "a26e52b98389ea59d09c6fa089b3bdd4bdb27eb95269692f96cc5f0b4e819cfd"
+    rebuild 3
+    sha256 cellar: :any_skip_relocation, all: "0ca0212eae8487870cd46cc5b5252a77aa7d12ff42f11383fab23157d052f3a3"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "click" do
     url "https://files.pythonhosted.org/packages/96/d3/f04c7bfcf5c1862a2a5b845c6b2b360488cf47af55dfa79c98f6a6bf98b5/click-8.1.7.tar.gz"

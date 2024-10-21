@@ -1,18 +1,18 @@
 class Ord < Formula
   desc "Index, block explorer, and command-line wallet"
   homepage "https://ordinals.com/"
-  url "https://github.com/ordinals/ord/archive/refs/tags/0.20.1.tar.gz"
-  sha256 "707ad4c912cb67a53ba55cd4818743774f0f3ecdf84aa092d1bc0c92ab770600"
+  url "https://github.com/ordinals/ord/archive/refs/tags/0.21.1.tar.gz"
+  sha256 "fd0c44e3e516e67f30665069e913cd6d87e149d3c9fa747a83e21b1fd9117bc8"
   license "CC0-1.0"
   head "https://github.com/ordinals/ord.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d68baf72e45728db7115f0ba622ffe495ebd0e470aebf4f1faed3182deaf6d3e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ec9701edf9a9009b457629d8cc768b0d950f7dff6ce6ea948a4c193fae1402b3"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "a4ddb82c4a097989e5de0bb2daeb92fff2a00ecbd01632ee295353f9a641e4f5"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ad67d5506e2785bc2436b0ff6d3ba40b60cdcfd6e3a2cbab6a6a486ae2830ffb"
-    sha256 cellar: :any_skip_relocation, ventura:       "4487381de431bb97b3295c5d539377409a6c256910b763c2a07be75d8e170b3e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "534a70caad9a16c645ca6637e747d38790ea8a7273f11c496f212b3fb0d24452"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c1b72a0fa364ff3a4e99cd40ec161d179d71f10b0145a2b800e061e8883a7882"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "247bf797527e7009c6aa948c8f5aeab70de44aa65d6a259ffab27eb146ccbd51"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "a9772ad559cb4eba5463a52ef1204d276e26bbfcdf4f1ced00f67b5b17102e9e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f6e12943f2bcd97726d603c267e6eb9d0409cb035fb7101f26ab9d0234459698"
+    sha256 cellar: :any_skip_relocation, ventura:       "282d7ef89f86c133b986748e1afc55bcc4b29231f4dcd21e758f75d89417b38c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6331a8341b3496664ffd46232a1ba45163698754b2b33b7fc2a3316eca7acea3"
   end
 
   depends_on "pkg-config" => :build

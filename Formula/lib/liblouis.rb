@@ -6,14 +6,13 @@ class Liblouis < Formula
   license all_of: ["GPL-3.0-or-later", "LGPL-2.1-or-later"]
 
   bottle do
-    sha256 arm64_sequoia:  "b96b6d21b3fbb02bf2c571e6f2f397747fbd9bd43df4b6cfe3b9031c9d4e3ebf"
-    sha256 arm64_sonoma:   "b65a856cdf1f7c2071038f2f547f89ab3b10fc40204045973dbe76bfc9014357"
-    sha256 arm64_ventura:  "f7bb5f9884597f1be64eb95141077d8422a8f1823ddb3df7cacb53c6e6567958"
-    sha256 arm64_monterey: "7e48ca6c4737e17b301eb022307bfc8e0806402ef80b79fa02edc1b391bd8d22"
-    sha256 sonoma:         "918a89c8c736f631714aa77d84542dec7d34e2fbf143454ead3800fcf44d5e60"
-    sha256 ventura:        "80d938120d66f08644ca9cf5fdc09a4cabe21aca8890e9fabce4c68aac59d0ad"
-    sha256 monterey:       "da8ed9e6c6a91d4738d7942cce5de956efebd8e13395101cace9259279352d40"
-    sha256 x86_64_linux:   "5cd328ee88eb01fd3a493908aacc943b438cbf823bfe8d4d815ad82031911fef"
+    rebuild 1
+    sha256 arm64_sequoia: "3334c91de4d4c79dd3c147e4bdb780dee0f111e2f0397645e44afe81684876ac"
+    sha256 arm64_sonoma:  "72fed129c3125d2898ac2471dd9aaf9ee88654c5da378127f13c14094483b921"
+    sha256 arm64_ventura: "bbe0152d21f0279017c7797f50943d67b75039ffc5ef99869385ff39526bd2e8"
+    sha256 sonoma:        "e55bf69d66314d7f3f56cc5fdd581dafdd5f9813f2fe80320dce7149b21fb099"
+    sha256 ventura:       "bcaccad9720ffdeb02583186c47cac4f5fa3cfdf2390b418e9ce7efc4427187f"
+    sha256 x86_64_linux:  "f2b089b561c43addb993a89897b184c7db5b296e13f86957f987db484a583215"
   end
 
   head do
@@ -26,17 +25,17 @@ class Liblouis < Formula
 
   depends_on "help2man" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   uses_from_macos "m4"
 
   def python3
-    "python3.12"
+    "python3.13"
   end
 
   def install
     system "./autogen.sh" if build.head?
-    system "./configure", *std_configure_args, "--disable-silent-rules"
+    system "./configure", "--disable-silent-rules", *std_configure_args
     system "make"
     system "make", "check"
     system "make", "install"

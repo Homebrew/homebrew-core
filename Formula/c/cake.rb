@@ -6,18 +6,30 @@ class Cake < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9b93e9b43a600ac1b2c4f1a208bd3d32351e9479a32798f03a3f3240c3048ba7"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6e14ff691a1afc175e118455606320bd182fba32098c84c2b0e608216ea0ae90"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d5a7244265a5d8de77aaf286582825e14a0922f45233b72b190f597b552ea520"
-    sha256 cellar: :any_skip_relocation, sonoma:         "20b640ab1211cb2414ea3afd61b66358457eeb907f305ba2752c7d017aa323fc"
-    sha256 cellar: :any_skip_relocation, ventura:        "0f5b7483f521a47e7d8263812410cb440b7281e6178775eab0e2704384b64695"
-    sha256 cellar: :any_skip_relocation, monterey:       "aaf5ebc10b59cd8bd82a0ca457c969ff742d94ff607623898f6c1953ee8df542"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "30b72806f212766992de3f8e262c70b086542cf1441104ec1105fd9c41ba9d8b"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "be043f0290cd7508b8a1f72825935e6a100f37420e94b0bff157346c7bc7f7e2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b05bd41b2a72ef0fedec5de35c41480cacb08b5053793ff1d14bd498ffaa4e7f"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "c3ffdc8ec23170142eb6a216296b0af43127a892c3cbb7625f8e1868395d6acd"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2e5a760d11a3f3b3f7c1ced811373b923c2ef949f75885b726cdaae67df4a3ca"
+    sha256 cellar: :any_skip_relocation, ventura:       "f398a348812759267b3b4d1c90ef6bc039581c230d36eab43bc3f276d5c305ae"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7ddcc0abbe06c9376e57ff0061c16f678bfae3e3c2ede7e9ec7c805ec6131fd7"
   end
 
   depends_on "dotnet"
 
   conflicts_with "coffeescript", because: "both install `cake` binaries"
+
+  # Backport NuGet 6.7.0 -> 6.9.0 update to fix build failure:
+  # error NU1904: Warning As Error: Package 'NuGet.Packaging' 6.7.0 has a known
+  # critical severity vulnerability, https://github.com/advisories/GHSA-68w7-72jg-6qpp
+  patch do
+    url "https://github.com/cake-build/cake/commit/3e1841de021614504ccf9b96816421f943122726.patch?full_index=1"
+    sha256 "bf3feeb71b577273ac8e69dbf38c9b9bdffa9b89e091d3a432192a5dec428941"
+  end
+  patch do
+    url "https://github.com/cake-build/cake/commit/c72f1d2f429c641dbfdbae843defcab31f22e959.patch?full_index=1"
+    sha256 "fd96a28c82b7dd404c7731fe69bcae75a863367dbfada9f0aa8e5af39d3a6491"
+  end
 
   def install
     dotnet = Formula["dotnet"]

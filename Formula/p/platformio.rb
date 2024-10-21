@@ -9,16 +9,17 @@ class Platformio < Formula
   head "https://github.com/platformio/platformio-core.git", branch: "develop"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8b2337f426260ec5f305ac2fd1c78c4b7302c9aca0ec9e8f8d6d86cfe39fd645"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8b2337f426260ec5f305ac2fd1c78c4b7302c9aca0ec9e8f8d6d86cfe39fd645"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "8b2337f426260ec5f305ac2fd1c78c4b7302c9aca0ec9e8f8d6d86cfe39fd645"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e0e5cb36f112824d23010393229f222164e49a808d3a862ffb6b0b4a6b457ffe"
-    sha256 cellar: :any_skip_relocation, ventura:       "e0e5cb36f112824d23010393229f222164e49a808d3a862ffb6b0b4a6b457ffe"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e0e5cb36f112824d23010393229f222164e49a808d3a862ffb6b0b4a6b457ffe"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "60ab58f8375605bae10aa757307e592dce384301091fda14f51c6cd276e833e4"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "60ab58f8375605bae10aa757307e592dce384301091fda14f51c6cd276e833e4"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "60ab58f8375605bae10aa757307e592dce384301091fda14f51c6cd276e833e4"
+    sha256 cellar: :any_skip_relocation, sonoma:        "5cb5a7af6ae4af1300f61d1f20643c12eda5b5c4af6042e3d3c3bfc9fb8a7fdc"
+    sha256 cellar: :any_skip_relocation, ventura:       "5cb5a7af6ae4af1300f61d1f20643c12eda5b5c4af6042e3d3c3bfc9fb8a7fdc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5cb5a7af6ae4af1300f61d1f20643c12eda5b5c4af6042e3d3c3bfc9fb8a7fdc"
   end
 
   depends_on "certifi"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "ajsonrpc" do
     url "https://files.pythonhosted.org/packages/da/5c/95a9b83195d37620028421e00d69d598aafaa181d3e55caec485468838e1/ajsonrpc-1.2.0.tar.gz"
@@ -31,13 +32,18 @@ class Platformio < Formula
   end
 
   resource "bottle" do
-    url "https://files.pythonhosted.org/packages/87/7e/eae463f832f64b3a1cb640384d155079e7dd2905116ab925e9bb04f66e75/bottle-0.13.1.tar.gz"
-    sha256 "a48852dc7a051353d3e4de3dd5590cd25de370bcfd94a72237561e314ceb0c88"
+    url "https://files.pythonhosted.org/packages/1b/fb/97839b95c2a2ea1ca91877a846988f90f4ca16ee42c0bb79e079171c0c06/bottle-0.13.2.tar.gz"
+    sha256 "e53803b9d298c7d343d00ba7d27b0059415f04b9f6f40b8d58b5bf914ba9d348"
+  end
+
+  resource "chardet" do
+    url "https://files.pythonhosted.org/packages/f3/0d/f7b6ab21ec75897ed80c17d79b15951a719226b9fababf1e40ea74d69079/chardet-5.2.0.tar.gz"
+    sha256 "1b3b6ff479a8c414bc3fa2c0852995695c4a026dcd6d0633b2dd092ca39c1cf7"
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/63/09/c1bc53dab74b1816a00d8d030de5bf98f724c52c1635e07681d312f20be8/charset-normalizer-3.3.2.tar.gz"
-    sha256 "f30c3cb33b24454a82faecaf01b19c18562b1e89558fb6c56de4d9118a032fd5"
+    url "https://files.pythonhosted.org/packages/f2/4f/e1808dc01273379acc506d18f1504eb2d299bd4131743b9fc54d7be4df1e/charset_normalizer-3.4.0.tar.gz"
+    sha256 "223217c3d4f82c3ac5e29032b3f1c2eb0fb591b72161f86d93f5719079dae93e"
   end
 
   resource "click" do
@@ -96,8 +102,8 @@ class Platformio < Formula
   end
 
   resource "starlette" do
-    url "https://files.pythonhosted.org/packages/65/d2/89a812386fff01247481fb5a9709b4eac1e16753a9ff2915ec6c23cad108/starlette-0.39.1.tar.gz"
-    sha256 "33c5a94f64d3ab2c799b2715b45f254a3752f229d334f1562a3aaf78c23eab95"
+    url "https://files.pythonhosted.org/packages/02/0a/62fbd5697f6174041f9b4e2e377b6f383f9189b77dbb7d73d24624caca1d/starlette-0.39.2.tar.gz"
+    sha256 "caaa3b87ef8518ef913dac4f073dea44e85f73343ad2bdc17941931835b2a26a"
   end
 
   resource "tabulate" do

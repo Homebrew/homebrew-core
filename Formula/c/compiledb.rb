@@ -8,18 +8,11 @@ class Compiledb < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "42246b8db490b17f5ece55199b892ae54d4263f05d0a5e5d514616c54f0a2347"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0e634ab1ba68aa04587cb327aaf5ca6875ca82b821d4b5a6dbd1054836eab33e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a22ef72db1ebbbee1c4349c5c9052b3f51080319118c3c9870ddd610d30e8e54"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "1bff69f65134554069046e579e38a23b2b0af952c06d6fdcef2c2c8a4dd36446"
-    sha256 cellar: :any_skip_relocation, sonoma:         "0ad98a3a62dd5dad7d1073909414834446c0bd22acab0604491ff44bbfb2cfaa"
-    sha256 cellar: :any_skip_relocation, ventura:        "b3ad99071217c3ce467fb302c1bbbeee76bfbff3d486297965d99bbe9a1e09cb"
-    sha256 cellar: :any_skip_relocation, monterey:       "273c62ba00d1dcce5160e874b898d41a60dca02aeb482d31c60c26763809106d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "65f016f20d145ded077358884691f6138684ad25b7f51195cb0650c75c27afc2"
+    rebuild 3
+    sha256 cellar: :any_skip_relocation, all: "8422a0054a71a3e4f05686457aeedb25f04aae956ea2f471fe4bfced32822084"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "bashlex" do
     url "https://files.pythonhosted.org/packages/76/60/aae0bb54f9af5e0128ba90eb83d8d0d506ee8f0475c4fdda3deeda20b1d2/bashlex-0.18.tar.gz"

@@ -9,17 +9,11 @@ class Pgxnclient < Formula
   revision 2
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "71f913ccba91895852071d912f9f8ca727e25d4221ebd8ae6b81d232f5bb78b0"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "44ff65d97f5481826e4963c3efaf758cdf6b20f6ec1ea7a15e198c6f91c9740e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "36c3aef93ead993b2db8de5fcc9dc66f0e433938c17acd8c55d37dac2b6e0908"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "03c6ce799197f4f86f827ba75864555b5a512443b95e06cc160a28dbf3dcad41"
-    sha256 cellar: :any_skip_relocation, sonoma:         "e00942c2867b45d3d0bd9e6cfc78c2b556dce24c73be0090ae3611e36b28881f"
-    sha256 cellar: :any_skip_relocation, ventura:        "a9183ce3151aa765c62333b3423c2d6c75fa32af81d748dedd68a6486c93bbb9"
-    sha256 cellar: :any_skip_relocation, monterey:       "7f846a0accf04fed36d5ba5173ceff9a48d38c4365d585ed3f186434b4dcd00f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "27e1ad1cc23034ff7976ab14da529ffc621a47c5256ce17275eeb961d44b4008"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "f1b1f557db76ca77277fc59e96c5432107680f75068454279508736f0ccb4116"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "six" do
     url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"

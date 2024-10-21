@@ -1,8 +1,8 @@
 class Libomp < Formula
   desc "LLVM's OpenMP runtime library"
   homepage "https://openmp.llvm.org/"
-  url "https://github.com/llvm/llvm-project/releases/download/llvmorg-19.1.0/openmp-19.1.0.src.tar.xz"
-  sha256 "c036fd95c8eeea8d7bce4196ee20cc5c5a99702d6ec7f0bb19828e315bc3a9ac"
+  url "https://github.com/llvm/llvm-project/releases/download/llvmorg-19.1.2/openmp-19.1.2.src.tar.xz"
+  sha256 "40bff38f7ad008ae67a8c3739b9dc4b789b159281dcc1a8413be916b23de7fa6"
   license "MIT"
 
   livecheck do
@@ -11,12 +11,12 @@ class Libomp < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "10fff6a51536b7ae65426186c2fc14032bd39ed3ff0677d98a6c0cdabb5d805c"
-    sha256 cellar: :any,                 arm64_sonoma:  "e1af2969f3d0449130024e67d95219be0778a4b4260f84e06629bdd89181e129"
-    sha256 cellar: :any,                 arm64_ventura: "0bec68ab533c34535d46af20943a11e160bf1b12ae7705388478cad0ee9d74a9"
-    sha256 cellar: :any,                 sonoma:        "7cb7f285e2a2742fba639781bfa876a0bd157d16afd0867f37db1b0db71abaa7"
-    sha256 cellar: :any,                 ventura:       "3f7f4cd61dc591795dcc41a9eab15bf7c3d1c5c2af8ce051b128b75cbde1d70a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8b77c0dd9707c2ed6e9bb4a4199e23fcefda29c2dc9c4e4ec5bf244f3add21b2"
+    sha256 cellar: :any,                 arm64_sequoia: "520137cc5bcfc04b30d94eb9ae68bde4d735a49a88c08c6f905c4a9e55f191a8"
+    sha256 cellar: :any,                 arm64_sonoma:  "88a3de0a0f4f25314b668d2608ec05fdb5d73061b04fae4111e5c26d90e6aec6"
+    sha256 cellar: :any,                 arm64_ventura: "357f19d79836752f7f51c7f9d8781a9605b84cd8348b9a6535be9452f7a12feb"
+    sha256 cellar: :any,                 sonoma:        "c1f47cf97211fa4f7f5702a15e2075a5214d0d64955c4896d1e9f7d5e5835224"
+    sha256 cellar: :any,                 ventura:       "fd482b76fd54a0afbc0b719e5e72e44b2b0b73a40ae97e3235b56969007d370b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f0bc9ee11207aa9a68cf23ad088a6158376dd9a43caade28bb573fa8cd852185"
   end
 
   # Ref: https://github.com/Homebrew/homebrew-core/issues/112107
@@ -31,8 +31,8 @@ class Libomp < Formula
   end
 
   resource "cmake" do
-    url "https://github.com/llvm/llvm-project/releases/download/llvmorg-19.1.0/cmake-19.1.0.src.tar.xz"
-    sha256 "dc78b6a9ac8a097ca6ac0f23c06821d65e6ea3bf666026f529994c1d01056ae7"
+    url "https://github.com/llvm/llvm-project/releases/download/llvmorg-19.1.2/cmake-19.1.2.src.tar.xz"
+    sha256 "139209d798fbe4a84becfa605aee7fd8f4412c6591976f3e672211e3fbdcf65b"
   end
 
   def install

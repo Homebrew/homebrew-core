@@ -8,23 +8,21 @@ class Dotbot < Formula
   license "MIT"
 
   bottle do
-    rebuild 3
-    sha256 cellar: :any,                 arm64_sequoia:  "710e79cff7b51c07e673e881764741e1b6ab8416f5b5e10bc1855c23d65a71f7"
-    sha256 cellar: :any,                 arm64_sonoma:   "7c915e69334d507f8e07d710e01b9a0962e187d9a02d590ef6167a6afc5aea62"
-    sha256 cellar: :any,                 arm64_ventura:  "f7c36c60cad2f30b4c5f9d8d56bfcdbda2388338f2a56fdc010106682023a201"
-    sha256 cellar: :any,                 arm64_monterey: "d61bef91100b62a3921baabef23f4bd85ed4c0b5086b20fbe387c243622330d7"
-    sha256 cellar: :any,                 sonoma:         "5912bf49d4f31ac781030eebb2817ea2f1b21119080dc3325d1758a2ab2f7512"
-    sha256 cellar: :any,                 ventura:        "9237f9d6d443b4f661a9dd696a32472a0bdc0ca444bb0df892cac1a03690ec09"
-    sha256 cellar: :any,                 monterey:       "744736579abe5adf4efebc62512b71c32c6949e1bc0acc5e2a055fd9945b804a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "84e71d8131a14f8ef5284ef4c71b2b0a9de2742d715da2e70f5c55fb7454c63d"
+    rebuild 4
+    sha256 cellar: :any,                 arm64_sequoia: "6b5fd41ab24db6af662b8217218aa3bd7523063c70abd5650100a54eded95e79"
+    sha256 cellar: :any,                 arm64_sonoma:  "8cc72a4463c1afbc99c19b1b1964de99d61474a18fa8f1ffa9c4d6aa3ccacd8f"
+    sha256 cellar: :any,                 arm64_ventura: "deac30197e6a87753ae61dca9ae576130e23915f999748514995a8788a870091"
+    sha256 cellar: :any,                 sonoma:        "552e887f6394e9c256b59f7170c791547d37a515951da566ce2ebb48a9753cad"
+    sha256 cellar: :any,                 ventura:       "57fa5346b8a2e02360991b688a9d87357c9ddbaa0561529e6a272fc80e01539d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b76a7e7b29a4ad883e46ea2e5c87a00436397d43d27439ecc69704b45d7b1235"
   end
 
   depends_on "libyaml"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "pyyaml" do
-    url "https://files.pythonhosted.org/packages/cd/e5/af35f7ea75cf72f2cd079c95ee16797de7cd71f29ea7c68ae5ce7be1eda0/PyYAML-6.0.1.tar.gz"
-    sha256 "bfdf460b1736c775f2ba9f6a92bca30bc2095067b8a9d77876d1fad6cc3b4a43"
+    url "https://files.pythonhosted.org/packages/54/ed/79a089b6be93607fa5cdaedf301d7dfb23af5f25c398d5ead2525b063e17/pyyaml-6.0.2.tar.gz"
+    sha256 "d584d9ec91ad65861cc08d42e834324ef890a082e591037abe114850ff7bbc3e"
   end
 
   def install

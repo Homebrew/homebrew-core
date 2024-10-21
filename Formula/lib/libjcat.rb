@@ -3,20 +3,18 @@ class Libjcat < Formula
 
   desc "Library for reading Jcat files"
   homepage "https://github.com/hughsie/libjcat"
-  url "https://github.com/hughsie/libjcat/releases/download/0.2.1/libjcat-0.2.1.tar.xz"
-  sha256 "a6232aeca3c3fab6dbb3bed06ec3832088b49a4b278a7119558d72be60ce921f"
+  url "https://github.com/hughsie/libjcat/releases/download/0.2.2/libjcat-0.2.2.tar.xz"
+  sha256 "f1bed6217234cc2f833d72ae3a375d9164f92a0010b49c5b19b63e88e03de12c"
   license "LGPL-2.1-or-later"
   head "https://github.com/hughsie/libjcat.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia:  "79a836689a8ea886bbf92da4e02370203845ff20294eda322434de2c9083e21f"
-    sha256 cellar: :any, arm64_sonoma:   "4733498c501d59b3d93741887a4e92636623da610df0ff02c8f079d0438122ce"
-    sha256 cellar: :any, arm64_ventura:  "3dd9795bd86dc7ef60589a83a3d0d04202baf1db231c79d25fe9670f8a583a75"
-    sha256 cellar: :any, arm64_monterey: "0ac0e2f9bb63e03f0c7d58cd57cfdb981a6cb59c65406bee4621a72a06dc03bc"
-    sha256 cellar: :any, sonoma:         "4ec0a50d5444e68a3323a1af854018bd3bbdd1a4ba0c605eb23b410344dfc7be"
-    sha256 cellar: :any, ventura:        "23f5aaca4cd024e16ccff3af9206409fd1b710c7eaeef4660478f50c117926ab"
-    sha256 cellar: :any, monterey:       "a67038985fc59bd9c240b243f38a4896ea4ae41d5e090d67362caa59a9515f5b"
-    sha256               x86_64_linux:   "99e04fd49c127b969406b628da90fbef3b179ff1044cbdd595c931f8cd39046a"
+    sha256 cellar: :any, arm64_sequoia: "6068ee9598560adbde442656d0a6cb0c0927d038b50b294d16c387f63da6c894"
+    sha256 cellar: :any, arm64_sonoma:  "1e3b85d83f904df428d205a2f6ca41efa79b28cb84fce829a39f5a2d58b6edda"
+    sha256 cellar: :any, arm64_ventura: "750a85f098864a3662a2ff1078c883ae12889d7ca462427b3000ce369d18ebc2"
+    sha256 cellar: :any, sonoma:        "9773b48acb6954f934260dd05f4e7cc112f1c352002e9d46730bfc71c87bf9a7"
+    sha256 cellar: :any, ventura:       "18b0b03903f4ee0d025b82c3b8891d5590b52924f103b78528bf1ad25575fd58"
+    sha256               x86_64_linux:  "5fd1a206b91980947c5d16ae3feec17a54454ef54d1ab545d949b0f888de0f3d"
   end
 
   depends_on "gi-docgen" => :build
@@ -24,13 +22,14 @@ class Libjcat < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.12" => :build
   depends_on "vala" => :build
 
   depends_on "glib"
   depends_on "gnutls"
   depends_on "json-glib"
   depends_on "nettle"
+
+  uses_from_macos "python" => :build
 
   on_macos do
     depends_on "gettext"

@@ -1,8 +1,8 @@
 class TraefikAT2 < Formula
   desc "Modern reverse proxy"
   homepage "https://traefik.io/"
-  url "https://github.com/traefik/traefik/releases/download/v2.11.11/traefik-v2.11.11.src.tar.gz"
-  sha256 "a95ee24447b60581a372e568eb6f5f1ea3983ff95c9b2757ed648cabbd6ad448"
+  url "https://github.com/traefik/traefik/releases/download/v2.11.12/traefik-v2.11.12.src.tar.gz"
+  sha256 "4877795dbc5ac9bd3e7e3f68e1f6965bb8ad818e43d0a5b79a1dff386f5d4be5"
   license "MIT"
 
   livecheck do
@@ -11,12 +11,12 @@ class TraefikAT2 < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "dff862feff1b53b32913f1eb484b9faba94529a2d3cc358cb8d34e6dba80ff06"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "eb5b69505d3cf171c5c53cfc98d19ffd2fbf2644644dca8027245d499fb58e85"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "f55b57795f0fe90e2020390ae99be927de56be2ab3464b96c6f319329083ea82"
-    sha256 cellar: :any_skip_relocation, sonoma:        "0fa00dddcc4a33dfdbf540ad9061d7d8af4a4a2ba68f7550d385e0a81f2c2042"
-    sha256 cellar: :any_skip_relocation, ventura:       "0683f5fabd4ec75b0f6713c64a567cea07f9cee886ebee84e76df8c0dc61b6c8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7a7b0898ba777cf1cae1d65936fe4e104c0953a3f9b1e2de7db988e60d989d94"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5faa5e9a6df9e51d99b8a4415d16338cf76f9f26779101517948ed6b1ef59db5"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3a4259df5ee7140b3294cc3f75101471c2805eb2f7ac9841be4b20fee30836bb"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "5bac3b920c6763146d0faa893728602555413db0612f7730fd859564153e4f0e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "5f99499fa48baee49ca566f43ceb75c08febd43a90af44cc6a393d90a2577cd1"
+    sha256 cellar: :any_skip_relocation, ventura:       "c6ea7a17f09484dd2233a01fcd39b8d2abe899e8ad27f85b5590ccaae326d2ac"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "49f6e5e5c41905f0bff4fb3df1519c6c7e4d13c30fd226f71ae17cae94516e39"
   end
 
   keg_only :versioned_formula

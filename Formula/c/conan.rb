@@ -3,29 +3,29 @@ class Conan < Formula
 
   desc "Distributed, open source, package manager for C/C++"
   homepage "https://conan.io"
-  url "https://files.pythonhosted.org/packages/af/04/9953e47e414c7e6bc79d797cdb34833219ff966088167f52fd7bc12f303d/conan-2.8.0.tar.gz"
-  sha256 "ca80403fea7eb99a8e7b89ba7629f5d0d8a22fdcefd4c74f378dbad4b0ffd1bb"
+  url "https://files.pythonhosted.org/packages/ed/a3/20a33c9aaf3b4ca263ea548390a7e0acc1748c55127b776d2e73acdbb10a/conan-2.8.1.tar.gz"
+  sha256 "8355da1f5294eae25fbfc2ccf066bc6dde93adca976b7e5480796b28a30782d8"
   license "MIT"
   head "https://github.com/conan-io/conan.git", branch: "develop"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "2c376fd0e7ee6784e6567ac5c697fbb7b6c1085373e406e577f0bdddd3ceaee0"
-    sha256 cellar: :any,                 arm64_sonoma:  "5aa57a31eb439e697c876255b6bbd4f787a806dd0edb7e2cea16c4b745ff28c7"
-    sha256 cellar: :any,                 arm64_ventura: "a0375c79d134a0befb867d4a420f623617f80c5bac9a045bc2e29044283590c3"
-    sha256 cellar: :any,                 sonoma:        "53e6de0771448331034f522f3d052e6d16e6806c075bdf57f973d1dada8e0cdf"
-    sha256 cellar: :any,                 ventura:       "e4c8db4373f9f241078bf516fd0d10ff7b35909dbc5e4c671cf359336160e69b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2f1d03044fada61d1ee6757571d2fe18bc4ea79ca3ad4d50b03fe7cb7ddd4ada"
+    sha256 cellar: :any,                 arm64_sequoia: "75ae06fe4ccb959b612e538d939bf5bb7b76cb3e1ad451da2fc07deedc8f1d2b"
+    sha256 cellar: :any,                 arm64_sonoma:  "aa98cf77495e1fd5d624967f2c567103cc80c33794151ee9add49d8f128f6fdc"
+    sha256 cellar: :any,                 arm64_ventura: "0025f6486d51bc5a98a38fe3df7715a3a12fc865702872a4f38b367a0cb4ad5b"
+    sha256 cellar: :any,                 sonoma:        "627b2d63823d0c41f7f24ec566c5e19e7eb38d019fad048428314f97d2ad2501"
+    sha256 cellar: :any,                 ventura:       "8b34a583300c2da0eaf9ade137ef9ca50cb463cdb429dc1cbe9881bfad78a7fc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "383017e78b82b646b6c815a8df9ba986a4c0b08a82f33c0bd259b8379442a4a8"
   end
 
   depends_on "pkg-config" => :build
   depends_on "cmake" => :test
   depends_on "certifi"
   depends_on "libyaml"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/63/09/c1bc53dab74b1816a00d8d030de5bf98f724c52c1635e07681d312f20be8/charset-normalizer-3.3.2.tar.gz"
-    sha256 "f30c3cb33b24454a82faecaf01b19c18562b1e89558fb6c56de4d9118a032fd5"
+    url "https://files.pythonhosted.org/packages/f2/4f/e1808dc01273379acc506d18f1504eb2d299bd4131743b9fc54d7be4df1e/charset_normalizer-3.4.0.tar.gz"
+    sha256 "223217c3d4f82c3ac5e29032b3f1c2eb0fb591b72161f86d93f5719079dae93e"
   end
 
   resource "colorama" do
@@ -54,8 +54,8 @@ class Conan < Formula
   end
 
   resource "markupsafe" do
-    url "https://files.pythonhosted.org/packages/87/5b/aae44c6655f3801e81aa3eef09dbbf012431987ba564d7231722f68df02d/MarkupSafe-2.1.5.tar.gz"
-    sha256 "d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"
+    url "https://files.pythonhosted.org/packages/b4/d2/38ff920762f2247c3af5cbbbbc40756f575d9692d381d7c520f45deb9b8f/markupsafe-3.0.1.tar.gz"
+    sha256 "3e683ee4f5d0fa2dde4db77ed8dd8a876686e3fc417655c2ece9a90576905344"
   end
 
   resource "patch-ng" do

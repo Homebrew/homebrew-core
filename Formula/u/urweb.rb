@@ -4,17 +4,15 @@ class Urweb < Formula
   url "https://github.com/urweb/urweb/releases/download/20200209/urweb-20200209.tar.gz"
   sha256 "ac3010c57f8d90f09f49dfcd6b2dc4d5da1cdbb41cbf12cb386e96e93ae30662"
   license "BSD-3-Clause"
-  revision 9
+  revision 10
 
   bottle do
-    sha256 arm64_sequoia:  "f7a2e5822d2049c20f829894b478bf5cb4413beff6c6a212084cf0caf24e2170"
-    sha256 arm64_sonoma:   "6b1cf20e87eb2695e60148e03f989674f8073e9b4122ca2e1fa11d2b73b6fbce"
-    sha256 arm64_ventura:  "6f44ca686b493d46567ebf63aedc2872cb5ca20e1b72dad7d787c31e3d0fe98d"
-    sha256 arm64_monterey: "b9837a19f85054bd9de1292aa7296fd083d2cc82fcca13547d51aeedbf79ecd7"
-    sha256 sonoma:         "44774b48d96b86fd9e97a72604352a9e6cc0693b8da3f424316fb8ca91b48acb"
-    sha256 ventura:        "46d566a14e0df6e6996327f164265fbd93208ffdcfb9701ffb9d02f37447233f"
-    sha256 monterey:       "5cdc42d7c7ac69422f3dc1ab5b519ee3f817669ff30d4364b75f863bd4950e31"
-    sha256 x86_64_linux:   "ae715d55e194246c5895fc01c83d897a7ee31a47ae0656c09c249e57f53f6a48"
+    sha256 arm64_sequoia: "24eca5e9cec9eafae7028751ecbdf91739b752eb85121a8de934953bc691d75d"
+    sha256 arm64_sonoma:  "02abc659bb1be47a5978dd6da7770519df43cccf25575062f95552e0e05445cb"
+    sha256 arm64_ventura: "1a5ee50796de357b701adfc1699352b5d426f773c4edf84fc4feb204e996346d"
+    sha256 sonoma:        "561b4ef3d3fec1dff10eeba2e2aae512dd97ab85f1d5b19e72c1575d4d00d3a7"
+    sha256 ventura:       "1bec9fd07a8098449b20645572d57074dad4127dc0ec9feb767ba2074f8ab8d1"
+    sha256 x86_64_linux:  "48fa11c86368d662fc2723cf12ee290416d70794e600ef0c2dc7add60b0211ac"
   end
 
   depends_on "autoconf" => :build
@@ -22,7 +20,7 @@ class Urweb < Formula
   depends_on "libtool" => :build
   depends_on "mlton" => :build
   depends_on "gmp"
-  depends_on "icu4c"
+  depends_on "icu4c@75"
   depends_on "openssl@3"
 
   # Patch to fix build for icu4c 68.2
@@ -38,12 +36,14 @@ class Urweb < Formula
   end
 
   def install
+    icu4c = deps.find { |dep| dep.name.match?(/^icu4c(@\d+)?$/) }
+                .to_formula
     system "./configure", *std_configure_args,
                           "--disable-silent-rules",
                           "--with-openssl=#{Formula["openssl@3"].opt_prefix}",
                           "SITELISP=$prefix/share/emacs/site-lisp/urweb",
-                          "ICU_INCLUDES=-I#{Formula["icu4c"].opt_include}",
-                          "ICU_LIBS=-L#{Formula["icu4c"].opt_lib}"
+                          "ICU_INCLUDES=-I#{icu4c.opt_include}",
+                          "ICU_LIBS=-L#{icu4c.opt_lib}"
     system "make", "install"
   end
 

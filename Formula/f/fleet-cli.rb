@@ -1,8 +1,8 @@
 class FleetCli < Formula
   desc "Manage large fleets of Kubernetes clusters"
   homepage "https://github.com/rancher/fleet"
-  url "https://github.com/rancher/fleet/archive/refs/tags/v0.10.3.tar.gz"
-  sha256 "95e8d4c6adefd672474227e819403b31b4030c00c29296f37fa5591af5d455b2"
+  url "https://github.com/rancher/fleet/archive/refs/tags/v0.10.4.tar.gz"
+  sha256 "425fb5aec5e7526bc90064f9ae64777a457f663a6aaeaf175bef2b6015a7f02c"
   license "Apache-2.0"
   head "https://github.com/rancher/fleet.git", branch: "master"
 
@@ -12,12 +12,12 @@ class FleetCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f446733bdca37000feddf78d7c2d68e29d87fbd157b9985e597c87fa7a814b40"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7534a8c103c40baa5df60dc6c1d5bf754fe2cef76e337b121a2237d0cd9e44c8"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "0dc9960d36426c43b238590c78c64320631ecd2be8a9fa1f1a9549e58fd89e32"
-    sha256 cellar: :any_skip_relocation, sonoma:        "501b486f0e939a53e2753635e757347128f3cc4c0aaa821feb3922bae467d60c"
-    sha256 cellar: :any_skip_relocation, ventura:       "20b4f719cf98d9e15ddc359ff1b5f7da536108d706a1e11eda7679ffb6d1918f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b52b2b44d7b34040c1dfb5e5f328c478bf880f1e1eb84e9ac139113c7050da8d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b877afedf6b9e584a53817770b49184be81b17017c7270a85756271335100a32"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ac313f0d1b62d6780ffe032746d819f0002ea45bd64f0579e3c7f90229d2291a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "ef590cc9cbf7699e03fd64b76e2053448b4e4b7aaa9f69cf3903588d4e57ea75"
+    sha256 cellar: :any_skip_relocation, sonoma:        "5ef5f6c9f3c77652ff43768e690eeeb84d2c47a342f4c2530cd48be5165bb129"
+    sha256 cellar: :any_skip_relocation, ventura:       "46e6f09d4238ae29b1cee4c60ad060fe791a367a2121da8ff705c70f20d0ee4d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8356e1eca75075deafbb8cd11a2d362e1326346819c212d182796f7402e4f9b9"
   end
 
   depends_on "go" => :build

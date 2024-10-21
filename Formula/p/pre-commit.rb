@@ -3,22 +3,23 @@ class PreCommit < Formula
 
   desc "Framework for managing multi-language pre-commit hooks"
   homepage "https://pre-commit.com/"
-  url "https://files.pythonhosted.org/packages/5c/e8/4aac596478e02f29b3e323db3dfb90a11c1291ef4e5cceca608a57df8975/pre_commit-4.0.0.tar.gz"
-  sha256 "5d9807162cc5537940f94f266cbe2d716a75cfad0d78a317a92cac16287cfed6"
+  url "https://files.pythonhosted.org/packages/2e/c8/e22c292035f1bac8b9f5237a2622305bc0304e776080b246f3df57c4ff9f/pre_commit-4.0.1.tar.gz"
+  sha256 "80905ac375958c0444c65e9cebebd948b3cdb518f335a091a670a89d652139d2"
   license "MIT"
   head "https://github.com/pre-commit/pre-commit.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "cc6113bf3efe5ee80dd14073c1e87f172b49fe63f160b93f4ced4d70e70c66da"
-    sha256 cellar: :any,                 arm64_sonoma:  "a3042fd819937ef47cfff56ae39924592a0e734fae1c2ea8659d5ac53aacc651"
-    sha256 cellar: :any,                 arm64_ventura: "7a6cbdd6f4b095b4d22a1399b94ba6ff2759fe3c842cd14f4cc536203d9c38ae"
-    sha256 cellar: :any,                 sonoma:        "07438e41b2c7d291d12c11d47e481c6580b613c86bbef876fa71ce92ce98f9ad"
-    sha256 cellar: :any,                 ventura:       "0c3331033604f2afcb1eedb2d585832d6670bfcb5dccee60566b03cf89fb7a75"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b914a22acba700fc9655a4744e32f0af5ee3d849ae513cd5f67c74f942fe85ce"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "b3d30b89144d8839d8fc7bf35ebfdf0ea19d6caf93380c3f40b78a35d7d57a9c"
+    sha256 cellar: :any,                 arm64_sonoma:  "a795575506ca69bee2237f32f90620fdf71c96f04652b80f0c023cc2e858cfcf"
+    sha256 cellar: :any,                 arm64_ventura: "de0cabd089bf6601690464bde0e12d7cfe3ddc7b07743ac63fc7e8bd69e693d9"
+    sha256 cellar: :any,                 sonoma:        "f3f81314c7a74ca338a6a34eb140248c29d93696e2a33411649f91519be103a8"
+    sha256 cellar: :any,                 ventura:       "9e1056aa377c124b358f6a1f47f9354b34002c3133d826d10f2eeeaefa2212f7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8885c36ddab76802a453fd4f4adcbe0c34e5a51bd2857d669d39592419008aef"
   end
 
   depends_on "libyaml"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "cfgv" do
     url "https://files.pythonhosted.org/packages/11/74/539e56497d9bd1d484fd863dd69cbbfa653cd2aa27abfe35653494d85e94/cfgv-3.4.0.tar.gz"
@@ -26,8 +27,8 @@ class PreCommit < Formula
   end
 
   resource "distlib" do
-    url "https://files.pythonhosted.org/packages/c4/91/e2df406fb4efacdf46871c25cde65d3c6ee5e173b7e5a4547a47bae91920/distlib-0.3.8.tar.gz"
-    sha256 "1530ea13e350031b6312d8580ddb6b27a104275a31106523b8f123787f494f64"
+    url "https://files.pythonhosted.org/packages/0d/dd/1bec4c5ddb504ca60fc29472f3d27e8d4da1257a854e1d96742f15c1d02d/distlib-0.3.9.tar.gz"
+    sha256 "a60f20dea646b8a33f3e7772f74dc0b2d0772d2837ee1342a00645c81edf9403"
   end
 
   resource "filelock" do
@@ -61,7 +62,7 @@ class PreCommit < Formula
   end
 
   def python3
-    "python3.12"
+    "python3.13"
   end
 
   def install
@@ -75,8 +76,8 @@ class PreCommit < Formula
 
   # Avoid relative paths
   def post_install
-    xy = Language::Python.major_minor_version Formula["python@3.12"].opt_bin/python3
-    python_opt = Formula["python@3.12"].opt_prefix
+    xy = Language::Python.major_minor_version Formula["python@3.13"].opt_bin/python3
+    python_opt = Formula["python@3.13"].opt_prefix
     python_cellar = python_opt.realpath
     dirs_to_fix = [libexec/"lib/python#{xy}"]
     dirs_to_fix << (libexec/"bin") if OS.linux?

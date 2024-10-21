@@ -1,18 +1,18 @@
 class Bacon < Formula
   desc "Background rust code check"
   homepage "https://dystroy.org/bacon/"
-  url "https://github.com/Canop/bacon/archive/refs/tags/v2.21.0.tar.gz"
-  sha256 "ff43a713b5a301a90ac4e1432cc119f9e52b2563d71dbafa30546cef4a7aeacd"
+  url "https://github.com/Canop/bacon/archive/refs/tags/v3.1.1.tar.gz"
+  sha256 "f078f2326da81cab31a3196d4ac43d0771d5679c7d5b32ce38309ff89f80559a"
   license "AGPL-3.0-or-later"
   head "https://github.com/Canop/bacon.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3636239d00a35382e9d22eb430869977473e4ab77716179c4528b17223fe3be1"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "660031e5d4782925f864e6bd2fbce472385df3f7b176e27ece235f15dc9276bb"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "0eda2017f0afa61d6f3933404e58a1a09bceea05035118686ddd4dc9824944d6"
-    sha256 cellar: :any_skip_relocation, sonoma:        "72930e1bc3ef203173cbb757cecae326c16c36ea015ad0b716ca55c35e045c50"
-    sha256 cellar: :any_skip_relocation, ventura:       "a02edd06043e43d978668b0145d31b529055c8fa757204f90e8f68260908bd00"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "002fdff64beace101a603456a2988c02281871cfe4542a6ac740c183158f70a7"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "becdcc1bd46a4ea04d4d33e1904aa7c6a07c766319f69db0115804ba01a85afe"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2c0fcbc6a32bb5b6f8356e027d3bc8990c5514617a70dba7315eeaf8af2d354e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "1a8c0b53a24876c0615ba12dd4bef852c087518c73371b9444f54de5fbf4b212"
+    sha256 cellar: :any_skip_relocation, sonoma:        "adfe40bb65a0ac6a9645e8c09b4003ed835f57b5547524436fc8d1c8e63eeb53"
+    sha256 cellar: :any_skip_relocation, ventura:       "67a75ddd7f53bbbc9177c6896430bb4dfdfbae790a0ea24ef9ce1946a68bfa23"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "42b65fbe7f9afd9b479c87441894a72508d4d84e040805a60dae3c5b0735c53c"
   end
 
   depends_on "rust" => :build

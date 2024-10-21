@@ -9,36 +9,35 @@ class Yapf < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "8099f5239291c194f73143ffef10ad89749c85bf96e195d6c9ef769e6eb75f49"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "07fd5b4d90ce1fcd6ed7b89aee9bcb446ae3bfe17a2482540e8206a5fbfb7282"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "07fd5b4d90ce1fcd6ed7b89aee9bcb446ae3bfe17a2482540e8206a5fbfb7282"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "07fd5b4d90ce1fcd6ed7b89aee9bcb446ae3bfe17a2482540e8206a5fbfb7282"
-    sha256 cellar: :any_skip_relocation, sonoma:         "2e811a83e62d349bb582cc9fdb0e2517ad107e60462a782c2e111c6c5c9027c9"
-    sha256 cellar: :any_skip_relocation, ventura:        "2e811a83e62d349bb582cc9fdb0e2517ad107e60462a782c2e111c6c5c9027c9"
-    sha256 cellar: :any_skip_relocation, monterey:       "2e811a83e62d349bb582cc9fdb0e2517ad107e60462a782c2e111c6c5c9027c9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fdef089e7f7464ad430cbdf4f7616eef0cf436880670acf67ec4a9cbb7f878f3"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "311cca4a3125dfedabd1d2ce843fcb82c20cb39985450e5938cf7d2949ac22fa"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "311cca4a3125dfedabd1d2ce843fcb82c20cb39985450e5938cf7d2949ac22fa"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "311cca4a3125dfedabd1d2ce843fcb82c20cb39985450e5938cf7d2949ac22fa"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8a78cb051f1bd38c7a7403f0d290f614282f4fcb75606478f642a405d94bfedf"
+    sha256 cellar: :any_skip_relocation, ventura:       "8a78cb051f1bd38c7a7403f0d290f614282f4fcb75606478f642a405d94bfedf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "78324721748810507339a113338a63874c4174d390b195f869e8238ca216282c"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "importlib-metadata" do
-    url "https://files.pythonhosted.org/packages/20/ff/bd28f70283b9cca0cbf0c2a6082acbecd822d1962ae7b2a904861b9965f8/importlib_metadata-8.0.0.tar.gz"
-    sha256 "188bd24e4c346d3f0a933f275c2fec67050326a856b9a359881d7c2a697e8812"
+    url "https://files.pythonhosted.org/packages/cd/12/33e59336dca5be0c398a7482335911a33aa0e20776128f038019f1a95f1b/importlib_metadata-8.5.0.tar.gz"
+    sha256 "71522656f0abace1d072b9e5481a48f07c138e00f079c38c8f883823f9c26bd7"
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/f5/52/0763d1d976d5c262df53ddda8d8d4719eedf9594d046f117c25a27261a19/platformdirs-4.2.2.tar.gz"
-    sha256 "38b7b51f512eed9e84a22788b4bce1de17c0adb134d6becb09836e37d8654cd3"
+    url "https://files.pythonhosted.org/packages/13/fc/128cc9cb8f03208bdbf93d3aa862e16d376844a14f9a0ce5cf4507372de4/platformdirs-4.3.6.tar.gz"
+    sha256 "357fb2acbc885b0419afd3ce3ed34564c13c9b95c89360cd9563f73aa5e2b907"
   end
 
   resource "tomli" do
-    url "https://files.pythonhosted.org/packages/c0/3f/d7af728f075fb08564c5949a9c95e44352e23dee646869fa104a3b2060a3/tomli-2.0.1.tar.gz"
-    sha256 "de526c12914f0c550d15924c62d72abc48d6fe7364aa87328337a31007fe8a4f"
+    url "https://files.pythonhosted.org/packages/35/b9/de2a5c0144d7d75a57ff355c0c24054f965b2dc3036456ae03a51ea6264b/tomli-2.0.2.tar.gz"
+    sha256 "d46d457a85337051c36524bc5349dd91b1877838e2979ac5ced3e710ed8a60ed"
   end
 
   resource "zipp" do
-    url "https://files.pythonhosted.org/packages/d3/20/b48f58857d98dcb78f9e30ed2cfe533025e2e9827bbd36ea0a64cc00cbc1/zipp-3.19.2.tar.gz"
-    sha256 "bf1dcf6450f873a13e952a29504887c89e6de7506209e5b1bcc3460135d4de19"
+    url "https://files.pythonhosted.org/packages/54/bf/5c0000c44ebc80123ecbdddba1f5dcd94a5ada602a9c225d84b5aaa55e86/zipp-3.20.2.tar.gz"
+    sha256 "bc9eb26f4506fda01b81bcde0ca78103b6e62f991b381fec825435c836edbc29"
   end
 
   def install

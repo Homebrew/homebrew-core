@@ -1,8 +1,8 @@
 class SpirvCross < Formula
   desc "Performing reflection and disassembling SPIR-V"
   homepage "https://github.com/KhronosGroup/SPIRV-Cross"
-  url "https://github.com/KhronosGroup/SPIRV-Cross/archive/refs/tags/vulkan-sdk-1.3.290.0.tar.gz"
-  sha256 "1333fd2a05ab8a0572106e3b7fb8161ea0b67ab7d0a1b8bdd14b47f89ac8a611"
+  url "https://github.com/KhronosGroup/SPIRV-Cross/archive/refs/tags/vulkan-sdk-1.3.296.0.tar.gz"
+  sha256 "4f7f9a8a643e6694f155712016b9b572c13a9444e65b3f43b27bb464c0ab76e0"
   license all_of: [
     "Apache-2.0",
     "MIT",
@@ -18,14 +18,12 @@ class SpirvCross < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "7428ac6774e8369880858880d5a63217560a01ff157defef899305e8a10d39e8"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "86598042c486e94cb3670cbce05cd01306b1497dba631c6669265277a06b4edf"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "aaaaa405ae2209dc2aee082033f45d2f2f39673c788d77998b94c37b34188dee"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9860bafb482eb79e5c2dcd9020aed4aeb8d1096ed1627c6c0c1b38c6263efc51"
-    sha256 cellar: :any_skip_relocation, sonoma:         "cd4a92cbb204fcef3cba8e33339bea38d7f4c0dad0bde515b9a102cb76cdfa59"
-    sha256 cellar: :any_skip_relocation, ventura:        "85b49e2d80b4e5c93ce8293e10bcba42f5fa337f5541e1e7aa25a18efbdb64d5"
-    sha256 cellar: :any_skip_relocation, monterey:       "6db92465d5cd121ef852f671f497cb37d9ac3b0359768bf6404924e2693db70f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "57a4818c15b37d3ea984bfb3179e79c10c29fd5c915823b63f46fcf5b6850409"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "94d2fa1830967dcf20e19901f13518fbe51c0625f29fc9509813b5200ebdcee9"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "afbd2b3aca191e95c3205df6d234c06f67c9505faebd78090cf466ee857fc98a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "6f614f93680d87ee7c48124d01f4a9bc731b655199ed588d41a193d43caa621e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "1848ddb46b8c90a582d6369ad7fae6d4c3f8decd78372b82fff1f8dcdf5160f5"
+    sha256 cellar: :any_skip_relocation, ventura:       "3eedd1eb6700688cd58ab559a078251308a15a98cdcda8dc041c02c2829edf34"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fcb20807bc4ee7b77f5c240c758d2f2085873b0a52c3f6b535b24c6ca184c0d5"
   end
 
   depends_on "cmake" => :build

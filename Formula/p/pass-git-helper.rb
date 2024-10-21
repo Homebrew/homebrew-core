@@ -8,16 +8,17 @@ class PassGitHelper < Formula
   license "LGPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5e09e51c4bb4f74a853d43b12ec2b1f6f700c76a3e41c8674c9e40aadad58813"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "5e09e51c4bb4f74a853d43b12ec2b1f6f700c76a3e41c8674c9e40aadad58813"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ef6bb158d8dfc0bb5de0253bd4bb1847f9a3af05de9d9bfb32f71499ef1c3c31"
-    sha256 cellar: :any_skip_relocation, ventura:       "ef6bb158d8dfc0bb5de0253bd4bb1847f9a3af05de9d9bfb32f71499ef1c3c31"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c3a78a4695879b2336e70ae38c98c86c89c488832e0e34f41374b12bad29aaf9"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cc49479ad804837704f42f901f352a8b1b12c05eca21abb8bc20c51022cd51a1"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "cc49479ad804837704f42f901f352a8b1b12c05eca21abb8bc20c51022cd51a1"
+    sha256 cellar: :any_skip_relocation, sonoma:        "352862920179610c7c5414fff296d3f5c373f0cc983bbddc42c64a49306f8bbb"
+    sha256 cellar: :any_skip_relocation, ventura:       "352862920179610c7c5414fff296d3f5c373f0cc983bbddc42c64a49306f8bbb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1317d6bf961f2a4ca1b114e526d292153b332bbebba6c8b78682f075a04154c5"
   end
 
   depends_on "gnupg" => :test
   depends_on "pass"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "pyxdg" do
     url "https://files.pythonhosted.org/packages/b0/25/7998cd2dec731acbd438fbf91bc619603fc5188de0a9a17699a781840452/pyxdg-0.28.tar.gz"

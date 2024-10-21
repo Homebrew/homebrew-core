@@ -1,25 +1,23 @@
 class Risor < Formula
   desc "Fast and flexible scripting for Go developers and DevOps"
   homepage "https://risor.io/"
-  url "https://github.com/risor-io/risor/archive/refs/tags/v1.6.0.tar.gz"
-  sha256 "4b2821214bba5830f6010c017c647f28bb1a50f0c83f9305476bd6416d2fc28c"
+  url "https://github.com/risor-io/risor/archive/refs/tags/v1.7.0.tar.gz"
+  sha256 "cb74fffafee3491ddde6c9265ec3198131417fa9c990c2647e1f86dc281ea4fa"
   license "Apache-2.0"
   head "https://github.com/risor-io/risor.git", branch: "main"
 
   livecheck do
     url :stable
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
+    strategy :github_latest
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "d5db445fd87be22c3229477ebdd6899a0c938c7d0ad6493cd2a3160aeb4e30fd"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "902e0aa5af667a8168253190337eda7f35edf469418391556e2e2a3ccb654c00"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "52a2c1333fbeef4f932e0407443d0b8087956949552166fbad3a7cec131c2b8b"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7fa2965570bde6073d421f93d671f25ae4cf49d9c715bc89495d3260af804159"
-    sha256 cellar: :any_skip_relocation, sonoma:         "f5c1d3ae4f3643277fa3b4d4fb49ba97e8a6ee685fdcd5ef458b5333e60f73bb"
-    sha256 cellar: :any_skip_relocation, ventura:        "3ce4466b940227ac5d4896e3e7bab320f2d90a26ca373125dffe6a0344d506c0"
-    sha256 cellar: :any_skip_relocation, monterey:       "2b58d923661a7764f1b524a410b13400f035fc55f614521b62e79a43e637bb53"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bde90cf3b368d3538f2b805cec9a2e1029154671c753177f0c460ae24cb36cf3"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1e8e1292de24b4e902fa8180857c2171177f820ac40388a5e6f5fc2f1a1f3bf1"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c45bfc6da12cad84f948fe980d92b12d44cc2b0e1fbd7f8132a179d586ab846e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "1bd4dfad3c4c080d9d3c62df315115adb15ea6953285efb2bce2ec7c03344691"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7888be33dc5ade02305f3857fd0a176ba3f96ca69a1e06b69055afa6a5b9ae82"
+    sha256 cellar: :any_skip_relocation, ventura:       "967d7fa03a9aa306efde26606200aef642624d29c5c7456f6f432be9ec30ec7f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "19fbd777f72cc1b135297b1b59b7ce0aa180c1cb2042b86b4a7a7039e5c1ef04"
   end
 
   depends_on "go" => :build

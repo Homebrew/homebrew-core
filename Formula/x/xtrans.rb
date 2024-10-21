@@ -1,13 +1,12 @@
 class Xtrans < Formula
   desc "X.Org: X Network Transport layer shared code"
   homepage "https://www.x.org/"
-  url "https://www.x.org/archive/individual/lib/xtrans-1.5.0.tar.xz"
-  sha256 "1ba4b703696bfddbf40bacf25bce4e3efb2a0088878f017a50e9884b0c8fb1bd"
+  url "https://www.x.org/archive/individual/lib/xtrans-1.5.1.tar.xz"
+  sha256 "dea80fbd8c3c941495b4b1d2785cb652815d016849a0d2ef90d1140de916993e"
   license "MIT"
 
   bottle do
-    rebuild 3
-    sha256 cellar: :any_skip_relocation, all: "2d33b76ea54a22e668851b4d3abc1ad2e964fbe2f01b9e566cca9bbe96a61065"
+    sha256 cellar: :any_skip_relocation, all: "f761a048e405426c2bb755d4c4be3dddeb7c249835be1aaae42de12e7cdc9071"
   end
 
   depends_on "pkg-config" => :build

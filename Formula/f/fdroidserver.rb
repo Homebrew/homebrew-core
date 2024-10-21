@@ -11,23 +11,23 @@ class Fdroidserver < Formula
   revision 2
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia:  "ef896b6f6b64be79b613b2fb80b57667c15ed7827c1b0bf50985b798d77927ef"
-    sha256 cellar: :any,                 arm64_sonoma:   "023f30d36801df4c81d772fbead923b4ef8a4e76bb60006b41586a35c6c01114"
-    sha256 cellar: :any,                 arm64_ventura:  "b45a131718e7b73c3fc852fa2c7094b2fb1c1bb3c22d45a6c2c594552c8326fc"
-    sha256 cellar: :any,                 arm64_monterey: "c3f4bf2148d6979c6ba36ff07dab1dfafbf76842cf76d4bc1aabaa1907c413a8"
-    sha256 cellar: :any,                 sonoma:         "53a7f1a043f5708158ebf2fc938fcd0f76e2f47da209814aed9e12caa7a6c7bc"
-    sha256 cellar: :any,                 ventura:        "9d357124c24134bb5e5d992073c867ec5decf7edbf76227efdcd0b86863590d4"
-    sha256 cellar: :any,                 monterey:       "94faaab4fca78b8e1c28970dd91cb54a70261267b6bbb7094778c214e3aa5253"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "79270db6be07d6543373782a6a199cbe1ca125ee4286d619a9fb8247ff13c39e"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_sequoia: "2d85ad6023553aa69fc2af249be516eb38c38d96a324fee2c5908bc7c414a28c"
+    sha256 cellar: :any,                 arm64_sonoma:  "c84bafd4f7d6bfbc73e0a65a4e6b0fef5d18bb65bdfdd23e3e513a7e597b78ed"
+    sha256 cellar: :any,                 arm64_ventura: "6ae01cc535c53c181f260f7e89f06a9f680710434423f30ff201bd631d868807"
+    sha256 cellar: :any,                 sonoma:        "33d7efedaa8f2d5a2c0eb95dc339e14138aab4b6c5b2f55648075095d6c41840"
+    sha256 cellar: :any,                 ventura:       "01bf3ec196807e72ccb7e0e8cc07586fd5e49c28609a8c7ebe54a30a2b0ead48"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dd1cf543ac35c88eb9f6a77d9ed3671e49726077798af1f865b20fc99dc4b789"
   end
 
   depends_on "ninja" => :build
+  depends_on "pkg-config" => :build
   depends_on "pybind11" => :build
   depends_on "rust" => :build
   depends_on "certifi"
   depends_on "cryptography"
   depends_on "freetype"
+  depends_on "libsodium" # for pynacl
   depends_on "libyaml"
   depends_on "numpy"
   depends_on "pillow"
@@ -353,34 +353,39 @@ class Fdroidserver < Formula
     # has resolved: https://sourceforge.net/p/ruamel-yaml-clib/tickets/32/
     ENV.append_to_cflags "-Wno-incompatible-function-pointer-types" if DevelopmentTools.clang_build_version >= 1500
 
-    # `matplotlib` needs extra inputs to use system libraries.
-    # Ref: https://github.com/matplotlib/matplotlib/blob/v3.8.3/doc/users/installing/dependencies.rst#use-system-libraries
-    # TODO: Update build to use `--config-settings=setup-args=...` when `matplotlib` switches to `meson-python`.
-    ENV["MPLSETUPCFG"] = buildpath/"mplsetup.cfg"
-    (buildpath/"mplsetup.cfg").write <<~EOS
-      [libs]
-      system_freetype = true
-      system_qhull = true
-    EOS
+    ENV["SODIUM_INSTALL"] = "system"
+    venv = virtualenv_install_with_resources without: "matplotlib"
 
-    virtualenv_install_with_resources
+    # `matplotlib` needs extra inputs to use system libraries.
+    # Ref: https://github.com/matplotlib/matplotlib/blob/v3.9.2/doc/install/dependencies.rst#use-system-libraries
+    resource("matplotlib").stage do
+      python = venv.root/"bin/python"
+      system python, "-m", "pip", "install", "--config-settings=setup-args=-Dsystem-freetype=true",
+                                             "--config-settings=setup-args=-Dsystem-qhull=true",
+                                             *std_pip_args(prefix: false, build_isolation: true), "."
+    end
 
     bash_completion.install "completion/bash-completion" => "fdroid"
     doc.install "examples"
   end
 
   def caveats
-    <<~EOS
+    s = <<~EOS
       For complete functionality, fdroidserver requires that the
       Android SDK's "build-tools" and "platform-tools" are installed,
       and those require a Java JDK.  Also, it is best if the base path
-      of the Android SDK is set in the standard environment variable
-      ANDROID_HOME.  To do this all from the command line, run:
-
-        brew install --cask android-commandlinetools temurin
-        export ANDROID_HOME=#{share}/android-commandlinetools
-        $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager "platform-tools" "build-tools;34.0.0"
+      of the Android SDK is set in the environment variable ANDROID_HOME.
     EOS
+    on_macos do
+      s += <<~EOS
+        To do this all from the command line, run:
+
+          brew install --cask android-commandlinetools temurin
+          export ANDROID_HOME=#{share}/android-commandlinetools
+          $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager "platform-tools" "build-tools;34.0.0"
+      EOS
+    end
+    s
   end
 
   test do

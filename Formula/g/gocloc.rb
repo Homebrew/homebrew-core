@@ -1,20 +1,18 @@
 class Gocloc < Formula
   desc "Little fast LoC counter"
   homepage "https://github.com/hhatto/gocloc"
-  url "https://github.com/hhatto/gocloc/archive/refs/tags/v0.5.2.tar.gz"
-  sha256 "c8f95201bc6042767de7059cfd6a2a37799b3bf909ec61029baffe0f6ccc509d"
+  url "https://github.com/hhatto/gocloc/archive/refs/tags/v0.5.3.tar.gz"
+  sha256 "d5f875df523bb8cc884d9e118de609f0b8eca50a3c6f6c220ad01118da3387ce"
   license "MIT"
   head "https://github.com/hhatto/gocloc.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "1d9d4db071862619096979273f662e01ba18d2f8ab81f65368ed619019b058ac"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5d6658082d193feb28911a88898be12e99dad08122b8e4a7361c9bda70758b9d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5d6658082d193feb28911a88898be12e99dad08122b8e4a7361c9bda70758b9d"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5d6658082d193feb28911a88898be12e99dad08122b8e4a7361c9bda70758b9d"
-    sha256 cellar: :any_skip_relocation, sonoma:         "b7879e256399be4c19ea6973d142153c69cc16ec1da1ddda118806337baf774f"
-    sha256 cellar: :any_skip_relocation, ventura:        "b7879e256399be4c19ea6973d142153c69cc16ec1da1ddda118806337baf774f"
-    sha256 cellar: :any_skip_relocation, monterey:       "b7879e256399be4c19ea6973d142153c69cc16ec1da1ddda118806337baf774f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ea39420e5d5b63e1eef76ebe1240c5bd69efc689f35c262355d6ca03d3735368"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b9f4dc85c3ddc43c31527fd3f6df113617dd112aa22bca294e3355baa4b90d08"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b9f4dc85c3ddc43c31527fd3f6df113617dd112aa22bca294e3355baa4b90d08"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "b9f4dc85c3ddc43c31527fd3f6df113617dd112aa22bca294e3355baa4b90d08"
+    sha256 cellar: :any_skip_relocation, sonoma:        "bf63923a441b475a1978069a8cc40370ab978ea02b793c7c63c1ede93c140ffe"
+    sha256 cellar: :any_skip_relocation, ventura:       "bf63923a441b475a1978069a8cc40370ab978ea02b793c7c63c1ede93c140ffe"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c7ca7a047ee079c90fa7dd1e53b51057ef72641bc296e1d3d2d043eae5ef32ce"
   end
 
   depends_on "go" => :build

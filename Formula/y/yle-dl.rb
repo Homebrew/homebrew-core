@@ -9,25 +9,26 @@ class YleDl < Formula
   head "https://github.com/aajanki/yle-dl.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e49882140da40fd1734f0eadf76e77500e53e8f9edacc12e606e59a50854af5c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "699d3485abdee3ca4c869fd651215b49070effa67f786773e87148285c8b9b3f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "0d15e03d7008c2f29ac031640be52e0f6e10194d9a699056c1a6e640c7d7ee88"
-    sha256 cellar: :any_skip_relocation, sonoma:        "245376553d923eb97c7e5beacd403dec079123d4b8c9804df865f53534e80c5c"
-    sha256 cellar: :any_skip_relocation, ventura:       "c59b71dbb05064b2d33c3df6e5a4565a31f0703f6aee4c3382ffb29bd0ba503e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a8cd4cd512988ae4b1402f0b33292296718fb35916cb3b32c0f559e855d45113"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2f89bad2a5c7a46e5d11ac087f3a0d0a4375c04a238625f5b6165c1da2a75cd9"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ec2463a68469d8f1715fd69fc5c0f77fb1a6db6fc402740e3f8e6350083dda43"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "325a17f678a42fcdced8fc3a0f19e0dcb4aa5b946983eb370df5312272528752"
+    sha256 cellar: :any_skip_relocation, sonoma:        "63bacab605691852643422d604315ee36bebc2ac2dc3cead4577949d67884ca5"
+    sha256 cellar: :any_skip_relocation, ventura:       "2adcf076e27423b9e9cd8f61706501db21f2de336d4d8c1e6f5fe5e1961aa605"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e49e940be919eb6033fe7f36c8a64d2da3dcb3400cfad6cdc23eb2a06fc81872"
   end
 
   depends_on "certifi"
   depends_on "ffmpeg"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
   depends_on "rtmpdump"
 
   uses_from_macos "libxml2", since: :ventura
   uses_from_macos "libxslt"
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/63/09/c1bc53dab74b1816a00d8d030de5bf98f724c52c1635e07681d312f20be8/charset-normalizer-3.3.2.tar.gz"
-    sha256 "f30c3cb33b24454a82faecaf01b19c18562b1e89558fb6c56de4d9118a032fd5"
+    url "https://files.pythonhosted.org/packages/f2/4f/e1808dc01273379acc506d18f1504eb2d299bd4131743b9fc54d7be4df1e/charset_normalizer-3.4.0.tar.gz"
+    sha256 "223217c3d4f82c3ac5e29032b3f1c2eb0fb591b72161f86d93f5719079dae93e"
   end
 
   resource "configargparse" do

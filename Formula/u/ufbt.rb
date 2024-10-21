@@ -8,11 +8,11 @@ class Ufbt < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "8e4f12b3ea668c23131cf26a9b92a20a2dacd4530a88e50063a66a5a0207dee2"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "561e844026e50a7d961338d459851e9d62bca87f7449fc9404234b31a24e73d2"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "mslex" do
     url "https://files.pythonhosted.org/packages/b7/ec/530f1098d88f2076038799ddfe29d9b6e4d982df938ef6288e67d18b3f68/mslex-1.2.0.tar.gz"

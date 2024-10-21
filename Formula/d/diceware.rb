@@ -9,21 +9,20 @@ class Diceware < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "bca53edd81082b3c4948f25205a721f716b7f7c04e93b0947683293de381d60c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6bade6f11a1c53d8392b0f20b367bd7bc01c39485488b7a5dacf13a7223a6dd2"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6bade6f11a1c53d8392b0f20b367bd7bc01c39485488b7a5dacf13a7223a6dd2"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6bade6f11a1c53d8392b0f20b367bd7bc01c39485488b7a5dacf13a7223a6dd2"
-    sha256 cellar: :any_skip_relocation, sonoma:         "d7d85bb88516b88f82118101047be74b214304d32cfc8428b81db6546180cf4d"
-    sha256 cellar: :any_skip_relocation, ventura:        "d7d85bb88516b88f82118101047be74b214304d32cfc8428b81db6546180cf4d"
-    sha256 cellar: :any_skip_relocation, monterey:       "d7d85bb88516b88f82118101047be74b214304d32cfc8428b81db6546180cf4d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "47e6638b7655607aa3151db297d2d8e3621f0bfb9a3d8b4af17b79a4d9fd21a9"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "30161c381edbde1a05ba7ee432f9533376240d025bab8db2c08c2efd44963678"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "30161c381edbde1a05ba7ee432f9533376240d025bab8db2c08c2efd44963678"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "30161c381edbde1a05ba7ee432f9533376240d025bab8db2c08c2efd44963678"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c98ce2ef751cd800fe944900ca6ba267dbbef0d65bbb8ce9141f069425e41ba9"
+    sha256 cellar: :any_skip_relocation, ventura:       "c98ce2ef751cd800fe944900ca6ba267dbbef0d65bbb8ce9141f069425e41ba9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9fa6e49310aa8a310ffefc2fce7de4c134542b083ee86e2815a1ac8ce2633301"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/65/d8/10a70e86f6c28ae59f101a9de6d77bf70f147180fbf40c3af0f64080adc3/setuptools-70.3.0.tar.gz"
-    sha256 "f171bab1dfbc86b132997f26a119f6056a57950d058587841a0082e8830f9dc5"
+    url "https://files.pythonhosted.org/packages/27/b8/f21073fde99492b33ca357876430822e4800cdf522011f18041351dfa74b/setuptools-75.1.0.tar.gz"
+    sha256 "d59a21b17a275fb872a9c3dae73963160ae079f1049ed956880cd7c09b120538"
   end
 
   def install

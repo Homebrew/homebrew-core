@@ -8,17 +8,16 @@ class AdbEnhanced < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "b17c401ced43174e5dbdd06208f010c754fe7c8b489a45c3fbf3fadfab8c902b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "73049ba80f9f51c3c190cf456d999a3243ff72331ecb13a738ff121665afc07f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "13919ee4ff983ed9705b02eccc0da8998b298d0ec87e1b884ce54cbe84e29862"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "29c4830ae8ed9e020d149887bbf6e94ecacb9dfb5c5b8063f8ad0ec42d908f9d"
-    sha256 cellar: :any_skip_relocation, sonoma:         "aad3a353a7e4c295c968ead4b676dbdf706196c128a27e9a4ef354245f7f8e8c"
-    sha256 cellar: :any_skip_relocation, ventura:        "ae9c39f55e02bbbad34a6ad763b52b87878795ad597617a33c6ee9022ba61456"
-    sha256 cellar: :any_skip_relocation, monterey:       "390415b792fc76642eedb61a27c8481404d378ecdae1eecac5f575627408c6aa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ce41b0c1a4fbcea81a08237bdf8630bcd93e8af60420bd346c482b2401ad2267"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8cf9d90b43874da9f96f287e01eff19306019042c9dbc1641d40e0d7eb950612"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2c6ffd4ecea05981249f50b94d12fb602c2915858c837b9d61dbfc0d467c2be1"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "fdcc36321c5778c81bb587694d04608f9c1e1617c781b0818339c23f9cf78cf9"
+    sha256 cellar: :any_skip_relocation, sonoma:        "4ef1a0c31c3dd44a7bd2c72abd676c7b1c2af29f5a16bcd9b3827d0854e304e2"
+    sha256 cellar: :any_skip_relocation, ventura:       "22a91ffb280d4b143607d9d4d3040b926e9761ef43772f329f2f8d1fb55b9cb6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4d0d9eb3a03003615e28a362234771ee2c200d732c82a8a155cf99d800ae27af"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "docopt" do
     url "https://files.pythonhosted.org/packages/a2/55/8f8cab2afd404cf578136ef2cc5dfb50baa1761b68c9da1fb1e4eed343c9/docopt-0.6.2.tar.gz"
@@ -26,8 +25,8 @@ class AdbEnhanced < Formula
   end
 
   resource "psutil" do
-    url "https://files.pythonhosted.org/packages/90/c7/6dc0a455d111f68ee43f27793971cf03fe29b6ef972042549db29eec39a2/psutil-5.9.8.tar.gz"
-    sha256 "6be126e3225486dff286a8fb9a06246a5253f4c7c53b475ea5f5ac934e64194c"
+    url "https://files.pythonhosted.org/packages/18/c7/8c6872f7372eb6a6b2e4708b88419fb46b857f7a2e1892966b851cc79fc9/psutil-6.0.0.tar.gz"
+    sha256 "8faae4f310b6d969fa26ca0545338b21f73c6b15db7c4a8d934a5482faa818f2"
   end
 
   def install

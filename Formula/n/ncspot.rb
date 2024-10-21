@@ -1,19 +1,17 @@
 class Ncspot < Formula
   desc "Cross-platform ncurses Spotify client written in Rust"
   homepage "https://github.com/hrkfdn/ncspot"
-  url "https://github.com/hrkfdn/ncspot/archive/refs/tags/v1.1.2.tar.gz"
-  sha256 "010b12172b85e6ae0eaf60ae0ab923580bcca0b132927b39c2a2fc878cb5e6a7"
+  url "https://github.com/hrkfdn/ncspot/archive/refs/tags/v1.2.0.tar.gz"
+  sha256 "0df821a5ea70a143d3529abadd39bcdd9643720a602c99a9c0f8f31f52b4a0fb"
   license "BSD-2-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "60492e62ed0ad866a045fb13e45fa47a25d04a135a68c11da91a1b55c9778e0c"
-    sha256 cellar: :any,                 arm64_sonoma:   "f35e1f05345078613107ce8a6575aa844fca53cee6fba089073c68a8a42dd295"
-    sha256 cellar: :any,                 arm64_ventura:  "d5f059902cd839d2cc48df038fa5d78939e078d700577600ff48a3732e7e8b36"
-    sha256 cellar: :any,                 arm64_monterey: "4f0d88861c7d77261f155e07c2b0a3672858f98a5d91146f7c399420af247f76"
-    sha256 cellar: :any,                 sonoma:         "a30496f729f77e6cf290295f55371b3ca7e4d3e37378d9d0c7b125431bd861c1"
-    sha256 cellar: :any,                 ventura:        "c89a281ecaa85cce097b7e26c4a09ba296e50d6ea4a7a07643db588417fea58b"
-    sha256 cellar: :any,                 monterey:       "35779c754e4dbf665d935d823dcc4bce25ab38771260ded056796279c1715acc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "93644e47a7c8003c11b11ce509dcc10600a9279ccb5e13079ddc1f507c631cef"
+    sha256 cellar: :any,                 arm64_sequoia: "d81b112192c5b91744b9fa5ea1a86ee32e9497c383ffe1475ea84e7ada4e9e98"
+    sha256 cellar: :any,                 arm64_sonoma:  "785bd8afceae248fcf3706021b5d6985969fefc7a528e696e134d13790be726b"
+    sha256 cellar: :any,                 arm64_ventura: "35fbd1b2f0d90a3bf86771b6f2095ae54a6ec990b0e4901b41550b0e795f30d0"
+    sha256 cellar: :any,                 sonoma:        "59630a6a71c3eb801f13a16015e8ddafd5055f4fbfdb362f3f51870ab77d76d0"
+    sha256 cellar: :any,                 ventura:       "313bdcac72e6b844031500f2ab90a7a942242d63d5f51d25ada79cef549bf909"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2d0f5902157b9749d35115c02de88af65b8a616b5ac304cef1e1585faa1fb9de"
   end
 
   depends_on "rust" => :build
@@ -49,7 +47,7 @@ class Ncspot < Formula
       sleep 1
       Process.kill("INT", wait_thr.pid)
 
-      assert_match "Please login to Spotify", stdout.read
+      assert_match "To login you need to perform OAuth2 authorization", stdout.read
     end
   end
 end

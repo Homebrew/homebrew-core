@@ -8,16 +8,15 @@ class Asitop < Formula
   license "MIT"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "391a7dd546c4da6fa100346898c67e9cb50ce4ee84116e2f169da9cb8df2b459"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f8fa9deb82c11f613cc6355f14433abf6a23b98bf414c42b93eb8d105b8f7cc8"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3a4be33923fd90e29181eb00164a1b5317e119de55529148b3bbff9134e7619c"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "21fee7bc3f0553f9481a591bb34933e9cc3087cacfe2a5a6a00154cfa6393f59"
+    rebuild 3
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9c1e7fc9030b7f6c0d68368093a95b6eb04a5aea4da0cf482ff7fd0929907dad"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a7e47b9f4b8cddd211162e0c6f6f3df826c24af7c5af20fac83e4cbda1a00495"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "a7aa18d47f90cffa03a4854dc5317182544dbe09b4e0bead5134a53a8593488d"
   end
 
   depends_on arch: :arm64
   depends_on :macos
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "blessed" do
     url "https://files.pythonhosted.org/packages/25/ae/92e9968ad23205389ec6bd82e2d4fca3817f1cdef34e10aa8d529ef8b1d7/blessed-1.20.0.tar.gz"
@@ -30,8 +29,8 @@ class Asitop < Formula
   end
 
   resource "psutil" do
-    url "https://files.pythonhosted.org/packages/90/c7/6dc0a455d111f68ee43f27793971cf03fe29b6ef972042549db29eec39a2/psutil-5.9.8.tar.gz"
-    sha256 "6be126e3225486dff286a8fb9a06246a5253f4c7c53b475ea5f5ac934e64194c"
+    url "https://files.pythonhosted.org/packages/18/c7/8c6872f7372eb6a6b2e4708b88419fb46b857f7a2e1892966b851cc79fc9/psutil-6.0.0.tar.gz"
+    sha256 "8faae4f310b6d969fa26ca0545338b21f73c6b15db7c4a8d934a5482faa818f2"
   end
 
   resource "six" do

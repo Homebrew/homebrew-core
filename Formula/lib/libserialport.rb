@@ -1,8 +1,8 @@
 class Libserialport < Formula
   desc "Cross-platform serial port C library"
   homepage "https://sigrok.org/wiki/Libserialport"
-  url "https://sigrok.org/download/source/libserialport/libserialport-0.1.1.tar.gz"
-  sha256 "4a2af9d9c3ff488e92fb75b4ba38b35bcf9b8a66df04773eba2a7bbf1fa7529d"
+  url "https://sigrok.org/download/source/libserialport/libserialport-0.1.2.tar.gz"
+  sha256 "5deb92b5ca72c0347b07b786848350deca2dcfd975ce613b8e0e1d947a4b4ca9"
   license "LGPL-3.0-or-later"
 
   livecheck do
@@ -11,21 +11,12 @@ class Libserialport < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "e3903ca8a1448fb69213adf607c5b7c6280d2c9019532bb4ff70cdd1945db53a"
-    sha256 cellar: :any,                 arm64_sonoma:   "f4b8d4b9994f2f1329439e9896f839d44098fa69f2a1e6cfa3e48428ee92284f"
-    sha256 cellar: :any,                 arm64_ventura:  "a098b8aa4d66fea6cdc78e340af45f3e87844075e38e28ccded1bddd3aa6bffb"
-    sha256 cellar: :any,                 arm64_monterey: "98634bbc472a1c93a19a2dab32765f0f5fce4b9991988283477254f7d7b30085"
-    sha256 cellar: :any,                 arm64_big_sur:  "cd674d1a466be43b3783028ca9f794d97ee5ce9c90f080cbbdb7c0479094cb26"
-    sha256 cellar: :any,                 sonoma:         "eb089ab6f23e983f0eab8f4120610364b2a15970cd2d9fe63c7643a3e7bd876b"
-    sha256 cellar: :any,                 ventura:        "775d4354019f534d14f9cec2b95b817e1c64037ea891980d16985fe641980033"
-    sha256 cellar: :any,                 monterey:       "f9c21dc09e5a4fde3db7f3d81f976493d6da259307e05beb915dd09787ca8b62"
-    sha256 cellar: :any,                 big_sur:        "67613224a8f626829329285c5dc904fb25b6dfcbf17e24e35aaeb9fbf33b0f26"
-    sha256 cellar: :any,                 catalina:       "e53b9056ea9adb40aa55ec99c3a3dc1bef6cc442c1e83e0ece688b597277cebc"
-    sha256 cellar: :any,                 mojave:         "abe07f2865be280c550e14a3db11cf5c99e1cd469409379f045b8280831926d6"
-    sha256 cellar: :any,                 high_sierra:    "36dd828a2eba76bf82a3cd9c2c9ed9b684753c3a38aea33269f82f699762422b"
-    sha256 cellar: :any,                 sierra:         "e34159ce49ba7c90e2fc0672f99df7b11a6d2de9ceccfc20679918bb87cb9b1e"
-    sha256 cellar: :any,                 el_capitan:     "a2e2cb79d5a3774077c7458b0c131e67d345e8e7b2dc29735302d003fec3379e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f696db2f116fab33f25bf2b8b3b907f7b0ff3ca44e66039a5ad103e41b1d8048"
+    sha256 cellar: :any,                 arm64_sequoia: "7b4c2b23d05044cd78465a863caab22fd8a1ea1d5938cb4227df56084e69f91a"
+    sha256 cellar: :any,                 arm64_sonoma:  "845cc5b5945587d1aa504531d09fea0956c75a6d7ea47dc3a6aa37533e33d74b"
+    sha256 cellar: :any,                 arm64_ventura: "d8e517c94d88c00c49c0e7243450f55ca8003cdb3e9b944f972d6673624701de"
+    sha256 cellar: :any,                 sonoma:        "e1f99856052b3f5329e02b481347bc28b0a8bdae9de5c99acc6993bcd6d4686d"
+    sha256 cellar: :any,                 ventura:       "bd710fe43d3a02c4c7a99663e1c6e5254810cbbdf7f71185d2a49398870503dd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5b61c51d632d2f98386a1eac5eff490bd6cda366f8e5d2edcdde021660ad2006"
   end
 
   def install

@@ -9,14 +9,13 @@ class Mapproxy < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "c45785fdc0fb887b491f6e59a331c6e2f15b7a6d4d1e212ee7a80aed20ca603a"
-    sha256 cellar: :any,                 arm64_sonoma:   "b2a4db9ae55eed18dcc9b5f992265cd507f63157f5bd258441ccee863103ca1e"
-    sha256 cellar: :any,                 arm64_ventura:  "e18f5c2d8ca001c1fbb5c285329e010edf1a15fc487c260260be7a956f5295a8"
-    sha256 cellar: :any,                 arm64_monterey: "729aa9b82b21f60f20ddb80a25f6d2c6831ba4efa682412bc46b0bb6a7636090"
-    sha256 cellar: :any,                 sonoma:         "c6584ba3540b951e3f47862fcbd72bad173e2f67a6b07f580cdfc1d2f177b950"
-    sha256 cellar: :any,                 ventura:        "213edfb1399fa044ae5ba2db68a9d24da0d12ac433634bcf61373337014f7935"
-    sha256 cellar: :any,                 monterey:       "f875f123cc9d8ae6c0a06fb741dc2d4ddbfa4894318377a72d64f20b9739b185"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a27250ca0044ab0bc0fb85ddaac7bbc7605c9b3e37d51f1cf200bdee41e1be34"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "0f22806f7c177628d68f4df0d66ead1857065a870995c15b37bce0eac22b6a88"
+    sha256 cellar: :any,                 arm64_sonoma:  "624261829203fca46444d9d6a956055869e34b7d9eb26e8a7d1e5799a18a4881"
+    sha256 cellar: :any,                 arm64_ventura: "660564477d2b53eb0a7c3275cbc1378e35570d385079d6f4b9b032e100dda496"
+    sha256 cellar: :any,                 sonoma:        "63755b43516844c71021edde5c726a310ed09da3d42ef719f95e52160afb1635"
+    sha256 cellar: :any,                 ventura:       "ae200bd8041334f3ef3242fe8cfa45bf657200711d943f72125fedc45457b22e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "32dd9f9c4ad79c42b2a791e5d9bf2273a6540f85d42370e8ade8ec95be9edae3"
   end
 
   depends_on "rust" => :build # for rpds-py
@@ -24,7 +23,7 @@ class Mapproxy < Formula
   depends_on "libyaml"
   depends_on "pillow"
   depends_on "proj"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "attrs" do
     url "https://files.pythonhosted.org/packages/fc/0f/aafca9af9315aee06a89ffde799a10a582fe8de76c563ee80bbcdc08b3fb/attrs-24.2.0.tar.gz"
@@ -42,13 +41,13 @@ class Mapproxy < Formula
   end
 
   resource "jsonschema-specifications" do
-    url "https://files.pythonhosted.org/packages/f8/b9/cc0cc592e7c195fb8a650c1d5990b10175cf13b4c97465c72ec841de9e4b/jsonschema_specifications-2023.12.1.tar.gz"
-    sha256 "48a76787b3e70f5ed53f1160d2b81f586e4ca6d1548c5de7085d1682674764cc"
+    url "https://files.pythonhosted.org/packages/10/db/58f950c996c793472e336ff3655b13fbcf1e3b359dcf52dcf3ed3b52c352/jsonschema_specifications-2024.10.1.tar.gz"
+    sha256 "0f38b83639958ce1152d02a7f062902c41c8fd20d558b0c34344292d417ae272"
   end
 
   resource "pyproj" do
-    url "https://files.pythonhosted.org/packages/7d/84/2b39bbf888c753ea48b40d47511548c77aa03445465c35cc4c4e9649b643/pyproj-3.6.1.tar.gz"
-    sha256 "44aa7c704c2b7d8fb3d483bbf75af6cb2350d30a63b144279a09b75fead501bf"
+    url "https://files.pythonhosted.org/packages/47/c2/0572c8e31aebf0270f15f3368adebd10fc473de9f09567a0743a3bc41c8d/pyproj-3.7.0.tar.gz"
+    sha256 "bf658f4aaf815d9d03c8121650b6f0b8067265c36e31bc6660b98ef144d81813"
   end
 
   resource "pyyaml" do

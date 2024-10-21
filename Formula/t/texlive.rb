@@ -8,7 +8,7 @@ class Texlive < Formula
   mirror "https://ftp.tu-chemnitz.de/pub/tug/historic/systems/texlive/2024/texlive-20240312-source.tar.xz"
   sha256 "7b6d87cf01661670fac45c93126bed97b9843139ed510f975d047ea938b6fe96"
   license :cannot_represent
-  revision 1
+  revision 2
   head "https://github.com/TeX-Live/texlive-source.git", branch: "trunk"
 
   livecheck do
@@ -34,14 +34,12 @@ class Texlive < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia:  "94a2f611a38724fbc8dc21aaecb445a3f2bb61fffd5a7bc2ed13291716fac2b7"
-    sha256 arm64_sonoma:   "36f2ac1e40afea99ec819132bf2efcb5d47e4490c02729ed24444e6884b1fbd6"
-    sha256 arm64_ventura:  "903ac239e9213bbf89ec733589406a5c060d7f35ad2e53c3ca0d1d2db39cebd0"
-    sha256 arm64_monterey: "258165d99a101ca6ec8afac14aa3a4006cab92bb26b2ab3e87d39a342ad0f95e"
-    sha256 sonoma:         "b649f37b6ed625cf602c1218aea9f2bec68ec5deb8bc6b6a455f43dd7120df7b"
-    sha256 ventura:        "060e5ae8e5760b73a48b738aa214a4434b2987c5c9224658c718257f2fde3796"
-    sha256 monterey:       "8c26b5f1eb681a43adad972a79d97302f66f5be8d6ec72f807cf24ad583f2c64"
-    sha256 x86_64_linux:   "b7847a9f7f3da040504204b65eb3f4a7c7c5f3ab9be13b7a8919d85949aaa265"
+    sha256 arm64_sequoia: "8df2b87b3e5dd1e8cbcf411ba01087f44124a7c0798e2ea92b6f1ab539882bc5"
+    sha256 arm64_sonoma:  "789c9b7588798cba955bd5b4ed904f50cd96440cf249d9a6e4639faa925a471a"
+    sha256 arm64_ventura: "39e722eb05f849c70152f8017034402eabd4406b560f77a56dacfc9528f4ea4d"
+    sha256 sonoma:        "d36fab3f2d82a1874455c600b49b0257fa36bbde33b0307c9f9b249961cf5eed"
+    sha256 ventura:       "75a57de98c2735f315d51dedb9c0102d39fda3ab0dcea3a37ae666619849eac0"
+    sha256 x86_64_linux:  "109a5919769a185f04fd1c1c34a462fbc07371e68fd25da3eb3d0dd7585e5a24"
   end
 
   depends_on "pkg-config" => :build
@@ -54,7 +52,7 @@ class Texlive < Formula
   depends_on "gmp"
   depends_on "graphite2"
   depends_on "harfbuzz"
-  depends_on "icu4c"
+  depends_on "icu4c@75"
   depends_on "jpeg-turbo"
   depends_on "libpng"
   depends_on "libx11"
@@ -69,6 +67,7 @@ class Texlive < Formula
   depends_on "potrace"
   depends_on "pstoedit"
   depends_on "python@3.12"
+
   uses_from_macos "ncurses"
   uses_from_macos "ruby"
   uses_from_macos "tcl-tk"
@@ -410,6 +409,9 @@ class Texlive < Formula
               "TEXMFROOT = $SELFAUTOPARENT", "TEXMFROOT = $SELFAUTODIR/share"
     inreplace share/"texmf-dist/web2c/texmfcnf.lua",
               "selfautoparent:texmf", "selfautodir:share/texmf"
+
+    # icu4c 75+ needs C++17
+    ENV.append "CXXFLAGS", "-std=gnu++17"
 
     args = std_configure_args + [
       "--disable-dvisvgm", # needs its own formula

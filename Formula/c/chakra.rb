@@ -2,7 +2,7 @@ class Chakra < Formula
   desc "Core part of the JavaScript engine that powers Microsoft Edge"
   homepage "https://github.com/chakra-core/ChakraCore"
   license "MIT"
-  revision 7
+  revision 8
   head "https://github.com/chakra-core/ChakraCore.git", branch: "master"
 
   stable do
@@ -37,14 +37,13 @@ class Chakra < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 sonoma:       "f39b6f95009d65bd7cc461518c1667856471393d6c1260f99daa2ae667b53194"
-    sha256 cellar: :any,                 ventura:      "c4db98f4364992cf9986fa29fa7d33dfa20c8e3ddc9cde9240958d7cfbf69626"
-    sha256 cellar: :any,                 monterey:     "60e90a2fe6f156a7653e0a399b786fd8dbec2614dd42dd639fe735a608331503"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "21fa51d8801cdb1e3982bc85d2e02370faa1eb78320bf01e40937295516e81a8"
+    sha256 cellar: :any,                 sonoma:       "0312de0964e13f78d77a70f2ce9fb07a551698c2845572797c5bcfee70445a22"
+    sha256 cellar: :any,                 ventura:      "eee806adf9099aa00c3680bdb59e3e2cd995e85020d97654a84c668375d463bd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "de0544b3bb920d7764b0a51ea1e591512f06791bc1ae18ddea9be6f6b33bf740"
   end
 
   depends_on "cmake" => :build
-  depends_on "icu4c"
+  depends_on "icu4c@75"
 
   uses_from_macos "llvm" => :build
   uses_from_macos "python" => :build
@@ -57,8 +56,9 @@ class Chakra < Formula
     # Use ld_classic to work around 'ld: Assertion failed: (0 && "lto symbol should not be in layout")'
     ENV.append "LDFLAGS", "-Wl,-ld_classic" if DevelopmentTools.clang_build_version >= 1500
 
+    icu4c_dep = deps.find { |dep| dep.name.match?(/^icu4c(@\d+)?$/) }
     args = %W[
-      --custom-icu=#{Formula["icu4c"].opt_include}
+      --custom-icu=#{icu4c_dep.to_formula.opt_include}
       --jobs=#{ENV.make_jobs}
       -y
     ]

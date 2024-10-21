@@ -1,13 +1,13 @@
 class Gkrellm < Formula
   desc "Extensible GTK system monitoring application"
   homepage "https://billw2.github.io/gkrellm/gkrellm.html"
-  url "http://gkrellm.srcbox.net/releases/gkrellm-2.3.11.tar.bz2"
+  url "https://gkrellm.srcbox.net/releases/gkrellm-2.3.11.tar.bz2"
   sha256 "1ee0643ed9ed99f88c1504c89d9ccb20780cf29319c904b68e80a8e7c8678c06"
   license "GPL-3.0-or-later"
   revision 4
 
   livecheck do
-    url "http://gkrellm.srcbox.net/releases/"
+    url "https://gkrellm.srcbox.net/releases/"
     regex(/href=.*?gkrellm[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 

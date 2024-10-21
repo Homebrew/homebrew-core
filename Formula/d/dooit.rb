@@ -9,20 +9,18 @@ class Dooit < Formula
   head "https://github.com/kraanzu/dooit.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia:  "70310caab96b8caec3664437cdfabb793aa20252be9c50903b0deda67c22ef82"
-    sha256 cellar: :any,                 arm64_sonoma:   "ceea10c16d0caddcacfa1da5e1e6e1ec916c8fcc6ae67690100a9ecc452e7a33"
-    sha256 cellar: :any,                 arm64_ventura:  "33afbc553e2b7ca98c3b61e8fbd89440554a9ee8ef7fdbed540a142c9eb09470"
-    sha256 cellar: :any,                 arm64_monterey: "3f7e75d7188a282c527a59e32756343023e8f0e41b8f815b6cc86ab759568cc3"
-    sha256 cellar: :any,                 sonoma:         "c70ff4800e80424f0aca6d78610529570cfa2f2ed9fdcc9664e80769f79dd1c6"
-    sha256 cellar: :any,                 ventura:        "c1cf1fa0dcc9499b73b23505cce8df918a1a22283fc963007cb2ce39537151c2"
-    sha256 cellar: :any,                 monterey:       "569a966285bc4865abe9afe5e97ca0231836867201a5aadaf8f893ebc4b75be7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "07bae1717067eae0ed9f9e89b0fc591b78b627e94f60ad6b619f2fc40f84e316"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_sequoia: "7e6f51bb377fa314c1657dc627c149da1d3c4974b0bf444d5d50eba425583331"
+    sha256 cellar: :any,                 arm64_sonoma:  "8cc706c65714d53902ad72ad6b0a433bf94bed67eb9d9a1dbaac30c4d6152bc3"
+    sha256 cellar: :any,                 arm64_ventura: "c1e4cd2d863af38a2b47009bc74428f572ecb49c53a122868088949b30fb0dfd"
+    sha256 cellar: :any,                 sonoma:        "6e810c584f66d6803616f72b869786ec776a50b308e24ec071362eeb2314a476"
+    sha256 cellar: :any,                 ventura:       "f2e11d9f0d402b6670aa56bbf90879d58252ce7dc52a7eaa57880438d41a315f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "21dabcd66a35b0ecdb3edd0b33fdb593cae8fe18e3e9d95a4b7b938996c5b320"
   end
 
   depends_on "cmake" => :build
   depends_on "libyaml"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "appdirs" do
     url "https://files.pythonhosted.org/packages/d7/d8/05696357e0311f5b5c316d7b95f46c669dd9c15aaeecbb48c7d0aeb88c40/appdirs-1.4.4.tar.gz"
@@ -40,8 +38,8 @@ class Dooit < Formula
   end
 
   resource "mdit-py-plugins" do
-    url "https://files.pythonhosted.org/packages/b4/db/61960d68d5c39ff0dd48cb799a39ae4e297f6e9b96bf2f8da29d897fba0c/mdit_py_plugins-0.4.0.tar.gz"
-    sha256 "d8ab27e9aed6c38aa716819fedfde15ca275715955f8a185a8e1cf90fb1d2c1b"
+    url "https://files.pythonhosted.org/packages/19/03/a2ecab526543b152300717cf232bb4bb8605b6edb946c845016fa9c9c9fd/mdit_py_plugins-0.4.2.tar.gz"
+    sha256 "5f2cd1fdb606ddf152d37ec30e46101a60512bc0e5fa1a7002c36647b09e26b5"
   end
 
   resource "mdurl" do
@@ -50,33 +48,33 @@ class Dooit < Formula
   end
 
   resource "pygments" do
-    url "https://files.pythonhosted.org/packages/55/59/8bccf4157baf25e4aa5a0bb7fa3ba8600907de105ebc22b0c78cfbf6f565/pygments-2.17.2.tar.gz"
-    sha256 "da46cec9fd2de5be3a8a784f434e4c4ab670b4ff54d605c4c2717e9d49c4c367"
+    url "https://files.pythonhosted.org/packages/8e/62/8336eff65bcbc8e4cb5d05b55faf041285951b6e80f33e2bff2024788f31/pygments-2.18.0.tar.gz"
+    sha256 "786ff802f32e91311bff3889f6e9a86e81505fe99f2735bb6d60ae0c5004f199"
   end
 
   resource "pyperclip" do
-    url "https://files.pythonhosted.org/packages/a7/2c/4c64579f847bd5d539803c8b909e54ba087a79d01bb3aba433a95879a6c5/pyperclip-1.8.2.tar.gz"
-    sha256 "105254a8b04934f0bc84e9c24eb360a591aaf6535c9def5f29d92af107a9bf57"
+    url "https://files.pythonhosted.org/packages/30/23/2f0a3efc4d6a32f3b63cdff36cd398d9701d26cda58e3ab97ac79fb5e60d/pyperclip-1.9.0.tar.gz"
+    sha256 "b7de0142ddc81bfc5c7507eea19da920b92252b548b96186caf94a5e2527d310"
   end
 
   resource "python-dateutil" do
-    url "https://files.pythonhosted.org/packages/4c/c4/13b4776ea2d76c115c1d1b84579f3764ee6d57204f6be27119f13a61d0a9/python-dateutil-2.8.2.tar.gz"
-    sha256 "0123cacc1627ae19ddf3c27a5de5bd67ee4586fbdd6440d9748f8abb483d3e86"
+    url "https://files.pythonhosted.org/packages/66/c0/0c8b6ad9f17a802ee498c46e004a0eb49bc148f2fd230864601a86dcf6db/python-dateutil-2.9.0.post0.tar.gz"
+    sha256 "37dd54208da7e1cd875388217d5e00ebd4179249f90fb72437e91a35459a0ad3"
   end
 
   resource "pytz" do
-    url "https://files.pythonhosted.org/packages/90/26/9f1f00a5d021fff16dee3de13d43e5e978f3d58928e129c3a62cf7eb9738/pytz-2024.1.tar.gz"
-    sha256 "2a29735ea9c18baf14b448846bde5a48030ed267578472d8955cd0e7443a9812"
+    url "https://files.pythonhosted.org/packages/3a/31/3c70bf7603cc2dca0f19bdc53b4537a797747a58875b552c8c413d963a3f/pytz-2024.2.tar.gz"
+    sha256 "2aa355083c50a0f93fa581709deac0c9ad65cca8a9e9beac660adcbd493c798a"
   end
 
   resource "pyyaml" do
-    url "https://files.pythonhosted.org/packages/cd/e5/af35f7ea75cf72f2cd079c95ee16797de7cd71f29ea7c68ae5ce7be1eda0/PyYAML-6.0.1.tar.gz"
-    sha256 "bfdf460b1736c775f2ba9f6a92bca30bc2095067b8a9d77876d1fad6cc3b4a43"
+    url "https://files.pythonhosted.org/packages/54/ed/79a089b6be93607fa5cdaedf301d7dfb23af5f25c398d5ead2525b063e17/pyyaml-6.0.2.tar.gz"
+    sha256 "d584d9ec91ad65861cc08d42e834324ef890a082e591037abe114850ff7bbc3e"
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/a7/ec/4a7d80728bd429f7c0d4d51245287158a1516315cadbb146012439403a9d/rich-13.7.0.tar.gz"
-    sha256 "5cb5123b5cf9ee70584244246816e9114227e0b98ad9176eede6ad54bf5403fa"
+    url "https://files.pythonhosted.org/packages/aa/9e/1784d15b057b0075e5136445aaea92d23955aad2c93eaede673718a40d95/rich-13.9.2.tar.gz"
+    sha256 "51a2c62057461aaf7152b4d611168f93a9fc73068f8ded2790f29fe2b5366d0c"
   end
 
   resource "six" do
@@ -90,8 +88,8 @@ class Dooit < Formula
   end
 
   resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/0c/1d/eb26f5e75100d531d7399ae800814b069bc2ed2a7410834d57374d010d96/typing_extensions-4.9.0.tar.gz"
-    sha256 "23478f88c37f27d76ac8aee6c905017a143b0b1b886c3c9f66bc2fd94f9f5783"
+    url "https://files.pythonhosted.org/packages/df/db/f35a00659bc03fec321ba8bce9420de607a1d37f8342eee1863174c69557/typing_extensions-4.12.2.tar.gz"
+    sha256 "1a7ead55c7e559dd4dee8856e3a88b41225abfe1ce8df57b7c13915fe121ffb8"
   end
 
   resource "tzlocal" do

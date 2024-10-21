@@ -3,8 +3,8 @@ class Emscripten < Formula
   homepage "https://emscripten.org/"
   # To automate fetching the required resource revisions, you can use this helper script:
   #   https://gist.github.com/carlocab/2db1d7245fa0cd3e92e01fe37b164021
-  url "https://github.com/emscripten-core/emscripten/archive/refs/tags/3.1.68.tar.gz"
-  sha256 "cfe270764458fcdba148b0f496abbddaeccf176891aa0096ee7b58696e407c08"
+  url "https://github.com/emscripten-core/emscripten/archive/refs/tags/3.1.69.tar.gz"
+  sha256 "3ceb2acbf3551146753c1abef8feb24347403bf13713820ea9dddbd946f9e4ac"
   license all_of: [
     "Apache-2.0", # binaryen
     "Apache-2.0" => { with: "LLVM-exception" }, # llvm
@@ -18,17 +18,18 @@ class Emscripten < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "e5cf029f19b88089b0bbf404e75f989a5c18f0b5e63b68a51946d621653da1ad"
-    sha256 cellar: :any,                 arm64_sonoma:  "5790378961eda63057f46b62bbdf680b95e176f24300c0e51ddd62bee5314f22"
-    sha256 cellar: :any,                 arm64_ventura: "23676365fa73dd9103417eda52ed4641e1ea31ac36537b4dddb3711b95240114"
-    sha256 cellar: :any,                 sonoma:        "8fbe008e6d366d86718307c4c0380764134b7c01137376194920453cf99f0687"
-    sha256 cellar: :any,                 ventura:       "6cc661a49b9c1c2dcb132d9f1e0e795f29ee0aa86d5a859ab27c8dc54b37c17b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ecba8b292d88277726b903b8ba55ce646c3a8e82bc712ae29d7104da1fa12582"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "598835c05a74e678ade6d90621fa68265d029d14b8784f7255563d5ac25c3849"
+    sha256 cellar: :any,                 arm64_sonoma:  "a46172e6bf63d5646fe33e1cc339fedaafc3b46962693ae37e6a35b4f8e268d2"
+    sha256 cellar: :any,                 arm64_ventura: "d991849e39b8863e7bd75c8ab031857b47f86345da67515bad45030f6a653753"
+    sha256 cellar: :any,                 sonoma:        "c63d5d09cb9bc59833a89ec5958dba15662282c89a4fb0afd8dd07ddfa87bf9c"
+    sha256 cellar: :any,                 ventura:       "46129d9f616da66c0f66d7825341b7e417f386351fa22d4ed210ad6194e4bcad"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2e1bbd5983de7e8668c37a1d665362c09065049313f97f2534c5d5e54d3c9087"
   end
 
   depends_on "cmake" => :build
   depends_on "node"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
   depends_on "yuicompressor"
 
   uses_from_macos "llvm" => :build
@@ -178,7 +179,7 @@ class Emscripten < Formula
 
     # Add JAVA_HOME to env_script on ARM64 macOS and Linux, so that google-closure-compiler
     # can find OpenJDK
-    emscript_env = { PYTHON: Formula["python@3.12"].opt_bin/"python3.12" }
+    emscript_env = { PYTHON: Formula["python@3.13"].opt_bin/"python3.13" }
     emscript_env.merge! Language::Java.overridable_java_home_env if OS.linux? || Hardware::CPU.arm?
 
     emscripts.each do |emscript|

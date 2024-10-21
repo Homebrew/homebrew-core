@@ -4,7 +4,7 @@ class Hfstospell < Formula
   url "https://github.com/hfst/hfst-ospell/releases/download/v0.5.4/hfst-ospell-0.5.4.tar.bz2"
   sha256 "ab644c802f813a06a406656c3a873d31f6a999e13cafc9df68b03e76714eae0e"
   license "Apache-2.0"
-  revision 1
+  revision 2
 
   livecheck do
     url :stable
@@ -12,21 +12,19 @@ class Hfstospell < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "f0fcbf35aa11a9108c2165ea4dadb06a874f5d23bee439e49e560ad6f91437d6"
-    sha256 cellar: :any,                 arm64_sonoma:   "3ac3c8db816a221fb4d31304d7a3f911e5dbc26ea2a41c757bd23cbcfd095219"
-    sha256 cellar: :any,                 arm64_ventura:  "ca1e9a08dc2804c886e2501717896a1b3c6656d168a4a6dd7f0a7cdbc186bae8"
-    sha256 cellar: :any,                 arm64_monterey: "bce636afc077660217f0add724744471c59d3d23b6664737f8b576acccb789c1"
-    sha256 cellar: :any,                 sonoma:         "5f63b59ba5001fb6a180921ed1954f3f9e24246a9ec550005f073c2f2ebed844"
-    sha256 cellar: :any,                 ventura:        "1ad2317687be55cf5919f36fe0880d8b048c56b768222e345ef17840b43649b1"
-    sha256 cellar: :any,                 monterey:       "b74b4d89c1b3e3fc69260ef95bf038138a6ef5a0f7ebb18418eb2a71bdbdcd6d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "65a917c07469f364dbe04c80c768aa2862c8a92495fe82c9ebaa47b02186bae5"
+    sha256 cellar: :any,                 arm64_sequoia: "5088d0c6429873262ec79577c701699532cd99c1bf77455a7ab63be572d0a787"
+    sha256 cellar: :any,                 arm64_sonoma:  "b2cac7b26219df1c209b6835eb7abff43cdc9ecd766355a334d5a6e7c79b731e"
+    sha256 cellar: :any,                 arm64_ventura: "c64c20fadfed9935cb46d863b734d8e0298d12e28ba0aed28d187232fe9dfcd5"
+    sha256 cellar: :any,                 sonoma:        "dddc494496217b19c302f5fc906c024a712db29339572df6f5636c7ea389e29b"
+    sha256 cellar: :any,                 ventura:       "52dac24f4d57082868ea44dc3f5c9783a9bffe84bf03104f7f739fb3551e6292"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "544f9983ad1876b2b7c6be80d6eea1d0f8ca74dc5995544d1ac1d2da0d865d8c"
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
-  depends_on "icu4c"
+  depends_on "icu4c@75"
   depends_on "libarchive"
 
   def install

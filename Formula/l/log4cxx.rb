@@ -1,23 +1,22 @@
 class Log4cxx < Formula
   desc "Library of C++ classes for flexible logging"
   homepage "https://logging.apache.org/log4cxx/index.html"
-  url "https://www.apache.org/dyn/closer.lua?path=logging/log4cxx/1.2.0/apache-log4cxx-1.2.0.tar.gz"
-  mirror "https://archive.apache.org/dist/logging/log4cxx/1.2.0/apache-log4cxx-1.2.0.tar.gz"
-  sha256 "09f4748aa5675ef5c0770bedbf5e00488668933c5a935a43ac5b85be2436c48a"
+  url "https://www.apache.org/dyn/closer.lua?path=logging/log4cxx/1.3.0/apache-log4cxx-1.3.0.tar.gz"
+  mirror "https://archive.apache.org/dist/logging/log4cxx/1.3.0/apache-log4cxx-1.3.0.tar.gz"
+  sha256 "801520fe8b664df2216c5194524a03efb234326f24347e778c27e4f59f913c42"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "8c5489d45bf2b3bc855f59dbacbd6399b3d9f92ac00a1d11e51617bd48eefe77"
-    sha256 cellar: :any,                 arm64_sonoma:   "ae968c162e73526143bcaeea0522ee360a8e2adb760907deb985e0f403eeaf4a"
-    sha256 cellar: :any,                 arm64_ventura:  "97fb128001e637e57e029e2b2bf49de3fe7a066948c7b07e6efe1ac632a04f2c"
-    sha256 cellar: :any,                 arm64_monterey: "12f426219bc428535331856f114e9cc62ee7c6e27562a19bd99f687d1a9bea92"
-    sha256 cellar: :any,                 sonoma:         "4ccefef8d95df7a5de25e9cdc12a35c2294343f7e25946fd595d3fa109a97af1"
-    sha256 cellar: :any,                 ventura:        "07223ca4687861da6e1dfefde93c4cca205af8a8c44abba7e4171889c77cc051"
-    sha256 cellar: :any,                 monterey:       "2b81e6a1ce0e9f4d7be75fa8e32bd3d0f8919a50cadc15c5887db60995b0b982"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ef721c73d011ef0cba1683287e67e61a09b7f97e75be0328a748994bbdef7379"
+    sha256 cellar: :any,                 arm64_sequoia: "dc0e35478e8d145eb1d00e622ee641f1b69b5e4922b5e62cd6f40bba5e243fe3"
+    sha256 cellar: :any,                 arm64_sonoma:  "9dc096c5dda72f4bb58ae947b45668d60e9afbc4a4fa897e0e165f9071f46fab"
+    sha256 cellar: :any,                 arm64_ventura: "4692f58f8f661c207dc7e74198b8efe766981c11e1efd620c9401f7bc5806ef3"
+    sha256 cellar: :any,                 sonoma:        "f1839934223cce206804d2342975fd31aa3d8acab39e9e5f6bac3bee36cf3511"
+    sha256 cellar: :any,                 ventura:       "cbf741236036414c70cf27666fd7d88143cb762967762fc31b21f347d0c27e5e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "17829bf537d780bb62f4dacb2a1420ce07915eea0add5f4a4d11914c18e2e354"
   end
 
   depends_on "cmake" => :build
+  depends_on "apr"
   depends_on "apr-util"
 
   fails_with gcc: "5" # needs C++17 or Boost

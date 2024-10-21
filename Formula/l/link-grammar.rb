@@ -7,14 +7,13 @@ class LinkGrammar < Formula
   head "https://github.com/opencog/link-grammar.git", branch: "master"
 
   bottle do
-    sha256 arm64_sequoia:  "037a5688edf08462771455d1cd98f227fa3935259ee3665ba401d2d886f69982"
-    sha256 arm64_sonoma:   "18358c44bd3d2e2a1f9890dee6ce8e200876e22d07e7a699b19ccc4ea161bdaf"
-    sha256 arm64_ventura:  "e5afe2d8e8eab8fab995baabf62cf0826d367213354f9108081484c04efef4e3"
-    sha256 arm64_monterey: "9246771db1a1c670fcca1dbd16716ea91e94211e9815f87c2da453de68a13188"
-    sha256 sonoma:         "70870df7a0d5f8c55e005c8ce1e07fd36aa56fd992cce23988e620611c116042"
-    sha256 ventura:        "e4463f81638102c1514527f4443a82dff59a46eec880de83aac8bdc6d3f11112"
-    sha256 monterey:       "217da87c271c6650225561095f571a8b4a713a0b5c03af06dbab09d9d05d99f8"
-    sha256 x86_64_linux:   "75048ee666d4d971e2f7bba40f205ebdf4b6e670f74a005cc00ac6faf8e41024"
+    rebuild 1
+    sha256 arm64_sequoia: "b26e4fb3730ac1335febb636248f4a6dcf31b76b328a49ff7404e3586d9d4a51"
+    sha256 arm64_sonoma:  "5563be9ea4470cc7ae91162e1c545eb00f6ea20a942750233c4723d0a8a09bc1"
+    sha256 arm64_ventura: "094dbdda6530047c3088035b5b16c9315b43c1e6252fcbcbbbb706c075dc1487"
+    sha256 sonoma:        "a6ef066ddfc0d3bb883ca2b8344f2a54d293d1c418856a9e607735a0230de93f"
+    sha256 ventura:       "87d8eeae3531cc7a818c7667df6856941cafa353fc71c38edcfa2c5462da7268"
+    sha256 x86_64_linux:  "46e825822f99d43ea7eeab2751ba0e4bc36a63de3dbfed1446cb5639b5814fe1"
   end
 
   depends_on "ant" => :build
@@ -23,7 +22,7 @@ class LinkGrammar < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.12" => :build
+  depends_on "python@3.13" => :build
   depends_on "swig" => :build
 
   uses_from_macos "flex" => :build
@@ -42,7 +41,7 @@ class LinkGrammar < Formula
 
     # Work around error due to install using detected path inside Python formula.
     # install: .../site-packages/linkgrammar.pth: Operation not permitted
-    site_packages = prefix/Language::Python.site_packages("python3.12")
+    site_packages = prefix/Language::Python.site_packages("python3.13")
     system "make", "install", "pythondir=#{site_packages}",
                               "pyexecdir=#{site_packages}"
   end

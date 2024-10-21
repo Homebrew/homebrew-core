@@ -2,7 +2,9 @@ a2ps
 abcmidi
 abi3audit
 abseil
+abyss
 ack
+acl2
 act
 action-validator
 actionlint
@@ -118,6 +120,7 @@ astyle
 asuka
 asymptote
 asyncapi
+asyncplusplus
 at-spi2-core
 atlantis
 atlas
@@ -127,6 +130,7 @@ atuin
 audacious
 auditbeat
 auditwheel
+austin
 autobrr
 autodiff
 automake
@@ -197,6 +201,7 @@ bc-gh
 bcoin
 bcpp
 bde
+bdftopcf
 bdw-gc
 beagle
 beakerlib
@@ -226,6 +231,7 @@ biodiff
 biome
 biosig
 bitrise
+bittwist
 bitwarden-cli
 bk
 bkcrack
@@ -233,6 +239,7 @@ bkt
 black
 blast
 blis
+blisp
 blocky
 bluepill
 blueutil
@@ -278,6 +285,7 @@ busted
 butane
 bwa
 bwfmetaedit
+bwidget
 byacc
 byobu
 byteman
@@ -302,6 +310,7 @@ calc
 calceph
 calcurse
 calicoctl
+camlp5
 canfigger
 capnp
 capstone
@@ -377,6 +386,7 @@ chainsaw
 chamber
 changie
 chaoskube
+charm-tools
 charmcraft
 chars
 chart-testing
@@ -466,7 +476,6 @@ code-cli
 code-minimap
 code-server
 codec2
-codecov-cli
 codelimit
 coder
 codespell
@@ -502,6 +511,7 @@ corepack
 coreutils
 corral
 corrosion
+corsixth
 cortex
 cosign
 cotila
@@ -513,6 +523,7 @@ coursier
 cp2k
 cpi
 cpm
+cpp-gsl
 cpp-httplib
 cppad
 cppcheck
@@ -600,6 +611,7 @@ delve
 demumble
 deno
 dep-tree
+dependabot
 dependency-check
 deployer
 der-ascii
@@ -707,6 +719,7 @@ duck
 duckdb
 duckscript
 dufs
+dug
 dumpling
 dunamai
 dune
@@ -827,6 +840,7 @@ fastlane
 fastnetmon
 fastp
 fastqc
+fatal
 faudio
 fauna-shell
 faust
@@ -982,6 +996,7 @@ ghex
 ghorg
 ghostunnel
 ghq
+ghr
 ghz
 ghz-web
 gickup
@@ -1064,6 +1079,7 @@ go@1.22
 goaccess
 goawk
 gobject-introspection
+gocloc
 goctl
 godap
 goffice
@@ -1108,6 +1124,7 @@ gperftools
 gpg-tui
 gprof2dot
 gpsim
+gptme
 gptscript
 gql
 gradle
@@ -1205,6 +1222,7 @@ hof
 homebank
 hopenpgp-tools
 hoverfly
+howard-hinnant-date
 hpack
 hpp-fcl
 htmldoc
@@ -1313,6 +1331,7 @@ jetty
 jetty-runner
 jfrog-cli
 jhipster
+jikken
 jimtcl
 jj
 jlog
@@ -1350,6 +1369,7 @@ juju
 julia
 jupyterlab
 just
+jxl-oxide
 jython
 k2tf
 k3d
@@ -1385,6 +1405,7 @@ kics
 killport
 kin
 kind
+kiota
 kitchen-sync
 kitex
 klee
@@ -1487,6 +1508,7 @@ libarchive
 libass
 libassuan
 libavif
+libblastrampoline
 libbpf
 libbsd
 libcap
@@ -1500,8 +1522,10 @@ libcss
 libcyaml
 libdap
 libdeflate
+libdex
 libdivide
 libdnet
+libdom
 libdpp
 libdrm
 libedit
@@ -1527,12 +1551,14 @@ libgusb
 libgweather
 libhandy
 libheif
+libhubbub
 libical
 libidn2
 libimagequant
 libimobiledevice-glue
 libint
 libirecovery
+libjcat
 libjuice
 libjwt
 libkeccak
@@ -1587,6 +1613,7 @@ libsail
 libsais
 libscfg
 libsecret
+libserialport
 libshumate
 libslirp
 libsndfile
@@ -1597,6 +1624,7 @@ libspelling
 libspiro
 libsql
 libssh
+libssh2
 libstrophe
 libsvm
 libtensorflow
@@ -1730,6 +1758,7 @@ mariadb@11.2
 markdownlint-cli
 markdownlint-cli2
 marked
+marksman
 marp-cli
 massdriver
 matplotplusplus
@@ -1824,6 +1853,7 @@ monolith
 moon
 morpheus
 morse
+mosquitto
 moto
 mpc
 mpd
@@ -1867,6 +1897,7 @@ naabu
 nagios
 nagios-plugins
 nano
+nanobind
 nanoflann
 nanopb
 nasm
@@ -1960,6 +1991,7 @@ nvm
 nvtop
 nzbget
 oasdiff
+oath-toolkit
 oauth2_proxy
 oauth2c
 objfw
@@ -2001,6 +2033,7 @@ open-image-denoise
 open-mesh
 open-mpi
 open62541
+openapi-diff
 openbao
 openblas
 opencl-clhpp-headers
@@ -2031,6 +2064,7 @@ openldap
 openlibm
 openrct2
 openrtsp
+opensaml
 opensc
 opensearch
 openshift-cli
@@ -2072,6 +2106,7 @@ overtls
 ox
 oxipng
 oxker
+oxlint
 p11-kit
 pacapt
 packetbeat
@@ -2153,6 +2188,7 @@ pip-audit
 pip-tools
 pipdeptree
 pipenv
+pipet
 pipgrip
 pipx
 pivit
@@ -2295,6 +2331,7 @@ qpdf
 qpid-proton
 qrcp
 qrtool
+qshell
 qsoas
 qsv
 qthreads
@@ -2334,6 +2371,7 @@ rebar3
 recode
 recoverpy
 redict
+redress
 redwax-tool
 regclient
 regina-rexx
@@ -2348,10 +2386,12 @@ repo
 reposurgeon
 reproc
 restic
+restview
 resvg
 retire
 revive
 rgbds
+rhash
 rhit
 riemann
 riemann-client
@@ -2373,6 +2413,7 @@ ronn-ng
 root
 rosa-cli
 rospo
+roswell
 rover
 roxctl
 rpg-cli
@@ -2733,6 +2774,7 @@ tetra
 texinfo
 texlab
 texmath
+texttest
 tfautomv
 tfel
 tfmigrate
@@ -2756,14 +2798,17 @@ tinymist
 tinyproxy
 tio
 tippecanoe
+titlecase
 tkey-ssh-agent
 tlsx
 tmpmail
 tmux-mem-cpu-load
+tmux-sessionizer
 tmux-xpanes
 tmuxp
 tmx
 toast
+todoman
 tofuenv
 toipe
 tomcat
@@ -2906,6 +2951,7 @@ vitess
 vivid
 vlang
 vnstat
+vnu
 volk
 volta
 votca
@@ -2944,6 +2990,7 @@ wavpack
 wayland
 wayland-protocols
 wazero
+wcslib
 wcurl
 weasyprint
 web-ext
@@ -2976,6 +3023,7 @@ wstunnel
 wtfis
 wthrr
 wumpus
+wush
 wxmaxima
 wxpython
 wxwidgets
@@ -3015,6 +3063,7 @@ xroar
 xrootd
 xsimd
 xterm
+xtrans
 xwin
 xxhash
 xz
@@ -3045,6 +3094,7 @@ yq
 yt-dlp
 yubico-piv-tool
 yyjson
+z.lua
 z3
 zabbix
 zabbix-cli

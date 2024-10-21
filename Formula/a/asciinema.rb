@@ -9,18 +9,16 @@ class Asciinema < Formula
   head "https://github.com/asciinema/asciinema.git", branch: "develop"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "36ca2404f3b5a97cb0d056867934257e11cb2de7689f854229eda5545e7e0607"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "10d155f8515514023454514b2f7898badc826c2756d064b17d7e6473a0ccbb8d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3186a5d3dfcd25a6af378ce0f1cea2ddbeb719b15140917c0729a76a51979570"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "258717dd75b271d86099190bd535fc24e6d71d78e9869491a1396e2209efae9b"
-    sha256 cellar: :any_skip_relocation, sonoma:         "c4c5445b99b3dd2e29feb8a1d2526777d7be095776d53616a06f5fcc8f83bc80"
-    sha256 cellar: :any_skip_relocation, ventura:        "9e26a627695b47fd486bfd3be764213000e92c79b8fc49a907646c1fe2144418"
-    sha256 cellar: :any_skip_relocation, monterey:       "62aaac2d7f795100ab5b9485f14f7f2c0454b495e0aba80b353c3555df74c5ff"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9999efc810cc5521c71849c602de3928cedf782bafe450ba151a1b7f46d948f5"
+    rebuild 3
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0f5ecbcebc62f27a2078b240921060282cef4507a007db5aabfc850c36aea51a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0f5ecbcebc62f27a2078b240921060282cef4507a007db5aabfc850c36aea51a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "0f5ecbcebc62f27a2078b240921060282cef4507a007db5aabfc850c36aea51a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "1c106a9e92ab1af2710d651a1453d8abc70d1a677507e2d28c0b11a277da3180"
+    sha256 cellar: :any_skip_relocation, ventura:       "1c106a9e92ab1af2710d651a1453d8abc70d1a677507e2d28c0b11a277da3180"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0f5ecbcebc62f27a2078b240921060282cef4507a007db5aabfc850c36aea51a"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   def install
     virtualenv_install_with_resources

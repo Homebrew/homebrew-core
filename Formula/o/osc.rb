@@ -14,16 +14,17 @@ class Osc < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "16c71d9c72265b2301df6d5a2d5ea53614bb50cacac5172fc8723b23ffddff7d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "16c71d9c72265b2301df6d5a2d5ea53614bb50cacac5172fc8723b23ffddff7d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "16c71d9c72265b2301df6d5a2d5ea53614bb50cacac5172fc8723b23ffddff7d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "d4c3e710b68c30f4f885fdbf875c51d06f41683ed51548646652c20dd6d3913f"
-    sha256 cellar: :any_skip_relocation, ventura:       "d4c3e710b68c30f4f885fdbf875c51d06f41683ed51548646652c20dd6d3913f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "16c71d9c72265b2301df6d5a2d5ea53614bb50cacac5172fc8723b23ffddff7d"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e1f568428057edf8e1f160d9c5d82f32bbdb11fd604d6b595c6eec92e9f3177b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e1f568428057edf8e1f160d9c5d82f32bbdb11fd604d6b595c6eec92e9f3177b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "e1f568428057edf8e1f160d9c5d82f32bbdb11fd604d6b595c6eec92e9f3177b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b13d67cd299b39bccb518ddd249031e6337149d1c173960a971e2ac071796922"
+    sha256 cellar: :any_skip_relocation, ventura:       "b13d67cd299b39bccb518ddd249031e6337149d1c173960a971e2ac071796922"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e1f568428057edf8e1f160d9c5d82f32bbdb11fd604d6b595c6eec92e9f3177b"
   end
 
   depends_on "cryptography"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   uses_from_macos "curl"
   uses_from_macos "libffi"

@@ -9,17 +9,11 @@ class Rsyncy < Formula
   head "https://github.com/laktak/rsyncy.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "5764b25fe445f2f76d72027f7fc76bfc69ad3444f4fd152ce90de6a1752cd87b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1c11a0cdf7eac702a51d30f410f112d0edf259693d6cf8cd274ac9e64197ec3f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c9a1f343d7be0ab8f49f7cc6727e65cfb935aa3c89516ce153aeaff7bedbd112"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9a80c3c46367ecdedd9738fc9e01edffd2933336840a0fa5bc56aa5014d09c71"
-    sha256 cellar: :any_skip_relocation, sonoma:         "1bf555f6cf1e7a6e60dd3c599979f5d139811fa19c4d29f75bb046a99e9ba51f"
-    sha256 cellar: :any_skip_relocation, ventura:        "a3fa1652e2e761ee53a01f84a97f8d707937d63f0312a910d650455b32420365"
-    sha256 cellar: :any_skip_relocation, monterey:       "6aefd6c0a367401f4f25dc15fcbb231bc341ddfe74b293df0d3a1ec3a51d1cba"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "28e6798a85fda4efc7059b6085c3b52eff43963f1a34c500a854922a9162a8b7"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "c9f3bf3e3e2b3b67497decbe21a1accbc9e18b1a020fcd7c696bc3eb768396b1"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
   depends_on "rsync"
 
   uses_from_macos "zlib"

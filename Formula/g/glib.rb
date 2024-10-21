@@ -8,12 +8,13 @@ class Glib < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 arm64_sequoia: "922c92018e72eb1b0aa972a39f9b04227dd50c2600434943584727f3d78fd672"
-    sha256 arm64_sonoma:  "be85658ed18ee50aa6f9c9ca016bdc97bd665129f1de350a2c0ae45bd5cea1a8"
-    sha256 arm64_ventura: "ddfe7b3569d9e0ef8c279ad311910a0f5f238a97425f4aecc9c568430c6fc5f9"
-    sha256 sonoma:        "d84c34b9572aca1b723f915debdbcc676e1ce3528b0c6ced48c92adbe0ecb917"
-    sha256 ventura:       "319c0b60fad79996858ca4b440f58798b2ed45f0971881ff6b0b164a75de1619"
-    sha256 x86_64_linux:  "67d479d1efa505b1c6af6ed6e4fb75cc8d51c0275f50fc44ef954c73e94eecb9"
+    rebuild 1
+    sha256 arm64_sequoia: "f2abd982579380fa01cf4bde3fba4e4e8c3f637968ed5f877abe9b2f03867546"
+    sha256 arm64_sonoma:  "59b2f7c8083f75518cf7389076d53273da8dd3408b64c96d16b1b98a4fcfbfd5"
+    sha256 arm64_ventura: "03f99542d1f48c8f4a3219523ea4dcd854959a45d5024b69fb9fed312cfc03ab"
+    sha256 sonoma:        "4d6212217fd522c5771a970cf836090ac0e61dc8e71fc87348bb02f16133d1de"
+    sha256 ventura:       "3a1546e0953f0dc82f81a8bcff6d0a58ec12cc646532ae7682313e4b8c0a19fd"
+    sha256 x86_64_linux:  "5ab4a7c3a7b616b4a472fde55d9341fb65d048258b6d63a85b4005fc85a4652b"
   end
 
   depends_on "bison" => :build # for gobject-introspection
@@ -24,7 +25,7 @@ class Glib < Formula
   depends_on "python-setuptools" => :build # for gobject-introspection
   depends_on "pcre2"
   depends_on "python-packaging"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   uses_from_macos "flex" => :build # for gobject-introspection
   uses_from_macos "libffi", since: :catalina
@@ -59,7 +60,7 @@ class Glib < Formula
   end
 
   def install
-    python = "python3.12"
+    python = "python3.13"
     inreplace %w[gio/xdgmime/xdgmime.c glib/gutils.c], "@@HOMEBREW_PREFIX@@", HOMEBREW_PREFIX
     # Avoid the sandbox violation when an empty directory is created outside of the formula prefix.
     inreplace "gio/meson.build", "install_emptydir(glib_giomodulesdir)", ""

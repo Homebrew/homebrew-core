@@ -1,8 +1,8 @@
 class Di < Formula
   desc "Advanced df-like disk information utility"
   homepage "https://gentoo.com/di/"
-  url "https://downloads.sourceforge.net/project/diskinfo-di/di-4.53.tar.gz"
-  sha256 "00dd5befc11dac8d65a68b248fd34158a2e6a850c2e4e2ab77594c79aa01e83e"
+  url "https://downloads.sourceforge.net/project/diskinfo-di/di-4.54.0.1.tar.gz"
+  sha256 "b401e647ecc3c8a697651bd29ad1cc6ae319f69a248b4dc4d3af0742f64b4ffb"
   license "Zlib"
 
   livecheck do
@@ -11,14 +11,12 @@ class Di < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "73f6c9b4b56f9172f9730bfa8224708b755a9c271d70c06e5879cd6166438149"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1cb85ef2ac8d49ae838f9dd1532429f21d3542ddbdc4afcb2fc0b16e8ac150c1"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "471a2eda35ef12e75e26d879eb314db261dc04991678281798a56f9054af0bac"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "1ff4f6e79db0371824b4a38d86529199a3133781e48df12d5b1d79e6b51f0dc5"
-    sha256 cellar: :any_skip_relocation, sonoma:         "809d81076eddeb2f405b12c0639fa56787aa15b8d7c4ac170991298fc431a1b9"
-    sha256 cellar: :any_skip_relocation, ventura:        "4bafb5d2d243a519eb48c23c9d319b50e88f6e7f6883f8da628a8000f9581cbb"
-    sha256 cellar: :any_skip_relocation, monterey:       "863bef6679888f9a1d44dde5e771953bc285a06baf3acc2ed05ea088313e2723"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "31a51f410bed3067152b6f8b6c23948e5f98398a774f183c987eaba0b4b27c20"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e5366283a2233265aeec1d630e627b8fa9d4db9811b0ef34d5b8a051e8fe0163"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c939223c1ec05541c4b9ca28a3e387cd4c5df4687c243f54a22e206f6ec3e1a0"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "4a3a377fd49be3eb9d5bfdc16ca4a7b66dc5b1cb64bef27ab88bff581e010e56"
+    sha256 cellar: :any_skip_relocation, sonoma:        "9fc90ffa73aa063421977eeafe04c3b2c0a9319fcbdc80c90decef338da935c1"
+    sha256 cellar: :any_skip_relocation, ventura:       "b41d6c79939170ffa37d2ca760e085024988832e82c15a84f38bec5950738ff5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8d3898fd49a626edd4b27777a5b5f9a58c2e9f65fd4939eed0a3e47d0ee6a361"
   end
 
   def install

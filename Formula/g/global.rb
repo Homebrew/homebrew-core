@@ -10,14 +10,13 @@ class Global < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 arm64_sequoia:  "e3e39d2e166ef84acf1fe64947717c3d5bc20a32b5dbb9d721fcb7f8a7a78146"
-    sha256 arm64_sonoma:   "a16395e013dbe60ef079902a4aac6908d07dd85fe2668f900839303dacebf9d6"
-    sha256 arm64_ventura:  "40f0b4a0425fd5a8c4ff90122ba5db590496188e18a4da39998f6744b7e68efc"
-    sha256 arm64_monterey: "84dba539683309aac5c9f56945ac3c44ce9707e772b5953ceca146eec7f63ddd"
-    sha256 sonoma:         "5642c79437370efd7ac27d11da8658452a8e796d3ec67271d5a2b341e11a4442"
-    sha256 ventura:        "393f49dff80d637352a2849a19bfa406c3a31bf3e398c98abb90d4da80e653e2"
-    sha256 monterey:       "1c469a31ac0444a3613a19bc9efca253343e371f56b8347d20e5e3b8dc8fff67"
-    sha256 x86_64_linux:   "11c332b78b3e22e7bac5fcfcc750f21e996132ba5490e77907b602f6c47432b8"
+    rebuild 1
+    sha256 arm64_sequoia: "ad4adcf70746ddae331c2d29d6906305c4d73dfc60d91ff40f9e86b0fbb064aa"
+    sha256 arm64_sonoma:  "440e3a0f071c850b27f42b93a1f62b9e99c1faae7ff24c639e1aedb4e18f7287"
+    sha256 arm64_ventura: "242d4ad338220dc076ec306f26fb8f887e7bc6bb6d54a9f48b742dfc785ff9b3"
+    sha256 sonoma:        "f64084c55b206de4f378c5cf790c54cb1ad4a5051656ab4f3b92924eb56c765c"
+    sha256 ventura:       "fec83fde4df46b4f85530331238c96d354e26e00a61b02d16a4ef328ec2e434e"
+    sha256 x86_64_linux:  "d95af80a2a8a2cb03f27a317208233211e49061641921828a0625b194fb9a655"
   end
 
   head do
@@ -33,7 +32,7 @@ class Global < Formula
 
   depends_on "libtool"
   depends_on "ncurses"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
   depends_on "sqlite"
   depends_on "universal-ctags"
 
@@ -44,10 +43,13 @@ class Global < Formula
     sha256 "786ff802f32e91311bff3889f6e9a86e81505fe99f2735bb6d60ae0c5004f199"
   end
 
+  def python3
+    "python3.13"
+  end
+
   def install
     system "sh", "reconf.sh" if build.head?
 
-    python3 = "python3.12"
     venv = virtualenv_create(libexec, python3)
     venv.pip_install resources
 

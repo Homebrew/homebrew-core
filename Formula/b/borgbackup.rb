@@ -8,21 +8,20 @@ class Borgbackup < Formula
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "4c8325832666a9addf04599433874ea15cd07951ca32013569f6841349e48336"
-    sha256 cellar: :any,                 arm64_sonoma:   "b7bfd8881fa3546f8effad205346aa78da12f9a9ec7bc0cb2ff566c93a798ac7"
-    sha256 cellar: :any,                 arm64_ventura:  "055cbe7be0447046b1755395f3a3a76b8ba99ba6cbeecb33ec2a013c9c5d9d63"
-    sha256 cellar: :any,                 arm64_monterey: "253d5ada3336930310dadd2f9462984df0d661fa53f31c10120d40aa6e16ef68"
-    sha256 cellar: :any,                 sonoma:         "0acc28647161578f2f5e410e91cacd86efc8526e7428c5829f90e9725d304320"
-    sha256 cellar: :any,                 ventura:        "af265bcac6b0ab45247f15ecd2f3e8ed5f681e09ec5be3a22c8651f5d1e2d24b"
-    sha256 cellar: :any,                 monterey:       "b1ce3fce36603971bf5bc74c4a8bcd059429269c9cfceec13a99f731642362fb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "536671fbfb5abcf19e5ad7ddb383bf5cbb26c2553f114aa96f50bd448a950cfc"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "ea0b6a39efabe6534d4c0d61ac53544ec56e7160c21a6c7554b9a5f1435d2f0c"
+    sha256 cellar: :any,                 arm64_sonoma:  "913762693084b7db20b9dd17f8bf6ad44e9f1b558279126455d316b0d60bfcb4"
+    sha256 cellar: :any,                 arm64_ventura: "8d180c48615881e8375ffec0da4b7f2489b88b13fa639934c24a48b07a395bfc"
+    sha256 cellar: :any,                 sonoma:        "74a7a54445937d1553688936cdc131b58a64b8ebbee692a8bd1f284d8583f03f"
+    sha256 cellar: :any,                 ventura:       "70cbbc7f8cace22332f240aeb6e8ad8036fe2f712b203f75534dd0253d80387b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b362ecca7e4b2d507ed33b16553b61db7d63124584b7d665533ef26971bd278f"
   end
 
   depends_on "pkg-config" => :build
   depends_on "libb2"
   depends_on "lz4"
   depends_on "openssl@3"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
   depends_on "xxhash"
   depends_on "zstd"
 
@@ -31,8 +30,8 @@ class Borgbackup < Formula
   end
 
   resource "msgpack" do
-    url "https://files.pythonhosted.org/packages/08/4c/17adf86a8fbb02c144c7569dc4919483c01a2ac270307e2d59e1ce394087/msgpack-1.0.8.tar.gz"
-    sha256 "95c02b0e27e706e48d0e5426d1710ca78e0f0628d6e89d5b5a5b91a5f12274f3"
+    url "https://files.pythonhosted.org/packages/cb/d0/7555686ae7ff5731205df1012ede15dd9d927f6227ea151e901c7406af4f/msgpack-1.1.0.tar.gz"
+    sha256 "dd432ccc2c72b914e4cb77afce64aab761c1137cc698be3984eee260bcb2896e"
   end
 
   resource "packaging" do

@@ -12,12 +12,13 @@ class Vapoursynth < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "00f8997cd247f6641329259f623e336b4feb18fae032c019be475ae1cc3c8258"
-    sha256 cellar: :any,                 arm64_sonoma:  "edd1d5fb540852a089b5057ca3e3944b1345f36f5757a856f697e41b46631e66"
-    sha256 cellar: :any,                 arm64_ventura: "40c48176bf091f4948180c5b723b6076dc7a535e41b7a74f01134f8e8f0bbcfe"
-    sha256 cellar: :any,                 sonoma:        "409300fef9042815e20413da07b62ad3a11466dda308dbed4d2efc48862390b6"
-    sha256 cellar: :any,                 ventura:       "e8165b80231eca4a2b62332ec5708e0ab4fd0966d2bddff5a13a1b3daa3720a7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fcd5fade367963b7decaa5e8022319b8f2a8996e9941aac1d492d5e71d9a8bac"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "ee5adc2d1dbf7d498288d7985f4cb0c8864839da236f488589d3cafbac790298"
+    sha256 cellar: :any,                 arm64_sonoma:  "b2871cef73318ec5e2c6d1ecddbb5c6076234f780168b629383dca0bb6454dcf"
+    sha256 cellar: :any,                 arm64_ventura: "9067216d100a77925d1dc08f8c0e2e299b278dff4dc4d0a6c606d44e98ae60df"
+    sha256 cellar: :any,                 sonoma:        "65d657bc9182c090778de56296d0c1de271c090bcea3594eba6e0857fbb9936f"
+    sha256 cellar: :any,                 ventura:       "67ec89b25a5740650272adf4efd902856c956e83698190d8687d07222b40ace0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7220852e6334b59bb248017f896ba23d16e559c672db7a5953e9fb48535ef07a"
   end
 
   depends_on "autoconf" => :build
@@ -26,7 +27,7 @@ class Vapoursynth < Formula
   depends_on "libtool" => :build
   depends_on "nasm" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.12"
+  depends_on "python@3.13"
   depends_on "zimg"
 
   # std::to_chars requires at least MACOSX_DEPLOYMENT_TARGET=13.3
@@ -75,7 +76,7 @@ class Vapoursynth < Formula
   end
 
   test do
-    system Formula["python@3.12"].opt_bin/"python3.12", "-c", "import vapoursynth"
+    system Formula["python@3.13"].opt_bin/"python3.13", "-c", "import vapoursynth"
     system bin/"vspipe", "--version"
   end
 end

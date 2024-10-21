@@ -1,8 +1,8 @@
 class Librdkafka < Formula
   desc "Apache Kafka C/C++ library"
   homepage "https://github.com/confluentinc/librdkafka"
-  url "https://github.com/confluentinc/librdkafka/archive/refs/tags/v2.5.3.tar.gz"
-  sha256 "eaa1213fdddf9c43e28834d9a832d9dd732377d35121e42f875966305f52b8ff"
+  url "https://github.com/confluentinc/librdkafka/archive/refs/tags/v2.6.0.tar.gz"
+  sha256 "abe0212ecd3e7ed3c4818a4f2baf7bf916e845e902bb15ae48834ca2d36ac745"
   license "BSD-2-Clause"
   head "https://github.com/confluentinc/librdkafka.git", branch: "master"
 
@@ -12,14 +12,12 @@ class Librdkafka < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "3bf8b2381a201443739697cda09d78a0597835b41489180d58b642566af785fb"
-    sha256 cellar: :any,                 arm64_sonoma:   "7fab9f212d5242f52c2edf3216d0b0ca1ceda3d67296a8cec1ae421b957cf271"
-    sha256 cellar: :any,                 arm64_ventura:  "a1306e9b4ec059f96b35ee6ad8f5d9072c2920e48fa046140b25c256fb2f2afd"
-    sha256 cellar: :any,                 arm64_monterey: "ec2b22e2d103e0ab5ed9c1a952c6738a8c97b6f68c780a8b14234090c576124b"
-    sha256 cellar: :any,                 sonoma:         "0d64170898e4340b14bfa4375bda94b79eefff7845fff02d84ffe5148865950b"
-    sha256 cellar: :any,                 ventura:        "5f58fd2abd9f62997e0943d332e8c9f82f7803c9f86a56b3cd0592f4e1529d91"
-    sha256 cellar: :any,                 monterey:       "f1d066bb93bcdd508b2c4306f1a609ba3a5ee8efb805804f55263c9a8ffa1e24"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f7caf909927a31db5908751a70a1018212bf449d4c2dbc967389c1f1d5ff9028"
+    sha256 cellar: :any,                 arm64_sequoia: "693a6fe34842b1d47c891be46f8e3908431bd4623e501053506387aa01c46800"
+    sha256 cellar: :any,                 arm64_sonoma:  "0a350ffbe5862f1280f05d60b42ad56be84b96b59c6bc80b1f6f8e7c2dfaa486"
+    sha256 cellar: :any,                 arm64_ventura: "45b7755b4be54acf3da779deebe109ce15c07c0f21736e776eeb6fac50d62cbf"
+    sha256 cellar: :any,                 sonoma:        "9055f279bd0e7509a3f44017ca28b62528b6573141d94faad31604739947ca25"
+    sha256 cellar: :any,                 ventura:       "9a47205ff702facd739a9fb17c658a4e5267f512b32f79fb352fbc1f356fd37e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1c41229a894e19c9d4442d1883b12dbd362694fdc531f3d42fc56a6f573e5345"
   end
 
   depends_on "pkg-config" => :build

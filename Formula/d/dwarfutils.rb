@@ -12,14 +12,13 @@ class Dwarfutils < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia:  "b22ebc4400b8217acf0a8b579e874d457051466fec152934a18ef5232c9927ae"
-    sha256 arm64_sonoma:   "5de9a578a683c51ad52b7fe8cc27529240e611669be4c0d8bf2f1538ad0cb284"
-    sha256 arm64_ventura:  "cb832bbeca30e169a22accb474b0f39d1f878b270365f5b294fafd27683ca296"
-    sha256 arm64_monterey: "82e9aeb4f36ef9653b1db4ca33ce12d6279b1f2f27865e37b9443a38d36cfc61"
-    sha256 sonoma:         "ba1a7e49387710d019857b1543ebffc2fecdf147d73fa11bf7af1391d1e36c11"
-    sha256 ventura:        "953313e57e9e1740b2a4c75d34e0b33bcf53a4214ec4e6732bfe15562027b68b"
-    sha256 monterey:       "2e7adf305f4f8db91c13853b31098abeb25f442c8172715475d9b28f6bac85ba"
-    sha256 x86_64_linux:   "cc4fade52e1657d55320c7ce223fb2b6d07cbbf86a8843f480210331b24813b6"
+    rebuild 1
+    sha256 arm64_sequoia: "006a219229a3010e9ada7ffbe0aaaff557b7b0ed50e74ad59535545170da23d6"
+    sha256 arm64_sonoma:  "5a59b9a8502c5a66cd7106e7af4f64e20ea8e1bfacab1746a45e0db1c8a28fcb"
+    sha256 arm64_ventura: "5cfc8adbd5391bb3f2198b09389caabeab41e73633354bf62442d7965095d793"
+    sha256 sonoma:        "f4fa659ba9f7cb092b47afe653bf0698e0e83077ea74d4143a7efad5df58bc84"
+    sha256 ventura:       "1b9718e58bc84826f8669b5f2ca8d395dec7936cfcac096cc28ac4ae7acb7e26"
+    sha256 x86_64_linux:  "feb60defc574c40271d8b4afae3963aafb239112b0004ece1f1bd1a733c95cbb"
   end
 
   head do
@@ -34,11 +33,9 @@ class Dwarfutils < Formula
 
   uses_from_macos "zlib"
 
-  conflicts_with "orbuculum", because: "both install `dwarfdump` binaries"
-
   def install
     system "sh", "autogen.sh" if build.head?
-    system "./configure", *std_configure_args, "--enable-shared"
+    system "./configure", "--enable-shared", *std_configure_args
     system "make", "install"
   end
 

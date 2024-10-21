@@ -15,7 +15,7 @@ class Cryfs < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.12" => :build
+  depends_on "python@3.13" => :build
   depends_on "boost"
   depends_on "curl"
   depends_on "fmt"

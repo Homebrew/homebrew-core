@@ -12,14 +12,13 @@ class BotanAT2 < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia:  "5c9bf72b729b6e3544a4529d7f67ff9ccbb51ebd9b74b965e664c4cba11ea86c"
-    sha256 arm64_sonoma:   "26123f333ae9d3b9370ac9c25537f01905e7bd6f1d4d87efd186be3128dbf78f"
-    sha256 arm64_ventura:  "a3827282841699000756d03c5d5e53c5224e67f340c7e7c5fc43d93e19a4e370"
-    sha256 arm64_monterey: "291b91e6418c3be4e290f42f72bf690f05867ab19cb6d7b5a2af031a65ccf960"
-    sha256 sonoma:         "354bea166821d3957ad270afe95798cb159e1117b45d55664f2a67c51b931a1b"
-    sha256 ventura:        "2eb567dfa4a898b0d99d06c6219d5098f74ba77c72258f7b580d0facdb6d769c"
-    sha256 monterey:       "f5d51f622c5146a9e830274f3a0a94f6570029824b938d91ebed895fc6d93c88"
-    sha256 x86_64_linux:   "eca2b5787826800519a4b0d51e28818b93cc9f8c2136af9b70c9ebb2dd3a7952"
+    rebuild 1
+    sha256 arm64_sequoia: "1104641a2c34fa2c1212ad9002fc1a2089a75be4c9fb66ad655a1680c8428ad0"
+    sha256 arm64_sonoma:  "c65820f897ce8748cc5b74e9537a7bcbc4842f161f36557f5b6858b409b32c63"
+    sha256 arm64_ventura: "31a49478cd103522bee1b3e216145c3ba149f93e586a824b9d1b4ed4a2a196ae"
+    sha256 sonoma:        "2bb57c57173cd293cc738dda60c02bcd2d7ddffad9f6e5d0b170245c03feaeff"
+    sha256 ventura:       "51ecbd410373905c81df9ab8cf43b39076c77d255bd00e797a09c0a8243422bd"
+    sha256 x86_64_linux:  "9fd91b5d569739ca97a8130d374d0d289a1d5f6a4b7e9cea90014ec714b52181"
   end
 
   keg_only :versioned_formula
@@ -29,7 +28,7 @@ class BotanAT2 < Formula
   deprecate! date: "2024-12-31", because: :unsupported
 
   depends_on "pkg-config" => :build
-  depends_on "python@3.12"
+  depends_on "python@3.13"
   depends_on "sqlite"
 
   uses_from_macos "bzip2"
@@ -38,7 +37,7 @@ class BotanAT2 < Formula
   fails_with gcc: "5"
 
   def python3
-    which("python3.12")
+    which("python3.13")
   end
 
   def install

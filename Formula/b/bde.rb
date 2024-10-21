@@ -11,17 +11,18 @@ class Bde < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "7f67faec9de552083dcac23a3f0a7a0c6e2adb42e85770c22951267f6e2e9afb"
-    sha256 cellar: :any,                 arm64_sonoma:  "277f78608b4582deeb39ca4c5b39d79c799a260f0e2eb7f14ae35d57935923b8"
-    sha256 cellar: :any,                 arm64_ventura: "48d694b6d2670efc233881b41df93a283922bb7fb90cac30da84ac3ccbdfe8a8"
-    sha256 cellar: :any,                 sonoma:        "6f328ffe113ee3350f6751ab0950a5557c2a7e3464e1e9a70c35d4c2d15cbace"
-    sha256 cellar: :any,                 ventura:       "8fdbc779c7b07a9116f55fb154c829683a8fcd7de5eb1fabd2f36be19d1b1579"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5efd48ad8ab44e4e14c3caf011e74e6269e11a915e094ea6479b84a26359732c"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "62983ce5639b46b9489403ccbf11468c34a1c6f7ae94059a27df903561b8cad1"
+    sha256 cellar: :any,                 arm64_sonoma:  "171defd5302883ad5af86eed46c38547f5fd23e37c782341b9818ea1c73e876d"
+    sha256 cellar: :any,                 arm64_ventura: "579723d1b3070b33a7ce734c606c2ac4c773d907442b95323c3f8619a9f2b561"
+    sha256 cellar: :any,                 sonoma:        "af0fc982ce22e35239e1de3d645b008cdde31f0495bd9e021c40f061ce4121e2"
+    sha256 cellar: :any,                 ventura:       "73b5fb36ed2c5410759ac52946631d210d90a8e27fadbdcb0adb209ab94587c0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "00bc4f3329b797923a1f3996fc3f61a5124136a54d41b793b2475ad207f38760"
   end
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.12" => :build
+  depends_on "python@3.13" => :build
   depends_on "pcre2"
 
   resource "bde-tools" do
@@ -49,7 +50,7 @@ class Bde < Formula
       -DCMAKE_MODULE_PATH=./bde-tools/cmake
       -DCMAKE_INSTALL_RPATH=#{rpath}
       -DCMAKE_TOOLCHAIN_FILE=#{toolchain_file}
-      -DPYTHON_EXECUTABLE=#{which("python3.12")}
+      -DPYTHON_EXECUTABLE=#{which("python3.13")}
     ]
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args

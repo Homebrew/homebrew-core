@@ -1,18 +1,18 @@
 class Fbthrift < Formula
   desc "Facebook's branch of Apache Thrift, including a new C++ server"
   homepage "https://github.com/facebook/fbthrift"
-  url "https://github.com/facebook/fbthrift/archive/refs/tags/v2024.09.30.00.tar.gz"
-  sha256 "8c97deca2ec886733fabdea293aa7c5178dbe8c8399b7ccbbd188c4eeb096e04"
+  url "https://github.com/facebook/fbthrift/archive/refs/tags/v2024.10.14.00.tar.gz"
+  sha256 "5e0f6dcaad8a930a4177a3c376d6140fcc0caf335edeaab91e291c2ec1ac5426"
   license "Apache-2.0"
   head "https://github.com/facebook/fbthrift.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "39f1ed42199ec5a90b7877f2f59e16f2719c599c324023177fb591d68b872398"
-    sha256 cellar: :any,                 arm64_sonoma:  "76dae5c61fc1091ec2383bc3fd756118a7425feacccf7e3f779a19b044a839fb"
-    sha256 cellar: :any,                 arm64_ventura: "68757678e81e9bff68bbd0c2e36c58cd15df17020abe8f436b13de4eaa1e2a63"
-    sha256 cellar: :any,                 sonoma:        "1835dea5d7eed34b3b0c6050a2feb68da4ab8011d6403386112fbabd00bffea8"
-    sha256 cellar: :any,                 ventura:       "c1a0a030a0e81426ca1bbeab42ac7d9518725a0fb7a4d5d7c92585ab35b68d8b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "78be47fa0ac4372487a486050a1189184493167bfb5033c5d3889f3068308e9e"
+    sha256 cellar: :any,                 arm64_sequoia: "b2448410d425caddc1d3fe2c27c4479da50a3e23d0ecce215c2869e0eed539c8"
+    sha256 cellar: :any,                 arm64_sonoma:  "cedf29e8118becaf2fc23628813ea83a422a70111a087e925c6e991c77b71bda"
+    sha256 cellar: :any,                 arm64_ventura: "eb50e6c9bf40f9ed7f0e510df148e8f38bb762f7dcd93ff3718c8ca45c894a0f"
+    sha256 cellar: :any,                 sonoma:        "dee47356db2b67c0d85f30f14fc43a26549abefadd92165cc21fd324b157b808"
+    sha256 cellar: :any,                 ventura:       "413d9998c402f0627dee77554c5011a9b339fa19771f591bd2bfb2363603ec91"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "059b5dc58fa7fbaedcf2c79b9d05ccb135b8f367d3d30534c96932ffe37357f3"
   end
 
   depends_on "bison" => :build # Needs Bison 3.1+
@@ -27,9 +27,11 @@ class Fbthrift < Formula
   depends_on "mvfst"
   depends_on "openssl@3"
   depends_on "wangle"
+  depends_on "xxhash"
   depends_on "zstd"
 
   uses_from_macos "flex" => :build
+  uses_from_macos "python" => :build
   uses_from_macos "zlib"
 
   on_macos do

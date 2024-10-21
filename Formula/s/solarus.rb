@@ -7,6 +7,11 @@ class Solarus < Formula
   license "GPL-3.0-or-later"
   revision 2
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_sequoia:  "7a1ba3cba1fb09278c607e4a5864dcd8d71d7ec44b43835661185195d3b23c24"

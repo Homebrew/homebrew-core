@@ -8,15 +8,16 @@ class Archey4 < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "314aba3d4c8073174d747aa1fb8e1545f314192cacfb645095b3d2a3e98fd3bf"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3ecfede2e3a95f640dccc8ab438b305106a136ff54d274a352345714583b658e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "745c57cc1d25ec22232f2f18dc749efab686a5f0e400b770619a077e57bb33f0"
-    sha256 cellar: :any_skip_relocation, sonoma:        "027039416868461c0677c8730ff9516c924bb4858bb550f72f03592a1283742b"
-    sha256 cellar: :any_skip_relocation, ventura:       "fd17101816fd3161bab756c7b7e3de305e8ae842a5dfaca5bfa530f49fa5bdb2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f8d615751b4231817a6ff3e3a04be453a8d187f1022d35a3979ec4529fc876f7"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "67a20d46c2fe1dbb51cb872d3d4ebb5342aabfda48a7cfbe915c17ad948969e4"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "51d8ab649cfb4d5dfeb23231753d9262cfa033f2c1643f0a219564a3f9832d5c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "2744766739856ebe780fc7388965edc612d51923c3c765033cf87ace0b0b12e4"
+    sha256 cellar: :any_skip_relocation, sonoma:        "4154cfde5e161ec534f03d72f49537da940a41ef4009fce5172f07acc3ee88b5"
+    sha256 cellar: :any_skip_relocation, ventura:       "cd489ed03f68abd8a88be37ea82d00cc426d3d5feabaf0b68eeda977b7da3d88"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "970c7db826029c191477ba09e3a7b3288e80aee797ababba472b22d9b3a483ac"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "distro" do
     url "https://files.pythonhosted.org/packages/fc/f8/98eea607f65de6527f8a2e8885fc8015d3e6f5775df186e443e0964a11c3/distro-1.9.0.tar.gz"

@@ -1,8 +1,8 @@
 class Libgit2 < Formula
   desc "C library of Git core methods that is re-entrant and linkable"
   homepage "https://libgit2.github.com/"
-  url "https://github.com/libgit2/libgit2/archive/refs/tags/v1.8.1.tar.gz"
-  sha256 "8c1eaf0cf07cba0e9021920bfba9502140220786ed5d8a8ec6c7ad9174522f8e"
+  url "https://github.com/libgit2/libgit2/archive/refs/tags/v1.8.2.tar.gz"
+  sha256 "184699f0d9773f96eeeb5cb245ba2304400f5b74671f313240410f594c566a28"
   license "GPL-2.0-only" => { with: "GCC-exception-2.0" }
   head "https://github.com/libgit2/libgit2.git", branch: "main"
 
@@ -12,14 +12,12 @@ class Libgit2 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "9ce2ed6059b2af3f57e06ffbca33419328406e406ed9c9d6913ea04b80c8454d"
-    sha256 cellar: :any,                 arm64_sonoma:   "c74a306a3d2a68d22dd3951ca1a2fb0c566fccd4ff7ac1b40c75fb739cf4359f"
-    sha256 cellar: :any,                 arm64_ventura:  "da870e964178facdcfddf478f968122daf1ef8e6ef2cf80e23069191c65ce532"
-    sha256 cellar: :any,                 arm64_monterey: "6b51ca0ebc9c17d000e7fd88bccb00d60ef33845ac418b8d1ff6f9093e541c58"
-    sha256 cellar: :any,                 sonoma:         "52f39e230581ec9b36b5d9021ca9eaed0c8d2bb49c31c2102b74402b5e7b3937"
-    sha256 cellar: :any,                 ventura:        "b81c00e45d323da3331f6a6f3ab4c2ce27e7a35f45c256accbb5f534d059e26d"
-    sha256 cellar: :any,                 monterey:       "1e0ba01d5c036ae7991437fafd5695bd1c4f4298b6f873a9de751906ddc50445"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "66c64820e1f7ce0ec927b8195f2748f4bc11065488c59a33ea053f2b3a8f0eb9"
+    sha256 cellar: :any,                 arm64_sequoia: "9284d0ff64158a23a702818a8c4822755f6da3344445b65769fdce4b3721e6ad"
+    sha256 cellar: :any,                 arm64_sonoma:  "0f7b8801042541d71967c11a49f1d323b2b0b3ac466f41417b53e1ef525e0c3f"
+    sha256 cellar: :any,                 arm64_ventura: "ad3ea8e1f3180d5701e4ba977d7f27d3909b3fba6e6907b7f135e0afb4da2e12"
+    sha256 cellar: :any,                 sonoma:        "9ff3b55ea7ec27dfda365ce710d3d21fcfe0bef952521e6901e268c5258f3bbe"
+    sha256 cellar: :any,                 ventura:       "efdcd3317260809b700d7edf47d117ebd5f3e024664ba8e8646b4764d850b585"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "db478f04a5cdc7196b5988fe99e95292d6038edd289531b9ff96fa181e23f642"
   end
 
   depends_on "cmake" => :build

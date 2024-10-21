@@ -1,8 +1,8 @@
 class VulkanUtilityLibraries < Formula
   desc "Utility Libraries for Vulkan"
   homepage "https://github.com/KhronosGroup/Vulkan-Utility-Libraries"
-  url "https://github.com/KhronosGroup/Vulkan-Utility-Libraries/archive/refs/tags/v1.3.296.tar.gz"
-  sha256 "bea13c5f25756a9b20bc53cfbfb1a87b4a8e07ddfb7ebcdf9e173c4461d55685"
+  url "https://github.com/KhronosGroup/Vulkan-Utility-Libraries/archive/refs/tags/v1.3.299.tar.gz"
+  sha256 "300c40cf23960672b9de4740fc454eed66c30b7a6314d59c02bdb29116728f83"
   license "Apache-2.0"
   head "https://github.com/KhronosGroup/Vulkan-Utility-Libraries.git", branch: "main"
 
@@ -12,17 +12,17 @@ class VulkanUtilityLibraries < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5eed7ffea355972acc4e220d8d620513bbd76004c5523d2c7662b9764a67d25b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7ddfea68d18493d89e85d891464d9aa64fbe5d16da22e65c2b304b71037e8043"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "e44a4805e25b3bcdbfac819d04287958fd64513f0155a87db505f524d1d9b5fd"
-    sha256 cellar: :any_skip_relocation, sonoma:        "5b601c6ef89d29085990f038d8f5d7a51c12d073711080c4d272e595fb5f7db2"
-    sha256 cellar: :any_skip_relocation, ventura:       "d12c4f4b3ff048216f627745ee7d04b05870da8702fa15a07e7924f403cb8292"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b24c50d8339716e3c3f7b3abdac8d5a915d49c6738d63f3bd282bdb85e7802f3"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e7b69858641912a5cb5f8627042c91c6307c86ed8a482d3283515f40d9054fca"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "97217951f97aa162e00851a7fe3e082eb9e5d75e616d68dfe746f29fc1e400b9"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "0d56184ea46160e9d6cd6737a64a214656fdf1fde9b6429bfd322030cdb93b82"
+    sha256 cellar: :any_skip_relocation, sonoma:        "874e818797c3f4f960be1e1de3db49b3c0ca7b7628e6d98f1bede5079b83e55e"
+    sha256 cellar: :any_skip_relocation, ventura:       "b113a084adb7da278c293d510e70387310cd948f4811ab0f18b89eb219993182"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "99171a8f146ca2c814b1a134a6f279e49c3003a312ea0f2df8803158f7018aeb"
   end
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.12" => :build
+  depends_on "python@3.13" => :build
   depends_on "vulkan-headers"
 
   def install

@@ -27,11 +27,14 @@ class Mfterm < Formula
   end
 
   depends_on "libnfc"
-  depends_on "libusb"
   depends_on "openssl@3"
 
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
+
+  on_linux do
+    depends_on "readline"
+  end
 
   def install
     ENV.prepend "CPPFLAGS", "-I#{Formula["openssl@3"].opt_include}"
@@ -41,7 +44,7 @@ class Mfterm < Formula
       chmod 0755, "./autogen.sh"
       system "./autogen.sh"
     end
-    system "./configure", "--prefix=#{prefix}", "--disable-dependency-tracking"
+    system "./configure", "--disable-silent-rules", *std_configure_args
     system "make", "install"
   end
 

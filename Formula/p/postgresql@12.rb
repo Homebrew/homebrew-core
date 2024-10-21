@@ -4,6 +4,7 @@ class PostgresqlAT12 < Formula
   url "https://ftp.postgresql.org/pub/source/v12.20/postgresql-12.20.tar.bz2"
   sha256 "2d543af3009fec7fd5af35f7a70c95085d3eef6b508e517aa9493e99b15e9ea9"
   license "PostgreSQL"
+  revision 1
 
   livecheck do
     url "https://ftp.postgresql.org/pub/source/"
@@ -11,14 +12,12 @@ class PostgresqlAT12 < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia:  "b26335e33757d1c783be1f99670184b804e45b2df6b2ebb733c809f3d18f86a3"
-    sha256 arm64_sonoma:   "1860035fa32eabbaae82b4e39696282a3f8e3df7ffe8c0dab13651b88760df94"
-    sha256 arm64_ventura:  "457fcd2a462d2efe40c359886344b35a239417db3c29a8ca4227993d0691094f"
-    sha256 arm64_monterey: "72774b7fef6758e23f4ba024ebf190c2b94081b5a720935f8356ccf9ab9d8d34"
-    sha256 sonoma:         "a79bca41d1f4ba6aed93964db5b03df3fd35dc965712dac6aaa4f556fc5f6e7f"
-    sha256 ventura:        "ce639c93ee3e14d2b05e7d50bc88f243e9e734024d4e666d5574660277ef8e81"
-    sha256 monterey:       "4f941a20712c911f4a5d8086422bbb21fd890e0cba8eeb8ff14aa3b3af58d0bc"
-    sha256 x86_64_linux:   "59bbe07116abbda0667949246203d6e10c154979ffad01c75dc5610f4b2ad32e"
+    sha256 arm64_sequoia: "96d2d8acaf1fbe9e7ff89c45012b859349baa3fa6727fa95c3483003322cc726"
+    sha256 arm64_sonoma:  "9b85ef425587f9817e18c3a2b1ae095c53c5dcb460573578f916527f6174025e"
+    sha256 arm64_ventura: "edd1c5855962e667a48b16e1f7efa76286642d335231d034cdde468cee183136"
+    sha256 sonoma:        "a0e92d9720543ed2c92248136b8e2c231d5414d39101cd0820e73ce991ff5b85"
+    sha256 ventura:       "cb62c501bc2f49e5e98f0e6671572140d3e6906cbedc50d089386720ba7d1801"
+    sha256 x86_64_linux:  "6feea907198b1bfc2448fdf25639ac0676ae67880d9de7b75967588c5ad7cb10"
   end
 
   keg_only :versioned_formula
@@ -27,7 +26,7 @@ class PostgresqlAT12 < Formula
   deprecate! date: "2024-11-14", because: :unsupported
 
   depends_on "pkg-config" => :build
-  depends_on "icu4c"
+  depends_on "icu4c@75"
 
   # GSSAPI provided by Kerberos.framework crashes when forked.
   # See https://github.com/Homebrew/homebrew-core/issues/47494.

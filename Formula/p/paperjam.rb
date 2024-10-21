@@ -5,6 +5,11 @@ class Paperjam < Formula
   sha256 "bd38ed3539011f07e8443b21985bb5cd97c656e12d9363571f925d039124839b"
   license "GPL-2.0-or-later"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?paperjam[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "1173139f00d87d9853a76d10a2c05b0ab451e5d5388582cf3d10291d8b70a66e"
     sha256 cellar: :any,                 arm64_sonoma:  "39c2d7a60e6ccc75a168b7e0be8696b91a033fd360d426403ab50e20df7043ee"

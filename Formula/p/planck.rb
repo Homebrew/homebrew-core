@@ -4,24 +4,23 @@ class Planck < Formula
   url "https://github.com/planck-repl/planck/archive/refs/tags/2.28.0.tar.gz"
   sha256 "44f52e170d9a319ec89d3f7a67a7bb8082354f3da385a83bd3c7ac15b70b9825"
   license "EPL-1.0"
+  revision 1
   head "https://github.com/planck-repl/planck.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "200f7832692fda6dafb1bcdd27035e6b426150b554550ad72408a5dc12469565"
-    sha256 cellar: :any,                 arm64_sonoma:   "d191a614bd84bcc9d260923fa40aeaa05519773c758f2731fc12724c478a9b40"
-    sha256 cellar: :any,                 arm64_ventura:  "417db2a6168646c53b8bf748fc8920c97f41e362e463042fad5548106ae0b235"
-    sha256 cellar: :any,                 arm64_monterey: "a2d86b54405f284660eeb8199488b1892747d60aafdc453598d85cc8b2ddd84d"
-    sha256 cellar: :any,                 sonoma:         "2ea02808fba9f62cb10fa592381cbce8c2a737b3c634bcc6eaec1c94f4566633"
-    sha256 cellar: :any,                 ventura:        "26434fb97e32d2e244d5964e061ae7706ca416fafe6c4600c33548b5bb35f554"
-    sha256 cellar: :any,                 monterey:       "baa4b152e861f9f1579e64a84c925970a9a813c15d2006da864eeed74383016c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "716444d924733adfecb5382de8260cdc0537b49afee6e4a2622a49d1da4853c1"
+    sha256 cellar: :any,                 arm64_sequoia: "874accd782f10a5f5a4db2cce9a93685a6d8870bb690ba50e03d7b031e0d5e43"
+    sha256 cellar: :any,                 arm64_sonoma:  "5e32895adba1538c3742dba78a4b977d29728f73fb7a9dd26a59a39a5109b0d7"
+    sha256 cellar: :any,                 arm64_ventura: "143f7292d49dc89a1b47ab31afb60abed7005d255b928291f3d8a4d487554799"
+    sha256 cellar: :any,                 sonoma:        "25b9a936439fb8dd86a2d785dfbb8efe2bc4291d3a499c4f6ae842707954e195"
+    sha256 cellar: :any,                 ventura:       "731953b187241b471da6a5fdde2aaf6993ece5ea15f6e89939b7503ea9df063d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2ff4e184c10536dc97e098e26ae6a7ec13d652d40f4f4f92cc5cae6829ff8788"
   end
 
   depends_on "clojure" => :build
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on xcode: :build
-  depends_on "icu4c"
+  depends_on "icu4c@75"
   depends_on "libzip"
 
   uses_from_macos "vim" => :build # for xxd

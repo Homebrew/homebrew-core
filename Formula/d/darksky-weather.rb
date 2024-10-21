@@ -21,7 +21,7 @@ class DarkskyWeather < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "8f27ed1995e056157202f4785d0d4d28a8181d77cd0a971d6b778aafcbca7abc"
   end
 
-  deprecate! date: "2023-12-30", because: "uses the shutdown darksky.net API"
+  disable! date: "2024-10-11", because: "uses the shutdown darksky.net API"
 
   depends_on "go" => :build
 

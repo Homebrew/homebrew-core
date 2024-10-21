@@ -8,20 +8,20 @@ class Csvkit < Formula
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cd187791a38c1fde0f23ca5d7acac82ca41544874246417fe813e653b8b30551"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "00649aec0d216a9713b52284d9ea2bfc3b4f71d6585f6b62707d09a3b7124cd1"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "a7a28cf5eff3e79c4a415dd525bc41b8e887dfb9006676a20ac16b5c3dd58f30"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ab34e4c429c90f07114c9f0937e624995e93ab21e2a6135dbf0c3010f33aef8b"
-    sha256 cellar: :any_skip_relocation, ventura:       "772a8072e63c44237c3d35d4e614ef6720917f47aab4814a38876363f813e2ed"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f81584bda065418163346367996df7d739526bc083d68bce08b0addecb8de9d1"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "106ae5d779e9f30df86badd2dbc257aaf076bc0c6706aa9fb53e5be7b3c998c5"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "27835141c5482861a319aa5583fb96d9c89a4ecdc3554457ef99c5725cff2aeb"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "5b06a73b1cb690646d3c890337306b9d1b4e994f1038f5c66396a7e63cabde31"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d98490b270c34cd98d3212bd4169fb05640f76fc01e0fe1dbe283faace1281ba"
+    sha256 cellar: :any_skip_relocation, ventura:       "a5f0e7f34daca708aed4305b4372051de3bd85d5717633312cd4b79fd5be3aff"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ac2f37b2461fceaf0dfee3517c45f3aa39d62c387ac28069c3095ba44bdf317f"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "agate" do
-    url "https://files.pythonhosted.org/packages/44/b5/a0187fa539241bb39bdf635c39e5395de35c5939de721d3d931e2ca4554e/agate-1.11.0.tar.gz"
-    sha256 "57d9655bdebbfd61a71768202e1fb4847d6bba51f1800582da5c64c958952f4b"
+    url "https://files.pythonhosted.org/packages/62/b5/7ea4dc82949dd40fb7277ce0fe9b57a44a1da28b1411327dc24ec2fffcff/agate-1.12.0.tar.gz"
+    sha256 "7989841ac7de69e57389485c0b7cdab2e1a54c7480c629a76912bb7c331d991b"
   end
 
   resource "agate-dbf" do
@@ -40,8 +40,8 @@ class Csvkit < Formula
   end
 
   resource "babel" do
-    url "https://files.pythonhosted.org/packages/15/d2/9671b93d623300f0aef82cde40e25357f11330bdde91743891b22a555bed/babel-2.15.0.tar.gz"
-    sha256 "8daf0e265d05768bc6c7a314cf1321e9a123afc328cc635c18622a2f30a04413"
+    url "https://files.pythonhosted.org/packages/2a/74/f1bc80f23eeba13393b7222b11d95ca3af2c1e28edca18af487137eefed9/babel-2.16.0.tar.gz"
+    sha256 "d1f3554ca26605fe173f3de0c65f750f5a42f924499bf134de6423582298e316"
   end
 
   resource "dbfread" do
@@ -54,14 +54,9 @@ class Csvkit < Formula
     sha256 "8eb9e2bc2f8c97e37a2dc85a09ecdcdec9d8a396530a6d5a33b30b9a92da0c5c"
   end
 
-  resource "greenlet" do
-    url "https://files.pythonhosted.org/packages/17/14/3bddb1298b9a6786539ac609ba4b7c9c0842e12aa73aaa4d8d73ec8f8185/greenlet-3.0.3.tar.gz"
-    sha256 "43374442353259554ce33599da8b692d5aa96f8976d567d4badf263371fbe491"
-  end
-
   resource "isodate" do
-    url "https://files.pythonhosted.org/packages/db/7a/c0a56c7d56c7fa723988f122fa1f1ccf8c5c4ccc48efad0d214b49e5b1af/isodate-0.6.1.tar.gz"
-    sha256 "48c5881de7e8b0a0d648cb024c8062dc84e7b840ed81e864c7614fd3c127bde9"
+    url "https://files.pythonhosted.org/packages/54/4d/e940025e2ce31a8ce1202635910747e5a87cc3a6a6bb2d00973375014749/isodate-0.7.2.tar.gz"
+    sha256 "4cd1aa0f43ca76f4a6c6c0292a85f40b35ec2e43e315b59f06e6d32171a953e6"
   end
 
   resource "leather" do
@@ -94,14 +89,9 @@ class Csvkit < Formula
     sha256 "e86136477be924d7e670646a98561957e8ca7308d44841e21f5ddea757556a0a"
   end
 
-  resource "six" do
-    url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
-    sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
-  end
-
   resource "sqlalchemy" do
-    url "https://files.pythonhosted.org/packages/ba/7d/e3312ae374fe7a4af7e1494735125a714a0907317c829ab8d8a31d89ded4/SQLAlchemy-2.0.31.tar.gz"
-    sha256 "b607489dd4a54de56984a0c7656247504bd5523d9d0ba799aef59d4add009484"
+    url "https://files.pythonhosted.org/packages/36/48/4f190a83525f5cefefa44f6adc9e6386c4de5218d686c27eda92eb1f5424/sqlalchemy-2.0.35.tar.gz"
+    sha256 "e11d7ea4d24f0a262bccf9a7cd6284c976c5369dac21db237cff59586045ab9f"
   end
 
   resource "text-unidecode" do

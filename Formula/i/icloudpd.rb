@@ -11,17 +11,16 @@ class Icloudpd < Formula
   head "https://github.com/icloud-photos-downloader/icloud_photos_downloader.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "cfc84701b4d11324a7acdb9487ddc61e61f99a99024e5606381819cc7b5c1736"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "75bca52db6cc9ce7257ab5c617f82fe329ec87187a652331add4d40903711fc4"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "30c3a36c8233f1906e03e51d6f10216d15b5b860e87946a32ffe25e7fe08071a"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a3ff85682f06bffc8b225e779df95b5360110efd3f3a9df075b20ef1f1591ac4"
-    sha256 cellar: :any_skip_relocation, sonoma:         "03aa950b22125359d93ca6b0eba7d7452970309c61c26acb499612f339c5184a"
-    sha256 cellar: :any_skip_relocation, ventura:        "e7fcffe1ee76ac6899c1d6253b709ce45b885e59cafee78ef80a1f1be0a6b289"
-    sha256 cellar: :any_skip_relocation, monterey:       "932fd0308f570ef06466c8592109864686bdf61771acfa31120aead0f887626f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2f35f0053a2ebc7829b0f4fc9b3cd6ed3040ed07979a9979f5f15d8e390f6bfe"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6e5634affe49cdcfbadeb6d018e4ad0fd9c9070cfabea164c0035d2669a97470"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ef3c858d3d4864cb7a43fbe96c7aaee719c2baac4fd8d83b2e11329a9aa963c9"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "0b6237e497e13bc03b3ce470b3057769a769d64b310db19c16c00c82d4952edb"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f008dabcdaaf6d44e07509886ea4c93c80afe9e167b2bce495a18ec27a211052"
+    sha256 cellar: :any_skip_relocation, ventura:       "a315418fe0fc8371e430351dfa7c50ccb47328888ba88c840b3cf44d39fddba0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3ff6764b794922a9f87db9489fb350f62c5ee2e5c64f2fabeca7c73f95a75e84"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   on_macos do
     depends_on "gnu-sed" => :build
@@ -162,6 +161,9 @@ class Icloudpd < Formula
     sha256 "34f2371506b250df4d4f84bfe7b0921e4762525762bbd936614909fe25cd7306"
   end
 
+  # support python 3.13
+  patch :DATA
+
   def install
     ENV.prepend_path "PATH", Formula["gnu-sed"].libexec/"gnubin" if OS.mac?
     # https://github.com/icloud-photos-downloader/icloud_photos_downloader/issues/922#issuecomment-2252928501
@@ -177,3 +179,18 @@ class Icloudpd < Formula
     assert_match "Authenticating...", output
   end
 end
+
+__END__
+diff --git a/pyproject.toml b/pyproject.toml
+index 5e60ee9..fb85dac 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -10,7 +10,7 @@ version="1.23.4"
+ name = "icloudpd"
+ description = "icloudpd is a command-line tool to download photos and videos from iCloud."
+ readme = "README_PYPI.md"
+-requires-python = ">=3.8,<3.13"
++requires-python = ">=3.8,<3.14"
+ keywords = ["icloud", "photo"]
+ license = {file="LICENSE.md"}
+ authors=[

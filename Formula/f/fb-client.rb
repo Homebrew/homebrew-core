@@ -15,19 +15,18 @@ class FbClient < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "9e837f04b30cfa6e09e5963cfb5e332cbfe0d7de3fdf065e07dbef0dac2b52df"
-    sha256 cellar: :any,                 arm64_sonoma:   "7ca84db50325eb47477dfcaa32aa9ded3d935e2de1d36e95049f9f76936a1f3c"
-    sha256 cellar: :any,                 arm64_ventura:  "afe0f6ffe32e0e5bc872fb7c6038fc4087f8130fdbb67b9ace184f0e55eb42a9"
-    sha256 cellar: :any,                 arm64_monterey: "866f9e06cb09122309446292c006dc945c6fe38a0be8083de7a0f50bbe642194"
-    sha256 cellar: :any,                 sonoma:         "7d196e29d73b69e9a391d8372613238f5e44cd846ed9fc56dd57c0cfb29bd2f5"
-    sha256 cellar: :any,                 ventura:        "6b11d92dfb320d58be7ce9583b3146182b729837906f226368c82638144a5a6c"
-    sha256 cellar: :any,                 monterey:       "71e82fb32bfa647c809cf3c9fde453abcfc6dc42e01806409202b915dba08013"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9841ad1fd59741555e6209c7259e152e9ec354cbc4514e41377460008baf0c6b"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "3b570c1a3f374cc935d1410478bedfd3747a9aa45701db997f56e84b6ad1fd12"
+    sha256 cellar: :any,                 arm64_sonoma:  "034252749348b8726609632cbe00f8fc8a6d5302d90e0715e3ef7f38cce17075"
+    sha256 cellar: :any,                 arm64_ventura: "5efc3735519f642d026d2a89bd65b849336c6e0053b6dd1793c8d398992ab1c6"
+    sha256 cellar: :any,                 sonoma:        "6153d56a2e1099121819856c504f6171705431b8c7e56e1daf2a5250929a5c72"
+    sha256 cellar: :any,                 ventura:       "0ab8a9ec411a5979fc7b9927264b90d4bf7362af250ac0dfac180da339b10ad3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9df6820eecd2924ec0458ba37fd14e21844091f98554dc47c60973832836b57b"
   end
 
   depends_on "curl"
   depends_on "openssl@3"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   conflicts_with "spotbugs", because: "both install a `fb` binary"
 
@@ -51,7 +50,7 @@ class FbClient < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec, "python3.12")
+    venv = virtualenv_create(libexec, "python3.13")
     venv.pip_install resources
 
     rw_info = python_shebang_rewrite_info(libexec/"bin/python")

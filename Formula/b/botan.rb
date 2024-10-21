@@ -12,19 +12,18 @@ class Botan < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia:  "dc8310abe0f96336059827bcd80899a4587f7d497b20b55162fd087b07d3b05a"
-    sha256 arm64_sonoma:   "aa11c6a304090b87202a5dc2ab82b9b82ac761d505cddfa168d741bfea2ce728"
-    sha256 arm64_ventura:  "1c0262d4204807550d0d254d50239579e092c2fe2a3c605f0b18ca9460b199ab"
-    sha256 arm64_monterey: "eddaaff629f4803ad72d0a9b1c4337123f1f7855c442b43d1827448a8d86bbb5"
-    sha256 sonoma:         "5261549cf532913036283820da77d452cae2f549c3a61d924b7d988c64b7ad4b"
-    sha256 ventura:        "cdfa44fa31c62afcd083b4b77e7bd032fd53bd7ec40dfa4d9ee5a266e65ace01"
-    sha256 monterey:       "ae348e462be182f48e69f4182c59f883b55695c3052d4a21e4b9c73bdcb90f11"
-    sha256 x86_64_linux:   "eaa76f947d74ac3cd9501dc86d600214f5876388ebfb3ef675254e167d4f062f"
+    rebuild 1
+    sha256 arm64_sequoia: "f8cb0f5126bac257ae499c377416d67e016f41cb91eb4f781dfba7ead772b27b"
+    sha256 arm64_sonoma:  "4a8bd22f2016573a9252590843e637b6db8d346babaa2e755202c6e12ded6020"
+    sha256 arm64_ventura: "1f368b18ba1f404edf279c8c84d8dd34167209dcd356a95c005d49dcb11a034a"
+    sha256 sonoma:        "ec4c0d57a43c4de2c5505feb354f7dab477b531f548afa1dac31fce1c52060b3"
+    sha256 ventura:       "5f68a7023c8a8bac60d1cb785457620dc5c47a6163e55432de02c5029fdbd280"
+    sha256 x86_64_linux:  "4e0fb5e03509bb2e3a29830c5271a34e08ec6e4bd88ed4993f58e04db96dedd2"
   end
 
   depends_on "pkg-config" => :build
   depends_on "ca-certificates"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
   depends_on "sqlite"
 
   uses_from_macos "bzip2"
@@ -42,7 +41,7 @@ class Botan < Formula
   fails_with gcc: "5"
 
   def python3
-    which("python3.12")
+    which("python3.13")
   end
 
   def install

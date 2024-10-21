@@ -10,19 +10,17 @@ class Vint < Formula
   head "https://github.com/Vimjas/vint.git", branch: "master"
 
   bottle do
-    rebuild 5
-    sha256 cellar: :any,                 arm64_sequoia:  "9129ace27d7628bed20a23484c9c0eb2b009a391bf6a7610c54caa36984085f8"
-    sha256 cellar: :any,                 arm64_sonoma:   "e2b4843f23ddcae97ec2eec6912274d2863faffb3e6f33f262f3f4814fec94fb"
-    sha256 cellar: :any,                 arm64_ventura:  "f0cd321fba48f328e3c13dab7aecf72ad8c7461b52cf007220d3b24fbf986edb"
-    sha256 cellar: :any,                 arm64_monterey: "81fbb3743b862c733415a7487a2c94d94efd047adbcac284c71e1f151b04cd95"
-    sha256 cellar: :any,                 sonoma:         "96a23e4d02eabbfc64e0085e078a1249095c675ab9129e6f8f913c874649e8d1"
-    sha256 cellar: :any,                 ventura:        "0dd3fe045ce35748872c0d023d58cff039f7637485a68a4500d419b90b298637"
-    sha256 cellar: :any,                 monterey:       "6f214063ba0784a2adb96138a19003def055f2a9b99cad00c6f5947a847238f1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "933837ebcda670e4b4a7ca57e3352212f75d5152565e482cd4e37577e8eb4013"
+    rebuild 6
+    sha256 cellar: :any,                 arm64_sequoia: "d2e44d7c8f741058e7053452b35c8c95997f96f60bfb3b2327194a5bed7d90de"
+    sha256 cellar: :any,                 arm64_sonoma:  "4761ec8bf7182df8ae684701d235309968cc96197f6fa6faa876e4ac6b9af816"
+    sha256 cellar: :any,                 arm64_ventura: "e5bc6e57ded07e6f471eec105c4257f76939e2cb1f6efb4ec428bac68aac9e7b"
+    sha256 cellar: :any,                 sonoma:        "b768c5d123e23695279516cc24c2bd6de3b2a31bf8d9c25e2f9b252a6ce045b4"
+    sha256 cellar: :any,                 ventura:       "c3d75f055b30da8429d0506965e1770baa6dfa8eed9c6b371125e20bfc1296e8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e353a7a8aef81e094ecdc67dece6c35786b9cf38c263b3f600a190166a07bebd"
   end
 
   depends_on "libyaml"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "ansicolor" do
     url "https://files.pythonhosted.org/packages/79/74/630817c7eb1289a1412fcc4faeca74a69760d9c9b0db94fc09c91978a6ac/ansicolor-0.3.2.tar.gz"
@@ -35,8 +33,8 @@ class Vint < Formula
   end
 
   resource "pyyaml" do
-    url "https://files.pythonhosted.org/packages/cd/e5/af35f7ea75cf72f2cd079c95ee16797de7cd71f29ea7c68ae5ce7be1eda0/PyYAML-6.0.1.tar.gz"
-    sha256 "bfdf460b1736c775f2ba9f6a92bca30bc2095067b8a9d77876d1fad6cc3b4a43"
+    url "https://files.pythonhosted.org/packages/54/ed/79a089b6be93607fa5cdaedf301d7dfb23af5f25c398d5ead2525b063e17/pyyaml-6.0.2.tar.gz"
+    sha256 "d584d9ec91ad65861cc08d42e834324ef890a082e591037abe114850ff7bbc3e"
   end
 
   # Drop setuptools dep. Next release will switch to setuptools_scm,

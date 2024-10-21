@@ -1,20 +1,18 @@
 class Convco < Formula
   desc "Conventional commits, changelog, versioning, validation"
   homepage "https://convco.github.io"
-  url "https://github.com/convco/convco/archive/refs/tags/v0.6.0.tar.gz"
-  sha256 "e6a7dbaddd39172927170d5d0b7aec12c7b72531d8961963e6059dd432555488"
+  url "https://github.com/convco/convco/archive/refs/tags/v0.6.1.tar.gz"
+  sha256 "ed68341e065f76f22b6d93ff3686836a812f6a031dc7ee00bed7e048b0da4294"
   license "MIT"
   head "https://github.com/convco/convco.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "d3935804ee673dac405a2666336683616f4e426e124b43a5ea7310e4995ed7b1"
-    sha256 cellar: :any,                 arm64_sonoma:   "902794609fffacf8a4895bea16bc5f62fbe61d6e42e7e4b878ff6880be0e0764"
-    sha256 cellar: :any,                 arm64_ventura:  "a1690a307a760ff0779ec5bce8fea4f0e78ca4a941e8d96d048e9cbefe00b656"
-    sha256 cellar: :any,                 arm64_monterey: "0ddff4579aa41e1e7f56bf1fba06ffd19905622371cace49642c0fe54e8c6321"
-    sha256 cellar: :any,                 sonoma:         "98287b7930a2f98d2764560def4d7326e72098cb6f893f1479b45faeefad54c9"
-    sha256 cellar: :any,                 ventura:        "c09e5ad6ce54f02b3c0ad421a38b6be6166b4d8c8cc826ac7c73143ee53eef7b"
-    sha256 cellar: :any,                 monterey:       "b2def2b2af3644f4838801838ebc718dceed43d815bbb992c05f28f0c489e84d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ecef0dce0dbf92b77bf0339985fa945020247ea7bfdee80c272aaa79f052fb51"
+    sha256 cellar: :any,                 arm64_sequoia: "e18c04a894c906be8f793678c6eeb79b471253036813a154c4531dc791b941b9"
+    sha256 cellar: :any,                 arm64_sonoma:  "6f3676b484578a35386192edf44e82e2ce028befef87ad40b5b6d6b89995425e"
+    sha256 cellar: :any,                 arm64_ventura: "963b46df26ac69066af13e1cbec5672a6d8005363053e474f099101484b98352"
+    sha256 cellar: :any,                 sonoma:        "05bf86ff418758f4c82fb9e1d931f1f58804c21e35807c79dea4c63127056d76"
+    sha256 cellar: :any,                 ventura:       "ecf3ab426b73d4519e34d2cdd50d070ff8074e3ce2b4131a242a784349504a74"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4e0109d8ad3f830c0307d2350f190ef1afad564ac1af83120cc5fb72e3d41114"
   end
 
   depends_on "pkg-config" => :build

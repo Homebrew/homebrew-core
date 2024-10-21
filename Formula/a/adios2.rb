@@ -4,7 +4,7 @@ class Adios2 < Formula
   url "https://github.com/ornladios/ADIOS2/archive/refs/tags/v2.10.1.tar.gz"
   sha256 "ce776f3a451994f4979c6bd6d946917a749290a37b7433c0254759b02695ad85"
   license "Apache-2.0"
-  revision 1
+  revision 2
   head "https://github.com/ornladios/ADIOS2.git", branch: "master"
 
   livecheck do
@@ -13,14 +13,12 @@ class Adios2 < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia:  "4313cd9f05eb9c542c79ddd813453e8eaf33803e8742402382aea0aa52305720"
-    sha256 arm64_sonoma:   "c6173e887d128c8868a087e0cb87c024d6a4eca32509f5de491875d637e18632"
-    sha256 arm64_ventura:  "4063bcd651c2f7e2a7b387a8fbba8962835575e9d087f908a23f62e66a4e463d"
-    sha256 arm64_monterey: "cc1db18103afaa9280c284a63976630445f3b2f1bc7eb0ff2d21300aa817a8d7"
-    sha256 sonoma:         "097a2eebee3f943828cd737fe4973b7029fc6dffa6f7ff0d54143b91944b52c8"
-    sha256 ventura:        "5cdf5e17e24daa2bfa0d641c3d28737ac616237d4637ccc851963a6552d800ea"
-    sha256 monterey:       "cec63f45515bf942144e7d15be9c87606949b42f85dfc9424b1f1be97dda582e"
-    sha256 x86_64_linux:   "d9f8c709fc2a57f9bd8970160862a10b2070fe87cb30705e0758ca1317b17cc4"
+    sha256 arm64_sequoia: "45eea725a5eeb5f9d065c31dbffea0821061147d36c546b02d20e68bb06fc699"
+    sha256 arm64_sonoma:  "1b79ef697ee8019e54647b75ca7affa975964690c18fe4541c9cc6aa2869583e"
+    sha256 arm64_ventura: "117b6e49f7c01a30d1803a20fc83eacaccf87062b29fe27d4696296939e304f3"
+    sha256 sonoma:        "441101e346a040cebd96933dcc8f5ab6a132c593ef214f53e5299c7230d66ef9"
+    sha256 ventura:       "380c9e3bf734c0a84ea23fa5ead042611038690ec0d51909611f7045288e17e7"
+    sha256 x86_64_linux:  "725afb074ae040294d78d5d18a61cfe82fcb041b2206d1e119f446fc70c4a194"
   end
 
   depends_on "cmake" => :build
@@ -35,7 +33,7 @@ class Adios2 < Formula
   depends_on "open-mpi"
   depends_on "pugixml"
   depends_on "pybind11"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
   depends_on "sqlite"
   depends_on "yaml-cpp"
   depends_on "zeromq"
@@ -53,7 +51,7 @@ class Adios2 < Formula
   fails_with :clang if DevelopmentTools.clang_build_version == 1400
 
   def python3
-    "python3.12"
+    "python3.13"
   end
 
   def install

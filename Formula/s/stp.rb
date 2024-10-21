@@ -1,11 +1,20 @@
 class Stp < Formula
   desc "Simple Theorem Prover, an efficient SMT solver for bitvectors"
   homepage "https://stp.github.io/"
-  url "https://github.com/stp/stp/archive/refs/tags/2.3.4.tar.gz"
-  sha256 "dc197e337c058dc048451b712169a610f7040b31d0078b6602b831fbdcbec990"
   license "MIT"
   revision 1
   head "https://github.com/stp/stp.git", branch: "master"
+
+  stable do
+    url "https://github.com/stp/stp/archive/refs/tags/2.3.4.tar.gz"
+    sha256 "dc197e337c058dc048451b712169a610f7040b31d0078b6602b831fbdcbec990"
+
+    # Replace distutils for python 3.12+
+    patch do
+      url "https://github.com/stp/stp/commit/fb185479e760b6ff163512cb6c30ac9561aadc0e.patch?full_index=1"
+      sha256 "7e50f26901e31de4f84ceddc1a1d389ab86066a8dcbc5d88e9ec1f0809fa0909"
+    end
+  end
 
   livecheck do
     url :stable
@@ -27,7 +36,6 @@ class Stp < Formula
   depends_on "bison" => :build
   depends_on "cmake" => :build
   depends_on "flex" => :build
-  depends_on "python-setuptools" => :build
   depends_on "boost"
   depends_on "cryptominisat"
   depends_on "gmp"
@@ -43,7 +51,7 @@ class Stp < Formula
     inreplace "lib/Util/GitSHA1.cpp.in", "@CMAKE_CXX_COMPILER@", ENV.cxx
 
     system "cmake", "-S", ".", "-B", "build",
-                    "-DPYTHON_EXECUTABLE=#{Formula["python@3.12"].opt_bin}/#{python}",
+                    "-DPYTHON_EXECUTABLE=#{which(python)}",
                     "-DPYTHON_LIB_INSTALL_DIR=#{site_packages}",
                     *std_cmake_args
     system "cmake", "--build", "build"

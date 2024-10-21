@@ -31,19 +31,7 @@ class MitScheme < Formula
     depends_on "texinfo" => :build
   end
 
-  resource "bootstrap" do
-    url "https://ftp.gnu.org/gnu/mit-scheme/stable.pkg/12.1/mit-scheme-12.1-svm1-64le.tar.gz"
-    sha256 "2c5b5bf1f44c7c2458da79c0943e082ae37f1752c7d9d1ce0a61f7afcbf04304"
-  end
-
   def install
-    resource("bootstrap").stage do
-      cd "src"
-      system "./configure", "--prefix=#{buildpath}/staging", "--without-x"
-      system "make"
-      system "make", "install"
-    end
-
     # Liarc builds must launch within the src dir, not using the top-level
     # Makefile
     cd "src"

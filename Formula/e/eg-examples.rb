@@ -8,18 +8,16 @@ class EgExamples < Formula
   license "MIT"
 
   bottle do
-    rebuild 3
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "619ba6a3cac39f7ad1a70f3e78ecf235d278df4e028b691f2426ddb5e55fc15a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a9aea56e5fbcc015c6d927edf5b65b474ae0329c52aecd9d10193c0697b852cd"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "cec5e6f848042f1b91ed94cf0eeb49f09e12878149db5b47d72f3b574d0a36bc"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b905e39bc6039c31712d0a064239790bef509b022f36fa457e47d2b0e00fbfb4"
-    sha256 cellar: :any_skip_relocation, sonoma:         "7065d0352a19259d8bf4ac5b9fb6d7d5c01af88c48853ee3e79974fa22fbc520"
-    sha256 cellar: :any_skip_relocation, ventura:        "b8eb98698911e503da4f1899cd0e5d3319acda5f60409c4e22e46b53c495ae95"
-    sha256 cellar: :any_skip_relocation, monterey:       "eb03b72a6572d0e7d253eff9d3a6c08185fbfd0ec2826e98b7873719b79ac0ac"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2d45e298ab423592028574b32a1255b04704090228f5dbe2602fc555a26bc72e"
+    rebuild 4
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "de4a06419ab8e14dd8fc0e0788db94e5ec3f81df50e29fb7cab28cb6ce90573d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "de4a06419ab8e14dd8fc0e0788db94e5ec3f81df50e29fb7cab28cb6ce90573d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "de4a06419ab8e14dd8fc0e0788db94e5ec3f81df50e29fb7cab28cb6ce90573d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "022bac6f1c7c991e7b1d147e2e0add5b7cd8f044816af299be4d348b79b6a6ee"
+    sha256 cellar: :any_skip_relocation, ventura:       "022bac6f1c7c991e7b1d147e2e0add5b7cd8f044816af299be4d348b79b6a6ee"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "de4a06419ab8e14dd8fc0e0788db94e5ec3f81df50e29fb7cab28cb6ce90573d"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   conflicts_with "eg", because: "both install `eg` binaries"
 

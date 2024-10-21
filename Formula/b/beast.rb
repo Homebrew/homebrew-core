@@ -14,6 +14,7 @@ class Beast < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5f161a2d0544992fe9471b5b6b03dde90fdc0f02c7a92d1a56ba8e692026b9e8"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8530ad41042e8638c8aaa89dcee67c4f9a1cce11e192722d8d10c055fb85d10e"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "3475a2a399c4c91c538e8d5f802070826df46a9f1f7efcdc92ef643558013784"
     sha256 cellar: :any_skip_relocation, sonoma:        "b7f6d9ba542e77f28f82574b63097ef4a5000661ce725f9a7aa7e77e9d3f4e52"

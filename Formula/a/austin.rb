@@ -1,28 +1,27 @@
 class Austin < Formula
   desc "Python frame stack sampler for CPython"
   homepage "https://github.com/P403n1x87/austin"
-  url "https://github.com/P403n1x87/austin/archive/refs/tags/v3.6.0.tar.gz"
-  sha256 "c29bcd84ff0060efbb282c3f36666de9049dcdb4ae57e26a844d8f4219f3b6f4"
+  url "https://github.com/P403n1x87/austin/archive/refs/tags/v3.7.0.tar.gz"
+  sha256 "225968a4302529b62d212db07fa692446a6df58049f2f444011ef4866604339e"
   license "GPL-3.0-or-later"
   head "https://github.com/P403n1x87/austin.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "bbcbc04279bffae09d4ead77077724187cfd3f98b75c2c139d3c04df64b867ac"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "90c711e04cdaa07e84e9c171dfa2a0726ba65b9d35823afbaaaff3e82302c56f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "25e17337744671b82d76d5945f7509609438fe5960032dc79253ded8abfcff75"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e71cac7c434c0a77d2076de01a3d0d942c4b1a70af21e44dc32b375e9df5aaf4"
-    sha256 cellar: :any_skip_relocation, sonoma:         "6f1b3411a7ae8e977acc9fe299fa4f27b04feafcf0bd2c04e128c10928d69ec7"
-    sha256 cellar: :any_skip_relocation, ventura:        "42d5a8b61c806b1b093767c02589358f7e16b6ee81264345006b1055f00fc9f8"
-    sha256 cellar: :any_skip_relocation, monterey:       "1113604e46f3d270d4d87ef5d1e20b945d824c341f03a1c251c10577a94fd679"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f5261862f6e454451f829c908c7320125d170c5a4619dbe66ffbdadbf82b379a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3e3d0412250ee9d07be534682f9dc585ca5300a1baf6d6fbf5430f0458fa6bdc"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e015dcfe89db3a0a8f0a25d3758caf576601f2afe606c68dd0e4e1cda0615b44"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "cafa89876000e876f272da9f9fbcffd00a163a698163e63d68a47974198f0c3b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "a9605282d9c525276e6fce34fd10b2aef37b4b8acffffdaf79d1862e3bac22ab"
+    sha256 cellar: :any_skip_relocation, ventura:       "cf403c1e23f28ca7ac25153fefe8ea3459b50828a036bea52bd89783648177fe"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "23f61750c13e6ad73505a47841f627c537eb23ce2259fcc7efb723e6aeb4396f"
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-  depends_on "python@3.12" => :test
+
+  uses_from_macos "python" => :test
 
   def install
-    system "autoreconf", "--install"
+    system "autoreconf", "--force", "--install", "--verbose"
     system "./configure", *std_configure_args, "--disable-silent-rules"
     system "make"
     system "make", "install"

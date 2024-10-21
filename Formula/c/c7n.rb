@@ -13,21 +13,22 @@ class C7n < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "84c3245d46829fb9ac6dab0ebcfe912d06086ceebb900dbe56c175b20af73389"
-    sha256 cellar: :any,                 arm64_sonoma:  "b45258878d2b2d89e7e7eedc6b548a957aa3e0530b73e934bf12f395c28386f0"
-    sha256 cellar: :any,                 arm64_ventura: "35c716ff3bd2f862b3ceaf5bedb246b3c1fb76404fd57b0c7982d2cdcdf49aa2"
-    sha256 cellar: :any,                 sonoma:        "1edc26cab6b179993e1bbf547f63d6dfa8117820d433be43628d0df315fa9da4"
-    sha256 cellar: :any,                 ventura:       "ac4430e4b639d9a28d8c1735d107eb426cfc1f6fe8bea058a0539fb086304208"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "70a5393f36f21cb30d1d4d0c45f0ed55e0010f3b3bd80acb7f1c2b17683760b7"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "538d7cf9648c0f9d391b850329b5df065f3ead33928b3529f30fb2cc2ba184c9"
+    sha256 cellar: :any,                 arm64_sonoma:  "64f0cc836d26e4599a0ce0522f282a8ebd8753aaed6c14084d5f50d023bc893b"
+    sha256 cellar: :any,                 arm64_ventura: "b4745840ae1127479188ef85cf39e97d7875275c8ace198c12680e112e3a266e"
+    sha256 cellar: :any,                 sonoma:        "3a5d26d4942d9d8352002aa31b0ac9b332a30e8e22f5a0e11b0259aaad0ee0d9"
+    sha256 cellar: :any,                 ventura:       "2c7290de80415d2c76b265567278b345be6511cce9d1d9586aafef5e0ae539e2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a6fe84746898951b882350a6ac63b596b0765ffad70e1fb3b45a9dd55058d700"
   end
 
   depends_on "rust" => :build # for rpds-py
   depends_on "libyaml"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "argcomplete" do
-    url "https://files.pythonhosted.org/packages/75/33/a3d23a2e9ac78f9eaf1fce7490fee430d43ca7d42c65adabbb36a2b28ff6/argcomplete-3.5.0.tar.gz"
-    sha256 "4349400469dccfb7950bb60334a680c58d88699bff6159df61251878dc6bf74b"
+    url "https://files.pythonhosted.org/packages/5f/39/27605e133e7f4bb0c8e48c9a6b87101515e3446003e0442761f6a02ac35e/argcomplete-3.5.1.tar.gz"
+    sha256 "eb1ee355aa2557bd3d0145de7b06b2a45b0ce461e1e7813f5d066039ab4177b4"
   end
 
   resource "attrs" do
@@ -36,13 +37,13 @@ class C7n < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/09/8c/3894453d91d598f3ad79d065c2f8a1f450fe54ad0139450f312c8b7a1b8a/boto3-1.35.22.tar.gz"
-    sha256 "8f4f6e0860ca1b18cbb8d13f3a572a4c099577e741b10205b5604058af0e75b7"
+    url "https://files.pythonhosted.org/packages/bc/32/a0d3c55b3325604fc09303c9a8ccad2d8846d482f5a6aa3290c41ba36a11/boto3-1.35.38.tar.gz"
+    sha256 "90c8cddc4a08c8040057ad44c7468ff82fea9fe8b6517db5ff01a9b2900299cc"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/2f/4f/dd808d59a44117525ae1fc73e9376106625dc66bebd94f9dcc731ed57024/botocore-1.35.22.tar.gz"
-    sha256 "18362b7ec748561d786aebf1dd5c9faf22c4732efbf89344314199f96d3bbb65"
+    url "https://files.pythonhosted.org/packages/c7/b6/f73335bd06007e09ae027bb1568fca59f0ffc7773eb295db369b182d7759/botocore-1.35.38.tar.gz"
+    sha256 "55d9305c44e5ba29476df456120fa4fb919f03f066afa82f2ae400485e7465f4"
   end
 
   resource "docutils" do
@@ -66,8 +67,8 @@ class C7n < Formula
   end
 
   resource "jsonschema-specifications" do
-    url "https://files.pythonhosted.org/packages/f8/b9/cc0cc592e7c195fb8a650c1d5990b10175cf13b4c97465c72ec841de9e4b/jsonschema_specifications-2023.12.1.tar.gz"
-    sha256 "48a76787b3e70f5ed53f1160d2b81f586e4ca6d1548c5de7085d1682674764cc"
+    url "https://files.pythonhosted.org/packages/10/db/58f950c996c793472e336ff3655b13fbcf1e3b359dcf52dcf3ed3b52c352/jsonschema_specifications-2024.10.1.tar.gz"
+    sha256 "0f38b83639958ce1152d02a7f062902c41c8fd20d558b0c34344292d417ae272"
   end
 
   resource "python-dateutil" do
@@ -91,8 +92,8 @@ class C7n < Formula
   end
 
   resource "s3transfer" do
-    url "https://files.pythonhosted.org/packages/cb/67/94c6730ee4c34505b14d94040e2f31edf144c230b6b49e971b4f25ff8fab/s3transfer-0.10.2.tar.gz"
-    sha256 "0711534e9356d3cc692fdde846b4a1e4b0cb6519971860796e6bc4c7aea00ef6"
+    url "https://files.pythonhosted.org/packages/a0/a8/e0a98fd7bd874914f0608ef7c90ffde17e116aefad765021de0f012690a2/s3transfer-0.10.3.tar.gz"
+    sha256 "4f50ed74ab84d474ce614475e0b8d5047ff080810aac5d01ea25231cfc944b0c"
   end
 
   resource "six" do
@@ -142,8 +143,10 @@ class C7n < Formula
             tag: CreatorName
             principal_id_tag: CreatorId
     EOF
+
     output = shell_output("#{bin}/custodian validate --verbose #{testpath}/good-policy.yml 2>&1")
     assert_match "valid", output
+
     # has invalid "action" key instead of "actions"
     (testpath/"bad-policy.yml").write <<~EOF
       policies:
@@ -156,6 +159,7 @@ class C7n < Formula
             tag: CreatorName
             principal_id_tag: CreatorId
     EOF
+
     output = shell_output("#{bin}/custodian validate --verbose #{testpath}/bad-policy.yml 2>&1", 1)
     assert_match "invalid", output
   end

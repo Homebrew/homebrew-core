@@ -8,11 +8,13 @@ class GoogleJavaFormat < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "a9c47e8b2a10b578a88e762da979e2e12efe7130ef26c42b3cdfb56845e03f19"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "20a31ba5e39edfae6c7628ae945fc67e82a0f58ca5429bbea8d48ba809fd7727"
   end
 
   depends_on "openjdk"
-  depends_on "python@3.12"
+
+  uses_from_macos "python"
 
   resource "google-java-format-diff" do
     url "https://raw.githubusercontent.com/google/google-java-format/v1.24.0/scripts/google-java-format-diff.py"
@@ -27,8 +29,8 @@ class GoogleJavaFormat < Formula
     libexec.install "google-java-format-#{version}-all-deps.jar" => "google-java-format.jar"
     bin.write_jar_script libexec/"google-java-format.jar", "google-java-format"
     resource("google-java-format-diff").stage do
+      rewrite_shebang detected_python_shebang(use_python_from_path: true), "google-java-format-diff.py"
       bin.install "google-java-format-diff.py" => "google-java-format-diff"
-      rewrite_shebang detected_python_shebang, bin/"google-java-format-diff"
     end
   end
 

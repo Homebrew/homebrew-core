@@ -8,10 +8,11 @@ class Hy < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "62ea7f5134c67e101258fdd6413561bdb49aad331226093128bc52a34e6fc8b4"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "42597ff82da7cdb389a796c62a21df69df5e342fbe8d52de5cb58cb26fa09de0"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "funcparserlib" do
     url "https://files.pythonhosted.org/packages/93/44/a21dfd9c45ad6909257e5186378a4fedaf41406824ce1ec06bc2a6c168e7/funcparserlib-1.0.1.tar.gz"

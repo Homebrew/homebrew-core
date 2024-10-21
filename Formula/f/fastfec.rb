@@ -8,6 +8,7 @@ class Fastfec < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "100db566efba9bfcba4168d0f6a31a01b99dc7c1b3bbc98daf3717b28865b785"
     sha256 cellar: :any,                 arm64_sonoma:   "03c0f738cdb3df4339b9b2d3b23cc26f7822be6c13db12f2a514bc46d55b3892"
     sha256 cellar: :any,                 arm64_ventura:  "c4d87cb24608f3fd1b0f31264e2161f77aa238fca88653fed5047fb813ebcdc5"
     sha256 cellar: :any,                 arm64_monterey: "bdadc2b206dc4ea94adbf30b6ce1dc41b6491af2b98781222056bc1fe0931aac"

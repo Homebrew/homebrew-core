@@ -6,24 +6,23 @@ class Liquidctl < Formula
   url "https://files.pythonhosted.org/packages/99/d9/15bfe9dc11f2910b7483693b0bab16a382e5ad16cee657ff8133b7cae56d/liquidctl-1.13.0.tar.gz"
   sha256 "ee17241689c0bf3de43cf4d97822e344f5b57513d16dd160e37fa0e389a158c7"
   license "GPL-3.0-or-later"
-  revision 1
+  revision 2
   head "https://github.com/liquidctl/liquidctl.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia: "3a828e867857e71756dc5ffba6c1e36ccfc98e7260b760abf7bdf13bc22ed5a4"
-    sha256 cellar: :any,                 arm64_sonoma:  "d0771969d4789fd3052849f504137a81635fb0fd94a7e4be89126738fc1df50b"
-    sha256 cellar: :any,                 arm64_ventura: "23301c4754b90c1dc5ca433dd93d3187a324bd93fc903386098163fc2c17b36a"
-    sha256 cellar: :any,                 sonoma:        "142261df22f7c5dfc176422dd5070df2131297c0d17b37f58d2763c0c1463097"
-    sha256 cellar: :any,                 ventura:       "aa8d1e1e04c0b86ff2ee5eab36d15520844419b668701683015c9f3128102819"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "613025bf740c77d369eca1eb1fba8e2fcd759d82d6e95f9d923060de6e35bc89"
+    sha256 cellar: :any,                 arm64_sequoia: "5b7d116b57b269eadd7006affac38a95761f8b8773aa18877bfb27378bec8467"
+    sha256 cellar: :any,                 arm64_sonoma:  "1a4301c9452fbb366a43e086d77bfafb140af1fe4a6256bee0171803cdcf5700"
+    sha256 cellar: :any,                 arm64_ventura: "baf3ad92ea880d182f53ee80fd8cabd47a3ba8a4ef6f78557584a3f1eb1cf243"
+    sha256 cellar: :any,                 sonoma:        "bf35060fb1ad3e14d28affbb22c42680db0322103944e10f1adb8bde29b19c68"
+    sha256 cellar: :any,                 ventura:       "73e72321380e52953bc9d0564a74aeed8f7cc01e589ed4a6b3b613b31d13ce1d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "daeeeb0e6b98a1275460bce5cae4994c1c74307c2447dff786da1c744c4d9ce6"
   end
 
   depends_on "pkg-config" => :build
   depends_on "hidapi"
   depends_on "libusb"
   depends_on "pillow"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   on_linux do
     depends_on "i2c-tools"

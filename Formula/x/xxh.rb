@@ -8,18 +8,17 @@ class Xxh < Formula
   license "BSD-2-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "bbce1aa94276376e1c909ea925bd5716a8d385673b74a2e1186a7a0182cdea52"
-    sha256 cellar: :any,                 arm64_sonoma:   "822e1666ce2e955c53623bda48f314623bd13acc5ba4aa6f3a0ddd1caf47ea4f"
-    sha256 cellar: :any,                 arm64_ventura:  "506b28fef997d22a9758465f16f581f50d6930910795959552a22e950069a4fd"
-    sha256 cellar: :any,                 arm64_monterey: "b8a409e38956b865d25c45dcb45b77cd2f2241a8a26bbb0022a94afa1fbae6a8"
-    sha256 cellar: :any,                 sonoma:         "5fa1b2366a20659838f63c3677cd33ada1fc7c720424ed5fd7b1f9a2fb0e25de"
-    sha256 cellar: :any,                 ventura:        "9503143a0ecaedb5d2890e455bea5842875b465753ada89a8222b8ea45a4439c"
-    sha256 cellar: :any,                 monterey:       "3d160118d09b9b87dd435f9874442a56377bb68dccf916e26310201e4e48823b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a9cd1234bba4387ec033284cce8258ca2e6ae6911dfd7efe50e277c7c06be975"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "91c67ed304dd2ff1703b87750f81b35238e051b999837ad62b1fdef026b8681f"
+    sha256 cellar: :any,                 arm64_sonoma:  "90fe8579c1a9494c3cd230237c8858e907f8d609dee2d467b04b7f3386a4d765"
+    sha256 cellar: :any,                 arm64_ventura: "58f728daf50085a2789ff3e60aaa79c9bdf8311d81a72229db17845339d27b23"
+    sha256 cellar: :any,                 sonoma:        "e84bf6a6f1ec3a8c64808143699230cd051658b93e41392229f89b435dc935ba"
+    sha256 cellar: :any,                 ventura:       "21ede13f1c2be72389b89d535d878bb67df550bad7ac5e738117fd0517b10802"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2335bd805b3ec23dfbc6f32bef599e4da99420c48b0676d055050ca3d5f7de04"
   end
 
   depends_on "libyaml"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "pexpect" do
     url "https://files.pythonhosted.org/packages/42/92/cc564bf6381ff43ce1f4d06852fc19a2f11d180f23dc32d9588bee2f149d/pexpect-4.9.0.tar.gz"
@@ -32,8 +31,8 @@ class Xxh < Formula
   end
 
   resource "pyyaml" do
-    url "https://files.pythonhosted.org/packages/cd/e5/af35f7ea75cf72f2cd079c95ee16797de7cd71f29ea7c68ae5ce7be1eda0/PyYAML-6.0.1.tar.gz"
-    sha256 "bfdf460b1736c775f2ba9f6a92bca30bc2095067b8a9d77876d1fad6cc3b4a43"
+    url "https://files.pythonhosted.org/packages/54/ed/79a089b6be93607fa5cdaedf301d7dfb23af5f25c398d5ead2525b063e17/pyyaml-6.0.2.tar.gz"
+    sha256 "d584d9ec91ad65861cc08d42e834324ef890a082e591037abe114850ff7bbc3e"
   end
 
   def install

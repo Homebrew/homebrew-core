@@ -4,15 +4,16 @@ class Numpy < Formula
   url "https://files.pythonhosted.org/packages/4b/d1/8a730ea07f4a37d94f9172f4ce1d81064b7a64766b460378be278952de75/numpy-2.1.2.tar.gz"
   sha256 "13532a088217fa624c99b843eeb54640de23b3414b14aa66d023805eb731066c"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/numpy/numpy.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "f6dfb8979382c5b8f4009f2fb0790c07633ac131cafbac25d0ba6a5181c3ed47"
-    sha256 cellar: :any,                 arm64_sonoma:  "c42a5acfe86cd4a64ffd540c1ada1d736475cc89af8a7347b9fdd35e60bca2b0"
-    sha256 cellar: :any,                 arm64_ventura: "67f31dcd66f17ec80b4f1445c2dbef87ea70015a457ec23fe5fd185f8d6c4e55"
-    sha256 cellar: :any,                 sonoma:        "568350876e7b55e4922535185f2156e1b8b4561d1c816df02c4c9ed9b4d053ed"
-    sha256 cellar: :any,                 ventura:       "de4f71b1652a5d7ff5ada3220e8ec4367f117387185f9d17de08788f95b11960"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "da26a28fefc97adf777edde9c90f95724f6f9833adb1ef230771d2e36ba6b2c8"
+    sha256 cellar: :any,                 arm64_sequoia: "3ee05c1dc6ae5c2b979185366671d2001fc9eb3e9992772759c09cbd082d9cf3"
+    sha256 cellar: :any,                 arm64_sonoma:  "f817053b37b367828004a068572c344b22ec9c1cf697e2c7827f22cb4762be7d"
+    sha256 cellar: :any,                 arm64_ventura: "24a9db255e759e7dd4dd6c5e23c69c1882c494db5d99eb3d4318e8e817458fe1"
+    sha256 cellar: :any,                 sonoma:        "775342f4ab756239003b82987eeac565893c84da6e2aadd4869a14138805bd43"
+    sha256 cellar: :any,                 ventura:       "a3d6ef5a502e48ab43b27a14d3d50a5b434cc78f6518e285236fbf5ed27e0b8d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b76202d1b5235a66a494d0e6e6c8d707fe4ad854e9999afc0ae1cc1eec1b8a95"
   end
 
   depends_on "gcc" => :build # for gfortran
@@ -20,6 +21,7 @@ class Numpy < Formula
   depends_on "ninja" => :build
   depends_on "python@3.11" => [:build, :test]
   depends_on "python@3.12" => [:build, :test]
+  depends_on "python@3.13" => [:build, :test]
   depends_on "openblas"
 
   on_linux do

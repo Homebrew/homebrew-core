@@ -6,14 +6,13 @@ class Cython < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "b6528b991c10fee63d959eec522bc66a308b85c1e061f89985ae5b1f71f67464"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c8f07d2cf12f082f39de2c90f9a0d6b9b72d66a319f24642bf67f7456c2d7f1f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "704cd1687d97983d9143c14af5d3070afdc206458f76d044a4161dc0432335ed"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "1302e5ad351dddd4586ae07d8031f1e8b1a4c6892d85aaaf5b90518fe2d01f9d"
-    sha256 cellar: :any_skip_relocation, sonoma:         "e61f43ad0501c0c4d6ea000f9c2d6682e4031f1604834d0175ffae3d16e9e7ec"
-    sha256 cellar: :any_skip_relocation, ventura:        "eacc3cf1f723744c6c0188f15afb8c5d98e36a9eb540e3eef4dcd774314fd771"
-    sha256 cellar: :any_skip_relocation, monterey:       "9fb3966784dd9ac4019f6fb61357b1b02c852e0b583c12e5637d37966543284c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d8f59aa74df8f2e14b46c4222c0e907b549efd491b87ed23bf13e8d1612fcb9a"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bc62954851e489e13a2c6a483cf9805c8133cb6d37513f1aafbd5c25f974f81d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "614b56056f50a8483393d4f45de1b58defbe00eedb7a56ac1cbe61fe85a74992"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "7b373aaa583724d98f23575a625645e26356673e7d17d176524fe79caaccfcc6"
+    sha256 cellar: :any_skip_relocation, sonoma:        "5d9da57f53e7b66d23dfde15ace02024e928c33e1adef41904dee339876e97e9"
+    sha256 cellar: :any_skip_relocation, ventura:       "a5ec0991915cda4c7ff191742ce6fde844f8e01d61dfcdcca06618a9f8a14a88"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aafe30d15cdf5b3e89c8c2da7f2ef3034de76f965d255ebb72037698a3c358bc"
   end
 
   keg_only <<~EOS
@@ -22,10 +21,10 @@ class Cython < Formula
   EOS
 
   depends_on "python-setuptools" => [:build, :test]
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   def python3
-    "python3.12"
+    "python3.13"
   end
 
   def install

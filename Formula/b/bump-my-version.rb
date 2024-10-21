@@ -3,22 +3,22 @@ class BumpMyVersion < Formula
 
   desc "Version bump your Python project"
   homepage "https://callowayproject.github.io/bump-my-version/"
-  url "https://files.pythonhosted.org/packages/00/70/81d4f2c9f29e9289951aabf8db8f2fe6372eaa745a340d9f53f1ef91cf2c/bump_my_version-0.27.0.tar.gz"
-  sha256 "483c517af91559644d45036648e5d99f4f8c85f8d01394097d3d3e42c9e6acad"
+  url "https://files.pythonhosted.org/packages/d4/25/9b361ff2d42733578ee2b5564cf8b7dc389a187b6b6184c2c19d090e3084/bump_my_version-0.28.0.tar.gz"
+  sha256 "ff3cb51bb15509ae8ebb8e8efa3eaa7c02209677f45457c8b007ef2f5bef7179"
   license "MIT"
   head "https://github.com/callowayproject/bump-my-version.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "6858214f045bf1def32eca48cdd755c3c553de39e46512341e72684a28d9ee8c"
-    sha256 cellar: :any,                 arm64_sonoma:  "9aba48a29fed240e61de3eb24d4e17aefc145a53d134b74dac737552c1c7621c"
-    sha256 cellar: :any,                 arm64_ventura: "563d7a2d0f4a5d07c6467a06551d6c9d0751f4e332e05518f9b4c86f6652086d"
-    sha256 cellar: :any,                 sonoma:        "ef82eef89d83a8d56d54a87f1f7eac5760084f9b9f6ceb4807ee653964de513e"
-    sha256 cellar: :any,                 ventura:       "915b629000a3785735a481bf91afc579e60a8c5498d46cbc9f2ecb93d10dcac8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5a231ca2b53e137676173b77e6b7b7c260ecb3b55e03b0408a5b0eebd11cea8e"
+    sha256 cellar: :any,                 arm64_sequoia: "26788504136130d8ec52a05a68af2b24c4ce3ed5becd99726d6fb3775db0ec60"
+    sha256 cellar: :any,                 arm64_sonoma:  "d3a299144be4cd1094350a4ddaa330b68a880f898c012690a887b8b4f35e67a1"
+    sha256 cellar: :any,                 arm64_ventura: "aa9cd70e6f5c6eeec6d2a5342f5dd002e96f76f91f8a56d8726124113b450d64"
+    sha256 cellar: :any,                 sonoma:        "a11726361b4c9b227144e7e2d2aceb2d1fcca37fc1d548c7b80f0681085471ed"
+    sha256 cellar: :any,                 ventura:       "5d3f25940e014121964580273cc44277442db7ce71f0dd5455cbda43b6cd990d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d206b7ace9968ad3d9cc51fabc03f9777c306c77a07182c960cdcfd38421cdc1"
   end
 
   depends_on "rust" => :build # for pydantic_core
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "annotated-types" do
     url "https://files.pythonhosted.org/packages/ee/67/531ea369ba64dcff5ec9c3402f9f51bf748cec26dde048a2f973a4eea7f5/annotated_types-0.7.0.tar.gz"

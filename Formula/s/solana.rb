@@ -26,26 +26,26 @@ class Solana < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "54791622dd0c2cf3bbab9415c2e915d2b09508f4860eb531860b2f0e2fa84e28"
-    sha256 cellar: :any,                 arm64_sonoma:   "168118e9784eea7ef94a36a367416b4dbe98da42e89bfad8a8bc489a779ebc1f"
-    sha256 cellar: :any,                 arm64_ventura:  "037cfec9e920eaf2e0a652e03322b76acd24f205e2b05130c1e07c5c140937a9"
-    sha256 cellar: :any,                 arm64_monterey: "1ff4d05f366991dfa681cc1f7e046c5746cf62c6cddbad6db59eef620b4edab4"
-    sha256 cellar: :any,                 sonoma:         "2cf2631de64f4aacad3a4f5acbe6ffc9b59d3befcbbfee828b55dbad1e4666b9"
-    sha256 cellar: :any,                 ventura:        "d78429af763e704efdfe3dd53dd06bfcbdca32d3aa0a72e22a982585c8824c7c"
-    sha256 cellar: :any,                 monterey:       "bdc8dface8e33a0e6fc4becaae4b666d503a3886fc16854abd227a5a201a339d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "890c16d789fd565c7b869cc0cab9ad7b18b12f279f99a2c8fdb14a2ded4e6499"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "587663fffc9f10da1338bd74511ee9997dab9283353b6f1cc57dc52e5dedca0f"
+    sha256 cellar: :any,                 arm64_sonoma:  "dc737b2805e44862c7d71a09646f65646744ae2e720767a3b8b864f8789c1b21"
+    sha256 cellar: :any,                 arm64_ventura: "f168f86719af5f2eda08655be0ca639aa8ffa24d666af60f3c350296de8ac7a0"
+    sha256 cellar: :any,                 sonoma:        "bf2095088594fdf9c04698c0b274dc4933afecfec472570a09fc05d560048ef1"
+    sha256 cellar: :any,                 ventura:       "98ecdf1700ab37071fffef07518908e80168a1b77cda03a66d18880fccb66cfc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e327904665e09bb0beb049379e085cdf2c7ecfec1af44fdfd8eb60c664777a5a"
   end
 
+  depends_on "pkg-config" => :build
   depends_on "protobuf" => :build
   depends_on "rust" => :build
 
   depends_on "openssl@3"
 
   uses_from_macos "llvm" => :build # for libclang
+  uses_from_macos "bzip2"
   uses_from_macos "zlib"
 
   on_linux do
-    depends_on "pkg-config" => :build
     depends_on "systemd"
   end
 

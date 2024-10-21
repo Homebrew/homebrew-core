@@ -1,23 +1,17 @@
 class HowardHinnantDate < Formula
   desc "C++ library for date and time operations based on <chrono>"
   homepage "https://github.com/HowardHinnant/date"
-  url "https://github.com/HowardHinnant/date/archive/refs/tags/v3.0.1.tar.gz"
-  sha256 "7a390f200f0ccd207e8cff6757e04817c1a0aec3e327b006b7eb451c57ee3538"
+  url "https://github.com/HowardHinnant/date/archive/refs/tags/v3.0.3.tar.gz"
+  sha256 "30de45a34a2605cca33a993a9ea54e8f140f23b1caf1acf3c2fd436c42c7d942"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "a5994a1d9e299d4371ecac9f618f535b6f1644e96b1deaf16e25c81cb11388b4"
-    sha256 cellar: :any,                 arm64_sonoma:   "160efb4eb4cc989a1758b491e9b4d5765e23f21acdfdead97ff65fbf41fe7e57"
-    sha256 cellar: :any,                 arm64_ventura:  "c883e4cb240a19756b28270cfde1fb71adf879e2aefb380f6c01ff0b4b6b8989"
-    sha256 cellar: :any,                 arm64_monterey: "52811eb710a07d879d153a65bc6c771a8ff801f990a6bd2f968d1238c6000b03"
-    sha256 cellar: :any,                 arm64_big_sur:  "deff47e2027f805ef5cd430d0700470cf8bada0cde442e8674ae6a832e3b9888"
-    sha256 cellar: :any,                 sonoma:         "a0ecdebbd7b92fd87090a4051c096955170a4ce255f2f71e9ed4afa0377e2a5f"
-    sha256 cellar: :any,                 ventura:        "372312fabb0cbb4e07ae4bc2f8cdf36ae6128a6bfea018f342f8b8fab211a9c8"
-    sha256 cellar: :any,                 monterey:       "0098680dad7ff5cb5854d04ab0aff279641892d1c8c3079658bfe2762bb1b6f9"
-    sha256 cellar: :any,                 big_sur:        "b8fc90e684f2d3b711fcb405c082f8ad637eac8f6c5816b746284c911950eb5a"
-    sha256 cellar: :any,                 catalina:       "bebf754666baa69673a77fb5eeb3c0ebe9931b7aa2d3991a3f6fa235a439d11b"
-    sha256 cellar: :any,                 mojave:         "d140b4b590c5ef8c25e80abaa8466dbcb6f10a95ca0dec551de7fb0e213171b4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2361559d178154d8e6f69b1da915838ab17271a61d3ff808db1ed2ca8ce7091f"
+    sha256 cellar: :any,                 arm64_sequoia: "f5caa8a7a4f7072d005a62f565705607e1d5ff21ef112d5a911bacb3c8a1695b"
+    sha256 cellar: :any,                 arm64_sonoma:  "fb88892a2b820b2e43c6b47af05740b6a5bd44e20335ec9ca23a5e247c0782ac"
+    sha256 cellar: :any,                 arm64_ventura: "5c383e2d85dfb776bb86e0aa19cd34ae62510d87b725c6fde8dc18b199a9462d"
+    sha256 cellar: :any,                 sonoma:        "a15f73654fcc9dc73f6628b06b13184127271c6090a340b160ecec12170d9c4b"
+    sha256 cellar: :any,                 ventura:       "af3320951ccf968555f534e710b4ff9fa5ddb4a2b28d9422aa37424d45b1d0c6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1cd260df2059437676d4ffd985f8be01745964447e00c227bb8f3ea78355f650"
   end
 
   depends_on "cmake" => :build

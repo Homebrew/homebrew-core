@@ -1,9 +1,9 @@
 class OathToolkit < Formula
   desc "Tools for one-time password authentication systems"
   homepage "https://www.nongnu.org/oath-toolkit/"
-  url "https://download-mirror.savannah.gnu.org/releases/oath-toolkit/oath-toolkit-2.6.11.tar.gz"
-  mirror "https://fossies.org/linux/privat/oath-toolkit-2.6.11.tar.gz"
-  sha256 "fc512a4a5b46f4c43ab0586c3189fece4d54f7e649397d6fa1e23428431e2cb4"
+  url "https://download-mirror.savannah.gnu.org/releases/oath-toolkit/oath-toolkit-2.6.12.tar.gz"
+  mirror "https://fossies.org/linux/privat/oath-toolkit-2.6.12.tar.gz"
+  sha256 "cafdf739b1ec4b276441c6aedae6411434bbd870071f66154b909cc6e2d9e8ba"
   license all_of: ["GPL-3.0-or-later", "LGPL-2.1-or-later"]
 
   livecheck do
@@ -12,14 +12,12 @@ class OathToolkit < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia:  "5f4195a168670d93b9e06e606eab902feef8dd8e582b19dadd7f079bfe2beb00"
-    sha256 cellar: :any, arm64_sonoma:   "5e6c673c9e2448fc86f6c8ae7830f403e4fc3195ad4d0296b8e9f66b13043ada"
-    sha256 cellar: :any, arm64_ventura:  "995299804b377b1cdf080c9b21a5cbf99f3f5f5dfaf37e0f11129a9f51da1b38"
-    sha256 cellar: :any, arm64_monterey: "95c1c32120d3958f4a257f20899fd6e0872efac1d822be4f537bd13f78773aa9"
-    sha256               sonoma:         "52ced249f4426c8ecbf58f0509f17ed3e597491de1b7c299789056965d16d44c"
-    sha256               ventura:        "c7560f0206fbac58cbda4e2e1ab324c1e5de227f71825a6527270185c41d58b3"
-    sha256               monterey:       "a71c5889889ac62f287d31a929921c82e7af9c0d2bed738d76a481dad42c4b50"
-    sha256               x86_64_linux:   "4e9227d49df3791de714e4e107034ba47b5207e7ec202d089e43c423231bfb64"
+    sha256 cellar: :any, arm64_sequoia: "48cff9d9c17d7a8955db7df8ed9df1b542b1860f45a85ac321534faf1ba9f48b"
+    sha256 cellar: :any, arm64_sonoma:  "24dcc5b994f410171e1eaf2f45b032ddec6dd2a41daba5228ca5b247327a5d32"
+    sha256 cellar: :any, arm64_ventura: "68298fee2815c22a314f1b121b2ac624cbc3b160831c80a4727f625ac4e98450"
+    sha256               sonoma:        "8238e0cbb73ddbeaf854e2d72ebc780a6770960011c4170e33693c33e5d87272"
+    sha256               ventura:       "9720311caa80a8b5ca3968337a05e788c051738ac3626c4e879e72f860728963"
+    sha256               x86_64_linux:  "c161af7b8bd8f281efc7d65c226d812283125c0d7cd3b9ce272c123a7ae5749a"
   end
 
   head do

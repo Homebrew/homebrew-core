@@ -9,14 +9,13 @@ class Mat2 < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "42f38a593f24363d01036ac610dc2a4d564f3eab8b25d3aca1582c6fcae2d3c1"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "93860914251afac13dec74a1e14949d62f236b838b239dff07a87ae0c5638088"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7697cd25b89af2341c18cf57ed4d23ab72522caa42c5a882af5fb3521c7193d2"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "40e247ea29cb0b1534646f29efefeef1f6fb74066dd2eb66f4765e95d2f84f1e"
-    sha256 cellar: :any_skip_relocation, sonoma:         "001e99b10ac8d5f6459b3ab8be250a138f36877cc14ff6b37709d0bf40cee25c"
-    sha256 cellar: :any_skip_relocation, ventura:        "ca6e987909afafdd745b4ba1a96401f1c597dfe181bb6c3c9be4f3f384ebca7c"
-    sha256 cellar: :any_skip_relocation, monterey:       "1241be881c5f5f62cfb7f569cdb3a247c3b5189617424acec1248ee1fb5f0717"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a36b80d2e55d338366518d9a2d8ef20afb739a18037767e71a36910624b34696"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7540fc693b8b6d49f20b01806636224abb0a1df3a4820b0583849bed74e5ca1f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7540fc693b8b6d49f20b01806636224abb0a1df3a4820b0583849bed74e5ca1f"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "7540fc693b8b6d49f20b01806636224abb0a1df3a4820b0583849bed74e5ca1f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7540fc693b8b6d49f20b01806636224abb0a1df3a4820b0583849bed74e5ca1f"
+    sha256 cellar: :any_skip_relocation, ventura:       "7540fc693b8b6d49f20b01806636224abb0a1df3a4820b0583849bed74e5ca1f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e3186ddb81c91afdd65c6c3fbc63ea467b15c55b35bcfc8d239362aa6a8bc3af"
   end
 
   depends_on "exiftool"
@@ -26,7 +25,7 @@ class Mat2 < Formula
   depends_on "poppler"
   depends_on "py3cairo"
   depends_on "pygobject3"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "mutagen" do
     url "https://files.pythonhosted.org/packages/81/e6/64bc71b74eef4b68e61eb921dcf72dabd9e4ec4af1e11891bbd312ccbb77/mutagen-1.47.0.tar.gz"

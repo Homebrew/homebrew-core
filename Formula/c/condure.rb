@@ -21,7 +21,7 @@ class Condure < Formula
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
   depends_on "cython" => :test # use brew cython as building it in test can cause time out
-  depends_on "python@3.12" => :test
+  depends_on "python@3.13" => :test
   depends_on "openssl@3"
   depends_on "zeromq"
 
@@ -53,7 +53,7 @@ class Condure < Formula
     ipcfile = testpath/"client"
     runfile = testpath/"test.py"
 
-    python3 = "python3.12"
+    python3 = "python3.13"
     ENV.append_path "PYTHONPATH", Formula["cython"].opt_libexec/Language::Python.site_packages(python3)
     venv = virtualenv_create(testpath/"vendor", python3)
     venv.pip_install resources.reject { |r| r.name == "pyzmq" }

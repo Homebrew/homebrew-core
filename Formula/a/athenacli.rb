@@ -9,19 +9,20 @@ class Athenacli < Formula
   revision 6
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "0f19af9dccb489dba6862ad7e42fda6f13a6f00d65c379d953d621d1e79a5b1c"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "24bd2caf184bd92d6750107fd8e234adf75aa78bedc755972c488ba76f8daae4"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/c2/e4/b3438c3493a5b534f86308809029dc72c854b6007c331c03893345799a35/boto3-1.35.24.tar.gz"
-    sha256 "be7807f30f26d6c0057e45cfd09dad5968e664488bf4f9138d0bb7a0f6d8ed40"
+    url "https://files.pythonhosted.org/packages/80/8b/31845869fb935b93d1f1a846d2a8e13dc91af4cf03ba701e2068c08b99af/boto3-1.35.37.tar.gz"
+    sha256 "470d981583885859fed2fd1c185eeb01cc03e60272d499bafe41b12625b158c8"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/44/68/8c6e4e8d7ec73f4daa0a1411dd0b3efcb06ed77c8d02ae95c90b85afdcbc/botocore-1.35.24.tar.gz"
-    sha256 "1e59b0f14f4890c4f70bd6a58a634b9464bed1c4c6171f87c8795d974ade614b"
+    url "https://files.pythonhosted.org/packages/57/a4/bc96ba621c869f723ce4cb4dadb53fdbb821d64ef1146f0749098ef342cf/botocore-1.35.37.tar.gz"
+    sha256 "b2b4d29bafd95b698344f2f0577bb67064adbf1735d8a0e3c7473daa59c23ba6"
   end
 
   resource "cli-helpers" do
@@ -50,8 +51,8 @@ class Athenacli < Formula
   end
 
   resource "prompt-toolkit" do
-    url "https://files.pythonhosted.org/packages/47/6d/0279b119dafc74c1220420028d490c4399b790fc1256998666e3a341879f/prompt_toolkit-3.0.47.tar.gz"
-    sha256 "1e1b29cb58080b1e69f207c893a1a7bf16d127a5c30c9d17a25a5d77792e5360"
+    url "https://files.pythonhosted.org/packages/2d/4f/feb5e137aff82f7c7f3248267b97451da3644f6cdc218edfe549fb354127/prompt_toolkit-3.0.48.tar.gz"
+    sha256 "d6623ab0477a80df74e646bdbc93621143f5caf104206aa29294d53de1a03d90"
   end
 
   resource "pyathena" do
@@ -70,8 +71,8 @@ class Athenacli < Formula
   end
 
   resource "s3transfer" do
-    url "https://files.pythonhosted.org/packages/cb/67/94c6730ee4c34505b14d94040e2f31edf144c230b6b49e971b4f25ff8fab/s3transfer-0.10.2.tar.gz"
-    sha256 "0711534e9356d3cc692fdde846b4a1e4b0cb6519971860796e6bc4c7aea00ef6"
+    url "https://files.pythonhosted.org/packages/a0/a8/e0a98fd7bd874914f0608ef7c90ffde17e116aefad765021de0f012690a2/s3transfer-0.10.3.tar.gz"
+    sha256 "4f50ed74ab84d474ce614475e0b8d5047ff080810aac5d01ea25231cfc944b0c"
   end
 
   resource "six" do

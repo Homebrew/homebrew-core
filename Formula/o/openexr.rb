@@ -1,22 +1,24 @@
 class Openexr < Formula
   desc "High dynamic-range image file format"
   homepage "https://www.openexr.com/"
-  url "https://github.com/AcademySoftwareFoundation/openexr/archive/refs/tags/v3.3.0.tar.gz"
-  sha256 "58b00f50d2012f3107573c4b7371f70516d2972c2b301a50925e1b4a60a7be6f"
+  url "https://github.com/AcademySoftwareFoundation/openexr/archive/refs/tags/v3.3.1.tar.gz"
+  sha256 "58aad2b32c047070a52f1205b309bdae007442e0f983120e4ff57551eb6f10f1"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "3975252966c93511bd10cb56369e3d576e04c3b107d79fa54d0126c84067dc88"
-    sha256 cellar: :any,                 arm64_sonoma:  "e69ceaeff7a1da39254e801541fdb9124f3eb063596b3218a80ae57f6a993b22"
-    sha256 cellar: :any,                 arm64_ventura: "f3940304428ee703d5ca9e45c1480e7524fd1b4d780316b589e85fdab6d915de"
-    sha256 cellar: :any,                 sonoma:        "98243512ea405b594d31d98787ac95b3fa89b06e950325c6742ad69ecbc6d9b0"
-    sha256 cellar: :any,                 ventura:       "05f5c17a741f9fdedfacaf812e6c1ec940eb72bf2bd9b2000996348bde725193"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "18df0af78679bb1b9e344670f793d540cb8945b2411b16c794a728f9cbf459ac"
+    sha256 cellar: :any,                 arm64_sequoia: "9056886cae9e3591511bbef200d0b79718959be9ac68f364bf7a2b221706b843"
+    sha256 cellar: :any,                 arm64_sonoma:  "8948c7c401d3bf05e7ba64ba4fb6b761b9d19f99c8d8bfd9bfaecebc440125d1"
+    sha256 cellar: :any,                 arm64_ventura: "d8a76305facaaa7bb3501bf964832263aadcdb3006d0334eeba850c42362ae41"
+    sha256 cellar: :any,                 sonoma:        "2262a6d834c058798019765aae0715564b5e30715bd487c6636c478230649877"
+    sha256 cellar: :any,                 ventura:       "a5f2a08d6ac61d88be9934ad1acde807742f3be7cb0b2bbe1fe2e2fa45b3bd3c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c331aa26cf88dba0b42a71ef7e01d0a778784b2efce77f81e21e56236d27066c"
   end
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
+
   depends_on "imath"
+  depends_on "libdeflate"
 
   uses_from_macos "zlib"
 

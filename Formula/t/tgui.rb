@@ -1,17 +1,22 @@
 class Tgui < Formula
   desc "GUI library for use with sfml"
   homepage "https://tgui.eu"
-  url "https://github.com/texus/TGUI/archive/refs/tags/v1.6.0.tar.gz"
-  sha256 "f405bc87174d8a781810c83223e07c048742b1ec7d0fd16bd32833e116654490"
+  url "https://github.com/texus/TGUI/archive/refs/tags/v1.6.1.tar.gz"
+  sha256 "c9ee4dd9107a107bc818368691c607ab812fd8cf18d02effbe8a1413edea657f"
   license "Zlib"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "331c410afae43834b90cd3bb839372a0703a1ba2519828694d93e6e4173719ea"
-    sha256 cellar: :any,                 arm64_sonoma:  "d1f06fe4bc9dd7c1d44dd1e5c77a9a61962913d7bf873d9c727ad1b16936e1ad"
-    sha256 cellar: :any,                 arm64_ventura: "9bc3f9072df6bf1b2c7e72daedeaa82619eb7b4068b9232344362b30a6169e1c"
-    sha256 cellar: :any,                 sonoma:        "4e93e653944bfafd353bc668bdec36e3d58d52e21220a5020a8547c7be970bd1"
-    sha256 cellar: :any,                 ventura:       "5b8921bc9dab21a3ba1ec678d6944abd23bf599c9bf70d6280f744d71a8930e3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e82936a0501104e046783f83bfc8664a4896a6e5a3a338fbc0ec9aee0b523cfd"
+    sha256 cellar: :any,                 arm64_sequoia: "ae653005a2c508f41fa97008f383ffb57b4ed00345975cda0fee9152201ae697"
+    sha256 cellar: :any,                 arm64_sonoma:  "34c23d4a04975e6e8d01935219e0d4b86bf2eab913c7a1441b820717dab7ae62"
+    sha256 cellar: :any,                 arm64_ventura: "22a69983852c4622aac5b2f668c02bae2f0f5ed9feff1a58876d0c56faac78c8"
+    sha256 cellar: :any,                 sonoma:        "8a5abc027243e1e23838c4df10c22d0758efc1b335689922160dea25886390c3"
+    sha256 cellar: :any,                 ventura:       "94f9406476600fcce70df6a413de54ecd2bee522bc6f8fca454b72540606e12f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0c7863208e769e1080430365bd3993b2f2da5bd62176d308df8547f3f94024b0"
   end
 
   depends_on "cmake" => :build

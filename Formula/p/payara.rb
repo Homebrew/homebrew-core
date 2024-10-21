@@ -1,8 +1,8 @@
 class Payara < Formula
   desc "Java EE application server forked from GlassFish"
   homepage "https://www.payara.fish"
-  url "https://search.maven.org/remotecontent?filepath=fish/payara/distributions/payara/6.2024.9/payara-6.2024.9.zip"
-  sha256 "757ec476e8c94e321ce64b9b50609ba1abc40891a039f3ff6b0e22623f799c4a"
+  url "https://search.maven.org/remotecontent?filepath=fish/payara/distributions/payara/6.2024.10/payara-6.2024.10.zip"
+  sha256 "f215aae9da4674c2ce0d5d39501b09ca9848fd9e8e04df7c1fa8162b47c952a3"
   license any_of: [
     "CDDL-1.1",
     { "GPL-2.0-only" => { with: "Classpath-exception-2.0" } },
@@ -14,7 +14,7 @@ class Payara < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "f83c255681ddca86c56e020033907b2a84cc649b6f81613a7e29c363999f5382"
+    sha256 cellar: :any_skip_relocation, all: "a6e53f5e981db55221fc539098858a8d77fc29999dd363a7d6391bfa08ae1ec3"
   end
 
   depends_on :macos # The test fails on Linux.

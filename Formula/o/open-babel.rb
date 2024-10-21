@@ -17,13 +17,13 @@ class OpenBabel < Formula
   end
 
   bottle do
-    rebuild 3
-    sha256 arm64_sequoia: "238bdc90eeac4fb94c711c2b8ca8314341f4d0e825c33f42bd555ec9309103b8"
-    sha256 arm64_sonoma:  "1de8660be91e1b7d3743c68aa9b16a0d77e02717817aa95d2a96e1e8d5f58381"
-    sha256 arm64_ventura: "dbc696f70eb7d9edce1f77b3a97b4bbb991ea25c4049facf22dff653249035e3"
-    sha256 sonoma:        "4c66243cacbc953bde3dabd83c001f3cba59d9baa1af0fe86971d40e72e6f982"
-    sha256 ventura:       "c425540f55c1f4d0ff7bc8890cea80d7369452646c18f477a959db37b0315225"
-    sha256 x86_64_linux:  "561dc0fb1c18ee4f91fdb0cbf9fcbbd1907a44a77e4610e13e41f3bca727b5a5"
+    rebuild 4
+    sha256 arm64_sequoia: "6e65ad2651937d58c9c4c023948ef066fb47d80c1add72a46478dc068a3b8889"
+    sha256 arm64_sonoma:  "4dae715c5d682d7dbc2629f8942de25888cb0a17ecf7097d0e4b0b5293f6a599"
+    sha256 arm64_ventura: "74af59afb37e1a715f5993d8f2003c2a4b9cfcd8c0d25706658318ca8e0bfe4b"
+    sha256 sonoma:        "e5e91a303d0090db9fe25ea23850d11967f37f4bc97a242c98e3309d35323d58"
+    sha256 ventura:       "0a1482bfbb03ce95e687277d86aa7c1bac4dd1b4f9daeeebb5e7197196877c8e"
+    sha256 x86_64_linux:  "e9f6607712d55e1397a70b5e5242664ad606f8a0b990deb36161f3f11ddaa1af"
   end
 
   depends_on "cmake" => :build
@@ -34,13 +34,13 @@ class OpenBabel < Formula
   depends_on "cairo"
   depends_on "eigen"
   depends_on "inchi"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   uses_from_macos "libxml2"
   uses_from_macos "zlib"
 
   def python3
-    "python3.12"
+    "python3.13"
   end
 
   conflicts_with "surelog", because: "both install `roundtrip` binaries"

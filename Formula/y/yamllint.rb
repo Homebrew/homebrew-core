@@ -9,19 +9,17 @@ class Yamllint < Formula
   head "https://github.com/adrienverge/yamllint.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia:  "b5de53b808e0998a8cd36c78d68c03767c39601b69578563c41bccd1fe17a83a"
-    sha256 cellar: :any,                 arm64_sonoma:   "f4c04876473720910f72e135311c05d3fefe3208bba7d90e7904cbbc2f154051"
-    sha256 cellar: :any,                 arm64_ventura:  "55c913a5745760a8c12f537a3c67fa1e97dd8dbc8e8ceb4ef7bc87d27b116279"
-    sha256 cellar: :any,                 arm64_monterey: "2698561d2192e10a5566a2168f6ec3ded2bc5416970967b3667408d144b6e497"
-    sha256 cellar: :any,                 sonoma:         "b7b45b6cef591f8f02529e510315543830b33e4de4827fbffb1deed4c8e1c30c"
-    sha256 cellar: :any,                 ventura:        "9b3b376d46761939812fb46be383f62dda5370417a6968bef9043ea701dd8be9"
-    sha256 cellar: :any,                 monterey:       "abfd6d24311132e574b45598a59b44f07d48dc35f5e383eaad45f793fd49fc04"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "07a1c2f2e7b0f719576acf927daf06638605e873bc72ccc862ca3e0bf28faf64"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_sequoia: "cb74d6cc51501733531acd25b26fd474557d19374b98eb7de16271ff2c257860"
+    sha256 cellar: :any,                 arm64_sonoma:  "e36b43d6b87028fe2005878cb15c78edec6ddb898e9a86ff7b901fe093cf9c0e"
+    sha256 cellar: :any,                 arm64_ventura: "3591f98aaaebba5e9360926f5ca756dbd85c6a46de0554042376ac83548c7fb3"
+    sha256 cellar: :any,                 sonoma:        "3889369233f5f342b73cc70625748a52d72117603b92f352af00a9ebd27cb1c4"
+    sha256 cellar: :any,                 ventura:       "209883378df0edf4a0691fd2dbf6f2e8da7776bd9c0de0fc70fa04dd0fc51c8d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "993514320174f1147d538719552131a73d34cf66dc9f82c38f6ed28b16cea287"
   end
 
   depends_on "libyaml"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "pathspec" do
     url "https://files.pythonhosted.org/packages/ca/bc/f35b8446f4531a7cb215605d100cd88b7ac6f44ab3fc94870c120ab3adbf/pathspec-0.12.1.tar.gz"
@@ -29,8 +27,8 @@ class Yamllint < Formula
   end
 
   resource "pyyaml" do
-    url "https://files.pythonhosted.org/packages/cd/e5/af35f7ea75cf72f2cd079c95ee16797de7cd71f29ea7c68ae5ce7be1eda0/PyYAML-6.0.1.tar.gz"
-    sha256 "bfdf460b1736c775f2ba9f6a92bca30bc2095067b8a9d77876d1fad6cc3b4a43"
+    url "https://files.pythonhosted.org/packages/54/ed/79a089b6be93607fa5cdaedf301d7dfb23af5f25c398d5ead2525b063e17/pyyaml-6.0.2.tar.gz"
+    sha256 "d584d9ec91ad65861cc08d42e834324ef890a082e591037abe114850ff7bbc3e"
   end
 
   def install

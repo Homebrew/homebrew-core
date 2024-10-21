@@ -9,17 +9,16 @@ class Doc8 < Formula
   head "https://github.com/PyCQA/doc8.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "4dc86c591bc6aa1533f996e2d5d91238b2ac892a38343b5b7e3405e7c51b28f9"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "11b134247abd0f676ba46e3be31218d423ab545af59c6ae186fe612b86c46985"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "11b134247abd0f676ba46e3be31218d423ab545af59c6ae186fe612b86c46985"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "11b134247abd0f676ba46e3be31218d423ab545af59c6ae186fe612b86c46985"
-    sha256 cellar: :any_skip_relocation, sonoma:         "3a70c7423c1428253ddfbd08cd6403051c51d73f484071c7e2972b5e42b9f084"
-    sha256 cellar: :any_skip_relocation, ventura:        "3a70c7423c1428253ddfbd08cd6403051c51d73f484071c7e2972b5e42b9f084"
-    sha256 cellar: :any_skip_relocation, monterey:       "3a70c7423c1428253ddfbd08cd6403051c51d73f484071c7e2972b5e42b9f084"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "11b134247abd0f676ba46e3be31218d423ab545af59c6ae186fe612b86c46985"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c3b10a7def5a70553f390474664fa3dbdfe53bcb207536fa28459dbf0482e222"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c3b10a7def5a70553f390474664fa3dbdfe53bcb207536fa28459dbf0482e222"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "c3b10a7def5a70553f390474664fa3dbdfe53bcb207536fa28459dbf0482e222"
+    sha256 cellar: :any_skip_relocation, sonoma:        "fc866ff039478a505cb59eb61e6150a4b0aa50c12a6aa9c9c31c6a9ed7b4e5b6"
+    sha256 cellar: :any_skip_relocation, ventura:       "fc866ff039478a505cb59eb61e6150a4b0aa50c12a6aa9c9c31c6a9ed7b4e5b6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c3b10a7def5a70553f390474664fa3dbdfe53bcb207536fa28459dbf0482e222"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "docutils" do
     url "https://files.pythonhosted.org/packages/ae/ed/aefcc8cd0ba62a0560c3c18c33925362d46c6075480bfa4df87b28e169a9/docutils-0.21.2.tar.gz"

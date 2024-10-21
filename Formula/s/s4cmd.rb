@@ -10,20 +10,20 @@ class S4cmd < Formula
   head "https://github.com/bloomreach/s4cmd.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "7658f37094808a2c51f42704de6b88f3d95011ae34bc852d05cb9cc14df8f8a3"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "43d2483c9cb4dcbe9c834c42ba1b972a1d1702e03078513d9dc9baa76655fc9b"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/94/42/f34ab93ea175b4e6c96e73a3b3f24d073f63418971925c8149d41f6a252a/boto3-1.34.136.tar.gz"
-    sha256 "0314e6598f59ee0f34eb4e6d1a0f69fa65c146d2b88a6e837a527a9956ec2731"
+    url "https://files.pythonhosted.org/packages/80/8b/31845869fb935b93d1f1a846d2a8e13dc91af4cf03ba701e2068c08b99af/boto3-1.35.37.tar.gz"
+    sha256 "470d981583885859fed2fd1c185eeb01cc03e60272d499bafe41b12625b158c8"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/3c/ec/09d963aa91a1d09a87c21c014da5092a1eccde8b44cd51bbe8a27e3576fd/botocore-1.34.136.tar.gz"
-    sha256 "7f7135178692b39143c8f152a618d2a3b71065a317569a7102d2306d4946f42f"
+    url "https://files.pythonhosted.org/packages/57/a4/bc96ba621c869f723ce4cb4dadb53fdbb821d64ef1146f0749098ef342cf/botocore-1.35.37.tar.gz"
+    sha256 "b2b4d29bafd95b698344f2f0577bb67064adbf1735d8a0e3c7473daa59c23ba6"
   end
 
   resource "jmespath" do
@@ -37,13 +37,13 @@ class S4cmd < Formula
   end
 
   resource "pytz" do
-    url "https://files.pythonhosted.org/packages/90/26/9f1f00a5d021fff16dee3de13d43e5e978f3d58928e129c3a62cf7eb9738/pytz-2024.1.tar.gz"
-    sha256 "2a29735ea9c18baf14b448846bde5a48030ed267578472d8955cd0e7443a9812"
+    url "https://files.pythonhosted.org/packages/3a/31/3c70bf7603cc2dca0f19bdc53b4537a797747a58875b552c8c413d963a3f/pytz-2024.2.tar.gz"
+    sha256 "2aa355083c50a0f93fa581709deac0c9ad65cca8a9e9beac660adcbd493c798a"
   end
 
   resource "s3transfer" do
-    url "https://files.pythonhosted.org/packages/cb/67/94c6730ee4c34505b14d94040e2f31edf144c230b6b49e971b4f25ff8fab/s3transfer-0.10.2.tar.gz"
-    sha256 "0711534e9356d3cc692fdde846b4a1e4b0cb6519971860796e6bc4c7aea00ef6"
+    url "https://files.pythonhosted.org/packages/a0/a8/e0a98fd7bd874914f0608ef7c90ffde17e116aefad765021de0f012690a2/s3transfer-0.10.3.tar.gz"
+    sha256 "4f50ed74ab84d474ce614475e0b8d5047ff080810aac5d01ea25231cfc944b0c"
   end
 
   resource "six" do
@@ -52,8 +52,8 @@ class S4cmd < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/43/6d/fa469ae21497ddc8bc93e5877702dca7cb8f911e337aca7452b5724f1bb6/urllib3-2.2.2.tar.gz"
-    sha256 "dd505485549a7a552833da5e6063639d0d177c04f23bc3864e41e5dc5f612168"
+    url "https://files.pythonhosted.org/packages/ed/63/22ba4ebfe7430b76388e7cd448d5478814d3032121827c12a2cc287e2260/urllib3-2.2.3.tar.gz"
+    sha256 "e7d814a81dad81e6caf2ec9fdedb284ecc9c73076b62654547cc64ccdcae26e9"
   end
 
   def install

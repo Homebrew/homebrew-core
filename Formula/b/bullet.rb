@@ -7,22 +7,22 @@ class Bullet < Formula
   head "https://github.com/bulletphysics/bullet3.git", branch: "master"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_sequoia: "662d4ba26dda7fca5cc9395a5d37f2e3292625b30d8b59dfd1379601e88cd9c8"
-    sha256 cellar: :any,                 arm64_sonoma:  "731fc08c5bb5c2f25f38154efe84b7520dc2d1b1e35474e1fff8f30366705870"
-    sha256 cellar: :any,                 arm64_ventura: "436404c3482bc1f3504848777c33607fe6437022fb4bba4e588f6863c2a64f3d"
-    sha256 cellar: :any,                 sonoma:        "9d06bf5b6f1cbc13ea673d69a87d1295b19b326d234c0b2de9a2850f7390f2a2"
-    sha256 cellar: :any,                 ventura:       "0f397505429015eb2c5583f263a337e2d29397726f31967576338fcd2b9420c7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c961f4a89d4d40e482459cf17731aa3d22b9bae975b968d9e65ad38097659bde"
+    rebuild 3
+    sha256 cellar: :any,                 arm64_sequoia: "97aeccf39592bcf03e7dd07b5339ec03b11345137a8e0872288bb8deff702c6b"
+    sha256 cellar: :any,                 arm64_sonoma:  "367a1f5cdab325d50b7c6ef7b46782d578bb7c0f0dac9f233e2b1779c91feb4a"
+    sha256 cellar: :any,                 arm64_ventura: "c69182f86bc7b5a3407cbee2b2fae2ed2a4959b766d1fb22408d3acf30e1400c"
+    sha256 cellar: :any,                 sonoma:        "6e4a848bf66030dac19ff6dd0677df1ed6f9d46e55d3a6ed3ce14ba63a97404f"
+    sha256 cellar: :any,                 ventura:       "c039c3d01c76f8871b82a55ecc4ab41598e14fae12819f74f9544d2b80a1a904"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8a755ae748428c5dfff82e6a4d57b81fbb4759fd494837d07b4535c0e88f3a16"
   end
 
   depends_on "cmake" => :build
   depends_on "numpy" => [:build, :test]
   depends_on "pkg-config" => :build
-  depends_on "python@3.12" => [:build, :test]
+  depends_on "python@3.13" => [:build, :test]
 
   def python3
-    "python3.12"
+    "python3.13"
   end
 
   def install

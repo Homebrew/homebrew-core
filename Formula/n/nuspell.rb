@@ -4,28 +4,24 @@ class Nuspell < Formula
   url "https://github.com/nuspell/nuspell/archive/refs/tags/v5.1.6.tar.gz"
   sha256 "5d4baa1daf833a18dc06ae0af0571d9574cc849d47daff6b9ce11dac0a5ded6a"
   license "LGPL-3.0-or-later"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "e1ca2715c02f6ac8a3039f4334149b56a7f1f2a69195d4f7ec240a362eff7c0e"
-    sha256 cellar: :any,                 arm64_sonoma:   "9e7281a57b83e677868aad16232d40fd48543ce65174f174bd443150c6361bb1"
-    sha256 cellar: :any,                 arm64_ventura:  "6804f4fa88dbbd76f01aa90450346e0c00be89e3f4d732e2a2466976e84cbe58"
-    sha256 cellar: :any,                 arm64_monterey: "c1596f60835c4dc02f005083b00a175505770fdd3333e868ac578a116cdcf92e"
-    sha256 cellar: :any,                 sonoma:         "1ee2c3df9b096c680c09f3f80c138258e28bb10e122d15871e4e4a35f9702058"
-    sha256 cellar: :any,                 ventura:        "fb64db7d781253262d6939f25c1c82745cabe55862696e025d469b8c151364c8"
-    sha256 cellar: :any,                 monterey:       "b93489b214e38917fa7d11668421bf14f2f0d05cbca45c4a7e0e4f4b90360988"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f682217bc55e204b2d6fb5911caad75c955fb28549195a0be5a7028d736526be"
+    sha256 cellar: :any,                 arm64_sequoia: "3b957ee134c236462ecffd48f31b6099a881359cad7f3d104c458389a9080de3"
+    sha256 cellar: :any,                 arm64_sonoma:  "a0cc74c79b30f86b3e20a90a6f6abd75c9d5c048ecfa8be58000e961e6260701"
+    sha256 cellar: :any,                 arm64_ventura: "a475126aa1ef8141f7acfed5cf7d6bf94b854675e5680dc28455c121e97225ca"
+    sha256 cellar: :any,                 sonoma:        "9d73cd5176f879c4d2ba855b879b005888b7f501f02dba868915a09e01ceb968"
+    sha256 cellar: :any,                 ventura:       "e4236a6e4cb09f6fd4957a089f929e5c3475c70878698e5a6bfb7fc33e33ce72"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8a61b3f7e409ed97a7610dd2796e98e5b40eaac9df9883c6efe4ed2a7c6c0d1b"
   end
 
   depends_on "cmake" => :build
   depends_on "pandoc" => :build
   depends_on "pkg-config" => :test
-  depends_on "icu4c"
+  depends_on "icu4c@75"
 
   def install
-    args = %W[
-      -DCMAKE_INSTALL_RPATH=#{rpath}
-    ]
-    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build", "-DCMAKE_INSTALL_RPATH=#{rpath}", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
@@ -87,9 +83,13 @@ class Nuspell < Formula
       }
     EOS
 
-    ENV.prepend_path "PKG_CONFIG_PATH", Formula["icu4c"].opt_lib/"pkgconfig"
-    pkg_config_flags = shell_output("pkg-config --cflags --libs nuspell").chomp.split
-    system ENV.cxx, "-std=c++17", "test.cpp", "-o", "test", *pkg_config_flags
+    icu4c = deps.find { |dep| dep.name.match?(/^icu4c(@\d+)?$/) }
+                .to_formula
+    ENV.prepend_path "PKG_CONFIG_PATH", icu4c.opt_lib/"pkgconfig"
+    flags = shell_output("pkg-config --cflags --libs nuspell").chomp.split
+    flags << "-Wl,-rpath,#{lib},-rpath,#{icu4c.opt_lib}" if OS.linux?
+
+    system ENV.cxx, "-std=c++17", "test.cpp", "-o", "test", *flags
     assert_match "Nuspell library loaded dictionary successfully.", shell_output("./test")
   end
 end

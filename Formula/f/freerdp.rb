@@ -1,18 +1,17 @@
 class Freerdp < Formula
   desc "X11 implementation of the Remote Desktop Protocol (RDP)"
   homepage "https://www.freerdp.com/"
-  url "https://github.com/FreeRDP/FreeRDP/archive/refs/tags/3.8.0.tar.gz"
-  sha256 "e313934a77a0bcca3af803455dd9ea1aa2f657c598e3397325aa48e6effd450d"
+  url "https://github.com/FreeRDP/FreeRDP/archive/refs/tags/3.9.0.tar.gz"
+  sha256 "a1d2946c67037bf6bb8aa2f0441c7cacd5e92c835d776cecffb4fcdbaa45ec4f"
   license "Apache-2.0"
 
   bottle do
-    rebuild 1
-    sha256 arm64_sequoia: "84cb696ab17abfb46794ab5d42371016ff302e3a0022728280cd2181ce2c8bb8"
-    sha256 arm64_sonoma:  "3098a9f2292dedf9b8dec36137550d4dc23cc51615714d3b0af799bda88fb06b"
-    sha256 arm64_ventura: "ef480c11de85c450b3898ff8b9e91b7477c479e575bc87fe5d9f2858868b3fb3"
-    sha256 sonoma:        "de1725f02fdef73888ec632e5054788f70ab322a5e500f900237251148abf346"
-    sha256 ventura:       "63d1d5237810b6fc0da43d5092ce310f9c9556bb610053655eb08f81052a2d30"
-    sha256 x86_64_linux:  "0efc0062285eb3ea99ed8359558340b4d8d804c9dff6fbd51ce25bd5b9144dce"
+    sha256 arm64_sequoia: "a59834f722ac8e7b244d262ef196972423cbfbc1a1680a415469d014609a6b10"
+    sha256 arm64_sonoma:  "54bdcd11025d600e11c2399a9eba84bcf2ba6e9dd021c286f3a373191815dd17"
+    sha256 arm64_ventura: "0829fe39942971533ded8813040eefc1f0402b2cea340185c5861971f1031121"
+    sha256 sonoma:        "bc2b2296a58056a0a06f44795d2e0d6da68450aa8f9a1cc88f200a2c601bca32"
+    sha256 ventura:       "53b54485ee6cdd2453f7720c63c80bc37160b331c5a5af9c8249b1d996119a5a"
+    sha256 x86_64_linux:  "dcfa625c94fb8653ba99889f29f38fa671ebb0f51eeb246dc99ff6c42d79c146"
   end
 
   head do
@@ -47,17 +46,11 @@ class Freerdp < Formula
     depends_on "alsa-lib"
     depends_on "ffmpeg"
     depends_on "glib"
-    depends_on "icu4c"
+    depends_on "icu4c@75"
     depends_on "krb5"
     depends_on "libfuse"
     depends_on "systemd"
     depends_on "wayland"
-  end
-
-  # fix type conversion issue with `_Unwind_GetLanguageSpecificData`, upstream pr ref, https://github.com/FreeRDP/FreeRDP/pull/10542
-  patch do
-    url "https://github.com/FreeRDP/FreeRDP/commit/06d8164d5669c02759894d024f285e028c2023de.patch?full_index=1"
-    sha256 "484407240002837cf9a32c6f1250c040710cdf1b78f8455565dca936c078d6c5"
   end
 
   def install

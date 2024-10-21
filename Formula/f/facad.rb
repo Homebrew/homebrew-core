@@ -1,17 +1,17 @@
 class Facad < Formula
   desc "Modern, colorful directory listing tool for the command-line"
   homepage "https://github.com/yellow-footed-honeyguide/facad"
-  url "https://github.com/yellow-footed-honeyguide/facad/archive/refs/tags/v2.4.0.tar.gz"
-  sha256 "8aceff955605d6422812935288b441b1d836389739587d0f2f820ca5ffc45dfd"
+  url "https://github.com/yellow-footed-honeyguide/facad/archive/refs/tags/v2.18.0.tar.gz"
+  sha256 "2c4b487fce0046767e37fbbfe77e530b38d4184a5a82710c9fdd74d184b71f0a"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e00f93d99495b07272b837b221f849e7637406e04f1ad74191efa4877091877c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "17818462146323d92d9cf48d91834b9b97c19a9060c50d17b0c1860390744c0e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "932634254b086f885c9aebb8e887e567a281984076c7f1eb5033d37e43fa9c80"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f0b9cffeaf269f5f49f8c544901dd25d6ca3838a14d1aa69e237ad6c1fa911a9"
-    sha256 cellar: :any_skip_relocation, ventura:       "cf304e3b0843c5a63803120c889e907496bea65fbfe80709e859fdc0c2106e5a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1026221b98afeed8398b2ac1dde152648fb08569ad519a054942a74deb4f3ec0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c254eed36076c6b8d245084f8a81728d821eaac846c0b51a9e464062181efe27"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "52e69e6903590f5b7a7908b0c31a714a841ecf57905a93cc26dd8e4ad7790308"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "d67892e3de277927b006478e9beae4039db3e02f7c4ca599a06bb9ec9078721f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d109477775cc9e45648c9713d16452dbb3453449a3b52ad6a085f116cf2393c1"
+    sha256 cellar: :any_skip_relocation, ventura:       "f358dd6f18d143fc6af661391998eaad63d3d11a54e7d89aba4cbc328049667b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "62058b41a686d0bf5aa4e55b0efb2dadd14778b52a9591991b1fe69bd60d9adb"
   end
 
   depends_on "meson" => :build

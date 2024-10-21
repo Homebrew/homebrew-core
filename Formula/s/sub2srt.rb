@@ -1,8 +1,4 @@
-require "language/perl"
-
 class Sub2srt < Formula
-  include Language::Perl::Shebang
-
   desc "Convert subtitles from .sub to subviewer .srt format"
   homepage "https://github.com/robelix/sub2srt"
   url "https://github.com/robelix/sub2srt/archive/refs/tags/0.5.5.tar.gz"
@@ -19,16 +15,15 @@ class Sub2srt < Formula
 
   def install
     inreplace "README", "/usr/local", HOMEBREW_PREFIX
-    rewrite_shebang detected_perl_shebang, "sub2srt"
     bin.install "sub2srt"
   end
 
   test do
-    (testpath/"test.sub").write <<~EOS
+    (testpath/"test.sub").write <<~SUB
       {1100}{1300}time to...|one
       {1350}{1400}homebrew|two
-    EOS
-    expected = <<~EOS
+    SUB
+    expected = <<~SRT
       1
       00:00:44,000 --> 00:00:52,000
       time to...
@@ -38,7 +33,7 @@ class Sub2srt < Formula
       00:00:54,000 --> 00:00:56,000
       homebrew
       two
-    EOS
+    SRT
     system bin/"sub2srt", "#{testpath}/test.sub"
     assert_equal expected, (testpath/"test.srt").read.chomp
   end

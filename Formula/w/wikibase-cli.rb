@@ -1,17 +1,17 @@
 class WikibaseCli < Formula
   desc "Command-line interface to Wikibase"
   homepage "https://github.com/maxlath/wikibase-cli"
-  url "https://registry.npmjs.org/wikibase-cli/-/wikibase-cli-18.2.0.tgz"
-  sha256 "ce947dbb62a51fdeef2b15d771d54183e9a94bb960bf28e8422e94153834bffd"
+  url "https://registry.npmjs.org/wikibase-cli/-/wikibase-cli-18.2.2.tgz"
+  sha256 "7745aa0e89506fe13502ee094dba848ccdf935df16e20a693a97162382e3fbeb"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9badf05131e66625614a1d88c29b89a24ac291595ea7a5285ee20bcc901b5bfb"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9badf05131e66625614a1d88c29b89a24ac291595ea7a5285ee20bcc901b5bfb"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "9badf05131e66625614a1d88c29b89a24ac291595ea7a5285ee20bcc901b5bfb"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e247597433dc7206739e654b82e0db4ae8ffa726e44414a5f028872459207f0d"
-    sha256 cellar: :any_skip_relocation, ventura:       "e247597433dc7206739e654b82e0db4ae8ffa726e44414a5f028872459207f0d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9badf05131e66625614a1d88c29b89a24ac291595ea7a5285ee20bcc901b5bfb"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "225b195421259af7c9c695cac4a7c4339b09acfae183f7d6a8e6339ec85b4ebf"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "225b195421259af7c9c695cac4a7c4339b09acfae183f7d6a8e6339ec85b4ebf"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "225b195421259af7c9c695cac4a7c4339b09acfae183f7d6a8e6339ec85b4ebf"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8712666f7e32801dd54cd048a6a131da04ff9f6420294a321011217ef7e3a43c"
+    sha256 cellar: :any_skip_relocation, ventura:       "8712666f7e32801dd54cd048a6a131da04ff9f6420294a321011217ef7e3a43c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "225b195421259af7c9c695cac4a7c4339b09acfae183f7d6a8e6339ec85b4ebf"
   end
 
   depends_on "node"

@@ -1,8 +1,4 @@
-require "language/perl"
-
 class Ipv6calc < Formula
-  include Language::Perl::Shebang
-
   desc "Small utility for manipulating IPv6 addresses"
   homepage "https://www.deepspace6.net/projects/ipv6calc.html"
   url "https://github.com/pbiering/ipv6calc/archive/refs/tags/4.2.1.tar.gz"
@@ -30,46 +26,8 @@ class Ipv6calc < Formula
 
   uses_from_macos "perl"
 
-  on_linux do
-    resource "URI" do
-      url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/URI-5.21.tar.gz"
-      sha256 "96265860cd61bde16e8415dcfbf108056de162caa0ac37f81eb695c9d2e0ab77"
-    end
-
-    resource "HTML::Entities" do
-      url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTML-Parser-3.81.tar.gz"
-      sha256 "c0910a5c8f92f8817edd06ccfd224ba1c2ebe8c10f551f032587a1fc83d62ff2"
-    end
-
-    resource "DIGEST::Sha1" do
-      url "https://cpan.metacpan.org/authors/id/G/GA/GAAS/Digest-SHA1-2.13.tar.gz"
-      sha256 "68c1dac2187421f0eb7abf71452a06f190181b8fc4b28ededf5b90296fb943cc"
-    end
-  end
-
   def install
-    if OS.linux?
-      ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
-      ENV.prepend_path "PERL5LIB", libexec/"lib"
-
-      resources.each do |r|
-        r.stage do
-          system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
-          system "make", "install"
-        end
-      end
-
-      rewrite_shebang detected_perl_shebang, "ipv6calcweb/ipv6calcweb.cgi.in"
-
-      # ipv6calcweb.cgi is a CGI script so it does not use PERL5LIB
-      # Add the lib path at the top of the file
-      inreplace "ipv6calcweb/ipv6calcweb.cgi.in",
-                "use URI::Escape;",
-                "use lib \"#{libexec}/lib/perl5/\";\nuse URI::Escape;"
-    end
-
-    # This needs --mandir, otherwise it tries to install to /share/man/man8.
-    system "./configure", "--prefix=#{prefix}", "--mandir=#{man}", "--datadir=#{pkgshare}"
+    system "./configure", *std_configure_args
     system "make"
     system "make", "install"
   end

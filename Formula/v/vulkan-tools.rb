@@ -1,8 +1,8 @@
 class VulkanTools < Formula
   desc "Vulkan utilities and tools"
   homepage "https://github.com/KhronosGroup/Vulkan-Tools"
-  url "https://github.com/KhronosGroup/Vulkan-Tools/archive/refs/tags/v1.3.296.tar.gz"
-  sha256 "a44b5456f473dae0b6d15c23d3b1eb461bb8ef58867271abd641d99735a54b6c"
+  url "https://github.com/KhronosGroup/Vulkan-Tools/archive/refs/tags/v1.3.299.tar.gz"
+  sha256 "85f3cd64df1e7a1f06b2a660b5be55b1b2c66670100c2b28abb29436ba53e945"
   license "Apache-2.0"
   head "https://github.com/KhronosGroup/Vulkan-Tools.git", branch: "main"
 
@@ -12,16 +12,16 @@ class VulkanTools < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "47f50859981f13ae096b81e512353d7a038561f2b5c3994b4c3728172b96c4e2"
-    sha256 cellar: :any,                 arm64_sonoma:  "bc6e873fe5cf454783a410bde0ca985fd57cdefd5a7976a1df21dea2dce428cf"
-    sha256 cellar: :any,                 arm64_ventura: "9afeade2b8acf5999a8013e11b29f0dcc59f4d0c2939ab78bd3d03680bb0340c"
-    sha256 cellar: :any,                 sonoma:        "b3efe004bd4eddb0235d79ed9e779b93b03f7ce954327c34328b651e5da6fc79"
-    sha256 cellar: :any,                 ventura:       "80e88886f39d70433b768950de83192946377ccc9023d21d9c95c620f0eb4cb1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3071e30552325cc54d5a483749d8bcf1674d6e890bc5f3b3aee239085166cfa3"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "746504765796203d9f93566223c5ebc9696c72671e98a5f41b652daed50eaf75"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "20296a1911a8f09bbe71680ca561d38465066f8477b509b38cbca8f3ebf2b7ee"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "c20a7e65220f278db45487a01d402f5d3db6486b917a1c9f47060336c523256e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "6395964a93b01be292bac97020445af3653c954b717185225717f8f042621866"
+    sha256 cellar: :any_skip_relocation, ventura:       "329a8872e08ead1d8d3b1a24bbe9559e31e02584680145ddb8df166323a3786c"
+    sha256                               x86_64_linux:  "89ef63efa555f4d58c49be58ed8fb9500927763412a0ca8c875f45e6f4fbc6d6"
   end
 
   depends_on "cmake" => :build
-  depends_on "python@3.12" => :build
+  depends_on "python@3.13" => :build
   depends_on "vulkan-volk" => :build
   depends_on "glslang"
   depends_on "vulkan-headers"

@@ -2,8 +2,8 @@ class Argocd < Formula
   desc "GitOps Continuous Delivery for Kubernetes"
   homepage "https://argoproj.github.io/cd"
   url "https://github.com/argoproj/argo-cd.git",
-      tag:      "v2.12.4",
-      revision: "27d1e641b6ea99d9f4bf788c032aeaeefd782910"
+      tag:      "v2.12.6",
+      revision: "4dab5bd6a60adea12e084ad23519e35b710060a2"
   license "Apache-2.0"
 
   # There can be a notable gap between when a version is tagged and a
@@ -18,12 +18,12 @@ class Argocd < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "59d945e81cc454c66c8b066bbd96a7f7e8337d488223663dafa369fd23779312"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b39c289492875fac7e77134febaf9938c74899bc92328488f4c7e6b5662447c8"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "bfe85d53371a603507bc5ee184a83f199f863e260658706731359da31dad20c8"
-    sha256 cellar: :any_skip_relocation, sonoma:        "7bfd55e4faf3c2d4b2f83b51f3a9465a9b97f157b7f75c5f06ac969c8315ed6b"
-    sha256 cellar: :any_skip_relocation, ventura:       "aec3fe067d85c71600fcf768d3dbbf4995deb61ceaa60b0a2c87a3e0a0120a39"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dc692fb3e9615f2fc63487df78406101115ad139402c22cdb8a5183a61184dd1"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a9f7501c3fb734c9bf26fa767656995f1b5ff5a29767818ed8db505c678da153"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "dfa0aa47655425a9ee66aaee9a292d6bbdc9405bef8b83582572ab95caeea31d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "3c2d8e3213ac3855a6a18ce5ac6eb40271854876042d26269f5ae4c8ba82ed94"
+    sha256 cellar: :any_skip_relocation, sonoma:        "5acfd507e704cc800c14a027d1d29e49d37c39b67a644da1ad3bc8a592286ab4"
+    sha256 cellar: :any_skip_relocation, ventura:       "6d5a7f308953c562426c22cdefe50ddfc567b7a1dd460ca708b60d9a034490ed"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f4587c65059df00455593995eeae5d2bd2b92ce0524f98a519d129a9137dccba"
   end
 
   depends_on "go" => :build

@@ -13,12 +13,13 @@ class AstrometryNet < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "cfac83085eb5d98dc36ba7ab7bca138c66b1e816943cbd7e5168e070fe4fc98a"
-    sha256 cellar: :any,                 arm64_sonoma:  "9afab005678388dbad503a220150c8daccc990e9bd2dd448fc569dcb541aabc1"
-    sha256 cellar: :any,                 arm64_ventura: "65d1e63b676575ff4d39c40f5ed98c18e13d27a22e25638de23034978274a9c6"
-    sha256 cellar: :any,                 sonoma:        "947ec849258784a4e6768e5bba5efd30bbb13916acd309087674186908dcb00a"
-    sha256 cellar: :any,                 ventura:       "73e3ad7d458ab962544735126e5c498436f2e847209293b25147080153972fea"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8602a196aa54fc2edb9e6b3be983811e1ce7558e03f2ca47dfba3785adbd6157"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "f1bbde0a339c8945bd6dfafa9bd600e0f64f4ac436e1b24b1e1ea29d69a0cbec"
+    sha256 cellar: :any,                 arm64_sonoma:  "28a9cf7512a67a5254942e999848970fc37fc260f24be235cdb00bd5cc73ea67"
+    sha256 cellar: :any,                 arm64_ventura: "4a3bbbaaf304a430652453c98238d3af806edf368aff66253d221705b9175848"
+    sha256 cellar: :any,                 sonoma:        "b4cb1d75bb7ed5de5d080760db6b0a81dac3798a6d5439be01f1d423ad6c1c0d"
+    sha256 cellar: :any,                 ventura:       "c4780f3e9aaf73c835cfc421aa927d52e33c30837911776e34e068d49c94ce12"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "feab592ac829d2863bf2ce65d50d9c880cfa60b513f6ac0a6d70dfe8aa13c1e3"
   end
 
   depends_on "pkg-config" => :build
@@ -31,7 +32,7 @@ class AstrometryNet < Formula
   depends_on "libpng"
   depends_on "netpbm"
   depends_on "numpy"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
   depends_on "wcslib"
 
   resource "fitsio" do
@@ -48,7 +49,7 @@ class AstrometryNet < Formula
     ENV["NETPBM_INC"] = "-I#{Formula["netpbm"].opt_include}/netpbm"
     ENV["NETPBM_LIB"] = "-L#{Formula["netpbm"].opt_lib} -lnetpbm"
     ENV["SYSTEM_GSL"] = "yes"
-    ENV["PYTHON"] = python3 = which("python3.12")
+    ENV["PYTHON"] = python3 = which("python3.13")
 
     venv = virtualenv_create(libexec, python3)
     venv.pip_install(resources, build_isolation: false)

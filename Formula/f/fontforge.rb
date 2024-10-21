@@ -8,15 +8,13 @@ class Fontforge < Formula
   head "https://github.com/fontforge/fontforge.git", branch: "master"
 
   bottle do
-    rebuild 2
-    sha256 arm64_sequoia:  "a5675fc33c08cbc88b41a07f99cf4caee9b43b49f7c17cd7f032af64c94df349"
-    sha256 arm64_sonoma:   "c469b0719fd1508209c51f63b9b6ec7cbcec1e1a5ccef291b7f3cce07fc29eb1"
-    sha256 arm64_ventura:  "74a6767564dce1cff1d76a09205f8e3ad898e102de8f6cdfbc175c1574c9adc0"
-    sha256 arm64_monterey: "3c7e39a9784914c5a11bd9950913494d2da29d85ea3a46b7c0fd2c11d438302a"
-    sha256 sonoma:         "920a7a9f4c5e6da5107e718a4d6b81b9a120baf8dcc8c5c26d22b8b9310cd761"
-    sha256 ventura:        "25e4c95dffa16736af0f10dbe502512c3def848dc6ab3d30e4f7c850298d1e08"
-    sha256 monterey:       "c063d659309fb9232cc6cbd3fcad9cc8866592cbd586fa0bfb06459eed56df96"
-    sha256 x86_64_linux:   "0e9d06b7cede17c0c86db0d9b8ef929afae412fa8f84ad12363a387db304fe20"
+    rebuild 3
+    sha256 arm64_sequoia: "c847e100b5a96a03d1c09119a24141b63714eabe9a6c5228be66c620a089283e"
+    sha256 arm64_sonoma:  "52e4ee7c9795fcd5d0a78f8e1af5d0fa3d6359ed17a44776882713961c984e64"
+    sha256 arm64_ventura: "7407da2b13369840b2a560717591af390cce5251a1fa676aab13402d05f2ef9e"
+    sha256 sonoma:        "6581ae0f6cf1c1cbbda62250b2711da937baaa463df83c2a53ac58f366601cdf"
+    sha256 ventura:       "29c86e972e84fa5bc6ae2a98f2a5ebc324037950da146b5d486159996100b12c"
+    sha256 x86_64_linux:  "ca389200fda1b853af47605d84eaff5a4ee72273f38964fd83aa2ed8b639610e"
   end
 
   depends_on "cmake" => :build
@@ -36,7 +34,7 @@ class Fontforge < Formula
   depends_on "libtool"
   depends_on "libuninameslist"
   depends_on "pango"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
   depends_on "readline"
   depends_on "woff2"
 
@@ -89,7 +87,7 @@ class Fontforge < Formula
       sha256 "6a22acf6be4ab9e5c5a3373dc878030b4b8dc4652323395388abe43679ceba81"
     end
 
-    python = Formula["python@3.12"].opt_bin/"python3.12"
+    python = Formula["python@3.13"].opt_bin/"python3.13"
     system bin/"fontforge", "-version"
     system bin/"fontforge", "-lang=py", "-c", "import fontforge; fontforge.font()"
     system python, "-c", "import fontforge; fontforge.font()"

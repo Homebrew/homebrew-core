@@ -4,17 +4,15 @@ class ProtobufAT21 < Formula
   url "https://github.com/protocolbuffers/protobuf/releases/download/v21.12/protobuf-all-21.12.tar.gz"
   sha256 "2c6a36c7b5a55accae063667ef3c55f2642e67476d96d355ff0acb13dbb47f09"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
-    rebuild 2
-    sha256                               arm64_sequoia:  "c60679a5bf6957120d97d7882d658791153b37d51aa3157458a023baa0cbf33b"
-    sha256                               arm64_sonoma:   "bc82f299ae0fffa1e5b4e93ec3dd39f0330bb06a8dfdebbb953479de3b25eb00"
-    sha256                               arm64_ventura:  "a91538d1878eab72aaa22230709c372f41322377b297c6e01caf188e4e81e378"
-    sha256                               arm64_monterey: "ffa13baa9584681115c2b3b0e7f6d56b6e72144aaa13bd9d924ffc0c88bbde87"
-    sha256                               sonoma:         "7ed1bf5fadc538bfbe3be0aa42bfb07673c17473ebb44df48f2c12bcafeeeafc"
-    sha256                               ventura:        "9b685e87a6ee34e84780544c5573a22c91ee3599f59101eb6a740e65d62f205b"
-    sha256                               monterey:       "83eb3a71bf22ea6876506e12697bda4db2fe0140ec4a343ddbeed8109c696fc6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d4c906d41417f83d39e308e347f6d6c041f79ff7d63d0c7405127ee7186b9477"
+    sha256                               arm64_sequoia: "9a941768e6f914b2c5a412728f3794a49a53b894b3cbe637809df93bc9b521e3"
+    sha256                               arm64_sonoma:  "a906fb18cfff9e07a71c34d01c74676ea28290fa6c4cfa26f68e48449abf242a"
+    sha256                               arm64_ventura: "f2997129a1170a2e472499cdfc829c03f8e8613826360837498fc42843f7bb94"
+    sha256                               sonoma:        "f14d28a66a3801b28475e4913e9d5515074179ec8eec48c8fea5ec0c829e8f19"
+    sha256                               ventura:       "2b155b3335e6db2264fbc0bfb5c1d89a3bc7ac2fd4a15d844d653df8b0aa2858"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b2557598e344f5da522d3a819c63cd59a46ed043dc4d9aecfa9b721c162b7778"
   end
 
   keg_only :versioned_formula
@@ -22,6 +20,7 @@ class ProtobufAT21 < Formula
   depends_on "cmake" => :build
   depends_on "python@3.11" => [:build, :test]
   depends_on "python@3.12" => [:build, :test]
+  depends_on "python@3.13" => [:build, :test]
 
   uses_from_macos "zlib"
 

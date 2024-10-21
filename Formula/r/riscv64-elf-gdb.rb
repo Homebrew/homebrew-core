@@ -26,6 +26,7 @@ class Riscv64ElfGdb < Formula
   depends_on "python@3.12"
   depends_on "xz" # required for lzma support
 
+  uses_from_macos "expat"
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 

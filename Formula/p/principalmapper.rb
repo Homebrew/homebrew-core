@@ -9,21 +9,15 @@ class Principalmapper < Formula
   revision 4
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "26ff43ab706e2d6fe4bf0142d6044f3e169e6793a04ce8493f28fa287a95bf4e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8ba66a19c2f3e1a1f23656651819f41e943350d3d4b23e99dfb2779e58881ef5"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8ba66a19c2f3e1a1f23656651819f41e943350d3d4b23e99dfb2779e58881ef5"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8ba66a19c2f3e1a1f23656651819f41e943350d3d4b23e99dfb2779e58881ef5"
-    sha256 cellar: :any_skip_relocation, sonoma:         "a20093b5e9f325981fc15c4fcf75a0f7d623b7ba52449f4715d6dba276b8f4a2"
-    sha256 cellar: :any_skip_relocation, ventura:        "a20093b5e9f325981fc15c4fcf75a0f7d623b7ba52449f4715d6dba276b8f4a2"
-    sha256 cellar: :any_skip_relocation, monterey:       "8ba66a19c2f3e1a1f23656651819f41e943350d3d4b23e99dfb2779e58881ef5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d90c4241ac562ef113060f47a93f1d9c83ea55ebbba42f28bcf0e4ed9f5d3409"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "74cc8482977efe4ff30d7a6d0bc3e97b764144359dc8f172410e3cf579afab34"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/9e/c9/844ad5680d847d94adb97b22c30b938ddda86f8a815d439503d4ee545484/botocore-1.34.128.tar.gz"
-    sha256 "8d8e03f7c8c080ecafda72036eb3b482d649f8417c90b5dca33b7c2c47adb0c9"
+    url "https://files.pythonhosted.org/packages/c7/b6/f73335bd06007e09ae027bb1568fca59f0ffc7773eb295db369b182d7759/botocore-1.35.38.tar.gz"
+    sha256 "55d9305c44e5ba29476df456120fa4fb919f03f066afa82f2ae400485e7465f4"
   end
 
   resource "jmespath" do
@@ -37,13 +31,13 @@ class Principalmapper < Formula
   end
 
   resource "pydot" do
-    url "https://files.pythonhosted.org/packages/d7/2f/482fcbc389e180e7f8d7e7cb06bc5a7c37be6c57939dfb950951d97f2722/pydot-2.0.0.tar.gz"
-    sha256 "60246af215123fa062f21cd791be67dda23a6f280df09f68919e637a1e4f3235"
+    url "https://files.pythonhosted.org/packages/85/10/4e4da8c271540dc35914e927546cbb821397f0f9477f4079cd8732946699/pydot-3.0.2.tar.gz"
+    sha256 "9180da540b51b3aa09fbf81140b3edfbe2315d778e8589a7d0a4a69c41332bae"
   end
 
   resource "pyparsing" do
-    url "https://files.pythonhosted.org/packages/46/3a/31fd28064d016a2182584d579e033ec95b809d8e220e74c4af6f0f2e8842/pyparsing-3.1.2.tar.gz"
-    sha256 "a1bac0ce561155ecc3ed78ca94d3c9378656ad4c94c1270de543f621420f94ad"
+    url "https://files.pythonhosted.org/packages/83/08/13f3bce01b2061f2bbd582c9df82723de943784cf719a35ac886c652043a/pyparsing-3.1.4.tar.gz"
+    sha256 "f86ec8d1a83f11977c9a6ea7598e8c27fc5cddfa5b07ea2241edbbde1d7bc032"
   end
 
   resource "python-dateutil" do
@@ -57,8 +51,8 @@ class Principalmapper < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/43/6d/fa469ae21497ddc8bc93e5877702dca7cb8f911e337aca7452b5724f1bb6/urllib3-2.2.2.tar.gz"
-    sha256 "dd505485549a7a552833da5e6063639d0d177c04f23bc3864e41e5dc5f612168"
+    url "https://files.pythonhosted.org/packages/ed/63/22ba4ebfe7430b76388e7cd448d5478814d3032121827c12a2cc287e2260/urllib3-2.2.3.tar.gz"
+    sha256 "e7d814a81dad81e6caf2ec9fdedb284ecc9c73076b62654547cc64ccdcae26e9"
   end
 
   # Support Python 3.10, remove on next release

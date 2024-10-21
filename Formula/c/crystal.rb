@@ -5,8 +5,8 @@ class Crystal < Formula
   revision 1
 
   stable do
-    url "https://github.com/crystal-lang/crystal/archive/refs/tags/1.13.3.tar.gz"
-    sha256 "b060a75a7c3d29424f1d16bfb42ee4a46055fa218b964556b81bd1885cb30d77"
+    url "https://github.com/crystal-lang/crystal/archive/refs/tags/1.14.0.tar.gz"
+    sha256 "85c74d8654a0e111e2eaec6de38470bc9cb6762bc5b799dd3693d18cce4bc807"
 
     resource "shards" do
       url "https://github.com/crystal-lang/shards/archive/refs/tags/v0.18.0.tar.gz"
@@ -20,12 +20,12 @@ class Crystal < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "5aa2e173319ce6046863435a71b5d667c75f8a2626d61c245c4f363d610300fa"
-    sha256 cellar: :any,                 arm64_sonoma:  "4c0f592d5f97816bce89b6ef168aced798db5fad2f1f888a36d0eaad5e9f8042"
-    sha256 cellar: :any,                 arm64_ventura: "f647848a070379a03cb87c794192103366222400a09f5b5ec2ee208d8e96464c"
-    sha256 cellar: :any,                 sonoma:        "4d2ceeb8a472bc42ae5b5ea327431b6a5e092092d9b757bdf920be73469ec652"
-    sha256 cellar: :any,                 ventura:       "ebddab757a7e74dffc1c9c502117535b857e32edac785a1179230609a1b90274"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "635e081e16f035c14bc8fd42d7988a9dc23556fb8a5ed807d732bdbdfb4f698b"
+    sha256 cellar: :any,                 arm64_sequoia: "fb7272be811f1eabb551caec4311b46dbaeba5917748d83fd147a41756862de1"
+    sha256 cellar: :any,                 arm64_sonoma:  "325bbb0ee0956f7174440413476586ba7408eef5abffc07299d0d1f97150276a"
+    sha256 cellar: :any,                 arm64_ventura: "166764cd60dc9c7069e14996b5e12f79e64c928e83aad31c277c8e630a203e81"
+    sha256 cellar: :any,                 sonoma:        "23b3cae36e3456ce7d43f5dd07f950415d262daff9eba5f196e5fdfe54850cd7"
+    sha256 cellar: :any,                 ventura:       "fbc3f8bc752de8924efedb52d1521cb78002bae4af1adb4998a97f6f98b5c71d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "75e33889ed0b21da2aedad0649d92cb01d13cd51defacd9ebfea60e8cce49b4f"
   end
 
   head do
@@ -40,7 +40,7 @@ class Crystal < Formula
   depends_on "gmp" # std uses it but it's not linked
   depends_on "libevent"
   depends_on "libyaml"
-  depends_on "llvm@18"
+  depends_on "llvm"
   depends_on "openssl@3" # std uses it but it's not linked
   depends_on "pcre2"
   depends_on "pkg-config" # @[Link] will use pkg-config if available

@@ -33,6 +33,10 @@ class Nut < Formula
   depends_on "libusb"
   depends_on "openssl@3"
 
+  on_linux do
+    depends_on "systemd"
+  end
+
   conflicts_with "rhino", because: "both install `rhino` binaries"
 
   def install

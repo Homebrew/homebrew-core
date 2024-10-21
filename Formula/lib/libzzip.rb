@@ -18,8 +18,8 @@ class Libzzip < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.12" => :build
 
+  uses_from_macos "python" => :build
   uses_from_macos "zip" => :test
   uses_from_macos "zlib"
 

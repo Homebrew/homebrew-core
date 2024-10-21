@@ -1,9 +1,9 @@
 class Agedu < Formula
   desc "Unix utility for tracking down wasted disk space"
   homepage "https://www.chiark.greenend.org.uk/~sgtatham/agedu/"
-  url "https://www.chiark.greenend.org.uk/~sgtatham/agedu/agedu-20211129.8cd63c5.tar.gz"
-  version "20211129"
-  sha256 "ceaee592ef21b8cbb254aa7e9c5d22cefab24535e137618a4d0af591eba8339f"
+  url "https://www.chiark.greenend.org.uk/~sgtatham/agedu/agedu-20241013.3622eda.tar.gz"
+  version "20241013"
+  sha256 "3f77cb2e4dd64c100f7a7b0789a6c06cc16f23e7fe78c1451f5020dd823cf2f8"
   license "MIT"
   head "https://git.tartarus.org/simon/agedu.git", branch: "main"
 
@@ -13,17 +13,12 @@ class Agedu < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "1b9c17df6a3fea5e8ca285d5de89cee23f4eb5d324da61f639bd34b57e5700bd"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7bd1f24bf4d884c1afbb2b3eb070983781cd9aa6b3aba84fd5920d7684e92719"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "16f825c8f7835ec0b733278b2843541eb1dbcb47c3c50d225dde4be1116465ed"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "4ec8e3dfc1b9888fd099ea557c70f9618009330a7350491ee6c59629de112e16"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0409e4c35d407ab4efecc0f2213821c93292d30850fab97e5f0f85646173e520"
-    sha256 cellar: :any_skip_relocation, sonoma:         "38c5d351c4180941f6974ec87506cc443deb40490fdcabfdd8470753dadb0e2c"
-    sha256 cellar: :any_skip_relocation, ventura:        "5c70d49574916335ab4a99f30532de28ae178703e332f0622bfd1ae380c26c4c"
-    sha256 cellar: :any_skip_relocation, monterey:       "143d8821437f83555165eccb233c11b3df198b2bf80c3a228f913121450df32f"
-    sha256 cellar: :any_skip_relocation, big_sur:        "2c9e044a214fcb0e6efaadc6a5361f35187baa16007be3128763683dbc637762"
-    sha256 cellar: :any_skip_relocation, catalina:       "b5ac371498525743ffb8469271f513827761c91cc5bd6e3727e308867231a6c6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4519cb2ca26ec7b111f6059af2e529c1f6240d97245cdef551c8564827169055"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d779cddebf2f281e0ac4ae36def487c0068283d2be92002709f23fd6f81d9d44"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d1a1e5993b600a5ed4625628cd50e19cb46f8761e374d4d6b28be5d4f021c873"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "40c91107a019a0032e48dab8c7a03e9b9e30fb1b566940f09b59ed51055455b2"
+    sha256 cellar: :any_skip_relocation, sonoma:        "17e793caa2392c484df501763ba40a368adbd1a093c37558690bb747eb95dd5c"
+    sha256 cellar: :any_skip_relocation, ventura:       "5fa2adc1d4d7d12ab15c411da797706c7d7e9179b18408fd4a69ffc00d314ab0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "00ac7a445b632cb005add4e4d8a5aefeca4a537930de4c2638607ef3a1ed203b"
   end
 
   depends_on "cmake" => :build

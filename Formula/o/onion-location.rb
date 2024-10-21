@@ -9,17 +9,16 @@ class OnionLocation < Formula
   head "https://codeberg.org/Freso/python-onion-location.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "4b621cb94ebcb30f3dca5b1517a927b3b05ab21cfeb52f9f0ae03d14ae47b38e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "40baaf460fd529c93198d622e3843854980b9b86c7d0b066fc35b82eb01e6285"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "fdd7688143306e60461c961c8d1c6255ccd9932291fb0b7ac8f01c373d3053ca"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7e3750c53aadec6941900b442340d990a408386625ed668c996dfd099b9581a5"
-    sha256 cellar: :any_skip_relocation, sonoma:         "a451e42f6b920fe7dc22533d2e5a10160ca75aa171b7ae34789bfd1719988607"
-    sha256 cellar: :any_skip_relocation, ventura:        "14f7e65048460f0086c4e4af6afd614f99d65411151b2a4db9822b185e08e9c2"
-    sha256 cellar: :any_skip_relocation, monterey:       "fb6d61d8ecc0b79396d2b55256a29c6a45950a00376279090649e6df7018a185"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "25dc68d8d70f089ebaff1f5c86e6f15787e4f96c9f7fcc9ad1482d09a6b90ac7"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "554a06ca904691fa000b6821292db2a79bfaafafcc4d454fe2ce0620e172b313"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2617c96caf91e062cf0db6056b60950578d20a6df6fe812f4ee53c4309f40e84"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "1ea093e13440726264ce4bd5efdf417960122feaa76a42b4609fdd2c3304d809"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f2afd83f62b2d82a043c85d6414616e302f98d47066d9bef7a5a02cd318e2254"
+    sha256 cellar: :any_skip_relocation, ventura:       "0a15e033f4f7a39d15922df96da2dbbc45827f5aebdf2989f402819311b011f4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5c3e568ec6369393e43bf7123fa7ef1e8fad4cfdd7a98b42f854f17fd8f07bca"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"
@@ -35,13 +34,13 @@ class OnionLocation < Formula
   end
 
   resource "lxml" do
-    url "https://files.pythonhosted.org/packages/63/f7/ffbb6d2eb67b80a45b8a0834baa5557a14a5ffce0979439e7cd7f0c4055b/lxml-5.2.2.tar.gz"
-    sha256 "bb2dc4898180bea79863d5487e5f9c7c34297414bad54bcd0f0852aee9cfdb87"
+    url "https://files.pythonhosted.org/packages/e7/6b/20c3a4b24751377aaa6307eb230b66701024012c29dd374999cc92983269/lxml-5.3.0.tar.gz"
+    sha256 "4e109ca30d1edec1ac60cdbe341905dc3b8f55b16855e03a54aaf59e51ec8c6f"
   end
 
   resource "soupsieve" do
-    url "https://files.pythonhosted.org/packages/ce/21/952a240de1c196c7e3fbcd4e559681f0419b1280c617db21157a0390717b/soupsieve-2.5.tar.gz"
-    sha256 "5663d5a7b3bfaeee0bc4372e7fc48f9cff4940b3eec54a6451cc5299f1097690"
+    url "https://files.pythonhosted.org/packages/d7/ce/fbaeed4f9fb8b2daa961f90591662df6a86c1abf25c548329a86920aedfb/soupsieve-2.6.tar.gz"
+    sha256 "e2e68417777af359ec65daac1057404a3c8a5455bb8abc36f1a9866ab1a51abb"
   end
 
   def install

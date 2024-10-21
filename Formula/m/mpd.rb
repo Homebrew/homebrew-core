@@ -2,7 +2,7 @@ class Mpd < Formula
   desc "Music Player Daemon"
   homepage "https://github.com/MusicPlayerDaemon/MPD"
   license "GPL-2.0-or-later"
-  revision 3
+  revision 4
   head "https://github.com/MusicPlayerDaemon/MPD.git", branch: "master"
 
   stable do
@@ -23,14 +23,12 @@ class Mpd < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia:  "1477a629f78d3a59ec276c2ed76fcee30fab741a21c3afa05fef1f26c1f4c336"
-    sha256 cellar: :any, arm64_sonoma:   "a0c5ec95e9166169ff6f6cde2f41d7c5af4aba7f96f69c09843706f811c18b02"
-    sha256 cellar: :any, arm64_ventura:  "a53881cb62b2a4a5ffb73c3ada4d68ae81d7b83fdd3bddbcdb0f621289e2ca45"
-    sha256 cellar: :any, arm64_monterey: "79e0919e8c4439882903acb722454e7b90ccf83b3c53c1343db1d2c37eba7484"
-    sha256 cellar: :any, sonoma:         "8e89240bcd8df2bdf4b1c77365f8bde9234b23196ca5886d511e62a4a6202637"
-    sha256 cellar: :any, ventura:        "eecfcd3df5af3e08b03eb11308b95a81188f886f8fd770847254351ba7c3defc"
-    sha256 cellar: :any, monterey:       "89927c46ef03920991d68708b95d4449a2772797e2e88e689b15d915fbcfd169"
-    sha256               x86_64_linux:   "75d0d90d316c773424592fec34f88647029259f8f71b7b3547481bfa0250c2b3"
+    sha256 cellar: :any, arm64_sequoia: "8a12b2f699b5e35306f0202e23a8e70c4d4c91afb31d69dffd52d7bd5d6c9d48"
+    sha256 cellar: :any, arm64_sonoma:  "c075df5f4127773fd783ca601fe9c3db60aa44c258938c5d98f5ac2521e4f260"
+    sha256 cellar: :any, arm64_ventura: "81a28f9ac47a7ced4f3478668c8e191b4f3dd3be8f79618ec92ed9676ac413f7"
+    sha256 cellar: :any, sonoma:        "6e679a66d2b7620c4e17432701859b21aa702974380779f7cba8499a83544960"
+    sha256 cellar: :any, ventura:       "ec80333810dcdc8404eeac11a94ed3ac9517dd7a6a73035a16bcd38b1b12474a"
+    sha256               x86_64_linux:  "0686b5d3e7579ca2fa949fe9c85869a9808699eb58db6524fa73b5e4e3e03f73"
   end
 
   depends_on "boost" => :build
@@ -46,7 +44,7 @@ class Mpd < Formula
   depends_on "fluid-synth"
   depends_on "fmt"
   depends_on "glib"
-  depends_on "icu4c"
+  depends_on "icu4c@75"
   depends_on "lame"
   depends_on "libao"
   depends_on "libgcrypt"

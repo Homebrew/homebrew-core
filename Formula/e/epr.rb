@@ -9,11 +9,11 @@ class Epr < Formula
   head "https://github.com/wustho/epr.git", branch: "master"
 
   bottle do
-    rebuild 5
-    sha256 cellar: :any_skip_relocation, all: "365cb8927fc2d6153f76442b55a3733ac91cbe8aa1fb6d6646b4659a3a2b9f95"
+    rebuild 6
+    sha256 cellar: :any_skip_relocation, all: "966f587303e9f02e370a8664d4e94d27fcb9ec65567ca6c545fa254d1b04f0b3"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   def install
     virtualenv_install_with_resources

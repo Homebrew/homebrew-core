@@ -1,17 +1,17 @@
 class Gucharmap < Formula
   desc "GNOME Character Map, based on the Unicode Character Database"
   homepage "https://wiki.gnome.org/Apps/Gucharmap"
-  url "https://gitlab.gnome.org/GNOME/gucharmap/-/archive/16.0.1/gucharmap-16.0.1.tar.bz2"
-  sha256 "d687d3a3d4990ea7aff4066e17768ec9fefe7b3129b98090c750b8d7074b4764"
+  url "https://gitlab.gnome.org/GNOME/gucharmap/-/archive/16.0.2/gucharmap-16.0.2.tar.bz2"
+  sha256 "f320ad67318dbf0ec26691849c0fe8f5ef4d72e6e78873fb083ad12c94bcda00"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 arm64_sequoia: "59c2078b02091d1593f343e119926f473cd2aa5359eee1534cc11b441578a42d"
-    sha256 arm64_sonoma:  "117758c84c20d2567903bf4b651651d2dc9f9eb753be9f1950db0ee53cb7ba4c"
-    sha256 arm64_ventura: "b65e687de46f9ceedd7ff3ebd80eca45972e53d6a436a5cbdd9bec771e7b1253"
-    sha256 sonoma:        "d6e92e03ec4db37ebe3462f0c4cd447906b792b77d81bd94bd290a01c9f5e575"
-    sha256 ventura:       "00753bea75c91a51c05f257b25c18f7154a927cf5c9a2af0470fd7a8f9402826"
-    sha256 x86_64_linux:  "e632139ec368f5c381680b3c9ee46990694899d9148f61bba94c7bcb7aa1818a"
+    sha256 arm64_sequoia: "11517c190dbe6ac8cee546e89ba36df310d0fa838ed7636437f95155d2b62874"
+    sha256 arm64_sonoma:  "fc21d70b9319bbadcc227107d7987e46c3474fbdea88ec219ec27051176f472c"
+    sha256 arm64_ventura: "f884c900fdba9a0a8bf52f00c5a3ec68db46fabec8f4ef4ac1faa8115f7afdbd"
+    sha256 sonoma:        "4ff534da40aab00d5b36677697e061e465288eb59dcab160b26b85da15a6d2a3"
+    sha256 ventura:       "ac90916e94ae7ffc4480793575cc9dc6555463335283252499a30663bb4521b8"
+    sha256 x86_64_linux:  "15d7d8cc50e776aeb271dc07d659815ed08a4fbe5c9cc58cc315b6798b4f01e3"
   end
 
   depends_on "desktop-file-utils" => :build

@@ -15,14 +15,13 @@ class Uhd < Formula
   end
 
   bottle do
-    sha256                               arm64_sequoia:  "a4e1b7346637c9f8fbf7952727a34c9733046c9123803ea1ac017a83bfd9cc64"
-    sha256                               arm64_sonoma:   "0aa30be8f8741f6f033d4bdf9558499328b3f401d76da6ba5e46641a9ab22bdc"
-    sha256                               arm64_ventura:  "bba91185c57f41b0341081ec2b0d11d1eec2d20a26ef5985a7d58afd92069ba7"
-    sha256                               arm64_monterey: "908c5d7d364e45e2c76a3ac47194c7a00b012a187f7c3b06886165216f10a97d"
-    sha256                               sonoma:         "a7f8deeaf539132936b14a357ad4c4cddbd017b87d4faee35278b7dbd58eccde"
-    sha256                               ventura:        "53b7c7b837022b1097dfe6c17d55352a2fa97151f540101cdbe82664ecbca39c"
-    sha256                               monterey:       "4669b02aa5c598fabbb0143f5011b5ead0dacc6756c9024a75abd6ba2125fb88"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a0d12aca3e8dae06f8fa880a920bbf6a5f1308ccc1abb405d3395fb0229ffb02"
+    rebuild 1
+    sha256                               arm64_sequoia: "8af487212569ce117181b6bb884536580a701a581823cd615168e8fc5b1699e0"
+    sha256                               arm64_sonoma:  "87477b72f2b117d10c580fdc2812e3e1c032309e4e2ce86836cc5250655ef03f"
+    sha256                               arm64_ventura: "86904ebacfd828a291f1f205df0859de71bc412527270400c6eac5df69dfb43d"
+    sha256                               sonoma:        "4a9799003cc7f032a630c857d17a6c970de02beb7f5778c143aa955df670b654"
+    sha256                               ventura:       "43358e6612f828c025c1c7b2e6f00785546f33ab84d4b6c9bf7f4ea850d60947"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a8be6e51f1458a8f8ac8d85ab25e00e7d064fb6bbdc23c9abf62890a43cc45fc"
   end
 
   depends_on "cmake" => :build
@@ -30,7 +29,7 @@ class Uhd < Formula
   depends_on "pkg-config" => :build
   depends_on "boost"
   depends_on "libusb"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   on_linux do
     depends_on "ncurses"
@@ -44,12 +43,12 @@ class Uhd < Formula
   end
 
   resource "markupsafe" do
-    url "https://files.pythonhosted.org/packages/87/5b/aae44c6655f3801e81aa3eef09dbbf012431987ba564d7231722f68df02d/MarkupSafe-2.1.5.tar.gz"
-    sha256 "d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"
+    url "https://files.pythonhosted.org/packages/b4/d2/38ff920762f2247c3af5cbbbbc40756f575d9692d381d7c520f45deb9b8f/markupsafe-3.0.1.tar.gz"
+    sha256 "3e683ee4f5d0fa2dde4db77ed8dd8a876686e3fc417655c2ece9a90576905344"
   end
 
   def python3
-    "python3.12"
+    "python3.13"
   end
 
   def install

@@ -10,20 +10,19 @@ class Fabric < Formula
   head "https://github.com/fabric/fabric.git", branch: "main"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_sequoia:  "dee13c21743411ae2e97c5354f5e2deb28a033b1c0ea3537b411b529c3881568"
-    sha256 cellar: :any,                 arm64_sonoma:   "e678a66727889cba1b4d41687dfc8cec63965c816b216bfcbc8f476c5ab27151"
-    sha256 cellar: :any,                 arm64_ventura:  "aa44439db06456739c8fad795ee9b86c57b62ee0b7fc9df4989dc0922895e0da"
-    sha256 cellar: :any,                 arm64_monterey: "d1ce1450a673c8cbf58d19622314dfa6fccf0e7752fa55c0d703b79bc9f87c39"
-    sha256 cellar: :any,                 sonoma:         "4bd9b0e6fd6bcc39a42dfd29150c6060969ea607cb08fdf78ac003dae7c64fd6"
-    sha256 cellar: :any,                 ventura:        "0f1571f4ef4d1f41ce846e977a7190185e15a471797b6df47879be0b4ac8f516"
-    sha256 cellar: :any,                 monterey:       "6bf1bb73957e4be1b1adba925d2c15aaeee3a5d0bdc56b3ac87011f8540bc648"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c87c1d40bfb7b8be3ce0762a6ae5f7d4b4580b3a285f315c0ccde367cf7b5028"
+    rebuild 3
+    sha256 cellar: :any,                 arm64_sequoia: "4d1555e8e1817baca2b6923fdb04c78ad0e4e31c8a73335cbb25572c8d90ab5e"
+    sha256 cellar: :any,                 arm64_sonoma:  "af5461c5eec7061d03b600d697c31c9819f0601bc2340636b852beb2b48e67c1"
+    sha256 cellar: :any,                 arm64_ventura: "462f81ce1dad72d97411bc6dd9413b009dd661f9ea562a2f388343363f072ed8"
+    sha256 cellar: :any,                 sonoma:        "887b91b1a6d0a1ab97b9a4d114575f9da05e0bc54568ce249f0b8f02d897f6b7"
+    sha256 cellar: :any,                 ventura:       "421882203efbb325031a85f98942f5f0a46ac043595c855b77037e7a6fbcc4ce"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "250317267233bf7f607ad268ddd2089c29f8722840ba8a3f37a1a33603f84911"
   end
 
   depends_on "rust" => :build # for bcrypt
   depends_on "cryptography"
-  depends_on "python@3.12"
+  depends_on "libsodium" # for pynacl
+  depends_on "python@3.13"
 
   resource "bcrypt" do
     url "https://files.pythonhosted.org/packages/e4/7e/d95e7d96d4828e965891af92e43b52a4cd3395dc1c1ef4ee62748d0471d0/bcrypt-4.2.0.tar.gz"
@@ -46,8 +45,8 @@ class Fabric < Formula
   end
 
   resource "paramiko" do
-    url "https://files.pythonhosted.org/packages/0b/6a/1d85cc9f5eaf49a769c7128039074bbb8127aba70756f05dfcf4326e72a1/paramiko-3.4.1.tar.gz"
-    sha256 "8b15302870af7f6652f2e038975c1d2973f06046cb5d7d65355668b3ecbece0c"
+    url "https://files.pythonhosted.org/packages/1b/0f/c00296e36ff7485935b83d466c4f2cf5934b84b0ad14e81796e1d9d3609b/paramiko-3.5.0.tar.gz"
+    sha256 "ad11e540da4f55cedda52931f1a3f812a8238a7af7f62a60de538cd80bb28124"
   end
 
   resource "pynacl" do
@@ -61,6 +60,7 @@ class Fabric < Formula
   end
 
   def install
+    ENV["SODIUM_INSTALL"] = "system"
     virtualenv_install_with_resources
   end
 

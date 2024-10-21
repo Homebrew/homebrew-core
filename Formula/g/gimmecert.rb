@@ -8,19 +8,13 @@ class Gimmecert < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "975ac251c006b05622cd2d37e62308fe7ee4b5d6122f5867d07f851f1feba17b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5c5201da0004e7f9585bd5cb41aab648ab5f1039f1dd207685aed98812cdab14"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1752190b88dd16f222c29ffeefb8e4273ce41272df77f653140ece125909e897"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "35c4e73239bff368cf4f6aaa72a0b4b90c76e48039b74a3d89c1199ff1cfdda5"
-    sha256 cellar: :any_skip_relocation, sonoma:         "e3eea83a6e11530a8c4f98d9892ba49d7768b8c965d0adde074cf24b1e0d5afb"
-    sha256 cellar: :any_skip_relocation, ventura:        "f3d86da82e02647ab2a58b743eca70f1173f571966bb2524a35fa41d3dc456b3"
-    sha256 cellar: :any_skip_relocation, monterey:       "52adedab6ad1d8eb70ef10fa042a94a25a77a45b5e5169eb02df755c0f4ffc97"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2fb4c2af0f720f970c8aab3281801a3125547e484de41552d49330706dee53dd"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "ce6b72c7aa229c3fd7341fa4c132c47b341bc8a972e70b0db0a94e57304b50b5"
   end
 
   depends_on "certifi"
   depends_on "cryptography"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "python-dateutil" do
     url "https://files.pythonhosted.org/packages/4c/c4/13b4776ea2d76c115c1d1b84579f3764ee6d57204f6be27119f13a61d0a9/python-dateutil-2.8.2.tar.gz"
@@ -31,6 +25,9 @@ class Gimmecert < Formula
     url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
     sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
   end
+
+  # py3.13 build patch
+  patch :DATA
 
   def install
     virtualenv_install_with_resources
@@ -48,3 +45,18 @@ class Gimmecert < Formula
     assert_predicate testpath/".gimmecert/ca/chain-full.cert.pem", :exist?
   end
 end
+
+__END__
+diff --git a/setup.py b/setup.py
+index 30621bf..8ac3b28 100755
+--- a/setup.py
++++ b/setup.py
+@@ -24,7 +24,7 @@ from setuptools import setup, find_packages
+ 
+ README = open(os.path.join(os.path.dirname(__file__), 'README.rst')).read()
+ 
+-python_requirements = ">=3.8,<3.13"
++python_requirements = ">=3.8,<3.14"
+ 
+ install_requirements = [
+     'cryptography>=42.0,<42.1',

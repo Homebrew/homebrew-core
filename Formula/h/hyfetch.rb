@@ -10,21 +10,20 @@ class Hyfetch < Formula
   head "https://github.com/hykilpikonna/hyfetch.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "572f0eefea4437ee1f15f0446dc6342e12c350e257f135cbafafeb362d98e6ff"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "caceda874883aef8d29aacfb756c2997b6694bf2b04c576950e3433f5c2053bd"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "caceda874883aef8d29aacfb756c2997b6694bf2b04c576950e3433f5c2053bd"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "caceda874883aef8d29aacfb756c2997b6694bf2b04c576950e3433f5c2053bd"
-    sha256 cellar: :any_skip_relocation, sonoma:         "b2b0e05754b1f53dbff08f34e6c4202bfe3fe821fdfa1fc1eee1518f188ba8bb"
-    sha256 cellar: :any_skip_relocation, ventura:        "b2b0e05754b1f53dbff08f34e6c4202bfe3fe821fdfa1fc1eee1518f188ba8bb"
-    sha256 cellar: :any_skip_relocation, monterey:       "b2b0e05754b1f53dbff08f34e6c4202bfe3fe821fdfa1fc1eee1518f188ba8bb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "37ade20596e8b5906ae29d77a23c299b0dfc989c3cb0c819a957aa177225c5c1"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b754e3cd3c2e292dcf7bcf6e9f429241f8d10e1cde3e606d97ab1ccedcbe1d8a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b754e3cd3c2e292dcf7bcf6e9f429241f8d10e1cde3e606d97ab1ccedcbe1d8a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "b754e3cd3c2e292dcf7bcf6e9f429241f8d10e1cde3e606d97ab1ccedcbe1d8a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "74af52c7460c51175930a3b44b67817b284a259583b1cfe810437d8f16ab5f06"
+    sha256 cellar: :any_skip_relocation, ventura:       "74af52c7460c51175930a3b44b67817b284a259583b1cfe810437d8f16ab5f06"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ece3b8c1f3d62805822839f483448ca8c70c401419a8644595df47f3e9a32404"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/65/d8/10a70e86f6c28ae59f101a9de6d77bf70f147180fbf40c3af0f64080adc3/setuptools-70.3.0.tar.gz"
-    sha256 "f171bab1dfbc86b132997f26a119f6056a57950d058587841a0082e8830f9dc5"
+    url "https://files.pythonhosted.org/packages/27/b8/f21073fde99492b33ca357876430822e4800cdf522011f18041351dfa74b/setuptools-75.1.0.tar.gz"
+    sha256 "d59a21b17a275fb872a9c3dae73963160ae079f1049ed956880cd7c09b120538"
   end
 
   resource "typing-extensions" do

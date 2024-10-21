@@ -11,14 +11,13 @@ class Gdcm < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia:  "58ab3720e3224ffe2eddf7fdc9c09786dc6d9aedc9137ad041cd0593f72aa0a7"
-    sha256 arm64_sonoma:   "b3c59d76d3075c22b131d69ffa1692c28a0fd2357a537b57b412e026f0a2d382"
-    sha256 arm64_ventura:  "847ee192e58ed159a28116d4e02c849203adff75eee0bc27e865a1c9269966aa"
-    sha256 arm64_monterey: "6e2a348a3aab4f5193aad6120e780605a3022393a4ffdb0af363dd89d306ab6e"
-    sha256 sonoma:         "e98f96ff6b897d241feddb12eb0d1340b612e033126f52dc9a675465d88c11d0"
-    sha256 ventura:        "8bada768a0e1349507f4e8c4cfece34f606c168bae51b81e2df16bc2ec98916d"
-    sha256 monterey:       "fd68db00f804806164c14a880ac66b107892461753d55731d134b39a06deac5b"
-    sha256 x86_64_linux:   "fe50e950bb25f9e13d890b92e82570887b3f1bc7174b508a46709a0ffaa35e09"
+    rebuild 1
+    sha256 arm64_sequoia: "d0561a6d8ee2b31305adfec2635876226ed217d5ac3ad8cc7355e0395ec6d545"
+    sha256 arm64_sonoma:  "b93f40bfae7fe20b367cf26010142d9baa88ce4dd9e11b3930a6aa506e4a7854"
+    sha256 arm64_ventura: "53f749235948d44c0a61dfe1d16aa25e63a00d5742434702b4148a84363bbdfa"
+    sha256 sonoma:        "8bad60afc9f145ffc913c78d8e8fb813eefa09e9080db5e7fc907dfa32bf605c"
+    sha256 ventura:       "86e513e03c33cd69b5e341bfb74292ddb7975c3a1bbff5c39d48328f0fd6dea5"
+    sha256 x86_64_linux:  "a443980c665157dbfb2919d3035d44947e299f9474a0703177293fc9784db186"
   end
 
   depends_on "cmake" => :build
@@ -27,7 +26,7 @@ class Gdcm < Formula
   depends_on "swig" => :build
   depends_on "openjpeg"
   depends_on "openssl@3"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   uses_from_macos "expat"
   uses_from_macos "zlib"
@@ -39,7 +38,7 @@ class Gdcm < Formula
   fails_with gcc: "5"
 
   def python3
-    which("python3.12")
+    which("python3.13")
   end
 
   def install

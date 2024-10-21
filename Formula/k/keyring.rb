@@ -8,15 +8,16 @@ class Keyring < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f6cccce628c975ed202c82d32483363a7e708cd829a7a1a23eafab9ba3fafd2d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f6cccce628c975ed202c82d32483363a7e708cd829a7a1a23eafab9ba3fafd2d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "f6cccce628c975ed202c82d32483363a7e708cd829a7a1a23eafab9ba3fafd2d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c162ac10b450bd6cf13e8c1716043db7542b131a5e8561235465dd6bc6567b3c"
-    sha256 cellar: :any_skip_relocation, ventura:       "c162ac10b450bd6cf13e8c1716043db7542b131a5e8561235465dd6bc6567b3c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fed9ef60eb416351eb9162ade5be974db8b9e7836e539e5dcb17a1f6da9fbab5"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a3c6b028c3aec8396f3233f17171ab5fff359787116441db573513018ba54f1e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a3c6b028c3aec8396f3233f17171ab5fff359787116441db573513018ba54f1e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "a3c6b028c3aec8396f3233f17171ab5fff359787116441db573513018ba54f1e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "ecb752c5828e49757c0f2c7a3d0289a8e1faeba012ef11e64efbc78937223796"
+    sha256 cellar: :any_skip_relocation, ventura:       "ecb752c5828e49757c0f2c7a3d0289a8e1faeba012ef11e64efbc78937223796"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "426d318c86185229459162e2181843aa46ee8001d05ba3c924799efda713e7e3"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   on_linux do
     depends_on "cryptography"
@@ -33,8 +34,8 @@ class Keyring < Formula
   end
 
   resource "jaraco-functools" do
-    url "https://files.pythonhosted.org/packages/03/b1/6ca3c2052e584e9908a2c146f00378939b3c51b839304ab8ef4de067f042/jaraco_functools-4.0.2.tar.gz"
-    sha256 "3460c74cd0d32bf82b9576bbb3527c4364d5b27a21f5158a62aed6c4b42e23f5"
+    url "https://files.pythonhosted.org/packages/ab/23/9894b3df5d0a6eb44611c36aec777823fc2e07740dabbd0b810e19594013/jaraco_functools-4.1.0.tar.gz"
+    sha256 "70f7e0e2ae076498e212562325e805204fc092d7b4c17e0e86c959e249701a9d"
   end
 
   resource "jeepney" do

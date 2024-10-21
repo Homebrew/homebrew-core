@@ -1,17 +1,17 @@
 class Rswift < Formula
   desc "Get strong typed, autocompleted resources like images, fonts and segues"
   homepage "https://github.com/mac-cain13/R.swift"
-  url "https://github.com/mac-cain13/R.swift/releases/download/7.6.1/rswift-7.6.1-source.tar.gz"
-  sha256 "163f8b2cbd79a97a623efed2390f963aaa1896b78cc6a31751735548a2d26f19"
+  url "https://github.com/mac-cain13/R.swift/releases/download/7.7.0/rswift-7.7.0-source.tar.gz"
+  sha256 "0886dcb46b33fe99cd800e0bc50dd1f097e007aa40c5480a3b545732f500c1f7"
   license "MIT"
   head "https://github.com/mac-cain13/R.swift.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "13aaaa5eaa1d84c93cbafc08cfe6559b890314b200c4ddf0f13b96c129e090e6"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "34559709a78e20f60fe7f93715432175d72fc98570f6fa0499e359f9f85eb781"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "fcc5929f334519fcb542e3bbc27080750abfb5d29a2f327da44e529be29d8123"
-    sha256 cellar: :any_skip_relocation, sonoma:        "d2eeff4e1ca5f4e354b32d759f88eaa911ab9a58a61814996e7694ec0a0b0ed4"
-    sha256 cellar: :any_skip_relocation, ventura:       "61db49c1a5a42693cf4a0d2f97f20675cc8abc87614149697ae7b972c6b4f6ef"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1460dc8f90ef7644614da9821e8d7cf62cfa5b6cb1c81dc53f6cf826d9d069db"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "53c39fd3fc24c8032635dacc897806355e714248b0b578d7da5a589350d48994"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "d6a270ca10a5b70e0bfb2c68d121685d40e74b17a6a52832dcb6635fb8ac9ca3"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c2bd81e6d5e1b476bf50515bde6ace9b2a9a1fde00cbbec691f0c4f0d84fd15c"
+    sha256 cellar: :any_skip_relocation, ventura:       "609fae158de18f1bc94cecad8f424640339c5673fccfc4fcbb77911ccd36ddbd"
   end
 
   depends_on :macos # needs CoreGraphics, a macOS-only library

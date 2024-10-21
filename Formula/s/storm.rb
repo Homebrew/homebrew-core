@@ -3,21 +3,22 @@ class Storm < Formula
 
   desc "Distributed realtime computation system to process data streams"
   homepage "https://storm.apache.org"
-  url "https://dlcdn.apache.org/storm/apache-storm-2.6.4/apache-storm-2.6.4.tar.gz"
-  sha256 "ed1367cea880d093c3722c6f90a8dcdf89aaa59efeed38b607c9d8d405d43e5d"
+  url "https://dlcdn.apache.org/storm/apache-storm-2.7.0/apache-storm-2.7.0.tar.gz"
+  sha256 "699402d50c93a2dd15405643d5013fa048b800693d1178b77c8e4b9ae33d7e38"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "ce0e2d92dacba7041e54790d524b9f9953716371a536a2261b4999f876b49b09"
+    sha256 cellar: :any_skip_relocation, all: "6e85b5e93099c2740209d2f689884d7c5af0ec88ce8205d09bef104c02628215"
   end
 
   depends_on "openjdk"
-  depends_on "python@3.12"
+
+  uses_from_macos "python"
 
   def install
     libexec.install Dir["*"]
     (bin/"storm").write_env_script libexec/"bin/storm", Language::Java.overridable_java_home_env
-    rewrite_shebang detected_python_shebang, libexec/"bin/storm.py"
+    rewrite_shebang detected_python_shebang(use_python_from_path: true), libexec/"bin/storm.py"
   end
 
   test do

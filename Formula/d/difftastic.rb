@@ -6,14 +6,13 @@ class Difftastic < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "3459cfbf05198892bde68adfcc31a41fd333e99d230d704525759f69cf33d5a1"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "961992175d726fc32b73eb2e5261872ac321d1086ebddc606f7fa60bfb4cee87"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a403220d743c7f595fc3082862cc0dab71a19384af81ef18d8f52ceb8c6303f8"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "be1bc03b621bd2fddeb8d931510b709ca8a80a76c2f2d65c0c669f2aa1232db7"
-    sha256 cellar: :any_skip_relocation, sonoma:         "9f576a302370c4be84e4dee0309e3822a15a119c4e89a1b5f21eaf36e69f9e15"
-    sha256 cellar: :any_skip_relocation, ventura:        "3b536478a605706b688aa6534804ea3858b916c70134080d4ef2c1c07175b323"
-    sha256 cellar: :any_skip_relocation, monterey:       "1d6a7072914ed8b9f7f4b2d76e41d95434ba94628d7a714eb03f8f02df2d02c6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0e4dda746d0880f3a4618e48f42b1ec9665bb5a626a12328804a9e923dec3985"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "14f2a72425f945b0855f1e7021956563eff649e325519b5d6cc2735148d8f6a1"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "650d4d17daef4d99562d582897f1b8a64c2bfebcf973ba043859cc60bd10beb4"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "28a6e940acfed069a54352e0c49dbfda52754aa139647c4f9821bb4f146b8a77"
+    sha256 cellar: :any_skip_relocation, sonoma:        "ce45b9d84aef02b281b49c1eb816d22ff5bdfd85fe0e6d7b2ea362ba9645a60c"
+    sha256 cellar: :any_skip_relocation, ventura:       "fffb7d1e13956f15d530774293e3456f50b283caf438d159cdec0f76149d5231"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e2afe65b490a5570409c603ea7375a13ce390d0c6e09242d41c493470a56dd4a"
   end
 
   depends_on "rust" => :build
@@ -22,6 +21,7 @@ class Difftastic < Formula
 
   def install
     system "cargo", "install", *std_cargo_args
+    man1.install "difft.1"
   end
 
   test do

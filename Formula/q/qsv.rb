@@ -1,18 +1,18 @@
 class Qsv < Formula
   desc "Ultra-fast CSV data-wrangling toolkit"
   homepage "https://github.com/jqnatividad/qsv"
-  url "https://github.com/jqnatividad/qsv/archive/refs/tags/0.135.0.tar.gz"
-  sha256 "de2bf3ba3d0f4bc71a2628cb558e878da24e312c9addcbe3958c5169540d980c"
+  url "https://github.com/jqnatividad/qsv/archive/refs/tags/0.137.0.tar.gz"
+  sha256 "46b29900bb439d11a61fbb2f856a47dc5653fa080c0d0282ad517ec7d1c39079"
   license any_of: ["MIT", "Unlicense"]
   head "https://github.com/jqnatividad/qsv.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ec14051a3490b3e62d17146bbe81b1cf1f809610976886efe5f2981697f0f76d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a08f6a596a28787289e045c173576cfd30bd81705b1916842fd19046aa8c6d8c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "58f746661889ae0d1a58d1d91cef2e455a99a49763bc8b4613de9671572d518a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "047fb9f90eb501c7c7ab6bca1d766212143496176dcbc96061a007d72b20388d"
-    sha256 cellar: :any_skip_relocation, ventura:       "3ba695ad12f15dc8591866f848e7032ba7738a9f9a86edf2030c654bdd48e0fe"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "985c11f31db0f95f557129d6e223b0608b4d3d8b85e04ab5ba09bd083f79616b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fddf25b4c11c94d51bfc0dd6be8b30dd80500490e96c0f4dd9c85a0f32d4cbd3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e8fc55d0114116bc8fff43a606f770729dfea18fa8eed928ce9e641871966c9a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "6865d877597db1a934e3bcd9beb7bf120a545e3e084a734de8bc2b71fc98d479"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f5ba25e250ab30eecb16c817edd7110eb53255c571ee0bf7e6e559f2043edf3b"
+    sha256 cellar: :any_skip_relocation, ventura:       "eadc26e07093387e0af293c756bcb056d37b0aade9fa71af620d49fc514c1a81"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5ab48a45f88bff2ed33ad7686338bae2cf9cebb71d24ffe26c65c648741eb2af"
   end
 
   depends_on "rust" => :build

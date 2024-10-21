@@ -9,17 +9,16 @@ class Ptpython < Formula
   head "https://github.com/prompt-toolkit/ptpython.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "db9fe6560b902cce4f7896b71570ee01f0d24333b760a3c93dd355e5a92d8635"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "969a5aa84d7dcf9d003bcf774cf1561867d624b5cf7d73dba6219f9300e22122"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "969a5aa84d7dcf9d003bcf774cf1561867d624b5cf7d73dba6219f9300e22122"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "969a5aa84d7dcf9d003bcf774cf1561867d624b5cf7d73dba6219f9300e22122"
-    sha256 cellar: :any_skip_relocation, sonoma:         "3ae059b9b30acb2b7136ee06ce89c37a5035b0d2709caf553c75f73582d2ab74"
-    sha256 cellar: :any_skip_relocation, ventura:        "3ae059b9b30acb2b7136ee06ce89c37a5035b0d2709caf553c75f73582d2ab74"
-    sha256 cellar: :any_skip_relocation, monterey:       "3ae059b9b30acb2b7136ee06ce89c37a5035b0d2709caf553c75f73582d2ab74"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "29922808046c45096717d09e2a59f171c1d90a24ff77e812a2fa0b63f05b0723"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cf849fcfd4cf3ad93fbff7b5571fb08031728ec98670d3991b42328e79491309"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cf849fcfd4cf3ad93fbff7b5571fb08031728ec98670d3991b42328e79491309"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "cf849fcfd4cf3ad93fbff7b5571fb08031728ec98670d3991b42328e79491309"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8b9a05a2d93a6850a362423fbfde96e959b2573609a47a8d80f544e8124443cd"
+    sha256 cellar: :any_skip_relocation, ventura:       "8b9a05a2d93a6850a362423fbfde96e959b2573609a47a8d80f544e8124443cd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cf849fcfd4cf3ad93fbff7b5571fb08031728ec98670d3991b42328e79491309"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "appdirs" do
     url "https://files.pythonhosted.org/packages/d7/d8/05696357e0311f5b5c316d7b95f46c669dd9c15aaeecbb48c7d0aeb88c40/appdirs-1.4.4.tar.gz"
@@ -37,8 +36,8 @@ class Ptpython < Formula
   end
 
   resource "prompt-toolkit" do
-    url "https://files.pythonhosted.org/packages/47/6d/0279b119dafc74c1220420028d490c4399b790fc1256998666e3a341879f/prompt_toolkit-3.0.47.tar.gz"
-    sha256 "1e1b29cb58080b1e69f207c893a1a7bf16d127a5c30c9d17a25a5d77792e5360"
+    url "https://files.pythonhosted.org/packages/2d/4f/feb5e137aff82f7c7f3248267b97451da3644f6cdc218edfe549fb354127/prompt_toolkit-3.0.48.tar.gz"
+    sha256 "d6623ab0477a80df74e646bdbc93621143f5caf104206aa29294d53de1a03d90"
   end
 
   resource "pygments" do

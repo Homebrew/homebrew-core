@@ -6,12 +6,13 @@ class Wxpython < Formula
   license "LGPL-2.0-or-later" => { with: "WxWindows-exception-3.1" }
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia: "cd858733c842c47cf8bdadb8e6ef9e7edb8ce6ca9239b2b93bb7850b6f274b52"
-    sha256 cellar: :any, arm64_sonoma:  "c051ef7032b0805c682cc083bb3ba745a6aa0698a267fc9f5b5f094e6178391a"
-    sha256 cellar: :any, arm64_ventura: "ca9adadcaecf521c53885ee9520645275a3ee39721eaab9e9ee5f94069840e98"
-    sha256 cellar: :any, sonoma:        "afcad2109bcd2a6fcf15574ed910bcc223b29f128049f70d5137029f7605b214"
-    sha256 cellar: :any, ventura:       "a1c07cfabbde601d9709e12d8e342463c0b1f08e236cbb68525d5ca14db1aafc"
-    sha256               x86_64_linux:  "f5b4d763fe0f40739cf512fef40190608454d59a3c5c28249dd6942b59a25849"
+    rebuild 1
+    sha256 cellar: :any, arm64_sequoia: "61df112e56b878d060e4986c1c5f059ea5d4e509388422fb2708ae9987628323"
+    sha256 cellar: :any, arm64_sonoma:  "43a633faf4c1e74f172357e23618177bd9ef32692328a0d065183047d336fda2"
+    sha256 cellar: :any, arm64_ventura: "0ed00ec4bc814a48811cf50b94f57a0403742a6e2fbce997afa8b211fc5d93bf"
+    sha256 cellar: :any, sonoma:        "1a8623673d7ac7aeccbbf323960534cb1abfe7cf6de10398a55e66a2d393d3b8"
+    sha256 cellar: :any, ventura:       "3ba5be7b2eccb72980659e9d1f19919a044790076070bc8b7e1c41ac017dcb4d"
+    sha256               x86_64_linux:  "c84fcddbb55c6ddc2152b2bae4c8ac70a70a0c11a0e110d30ea800209f0425a9"
   end
 
   depends_on "doxygen" => :build
@@ -19,7 +20,7 @@ class Wxpython < Formula
   depends_on "sip" => :build
   depends_on "numpy"
   depends_on "pillow"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
   depends_on "six"
   depends_on "wxwidgets"
 
@@ -33,7 +34,7 @@ class Wxpython < Formula
   patch :DATA
 
   def python
-    "python3.12"
+    "python3.13"
   end
 
   def install

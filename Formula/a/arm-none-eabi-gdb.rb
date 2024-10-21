@@ -12,20 +12,22 @@ class ArmNoneEabiGdb < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "8d12b9460513e5bd65e277f93d18820586e5c60b2fa77c8a4d004ca726d4c5e3"
-    sha256 arm64_sonoma:  "b622bad8c729ae5729a360ceecc6d1dd4e1a4eed548690cd58bd5658d7df6190"
-    sha256 arm64_ventura: "1f1cebfe112fbf5f212540933f688cf9e62048398bcb6ff929dcb26e7e158d12"
-    sha256 sonoma:        "c811be1ebede8b1a61ac5c5216747a35259752a73e18cd31a51626baa8bdb2f0"
-    sha256 ventura:       "a72c317ae741291dd584c49bd156274d94dae0c68fa4351705009b204ae774c7"
-    sha256 x86_64_linux:  "b28862237c73b0d267501180db088ce1cfd828fc7cfa298c7e1000be38c6e729"
+    rebuild 1
+    sha256 arm64_sequoia: "4212f97b11f45baa44772a48ac04c55a27637ec92c94da6c828d8c71c1d75ee2"
+    sha256 arm64_sonoma:  "a80ab3c12a9ac961f5d8ac57a6645a83104534319372d007bcae5f2def70b666"
+    sha256 arm64_ventura: "98a52491d822c7400b726aafec2ed6ede84a53ccd3634d316ef38cdc3c13fa02"
+    sha256 sonoma:        "ae9ae170293d76f2d1c680dc7fc952cc3c8879ce6bcb87547dd6be1956ae0d8b"
+    sha256 ventura:       "dd0627ce4bc99fd95ce688ea794161e2eb2437308cedf0fbacc63fcd3d9370f2"
+    sha256 x86_64_linux:  "4be06338b7071a1f2b1dd245f53a154b8946594e21cd26f4c1df7fa1e9464fb7"
   end
 
   depends_on "arm-none-eabi-gcc" => :test
   depends_on "gmp"
   depends_on "mpfr"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
   depends_on "xz" # required for lzma support
 
+  uses_from_macos "expat"
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
@@ -42,7 +44,7 @@ class ArmNoneEabiGdb < Formula
       --infodir=#{info}/#{target}
       --mandir=#{man}
       --with-lzma
-      --with-python=#{Formula["python@3.12"].opt_bin}/python3.12
+      --with-python=#{Formula["python@3.13"].opt_bin}/python3.13
       --with-system-zlib
       --disable-binutils
     ]

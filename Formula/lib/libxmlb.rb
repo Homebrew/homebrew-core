@@ -3,19 +3,19 @@ class Libxmlb < Formula
 
   desc "Library for querying compressed XML metadata"
   homepage "https://github.com/hughsie/libxmlb"
-  url "https://github.com/hughsie/libxmlb/releases/download/0.3.19/libxmlb-0.3.19.tar.xz"
-  sha256 "0a3ec258b12dbf10e5fe840b2421c84137eb7cc1b09c3de6210f3f7d51733733"
+  url "https://github.com/hughsie/libxmlb/releases/download/0.3.21/libxmlb-0.3.21.tar.xz"
+  sha256 "642343c9b3eca5c234ef83d3d5f6307c78d024f2545f3cc2fa252c9e14e4efd1"
   license "LGPL-2.1-or-later"
   head "https://github.com/hughsie/libxmlb.git", branch: "main"
 
   bottle do
     rebuild 1
-    sha256 cellar: :any, arm64_sequoia: "ae76cf27ea21430a5098d5ffa1d8813079b0816ccfdad3d8d2088a3fffac9357"
-    sha256 cellar: :any, arm64_sonoma:  "2d4c34c93a8b89653aecb8e6b8822a6934dddfd4699f9e9976e349a4efc72981"
-    sha256 cellar: :any, arm64_ventura: "b2b5faafb46f4d5a3d655a8584ea77195e3be9b5094e2109bdcc392cd9c258e1"
-    sha256 cellar: :any, sonoma:        "c87786e37f9658b303a59f10284924c7ec6bef668f061a5f35a2397ee0ce37b8"
-    sha256 cellar: :any, ventura:       "649ab7af700178f2b26159af86bc1ea626d34171b8ac3de2ac143214fcd3d6ab"
-    sha256               x86_64_linux:  "977cd7ed73b7bf40c28d1fc452ce79b0459ef5fa0b185fef93a353fe74dff903"
+    sha256 cellar: :any, arm64_sequoia: "7602ee280a7157ea41ff0ee62d720523b320ddf104dc788ca466587639b39953"
+    sha256 cellar: :any, arm64_sonoma:  "6e72c476724d651c02926c05e26219ed4e4cfdceb28ad0def3ccba646928e1de"
+    sha256 cellar: :any, arm64_ventura: "a97159b6525f962e97b4584aa7bab1adeaaea2f917738ddc279da7ff804a566d"
+    sha256 cellar: :any, sonoma:        "239946259891a14150b7e690717f39f2fddd77e546cfd80edbda4c2a58250f43"
+    sha256 cellar: :any, ventura:       "b6363ecabc2c73f0916a5510d7f65ac8bd4f35200e67dfb15412d221ed500cc6"
+    sha256               x86_64_linux:  "f9928bd831f1c92e46d44e527f295065325c48ca07a096b2655c53275527d70c"
   end
 
   depends_on "gi-docgen" => :build
@@ -23,7 +23,7 @@ class Libxmlb < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.12" => :build
+  depends_on "python@3.13" => :build
   depends_on "vala" => :build
   depends_on "glib"
   depends_on "xz"

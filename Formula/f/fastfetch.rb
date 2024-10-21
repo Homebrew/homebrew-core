@@ -12,12 +12,13 @@ class Fastfetch < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "3caa661bcffbd17369a6ed988d223eeb78c2d8e34f2bf2322f150d414bf1d5c0"
-    sha256 arm64_sonoma:  "40a6f78bda8615bc170aeee86127c0cd4206308119327752cc068cb7196e7af4"
-    sha256 arm64_ventura: "71a6896c7000d2000c810bf467a92c927981df498c86b272d7da2fd10c7643ee"
-    sha256 sonoma:        "24e3a6e0c7aefb5ae5ed5a168580a0c8012925087229073388dff4c498fdb5f3"
-    sha256 ventura:       "3558b80f1bfd5fb179ba041d794c522e89a1df81655585492b3ccfe812d765fc"
-    sha256 x86_64_linux:  "740c4a9a4742e0f90c33661dc377df33f651593a4a7302c03ca0472fd5cf202e"
+    rebuild 1
+    sha256 arm64_sequoia: "33d373479059ce0a7cb8e6ea93d8b339a24dde20d2f797764e589dea0288a8ac"
+    sha256 arm64_sonoma:  "58d1a486239e60bdf67da7a5f5ecd0b15b6140932987a2bb318684ea88c4aef5"
+    sha256 arm64_ventura: "8819319d3b5fe64729a32eb706414da8d67c7bec69fd3c02ea2588130fb07bcc"
+    sha256 sonoma:        "66ea198b32352f17fbd225d4420e49dfeee2b5038f80030ef7eecff548e773a6"
+    sha256 ventura:       "c4a6097306f2dc77fbc6fcfd441c029748f2d6b687b6e318fd39861d014e2300"
+    sha256 x86_64_linux:  "56c2bd15c6346bca02957dedaf9889e9752e04ad8cc7ab2e0f940cbe7507e227"
   end
 
   depends_on "chafa" => :build
@@ -25,7 +26,7 @@ class Fastfetch < Formula
   depends_on "glib" => :build
   depends_on "imagemagick" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.12" => :build
+  depends_on "python@3.13" => :build
   depends_on "vulkan-loader" => :build
 
   uses_from_macos "sqlite" => :build

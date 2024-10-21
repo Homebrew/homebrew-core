@@ -1,20 +1,18 @@
 class Tailspin < Formula
   desc "Log file highlighter"
   homepage "https://github.com/bensadeh/tailspin"
-  url "https://github.com/bensadeh/tailspin/archive/refs/tags/3.0.2.tar.gz"
-  sha256 "6a54127187fc894ca5c58d0f65108769c9c2ac022185f29b87818aaa4150ed0b"
+  url "https://github.com/bensadeh/tailspin/archive/refs/tags/4.0.0.tar.gz"
+  sha256 "f13ab53eb3bd59733d3fe53a6f03dd42be3801eef7456155f520139036ffb865"
   license "MIT"
   head "https://github.com/bensadeh/tailspin.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "c34a16101ebfebb1e5c70d781e4b6dd19b5c548e417c09874578efa2cccb5ac5"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "74cfd7eeee1d27b0eb0b72b9b339081a39166fa2ab8c3ec285bef9437a9373de"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "19a98f9d0dcbb46455faad29e2bb164218cc6802900d969f3043ec1bbc29e6f2"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "876addcaf0fb35e59b2b1ffdd87265ed5b5ebc09c2d3386d0efc8904a4c6ea70"
-    sha256 cellar: :any_skip_relocation, sonoma:         "bb7b6eabae1ca696b806063e118ef03516e602dd98c33f468d97dbca05225ec1"
-    sha256 cellar: :any_skip_relocation, ventura:        "d4c9467ed94777ce46f04e711d9ed548a752138a0213570ea49d615257b68608"
-    sha256 cellar: :any_skip_relocation, monterey:       "35c4b8a87d7906f5285dccc375f69004da81a15027d8de8ac956e3386aa2244f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8a0adb361df9f9f402c6a6f2715e502a332a615a09a1ed66f497e4470fe9a893"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bc0f5319f4a545ebe6e44c215cea5429977c59b15a713af8a0a1f88b0e8d6b8e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d9f38a6c0490868ed638fb1adc1a58af504a357ae2c3d9f942fdac537457d813"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "fe92869a22866f07cdbb43f7fa6f8ed00e1c761c1984a2d747c07838ba75c68d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "adc970b3a392071b76afd3181d018b879c7bb5cba8031b6c9310fdbbeb79bc36"
+    sha256 cellar: :any_skip_relocation, ventura:       "bc73db9b555ffea1603aaf4048ec5b1c216e1563502d2533b04f242f002532c4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dbbf542e120a9accf74c4c1972c8a11738e13efa0dc41ac19ed2ffbbc2dce291"
   end
 
   depends_on "rust" => :build
@@ -22,7 +20,7 @@ class Tailspin < Formula
   def install
     system "cargo", "install", *std_cargo_args
 
-    generate_completions_from_executable(bin/"tspin", "--z-generate-shell-completions")
+    generate_completions_from_executable(bin/"tspin", "--hidden-generate-shell-completions")
     man1.install "man/tspin.1"
   end
 

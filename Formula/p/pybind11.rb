@@ -4,6 +4,7 @@ class Pybind11 < Formula
   url "https://github.com/pybind/pybind11/archive/refs/tags/v2.13.6.tar.gz"
   sha256 "e08cb87f4773da97fa7b5f035de8763abc656d87d5773e62f6da0587d1f0ec20"
   license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     url :stable
@@ -11,13 +12,14 @@ class Pybind11 < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "cbd014620eaf6e23024c52d3bd424ef22397fb05cd95525a114af9acf0ca3cf2"
+    sha256 cellar: :any_skip_relocation, all: "d1ac19b7042b5f6b94bff8f1766307bfee68335ecb4dc7423040ae89940173bf"
   end
 
   depends_on "cmake" => :build
   depends_on "python-setuptools" => :build
   depends_on "python@3.11" => [:build, :test]
   depends_on "python@3.12" => [:build, :test]
+  depends_on "python@3.13" => [:build, :test]
 
   def pythons
     deps.map(&:to_formula)

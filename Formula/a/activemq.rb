@@ -7,6 +7,7 @@ class Activemq < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "54a60751a62e32f072d36a0cff43fb0f8ab537671c85b02105816143710894e4"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "fd0dfc580d6eb5d4ce59737872fa38e3f5249308364104cf26c5eff8e65a80f2"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "a29869c57b4bd7467181a1e1ad99e8a2716fa3e523f66dfb6ca1bf21afbc47be"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "583263dcbe34a451a96b1d0f4d049ea0a92e5b6b02227663f7a147e71f6ec3fa"

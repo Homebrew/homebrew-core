@@ -9,14 +9,14 @@ class Icdiff < Formula
   head "https://github.com/jeffkaufman/icdiff.git", branch: "master"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, all: "175b18450e5cb403f6b4efd527d638a9f852a6eb1074177e0d610a0c3c369b9f"
+    rebuild 3
+    sha256 cellar: :any_skip_relocation, all: "6fd6d50bbd97cdad70b01dcbb90a65b87f79a359cbe235f0d23367de8778fbfc"
   end
 
-  depends_on "python@3.12"
+  uses_from_macos "python"
 
   def install
-    rewrite_shebang detected_python_shebang, "icdiff"
+    rewrite_shebang detected_python_shebang(use_python_from_path: true), "icdiff"
     bin.install "icdiff", "git-icdiff"
   end
 

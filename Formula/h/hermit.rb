@@ -1,19 +1,17 @@
 class Hermit < Formula
   desc "Manages isolated, self-bootstrapping sets of tools in software projects"
   homepage "https://cashapp.github.io/hermit"
-  url "https://github.com/cashapp/hermit/archive/refs/tags/v0.40.0.tar.gz"
-  sha256 "b02675024c70e3eff17e617abaf039a81fa904b3766e8c088ff96e2aa5eb9adc"
+  url "https://github.com/cashapp/hermit/archive/refs/tags/v0.41.0.tar.gz"
+  sha256 "330ee3826bc686135b8c6e3ae764e27fe2e446df484f04d08fc90bb86beea9db"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "b9117ba72ca19673ac263da9ec4fd441d265c323460035c2c403126b180a3313"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c220df0abaddd3cb46062522fec8b741a9cf53aba2f1a81415d83f2348d530b2"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "681669b16e6c7a1c781239e55d2c20212f96ea6391062bb50b96f5891fa9ed4c"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "1e50c49956f01417343085c1e9cf05ccd0884f946e723b86a1f6e908e7461963"
-    sha256 cellar: :any_skip_relocation, sonoma:         "3c924c2ce9dd1494f1a337269afe564a979f899e818cac2ce54b49fba7130aa8"
-    sha256 cellar: :any_skip_relocation, ventura:        "8f22be3a87fcc32e7844683ceb514af7ec0f63b0b69267140d94e2b3f2afaeee"
-    sha256 cellar: :any_skip_relocation, monterey:       "0d44943a092f4a2cd053848d6ce7f9658b5c4b9bde5bddd8ccc978cad324051d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b75ae195b938d6ad57589348f5522f7b8b07687a2b767ecfefad7c636c8a7db5"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "07dc2c7c6a3327033f61755f0e4860ee1e7972ff0643b576fcb03b14bffbd629"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e8da34bff41a7f5c0c4e738e5ecbcb1184334d307cf0046eb9cdb1c1976b1d02"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "b680e7d511afdebf205f0b51be756a7f92079a48ec5a8cfc9e511ce38fbd94be"
+    sha256 cellar: :any_skip_relocation, sonoma:        "5268f3ae0ed4ce9dc0d54ede0bf21a88924cab70be595e02ae8c476ff35faed0"
+    sha256 cellar: :any_skip_relocation, ventura:       "092637f88e7638750b7118cf4f0b3688fb8b314116267b16d8e01f659fbf15d3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "61ae0e9f614015f43fea330c98565e51e636147ae12e2ba61afd042f26a645d5"
   end
 
   depends_on "go" => :build

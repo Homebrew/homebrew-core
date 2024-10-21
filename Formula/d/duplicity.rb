@@ -9,14 +9,13 @@ class Duplicity < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "cb42a8892b2f30697bcaba2cdf1fc9e33b1e2d739b1438b31daec11b6bbdb3f0"
-    sha256 cellar: :any,                 arm64_sonoma:   "b02434565f245233da52df8e0e444e44ea8f7391bba667afc161d974a68dfba1"
-    sha256 cellar: :any,                 arm64_ventura:  "f8e0abfa743717a3e856872a5f7a85999ec6706d4bb1f24951095be36344b32a"
-    sha256 cellar: :any,                 arm64_monterey: "9e4cdfe6b8a725ebc3347d7367247533a7350b300dd7cf11c211ccbf5400169f"
-    sha256 cellar: :any,                 sonoma:         "735aee8407aad53ed5488ff79c01624ba843b238c311fba849d5e5f40460e9a1"
-    sha256 cellar: :any,                 ventura:        "fc1507a7b145be8a8abe137cfd39a353975875d6ae7878479d4cce7d4a7548da"
-    sha256 cellar: :any,                 monterey:       "9e157bfc48ea3a104f02a0a2c31d871c87b4c3da66766e4f51f6a86e48519749"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "92119548be401d3eef241bb8bf67574c319efd3e91554f0da3f8baf06efc86a8"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "0a28eacd34f5236eb3df168d97555be8f3b41ee928371eb42c527627f639a9e3"
+    sha256 cellar: :any,                 arm64_sonoma:  "2097d114f8428e406ab6448cb0d496131eab032c2073ae4264a8198a95324436"
+    sha256 cellar: :any,                 arm64_ventura: "0ca204d89e6efaee8df9478fd4e0eb3b331eba05de9366df09438e55cc69b38d"
+    sha256 cellar: :any,                 sonoma:        "23c5d1f045ca24d8514201668edb5c50050ea75f2def23598eebb0876b3111e7"
+    sha256 cellar: :any,                 ventura:       "5eb8a1c7a8aefb61c4c77fcd83d5b8b7906b4c24f016734aa8701d49bbaa1295"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e0927aa39af3bf1cd29a5338afe9a48bfd8f14a85c2781a84bc78bbdf47329cf"
   end
 
   depends_on "gettext" => :build # for msgfmt
@@ -25,6 +24,7 @@ class Duplicity < Formula
   depends_on "cryptography"
   depends_on "gnupg"
   depends_on "librsync"
+  depends_on "libsodium" # for pynacl
   depends_on "libyaml"
   depends_on "python@3.12"
 
@@ -556,6 +556,7 @@ class Duplicity < Formula
   end
 
   def install
+    ENV["SODIUM_INSTALL"] = "system"
     virtualenv_install_with_resources(link_manpages: true)
   end
 

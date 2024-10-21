@@ -1,19 +1,17 @@
 class Espflash < Formula
   desc "Serial flasher utility for Espressif SoCs and modules based on esptool.py"
   homepage "https://github.com/esp-rs/espflash"
-  url "https://github.com/esp-rs/espflash/archive/refs/tags/v3.1.1.tar.gz"
-  sha256 "51e1a31e63d11f3f3dbb544d93c03399ea9dc1c5c35e09e502dc542e5b9270f5"
+  url "https://github.com/esp-rs/espflash/archive/refs/tags/v3.2.0.tar.gz"
+  sha256 "62cc57be0e97e0370a6c05de82241b2f3e68c51969d6bca0446bd70c244c055f"
   license any_of: ["MIT", "Apache-2.0"]
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "755583d45a918fe47522af55a973606d8a681257ee02d8574cead6c904c9d4c6"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "aacb2290003780e0c3204b2b581c81cd688f76caea906949433645540ea5bd5b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ef900e72da730354a8738546cdded8a2e006597a0268f0f91408e9019e57fee0"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ec0350d93e1f5d2e29863592ca2cc11972f8bf26ff0ae01b1f2ca22ad33d3d2d"
-    sha256 cellar: :any_skip_relocation, sonoma:         "584b7fbd88e6151c46ca0fd06e7c035da5d1627f55727093553a42c0791ecccf"
-    sha256 cellar: :any_skip_relocation, ventura:        "416d8b7bb1e4cd7d4989de65a93efb3b0366ea50168f566986302e08c828d50a"
-    sha256 cellar: :any_skip_relocation, monterey:       "c5167e8ea42ea5d4ff281a15ba7df0ee77daea10ed07a8fe3e5c1e30edcb3544"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "412dd4c072eec3441b7f4e66a5f745e567cedac7046a2624000751a02b66f122"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "112540b70f0d0624b112fb01764d135e58f3ae1d8801a8a26ca5e0d1000d7427"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0b21fee967f14e5b4834e2115bdbead2d3f96852ab05f055b97828b8f2bdd9ed"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "a32ad9e30171b22dfc08f3e9fa23e6ffb7980d0a8f9325b4e5b294b38c91fb47"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c238983a6a9a9394b676ff8a229e41546e07006c9f91411b3859359fc55d6f24"
+    sha256 cellar: :any_skip_relocation, ventura:       "e17b49c69ee6f1e38527ce406c4b70cd4aeb72b57c8fa3f4f108dbc7c0b96a45"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5970508dd04c6c75d2251249e482d1117a2699174eb606e788d12903f2ac81ab"
   end
 
   depends_on "rust" => :build

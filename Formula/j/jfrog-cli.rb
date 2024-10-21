@@ -1,18 +1,18 @@
 class JfrogCli < Formula
   desc "Command-line interface for JFrog products"
   homepage "https://www.jfrog.com/confluence/display/CLI/JFrog+CLI"
-  url "https://github.com/jfrog/jfrog-cli/archive/refs/tags/v2.70.0.tar.gz"
-  sha256 "0bb7e009a9148026cc5e3acd93a692d72841da42fdd301e0892a9f6e1d949db9"
+  url "https://github.com/jfrog/jfrog-cli/archive/refs/tags/v2.71.0.tar.gz"
+  sha256 "6f2fdfd26c3546644f2654fc4ee94e3d5aa32e388311fb82a3af363a27f1a25b"
   license "Apache-2.0"
   head "https://github.com/jfrog/jfrog-cli.git", branch: "v2"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "145f7c81c2f912229cc7701c0c9025970bab1d28f16183c8513df31fa6fbcb23"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "145f7c81c2f912229cc7701c0c9025970bab1d28f16183c8513df31fa6fbcb23"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "145f7c81c2f912229cc7701c0c9025970bab1d28f16183c8513df31fa6fbcb23"
-    sha256 cellar: :any_skip_relocation, sonoma:        "9826c0e4217d90a185ecf6d23764cb71e0b4b783ef378343734e58d3ea1701c6"
-    sha256 cellar: :any_skip_relocation, ventura:       "9826c0e4217d90a185ecf6d23764cb71e0b4b783ef378343734e58d3ea1701c6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "093dbf2f0648d9a732ed32d5d5f5de8b57b94878aac63852e42fa5385578b369"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b6fde70251bc984a167a4e54a2ece8cc4817ef0f650a0319e0ed5dbdddfa5022"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b6fde70251bc984a167a4e54a2ece8cc4817ef0f650a0319e0ed5dbdddfa5022"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "b6fde70251bc984a167a4e54a2ece8cc4817ef0f650a0319e0ed5dbdddfa5022"
+    sha256 cellar: :any_skip_relocation, sonoma:        "ec233824dfe1e5d6886b7e7452f6731dceb1da1ed2c3193cd4029a86692bba06"
+    sha256 cellar: :any_skip_relocation, ventura:       "ec233824dfe1e5d6886b7e7452f6731dceb1da1ed2c3193cd4029a86692bba06"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5d29ddcf8cf74704688564c1fad9b78c48cf75040a81bb82d800c7514cd6f97b"
   end
 
   depends_on "go" => :build

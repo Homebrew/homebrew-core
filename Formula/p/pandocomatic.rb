@@ -1,26 +1,35 @@
 class Pandocomatic < Formula
   desc "Automate the use of pandoc"
   homepage "https://heerdebeer.org/Software/markdown/pandocomatic/"
-  url "https://github.com/htdebeer/pandocomatic/archive/refs/tags/1.1.3.tar.gz"
-  sha256 "5bbc608b6f12690c18818f1d4934d82d11a5df0a3a0864b60ace48482982af6a"
+  url "https://github.com/htdebeer/pandocomatic/archive/refs/tags/2.0.0.tar.gz"
+  sha256 "57953b994e4c2f5a9736d772c4f0c18850cfdba0913dbf849c131d76cf26fc04"
   license "GPL-3.0-or-later"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "4b5303fc2c4da3be01510620566f4e9efde3adf52315956df75c884a1c920a0f"
+    sha256 cellar: :any_skip_relocation, all: "b0cb8847ca852e95ec9fae012a947bc49cd853c7cfe74c9082d9d0753451477a"
   end
 
   depends_on "pandoc"
   depends_on "ruby"
 
+  resource "csv" do
+    url "https://rubygems.org/gems/csv-3.3.0.gem"
+    sha256 "0bbd1defdc31134abefed027a639b3723c2753862150f4c3ee61cab71b20d67d"
+  end
+
   resource "optimist" do
-    url "https://rubygems.org/gems/optimist-3.0.1.gem"
-    sha256 "336b753676d6117cad9301fac7e91dab4228f747d4e7179891ad3a163c64e2ed"
+    url "https://rubygems.org/gems/optimist-3.1.0.gem"
+    sha256 "81886f53ee8919f330aa30076d320d88eef9bc85aae2275376b4afb007c69260"
   end
 
   resource "paru" do
-    url "https://rubygems.org/gems/paru-1.3.gem"
-    sha256 "e031d4f008bd2aa298c5ca7a9d2270b4b2d2c3a5ceb3c39ca5a2afcba020ad17"
+    url "https://rubygems.org/gems/paru-1.4.1.gem"
+    sha256 "43489a7d3b7ff4dba8032c66d94ea65aaf49e2fd504740fbdc446caa76c860eb"
+  end
+
+  resource "logger" do
+    url "https://rubygems.org/gems/logger-1.6.0.gem"
+    sha256 "0ab7c120262dd8de2a18cb8d377f1f318cbe98535160a508af9e7710ff43ef3e"
   end
 
   def install

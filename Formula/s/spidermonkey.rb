@@ -1,35 +1,33 @@
 class Spidermonkey < Formula
   desc "JavaScript-C Engine"
   homepage "https://spidermonkey.dev"
-  url "https://archive.mozilla.org/pub/firefox/releases/128.2.0esr/source/firefox-128.2.0esr.source.tar.xz"
-  version "128.2.0"
-  sha256 "9617a1e547d373fe25c2f5477ba1b2fc482b642dc54adf28d815fc36ed72d0c2"
+  url "https://archive.mozilla.org/pub/firefox/releases/128.3.1esr/source/firefox-128.3.1esr.source.tar.xz"
+  version "128.3.1"
+  sha256 "c1f4052f3a88d96a122551d5025053304007f7649886d5e2fdfd1a11ce3d70a8"
   license "MPL-2.0"
   head "https://hg.mozilla.org/mozilla-central", using: :hg
 
   # Spidermonkey versions use the same versions as Firefox, so we simply check
   # Firefox ESR release versions.
   livecheck do
-    url "https://www.mozilla.org/en-US/firefox/organizations/notes/"
+    url "https://download.mozilla.org/?product=firefox-esr-latest-ssl"
     strategy :header_match
   end
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia:  "a48639001f6f9ed05f6e4ebc1019c90973ca2527761e82a2bd4dc4d5e46032c5"
-    sha256 cellar: :any, arm64_sonoma:   "cbea1e2cff3267795eeac7b12c1033c2e1159bcf0fb2aaba19db5df928419e18"
-    sha256 cellar: :any, arm64_ventura:  "364079dc6acbed8160fda49345ce9028fc9f1b1d3a536bdfd14913f5693db4d4"
-    sha256 cellar: :any, arm64_monterey: "e63fd223d1d8b83fe4082a0b0bd194376a625559b7d5c74cef621f7953ae1a07"
-    sha256 cellar: :any, sonoma:         "3e023d4431f7d23e72db93475d90a7e557c9a384d441978caa4fb00f1375189d"
-    sha256 cellar: :any, ventura:        "d0ca7fb0c5eb46034d8071c688335aa3e160c3eae6573ef3f849669c5bb54257"
-    sha256 cellar: :any, monterey:       "047654f00524d97eb78fc4e3a468f04c05246a0b6cdda4ba635a4fb3692c98ca"
-    sha256               x86_64_linux:   "a0a206d3d430733f9567c7b435e719bb4f3a3708b3f096391624f1d3fa69fc1a"
+    sha256 cellar: :any, arm64_sequoia: "6dbec2e21a2d70435d19efc4f1d1a96d48870e2968c53d49881ccfc7cd38db6c"
+    sha256 cellar: :any, arm64_sonoma:  "a3fc1732e46506b3f7f2f4c7bd5e147eb2fab3884a18586a495a89bb83850c6f"
+    sha256 cellar: :any, arm64_ventura: "86160120fb08219176168a7811776c18985d95de57c8720fba60c3ef7201d8c4"
+    sha256 cellar: :any, sonoma:        "9208509774c98b624fb3b19f7e385df71d1a93aca087f727475fb29725094bf7"
+    sha256 cellar: :any, ventura:       "278012ba7885c1764629d4118e76ee18a55499d1cbf59017291b73a74fe0632f"
+    sha256               x86_64_linux:  "a9cebbaa999301c5fbb0a5004c3ac82550dd1617ca93da45364ae17e3dd9bae3"
   end
 
   depends_on "cbindgen" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.12" => :build
+  depends_on "python@3.13" => :build
   depends_on "rust" => :build
-  depends_on "icu4c"
+  depends_on "icu4c@75"
   depends_on "nspr"
   depends_on "readline"
 

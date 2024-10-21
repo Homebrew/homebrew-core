@@ -26,19 +26,18 @@ class Polynote < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia:  "f39090ba7cdd6a3687ad14a6fcf417fe52ea797811b9e0a3836093d0b3a047a4"
-    sha256 cellar: :any, arm64_sonoma:   "e5ca852520d67545e8024fc00c164068768be2f80ff1362b96ba45e25d97d118"
-    sha256 cellar: :any, arm64_ventura:  "adef7a68ddeabd34a5dfb6dbe09281a3432a7d1262a73638ba7b7936a82ed332"
-    sha256 cellar: :any, arm64_monterey: "7f79ab9b7f726fd425b3fbe3c78fe412c31b0bcd8530ebd8cb005c00689707eb"
-    sha256 cellar: :any, sonoma:         "8b312ff6e53371243da3729db6383eaf824d3526fb6219f4c8550d1cf25e18e6"
-    sha256 cellar: :any, ventura:        "03e05340bd23eabb467df101ce9dbc4e0f89a4cc008b437578bb00a4975d9d2b"
-    sha256 cellar: :any, monterey:       "0d3412b343ea542425c770ccb27d129dfb4b79ce17f79b194ab8dedfc796073b"
-    sha256               x86_64_linux:   "5330ce06a98879026081054dc919bf2ff118d427eeac4c79422bf5652346b03e"
+    rebuild 1
+    sha256 cellar: :any, arm64_sequoia: "3108301f5ac48280748b5bcb39d3d9a58163c01a746298e0fd52c356f60dce9d"
+    sha256 cellar: :any, arm64_sonoma:  "97f65023ac434561f2d6d2805cca4f42d8fd8ebece48db502774abe4451a395d"
+    sha256 cellar: :any, arm64_ventura: "099ee95666dab608cb20e6cf0a3ea6deddd2aa068e17f5d4b4a3e81e4a10f2b3"
+    sha256 cellar: :any, sonoma:        "023f3ec9fbbf8f609f50f2a5af29a219ad0f92bacaaaab04171ac0336e35749b"
+    sha256 cellar: :any, ventura:       "4f615c977c0f8fce74196f5edd3b4b206ecc49642e9488cf429c098633ca052b"
+    sha256               x86_64_linux:  "b45a939832aef9806c719241f96371f4672a7f46bb23f04bd672417083cd3038"
   end
 
   depends_on "numpy" # used by `jep` for Java primitive arrays
   depends_on "openjdk"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "jep" do
     url "https://files.pythonhosted.org/packages/16/94/3bc40b4683442bd34e7c511cbe5c1a1bb8d5d6de1f4955991a07fe02c836/jep-4.2.0.tar.gz"
@@ -46,7 +45,7 @@ class Polynote < Formula
   end
 
   def install
-    python3 = "python3.12"
+    python3 = "python3.13"
 
     with_env(JAVA_HOME: Language::Java.java_home) do
       resource("jep").stage do

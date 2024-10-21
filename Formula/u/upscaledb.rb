@@ -40,7 +40,7 @@ class Upscaledb < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "98b54b8cb472d3c1810899301aecbe116c1c0dd5120d476ace114f12ee725d84"
   end
 
-  deprecate! date: "2023-10-19", because: :does_not_build
+  disable! date: "2024-10-19", because: :does_not_build
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build

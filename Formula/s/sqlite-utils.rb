@@ -8,17 +8,16 @@ class SqliteUtils < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "ceac300ac185b339a8c01da78b7343e69e71c1682d3444e8e6aacb266f6c558a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "df686f55d3c00995ff179cc24d3bc6df092113b874bae8f6425d9e4647ea6225"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "df686f55d3c00995ff179cc24d3bc6df092113b874bae8f6425d9e4647ea6225"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "df686f55d3c00995ff179cc24d3bc6df092113b874bae8f6425d9e4647ea6225"
-    sha256 cellar: :any_skip_relocation, sonoma:         "d2cbbd0b404f9e8b8b7e40a0ebf95256ee6ae41ca4926fc88c08b0fd82112869"
-    sha256 cellar: :any_skip_relocation, ventura:        "d2cbbd0b404f9e8b8b7e40a0ebf95256ee6ae41ca4926fc88c08b0fd82112869"
-    sha256 cellar: :any_skip_relocation, monterey:       "d2cbbd0b404f9e8b8b7e40a0ebf95256ee6ae41ca4926fc88c08b0fd82112869"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1422cbdfe26b640d56e033e82fd28e4ad8e00b0e692c5cdfe744e4d627f064a7"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c5d7100462793220f54b6e7c42cfc8666a2843930d90858e480c237dc615c867"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c5d7100462793220f54b6e7c42cfc8666a2843930d90858e480c237dc615c867"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "c5d7100462793220f54b6e7c42cfc8666a2843930d90858e480c237dc615c867"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7d587683efd20531b59572a6b8fba6451ccc6847916c5a6564d7af377df0dbe2"
+    sha256 cellar: :any_skip_relocation, ventura:       "7d587683efd20531b59572a6b8fba6451ccc6847916c5a6564d7af377df0dbe2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7914f646e31f39161b69a8c6597597c1a42c78e99e4d750cfd67241173356614"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "click" do
     url "https://files.pythonhosted.org/packages/96/d3/f04c7bfcf5c1862a2a5b845c6b2b360488cf47af55dfa79c98f6a6bf98b5/click-8.1.7.tar.gz"

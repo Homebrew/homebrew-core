@@ -7,18 +7,19 @@ class Uwsgi < Formula
   head "https://github.com/unbit/uwsgi.git", branch: "master"
 
   bottle do
-    sha256 arm64_sequoia: "406f6148141cf2dc39642509f9824f1194f45594671c403e22021f387d31a3c4"
-    sha256 arm64_sonoma:  "7046ea7b89717b42bc3bad1ade91da787dd75ef1cb3b3125dd6f3f6995838f88"
-    sha256 arm64_ventura: "aaf2ae027abd418337f7d61e86217392debf3cef30405c2efd4d064836ef6236"
-    sha256 sonoma:        "a081e3ca5de740c4ac25d8f8f26bf109f190e752470b9de8bc78bee743c1a0d2"
-    sha256 ventura:       "0204e8b97e173f10d0119f81d54017543bdea15af77fed0b58ab1ac9f83dd52d"
-    sha256 x86_64_linux:  "f5cd1e574fd5317bf912c6bef2c352401f3c5fda30c9c76f1503659722129e47"
+    rebuild 1
+    sha256 arm64_sequoia: "93d5e4dc64a853efc3c181b1e3a98580853633f79a8844b36aa0d0907bc403f2"
+    sha256 arm64_sonoma:  "d3d437e9650fe255a94848ddfae25f3505159408f35abfd91376009c4db1355b"
+    sha256 arm64_ventura: "1e24fb7c34bd01d8bb75efbfa23380bccaab38681d881243f4ecad2dd04bb490"
+    sha256 sonoma:        "6ad052496e956233a114de63957b3b944c925145f611ad9acd3ac2de19239b16"
+    sha256 ventura:       "4b021c120ac0054da777731ebf2dd8630360f8872c54a3571df398cfa1cd288b"
+    sha256 x86_64_linux:  "1e6a8387477cd3dec6710c526a43243ab80e66122393b31c271dab56ae202b68"
   end
 
   depends_on "pkg-config" => :build
   depends_on "openssl@3"
   depends_on "pcre2"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
   depends_on "sqlite"
   depends_on "yajl"
 
@@ -30,6 +31,10 @@ class Uwsgi < Formula
 
   on_linux do
     depends_on "linux-pam"
+  end
+
+  def python3
+    "python3.13"
   end
 
   def install
@@ -48,7 +53,6 @@ class Uwsgi < Formula
       embedded_plugins = null
     EOS
 
-    python3 = "python3.12"
     system python3, "uwsgiconfig.py", "--verbose", "--build", "brew"
 
     plugins = %w[airbrake alarm_curl asyncio cache

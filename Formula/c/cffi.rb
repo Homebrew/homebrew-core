@@ -4,20 +4,20 @@ class Cffi < Formula
   url "https://files.pythonhosted.org/packages/fc/97/c783634659c2920c3fc70419e3af40972dbaf758daa229a7d6ea6135c90d/cffi-1.17.1.tar.gz"
   sha256 "1c39c6016c32bc48dd54561950ebd6836e1670f2ae46128f67cf49e789c52824"
   license "MIT"
+  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "3af401e70845a3ddab668051310f9bbc002d60c60bacc4833c8b86fc5a350c74"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0e9efdb077ac820c6da89abffc9bec1b1ca2cefe9e02e8789add2ab1aaaef044"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2eaa19099eb9e95e0986c43c3c8474341f7396109d933a3a96db018de0de9258"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "0b47208d70f0014528a91ab01ecd77f980a4c4a7c93be9298d98dfa06ca5f5c5"
-    sha256 cellar: :any_skip_relocation, sonoma:         "fce5151feb5271e6248a26425c3acdf8bfbc26bb08d305820c8a7d8461200822"
-    sha256 cellar: :any_skip_relocation, ventura:        "a0529e6b2049317924717646ba6c7a6cf92908a614b695632c6cbfd6a088cf1c"
-    sha256 cellar: :any_skip_relocation, monterey:       "c73ad8cf6404d12ef051b77a1acb68ce34c16ed2d06412e26cb14036e8dfc1bf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4fcbba8d42933c05b028cace85d7e6a20b9f99e16c83bd453c10ae16702cdda0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "908333c6c31b4da4876ccb707cdf2b1ec52aee3d83fc3c4a1b8b52f148883512"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7818f620936fb017c68eb02c8985dfecd297349b97e67550d4915cef440dd2fe"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "b143786bb8ede8b8ad7230b6be8c004f276dacccbd4647a3f169099a536fd3a6"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8e1c24e4e78f041f98e0394a6a07ef560ea84d980f0f3c3dd3ea7fb6c3f91aa4"
+    sha256 cellar: :any_skip_relocation, ventura:       "7c8eea38ba0103ddbb0243d0ed9f74a79875f1f0dfe9d8421f3e2f45dca69da5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a49b146e624fa887497252f89c76d8e7cfcdc4d9a4ec444a5b8db856324198cf"
   end
 
   depends_on "python@3.11" => [:build, :test]
   depends_on "python@3.12" => [:build, :test]
+  depends_on "python@3.13" => [:build, :test]
   depends_on "pycparser"
 
   uses_from_macos "libffi"

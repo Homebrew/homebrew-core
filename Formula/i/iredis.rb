@@ -10,10 +10,11 @@ class Iredis < Formula
   head "https://github.com/laixintao/iredis.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "92647bfd6bdf90ac784cc025598e2c384ed8ad6a4532a7f9dac42af5cfc6427a"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "57ddd6507962ae44cffea2d4cbb8e173002f5d97c99e4151f0d5bcc7b7a86498"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "click" do
     url "https://files.pythonhosted.org/packages/96/d3/f04c7bfcf5c1862a2a5b845c6b2b360488cf47af55dfa79c98f6a6bf98b5/click-8.1.7.tar.gz"
@@ -36,8 +37,8 @@ class Iredis < Formula
   end
 
   resource "prompt-toolkit" do
-    url "https://files.pythonhosted.org/packages/47/6d/0279b119dafc74c1220420028d490c4399b790fc1256998666e3a341879f/prompt_toolkit-3.0.47.tar.gz"
-    sha256 "1e1b29cb58080b1e69f207c893a1a7bf16d127a5c30c9d17a25a5d77792e5360"
+    url "https://files.pythonhosted.org/packages/2d/4f/feb5e137aff82f7c7f3248267b97451da3644f6cdc218edfe549fb354127/prompt_toolkit-3.0.48.tar.gz"
+    sha256 "d6623ab0477a80df74e646bdbc93621143f5caf104206aa29294d53de1a03d90"
   end
 
   resource "pygments" do
@@ -51,8 +52,8 @@ class Iredis < Formula
   end
 
   resource "redis" do
-    url "https://files.pythonhosted.org/packages/48/10/defc227d65ea9c2ff5244645870859865cba34da7373477c8376629746ec/redis-5.0.8.tar.gz"
-    sha256 "0c5b10d387568dfe0698c6fad6615750c24170e548ca2deac10c649d463e9870"
+    url "https://files.pythonhosted.org/packages/e0/58/dcf97c3c09d429c3bb830d6075322256da3dba42df25359bd1c82b442d20/redis-5.1.1.tar.gz"
+    sha256 "f6c997521fedbae53387307c5d0bf784d9acc28d9f1d058abeac566ec4dbed72"
   end
 
   resource "six" do

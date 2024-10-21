@@ -9,19 +9,17 @@ class Tarsnapper < Formula
   revision 1
 
   bottle do
-    rebuild 6
-    sha256 cellar: :any,                 arm64_sequoia:  "3fa7d2aba4c82dfb52266c9b93cd805eaab224b7683051eea2eca1dc84e6cb93"
-    sha256 cellar: :any,                 arm64_sonoma:   "7922f887ef1f2c23b843435951889a33145c859b8056eda662eec00d04d8b5d3"
-    sha256 cellar: :any,                 arm64_ventura:  "769ab15671e835ba1756c30c3ea76032a5c52ba1927bf9fdde439e7082075d61"
-    sha256 cellar: :any,                 arm64_monterey: "1b66153ebd94f85ee560cdf236a8d26ecef1e620a8efd98ca63281a141a5ee15"
-    sha256 cellar: :any,                 sonoma:         "b8e11ff3fa7bf119727cea4cdcc6ebf2ba981f8997c99b2d270f2ebd611c248d"
-    sha256 cellar: :any,                 ventura:        "62e6e995e43df7c081980a7c31023c159433abb3e986a97e401f93f6756c884d"
-    sha256 cellar: :any,                 monterey:       "daca75dc6b4cf283f8e435fdcea2370928a329ec75d12fd6cf9b0777e3ad927e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "122789a1d359511eef13ffcb1b0c377659e9dc601c194fab1efbdefa20a6fa90"
+    rebuild 7
+    sha256 cellar: :any,                 arm64_sequoia: "a3f3c24d9015ea8c6e555746211e7af56deb8ce020c047776cd06166f70c77d2"
+    sha256 cellar: :any,                 arm64_sonoma:  "feef9a3a01ccc2d8f7e5c7ed0ae91a68c60e0d23e0a80c79a92cd52898e7cb33"
+    sha256 cellar: :any,                 arm64_ventura: "4e2dabbd85a18274fc49ff1fbb31c21c6f4e020d796d0630a67d3a404774a715"
+    sha256 cellar: :any,                 sonoma:        "553bf81ba1e5331ec8dbc1c0d26bfcc023882d7c71e9815b513623ac330ffece"
+    sha256 cellar: :any,                 ventura:       "cf90d02ba37a6bd37df704e14912f700cdd9d2e5c5c107979240bf2a46c8c791"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "53e2d180f17f2f51cfd069e23eed736bd4ddbc71e930b83e66b2d6c1efb66456"
   end
 
   depends_on "libyaml"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
   depends_on "tarsnap"
 
   resource "pexpect" do
@@ -40,8 +38,8 @@ class Tarsnapper < Formula
   end
 
   resource "pyyaml" do
-    url "https://files.pythonhosted.org/packages/cd/e5/af35f7ea75cf72f2cd079c95ee16797de7cd71f29ea7c68ae5ce7be1eda0/PyYAML-6.0.1.tar.gz"
-    sha256 "bfdf460b1736c775f2ba9f6a92bca30bc2095067b8a9d77876d1fad6cc3b4a43"
+    url "https://files.pythonhosted.org/packages/54/ed/79a089b6be93607fa5cdaedf301d7dfb23af5f25c398d5ead2525b063e17/pyyaml-6.0.2.tar.gz"
+    sha256 "d584d9ec91ad65861cc08d42e834324ef890a082e591037abe114850ff7bbc3e"
   end
 
   resource "six" do

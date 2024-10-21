@@ -9,28 +9,27 @@ class AwscliLocal < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "9aa33640117c9c11d1c5d15efbc13f38a596d0bf0187b9b13b0ee719357227ec"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "db5e119a2b5ccca2f51384cce154572769410afab93432965bdcad8f97700972"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "db5e119a2b5ccca2f51384cce154572769410afab93432965bdcad8f97700972"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "db5e119a2b5ccca2f51384cce154572769410afab93432965bdcad8f97700972"
-    sha256 cellar: :any_skip_relocation, sonoma:         "0a0c31a12aad8d73d4d569a2d43462563cc1d4ffab1bfe0bfee7cb56a3a2e376"
-    sha256 cellar: :any_skip_relocation, ventura:        "0a0c31a12aad8d73d4d569a2d43462563cc1d4ffab1bfe0bfee7cb56a3a2e376"
-    sha256 cellar: :any_skip_relocation, monterey:       "0a0c31a12aad8d73d4d569a2d43462563cc1d4ffab1bfe0bfee7cb56a3a2e376"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "047c13425215e180d3bbc570d03a766881235369cceb1d45ad50daa00d0cc4e7"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b5809a256a92eec1365a7c9f071656a6893295fccf3160a00b29b284bd58b27b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b5809a256a92eec1365a7c9f071656a6893295fccf3160a00b29b284bd58b27b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "b5809a256a92eec1365a7c9f071656a6893295fccf3160a00b29b284bd58b27b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7c1b34601976db26914738467119a50373a1d81f13eb915c4ec9364b95223ef2"
+    sha256 cellar: :any_skip_relocation, ventura:       "7c1b34601976db26914738467119a50373a1d81f13eb915c4ec9364b95223ef2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b5809a256a92eec1365a7c9f071656a6893295fccf3160a00b29b284bd58b27b"
   end
 
   depends_on "awscli" => :test # awscli-local can work with any version of awscli
   depends_on "localstack"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/81/f5/0c7d1b745462d9fe0c2b4709dc6a4b1cbe399c02ad60b26ae2837714d455/boto3-1.34.128.tar.gz"
-    sha256 "43a6e99f53a8d34b3b4dbe424dbcc6b894350dc41a85b0af7c7bc24a7ec2cead"
+    url "https://files.pythonhosted.org/packages/b8/29/10988ceaa300ddc628cb899875d85d9998e3da4803226398e002d95b2741/boto3-1.35.39.tar.gz"
+    sha256 "670f811c65e3c5fe4ed8c8d69be0b44b1d649e992c0fc16de43816d1188f88f1"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/9e/c9/844ad5680d847d94adb97b22c30b938ddda86f8a815d439503d4ee545484/botocore-1.34.128.tar.gz"
-    sha256 "8d8e03f7c8c080ecafda72036eb3b482d649f8417c90b5dca33b7c2c47adb0c9"
+    url "https://files.pythonhosted.org/packages/f7/28/d83dbd69d7015892b53ada4fded79a5bc1b7d77259361eb8302f88c2da81/botocore-1.35.39.tar.gz"
+    sha256 "cb7f851933b5ccc2fba4f0a8b846252410aa0efac5bfbe93b82d10801f5f8e90"
   end
 
   resource "jmespath" do
@@ -39,8 +38,8 @@ class AwscliLocal < Formula
   end
 
   resource "localstack-client" do
-    url "https://files.pythonhosted.org/packages/ce/f6/7c19f1249cdcdc946616387e8aa93472f879624eb6acdd31a78a76fc046f/localstack-client-2.5.tar.gz"
-    sha256 "8b8b2ee6013265a55d3e312a4513efccd222131bed79395545a4f643704f9213"
+    url "https://files.pythonhosted.org/packages/c4/40/6858a5fe70654ef4878188e0c330c8a22ce4dfc457e09231cb82228de075/localstack_client-2.7.tar.gz"
+    sha256 "14993119901a4bcbef7c32d899b24f4a58a875a6765693edf1064d66b8a68408"
   end
 
   resource "python-dateutil" do
@@ -49,8 +48,8 @@ class AwscliLocal < Formula
   end
 
   resource "s3transfer" do
-    url "https://files.pythonhosted.org/packages/83/bc/fb0c1f76517e3380eb142af8a9d6b969c150cfca1324cea7d965d8c66571/s3transfer-0.10.1.tar.gz"
-    sha256 "5683916b4c724f799e600f41dd9e10a9ff19871bf87623cc8f491cb4f5fa0a19"
+    url "https://files.pythonhosted.org/packages/a0/a8/e0a98fd7bd874914f0608ef7c90ffde17e116aefad765021de0f012690a2/s3transfer-0.10.3.tar.gz"
+    sha256 "4f50ed74ab84d474ce614475e0b8d5047ff080810aac5d01ea25231cfc944b0c"
   end
 
   resource "six" do
@@ -59,8 +58,8 @@ class AwscliLocal < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/43/6d/fa469ae21497ddc8bc93e5877702dca7cb8f911e337aca7452b5724f1bb6/urllib3-2.2.2.tar.gz"
-    sha256 "dd505485549a7a552833da5e6063639d0d177c04f23bc3864e41e5dc5f612168"
+    url "https://files.pythonhosted.org/packages/ed/63/22ba4ebfe7430b76388e7cd448d5478814d3032121827c12a2cc287e2260/urllib3-2.2.3.tar.gz"
+    sha256 "e7d814a81dad81e6caf2ec9fdedb284ecc9c73076b62654547cc64ccdcae26e9"
   end
 
   def install

@@ -132,10 +132,9 @@ class Pcl < Formula
 
     ENV.delete "CPATH" # `error: no member named 'signbit' in the global namespace`
 
-    args = std_cmake_args + ["-DQt5_DIR=#{Formula["qt@5"].opt_lib}/cmake/Qt5"]
-    args << "-DCMAKE_BUILD_RPATH=#{lib}" if OS.linux?
+    args = OS.mac? ? [] : ["-DCMAKE_BUILD_RPATH=#{lib}"]
 
-    system "cmake", "-S", ".", "-B", "build", *args
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "./build/pcd_write"
     assert_predicate (testpath/"test_pcd.pcd"), :exist?

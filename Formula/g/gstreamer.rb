@@ -41,12 +41,13 @@ class Gstreamer < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "0fa58987862c8f7f32411a96977e77a1fd3446aa00ae86bff8baa2da47053cef"
-    sha256 arm64_sonoma:  "71296dfa7c2879ab7929a0799e96dd5ecee47b77d40cb81e3e42b4ecff478e03"
-    sha256 arm64_ventura: "253ee1b4634636c9c5f92450926a2c87726bdcab60c5f455f3013283bd12c29a"
-    sha256 sonoma:        "1f3011889e47bc1af442d606e493c9d52e7fca8c4205f1316f1b5d94beff1987"
-    sha256 ventura:       "f3f94e131b1b3a9973d96beec0dbe493e2e2ae9543e71b72a2946ec1b78faba6"
-    sha256 x86_64_linux:  "203ed40d6ad63f76b290b18721a6ab80b3f6bb3052621574b37f0fc37bbae341"
+    rebuild 1
+    sha256 arm64_sequoia: "d2ee8157fe421ba6c198e2245e1e0c2b5485520122dfa9f1a4455679c29c95ac"
+    sha256 arm64_sonoma:  "988ef37481126b708af1669ed06787eba7efa35314147a5df354c91d6b66b2a6"
+    sha256 arm64_ventura: "e0d82e2d13b0222a22a2a1ff70cec1fddaec3331469f5a77f3db95d87c730177"
+    sha256 sonoma:        "64c4598623a5ff826e297ef07071da6e10ace4079ab293058f66e4bb61e908f0"
+    sha256 ventura:       "7fd971545ff09902d15c4916ed90f8cc4fdc65af4dfcd604674f10eb01779b74"
+    sha256 x86_64_linux:  "8332e6c7935ce2b5e36daa66682131dc160d54c9283e42e3af537b92c27bd850"
   end
 
   head do
@@ -111,7 +112,7 @@ class Gstreamer < Formula
   depends_on "orc"
   depends_on "pango"
   depends_on "pygobject3"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
   depends_on "rtmpdump"
   depends_on "speex"
   depends_on "srt"
@@ -149,13 +150,13 @@ class Gstreamer < Formula
   end
 
   def python3
-    which("python3.12")
+    which("python3.13")
   end
 
   # These paths used to live in various `gst-*` formulae.
   link_overwrite "bin/gst-*", "lib/ligst*", "lib/libges*", "lib/girepository-1.0/Gst*-1.0.typelib"
   link_overwrite "lib/girepository-1.0/GES-1.0.typelib", "lib/gst-validate-launcher/*", "lib/gstreamer-1.0/*"
-  link_overwrite "lib/pkgconfig/gst*.pc", "lib/python3.12/site-packages/gi/overrides/*", "include/gstreamer-1.0/*"
+  link_overwrite "lib/pkgconfig/gst*.pc", "lib/python3.13/site-packages/gi/overrides/*", "include/gstreamer-1.0/*"
   link_overwrite "share/gir-1.0/Gst*.gir", "share/gir-1.0/GES-1.0.gir", "share/gstreamer-1.0/*"
   link_overwrite "share/locale/*/LC_MESSAGES/gst-*.mo", "share/man/man1/g*"
 

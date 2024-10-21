@@ -8,14 +8,14 @@ class Ddgr < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "3ae74323d821c1713d3a9df8c38a26e5286488dc1f5fd3cbe421cce82f489c2d"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "fe1e5b35a67ae65335a46b0cc9fa8d362f9196aa64a527f7f73210d95fd97848"
   end
 
-  depends_on "python@3.12"
+  uses_from_macos "python"
 
   def install
-    rewrite_shebang detected_python_shebang, "ddgr"
+    rewrite_shebang detected_python_shebang(use_python_from_path: true), "ddgr"
     system "make", "install", "PREFIX=#{prefix}"
     bash_completion.install "auto-completion/bash/ddgr-completion.bash" => "ddgr"
     fish_completion.install "auto-completion/fish/ddgr.fish"

@@ -4,18 +4,18 @@ class Cassandra < Formula
 
   desc "Eventually consistent, distributed key-value store"
   homepage "https://cassandra.apache.org"
-  url "https://www.apache.org/dyn/closer.lua?path=cassandra/5.0.1/apache-cassandra-5.0.1-bin.tar.gz"
-  mirror "https://archive.apache.org/dist/cassandra/5.0.1/apache-cassandra-5.0.1-bin.tar.gz"
-  sha256 "73f4c807b0aa4036500d5dc54e30ef82bcf549ab1917eff2bbc7189b0337ea84"
+  url "https://www.apache.org/dyn/closer.lua?path=cassandra/5.0.2/apache-cassandra-5.0.2-bin.tar.gz"
+  mirror "https://archive.apache.org/dist/cassandra/5.0.2/apache-cassandra-5.0.2-bin.tar.gz"
+  sha256 "d721834207838b9d01919dfc33625ad17b50fea03bf9f76cdd8d3ae3a8fd2947"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "ebfe5ac870d922f590c2469886d9c90f0b5d6cb77c18010c4ee5704c37d061fd"
-    sha256 cellar: :any,                 arm64_sonoma:  "c6d7018a817f7a666771db1456ac7a6a1aa18aed2e6b20c2e3107c58384e3440"
-    sha256 cellar: :any,                 arm64_ventura: "b114d9ced19ff5e7ec3324db3ce90a3858648178e7cf71d3a05763f9942ec76b"
-    sha256 cellar: :any,                 sonoma:        "7701b8b7d2974f8470aa8ab84b4a484ceeca4f01c8be7a8a21a84b141b805065"
-    sha256 cellar: :any,                 ventura:       "5d2c9368db7e1c11b5f78ae0ae56fab3cff1fdaf45aadf7abb3ce83a917dd70c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ebddaf051d89a491cb93dd5a91f86c36493dbc85d389f0ae4446ce07f2f2bf5b"
+    sha256 cellar: :any,                 arm64_sequoia: "d93811c988659dac067376da548017ae75ed5386588c0ab46f616dc3de91b06c"
+    sha256 cellar: :any,                 arm64_sonoma:  "8aacacac5194c0b57467acc457c7267457f11b323fad6e8e1501cfe85caa2d93"
+    sha256 cellar: :any,                 arm64_ventura: "ae588dbb3d91beddea60d6c22635f8bc42a443425cefabb35f899e85f24c50dd"
+    sha256 cellar: :any,                 sonoma:        "5ae4378828dcbf84131cef2132a2ea91b9c4ccb75d7e0ba42abd14bd802f24b8"
+    sha256 cellar: :any,                 ventura:       "7a35926ce1e8f6bda081ff85fd32421eadd643b67dcc6a7b4fa3d3df2ee1ec22"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4c79b9928798c75d5a32d1dd71c62cb7343a7c89713a5d500325302206403b9c"
   end
 
   depends_on "libev"

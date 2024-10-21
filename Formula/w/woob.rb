@@ -9,33 +9,32 @@ class Woob < Formula
   revision 6
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "86f0e993a1baaf87d48377505adaf82369dd4f7e02ffaba18172bf6987601fdb"
-    sha256 cellar: :any,                 arm64_sonoma:   "1626f36d4a3f3c0c93470a0ee55c9699ed487cf9d6c89712468a1fb63cef4010"
-    sha256 cellar: :any,                 arm64_ventura:  "4f5ab5be3993c62e941c88b739dd05e5a03f09719efbb2800fab7259c8760aef"
-    sha256 cellar: :any,                 arm64_monterey: "c2570ebb36aad8d7a2e4b861a667b91c065e696ed316e179c29cef8ac148225a"
-    sha256 cellar: :any,                 sonoma:         "450ac9a9b961ca87cd97f0912c1cf324877da7b7a1e093a3116ff05abaabbe06"
-    sha256 cellar: :any,                 ventura:        "4831b8c173ec772bda0358797696b5596225b3ca9c3449094f6cddc24d80e230"
-    sha256 cellar: :any,                 monterey:       "5bdbd89ebc34c3a5c285e0311a21c25296b5d4f4b2b2a11733c6899f446909a5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "376fd653f661fb993ce8529e0f33b7e7ff344f078b7e0456a664715136209d83"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "0b4a6b27903d6e1d552574713f5cf4fcb233d5ee02c5f4084d4665974cdd1f95"
+    sha256 cellar: :any,                 arm64_sonoma:  "b0391f1a69d510a3c49d538ca6eb22469c86c630b1f39ca208c8a831e0490561"
+    sha256 cellar: :any,                 arm64_ventura: "b497f60f68a44dd8e255a6aed43ef35ed5f9b22f35170857efc15a74197a0d68"
+    sha256 cellar: :any,                 sonoma:        "fb07afbcccae9dacf1a7f5dff9a85d999c777bf0fd61e3a59e1a28e27550a58c"
+    sha256 cellar: :any,                 ventura:       "b460c89047db4b50932b085217a0f809b29933a18d3a1f1eed0172b554aef441"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "42575e8cf1e94f2e7c164b25fdc9aae504331f4204970fd3620ab7f9431230e6"
   end
 
   depends_on "certifi"
   depends_on "gnupg"
   depends_on "libyaml"
   depends_on "pillow"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   uses_from_macos "libxml2", since: :ventura
   uses_from_macos "libxslt"
 
   resource "babel" do
-    url "https://files.pythonhosted.org/packages/15/d2/9671b93d623300f0aef82cde40e25357f11330bdde91743891b22a555bed/babel-2.15.0.tar.gz"
-    sha256 "8daf0e265d05768bc6c7a314cf1321e9a123afc328cc635c18622a2f30a04413"
+    url "https://files.pythonhosted.org/packages/2a/74/f1bc80f23eeba13393b7222b11d95ca3af2c1e28edca18af487137eefed9/babel-2.16.0.tar.gz"
+    sha256 "d1f3554ca26605fe173f3de0c65f750f5a42f924499bf134de6423582298e316"
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/63/09/c1bc53dab74b1816a00d8d030de5bf98f724c52c1635e07681d312f20be8/charset-normalizer-3.3.2.tar.gz"
-    sha256 "f30c3cb33b24454a82faecaf01b19c18562b1e89558fb6c56de4d9118a032fd5"
+    url "https://files.pythonhosted.org/packages/f2/4f/e1808dc01273379acc506d18f1504eb2d299bd4131743b9fc54d7be4df1e/charset_normalizer-3.4.0.tar.gz"
+    sha256 "223217c3d4f82c3ac5e29032b3f1c2eb0fb591b72161f86d93f5719079dae93e"
   end
 
   resource "html2text" do
@@ -44,13 +43,13 @@ class Woob < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/21/ed/f86a79a07470cb07819390452f178b3bef1d375f2ec021ecfc709fc7cf07/idna-3.7.tar.gz"
-    sha256 "028ff3aadf0609c1fd278d8ea3089299412a7a8b9bd005dd08b9f8285bcb5cfc"
+    url "https://files.pythonhosted.org/packages/f1/70/7703c29685631f5a7590aa73f1f1d3fa9a380e654b86af429e0934a32f7d/idna-3.10.tar.gz"
+    sha256 "12f65c9b470abda6dc35cf8e63cc574b1c52b11df2c86030af0ac09b01b13ea9"
   end
 
   resource "lxml" do
-    url "https://files.pythonhosted.org/packages/63/f7/ffbb6d2eb67b80a45b8a0834baa5557a14a5ffce0979439e7cd7f0c4055b/lxml-5.2.2.tar.gz"
-    sha256 "bb2dc4898180bea79863d5487e5f9c7c34297414bad54bcd0f0852aee9cfdb87"
+    url "https://files.pythonhosted.org/packages/e7/6b/20c3a4b24751377aaa6307eb230b66701024012c29dd374999cc92983269/lxml-5.3.0.tar.gz"
+    sha256 "4e109ca30d1edec1ac60cdbe341905dc3b8f55b16855e03a54aaf59e51ec8c6f"
   end
 
   resource "markdown-it-py" do
@@ -84,8 +83,8 @@ class Woob < Formula
   end
 
   resource "pyyaml" do
-    url "https://files.pythonhosted.org/packages/cd/e5/af35f7ea75cf72f2cd079c95ee16797de7cd71f29ea7c68ae5ce7be1eda0/PyYAML-6.0.1.tar.gz"
-    sha256 "bfdf460b1736c775f2ba9f6a92bca30bc2095067b8a9d77876d1fad6cc3b4a43"
+    url "https://files.pythonhosted.org/packages/54/ed/79a089b6be93607fa5cdaedf301d7dfb23af5f25c398d5ead2525b063e17/pyyaml-6.0.2.tar.gz"
+    sha256 "d584d9ec91ad65861cc08d42e834324ef890a082e591037abe114850ff7bbc3e"
   end
 
   resource "requests" do
@@ -94,8 +93,8 @@ class Woob < Formula
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/b3/01/c954e134dc440ab5f96952fe52b4fdc64225530320a910473c1fe270d9aa/rich-13.7.1.tar.gz"
-    sha256 "9be308cb1fe2f1f57d67ce99e95af38a1e2bc71ad9813b0e247cf7ffbcc3a432"
+    url "https://files.pythonhosted.org/packages/aa/9e/1784d15b057b0075e5136445aaea92d23955aad2c93eaede673718a40d95/rich-13.9.2.tar.gz"
+    sha256 "51a2c62057461aaf7152b4d611168f93a9fc73068f8ded2790f29fe2b5366d0c"
   end
 
   resource "six" do
@@ -109,8 +108,8 @@ class Woob < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/43/6d/fa469ae21497ddc8bc93e5877702dca7cb8f911e337aca7452b5724f1bb6/urllib3-2.2.2.tar.gz"
-    sha256 "dd505485549a7a552833da5e6063639d0d177c04f23bc3864e41e5dc5f612168"
+    url "https://files.pythonhosted.org/packages/ed/63/22ba4ebfe7430b76388e7cd448d5478814d3032121827c12a2cc287e2260/urllib3-2.2.3.tar.gz"
+    sha256 "e7d814a81dad81e6caf2ec9fdedb284ecc9c73076b62654547cc64ccdcae26e9"
   end
 
   # Drop setuptools dep: https://gitlab.com/woob/woob/-/merge_requests/876

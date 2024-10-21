@@ -9,18 +9,11 @@ class FortranLanguageServer < Formula
   head "https://github.com/hansec/fortran-language-server.git", branch: "master"
 
   bottle do
-    rebuild 4
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "4e1e603410801266c87c65b12d7e035572fc286ae34b0dea5638d92f6e7e6cf3"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "dbb19be503ec0e23640180c3ba92887d3f5e9b37e45b2c8e46b9a57c14aa05d9"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b904b217b0b36b8f5c3112929e4d7b7f296a3e8a8c9ac3de1671cb941181bf55"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "231266c09577f03896667b414bf375b8cf399caabebc6c35f102574988758edd"
-    sha256 cellar: :any_skip_relocation, sonoma:         "067d39dbc79483550e2c9e06e72883f299e455d1754f95b17052f5cccbf357da"
-    sha256 cellar: :any_skip_relocation, ventura:        "e7e2864aed6120a0eb40e68ae452e935c547c0ed004238ce52f830bd4d36e3af"
-    sha256 cellar: :any_skip_relocation, monterey:       "ec05c59137add94ac7f4a7d33da5184d303243f88401305739ae6a8871a408bc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9a7d6a64e177d7cc60bd9c5b933786114fbb0f1a351bb4d7a4a75afe9deb7dbd"
+    rebuild 5
+    sha256 cellar: :any_skip_relocation, all: "7f545be88d71155c02f3022ca7c63f8c75f9010d1ac84f89353d96b15f3b0551"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   conflicts_with "fortls", because: "both install `fortls` binaries"
 

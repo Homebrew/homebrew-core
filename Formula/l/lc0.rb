@@ -2,19 +2,17 @@ class Lc0 < Formula
   desc "Open source neural network based chess engine"
   homepage "https://lczero.org/"
   url "https://github.com/LeelaChessZero/lc0.git",
-      tag:      "v0.31.1",
-      revision: "8229737a73fff12498828d90db099914adaa4a08"
+      tag:      "v0.31.2",
+      revision: "8ba8aa426460bbeda452754ff7d6a9bb60bb0e54"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "4e1284325ad80b5d4c6e589e8adc23372a56cf3482e84da096d8c675d0183e78"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4b20580ad124635d2565de067f55fab0d6663e37115b06ff75ad2cdf0b61322d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c2998b62f8be1dcf216104dbc1ed18156fb139811e37bf6bead68607f5cf74ee"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "2d118b214854355d4f480ccc5951afc51d4397b98fee0957d0f64b009e56f2d8"
-    sha256 cellar: :any_skip_relocation, sonoma:         "15fc89e21bf23719ba83534d1d84b9649f9421f20dad4039bd3b800c9e4e193e"
-    sha256 cellar: :any_skip_relocation, ventura:        "4efba4aa60d5d2c8b256680a75fbd87ad1631b0d613cd5ecd6802d5d6f262f46"
-    sha256 cellar: :any_skip_relocation, monterey:       "cf2605d4e7a521fa245742b315c57c0fb60050c976c1de7bc3c7b6ae81f271c9"
-    sha256                               x86_64_linux:   "fe1dabe4d6b203d5f48510a08af48fe5b644fbead57a64c47c4a27d2652421de"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f25d5b0e4a549bbc2e1dae7af722c5aec25016ce421b160f4619121b22286c19"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3f528105e9e803ce4fc4e710d3a94b02b192b0d055ec105cd460ca9c5ecaea1f"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "2aeb4b6042e63d1caba7f44e7a753b54032fe2c3a5b9d30b1c49db4149adc0dd"
+    sha256 cellar: :any_skip_relocation, sonoma:        "23318830a811ab5d1047779f6c3fe6bd9d1c2cc4e8ede7713c8027624b36a445"
+    sha256 cellar: :any_skip_relocation, ventura:       "fdf20fa39a246862aa429134e633763fa585b0a9b23865fa82bbbddd29a96596"
+    sha256                               x86_64_linux:  "4f996c61da081b7421b72a5b1a7c47e0d69ccc0f626185c1016b3df45aca48a4"
   end
 
   depends_on "cmake" => :build

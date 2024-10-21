@@ -6,6 +6,7 @@ class PhpAT81 < Formula
   mirror "https://fossies.org/linux/www/php-8.1.30.tar.xz"
   sha256 "f24a6007f0b25a53cb7fbaee69c85017e0345b62089c2425a0afb7e177192ed1"
   license "PHP-3.01"
+  revision 1
 
   livecheck do
     url "https://www.php.net/downloads"
@@ -13,12 +14,12 @@ class PhpAT81 < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "a0dfc7f805b18c94ae1cfb7f7cc43f7c2679897a715a676d6f82502c14fc31e7"
-    sha256 arm64_sonoma:  "e6f33a553327310290d1683bf54ef20886f1c115caf07239463b8c873f4f1bd9"
-    sha256 arm64_ventura: "e5e84455c9f917980b235151253adfbda6193eb867a28250702f386ca5a4a6e3"
-    sha256 sonoma:        "6296581536d82f8dd98ca8aa98915a69f1d22401a5d49f743032818e4a206703"
-    sha256 ventura:       "68df6eae481240615d659db0a3b26652540b519d8c93bf951aeb956cb0a647a0"
-    sha256 x86_64_linux:  "be6f1b8530c2a0839ee830961f2966d5915789cb73dc04365785019960d64db2"
+    sha256 arm64_sequoia: "bda07c54c481d4717807986dc68414e6afb99f212933b7c8ee40b677752db997"
+    sha256 arm64_sonoma:  "34c90ef7ec0014051e18a25da64df075b08f6c2b51c0c28f12921fce0a01ee39"
+    sha256 arm64_ventura: "2ec9f47f5c3c3457f74541c5bc7cc5a0299f283c7bafe2d8db961fe22f43493a"
+    sha256 sonoma:        "8b63e3d897b33cc0b8c51bee88ac8bcb55cc801bae809fd685634693c23fee93"
+    sha256 ventura:       "c2749c7933dffc43ef5e517527f2b1e4730934dd30daabb93a225f1c7994a7ec"
+    sha256 x86_64_linux:  "3ed5dced786f4116d35f61c9996826a87939b1e47b467c4b9e0062ce73fae0cd"
   end
 
   keg_only :versioned_formula
@@ -39,7 +40,7 @@ class PhpAT81 < Formula
   depends_on "gd"
   depends_on "gettext"
   depends_on "gmp"
-  depends_on "icu4c"
+  depends_on "icu4c@75"
   depends_on "krb5"
   depends_on "libpq"
   depends_on "libsodium"
@@ -72,6 +73,10 @@ class PhpAT81 < Formula
     inreplace "ext/xml/compat.c",
               "!= XML_PARSER_ENTITY_VALUE && parser->parser->instate != XML_PARSER_ATTRIBUTE_VALUE)",
               "== XML_PARSER_CONTENT)"
+
+    # Work around to support `icu4c` 75, which needs C++17.
+    # Can remove if upstream backports support into PHP 8.1
+    ENV["ICU_CXXFLAGS"] = "-std=c++17"
 
     # buildconf required due to system library linking bug patch
     system "./buildconf", "--force"
@@ -407,7 +412,7 @@ class PhpAT81 < Formula
       pid = fork do
         exec Formula["httpd"].opt_bin/"httpd", "-X", "-f", "#{testpath}/httpd.conf"
       end
-      sleep 3
+      sleep 10
 
       assert_match expected_output, shell_output("curl -s 127.0.0.1:#{port}")
 
@@ -420,7 +425,7 @@ class PhpAT81 < Formula
       pid = fork do
         exec Formula["httpd"].opt_bin/"httpd", "-X", "-f", "#{testpath}/httpd-fpm.conf"
       end
-      sleep 3
+      sleep 10
 
       assert_match expected_output, shell_output("curl -s 127.0.0.1:#{port}")
     ensure

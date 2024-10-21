@@ -1,8 +1,8 @@
 class Cadical < Formula
   desc "Clean and efficient state-of-the-art SAT solver"
   homepage "https://fmv.jku.at/cadical/"
-  url "https://github.com/arminbiere/cadical/archive/refs/tags/rel-2.0.0.tar.gz"
-  sha256 "9afe5f6439442d854e56fc1fac3244ce241dbb490735939def8fd03584f89331"
+  url "https://github.com/arminbiere/cadical/archive/refs/tags/rel-2.1.0.tar.gz"
+  sha256 "0652b2b3f2dbaf19f1940cd882823bce44b6fc7a3c025066da7932254bcee237"
   license "MIT"
 
   livecheck do
@@ -11,14 +11,12 @@ class Cadical < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "ec60f370965bce1e87cca7bbfef498c371cda9ceecfd52e81a99f22ec0cd24a8"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9825a0c9c4c024f5023494de2712b28b28deab1d7cca9aa1033cf5f89d9345b0"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ff3003444ea747f336347ffcc6a8d6814b5456f52e7604255db0844f48891551"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e4785bb323b72519598901d2423da7c70d9d975f9588c79ca7d15cf298851286"
-    sha256 cellar: :any_skip_relocation, sonoma:         "dd0d8346c3c1baa30a5e0a8ca3a43be9e15233baf2b687a53259c35843280233"
-    sha256 cellar: :any_skip_relocation, ventura:        "21d53219f41b054fe86e9620f2d32a2705b22ea44e18b78bb4a3f636f7f6984c"
-    sha256 cellar: :any_skip_relocation, monterey:       "818b56977e0184acb239948980be236ff7c27ad091473543ff6be1b5a6889abc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f61dfbc010d7b4c25e835c9e3e102387774fa9ee820d3ae6356a91f12f0fc73d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7b4f62ee1b2857ccdb09afdbbf8c418b5967fce5b5ffbe0ffa854f1bd31c702c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a867214a0efef9cf1473577fdf083e7459571291c46fbc14ebebb7dbec5da9c7"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "c49ba30b47bbe27ae07a91bb6d449c0aceaad2092f5fddfa49179134d015b9ec"
+    sha256 cellar: :any_skip_relocation, sonoma:        "87d2b945a9d51d024e6ce68ff13f15d91b7044509712a21e2e145aae1f904ebb"
+    sha256 cellar: :any_skip_relocation, ventura:       "be13804c8da4cbe8f13dc6e48094f84189fc633ca692e0710b1f3cdecdc244fc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cf7fb63d8bc84ce56d068081b801fa85385a4d4c8ec3d3b2765c3ab535d71fdb"
   end
 
   def install

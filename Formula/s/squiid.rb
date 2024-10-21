@@ -1,19 +1,22 @@
 class Squiid < Formula
   desc "Do advanced algebraic and RPN calculations"
   homepage "https://imaginaryinfinity.net/projects/squiid/"
-  url "https://gitlab.com/ImaginaryInfinity/squiid-calculator/squiid/-/archive/1.1.2/squiid-1.1.2.tar.bz2"
-  sha256 "f5d3564325aebf857647ff3dcb71ca4762cdedb83708001834f1afcbfacc5bbf"
+  url "https://gitlab.com/ImaginaryInfinity/squiid-calculator/squiid/-/archive/1.1.3/squiid-1.1.3.tar.gz"
+  sha256 "3944faeff6787e52bb045a0353c72a29acff919abfa41b275add7189355c01c9"
   license "GPL-3.0-or-later"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "b17e72d4d22d88966111a63ae026a153f914204cbaa175fd7aaf2cadc9516b56"
-    sha256 cellar: :any,                 arm64_sonoma:   "e65226dba5c635b6a7654119807167cd784609f3d6ee7fd229e066e3ddecc587"
-    sha256 cellar: :any,                 arm64_ventura:  "192f669c507ed6e30b13a39574260ce3079c38dce77e290690444f4d053b0576"
-    sha256 cellar: :any,                 arm64_monterey: "42573691dd99d9d27d4b8cfa669e942bb7af8fda09dca4cc58249a81a422c7f3"
-    sha256 cellar: :any,                 sonoma:         "4a2ed2531fa98d783e72ca27c71f9ae06567ddd06fd8a14181505a4cd5f70e5d"
-    sha256 cellar: :any,                 ventura:        "c59060acebc774af6e9021d34afb5a3f070a4d1a36c693c3ba20333f2581aeb7"
-    sha256 cellar: :any,                 monterey:       "7a9c167de74de714e4a220922dfb4e147ad7c5c02c56f794d327210feee6ce12"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3c5e25463cfe0f9c83a8a6fb618829a70ddb496e54c08841a61a1b7f89c5d15e"
+    sha256 cellar: :any,                 arm64_sequoia: "315fbbb4a9553ca75652610cb44c2b9f39e87e6a803f9d4d24a64f618f32a682"
+    sha256 cellar: :any,                 arm64_sonoma:  "8176fc788c278875b94cb0d8b85cb6523c4912d63ef781c84bebeb370de57087"
+    sha256 cellar: :any,                 arm64_ventura: "71372763b97920cf07b0ea356fc6decdc89017814ca85b5273b0cab7b18d4469"
+    sha256 cellar: :any,                 sonoma:        "1c29ed2240f777e20a2e0c15a9897e89e3c3b3236ad7829fdf172e8767be4cec"
+    sha256 cellar: :any,                 ventura:       "4922877ef98b6d49f4f3de8dca3f5e5af4583d78c46b499c1ffc96f359e3f230"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "352d0187529dad2da4cfd5aa015592956e142969769772683a3b3ad4b87bd3cd"
   end
 
   depends_on "rust" => :build

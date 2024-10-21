@@ -9,34 +9,32 @@ class Cloudiscovery < Formula
   revision 3
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "39af9c9226b1c243584050b82916e01469fca154da540e8aa849f15cb6eb8d68"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "81d891341180b4dcb85a30cd7c0210a17263516b1ff712b7b4f8576b7e5b652d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7dfc0d0262812d711e53042fe71eee446d090d76160ce7a8fcc8f15bbc2a281f"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "25ed7fbaf11794c40edb655c16a888ad36fb7120b22ffd4873e5f1f07e1b69b3"
-    sha256 cellar: :any_skip_relocation, sonoma:         "5acbddb988c65c1a7cd71960454a45a60018cdf78fe2a0e91f36e81abba4fa13"
-    sha256 cellar: :any_skip_relocation, ventura:        "fa87d3fc3b0f671b20324099d8c7b64272ffc5461d408d6264073eeda3130c2c"
-    sha256 cellar: :any_skip_relocation, monterey:       "52b4b49e323afbe22ad2bbabacd39a27591479decef14ce2d58c1638e131905f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8c41b9b382bbc614120e6525094dc5b0958806e31f51d3c46e6aa2317dd8f791"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "166757c19b4069447bbb1a41e60be7e734d61f845cb0f951fe7410a099a87e57"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "064a3e7e97a886909f4fb368dcebef7707e3f8ecce081af90e096c01792fd6d1"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "9bf4aff37f693f03a1c5487cb10091b711d2da575107da81db51d5cafdce814b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "078273ecd102d192d38ded37f8f768467b592302c8b58b7b0d9e5097ee41e158"
+    sha256 cellar: :any_skip_relocation, ventura:       "3e3e859e0ad0cfcf0ce7fa5a0063304194345ecb6c47c03c560b35fddb02c41c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9d88b7b392ea5615d256ec973cd48d482570d6a8b6d3fc2f703a72443c042fa3"
   end
+
+  deprecate! date: "2024-10-11", because: :unmaintained
 
   depends_on "python@3.12"
 
-  # markupsafe needs to pinned to 2.0.1
-  # see PR, https://github.com/Homebrew/homebrew-core/pull/151558
-
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/81/f5/0c7d1b745462d9fe0c2b4709dc6a4b1cbe399c02ad60b26ae2837714d455/boto3-1.34.128.tar.gz"
-    sha256 "43a6e99f53a8d34b3b4dbe424dbcc6b894350dc41a85b0af7c7bc24a7ec2cead"
+    url "https://files.pythonhosted.org/packages/b8/29/10988ceaa300ddc628cb899875d85d9998e3da4803226398e002d95b2741/boto3-1.35.39.tar.gz"
+    sha256 "670f811c65e3c5fe4ed8c8d69be0b44b1d649e992c0fc16de43816d1188f88f1"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/9e/c9/844ad5680d847d94adb97b22c30b938ddda86f8a815d439503d4ee545484/botocore-1.34.128.tar.gz"
-    sha256 "8d8e03f7c8c080ecafda72036eb3b482d649f8417c90b5dca33b7c2c47adb0c9"
+    url "https://files.pythonhosted.org/packages/f7/28/d83dbd69d7015892b53ada4fded79a5bc1b7d77259361eb8302f88c2da81/botocore-1.35.39.tar.gz"
+    sha256 "cb7f851933b5ccc2fba4f0a8b846252410aa0efac5bfbe93b82d10801f5f8e90"
   end
 
   resource "cachetools" do
-    url "https://files.pythonhosted.org/packages/b3/4d/27a3e6dd09011649ad5210bdf963765bc8fa81a0827a4fc01bafd2705c5b/cachetools-5.3.3.tar.gz"
-    sha256 "ba29e2dfa0b8b556606f097407ed1aa62080ee108ab0dc5ec9d6a723a007d105"
+    url "https://files.pythonhosted.org/packages/c3/38/a0f315319737ecf45b4319a8cd1f3a908e29d9277b46942263292115eee7/cachetools-5.5.0.tar.gz"
+    sha256 "2cc24fb4cbe39633fb7badd9db9ca6295d766d9c2995f245725a46715d050f2a"
   end
 
   resource "diagrams" do
@@ -80,13 +78,13 @@ class Cloudiscovery < Formula
   end
 
   resource "pytz" do
-    url "https://files.pythonhosted.org/packages/90/26/9f1f00a5d021fff16dee3de13d43e5e978f3d58928e129c3a62cf7eb9738/pytz-2024.1.tar.gz"
-    sha256 "2a29735ea9c18baf14b448846bde5a48030ed267578472d8955cd0e7443a9812"
+    url "https://files.pythonhosted.org/packages/3a/31/3c70bf7603cc2dca0f19bdc53b4537a797747a58875b552c8c413d963a3f/pytz-2024.2.tar.gz"
+    sha256 "2aa355083c50a0f93fa581709deac0c9ad65cca8a9e9beac660adcbd493c798a"
   end
 
   resource "s3transfer" do
-    url "https://files.pythonhosted.org/packages/83/bc/fb0c1f76517e3380eb142af8a9d6b969c150cfca1324cea7d965d8c66571/s3transfer-0.10.1.tar.gz"
-    sha256 "5683916b4c724f799e600f41dd9e10a9ff19871bf87623cc8f491cb4f5fa0a19"
+    url "https://files.pythonhosted.org/packages/a0/a8/e0a98fd7bd874914f0608ef7c90ffde17e116aefad765021de0f012690a2/s3transfer-0.10.3.tar.gz"
+    sha256 "4f50ed74ab84d474ce614475e0b8d5047ff080810aac5d01ea25231cfc944b0c"
   end
 
   resource "six" do
@@ -100,8 +98,8 @@ class Cloudiscovery < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/43/6d/fa469ae21497ddc8bc93e5877702dca7cb8f911e337aca7452b5724f1bb6/urllib3-2.2.2.tar.gz"
-    sha256 "dd505485549a7a552833da5e6063639d0d177c04f23bc3864e41e5dc5f612168"
+    url "https://files.pythonhosted.org/packages/ed/63/22ba4ebfe7430b76388e7cd448d5478814d3032121827c12a2cc287e2260/urllib3-2.2.3.tar.gz"
+    sha256 "e7d814a81dad81e6caf2ec9fdedb284ecc9c73076b62654547cc64ccdcae26e9"
   end
 
   # drop setuptools dep, upstream pr ref, https://github.com/Cloud-Architects/cloudiscovery/pull/192

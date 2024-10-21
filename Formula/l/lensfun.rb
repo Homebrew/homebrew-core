@@ -22,25 +22,27 @@ class Lensfun < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_sequoia:  "18a1546247aa250745d81cd55dfcd8aed35386999146883c7efcb1fa50db6080"
-    sha256 arm64_sonoma:   "4509de164f26e03f7dde33e45c7c82994ade1cd087118ea44d096966e820aa21"
-    sha256 arm64_ventura:  "4d66d4326ff847e40cbdea3efad6b141ca4a60e3af369dfd38b0bbac05377693"
-    sha256 arm64_monterey: "d3b2be29200d9d2fed399acfa6c3688630f67a8d92d934fa201ccb926ba9d3ee"
-    sha256 sonoma:         "893fc14bc16e6841f22f8211f980ead61bf157f1a2936289dda5de3a46684d67"
-    sha256 ventura:        "81b1d46a4bbbf4dbfbf634713a997fa2bf7b060e65ad7b981a470ab266495f73"
-    sha256 monterey:       "130ff44bb69bfeae078ddf16c2a4dcae0750e16db4e54e81738c56dfd8fc875f"
-    sha256 x86_64_linux:   "2e4d736b2e405d14c4b18b5ccd316455927ef40b74076131d4b1bf37c5001b8e"
+    rebuild 2
+    sha256 arm64_sequoia: "bd7e0e0ee91095a654b790be77beaaf678460b7ca5a93761acc7097cbe49c8a4"
+    sha256 arm64_sonoma:  "1b94bfd9c7bd10c9b2a750d636f26d00e631926a82177bc17a602eee34cd5b59"
+    sha256 arm64_ventura: "ddda4af3259759e007b235ef56e81ec47b46210953f267880ed3afe96bbaba71"
+    sha256 sonoma:        "2281557eb46d5d02057d55a99e8709f331ccb48eb953673cc579ab0ecc8256d7"
+    sha256 ventura:       "2682f7ff29e3752b24cbf18b04470fe2f12b2d23c7923ff456fa9f65692728d9"
+    sha256 x86_64_linux:  "3d243858a098eb0412f6f92c1e0c536e21621bc4982b24a9aca530736e64fd0d"
   end
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "glib"
   depends_on "libpng"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   on_macos do
     depends_on "gettext"
+  end
+
+  def python3
+    "python3.13"
   end
 
   def install
@@ -55,7 +57,7 @@ class Lensfun < Formula
     system "cmake", "--install", "build"
     rewrite_shebang detected_python_shebang, *bin.children
 
-    system "python3.12", "-m", "pip", "install", *std_pip_args(build_isolation: true), "./build/apps"
+    system python3, "-m", "pip", "install", *std_pip_args(build_isolation: true), "./build/apps"
   end
 
   test do

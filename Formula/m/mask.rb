@@ -1,19 +1,17 @@
 class Mask < Formula
   desc "CLI task runner defined by a simple markdown file"
   homepage "https://github.com/jakedeichert/mask/"
-  url "https://github.com/jacobdeichert/mask/archive/refs/tags/mask/0.11.4.tar.gz"
-  sha256 "65ac7b5798bc717a2a0c3fb933afab45fc901eeb3ff299e03695bf3204d4f37a"
+  url "https://github.com/jacobdeichert/mask/archive/refs/tags/mask/0.11.6.tar.gz"
+  sha256 "e76ae20a120c3ab44f1b14e73ff3f1b39d900bc66f8d2dab7fed4706bacd92fd"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "da8ec827f9c4e4a9bb05520c5f470735a68a9672203c1541bc728c7f5e3058e3"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "29996fe7c9a55113236922e147d0506b1bd62135de358c27ddbc28264c67b411"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "093e6b2d8c81b38993f1a0adf1eab5315160e4219ba57ea1801097404b24e185"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9348d765d00ad6f6d6d41352037293007c5cdfdc0770cd7c806ec7913d266b64"
-    sha256 cellar: :any_skip_relocation, sonoma:         "c52f67403061b48760face6e1f93d8a4ed4b4e462e902e1e6f9777f71c25b672"
-    sha256 cellar: :any_skip_relocation, ventura:        "9137a95213ee270038a2fce8209c06a668cee93c908491db18b3f344a4609f11"
-    sha256 cellar: :any_skip_relocation, monterey:       "dff277af5a41561e20ed003d5a66d5c23465b7a6efa245ed08de294ee82b9f35"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cb6b916e73ce9278b65ff01cbb5d89180c5cad3f3a33677ed3b24c896111c182"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0e768bea1c18237750a02152f2fa20f8bf243fde010b658312c760734d61d823"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b55cb4b9ba4a0cac458d0547cd61601bb75f64c11924bbe5c3ce922323a3f2f2"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "a57f97c20bee8a3b8b2ad860777cc9aa320b44542bb902ece6f2ab1454ee53ff"
+    sha256 cellar: :any_skip_relocation, sonoma:        "86c1ce171772495aea38cb4cf6d9f68e1bffd448a758bfe85cb3f923434a50ce"
+    sha256 cellar: :any_skip_relocation, ventura:       "f277b06ae9eacae3d0ed37abeb2ba5d5772583abe67cadebc18bed0cedb93efc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "293cfb240fcd5da53a9f141ddd6dbdd1f4055c8941c47b60e1753cd418be776a"
   end
 
   depends_on "rust" => :build

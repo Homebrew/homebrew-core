@@ -32,9 +32,20 @@ class Wxwidgets < Formula
   uses_from_macos "zlib"
 
   on_linux do
+    depends_on "cairo"
+    depends_on "fontconfig"
+    depends_on "gdk-pixbuf"
+    depends_on "glib"
     depends_on "gtk+3"
     depends_on "libsm"
+    depends_on "libx11"
+    depends_on "libxkbcommon"
+    depends_on "libxtst"
+    depends_on "libxxf86vm"
+    depends_on "mesa"
     depends_on "mesa-glu"
+    depends_on "pango"
+    depends_on "wayland"
   end
 
   def install

@@ -1,8 +1,8 @@
 class Latex2html < Formula
   desc "LaTeX-to-HTML translator"
   homepage "https://www.latex2html.org"
-  url "https://github.com/latex2html/latex2html/archive/refs/tags/v2024.tar.gz"
-  sha256 "554a51f83431683521b9e47a19edf07c90960feb040048a08ad8301bdca2c6fa"
+  url "https://github.com/latex2html/latex2html/archive/refs/tags/v2024.2.tar.gz"
+  sha256 "d99c5963d802edf1516a6301a5275edd54014bea2ca924f8752aacab0cdd23fd"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -11,14 +11,12 @@ class Latex2html < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "7df9f064562fec47973c8cf86aeda695d9c47afc538141972e4423606fe531ab"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f51edb7b0b1c5e91a3920324770d0140dabd25463a47a2637326cea1eb6ef096"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4ac8a480f394fa974959d53a32fffb93ac1cfabce1e3fb391cb664742a8fae1e"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f841da77f49f00b9a8a8414b4409d5fea0a0b2176fa398ec897af94f741a9791"
-    sha256 cellar: :any_skip_relocation, sonoma:         "a125f130e4c05ed129abf0f22e5c57cf93964af9f62b27324ccc2df69a72ffd4"
-    sha256 cellar: :any_skip_relocation, ventura:        "a37239f2570dda92f06b72b76df67e98f0746999294aa91a675736d85caf8e15"
-    sha256 cellar: :any_skip_relocation, monterey:       "c88bf6e30994439a8791def38f7d4d0cc4b6514d2e19ad3ba32cf2e03a701d37"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "39c72d2b7f896dd2fa3b9c55e14ee0e857f1df963af5f26d1f79e8de71c36cc0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8a8a8368638da5e8e7ae55bb10b565286afc2f8bb5766c21e35c75cec45f7c94"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b032c18a6228d824352383052add8119485dcd99812fcf231165c7aa06bb5faa"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "08c2b9a4172079624fd579ecc4a76b4f609bb366f5eddb24bc48553c05039113"
+    sha256 cellar: :any_skip_relocation, sonoma:        "87200d874aee7ca04cbe5367ee83191b5236541f75be3967ea9fcd0d9bb28b52"
+    sha256 cellar: :any_skip_relocation, ventura:       "f657cad51fa143b1cfecaad1ef3ae36db841dbccc99034529b6dcac204c6238a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "756050ee203d6141e5fca77079622ede6df503ae6264ac330611299ed875bf5b"
   end
 
   depends_on "ghostscript"

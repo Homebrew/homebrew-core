@@ -1,17 +1,17 @@
 class Libmapper < Formula
   desc "Distributed system for media control mapping"
   homepage "http://www.libmapper.org"
-  url "https://github.com/libmapper/libmapper/releases/download/2.4.12/libmapper-2.4.12.tar.gz"
-  sha256 "84eaa87c609416f152747b112d7823b293af70589449e795981d6c2f3ab36cad"
+  url "https://github.com/libmapper/libmapper/releases/download/2.4.13/libmapper-2.4.13.tar.gz"
+  sha256 "63ac6dd0ab5d17a9ec16f700665a6593a13667dd9fbc0f06df7f2f26d427defa"
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "8ea077234bd2081203a62d8850db85b2f429f0d17d2e5ee465d60a1bdb53daf2"
-    sha256 cellar: :any,                 arm64_sonoma:  "5085301bb85a200309aacdef50ce40bfcc73754b0b48af7d2e9b01b54ca75f5c"
-    sha256 cellar: :any,                 arm64_ventura: "fb0dc4d510f7a4d4686b91007d513344cc41b54d3fa5a9b658fb8a13ea4e3ef5"
-    sha256 cellar: :any,                 sonoma:        "7d9e7f9ce666c61467d5bfb3a2ec4d8883eb1c9582bfa0b25b3b07cd3e3de6c4"
-    sha256 cellar: :any,                 ventura:       "9dc9d06fdab3767de70d2dcbf2d920356286db60176d504f0cd28c2f5d9d38c8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b906b25b9ed8d6712cf8383fe4c16d20c23917fcf788a41cfc7d56f6266b6b02"
+    sha256 cellar: :any,                 arm64_sequoia: "c8d007e6c0d2e7efb0c8a4241a04c66294efeb33e43e1c9d5b92af69d5eb8075"
+    sha256 cellar: :any,                 arm64_sonoma:  "be189c480f4350519834a307f654bc3dfc0c9581205add371a3c56ba8be7792d"
+    sha256 cellar: :any,                 arm64_ventura: "64b6a17e57ccfb107db15abdd59a7bf1bbd1a4f656f9b8301677786c9564f6ff"
+    sha256 cellar: :any,                 sonoma:        "d840f004b8216a9241755f6661e77fbd883eb80d8821e0cec80b92edd26c354e"
+    sha256 cellar: :any,                 ventura:       "8da31eb36dda5ba63dbb01111cac4347fb966648cd6820073efea0c1fb3f029c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d7fc5bb105d25a71ab4d2010230a93e14c9f2d2b429846c1e3d49b9be969242d"
   end
 
   depends_on "autoconf" => :build

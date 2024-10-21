@@ -9,12 +9,13 @@ class ArcadeLearningEnvironment < Formula
   head "https://github.com/Farama-Foundation/Arcade-Learning-Environment.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a69ba3f3965d52884eb1950417efcf0a5d19a8db48d11aedd12af59fe92e8c8a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0696c90decbb6dfba17039e5468ec72c4a4cd7b70b0949907420c0ef35760627"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "38cd6881049eaf3df3b4e17c76b0af82ef47a8bf4c5bc0f9a41dcddeb183afd4"
-    sha256 cellar: :any_skip_relocation, sonoma:        "39f422f6998769392d97cbe6bbbc4af38c9e860d7643c7dc684e0ab4e6bd8818"
-    sha256 cellar: :any_skip_relocation, ventura:       "32f6fa20cd2fd7bbadb84681eef5c665aafd5a070f40044d5211dcb34490087c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0f2cf58da8b8b441eca30c9f193af76d08137e52926d1c3444a4f8820c8376a2"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5d2dc919768a30ae5a1eb6c9f14fc17dc0c147d31f605da455c209c3c19a41d6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e6158a024610dcc4152be365fd0a2207d893c9cfbdb9f517738a9044aade0669"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "d8015a500d5336680a7abe821b1df3a5bdb5b33c19e233879523ab3ca2b85d85"
+    sha256 cellar: :any_skip_relocation, sonoma:        "83feffd8c4a60349927a1db51771d4b15e01e703e1a27b22c161a2269152789c"
+    sha256 cellar: :any_skip_relocation, ventura:       "bbbaa60dd14855a7bc812370a90fe5c7f50bf26eb0c71cfec076869b68389755"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3b8980ab1f4041955854a8801dfa13117fec012ce3a338ed52044ea84709e016"
   end
 
   depends_on "cmake" => :build
@@ -22,7 +23,7 @@ class ArcadeLearningEnvironment < Formula
   depends_on "python-setuptools" => :build
   depends_on macos: :catalina # requires std::filesystem
   depends_on "numpy"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
   depends_on "sdl2"
 
   uses_from_macos "zlib"
@@ -36,7 +37,7 @@ class ArcadeLearningEnvironment < Formula
   end
 
   def python3
-    "python3.12"
+    "python3.13"
   end
 
   def install

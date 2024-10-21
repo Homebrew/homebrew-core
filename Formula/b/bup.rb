@@ -7,24 +7,23 @@ class Bup < Formula
   head "https://github.com/bup/bup.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "d5e14460192f0c0dad35bfcefd5b31ca061f7664fbe3e2b5c21a73a10d510987"
-    sha256 cellar: :any,                 arm64_sonoma:   "0318b68039fcf8b554e28288c2fc56b3b448602fecab8535cd6bc1a7df94f785"
-    sha256 cellar: :any,                 arm64_ventura:  "53a8d9dfd22c18e1a442a6897d0fc0381dc29e243a44f2b322345146c7ec3967"
-    sha256 cellar: :any,                 arm64_monterey: "a66d236fc9183a6e08731af6c11024cf22998a8fe2276421d128aebbb8431783"
-    sha256 cellar: :any,                 sonoma:         "3b3850de4518caee4d8efe70833b7050f1a7297abc4347dab46eb6c84e5baa21"
-    sha256 cellar: :any,                 ventura:        "b2175d5efffcbfc460013f608259ca44ced450038bd4e1cdfa1857c2c666e563"
-    sha256 cellar: :any,                 monterey:       "6785a85f8e7088815267b8648786cc033d1408da3922e77cce18380e657abbf8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "adce7c082d9fb66a0471b0728cb3c174a4a2fc1e89f3b4ac2e845ab58972b12d"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "072a23a0d78a3edbf310c11a4806790f6db210cb46360b68967d7dfba0abc8be"
+    sha256 cellar: :any,                 arm64_sonoma:  "1e8bb051d48feb51a4a4e9131c9a57d6bca1b18cd3f991308a51d42a74d0131e"
+    sha256 cellar: :any,                 arm64_ventura: "20936d4f42a86c5910976a49237d66de3ad1322849fc6e817c7a61388f7b6fb2"
+    sha256 cellar: :any,                 sonoma:        "9a81da2b651bea27265b21ea5acd7f0f51980833d1b84601f99e56ba20bb60ef"
+    sha256 cellar: :any,                 ventura:       "968afe49a84bdb342e6017d9a20ac9e0e2fc4c16d0dd442012378b4f54dd4f1e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "76c01543e2d93d089488d0e942e833d7d30889438fe7ed3370ec4044228478c0"
   end
 
   depends_on "pandoc" => :build
   depends_on "pkg-config" => :build
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
   depends_on "readline"
 
   def python3
-    which("python3.12")
+    which("python3.13")
   end
 
   def install

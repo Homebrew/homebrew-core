@@ -9,27 +9,26 @@ class Parliament < Formula
   head "https://github.com/duo-labs/parliament.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "fc025e7f291462ae8940ba2602aaad1f57549d79205483f57982bcd2577f5642"
-    sha256 cellar: :any,                 arm64_sonoma:   "9f2be989f303519fb28ad485bdbc4c585fd4ee24f2316a57849b4d2fa1451ae7"
-    sha256 cellar: :any,                 arm64_ventura:  "836145ee2f4070d875c8e43425b47388eb10c5df47ad95368cd98e8886614fc0"
-    sha256 cellar: :any,                 arm64_monterey: "c04fe7a13b8123c5f2268055c2b09566a1f75ca9df262015a6b4366deaacc08f"
-    sha256 cellar: :any,                 sonoma:         "2679c58cae8562f532271a2dbc7697afa65de343183b559a2732e805199180da"
-    sha256 cellar: :any,                 ventura:        "6ff4d248bed9023bca41479ff5f45485d7b891df2b64678cc45e8c1fc5aa0571"
-    sha256 cellar: :any,                 monterey:       "e85a8e4e086f6d420234ec861a0099f2b08287abe8daef7ad65f509d279241e2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "65816d2a5d4d0f190795261b67e8498edeb7ed353337fd4c74f5b9bfefdf242a"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "186ff67ce35a90ffd8ba8e357407e2a149b3fed39165610e1e2ea70227db7238"
+    sha256 cellar: :any,                 arm64_sonoma:  "a00d63b7ae66b4cf8e6fec64037a4e3995cbf72261a7e3d43994a4b6be841f5d"
+    sha256 cellar: :any,                 arm64_ventura: "7fef5c670525ee1bf41c62d25d32ecb9833dc10c83e22a9e41fa82b671f67f3d"
+    sha256 cellar: :any,                 sonoma:        "87ddec7770842963e922491ba5061e81592f7e3e27c253c9affc1c6e2ac42ef9"
+    sha256 cellar: :any,                 ventura:       "be87b8374ddefb0101c57cd5b9d42a5bbe8b44251407c4831f841af542045bfb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8b9a9a3d7108f60d2da162b28921418038928ecc17732bfa4052d672adb88c07"
   end
 
   depends_on "libyaml"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/96/40/c8d85f14e0aea7b80859595fadad5ad80f6662ac78f150d844c4e25fe90b/boto3-1.34.149.tar.gz"
-    sha256 "f4e6489ba9dc7fb37d53e0e82dbc97f2cb0a4969ef3970e2c88b8f94023ae81a"
+    url "https://files.pythonhosted.org/packages/b8/29/10988ceaa300ddc628cb899875d85d9998e3da4803226398e002d95b2741/boto3-1.35.39.tar.gz"
+    sha256 "670f811c65e3c5fe4ed8c8d69be0b44b1d649e992c0fc16de43816d1188f88f1"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/33/cb/acc65294eb572c83cec1d25cc637fb82745a7b40e69680a09855ee397b49/botocore-1.34.149.tar.gz"
-    sha256 "2e1eb5ef40102a3d796bb3dd05f2ac5e8fb43fe1ff114b4f6d33153437f5a372"
+    url "https://files.pythonhosted.org/packages/f7/28/d83dbd69d7015892b53ada4fded79a5bc1b7d77259361eb8302f88c2da81/botocore-1.35.39.tar.gz"
+    sha256 "cb7f851933b5ccc2fba4f0a8b846252410aa0efac5bfbe93b82d10801f5f8e90"
   end
 
   resource "jmespath" do
@@ -53,18 +52,18 @@ class Parliament < Formula
   end
 
   resource "pyyaml" do
-    url "https://files.pythonhosted.org/packages/cd/e5/af35f7ea75cf72f2cd079c95ee16797de7cd71f29ea7c68ae5ce7be1eda0/PyYAML-6.0.1.tar.gz"
-    sha256 "bfdf460b1736c775f2ba9f6a92bca30bc2095067b8a9d77876d1fad6cc3b4a43"
+    url "https://files.pythonhosted.org/packages/54/ed/79a089b6be93607fa5cdaedf301d7dfb23af5f25c398d5ead2525b063e17/pyyaml-6.0.2.tar.gz"
+    sha256 "d584d9ec91ad65861cc08d42e834324ef890a082e591037abe114850ff7bbc3e"
   end
 
   resource "s3transfer" do
-    url "https://files.pythonhosted.org/packages/cb/67/94c6730ee4c34505b14d94040e2f31edf144c230b6b49e971b4f25ff8fab/s3transfer-0.10.2.tar.gz"
-    sha256 "0711534e9356d3cc692fdde846b4a1e4b0cb6519971860796e6bc4c7aea00ef6"
+    url "https://files.pythonhosted.org/packages/a0/a8/e0a98fd7bd874914f0608ef7c90ffde17e116aefad765021de0f012690a2/s3transfer-0.10.3.tar.gz"
+    sha256 "4f50ed74ab84d474ce614475e0b8d5047ff080810aac5d01ea25231cfc944b0c"
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/32/c0/5b8013b5a812701c72e3b1e2b378edaa6514d06bee6704a5ab0d7fa52931/setuptools-71.1.0.tar.gz"
-    sha256 "032d42ee9fb536e33087fb66cac5f840eb9391ed05637b3f2a76a7c8fb477936"
+    url "https://files.pythonhosted.org/packages/27/b8/f21073fde99492b33ca357876430822e4800cdf522011f18041351dfa74b/setuptools-75.1.0.tar.gz"
+    sha256 "d59a21b17a275fb872a9c3dae73963160ae079f1049ed956880cd7c09b120538"
   end
 
   resource "six" do
@@ -73,8 +72,8 @@ class Parliament < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/43/6d/fa469ae21497ddc8bc93e5877702dca7cb8f911e337aca7452b5724f1bb6/urllib3-2.2.2.tar.gz"
-    sha256 "dd505485549a7a552833da5e6063639d0d177c04f23bc3864e41e5dc5f612168"
+    url "https://files.pythonhosted.org/packages/ed/63/22ba4ebfe7430b76388e7cd448d5478814d3032121827c12a2cc287e2260/urllib3-2.2.3.tar.gz"
+    sha256 "e7d814a81dad81e6caf2ec9fdedb284ecc9c73076b62654547cc64ccdcae26e9"
   end
 
   def install

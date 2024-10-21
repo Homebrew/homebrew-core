@@ -13,15 +13,13 @@ class Libsigrokdecode < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 arm64_sequoia:  "1426c59e7f3789f4372d38d9ae8b937baedf7c4836ffe50f1eb83a5564d9aac7"
-    sha256 arm64_sonoma:   "7c1edc6950ff24f926767a8de0721445d5f3c1ea7a103cc17b9313043f396e5b"
-    sha256 arm64_ventura:  "fbf08d6b2fde951731f3dac27737defa3680dae8f865accdb40c554eef0302f5"
-    sha256 arm64_monterey: "afbc25b9237db3cbfa5d9fe544b9f6f8e6ddf19e93164f4126da0697e1fce0f2"
-    sha256 sonoma:         "599ac7858a52cd88934c3f9e38353c655fd83aa957918eac5da7eb233b731daf"
-    sha256 ventura:        "f8e69d8cb58936a43c5d9ede4e6c62a4b5e33337881b5aebe51f3745c0a4863c"
-    sha256 monterey:       "979c6bdad107fd9fdd5383fe921e65f2abac06ce1495c455ceb283564e048b21"
-    sha256 x86_64_linux:   "7d571869e94632f7db6a2ff8db2a08ad09aab49909b1f89f4aba0e0bb14fdef9"
+    rebuild 3
+    sha256 arm64_sequoia: "a1731df4239983986370c4e136346205199c9d1999b4eeb0067c7fc567b02f7f"
+    sha256 arm64_sonoma:  "06ea701901cb284067dc6796141c3be85597eb1a6032653b99b9e9c78b9ae1f8"
+    sha256 arm64_ventura: "eb410224d2af9d9e6b3a40704afd84cd7a3f6df7598c79b470002a9f6ecdd3d1"
+    sha256 sonoma:        "f5e9ec9a38a4e83df28d62965b917dc0809f8c943111920af264847cd2513c28"
+    sha256 ventura:       "24e70691499a8ac340debfaead0053f63fd2e708b6e231929ee0644eecd17810"
+    sha256 x86_64_linux:  "355ac16e0c4e7e8d896a78e556e079ee9269753e1ecb996dee863593d7f32db1"
   end
 
   depends_on "autoconf" => :build
@@ -30,13 +28,18 @@ class Libsigrokdecode < Formula
   depends_on "graphviz" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => [:build, :test]
+
   depends_on "glib"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
+
+  on_macos do
+    depends_on "gettext"
+  end
 
   def install
     # While this doesn't appear much better than hardcoding `3.10`, this allows
     # `brew audit` to catch mismatches between this line and the dependencies.
-    python = "python3.12"
+    python = "python3.13"
     py_version = Language::Python.major_minor_version(python)
 
     inreplace "configure.ac" do |s|

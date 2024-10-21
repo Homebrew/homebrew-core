@@ -1,21 +1,20 @@
 class Libdpp < Formula
   desc "C++ Discord API Bot Library"
   homepage "https://github.com/brainboxdotcc/DPP"
-  url "https://github.com/brainboxdotcc/DPP/releases/download/v10.0.31/DPP-10.0.31.tar.gz"
-  sha256 "3e392868c0dc3d0f13a00cfa190a925a20bde62bea58fd87d4acf14de11062bf"
+  url "https://github.com/brainboxdotcc/DPP/releases/download/v10.0.33/DPP-10.0.33.tar.gz"
+  sha256 "75ee7b32c9d46bde6d02b46b3a907302865a4ee4a965ef8a575b7417bb0a46fe"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "caca507c748a87343aa57cd401b3f6a877908a871067150214aaa7886dd3f6b4"
-    sha256 cellar: :any,                 arm64_sonoma:  "02a2eb1a65915b5c94149c61def6885f535d79ef5bfb06bc1c99d15594da4e07"
-    sha256 cellar: :any,                 arm64_ventura: "d34a8ba6bfea8971c54f047f53605c96e2573efe011ff7d73be71eca6e2ef82a"
-    sha256 cellar: :any,                 sonoma:        "6f6367a163706da5ecd97e9bd9a75748f4564b3652b6323638d1aec7ea85e41d"
-    sha256 cellar: :any,                 ventura:       "2c8a3d92988233d81fb220951b0e0bc45b59761af50941cf34225b1beeb65de4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "37a8a895a2484c52498d2e35f151224a5050345fa516abaedf8c368e91550312"
+    sha256 cellar: :any,                 arm64_sequoia: "b74d20fca81278d8e2782cb62d544345bbb30576121b95d7235c808acf90451f"
+    sha256 cellar: :any,                 arm64_sonoma:  "72d1ae4dc59cf54b92c9f3fbaa2268d4b6d84fedb27edbc5f43fa99363253128"
+    sha256 cellar: :any,                 arm64_ventura: "d85ca68f2f50e343d1819b04a9743d11253d814eb33b4b2d93deef6b2ddce79d"
+    sha256 cellar: :any,                 sonoma:        "82c15d119900c2fb27f175303db49078b2c719ad3aca726ba44ced02ff54d79f"
+    sha256 cellar: :any,                 ventura:       "41e03eef9b54f4c66c6fa4fde6e840ffc0ae441e6d16d759166c5fd218ea981f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "27afd26ce4fa887dcc24922061c97e77089f55231abf569a424a46ae43aef998"
   end
 
   depends_on "cmake" => :build
-  depends_on "libsodium"
   depends_on "openssl@3"
   depends_on "opus"
   depends_on "pkg-config"

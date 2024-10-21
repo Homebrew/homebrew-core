@@ -9,17 +9,17 @@ class Pdfalyzer < Formula
   head "https://github.com/michelcrypt4d4mus/pdfalyzer.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "841777911a51c82cd3143c9dfbcd429af9d387cd6f9a7d136205fe6a7ac78e2a"
-    sha256 cellar: :any,                 arm64_sonoma:   "769a7f3e5d2bb0c4b03eac205437a0ae39d6c06de36e30b68bb5952bc886098b"
-    sha256 cellar: :any,                 arm64_ventura:  "7c0c18a35de44b5dfb9f1e913d8451b48fe1232a36d67c3e13f0524ae442d8aa"
-    sha256 cellar: :any,                 arm64_monterey: "fbeed5a920cd5278398252fd1ff8761bdcec1c3125dca545521d37837acfaf18"
-    sha256 cellar: :any,                 sonoma:         "18d4d0f43361089bf478521663063e1b15334c03ca81b6a375025473dae110f4"
-    sha256 cellar: :any,                 ventura:        "94f09ecf0ca2ef12d2499608f23fb03f61ecc04267abfa1704ff60e01f3ed8a6"
-    sha256 cellar: :any,                 monterey:       "163edfe4ca76a679d4df476f44366910a310e412d8cb634c7c690ee7d23e2f58"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a25f8d4f994fb53fb7a47706be636ae35112389e05862393d2bb42c07c4e09b1"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "db68d67d3ad0698d2924c2d0842914f07d6b8ff1503b3e59a51fc052fc1d7811"
+    sha256 cellar: :any,                 arm64_sonoma:  "0d165e40c81a7fbaf9cc284a6f4a5369de196c694d5879b3c20b00908b78ffe1"
+    sha256 cellar: :any,                 arm64_ventura: "262eea7925be37fc8342adecd527a913cb9cde3a27dd484cd883ee9bef902bcb"
+    sha256 cellar: :any,                 sonoma:        "bf1cf1226d407da4dd4982f4ab574f05c55adb35d68e74f3441b4d1b074a7985"
+    sha256 cellar: :any,                 ventura:       "e5a41eaf636716145596591b093596e6db61f4ec9f862765f6870831574f8f59"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "68d9e47fdddfd46851529bd9d326a77aaa8306ce9d62e8c0158a76db09708d60"
   end
 
-  depends_on "python@3.12"
+  depends_on "openssl@3"
+  depends_on "python@3.13"
 
   resource "anytree" do
     url "https://files.pythonhosted.org/packages/f9/44/2dd9c5d0c3befe899738b930aa056e003b1441bfbf34aab8fce90b2b7dea/anytree-2.12.1.tar.gz"

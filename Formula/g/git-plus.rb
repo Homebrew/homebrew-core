@@ -9,18 +9,11 @@ class GitPlus < Formula
   head "https://github.com/tkrajina/git-plus.git", branch: "master"
 
   bottle do
-    rebuild 3
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "48431bacb91c9510246ab65d2d55db00dda34b8f32fc78b3a4b671978f875198"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ef42c82b5838b88df701124a18379ee8a14f2c88e365d67746498718180d373f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1a11df5d95977ab8883a8d9c1da8de49d3961b2af8e603541bb89698610152d8"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6a3fdfb6af0edaf6640810775fdf0d3050ae8563670cdf179da8dbf1ff57dbe0"
-    sha256 cellar: :any_skip_relocation, sonoma:         "0bf2840e8befe23d5936e35a1b305e668cec3ef32dc3b0871c63f37cda9deafb"
-    sha256 cellar: :any_skip_relocation, ventura:        "63be2ece5b241070a38b67acb67b793aa6a9bd826851ad727ae14bef2b5cd71d"
-    sha256 cellar: :any_skip_relocation, monterey:       "b263281a92699af45da8bb2d454c20de932bef6ff4767f725444c8cec51b824d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "925f476b99a1c63af07210194cbc72f5caae685b440b70ea0e5530b6c2befc38"
+    rebuild 4
+    sha256 cellar: :any_skip_relocation, all: "87c0f95adbf84385ecf889a2efec12ffc43aa494baa99d7581d616db13e65306"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   conflicts_with "git-recent", because: "both install `git-recent` binaries"
 

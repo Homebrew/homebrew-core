@@ -12,12 +12,13 @@ class RomTools < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "d3c131988a1a999ace5c61b1ae456f8bd4fd42261f08a521ab436203ce5e7946"
-    sha256 cellar: :any,                 arm64_sonoma:  "356b3c69bc6b1d2b722dc12041c1f8a0ce472e5d7b30141f3b313129af9a344c"
-    sha256 cellar: :any,                 arm64_ventura: "cebecc43762c872e7eeb26bbb24f2f631b32fa2589fac1c6879aea5b0752fbd7"
-    sha256 cellar: :any,                 sonoma:        "509ee2be0acd7255782f4a5c1c4477cdf822133a242d6696c1230cee7639bf75"
-    sha256 cellar: :any,                 ventura:       "748eedafaaa06acfd708992ad9132233efee5fa0333bb29f9f56186c256191f0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aa472ee8fab69add222aaa02d6d9b4aa923d5ca9536e4343a6fba2f2bdf38d17"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "d0c7ee46a831e851b2787a8b08ea8ddbc93d028a474070137b6f9eb720a15ebf"
+    sha256 cellar: :any,                 arm64_sonoma:  "29cd86192232dcd3f9fc32c2bf1c7786020ae3ec550e8e22feffa841b020baaa"
+    sha256 cellar: :any,                 arm64_ventura: "1c51b245d105c0fd2fd1adce87776cd934e39cc7eefb8cf4b8b2c22310c8dbfe"
+    sha256 cellar: :any,                 sonoma:        "65993ff76b6a7323bc8e1f80cfa7a9ee4b577d127ac4c3cf4f62a38650b5d25b"
+    sha256 cellar: :any,                 ventura:       "2d656db9ede30cc18853777a5f91bce6abc31e38c1df8d87f1529c6f2a097b32"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6d7748e0f990ebb79414dbd83129fb282a400f7426a079538f1f26085494be48"
   end
 
   depends_on "asio" => :build
@@ -29,7 +30,7 @@ class RomTools < Formula
   depends_on "utf8proc"
   depends_on "zstd"
 
-  uses_from_macos "python" => :build
+  uses_from_macos "python" => :build, since: :catalina
   uses_from_macos "expat"
   uses_from_macos "zlib"
 
@@ -37,14 +38,20 @@ class RomTools < Formula
     depends_on "portaudio" => :build
     depends_on "portmidi" => :build
     depends_on "pulseaudio" => :build
-    depends_on "qt@5" => :build
+    depends_on "qt" => :build
     depends_on "sdl2_ttf" => :build
   end
 
-  fails_with gcc: "5" # for C++17
-  fails_with gcc: "6"
+  # Support alternate Qt libexec directories
+  # PR ref: https://github.com/mamedev/mame/pull/12870
+  patch do
+    url "https://github.com/mamedev/mame/commit/f1604dbe7e51f519bb98cf4c52c8b0e41184384b.patch?full_index=1"
+    sha256 "42204cbf23c6a20a8b2dba515ce50e119870b5037fe224da45c53782170fb1df"
+  end
 
   def install
+    ENV["QT_HOME"] = Formula["qt"].opt_prefix if OS.linux?
+
     # Cut sdl2-config's invalid option.
     inreplace "scripts/src/osd/sdl.lua", "--static", ""
 

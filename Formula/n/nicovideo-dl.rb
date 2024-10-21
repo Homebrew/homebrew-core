@@ -15,14 +15,18 @@ class NicovideoDl < Formula
   end
 
   bottle do
-    rebuild 3
-    sha256 cellar: :any_skip_relocation, all: "d20fe029f025c4cadd5c3ed25d58cd88886e32fd6d6fe16f51bfc0e2233bb80a"
+    rebuild 4
+    sha256 cellar: :any_skip_relocation, all: "3ed938a610ab72d8bd9d90764672eb2ed5d9930e0803929c05b3e34d4c1a815d"
   end
 
-  depends_on "python@3.12"
+  uses_from_macos "python"
 
   def install
-    rewrite_shebang detected_python_shebang, "nicovideo-dl"
+    # Replace `cgi` usage removed in python 3.13
+    inreplace "nicovideo-dl", "import cgi", ""
+    inreplace "nicovideo-dl", "cgi.parse_qs(", "urllib.parse.parse_qs("
+
+    rewrite_shebang detected_python_shebang(use_python_from_path: true), "nicovideo-dl"
     bin.install "nicovideo-dl"
   end
 

@@ -9,15 +9,13 @@ class YelpTools < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    rebuild 3
-    sha256 cellar: :any,                 arm64_sequoia:  "c1b43d5c6bb35212560be8eb27c2e2dc97506798c3090456e2ceebcf6f7e0747"
-    sha256 cellar: :any,                 arm64_sonoma:   "fbae1e97dd9800a69ea65c94ce2344358543be53546bef33033e15ac820892da"
-    sha256 cellar: :any,                 arm64_ventura:  "b9aaee8bdd73c94f40d388b2a71d440cb3af6b94a4232547d73221c342647fdb"
-    sha256 cellar: :any,                 arm64_monterey: "fc21e8eaa199474b8995401cb18602da05b93f621aeb04e4275206aa7717eb71"
-    sha256 cellar: :any,                 sonoma:         "b8c8fade4e54ceb8404e7752d231f1067e4a158f7ba0111f35cc16faeef2a39e"
-    sha256 cellar: :any,                 ventura:        "2dd792141d0defb21675d6033c943fb688f2c7de6a2b8aedd524e34de8b20696"
-    sha256 cellar: :any,                 monterey:       "57497f6983883ffcef9a672347ab3a414ea496626448936874681c9d100d8b05"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "673a9997e83219618a3b26a5c80944ab0f4c96417a2cd97242a97710590ee030"
+    rebuild 4
+    sha256 cellar: :any,                 arm64_sequoia: "19cea9b4aea4306c27cf8670b72009111acd01359e9896850231cc6a4c13ccdb"
+    sha256 cellar: :any,                 arm64_sonoma:  "8e94caafb0c2920ce1e46bc4d4499033e1ad366e240c8e9aed59cade7e18feef"
+    sha256 cellar: :any,                 arm64_ventura: "f7b601e215e171c88e066bc78dcb06238ecc8fe0c23b38ef97c852546a07a953"
+    sha256 cellar: :any,                 sonoma:        "b5a88a52c0e06460d402f94f56eb2afc2faefb1dfc256f01d8ec2bcb03482390"
+    sha256 cellar: :any,                 ventura:       "85810d052d35bb12a405a1b6d2411db345980b8fdb848b9cc46215face0631e1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2f2e4140b9a219e6c08455422ea64ee0dbd07907cf457707f469f778db0083ad"
   end
 
   depends_on "gettext" => :build
@@ -26,7 +24,7 @@ class YelpTools < Formula
   depends_on "pkg-config" => :build
   depends_on "itstool"
   depends_on "libxml2"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   uses_from_macos "libxslt"
 
@@ -41,7 +39,7 @@ class YelpTools < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec, "python3.12")
+    venv = virtualenv_create(libexec, "python3.13")
     venv.pip_install resource("lxml")
     ENV.prepend_path "PATH", venv.root/"bin"
 

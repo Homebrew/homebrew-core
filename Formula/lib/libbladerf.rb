@@ -33,9 +33,11 @@ class Libbladerf < Formula
   depends_on "pkg-config" => :build
   depends_on "libusb"
 
+  uses_from_macos "libedit"
+
   def install
     ENV.prepend "CFLAGS", "-I#{MacOS.sdk_path}/usr/include/malloc" if OS.mac?
-    system "cmake", "-S", "host", "-B", "build", *std_cmake_args, "-DUDEV_RULES_PATH=#{lib}/udev/rules.d"
+    system "cmake", "-S", "host", "-B", "build", "-DUDEV_RULES_PATH=#{lib}/udev/rules.d", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end

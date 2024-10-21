@@ -20,7 +20,7 @@ class Uhdm < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "python@3.12" => :build
+  depends_on "python@3.13" => :build
   depends_on "pkg-config" => :test
   depends_on "capnp"
 
@@ -35,7 +35,7 @@ class Uhdm < Formula
   end
 
   def python3
-    which("python3.12")
+    which("python3.13")
   end
 
   def install

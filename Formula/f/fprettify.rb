@@ -9,19 +9,12 @@ class Fprettify < Formula
   head "https://github.com/fortran-lang/fprettify.git", branch: "master"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "22bf0d8c7303a0064a6b245ad44a556d5781ca3ad6855ab5c886f21dea9d35f8"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "27bfb5c470eeb3ab6bdae65b9fd1c58b6c44eb358c159f9ca0611333ddf3c6ac"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4c40bc2e5dd99d941bea03a38817fd148c1584a85c4b0ec37c3fe32ff2a8aabb"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8a101c7b0dfd55728979e0fff9eeedf52967cb67d4351a74c0c114a3854ff3bc"
-    sha256 cellar: :any_skip_relocation, sonoma:         "f3fd405fa4587e33aa07426cba0252284bbdaf5471b5d303321c13d01bf179c7"
-    sha256 cellar: :any_skip_relocation, ventura:        "d76d7a276834cd2f4a2ded83fe4815e7ab23cfee7140bd5f85fbf9409a9be5fa"
-    sha256 cellar: :any_skip_relocation, monterey:       "8b307249b02b0a4e2828ca9f6e4cf44c52f77edb1974e9afc9c169cabec647da"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "504f99c368a69c813ada09fe586a0e241691177cab747f40b7100423b9886a6a"
+    rebuild 3
+    sha256 cellar: :any_skip_relocation, all: "f9d9e214fb3810e34036e058e5dd26087ff761ff4ff07d993badd0eeb2de2de5"
   end
 
   depends_on "gcc" => :test
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "configargparse" do
     url "https://files.pythonhosted.org/packages/70/8a/73f1008adfad01cb923255b924b1528727b8270e67cb4ef41eabdc7d783e/ConfigArgParse-1.7.tar.gz"

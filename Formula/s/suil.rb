@@ -12,23 +12,26 @@ class Suil < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia:  "4b56a9b28626afcc793d97786add7323f225ce0d8718a5ead21f84389dc33657"
-    sha256 arm64_sonoma:   "3786a8f72e84d526393aacf88914e0e2c8846be83237c3583293a81a4501f172"
-    sha256 arm64_ventura:  "2ae1dceda234d02d9345dda24395ac7b3c23420821107aa95c919d73953ad159"
-    sha256 arm64_monterey: "cabdba5ebcc04aefab86262329a739b9fe072fe514294aba5188f5d48fc2988c"
-    sha256 sonoma:         "7774467a2d248fd6251bb32ff1ba996e8b1d14e53bf20b58bf7e0e4aed2719dc"
-    sha256 ventura:        "73c258d4b84425e3f4644c632bef762824481cf30b5ac2b5a6183f639d05cd9a"
-    sha256 monterey:       "5455af86ac9b03718c82f1b1d7b7c45060d7183dc5b186ac3dab29c46fa939b3"
-    sha256 x86_64_linux:   "cd685f9ad0942a691b83de434016e1363322bf0418fb8169778e81c81e4d05a5"
+    rebuild 1
+    sha256 arm64_sequoia: "3f7bb51baf30546a842c6aff377b19401598005151e2f488fc1551e4e9b612e9"
+    sha256 arm64_sonoma:  "5da5e7391da7c919b62dbbd8204ac6c45f3a6289e64d8997462bd7a98622ef46"
+    sha256 arm64_ventura: "845d4606abee75ca9ac8dc28dafd3a1a612c0008db81f52036ce1c83797420ee"
+    sha256 sonoma:        "f60c8293ada96ce3202490d5de286dea7d4f85ce121f73ea8a96c573813a7fb4"
+    sha256 ventura:       "2bca4490ee90cec539c35dce0091fce8d0b403ac518c20cd144bf1766a45c8e6"
+    sha256 x86_64_linux:  "7431c0fdf1c6610b7b901d73fa7701da649b0b612f30617853e19be51343ec1e"
   end
 
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.12" => :build
-  depends_on "gtk+3"
+  depends_on "libx11"
   depends_on "lv2"
   depends_on "qt@5"
+
+  on_linux do
+    depends_on "glib"
+    depends_on "gtk+3"
+  end
 
   def install
     system "meson", "setup", "build", *std_meson_args

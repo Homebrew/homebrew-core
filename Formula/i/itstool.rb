@@ -7,8 +7,8 @@ class Itstool < Formula
   revision 1
 
   bottle do
-    rebuild 4
-    sha256 cellar: :any_skip_relocation, all: "71c806c3d88f9f19ed3e561e48dac34aab652f2ebacd156f2ce8ccf9192b0f40"
+    rebuild 5
+    sha256 cellar: :any_skip_relocation, all: "789a00622218d97cded8fbc0e82b043478c693b62f25a372769f4d0cd8eb7cb6"
   end
 
   head do
@@ -19,10 +19,13 @@ class Itstool < Formula
   end
 
   depends_on "libxml2"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
+
+  def python3
+    "python3.13"
+  end
 
   def install
-    python3 = "python3.12"
     ENV.append_path "PYTHONPATH", Formula["libxml2"].opt_prefix/Language::Python.site_packages(python3)
 
     configure = build.head? ? "./autogen.sh" : "./configure"

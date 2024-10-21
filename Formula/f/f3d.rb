@@ -26,6 +26,7 @@ class F3d < Formula
   depends_on "alembic"
   depends_on "assimp"
   depends_on "glew"
+  depends_on "jsoncpp"
   depends_on "opencascade"
   depends_on "vtk"
 
@@ -35,7 +36,6 @@ class F3d < Formula
     depends_on "glew"
     depends_on "hdf5"
     depends_on "imath"
-    depends_on "jsoncpp"
     depends_on "libaec"
     depends_on "netcdf"
     depends_on "tbb"

@@ -1,17 +1,17 @@
 class GitWorkspace < Formula
   desc "Sync personal and work git repositories from multiple providers"
   homepage "https://github.com/orf/git-workspace"
-  url "https://github.com/orf/git-workspace/archive/refs/tags/v1.6.0.tar.gz"
-  sha256 "c99e821710b45d2c2639c1abea45ad9f2d63d3b5b81e19e1fd29604dca05e5e2"
+  url "https://github.com/orf/git-workspace/archive/refs/tags/v1.7.0.tar.gz"
+  sha256 "547ccd48bedab03f0439920be12c37cb02f837e27cba3a0fa5166dfc34199274"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "e8748befe2d9116fdb60da448121643e9bb49401f9a1e7833343b4ef6fe5d5e3"
-    sha256 cellar: :any,                 arm64_sonoma:  "772d39bc35073c662e160ea86d20d153bdd689f360ad7538bd524fddedaa24ee"
-    sha256 cellar: :any,                 arm64_ventura: "6e918ed11da60bb72542f68d82e950a54db29f50674de061ec6de5c76267f456"
-    sha256 cellar: :any,                 sonoma:        "300b87932cafbc4e4f4bf4576b08cb6aaa89c89fb0cca029f0c55dbb146e05e1"
-    sha256 cellar: :any,                 ventura:       "30846356f2db9395c0bb3f4bd07679a0df35d07e8d04e19a76a17b6fc5111d03"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "54272b0971fea5d5d82b27831cad8d4f109ea9db91031ddeb20c47885dfa293a"
+    sha256 cellar: :any,                 arm64_sequoia: "a664c2005258367b604d7fb31a80f8f9dfaf5ccd2b9d32f8226868aeadcdba37"
+    sha256 cellar: :any,                 arm64_sonoma:  "6efe100bc02d6fe50e9a4834522d3f2e7f13d5778142a6f56a524dccf70067c3"
+    sha256 cellar: :any,                 arm64_ventura: "158b62a573be88e82afc5f05426ae29e2d5c4bb9e72a55438905238ea9aaf145"
+    sha256 cellar: :any,                 sonoma:        "9d7da5c7c03137653583c077700e0b7bfc05abcfcf9be1c9e01f6bbd30d2d63a"
+    sha256 cellar: :any,                 ventura:       "05db764547caa9d0bc19b2e2f843fad408ca6d03b9d326f02bceffc2288be8d1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "084cfd8dd58e7b636cb63a7d5ece84846e596277a76bda14ed6b7736ef765315"
   end
 
   depends_on "pkg-config" => :build

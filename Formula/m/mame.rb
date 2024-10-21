@@ -19,12 +19,13 @@ class Mame < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "a5f6d0ce3a803521b8bc79c696710f1e8082b1dbd6f300ff83fa85a6341f760b"
-    sha256 cellar: :any,                 arm64_sonoma:  "1d14b74aa317b639441e10af419c710bc64699c5dc5307e06c282acc4cb311f8"
-    sha256 cellar: :any,                 arm64_ventura: "3262e28107395a3f37e0eb5bab7a03a2ccbc8529a16e612a0778788fdeb0d526"
-    sha256 cellar: :any,                 sonoma:        "ca0bd3db9328bf9c7770e345640f29d7c78ff883aa78c777d79a97ee76c7d32c"
-    sha256 cellar: :any,                 ventura:       "d3503cc5ac561ac073745c2da8d6d02f99c7839e6e271ff26b4ce00ed9ed4eb2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5d109ea136d2830d1439b0dd59bfa3dc5b12f011e9d8a0fb2ec1f5efbc628a8d"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "655b0ee403eb625726129c3a91992926b5b1a24435f3e732ac4cac9ca4331320"
+    sha256 cellar: :any,                 arm64_sonoma:  "9b5b74a72460aee2691ffc904bf542d2888cb9ac082a0c56bf290c3e1fd5375d"
+    sha256 cellar: :any,                 arm64_ventura: "c338a60149366261430fa1bf6a710cebf65e69ea94ceb67ba6e99657a6d3ddb8"
+    sha256 cellar: :any,                 sonoma:        "8ca7940a3f89c2b7d0c18738a34dc716ac38ca2d67cdb41eca29e2d58fc81e83"
+    sha256 cellar: :any,                 ventura:       "28461f747b1ff834336dd4f41f2b6e894aeec8baa68bfc2ce9085bcc8a882ae5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c2c042479a6f4cf61b2a2687955d3081423878b77208bd19c5272cd477504196"
   end
 
   depends_on "asio" => :build
@@ -49,15 +50,25 @@ class Mame < Formula
   uses_from_macos "zlib"
 
   on_linux do
+    depends_on "fontconfig"
+    depends_on "libx11"
+    depends_on "libxi"
+    depends_on "mesa"
     depends_on "pulseaudio"
-    depends_on "qt@5"
+    depends_on "qt"
     depends_on "sdl2_ttf"
   end
 
-  fails_with gcc: "5"
-  fails_with gcc: "6"
+  # Support alternate Qt libexec directories
+  # PR ref: https://github.com/mamedev/mame/pull/12870
+  patch do
+    url "https://github.com/mamedev/mame/commit/f1604dbe7e51f519bb98cf4c52c8b0e41184384b.patch?full_index=1"
+    sha256 "42204cbf23c6a20a8b2dba515ce50e119870b5037fe224da45c53782170fb1df"
+  end
 
   def install
+    ENV["QT_HOME"] = Formula["qt"].opt_prefix if OS.linux?
+
     # Cut sdl2-config's invalid option.
     inreplace "scripts/src/osd/sdl.lua", "--static", ""
 

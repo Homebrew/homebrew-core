@@ -11,20 +11,20 @@ class Klee < Formula
   head "https://github.com/klee/klee.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 arm64_sequoia: "262a3321fd86fffaa6272a26fae9ffccde49bda2285893d31370347522abc8c4"
-    sha256 arm64_sonoma:  "b6afa2ba09a0726ddfea174a3a2662f9de112c1c4fc717a3499ad4d7b040a3c1"
-    sha256 arm64_ventura: "7add7340e6771b415d2144a610c175530e2f65ec3bd64533b763be1f7ea931ea"
-    sha256 sonoma:        "7de8d29c9fa862bac0789f3a37073df7921f3c3498efbab9ddc0299dfffab371"
-    sha256 ventura:       "295c6e0c2e66ec6d30ab71526ccb44e2f667decb1ac0c187fde988c617a1587f"
-    sha256 x86_64_linux:  "f18180b6872624ad20c474f8d998c942fefa20a3bde2bf5a01cff48b61f451d3"
+    rebuild 2
+    sha256 arm64_sequoia: "a6967a77df0a0661daacd0bc911fe0f1f194e5d8369cf7a565b9108f1f473c80"
+    sha256 arm64_sonoma:  "d0c12a988845aa026dad2eef2a62cc212ab876d95806405303f512093d9c2a18"
+    sha256 arm64_ventura: "a89567738080c9c8e3b8cf8eb11c615314085222aae1ff41f69e3750fba31f5c"
+    sha256 sonoma:        "d237e0f4eb14448201cc5c187fa090b3fefd69775e482b34f50cadc6aac84940"
+    sha256 ventura:       "6d395c5e210e030e1384c1dcc701624975a19ff9eb0d7641192db475b3f8d03e"
+    sha256 x86_64_linux:  "2216514e11f7829337bf7d088dc81084c08192e33dc9f256bb519e034e89f224"
   end
 
   depends_on "cmake" => :build
 
   depends_on "gperftools"
   depends_on "llvm@16"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
   depends_on "sqlite"
   depends_on "stp"
   depends_on "wllvm"
@@ -122,7 +122,7 @@ class Klee < Formula
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
-    venv = virtualenv_create(libexec/"venv", "python3.12")
+    venv = virtualenv_create(libexec/"venv", "python3.13")
     venv.pip_install resource("tabulate")
     rewrite_shebang python_shebang_rewrite_info(venv.root/"bin/python"), *bin.children
   end

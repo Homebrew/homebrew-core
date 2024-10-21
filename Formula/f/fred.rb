@@ -9,27 +9,26 @@ class Fred < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "e5ce6b1ad8f157133c91cb93a941eef33bef6b04422a0033a2de324ea19f9599"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0beb0ec68875985b1f768c52e14e2395c6c8f298917bede7de809c4a5372d3ba"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0beb0ec68875985b1f768c52e14e2395c6c8f298917bede7de809c4a5372d3ba"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "0beb0ec68875985b1f768c52e14e2395c6c8f298917bede7de809c4a5372d3ba"
-    sha256 cellar: :any_skip_relocation, sonoma:         "32e3387f6cd6eaa54170e7c708e5dfda68f0202cc8e467610535b053d20f6a5e"
-    sha256 cellar: :any_skip_relocation, ventura:        "32e3387f6cd6eaa54170e7c708e5dfda68f0202cc8e467610535b053d20f6a5e"
-    sha256 cellar: :any_skip_relocation, monterey:       "32e3387f6cd6eaa54170e7c708e5dfda68f0202cc8e467610535b053d20f6a5e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "22a5d305072c2bce7202a0135b3286ea35e61da387254a3e5009ae48bc2463bf"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "607fa7cf50271364c47e8f09142ebcbd42c4057439ee93fe4ec6dd6e288a3048"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "607fa7cf50271364c47e8f09142ebcbd42c4057439ee93fe4ec6dd6e288a3048"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "607fa7cf50271364c47e8f09142ebcbd42c4057439ee93fe4ec6dd6e288a3048"
+    sha256 cellar: :any_skip_relocation, sonoma:        "a6c34c41fc0e74288beade477077831f9408505dc0d570dbf6fb39047d472fe5"
+    sha256 cellar: :any_skip_relocation, ventura:       "a6c34c41fc0e74288beade477077831f9408505dc0d570dbf6fb39047d472fe5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "607fa7cf50271364c47e8f09142ebcbd42c4057439ee93fe4ec6dd6e288a3048"
   end
 
   depends_on "certifi"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/c2/02/a95f2b11e207f68bc64d7aae9666fed2e2b3f307748d5123dffb72a1bbea/certifi-2024.7.4.tar.gz"
-    sha256 "5a1e7645bc0ec61a09e26c36f6106dd4cf40c6db3a1fb6352b0244e7fb057c7b"
+    url "https://files.pythonhosted.org/packages/b0/ee/9b19140fe824b367c04c5e1b369942dd754c4c5462d5674002f75c4dedc1/certifi-2024.8.30.tar.gz"
+    sha256 "bec941d2aa8195e248a60b31ff9f0558284cf01a52591ceda73ea9afffd69fd9"
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/63/09/c1bc53dab74b1816a00d8d030de5bf98f724c52c1635e07681d312f20be8/charset-normalizer-3.3.2.tar.gz"
-    sha256 "f30c3cb33b24454a82faecaf01b19c18562b1e89558fb6c56de4d9118a032fd5"
+    url "https://files.pythonhosted.org/packages/f2/4f/e1808dc01273379acc506d18f1504eb2d299bd4131743b9fc54d7be4df1e/charset_normalizer-3.4.0.tar.gz"
+    sha256 "223217c3d4f82c3ac5e29032b3f1c2eb0fb591b72161f86d93f5719079dae93e"
   end
 
   resource "click" do
@@ -38,8 +37,8 @@ class Fred < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/21/ed/f86a79a07470cb07819390452f178b3bef1d375f2ec021ecfc709fc7cf07/idna-3.7.tar.gz"
-    sha256 "028ff3aadf0609c1fd278d8ea3089299412a7a8b9bd005dd08b9f8285bcb5cfc"
+    url "https://files.pythonhosted.org/packages/f1/70/7703c29685631f5a7590aa73f1f1d3fa9a380e654b86af429e0934a32f7d/idna-3.10.tar.gz"
+    sha256 "12f65c9b470abda6dc35cf8e63cc574b1c52b11df2c86030af0ac09b01b13ea9"
   end
 
   resource "requests" do
@@ -48,8 +47,8 @@ class Fred < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/43/6d/fa469ae21497ddc8bc93e5877702dca7cb8f911e337aca7452b5724f1bb6/urllib3-2.2.2.tar.gz"
-    sha256 "dd505485549a7a552833da5e6063639d0d177c04f23bc3864e41e5dc5f612168"
+    url "https://files.pythonhosted.org/packages/ed/63/22ba4ebfe7430b76388e7cd448d5478814d3032121827c12a2cc287e2260/urllib3-2.2.3.tar.gz"
+    sha256 "e7d814a81dad81e6caf2ec9fdedb284ecc9c73076b62654547cc64ccdcae26e9"
   end
 
   def install

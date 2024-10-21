@@ -1,8 +1,8 @@
 class Librealsense < Formula
   desc "Intel RealSense D400 series and SR300 capture"
   homepage "https://github.com/IntelRealSense/librealsense"
-  url "https://github.com/IntelRealSense/librealsense/archive/refs/tags/v2.56.1.tar.gz"
-  sha256 "cba681c9ff231898ee768bb39d5e5a7bd564289230ca178ae2866ee40f2a3ae9"
+  url "https://github.com/IntelRealSense/librealsense/archive/refs/tags/v2.56.2.tar.gz"
+  sha256 "ed58eca0bb86ff61653960ac858cf60adf212977177aafd85aeb1d0860b80688"
   license "Apache-2.0"
   head "https://github.com/IntelRealSense/librealsense.git", branch: "master"
 
@@ -12,14 +12,12 @@ class Librealsense < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "a2dda7e92c03482df0406e094a94b99f96de77e39c124225a7ced7b876ca8d28"
-    sha256 cellar: :any,                 arm64_sonoma:   "1037b1277c63a562898fc7a2fefcfbd8ad8fdd5200d98b5eb478a4da348c4a95"
-    sha256 cellar: :any,                 arm64_ventura:  "624e3f6dc4eb6a706b5eacb7bf70a5ab47c0407f3a23cfdef943f5efbbf49967"
-    sha256 cellar: :any,                 arm64_monterey: "2d7233a375e03ac5278aa23031a058d4e4fc4f7d234598856f5c4409dbe0df81"
-    sha256 cellar: :any,                 sonoma:         "f180f06532a5c0e3f010b9a41b7e18bd52c53cec7a94107d017a7d00dc6ecb81"
-    sha256 cellar: :any,                 ventura:        "1a084f60534bbfa07d8304b3b60a9573ed9b916f72b89da46f7985200bc2e45a"
-    sha256 cellar: :any,                 monterey:       "b250539bd6cef09b45d4b7d899bc03efb33c6f3da9db813cd9a91ee747884b69"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8bfed498e3435c7586cacb5e0378c09cf7e3671a30131e95b9e016d41aef93de"
+    sha256 cellar: :any,                 arm64_sequoia: "a495c68a1fa2147a5284ff9ac09ee9015d508be22f2219d51264b5f02af017a8"
+    sha256 cellar: :any,                 arm64_sonoma:  "050de61de7cf29ea270f129575ca2e3732ea712e3be06ae9fd3ed4a8bf46fdbf"
+    sha256 cellar: :any,                 arm64_ventura: "207444c7ce2f58647aefc431b1359cfb073e02fe89c095cf0434576d5980bff6"
+    sha256 cellar: :any,                 sonoma:        "39fb346d00062933880f3ef63582f6cd24be974b2c0054edc108f122a9f19b55"
+    sha256 cellar: :any,                 ventura:       "e8b1baa16c09544e0d9932d8706c897843e9216f2e0ef7184d374b6a93a12131"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d60dc45ba36a22fb3e4f679839bd519046c773d437a3ccffe396cc179d5e82b3"
   end
 
   depends_on "cmake" => :build
@@ -28,7 +26,10 @@ class Librealsense < Formula
   depends_on "libusb"
 
   on_linux do
+    depends_on "mesa"
+    depends_on "mesa-glu"
     depends_on "openssl@3"
+    depends_on "systemd"
   end
 
   def install

@@ -3,18 +3,18 @@ class Fwupd < Formula
 
   desc "Firmware update daemon"
   homepage "https://github.com/fwupd/fwupd"
-  url "https://github.com/fwupd/fwupd/releases/download/1.9.25/fwupd-1.9.25.tar.xz"
-  sha256 "a1d484778ae87c69b38f417659b33fe3d689373ce0831d1f95617b8aa76e8c37"
+  url "https://github.com/fwupd/fwupd/releases/download/2.0.1/fwupd-2.0.1.tar.xz"
+  sha256 "04226d0c689a56cc51de017e736f18f1f5e951b9a7c1b18e3281eb923c435891"
   license "LGPL-2.1-or-later"
   head "https://github.com/fwupd/fwupd.git", branch: "main"
 
   bottle do
-    sha256 arm64_sequoia: "4ea885d60cc17a839f39e6376c8d41bb4ab296b7aa84f7f8c71923a5424cfdb2"
-    sha256 arm64_sonoma:  "c5b26aad4e757ccc58cd4ea1dabc3d010f7d3956e38b8d1f9b29f4c6388115c5"
-    sha256 arm64_ventura: "4a4825ba62b1eabf71e94d16df48c344fe68999d1555b950db1baafa81cff0b4"
-    sha256 sonoma:        "424edd3d48897058d0b043e9d06646b1e6a19730b5e258364028776a90f73dcb"
-    sha256 ventura:       "1a05c7bb3eac3cf65fef8c5377ce5a582ebd2f114b006de9baf3f45bbaa6ac47"
-    sha256 x86_64_linux:  "253afaf2801ddb9755c438923564b882c8d944c906f884a8870e3ac9930f452f"
+    sha256 arm64_sequoia: "659c89da91376502a404700b63afd3591b222c0c342de99611d1dc5afcb1fdc6"
+    sha256 arm64_sonoma:  "ca396b71e06d3a1216be63544f462a83c539ba4ee5745999d4f8fe79a0659f6c"
+    sha256 arm64_ventura: "73ea0b5e952b5f14460a48c0367f20e7520fd0758921864b4b440d0328b73fdf"
+    sha256 sonoma:        "51540021d772f6fcc2039086c39bcc6499665fa678ffb32def303111d25955e4"
+    sha256 ventura:       "b08e95f65d87d070691efb4c212c97c5d95290358fea72031a9e93c8e3cef5a0"
+    sha256 x86_64_linux:  "da0d2f3c1f1bce9c2240e4fbb0458242f7722aa05a865b35a77142d86e148e62"
   end
 
   depends_on "gettext" => :build
@@ -22,7 +22,7 @@ class Fwupd < Formula
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkg-config" => [:build, :test]
   depends_on "python@3.12" => :build
   depends_on "vala" => :build
 
@@ -32,11 +32,12 @@ class Fwupd < Formula
   depends_on "json-glib"
   depends_on "libarchive"
   depends_on "libcbor"
-  depends_on "libgusb"
   depends_on "libjcat"
+  depends_on "libusb"
   depends_on "libxmlb"
   depends_on "protobuf-c"
   depends_on "sqlite"
+  depends_on "usb.ids"
   depends_on "xz"
 
   uses_from_macos "curl"
@@ -52,8 +53,8 @@ class Fwupd < Formula
   end
 
   resource "markupsafe" do
-    url "https://files.pythonhosted.org/packages/87/5b/aae44c6655f3801e81aa3eef09dbbf012431987ba564d7231722f68df02d/MarkupSafe-2.1.5.tar.gz"
-    sha256 "d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"
+    url "https://files.pythonhosted.org/packages/b4/d2/38ff920762f2247c3af5cbbbbc40756f575d9692d381d7c520f45deb9b8f/markupsafe-3.0.1.tar.gz"
+    sha256 "3e683ee4f5d0fa2dde4db77ed8dd8a876686e3fc417655c2ece9a90576905344"
   end
 
   def python3
@@ -80,6 +81,7 @@ class Fwupd < Formula
                     # these two are needed for https://github.com/fwupd/fwupd/pull/6147
                     "-Dplugin_logitech_scribe=disabled",
                     "-Dplugin_logitech_tap=disabled",
+                    "-Dvendor_ids_dir=#{Formula["usb.ids"].opt_share}/misc/usb.ids",
                     *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"
     system "meson", "install", "-C", "build"
@@ -95,22 +97,9 @@ class Fwupd < Formula
         return 0;
       }
     EOS
-    gettext = Formula["gettext"]
-    glib = Formula["glib"]
-    flags = %W[
-      -I#{glib.opt_include}/glib-2.0
-      -I#{glib.opt_lib}/glib-2.0/include
-      -I#{include}/fwupd-1
-      -L#{gettext.opt_lib}
-      -L#{glib.opt_lib}
-      -L#{lib}
-      -lgio-2.0
-      -lglib-2.0
-      -lgobject-2.0
-      -lfwupd
-    ]
-    flags << "-lintl" if OS.mac?
-    system ENV.cc, "test.c", "-o", "test", *flags
+
+    pkg_config_flags = shell_output("pkg-config --cflags --libs fwupd").chomp.split
+    system ENV.cc, "test.c", "-o", "test", *pkg_config_flags
     system "./test"
 
     # this is a lame test, but fwupdtool requires root access to do anything much interesting

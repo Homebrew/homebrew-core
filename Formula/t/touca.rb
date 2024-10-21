@@ -8,12 +8,12 @@ class Touca < Formula
   revision 3
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, all: "faec0e27e56389b412bd930fbe5f326d6301a6affef185e7345979f1b1ecc65e"
+    rebuild 3
+    sha256 cellar: :any_skip_relocation, all: "28347dcea2a95cf714fad75fb909df2202c64a2ba9f9b83af3f99a7659e0bf17"
   end
 
   depends_on "certifi"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "commonmark" do
     url "https://files.pythonhosted.org/packages/60/48/a60f593447e8f0894ebb7f6e6c1f25dafc5e89c5879fdc9360ae93ff83f0/commonmark-0.9.1.tar.gz"
@@ -41,8 +41,8 @@ class Touca < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/c8/93/65e479b023bbc46dab3e092bda6b0005424ea3217d711964ccdede3f9b1b/urllib3-1.26.19.tar.gz"
-    sha256 "3e3d753a8618b86d7de333b4223005f68720bcd6a7d2bcb9fbd2229ec7c1e429"
+    url "https://files.pythonhosted.org/packages/e4/e8/6ff5e6bc22095cfc59b6ea711b687e2b7ed4bdb373f7eeec370a97d7392f/urllib3-1.26.20.tar.gz"
+    sha256 "40c2dc0c681e47eb8f90e7e27bf6ff7df2e677421fd46756da1161c39ca70d32"
   end
 
   def install

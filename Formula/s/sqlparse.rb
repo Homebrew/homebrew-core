@@ -8,11 +8,11 @@ class Sqlparse < Formula
   license "BSD-3-Clause"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "d38b5802e084d154b4944b9bd3a4eae4733a64ba0a12f853f62c7d14a2da3514"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "36860e20591788564e5f6d79f010d2325bf0d5392aa6ffa4fa7b1a813b93eb92"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   def install
     virtualenv_install_with_resources

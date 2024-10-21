@@ -1,8 +1,8 @@
 class Topgrade < Formula
   desc "Upgrade all the things"
   homepage "https://github.com/topgrade-rs/topgrade"
-  url "https://github.com/topgrade-rs/topgrade/archive/refs/tags/v16.0.0.tar.gz"
-  sha256 "c4af5ae7c03b92d726301c56aa7e6003ae9ba3d852afb77a8297add7001b2cc3"
+  url "https://github.com/topgrade-rs/topgrade/archive/refs/tags/v16.0.1.tar.gz"
+  sha256 "9cfcf31db3322f536f0c48d8a75c6750f18762e0ef60eb7446e3d4a0ab60853f"
   license "GPL-3.0-or-later"
   head "https://github.com/topgrade-rs/topgrade.git", branch: "main"
 
@@ -12,12 +12,12 @@ class Topgrade < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "728b95806adb5272d8611a7923aa78300769408bb5b0c28d720b18fc32fb7279"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e128f9fc99561cf9965660590dcd3c858e3234f147d618e5696134ece0694374"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "7ad242079a25c1d2f8eabadc70c25014c754662a94b5c1911cb409d6c676cdec"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f9d6f4d713e7b1101c8794ac5741ef1b00873751e6318d05de9cd447c8d8a082"
-    sha256 cellar: :any_skip_relocation, ventura:       "73972c7fce98c4678ded9d76dfb93cf0155c93e58002325da6aa0c32cef1d3e5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "614ebb965c4e21a69d85c14d919a9c8ee68673314205ab86116628eb55911f42"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7f7dac89b366e4c7e817457753c147b66635d771300dabca3c16704a054a47f7"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e1f70a67f48a3c9a24df134ce63d32221d828b7f7b1dbf08227e21e39ec26601"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "97b54bbb40a123e14eb1e6ce0d26d17d40f981d7c82cc9f50ab30d5b9cc93c4b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "07a7adb0c20cd12ac0616fd889d65decb2bf8b05ce4e7d0fb691ae1f15632503"
+    sha256 cellar: :any_skip_relocation, ventura:       "e75c776c097e99ccdbc5f5b5d006766585708dd034ab6493a2daae71f03f4662"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "baa7be8397cdf5ce4093ee50e0735ae8fa68a29e77adf1b6d747e5182af4b3ef"
   end
 
   depends_on "rust" => :build

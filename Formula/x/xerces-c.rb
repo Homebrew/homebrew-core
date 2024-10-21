@@ -1,20 +1,18 @@
 class XercesC < Formula
   desc "Validating XML parser"
   homepage "https://xerces.apache.org/xerces-c/"
-  url "https://www.apache.org/dyn/closer.lua?path=xerces/c/3/sources/xerces-c-3.2.5.tar.gz"
-  mirror "https://archive.apache.org/dist/xerces/c/3/sources/xerces-c-3.2.5.tar.gz"
-  sha256 "545cfcce6c4e755207bd1f27e319241e50e37c0c27250f11cda116018f1ef0f5"
+  url "https://www.apache.org/dyn/closer.lua?path=xerces/c/3/sources/xerces-c-3.3.0.tar.gz"
+  mirror "https://archive.apache.org/dist/xerces/c/3/sources/xerces-c-3.3.0.tar.gz"
+  sha256 "9555f1d06f82987fbb4658862705515740414fd34b4db6ad2ed76a2dc08d3bde"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "72963fa9ad46485f69d071e830673cd5ac28a2a805150b900de1e0f5cace898e"
-    sha256 cellar: :any,                 arm64_sonoma:   "a26275a2f9fb80b6938e522071d1bd1b5d1e46c36bbb7e6af368286a27457113"
-    sha256 cellar: :any,                 arm64_ventura:  "28ade3ffe3387dfeaf0420fe0bf6f3fea7615793f5fdb6f2b3920c4d7b5e5d24"
-    sha256 cellar: :any,                 arm64_monterey: "ba27a1430c24b61f10f5660149a89061ecca3225ba5c3ae8ccc0ef3c8784f5a7"
-    sha256 cellar: :any,                 sonoma:         "4a67f89fccf548313808a40407b6f9c034d14436359d1f5f9d2ac3773ee1ffbb"
-    sha256 cellar: :any,                 ventura:        "1027fac48bca1648f9ece084ace094955d5066fb522fe2ef5e821bb966f87a74"
-    sha256 cellar: :any,                 monterey:       "06882e1833c7ee61e5ba9648b7a99447c32ba37c0883cf5f40a5f35f198efd64"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3ee7dc39ef34798ae011bb8955a68c324f0bc2b9d827858129ff079fae016def"
+    sha256 cellar: :any,                 arm64_sequoia: "8b648a8f8375fa85bf3bbdcbe82ac8b9f362fbc53303e9832f24f8afbe683eec"
+    sha256 cellar: :any,                 arm64_sonoma:  "3be22ab76376131bdc5534556eb209ad1a63a9e67d0feeb5adde1746e3af455c"
+    sha256 cellar: :any,                 arm64_ventura: "925ebabdd24526e5e9e91ced09983deb480189eae3e1fce43aef08204fcc21c3"
+    sha256 cellar: :any,                 sonoma:        "eed44cffc9b1ab90c33025a5c3c6b30905bf1d97c290ffa18d4bdfe1233a718e"
+    sha256 cellar: :any,                 ventura:       "9ed96c4d74c313eb545ea3d04c6f1973fc81cbf5001bf8707c89a48dcbfb93d3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "992f70652b3a78f54ed931bdb482c88a2fb32422cc13aacc0e09975ca8cd6e38"
   end
 
   depends_on "cmake" => :build

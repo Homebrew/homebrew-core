@@ -2,12 +2,11 @@ class Subversion < Formula
   desc "Version control system designed to be a better CVS"
   homepage "https://subversion.apache.org/"
   license "Apache-2.0"
-  revision 1
 
   stable do
-    url "https://www.apache.org/dyn/closer.lua?path=subversion/subversion-1.14.3.tar.bz2"
-    mirror "https://archive.apache.org/dist/subversion/subversion-1.14.3.tar.bz2"
-    sha256 "949efd451a09435f7e8573574c71c7b71b194d844890fa49cd61d2262ea1a440"
+    url "https://www.apache.org/dyn/closer.lua?path=subversion/subversion-1.14.4.tar.bz2"
+    mirror "https://archive.apache.org/dist/subversion/subversion-1.14.4.tar.bz2"
+    sha256 "44ead116e72e480f10f123c914bb6f9f8c041711c041ed7abff1b8634a199e3c"
 
     # Fix -flat_namespace being used on Big Sur and later.
     patch do
@@ -17,14 +16,12 @@ class Subversion < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia:  "babcf99d6491d32ac8df655f5d4c5ba4cc994a68708e8729e8985d2822ba4bb8"
-    sha256 arm64_sonoma:   "559c4a78e3be6fb5dc1edd5198c5e8a6bfdcd3755392cef75c007b77e86a5d5b"
-    sha256 arm64_ventura:  "ff31811eda0a1c661ecac4645c7e41a425206bff94394db1b59e199e85da6089"
-    sha256 arm64_monterey: "f98360a8fdf96edfd3f41266114b074837b2e7dfcb8a5c842e3f23a82aa2796b"
-    sha256 sonoma:         "8ee0ca47c591f62de107314fa3b283f6ba2547763d99f0b6f7bbeea6219450b5"
-    sha256 ventura:        "773e23c8908efbf6aa61c3501ec04a286fa27518b94237fb67113b29bab0336c"
-    sha256 monterey:       "02802ae1c865b6599b9ee54367d6ad9fdab4f59d209bdb285fbf9bee59ee6bc3"
-    sha256 x86_64_linux:   "178d0721f3dfbb4cff77d69dfbae34457d8900343b11a5751fdf35a37ad60cf4"
+    sha256 arm64_sequoia: "b5ee51fc359b00683fdc3ab0832a54162591974f39d57bff2d2126ce18799e83"
+    sha256 arm64_sonoma:  "c632a21696b5c276101d816521079f369ef509edb9ef8fc61ac50e8114d602af"
+    sha256 arm64_ventura: "d001086b2e739b5297d6f60c5110432a543b3afffa989a055d1ff45f6c0921bd"
+    sha256 sonoma:        "36212320f74a821399a0341fe5a0807b5af4722845b29a7ee3963713d77fa84a"
+    sha256 ventura:       "8a8874c52aeafc429d7b1f0afe6c27285e23e7290bab6c63ba9209e895c81a1c"
+    sha256 x86_64_linux:  "be92c9fe84bb90f6f6c3ed859dd9050b9e17ea8e1beb572107a9903f2a982994"
   end
 
   head do

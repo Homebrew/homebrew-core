@@ -1,18 +1,18 @@
 class Smartdns < Formula
   desc "Rule-based DNS server for fast IP resolution, DoT/DoQ/DoH/DoH3 supported"
   homepage "https://github.com/mokeyish/smartdns-rs"
-  url "https://github.com/mokeyish/smartdns-rs/archive/refs/tags/v0.8.7.tar.gz"
-  sha256 "ac40d99ae81b56d1a6823c2032e00ccece531160cdd8a1c4918625d11875ad26"
+  url "https://github.com/mokeyish/smartdns-rs/archive/refs/tags/v0.9.0.tar.gz"
+  sha256 "80048b1d07e5b009eae0ab42e9192ee39a92a9694011b4ceeac4be2a5a41114e"
   license "GPL-3.0-only"
   head "https://github.com/mokeyish/smartdns-rs.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c4345d2aeda6e22f7094c19dd7e70991ab2780ecf29a25beb0c7872379f4d6f3"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "bc3bdc930ce66ab7ccf651edebbbc96bee5d5b2388b6726e7e7a45a985a65b03"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "23138d4afecb99e116ff825ed003ebe6aadd3af2db6350aedcbae024226722be"
-    sha256 cellar: :any_skip_relocation, sonoma:        "3f87fdd551ca26287b878acef6442d790cc12993d7179784fad912034d3f2224"
-    sha256 cellar: :any_skip_relocation, ventura:       "b0a5ce653f6f4014ab975fa8331b5ec7d0b33eeefce788d2ca493cd70d87b8ba"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fc81a10b94e0c9d949ea16e6432127092f6e8c5aa84b986620ee8a0af2f0181c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "34b863eb708ca47f00e07e0ecf9afd7510d6b83fe6386518dccd9fb4e862219c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "50e8e9587095af5017693baf8698b8bd8c3d6f9a0ceaaea9d59c141c03a73b89"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "1c94498c25a5687d2195c8e33c6f6319eef6de750717225f31d191ac9ec06029"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c341f38b3d70ee1ac61f49baf9c291eecf75cf3da120c72c642e98a35c9a42e1"
+    sha256 cellar: :any_skip_relocation, ventura:       "35d074ac44f263881052fcee729a4e6133a34eded9580d742fc1ce7b804631d8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d4938ab6f8fc7a5c0351de6b5f6e1ddde636a0336b214b011e96905a2d4b3b30"
   end
 
   depends_on "just" => :build

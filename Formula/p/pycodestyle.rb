@@ -9,10 +9,11 @@ class Pycodestyle < Formula
   head "https://github.com/PyCQA/pycodestyle.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "5a5e5b7a43191b52e17db358d76594cb53f3992ac7a342f068901326e654f812"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "711ddb1897f67e34b9e67d3e1710b229f19fe40e78993119e9ccb0006a7e8c1d"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   def install
     rewrite_shebang detected_python_shebang, "pycodestyle.py"

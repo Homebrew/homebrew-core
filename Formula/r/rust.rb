@@ -2,27 +2,25 @@ class Rust < Formula
   desc "Safe, concurrent, practical language"
   homepage "https://www.rust-lang.org/"
   license any_of: ["Apache-2.0", "MIT"]
-  revision 1
 
   stable do
-    url "https://static.rust-lang.org/dist/rustc-1.81.0-src.tar.gz"
-    sha256 "872448febdff32e50c3c90a7e15f9bb2db131d13c588fe9071b0ed88837ccfa7"
+    url "https://static.rust-lang.org/dist/rustc-1.82.0-src.tar.gz"
+    sha256 "7c53f4509eda184e174efa6ba7d5eeb586585686ce8edefc781a2b11a7cf512a"
 
     # From https://github.com/rust-lang/rust/tree/#{version}/src/tools
     resource "cargo" do
-      url "https://github.com/rust-lang/cargo/archive/refs/tags/0.82.0.tar.gz"
-      sha256 "1c89e6a7a28dd78aca53227fd5e14340fcb7cb154ad9655a2f304b5687986cc3"
+      url "https://github.com/rust-lang/cargo/archive/refs/tags/0.83.0.tar.gz"
+      sha256 "53fbf5eb9d0c42ce184bd1b170606db7c878e7ef07ed3b513a67e62e14ca4661"
     end
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia: "5ac9af77ca0af21928aea2c4ff945b4c2641cf3cd6fe5a05f900407c022b67b5"
-    sha256 cellar: :any,                 arm64_sonoma:  "ee7e4b14245fdc2cc0eb624e32dd19cd90c68a13fd0ce8880dc9d227f26a0250"
-    sha256 cellar: :any,                 arm64_ventura: "7c44e804a2d41c2367420779c3abe4b07bfdd369372d92115f63d5d41a25b52b"
-    sha256 cellar: :any,                 sonoma:        "61ca738cfd88cd304a4983148a74e6e06cc076842b1bb8625e8b7022362249f2"
-    sha256 cellar: :any,                 ventura:       "764f9261722fb7759009d0a2a294d191eda51facae1be7721f3e028856fe9f13"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c9226705d4c61a4fd96a004db47492db39a71e78cc34c8b1eb6c02aef25e22a1"
+    sha256 cellar: :any,                 arm64_sequoia: "d360d73408fd04fb4764e56a3f6664d23e5ff31f04e72862f84f0a7890032967"
+    sha256 cellar: :any,                 arm64_sonoma:  "645ea85f492d6b522a4e393421692ef4d847beec44c7e6229b300788f1846c8c"
+    sha256 cellar: :any,                 arm64_ventura: "9cee18d96c531f10110f3819873467c1ff47ae30f6a9a864018dbc94efdc94d5"
+    sha256 cellar: :any,                 sonoma:        "9f4a7df899767cb1bea9219421c10d6afc3d4a3d44227dcbac4bb01a249a8bc4"
+    sha256 cellar: :any,                 ventura:       "895f420a4102977bb8b8d5c27e9b9592f74cc289e8d9db7f44036815967f9a28"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "12f7054b93eae88d31054b54c9f92a29266acd268e02db4b8f8120303dd3c4c6"
   end
 
   head do
@@ -35,7 +33,7 @@ class Rust < Formula
 
   depends_on "libgit2"
   depends_on "libssh2"
-  depends_on "llvm@18"
+  depends_on "llvm"
   depends_on macos: :sierra
   depends_on "openssl@3"
   depends_on "pkg-config"
@@ -50,32 +48,82 @@ class Rust < Formula
   link_overwrite "bin/cargo-fmt", "bin/git-rustfmt", "bin/rustfmt", "bin/rustfmt-*"
 
   # From https://github.com/rust-lang/rust/blob/#{version}/src/stage0
-  resource "cargobootstrap" do
+  resource "rustc-bootstrap" do
     on_macos do
       on_arm do
-        url "https://static.rust-lang.org/dist/2024-08-08/rustc-1.80.1-aarch64-apple-darwin.tar.xz"
-        sha256 "b22ac69b19de26fed67634379ae72cbc8fcc2ad1b1d97c4fbcb747264e69f13c"
+        url "https://static.rust-lang.org/dist/2024-09-05/rustc-1.81.0-aarch64-apple-darwin.tar.xz", using: :nounzip
+        sha256 "bed00f549a08030b232ad811728e3a5d7239e2e53b667df9cfb11eabf87f2cf3"
       end
       on_intel do
-        url "https://static.rust-lang.org/dist/2024-08-08/rustc-1.80.1-x86_64-apple-darwin.tar.xz"
-        sha256 "72f7a04d1d283a24d76f1fe2317f7ec97daaeeb4010907ca5e7ef83790d94469"
+        url "https://static.rust-lang.org/dist/2024-09-05/rustc-1.81.0-x86_64-apple-darwin.tar.xz", using: :nounzip
+        sha256 "2313aa8a68b514e6e337bb97e933cb25a5cbb48506980da4eeaa04394e595aad"
       end
     end
 
     on_linux do
       on_arm do
-        url "https://static.rust-lang.org/dist/2024-08-08/rustc-1.80.1-aarch64-unknown-linux-gnu.tar.xz"
-        sha256 "fc21ca734504c3d0ccaf361f05cb491142c365ce8a326f942206b0199c49bbb4"
+        url "https://static.rust-lang.org/dist/2024-09-05/rustc-1.81.0-aarch64-unknown-linux-gnu.tar.xz", using: :nounzip
+        sha256 "301f651f38f8c52ebaad0ac7eb211a5ea25c3b690686d1c265febeee62d2c6fc"
       end
       on_intel do
-        url "https://static.rust-lang.org/dist/2024-08-08/rustc-1.80.1-x86_64-unknown-linux-gnu.tar.xz"
-        sha256 "0367f069b49560af5c61810530d4721ad13eecfcb48952e67a2c32be903d5043"
+        url "https://static.rust-lang.org/dist/2024-09-05/rustc-1.81.0-x86_64-unknown-linux-gnu.tar.xz", using: :nounzip
+        sha256 "988a4e4cdecebe4f4a0c52ec4ade5a5bfc58d6958969f5b1e8aac033bda2613e"
+      end
+    end
+  end
+
+  # From https://github.com/rust-lang/rust/blob/#{version}/src/stage0
+  resource "cargo-bootstrap" do
+    on_macos do
+      on_arm do
+        url "https://static.rust-lang.org/dist/2024-09-05/cargo-1.81.0-aarch64-apple-darwin.tar.xz", using: :nounzip
+        sha256 "cc826e6592016db7a5750a97051b71b48aca2d79f146daf08e953d56000ae43d"
+      end
+      on_intel do
+        url "https://static.rust-lang.org/dist/2024-09-05/cargo-1.81.0-x86_64-apple-darwin.tar.xz", using: :nounzip
+        sha256 "01a98d95e71025b8c52fdf8bbbe32a2d2739a5861301a99ec889994e3a512292"
+      end
+    end
+
+    on_linux do
+      on_arm do
+        url "https://static.rust-lang.org/dist/2024-09-05/cargo-1.81.0-aarch64-unknown-linux-gnu.tar.xz", using: :nounzip
+        sha256 "76f8927e4923c26c51b60ef99a29f3609843b3a2730f0bdf2ea6958626f11b11"
+      end
+      on_intel do
+        url "https://static.rust-lang.org/dist/2024-09-05/cargo-1.81.0-x86_64-unknown-linux-gnu.tar.xz", using: :nounzip
+        sha256 "c50ee4b1ae8695461930e36d5465dddb7c7a0e0f0aa6cbd60de120b17c38b841"
+      end
+    end
+  end
+
+  # From https://github.com/rust-lang/rust/blob/#{version}/src/stage0
+  resource "rust-std-bootstrap" do
+    on_macos do
+      on_arm do
+        url "https://static.rust-lang.org/dist/2024-09-05/rust-std-1.81.0-aarch64-apple-darwin.tar.xz", using: :nounzip
+        sha256 "2dba5210a79617a9240570c1f7fcc24912a2c96689a3159324727e5a516c6326"
+      end
+      on_intel do
+        url "https://static.rust-lang.org/dist/2024-09-05/rust-std-1.81.0-x86_64-apple-darwin.tar.xz", using: :nounzip
+        sha256 "8319664a0b39ac47d9b52fce0f45bc9c37b06669ab4f1204a709fb0f2a5a03c3"
+      end
+    end
+
+    on_linux do
+      on_arm do
+        url "https://static.rust-lang.org/dist/2024-09-05/rust-std-1.81.0-aarch64-unknown-linux-gnu.tar.xz", using: :nounzip
+        sha256 "85567f037cee338f8ec8f9b6287a7f200d221658a996cba254abc91606ece6f4"
+      end
+      on_intel do
+        url "https://static.rust-lang.org/dist/2024-09-05/rust-std-1.81.0-x86_64-unknown-linux-gnu.tar.xz", using: :nounzip
+        sha256 "6ddf80f254e8eea9956308ba89fd68e1ac7885853df9239b07bbc9f047b7562f"
       end
     end
   end
 
   def llvm
-    Formula["llvm@18"]
+    Formula["llvm"]
   end
 
   def install
@@ -94,11 +142,6 @@ class Rust < Formula
       ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version
     end
 
-    resource("cargobootstrap").stage do
-      system "./install.sh", "--prefix=#{buildpath}/cargobootstrap"
-    end
-    ENV.prepend_path "PATH", buildpath/"cargobootstrap/bin"
-
     cargo_src_path = buildpath/"src/tools/cargo"
     rm_r(cargo_src_path)
     resource("cargo").stage cargo_src_path
@@ -107,6 +150,13 @@ class Rust < Formula
                 /^curl\s*=\s*"(.+)"$/,
                 'curl = { version = "\\1", features = ["force-system-lib-on-osx"] }'
     end
+
+    cache_date = File.basename(File.dirname(resource("rustc-bootstrap").url))
+    build_cache_directory = buildpath/"build/cache"/cache_date
+
+    resource("rustc-bootstrap").stage build_cache_directory
+    resource("cargo-bootstrap").stage build_cache_directory
+    resource("rust-std-bootstrap").stage build_cache_directory
 
     # rust-analyzer is available in its own formula.
     tools = %w[
@@ -129,6 +179,7 @@ class Rust < Formula
       --enable-vendor
       --disable-cargo-native-static
       --disable-docs
+      --disable-lld
       --set=rust.jemalloc
       --release-description=#{tap.user}
     ]

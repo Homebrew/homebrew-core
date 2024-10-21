@@ -12,18 +12,17 @@ class Bento4 < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "6da8292ee621c409bb405ed8320dc53e06d007044da8b65ddb359363bb5b08de"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "44aaa692620d4fcb31befc2f516cd8f15bfa354ab8a63fc631041b7a4735eb20"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "547e1b2f4b7e69e81b629f3de5eb18ed2eff46189f1808d1dd06f79fa2ee8813"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "2577abbd894889afbc8a0ead74920524141cdd61a8cc57cebd3c50dbd91d5238"
-    sha256 cellar: :any_skip_relocation, sonoma:         "f04de9a02f0026b6af5b97b7b96a1f993cb1221cb091d2ca2dd32ae090d2367b"
-    sha256 cellar: :any_skip_relocation, ventura:        "259b55cdeada320d8aa368e18b592a860c086405afb20b7aa243e81f5099b7dc"
-    sha256 cellar: :any_skip_relocation, monterey:       "c62d997c1c99c82012bb95a37dbac91fcbe1575c27d9396e0e490dcab23bec95"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "625ab4602c107e435c77e5af74109545ba3612ede1c8b6a6e06f5e17aeade282"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d7eb7ebefa4071ee7a67625f7fcbd85d47551ba51028f89ae1d97fbf59830d98"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d60460f56f54ce560cc79cc02dcfefc11e7f8a16dace21b3816e3076206debc2"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "cc230cd8ae1f04cde434c3b74783a1d1ca7d9ec67c36bea84ff7429e7a3197ff"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8d40c01a5f94bcc32d4a7476e7517ed85a19a95b8f51311246475c1fde2ad432"
+    sha256 cellar: :any_skip_relocation, ventura:       "b6cdf83e994059b63c281f1af930101efe7cf9a004d56b4b8964136dddd09679"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bf92475fac85e78bbf5ead0e87492ee452bb21a70c0c2a270e332c61d12c5f51"
   end
 
   depends_on "cmake" => :build
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   conflicts_with "mp4v2", because: "both install `mp4extract` and `mp4info` binaries"
 

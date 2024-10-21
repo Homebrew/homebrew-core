@@ -15,18 +15,16 @@ class Flawfinder < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "42f5bed6b68e93a4761483efd269bbeb4fba2d0920f2c2ad28e67812d220429c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "29f9397a8cee6ea519559666eca9fd4323259bc449543e8bc0f4afd30aeaceaa"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "29f9397a8cee6ea519559666eca9fd4323259bc449543e8bc0f4afd30aeaceaa"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "29f9397a8cee6ea519559666eca9fd4323259bc449543e8bc0f4afd30aeaceaa"
-    sha256 cellar: :any_skip_relocation, sonoma:         "532b4e68f1878d52077507f2ad662a5b6c86f410854a952f2269c1db2d34f778"
-    sha256 cellar: :any_skip_relocation, ventura:        "532b4e68f1878d52077507f2ad662a5b6c86f410854a952f2269c1db2d34f778"
-    sha256 cellar: :any_skip_relocation, monterey:       "532b4e68f1878d52077507f2ad662a5b6c86f410854a952f2269c1db2d34f778"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "29f9397a8cee6ea519559666eca9fd4323259bc449543e8bc0f4afd30aeaceaa"
+    rebuild 3
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "030f54eb812b1a8db57bfabf283d62c211cc22c4690929288d3ff8e9cf17ad13"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "030f54eb812b1a8db57bfabf283d62c211cc22c4690929288d3ff8e9cf17ad13"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "030f54eb812b1a8db57bfabf283d62c211cc22c4690929288d3ff8e9cf17ad13"
+    sha256 cellar: :any_skip_relocation, sonoma:        "3b696a9fc382e50b6306f43deb4b6a759d74acd32755573f7e0dc105794611e8"
+    sha256 cellar: :any_skip_relocation, ventura:       "3b696a9fc382e50b6306f43deb4b6a759d74acd32755573f7e0dc105794611e8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "030f54eb812b1a8db57bfabf283d62c211cc22c4690929288d3ff8e9cf17ad13"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   def install
     rewrite_shebang detected_python_shebang, "flawfinder.py"

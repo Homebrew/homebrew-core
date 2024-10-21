@@ -1,10 +1,9 @@
 class Corsixth < Formula
   desc "Open source clone of Theme Hospital"
   homepage "https://github.com/CorsixTH/CorsixTH"
-  url "https://github.com/CorsixTH/CorsixTH/archive/refs/tags/v0.67.tar.gz"
-  sha256 "4e88cf1916bf4d7c304b551ddb91fb9194f110bad4663038ca73d31b939d69e3"
+  url "https://github.com/CorsixTH/CorsixTH/archive/refs/tags/v0.68.0.tar.gz"
+  sha256 "54034b8434f5c583178405d2c84477f903fe2b15933b611f42230668e35d632e"
   license "MIT"
-  revision 1
   head "https://github.com/CorsixTH/CorsixTH.git", branch: "master"
 
   # Upstream uses GitHub releases to indicate that a version is released
@@ -16,14 +15,12 @@ class Corsixth < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia:  "869c7e2ff9e9af71a6b8f7fd39444b3544471832c24334f189e77ecceabb5602"
-    sha256 arm64_sonoma:   "753b467230849193995df1896fdad06d676fdf0b9d9a2874bfab2c884722097e"
-    sha256 arm64_ventura:  "8f40760b12987c4563a65dfe7bb6797e5726ecfc615983660f0508f179d39aa2"
-    sha256 arm64_monterey: "8f4a453fddd84c16c5a7359dd32343a08c3049c0297e3ee822d32b95f81e443b"
-    sha256 sonoma:         "9533e126bf883c696cff563b4073e66b73a76c5ee8b5dabf9584aa2993583684"
-    sha256 ventura:        "1b11fdf93d13e5b07ec0f8e4de0f50ff17b421a561da1f46b30556ed8d4937f7"
-    sha256 monterey:       "b4baf26ba433ef5bf8637f8491a5e8bd2a45c2e181ab806a72437c61be405fe0"
-    sha256 x86_64_linux:   "3bb1fcde57e74e97f5a94c2b0d8d438901b0bef8b85898c5b80681ae9d080acd"
+    sha256 arm64_sequoia: "f870772f5827546ce2d05d7c82f5aa04c35f5d95111a2f8f4291eb02d0eeb518"
+    sha256 arm64_sonoma:  "a998b8cb521a5c46582038f6d8a89ed6e647341c71df2d265af0c2ffc109deda"
+    sha256 arm64_ventura: "f33fb70d41df5fa4908989da6c640125723afee46e595b014fec646b0e22a0d4"
+    sha256 sonoma:        "85a59fbbd11582ee897c97deb738fd4dbf9296cb4ba6ebc31e58dbd5d1362504"
+    sha256 ventura:       "5f80e96e69be652083c55583cd7f5c624df10c076c309af4da609137faead94e"
+    sha256 x86_64_linux:  "c4a8daafab979bc9e0795b94beff96c65f0e88a665559e5990b56f53ab1ae868"
   end
 
   depends_on "cmake" => :build
@@ -34,6 +31,8 @@ class Corsixth < Formula
   depends_on "lua"
   depends_on "sdl2"
   depends_on "sdl2_mixer"
+
+  uses_from_macos "curl"
 
   on_linux do
     depends_on "mesa"

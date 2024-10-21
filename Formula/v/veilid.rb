@@ -1,20 +1,18 @@
 class Veilid < Formula
   desc "Peer-to-peer network for easily sharing various kinds of data"
   homepage "https://veilid.com/"
-  url "https://gitlab.com/veilid/veilid/-/archive/v0.3.4/veilid-v0.3.4.tar.bz2"
-  sha256 "b581ef7ac4098ea20e1e934444f8ba7aaa340257b15349556324994621a8f146"
+  url "https://gitlab.com/veilid/veilid/-/archive/v0.4.0/veilid-v0.4.0.tar.bz2"
+  sha256 "86a2f7ee7846e43bab71206ce55e4d947005c79492baffe520f24613ab45910a"
   license "MPL-2.0"
   head "https://gitlab.com/veilid/veilid.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "bf13222d557e463d5307beaa6712313c6e71d67439e2823c5da0ad0ca3da30e4"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f20a2ed5f70c61e7319ab7eb45f819b0adc9915c952f3892606e92b8a33b6595"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "902e389ed5b89b886e23d3134785a571b4224a9908e1c08c820f496957d97efd"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f2cd376965f88cf0bef966694d9e0e8d2223feb9ffe7e3468f4e2a8f66fb2e99"
-    sha256 cellar: :any_skip_relocation, sonoma:         "63af1aa6a4e0697a195fb653c83f0e2aecd9fe6063ffddd89e6efc1f5246b157"
-    sha256 cellar: :any_skip_relocation, ventura:        "a0075e9d01392f23656a6ba58c0801894a74a16f7211029ee0fac55d67dc56e8"
-    sha256 cellar: :any_skip_relocation, monterey:       "c53848b6ee8d02df5b7cb693da7563fe3ae815892066e3de10877b5b4d57ac96"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "39b1262b831aa8a087f4f55a85426db19f94e99743462487810cc2ed43694aa4"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4d7624f25271709427ff55e4ed08367481fd3876ddfd5bd22090d1651214764b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1ff210b06a35023c658e00a2f691be8ec2c7d8581507f3a24c4bcc84c859507c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "72cbb1e53d721c3d0a075d86412fe79ff8550ff1129b8e6c96c7a4dad29a5770"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e9b511850a9193ff2c91ef6d428a04e9deee0d8f3a311a4dd9526b1e3ea6077b"
+    sha256 cellar: :any_skip_relocation, ventura:       "3055c6ad9d16bb8971d9b5a72b03a4a1b0a790cdd1d1b062b3399a83e9b2102d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ab93bc7de94906aa59c05ca78e1501e68087721390806005bf6562e4b4bc308c"
   end
 
   depends_on "cmake" => :build

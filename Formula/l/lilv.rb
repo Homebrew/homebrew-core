@@ -11,20 +11,19 @@ class Lilv < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia:  "d12a1c387db13cdae25a30c3fb64f2421138bc8541955a16a8da32541d3aeb50"
-    sha256 cellar: :any, arm64_sonoma:   "b3e4a931c7922733020f34d6b8b25cd9bd85e3f1d1adb70a475d67a79842e2db"
-    sha256 cellar: :any, arm64_ventura:  "665a4b7a3fc791aae11b805098ae65e324b32f1ff3b00821fbc8223b8f684fc0"
-    sha256 cellar: :any, arm64_monterey: "6cc370093e1fe66b35ab7e42a6f3265b8641facce33b09becb9bff4259ed1c9e"
-    sha256 cellar: :any, sonoma:         "980d3580ee9ad524dbf0a5ace961c08e7070047d3ee5c5549e9aad4494f74939"
-    sha256 cellar: :any, ventura:        "b41c1eb6a90af9f924b48b4f7326ef3ac9e9ddae5b3c18f2ab94563d5f04da62"
-    sha256 cellar: :any, monterey:       "477f88914c2c32edf0f460f69f5232055315bb5efeae20a3836290e06c3ebfd7"
-    sha256               x86_64_linux:   "d37711f96389dbb6e78631ae3a67b6d6e41d672452b523f2aa77eafa6ee39fb6"
+    rebuild 1
+    sha256 cellar: :any, arm64_sequoia: "f4c262eea637d27903706d2eb1ebcebce75123130de7b51da51ff426883551f5"
+    sha256 cellar: :any, arm64_sonoma:  "1045abb56144f25a09abc8df96bba71b6d922d7bf5faf00743cb5cb7f4bd8166"
+    sha256 cellar: :any, arm64_ventura: "cda3ce542b0d80a69df22f658b7bb6a7dbde951a363beb263eec45f8d0ce8007"
+    sha256 cellar: :any, sonoma:        "50242c1f81ae19f619981e340e693b1f73eea8c2725273c0764e97b9b990b9b8"
+    sha256 cellar: :any, ventura:       "f8beefdca7ba8d9ca17ad7aa61aff046d5f9e806459fefadb1b5a11081b0f332"
+    sha256               x86_64_linux:  "4ef397a92193d1fca05675bedb76a82ef8ec713e0ab176b1023024a1006f4ad7"
   end
 
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.12" => [:build, :test]
+  depends_on "python@3.13" => [:build, :test]
   depends_on "libsndfile"
   depends_on "lv2"
   depends_on "serd"
@@ -33,7 +32,7 @@ class Lilv < Formula
   depends_on "zix"
 
   def python3
-    "python3.12"
+    "python3.13"
   end
 
   def install

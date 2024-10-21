@@ -3,8 +3,8 @@ class Openvino < Formula
 
   desc "Open Visual Inference And Optimization toolkit for AI inference"
   homepage "https://docs.openvino.ai"
-  url "https://github.com/openvinotoolkit/openvino/archive/refs/tags/2024.4.0.tar.gz"
-  sha256 "aeb6297e3e88b4ab7803b27b231a72bd0493b6761ef98f225142146be500f538"
+  url "https://github.com/openvinotoolkit/openvino/archive/refs/tags/2024.4.1.tar.gz"
+  sha256 "b8045c9d24be1f7247ed5e1055f5a2df745fb00d4820af2686b5c04eca113163"
   license "Apache-2.0"
   head "https://github.com/openvinotoolkit/openvino.git", branch: "master"
 
@@ -14,12 +14,12 @@ class Openvino < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "26f74a2567d422adfb7b3d958ab4fb615e3fd8d41005befe83e661e5d8163445"
-    sha256 cellar: :any,                 arm64_sonoma:  "5aa320c7c1f517ce0f38e809bfd651a76f81783a1d0831ca75610cc5f7fef81c"
-    sha256 cellar: :any,                 arm64_ventura: "10f9ed2e14ab08b76868376cf9e87eb0749885a2eae220beaf2d8821afb7f0ae"
-    sha256 cellar: :any,                 sonoma:        "bdb3038b23dce15a34fd814cf610df9f2fc2f048c9995e85f5cdcbf093d56cd1"
-    sha256 cellar: :any,                 ventura:       "a429bc3ce8cba30b12be0f27aa7eeaa49df69b5871ec56c64c3e6ee63a7843f3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7318aa437514f738fbba3b3b1c175c80e689df8ff4f3be967e6d2aab82fc7cab"
+    sha256 cellar: :any,                 arm64_sequoia: "08db97ef594be91f9e5ac60f0e7762f86821ca2606a67f4f90fa854f99017df1"
+    sha256 cellar: :any,                 arm64_sonoma:  "325852c31c34d989df1a36a794ba3cb6a0250be477c1d07079db05e4c40305e0"
+    sha256 cellar: :any,                 arm64_ventura: "f1344c24759b04c975ee35669b5fd808120446fb7374aa41a1799733d9f3cbc0"
+    sha256 cellar: :any,                 sonoma:        "907d1976dabef9dbd228a5ed44aa762d691c69a1971de7b3c1517e2ea5fecb6e"
+    sha256 cellar: :any,                 ventura:       "34d41a49064520427bd9402cd8e3962d53b138eaeb1161f3f1c45da8ec98d751"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c34f60bcb27eee29db774d2249a6b649e5b28e4ddf34ff7ca6fc482d28387b93"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -50,8 +50,8 @@ class Openvino < Formula
     depends_on "scons" => :build
 
     resource "arm_compute" do
-      url "https://github.com/ARM-software/ComputeLibrary/archive/refs/tags/v24.08.tar.gz"
-      sha256 "b3576ffa2a70e7704bdf7febe7109f4cfb416a0178222b58f5ee0fd455980337"
+      url "https://github.com/ARM-software/ComputeLibrary/archive/refs/tags/v24.09.tar.gz"
+      sha256 "49b8620f21cbbe49e825a131d9eacd548532646289b50e070b83860bd88087fe"
     end
   end
 

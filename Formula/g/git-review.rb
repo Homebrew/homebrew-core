@@ -10,29 +10,23 @@ class GitReview < Formula
   head "https://opendev.org/opendev/git-review.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "cae9224c13007fd9cf1fb29d57163e6830642f0c041da43ba65aaff91653c74a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0d319cfba612259e187ba7d3fc76b46f945212cf6472fdedfe5afe7610e28b7f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0d319cfba612259e187ba7d3fc76b46f945212cf6472fdedfe5afe7610e28b7f"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "0d319cfba612259e187ba7d3fc76b46f945212cf6472fdedfe5afe7610e28b7f"
-    sha256 cellar: :any_skip_relocation, sonoma:         "00a568c3b6096dab8773b8f7538a19b075bb644fa87de2359e146737f62df689"
-    sha256 cellar: :any_skip_relocation, ventura:        "00a568c3b6096dab8773b8f7538a19b075bb644fa87de2359e146737f62df689"
-    sha256 cellar: :any_skip_relocation, monterey:       "0d319cfba612259e187ba7d3fc76b46f945212cf6472fdedfe5afe7610e28b7f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fbaece9735f4e55c122a6426df7e87473cc213bedfe33645d06eaac079781a0a"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "d83087d56ed2d62d2014203c388f43857c3913815b5d003331f6792df2c7ab57"
   end
 
   depends_on "certifi"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   conflicts_with "gerrit-tools", because: "both install `git-review` binaries"
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/63/09/c1bc53dab74b1816a00d8d030de5bf98f724c52c1635e07681d312f20be8/charset-normalizer-3.3.2.tar.gz"
-    sha256 "f30c3cb33b24454a82faecaf01b19c18562b1e89558fb6c56de4d9118a032fd5"
+    url "https://files.pythonhosted.org/packages/f2/4f/e1808dc01273379acc506d18f1504eb2d299bd4131743b9fc54d7be4df1e/charset_normalizer-3.4.0.tar.gz"
+    sha256 "223217c3d4f82c3ac5e29032b3f1c2eb0fb591b72161f86d93f5719079dae93e"
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/21/ed/f86a79a07470cb07819390452f178b3bef1d375f2ec021ecfc709fc7cf07/idna-3.7.tar.gz"
-    sha256 "028ff3aadf0609c1fd278d8ea3089299412a7a8b9bd005dd08b9f8285bcb5cfc"
+    url "https://files.pythonhosted.org/packages/f1/70/7703c29685631f5a7590aa73f1f1d3fa9a380e654b86af429e0934a32f7d/idna-3.10.tar.gz"
+    sha256 "12f65c9b470abda6dc35cf8e63cc574b1c52b11df2c86030af0ac09b01b13ea9"
   end
 
   resource "requests" do
@@ -41,8 +35,8 @@ class GitReview < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/43/6d/fa469ae21497ddc8bc93e5877702dca7cb8f911e337aca7452b5724f1bb6/urllib3-2.2.2.tar.gz"
-    sha256 "dd505485549a7a552833da5e6063639d0d177c04f23bc3864e41e5dc5f612168"
+    url "https://files.pythonhosted.org/packages/ed/63/22ba4ebfe7430b76388e7cd448d5478814d3032121827c12a2cc287e2260/urllib3-2.2.3.tar.gz"
+    sha256 "e7d814a81dad81e6caf2ec9fdedb284ecc9c73076b62654547cc64ccdcae26e9"
   end
 
   def install

@@ -10,15 +10,16 @@ class Khal < Formula
   head "https://github.com/pimutils/khal.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "255914ea36c2c9b3e2b8179a07ffac83152d7c69e68029b662c251898f404619"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "255914ea36c2c9b3e2b8179a07ffac83152d7c69e68029b662c251898f404619"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "255914ea36c2c9b3e2b8179a07ffac83152d7c69e68029b662c251898f404619"
-    sha256 cellar: :any_skip_relocation, sonoma:        "b32526245a4e6b59c24bfe7b88b79f4587ecdf5732e17c21308509947a0f5cda"
-    sha256 cellar: :any_skip_relocation, ventura:       "b32526245a4e6b59c24bfe7b88b79f4587ecdf5732e17c21308509947a0f5cda"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "255914ea36c2c9b3e2b8179a07ffac83152d7c69e68029b662c251898f404619"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fe58e910b0aa7bb89482c530030904e06e353bfcae1e66a78eb114a4c8aa3d66"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fe58e910b0aa7bb89482c530030904e06e353bfcae1e66a78eb114a4c8aa3d66"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "fe58e910b0aa7bb89482c530030904e06e353bfcae1e66a78eb114a4c8aa3d66"
+    sha256 cellar: :any_skip_relocation, sonoma:        "30af7b73726bd7c453387280c9febba446a3f73a5bb56b550a3e3becfa7670e9"
+    sha256 cellar: :any_skip_relocation, ventura:       "30af7b73726bd7c453387280c9febba446a3f73a5bb56b550a3e3becfa7670e9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fe58e910b0aa7bb89482c530030904e06e353bfcae1e66a78eb114a4c8aa3d66"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "atomicwrites" do
     url "https://files.pythonhosted.org/packages/87/c6/53da25344e3e3a9c01095a89f16dbcda021c609ddb42dd6d7c0528236fb2/atomicwrites-1.4.1.tar.gz"
@@ -41,8 +42,8 @@ class Khal < Formula
   end
 
   resource "icalendar" do
-    url "https://files.pythonhosted.org/packages/3c/d8/ada43e4872aab3bfaf2cc2e09b2d2a5d83f771bfc58ba6a63904a5067db8/icalendar-5.0.13.tar.gz"
-    sha256 "92799fde8cce0b61daa8383593836d1e19136e504fa1671f471f98be9b029706"
+    url "https://files.pythonhosted.org/packages/af/ce/127d44302810184b1680ba5e0ab588325cf427d1a5e8c8479dd2cec80e97/icalendar-6.0.0.tar.gz"
+    sha256 "7ddf60d343f3c1f716de9b62f6e80ffd95d03cab62464894a0539feab7b5c76e"
   end
 
   resource "python-dateutil" do
@@ -70,6 +71,11 @@ class Khal < Formula
     sha256 "1a7ead55c7e559dd4dee8856e3a88b41225abfe1ce8df57b7c13915fe121ffb8"
   end
 
+  resource "tzdata" do
+    url "https://files.pythonhosted.org/packages/e1/34/943888654477a574a86a98e9896bae89c7aa15078ec29f490fef2f1e5384/tzdata-2024.2.tar.gz"
+    sha256 "7d85cc416e9382e69095b7bdf4afd9e3880418a2413feec7069d533d6b4e31cc"
+  end
+
   resource "tzlocal" do
     url "https://files.pythonhosted.org/packages/04/d3/c19d65ae67636fe63953b20c2e4a8ced4497ea232c43ff8d01db16de8dc0/tzlocal-5.2.tar.gz"
     sha256 "8d399205578f1a9342816409cc1e46a93ebd5755e39ea2d85334bea911bf0e6e"
@@ -92,6 +98,7 @@ class Khal < Formula
   test do
     ENV["LC_ALL"] = "en_US.UTF-8"
     ENV["LANG"] = "en_US.UTF-8"
+
     (testpath/".calendar/test/01ef8547.ics").write <<~EOS
       BEGIN:VCALENDAR
       VERSION:2.0
@@ -106,6 +113,7 @@ class Khal < Formula
       END:VEVENT
       END:VCALENDAR
     EOS
+
     (testpath/".config/khal/config").write <<~EOS
       [calendars]
       [[test]]
@@ -118,6 +126,7 @@ class Khal < Formula
       [default]
       default_calendar = test
     EOS
+
     system bin/"khal", "--no-color", "search", "testevent"
   end
 end

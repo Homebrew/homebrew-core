@@ -4,24 +4,15 @@ class Dbxml < Formula
   url "https://download.oracle.com/berkeley-db/dbxml-6.1.4.tar.gz"
   sha256 "a8fc8f5e0c3b6e42741fa4dfc3b878c982ff8f5e5f14843f6a7e20d22e64251a"
   license "AGPL-3.0-only"
-  revision 3
+  revision 4
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "a0b06db6436bb4614fbbfc7d5b6b18c6e8db97aa51b138b2117c1772c7ef71c3"
-    sha256 cellar: :any,                 arm64_sonoma:   "25687dcaf01e85b2a0c3b4bd04f46c819aa6a0b2329463734b5c4654f38a74a9"
-    sha256 cellar: :any,                 arm64_ventura:  "d15ff7b5156f4bb68e1a397e62c0631733f0323300afb3358da574be87cdf12f"
-    sha256 cellar: :any,                 arm64_monterey: "04519c8d0b802cc58234228fb4e697d0e4e83a89304d449f6976c9c5fa8287c5"
-    sha256                               arm64_big_sur:  "04e8d59d289cdfeded395a021516b357e5bb63eed09e49aca28ed262c8c31128"
-    sha256 cellar: :any,                 sonoma:         "7bd7f56e7b85ee60909a63f3bbd17bef0e4a78a989f96e44f213c8c872f24d99"
-    sha256 cellar: :any,                 ventura:        "18bb9ec11944c14033f7486d0278fc9111ebb1de2778c6ca930ac79bb96dfa73"
-    sha256 cellar: :any,                 monterey:       "33d915b0652f7509895b421e65f6228915f1fddb42820076cb618b711432a898"
-    sha256                               big_sur:        "e53e40e0184768fdac585276000c0224a04cfa9284ce94be1ab80380d2b79965"
-    sha256                               catalina:       "59c12069d26a6be4f542d4c7869841c2bd71e8cb08a1c809d559818fb1cb156a"
-    sha256                               mojave:         "b525b9d21d149d533aeb62a169becfe1e140f143d34291d0a8fddf2ada41a018"
-    sha256                               high_sierra:    "1886b654f152fc03a6a6e781ca94e5ca3a08f7f190bc1168326bf46b337c02e9"
-    sha256                               sierra:         "2a350300c31d639d46e9fafc16747d5cbe1897035acf1c365f795127535693b3"
-    sha256                               el_capitan:     "e2c82383d79f243654a0bbebdfb141334bbf683c6925b5a8f3ce0d1568024fec"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bb0abe86852f38edf93fe495c3d2644f63bdfd1ebe51eee71f75c8c6d977eb1e"
+    sha256 cellar: :any,                 arm64_sequoia: "b0de74f456722a21e4f77551d538b11d362b0fd48124c6eaa6b70b8d561f7480"
+    sha256 cellar: :any,                 arm64_sonoma:  "efe2992cccae75a67b24df080b1ed9432e17754f929f445370baa20cdfde17c6"
+    sha256 cellar: :any,                 arm64_ventura: "3b54187469d0a475dcd814126f9f15c82a9b66699edc45653e112ee24164ad2d"
+    sha256 cellar: :any,                 sonoma:        "f5f58b63b160c729ff6350cec92474f1a9eed2ac3207413cd275b4ed6f19bbed"
+    sha256 cellar: :any,                 ventura:       "67ce232d02670a98765d472293a358fb71f1d2ba3160786d218b4b3249275009"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "936250b2d49f27ab6123d1eb1cc6405b22777dd95617d4aead5f958ac19e2a05"
   end
 
   depends_on "berkeley-db"

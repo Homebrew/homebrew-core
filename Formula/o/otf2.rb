@@ -12,15 +12,13 @@ class Otf2 < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 arm64_sequoia:  "9d97ad4308648acfa2192bb8abd4216543babca9c937f2d888274202e3b442f8"
-    sha256 arm64_sonoma:   "80ae5483e293499a103208036e71dfc89bb3d6a07c5db49b7a4542fa9f4fa5bb"
-    sha256 arm64_ventura:  "3025d4a7f4abb1bb0daf3f63242cfb3587106ce2841c9974ca88272ca5db1459"
-    sha256 arm64_monterey: "d27a2cf721638980b8068b1ec834d7fd791d93a00351ee18ed59c47c27a7a5eb"
-    sha256 sonoma:         "73c03d86d35a0685c3d90c517a6add5d5894ec7c9c4a89dead273730c6b5ef99"
-    sha256 ventura:        "64e94d9dc3a7e0628120b88f25f454a71f0bb45a130c95a0f15b503601419458"
-    sha256 monterey:       "8d75fac976ffd59b903d10ed0b227e934cf48f9bae5d62e6e3305f8f121915dc"
-    sha256 x86_64_linux:   "0e70a12bcdf95ec85041668d67b6344fd64c0fb368126c61c18899b666f6a948"
+    rebuild 3
+    sha256 arm64_sequoia: "18aef1ecedd99e58b0e22bdfc91546a955f5822e6f1a6ec75af72a8728979919"
+    sha256 arm64_sonoma:  "e92a47a55518b35a251e5338380ba439431a8e14906b063a0e9cbf0c13139255"
+    sha256 arm64_ventura: "c8a95435b0dd75f2eb1c3b9a4b55cd635304faf7aeca446de076e6ca3135b2c8"
+    sha256 sonoma:        "b1e76426024a317b51be2752cdbc580e9c9d1d5d10a5a0a8e3e3ccd0929f1aac"
+    sha256 ventura:       "004ed0f51b9ad93c4e1435dbe9424528d00ac935c4e5b6d69ae8c65348526cf5"
+    sha256 x86_64_linux:  "ea14ea82474ebc29426a280e43409ebce2a688ba2e4de3ef11aa82564841327a"
   end
 
   depends_on "autoconf" => :build
@@ -29,7 +27,7 @@ class Otf2 < Formula
   depends_on "sphinx-doc" => :build
   depends_on "gcc" # for gfortran
   depends_on "open-mpi"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "six" do
     url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
@@ -49,7 +47,7 @@ class Otf2 < Formula
   end
 
   def python3
-    "python3.12"
+    "python3.13"
   end
 
   def install

@@ -10,15 +10,13 @@ class Afflib < Formula
   revision 1
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia:  "20ba271eae6ec7f44e4be0b019f2106c41b54f2f8b4ed6ee538b5df2931e7316"
-    sha256 cellar: :any,                 arm64_sonoma:   "645ea2880c23e3613925a61a769d6df03d272f14d398ed5b38250e1ff17178ef"
-    sha256 cellar: :any,                 arm64_ventura:  "39944f02e04efff99d4ba079e10d0e396dfb6025a7129591be8bd69fe194174f"
-    sha256 cellar: :any,                 arm64_monterey: "feb3ea9b5e4778eec142cf4d229d49cfc727d9579c5b432fbb3cbce28ce4bce1"
-    sha256 cellar: :any,                 sonoma:         "16a7055a8cc8d4ffab10cf59613d06dd26b7e79b70c029bbb60d0cbebdd8e926"
-    sha256 cellar: :any,                 ventura:        "4fe2379aa5371898278a70039518c72579e5d19758bcc0dcccc446044a01e703"
-    sha256 cellar: :any,                 monterey:       "8970905f67c00de1d7598feec1bd05ccc8db924f1cb267a570530a63ee4fe60c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8743cca0396f102a6a57ae731d00b9974e990442101444bccab41c669afe37a5"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_sequoia: "af52cd782cf1b09fa70e6aa3b44579058589a7cbec2f17a93186eec3590a0d12"
+    sha256 cellar: :any,                 arm64_sonoma:  "8e84ddb30d99b5c56442a283864d27424fba3ec1e918219c0fca34c64f040973"
+    sha256 cellar: :any,                 arm64_ventura: "b311a78fdc13c779b83bf5fa6acdab8c1c8393d66ff6d161530a634502533144"
+    sha256 cellar: :any,                 sonoma:        "e8b9a5c531f2bcbff5a706b6c592a764e58cb3d81143dcc22309166f97734277"
+    sha256 cellar: :any,                 ventura:       "a039726658443649798f2058fc46b37250f9dd7d86ce29f453f149be2b464ac0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c6c3fd05bc590c7920e9c78895e931dea3e61ead38101fe87e483dc268f951e3"
   end
 
   depends_on "autoconf" => :build
@@ -27,7 +25,7 @@ class Afflib < Formula
   depends_on "pkg-config" => :build
 
   depends_on "openssl@3"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
   depends_on "readline"
 
   uses_from_macos "curl"
@@ -50,7 +48,7 @@ class Afflib < Formula
   end
 
   def python3
-    which("python3.12")
+    which("python3.13")
   end
 
   def install

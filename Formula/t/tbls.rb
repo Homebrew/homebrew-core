@@ -1,20 +1,18 @@
 class Tbls < Formula
   desc "CI-Friendly tool for document a database"
   homepage "https://github.com/k1LoW/tbls"
-  url "https://github.com/k1LoW/tbls/archive/refs/tags/v1.77.0.tar.gz"
-  sha256 "6be85cfa82cf3a75bca03cd49739307f5ca60768624742f7020d36a1c5ee4984"
+  url "https://github.com/k1LoW/tbls/archive/refs/tags/v1.78.1.tar.gz"
+  sha256 "0a2685cec98ff43487fee3443acd179cddc7dadf1a47c08e6a6df38c9195c2b9"
   license "MIT"
   head "https://github.com/k1LoW/tbls.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "7fb05fd4c7fef8939a9b5e6d971ee7006b6d3cf673fddd69c4da1aa5f92f2d25"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6da8e73bca45626743a2ca70f804b6d12341b05f5d1b6296dec6ec0cf184b4bd"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "25e51da66d33ef3c048864332ab0c38897f63c17dca1e14b2daaa0cdf6ae49c6"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6bf0cf6e99568be62eda198f42d992a34d6c209e9d557add40eb639dc19d3ce1"
-    sha256 cellar: :any_skip_relocation, sonoma:         "feaa5c5ed5578da0d4a94c55189a3a8cf27aeaf648e8a9647580680ef95e9720"
-    sha256 cellar: :any_skip_relocation, ventura:        "f7de3c7a37947ccee1238862db198bb83bc1298406240de6b9957d91a7d1ab1b"
-    sha256 cellar: :any_skip_relocation, monterey:       "27176cb8983988e1a79fec9ca87d06cb57680ce14d1e52ef05d76c81f408cc63"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4c7160e5109a7eb06b6bb51dd83c7f0d8a377020c343c033f3d51257c598a591"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7e3e8c8f581c2a2846440e72941d218a3b21d1c4f3b58590d58065767f50f5ba"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8318b16f76c745fb3787b241e22d64b8072c43c415dd5bc82b627d3e38b5dcd6"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "7474bfe4fb6ea69cb69b083f5d6088ec134e6b03a690f9e70e1a2621f1435716"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b8df6c562870b50e59bb06ec004c3e8fe40bce0608bc229d8ab827dfa2d2b40c"
+    sha256 cellar: :any_skip_relocation, ventura:       "3734e770aafa025ebdc014846c3d7cd821352fd1490dcb4489a7a6e590297e6b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8cd5b13b1d1417666134669aef5ecb70925b34378e911abea215c4b2dc78d585"
   end
 
   depends_on "go" => :build

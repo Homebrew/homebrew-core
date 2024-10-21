@@ -9,19 +9,12 @@ class Wllvm < Formula
   revision 1
 
   bottle do
-    rebuild 4
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "2d446efe295fe4a939bd8e438dd0492c9e7692161f8cd8704a581c3f0dbce3d9"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "bbf98dd9a4969133083c1a5ff4a99a1eb585cd0d7e38cdaff296cd2ec2ccdfff"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "fa7b51346868a77f7cf2bff65e85d6baa23511b8285863a1d4ae107488a43e6b"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3486584a33b29ab6879a93e1506a47f53fbab9111f81a1a92f3ab5d29506d850"
-    sha256 cellar: :any_skip_relocation, sonoma:         "2fbfbce80ce5074d98f9b201a1e8ca4c3b39a89b1e357d307abee6b8eab66b9d"
-    sha256 cellar: :any_skip_relocation, ventura:        "55f22a1c92f0fd35308142e8aa463de80fb1979f67128f5cfa24799db39099a2"
-    sha256 cellar: :any_skip_relocation, monterey:       "7faf88e2861ce76c86c1476d6793631971c2d87089be8d85453ac3dffe676309"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c466fd407dc9cef28b763df4376a41eef4dd76c3af22a8b7efcab96942837c0c"
+    rebuild 5
+    sha256 cellar: :any_skip_relocation, all: "1f51172a70e011c1666255f2ace6d910d573681b83d50c31b551616dce265e6b"
   end
 
   depends_on "llvm" => :test
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   def install
     virtualenv_install_with_resources

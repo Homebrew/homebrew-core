@@ -1,8 +1,4 @@
-require "language/perl"
-
 class Asciiquarium < Formula
-  include Language::Perl::Shebang
-
   desc "Aquarium animation in ASCII art"
   homepage "https://robobunny.com/projects/asciiquarium/html/"
   url "https://robobunny.com/projects/asciiquarium/asciiquarium_1.1.tar.gz"
@@ -49,11 +45,6 @@ class Asciiquarium < Formula
         system "make", "install"
       end
     end
-
-    # Disable dynamic selection of perl which may cause segfault when an
-    # incompatible perl is picked up.
-    # https://github.com/Homebrew/homebrew-core/issues/4936
-    rewrite_shebang detected_perl_shebang, "asciiquarium"
 
     chmod 0755, "asciiquarium"
     bin.install "asciiquarium"

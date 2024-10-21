@@ -24,6 +24,7 @@ class LeappCli < Formula
 
   on_linux do
     depends_on "python-setuptools" => :build
+    depends_on "glib"
     depends_on "libsecret"
   end
 
@@ -33,10 +34,12 @@ class LeappCli < Formula
   end
 
   def caveats
-    <<~EOS
-      Only the `leap` CLI is installed. For Leapp.app:
-        brew install --cask leapp
-    EOS
+    on_macos do
+      <<~EOS
+        Only the `leap` CLI is installed. For Leapp.app:
+          brew install --cask leapp
+      EOS
+    end
   end
 
   test do

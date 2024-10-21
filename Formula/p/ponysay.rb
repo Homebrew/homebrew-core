@@ -17,20 +17,18 @@ class Ponysay < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "b1dfa224d01f289e0dcdb7590f754e759fe6b46a02a95f141928ae411ae040bc"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1eca8b3e7cdcdcce01318a2d876e56ddbee396f5743a86505ebf10890495bfed"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d372bd35d2c931e62724cd071813731b6d2b7ed218c2b97ea22d0ea3b21e270b"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a04a741432a0b11230d1fd4a166e21124560fcbedd9d342871c7fe94262cef09"
-    sha256 cellar: :any_skip_relocation, sonoma:         "7ae64325c0fc4bcb425a922a9313ff2f965d79f8cb7f1efe3dfa3bd09866027f"
-    sha256 cellar: :any_skip_relocation, ventura:        "f5d7684b1337c8cbd02fb95bb5053fc7976dbedbce2af249fb7edb797e3fb7c1"
-    sha256 cellar: :any_skip_relocation, monterey:       "0bcb34fbf82236dc5e6fe5483c0e92920285e9bb9e8852ce23640281d1af6320"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "511bcb624a5d9ffe092b33037026376eb3fc2f93c221776efacf32a2a2d7fd54"
+    rebuild 3
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ab0fc5205ff5d90e766f69e722c887b690ab68caa3d8c1c5f761362f39487eda"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ce90b90f2442f9fb488ed6d6e01e2a054baa6028d0da97cbd26e74f608877791"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "d412af3a212b5e3535e7832aa0c6d64a37e1271715ca89db5e56a56d2b8717a1"
+    sha256 cellar: :any_skip_relocation, sonoma:        "a399855bc086848892024a1480ac18e1b53d5a53c2b8bbb472779870bceb92cc"
+    sha256 cellar: :any_skip_relocation, ventura:       "2ad3b739716124c282a0d73df44ca1423865feb2afca9c01d1ef8783b33dd57e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "80f37044f82a22ebc8480e11efd3c0a17934acebcc2cbc304b2f5c43a4a15843"
   end
 
   depends_on "gzip" => :build
   depends_on "coreutils"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   on_system :linux, macos: :ventura_or_newer do
     depends_on "texinfo" => :build
@@ -42,7 +40,7 @@ class Ponysay < Formula
            "--prefix=#{prefix}",
            "--cache-dir=#{prefix}/var/cache",
            "--sysconf-dir=#{prefix}/etc",
-           "--with-custom-env-python=#{Formula["python@3.12"].opt_bin}/python3.12",
+           "--with-custom-env-python=#{Formula["python@3.13"].opt_bin}/python3.13",
            "install"
   end
 

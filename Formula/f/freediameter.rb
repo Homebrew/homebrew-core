@@ -1,35 +1,33 @@
 class Freediameter < Formula
   desc "Open source Diameter (Authentication) protocol implementation"
-  homepage "http://www.freediameter.net"
+  homepage "https://github.com/freeDiameter/freeDiameter"
   license "BSD-3-Clause"
   head "https://github.com/freeDiameter/freeDiameter.git", branch: "master"
 
   stable do
-    url "http://www.freediameter.net/hg/freeDiameter/archive/1.5.0.tar.gz"
-    sha256 "2500f75b70d428ea75dd25eedcdddf8fb6a8ea809b02c82bf5e35fe206cbbcbc"
+    url "https://github.com/freeDiameter/freeDiameter/archive/refs/tags/1.5.0.tar.gz"
+    sha256 "cc4ceafd9d0d4a6a5e3aa02bf557906fe755df9ec14d16c4fcd5dab6930296aa"
 
     # Backport support for `libidn2`. Remove in the next release.
     patch do
-      url "http://www.freediameter.net/hg/freeDiameter/raw-rev/699c3fb0c57b"
-      sha256 "ee708848e4093363954bedd47f61199196c9753c9f1fcbd33e302c47d58f8041"
+      url "https://github.com/freeDiameter/freeDiameter/commit/da679d27c546e11f6e41ad8882699f726e58a9f7.patch?full_index=1"
+      sha256 "123fe68ede4713b8e78efa49bfe9db592291cc3c821bbdc58f930a1f291423b1"
     end
   end
 
   livecheck do
-    url "http://www.freediameter.net/hg/freeDiameter/json-tags"
-    regex(/["']tag["']:\s*?["']v?(\d+(?:\.\d+)+)["']/i)
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
-    rebuild 1
-    sha256                               arm64_sequoia:  "1f127dcfd63b0987b992e01240782318353def96d22dc980374a0154d4713f7d"
-    sha256                               arm64_sonoma:   "7ed309fba8336ee1a69062381b099795d76033ede4827816266ad8f54811a8f3"
-    sha256                               arm64_ventura:  "1ef1f7466e21afed5e41acc5a485b938801df184aa4205f4407b52ffbddde7c4"
-    sha256                               arm64_monterey: "e659a5cb363d17a28fa68565c041bbc3d5497afd90e401f2c555addf9723a9b6"
-    sha256                               sonoma:         "330234376a5de64ff3788110ecc3d007a9b5b86eea85862cabb8f8977c9ad293"
-    sha256                               ventura:        "e7b45438bbe4b3599841717f3cf60fc6782d9cb6dc8b32720f5cb99053f5f1ca"
-    sha256                               monterey:       "c193f037e6d228e8023076c299050d76ee7de40e766ecb101068098bd5ef80cf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9ec1217addb5078d017d58fac23eed0a6fb27dfb70e08637609345fe6f8ea2df"
+    rebuild 2
+    sha256                               arm64_sequoia: "3a0fdc3ba68de137c1c7565a2bf1952cf239c35717276e185ef2c57d8f042a0f"
+    sha256                               arm64_sonoma:  "77cce28c5fae584b97aefe1d124bf14da292e5f40f62a4bfccb4b545feecf9f8"
+    sha256                               arm64_ventura: "a0a2bb922fe5286a90703eaf346ab465702d3bb43040b11f4c49f2b4296ec768"
+    sha256                               sonoma:        "40a30f89b5587df10f03275e37b9d17c4ca3a59098f2efddf5e521b9a71276b6"
+    sha256                               ventura:       "3b25d64d36dabbcdd24ca3d2c02bf05f8bff8ddcdb764f58d01c3fed25a50e57"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "224a65066b5831f9a7c9d07c2f4439075fe60f8e287c3a4e19fbfc163124e5b7"
   end
 
   depends_on "cmake" => :build

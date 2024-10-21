@@ -8,17 +8,18 @@ class Cycode < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "f673d9fc74bdafcd8951d9e9086291637419640a010e2f1db988008c5d2a1e99"
-    sha256 cellar: :any,                 arm64_sonoma:  "18e8aa42db5161cad7dd91ab9bfe3a0d9c177b59171f160c530411bc8734fea0"
-    sha256 cellar: :any,                 arm64_ventura: "240e52e963571590334a167837b79add8af65919b4be2ba117cc42f60c2a8345"
-    sha256 cellar: :any,                 sonoma:        "f09609332d73ae330d41c7cbd9e647aa08dfd0b6862b7d1c723caa4f1f5d214b"
-    sha256 cellar: :any,                 ventura:       "db1ce80ac1b5f28b348f7cda8178d664b1caf75e5cfa2676129209dbc6df03ef"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "300775c2ad0375605e0d5f392d713665df8d6b43bf65cb56e80f9e5be65a6c1a"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "a9102b2b65bd3b34d427483744c003081173c0698fec9f538602519fd8b2ffa6"
+    sha256 cellar: :any,                 arm64_sonoma:  "233ced13301c31dfef89aa25be8a8c6bdf2c19d27a06530e7dfc8b79b2fa9942"
+    sha256 cellar: :any,                 arm64_ventura: "17a1a17ba4acb66bfa1a6c136aab404575cc6b9846723ea14026bc19d1caeae4"
+    sha256 cellar: :any,                 sonoma:        "c38469a65e976603d8be4a11e8ecaa650985ca9d55238b535d97755b519d307f"
+    sha256 cellar: :any,                 ventura:       "24fef4ad575cda8d7f64c0bc9a48404215d443033e9e5a9000b9d7814e1797cc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d4f626d5bb594095db75cb906e6e9bd6bbda468eadd61a9980ad6f3dbfee296d"
   end
 
   depends_on "certifi"
   depends_on "libyaml"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "arrow" do
     url "https://files.pythonhosted.org/packages/7f/c0/c601ea7811f422700ef809f167683899cdfddec5aa3f83597edf97349962/arrow-1.2.3.tar.gz"
@@ -36,8 +37,8 @@ class Cycode < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/63/09/c1bc53dab74b1816a00d8d030de5bf98f724c52c1635e07681d312f20be8/charset-normalizer-3.3.2.tar.gz"
-    sha256 "f30c3cb33b24454a82faecaf01b19c18562b1e89558fb6c56de4d9118a032fd5"
+    url "https://files.pythonhosted.org/packages/f2/4f/e1808dc01273379acc506d18f1504eb2d299bd4131743b9fc54d7be4df1e/charset_normalizer-3.4.0.tar.gz"
+    sha256 "223217c3d4f82c3ac5e29032b3f1c2eb0fb591b72161f86d93f5719079dae93e"
   end
 
   resource "click" do
@@ -101,8 +102,8 @@ class Cycode < Formula
   end
 
   resource "sentry-sdk" do
-    url "https://files.pythonhosted.org/packages/1b/76/8a6462885c1e162b7fa9d6e7cb7ed4b0f06c8c75843806049ed1c8489d21/sentry_sdk-2.15.0.tar.gz"
-    sha256 "a599e7d3400787d6f43327b973e55a087b931ba2c592a7a7afa691f8eb5e75e2"
+    url "https://files.pythonhosted.org/packages/80/63/59640a54963747d2c4b2d149412b2024abed13bacd4e8d16ae5babb97da0/sentry_sdk-2.16.0.tar.gz"
+    sha256 "90f733b32e15dfc1999e6b7aca67a38688a567329de4d6e184154a73f96c6892"
   end
 
   resource "six" do
@@ -125,6 +126,9 @@ class Cycode < Formula
     sha256 "3e3d753a8618b86d7de333b4223005f68720bcd6a7d2bcb9fbd2229ec7c1e429"
   end
 
+  # patch to support python 3.13
+  patch :DATA
+
   def install
     virtualenv_install_with_resources
 
@@ -140,3 +144,31 @@ class Cycode < Formula
     assert_match version.to_s, shell_output("#{bin}/cycode version")
   end
 end
+
+__END__
+diff --git a/PKG-INFO b/PKG-INFO
+index dd65d02..e310203 100644
+--- a/PKG-INFO
++++ b/PKG-INFO
+@@ -7,7 +7,7 @@ License: MIT
+ Keywords: secret-scan,cycode,devops,token,secret,security,cycode,code
+ Author: Cycode
+ Author-email: support@cycode.com
+-Requires-Python: >=3.7,<3.13
++Requires-Python: >=3.7,<3.14
+ Classifier: Development Status :: 5 - Production/Stable
+ Classifier: Environment :: Console
+ Classifier: License :: OSI Approved :: MIT License
+diff --git a/pyproject.toml b/pyproject.toml
+index aa21079..ec41ce7 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -27,7 +27,7 @@ classifiers = [
+ cycode = "cycode.cli.main:main_cli"
+
+ [tool.poetry.dependencies]
+-python = ">=3.7,<3.13"
++python = ">=3.7,<3.14"
+ click = ">=8.1.0,<8.2.0"
+ colorama = ">=0.4.3,<0.5.0"
+ pyyaml = ">=6.0,<7.0"

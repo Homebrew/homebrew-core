@@ -3,8 +3,8 @@ class ZabbixCli < Formula
 
   desc "CLI tool for interacting with Zabbix monitoring system"
   homepage "https://unioslo.github.io/zabbix-cli/"
-  url "https://github.com/unioslo/zabbix-cli/archive/refs/tags/3.1.2.tar.gz"
-  sha256 "290b2ed29909edba10016799c28ca2eaf67296c46e2338e075a09b1ca9a8f073"
+  url "https://github.com/unioslo/zabbix-cli/archive/refs/tags/3.1.3.tar.gz"
+  sha256 "63b5ddf053e4d8e3be52d2f7223c6fa9c0af800e84c6b377300aaf96b650d651"
   license "GPL-3.0-or-later"
   head "https://github.com/unioslo/zabbix-cli.git", branch: "master"
 
@@ -14,17 +14,17 @@ class ZabbixCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "aee43e33776bb5aa4d107ce9be5785722577822e6c2967cda9741b0aec430f40"
-    sha256 cellar: :any,                 arm64_sonoma:  "b25a65a43949cfa380d280b38e4b314a4d655cafa0922f4af261c7c36efbf444"
-    sha256 cellar: :any,                 arm64_ventura: "4010961d342d1f8e6dc8a7017d66f7f1e86e26956719ee7192a543d3eebbb069"
-    sha256 cellar: :any,                 sonoma:        "633c579f0442c1ff877f82879ace6d7a8155290884f57c63a99311307fa58e35"
-    sha256 cellar: :any,                 ventura:       "ab20db6df830f8bd9f94614f5e624e53c5eb81ba878f8c4a78ac276609c80ca9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "91d95f1d85eaaf24cdd379dcc069e7fd7b2462c6bf5e5cb0bcff3a7c2cc7d8aa"
+    sha256 cellar: :any,                 arm64_sequoia: "49b5a1fcdf63395341657333fe55fae9108a896ff0c5724d32a323d6f0cb0d42"
+    sha256 cellar: :any,                 arm64_sonoma:  "70ebd669585314865e45bb368155382c8bce880ea587d2acb7b3b7fabd42c5a6"
+    sha256 cellar: :any,                 arm64_ventura: "01c807fd3b2c917d1fa444fc3d30ca28cc027fd7d7a475dfa8cab4dca5adddf5"
+    sha256 cellar: :any,                 sonoma:        "af6522743baf69a531aa17ccc86bc056b133f7901b355e0820739771225d830c"
+    sha256 cellar: :any,                 ventura:       "b23c0dd4d3bfb5529fd298d12273bd6ef55111cd856c43549c229a35bce5b5e6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3f61f148723e2cf5816d5cbc43ed38504f48705187cc630d8b4d00f08090d2bc"
   end
 
   depends_on "rust" => :build # for pydantic_core
   depends_on "certifi"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "annotated-types" do
     url "https://files.pythonhosted.org/packages/ee/67/531ea369ba64dcff5ec9c3402f9f51bf748cec26dde048a2f973a4eea7f5/annotated_types-0.7.0.tar.gz"
@@ -32,8 +32,8 @@ class ZabbixCli < Formula
   end
 
   resource "anyio" do
-    url "https://files.pythonhosted.org/packages/78/49/f3f17ec11c4a91fe79275c426658e509b07547f874b14c1a526d86a83fc8/anyio-4.6.0.tar.gz"
-    sha256 "137b4559cbb034c477165047febb6ff83f390fc3b20bf181c1fc0a728cb8beeb"
+    url "https://files.pythonhosted.org/packages/eb/27/6fa26db273f2454d25104b3327192fca83a08eec62f8d61c1078d4a4ed66/anyio-4.6.1.tar.gz"
+    sha256 "936e6613a08e8f71a300cfffca1c1c0806335607247696ac45f9b32c63bfb9aa"
   end
 
   resource "click" do
@@ -52,8 +52,8 @@ class ZabbixCli < Formula
   end
 
   resource "httpcore" do
-    url "https://files.pythonhosted.org/packages/17/b0/5e8b8674f8d203335a62fdfcfa0d11ebe09e23613c3391033cbba35f7926/httpcore-1.0.5.tar.gz"
-    sha256 "34a38e2f9291467ee3b44e89dd52615370e152954ba21721378a87b2960f7a61"
+    url "https://files.pythonhosted.org/packages/b6/44/ed0fa6a17845fb033bd885c03e842f08c1b9406c86a2e60ac1ae1b9206a6/httpcore-1.0.6.tar.gz"
+    sha256 "73f6dbd6eb8c21bbf7ef8efad555481853f5f6acdeaff1edb0694289269ee17f"
   end
 
   resource "httpx" do
@@ -107,8 +107,8 @@ class ZabbixCli < Formula
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/f8/05/686acde8e7d0b29d2a74000db230ce4a6bc4188f26f56cc8ca46e5ee1c10/rich-13.9.0.tar.gz"
-    sha256 "06ff5147711c0f6cec2cdbb247a6cff251268a66d700c2557699bfe104fc0bf4"
+    url "https://files.pythonhosted.org/packages/aa/9e/1784d15b057b0075e5136445aaea92d23955aad2c93eaede673718a40d95/rich-13.9.2.tar.gz"
+    sha256 "51a2c62057461aaf7152b4d611168f93a9fc73068f8ded2790f29fe2b5366d0c"
   end
 
   resource "shellingham" do
@@ -143,13 +143,13 @@ class ZabbixCli < Formula
   end
 
   resource "tomli" do
-    url "https://files.pythonhosted.org/packages/c0/3f/d7af728f075fb08564c5949a9c95e44352e23dee646869fa104a3b2060a3/tomli-2.0.1.tar.gz"
-    sha256 "de526c12914f0c550d15924c62d72abc48d6fe7364aa87328337a31007fe8a4f"
+    url "https://files.pythonhosted.org/packages/35/b9/de2a5c0144d7d75a57ff355c0c24054f965b2dc3036456ae03a51ea6264b/tomli-2.0.2.tar.gz"
+    sha256 "d46d457a85337051c36524bc5349dd91b1877838e2979ac5ced3e710ed8a60ed"
   end
 
   resource "tomli-w" do
-    url "https://files.pythonhosted.org/packages/49/05/6bf21838623186b91aedbda06248ad18f03487dc56fbc20e4db384abde6c/tomli_w-1.0.0.tar.gz"
-    sha256 "f463434305e0336248cac9c2dc8076b707d8a12d019dd349f5c1e382dd1ae1b9"
+    url "https://files.pythonhosted.org/packages/d4/19/b65f1a088ee23e37cdea415b357843eca8b1422a7b11a9eee6e35d4ec273/tomli_w-1.1.0.tar.gz"
+    sha256 "49e847a3a304d516a169a601184932ef0f6b61623fe680f836a2aa7128ed0d33"
   end
 
   resource "typer" do

@@ -9,18 +9,17 @@ class Ford < Formula
   head "https://github.com/Fortran-FOSS-Programmers/ford.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "63c72518c7ea140faa348d8e794e1abcc4bb70a1bbcb62cab65ea06557b7e64d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c1351443ffecad4a799bb3072b3ec517b9520758a43044d0c1bd29343dbd251e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6686763de4492e4b8dd3aeffff68d3a671d3c453cd33854adf3f645b68537148"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "53f2ad95e85e83908deb35d7b756d49e8d0849bb0e8dbb8a462c2a7db127fced"
-    sha256 cellar: :any_skip_relocation, sonoma:         "65053a6afd1013e8ee8d994746d82960c0ba145edfa29d64c1a028511103721f"
-    sha256 cellar: :any_skip_relocation, ventura:        "cae5da7ad6598c1a11bb0d93651aa8ab2e26e168ec433ec00739366f85ca9ae6"
-    sha256 cellar: :any_skip_relocation, monterey:       "cff651a8796c4de58bb68c80deb90da87c2c8a5fd923d09b32dce6942a597d9b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "241bf2424a18c68f48519af4e36afed61bcc68ba3c84af093460c53ca2623cf8"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "31d81fd7d9ca6f006d5111a7c14cc47f76bd3ec8a96d3bd771b9a586841bb832"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "06fa6b73f3a053c394fc7d6ac3497643f264c86405d8dac570ecce9e830dccc4"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "65c0d96e9974bbca08e97968e19570c659d2ad290b036524a31e86b4fe8fd79a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "1092b5a0e8b819d1d23ef65079c3b552a871fffed206488ed0e9420216485aff"
+    sha256 cellar: :any_skip_relocation, ventura:       "e872dc9b038faa03e93af74a04423101333d8331cbc14f4b3c95e56f3c264faa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c0e3abcf24353357b4896fb22a7035f10eb8aae17936e6cf33e4f858b0128bb7"
   end
 
   depends_on "graphviz"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "beautifulsoup4" do
     url "https://files.pythonhosted.org/packages/b3/ca/824b1195773ce6166d388573fc106ce56d4a805bd7427b624e063596ec58/beautifulsoup4-4.12.3.tar.gz"
@@ -53,8 +52,8 @@ class Ford < Formula
   end
 
   resource "markupsafe" do
-    url "https://files.pythonhosted.org/packages/87/5b/aae44c6655f3801e81aa3eef09dbbf012431987ba564d7231722f68df02d/MarkupSafe-2.1.5.tar.gz"
-    sha256 "d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"
+    url "https://files.pythonhosted.org/packages/b4/d2/38ff920762f2247c3af5cbbbbc40756f575d9692d381d7c520f45deb9b8f/markupsafe-3.0.1.tar.gz"
+    sha256 "3e683ee4f5d0fa2dde4db77ed8dd8a876686e3fc417655c2ece9a90576905344"
   end
 
   resource "mdurl" do
@@ -78,13 +77,13 @@ class Ford < Formula
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/b3/01/c954e134dc440ab5f96952fe52b4fdc64225530320a910473c1fe270d9aa/rich-13.7.1.tar.gz"
-    sha256 "9be308cb1fe2f1f57d67ce99e95af38a1e2bc71ad9813b0e247cf7ffbcc3a432"
+    url "https://files.pythonhosted.org/packages/aa/9e/1784d15b057b0075e5136445aaea92d23955aad2c93eaede673718a40d95/rich-13.9.2.tar.gz"
+    sha256 "51a2c62057461aaf7152b4d611168f93a9fc73068f8ded2790f29fe2b5366d0c"
   end
 
   resource "soupsieve" do
-    url "https://files.pythonhosted.org/packages/ce/21/952a240de1c196c7e3fbcd4e559681f0419b1280c617db21157a0390717b/soupsieve-2.5.tar.gz"
-    sha256 "5663d5a7b3bfaeee0bc4372e7fc48f9cff4940b3eec54a6451cc5299f1097690"
+    url "https://files.pythonhosted.org/packages/d7/ce/fbaeed4f9fb8b2daa961f90591662df6a86c1abf25c548329a86920aedfb/soupsieve-2.6.tar.gz"
+    sha256 "e2e68417777af359ec65daac1057404a3c8a5455bb8abc36f1a9866ab1a51abb"
   end
 
   resource "toposort" do

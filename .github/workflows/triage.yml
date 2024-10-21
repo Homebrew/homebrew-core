@@ -149,9 +149,9 @@ jobs:
                 - Formula/lib/libxml++@5.rb
                 - Formula/o/openssl@3.rb
                 - Formula/p/postgresql@17.rb
-                - Formula/p/python@3.12.rb
-                - Formula/p/python-gdbm@3.12.rb
-                - Formula/p/python-tk@3.12.rb
+                - Formula/p/python@3.13.rb
+                - Formula/p/python-gdbm@3.13.rb
+                - Formula/p/python-tk@3.13.rb
 
             - label: missing license
               path: Formula/.+

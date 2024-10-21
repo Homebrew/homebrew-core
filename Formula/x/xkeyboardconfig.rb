@@ -7,14 +7,15 @@ class Xkeyboardconfig < Formula
   head "https://gitlab.freedesktop.org/xkeyboard-config/xkeyboard-config.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "b1ba79c6cd7ae62406d4d5be2e2096fa4e153eebfdf40eb21d3d0986f33b3d5d"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "3e9bd10096890fe0f8e9246fa9dcc2f4d9332298d6ffa4ca1d89af59cef84039"
   end
 
   depends_on "gettext" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => [:build, :test]
-  depends_on "python@3.12" => :build
+  depends_on "python@3.13" => :build
 
   uses_from_macos "libxslt" => :build
 

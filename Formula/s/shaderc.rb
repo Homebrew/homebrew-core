@@ -52,7 +52,8 @@ class Shaderc < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "python@3.12" => :build
+
+  uses_from_macos "python" => :build
 
   # patch to fix `target "SPIRV-Tools-opt" that is not in any export set`
   # upstream bug report, https://github.com/google/shaderc/issues/1413

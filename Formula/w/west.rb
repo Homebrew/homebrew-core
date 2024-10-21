@@ -10,18 +10,17 @@ class West < Formula
   head "https://github.com/zephyrproject-rtos/west.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "0ee9cb30a99d6400d595767032d2bab05268cd74e10e0b0a20177f9a3249fe1a"
-    sha256 cellar: :any,                 arm64_sonoma:   "2e4ff86ef37011283a87f21226a8da341348607d0771d91c46e1450837dc9a7c"
-    sha256 cellar: :any,                 arm64_ventura:  "6f29b5b06c9469e0fd98d303478ab9dff32d1e3692ad8c3b174f3c89c0fb6431"
-    sha256 cellar: :any,                 arm64_monterey: "3832e5f1e7fcf9415603ad62a3bf811baca14a68cb41563c519f3abfeea2d568"
-    sha256 cellar: :any,                 sonoma:         "10d1bf47c45d85e0d7081a4173b0bb04ebfe969da320de32f5972654d6b3a962"
-    sha256 cellar: :any,                 ventura:        "256901cc06869eab475a73b85b396a72142e67a62b7896c30640da7422979c80"
-    sha256 cellar: :any,                 monterey:       "e6657b24e2ee81805fe75db501c914c06d799368923db2bd6093ba1c8641755a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b72a89fa9810937008b3a9d5ec116920b5842c2619eaa4a52716ddf7ff7e4c1d"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "6b3f240b88b78f77e73f5ee429a09890c5283f87720cdd7563cb9c5da2d3ee70"
+    sha256 cellar: :any,                 arm64_sonoma:  "c0059be82370c1d0efc8762854851d0b388b3bf6e44164bc61a6577ef79960c9"
+    sha256 cellar: :any,                 arm64_ventura: "cf0c7ce677590372444646a13e88bdd258eab9a1d99c05a45440c398ba2f3624"
+    sha256 cellar: :any,                 sonoma:        "019fc09588d7919d805d6dd13f5566d733870ebc735f8bcb272ae399079f244f"
+    sha256 cellar: :any,                 ventura:       "b4eb473b704152719f6bfb8b28f4a56cea988a9085a5e10d99ba2d40d6a6f1af"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1fdd796e9673f53ec4b7cbc6d4d290926cf625c0562022c5b7b3a94f5b955f66"
   end
 
   depends_on "libyaml"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "colorama" do
     url "https://files.pythonhosted.org/packages/d8/53/6f443c9a4a8358a93a6792e2acffb9d9d5cb0a5cfd8802644b7b1c9a02e4/colorama-0.4.6.tar.gz"
@@ -49,8 +48,8 @@ class West < Formula
   end
 
   resource "pyyaml" do
-    url "https://files.pythonhosted.org/packages/cd/e5/af35f7ea75cf72f2cd079c95ee16797de7cd71f29ea7c68ae5ce7be1eda0/PyYAML-6.0.1.tar.gz"
-    sha256 "bfdf460b1736c775f2ba9f6a92bca30bc2095067b8a9d77876d1fad6cc3b4a43"
+    url "https://files.pythonhosted.org/packages/54/ed/79a089b6be93607fa5cdaedf301d7dfb23af5f25c398d5ead2525b063e17/pyyaml-6.0.2.tar.gz"
+    sha256 "d584d9ec91ad65861cc08d42e834324ef890a082e591037abe114850ff7bbc3e"
   end
 
   resource "ruamel-yaml" do
@@ -58,14 +57,9 @@ class West < Formula
     sha256 "8b27e6a217e786c6fbe5634d8f3f11bc63e0f80f6a5890f28863d9c45aac311b"
   end
 
-  resource "ruamel-yaml-clib" do
-    url "https://files.pythonhosted.org/packages/46/ab/bab9eb1566cd16f060b54055dd39cf6a34bfa0240c53a7218c43e974295b/ruamel.yaml.clib-0.2.8.tar.gz"
-    sha256 "beb2e0404003de9a4cab9753a8805a8fe9320ee6673136ed7f04255fe60bb512"
-  end
-
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/65/d8/10a70e86f6c28ae59f101a9de6d77bf70f147180fbf40c3af0f64080adc3/setuptools-70.3.0.tar.gz"
-    sha256 "f171bab1dfbc86b132997f26a119f6056a57950d058587841a0082e8830f9dc5"
+    url "https://files.pythonhosted.org/packages/27/b8/f21073fde99492b33ca357876430822e4800cdf522011f18041351dfa74b/setuptools-75.1.0.tar.gz"
+    sha256 "d59a21b17a275fb872a9c3dae73963160ae079f1049ed956880cd7c09b120538"
   end
 
   resource "six" do
@@ -74,10 +68,6 @@ class West < Formula
   end
 
   def install
-    # Work around ruamel.yaml.clib not building on Xcode 15.3, remove after a new release
-    # has resolved: https://sourceforge.net/p/ruamel-yaml-clib/tickets/32/
-    ENV.append_to_cflags "-Wno-incompatible-function-pointer-types" if DevelopmentTools.clang_build_version >= 1500
-
     virtualenv_install_with_resources
   end
 

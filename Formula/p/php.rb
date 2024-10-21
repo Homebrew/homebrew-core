@@ -6,6 +6,7 @@ class Php < Formula
   mirror "https://fossies.org/linux/www/php-8.3.12.tar.xz"
   sha256 "f774e28633e26fc8c5197f4dae58ec9e3ff87d1b4311cbc61ab05a7ad24bd131"
   license "PHP-3.01"
+  revision 1
 
   livecheck do
     url "https://www.php.net/downloads"
@@ -13,12 +14,12 @@ class Php < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "59ed687f3c95122018e2137249a00f0172eb83d84a348b5735f31f1e9ff958a7"
-    sha256 arm64_sonoma:  "042bf7b01c8de99ff588514eb407f82c82ab3c0db22e7cf2e4f3c7edeb0176fb"
-    sha256 arm64_ventura: "79fde409b9add9295c31cdbe07646cd776cc62400704bfb15d248df25efb6b11"
-    sha256 sonoma:        "9611dba306d69f5687ce88b7846c5f8c69d04b2dd4429bc1a6b0a4af2e8f109a"
-    sha256 ventura:       "133ac2c4827d8522fabfc3d05d8862c97921a11158629895a2b814b9b7981072"
-    sha256 x86_64_linux:  "1bfbe05948c998917c207a211a8aaf43714cc015da70f553d48035f01c8d336c"
+    sha256 arm64_sequoia: "3a1b68bfcaa324d24804cdc53f39713bdd3394783cd15c3b03d3d306af9c7dda"
+    sha256 arm64_sonoma:  "86b422357d3a6e8cbfe4f40163bcb025d4a5165992d4f6183989e915cc6c0818"
+    sha256 arm64_ventura: "31fe803f14f625a3eca39317eb97d9235fd9a78bc92d92d18954c0790abc819a"
+    sha256 sonoma:        "4ba01da5435b785da498d907d213651fc19688d14bffe5fa69f7147f9fe376e3"
+    sha256 ventura:       "3a557eded33d150fc3eddbc18770c44adbdd5febbe5f02bdc01bebcdd7312349"
+    sha256 x86_64_linux:  "4bcd6227512ff50b956298f82c4775662028969cb0701a6a13e1808a6f539846"
   end
 
   head do
@@ -40,7 +41,7 @@ class Php < Formula
   depends_on "gd"
   depends_on "gettext"
   depends_on "gmp"
-  depends_on "icu4c"
+  depends_on "icu4c@75"
   depends_on "krb5"
   depends_on "libpq"
   depends_on "libsodium"
@@ -398,7 +399,7 @@ class Php < Formula
       pid = fork do
         exec Formula["httpd"].opt_bin/"httpd", "-X", "-f", "#{testpath}/httpd.conf"
       end
-      sleep 3
+      sleep 10
 
       assert_match expected_output, shell_output("curl -s 127.0.0.1:#{port}")
 
@@ -411,7 +412,7 @@ class Php < Formula
       pid = fork do
         exec Formula["httpd"].opt_bin/"httpd", "-X", "-f", "#{testpath}/httpd-fpm.conf"
       end
-      sleep 3
+      sleep 10
 
       assert_match expected_output, shell_output("curl -s 127.0.0.1:#{port}")
     ensure

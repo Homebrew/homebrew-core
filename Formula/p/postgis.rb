@@ -4,6 +4,7 @@ class Postgis < Formula
   url "https://download.osgeo.org/postgis/source/postgis-3.5.0.tar.gz"
   sha256 "ca698a22cc2b2b3467ac4e063b43a28413f3004ddd505bdccdd74c56a647f510"
   license "GPL-2.0-or-later"
+  revision 3
 
   livecheck do
     url "https://download.osgeo.org/postgis/source/"
@@ -11,13 +12,12 @@ class Postgis < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia: "fa7199217cdc71a7fc459885f47146dcbfe831633bbc6e3a916ffc37655d9bcf"
-    sha256 cellar: :any,                 arm64_sonoma:  "45eeb9f286dc8a028c22360a27a796b008fd0347719edaa5a9402515dc3231f6"
-    sha256 cellar: :any,                 arm64_ventura: "8239b9230b45ca7e0a997484aac90cbcfb81b47c519e04410381a9306a783f08"
-    sha256 cellar: :any,                 sonoma:        "575a907d23cdc03ec9953710f401f7b14330b015a0173d30158642e6de439be2"
-    sha256 cellar: :any,                 ventura:       "f1de61b9a2b443d283f65dcc32c4653a32f5092998c9f3985a9c4e51308be6f1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c5537ac18cccf61c1ab51c11927584102c112ff4484d3093ac4cc897789513ed"
+    sha256 cellar: :any,                 arm64_sequoia: "1475c86516e0742c4e2c17dd2448e8558d1e667c147541f3b2138b44cef7e882"
+    sha256 cellar: :any,                 arm64_sonoma:  "53a0adaed31b76a05107a68100b1ab125606382284cfb9d8f9273c29edf09007"
+    sha256 cellar: :any,                 arm64_ventura: "11965d9e7e045c49de06fbd5c56ce691f3a3dce58609c8222c4e63e0eb1aed7e"
+    sha256 cellar: :any,                 sonoma:        "cacaa42cd77f40971c19cd7a1a111445a8b89a9c15837268730d8d1229c23c20"
+    sha256 cellar: :any,                 ventura:       "84e1407f13bbdbe6e38fd6ee9601827de1d56002abf098f82875d55519b95857"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5d8158003b11518ac2b8acabce0f8a195a76bfe28e1f850ed2cf28adc6da933f"
   end
 
   head do
@@ -34,7 +34,7 @@ class Postgis < Formula
 
   depends_on "gdal"
   depends_on "geos"
-  depends_on "icu4c"
+  depends_on "icu4c@75"
   depends_on "json-c"
   depends_on "libpq"
   depends_on "libxml2"
@@ -47,10 +47,6 @@ class Postgis < Formula
 
   on_macos do
     depends_on "gettext"
-  end
-
-  on_linux do
-    depends_on "llvm@18" # align with `apache-arrow`
   end
 
   def postgresqls
@@ -69,6 +65,8 @@ class Postgis < Formula
 
     # C++17 is required.
     ENV.append "CXXFLAGS", "-std=c++17"
+    # Avoid linking to libc++ on Linux due to indirect LLVM dependency
+    ENV["ac_cv_lib_cpp_main"] = "no" if OS.linux?
 
     bin.mkpath
     system "./autogen.sh" if build.head?

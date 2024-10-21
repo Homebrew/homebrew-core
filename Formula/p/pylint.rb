@@ -8,24 +8,25 @@ class Pylint < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5fe689159cbecdd0be9c24ed756e60da04a74a87ef3a6834e677cef5dd727004"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5fe689159cbecdd0be9c24ed756e60da04a74a87ef3a6834e677cef5dd727004"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "5fe689159cbecdd0be9c24ed756e60da04a74a87ef3a6834e677cef5dd727004"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e9f48f04dc67be486fe6d294d5ba2fab898d7079c7b915a4421c463d45322f66"
-    sha256 cellar: :any_skip_relocation, ventura:       "e9f48f04dc67be486fe6d294d5ba2fab898d7079c7b915a4421c463d45322f66"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b9a4aec538c7861f82134216fa3e033c5a4548e68e4608735a4711405d58fc85"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "eec3a55a6cc18eb434dce4f330941fbdf13802b0e787cb038f65721fe1f0c2f5"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "eec3a55a6cc18eb434dce4f330941fbdf13802b0e787cb038f65721fe1f0c2f5"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "eec3a55a6cc18eb434dce4f330941fbdf13802b0e787cb038f65721fe1f0c2f5"
+    sha256 cellar: :any_skip_relocation, sonoma:        "ed4cde6ff38065b0ec06078e191e584ce20c3e9fe98149db2f83741a7ccc0186"
+    sha256 cellar: :any_skip_relocation, ventura:       "ed4cde6ff38065b0ec06078e191e584ce20c3e9fe98149db2f83741a7ccc0186"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "80854984bc349a8195986e02636c6721345b9eff7cf870108a3b22141b8d18d5"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "astroid" do
-    url "https://files.pythonhosted.org/packages/16/27/0dae53cc2c6b55ebdd6d23bae865b419f0f0f9592897b4e3a7069d0ddc3e/astroid-3.3.4.tar.gz"
-    sha256 "e73d0b62dd680a7c07cb2cd0ce3c22570b044dd01bd994bc3a2dd16c6cbba162"
+    url "https://files.pythonhosted.org/packages/38/1e/326fb1d3d83a3bb77c9f9be29d31f2901e35acb94b0605c3f2e5085047f9/astroid-3.3.5.tar.gz"
+    sha256 "5cfc40ae9f68311075d27ef68a4841bdc5cc7f6cf86671b49f00607d30188e2d"
   end
 
   resource "dill" do
-    url "https://files.pythonhosted.org/packages/17/4d/ac7ffa80c69ea1df30a8aa11b3578692a5118e7cd1aa157e3ef73b092d15/dill-0.3.8.tar.gz"
-    sha256 "3ebe3c479ad625c4553aca177444d89b486b1d84982eeacded644afc0cf797ca"
+    url "https://files.pythonhosted.org/packages/70/43/86fe3f9e130c4137b0f1b50784dd70a5087b911fe07fa81e53e0c4c47fea/dill-0.3.9.tar.gz"
+    sha256 "81aa267dddf68cbfe8029c42ca9ec6a4ab3b22371d1c450abc54422577b4512c"
   end
 
   resource "isort" do

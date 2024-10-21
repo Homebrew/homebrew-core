@@ -7,6 +7,14 @@ class Argtable3 < Formula
   license "BSD-3-Clause"
   head "https://github.com/argtable/argtable3.git", branch: "master"
 
+  # Upstream uses a tag format including a version and hash (e.g.
+  # `v3.2.2.f25c624`) and we only use the version part in the formula, so this
+  # omits the hash part to match.
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)(?:\.\h+)?$/i)
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "977cc6d2b39d50551e00be1cb664891ba886e3e63779769713815ab5c830d4f7"
     sha256 cellar: :any,                 arm64_sonoma:  "59140a12791b4cd3733fd383bbd91373d517ed6a22dded4ae9e74b8fd2039844"

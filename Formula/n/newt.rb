@@ -4,7 +4,7 @@ class Newt < Formula
   url "https://releases.pagure.org/newt/newt-0.52.24.tar.gz"
   sha256 "5ded7e221f85f642521c49b1826c8de19845aa372baf5d630a51774b544fbdbb"
   license "LGPL-2.0-or-later"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://releases.pagure.org/newt/"
@@ -12,18 +12,16 @@ class Newt < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "2916a4e3433d2a6c2379341b8cc3f25b2c3795b3d70a6164e77f22d5346ba4e7"
-    sha256 cellar: :any,                 arm64_sonoma:   "e4b261340f37dfb5285bfd8b5dd284f95758caca8d20a469f878a6c73b0331d2"
-    sha256 cellar: :any,                 arm64_ventura:  "1a383b56fbc5cae2adcc100e7ab815f2e8eea47bd906d80eea99303072db6a75"
-    sha256 cellar: :any,                 arm64_monterey: "ba3f2a5687488c1cdc66397b22b3ca34002436e8373cad2d23587897da557711"
-    sha256 cellar: :any,                 sonoma:         "2a57a589ee51e2591dca29db4243a7b53641c40efa3b0d44ed305144ef239f3e"
-    sha256 cellar: :any,                 ventura:        "1e490884ea9bf5da5cdf0ab79fa20b1e4e02c2d36853cc533dbaa8855a92baea"
-    sha256 cellar: :any,                 monterey:       "e0ce53aa703b820069823b945713e1fdaac547d06b77ff678b88bbb84fa0228a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3125c4ae280adf26b807d5d368b92d01db7942d1dfbae2e550f1e84212f7d026"
+    sha256 cellar: :any,                 arm64_sequoia: "0dcef640f944ee4c90cd5a2ed528681e94dc9b43ddfe156c01edff8d6a5cade4"
+    sha256 cellar: :any,                 arm64_sonoma:  "3ae123a831c21b56e66b175e428e5f90ec223c317af3db8dae551d502d9add01"
+    sha256 cellar: :any,                 arm64_ventura: "131824dbbd51648d4db88157885cee03db0bd1145d69fcdc6d01c64c4ef2519c"
+    sha256 cellar: :any,                 sonoma:        "79766179662f464005df2db159e98fe8286ce0670ec18e8a29f46d843ad14e49"
+    sha256 cellar: :any,                 ventura:       "635561263b0b1267d029fb6d9cb34a235eeeda85116b784f3a603cf3fea83ec0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d5942b5e99097a17fd736ab763c7af5dcc4f020aff7ab94befd41e56ce3f694d"
   end
 
   depends_on "popt"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
   depends_on "s-lang"
 
   on_macos do
@@ -31,7 +29,7 @@ class Newt < Formula
   end
 
   def python3
-    "python3.12"
+    "python3.13"
   end
 
   def install

@@ -15,17 +15,19 @@ class S3ql < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "2f080a531d2538b608b45cadca3074e892cd27672e554a766bb952e8a1d5a15d"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "ba6b7b212edf9dfc28292ebd0e0c0a02cd37f0c3e3216dee660153232bb8ef9c"
   end
 
   depends_on "cython" => :build
   depends_on "pkg-config" => :build
+
   depends_on "cryptography"
   depends_on "libffi"
   depends_on "libfuse"
   depends_on :linux # on macOS, requires closed-source macFUSE
   depends_on "openssl@3"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "apsw" do
     url "https://files.pythonhosted.org/packages/24/fe/b473223765e356e7b2977fe46af650020412b099acd8650402c6f8881b6b/apsw-3.46.0.1.tar.gz"
@@ -38,13 +40,13 @@ class S3ql < Formula
   end
 
   resource "attrs" do
-    url "https://files.pythonhosted.org/packages/e3/fc/f800d51204003fa8ae392c4e8278f256206e7a919b708eef054f5f4b650d/attrs-23.2.0.tar.gz"
-    sha256 "935dc3b529c262f6cf76e50877d35a4bd3c1de194fd41f47a2b7ae8f19971f30"
+    url "https://files.pythonhosted.org/packages/fc/0f/aafca9af9315aee06a89ffde799a10a582fe8de76c563ee80bbcdc08b3fb/attrs-24.2.0.tar.gz"
+    sha256 "5cfb1b9148b5b086569baec03f20d7b6bf3bcacc9a42bebf87ffaaca362f6346"
   end
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/68/ce/95b0bae7968c65473e1298efb042e10cafc7bafc14d9e4f154008241c91d/cffi-1.16.0.tar.gz"
-    sha256 "bcb3ef43e58665bbda2fb198698fcae6776483e0c4a631aa5647806c25e02cc0"
+    url "https://files.pythonhosted.org/packages/fc/97/c783634659c2920c3fc70419e3af40972dbaf758daa229a7d6ea6135c90d/cffi-1.17.1.tar.gz"
+    sha256 "1c39c6016c32bc48dd54561950ebd6836e1670f2ae46128f67cf49e789c52824"
   end
 
   resource "defusedxml" do
@@ -58,18 +60,18 @@ class S3ql < Formula
   end
 
   resource "google-auth" do
-    url "https://files.pythonhosted.org/packages/62/80/e143d53aa8d02c3b468d3feaf58a0dd094a8ff1954e2500f9f68a8e8bf8f/google-auth-2.31.0.tar.gz"
-    sha256 "87805c36970047247c8afe614d4e3af8eceafc1ebba0c679fe75ddd1d575e871"
+    url "https://files.pythonhosted.org/packages/a1/37/c854a8b1b1020cf042db3d67577c6f84cd1e8ff6515e4f5498ae9e444ea5/google_auth-2.35.0.tar.gz"
+    sha256 "f4c64ed4e01e8e8b646ef34c018f8bf3338df0c8e37d8b3bba40e7f574a3278a"
   end
 
   resource "google-auth-oauthlib" do
-    url "https://files.pythonhosted.org/packages/44/77/7433818d44cadd1964473b1d9ab5ecea36e6f951cf2b5188e08f7ebd5dab/google-auth-oauthlib-1.2.0.tar.gz"
-    sha256 "292d2d3783349f2b0734a0a0207b1e1e322ac193c2c09d8f7c613fb7cc501ea8"
+    url "https://files.pythonhosted.org/packages/cc/0f/1772edb8d75ecf6280f1c7f51cbcebe274e8b17878b382f63738fd96cee5/google_auth_oauthlib-1.2.1.tar.gz"
+    sha256 "afd0cad092a2eaa53cd8e8298557d6de1034c6cb4a740500b5357b648af97263"
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/21/ed/f86a79a07470cb07819390452f178b3bef1d375f2ec021ecfc709fc7cf07/idna-3.7.tar.gz"
-    sha256 "028ff3aadf0609c1fd278d8ea3089299412a7a8b9bd005dd08b9f8285bcb5cfc"
+    url "https://files.pythonhosted.org/packages/f1/70/7703c29685631f5a7590aa73f1f1d3fa9a380e654b86af429e0934a32f7d/idna-3.10.tar.gz"
+    sha256 "12f65c9b470abda6dc35cf8e63cc574b1c52b11df2c86030af0ac09b01b13ea9"
   end
 
   resource "outcome" do
@@ -78,8 +80,8 @@ class S3ql < Formula
   end
 
   resource "pyfuse3" do
-    url "https://files.pythonhosted.org/packages/7c/67/c045eca0938c75c609ba9200f474e3b8b13a5c813e119bf3ab2d1fa37ac4/pyfuse3-3.3.0.tar.gz"
-    sha256 "2b31fe412479f9620da2067dd739ed23f4cc37364224891938dedf7766e573bd"
+    url "https://files.pythonhosted.org/packages/67/1e/0f8f285a65e2e64f2f0c4accce4ee67d9ac66ee9684492a4327e48d68d87/pyfuse3-3.4.0.tar.gz"
+    sha256 "793493f4d5e2b3bc10e13b3421d426a6e2e3365264c24376a50b8cbc69762d39"
   end
 
   resource "requests" do
@@ -93,8 +95,8 @@ class S3ql < Formula
   end
 
   resource "trio" do
-    url "https://files.pythonhosted.org/packages/73/66/bc155385503674288a440384c1c262c755af4c218e56e61e4b90635b15af/trio-0.26.0.tar.gz"
-    sha256 "67c5ec3265dd4abc7b1d1ab9ca4fe4c25b896f9c93dac73713778adab487f9c4"
+    url "https://files.pythonhosted.org/packages/9a/03/ab0e9509be0c6465e2773768ec25ee0cb8053c0b91471ab3854bbf2294b2/trio-0.26.2.tar.gz"
+    sha256 "0346c3852c15e5c7d40ea15972c4805689ef2cb8b5206f794c9c19450119f3a4"
   end
 
   resource "six" do
@@ -117,7 +119,7 @@ class S3ql < Formula
     ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
     ENV["OPENSSL_NO_VENDOR"] = "1"
 
-    python3 = "python3.12"
+    python3 = "python3.13"
     venv = virtualenv_create(libexec, python3)
     venv.pip_install resources
 
@@ -127,7 +129,7 @@ class S3ql < Formula
     # Final names: fsck_s3ql, mkfs_s3ql, mount_s3ql, umount_s3ql
     inreplace "setup.py", /'(?:(mkfs|fsck|mount|umount)\.)s3ql =/, "'\\1_s3ql ="
 
-    # Regenerate Cython files for Python 3.12 support. Try to remove in next release.
+    # Regenerate Cython files for Python 3.13 support. Try to remove in next release.
     ENV.prepend_path "PYTHONPATH", Formula["cython"].opt_libexec/Language::Python.site_packages(python3)
     system libexec/"bin/python3", "setup.py", "build_cython"
 

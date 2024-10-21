@@ -21,15 +21,13 @@ class Ola < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_sequoia:  "71b88c9460210835e0adc7cc3c358f089f7a103d458e9be87962c6adaf746877"
-    sha256 arm64_sonoma:   "9388c8bba01773aa91a9685a1cb4fc82e0a80dacf4f0414f5cc2a90db5302579"
-    sha256 arm64_ventura:  "18f42878d05f104a389e40f8fe4999286fed25cbf1075bfec19f68b6719b61bc"
-    sha256 arm64_monterey: "bed04ab8e79d59830d5ea03e2e3d66e64f3948d0f9b42374b6cf5cd046c81ebe"
-    sha256 sonoma:         "64c933089f105c2968b38431ff11a8b5468052edbe971546057228cf0f888987"
-    sha256 ventura:        "f8af0e213940d61c3f5e81d1d37eed7baf0315f3f07bb3b514558ee131a6dc99"
-    sha256 monterey:       "e04546c5b1d70e22ed87ff3a836a189837ea83c9febcaf53e5911471d7f3e7ad"
-    sha256 x86_64_linux:   "447d2768a8f7c86c6adb3aa30f08dcfc2b3b7f834a325e0d0d132cdeccdc7e94"
+    rebuild 2
+    sha256 arm64_sequoia: "6756f75f71aeb38c7756dff6e090cfee952ca87692ca890a727d1b8dca4fdd30"
+    sha256 arm64_sonoma:  "c6fe0ecacc9a978798587d54d22eea826132e4400a4f9e76fc533591a526460c"
+    sha256 arm64_ventura: "344967cebfddd0b82cd24c29a65b7303798b65b9d93fd6977a1e62605b200ca9"
+    sha256 sonoma:        "ffdb1bc51a8dfdae5135c5c701932c600ee0b0c91424db61e6e4d713f553edfe"
+    sha256 ventura:       "ed977705d46715e70a8f882f979678e774ccdb8c083b0a85988c25d41c89032f"
+    sha256 x86_64_linux:  "7db8dc0961d2189f7a6ca03d96b028a1555ebda7fc69395addb98c11698d2cee"
   end
 
   depends_on "autoconf" => :build
@@ -42,7 +40,7 @@ class Ola < Formula
   depends_on "libusb"
   depends_on "numpy"
   depends_on "protobuf@21"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
@@ -53,7 +51,7 @@ class Ola < Formula
   end
 
   def python3
-    "python3.12"
+    "python3.13"
   end
 
   # Remove when we use unversioned protobuf

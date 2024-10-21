@@ -8,25 +8,24 @@ class Flintrock < Formula
   license "Apache-2.0"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia:  "23eea10dbf741ec5ac0258325e571e616a7c291607943c4833863c97da2ab331"
-    sha256 cellar: :any,                 arm64_sonoma:   "b02e4f19ea21a172b683e7a131e872d9aab6dae8387a476b3128b9ae3b004480"
-    sha256 cellar: :any,                 arm64_ventura:  "502e7ab2ba22f2eb53e31cdc2da1d10fab07cf8d2def81ff8d3f2095ef2d4326"
-    sha256 cellar: :any,                 arm64_monterey: "c0df45e674d446728de75a3698804a246718e68b77ac75e914cd3d7b636fa508"
-    sha256 cellar: :any,                 sonoma:         "8b880baf99fb76c026ae45e3feb68c96311966c1534c78648729f37d4b8fc3e6"
-    sha256 cellar: :any,                 ventura:        "87cf58ccdf42a4c0c320e86a97fab378b05d0d03f89a77d5b66e69cc6e00a95e"
-    sha256 cellar: :any,                 monterey:       "de3b60115beaff0d2139daa6e084d17e93460938f34634fa3519b3a524b352ca"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f3fd864a912e442c7dda03560738b8b3747c84b1c914917ca5518a18631daa47"
+    rebuild 3
+    sha256 cellar: :any,                 arm64_sequoia: "24fa38c3037c441cea8ddda14ed7d0017c958bbe7fcd1a5eaa538a3200eb04b0"
+    sha256 cellar: :any,                 arm64_sonoma:  "8da514e5c1f5ff0cc944d6d5574fafe09310c20341b90a493b9151dd5e651be9"
+    sha256 cellar: :any,                 arm64_ventura: "e1c9c2bee6e3559729afaf25b2c1e3a96ae3f2fc11897f40aec89d0006eb46bd"
+    sha256 cellar: :any,                 sonoma:        "6415cd4b740d679ddcc1d7b3edbfa9bbfdc7316644473a59da0cd36515104551"
+    sha256 cellar: :any,                 ventura:       "b5c89ee5307ef6c7091f8f6c527222cd0fdce2356c1297d8fa49aa7933ab40ae"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4f3686b5e99c219bd9214b7fb553c0a33c73b990f492530f25bb33f821396e33"
   end
 
   depends_on "rust" => :build # for bcrypt
   depends_on "cryptography"
+  depends_on "libsodium" # for pynacl
   depends_on "libyaml"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "bcrypt" do
-    url "https://files.pythonhosted.org/packages/72/07/6a6f2047a9dc9d012b7b977e4041d37d078b76b44b7ee4daf331c1e6fb35/bcrypt-4.1.2.tar.gz"
-    sha256 "33313a1200a3ae90b75587ceac502b048b840fc69e7f7a0905b5f87fac7a1258"
+    url "https://files.pythonhosted.org/packages/e4/7e/d95e7d96d4828e965891af92e43b52a4cd3395dc1c1ef4ee62748d0471d0/bcrypt-4.2.0.tar.gz"
+    sha256 "cf69eaf5185fd58f268f805b505ce31f9b9fc2d64b376642164e9244540c1221"
   end
 
   resource "boto3" do
@@ -60,13 +59,13 @@ class Flintrock < Formula
   end
 
   resource "python-dateutil" do
-    url "https://files.pythonhosted.org/packages/4c/c4/13b4776ea2d76c115c1d1b84579f3764ee6d57204f6be27119f13a61d0a9/python-dateutil-2.8.2.tar.gz"
-    sha256 "0123cacc1627ae19ddf3c27a5de5bd67ee4586fbdd6440d9748f8abb483d3e86"
+    url "https://files.pythonhosted.org/packages/66/c0/0c8b6ad9f17a802ee498c46e004a0eb49bc148f2fd230864601a86dcf6db/python-dateutil-2.9.0.post0.tar.gz"
+    sha256 "37dd54208da7e1cd875388217d5e00ebd4179249f90fb72437e91a35459a0ad3"
   end
 
   resource "pyyaml" do
-    url "https://files.pythonhosted.org/packages/cd/e5/af35f7ea75cf72f2cd079c95ee16797de7cd71f29ea7c68ae5ce7be1eda0/PyYAML-6.0.1.tar.gz"
-    sha256 "bfdf460b1736c775f2ba9f6a92bca30bc2095067b8a9d77876d1fad6cc3b4a43"
+    url "https://files.pythonhosted.org/packages/54/ed/79a089b6be93607fa5cdaedf301d7dfb23af5f25c398d5ead2525b063e17/pyyaml-6.0.2.tar.gz"
+    sha256 "d584d9ec91ad65861cc08d42e834324ef890a082e591037abe114850ff7bbc3e"
   end
 
   resource "s3transfer" do
@@ -84,6 +83,9 @@ class Flintrock < Formula
     sha256 "c97dfde1f7bd43a71c8d2a58e369e9b2bf692d1334ea9f9cae55add7d0dd0f84"
   end
 
+  # patch to update pyyaml to build with py3.13, upstream pr ref, https://github.com/nchammas/flintrock/pull/380
+  patch :DATA
+
   def install
     virtualenv_install_with_resources
   end
@@ -95,3 +97,18 @@ class Flintrock < Formula
     assert_match "could not find your AWS credentials", msg
   end
 end
+
+__END__
+diff --git a/setup.py b/setup.py
+index e95a10e..02925e7 100644
+--- a/setup.py
++++ b/setup.py
+@@ -53,7 +53,7 @@ setuptools.setup(
+         'botocore == 1.32.4',
+         'click == 8.1.7',
+         'paramiko == 3.3.1',
+-        'PyYAML == 6.0.1',
++        'PyYAML == 6.0.2',
+     ],
+ 
+     entry_points={

@@ -6,20 +6,21 @@ class Streamlink < Formula
   url "https://files.pythonhosted.org/packages/95/fe/5c0c07f50fae6b70da5c4e4c9156b10515233ca56b15ac426e0956f7a872/streamlink-6.11.0.tar.gz"
   sha256 "562e5d753ca109e1956207de4ac27c337ce6b99fbe7ed7203b945105ed5b2f86"
   license "BSD-2-Clause"
+  revision 1
   head "https://github.com/streamlink/streamlink.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "e49b5e6febacd5e49b614ef2f3c16241380bdb85c71be471ad80d8e9ef3d9810"
-    sha256 cellar: :any,                 arm64_sonoma:  "008e910552e5051d5b994081d926cabc62c8e01cbee6c913078e9b12ee348e3f"
-    sha256 cellar: :any,                 arm64_ventura: "bfebd977b1f71a01fe24fb5a3a9f0c61b9535d4b2a949cbf589eb08137205730"
-    sha256 cellar: :any,                 sonoma:        "229543935e615753ac6ccc532da52fcacb141cfb77474edf062d61aa3797f76c"
-    sha256 cellar: :any,                 ventura:       "6ff0ce13835216349a76e87e1b3900d9779e50014fb791bd91fee371033eed49"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a62fb2529f879220016a049f65acc3f9f55168ce941b724bc7c4a9fd2a35db1b"
+    sha256 cellar: :any,                 arm64_sequoia: "ef6e80cad36df7e3c72ec82334c9492bbee9d328b00e1dde42f17ebb03484e72"
+    sha256 cellar: :any,                 arm64_sonoma:  "8f902f5dad5ad0c850065a854d70d4ac4d792041cb9c11f61f5a62b05e657539"
+    sha256 cellar: :any,                 arm64_ventura: "72d0b4d55eaee38d4303961258bdc61b1ae6fd9a21382a82524e71c50d15a9af"
+    sha256 cellar: :any,                 sonoma:        "c1d78b249d55be9edb19d0be59cbcfb727dea78036cfe8ba5ffee7690be47087"
+    sha256 cellar: :any,                 ventura:       "40a938f40a438db7249eb118f1ecd0992433a886bcfccb4df5f52bfa9e702458"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fc8862df7ec8d117e51b9d0d6cec22265cc7b2338e3f92f4f50e6ec77fab154a"
   end
 
   depends_on "certifi"
   depends_on "libxml2" # https://github.com/Homebrew/homebrew-core/issues/98468
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   uses_from_macos "libffi"
   uses_from_macos "libxslt"

@@ -14,17 +14,18 @@ class Nanopb < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "e565dfe652e29a83bafdb07c65f79ae1c6eec3481b38c16cb19e05d6b0474129"
-    sha256 cellar: :any,                 arm64_sonoma:  "e4bababae240e00a31b80d33ca35435ba367a4e8058fc2a15c07ab4f5b416cc0"
-    sha256 cellar: :any,                 arm64_ventura: "cca3662f717c4a90c24a8e2bd8ef214a884d2023ae5844630adbfa27b2c4543e"
-    sha256 cellar: :any,                 sonoma:        "a6ffcad93f6e937b070e8abf4a30128ef1ab66f7a44a111c9c39696488d06fe0"
-    sha256 cellar: :any,                 ventura:       "132d3b26b75e83e90b0799cc1180adf89b603d3a35f73683eca7bd54df8cf15f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b71c7cdc6bd1c8f1eccb7b123c47e1e56cd6ea8471eecebc8c3dfce29ed16e2a"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "4dda74ced165d82abc82f13baeb15b9d3598560c09b81587f185ff9f869b9718"
+    sha256 cellar: :any,                 arm64_sonoma:  "324320a06e3f779104b027145321c2fc4bbbd879bceaf658f327e98e4f689a32"
+    sha256 cellar: :any,                 arm64_ventura: "295498441bcdf15eb3aa2e231465426e0980c825ba59927a0cda38de0b6e0df2"
+    sha256 cellar: :any,                 sonoma:        "3a2ea4468b72031cf014fe96b9f639328b4e4fcdacc8f8c3e6f94e93bafd4f8a"
+    sha256 cellar: :any,                 ventura:       "2aba3891f33fc2ea0bf95d9394d6dcb82335e2707fda6c266416ea3efa45146d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d387808781feaf19ad9514de2bba60e7833af33ea648cd9d40458d84ddaa55b6"
   end
 
   depends_on "cmake" => :build
   depends_on "protobuf"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "protobuf" do
     url "https://files.pythonhosted.org/packages/b1/a4/4579a61de526e19005ceeb93e478b61d77aa38c8a85ad958ff16a9906549/protobuf-5.28.2.tar.gz"
@@ -38,7 +39,7 @@ class Nanopb < Formula
 
   def install
     ENV.append_to_cflags "-DPB_ENABLE_MALLOC=1"
-    venv = virtualenv_create(libexec, "python3.12")
+    venv = virtualenv_create(libexec, "python3.13")
     venv.pip_install resources
 
     system "cmake", "-S", ".", "-B", "build",

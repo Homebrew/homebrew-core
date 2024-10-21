@@ -8,10 +8,11 @@ class Jsbeautifier < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "ae0d18264986d409d53d0c575f16d249b4ce59fe6bf0fcabbbd04bf9f9be5d19"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "01d73fd9b1ff227bfc84ebc058cd30c660ace2fb8ad98d485a3118b0778290f7"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   conflicts_with "js-beautify", because: "both install `js-beautify` binaries"
 

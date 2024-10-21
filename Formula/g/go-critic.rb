@@ -1,8 +1,8 @@
 class GoCritic < Formula
   desc "Opinionated Go source code linter"
   homepage "https://go-critic.com"
-  url "https://github.com/go-critic/go-critic/archive/refs/tags/v0.11.4.tar.gz"
-  sha256 "6b5d2543c76700865de5d4cef17004cc1c33c437cccd04718cf40411a4cf6d83"
+  url "https://github.com/go-critic/go-critic/archive/refs/tags/v0.11.5.tar.gz"
+  sha256 "df5771670f222759300edc2199dfd46090a876e7ecf5ac230984059cef0b0b83"
   license "MIT"
   head "https://github.com/go-critic/go-critic.git", branch: "master"
 
@@ -12,14 +12,12 @@ class GoCritic < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "d14149ba927e9c4855fc81644ac54aa6875e6484cc22d47bb7fc608a004b9ead"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a77ac84e936fdb767303dfa002b05c7092ad0257751156dde0743050ef7023d1"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5d24bb21bc493d5662920c6a2453ae306ecce5390c41ce7b1ac329fd3294dd1f"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a3f2d04eebe15c8a4f8cd94619c45a48f16ea7f413793bd461a61756b11b84b2"
-    sha256 cellar: :any_skip_relocation, sonoma:         "9ad340044411d6b2f4d5a6201c99c5f48d8cb595efcfd9b99bda2ddeb6e5fffe"
-    sha256 cellar: :any_skip_relocation, ventura:        "99ec7ce91c870c7c0fee8657cc5ea59a16d8e54c10aa451c49d90ea5c523b425"
-    sha256 cellar: :any_skip_relocation, monterey:       "83c43daed295f313406812cd0ef53145c915626e435d7be41ac8d4edd9c384e0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "45df76f9c365d8398b3ababa7f918d767e75fc2a201de9703fc94d85b5e3efb2"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b813049e20570cd0574c868ede6d8fde0ef5bd4384cdac881327d5f61ba1cd43"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b813049e20570cd0574c868ede6d8fde0ef5bd4384cdac881327d5f61ba1cd43"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "b813049e20570cd0574c868ede6d8fde0ef5bd4384cdac881327d5f61ba1cd43"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f9498a478613227e62615b0c3d66f57fc6e97a526cf1d77d8da6f7a8e5076b04"
+    sha256 cellar: :any_skip_relocation, ventura:       "f9498a478613227e62615b0c3d66f57fc6e97a526cf1d77d8da6f7a8e5076b04"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3efaa09f0c7c9cba4db3cce6a5b2fb12ac347374456f988d2ef18520c0cb7aa0"
   end
 
   depends_on "go"

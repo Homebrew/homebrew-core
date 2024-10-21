@@ -16,18 +16,11 @@ class Bagit < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "c54cb02dabb9f973b0267732047c4abb9814348b49a050d615dad5cbae308f56"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2ac616d791db078c99f2a91e28f4eb215fd66627b9a9851dca31a922c1671c4d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "90df11c3427ddb75f74a1e4f8fa8e8deaa6fa0b4aa8dbc81c77b584cd53f967c"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "2bd392766f572fd2218bb6d06c9109c258d509b05b679c1f5860d302ade534b4"
-    sha256 cellar: :any_skip_relocation, sonoma:         "7f9521d057fbe09ee366946d12b385f14bcbe0f745a6a001becff9b884b5e4b2"
-    sha256 cellar: :any_skip_relocation, ventura:        "b9a324e0a48ebd2d5d71c24b7e4330bf1107e90686e91a94ab22f761056e13ff"
-    sha256 cellar: :any_skip_relocation, monterey:       "e0c52143378dd79f8b6a9cb6a411eb62d9d6f0a5c22528e6f8f4aec860572df5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1958e3df0bbfe57f3d7a7d0d7903e1bd27eaddcf0172e9520f71ba1961aab4f7"
+    rebuild 3
+    sha256 cellar: :any_skip_relocation, all: "c52968f9d307a0525271426a777174e9c488c3a062ea6756a68fbf671ab320d3"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   # Replace pkg_resources with importlib
   # https://github.com/LibraryOfCongress/bagit-python/pull/170

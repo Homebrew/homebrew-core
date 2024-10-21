@@ -2,8 +2,8 @@ class Mimirtool < Formula
   desc "CLI for interacting with Grafana Mimir"
   homepage "https://grafana.com/docs/mimir/latest/operators-guide/tools/mimirtool/"
   url "https://github.com/grafana/mimir.git",
-        tag:      "mimir-2.13.0",
-        revision: "4775ec156855ba1eb498e564f09abad35053a44f"
+        tag:      "mimir-2.14.0",
+        revision: "bc5a6ce2f67de0f5fbade9b000e4bf46d6d59518"
   license "AGPL-3.0-only"
   head "https://github.com/grafana/mimir.git", branch: "main"
 
@@ -17,14 +17,12 @@ class Mimirtool < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "714e9bf96fe0595298dc5471cab264c9052019f86ea697e0c6685d55b4fb1dac"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "42f2396e85628e925fb8c4b85139e2eefb48098d1033b48bebcc84f41299718d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e687ecd64eb4bd6e96a51f346dfe9b4d5f3c32f8dc103a4217392ad611c5a3ea"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "04eccdf0d86f5542a09d161b0131d39620d5e046be8f8f007b395dfc9b0da119"
-    sha256 cellar: :any_skip_relocation, sonoma:         "4c11711a318ae7785eae435d754456ea4393e8b17b9a35e2970324c1882af05b"
-    sha256 cellar: :any_skip_relocation, ventura:        "703a71770894c0c6b94a748f8cef0064a1b5c46c47cc5b2c90f6c0e2db10a57f"
-    sha256 cellar: :any_skip_relocation, monterey:       "4a39332303a17db3d6974ce817feaea3effe4fdfa9cd81186b28132bf078c702"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e4c4acf4e18e856ea816e8b4c01e2b7af0a29eb263e5c04b2e636f83e120f955"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "772bc3ad5a4b700aa420e409e8152a0c99b8d07e5b8062f1861ed52d80e2d3f9"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6b4677a015f7761cc4f992fea1dd41febc3e87bbde642ba9ac893edc60763209"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "8945e68dca18ab470d3f7925cea5b96b38c350a88bc0e73043e6e24acfbde098"
+    sha256 cellar: :any_skip_relocation, sonoma:        "4fb7a0eef2d0f3a56c2fefcdb4184adb60cf7459174e112fc443f0f5f8c88939"
+    sha256 cellar: :any_skip_relocation, ventura:       "ec15a22a4e42b444d0b87a7c6d9927b8522242e2d7551dcf8494b246503a9a0e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5ad84a06e157e494a8311b2c6727a88fc97ce5fa117a6ec0bf5061f8432b6f03"
   end
 
   # use "go" again after https://github.com/grafana/mimir/issues/9033 is fixed and released

@@ -1,17 +1,17 @@
 class Libkeccak < Formula
   desc "Keccak-family hashing library"
   homepage "https://codeberg.org/maandree/libkeccak"
-  url "https://codeberg.org/maandree/libkeccak/archive/1.4.1.tar.gz"
-  sha256 "d7b9b9e8da629a80356ce2516c2003e2d46d3ed7a3c3178ba1f89bf1ec8e5fc3"
+  url "https://codeberg.org/maandree/libkeccak/archive/1.4.2.tar.gz"
+  sha256 "a0c15046d0922f20ca5ca2b632181b5f4c37038c3a740127af2751ee37583181"
   license "ISC"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "1d2789a7559a35c28efead797077b31cb6bc0d7d8a34bec98a7c0ffbafe0c2cd"
-    sha256 cellar: :any,                 arm64_sonoma:  "3afd0eda437e5ae52bc5431a993291724462e982169db868e9e4f3137147ebd2"
-    sha256 cellar: :any,                 arm64_ventura: "cd2787eaf814ded617723ef57cde7272b6a0bf045e91c3dddd76f17f0da5c5de"
-    sha256 cellar: :any,                 sonoma:        "6bc4e81b10efb0680d679751bdd02db3cd93f289e3c56e0a411d0ce5d243254f"
-    sha256 cellar: :any,                 ventura:       "8269136615b749cc7a7de231bbd0a0ef05b2bb1154e5a60595db61b38a5855d5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "de5d1d1369bc27861a72fef93c08dfa3d4018629739083124e526922033fc586"
+    sha256 cellar: :any,                 arm64_sequoia: "70977efcdb774de369d24949c0e01429980706b72369428da2a7d63b87f3c0d7"
+    sha256 cellar: :any,                 arm64_sonoma:  "f60cca3b212fb9e7347b2b6fbfe40320871f340dd8b1c7cef1b82f1f051e2cec"
+    sha256 cellar: :any,                 arm64_ventura: "f36edf66bb02643f97a5aa6bd18330839ee173537a10961e38eaf5c99ea9f2a0"
+    sha256 cellar: :any,                 sonoma:        "b86b8c1a529602eec5de64c6d78f820baf7c611b22ddcbc32b187eb73cdfd700"
+    sha256 cellar: :any,                 ventura:       "40d03f81b05b53dbc8ca7e6e5c3de4890a2dbf5665d376f5f2a55d57f232bed9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7ffb9b214f2a9ac56836f8459caa910d8077dc26cc93e85989a72fcddeee3df5"
   end
 
   def install

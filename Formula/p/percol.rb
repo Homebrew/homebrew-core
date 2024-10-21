@@ -10,18 +10,16 @@ class Percol < Formula
   head "https://github.com/mooz/percol.git", branch: "master"
 
   bottle do
-    rebuild 3
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "5d5dd872f932d9e0879acc800da07c8cd5a6319a90e49d8e286f1575e68173b0"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d5597a464a6e0aba9ecd7acaa292993eab3902152f0185bc0d13d8694df95976"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "66f845e8b6002bbe556ae966499d5bf7c480f4b9f25a72397e9aae1fdf4e355a"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "599c1c89a45465582c1ceb50dc104d75682e80d88df94dfd22c26fe128fb859a"
-    sha256 cellar: :any_skip_relocation, sonoma:         "7d9a119d3416d356128749d89215fbb6d6c44d7b6eacd1a6a0f29b735097422a"
-    sha256 cellar: :any_skip_relocation, ventura:        "0dc1d46ae856efe5b417726781c1e517473e20a39597c1b8a57b0d8e8fe2259b"
-    sha256 cellar: :any_skip_relocation, monterey:       "b9a946699e0bd20fe73cb5c9aea58c77204330cda4cedd58917fd8ed4ff9fd21"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ced2fa46c94783273b276e0b057239feb898f041a6525909e2aa14f82f07db18"
+    rebuild 4
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f21f389ba2e22503900f31d63739513f239347fa1a798a24a1d57812c0b0bcd9"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f21f389ba2e22503900f31d63739513f239347fa1a798a24a1d57812c0b0bcd9"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "f21f389ba2e22503900f31d63739513f239347fa1a798a24a1d57812c0b0bcd9"
+    sha256 cellar: :any_skip_relocation, sonoma:        "bb22665ca96a92b9319f8fdb694b809feaf104a1cfa6ea71369e13685af6fe01"
+    sha256 cellar: :any_skip_relocation, ventura:       "bb22665ca96a92b9319f8fdb694b809feaf104a1cfa6ea71369e13685af6fe01"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f21f389ba2e22503900f31d63739513f239347fa1a798a24a1d57812c0b0bcd9"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   uses_from_macos "expect" => :test
 

@@ -8,11 +8,12 @@ class Auditwheel < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "f00694d7d3f45192ba510ce7061735b5f0694e4026225b8272da3abb7bdd0216"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "912cbfe2eb42c61be96f76144f77980e2f7c651fc12deedcc21512c6fdd64b63"
   end
 
   depends_on :linux
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "packaging" do
     url "https://files.pythonhosted.org/packages/51/65/50db4dda066951078f0a96cf12f4b9ada6e4b811516bf0262c0f4f7064d4/packaging-24.1.tar.gz"

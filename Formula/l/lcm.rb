@@ -12,15 +12,13 @@ class Lcm < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia:  "c097ae67003698e1aa377c073a2d8ceb85c7bf1940afd96040af0b6dfd31a099"
-    sha256 cellar: :any,                 arm64_sonoma:   "5d1db2950892b7453af6ef86c81e4ac03cd6b91f71b398c10d6848e5683339b7"
-    sha256 cellar: :any,                 arm64_ventura:  "4a809af57394e0379df764778977115dc8b8cf6d6c5f6898d95797012a7b4924"
-    sha256 cellar: :any,                 arm64_monterey: "f5afc343736b2f84e48b3d365a9424bf306fa1b0e72b70da628c7735eb90b7dd"
-    sha256 cellar: :any,                 sonoma:         "1d2f9816f32cb37046939805b19f143a86ef70fa4f9b6f9c46a9fbacb14b5120"
-    sha256 cellar: :any,                 ventura:        "cb6bb58d21d57f335f8bd021c021939b46f82050a05d56cca3c5642aef1650c3"
-    sha256 cellar: :any,                 monterey:       "fdf7d422eb1ccbe7a152dc3a1973913114eba7e2176f9c3aeb5de7511ad8fd74"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "276ec5165d97b216b53c9056674e853fc85f4e5420811cb034412591c746ba9a"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_sequoia: "3bc6bba97d622e6cad92654b13a189117a05b102d9dff87714692129f010ef80"
+    sha256 cellar: :any,                 arm64_sonoma:  "2d24850362c0287ebb15776799bf023a6eb05baed1ebbede56a12b7c2391920a"
+    sha256 cellar: :any,                 arm64_ventura: "1589412c5fd3789d077c01981f4c8ef633aea1a2f06448a27b75e4e41e01de3f"
+    sha256 cellar: :any,                 sonoma:        "e965eaa67eaabbfab0cbfcfe4850fb604e436ba8542421f93be5e3013004736d"
+    sha256 cellar: :any,                 ventura:       "b5c5f4ac2c858419c931f30903a7cd07a0d6bceb9740a17d5fc156a58b82280c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "18c704832fce5312938ebef41001b435a111a8a12441837fd2f82d9cc5e0db6c"
   end
 
   depends_on "cmake" => :build
@@ -28,10 +26,10 @@ class Lcm < Formula
   depends_on "glib"
   depends_on "lua"
   depends_on "openjdk"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   def python3
-    which("python3.12")
+    which("python3.13")
   end
 
   def install

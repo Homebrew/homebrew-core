@@ -116,7 +116,6 @@
     "extra_packages": ["msgpack", "packaging"]
   },
   "borgmatic": {
-    "extra_packages": ["ruamel-yaml-clib"],
     "exclude_packages": ["certifi"]
   },
   "bpython": {
@@ -365,6 +364,9 @@
   },
   "gptline": {
     "exclude_packages": ["certifi", "pillow"]
+  },
+  "gptme": {
+    "exclude_packages": ["certifi"]
   },
   "graph-tool": {
     "package_name": "",
@@ -666,6 +668,10 @@
     "package_name": "",
     "extra_packages": ["flit-core", "setuptools", "pip", "wheel"]
   },
+  "python@3.13": {
+    "package_name": "",
+    "extra_packages": ["flit-core", "setuptools", "pip", "wheel"]
+  },
   "python-lsp-server": {
     "package_name": "python-lsp-server[websockets]",
     "extra_packages": ["python-lsp-black", "pylsp-mypy", "python-lsp-ruff", "pylsp-rope"]
@@ -822,7 +828,9 @@
   },
   "trezor-agent": {
     "exclude_packages": ["certifi", "cryptography", "pillow"],
-    "extra_packages": ["ledger-agent", "keepkey-agent"]
+    "extra_packages": [
+      "dbus-fast", "ledger-agent", "pyobjc-core", "pyobjc-framework-CoreBluetooth", "pyobjc-framework-libdispatch"
+    ]
   },
   "trzsz": {
     "extra_packages": ["trzsz-iterm2"]

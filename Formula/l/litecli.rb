@@ -9,10 +9,11 @@ class Litecli < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "ca41e73e2f8b3e9b23f38126bb60a21cb6e9992fe8608cf6cb5d40dc81367720"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "d00646d4b1880f440b30e92cf4f7bb5765dfb407bca8e3a360ff568a493044ba"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   uses_from_macos "sqlite"
 
@@ -32,8 +33,8 @@ class Litecli < Formula
   end
 
   resource "prompt-toolkit" do
-    url "https://files.pythonhosted.org/packages/47/6d/0279b119dafc74c1220420028d490c4399b790fc1256998666e3a341879f/prompt_toolkit-3.0.47.tar.gz"
-    sha256 "1e1b29cb58080b1e69f207c893a1a7bf16d127a5c30c9d17a25a5d77792e5360"
+    url "https://files.pythonhosted.org/packages/2d/4f/feb5e137aff82f7c7f3248267b97451da3644f6cdc218edfe549fb354127/prompt_toolkit-3.0.48.tar.gz"
+    sha256 "d6623ab0477a80df74e646bdbc93621143f5caf104206aa29294d53de1a03d90"
   end
 
   resource "pygments" do

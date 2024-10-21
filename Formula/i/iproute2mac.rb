@@ -8,11 +8,12 @@ class Iproute2mac < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "492999307c388d096aaac58390166215f920c50ec477851c495821085b7adf03"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "231085d2b1c81ef0406d5f32239fe6edfb4f92e52ab0f3a4065221e318b2babc"
   end
 
   depends_on :macos
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   def install
     libexec.install "src/iproute2mac.py"

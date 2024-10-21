@@ -1,8 +1,4 @@
-require "language/perl"
-
 class Kpcli < Formula
-  include Language::Perl::Shebang
-
   desc "Command-line interface to KeePass database files"
   homepage "https://kpcli.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/kpcli/kpcli-4.1.2.pl"
@@ -121,8 +117,6 @@ class Kpcli < Formula
                      "--libdir=#{Formula["readline"].opt_lib}"
       system "make", "install"
     end
-
-    rewrite_shebang detected_perl_shebang, "kpcli-#{version}.pl"
 
     libexec.install "kpcli-#{version}.pl" => "kpcli"
     chmod 0755, libexec/"kpcli"

@@ -1,20 +1,18 @@
 class Zlint < Formula
   desc "X.509 Certificate Linter focused on Web PKI standards and requirements"
   homepage "https://github.com/zmap/zlint"
-  url "https://github.com/zmap/zlint/archive/refs/tags/v3.6.3.tar.gz"
-  sha256 "9286b6f153d0a2accac135ae355074963e5afdc55d76d22f0792a76b9898d2e2"
+  url "https://github.com/zmap/zlint/archive/refs/tags/v3.6.4.tar.gz"
+  sha256 "548562c1a7470c6d1c602a077c4e0cb5718ccb53a6e16e49e0671ea8337dae45"
   license "Apache-2.0"
   head "https://github.com/zmap/zlint.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "a1beb8950a9503ab0b4932de82789add12d79eb1a70a4366093d309b972e5b98"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9a967b62986a3a7ba2ed12679119628d5cfb6afa722e4411ce50d56264262055"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bcf36b08cc7362a43f45885b80f5985e6def4985f00fe7a18bba14faca34ab2a"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ffde7cfe3122f29f824eeb7d5ae7d4bdb693acfbc9303e55134195d5cc021821"
-    sha256 cellar: :any_skip_relocation, sonoma:         "d9c4d59a586d3cd889e600be4b6d230a940f6e5da5c7e6df0a5fe53b9f78839b"
-    sha256 cellar: :any_skip_relocation, ventura:        "cf2fab738d9836507ba51895f3d2f7e2e59f2fb05a6cd7ab0b1feebd12d93447"
-    sha256 cellar: :any_skip_relocation, monterey:       "84941ae9f45a82185fbe18f5e4630f43f6837b47eac77e4ae1e2f850b6d06028"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b7145a9724424e2a33b326b7b174c898d56632d8c897cd18cbf5e8f540eea117"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c86370f3ad070d0f3c848347100a48bd31ee400aa0225e31029fa51b73e93055"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c86370f3ad070d0f3c848347100a48bd31ee400aa0225e31029fa51b73e93055"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "c86370f3ad070d0f3c848347100a48bd31ee400aa0225e31029fa51b73e93055"
+    sha256 cellar: :any_skip_relocation, sonoma:        "0febef86ad445d8aeb0c89144a357e94134971bf0d61d8d0ca6394a4a0b831d8"
+    sha256 cellar: :any_skip_relocation, ventura:       "0febef86ad445d8aeb0c89144a357e94134971bf0d61d8d0ca6394a4a0b831d8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fbf6bd14ba1a065b0c51325fef84fb1a7d382cbccb6bca6913e83860a650680e"
   end
 
   depends_on "go" => :build

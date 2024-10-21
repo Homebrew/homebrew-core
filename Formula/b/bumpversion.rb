@@ -11,15 +11,8 @@ class Bumpversion < Formula
   revision 1
 
   bottle do
-    rebuild 5
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "33eef5e66a35d7cb20898f3a91e850e2f606067749a80c6819c83a9c758c9794"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "07fe68b2bd290e6567e3e4b9b6c35d11e34b3b33cfbb854da01546b1a4cb55ac"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0c705255f579570383d66b6b8c060e4d9df8116968fcb1945b77e42b7bad78e3"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5f0f05277d67cc7d2bc05118484f0f71aaede3643c3760c34db436e9a8693422"
-    sha256 cellar: :any_skip_relocation, sonoma:         "127656f691e880532a05123ac1525cc0aa2c0af7726345684cd91aa01da05973"
-    sha256 cellar: :any_skip_relocation, ventura:        "c4adb439a6a643a4bcf566ef3c8dbc36455cc29991ba637f0e298efe1f01fd44"
-    sha256 cellar: :any_skip_relocation, monterey:       "895c88cb05c497f37accb186e8e2488b2475318d9de88c00ed52b76507524655"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6eb5137f99b01f2ae14129dc2911e031c740c5efe6199b6e164e22d2909fee5e"
+    rebuild 6
+    sha256 cellar: :any_skip_relocation, all: "166ec2e234ca2b7970dac12809f1eb9642c8647cd030169049b866c7d03f19ee"
   end
 
   # Original and fork are both unmaintained:
@@ -27,7 +20,7 @@ class Bumpversion < Formula
   # https://github.com/c4urself/bump2version/commit/c3a1995b35335da6fa7932e4bac089992c947bba
   deprecate! date: "2024-09-08", because: :unmaintained
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   def install
     virtualenv_install_with_resources

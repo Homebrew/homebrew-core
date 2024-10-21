@@ -14,12 +14,13 @@ class BtrfsProgs < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "267d655ecc32d194a9d2ba8d54c9a40654f2a0399a4a4f4809b4b036736d73fd"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "af208cffbee39cbbabbc91002cfad1b8f706353ddd466ea3d5fd5f5c8c815416"
   end
 
   depends_on "pkg-config" => :build
   depends_on "python-setuptools" => :build
-  depends_on "python@3.12" => [:build, :test]
+  depends_on "python@3.13" => [:build, :test]
   depends_on "sphinx-doc" => :build
   depends_on "e2fsprogs"
   depends_on :linux
@@ -30,7 +31,7 @@ class BtrfsProgs < Formula
   depends_on "zstd"
 
   def python3
-    which("python3.12")
+    which("python3.13")
   end
 
   # remove sphinx-rtd-theme extension for html docs

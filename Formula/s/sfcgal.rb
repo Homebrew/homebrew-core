@@ -1,20 +1,17 @@
 class Sfcgal < Formula
   desc "C++ wrapper library around CGAL"
   homepage "https://sfcgal.gitlab.io/SFCGAL/"
-  url "https://gitlab.com/sfcgal/SFCGAL/-/archive/v1.5.2/SFCGAL-v1.5.2.tar.gz"
-  sha256 "b946b3c20d53f6e2703046085f0fcfea6c1a4081163f7bedd30b1195801efdd2"
+  url "https://gitlab.com/sfcgal/SFCGAL/-/archive/v2.0.0/SFCGAL-v2.0.0.tar.gz"
+  sha256 "11843953f49e7e4432c42fd27d54e1ff7ca55d0cc72507725c2a5d840c2c6535"
   license "LGPL-2.0-or-later"
-  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "a6c5e58c97b9cc94d3900e7bb23c9804169f1d266a34f77a978a6d4ca84fdf31"
-    sha256 cellar: :any,                 arm64_sonoma:   "a2b1a9cac32d00ecf18cb0a7d9d88ed889ae1c82177042893ee1cc0b151971d6"
-    sha256 cellar: :any,                 arm64_ventura:  "3143d8fcaa298e88ef25967d3023a38788736677278a6b4f0e0503b9e99e9afc"
-    sha256 cellar: :any,                 arm64_monterey: "87555736150d79ed8a8840e4c7bee8bccb3b02964bb876707e88ed063dd21621"
-    sha256 cellar: :any,                 sonoma:         "ed8cd80f0a7b6052ef7bbc6c3d063b8ae0e823885b635b2276b12b82aa3d2e86"
-    sha256 cellar: :any,                 ventura:        "c2ec6da16f95a8de586fc6ee9038f06407afcc4ec70feedb92d89ef7c9bf6545"
-    sha256 cellar: :any,                 monterey:       "abf15d5e04078f3b49e8dc25dfa09de808ab08fe5f630bc1f0efb43d9a65d535"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "eb8e65d7e83c0426427154292e266e8f771213c2b38d2ef9e02ddce37886ce84"
+    sha256 cellar: :any,                 arm64_sequoia: "7f0234c24f1574be350718dad2f1612124f90631a34d2161f950eff8fad4d808"
+    sha256 cellar: :any,                 arm64_sonoma:  "387e36ad36d122b0aa717bdd99e93c255e61635713f58952d2e2df127f9a6047"
+    sha256 cellar: :any,                 arm64_ventura: "181bfdebb902c3ba670822d6daf26ea65f4f5650989a0e0fb84ca40bfe2e83d2"
+    sha256 cellar: :any,                 sonoma:        "b7d0fb782537f604f54a3c822bf92153287cde911b2358bd8662e314b375e873"
+    sha256 cellar: :any,                 ventura:       "f11493b60f86dbc38b954a8268558d7906799be6067256b36618366bf71ecd43"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "009288471a8e2969d49f20270ea842e90a1af155bc71b3106e338f27c3403d65"
   end
 
   depends_on "cmake" => :build

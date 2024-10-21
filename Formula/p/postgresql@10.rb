@@ -24,7 +24,8 @@ class PostgresqlAT10 < Formula
   disable! date: "2023-10-29", because: :unsupported
 
   depends_on "pkg-config" => :build
-  depends_on "icu4c"
+  # Re-add an ICU4C dependency if extracting formula
+  # TODO: depends_on "icu4c"
   depends_on "openssl@3"
   depends_on "readline"
 

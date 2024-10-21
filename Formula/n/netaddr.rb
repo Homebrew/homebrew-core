@@ -9,11 +9,11 @@ class Netaddr < Formula
   head "https://github.com/netaddr/netaddr.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "a7284179680caf2362b7b59aece0fd13ce71d9ee590609b68c8706b0baf8671c"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "956b7206ec84b8593a134a61a6239ebd708be777740155aee63d8f8d0731c2d9"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   def install
     virtualenv_install_with_resources

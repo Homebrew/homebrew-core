@@ -1,18 +1,18 @@
 class Appium < Formula
   desc "Automation for Apps"
   homepage "https://appium.io/"
-  url "https://registry.npmjs.org/appium/-/appium-2.11.5.tgz"
-  sha256 "dce25417dcda0a199b065376b499f99db56ebbd2b5ac05b26d8940404a6b438e"
+  url "https://registry.npmjs.org/appium/-/appium-2.12.0.tgz"
+  sha256 "c47f5d04814484b3f9f6c13a98e27b1795681962054d0ddc40d2565444b524d2"
   license "Apache-2.0"
   head "https://github.com/appium/appium.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "cc04b1f65472bd7db69f603d387bf147bedc1df649a14ecf1fb7b8ba41cabf50"
-    sha256 cellar: :any,                 arm64_sonoma:  "cc04b1f65472bd7db69f603d387bf147bedc1df649a14ecf1fb7b8ba41cabf50"
-    sha256 cellar: :any,                 arm64_ventura: "cc04b1f65472bd7db69f603d387bf147bedc1df649a14ecf1fb7b8ba41cabf50"
-    sha256                               sonoma:        "5acea70e7e0808046fb3e1301d6647e1aeb9bf950867c6cfc4b50ce9f19f12b3"
-    sha256                               ventura:       "5acea70e7e0808046fb3e1301d6647e1aeb9bf950867c6cfc4b50ce9f19f12b3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f4bc9732a1ba1f52727dd1bbd3f5478952b4a773f056f7a05c64b4338083701e"
+    sha256 cellar: :any,                 arm64_sequoia: "9cd65391172100776f375871e1355f572e950e151a95a5bfb098a802b03b6722"
+    sha256 cellar: :any,                 arm64_sonoma:  "9cd65391172100776f375871e1355f572e950e151a95a5bfb098a802b03b6722"
+    sha256 cellar: :any,                 arm64_ventura: "9cd65391172100776f375871e1355f572e950e151a95a5bfb098a802b03b6722"
+    sha256                               sonoma:        "abd46bf9f3f3ce051187a6c682331fd61f17f178c55aa4b9cf8aac8ebccc9fd8"
+    sha256                               ventura:       "abd46bf9f3f3ce051187a6c682331fd61f17f178c55aa4b9cf8aac8ebccc9fd8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bdc05b2f1ecfd4ec2b9276bfa99d57957876d23606aaba5f80e7d17e48007440"
   end
 
   depends_on "node"

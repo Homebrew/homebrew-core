@@ -1,8 +1,8 @@
 class CargoC < Formula
   desc "Helper program to build and install c-like libraries"
   homepage "https://github.com/lu-zero/cargo-c"
-  url "https://github.com/lu-zero/cargo-c/archive/refs/tags/v0.10.4.tar.gz"
-  sha256 "3382f6c3eca404695885e79babfce6448124a481a77cec11c3bfeb5830f677c1"
+  url "https://github.com/lu-zero/cargo-c/archive/refs/tags/v0.10.5.tar.gz"
+  sha256 "3f131a6a647851a617a87daaaf777a9e50817957be0af29806615613e98efc8a"
   license "MIT"
 
   livecheck do
@@ -11,14 +11,12 @@ class CargoC < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "172ec9cfe729bbb51b75faf784dac0747fd4a43de01de4a95cb12a3e084af37a"
-    sha256 cellar: :any,                 arm64_sonoma:   "12ea428e0307c68840de2f48e93dead7cc0dc64d3ce7232733049710bb6156a8"
-    sha256 cellar: :any,                 arm64_ventura:  "0e87dee5ea183f76360d4c8bbc511926e7ce256c4d59966897a67cf88113bc01"
-    sha256 cellar: :any,                 arm64_monterey: "5d1f2858d8ce6b55c88cee5baa9ac9f5b060c88639b999418c5835b3a2c00a20"
-    sha256 cellar: :any,                 sonoma:         "6714b6ad00bd4d393d6fd5b2dac6179cc50f8d025939c261b7547f59f856b64c"
-    sha256 cellar: :any,                 ventura:        "15ef259844d5b8d47f7f6ea6d1afc3c0f9057f938c1b8b8f0eb7416ada2e1141"
-    sha256 cellar: :any,                 monterey:       "3af3da222efafdebc1df3ae960f16ae379ce715aaa53af0453ea514328b4e824"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d61baee354fd6c7484812b3b5b6d4b1fef2b09885a8ad1328535bc6695387ccb"
+    sha256 cellar: :any,                 arm64_sequoia: "9c0c1b7844fe4712d74500fab1032405414930b4bba5abed3881a189701bed1a"
+    sha256 cellar: :any,                 arm64_sonoma:  "603a4e4b165a5eb5d7f4f52f7de4c0b583345eb6789a7c9a43aa358d486560b0"
+    sha256 cellar: :any,                 arm64_ventura: "ca357671b2b7d8df05e2e248eda1943ebc666e0ed1a36d8e500d729d6de64d68"
+    sha256 cellar: :any,                 sonoma:        "7a5eb6a052715f2bf19afce583456cfbf42747c8b1f1ca2f5c0cc1c0ae9ae888"
+    sha256 cellar: :any,                 ventura:       "2c4591df9bdfa9fa55d83d3cc4727a094e375c161bec9b7dbd4b7c137a01b68b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d1b17b13927c04926fc5a6e0acf59db403d80c57aff93f8b54243ab0da83c0c8"
   end
 
   depends_on "rust" => :build

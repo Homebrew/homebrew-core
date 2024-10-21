@@ -10,18 +10,17 @@ class SearchThatHash < Formula
   head "https://github.com/HashPals/Search-That-Hash.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "bbdccd78ac5811f5f108eaf6b19d96cb62bec548416730e540a8ab415675a7fe"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "74be3d3f01404fd553024c432fe62ffddb747b77a24abe4e683e341a817955d1"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "74be3d3f01404fd553024c432fe62ffddb747b77a24abe4e683e341a817955d1"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "74be3d3f01404fd553024c432fe62ffddb747b77a24abe4e683e341a817955d1"
-    sha256 cellar: :any_skip_relocation, sonoma:         "e99d1c5fa738f104d6496ee0bf94f75c050255322dd23459652f3fbc1fc565bb"
-    sha256 cellar: :any_skip_relocation, ventura:        "e99d1c5fa738f104d6496ee0bf94f75c050255322dd23459652f3fbc1fc565bb"
-    sha256 cellar: :any_skip_relocation, monterey:       "ae07d651bd676f265d369275cfd994dfdd444b0514b257c717bf94eb01d8d526"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "55d90e1325eee82753acfcd6f79f1b3674b5bb2fb3b24444acce67a5ceea8ba6"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5b3e204dce24083c6713bca5a0dde2d0f0e627f787758e6b8e01803891c54b7b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5b3e204dce24083c6713bca5a0dde2d0f0e627f787758e6b8e01803891c54b7b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "5b3e204dce24083c6713bca5a0dde2d0f0e627f787758e6b8e01803891c54b7b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c9af91650d9b60953e3f937017b8ed2384827bee26fe9800c13bca2bc6ea4124"
+    sha256 cellar: :any_skip_relocation, ventura:       "c9af91650d9b60953e3f937017b8ed2384827bee26fe9800c13bca2bc6ea4124"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5b3e204dce24083c6713bca5a0dde2d0f0e627f787758e6b8e01803891c54b7b"
   end
 
   depends_on "certifi"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "appdirs" do
     url "https://files.pythonhosted.org/packages/d7/d8/05696357e0311f5b5c316d7b95f46c669dd9c15aaeecbb48c7d0aeb88c40/appdirs-1.4.4.tar.gz"
@@ -29,8 +28,8 @@ class SearchThatHash < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/63/09/c1bc53dab74b1816a00d8d030de5bf98f724c52c1635e07681d312f20be8/charset-normalizer-3.3.2.tar.gz"
-    sha256 "f30c3cb33b24454a82faecaf01b19c18562b1e89558fb6c56de4d9118a032fd5"
+    url "https://files.pythonhosted.org/packages/f2/4f/e1808dc01273379acc506d18f1504eb2d299bd4131743b9fc54d7be4df1e/charset_normalizer-3.4.0.tar.gz"
+    sha256 "223217c3d4f82c3ac5e29032b3f1c2eb0fb591b72161f86d93f5719079dae93e"
   end
 
   resource "click" do
@@ -64,8 +63,8 @@ class SearchThatHash < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/21/ed/f86a79a07470cb07819390452f178b3bef1d375f2ec021ecfc709fc7cf07/idna-3.7.tar.gz"
-    sha256 "028ff3aadf0609c1fd278d8ea3089299412a7a8b9bd005dd08b9f8285bcb5cfc"
+    url "https://files.pythonhosted.org/packages/f1/70/7703c29685631f5a7590aa73f1f1d3fa9a380e654b86af429e0934a32f7d/idna-3.10.tar.gz"
+    sha256 "12f65c9b470abda6dc35cf8e63cc574b1c52b11df2c86030af0ac09b01b13ea9"
   end
 
   resource "loguru" do
@@ -84,8 +83,8 @@ class SearchThatHash < Formula
   end
 
   resource "pyparsing" do
-    url "https://files.pythonhosted.org/packages/46/3a/31fd28064d016a2182584d579e033ec95b809d8e220e74c4af6f0f2e8842/pyparsing-3.1.2.tar.gz"
-    sha256 "a1bac0ce561155ecc3ed78ca94d3c9378656ad4c94c1270de543f621420f94ad"
+    url "https://files.pythonhosted.org/packages/8c/d5/e5aeee5387091148a19e1145f63606619cb5f20b83fccb63efae6474e7b2/pyparsing-3.2.0.tar.gz"
+    sha256 "cbf74e27246d595d9a74b186b810f6fbb86726dbf3b9532efb343f6d7294fe9c"
   end
 
   resource "requests" do
@@ -114,8 +113,8 @@ class SearchThatHash < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/43/6d/fa469ae21497ddc8bc93e5877702dca7cb8f911e337aca7452b5724f1bb6/urllib3-2.2.2.tar.gz"
-    sha256 "dd505485549a7a552833da5e6063639d0d177c04f23bc3864e41e5dc5f612168"
+    url "https://files.pythonhosted.org/packages/ed/63/22ba4ebfe7430b76388e7cd448d5478814d3032121827c12a2cc287e2260/urllib3-2.2.3.tar.gz"
+    sha256 "e7d814a81dad81e6caf2ec9fdedb284ecc9c73076b62654547cc64ccdcae26e9"
   end
 
   def install

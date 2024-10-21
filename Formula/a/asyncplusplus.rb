@@ -1,24 +1,17 @@
 class Asyncplusplus < Formula
   desc "Concurrency framework for C++11"
   homepage "https://github.com/Amanieu/asyncplusplus"
-  url "https://github.com/Amanieu/asyncplusplus/archive/refs/tags/v1.1.tar.gz"
-  sha256 "d160d3a433a1e08f51c785742843182c2b81a7bc872766f57bf5f3108377b858"
+  url "https://github.com/Amanieu/asyncplusplus/archive/refs/tags/v1.2.tar.gz"
+  sha256 "0711c8db231bf3eb1066400f49ed73b5c3211a10eb3b8c3e64da3d5fdee8a4bf"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "a2ca3a7427e54dd1ea149c113238b5dd4b3b2343ef529cd46e6c1e5dd36b588b"
-    sha256 cellar: :any,                 arm64_sonoma:   "467985bb99af085a4a77b67bcaba1e944ebe42b900e72ff75fff9eb8eaf0091e"
-    sha256 cellar: :any,                 arm64_ventura:  "898eddc5042c1c1022f157a250372b55a373d1c2a9d54c929280f60c3ea503f1"
-    sha256 cellar: :any,                 arm64_monterey: "b6d8ffe80f5931825874903e480010524c9ce2d3a2d3f19b0152897459748bf9"
-    sha256 cellar: :any,                 arm64_big_sur:  "c44cc09dbae0270a7e13b87eb4a9e5b0af39ba3e7ba13032e37065014e621be9"
-    sha256 cellar: :any,                 sonoma:         "53edd86c167ce5326f5316a1a0bc2a01e9e3d5f4675e787456a3e3fcf65ca43f"
-    sha256 cellar: :any,                 ventura:        "3a0aa2292b9a2da7e16e906d48e48d4d4eb94e93b27f6b2dcc966fee2d6b7a80"
-    sha256 cellar: :any,                 monterey:       "8f08fedb9006a57b2bf0a6af9a78bdf49fc742e47f2a9dc7af5cd34beb2d2ad0"
-    sha256 cellar: :any,                 big_sur:        "c825975d9087a779f70d1daee59e259ac781353c0bdf169dc2255b19afaab447"
-    sha256 cellar: :any,                 catalina:       "8116d1e5d9aefd7de88cb70633fdc91181460f7f0279bcc356f8d020a590510b"
-    sha256 cellar: :any,                 mojave:         "805297c643ba0c1fe0d774ea606f6e0925112b1a364b74122c877d51f1e729fb"
-    sha256 cellar: :any,                 high_sierra:    "ac6212a38c5aa391ee1eb547879615437a830967444deb15674e748c63f0b5b1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "79a9f2c4744ed1a2aca8a323ac6be7753bb3efd5fc4ac06ef999b7c99ada77ed"
+    sha256 cellar: :any,                 arm64_sequoia: "2f1f1563fd122b947f728ed73168c062ffb569adbc92f02e1bbd372edbdaf889"
+    sha256 cellar: :any,                 arm64_sonoma:  "405f620fcdc1fd59da54ac754d28fa308c0f1abab3369dcfc77d2ee80b17fad5"
+    sha256 cellar: :any,                 arm64_ventura: "2a2f1cdc93741e0db73b4359a7881225631f008a7b9e6e3d67d9d2de8d1c8765"
+    sha256 cellar: :any,                 sonoma:        "251aea5c5562246a1ab1a394fa7396a4949df464c354f2007f4d671eee4a75be"
+    sha256 cellar: :any,                 ventura:       "38434ba8c7542abbffd781b7f5f547f166f3143e971677d31bd1dd6a2c9da049"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "31b9d42407804a993ea90e4e2cf04c0466ea226f4a967f1ac8b732d9bf830aec"
   end
 
   depends_on "cmake" => :build

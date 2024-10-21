@@ -3,20 +3,20 @@ class Tox < Formula
 
   desc "Generic Python virtualenv management and test command-line tool"
   homepage "https://tox.wiki/en/latest/"
-  url "https://files.pythonhosted.org/packages/2a/db/ba5b1a4cf664f221a33c3cbb1adf40ccccbbd13f5eec6d9d7291c7a39e44/tox-4.21.2.tar.gz"
-  sha256 "49381ff102296753e378fa5ff30e42a35e695f149b4dbf8a2c49d15fdb5797b2"
+  url "https://files.pythonhosted.org/packages/d6/40/559622c78758a041c2e62fe2f753d4570d3bfbfbe985266bd25ddb3e696d/tox-4.23.0.tar.gz"
+  sha256 "a6bd7d54231d755348d3c3a7b450b5bf6563833716d1299a1619587a1b77a3bf"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3345e0107a507458101dac992a87cd48c0c6fb1564e29562875740e6ca1821f3"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3345e0107a507458101dac992a87cd48c0c6fb1564e29562875740e6ca1821f3"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "3345e0107a507458101dac992a87cd48c0c6fb1564e29562875740e6ca1821f3"
-    sha256 cellar: :any_skip_relocation, sonoma:        "1abf29224772fec97550e67863a54e9be95f1e5bbb01627b56a868117cd9a688"
-    sha256 cellar: :any_skip_relocation, ventura:       "1abf29224772fec97550e67863a54e9be95f1e5bbb01627b56a868117cd9a688"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4e09e2c8ee5a644604b065879997113a06bfcfa20de372c9e0647d7dfd011170"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5dc8a879475cc7d756ae4d748e918e8398b540a11fa6b44a13a8207bab8b9de8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5dc8a879475cc7d756ae4d748e918e8398b540a11fa6b44a13a8207bab8b9de8"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "5dc8a879475cc7d756ae4d748e918e8398b540a11fa6b44a13a8207bab8b9de8"
+    sha256 cellar: :any_skip_relocation, sonoma:        "9f5b893752f8cff696b68ac9dd7ac5a420ae8a30b9a56b4110ce39bb76cd5b9b"
+    sha256 cellar: :any_skip_relocation, ventura:       "9f5b893752f8cff696b68ac9dd7ac5a420ae8a30b9a56b4110ce39bb76cd5b9b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d369f0b960ac8dfd5f733c383c0a72503259bd4394449bf0f131037eb7b34807"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "cachetools" do
     url "https://files.pythonhosted.org/packages/c3/38/a0f315319737ecf45b4319a8cd1f3a908e29d9277b46942263292115eee7/cachetools-5.5.0.tar.gz"
@@ -34,8 +34,8 @@ class Tox < Formula
   end
 
   resource "distlib" do
-    url "https://files.pythonhosted.org/packages/c4/91/e2df406fb4efacdf46871c25cde65d3c6ee5e173b7e5a4547a47bae91920/distlib-0.3.8.tar.gz"
-    sha256 "1530ea13e350031b6312d8580ddb6b27a104275a31106523b8f123787f494f64"
+    url "https://files.pythonhosted.org/packages/0d/dd/1bec4c5ddb504ca60fc29472f3d27e8d4da1257a854e1d96742f15c1d02d/distlib-0.3.9.tar.gz"
+    sha256 "a60f20dea646b8a33f3e7772f74dc0b2d0772d2837ee1342a00645c81edf9403"
   end
 
   resource "filelock" do
@@ -87,7 +87,7 @@ class Tox < Formula
   test do
     assert_match "usage", shell_output("#{bin}/tox --help")
     system bin/"tox"
-    pyver = Language::Python.major_minor_version(Formula["python@3.12"].opt_bin/"python3.12").to_s.delete(".")
+    pyver = Language::Python.major_minor_version(Formula["python@3.13"].opt_bin/"python3.13").to_s.delete(".")
 
     system bin/"tox", "quickstart", "src"
     (testpath/"src/test_trivial.py").write <<~EOS

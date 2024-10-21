@@ -8,11 +8,11 @@ class Chardet < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "9f57b66109b6af73dde80022baa8bdafe994942f56a206ed82a6b34eb033ea63"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "5abd9f3f6191b67dd5c0a9912225873d1aea2371883c7aee8fcc3077e414dc96"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   def install
     virtualenv_install_with_resources

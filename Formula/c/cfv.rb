@@ -8,17 +8,16 @@ class Cfv < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "a36e4742927bdfdb9ee125d64f13d38fdac425a3d40789d17ee12eadaea88bd3"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ac94febc49f9c57b9bbba4db63d39742f4766e3b769d42255e1b71dc5bc74b21"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c2b95b3e71031073ab10c16a1d6b07322562df13bc95d7970c2e27e7bd62f893"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7fc8b50c41b14255ffa4629d144166894c3626249fee25bcfeec0890d20091c6"
-    sha256 cellar: :any_skip_relocation, sonoma:         "10e0898fa05dce5bf6cf59b04e45bc7018bd2493746205a4012510d0cd9bc883"
-    sha256 cellar: :any_skip_relocation, ventura:        "7096f8efcc05d75cff13fd48092a9f173b8191f68ea543c27b9a8e39f8f5b979"
-    sha256 cellar: :any_skip_relocation, monterey:       "3efab7c951face9c8489dce5551d1c9c17185a6c0ad502ece1eab707c7b2443a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2cf9497ff9cb2d03f2a3bd12460e7708fe0545c534de76f9dcc620ae2e3182b2"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4364889501244abb0dec42000034cbb135f74ed15f6bdd7ac2ad21e580297997"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4364889501244abb0dec42000034cbb135f74ed15f6bdd7ac2ad21e580297997"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "4364889501244abb0dec42000034cbb135f74ed15f6bdd7ac2ad21e580297997"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b166757b27f5ba3c246536507dee3c460909e17a5329a897c9280ee81f424d66"
+    sha256 cellar: :any_skip_relocation, ventura:       "b166757b27f5ba3c246536507dee3c460909e17a5329a897c9280ee81f424d66"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4364889501244abb0dec42000034cbb135f74ed15f6bdd7ac2ad21e580297997"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   def install
     virtualenv_install_with_resources
@@ -26,6 +25,7 @@ class Cfv < Formula
 
   test do
     (testpath/"test/test.txt").write "Homebrew!"
+
     cd "test" do
       system bin/"cfv", "-t", "sha1", "-C", "test.txt"
       assert_predicate Pathname.pwd/"test.sha1", :exist?

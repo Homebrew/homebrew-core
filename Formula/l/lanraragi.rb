@@ -35,7 +35,9 @@ class Lanraragi < Formula
   uses_from_macos "libffi"
 
   on_macos do
+    depends_on "libb2"
     depends_on "lz4"
+    depends_on "lzo"
   end
 
   resource "Image::Magick" do

@@ -10,18 +10,11 @@ class NameThatHash < Formula
   head "https://github.com/HashPals/Name-That-Hash.git", branch: "main"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "fcc78ccb3c4423131f83c667e2e33777569530635965bd7a7d3f6117ed9cf5b3"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "cec5b9102cf914f69608410f9a0d008bd0dbe2de41118f6c25583ad817bf0843"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ba3919fafff1b9e66edf899e72961ebc017d62e11aa6fd47fd1e783737e684cd"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "60da52181882609929ef7a0b87a24fabfd50c7ff824bc670c1795eab69a0a7b5"
-    sha256 cellar: :any_skip_relocation, sonoma:         "23b5a2cd17378d9916e9af5f20877c08abae157224233b557159ca53dd0cb1df"
-    sha256 cellar: :any_skip_relocation, ventura:        "2ec1c9f43f7013fd62492b69dbf2e9dd0ecad1b8dc6ad404c7d400f8a1ab6aec"
-    sha256 cellar: :any_skip_relocation, monterey:       "09621962e8d7c29333ec349e6ffcc06b9cb8b73a6a90a1addbb9009b3517bdd4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5241f1aa403fcdda222e52093a27fad168554400a47f2e1449e7466c77543bee"
+    rebuild 3
+    sha256 cellar: :any_skip_relocation, all: "f5f2e0cbb22fb4686764e9d6eed612bd179fa3bee5b9fd8e2040541a291f87aa"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "click" do
     url "https://files.pythonhosted.org/packages/96/d3/f04c7bfcf5c1862a2a5b845c6b2b360488cf47af55dfa79c98f6a6bf98b5/click-8.1.7.tar.gz"
@@ -39,13 +32,13 @@ class NameThatHash < Formula
   end
 
   resource "pygments" do
-    url "https://files.pythonhosted.org/packages/55/59/8bccf4157baf25e4aa5a0bb7fa3ba8600907de105ebc22b0c78cfbf6f565/pygments-2.17.2.tar.gz"
-    sha256 "da46cec9fd2de5be3a8a784f434e4c4ab670b4ff54d605c4c2717e9d49c4c367"
+    url "https://files.pythonhosted.org/packages/8e/62/8336eff65bcbc8e4cb5d05b55faf041285951b6e80f33e2bff2024788f31/pygments-2.18.0.tar.gz"
+    sha256 "786ff802f32e91311bff3889f6e9a86e81505fe99f2735bb6d60ae0c5004f199"
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/a7/ec/4a7d80728bd429f7c0d4d51245287158a1516315cadbb146012439403a9d/rich-13.7.0.tar.gz"
-    sha256 "5cb5123b5cf9ee70584244246816e9114227e0b98ad9176eede6ad54bf5403fa"
+    url "https://files.pythonhosted.org/packages/aa/9e/1784d15b057b0075e5136445aaea92d23955aad2c93eaede673718a40d95/rich-13.9.2.tar.gz"
+    sha256 "51a2c62057461aaf7152b4d611168f93a9fc73068f8ded2790f29fe2b5366d0c"
   end
 
   def install

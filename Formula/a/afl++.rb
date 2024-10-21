@@ -4,32 +4,34 @@ class Aflxx < Formula
   url "https://github.com/AFLplusplus/AFLplusplus/archive/refs/tags/v4.21c.tar.gz"
   sha256 "11f7c77d37cff6e7f65ac7cc55bab7901e0c6208e845a38764394d04ed567b30"
   license "Apache-2.0"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 arm64_sequoia: "2d620933992908d3493f17b4e44c9f388e560c61ea07f5eeeaba6f06958c2981"
-    sha256 arm64_sonoma:  "a91b21cfbebbbf85e072a2b564391e9abe6dacd23ae846d779a274f54c5d56a0"
-    sha256 arm64_ventura: "af51fb3aacb8fc34e83c0d5473bcce88bcfcd5bee97a7d200df6b330573b1e74"
-    sha256 sonoma:        "9972f30928d25849cf62eec6af83b4598e4cd38e34a465af4b871ee8cfac443f"
-    sha256 ventura:       "3ecd8dae6fd187a902ac7e448e5f180440fc0a392ceb84569bc67a4dc3c498db"
-    sha256 x86_64_linux:  "d405240caa4d8bd5c3f2d912da1aa755134d450f87c05929560356692354cedb"
+    sha256 arm64_sequoia: "250f5dba6ce572051f67ae75d75eabcd3613dde3f2927b45bb8cfe72e4e5dac4"
+    sha256 arm64_sonoma:  "dc4b1f173c884c94f425778e0d165a4d1fdd59417eb271b70fa626af3174d2ec"
+    sha256 arm64_ventura: "c99ff3ce07a26dd30716e22afe46b2872d645db463291cb2ef720edee6662bdb"
+    sha256 sonoma:        "ac11de1cd176ad455ba1c4d325ecba42a1db02c431921a1094463cbcbf6bedf0"
+    sha256 ventura:       "170d170077ea53a2a78f4c7926762f722ded361f8e7e08a3681f2fea55e64638"
+    sha256 x86_64_linux:  "2f635704b9c3171d441c263f6d528caa79643e875e44ab96d605176ee2f46d03"
   end
 
   depends_on "coreutils" => :build
   depends_on "llvm"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   # The Makefile will insist on compiling with LLVM clang even without this.
   fails_with :clang
   fails_with :gcc
 
+  # Fix `-flat_namespace` flag usage.
+  # https://github.com/AFLplusplus/AFLplusplus/pull/2217
+  patch do
+    url "https://github.com/AFLplusplus/AFLplusplus/commit/cb5a61d8a1caf235a4852559086895ce841ac292.patch?full_index=1"
+    sha256 "f808b51a8ec184c58b53fe099f321b385b34c143c8c0abc5a427dfbfc09fe1fa"
+  end
+
   def install
     ENV.prepend_path "PATH", Formula["coreutils"].libexec/"gnubin"
-
-    inreplace "GNUmakefile.llvm" do |s|
-      s.gsub! "-Wl,-flat_namespace", ""
-      s.gsub! "-undefined,suppress", "-undefined,dynamic_lookup"
-    end
 
     if OS.mac?
       # Disable the in-build test runs as they require modifying system settings as root.

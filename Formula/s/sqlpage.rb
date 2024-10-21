@@ -2,17 +2,18 @@ class Sqlpage < Formula
   desc "Web application framework, for creation of websites with simple database queries"
   homepage "https://sql.ophir.dev/"
   url "https://github.com/lovasoa/SQLpage/archive/refs/tags/v0.29.0.tar.gz"
-  sha256 "a4e8a802173287f72ca302722a15c2b3b3e6614ec6664a462eefd50aa1c63e58"
+  sha256 "77dde6ec60f34d008861a894dbcdcd50db3646890d1cf3fbdafdf36912803ea0"
   license "MIT"
   head "https://github.com/lovasoa/SQLpage.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f1cfa3ee91122ac1f8419092cb4fe75df27b1accd256e9ae568b0f4bf84fa44c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "54f91dc9657c49858505141db8aa475e1bca53d488a9b5f9193d11682af67593"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "f131a7a815d8dd8c9ceed637755fcebf6cf3c08da28c2e0cb1cad2a56fbb38ea"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e9dbe7dc46aaab4993837a6e09841f3259cd38a1e853b353d27dffc7fed78236"
-    sha256 cellar: :any_skip_relocation, ventura:       "8bfa51b75aba59c0bd551d54ddcd011897c4ecd1e0390ecee89f953d4dd497e2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d2c04c6c8918d007e2d10518330741ae700694312b9c4d32eb66889c260e3262"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2d179885fc95ba49073d90e82a3834b9c168fb6adcb8e2165a4fcc4a6732e5b6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "36da0810157c8a89cbd3e8e0905ca9dbc2dff4f254c05ca3b4a57a4c630e18aa"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "5a5ba24214f0bc6a698a82c55df1a09d54c133fcdc97e22d43f481b21a60169a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "55a9213995b23782bcf5dbdc79b490c05d6361c995822e68df29d0d643974dfa"
+    sha256 cellar: :any_skip_relocation, ventura:       "64073b29ba0313173c03e4acf06d7e24ac3b8a60b2faecd3eb972a7e7dcc1240"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2c4c85a46c9548d6fbb914561608032076b97df3d5fde775d3d19100b9fb957f"
   end
 
   depends_on "rust" => :build

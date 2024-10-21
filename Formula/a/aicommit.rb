@@ -1,17 +1,17 @@
 class Aicommit < Formula
   desc "AI-powered commit message generator"
   homepage "https://github.com/coder/aicommit"
-  url "https://github.com/coder/aicommit/archive/refs/tags/v0.6.3.tar.gz"
-  sha256 "f42fac51fbe334f4d4057622b152eff168f4aa28d6da484af1cea966abd836a1"
+  url "https://github.com/coder/aicommit/archive/refs/tags/v0.6.4.tar.gz"
+  sha256 "393afe45eb2aa438a9d3b211aa19d6e46948c6e6d970ce0c694d5b3897075c99"
   license "CC0-1.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "08f4539b07833129078e0f2ed41c8d219e6267c81162e29fdc8d666173f8e1b8"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "08f4539b07833129078e0f2ed41c8d219e6267c81162e29fdc8d666173f8e1b8"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "08f4539b07833129078e0f2ed41c8d219e6267c81162e29fdc8d666173f8e1b8"
-    sha256 cellar: :any_skip_relocation, sonoma:        "df069029e846d7af4a9350bf8e5e47d3a2269450de5a34a60f594e2d6c2ce0a1"
-    sha256 cellar: :any_skip_relocation, ventura:       "df069029e846d7af4a9350bf8e5e47d3a2269450de5a34a60f594e2d6c2ce0a1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0ed14aa942b8c6bdf1ca078b49bc40e1a84c653cc8b5165484678b9d74e3f8ce"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ba5e2c2761096b1bf8398735271267df4741f9a5c475317548728c1157c9b639"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ba5e2c2761096b1bf8398735271267df4741f9a5c475317548728c1157c9b639"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "ba5e2c2761096b1bf8398735271267df4741f9a5c475317548728c1157c9b639"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d76be98e52b540cb4c50ca7faa8cd3935de27443cc5a75d8c6e78f35333bd226"
+    sha256 cellar: :any_skip_relocation, ventura:       "d76be98e52b540cb4c50ca7faa8cd3935de27443cc5a75d8c6e78f35333bd226"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "571232f6e124681c01a471825cf01491b3621c6dff995f37296fa6fbce3f6d9b"
   end
 
   depends_on "go"

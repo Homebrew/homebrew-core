@@ -9,31 +9,30 @@ class CryticCompile < Formula
   head "https://github.com/crytic/crytic-compile.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "0101bd39e612c114179323af14ff65dbf9e11e96abf957ecded54238e80f630f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d1c3595a2496d3e4144602edf23c60531fa1dc9ab3169302c9e5d304a5409533"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "480d968b69cd6d51808292c5625652b27032617db87fb053306b657b4c9f96ba"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8b3b28b863710ca2bab911ddbd198c434870d0df4f578bb5a91dd6b56184a076"
-    sha256 cellar: :any_skip_relocation, sonoma:         "2635e483dab925dd75dda0b9b00c6880400f10bbd9651d692dee302129642f73"
-    sha256 cellar: :any_skip_relocation, ventura:        "b7c64cb65ef2b4519557617edfb99b32f471b184f5b7c65078e53e504686d8cc"
-    sha256 cellar: :any_skip_relocation, monterey:       "21669063737bf6536e3d9885d1b954f006bd581420c70f7b25e3ed362036f385"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9d7c35db876889ab8dc97a74dce861690d047a2eb235b5265763b931e0c48e2b"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f9eab5446b3457896b0a1a1886fd48371b883a42e7fbd89b62c4c3d9ab43cc87"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "bd34137de9addf44c5e35574d9735faff091559f730dd3cea10d60319ab8179c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "fa637f9a29728f4c89344c08680be186a62e3ca82a43fce597e41ce187e91dff"
+    sha256 cellar: :any_skip_relocation, sonoma:        "a386fa83213174fba2f12477297f8152d82f8f04132b0c519cff9bdecdfcf4da"
+    sha256 cellar: :any_skip_relocation, ventura:       "ab1c4a74e503eadd2d5211c058f615a18f025ec1c2e79baa84676ce184cb78af"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "22c61f5e2019748456d8a0586e1bac5b8e2e932e8955ac2de2c28b125df5f331"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "cbor2" do
-    url "https://files.pythonhosted.org/packages/ca/39/0d0a29671be102bd0c717c60f9c805b46042ff98d4a63282cfaff3704b45/cbor2-5.6.2.tar.gz"
-    sha256 "b7513c2dea8868991fad7ef8899890ebcf8b199b9b4461c3c11d7ad3aef4820d"
+    url "https://files.pythonhosted.org/packages/e4/aa/ba55b47d51d27911981a18743b4d3cebfabccbb0598c09801b734cec4184/cbor2-5.6.5.tar.gz"
+    sha256 "b682820677ee1dbba45f7da11898d2720f92e06be36acec290867d5ebf3d7e09"
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/ee/b5/b43a27ac7472e1818c4bafd44430e69605baefe1f34440593e0332ec8b4d/packaging-24.0.tar.gz"
-    sha256 "eb82c5e3e56209074766e6885bb04b8c38a0c015d0a30036ebe7ece34c9989e9"
+    url "https://files.pythonhosted.org/packages/51/65/50db4dda066951078f0a96cf12f4b9ada6e4b811516bf0262c0f4f7064d4/packaging-24.1.tar.gz"
+    sha256 "026ed72c8ed3fcce5bf8950572258698927fd1dbda10a5e981cdf0ac37f4f002"
   end
 
   resource "pycryptodome" do
-    url "https://files.pythonhosted.org/packages/b9/ed/19223a0a0186b8a91ebbdd2852865839237a21c74f1fbc4b8d5b62965239/pycryptodome-3.20.0.tar.gz"
-    sha256 "09609209ed7de61c2b560cc5c8c4fbf892f8b15b1faf7e4cbffac97db1fffda7"
+    url "https://files.pythonhosted.org/packages/13/52/13b9db4a913eee948152a079fe58d035bd3d1a519584155da8e786f767e6/pycryptodome-3.21.0.tar.gz"
+    sha256 "f7787e0d469bdae763b876174cf2e6c0f7be79808af26b1da96f1a64bcf47297"
   end
 
   resource "solc-select" do

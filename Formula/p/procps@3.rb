@@ -11,7 +11,7 @@ class ProcpsAT3 < Formula
 
   keg_only :versioned_formula
 
-  deprecate! date: "2023-12-14", because: :versioned_formula
+  disable! date: "2024-10-11", because: :versioned_formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build

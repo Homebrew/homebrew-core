@@ -11,18 +11,20 @@ class Orbuculum < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia: "b2ef0c97ab87adebbc5058690f21ff1a65da6050846e583c32391acc180c9636"
-    sha256 cellar: :any, arm64_sonoma:  "d34869941adc81fe89faf96938bff1d942e3712789b2653de9ce6e1c6bab9842"
-    sha256 cellar: :any, arm64_ventura: "f760943e7594b9e1489341e0960375c0acabb46ca2758d303dc6b6e07cb09e67"
-    sha256 cellar: :any, sonoma:        "30dbcf1b1a0c3b492c3f4058fd1b63177b3223d81c76306334ad87420041a81e"
-    sha256 cellar: :any, ventura:       "ee99b891380579be06c4419f1952676469845ba51b3a3832d99f0f949ccd9097"
-    sha256               x86_64_linux:  "e426f5df95dd41d4fcc31f85851f4a4b5a91f5211c3b756dfb900829ab437d9c"
+    rebuild 1
+    sha256 cellar: :any, arm64_sequoia: "ebd5fc98ad26b52efc86a68e8bd5da5f8891c1212dca4382bd1dc55c61697e0f"
+    sha256 cellar: :any, arm64_sonoma:  "ea72ca06cea3b25c72ced4adbe45457176ff5ce9a2a3850c9ce15f77c9d56315"
+    sha256 cellar: :any, arm64_ventura: "1844273329b7624bef902a7578db500bade46d0d4e6f055bd85c47cbb49a829e"
+    sha256 cellar: :any, sonoma:        "6fb59089dc3bccd5478c38f162eb76908f50ab352b0980a0ae8e621b305b882c"
+    sha256 cellar: :any, ventura:       "c464ab9e54fd94ad671079698b68813746c50af3bfe97e1a9aa7169abb35e27e"
+    sha256               x86_64_linux:  "7c9eb6c5596b7d5a8673f89b7359c325aaeda5937b209d500d5db29392efb06a"
   end
 
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "capstone"
+  depends_on "dwarfutils"
   depends_on "libusb"
   depends_on "sdl2"
   depends_on "zeromq"
@@ -30,19 +32,20 @@ class Orbuculum < Formula
   uses_from_macos "ncurses"
 
   on_macos do
-    depends_on "libelf"
+    depends_on "libelf" => :build
   end
 
   on_linux do
     depends_on "elfutils"
   end
 
-  conflicts_with "dwarfutils", because: "both install `dwarfdump` binaries"
-
   def install
+    # Unbundle `dwarfutils`
+    inreplace "meson.build", "= subproject('libdwarf').get_variable('libdwarf')", "= dependency('libdwarf')"
+
     system "meson", "setup", "build", *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"
-    system "meson", "install", "-C", "build", "--tags", "devel,runtime"
+    system "meson", "install", "-C", "build"
   end
 
   test do

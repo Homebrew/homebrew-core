@@ -9,18 +9,16 @@ class Thefuck < Formula
   head "https://github.com/nvbn/thefuck.git", branch: "master"
 
   bottle do
-    rebuild 4
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "4b3e37f405b05decd3251b1e91b835a284b3a8fc1a7cf4a20f06a386acfec6a0"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2500915b3e5ae0e48eaaeb40ec7cf32a9cf9e5a1d5ee122a8b81fee9e2883e9a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4fce04b72e849bedecb73ab255ce785547c1ca0dc03692fdeb1aff09449088d7"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c64d432a8a96d9966f3fd83b103b99e74e37e0de3d093470ce49a16262ea27ca"
-    sha256 cellar: :any_skip_relocation, sonoma:         "f43208a72c2dd68ae928b83ab412cbb475e5aefe9b187a585e0fee51dad9eb90"
-    sha256 cellar: :any_skip_relocation, ventura:        "99bd0b5a6ab2ecced963bf1f671c4d05e01d7ebfc438da2b0cb9b65240b7f1eb"
-    sha256 cellar: :any_skip_relocation, monterey:       "99b4d59149650a245c251e1f0451b76f24dcfddead80ab86cc59dc92874487ca"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ca39bcb4d313412aeb25a11fa8d3925bd6d37007b47b27dbc7c0f12508bb2e60"
+    rebuild 5
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e9b85cc4f5627d8e8df33c99af43c0a9871b07ffc2eb9d1ff9b6d03e1cfcce52"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6b9bbe3ced4a99341cceb45f303392feb020df75b61c34be9cd9303d600c95bc"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "881e92e475fe094f95d2a8c29012383bb85366cb4dbcd5551557f8aef8702229"
+    sha256 cellar: :any_skip_relocation, sonoma:        "90e149f15d0eb582f0a1eee2318cc26ee5872696b9739f784262f2c674ac3c74"
+    sha256 cellar: :any_skip_relocation, ventura:       "a617ea4dee27842f3c8036b52a5f7e5c94ccd2a3bceb879daa310e53582e25a3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "db78af05631768ac7364dffaaf9782679d837b882d6dae9ae9dc8e020366b5cd"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "colorama" do
     url "https://files.pythonhosted.org/packages/d8/53/6f443c9a4a8358a93a6792e2acffb9d9d5cb0a5cfd8802644b7b1c9a02e4/colorama-0.4.6.tar.gz"
@@ -33,8 +31,8 @@ class Thefuck < Formula
   end
 
   resource "psutil" do
-    url "https://files.pythonhosted.org/packages/90/c7/6dc0a455d111f68ee43f27793971cf03fe29b6ef972042549db29eec39a2/psutil-5.9.8.tar.gz"
-    sha256 "6be126e3225486dff286a8fb9a06246a5253f4c7c53b475ea5f5ac934e64194c"
+    url "https://files.pythonhosted.org/packages/18/c7/8c6872f7372eb6a6b2e4708b88419fb46b857f7a2e1892966b851cc79fc9/psutil-6.0.0.tar.gz"
+    sha256 "8faae4f310b6d969fa26ca0545338b21f73c6b15db7c4a8d934a5482faa818f2"
   end
 
   resource "pyte" do

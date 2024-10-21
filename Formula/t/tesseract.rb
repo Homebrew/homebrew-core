@@ -4,6 +4,7 @@ class Tesseract < Formula
   url "https://github.com/tesseract-ocr/tesseract/archive/refs/tags/5.4.1.tar.gz"
   sha256 "c4bc2a81c12a472f445b7c2fb4705a08bd643ef467f51ec84f0e148bd368051b"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/tesseract-ocr/tesseract.git", branch: "main"
 
   livecheck do
@@ -12,14 +13,12 @@ class Tesseract < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "1aa1e95a7c392b42a06b10dc07ca4e3d068d4acb7d350fc8afa345187d7c0c6f"
-    sha256 cellar: :any,                 arm64_sonoma:   "41f0427bedd959c89b6c0aeb4eca98801f229745d50e4aa39dfc05c31785e289"
-    sha256 cellar: :any,                 arm64_ventura:  "ac7861b3d6ceb629f9618e0e5d73706196738cbb01f90bcc48418d25508b5d68"
-    sha256 cellar: :any,                 arm64_monterey: "ac2c5c4c3d242f88fe1eb198e1f0d83c1d714e6db0da42f11752efa084e1e682"
-    sha256 cellar: :any,                 sonoma:         "43ad1eb8de45a461536c0d117767e46e50fb92a0d8a940f7022e9c55fef1da93"
-    sha256 cellar: :any,                 ventura:        "0bdf6471b1818008bead07bc19f73128cd915421cbd56e4d8e5a2b78456c97ed"
-    sha256 cellar: :any,                 monterey:       "d063d7ceb42dc5b4b921c5e5268f8f39f1dd710d313416be6e9fb8f2653736ea"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "99be97155dc76f21c1ff4522c39a63ed6630c061b7f55c6ed1a8a99abb83ba4b"
+    sha256 cellar: :any,                 arm64_sequoia: "edca8dcd15c9c5575a9e8a5a8da6a2bb70df96dea283dfda381ef71196313a3a"
+    sha256 cellar: :any,                 arm64_sonoma:  "354ea4bc743c86f3118336a955ca4a8e61f5d37b8b7978c375ee437eea1b9832"
+    sha256 cellar: :any,                 arm64_ventura: "96ffde5ffcf48dc26eb59e74f23d7efcb762210c4771b8d900127af6afaaaf46"
+    sha256 cellar: :any,                 sonoma:        "4db1a4fcedd3ac176b364126777589a7281bfb09f1052462c32725f20959f390"
+    sha256 cellar: :any,                 ventura:       "96ef10fc82ec5da8b9b8221901050af0dd7ab894a4444625ec336e405e6557af"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b05ff7b2127a045256885e991636d061c9efe4980c817bdffbb034e77c230cbc"
   end
 
   depends_on "autoconf" => :build
@@ -30,7 +29,7 @@ class Tesseract < Formula
   depends_on "fontconfig"
   depends_on "glib"
   depends_on "harfbuzz"
-  depends_on "icu4c"
+  depends_on "icu4c@75"
   depends_on "leptonica"
   depends_on "libarchive"
   depends_on "pango"
@@ -65,9 +64,9 @@ class Tesseract < Formula
     ENV.cxx11
 
     system "./autogen.sh"
-    system "./configure", "--prefix=#{prefix}",
-                          "--disable-dependency-tracking",
-                          "--datarootdir=#{HOMEBREW_PREFIX}/share"
+    system "./configure", "--datarootdir=#{HOMEBREW_PREFIX}/share",
+                          "--disable-silent-rules",
+                          *std_configure_args
 
     system "make", "training"
 

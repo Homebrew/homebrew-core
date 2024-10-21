@@ -1,8 +1,8 @@
 class Abyss < Formula
   desc "Genome sequence assembler for short reads"
   homepage "https://www.bcgsc.ca/resources/software/abyss"
-  url "https://github.com/bcgsc/abyss/releases/download/2.3.9/abyss-2.3.9.tar.gz"
-  sha256 "55f0b27b67b4486dc6cbe132c0f4c228ee4f9e86c56292a7b50633df87e3212e"
+  url "https://github.com/bcgsc/abyss/releases/download/2.3.10/abyss-2.3.10.tar.gz"
+  sha256 "bbe42e00d1ebb53ec6afaad07779baaaee994aa5c65b9a38cf4ad2011bb93c65"
   license all_of: ["GPL-3.0-only", "LGPL-2.1-or-later", "MIT", "BSD-3-Clause"]
 
   livecheck do
@@ -10,12 +10,12 @@ class Abyss < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "eab71545a0ab5f70d930a29ec2df154cd18a6c1deff38cc9aa9baa0e49076821"
-    sha256 cellar: :any,                 arm64_sonoma:  "a1f94fa88a3c8137ab857855d083884a490e41ca9f689e388e3e9ef9c6feba85"
-    sha256 cellar: :any,                 arm64_ventura: "0656d068375b742f0fd8013615429ba6fdfcf519988f368ebfe29182413aa2fe"
-    sha256 cellar: :any,                 sonoma:        "d73c5710bda5819aaba920ed6348750f0bea013ebfcc90c8ef82fbb67e8f07e6"
-    sha256 cellar: :any,                 ventura:       "977e8325243bff9552edd3571da6c386cff159949666426e0c81b54f70277f66"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a75c19295f8d2e58d1aaa762f9948c11513709d0ee85ca838fa41cb87ebae5cf"
+    sha256 cellar: :any,                 arm64_sequoia: "c4c97608ca2bb86304b77b4fddd3abee125f25971ba51495e95e6658b1ad5d1a"
+    sha256 cellar: :any,                 arm64_sonoma:  "f4bdcdb91f2004e514df06e02f91d6341cb8d3f3ce32a9acf3958d37f1983f80"
+    sha256 cellar: :any,                 arm64_ventura: "22819d8dfedb879c1f0742ec3f07e9090d99385b533bfc54158beddbe1eefadc"
+    sha256 cellar: :any,                 sonoma:        "6bd97e0afea52bf21f3c0f01d10b2643c22c4aed6bf3e36cece3545d6ad6e9d1"
+    sha256 cellar: :any,                 ventura:       "d81fe789736077b682ba6cbc7c62d89333ee560a7c2c02a0b3e936810e3cac1a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7cb253b94acc90a0619ef05ba23a178f9a28e8ee0395ffea66abbeb13500726f"
   end
 
   head do

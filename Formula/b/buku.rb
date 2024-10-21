@@ -6,23 +6,21 @@ class Buku < Formula
   url "https://github.com/jarun/buku/archive/refs/tags/v4.9.tar.gz"
   sha256 "1e432270ae78c7852110dcf2c2e215893bcc338299a4998f14a1f6b26e37bfac"
   license "GPL-3.0-or-later"
-  revision 2
+  revision 3
   head "https://github.com/jarun/buku.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "7ad020b8fe874fc34b16ba91ba84491625a20a194ed1bce7d5428dcf6a0c0041"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "42789fd14267d57b9b0c72105cf9f9eea6a569252f7b5cefbed919c9de76c2dc"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "220c3bc922a5a4ecd65e4744d3f338a6260209343aae13d8c5fd62c6220afcfa"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "da1690b766a2a5d1b0b60f75d656f2e04ff569d3a13dd15ec1a2c7f9d54182ca"
-    sha256 cellar: :any_skip_relocation, sonoma:         "b1a8151f967b9ce29331ca1deb8a9961e29d93c53a56106b8f94124c9a999126"
-    sha256 cellar: :any_skip_relocation, ventura:        "78ffcaff8c41bcab589d21f9c335cb4d7b8ab9dfc04c9aa70849b7de744e3e0a"
-    sha256 cellar: :any_skip_relocation, monterey:       "a182efa77e04bf172c94b56cd9e0ab2d5c034a793f3cb24e248bbb0318a03801"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0dc87c08b6b4504d81dad0696f6ae0e514a2f435210b044b03ad6e3da898e99a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "91c197ca9aa2c9dab0f7dc7fca83d9ec957c08f936791c7ea9baa5baaac053b2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8373d4f30efef28097c4836a6ca12076eb7c700b8c5a881ac1963ec276efeebf"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "05c8754f49764e3a858755539096b8ef41494586237754b9eebd1ec5afb5ac87"
+    sha256 cellar: :any_skip_relocation, sonoma:        "769a6a9b5fd71a38805879af37f9b8af4be10497f37e3adcf61e9db8695e805d"
+    sha256 cellar: :any_skip_relocation, ventura:       "d6628b26bfb355c40b1dd83db291d3e65094f6fd9d28221df1f7cffe593f9e7a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a7677e9fc2fef63e82ca4e269e58b5e3301aecca9a9c01b0712deb7790b33ad7"
   end
 
   depends_on "certifi"
   depends_on "cryptography"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   uses_from_macos "expect" => :test
   uses_from_macos "libffi"

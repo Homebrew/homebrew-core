@@ -1,20 +1,22 @@
 class Swig < Formula
   desc "Generate scripting interfaces to C/C++ code"
   homepage "https://www.swig.org/"
-  url "https://downloads.sourceforge.net/project/swig/swig/swig-4.2.1/swig-4.2.1.tar.gz"
-  sha256 "fa045354e2d048b2cddc69579e4256245d4676894858fcf0bab2290ecf59b7d8"
+  url "https://downloads.sourceforge.net/project/swig/swig/swig-4.3.0/swig-4.3.0.tar.gz"
+  sha256 "f7203ef796f61af986c70c05816236cbd0d31b7aa9631e5ab53020ab7804aa9e"
   license "GPL-3.0-or-later"
 
+  livecheck do
+    url "https://sourceforge.net/projects/swig/rss?path=/swig"
+    regex(%r{url=.*?/swig[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
-    sha256 arm64_sequoia:  "95bf38d7a0ccac04b3fb52c7f19be5d57f03f27a777cc9e0415ec1aa09b02d1e"
-    sha256 arm64_sonoma:   "183268434604fe51bf67ca63c6bb3adb0327b698be2214d1eb43c0d5d2ebb231"
-    sha256 arm64_ventura:  "0bc1f80fdf13d7aa62a5940fa739162a00b4ae25d6d978d9f7021d08799a08ef"
-    sha256 arm64_monterey: "0db87779d83c4f22f94ded633d6c3cc6edfc90be6a3c0b78899cd97f0519316d"
-    sha256 sequoia:        "97588fadee83883fa4fa1a79a3ab4c1f1d6239a86fe5b9d4d8bceb7d4d8b5fdf"
-    sha256 sonoma:         "81c8657b9bc70c7a18615e011fb5a1dfd65a0d8ff34b11993194d0c820c439cb"
-    sha256 ventura:        "50ec50d91f2abf91deded716fe9f7b1abe144851b79ec59f2ecd7e9f6004c665"
-    sha256 monterey:       "eb3bb9b187414f8e0a095c89373cc85559b9e84cbb8ae77e90fcc0ccdde8ed71"
-    sha256 x86_64_linux:   "fc7a4fc21a0adda671084c1d85730a5f94bd1528442e15c6579055a485c80300"
+    sha256 arm64_sequoia: "db408b24f15006170ea184c9548d1d489564146daa4da7ced7eb2a7d5102d9eb"
+    sha256 arm64_sonoma:  "c7d5496a5d5145d7d1f685a566061f6b6cb8f60c16fb22d50e6d6dbabd5c6e1a"
+    sha256 arm64_ventura: "47238f89090c776858220e951ead3c6fff0c200ac1a4a1ccaaa37ea943b2c981"
+    sha256 sonoma:        "5cce1106f16209f9b522be787c6bbdacc6e43d461acb041faa73b1ddd79d4474"
+    sha256 ventura:       "d5903d5bbe73a1c358c251728806ba25c4e4b337dd253a611519059a1b8a47f9"
+    sha256 x86_64_linux:  "fcacf510dcbe25a622bf98ba5b71450723e086ca81a28e2d6ce63e17d775eba2"
   end
 
   head do

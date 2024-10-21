@@ -1,10 +1,9 @@
 class ShibbolethSp < Formula
   desc "Shibboleth 2 Service Provider daemon"
   homepage "https://wiki.shibboleth.net/confluence/display/SHIB2"
-  url "https://shibboleth.net/downloads/service-provider/3.4.1/shibboleth-sp-3.4.1.tar.bz2"
-  sha256 "bffe3e62e46d86cc75db1093b77fa1456b30da7c930a13708afa0139c8a8acc1"
+  url "https://shibboleth.net/downloads/service-provider/3.5.0/shibboleth-sp-3.5.0.tar.bz2"
+  sha256 "f301604bd17ee4d94a66e6dd7ad1c3f0917949a4a12176d55614483d78fefe58"
   license "Apache-2.0"
-  revision 2
 
   livecheck do
     url "https://shibboleth.net/downloads/service-provider/latest/"
@@ -12,16 +11,12 @@ class ShibbolethSp < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia:  "5f9d2ea91d30aea4c625a41b46d92d6c8f2046efc425aa7d420e76f50185f3d2"
-    sha256 arm64_sonoma:   "dd40b2194765feea63309c8b7c23abdab493d83bd9c3a430c780dfe8b2b17db4"
-    sha256 arm64_ventura:  "c99c11c8ebc76a48690cfe691b9ceb24839f2c720a28e147acbf49107222e730"
-    sha256 arm64_monterey: "dd191ccaf4626eccceea95ba9a5df763d9504c2e2b6acb45351376ab4c35308d"
-    sha256 arm64_big_sur:  "2deccabb99d0c1687834eaad2700ab6e9a175352c589842b8c14ef305461bf83"
-    sha256 sonoma:         "bc88e9e428f073a1466a892029d4ce76ae95d15ce260a4e448974a5255b4628b"
-    sha256 ventura:        "6aac334d8fce2141b7468ccc14afbbd89ab01a6ea5af50b115ec1f7c3bcb078c"
-    sha256 monterey:       "81b3cc3e0f6a464de58f59bbf7a7b972a464ed9e2d43f4c9a803139aa3a1d119"
-    sha256 big_sur:        "ccf778c36c9beea10ccb74d9a46c062af6509be8b7068cbfc4c9b922fc0b6d83"
-    sha256 x86_64_linux:   "ec22788a7519d49dfbf12c13f652f8c80fc8adc32a9363e40a30c31568f9483f"
+    sha256 arm64_sequoia: "55bf022aa2b6a6fc966d45553c8ce1288ce76858abf2cabe4761277560076f77"
+    sha256 arm64_sonoma:  "df0cd59ffc255be27c05d8fafe3aa245cb572c5aba8e26941f9e7a6d9598efc2"
+    sha256 arm64_ventura: "90bbcecdd669cd1e0961c68697c268955b359d4a336408b1cc9d451060612846"
+    sha256 sonoma:        "eb9c81c8f10b1890b4d860ef07f709032b033d2b4b8e49def01655528c61dc3a"
+    sha256 ventura:       "0e13da6dfef3388f923e184d05ba1dfc9e491f96c8b058e842ee61cb422870c4"
+    sha256 x86_64_linux:  "0dd53cb012bdb80804df6c2ae04476966cc9f337b4e5b2df5ee5cdef9017191c"
   end
 
   depends_on "pkg-config" => :build

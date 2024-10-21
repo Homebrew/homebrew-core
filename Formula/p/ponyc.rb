@@ -2,25 +2,23 @@ class Ponyc < Formula
   desc "Object-oriented, actor-model, capabilities-secure programming language"
   homepage "https://www.ponylang.io/"
   url "https://github.com/ponylang/ponyc.git",
-      tag:      "0.58.5",
-      revision: "0d607b5f1fc7badb8c83a3ebf61b76c70b128894"
+      tag:      "0.58.6",
+      revision: "41be76e6a9a04fbded3dcdcbc4ecad329c50b383"
   license "BSD-2-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "7d856824ad5ebd02852922ee5700c6b93d8f745c8974db5522b707772db60d73"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "67f3dd596e2c63c86b6fd65d0c83b6e999ddaab62bb62cdc0da0527f3723d3cc"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4b877bcf39456ae61aa2c8c9f39c725ea3c0ceb15ea1545bb303f0ba17105581"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f5a75887dac274c00d0461c8a86dce6442f49a1e3599a88ab9c895bc0830e7d4"
-    sha256 cellar: :any_skip_relocation, sonoma:         "0e78012c7147a61f1f9e8787842d22ed098332b64893aa519fe00e1812082fbb"
-    sha256 cellar: :any_skip_relocation, ventura:        "3a80604532c91626de497391ebd515b618428a3bd54e5aaf18cb307579696599"
-    sha256 cellar: :any_skip_relocation, monterey:       "d505f85d42bf600630ddcad5f435f6a5165e68b47b08b450e1f0e33229b16850"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2bd122a559c551a123c20b05d58fc219be181d07079534f2ac800913f9de7d9d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c98438616492c5fbcbdf8e909975f2632b3187eecd6f75064f372249757b4734"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b2636ce85f414bf4b3cae31d52319a601afeeec7c5230a51b7cb1697c952a095"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "e58162e39f7915d9207122821bc1c891514931ca62fe8120a76b1b8f598b6d46"
+    sha256 cellar: :any_skip_relocation, sonoma:        "47170d0364e39d66d157e900899ac3f11ae4b5894fac7b316fe384b90ead3ea7"
+    sha256 cellar: :any_skip_relocation, ventura:       "d9be64ca274eb039c36cb2b7932b0a8f58dc6e1111af2eb191eb96407880209e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f8eb0d99c5f2dd944761817f36f348ba6199dbe293646203095bb12fba1dbafa"
   end
 
   depends_on "cmake" => :build
-  depends_on "python@3.12" => :build
 
   uses_from_macos "llvm" => [:build, :test]
+  uses_from_macos "python" => :build
   uses_from_macos "zlib"
 
   # We use LLVM to work around an error while building bundled `google-benchmark` with GCC

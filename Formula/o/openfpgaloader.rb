@@ -21,7 +21,12 @@ class Openfpgaloader < Formula
   depends_on "pkg-config" => :build
   depends_on "libftdi"
   depends_on "libusb"
+
   uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "systemd"
+  end
 
   def install
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args

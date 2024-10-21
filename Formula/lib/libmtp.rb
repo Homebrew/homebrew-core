@@ -19,13 +19,13 @@ class Libmtp < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "libusb-compat"
+  depends_on "libusb"
 
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--disable-mtpz",
-                          "--with-udev=#{lib}/udev"
+    system "./configure", "--disable-mtpz",
+                          "--disable-silent-rules",
+                          "--with-udev=#{lib}/udev",
+                          *std_configure_args
     system "make", "install"
   end
 

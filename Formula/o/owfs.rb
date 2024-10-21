@@ -32,6 +32,8 @@ class Owfs < Formula
   end
 
   def install
+    ENV.append_to_cflags "-D_DARWIN_C_SOURCE" if OS.mac? && MacOS.version >= :sequoia
+
     system "./configure", "--disable-dependency-tracking",
                           "--disable-swig",
                           "--disable-owtcl",

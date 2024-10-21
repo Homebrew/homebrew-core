@@ -9,21 +9,20 @@ class Xonsh < Formula
   head "https://github.com/xonsh/xonsh.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "dbe0a59b21343fed5d05031efc3043e64cd362ae278b4ddd7f6a8561c7056d63"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "530d7aa3f66275f62bdf7cdd1fae836c2712a86204bb1e6e94587136a6f64a13"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "326b317f207cab511c114353c3b31ed5dbb32e70829038108efcfc003801658e"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d49bec68ed44bf429d1d88f9188a4d2b6119fc4a8ba21c2b8b6e4825451497b5"
-    sha256 cellar: :any_skip_relocation, sonoma:         "041c3bcc60a0d18e80b2aa984d3978bc20485522cd2e35b36573476f127e3aaa"
-    sha256 cellar: :any_skip_relocation, ventura:        "a43ed7ecd0fba5b4bd05ceefbc12d3100c35769e87e6bdc15cc0238d459d052b"
-    sha256 cellar: :any_skip_relocation, monterey:       "df71476647c8b2ca52623077e08c470b7f62272e76923e51f50b8ddf4c9f4a7d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4990f83b56501a22ba516f2722e1084b5157f1ac1a1efa8fc56ee33fc9184051"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "da686b755b2ffda91e301e88cf9f7484d2b4bf3a74a245eb5c6e240c868efab7"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "88064d38089fa20a7a9c9bc1c311053e49105de2c588642c58bc2b53ca67e399"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "4051cbd7e21ae4e4d7713b1b7c53a0f731d915964508672c0257cdfa9cc4446c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "0d930839c027d8def1c3073d1fd00cb8570e6a459577db30f4c792cc9b10a7c0"
+    sha256 cellar: :any_skip_relocation, ventura:       "75bf6a8bf3a21da757555ed499725d44e7301ba2c9c8f15adef803e7f5fe0623"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fa43b09723358a66997be25e1ec39cdcc1f13ed3cfbf8fcd05825692b837a16b"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "prompt-toolkit" do
-    url "https://files.pythonhosted.org/packages/47/6d/0279b119dafc74c1220420028d490c4399b790fc1256998666e3a341879f/prompt_toolkit-3.0.47.tar.gz"
-    sha256 "1e1b29cb58080b1e69f207c893a1a7bf16d127a5c30c9d17a25a5d77792e5360"
+    url "https://files.pythonhosted.org/packages/2d/4f/feb5e137aff82f7c7f3248267b97451da3644f6cdc218edfe549fb354127/prompt_toolkit-3.0.48.tar.gz"
+    sha256 "d6623ab0477a80df74e646bdbc93621143f5caf104206aa29294d53de1a03d90"
   end
 
   resource "pygments" do

@@ -13,24 +13,22 @@ class Cryptominisat < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia:  "375e4707e22ee3af289feae7511a59f82a9ba27d94224c11019232432c549c01"
-    sha256 cellar: :any,                 arm64_sonoma:   "2c8c6da7ff393d94511e7269bb60eecc62cf127d917ac277398d7e5cd68e6e62"
-    sha256 cellar: :any,                 arm64_ventura:  "c2de3aa4b6473c9dc6203f411063688450605fe3ddb41c7f066b8b6fce6be8ea"
-    sha256 cellar: :any,                 arm64_monterey: "14634ab5db2855aeb65c872845adf42008b7c765f1f79d82cda4697ab933f6ed"
-    sha256 cellar: :any,                 sonoma:         "fe7e08322d2e88281fc034aaa0bf966fef9ee2111eaec3322193bd7536c5faad"
-    sha256 cellar: :any,                 ventura:        "5a703dc7a1902709526bbb7371f922b3aabde24fe6e2369a32e683732c1f49ff"
-    sha256 cellar: :any,                 monterey:       "b3b62352b32d3b09d9a5b6551f0ab768a2473448dfe6470b8145a61b0242953f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "15728a5d49b213f34985aed6590d9ea3a25cdebc9701b139734f7a6e0cf0db45"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_sequoia: "48e71ad8b236eb736317e8b39f1a1fac2334e345b315aa9cd04bc843fe706580"
+    sha256 cellar: :any,                 arm64_sonoma:  "bbeb9f9fe45dd2c144870ffa0a77c3b332c694cc7fa4e4c17cf219f4f3ab16c2"
+    sha256 cellar: :any,                 arm64_ventura: "5ffbbf9b609d5a8e0e5dc2bce7237b0a6a7ed184bae66fa4a3a68c9f650b80c2"
+    sha256 cellar: :any,                 sonoma:        "15d86b66627d95536445093c9702b5fcf439e6a6ad67037cc192b5bdec5f5e8b"
+    sha256 cellar: :any,                 ventura:       "ed2723cfbf766a67cfea9a20aba7be51b4b05e0a6f723da3b1133e4260561828"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4291fd6c5691c5de3eeaadb1f6bee8dd83ec80e3ae9dd23baf2a48069b741ef8"
   end
 
   depends_on "cmake" => :build
-  depends_on "python@3.12" => [:build, :test]
+  depends_on "python@3.13" => [:build, :test]
 
   uses_from_macos "zlib"
 
   def python3
-    "python3.12"
+    "python3.13"
   end
 
   def install

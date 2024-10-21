@@ -16,15 +16,12 @@ class SimpleMtpfs < Formula
   depends_on "pkg-config" => :build
   depends_on "libfuse@2"
   depends_on "libmtp"
+  depends_on "libusb"
   depends_on :linux # on macOS, requires closed-source macFUSE
-
-  fails_with gcc: "5"
 
   def install
     system "./autogen.sh"
-    system "./configure", "--prefix=#{prefix}",
-      "CPPFLAGS=-I/usr/local/include/osxfuse -I/usr/local/include/osxfuse/fuse",
-      "LDFLAGS=-L/usr/local/include/osxfuse"
+    system "./configure", "--disable-silent-rules", *std_configure_args
     system "make"
     system "make", "install"
   end

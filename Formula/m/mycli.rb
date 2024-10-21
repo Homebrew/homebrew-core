@@ -9,16 +9,17 @@ class Mycli < Formula
   revision 2
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3f17d5deb92e56910335ee9a7b88562bd36b7340845aecc7eada0779d7be3897"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3f17d5deb92e56910335ee9a7b88562bd36b7340845aecc7eada0779d7be3897"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "3f17d5deb92e56910335ee9a7b88562bd36b7340845aecc7eada0779d7be3897"
-    sha256 cellar: :any_skip_relocation, sonoma:        "febbf1fb8d22d95188bb463f48ad3943c63dfc64d1c89f9672ff34d6f1b67331"
-    sha256 cellar: :any_skip_relocation, ventura:       "febbf1fb8d22d95188bb463f48ad3943c63dfc64d1c89f9672ff34d6f1b67331"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3f17d5deb92e56910335ee9a7b88562bd36b7340845aecc7eada0779d7be3897"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f517f7ac5d54704e92e6b9eca6332e3b51110c714a22d62dd3ddda3871defe44"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f517f7ac5d54704e92e6b9eca6332e3b51110c714a22d62dd3ddda3871defe44"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "f517f7ac5d54704e92e6b9eca6332e3b51110c714a22d62dd3ddda3871defe44"
+    sha256 cellar: :any_skip_relocation, sonoma:        "264dd262daeaba872c2cdae6f3bcd164b8a5017e33cc7ba271e136f131820ebe"
+    sha256 cellar: :any_skip_relocation, ventura:       "264dd262daeaba872c2cdae6f3bcd164b8a5017e33cc7ba271e136f131820ebe"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f517f7ac5d54704e92e6b9eca6332e3b51110c714a22d62dd3ddda3871defe44"
   end
 
   depends_on "cryptography"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   uses_from_macos "libffi"
 
@@ -38,8 +39,8 @@ class Mycli < Formula
   end
 
   resource "prompt-toolkit" do
-    url "https://files.pythonhosted.org/packages/47/6d/0279b119dafc74c1220420028d490c4399b790fc1256998666e3a341879f/prompt_toolkit-3.0.47.tar.gz"
-    sha256 "1e1b29cb58080b1e69f207c893a1a7bf16d127a5c30c9d17a25a5d77792e5360"
+    url "https://files.pythonhosted.org/packages/2d/4f/feb5e137aff82f7c7f3248267b97451da3644f6cdc218edfe549fb354127/prompt_toolkit-3.0.48.tar.gz"
+    sha256 "d6623ab0477a80df74e646bdbc93621143f5caf104206aa29294d53de1a03d90"
   end
 
   resource "pyaes" do
@@ -63,8 +64,8 @@ class Mycli < Formula
   end
 
   resource "sqlglot" do
-    url "https://files.pythonhosted.org/packages/82/7c/a5b77005bdb521dba4f6e27f032dacc5a1b16f5ea40571fea92e422b2e0a/sqlglot-25.22.0.tar.gz"
-    sha256 "f7b9291556ac73301c1a72dffe1802c0c2bf56c9d223382b3cc4cdfc2b9c26b8"
+    url "https://files.pythonhosted.org/packages/fe/d2/9976d978ee8b6155e81c32922a43993a27666b790f2b10e64ee776ec70c1/sqlglot-25.24.5.tar.gz"
+    sha256 "6d3d604034301ca3b614d6b4148646b4033317b7a93d1801e9661495eb4b4fcf"
   end
 
   resource "sqlparse" do

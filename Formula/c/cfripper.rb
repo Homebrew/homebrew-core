@@ -8,19 +8,18 @@ class Cfripper < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "a3e181ed5cbaa557b8e09f7c14c14332d8c2bcfaced2b8b0640b94e24f2b8071"
-    sha256 cellar: :any,                 arm64_sonoma:   "d6fc50b3f3e3cf6fe6930c95f5cc86f3056cec2bf82e6e11cc8bfc90f249f3ac"
-    sha256 cellar: :any,                 arm64_ventura:  "40758b96ba13931c548799dd12c883e0add6243a2ec444ac0fec3a14bcf38279"
-    sha256 cellar: :any,                 arm64_monterey: "b8549fed8d38d73aadabb5cd0057a5245d53ce5072280c583e339efddceceeac"
-    sha256 cellar: :any,                 sonoma:         "2e6ac0ab5fe1cc01c5bc119db11079cd0476dd155b3222d08629ab6c1fc7e311"
-    sha256 cellar: :any,                 ventura:        "46841a448f209010f36c34de81cc66e648a16151c74fedff0de464b4a0a5bd4f"
-    sha256 cellar: :any,                 monterey:       "7d6b3dc8595c2530e3682645b594844e8975395e7f44fba2f8d4728780c45b4c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fe014c9c77a6b24bbe784e33683e0d277215e9ef634bfc9fc45fb91168b33f8e"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "1429e31442f82a44f7afcd6e9985267e9f5d4103c5d7542805d17b737c6588d1"
+    sha256 cellar: :any,                 arm64_sonoma:  "95d976d4176b99d47aa3b589f42ea47c2e0eae0c0bd5583dd0ece9dcd59da65d"
+    sha256 cellar: :any,                 arm64_ventura: "816a7c4b9102a6c3aa5b438ae336b51aa0eb342a7cf016a9076f9caebe18787c"
+    sha256 cellar: :any,                 sonoma:        "416e702c1295f55617767d824916743bfde9e6fef7c1a252e87a173564905b42"
+    sha256 cellar: :any,                 ventura:       "136e2aee7aca17a311b0acd5cec90dbdf4dd3a4e9799887a08a6b1b412473855"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3aebbad0f71e673ff9e0a004ad9596db6ad576d39794ed8f9616e88b97650825"
   end
 
   depends_on "rust" => :build # for pydantic_core
   depends_on "libyaml"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "annotated-types" do
     url "https://files.pythonhosted.org/packages/ee/67/531ea369ba64dcff5ec9c3402f9f51bf748cec26dde048a2f973a4eea7f5/annotated_types-0.7.0.tar.gz"
@@ -28,13 +27,13 @@ class Cfripper < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/42/e5/738f7bf96f4f5597c8393e11be2c28bef5f876b5635c1ea9d86888e59657/boto3-1.34.144.tar.gz"
-    sha256 "2f3e88b10b8fcc5f6100a9d74cd28230edc9d4fa226d99dd40a3ab38ac213673"
+    url "https://files.pythonhosted.org/packages/b8/29/10988ceaa300ddc628cb899875d85d9998e3da4803226398e002d95b2741/boto3-1.35.39.tar.gz"
+    sha256 "670f811c65e3c5fe4ed8c8d69be0b44b1d649e992c0fc16de43816d1188f88f1"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/8c/66/01d63edf404b2ef2c5594701565ac0c031ce7253231298d423e2514566b8/botocore-1.34.144.tar.gz"
-    sha256 "4215db28d25309d59c99507f1f77df9089e5bebbad35f6e19c7c44ec5383a3e8"
+    url "https://files.pythonhosted.org/packages/f7/28/d83dbd69d7015892b53ada4fded79a5bc1b7d77259361eb8302f88c2da81/botocore-1.35.39.tar.gz"
+    sha256 "cb7f851933b5ccc2fba4f0a8b846252410aa0efac5bfbe93b82d10801f5f8e90"
   end
 
   resource "cfn-flip" do
@@ -63,18 +62,18 @@ class Cfripper < Formula
   end
 
   resource "pydantic" do
-    url "https://files.pythonhosted.org/packages/8c/99/d0a5dca411e0a017762258013ba9905cd6e7baa9a3fd1fe8b6529472902e/pydantic-2.8.2.tar.gz"
-    sha256 "6f62c13d067b0755ad1c21a34bdd06c0c12625a22b0fc09c6b149816604f7c2a"
+    url "https://files.pythonhosted.org/packages/a9/b7/d9e3f12af310e1120c21603644a1cd86f59060e040ec5c3a80b8f05fae30/pydantic-2.9.2.tar.gz"
+    sha256 "d155cef71265d1e9807ed1c32b4c8deec042a44a50a4188b25ac67ecd81a9c0f"
   end
 
   resource "pydantic-core" do
-    url "https://files.pythonhosted.org/packages/12/e3/0d5ad91211dba310f7ded335f4dad871172b9cc9ce204f5a56d76ccd6247/pydantic_core-2.20.1.tar.gz"
-    sha256 "26ca695eeee5f9f1aeeb211ffc12f10bcb6f71e2989988fda61dabd65db878d4"
+    url "https://files.pythonhosted.org/packages/e2/aa/6b6a9b9f8537b872f552ddd46dd3da230367754b6f707b8e1e963f515ea3/pydantic_core-2.23.4.tar.gz"
+    sha256 "2584f7cf844ac4d970fba483a717dbe10c1c1c96a969bf65d61ffe94df1b2863"
   end
 
   resource "pydash" do
-    url "https://files.pythonhosted.org/packages/e8/90/4cc84d60b32f3f069817705eaf7e07f3bceff050b56132885b71303aff88/pydash-8.0.1.tar.gz"
-    sha256 "a24619643d3c054bfd56a9ae1cb7bd00e9774eaf369d7bb8d62b3daa2462bdbd"
+    url "https://files.pythonhosted.org/packages/82/e9/b36999baa4b94082901cbc227830f1adaa43499b28cbde84cc635fde5699/pydash-8.0.3.tar.gz"
+    sha256 "1b27cd3da05b72f0e5ff786c523afd82af796936462e631ffd1b228d91f8b9aa"
   end
 
   resource "python-dateutil" do
@@ -83,13 +82,13 @@ class Cfripper < Formula
   end
 
   resource "pyyaml" do
-    url "https://files.pythonhosted.org/packages/ff/08/b6768d9f2da231c1396490e91471ffebb12b299a65cb369c27ec0e2a50c6/pyyaml-6.0.2rc1.tar.gz"
-    sha256 "826fb4d5ac2c48b9d6e71423def2669d4646c93b6c13612a71b3ac7bb345304b"
+    url "https://files.pythonhosted.org/packages/54/ed/79a089b6be93607fa5cdaedf301d7dfb23af5f25c398d5ead2525b063e17/pyyaml-6.0.2.tar.gz"
+    sha256 "d584d9ec91ad65861cc08d42e834324ef890a082e591037abe114850ff7bbc3e"
   end
 
   resource "s3transfer" do
-    url "https://files.pythonhosted.org/packages/cb/67/94c6730ee4c34505b14d94040e2f31edf144c230b6b49e971b4f25ff8fab/s3transfer-0.10.2.tar.gz"
-    sha256 "0711534e9356d3cc692fdde846b4a1e4b0cb6519971860796e6bc4c7aea00ef6"
+    url "https://files.pythonhosted.org/packages/a0/a8/e0a98fd7bd874914f0608ef7c90ffde17e116aefad765021de0f012690a2/s3transfer-0.10.3.tar.gz"
+    sha256 "4f50ed74ab84d474ce614475e0b8d5047ff080810aac5d01ea25231cfc944b0c"
   end
 
   resource "six" do
@@ -103,8 +102,8 @@ class Cfripper < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/43/6d/fa469ae21497ddc8bc93e5877702dca7cb8f911e337aca7452b5724f1bb6/urllib3-2.2.2.tar.gz"
-    sha256 "dd505485549a7a552833da5e6063639d0d177c04f23bc3864e41e5dc5f612168"
+    url "https://files.pythonhosted.org/packages/ed/63/22ba4ebfe7430b76388e7cd448d5478814d3032121827c12a2cc287e2260/urllib3-2.2.3.tar.gz"
+    sha256 "e7d814a81dad81e6caf2ec9fdedb284ecc9c73076b62654547cc64ccdcae26e9"
   end
 
   def install

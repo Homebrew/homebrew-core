@@ -8,19 +8,18 @@ class Xrootd < Formula
   head "https://github.com/xrootd/xrootd.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "6f064bb1a14090ec299fbb32d1397525ddd404906f095160e5fcbe61af7a2175"
-    sha256 cellar: :any,                 arm64_sonoma:   "1cfa2fc1ff0ebad0cbfe38df244b8e4eeb87250713d4b71d8198bb9f3a4295cd"
-    sha256 cellar: :any,                 arm64_ventura:  "e5d71d8ed09ae5ebbb298e5f389869aee496b98f5a4aa94cf5450acc4b15a785"
-    sha256 cellar: :any,                 arm64_monterey: "486b7cb879041150c1726a4c66985836fb88505bb7d93f632594b528616a585b"
-    sha256 cellar: :any,                 sonoma:         "c226725a66faed25ecc68277059b4945673d9094dccebea96d4c1b0ac61b0487"
-    sha256 cellar: :any,                 ventura:        "7db43c6a1e7d8acb07fe034386166e7c089dbbca22911f08e9624bf8827debfa"
-    sha256 cellar: :any,                 monterey:       "e31cafecad553734124cde7c05ece3bfd08956b342ded3be1e47739d2258ae2d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "211ed9352c365baee1dad172d8c8c2fd2445cd8a8b24ae996019b87ffbcd2d55"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "403f73ae745c6ca58af95e07a6a395112db4845d9e0c0df61f4d39142191f3c9"
+    sha256 cellar: :any,                 arm64_sonoma:  "f6c5227ec3771af8ba6e75edafb0bff2d24ff869e4eeefb9c9926d28ae7ba5c1"
+    sha256 cellar: :any,                 arm64_ventura: "8bd0bc91c0689c33cf17559d5a41a3ca42c2fd59cdfffecb453413da361272e5"
+    sha256 cellar: :any,                 sonoma:        "9142fd66504f0eeea0b917d1f9b4af240d0a734c23ebe57842d8563afa3fc428"
+    sha256 cellar: :any,                 ventura:       "6e628c57fcc5c83ca34357a9f7df797f4e6ba69128017910ee72fcb5e5e7209a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3af90d3714eb102ecd095fa85784a6d0407a0bbef36b0b61874940f182a70f13"
   end
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.12" => [:build, :test]
+  depends_on "python@3.13" => [:build, :test]
   depends_on "davix"
   depends_on "krb5"
   depends_on "openssl@3"
@@ -35,6 +34,10 @@ class Xrootd < Formula
     depends_on "util-linux" # for libuuid
   end
 
+  def python3
+    "python3.13"
+  end
+
   def install
     args = %W[
       -DCMAKE_INSTALL_RPATH=#{rpath}
@@ -44,7 +47,7 @@ class Xrootd < Formula
       -DENABLE_KRB5=ON
       -DENABLE_MACAROONS=OFF
       -DENABLE_PYTHON=ON
-      -DPython_EXECUTABLE=#{which("python3.12")}
+      -DPython_EXECUTABLE=#{which(python3)}
       -DENABLE_READLINE=ON
       -DENABLE_SCITOKENS=OFF
       -DENABLE_TESTS=OFF
@@ -64,7 +67,7 @@ class Xrootd < Formula
   test do
     assert_match version.to_s, shell_output("#{bin}/xrootd -v 2>&1")
 
-    system "python3.12", "-c", <<~EOS
+    system python3, "-c", <<~EOS
       import XRootD
       from XRootD import client
     EOS

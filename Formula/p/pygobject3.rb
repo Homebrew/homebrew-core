@@ -4,16 +4,15 @@ class Pygobject3 < Formula
   url "https://download.gnome.org/sources/pygobject/3.50/pygobject-3.50.0.tar.xz"
   sha256 "8d836e75b5a881d457ee1622cae4a32bcdba28a0ba562193adb3bbb472472212"
   license "LGPL-2.1-or-later"
+  revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia:  "795deab77b4e616f164998005f68fed69bbd7a4a737aed2da8962fca78f1998a"
-    sha256 cellar: :any, arm64_sonoma:   "a05bdf08604e6ff3b46acf5c3fe0b6f4cfa078cf39546cd6707d47dcd5d45444"
-    sha256 cellar: :any, arm64_ventura:  "c836989426c7f07dc41aa74bbe40190f82a3afa3fdda86b9425e6e8c540b90cf"
-    sha256 cellar: :any, arm64_monterey: "6f31ebad4163c3d6dd8521a530213ab42af7ce1540c8b100be6bc2e1e1537eba"
-    sha256 cellar: :any, sonoma:         "c876cfa95857d59a75d35c7977d20c5625c8a9373bf9fb44baa008e23d182a83"
-    sha256 cellar: :any, ventura:        "30c7b2945bb444c020a7b04f16cd4440143a1fdbe1e0473e9c64df1fd8d7784f"
-    sha256 cellar: :any, monterey:       "3a66f0a3fc77a0836f9413ede8c2019f586c1ce220f29f888e52a2476914e114"
-    sha256               x86_64_linux:   "a9a30f9517916827435fd0728537c556146283271ceeae7bd02cd49c8907c096"
+    sha256 cellar: :any, arm64_sequoia: "2c86ffbaf32b22811f8fff5a6040677f4268af2578660fb007a5c5d4956c1133"
+    sha256 cellar: :any, arm64_sonoma:  "e8d0149368484d81a54f759a584db813c3184e630504b61534b734949bc286fc"
+    sha256 cellar: :any, arm64_ventura: "def28c144b1960f13894245dbb785fbef6862557e36b9b8ddc13953896807b9e"
+    sha256 cellar: :any, sonoma:        "3fd16304b9bea30514a67e69e74d9aeb6fc84aec60bbbe21f25ae5a4790323b0"
+    sha256 cellar: :any, ventura:       "fb878d036fe1ac67746de24cd89eadd9fb1921f005d34e283f9772426a923384"
+    sha256               x86_64_linux:  "35b1199c46cd42b0e3adbe11e4587ab1fc6abd2715eb1e6a562fb22d032c3746"
   end
 
   depends_on "meson" => :build
@@ -21,6 +20,7 @@ class Pygobject3 < Formula
   depends_on "pkg-config" => :build
   depends_on "python@3.11" => [:build, :test]
   depends_on "python@3.12" => [:build, :test]
+  depends_on "python@3.13" => [:build, :test]
 
   depends_on "cairo"
   depends_on "glib"

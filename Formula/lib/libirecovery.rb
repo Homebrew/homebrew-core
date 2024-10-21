@@ -1,20 +1,18 @@
 class Libirecovery < Formula
   desc "Library and utility to talk to iBoot/iBSS via USB"
   homepage "https://www.libimobiledevice.org/"
-  url "https://github.com/libimobiledevice/libirecovery/releases/download/1.2.0/libirecovery-1.2.0.tar.bz2"
-  sha256 "74448348f8a68b654015fe1952fdc4e0781db20dcf4e1d85ec97d6f91e95eb14"
+  url "https://github.com/libimobiledevice/libirecovery/releases/download/1.2.1/libirecovery-1.2.1.tar.bz2"
+  sha256 "d25f4b85c24df206efbbbd2d6d45d1637229e756c52d535eef047a163799f67c"
   license "LGPL-2.1-only"
   head "https://github.com/libimobiledevice/libirecovery.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "0e0c8a44090136f31313c31f1eaaa39395bec6183fb32912b5daa1fb30d1d470"
-    sha256 cellar: :any,                 arm64_sonoma:   "8e33848346905d014f7196a8ff5a7ec4fd07aa2df634b9d644e70e16d9a6ec82"
-    sha256 cellar: :any,                 arm64_ventura:  "baf684cbb170ca1dd6a667b151bee4eb8225e29a0db24f7fc8fa646fafd67b74"
-    sha256 cellar: :any,                 arm64_monterey: "10a72e5bc74f8b6b12146cc27546a708c5b402ee52360358ac3e00e001dced85"
-    sha256 cellar: :any,                 sonoma:         "c9a4575f92626ebc8bc6d52fdb169c26eefbafffbeb1dc55252e88bc19c05051"
-    sha256 cellar: :any,                 ventura:        "f311a8460344860385ecf64e4022f4bf775e6ebaf9ab9f8d24ca10a22513e4f3"
-    sha256 cellar: :any,                 monterey:       "7b846f671bc3566d8cb556e015c29458c093afd5830c30351ac2d44ad45b29eb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3c01e6062a8da402b79cc561d6fd4687005b55ce5b4456030e45275accd8eb00"
+    sha256 cellar: :any,                 arm64_sequoia: "1fa2418a0a22032fd7a150b6f19794e3eeb17841912d6603e71ac16d312df6f3"
+    sha256 cellar: :any,                 arm64_sonoma:  "7484a2a971dfbb544af0c0247b2c14991fae187b8d4c620871964a6fb7a66b76"
+    sha256 cellar: :any,                 arm64_ventura: "f94d490451247969eafd81875cce5b9d2e6274eaa3472c1ec70e7fbad57cb73c"
+    sha256 cellar: :any,                 sonoma:        "27ea53a0973bb2a7505d76db3fbf279b12f470b4f32066af6f0162d2c00e7e6b"
+    sha256 cellar: :any,                 ventura:       "04164267c7cb92582d2c210db13e68c3963d233120d173931f2b875bd0faef69"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "81f40f20b147feba73637419fb12cf88172b82675ec8bc9ca396182505040a85"
   end
 
   depends_on "autoconf" => :build

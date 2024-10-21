@@ -1,20 +1,18 @@
 class Bed < Formula
   desc "Binary editor written in Go"
   homepage "https://github.com/itchyny/bed"
-  url "https://github.com/itchyny/bed/archive/refs/tags/v0.2.5.tar.gz"
-  sha256 "a8fa1bddcf65fd3dd52ede2f3fc1cb2840420e9a24fb8fd8c950a9bab9d86f70"
+  url "https://github.com/itchyny/bed/archive/refs/tags/v0.2.7.tar.gz"
+  sha256 "dea9265b5a78e91851059c1c726ac40490825f107f8db6ae7db67965b92599c3"
   license "MIT"
   head "https://github.com/itchyny/bed.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "eb29ee4f9d369143a3177e52c4e6e412e76baec765ecf20f16334f117d5287fe"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "eb29ee4f9d369143a3177e52c4e6e412e76baec765ecf20f16334f117d5287fe"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "eb29ee4f9d369143a3177e52c4e6e412e76baec765ecf20f16334f117d5287fe"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "eb29ee4f9d369143a3177e52c4e6e412e76baec765ecf20f16334f117d5287fe"
-    sha256 cellar: :any_skip_relocation, sonoma:         "9c23fbc4983730757f05f06f6e69250062e291f945efc4433b051a285d2ec342"
-    sha256 cellar: :any_skip_relocation, ventura:        "9c23fbc4983730757f05f06f6e69250062e291f945efc4433b051a285d2ec342"
-    sha256 cellar: :any_skip_relocation, monterey:       "9c23fbc4983730757f05f06f6e69250062e291f945efc4433b051a285d2ec342"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d12893a697b18fcc08cff0db017ddffeb5754f7e514a6d8cdfc3b81665936a22"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "70be9ac18596e2cf7227ed3af58184f21e82e06a78ae69488b25d744cd4ae80d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "70be9ac18596e2cf7227ed3af58184f21e82e06a78ae69488b25d744cd4ae80d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "70be9ac18596e2cf7227ed3af58184f21e82e06a78ae69488b25d744cd4ae80d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "1caa69d4199395f000ddc54c77ac7ddd010fc7550c00416a28e3e226f9d646de"
+    sha256 cellar: :any_skip_relocation, ventura:       "1caa69d4199395f000ddc54c77ac7ddd010fc7550c00416a28e3e226f9d646de"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3dde45e54c61af4c574016a87eb755d9f8288664a4ec6824eeac75520a9634cf"
   end
 
   depends_on "go" => :build

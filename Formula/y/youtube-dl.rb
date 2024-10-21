@@ -17,15 +17,13 @@ class YoutubeDl < Formula
   end
 
   bottle do
-    rebuild 4
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "3240c7f280872dae967c4d0e63bd5ffc0415b134b3ebda8e5b057b139060059f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "86ad6daf8ba59b37855706201030abfdfa6a334d66ee80ee6351212baa1fccaa"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0f0777822da37695c41651a1745fda40a3bda17b7d252b682c74eaa8591023b5"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9e1ac5fa2ec5d0dc609a2a52b5862da268bcd2731609aa114491b787105701f1"
-    sha256 cellar: :any_skip_relocation, sonoma:         "d203c17f40f2e3ab8e1d3887539ae66173c4e91b36d28024e7bd98e41c2407a3"
-    sha256 cellar: :any_skip_relocation, ventura:        "41ea7b884710606f9e4b2e98d186815d1be48a13fa6e3c945c2c686fec48e25f"
-    sha256 cellar: :any_skip_relocation, monterey:       "f78df8ae4f3c7b6f84f8d2a94bfb1187219c0b2c46a8a2859bf1061940068820"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2abdf78bc998a6fde5c66488e36411df9c0d8326554a031c3dd32aaef651af2c"
+    rebuild 5
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0f3b77e4e5dc244e6e1e85f307083798af83134824e30977936acedf014b58cc"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0f3b77e4e5dc244e6e1e85f307083798af83134824e30977936acedf014b58cc"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "0f3b77e4e5dc244e6e1e85f307083798af83134824e30977936acedf014b58cc"
+    sha256 cellar: :any_skip_relocation, sonoma:        "71f792a632398bd152e07f7f46b36b841de4687915c9a4cd502b3d3893e35562"
+    sha256 cellar: :any_skip_relocation, ventura:       "71f792a632398bd152e07f7f46b36b841de4687915c9a4cd502b3d3893e35562"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0f3b77e4e5dc244e6e1e85f307083798af83134824e30977936acedf014b58cc"
   end
 
   head do
@@ -37,10 +35,10 @@ class YoutubeDl < Formula
   # https://github.com/ytdl-org/youtube-dl/issues/31067
   deprecate! date: "2023-11-23", because: "has a failing test since forever and no new release since 2021"
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   def install
-    python3 = which("python3.12")
+    python3 = which("python3.13")
     if build.head?
       system "make", "PREFIX=#{prefix}", "MANDIR=#{man}", "PYTHON=#{python3}", "install"
       fish_completion.install prefix/"etc/fish/completions/youtube-dl.fish"
@@ -68,6 +66,11 @@ class YoutubeDl < Formula
   end
 
   test do
+    assert_match version.to_s, shell_output("#{bin}/youtube-dl --version")
+
+    # Tests fail with bot detection
+    return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
+
     # commit history of homebrew-core repo
     system bin/"youtube-dl", "--simulate", "https://www.youtube.com/watch?v=pOtd1cbOP7k"
     # homebrew playlist

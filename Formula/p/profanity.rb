@@ -7,14 +7,13 @@ class Profanity < Formula
   revision 2
 
   bottle do
-    sha256 arm64_sequoia:  "9ee78fe1e4f7ae13fa28a0edb7f2c4548c0f7e47acf6ccb7a1d9a758396af95d"
-    sha256 arm64_sonoma:   "796e4f6d0df72b4fba98c6767294a0c34126e507178f62c059305e1447b1d57c"
-    sha256 arm64_ventura:  "f3af3a72068af54c2a5dfed25f8b4974d484e2a1c6c04782e452999f03b04a7c"
-    sha256 arm64_monterey: "026ec8f456effae8170417422b863ffcc7defd02f660f03878522e8aa73fe467"
-    sha256 sonoma:         "9daaa88e4367a56347e0fe2697f8a838452ca069ac92d37aaa4161db13b59c5c"
-    sha256 ventura:        "18296f861b95ef07102130df116f8da3a442fe038524f3a235cd95a423891368"
-    sha256 monterey:       "fb5dc8733a2fe8c043c3a77a665af9c9a30acde98d1e74d2d195b8a2699fdaa4"
-    sha256 x86_64_linux:   "b5a3eda754ad116b984759d462ec0a691a74005e262c234d7bd5b812c66c2bb5"
+    rebuild 1
+    sha256 arm64_sequoia: "5472427158d470dc62004a3eff884d110f543dd5e3bb51e39942221fec17b2bd"
+    sha256 arm64_sonoma:  "d32e8c7bdc2ee007a81b549fe0e653abc78bc72af6169657ae818a4b03d769bc"
+    sha256 arm64_ventura: "da6d961c10c3235d680bd60128535dc26638355326e7d7a41b2e9205b534be5e"
+    sha256 sonoma:        "a10d71f7205684010cf72602145a126e69d16a7c32749ab9c6847045bd81db2e"
+    sha256 ventura:       "a58829da652b3b43c52af964bced191d6f27a92303744ccd07b6fb3e51b2143b"
+    sha256 x86_64_linux:  "1a87d774068b14ea9fa2ed30baf30107d2d06839b5a153b2ab285c49be54e874"
   end
 
   head do
@@ -36,7 +35,7 @@ class Profanity < Formula
   depends_on "libgcrypt"
   depends_on "libotr"
   depends_on "libstrophe"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
   depends_on "readline"
   depends_on "sqlite"
 
@@ -50,7 +49,7 @@ class Profanity < Formula
   end
 
   def install
-    ENV.prepend_path "PATH", Formula["python@3.12"].opt_libexec/"bin"
+    ENV.prepend_path "PATH", Formula["python@3.13"].opt_libexec/"bin"
 
     system "./bootstrap.sh" if build.head?
 

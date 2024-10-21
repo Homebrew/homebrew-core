@@ -3,24 +3,24 @@ class Ggshield < Formula
 
   desc "Scanner for secrets and sensitive data in code"
   homepage "https://www.gitguardian.com"
-  url "https://files.pythonhosted.org/packages/30/14/3fddab1e72546c6aba3d6044c871d06fe2a0081a277389c08348ae21a74e/ggshield-1.32.1.tar.gz"
-  sha256 "baa8f47ee0b1ff0c6038bc7681fc11380a093eb6939422d9db699345f604159e"
+  url "https://files.pythonhosted.org/packages/8f/7c/94f61e5a8bc4a8bfa4667c05395d0b0d3530ab794d2009bdde686ac47a50/ggshield-1.32.2.tar.gz"
+  sha256 "094aa8ed89e30dca750586bf608180edf053bdfd5ced9046e20f85426501f82e"
   license "MIT"
   head "https://github.com/GitGuardian/ggshield.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "8b7400d487cfc3f306f825b2484b098b083aebc5fa5ad2b5b5b3dafee01b507b"
-    sha256 cellar: :any,                 arm64_sonoma:  "c841eec9dede6ca429406a371df79b6efc979592651a76e8e8fb9d4b00f11b8c"
-    sha256 cellar: :any,                 arm64_ventura: "f1a2eb26ed5e42b869e4a29291324491bbd3a7462bf25596facc0819b3d08059"
-    sha256 cellar: :any,                 sonoma:        "defe6fe2fdd0a22dda5ea6117c72573cd83c54061cf0077c1ebc28cd57811574"
-    sha256 cellar: :any,                 ventura:       "898c8eeac3d9a35d3421ff51333783b22cfc4932d4ee0e5ce2a52f5ec46bbb7e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "84cbc563658ba39caba013f99fc391856c33ce69dc564c8ff0fdb37aa6fc7259"
+    sha256 cellar: :any,                 arm64_sequoia: "e4b880201527014037cee0154b2c1fab497a9c132411ff8e4693935c379d26f8"
+    sha256 cellar: :any,                 arm64_sonoma:  "798bae50ae6d0d648b2c91c4765dfd0ff87d68cb2923bf687ea9bd5563a4e05b"
+    sha256 cellar: :any,                 arm64_ventura: "fc15f0d415698aa6634d0e7776aa0dd382a43084c56f41a057875fa39a17cda0"
+    sha256 cellar: :any,                 sonoma:        "74fdb26bbaf39bef305032175b78037c5ebc357fc2bdef8c37ddbb6bb3b6de1c"
+    sha256 cellar: :any,                 ventura:       "7e44170ec2a9a72c2f7260f0e895e36f7433ca0d86caa8fd7d3ac6bd9dd00c4c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d2e7cea2922e0ac8165e6ae29b4b1dff4d2e72f4222723b8e364c54ea0d7172c"
   end
 
   depends_on "certifi"
   depends_on "cryptography"
   depends_on "libyaml"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "charset-normalizer" do
     url "https://files.pythonhosted.org/packages/ff/d7/8d757f8bd45be079d76309248845a04f09619a7b17d6dfc8c9ff6433cac2/charset-normalizer-3.1.0.tar.gz"
@@ -108,8 +108,8 @@ class Ggshield < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/27/b8/f21073fde99492b33ca357876430822e4800cdf522011f18041351dfa74b/setuptools-75.1.0.tar.gz"
-    sha256 "d59a21b17a275fb872a9c3dae73963160ae079f1049ed956880cd7c09b120538"
+    url "https://files.pythonhosted.org/packages/07/37/b31be7e4b9f13b59cde9dcaeff112d401d49e0dc5b37ed4a9fc8fb12f409/setuptools-75.2.0.tar.gz"
+    sha256 "753bb6ebf1f465a1912e19ed1d41f403a79173a9acf66a42e7e6aec45c3c16ec"
   end
 
   resource "typing-extensions" do

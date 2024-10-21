@@ -1,8 +1,8 @@
 class Teleport < Formula
   desc "Modern SSH server for teams managing distributed infrastructure"
   homepage "https://goteleport.com/"
-  url "https://github.com/gravitational/teleport/archive/refs/tags/v16.4.2.tar.gz"
-  sha256 "fad4e2d248417925498b05b9d2c52352f6580af95968c691bd2e2ddc129d73c2"
+  url "https://github.com/gravitational/teleport/archive/refs/tags/v16.4.3.tar.gz"
+  sha256 "12056687817def9fba016304fd9b992a0e1ba25db92b3b09f7712f351be78dce"
   license all_of: ["AGPL-3.0-or-later", "Apache-2.0"]
   head "https://github.com/gravitational/teleport.git", branch: "master"
 
@@ -18,12 +18,12 @@ class Teleport < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "e28b59dea0536a7a34a259b371221e63f6110af106d0a52d24345181fc4a47e3"
-    sha256 cellar: :any,                 arm64_sonoma:  "a9e155141bf6ae01f2d1957ba71e43f016527b88906c19fa98e884df1033f048"
-    sha256 cellar: :any,                 arm64_ventura: "3d7fb1861b3b1608902a1b73c8404ce75bb2d6d63d60360a7ffcce836bd82cb5"
-    sha256 cellar: :any,                 sonoma:        "cfe5435f3606343bb5532da629111a90532c766a2b9f5688c63bb434d55a0d0a"
-    sha256 cellar: :any,                 ventura:       "a75cdf8c3e27e8f7e5d96fcacc0b15b28e4eb1a6279335dc534f3da30d7f07fd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f651428efd417d822372aab204d4f4cbcba64793b45bf584f3d9a4b1f94df578"
+    sha256 cellar: :any,                 arm64_sequoia: "5ab37c65a67d7b8d99472d123a27adc2ee025f8555615873d31586f4ab2c5407"
+    sha256 cellar: :any,                 arm64_sonoma:  "c258cc2c00cf463d1a4b151ff9d8fe04d50a11775c562fc5c8e0c831de32d72b"
+    sha256 cellar: :any,                 arm64_ventura: "fb27c5e57c4b94c415bb30772fca3ef831b518bcf4efbc17e208ac2f9dbfd354"
+    sha256 cellar: :any,                 sonoma:        "0223e30b94960716e8523bee93eaad384fb2b2ba640d3479357dce8eb99cf15a"
+    sha256 cellar: :any,                 ventura:       "400b1be50ddbf0bb3debdb227e5d5143a66bd4194f3748e895b6044213d140fb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bedbc19f8b054f1c50d46b463ee4563403cb63895939d117ec386d68610eb26e"
   end
 
   # Use "go" again after https://github.com/gravitational/teleport/commit/e4010172501f0ed18bb260655c83606dfa872fbd

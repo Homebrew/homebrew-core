@@ -1,17 +1,17 @@
 class Observerward < Formula
   desc "Web application and service fingerprint identification tool"
   homepage "https://emo-crab.github.io/observer_ward/"
-  url "https://github.com/emo-crab/observer_ward/archive/refs/tags/v2024.9.20.tar.gz"
-  sha256 "32c9854c7e2604173196ad655095f32805ce21359cfd9aadeb4f5147e86597c4"
+  url "https://github.com/emo-crab/observer_ward/archive/refs/tags/v2024.10.21.tar.gz"
+  sha256 "26d51a1e10396986dcfec62674444a107d75559511bc67b3056e848370166d64"
   license "GPL-3.0-only"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "cd64d9e5abd72e318d0111d634d3ca2331ebbf876c6d637d035639ee9e174751"
-    sha256 cellar: :any,                 arm64_sonoma:  "fbf5a56bd28e1ddfd9314ca44184c6368128562b51bce783292ab710e0fb4347"
-    sha256 cellar: :any,                 arm64_ventura: "689fd33e57ad71626843570111a57913b5d5b5a949f52a29a4de0b6a320bba55"
-    sha256 cellar: :any,                 sonoma:        "6cf9c1f936cce4af7af5b6079be8ae4c1011663960c09d79fcb7ed914e894bb1"
-    sha256 cellar: :any,                 ventura:       "655b72ae05086dc325003c695ef1f809cc26c45b4c1dfce36f6974141d5213f2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "77734af6ea6f0296ed0c72d45d8b683dce541d925d5f44ed5cd1a6687f0547a6"
+    sha256 cellar: :any,                 arm64_sequoia: "5c33984a9937f1166b308d63a9ead3210aab8127441cc438155bf15bae35e6b6"
+    sha256 cellar: :any,                 arm64_sonoma:  "21028fd336053259e999a3b8171530833d30c1359f4bb13bf1f7913364105c0d"
+    sha256 cellar: :any,                 arm64_ventura: "73714ccd745e40c9a23bc14cfae3075d38e4f106d46e991e843a0e8ec07b0271"
+    sha256 cellar: :any,                 sonoma:        "f9397fcef44d80a74e3944bf7ca74f446dfa4e590f7b0dd74b702d7401b75af2"
+    sha256 cellar: :any,                 ventura:       "9b3a664cfb97d97cb0634df017528f21ae55e05ee24aad2efac71b428a4eae01"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7926614a480e7a4def9282fe81975c5303eaa3eb7fcb19592f9ce09c8b6e556d"
   end
 
   depends_on "rust" => :build

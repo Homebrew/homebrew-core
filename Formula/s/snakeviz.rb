@@ -9,17 +9,16 @@ class Snakeviz < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "25cac3d92487748b5aa9be1eacfdcb8c7815af439be1e013ec4b059a814095c4"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "aa7305a6deb93e6f5659181b44de5d0155a4220a8b390f542308008478b112db"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0e4a0b2bf73dd3a2e0400b6a2623ca34cc38d3d59017f5584324f3c2698fc6d9"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "94190c13027e896e8ae9bb85e4ee3a76c4a93170b46875781e0ba2c61ce8a4e5"
-    sha256 cellar: :any_skip_relocation, sonoma:         "ad322f258ad80a9a34abee4555ad4c5fbfa612b70b03f18e19c0b07593f519ed"
-    sha256 cellar: :any_skip_relocation, ventura:        "f834932028976a74ee9edbc4fc9250426a754cf153ef28b04dba6843484406a8"
-    sha256 cellar: :any_skip_relocation, monterey:       "758e512224f61b752d846d70c0ea628eb18cf0ec099b195fd472f8370a2c6683"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bcc336d17fcdb88dd008ace56a09467c24aec73841ed063b9f2ccd2ff96b2a36"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "188ce42a3ec12499676c82b4eddf04d412f9a7493f50598ce1ef6ddefdcb8a5c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fb6ff65e7ddd81e4b4da2ce4d2f1c4d71d66bf7afd244cb06704463655e39987"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "eebb8d59c3b7484eb42f3d6f4823bb76e60e8a07f30b040f42f57c557a0c1c12"
+    sha256 cellar: :any_skip_relocation, sonoma:        "684df7298ea85611dab2fd8019e643ec554f8ec85cf0c9eef16954d8ed87b1dc"
+    sha256 cellar: :any_skip_relocation, ventura:       "4b9c89717342f4189849008929288963b28e26736c2d35777b8827903a288d76"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8a8b886c75c192f230dfdb4b0b820e353cc24e8272cc66dcfc1d0deba90455b8"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "tornado" do
     url "https://files.pythonhosted.org/packages/ee/66/398ac7167f1c7835406888a386f6d0d26ee5dbf197d8a571300be57662d3/tornado-6.4.1.tar.gz"
@@ -33,7 +32,7 @@ class Snakeviz < Formula
   test do
     require "cgi"
     system bin/"snakeviz", "--version"
-    system "python3.12", "-m", "cProfile", "-o", "output.prof", "-m", "cProfile"
+    system "python3.13", "-m", "cProfile", "-o", "output.prof", "-m", "cProfile"
 
     port = free_port
 

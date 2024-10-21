@@ -8,20 +8,21 @@ class TerraformLocal < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "669085a7eac383a57d7910216518fef115c958a60bd1a559e33dd1386892ab07"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "ec6ed8799b1f83f34e6f74b8920b0ca8ece70d1c5be9fd0bb1c2c8e1a4aea92e"
   end
 
   depends_on "localstack"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/09/31/aa8f565871e00264874bf220ab9913a168fe8acf8b19f7c1a344d1623104/boto3-1.35.23.tar.gz"
-    sha256 "3fbf1d5b749c92ed43aa190650979dff9f83790a42522e1e9eefa54c8e44bc4b"
+    url "https://files.pythonhosted.org/packages/b8/29/10988ceaa300ddc628cb899875d85d9998e3da4803226398e002d95b2741/boto3-1.35.39.tar.gz"
+    sha256 "670f811c65e3c5fe4ed8c8d69be0b44b1d649e992c0fc16de43816d1188f88f1"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/9a/7a/1c9a1b478c4cdafae166572d5dc2aff93cd34c04fdfbfb0772cf1fccfcfa/botocore-1.35.23.tar.gz"
-    sha256 "25b17a9ccba6ad32bb5bf7ba4f52656aa03c1cb29f6b4e438050ee4ad1967a3b"
+    url "https://files.pythonhosted.org/packages/f7/28/d83dbd69d7015892b53ada4fded79a5bc1b7d77259361eb8302f88c2da81/botocore-1.35.39.tar.gz"
+    sha256 "cb7f851933b5ccc2fba4f0a8b846252410aa0efac5bfbe93b82d10801f5f8e90"
   end
 
   resource "jmespath" do
@@ -35,8 +36,8 @@ class TerraformLocal < Formula
   end
 
   resource "localstack-client" do
-    url "https://files.pythonhosted.org/packages/d8/25/49e13f48edf63194359022cd288b643caec10acceef78dcbe93a46e4ee04/localstack_client-2.6.tar.gz"
-    sha256 "67c9da9ea04152b142ecd1ac9a2ae2e231c2a8fcff542faf02d7f9f80843f215"
+    url "https://files.pythonhosted.org/packages/c4/40/6858a5fe70654ef4878188e0c330c8a22ce4dfc457e09231cb82228de075/localstack_client-2.7.tar.gz"
+    sha256 "14993119901a4bcbef7c32d899b24f4a58a875a6765693edf1064d66b8a68408"
   end
 
   resource "packaging" do
@@ -50,13 +51,13 @@ class TerraformLocal < Formula
   end
 
   resource "python-hcl2" do
-    url "https://files.pythonhosted.org/packages/17/b8/6d82f3ac6b14493e524df946365670235570a2074cb2621ea67caa4e8952/python-hcl2-4.3.5.tar.gz"
-    sha256 "71fbe48ee9a13335828f04adff2b267e06045c44c99c737b13d940aa1468d101"
+    url "https://files.pythonhosted.org/packages/c4/7a/7a6d45ca4bc53ddcd298facc7a9d79ba3c24930bfb368f11bed2155aafd1/python-hcl2-5.0.0.tar.gz"
+    sha256 "af454beae19cd0c8295130c7c36ffa8d7050775b13472e082b593b1f47bb1198"
   end
 
   resource "s3transfer" do
-    url "https://files.pythonhosted.org/packages/cb/67/94c6730ee4c34505b14d94040e2f31edf144c230b6b49e971b4f25ff8fab/s3transfer-0.10.2.tar.gz"
-    sha256 "0711534e9356d3cc692fdde846b4a1e4b0cb6519971860796e6bc4c7aea00ef6"
+    url "https://files.pythonhosted.org/packages/a0/a8/e0a98fd7bd874914f0608ef7c90ffde17e116aefad765021de0f012690a2/s3transfer-0.10.3.tar.gz"
+    sha256 "4f50ed74ab84d474ce614475e0b8d5047ff080810aac5d01ea25231cfc944b0c"
   end
 
   resource "six" do

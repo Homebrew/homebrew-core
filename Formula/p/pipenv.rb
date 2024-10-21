@@ -8,24 +8,25 @@ class Pipenv < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "eba3faaa31512e5c8259cbbdbfa30e2723fef523b6a7a2df965a653ef6e8e6c6"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "eba3faaa31512e5c8259cbbdbfa30e2723fef523b6a7a2df965a653ef6e8e6c6"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "eba3faaa31512e5c8259cbbdbfa30e2723fef523b6a7a2df965a653ef6e8e6c6"
-    sha256 cellar: :any_skip_relocation, sonoma:        "2f5bd8b6968909ef0e0550882a928a2971abbc9b192edff7af8b79a52145d7df"
-    sha256 cellar: :any_skip_relocation, ventura:       "2f5bd8b6968909ef0e0550882a928a2971abbc9b192edff7af8b79a52145d7df"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cb0498334f994c5991c2c66d52de589cabbc480326776529e127f11427398096"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "93f45835412a6ccd9058ec4b0a86227e47a746f18cb0e34a43f7ddcb84aa1cac"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "93f45835412a6ccd9058ec4b0a86227e47a746f18cb0e34a43f7ddcb84aa1cac"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "93f45835412a6ccd9058ec4b0a86227e47a746f18cb0e34a43f7ddcb84aa1cac"
+    sha256 cellar: :any_skip_relocation, sonoma:        "961904b141f846352f29e76beb5b1df3cc847ed83100aeb7024a18ed5b93260a"
+    sha256 cellar: :any_skip_relocation, ventura:       "961904b141f846352f29e76beb5b1df3cc847ed83100aeb7024a18ed5b93260a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a1cc2bae472c41af535c9ce5627a17754bd8560f4eb794bb65d9118d35bc92f6"
   end
 
   depends_on "certifi"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   def python3
-    "python3.12"
+    "python3.13"
   end
 
   resource "distlib" do
-    url "https://files.pythonhosted.org/packages/c4/91/e2df406fb4efacdf46871c25cde65d3c6ee5e173b7e5a4547a47bae91920/distlib-0.3.8.tar.gz"
-    sha256 "1530ea13e350031b6312d8580ddb6b27a104275a31106523b8f123787f494f64"
+    url "https://files.pythonhosted.org/packages/0d/dd/1bec4c5ddb504ca60fc29472f3d27e8d4da1257a854e1d96742f15c1d02d/distlib-0.3.9.tar.gz"
+    sha256 "a60f20dea646b8a33f3e7772f74dc0b2d0772d2837ee1342a00645c81edf9403"
   end
 
   resource "filelock" do

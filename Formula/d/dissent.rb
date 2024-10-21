@@ -4,17 +4,16 @@ class Dissent < Formula
   url "https://github.com/diamondburned/dissent/archive/refs/tags/v0.0.30.tar.gz"
   sha256 "63994e46b01e135c36902b67a8495eef71d4a4b09204c712629edadfc8398dc6"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://github.com/diamondburned/dissent.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "003766a7f965f3b7e64141b1abc478746a5e1ef02eb49d5861d3cf1e8f84aaad"
-    sha256 cellar: :any,                 arm64_sonoma:   "66b6c8504ad7fec5741ef5421a31efef88b289f2e31a32b79552dc0f0fffa1bf"
-    sha256 cellar: :any,                 arm64_ventura:  "ef7e8d322538ff9432f5a31e66d506a0ff7d97cf07221f037a31bb6e2a42797a"
-    sha256 cellar: :any,                 arm64_monterey: "0cc276875d7ff3bb230918e987d0a0f6d7e459952cba6ac01f5db030dcd0c0be"
-    sha256 cellar: :any,                 sonoma:         "64616dbce97d0114b317eece4ab4916bbc6da6f1520a46ac77a1b2a38763eabc"
-    sha256 cellar: :any,                 ventura:        "dd4d843b7c9e421238f4de4bb364451877e3837ab0fcfa785982c111048f462c"
-    sha256 cellar: :any,                 monterey:       "e1a4fae5f7fb4e9812ec05b61fbcf5b0fc49063d838ced19513e7bc7aad719d7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5b780afc4f1ef22b68237f034d24126c07970042087a78c4333065225337f83b"
+    sha256 cellar: :any,                 arm64_sequoia: "f2448419bd81de8a1f256651ab3328c1cd75f3da232fe057b9f56f611abac5ea"
+    sha256 cellar: :any,                 arm64_sonoma:  "ef3779084e55a473b8c56c6415908ac61a9f2d447fa1d1c0da723326eecbcd7b"
+    sha256 cellar: :any,                 arm64_ventura: "a518a0006ad3eefc5f4db860f3ca1d4225efdf8960c4f41a7fddabf6cbb1c2d7"
+    sha256 cellar: :any,                 sonoma:        "d55fd2d47ff74a860f02ac9ccb7bfd82d917cf3a7399273487fe08061c90f690"
+    sha256 cellar: :any,                 ventura:       "d216f4360abd678c659f65d36afff0ed4b3dc515994c0e88e60063506ab5af29"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c96d63371bdfe8c13999e181d862d8cc3ac2efb6aaa91e230f757f2cc141dd7f"
   end
 
   depends_on "go" => :build
@@ -29,7 +28,7 @@ class Dissent < Formula
   depends_on "gtksourceview5"
   depends_on "libadwaita"
   depends_on "libcanberra"
-  depends_on "libspelling"
+  depends_on "libspelling@0.2"
   depends_on "pango"
 
   on_macos do

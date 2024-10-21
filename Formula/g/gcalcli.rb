@@ -9,19 +9,20 @@ class Gcalcli < Formula
   head "https://github.com/insanum/gcalcli.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "1d62e9a6aee962bbe05a149624e3c99b767e1ce5cf5ba5eb8d5e08c8cfc8cfe7"
-    sha256 cellar: :any,                 arm64_sonoma:  "683cf9b04a852454c085751381787be10502543c69515e43901f8efa45537a1f"
-    sha256 cellar: :any,                 arm64_ventura: "267c34406dffbd70ccca671925a2a0ba632aa37befb17b615cedcf13bcf98ba9"
-    sha256 cellar: :any,                 sonoma:        "441052bada8a6814969b586f0c5264d372706b8afc89e3a1d669505e1493bbc1"
-    sha256 cellar: :any,                 ventura:       "b25044a7e369760293922c987cd05d9efbd975032800ca2a8810598d1e801979"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3b11aa1d792848e8e882128611738379e7d36b9b1338ad4c4f48ff8e15f15146"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "1a34e31d3e619ea2abca59154ebef1b96e055b9f373ac4dbf7df0587582165eb"
+    sha256 cellar: :any,                 arm64_sonoma:  "38a12b7df40726cdf7c855cfd294c70f9b6592be08db2c5766f63b8e31ec59ad"
+    sha256 cellar: :any,                 arm64_ventura: "52e6c49b7dcc911daf93c861c27ff58eb9a3d4ad1e15569f4868b4c498270669"
+    sha256 cellar: :any,                 sonoma:        "c9e416f3d32377103b503d38e4a8ce102ebd8add3e7655eaca77b69526779b7a"
+    sha256 cellar: :any,                 ventura:       "f4787a05eda5fa3316e3f2be28d08dc1714adb77df9a76cd904383b1ab276752"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "30031a989d334bc9e3ab41f57e02f3416cfa8ea0fc92af2727a9f64906d3f757"
   end
 
   depends_on "cmake" => :build # for google_api_python_client_stubs
   depends_on "pkg-config" => :build
   depends_on "rust" => :build # for google_api_python_client_stubs
   depends_on "certifi"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "annotated-types" do
     url "https://files.pythonhosted.org/packages/ee/67/531ea369ba64dcff5ec9c3402f9f51bf748cec26dde048a2f973a4eea7f5/annotated_types-0.7.0.tar.gz"
@@ -29,8 +30,8 @@ class Gcalcli < Formula
   end
 
   resource "argcomplete" do
-    url "https://files.pythonhosted.org/packages/75/33/a3d23a2e9ac78f9eaf1fce7490fee430d43ca7d42c65adabbb36a2b28ff6/argcomplete-3.5.0.tar.gz"
-    sha256 "4349400469dccfb7950bb60334a680c58d88699bff6159df61251878dc6bf74b"
+    url "https://files.pythonhosted.org/packages/5f/39/27605e133e7f4bb0c8e48c9a6b87101515e3446003e0442761f6a02ac35e/argcomplete-3.5.1.tar.gz"
+    sha256 "eb1ee355aa2557bd3d0145de7b06b2a45b0ce461e1e7813f5d066039ab4177b4"
   end
 
   resource "babel" do
@@ -44,18 +45,18 @@ class Gcalcli < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/63/09/c1bc53dab74b1816a00d8d030de5bf98f724c52c1635e07681d312f20be8/charset-normalizer-3.3.2.tar.gz"
-    sha256 "f30c3cb33b24454a82faecaf01b19c18562b1e89558fb6c56de4d9118a032fd5"
+    url "https://files.pythonhosted.org/packages/f2/4f/e1808dc01273379acc506d18f1504eb2d299bd4131743b9fc54d7be4df1e/charset_normalizer-3.4.0.tar.gz"
+    sha256 "223217c3d4f82c3ac5e29032b3f1c2eb0fb591b72161f86d93f5719079dae93e"
   end
 
   resource "google-api-core" do
-    url "https://files.pythonhosted.org/packages/c8/5c/31c1742a53b79c8a0c4757b5fae2e8ab9c519cbd7b98c587d4294e1d2d16/google_api_core-2.20.0.tar.gz"
-    sha256 "f74dff1889ba291a4b76c5079df0711810e2d9da81abfdc99957bc961c1eb28f"
+    url "https://files.pythonhosted.org/packages/28/c8/046abf3ea11ec9cc3ea6d95e235a51161039d4a558484a997df60f9c51e9/google_api_core-2.21.0.tar.gz"
+    sha256 "4a152fd11a9f774ea606388d423b68aa7e6d6a0ffe4c8266f74979613ec09f81"
   end
 
   resource "google-api-python-client" do
-    url "https://files.pythonhosted.org/packages/35/a4/73b9d642fa82f6fad67b0449c109a06c8e19b5980204b24fa86b86e8da06/google_api_python_client-2.147.0.tar.gz"
-    sha256 "e864c2cf61d34c00f05278b8bdb72b93b6fa34f0de9ead51d20435f3b65f91be"
+    url "https://files.pythonhosted.org/packages/ff/36/a587319840f32c8a28b6700805ad18a70690f985538ea49e87e210118884/google_api_python_client-2.149.0.tar.gz"
+    sha256 "b9d68c6b14ec72580d66001bd33c5816b78e2134b93ccc5cf8f624516b561750"
   end
 
   resource "google-auth" do

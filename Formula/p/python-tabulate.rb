@@ -9,11 +9,11 @@ class PythonTabulate < Formula
   revision 1
 
   bottle do
-    rebuild 3
-    sha256 cellar: :any_skip_relocation, all: "301ef12bcda093517f342f155422ac944cf38a795940253ba4a9d9397a150c70"
+    rebuild 4
+    sha256 cellar: :any_skip_relocation, all: "cea38c8f00045852ff2e04f39f4e1e9f1b1a83a4f21f8f94bd2765b2ed75240e"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   def install
     virtualenv_install_with_resources

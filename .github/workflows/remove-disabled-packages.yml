@@ -92,7 +92,7 @@ jobs:
     permissions:
       issues: write # for Homebrew/actions/create-or-update-issue
     needs: remove-disabled-packages
-    if: always()
+    if: always() && github.repository_owner == 'Homebrew'
     runs-on: ubuntu-latest
     steps:
       - name: Create issue on failure

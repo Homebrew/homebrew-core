@@ -7,14 +7,13 @@ class Networkit < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "d1ee1f4207bd871fe8ff61585cdef1b3e4c60c4fb81cc83d9d7735a78aa477fa"
-    sha256 cellar: :any,                 arm64_sonoma:   "70c1c15cd23f64eebc96c298bd0f14568713859c88a4a0d3c4e3750162ff16cc"
-    sha256 cellar: :any,                 arm64_ventura:  "440bf3494d183b0fedd042d315715cd846309e1e4376989b67b61d1ac3a96737"
-    sha256 cellar: :any,                 arm64_monterey: "3d760b478449d4868f3b1f2512ae7de755143bdedb18e2fa7049c9e81c328fea"
-    sha256 cellar: :any,                 sonoma:         "07ec12c1a32223d664983d98c5631b34e078c50f0d0b9a840c338625d754dd1e"
-    sha256 cellar: :any,                 ventura:        "1e283912462220c5ecc227563a3a47619d3f8861e1cb8c63a53e4e6f2b17d625"
-    sha256 cellar: :any,                 monterey:       "4465ee60841f24f90c56c77c49cbbc458aa91d4119950209f3c889991f8c46f4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d6ccf846d0116fd132d46f3b8f8a9348f9edc46cec5d927e9b6f368ed1a310dc"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "67512bde8a3002943fbce9661f044a4fe2b9f5d32d9eab170842eeb27886553e"
+    sha256 cellar: :any,                 arm64_sonoma:  "52caf31178048201b41939aea1b67931197ce1a89ff98e61395a4e8da534b891"
+    sha256 cellar: :any,                 arm64_ventura: "cfe6b92239a4fbd03806c6bfe96b21845fad629e9cf8a90c816cd9ecb649ffc9"
+    sha256 cellar: :any,                 sonoma:        "9fcaf27378c203f149f19a4c5017102c1962b016f3869ed024bf960c8c4b047f"
+    sha256 cellar: :any,                 ventura:       "9e861c9718997e41723b0a6bea6710ad70eebef92000f8488fce3547b193b552"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "69a25d994bee1c505e3e08a6bd472b5562d08af6066c4512ed9238474f385dee"
   end
 
   depends_on "cmake" => :build
@@ -25,7 +24,7 @@ class Networkit < Formula
 
   depends_on "libnetworkit"
   depends_on "numpy"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
   depends_on "scipy"
 
   on_macos do
@@ -33,7 +32,7 @@ class Networkit < Formula
   end
 
   def python3
-    which("python3.12")
+    which("python3.13")
   end
 
   # Add compat for numpy 2.0

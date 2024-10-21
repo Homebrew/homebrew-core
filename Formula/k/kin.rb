@@ -9,10 +9,11 @@ class Kin < Formula
   head "https://github.com/Serchinastico/Kin.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "ea242d6c5242419942c7fcf8b3efaeee56d9a599d8a81b1f6d2898da975f6350"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "da6d161bf7d2eaaa1150abe6c09599ae49bcb43c3f43ef0be93e7b1a3e4ea7de"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "antlr4-python3-runtime" do
     url "https://files.pythonhosted.org/packages/b6/00/7f1cab9b44518ca225a03f4493ac9294aab5935a7a28486ba91a20ea29cf/antlr4-python3-runtime-4.13.1.tar.gz"

@@ -8,11 +8,11 @@ class Dunamai < Formula
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "c7a9215f66563eafc21eee6b408109e12b5bb924f34d0b51245bd2be72ba999c"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "9be0bc5695860ddeb94edf7a55d3cdc814d997751c65e702aaeb1a9a81105b01"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "packaging" do
     url "https://files.pythonhosted.org/packages/51/65/50db4dda066951078f0a96cf12f4b9ada6e4b811516bf0262c0f4f7064d4/packaging-24.1.tar.gz"

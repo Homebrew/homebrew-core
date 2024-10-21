@@ -8,19 +8,17 @@ class SaltLint < Formula
   license "MIT"
 
   bottle do
-    rebuild 3
-    sha256 cellar: :any,                 arm64_sequoia:  "243649ed2caaa10e354c2213fa75c63b71ac0d5237c2521b8b2dc41eeb506498"
-    sha256 cellar: :any,                 arm64_sonoma:   "9afbe8489e6dfeb203516d6d2718bc2e85345a827e7398ee4b20bf3e496398d7"
-    sha256 cellar: :any,                 arm64_ventura:  "911415031fbc3be4a8af2ca1fe496318852a27ee1c79f0c9e7b3a29c2a7e8e92"
-    sha256 cellar: :any,                 arm64_monterey: "4493b79c24997b405f581ebf42d563688562fd3036f8689f8c5206f5f77d9a36"
-    sha256 cellar: :any,                 sonoma:         "cf61c07c497d94ffe41ffe80b0f71bdee68b74e35ba48594c1824123c16aa6ea"
-    sha256 cellar: :any,                 ventura:        "89e6e875355e67313d9c90791d8878045c364a04b8814ae8a4e2dae43d89b515"
-    sha256 cellar: :any,                 monterey:       "565749cea976e90f01e04b9638fca31205bcd8e466e29f4bd9a74829a52fbd4c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b56ab6bc3208c4ae59dce7fdf26b7c6b876d94516359752a4122960a14b3096b"
+    rebuild 4
+    sha256 cellar: :any,                 arm64_sequoia: "fbb1958185be4aad5fea5c651fd3e8da21fca696c5d213693e4a81936a1feb2b"
+    sha256 cellar: :any,                 arm64_sonoma:  "96d91986ed175ad3f73c892694470d516dd30faea4e1598cbacef169edb6fbd2"
+    sha256 cellar: :any,                 arm64_ventura: "d00a3fb68390018c7e193fdb099fe1f0a72e8648d516fe94b59090a8c5e390ae"
+    sha256 cellar: :any,                 sonoma:        "a31bcc4981feaa7a540453588c749780977bc6174b7ba19379718f7dc2382300"
+    sha256 cellar: :any,                 ventura:       "c1e8dada94ff1d4651ca11b4683df66be17bd39e20a92d3b0bc262350202dadb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0debb92e71999b2e340eff50cf7ccd2712b4bf86289f6af1c77b0f574a84842d"
   end
 
   depends_on "libyaml"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "pathspec" do
     url "https://files.pythonhosted.org/packages/ca/bc/f35b8446f4531a7cb215605d100cd88b7ac6f44ab3fc94870c120ab3adbf/pathspec-0.12.1.tar.gz"
@@ -28,8 +26,8 @@ class SaltLint < Formula
   end
 
   resource "pyyaml" do
-    url "https://files.pythonhosted.org/packages/cd/e5/af35f7ea75cf72f2cd079c95ee16797de7cd71f29ea7c68ae5ce7be1eda0/PyYAML-6.0.1.tar.gz"
-    sha256 "bfdf460b1736c775f2ba9f6a92bca30bc2095067b8a9d77876d1fad6cc3b4a43"
+    url "https://files.pythonhosted.org/packages/54/ed/79a089b6be93607fa5cdaedf301d7dfb23af5f25c398d5ead2525b063e17/pyyaml-6.0.2.tar.gz"
+    sha256 "d584d9ec91ad65861cc08d42e834324ef890a082e591037abe114850ff7bbc3e"
   end
 
   def install

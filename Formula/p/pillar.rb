@@ -20,7 +20,7 @@ class Pillar < Formula
   # Last release on 2016-08-16
   # Also, build uses deprecated sbt.version==0.13.11 and is not compatible with newer version.
   # Ref: https://github.com/comeara/pillar/blob/master/project/build.properties
-  deprecate! date: "2023-12-15", because: :unmaintained
+  disable! date: "2024-10-11", because: :unmaintained
 
   depends_on "sbt" => :build
   depends_on arch: :x86_64 # openjdk@8 is not supported on ARM

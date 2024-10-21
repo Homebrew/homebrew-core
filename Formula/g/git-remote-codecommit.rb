@@ -10,21 +10,15 @@ class GitRemoteCodecommit < Formula
   head "https://github.com/aws/git-remote-codecommit.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "6cb2466bdfe4ca61ad2f6d9a456d650409f35d92ad29bc36529d832f46575309"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1e80c7a0305c46775c5075304d2d3a2b86a512cdaee3fc01c55430be4926fdcf"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1e80c7a0305c46775c5075304d2d3a2b86a512cdaee3fc01c55430be4926fdcf"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "1e80c7a0305c46775c5075304d2d3a2b86a512cdaee3fc01c55430be4926fdcf"
-    sha256 cellar: :any_skip_relocation, sonoma:         "44faea23bfd08f9c8fe52b62f1e4c189908a4135467ec68dbf3db9c271997762"
-    sha256 cellar: :any_skip_relocation, ventura:        "44faea23bfd08f9c8fe52b62f1e4c189908a4135467ec68dbf3db9c271997762"
-    sha256 cellar: :any_skip_relocation, monterey:       "1e80c7a0305c46775c5075304d2d3a2b86a512cdaee3fc01c55430be4926fdcf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4d4aa3adaf1e6b2544d85b5d19c88681761b36da46cd8c51c0b98aa70b16d281"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "57289c92fc9b5e8f368be1df7f694b0e14fbe801ead3a9818f8e9cbeba416cad"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/9e/c9/844ad5680d847d94adb97b22c30b938ddda86f8a815d439503d4ee545484/botocore-1.34.128.tar.gz"
-    sha256 "8d8e03f7c8c080ecafda72036eb3b482d649f8417c90b5dca33b7c2c47adb0c9"
+    url "https://files.pythonhosted.org/packages/c7/b6/f73335bd06007e09ae027bb1568fca59f0ffc7773eb295db369b182d7759/botocore-1.35.38.tar.gz"
+    sha256 "55d9305c44e5ba29476df456120fa4fb919f03f066afa82f2ae400485e7465f4"
   end
 
   resource "jmespath" do
@@ -43,8 +37,8 @@ class GitRemoteCodecommit < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/43/6d/fa469ae21497ddc8bc93e5877702dca7cb8f911e337aca7452b5724f1bb6/urllib3-2.2.2.tar.gz"
-    sha256 "dd505485549a7a552833da5e6063639d0d177c04f23bc3864e41e5dc5f612168"
+    url "https://files.pythonhosted.org/packages/ed/63/22ba4ebfe7430b76388e7cd448d5478814d3032121827c12a2cc287e2260/urllib3-2.2.3.tar.gz"
+    sha256 "e7d814a81dad81e6caf2ec9fdedb284ecc9c73076b62654547cc64ccdcae26e9"
   end
 
   def install

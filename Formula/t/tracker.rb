@@ -6,7 +6,7 @@ class Tracker < Formula
       tag:      "3.6.0",
       revision: "624ef729966f2d9cf748321bd7bac822489fa8ed"
   license all_of: ["LGPL-2.1-or-later", "GPL-2.0-or-later"]
-  revision 1
+  revision 2
 
   # Tracker doesn't follow GNOME's "even-numbered minor is stable" version
   # scheme but they do appear to use 90+ minor/patch versions, which may
@@ -17,14 +17,12 @@ class Tracker < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia:  "b817638cc06576c81d9914770d3d60c1d1492825f5c89841d3b7441f28c1bfbc"
-    sha256 arm64_sonoma:   "a786b2b3491a5703f792f0011716e5cb7ecee55928caffb765a2b6ac3f55cab3"
-    sha256 arm64_ventura:  "277812e0fda3fd75fada5fe36ad2809755f35605ad2550988ea5a1634ffaad7c"
-    sha256 arm64_monterey: "bc1401fea1e7c77ee3a1706c029aba7cde648b9228cfca990d1cd098f9e51bdb"
-    sha256 sonoma:         "cf05c52e47410b399d2f52827d64027aa802009bee0db70a970a72009cfc5b2c"
-    sha256 ventura:        "cdc13ce4c3b905226af7150eab017ad9eb08e3d894ed69e928b360cf218707c5"
-    sha256 monterey:       "8a728aee6d68011f8bd3a071bb11edd3710996e45b8e1f2991d141f296ed1fe5"
-    sha256 x86_64_linux:   "fd31fdf16061831cc0057d07f7dd89a7958c4895020fb7e4d9a058a984c2220a"
+    sha256 arm64_sequoia: "572ce6780679b9aa84e7ff00ea91e547660870e37290068f74e4ec88ca4a9ccd"
+    sha256 arm64_sonoma:  "eba5a267f049004c51f5f1b8e0969ffe59c7ea7914a9e6abb313425b62247077"
+    sha256 arm64_ventura: "90aca5813f89aa0564cd8f6b1519f9f060b8d5f8cbbbd8f3143f668d0eabf7d4"
+    sha256 sonoma:        "c035256e46520521dfc50ee2d67c6b255b82f4905f11b9a0d9fda4178424dd9d"
+    sha256 ventura:       "2969610e34a1a51e2d9d8d5c18ab117b0683e6c9285772cea0ac280fec3ba455"
+    sha256 x86_64_linux:  "4390b2647d6d14888e0467bc31d7a97f1a77997c0bc86d1d61ead40aca7eb17c"
   end
 
   depends_on "gobject-introspection" => :build
@@ -36,7 +34,7 @@ class Tracker < Formula
 
   depends_on "dbus"
   depends_on "glib"
-  depends_on "icu4c"
+  depends_on "icu4c@75"
   depends_on "json-glib"
   depends_on "libsoup"
   depends_on "sqlite"
@@ -113,7 +111,8 @@ class Tracker < Formula
       }
     EOS
 
-    ENV.prepend_path "PKG_CONFIG_PATH", Formula["icu4c"].opt_lib/"pkgconfig" if OS.mac?
+    icu4c = deps.map(&:to_formula).find { |f| f.name.match?(/^icu4c@\d+$/) }
+    ENV.prepend_path "PKG_CONFIG_PATH", icu4c.opt_lib/"pkgconfig"
     flags = shell_output("pkg-config --cflags --libs tracker-sparql-3.0").chomp.split
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"

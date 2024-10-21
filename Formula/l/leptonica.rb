@@ -1,19 +1,17 @@
 class Leptonica < Formula
   desc "Image processing and image analysis library"
   homepage "http://www.leptonica.org/"
-  url "https://github.com/DanBloomberg/leptonica/releases/download/1.84.1/leptonica-1.84.1.tar.gz"
-  sha256 "2b3e1254b1cca381e77c819b59ca99774ff43530209b9aeb511e1d46588a64f6"
+  url "https://github.com/DanBloomberg/leptonica/releases/download/1.85.0/leptonica-1.85.0.tar.gz"
+  sha256 "3745ae3bf271a6801a2292eead83ac926e3a9bc1bf622e9cd4dd0f3786e17205"
   license "BSD-2-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "d409e5b337a61e1e19fdcfcafa40db50513e78823e77b8d7c03012674bd158e4"
-    sha256 cellar: :any,                 arm64_sonoma:   "67fe34fb9fbd1191142dc8415dc1c3bacc7a8cb427dc3d769f6c5d8b1351cbe7"
-    sha256 cellar: :any,                 arm64_ventura:  "a508e5748000d9138113716f804876ea02a0ff09edb1b3f440805318abb3892f"
-    sha256 cellar: :any,                 arm64_monterey: "1b2eeef988742aeb3b35faba109d737a8358000d16c0127ade00a72f74bdf708"
-    sha256 cellar: :any,                 sonoma:         "532d63772dc6bf06389ba4eb7f970741144edc9f2933294c7aaa6a371c8ced3e"
-    sha256 cellar: :any,                 ventura:        "de79973f211c5c6734ccb43e9d9f1e83bdf6040d3d9311a6483e8668b76e2314"
-    sha256 cellar: :any,                 monterey:       "367222ae46ffb4758c4561d59c73ccf8f6f50fdfaf8ceb57fc44d7f9d80ce18c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2d192aba393509e4fad013b13143cd5fc426256ca72636fe69940aa2efa290f8"
+    sha256 cellar: :any,                 arm64_sequoia: "d2d966918337ee5feda18544d4546734f77aeaf4dde87ae8979589bd97c799c1"
+    sha256 cellar: :any,                 arm64_sonoma:  "4b742a3445f7a24454ebf897551b8d49fc5cdc2ab7c93fc5a5c6ec4695292ef0"
+    sha256 cellar: :any,                 arm64_ventura: "c63d4257101ed2af4aca050ce013a6825ca189ec0f4cea03bdd650ecea77cc71"
+    sha256 cellar: :any,                 sonoma:        "97b295e17239dca10dbc284995b439594ad857afa84b9e81b12b6dd597e8daa8"
+    sha256 cellar: :any,                 ventura:       "b85f75996d77b388e32d762a3b5c9d70f6a4d6be088353822b57b52c71a4d8b6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9b2c01e724c093ba4b4bf19bdd65edcc3ff70dbc5071e5e801f07b9f24cc2d63"
   end
 
   depends_on "pkg-config" => :build
@@ -24,10 +22,10 @@ class Leptonica < Formula
   depends_on "openjpeg"
   depends_on "webp"
 
+  uses_from_macos "zlib"
+
   def install
-    system "./configure", *std_configure_args,
-                          "--with-libwebp",
-                          "--with-libopenjpeg"
+    system "./configure", "--with-libwebp", "--with-libopenjpeg", *std_configure_args
     system "make", "install"
   end
 

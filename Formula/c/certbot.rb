@@ -10,19 +10,20 @@ class Certbot < Formula
   head "https://github.com/certbot/certbot.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "052aa8f72758b228ab57d03d2264d6f21e39a8a9e70b7ca9ae3273ab02b62346"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "052aa8f72758b228ab57d03d2264d6f21e39a8a9e70b7ca9ae3273ab02b62346"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "052aa8f72758b228ab57d03d2264d6f21e39a8a9e70b7ca9ae3273ab02b62346"
-    sha256 cellar: :any_skip_relocation, sonoma:        "2bf70ac88b3fdfbdf56c59bb4f7c46b3b91b0d8ea93c0c73005a4415a9c4c4af"
-    sha256 cellar: :any_skip_relocation, ventura:       "2bf70ac88b3fdfbdf56c59bb4f7c46b3b91b0d8ea93c0c73005a4415a9c4c4af"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0d332d1120c661de4571e9c200b5c8a659f493f2ca1d35af592a66d385b39cd5"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5d43dbc5f1e628eb2ba3894a310efc6654ea4413d9a64d55e74dfbb4caccf657"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5d43dbc5f1e628eb2ba3894a310efc6654ea4413d9a64d55e74dfbb4caccf657"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "5d43dbc5f1e628eb2ba3894a310efc6654ea4413d9a64d55e74dfbb4caccf657"
+    sha256 cellar: :any_skip_relocation, sonoma:        "fdb165fa10408f92c0c20d0dcd2d6c1e0a97927c1fc53f3b85f6c621abf04774"
+    sha256 cellar: :any_skip_relocation, ventura:       "fdb165fa10408f92c0c20d0dcd2d6c1e0a97927c1fc53f3b85f6c621abf04774"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "49ffbe3832d70bad7240e04b17abdd289a1ab72e37b34d577262c2e35ba8ba7b"
   end
 
   depends_on "augeas"
   depends_on "certifi"
   depends_on "cryptography"
   depends_on "dialog"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   uses_from_macos "libffi"
 
@@ -42,8 +43,8 @@ class Certbot < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/63/09/c1bc53dab74b1816a00d8d030de5bf98f724c52c1635e07681d312f20be8/charset-normalizer-3.3.2.tar.gz"
-    sha256 "f30c3cb33b24454a82faecaf01b19c18562b1e89558fb6c56de4d9118a032fd5"
+    url "https://files.pythonhosted.org/packages/f2/4f/e1808dc01273379acc506d18f1504eb2d299bd4131743b9fc54d7be4df1e/charset_normalizer-3.4.0.tar.gz"
+    sha256 "223217c3d4f82c3ac5e29032b3f1c2eb0fb591b72161f86d93f5719079dae93e"
   end
 
   resource "configargparse" do
@@ -119,7 +120,7 @@ class Certbot < Formula
   def install
     if build.head?
       head_packages = %w[acme certbot certbot-apache certbot-nginx]
-      venv = virtualenv_create(libexec, "python3.12")
+      venv = virtualenv_create(libexec, "python3.13")
       venv.pip_install resources.reject { |r| head_packages.include? r.name }
       venv.pip_install_and_link head_packages.map { |pkg| buildpath/pkg }
       pkgshare.install buildpath/"certbot/examples"

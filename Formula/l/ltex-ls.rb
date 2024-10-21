@@ -19,7 +19,7 @@ class LtexLs < Formula
   end
 
   depends_on "maven" => :build
-  depends_on "python@3.12" => :build
+  depends_on "python@3.13" => :build
   depends_on "openjdk"
 
   def install
@@ -27,11 +27,11 @@ class LtexLs < Formula
     # Reported upstream at https://github.com/valentjn/ltex-ls/issues/244.
     inreplace "pom.xml", "<arg>-Werror</arg>", ""
 
-    ENV.prepend_path "PATH", Formula["python@3.12"].opt_libexec/"bin"
+    ENV.prepend_path "PATH", Formula["python@3.13"].opt_libexec/"bin"
     ENV["JAVA_HOME"] = Language::Java.java_home
     ENV["TMPDIR"] = buildpath
 
-    system "python3.12", "-u", "tools/createCompletionLists.py"
+    system "python3.13", "-u", "tools/createCompletionLists.py"
 
     system "mvn", "-B", "-e", "-DskipTests", "package"
 

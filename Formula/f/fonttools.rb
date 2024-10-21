@@ -9,15 +9,16 @@ class Fonttools < Formula
   head "https://github.com/fonttools/fonttools.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "547cc7fa352c17eaf56b471cb6d8017e42c374ccf194e34832153384f6f41b8b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "81ecdfabd98cfd41453c5e4d413e2cc0b531c36f3ede68dcb62291c2b90d32da"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "261ee9640f02c3e0ab908dbc9dc64e7368142f213a51e2529f0e886af5093a43"
-    sha256 cellar: :any_skip_relocation, sonoma:        "542f3fb9fc5d65f6188b1cc4eafb3fe2430b8d1257dd44ac11d24e81102cb2cd"
-    sha256 cellar: :any_skip_relocation, ventura:       "a7a4fcb65cbc9bd024b712ebc11b4ced3bed1eb94b59dd545a6964f05dd6d363"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2d6473b1ce2ae00ef7427679b108fb339ddf90e4795910a75fbaf7e60cd461f1"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "27a178d9ea6dd869b03063a53f7340550ebab79ae9f3e2fe3f06df50816f2641"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "02d2714a212dfebaae3bbd325dc5e7b0c8830f7c9e6d7d4d29b41b0f1caf5173"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "8be2fdd1ca43645f5b5255d8075cecdc262d67084e479f5f2b893cce6ba78ebd"
+    sha256 cellar: :any_skip_relocation, sonoma:        "ae83bfd089b5ee7eda8a32aa58e4ea6a3d75c768ba97a6f295f4e47d144e933a"
+    sha256 cellar: :any_skip_relocation, ventura:       "fffc4004399f8dba361085251781deb797c4daf9e04740f759ddb7dee38e241c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "de8d3e366d9ebc7e321c7b71cb9634f4516a3eef9769f55338fe57a98c59ff65"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "brotli" do
     url "https://files.pythonhosted.org/packages/2f/c2/f9e977608bdf958650638c3f1e28f85a1b075f075ebbe77db8555463787b/Brotli-1.1.0.tar.gz"

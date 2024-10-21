@@ -23,6 +23,11 @@ class Veraxx < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "ad710a6d70551b2d74732c9774a926f8a3c63f2db1aa87373701cfc90039d996"
   end
 
+  # luabind resource tarball is no longer available so does not build.
+  # Also uses unmaintained/EOL versions of `boost` and `lua` as resources.
+  # Last release on 2015-01-22
+  deprecate! date: "2024-10-09", because: :unmaintained
+
   depends_on "cmake" => :build
 
   uses_from_macos "tcl-tk"

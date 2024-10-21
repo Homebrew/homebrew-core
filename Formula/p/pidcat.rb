@@ -9,14 +9,15 @@ class Pidcat < Formula
   head "https://github.com/JakeWharton/pidcat.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "2d0412351f2c3bc45c8b43d8aa9a9e3f1892f22824db054008d1efbef344a3d4"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "c340b62825f294103c9e4866ca70e7cc13b85fd6adafcee7d9661bfad1743949"
   end
 
-  depends_on "python@3.12"
+  uses_from_macos "python"
 
   def install
-    rewrite_shebang detected_python_shebang, "pidcat.py"
+    # FIXME: `detected_python_shebang` doesn't correctly handle shebang with arguments
+    inreplace "pidcat.py", "#!/usr/bin/python -u", "#!/usr/bin/env -S python3 -u"
     bin.install "pidcat.py" => "pidcat"
 
     bash_completion.install "bash_completion.d/pidcat"

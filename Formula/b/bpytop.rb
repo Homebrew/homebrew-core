@@ -9,18 +9,16 @@ class Bpytop < Formula
   license "Apache-2.0"
 
   bottle do
-    rebuild 4
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "97d461108612ce121b439266f4888a9c5e60fdd15736064aad68bd1a6d0044d4"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "afbf743207adc75d2e3892ce97f745e488d10cf684c3403cb2bf8ca380413143"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "fd9246bfdd892cc310121f01b98ad28affb17a62e85fc9739a2b5d80be8f20b9"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c3d37cdbe668836efa2cad572810831e376cfbb7e3aa5cd1d47591806a6fb077"
-    sha256 cellar: :any_skip_relocation, sonoma:         "6adb154d1352cc284cfe07dc2a4832e56d702a065253c35955a89eded824fe18"
-    sha256 cellar: :any_skip_relocation, ventura:        "3f1faa82258730cb0c6408b4906ecf5c48c0e11129c59bcf971fa5c394f5fd3a"
-    sha256 cellar: :any_skip_relocation, monterey:       "620f4bc5466211bea4b3bcd363f5a97a15ed6081d7d12fc8cb4998f54e36f392"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8f053d1d4872dfbe70e7a432ffd4d80c0254369887ef65182673ac4e73ed16f0"
+    rebuild 5
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5c219f70ea941a5ba7c779f632de5aa2f19d80fc330ab0edd7eca6beffd62886"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "bcd0764b30ca7c0eed88852fbc8bd223cfbc4314255e59cc7f7cceb5e508c60d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "224c99a490aef1e9b24842a83cf954885018e291b323a13de2ce184190df9e51"
+    sha256 cellar: :any_skip_relocation, sonoma:        "1a548dc894e54ba4df4b522e769c1e5f2ca169045a3ac9005e5a4495262ae787"
+    sha256 cellar: :any_skip_relocation, ventura:       "01228ad504d5e1e41895ec90fb6aea5dc89bee6eb4097623e797f599dc918907"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "77c98ef152d8a32a13e5dded91db1efd998925ffffbab5456062d67f358d7394"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   on_macos do
     depends_on "osx-cpu-temp"
@@ -39,7 +37,7 @@ class Bpytop < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec, "python3.12")
+    venv = virtualenv_create(libexec, "python3.13")
     venv.pip_install resources
     system "make", "install", "PREFIX=#{prefix}"
     pkgshare.install "themes"

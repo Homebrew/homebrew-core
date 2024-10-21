@@ -14,18 +14,17 @@ class Spades < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "1e77243af347459693e838649125fbd3f772845108446692b5724b2a99d36851"
-    sha256 cellar: :any,                 arm64_sonoma:   "4211f7c49c9f9b896aba38958fd60c9aa340055362222c5b1b91a96c6d8b1186"
-    sha256 cellar: :any,                 arm64_ventura:  "b7648468fbc39495eae7723bb527af748e863bbff65a0d4341cb5ec8035226f3"
-    sha256 cellar: :any,                 arm64_monterey: "09c312987910e391deaa36ab11a7823ada78074944af6ffcb73b46d6a02006fa"
-    sha256 cellar: :any,                 sonoma:         "4a8945bcd33c7c1c04fa1c538bb6230d4a60f10a71aa4bf5559da15a80d2c9d4"
-    sha256 cellar: :any,                 ventura:        "74edae7cf86ef64da79d13d6fa3cde7a4163f76c25b02cb3a7d2596a467f7363"
-    sha256 cellar: :any,                 monterey:       "294e9d7c5f60ea7fdcd36a0e495f3b1f5c12e835b7d16a5532823180978241e6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "76478d4ca675a86ece42168bb01720f63e28c273ca8236205bd1451f11c2d175"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "36804b795a1a9d5a7b60414c8d4b46ff6bcdbcd9d9e74771170bb9b05e635892"
+    sha256 cellar: :any,                 arm64_sonoma:  "40c88655fd60c534ae6988c153b5e609aca9642612a30d5afb9ef7e014d50b5e"
+    sha256 cellar: :any,                 arm64_ventura: "6421a91f79aa8f03c5dfd76e07562fe92e21c33d1cd136ebc08abc6883991587"
+    sha256 cellar: :any,                 sonoma:        "3c740b96b14eeb5fc184cb8186c0d7a5ebc829d40c1ab04eaa7843a30a6d0853"
+    sha256 cellar: :any,                 ventura:       "582d300f360e60ce1d683dda845193ee256a1513ebdb42814bc81f55e2fb05b6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7fc9c195a2edf4522a54b55a96d66859c8e68d2e69dba7cdec98f53dfd14b37f"
   end
 
   depends_on "cmake" => :build
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   uses_from_macos "bzip2"
   uses_from_macos "ncurses"

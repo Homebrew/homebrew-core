@@ -1,8 +1,8 @@
 class LandoCli < Formula
   desc "Cli part of Lando"
   homepage "https://docs.lando.dev/cli"
-  url "https://github.com/lando/cli/archive/refs/tags/v3.21.2.tar.gz"
-  sha256 "2b930fa5c7cbe50396d147d3cf51f382e8a7312607f9dcefc04a4ad1399f4a46"
+  url "https://github.com/lando/cli/archive/refs/tags/v3.22.3.tar.gz"
+  sha256 "c8c621b8ee1b2e65aa8089d3eab3eacfefd4ae44a0e2cb4a856097b3604d6368"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -11,15 +11,12 @@ class LandoCli < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "d3a305e43d27240a99f679127bd247afbb401adda932f3d9a78721af40a88bce"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b9d8a04967096e248ac76dff7fb285bf51ab9315cb8ff0d64e59d2c7140091a8"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b9d8a04967096e248ac76dff7fb285bf51ab9315cb8ff0d64e59d2c7140091a8"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b9d8a04967096e248ac76dff7fb285bf51ab9315cb8ff0d64e59d2c7140091a8"
-    sha256 cellar: :any_skip_relocation, sonoma:         "532c6a084e1bef8b5ced5974e881305d28d2a97ee1f888da5d2af5bc9a551f43"
-    sha256 cellar: :any_skip_relocation, ventura:        "532c6a084e1bef8b5ced5974e881305d28d2a97ee1f888da5d2af5bc9a551f43"
-    sha256 cellar: :any_skip_relocation, monterey:       "532c6a084e1bef8b5ced5974e881305d28d2a97ee1f888da5d2af5bc9a551f43"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b9d8a04967096e248ac76dff7fb285bf51ab9315cb8ff0d64e59d2c7140091a8"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f616f24b05a33f71c9965a07846a99b60eb514db44965f9f48e10c27dc3431f0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f616f24b05a33f71c9965a07846a99b60eb514db44965f9f48e10c27dc3431f0"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "f616f24b05a33f71c9965a07846a99b60eb514db44965f9f48e10c27dc3431f0"
+    sha256 cellar: :any_skip_relocation, sonoma:        "978e927afcc786146097a7fc80eb171d14062b8a78a308ca39d40e3d97e6411c"
+    sha256 cellar: :any_skip_relocation, ventura:       "978e927afcc786146097a7fc80eb171d14062b8a78a308ca39d40e3d97e6411c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f616f24b05a33f71c9965a07846a99b60eb514db44965f9f48e10c27dc3431f0"
   end
 
   depends_on "node"

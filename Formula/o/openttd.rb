@@ -18,14 +18,13 @@ class Openttd < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia:  "25bf3f5b4408feafb93f6959029c3494b2b829fb2b7ac7c9d73f3460dda1993b"
-    sha256 cellar: :any, arm64_sonoma:   "1d592d47d07bb7af7c46266ec4e8c398f4e215496d6793dedfdf636b367b88e3"
-    sha256 cellar: :any, arm64_ventura:  "bbb3a5562f84cef0943051db9502d831eacaaedcfdb39d1046c4986131dc4eb1"
-    sha256 cellar: :any, arm64_monterey: "b3d9ee412a332d9c60734d45e717df2e70ddc113cd7301a2a84a37cc4bbd3e84"
-    sha256 cellar: :any, sonoma:         "45bbf6a073ecb8184a1b8486db11f7fae0e826881aad223b6d6c54620967d1f3"
-    sha256 cellar: :any, ventura:        "08d719114a5d0bdc0e1a7c0168556bace588a509e68bd1ec0e0b1399f90e6370"
-    sha256 cellar: :any, monterey:       "25f8adbd67b0bb7f3403fefb4fc98bc904e4c8cc001c35cd81d771f89a0b61e8"
-    sha256               x86_64_linux:   "4c1d2054b9907a1fd298a1b474d641741e36858a214b6c8e518bb25326828a82"
+    rebuild 1
+    sha256 cellar: :any, arm64_sequoia: "9bf761325d3daef0e00c49a0342f01c6644eeb8e02e4e5ea2a0e97ff9e082bb3"
+    sha256 cellar: :any, arm64_sonoma:  "ae5d3950fa4f5657138cb1065b1cdbabb002e45bb477c36043b222337309adba"
+    sha256 cellar: :any, arm64_ventura: "96fc8bd75124c582c395b096510ac5a5181011324e864245405868b986e5c98a"
+    sha256 cellar: :any, sonoma:        "21fe8f3bdf5dc3a72cb9611b803ded25636c2810011e92473ea746e8a408aa47"
+    sha256 cellar: :any, ventura:       "ec77cc4c95af77799c2633ad0a923407d1bdc41b1f01f64c19c02e49fa4474a1"
+    sha256               x86_64_linux:  "3f9df17a1ca7f18ea2c30b5de7c02658d9dee44dbdf1561d34c9c58fe6043906"
   end
 
   depends_on "cmake" => :build
@@ -40,9 +39,7 @@ class Openttd < Formula
     depends_on "fluid-synth"
     depends_on "fontconfig"
     depends_on "freetype"
-    depends_on "icu4c"
-    depends_on "mesa"
-    depends_on "mesa-glu"
+    depends_on "mesa" # no linkage as dynamically loaded by SDL2
     depends_on "sdl2"
   end
 

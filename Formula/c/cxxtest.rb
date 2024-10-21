@@ -10,21 +10,14 @@ class Cxxtest < Formula
   revision 3
 
   bottle do
-    rebuild 4
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "9abfbc3e0eb5e5903e8e1e509c357299fd83b8fea4f0b7c33c63961491813197"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "acdd395db8b77593f1d468bd9a47c10fa51b344bf50526df3fb965cde6f79ee6"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "74609617e8b9782eabdffe240ab7818a746ccd8eabe6ec4bce7d0cd98d240cc9"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9b08f08b062b7627be2000866176fc1f00ff5c47130640ddf344a49ee827ee45"
-    sha256 cellar: :any_skip_relocation, sonoma:         "0b2acef8c5b8aba77b4192b6572558a00fa4548d818ce6ed2119730fa8dfe9c6"
-    sha256 cellar: :any_skip_relocation, ventura:        "ed2ae59c74952d59677cc0411da3935dd8d1c2a415eb8cd60ea5d05a8d8fcad3"
-    sha256 cellar: :any_skip_relocation, monterey:       "639a40eda611f0370f70d0bcc3a4daad6e4c5a081862137622e377c3664abdb4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1613e42bf7a9153b9f8cefb7a00667d7ec4f152fb648333f0f2ab54bad2e4585"
+    rebuild 5
+    sha256 cellar: :any_skip_relocation, all: "643d46c6ac246d2b736860fd8e318a1a25fb4c2b659a18fead5db9fbe6dc9298"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   def install
-    venv = virtualenv_create(libexec, "python3.12")
+    venv = virtualenv_create(libexec, "python3.13")
     venv.pip_install_and_link buildpath/"python"
 
     include.install "cxxtest"

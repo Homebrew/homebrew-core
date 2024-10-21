@@ -1,10 +1,17 @@
 class Lima < Formula
   desc "Linux virtual machines"
   homepage "https://lima-vm.io/"
-  url "https://github.com/lima-vm/lima/archive/refs/tags/v0.23.2.tar.gz"
-  sha256 "fc21295f78d717efc921f8f6d1ec22f64da82bfe685d0d2d505aee76c53da1ff"
   license "Apache-2.0"
   head "https://github.com/lima-vm/lima.git", branch: "master"
+
+  stable do
+    url "https://github.com/lima-vm/lima/archive/refs/tags/v0.23.2.tar.gz"
+    sha256 "fc21295f78d717efc921f8f6d1ec22f64da82bfe685d0d2d505aee76c53da1ff"
+
+    # The head no longer needs QEMU on macOS hosts
+    # https://github.com/lima-vm/lima/commit/df05b810183ce999e36933f0dba7c25fa20245c
+    depends_on "qemu"
+  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "7e9eb7131cad0f52a28e731f761ec07e8c1253677b5cd93a4eed7a51a1409d91"
@@ -18,7 +25,10 @@ class Lima < Formula
   end
 
   depends_on "go" => :build
-  depends_on "qemu"
+
+  on_linux do
+    depends_on "qemu"
+  end
 
   def install
     if build.head?
@@ -39,7 +49,7 @@ class Lima < Formula
     info = JSON.parse shell_output("#{bin}/limactl info")
     # Verify that the VM drivers are compiled in
     assert_includes info["vmTypes"], "qemu"
-    assert_includes info["vmTypes"], "vz" if OS.mac? && MacOS.version >= :ventura
+    assert_includes info["vmTypes"], "vz" if OS.mac?
     # Verify that the template files are installed
     template_names = info["templates"].map { |x| x["name"] }
     assert_includes template_names, "default"

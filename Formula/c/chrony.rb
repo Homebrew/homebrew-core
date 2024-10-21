@@ -1,8 +1,8 @@
 class Chrony < Formula
   desc "Versatile implementation of the Network Time Protocol (NTP)"
   homepage "https://chrony-project.org"
-  url "https://chrony-project.org/releases/chrony-4.6.tar.gz"
-  sha256 "9adad4a5014420fc52b695896556fdfb49709dc7cd72d7f688d9eb85d5a274d5"
+  url "https://chrony-project.org/releases/chrony-4.6.1.tar.gz"
+  sha256 "571ff73fbf0ae3097f0604eca2e00b1d8bb2e91affe1a3494785ff21d6199c5c"
   license "GPL-2.0-only"
 
   livecheck do
@@ -11,14 +11,12 @@ class Chrony < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "04d012b25df812d59dbd8468aa320a4f79df4ccfd671b6ca83b8bf650fff7c2b"
-    sha256 cellar: :any,                 arm64_sonoma:   "8dd39a73c72e5eb5a672b27116f0fd8f26fa0a4007ce2613be40def748f19645"
-    sha256 cellar: :any,                 arm64_ventura:  "f32fd2718dfa16bafe27de82d88bd85e820342061a88b8122a1e0b50a1006a1b"
-    sha256 cellar: :any,                 arm64_monterey: "771a70145c907d1f00427dbaf21b73eb18c8fee321910daca5c13de408780f72"
-    sha256 cellar: :any,                 sonoma:         "246323fd8a3bf0207a1d00a3ed1b0a96b7d1b8d0d2abb91dc76f6beb557ea147"
-    sha256 cellar: :any,                 ventura:        "54d5f0f621055661d0ae4c27a9288f345d05c4970a30e28ba9a41e436d1ebb61"
-    sha256 cellar: :any,                 monterey:       "2847a89576282ed278e8045f8566c74eeeb9f2bed67ff0252324057960ecc387"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cf993c8b196e32abc3ea453038ea3a0eb7ec305e2fe0d1d9f99e5e8d26ac941b"
+    sha256 cellar: :any,                 arm64_sequoia: "4c6e88d135fc7248907d23dfeeb0dc7d7d59fdb3e4b4bf5d64cb88cbde144e7b"
+    sha256 cellar: :any,                 arm64_sonoma:  "7e9968c5ec5ea5eef8f8e8067102aa76abe5ba51f743ff128ce5a65f77187d38"
+    sha256 cellar: :any,                 arm64_ventura: "92e281e61b4343f5e1adc70edfbd7ef37cee3a810f7ebcbaaaee8494095d73e9"
+    sha256 cellar: :any,                 sonoma:        "47023cbf95a7711a26f5077d40b0a4564b864fbae5eb7d371952120bb4620d53"
+    sha256 cellar: :any,                 ventura:       "a2b6f67ac680be5e10d64b0a8e1c580a64bbd9e53fdabb1b0884562db5b4cef5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "55cd6ef009f00d493b55f8ced8b850f4029c6bc9f17e628303d65d4391df69d4"
   end
 
   depends_on "pkg-config" => :build

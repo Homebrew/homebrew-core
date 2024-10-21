@@ -1,19 +1,17 @@
 class Saml2aws < Formula
   desc "Login and retrieve AWS temporary credentials using a SAML IDP"
   homepage "https://github.com/Versent/saml2aws"
-  url "https://github.com/Versent/saml2aws/archive/refs/tags/v2.36.17.tar.gz"
-  sha256 "b0c4cb7f24f7aa1b49efa62c3eb6d176e1aec195ff76ff7138dde90ff089f188"
+  url "https://github.com/Versent/saml2aws/archive/refs/tags/v2.36.18.tar.gz"
+  sha256 "df31cff6e82558869133b9d6621cd5719719df02e3df645f4831c671ef23e63d"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "80940b2e973766bfbfd5ccfc5ae8c3812269e2d3d9559cd74e9e1097f7172d7f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "87fe1f852e97a27df7094e2aeef86346cb0d05b2365c669f7d173bd8759a5b7d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5b0c1ce1057db657731aec64e070fd9270809ba482885a0ea8913da4c68f47f6"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "df320aecc313f3eccfcd1802c40585a30dd8ce4710e6eab446ba941280f14c96"
-    sha256 cellar: :any_skip_relocation, sonoma:         "a44c09975b626ea05e1a56809404bc3ac90bf33bf7bba90b93572667eaa0ab0f"
-    sha256 cellar: :any_skip_relocation, ventura:        "17cbb83765d3aed1320c9072c0ee62bbdc02acd3292189b806f7e1af06674bb9"
-    sha256 cellar: :any_skip_relocation, monterey:       "1f258e7baa6289c4fda8e7db48ec5a3614e79efe0ffd4d1d7c1616a53844ce85"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6e867ded478efb9fa4a12dcc89d62af1e5c4b530d0b14a42efd1d425d6ef2dd1"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "76b5e3fed843e898d9bee13f7775893b68097b6bdf2910e1e6ea4c5053a8729c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5950ee47a6cde9792bb1e8323165dc7315fe42202db86e7c164b4e8d36cd984a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "88624f47b35bca83e11ffa00728d9cb9f284f0810403e6ac9ed222d15328b2db"
+    sha256 cellar: :any_skip_relocation, sonoma:        "db41aeaf178c51adaf9f92bf1a5e8b442d1c963d411163bb3bd16191a0ea1356"
+    sha256 cellar: :any_skip_relocation, ventura:       "fee75a7348f7ef8267250ecfd5ce3fc526893aee4ff52af0bbed1022281ce7f2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b3e7acd082bd09209a3a4b58a72a32564da050ab19c1b669b21e07d0f8a77ba9"
   end
 
   depends_on "go" => :build

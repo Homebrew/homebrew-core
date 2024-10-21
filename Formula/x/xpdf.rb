@@ -11,14 +11,12 @@ class Xpdf < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "e775e8b4e270213c66cc926fbaf7699bb79cf52ca4d30d0d2c7bfa1a4ebccd84"
-    sha256 cellar: :any,                 arm64_sonoma:   "fa1671618f3f9efa35959abd97e504bf6e08dd435e2bbf000cf195dcfee6d01c"
-    sha256 cellar: :any,                 arm64_ventura:  "e5774761d4a6a79893e0d2af59ddbf9ac178662bcc31f4144f0eab744269f53b"
-    sha256 cellar: :any,                 arm64_monterey: "61ac5eba04cc8ab73c4f588979d0e02a76b0b5b5475a4e9e03486e980018bdf9"
-    sha256 cellar: :any,                 sonoma:         "7da20a5e9e850794d98b08ef544a69d4f856683533345bb9dfe3b1fcc421b765"
-    sha256 cellar: :any,                 ventura:        "b9003b9879cfeb6e6979859a121b59dd899e2b490a87c8e01aa4fa8ce0defcc1"
-    sha256 cellar: :any,                 monterey:       "e82e5ccffe6c04337eea25d975a84777747c190d1c1b458b9cc2cf1bb0c6f443"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3951386ab869791ccd7da42c52c7298137abd308e5ba10a3ab7c4426b330e552"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:  "498ac9ead73ba9677b494feb653335acbc7ba85c41ea6001c52fa47e2bc8d364"
+    sha256 cellar: :any,                 arm64_ventura: "60bdb7303f2f3c8b2018862b04f00dfbb169b08c5a91365298b1f0b6f5e2779c"
+    sha256 cellar: :any,                 sonoma:        "0e6fb3a888aa52e6a8f98fd71a1e0408940624b9c32df49a976707fd3eeeeb04"
+    sha256 cellar: :any,                 ventura:       "479115c082b9a0b15c166da94c0f782dda3216186dbf62874666efa2c13505cc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6a6a861f923c14a27ced94e1c2a8b82a520e60d130656dd6ab3769aea2770b7c"
   end
 
   depends_on "cmake" => :build
@@ -26,7 +24,7 @@ class Xpdf < Formula
   depends_on "fontconfig"
   depends_on "freetype"
   depends_on "libpng"
-  depends_on "qt@5"
+  depends_on "qt"
 
   conflicts_with "pdf2image", "pdftohtml", "poppler",
     because: "poppler, pdftohtml, pdf2image, and xpdf install conflicting executables"
@@ -34,8 +32,9 @@ class Xpdf < Formula
   fails_with gcc: "5"
 
   def install
-    system "cmake", ".", *std_cmake_args
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build", "-DSYSTEM_XPDFRC=#{etc}/xpdfrc", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do

@@ -1,18 +1,19 @@
 class Trivy < Formula
   desc "Vulnerability scanner for container images, file systems, and Git repos"
   homepage "https://aquasecurity.github.io/trivy/"
-  url "https://github.com/aquasecurity/trivy/archive/refs/tags/v0.56.1.tar.gz"
-  sha256 "e117413607450c4194c08947a9f65c5ae039f7a84b71e6f236dcd70b0b2de7a5"
+  url "https://github.com/aquasecurity/trivy/archive/refs/tags/v0.56.2.tar.gz"
+  sha256 "239c0e33a87b7bcffb0a62567c26a009216ccd9192fdf11aad70af95365b2cbe"
   license "Apache-2.0"
   head "https://github.com/aquasecurity/trivy.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "03c241ffe87c60376ffe7788cb9993a3fbf5a65f78bc6e48e2e11cf0ea990458"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6dd48cfaba80250d3ae58fff1a301f3f153d832600318f6145d9d4fedc03bb2c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "32ec0535a046175f1f500113c79ce4cdb5f879d968a9417cac7850f514d01d86"
-    sha256 cellar: :any_skip_relocation, sonoma:        "79abaa7e4936223256f89a910d887e9efa4db03c74fe804ec20b05f4242117f0"
-    sha256 cellar: :any_skip_relocation, ventura:       "179dc7e81ae8ee39cd977671a96e63693403576ca0d3c4e19aa13d4192854d20"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7d5453ce919c79308e42fffaa2566f4851f8527f31c4630196d4b8b6a120adf0"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "214f42d042a70c57c5f45a882552a84f9793ff5adc6f6333012da284cb1bedc2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8b7cd621e4bf46d52e265f2ebbefa31b081703a5fc85594de928bad290bee8d7"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "091165be3248814252412d523de3bf04694d48e2b7bb88fc33f8f7bb36afd291"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8599d4bdb0596a37f59aa9af629ae38cde753a421264b91bb75a5bb9028ec258"
+    sha256 cellar: :any_skip_relocation, ventura:       "71dafd06534015be5397d9e444c408424b37e785d2489f2375984aa89f96636e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0034a04ecb06da90e0f6b710ea890d3de2d27b1e598a241f8a5cda626101b8c2"
   end
 
   depends_on "go" => :build
@@ -24,6 +25,8 @@ class Trivy < Formula
     ]
     system "go", "build", *std_go_args(ldflags:), "./cmd/trivy"
     (pkgshare/"templates").install Dir["contrib/*.tpl"]
+
+    generate_completions_from_executable(bin/"trivy", "completion")
   end
 
   test do

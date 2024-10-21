@@ -5,7 +5,7 @@ class Xsd < Formula
   version "4.0.0"
   sha256 "eca52a9c8f52cdbe2ae4e364e4a909503493a0d51ea388fc6c9734565a859817"
   license "GPL-2.0-only" => { with: "Classpath-exception-2.0" }
-  revision 1
+  revision 2
 
   livecheck do
     url "https://www.codesynthesis.com/products/xsd/download.xhtml"
@@ -13,21 +13,12 @@ class Xsd < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "c7f2c3f100b6be3456b87a921c886ab484fedd7d66a0767cefda94971a084e57"
-    sha256 cellar: :any,                 arm64_sonoma:   "38ef3b6d2a550b72917403304382646605650696cdcfd193d98788b97c9d838e"
-    sha256 cellar: :any,                 arm64_ventura:  "145cc4cc5c80f28c500b9366ef04f21722d30bd5b35494c2a387d22981e6dc34"
-    sha256 cellar: :any,                 arm64_monterey: "95198623fcf033077d6ecd6b4e5f1f63801f2fd3d627360e7688b59e11e72647"
-    sha256 cellar: :any,                 arm64_big_sur:  "d2849a3cc67e9e3ad119bc2de7b4f9f278d44619e770f87ba90978a01cf3222c"
-    sha256 cellar: :any,                 sonoma:         "e78e23b9d39a7c57e40da6262799cddb868bf19f55fba591029289d49a0427e3"
-    sha256 cellar: :any,                 ventura:        "71e1639991944335d03acbff5dec86a17e6cd086cda72545964f1df7ab05ade5"
-    sha256 cellar: :any,                 monterey:       "d34d64497149ef2b227d34fb2e091ddf733efc3f0c3980b19ad5ffda371be914"
-    sha256 cellar: :any,                 big_sur:        "9ce5a5f4190d2db8665260ac89c115888dd986e6f59fb81f03ef0eee97dc3d04"
-    sha256 cellar: :any,                 catalina:       "8de0a3cfd410a3b2640a557e009b751f67c6f2416e38e42aa3a6634e73941847"
-    sha256 cellar: :any,                 mojave:         "cb064aa81b48f1777f14888e4c6df4ae3782159f5a315944df49882bce06b231"
-    sha256 cellar: :any,                 high_sierra:    "25dfd3dbcbe7f6f442bf6d45adaa849b5fbc4e7360ca4d9084bb1910252f992d"
-    sha256 cellar: :any,                 sierra:         "935d1bcd6d9cf35cdd42e68ddb9931ad29df0834b76d6f4b9cdaa743176d7bae"
-    sha256 cellar: :any,                 el_capitan:     "4e4a26fc0a99b11e8a740b6f5041964b682048de7ff0a9cbfd15ffea263f0c62"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e1e0712d3d4b01b0a0a6ac03b57d81efb957aff42d0960614bf41d7ea2cb6acc"
+    sha256 cellar: :any,                 arm64_sequoia: "8119ae88416a48f44f45d39b54d6c14b8849bae8fed840a0e88456c7c2bff144"
+    sha256 cellar: :any,                 arm64_sonoma:  "a36a30cf1bdff08460969ddcc24fae52a5cc743d57253c564d4d89a828f4db64"
+    sha256 cellar: :any,                 arm64_ventura: "4f2eb34d577abf123990d70c6ee5ff4b8d77e53778260f4b93325f68941d3e33"
+    sha256 cellar: :any,                 sonoma:        "a0154c4c947ed3117bc4c45530a90a4ff2ac6c9d748472371b955119dfac9363"
+    sha256 cellar: :any,                 ventura:       "5f941b47bc3bbd36bd6282e3d580f123056768597b66397e308e7aac5b991b09"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1617579f8c28bfe87fcb4a1630a34700bcf0266bb4a179969e49fcc62fde4eed"
   end
 
   depends_on "pkg-config" => :build

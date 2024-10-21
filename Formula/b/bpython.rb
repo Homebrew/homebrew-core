@@ -10,18 +10,17 @@ class Bpython < Formula
   head "https://github.com/bpython/bpython.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "263f1e4766a84ad1b3303ae565e7dc03d8b6cff1a47a5f120b661a87e3e7a201"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b7f7561153987a849efddadcf8879bc552b90e798b440908168bbcd625f7eadc"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "61affeb7592d3590a5afe1fe71ccaac0158607d25caedd54fa563310dee2b40f"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5523b6e78ff4f944611e4455bad1922252a216622d61b5c3b84f604faa2e763a"
-    sha256 cellar: :any_skip_relocation, sonoma:         "2bbd8b0fe5d27a8bc18937072ed2b78e125112d771ae28842c436a4ab41848e4"
-    sha256 cellar: :any_skip_relocation, ventura:        "103ae2ade2e3a310a27a76db40c697eb997721ba0a47036a7fa617ef401ec2d7"
-    sha256 cellar: :any_skip_relocation, monterey:       "d5ab39aca83ffbb50eb067ee28ec7417228a7bacc6265477473f16bcd619926e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "49ba830b22c25d9e27d0cdf8777ad47ba318d9746e3e2b887fbf136d1cbfa1c1"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2b360e10d30c6ee1b0ef0bf60b8245731f2202b794dee9c20625191dc4f5ae63"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b7750a5fc32efbc4ec1d8658eb91db4b3f657747e02252dc7ca6904f0bf59bf9"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "4d4e7d7cad4d6d74e7f704ce6d5fce6dee9f91bd90d627a675a27f3825c24668"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2197161d78fa3b89c3806645446ce4a787d384bb9277026589cdbf6a4e3988b3"
+    sha256 cellar: :any_skip_relocation, ventura:       "1a5ff5d5e133a315c19dddf9cb43a2e78e9c43fe822acf1d2f7f444543e27171"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "64174373804d35a9235b4d7ee423c887bd122dec1b901a66a6f4e1172ed45767"
   end
 
   depends_on "certifi"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "blessed" do
     url "https://files.pythonhosted.org/packages/25/ae/92e9968ad23205389ec6bd82e2d4fca3817f1cdef34e10aa8d529ef8b1d7/blessed-1.20.0.tar.gz"
@@ -29,8 +28,8 @@ class Bpython < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/63/09/c1bc53dab74b1816a00d8d030de5bf98f724c52c1635e07681d312f20be8/charset-normalizer-3.3.2.tar.gz"
-    sha256 "f30c3cb33b24454a82faecaf01b19c18562b1e89558fb6c56de4d9118a032fd5"
+    url "https://files.pythonhosted.org/packages/f2/4f/e1808dc01273379acc506d18f1504eb2d299bd4131743b9fc54d7be4df1e/charset_normalizer-3.4.0.tar.gz"
+    sha256 "223217c3d4f82c3ac5e29032b3f1c2eb0fb591b72161f86d93f5719079dae93e"
   end
 
   resource "curtsies" do
@@ -44,13 +43,13 @@ class Bpython < Formula
   end
 
   resource "greenlet" do
-    url "https://files.pythonhosted.org/packages/17/14/3bddb1298b9a6786539ac609ba4b7c9c0842e12aa73aaa4d8d73ec8f8185/greenlet-3.0.3.tar.gz"
-    sha256 "43374442353259554ce33599da8b692d5aa96f8976d567d4badf263371fbe491"
+    url "https://files.pythonhosted.org/packages/2f/ff/df5fede753cc10f6a5be0931204ea30c35fa2f2ea7a35b25bdaf4fe40e46/greenlet-3.1.1.tar.gz"
+    sha256 "4ce3ac6cdb6adf7946475d7ef31777c26d94bccc377e070a7986bd2d5c515467"
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/21/ed/f86a79a07470cb07819390452f178b3bef1d375f2ec021ecfc709fc7cf07/idna-3.7.tar.gz"
-    sha256 "028ff3aadf0609c1fd278d8ea3089299412a7a8b9bd005dd08b9f8285bcb5cfc"
+    url "https://files.pythonhosted.org/packages/f1/70/7703c29685631f5a7590aa73f1f1d3fa9a380e654b86af429e0934a32f7d/idna-3.10.tar.gz"
+    sha256 "12f65c9b470abda6dc35cf8e63cc574b1c52b11df2c86030af0ac09b01b13ea9"
   end
 
   resource "pygments" do
@@ -74,8 +73,8 @@ class Bpython < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/43/6d/fa469ae21497ddc8bc93e5877702dca7cb8f911e337aca7452b5724f1bb6/urllib3-2.2.2.tar.gz"
-    sha256 "dd505485549a7a552833da5e6063639d0d177c04f23bc3864e41e5dc5f612168"
+    url "https://files.pythonhosted.org/packages/ed/63/22ba4ebfe7430b76388e7cd448d5478814d3032121827c12a2cc287e2260/urllib3-2.2.3.tar.gz"
+    sha256 "e7d814a81dad81e6caf2ec9fdedb284ecc9c73076b62654547cc64ccdcae26e9"
   end
 
   resource "wcwidth" do
@@ -84,7 +83,7 @@ class Bpython < Formula
   end
 
   def python3
-    which("python3.12")
+    which("python3.13")
   end
 
   def install

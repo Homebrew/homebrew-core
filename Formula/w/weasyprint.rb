@@ -8,19 +8,18 @@ class Weasyprint < Formula
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "664b691a814c2c32277adc3b6f5c79a479c48ef2d39b86ae2b797bdc59e3a266"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c673fc341ddd0b6c77472204f0fbece9dccd1875aa145cff73725ca4b3456937"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6e502ab307d6e5c6d8b736fe8d68d8fef8bfb65009044493a69676473ea05691"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b70956809a87fc94fe386ddcdbf536db293a9ecf61d5fc4db349695ceee42959"
-    sha256 cellar: :any_skip_relocation, sonoma:         "67ec881fb796087cbeed85d0aaf28fc1f23df86b5ad9e155c35e7c620c47a07c"
-    sha256 cellar: :any_skip_relocation, ventura:        "be59ff232b1a0d10a91d5b6151c1dec11c26959c0b6455b4f7a7258a9f0b4ff7"
-    sha256 cellar: :any_skip_relocation, monterey:       "f9fde52e0ee7963f652f516af14aba49bd0785be3d734c0f368bd5e17ed28d7c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b53402900a8fab244e00fb1147045bda5a8dd6759ad29ebf9f75990c4cb432a5"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3a426d768dc4519a57e3b631a2ba8490e30916644430ccc5a4296270bcf72f7c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d2b61a184013075027baa0bf4b0124b5ba0f2a1e73b43c3cf475a6fc194e5826"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "6a1144e4bf1a2e4e20afc18843c855226a40ab332e1755dfd6dca6ce0f67fa02"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e12f78868a2e4e3122852f41bf47e8ee86b9944be0b8b581ae435903497cbf88"
+    sha256 cellar: :any_skip_relocation, ventura:       "8e6904d8251000d4b3caa5a15dea102653c04b3572cac46d5cfe33c802d43a0d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5e0b91d50adf140286290680ab3c8a06e1400de3b0411bcd183aa85f711dd8fe"
   end
 
   depends_on "pango"
   depends_on "pillow"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   uses_from_macos "libffi"
 
@@ -30,8 +29,8 @@ class Weasyprint < Formula
   end
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/68/ce/95b0bae7968c65473e1298efb042e10cafc7bafc14d9e4f154008241c91d/cffi-1.16.0.tar.gz"
-    sha256 "bcb3ef43e58665bbda2fb198698fcae6776483e0c4a631aa5647806c25e02cc0"
+    url "https://files.pythonhosted.org/packages/fc/97/c783634659c2920c3fc70419e3af40972dbaf758daa229a7d6ea6135c90d/cffi-1.17.1.tar.gz"
+    sha256 "1c39c6016c32bc48dd54561950ebd6836e1670f2ae46128f67cf49e789c52824"
   end
 
   resource "cssselect2" do
@@ -40,8 +39,8 @@ class Weasyprint < Formula
   end
 
   resource "fonttools" do
-    url "https://files.pythonhosted.org/packages/a4/6e/681d39b71d5f0d6a1b1dc87d7333331f9961b5ab6a2ad6372d6cf3f8b04c/fonttools-4.53.0.tar.gz"
-    sha256 "c93ed66d32de1559b6fc348838c7572d5c0ac1e4a258e76763a5caddd8944002"
+    url "https://files.pythonhosted.org/packages/11/1d/70b58e342e129f9c0ce030029fb4b2b0670084bbbfe1121d008f6a1e361c/fonttools-4.54.1.tar.gz"
+    sha256 "957f669d4922f92c171ba01bef7f29410668db09f6c02111e22b2bce446f3285"
   end
 
   resource "html5lib" do
@@ -55,13 +54,13 @@ class Weasyprint < Formula
   end
 
   resource "pydyf" do
-    url "https://files.pythonhosted.org/packages/59/0b/389051bbc9decfa057a617c0a676883a674c2ecc2c0cef875e5502e35b77/pydyf-0.10.0.tar.gz"
-    sha256 "357194593efaf61d7b48ab97c3d59722114934967c3df3d7878ca6dd25b04c30"
+    url "https://files.pythonhosted.org/packages/2e/c2/97fc6ce4ce0045080dc99446def812081b57750ed8aa67bfdfafa4561fe5/pydyf-0.11.0.tar.gz"
+    sha256 "394dddf619cca9d0c55715e3c55ea121a9bf9cbc780cdc1201a2427917b86b64"
   end
 
   resource "pyphen" do
-    url "https://files.pythonhosted.org/packages/4c/d1/f6bc803daa4c1cfe5b1176427f46dfe3ffee524bea1dee8bdde532e17c41/pyphen-0.15.0.tar.gz"
-    sha256 "a430623decac53dc3691241253263cba36b9dd7a44ffd2680b706af368cda2f2"
+    url "https://files.pythonhosted.org/packages/33/87/493fc9e2597923a2b02a1facc376a3bf8e682698ae177b340c0c5fd1fdec/pyphen-0.16.0.tar.gz"
+    sha256 "2c006b3ddf072c9571ab97606d9ab3c26a92eaced4c0d59fd1d26988f308f413"
   end
 
   resource "six" do

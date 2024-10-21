@@ -1,12 +1,12 @@
 class Repopack < Formula
   desc "Pack repository contents into a single AI-friendly file"
   homepage "https://github.com/yamadashy/repopack"
-  url "https://registry.npmjs.org/repopack/-/repopack-0.1.41.tgz"
-  sha256 "3071830212038e8043023c3b9c859699320e94d412a409523d7f904a0f6f3c2d"
+  url "https://registry.npmjs.org/repopack/-/repopack-0.1.43.tgz"
+  sha256 "514942244a9e5dac52730994979d91006bb536386f7f7a412d6c16f6a44fbf2e"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "f41790f9f5025a31a14546393e74f3a36cb02c2bf427c7f81bc9bb3dc747ffce"
+    sha256 cellar: :any_skip_relocation, all: "8b9b0a7b32ad546f01dbd57ab8531fc5e97bf46476f8eca612aa99183d5b081e"
   end
 
   depends_on "node"

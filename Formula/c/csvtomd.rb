@@ -9,18 +9,11 @@ class Csvtomd < Formula
   revision 3
 
   bottle do
-    rebuild 5
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "654c774a63722cee46f935d10d2d553b190f194d8c7990e83298c2b47cfbe3a8"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "cfab4319e3f6f785023a0a926a5064b77b2615f69029593b87822f6e1de91def"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e7af8a248dac87d1ca3833f58124f2f4996d22b82672045a878ddbd457d12c59"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3604137f92ff09c4cbc0e842d7ab9a58b6c0dcf3a9a04d3515a0eb8e38a1ca86"
-    sha256 cellar: :any_skip_relocation, sonoma:         "293373ab4c4380b9f2f80a1520437a2475a31739b9adb5106e70f86d2d261e84"
-    sha256 cellar: :any_skip_relocation, ventura:        "d4dfd7ae585a3c68088e8ddaa236e204a0a9d160296761b4baffa3ea3289caf3"
-    sha256 cellar: :any_skip_relocation, monterey:       "7f5f98e998b63fc42aed8346cc01b838b387fa4ab3378cf39799874ee8036549"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dd6be70b468bfabdc49bc77695a7153538adffc71a0fef7fd7ede02c2f252ab1"
+    rebuild 6
+    sha256 cellar: :any_skip_relocation, all: "db9a5f1d08b328f96733905f1b05215a8fe89ff95834ebc873a94d3197e16477"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   # ValueError: invalid mode: 'rU'
   patch :DATA

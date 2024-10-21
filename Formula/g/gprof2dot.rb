@@ -9,18 +9,17 @@ class Gprof2dot < Formula
   head "https://github.com/jrfonseca/gprof2dot.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "3c844e39ef4287548064b0a50495b69e932bb8da99e1433885fffbf53f9b6e19"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a0e000bb5783e8ebe2ae2ed71435424043ccc58a7100b11778e9fe9dfc33f556"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a0e000bb5783e8ebe2ae2ed71435424043ccc58a7100b11778e9fe9dfc33f556"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a0e000bb5783e8ebe2ae2ed71435424043ccc58a7100b11778e9fe9dfc33f556"
-    sha256 cellar: :any_skip_relocation, sonoma:         "a0e000bb5783e8ebe2ae2ed71435424043ccc58a7100b11778e9fe9dfc33f556"
-    sha256 cellar: :any_skip_relocation, ventura:        "a0e000bb5783e8ebe2ae2ed71435424043ccc58a7100b11778e9fe9dfc33f556"
-    sha256 cellar: :any_skip_relocation, monterey:       "a0e000bb5783e8ebe2ae2ed71435424043ccc58a7100b11778e9fe9dfc33f556"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "193194c610bdace3071a0923b19dc61d64d27442dcf085d404ebbc17e95cbde1"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "31bfacb896a0c0fc72908c76e848e5263102b66a41c7182d972e02d31a6e6e3e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "31bfacb896a0c0fc72908c76e848e5263102b66a41c7182d972e02d31a6e6e3e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "31bfacb896a0c0fc72908c76e848e5263102b66a41c7182d972e02d31a6e6e3e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "31bfacb896a0c0fc72908c76e848e5263102b66a41c7182d972e02d31a6e6e3e"
+    sha256 cellar: :any_skip_relocation, ventura:       "31bfacb896a0c0fc72908c76e848e5263102b66a41c7182d972e02d31a6e6e3e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "39591774b33ca82f1efa5764aa2254e0e83729b79b8f2e90d1296b5f77376bdf"
   end
 
   depends_on "graphviz"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   on_linux do
     depends_on "libx11"

@@ -8,12 +8,13 @@ class Opencolorio < Formula
   head "https://github.com/AcademySoftwareFoundation/OpenColorIO.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "390ca8939046584908885edbe83e8b2ed305554bf171a36249b259d5dacd1b55"
-    sha256 cellar: :any,                 arm64_sonoma:  "90a1c59eb48ffa735a566c81a8fddfab4b7c66fe2abc8f77f2c49aa0c0c1997e"
-    sha256 cellar: :any,                 arm64_ventura: "f9ffd1513ea17add5e7c2fd686df92ce5c88e38f4c115ca7a5d2c9cc25be630c"
-    sha256 cellar: :any,                 sonoma:        "16be5891921c2d0ecd16d31703767e1e7ddc7b0948ab602aff3854863537fc7d"
-    sha256 cellar: :any,                 ventura:       "f58a5e868e1aae2cf19c9258353cc8cc0519d609075db2256ba8990de50f4cc6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b26d359f64be7f20b765ea57f872b99f3b009d188ad9bb95aded39063f554dc8"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "b08a1c82a6f2f5e5dec10e08a853726fcacef51b4605f95f89e8e8908ed19fe7"
+    sha256 cellar: :any,                 arm64_sonoma:  "2f1b55053fd7ef4a22105666ae8c567c2e49ad3b31a3fc3330928c345dd4b13c"
+    sha256 cellar: :any,                 arm64_ventura: "c6343b306d31ede970e02b824f818ae5bf612bc7f1ed184cdab99593e232ce7f"
+    sha256 cellar: :any,                 sonoma:        "50863919fdd8765261e4ad779c9941ecacbeaada5fe8b982ad97d8e1fe708ec7"
+    sha256 cellar: :any,                 ventura:       "bef54ecf3bf6e192640f2bb937eb34e22f9779108737982816bee3d9d8bdfa7b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "afdbae92d7160b40aa3afb2661a97f3be3367526d1fd170750e24036f037d87a"
   end
 
   depends_on "cmake" => :build
@@ -23,7 +24,7 @@ class Opencolorio < Formula
   depends_on "minizip-ng"
   depends_on "openexr"
   depends_on "pystring"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
   depends_on "yaml-cpp"
 
   uses_from_macos "expat"
@@ -34,7 +35,7 @@ class Opencolorio < Formula
   end
 
   def python3
-    "python3.12"
+    "python3.13"
   end
 
   def install

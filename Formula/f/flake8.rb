@@ -9,17 +9,16 @@ class Flake8 < Formula
   head "https://github.com/PyCQA/flake8.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "001f306b3fc82b3dabaeb212a7b3c1e81eaf0b761bb162f456dfbbd25038feae"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ad181ea71a17364008997e187bdc0900c79d6fe7d97bc38632900ee74983fb33"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ad181ea71a17364008997e187bdc0900c79d6fe7d97bc38632900ee74983fb33"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ad181ea71a17364008997e187bdc0900c79d6fe7d97bc38632900ee74983fb33"
-    sha256 cellar: :any_skip_relocation, sonoma:         "0f2f8cf687807008befc05e078d97bebe0f4c0db5adc7033ce150e3edaaf3e00"
-    sha256 cellar: :any_skip_relocation, ventura:        "0f2f8cf687807008befc05e078d97bebe0f4c0db5adc7033ce150e3edaaf3e00"
-    sha256 cellar: :any_skip_relocation, monterey:       "0f2f8cf687807008befc05e078d97bebe0f4c0db5adc7033ce150e3edaaf3e00"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a6d5cf696bebd9fa866de7ba2bc38c3d6b7c17bcc964a166c73057b2978fce7d"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1c4c9b36fa6e65d48f7ca029f68c9d15cfe5c5b265a0f9d6ad3dadf099db1b88"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1c4c9b36fa6e65d48f7ca029f68c9d15cfe5c5b265a0f9d6ad3dadf099db1b88"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "1c4c9b36fa6e65d48f7ca029f68c9d15cfe5c5b265a0f9d6ad3dadf099db1b88"
+    sha256 cellar: :any_skip_relocation, sonoma:        "eb44cc7dabc374c174e0bc2088369ccf41038fedecba9135b51e9d27855b6790"
+    sha256 cellar: :any_skip_relocation, ventura:       "eb44cc7dabc374c174e0bc2088369ccf41038fedecba9135b51e9d27855b6790"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1c4c9b36fa6e65d48f7ca029f68c9d15cfe5c5b265a0f9d6ad3dadf099db1b88"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "mccabe" do
     url "https://files.pythonhosted.org/packages/e7/ff/0ffefdcac38932a54d2b5eed4e0ba8a408f215002cd178ad1df0f2806ff8/mccabe-0.7.0.tar.gz"

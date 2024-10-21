@@ -10,20 +10,18 @@ class Choose < Formula
   head "https://github.com/geier/choose.git", branch: "master"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "7ded96eb3bb8c2136e454b15bd92eba7a701c79b5d6fdeda61af960b99ab4020"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f5c4fa56df4043797b8afd5d16f09ba833cb31c6623311e93f666cd658128d84"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "591ec66da1ed275c857cf18501b239665db4b24e8e75a31ccd436a753ca2f4bd"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7d70433ad746562e57937e4420e86c2fa8e4bb725b7a795fe96f7025ad8f9cc2"
-    sha256 cellar: :any_skip_relocation, sonoma:         "bdec81b49dfbe6079c974a10fd3d9c38a88ecd5dee80c17e40088190e0c39bf1"
-    sha256 cellar: :any_skip_relocation, ventura:        "faae656f20149cf61694f480cf8768faf1980fbd615685430f55b2840bbeb32f"
-    sha256 cellar: :any_skip_relocation, monterey:       "68976e471d2940156eacd0f781882efdabe06355b4ef93fd1a01726a8a707014"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6d41eb1ad4084eab5d86a808d208009b196ead914a9ed5e497f06b04eb7071a8"
+    rebuild 3
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b4cd084aeff66d38306336992370937b0f8473abd64f70c8561145df065581ac"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3057d3a685e175581c474a109b02b02e9ebd3cf5e4ab50d0319611de5446ce18"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "bded43dc4b0b911ac3259b481dfb745b08d554e293a0467b15b5bcc4e4357c57"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7a48f740c534a14757cf6f5b72b233ce9923b266557d55eb43dd31e063e171fa"
+    sha256 cellar: :any_skip_relocation, ventura:       "5b1c0d8199073bcd41b9edffd02784c4fe752388d3c53f4a2240aef48ce0fcfe"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d4b42fd68579b38ed93b464f8e309b6642c884cae2f1281bcb576b678929945b"
   end
 
   deprecate! date: "2024-05-19", because: :unmaintained
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   conflicts_with "choose-gui", because: "both install a `choose` binary"
   conflicts_with "choose-rust", because: "both install a `choose` binary"
@@ -34,7 +32,7 @@ class Choose < Formula
   end
 
   def install
-    python3 = "python3.12"
+    python3 = "python3.13"
     ENV.prepend_create_path "PYTHONPATH", libexec/Language::Python.site_packages(python3)
 
     resource("urwid").stage do

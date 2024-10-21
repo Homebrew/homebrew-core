@@ -9,20 +9,19 @@ class Howdoi < Formula
   revision 9
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "e66a2520c467689f8cf04edce8715f6eff86583348e15e0ad009d0a68d2d4712"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2aba154864418a4c8c1c38c8a868f3e68148376fac6ed49292c975019cb0f12b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4aac1db10e831ea0980d1da458b721b7b96c6950710f1c16e6e2abcc1d29c5ec"
-    sha256 cellar: :any,                 arm64_monterey: "8da6c648eb6447c81c8bf5c6321b7744091eca31e6c7af3687ce1a42b02a50fa"
-    sha256 cellar: :any_skip_relocation, sonoma:         "a6599bf83d1c11b5bf40126e1af5386f5b396ba8419e87bfbf1fc570780631d5"
-    sha256 cellar: :any_skip_relocation, ventura:        "d636094f9780dbdd6ff5ed66a4242aac0a4fa8d82b2a949e01a0bd13ec426a64"
-    sha256 cellar: :any,                 monterey:       "fad155e8b9ef5523d6fac103af068079861be1f97cf176139db097acff2ee031"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6a4cac62a69c3f6531ba3e1cf534e6353a3b2b26f52d91cd1394d7f3cdb061bf"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_sequoia: "2674270159eb079ad93bb4c4abe680f4dd089976fe59109dd2156c9111fa600b"
+    sha256 cellar: :any,                 arm64_sonoma:  "4ff362e290742baad6e9d0484ea70aee147e397388d7a550d322ff215c361d25"
+    sha256 cellar: :any,                 arm64_ventura: "5c6417c2f0e5618fe13bcb79b032f2aad5ac5e564f5db7abc705487ab7bc7d77"
+    sha256 cellar: :any,                 sonoma:        "f48a8bd968b56195def07c3318ae53f095d446eb21dd187ea1d51d1c967558de"
+    sha256 cellar: :any,                 ventura:       "234f5431c62f46e47c90e8832be245d5e146a746d6a687bb83911fd0761bb065"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a77719b07db84dd967caa408e74ce85db345adeb14520c7ba83e8711140d89ff"
   end
 
   depends_on "certifi"
   depends_on "cryptography"
-  depends_on "python@3.12"
+  depends_on "libsodium" # for pynacl
+  depends_on "python@3.13"
 
   uses_from_macos "libxml2", since: :ventura
   uses_from_macos "libxslt"
@@ -38,8 +37,8 @@ class Howdoi < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/63/09/c1bc53dab74b1816a00d8d030de5bf98f724c52c1635e07681d312f20be8/charset-normalizer-3.3.2.tar.gz"
-    sha256 "f30c3cb33b24454a82faecaf01b19c18562b1e89558fb6c56de4d9118a032fd5"
+    url "https://files.pythonhosted.org/packages/f2/4f/e1808dc01273379acc506d18f1504eb2d299bd4131743b9fc54d7be4df1e/charset_normalizer-3.4.0.tar.gz"
+    sha256 "223217c3d4f82c3ac5e29032b3f1c2eb0fb591b72161f86d93f5719079dae93e"
   end
 
   resource "click" do
@@ -63,8 +62,8 @@ class Howdoi < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/21/ed/f86a79a07470cb07819390452f178b3bef1d375f2ec021ecfc709fc7cf07/idna-3.7.tar.gz"
-    sha256 "028ff3aadf0609c1fd278d8ea3089299412a7a8b9bd005dd08b9f8285bcb5cfc"
+    url "https://files.pythonhosted.org/packages/f1/70/7703c29685631f5a7590aa73f1f1d3fa9a380e654b86af429e0934a32f7d/idna-3.10.tar.gz"
+    sha256 "12f65c9b470abda6dc35cf8e63cc574b1c52b11df2c86030af0ac09b01b13ea9"
   end
 
   resource "keep" do
@@ -73,8 +72,8 @@ class Howdoi < Formula
   end
 
   resource "lxml" do
-    url "https://files.pythonhosted.org/packages/63/f7/ffbb6d2eb67b80a45b8a0834baa5557a14a5ffce0979439e7cd7f0c4055b/lxml-5.2.2.tar.gz"
-    sha256 "bb2dc4898180bea79863d5487e5f9c7c34297414bad54bcd0f0852aee9cfdb87"
+    url "https://files.pythonhosted.org/packages/e7/6b/20c3a4b24751377aaa6307eb230b66701024012c29dd374999cc92983269/lxml-5.3.0.tar.gz"
+    sha256 "4e109ca30d1edec1ac60cdbe341905dc3b8f55b16855e03a54aaf59e51ec8c6f"
   end
 
   resource "markdown-it-py" do
@@ -88,8 +87,8 @@ class Howdoi < Formula
   end
 
   resource "pygithub" do
-    url "https://files.pythonhosted.org/packages/5c/fb/3af782cd3c0f2c19bc54c640af33513369d240ca748f39c0b38b371e5d1d/PyGithub-2.3.0.tar.gz"
-    sha256 "0148d7347a1cdeed99af905077010aef81a4dad988b0ba51d4108bf66b443f7e"
+    url "https://files.pythonhosted.org/packages/f1/a0/1e8b8ca88df9857836f5bf8e3ee15dfb810d19814ef700b12f99ce11f691/pygithub-2.4.0.tar.gz"
+    sha256 "6601e22627e87bac192f1e2e39c6e6f69a43152cfb8f307cee575879320b3051"
   end
 
   resource "pygments" do
@@ -98,8 +97,8 @@ class Howdoi < Formula
   end
 
   resource "pyjwt" do
-    url "https://files.pythonhosted.org/packages/30/72/8259b2bccfe4673330cea843ab23f86858a419d8f1493f66d413a76c7e3b/PyJWT-2.8.0.tar.gz"
-    sha256 "57e28d156e3d5c10088e0c68abb90bfac3df82b40a71bd0daa20c65ccd5c23de"
+    url "https://files.pythonhosted.org/packages/fb/68/ce067f09fca4abeca8771fe667d89cc347d1e99da3e093112ac329c6020e/pyjwt-2.9.0.tar.gz"
+    sha256 "7e1e5b56cc735432a7369cbfa0efe50fa113ebecdc04ae6922deba8b84582d0c"
   end
 
   resource "pynacl" do
@@ -108,8 +107,8 @@ class Howdoi < Formula
   end
 
   resource "pyquery" do
-    url "https://files.pythonhosted.org/packages/6c/f2/5dfdea62dcffa3d224d6b25d050f27edfe3c143fff3505078b0903b18d7f/pyquery-2.0.0.tar.gz"
-    sha256 "963e8d4e90262ff6d8dec072ea97285dc374a2f69cad7776f4082abcf6a1d8ae"
+    url "https://files.pythonhosted.org/packages/ae/48/79e774ea00b671d08867f06d9258203be81834236c150ac00e942d8fc4db/pyquery-2.0.1.tar.gz"
+    sha256 "0194bb2706b12d037db12c51928fe9ebb36b72d9e719565daba5a6c595322faf"
   end
 
   resource "requests" do
@@ -118,8 +117,8 @@ class Howdoi < Formula
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/b3/01/c954e134dc440ab5f96952fe52b4fdc64225530320a910473c1fe270d9aa/rich-13.7.1.tar.gz"
-    sha256 "9be308cb1fe2f1f57d67ce99e95af38a1e2bc71ad9813b0e247cf7ffbcc3a432"
+    url "https://files.pythonhosted.org/packages/aa/9e/1784d15b057b0075e5136445aaea92d23955aad2c93eaede673718a40d95/rich-13.9.2.tar.gz"
+    sha256 "51a2c62057461aaf7152b4d611168f93a9fc73068f8ded2790f29fe2b5366d0c"
   end
 
   resource "terminaltables3" do
@@ -133,8 +132,8 @@ class Howdoi < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/43/6d/fa469ae21497ddc8bc93e5877702dca7cb8f911e337aca7452b5724f1bb6/urllib3-2.2.2.tar.gz"
-    sha256 "dd505485549a7a552833da5e6063639d0d177c04f23bc3864e41e5dc5f612168"
+    url "https://files.pythonhosted.org/packages/ed/63/22ba4ebfe7430b76388e7cd448d5478814d3032121827c12a2cc287e2260/urllib3-2.2.3.tar.gz"
+    sha256 "e7d814a81dad81e6caf2ec9fdedb284ecc9c73076b62654547cc64ccdcae26e9"
   end
 
   resource "wrapt" do
@@ -143,6 +142,7 @@ class Howdoi < Formula
   end
 
   def install
+    ENV["SODIUM_INSTALL"] = "system"
     virtualenv_install_with_resources
   end
 

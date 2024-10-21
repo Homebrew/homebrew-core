@@ -8,17 +8,16 @@ class Scons < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "a328faf40ed543b4d70c679a181ab9aca15cf3c69cd4fd49f404a4f57c675825"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "633b90cf71e96dd4958f27ec2dc6d38fea979e317edacf5d7423717957cc506a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "633b90cf71e96dd4958f27ec2dc6d38fea979e317edacf5d7423717957cc506a"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "633b90cf71e96dd4958f27ec2dc6d38fea979e317edacf5d7423717957cc506a"
-    sha256 cellar: :any_skip_relocation, sonoma:         "3a6fd9a6e51f29a80a45e60a7f85c750424fdf2e1f00627d2f3b416e8cd4b8a6"
-    sha256 cellar: :any_skip_relocation, ventura:        "3a6fd9a6e51f29a80a45e60a7f85c750424fdf2e1f00627d2f3b416e8cd4b8a6"
-    sha256 cellar: :any_skip_relocation, monterey:       "3a6fd9a6e51f29a80a45e60a7f85c750424fdf2e1f00627d2f3b416e8cd4b8a6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "633b90cf71e96dd4958f27ec2dc6d38fea979e317edacf5d7423717957cc506a"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8c6381cb480ea7ce3bd6cffe6832e36823bbaf7035474af9413dc8cb19749b0a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8c6381cb480ea7ce3bd6cffe6832e36823bbaf7035474af9413dc8cb19749b0a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "8c6381cb480ea7ce3bd6cffe6832e36823bbaf7035474af9413dc8cb19749b0a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "39bd1514eddb34b2f55eb00626f57b1ae0af20c4fde64e3f3c6cccb41cee3e22"
+    sha256 cellar: :any_skip_relocation, ventura:       "39bd1514eddb34b2f55eb00626f57b1ae0af20c4fde64e3f3c6cccb41cee3e22"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8c6381cb480ea7ce3bd6cffe6832e36823bbaf7035474af9413dc8cb19749b0a"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   def install
     virtualenv_install_with_resources

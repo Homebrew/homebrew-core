@@ -18,11 +18,12 @@ class OpenImageDenoise < Formula
 
   depends_on "cmake" => :build
   depends_on "ispc" => :build
-  depends_on "python@3.12" => :build
   # clang: error: unknown argument: '-fopenmp-simd'
   # https://github.com/OpenImageDenoise/oidn/issues/35
   depends_on macos: :high_sierra
   depends_on "tbb"
+
+  uses_from_macos "python" => :build
 
   # fix compile error when using old libc++ (e.g. from macOS 12 SDK)
   patch do
@@ -34,10 +35,9 @@ class OpenImageDenoise < Formula
     # Fix arm64 build targeting iOS
     inreplace "cmake/oidn_ispc.cmake", 'set(ISPC_TARGET_OS "--target-os=ios")', ""
 
-    mkdir "build" do
-      system "cmake", *std_cmake_args, ".."
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do

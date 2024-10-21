@@ -3,23 +3,24 @@ class Fastapi < Formula
 
   desc "CLI for FastAPI framework"
   homepage "https://fastapi.tiangolo.com/"
-  url "https://files.pythonhosted.org/packages/7b/5e/bf0471f14bf6ebfbee8208148a3396d1a23298531a6cc10776c59f4c0f87/fastapi-0.115.0.tar.gz"
-  sha256 "f93b4ca3529a8ebc6fc3fcf710e5efa8de3df9b41570958abf1d97d843138004"
+  url "https://files.pythonhosted.org/packages/22/fa/19e3c7c9b31ac291987c82e959f36f88840bea183fa3dc3bb654669f19c1/fastapi-0.115.2.tar.gz"
+  sha256 "3995739e0b09fa12f984bce8fa9ae197b35d433750d3d312422d846e283697ee"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "0a9825f6a81a677216de18c4bcedb9e8ebae7eef1820d559c34281b508666222"
-    sha256 cellar: :any,                 arm64_sonoma:  "a8419e9c21479cad40c29a712ad87746ae22697192d16d15c12b6a1632c924e6"
-    sha256 cellar: :any,                 arm64_ventura: "5e6b286022e3ab7c41f0d788bf601239c62f318148b56c9767f0f0d9c9dbb2de"
-    sha256 cellar: :any,                 sonoma:        "a1ea3067ae49b1d407f5cd5ea620155cfbf895919968ce74e4342608c0e4741d"
-    sha256 cellar: :any,                 ventura:       "ae9d7848016430e22d300a5610849bbe35a86b8d3b4b378cbdf8b14a8dd761a4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d51ecf86d41c7765492579cc983ca9fa7cc6bee07b5d2a7e71833a1fd60ca36e"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "43b17fb983028a89a6945fdc733d4d1018c47a339ceeb3fccdebdf35b9a615ac"
+    sha256 cellar: :any,                 arm64_sonoma:  "3cb10364005fca1e01f325832a2098753b6caedf1a7724b942db813d1ce2fcdf"
+    sha256 cellar: :any,                 arm64_ventura: "211f3987ac76f596ae49ee0df44ab0789ac5f384b9ee2e6b02ea4dc35016811d"
+    sha256 cellar: :any,                 sonoma:        "567c110f5b4d754b556193e1f674251db92e659a60815431d1a62d0536621282"
+    sha256 cellar: :any,                 ventura:       "21a6cafdd08eee1550743281a709db41ea856bb22ccbc86a19b00e2a53ee99e9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c4cc6b4b1882b5c9a38b8a5510c93dac2ea851cd29f4a6af00d010239a5383a4"
   end
 
   depends_on "rust" => :build # for pydantic
   depends_on "certifi"
   depends_on "libyaml"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   uses_from_macos "libffi"
   uses_from_macos "libxml2", since: :ventura
@@ -31,8 +32,8 @@ class Fastapi < Formula
   end
 
   resource "anyio" do
-    url "https://files.pythonhosted.org/packages/e6/e3/c4c8d473d6780ef1853d630d581f70d655b4f8d7553c6997958c283039a2/anyio-4.4.0.tar.gz"
-    sha256 "5aadc6a1bbb7cdb0bede386cac5e2940f5e2ff3aa20277e991cf028e0585ce94"
+    url "https://files.pythonhosted.org/packages/78/49/f3f17ec11c4a91fe79275c426658e509b07547f874b14c1a526d86a83fc8/anyio-4.6.0.tar.gz"
+    sha256 "137b4559cbb034c477165047febb6ff83f390fc3b20bf181c1fc0a728cb8beeb"
   end
 
   resource "click" do
@@ -41,8 +42,8 @@ class Fastapi < Formula
   end
 
   resource "dnspython" do
-    url "https://files.pythonhosted.org/packages/37/7d/c871f55054e403fdfd6b8f65fd6d1c4e147ed100d3e9f9ba1fe695403939/dnspython-2.6.1.tar.gz"
-    sha256 "e8f0f9c23a7b7cb99ded64e6c3a6f3e701d78f50c55e002b839dea7225cff7cc"
+    url "https://files.pythonhosted.org/packages/b5/4a/263763cb2ba3816dd94b08ad3a33d5fdae34ecb856678773cc40a3605829/dnspython-2.7.0.tar.gz"
+    sha256 "ce9c432eda0dc91cf618a5cedf1a4e142651196bbcd2c80e89ed5a907e5cfaf1"
   end
 
   resource "email-validator" do
@@ -61,13 +62,16 @@ class Fastapi < Formula
   end
 
   resource "httpcore" do
-    url "https://files.pythonhosted.org/packages/17/b0/5e8b8674f8d203335a62fdfcfa0d11ebe09e23613c3391033cbba35f7926/httpcore-1.0.5.tar.gz"
-    sha256 "34a38e2f9291467ee3b44e89dd52615370e152954ba21721378a87b2960f7a61"
+    url "https://files.pythonhosted.org/packages/b6/44/ed0fa6a17845fb033bd885c03e842f08c1b9406c86a2e60ac1ae1b9206a6/httpcore-1.0.6.tar.gz"
+    sha256 "73f6dbd6eb8c21bbf7ef8efad555481853f5f6acdeaff1edb0694289269ee17f"
   end
 
   resource "httptools" do
     url "https://files.pythonhosted.org/packages/67/1d/d77686502fced061b3ead1c35a2d70f6b281b5f723c4eff7a2277c04e4a2/httptools-0.6.1.tar.gz"
     sha256 "c6e26c30455600b95d94b1b836085138e82f177351454ee841c148f93a9bad5a"
+
+    # relax cython version constraint, upstream pr ref, https://github.com/MagicStack/httptools/pull/101
+    patch :DATA
   end
 
   resource "httpx" do
@@ -91,8 +95,8 @@ class Fastapi < Formula
   end
 
   resource "markupsafe" do
-    url "https://files.pythonhosted.org/packages/87/5b/aae44c6655f3801e81aa3eef09dbbf012431987ba564d7231722f68df02d/MarkupSafe-2.1.5.tar.gz"
-    sha256 "d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"
+    url "https://files.pythonhosted.org/packages/b4/d2/38ff920762f2247c3af5cbbbbc40756f575d9692d381d7c520f45deb9b8f/markupsafe-3.0.1.tar.gz"
+    sha256 "3e683ee4f5d0fa2dde4db77ed8dd8a876686e3fc417655c2ece9a90576905344"
   end
 
   resource "mdurl" do
@@ -121,8 +125,8 @@ class Fastapi < Formula
   end
 
   resource "python-multipart" do
-    url "https://files.pythonhosted.org/packages/5c/0f/9c55ac6c84c0336e22a26fa84ca6c51d58d7ac3a2d78b0dfa8748826c883/python_multipart-0.0.9.tar.gz"
-    sha256 "03f54688c663f1b7977105f021043b0793151e4cb1c1a9d4a11fc13d622c4026"
+    url "https://files.pythonhosted.org/packages/16/6e/7ecfe1366b9270f7f475c76fcfa28812493a6a1abd489b2433851a444f4f/python_multipart-0.0.12.tar.gz"
+    sha256 "045e1f98d719c1ce085ed7f7e1ef9d8ccc8c02ba02b5566d5f7521410ced58cb"
   end
 
   resource "pyyaml" do
@@ -131,8 +135,8 @@ class Fastapi < Formula
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/92/76/40f084cb7db51c9d1fa29a7120717892aeda9a7711f6225692c957a93535/rich-13.8.1.tar.gz"
-    sha256 "8260cda28e3db6bf04d2d1ef4dbc03ba80a824c88b0e7668a0f23126a424844a"
+    url "https://files.pythonhosted.org/packages/aa/9e/1784d15b057b0075e5136445aaea92d23955aad2c93eaede673718a40d95/rich-13.9.2.tar.gz"
+    sha256 "51a2c62057461aaf7152b4d611168f93a9fc73068f8ded2790f29fe2b5366d0c"
   end
 
   resource "shellingham" do
@@ -146,8 +150,8 @@ class Fastapi < Formula
   end
 
   resource "starlette" do
-    url "https://files.pythonhosted.org/packages/13/aa/57975da16ca0c368bbb5687daa6ad79561c2328a44667a1d6802e94df3e5/starlette-0.38.5.tar.gz"
-    sha256 "04a92830a9b6eb1442c766199d62260c3d4dc9c4f9188360626b1e0273cb7077"
+    url "https://files.pythonhosted.org/packages/02/0a/62fbd5697f6174041f9b4e2e377b6f383f9189b77dbb7d73d24624caca1d/starlette-0.39.2.tar.gz"
+    sha256 "caaa3b87ef8518ef913dac4f073dea44e85f73343ad2bdc17941931835b2a26a"
   end
 
   resource "typer" do
@@ -161,13 +165,13 @@ class Fastapi < Formula
   end
 
   resource "uvicorn" do
-    url "https://files.pythonhosted.org/packages/5a/01/5e637e7aa9dd031be5376b9fb749ec20b86f5a5b6a49b87fabd374d5fa9f/uvicorn-0.30.6.tar.gz"
-    sha256 "4b15decdda1e72be08209e860a1e10e92439ad5b97cf44cc945fcbee66fc5788"
+    url "https://files.pythonhosted.org/packages/76/87/a886eda9ed495a3a4506d5a125cd07c54524280718c4969bde88f075fe98/uvicorn-0.31.1.tar.gz"
+    sha256 "f5167919867b161b7bcaf32646c6a94cdbd4c3aa2eb5c17d36bb9aa5cfd8c493"
   end
 
   resource "uvloop" do
-    url "https://files.pythonhosted.org/packages/bc/f1/dc9577455e011ad43d9379e836ee73f40b4f99c02946849a44f7ae64835e/uvloop-0.20.0.tar.gz"
-    sha256 "4603ca714a754fc8d9b197e325db25b2ea045385e8a3ad05d3463de725fdf469"
+    url "https://files.pythonhosted.org/packages/cf/3d/a150e044b5bc69961168b024c531d21b63acd9948b7d681b03e551be01e1/uvloop-0.21.0b1.tar.gz"
+    sha256 "5e12901bd67c5ba374741fc497adc44de14854895c416cd0672b2e5b676ca23c"
   end
 
   resource "watchfiles" do
@@ -176,8 +180,8 @@ class Fastapi < Formula
   end
 
   resource "websockets" do
-    url "https://files.pythonhosted.org/packages/8f/1c/78687e0267b09412409ac134f10fd14d14ac6475da892a8b09a02d0f6ae2/websockets-13.0.1.tar.gz"
-    sha256 "4d6ece65099411cfd9a48d13701d7438d9c34f479046b34c50ff60bb8834e43e"
+    url "https://files.pythonhosted.org/packages/e2/73/9223dbc7be3dcaf2a7bbf756c351ec8da04b1fa573edaf545b95f6b0c7fd/websockets-13.1.tar.gz"
+    sha256 "a3b3366087c1bc0a2795111edcadddb8b3b59509d5db5d7ea3fdd69f954a8878"
   end
 
   def install
@@ -210,3 +214,62 @@ class Fastapi < Formula
     Process.wait(pid)
   end
 end
+
+__END__
+diff --git a/httptools/parser/parser.c b/httptools/parser/parser.c
+index 1b64e55..4a59122 100644
+--- a/httptools/parser/parser.c
++++ b/httptools/parser/parser.c
+@@ -9937,7 +9937,7 @@ static CYTHON_INLINE long __Pyx_PyInt_As_long(PyObject *x) {
+                 unsigned char *bytes = (unsigned char *)&val;
+                 int ret = _PyLong_AsByteArray((PyLongObject *)v,
+                                               bytes, sizeof(val),
+-                                              is_little, !is_unsigned);
++                                              is_little, !is_unsigned, 0);
+                 Py_DECREF(v);
+                 if (likely(!ret))
+                     return val;
+@@ -10133,7 +10133,7 @@ static CYTHON_INLINE int __Pyx_PyInt_As_int(PyObject *x) {
+                 unsigned char *bytes = (unsigned char *)&val;
+                 int ret = _PyLong_AsByteArray((PyLongObject *)v,
+                                               bytes, sizeof(val),
+-                                              is_little, !is_unsigned);
++                                              is_little, !is_unsigned, 0);
+                 Py_DECREF(v);
+                 if (likely(!ret))
+                     return val;
+diff --git a/httptools/parser/url_parser.c b/httptools/parser/url_parser.c
+index c9e646a..e9a5f01 100644
+--- a/httptools/parser/url_parser.c
++++ b/httptools/parser/url_parser.c
+@@ -5547,7 +5547,7 @@ static CYTHON_INLINE long __Pyx_PyInt_As_long(PyObject *x) {
+                 unsigned char *bytes = (unsigned char *)&val;
+                 int ret = _PyLong_AsByteArray((PyLongObject *)v,
+                                               bytes, sizeof(val),
+-                                              is_little, !is_unsigned);
++                                              is_little, !is_unsigned, 0);
+                 Py_DECREF(v);
+                 if (likely(!ret))
+                     return val;
+@@ -5743,7 +5743,7 @@ static CYTHON_INLINE int __Pyx_PyInt_As_int(PyObject *x) {
+                 unsigned char *bytes = (unsigned char *)&val;
+                 int ret = _PyLong_AsByteArray((PyLongObject *)v,
+                                               bytes, sizeof(val),
+-                                              is_little, !is_unsigned);
++                                              is_little, !is_unsigned, 0);
+                 Py_DECREF(v);
+                 if (likely(!ret))
+                     return val;
+diff --git a/setup.py b/setup.py
+index 200e6f6..adca1f8 100644
+--- a/setup.py
++++ b/setup.py
+@@ -15,7 +15,7 @@ CFLAGS = ['-O2']
+
+ ROOT = pathlib.Path(__file__).parent
+
+-CYTHON_DEPENDENCY = 'Cython(>=0.29.24,<0.30.0)'
++CYTHON_DEPENDENCY = 'Cython>=0.29.24'
+
+
+ class httptools_build_ext(build_ext):

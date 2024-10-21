@@ -15,21 +15,11 @@ class EyeD3 < Formula
   end
 
   bottle do
-    rebuild 5
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "a575ba1abc45a414812a5241174167144ed49795f0cc1c1d36468c20e00cf7ee"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e7dd9ef41619ee1ba37f59d0f85ec9312baa153c49e4ed2f04623f1a5a977e78"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "492d06caf21120e8d3fe5c7ed475d38c75fb911c25726dbd1f876928610fad02"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "1afc95c6df87e421ba9e8528a624bd6511c365df11eb1916dde56a4df33b1700"
-    sha256 cellar: :any_skip_relocation, sonoma:         "75e153d9eb3211c1c238e77b79749ffec0c4b78bf984c077dda30c3fcd93e6c2"
-    sha256 cellar: :any_skip_relocation, ventura:        "1bce118606944fa82f3e327a868abfbca6a4b8a99470c8b63e5815565a415d8f"
-    sha256 cellar: :any_skip_relocation, monterey:       "ebf1572cc8f80b55636ec13ec042b23fac3d868698bd36e47bfd6edcb44780d3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dbe1accdb0701ddd51d8b326400efdc5ac1980cc82e4aa209940785c0a39decb"
+    rebuild 6
+    sha256 cellar: :any_skip_relocation, all: "8faeb282de11f645e221dc739a28c1ba308ab14f26cd19da5378179eb040217e"
   end
 
-  depends_on "python@3.12"
-
-  # Looking for documentation? Please submit a PR to build some!
-  # See https://github.com/Homebrew/homebrew/issues/32770 for previous attempt.
+  depends_on "python@3.13"
 
   resource "coverage" do
     url "https://files.pythonhosted.org/packages/38/df/d5e67851e83948def768d7fb1a0fd373665b20f56ff63ed220c6cd16cb11/coverage-5.5.tar.gz"
@@ -47,8 +37,8 @@ class EyeD3 < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/fb/2b/9b9c33ffed44ee921d0967086d653047286054117d584f1b1a7c22ceaf7b/packaging-23.2.tar.gz"
-    sha256 "048fb0e9405036518eaaf48a55953c750c11e1a1b68e0dd1a9d62ed0c092cfc5"
+    url "https://files.pythonhosted.org/packages/51/65/50db4dda066951078f0a96cf12f4b9ada6e4b811516bf0262c0f4f7064d4/packaging-24.1.tar.gz"
+    sha256 "026ed72c8ed3fcce5bf8950572258698927fd1dbda10a5e981cdf0ac37f4f002"
   end
 
   resource "toml" do

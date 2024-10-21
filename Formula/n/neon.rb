@@ -44,4 +44,44 @@ class Neon < Formula
                           "--with-libs=#{Formula["openssl@3"].opt_prefix}"
     system "make", "install"
   end
+
+  test do
+    port = free_port
+
+    (testpath/"test.c").write <<~EOS
+      #include <stdio.h>
+      #include <stdlib.h>
+      #include <unistd.h>
+      #include <ne_basic.h>
+
+      int main(int argc, char **argv)
+      {
+          char data[] = "Example data.\\n";
+          ne_session *sess;
+          int ec = EXIT_SUCCESS;
+          ne_sock_init();
+          sess = ne_session_create("http", "localhost", #{port});
+          if (ne_get(sess, "/foo/bar/baz", STDOUT_FILENO)) {
+              fprintf(stderr, "nget: Request failed: %s\\n", ne_get_error(sess));
+              ec = EXIT_FAILURE;
+          }
+          ne_session_destroy(sess);
+          return ec;
+      }
+    EOS
+    system ENV.cc, "test.c", "-I#{include}/neon", "-L#{lib}", "-lneon", "-o", "test"
+
+    fork do
+      server = TCPServer.new port
+      session = server.accept
+      msg = session.gets
+      session.puts "HTTP/1.1 200\r\nContent-Type: text/html\r\n\r\n"
+      session.puts "Hello world! Message: #{msg}"
+      session.close
+      server.close
+    end
+
+    sleep 1
+    assert_match "Hello world! Message: GET /foo/bar/baz HTTP/1.1\r\n", shell_output("./test")
+  end
 end

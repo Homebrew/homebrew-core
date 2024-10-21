@@ -15,11 +15,12 @@ class Jdtls < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "3ede1e70ee9db9d7d2d584b89e1e8a50c1c24e4d1b0bb7817eea50a496b5d98a"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "65c00bf3248953db25c21da481bd5ce2305382bb9f19f6f81a46afd52cf99485"
   end
 
   depends_on "openjdk"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   def install
     libexec.install buildpath.glob("*") - buildpath.glob("config*win*")

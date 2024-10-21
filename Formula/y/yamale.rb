@@ -9,22 +9,21 @@ class Yamale < Formula
   head "https://github.com/23andMe/Yamale.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "359ebe9dfd6e1ab18d7bd5baddc24cd3ad7bc244c2d9872e7f6879e17ade25c1"
-    sha256 cellar: :any,                 arm64_sonoma:   "2c5ebfc81864613bdd1e30f35b1348f8be32ca92b08874a5902e4d1c01c57917"
-    sha256 cellar: :any,                 arm64_ventura:  "a7fa0ea6519e357eb573b4ee47d1983e053ad7bf3cc7d29185b536fa11bd77f5"
-    sha256 cellar: :any,                 arm64_monterey: "8660b24b84321ada3030da4ac73cdf1ac2081325bf5da3f92fb1592fdee5faec"
-    sha256 cellar: :any,                 sonoma:         "64f86dc528e57efa4788f112f9383534de827877292f09fbaa005c6970065897"
-    sha256 cellar: :any,                 ventura:        "e311137d5bf6b7eaffd9553111dc3d7d5d98a19b15dddd0f947fad621087979a"
-    sha256 cellar: :any,                 monterey:       "83f1931bf8bf30f857e277163e8ce7399e8bf7b50e6208c456973d2832818b61"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "806207e26ef328f9fa8c96457fb2eaa8c3d27b6ff8ac5049209f3d87dea69eaa"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "972e3519557190a2fb6f6b22c98b61fe538d5624b14da8d34e0bfa553a30ab92"
+    sha256 cellar: :any,                 arm64_sonoma:  "9bc34bd97e2f3b863536b6d5a496a8d1e302a2c82d9e502a7fe9b5ce292e2928"
+    sha256 cellar: :any,                 arm64_ventura: "59d8b6c4c7d427f1ae7a5d7e12020372d12d9dac4e84112583d928c145062c9c"
+    sha256 cellar: :any,                 sonoma:        "a5b74a8255fd2673d509c7a5d83261c3091d62d756552e5f487e3fa011a2db38"
+    sha256 cellar: :any,                 ventura:       "4771d6bf1e8781dc07095dfc196702fcebad4d668e7cdce136b81e1e0f01a4c8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8896fa98af8cd7309abc1ae9a63ea54da11fdac0029b397481f9644f236fe0e6"
   end
 
   depends_on "libyaml"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "pyyaml" do
-    url "https://files.pythonhosted.org/packages/cd/e5/af35f7ea75cf72f2cd079c95ee16797de7cd71f29ea7c68ae5ce7be1eda0/PyYAML-6.0.1.tar.gz"
-    sha256 "bfdf460b1736c775f2ba9f6a92bca30bc2095067b8a9d77876d1fad6cc3b4a43"
+    url "https://files.pythonhosted.org/packages/54/ed/79a089b6be93607fa5cdaedf301d7dfb23af5f25c398d5ead2525b063e17/pyyaml-6.0.2.tar.gz"
+    sha256 "d584d9ec91ad65861cc08d42e834324ef890a082e591037abe114850ff7bbc3e"
   end
 
   def install

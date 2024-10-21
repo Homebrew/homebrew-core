@@ -14,19 +14,18 @@ class Cahute < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "ae478bae9114f5c2358a1e9305bfbd8f91651f8feaeff01860e532e3a6da12fe"
-    sha256 cellar: :any,                 arm64_sonoma:   "54a6d7f18428a643fae21ffc46d69a3452747ff1407ed29327790ad0dad0b1a9"
-    sha256 cellar: :any,                 arm64_ventura:  "801089f50337607b35638f59c8b35ccf3483a51f2df4652fa0f87c895043916c"
-    sha256 cellar: :any,                 arm64_monterey: "8a0d5976f9b70a6e1b1fe3694a8027791cc045cdf3c5041b50ba8b278632e288"
-    sha256 cellar: :any,                 sonoma:         "7b86bb0b04b251f55c8a23c8db28c516f2215fbe41a2d04abcb82e33eb8d1b1e"
-    sha256 cellar: :any,                 ventura:        "374296d49a79e319a0b0cb4b99c13e5415a2c6b84291b785e09287c4da41c74c"
-    sha256 cellar: :any,                 monterey:       "de0d5fdc80f28ed63a3a4f28dc613e323a4e965907afa4c9fb8fb7bff8166c13"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b717781f0d4686f32e496614932216b84a9a39bcc95c2eeb2f069afed7a53a73"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "4e87caab9efe6bbafa902f326b7f970ecb544b7ceb6dde814ad297052df9180d"
+    sha256 cellar: :any,                 arm64_sonoma:  "76c9b13ca029fc173d1b2a5cade69f65553df52b66939b85890d67af1d3fd281"
+    sha256 cellar: :any,                 arm64_ventura: "f4ddd7874435b2aea256f2c18d873ac6c1245e1111e329dde59829aeec68723b"
+    sha256 cellar: :any,                 sonoma:        "29963eec6d0daaff4836ad997cd9dfb711218bf4a954dda8d6e79d6c90843595"
+    sha256 cellar: :any,                 ventura:       "40d37194e9d0335d990f2ebadf5d735edfe5cfee429b92b1b37d5da3e9884d85"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f12f31c6f31c3a10bac5b6de716a73ad70778f0c764e3cbd0cdc2b870d81c1e6"
   end
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => [:build, :test]
-  depends_on "python@3.12" => :build
+  depends_on "python@3.13" => :build
   depends_on "libusb"
   depends_on "sdl2"
 
@@ -35,8 +34,12 @@ class Cahute < Formula
     sha256 "b3bda1d108d5dd99f4a20d24d9c348e91c4db7ab1b749200bded2f839ccbe68f"
   end
 
+  def python3
+    "python3.13"
+  end
+
   def install
-    venv = virtualenv_create(buildpath/"venv", "python3.12")
+    venv = virtualenv_create(buildpath/"venv", python3)
     venv.pip_install resources
 
     system "cmake", "-S", ".", "-B", "build", "-DPython3_EXECUTABLE=#{venv.root}/bin/python", *std_cmake_args

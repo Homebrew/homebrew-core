@@ -9,11 +9,11 @@ class Redo < Formula
   revision 2
 
   bottle do
-    rebuild 5
-    sha256 cellar: :any_skip_relocation, all: "15950166170b2edc6aabeea2454d89b024e7f3ad086879bc4d88a413288ce7e1"
+    rebuild 6
+    sha256 cellar: :any_skip_relocation, all: "1efbd77be03b0fe6a112cad4db0910ddb6eeb101f5999322589e8f9ed6ff9870"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   conflicts_with "goredo", because: "both install `redo` and `redo-*` binaries"
 
@@ -33,7 +33,7 @@ class Redo < Formula
   end
 
   def install
-    python3 = "python3.12"
+    python3 = "python3.13"
     # Prevent system Python 2 from being detected
     inreplace "redo/whichpython.do", " python python3 python2 python2.7;", " #{python3};"
 

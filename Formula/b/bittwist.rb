@@ -1,21 +1,17 @@
 class Bittwist < Formula
   desc "Libcap-based Ethernet packet generator"
   homepage "https://bittwist.sourceforge.io"
-  url "https://downloads.sourceforge.net/project/bittwist/macOS/Bit-Twist%203.8/bittwist-macos-3.8.tar.gz"
-  sha256 "d3abce2703406115f257765c40b75eb5f45f01fe61e42a2e77e38a93aece22d0"
+  url "https://downloads.sourceforge.net/project/bittwist/macOS/Bit-Twist%204.3/bittwist-macos-4.3.tar.gz"
+  sha256 "ef01c05de9ccf6010583bf0c3ff482f1bf38ad5872f2ad1bef63152b6719f1fb"
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "e64d42db30bc963d5adff48234e68744566aa72f9c48ac7d833a665a8a8d3553"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "58ddcb2879c84669c338f51c8539e51230b074f31cf854ddc2dd086202c92431"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "340d68a07b0e0e3b35d5033a0d374aa33d3b83507566f17f4f7fc84d120947fa"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "73652da4ecec5d1abee5d6b677044a14479bf0825b27f2535e4fa9092e6e2b1e"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1fe5bc474fd586b73e79eb183604227698dd6082d3aa02833338348d177d696d"
-    sha256 cellar: :any_skip_relocation, sonoma:         "2be49e4aa52632a2623f39762f32938458844e48db27eae7ca7e4f1604d18486"
-    sha256 cellar: :any_skip_relocation, ventura:        "37c8abaad02d566504a4e159b9b1f276f33ef938c5c3ccb07a3afb911f308ee7"
-    sha256 cellar: :any_skip_relocation, monterey:       "77b38e9fb9ecfe31bbae1d430d1c63748b2c7d77377fb6a34d82ff99a3329240"
-    sha256 cellar: :any_skip_relocation, big_sur:        "d5eb62aef4579495f97ef94b6f0c092257b8c994ae7742cda6611c6820d140a8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5c8f5e60580874c7527a5309ebcdd9a3d3f36989a07599b9f17592b8784340d2"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "76eebee0ed9d7422fc89791c3023c91f06f29e6fbba0eeffa3d5c5c3403635fa"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8cf89febd3bc2e7a9ce1c17cb5821f60389b9bc67b8e0a22094132cd23ad13da"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "31f7c3e150a9d4c4267d206ece56f0c232601c76132a3342c9d42fe1ac49916f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "72e7b968f8c8f65f3f45e305543480c3eff42e7094b6fc65bbcbfa3c2ef01a64"
+    sha256 cellar: :any_skip_relocation, ventura:       "79a83e33cdd8cef8b2ec0adfaf3976c5314b874d7a35c3d1101401d4bb33b604"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a6a478c926c21b2eecef736f53199c2813c40f7051a53252c3ea0e79dd669ec2"
   end
 
   uses_from_macos "libpcap"

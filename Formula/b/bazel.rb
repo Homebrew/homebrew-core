@@ -17,7 +17,7 @@ class Bazel < Formula
     sha256 cellar: :any_skip_relocation, ventura:       "0d37decf3db2a88e4b809c658390ed686af07f3902c226c6a54b24e9d7935671"
   end
 
-  depends_on "python@3.12" => :build
+  depends_on "python@3.13" => :build
   depends_on "openjdk@21"
 
   uses_from_macos "unzip"
@@ -33,7 +33,7 @@ class Bazel < Formula
     ENV["EXTRA_BAZEL_ARGS"] = "--tool_java_runtime_version=local_jdk"
     ENV["JAVA_HOME"] = Language::Java.java_home("21")
     # Force Bazel to use Homebrew python
-    ENV.prepend_path "PATH", Formula["python@3.12"].opt_libexec/"bin"
+    ENV.prepend_path "PATH", Formula["python@3.13"].opt_libexec/"bin"
 
     # Bazel clears environment variables other than PATH during build, which
     # breaks Homebrew's shim scripts that need HOMEBREW_* variables.

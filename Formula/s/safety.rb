@@ -9,18 +9,19 @@ class Safety < Formula
   head "https://github.com/pyupio/safety.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "248d4fa7da6c1db1f308c19ca130eb0b26a2eab113a4f6cf35cfba5b0ea23892"
-    sha256 cellar: :any,                 arm64_sonoma:  "3886ecf848de6f04e3359be93a1b3dde163ae653a43e484f939fb86b25b3b15f"
-    sha256 cellar: :any,                 arm64_ventura: "9f7339f32174a498b7b17778e521876a5fbac6be54d06caffd5b56f4896c33ef"
-    sha256 cellar: :any,                 sonoma:        "5aaa8c0cf8f0988f452eda8046b88eb66c4d0b319614e976fe400ef8ddbcd000"
-    sha256 cellar: :any,                 ventura:       "38588e8757709c405c30e56d393e54875ef5c1258aa46ad12a42ee85b9955aa9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "451091c74b187d89ba654d2f4c09f634df3b715df307d42c4aef0c4dc5ecdf86"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "8bb0956ef663aa1ce84f2d794f3dbd6204f62685c2cd2e0c57325aa611e2a68c"
+    sha256 cellar: :any,                 arm64_sonoma:  "c331c5217fae7cf64a1653b50af8c9edf013e7174ccd8971da408a2c7e61abb9"
+    sha256 cellar: :any,                 arm64_ventura: "0bcd3528baf1cfe6fcf5bcc122e6a081be71f7ba040dfe16aadc1f8746dc330b"
+    sha256 cellar: :any,                 sonoma:        "189432e232074d832dfd4a6f41767ba2b868eb3b38421cd68f592d3dda628135"
+    sha256 cellar: :any,                 ventura:       "e2544cfa16eee851b49ae057e19e5965b02e2565c6a6281686d935c7704336f2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "49c8588a80b1d5458af0788436acd6844f34ce95db8991f95028b2717688e6d3"
   end
 
   depends_on "rust" => :build
   depends_on "certifi"
   depends_on "cryptography"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "annotated-types" do
     url "https://files.pythonhosted.org/packages/ee/67/531ea369ba64dcff5ec9c3402f9f51bf748cec26dde048a2f973a4eea7f5/annotated_types-0.7.0.tar.gz"
@@ -33,8 +34,8 @@ class Safety < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/63/09/c1bc53dab74b1816a00d8d030de5bf98f724c52c1635e07681d312f20be8/charset-normalizer-3.3.2.tar.gz"
-    sha256 "f30c3cb33b24454a82faecaf01b19c18562b1e89558fb6c56de4d9118a032fd5"
+    url "https://files.pythonhosted.org/packages/f2/4f/e1808dc01273379acc506d18f1504eb2d299bd4131743b9fc54d7be4df1e/charset_normalizer-3.4.0.tar.gz"
+    sha256 "223217c3d4f82c3ac5e29032b3f1c2eb0fb591b72161f86d93f5719079dae93e"
   end
 
   resource "click" do
@@ -68,8 +69,8 @@ class Safety < Formula
   end
 
   resource "markupsafe" do
-    url "https://files.pythonhosted.org/packages/87/5b/aae44c6655f3801e81aa3eef09dbbf012431987ba564d7231722f68df02d/MarkupSafe-2.1.5.tar.gz"
-    sha256 "d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"
+    url "https://files.pythonhosted.org/packages/b4/d2/38ff920762f2247c3af5cbbbbc40756f575d9692d381d7c520f45deb9b8f/markupsafe-3.0.1.tar.gz"
+    sha256 "3e683ee4f5d0fa2dde4db77ed8dd8a876686e3fc417655c2ece9a90576905344"
   end
 
   resource "marshmallow" do
@@ -113,18 +114,13 @@ class Safety < Formula
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/92/76/40f084cb7db51c9d1fa29a7120717892aeda9a7711f6225692c957a93535/rich-13.8.1.tar.gz"
-    sha256 "8260cda28e3db6bf04d2d1ef4dbc03ba80a824c88b0e7668a0f23126a424844a"
+    url "https://files.pythonhosted.org/packages/aa/9e/1784d15b057b0075e5136445aaea92d23955aad2c93eaede673718a40d95/rich-13.9.2.tar.gz"
+    sha256 "51a2c62057461aaf7152b4d611168f93a9fc73068f8ded2790f29fe2b5366d0c"
   end
 
   resource "ruamel-yaml" do
     url "https://files.pythonhosted.org/packages/29/81/4dfc17eb6ebb1aac314a3eb863c1325b907863a1b8b1382cdffcb6ac0ed9/ruamel.yaml-0.18.6.tar.gz"
     sha256 "8b27e6a217e786c6fbe5634d8f3f11bc63e0f80f6a5890f28863d9c45aac311b"
-  end
-
-  resource "ruamel-yaml-clib" do
-    url "https://files.pythonhosted.org/packages/46/ab/bab9eb1566cd16f060b54055dd39cf6a34bfa0240c53a7218c43e974295b/ruamel.yaml.clib-0.2.8.tar.gz"
-    sha256 "beb2e0404003de9a4cab9753a8805a8fe9320ee6673136ed7f04255fe60bb512"
   end
 
   resource "safety-schemas" do
@@ -158,10 +154,6 @@ class Safety < Formula
   end
 
   def install
-    # Work around ruamel.yaml.clib not building on Xcode 15.3, remove after a new release
-    # has resolved: https://sourceforge.net/p/ruamel-yaml-clib/tickets/32/
-    ENV.append_to_cflags "-Wno-incompatible-function-pointer-types" if DevelopmentTools.clang_build_version >= 1500
-
     virtualenv_install_with_resources
   end
 

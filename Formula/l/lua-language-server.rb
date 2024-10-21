@@ -3,18 +3,18 @@ class LuaLanguageServer < Formula
   homepage "https://github.com/LuaLS/lua-language-server"
   # pull from git tag to get submodules
   url "https://github.com/LuaLS/lua-language-server.git",
-      tag:      "3.11.0",
-      revision: "f65da067bb05f0de0e188b7c7c9d4ee0464de795"
+      tag:      "3.11.1",
+      revision: "db667f6db7ea6852d38460a1ed046eb85bb9e5ff"
   license "MIT"
   head "https://github.com/LuaLS/lua-language-server.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a3901a14c08130f10cd9756d380fad28cf95f16778eaa7dc6030304378729a13"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "08a96a8e22bf3d9fd3113cb70e659a2856234206b7a8a0ff516dfefc6e48c054"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "6154ed6430bec1e69d7de471cf7c21b7253d1755fac0d5ac44a09895eb8b7a2f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f13751fedd919f56cdd7875822e1169dd5991580c45e3c8e3fb474ade08b2de4"
-    sha256 cellar: :any_skip_relocation, ventura:       "f05447961562bf8669b8cded07391e65a9f33ebf7b71e880a6fa0f89d9efc11c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c452ab5eb41ba2c2a737ee75ee79bedb40ca03b6877a3a48461686cd047313c5"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cef4f4ae1f31b35e99c730d8bb867e7f7ffc707440269fad4d08a2ca95101813"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7775e3fe687c9a6d555ec50328c9d71711bf45a4dcf7bf6ba1200f6c628ef49c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "c4a86afd5615228ba7c1a3379aaa671c4559d39963fe14334348054c5a0d0809"
+    sha256 cellar: :any_skip_relocation, sonoma:        "987830dd3eae994596ce1024f1cd9db5bb71ed20dea11a5b4bad0da5998c5f3a"
+    sha256 cellar: :any_skip_relocation, ventura:       "adc41bbf74c464f2dfbe441ec9785764d7887dc893659a4c749a699146528c75"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "67a82fe24c0127f224eb8707fc70f62ec99fbef449784c4215db32ea087ec2ec"
   end
 
   depends_on "ninja" => :build

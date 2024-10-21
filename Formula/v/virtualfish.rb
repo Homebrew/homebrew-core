@@ -9,18 +9,17 @@ class Virtualfish < Formula
   head "https://github.com/justinmayer/virtualfish.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "1bc95a96da903c032e21e1ad14e9d59e813951c7f3bcce3d7d4486eb76690089"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "39a60c7a4b2812d68db4da7ddfc1a7b238fbf024ca2a8f1b961af23a9f138e00"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1edad1f17d4e6c6743829e19cf0e4eb83e08515e751bffbdd4c98753836ca2ff"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "590a51dfdd5789faf0967213704204477c66a958f703f33ac3181ab478af43c3"
-    sha256 cellar: :any_skip_relocation, sonoma:         "5feb06c3586e3d9033e7e13d8767547e0dbca21a3159fab41f85a50280cbda48"
-    sha256 cellar: :any_skip_relocation, ventura:        "eb754039d4919ed59ebd91bb72040f9244a075e1ff8925d6b672a05328b4b299"
-    sha256 cellar: :any_skip_relocation, monterey:       "83df2498189b3c334863d92f9151470ce1f3eeba535f4ba0f015d47cf3781348"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "934c7815ffaa7e0f064958f7742835b3f09e8455f74b2f1c51fda9caf7623e47"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a73cbe3f0c1e23e92d210d78d64aa2b46c3e367dae4725787d06a837c58cf38d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1c3ce3408e5bb7842c88929b4262e95374f4e26533e1fb54278b8a96d8a1dbd9"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "67deb36dbcafcaeaf481e1c9141aab9e5819ceba45739bc09f4ce746b2517242"
+    sha256 cellar: :any_skip_relocation, sonoma:        "3b05ac61a3c855bb3c91af9dd4929464fc2585d715832ba459e81f7c11b34375"
+    sha256 cellar: :any_skip_relocation, ventura:       "20e7e201bfe054eb0a77913ee1b67ca180afefc9d4ee2b1400f23baa13fbf85d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4f311e893a5ac71c779f94120b38fe58d3c0ee283c85efdd4bd2a4c8d255380d"
   end
 
   depends_on "fish"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "distlib" do
     url "https://files.pythonhosted.org/packages/c4/91/e2df406fb4efacdf46871c25cde65d3c6ee5e173b7e5a4547a47bae91920/distlib-0.3.8.tar.gz"

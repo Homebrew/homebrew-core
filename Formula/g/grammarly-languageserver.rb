@@ -11,7 +11,7 @@ class GrammarlyLanguageserver < Formula
     sha256 cellar: :any_skip_relocation, all: "78d49db050951e7d62fd3773c446298ed08ecd2df7e064250c552cf134957816"
   end
 
-  deprecate! date: "2023-11-02", because: "uses deprecated `node@16`"
+  disable! date: "2024-10-10", because: :repo_archived
 
   depends_on "node@16" # try `node` after https://github.com/znck/grammarly/issues/334
 

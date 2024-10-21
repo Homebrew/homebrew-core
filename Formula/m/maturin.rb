@@ -4,19 +4,19 @@ class Maturin < Formula
   url "https://github.com/PyO3/maturin/archive/refs/tags/v1.7.4.tar.gz"
   sha256 "19edb033a7d744dd2b4722218d9db47dadb633948577f957b44d8c9b8eececc8"
   license any_of: ["Apache-2.0", "MIT"]
+  revision 1
   head "https://github.com/PyO3/maturin.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f049e9fb29588a84e7761c331c7c813845edae20bf70b189b4df3afa53804faf"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "60ad8a6c1eca60a3597a5afea87360a693a6edd346f66fd95e9bb592535303a4"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "3eef48e3fe888774037cb2323c3a6d2ad903ba1e4818f80cb8526721f5ad4a50"
-    sha256 cellar: :any_skip_relocation, sonoma:        "8d24b16a836420944fadb3ce1846b69729a29a0840789339feb8e96bf4ff5ad8"
-    sha256 cellar: :any_skip_relocation, ventura:       "4cbc3d48dfc37eacfdba5f4a18adc22348e26d18531eb31944e581e46b5a8327"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "08049dfec24d8b8c8bccae9589a64c452817a902fea21255feaa202477146cea"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "565437267821f6f495b7cac9cca4753b43fa1e2eb760bf83d11fb9420ea75cc8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c4fb18c3ba4bd4f773fcdd8e961b3314a2f3d61adf06497715ea98ac42c5e5ee"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "7ca1c609fea5a30f8094a07ac834bef702994f6fe1f7a740100a0efaab6a6d25"
+    sha256 cellar: :any_skip_relocation, sonoma:        "1acf90a18579f828719b504d2ffbab74dfd21606293d2e8f6eb1f3e530ae3f1a"
+    sha256 cellar: :any_skip_relocation, ventura:       "05e279fe87e2e07580647f842719b36c90b71e86928d1379c48b3bf6d720c059"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a95136b390e0172132bd495a90ecdb99e7a7638096e6e4f290b8dfda3cea4a3b"
   end
 
-  depends_on "python@3.12" => :test
+  depends_on "python@3.13" => :test
   depends_on "rust"
 
   uses_from_macos "bzip2"
@@ -48,7 +48,7 @@ class Maturin < Formula
   end
 
   test do
-    python = "python3.12"
+    python = "python3.13"
     system "cargo", "init", "--name=brew", "--bin"
     system bin/"maturin", "build", "-o", "dist", "--compatibility", "off"
     system python, "-m", "pip", "install", "brew", "--prefix=./dist", "--no-index", "--find-links=./dist"

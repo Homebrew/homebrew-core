@@ -6,15 +6,16 @@ class AnsibleAT9 < Formula
   url "https://files.pythonhosted.org/packages/e4/85/23d1a1884f8c6bd437edc5a0f55709c77250f357a198469d8060071237f9/ansible-9.6.0.tar.gz"
   sha256 "58732a4ad74a746d299ecfa48b7a91cb217e2c0bd3a44493f2d9f29af2f3ab61"
   license "GPL-3.0-or-later"
-  revision 2
+  revision 3
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "07f77b5bd00f13ac185fd3dd8c88dbf7b800f69b86c9349ede7169cc5fe8fb87"
-    sha256 cellar: :any,                 arm64_sonoma:  "fe9ec7f964a9b9a00c204dba0d4acd6c405fbd337e638168933bd3b8378e1cce"
-    sha256 cellar: :any,                 arm64_ventura: "c661411ce960fca485554f90ef39a39b02699f9e60ec246f9f301cf0be455f24"
-    sha256 cellar: :any,                 sonoma:        "d3f56fe111abf3f11dc710bb38edabe7d3ab70b34e3b5f483b6d13f84c7fc8ec"
-    sha256 cellar: :any,                 ventura:       "b35e0004ed57bb1011f1aeaa8b93ff44de126cf1a2135e86f27a3116792b1631"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5fc5c1357610c82d4b03efc93c09ee010b87795ca2e866e78d7b00e0d8b9af57"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "4446687e7c44ca6f144260c2c39a1c03d3894983c6963cf3554c03d977cc0097"
+    sha256 cellar: :any,                 arm64_sonoma:  "f40d62cf7d41b017f42f63adefd4bbbce4b2c0a09123f871646018f1074e14b4"
+    sha256 cellar: :any,                 arm64_ventura: "dcd176f2bcf5642ee8670c51e4c4b2c6c8fb08cf939f28d2d696ba5acd650c41"
+    sha256 cellar: :any,                 sonoma:        "265381f8afc2a64a27f6ba4c0dc7d4757ed4c74cbe0d9081a41239231de0b54d"
+    sha256 cellar: :any,                 ventura:       "0409ffb08e5dcaec02841626254e4796660e67b1a067533339db2bf6cf956607"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ca5336df2893ec25b42f9fd9773683c4fe18926eda46a5fb05835bb314bf3f62"
   end
 
   keg_only :versioned_formula
@@ -27,9 +28,10 @@ class AnsibleAT9 < Formula
   depends_on "rust" => :build
   depends_on "certifi"
   depends_on "cryptography"
+  depends_on "libsodium" # for pynacl
   depends_on "libssh"
   depends_on "libyaml"
-  depends_on "python@3.12"
+  depends_on "python@3.12" # must be 3.10-3.12
 
   uses_from_macos "krb5"
   uses_from_macos "libxml2", since: :ventura
@@ -44,8 +46,8 @@ class AnsibleAT9 < Formula
   end
 
   resource "ansible-core" do
-    url "https://files.pythonhosted.org/packages/db/f6/7a6167b918a782716aaf785a0638de01b7cfceeb17a8927271d66e2245eb/ansible_core-2.16.11.tar.gz"
-    sha256 "573829ccf4ca925816bf6b64860c86a986365b8b5d8861de82e319b63287e553"
+    url "https://files.pythonhosted.org/packages/cf/c1/4602e408d012b01146a865ccd3a4fdfd44b2efc130d22289ee9971c29e39/ansible_core-2.16.12.tar.gz"
+    sha256 "5b594cf5fda0d49d5f21448e4b708c1859f61713bfa6fb85674dbbb0a44af1be"
   end
 
   resource "ansible-pylibssh" do
@@ -74,13 +76,13 @@ class AnsibleAT9 < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/3c/e8/b996b0c863ae0b00a04de42143a123fd1f3c7c7d9810f3be8f3fe3cc1c62/boto3-1.35.20.tar.gz"
-    sha256 "47e89d95964f10beee21ee723c3290874fddf364269bd97d200e8bfa9bf93a06"
+    url "https://files.pythonhosted.org/packages/23/6d/a8c326b909ed8da5b147144fa820f87ffe0e3908b1a2e08e30a43960cd3d/boto3-1.35.35.tar.gz"
+    sha256 "73d4f22b57a725f0e8a6e0c4b2d16336c128e39f3189c24f9e513daa7c14936b"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/5b/68/123156df0dc1734bab0efece4a35c5dbc6c1826e5f5bf0cb1b2b45f1344b/botocore-1.35.20.tar.gz"
-    sha256 "82ad8a73fcd5852d127461c8dadbe40bf679f760a4efb0dde8d4d269ad3f126f"
+    url "https://files.pythonhosted.org/packages/40/e7/ae2e8b3fd55299a6168ec9a88252235e4f15315863815bf3e384c59626aa/botocore-1.35.35.tar.gz"
+    sha256 "899d303046391caa1d05093a673e52d02185b37bc64bd78771ad6752167a25ab"
   end
 
   resource "cachetools" do
@@ -114,8 +116,8 @@ class AnsibleAT9 < Formula
   end
 
   resource "dnspython" do
-    url "https://files.pythonhosted.org/packages/37/7d/c871f55054e403fdfd6b8f65fd6d1c4e147ed100d3e9f9ba1fe695403939/dnspython-2.6.1.tar.gz"
-    sha256 "e8f0f9c23a7b7cb99ded64e6c3a6f3e701d78f50c55e002b839dea7225cff7cc"
+    url "https://files.pythonhosted.org/packages/b5/4a/263763cb2ba3816dd94b08ad3a33d5fdae34ecb856678773cc40a3605829/dnspython-2.7.0.tar.gz"
+    sha256 "ce9c432eda0dc91cf618a5cedf1a4e142651196bbcd2c80e89ed5a907e5cfaf1"
   end
 
   resource "docker" do
@@ -128,14 +130,19 @@ class AnsibleAT9 < Formula
     sha256 "f84b8ed0b0fb297d151055447fa8dcaf7bae566d4dbdefecdcc1f37662ab588b"
   end
 
+  resource "durationpy" do
+    url "https://files.pythonhosted.org/packages/31/e9/f49c4e7fccb77fa5c43c2480e09a857a78b41e7331a75e128ed5df45c56b/durationpy-0.9.tar.gz"
+    sha256 "fd3feb0a69a0057d582ef643c355c40d2fa1c942191f914d12203b1a01ac722a"
+  end
+
   resource "future" do
     url "https://files.pythonhosted.org/packages/a7/b2/4140c69c6a66432916b26158687e821ba631a4c9273c474343badf84d3ba/future-1.0.0.tar.gz"
     sha256 "bd2968309307861edae1458a4f8a4f3598c03be43b97521076aebf5d94c07b05"
   end
 
   resource "google-auth" do
-    url "https://files.pythonhosted.org/packages/0f/ae/634dafb151366d91eb848a25846a780dbce4326906ef005d199723fbbca0/google_auth-2.34.0.tar.gz"
-    sha256 "8eb87396435c19b20d32abd2f984e31c191a15284af72eb922f10e5bde9c04cc"
+    url "https://files.pythonhosted.org/packages/a1/37/c854a8b1b1020cf042db3d67577c6f84cd1e8ff6515e4f5498ae9e444ea5/google_auth-2.35.0.tar.gz"
+    sha256 "f4c64ed4e01e8e8b646ef34c018f8bf3338df0c8e37d8b3bba40e7f574a3278a"
   end
 
   resource "idna" do
@@ -189,8 +196,8 @@ class AnsibleAT9 < Formula
   end
 
   resource "kubernetes" do
-    url "https://files.pythonhosted.org/packages/82/3c/9f29f6cab7f35df8e54f019e5719465fa97b877be2454e99f989270b4f34/kubernetes-30.1.0.tar.gz"
-    sha256 "41e4c77af9f28e7a6c314e3bd06a8c6229ddd787cad684e0ab9f69b498e98ebc"
+    url "https://files.pythonhosted.org/packages/7e/bd/ffcd3104155b467347cd9b3a64eb24182e459579845196b3a200569c8912/kubernetes-31.0.0.tar.gz"
+    sha256 "28945de906c8c259c1ebe62703b56a03b714049372196f854105afe4e6d014c0"
   end
 
   resource "lxml" do
@@ -199,8 +206,8 @@ class AnsibleAT9 < Formula
   end
 
   resource "markupsafe" do
-    url "https://files.pythonhosted.org/packages/87/5b/aae44c6655f3801e81aa3eef09dbbf012431987ba564d7231722f68df02d/MarkupSafe-2.1.5.tar.gz"
-    sha256 "d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"
+    url "https://files.pythonhosted.org/packages/5c/84/3f683b24fcffa08c5b7ef3fb8a845661057dd39c321c1ae16fa37a3eb35b/markupsafe-3.0.0.tar.gz"
+    sha256 "03ff62dea2fef3eadf2f1853bc6332bcb0458d9608b11dfb1cd5aeda1c178ea6"
   end
 
   resource "msgpack" do
@@ -224,8 +231,8 @@ class AnsibleAT9 < Formula
   end
 
   resource "ntc-templates" do
-    url "https://files.pythonhosted.org/packages/58/da/3efdf48c4461cc3559eabe186b5bf29556c5d04c34b85d0dc2ec22e4da59/ntc_templates-6.0.0.tar.gz"
-    sha256 "b1f235f017a20408057b8d43856c072b76a169ca420715217b048eff871a3a95"
+    url "https://files.pythonhosted.org/packages/bb/88/c69b52424ec00fdff5181464b9ecc4f9982fb40e471f376a33b4a336c44a/ntc_templates-7.1.0.tar.gz"
+    sha256 "6e854c44e57d0c04d6968d8c82d6462417997ae79b13db9d90d707e8b8ec9232"
   end
 
   resource "oauthlib" do
@@ -314,8 +321,8 @@ class AnsibleAT9 < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/f5/19/f7bee3a71decedd8d7bc4d3edb7970b8e899f3caef257b0f0d623f2f7b11/platformdirs-4.3.3.tar.gz"
-    sha256 "d4e0b7d8ec176b341fb03cb11ca12d0276faa8c485f9cd218f613840463fc2c0"
+    url "https://files.pythonhosted.org/packages/13/fc/128cc9cb8f03208bdbf93d3aa862e16d376844a14f9a0ce5cf4507372de4/platformdirs-4.3.6.tar.gz"
+    sha256 "357fb2acbc885b0419afd3ce3ed34564c13c9b95c89360cd9563f73aa5e2b907"
   end
 
   resource "prettytable" do
@@ -489,8 +496,8 @@ class AnsibleAT9 < Formula
   end
 
   resource "tzdata" do
-    url "https://files.pythonhosted.org/packages/74/5b/e025d02cb3b66b7b76093404392d4b44343c69101cc85f4d180dd5784717/tzdata-2024.1.tar.gz"
-    sha256 "2674120f8d891909751c38abcdfd386ac0a5a1127954fbc332af6b5ceae07efd"
+    url "https://files.pythonhosted.org/packages/e1/34/943888654477a574a86a98e9896bae89c7aa15078ec29f490fef2f1e5384/tzdata-2024.2.tar.gz"
+    sha256 "7d85cc416e9382e69095b7bdf4afd9e3880418a2413feec7069d533d6b4e31cc"
   end
 
   resource "urllib3" do
@@ -528,15 +535,10 @@ class AnsibleAT9 < Formula
     sha256 "627ad26769b6831130239182afcb195f64fbf494626bc9eb4b2ac8170de5b775"
   end
 
-  def python3
-    "python3.12"
-  end
-
   def install
-    venv = virtualenv_create(libexec, python3)
-    venv.pip_install resources.reject { |r| r.name == "ansible-core" }
+    ENV["SODIUM_INSTALL"] = "system"
+    venv = virtualenv_install_with_resources without: "ansible-core"
     venv.pip_install_and_link resource("ansible-core")
-    venv.pip_install_and_link buildpath
   end
 
   test do
@@ -549,6 +551,7 @@ class AnsibleAT9 < Formula
         - name: ping
           ping:
     EOS
+    python3 = "python#{Language::Python.major_minor_version libexec/"bin/python"}"
     (testpath/"hosts.ini").write [
       "localhost ansible_connection=local",
       " ansible_python_interpreter=#{which(python3)}",

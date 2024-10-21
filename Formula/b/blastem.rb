@@ -13,16 +13,16 @@ class Blastem < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 sonoma:       "75e62a0aec8b8d193ba3f9cb91194f7f6e72920f30be97bcb8e300e30ede759c"
-    sha256 cellar: :any,                 ventura:      "8cf2695a61831147a1d5a7c6c6a8e7a25eb2e1ef0e0f98168d5ffd38b0fc50b2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "9d41062027cdffe965a2a8c95a320b220eaaba1426eeceae9847d847b34ec589"
+    rebuild 2
+    sha256 cellar: :any,                 sonoma:       "6686aacd3cbb57870b7d0da4f17d3c325a846c7037366033d618457700f905da"
+    sha256 cellar: :any,                 ventura:      "ed520887413f414355cd6ff7b7e7b000373f26446aa1ad9de623e081d8b1f116"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "5eab5dbc561f5f5d8db17092c140fab888ab1c52b8437bb122e8204e60304c4e"
   end
 
   depends_on "imagemagick" => :build
   depends_on "pillow" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.12" => :build
+  depends_on "python@3.13" => :build
   depends_on arch: :x86_64
   depends_on "glew"
   depends_on "sdl2"

@@ -48,13 +48,13 @@ class Ledger < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia: "e739f7a2ee6e2d44b607aaacf253df09f0d9fda48f32c78a6201e2e53a4dcbc2"
-    sha256 cellar: :any,                 arm64_sonoma:  "f971e44953f6db8f4756fd4a6a440c3bf014eca8831ce1dc8defc04b366c73a3"
-    sha256 cellar: :any,                 arm64_ventura: "c3ab50d8df4c398f04cc6595f292a9659e7904f09d6e6f165d47333c99c44d31"
-    sha256 cellar: :any,                 sonoma:        "c999180f1c610065777bb800aea211dde3a6bbfc1c44a7f4cdebc251f4615174"
-    sha256 cellar: :any,                 ventura:       "747dbb2eafdce945665f1f695158b45c3ca72a3e2e147020b6d16508bf814c11"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ffb701b5cd3c4d98e9d7f2c3940ef8862c6199309648660d8da9d97e1c0bdda2"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_sequoia: "a23d59fe87c4eb5e668c0636de0286b1a9ff8f5d1e823e066b5c74315a63a68b"
+    sha256 cellar: :any,                 arm64_sonoma:  "218ed68a0e22d7bd204f95da731524bc8aa2655ef6120abd408939bf5d994709"
+    sha256 cellar: :any,                 arm64_ventura: "4ddcb1fccd738eb25f3f34d7d385a6f01f6d33bf6171ad4c04cb273b165bc385"
+    sha256 cellar: :any,                 sonoma:        "c9c7cdde58c09a55707cc4275ae657324aa207dc8eeed4b41edc41cc02f3907b"
+    sha256 cellar: :any,                 ventura:       "2339d91e5735e72342ccb4e0890ad19e24e5018e4e5050a09e57a3d3639b98e3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1ffcf606599116dd135bb202d28aada69e978b017ef2f22735b9b68549919509"
   end
 
   depends_on "cmake" => :build
@@ -63,7 +63,7 @@ class Ledger < Formula
   depends_on "gmp"
   depends_on "gpgme"
   depends_on "mpfr"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   uses_from_macos "mandoc" => :build
   uses_from_macos "libedit"
@@ -74,7 +74,7 @@ class Ledger < Formula
 
   def install
     ENV.cxx11
-    ENV.prepend_path "PATH", Formula["python@3.12"].opt_libexec/"bin"
+    ENV.prepend_path "PATH", Formula["python@3.13"].opt_libexec/"bin"
 
     args = %W[
       --jobs=#{ENV.make_jobs}

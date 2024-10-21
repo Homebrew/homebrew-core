@@ -10,21 +10,20 @@ class Supervisor < Formula
   head "https://github.com/Supervisor/supervisor.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "451fc426f65e766105f5984229fd998477ebce5ff61e3905ed0de3e91e0cb5f3"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ec664bd2e3bc60bd9a8514ac2a16da34a0a9efcebb8fe775b21698af40909444"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ec664bd2e3bc60bd9a8514ac2a16da34a0a9efcebb8fe775b21698af40909444"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ec664bd2e3bc60bd9a8514ac2a16da34a0a9efcebb8fe775b21698af40909444"
-    sha256 cellar: :any_skip_relocation, sonoma:         "2eb8e7fba66707eda58ce2a41920c5a0281e64a376a0e1130018ae3ba32f3c9b"
-    sha256 cellar: :any_skip_relocation, ventura:        "2eb8e7fba66707eda58ce2a41920c5a0281e64a376a0e1130018ae3ba32f3c9b"
-    sha256 cellar: :any_skip_relocation, monterey:       "2eb8e7fba66707eda58ce2a41920c5a0281e64a376a0e1130018ae3ba32f3c9b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "78207f4fe866c1554ce1ffc5d574a74fb8ccc7cf30fd662917bcc6e76023457f"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "45cc3b60f2777d22cdac9c5c3d02c6d81ab4ad54e469e404889e685cb3ee6782"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "45cc3b60f2777d22cdac9c5c3d02c6d81ab4ad54e469e404889e685cb3ee6782"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "45cc3b60f2777d22cdac9c5c3d02c6d81ab4ad54e469e404889e685cb3ee6782"
+    sha256 cellar: :any_skip_relocation, sonoma:        "dd5d653ec9ae1a0db2ddca2a58d549ea9c48d4c15be4a11eb71b3aa9e555e872"
+    sha256 cellar: :any_skip_relocation, ventura:       "dd5d653ec9ae1a0db2ddca2a58d549ea9c48d4c15be4a11eb71b3aa9e555e872"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5f432821d07fd084494beb62d4f237950f1c9b640dabb6cb85a0d2fd8f6e0598"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/65/d8/10a70e86f6c28ae59f101a9de6d77bf70f147180fbf40c3af0f64080adc3/setuptools-70.3.0.tar.gz"
-    sha256 "f171bab1dfbc86b132997f26a119f6056a57950d058587841a0082e8830f9dc5"
+    url "https://files.pythonhosted.org/packages/27/b8/f21073fde99492b33ca357876430822e4800cdf522011f18041351dfa74b/setuptools-75.1.0.tar.gz"
+    sha256 "d59a21b17a275fb872a9c3dae73963160ae079f1049ed956880cd7c09b120538"
   end
 
   def install

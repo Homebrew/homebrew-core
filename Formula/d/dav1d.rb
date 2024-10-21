@@ -1,19 +1,17 @@
 class Dav1d < Formula
   desc "AV1 decoder targeted to be small and fast"
   homepage "https://code.videolan.org/videolan/dav1d"
-  url "https://code.videolan.org/videolan/dav1d/-/archive/1.4.3/dav1d-1.4.3.tar.bz2"
-  sha256 "2a7e68a17b22d1c060d31a7af84c8e033a145fca1d63ef36d57f0f39eb4dd0df"
+  url "https://code.videolan.org/videolan/dav1d/-/archive/1.5.0/dav1d-1.5.0.tar.bz2"
+  sha256 "a6ca64e34cec56ae1c2d359e1da5c5386ecd7a3a62f931d026ac4f2ff72ade64"
   license "BSD-2-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "20533b85dad985944d973153954730fc07b04eeb23ca9355fe8056aa67b7afee"
-    sha256 cellar: :any,                 arm64_sonoma:   "a8796b7771dbdd9d51ab510995dbe75aa9ba48b055b916259751d6b29e237898"
-    sha256 cellar: :any,                 arm64_ventura:  "b1bdbc8f2eb6f66512d68aadb16112931959d09aea536961aa4ea846c824220a"
-    sha256 cellar: :any,                 arm64_monterey: "c516bd88350520aadc8f9a967b94b26250e142f98916028c2b55000e062a6501"
-    sha256 cellar: :any,                 sonoma:         "b80dee5a17dd4454c8962747395f57dfa6aeeacf08b961be2ead22aa8cd4ba57"
-    sha256 cellar: :any,                 ventura:        "715b45f3946beb07cf59b7ef70fc116fa70befcec8c201706c7b90f51a735573"
-    sha256 cellar: :any,                 monterey:       "652dccbef6d8eb11e3f181cc21c72c7fa541b1b665d2e83dd6df634b1e7bfbb7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7bee2084f50577d41bdb8e36ae78c1b86538eff0ca5eb542c08d38c4d98a9295"
+    sha256 cellar: :any,                 arm64_sequoia: "445294270156e948f56f1e5ebea53b89edeb34e9781447cf30410a32eed6b9a5"
+    sha256 cellar: :any,                 arm64_sonoma:  "9cccc1e358c7ace5deb5633c4bd28b13d4694f69a33592473a06836ae0604f42"
+    sha256 cellar: :any,                 arm64_ventura: "9c8563cc40b59627ebe386f80a6bc571eb207e4695cc87614c2f149c0a0ceb77"
+    sha256 cellar: :any,                 sonoma:        "9ff3e7327aee76d22e451a74649a143f1182c64898209dbffc286b4359e8504f"
+    sha256 cellar: :any,                 ventura:       "29f4a35d228366348fad9c442c5ce244c946679048eb7b80fde7e145cbb97e8c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b1e32051117de5bacb6aaddf73db231f7428b296aa7c9ccb80142f8405045bd9"
   end
 
   depends_on "meson" => :build

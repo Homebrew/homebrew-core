@@ -8,18 +8,17 @@ class Tmuxp < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "26bbc7df7f399603cd1e83437019a7f5dd2b99e9747ad0ce1d3713cede04bd3f"
-    sha256 cellar: :any,                 arm64_sonoma:   "41c1493154b827680cadf4db601f8dbe009e078525bd70e73b4719c84a4f6f09"
-    sha256 cellar: :any,                 arm64_ventura:  "ea5f4a155703f6fdb2b1fb435282c58acdd3c94dfa6fa31a51acb0e5d2468684"
-    sha256 cellar: :any,                 arm64_monterey: "103fb60fdd32218a5e412fa5e1d126080a17c8de53a5f556e32d0ea0bcb5e40c"
-    sha256 cellar: :any,                 sonoma:         "233a221828db71cad595763974d9c351ee8cd80ae6819e569ad1ebdae66dd0fb"
-    sha256 cellar: :any,                 ventura:        "c0f80e9190dd778997aafaa61bb75d84468cb19bb887290d49c6e55247b76c2f"
-    sha256 cellar: :any,                 monterey:       "bb617086716de2852c801a74ba7bf7a233b26f2a5496a38ae05d1883a9a886b2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b0cf1b16eb1e410f40c508da7b7800d38f31c38841d6c24fcfcf61eaa51f8f19"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "499f1a5302269c5f26176de36539f8d818fb7f62f7da4603221358e078d51bc2"
+    sha256 cellar: :any,                 arm64_sonoma:  "a9dd1e396905ab1802440122fa804a7a0da882c08af6f66ccf85f33731272384"
+    sha256 cellar: :any,                 arm64_ventura: "b3198721ff490d2a89e7771d7cd3d5c189d18b37a69ceb9b52aa646bd643537f"
+    sha256 cellar: :any,                 sonoma:        "650cddc4c73466ac69931420230a6fd5b07e3e59476a497d3124004ddf40b4f9"
+    sha256 cellar: :any,                 ventura:       "79d80c0c907c971c1c191bfc98659ff8ed988f9d5bea206dd4f0944d562c6bbc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6e7a878b8355f6f4f91160fab8ccfbbb3efaea103bc4155dfa4f8bdfee1a0230"
   end
 
   depends_on "libyaml"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
   depends_on "tmux"
 
   resource "colorama" do
@@ -33,8 +32,8 @@ class Tmuxp < Formula
   end
 
   resource "pyyaml" do
-    url "https://files.pythonhosted.org/packages/cd/e5/af35f7ea75cf72f2cd079c95ee16797de7cd71f29ea7c68ae5ce7be1eda0/PyYAML-6.0.1.tar.gz"
-    sha256 "bfdf460b1736c775f2ba9f6a92bca30bc2095067b8a9d77876d1fad6cc3b4a43"
+    url "https://files.pythonhosted.org/packages/54/ed/79a089b6be93607fa5cdaedf301d7dfb23af5f25c398d5ead2525b063e17/pyyaml-6.0.2.tar.gz"
+    sha256 "d584d9ec91ad65861cc08d42e834324ef890a082e591037abe114850ff7bbc3e"
   end
 
   def install

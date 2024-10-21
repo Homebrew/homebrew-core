@@ -1,8 +1,8 @@
 class Wstunnel < Formula
   desc "Tunnel all your traffic over Websocket or HTTP2"
   homepage "https://github.com/erebe/wstunnel"
-  url "https://github.com/erebe/wstunnel/archive/refs/tags/v10.1.3.tar.gz"
-  sha256 "528659f1d0f9e8e5f2ca02875919b3d5ea89db6ff300ef7cef39d994d0a2db4b"
+  url "https://github.com/erebe/wstunnel/archive/refs/tags/v10.1.5.tar.gz"
+  sha256 "18bf69a3e0b5c7f7fd4657a92788be12605c3f8e7c921796ad7cace170a3670b"
   license "BSD-3-Clause"
   head "https://github.com/erebe/wstunnel.git", branch: "main"
 
@@ -15,12 +15,12 @@ class Wstunnel < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b247d0b98f0a8f400185759a4a5c655238caa44ce2cb40f9b114835fc0ac7344"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "64394806f154b68eb86d20892f7b7ff79f2dd47eed5ab7052f1488af3be92184"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "7f0410b3910f536fd05d53d75bb8f297dae5b4184d64bffdca4b651b8144d7d1"
-    sha256 cellar: :any_skip_relocation, sonoma:        "be458252dc3c7d213c107dd51d6c2ed674aacd9245df3649ce03c08ff1b8df61"
-    sha256 cellar: :any_skip_relocation, ventura:       "42120def87a44bedd1b82e4c6ac1ab232f884122f71e7ebe3b16529b04780c6a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1796658d9e2ff2e49f5ddfee4242707c9c051ced4bf481443b7b11d210db40b4"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5f29dcbc3cf35a7aeac848bb8890b6dc7588ea424fbbd705098cbbd66d5e76ad"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "338445ea4160d3d0f11a21171b1e87d3f429f2082e430b38d286ecf6dd95e718"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "ef527b58736a428ed1ba2411044659d002fb08ae4a6778e882379678d7acfcef"
+    sha256 cellar: :any_skip_relocation, sonoma:        "ef497504a704a38d355af04f5b7d3b8ef873819d0122c9f6b34aa6b6765f386f"
+    sha256 cellar: :any_skip_relocation, ventura:       "44d1e0e384f1101688dbb44e632f55b0c47f6fdd258a52b55d9991ebbb95db50"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cdc7dbf18f3edd84d2ec91e9658134cff0b2b8984d3fd66fbf3a65dc44352899"
   end
 
   depends_on "rust" => :build

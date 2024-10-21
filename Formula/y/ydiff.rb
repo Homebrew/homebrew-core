@@ -8,11 +8,11 @@ class Ydiff < Formula
   license "BSD-3-Clause"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "dcfdfc6996dfb6a5d2d9a860b37da0442292717eda604c0bc8b8483e9789822b"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "8837c75ec79bbf951b76ac5b0013a6b7c275d0763b871f92581e81741857bbcd"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   def install
     virtualenv_install_with_resources

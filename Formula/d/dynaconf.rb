@@ -8,11 +8,11 @@ class Dynaconf < Formula
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "ef24e9f55aaeb333a904057639397a979f55e3c68ec33c63643b5ccbd4dc370f"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "dd470da2064bfb5d2a4c5dcabc7d09dcda5a986c66586c2c98d931d8e06321db"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   def install
     virtualenv_install_with_resources

@@ -1,25 +1,24 @@
 class Pillow < Formula
   desc "Friendly PIL fork (Python Imaging Library)"
   homepage "https://python-pillow.org"
-  url "https://files.pythonhosted.org/packages/cd/74/ad3d526f3bf7b6d3f408b73fde271ec69dfac8b81341a318ce825f2b3812/pillow-10.4.0.tar.gz"
-  sha256 "166c1cd4d24309b30d61f79f4a9114b7b2313d7450912277855ff5dfd7cd4a06"
+  url "https://files.pythonhosted.org/packages/a5/26/0d95c04c868f6bdb0c447e3ee2de5564411845e36a858cfd63766bc7b563/pillow-11.0.0.tar.gz"
+  sha256 "72bacbaf24ac003fea9bff9837d1eedb6088758d41e100c1552930151f677739"
   license "HPND"
   head "https://github.com/python-pillow/Pillow.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia:  "a7e76f7127836bac631e6de0b561f8dee89c84016dcc989a5e1907715d7a760f"
-    sha256 cellar: :any, arm64_sonoma:   "ccb180b86306c317c1bb86d0851af16db3cd9201ec73075a3f41de4ff45bf671"
-    sha256 cellar: :any, arm64_ventura:  "2c597522196c225fe2894826aeb6383dfc2238aed96434b9070c214f5957e97c"
-    sha256 cellar: :any, arm64_monterey: "ebe4315cc2b641f01e16b0935903ff67b468a6f9bef8d6e765a312f34429fc47"
-    sha256 cellar: :any, sonoma:         "144bb6d5a53ee094cd62bd3afb170e56a504b11f7473a09d66e8a3cb4a645bd8"
-    sha256 cellar: :any, ventura:        "b7a6bd36c51f17bdfa08b70e28043c17d03ce684c4b8386ff239c8a2d9d36051"
-    sha256 cellar: :any, monterey:       "e33f426090c7351563c784b9f7553e57d91648ae296d7240a0ae38592ee97f0d"
-    sha256               x86_64_linux:   "87f4aaed2277535ec83f77355fa3c3351c1b56ed688bd4225a87b2b54b1ef038"
+    sha256 cellar: :any, arm64_sequoia: "e1022c34f56ee10daf647e70fd3305c2653718bf78c0cd89dffe23d29873c24a"
+    sha256 cellar: :any, arm64_sonoma:  "148cc0c608021690b06360208e525f2606abfd50dafd0d14322bfbfc44da6a38"
+    sha256 cellar: :any, arm64_ventura: "3718c3be4bd1d28965815082d32f59d89ca3c0c6a001797c13ebe43bbab539ee"
+    sha256 cellar: :any, sonoma:        "83f710a136956297d32039e22be79d12612cc6b254910d1834f3554390971f79"
+    sha256 cellar: :any, ventura:       "527c15b9d868eae0cfa0b60d4affb0b76441c9194f34d60eb58619cbad644665"
+    sha256               x86_64_linux:  "e7a618cba484da3cb05fcaec9d300cde908124f17d3d82c1a69dbe54b782fca0"
   end
 
   depends_on "pkg-config" => :build
   depends_on "python@3.11" => [:build, :test]
   depends_on "python@3.12" => [:build, :test]
+  depends_on "python@3.13" => [:build, :test]
   depends_on "freetype"
   depends_on "jpeg-turbo"
   depends_on "libimagequant"

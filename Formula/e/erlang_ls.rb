@@ -1,17 +1,17 @@
 class ErlangLs < Formula
   desc "Erlang Language Server"
   homepage "https://erlang-ls.github.io/"
-  url "https://github.com/erlang-ls/erlang_ls/archive/refs/tags/1.0.0.tar.gz"
-  sha256 "c2667d98de0e3e9782acdbe916c7f9e3df3c5d5f2d06c170f5185cc79ad9c19f"
+  url "https://github.com/erlang-ls/erlang_ls/archive/refs/tags/1.1.0.tar.gz"
+  sha256 "b826edae46219a90ab6a162be1626e2f4b0fd60cb2f3372d7a171ee3921aebf0"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "43e21fe78982c59857f7a093337e413fbb42f7d8bbecc6cd63c1dcbdbfc60f75"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "df079c84a2f39b241607aae37bfe93abf40d44fa0f727534c4d2def606c6bf79"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "abc37823c126a4b5b0e3687a83980557e91b302c32a5aaf406a4cf2d64f5c664"
-    sha256 cellar: :any_skip_relocation, sonoma:        "5a2cc9ef198d883020c7940d01a9b688c4c778704948eac2e38874c269b37fbe"
-    sha256 cellar: :any_skip_relocation, ventura:       "94e80f17f7c07c63bf507a1fa38544f77719ad3ed54ee2905f4e3849d9c24526"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "eac5c81faa78bab6f8cd767f1cf32c22e7c4cc3ab5e4492a8a3102088a3767b4"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bc89472e09f589b8a7f2fce292740b647bbd99f2dab7270cda175c942d74abcb"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4f2307d98a124af2ff6ea5e9289f3de2cc0f40e9efa97d68874e90cdcad09a26"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "16b38a612902bccc962a17a08195f2eed0c1f2bf73653a19c6e19262af63cf96"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c25d4a54ebfdb777c9845e87962815e609269cbc0e5fa012e1e97bc8d5fdd510"
+    sha256 cellar: :any_skip_relocation, ventura:       "555f68cb1034010a6915ccc739262e4e3e731d0f92cf0c0d88e3743ad874616d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6c68b4f50a62cb9956ba11796d8c0f38ba88cdefc1977af46f8a7871c60f402a"
   end
 
   depends_on "erlang"

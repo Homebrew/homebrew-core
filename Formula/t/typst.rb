@@ -1,35 +1,24 @@
 class Typst < Formula
   desc "Markup-based typesetting system"
   homepage "https://typst.app/"
+  url "https://github.com/typst/typst/archive/refs/tags/v0.12.0.tar.gz"
+  sha256 "5e92463965c0cf6aa003a3bacd1c68591ef2dc0db59dcdccb8f7b084836a1266"
   license "Apache-2.0"
   version_scheme 1
   head "https://github.com/typst/typst.git", branch: "main"
 
-  stable do
-    url "https://github.com/typst/typst/archive/refs/tags/v0.11.1.tar.gz"
-    sha256 "b1ba054e821073daafd90675c4822bcd8166f33fe2e3acba87ba1451a0d1fc56"
-
-    # Backport time dependency update to fix build with newer Rust
-    patch do
-      url "https://github.com/typst/typst/commit/b75f0a82d458dcb355db0f39089e8d177c14bc16.patch?full_index=1"
-      sha256 "2ab73602757d2da5568c9cbafb768e6e7ce86694a29f707a055f9e263fc538a5"
-    end
-  end
-
   livecheck do
     url :stable
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
+    strategy :github_latest
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "b47609c5150403d41dae2cb2ee155bcbc4cb96e1277748bdb983dd50b9309d5d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "92ec9b163870fd93f3213b539dc86729e07da6f800f8c44edf2f92c3a0125728"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3d17576221fdda8bc479f5c1928ba13806baf8b9709ba1a34f644cb4c5c94633"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a9b6a41c438b285bea0cfba3389860594be937c729a9bb61af7fa678be1b19a0"
-    sha256 cellar: :any_skip_relocation, sonoma:         "3bcb460ff6726db1826a83cc5cbbaad2d692b9c86575517237e44e09cc496536"
-    sha256 cellar: :any_skip_relocation, ventura:        "a200cfc59d146e27899b298125bc2a9f4774c849e9c1a0baeead2184d07592c9"
-    sha256 cellar: :any_skip_relocation, monterey:       "fc1de5571975b792578574ffa84cabfefc25e0d546987d8c8fe67012e2b509ac"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "303863d810a8b122e14d934ce5f14ba1e4bcee72e604228caec09f2027030257"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5586435036b1ba98415dda2c346ffd7756a888bcb33a9447ec0618c52ba7fd8e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "af2d66c4beed4da51ef9f3ca8818b3df5986a3b98f8c73d48d123634e3c88d05"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "56b6fc67564c350e86b8d1370f98d197c7aa1c83a194cb464071cc1f9e89f83a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "130bf8405ef2f904419776a5672d37717c91cdb58899c4978e55c7a3a0c19bc7"
+    sha256 cellar: :any_skip_relocation, ventura:       "cccad3f48cce4a2a3d38850f978866c7ae2cff9673cbfb83cae7a055ee6ff4fd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "66c9c3b7c7e3899fef7daacea96eb2a309add3524747e2fd4164a4afb9175169"
   end
 
   depends_on "pkg-config" => :build

@@ -8,16 +8,17 @@ class Peru < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "7d5b166a15d3b3573b1ee9cb6eabce4ea5a54a8b80ffe62e570192f5e70d8fa1"
-    sha256 cellar: :any,                 arm64_sonoma:  "da1f6e577eb25d97cfdaf45976f06af8db223c4cdd3bac1a2520ce622fae9b06"
-    sha256 cellar: :any,                 arm64_ventura: "e152295398950d395869ee00a7db79e5a29ba20a77510268227d4c162ee19014"
-    sha256 cellar: :any,                 sonoma:        "9362cc653470a8be6146d0b5dabf68eedad97b9fcf6935e29caa8d71c382137a"
-    sha256 cellar: :any,                 ventura:       "c17f689a900ef0467672b8b06e62e5bfddc02398e1f82e0e86eda337aaf65a31"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aac1b32a68c4df5e32054ae7abbd04e62b5498fb331b9076afd2303fe2bd5ab3"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "3a505d5ae83c37d1c03a701730080b6c5ea64845e49e5b559092f8e456f7861c"
+    sha256 cellar: :any,                 arm64_sonoma:  "3f43433b133723e78ac768cbbf3cdf75727ec56ce717d0032b5a477c5b108933"
+    sha256 cellar: :any,                 arm64_ventura: "6ad7e31af06a24c12d7554db4cc6484efcc36ea223eb55b58f6afb1c44564159"
+    sha256 cellar: :any,                 sonoma:        "1f1cb4aff42105b14711d19944b4d7fe8d0f35ccf4d7f473e762605770adac1d"
+    sha256 cellar: :any,                 ventura:       "ed6ef91406a4e6391239f3d8a9d4608bb2f9c3133051c11b088bdaa64fcb365e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c9b15bfa66cac8e7e571c11213ab84b55d5deb0de4d742d94b36c489ba63349e"
   end
 
   depends_on "libyaml"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "docopt" do
     url "https://files.pythonhosted.org/packages/a2/55/8f8cab2afd404cf578136ef2cc5dfb50baa1761b68c9da1fb1e4eed343c9/docopt-0.6.2.tar.gz"
@@ -32,7 +33,7 @@ class Peru < Formula
   def install
     # Fix plugins (executed like an executable) looking for Python outside the virtualenv
     Dir["peru/resources/plugins/**/*.py"].each do |f|
-      inreplace f, "#! /usr/bin/env python3", "#!#{libexec}/bin/python3.12"
+      inreplace f, "#! /usr/bin/env python3", "#!#{libexec}/bin/python3.13"
     end
 
     virtualenv_install_with_resources
@@ -45,6 +46,7 @@ class Peru < Formula
       git module peru:
         url: https://github.com/buildinspace/peru.git
     EOS
+
     system bin/"peru", "sync"
     assert_predicate testpath/".peru", :exist?
     assert_predicate testpath/"peru", :exist?
