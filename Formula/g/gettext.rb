@@ -18,16 +18,16 @@ class Gettext < Formula
     sha256 x86_64_linux:   "11f57f3c216f3603a194fe96d22ee05b2d01fbbaeb4a0047ed43cee25d29f9aa"
   end
 
+  depends_on "libunistring"
   uses_from_macos "libxml2"
   uses_from_macos "ncurses"
 
   def install
     args = [
+      "--with-libunistring-prefix=#{Formula["libunistring"].opt_prefix}",
       "--disable-silent-rules",
       "--with-included-glib",
       "--with-included-libcroco",
-      "--with-included-libunistring",
-      "--with-included-libxml",
       "--with-emacs",
       "--with-lispdir=#{elisp}",
       "--disable-java",
