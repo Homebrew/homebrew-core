@@ -74,6 +74,15 @@ class Vtk < Formula
   def install
     ENV.llvm_clang if DevelopmentTools.clang_build_version == 1316 && Hardware::CPU.arm?
 
+    # Workaround for mishandled netCDF flags
+    # See: https://github.com/Homebrew/homebrew-core/pull/192118
+    #      https://github.com/Homebrew/homebrew-core/pull/170959
+    (buildpath/"netcdf").mkpath
+    cp_r Formula["netcdf"].opt_prefix, "netcdf"
+    inreplace "netcdf/lib/cmake/netCDF/netCDFTargets.cmake", "hdf5_hl-shared;hdf5-shared;", "hdf5_hl;hdf5;"
+    ENV.prepend_path "CMAKE_PREFIX_PATH", buildpath/"netcdf"
+    odie "Check if netCDF workaround can be removed" if build.bottle? && version > "9.3.1"
+
     python = "python3.12"
     qml_plugin_dir = lib/"qml/VTK.#{version.major_minor}"
     vtkmodules_dir = prefix/Language::Python.site_packages(python)/"vtkmodules"
