@@ -1,8 +1,8 @@
 class Jp2a < Formula
   desc "Convert JPG images to ASCII"
   homepage "https://github.com/Talinx/jp2a"
-  url "https://github.com/Talinx/jp2a/releases/download/v1.3.0/jp2a-1.3.0.tar.bz2"
-  sha256 "0ed7cab807488744e90190312aeb6470aad5a37e7eccb4998ddbfd351401ebe7"
+  url "https://github.com/Talinx/jp2a/releases/download/v1.3.1/jp2a-1.3.1.tar.bz2"
+  sha256 "a646f893508b111d922d5f726953d577089741b83fa299f351c98e7be7974c9f"
   license "GPL-2.0-or-later"
   version_scheme 1
 
