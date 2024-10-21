@@ -1,4 +1,4 @@
-# Homebrew Core
+## Homebrew Core
 
 Core formulae for the Homebrew package manager.
 
