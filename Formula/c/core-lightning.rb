@@ -1,8 +1,8 @@
 class CoreLightning < Formula
   desc "Lightning Network implementation focusing on spec compliance and performance"
   homepage "https://github.com/ElementsProject/lightning"
-  url "https://github.com/ElementsProject/lightning/releases/download/v24.08.1/clightning-v24.08.1.zip"
-  sha256 "d992af84dbb319fb4ac127663241cec04f54108e44c27e471d2cb2654702c01e"
+  url "https://github.com/ElementsProject/lightning/releases/download/v24.08.2/clightning-v24.08.2.zip"
+  sha256 "539e0734eadeba586f0987942f205b97f58743b17d5909d209230683959401d8"
   license "MIT"
 
   livecheck do
@@ -26,9 +26,12 @@ class CoreLightning < Formula
   depends_on "jq" => :build
   depends_on "libtool" => :build
   depends_on "lowdown" => :build
+  depends_on "maturin" => :build
   depends_on "pkg-config" => :build
   depends_on "poetry" => :build
   depends_on "protobuf" => :build
+  depends_on "rust" => :build
+
   depends_on "bitcoin"
   depends_on "gmp"
   depends_on "libsodium"
