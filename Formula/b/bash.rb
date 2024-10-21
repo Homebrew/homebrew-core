@@ -106,6 +106,9 @@ class Bash < Formula
     sha256 x86_64_linux:  "4b18fa19b1a009c863e3858d4dc2efe96e586d72f441b4eb31428e624226eb7b"
   end
 
+  depends_on "gettext"
+  uses_from_macos "ncurses"
+
   def install
     # When built with SSH_SOURCE_BASHRC, bash will source ~/.bashrc when
     # it's non-interactively from sshd.  This allows the user to set
@@ -115,20 +118,16 @@ class Bash < Formula
     # Homebrew's bash instead of /bin/bash.
     ENV.append_to_cflags "-DSSH_SOURCE_BASHRC"
 
-    bash_loadables_path=[
-      "#{lib}/bash",
-      # Stock Bash paths; keep them for backwards compatibility.
-      "/usr/local/lib/bash",
-      "/usr/lib/bash",
-      "/opt/local/lib/bash",
-      "/usr/pkg/lib/bash",
-      "/opt/pkg/lib/bash",
-      ".",
-    ].join(":")
-    ENV.append_to_cflags "-DDEFAULT_LOADABLE_BUILTINS_PATH='\"#{bash_loadables_path}\"'"
+    # Allow bash to find loadable modules in lib/bash.
+    ENV.append "LDFLAGS", "-Wl,-rpath,#{rpath(target: lib/"bash")}"
+    # FIXME: Setting `-rpath` flags don't seem to work on Linux.
+    ENV.prepend_path "HOMEBREW_RPATH_PATHS", rpath(target: lib/"bash") if OS.linux?
 
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
+
+    (include/"bash/builtins").install lib/"bash/loadables.h"
+    pkgshare.install lib.glob("bash/Makefile*")
   end
 
   test do
