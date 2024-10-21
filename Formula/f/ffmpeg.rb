@@ -6,6 +6,7 @@ class Ffmpeg < Formula
   # None of these parts are used by default, you have to explicitly pass `--enable-gpl`
   # to configure to activate them. In this case, FFmpeg's license changes to GPL v2+.
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/FFmpeg/FFmpeg.git", branch: "master"
 
   livecheck do
@@ -72,6 +73,7 @@ class Ffmpeg < Formula
     depends_on "libarchive"
     depends_on "libogg"
     depends_on "libsamplerate"
+    depends_on "openal-soft"
   end
 
   on_linux do
@@ -151,7 +153,7 @@ class Ffmpeg < Formula
     ]
 
     # Needs corefoundation, coremedia, corevideo
-    args += %w[--enable-videotoolbox --enable-audiotoolbox] if OS.mac?
+    args += %w[--enable-videotoolbox --enable-audiotoolbox --enable-openal] if OS.mac?
     args << "--enable-neon" if Hardware::CPU.arm?
 
     system "./configure", *args
