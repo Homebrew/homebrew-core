@@ -3,8 +3,8 @@ class OpenaiWhisper < Formula
 
   desc "General-purpose speech recognition model"
   homepage "https://github.com/openai/whisper"
-  url "https://files.pythonhosted.org/packages/ed/a9/81f65f3443778a1e1088e80089fc970f1f160abec2bfc3d71abfed8cbc34/openai-whisper-20240927.tar.gz"
-  sha256 "5b322442b03704e245e3d6d3a577d7a3845f884e50edbf15990cb26a134dffff"
+  url "https://files.pythonhosted.org/packages/f5/77/952ca71515f81919bd8a6a4a3f89a27b09e73880cebf90957eda8f2f8545/openai-whisper-20240930.tar.gz"
+  sha256 "b7178e9c1615576807a300024f4daa6353f7e1a815dac5e38c33f1ef055dd2d2"
   license "MIT"
   head "https://github.com/openai/whisper.git", branch: "main"
 
@@ -22,7 +22,7 @@ class OpenaiWhisper < Formula
   depends_on "ffmpeg"
   depends_on "llvm@16" # LLVM 17 PR: https://github.com/numba/llvmlite/pull/1042
   depends_on "numpy"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
   depends_on "pytorch"
 
   on_linux do
@@ -30,8 +30,8 @@ class OpenaiWhisper < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/63/09/c1bc53dab74b1816a00d8d030de5bf98f724c52c1635e07681d312f20be8/charset-normalizer-3.3.2.tar.gz"
-    sha256 "f30c3cb33b24454a82faecaf01b19c18562b1e89558fb6c56de4d9118a032fd5"
+    url "https://files.pythonhosted.org/packages/f2/4f/e1808dc01273379acc506d18f1504eb2d299bd4131743b9fc54d7be4df1e/charset_normalizer-3.4.0.tar.gz"
+    sha256 "223217c3d4f82c3ac5e29032b3f1c2eb0fb591b72161f86d93f5719079dae93e"
   end
 
   resource "idna" do
@@ -69,8 +69,8 @@ class OpenaiWhisper < Formula
   end
 
   resource "tiktoken" do
-    url "https://files.pythonhosted.org/packages/c4/4a/abaec53e93e3ef37224a4dd9e2fc6bb871e7a538c2b6b9d2a6397271daf4/tiktoken-0.7.0.tar.gz"
-    sha256 "1077266e949c24e0291f6c350433c6f0971365ece2b173a23bc3b9f9defef6b6"
+    url "https://files.pythonhosted.org/packages/37/02/576ff3a6639e755c4f70997b2d315f56d6d71e0d046f4fb64cb81a3fb099/tiktoken-0.8.0.tar.gz"
+    sha256 "9ccbb2740f24542534369c5635cfd9b2b3c2490754a78ac8831d99f89f94eeb2"
   end
 
   resource "tqdm" do
@@ -85,6 +85,7 @@ class OpenaiWhisper < Formula
 
   def install
     ENV["LLVM_CONFIG"] = Formula["llvm@16"].opt_bin/"llvm-config"
+    inreplace "setup.py", "version=read_version()", "version='#{version}'"
     venv = virtualenv_install_with_resources without: "numba"
 
     # We depend on pytorch, but that's a separate formula, so install a `.pth` file to link them.

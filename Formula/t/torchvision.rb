@@ -3,8 +3,8 @@ class Torchvision < Formula
 
   desc "Datasets, transforms, and models for computer vision"
   homepage "https://github.com/pytorch/vision"
-  url "https://github.com/pytorch/vision/archive/refs/tags/v0.19.1.tar.gz"
-  sha256 "083e75c467285595ec3eb3c7aa8493c19e53d7eb42f13046fb56a07c8897e5a8"
+  url "https://github.com/pytorch/vision/archive/refs/tags/v0.20.0.tar.gz"
+  sha256 "b59d9896c5c957c6db0018754bbd17d079c5102b82b9be0b438553b40a7b6029"
   license "BSD-3-Clause"
 
   livecheck do
@@ -23,7 +23,7 @@ class Torchvision < Formula
 
   depends_on "cmake" => :build
   depends_on "ninja" => :build
-  depends_on "python@3.12" => [:build, :test]
+  depends_on "python@3.13" => [:build, :test]
   depends_on "abseil"
   depends_on "certifi"
   depends_on "jpeg-turbo"
@@ -44,10 +44,10 @@ class Torchvision < Formula
 
     jpeg = Formula["jpeg-turbo"]
     inreplace "setup.py",
-      "(jpeg_found, jpeg_conda, jpeg_include, jpeg_lib) = find_library(\"jpeglib\", vision_include)",
-      "(jpeg_found, jpeg_conda, jpeg_include, jpeg_lib) = (True, False, \"#{jpeg.include}\", \"#{jpeg.lib}\")"
+      'jpeg_found, jpeg_include_dir, jpeg_library_dir = find_library(header="jpeglib.h")',
+      "jpeg_found, jpeg_include_dir, jpeg_library_dir = True, '#{jpeg.include}', '#{jpeg.lib}'"
 
-    python3 = "python3.12"
+    python3 = "python3.13"
     venv = virtualenv_create(libexec, python3)
     venv.pip_install resources
 
