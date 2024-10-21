@@ -2,6 +2,7 @@ class Libprelude < Formula
   desc "Universal Security Information & Event Management (SIEM) system"
   homepage "https://www.prelude-siem.org/"
   url "https://www.prelude-siem.org/attachments/download/1395/libprelude-5.2.0.tar.gz"
+  mirror "http://deb.debian.org/debian/pool/main/libp/libprelude/libprelude_5.2.0.orig.tar.gz"
   sha256 "187e025a5d51219810123575b32aa0b40037709a073a775bc3e5a65aa6d6a66e"
   license "GPL-2.0-or-later"
   revision 2
@@ -24,7 +25,7 @@ class Libprelude < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "python@3.12" => [:build, :test]
+  depends_on "python@3.13" => [:build, :test]
   depends_on "gnutls"
   depends_on "libgpg-error"
   depends_on "libtool"
@@ -37,7 +38,7 @@ class Libprelude < Formula
   end
 
   def python3
-    "python3.12"
+    "python3.13"
   end
 
   def install
