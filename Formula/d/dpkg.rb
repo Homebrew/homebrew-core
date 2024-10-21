@@ -54,7 +54,11 @@ class Dpkg < Formula
     # Since 1.18.24 dpkg mandates the use of GNU patch to prevent occurrences
     # of the CVE-2017-8283 vulnerability.
     # https://www.openwall.com/lists/oss-security/2017/04/20/2
-    ENV["PATCH"] = Formula["gpatch"].opt_bin/"patch"
+    ENV["PATCH"] = if OS.mac?
+      Formula["gpatch"].opt_bin/"gpatch"
+    else
+      Formula["gpatch"].opt_bin/"patch"
+    end
 
     # Theoretically, we could reinsert a patch here submitted upstream previously
     # but the check for PERL_LIB remains in place and incompatible with Homebrew.

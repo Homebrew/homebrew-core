@@ -25,8 +25,32 @@ class Gpatch < Formula
   end
 
   def install
-    system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
+    args = std_configure_args
+    args << if OS.mac?
+      "--program-prefix=g"
+    end
+
+    system "./configure", *args
     system "make", "install"
+
+    return unless OS.mac?
+
+    # Symlink the executable into libexec/gnubin as "patch"
+    (libexec/"gnubin").install_symlink bin/"gpatch" => "patch"
+    (libexec/"gnuman/man1").install_symlink man1/"gpatch.1" => "patch.1"
+    (libexec/"gnubin").install_symlink "../gnuman" => "man"
+  end
+
+  def caveats
+    on_macos do
+      <<~EOS
+        GNU "patch" has been installed as "gpatch".
+        If you need to use it as "patch", you can add a "gnubin" directory
+        to your PATH from your bashrc like:
+
+            PATH="#{opt_libexec}/gnubin:$PATH"
+      EOS
+    end
   end
 
   test do
@@ -38,7 +62,11 @@ class Gpatch < Formula
       ---
       > hello
     EOS
-    pipe_output("#{bin}/patch #{testfile}", patch)
+    if OS.mac?
+      pipe_output("#{bin}/gpatch #{testfile}", patch)
+    else
+      pipe_output("#{bin}/patch #{testfile}", patch)
+    end
     assert_equal "hello", testfile.read.chomp
   end
 end
