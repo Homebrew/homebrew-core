@@ -8,6 +8,7 @@ class Flexiblas < Formula
     "LGPL-2.1-or-later", # libcscutils/
     "BSD-3-Clause-Open-MPI", # contributed/
   ]
+  revision 1
   head "https://gitlab.mpi-magdeburg.mpg.de/software/flexiblas-release.git", branch: "master"
 
   bottle do
@@ -22,11 +23,15 @@ class Flexiblas < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "flexiblas-openblas" => :test
   depends_on "gcc" # for gfortran
-  depends_on "openblas"
 
   on_macos do
     depends_on "libomp" => :build
+  end
+
+  on_system :linux, macos: :ventura_or_older do
+    depends_on "flexiblas-openblas"
   end
 
   fails_with :gcc do
@@ -35,14 +40,14 @@ class Flexiblas < Formula
   end
 
   def blas_backends
-    backends = %w[OPENBLASOPENMP NETLIB]
-    on_sonoma :or_newer do
-      backends.unshift("APPLE")
+    backends = []
+    on_system :linux, macos: :ventura_or_older do
+      backends << "OPENBLASOPENMP"
     end
-    on_ventura :or_older do
+    on_macos do
       backends << "APPLE"
     end
-    backends
+    backends << "NETLIB"
   end
 
   def install
@@ -67,6 +72,9 @@ class Flexiblas < Formula
       -DMklSerial=OFF
       -DMklOpenMP=OFF
       -DMklTBB=OFF
+      -DOpenBLASSerial=OFF
+      -DOpenBLASPThread=OFF
+      -DOpenBLASOpenMP=OFF
     ]
 
     etc_before = etc.glob("flexiblasrc.d/*")
@@ -77,13 +85,21 @@ class Flexiblas < Formula
 
     # Let brew manage linking/deleting config files that are intended to be read-only
     (prefix/"etc/flexiblasrc.d").install (etc.glob("flexiblasrc.d/*") - etc_before)
+    return if blas_backends.first == "APPLE"
+
+    # Adjust systemwide config if using `flexiblas-openblas`
+    inreplace etc/"flexiblasrc", /^default = NETLIB$/, "default = #{blas_backends.first}"
   end
 
   def caveats
-    <<~EOS
-      FlexiBLAS includes the following backends: #{blas_backends.join(", ")}
+    s = <<~EOS
+      FlexiBLAS has been installed with the following backends: #{blas_backends.join(", ")}
       #{blas_backends.first} has been set as the default in #{etc}/flexiblasrc
     EOS
+    on_sonoma :or_newer do
+      s += "The OPENBLASOPENMP backend is available in `flexiblas-openblas`."
+    end
+    s
   end
 
   test do
@@ -117,13 +133,10 @@ class Flexiblas < Formula
     EOS
     system ENV.cc, "test.c", "-I#{include}/flexiblas", "-L#{lib}", "-lflexiblas", "-o", "test"
 
-    blas_backends.each do |backend|
-      expected = <<~EOS
-        Current loaded backend: #{backend}
-        11.000000 -9.000000 5.000000 -9.000000 21.000000 -1.000000 5.000000 -1.000000 3.000000
-      EOS
+    result = "11.000000 -9.000000 5.000000 -9.000000 21.000000 -1.000000 5.000000 -1.000000 3.000000"
+    (blas_backends + ["OPENBLASOPENMP"]).uniq.each do |backend|
       with_env(FLEXIBLAS: backend) do
-        assert_equal expected.strip, shell_output("./test").strip
+        assert_equal "Current loaded backend: #{backend}\n#{result}", shell_output("./test").strip
       end
     end
   end
