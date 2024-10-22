@@ -2,8 +2,8 @@ class Grafana < Formula
   desc "Gorgeous metric visualizations and dashboards for timeseries databases"
   homepage "https://grafana.com"
   # TODO: switch to use go1.23 when 11.3.0 is released
-  url "https://github.com/grafana/grafana/archive/refs/tags/v11.2.2.tar.gz"
-  sha256 "223dc284b8fa03641154aaee3b35f77515b04b3b076a0db887e0b0498b1be7d9"
+  url "https://github.com/grafana/grafana/archive/refs/tags/v11.2.3.tar.gz"
+  sha256 "65e1876569d639cbf5824e8bc104dae16fbecfcc3057993e491be675461b0120"
   license "AGPL-3.0-only"
   head "https://github.com/grafana/grafana.git", branch: "main"
 
