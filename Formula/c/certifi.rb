@@ -15,24 +15,35 @@ class Certifi < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "1f1fc985a1c89bd40c73b17e3dfbf5483cb0417c8d4d12e2be66158a503ab169"
   end
 
-  depends_on "python@3.11" => [:build, :test]
-  depends_on "python@3.12" => [:build, :test]
   depends_on "python@3.13" => [:build, :test]
+  depends_on "python@3.11" => :test # keep on oldest Python to support
   depends_on "ca-certificates"
 
   def pythons
-    deps.map(&:to_formula).sort_by(&:version).filter { |f| f.name.start_with?("python@") }
+    deps.filter_map { |dep| dep.to_formula if dep.name.start_with?("python@") }
+        .sort_by(&:version)
   end
 
   def install
-    pythons.each do |python|
-      python_exe = python.opt_libexec/"bin/python"
-      system python_exe, "-m", "pip", "install", *std_pip_args(build_isolation: true), "."
+    # Ensure uniform bottles
+    inreplace "README.rst", "/usr/local", HOMEBREW_PREFIX
 
-      # Use brewed ca-certificates PEM file instead of the bundled copy
-      site_packages = Language::Python.site_packages("python#{python.version.major_minor}")
-      rm prefix/site_packages/"certifi/cacert.pem"
-      (prefix/site_packages/"certifi").install_symlink Formula["ca-certificates"].pkgetc/"cert.pem" => "cacert.pem"
+    python = deps.find { |dep| dep.name.start_with?("python@") && dep.build? }
+                 .to_formula
+    python_exe = python.opt_libexec/"bin/python"
+    system python_exe, "-m", "pip", "install", *std_pip_args(build_isolation: true), "."
+
+    # Use brewed ca-certificates PEM file instead of the bundled copy
+    site_packages = prefix/Language::Python.site_packages(python_exe)
+    rm(site_packages/"certifi/cacert.pem")
+    (site_packages/"certifi").install_symlink Formula["ca-certificates"].pkgetc/"cert.pem" => "cacert.pem"
+
+    # Create symlinks so that the Python bindings can be used with alternative Python versions
+    oldest_python_version = Language::Python.major_minor_version(pythons.first.opt_libexec/"bin/python")
+    other_pythons = python.versioned_formulae.filter { |f| f.version >= oldest_python_version }
+    other_pythons.each do |other_python|
+      other_python_version = Language::Python.major_minor_version(other_python.opt_libexec/"bin/python")
+      (lib/"python#{other_python_version}/site-packages").install_symlink site_packages.children
     end
   end
 
