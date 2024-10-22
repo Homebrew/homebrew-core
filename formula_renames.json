@@ -155,6 +155,7 @@
   "sonar": "sonarqube",
   "speedtest_cli": "speedtest-cli",
   "ssreflect": "math-comp",
+  "synergy-core":"deskflow",
   "tachyon": "alluxio",
   "tensorflow": "libtensorflow",
   "tepl": "libgedit-tepl",
