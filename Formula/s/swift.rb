@@ -7,6 +7,7 @@ class Swift < Formula
   url "https://github.com/apple/swift/archive/refs/tags/swift-5.10-RELEASE.tar.gz"
   sha256 "874c3b6668fb138db35c9f1c63570dafacac8476a6094b17764a51a45a1b69a2"
   license "Apache-2.0"
+  revision 1
 
   # This uses the `GithubLatest` strategy because a `-RELEASE` tag is often
   # created several days before the version is officially released.
@@ -50,7 +51,7 @@ class Swift < Formula
   uses_from_macos "zlib"
 
   on_linux do
-    depends_on "icu4c" # Used in swift-corelibs-foundation
+    depends_on "icu4c@75" # Used in swift-corelibs-foundation
 
     # Doesn't have to be in sync but does need to be no older than X.(Y - 1).0
     resource "bootstrap" do
