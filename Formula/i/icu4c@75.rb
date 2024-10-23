@@ -8,7 +8,7 @@ class Icu4cAT75 < Formula
 
   livecheck do
     url :stable
-    regex(/^release[._-]v?(\d+(?:[.-]\d+)+)$/i)
+    regex(/^release[._-]v?(75(?:[.-]\d+)+)$/i)
     strategy :git do |tags, regex|
       tags.filter_map { |tag| tag[regex, 1]&.tr("-", ".") }
     end
@@ -23,11 +23,11 @@ class Icu4cAT75 < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "ab60784f7aee6a4a7827bbff1cf524c1c357a76be2898fdbf144ffa1df145eff"
   end
 
-  # TODO: Switch keg_only reason after renaming `icu4c` formula to `icu4c@74` and updating alias to `icu4c@75`
-  # keg_only :provided_by_macos, "macOS provides libicucore.dylib (but nothing else)"
-  keg_only :versioned_formula
+  keg_only :shadowed_by_macos, "macOS provides libicucore.dylib (but nothing else)"
 
   def install
+    odie "Major version bumps need a new formula!" if version.major.to_s != name[/@(\d+)$/, 1]
+
     args = %w[
       --disable-samples
       --disable-tests
