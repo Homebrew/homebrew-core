@@ -43,6 +43,7 @@ class Mpd < Formula
   depends_on "flac"
   depends_on "fluid-synth"
   depends_on "fmt"
+  depends_on "game-music-emu"
   depends_on "glib"
   depends_on "icu4c@75"
   depends_on "lame"
@@ -59,6 +60,7 @@ class Mpd < Formula
   depends_on "libupnp"
   depends_on "libvorbis"
   depends_on macos: :mojave # requires C++17 features unavailable in High Sierra
+  depends_on "mikmod"
   depends_on "mpg123"
   depends_on "opus"
   depends_on "pcre2"
@@ -102,6 +104,8 @@ class Mpd < Formula
       -Dupnp=pupnp
       -Dvorbisenc=enabled
       -Dwavpack=enabled
+      -Dgme=enabled
+      -Dmikmod=enabled
       -Dsystemd_system_unit_dir=#{lib}/systemd/system
       -Dsystemd_user_unit_dir=#{lib}/systemd/user
     ]
