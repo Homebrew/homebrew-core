@@ -15,13 +15,18 @@ class Pius < Formula
   end
 
   depends_on "gnupg"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
+
+  def python3
+    "python3.13"
+  end
 
   def install
     # Replace hardcoded gpg path (WONTFIX)
     inreplace "libpius/constants.py", %r{/usr/bin/gpg2?}, "/usr/bin/env gpg"
 
-    virtualenv_install_with_resources
+    venv = virtualenv_create(libexec, python3, system_site_packages: false)
+    venv.pip_install_and_link buildpath
   end
 
   def caveats
