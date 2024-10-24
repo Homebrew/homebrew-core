@@ -2,16 +2,14 @@ class Synfig < Formula
   desc "Command-line renderer"
   homepage "https://synfig.org/"
   # TODO: Update livecheck to track only stable releases when 1.6.x is available.
-  url "https://downloads.sourceforge.net/project/synfig/development/1.5.2/source/synfig-1.5.2.tar.gz"
-  mirror "https://github.com/synfig/synfig/releases/download/v1.5.2/synfig-1.5.2.tar.gz"
-  sha256 "0a7cff341eb0bcd31725996ad70c1461ce5ddb3c3ee9f899abeb4a3e77ab420e"
+  url "https://github.com/synfig/synfig/releases/download/v1.5.3/synfig-1.5.3.tar.gz"
+  sha256 "913c9cee6e5ad8fd6db3b3607c5b5ae0312f9ee6720c60619e3a97da98501ea8"
   license "GPL-3.0-or-later"
-  revision 2
   head "https://github.com/synfig/synfig.git", branch: "master"
 
   livecheck do
     url :stable
-    regex(%r{url=.*?/synfig[._-]v?(\d+(?:\.\d+)+)\.t}i)
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do

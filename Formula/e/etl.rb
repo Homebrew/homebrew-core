@@ -1,14 +1,13 @@
 class Etl < Formula
   desc "Extensible Template Library"
   homepage "https://synfig.org"
-  url "https://downloads.sourceforge.net/project/synfig/development/1.5.2/ETL-1.5.2.tar.gz"
-  mirror "https://github.com/synfig/synfig/releases/download/v1.5.2/ETL-1.5.2.tar.gz"
-  sha256 "98d428d4a2b3e3f17469d3da35d1f9f488c57cedbe6a934fee5c684c0ff4030f"
+  url "https://github.com/synfig/synfig/releases/download/v1.5.3/ETL-1.5.3.tar.gz"
+  sha256 "640f4d2cbcc1fb580028de8d23b530631c16e234018cefce33469170a41b06bf"
   license "GPL-2.0-or-later"
 
   livecheck do
     url :stable
-    regex(%r{url=.*?/ETL[._-]v?(\d+(?:\.\d+)+)\.t}i)
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
