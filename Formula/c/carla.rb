@@ -46,7 +46,7 @@ class Carla < Formula
   depends_on "liblo"
   depends_on "libmagic"
   depends_on "libsndfile"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   on_linux do
     depends_on "alsa-lib"
@@ -64,7 +64,7 @@ class Carla < Formula
     system "make", "install", "PREFIX=#{prefix}"
 
     inreplace bin/"carla", "PYTHON=$(which python3 2>/dev/null)",
-                           "PYTHON=#{which("python3.12")}"
+                           "PYTHON=#{which("python3.13")}"
   end
 
   test do
