@@ -1,9 +1,9 @@
 class OpenjdkAT8 < Formula
   desc "Development kit for the Java programming language"
   homepage "https://openjdk.java.net/"
-  url "https://github.com/openjdk/jdk8u/archive/refs/tags/jdk8u422-ga.tar.gz"
-  version "1.8.0-422"
-  sha256 "3931898b4336f0e583a5e97df7e5c339d859d53afaff6dafe20124107e836ebe"
+  url "https://github.com/openjdk/jdk8u/archive/refs/tags/jdk8u432-ga.tar.gz"
+  version "1.8.0-432"
+  sha256 "6ac8ee2b6932e4632ea2c33fe2320d6ceaca50a67521fac02a67027e40437460"
   license "GPL-2.0-only"
 
   livecheck do
@@ -135,13 +135,23 @@ class OpenjdkAT8 < Formula
         ]
         ldflags << "-F#{javavm_framework_path}"
       # Fix "'JavaNativeFoundation/JavaNativeFoundation.h' file not found" issue on MacOS Sonoma.
-      elsif MacOS.version == :sonoma
-        javavm_framework_path = "/Library/Developer/CommandLineTools/SDKs/MacOSX13.sdk/System/Library/Frameworks"
+      elsif MacOS.version >= :sonoma
+        system "git", "clone", "https://github.com/apple/openjdk.git", "apple-openjdk"
+        cd "apple-openjdk" do
+          mkdir_p "build/Frameworks"
+          system "xcodebuild", "install",
+                 "-project", "apple/JavaNativeFoundation/JavaNativeFoundation.xcodeproj",
+                 "-target", "JavaNativeFoundation",
+                 "-configuration", "Release",
+                 "OTHER_CFLAGS=\"-Wno-strict-prototypes\" DSTROOT=\"$(pwd)/build/Frameworks\"",
+                 "HEADER_SEARCH_PATHS=\"#{buildpath}/jdk/src/share/javavm/export #{buildpath}/jdk/src/macosx/javavm/export\""
+        end
+        jnf_framework_path = "#{buildpath}/apple-openjdk/build/Frameworks"
         args += %W[
-          --with-extra-cflags=-F#{javavm_framework_path}
-          --with-extra-cxxflags=-F#{javavm_framework_path}
+          --with-extra-cflags=-F#{jnf_framework_path}
+          --with-extra-cxxflags=-F#{jnf_framework_path}
         ]
-        ldflags << "-F#{javavm_framework_path}"
+        ldflags << "-F#{jnf_framework_path}"
       end
     else
       args += %W[
