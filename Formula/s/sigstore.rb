@@ -3,8 +3,8 @@ class Sigstore < Formula
 
   desc "Codesigning tool for Python packages"
   homepage "https://github.com/sigstore/sigstore-python"
-  url "https://files.pythonhosted.org/packages/5b/6b/08dc39d131d6b4106a327e2619b6dd017543bb79e9fc632abd442375d989/sigstore-3.4.0.tar.gz"
-  sha256 "71038afff4e0254aadc562cc725f6a1ccad7d32ff62abb3305c698737ee0a546"
+  url "https://files.pythonhosted.org/packages/38/21/d9159ad71dc45267b637d84b1165e07f88bd2ffe30116d6a3944fc6302f2/sigstore-3.5.0.tar.gz"
+  sha256 "bf49aaad29252f50f6f02c04b31070421524e8b00491ec6b402cb4eff4cfbc50"
   license "Apache-2.0"
 
   bottle do
@@ -143,8 +143,8 @@ class Sigstore < Formula
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/aa/9e/1784d15b057b0075e5136445aaea92d23955aad2c93eaede673718a40d95/rich-13.9.2.tar.gz"
-    sha256 "51a2c62057461aaf7152b4d611168f93a9fc73068f8ded2790f29fe2b5366d0c"
+    url "https://files.pythonhosted.org/packages/d9/e9/cf9ef5245d835065e6673781dbd4b8911d352fb770d56cf0879cf11b7ee1/rich-13.9.3.tar.gz"
+    sha256 "bc1e01b899537598cf02579d2b9f4a415104d3fc439313a7a2c165d76557a08e"
   end
 
   resource "securesystemslib" do
