@@ -5,6 +5,7 @@ class Opencascade < Formula
   version "7.8.1"
   sha256 "33f2bdb67e3f6ae469f3fa816cfba34529a23a9cb736bf98a32b203d8531c523"
   license "LGPL-2.1-only"
+  revision 1
 
   # The first-party download page (https://dev.opencascade.org/release)
   # references version 7.5.0 and hasn't been updated for later maintenance
@@ -53,7 +54,7 @@ class Opencascade < Formula
   def install
     tcltk = Formula["tcl-tk"]
     libtcl = tcltk.opt_lib/shared_library("libtcl#{tcltk.version.major_minor}")
-    libtk = tcltk.opt_lib/shared_library("libtk#{tcltk.version.major_minor}")
+    libtk = tcltk.opt_lib/shared_library("libtcl#{tcltk.version.major}tk#{tcltk.version.major_minor}")
 
     system "cmake", "-S", ".", "-B", "build",
                     "-DUSE_FREEIMAGE=ON",

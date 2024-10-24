@@ -5,6 +5,7 @@ class SqliteAnalyzer < Formula
   version "3.47.0"
   sha256 "f59c349bedb470203586a6b6d10adb35f2afefa49f91e55a672a36a09a8fedf7"
   license "blessing"
+  revision 1
 
   livecheck do
     formula "sqlite"
