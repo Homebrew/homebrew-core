@@ -8,8 +8,11 @@ class Pyre < Formula
   license "MIT"
   head "https://github.com/facebook/pyre-check.git", branch: "main"
 
+  depends_on "dune" => :build
   depends_on "rust" => :build
   depends_on "libyaml"
+  depends_on "ocaml" => :build
+  depends_on "opam" => :build
   depends_on "python@3.13"
   depends_on "watchman"
 
@@ -104,6 +107,13 @@ class Pyre < Formula
   end
 
   def install
+    ENV["OPAMROOT"] = buildpath/"opamroot"
+    system "opam", "init", "--disable-sandboxing", "--bare", "-y"
+    system "opam", "switch", "create", "ocaml-system", "-y"
+    system "opam", "install", "dune", "-y"
+    system "opam", "install", ".", "--deps-only", "-y"
+    system "opam", "exec", "--", "dune", "build", "pyre.bin", "--profile", "release"
+    bin.install "_build/default/pyre.bin" => "pyre"
     virtualenv_install_with_resources
   end
 
