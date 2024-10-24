@@ -1,10 +1,9 @@
 class Mysql < Formula
   desc "Open source relational database management system"
-  homepage "https://dev.mysql.com/doc/refman/9.0/en/"
-  url "https://cdn.mysql.com/Downloads/MySQL-9.0/mysql-9.0.1.tar.gz"
-  sha256 "18fa65f1ea6aea71e418fe0548552d9a28de68e2b8bc3ba9536599eb459a6606"
+  homepage "https://dev.mysql.com/doc/refman/9.1/en/"
+  url "https://cdn.mysql.com/Downloads/MySQL-9.1/mysql-9.1.0.tar.gz"
+  sha256 "52c3675239bfd9d3c83224ff2002aa6e286fab97bf5b2b5ca1a85c9c347766fc"
   license "GPL-2.0-only" => { with: "Universal-FOSS-exception-1.0" }
-  revision 4
 
   livecheck do
     url "https://dev.mysql.com/downloads/mysql/?tpl=files&os=src"
@@ -35,8 +34,11 @@ class Mysql < Formula
   uses_from_macos "cyrus-sasl"
   uses_from_macos "libedit"
 
-  on_macos do
-    depends_on "llvm" if DevelopmentTools.clang_build_version <= 1400
+  # std::string_view is not fully compatible with the libc++ shipped
+  # with ventura, so we need to use the LLVM libc++ instead.
+  on_ventura :or_older do
+    depends_on "llvm"
+    fails_with :clang
   end
 
   on_linux do
@@ -45,11 +47,6 @@ class Mysql < Formula
   end
 
   conflicts_with "mariadb", "percona-server", because: "both install the same binaries"
-
-  fails_with :clang do
-    build 1400
-    cause "Requires C++20"
-  end
 
   fails_with :gcc do
     version "9"
@@ -78,12 +75,10 @@ class Mysql < Formula
 
       # Work around build issue with Protobuf 22+ on Linux
       # Ref: https://bugs.mysql.com/bug.php?id=113045
-      # Ref: https://bugs.mysql.com/bug.php?id=115163
       inreplace "cmake/protobuf.cmake" do |s|
-        s.gsub! 'IF(APPLE AND WITH_PROTOBUF STREQUAL "system"', 'IF(WITH_PROTOBUF STREQUAL "system"'
         s.gsub! ' INCLUDE REGEX "${HOMEBREW_HOME}.*")', ' INCLUDE REGEX "libabsl.*")'
       end
-    elsif DevelopmentTools.clang_build_version <= 1400
+    elsif MacOS.version <= :ventura
       ENV.llvm_clang
       # Work around failure mixing newer `llvm` headers with older Xcode's libc++:
       # Undefined symbols for architecture arm64:
