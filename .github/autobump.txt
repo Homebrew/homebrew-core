@@ -995,6 +995,7 @@ gexiv2
 gf
 gfold
 ggshield
+ghc@9.8
 ghcup
 ghex
 ghorg
