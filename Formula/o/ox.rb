@@ -1,8 +1,8 @@
 class Ox < Formula
   desc "Independent Rust text editor that runs in your terminal"
   homepage "https://github.com/curlpipe/ox"
-  url "https://github.com/curlpipe/ox/archive/refs/tags/0.6.7.tar.gz"
-  sha256 "cfed456ebe31dbe5fd13fc87ec4cb7e24d8b989f5878e14963c0a534ca5259e7"
+  url "https://github.com/curlpipe/ox/archive/refs/tags/0.6.8.tar.gz"
+  sha256 "b9abee1d63057df8417968751c7a9fb57420a3c03cdeac26f19b598df0face32"
   license "GPL-2.0-only"
   head "https://github.com/curlpipe/ox.git", branch: "master"
 
@@ -22,8 +22,13 @@ class Ox < Formula
   end
 
   test do
+    assert_match version.to_s, shell_output("#{bin}/ox --version")
+
     # Errno::EIO: Input/output error @ io_fread - /dev/pts/0
     return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"].present?
+
+    # create an empty oxrc config file to bypass config setup
+    touch testpath/".oxrc"
 
     require "pty"
     ENV["TERM"] = "xterm"
