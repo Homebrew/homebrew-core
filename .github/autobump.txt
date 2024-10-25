@@ -1710,6 +1710,7 @@ lndir
 localai
 localstack
 locust
+log4cplus
 log4cxx
 logdy
 logrotate
