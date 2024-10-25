@@ -1,8 +1,8 @@
 class TmuxSessionizer < Formula
   desc "Tool for opening git repositories as tmux sessions"
   homepage "https://github.com/jrmoulton/tmux-sessionizer/"
-  url "https://github.com/jrmoulton/tmux-sessionizer/archive/refs/tags/v0.4.3.tar.gz"
-  sha256 "e7baf324409af475a96d2b034a2ecdb46452feb7d0ef3ddc41e834475063a1f7"
+  url "https://github.com/jrmoulton/tmux-sessionizer/archive/refs/tags/v0.4.4.tar.gz"
+  sha256 "9dfbe99a3c1fe7f48be0c1ab9056e49f36c4f85d023e24f874254f6791a9894e"
   license "MIT"
 
   bottle do
@@ -16,7 +16,7 @@ class TmuxSessionizer < Formula
 
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
-  depends_on "libgit2@1.7"
+  depends_on "libgit2"
   depends_on "libssh2"
   depends_on "openssl@3"
   uses_from_macos "zlib"
@@ -45,7 +45,7 @@ class TmuxSessionizer < Formula
     assert_match version.to_s, shell_output("#{bin}/tms --version")
 
     [
-      Formula["libgit2@1.7"].opt_lib/shared_library("libgit2"),
+      Formula["libgit2"].opt_lib/shared_library("libgit2"),
       Formula["libssh2"].opt_lib/shared_library("libssh2"),
       Formula["openssl@3"].opt_lib/shared_library("libssl"),
       Formula["openssl@3"].opt_lib/shared_library("libcrypto"),
