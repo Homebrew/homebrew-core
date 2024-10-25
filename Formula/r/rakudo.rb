@@ -1,8 +1,8 @@
 class Rakudo < Formula
   desc "Mature, production-ready implementation of the Raku language"
   homepage "https://rakudo.org"
-  url "https://github.com/rakudo/rakudo/releases/download/2024.09/rakudo-2024.09.tar.gz"
-  sha256 "dbd4da67aef46c645f0cf6e44c296dc8c6c8cc0354cb18ad39c23adb94458528"
+  url "https://github.com/rakudo/rakudo/releases/download/2024.10/rakudo-2024.10.tar.gz"
+  sha256 "fceb6aa9493c3c870d769152b3fac362af68b8f09a44da681f166eff54ec9050"
   license "Artistic-2.0"
 
   livecheck do
