@@ -29,6 +29,19 @@ class BerkeleyDb < Formula
 
   depends_on "openssl@3"
 
+  on_linux do
+    resource "libdb1.85" do
+      # NOTE: Debian's source version reflects Glib's version, not libdb1's version
+      # It also fixes security bug: https://insecure.org/sploits/libdb.snprintf.redefine.html
+      url "http://deb.debian.org/debian/pool/main/d/db1-compat/db1-compat_2.1.3.orig.tar.gz"
+      sha256 "b01f560f00a67f921e678586d903969015b0c9cec6c18b1679b7e9fd6d27394e"
+    end
+    resource "libdb1.85-patches" do
+      url "http://deb.debian.org/debian/pool/main/d/db1-compat/db1-compat_2.1.3-25.debian.tar.xz"
+      sha256 "5c3773cf41105ccbe9d07d42b90013e40ab09b8f615d5cecbac298aa72cbb9db"
+    end
+  end
+
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-pre-0.4.2.418-big_sur.diff"
@@ -39,12 +52,42 @@ class BerkeleyDb < Formula
   def install
     # Work around undefined NULL causing incorrect detection of thread local storage class
     ENV.append "CFLAGS", "-include stddef.h" if DevelopmentTools.clang_build_version >= 1500
+    ENV.append "CFLAGS", "-Wno-error=implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1200
 
     # BerkeleyDB dislikes parallel builds
     ENV.deparallelize
 
+    # db_dump185 needs libdb 1.85 on Linux only (macOS & BSD variants already have it)
+    if OS.linux?
+      resource("libdb1.85").stage do
+        libdb1_src_path = Pathname(Utils.safe_popen_read("pwd").chomp).realpath
+
+        resource("libdb1.85-patches").stage do
+          File.read("patches/series").each_line do |p|
+            # Omit db_dump185.patch: it includes another version of the entire db_dump185 source code
+            # We will use the version included with Oracle upstream's source instead, and link against libdb1
+            # See build doc: Chapter 6. Building Berkeley DB for UNIX/POSIX - Architecture independent FAQ #8
+            # NOTE: PDF footer labeled p. 49, but URL page num differs
+            # https://www.oracle.com/technetwork/database/berkeleydb/bdb-installation-160957.pdf#page=66
+            next if p.match?(/^(db_dump185\.patch)/)
+
+            patch_fullpath = Pathname(File.join("patches", p.chomp)).realpath
+            cd libdb1_src_path do
+              system "patch", "-g", "0", "-f", "-p1", "-i", patch_fullpath
+            end
+          end
+        end
+        system "make"
+        include.install "db.h"
+        lib.install "libdb1.so.2"
+        ln_s "libdb1.so.2", lib/"libdb1.so"
+      end
+    end
+
     # --enable-compat185 is necessary because our build shadows
     # the system berkeley db 1.x
+    # --enable-dump185 Builds the db_dump185 utility, which can dump Berkeley DB 1.85 and 1.86 databases.
+    # See: https://docs.oracle.com/cd/E17275_01/html/programmer_reference/build_unix_conf.html#build_unix_conf
     args = %W[
       --disable-debug
       --disable-static
@@ -52,6 +95,7 @@ class BerkeleyDb < Formula
       --mandir=#{man}
       --enable-cxx
       --enable-compat185
+      --enable-dump185
       --enable-sql
       --enable-sql_codegen
       --enable-dbm
@@ -60,6 +104,12 @@ class BerkeleyDb < Formula
 
     # BerkeleyDB requires you to build everything from the build_unix subdirectory
     cd "build_unix" do
+      if OS.linux?
+        args << "CPPFLAGS=-I#{include}"
+        db185_linkerflags = "-Xlinker '-L #{lib}' -Xlinker '-l db1'"
+        inreplace "../dist/Makefile.in", /^DB185LIB=.*/, "DB185LIB=#{db185_linkerflags}"
+      end
+
       system "../dist/configure", *args
       system "make", "install", "DOCLIST=license"
 
