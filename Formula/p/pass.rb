@@ -2,7 +2,7 @@ class Pass < Formula
   desc "Password manager"
   homepage "https://www.passwordstore.org/"
   url "https://git.zx2c4.com/password-store/snapshot/password-store-1.7.4.tar.xz"
-  sha256 "4c2d0a8b99df8915a87099607a8d912fd05d30651b6f014745c14e4ca8dbbfb7"
+  sha256 "cfa9faf659f2ed6b38e7a7c3fb43e177d00edbacc6265e6e32215ff40e3793c0"
   license "GPL-2.0-or-later"
   head "https://git.zx2c4.com/password-store.git", branch: "master"
 
