@@ -5,6 +5,7 @@ class Swiftlint < Formula
       tag:      "0.57.0",
       revision: "168fb98ed1f3e343d703ecceaf518b6cf565207b"
   license "MIT"
+  revision 1
   head "https://github.com/realm/SwiftLint.git", branch: "main"
 
   bottle do
@@ -20,10 +21,14 @@ class Swiftlint < Formula
   depends_on xcode: "8.0"
 
   uses_from_macos "swift" => :build, since: :sonoma # swift 5.10+
-  uses_from_macos "swift"
 
   def install
-    system "swift", "build", "--disable-sandbox", "--configuration", "release", "--product", "swiftlint"
+    args = if OS.mac?
+      ["--disable-sandbox"]
+    else
+      ["--static-swift-stdlib"]
+    end
+    system "swift", "build", *args, "--configuration", "release", "--product", "swiftlint"
     bin.install ".build/release/swiftlint"
     generate_completions_from_executable(bin/"swiftlint", "--generate-completion-script")
   end
