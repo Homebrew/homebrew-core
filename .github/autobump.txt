@@ -2526,6 +2526,7 @@ serialosc
 serpl
 serverless
 service-weaver
+sf
 sfcgal
 sh4d0wup
 shaderc
