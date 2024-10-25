@@ -1,8 +1,8 @@
 class Libtensorflow < Formula
   desc "C interface for Google's OS library for Machine Intelligence"
   homepage "https://www.tensorflow.org/"
-  url "https://github.com/tensorflow/tensorflow/archive/refs/tags/v2.17.0.tar.gz"
-  sha256 "9cc4d5773b8ee910079baaecb4086d0c28939f024dd74b33fc5e64779b6533dc"
+  url "https://github.com/tensorflow/tensorflow/archive/refs/tags/v2.18.0.tar.gz"
+  sha256 "d7876f4bb0235cac60eb6316392a7c48676729860da1ab659fb440379ad5186d"
   license "Apache-2.0"
 
   bottle do
@@ -22,17 +22,6 @@ class Libtensorflow < Formula
 
   on_macos do
     depends_on "gnu-getopt" => :build
-  end
-
-  resource "homebrew-test-model" do
-    url "https://github.com/tensorflow/models/raw/v1.13.0/samples/languages/java/training/model/graph.pb"
-    sha256 "147fab50ddc945972818516418942157de5e7053d4b67e7fca0b0ada16733ecb"
-  end
-
-  # Backport fix for installation of some headers
-  patch do
-    url "https://github.com/tensorflow/tensorflow/commit/364b0cae088b7199a479899ef7bd99ddb9441728.patch?full_index=1"
-    sha256 "86a225177dcee2965a1d2aa7cd5df3179365cf8ba637ba94d7fd61693f9a9fbb"
   end
 
   def install
@@ -104,6 +93,11 @@ class Libtensorflow < Formula
   end
 
   test do
+    resource "homebrew-test-model" do
+      url "https://github.com/tensorflow/models/raw/v1.13.0/samples/languages/java/training/model/graph.pb"
+      sha256 "147fab50ddc945972818516418942157de5e7053d4b67e7fca0b0ada16733ecb"
+    end
+
     (testpath/"test.c").write <<~EOS
       #include <stdio.h>
       #include <tensorflow/c/c_api.h>
@@ -111,6 +105,7 @@ class Libtensorflow < Formula
         printf("%s", TF_Version());
       }
     EOS
+
     system ENV.cc, "test.c", "-L#{lib}", "-ltensorflow", "-o", "test_tf"
     assert_equal version, shell_output("./test_tf")
 
