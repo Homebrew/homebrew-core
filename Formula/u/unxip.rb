@@ -1,8 +1,8 @@
 class Unxip < Formula
   desc "Fast Xcode unarchiver"
   homepage "https://github.com/saagarjha/unxip"
-  url "https://github.com/saagarjha/unxip/archive/refs/tags/v3.0.tar.gz"
-  sha256 "3e2b841eb06462110a83f90584d7e0c4bcac90de23ccd45d2eba6a29066a7e2d"
+  url "https://github.com/saagarjha/unxip/archive/refs/tags/v3.1.tar.gz"
+  sha256 "d76cabf3c0c057d87fd910ab0de5d9a1108b037f7e7406802f40885d80d49295"
   license "LGPL-3.0-only"
   head "https://github.com/saagarjha/unxip.git", branch: "main"
 
@@ -16,15 +16,9 @@ class Unxip < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "039ceba020c663073c09912b6c25230a4735cff3bf775074e5d3e4bba5591c1d"
   end
 
-  depends_on macos: :monterey
-
-  uses_from_macos "swift"
-
-  # Uses Compression framework on macOS
-  on_linux do
-    depends_on "xz"
-    depends_on "zlib"
-  end
+  # requires Swift 6.0
+  depends_on xcode: ["16.0", :build]
+  depends_on :macos
 
   def install
     args = %w[--disable-sandbox --configuration release]
