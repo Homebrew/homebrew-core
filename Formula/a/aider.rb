@@ -3,8 +3,8 @@ class Aider < Formula
 
   desc "AI pair programming in your terminal"
   homepage "https://aider.chat/"
-  url "https://files.pythonhosted.org/packages/94/61/f78dfd9f9f153cf2cffdc7cf3590c1d4e3bc9a79953dbccc30e7529ae63a/aider_chat-0.59.1.tar.gz"
-  sha256 "5e7ccb8c6b8054563d8c84a20f9d44dafd7f8f2e5fbb68275aa722386f2572f3"
+  url "https://files.pythonhosted.org/packages/a0/3d/ebfc0c6c818c88855aac34bb195c5738c473b84c89293a75db604eb9de3a/aider_chat-0.60.0.tar.gz"
+  sha256 "79517259e5a9c7d565d0b792cd5abdccf7fe2a19a7762a288c39bb28de51d952"
   license "Apache-2.0"
   head "https://github.com/paul-gauthier/aider.git", branch: "main"
 
@@ -17,15 +17,13 @@ class Aider < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "c46b141231ef2fbd12e67fecf1ee63b906fdf2f5f891cdf1a0d394504717c1fd"
   end
 
-  depends_on "cython" => :build # for tree-sitter-languages
-  depends_on "python-setuptools" => :build # for tree-sitter-languages
   depends_on "rust" => :build # for pydantic_core
   depends_on "certifi"
   depends_on "cffi"
   depends_on "libyaml"
   depends_on "numpy"
   depends_on "pillow"
-  depends_on "python@3.12"
+  depends_on "python@3.12" # py3.13 support issue, https://github.com/Aider-AI/aider/issues/1984
   depends_on "scipy"
 
   resource "aiohappyeyeballs" do
@@ -81,6 +79,11 @@ class Aider < Formula
   resource "configargparse" do
     url "https://files.pythonhosted.org/packages/70/8a/73f1008adfad01cb923255b924b1528727b8270e67cb4ef41eabdc7d783e/ConfigArgParse-1.7.tar.gz"
     sha256 "e7067471884de5478c58a511e529f0f9bd1c66bfef1dea90935438d6c23306d1"
+  end
+
+  resource "cython" do
+    url "https://files.pythonhosted.org/packages/84/4d/b720d6000f4ca77f030bd70f12550820f0766b568e43f11af7f7ad9061aa/cython-3.0.11.tar.gz"
+    sha256 "7146dd2af8682b4ca61331851e6aebce9fe5158e75300343f80c07ca80b1faff"
   end
 
   resource "diff-match-patch" do
@@ -343,6 +346,11 @@ class Aider < Formula
     sha256 "d72a210824facfdaf8768cf2d7ca25a042c30320b3020de2fa04640920d4e121"
   end
 
+  resource "setuptools" do
+    url "https://files.pythonhosted.org/packages/27/b8/f21073fde99492b33ca357876430822e4800cdf522011f18041351dfa74b/setuptools-75.1.0.tar.gz"
+    sha256 "d59a21b17a275fb872a9c3dae73963160ae079f1049ed956880cd7c09b120538"
+  end
+
   resource "smmap" do
     url "https://files.pythonhosted.org/packages/88/04/b5bf6d21dc4041000ccba7eb17dd3055feb237e7ffc2c20d3fae3af62baa/smmap-5.0.1.tar.gz"
     sha256 "dceeb6c0028fdb6734471eb07c0cd2aae706ccaecab45965ee83f11c8d3b1f62"
@@ -419,8 +427,11 @@ class Aider < Formula
     sha256 "bc9eb26f4506fda01b81bcde0ca78103b6e62f991b381fec825435c836edbc29"
   end
 
+  def python3
+    "python3.12"
+  end
+
   def install
-    python3 = "python3.12"
     venv = virtualenv_install_with_resources without: "tree-sitter-languages"
 
     # Requires building languages outside `setup.py`: https://github.com/grantjenks/py-tree-sitter-languages/pull/65
