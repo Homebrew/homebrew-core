@@ -3,16 +3,17 @@ class Pyre < Formula
 
   desc "Performant type-checking for python"
   homepage "https://pyre-check.org"
-  url "https://files.pythonhosted.org/packages/fd/94/bbbb7b51310bc17fd80453f17c72fdf5079dbfe97558c511295be50a4880/pyre-check-0.9.22.tar.gz"
-  sha256 "e082f926dff71661959535c3936fca5ad40a44858b5fd3e99009a616a1b57083"
+  url "https://github.com/facebook/pyre-check/archive/refs/tags/v0.9.22.tar.gz"
+  sha256 "b93138d96937ae23c512c9d83af1d78556b641b54a2ea40f5099da6a7c59a25a"
   license "MIT"
   head "https://github.com/facebook/pyre-check.git", branch: "main"
 
   depends_on "dune" => :build
-  depends_on "rust" => :build
-  depends_on "libyaml"
   depends_on "ocaml" => :build
   depends_on "opam" => :build
+  depends_on "pkg-config" => :build
+  depends_on "rust" => :build
+  depends_on "libyaml"
   depends_on "python@3.13"
   depends_on "watchman"
 
@@ -106,16 +107,48 @@ class Pyre < Formula
     sha256 "b23fc42ff6f6ef6954e4852c1fb512cdd18dbea03134f91f856a95ccc9461f78"
   end
 
-  def install
-    ENV["OPAMROOT"] = buildpath/"opamroot"
-    system "opam", "init", "--disable-sandboxing", "--bare", "-y"
-    system "opam", "switch", "create", "ocaml-system", "-y"
-    system "opam", "install", "dune", "-y"
-    system "opam", "install", ".", "--deps-only", "-y"
-    system "opam", "exec", "--", "dune", "build", "pyre.bin", "--profile", "release"
-    bin.install "_build/default/pyre.bin" => "pyre"
-    virtualenv_install_with_resources
+  resource "typeshed" do
+    url "https://github.com/python/typeshed/archive/refs/heads/main.tar.gz"
+    sha256 "e1be233481ab854d35f63758969a12ad06ed05d9e2d5f6e58386460c4c0c6ad3"  # Update with the correct SHA256
   end
+
+  def install
+    # Set up the build environment
+    ENV["HOME"] = buildpath
+    ENV["PYTHON"] = which("python3")
+    ENV["VERSION"] = version
+
+    # Install Python build dependencies into a virtual environment
+    venv_build = virtualenv_create(buildpath/"venv-build", "python3")
+    venv_build.pip_install "wheel"
+    venv_build.pip_install "setuptools"
+
+    # Install required Python resources
+    resources.each do |r|
+      next if r.name == "typeshed"  # We'll handle typeshed separately
+      venv_build.pip_install r
+    end
+
+    # Fetch typeshed resource
+    resource("typeshed").stage buildpath/"typeshed"
+
+    # Build the Pyre package
+    system "python3", "scripts/pypi/__main__.py",
+           "--typeshed-path", buildpath/"typeshed",
+           "--version", version
+
+    # Install the Pyre binary
+    bin.install "build/pyre.bin"
+
+    # Install the Pyre Python package
+    venv = virtualenv_create(libexec, "python3")
+    venv.pip_install Dir["build/pyre_check-#{version}-py3-none-any.whl"]
+
+    # Symlink the `pyre` script to bin
+    bin.install_symlink "#{libexec}/bin/pyre"
+  end
+
+ 
 
   test do
     (testpath/"test.py").write <<~EOS
