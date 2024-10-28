@@ -1,8 +1,8 @@
 class Kubetail < Formula
   desc "Logging tool for Kubernetes with a real-time web dashboard"
   homepage "https://www.kubetail.com/"
-  url "https://github.com/kubetail-org/kubetail/archive/refs/tags/cli/v0.0.5.tar.gz"
-  sha256 "63a341f0723f6543bb395bcde399e1a1799303f21f99fff41387c8483f0a4a55"
+  url "https://github.com/kubetail-org/kubetail/archive/refs/tags/cli/v0.0.6.tar.gz"
+  sha256 "f62db72da69b4de60fdecaf7e597c401f1fa054cee5f0a178460a65b0e879a57"
   license "Apache-2.0"
 
   livecheck do
@@ -21,7 +21,7 @@ class Kubetail < Formula
 
   depends_on "go" => :build
   depends_on "make" => :build
-  depends_on "node" => :build
+  depends_on "node@22" => :build # unpin after https://github.com/kubetail-org/kubetail/pull/139
   depends_on "pnpm" => :build
 
   def install
