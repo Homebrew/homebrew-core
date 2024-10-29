@@ -56,10 +56,7 @@ class Mlx < Formula
 
   # Fix running tests in VMs.
   # https://github.com/ml-explore/mlx/pull/1537
-  patch do
-    url "https://github.com/ml-explore/mlx/commit/3f425113e8e1e8a142e3655e6eef26ed95e68594.patch?full_index=1"
-    sha256 "8ac529f592fc3ff5af49882ef8c3129969dbfd7037b388952ae42f1fc0b2d8e7"
-  end
+  patch :DATA
 
   def install
     ENV.append_to_cflags "-I#{Formula["nlohmann-json"].opt_include}/nlohmann"
@@ -124,3 +121,79 @@ class Mlx < Formula
     system python3, "test.py"
   end
 end
+
+__END__
+diff --git a/mlx/backend/metal/resident.cpp b/mlx/backend/metal/resident.cpp
+index 403857c6..819d803b 100644
+--- a/mlx/backend/metal/resident.cpp
++++ b/mlx/backend/metal/resident.cpp
+@@ -1,5 +1,8 @@
+ // Copyright © 2024 Apple Inc.
+ 
++#include <sys/sysctl.h>
++#include <cstddef>
++
+ #include "mlx/backend/metal/resident.h"
+ #include "mlx/backend/metal/metal_impl.h"
+ 
+@@ -8,8 +11,23 @@ namespace mlx::core::metal {
+ // TODO maybe worth including tvos / visionos
+ #define supported __builtin_available(macOS 15, iOS 18, *)
+ 
++// Trying to create a residency set in a VM leads to errors.
++static bool in_vm() {
++  auto check_vm = []() {
++    int hv_vmm_present = 0;
++
++    std::size_t len = sizeof(hv_vmm_present);
++    sysctlbyname("kern.hv_vmm_present", &hv_vmm_present, &len, NULL, 0);
++
++    return hv_vmm_present;
++  };
++
++  static int in_vm = check_vm();
++  return in_vm;
++}
++
+ ResidencySet::ResidencySet(MTL::Device* d) {
+-  if (supported) {
++  if (supported && !in_vm()) {
+     auto pool = new_scoped_memory_pool();
+     auto desc = MTL::ResidencySetDescriptor::alloc()->init();
+     NS::Error* error;
+@@ -27,7 +45,7 @@ ResidencySet::ResidencySet(MTL::Device* d) {
+ }
+ 
+ void ResidencySet::insert(MTL::Allocation* buf) {
+-  if (supported) {
++  if (supported && !in_vm()) {
+     if (wired_set_->allocatedSize() + buf->allocatedSize() <= capacity_) {
+       wired_set_->addAllocation(buf);
+       wired_set_->commit();
+@@ -39,7 +57,7 @@ void ResidencySet::insert(MTL::Allocation* buf) {
+ }
+ 
+ void ResidencySet::erase(MTL::Allocation* buf) {
+-  if (supported) {
++  if (supported && !in_vm()) {
+     if (auto it = unwired_set_.find(buf); it != unwired_set_.end()) {
+       unwired_set_.erase(it);
+     } else {
+@@ -50,7 +68,7 @@ void ResidencySet::erase(MTL::Allocation* buf) {
+ }
+ 
+ void ResidencySet::resize(size_t size) {
+-  if (supported) {
++  if (supported && !in_vm()) {
+     if (capacity_ == size) {
+       return;
+     }
+@@ -88,7 +106,7 @@ void ResidencySet::resize(size_t size) {
+ }
+ 
+ ResidencySet::~ResidencySet() {
+-  if (supported) {
++  if (supported && !in_vm()) {
+     wired_set_->release();
+   }
+ }
