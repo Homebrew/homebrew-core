@@ -24,7 +24,7 @@ class HasuraCli < Formula
   end
 
   depends_on "go" => :build
-  depends_on "node@18" => :build
+  depends_on "node@20" => :build
 
   def install
     arch = Hardware::CPU.intel? ? "amd64" : Hardware::CPU.arch.to_s
