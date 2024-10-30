@@ -20,8 +20,8 @@ class WasiRuntimes < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "lld" => [:build, :test]
   depends_on "wasi-libc" => [:build, :test]
+  depends_on "lld" => :test
   depends_on "wasmtime" => :test
   depends_on "llvm"
 
@@ -53,6 +53,9 @@ class WasiRuntimes < Formula
       -DCMAKE_C_COMPILER_WORKS=ON
       -DCMAKE_CXX_COMPILER_WORKS=ON
       -DCMAKE_SYSROOT=#{wasi_libc.opt_share}/wasi-sysroot
+      -DCMAKE_FIND_FRAMEWORK=NEVER
+      -DCMAKE_VERBOSE_MAKEFILE=ON
+      -DCMAKE_PROJECT_TOP_LEVEL_INCLUDES=#{HOMEBREW_LIBRARY_PATH}/cmake/trap_fetchcontent_provider.cmake
     ]
     # Compiler flags taken from:
     # https://github.com/WebAssembly/wasi-sdk/blob/5e04cd81eb749edb5642537d150ab1ab7aedabe9/cmake/wasi-sdk-sysroot.cmake#L65-L75
@@ -75,7 +78,9 @@ class WasiRuntimes < Formula
     (pkgshare/"lib").install_symlink "wasi" => "wasip1"
     (pkgshare/"lib").install_symlink "wasi" => "wasip2"
 
-    clang_resource_dir = Pathname.new(Utils.safe_popen_read(llvm.opt_bin/"clang", "-print-resource-dir").chomp)
+    clang_resource_dir = Utils.safe_popen_read(llvm.opt_bin/"clang", "-print-resource-dir").chomp
+    clang_resource_dir.sub! llvm.prefix.realpath, llvm.opt_prefix
+    clang_resource_dir = Pathname.new(clang_resource_dir)
     clang_resource_include_dir = clang_resource_dir/"include"
     clang_resource_include_dir.find do |pn|
       next unless pn.file?
@@ -84,9 +89,17 @@ class WasiRuntimes < Formula
       target = pkgshare/relative_path
       next if target.exist?
 
-      target.parent.install_symlink pn
+      target.parent.mkpath
+      ln_s pn, target
     end
 
+    # We set `-DLIBCXX_ENABLE_EXCEPTIONS=OFF` and `-DLIBCXXABI_ENABLE_EXCEPTIONS=OFF`, but the
+    # the check for support for the `-fno-exceptions` flag erroneously fails because we don't
+    # have a WASM linker in our build environment. Pass the flag anyway because we know it works.
+    # See:
+    #   - https://github.com/llvm/llvm-project/blob/62ff85f0799560b42754ef77b5f64ca2c7feeff7/libcxx/CMakeLists.txt#L551-L560
+    #   - https://github.com/llvm/llvm-project/blob/62ff85f0799560b42754ef77b5f64ca2c7feeff7/runtimes/cmake/Modules/HandleFlags.cmake#L37-L40
+    ENV.append_to_cflags "-fno-exceptions"
     target_configuration = Hash.new { |h, k| h[k] = {} }
 
     targets.each do |target|
@@ -130,7 +143,7 @@ class WasiRuntimes < Formula
         -DLIBCXX_ENABLE_FILESYSTEM:BOOL=ON
         -DLIBCXX_ENABLE_ABI_LINKER_SCRIPT:BOOL=OFF
         -DLIBCXX_CXX_ABI=libcxxabi
-        -DLIBCXX_CXX_ABI_INCLUDE_PATHS=#{testpath}/libcxxabi/include
+        -DLIBCXX_CXX_ABI_INCLUDE_PATHS=#{buildpath}/libcxxabi/include
         -DLIBCXX_HAS_MUSL_LIBC:BOOL=ON
         -DLIBCXX_ABI_VERSION=2
         -DLIBCXXABI_ENABLE_EXCEPTIONS:BOOL=OFF
