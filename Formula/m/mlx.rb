@@ -57,8 +57,12 @@ class Mlx < Formula
   # Fix running tests in VMs.
   # https://github.com/ml-explore/mlx/pull/1537
   patch do
-    url "https://github.com/ml-explore/mlx/commit/3f425113e8e1e8a142e3655e6eef26ed95e68594.patch?full_index=1"
-    sha256 "8ac529f592fc3ff5af49882ef8c3129969dbfd7037b388952ae42f1fc0b2d8e7"
+    url "https://github.com/ml-explore/mlx/commit/1ef655c3b686d2bd88657dbf3895e85e6d351746.patch?full_index=1"
+    sha256 "152edd885b0fa50c9b353ef1ca791b2e0910b5124cd3db1054b0d3b732b9b41d"
+  end
+  patch do
+    url "https://github.com/ml-explore/mlx/commit/c02dea58ed68bed2ad146e112ccb072757d5b38b.patch?full_index=1"
+    sha256 "ed045c4e0fa0fc014ac7f87c24b16dfbc4b40c9bd0c482f3f525c4b81dad0c80"
   end
 
   def install
