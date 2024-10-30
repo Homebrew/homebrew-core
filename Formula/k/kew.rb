@@ -12,20 +12,21 @@ class Kew < Formula
 
   depends_on "pkg-config" => :build
   depends_on "chafa"
-  depends_on "ffmpeg"
+  depends_on "faad2"
   depends_on "fftw"
-  depends_on "freeimage"
   depends_on "glib"
-  depends_on "libnotify"
   depends_on "libvorbis"
-  depends_on :linux
   depends_on "opusfile"
   depends_on "taglib"
+  on_linux do
+    depends_on "libnotify"
+  end
 
   def install
-    system "make"
-    system "make", "install", "PREFIX=#{prefix}"
+    ENV.prepend_path "PKG_CONFIG_PATH", Formula["glib"].opt_lib/"pkgconfig"
 
+    system "make", "PKG_CONFIG_PATH=#{ENV["PKG_CONFIG_PATH"]}"
+    system "make", "install", "PREFIX=#{prefix}"
     man1.install "docs/kew.1"
   end
 
