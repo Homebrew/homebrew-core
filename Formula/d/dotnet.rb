@@ -58,6 +58,11 @@ class Dotnet < Formula
   patch :DATA
 
   def install
+    # Currently, we are using `prep.sh` to pull the dotnet SDK, which might not be up to date.
+    # Thus, updating the to use the latest 8.0.1xx SDK version, as only 6.0.1xx and 8.0.1xx are supported,
+    # see in https://github.com/dotnet/source-build?tab=readme-ov-file#support
+    inreplace "global.json", "8.0.107", "8.0.110"
+
     if OS.mac?
       # Deparallelize to reduce chances of missing PDBs
       ENV.deparallelize
