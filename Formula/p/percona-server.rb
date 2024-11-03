@@ -2,10 +2,9 @@ class PerconaServer < Formula
   desc "Drop-in MySQL replacement"
   homepage "https://www.percona.com"
   # TODO: Check if we can use unversioned `protobuf` at version bump
-  url "https://downloads.percona.com/downloads/Percona-Server-8.0/Percona-Server-8.0.36-28/source/tarball/percona-server-8.0.36-28.tar.gz"
-  sha256 "8a4b44bd9cf79a38e6275e8f5f9d4e8d2c308854b71fd5bf5d1728fff43a6844"
+  url "https://downloads.percona.com/downloads/Percona-Server-8.0/Percona-Server-8.0.39-30/source/tarball/percona-server-8.0.39-30.tar.gz"
+  sha256 "020fbdb73996a5d179bf158e154b27eb9a095c891bd079a831b89fec7712a0ff"
   license "BSD-3-Clause"
-  revision 2
 
   livecheck do
     url "https://docs.percona.com/percona-server/latest/"
@@ -68,7 +67,7 @@ class PerconaServer < Formula
 
   # https://github.com/percona/percona-server/blob/Percona-Server-#{version}/cmake/boost.cmake
   resource "boost" do
-    url "https://boostorg.jfrog.io/artifactory/main/release/1.77.0/source/boost_1_77_0.tar.bz2"
+    url "https://archives.boost.io/release/1.77.0/source/boost_1_77_0.tar.bz2"
     sha256 "fc9f85fc030e233142908241af7a846e60630aa7388de9a5fafb1f3a26840854"
   end
 
@@ -79,6 +78,8 @@ class PerconaServer < Formula
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/030f7433e89376ffcff836bb68b3903ab90f9cdc/mysql/boost-check.patch"
     sha256 "af27e4b82c84f958f91404a9661e999ccd1742f57853978d8baec2f993b51153"
   end
+
+  patch :DATA
 
   def install
     # Find Homebrew OpenLDAP instead of the macOS framework
@@ -219,3 +220,31 @@ class PerconaServer < Formula
     system bin/"mysqladmin", "--port=#{port}", "--user=root", "--password=", "shutdown"
   end
 end
+
+__END__
+diff --git a/cmake/ssl.cmake b/cmake/ssl.cmake
+index 58e87e5..0fab326 100644
+--- a/cmake/ssl.cmake
++++ b/cmake/ssl.cmake
+@@ -434,7 +434,9 @@ MACRO (MYSQL_CHECK_SSL)
+     # WITH_SSL values (system, openssl11, /path/to/openssl). This will fix
+     # building modules which rely on OpenSSL::SSL and OpenSSL::Crypto only with
+     # different openssl variants.
+-    ADD_LIBRARY(OpenSSL::SSL UNKNOWN IMPORTED)
++    IF(NOT TARGET OpenSSL::SSL)
++      ADD_LIBRARY(OpenSSL::SSL UNKNOWN IMPORTED)
++    ENDIF()
+     SET_TARGET_PROPERTIES(OpenSSL::SSL PROPERTIES
+       INTERFACE_INCLUDE_DIRECTORIES "${OPENSSL_INCLUDE_DIR}")
+     IF(EXISTS "${MY_OPENSSL_LIBRARY}")
+@@ -443,7 +445,9 @@ MACRO (MYSQL_CHECK_SSL)
+         IMPORTED_LOCATION "${MY_OPENSSL_LIBRARY}")
+     ENDIF()
+
+-    ADD_LIBRARY(OpenSSL::Crypto UNKNOWN IMPORTED)
++    IF(NOT TARGET OpenSSL::Crypto)
++      ADD_LIBRARY(OpenSSL::Crypto UNKNOWN IMPORTED)
++    ENDIF()
+     SET_TARGET_PROPERTIES(OpenSSL::Crypto PROPERTIES
+       INTERFACE_INCLUDE_DIRECTORIES "${OPENSSL_INCLUDE_DIR}")
+     IF(EXISTS "${MY_CRYPTO_LIBRARY}")
