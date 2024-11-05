@@ -20,10 +20,16 @@ class Gosu < Formula
 
   skip_clean "libexec/ext"
 
+  # disable Maven descriptor generation in jar files, upstream pr ref, https://github.com/gosu-lang/gosu-lang/pull/189
+  patch do
+    url "https://github.com/gosu-lang/gosu-lang/commit/229ccfabfb1a45999e0aab74bacc8135ed5b613c.patch?full_index=1"
+    sha256 "481ea50ab1a03e6923875512327c0bd722d31d33bf6637f6045e351dc39a92a0"
+  end
+
   def install
     ENV["JAVA_HOME"] = Language::Java.java_home("11")
 
-    system "mvn", "package"
+    system "mvn", "package", "-DskipTests=true"
     libexec.install Dir["gosu/target/gosu-#{version}-full/gosu-#{version}/*"]
     (libexec/"ext").mkpath
     (bin/"gosu").write_env_script libexec/"bin/gosu", Language::Java.java_home_env("11")
