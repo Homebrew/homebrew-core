@@ -32,6 +32,8 @@ class Mbedtls < Formula
       s.gsub! "//#define MBEDTLS_THREADING_C", "#define MBEDTLS_THREADING_C"
       # enable DTLS-SRTP extension
       s.gsub! "//#define MBEDTLS_SSL_DTLS_SRTP", "#define MBEDTLS_SSL_DTLS_SRTP"
+      # enable PSA Config
+      s.gsub! "//#define MBEDTLS_PSA_CRYPTO_CONFIG", "#define MBEDTLS_PSA_CRYPTO_CONFIG"
     end
 
     system "cmake", "-S", ".", "-B", "build",
