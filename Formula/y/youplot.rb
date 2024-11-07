@@ -46,12 +46,12 @@ class Youplot < Formula
   end
 
   test do
-    (testpath/"test.csv").write <<~EOS
+    (testpath/"test.csv").write <<~CSV
       A,20
       B,30
       C,40
       D,50
-    EOS
+    CSV
     expected_output = [
       "     ┌           ┐ ",
       "   A ┤■■ 20.0      ",

@@ -1,18 +1,18 @@
 class Jj < Formula
   desc "Git-compatible distributed version control system"
   homepage "https://github.com/martinvonz/jj"
-  url "https://github.com/martinvonz/jj/archive/refs/tags/v0.22.0.tar.gz"
-  sha256 "ed49b1c01ee6086bb782a465a4437e2f1b66f43bcf39c231df2b261091ab114b"
+  url "https://github.com/martinvonz/jj/archive/refs/tags/v0.23.0.tar.gz"
+  sha256 "18e0cc5600c06e940defce0a23ab4b29885bac265f94176603e5f8f926ed000e"
   license "Apache-2.0"
   head "https://github.com/martinvonz/jj.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "ca729c593b4de7a68bf601cf4791f5f62283437e3e2c3ccbf1cc3b62c7492962"
-    sha256 cellar: :any,                 arm64_sonoma:  "b8bf2630482af0134bc6d54e6dd542da452aad6767031bc19e02d139df789c37"
-    sha256 cellar: :any,                 arm64_ventura: "3a3274b55153eee0a1afb592169814dac795f47aa18698c483a7acd211e9a123"
-    sha256 cellar: :any,                 sonoma:        "48d5223024f8212ab0d8fdd7b0298a9689c7b45ad598d7ee298ba569ac83be98"
-    sha256 cellar: :any,                 ventura:       "013f3f483794574d33c3f21d3f24149af3440585dc997cb7a6116cf46b87bf70"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4ce97b379ce2939ab3f4125e7b4ef6efeca7890d1f84b11c329ed8c6c584611c"
+    sha256 cellar: :any,                 arm64_sequoia: "5910eed8ed991b959748d959a46ef497967043e6cd826aa36e26eae291dae622"
+    sha256 cellar: :any,                 arm64_sonoma:  "04896aa56c97e9f43fb0719e9d33c9bf7fc9a8bfae697545570a0eb53e16d290"
+    sha256 cellar: :any,                 arm64_ventura: "e4b4b42c6878d0dc0fa7ce1d254c51ed0993b1fd852087f0f1a03693af6ff26a"
+    sha256 cellar: :any,                 sonoma:        "d6074df3e11a23b314b96e9078fe9568188c35e581992edaf454fc7fa8a9f72f"
+    sha256 cellar: :any,                 ventura:       "dc5ff7e2c763fe8d00ebe0a452ff2288881aec133adbef7016b3c870e8574b81"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "98608443f34e51980f2381544ba42e385081ab690866b53c78f9495a7e1150de"
   end
 
   depends_on "pkg-config" => :build

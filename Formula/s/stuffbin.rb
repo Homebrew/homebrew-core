@@ -29,7 +29,7 @@ class Stuffbin < Formula
       system "go", "get", "github.com/knadh/stuffbin"
 
       (testpath/"brewtest/foo.txt").write "brewfoo"
-      (testpath/"brewtest/main.go").write <<~EOS
+      (testpath/"brewtest/main.go").write <<~GO
         package main
 
         import (
@@ -45,7 +45,7 @@ class Stuffbin < Formula
           f, _ := fs.Get("foo.txt")
           log.Println("foo.txt =", string(f.ReadBytes()))
         }
-      EOS
+      GO
 
       system "go", "build", "."
       output = shell_output("#{bin}/stuffbin -a stuff -in brewtest -out brewtest2 foo.txt")

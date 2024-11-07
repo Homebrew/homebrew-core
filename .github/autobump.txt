@@ -855,6 +855,7 @@ faust
 favirecon
 fblog
 fcft
+fcgi
 fclones
 fd
 fdk-aac-encoder
@@ -1548,6 +1549,7 @@ libdpp
 libdrm
 libedit
 libepoxy
+libetonyek
 libewf
 libfabric
 libffcall
@@ -2436,6 +2438,7 @@ restview
 resvg
 retire
 revive
+rex
 rgbds
 rhash
 rhit

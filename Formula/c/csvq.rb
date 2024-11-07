@@ -32,14 +32,14 @@ class Csvq < Formula
   test do
     system bin/"csvq", "--version"
 
-    (testpath/"test.csv").write <<~EOS
+    (testpath/"test.csv").write <<~CSV
       a,b,c
       1,2,3
-    EOS
-    expected = <<~EOS
+    CSV
+    expected = <<~CSV
       a,b
       1,2
-    EOS
+    CSV
     result = shell_output("#{bin}/csvq --format csv 'SELECT a, b FROM `test.csv`'")
     assert_equal expected, result
   end

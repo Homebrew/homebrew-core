@@ -1,9 +1,9 @@
 class GoAT122 < Formula
   desc "Open source programming language to build simple/reliable/efficient software"
   homepage "https://go.dev/"
-  url "https://go.dev/dl/go1.22.8.src.tar.gz"
-  mirror "https://fossies.org/linux/misc/go1.22.8.src.tar.gz"
-  sha256 "df12c23ebf19dea0f4bf46a22cbeda4a3eca6f474f318390ce774974278440b8"
+  url "https://go.dev/dl/go1.22.9.src.tar.gz"
+  mirror "https://fossies.org/linux/misc/go1.22.9.src.tar.gz"
+  sha256 "e81a362f51aee2125722b018e46714e6a055a1954283414c0f937e737013db22"
   license "BSD-3-Clause"
 
   livecheck do
@@ -20,12 +20,12 @@ class GoAT122 < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "24d9692d879a7f2a28496fa4a56623d6923f165fc785bf34130540bba72f0552"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "58c4d9b85f17e4cd3ff03ab7652651670cd18a07b6a0ba4e79f91ef0db152bf2"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "da3ea54d04ea72e184cfdc940e201a990e9f36f80d47f0ab06e2006d18242d08"
-    sha256 cellar: :any_skip_relocation, sonoma:        "3c7fa28d88bd76b0086ff372cb94a434a92c6f30b0702c53c9da990612f3cabc"
-    sha256 cellar: :any_skip_relocation, ventura:       "ff03a1ddf0200c70de3957d4a39893125539bbcff541a7bf33bdbc64ea1baf31"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1b4548d936889c0d66cfcd50c21f4266c7da0a3afeadd21cb687cc1d0be7ae38"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "985b6fb1f6492383c99e19d95b33d12e6d221987f17098ff3537e724c62e395f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5c09d53e4d01f9498120d18ae866304547b4ca6abadf250e337a993499b9bd13"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "ea3e4773f62f3db051806fd5d8aac169e5af9b3e9e9c4b3d99b401b65df915d2"
+    sha256 cellar: :any_skip_relocation, sonoma:        "cc92d8991effaeb1052fab4776c3d97d925a5875a7cd6e8e6a80c3fd2cd38808"
+    sha256 cellar: :any_skip_relocation, ventura:       "bf3bbc9a6a8d61268f68f8023235320920a247a5a6d0b4b78a3f4653fd187da1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e7b7a3d72702cd20ea9cd94562f0e8c9d84109255602e01038b5833716b17f67"
   end
 
   keg_only :versioned_formula
@@ -64,7 +64,7 @@ class GoAT122 < Formula
   test do
     assert_equal "local", shell_output("#{bin}/go env GOTOOLCHAIN").strip
 
-    (testpath/"hello.go").write <<~EOS
+    (testpath/"hello.go").write <<~GO
       package main
 
       import "fmt"
@@ -72,7 +72,7 @@ class GoAT122 < Formula
       func main() {
           fmt.Println("Hello World")
       }
-    EOS
+    GO
 
     # Run go fmt check for no errors then run the program.
     # This is a a bare minimum of go working as it uses fmt, build, and run.
@@ -83,7 +83,7 @@ class GoAT122 < Formula
       system bin/"go", "build", "hello.go"
     end
 
-    (testpath/"hello_cgo.go").write <<~EOS
+    (testpath/"hello_cgo.go").write <<~GO
       package main
 
       /*
@@ -96,7 +96,7 @@ class GoAT122 < Formula
       func main() {
           C.hello()
       }
-    EOS
+    GO
 
     # Try running a sample using cgo without CC or CXX set to ensure that the
     # toolchain's default choice of compilers work

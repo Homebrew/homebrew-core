@@ -22,13 +22,13 @@ class OsvScanner < Formula
   end
 
   test do
-    (testpath/"go.mod").write <<~EOS
+    (testpath/"go.mod").write <<~GOMOD
       module my-library
 
       require (
         github.com/BurntSushi/toml v1.0.0
       )
-    EOS
+    GOMOD
 
     scan_output = shell_output("#{bin}/osv-scanner --lockfile #{testpath}/go.mod").strip
     expected_output = <<~EOS.chomp

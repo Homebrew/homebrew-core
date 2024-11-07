@@ -31,7 +31,7 @@ class Apidoc < Formula
   end
 
   test do
-    (testpath/"api.go").write <<~EOS
+    (testpath/"api.go").write <<~GO
       /**
        * @api {get} /user/:id Request User information
        * @apiVersion #{version}
@@ -43,14 +43,14 @@ class Apidoc < Formula
        * @apiSuccess {String} firstname Firstname of the User.
        * @apiSuccess {String} lastname  Lastname of the User.
        */
-    EOS
-    (testpath/"apidoc.json").write <<~EOS
+    GO
+    (testpath/"apidoc.json").write <<~JSON
       {
         "name": "brew test example",
         "version": "#{version}",
         "description": "A basic apiDoc example"
       }
-    EOS
+    JSON
     system bin/"apidoc", "-i", ".", "-o", "out"
     assert_predicate testpath/"out/assets/main.bundle.js", :exist?
   end

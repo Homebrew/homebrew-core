@@ -22,13 +22,13 @@ class CyclonedxGomod < Formula
   end
 
   test do
-    (testpath/"go.mod").write <<~EOS
+    (testpath/"go.mod").write <<~GOMOD
       module github.com/Homebrew/brew-test
 
       go 1.21
-    EOS
+    GOMOD
 
-    (testpath/"main.go").write <<~EOS
+    (testpath/"main.go").write <<~GO
       package main
 
       import (
@@ -39,7 +39,7 @@ class CyclonedxGomod < Formula
       func main() {
         fmt.Println("testing cyclonedx-gomod")
       }
-    EOS
+    GO
 
     output = shell_output("#{bin}/cyclonedx-gomod mod 2>&1")
     assert_match "failed to determine version of main module", output

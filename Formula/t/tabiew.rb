@@ -26,11 +26,11 @@ class Tabiew < Formula
   end
 
   test do
-    (testpath/"test.csv").write <<~EOS
+    (testpath/"test.csv").write <<~CSV
       time,tide,wait
       1,42,"no man"
       7,11,"you think?"
-    EOS
+    CSV
     input, = Open3.popen2 "script -q output.txt"
     input.puts "stty rows 80 cols 130"
     input.puts bin/"tw test.csv"

@@ -49,7 +49,7 @@ class GoAT117 < Formula
   end
 
   test do
-    (testpath/"hello.go").write <<~EOS
+    (testpath/"hello.go").write <<~GO
       package main
 
       import "fmt"
@@ -57,7 +57,7 @@ class GoAT117 < Formula
       func main() {
         fmt.Println("Hello World")
       }
-    EOS
+    GO
     # Run go fmt check for no errors then run the program.
     # This is a a bare minimum of go working as it uses fmt, build, and run.
     system bin/"go", "fmt", "hello.go"

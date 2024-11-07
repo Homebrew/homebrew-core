@@ -23,7 +23,7 @@ class Gomodifytags < Formula
   end
 
   test do
-    (testpath/"test.go").write <<~EOS
+    (testpath/"test.go").write <<~GO
       package main
 
       type Server struct {
@@ -36,7 +36,7 @@ class Gomodifytags < Formula
       		Password string
       	}
       }
-    EOS
+    GO
     expected = <<~EOS
       package main
 

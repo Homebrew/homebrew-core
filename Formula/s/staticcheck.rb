@@ -25,7 +25,7 @@ class Staticcheck < Formula
   end
 
   test do
-    (testpath/"test.go").write <<~EOS
+    (testpath/"test.go").write <<~GO
       package main
 
       import "fmt"
@@ -35,7 +35,7 @@ class Staticcheck < Formula
         x = 1
         fmt.Println(x)
       }
-    EOS
+    GO
     json_output = JSON.parse(shell_output("#{bin}/staticcheck -f json test.go", 1))
     assert_equal json_output["code"], "S1021"
   end

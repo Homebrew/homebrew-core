@@ -31,13 +31,13 @@ class Gotags < Formula
   end
 
   test do
-    (testpath/"test.go").write <<~EOS
+    (testpath/"test.go").write <<~GO
       package main
 
       type Foo struct {
           Bar int
       }
-    EOS
+    GO
 
     assert_match(/^Bar.*test.go.*$/, shell_output("#{bin}/gotags #{testpath}/test.go"))
   end

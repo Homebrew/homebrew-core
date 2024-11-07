@@ -26,11 +26,11 @@ class Gpm < Formula
     ENV["GO111MODULE"] = "auto"
     (testpath/"Godeps").write("github.com/pote/gpm-testing-package v6.1")
     system bin/"gpm", "install"
-    (testpath/"go_code.go").write <<~EOS
+    (testpath/"go_code.go").write <<~GO
       package main
       import ("fmt"; "github.com/pote/gpm-testing-package")
       func main() { fmt.Print(gpm_testing_package.Version()) }
-    EOS
+    GO
     assert_equal "v6.1", shell_output("go run go_code.go")
   end
 end

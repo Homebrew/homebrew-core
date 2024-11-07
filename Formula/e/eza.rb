@@ -1,17 +1,17 @@
 class Eza < Formula
   desc "Modern, maintained replacement for ls"
   homepage "https://github.com/eza-community/eza"
-  url "https://github.com/eza-community/eza/archive/refs/tags/v0.20.6.tar.gz"
-  sha256 "bf7c30789be7866a36fda9d2b1bb351f41675f4c8bb8c89e7ff85619cc894bfa"
+  url "https://github.com/eza-community/eza/archive/refs/tags/v0.20.7.tar.gz"
+  sha256 "981af52e7a0d5ab374ed2a58b0bb9542acc81235ff479bb1f08d61941f65b18b"
   license "EUPL-1.2"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "5515966252d29a1ea7c9109299fbedb9167ecff8e5221e9caf6fefd24b2a1ca7"
-    sha256 cellar: :any,                 arm64_sonoma:  "95403c38c4f46ce32ef785e826478f47ae548a5999c575ee7a6bac6ded09ad67"
-    sha256 cellar: :any,                 arm64_ventura: "0699782e4d15ce173695d1277c537a0d47f54459ac189342431fa72c73559f81"
-    sha256 cellar: :any,                 sonoma:        "2022a4e19cdfa6f30a7ea29026707e5b1322f2b9bca3679736e5524a3eabf6f2"
-    sha256 cellar: :any,                 ventura:       "63bfca0d718dad0cff2f8eba95f67d21e980ef34212db0d19e31312ac76d90db"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d190ea3226e55285f4ab2e683cc191541a4726bce12bf91b086d2fd6c0239b16"
+    sha256 cellar: :any,                 arm64_sequoia: "1c19125e08ab074e19324bc740a7eb8721e9b14524f2c734e5e4d3be7771c039"
+    sha256 cellar: :any,                 arm64_sonoma:  "542e953643c7f7971cad71639f56dc7634948be3860533e582dc009efd1dee62"
+    sha256 cellar: :any,                 arm64_ventura: "6140c9f81866efbbda9c6b3f752d412111ed42a0f5d499118088824604bd1a79"
+    sha256 cellar: :any,                 sonoma:        "04557fc2d5c3d573c9db8643b49dff37aa0d56cea4eb61fd49eff30f11d05a85"
+    sha256 cellar: :any,                 ventura:       "52ddcf2f18f3cd508bdf4567c356c78cc3ad864d558291f9b6703ef9f9e4be2e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "360312af714c6250c9ae7f5ac6f152e07c025c39965b4db8cbb7503fe664bdac"
   end
 
   depends_on "pandoc" => :build

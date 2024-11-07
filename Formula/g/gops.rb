@@ -26,13 +26,13 @@ class Gops < Formula
   end
 
   test do
-    (testpath/"go.mod").write <<~EOS
+    (testpath/"go.mod").write <<~GOMOD
       module github.com/Homebrew/brew-test
 
       go 1.18
-    EOS
+    GOMOD
 
-    (testpath/"main.go").write <<~EOS
+    (testpath/"main.go").write <<~GO
       package main
 
       import (
@@ -45,7 +45,7 @@ class Gops < Formula
 
         time.Sleep(5 * time.Second)
       }
-    EOS
+    GO
 
     system "go", "build"
     pid = fork { exec "./brew-test" }

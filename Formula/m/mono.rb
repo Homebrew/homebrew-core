@@ -32,6 +32,20 @@ class Mono < Formula
   uses_from_macos "krb5"
   uses_from_macos "zlib"
 
+  on_macos do
+    if DevelopmentTools.clang_build_version == 1600
+      depends_on "llvm" => :build
+
+      fails_with :clang do
+        cause <<~EOS
+          Got a segv while executing native code. This usually indicates
+          a fatal error in the mono runtime or one of the native libraries
+          used by your application.
+        EOS
+      end
+    end
+  end
+
   on_linux do
     depends_on "ca-certificates"
   end
@@ -50,6 +64,8 @@ class Mono < Formula
   link_overwrite "lib/cli"
 
   def install
+    ENV.llvm_clang if DevelopmentTools.clang_build_version == 1600
+
     # Replace hardcoded /usr/share directory. Paths like /usr/share/.mono,
     # /usr/share/.isolatedstorage, and /usr/share/template are referenced in code.
     inreplace_files = %w[

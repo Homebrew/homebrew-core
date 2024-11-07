@@ -33,9 +33,9 @@ class Goplus < Formula
   end
 
   test do
-    (testpath/"hello.gop").write <<~EOS
+    (testpath/"hello.gop").write <<~GOP
       println("Hello World")
-    EOS
+    GOP
 
     # Run gop fmt, run, build
     ENV.prepend "GO111MODULE", "on"
@@ -44,9 +44,9 @@ class Goplus < Formula
     system bin/"gop", "fmt", "hello.gop"
     assert_equal "Hello World\n", shell_output("#{bin}/gop run hello.gop")
 
-    (testpath/"go.mod").write <<~EOS
+    (testpath/"go.mod").write <<~GOMOD
       module hello
-    EOS
+    GOMOD
 
     system "go", "get", "github.com/goplus/gop/builtin"
     system bin/"gop", "build", "-o", "hello"

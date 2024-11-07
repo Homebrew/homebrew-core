@@ -25,6 +25,7 @@ class Fdclone < Formula
     sha256 x86_64_linux:   "b7a4047ede40d7981d2496e42cf32f2886a9bb182a2275f4697b70f20ec5f7f3"
   end
 
+  depends_on maximum_macos: [:sonoma, :build]
   depends_on "nkf" => :build
 
   uses_from_macos "ncurses"

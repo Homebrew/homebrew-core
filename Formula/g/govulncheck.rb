@@ -26,11 +26,11 @@ class Govulncheck < Formula
   test do
     mkdir "brewtest" do
       system "go", "mod", "init", "brewtest"
-      (testpath/"brewtest/main.go").write <<~EOS
+      (testpath/"brewtest/main.go").write <<~GO
         package main
 
         func main() {}
-      EOS
+      GO
 
       output = shell_output("#{bin}/govulncheck ./...")
       assert_match "No vulnerabilities found.", output

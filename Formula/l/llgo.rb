@@ -69,7 +69,7 @@ class Llgo < Formula
     goarch = shell_output(Formula["go"].opt_bin/"go env GOARCH").chomp
     assert_equal "llgo v#{version} #{goos}/#{goarch}", shell_output("#{bin}/llgo version").chomp
 
-    (testpath/"hello.go").write <<~EOS
+    (testpath/"hello.go").write <<~GO
       package main
 
       import "github.com/goplus/llgo/c"
@@ -77,10 +77,10 @@ class Llgo < Formula
       func main() {
         c.Printf(c.Str("Hello LLGO\\n"))
       }
-    EOS
-    (testpath/"go.mod").write <<~EOS
+    GO
+    (testpath/"go.mod").write <<~GOMOD
       module hello
-    EOS
+    GOMOD
     system Formula["go"].opt_bin/"go", "get", "github.com/goplus/llgo@v#{version}"
     system bin/"llgo", "build", "-o", "hello", "."
     assert_equal "Hello LLGO\n", shell_output("./hello")

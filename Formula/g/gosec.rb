@@ -22,7 +22,7 @@ class Gosec < Formula
   end
 
   test do
-    (testpath/"test.go").write <<~EOS
+    (testpath/"test.go").write <<~GO
       package main
 
       import "fmt"
@@ -33,7 +33,7 @@ class Gosec < Formula
 
           fmt.Println("Doing something with: ", username, password)
       }
-    EOS
+    GO
 
     output = shell_output("#{bin}/gosec ./...", 1)
     assert_match "G101 (CWE-798)", output

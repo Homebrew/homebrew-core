@@ -3,18 +3,18 @@ class Djlint < Formula
 
   desc "Lint & Format HTML Templates"
   homepage "https://djlint.com"
-  url "https://files.pythonhosted.org/packages/b1/60/45f31c057ed7957aa28fadca9e9575c89273c785de774b6a8cae3d1cc4b5/djlint-1.36.0.tar.gz"
-  sha256 "c6a16905d69d02bfd745084a3ebf065707efbaf0a31762b34441802beb206b51"
+  url "https://files.pythonhosted.org/packages/eb/ff/c3a7ee0c22703c03132737d1021b3c75fe1a8cfc852ce03fe74842c12966/djlint-1.36.1.tar.gz"
+  sha256 "f7260637ed72c270fa6dd4a87628e1a21c49b24a46df52e4e26f44d4934fb97c"
   license "GPL-3.0-or-later"
   head "https://github.com/djlint/djLint.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "40725ba70889326c76ab3c88ddcff26dd804d8853e9d1a268452a46a8a08695c"
-    sha256 cellar: :any,                 arm64_sonoma:  "d0dd6f2358464ec14de61c13e1b075a048a933c85f64acbb9102bc4a0d1e3187"
-    sha256 cellar: :any,                 arm64_ventura: "eedb191ca2f56dbc377f64ecbf42c6b226da3db35a0664b2dc7b9ee8504b2665"
-    sha256 cellar: :any,                 sonoma:        "73688cd73df2d17a94990ef7de571f899046ac1434deb128b949199e69273897"
-    sha256 cellar: :any,                 ventura:       "691dc9af1b862d327f16e3c397f82e03ffa4b4b1bae9633bf88b668a856f7c78"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8610c9a3b389b2691e83e5c8974cbd49f10c40f8dae175dd682c3f2e88fd7ddc"
+    sha256 cellar: :any,                 arm64_sequoia: "78219ea6bb1a185b5575a140c55616bdaab17e8b6ec37badd723c7409b9dca9e"
+    sha256 cellar: :any,                 arm64_sonoma:  "38f1457fc7dd2606bb59a67969a9b78fa1651481d460637332b4caf87ad3665d"
+    sha256 cellar: :any,                 arm64_ventura: "d9f682f49fb07fa053cfd076f748f9d742b14bcc701426f4b769486fb720f9de"
+    sha256 cellar: :any,                 sonoma:        "7d96f1d76ce62098ed3179538a79a07e5968c12d55f451e6520e3793d40a147c"
+    sha256 cellar: :any,                 ventura:       "2379979f4a81273b9cbbcb3eb7e3338a6541de99966a9284b714ff22d4996260"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7a120d347fd0caf802f333789c6c4961c2ef6c98a14e83849d60139fc1f24f61"
   end
 
   depends_on "libyaml"
@@ -61,8 +61,8 @@ class Djlint < Formula
   end
 
   resource "regex" do
-    url "https://files.pythonhosted.org/packages/f9/38/148df33b4dbca3bd069b963acab5e0fa1a9dbd6820f8c322d0dd6faeff96/regex-2024.9.11.tar.gz"
-    sha256 "6c188c307e8433bcb63dc1915022deb553b4203a70722fc542c363bf120a01fd"
+    url "https://files.pythonhosted.org/packages/8e/5f/bd69653fbfb76cf8604468d3b4ec4c403197144c7bfe0e6a5fc9e02a07cb/regex-2024.11.6.tar.gz"
+    sha256 "7ab159b063c52a0333c884e4679f8d7a85112ee3078fe3d9004b2dd875585519"
   end
 
   resource "six" do
@@ -71,8 +71,8 @@ class Djlint < Formula
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/e9/34/bef135b27fe1864993a5284ad001157ee9b5538e859ac90f5b0e8cc8c9ec/tqdm-4.66.6.tar.gz"
-    sha256 "4bdd694238bef1485ce839d67967ab50af8f9272aab687c0d7702a01da0be090"
+    url "https://files.pythonhosted.org/packages/e8/4f/0153c21dc5779a49a0598c445b1978126b1344bab9ee71e53e44877e14e0/tqdm-4.67.0.tar.gz"
+    sha256 "fe5a6f95e6fe0b9755e9469b77b9c3cf850048224ecaa8293d7d2d31f97d869a"
   end
 
   def install

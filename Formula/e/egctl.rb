@@ -1,18 +1,18 @@
 class Egctl < Formula
   desc "Command-line utility for operating Envoy Gateway"
   homepage "https://gateway.envoyproxy.io/"
-  url "https://github.com/envoyproxy/gateway/archive/refs/tags/v1.2.0.tar.gz"
-  sha256 "20e01bd30c03af829406cb42bcb52a18307b20df51d25eb8c00c6b63ceffcaa9"
+  url "https://github.com/envoyproxy/gateway/archive/refs/tags/v1.2.1.tar.gz"
+  sha256 "b1f6abb832cf0cac57d13891d4da108b4fe6b3584dfb3a661966cf90c2369d1b"
   license "Apache-2.0"
   head "https://github.com/envoyproxy/gateway.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "42d3077a3d91c69a12f134a2f2cf02c3ff4981cfd07657b310957a29c9754986"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6f34b5e76d3cd37557bd27733bdfda344d9a8eb972986e9e7a9baf23433e7249"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "e4773c15ff3abbbd536da1bcb8416acdaa970a1cc215059d4b33a42a98cea132"
-    sha256 cellar: :any_skip_relocation, sonoma:        "8149a1ddb7dd7768b9528e3821391e3f91804a63fab6835175ca0732ba18283b"
-    sha256 cellar: :any_skip_relocation, ventura:       "319600780e525e46356a6dd123a5a4a2c4a217f9e2f9c1adccaa75e7f7161994"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c84433845ff2d576df3b0cc85211dbef0e29ddf4f8af51d082ccb64c007b6517"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "29ee6fa2bb032d9ae0d7ba5a0d103c350ec1433064d3a8b3af1d3710a1fd4a7d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b682a3cec5aaf98ad5bfcb77308f1c479c8bafe3e170c4cf707c858acf31114c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "6e3ac6f9141c548c8c9dc6fc6b2232ebd489d2cf04bdf67248420f12dd4e9a7a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f14368ca34529bc3eb61f1a831297361f97aedb055b8a454f31f9da8443e8156"
+    sha256 cellar: :any_skip_relocation, ventura:       "7c59601e4bc9df15ea0d408f80b470c72a749259982d43ceced6e16b0fcdf5ab"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7de0b687ca1684ab70cd2eaca99a6689621228202feaf895831619ae48d4ced8"
   end
 
   depends_on "go" => :build

@@ -43,7 +43,7 @@ class GolangciLint < Formula
     assert_match "Usage:", str_help
     assert_match "Available Commands:", str_help
 
-    (testpath/"try.go").write <<~EOS
+    (testpath/"try.go").write <<~GO
       package try
 
       func add(nums ...int) (res int) {
@@ -53,7 +53,7 @@ class GolangciLint < Formula
         clear(nums)
         return
       }
-    EOS
+    GO
 
     args = %w[
       --color=never

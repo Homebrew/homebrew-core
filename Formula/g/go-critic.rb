@@ -29,7 +29,7 @@ class GoCritic < Formula
   end
 
   test do
-    (testpath/"main.go").write <<~EOS
+    (testpath/"main.go").write <<~GO
       package main
 
       import "fmt"
@@ -40,7 +40,7 @@ class GoCritic < Formula
           fmt.Println("If you're reading this, something is wrong.")
         }
       }
-    EOS
+    GO
 
     output = shell_output("#{bin}/gocritic check main.go 2>&1", 1)
     assert_match "sloppyLen: len(str) <= 0 can be len(str) == 0", output

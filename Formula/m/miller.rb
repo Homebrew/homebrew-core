@@ -24,11 +24,11 @@ class Miller < Formula
   end
 
   test do
-    (testpath/"test.csv").write <<~EOS
+    (testpath/"test.csv").write <<~CSV
       a,b,c
       1,2,3
       4,5,6
-    EOS
+    CSV
     output = pipe_output("#{bin}/mlr --csvlite cut -f a test.csv")
     assert_match "a\n1\n4\n", output
   end

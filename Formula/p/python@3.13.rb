@@ -12,17 +12,14 @@ class PythonAT313 < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "56d325c239b860c2f2be6dcf255021142aeb1ba4d1abbc44fc9832726b9ae71e"
-    sha256 arm64_sonoma:  "59cb6d9a33e96f12b1c03e3931062b413ed05749b57921b5438bf59f465fb869"
-    sha256 arm64_ventura: "9d839b31f2728276cec2d4af27954a0202645d50f47e3768105cc263cbb2efc5"
-    sha256 sonoma:        "44239bd5b2e23ac4e3537925d16695931e34cedb93648ac63e15ce05fa66926d"
-    sha256 ventura:       "d5257cc367cea5fb1003646077cdb644e8eb181045e2815255738242e05f8af2"
-    sha256 x86_64_linux:  "856c9c245e10cac940a6bf36af6ecf1a321ad82cbbcca2ea38136d3605bea9b2"
+    rebuild 1
+    sha256 arm64_sequoia: "c314898eba960a72f69472bcf569caf5b9d4cfe898032f501eb964afbcc17180"
+    sha256 arm64_sonoma:  "1f171451ebef942ac66ea0cbe8853e5e3e32e459136e48af87db09a38a36344d"
+    sha256 arm64_ventura: "ed4fc8d947eb3f429ec98603517ac5ad1c2ec77aeb357052a1736ab945ef2c58"
+    sha256 sonoma:        "02c9128efbe4a34d4282dfb3986bea855fcf5816a1b3f685a2b60e219969c048"
+    sha256 ventura:       "ad2f1a43187bd8519f45137a31d99d9bd731c1c1c11c04c6f9115f53e575cc4b"
+    sha256 x86_64_linux:  "18d08d68e1abfb4e24c416f4d3a9c419fce04e1c10b85ef8e57a28a112a2b63e"
   end
-
-  # setuptools remembers the build flags python is built with and uses them to
-  # build packages later. Xcode-only systems need different flags.
-  pour_bottle? only_if: :clt_installed
 
   depends_on "pkg-config" => :build
   depends_on "mpdecimal"
@@ -156,13 +153,6 @@ class PythonAT313 < Formula
     cppflags       = ["-I#{HOMEBREW_PREFIX}/include"]
 
     if OS.mac?
-      if MacOS.sdk_path_if_needed
-        # Help Python's build system (setuptools/pip) to build things on SDK-based systems
-        # The setup.py looks at "-isysroot" to get the sysroot (and not at --sysroot)
-        cflags  << "-isysroot #{MacOS.sdk_path}"
-        ldflags << "-isysroot #{MacOS.sdk_path}"
-      end
-
       # Enabling LTO on Linux makes libpython3.*.a unusable for anyone whose GCC
       # install does not match the one in CI _exactly_ (major and minor version).
       # https://github.com/orgs/Homebrew/discussions/3734
@@ -369,7 +359,7 @@ class PythonAT313 < Formula
     # Mark Homebrew python as externally managed: https://peps.python.org/pep-0668/#marking-an-interpreter-as-using-an-external-package-manager
     # Placed after ensurepip since it invokes pip in isolated mode, meaning
     # we can't pass --break-system-packages.
-    (lib_cellar/"EXTERNALLY-MANAGED").write <<~EOS
+    (lib_cellar/"EXTERNALLY-MANAGED").write <<~PYTHON
       [externally-managed]
       Error=To install Python packages system-wide, try brew install
        xyz, where xyz is the package you are trying to
@@ -398,11 +388,11 @@ class PythonAT313 < Formula
        file. Failure to do this can result in a broken Homebrew installation.
 
        Read more about this behavior here: <https://peps.python.org/pep-0668/>
-    EOS
+    PYTHON
   end
 
   def sitecustomize
-    <<~EOS
+    <<~PYTHON
       # This file is created by Homebrew and is executed on each python startup.
       # Don't print from here, or else python command line scripts may fail!
       # <https://docs.brew.sh/Homebrew-and-Python>
@@ -455,7 +445,7 @@ class PythonAT313 < Formula
           split_prefix = f"#{HOMEBREW_PREFIX}/opt/python-{split_module}@#{version.major_minor}/libexec"
           if os.path.isdir(split_prefix):
               sys.path.append(split_prefix)
-    EOS
+    PYTHON
   end
 
   def caveats
@@ -497,7 +487,7 @@ class PythonAT313 < Formula
                  shell_output("#{python3} -Sc 'import dbm.gnu' 2>&1", 1)
 
     # Verify that the selected DBM interface works
-    (testpath/"dbm_test.py").write <<~EOS
+    (testpath/"dbm_test.py").write <<~PYTHON
       import dbm
 
       with dbm.ndbm.open("test", "c") as db:
@@ -506,7 +496,7 @@ class PythonAT313 < Formula
           assert list(db.keys()) == [b"foo \\xbd"]
           assert b"foo \\xbd" in db
           assert db[b"foo \\xbd"] == b"bar \\xbd"
-    EOS
+    PYTHON
     system python3, "dbm_test.py"
 
     system bin/"pip#{version.major_minor}", "list", "--format=columns"

@@ -3,18 +3,18 @@ class Conan < Formula
 
   desc "Distributed, open source, package manager for C/C++"
   homepage "https://conan.io"
-  url "https://files.pythonhosted.org/packages/5d/c3/60d2a828ea2df1ba23dbe44cc0421fac04d5244ef64571d4eb7c6be1d55a/conan-2.9.1.tar.gz"
-  sha256 "98e3a2366be1980100746250655fdbd1deafc6534a67220441790c40ce73361a"
+  url "https://files.pythonhosted.org/packages/df/e8/59ee70187a8dca8f6898fa9d1385c980ca0d715c24eebd608ca5ae54e4ae/conan-2.9.2.tar.gz"
+  sha256 "39deca86a59d4f2cfd764e9a42d211c9408a3ff56925b2c20a1def913fe5c571"
   license "MIT"
   head "https://github.com/conan-io/conan.git", branch: "develop"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "0edb9e78aa84235eacf2a0748710fdc610bd3d289edc59d982af1fe1956782b0"
-    sha256 cellar: :any,                 arm64_sonoma:  "35f2db3387d433dd4df259b5364acb0bafd7e08a21e2839a419ea78292abd00e"
-    sha256 cellar: :any,                 arm64_ventura: "fc7253ccf4ff420c621d34fc6f821488f5b537f4a6eeaf1f27480899754e1b08"
-    sha256 cellar: :any,                 sonoma:        "d160b2f1a357f4dc4c87919d371612bbe11ae586fbfd35969a8239463d346c12"
-    sha256 cellar: :any,                 ventura:       "5c85f69239499e1dd46779beda54842e0fc9b15d4d6c235b87a35fdc8f948bc3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1d2b8795bbacc7ef2da520a9ab2486574cda61af95ce944eeccc94b78e4ddade"
+    sha256 cellar: :any,                 arm64_sequoia: "6f344f5a6865135527c59da76305bdfbe12728e091a5ef294fe0fafac6592e1a"
+    sha256 cellar: :any,                 arm64_sonoma:  "c851f5ea2ade719d37f7891dc561570ad06d8242cbebe615d614fcc169cce6d2"
+    sha256 cellar: :any,                 arm64_ventura: "4da75396865d4e286f7c00f9080d928eec8bdf80be5a322dfb31f01d3cbd80d8"
+    sha256 cellar: :any,                 sonoma:        "a7f82758644333e0f996605773fa2564628cddaa4a55d42baad5426043b61e55"
+    sha256 cellar: :any,                 ventura:       "a521b0b5623fe6c8a2babcfcb417437427c3ca21a952121724f901aed58e8a20"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "00e675dc0090abbb7de0cde1fc2cdb7dce7b0e5f5575bfd5c43c5acfe8702333"
   end
 
   depends_on "pkg-config" => :build

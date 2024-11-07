@@ -29,7 +29,7 @@ class Revive < Formula
   end
 
   test do
-    (testpath/"main.go").write <<~EOS
+    (testpath/"main.go").write <<~GO
       package main
 
       import "fmt"
@@ -38,7 +38,7 @@ class Revive < Formula
         my_string := "Hello from Homebrew"
         fmt.Println(my_string)
       }
-    EOS
+    GO
 
     system "go", "mod", "init", "brewtest"
     output = shell_output("#{bin}/revive main.go")

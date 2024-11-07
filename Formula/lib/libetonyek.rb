@@ -1,8 +1,8 @@
 class Libetonyek < Formula
   desc "Interpret and import Apple Keynote presentations"
   homepage "https://wiki.documentfoundation.org/DLP/Libraries/libetonyek"
-  url "https://dev-www.libreoffice.org/src/libetonyek/libetonyek-0.1.10.tar.xz"
-  sha256 "b430435a6e8487888b761dc848b7981626eb814884963ffe25eb26a139301e9a"
+  url "https://dev-www.libreoffice.org/src/libetonyek/libetonyek-0.1.11.tar.xz"
+  sha256 "4bbce5aecbfc939e24a2c654efed561930c4605c270476df455fb3118b3ce3ce"
   license "MPL-2.0"
 
   livecheck do
@@ -11,15 +11,12 @@ class Libetonyek < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256               arm64_sequoia:  "647ec0cd1b38385cb21e641f287b3c241dded4492aac47dc4bf531e295523258"
-    sha256               arm64_sonoma:   "277d4979dc6ed3a41dffd32885df1731ac00920ff217b0f97f0b96a5e2471d2b"
-    sha256               arm64_ventura:  "7d0639b6a0326628a58a188d117e363b110ffb4f738f273add9b402425db5e07"
-    sha256               arm64_monterey: "f3209b23826845190ee6d095526f88f18c7c9c488d7421f7e431884f4b8a586e"
-    sha256 cellar: :any, sonoma:         "7b4264fdb34b6f548cb348e500c218353ff12f301f43b6c4584011b9b99ce7b9"
-    sha256 cellar: :any, ventura:        "40ff13c4db031f9ff7fd33fa4153a46c8832301174c244b269d6ff1e3d4ab041"
-    sha256 cellar: :any, monterey:       "c118d347c1829578898e918bf41b1f84d23210933e0f3bbd4acb56392bba37c1"
-    sha256               x86_64_linux:   "d7b04fd7fdc5a6fc7b7cd8bba18aa1f48e4d418166ecaf36a6174b62149655f6"
+    sha256               arm64_sequoia: "33625e0fd425a1d316273c53d0fc0b78a4731d2181f4368c662a19f3c4d9d36e"
+    sha256               arm64_sonoma:  "2aa916c2a2a69ddb9aee72cb2817b5403372d3bbbe6a0816a59f27c5a0c499fa"
+    sha256               arm64_ventura: "1a6406249a29e3bd3aa3919dff1f293ddb3fb688e9c2486e4604b7838d12f2c2"
+    sha256 cellar: :any, sonoma:        "3f12af26a6a0a2a921f63b645f8ee81637ac431e0870452644c3b70818c43570"
+    sha256 cellar: :any, ventura:       "9149bd7f11e97a6f61896d5a9df299e93911d7767e6e251558d684d6cbe54097"
+    sha256               x86_64_linux:  "4b6a13e931fc36ec5dc12cbd690632940e23663bdab180cbfb9f34977c79964e"
   end
 
   depends_on "boost" => :build
@@ -29,6 +26,7 @@ class Libetonyek < Formula
   depends_on "librevenge"
 
   uses_from_macos "libxml2"
+  uses_from_macos "zlib"
 
   resource "liblangtag" do
     url "https://bitbucket.org/tagoh/liblangtag/downloads/liblangtag-0.6.7.tar.bz2"
@@ -49,9 +47,6 @@ class Libetonyek < Formula
 
     # Override -std=gnu++11 as mdds>=2.1.1 needs C++17 std::bool_constant
     ENV.append "CXXFLAGS", "-std=gnu++17"
-    # Work around upstream boost issue, see https://github.com/boostorg/phoenix/issues/115
-    # TODO: Try to remove after boost>=1.84
-    ENV.append "CXXFLAGS", "-DBOOST_PHOENIX_STL_TUPLE_H_"
 
     ENV["LANGTAG_CFLAGS"] = "-I#{libexec}/include"
     ENV["LANGTAG_LIBS"] = "-L#{libexec}/lib -llangtag -lxml2"

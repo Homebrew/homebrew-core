@@ -27,13 +27,13 @@ class Gotests < Formula
   end
 
   test do
-    (testpath/"test.go").write <<~EOS
+    (testpath/"test.go").write <<~GO
       package main
 
       func add(x int, y int) int {
       	return x + y
       }
-    EOS
+    GO
     expected = <<~EOS
       Generated Test_add
       package main

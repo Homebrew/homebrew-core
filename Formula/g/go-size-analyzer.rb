@@ -41,7 +41,7 @@ class GoSizeAnalyzer < Formula
     assert_match version.to_s, shell_output("#{bin}/gsa --version")
     assert_match "Usage", shell_output("#{bin}/gsa invalid 2>&1", 1)
 
-    (testpath/"hello.go").write <<~EOS
+    (testpath/"hello.go").write <<~GO
       package main
 
       import "fmt"
@@ -49,7 +49,7 @@ class GoSizeAnalyzer < Formula
       func main() {
         fmt.Println("Hello, World")
       }
-    EOS
+    GO
 
     system "go", "build", testpath/"hello.go"
 

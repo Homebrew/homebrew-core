@@ -42,10 +42,10 @@ class Recutils < Formula
   end
 
   test do
-    (testpath/"test.csv").write <<~EOS
+    (testpath/"test.csv").write <<~CSV
       a,b,c
       1,2,3
-    EOS
+    CSV
     system bin/"csv2rec", "test.csv"
 
     (testpath/"test.rec").write <<~EOS

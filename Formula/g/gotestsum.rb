@@ -25,13 +25,13 @@ class Gotestsum < Formula
   end
 
   test do
-    (testpath/"go.mod").write <<~EOS
+    (testpath/"go.mod").write <<~GOMOD
       module github.com/Homebrew/brew-test
 
       go 1.18
-    EOS
+    GOMOD
 
-    (testpath/"main.go").write <<~EOS
+    (testpath/"main.go").write <<~GO
       package main
 
       import "fmt"
@@ -43,9 +43,9 @@ class Gotestsum < Formula
       func main() {
         fmt.Println(Hello())
       }
-    EOS
+    GO
 
-    (testpath/"main_test.go").write <<~EOS
+    (testpath/"main_test.go").write <<~GO
       package main
 
       import "testing"
@@ -57,7 +57,7 @@ class Gotestsum < Formula
           t.Errorf("got %q, want %q", got, want)
         }
       }
-    EOS
+    GO
 
     output = shell_output("#{bin}/gotestsum --format=testname")
     assert_match "DONE 1 tests", output

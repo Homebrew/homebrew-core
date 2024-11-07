@@ -1,6 +1,7 @@
 class GccAT12 < Formula
   desc "GNU compiler collection"
   homepage "https://gcc.gnu.org/"
+  # TODO: Remove maximum_macos if Xcode 16 support is added to https://github.com/iains/gcc-12-branch
   url "https://ftp.gnu.org/gnu/gcc/gcc-12.4.0/gcc-12.4.0.tar.xz"
   mirror "https://ftpmirror.gnu.org/gcc/gcc-12.4.0/gcc-12.4.0.tar.xz"
   sha256 "704f652604ccbccb14bdabf3478c9511c89788b12cb3bbffded37341916a9175"
@@ -25,6 +26,9 @@ class GccAT12 < Formula
   # out of the box on Xcode-only systems due to an incorrect sysroot.
   pour_bottle? only_if: :clt_installed
 
+  # https://github.com/iains/gcc-12-branch/issues/24
+  # https://github.com/iains/gcc-12-branch/issues/25
+  depends_on maximum_macos: [:sonoma, :build]
   depends_on "gmp"
   depends_on "isl"
   depends_on "libmpc"

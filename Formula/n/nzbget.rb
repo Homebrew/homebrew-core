@@ -7,6 +7,7 @@ class Nzbget < Formula
   head "https://github.com/nzbgetcom/nzbget.git", branch: "develop"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "6c68cbbdab136141537374b155de26b72e32e2f0cde6139a2480d97a3cbdb5e0"
     sha256 cellar: :any,                 arm64_sonoma:   "5c8c7d15f27dc7b650f42e049c29111af248e35dfb41916939869c9d63f1f986"
     sha256 cellar: :any,                 arm64_ventura:  "5d1ca334ae08f0aaf99c474b3d6ca01d7a24ce6e34a25ef84426bd829e2bae0d"
     sha256 cellar: :any,                 arm64_monterey: "fe3f2f00177bb08ab060af9524068489e3fde33fcd1262d2099eca47234ae8a8"
@@ -26,6 +27,12 @@ class Nzbget < Formula
   uses_from_macos "zlib"
 
   def install
+    # Workaround to fix build on Xcode 16. This was just ignored on older Xcode so no functional impact
+    # Issue ref: https://github.com/nzbgetcom/nzbget/issues/421
+    if DevelopmentTools.clang_build_version >= 1600
+      inreplace "lib/sources.cmake", 'set(NEON_CXXFLAGS "-mfpu=neon")', ""
+    end
+
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"
 

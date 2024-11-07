@@ -9,19 +9,20 @@ class Bzt < Formula
   head "https://github.com/Blazemeter/taurus.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "5ab4a8a2708e10c4dd923362c3da53ca2dfabbaa5ee3725a80f2bec3027d1de8"
-    sha256 cellar: :any,                 arm64_sonoma:  "7cd06de83dd408dac445aeaa560e138473cbd237ba0bffc629c93d142b54ad20"
-    sha256 cellar: :any,                 arm64_ventura: "2d533d205b7a52a4d70d41761297a13c6444311bda0035fe62c9a110f8f51c6b"
-    sha256 cellar: :any,                 sonoma:        "aece7f7a8579b6ac97bdc5aa4119ab199edc85c760cd28a53d5299923265d253"
-    sha256 cellar: :any,                 ventura:       "48cf0ad62b8994015d45a133541135600b709efa39be8a37931608c3d7d73379"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bbcfc18b91f7e793d617aaa6f35db1e884139aebd9929c6deaf8f2042f04fcaf"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "dbf4a44bfaf913022400bc7378cf49591a87ad2603151d7f422a8c1a40853f14"
+    sha256 cellar: :any,                 arm64_sonoma:  "09632b05c6af7f2588272f37ed4fcc1a4fc8c22c39f802b8f44c435636a7b5c2"
+    sha256 cellar: :any,                 arm64_ventura: "08c7fd62ab22bfba32f727016e74d8c5a58bf26baee45caef0b2f1a0e68c8e90"
+    sha256 cellar: :any,                 sonoma:        "6d743d57c97696b81fec774f2b3221d8ac3410deffc94d3950ac048ed01eb5f5"
+    sha256 cellar: :any,                 ventura:       "15838721f6b98876eaa494e9a0bb5a1ab478f84b53723daf5e6566c33e626691"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "90862b27592bb2a9a1524b13cde726c18f14f2a6e56ce74daceb9d24b73569e9"
   end
 
   depends_on "cmake" => :build
   depends_on "certifi"
   depends_on "libyaml"
   depends_on "numpy"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   uses_from_macos "libxml2", since: :ventura
   uses_from_macos "libxslt"
@@ -69,8 +70,8 @@ class Bzt < Formula
   end
 
   resource "colorlog" do
-    url "https://files.pythonhosted.org/packages/db/38/2992ff192eaa7dd5a793f8b6570d6bbe887c4fbbf7e72702eb0a693a01c8/colorlog-6.8.2.tar.gz"
-    sha256 "3e3e079a41feb5a1b64f978b5ea4f46040a94f11f0e8bbb8261e3dbbeca64d44"
+    url "https://files.pythonhosted.org/packages/d3/7a/359f4d5df2353f26172b3cc39ea32daa39af8de522205f512f458923e677/colorlog-6.9.0.tar.gz"
+    sha256 "bfba54a1b93b94f54e1f4fe48395725a3d92fd2a4af702f6bd70946bdc0c6ac2"
   end
 
   resource "cssselect" do
@@ -209,8 +210,8 @@ class Bzt < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/ce/ef/013ded5b0d259f3fa636bf35de186f0061c09fbe124020ce6b8db68c83af/setuptools-72.2.0.tar.gz"
-    sha256 "80aacbf633704e9c8bfa1d99fa5dd4dc59573efcf9e4042c13d3bcef91ac2ef9"
+    url "https://files.pythonhosted.org/packages/ed/22/a438e0caa4576f8c383fa4d35f1cc01655a46c75be358960d815bfbb12bd/setuptools-75.3.0.tar.gz"
+    sha256 "fba5dd4d766e97be1b1681d98712680ae8f2f26d7881245f2ce9e40714f1a686"
   end
 
   resource "simple-websocket" do
@@ -259,8 +260,8 @@ class Bzt < Formula
   end
 
   resource "yarl" do
-    url "https://files.pythonhosted.org/packages/55/8f/d2d546f8b674335fa7ef83cc5c1892294f3f516c570893e65a7ea8ed49c9/yarl-1.17.0.tar.gz"
-    sha256 "d3f13583f378930377e02002b4085a3d025b00402d5a80911726d43a67911cd9"
+    url "https://files.pythonhosted.org/packages/54/9c/9c0a9bfa683fc1be7fdcd9687635151544d992cccd48892dc5e0a5885a29/yarl-1.17.1.tar.gz"
+    sha256 "067a63fcfda82da6b198fa73079b1ca40b7c9b7994995b6ee38acda728b64d47"
   end
 
   def install

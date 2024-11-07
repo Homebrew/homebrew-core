@@ -48,10 +48,10 @@ class Mahout < Formula
   end
 
   test do
-    (testpath/"test.csv").write <<~EOS
+    (testpath/"test.csv").write <<~CSV
       "x","y"
       0.1234567,0.101201201
-    EOS
+    CSV
 
     assert_match "0.101201201", pipe_output("#{bin}/mahout cat #{testpath}/test.csv")
   end

@@ -44,13 +44,13 @@ class Apophenia < Formula
   end
 
   test do
-    (testpath/"foo.csv").write <<~EOS
+    (testpath/"foo.csv").write <<~CSV
       thud,bump
       1,2
       3,4
       5,6
       7,8
-    EOS
+    CSV
 
     expected_gnuplot_output = <<~EOS
       plot '-' with lines

@@ -26,7 +26,7 @@ class Ifacemaker < Formula
   end
 
   test do
-    (testpath/"human.go").write <<~EOS
+    (testpath/"human.go").write <<~GO
       package main
 
       type Human struct {
@@ -37,7 +37,7 @@ class Ifacemaker < Formula
       func (h *Human) GetName() string {
         return h.name
       }
-    EOS
+    GO
 
     output = shell_output("#{bin}/ifacemaker -f human.go -s Human -i HumanIface -p humantest " \
                           "-y \"HumanIface makes human interaction easy\"" \

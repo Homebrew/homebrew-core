@@ -1,14 +1,14 @@
 class WhisperkitCli < Formula
   desc "Swift native on-device speech recognition with Whisper for Apple Silicon"
   homepage "https://github.com/argmaxinc/WhisperKit"
-  url "https://github.com/argmaxinc/WhisperKit/archive/refs/tags/v0.9.3.tar.gz"
-  sha256 "299f79d5b30ca174dadff2f0b206e09efcd0da558fecf7c8720f535339cedf24"
+  url "https://github.com/argmaxinc/WhisperKit/archive/refs/tags/v0.9.4.tar.gz"
+  sha256 "5815b7659870908d85088434ce63be73bb4d7d484752062617708d91b8cdee26"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "14d2bada32ae712fef38ee3b624150a7620caa3fa81e53800b043c7928f3251f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b25a08ffba61aa78e08ba63137168356bb4ec36940148cb240fb4d93d50c0f6a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "9dd32de15180ec589fcb96f8ca2391a9209b13db6dbe66803adbcca605adafe8"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3ee6bca812f3ed23da7427ec156357e533ab1d300baf04e133bc47f53f9e6267"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1be47cb24152d3e99e7be5f285e836b736f8d1642c5de553b15e3627d114f0b5"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "78f1b703839bc75d414e9e4722db3d391073d9b4bf4b53ff69dd670a224d4355"
   end
 
   depends_on xcode: ["15.0", :build]

@@ -23,15 +23,15 @@ class Csvtomd < Formula
   end
 
   test do
-    (testpath/"test.csv").write <<~EOS
+    (testpath/"test.csv").write <<~CSV
       column 1,column 2
       hello,world
-    EOS
-    markdown = <<~EOS.strip
+    CSV
+    markdown = <<~MARKDOWN.strip
       column 1  |  column 2
       ----------|----------
       hello     |  world
-    EOS
+    MARKDOWN
     assert_equal markdown, shell_output("#{bin}/csvtomd test.csv").strip
   end
 end

@@ -6,6 +6,7 @@ class Jose < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any, arm64_sequoia:  "2bc631abff8a3ef0688dad54e842ea31860feb6c6b4b4ea01fcc3a22044dd16d"
     sha256 cellar: :any, arm64_sonoma:   "1af1eb0f697cd897bbedac36674670646b82cae369c752f4718500f5f1f324ef"
     sha256 cellar: :any, arm64_ventura:  "77b2d20d1a63a7f669930cdb9d8804722ed939a10efa9634c1f7635e61643634"
     sha256 cellar: :any, arm64_monterey: "4e01f021271f496483c1ce088c3c717eca63cee78498a2ecc778ca75e65f76bd"

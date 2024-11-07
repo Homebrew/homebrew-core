@@ -1,8 +1,8 @@
 class Iperf < Formula
   desc "Tool to measure maximum TCP and UDP bandwidth"
   homepage "https://sourceforge.net/projects/iperf2/"
-  url "https://downloads.sourceforge.net/project/iperf2/iperf-2.2.0.tar.gz"
-  sha256 "16810a9575e4c6dd65e4a18ab5df3cdac6730b3c832cf080a8990f132f68364a"
+  url "https://downloads.sourceforge.net/project/iperf2/iperf-2.2.1.tar.gz"
+  sha256 "754ab0a7e28033dbea81308ef424bc7df4d6e2fe31b60cc536b61b51fefbd8fb"
   license "BSD-3-Clause"
 
   livecheck do
@@ -11,14 +11,12 @@ class Iperf < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "5b7d862bff39bacaa05bc8998eb26dc12e5a2d40894d5e5b0a73565d32bca7a0"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9bf46728f92fbd32daabb6a35d6ac65ed54a5285b017a4b544f9a9cefabaa5a5"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e49f0e744808cb351870679663cbd622597a6c9513389f8857f9461fac26f2ee"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "39d2a630219f6ae3fe31912068260c1419feac89de34fd3944207a5f6303a820"
-    sha256 cellar: :any_skip_relocation, sonoma:         "976257ee411e2898cef5af8afeb8b48b8f08d8c0f93fca4e6e515c811d7dce4b"
-    sha256 cellar: :any_skip_relocation, ventura:        "1ab6d572f2c64ded3c9911dcec07dfad00e9367f26a33d6115cb51248c93edcc"
-    sha256 cellar: :any_skip_relocation, monterey:       "c0984a0a8f32905a4da2262d07783338f202374d97319b8af4b0e3dea1451078"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ab44b170204b938a97834bf13e94375b0a07c46bd5f2fc4235effbfc6491f2f0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "db6efa4665fb211a816b35f09bcfa864a730c6e4090db7980237fa59a21a3ca2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1c37a56093641d787d93ae9bfe6f703c2cb135426118ea840206b6cf65b6b839"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "7175c66a9b8d7b696e90924d5143cd7c4c6f70d3882a2786f3074cc76acd1771"
+    sha256 cellar: :any_skip_relocation, sonoma:        "aed94aa9afebab06799f8029472589ceec497c794a787cff72b266485d747e07"
+    sha256 cellar: :any_skip_relocation, ventura:       "64ed221535508fd70d50c162cf827e21e3753a831cd806d7a81949f9251503af"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "30cab186caf9720f6d1758b086d8df5978ea56022a32ad4367f232ab82c1750e"
   end
 
   def install

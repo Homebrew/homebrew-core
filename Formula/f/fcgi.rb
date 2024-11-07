@@ -2,24 +2,17 @@ class Fcgi < Formula
   desc "Protocol for interfacing interactive programs with a web server"
   # Last known good original homepage: https://web.archive.org/web/20080906064558/www.fastcgi.com/
   homepage "https://fastcgi-archives.github.io/"
-  url "https://github.com/FastCGI-Archives/fcgi2/archive/refs/tags/2.4.2.tar.gz"
-  sha256 "1fe83501edfc3a7ec96bb1e69db3fd5ea1730135bd73ab152186fd0b437013bc"
+  url "https://github.com/FastCGI-Archives/fcgi2/archive/refs/tags/2.4.3.tar.gz"
+  sha256 "5273bc54c28215d81b9bd78f937a9bcdd4fe94e41ccd8d7c991aa8a01b50b70e"
   license "OML"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "a79a999a6f844c409d74bfe3a565c087a34efa16531a9a51bf68c9b7cd946e1c"
-    sha256 cellar: :any,                 arm64_sonoma:   "01edfb9feb557c8a45a559064590c132cf84a1448c3eafdaf581cd5871e30d30"
-    sha256 cellar: :any,                 arm64_ventura:  "687f04ecaf81ae2c95d0e9cfa6a2502f848e596de4f6e2ebb83e8f507aa7717f"
-    sha256 cellar: :any,                 arm64_monterey: "5434ce533ae7898eaabbf035d9a03b6b232913d66f5fb687981954d618fc15f4"
-    sha256 cellar: :any,                 arm64_big_sur:  "f690a0cd985561930532baa0676c10f954f5c4d3500a8ec40733a28debfd0656"
-    sha256 cellar: :any,                 sonoma:         "cc69bf2ec90b23b2ebfe4775c93cf2c499878da19340136d092d63e5d2af8433"
-    sha256 cellar: :any,                 ventura:        "84aac5009dfb2d2c434cddca973f6e7c8d89f5791d121a173e92ebb745342e50"
-    sha256 cellar: :any,                 monterey:       "4e5296dd2cc2e2f9c65296166f8bd372f2d831f235a8595cd54b295167846bcb"
-    sha256 cellar: :any,                 big_sur:        "62ab01d728067324cc5466d20d28e6a6920514c0a1f379df290cbc3b79cb442d"
-    sha256 cellar: :any,                 catalina:       "3905f7f3dec32a296b831f224a4f2cc75089c60b8a0137ce0b25e37466ffba8a"
-    sha256 cellar: :any,                 mojave:         "a43c52588cc652fcc1d9be4d89393212875732349bd4dbdda4068f985db10628"
-    sha256 cellar: :any,                 high_sierra:    "3ee3183f46dd8f38eee932f685e8d6a52fd0c0c2a1797bb25d62ad973b1405ed"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "19a2286c8c9debc8d9d2a49269e30acd519d404537e4663cc17bc9f3ad35c25c"
+    sha256 cellar: :any,                 arm64_sequoia: "1b243ed770f2e7ac1ada1a8cdb9d24fb6f5fd7f29546a4e09dd5c8be9522563a"
+    sha256 cellar: :any,                 arm64_sonoma:  "10d1524cd9c606406a3b410b852444f5f4be6bee4f628f85f04b72519c15df2d"
+    sha256 cellar: :any,                 arm64_ventura: "19c601d9f25cb7d96a0fa63cc94330a48bb059f90422da9866aa8f07afc6bfdc"
+    sha256 cellar: :any,                 sonoma:        "b12ff1ea9af17f7357b48437cdc56425942fd5438683844af01e6423435fb08d"
+    sha256 cellar: :any,                 ventura:       "5c49c7a4a84514bca3938a3525cbce741d1d8ea6403a11a653779e858d9a43c2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7e4bb7c9d5baade09a78176687e126eabccd43b892086a3bccbf1384a39128fe"
   end
 
   depends_on "autoconf" => :build

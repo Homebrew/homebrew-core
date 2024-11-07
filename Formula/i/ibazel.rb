@@ -49,13 +49,13 @@ class Ibazel < Formula
       go_host_sdk(name = "go_sdk")
     EOS
 
-    (testpath/"test.go").write <<~EOS
+    (testpath/"test.go").write <<~GO
       package main
       import "fmt"
       func main() {
         fmt.Println("Hi!")
       }
-    EOS
+    GO
 
     (testpath/"BUILD").write <<~EOS
       load("@io_bazel_rules_go//go:def.bzl", "go_binary")

@@ -39,6 +39,10 @@ class Intercal < Formula
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
 
+  on_macos do
+    depends_on arch: :x86_64 # test fails on arm64
+  end
+
   def install
     if build.head?
       cd "buildaux" do

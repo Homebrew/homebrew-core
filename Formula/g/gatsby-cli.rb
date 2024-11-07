@@ -1,20 +1,17 @@
 class GatsbyCli < Formula
   desc "Gatsby command-line interface"
-  homepage "https://www.gatsbyjs.org/docs/gatsby-cli/"
-  url "https://registry.npmjs.org/gatsby-cli/-/gatsby-cli-5.13.3.tgz"
-  sha256 "22419fe3354ce4a4e373aaa54160294b8d5cc5ab95ad6b632b07a047c6287378"
+  homepage "https://www.gatsbyjs.com/docs/reference/gatsby-cli/"
+  url "https://registry.npmjs.org/gatsby-cli/-/gatsby-cli-5.14.0.tgz"
+  sha256 "7e2769d985ed6e008fb2c75a57b55c543c44237bc10b289632ddf504d39c35db"
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256                               arm64_sequoia:  "f7db10ee18620b1843ff8cd40dab82efe76c49c28f9cb9be0fd4c09c5dd4f010"
-    sha256                               arm64_sonoma:   "b8fe2d5de1dd51bad67a53ebe805254ebd9e503a98c9812a16236eeef69c08e0"
-    sha256                               arm64_ventura:  "5d245f32ae46a4fa1592417d2cf745c4a7446c3546991ab494e3f27ff6416086"
-    sha256                               arm64_monterey: "25049c42733ca1a7df09263eccbcdf1be5545c41d81c33ca5b42979f1e34bc33"
-    sha256                               sonoma:         "20a2a322dc10ed9a59548605a0887b4f924c69fbf654bc1dc353b7d911b5d107"
-    sha256                               ventura:        "78b5062144fe068949bd4ee0bad05d93969f1b8cee88dc936411bfa95da06b9b"
-    sha256                               monterey:       "85597b5631817d7ee9f5d37b36f20666b756909dc0f9057a5c35a8019784a42c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "42e95da9728038e6b7a8a8916700f4853f1157703a90c3cc6e99c6a887e1f624"
+    sha256                               arm64_sequoia: "ba1afdda97434e2693af75cc6a9080357ae99ce2617ecc08585fdc17fa044e52"
+    sha256                               arm64_sonoma:  "01f93063702b9c6e426d48ed809add8baaf05a4f97c19bb5d6714953fd0c3c79"
+    sha256                               arm64_ventura: "c722cc790dc1697fa764ad02594c80cb2b506f84a5da412d5ffc00e2e03a2a3d"
+    sha256                               sonoma:        "15744fd268f96a9b7634574cae8037136c25a632d4e1355b736db8fb452050da"
+    sha256                               ventura:       "94670b31b65a8cc2bbaa067ad45c5a0de9224365e64185459b5c084b9156f779"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f03cf15550ff1ed472c2c71bfa7aa1746ea83144e8c56ec675350511f4f4b320"
   end
 
   depends_on "node"

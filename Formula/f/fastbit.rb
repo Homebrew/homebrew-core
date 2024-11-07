@@ -56,11 +56,11 @@ class Fastbit < Formula
 
   test do
     assert_equal prefix.to_s, shell_output("#{bin}/fastbit-config --prefix").chomp
-    (testpath/"test.csv").write <<~EOS
+    (testpath/"test.csv").write <<~CSV
       Potter,Harry
       Granger,Hermione
       Weasley,Ron
-    EOS
+    CSV
     system bin/"ardea", "-d", testpath, "-m", "a:t,b:t", "-t", testpath/"test.csv"
   end
 end

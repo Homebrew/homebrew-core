@@ -24,22 +24,22 @@ class Gofumpt < Formula
   end
 
   test do
-    (testpath/"test.go").write <<~EOS
+    (testpath/"test.go").write <<~GO
       package foo
 
       func foo() {
         println("bar")
 
       }
-    EOS
+    GO
 
-    (testpath/"expected.go").write <<~EOS
+    (testpath/"expected.go").write <<~GO
       package foo
 
       func foo() {
       	println("bar")
       }
-    EOS
+    GO
 
     assert_match shell_output("#{bin}/gofumpt test.go"), (testpath/"expected.go").read
   end
