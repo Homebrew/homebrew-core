@@ -13,6 +13,7 @@ class Mono < Formula
 
   bottle do
     rebuild 2
+    sha256 arm64_sequoia: "ed25bcec51134d7a3c6cf04635d1b378fdb06f7127dd4705e3bf525373700c8c"
     sha256 arm64_sonoma:  "e69f64033ac83adbf465fdc284e5d145f18b0759b0c866177fd65975ccaf58f7"
     sha256 arm64_ventura: "e1b8fc0bfbdc638a220abed1d2fa5b48a7790a5b1668bafb3252b8539b14965d"
     sha256 sonoma:        "bb0d701d0120bffedba03081a169a5cd6b679c5d437163daec0e2d2bf6e61652"
