@@ -1,8 +1,8 @@
 class Ldpl < Formula
   desc "Compiled programming language inspired by COBOL"
   homepage "https://www.ldpl-lang.org/"
-  url "https://github.com/Lartu/ldpl/archive/refs/tags/4.4.tar.gz"
-  sha256 "c34fb7d67d45050c7198f83ec9bb0b7790f78df8c6d99506c37141ccd2ac9ff1"
+  url "https://github.com/Lartu/ldpl/archive/refs/tags/5.1.1.tar.gz"
+  sha256 "01611dca74a9e321bf5a4d1120cbe38a6961c3abafcace3e412d640bee263d3c"
   license "Apache-2.0"
 
   bottle do
