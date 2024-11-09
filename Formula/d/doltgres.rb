@@ -1,8 +1,8 @@
 class Doltgres < Formula
   desc "Dolt for Postgres"
   homepage "https://github.com/dolthub/doltgresql"
-  url "https://github.com/dolthub/doltgresql/archive/refs/tags/v0.13.0.tar.gz"
-  sha256 "2c770da4dbe4900cc0a5c1e31e0c1097d360302dff730cf36314664c308896ca"
+  url "https://github.com/dolthub/doltgresql/archive/refs/tags/v0.14.0.tar.gz"
+  sha256 "919e51955c33ae9a6f68d3919d9a3b6462db78d9056ac6b499a0f76f9ce70fc1"
   license "Apache-2.0"
 
   # Upstream creates releases that use a stable tag (e.g., `v1.2.3`) but are
@@ -34,6 +34,8 @@ class Doltgres < Formula
     port = free_port
 
     (testpath/"config.yaml").write <<~YAML
+      log_level: debug
+
       behavior:
         read_only: false
         disable_client_multi_statements: false
