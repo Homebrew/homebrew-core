@@ -1,5 +1,5 @@
 class Ldpl < Formula
-  desc "COBOL-like programming language that compiles to C++. With serious dinosaurs with neckties and briefcases."
+  desc "COBOL-like programming language that compiles to C++. With serious dinosaurs with neckties and briefcases"
   homepage "https://www.ldpl-lang.org/"
   url "https://github.com/Lartu/ldpl/archive/refs/tags/LDPL-5.1.0.tar.gz"
   sha256 "f61c0a8a3405965a7ee168da3ecf754b600de5a1c89208ae437ffba8658b2701"
