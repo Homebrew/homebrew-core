@@ -1,8 +1,8 @@
 class Ldpl < Formula
-  desc "Compiled programming language inspired by COBOL"
+  desc "COBOL-like programming language that compiles to C++. With serious dinosaurs with neckties and briefcases"
   homepage "https://www.ldpl-lang.org/"
-  url "https://github.com/Lartu/ldpl/archive/refs/tags/4.4.tar.gz"
-  sha256 "c34fb7d67d45050c7198f83ec9bb0b7790f78df8c6d99506c37141ccd2ac9ff1"
+  url "https://github.com/Lartu/ldpl/archive/refs/tags/LDPL-5.1.0.tar.gz"
+  sha256 "f61c0a8a3405965a7ee168da3ecf754b600de5a1c89208ae437ffba8658b2701"
   license "Apache-2.0"
 
   bottle do
@@ -30,10 +30,8 @@ class Ldpl < Formula
   end
 
   def install
-    cd "src" do
-      system "make"
-      system "make", "install", "PREFIX=#{prefix}"
-    end
+    system "make"
+    system "make", "install", "PREFIX=#{prefix}"
   end
 
   test do
