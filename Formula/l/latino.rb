@@ -27,22 +27,53 @@ class Latino < Formula
     depends_on "readline"
   end
 
+  # Backport to fix incompatible integer to pointer conversion
+  # https://github.com/lenguaje-latino/latino-Core/commit/14dba5524dc6b8c9ad5300460de6d83d2b25e2a0
+  patch :DATA
+
   def install
-    system "cmake", ".", *std_cmake_args
-    system "make"
-    system "make", "install"
+    # Workaround for conflict with LIST_FOREACH in <sys/queue.h>
+    if OS.mac? && MacOS.version >= :sequoia
+      list_foreach_files = %w[
+        latino-core/include/latlist.h
+        latino-core/src/latdic.c
+        latino-core/src/latdiclib.c
+        latino-core/src/latgc.c
+        latino-core/src/latlist.c
+        latino-core/src/latmv.c
+        latino-core/src/latobj.c
+      ]
+      inreplace list_foreach_files, " LIST_FOREACH(", " LAT_LIST_FOREACH("
+    end
+
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
     (testpath/"test1.lat").write "poner('hola mundo')"
-    (testpath/"test2.lat").write <<~EOS
+    (testpath/"test2.lat").write <<~LAT
       desde (i = 0; i <= 10; i++)
         escribir(i)
       fin
-    EOS
+    LAT
     output = shell_output("#{bin}/latino test1.lat")
     assert_equal "hola mundo", output.chomp
     output2 = shell_output("#{bin}/latino test2.lat")
     assert_equal "0\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10", output2.chomp
   end
 end
+
+__END__
+--- a/latino-core/src/latobj.c
++++ b/latino-core/src/latobj.c
+@@ -818,7 +818,7 @@ LATINO_API char *latC_astring(lat_mv *mv, lat_objeto *o) {
+     } else if (o->tipo == T_INTEGER) {
+         return entero_acadena(getEntero(o));
+     } else if (o->tipo == T_CHAR) {
+-        return (char)getCaracter(o);
++        return &getCaracter(o);
+     } else if (o->tipo == T_STR) {
+         return strdup(latC_checar_cadena(mv, o));
+     } else if (o->tipo == T_LABEL) {
