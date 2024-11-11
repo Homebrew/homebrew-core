@@ -1,19 +1,17 @@
 class Wget < Formula
   desc "Internet file retriever"
   homepage "https://www.gnu.org/software/wget/"
-  url "https://ftp.gnu.org/gnu/wget/wget-1.24.5.tar.gz"
-  sha256 "fa2dc35bab5184ecbc46a9ef83def2aaaa3f4c9f3c97d4bd19dcb07d4da637de"
+  url "https://ftp.gnu.org/gnu/wget/wget-1.25.0.tar.gz"
+  sha256 "766e48423e79359ea31e41db9e5c289675947a7fcf2efdcedb726ac9d0da3784"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 arm64_sequoia:  "bf42f2ac702296b34e9710851f06d0a94ec0445823239eaad9eb8e1fc19969ba"
-    sha256 arm64_sonoma:   "9befdad158e59763fb0622083974a6252878019702d8c961e1bec3a5f5305339"
-    sha256 arm64_ventura:  "ac4c0330b70dae06eaa8065bfbea78dda277699d1ae8002478017a1bd9cf1908"
-    sha256 arm64_monterey: "02313702fc03880f221d60ce4d0b652c8b44fe68c15609329d757d031bce6bc4"
-    sha256 sonoma:         "034528edb247df85f90997aca6a51ddb988a880af6bb571b8473de1702a887af"
-    sha256 ventura:        "1b7e2f76c90553543a5e25dadf031c6fcfe280f52bf27d89e04006f9d33fd20b"
-    sha256 monterey:       "ffc49a5064a003006e69f51434ac5f7ec4f4019c161ad32fab22c32697db61cd"
-    sha256 x86_64_linux:   "6a4642964fe5c4d1cc8cd3507541736d5b984e34a303a814ef550d4f2f8242f9"
+    sha256 arm64_sequoia: "a93dd95c5d63036e026b526e000d33fae7fb44d9a8fda5afc89bff112438c6b3"
+    sha256 arm64_sonoma:  "4d180cd4ead91a34e2c2672189fc366b87ae86e6caa3acbf4845b272f57c859a"
+    sha256 arm64_ventura: "7fce09705a52a2aff61c4bdd81b9d2a1a110539718ded2ad45562254ef0f5c22"
+    sha256 sonoma:        "5650778a8e7a60c2dea9412dd21d2f5e8ff4f224dbefbdf54924b99012062edc"
+    sha256 ventura:       "78cee523a9b58a7b824b51767935f68c9838e9f673e70d001982858001e766ff"
+    sha256 x86_64_linux:  "ab5f3c1c60bef4e2a4781e9b29af8afb48ead837136c419edd7febdf44b59058"
   end
 
   head do

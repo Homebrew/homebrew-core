@@ -5,7 +5,6 @@ class Cataclysm < Formula
   version "0.G"
   sha256 "e559d0d495b314ed39890920b222b4ae5067db183b5d39d4263700bfd66f36fb"
   license "CC-BY-SA-3.0"
-  head "https://github.com/CleverRaven/Cataclysm-DDA.git", branch: "master"
 
   livecheck do
     url :stable
@@ -26,8 +25,14 @@ class Cataclysm < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "14498eae0539dcfee7034f2975d7889b62c50c0684082954c0695fa4293db7dd"
   end
 
-  depends_on "pkg-config" => :build
+  head do
+    url "https://github.com/CleverRaven/Cataclysm-DDA.git", branch: "master"
+    on_macos do
+      depends_on "freetype"
+    end
+  end
 
+  depends_on "pkg-config" => :build
   depends_on "libogg"
   depends_on "libvorbis"
   depends_on "sdl2"
