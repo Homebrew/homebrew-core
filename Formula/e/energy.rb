@@ -1,5 +1,5 @@
 class Energy < Formula
-  desc "energy cli tool"
+  desc "energy cli auto tool"
   homepage "https://energye.github.io"
   url "https://github.com/energye/energy/archive/refs/tags/v2.4.5.tar.gz",
   sha256 "266e436fab3ecd322c0753a7592b6be862ce1e44d31c4282edac5ddccb8057be"
