@@ -1,8 +1,8 @@
 class CodeServer < Formula
   desc "Access VS Code through the browser"
   homepage "https://github.com/coder/code-server"
-  url "https://registry.npmjs.org/code-server/-/code-server-4.93.1.tgz"
-  sha256 "c6204fbb323f2950a42c49b88a2fc2d02b45d4cf684e88b220d9fe1fda3f9a0a"
+  url "https://registry.npmjs.org/code-server/-/code-server-4.95.2.tgz"
+  sha256 "72bb324d63a7259047887362c306646de7234bcaa4c2aba58358563bb9834a68"
   license "MIT"
 
   bottle do
@@ -30,7 +30,8 @@ class CodeServer < Formula
     # Fix broken node-addon-api: https://github.com/nodejs/node/issues/52229
     ENV.append "CXXFLAGS", "-DNODE_API_EXPERIMENTAL_NOGC_ENV_OPT_OUT"
 
-    system "npm", "install", *std_npm_args
+    # Disable custom postinstall script
+    system "npm", "install", *std_npm_args, "--ignore-scripts"
     bin.install_symlink libexec.glob("bin/*")
 
     # Remove incompatible pre-built binaries
