@@ -2,8 +2,8 @@ class Asymptote < Formula
   desc "Powerful descriptive vector graphics language"
   homepage "https://asymptote.sourceforge.io"
   # Keep version in sync with manual below
-  url "https://downloads.sourceforge.net/project/asymptote/2.92/asymptote-2.92.src.tgz"
-  sha256 "9d9b5c6fa7e0fbce3c1e54feb25e2d51d28c4fe7798f24c76cdcae8291a8ea66"
+  url "https://downloads.sourceforge.net/project/asymptote/2.93/asymptote-2.93.src.tgz"
+  sha256 "dced6ef16934d741c3c45a79304d880d1ad86a2ce625d6517e5d2cdb44938c67"
   license "LGPL-3.0-only"
 
   livecheck do
@@ -39,8 +39,8 @@ class Asymptote < Formula
   end
 
   resource "manual" do
-    url "https://downloads.sourceforge.net/project/asymptote/2.92/asymptote.pdf"
-    sha256 "ba96b049da98207eed38eb3be5c306fbd10ff8b00124e26609d5effe7adbdac6"
+    url "https://downloads.sourceforge.net/project/asymptote/2.93/asymptote.pdf"
+    sha256 "a1e9ed8537b61621b03b4801ad2ce96a830b97470f8cb0bf1bf43d54f69759f4"
   end
 
   def install
