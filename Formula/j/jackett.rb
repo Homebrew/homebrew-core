@@ -18,16 +18,15 @@ class Jackett < Formula
   depends_on "dotnet"
 
   def install
+    ENV["DOTNET_SYSTEM_GLOBALIZATION_INVARIANT"] = "1"
     dotnet = Formula["dotnet"]
-    os = OS.mac? ? "osx" : OS.kernel_name.downcase
-    arch = Hardware::CPU.intel? ? "x64" : Hardware::CPU.arch.to_s
-
     args = %W[
       --configuration Release
       --framework net#{dotnet.version.major_minor}
       --output #{libexec}
-      --runtime #{os}-#{arch}
+      --use-current-runtime
       --no-self-contained
+      --verbosity detailed
     ]
     if build.stable?
       args += %W[
