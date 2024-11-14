@@ -1,10 +1,9 @@
 class PetscComplex < Formula
   desc "Portable, Extensible Toolkit for Scientific Computation (complex)"
   homepage "https://petsc.org/"
-  url "https://web.cels.anl.gov/projects/petsc/download/release-snapshots/petsc-3.20.5.tar.gz"
-  sha256 "fb4e637758737af910b05f30a785245633916cd0a929b7b6447ad1028da4ea5a"
+  url "https://web.cels.anl.gov/projects/petsc/download/release-snapshots/petsc-3.22.1.tar.gz"
+  sha256 "7117d3ae6827f681ed9737939d4e86896b4751e27cca941bb07e5703f19a0a7b"
   license "BSD-2-Clause"
-  revision 1
 
   livecheck do
     formula "petsc"
@@ -21,6 +20,7 @@ class PetscComplex < Formula
     sha256 x86_64_linux:   "c63d9a17db67e029d8dc5f783b804efbd7152063451b6f305c3231f88bd2b6a5"
   end
 
+  depends_on "gcc"
   depends_on "hdf5-mpi"
   depends_on "hwloc"
   depends_on "metis"
