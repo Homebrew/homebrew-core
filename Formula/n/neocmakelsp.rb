@@ -13,6 +13,6 @@ class Neocmakelsp < Formula
   end
 
   test do
-    system "#{bin}/example", "--version"
+    system "#{bin}/neocmakelsp", "--version"
   end
 end
