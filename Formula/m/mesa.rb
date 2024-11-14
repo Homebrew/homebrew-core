@@ -3,8 +3,8 @@ class Mesa < Formula
 
   desc "Graphics Library"
   homepage "https://www.mesa3d.org/"
-  url "https://mesa.freedesktop.org/archive/mesa-24.2.6.tar.xz"
-  sha256 "2b68c4a6f204c1999815a457299f81c41ba7bf48c4674b0b2d1d8864f41f3709"
+  url "https://mesa.freedesktop.org/archive/mesa-24.2.7.tar.xz"
+  sha256 "a0ce37228679647268a83b3652d859dcf23d6f6430d751489d4464f6de6459fd"
   license all_of: [
     "MIT",
     "Apache-2.0", # include/{EGL,GLES*,vk_video,vulkan}, src/egl/generate/egl.xml, src/mapi/glapi/registry/gl.xml
@@ -23,12 +23,12 @@ class Mesa < Formula
   head "https://gitlab.freedesktop.org/mesa/mesa.git", branch: "main"
 
   bottle do
-    sha256 arm64_sequoia: "f1708458428ecc0f73b87d79dde84c81df35d9374191d25c30064e660a6c705a"
-    sha256 arm64_sonoma:  "78c6a7c5dfc251efbf218a3e946736f0610dee83045219ce720ed33930fb2b4f"
-    sha256 arm64_ventura: "d746888600473abc46619a9d06f0bb89aa6fcf821802386aad1f447fc2d95959"
-    sha256 sonoma:        "7a24e3c85b09d0eda512940991424860548f22eae20bcb4cd5a0e63d7fd3f36d"
-    sha256 ventura:       "81c7c9fa471b25600fc6e48d8d49a586e76ad9ac10e9b8d4b1cf8f31209756d6"
-    sha256 x86_64_linux:  "65d97bb0b716ff6ee542c7802af2f40935091d37d01acc3b561fc8d8c2e82b73"
+    sha256 arm64_sequoia: "05d18569495c3722c6f554ffb4114f07b0e25f3cf026c460172d913447bd54d5"
+    sha256 arm64_sonoma:  "77f22df192823470be51a6dfaa5796143303185082be26bdd82442e5ebed7bdc"
+    sha256 arm64_ventura: "c39daf2cba5056d89299e463bc4fd77f80092a07f27fa209bb36d3161022a9d3"
+    sha256 sonoma:        "8b4209880520239f3bece5ea365473f830bc6cec5298586bc33c53af05f505f5"
+    sha256 ventura:       "31d5294ede4e5aecf9752defe8dcadaf3f888fe4a7fbae9587d36a259839cfdf"
+    sha256 x86_64_linux:  "4ab2a4a1bc8453609e1e4943da2f8bdb15cedc59feea60a29231ebbc251f3e74"
   end
 
   depends_on "bison" => :build # can't use from macOS, needs '> 2.3'
@@ -83,8 +83,8 @@ class Mesa < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/51/65/50db4dda066951078f0a96cf12f4b9ada6e4b811516bf0262c0f4f7064d4/packaging-24.1.tar.gz"
-    sha256 "026ed72c8ed3fcce5bf8950572258698927fd1dbda10a5e981cdf0ac37f4f002"
+    url "https://files.pythonhosted.org/packages/d0/63/68dbb6eb2de9cb10ee4c9c14a0148804425e13c4fb20d61cce69f53106da/packaging-24.2.tar.gz"
+    sha256 "c228a6dc5e932d346bc5739379109d49e8853dd8223571c7c5b55260edc0b97f"
   end
 
   resource "ply" do
