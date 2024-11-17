@@ -1965,6 +1965,7 @@ nbdime
 ncc
 ncdc
 ncdu
+ncmdump
 ncmpcpp
 ncnn
 nco
