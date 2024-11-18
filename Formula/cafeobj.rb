@@ -1,8 +1,8 @@
 class Cafeobj < Formula
   desc "New generation algebraic specification and programming language"
   homepage "https://cafeobj.org/"
-  url "https://cafeobj.org/files/1.6.0/cafeobj-1.6.0.tar.gz"
-  sha256 "ab97d3cf22d8556524c86540cbb11d4e2eb1ba38cb0198eb068a4493b745d560"
+  url "https://cafeobj.org/files/1.6.2/cafeobj-1.6.2.tar.gz"
+  sha256 "a086c43f5f886175a580b6ddff9c430a535a1da8db202986f7555ba8d2ce50fe"
   revision 2
 
   bottle do
