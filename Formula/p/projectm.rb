@@ -1,9 +1,10 @@
 class Projectm < Formula
   desc "Milkdrop-compatible music visualizer"
   homepage "https://github.com/projectM-visualizer/projectm"
-  url "https://github.com/projectM-visualizer/projectm/releases/download/v3.1.12/projectM-3.1.12.tar.gz"
-  sha256 "b6b99dde5c8f0822ae362606a0429628ee478f4ec943a156723841b742954707"
+  url "https://github.com/projectM-visualizer/projectm/releases/download/v4.1.3/libprojectM-4.1.3.tar.gz"
+  sha256 "fedb7064306da219ab0dfac2f1080f1cf594b720fa039dfad29b2c55381db614"
   license "LGPL-2.1-or-later"
+  head "https://github.com/projectM-visualizer/projectm.git", branch: "master"
 
   bottle do
     sha256 arm64_sequoia:  "a579de759ddbc2ca8b39a3dfc1cd7d2b936369790efaeda1c59efdbd63db5b2f"
@@ -20,14 +21,9 @@ class Projectm < Formula
     sha256 x86_64_linux:   "05caf42b3d5a023b4c22e2f51e7699645cc5077fbd37c7c27f1f8260025d608b"
   end
 
-  head do
-    url "https://github.com/projectM-visualizer/projectm.git", branch: "master"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-  end
-
+  depends_on "bison" => :build
+  depends_on "cmake" => :build
+  depends_on "flex" => :build
   depends_on "pkgconf" => [:build, :test]
   depends_on "sdl2"
 
@@ -35,44 +31,74 @@ class Projectm < Formula
     depends_on "mesa"
   end
 
+  resource "projectM-eval" do
+    url "https://github.com/projectM-visualizer/projectm-eval/archive/refs/tags/v1.0.0.tar.gz"
+    sha256 "64656e8fc58ba414036284094767812d8da60c3d429671b0c35eccc1658ab9d0"
+  end
+
   def install
-    system "./configure", "--disable-silent-rules", *std_configure_args
-    system "make", "install"
+    resource("projectM-eval").stage do
+      system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+      system "cmake", "--build", "build"
+      system "cmake", "--install", "build"
+    end
+
+    system "cmake", "-S", ".", "-B", "build", "-DCMAKE_INSTALL_RPATH=#{rpath}", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
-    assert_path_exists prefix/"share/projectM/config.inp"
-    assert_path_exists prefix/"share/projectM/presets"
+    assert_predicate lib/"libprojectM-4.so", :exist? if OS.linux?
+    assert_predicate lib/"libprojectM-4.dylib", :exist? if OS.mac?
 
-    (testpath/"test.cpp").write <<~CPP
-      #include <libprojectM/projectM.hpp>
+    (testpath/"test.c").write <<~C
       #include <SDL2/SDL.h>
+
+      #include <projectM-4/projectM.h>
+
       #include <stdlib.h>
       #include <stdio.h>
 
-      int main()
+      int main(void)
       {
-        // initialize SDL video + openGL
-        if (SDL_Init(SDL_INIT_VIDEO) < 0)
-        {
-          fprintf(stderr, "Video init failed: %s", SDL_GetError());
-          return 1;
-        }
-        atexit(SDL_Quit);
+          if (SDL_Init(SDL_INIT_VIDEO) < 0)
+          {
+              fprintf(stderr, "Video init failed: %s", SDL_GetError());
+              return 1;
+          }
 
-        SDL_Window *win = SDL_CreateWindow("projectM Test", 0, 0, 320, 240,
-                                          SDL_WINDOW_OPENGL | SDL_WINDOW_ALLOW_HIGHDPI);
-        SDL_GLContext glCtx = SDL_GL_CreateContext(win);
+          SDL_Window* win = SDL_CreateWindow("projectM Test", 0, 0, 320, 240,
+              SDL_WINDOW_OPENGL | SDL_WINDOW_ALLOW_HIGHDPI);
+          if (win == NULL)
+          {
+              fprintf(stderr, "SDL Window creation failed: %s", SDL_GetError());
+              return 2;
+          }
 
-        auto *settings = new projectM::Settings();
-        auto *pm = new projectM(*settings, projectM::FLAG_DISABLE_PLAYLIST_LOAD);
+          SDL_GLContext glCtx = SDL_GL_CreateContext(win);
+          if (glCtx == NULL)
+          {
+              fprintf(stderr, "SDL GL context creation failed: %s", SDL_GetError());
+              return 3;
+          }
 
-        // if we get this far without crashing we're in good shape
-        return 0;
+          projectm_handle pm = projectm_create();
+          if (pm == NULL)
+          {
+              fprintf(stderr, "projectM instance creation failed: %s", SDL_GetError());
+              return 4;
+          }
+
+          // Clean up.
+          projectm_destroy(pm);
+          SDL_Quit();
+
+          return 0;
       }
-    CPP
-    flags = shell_output("pkgconf libprojectM sdl2 --cflags --libs").split
-    system ENV.cxx, "-std=c++11", "test.cpp", "-o", "test", *flags
+    C
+    flags = shell_output("pkgconf --cflags --libs projectM-4 sdl2").chomp.split
+    system ENV.cc, "test.c", "-o", "test", *flags
 
     # Fails in Linux CI with "Video init failed: No available video device"
     return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
