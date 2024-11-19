@@ -11,81 +11,109 @@ jobs:
     runs-on: macos-latest
     steps:
     - uses: actions/checkout@v3
+    
     - name: Create a fresh virtual environment and generate formula
       run: |
         python3 -m pip install -U uv
         uv venv
         source .venv/bin/activate
-        uv pip install -U langgraph-cli homebrew-pypi-poet
+        uv pip install -U langgraph-cli[inmem] debugpy homebrew-pypi-poet
         poet -f langgraph-cli > Formula/l/langgraph-cli.rb
         deactivate
-        rm -rf venv
+        rm -rf .venv
+    
     - name: Replace description and test
       run: |
+        python3 -m venv .venv
         source .venv/bin/activate
-        python3 -c "
-import re
+        python3 << 'EOL'
+        import re
 
-content = open('Formula/l/langgraph-cli.rb').read()
+        with open('Formula/l/langgraph-cli.rb', 'r') as f:
+            content = f.read()
 
-# Update description
-content = re.sub(r'desc \"Shiny new formula\"', 'desc \"Command-line interface for deploying apps to the LangGraph platform\"', content)
+        # Update description
+        content = re.sub(
+            r'desc \"Shiny new formula\"',
+            'desc \"Command-line interface for deploying apps to the LangGraph platform\"',
+            content
+        )
 
-# Add license
-content = re.sub(r'sha256 \".*?\"', 'sha256 \"210eea115772df982408366b0aad06d226e6ea3752e8784c3ce99f388b2d07c9\"\n  license \"MIT\"', content)
+        # Add license
+        content = re.sub(
+            r'sha256 \".*?\"',
+            'sha256 \"210eea115772df982408366b0aad06d226e6ea3752e8784c3ce99f388b2d07c9\"\n  license \"MIT\"',
+            content
+        )
 
-# Add bottle block
-bottle_block = '''
-  bottle do
-    sha256 cellar: :any_skip_relocation, all: \"0f1a7595670629ddfb8841df53da419f788c2423f81d72119a2e366f52a8fa7c\"
-  end
-'''
-content = re.sub(r'(license \"MIT\"\n)', f'\\1\n{bottle_block}', content)
+        # Add bottle block
+        bottle_block = '''
+          bottle do
+            sha256 cellar: :any_skip_relocation, all: \"0f1a7595670629ddfb8841df53da419f788c2423f81d72119a2e366f52a8fa7c\"
+          end
+        '''
+        content = re.sub(r'(license \"MIT\"\n)', f'\\1\n{bottle_block}', content)
 
-# Update Python dependency
-content = re.sub(r'depends_on \"python3\"', 'depends_on \"python@3.13\"', content)
+        # Update Python dependency
+        content = re.sub(r'depends_on \"python3\"', 'depends_on \"python@3.13\"', content)
 
-# Update install method
-content = re.sub(r'def install.*?end', 'def install\n    virtualenv_install_with_resources\n  end', content, flags=re.DOTALL)
+        # Update install method
+        content = re.sub(
+            r'def install.*?end',
+            'def install\n    virtualenv_install_with_resources\n  end',
+            content,
+            flags=re.DOTALL
+        )
 
-# Update test block
-test_block = '''
-  test do
-    (testpath/"graph.py").write <<~PYTHON
-      from langgraph.graph import StateGraph
-      builder = StateGraph(list)
-      builder.add_node("anode", lambda x: ["foo"])
-      builder.add_edge("__start__", "anode")
-      graph = builder.compile()
-    PYTHON
+        # Update test block
+        test_block = '''
+          test do
+            (testpath/"graph.py").write <<~PYTHON
+              from langgraph.graph import StateGraph
+              builder = StateGraph(list)
+              builder.add_node("anode", lambda x: ["foo"])
+              builder.add_edge("__start__", "anode")
+              graph = builder.compile()
+            PYTHON
 
-    (testpath/"langgraph.json").write <<~JSON
-      {
-        "graphs": {
-          "agent": "graph.py:graph"
-        },
-        "env": {},
-        "dependencies": ["."]
-      }
-    JSON
+            (testpath/"langgraph.json").write <<~JSON
+              {
+                "graphs": {
+                  "agent": "graph.py:graph"
+                },
+                "env": {},
+                "dependencies": ["."]
+              }
+            JSON
 
-    system bin/"langgraph", "dockerfile", "DOCKERFILE"
-    assert_path_exists "DOCKERFILE"
-    dockerfile_content = File.read("DOCKERFILE")
-    assert_match "FROM", dockerfile_content, "DOCKERFILE should contain 'FROM'"
-  end
-'''
-content = re.sub(r'test do.*?end', test_block, content, flags=re.DOTALL)
+            system bin/"langgraph", "dockerfile", "DOCKERFILE"
+            assert_path_exists "DOCKERFILE"
+            dockerfile_content = File.read("DOCKERFILE")
+            assert_match "FROM", dockerfile_content, "DOCKERFILE should contain 'FROM'"
+          end
+        '''
+        content = re.sub(r'test do.*?end', test_block, content, flags=re.DOTALL)
 
-open('Formula/l/langgraph-cli.rb', 'w').write(content)
-        "
+        with open('Formula/l/langgraph-cli.rb', 'w') as f:
+            f.write(content)
+        EOL
+        deactivate
+        rm -rf .venv
+        echo "Updated formula contents:"
         cat Formula/l/langgraph-cli.rb
+    
     - name: Commit and push
-      run: |-
+      run: |
         git config user.name "Automated"
         git config user.email "actions@users.noreply.github.com"
-        git add -A
+        git add Formula/l/langgraph-cli.rb
         timestamp=$(date -u)
         git commit -m "Update langgraph-cli: ${timestamp}" || exit 0
-        git pull --rebase
-        git push
+        git pull --rebase origin main || {
+          echo "Failed to rebase, please check manually"
+          exit 1
+        }
+        git push origin HEAD || {
+          echo "Failed to push changes, please check manually"
+          exit 1
+        }
