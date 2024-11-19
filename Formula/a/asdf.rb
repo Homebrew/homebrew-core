@@ -26,6 +26,13 @@ class Asdf < Formula
     libexec.install Dir["*"]
     touch libexec/"asdf_updates_disabled"
 
+    # Function file deliberately doesn't follow symlinks (see https://github.com/asdf-vm/asdf/pull/1583) to avoid
+    # breaking shims on `brew upgrade`, so we need to source it from the unversioned path instead of symlinking it.
+    fish_function.mkpath
+    (fish_function/"asdf.fish").write <<~FISH
+      source "#{opt_libexec}/asdf.fish"
+    FISH
+
     bin.write_exec_script libexec/"bin/asdf"
   end
 
