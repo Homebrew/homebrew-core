@@ -72,7 +72,7 @@ class DnsLoadBalancer < Formula
         1. Copy binary to system location:
            sudo cp #{opt_sbin}/dns_load_balancer /usr/local/sbin/
 
-        2. Set setuid bit to allow port 53 binding:
+        2. Set set-user-id bit to allow port 53 binding:
            sudo chmod 4755 /usr/local/sbin/dns_load_balancer
 
         3. Install LaunchDaemon for automatic startup:
@@ -88,7 +88,7 @@ class DnsLoadBalancer < Formula
         Logs: #{var}/log/dns_load_balancer/
 
       Note: The service will automatically drop privileges after binding to port 53
-            if started with elevated permissions or setuid bit.
+            if started with elevated permissions or set-user-id bit.
 
       Manual Control:
         Start: sudo launchctl start com.github.kometen.dns-load-balancer
