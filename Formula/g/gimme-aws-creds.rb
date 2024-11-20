@@ -6,7 +6,7 @@ class GimmeAwsCreds < Formula
   url "https://files.pythonhosted.org/packages/63/73/9e508d37d4d301f6a3811fdc0b0a076696de87f82ad8a81ec28c3e6befb5/gimme_aws_creds-2.8.2.tar.gz"
   sha256 "12784f4b749617d7391bf2056373990277858dc9886328832b545e9e334f24d3"
   license "Apache-2.0"
-  revision 4
+  revision 5
 
   bottle do
     rebuild 1
@@ -49,8 +49,8 @@ class GimmeAwsCreds < Formula
   end
 
   resource "aiohttp" do
-    url "https://files.pythonhosted.org/packages/17/7e/16e57e6cf20eb62481a2f9ce8674328407187950ccc602ad07c685279141/aiohttp-3.10.10.tar.gz"
-    sha256 "0631dd7c9f0822cc61c88586ca76d5b5ada26538097d0f1df510b082bad3411a"
+    url "https://files.pythonhosted.org/packages/d5/66/a967a2e9ceab12b6970ca5be3bccc9cf13fed4acfabe2c66de3d75599185/aiohttp-3.11.6.tar.gz"
+    sha256 "fd9f55c1b51ae1c20a1afe7216a64a88d38afee063baa23c7fce03757023c999"
   end
 
   resource "aiosignal" do
@@ -69,13 +69,13 @@ class GimmeAwsCreds < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/9a/52/2c5b5f419cd6c7797177bc83fadc4e0d373e71bea565b733f4728b0894ba/boto3-1.35.40.tar.gz"
-    sha256 "33c6a7aeab316f7e0b3ad8552afe95a4a10bfd58519d00741c4d4f3047da8382"
+    url "https://files.pythonhosted.org/packages/3a/33/f4155a18a3c374be75638ae83e7e0d6958bcdff50c4fcec9d6340286ec69/boto3-1.35.65.tar.gz"
+    sha256 "f6c266b4124b92b1603727bf1ed1917e0b74a899bd0e326f151d80c3eaed27a1"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/46/96/50aa3079a75dea9fa3e2179121476e4be46f05e9683f8b68db104b8e57cd/botocore-1.35.40.tar.gz"
-    sha256 "547e0a983856c7d7aeaa30fca2a283873c57c07366cd806d2d639856341b3c31"
+    url "https://files.pythonhosted.org/packages/f0/9c/1d9c4a4d0a77659c5404b978a86453214563387a5332587eaedc28c4bbe2/botocore-1.35.65.tar.gz"
+    sha256 "46652f732f2b2fb395fffcc33cacb288d05ea283047c9a996fb59d6849464919"
   end
 
   resource "charset-normalizer" do
@@ -99,8 +99,8 @@ class GimmeAwsCreds < Formula
   end
 
   resource "frozenlist" do
-    url "https://files.pythonhosted.org/packages/cf/3d/2102257e7acad73efc4a0c306ad3953f68c504c16982bbdfee3ad75d8085/frozenlist-1.4.1.tar.gz"
-    sha256 "c037a86e8513059a2613aaba4d817bb90b9d9b6b69aace3ce9c877e8c8ed402b"
+    url "https://files.pythonhosted.org/packages/8f/ed/0f4cec13a93c02c47ec32d81d11c0c1efbadf4a471e3f3ce7cad366cbbd3/frozenlist-1.5.0.tar.gz"
+    sha256 "81d5af29e61b9c8348e876d442253723928dce6433e0e76cd925cd83f1b4b817"
   end
 
   resource "furl" do
@@ -144,8 +144,8 @@ class GimmeAwsCreds < Formula
   end
 
   resource "keyring" do
-    url "https://files.pythonhosted.org/packages/a5/1c/2bdbcfd5d59dc6274ffb175bc29aa07ecbfab196830e0cfbde7bd861a2ea/keyring-25.4.1.tar.gz"
-    sha256 "b07ebc55f3e8ed86ac81dd31ef14e81ace9dd9c3d4b5d77a6e9a2016d0d71a1b"
+    url "https://files.pythonhosted.org/packages/f6/24/64447b13df6a0e2797b586dad715766d756c932ce8ace7f67bd384d76ae0/keyring-25.5.0.tar.gz"
+    sha256 "4c753b3ec91717fe713c4edd522d625889d8973a349b0e582622f49766de58e6"
   end
 
   resource "more-itertools" do
@@ -179,13 +179,13 @@ class GimmeAwsCreds < Formula
   end
 
   resource "pydash" do
-    url "https://files.pythonhosted.org/packages/82/e9/b36999baa4b94082901cbc227830f1adaa43499b28cbde84cc635fde5699/pydash-8.0.3.tar.gz"
-    sha256 "1b27cd3da05b72f0e5ff786c523afd82af796936462e631ffd1b228d91f8b9aa"
+    url "https://files.pythonhosted.org/packages/78/18/02df732cb657f14997ee4c9d93006e61e93a1816cfdc23763a86c78f9b61/pydash-8.0.4.tar.gz"
+    sha256 "a33fb17b4b06c617da5c57c711605d2dc8723311ee5388c8371f87cd44bf4112"
   end
 
   resource "pyjwt" do
-    url "https://files.pythonhosted.org/packages/fb/68/ce067f09fca4abeca8771fe667d89cc347d1e99da3e093112ac329c6020e/pyjwt-2.9.0.tar.gz"
-    sha256 "7e1e5b56cc735432a7369cbfa0efe50fa113ebecdc04ae6922deba8b84582d0c"
+    url "https://files.pythonhosted.org/packages/b5/05/324952ded002de746f87b21066b9373080bb5058f64cf01c4d62784b8186/pyjwt-2.10.0.tar.gz"
+    sha256 "7628a7eb7938959ac1b26e819a1df0fd3259505627b575e4bad6d08f76db695c"
   end
 
   resource "pyobjc-core" do
@@ -254,13 +254,13 @@ class GimmeAwsCreds < Formula
   end
 
   resource "xmltodict" do
-    url "https://files.pythonhosted.org/packages/98/f7/d29b8cdc9d8d075673be0f800013c1161e2fd4234546a140855a1bcc9eb4/xmltodict-0.14.1.tar.gz"
-    sha256 "338c8431e4fc554517651972d62f06958718f6262b04316917008e8fd677a6b0"
+    url "https://files.pythonhosted.org/packages/50/05/51dcca9a9bf5e1bce52582683ce50980bcadbc4fa5143b9f2b19ab99958f/xmltodict-0.14.2.tar.gz"
+    sha256 "201e7c28bb210e374999d1dde6382923ab0ed1a8a5faeece48ab525b7810a553"
   end
 
   resource "yarl" do
-    url "https://files.pythonhosted.org/packages/06/e1/d5427a061819c9f885f58bb0467d02a523f1aec19f9e5f9c82ce950d90d3/yarl-1.15.2.tar.gz"
-    sha256 "a39c36f4218a5bb668b4f06874d676d35a035ee668e6e7e3538835c703634b84"
+    url "https://files.pythonhosted.org/packages/4b/d5/0d0481857de42a44ba4911f8010d4b361dc26487f48d5503c66a797cff48/yarl-1.17.2.tar.gz"
+    sha256 "753eaaa0c7195244c84b5cc159dc8204b7fd99f716f11198f999f2332a86b178"
   end
 
   def install
