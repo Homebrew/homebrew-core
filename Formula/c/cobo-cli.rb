@@ -8,6 +8,8 @@ class CoboCli < Formula
   license "MIT"
 
   depends_on "libyaml"
+  depends_on "libsodium"
+  depends_on "rust"
   depends_on "python@3.9"
 
   resource "annotated-types" do
@@ -90,6 +92,11 @@ class CoboCli < Formula
     sha256 "d155cef71265d1e9807ed1c32b4c8deec042a44a50a4188b25ac67ecd81a9c0f"
   end
 
+  resource "pydantic-core" do
+    url "https://files.pythonhosted.org/packages/e2/aa/6b6a9b9f8537b872f552ddd46dd3da230367754b6f707b8e1e963f515ea3/pydantic_core-2.23.4.tar.gz"
+    sha256 "2584f7cf844ac4d970fba483a717dbe10c1c1c96a969bf65d61ffe94df1b2863"
+  end
+
   resource "pydantic-settings" do
     url "https://files.pythonhosted.org/packages/b5/d4/9dfbe238f45ad8b168f5c96ee49a3df0598ce18a0795a983b419949ce65b/pydantic_settings-2.6.1.tar.gz"
     sha256 "e0f92546d8a9923cb8941689abf85d6601a8c19a23e97a34b2964a2e3f813ca0"
@@ -151,10 +158,7 @@ class CoboCli < Formula
   end
 
   def install
-    virtualenv_create(libexec, "python3")
     virtualenv_install_with_resources
-    system "python3", "-m", "pip", "--python=/opt/homebrew/Cellar/cobo-cli/0.0.4/libexec/bin/python",
-    "install", "--verbose", "--no-deps", "--ignore-installed", "--no-compile", "pydantic-core"
   end
 
   test do
