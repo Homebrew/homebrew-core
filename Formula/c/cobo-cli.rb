@@ -7,10 +7,10 @@ class CoboCli < Formula
   sha256 "06903a3c056e38e8898c82601f8abb6bd53633b9de1ee86c8c41cb7e2d03e2ea"
   license "MIT"
 
-  depends_on "libyaml"
   depends_on "libsodium"
-  depends_on "rust"
+  depends_on "libyaml"
   depends_on "python@3.9"
+  depends_on "rust"
 
   resource "annotated-types" do
     url "https://files.pythonhosted.org/packages/ee/67/531ea369ba64dcff5ec9c3402f9f51bf748cec26dde048a2f973a4eea7f5/annotated_types-0.7.0.tar.gz"
