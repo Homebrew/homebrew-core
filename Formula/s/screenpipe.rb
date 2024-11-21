@@ -1,8 +1,9 @@
 class Screenpipe < Formula
   desc "Library to build personalized AI powered by what you've seen, said, or heard"
   homepage "https://github.com/mediar-ai/screenpipe"
-  url "https://github.com/mediar-ai/screenpipe/archive/refs/tags/v0.1.98.tar.gz"
-  sha256 "cb3c8039ecb60d35bacd2b9673db112f907b4a1d3d7c32f49a5e77c0274268ad"
+  url "https://github.com/mediar-ai/screenpipe/releases/download/v0.2.0/screenpipe-0.2.0-x86_64-apple-darwin.tar.gz"
+  version "0.2.0"
+  sha256 "-apple-darwin"
   license "MIT"
 
   bottle do
