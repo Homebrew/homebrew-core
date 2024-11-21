@@ -6,7 +6,7 @@ class Gnuradio < Formula
   url "https://github.com/gnuradio/gnuradio/archive/refs/tags/v3.10.11.0.tar.gz"
   sha256 "9ca658e6c4af9cfe144770757b34ab0edd23f6dcfaa6c5c46a7546233e5ecd29"
   license "GPL-3.0-or-later"
-  revision 1
+  revision 2
   head "https://github.com/gnuradio/gnuradio.git", branch: "main"
 
   livecheck do
@@ -29,7 +29,7 @@ class Gnuradio < Formula
   depends_on "pybind11" => :build
   depends_on "rust" => :build # for rpds-py
   depends_on "adwaita-icon-theme"
-  depends_on "boost"
+  depends_on "boost@1.85"
   depends_on "cppzmq"
   depends_on "fftw"
   depends_on "fmt"

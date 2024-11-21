@@ -4,6 +4,7 @@ class Scip < Formula
   url "https://scipopt.org/download/release/scip-9.2.0.tgz"
   sha256 "f2a1d568ba0801742df062df17b5a1ced9aec8647057050899e9017807280ff3"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url "https://scipopt.org/scipdata.js"

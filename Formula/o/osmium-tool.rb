@@ -4,7 +4,7 @@ class OsmiumTool < Formula
   url "https://github.com/osmcode/osmium-tool/archive/refs/tags/v1.16.0.tar.gz"
   sha256 "f98454d9f901be42e0b6751aef40106d734887ee35190c224b174c2f27ef1c0f"
   license "GPL-3.0-or-later"
-  revision 4
+  revision 5
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "ebda02a23a3f1cfa0275f71e2c5445e5f3127bc3597db4b16e1fa4b9972500de"

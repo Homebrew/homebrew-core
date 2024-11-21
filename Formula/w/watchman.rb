@@ -4,6 +4,7 @@ class Watchman < Formula
   url "https://github.com/facebook/watchman/archive/refs/tags/v2024.11.18.00.tar.gz"
   sha256 "1dda15fa8f9bb510d6cc3014a5e783dd0d41f3885b539d9f8a8c937d93da9b15"
   license "MIT"
+  revision 1
   head "https://github.com/facebook/watchman.git", branch: "main"
 
   bottle do

@@ -4,7 +4,7 @@ class Dwarfs < Formula
   url "https://github.com/mhx/dwarfs/releases/download/v0.10.1/dwarfs-0.10.1.tar.xz"
   sha256 "db785e0e0f257fa4363d90153db34127add4552791a72998b30ded787840d039"
   license "GPL-3.0-or-later"
-  revision 1
+  revision 2
 
   livecheck do
     url :stable
@@ -25,7 +25,7 @@ class Dwarfs < Formula
 
   depends_on "cmake" => :build
   depends_on "googletest" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "boost"
   depends_on "brotli"
   depends_on "double-conversion"
@@ -60,6 +60,12 @@ class Dwarfs < Formula
     cause "Not all required C++20 features are supported"
   end
 
+  # Backport fix for Boost 1.87.0
+  patch do
+    url "https://github.com/mhx/dwarfs/commit/b14b3b0545827f91239aa057e6e381e2d1063c13.patch?full_index=1"
+    sha256 "f286a0f2bceeff56113159fb999fb2231c7899dfaf6970f668b2973193fd4424"
+  end
+
   def install
     args = %W[
       -DBUILD_SHARED_LIBS=ON
@@ -87,7 +93,7 @@ class Dwarfs < Formula
     end
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
-    system "cmake", "--build", "build", "--parallel"
+    system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
 

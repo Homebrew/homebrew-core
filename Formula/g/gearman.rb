@@ -4,7 +4,7 @@ class Gearman < Formula
   url "https://github.com/gearman/gearmand/releases/download/1.1.21/gearmand-1.1.21.tar.gz"
   sha256 "2688b83e48f26fdcd4fbaef2413ff1a76c9ecb067d1621d0e0986196efecd308"
   license "BSD-3-Clause"
-  revision 3
+  revision 4
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "5cdfdb84c2102f65926d2265929435a919eca018f7535e7cc68c022923065b18"

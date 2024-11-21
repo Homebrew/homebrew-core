@@ -4,7 +4,7 @@ class HppFcl < Formula
   url "https://github.com/humanoid-path-planner/hpp-fcl/releases/download/v2.4.5/hpp-fcl-2.4.5.tar.gz"
   sha256 "14ddfdecdbde323dedf988083e4929d05b5b125ec04effac3c2eec4daa099b43"
   license "BSD-2-Clause"
-  revision 2
+  revision 3
   head "https://github.com/humanoid-path-planner/hpp-fcl.git", branch: "devel"
 
   livecheck do

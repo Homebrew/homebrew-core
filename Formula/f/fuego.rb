@@ -4,7 +4,7 @@ class Fuego < Formula
   url "https://svn.code.sf.net/p/fuego/code/trunk", revision: "1981"
   version "1.1"
   license any_of: ["GPL-3.0-only", "LGPL-3.0-only"]
-  revision 12
+  revision 13
   version_scheme 1
   head "https://svn.code.sf.net/p/fuego/code/trunk"
 

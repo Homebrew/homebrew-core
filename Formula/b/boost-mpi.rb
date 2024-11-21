@@ -1,8 +1,8 @@
 class BoostMpi < Formula
   desc "C++ library for C++/MPI interoperability"
   homepage "https://www.boost.org/"
-  url "https://github.com/boostorg/boost/releases/download/boost-1.86.0/boost-1.86.0-b2-nodocs.tar.xz"
-  sha256 "a4d99d032ab74c9c5e76eddcecc4489134282245fffa7e079c5804b92b45f51d"
+  url "https://github.com/boostorg/boost/releases/download/boost-1.87.0.beta1/boost-1.87.0.beta1-b2-nodocs.tar.xz"
+  sha256 "65b5fff9fb72f1685c9a00c4a125f32613b402482ee361f757482e47d34396ad"
   license "BSL-1.0"
   head "https://github.com/boostorg/boost.git", branch: "master"
 
@@ -32,10 +32,10 @@ class BoostMpi < Formula
     args = %W[
       -d2
       -j#{ENV.make_jobs}
-      --layout=tagged-1.66
+      --layout=system
       --user-config=user-config.jam
       install
-      threading=multi,single
+      threading=multi
       link=shared,static
     ]
 
@@ -43,6 +43,9 @@ class BoostMpi < Formula
     # handling using ENV.cxx11. Using "cxxflags" and "linkflags" still works.
     args << "cxxflags=-std=c++11"
     args << "cxxflags=-stdlib=libc++" << "linkflags=-stdlib=libc++" if ENV.compiler == :clang
+
+    # Avoid linkage to boost container and graph modules
+    args << "linkflags=-Wl,-dead_strip_dylibs" if OS.mac?
 
     open("user-config.jam", "a") do |file|
       if OS.mac?
@@ -66,9 +69,6 @@ class BoostMpi < Formula
     if OS.mac?
       # libboost_mpi links to libboost_serialization, which comes from the main boost formula
       boost = Formula["boost"]
-      MachO::Tools.change_install_name("#{lib}/libboost_mpi-mt.dylib",
-                                       "libboost_serialization-mt.dylib",
-                                       "#{boost.lib}/libboost_serialization-mt.dylib")
       MachO::Tools.change_install_name("#{lib}/libboost_mpi.dylib",
                                        "libboost_serialization.dylib",
                                        "#{boost.lib}/libboost_serialization.dylib")
@@ -107,7 +107,7 @@ class BoostMpi < Formula
     boost = Formula["boost"]
     args = ["-L#{lib}",
             "-L#{boost.lib}",
-            "-lboost_mpi-mt",
+            "-lboost_mpi",
             "-lboost_serialization",
             "-std=c++14"]
 

@@ -4,7 +4,7 @@ class Osm2pgrouting < Formula
   url "https://github.com/pgRouting/osm2pgrouting/archive/refs/tags/v2.3.8.tar.gz"
   sha256 "e3a58bcacf0c8811e0dcf3cf3791a4a7cc5ea2a901276133eacf227b30fd8355"
   license "GPL-2.0-or-later"
-  revision 13
+  revision 14
   head "https://github.com/pgRouting/osm2pgrouting.git", branch: "main"
 
   bottle do

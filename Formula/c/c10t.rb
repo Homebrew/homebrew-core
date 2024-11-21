@@ -4,7 +4,7 @@ class C10t < Formula
   url "https://github.com/udoprog/c10t/archive/refs/tags/1.7.tar.gz"
   sha256 "0e5779d517105bfdd14944c849a395e1a8670bedba5bdab281a0165c3eb077dc"
   license "BSD-3-Clause"
-  revision 9
+  revision 10
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "0221ec0b0d70aa261b1de4b8bf9d6233f03938cd664e7507c032b90804679deb"
@@ -51,7 +51,6 @@ class C10t < Formula
 
   def install
     ENV.cxx11
-    inreplace "test/CMakeLists.txt", "boost_unit_test_framework", "boost_unit_test_framework-mt"
 
     args = []
     unless OS.mac?

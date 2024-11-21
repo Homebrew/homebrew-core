@@ -6,7 +6,7 @@ class Vineyard < Formula
   url "https://github.com/v6d-io/v6d/releases/download/v0.23.2/v6d-0.23.2.tar.gz"
   sha256 "2a2788ed77b9459477b3e90767a910e77e2035a34f33c29c25b9876568683fd4"
   license "Apache-2.0"
-  revision 7
+  revision 8
 
   bottle do
     sha256                               arm64_sequoia: "3c7b80e5d4a10b1959f58e07559912fcb5409a8af0310bcc55eca1d454b63f44"
@@ -22,7 +22,7 @@ class Vineyard < Formula
   depends_on "openssl@3" => :build # indirect (not linked) but CMakeLists.txt checks for it
   depends_on "python@3.12" => :build
   depends_on "apache-arrow"
-  depends_on "boost"
+  depends_on "boost@1.85"
   depends_on "cpprestsdk"
   depends_on "etcd"
   depends_on "etcd-cpp-apiv3"

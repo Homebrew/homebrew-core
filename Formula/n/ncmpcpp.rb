@@ -5,6 +5,7 @@ class Ncmpcpp < Formula
   url "https://github.com/ncmpcpp/ncmpcpp/archive/refs/tags/0.10.1.tar.gz"
   sha256 "ddc89da86595d272282ae8726cc7913867b9517eec6e765e66e6da860b58e2f9"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/ncmpcpp/ncmpcpp.git", branch: "master"
 
   bottle do
@@ -34,8 +35,6 @@ class Ncmpcpp < Formula
     ENV.append "LDFLAGS", "-liconv" if OS.mac?
     ENV.prepend "LDFLAGS", "-L#{Formula["readline"].opt_lib}"
     ENV.prepend "CPPFLAGS", "-I#{Formula["readline"].opt_include}"
-
-    ENV.append "BOOST_LIB_SUFFIX", "-mt"
     ENV.append "CXXFLAGS", "-D_XOPEN_SOURCE_EXTENDED"
 
     args = %w[

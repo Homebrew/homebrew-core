@@ -4,7 +4,7 @@ class LibtorrentRasterbar < Formula
   url "https://github.com/arvidn/libtorrent/releases/download/v2.0.10/libtorrent-rasterbar-2.0.10.tar.gz"
   sha256 "fc935b8c1daca5c0a4d304bff59e64e532be16bb877c012aea4bda73d9ca885d"
   license "BSD-3-Clause"
-  revision 2
+  revision 3
   head "https://github.com/arvidn/libtorrent.git", branch: "RC_2_0"
 
   livecheck do
