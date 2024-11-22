@@ -23,12 +23,12 @@ class Packer < Formula
   end
 
   # https://www.hashicorp.com/blog/hashicorp-adopts-business-source-license
-  disable! date: "2024-09-27", because: "will change its license to BUSL on the next release"
+  deprecate! date: "2024-09-27", because: "will change its license to BUSL on the next release"
 
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w")
+    system "go", "build", *std_go_args(ldflags: "-s -w -B gobuildid")
 
     # Allow packer to find plugins in Homebrew prefix
     bin.env_script_all_files libexec/"bin", PACKER_PLUGIN_PATH: "$PACKER_PLUGIN_PATH:#{HOMEBREW_PREFIX/"bin"}"
