@@ -1,8 +1,8 @@
 class AzurePimCli < Formula
   desc "Unofficial CLI for Azure Privileged Identity Management (PIM) roles"
   homepage "https://github.com/demoray/azure-pim-cli"
-  url "https://github.com/demoray/azure-pim-cli/archive/refs/tags/0.6.1.tar.gz"
-  sha256 "04f8157a5645d2c6e388b4bd151effda7545779c79dc537a2dd8dcba4d14379f"
+  url "https://github.com/demoray/azure-pim-cli/archive/refs/tags/0.7.0.tar.gz"
+  sha256 "730edd638d161f0e81b2e0ce3f479e4ac21a3bb125457b02af60966ac7a607a3"
   license "MIT"
   head "https://github.com/demoray/azure-pim-cli.git", branch: "main"
 
