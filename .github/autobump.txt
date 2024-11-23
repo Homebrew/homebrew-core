@@ -1096,6 +1096,7 @@ gjs
 glances
 glassfish
 glasskube
+glaze
 gleam
 glfw
 glib-networking
