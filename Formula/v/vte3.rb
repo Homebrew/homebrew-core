@@ -1,8 +1,8 @@
 class Vte3 < Formula
   desc "Terminal emulator widget used by GNOME terminal"
   homepage "https://wiki.gnome.org/Apps/Terminal/VTE"
-  url "https://download.gnome.org/sources/vte/0.78/vte-0.78.0.tar.xz"
-  sha256 "07f09c6228a8bb3c1599dd0f5a6ec797b30d3010c3ac91cf21b69d9635dfaf7c"
+  url "https://download.gnome.org/sources/vte/0.78/vte-0.78.2.tar.xz"
+  sha256 "35d7bcde07356846b4a12881c8e016705b70a9004a9082285eee5834ccc49890"
   license "LGPL-2.0-or-later"
 
   bottle do
@@ -44,22 +44,6 @@ class Vte3 < Formula
     # Undefined symbols for architecture x86_64:
     #   "std::__1::__libcpp_verbose_abort(char const*, ...)", referenced from: ...
     depends_on "llvm" if DevelopmentTools.clang_build_version <= 1400
-
-    # Use fast_float implementation for from_chars
-    # upstream bug report, https://gitlab.gnome.org/GNOME/vte/-/issues/2823
-    # TODO: Investigate using the `fast_float` formula instead of the one bundled here.
-    patch do
-      url "https://gitlab.gnome.org/kraj/vte/-/commit/c90b078ecf4382458a9af44d765d710eb46b0453.diff"
-      sha256 "fd8fd85339df1aa5ffb2617d6e67d26e26abb9caeb06ef7766b13341231c2c79"
-    end
-    patch do
-      url "https://gitlab.gnome.org/kraj/vte/-/commit/2a32e43e43b04771a3357d3d4ccbafa7714e0114.diff"
-      sha256 "f69f103b19de93f94fca05dea5a151b4109085ce716472acddb9a112502437d4"
-    end
-    patch do
-      url "https://gitlab.gnome.org/kraj/vte/-/commit/705e019713539bdaf2c50763ba585484c6253a59.diff"
-      sha256 "d09c512852a65a81f56b07c013ee0cc0c17b9dcbf63d9fcc2ac58173092bb80b"
-    end
   end
 
   on_linux do
