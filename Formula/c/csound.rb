@@ -2,7 +2,7 @@ class Csound < Formula
   desc "Sound and music computing system"
   homepage "https://csound.com"
   license "LGPL-2.1-or-later"
-  revision 11
+  revision 12
   head "https://github.com/csound/csound.git", branch: "master"
 
   # Remove `stable` block when patches are no longer needed
@@ -72,8 +72,6 @@ class Csound < Formula
   end
 
   conflicts_with "libextractor", because: "both install `extract` binaries"
-
-  fails_with gcc: "5"
 
   resource "ableton-link" do
     url "https://github.com/Ableton/link/archive/refs/tags/Link-3.1.2.tar.gz"
@@ -235,9 +233,9 @@ class Csound < Formula
 
     system bin/"csound", "test.orc", "test.sco"
 
-    assert_predicate testpath/"test.#{OS.mac? ? "aif" : "wav"}", :exist?
-    assert_predicate testpath/"test.h5", :exist?
-    assert_predicate testpath/"test.mp3", :exist?
+    assert_path_exists testpath/"test.#{OS.mac? ? "aif" : "wav"}"
+    assert_path_exists testpath/"test.h5"
+    assert_path_exists testpath/"test.mp3"
 
     (testpath/"opcode-existence.orc").write <<~ORC
       JackoInfo
