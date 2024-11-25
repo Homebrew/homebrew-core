@@ -15,7 +15,7 @@ class Pillow < Formula
     sha256               x86_64_linux:  "e7a618cba484da3cb05fcaec9d300cde908124f17d3d82c1a69dbe54b782fca0"
   end
 
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "python@3.12" => [:build, :test]
   depends_on "python@3.13" => [:build, :test]
   depends_on "freetype"

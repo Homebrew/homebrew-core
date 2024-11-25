@@ -17,7 +17,7 @@ class Proj < Formula
 
   depends_on "cmake" => :build
   depends_on "libtool" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "libtiff"
 
   uses_from_macos "curl"

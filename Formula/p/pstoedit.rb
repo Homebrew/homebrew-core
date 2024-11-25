@@ -20,22 +20,19 @@ class Pstoedit < Formula
     sha256 x86_64_linux:   "0c915e6e038467fb683d484de48d2b61df78f3af0de3b2ca85bb69ef8cc998da"
   end
 
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "ghostscript"
   depends_on "imagemagick"
   depends_on "plotutils"
 
-  # "You need a C++ compiler, e.g., g++ (newer than 6.0) to compile pstoedit."
-  fails_with gcc: "5"
-
   def install
     ENV.cxx11 if OS.mac?
-    system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
+    system "./configure", *std_configure_args
     system "make", "install"
   end
 
   test do
     system bin/"pstoedit", "-f", "gs:pdfwrite", test_fixtures("test.ps"), "test.pdf"
-    assert_predicate testpath/"test.pdf", :exist?
+    assert_path_exists testpath/"test.pdf"
   end
 end

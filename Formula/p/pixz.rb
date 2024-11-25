@@ -22,7 +22,7 @@ class Pixz < Formula
 
   depends_on "asciidoc" => :build
   depends_on "docbook-xsl" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "libarchive"
   depends_on "xz"
 

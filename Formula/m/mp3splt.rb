@@ -20,12 +20,15 @@ class Mp3splt < Formula
     sha256 x86_64_linux:   "5827fe65a9230261acc5309197b66205d2c72492d58ac2ed2b6a4d38632fea66"
   end
 
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "libmp3splt"
 
+  on_macos do
+    depends_on "gettext"
+  end
+
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    system "./configure", *std_configure_args
     system "make", "install"
   end
 

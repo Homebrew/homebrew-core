@@ -22,7 +22,7 @@ class Pdfgrep < Formula
     depends_on "automake" => :build
   end
 
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "libgcrypt"
   depends_on "pcre2"
   depends_on "poppler"
@@ -31,15 +31,12 @@ class Pdfgrep < Formula
     depends_on "libgpg-error"
   end
 
-  fails_with gcc: "5"
-
   def install
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
 
     ENV.cxx11
     system "./autogen.sh" if build.head?
-
-    system "./configure", *std_configure_args.reject { |s| s["--disable-debug"] }
+    system "./configure", *std_configure_args
     system "make", "install"
   end
 

@@ -22,11 +22,11 @@ class Srtp < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "eae0dbd9de36ab4ca28ded9160425af7fa9ab1928b5de1d94049866627b514b1"
   end
 
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "openssl@3"
 
   def install
-    system "./configure", "--disable-debug", "--prefix=#{prefix}", "--enable-openssl"
+    system "./configure", "--enable-openssl", *std_configure_args
     system "make", "test"
     system "make", "shared_library"
     system "make", "install" # Can't go in parallel of building the dylib

@@ -47,6 +47,6 @@ class Yamllint < Formula
       ---
       foo: bar
     YAML
-    assert_equal "", shell_output("#{bin}/yamllint -f parsable -s good.yaml")
+    assert_empty shell_output("#{bin}/yamllint -f parsable -s good.yaml")
   end
 end

@@ -603,7 +603,6 @@ czg
 czkawka
 d2
 daemon
-dafny
 dagger
 daktilo
 daq
@@ -2269,12 +2268,12 @@ php-cs-fixer
 php@8.1
 php@8.2
 php@8.3
-phpmd
 phpmyadmin
 phpunit
 phylum-cli
 pianod
 picard-tools
+picotool
 pidgin
 pig
 pillow
@@ -2325,7 +2324,6 @@ popeye
 portablegl
 porter
 postgis
-postgresql@12
 postgresql@13
 postgresql@14
 postgresql@15
@@ -2391,7 +2389,6 @@ pycodestyle
 pycparser
 pyenv
 pyenv-virtualenv
-pyflow
 pygit2
 pygments
 pygobject3

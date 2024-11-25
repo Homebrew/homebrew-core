@@ -33,15 +33,13 @@ class Pdns < Formula
     depends_on "ragel"
   end
 
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "boost"
   depends_on "lua"
   depends_on "openssl@3"
   depends_on "sqlite"
 
   uses_from_macos "curl"
-
-  fails_with gcc: "5" # for C++17
 
   def install
     args = %W[

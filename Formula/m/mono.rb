@@ -25,7 +25,7 @@ class Mono < Formula
   depends_on "automake" => :build
   depends_on "cmake" => :build
   depends_on "libtool" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
 
   depends_on "python@3.13"
 
@@ -107,7 +107,7 @@ class Mono < Formula
   test do
     test_str = "Hello Homebrew"
     test_name = "hello.cs"
-    (testpath/test_name).write <<~EOS
+    (testpath/test_name).write <<~CSHARP
       public class Hello1
       {
          public static void Main()
@@ -115,7 +115,7 @@ class Mono < Formula
             System.Console.WriteLine("#{test_str}");
          }
       }
-    EOS
+    CSHARP
     shell_output("#{bin}/mcs #{test_name}")
     output = shell_output("#{bin}/mono hello.exe")
     assert_match test_str, output.strip

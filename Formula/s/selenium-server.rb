@@ -30,7 +30,7 @@ class SeleniumServer < Formula
 
   test do
     port = free_port
-    fork { exec "#{bin}/selenium-server standalone --selenium-manager true --port #{port}" }
+    spawn "#{bin}/selenium-server standalone --selenium-manager true --port #{port}"
 
     parsed_output = nil
 
@@ -50,7 +50,7 @@ class SeleniumServer < Formula
       break if parsed_output["value"]["ready"]
     end
 
-    assert !parsed_output.nil?
+    refute_nil parsed_output
     assert parsed_output["value"]["ready"]
     assert_match version.to_s, parsed_output["value"]["nodes"].first["version"]
   end

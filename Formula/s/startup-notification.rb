@@ -22,18 +22,17 @@ class StartupNotification < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "45873a4a273a11b66436459b7130de94bcb32470a3a4376ef74b2803e2494462"
   end
 
-  depends_on "pkg-config" => [:build, :test]
+  depends_on "pkgconf" => [:build, :test]
   depends_on "libx11"
   depends_on "libxcb"
   depends_on "xcb-util"
 
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    system "./configure", *std_configure_args
     system "make", "install"
   end
 
   test do
-    assert_match "-I#{include}", shell_output("pkg-config --cflags libstartup-notification-1.0").chomp
+    assert_match "-I#{include}", shell_output("pkgconf --cflags libstartup-notification-1.0").chomp
   end
 end

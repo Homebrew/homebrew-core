@@ -21,7 +21,7 @@ class Pdf2svg < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "2524e6d0eecc059f7135c92554ba25a781cb29c32335a6af8d4db24571dd3b82"
   end
 
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "cairo"
   depends_on "glib"
   depends_on "poppler"

@@ -38,6 +38,6 @@ class Tengo < Formula
       fmt.println(sum(0, [1, 2, 3]))   // "6"
       fmt.println(sum("", [1, 2, 3]))  // "123"
     EOS
-    assert_equal shell_output("#{bin}/tengo #{testpath}/main.tengo"), "6\n123\n"
+    assert_equal "6\n123\n", shell_output("#{bin}/tengo #{testpath}/main.tengo")
   end
 end

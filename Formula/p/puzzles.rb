@@ -31,7 +31,7 @@ class Puzzles < Formula
 
   on_linux do
     depends_on "imagemagick" => :build
-    depends_on "pkg-config" => :build
+    depends_on "pkgconf" => :build
     depends_on "cairo"
     depends_on "gdk-pixbuf"
     depends_on "glib"

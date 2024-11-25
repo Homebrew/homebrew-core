@@ -18,7 +18,7 @@ class Prs < Formula
   depends_on "gpgme"
 
   on_linux do
-    depends_on "pkg-config" => :build
+    depends_on "pkgconf" => :build
     depends_on "libxcb"
     depends_on "openssl@3"
   end
@@ -39,6 +39,6 @@ class Prs < Formula
 
     assert_equal expected, shell_output("#{bin}/prs init --no-interactive 2>&1")
     assert_equal "prs #{version}\n", shell_output("#{bin}/prs --version")
-    assert_equal "", shell_output("#{bin}/prs list --no-interactive --quiet")
+    assert_empty shell_output("#{bin}/prs list --no-interactive --quiet")
   end
 end

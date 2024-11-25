@@ -17,7 +17,7 @@ class Pushpin < Formula
   end
 
   depends_on "boost" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "rust" => :build
 
   depends_on "openssl@3"
@@ -25,8 +25,6 @@ class Pushpin < Formula
   depends_on "qt"
   depends_on "zeromq"
   depends_on "zurl"
-
-  fails_with gcc: "5"
 
   def install
     # Work around `cc` crate picking non-shim compiler when compiling `ring`.
@@ -63,7 +61,7 @@ class Pushpin < Formula
       * localhost:10080
     EOS
 
-    runfile.write <<~EOS
+    runfile.write <<~PYTHON
       import threading
       import time
       from http.server import BaseHTTPRequestHandler, HTTPServer
@@ -104,7 +102,7 @@ class Pushpin < Formula
           if tries >= 10:
             raise Exception(f'test client giving up after {tries} tries')
           time.sleep(1)
-    EOS
+    PYTHON
 
     ENV["LC_ALL"] = "en_US.UTF-8"
     ENV["LANG"] = "en_US.UTF-8"

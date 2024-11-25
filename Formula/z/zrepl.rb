@@ -20,7 +20,7 @@ class Zrepl < Formula
   depends_on "go" => :build
 
   resource "homebrew-sample_config" do
-    url "https://raw.githubusercontent.com/zrepl/zrepl/master/config/samples/local.yml"
+    url "https://raw.githubusercontent.com/zrepl/zrepl/refs/tags/v0.6.1/config/samples/local.yml"
     sha256 "f27b21716e6efdc208481a8f7399f35fd041183783e00c57f62b3a5520470c05"
   end
 
@@ -47,7 +47,7 @@ class Zrepl < Formula
   test do
     resources.each do |r|
       r.verify_download_integrity(r.fetch)
-      assert_equal "", shell_output("#{bin}/zrepl configcheck --config #{r.cached_download}")
+      assert_empty shell_output("#{bin}/zrepl configcheck --config #{r.cached_download}")
     end
   end
 end

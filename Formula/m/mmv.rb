@@ -15,7 +15,7 @@ class Mmv < Formula
   end
 
   depends_on "help2man" => :build # for patch
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "bdw-gc"
 
   def install
@@ -31,13 +31,13 @@ class Mmv < Formula
     (testpath/"b").write "2"
 
     assert_match "a -> b : old b would have to be deleted", shell_output("#{bin}/mmv -p a b 2>&1", 1)
-    assert_predicate testpath/"a", :exist?
+    assert_path_exists testpath/"a"
     assert_match "a -> b (*) : done", shell_output("#{bin}/mmv -d -v a b")
-    refute_predicate testpath/"a", :exist?
+    refute_path_exists testpath/"a"
     assert_equal "1", (testpath/"b").read
 
     assert_match "b -> c : done", shell_output("#{bin}/mmv -s -v b c")
-    assert_predicate testpath/"b", :exist?
+    assert_path_exists testpath/"b"
     assert_predicate testpath/"c", :symlink?
     assert_equal "1", (testpath/"c").read
   end

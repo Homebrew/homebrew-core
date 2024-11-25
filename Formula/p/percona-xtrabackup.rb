@@ -30,7 +30,7 @@ class PerconaXtrabackup < Formula
   depends_on "bison" => :build # needs bison >= 3.0.4
   depends_on "cmake" => :build
   depends_on "libevent" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "sphinx-doc" => :build
   depends_on "abseil"
   depends_on "icu4c@76"
@@ -57,11 +57,6 @@ class PerconaXtrabackup < Formula
     depends_on "patchelf" => :build
     depends_on "libaio"
     depends_on "procps"
-  end
-
-  fails_with :gcc do
-    version "6"
-    cause "The build requires GCC 7.1 or later."
   end
 
   # Should be installed before DBD::mysql

@@ -21,7 +21,7 @@ class ProtocGenGrpcWeb < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "node" => :test
   depends_on "typescript" => :test
   depends_on "abseil"
@@ -33,7 +33,7 @@ class ProtocGenGrpcWeb < Formula
 
   def install
     # Workarounds to build with latest `protobuf` which needs Abseil link flags and C++17
-    ENV.append "LDFLAGS", Utils.safe_popen_read("pkg-config", "--libs", "protobuf").chomp
+    ENV.append "LDFLAGS", Utils.safe_popen_read("pkgconf", "--libs", "protobuf").chomp
     inreplace "javascript/net/grpc/web/generator/Makefile", "-std=c++11", "-std=c++17"
 
     args = ["PREFIX=#{prefix}", "STATIC=no"]
@@ -66,12 +66,11 @@ class ProtocGenGrpcWeb < Formula
                      "--grpc-web_out=import_style=typescript,mode=grpcwebtext:."
 
     # Now see if we can import them.
-    testts = <<~EOS
+    (testpath/"test.ts").write <<~TYPESCRIPT
       import * as grpcWeb from 'grpc-web';
       import {TestServiceClient} from './TestServiceClientPb';
       import {Test, TestResult} from './test_pb';
-    EOS
-    (testpath/"test.ts").write testts
+    TYPESCRIPT
     system "npm", "install", *std_npm_args(prefix: false), "grpc-web", "@types/google-protobuf"
     # Specify including lib for `tsc` since `es6` is required for `@types/google-protobuf`.
     system "tsc", "--lib", "es6", "test.ts"

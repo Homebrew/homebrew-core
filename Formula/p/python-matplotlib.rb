@@ -19,7 +19,7 @@ class PythonMatplotlib < Formula
 
   depends_on "meson" => :build
   depends_on "ninja" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "freetype"
   depends_on "numpy"
   depends_on "pillow"
@@ -28,11 +28,6 @@ class PythonMatplotlib < Formula
 
   on_linux do
     depends_on "patchelf" => :build
-  end
-
-  fails_with :gcc do
-    version "6"
-    cause "Requires C++17 compiler"
   end
 
   resource "contourpy" do

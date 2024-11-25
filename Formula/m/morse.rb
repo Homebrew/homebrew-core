@@ -22,7 +22,7 @@ class Morse < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "6f8504ea84011770dbba7831cfb9a35742be9efc2d849657385fb7a68e7ade6f"
   end
 
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "xmlto" => :build
   depends_on "pulseaudio"
 

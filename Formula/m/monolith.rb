@@ -16,7 +16,7 @@ class Monolith < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "ed61ceace599a74a98a764b29b5e86b5eb39a290ad831b093f8d1ab40222c31c"
   end
 
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "rust" => :build
 
   on_linux do

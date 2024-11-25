@@ -17,7 +17,7 @@ class Ssocr < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "7c612e5d1a5b67047699009bd3193889a7bdcdefb7c0b5541b642a4cde7aa49d"
   end
 
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "imlib2"
 
   resource "homebrew-test-image" do

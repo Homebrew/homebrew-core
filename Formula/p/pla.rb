@@ -21,7 +21,7 @@ class Pla < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "f9d8b9816ad19faa6e3fafc3c461124f00a9633ef3c22d4c66c589f25395d60e"
   end
 
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "cairo"
 
   def install

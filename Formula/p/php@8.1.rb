@@ -28,7 +28,7 @@ class PhpAT81 < Formula
   deprecate! date: "2025-12-31", because: :unsupported
 
   depends_on "httpd" => [:build, :test]
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "apr"
   depends_on "apr-util"
   depends_on "argon2"

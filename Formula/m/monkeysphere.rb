@@ -21,7 +21,7 @@ class Monkeysphere < Formula
   end
 
   depends_on "gnu-sed" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "gnupg"
   depends_on "libassuan"
   depends_on "libgcrypt"

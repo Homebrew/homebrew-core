@@ -24,7 +24,7 @@ class MonoLibgdiplus < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "77fcf152ac3af7197f76f21cfa77bb58b9b06c735f2626e8d1a84079f8d47063"
   end
 
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
 
   depends_on "cairo"
   depends_on "fontconfig"

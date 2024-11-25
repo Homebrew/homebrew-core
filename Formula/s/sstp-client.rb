@@ -18,16 +18,15 @@ class SstpClient < Formula
     sha256 x86_64_linux:   "30078ed4805a4e3b52753c60ad87590d21a8a5289b31fde3d27be0116f179b2b"
   end
 
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "libevent"
   depends_on "openssl@3"
 
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-silent-rules",
+    system "./configure", "--disable-silent-rules",
                           "--disable-ppp-plugin",
-                          "--prefix=#{prefix}",
-                          "--with-runtime-dir=#{var}/run/sstpc"
+                          "--with-runtime-dir=#{var}/run/sstpc",
+                          *std_configure_args
     system "make", "install"
 
     # Create a directory needed by sstpc for privilege separation

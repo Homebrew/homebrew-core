@@ -59,7 +59,7 @@ class Vint < Formula
       set backspace=indent,eol,start
       filetype plugin indent on
     EOS
-    assert_equal "", shell_output("#{bin}/vint good.vim")
+    assert_empty shell_output("#{bin}/vint good.vim")
   end
 end
 

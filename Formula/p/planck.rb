@@ -18,7 +18,7 @@ class Planck < Formula
 
   depends_on "clojure" => :build
   depends_on "cmake" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on xcode: :build
   depends_on "icu4c@76"
   depends_on "libzip"
@@ -30,8 +30,6 @@ class Planck < Formula
   on_linux do
     depends_on "webkitgtk"
   end
-
-  fails_with gcc: "5"
 
   # Don't mix our ICU4C headers with the system `libicucore`.
   # TODO: Upstream this.

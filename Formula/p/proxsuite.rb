@@ -18,7 +18,7 @@ class Proxsuite < Formula
 
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "eigen"
   depends_on "numpy"
   depends_on "python@3.13"
@@ -42,10 +42,10 @@ class Proxsuite < Formula
   end
 
   test do
-    system python3, "-c", <<~EOS
+    system python3, "-c", <<~PYTHON
       import proxsuite
       qp = proxsuite.proxqp.dense.QP(10,0,0)
       assert qp.model.H.shape[0] == 10 and qp.model.H.shape[1] == 10
-    EOS
+    PYTHON
   end
 end

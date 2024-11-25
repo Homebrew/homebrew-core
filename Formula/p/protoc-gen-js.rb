@@ -16,7 +16,7 @@ class ProtocGenJs < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "9ad8b956a8cfba26fcaf489dd823b607a2a14dc41496be76244425b09143f334"
   end
 
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "abseil"
   depends_on "protobuf"
 
@@ -24,7 +24,7 @@ class ProtocGenJs < Formula
   # and Protobuf that get statically linked into binary. Check for any upstream changes at
   # https://github.com/protocolbuffers/protobuf-javascript/blob/main/generator/BUILD.bazel
   def install
-    protobuf_flags = Utils.safe_popen_read("pkg-config", "--cflags", "--libs", "protobuf").chomp.split.uniq
+    protobuf_flags = Utils.safe_popen_read("pkgconf", "--cflags", "--libs", "protobuf").chomp.split.uniq
     system ENV.cxx, "-std=c++17", *Dir["generator/*.cc"], "-o", "protoc-gen-js", "-I.", *protobuf_flags, "-lprotoc"
     bin.install "protoc-gen-js"
   end
@@ -39,7 +39,7 @@ class ProtocGenJs < Formula
       }
     EOS
     system Formula["protobuf"].bin/"protoc", "--js_out=import_style=commonjs:.", "person.proto"
-    assert_predicate testpath/"person_pb.js", :exist?
+    assert_path_exists testpath/"person_pb.js"
     refute_predicate (testpath/"person_pb.js").size, :zero?
   end
 end

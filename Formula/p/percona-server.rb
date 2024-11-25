@@ -30,7 +30,7 @@ class PerconaServer < Formula
 
   depends_on "bison" => :build
   depends_on "cmake" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "abseil"
   depends_on "icu4c@76"
   depends_on "libevent"
@@ -60,11 +60,6 @@ class PerconaServer < Formula
   fails_with :clang do
     build 800
     cause "Wrong inlining with Clang 8.0, see MySQL Bug #86711"
-  end
-
-  fails_with :gcc do
-    version "6"
-    cause "GCC 7.1 or newer is required"
   end
 
   # https://github.com/percona/percona-server/blob/Percona-Server-#{version}/cmake/boost.cmake

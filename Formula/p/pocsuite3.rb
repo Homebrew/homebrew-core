@@ -30,7 +30,7 @@ class Pocsuite3 < Formula
   uses_from_macos "libxslt"
 
   on_linux do
-    depends_on "pkg-config" => :build
+    depends_on "pkgconf" => :build
   end
 
   resource "chardet" do

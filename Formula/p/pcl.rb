@@ -27,7 +27,7 @@ class Pcl < Formula
   end
 
   depends_on "cmake" => [:build, :test]
-  depends_on "pkg-config" => [:build, :test]
+  depends_on "pkgconf" => [:build, :test]
   depends_on "boost"
   depends_on "cminpack"
   depends_on "eigen"
@@ -137,7 +137,7 @@ class Pcl < Formula
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "./build/pcd_write"
-    assert_predicate (testpath/"test_pcd.pcd"), :exist?
+    assert_path_exists testpath/"test_pcd.pcd"
     output = File.read("test_pcd.pcd")
     assert_match "POINTS 2", output
     assert_match "1 2 3", output

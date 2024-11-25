@@ -26,18 +26,12 @@ class Pkcs11Helper < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "openssl@3"
 
   def install
-    args = %W[
-      --disable-debug
-      --disable-dependency-tracking
-      --prefix=#{prefix}
-    ]
-
-    system "autoreconf", "--verbose", "--install", "--force"
-    system "./configure", *args
+    system "autoreconf", "--force", "--install", "--verbose"
+    system "./configure", *std_configure_args
     system "make", "install"
   end
 
@@ -52,8 +46,7 @@ class Pkcs11Helper < Formula
         return 0;
       }
     C
-    system ENV.cc, testpath/"test.c", "-I#{include}", "-L#{lib}",
-                   "-lpkcs11-helper", "-o", "test"
+    system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lpkcs11-helper", "-o", "test"
     system "./test"
   end
 end

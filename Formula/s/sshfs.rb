@@ -12,7 +12,7 @@ class Sshfs < Formula
 
   depends_on "meson" => :build
   depends_on "ninja" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "glib"
   depends_on "libfuse"
   depends_on :linux # on macOS, requires closed-source macFUSE

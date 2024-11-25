@@ -31,8 +31,7 @@ class Syntaxerl < Formula
 
   test do
     (testpath/"app.config").write "[{app,[{arg1,1},{arg2,2}]}]."
-    assert_equal "",
-      shell_output("#{bin}/syntaxerl #{testpath}/app.config")
+    assert_empty shell_output("#{bin}/syntaxerl #{testpath}/app.config")
 
     (testpath/"invalid.config").write "]["
     assert_match "invalid.config:1: syntax error before: ']'",

@@ -19,7 +19,7 @@ class Phodav < Formula
 
   depends_on "meson" => :build
   depends_on "ninja" => :build
-  depends_on "pkg-config" => [:build, :test]
+  depends_on "pkgconf" => [:build, :test]
 
   depends_on "glib"
   depends_on "libsoup"
@@ -61,7 +61,7 @@ class Phodav < Formula
     CPP
 
     ENV.prepend_path "PKG_CONFIG_PATH", Formula["icu4c"].lib/"pkgconfig" if OS.mac?
-    flags = shell_output("pkg-config --libs --cflags libphodav-3.0").chomp.split
+    flags = shell_output("pkgconf --libs --cflags libphodav-3.0").chomp.split
     system ENV.cc, "test.cpp", "-o", "test", *flags
     system "./test"
   end

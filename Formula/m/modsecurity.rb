@@ -19,7 +19,7 @@ class Modsecurity < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "libmaxminddb"
   depends_on "lua"
   depends_on "pcre2"
@@ -45,6 +45,7 @@ class Modsecurity < Formula
       "--disable-debug-logs",
       "--disable-doxygen-html",
       "--disable-examples",
+      "--disable-silent-rules",
       "--with-libxml=#{libxml2}",
       "--with-lua=#{Formula["lua"].opt_prefix}",
       "--with-pcre2=#{Formula["pcre2"].opt_prefix}",
@@ -52,7 +53,7 @@ class Modsecurity < Formula
       "--without-geoip",
     ]
 
-    system "./configure", *args, *std_configure_args, "--disable-silent-rules"
+    system "./configure", *args, *std_configure_args
     system "make", "install"
   end
 

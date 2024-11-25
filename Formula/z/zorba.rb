@@ -48,7 +48,6 @@ class Zorba < Formula
   end
 
   test do
-    assert_equal shell_output("#{bin}/zorba -q 1+1").strip,
-                 "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n2"
+    assert_equal "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n2", shell_output("#{bin}/zorba -q 1+1").strip
   end
 end

@@ -26,7 +26,7 @@ class Profanity < Formula
   end
 
   depends_on "libomemo-c" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
 
   depends_on "curl"
   depends_on "glib"
@@ -59,7 +59,7 @@ class Profanity < Formula
     system "./configure", "--disable-silent-rules",
                           "--enable-python-plugins",
                           "BREW=#{HOMEBREW_BREW_FILE}",
-                          *std_configure_args.reject { |s| s["--disable-debug"] }
+                          *std_configure_args
     system "make", "install"
   end
 

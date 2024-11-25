@@ -20,7 +20,7 @@ class Proto < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "6c26477da23c2682e5febda0d176853bcc2544e5000d7002bcca9391b7a13db2"
   end
 
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "rust" => :build
 
   uses_from_macos "bzip2"

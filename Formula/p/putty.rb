@@ -19,7 +19,7 @@ class Putty < Formula
 
   depends_on "cmake" => :build
   depends_on "halibut" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
 
   uses_from_macos "perl" => :build
   uses_from_macos "expect" => :test
@@ -29,18 +29,18 @@ class Putty < Formula
   def install
     build_version = build.head? ? "svn-#{version}" : version
 
-    args = std_cmake_args + %W[
+    args = %W[
       -DRELEASE=#{build_version}
       -DPUTTY_GTK_VERSION=NONE
     ]
 
-    system "cmake", "-S", ".", "-B", "build", *args
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
 
   test do
-    (testpath/"command.sh").write <<~EOS
+    (testpath/"command.exp").write <<~EXPECT
       #!/usr/bin/env expect
       set timeout -1
       spawn #{bin}/puttygen -t rsa -b 4096 -q -o test.key
@@ -50,10 +50,10 @@ class Putty < Formula
       Re-enter passphrase to verify: "
       send -- "Homebrew\n"
       expect eof
-    EOS
-    chmod 0755, testpath/"command.sh"
+    EXPECT
+    chmod 0755, testpath/"command.exp"
 
-    system "./command.sh"
-    assert_predicate testpath/"test.key", :exist?
+    system "./command.exp"
+    assert_path_exists testpath/"test.key"
   end
 end

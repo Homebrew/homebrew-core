@@ -12,13 +12,14 @@ class Squashfuse < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "libfuse"
   depends_on :linux # on macOS, requires closed-source macFUSE
   depends_on "lz4"
   depends_on "lzo"
   depends_on "squashfs"
   depends_on "xz"
+  depends_on "zlib"
   depends_on "zstd"
 
   def install

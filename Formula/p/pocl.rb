@@ -23,13 +23,11 @@ class Pocl < Formula
 
   depends_on "cmake" => :build
   depends_on "opencl-headers" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "hwloc"
   depends_on "llvm@18"
   depends_on "opencl-icd-loader"
   uses_from_macos "python" => :build
-
-  fails_with gcc: "5" # LLVM is built with GCC
 
   def llvm
     deps.map(&:to_formula).find { |f| f.name.match?(/^llvm(@\d+)?$/) }
@@ -67,8 +65,8 @@ class Pocl < Formula
     ENV["OCL_ICD_VENDORS"] = "#{opt_prefix}/etc/OpenCL/vendors" # Ignore any other ICD that may be installed
     cp pkgshare/"examples/poclcc/poclcc.cl", testpath
     system bin/"poclcc", "-o", "poclcc.cl.pocl", "poclcc.cl"
-    assert_predicate testpath/"poclcc.cl.pocl", :exist?
+    assert_path_exists testpath/"poclcc.cl.pocl"
     # Make sure that CMake found our OpenCL headers and didn't install a copy
-    refute_predicate include/"OpenCL", :exist?
+    refute_path_exists include/"OpenCL"
   end
 end

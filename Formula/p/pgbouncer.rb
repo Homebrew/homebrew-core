@@ -30,7 +30,7 @@ class Pgbouncer < Formula
     depends_on "pandoc" => :build
   end
 
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "libevent"
   depends_on "openssl@3"
 

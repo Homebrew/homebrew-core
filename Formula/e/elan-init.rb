@@ -15,6 +15,11 @@ class ElanInit < Formula
     end
   end
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "9414f2c97133007a99261abfea1cb188f953939c0b62b85700b56e8042679461"

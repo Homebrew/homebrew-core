@@ -18,7 +18,7 @@ class Stlink < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "libusb"
 
   # upstream PR ref, https://github.com/stlink-org/stlink/pull/1373
@@ -32,18 +32,16 @@ class Stlink < Formula
   end
 
   def install
-    args = []
-
     libusb = Formula["libusb"]
-    args << "-DLIBUSB_INCLUDE_DIR=#{libusb.opt_include}/libusb-#{libusb.version.major_minor}"
-    args << "-DLIBUSB_LIBRARY=#{libusb.opt_lib/shared_library("libusb-#{libusb.version.major_minor}")}"
-
+    args = %W[
+      -DCMAKE_INSTALL_RPATH=#{rpath}
+      -DLIBUSB_INCLUDE_DIR=#{libusb.opt_include}/libusb-#{libusb.version.major_minor}
+      -DLIBUSB_LIBRARY=#{libusb.opt_lib/shared_library("libusb-#{libusb.version.major_minor}")}
+    ]
     if OS.linux?
       args << "-DSTLINK_MODPROBED_DIR=#{lib}/modprobe.d"
       args << "-DSTLINK_UDEV_RULES_DIR=#{lib}/udev/rules.d"
     end
-
-    args << "-DCMAKE_INSTALL_RPATH=#{rpath}"
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"

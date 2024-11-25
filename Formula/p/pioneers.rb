@@ -20,7 +20,7 @@ class Pioneers < Formula
   depends_on "gettext" => :build
   depends_on "intltool" => :build
   depends_on "itstool" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "cairo"
   depends_on "gdk-pixbuf"
   depends_on "glib"
@@ -52,16 +52,13 @@ class Pioneers < Formula
       s.gsub!(/ -Wl,-z,(relro|now)/, "")
     end
 
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    system "./configure", *std_configure_args
     system "make", "install"
   end
 
   test do
     system bin/"pioneers-editor", "--help"
-    server = fork do
-      system bin/"pioneers-server-console"
-    end
+    server = spawn bin/"pioneers-server-console"
     sleep 5
     Process.kill("TERM", server)
   end

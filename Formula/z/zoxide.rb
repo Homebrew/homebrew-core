@@ -25,7 +25,7 @@ class Zoxide < Formula
   end
 
   test do
-    assert_equal "", shell_output("#{bin}/zoxide add /").strip
+    assert_empty shell_output("#{bin}/zoxide add /").strip
     assert_equal "/", shell_output("#{bin}/zoxide query").strip
   end
 end

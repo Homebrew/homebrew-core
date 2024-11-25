@@ -34,7 +34,7 @@ class Pcaudiolib < Formula
   end
 
   on_linux do
-    depends_on "pkg-config" => :build
+    depends_on "pkgconf" => :build
     depends_on "alsa-lib"
     depends_on "pulseaudio"
   end

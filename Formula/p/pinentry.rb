@@ -23,7 +23,7 @@ class Pinentry < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "d3e303a0b8099dedac66bbc95a0fdc3cfda679e594e60972d99eb3025c6f79fb"
   end
 
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "libassuan"
   depends_on "libgpg-error"
 

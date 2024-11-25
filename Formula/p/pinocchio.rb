@@ -23,7 +23,7 @@ class Pinocchio < Formula
 
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
 
   depends_on "boost"
   depends_on "boost-python3"
@@ -58,11 +58,11 @@ class Pinocchio < Formula
   end
 
   test do
-    system python3, "-c", <<~EOS
+    system python3, "-c", <<~PYTHON
       import pinocchio
       model = pinocchio.Model()
       data = model.createData()
       assert model.nv == 0 and model.nq == 0
-    EOS
+    PYTHON
   end
 end

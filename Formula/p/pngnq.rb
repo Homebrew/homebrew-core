@@ -25,7 +25,7 @@ class Pngnq < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "18ba477730fc049d9a7b16d94247a14e3ad6fbace2f40f8aa5d180822d12e173"
   end
 
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "libpng"
 
   uses_from_macos "zlib"
@@ -50,14 +50,13 @@ class Pngnq < Formula
               "AM_LDFLAGS = `libpng-config --ldflags` -lz\n",
               "LDADD = `libpng-config --ldflags` -lz\n"
 
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    system "./configure", *std_configure_args
     system "make", "install"
   end
 
   test do
     cp test_fixtures("test.png"), "test.png"
     system bin/"pngnq", "-v", "test.png"
-    assert_predicate testpath/"test-nq8.png", :exist?
+    assert_path_exists testpath/"test-nq8.png"
   end
 end

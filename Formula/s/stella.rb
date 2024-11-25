@@ -17,15 +17,13 @@ class Stella < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "7689d9dae573a6288fe3be94adabad8791c2075d210faa27c82e624c4c6c6689"
   end
 
-  depends_on "pkg-config" => :build
-  depends_on xcode: :build
+  depends_on "pkgconf" => :build
+  depends_on xcode: :build # for xcodebuild
   depends_on "libpng"
   depends_on "sdl2"
 
   uses_from_macos "sqlite"
   uses_from_macos "zlib"
-
-  fails_with gcc: "5"
 
   def install
     sdl2 = Formula["sdl2"]

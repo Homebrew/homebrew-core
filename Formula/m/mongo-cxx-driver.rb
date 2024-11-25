@@ -21,7 +21,7 @@ class MongoCxxDriver < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "pkg-config" => :test
+  depends_on "pkgconf" => :test
   depends_on "mongo-c-driver"
 
   def install
@@ -44,15 +44,14 @@ class MongoCxxDriver < Formula
   end
 
   test do
-    pkg_config_flags = shell_output("pkg-config --cflags --libs libbsoncxx").chomp.split
-    system ENV.cc, "-std=c++11", pkgshare/"examples/bsoncxx/builder_basic.cpp", "-I#{pkgshare}",
-      *pkg_config_flags, "-lstdc++", "-o", "test"
+    pkgconf_flags = shell_output("pkgconf --cflags --libs libbsoncxx").chomp.split
+    system ENV.cc, "-std=c++11", pkgshare/"examples/bsoncxx/builder_basic.cpp",
+                   "-I#{pkgshare}", *pkgconf_flags, "-lstdc++", "-o", "test"
     system "./test"
 
-    pkg_config_flags = shell_output("pkg-config --cflags --libs libbsoncxx libmongocxx").chomp.split
-    system ENV.cc, "-std=c++11", pkgshare/"examples/mongocxx/connect.cpp", "-I#{pkgshare}",
-      *pkg_config_flags, "-lstdc++", "-o", "test"
-    assert_match "No suitable servers",
-      shell_output("./test mongodb://0.0.0.0 2>&1", 1)
+    pkgconf_flags = shell_output("pkgconf --cflags --libs libbsoncxx libmongocxx").chomp.split
+    system ENV.cc, "-std=c++11", pkgshare/"examples/mongocxx/connect.cpp",
+                   "-I#{pkgshare}", *pkgconf_flags, "-lstdc++", "-o", "test"
+    assert_match "No suitable servers", shell_output("./test mongodb://0.0.0.0 2>&1", 1)
   end
 end

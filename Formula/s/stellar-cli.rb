@@ -15,7 +15,7 @@ class StellarCli < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "bd594e5e89b8c29f2bcb1f486a16beb62c410878f76fd820f0825a9ffab02059"
   end
 
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "rust" => :build
   depends_on "openssl@3"
 

@@ -23,7 +23,7 @@ class Pms < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "6c3d1cf4ac839cd2c6ae549d4c303dfeed70951bf0473b4919bcbe62a2530961"
   end
 
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
 
   depends_on "gettext"
   depends_on "glib"

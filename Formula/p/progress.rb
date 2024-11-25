@@ -20,7 +20,7 @@ class Progress < Formula
   uses_from_macos "ncurses"
 
   on_linux do
-    depends_on "pkg-config" => :build
+    depends_on "pkgconf" => :build
   end
 
   def install
@@ -28,9 +28,7 @@ class Progress < Formula
   end
 
   test do
-    pid = fork do
-      system "/bin/dd", "if=/dev/urandom", "of=foo", "bs=512", "count=1048576"
-    end
+    pid = spawn "/bin/dd", "if=/dev/urandom", "of=foo", "bs=512", "count=1048576"
     sleep 1
     begin
       assert_match "dd", shell_output(bin/"progress")

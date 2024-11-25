@@ -20,7 +20,7 @@ class Pioneer < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
 
   depends_on "assimp"
   depends_on "freetype"
@@ -34,8 +34,6 @@ class Pioneer < Formula
   on_linux do
     depends_on "mesa"
   end
-
-  fails_with gcc: "5"
 
   def install
     # Set PROJECT_VERSION to be the date of release, not the build date

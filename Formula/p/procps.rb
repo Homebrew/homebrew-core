@@ -15,17 +15,13 @@ class Procps < Formula
   depends_on "automake" => :build
   depends_on "gettext" => :build
   depends_on "libtool" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on :linux
   depends_on "ncurses"
 
   def install
     system "./autogen.sh"
-    system "./configure",
-      "--disable-debug",
-      "--disable-dependency-tracking",
-      "--disable-silent-rules",
-      "--prefix=#{prefix}"
+    system "./configure", "--disable-silent-rules", *std_configure_args
     system "make", "install"
 
     # kill and uptime are also provided by coreutils

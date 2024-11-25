@@ -11,7 +11,7 @@ class Mp3fs < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux: "04bf8e04493815f4cde80f7c8f429a22cfd8d7720e5f4a9c5ef741a700b7c7c4"
   end
 
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "flac"
   depends_on "lame"
   depends_on "libfuse@2"

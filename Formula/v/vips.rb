@@ -81,14 +81,14 @@ class Vips < Formula
 
     # --trellis-quant requires mozjpeg, vips warns if it's not present
     cmd = "#{bin}/vips jpegsave #{test_fixtures("test.png")} #{testpath}/test.jpg --trellis-quant 2>&1"
-    assert_equal "", shell_output(cmd)
+    assert_empty shell_output(cmd)
 
     # [palette] requires libimagequant, vips warns if it's not present
     cmd = "#{bin}/vips copy #{test_fixtures("test.png")} #{testpath}/test.png[palette] 2>&1"
-    assert_equal "", shell_output(cmd)
+    assert_empty shell_output(cmd)
 
     # Make sure `pkg-config` can parse `vips.pc` and `vips-cpp.pc` after the `inreplace`.
-    system "pkg-config", "vips"
-    system "pkg-config", "vips-cpp"
+    system "pkgconf", "--print-errors", "vips"
+    system "pkgconf", "--print-errors", "vips-cpp"
   end
 end

@@ -20,7 +20,7 @@ class Moon < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "5fef0cfb489bc789fe14e585fe36af1123c4c4cc16d7aec333feeae81f12f16a"
   end
 
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "rust" => :build
 
   uses_from_macos "bzip2"
@@ -44,6 +44,6 @@ class Moon < Formula
 
   test do
     system bin/"moon", "init", "--minimal", "--yes"
-    assert_predicate testpath/".moon"/"workspace.yml", :exist?
+    assert_path_exists testpath/".moon/workspace.yml"
   end
 end

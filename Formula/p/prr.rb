@@ -18,7 +18,7 @@ class Prr < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "b261dc29a087e6b2f8cb517e1f3fcc0f465fddf33cfb7ae5c958d23d7efcccc0"
   end
 
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "rust" => :build
   depends_on "libgit2@1.7"
   depends_on "openssl@3"

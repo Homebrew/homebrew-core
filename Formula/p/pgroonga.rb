@@ -19,7 +19,7 @@ class Pgroonga < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "97e067ef693da8269ef9fccfee8f787704dc019714b4637b723d481d8e050b32"
   end
 
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "postgresql@14" => [:build, :test]
   depends_on "postgresql@17" => [:build, :test]
   depends_on "groonga"

@@ -18,7 +18,7 @@ class Pngquant < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "088abd195e0063a9ff6f8b3e041f50c9cc08807c475ac573349cf47607519e51"
   end
 
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "rust" => :build
   depends_on "libpng"
   depends_on "little-cms2"
@@ -37,6 +37,6 @@ class Pngquant < Formula
 
   test do
     system bin/"pngquant", test_fixtures("test.png"), "-o", "out.png"
-    assert_predicate testpath/"out.png", :exist?
+    assert_path_exists testpath/"out.png"
   end
 end

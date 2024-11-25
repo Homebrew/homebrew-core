@@ -26,7 +26,7 @@ class Pcb2gcode < Formula
   depends_on "libsigc++@2" => :build
   depends_on "libtool" => :build
   depends_on "pangomm@2.46" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "at-spi2-core"
   depends_on "boost"
   depends_on "cairo"
@@ -38,11 +38,9 @@ class Pcb2gcode < Formula
   depends_on "harfbuzz"
   depends_on "pango"
 
-  fails_with gcc: "5"
-
   def install
     system "autoreconf", "--force", "--install", "--verbose"
-    system "./configure", *std_configure_args, "--disable-silent-rules"
+    system "./configure", "--disable-silent-rules", *std_configure_args
     system "make", "install"
   end
 
@@ -119,7 +117,7 @@ class Pcb2gcode < Formula
       software=LinuxCNC
     EOS
     system bin/"pcb2gcode", "--front=front.gbr",
-                               "--outline=edge.gbr",
-                               "--drill=drill.drl"
+                            "--outline=edge.gbr",
+                            "--drill=drill.drl"
   end
 end

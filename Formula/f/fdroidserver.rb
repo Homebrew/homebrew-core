@@ -3,17 +3,17 @@ class Fdroidserver < Formula
 
   desc "Create and manage Android app repositories for F-Droid"
   homepage "https://f-droid.org"
-  url "https://files.pythonhosted.org/packages/37/0e/cd734dac6ed40a836db568895be0a898b03fd91c5c391a9e9dfdd03d7934/fdroidserver-2.3.0.tar.gz"
-  sha256 "5589d392636e114af1fef6412c6d38320a68c1a3b55e42c4f5bf2ae254aa0046"
+  url "https://files.pythonhosted.org/packages/7b/dd/9a37d36aadf87ce469c70713887dd9dfa6881010d5b0c9471bb181a4f4f2/fdroidserver-2.3.1.tar.gz"
+  sha256 "b0473bd62976e51a13d58a2e626627773cdcf3df67e747c7f1572afc6c71c89d"
   license "AGPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "4a45fca73a6b891df4948f25a5e92e02490fcdf56c1bd00a4db7052dea9ebfa1"
-    sha256 cellar: :any,                 arm64_sonoma:  "b85590112620b612793b2dc9ec7dd48710726e6e9e5c1ecbb6cf5356f8f37b38"
-    sha256 cellar: :any,                 arm64_ventura: "34008b256d12deb45c84c6b80b0442a4b17f9f790ba95c1eac0da881a021d44a"
-    sha256 cellar: :any,                 sonoma:        "4ca260563d1d994217a298dc0c6f3da55beeb4f02a82e60d2b0af2e5a3462cb7"
-    sha256 cellar: :any,                 ventura:       "445acfce45cf874c5c40da8275bde9dece1f98e6ac02c00ae67055772143a64f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "feb8080862617be10435166b43c71dc7ae32c766de2a4895291afcdbafcfc1be"
+    sha256 cellar: :any,                 arm64_sequoia: "a320355dc1152990278c3b49c392fe39755b6602a737878a911d9d524c944be6"
+    sha256 cellar: :any,                 arm64_sonoma:  "9785a27e44fdb3e5d161da9004582acf67c54b0f21ca49dfacb2f3efeb64e0cb"
+    sha256 cellar: :any,                 arm64_ventura: "270b3788890a410cb8518fda4a4d33e7747e5b89be5cd3519a5209f4475c02ad"
+    sha256 cellar: :any,                 sonoma:        "d40dc8cef4335a023b1691983102fdf48db50a2744904a40d6d1903e0aa32ee4"
+    sha256 cellar: :any,                 ventura:       "855ddc71960dc8cc41e1ad6b24ba23bb6c40bf99370d852f05bf0ab26a0be883"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "708d62d6155c4d5026081b49f5575b8e886ed8b8ebe6a23ad73349b036aa0b86"
   end
 
   depends_on "ninja" => :build
@@ -40,8 +40,8 @@ class Fdroidserver < Formula
   end
 
   resource "androguard" do
-    url "https://files.pythonhosted.org/packages/3d/00/f53ff1247c47a9edee6d8537e7092ad20a005665a9e9e007e1eca7825dc6/androguard-4.1.2.tar.gz"
-    sha256 "9d09390f85cd3af763ab34df565154b4e863b556347bf0b04c4b83bca21dece7"
+    url "https://files.pythonhosted.org/packages/83/78/0f44e8f0fd10493b3118d79d60599c93e5a2cd378d83054014600a620cba/androguard-3.3.5.tar.gz"
+    sha256 "f0655ca3a5add74c550951e79bd0bebbd1c5b239178393d30d8db0bd3202cda2"
   end
 
   resource "apache-libcloud" do
@@ -232,6 +232,11 @@ class Fdroidserver < Formula
   resource "pure-eval" do
     url "https://files.pythonhosted.org/packages/cd/05/0a34433a064256a578f1783a10da6df098ceaa4a57bbeaa96a6c0352786b/pure_eval-0.2.3.tar.gz"
     sha256 "5f4e983f40564c576c7c8635ae88db5956bb2229d7e9237d03b3c0b0190eaf42"
+  end
+
+  resource "puremagic" do
+    url "https://files.pythonhosted.org/packages/09/2d/40599f25667733e41bbc3d7e4c7c36d5e7860874aa5fe9c584e90b34954d/puremagic-1.28.tar.gz"
+    sha256 "195893fc129657f611b86b959aab337207d6df7f25372209269ed9e303c1a8c0"
   end
 
   resource "pydot" do

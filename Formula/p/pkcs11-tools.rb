@@ -18,7 +18,7 @@ class Pkcs11Tools < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "204de485eee7fdc9c63d60924bf2a2559bcddb2b13badbd60f97c8fcbd6ab4c3"
   end
 
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "softhsm" => :test
   depends_on "openssl@3"
 
@@ -36,7 +36,7 @@ class Pkcs11Tools < Formula
   end
 
   def install
-    system "./configure", *std_configure_args, "--disable-silent-rules"
+    system "./configure", "--disable-silent-rules", *std_configure_args
     system "make", "install"
   end
 

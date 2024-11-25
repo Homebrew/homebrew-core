@@ -21,12 +21,12 @@ class ProbeRsTools < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "pkgconf" => :build
   depends_on "rust" => :build
 
   uses_from_macos "bzip2"
 
   on_linux do
-    depends_on "pkg-config" => :build
     depends_on "systemd" # for libudev
   end
 

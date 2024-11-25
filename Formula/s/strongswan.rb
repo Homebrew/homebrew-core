@@ -28,7 +28,7 @@ class Strongswan < Formula
     depends_on "bison" => :build
     depends_on "gettext" => :build
     depends_on "libtool" => :build
-    depends_on "pkg-config" => :build
+    depends_on "pkgconf" => :build
   end
 
   depends_on "openssl@3"

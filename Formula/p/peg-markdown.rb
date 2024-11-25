@@ -24,8 +24,12 @@ class PegMarkdown < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "d1b2212c3e3a3610a02a5f668e3b88785c0bf1c6383f36ed3674abe42cc941bc"
   end
 
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "glib"
+
+  on_macos do
+    depends_on "gettext"
+  end
 
   def install
     system "make"

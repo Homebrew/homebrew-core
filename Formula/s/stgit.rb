@@ -18,7 +18,7 @@ class Stgit < Formula
   end
 
   depends_on "asciidoc" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "rust" => :build
   depends_on "xmlto" => :build
   depends_on "git"

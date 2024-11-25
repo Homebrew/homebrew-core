@@ -7,14 +7,9 @@ class Pdal < Formula
   revision 1
   head "https://github.com/PDAL/PDAL.git", branch: "master"
 
-  # The upstream GitHub repository sometimes creates tags that only include a
-  # major/minor version (`1.2`) and then uses major/minor/patch (`1.2.0`) for
-  # the release tarball. This inconsistency can be a problem if we need to
-  # substitute the version from livecheck in the `stable` URL, so we check the
-  # first-party download page, which links to the tarballs on GitHub.
   livecheck do
-    url "https://pdal.io/en/latest/download.html"
-    regex(/href=.*?PDAL[._-]v?(\d+(?:\.\d+)+)[._-]src\.t/i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do
@@ -27,7 +22,7 @@ class Pdal < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "gdal"
   depends_on "hdf5"
   depends_on "laszip"
@@ -46,18 +41,7 @@ class Pdal < Formula
     depends_on "libunwind"
   end
 
-  fails_with gcc: "5" # gdal is compiled with GCC
-
   def install
-    # Work around an Xcode 15 linker issue which causes linkage against LLVM's
-    # libunwind due to it being present in a library search path.
-    if DevelopmentTools.clang_build_version >= 1500
-      recursive_dependencies
-        .select { |d| d.name.match?(/^llvm(@\d+)?$/) }
-        .map { |llvm_dep| llvm_dep.to_formula.opt_lib }
-        .each { |llvm_lib| ENV.remove "HOMEBREW_LIBRARY_PATHS", llvm_lib }
-    end
-
     args = %w[
       -DWITH_LASZIP=TRUE
       -DBUILD_PLUGIN_GREYHOUND=ON
@@ -74,7 +58,7 @@ class Pdal < Formula
         -DLIBUNWIND_LIBRARY=#{libunwind.opt_lib/shared_library("libunwind")}
       ]
     end
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args, *args
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 

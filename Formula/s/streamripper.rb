@@ -25,7 +25,7 @@ class Streamripper < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "ebe33322f4bca7c998f76446b9c10988c7c058ba02bf0aedbbec87b0a9861a38"
   end
 
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "glib"
   depends_on "mad"
 

@@ -4,18 +4,18 @@ class MetaPackageManager < Formula
 
   desc "Wrapper around all package managers with a unifying CLI"
   homepage "https://kdeldycke.github.io/meta-package-manager/"
-  url "https://files.pythonhosted.org/packages/fb/34/f5770a43e38c7dc9220586c8a8434775f4fa6a8ab8732ed5677b284f6357/meta_package_manager-5.19.0.tar.gz"
-  sha256 "e482b64ff36d0a4307691e4af015b2a6d16b4ad7b3634b2acd0bb3fd27185b65"
+  url "https://files.pythonhosted.org/packages/5d/84/ad19b35a37b1a78366f9c0ef4c431d563a812264a56f598dadff85b864a7/meta_package_manager-5.20.0.tar.gz"
+  sha256 "d479c123a1db677d7bf7b5519a0199c1759617a8796e53b0b84bd1ea77a4d37c"
   license "GPL-2.0-or-later"
   head "https://github.com/kdeldycke/meta-package-manager.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "9f80424ef07d33a56507599496504b68801589d95d605c1bf0838aa453a1f1bf"
-    sha256 cellar: :any,                 arm64_sonoma:  "40bf73f649dcf30bd3e116ccdccacbe63ebf61618c8a24d6209bfd3ae311844d"
-    sha256 cellar: :any,                 arm64_ventura: "f0ab724ff775627fd2a716270c2e45838defd983203b0defdbefc7f0562e5cec"
-    sha256 cellar: :any,                 sonoma:        "47e7f479a924bee06b2e994d18d9a46c56f99993190913e31f41ae6ca1a955d4"
-    sha256 cellar: :any,                 ventura:       "40f92c72901076bf2fd224366a83cf1b1075e56995f3a329f96a5726c438f45f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3cd1a7bcccf3f49658136f48be9adb80047474209e9974e2b1abb653a4012d68"
+    sha256 cellar: :any,                 arm64_sequoia: "1e2e46a60a99b4fb19f606e6e2c0bfcf6188b1aa69c3780946cd655d47f653b0"
+    sha256 cellar: :any,                 arm64_sonoma:  "89831f826acb563cd160693c37f5be1714fc6f8d53e5194fedd93fecb0a2f9d9"
+    sha256 cellar: :any,                 arm64_ventura: "b339ab455b07369f0e17d2d6804054bf892b1fa5e65d1d9ec474a4583ce04f42"
+    sha256 cellar: :any,                 sonoma:        "b832caf06c72cca5c6c933c5844d6ddff4f7a9b8fabfdb00547ddcd7d3cb1c58"
+    sha256 cellar: :any,                 ventura:       "631f93ac7cbd0184f96f71c558880495a9b9794e7623a5d14ad07821c14aa435"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9e92abce52037773ca94e383200789fcaa60c63d16f2e244ce29ab111fd1c5c5"
   end
 
   depends_on "rust" => :build # for rpds-py
@@ -67,8 +67,8 @@ class MetaPackageManager < Formula
   end
 
   resource "click-extra" do
-    url "https://files.pythonhosted.org/packages/53/15/54b0203cb67cdb79f017e2ab57fbc5e77033e82e8e41afe0ae9c14ca3848/click_extra-4.11.3.tar.gz"
-    sha256 "1e475fc6ac4cf319b63d7ff6d9f156974feec000164b6a96d7107e6e3ff97832"
+    url "https://files.pythonhosted.org/packages/6b/95/91202f785473dbd40af553f669921911159eb9bd433e2ef6d9140faa5c61/click_extra-4.11.5.tar.gz"
+    sha256 "cab14bd14e7173ab335b08d37bd0ff31175bc4d3f1cb8b701683211f67139335"
   end
 
   resource "cloup" do
@@ -82,8 +82,8 @@ class MetaPackageManager < Formula
   end
 
   resource "cyclonedx-python-lib" do
-    url "https://files.pythonhosted.org/packages/5f/5e/92fbc03f1ab980ccd2b942e3b3cda0c60a5828a673837b4ee1eaceb924a0/cyclonedx_python_lib-8.4.0.tar.gz"
-    sha256 "1d86efc1e81c0fd01141658b8aed5248c4f4d8d300d7ced9e1dfc39abeafc0a9"
+    url "https://files.pythonhosted.org/packages/67/a8/c735131c5e2a4e778c335b9f2c0500829d947b095e20331c401cfd0b6ef6/cyclonedx_python_lib-8.5.0.tar.gz"
+    sha256 "35f7a139042e4df17ff414fa228cec83c7e4e493bdec990847357791ca72f3a5"
   end
 
   resource "defusedxml" do

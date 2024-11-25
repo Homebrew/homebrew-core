@@ -16,7 +16,7 @@ class Modsurfer < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "d0ae0a282777800dcabb713ce0f994bf1cb0d4154edd5bcf2cdaec083d05b2dd"
   end
 
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "rust" => :build
 
   on_linux do

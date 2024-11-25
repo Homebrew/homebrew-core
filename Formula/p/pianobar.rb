@@ -23,15 +23,13 @@ class Pianobar < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "c0bb0c852528eea565637f7859abd86792173da3161ea88390b9ddf05638f760"
   end
 
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "ffmpeg"
   depends_on "json-c"
   depends_on "libao"
   depends_on "libgcrypt"
 
   uses_from_macos "curl"
-
-  fails_with gcc: "5" # ffmpeg is compiled with GCC
 
   # Fix build with FFmpeg 7.0.
   # Remove when included in a release.

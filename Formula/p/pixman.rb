@@ -21,7 +21,7 @@ class Pixman < Formula
 
   depends_on "meson" => :build
   depends_on "ninja" => :build
-  depends_on "pkg-config" => :test
+  depends_on "pkgconf" => :test
 
   def install
     system "meson", "setup", "build", *std_meson_args
@@ -42,8 +42,8 @@ class Pixman < Formula
       }
     C
 
-    pkg_config_flags = shell_output("pkg-config --cflags --libs pixman-1").chomp.split
-    system ENV.cc, "test.c", "-o", "test", *pkg_config_flags
+    pkgconf_flags = shell_output("pkgconf --cflags --libs pixman-1").chomp.split
+    system ENV.cc, "test.c", "-o", "test", *pkgconf_flags
     system "./test"
   end
 end

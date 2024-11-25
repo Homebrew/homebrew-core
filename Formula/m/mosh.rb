@@ -22,7 +22,7 @@ class Mosh < Formula
     depends_on "automake" => :build
   end
 
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "protobuf"
 
   uses_from_macos "ncurses"
