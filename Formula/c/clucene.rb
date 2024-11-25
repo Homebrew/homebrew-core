@@ -18,7 +18,7 @@ class Clucene < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "5a142b08aa18a0d5ddd94a39ba005c40fba111cd0bf0cef1cb4ace20ad3b4cea"
   end
 
-  deprecate! date: "2023-12-16", because: :unmaintained
+  disable! date: "2024-12-16", because: :unmaintained
 
   depends_on "cmake" => :build
   uses_from_macos "zlib"

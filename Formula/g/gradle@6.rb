@@ -14,7 +14,7 @@ class GradleAT6 < Formula
 
   # EOL with Gradle 8 release on 2023-02-10.
   # https://docs.gradle.org/current/userguide/feature_lifecycle.html#eol_support
-  deprecate! date: "2023-12-14", because: :unmaintained
+  disable! date: "2024-12-14", because: :unmaintained
 
   # gradle@6 does not support Java 16
   depends_on "openjdk@11"

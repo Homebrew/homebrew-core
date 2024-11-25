@@ -27,7 +27,7 @@ class Globe < Formula
   # Upstream uses weak ciphers which modern OpenSSL rejects,
   # so fetching and livechecking no longer work.
   # Last release on 2014-08-13
-  deprecate! date: "2023-12-06", because: :unmaintained
+  disable! date: "2024-12-06", because: :unmaintained
 
   def install
     bin.mkpath

@@ -16,7 +16,7 @@ class Keptn < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "9fc0beacc9f716d912ecc6cb638b023c98a87cb079ea782e787f6de36b50b2c1"
   end
 
-  deprecate! date: "2023-12-21", because: :repo_archived
+  disable! date: "2024-12-21", because: :repo_archived
 
   depends_on "go" => :build
 

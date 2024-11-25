@@ -18,7 +18,7 @@ class Datree < Formula
   end
 
   # project is deprecated per https://github.com/datreeio/datree/pull/964
-  deprecate! date: "2023-12-22", because: :unmaintained
+  disable! date: "2024-12-22", because: :unmaintained
 
   depends_on "go" => :build
 

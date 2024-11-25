@@ -25,7 +25,7 @@ class LuaAT53 < Formula
 
   # See: https://www.lua.org/versions.html#5.3
   # Last release on 2020-09-25
-  deprecate! date: "2023-12-14", because: :deprecated_upstream
+  disable! date: "2024-12-14", because: :deprecated_upstream
 
   uses_from_macos "unzip" => :build
 

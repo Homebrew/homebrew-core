@@ -27,7 +27,7 @@ class BisonAT27 < Formula
 
   keg_only :versioned_formula
 
-  deprecate! date: "2023-12-14", because: :versioned_formula
+  disable! date: "2024-12-14", because: :versioned_formula
 
   uses_from_macos "m4"
 
