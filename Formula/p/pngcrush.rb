@@ -52,6 +52,6 @@ class Pngcrush < Formula
   end
 
   test do
-    system bin/"pngcrush", test_fixtures("test.png"), "/dev/null"
+    system bin/"pngcrush", test_fixtures("test.png"), File::NULL
   end
 end
