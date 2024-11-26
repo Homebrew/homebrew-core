@@ -86,8 +86,8 @@ class Rtags < Formula
     EOS
 
     rdm = fork do
-      $stdout.reopen("/dev/null")
-      $stderr.reopen("/dev/null")
+      $stdout.reopen(File::NULL)
+      $stderr.reopen(File::NULL)
       exec "#{bin}/rdm", "--exclude-filter=\"\"", "-L", "log"
     end
 
