@@ -50,8 +50,8 @@ class Proftpd < Formula
     run [opt_sbin/"proftpd"]
     keep_alive false
     working_dir HOMEBREW_PREFIX
-    log_path "/dev/null"
-    error_log_path "/dev/null"
+    log_path File::NULL
+    error_log_path File::NULL
   end
 
   test do
