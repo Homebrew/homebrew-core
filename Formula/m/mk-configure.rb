@@ -32,6 +32,6 @@ class MkConfigure < Formula
   end
 
   test do
-    system bin/"mkcmake", "-V", "MAKE_VERSION", "-f", "/dev/null"
+    system bin/"mkcmake", "-V", "MAKE_VERSION", "-f", File::NULL
   end
 end
