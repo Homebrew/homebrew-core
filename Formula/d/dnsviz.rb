@@ -50,9 +50,9 @@ class Dnsviz < Formula
       system bin/"dnsviz", "probe", "-d", "0",
         "-r", "example.com-probe-auth.json",
         "-o", "example.com.json"
-      system bin/"dnsviz", "graph", "-r", "example.com.json", "-Thtml", "-o", "/dev/null"
-      system bin/"dnsviz", "grok", "-r", "example.com.json", "-o", "/dev/null"
-      system bin/"dnsviz", "print", "-r", "example.com.json", "-o", "/dev/null"
+      system bin/"dnsviz", "graph", "-r", "example.com.json", "-Thtml", "-o", File::NULL
+      system bin/"dnsviz", "grok", "-r", "example.com.json", "-o", File::NULL
+      system bin/"dnsviz", "print", "-r", "example.com.json", "-o", File::NULL
     end
   end
 end
