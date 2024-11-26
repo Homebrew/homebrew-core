@@ -23,7 +23,7 @@ class Gtkmm4 < Formula
 
   depends_on "meson" => :build
   depends_on "ninja" => :build
-  depends_on "pkg-config" => [:build, :test]
+  depends_on "pkgconf" => [:build, :test]
 
   depends_on "cairo"
   depends_on "cairomm"
@@ -34,8 +34,6 @@ class Gtkmm4 < Formula
   depends_on "gtk4"
   depends_on "libsigc++"
   depends_on "pangomm"
-
-  fails_with gcc: "5"
 
   def install
     system "meson", "setup", "build", *std_meson_args
@@ -55,7 +53,7 @@ class Gtkmm4 < Formula
       }
     CPP
 
-    flags = shell_output("pkg-config --cflags --libs gtkmm-4.0").chomp.split
+    flags = shell_output("pkgconf --cflags --libs gtkmm-4.0").chomp.split
     system ENV.cxx, "-std=c++17", "test.cpp", "-o", "test", *flags
     system "./test"
   end

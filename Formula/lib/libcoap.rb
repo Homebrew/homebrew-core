@@ -18,7 +18,7 @@ class Libcoap < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "openssl@3"
 
   def install
@@ -30,10 +30,7 @@ class Libcoap < Formula
 
   test do
     port = free_port
-    fork do
-      exec bin/"coap-server", "-p", port.to_s
-    end
-
+    spawn bin/"coap-server", "-p", port.to_s
     sleep 1
     output = shell_output(bin/"coap-client -B 5 -m get coap://localhost:#{port}")
     assert_match "This is a test server made with libcoap", output

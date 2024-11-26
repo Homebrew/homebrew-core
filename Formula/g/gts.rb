@@ -23,7 +23,7 @@ class Gts < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on "pkg-config" => [:build, :test]
+  depends_on "pkgconf" => [:build, :test]
   depends_on "glib"
   depends_on "netpbm"
 
@@ -61,8 +61,8 @@ class Gts < Formula
       }
     C
 
-    cflags = Utils.safe_popen_read("pkg-config", "--cflags", "--libs", "gts").strip.split
-    system ENV.cc, "gtstest.c", *cflags, "-lm", "-o", "gtstest"
+    flags = shell_output("pkgconf --cflags --libs gts").strip.split
+    system ENV.cc, "gtstest.c", *flags, "-lm", "-o", "gtstest"
     system "./gtstest"
   end
 end

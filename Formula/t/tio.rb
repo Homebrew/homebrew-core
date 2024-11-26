@@ -1,10 +1,17 @@
 class Tio < Formula
   desc "Simple TTY terminal I/O application"
   homepage "https://tio.github.io"
-  url "https://github.com/tio/tio/releases/download/v3.7/tio-3.7.tar.xz"
-  sha256 "dbaef5dc6849229ce4eb474d4de77a7302cd2b0657731a8df86a44dd359e6afb"
   license "GPL-2.0-or-later"
   head "https://github.com/tio/tio.git", branch: "master"
+
+  stable do
+    url "https://github.com/tio/tio/releases/download/v3.7/tio-3.7.tar.xz"
+    sha256 "dbaef5dc6849229ce4eb474d4de77a7302cd2b0657731a8df86a44dd359e6afb"
+
+    # fix function name conflict with system `send()`
+    # upstream bug report, https://github.com/tio/tio/issues/278
+    patch :DATA
+  end
 
   bottle do
     sha256 cellar: :any, arm64_sequoia:  "1afc83c0a8e2ec3ba362252dd4f5200a3cef1c1c00708fee1178789146edce85"
@@ -20,13 +27,9 @@ class Tio < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkgconf" => :build
-  depends_on "gettext"
+
   depends_on "glib"
   depends_on "lua"
-
-  # fix function name conflict with system `send()`
-  # upstream bug report, https://github.com/tio/tio/issues/278
-  patch :DATA
 
   def install
     system "meson", "setup", "build", "-Dbashcompletiondir=#{bash_completion}", *std_meson_args

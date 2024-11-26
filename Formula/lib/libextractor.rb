@@ -17,7 +17,7 @@ class Libextractor < Formula
     sha256 x86_64_linux:   "f3cbd363b695aecf683d92a8b56aa5cb9a8d7e3d81b6190892c8393de7f4d648"
   end
 
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "libtool"
 
   uses_from_macos "zlib"
@@ -27,9 +27,7 @@ class Libextractor < Formula
   def install
     ENV.deparallelize
 
-    system "./configure", "--disable-silent-rules",
-                          "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    system "./configure", "--disable-silent-rules", *std_configure_args
     system "make", "install"
   end
 

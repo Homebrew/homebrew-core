@@ -18,7 +18,7 @@ class Gwyddion < Formula
     sha256 x86_64_linux:  "763473cb225de5e11dd37aa9af6669daab6deafb30c4cafdc6d27e8fa0a18f0c"
   end
 
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "cairo"
   depends_on "fftw"
   depends_on "gdk-pixbuf"
@@ -48,12 +48,12 @@ class Gwyddion < Formula
 
   def install
     system "autoreconf", "--force", "--install", "--verbose" if OS.mac?
-    system "./configure", *std_configure_args,
+    system "./configure", "--disable-desktop-file-update",
+                          "--disable-pygwy",
                           "--disable-silent-rules",
-                          "--disable-desktop-file-update",
                           "--with-html-dir=#{doc}",
                           "--without-gtksourceview",
-                          "--disable-pygwy"
+                          *std_configure_args
     system "make", "install"
   end
 

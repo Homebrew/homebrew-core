@@ -25,7 +25,7 @@ class Grokj2k < Formula
 
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "exiftool"
   depends_on "jpeg-turbo"
   depends_on "libpng"
@@ -118,8 +118,8 @@ class Grokj2k < Formula
     # Test Exif metadata retrieval
     testpath.install resource("homebrew-test_image")
     system bin/"grk_compress", "--in-file", "basn6a08.tif",
-                                "--out-file", "test.jp2", "--out-fmt", "jp2",
-                                "--transfer-exif-tags"
+                               "--out-file", "test.jp2", "--out-fmt", "jp2",
+                               "--transfer-exif-tags"
     output = shell_output("#{Formula["exiftool"].bin}/exiftool test.jp2")
 
     expected_fields = [

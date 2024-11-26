@@ -18,7 +18,7 @@ class Gfold < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "3179fe94817048eb453d9d6750cb5eb946ed207277fbce5424e6dade6b6f04af"
   end
 
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "rust" => :build
   depends_on "libgit2@1.7"
 
@@ -36,7 +36,7 @@ class Gfold < Formula
     mkdir "test" do
       system "git", "config", "--global", "init.defaultBranch", "master"
       system "git", "init"
-      (Pathname.pwd/"README").write "Testing"
+      Pathname("README").write "Testing"
       system "git", "add", "README"
       system "git", "commit", "-m", "init"
     end

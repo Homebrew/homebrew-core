@@ -25,7 +25,7 @@ class Gplugin < Formula
   depends_on "help2man" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
-  depends_on "pkg-config" => [:build, :test]
+  depends_on "pkgconf" => [:build, :test]
   depends_on "vala" => :build
   depends_on "glib"
   depends_on "gtk4"
@@ -56,7 +56,7 @@ class Gplugin < Formula
       }
     C
 
-    flags = shell_output("pkg-config --cflags --libs gplugin").chomp.split
+    flags = shell_output("pkgconf --cflags --libs gplugin").chomp.split
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end

@@ -26,7 +26,7 @@ class Groonga < Formula
     depends_on "libtool" => :build
   end
 
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "mecab"
   depends_on "mecab-ipadic"
   depends_on "msgpack"

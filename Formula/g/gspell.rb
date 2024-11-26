@@ -18,7 +18,7 @@ class Gspell < Formula
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
-  depends_on "pkg-config" => [:build, :test]
+  depends_on "pkgconf" => [:build, :test]
   depends_on "vala" => :build
 
   depends_on "at-spi2-core"
@@ -59,7 +59,7 @@ class Gspell < Formula
 
     icu4c = deps.map(&:to_formula).find { |f| f.name.match?(/^icu4c@\d+$/) }
     ENV.prepend_path "PKG_CONFIG_PATH", icu4c.opt_lib/"pkgconfig"
-    flags = shell_output("pkg-config --cflags --libs gspell-1").chomp.split
+    flags = shell_output("pkgconf --cflags --libs gspell-1").chomp.split
     system ENV.cc, "test.c", "-o", "test", *flags
     ENV["G_DEBUG"] = "fatal-warnings"
 

@@ -25,7 +25,7 @@ class Gegl < Formula
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
 
   depends_on "babl"
   depends_on "cairo"
@@ -77,14 +77,13 @@ class Gegl < Formula
         return 0;
       }
     C
-    system ENV.cc,
-           "-I#{Formula["babl"].opt_include}/babl-0.1",
-           "-I#{Formula["glib"].opt_include}/glib-2.0",
-           "-I#{Formula["glib"].opt_lib}/glib-2.0/include",
-           "-L#{Formula["glib"].opt_lib}", "-lgobject-2.0", "-lglib-2.0",
-           testpath/"test.c",
-           "-I#{include}/gegl-0.4", "-L#{lib}", "-lgegl-0.4",
-           "-o", testpath/"test"
+    system ENV.cc, "test.c", "-o", "test",
+                   "-I#{Formula["babl"].opt_include}/babl-0.1",
+                   "-I#{Formula["glib"].opt_include}/glib-2.0",
+                   "-I#{Formula["glib"].opt_lib}/glib-2.0/include",
+                   "-I#{include}/gegl-0.4",
+                   "-L#{lib}", "-lgegl-0.4",
+                   "-L#{Formula["glib"].opt_lib}", "-lgobject-2.0", "-lglib-2.0"
     system "./test"
   end
 end

@@ -25,7 +25,7 @@ class Libabw < Formula
   end
 
   depends_on "boost" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "librevenge"
 
   uses_from_macos "gperf" => :build
@@ -33,7 +33,7 @@ class Libabw < Formula
   uses_from_macos "zlib"
 
   def install
-    system "./configure", *std_configure_args, "--disable-silent-rules", "--without-docs"
+    system "./configure", "--disable-silent-rules", "--without-docs", *std_configure_args
     system "make", "install"
   end
 
@@ -109,7 +109,7 @@ class Libabw < Formula
       }
     CPP
 
-    assert_equal shell_output("#{bin}/abw2text test.abw"), "This word is bold.\n"
+    assert_equal "This word is bold.\n", shell_output("#{bin}/abw2text test.abw")
 
     args = %W[
       -I#{include/"libabw-0.1"} -I#{Formula["librevenge"].opt_include/"librevenge-0.0"}
@@ -117,6 +117,6 @@ class Libabw < Formula
       -labw-0.1 -lrevenge-stream-0.0 -lrevenge-generators-0.0 -lrevenge-0.0
     ]
     system ENV.cxx, "test.cpp", *args, "-o", "test"
-    assert_equal shell_output(testpath/"test"), "ok\n"
+    assert_equal "ok\n", shell_output(testpath/"test")
   end
 end

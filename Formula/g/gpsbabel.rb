@@ -22,14 +22,12 @@ class Gpsbabel < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "libusb"
   depends_on "qt"
   depends_on "shapelib"
 
   uses_from_macos "zlib"
-
-  fails_with gcc: "5"
 
   def install
     ENV.cxx11
@@ -62,6 +60,6 @@ class Gpsbabel < Formula
       </loc>
     EOS
     system bin/"gpsbabel", "-i", "geo", "-f", "test.loc", "-o", "gpx", "-F", "test.gpx"
-    assert_predicate testpath/"test.gpx", :exist?
+    assert_path_exists testpath/"test.gpx"
   end
 end

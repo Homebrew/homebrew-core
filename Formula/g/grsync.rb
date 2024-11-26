@@ -18,7 +18,7 @@ class Grsync < Formula
   end
 
   depends_on "intltool" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "gettext"
   depends_on "glib"
   depends_on "gtk+3"
@@ -46,6 +46,6 @@ class Grsync < Formula
   test do
     # running the executable always produces the GUI, which is undesirable for the test
     # so we'll just check if the executable exists
-    assert_predicate bin/"grsync", :exist?
+    assert_path_exists bin/"grsync"
   end
 end

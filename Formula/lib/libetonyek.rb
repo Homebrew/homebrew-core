@@ -22,7 +22,7 @@ class Libetonyek < Formula
   depends_on "boost" => :build
   depends_on "glm" => :build
   depends_on "mdds" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "librevenge"
 
   uses_from_macos "libxml2"

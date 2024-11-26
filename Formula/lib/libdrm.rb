@@ -17,7 +17,7 @@ class Libdrm < Formula
   depends_on "docutils" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "libpciaccess"
   depends_on :linux
 

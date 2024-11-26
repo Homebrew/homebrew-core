@@ -24,15 +24,14 @@ class Libdnet < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
 
   def install
     # autoreconf to get '.dylib' extension on shared lib
     ENV.append_path "ACLOCAL_PATH", "config"
-    system "autoreconf", "-ivf"
+    system "autoreconf", "--force", "--install", "--verbose"
 
-    args = std_configure_args - ["--disable-debug"]
-    system "./configure", *args, "--mandir=#{man}", "--disable-check"
+    system "./configure", "--mandir=#{man}", "--disable-check", *std_configure_args
     system "make", "install"
   end
 

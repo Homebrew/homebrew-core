@@ -10,7 +10,7 @@ class Gocryptfs < Formula
   end
 
   depends_on "go" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "libfuse"
   depends_on :linux # on macOS, requires closed-source macFUSE
   depends_on "openssl@3"
@@ -24,6 +24,6 @@ class Gocryptfs < Formula
   test do
     (testpath/"encdir").mkpath
     pipe_output("#{bin}/gocryptfs -init #{testpath}/encdir", "password", 0)
-    assert_predicate testpath/"encdir/gocryptfs.conf", :exist?
+    assert_path_exists testpath/"encdir/gocryptfs.conf"
   end
 end

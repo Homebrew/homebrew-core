@@ -32,7 +32,7 @@ class Libewf < Formula
     depends_on "libtool" => :build
   end
 
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "openssl@3"
 
   uses_from_macos "bzip2"
@@ -44,14 +44,12 @@ class Libewf < Formula
       system "./autogen.sh"
     end
 
-    args = %W[
-      --disable-dependency-tracking
+    args = %w[
       --disable-silent-rules
-      --prefix=#{prefix}
       --with-libfuse=no
     ]
 
-    system "./configure", *args
+    system "./configure", *args, *std_configure_args
     system "make", "install"
   end
 

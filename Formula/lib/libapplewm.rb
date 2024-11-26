@@ -18,7 +18,7 @@ class Libapplewm < Formula
     sha256 cellar: :any, catalina:       "c3e392ce25599cfe0929f1cd14a24a4d512697c952f15dea0533c2dbb8755b23"
   end
 
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
 
   depends_on "libx11"
   depends_on "libxext"
@@ -30,7 +30,7 @@ class Libapplewm < Formula
     # https://gitlab.freedesktop.org/xorg/lib/libapplewm/-/commit/be972ebc3a97292e7d2b2350eff55ae12df99a42
     # TODO: Remove in the next release
     inreplace "src/Makefile.in", "-F", "-iframeworkwithsysroot "
-    system "./configure", *std_configure_args, "--with-sysroot=#{MacOS.sdk_path}"
+    system "./configure", "--with-sysroot=#{MacOS.sdk_path}", *std_configure_args
     system "make"
     system "make", "install"
   end

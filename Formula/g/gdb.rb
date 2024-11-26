@@ -31,7 +31,7 @@ class Gdb < Formula
   end
 
   on_linux do
-    depends_on "pkg-config" => :build
+    depends_on "pkgconf" => :build
     depends_on "guile"
   end
 
@@ -42,8 +42,6 @@ class Gdb < Formula
       'const any_static_probe_ops' without a user-provided default constructor
     EOS
   end
-
-  fails_with gcc: "5"
 
   def install
     args = %W[

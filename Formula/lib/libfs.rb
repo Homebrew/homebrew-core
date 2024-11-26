@@ -16,20 +16,18 @@ class Libfs < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "c17d8ae2548594b5aae02734f0c2804858754e00f2e1b2dcc38d5bc86086aa5e"
   end
 
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "xtrans" => :build
   depends_on "xorgproto"
 
   def install
     args = %W[
-      --prefix=#{prefix}
       --sysconfdir=#{etc}
       --localstatedir=#{var}
-      --disable-dependency-tracking
       --disable-silent-rules
     ]
 
-    system "./configure", *args
+    system "./configure", *args, *std_configure_args
     system "make"
     system "make", "install"
   end

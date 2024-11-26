@@ -20,7 +20,7 @@ class Ginac < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "1fdede5aa580316b0c9d774fc07455d659d760cb9fa76d10bec3eb47128b0cae"
   end
 
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "cln"
   depends_on "python@3.13"
   depends_on "readline"
@@ -49,10 +49,8 @@ class Ginac < Formula
         return 0;
       }
     CPP
-    system ENV.cxx, "test.cpp", "-L#{lib}",
-                                "-L#{Formula["cln"].lib}",
-                                "-lcln", "-lginac", "-o", "test",
-                                "-std=c++11"
+    system ENV.cxx, "-std=c++11", "test.cpp", "-o", "test",
+                    "-L#{lib}", "-L#{Formula["cln"].lib}", "-lcln", "-lginac"
     system "./test"
   end
 end

@@ -19,7 +19,7 @@ class GitCredentialLibsecret < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "c3307d6056663fa544c169d5d00c26741340859842dda70dece03ab1f5b95999"
   end
 
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
 
   depends_on "glib"
   depends_on "libsecret"

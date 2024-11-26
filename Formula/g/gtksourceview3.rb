@@ -23,7 +23,7 @@ class Gtksourceview3 < Formula
   end
 
   depends_on "gobject-introspection" => :build
-  depends_on "pkg-config" => [:build, :test]
+  depends_on "pkgconf" => [:build, :test]
   depends_on "vala" => :build
 
   depends_on "at-spi2-core"
@@ -64,7 +64,7 @@ class Gtksourceview3 < Formula
       }
     C
 
-    flags = shell_output("pkg-config --cflags --libs gtksourceview-3.0").strip.split
+    flags = shell_output("pkgconf --cflags --libs gtksourceview-3.0").strip.split
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end

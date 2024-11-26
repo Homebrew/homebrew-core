@@ -17,7 +17,7 @@ class GitSeries < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "e4e30b3ca3b0d4459f63857d9f6979b0976db69777671b37d29e1c9118817ff5"
   end
 
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "rust" => :build
   depends_on "libgit2"
   depends_on "libssh2"

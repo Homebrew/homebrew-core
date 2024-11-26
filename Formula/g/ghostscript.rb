@@ -31,7 +31,7 @@ class Ghostscript < Formula
     depends_on "libtool" => :build
   end
 
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "fontconfig"
   depends_on "freetype"
   depends_on "jbig2dec"
@@ -50,8 +50,6 @@ class Ghostscript < Formula
 
   conflicts_with "gambit-scheme", because: "both install `gsc` binary"
   conflicts_with "git-spice", because: "both install `gs` binary"
-
-  fails_with gcc: "5"
 
   # https://sourceforge.net/projects/gs-fonts/
   resource "fonts" do
@@ -74,7 +72,7 @@ class Ghostscript < Formula
 
     # Set the correct library install names so that `brew` doesn't need to fix them up later.
     ENV["DARWIN_LDFLAGS_SO_PREFIX"] = "#{opt_lib}/"
-    system configure, *std_configure_args, *args
+    system configure, *args, *std_configure_args
 
     # Install binaries and libraries
     system "make", "install"

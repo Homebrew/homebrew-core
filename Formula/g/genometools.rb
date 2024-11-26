@@ -17,7 +17,7 @@ class Genometools < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "38195c0605998af265648a4c1efb0804987c6505110a0db321dd14512480b46d"
   end
 
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "cairo"
   depends_on "glib"
   depends_on "pango"

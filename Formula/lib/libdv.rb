@@ -30,7 +30,7 @@ class Libdv < Formula
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
-    depends_on "pkg-config" => :build
+    depends_on "pkgconf" => :build
   end
 
   # remove SDL1 dependency by force
@@ -44,18 +44,17 @@ class Libdv < Formula
       # This flag is the preferred method over what macports uses.
       # See the apple docs: https://cl.ly/2HeF bottom of the "Finding Imported Symbols" section
       ENV.append "LDFLAGS", "-undefined dynamic_lookup"
-      system "autoreconf", "-fvi"
+      system "autoreconf", "--force", "--install", "--verbose"
     end
 
     # Fix compile with newer Clang
     ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
 
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
+    system "./configure", "--disable-asm",
                           "--disable-gtktest",
                           "--disable-gtk",
-                          "--disable-asm",
-                          "--disable-sdltest"
+                          "--disable-sdltest",
+                          *std_configure_args
     system "make", "install"
   end
 end

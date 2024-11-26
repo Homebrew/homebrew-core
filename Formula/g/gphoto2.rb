@@ -25,7 +25,7 @@ class Gphoto2 < Formula
     sha256 x86_64_linux:   "52adb4dfc3a7c3b062ff23a25adf8ddcaaead4cef2df8e1e355067fb124f4873"
   end
 
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
 
   depends_on "jpeg-turbo"
   depends_on "libexif"
@@ -42,7 +42,7 @@ class Gphoto2 < Formula
   patch :DATA
 
   def install
-    system "./configure", *std_configure_args.reject { |s| s["--disable-debug"] }
+    system "./configure", *std_configure_args
     system "make", "install"
   end
 

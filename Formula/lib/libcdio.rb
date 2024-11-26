@@ -23,7 +23,7 @@ class Libcdio < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "c87bf684fc0785e0b70ce4ff982625326e65f0e79fdbe528693a81f979e12253"
   end
 
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
 
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
@@ -32,8 +32,7 @@ class Libcdio < Formula
   end
 
   def install
-    system "./configure", "--disable-dependency-tracking", "--disable-silent-rules",
-                          "--prefix=#{prefix}"
+    system "./configure", "--disable-silent-rules", *std_configure_args
     system "make", "install"
   end
 

@@ -24,7 +24,7 @@ class Gtkspell3 < Formula
   depends_on "gtk-doc" => :build
   depends_on "intltool" => :build
   depends_on "libtool" => :build
-  depends_on "pkg-config" => [:build, :test]
+  depends_on "pkgconf" => [:build, :test]
   depends_on "vala" => :build
 
   depends_on "enchant"
@@ -62,8 +62,8 @@ class Gtkspell3 < Formula
       }
     C
 
-    pkg_config_flags = shell_output("pkg-config --cflags --libs gtkspell3-3.0").chomp.split
-    system ENV.cc, "test.c", "-o", "test", *pkg_config_flags
+    flags = shell_output("pkgconf --cflags --libs gtkspell3-3.0").chomp.split
+    system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end
 end

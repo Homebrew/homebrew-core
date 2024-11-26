@@ -28,7 +28,7 @@ class Libepoxy < Formula
 
   depends_on "meson" => :build
   depends_on "ninja" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
 
   on_linux do
     depends_on "freeglut"
@@ -42,7 +42,6 @@ class Libepoxy < Formula
 
   test do
     (testpath/"test.c").write <<~C
-
       #include <epoxy/gl.h>
       #ifdef OS_MAC
       #include <OpenGL/CGLContext.h>

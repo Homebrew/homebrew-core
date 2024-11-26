@@ -19,7 +19,7 @@ class Libfreefare < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "d3837eb7894980557e16a097e05bc2fa8d42429177f30359166820cca640cc52"
   end
 
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "libnfc"
   depends_on "openssl@3"
 

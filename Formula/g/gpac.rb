@@ -25,7 +25,7 @@ class Gpac < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "3fa932d0f671a1643b20f381bba3181328431e5ef9555444a8d25a983ace36e1"
   end
 
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "openssl@3"
 
   uses_from_macos "zlib"
@@ -46,6 +46,6 @@ class Gpac < Formula
 
   test do
     system bin/"MP4Box", "-add", test_fixtures("test.mp3"), testpath/"out.mp4"
-    assert_predicate testpath/"out.mp4", :exist?
+    assert_path_exists testpath/"out.mp4"
   end
 end

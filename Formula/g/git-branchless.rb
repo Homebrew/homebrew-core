@@ -23,7 +23,7 @@ class GitBranchless < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "8d92a10006422d6f296aef114de2a5f52b6537b117666ebbbc0b2bceb1e67bde"
   end
 
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "rust" => :build
   depends_on "libgit2"
 

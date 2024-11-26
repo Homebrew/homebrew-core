@@ -18,21 +18,19 @@ class Libdmx < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "0296a0ca6fde5ca5ba12b45505db769743916188a47d0b876049488f31185833"
   end
 
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "libx11"
   depends_on "libxext"
   depends_on "xorgproto"
 
   def install
     args = %W[
-      --prefix=#{prefix}
       --sysconfdir=#{etc}
       --localstatedir=#{var}
-      --disable-dependency-tracking
       --disable-silent-rules
     ]
 
-    system "./configure", *args
+    system "./configure", *args, *std_configure_args
     system "make"
     system "make", "install"
   end

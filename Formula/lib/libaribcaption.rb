@@ -18,10 +18,10 @@ class Libaribcaption < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "pkg-config" => :test
+  depends_on "pkgconf" => :test
 
   on_linux do
-    depends_on "pkg-config" => :build
+    depends_on "pkgconf" => :build
     depends_on "fontconfig"
     depends_on "freetype"
   end
@@ -44,7 +44,7 @@ class Libaribcaption < Formula
         return 0;
       }
     C
-    flags = shell_output("pkg-config --cflags --libs libaribcaption").chomp.split
+    flags = shell_output("pkgconf --cflags --libs libaribcaption").chomp.split
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end

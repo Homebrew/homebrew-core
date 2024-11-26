@@ -18,7 +18,7 @@ class Libfido2 < Formula
 
   depends_on "cmake" => :build
   depends_on "mandoc" => :build
-  depends_on "pkg-config" => [:build, :test]
+  depends_on "pkgconf" => [:build, :test]
   depends_on "libcbor"
   depends_on "openssl@3"
 
@@ -29,11 +29,9 @@ class Libfido2 < Formula
   end
 
   def install
-    args = std_cmake_args
+    args = OS.linux? ? ["-DUDEV_RULES_DIR=#{lib}/udev/rules.d"] : []
 
-    args << "-DUDEV_RULES_DIR=#{lib}/udev/rules.d" if OS.linux?
-
-    system "cmake", "-S", ".", "-B", ".", *args
+    system "cmake", "-S", ".", "-B", ".", *args, *std_cmake_args
     system "cmake", "--build", "."
     system "cmake", "--build", ".", "--target", "man_symlink_html"
     system "cmake", "--build", ".", "--target", "man_symlink"
@@ -61,8 +59,8 @@ class Libfido2 < Formula
       }
     EOF
 
-    pkg_config_flags = shell_output("pkg-config --cflags --libs libfido2").chomp.split
-    system ENV.cc, "test.c", "-I#{include}", "-o", "test", *pkg_config_flags
+    flags = shell_output("pkgconf --cflags --libs libfido2").chomp.split
+    system ENV.cc, "test.c", "-I#{include}", "-o", "test", *flags
     system "./test"
   end
 end

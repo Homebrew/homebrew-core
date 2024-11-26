@@ -22,7 +22,7 @@ class Graphene < Formula
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
-  depends_on "pkg-config" => [:build, :test]
+  depends_on "pkgconf" => [:build, :test]
 
   depends_on "glib"
 
@@ -46,7 +46,7 @@ class Graphene < Formula
       }
     C
 
-    pkg_config_cflags = shell_output("pkg-config --cflags --libs glib-2.0 graphene-1.0").chomp.split
-    system ENV.cc, "test.c", *pkg_config_cflags, "-o", "test"
+    flags = shell_output("pkgconf --cflags --libs glib-2.0 graphene-1.0").chomp.split
+    system ENV.cc, "test.c", *flags, "-o", "test"
   end
 end

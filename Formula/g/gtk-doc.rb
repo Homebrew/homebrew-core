@@ -26,7 +26,7 @@ class GtkDoc < Formula
 
   depends_on "meson" => :build
   depends_on "ninja" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "docbook"
   depends_on "docbook-xsl"
   depends_on "python@3.13"
@@ -51,13 +51,13 @@ class GtkDoc < Formula
 
   def install
     # To avoid recording pkg-config shims path
-    ENV.prepend_path "PATH", Formula["pkg-config"].bin
+    ENV.prepend_path "PATH", Formula["pkgconf"].bin
 
     venv = virtualenv_create(libexec, "python3.13")
     venv.pip_install resources
     ENV.prepend_path "PATH", libexec/"bin"
 
-    system "meson", "setup", "build", *std_meson_args, "-Dtests=false", "-Dyelp_manual=false"
+    system "meson", "setup", "build", "-Dtests=false", "-Dyelp_manual=false", *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"
     system "meson", "install", "-C", "build"
   end

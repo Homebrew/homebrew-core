@@ -20,7 +20,7 @@ class Got < Formula
   end
 
   depends_on "bison" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "libevent"
   depends_on "libretls"
   depends_on "ncurses"

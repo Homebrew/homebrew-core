@@ -17,7 +17,7 @@ class Gtkdatabox < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "1585023f5e6799a8eab163fae37ba597262d3352a01f2bee7763359224f94388"
   end
 
-  depends_on "pkg-config" => [:build, :test]
+  depends_on "pkgconf" => [:build, :test]
   depends_on "cairo"
   depends_on "glib"
   depends_on "gtk+3"
@@ -31,7 +31,7 @@ class Gtkdatabox < Formula
   end
 
   def install
-    system "./configure", *std_configure_args.reject { |s| s["--disable-debug"] }
+    system "./configure", *std_configure_args
     system "make", "install"
   end
 
@@ -46,8 +46,8 @@ class Gtkdatabox < Formula
       }
     C
 
-    pkg_config_flags = shell_output("pkg-config --cflags --libs gtkdatabox").chomp.split
-    system ENV.cc, "test.c", "-o", "test", *pkg_config_flags
+    flags = shell_output("pkgconf --cflags --libs gtkdatabox").chomp.split
+    system ENV.cc, "test.c", "-o", "test", *flags
     # Disable this part of test on Linux because display is not available.
     system "./test" if OS.mac?
   end
