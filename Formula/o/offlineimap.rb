@@ -113,8 +113,8 @@ class Offlineimap < Formula
     run_type :interval
     interval 300
     environment_variables PATH: std_service_path_env
-    log_path "/dev/null"
-    error_log_path "/dev/null"
+    log_path File::NULL
+    error_log_path File::NULL
   end
 
   test do
