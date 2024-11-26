@@ -220,8 +220,8 @@ class Buku < Formula
 
     port = free_port
     pid = fork do
-      $stdout.reopen("/dev/null")
-      $stderr.reopen("/dev/null")
+      $stdout.reopen(File::NULL)
+      $stderr.reopen(File::NULL)
       exec "#{bin}/bukuserver", "run", "--host", "127.0.0.1", "--port", port.to_s
     end
 
