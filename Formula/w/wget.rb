@@ -51,6 +51,6 @@ class Wget < Formula
   end
 
   test do
-    system bin/"wget", "-O", "/dev/null", "https://google.com"
+    system bin/"wget", "-O", File::NULL, "https://google.com"
   end
 end
