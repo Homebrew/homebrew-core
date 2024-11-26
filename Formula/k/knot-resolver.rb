@@ -55,8 +55,8 @@ class KnotResolver < Formula
     run [opt_sbin/"kresd", "-c", etc/"knot-resolver/kresd.conf", "-n"]
     require_root true
     working_dir var/"knot-resolver"
-    input_path "/dev/null"
-    log_path "/dev/null"
+    input_path File::NULL
+    log_path File::NULL
     error_log_path var/"log/knot-resolver.log"
   end
 
