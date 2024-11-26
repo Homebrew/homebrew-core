@@ -89,8 +89,8 @@ class Knot < Formula
   service do
     run opt_sbin/"knotd"
     require_root true
-    input_path "/dev/null"
-    log_path "/dev/null"
+    input_path File::NULL
+    log_path File::NULL
     error_log_path var/"log/knot.log"
   end
 
