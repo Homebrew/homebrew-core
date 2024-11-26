@@ -34,6 +34,6 @@ class Ubertooth < Formula
 
   test do
     # Most ubertooth utilities require an ubertooth device present.
-    system bin/"ubertooth-rx", "-i", "/dev/null"
+    system bin/"ubertooth-rx", "-i", File::NULL
   end
 end
