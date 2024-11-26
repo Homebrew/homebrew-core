@@ -67,8 +67,8 @@ class Redshift < Formula
   service do
     run opt_bin/"redshift"
     keep_alive true
-    log_path "/dev/null"
-    error_log_path "/dev/null"
+    log_path File::NULL
+    error_log_path File::NULL
   end
 
   test do
