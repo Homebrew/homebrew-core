@@ -41,7 +41,7 @@ class Metabase < Formula
     require_root true
     working_dir var/"metabase"
     log_path var/"metabase/server.log"
-    error_log_path "/dev/null"
+    error_log_path File::NULL
   end
 
   test do
