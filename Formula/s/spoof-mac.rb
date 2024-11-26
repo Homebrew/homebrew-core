@@ -47,8 +47,8 @@ class SpoofMac < Formula
   service do
     run [opt_bin/"spoof-mac", "randomize", "en0"]
     require_root true
-    log_path "/dev/null"
-    error_log_path "/dev/null"
+    log_path File::NULL
+    error_log_path File::NULL
   end
 
   test do
