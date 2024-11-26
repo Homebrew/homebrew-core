@@ -1,10 +1,9 @@
 class Sile < Formula
   desc "Modern typesetting system inspired by TeX"
   homepage "https://sile-typesetter.org"
-  url "https://github.com/sile-typesetter/sile/releases/download/v0.15.5/sile-0.15.5.tar.zst"
-  sha256 "d20137b02d16302d287670fd285ad28ac3b8d3af916460aa6bc8cbff9321b9f9"
+  url "https://github.com/sile-typesetter/sile/releases/download/v0.15.7/sile-0.15.7.tar.zst"
+  sha256 "3e353a41f9fe1532f7bedeba9a42009ffb9758c3cf947f222ba076eb87a4222b"
   license "MIT"
-  revision 3
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "840aacf2bbfbac9fd5fc325774bf97b5b8f856744ac4d586b21818e2739409c6"
@@ -24,6 +23,7 @@ class Sile < Formula
   end
 
   depends_on "jq" => :build
+  depends_on "libtool" => :build
   depends_on "pkgconf" => :build
   depends_on "poppler" => :build
   depends_on "rust" => :build
@@ -45,8 +45,8 @@ class Sile < Formula
   end
 
   resource "compat53" do
-    url "https://luarocks.org/manifests/lunarmodules/compat53-0.12-1.rockspec"
-    sha256 "880cdad8d1789a0756f2023d2c98f36d94e6d2c1cc507190b4f9883420435746"
+    url "https://luarocks.org/manifests/lunarmodules/compat53-0.14.3-1.rockspec"
+    sha256 "16218188112c20e9afa9e9057f753d29d7affb10fe3fb2ac74cab17c6de9a030"
   end
 
   resource "linenoise" do
@@ -110,8 +110,8 @@ class Sile < Formula
 
   # depends on luafilesystem
   resource "penlight" do
-    url "https://luarocks.org/manifests/tieske/penlight-1.13.1-1.src.rock"
-    sha256 "fa028f7057cad49cdb84acdd9fe362f090734329ceca8cc6abb2d95d43b91835"
+    url "https://luarocks.org/manifests/tieske/penlight-1.14.0-2.src.rock"
+    sha256 "f36affa14fb43e208a59f2e96d214f774b957bcd05d9c07ec52b39eac7f4a05d"
   end
 
   # depends on penlight
@@ -143,10 +143,6 @@ class Sile < Formula
   end
 
   def install
-    # Workaround for ICU 76+.
-    # Issue ref: https://github.com/sile-typesetter/sile/issues/2152
-    inreplace "configure", '"icu-uc icu-io"', '"icu-uc icu-i18n icu-io"' if build.stable?
-
     lua = Formula["luajit"]
     luaversion = "5.1"
     luapath = libexec/"vendor"
@@ -182,17 +178,17 @@ class Sile < Formula
       r.stage do
         rock = Pathname.pwd.children(false).first
         unpack_dir = Utils.safe_popen_read("luarocks", "unpack", rock).split("\n")[-2]
-
         spec = "#{r.name}-#{r.version}.rockspec"
         cd(unpack_dir) { system "luarocks", "make", *luarocks_args, spec }
       end
     end
 
-    configure_args = %w[
+    configure_args = %W[
       FCMATCH=true
       --disable-silent-rules
       --with-system-luarocks
       --with-system-lua-sources
+      --with-vendored-luarocks-dir=#{luapath}
     ]
 
     system "./bootstrap.sh" if build.head?
