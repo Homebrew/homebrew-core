@@ -22,7 +22,7 @@ class Devcontainer < Formula
   end
 
   test do
-    ENV["DOCKER_HOST"] = "/dev/null"
+    ENV["DOCKER_HOST"] = File::NULL
     # Modified .devcontainer/devcontainer.json from CLI example:
     # https://github.com/devcontainers/cli#try-out-the-cli
     (testpath/".devcontainer.json").write <<~JSON
