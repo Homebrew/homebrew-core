@@ -37,6 +37,6 @@ class Mergelog < Formula
   end
 
   test do
-    system bin/"mergelog", "/dev/null"
+    system bin/"mergelog", File::NULL
   end
 end
