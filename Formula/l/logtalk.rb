@@ -25,4 +25,12 @@ class Logtalk < Formula
   def install
     cd("scripts") { system "./install.sh", "-p", prefix }
   end
+
+  def caveats
+    <<~EOS
+      To complete the Logtalk installation, define the environment variables:
+        LOGTALKHOME=#{HOMEBREW_PREFIX}/share/logtalk
+        LOGTALKUSER=$HOME/logtalk
+    EOS
+  end
 end
