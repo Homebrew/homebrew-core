@@ -16,7 +16,7 @@ class GpgTui < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "4b326e5cb490b82f26db74f3c98efbcaf2b361f43ad6041129c6fd33645185f8"
   end
 
-  depends_on "pkgconf" => :build
+  depends_on "pkg-config" => :build
   depends_on "rust" => :build
   depends_on "gnupg"
   depends_on "gpgme"

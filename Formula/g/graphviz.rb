@@ -32,7 +32,7 @@ class Graphviz < Formula
   end
 
   depends_on "bison" => :build
-  depends_on "pkgconf" => :build
+  depends_on "pkg-config" => :build
   depends_on "cairo"
   depends_on "gd"
   depends_on "glib"

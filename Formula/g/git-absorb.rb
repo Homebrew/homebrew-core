@@ -14,7 +14,7 @@ class GitAbsorb < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "ca35199361f91362a640963a2b19fd16b741613b22552d142690055fadb7e70c"
   end
 
-  depends_on "pkgconf" => :build
+  depends_on "pkg-config" => :build
   depends_on "rust" => :build
   depends_on "libgit2"
 

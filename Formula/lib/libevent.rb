@@ -27,12 +27,14 @@ class Libevent < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on "pkgconf" => :build
+  depends_on "pkg-config" => :build
   depends_on "openssl@3"
 
   def install
     system "./autogen.sh"
-    system "./configure", "--disable-debug-mode", *std_configure_args
+    system "./configure", "--disable-dependency-tracking",
+                          "--disable-debug-mode",
+                          "--prefix=#{prefix}"
     system "make"
     system "make", "install"
   end

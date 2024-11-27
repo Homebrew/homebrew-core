@@ -14,7 +14,7 @@ class GitCliff < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "6f98f9f194cda6900d532443f00966be066c4e47a004142b456c1dfd9900f4f0"
   end
 
-  depends_on "pkgconf" => :build
+  depends_on "pkg-config" => :build
   depends_on "rust" => :build
   depends_on "libgit2"
 
@@ -42,7 +42,7 @@ class GitCliff < Formula
 
   test do
     system "git", "cliff", "--init"
-    assert_path_exists testpath/"cliff.toml"
+    assert_predicate testpath/"cliff.toml", :exist?
 
     system "git", "init"
     system "git", "add", "cliff.toml"

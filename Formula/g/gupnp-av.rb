@@ -23,7 +23,7 @@ class GupnpAv < Formula
   depends_on "intltool" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
-  depends_on "pkgconf" => [:build, :test]
+  depends_on "pkg-config" => [:build, :test]
   depends_on "vala" => :build
 
   depends_on "gettext"
@@ -54,8 +54,8 @@ class GupnpAv < Formula
       }
     C
 
-    flags = shell_output("pkgconf --cflags --libs gupnp-av-1.0 glib-2.0").chomp.split
-    system ENV.cc, "test.c", "-o", "test", *flags
+    pkg_config_cflags = shell_output("pkg-config --cflags --libs gupnp-av-1.0 glib-2.0").chomp.split
+    system ENV.cc, "test.c", *pkg_config_cflags, "-o", "test"
     system "./test"
   end
 end

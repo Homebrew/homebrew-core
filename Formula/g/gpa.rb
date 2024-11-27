@@ -36,7 +36,7 @@ class Gpa < Formula
   end
 
   depends_on "desktop-file-utils" => :build
-  depends_on "pkgconf" => :build
+  depends_on "pkg-config" => :build
 
   depends_on "gdk-pixbuf"
   depends_on "glib"
@@ -58,7 +58,7 @@ class Gpa < Formula
     inreplace "configure", "NEED_LIBASSUAN_API=2", "NEED_LIBASSUAN_API=3"
 
     system "./autogen.sh" if build.head?
-    system "./configure", "--disable-silent-rules", *std_configure_args
+    system "./configure", "--disable-silent-rules", *std_configure_args.reject { |s| s["--disable-debug"] }
     system "make"
     system "make", "install"
   end

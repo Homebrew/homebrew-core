@@ -26,7 +26,7 @@ class Gtk4 < Formula
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
-  depends_on "pkgconf" => [:build, :test]
+  depends_on "pkg-config" => [:build, :test]
   depends_on "sassc" => :build
   depends_on "cairo"
   depends_on "fontconfig"
@@ -108,7 +108,7 @@ class Gtk4 < Formula
       }
     C
 
-    flags = shell_output("#{Formula["pkgconf"].opt_bin}/pkgconf --cflags --libs gtk4").strip.split
+    flags = shell_output("#{Formula["pkg-config"].opt_bin}/pkg-config --cflags --libs gtk4").strip.split
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
     # include a version check for the pkg-config files

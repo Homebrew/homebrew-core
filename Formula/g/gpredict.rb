@@ -50,7 +50,7 @@ class Gpredict < Formula
   end
 
   depends_on "intltool" => :build
-  depends_on "pkgconf" => :build
+  depends_on "pkg-config" => :build
 
   depends_on "adwaita-icon-theme"
   depends_on "cairo"

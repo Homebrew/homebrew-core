@@ -3,24 +3,25 @@ class Pipdeptree < Formula
 
   desc "CLI to display dependency tree of the installed Python packages"
   homepage "https://github.com/tox-dev/pipdeptree"
-  url "https://files.pythonhosted.org/packages/7e/01/a3c3bdbf1bb50e0c675c76a65071fdbc80dbe92e8ec7959b7ba81c642769/pipdeptree-2.24.0.tar.gz"
-  sha256 "d520e165535e217dd8958dfc14f1922efa0f6e4ff16126a61edb7ed6c538a930"
+  url "https://files.pythonhosted.org/packages/66/b6/389a1148d7b1bc5638d4e9b2d60390f8cfb4c30e34cff68165cbd9a29e75/pipdeptree-2.23.4.tar.gz"
+  sha256 "8a9e7ceee623d1cb2839b6802c26dd40959d31ecaa1468d32616f7082658f135"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "06272258cf29fd57b03724854c3b4ab0a60d5611b48b89e0eeeceeecbdde974a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "06272258cf29fd57b03724854c3b4ab0a60d5611b48b89e0eeeceeecbdde974a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "06272258cf29fd57b03724854c3b4ab0a60d5611b48b89e0eeeceeecbdde974a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e68e45064ac8a9b60d9fddc4f84db688fad835439740acc4de923707338a5a12"
-    sha256 cellar: :any_skip_relocation, ventura:       "e68e45064ac8a9b60d9fddc4f84db688fad835439740acc4de923707338a5a12"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "06272258cf29fd57b03724854c3b4ab0a60d5611b48b89e0eeeceeecbdde974a"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7b7a0798324a8441d12bdfce3cd11af1b12ff1b5e478366449c8be532fb57154"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7b7a0798324a8441d12bdfce3cd11af1b12ff1b5e478366449c8be532fb57154"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "7b7a0798324a8441d12bdfce3cd11af1b12ff1b5e478366449c8be532fb57154"
+    sha256 cellar: :any_skip_relocation, sonoma:        "65ff974611d2283bef79292484b6c373de54696a87a53be7871840189354aa3f"
+    sha256 cellar: :any_skip_relocation, ventura:       "65ff974611d2283bef79292484b6c373de54696a87a53be7871840189354aa3f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7b7a0798324a8441d12bdfce3cd11af1b12ff1b5e478366449c8be532fb57154"
   end
 
   depends_on "python@3.13"
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/d0/63/68dbb6eb2de9cb10ee4c9c14a0148804425e13c4fb20d61cce69f53106da/packaging-24.2.tar.gz"
-    sha256 "c228a6dc5e932d346bc5739379109d49e8853dd8223571c7c5b55260edc0b97f"
+    url "https://files.pythonhosted.org/packages/51/65/50db4dda066951078f0a96cf12f4b9ada6e4b811516bf0262c0f4f7064d4/packaging-24.1.tar.gz"
+    sha256 "026ed72c8ed3fcce5bf8950572258698927fd1dbda10a5e981cdf0ac37f4f002"
   end
 
   def install

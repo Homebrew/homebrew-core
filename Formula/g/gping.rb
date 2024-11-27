@@ -24,7 +24,7 @@ class Gping < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "7b3d71c0896cb93022a289d740ed310160ea4e92b5da84d60a1bb15fb40940a6"
   end
 
-  depends_on "pkgconf" => :build
+  depends_on "pkg-config" => :build
   depends_on "rust" => :build
 
   on_linux do

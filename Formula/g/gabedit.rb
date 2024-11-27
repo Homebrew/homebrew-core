@@ -24,7 +24,7 @@ class Gabedit < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "85b9f31c8d4f0b7daf320543f5da7d50a20212535bf1c753eca37aaa579c737d"
   end
 
-  depends_on "pkgconf" => :build
+  depends_on "pkg-config" => :build
 
   depends_on "cairo"
   depends_on "gdk-pixbuf"
@@ -88,6 +88,6 @@ class Gabedit < Formula
   end
 
   test do
-    assert_path_exists bin/"gabedit"
+    assert_predicate bin/"gabedit", :exist?
   end
 end

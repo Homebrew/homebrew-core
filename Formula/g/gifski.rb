@@ -16,11 +16,13 @@ class Gifski < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "2b5acc7e25a1311ea15611f213bbe144de06db490c002321bda776eeb0722b22"
   end
 
-  depends_on "pkgconf" => :build
+  depends_on "pkg-config" => :build
   depends_on "rust" => :build
   depends_on "ffmpeg@6"
 
   uses_from_macos "llvm" => :build
+
+  fails_with gcc: "5" # rubberband is built with GCC
 
   def install
     system "cargo", "install", "--features", "video", *std_cargo_args
@@ -29,7 +31,7 @@ class Gifski < Formula
   test do
     png = test_fixtures("test.png")
     system bin/"gifski", "-o", "out.gif", png, png
-    assert_path_exists testpath/"out.gif"
+    assert_predicate testpath/"out.gif", :exist?
     refute_predicate (testpath/"out.gif").size, :zero?
   end
 end

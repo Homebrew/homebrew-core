@@ -22,7 +22,7 @@ class Geeqie < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pandoc" => :build # for README.html
-  depends_on "pkgconf" => :build
+  depends_on "pkg-config" => :build
   depends_on "yelp-tools" => :build # for help files
 
   depends_on "adwaita-icon-theme"

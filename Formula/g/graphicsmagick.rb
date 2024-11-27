@@ -21,7 +21,7 @@ class Graphicsmagick < Formula
     sha256 x86_64_linux:  "b6e2fea1abc3ea05bc6c9a7837b1e5fb2257a35155fe0c539d1e3008d257879d"
   end
 
-  depends_on "pkgconf" => :build
+  depends_on "pkg-config" => :build
 
   depends_on "freetype"
   depends_on "jasper"

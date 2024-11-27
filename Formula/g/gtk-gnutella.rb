@@ -15,7 +15,7 @@ class GtkGnutella < Formula
     sha256 x86_64_linux:   "70a5946bf77166b5076fe6fa1d45b69c6f512260451c96758c4cde02fbb983df"
   end
 
-  depends_on "pkgconf" => :build
+  depends_on "pkg-config" => :build
 
   depends_on "at-spi2-core"
   depends_on "dbus"

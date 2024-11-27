@@ -28,7 +28,7 @@ class Gedit < Formula
   depends_on "itstool" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
-  depends_on "pkgconf" => [:build, :test]
+  depends_on "pkg-config" => [:build, :test]
 
   depends_on "adwaita-icon-theme"
   depends_on "cairo"
@@ -82,7 +82,7 @@ class Gedit < Formula
       }
     C
 
-    flags = shell_output("pkgconf --cflags --libs gedit").chomp.split
+    flags = shell_output("pkg-config --cflags --libs gedit").chomp.split
     flags << "-Wl,-rpath,#{lib}/gedit" if OS.linux?
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"

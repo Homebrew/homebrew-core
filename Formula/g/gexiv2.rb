@@ -21,7 +21,7 @@ class Gexiv2 < Formula
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
-  depends_on "pkgconf" => :build
+  depends_on "pkg-config" => :build
   depends_on "pygobject3" => [:build, :test]
   depends_on "python@3.12" => [:build, :test]
   depends_on "vala" => :build

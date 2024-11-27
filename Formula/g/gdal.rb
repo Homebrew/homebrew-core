@@ -27,7 +27,7 @@ class Gdal < Formula
 
   depends_on "boost" => :build # for `libkml`
   depends_on "cmake" => :build
-  depends_on "pkgconf" => :build
+  depends_on "pkg-config" => :build
   depends_on "python-setuptools" => :build
   depends_on "swig" => :build
   depends_on "apache-arrow"
@@ -87,11 +87,22 @@ class Gdal < Formula
   conflicts_with "avce00", because: "both install a cpl_conv.h header"
   conflicts_with "cpl", because: "both install cpl_error.h"
 
+  fails_with gcc: "5"
+
   def python3
     "python3.12"
   end
 
   def install
+    # Work around an Xcode 15 linker issue which causes linkage against LLVM's
+    # libunwind due to it being present in a library search path.
+    if DevelopmentTools.clang_build_version >= 1500
+      recursive_dependencies
+        .select { |d| d.name.match?(/^llvm(@\d+)?$/) }
+        .map { |llvm_dep| llvm_dep.to_formula.opt_lib }
+        .each { |llvm_lib| ENV.remove "HOMEBREW_LIBRARY_PATHS", llvm_lib }
+    end
+
     site_packages = prefix/Language::Python.site_packages(python3)
     # Work around Homebrew's "prefix scheme" patch which causes non-pip installs
     # to incorrectly try to write into HOMEBREW_PREFIX/lib since Python 3.10.

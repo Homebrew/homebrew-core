@@ -21,7 +21,7 @@ class Gtkmm < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "0b8ee9aae96d13469d2ca251d59582d5577122d69769f9038e62b1792c08c861"
   end
 
-  depends_on "pkgconf" => [:build, :test]
+  depends_on "pkg-config" => [:build, :test]
 
   depends_on "atkmm@2.28"
   depends_on "cairomm@1.14"
@@ -42,7 +42,7 @@ class Gtkmm < Formula
 
   def install
     ENV.cxx11
-    system "./configure", *std_configure_args
+    system "./configure", *std_configure_args.reject { |s| s["--disable-debug"] }
     system "make", "install"
   end
 
@@ -56,8 +56,8 @@ class Gtkmm < Formula
       }
     CPP
 
-    flags = shell_output("pkgconf --cflags --libs gtkmm-2.4").chomp.split
-    system ENV.cxx, "-std=c++11", "test.cpp", "-o", "test", *flags
+    pkg_config_flags = shell_output("pkg-config --cflags --libs gtkmm-2.4").chomp.split
+    system ENV.cxx, "-std=c++11", "test.cpp", "-o", "test", *pkg_config_flags
     system "./test"
   end
 end

@@ -26,7 +26,7 @@ class Gource < Formula
   end
 
   depends_on "glm" => :build
-  depends_on "pkgconf" => :build
+  depends_on "pkg-config" => :build
 
   depends_on "boost"
   depends_on "freetype"

@@ -23,7 +23,7 @@ class GraphTool < Formula
   end
 
   depends_on "ninja" => :build
-  depends_on "pkgconf" => :build
+  depends_on "pkg-config" => :build
   depends_on "boost"
   depends_on "boost-python3"
   depends_on "cairomm@1.14"

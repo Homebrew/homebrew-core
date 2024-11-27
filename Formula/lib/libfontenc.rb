@@ -17,7 +17,7 @@ class Libfontenc < Formula
   end
 
   depends_on "font-util" => :build
-  depends_on "pkgconf" => :build
+  depends_on "pkg-config" => :build
   depends_on "util-macros" => :build
   depends_on "xorgproto" => :build
 
@@ -25,12 +25,14 @@ class Libfontenc < Formula
 
   def install
     args = %W[
+      --prefix=#{prefix}
       --sysconfdir=#{etc}
       --localstatedir=#{var}
+      --disable-dependency-tracking
       --disable-silent-rules
     ]
 
-    system "./configure", *args, *std_configure_args
+    system "./configure", *args
     system "make"
     system "make", "install"
   end

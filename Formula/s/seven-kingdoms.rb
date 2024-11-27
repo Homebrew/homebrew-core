@@ -25,12 +25,12 @@ class SevenKingdoms < Formula
 
   depends_on "pkgconf" => :build
   depends_on "enet"
+  depends_on "gettext"
   depends_on "sdl2"
   uses_from_macos "curl"
 
   on_macos do
     depends_on "gcc"
-    depends_on "gettext"
   end
 
   on_linux do

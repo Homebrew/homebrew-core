@@ -22,7 +22,7 @@ class Gtksourceviewmm3 < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "b6489e67344895dad8ef93a694a47c49fec20dc0735989355b11489cd85fbccd"
   end
 
-  depends_on "pkgconf" => [:build, :test]
+  depends_on "pkg-config" => [:build, :test]
 
   depends_on "atkmm@2.28"
   depends_on "cairomm@1.14"
@@ -45,7 +45,7 @@ class Gtksourceviewmm3 < Formula
 
   def install
     ENV.cxx11
-    system "./configure", *std_configure_args
+    system "./configure", *std_configure_args.reject { |s| s["--disable-debug"] }
     system "make", "install"
   end
 
@@ -59,8 +59,8 @@ class Gtksourceviewmm3 < Formula
       }
     CPP
 
-    flags = shell_output("pkgconf --cflags --libs gtksourceviewmm-3.0").chomp.split
-    system ENV.cxx, "-std=c++11", "test.cpp", "-o", "test", *flags
+    pkg_config_cflags = shell_output("pkg-config --cflags --libs gtksourceviewmm-3.0").chomp.split
+    system ENV.cxx, "-std=c++11", "test.cpp", "-o", "test", *pkg_config_cflags
     system "./test"
   end
 end

@@ -9,7 +9,7 @@ class Libbpf < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux: "ff0139bb799097722a2a15a5593ebb0c6e13ba2e8f61f8add855bef223329c33"
   end
 
-  depends_on "pkgconf" => :build
+  depends_on "pkg-config" => :build
   depends_on "elfutils"
   depends_on :linux
   depends_on "zlib"

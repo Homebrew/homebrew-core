@@ -22,7 +22,7 @@ class Libgda < Formula
   depends_on "intltool" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
-  depends_on "pkgconf" => [:build, :test]
+  depends_on "pkg-config" => [:build, :test]
   depends_on "vala" => :build
   depends_on "glib"
   depends_on "iso-codes"
@@ -69,7 +69,7 @@ class Libgda < Formula
 
   test do
     cp pkgshare/"example.c", testpath
-    flags = shell_output("pkgconf --cflags --libs libgda-#{version.major_minor}").chomp.split
+    flags = shell_output("pkg-config --cflags --libs libgda-#{version.major_minor}").chomp.split
     system ENV.cc, "example.c", "-o", "example", *flags
     assert_match <<~EOS, shell_output("./example")
       ------+---------+---------

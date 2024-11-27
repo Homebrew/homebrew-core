@@ -22,7 +22,7 @@ class GitInteractiveRebaseTool < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "f7aa1b32fbfe987e86fdd9aa2a914c14a041341b9a7ce781555b68ca325b2e31"
   end
 
-  depends_on "pkgconf" => :build
+  depends_on "pkg-config" => :build
   depends_on "rust" => :build
   depends_on "libgit2@1.7"
 

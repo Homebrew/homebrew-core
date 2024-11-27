@@ -16,7 +16,7 @@ class Gtkglext < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "bea86597c739ebbf55d551970dee174085bfc3d0c4d70f06f0cce969979ef2af"
   end
 
-  depends_on "pkgconf" => :build
+  depends_on "pkg-config" => :build
   depends_on "glib"
   depends_on "gtk+"
   depends_on "pango"
@@ -120,7 +120,7 @@ class Gtkglext < Formula
       system "autoreconf", "--force", "--install", "--verbose"
     end
 
-    args = []
+    args = *std_configure_args
     if OS.mac?
       args << "--without-x"
       # Fix flat_namespace usage
@@ -128,7 +128,7 @@ class Gtkglext < Formula
                 "${wl}-undefined ${wl}dynamic_lookup"
     end
 
-    system "./configure", *args, *std_configure_args
+    system "./configure", *args
     system "make", "install"
   end
 

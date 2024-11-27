@@ -21,7 +21,7 @@ class GdkPixbuf < Formula
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
-  depends_on "pkgconf" => [:build, :test]
+  depends_on "pkg-config" => [:build, :test]
   depends_on "glib"
   depends_on "jpeg-turbo"
   depends_on "libpng"
@@ -97,7 +97,7 @@ class GdkPixbuf < Formula
         return 0;
       }
     C
-    flags = shell_output("pkgconf --cflags --libs gdk-pixbuf-#{gdk_so_ver}").chomp.split
+    flags = shell_output("pkg-config --cflags --libs gdk-pixbuf-#{gdk_so_ver}").chomp.split
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end

@@ -24,7 +24,7 @@ class Libass < Formula
     depends_on "libtool" => :build
   end
 
-  depends_on "pkgconf" => :build
+  depends_on "pkg-config" => :build
   depends_on "freetype"
   depends_on "fribidi"
   depends_on "harfbuzz"
@@ -39,11 +39,14 @@ class Libass < Formula
   end
 
   def install
-    # libass uses coretext on macOS, fontconfig on Linux
-    args = OS.mac? ? ["--disable-fontconfig"] : []
-
     system "autoreconf", "-i" if build.head?
-    system "./configure", *args, *std_configure_args
+    args = %W[
+      --disable-dependency-tracking
+      --prefix=#{prefix}
+    ]
+    # libass uses coretext on macOS, fontconfig on Linux
+    args << "--disable-fontconfig" if OS.mac?
+    system "./configure", *args
     system "make", "install"
   end
 

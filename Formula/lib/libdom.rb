@@ -20,7 +20,7 @@ class Libdom < Formula
   end
 
   depends_on "netsurf-buildsystem" => :build
-  depends_on "pkgconf" => [:build, :test]
+  depends_on "pkg-config" => [:build, :test]
   depends_on "libhubbub"
   depends_on "libwapcaplet"
   uses_from_macos "expat"
@@ -47,8 +47,8 @@ class Libdom < Formula
       }
     C
 
-    flags = shell_output("pkgconf --cflags --libs libdom").chomp.split
-    system ENV.cc, "test.c", "-o", "test", *flags
+    pkg_config_flags = shell_output("pkg-config --cflags --libs libdom").chomp.split
+    system ENV.cc, "test.c", "-o", "test", *pkg_config_flags
     system "./test"
   end
 end

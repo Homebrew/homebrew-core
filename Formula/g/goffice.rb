@@ -26,7 +26,7 @@ class Goffice < Formula
 
   depends_on "gettext" => :build
   depends_on "intltool" => :build
-  depends_on "pkgconf" => [:build, :test]
+  depends_on "pkg-config" => [:build, :test]
 
   depends_on "at-spi2-core"
   depends_on "cairo"
@@ -67,7 +67,7 @@ class Goffice < Formula
       }
     C
 
-    flags = shell_output("pkgconf --cflags --libs libgoffice-#{version.major_minor}").strip.split
+    flags = shell_output("pkg-config --cflags --libs libgoffice-#{version.major_minor}").strip.split
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end

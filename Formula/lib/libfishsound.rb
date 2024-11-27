@@ -30,7 +30,7 @@ class Libfishsound < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "5db56944c47f7f4084a4645ef252841be006ad54ee48fb55530eda206e6732c3"
   end
 
-  depends_on "pkgconf" => :build
+  depends_on "pkg-config" => :build
   depends_on "libvorbis"
 
   # Fix -flat_namespace being used on Big Sur and later.

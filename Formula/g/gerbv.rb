@@ -20,7 +20,7 @@ class Gerbv < Formula
   depends_on "automake" => :build
   depends_on "gettext" => :build
   depends_on "libtool" => :build
-  depends_on "pkgconf" => :build
+  depends_on "pkg-config" => :build
 
   depends_on "cairo"
   depends_on "gdk-pixbuf"
@@ -44,9 +44,10 @@ class Gerbv < Formula
       s.gsub! "${PREFIX}~", "${PREFIX}"
     end
     system "./autogen.sh"
-    system "./configure", "--disable-update-desktop-database",
-                          "--disable-schemas-compile",
-                          *std_configure_args
+    system "./configure", *std_configure_args,
+                          "--disable-dependency-tracking",
+                          "--disable-update-desktop-database",
+                          "--disable-schemas-compile"
     system "make"
     system "make", "install"
   end

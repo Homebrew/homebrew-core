@@ -22,7 +22,7 @@ class Gdcm < Formula
 
   depends_on "cmake" => :build
   depends_on "ninja" => :build
-  depends_on "pkgconf" => :build
+  depends_on "pkg-config" => :build
   depends_on "swig" => :build
   depends_on "openjpeg"
   depends_on "openssl@3"
@@ -34,6 +34,8 @@ class Gdcm < Formula
   on_linux do
     depends_on "util-linux" # for libuuid
   end
+
+  fails_with gcc: "5"
 
   def python3
     which("python3.13")

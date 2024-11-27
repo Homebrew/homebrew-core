@@ -41,12 +41,13 @@ class Libdvdnav < Formula
     depends_on "libtool" => :build
   end
 
-  depends_on "pkgconf" => :build
+  depends_on "pkg-config" => :build
   depends_on "libdvdread"
 
   def install
-    system "autoreconf", "--force", "--install", "--verbose" if build.head?
-    system "./configure", *std_configure_args
+    system "autoreconf", "-if" if build.head?
+    system "./configure", "--disable-dependency-tracking",
+                          "--prefix=#{prefix}"
     system "make", "install"
   end
 end

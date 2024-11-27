@@ -23,7 +23,7 @@ class GobjectIntrospection < Formula
   depends_on "ninja" => :build
   depends_on "cairo"
   depends_on "glib"
-  depends_on "pkgconf"
+  depends_on "pkg-config"
   # Ships a `_giscanner.cpython-312-darwin.so`, so needs a specific version.
   depends_on "python@3.13"
 
@@ -93,8 +93,8 @@ class GobjectIntrospection < Formula
       }
     C
 
-    pkgconf_flags = shell_output("pkgconf --cflags --libs gobject-introspection-1.0").strip.split
-    system ENV.cc, "main.c", "-o", "test", *pkgconf_flags
+    pkg_config_flags = shell_output("pkg-config --cflags --libs gobject-introspection-1.0").strip.split
+    system ENV.cc, "main.c", "-o", "test", *pkg_config_flags
     system "./test"
   end
 end

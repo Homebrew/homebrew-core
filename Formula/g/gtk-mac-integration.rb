@@ -53,7 +53,7 @@ class GtkMacIntegration < Formula
   end
 
   depends_on "gobject-introspection" => :build
-  depends_on "pkgconf" => [:build, :test]
+  depends_on "pkg-config" => [:build, :test]
   depends_on "at-spi2-core"
   depends_on "cairo"
   depends_on "gdk-pixbuf"
@@ -85,7 +85,7 @@ class GtkMacIntegration < Formula
         return 0;
       }
     C
-    flags = shell_output("pkgconf --cflags --libs gtk-mac-integration-gtk3").chomp.split
+    flags = shell_output("pkg-config --cflags --libs gtk-mac-integration-gtk3").chomp.split
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end

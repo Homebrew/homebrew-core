@@ -30,21 +30,23 @@ class Grep < Formula
     uses_from_macos "gperf" => :build
   end
 
-  depends_on "pkgconf" => :build
+  depends_on "pkg-config" => :build
   depends_on "pcre2"
 
   def install
     system "./bootstrap" if build.head?
 
     args = %W[
+      --disable-dependency-tracking
       --disable-nls
+      --prefix=#{prefix}
       --infodir=#{info}
       --mandir=#{man}
       --with-packager=Homebrew
     ]
 
     args << "--program-prefix=g" if OS.mac?
-    system "./configure", *args, *std_configure_args
+    system "./configure", *args
     system "make"
     system "make", "install"
 

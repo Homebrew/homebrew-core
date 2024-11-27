@@ -23,7 +23,7 @@ class GeocodeGlib < Formula
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
-  depends_on "pkgconf" => [:build, :test]
+  depends_on "pkg-config" => [:build, :test]
 
   depends_on "glib"
   depends_on "gtk+3"
@@ -60,8 +60,8 @@ class GeocodeGlib < Formula
         return 0;
       }
     C
-    pkgconf_flags = shell_output("pkgconf --cflags --libs geocode-glib-2.0").chomp.split
-    system ENV.cc, "test.c", "-o", "test", *pkgconf_flags
+    pkg_config_flags = shell_output("pkg-config --cflags --libs geocode-glib-2.0").chomp.split
+    system ENV.cc, "test.c", "-o", "test", *pkg_config_flags
     system "./test"
   end
 end

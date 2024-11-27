@@ -19,7 +19,7 @@ class Gcalcli < Formula
   end
 
   depends_on "cmake" => :build # for google_api_python_client_stubs
-  depends_on "pkgconf" => :build
+  depends_on "pkg-config" => :build
   depends_on "rust" => :build # for google_api_python_client_stubs
   depends_on "certifi"
   depends_on "python@3.13"

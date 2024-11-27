@@ -44,7 +44,7 @@ class Libcanberra < Formula
     depends_on "gtk-doc"
   end
 
-  depends_on "pkgconf" => :build
+  depends_on "pkg-config" => :build
   depends_on "libtool"
   depends_on "libvorbis"
 

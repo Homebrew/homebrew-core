@@ -31,7 +31,7 @@ class Grpc < Formula
   depends_on "automake" => :build
   depends_on "cmake" => :build
   depends_on "libtool" => :build
-  depends_on "pkgconf" => :test
+  depends_on "pkg-config" => :test
   depends_on "abseil"
   depends_on "c-ares"
   depends_on "openssl@3"
@@ -48,6 +48,8 @@ class Grpc < Formula
     build 1100
     cause "Requires C++17 features not yet implemented"
   end
+
+  fails_with gcc: "5" # C++17
 
   def install
     ENV.llvm_clang if OS.mac? && (DevelopmentTools.clang_build_version <= 1100)
@@ -103,8 +105,8 @@ class Grpc < Formula
       }
     CPP
     ENV.prepend_path "PKG_CONFIG_PATH", Formula["openssl@3"].opt_lib/"pkgconfig"
-    flags = shell_output("pkgconf --cflags --libs libcares protobuf re2 grpc++").chomp.split
-    system ENV.cc, "test.cpp", "-L#{Formula["abseil"].opt_lib}", *flags, "-o", "test"
+    pkg_config_flags = shell_output("pkg-config --cflags --libs libcares protobuf re2 grpc++").chomp.split
+    system ENV.cc, "test.cpp", "-L#{Formula["abseil"].opt_lib}", *pkg_config_flags, "-o", "test"
     system "./test"
 
     output = shell_output("#{bin}/grpc_cli ls localhost:#{free_port} 2>&1", 1)

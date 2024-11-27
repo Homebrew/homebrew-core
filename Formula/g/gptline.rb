@@ -18,7 +18,7 @@ class Gptline < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "51b645176411e2a998ee08e303c00524bceae0688402752e920ec08a55c5b78b"
   end
 
-  depends_on "pkgconf" => :build
+  depends_on "pkg-config" => :build
   depends_on "rust" => :build
   depends_on "certifi"
   depends_on "freetype"

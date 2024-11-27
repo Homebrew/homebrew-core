@@ -24,7 +24,7 @@ class Guetzli < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "f75d76355fa17bf7709842f7e1dab879c5cae613908bfd7196f6cc553238644f"
   end
 
-  depends_on "pkgconf" => :build
+  depends_on "pkg-config" => :build
   depends_on "libpng"
 
   resource "test_image" do

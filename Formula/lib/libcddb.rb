@@ -22,11 +22,12 @@ class Libcddb < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "a96b2ab16f2b983fa13921bc81d7b368a594620efd857d84ee8fb1667a18799d"
   end
 
-  depends_on "pkgconf" => :build
+  depends_on "pkg-config" => :build
   depends_on "libcdio"
 
   def install
-    system "./configure", *std_configure_args
+    system "./configure", "--disable-dependency-tracking",
+                          "--prefix=#{prefix}"
     system "make", "install"
   end
 

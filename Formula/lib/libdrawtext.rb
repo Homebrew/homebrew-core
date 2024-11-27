@@ -18,7 +18,7 @@ class Libdrawtext < Formula
     sha256 cellar: :any, big_sur:        "2f01264e3b9729a123e24c71078c5b7b5c2189c2a2ed2a8481763080ed213ce1"
   end
 
-  depends_on "pkgconf" => :build
+  depends_on "pkg-config" => :build
   depends_on "freetype"
 
   on_linux do

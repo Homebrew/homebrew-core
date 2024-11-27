@@ -27,7 +27,7 @@ class Libestr < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "6f131de3ed214869ab11a430e48f7e006d8b4ae1c181413f0d60aa9da85f4599"
   end
 
-  depends_on "pkgconf" => :build
+  depends_on "pkg-config" => :build
 
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
@@ -36,7 +36,7 @@ class Libestr < Formula
   end
 
   def install
-    system "./configure", *std_configure_args
+    system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
     system "make"
     system "make", "install"
   end

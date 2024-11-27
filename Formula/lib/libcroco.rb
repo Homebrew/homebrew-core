@@ -27,7 +27,7 @@ class Libcroco < Formula
   deprecate! date: "2024-08-04", because: :repo_archived
 
   depends_on "intltool" => :build
-  depends_on "pkgconf" => :build
+  depends_on "pkg-config" => :build
 
   depends_on "glib"
 
@@ -44,7 +44,7 @@ class Libcroco < Formula
   end
 
   def install
-    system "./configure", "--disable-Bsymbolic", *std_configure_args
+    system "./configure", "--disable-Bsymbolic", *std_configure_args.reject { |s| s["--disable-debug"] }
     system "make", "install"
   end
 

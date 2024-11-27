@@ -22,7 +22,7 @@ class Gnutls < Formula
     sha256 x86_64_linux:   "9bedb5b302e02e32c64bf75c488216dd644bc205d9e99d2b26edfdf7f3d81b93"
   end
 
-  depends_on "pkgconf" => :build
+  depends_on "pkg-config" => :build
 
   depends_on "ca-certificates"
   depends_on "gmp"
@@ -49,7 +49,7 @@ class Gnutls < Formula
       --with-p11-kit
     ]
 
-    system "./configure", *args, *std_configure_args
+    system "./configure", *args, *std_configure_args.reject { |s| s["--disable-debug"] }
     system "make", "install"
 
     # certtool shadows the macOS certtool utility
