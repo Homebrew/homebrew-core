@@ -10,7 +10,6 @@ class Screenpipe < Formula
     sha256 cellar: :any,                 arm64_sonoma:  "e5f48ebf2417bea35ae88c472fe4ad68c0f6773a7a312bee3e305169dacd353b"
     sha256 cellar: :any,                 arm64_ventura: "10959cbd31bea956ccca9f1b5dfb3262d1423ffbcffa84794803cb71de7af4b9"
     sha256 cellar: :any,                 sonoma:        "7ad885d4015354d5ee3c77e91366216bb12ed7c38af0e750e72380bb0b82cc3a"
-    sha256 cellar: :any,                 ventura:       "45e90df2ea94269eecad00a7a9fb2d39686b7ad436b67476813011eef5271b9e"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "f4685d6b5d4e1e3300b999cfd6efaf12c7c9ca87f7957dcd9fbf3b32e58d5890"
   end
 
