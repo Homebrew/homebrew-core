@@ -4,7 +4,7 @@ class Pymupdf < Formula
   url "https://files.pythonhosted.org/packages/e0/6b/6bd735144a190d26dcc23f98b4aae0e09b259cc4c87bba266a39b7b91f56/PyMuPDF-1.24.14.tar.gz"
   sha256 "0eed9f998525eaf39706dbf2d0cf3162150f0f526e4a36b1748ffa50bde581ae"
   license "AGPL-3.0-only"
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "e3636428dd744d344917b8fbb63b0c82d80688304cfd99247510f5f84a25e1e1"
@@ -23,6 +23,12 @@ class Pymupdf < Formula
 
   def python3
     "python3.12"
+  end
+
+  # fix build with mupdf 1.25.0, upstream pr ref, https://github.com/pymupdf/PyMuPDF/pull/4094
+  patch do
+    url "https://github.com/pymupdf/PyMuPDF/commit/8609db72eb59d95ffa37c05991a0b83220865677.patch?full_index=1"
+    sha256 "3582c6ad6dcd5bc476913128fb3e922b6be9b18d6ed51b1fad1e88acd3b0aaa4"
   end
 
   def install
