@@ -1,19 +1,10 @@
 class Root < Formula
   desc "Object oriented framework for large scale data analysis"
   homepage "https://root.cern"
+  url "https://root.cern/download/root_v6.34.00.source.tar.gz"
+  sha256 "f3b00f3db953829c849029c39d7660a956468af247efd946e89072101796ab03"
   license "LGPL-2.1-or-later"
   head "https://github.com/root-project/root.git", branch: "master"
-
-  stable do
-    url "https://root.cern/download/root_v6.32.08.source.tar.gz"
-    sha256 "29ad4945a72dff1a009c326a65b6fa5ee2478498823251d3cef86a2cbeb77b27"
-
-    # Backport fix for RPATH on macOS
-    patch do
-      url "https://github.com/root-project/root/commit/0569d5d7bfb30d96e06c4192658aed4b78e4da64.patch?full_index=1"
-      sha256 "24553b16f66459fe947d192854f5fa6832c9414cc711d7705cb8e8fa67d2d935"
-    end
-  end
 
   livecheck do
     url "https://root.cern/install/all_releases/"
@@ -161,12 +152,7 @@ class Root < Formula
       -GNinja
     ]
 
-    compiledata = if build.head?
-      "cmake/unix/compiledata.sh"
-    else
-      args << "-Dbuiltin_afterimage=ON"
-      "build/unix/compiledata.sh"
-    end
+    compiledata = "cmake/unix/compiledata.sh"
     # Workaround the shim directory being embedded into the output
     inreplace compiledata, "`type -path $CXX`", ENV.cxx
 
