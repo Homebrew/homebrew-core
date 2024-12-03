@@ -18,7 +18,9 @@ class Ignite < Formula
   depends_on "node"
 
   def install
-    system "go", "build", "-mod=readonly", *std_go_args(output: bin/"ignite"), "./ignite/cmd/ignite"
+    system "go", "build", "-mod=readonly", *std_go_args(ldflags: "-s -w", output: bin/"ignite"), "./ignite/cmd/ignite"
+
+    generate_completions_from_executable(bin/"ignite", "completion")
   end
 
   test do
