@@ -1,9 +1,10 @@
 class Mtbl < Formula
   desc "Immutable sorted string table library"
   homepage "https://github.com/farsightsec/mtbl"
-  url "https://dl.farsightsecurity.com/dist/mtbl/mtbl-1.6.1.tar.gz"
-  sha256 "bf2711aa81a996cddf99f270cc7cb1c32dbed7f1bfc95e23ec6227e4bd08365d"
+  url "https://dl.farsightsecurity.com/dist/mtbl/mtbl-1.7.0.tar.gz"
+  sha256 "088ff314106b4c425179b7edfd749c6f810142a7c3812f29a9d25e95050a9365"
   license "Apache-2.0"
+  head "https://github.com/farsightsec/mtbl.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "97317e41371a31ef89d654600743ffc15294f36629f1d21800b641588d9491a5"
@@ -16,14 +17,9 @@ class Mtbl < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "532d7f6bddb7a756fa3413224c56c6e20094df7f16bcd1700cd34ba959996f9a"
   end
 
-  head do
-    url "https://github.com/farsightsec/mtbl.git", branch: "master"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-  end
-
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
   depends_on "pkgconf" => :build
   depends_on "lz4"
   depends_on "snappy"
@@ -32,7 +28,7 @@ class Mtbl < Formula
   uses_from_macos "zlib"
 
   def install
-    system "autoreconf", "--force", "--install", "--verbose" if build.head?
+    system "autoreconf", "--force", "--install", "--verbose"
     system "./configure", "--disable-silent-rules", *std_configure_args
     system "make", "install"
 
