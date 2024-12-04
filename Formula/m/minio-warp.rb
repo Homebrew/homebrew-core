@@ -26,6 +26,8 @@ class MinioWarp < Formula
     ]
 
     system "go", "build", *std_go_args(ldflags:, output: bin/"warp")
+
+    generate_completions_from_executable(bin/"warp", "--autocompletion", base_name: "warp")
   end
 
   test do
