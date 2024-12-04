@@ -2,7 +2,7 @@ class Fceux < Formula
   desc "All-in-one NES/Famicom Emulator"
   homepage "https://fceux.com/"
   license "GPL-2.0-only"
-  revision 4
+  revision 5
   head "https://github.com/TASEmulators/fceux.git", branch: "master"
 
   stable do
@@ -16,10 +16,10 @@ class Fceux < Formula
       sha256 "0890494f4b5db5fa11b94e418d505cea87dc9b9f55cdc6c97e9b5699aeada4ac"
     end
 
-    # x265 4.0 build patch, upstream pr ref, https://github.com/TASEmulators/fceux/pull/766
+    # x265 4.0/4.1 build patch, upstream pr ref, https://github.com/TASEmulators/fceux/pull/766
     patch do
-      url "https://github.com/TASEmulators/fceux/commit/7d5960fe4037f673b4a644af18b663efe215a24d.patch?full_index=1"
-      sha256 "eb16bd9673645a74b1797914564e3fc3867594332334d5921791e7f97f8d36b4"
+      url "https://github.com/TASEmulators/fceux/commit/a6fcb73b11fc518dc60495acd408fcaf4c423baa.patch?full_index=1"
+      sha256 "36a6d32451cf568a292456b549e6c4fecf17bf1ebd2e41ba2a7fc103f2796a0c"
     end
   end
 

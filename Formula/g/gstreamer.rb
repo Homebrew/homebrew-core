@@ -2,7 +2,7 @@ class Gstreamer < Formula
   desc "Development framework for multimedia applications"
   homepage "https://gstreamer.freedesktop.org/"
   license all_of: ["LGPL-2.0-or-later", "LGPL-2.1-or-later", "MIT"]
-  revision 1
+  revision 2
 
   stable do
     url "https://gitlab.freedesktop.org/gstreamer/gstreamer/-/archive/1.24.9/gstreamer-1.24.9.tar.bz2"
@@ -150,6 +150,13 @@ class Gstreamer < Formula
   # https://gitlab.freedesktop.org/gstreamer/gst-python/-/merge_requests/41
   # TODO: Migrate patch to gstreamer monorepo.
   patch :DATA
+
+  # Fix mastering display color volume assignment build issue with x265 4.1
+  # upstream pr ref, https://gitlab.freedesktop.org/gstreamer/gstreamer/-/merge_requests/7948
+  patch do
+    url "https://gitlab.freedesktop.org/gstreamer/gstreamer/-/commit/071cd26d450c752673386f210718cf8646065a88.diff"
+    sha256 "f29be37a8b09edae52086e710b06cce0112b3eab7b35c0c693245c13b45f180e"
+  end
 
   def install
     odie "rs resource needs to be updated" if build.stable? && version != resource("rs").version
