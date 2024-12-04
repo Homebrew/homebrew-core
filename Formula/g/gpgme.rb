@@ -1,10 +1,9 @@
 class Gpgme < Formula
   desc "Library access to GnuPG"
   homepage "https://www.gnupg.org/related_software/gpgme/"
-  url "https://www.gnupg.org/ftp/gcrypt/gpgme/gpgme-1.24.0.tar.bz2"
-  sha256 "61e3a6ad89323fecfaff176bc1728fb8c3312f2faa83424d9d5077ba20f5f7da"
+  url "https://www.gnupg.org/ftp/gcrypt/gpgme/gpgme-1.24.1.tar.bz2"
+  sha256 "ea05d0258e71061d61716584ec34cef59330a91340571edc46b78374973ba85f"
   license "LGPL-2.1-or-later"
-  revision 1
 
   livecheck do
     url "https://gnupg.org/ftp/gcrypt/gpgme/"
@@ -23,9 +22,16 @@ class Gpgme < Formula
   depends_on "python-setuptools" => :build
   depends_on "python@3.13" => [:build, :test]
   depends_on "swig" => :build
-  depends_on "gnupg"
   depends_on "libassuan"
   depends_on "libgpg-error"
+
+  # Due to "devel" branch instability, the Linux variant should use stable GnuPG 2.4
+  on_macos do
+    depends_on "gnupg"
+  end
+  on_linux do
+    depends_on "gnupg@2.4"
+  end
 
   def python3
     "python3.13"
