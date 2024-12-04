@@ -1,10 +1,9 @@
 class Gpgme < Formula
   desc "Library access to GnuPG"
   homepage "https://www.gnupg.org/related_software/gpgme/"
-  url "https://www.gnupg.org/ftp/gcrypt/gpgme/gpgme-1.24.0.tar.bz2"
-  sha256 "61e3a6ad89323fecfaff176bc1728fb8c3312f2faa83424d9d5077ba20f5f7da"
+  url "https://www.gnupg.org/ftp/gcrypt/gpgme/gpgme-1.24.1.tar.bz2"
+  sha256 "ea05d0258e71061d61716584ec34cef59330a91340571edc46b78374973ba85f"
   license "LGPL-2.1-or-later"
-  revision 1
 
   livecheck do
     url "https://gnupg.org/ftp/gcrypt/gpgme/"
@@ -20,8 +19,10 @@ class Gpgme < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "bc5a08c5f2e458631a86a0a3447813157356513bfb0649307883fa53f84abac5"
   end
 
+  depends_on "pkgconf" => :build
   depends_on "python-setuptools" => :build
   depends_on "python@3.13" => [:build, :test]
+  depends_on "qt" => [:build, :test]
   depends_on "swig" => :build
   depends_on "gnupg"
   depends_on "libassuan"
@@ -37,20 +38,43 @@ class Gpgme < Formula
     # hardcoded, the Arch Linux patch that changed 3.9 to 3.10 can't detect 3.11
     inreplace "configure", /# Reset everything.*\n\s*unset PYTHON$/, ""
 
-    # Uses generic lambdas.
-    # error: 'auto' not allowed in lambda parameter
-    ENV.append "CXXFLAGS", "-std=c++14"
-
     # Use pip over executing setup.py, which installs a deprecated egg distribution
     # https://dev.gnupg.org/T6784
     inreplace "lang/python/Makefile.in",
               /^\s*\$\$PYTHON setup\.py\s*\\/,
               "$$PYTHON -m pip install --use-pep517 #{std_pip_args.join(" ")} . && : \\"
 
+    # Required for Qt 6 bindings
+    ENV.append "CXXFLAGS", "-std=c++17"
+
+    ENV["PKG_CONFIG_PATH"] = [
+      "#{Formula["qt@6"].libexec}/lib/pkgconfig",
+      "#{HOMEBREW_PREFIX}/lib/pkgconfig",
+    ].join(":")
+
     system "./configure", "--disable-silent-rules",
                           "--enable-static",
+                          "--enable-languages=cl,cpp,python,qt6",
                           *std_configure_args
-    system "make"
+
+    # Required to make Qt dependency effectively optional and to pass `brew linkage --strict` test
+    if OS.mac?
+      inreplace "lang/qt/src/Makefile",
+                "-framework QtCore",
+                "-Wl,-weak_framework,QtCore"
+    end
+    if OS.linux?
+      inreplace "lang/qt/src/Makefile",
+                "-lQt6Core",
+                "-weak Qt6Core"
+    end
+
+    system "make", "SHELL=/bin/bash"
+    #              ^^^
+    # A workaround for an issue introduced around 1.24.0 upstream.
+    # On macOS, `echo` in `/bin/sh` is unaware of `-n` switch (no new line),
+    # so literal `-n` is written into C++ headers, breaking build
+
     system "make", "install"
 
     # avoid triggering mandatory rebuilds of software that hard-codes this path
