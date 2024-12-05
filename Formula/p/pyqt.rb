@@ -4,7 +4,7 @@ class Pyqt < Formula
   url "https://files.pythonhosted.org/packages/d1/f9/b0c2ba758b14a7219e076138ea1e738c068bf388e64eee68f3df4fc96f5a/PyQt6-6.7.1.tar.gz"
   sha256 "3672a82ccd3a62e99ab200a13903421e2928e399fda25ced98d140313ad59cb9"
   license "GPL-3.0-only"
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:  "594fb397445a17b36d912f2cf432ddc211078592c6cb7b1c70fbc39aab3036de"
@@ -15,7 +15,7 @@ class Pyqt < Formula
   end
 
   depends_on "pyqt-builder" => :build
-  depends_on "python@3.12"
+  depends_on "python@3.13"
   depends_on "qt"
 
   # extra components
@@ -50,7 +50,7 @@ class Pyqt < Formula
   end
 
   def python3
-    "python3.12"
+    "python3.13"
   end
 
   def install
@@ -112,6 +112,6 @@ class Pyqt < Formula
     pyqt_modules.each { |mod| system python3, "-c", "import PyQt#{version.major}.Qt#{mod}" }
 
     # Make sure plugin is installed as it currently gets skipped on wheel build,  e.g. `pip install`
-    assert_predicate share/"qt/plugins/designer"/shared_library("libpyqt#{version.major}"), :exist?
+    assert_path_exists share/"qt/plugins/designer"/shared_library("libpyqt#{version.major}")
   end
 end
