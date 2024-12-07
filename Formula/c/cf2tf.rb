@@ -3,8 +3,8 @@ class Cf2tf < Formula
 
   desc "Cloudformation templates to Terraform HCL converter"
   homepage "https://github.com/DontShaveTheYak/cf2tf"
-  url "https://files.pythonhosted.org/packages/e4/9d/79064ec7a79fcde16fc17c3261059f60b6da6ebc5ee5c9a7eb19c3f55c8b/cf2tf-0.9.0.tar.gz"
-  sha256 "e0227b6ab2bcb9d5c4e517e4a6c013b758ed51f41e0fdd5c2570a2f586b47256"
+  url "https://files.pythonhosted.org/packages/99/96/53ad90a4df228af1bd4f7f1357aee2527709f146467d964c9a7cbd7e3802/cf2tf-0.9.1a7.tar.gz"
+  sha256 "c65ed996669d0ade29ce98d25b6379964fb84bdd8ee6f6ef292aa7d86b73aeee"
   license "GPL-3.0-only"
   head "https://github.com/DontShaveTheYak/cf2tf.git", branch: "master"
 
@@ -73,8 +73,8 @@ class Cf2tf < Formula
   end
 
   resource "pytest" do
-    url "https://files.pythonhosted.org/packages/8b/6c/62bbd536103af674e227c41a8f3dcd022d591f6eed5facb5a0f31ee33bbc/pytest-8.3.3.tar.gz"
-    sha256 "70b98107bd648308a7952b06e6ca9a50bc660be218d53c257cc1fc94fda10181"
+    url "https://files.pythonhosted.org/packages/05/35/30e0d83068951d90a01852cb1cef56e5d8a09d20c7f511634cc2f7e0372a/pytest-8.3.4.tar.gz"
+    sha256 "965370d062bce11e73868e0335abac31b4d3de0e82f4007408d242b4f8610761"
   end
 
   resource "pyyaml" do
@@ -93,8 +93,8 @@ class Cf2tf < Formula
   end
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
-    sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
+    url "https://files.pythonhosted.org/packages/94/e7/b2c673351809dca68a0e064b6af791aa332cf192da575fd474ed7d6f16a2/six-1.17.0.tar.gz"
+    sha256 "ff70335d468e7eb6ec65b95b99d3a2836546063f63acc5171de367e834932a81"
   end
 
   resource "smmap" do
