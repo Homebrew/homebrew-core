@@ -1,10 +1,9 @@
 class Mgba < Formula
   desc "Game Boy Advance emulator"
   homepage "https://mgba.io/"
-  url "https://github.com/mgba-emu/mgba/archive/refs/tags/0.10.3.tar.gz"
-  sha256 "be2cda7de3da8819fdab0c659c5cd4c4b8ca89d9ecddeeeef522db6d31a64143"
+  url "https://github.com/mgba-emu/mgba/archive/refs/tags/0.10.4.tar.gz"
+  sha256 "f85eeb8f78f847f5217a87bd5e2d6c1214b461ffd4ec129cc656162ab707cb24"
   license "MPL-2.0"
-  revision 1
   head "https://github.com/mgba-emu/mgba.git", branch: "master"
 
   livecheck do
