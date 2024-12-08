@@ -1,8 +1,8 @@
 class Treefrog < Formula
   desc "High-speed C++ MVC Framework for Web Application"
   homepage "https://www.treefrogframework.org/"
-  url "https://github.com/treefrogframework/treefrog-framework/archive/refs/tags/v2.9.0.tar.gz"
-  sha256 "90cc96a883c09e42a73b6ca7a8ed262ba59c398966c32e984dd3f9d49feda2c2"
+  url "https://github.com/treefrogframework/treefrog-framework/archive/refs/tags/v2.10.0.tar.gz"
+  sha256 "d1f5fdaf91c779159d5109a046e03d0efc89a5e1679c79471f7b354fde9028f9"
   license "BSD-3-Clause"
   head "https://github.com/treefrogframework/treefrog-framework.git", branch: "master"
 
@@ -21,12 +21,27 @@ class Treefrog < Formula
   end
 
   depends_on "pkgconf" => :build
+
   depends_on "glog"
   depends_on "lz4"
   depends_on "mongo-c-driver"
   depends_on "qt"
 
+  on_macos do
+    depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1500
+  end
+
+  fails_with :clang do
+    build 1500
+    cause "Requires C++20 support"
+  end
+
   def install
+    if OS.mac? && DevelopmentTools.clang_build_version <= 1500
+      ENV["CC"] = Formula["llvm"].opt_bin/"clang"
+      ENV["CXX"] = Formula["llvm"].opt_bin/"clang++"
+    end
+
     rm_r("3rdparty")
     # Skip unneeded CMake check
     inreplace "configure", "if ! which cmake ", "if false "
