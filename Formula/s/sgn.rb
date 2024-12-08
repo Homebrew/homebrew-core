@@ -21,7 +21,7 @@ class Sgn < Formula
   depends_on "keystone" => :build
 
   def install
-    system "go", "build", *std_go_args
+    system "go", "build", *std_go_args(ldflags: "-s -w")
   end
 
   test do

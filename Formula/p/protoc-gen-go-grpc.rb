@@ -26,7 +26,7 @@ class ProtocGenGoGrpc < Formula
 
   def install
     cd "cmd/protoc-gen-go-grpc" do
-      system "go", "build", *std_go_args
+      system "go", "build", *std_go_args(ldflags: "-s -w")
     end
   end
 

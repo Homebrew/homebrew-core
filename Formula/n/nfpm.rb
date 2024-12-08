@@ -18,7 +18,7 @@ class Nfpm < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-X main.version=v#{version}"), "./cmd/nfpm"
+    system "go", "build", *std_go_args(ldflags: "-s -w -X main.version=v#{version}"), "./cmd/nfpm"
 
     generate_completions_from_executable(bin/"nfpm", "completion")
   end

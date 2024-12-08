@@ -23,7 +23,7 @@ class Pivit < Formula
 
   def install
     ENV["CGO_ENABLED"] = "1"
-    system "go", "build", *std_go_args, "./cmd/pivit"
+    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/pivit"
   end
 
   test do

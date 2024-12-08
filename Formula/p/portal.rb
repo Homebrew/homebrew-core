@@ -19,7 +19,7 @@ class Portal < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -X main.version=v#{version}"
+    ldflags = "-s -w -X main.version=v#{version}"
     system "go", "build", *std_go_args(ldflags:), "./cmd/portal/"
 
     generate_completions_from_executable(bin/"portal", "completion")

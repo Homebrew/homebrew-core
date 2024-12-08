@@ -26,7 +26,7 @@ class Virtctl < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = "-X 'kubevirt.io/client-go/version.gitVersion=#{version}'"
+    ldflags = "-s -w -X kubevirt.io/client-go/version.gitVersion=#{version}"
     system "go", "build", *std_go_args(ldflags:), "./cmd/virtctl"
 
     generate_completions_from_executable(bin/"virtctl", "completion")
