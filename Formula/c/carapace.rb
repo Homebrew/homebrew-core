@@ -1,8 +1,8 @@
 class Carapace < Formula
   desc "Multi-shell multi-command argument completer"
   homepage "https://carapace.sh"
-  url "https://github.com/carapace-sh/carapace-bin/archive/refs/tags/v1.0.7.tar.gz"
-  sha256 "bfcd950178023909b0854bc6bded5b57d1c00123943e9dbcdfddf2a632c71ff4"
+  url "https://github.com/carapace-sh/carapace-bin/archive/refs/tags/v1.1.0.tar.gz"
+  sha256 "3c3ccfc8212ec74dc90885b1f029a955508aa942e446367bda8cd3b3d65ae8fd"
   license "MIT"
   head "https://github.com/carapace-sh/carapace-bin.git", branch: "master"
 
@@ -19,10 +19,14 @@ class Carapace < Formula
 
   def install
     system "go", "generate", "./..."
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "-tags", "release", "./cmd/carapace"
+    system "go", "build", *std_go_args(ldflags: "-s -w -X main.version=#{version}"), "-tags", "release", "./cmd/carapace"
+
+    generate_completions_from_executable(bin/"carapace", "_carapace")
   end
 
   test do
+    assert_match version.to_s, shell_output("#{bin}/carapace --version 2>&1")
+
     system bin/"carapace", "--list"
     system bin/"carapace", "--macro", "color.HexColors"
   end
