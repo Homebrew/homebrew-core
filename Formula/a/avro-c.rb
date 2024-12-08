@@ -1,12 +1,9 @@
 class AvroC < Formula
   desc "Data serialization system"
   homepage "https://avro.apache.org/"
-  # Upstreams tar.gz can't be opened by bsdtar on macOS
-  # https://github.com/Homebrew/homebrew-core/pull/146296#issuecomment-1737945877
-  # https://apple.stackexchange.com/questions/197839/why-is-extracting-this-tgz-throwing-an-error-on-my-mac-but-not-on-linux
-  url "https://github.com/apache/avro.git",
-      tag:      "release-1.11.3",
-      revision: "35ff8b997738e4d983871902d47bfb67b3250734"
+  url "https://www.apache.org/dyn/closer.lua?path=avro/avro-1.12.0/c/avro-c-1.12.0.tar.gz"
+  mirror "https://archive.apache.org/dist/avro/avro-1.12.0/c/avro-c-1.12.0.tar.gz"
+  sha256 "74333d431079c35d770cef6996cb4de04058d19e81bd0b9a363bcfd38575037f"
   license "Apache-2.0"
 
   bottle do
@@ -29,7 +26,7 @@ class AvroC < Formula
   uses_from_macos "zlib"
 
   def install
-    system "cmake", "-S", "lang/c", "-B", "build", *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
@@ -42,6 +39,6 @@ class AvroC < Formula
 
     testpath.install resource("homebrew-example")
     system ENV.cc, "quickstop.c", "-o", "test", "-I#{include}", "-L#{lib}", "-lavro"
-    system "./test", ">> /dev/null"
+    assert_match "Silent |  (555) 123-6422 | 29 |", shell_output("./test")
   end
 end
