@@ -26,7 +26,13 @@ class Jj < Formula
 
     system "cargo", "install", *std_cargo_args(path: "cli")
 
-    generate_completions_from_executable(bin/"jj", "util", "completion", shell_parameter_format: :flag)
+    generate_completions_from_executable("env", "COMPLETE=bash", bin/"jj",
+      shells: [:bash], shell_parameter_format: :none)
+    generate_completions_from_executable("env", "COMPLETE=fish", bin/"jj",
+      shells: [:fish], shell_parameter_format: :none)
+    generate_completions_from_executable("env", "COMPLETE=zsh", bin/"jj",
+      shells: [:zsh], shell_parameter_format: :none)
+
     (man1/"jj.1").write Utils.safe_popen_read(bin/"jj", "util", "mangen")
   end
 
