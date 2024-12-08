@@ -1,8 +1,8 @@
 class Repomix < Formula
   desc "Pack repository contents into a single AI-friendly file"
   homepage "https://github.com/yamadashy/repomix"
-  url "https://registry.npmjs.org/repomix/-/repomix-0.2.1.tgz"
-  sha256 "9fd247249747d94215925ad7a58fc29df56ba3adb018e0c5213ba5e38819dde1"
+  url "https://registry.npmjs.org/repomix/-/repomix-0.2.5.tgz"
+  sha256 "357ba019dc9c78d06dbf36174d9d240759f27111b6e34a504d5b1e554f3abfa1"
   license "MIT"
 
   bottle do
@@ -10,6 +10,10 @@ class Repomix < Formula
   end
 
   depends_on "node"
+
+  on_linux do
+    depends_on "libx11"
+  end
 
   def install
     system "npm", "install", *std_npm_args
