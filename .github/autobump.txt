@@ -1675,6 +1675,7 @@ libmicrohttpd
 libmobi
 libmodbus
 libmonome
+libmsquic
 libmtp
 libmxml
 libnetfilter_conntrack
