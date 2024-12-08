@@ -17,7 +17,7 @@ class Scw < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-X main.Version=#{version}"), "./cmd/scw"
+    system "go", "build", *std_go_args(ldflags: "-s -w -X main.Version=#{version}"), "./cmd/scw"
 
     generate_completions_from_executable(bin/"scw", "autocomplete", "script", shell_parameter_format: :none)
   end
