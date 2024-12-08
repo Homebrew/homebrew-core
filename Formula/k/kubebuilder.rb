@@ -21,7 +21,9 @@ class Kubebuilder < Formula
   def install
     goos = Utils.safe_popen_read("#{Formula["go"].bin}/go", "env", "GOOS").chomp
     goarch = Utils.safe_popen_read("#{Formula["go"].bin}/go", "env", "GOARCH").chomp
+
     ldflags = %W[
+      -s -w
       -X main.kubeBuilderVersion=#{version}
       -X main.goos=#{goos}
       -X main.goarch=#{goarch}
