@@ -6,6 +6,7 @@ class Diffoscope < Formula
   url "https://files.pythonhosted.org/packages/21/fb/425f842a8066fef249aa46fe1e42dc1e750ffccbc54b147048497aca7710/diffoscope-284.tar.gz"
   sha256 "c672e97ce3e69c229858419e8d368563bb583101a9cfc5eb70e28d441502b1b7"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "2f12e20bc21a5477d1a99b2b38108eb3a7e2c052427c7391e4e2d72bd841d1b6"
@@ -21,8 +22,8 @@ class Diffoscope < Formula
   depends_on "python@3.13"
 
   resource "argcomplete" do
-    url "https://files.pythonhosted.org/packages/5f/39/27605e133e7f4bb0c8e48c9a6b87101515e3446003e0442761f6a02ac35e/argcomplete-3.5.1.tar.gz"
-    sha256 "eb1ee355aa2557bd3d0145de7b06b2a45b0ce461e1e7813f5d066039ab4177b4"
+    url "https://files.pythonhosted.org/packages/7f/03/581b1c29d88fffaa08abbced2e628c34dd92d32f1adaed7e42fc416938b0/argcomplete-3.5.2.tar.gz"
+    sha256 "23146ed7ac4403b70bd6026402468942ceba34a6732255b9edf5b7354f68a6bb"
   end
 
   resource "libarchive-c" do

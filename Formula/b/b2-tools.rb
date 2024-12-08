@@ -6,6 +6,7 @@ class B2Tools < Formula
   url "https://files.pythonhosted.org/packages/8e/45/d6de68118a8943c795e329370899a1cc70232ab3212d46543943280c509a/b2-4.2.0.tar.gz"
   sha256 "b9be2cb1c6e52c1cee948af265619d049bac62e4970de29a3cc01bff625c9539"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "00027e589049114ddcb0372dc5ff562744ac3811eabda31b0fdec3c6b00936ae"
@@ -27,8 +28,8 @@ class B2Tools < Formula
   end
 
   resource "argcomplete" do
-    url "https://files.pythonhosted.org/packages/5f/39/27605e133e7f4bb0c8e48c9a6b87101515e3446003e0442761f6a02ac35e/argcomplete-3.5.1.tar.gz"
-    sha256 "eb1ee355aa2557bd3d0145de7b06b2a45b0ce461e1e7813f5d066039ab4177b4"
+    url "https://files.pythonhosted.org/packages/7f/03/581b1c29d88fffaa08abbced2e628c34dd92d32f1adaed7e42fc416938b0/argcomplete-3.5.2.tar.gz"
+    sha256 "23146ed7ac4403b70bd6026402468942ceba34a6732255b9edf5b7354f68a6bb"
   end
 
   resource "arrow" do
