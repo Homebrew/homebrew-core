@@ -19,7 +19,7 @@ class RushParallel < Formula
   conflicts_with "rush", because: "both install `rush` binaries"
 
   def install
-    system "go", "build", *std_go_args(output: bin/"rush")
+    system "go", "build", *std_go_args(ldflags: "-s -w", output: bin/"rush")
   end
 
   test do
