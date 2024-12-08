@@ -23,9 +23,11 @@ class Navidrome < Formula
 
   def install
     ldflags = %W[
+      -s -w
       -X github.com/navidrome/navidrome/consts.gitTag=v#{version}
       -X github.com/navidrome/navidrome/consts.gitSha=source_archive
     ]
+
     system "make", "setup"
     system "make", "buildjs"
     system "go", "build", *std_go_args(ldflags:), "-buildvcs=false"
