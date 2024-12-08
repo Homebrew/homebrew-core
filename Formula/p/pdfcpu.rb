@@ -17,7 +17,7 @@ class Pdfcpu < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = "-X github.com/pdfcpu/pdfcpu/pkg/pdfcpu.VersionStr=#{version}"
+    ldflags = "-s -w -X github.com/pdfcpu/pdfcpu/pkg/pdfcpu.VersionStr=#{version}"
     system "go", "build", *std_go_args(ldflags:), "./cmd/pdfcpu"
   end
 
