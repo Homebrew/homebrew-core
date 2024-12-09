@@ -15,6 +15,7 @@ class Screenpipe < Formula
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
+  depends_on "bun"
   depends_on "ffmpeg"
   depends_on macos: :sonoma
 
@@ -27,6 +28,8 @@ class Screenpipe < Formula
     depends_on "openssl@3"
     depends_on "tesseract"
     depends_on "xz"
+    depends_on "curl"
+    depends_on "unzip"
   end
 
   def install
@@ -37,6 +40,7 @@ class Screenpipe < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/screenpipe -V")
+    assert_match "1.", shell_output("bun --version")
 
     log_file = testpath/".screenpipe/screenpipe.#{time.strftime("%Y-%m-%d")}.log"
     pid = spawn bin/"screenpipe", "--disable-vision", "--disable-audio", "--disable-telemetry"
