@@ -1,6 +1,5 @@
 [
   "babel",
-  "cdktf",
   "code-server",
   "contentful-cli",
   "firebase-cli",
