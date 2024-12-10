@@ -1,5 +1,5 @@
 class Screenpipe < Formula
-  desc "Library to build personalized AI powered by what you've seen, said, or heard"
+  desc "One API to get all user desktop data. Cross-platform, open source, 100% local, captures all desktop activities 24/7"
   homepage "https://github.com/mediar-ai/screenpipe"
   url "https://github.com/mediar-ai/screenpipe/archive/refs/tags/v0.2.13.tar.gz"
   sha256 "eb3599daabc1312b5c1a7799c1ec8ab715aa02d9216a6aa42d930039c84a70c9"
@@ -15,8 +15,6 @@ class Screenpipe < Formula
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
-  depends_on "curl" => :build
-  depends_on "unzip" => :build
   depends_on "ffmpeg"
   depends_on macos: :sonoma
 
@@ -31,8 +29,27 @@ class Screenpipe < Formula
     depends_on "xz"
   end
 
+  resource "bun" do
+    version "1.1.38"
+    on_macos do
+      if Hardware::CPU.arm?
+        url "https://github.com/oven-sh/bun/releases/download/bun-v1.1.38/bun-darwin-aarch64.zip"
+        sha256 "bbc6fb0e7bb99e7e95001ba05105cf09d0b79c06941d9f6ee3d0b34dc1541590"
+      else
+        url "https://github.com/oven-sh/bun/releases/download/bun-v1.1.38/bun-darwin-x64.zip"
+        sha256 "4e9814c9b2e64f9166ed8fc2a48f905a2195ea599b7ceda7ac821688520428a5"
+      end
+    end
+    on_linux do
+      url "https://github.com/oven-sh/bun/releases/download/bun-v1.1.38/bun-linux-x64.zip"
+      sha256 "a61da5357e28d4977fccd4851fed62ff4da3ea33853005c7dd93dac80bc53932"
+    end
+  end
+
   def install
-    system "curl", "-fsSL", "https://bun.sh/install", "|", "bash"
+    resource("bun").stage do
+      bin.install "bun"
+    end
     
     features = ["--features", "metal,pipes"] if OS.mac? && Hardware::CPU.arm?
     system "cargo", "install", *features, *std_cargo_args(path: "screenpipe-server")
@@ -41,7 +58,7 @@ class Screenpipe < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/screenpipe -V")
-    assert_match "1.", shell_output("bun --version")
+    assert_match "1.", shell_output("#{bin}/bun --version")
 
     log_file = testpath/".screenpipe/screenpipe.#{time.strftime("%Y-%m-%d")}.log"
     pid = spawn bin/"screenpipe", "--disable-vision", "--disable-audio", "--disable-telemetry"
