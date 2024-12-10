@@ -389,6 +389,7 @@ cctz
 cdebug
 cdk
 cdk8s
+cdktf
 cdogs-sdl
 cdsclient
 cdxgen
