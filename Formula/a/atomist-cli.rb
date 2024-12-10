@@ -38,9 +38,6 @@ class AtomistCli < Formula
       # Replace the vendored pre-built term-size with one we build ourselves
       ln_sf (Formula["macos-term-size"].opt_bin/"term-size").relative_path_from(macos_dir), macos_dir
     end
-
-    # Replace universal binaries with native slices.
-    deuniversalize_machos
   end
 
   test do

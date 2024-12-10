@@ -35,9 +35,6 @@ class Insect < Formula
       # Replace the vendored pre-built xsel with one we build ourselves
       ln_sf (Formula["xsel"].opt_bin/"xsel").relative_path_from(linux_dir), linux_dir
     end
-
-    # Replace universal binaries with their native slices
-    deuniversalize_machos
   end
 
   test do

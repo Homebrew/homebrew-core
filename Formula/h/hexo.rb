@@ -24,9 +24,6 @@ class Hexo < Formula
     mkdir_p libexec/"lib"
     system "npm", "install", *std_npm_args
     bin.install_symlink Dir["#{libexec}/bin/*"]
-
-    # Replace universal binaries with their native slices.
-    deuniversalize_machos
   end
 
   test do
