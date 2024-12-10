@@ -42,11 +42,11 @@ class Petsc < Formula
                           "--CXX=mpicxx",
                           "--F77=mpif77",
                           "--FC=mpif90",
-                          "--with-fftw-dir=#{HOMEBREW_PREFIX}/opt/fftw",
-                          "--with-hdf5-dir=#{HOMEBREW_PREFIX}/opt/hdf5-mpi",
+                          "--with-fftw-dir=#{Formula["fftw"].opt_prefix}",
+                          "--with-hdf5-dir=#{Formula["hdf5-mpi"].opt_prefix}",
                           "--with-hdf5-fortran-bindings=1",
-                          "--with-metis-dir=#{HOMEBREW_PREFIX}/opt/metis",
-                          "--with-scalapack-dir=#{HOMEBREW_PREFIX}/opt/scalapack",
+                          "--with-metis-dir=#{Formula["metis"].opt_prefix}",
+                          "--with-scalapack-dir=#{Formula["scalapack"].opt_prefix}",
                           "MAKEFLAGS=$MAKEFLAGS"
 
     # Avoid references to Homebrew shims (perform replacement before running `make`, or else the shim
