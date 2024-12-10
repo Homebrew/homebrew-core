@@ -15,7 +15,7 @@ class Screenpipe < Formula
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
-  depends_on "bun"
+  depends_on "oven-sh/bun/bun"
   depends_on "ffmpeg"
   depends_on macos: :sonoma
 
