@@ -1307,6 +1307,7 @@ hopenpgp-tools
 hoverfly
 howard-hinnant-date
 hpack
+hsd
 htmldoc
 htmlq
 htmltest
