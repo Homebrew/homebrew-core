@@ -2,14 +2,11 @@ class Boost < Formula
   desc "Collection of portable C++ source libraries"
   homepage "https://www.boost.org/"
   license "BSL-1.0"
-  revision 2
   head "https://github.com/boostorg/boost.git", branch: "master"
 
   stable do
-    # TODO: Drop single-threaded libraries at version bump.
-    #   https://github.com/Homebrew/homebrew-core/pull/182995
-    url "https://github.com/boostorg/boost/releases/download/boost-1.86.0/boost-1.86.0-b2-nodocs.tar.xz"
-    sha256 "a4d99d032ab74c9c5e76eddcecc4489134282245fffa7e079c5804b92b45f51d"
+    url "https://github.com/boostorg/boost/releases/download/boost-1.87.0.beta1/boost-1.87.0.beta1-b2-nodocs.tar.xz"
+    sha256 "65b5fff9fb72f1685c9a00c4a125f32613b402482ee361f757482e47d34396ad"
 
     # Backport Boost.Compute support for latest Boost.Uuid
     patch :p2 do
@@ -79,10 +76,10 @@ class Boost < Formula
       --libdir=#{lib}
       -d2
       -j#{ENV.make_jobs}
-      --layout=tagged-1.66
+      --layout=system
       --user-config=user-config.jam
       install
-      threading=multi,single
+      threading=multi
       link=shared,static
     ]
 

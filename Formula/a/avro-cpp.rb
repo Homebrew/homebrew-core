@@ -8,7 +8,7 @@ class AvroCpp < Formula
       tag:      "release-1.11.3",
       revision: "35ff8b997738e4d983871902d47bfb67b3250734"
   license "Apache-2.0"
-  revision 4
+  revision 5
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "68cc14a37de162f0006e51cd24bf8732037333c8b4f83d93281f5fd027322854"
@@ -26,7 +26,7 @@ class AvroCpp < Formula
   depends_on "boost"
 
   def install
-    system "cmake", "-S", "lang/c++", "-B", "build", *std_cmake_args
+    system "cmake", "-S", "lang/c++", "-B", "build", "-DCMAKE_CXX_STANDARD=14", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end

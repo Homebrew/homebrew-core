@@ -4,7 +4,7 @@ class Vtk < Formula
   url "https://www.vtk.org/files/release/9.3/VTK-9.3.1.tar.gz"
   sha256 "8354ec084ea0d2dc3d23dbe4243823c4bfc270382d0ce8d658939fd50061cab8"
   license "BSD-3-Clause"
-  revision 2
+  revision 3
   head "https://gitlab.kitware.com/vtk/vtk.git", branch: "master"
 
   bottle do
@@ -70,6 +70,11 @@ class Vtk < Formula
   end
 
   def install
+    # Work around problematic netCDF CMake file by forcing pkg-config fallback.
+    # Ref: https://github.com/Unidata/netcdf-c/issues/1444
+    odie "Try removing netCDF workaround!" if Formula["netcdf"].stable.version > "4.9.2"
+    inreplace "CMake/FindNetCDF.cmake", "find_package(netCDF CONFIG QUIET)", "# \\0"
+
     ENV.llvm_clang if DevelopmentTools.clang_build_version == 1316 && Hardware::CPU.arm?
 
     python = "python3.12"
@@ -81,6 +86,8 @@ class Vtk < Formula
       -DBUILD_SHARED_LIBS:BOOL=ON
       -DCMAKE_INSTALL_RPATH:STRING=#{rpaths.join(";")}
       -DCMAKE_DISABLE_FIND_PACKAGE_ICU:BOOL=ON
+      -DCMAKE_CXX_STANDARD=14
+      -DVTK_IGNORE_CMAKE_CXX11_CHECKS=ON
       -DVTK_WRAP_PYTHON:BOOL=ON
       -DVTK_PYTHON_VERSION:STRING=3
       -DVTK_LEGACY_REMOVE:BOOL=ON
@@ -132,7 +139,9 @@ class Vtk < Formula
 
     vtk_dir = lib/"cmake/vtk-#{version.major_minor}"
     vtk_cmake_module = vtk_dir/"VTK-vtk-module-find-packages.cmake"
-    assert_match Formula["boost"].version.to_s, vtk_cmake_module.read, "VTK needs to be rebuilt against Boost!"
+    # TODO: Revert on stable Boost release
+    assert_match Formula["boost"].version.major_minor_patch.to_s, vtk_cmake_module.read,
+                 "VTK needs to be rebuilt against Boost!"
 
     (testpath/"CMakeLists.txt").write <<~CMAKE
       cmake_minimum_required(VERSION 3.3 FATAL_ERROR)

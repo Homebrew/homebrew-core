@@ -2,7 +2,7 @@ class Ledger < Formula
   desc "Command-line, double-entry accounting tool"
   homepage "https://ledger-cli.org/"
   license "BSD-3-Clause"
-  revision 6
+  revision 7
   head "https://github.com/ledger/ledger.git", branch: "master"
 
   stable do

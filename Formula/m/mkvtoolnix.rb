@@ -5,6 +5,7 @@ class Mkvtoolnix < Formula
   mirror "https://fossies.org/linux/misc/mkvtoolnix-88.0.tar.xz"
   sha256 "f2f08c0100740668ef8aba7953fe4aed8c04ee6a5b51717816a4b3d529df0a25"
   license "GPL-2.0-or-later"
+  revision 2
 
   livecheck do
     url "https://mkvtoolnix.download/sources/"
@@ -27,11 +28,12 @@ class Mkvtoolnix < Formula
   end
 
   depends_on "docbook-xsl" => :build
+  depends_on "nlohmann-json" => :build
   depends_on "pkgconf" => :build
+  depends_on "utf8cpp" => :build
   depends_on "boost"
   depends_on "flac"
   depends_on "fmt"
-  depends_on "gettext"
   depends_on "gmp"
   depends_on "libebml"
   depends_on "libmatroska"
@@ -39,17 +41,27 @@ class Mkvtoolnix < Formula
   depends_on "libvorbis"
   # https://mkvtoolnix.download/downloads.html#macosx
   depends_on macos: :catalina # C++17
-  depends_on "nlohmann-json"
   depends_on "pugixml"
   depends_on "qt"
-  depends_on "utf8cpp"
 
   uses_from_macos "libxslt" => :build
   uses_from_macos "ruby" => :build
   uses_from_macos "zlib"
 
+  on_macos do
+    depends_on "gettext"
+  end
+
+  on_linux do
+    depends_on "gettext" => :build
+  end
+
   def install
-    ENV.cxx11
+    # Remove bundled libraries
+    rm_r(buildpath.glob("lib/*") - buildpath.glob("lib/{avilib,librmff}*"))
+
+    # Boost Math needs at least C++14, Qt needs at least C++17
+    ENV.append "CXXFLAGS", "-std=c++17"
 
     features = %w[flac gmp libebml libmatroska libogg libvorbis]
     extra_includes = ""

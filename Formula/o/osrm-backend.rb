@@ -2,7 +2,7 @@ class OsrmBackend < Formula
   desc "High performance routing engine"
   homepage "https://project-osrm.org/"
   license "BSD-2-Clause"
-  revision 6
+  revision 7
   head "https://github.com/Project-OSRM/osrm-backend.git", branch: "master"
 
   # TODO: Remove `conflicts_with "mapnik"` in release that has following commit:
@@ -11,14 +11,21 @@ class OsrmBackend < Formula
     url "https://github.com/Project-OSRM/osrm-backend/archive/refs/tags/v5.27.1.tar.gz"
     sha256 "52391580e0f92663dd7b21cbcc7b9064d6704470e2601bf3ec5c5170b471629a"
 
+    # Backport fix for Boost 1.85.0. Remove in the next release.
+    # PR ref: https://github.com/Project-OSRM/osrm-backend/pull/6856
+    patch do
+      url "https://github.com/Project-OSRM/osrm-backend/commit/10ec6fc33547e4b96a5929c18db57fb701152c68.patch?full_index=1"
+      sha256 "4f475ed8a08aa95a2b626ba23c9d8ac3dc55d54c3f163e3d505d4a45c2d4e504"
+    end
+
     # Backport fix for missing include. Remove in the next release.
     # Ref: https://github.com/Project-OSRM/osrm-backend/commit/565959b3896945a0eb437cc799b697be023121ef
     #
-    # Also add temporary build fix to 'include/util/lua_util.hpp' for Boost 1.85.0.
-    # Issue ref: https://github.com/Project-OSRM/osrm-backend/issues/6850
-    #
     # Also backport sol2.hpp workaround to avoid a Clang bug. Remove in the next release
     # Ref: https://github.com/Project-OSRM/osrm-backend/commit/523ee762f077908d03b66d0976c877b52adf22fa
+    #
+    # Also add diff from open PR to support Boost 1.87.0
+    # Ref: https://github.com/Project-OSRM/osrm-backend/pull/7073
     patch :DATA
   end
 
@@ -125,20 +132,6 @@ index 5d16fe6..2c378bf 100644
 
  #include "util/string_view.hpp"
 
-diff --git a/include/util/lua_util.hpp b/include/util/lua_util.hpp
-index 36af5a1f3..cd2d1311c 100644
---- a/include/util/lua_util.hpp
-+++ b/include/util/lua_util.hpp
-@@ -8,7 +8,7 @@ extern "C"
- #include <lualib.h>
- }
-
--#include <boost/filesystem/convenience.hpp>
-+#include <boost/filesystem/operations.hpp>
-
- #include <iostream>
- #include <string>
-
 diff --git a/third_party/sol2-3.3.0/include/sol/sol.hpp b/third_party/sol2-3.3.0/include/sol/sol.hpp
 index 8b0b7d36ea4ef2a36133ce28476ae1620fcd72b5..d7da763f735434bf4a40b204ff735f4e464c1b13 100644
 --- a/third_party/sol2-3.3.0/include/sol/sol.hpp
@@ -175,3 +168,17 @@ index 8b0b7d36ea4ef2a36133ce28476ae1620fcd72b5..d7da763f735434bf4a40b204ff735f4e
  			int nr;
  			if constexpr (no_trampoline) {
  				nr = real_call(L);
+diff --git a/include/server/server.hpp b/include/server/server.hpp
+index 34b8982e67..02b0dda050 100644
+--- a/include/server/server.hpp
++++ b/include/server/server.hpp
+@@ -53,8 +53,7 @@ class Server
+         const auto port_string = std::to_string(port);
+ 
+         boost::asio::ip::tcp::resolver resolver(io_context);
+-        boost::asio::ip::tcp::resolver::query query(address, port_string);
+-        boost::asio::ip::tcp::endpoint endpoint = *resolver.resolve(query);
++        boost::asio::ip::tcp::endpoint endpoint = *resolver.resolve(address, port_string).begin();
+ 
+         acceptor.open(endpoint.protocol());
+ #ifdef SO_REUSEPORT

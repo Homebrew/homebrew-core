@@ -6,6 +6,7 @@ class GraphTool < Formula
   url "https://downloads.skewed.de/graph-tool/graph-tool-2.80.tar.bz2"
   sha256 "c1a70e075dbe728fad25dc3f5a9a9597880a6d6ff68435b91d21f0b44ef8dbe6"
   license "LGPL-3.0-or-later"
+  revision 1
 
   livecheck do
     url "https://downloads.skewed.de/graph-tool/"
@@ -144,9 +145,9 @@ class GraphTool < Formula
     args = %W[
       PYTHON=#{python}
       --with-python-module-path=#{prefix/site_packages}
-      --with-boost-python=boost_python#{xy.to_s.delete(".")}-mt
+      --with-boost-python=boost_python#{xy.to_s.delete(".")}
       --with-boost-libdir=#{Formula["boost"].opt_lib}
-      --with-boost-coroutine=boost_coroutine-mt
+      --with-boost-coroutine=boost_coroutine
       --disable-silent-rules
     ]
     args << "PYTHON_LIBS=-undefined dynamic_lookup" if OS.mac?

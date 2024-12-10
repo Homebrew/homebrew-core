@@ -1,12 +1,13 @@
 class Cpprestsdk < Formula
   desc "C++ libraries for cloud-based client-server communication"
-  homepage "https://github.com/Microsoft/cpprestsdk"
+  homepage "https://github.com/microsoft/cpprestsdk"
   # pull from git tag to get submodules
-  url "https://github.com/Microsoft/cpprestsdk.git",
+  url "https://github.com/microsoft/cpprestsdk.git",
       tag:      "v2.10.19",
       revision: "411a109150b270f23c8c97fa4ec9a0a4a98cdecf"
   license "MIT"
-  head "https://github.com/Microsoft/cpprestsdk.git", branch: "development"
+  revision 1
+  head "https://github.com/microsoft/cpprestsdk.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "dd3a9b00704714936de5308d93e2e9e4967700aef229981beb7e4163909d525e"
@@ -21,16 +22,19 @@ class Cpprestsdk < Formula
 
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
-  depends_on "boost"
+  depends_on "boost@1.85" # Issue ref: https://github.com/microsoft/cpprestsdk/issues/1323
   depends_on "openssl@3"
 
   uses_from_macos "zlib"
 
   def install
-    system "cmake", "-DBUILD_SAMPLES=OFF", "-DBUILD_TESTS=OFF",
-                    "-DOPENSSL_ROOT_DIR=#{Formula["openssl@3"]}.opt_prefix",
-                    "Release", *std_cmake_args
-    system "make", "install"
+    system "cmake", "-S", "Release", "-B", "build",
+                    "-DBUILD_SAMPLES=OFF",
+                    "-DBUILD_TESTS=OFF",
+                    "-DOPENSSL_ROOT_DIR=#{Formula["openssl@3"].opt_prefix}",
+                    *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
@@ -42,9 +46,10 @@ class Cpprestsdk < Formula
         std::cout << client.request(web::http::methods::GET).get().extract_string().get() << std::endl;
       }
     CPP
+    boost = Formula["boost@1.85"]
     system ENV.cxx, "test.cc", "-std=c++11",
-                    "-I#{Formula["boost"].include}", "-I#{Formula["openssl@3"].include}", "-I#{include}",
-                    "-L#{Formula["boost"].lib}", "-L#{Formula["openssl@3"].lib}", "-L#{lib}",
+                    "-I#{boost.include}", "-I#{Formula["openssl@3"].include}", "-I#{include}",
+                    "-L#{boost.lib}", "-L#{Formula["openssl@3"].lib}", "-L#{lib}",
                     "-lssl", "-lcrypto", "-lboost_random-mt", "-lboost_chrono-mt", "-lboost_thread-mt",
                     "-lboost_system-mt", "-lboost_filesystem-mt", "-lcpprest",
                     "-o", "test_cpprest"

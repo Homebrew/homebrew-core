@@ -4,7 +4,7 @@ class AzureStorageCpp < Formula
   url "https://github.com/Azure/azure-storage-cpp/archive/refs/tags/v7.5.0.tar.gz"
   sha256 "446a821d115949f6511b7eb01e6a0e4f014b17bfeba0f3dc33a51750a9d5eca5"
   license "Apache-2.0"
-  revision 10
+  revision 11
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "715929b7bf9be66a120d8daaadef336fc4e69cc10b98bf57b1db566ed74c43ae"
@@ -22,7 +22,7 @@ class AzureStorageCpp < Formula
   disable! date: "2025-05-20", because: :deprecated_upstream
 
   depends_on "cmake" => :build
-  depends_on "boost"
+  depends_on "boost@1.85"
   depends_on "cpprestsdk"
   depends_on "openssl@3"
 
@@ -55,15 +55,16 @@ class AzureStorageCpp < Formula
         catch(...){ return 1; }
       }
     CPP
+    boost = Formula["boost@1.85"]
     flags = ["-std=c++11", "-I#{include}",
-             "-I#{Formula["boost"].include}",
+             "-I#{boost.include}",
              "-I#{Formula["openssl@3"].include}",
              "-I#{Formula["cpprestsdk"].include}",
-             "-L#{Formula["boost"].lib}",
+             "-L#{boost.lib}",
              "-L#{Formula["cpprestsdk"].lib}",
              "-L#{Formula["openssl@3"].lib}",
              "-L#{lib}",
-             "-lcpprest", "-lboost_system-mt", "-lssl", "-lcrypto", "-lazurestorage"]
+             "-lcpprest", "-lboost_system", "-lssl", "-lcrypto", "-lazurestorage"]
     flags << "-stdlib=libc++" if OS.mac?
     system ENV.cxx, "-o", "test_azurestoragecpp", "test.cpp", *flags
     system "./test_azurestoragecpp"

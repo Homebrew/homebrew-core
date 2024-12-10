@@ -4,7 +4,7 @@ class Bastet < Formula
   url "https://github.com/fph/bastet/archive/refs/tags/0.43.2.tar.gz"
   sha256 "f219510afc1d83e4651fbffd5921b1e0b926d5311da4f8fa7df103dc7f2c403f"
   license "GPL-3.0-or-later"
-  revision 9
+  revision 10
 
   bottle do
     sha256 arm64_sequoia:  "6573987f9ba4434ee5ed34901157c7a6f7f6cfd52d00e67b5955733c34a4b0e0"
@@ -29,7 +29,7 @@ class Bastet < Formula
   def install
     inreplace %w[Config.cpp bastet.6], "/var", var
 
-    ENV.append "CXXFLAGS", "-std=c++14"
+    ENV.append "CXX", "-std=c++14"
 
     system "make", "all"
 

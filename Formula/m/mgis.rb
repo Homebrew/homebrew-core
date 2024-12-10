@@ -4,7 +4,7 @@ class Mgis < Formula
   url "https://github.com/thelfer/MFrontGenericInterfaceSupport/archive/refs/tags/MFrontGenericInterfaceSupport-2.2.tar.gz"
   sha256 "b3776d7b3a534ca626525a42b97665f7660ae2b28ea57b3f53fd7e8538da1ceb"
   license any_of: ["LGPL-3.0-only", "CECILL-1.0"]
-  revision 3
+  revision 4
   head "https://github.com/thelfer/MFrontGenericInterfaceSupport.git", branch: "master"
 
   bottle do
@@ -26,6 +26,7 @@ class Mgis < Formula
   depends_on "python@3.12"
 
   on_macos do
+    depends_on "boost"
     depends_on "gcc"
   end
 
@@ -50,7 +51,12 @@ class Mgis < Formula
       "-Denable-enable-static=OFF",
       "-Ddisable_python_library_linking=ON",
       "-DCMAKE_INSTALL_RPATH=#{rpath}",
+      "-DPython_ADDITIONAL_VERSIONS=#{Language::Python.major_minor_version python3}",
     ]
+
+    site_packages = prefix/Language::Python.site_packages(python3)
+    args << "-DCMAKE_MODULE_LINKER_FLAGS=-Wl,-rpath,#{rpath(source: site_packages/"mgis")}" if OS.mac?
+
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"

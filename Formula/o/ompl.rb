@@ -4,7 +4,7 @@ class Ompl < Formula
   url "https://github.com/ompl/ompl/archive/refs/tags/1.6.0.tar.gz"
   sha256 "f03daa95d2bbf1c21e91a38786242c245f4740f16aa9e9adbf7c7e0236e3c625"
   license "BSD-3-Clause"
-  revision 8
+  revision 9
   head "https://github.com/ompl/ompl.git", branch: "main"
 
   # We check the first-party download page because the "latest" GitHub release

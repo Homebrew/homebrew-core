@@ -6,7 +6,7 @@ class Uhd < Formula
   url "https://github.com/EttusResearch/uhd/archive/refs/tags/v4.7.0.0.tar.gz"
   sha256 "afe56842587ce72d6a57535a2b15c061905f0a039abcc9d79f0106f072a00d10"
   license all_of: ["GPL-3.0-or-later", "LGPL-3.0-or-later", "MIT", "BSD-3-Clause", "Apache-2.0"]
-  revision 1
+  revision 2
   head "https://github.com/EttusResearch/uhd.git", branch: "master"
 
   livecheck do
@@ -27,7 +27,7 @@ class Uhd < Formula
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
   depends_on "pkgconf" => :build
-  depends_on "boost"
+  depends_on "boost@1.85"
   depends_on "libusb"
   depends_on "python@3.13"
 
