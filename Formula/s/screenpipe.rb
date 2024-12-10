@@ -15,7 +15,8 @@ class Screenpipe < Formula
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
-  depends_on "oven-sh/bun/bun"
+  depends_on "curl" => :build
+  depends_on "unzip" => :build
   depends_on "ffmpeg"
   depends_on macos: :sonoma
 
@@ -28,11 +29,11 @@ class Screenpipe < Formula
     depends_on "openssl@3"
     depends_on "tesseract"
     depends_on "xz"
-    depends_on "curl"
-    depends_on "unzip"
   end
 
   def install
+    system "curl", "-fsSL", "https://bun.sh/install", "|", "bash"
+    
     features = ["--features", "metal,pipes"] if OS.mac? && Hardware::CPU.arm?
     system "cargo", "install", *features, *std_cargo_args(path: "screenpipe-server")
     lib.install "screenpipe-vision/lib/libscreenpipe_#{Hardware::CPU.arch}.dylib" if OS.mac?
