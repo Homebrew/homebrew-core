@@ -4,6 +4,7 @@ class Xclogparser < Formula
   url "https://github.com/MobileNativeFoundation/XCLogParser/archive/refs/tags/v0.2.39.tar.gz"
   sha256 "b225891b94bbdb549ddbc9ffe838ad87f73ef7cc79934e3e23969bb1220eafd9"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2af489ea40d0e2ea3d490c151137cc74992e17d9e5d4ea842efe37bb5c3c83f3"
@@ -18,9 +19,20 @@ class Xclogparser < Formula
   depends_on xcode: "13.0"
 
   uses_from_macos "swift"
+  uses_from_macos "zlib"
 
   def install
-    system "swift", "build", "-c", "release", "--disable-sandbox"
+    args = if OS.mac?
+      ["--disable-sandbox"]
+    else
+      # Fix hardcoded path to system zlib.
+      system "swift", "package", "fetch"
+      inreplace ".build/checkouts/GzipSwift/Sources/system-zlib/include/module.modulemap",
+                "/usr/include", Formula["zlib"].opt_include
+      ["--static-swift-stdlib"]
+    end
+
+    system "swift", "build", "-c", "release", *args
     bin.install ".build/release/xclogparser"
   end
 
