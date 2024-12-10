@@ -2554,6 +2554,7 @@ remarshal
 remind
 renovate
 repo
+repomix
 reposurgeon
 reproc
 restic
