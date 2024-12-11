@@ -1,8 +1,8 @@
 class Libnfs < Formula
   desc "C client library for NFS"
   homepage "https://github.com/sahlberg/libnfs"
-  url "https://github.com/sahlberg/libnfs/archive/refs/tags/libnfs-5.0.3.tar.gz"
-  sha256 "d945cb4f4c8f82ee1f3640893a168810f794a28e1010bb007ec5add345e9df3e"
+  url "https://github.com/sahlberg/libnfs/archive/refs/tags/libnfs-6.0.0.tar.gz"
+  sha256 "6fe64b5a47b2558484c8beb05819c1f1f3e52cc52a7b3a8b805faf398e9a9c24"
   license "LGPL-2.1-or-later"
 
   bottle do
@@ -19,6 +19,7 @@ class Libnfs < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
+  uses_from_macos "krb5"
 
   def install
     system "./bootstrap"
