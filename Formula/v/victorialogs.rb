@@ -1,8 +1,8 @@
 class Victorialogs < Formula
   desc "Open source user-friendly database for logs from VictoriaMetrics"
   homepage "https://docs.victoriametrics.com/victorialogs/"
-  url "https://github.com/VictoriaMetrics/VictoriaMetrics/archive/refs/tags/v1.107.0.tar.gz"
-  sha256 "e42278a77d4e20a86e38cc9581541f64c7a84318c7ac47a95257c148ac2e3221"
+  url "https://github.com/VictoriaMetrics/VictoriaMetrics/archive/refs/tags/v1.3.2-victorialogs.tar.gz"
+  sha256 "efefc27abbab85dd3126201665a28fca04cf14250fb34e9a1bf93b1715382972"
   license "Apache-2.0"
 
   # There are tags like `pmm-6401-v1.89.1` in the upstream repo. They don't
@@ -10,7 +10,7 @@ class Victorialogs < Formula
   # Make sure we only match the ones using the common format.
   livecheck do
     url :stable
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
+    regex(/v?(\d+(?:\.\d+)+)-victorialogs$/i)
   end
 
   bottle do
