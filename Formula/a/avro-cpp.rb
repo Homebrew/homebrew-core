@@ -1,14 +1,10 @@
 class AvroCpp < Formula
   desc "Data serialization system"
   homepage "https://avro.apache.org/"
-  # Upstreams tar.gz can't be opened by bsdtar on macOS
-  # https://github.com/Homebrew/homebrew-core/pull/146296#issuecomment-1737945877
-  # https://apple.stackexchange.com/questions/197839/why-is-extracting-this-tgz-throwing-an-error-on-my-mac-but-not-on-linux
-  url "https://github.com/apache/avro.git",
-      tag:      "release-1.11.3",
-      revision: "35ff8b997738e4d983871902d47bfb67b3250734"
+  url "https://www.apache.org/dyn/closer.lua?path=avro/avro-1.12.0/cpp/avro-cpp-1.12.0.tar.gz"
+  mirror "https://archive.apache.org/dist/avro/avro-1.12.0/cpp/avro-cpp-1.12.0.tar.gz"
+  sha256 "f2edf77126a75b0ec1ad166772be058351cea3d74448be7e2cef20050c0f98ab"
   license "Apache-2.0"
-  revision 4
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "68cc14a37de162f0006e51cd24bf8732037333c8b4f83d93281f5fd027322854"
@@ -25,10 +21,33 @@ class AvroCpp < Formula
   depends_on "pkgconf" => :build
   depends_on "boost"
 
+  resource "fmt" do
+    url "https://github.com/fmtlib/fmt/releases/download/10.2.1/fmt-10.2.1.zip"
+    sha256 "312151a2d13c8327f5c9c586ac6cf7cddc1658e8f53edae0ec56509c8fa516c9"
+  end
+
   def install
-    system "cmake", "-S", "lang/c++", "-B", "build", *std_cmake_args
+    # Some installed `avro-cpp` headers include `fmt` headers, but code is not compatible with fmt >= 11
+    resource("fmt").stage do
+      system "cmake", "-S", ".", "-B", "build", *std_cmake_args(install_prefix: libexec)
+      system "cmake", "--build", "build"
+      system "cmake", "--install", "build"
+    end
+
+    args = %W[
+      -DCMAKE_PREFIX_PATH=#{libexec}
+      -DHOMEBREW_ALLOW_FETCHCONTENT=ON
+      -DFETCHCONTENT_FULLY_DISCONNECTED=ON
+      -DFETCHCONTENT_TRY_FIND_PACKAGE_MODE=ALWAYS
+    ]
+
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
+  end
+
+  def caveats
+    "`avro-cpp` headers may need to use the bundled `fmt` at #{opt_libexec}"
   end
 
   test do
