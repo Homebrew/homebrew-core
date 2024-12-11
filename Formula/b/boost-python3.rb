@@ -1,8 +1,8 @@
 class BoostPython3 < Formula
   desc "C++ library for C++/Python3 interoperability"
   homepage "https://www.boost.org/"
-  url "https://github.com/boostorg/boost/releases/download/boost-1.86.0/boost-1.86.0-b2-nodocs.tar.xz"
-  sha256 "a4d99d032ab74c9c5e76eddcecc4489134282245fffa7e079c5804b92b45f51d"
+  url "https://github.com/boostorg/boost/releases/download/boost-1.87.0.beta1/boost-1.87.0.beta1-b2-nodocs.tar.xz"
+  sha256 "65b5fff9fb72f1685c9a00c4a125f32613b402482ee361f757482e47d34396ad"
   license "BSL-1.0"
   head "https://github.com/boostorg/boost.git", branch: "master"
 
@@ -25,18 +25,6 @@ class BoostPython3 < Formula
   depends_on "boost"
   depends_on "python@3.12"
 
-  # Backport support for numpy>=2
-  patch do
-    url "https://github.com/boostorg/python/commit/0474de0f6cc9c6e7230aeb7164af2f7e4ccf74bf.patch?full_index=1"
-    sha256 "ac4f3e7bd4609c464a493cfe6a0e416bcd14fdadfc5c9f59a4c7d14e19aea80b"
-    directory "libs/python"
-  end
-  patch do
-    url "https://github.com/boostorg/python/commit/99a5352b5cf790c559a7b976c1ba99520431d9d1.patch?full_index=1"
-    sha256 "6a15028cb172ebbf3480d3f00d7d5f6cf03d2d3f7f8baf20b9f4250b43da16aa"
-    directory "libs/python"
-  end
-
   def python3
     "python3.12"
   end
@@ -46,10 +34,10 @@ class BoostPython3 < Formula
     args = %W[
       -d2
       -j#{ENV.make_jobs}
-      --layout=tagged-1.66
+      --layout=system
       --user-config=user-config.jam
       install
-      threading=multi,single
+      threading=multi
       link=shared,static
     ]
 
@@ -57,6 +45,9 @@ class BoostPython3 < Formula
     # handling using ENV.cxx14. Using "cxxflags" and "linkflags" still works.
     args << "cxxflags=-std=c++14"
     args << "cxxflags=-stdlib=libc++" << "linkflags=-stdlib=libc++" if ENV.compiler == :clang
+
+    # Avoid linkage to boost container and graph modules
+    args << "linkflags=-Wl,-dead_strip_dylibs" if OS.mac?
 
     # disable python detection in bootstrap.sh; it guesses the wrong include
     # directory for Python 3 headers, so we configure python manually in
@@ -92,9 +83,8 @@ class BoostPython3 < Formula
                    "python=#{pyver}",
                    *args
 
-    lib.install buildpath.glob("install-python3/lib/*.*")
-    (lib/"cmake").install buildpath.glob("install-python3/lib/cmake/boost_python*")
-    (lib/"cmake").install buildpath.glob("install-python3/lib/cmake/boost_numpy*")
+    lib.install buildpath.glob("install-python3/lib/*{python,numpy}*")
+    (lib/"cmake").install buildpath.glob("install-python3/lib/cmake/*{python,numpy}*")
   end
 
   test do

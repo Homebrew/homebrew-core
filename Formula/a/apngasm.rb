@@ -4,7 +4,7 @@ class Apngasm < Formula
   url "https://github.com/apngasm/apngasm/archive/refs/tags/3.1.10.tar.gz"
   sha256 "8171e2c1d37ab231a2061320cb1e5d15cee37642e3ce78e8ab0b8dfc45b80f6c"
   license "Zlib"
-  revision 14
+  revision 15
   head "https://github.com/apngasm/apngasm.git", branch: "master"
 
   bottle do

@@ -4,7 +4,7 @@ class Prjtrellis < Formula
   url "https://github.com/YosysHQ/prjtrellis/archive/refs/tags/1.4.tar.gz"
   sha256 "46fe9d98676953e0cccf1d6332755d217a0861e420f1a12dabfda74d81ccc147"
   license all_of: ["ISC", "MIT"]
-  revision 2
+  revision 3
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "d82061f57b9b550b7cc95d934e10dfdf0746b1fb16203ae210a95cb026827115"

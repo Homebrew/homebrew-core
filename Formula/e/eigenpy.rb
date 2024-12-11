@@ -4,6 +4,7 @@ class Eigenpy < Formula
   url "https://github.com/stack-of-tasks/eigenpy/releases/download/v3.10.1/eigenpy-3.10.1.tar.gz"
   sha256 "7b4ea31c8eda2eeba6b1ebb22ebfe72b650e04da20e6ef48d48008c2afb1bbc4"
   license "BSD-2-Clause"
+  revision 1
   head "https://github.com/stack-of-tasks/eigenpy.git", branch: "master"
 
   bottle do
@@ -24,6 +25,10 @@ class Eigenpy < Formula
   depends_on "numpy"
   depends_on "python@3.12"
   depends_on "scipy"
+
+  on_macos do
+    depends_on "boost"
+  end
 
   def python3
     "python3.12"

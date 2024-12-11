@@ -4,7 +4,7 @@ class Augustus < Formula
   url "https://github.com/Gaius-Augustus/Augustus/archive/refs/tags/v3.5.0.tar.gz"
   sha256 "5ed6ce6106303b800c5e91d37a250baff43b20824657b853ae04d11ad8bdd686"
   license "Artistic-1.0"
-  revision 7
+  revision 8
   head "https://github.com/Gaius-Augustus/Augustus.git", branch: "master"
 
   bottle do

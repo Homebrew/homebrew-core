@@ -4,7 +4,7 @@ class Znc < Formula
   url "https://znc.in/releases/znc-1.9.1.tar.gz"
   sha256 "e8a7cf80e19aad510b4e282eaf61b56bc30df88ea2e0f64fadcdd303c4894f3c"
   license "Apache-2.0"
-  revision 2
+  revision 3
 
   livecheck do
     url "https://znc.in/releases/"

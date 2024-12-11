@@ -22,7 +22,7 @@ class Vineyard < Formula
   depends_on "openssl@3" => :build # indirect (not linked) but CMakeLists.txt checks for it
   depends_on "python@3.12" => :build
   depends_on "apache-arrow"
-  depends_on "boost"
+  depends_on "boost@1.85"
   depends_on "cpprestsdk"
   depends_on "etcd"
   depends_on "etcd-cpp-apiv3"
