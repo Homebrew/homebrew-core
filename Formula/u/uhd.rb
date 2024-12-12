@@ -3,11 +3,24 @@ class Uhd < Formula
 
   desc "Hardware driver for all USRP devices"
   homepage "https://files.ettus.com/manual/"
-  url "https://github.com/EttusResearch/uhd/archive/refs/tags/v4.7.0.0.tar.gz"
-  sha256 "afe56842587ce72d6a57535a2b15c061905f0a039abcc9d79f0106f072a00d10"
   license all_of: ["GPL-3.0-or-later", "LGPL-3.0-or-later", "MIT", "BSD-3-Clause", "Apache-2.0"]
-  revision 2
+  revision 3
   head "https://github.com/EttusResearch/uhd.git", branch: "master"
+
+  stable do
+    url "https://github.com/EttusResearch/uhd/archive/refs/tags/v4.7.0.0.tar.gz"
+    sha256 "afe56842587ce72d6a57535a2b15c061905f0a039abcc9d79f0106f072a00d10"
+
+    # Backport support for Boost 1.87.0
+    patch do
+      url "https://github.com/EttusResearch/uhd/commit/2dc7b3e572830c71d49ee0648eef445e7f3abfd6.patch?full_index=1"
+      sha256 "337b55e9323aef61274f52ff6c9d557fcae56b568dda029c3a70b33cccaaf636"
+    end
+    patch do
+      url "https://github.com/EttusResearch/uhd/commit/adfe953d965e58b5931c1b1968899492c8087cf6.patch?full_index=1"
+      sha256 "a9cc7e247a20157e2cbbf241315ef8fe53bdcf7db320a483b2466abcbd4efffe"
+    end
+  end
 
   livecheck do
     url :stable
@@ -26,7 +39,7 @@ class Uhd < Formula
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
   depends_on "pkgconf" => :build
-  depends_on "boost@1.85"
+  depends_on "boost"
   depends_on "libusb"
   depends_on "python@3.13"
 
