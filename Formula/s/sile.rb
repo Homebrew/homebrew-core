@@ -143,6 +143,9 @@ class Sile < Formula
   end
 
   def install
+    # Workaround upstream darwin detection not picking up on e.g. aarch64-apple-darwin22.6.0
+    inreplace "configure", "darwin*", "*darwin*" if build.stable?
+
     lua = Formula["luajit"]
     luaversion = "5.1"
     luapath = libexec/"vendor"
