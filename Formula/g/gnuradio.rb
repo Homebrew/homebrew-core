@@ -27,7 +27,6 @@ class Gnuradio < Formula
   depends_on "doxygen" => :build
   depends_on "pkgconf" => :build
   depends_on "pybind11" => :build
-  depends_on "rust" => :build # for rpds-py
   depends_on "adwaita-icon-theme"
   depends_on "boost"
   depends_on "cppzmq"
@@ -134,11 +133,6 @@ class Gnuradio < Formula
   resource "referencing" do
     url "https://files.pythonhosted.org/packages/99/5b/73ca1f8e72fff6fa52119dbd185f73a907b1989428917b24cff660129b6d/referencing-0.35.1.tar.gz"
     sha256 "25b42124a6c8b632a425174f24087783efb348a6f1e0008e63cd4466fedf703c"
-  end
-
-  resource "rpds-py" do
-    url "https://files.pythonhosted.org/packages/23/80/afdf96daf9b27d61483ef05b38f282121db0e38f5fd4e89f40f5c86c2a4f/rpds_py-0.21.0.tar.gz"
-    sha256 "ed6378c9d66d0de903763e7706383d60c33829581f0adff47b6535f1802fa6db"
   end
 
   resource "setuptools" do
