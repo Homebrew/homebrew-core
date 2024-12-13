@@ -15,15 +15,12 @@ class Sile < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "dbd247ab127cc9f68e3f25e4404974e1ec87e074af1210fb19240bde79dd4ff1"
   end
 
-  head do
-    url "https://github.com/sile-typesetter/sile.git", branch: "master"
+  url "https://github.com/sile-typesetter/sile.git", branch: "master" if build.head?
 
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-  end
-
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
   depends_on "jq" => :build
+  depends_on "libtool" => :build
   depends_on "pkgconf" => :build
   depends_on "poppler" => :build
   depends_on "rust" => :build
@@ -143,8 +140,15 @@ class Sile < Formula
   end
 
   def install
-    # Workaround upstream darwin detection not picking up on e.g. aarch64-apple-darwin22.6.0
-    inreplace "configure", "darwin*", "*darwin*" if build.stable?
+    # Workaround upstream Darwin detection not triggering autoreconf
+    stable do
+      # !OS.linux?
+      inreplace "Makefile.in", "rusile.so", "rusile.dylib"
+      inreplace "Makefile.in", "rusile_so", "rusile_dylib"
+      inreplace "aminclude.am", "rusile.so", "rusile.dylib"
+      inreplace "aminclude.am", "rusile_so", "rusile_dylib"
+      system "autoreconf", "-fiv"
+    end
 
     lua = Formula["luajit"]
     luaversion = "5.1"
@@ -196,6 +200,8 @@ class Sile < Formula
 
     system "./bootstrap.sh" if build.head?
     system "./configure", *configure_args, *std_configure_args
+    system "grep", "-R", "SHARED_LIB_EXT"
+    system "grep", "-R", "librusile"
     system "make"
     system "make", "install"
   end
