@@ -141,12 +141,13 @@ class Sile < Formula
 
   def install
     # Workaround upstream Darwin detection not triggering autoreconf
-    stable do
-      # !OS.linux?
-      inreplace "Makefile.in", "rusile.so", "rusile.dylib"
-      inreplace "Makefile.in", "rusile_so", "rusile_dylib"
-      inreplace "aminclude.am", "rusile.so", "rusile.dylib"
-      inreplace "aminclude.am", "rusile_so", "rusile_dylib"
+    if build.stable? && !OS.linux?
+      # inreplace "Makefile.in", "rusile_so", "rusile_dylib"
+      # inreplace "Makefile.in", "rusile.so", "rusile.dylib"
+      # inreplace "aminclude.am", "rusile_so", "rusile_dylib"
+      # inreplace "aminclude.am", "rusile.so", "rusile.dylib"
+      inreplace "configure.ac", "AC_CANONICAL_TARGET", "AC_CANONICAL_HOST"
+      inreplace "configure.ac", "target_os", "host_os"
       system "autoreconf", "-fiv"
     end
 
