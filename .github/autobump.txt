@@ -2178,6 +2178,7 @@ ol
 ollama
 omake
 omega
+omnictl
 omniorb
 onednn
 onedpl
