@@ -1,8 +1,8 @@
 class Lla < Formula
   desc "High-performance, extensible alternative to ls"
   homepage "https://github.com/triyanox/lla"
-  url "https://github.com/triyanox/lla/archive/refs/tags/v0.3.1.tar.gz"
-  sha256 "5d23054eb83ddd725441586114ceed9cf26ba6becf78b7b3393c2980f67b5c41"
+  url "https://github.com/triyanox/lla/archive/refs/tags/v0.3.3.tar.gz"
+  sha256 "d6ffe717e8f18223361d559b7d46889d079287d19fa78bccb9350f4c0491b7e5"
   license "MIT"
 
   bottle do
@@ -16,6 +16,12 @@ class Lla < Formula
 
   depends_on "protobuf" => :build
   depends_on "rust" => :build
+
+  # patch to support for setting plugins_dir in config, upstream pr ref, https://github.com/triyanox/lla/pull/55
+  patch do
+    url "https://github.com/triyanox/lla/commit/d62ff45712af524637373e6b69291e6d07d451bd.patch?full_index=1"
+    sha256 "bb41d0bfce43003f40a3db955436feac5b96733f1acabcbad47783f93fe66436"
+  end
 
   def install
     system "cargo", "install", *std_cargo_args(path: "lla")
