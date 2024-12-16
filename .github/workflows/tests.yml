@@ -232,12 +232,8 @@ jobs:
           bottles-directory: ${{ env.BOTTLES_DIR }}
           cleanup: ${{ matrix.cleanup }}
 
-      - id: brew-test-bot-formulae
-        run: |
-          # shellcheck disable=SC2086
-          brew test-bot $TEST_BOT_FORMULAE_ARGS
-        env:
-          TEST_BOT_FORMULAE_ARGS: ${{ needs.setup_tests.outputs.test-bot-formulae-args }}
+      - run: brew test-bot ${{ needs.setup_tests.outputs.test-bot-formulae-args }}
+        id: brew-test-bot-formulae
         working-directory: ${{ env.BOTTLES_DIR }}
 
       - name: Post-build steps
@@ -359,11 +355,7 @@ jobs:
           cleanup: ${{ matrix.cleanup }}
           download-bottles: true
 
-      - run: |
-          # shellcheck disable=SC2086
-          brew test-bot $TEST_BOT_DEPENDENTS_ARGS --testing-formulae="$TESTING_FORMULAE"
-        env:
-          TEST_BOT_DEPENDENTS_ARGS: ${{ needs.setup_dep_tests.outputs.test-bot-dependents-args }}
+      - run: brew test-bot ${{ needs.setup_dep_tests.outputs.test-bot-dependents-args }} --testing-formulae="$TESTING_FORMULAE"
         working-directory: ${{ env.BOTTLES_DIR }}
 
       - name: Steps summary and cleanup
