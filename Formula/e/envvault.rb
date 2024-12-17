@@ -1,3 +1,9 @@
+
+# envvault.rb
+# developed by @Fahid Mohammad
+# version 1.0.0
+# date 2024-12-17
+
 class Envvault < Formula
     desc "Secure, scalable, and collaborative environment variable management. Built for developers, by developers"
     homepage "https://envvault.com/"
