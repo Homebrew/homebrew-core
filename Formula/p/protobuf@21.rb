@@ -17,6 +17,10 @@ class ProtobufAT21 < Formula
 
   keg_only :versioned_formula
 
+  # Support for protoc 21.x (protobuf C++ 3.21.x) ended on 2024-03-31
+  # Ref: https://protobuf.dev/support/version-support/#cpp
+  deprecate! date: "2024-11-18", because: :versioned_formula
+
   depends_on "cmake" => :build
   depends_on "python@3.12" => [:build, :test]
   depends_on "python@3.13" => [:build, :test]
