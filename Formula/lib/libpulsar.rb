@@ -5,7 +5,7 @@ class Libpulsar < Formula
   mirror "https://archive.apache.org/dist/pulsar/pulsar-client-cpp-3.6.0/apache-pulsar-client-cpp-3.6.0.tar.gz"
   sha256 "522ca67bc911fcd4c0c9e4278628c9167b614a887c63fb04b04370156254d3b3"
   license "Apache-2.0"
-  revision 5
+  revision 6
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "468bc0a10d09af644373267ea8ccfbf6b7dcb713387066463b1e238c7c23c8e8"
@@ -16,6 +16,7 @@ class Libpulsar < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "8e2e1032d9b5ae9aa365fca6e075c0d91cc4fed3cef6ce0d52d5d427c3c06d29"
   end
 
+  depends_on "asio" => :build # FIXME: Not compatible with Boost.Asio 1.87+
   depends_on "boost" => :build
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
@@ -34,6 +35,7 @@ class Libpulsar < Formula
       -DBUILD_TESTS=OFF
       -DCMAKE_CXX_STANDARD=17
       -DOPENSSL_ROOT_DIR=#{Formula["openssl@3"].opt_prefix}
+      -DUSE_ASIO=ON
     ]
 
     system "cmake", "-S", ".", "build", *args, *std_cmake_args
