@@ -4,21 +4,25 @@ class Agda < Formula
   # agda2hs.cabal specifies BSD-3-Clause but it installs an MIT LICENSE file.
   # Everything else specifies MIT license and installs corresponding file.
   license all_of: ["MIT", "BSD-3-Clause"]
-  revision 2
 
   stable do
-    url "https://github.com/agda/agda/archive/refs/tags/v2.6.4.3-r1.tar.gz"
-    sha256 "15a0ebf08b71ebda0510c8cad04b053beeec653ed26e2c537614a80de8b2e132"
-    version "2.6.4.3"
+    url "https://github.com/agda/agda/archive/refs/tags/v2.7.0.1.tar.gz"
+    sha256 "4a2c0a76c55368e1b70b157b3d35a82e073a0df8f587efa1e9aa8be3f89235be"
 
     resource "stdlib" do
-      url "https://github.com/agda/agda-stdlib/archive/refs/tags/v2.1.tar.gz"
-      sha256 "72ca3ea25094efa0439e106f0d949330414232ec4cc5c3c3316e7e70dd06d431"
+      url "https://github.com/agda/agda-stdlib/archive/refs/tags/v2.1.1.tar.gz"
+      sha256 "ffb2884ff873064a53d4ac949f04b2cb5fca56d8ea1ee2cbe0bd657a0c1311b5"
     end
 
     resource "cubical" do
       url "https://github.com/agda/cubical/archive/refs/tags/v0.7.tar.gz"
       sha256 "25a0d1a0a01ba81888a74dfe864883547dbc1b06fa89ac842db13796b7389641"
+
+      # Bump Agda compat
+      patch do
+        url "https://github.com/agda/cubical/commit/6220641fc7c297a84c5e2c49614fae518cf6307d.patch?full_index=1"
+        sha256 "c6919e394ac9dc6efa016fa6b4e9163ce58142d48f7100b6bc354678fc982986"
+      end
     end
 
     resource "categories" do
@@ -27,8 +31,8 @@ class Agda < Formula
     end
 
     resource "agda2hs" do
-      url "https://github.com/agda/agda2hs/archive/refs/tags/v1.2.tar.gz"
-      sha256 "e80ffc90ff2ccb3933bf89a39ab16d920a6c7a7461a6d182faa0fb6c0446dbb8"
+      url "https://github.com/agda/agda2hs/archive/refs/tags/v1.3.tar.gz"
+      sha256 "0e2c11eae0af459d4c78c24efadb9a4725d12c951f9d94da4adda5a0bcb1b6f6"
     end
   end
 
@@ -70,8 +74,8 @@ class Agda < Formula
     end
   end
 
-  depends_on "cabal-install"
-  depends_on "emacs"
+  depends_on "cabal-install" => :build
+  depends_on "emacs" => :build
   depends_on "ghc"
 
   uses_from_macos "ncurses"
@@ -88,34 +92,32 @@ class Agda < Formula
     agdalib = lib/"agda"
 
     # install main Agda library and binaries
-    system "cabal", "--store-dir=#{libexec}", "v2-install",
-    "-foptimise-heavily", *std_cabal_v2_args
+    system "cabal", "--store-dir=#{libexec}", "v2-install", "-foptimise-heavily",
+           "--avoid-reinstalls", *std_cabal_v2_args
 
     # install agda2hs helper binary and library,
     # relying on the Agda library just installed
     resource("agda2hs").stage "agda2hs-build"
     cd "agda2hs-build" do
-      # Use previously built Agda binary to work around build error with Cabal 3.12
+      # Use previously built Agda binary, instead of rebuilding
       # Issue ref: https://github.com/agda/agda/issues/7401
-      # TODO: Try removing workaround when Agda 2.7.0 is released
+      # TODO: Try removing workaround when Agda 2.8.0 is released
       if build.stable?
-        odie "Try to remove Setup.hs workaround!" if version > "2.6.4.3"
+        odie "Try to remove Setup.hs workaround!" if version > "2.7.0.1"
         Pathname("cabal.project.local").write "packages: ./agda2hs.cabal ../Agda.cabal"
         inreplace buildpath/"Setup.hs", ' agda = bdir </> "agda" </> "agda" <.> agdaExeExtension',
                                         " agda = \"#{bin}/agda\" <.> agdaExeExtension"
       end
 
-      # Work around to build agda2hs with GHC 9.10
-      # Issue ref: https://github.com/agda/agda2hs/issues/347
-      inreplace "agda2hs.cabal", /( base .*&&) < 4\.20,/, "\\1 < 4.21,", build.stable?
-
-      system "cabal", "--store-dir=#{libexec}", "v2-install", *std_cabal_v2_args
+      system "cabal", "--store-dir=#{libexec}", "v2-install",
+             "--avoid-reinstalls", *std_cabal_v2_args
     end
 
     # generate the standard library's documentation and vim highlighting files
     resource("stdlib").stage agdalib
     cd agdalib do
-      system "cabal", "--store-dir=#{libexec}", "v2-install", *cabal_args, "--installdir=#{lib}/agda"
+      system "cabal", "--store-dir=#{libexec}", "v2-install", *cabal_args,
+             "--avoid-reinstalls", "--installdir=#{agdalib}"
       system "./GenerateEverything"
       cd "doc" do
         system bin/"agda", "-i", "..", "--html", "--vim", "README.agda"
@@ -124,6 +126,12 @@ class Agda < Formula
 
     # Clean up references to Homebrew shims in the standard library
     rm_r("#{agdalib}/dist-newstyle/cache")
+
+    # install a temporary libraries file for the standard library so that the
+    # cubical and categories libraries can refer to it while building
+    Pathname.new(".brew_home/.config/agda/libraries").write <<~EOS
+      #{agdalib}/standard-library.agda-lib
+    EOS
 
     # generate the cubical library's documentation files
     cubicallib = agdalib/"cubical"
@@ -142,7 +150,10 @@ class Agda < Formula
       # the standard library that we just installed
       inreplace "Makefile",
                 "agda ${RTSARGS}",
-                "#{bin}/agda --no-libraries -i #{agdalib}/src ${RTSARGS}"
+                "#{bin}/agda ${RTSARGS}"
+      inreplace "agda-categories.agda-lib",
+                "standard-library-2.0",
+                "standard-library"
       system "make", "html"
     end
 
@@ -254,6 +265,7 @@ class Agda < Formula
     agda2hstest = testpath/"Agda2HsTest.agda"
     agda2hstest.write <<~AGDA
       {-# OPTIONS --erasure #-}
+      module Agda2HsTest where
       open import Haskell.Prelude
 
       _≤_ : {{Ord a}} → a → a → Set
@@ -281,26 +293,36 @@ class Agda < Formula
     resource("stdlib").stage testpath/"lib/agda"
     resource("cubical").stage testpath/"lib/agda/cubical"
     resource("categories").stage testpath/"lib/agda/categories"
+    cd testpath/"lib/agda/categories" do
+      inreplace "agda-categories.agda-lib",
+                "standard-library-2.0",
+                "standard-library"
+    end
     resource("agda2hs").stage testpath/"lib/agda/agda2hs"
+    (testpath/".config/agda/libraries").write <<~EOS
+      #{testpath}/lib/agda/standard-library.agda-lib
+      #{testpath}/lib/agda/cubical/cubical.agda-lib
+      #{testpath}/lib/agda/categories/agda-categories.agda-lib
+      #{testpath}/lib/agda/agda2hs/agda2hs.agda-lib
+    EOS
+    (testpath/".config/agda/defaults").write <<~EOS
+      standard-library
+      cubical
+      agda-categories
+      agda2hs
+    EOS
 
     # typecheck a simple module
     system bin/"agda", simpletest
 
     # typecheck a module that uses the standard library
-    system bin/"agda",
-           "-i", testpath/"lib/agda/src",
-           stdlibtest
+    system bin/"agda", stdlibtest
 
     # typecheck a module that uses the cubical library
-    system bin/"agda",
-           "-i", testpath/"lib/agda/cubical",
-           cubicaltest
+    system bin/"agda", cubicaltest
 
     # typecheck a module that uses the categories library
-    system bin/"agda",
-           "-i", testpath/"lib/agda/categories/src",
-           "-i", testpath/"lib/agda/src",
-           categoriestest
+    system bin/"agda", categoriestest
 
     # compile a simple module using the JS backend
     system bin/"agda", "--js", simpletest
@@ -311,9 +333,7 @@ class Agda < Formula
     assert_empty shell_output(testpath/"IOTest")
 
     # translate a simple file via agda2hs
-    system bin/"agda2hs", agda2hstest,
-           "-i", testpath/"lib/agda/agda2hs/lib",
-           "-o", testpath
+    system bin/"agda2hs", agda2hstest
     agda2hsactual = File.read(agda2hsout)
     assert_equal agda2hsexpect, agda2hsactual
   end
