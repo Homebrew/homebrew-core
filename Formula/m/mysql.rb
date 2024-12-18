@@ -105,6 +105,7 @@ class Mysql < Formula
       -DINSTALL_MANDIR=share/man
       -DINSTALL_MYSQLSHAREDIR=share/mysql
       -DINSTALL_PLUGINDIR=lib/plugin
+      -DWITH_AUTHENTICATION_CLIENT_PLUGINS=yes
       -DMYSQL_DATADIR=#{datadir}
       -DSYSCONFDIR=#{etc}
       -DBISON_EXECUTABLE=#{Formula["bison"].opt_bin}/bison
