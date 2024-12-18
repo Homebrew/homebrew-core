@@ -1,8 +1,8 @@
 class Loki < Formula
   desc "Horizontally-scalable, highly-available log aggregation system"
   homepage "https://grafana.com/loki"
-  url "https://github.com/grafana/loki/archive/refs/tags/v3.3.1.tar.gz"
-  sha256 "1fe7ce3c6c9514a96b422206916c8a2a98b5b9e9aef05a961551efebd551cdaa"
+  url "https://github.com/grafana/loki/archive/refs/tags/v3.3.2.tar.gz"
+  sha256 "dd2e80ee40b981aaa414f528a76ab218931e5a53d50540e8fb9659f9e2446f43"
   license "AGPL-3.0-only"
   head "https://github.com/grafana/loki.git", branch: "main"
 
@@ -55,7 +55,7 @@ class Loki < Formula
     end
 
     fork { exec bin/"loki", "-config.file=loki-local-config.yaml" }
-    sleep 6
+    sleep 8
 
     output = shell_output("curl -s localhost:#{port}/metrics")
     assert_match "log_messages_total", output
