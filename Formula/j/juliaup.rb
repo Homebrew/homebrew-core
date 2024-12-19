@@ -29,6 +29,8 @@ class Juliaup < Formula
     system "cargo", "install", "--bin", "julialauncher", "--features", "binjulialauncher", *std_cargo_args
 
     bin.install_symlink "julialauncher" => "julia"
+
+    generate_completions_from_executable(bin/"juliaup", "completions")
   end
 
   test do
