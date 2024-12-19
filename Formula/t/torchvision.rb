@@ -25,21 +25,17 @@ class Torchvision < Formula
   depends_on "cmake" => :build
   depends_on "ninja" => :build
   depends_on "python@3.13" => [:build, :test]
-  depends_on "abseil"
-  depends_on "certifi"
   depends_on "jpeg-turbo"
   depends_on "libpng"
   depends_on "numpy"
   depends_on "pillow"
-  depends_on "protobuf"
   depends_on "pytorch"
 
-  on_macos do
-    depends_on "libomp"
-  end
-
   def install
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    # Avoid overlinking to `abseil`, `libomp` and `protobuf`
+    args = OS.mac? ? ["-DCMAKE_SHARED_LINKER_FLAGS=-Wl,-dead_strip_dylibs"] : []
+
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
