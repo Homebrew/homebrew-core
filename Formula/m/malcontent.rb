@@ -22,6 +22,15 @@ class Malcontent < Formula
     system "go", "build", *std_go_args(ldflags: "-s -w -X main.BuildVersion=#{version}", output: bin/"mal"), "./cmd/mal"
   end
 
+  def caveats
+    <<~EOS
+      malcontent embeds Yara rules in order to scan files and
+      certain AV or anti-malware software may detect malcontent as malicious.
+      Programs that leverage Yara will generally see other programs that also use Yara as malicious
+      due to their respective strings looking for problematic behavior.
+    EOS
+  end
+
   test do
     assert_match version.to_s, shell_output("#{bin}/mal --version")
 
