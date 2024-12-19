@@ -1,10 +1,9 @@
 class Fastnetmon < Formula
   desc "DDoS detection tool with sFlow, Netflow, IPFIX and port mirror support"
   homepage "https://github.com/pavel-odintsov/fastnetmon/"
-  url "https://github.com/pavel-odintsov/fastnetmon/archive/refs/tags/v1.2.7.tar.gz"
-  sha256 "c21fcbf970214dd48ee8aa11e6294e16bea86495085315e7b370a84b316d0af9"
+  url "https://github.com/pavel-odintsov/fastnetmon/archive/refs/tags/v1.2.8.tar.gz"
+  sha256 "d16901b00963f395241c818d02ad2751f14e33fd32ed3cb3011641ab680e0d01"
   license "GPL-2.0-only"
-  revision 8
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "bcfeae61b3264b242131db1504ec2b4c5a7890f7b33642f79af08bf8f9ff5f60"
@@ -32,13 +31,6 @@ class Fastnetmon < Formula
     depends_on "elfutils"
     depends_on "libbpf"
     depends_on "libpcap"
-  end
-
-  # Fix build failure with gRPC 1.67.
-  # https://github.com/pavel-odintsov/fastnetmon/pull/1023
-  patch do
-    url "https://github.com/pavel-odintsov/fastnetmon/commit/b6cf2e7222c24343b868986e867ddb7adad0bf30.patch?full_index=1"
-    sha256 "3a3f719f7434e52db01a512ed3891cf0e3794d4576323e3c2fd3b31c69fb39be"
   end
 
   def install
