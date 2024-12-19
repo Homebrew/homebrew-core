@@ -4,6 +4,7 @@ class Qemu < Formula
   url "https://download.qemu.org/qemu-9.2.0.tar.xz"
   sha256 "f859f0bc65e1f533d040bbe8c92bcfecee5af2c921a6687c652fb44d089bd894"
   license "GPL-2.0-only"
+  revision 1
   head "https://gitlab.com/qemu-project/qemu.git", branch: "master"
 
   livecheck do
@@ -61,6 +62,13 @@ class Qemu < Formula
     depends_on "mesa"
     depends_on "systemd"
   end
+
+  # hvf: arm: disable SME which is not properly handled by QEMU
+  # From https://github.com/utmapp/UTM/blob/v4.6.3/patches/qemu-9.1.2-utm.patch#L714-L741
+  # Needed by macOS 15.2 (or later) on Apple M4 (or later)
+  # https://gitlab.com/qemu-project/qemu/-/issues/2665
+  # https://gitlab.com/qemu-project/qemu/-/issues/2721
+  patch :DATA
 
   def install
     ENV["LIBTOOL"] = "glibtool"
@@ -127,3 +135,33 @@ class Qemu < Formula
     end
   end
 end
+
+__END__
+From 60b68022e834efcb7ae72154ab5536a2b6b0c099 Mon Sep 17 00:00:00 2001
+From: osy <osy@turing.llc>
+Date: Tue, 26 Nov 2024 13:25:01 -0800
+Subject: [PATCH 4/4] DO NOT MERGE: hvf: arm: disable SME which is not properly
+ handled by QEMU
+
+---
+ target/arm/hvf/hvf.c | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/target/arm/hvf/hvf.c b/target/arm/hvf/hvf.c
+index b315b392ee..a63a7763a0 100644
+--- a/target/arm/hvf/hvf.c
++++ b/target/arm/hvf/hvf.c
+@@ -910,6 +910,11 @@ static bool hvf_arm_get_host_cpu_features(ARMHostCPUFeatures *ahcf)
+     clamp_id_aa64mmfr0_parange_to_ipa_size(&host_isar.id_aa64mmfr0);
+ #endif
+ 
++    /*
++     * Disable SME which is not properly handled by QEMU yet
++     */
++    host_isar.id_aa64pfr1 &= ~R_ID_AA64PFR1_SME_MASK;
++
+     ahcf->isar = host_isar;
+ 
+     /*
+-- 
+2.41.0
