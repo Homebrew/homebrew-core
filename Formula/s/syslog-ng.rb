@@ -6,7 +6,7 @@ class SyslogNg < Formula
   url "https://github.com/syslog-ng/syslog-ng/releases/download/syslog-ng-4.8.1/syslog-ng-4.8.1.tar.gz"
   sha256 "e8b8b98c60a5b68b25e3462c4104c35d05b975e6778d38d8a81b8ff7c0e64c5b"
   license all_of: ["LGPL-2.1-or-later", "GPL-2.0-or-later"]
-  revision 5
+  revision 6
   head "https://github.com/syslog-ng/syslog-ng.git", branch: "master"
 
   bottle do

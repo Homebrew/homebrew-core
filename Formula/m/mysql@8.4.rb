@@ -4,7 +4,7 @@ class MysqlAT84 < Formula
   url "https://cdn.mysql.com/Downloads/MySQL-8.4/mysql-8.4.3.tar.gz"
   sha256 "7ac9564c478022f73005ff89bbb40f67b381fc06d5518416bdffec75e625b818"
   license "GPL-2.0-only" => { with: "Universal-FOSS-exception-1.0" }
-  revision 4
+  revision 5
 
   livecheck do
     url "https://dev.mysql.com/downloads/mysql/8.4.html?tpl=files&os=src&version=8.4"

@@ -2,7 +2,7 @@ class Brpc < Formula
   desc "Better RPC framework"
   homepage "https://brpc.apache.org/"
   license "Apache-2.0"
-  revision 2
+  revision 3
   head "https://github.com/apache/brpc.git", branch: "master"
 
   stable do
