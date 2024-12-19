@@ -1,8 +1,8 @@
 class WhisperCpp < Formula
   desc "Port of OpenAI's Whisper model in C/C++"
   homepage "https://github.com/ggerganov/whisper.cpp"
-  url "https://github.com/ggerganov/whisper.cpp/archive/refs/tags/v1.5.4.tar.gz"
-  sha256 "06eed84de310fdf5408527e41e863ac3b80b8603576ba0521177464b1b341a3a"
+  url "https://github.com/ggerganov/whisper.cpp/archive/refs/tags/v1.7.3.tar.gz"
+  sha256 "a36faa04885b45e4dd27751a37cb54300617717dbd3b7e5ec336f830e051a28c"
   license "MIT"
   head "https://github.com/ggerganov/whisper.cpp.git", branch: "master"
 
@@ -22,11 +22,26 @@ class WhisperCpp < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "f7187c90ab975f4558c1762a608e09bd16f897690b55308aa27bb6d21e86c2e2"
   end
 
-  def install
-    system "make"
-    bin.install "main" => "whisper-cpp"
+  depends_on "cmake" => :build
 
-    pkgshare.install ["samples/jfk.wav", "models/for-tests-ggml-tiny.bin", "ggml-metal.metal"]
+  def install
+    args = %W[
+      -DBUILD_SHARED_LIBS=OFF
+      -DGGML_METAL=#{(OS.mac? && !Hardware::CPU.intel?) ? "ON" : "OFF"}
+      -DGGML_METAL_EMBED_LIBRARY=#{OS.mac? ? "ON" : "OFF"}
+      -DGGML_NATIVE=#{build.bottle? ? "OFF" : "ON"}
+      -DWHISPER_BUILD_EXAMPLES=ON
+      -DWHISPER_BUILD_TESTS=OFF
+      -DWHISPER_BUILD_SERVER=OFF
+    ]
+    args << "-DLLAMA_METAL_MACOSX_VERSION_MIN=#{MacOS.version}" if OS.mac?
+
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
+    # the "main" target is our whisper-cpp binary
+    system "cmake", "--build", "build", "--target", "main"
+    bin.install "build/bin/main" => "whisper-cpp"
+
+    pkgshare.install "models/for-tests-ggml-tiny.bin", "samples/jfk.wav"
   end
 
   def caveats
@@ -40,9 +55,7 @@ class WhisperCpp < Formula
   end
 
   test do
-    cp [pkgshare/"jfk.wav", pkgshare/"for-tests-ggml-tiny.bin", pkgshare/"ggml-metal.metal"], testpath
-
-    system bin/"whisper-cpp", "samples", "-m", "for-tests-ggml-tiny.bin"
+    system bin/"whisper-cpp", "-m", pkgshare/"for-tests-ggml-tiny.bin", pkgshare/"jfk.wav"
     assert_equal 0, $CHILD_STATUS.exitstatus, "whisper-cpp failed with exit code #{$CHILD_STATUS.exitstatus}"
   end
 end
