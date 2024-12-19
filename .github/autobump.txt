@@ -1606,6 +1606,7 @@ leakcanary-shark
 lean-cli
 leapp-cli
 leetup
+legba
 legitify
 lego
 leiningen

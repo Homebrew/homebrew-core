@@ -7,6 +7,7 @@ class Samba < Formula
   url "https://download.samba.org/pub/samba/stable/samba-4.21.2.tar.gz"
   sha256 "bde66be3d2025cb949de38518ad2652f3795f824c7fa89d4e443ede1ae828ea6"
   license "GPL-3.0-or-later"
+  revision 1
 
   livecheck do
     url "https://www.samba.org/samba/download/"
@@ -59,6 +60,15 @@ class Samba < Formula
   resource "Parse::Yapp" do
     url "https://cpan.metacpan.org/authors/id/W/WB/WBRASWELL/Parse-Yapp-1.21.tar.gz"
     sha256 "3810e998308fba2e0f4f26043035032b027ce51ce5c8a52a8b8e340ca65f13e5"
+  end
+
+  # upstream bug report, https://bugzilla.samba.org/show_bug.cgi?id=10791
+  # https://bugzilla.samba.org/show_bug.cgi?id=10626
+  # https://bugzilla.samba.org/show_bug.cgi?id=9665
+  # upstream pr ref, https://gitlab.com/samba-team/samba/-/merge_requests/3902
+  patch do
+    url "https://gitlab.com/samba-team/samba/-/commit/a2736fe78a4e75e71b9bc53dc24c36d71b911d2a.diff"
+    sha256 "7d1bf9eb26211e2ab9e3e67ae32308a3704ff9904ab2369e5d863e079ea8a03f"
   end
 
   def install
