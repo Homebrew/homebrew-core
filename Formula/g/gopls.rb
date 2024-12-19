@@ -4,6 +4,7 @@ class Gopls < Formula
   url "https://github.com/golang/tools/archive/refs/tags/gopls/v0.17.0.tar.gz"
   sha256 "0d362528c42d4110933515cbabd7c6383048eb279a0b74a6322883acbcc3a381"
   license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     url :stable
@@ -24,7 +25,7 @@ class Gopls < Formula
 
   def install
     cd "gopls" do
-      system "go", "build", *std_go_args(ldflags: "-s -w")
+      system "go", "build", *std_go_args(ldflags: "-s -w -X main.version=v#{version}")
     end
   end
 
@@ -34,5 +35,6 @@ class Gopls < Formula
 
     assert_equal "buildFlags", output["Options"]["User"][0]["Name"]
     assert_equal "Go", output["Lenses"][0]["FileType"]
+    assert_match version.to_s, shell_output("#{bin}/gopls version")
   end
 end
