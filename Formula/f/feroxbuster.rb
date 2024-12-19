@@ -25,6 +25,10 @@ class Feroxbuster < Formula
     ENV["OPENSSL_NO_VENDOR"] = "1"
 
     system "cargo", "install", *std_cargo_args
+
+    bash_completion.install "shell_completions/feroxbuster.bash" => "feroxbuster"
+    fish_completion.install "shell_completions/feroxbuster.fish"
+    zsh_completion.install "shell_completions/_feroxbuster"
   end
 
   test do
