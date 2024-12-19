@@ -344,7 +344,7 @@ jobs:
               allow_any_match: true
 
             - label: CI-skip-recursive-dependents
-              path: Formula/.+/(ca-certificates|curl|gettext|openssl@3|sqlite).rb
+              path: Formula/.+/(ca-certificates|curl|gettext|openssl@3|sqlite|systemd).rb
               keep_if_no_match: true
 
             - label: CI-linux-self-hosted
@@ -366,7 +366,6 @@ jobs:
                 libva|\
                 libxml2|\
                 python@3.12|\
-                systemd|\
                 wayland-protocols|\
                 zlib|\
                 ).rb"
