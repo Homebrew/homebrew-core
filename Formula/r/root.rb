@@ -1,19 +1,10 @@
 class Root < Formula
   desc "Analyzing petabytes of data, scientifically"
   homepage "https://root.cern"
+  url "https://root.cern/download/root_v6.34.02.source.tar.gz"
+  sha256 "166bec562e420e177aaf3133fa3fb09f82ecddabe8a2e1906345bad442513f94"
   license "LGPL-2.1-or-later"
   head "https://github.com/root-project/root.git", branch: "master"
-
-  stable do
-    url "https://root.cern/download/root_v6.32.08.source.tar.gz"
-    sha256 "29ad4945a72dff1a009c326a65b6fa5ee2478498823251d3cef86a2cbeb77b27"
-
-    # Backport fix for RPATH on macOS
-    patch do
-      url "https://github.com/root-project/root/commit/0569d5d7bfb30d96e06c4192658aed4b78e4da64.patch?full_index=1"
-      sha256 "24553b16f66459fe947d192854f5fa6832c9414cc711d7705cb8e8fa67d2d935"
-    end
-  end
 
   livecheck do
     url "https://root.cern/install/all_releases/"
@@ -66,6 +57,10 @@ class Root < Formula
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
+  on_macos do
+    depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1500
+  end
+
   on_linux do
     depends_on "giflib"
     depends_on "jpeg-turbo"
@@ -81,11 +76,18 @@ class Root < Formula
 
   skip_clean "bin"
 
+  fails_with :clang do
+    build 1500
+    cause "test"
+  end
+
   def python3
     "python3.13"
   end
 
   def install
+    ENV.llvm_clang if OS.mac? && DevelopmentTools.clang_build_version <= 1500
+
     # Skip modification of CLING_OSX_SYSROOT to the unversioned SDK path
     # Related: https://github.com/Homebrew/homebrew-core/issues/135714
     # Related: https://github.com/root-project/cling/issues/457
@@ -161,12 +163,7 @@ class Root < Formula
       -GNinja
     ]
 
-    compiledata = if build.head?
-      "cmake/unix/compiledata.sh"
-    else
-      args << "-Dbuiltin_afterimage=ON"
-      "build/unix/compiledata.sh"
-    end
+    compiledata = "cmake/unix/compiledata.sh"
     # Workaround the shim directory being embedded into the output
     inreplace compiledata, "`type -path $CXX`", ENV.cxx
 
