@@ -22,12 +22,25 @@ class GitDelta < Formula
 
   def install
     system "cargo", "install", *std_cargo_args
-    bash_completion.install "etc/completion/completion.bash" => "delta"
-    fish_completion.install "etc/completion/completion.fish" => "delta.fish"
-    zsh_completion.install "etc/completion/completion.zsh" => "_delta"
+
+    generate_completions_from_executable(bin/"delta", "--generate-completion", base_name: "delta")
   end
 
   test do
-    assert_match "delta #{version}", `#{bin}/delta --version`.chomp
+    assert_match "delta #{version}", shell_output("#{bin}/delta --version")
+
+    # Create a test repo
+    system "git", "init"
+    (testpath/"test.txt").write("Hello, Homebrew!")
+    system "git", "add", "test.txt"
+    system "git", "commit", "-m", "Initial commit"
+    (testpath/"test.txt").append_lines("Hello, Delta!")
+    system "git", "add", "test.txt"
+    system "git", "commit", "-m", "Update test.txt"
+
+    # Test delta with git log using pipe_output
+    git_log_output = shell_output("git log -p --color=always")
+    output = pipe_output(bin/"delta", git_log_output)
+    assert_match "Hello, Delta!", output
   end
 end
