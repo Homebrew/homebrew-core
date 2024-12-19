@@ -32,6 +32,8 @@ class Joshuto < Formula
   def install
     system "cargo", "install", *std_cargo_args
     pkgetc.install Dir["config/*.toml"]
+
+    generate_completions_from_executable(bin/"joshuto", "completions")
   end
 
   test do
