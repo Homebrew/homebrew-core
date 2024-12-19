@@ -3,8 +3,8 @@ class Openvino < Formula
 
   desc "Open Visual Inference And Optimization toolkit for AI inference"
   homepage "https://docs.openvino.ai"
-  url "https://github.com/openvinotoolkit/openvino/archive/refs/tags/2024.5.0.tar.gz"
-  sha256 "3d5b89760e1c946aca7b219dff4bf4cf5eb511932863c90cafc47d3c01c85744"
+  url "https://github.com/openvinotoolkit/openvino/archive/refs/tags/2024.6.0.tar.gz"
+  sha256 "93f417409f3bf12445cb0d72b2af13d849d2b5125d5330d832f1bae55283e5b7"
   license "Apache-2.0"
   head "https://github.com/openvinotoolkit/openvino.git", branch: "master"
 
@@ -41,8 +41,8 @@ class Openvino < Formula
     depends_on "opencl-icd-loader"
 
     resource "onednn_gpu" do
-      url "https://github.com/oneapi-src/oneDNN/archive/1722066ad4c0f15495f2d0fcbe9deb2bfd188c36.tar.gz"
-      sha256 "8955f19800066d8a705df2eb8b462085d6142b4f771ff88ae196e59a0d4ab1bb"
+      url "https://github.com/oneapi-src/oneDNN/archive/0f269193c7466313888d3338209d0d06a22cc6fa.tar.gz"
+      sha256 "abad1ff4ac138c593b7a927ef2099b01447af1f7364848392a950ba17b32bcd8"
     end
   end
 
