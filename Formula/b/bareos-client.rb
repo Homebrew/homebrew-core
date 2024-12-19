@@ -1,8 +1,8 @@
 class BareosClient < Formula
   desc "Client for Bareos (Backup Archiving REcovery Open Sourced)"
   homepage "https://www.bareos.com/"
-  url "https://github.com/bareos/bareos/archive/refs/tags/Release/23.1.1.tar.gz"
-  sha256 "468fbe12a509b65ca3de5041a901eb0cf1da5c9a4f1729ca57ed39f45fd428e7"
+  url "https://github.com/bareos/bareos/archive/refs/tags/Release/24.0.0.tar.gz"
+  sha256 "3cfc7e4b13143a9c39173d9e970476c3ba322761504513458552248700b8162d"
   license "AGPL-3.0-only"
 
   livecheck do
@@ -19,11 +19,17 @@ class BareosClient < Formula
     sha256 x86_64_linux:  "d7ac818be759920e3a5fe1f97a167245fb5e2f5399ee7ddd3ad639a776449385"
   end
 
+  depends_on "cli11" => :build
   depends_on "cmake" => :build
+  depends_on "cpp-gsl" => :build
+  depends_on "fmt" => :build
+  depends_on "tl-expected" => :build
+  depends_on "utf8cpp" => :build
   depends_on "jansson"
   depends_on "lzo"
   depends_on "openssl@3"
   depends_on "readline"
+  depends_on "xxhash"
 
   uses_from_macos "zlib"
 
@@ -52,25 +58,33 @@ class BareosClient < Formula
       s.gsub! "set(OPENSSL_USE_STATIC_LIBS 1)", ""
       s.gsub! "${HOMEBREW_PREFIX}/opt/lzo/lib/liblzo2.a", Formula["lzo"].opt_lib/shared_library("liblzo2")
     end
+    inreplace "core/CMakeLists.txt" do |s|
+      s.gsub! "${HOMEBREW_PREFIX}/opt/gettext/lib/libintl.a", Formula["gettext"].opt_lib/shared_library("libintl")
+      s.gsub! "iconv", "-liconv"
+    end
 
     inreplace "core/cmake/FindReadline.cmake",
               "${HOMEBREW_PREFIX}/opt/readline/lib/libreadline.a",
               Formula["readline"].opt_lib/shared_library("libreadline")
 
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args,
-                    "-DENABLE_PYTHON=OFF",
-                    "-Dworkingdir=#{var}/lib/bareos",
-                    "-Darchivedir=#{var}/bareos",
-                    "-Dconfdir=#{etc}/bareos",
-                    "-Dconfigtemplatedir=#{lib}/bareos/defaultconfigs",
-                    "-Dscriptdir=#{lib}/bareos/scripts",
-                    "-Dplugindir=#{lib}/bareos/plugins",
-                    "-Dfd-password=XXX_REPLACE_WITH_CLIENT_PASSWORD_XXX",
-                    "-Dmon-fd-password=XXX_REPLACE_WITH_CLIENT_MONITOR_PASSWORD_XXX",
-                    "-Dbasename=XXX_REPLACE_WITH_LOCAL_HOSTNAME_XXX",
-                    "-Dhostname=XXX_REPLACE_WITH_LOCAL_HOSTNAME_XXX",
-                    "-Dclient-only=ON",
-                    "-DENABLE_LZO=ON"
+    args = %W[
+      -DENABLE_PYTHON=OFF
+      -Dworkingdir=#{var}/lib/bareos
+      -Darchivedir=#{var}/bareos
+      -Dconfdir=#{etc}/bareos
+      -Dconfigtemplatedir=#{lib}/bareos/defaultconfigs
+      -Dscriptdir=#{lib}/bareos/scripts
+      -Dplugindir=#{lib}/bareos/plugins
+      -Dfd-password=XXX_REPLACE_WITH_CLIENT_PASSWORD_XXX
+      -Dmon-fd-password=XXX_REPLACE_WITH_CLIENT_MONITOR_PASSWORD_XXX
+      -Dbasename=XXX_REPLACE_WITH_LOCAL_HOSTNAME_XXX
+      -Dhostname=XXX_REPLACE_WITH_LOCAL_HOSTNAME_XXX
+      -Dclient-only=ON
+      -DENABLE_LZO=ON
+      -DFETCHCONTENT_FULLY_DISCONNECTED=ON
+    ]
+
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
