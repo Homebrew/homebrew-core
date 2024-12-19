@@ -2,7 +2,7 @@ class MagicWormholeRs < Formula
   desc "Rust implementation of Magic Wormhole, with new features and enhancements"
   homepage "https://github.com/magic-wormhole/magic-wormhole.rs"
   url "https://github.com/magic-wormhole/magic-wormhole.rs/archive/refs/tags/0.7.4.tar.gz"
-  sha256 "d265a1776894064842d0015a1f49f62189f4f054e4c3bd0de24ee0b9d8f37e58"
+  sha256 "3ddc40c82faa381e96ffdc54757625a4707c1bd111d67ab2ec733a5bb666a43c"
   license "EUPL-1.2"
   head "https://github.com/magic-wormhole/magic-wormhole.rs.git", branch: "master"
 
@@ -19,6 +19,8 @@ class MagicWormholeRs < Formula
 
   def install
     system "cargo", "install", *std_cargo_args(path: "cli")
+
+    generate_completions_from_executable(bin/"wormhole-rs", "completion", base_name: "wormhole-rs")
   end
 
   test do
