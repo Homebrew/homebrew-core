@@ -26,6 +26,20 @@ class Flawz < Formula
 
   def install
     system "cargo", "install", *std_cargo_args
+
+    # Setup buildpath for completions and manpage generation
+    ENV["OUT_DIR"] = buildpath
+
+    system bin/"flawz-completions"
+    bash_completion.install "flawz.bash" => "flawz"
+    fish_completion.install "flawz.fish"
+    zsh_completion.install "_flawz"
+
+    system bin/"flawz-mangen"
+    man1.install "flawz.1"
+
+    # no need to ship `flawz-completions` and `flawz-mangen` binaries
+    rm [bin/"flawz-completions", bin/"flawz-mangen"]
   end
 
   test do
