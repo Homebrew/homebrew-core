@@ -18,6 +18,8 @@ class Melody < Formula
 
   def install
     system "cargo", "install", *std_cargo_args(path: "crates/melody_cli")
+
+    generate_completions_from_executable(bin/"melody", "--generate-completions")
   end
 
   test do
