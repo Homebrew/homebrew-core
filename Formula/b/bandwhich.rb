@@ -18,6 +18,13 @@ class Bandwhich < Formula
 
   def install
     system "cargo", "install", *std_cargo_args
+
+    out_dir = Dir["target/release/build/bandwhich-*/out"].first
+    bash_completion.install "#{out_dir}/bandwhich.bash" => "bandwhich"
+    fish_completion.install "#{out_dir}/bandwhich.fish"
+    zsh_completion.install "#{out_dir}/_bandwhich"
+
+    man1.install "#{out_dir}/bandwhich.1"
   end
 
   test do
