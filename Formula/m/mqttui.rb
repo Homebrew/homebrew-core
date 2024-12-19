@@ -21,9 +21,11 @@ class Mqttui < Formula
   def install
     system "cargo", "install", *std_cargo_args
 
-    zsh_completion.install "target/completions/_mqttui"
-    bash_completion.install "target/completions/mqttui.bash"
+    bash_completion.install "target/completions/mqttui.bash" => "mqttui"
     fish_completion.install "target/completions/mqttui.fish"
+    zsh_completion.install "target/completions/_mqttui"
+
+    man1.install "target/manpages/mqttui.1"
   end
 
   test do
