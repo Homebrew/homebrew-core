@@ -3,8 +3,8 @@ class Dolphie < Formula
 
   desc "Feature-rich top tool for monitoring MySQL"
   homepage "https://github.com/charles-001/dolphie"
-  url "https://files.pythonhosted.org/packages/d1/2b/264c7e000cfaa75f2209a1d397c1213b5fff8e8f2aec5256d0733e4e827c/dolphie-6.6.3.tar.gz"
-  sha256 "1b1b5a96cedc452f5156b37b89fc5aad8af0552c8f6b392086c257ed65d5d8a4"
+  url "https://files.pythonhosted.org/packages/4a/3a/bf648f99568667debd89421ded31a20ed92c14973ff118f7aebcf46efe72/dolphie-6.7.0.tar.gz"
+  sha256 "01cfdc57d478471be2fd80ca17bf24ac9c0a51dc2d33a92bb85c9ea48663d8a8"
   license "GPL-3.0-or-later"
 
   bottle do
@@ -20,15 +20,11 @@ class Dolphie < Formula
   depends_on "certifi"
   depends_on "cryptography"
   depends_on "python@3.13"
+  depends_on "tree-sitter"
 
   resource "charset-normalizer" do
     url "https://files.pythonhosted.org/packages/f2/4f/e1808dc01273379acc506d18f1504eb2d299bd4131743b9fc54d7be4df1e/charset_normalizer-3.4.0.tar.gz"
     sha256 "223217c3d4f82c3ac5e29032b3f1c2eb0fb591b72161f86d93f5719079dae93e"
-  end
-
-  resource "cython" do
-    url "https://files.pythonhosted.org/packages/84/4d/b720d6000f4ca77f030bd70f12550820f0766b568e43f11af7f7ad9061aa/cython-3.0.11.tar.gz"
-    sha256 "7146dd2af8682b4ca61331851e6aebce9fe5158e75300343f80c07ca80b1faff"
   end
 
   resource "idna" do
@@ -42,8 +38,8 @@ class Dolphie < Formula
   end
 
   resource "loguru" do
-    url "https://files.pythonhosted.org/packages/9e/30/d87a423766b24db416a46e9335b9602b054a72b96a88a241f2b09b560fa8/loguru-0.7.2.tar.gz"
-    sha256 "e671a53522515f34fd406340ee968cb9ecafbc4b36c679da03c18fd8d0bd51ac"
+    url "https://files.pythonhosted.org/packages/3a/05/a1dae3dffd1116099471c643b8924f5aa6524411dc6c63fdae648c4f1aca/loguru-0.7.3.tar.gz"
+    sha256 "19480589e77d47b8d85b2c827ad95d49bf31b0dcde16593892eb51dd18706eb6"
   end
 
   resource "markdown-it-py" do
@@ -111,24 +107,14 @@ class Dolphie < Formula
     sha256 "439594978a49a09530cff7ebc4b5c7103ef57baf48d5ea3184f21d9a2befa098"
   end
 
-  resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/c8/db/722a42ffdc226e950c4757b3da7b56ff5c090bb265dccd707f7b8a3c6fee/setuptools-75.5.0.tar.gz"
-    sha256 "5c4ccb41111392671f02bb5f8436dfc5a9a7185e80500531b133f5775c4163ef"
-  end
-
   resource "sqlparse" do
-    url "https://files.pythonhosted.org/packages/65/16/10f170ec641ed852611b6c9441b23d10b5702ab5288371feab3d36de2574/sqlparse-0.4.4.tar.gz"
-    sha256 "d446183e84b8349fa3061f0fe7f06ca94ba65b426946ffebe6e3e8295332420c"
+    url "https://files.pythonhosted.org/packages/e5/40/edede8dd6977b0d3da179a342c198ed100dd2aba4be081861ee5911e4da4/sqlparse-0.5.3.tar.gz"
+    sha256 "09f67787f56a0b16ecdbde1bfc7f5d9c3371ca683cfeaa8e6ff60b4807ec9272"
   end
 
   resource "textual" do
-    url "https://files.pythonhosted.org/packages/a4/e8/76b3aa49dd2f83410ab78b5ab04d65fee095e4720d2811f9ef72f073d11f/textual-0.88.1.tar.gz"
-    sha256 "9c56d953dc7d1a8ddf06acc910d9224027e02416551f92920e70f435bd28e062"
-  end
-
-  resource "textual-autocomplete" do
-    url "https://files.pythonhosted.org/packages/bd/d3/7837e2ee1807c72e2a8a185c6e5e729dbe68161d8476055d989f3a2db348/textual_autocomplete-3.0.0a13.tar.gz"
-    sha256 "db5a4ae956dd7d6dece53f7f695e97f2ab75819dd96b8a1c064ec5966b3ab113"
+    url "https://files.pythonhosted.org/packages/4b/cb/b3ff0e45d812997a527cb581a4cd602f0b28793450aa26201969fd6ce42c/textual-0.89.1.tar.gz"
+    sha256 "66befe80e2bca5a8c876cd8ceeaf01752267b6b1dc1d0f73071f1f1e15d90cc8"
   end
 
   resource "tree-sitter" do
@@ -136,10 +122,79 @@ class Dolphie < Formula
     sha256 "66bae8dd47f1fed7bdef816115146d3a41c39b5c482d7bad36d9ba1def088450"
   end
 
-  # sdist issue report, https://github.com/grantjenks/py-tree-sitter-languages/issues/63
-  resource "tree-sitter-languages" do
-    url "https://github.com/grantjenks/py-tree-sitter-languages/archive/refs/tags/v1.10.2.tar.gz"
-    sha256 "cdd03196ebaf8f486db004acd07a5b39679562894b47af6b20d28e4aed1a6ab5"
+  resource "tree-sitter-bash" do
+    url "https://files.pythonhosted.org/packages/7b/e0/1e73a17c5427dc62fc42e29f1e58b3a3c95a8fa314983a37f25a0c15be1f/tree_sitter_bash-0.23.3.tar.gz"
+    sha256 "7b15ed89a1ea8e3e3c2399758746413e464d4c1c3a6d3b75d643ae2bc2fb356b"
+  end
+
+  resource "tree-sitter-css" do
+    url "https://files.pythonhosted.org/packages/94/98/f07c9b106e1bd085140da791366cda3596a7afa3b3e9a07f7db38e0dc439/tree_sitter_css-0.23.1.tar.gz"
+    sha256 "a5dadf23e201f05606feaa638d0e423050a3d56cea2324c8859857fbbc3f69e8"
+  end
+
+  resource "tree-sitter-go" do
+    url "https://files.pythonhosted.org/packages/2a/7f/13b83b877043faadecb5cb70982589ed79e7ebd78f8d239128dc6b23f595/tree_sitter_go-0.23.4.tar.gz"
+    sha256 "0ebff99820657066bec21690623a14c74d9e57a903f95f0837be112ddadf1a52"
+  end
+
+  resource "tree-sitter-html" do
+    url "https://files.pythonhosted.org/packages/04/06/ad1c53c79da15bef85939aa022d72301e12a9773e9bb9a5e6a6f65b7753a/tree_sitter_html-0.23.2.tar.gz"
+    sha256 "bc9922defe23144d9146bc1509fcd00d361bf6b3303f9effee6532c6a0296961"
+  end
+
+  resource "tree-sitter-java" do
+    url "https://files.pythonhosted.org/packages/0c/20/7c767a490c2fc76d3d23924e6b416dc73eb01e6dcc3d01e04aa61aa39611/tree_sitter_java-0.23.4.tar.gz"
+    sha256 "611857a92a232143ee20a4eb7cb46d6ff212b2d21cc7e3377b2943282c16a366"
+  end
+
+  resource "tree-sitter-javascript" do
+    url "https://files.pythonhosted.org/packages/cd/dc/1c55c33cc6bbe754359b330534cf9f261c1b9b2c26ddf23aef3c5fa67759/tree_sitter_javascript-0.23.1.tar.gz"
+    sha256 "b2059ce8b150162cda05a457ca3920450adbf915119c04b8c67b5241cd7fcfed"
+  end
+
+  resource "tree-sitter-json" do
+    url "https://files.pythonhosted.org/packages/d7/29/e92df6dca3a6b2ab1c179978be398059817e1173fbacd47e832aaff3446b/tree_sitter_json-0.24.8.tar.gz"
+    sha256 "ca8486e52e2d261819311d35cf98656123d59008c3b7dcf91e61d2c0c6f3120e"
+  end
+
+  resource "tree-sitter-markdown" do
+    url "https://files.pythonhosted.org/packages/34/4a/bd03a2e1302f1bd223c4df834e3d8c8a3cc37620786dae48be3a253369f1/tree_sitter_markdown-0.3.2.tar.gz"
+    sha256 "64501234ae4ce5429551624e2fd675008cf86824bd8b9352223653e39218e753"
+  end
+
+  resource "tree-sitter-python" do
+    url "https://files.pythonhosted.org/packages/50/a4/09802e767caed47edeeacb5b2055b0fbde700df5f62df53e49cafee003c4/tree_sitter_python-0.23.5.tar.gz"
+    sha256 "bd18325d93d633b4d411f24bb5e7d34ee653cd3254e5963fb3c2738ee3c4a1ee"
+  end
+
+  resource "tree-sitter-regex" do
+    url "https://files.pythonhosted.org/packages/3a/b5/b07827e8c8db85f49a83dd7e8d4bc91d39b1a78e299512a108c68d8fa7b9/tree_sitter_regex-0.24.3.tar.gz"
+    sha256 "58bb63f9e0ff01430da56ff158bddcb1b62a31f115abdf93cc6af76cc3aff86e"
+  end
+
+  resource "tree-sitter-rust" do
+    url "https://files.pythonhosted.org/packages/fd/bf/ff80aef689875cce54f1b80729c703af162b03ddd20b9829c53453dd43db/tree_sitter_rust-0.23.2.tar.gz"
+    sha256 "9088a0e0342d3de2749088811f5561994423cb10dab5ad3251003dffaa0a1bd1"
+  end
+
+  resource "tree-sitter-sql" do
+    url "https://files.pythonhosted.org/packages/2a/f2/1497523b26ccc82b9b3080fd2e6362f1bc207e0bf6d73763a13ff50b15a8/tree_sitter_sql-0.3.7.tar.gz"
+    sha256 "5eb671ad597e6245d96aa44fd584c990d3eaffe80faddf941bfe8ebee6a8e2dd"
+  end
+
+  resource "tree-sitter-toml" do
+    url "https://files.pythonhosted.org/packages/59/b9/03ee757ac375e77186ea112c14fcf31e0ca70b27b6388d93dcceef61f029/tree_sitter_toml-0.7.0.tar.gz"
+    sha256 "29e257612fa8f0c1fcbc4e7e08ddc561169f1725265302e64d81086354144a70"
+  end
+
+  resource "tree-sitter-xml" do
+    url "https://files.pythonhosted.org/packages/41/ba/77a92dbb4dfb374fb99863a07f938de7509ceeaa74139933ac2bd306eeb1/tree_sitter_xml-0.7.0.tar.gz"
+    sha256 "ab0ff396f20230ad8483d968151ce0c35abe193eb023b20fbd8b8ce4cf9e9f61"
+  end
+
+  resource "tree-sitter-yaml" do
+    url "https://files.pythonhosted.org/packages/93/04/6de8be8112c50450cab753fcd6b74d8368c60f6099bf551cee0bec69563a/tree_sitter_yaml-0.7.0.tar.gz"
+    sha256 "9c8bb17d9755c3b0e757260917240c0d19883cd3b59a5d74f205baa8bf8435a4"
   end
 
   resource "typing-extensions" do
@@ -163,6 +218,9 @@ class Dolphie < Formula
   end
 
   def install
+    # generate `tree_sitter/parser.h`
+    system "tree-sitter", "generate", "--abi=latest"
+
     virtualenv_install_with_resources
   end
 
