@@ -2,10 +2,11 @@ class Dbus < Formula
   # releases: even (1.12.x) = stable, odd (1.13.x) = development
   desc "Message bus system, providing inter-application communication"
   homepage "https://wiki.freedesktop.org/www/Software/dbus"
-  url "https://dbus.freedesktop.org/releases/dbus/dbus-1.14.10.tar.xz"
-  mirror "https://deb.debian.org/debian/pool/main/d/dbus/dbus_1.14.10.orig.tar.xz"
-  sha256 "ba1f21d2bd9d339da2d4aa8780c09df32fea87998b73da24f49ab9df1e36a50f"
+  url "https://dbus.freedesktop.org/releases/dbus/dbus-1.16.0.tar.xz"
+  mirror "https://deb.debian.org/debian/pool/main/d/dbus/dbus_1.16.0.orig.tar.xz"
+  sha256 "9f8ca5eb51cbe09951aec8624b86c292990ae2428b41b856e2bed17ec65c8849"
   license any_of: ["AFL-2.1", "GPL-2.0-or-later"]
+  head "https://gitlab.freedesktop.org/dbus/dbus.git", branch: "master"
 
   livecheck do
     url "https://dbus.freedesktop.org/releases/dbus/"
@@ -25,52 +26,23 @@ class Dbus < Formula
     sha256 x86_64_linux:   "9037402e48fc19b05f8b621e0e32efa3b4214513f0b4737894ef3d57704ce81d"
   end
 
-  head do
-    url "https://gitlab.freedesktop.org/dbus/dbus.git", branch: "master"
-
-    depends_on "autoconf" => :build
-    depends_on "autoconf-archive" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-  end
-
+  depends_on "cmake" => :build
   depends_on "pkgconf" => :build
   depends_on "xmlto" => :build
 
   uses_from_macos "expat"
 
-  # Patch applies the config templating fixed in https://bugs.freedesktop.org/show_bug.cgi?id=94494
-  # Homebrew pr/issue: 50219
-  patch do
-    on_macos do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/0a8a55872e/d-bus/org.freedesktop.dbus-session.plist.osx.diff"
-      sha256 "a8aa6fe3f2d8f873ad3f683013491f5362d551bf5d4c3b469f1efbc5459a20dc"
-    end
-  end
-
   def install
-    # Fix the TMPDIR to one D-Bus doesn't reject due to odd symbols
-    ENV["TMPDIR"] = "/tmp"
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
 
-    system "./autogen.sh", "--no-configure" if build.head?
-
-    args = [
-      "--localstatedir=#{var}",
-      "--sysconfdir=#{etc}",
-      "--enable-xml-docs",
-      "--disable-doxygen-docs",
-      "--without-x",
-      "--disable-tests",
+    args = %W[
+      -DDBUS_BUILD_TESTS=OFF
+      -DDBUS_ENABLE_INTRUSIVE_TESTS=OFF
+      -DCMAKE_INSTALL_RPATH=#{rpath}
     ]
-
-    if OS.mac?
-      args << "--enable-launchd"
-      args << "--with-launchd-agent-dir=#{prefix}"
-    end
-
-    system "./configure", *args, *std_configure_args
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   def post_install
