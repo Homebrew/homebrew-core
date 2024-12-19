@@ -21,6 +21,12 @@ class Svlint < Formula
 
   def install
     system "cargo", "install", *std_cargo_args
+
+    # installation produces two binaries, `mdgen` and `svlint`, however, `mdgen` is for dev pipeline
+    # see https://github.com/dalance/svlint/blob/729159751f330c4c3f7adaa25b826f809f0e5f44/README.md?plain=1#L26
+    rm bin/"mdgen"
+
+    generate_completions_from_executable(bin/"svlint", "--shell-completion")
   end
 
   test do
