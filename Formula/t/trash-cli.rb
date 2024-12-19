@@ -18,10 +18,9 @@ class TrashCli < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "4712d02377f336fb88f4de3ebc3c03dbfcf1a17d8e3d8aac297570a2938f5dd5"
   end
 
-  depends_on "python@3.13"
+  keg_only :shadowed_by_macos
 
-  conflicts_with "macos-trash", because: "both install a `trash` binary"
-  conflicts_with "trash", because: "both install a `trash` binary"
+  depends_on "python@3.13"
 
   resource "psutil" do
     url "https://files.pythonhosted.org/packages/18/c7/8c6872f7372eb6a6b2e4708b88419fb46b857f7a2e1892966b851cc79fc9/psutil-6.0.0.tar.gz"

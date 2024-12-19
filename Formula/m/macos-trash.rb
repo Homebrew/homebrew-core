@@ -19,12 +19,11 @@ class MacosTrash < Formula
     sha256 cellar: :any,                 catalina:       "bee0b6a9d5e1f9b23a9513a58d89b924ab3343613e94a62846eed2f9df8108d4"
   end
 
+  keg_only :shadowed_by_macos
+
   depends_on xcode: ["12.0", :build]
   depends_on :macos
   uses_from_macos "swift", since: :big_sur # Swift 5.5.0
-
-  conflicts_with "trash", because: "both install a `trash` binary"
-  conflicts_with "trash-cli", because: "both install a `trash` binary"
 
   def install
     system "swift", "build", "--disable-sandbox", "-c", "release"
