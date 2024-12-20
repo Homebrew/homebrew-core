@@ -25,6 +25,7 @@ class Mysql < Formula
   depends_on "pkgconf" => :build
   depends_on "abseil"
   depends_on "icu4c@76"
+  depends_on "libfido2"
   depends_on "lz4"
   depends_on "openssl@3"
   depends_on "protobuf"
@@ -105,6 +106,7 @@ class Mysql < Formula
       -DINSTALL_MANDIR=share/man
       -DINSTALL_MYSQLSHAREDIR=share/mysql
       -DINSTALL_PLUGINDIR=lib/plugin
+      -DWITH_AUTHENTICATION_CLIENT_PLUGINS=yes
       -DMYSQL_DATADIR=#{datadir}
       -DSYSCONFDIR=#{etc}
       -DBISON_EXECUTABLE=#{Formula["bison"].opt_bin}/bison
