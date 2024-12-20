@@ -1,10 +1,9 @@
 class Vtk < Formula
   desc "Toolkit for 3D computer graphics, image processing, and visualization"
   homepage "https://www.vtk.org/"
-  url "https://www.vtk.org/files/release/9.3/VTK-9.3.1.tar.gz"
-  sha256 "8354ec084ea0d2dc3d23dbe4243823c4bfc270382d0ce8d658939fd50061cab8"
+  url "https://www.vtk.org/files/release/9.4/VTK-9.4.0.tar.gz"
+  sha256 "16f3ffd65fafd68fab469bcb091395bf5432617c7db27cbce86a737bf09ec5b0"
   license "BSD-3-Clause"
-  revision 3
   head "https://gitlab.kitware.com/vtk/vtk.git", branch: "master"
 
   bottle do
@@ -17,22 +16,25 @@ class Vtk < Formula
 
   depends_on "cmake" => [:build, :test]
   depends_on "boost"
+  depends_on "cgns"
   depends_on "double-conversion"
   depends_on "eigen"
   depends_on "fontconfig"
-  depends_on "gl2ps"
-  depends_on "glew"
+  depends_on "freetype"
   depends_on "hdf5"
   depends_on "jpeg-turbo"
   depends_on "jsoncpp"
+  depends_on "libharu"
   depends_on "libogg"
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "lz4"
   depends_on "netcdf"
+  depends_on "nlohmann-json"
+  depends_on "proj"
   depends_on "pugixml"
   depends_on "pyqt"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
   depends_on "qt"
   depends_on "sqlite"
   depends_on "theora"
@@ -45,9 +47,6 @@ class Vtk < Formula
   uses_from_macos "zlib"
 
   on_macos do
-    depends_on "libaec"
-    depends_on "zstd"
-
     on_arm do
       if DevelopmentTools.clang_build_version == 1316
         depends_on "llvm" => :build
@@ -61,11 +60,10 @@ class Vtk < Formula
   end
 
   on_linux do
-    depends_on "libaec"
+    depends_on "gl2ps"
     depends_on "libx11"
     depends_on "libxcursor"
     depends_on "mesa"
-    depends_on "mesa-glu"
   end
 
   def install
@@ -76,7 +74,7 @@ class Vtk < Formula
 
     ENV.llvm_clang if DevelopmentTools.clang_build_version == 1316 && Hardware::CPU.arm?
 
-    python = "python3.12"
+    python = "python3.13"
     qml_plugin_dir = lib/"qml/VTK.#{version.major_minor}"
     vtkmodules_dir = prefix/Language::Python.site_packages(python)/"vtkmodules"
     rpaths = [rpath, rpath(source: qml_plugin_dir), rpath(source: vtkmodules_dir)]
@@ -93,18 +91,21 @@ class Vtk < Formula
       -DVTK_MODULE_ENABLE_VTK_InfovisBoost:STRING=YES
       -DVTK_MODULE_ENABLE_VTK_InfovisBoostGraphAlgorithms:STRING=YES
       -DVTK_MODULE_ENABLE_VTK_RenderingFreeTypeFontConfig:STRING=YES
+      -DVTK_MODULE_USE_EXTERNAL_VTK_cgns:BOOL=ON
       -DVTK_MODULE_USE_EXTERNAL_VTK_doubleconversion:BOOL=ON
       -DVTK_MODULE_USE_EXTERNAL_VTK_eigen:BOOL=ON
       -DVTK_MODULE_USE_EXTERNAL_VTK_expat:BOOL=ON
-      -DVTK_MODULE_USE_EXTERNAL_VTK_gl2ps:BOOL=ON
-      -DVTK_MODULE_USE_EXTERNAL_VTK_glew:BOOL=ON
+      -DVTK_MODULE_USE_EXTERNAL_VTK_freetype:BOOL=ON
       -DVTK_MODULE_USE_EXTERNAL_VTK_hdf5:BOOL=ON
       -DVTK_MODULE_USE_EXTERNAL_VTK_jpeg:BOOL=ON
       -DVTK_MODULE_USE_EXTERNAL_VTK_jsoncpp:BOOL=ON
+      -DVTK_MODULE_USE_EXTERNAL_VTK_libharu:BOOL=ON
+      -DVTK_MODULE_USE_EXTERNAL_VTK_libproj:BOOL=ON
       -DVTK_MODULE_USE_EXTERNAL_VTK_libxml2:BOOL=ON
       -DVTK_MODULE_USE_EXTERNAL_VTK_lz4:BOOL=ON
       -DVTK_MODULE_USE_EXTERNAL_VTK_lzma:BOOL=ON
       -DVTK_MODULE_USE_EXTERNAL_VTK_netcdf:BOOL=ON
+      -DVTK_MODULE_USE_EXTERNAL_VTK_nlohmannjson:BOOL=ON
       -DVTK_MODULE_USE_EXTERNAL_VTK_ogg:BOOL=ON
       -DVTK_MODULE_USE_EXTERNAL_VTK_png:BOOL=ON
       -DVTK_MODULE_USE_EXTERNAL_VTK_pugixml:BOOL=ON
@@ -117,15 +118,8 @@ class Vtk < Formula
       -DVTK_GROUP_ENABLE_Qt:STRING=YES
       -DVTK_QT_VERSION:STRING=6
     ]
-
-    # https://github.com/Homebrew/linuxbrew-core/pull/21654#issuecomment-738549701
-    args << "-DOpenGL_GL_PREFERENCE=LEGACY"
-
-    # Help vtk find hdf5 1.14.4.x
-    # https://github.com/Homebrew/homebrew-core/pull/170959#issuecomment-2295288143
-    args << "-DHDF5_INCLUDE_DIR=#{Formula["hdf5"].opt_include}"
-
-    args << "-DVTK_USE_COCOA:BOOL=ON" if OS.mac?
+    # External gl2ps causes failure linking to macOS OpenGL.framework
+    args << "-DVTK_MODULE_USE_EXTERNAL_VTK_gl2ps:BOOL=ON" unless OS.mac?
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
