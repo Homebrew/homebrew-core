@@ -141,7 +141,7 @@ class Sile < Formula
 
   def install
     # Workaround Darwin detection results having been baked into the source dist
-    if build.stable? && !OS.linux?
+    if build.stable? && OS.mac?
       inreplace ["Makefile.in", "aminclude.am"] do |s|
         s.sub! "rusile_so", "rusile_dylib"
         s.sub! "rusile.so", "rusile.dylib"
@@ -167,6 +167,10 @@ class Sile < Formula
 
     ENV.prepend "CPPFLAGS", "-I#{lua.opt_include}/luajit-2.1"
     ENV.prepend "LDFLAGS", "-L#{lua.opt_lib}"
+
+    # Work around luautf8's lutf8lib.c not including limits.h and upstream
+    # LuaJIT headers no longer exporting it
+    ENV.append "CXXFLAGS", "-include limits.h"
 
     if OS.mac?
       zlib_dir = expat_dir = "#{MacOS.sdk_path_if_needed}/usr"
