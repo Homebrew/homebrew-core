@@ -168,10 +168,6 @@ class Sile < Formula
     ENV.prepend "CPPFLAGS", "-I#{lua.opt_include}/luajit-2.1"
     ENV.prepend "LDFLAGS", "-L#{lua.opt_lib}"
 
-    # Work around luautf8's lutf8lib.c not including limits.h and upstream
-    # LuaJIT headers no longer exporting it
-    ENV.append "CXXFLAGS", "-include limits.h"
-
     if OS.mac?
       zlib_dir = expat_dir = "#{MacOS.sdk_path_if_needed}/usr"
     else
@@ -192,7 +188,14 @@ class Sile < Formula
         rock = Pathname.pwd.children(false).first
         unpack_dir = Utils.safe_popen_read("luarocks", "unpack", rock).split("\n")[-2]
         spec = "#{r.name}-#{r.version}.rockspec"
-        cd(unpack_dir) { system "luarocks", "make", *luarocks_args, spec }
+        cd unpack_dir do
+          # Work around LuaJIT not exporting a setting for INT_MAX any more and
+          # luautf8 expecting it transitively
+          if r.name.eql? "luautf8"
+            inreplace "lutf8lib.c", "#include <stdint.h>", "#include <stdint.h>\n#include <limits.h>"
+          end
+          system "luarocks", "make", *luarocks_args, spec
+        end
       end
     end
 
