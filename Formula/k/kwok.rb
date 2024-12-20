@@ -24,7 +24,7 @@ class Kwok < Formula
     bin.install "bin/#{OS.kernel_name.downcase}/#{arch}/kwok"
     bin.install "bin/#{OS.kernel_name.downcase}/#{arch}/kwokctl"
 
-    generate_completions_from_executable("#{bin}/kwokctl", "completion")
+    generate_completions_from_executable("#{bin}/kwokctl", "completion", base_name: "kwokctl")
   end
 
   test do
