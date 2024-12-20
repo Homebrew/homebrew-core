@@ -201,6 +201,7 @@ class Sile < Formula
 
     configure_args = %W[
       FCMATCH=true
+      AR=:
       --disable-silent-rules
       --with-system-luarocks
       --with-system-lua-sources
