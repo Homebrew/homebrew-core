@@ -25,6 +25,17 @@ class PythonTkAT313 < Formula
     "python3.13"
   end
 
+  # Apply commit from open PR to fix TCL 9 threaded detection
+  # PR ref: https://github.com/python/cpython/pull/128103
+  patch do
+    url "https://github.com/python/cpython/commit/a2019e226e4650cef35ebfde7ecd7ce044a4a670.patch?full_index=1"
+    sha256 "03c4b6a293d4a51f534858657717bdc1465c42acb3b78e64c41f9011f966e449"
+  end
+
+  # Backport of https://github.com/python/cpython/commit/47cbf038850852cdcbe7a404ed7c64542340d58a
+  # TODO: Remove if https://github.com/python/cpython/pull/127364 is merged and released
+  patch :DATA
+
   def install
     xy = Language::Python.major_minor_version python3
     python_include = if OS.mac?
@@ -64,3 +75,48 @@ class PythonTkAT313 < Formula
     system python3, "-c", "import tkinter; root = tkinter.Tk()"
   end
 end
+
+__END__
+diff --git a/Lib/tkinter/ttk.py b/Lib/tkinter/ttk.py
+index 073b3ae20797c3..8ddb7f97e3b233 100644
+--- a/Lib/tkinter/ttk.py
++++ b/Lib/tkinter/ttk.py
+@@ -321,6 +321,8 @@ def _tclobj_to_py(val):
+     elif hasattr(val, 'typename'): # some other (single) Tcl object
+         val = _convert_stringval(val)
+ 
++    if isinstance(val, tuple) and len(val) == 0:
++        return ''
+     return val
+ 
+ def tclobjs_to_py(adict):
+diff --git a/Modules/_tkinter.c b/Modules/_tkinter.c
+index b0b70ccb8cc3d3..45897817a56051 100644
+--- a/Modules/_tkinter.c
++++ b/Modules/_tkinter.c
+@@ -325,6 +325,7 @@ typedef struct {
+     const Tcl_ObjType *ListType;
+     const Tcl_ObjType *StringType;
+     const Tcl_ObjType *UTF32StringType;
++    const Tcl_ObjType *PixelType;
+ } TkappObject;
+ 
+ #define Tkapp_Interp(v) (((TkappObject *) (v))->interp)
+@@ -637,6 +638,7 @@ Tkapp_New(const char *screenName, const char *className,
+     v->ListType = Tcl_GetObjType("list");
+     v->StringType = Tcl_GetObjType("string");
+     v->UTF32StringType = Tcl_GetObjType("utf32string");
++    v->PixelType = Tcl_GetObjType("pixel");
+ 
+     /* Delete the 'exit' command, which can screw things up */
+     Tcl_DeleteCommand(v->interp, "exit");
+@@ -1236,7 +1238,8 @@ FromObj(TkappObject *tkapp, Tcl_Obj *value)
+     }
+ 
+     if (value->typePtr == tkapp->StringType ||
+-        value->typePtr == tkapp->UTF32StringType)
++        value->typePtr == tkapp->UTF32StringType ||
++        value->typePtr == tkapp->PixelType)
+     {
+         return unicodeFromTclObj(tkapp, value);
+     }
