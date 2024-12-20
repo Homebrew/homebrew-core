@@ -47,6 +47,7 @@ class MysqlClient < Formula
       -DINSTALL_INFODIR=share/info
       -DINSTALL_MANDIR=share/man
       -DINSTALL_MYSQLSHAREDIR=share/mysql
+      -DWITH_AUTHENTICATION_CLIENT_PLUGINS=yes
       -DWITH_BOOST=boost
       -DWITH_EDITLINE=system
       -DWITH_FIDO=system
