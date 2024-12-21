@@ -28,8 +28,7 @@ class Testthingmac < Formula
       raise "Application not found in extracted zip archive!" unless app_path
       prefix.install app_path
     end
-  end
-
+  
   # Skip linkage fixing for Electron apps
   skip_clean "DeskThing.app"
 end
