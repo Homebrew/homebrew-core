@@ -1,64 +1,33 @@
-require "yaml"
-require "json"
-require "open-uri"
-require "digest"
-
 class Testthingmac < Formula
-  desc "DeskThing for Mac - Dynamic Formula Example"
+  desc "DeskThing for Mac - Manual SHA256 Formula"
   homepage "https://github.com/ItsRiprod/TestThing"
 
-  # Use GitHub API to find the latest release and fetch the .yml file
-  def self.latest_release
-    api_url = "https://api.github.com/repos/ItsRiprod/TestThing/releases/latest"
-    release_data = JSON.parse(URI.open(api_url).read)
-  
-    yml_asset = release_data["assets"].find { |asset| asset["name"].include?("latest-mac.yml") }
-    raise "YML file not found in latest release assets!" unless yml_asset
-  
-    yml_url = yml_asset["browser_download_url"]
-    yml_data = YAML.safe_load(URI.open(yml_url).read)
-  
-    architecture = if Hardware::CPU.intel?
-                      "x64"
-                    else
-                      "mac"
-                    end
-  
-    target_file = yml_data["files"].find { |file| file["url"].include?(architecture) }
-    raise "No suitable file found for this architecture!" unless target_file
-  
-    sha512_base64 = target_file["sha512"]
-    sha256 = Digest::SHA256.hexdigest([sha512_base64].pack("m0"))
-  
-    puts "Computed URL: #{target_file['url']}"
-    puts "Provided SHA512: #{sha512_base64}"
-    puts "Computed SHA256: #{sha256}"
-  
-    {
-      version: yml_data["version"],
-      url: "https://github.com/ItsRiprod/TestThing/releases/download/v#{yml_data['version']}/#{target_file['url']}",
-      sha256: sha256,
-      is_dmg: target_file["url"].include?(".dmg")
-    }
+  if Hardware::CPU.intel?
+    # For Intel Macs (x64)
+    url "https://github.com/ItsRiprod/TestThing/releases/download/v0.10.76/deskthing-mac-x64-0.10.76-setup.dmg"
+    sha256 "73fe02a5ed6ed78f317597984d9421395813a7841ebf850d5d1b4aff04935786"
+  else
+    # For ARM Macs (mac)
+    url "https://github.com/ItsRiprod/TestThing/releases/download/v0.10.76/DeskThing-0.10.76-mac.zip"
+    sha256 "44e010d962a471bb4a83922c6b1c0e3ecbc741d55cea374ac9295098feae1d95"
   end
-  
 
-  # Dynamically fetch the latest release details
-  release = latest_release
-  url release[:url]
-  sha256 release[:sha256]
-  version release[:version]
-
+  version "0.10.76"
   license "Proprietary"
 
   def install
-    # Extract the zip archive
-    system "unzip", cached_download, "-d", "DeskThingExtracted"
-
-    # Move the .app to the prefix directory
-    app_path = Dir["DeskThingExtracted/*.app"].first
-    raise "Application not found in extracted zip archive!" unless app_path
-    prefix.install app_path
+    if url.end_with?(".dmg")
+      # Handle .dmg installation
+      system "hdiutil", "attach", cached_download, "-mountpoint", "/Volumes/DeskThing"
+      system "cp", "-R", "/Volumes/DeskThing/DeskThing.app", prefix
+      system "hdiutil", "detach", "/Volumes/DeskThing"
+    else
+      # Handle .zip installation
+      system "unzip", cached_download, "-d", "DeskThingExtracted"
+      app_path = Dir["DeskThingExtracted/*.app"].first
+      raise "Application not found in extracted zip archive!" unless app_path
+      prefix.install app_path
+    end
   end
 
   def caveats
