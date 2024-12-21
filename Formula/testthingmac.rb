@@ -30,6 +30,9 @@ class Testthingmac < Formula
     end
   end
 
+  # Skip linkage fixing for Electron apps
+  skip_clean "DeskThing.app"
+end
   def caveats
     <<~EOS
       DeskThing.app was installed to:
