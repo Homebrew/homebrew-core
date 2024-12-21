@@ -16,7 +16,7 @@ class Testthingmac < Formula
   end
 
   def install
-    if cached_download.end_with?(".dmg")
+    if cached_download.to_s.end_with?(".dmg")
       # Handle .dmg installation
       system "hdiutil", "attach", cached_download, "-mountpoint", "/Volumes/DeskThing"
       system "cp", "-R", "/Volumes/DeskThing/DeskThing.app", prefix
