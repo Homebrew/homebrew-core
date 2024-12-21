@@ -1,10 +1,9 @@
 class Tfel < Formula
   desc "Code generation tool dedicated to material knowledge for numerical mechanics"
   homepage "https://thelfer.github.io/tfel/web/index.html"
-  url "https://github.com/thelfer/tfel/archive/refs/tags/TFEL-4.2.2.tar.gz"
-  sha256 "021864ad5b27ffce1915bcacc8f39f3e8a72ce6bd32e80a61ea0998a060180e5"
+  url "https://github.com/thelfer/tfel/archive/refs/tags/TFEL-5.0.0.tar.gz"
+  sha256 "fe1ec39eba7f23571c2b0c773dab1cc274fee4512c5b2f2fc54b231da4502e87"
   license "GPL-1.0-or-later"
-  revision 2
   head "https://github.com/thelfer/tfel.git", using: :git, branch: "master"
 
   bottle do
@@ -18,8 +17,13 @@ class Tfel < Formula
 
   depends_on "cmake" => :build
   depends_on "gcc" => :build
+
   depends_on "boost-python3"
   depends_on "python@3.13"
+
+  on_macos do
+    depends_on "boost"
+  end
 
   def install
     args = [
