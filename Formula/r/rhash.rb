@@ -15,12 +15,30 @@ class Rhash < Formula
     sha256 x86_64_linux:  "c9cc7cc1aa66f97050f79712054f5689b08e5579657b4d3249f058d09b4169b1"
   end
 
+  resource "rhashrc" do
+    url "https://raw.githubusercontent.com/rhash/RHash/refs/tags/v1.4.5/dist/rhashrc.sample"
+    sha256 "27a2e502dae88fb8c5fd6456b9afb1e88e7623061cebd98a7a9bef51daeaf1e1"
+  end
+
   def install
-    system "./configure", "--prefix=#{prefix}", "--disable-gettext"
+    # Exclude unrecognized options
+    args = std_configure_args.reject { |s| s["--disable-dependency-tracking"] } + %W[
+      --disable-lib-static
+      --disable-gettext
+      --sysconfdir=#{etc}
+    ]
+
+    system "./configure", *args
     system "make"
-    system "make", "install"
-    lib.install "librhash/#{shared_library("librhash")}"
-    system "make", "-C", "librhash", "install-lib-headers"
+    # Avoid race during installation.
+    ENV.deparallelize { system "make", "install" }
+    system "make", "install-lib-headers", "install-pkg-config"
+    lib.install_symlink (lib/shared_library("librhash", version.major.to_s).to_s) => shared_library("librhash")
+  end
+
+  def post_install
+    buildpath.install resource("rhashrc") => "rhashrc"
+    etc.install "rhashrc"
   end
 
   test do
