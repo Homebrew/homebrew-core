@@ -1148,6 +1148,7 @@ gnmic
 gnome-autoar
 gnu-apl
 gnu-getopt
+gnu-typist
 gnu-units
 gnumeric
 gnunet
