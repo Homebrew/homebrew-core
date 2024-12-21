@@ -5,6 +5,7 @@ class Logtalk < Formula
   version "3.86.0"
   sha256 "e148b618e29e02c5b089947fe17b0d33ed0f7811503f02aae0615034059c2dd3"
   license "Apache-2.0"
+  head "https://github.com/LogtalkDotOrg/logtalk3.git", branch: "master"
 
   livecheck do
     url "https://logtalk.org/download.html"
@@ -23,14 +24,31 @@ class Logtalk < Formula
   depends_on "gnu-prolog"
 
   def install
-    cd("scripts") { system "./install.sh", "-p", prefix }
+    system "./scripts/install.sh", "-p", prefix
+
+    # Resolve relative symlinks for env script
+    bin.each_child do |f|
+      next unless f.symlink?
+
+      realpath = f.realpath
+      f.unlink
+      ln_s realpath, f
+    end
+    bin.env_script_all_files libexec/"bin", LOGTALKHOME: HOMEBREW_PREFIX/"share/logtalk",
+                                            LOGTALKUSER: "${LOGTALKUSER:-$HOME/logtalk}"
   end
 
   def caveats
     <<~EOS
-      To complete the Logtalk installation, define the environment variables:
+      Logtalk has been configured with the following environment variables:
         LOGTALKHOME=#{HOMEBREW_PREFIX}/share/logtalk
         LOGTALKUSER=$HOME/logtalk
     EOS
+  end
+
+  test do
+    output = pipe_output("#{bin}/gplgt 2>&1", "logtalk_load(hello_world(loader)).")
+    assert_match "Hello World!", output
+    refute_match "LOGTALKUSER should be defined first", output
   end
 end
