@@ -4,6 +4,7 @@ class Onnx < Formula
   url "https://github.com/onnx/onnx/archive/refs/tags/v1.17.0.tar.gz"
   sha256 "8d5e983c36037003615e5a02d36b18fc286541bf52de1a78f6cf9f32005a820e"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "d2144e03e0a2c5414c3be8990425d71d5734d53edadcb74a6c587e5167bd123e"
@@ -15,7 +16,8 @@ class Onnx < Formula
   end
 
   depends_on "cmake" => [:build, :test]
-  depends_on "protobuf@21"
+  depends_on "abseil"
+  depends_on "protobuf"
 
   uses_from_macos "python" => :build
 
@@ -88,11 +90,13 @@ class Onnx < Formula
     (testpath/"CMakeLists.txt").write <<~CMAKE
       cmake_minimum_required(VERSION 3.5)
       project(test LANGUAGES CXX)
+      set(CMAKE_CXX_STANDARD 17)
       find_package(ONNX CONFIG REQUIRED)
       add_executable(test test.cpp)
       target_link_libraries(test ONNX::onnx)
     CMAKE
 
+    ENV.delete "CPATH"
     args = OS.mac? ? [] : ["-DCMAKE_BUILD_RPATH=#{lib}"]
     system "cmake", ".", *args
     system "cmake", "--build", "."
