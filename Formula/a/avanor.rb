@@ -23,7 +23,6 @@ class Avanor < Formula
     sha256 x86_64_linux:   "99ac78a20ffc5cccb1a0b5617c9977501a41edb8823663ee4656d177fad7ed09"
   end
 
-  uses_from_macos "expect" => :test
   uses_from_macos "ncurses"
 
   # Upstream fix for clang: https://sourceforge.net/p/avanor/code/133/
@@ -39,15 +38,7 @@ class Avanor < Formula
   end
 
   test do
-    script = (testpath/"script.exp")
-    script.write <<~SHELL
-      #!/usr/bin/expect -f
-      set timeout 10
-      spawn avanor
-      send -- "\e"
-      expect eof
-    SHELL
-    script.chmod 0700
-    system "expect", "-f", "script.exp"
+    ENV["TERM"] = "xterm"
+    assert_match "T h e  L a n d  o f  M y s t e r y", pipe_output(bin/"avanor", "\e")
   end
 end
