@@ -12,14 +12,12 @@ class WhisperCpp < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "216f8aff7ce3a5d3c505b7fe1169fe08a6b3d232f455ba0f6c03de71497b2474"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f1214a35555c1e42894ccb74fa8aee5b8adf9492de5c7a869aafe25a526c3fc0"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f1f235046a5792cfcd4e8e3abc4014ba1c6000e2c426d64d2553133b73242613"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ca9e9126e73f160ee4ca188464d20b5ef86275271d3060b05f5db6e7a571daba"
-    sha256 cellar: :any_skip_relocation, sonoma:         "50ba397b8f35223c1022c56bab606a3df1e893cebf32022bc845cf1ab9c99e92"
-    sha256 cellar: :any_skip_relocation, ventura:        "1d7ffc4a9c9add0919a69b16141d41495a98a9538053ea73cf08655a63e0f32f"
-    sha256 cellar: :any_skip_relocation, monterey:       "90f4d20efb428c9ca021eb7db8abd432640ca2fb68a5578b84154f53d337fbd5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f7187c90ab975f4558c1762a608e09bd16f897690b55308aa27bb6d21e86c2e2"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9a9b74a43600aa765826b7a79cc06c025070ffd7cce932f493240abf6cc21824"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b6fde059a1cc222038be70d762ebe1f75e31121c7246410d1bd1063e96e4b342"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "10f789f5dbdc8c0e3adfe15cea91d2437f7922c1cd21bb7e788896d5213fe53a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "64a4ec07c1191f7313ff8be9681ef20859deac638707a9a89da6a683720d9674"
+    sha256 cellar: :any_skip_relocation, ventura:       "a00e4c6ad15c44c89a72172599179e41c226e9cbb3d87751dc0a48303cbf668e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b3141b812e243e19e5a0acef2841e683c1564dd29f15ed3208f9483b59886611"
   end
 
   depends_on "cmake" => :build
