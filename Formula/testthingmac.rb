@@ -15,6 +15,9 @@ class Testthingmac < Formula
     sha256 "44e010d962a471bb4a83922c6b1c0e3ecbc741d55cea374ac9295098feae1d95"
   end
 
+  # Prevent cleaning of the app bundle
+  skip_clean "DeskThing.app
+
   def install
     if cached_download.to_s.end_with?(".dmg")
       # Handle .dmg installation
@@ -28,10 +31,8 @@ class Testthingmac < Formula
       raise "Application not found in extracted zip archive!" unless app_path
       prefix.install app_path
     end
-  
-  # Skip linkage fixing for Electron apps
-  skip_clean "DeskThing.app"
 end
+
   def caveats
     <<~EOS
       DeskThing.app was installed to:
