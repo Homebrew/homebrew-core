@@ -1,8 +1,8 @@
 class MysqlClient < Formula
   desc "Open source relational database management system"
-  homepage "https://dev.mysql.com/doc/refman/9.0/en/"
-  url "https://cdn.mysql.com/Downloads/MySQL-9.0/mysql-9.0.1.tar.gz"
-  sha256 "18fa65f1ea6aea71e418fe0548552d9a28de68e2b8bc3ba9536599eb459a6606"
+  homepage "https://dev.mysql.com/doc/refman/9.1/en/"
+  url "https://cdn.mysql.com/Downloads/MySQL-9.1/mysql-9.1.0.tar.gz"
+  sha256 "52c3675239bfd9d3c83224ff2002aa6e286fab97bf5b2b5ca1a85c9c347766fc"
   license "GPL-2.0-only" => { with: "Universal-FOSS-exception-1.0" }
 
   livecheck do
@@ -35,7 +35,26 @@ class MysqlClient < Formula
 
   uses_from_macos "libedit"
 
+  # std::string_view is not fully compatible with the libc++ shipped
+  # with ventura, so we need to use the LLVM libc++ instead.
+  on_ventura :or_older do
+    depends_on "llvm@18"
+    fails_with :clang
+  end
+
+  fails_with :gcc do
+    version "9"
+    cause "Requires C++20"
+  end
+
   def install
+    if OS.linux?
+      # Disable ABI checking
+      inreplace "cmake/abi_check.cmake", "RUN_ABI_CHECK 1", "RUN_ABI_CHECK 0"
+    elsif MacOS.version <= :ventura
+      ENV["CC"] = Formula["llvm@18"].opt_bin/"clang"
+      ENV["CXX"] = Formula["llvm@18"].opt_bin/"clang++"
+    end
     # -DINSTALL_* are relative to `CMAKE_INSTALL_PREFIX` (`prefix`)
     args = %W[
       -DFORCE_INSOURCE_BUILD=1
