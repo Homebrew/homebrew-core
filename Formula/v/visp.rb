@@ -19,7 +19,7 @@ class Visp < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "5f55415e96b2adca09e489d64b8399f9b14961939f8b0d5b9895ddff1c7f50f9"
   end
 
-  depends_on "cmake" => :build
+  depends_on "cmake" => [:build, :test]
   depends_on "pkgconf" => [:build, :test]
 
   depends_on "eigen"
@@ -164,5 +164,19 @@ class Visp < Formula
     pkg_config_flags = shell_output("pkgconf --cflags --libs visp").chomp.split
     system ENV.cxx, "test.cpp", "-o", "test", *pkg_config_flags
     assert_equal version.to_s, shell_output("./test").chomp
+
+    ENV.delete "CPATH"
+    (testpath/"CMakeLists.txt").write <<~CMAKE
+      cmake_minimum_required(VERSION 3.10 FATAL_ERROR)
+      project(visp-check LANGUAGES CXX)
+      find_package(VISP REQUIRED visp_core)
+      include_directories(${VISP_INCLUDE_DIRS})
+      add_executable(visp-check test.cpp)
+      target_link_libraries(visp-check ${VISP_LIBRARIES})
+    CMAKE
+
+    system "cmake", "-B", "build", "-S", "."
+    system "cmake", "--build", "build"
+    assert_equal version.to_s, shell_output("build/visp-check").chomp
   end
 end
