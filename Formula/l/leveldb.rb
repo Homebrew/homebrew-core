@@ -4,7 +4,7 @@ class Leveldb < Formula
   url "https://github.com/google/leveldb/archive/refs/tags/1.23.tar.gz"
   sha256 "9a37f8a6174f09bd622bc723b55881dc541cd50747cbd08831c2a82d620f6d76"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "3dc8137b48b1778b906215646fb3b6d07916ff1fe0ed137ee4a4ed8d739206bf"
@@ -18,7 +18,6 @@ class Leveldb < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "gperftools"
   depends_on "snappy"
 
   def install
