@@ -11,29 +11,29 @@ class Testthingmac < Formula
   def self.latest_release
     api_url = "https://api.github.com/repos/ItsRiprod/TestThing/releases/latest"
     release_data = JSON.parse(URI.open(api_url).read)
-
-    # Find the .yml asset in the release assets
+  
+    # Find the .yml asset in the release
     yml_asset = release_data["assets"].find { |asset| asset["name"].include?("latest-mac.yml") }
     raise "YML file not found in latest release assets!" unless yml_asset
-
+  
     # Fetch the .yml file
     yml_url = yml_asset["browser_download_url"]
     yml_data = YAML.safe_load(URI.open(yml_url).read)
-
+  
     # Determine the correct file for the architecture
     architecture = Hardware::CPU.intel? ? "x64" : "mac"
     target_file = yml_data["files"].find { |file| file["url"].include?(architecture) }
     raise "No suitable file found for this architecture!" unless target_file
-
+  
     # Compute sha256 dynamically from the provided sha512
     sha256 = Digest::SHA256.hexdigest([target_file["sha512"]].pack("m0"))
-
+  
     {
       version: yml_data["version"],
       url: "https://github.com/ItsRiprod/TestThing/releases/download/v#{yml_data['version']}/#{target_file['url']}",
       sha256: sha256
     }
-  end
+  end  
 
   # Dynamically fetch the latest release details
   release = latest_release
