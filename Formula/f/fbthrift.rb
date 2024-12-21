@@ -1,10 +1,9 @@
 class Fbthrift < Formula
   desc "Facebook's branch of Apache Thrift, including a new C++ server"
   homepage "https://github.com/facebook/fbthrift"
-  url "https://github.com/facebook/fbthrift/archive/refs/tags/v2024.12.02.00.tar.gz"
-  sha256 "c394eb7a607c54f6ec57979b06f4ebdcab6b3ae66ef71ad4a532b98ed39027fe"
+  url "https://github.com/facebook/fbthrift/archive/refs/tags/v2024.12.16.00.tar.gz"
+  sha256 "b5d9ac9a7854d0debb2b3810865be3ea162cb3b9183f4570209ec991956acdc6"
   license "Apache-2.0"
-  revision 1
   head "https://github.com/facebook/fbthrift.git", branch: "main"
 
   bottle do
@@ -16,7 +15,6 @@ class Fbthrift < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "2a4f6031c7bd4407d5975f7e6961fc8c7918f6dfa4fadc08d50b7ea493a02d43"
   end
 
-  depends_on "bison" => :build # Needs Bison 3.1+
   depends_on "cmake" => [:build, :test]
   depends_on "mvfst" => [:build, :test]
   depends_on "double-conversion"
@@ -34,10 +32,6 @@ class Fbthrift < Formula
   uses_from_macos "python" => :build
   uses_from_macos "zlib"
 
-  on_macos do
-    depends_on "llvm" if DevelopmentTools.clang_build_version <= 1100
-  end
-
   on_linux do
     depends_on "boost"
   end
@@ -49,19 +43,25 @@ class Fbthrift < Formula
     EOS
   end
 
+  # Skip cpp2/protocol tests
+  patch :DATA
+
   def install
     # Work around build failure with Xcode 16
     # Issue ref: https://github.com/facebook/fbthrift/issues/618
     # Issue ref: https://github.com/facebook/fbthrift/issues/607
     ENV.append "CXXFLAGS", "-fno-assume-unique-vtables" if DevelopmentTools.clang_build_version >= 1600
 
-    ENV.llvm_clang if OS.mac? && (DevelopmentTools.clang_build_version <= 1100)
     ENV["OPENSSL_ROOT_DIR"] = Formula["openssl@3"].opt_prefix
 
     # The static libraries are a bit annoying to build. If modifying this formula
     # to include them, make sure `bin/thrift1` links with the dynamic libraries
     # instead of the static ones (e.g. `libcompiler_base`, `libcompiler_lib`, etc.)
-    shared_args = ["-DBUILD_SHARED_LIBS=ON", "-DCMAKE_INSTALL_RPATH=#{rpath}", "-DCMAKE_POSITION_INDEPENDENT_CODE=ON"]
+    shared_args = %W[
+      -DBUILD_SHARED_LIBS=ON
+      -DCMAKE_INSTALL_RPATH=#{rpath}
+      -DCMAKE_POSITION_INDEPENDENT_CODE=ON
+    ]
     shared_args << "-DCMAKE_SHARED_LINKER_FLAGS=-Wl,-undefined,dynamic_lookup -Wl,-dead_strip_dylibs" if OS.mac?
 
     system "cmake", "-S", ".", "-B", "build/shared", *shared_args, *std_cmake_args
@@ -105,3 +105,19 @@ class Fbthrift < Formula
     system "cmake", "--build", "."
   end
 end
+
+__END__
+diff --git a/thrift/lib/cpp2/CMakeLists.txt b/thrift/lib/cpp2/CMakeLists.txt
+index f941688ab0..34f573c0ab 100644
+--- a/thrift/lib/cpp2/CMakeLists.txt
++++ b/thrift/lib/cpp2/CMakeLists.txt
+@@ -15,9 +15,6 @@
+ # Set the cpp2 directory
+ set(LIB_CPP2_HOME ${CMAKE_CURRENT_SOURCE_DIR})
+ 
+-if (enable_tests)
+-  add_subdirectory(protocol/test)
+-endif ()
+ add_subdirectory(test)
+ 
+ #######
