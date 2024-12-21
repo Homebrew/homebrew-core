@@ -63,7 +63,11 @@ class Go < Formula
   end
 
   def install
-    inreplace "go.env", /^GOTOOLCHAIN=.*$/, "GOTOOLCHAIN=local"
+    inreplace "go.env" do |s|
+      # Remove misleading comment about automatically downloading newer toolchains.
+      s.gsub!(/^# Automatically download.*$/, "")
+      s.gsub!(/^GOTOOLCHAIN=.*$/, "GOTOOLCHAIN=local")
+    end
 
     (buildpath/"gobootstrap").install resource("gobootstrap")
     ENV["GOROOT_BOOTSTRAP"] = buildpath/"gobootstrap"
