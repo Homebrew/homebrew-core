@@ -20,8 +20,8 @@ class Filebeat < Formula
 
   depends_on "go" => :build
   depends_on "mage" => :build
-  depends_on "python@3.12" => :build
 
+  uses_from_macos "python" => :build
   uses_from_macos "rsync" => :build
 
   def install
@@ -39,8 +39,8 @@ class Filebeat < Formula
       system "mage", "-v", "build"
       system "mage", "-v", "update"
 
-      (etc/"filebeat").install Dir["filebeat.*", "fields.yml", "modules.d"]
-      (etc/"filebeat"/"module").install Dir["build/package/modules/*"]
+      pkgetc.install Dir["filebeat.*", "fields.yml", "modules.d"]
+      (pkgetc/"module").install Dir["build/package/modules/*"]
       (libexec/"bin").install "filebeat"
       prefix.install "build/kibana"
     end
@@ -55,8 +55,7 @@ class Filebeat < Formula
         "$@"
     EOS
 
-    chmod 0555, bin/"filebeat" # generate_completions_from_executable fails otherwise
-    generate_completions_from_executable(bin/"filebeat", "completion", shells: [:bash, :zsh])
+    generate_completions_from_executable(libexec/"bin/filebeat", "completion", shells: [:bash, :zsh])
   end
 
   service do
@@ -92,8 +91,8 @@ class Filebeat < Formula
     log_file.append_lines "foo bar baz"
     sleep 5
 
-    assert_predicate testpath/"meta.json", :exist?
-    assert_predicate testpath/"registry/filebeat", :exist?
+    assert_path_exists testpath/"meta.json"
+    assert_path_exists testpath/"registry/filebeat"
   ensure
     Process.kill("TERM", pid)
     Process.wait(pid)

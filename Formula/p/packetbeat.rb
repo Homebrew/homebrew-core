@@ -18,8 +18,8 @@ class Packetbeat < Formula
 
   depends_on "go" => :build
   depends_on "mage" => :build
-  depends_on "python@3.12" => :build
 
+  uses_from_macos "python" => :build
   uses_from_macos "libpcap"
 
   def install
@@ -35,7 +35,7 @@ class Packetbeat < Formula
 
       inreplace "packetbeat.yml", "packetbeat.interfaces.device: any", "packetbeat.interfaces.device: en0"
 
-      (etc/"packetbeat").install Dir["packetbeat.*", "fields.yml"]
+      pkgetc.install Dir["packetbeat.*", "fields.yml"]
       (libexec/"bin").install "packetbeat"
       prefix.install "_meta/kibana"
     end
@@ -50,8 +50,7 @@ class Packetbeat < Formula
         "$@"
     SH
 
-    chmod 0555, bin/"packetbeat" # generate_completions_from_executable fails otherwise
-    generate_completions_from_executable(bin/"packetbeat", "completion", shells: [:bash, :zsh])
+    generate_completions_from_executable(libexec/"bin/packetbeat", "completion", shells: [:bash, :zsh])
   end
 
   service do
@@ -59,11 +58,7 @@ class Packetbeat < Formula
   end
 
   test do
-    eth = if OS.mac?
-      "en"
-    else
-      "eth"
-    end
+    eth = OS.mac? ? "en" : "eth"
     assert_match "0: #{eth}0", shell_output("#{bin}/packetbeat devices")
     assert_match version.to_s, shell_output("#{bin}/packetbeat version")
   end
