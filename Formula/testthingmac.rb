@@ -4,7 +4,6 @@ class Testthingmac < Formula
   version "0.10.76"
   license "Proprietary"
 
-  # Architecture-specific logic for `url` and `sha256`
   if Hardware::CPU.intel?
     # For Intel Macs (x64)
     url "https://github.com/ItsRiprod/TestThing/releases/download/v0.10.76/deskthing-mac-x64-0.10.76-setup.dmg"
@@ -15,8 +14,10 @@ class Testthingmac < Formula
     sha256 "44e010d962a471bb4a83922c6b1c0e3ecbc741d55cea374ac9295098feae1d95"
   end
 
-  # Prevent cleaning of the app bundle
-  skip_clean "DeskThing.app"
+  # Prevent Homebrew from attempting to fix linkage
+  def self.bottle
+    nil
+  end
 
   def install
     if cached_download.to_s.end_with?(".dmg")
