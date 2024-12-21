@@ -1,4 +1,4 @@
-require "yaml"
+require "json"
 require "open-uri"
 require "digest"
 
@@ -6,18 +6,22 @@ class Testthingmac < Formula
   desc "DeskThing for Mac - Dynamic Formula Example"
   homepage "https://github.com/ItsRiprod/TestThing"
 
-  # Define a method to fetch and parse the .yml file
+  # Use GitHub API to find the latest release and fetch the .yml file
   def self.latest_release
-    yml_url = "https://github.com/ItsRiprod/TestThing/releases/latest/latest-mac.yml"
+    api_url = "https://api.github.com/repos/ItsRiprod/TestThing/releases/latest"
+    release_data = JSON.parse(URI.open(api_url).read)
+
+    # Find the .yml asset in the release assets
+    yml_asset = release_data["assets"].find { |asset| asset["name"].include?("latest-mac.yml") }
+    raise "YML file not found in latest release assets!" unless yml_asset
+
+    # Fetch the .yml file
+    yml_url = yml_asset["browser_download_url"]
     yml_data = YAML.safe_load(URI.open(yml_url).read)
 
-    # Check for x64 file and use it for Intel; default to non-x64 file for ARM
-    target_file = if Hardware::CPU.intel?
-                    yml_data["files"].find { |file| file["url"].include?("x64") }
-                  else
-                    yml_data["files"].find { |file| !file["url"].include?("x64") }
-                  end
-
+    # Determine the correct file for the architecture
+    architecture = Hardware::CPU.intel? ? "x64" : "mac"
+    target_file = yml_data["files"].find { |file| file["url"].include?(architecture) }
     raise "No suitable file found for this architecture!" unless target_file
 
     # Compute sha256 dynamically from the provided sha512
