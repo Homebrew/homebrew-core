@@ -43,7 +43,7 @@ class BitwardenCli < Formula
 
     generate_completions_from_executable(
       bin/"bw", "completion",
-      base_name: "bw", shell_parameter_format: :arg, shells: [:zsh]
+      shell_parameter_format: :arg, shells: [:zsh]
     )
   end
 

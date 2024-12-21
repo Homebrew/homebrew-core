@@ -25,7 +25,7 @@ class ChainloopCli < Formula
 
     system "go", "build", *std_go_args(ldflags:, output: bin/"chainloop"), "./app/cli"
 
-    generate_completions_from_executable(bin/"chainloop", "completion", base_name: "chainloop")
+    generate_completions_from_executable(bin/"chainloop", "completion")
   end
 
   test do

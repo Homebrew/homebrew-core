@@ -53,7 +53,7 @@ class ElanInit < Formula
       bin.install_symlink "elan-init" => link
     end
 
-    generate_completions_from_executable(bin/"elan", "completions", base_name: "elan")
+    generate_completions_from_executable(bin/"elan", "completions")
   end
 
   test do

@@ -24,9 +24,8 @@ class CartridgeCli < Formula
     system "mage", "build"
     bin.install "cartridge"
     generate_completions_from_executable(bin/"cartridge", "gen", "completion",
-                                            shells:                 [:bash, :zsh],
-                                            shell_parameter_format: :none,
-                                            base_name:              "cartridge")
+                                         shells:                 [:bash, :zsh],
+                                         shell_parameter_format: :none)
   end
 
   test do
