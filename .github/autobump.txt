@@ -2814,6 +2814,7 @@ slides
 slirp4netns
 sloc
 slsa-verifier
+slumber
 slurm
 smake
 smartdns
