@@ -124,6 +124,12 @@ jobs:
           brew install curl
           echo "HOMEBREW_FORCE_BREWED_CURL=1" >>"${GITHUB_ENV}"
 
+      - name: Install and use Homebrew svn if needed
+        run: |
+          if brew ruby -e 'exit 1 if Formula[ARGV.first].deps.none? { |d| d.name == "subversion" && d.implicit? }' "$FORMULA"; then
+            brew install svn
+          fi
+
       - name: Check formula source is not archived.
         id: archived
         run: brew audit --online --skip-style --only github_repository_archived,gitlab_repository_archived "$FORMULA"
