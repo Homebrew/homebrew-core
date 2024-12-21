@@ -7,14 +7,12 @@ class Leveldb < Formula
   revision 2
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "3dc8137b48b1778b906215646fb3b6d07916ff1fe0ed137ee4a4ed8d739206bf"
-    sha256 cellar: :any,                 arm64_sonoma:   "8d31999d036ab81506c70b2e446a4fc62457307a610e9af51538cea0e592fd4b"
-    sha256 cellar: :any,                 arm64_ventura:  "b7ca49e08f08c52f9a2c7f67dbcbd1214ca97023d1173f943d8df0a4dda66c55"
-    sha256 cellar: :any,                 arm64_monterey: "666c5e8c3f01854847176459ee4fc06d3248dfda68e8249b2186777c09cab373"
-    sha256 cellar: :any,                 sonoma:         "98aa66f907f2e279295bb6691302388264f6fc141128703ce4bfd315531815d2"
-    sha256 cellar: :any,                 ventura:        "48d595e1d25c23f2376ba436b3a89913f9babbd0d715f4029d9eff7174923215"
-    sha256 cellar: :any,                 monterey:       "327dd3eac9c6a481c5f7e578f815d6b3f3d912c33e47c4e15dd5ccce85a2bd16"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "240f267390c10b75634da1be1bf04e0878819ef79d6d79fb52a4507adb47908b"
+    sha256 cellar: :any,                 arm64_sequoia: "9ddcdcdaef16a4ecf52daefeea18623f769da2728bff6fcffff130ec130136e8"
+    sha256 cellar: :any,                 arm64_sonoma:  "8ae60cb6aaa09c5508c3606a2f6666aaa12bafb44b56cbb262b5fdb0b7234e8d"
+    sha256 cellar: :any,                 arm64_ventura: "c0970a965d039a1f3ad15c7db01b80b9e8851c59f63fe55f0eaa8633d083530c"
+    sha256 cellar: :any,                 sonoma:        "5a757793bb447bf5a91ee7fc38864c7dd4d870f857324524a4bd016c767afdda"
+    sha256 cellar: :any,                 ventura:       "b20dad4e906b5c65f7b52e4a61293c22b8324925b24c982c0c4baad2c77e13c0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ff14a180346c9cece9aa3ddaaab5882eb6f9fa5074cde29d874ab640b351fed2"
   end
 
   depends_on "cmake" => :build
