@@ -23,8 +23,6 @@ class CloudformationCli < Formula
   depends_on "libyaml"
   depends_on "python@3.13"
 
-  uses_from_macos "expect" => :test
-
   resource "annotated-types" do
     url "https://files.pythonhosted.org/packages/ee/67/531ea369ba64dcff5ec9c3402f9f51bf748cec26dde048a2f973a4eea7f5/annotated_types-0.7.0.tar.gz"
     sha256 "aff07c09a53a08bc8cfccb9c85b05f1aa9a2a6f23728d790723543408344ce89"
@@ -281,33 +279,25 @@ class CloudformationCli < Formula
   end
 
   test do
-    (testpath/"test.exp").write <<~EXPECT
-      #!/usr/bin/env expect -f
-      set timeout -1
+    require "expect"
+    require "open3"
 
-      spawn #{bin}/cfn init
+    Open3.popen2(bin/"cfn", "init") do |stdin, stdout, wait_thread|
+      stdout.expect "Do you want to develop a new resource(r) or a module(m) or a hook(h)?."
+      stdin.write "r\n"
+      stdout.expect "What's the name of your resource type?"
+      stdin.write "brew::formula::test\n"
+      stdout.expect "Select a language for code generation:"
+      stdin.write "1\n"
+      stdout.expect "Enter the GO Import path"
+      stdin.write "example\n"
+      stdout.expect "Initialized a new project in"
+      wait_thread.join
+    end
 
-      expect -exact "Do you want to develop a new resource(r) or a module(m) or a hook(h)?."
-      send -- "r\r"
-
-      expect -exact "What's the name of your resource type?"
-      send -- "brew::formula::test\r"
-
-      expect -exact "Select a language for code generation:"
-      send -- "1\r"
-
-      expect -exact "Enter the GO Import path"
-      send -- "example\r"
-
-      expect -exact "Initialized a new project in"
-      expect eof
-    EXPECT
-
-    system "expect", "-f", "test.exp"
-
-    rpdk_config = JSON.parse(File.read(testpath/".rpdk-config"))
+    rpdk_config = JSON.parse((testpath/".rpdk-config").read)
     assert_equal "brew::formula::test", rpdk_config["typeName"]
     assert_equal "go", rpdk_config["language"]
-    assert_predicate testpath/"rpdk.log", :exist?
+    assert_path_exists testpath/"rpdk.log"
   end
 end
