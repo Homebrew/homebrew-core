@@ -24,8 +24,6 @@ class Click < Formula
 
   depends_on "rust" => :build
 
-  uses_from_macos "expect" => :test
-
   on_linux do
     depends_on "pkgconf" => :build
     depends_on "openssl@3"
@@ -36,7 +34,6 @@ class Click < Formula
   end
 
   test do
-    mkdir testpath/"config"
     # Default state configuration file to avoid warning on startup
     (testpath/"config/click.config").write <<~YAML
       ---
@@ -73,11 +70,7 @@ class Click < Formula
     YAML
 
     # This test cannot test actual K8s connectivity, but it is enough to prove click starts
-    (testpath/"click-test").write <<~SHELL
-      spawn "#{bin}/click" --config_dir "#{testpath}/config"
-      expect "*\\[*none*\\]* *\\[*none*\\]* *\\[*none*\\]* >"
-      send "quit\\r"
-    SHELL
-    system "expect", "-f", "click-test"
+    output = pipe_output("#{bin}/click --config_dir #{testpath}/config", "quit")
+    assert_equal "[\e[38;5;9m\e[1mnone\e[0m] [\e[38;5;10m\e[1mnone\e[0m] [\e[38;5;3mnone\e[39m] > ", output
   end
 end
