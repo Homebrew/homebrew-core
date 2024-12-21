@@ -16,7 +16,7 @@ class Testthingmac < Formula
   end
 
   # Prevent cleaning of the app bundle
-  skip_clean "DeskThing.app
+  skip_clean "DeskThing.app"
 
   def install
     if cached_download.to_s.end_with?(".dmg")
@@ -31,7 +31,7 @@ class Testthingmac < Formula
       raise "Application not found in extracted zip archive!" unless app_path
       prefix.install app_path
     end
-end
+  end
 
   def caveats
     <<~EOS
