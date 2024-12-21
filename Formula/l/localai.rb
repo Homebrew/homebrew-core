@@ -19,15 +19,11 @@ class Localai < Formula
   depends_on "abseil" => :build
   depends_on "cmake" => :build
   depends_on "go" => :build
-  depends_on "python-setuptools" => :build
-  depends_on xcode: :build
-
-  depends_on "grpc"
-  depends_on "protobuf"
-  depends_on "protoc-gen-go"
-  depends_on "protoc-gen-go-grpc"
-  depends_on "python@3.12"
-  depends_on "wget"
+  depends_on "grpc" => :build
+  depends_on "protobuf" => :build
+  depends_on "protoc-gen-go" => :build
+  depends_on "protoc-gen-go-grpc" => :build
+  depends_on "python@3.13" => :build
 
   resource "grpcio-tools" do
     url "https://files.pythonhosted.org/packages/2a/2f/d2fc30b79d892050a3c40ef8d17d602f4c6eced066d584621c7bbf195b0e/grpcio_tools-1.68.1.tar.gz"
@@ -35,29 +31,25 @@ class Localai < Formula
   end
 
   def python3
-    which("python3.12")
+    which("python3.13")
   end
 
   def install
-    ENV["PYTHON"] = python3
+    venv = virtualenv_create(buildpath/"venv", python3)
+    venv.pip_install resources
+    ENV.prepend_path "PATH", venv.root/"bin"
 
-    venv = virtualenv_create(libexec, python3)
-    venv.pip_install(resources, build_isolation: false)
-
-    system "make", "build"
+    system "make", "build", "VERSION=#{version}"
     bin.install "local-ai"
   end
 
   test do
-    http_port = free_port
-    fork do
-      mkdir_p "#{testpath}/configuration"
-      ENV["LOCALAI_ADDRESS"] = "127.0.0.1:#{http_port}"
-      exec bin/"local-ai"
-    end
-    sleep 30
+    addr = "127.0.0.1:#{free_port}"
 
-    response = shell_output("curl -s -i 127.0.0.1:#{http_port}")
+    spawn bin/"local-ai", "run", "--address", addr
+    sleep 5
+
+    response = shell_output("curl -s -i #{addr}")
     assert_match "HTTP/1.1 200 OK", response
   end
 end
