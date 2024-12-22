@@ -30,7 +30,7 @@ class R < Formula
   depends_on "openblas"
   depends_on "pcre2"
   depends_on "readline"
-  depends_on "tcl-tk@8"
+  depends_on "tcl-tk"
   depends_on "xz"
 
   uses_from_macos "bzip2"
@@ -77,8 +77,8 @@ class R < Formula
     args = [
       "--prefix=#{prefix}",
       "--enable-memory-profiling",
-      "--with-tcl-config=#{Formula["tcl-tk@8"].opt_lib}/tclConfig.sh",
-      "--with-tk-config=#{Formula["tcl-tk@8"].opt_lib}/tkConfig.sh",
+      "--with-tcl-config=#{Formula["tcl-tk"].opt_lib}/tclConfig.sh",
+      "--with-tk-config=#{Formula["tcl-tk"].opt_lib}/tkConfig.sh",
       "--with-blas=-L#{Formula["openblas"].opt_lib} -lopenblas",
       "--enable-R-shlib",
       "--disable-java",
