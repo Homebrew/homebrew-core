@@ -1,8 +1,8 @@
 class Projectm < Formula
   desc "Milkdrop-compatible music visualizer"
   homepage "https://github.com/projectM-visualizer/projectm"
-  url "https://github.com/projectM-visualizer/projectm/releases/download/v4.1.2/libprojectM-4.1.2.tar.gz"
-  sha256 "6e01d44060b12f5639f7935d82f2d8641dcad706fc264aaddaa01aa37d5eb059"
+  url "https://github.com/projectM-visualizer/projectm/releases/download/v4.1.3/libprojectM-4.1.3.tar.gz"
+  sha256 "fedb7064306da219ab0dfac2f1080f1cf594b720fa039dfad29b2c55381db614"
   license "LGPL-2.1-or-later"
   head "https://github.com/projectM-visualizer/projectm.git", branch: "master"
 
