@@ -22,8 +22,6 @@ class JupyterR < Formula
   depends_on "r"
   depends_on "zeromq"
 
-  uses_from_macos "expect" => :test
-
   on_macos do
     depends_on "gettext"
   end
@@ -191,16 +189,30 @@ class JupyterR < Formula
     ENV["R_LIBS_SITE"] = lib/"R/site-library"
     assert_match " ir ", shell_output("#{jupyter} kernelspec list")
 
-    (testpath/"console.exp").write <<~EOS
-      spawn #{jupyter} console --kernel=ir
-      expect -timeout 60 "In "
-      send "print('Hello Homebrew')\r"
-      expect -timeout 60 "In "
-      send "exit\r"
-    EOS
-    output = shell_output("expect -f console.exp")
-    assert_match "R version #{r_version}", output
-    assert_match "Hello Homebrew", output
+    require "expect"
+    require "pty"
+    PTY.spawn(jupyter, "console", "--kernel=ir") do |r, w, pid|
+      timeout = 15
+      r.expect("In [1]:", timeout) do |result|
+        refute_nil result, "Expected In [1] prompt"
+        assert_match "R version #{r_version}", result.first
+      end
+      w.write "print('Hello Homebrew')\r"
+      r.expect("In [2]:", timeout) do |result|
+        refute_nil result, "Expected In [2] prompt"
+        assert_match '[1] "Hello Homebrew"', result.first
+      end
+      w.write "mean(c(1, 2, 3, 4))\r"
+      r.expect("In [3]:", timeout) do |result|
+        refute_nil result, "Expected In [3] prompt"
+        assert_match "[1] 2.5", result.first
+      end
+      w.write "quit()\r"
+    ensure
+      r.close
+      w.close
+      Process.wait(pid)
+    end
   end
 end
 
