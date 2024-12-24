@@ -24,7 +24,7 @@ class WhisperCpp < Formula
 
   def install
     args = %W[
-      -DBUILD_SHARED_LIBS=OFF
+      -DBUILD_SHARED_LIBS=#{head? ? "ON" : "OFF"}
       -DGGML_METAL=#{(OS.mac? && !Hardware::CPU.intel?) ? "ON" : "OFF"}
       -DGGML_METAL_EMBED_LIBRARY=#{OS.mac? ? "ON" : "OFF"}
       -DGGML_NATIVE=#{build.bottle? ? "OFF" : "ON"}
@@ -33,11 +33,27 @@ class WhisperCpp < Formula
       -DWHISPER_BUILD_SERVER=OFF
     ]
     args << "-DLLAMA_METAL_MACOSX_VERSION_MIN=#{MacOS.version}" if OS.mac?
+    args << "-DCMAKE_INSTALL_RPATH=#{OS.mac? ? "@loader_path/../libinternal" : "'$ORIGIN/../libinternal'"}" if head?
 
-    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
-    # the "main" target is our whisper-cpp binary
-    system "cmake", "--build", "build", "--target", "main"
-    bin.install "build/bin/main" => "whisper-cpp"
+    # avoid installing libggml libraries to "lib" since they would conflict with llama.cpp
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args(install_libdir: "libinternal")
+    if head?
+      system "cmake", "--build", "build"
+      system "cmake", "--install", "build"
+      (bin/"whisper-cpp").write <<~EOS
+        #!/bin/bash
+        here="${BASH_SOURCE[0]}"
+        echo "${BASH_SOURCE[0]}: warning: whisper-cpp is deprecated. Use whisper-cli instead." >&2
+        exec "$(dirname "$here")/whisper-cli" "$@"
+      EOS
+      (bin/"whisper-cpp").chmod 0755
+      # avoid publishing header files since they will conflict with llama.cpp
+      rm_r include
+    else
+      # the "main" target is our whisper-cpp binary
+      system "cmake", "--build", "build", "--target", "main"
+      bin.install "build/bin/main" => "whisper-cpp"
+    end
 
     pkgshare.install "models/for-tests-ggml-tiny.bin", "samples/jfk.wav"
   end
