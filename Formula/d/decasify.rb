@@ -29,22 +29,11 @@ class Decasify < Formula
 
   uses_from_macos "zlib"
 
-  # shell completion file permission patch, upstream pr ref, https://github.com/alerque/decasify/pull/37
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/280b19b530f7328464e7aacd31a3faa621aa137f/decasify/0.8.0-fix-shell-permissions.patch"
-    sha256 "0fd8046981413341698166b1942020956dfa5ee6a4874ee418557179e61a8a6f"
-  end
-
   def install
     system "./bootstrap.sh" if build.head?
     system "./configure", "--disable-silent-rules", *std_configure_args
     system "make"
     system "make", "install"
-
-    bash_completion.install "completions/decasify"
-    fish_completion.install "completions/decasify.fish"
-    zsh_completion.install "completions/_decasify"
-    man1.install "decasify.1"
   end
 
   test do
