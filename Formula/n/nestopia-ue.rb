@@ -1,11 +1,19 @@
 class NestopiaUe < Formula
   desc "NES emulator"
   homepage "http://0ldsk00l.ca/nestopia/"
-  url "https://github.com/0ldsk00l/nestopia/archive/refs/tags/1.52.1.tar.gz"
-  sha256 "c9c0bce673eb3b625b538b462e49c00ed1ee1ded1e0bad09be780076880968b5"
   license "GPL-2.0-or-later"
-  revision 1
   head "https://github.com/0ldsk00l/nestopia.git", branch: "master"
+
+  stable do
+    url "https://github.com/0ldsk00l/nestopia/archive/refs/tags/1.53.0.tar.gz"
+    sha256 "27a26a6fd92e6acc2093bbd6c1e3ab7f2fff419d9ed6de13bc43349b52e1f705"
+
+    # add back `--version` command, see discussions in https://github.com/0ldsk00l/nestopia/issues/430
+    patch do
+      url "https://github.com/0ldsk00l/nestopia/commit/76c5d0cdb75444c54258a184eb7a488b8f1dd4ec.patch?full_index=1"
+      sha256 "4f1ad461502fe837261860690ab936a642925299054b0e8fe4b0b3e1a243e9e7"
+    end
+  end
 
   bottle do
     sha256 arm64_sequoia: "67af1d1abc8403e93fd13196f700615e07dd7034479f3822f1a4b00b1240899b"
@@ -23,6 +31,8 @@ class NestopiaUe < Formula
 
   depends_on "fltk"
   depends_on "libarchive"
+  depends_on "libepoxy"
+  depends_on "libsamplerate"
   depends_on "sdl2"
 
   uses_from_macos "zlib"
