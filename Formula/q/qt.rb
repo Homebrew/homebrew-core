@@ -3,6 +3,10 @@ class Qt < Formula
 
   desc "Cross-platform application and UI framework"
   homepage "https://www.qt.io/"
+  url "https://download.qt.io/official_releases/qt/6.8/6.8.1/single/qt-everywhere-src-6.8.1.tar.xz"
+  mirror "https://qt.mirror.constant.com/archive/qt/6.8/6.8.1/single/qt-everywhere-src-6.8.1.tar.xz"
+  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.8/6.8.1/single/qt-everywhere-src-6.8.1.tar.xz"
+  sha256 "45e3a9f6d33c92ffe65a1fde1a8eba5b228112df675f7f9026eaa332b2e2edff"
   license all_of: [
     "BSD-3-Clause",
     "GFDL-1.3-no-invariants-only",
@@ -11,41 +15,6 @@ class Qt < Formula
     "LGPL-3.0-only",
   ]
   head "https://code.qt.io/qt/qt5.git", branch: "dev"
-
-  stable do
-    url "https://download.qt.io/official_releases/qt/6.7/6.7.3/single/qt-everywhere-src-6.7.3.tar.xz"
-    mirror "https://qt.mirror.constant.com/archive/qt/6.7/6.7.3/single/qt-everywhere-src-6.7.3.tar.xz"
-    mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.7/6.7.3/single/qt-everywhere-src-6.7.3.tar.xz"
-    sha256 "a3f1d257cbb14c6536585ffccf7c203ce7017418e1a0c2ed7c316c20c729c801"
-
-    # Backport fix for Xcode 16. Remove in the next release
-    patch do
-      url "https://github.com/qt/qtwebengine-chromium/commit/8c5cf527c520edf9cd96c143af02ac94966fc2af.patch?full_index=1"
-      sha256 "ab14d8559c0470cc28f6ba279015dac9e7411135f5f58c285c6a7cf5995e61b4"
-      directory "qtwebengine/src/3rdparty"
-    end
-
-    # Backport support for FFMpeg 7.
-    # Ref: https://bugreports.qt.io/browse/QTBUG-125227
-    patch do
-      # Use Fedora's backport of https://github.com/qt/qtwebengine-chromium/commit/b30e3535717e1cb970c6e4095b412a2c5fdbce40
-      url "https://src.fedoraproject.org/rpms/qt6-qtwebengine/raw/864539f2140a11fda9bf3ef878a2e627f04f0b2d/f/qtwebengine-fix-building-with-system-ffmpeg.patch"
-      sha256 "70b8c468be1954b8dad59243069c6369d7c6eae332f154d99e3027b9119eb7c5"
-      directory "qtwebengine"
-    end
-    patch do
-      url "https://github.com/qt/qtwebengine-chromium/commit/65aaac35d040aef90c2e9f41a651b5a23470e457.patch?full_index=1"
-      sha256 "2875e9c534da34902fb113b4171d7a4960e6bc27f6ad45d49929ecf667856d48"
-      directory "qtwebengine/src/3rdparty"
-    end
-    patch do
-      url "https://github.com/qt/qtwebengine-chromium/commit/d9944bcb991c981574a229e5267e535b4eac8e1c.patch?full_index=1"
-      sha256 "11d8c7db91e76ea886dd0f30aedb3bfb33211f6ba39236d684ad63bfe80682ff"
-      directory "qtwebengine/src/3rdparty"
-    end
-    # Backport of https://github.com/qt/qtwebengine-chromium/commit/afcbb2eab7c5b0329ad0045782768dd2805d6a05
-    patch :DATA
-  end
 
   # The first-party website doesn't make version information readily available,
   # so we check the `head` repository tags instead.
@@ -150,8 +119,8 @@ class Qt < Formula
   end
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
-    sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
+    url "https://files.pythonhosted.org/packages/94/e7/b2c673351809dca68a0e064b6af791aa332cf192da575fd474ed7d6f16a2/six-1.17.0.tar.gz"
+    sha256 "ff70335d468e7eb6ec65b95b99d3a2836546063f63acc5171de367e834932a81"
   end
 
   resource "webencodings" do
@@ -462,94 +431,3 @@ class Qt < Formula
     system "./test"
   end
 end
-
-__END__
-diff --git a/qtwebengine/src/3rdparty/chromium/media/filters/ffmpeg_video_decoder.cc b/qtwebengine/src/3rdparty/chromium/media/filters/ffmpeg_video_decoder.cc
-index aaab17bdc3b9c157981f2708c680eea03657f211..737ba737872ca5df4ee9a5efe03d17573a1f2e49 100644
---- a/qtwebengine/src/3rdparty/chromium/media/filters/ffmpeg_video_decoder.cc
-+++ b/qtwebengine/src/3rdparty/chromium/media/filters/ffmpeg_video_decoder.cc
-@@ -142,7 +142,7 @@ bool FFmpegVideoDecoder::IsCodecSupported(VideoCodec codec) {
- }
-
- FFmpegVideoDecoder::FFmpegVideoDecoder(MediaLog* media_log)
--    : media_log_(media_log) {
-+    : media_log_(media_log), timestamp_map_(128) {
-   DVLOG(1) << __func__;
-   DETACH_FROM_SEQUENCE(sequence_checker_);
- }
-@@ -371,8 +371,10 @@ bool FFmpegVideoDecoder::FFmpegDecode(const DecoderBuffer& buffer) {
-     DCHECK(packet->data);
-     DCHECK_GT(packet->size, 0);
-
--    // Let FFmpeg handle presentation timestamp reordering.
--    codec_context_->reordered_opaque = buffer.timestamp().InMicroseconds();
-+    const int64_t timestamp = buffer.timestamp().InMicroseconds();
-+    const TimestampId timestamp_id = timestamp_id_generator_.GenerateNextId();
-+    timestamp_map_.Put(std::make_pair(timestamp_id, timestamp));
-+    packet->opaque = reinterpret_cast<void*>(timestamp_id.GetUnsafeValue());
-   }
-   FFmpegDecodingLoop::DecodeStatus decode_status = decoding_loop_->DecodePacket(
-       packet, base::BindRepeating(&FFmpegVideoDecoder::OnNewFrame,
-@@ -431,7 +433,12 @@ bool FFmpegVideoDecoder::OnNewFrame(AVFrame* frame) {
-   }
-   gfx::Size natural_size = aspect_ratio.GetNaturalSize(visible_rect);
-
--  const auto pts = base::Microseconds(frame->reordered_opaque);
-+  const auto ts_id = TimestampId(reinterpret_cast<size_t>(frame->opaque));
-+  const auto ts_lookup = timestamp_map_.Get(ts_id);
-+  if (ts_lookup == timestamp_map_.end()) {
-+    return false;
-+  }
-+  const auto pts = base::Microseconds(std::get<1>(*ts_lookup));
-   auto video_frame = VideoFrame::WrapExternalDataWithLayout(
-       opaque->layout, visible_rect, natural_size, opaque->data, opaque->size,
-       pts);
-@@ -506,8 +513,10 @@ bool FFmpegVideoDecoder::ConfigureDecoder(const VideoDecoderConfig& config,
-   codec_context_->thread_count = GetFFmpegVideoDecoderThreadCount(config);
-   codec_context_->thread_type =
-       FF_THREAD_SLICE | (low_delay ? 0 : FF_THREAD_FRAME);
-+
-   codec_context_->opaque = this;
-   codec_context_->get_buffer2 = GetVideoBufferImpl;
-+  codec_context_->flags |= AV_CODEC_FLAG_COPY_OPAQUE;
-
-   if (decode_nalus_)
-     codec_context_->flags2 |= AV_CODEC_FLAG2_CHUNKS;
-diff --git a/qtwebengine/src/3rdparty/chromium/media/filters/ffmpeg_video_decoder.h b/qtwebengine/src/3rdparty/chromium/media/filters/ffmpeg_video_decoder.h
-index d02cb89c3ddf7cee0d1a79ee095eae5f52ff5111..0a2de1c623ffff7dc9c5d381344714e9ee3d2f2a 100644
---- a/qtwebengine/src/3rdparty/chromium/media/filters/ffmpeg_video_decoder.h
-+++ b/qtwebengine/src/3rdparty/chromium/media/filters/ffmpeg_video_decoder.h
-@@ -7,10 +7,12 @@
-
- #include <memory>
-
-+#include "base/containers/lru_cache.h"
- #include "base/functional/callback.h"
- #include "base/memory/raw_ptr.h"
- #include "base/memory/scoped_refptr.h"
- #include "base/sequence_checker.h"
-+#include "base/types/id_type.h"
- #include "media/base/supported_video_decoder_config.h"
- #include "media/base/video_decoder.h"
- #include "media/base/video_decoder_config.h"
-@@ -87,6 +89,20 @@ class MEDIA_EXPORT FFmpegVideoDecoder : public VideoDecoder {
-   // FFmpeg structures owned by this object.
-   std::unique_ptr<AVCodecContext, ScopedPtrAVFreeContext> codec_context_;
-
-+  // The gist here is that timestamps need to be 64 bits to store microsecond
-+  // precision. A 32 bit integer would overflow at ~35 minutes at this level of
-+  // precision. We can't cast the timestamp to the void ptr object used by the
-+  // opaque field in ffmpeg then, because it would lose data on a 32 bit build.
-+  // However, we don't actually have 2^31 timestamped frames in a single
-+  // playback, so it's fine to use the 32 bit value as a key in a map which
-+  // contains the actual timestamps. Additionally, we've in the past set 128
-+  // outstanding frames for re-ordering as a limit for cross-thread decoding
-+  // tasks, so we'll do that here too with the LRU cache.
-+  using TimestampId = base::IdType<int64_t, size_t, 0>;
-+
-+  TimestampId::Generator timestamp_id_generator_;
-+  base::LRUCache<TimestampId, int64_t> timestamp_map_;
-+
-   VideoDecoderConfig config_;
-
-   scoped_refptr<FrameBufferPool> frame_pool_;

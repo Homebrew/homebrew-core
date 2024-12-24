@@ -3,8 +3,8 @@ class Pyside < Formula
 
   desc "Official Python bindings for Qt"
   homepage "https://wiki.qt.io/Qt_for_Python"
-  url "https://download.qt.io/official_releases/QtForPython/pyside6/PySide6-6.7.3-src/pyside-setup-everywhere-src-6.7.3.tar.xz"
-  sha256 "a4c414be013d5051a2d10a9a1151e686488a3172c08a57461ea04b0a0ab74e09"
+  url "https://download.qt.io/official_releases/QtForPython/pyside6/PySide6-6.8.0.2-src/pyside-setup-everywhere-src-6.8.0.tar.xz"
+  sha256 "1a1a219a8f327e340d258275fad3a9f261b8f04bc57041747e73dd6ad252b4e1"
   # NOTE: We omit some licenses even though they are in SPDX-License-Identifier or LICENSES/ directory:
   # 1. LicenseRef-Qt-Commercial is removed from "OR" options as non-free
   # 2. GFDL-1.3-no-invariants-only is only used by not installed docs, e.g. sources/{pyside6,shiboken6}/doc
@@ -14,7 +14,6 @@ class Pyside < Formula
     { "GPL-3.0-only" => { with: "Qt-GPL-exception-1.0" } },
     { any_of: ["LGPL-3.0-only", "GPL-2.0-only", "GPL-3.0-only"] },
   ]
-  revision 1
 
   livecheck do
     url "https://download.qt.io/official_releases/QtForPython/pyside6/"
@@ -63,13 +62,6 @@ class Pyside < Formula
     inreplace "sources/pyside6/cmake/Macros/PySideModules.cmake",
               "${shiboken_include_dirs}",
               "${shiboken_include_dirs}:#{extra_include_dirs.join(":")}"
-
-    # Fix build failure on macOS because `CMAKE_BINARY_DIR` points to /tmp but
-    # `location` points to `/private/tmp`, which makes this conditional fail.
-    # Submitted upstream here: https://codereview.qt-project.org/c/pyside/pyside-setup/+/416706.
-    inreplace "sources/pyside6/PySide6/__init__.py.in",
-              "in_build = Path(\"@CMAKE_BINARY_DIR@\") in location.parents",
-              "in_build = Path(\"@CMAKE_BINARY_DIR@\").resolve() in location.parents"
 
     # Install python scripts into pkgshare rather than bin
     inreplace "sources/pyside-tools/CMakeLists.txt", "DESTINATION bin", "DESTINATION #{pkgshare}"
