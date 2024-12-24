@@ -2,8 +2,8 @@ class Sfml < Formula
   # Don't update SFML until there's a corresponding CSFML release
   desc "Multi-media library with bindings for multiple languages"
   homepage "https://www.sfml-dev.org/"
-  url "https://www.sfml-dev.org/files/SFML-2.6.2-sources.zip"
-  sha256 "19d6dbd9c901c74441d9888c13cb1399f614fe8993d59062a72cfbceb00fed04"
+  url "https://www.sfml-dev.org/files/SFML-3.0.0-sources.zip"
+  sha256 "8cc41db46b59f07c44ecf21c74a0f956d37735dec9d90ff4522856cb162ba642"
   license "Zlib"
   head "https://github.com/SFML/SFML.git", branch: "master"
 
@@ -18,6 +18,7 @@ class Sfml < Formula
 
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
+  depends_on "pkgconf" => :build
   depends_on "flac"
   depends_on "freetype"
   depends_on "libogg"
@@ -26,6 +27,7 @@ class Sfml < Formula
   on_linux do
     depends_on "libx11"
     depends_on "libxcursor"
+    depends_on "libxi"
     depends_on "libxrandr"
     depends_on "mesa"
     depends_on "mesa-glu"
@@ -47,12 +49,12 @@ class Sfml < Formula
     args = ["-DCMAKE_INSTALL_RPATH=#{lib}",
             "-DSFML_MISC_INSTALL_PREFIX=#{share}/SFML",
             "-DSFML_INSTALL_PKGCONFIG_FILES=TRUE",
-            "-DSFML_BUILD_DOC=TRUE"]
-
-    args << "-DSFML_USE_SYSTEM_DEPS=ON" if OS.linux?
+            "-DSFML_BUILD_DOC=TRUE",
+            "-DSFML_USE_SYSTEM_DEPS=ON"]
 
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args, *args
     system "cmake", "--build", "build"
+    system "cmake", "--build", "build", "--target=doc"
     system "cmake", "--install", "build"
   end
 
@@ -64,8 +66,8 @@ class Sfml < Formula
         return 0;
       }
     CPP
-    system ENV.cxx, "-I#{include}/SFML/System", testpath/"test.cpp",
-           "-L#{lib}", "-lsfml-system", "-o", "test"
+    system ENV.cxx, "-I#{include}/SFML/System", "-std=c++17", testpath/"test.cpp",
+           "-L#{lib}", "-o", "test"
     system "./test"
   end
 end

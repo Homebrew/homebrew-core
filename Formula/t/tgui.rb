@@ -4,6 +4,7 @@ class Tgui < Formula
   url "https://github.com/texus/TGUI/archive/refs/tags/v1.7.0.tar.gz"
   sha256 "7d40359770e2f8e534a57332c99fd56c72cf79a8b59642676e01394fe05cb1fa"
   license "Zlib"
+  revision 1
 
   livecheck do
     url :stable
@@ -20,7 +21,7 @@ class Tgui < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "sfml"
+  depends_on "sfml@2" # sfml 3.0 build issue report, https://github.com/texus/TGUI/issues/249
 
   def install
     args = %W[

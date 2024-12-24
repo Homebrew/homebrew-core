@@ -5,6 +5,7 @@ class Csfml < Formula
   url "https://github.com/SFML/CSFML/archive/refs/tags/2.6.1.tar.gz"
   sha256 "f3f3980f6b5cad85b40e3130c10a2ffaaa9e36de5f756afd4aacaed98a7a9b7b"
   license "Zlib"
+  revision 1
   head "https://github.com/SFML/CSFML.git", branch: "master"
 
   bottle do
@@ -19,11 +20,11 @@ class Csfml < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "sfml"
+  depends_on "sfml@2" # milestone to support sfml 3.0, https://github.com/SFML/CSFML/milestone/1
 
   def install
     args = %W[
-      -DCMAKE_MODULE_PATH=#{Formula["sfml"].share}/SFML/cmake/Modules/
+      -DCMAKE_MODULE_PATH=#{Formula["sfml@2"].share}/SFML/cmake/Modules/
     ]
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
