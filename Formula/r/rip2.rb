@@ -1,8 +1,8 @@
 class Rip2 < Formula
   desc "Safe and ergonomic alternative to rm"
   homepage "https://github.com/MilesCranmer/rip2"
-  url "https://github.com/MilesCranmer/rip2/archive/refs/tags/v0.9.1.tar.gz"
-  sha256 "e35733235589ad74bafce32f5ec0e5db71133eaa8373734763ae1f78ce5402cd"
+  url "https://github.com/MilesCranmer/rip2/archive/refs/tags/v0.9.2.tar.gz"
+  sha256 "1a2c54f04f5045de48553d4a81c359f3d5e0ed9ef6aa875185f43765533d2f15"
   license "GPL-3.0-or-later"
   head "https://github.com/MilesCranmer/rip2.git", branch: "master"
 
