@@ -19,8 +19,20 @@ class Ripsecrets < Formula
 
   depends_on "rust" => :build
 
+  # shell completion generation patch, upstream pr ref, https://github.com/sirwart/ripsecrets/pull/89
+  patch do
+    url "https://github.com/sirwart/ripsecrets/commit/06168aaa3571503bf191bf8403dcabcd2709c0e7.patch?full_index=1"
+    sha256 "8733b9e9006af2c03312831fb2b67e992f68bcefd5d09ee878f0e8d40ac43039"
+  end
+
   def install
     system "cargo", "install", *std_cargo_args
+
+    out_dir = Dir["target/release/build/ripsecrets-*/out"].first
+    bash_completion.install "#{out_dir}/ripsecrets.bash" => "ripsecrets"
+    fish_completion.install "#{out_dir}/ripsecrets.fish"
+    zsh_completion.install "#{out_dir}/_ripsecrets"
+    man1.install "#{out_dir}/ripsecrets.1"
   end
 
   test do
