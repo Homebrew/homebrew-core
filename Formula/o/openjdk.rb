@@ -157,6 +157,7 @@ class Openjdk < Formula
     include.install_symlink Dir[jdk/"include/*.h"]
     include.install_symlink Dir[jdk/"include"/OS.kernel_name.downcase/"*.h"]
     man1.install_symlink Dir[jdk/"man/man1/*"]
+    rm jdk/"lib/src.zip"
   end
 
   def caveats
