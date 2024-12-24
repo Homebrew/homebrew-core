@@ -31,7 +31,7 @@ class Cocogitto < Formula
     ENV["LIBGIT2_NO_VENDOR"] = "1"
 
     system "cargo", "install", *std_cargo_args
-    generate_completions_from_executable(bin/"cog", "generate-completions", base_name: "cog")
+    generate_completions_from_executable(bin/"cog", "generate-completions")
 
     system bin/"cog", "generate-manpages", buildpath
     man1.install Dir["*.1"]

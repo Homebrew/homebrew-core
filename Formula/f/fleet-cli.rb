@@ -30,7 +30,7 @@ class FleetCli < Formula
     ]
     system "go", "build", *std_go_args(output: bin/"fleet", ldflags:), "./cmd/fleetcli"
 
-    generate_completions_from_executable(bin/"fleet", "completion", base_name: "fleet")
+    generate_completions_from_executable(bin/"fleet", "completion")
   end
 
   test do

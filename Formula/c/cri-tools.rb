@@ -26,7 +26,7 @@ class CriTools < Formula
       system "make", "install", "VERSION=#{version}"
     end
 
-    generate_completions_from_executable(bin/"crictl", "completion", base_name: "crictl")
+    generate_completions_from_executable(bin/"crictl", "completion")
   end
 
   test do
