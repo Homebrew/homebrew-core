@@ -4,6 +4,7 @@ class Atf < Formula
   url "https://github.com/freebsd/atf/releases/download/atf-0.22/atf-0.22.tar.gz"
   sha256 "e186c079b5140e894bcb6936a08db4f4bbcb816c8497a7e8d7d34344b4ee1b63"
   license "BSD-2-Clause"
+  head "https://github.com/freebsd/atf.git", branch: "master"
 
   bottle do
     sha256 arm64_sequoia: "ec7ee677a1def2695ddcbdf5d1274d4974d0c79e0346902d43f00839369c34cc"
