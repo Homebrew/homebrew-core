@@ -1,8 +1,8 @@
 class GoParquetTools < Formula
   desc "Utility to deal with Parquet data"
   homepage "https://github.com/hangxie/parquet-tools"
-  url "https://github.com/hangxie/parquet-tools/archive/refs/tags/v1.25.9.tar.gz"
-  sha256 "61df81b68b58cfccd6b819bc3edf50e6ecf58e294195167517d71076fb047fd3"
+  url "https://github.com/hangxie/parquet-tools/archive/refs/tags/v1.25.10.tar.gz"
+  sha256 "4255a765c295603fdc51b3479ff8d0defbb864971b2e1f732d1278231603b18b"
   license "BSD-3-Clause"
 
   bottle do
@@ -21,8 +21,8 @@ class GoParquetTools < Formula
       -s -w
       -X github.com/hangxie/parquet-tools/cmd.version=v#{version}
       -X github.com/hangxie/parquet-tools/cmd.build=#{time.iso8601}
-      -X github.com/hangxie/parquet-tools/cmd.gitHash=#{tap.user}
-      -X github.com/hangxie/parquet-tools/cmd.source=source
+      -X github.com/hangxie/parquet-tools/cmd.gitHash=ef7222f
+      -X github.com/hangxie/parquet-tools/cmd.source=Homebrew
     ]
     system "go", "build", *std_go_args(ldflags:, output: bin/"parquet-tools")
   end
