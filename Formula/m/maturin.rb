@@ -4,6 +4,7 @@ class Maturin < Formula
   url "https://github.com/PyO3/maturin/archive/refs/tags/v1.8.0.tar.gz"
   sha256 "481c6b354ef06d5eb5c52a7ab8bc01463927a291dabea2bf3257d56edd827f16"
   license any_of: ["Apache-2.0", "MIT"]
+  revision 1
   head "https://github.com/PyO3/maturin.git", branch: "main"
 
   bottle do
@@ -19,6 +20,12 @@ class Maturin < Formula
   depends_on "rust"
 
   uses_from_macos "bzip2"
+
+  # patch to not panic with "`project.version` field is required", upstream pr ref, https://github.com/PyO3/maturin/pull/2417
+  patch do
+    url "https://github.com/PyO3/maturin/commit/f3d2e00638cfa017a39f67dcf641a85740540119.patch?full_index=1"
+    sha256 "c2599129a51b9d560f197d213bc295a948e5f29fdb569011a5d3dee5c990df5b"
+  end
 
   def install
     # Work around an Xcode 15 linker issue which causes linkage against LLVM's
