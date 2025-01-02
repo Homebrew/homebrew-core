@@ -17,9 +17,6 @@ class Qt < Formula
     mirror "https://qt.mirror.constant.com/archive/qt/6.8/6.8.1/single/qt-everywhere-src-6.8.1.tar.xz"
     mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.8/6.8.1/single/qt-everywhere-src-6.8.1.tar.xz"
     sha256 "45e3a9f6d33c92ffe65a1fde1a8eba5b228112df675f7f9026eaa332b2e2edff"
-
-    # Backport of https://github.com/qt/qtwebengine-chromium/commit/afcbb2eab7c5b0329ad0045782768dd2805d6a05
-    patch :DATA
   end
 
   # The first-party website doesn't make version information readily available,
