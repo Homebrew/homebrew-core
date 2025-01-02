@@ -18,13 +18,6 @@ class Qt < Formula
     mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.8/6.8.1/single/qt-everywhere-src-6.8.1.tar.xz"
     sha256 "45e3a9f6d33c92ffe65a1fde1a8eba5b228112df675f7f9026eaa332b2e2edff"
 
-    # Backport fix for Xcode 16. Remove in the next release
-    patch do
-      url "https://github.com/qt/qtwebengine-chromium/commit/8c5cf527c520edf9cd96c143af02ac94966fc2af.patch?full_index=1"
-      sha256 "ab14d8559c0470cc28f6ba279015dac9e7411135f5f58c285c6a7cf5995e61b4"
-      directory "qtwebengine/src/3rdparty"
-    end
-
     # Backport support for FFMpeg 7.
     # Ref: https://bugreports.qt.io/browse/QTBUG-125227
     patch do
