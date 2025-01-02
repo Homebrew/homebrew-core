@@ -18,14 +18,6 @@ class Qt < Formula
     mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.8/6.8.1/single/qt-everywhere-src-6.8.1.tar.xz"
     sha256 "45e3a9f6d33c92ffe65a1fde1a8eba5b228112df675f7f9026eaa332b2e2edff"
 
-    # Backport support for FFMpeg 7.
-    # Ref: https://bugreports.qt.io/browse/QTBUG-125227
-    patch do
-      # Use Fedora's backport of https://github.com/qt/qtwebengine-chromium/commit/b30e3535717e1cb970c6e4095b412a2c5fdbce40
-      url "https://src.fedoraproject.org/rpms/qt6-qtwebengine/raw/864539f2140a11fda9bf3ef878a2e627f04f0b2d/f/qtwebengine-fix-building-with-system-ffmpeg.patch"
-      sha256 "70b8c468be1954b8dad59243069c6369d7c6eae332f154d99e3027b9119eb7c5"
-      directory "qtwebengine"
-    end
     patch do
       url "https://github.com/qt/qtwebengine-chromium/commit/65aaac35d040aef90c2e9f41a651b5a23470e457.patch?full_index=1"
       sha256 "2875e9c534da34902fb113b4171d7a4960e6bc27f6ad45d49929ecf667856d48"
