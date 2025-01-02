@@ -13,10 +13,10 @@ class Qt < Formula
   head "https://code.qt.io/qt/qt5.git", branch: "dev"
 
   stable do
-    url "https://download.qt.io/official_releases/qt/6.7/6.7.3/single/qt-everywhere-src-6.7.3.tar.xz"
-    mirror "https://qt.mirror.constant.com/archive/qt/6.7/6.7.3/single/qt-everywhere-src-6.7.3.tar.xz"
-    mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.7/6.7.3/single/qt-everywhere-src-6.7.3.tar.xz"
-    sha256 "a3f1d257cbb14c6536585ffccf7c203ce7017418e1a0c2ed7c316c20c729c801"
+    url "https://download.qt.io/official_releases/qt/6.8/6.8.1/single/qt-everywhere-src-6.8.1.tar.xz"
+    mirror "https://qt.mirror.constant.com/archive/qt/6.8/6.8.1/single/qt-everywhere-src-6.8.1.tar.xz"
+    mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.8/6.8.1/single/qt-everywhere-src-6.8.1.tar.xz"
+    sha256 "45e3a9f6d33c92ffe65a1fde1a8eba5b228112df675f7f9026eaa332b2e2edff"
 
     # Backport fix for Xcode 16. Remove in the next release
     patch do
