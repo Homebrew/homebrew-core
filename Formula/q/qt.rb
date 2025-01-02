@@ -19,11 +19,6 @@ class Qt < Formula
     sha256 "45e3a9f6d33c92ffe65a1fde1a8eba5b228112df675f7f9026eaa332b2e2edff"
 
     patch do
-      url "https://github.com/qt/qtwebengine-chromium/commit/65aaac35d040aef90c2e9f41a651b5a23470e457.patch?full_index=1"
-      sha256 "2875e9c534da34902fb113b4171d7a4960e6bc27f6ad45d49929ecf667856d48"
-      directory "qtwebengine/src/3rdparty"
-    end
-    patch do
       url "https://github.com/qt/qtwebengine-chromium/commit/d9944bcb991c981574a229e5267e535b4eac8e1c.patch?full_index=1"
       sha256 "11d8c7db91e76ea886dd0f30aedb3bfb33211f6ba39236d684ad63bfe80682ff"
       directory "qtwebengine/src/3rdparty"
