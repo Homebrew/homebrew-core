@@ -19,8 +19,6 @@ class Inlyne < Formula
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
 
-  uses_from_macos "expect" => :test
-
   on_linux do
     depends_on "libxkbcommon"
     depends_on "wayland"
@@ -42,22 +40,21 @@ class Inlyne < Formula
     return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
 
     test_markdown = testpath/"test.md"
-    test_markdown.write <<~EOS
+    test_markdown.write <<~MARKDOWN
       _lorem_ **ipsum** dolor **sit** _amet_
-    EOS
+    MARKDOWN
 
-    script = (testpath/"test.exp")
-    script.write <<~EOS
-      #!/usr/bin/env expect -f
-      set timeout 2
+    ENV["INLYNE_LOG"] = "trace" # "inlyne=debug,cosmic_text=trace"
+    ENV["NO_COLOR"] = "1"
 
-      spawn #{bin}/inlyne #{test_markdown}
-
-      send -- "q\r"
-
-      expect eof
-    EOS
-
-    system "expect", "-f", "test.exp"
+    Open3.popen2e(bin/"inlyne", test_markdown) do |_stdin, stdout_and_stderr, wait_thread|
+      sleep 5
+      output = stdout_and_stderr.read
+      pp output
+      Process.kill "TERM", wait_thread.pid
+      assert_match "Line LTR: 'lorem ipsum dolor sit amet'", output
+      assert_match(/style: Italic,.*\n.*Run \[\]: 'lorem'/, output)
+      refute_match "ERROR", output
+    end
   end
 end
