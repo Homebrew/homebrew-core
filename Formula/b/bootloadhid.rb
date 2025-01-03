@@ -36,6 +36,6 @@ class Bootloadhid < Formula
 
   test do
     touch "test.hex"
-    assert_equal "No data in input file, exiting.", pipe_output("#{bin}/bootloadHID -r test.hex 2>&1").strip
+    assert_equal "No data in input file, exiting.", shell_output("#{bin}/bootloadHID -r test.hex 2>&1").strip
   end
 end

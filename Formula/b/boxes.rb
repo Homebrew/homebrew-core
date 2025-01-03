@@ -34,6 +34,6 @@ class Boxes < Formula
   end
 
   test do
-    assert_match "test brew", pipe_output(bin/"boxes", "test brew")
+    assert_match "test brew", pipe_output(bin/"boxes", "test brew", 0)
   end
 end

@@ -25,7 +25,7 @@ class Bk < Formula
 
   test do
     test_epub = test_fixtures("test.epub")
-    output = pipe_output("#{bin}/bk --meta #{test_epub}")
+    output = shell_output("#{bin}/bk --meta #{test_epub}")
     assert_match "language: en", output
   end
 end

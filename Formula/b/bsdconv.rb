@@ -27,7 +27,7 @@ class Bsdconv < Formula
   end
 
   test do
-    output = pipe_output("#{bin}/bsdconv BIG5:UTF-8", "\263\134\273\134")
+    output = pipe_output("#{bin}/bsdconv BIG5:UTF-8", "\263\134\273\134", 0)
     output.force_encoding("UTF-8") if output.respond_to?(:force_encoding)
     assert_equal "許蓋", output
   end

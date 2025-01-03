@@ -29,6 +29,6 @@ class Bwidget < Formula
       puts [package require BWidget]
       exit
     TCL
-    assert_equal version.to_s, pipe_output("#{Formula["tcl-tk"].bin}/tclsh", test_bwidget).chomp
+    assert_equal version.to_s, pipe_output(Formula["tcl-tk"].bin/"tclsh", test_bwidget, 0).chomp
   end
 end

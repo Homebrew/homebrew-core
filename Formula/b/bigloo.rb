@@ -86,6 +86,6 @@ class Bigloo < Formula
       (newline)
       (exit)
     SCHEME
-    assert_match "Hello World!\n", pipe_output("#{bin}/bigloo -i -", program)
+    assert_match "Hello World!\n", pipe_output("#{bin}/bigloo -i -", program, 0)
   end
 end
