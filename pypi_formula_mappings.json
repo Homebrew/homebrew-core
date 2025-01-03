@@ -752,6 +752,9 @@
     "extra_packages": ["robotframework-archivelibrary", "robotframework-selenium2library", "robotframework-sshlibrary"],
     "exclude_packages": ["certifi", "cryptography"]
   },
+  "rpds-py": {
+    "extra_packages": ["setuptools-rust"]
+  },
   "ruff-lsp": {
     "exclude_packages": ["ruff"]
   },
