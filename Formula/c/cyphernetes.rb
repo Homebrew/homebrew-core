@@ -1,8 +1,8 @@
 class Cyphernetes < Formula
   desc "Kubernetes Query Language"
   homepage "https://cyphernet.es"
-  url "https://github.com/AvitalTamir/cyphernetes/archive/refs/tags/v0.14.1.tar.gz"
-  sha256 "b2c5d9689756c421cc3d698077d748be0c8c51cda084a07cba27c1c316009155"
+  url "https://github.com/AvitalTamir/cyphernetes/archive/refs/tags/v0.15.0.tar.gz"
+  sha256 "42a5ced7ddb8e8ad31cf3d87aecc41c4d597cd769c0b7194946cdfed3b70daf2"
   license "Apache-2.0"
 
   bottle do
@@ -15,18 +15,18 @@ class Cyphernetes < Formula
   end
 
   depends_on "go" => :build
-  depends_on "goyacc" => :build
 
   def install
-    system "make", "operator-manifests", "gen-parser"
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/cyphernetes"
+    system "make", "operator-manifests"
+    system "go", "build", *std_go_args(ldflags: "-s -w -X main.Version=#{version}"), "./cmd/cyphernetes"
 
     generate_completions_from_executable(bin/"cyphernetes", "completion")
   end
 
   test do
     output = shell_output("#{bin}/cyphernetes query 'MATCH (d:Deployment)->(s:Service) RETURN d'", 1)
-
     assert_match("Error getting current context:  current context  does not exist in kubeconfig", output)
+
+    assert_match version.to_s, shell_output("#{bin}/cyphernetes version")
   end
 end
