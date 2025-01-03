@@ -41,8 +41,8 @@ class Ascii2binary < Formula
   end
 
   test do
-    binary = pipe_output("#{bin}/ascii2binary -t ui", "42")
-    ascii = pipe_output("#{bin}/binary2ascii -t ui", binary).strip
+    binary = pipe_output("#{bin}/ascii2binary -t ui", "42", 0)
+    ascii = pipe_output("#{bin}/binary2ascii -t ui", binary, 0).strip
     assert_equal "42", ascii
   end
 end

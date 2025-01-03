@@ -30,6 +30,6 @@ class Awk < Formula
   end
 
   test do
-    assert_match "test", pipe_output("#{bin}/awk '{print $1}'", "test")
+    assert_match "test", pipe_output("#{bin}/awk '{print $1}'", "test", 0)
   end
 end

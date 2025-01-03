@@ -25,7 +25,8 @@ class ApacheOpennlp < Formula
   end
 
   test do
-    assert_equal "Hello , friends", pipe_output("#{bin}/opennlp SimpleTokenizer", "Hello, friends").lines.first.chomp
+    output = pipe_output("#{bin}/opennlp SimpleTokenizer", "Hello, friends", 0)
+    assert_equal "Hello , friends", output.lines.first.chomp
   end
 end
 

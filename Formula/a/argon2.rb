@@ -32,7 +32,7 @@ class Argon2 < Formula
   end
 
   test do
-    output = pipe_output("#{bin}/argon2 somesalt -t 2 -m 16 -p 4", "password")
+    output = pipe_output("#{bin}/argon2 somesalt -t 2 -m 16 -p 4", "password", 0)
     assert_match "c29tZXNhbHQ$IMit9qkFULCMA/ViizL57cnTLOa5DiVM9eMwpAvPw", output
   end
 end

@@ -24,7 +24,7 @@ class AwsAuth < Formula
   end
 
   test do
-    output = pipe_output("#{bin}/aws-auth login 2>&1", "fake123")
+    output = pipe_output("#{bin}/aws-auth login 2>&1", "fake123", 0)
     assert_match "Enter new passphrase", output
 
     assert_match version.to_s, shell_output("#{bin}/aws-auth version")

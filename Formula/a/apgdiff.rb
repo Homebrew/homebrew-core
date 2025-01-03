@@ -58,8 +58,6 @@ class Apgdiff < Formula
       \tADD COLUMN field2 boolean DEFAULT false NOT NULL;
     SQL
 
-    result = pipe_output("#{bin}/apgdiff #{sql_orig} #{sql_new}").strip
-
-    assert_equal result, expected
+    assert_equal expected, shell_output("#{bin}/apgdiff #{sql_orig} #{sql_new}").strip
   end
 end

@@ -24,7 +24,7 @@ class Autopep8 < Formula
   end
 
   test do
-    output = pipe_output("#{bin}/autopep8 -", "x='homebrew'")
+    output = pipe_output("#{bin}/autopep8 -", "x='homebrew'", 0)
     assert_equal "x = 'homebrew'", output.strip
   end
 end

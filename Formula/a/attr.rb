@@ -19,18 +19,15 @@ class Attr < Formula
   depends_on :linux
 
   def install
-    system "./configure",
-           "--disable-debug",
-           "--disable-dependency-tracking",
-           "--disable-silent-rules",
-           "--prefix=#{prefix}"
+    system "./configure", "--disable-silent-rules", *std_configure_args
     system "make", "install"
   end
 
   test do
     (testpath/"test.txt").write("Hello World!\n")
-    pipe_output "#{bin}/attr -s name test.txt", ""
-    assert_match 'Attribute "name" has a 0 byte value for test.txt',
-                 shell_output(bin/"attr -l test.txt")
+    output = pipe_output("#{bin}/attr -s name test.txt", "", 0)
+    assert_match 'Attribute "name" set to a 0 byte value for test.txt', output
+    output = shell_output("#{bin}/attr -l test.txt")
+    assert_match 'Attribute "name" has a 0 byte value for test.txt', output
   end
 end

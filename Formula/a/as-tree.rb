@@ -27,6 +27,6 @@ class AsTree < Formula
   end
 
   test do
-    assert_equal ".\n└── file\n", pipe_output(bin/"as-tree", "file")
+    assert_equal ".\n└── file\n", pipe_output(bin/"as-tree", "file", 0)
   end
 end

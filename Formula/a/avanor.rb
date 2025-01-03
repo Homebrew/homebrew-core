@@ -39,6 +39,6 @@ class Avanor < Formula
 
   test do
     ENV["TERM"] = "xterm"
-    assert_match "T h e  L a n d  o f  M y s t e r y", pipe_output(bin/"avanor", "\e")
+    assert_match "T h e  L a n d  o f  M y s t e r y", pipe_output(bin/"avanor", "\e", 0)
   end
 end

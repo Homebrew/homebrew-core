@@ -26,6 +26,6 @@ class Asmfmt < Formula
   test do
     input = "  TEXT ·subVV(SB), NOSPLIT, $0\n// func subVV(z, x, y []Word) (c Word)"
     expected = "TEXT ·subVV(SB), NOSPLIT, $0\n\t// func subVV(z, x, y []Word) (c Word)\n"
-    assert_equal expected, pipe_output(bin/"asmfmt", input)
+    assert_equal expected, pipe_output(bin/"asmfmt", input, 0)
   end
 end
