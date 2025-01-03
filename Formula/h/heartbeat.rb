@@ -18,8 +18,8 @@ class Heartbeat < Formula
 
   depends_on "go" => :build
   depends_on "mage" => :build
-  depends_on "python@3.12" => :build
 
+  uses_from_macos "python" => :build
   uses_from_macos "netcat" => :test
 
   def install
@@ -33,7 +33,7 @@ class Heartbeat < Formula
       ENV.deparallelize
       system "mage", "-v", "update"
 
-      (etc/"heartbeat").install Dir["heartbeat.*", "fields.yml"]
+      pkgetc.install Dir["heartbeat.*", "fields.yml"]
       (libexec/"bin").install "heartbeat"
     end
 
@@ -47,8 +47,7 @@ class Heartbeat < Formula
         "$@"
     EOS
 
-    chmod 0555, bin/"heartbeat" # generate_completions_from_executable fails otherwise
-    generate_completions_from_executable(bin/"heartbeat", "completion", shells: [:bash, :zsh])
+    generate_completions_from_executable(libexec/"bin/heartbeat", "completion", shells: [:bash, :zsh])
   end
 
   def post_install
