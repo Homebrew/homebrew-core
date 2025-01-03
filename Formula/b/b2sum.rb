@@ -32,11 +32,8 @@ class B2sum < Formula
   end
 
   test do
-    checksum = <<~EOS
-      ba80a53f981c4d0d6a2797b69f12f6e94c212f14685ac4b74b12bb6fdbffa2d17d87c5392
-      aab792dc252d5de4533cc9518d38aa8dbf1925ab92386edd4009923  -
-    EOS
-    assert_equal checksum.delete!("\n"),
-                 pipe_output("#{bin}/b2sum -", "abc").chomp
+    checksum = "ba80a53f981c4d0d6a2797b69f12f6e94c212f14685ac4b74b12bb6fdbffa2d1" \
+               "7d87c5392aab792dc252d5de4533cc9518d38aa8dbf1925ab92386edd4009923  -"
+    assert_equal checksum, pipe_output("#{bin}/b2sum -", "abc", 0).chomp
   end
 end

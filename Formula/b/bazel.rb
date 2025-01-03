@@ -87,7 +87,7 @@ class Bazel < Formula
     EOS
 
     system bin/"bazel", "build", "//:bazel-test"
-    assert_equal "Hi!\n", pipe_output("bazel-bin/bazel-test")
+    assert_equal "Hi!\n", shell_output("bazel-bin/bazel-test")
 
     # Verify that `bazel` invokes Bazel's wrapper script, which delegates to
     # project-specific `tools/bazel` if present. Invoking `bazel-VERSION`

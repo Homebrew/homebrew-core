@@ -28,7 +28,7 @@ class Basedpyright < Formula
       def wrong_types(a: int, b: int) -> str:
           return a + b
     PYTHON
-    output = pipe_output("#{bin}/basedpyright broken.py 2>&1")
+    output = shell_output("#{bin}/basedpyright broken.py 2>&1", 1)
     assert_match "error: Type \"int\" is not assignable to return type \"str\"", output
   end
 end

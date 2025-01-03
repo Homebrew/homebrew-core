@@ -55,6 +55,6 @@ class Bc < Formula
 
   test do
     system bin/"bc", "--version"
-    assert_match "2", pipe_output(bin/"bc", "1+1\n")
+    assert_match "2", pipe_output(bin/"bc", "1+1\n", 0)
   end
 end
