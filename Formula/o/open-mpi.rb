@@ -82,10 +82,21 @@ class OpenMpi < Formula
 
     # Avoid references to cellar paths.
     inreplace (lib/"pkgconfig").glob("*.pc"), prefix, opt_prefix, audit_result: false
+
+    # Avoid conflict with PuTTY similar to Arch Linux[^1]. May be able to remove with PRRTE v4[^2]
+    #
+    # [^1]: https://gitlab.archlinux.org/archlinux/packaging/packages/prrte/-/blob/main/PKGBUILD?ref_type=heads#L98
+    # [^2]: https://github.com/openpmix/prrte/issues/1836
+    bin.install bin/"pterm" => "prrte-pterm"
+    man1.install man1/"pterm.1" => "prrte-pterm.1"
+  end
+
+  def caveats
+    "`pterm` has been renamed to `prrte-pterm` to avoid conflict with `putty`"
   end
 
   test do
-    (testpath/"hello.c").write <<~C
+    (testpath/"hello.c").write <<~'C'
       #include <mpi.h>
       #include <stdio.h>
 
@@ -97,7 +108,7 @@ class OpenMpi < Formula
         MPI_Comm_size(MPI_COMM_WORLD, &size);
         MPI_Comm_rank(MPI_COMM_WORLD, &rank);
         MPI_Get_processor_name(name, &nameLen);
-        printf("[%d/%d] Hello, world! My name is %s.\\n", rank, size, name);
+        printf("[%d/%d] Hello, world! My name is %s.\n", rank, size, name);
         MPI_Finalize();
         return 0;
       }

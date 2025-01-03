@@ -19,18 +19,23 @@ class Putty < Formula
   depends_on "halibut" => :build
   depends_on "pkgconf" => :build
 
+  depends_on "cairo"
+  depends_on "gdk-pixbuf"
+  depends_on "glib"
+  depends_on "gtk+3"
+  depends_on "pango"
+
   uses_from_macos "perl" => :build
-  uses_from_macos "expect" => :test
+
+  on_linux do
+    depends_on "libx11"
+  end
 
   conflicts_with "pssh", because: "both install `pscp` binaries"
 
   def install
-    build_version = build.head? ? "svn-#{version}" : version
-
-    args = %W[
-      -DRELEASE=#{build_version}
-      -DPUTTY_GTK_VERSION=NONE
-    ]
+    args = ["-DPUTTY_GTK_VERSION=3"]
+    args << "-DCMAKE_EXE_LINKER_FLAGS=-Wl,-dead_strip_dylibs" if OS.mac? # to reduce overlinking
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
