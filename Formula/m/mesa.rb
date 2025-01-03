@@ -3,7 +3,7 @@ class Mesa < Formula
 
   desc "Graphics Library"
   homepage "https://www.mesa3d.org/"
-  url "https://mesa.freedesktop.org/archive/mesa-24.2.8.tar.xz"
+  url "https://archive.mesa3d.org/mesa-24.2.8.tar.xz"
   sha256 "999d0a854f43864fc098266aaf25600ce7961318a1e2e358bff94a7f53580e30"
   license all_of: [
     "MIT",
