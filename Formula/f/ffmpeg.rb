@@ -83,6 +83,7 @@ class Ffmpeg < Formula
     depends_on "libarchive"
     depends_on "libogg"
     depends_on "libsamplerate"
+    depends_on "openal-soft"
   end
 
   on_linux do
@@ -159,8 +160,8 @@ class Ffmpeg < Formula
       --disable-indev=jack
     ]
 
-    # Needs corefoundation, coremedia, corevideo
-    args += %w[--enable-videotoolbox --enable-audiotoolbox] if OS.mac?
+    # Needs corefoundation, coremedia, corevideo, and openal
+    args += %w[--enable-videotoolbox --enable-audiotoolbox --enable-openal] if OS.mac?
     args << "--enable-neon" if Hardware::CPU.arm?
 
     system "./configure", *args
