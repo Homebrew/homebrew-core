@@ -518,6 +518,7 @@ cmake-lint
 cmark
 cmctl
 cminpack
+cmix
 cmu-pocketsphinx
 cmus
 cnats
