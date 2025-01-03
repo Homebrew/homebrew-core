@@ -5,6 +5,7 @@ class Onnxruntime < Formula
       tag:      "v1.20.1",
       revision: "5c1b7ccbff7e5141c1da7a9d963d660e5741c319"
   license "MIT"
+  revision 1
 
   livecheck do
     url :stable
@@ -31,7 +32,7 @@ class Onnxruntime < Formula
   depends_on "abseil"
   depends_on "nsync"
   depends_on "onnx"
-  depends_on "protobuf@21" # https://github.com/microsoft/onnxruntime/issues/21308
+  depends_on "protobuf"
   depends_on "re2"
 
   # Need newer than stable `eigen` after https://github.com/microsoft/onnxruntime/pull/21492
@@ -55,6 +56,14 @@ class Onnxruntime < Formula
     sha256 "76f9920e591bc52ea80f661fa0b5b15479960004f1be103467b219e55c73a8cc"
   end
 
+  # Workaround for Protobuf 26+ where RepeatedPtrField::ReleaseCleared() was removed.
+  # Needed to avoid mixing Protobuf versions in dependency tree which can cause issues.
+  # The patch can cause higher memory usage as the memory won't be freed right away,
+  # but shouldn't impact functionality.
+  #
+  # Issue ref: https://github.com/microsoft/onnxruntime/issues/21308
+  patch :DATA
+
   def install
     python3 = which("python3.13")
 
@@ -75,7 +84,7 @@ class Onnxruntime < Formula
       -DFETCHCONTENT_SOURCE_DIR_PYTORCH_CLOG=#{buildpath}/build/_deps/pytorch_cpuinfo-src
       -DFETCHCONTENT_TRY_FIND_PACKAGE_MODE=ALWAYS
       -DPYTHON_EXECUTABLE=#{python3}
-      -DONNX_CUSTOM_PROTOC_EXECUTABLE=#{Formula["protobuf@21"].opt_bin}/protoc
+      -DONNX_CUSTOM_PROTOC_EXECUTABLE=#{Formula["protobuf"].opt_bin}/protoc
       -Donnxruntime_BUILD_SHARED_LIB=ON
       -Donnxruntime_BUILD_UNIT_TESTS=OFF
       -Donnxruntime_GENERATE_TEST_REPORTS=OFF
@@ -107,3 +116,29 @@ class Onnxruntime < Formula
     assert_equal version, shell_output("./test").strip
   end
 end
+
+__END__
+diff --git a/onnxruntime/core/graph/graph.cc b/onnxruntime/core/graph/graph.cc
+index e8a5855b36..f5fab08720 100644
+--- a/onnxruntime/core/graph/graph.cc
++++ b/onnxruntime/core/graph/graph.cc
+@@ -1287,9 +1287,6 @@ Graph::Graph(const Model& owning_model,
+     // Remove sparse_initializers from protobuf to save memory as they are converted to dense now
+     graph_proto_->mutable_sparse_initializer()->Clear();
+     const int sparse_num_cleared = graph_proto_->sparse_initializer().ClearedCount();
+-    for (int i = 0; i < sparse_num_cleared; ++i) {
+-      delete graph_proto_->mutable_sparse_initializer()->ReleaseCleared();
+-    }
+   }
+ #endif
+ 
+@@ -3639,9 +3636,6 @@ void Graph::CleanAllInitializedTensors() noexcept {
+   // memory.
+   graph_proto_->mutable_initializer()->Clear();
+   const int num_cleared = graph_proto_->initializer().ClearedCount();
+-  for (int i = 0; i < num_cleared; i++) {
+-    delete graph_proto_->mutable_initializer()->ReleaseCleared();
+-  }
+ }
+ 
+ const ONNX_NAMESPACE::TensorProto* Graph::GetConstantInitializer(const std::string& initializer_name,

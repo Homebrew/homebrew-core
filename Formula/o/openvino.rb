@@ -28,8 +28,11 @@ class Openvino < Formula
   depends_on "protobuf@21" => :build
   depends_on "pybind11" => :build
   depends_on "python-setuptools" => :build
-  depends_on "python@3.12" => [:build, :test]
+  depends_on "python@3.13" => [:build, :test]
+  depends_on "abseil"
   depends_on "numpy"
+  depends_on "onnx"
+  depends_on "protobuf"
   depends_on "pugixml"
   depends_on "snappy"
   depends_on "tbb"
@@ -69,11 +72,6 @@ class Openvino < Formula
     sha256 "37cea8af9772053fd6d178817f64d59e3aa7de9fd8f1aa21873075bb0664240f"
   end
 
-  resource "onnx" do
-    url "https://github.com/onnx/onnx/archive/refs/tags/v1.17.0.tar.gz"
-    sha256 "8d5e983c36037003615e5a02d36b18fc286541bf52de1a78f6cf9f32005a820e"
-  end
-
   resource "openvino-telemetry" do
     url "https://files.pythonhosted.org/packages/2b/c7/ca3bb8cfb17c46cf50d951e0f4dd4bf3f7004e0c207b25164df70e091f6d/openvino-telemetry-2024.1.0.tar.gz"
     sha256 "6df9a8f499e75d893d0bece3c272e798109f0bd40d1eb2488adca6a0da1d9b9f"
@@ -85,7 +83,7 @@ class Openvino < Formula
   end
 
   def python3
-    "python3.12"
+    "python3.13"
   end
 
   # Fix to evade redefinition errors in ocl_ext.hpp (https://github.com/openvinotoolkit/openvino/pull/27698)
@@ -109,7 +107,6 @@ class Openvino < Formula
                       src/plugins/intel_cpu/thirdparty/ComputeLibrary]
     dependencies.each { |d| rm_r(buildpath/d) }
 
-    resource("onnx").stage buildpath/"thirdparty/onnx/onnx"
     resource("mlas").stage buildpath/"src/plugins/intel_cpu/thirdparty/mlas"
     resource("onednn_cpu").stage buildpath/"src/plugins/intel_cpu/thirdparty/onednn"
 
@@ -119,7 +116,7 @@ class Openvino < Formula
       resource("onednn_gpu").stage buildpath/"src/plugins/intel_gpu/thirdparty/onednn_gpu"
     end
 
-    cmake_args = std_cmake_args + %w[
+    cmake_args = %w[
       -DCMAKE_OSX_DEPLOYMENT_TARGET=
       -DENABLE_CPPLINT=OFF
       -DENABLE_CLANG_FORMAT=OFF
@@ -136,10 +133,11 @@ class Openvino < Formula
       -DENABLE_SYSTEM_PROTOBUF=ON
       -DENABLE_SYSTEM_FLATBUFFERS=ON
       -DENABLE_SYSTEM_SNAPPY=ON
+      -DProtobuf_USE_STATIC_LIBS=OFF
     ]
 
     openvino_binary_dir = "#{buildpath}/build"
-    system "cmake", "-S", ".", "-B", openvino_binary_dir, *cmake_args
+    system "cmake", "-S", ".", "-B", openvino_binary_dir, *cmake_args, *std_cmake_args
     system "cmake", "--build", openvino_binary_dir
     system "cmake", "--install", openvino_binary_dir
 
