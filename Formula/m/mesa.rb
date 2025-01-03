@@ -3,8 +3,8 @@ class Mesa < Formula
 
   desc "Graphics Library"
   homepage "https://www.mesa3d.org/"
-  url "https://mesa.freedesktop.org/archive/mesa-24.2.8.tar.xz"
-  sha256 "999d0a854f43864fc098266aaf25600ce7961318a1e2e358bff94a7f53580e30"
+  url "https://mesa.freedesktop.org/archive/mesa-24.3.2.tar.xz"
+  sha256 "ad9f5f3a6d2169e4786254ee6eb5062f746d11b826739291205d360f1f3ff716"
   license all_of: [
     "MIT",
     "Apache-2.0", # include/{EGL,GLES*,vk_video,vulkan}, src/egl/generate/egl.xml, src/mapi/glapi/registry/gl.xml
@@ -31,48 +31,56 @@ class Mesa < Formula
     sha256 x86_64_linux:  "85a6f29e14a8b813b6c7f8edade7bb850e630656220682f6f4c137bd5f44152f"
   end
 
+  depends_on "bindgen" => :build
   depends_on "bison" => :build # can't use from macOS, needs '> 2.3'
+  depends_on "cbindgen" => :build
+  depends_on "glslang" => :build
+  depends_on "libxrandr" => :build
+  depends_on "libxshmfence" => :build
   depends_on "libyaml" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkgconf" => :build
   depends_on "python@3.13" => :build
+  depends_on "rust" => :build
   depends_on "xorgproto" => :build
 
   depends_on "expat"
+  depends_on "libclc"
+  depends_on "libpng"
   depends_on "libx11"
   depends_on "libxcb"
   depends_on "libxext"
   depends_on "libxfixes"
-  depends_on "libxrandr"
+  depends_on "libxrender"
+  depends_on "llvm"
+  depends_on "spirv-llvm-translator"
+  depends_on "spirv-tools"
 
   uses_from_macos "flex" => :build
-  uses_from_macos "llvm"
   uses_from_macos "zlib"
 
   on_linux do
-    depends_on "elfutils"
-    depends_on "glslang"
+    depends_on "directx-headers" => :build
+    depends_on "elfutils" => :build
+    depends_on "libva" => :build
+    depends_on "libvdpau" => :build
+    depends_on "libxml2" => :build # not used on macOS
+    depends_on "valgrind" => :build
+    depends_on "wayland-protocols" => :build
+
     depends_on "gzip"
-    depends_on "libclc"
     depends_on "libdrm"
-    depends_on "libva"
-    depends_on "libvdpau"
-    depends_on "libxml2" # not used on macOS
-    depends_on "libxshmfence"
     depends_on "libxv"
     depends_on "libxxf86vm"
     depends_on "lm-sensors"
-    depends_on "spirv-llvm-translator"
-    depends_on "valgrind"
     depends_on "wayland"
-    depends_on "wayland-protocols"
     depends_on "zstd"
   end
 
   resource "mako" do
-    url "https://files.pythonhosted.org/packages/fa/0b/29bc5a230948bf209d3ed3165006d257e547c02c3c2a96f6286320dfe8dc/mako-1.3.6.tar.gz"
-    sha256 "9ec3a1583713479fae654f83ed9fa8c9a4c16b7bb0daba0e6bbebff50c0d983d"
+    url "https://files.pythonhosted.org/packages/5f/d9/8518279534ed7dace1795d5a47e49d5299dd0994eed1053996402a8902f9/mako-1.3.8.tar.gz"
+    sha256 "577b97e414580d3e088d47c2dbbe9594aa7a5146ed2875d4dfa9075af2dd3cc8"
   end
 
   resource "markupsafe" do
@@ -95,6 +103,21 @@ class Mesa < Formula
     sha256 "d584d9ec91ad65861cc08d42e834324ef890a082e591037abe114850ff7bbc3e"
   end
 
+  patch do
+    url "https://gitlab.freedesktop.org/mesa/mesa/-/commit/e89eba0796b3469f1d2cdbb600309f6231a8169d.diff"
+    sha256 "200de60b79594053c8b5702ddfd4784e760c533c18bfbd9bc219c4039e5c71f3"
+  end
+
+  patch do
+    url "https://gitlab.freedesktop.org/mesa/mesa/-/commit/c1d94cf5e1ed08a51299625bc453ce2096fd5477.diff"
+    sha256 "c827e87be892e3701f09f64a3c12f1caa35e40e6800ea69257550bff1b11be0d"
+  end
+
+  patch do
+    url "https://gitlab.freedesktop.org/mesa/mesa/-/commit/c779555d820cf7b80f8e982a01a026235532542b.diff"
+    sha256 "94d324a13bf724742d1679e477eb7973aa6b2a186a90c077c63662ff980f0114"
+  end
+
   def python3
     "python3.13"
   end
@@ -107,18 +130,26 @@ class Mesa < Formula
 
     args = %w[
       -Db_ndebug=true
+      -Dopengl=true
       -Dosmesa=true
+      -Dstrip=true
+      -Dllvm=enabled
+      -Dgallium-drivers=auto
+      -Dvideo-codecs=all
+      -Dgallium-opencl=icd
+      -Dgallium-rusticl=true
     ]
-    if OS.mac?
-      args << "-Dgallium-drivers=softpipe"
+    args += if OS.mac?
+      %w[
+        -Dvulkan-drivers=swrast
+        -Dvulkan-layers=intel-nullhw,overlay,screenshot
+        -Dtools=etnaviv,glsl,nir,nouveau,asahi,imagination,dlclose-skip
+      ]
     else
-      args += %w[
-        -Ddri3=enabled
+      %w[
         -Degl=enabled
         -Dgallium-extra-hud=true
         -Dgallium-nine=true
-        -Dgallium-omx=disabled
-        -Dgallium-opencl=icd
         -Dgallium-va=enabled
         -Dgallium-vdpau=enabled
         -Dgallium-xa=enabled
@@ -128,22 +159,14 @@ class Mesa < Formula
         -Dglx=dri
         -Dintel-clc=enabled
         -Dlmsensors=enabled
-        -Dllvm=enabled
         -Dmicrosoft-clc=disabled
-        -Dopengl=true
         -Dplatforms=x11,wayland
         -Dshared-glapi=enabled
-        -Dtools=drm-shim,etnaviv,freedreno,glsl,nir,nouveau,lima
+        -Dtools=all
         -Dvalgrind=enabled
-        -Dvideo-codecs=vc1dec,h264dec,h264enc,h265dec,h265enc
-        -Dvulkan-drivers=amd,intel,intel_hasvk,swrast,virtio
-        -Dvulkan-layers=device-select,intel-nullhw,overlay
+        -Dvulkan-drivers=auto
+        -Dvulkan-layers=device-select,intel-nullhw,overlay,screenshot
       ]
-      if Hardware::CPU.intel?
-        args << "-Dgallium-drivers=r300,r600,radeonsi,nouveau,virgl,svga,softpipe,llvmpipe,i915,iris,crocus,zink"
-      end
-      # Strip executables/libraries/object files to reduce their size
-      args << "-Dstrip=true"
     end
 
     system "meson", "setup", "build", *args, *std_meson_args
