@@ -1,6 +1,6 @@
 class GtkVnc < Formula
   desc "VNC viewer widget for GTK"
-  homepage "https://wiki.gnome.org/Projects/gtk-vnc"
+  homepage "https://gitlab.gnome.org/GNOME/gtk-vnc"
   url "https://download.gnome.org/sources/gtk-vnc/1.3/gtk-vnc-1.3.1.tar.xz"
   sha256 "512763ac4e0559d0158b6682ca5dd1a3bd633f082f5e4349d7158e6b5f80f1ce"
   license "LGPL-2.1-or-later"
@@ -25,18 +25,21 @@ class GtkVnc < Formula
     sha256 x86_64_linux:   "9992fdf41743bef7fb279857b510441e0b95b63082ccaad5690a36776de48089"
   end
 
-  depends_on "gettext" => :build
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkgconf" => :build
 
+  depends_on "at-spi2-core"
   depends_on "cairo"
   depends_on "gdk-pixbuf"
   depends_on "glib"
   depends_on "gnutls"
   depends_on "gtk+3"
+  depends_on "harfbuzz"
   depends_on "libgcrypt"
+  depends_on "libx11"
+  depends_on "pango"
 
   uses_from_macos "zlib"
 
@@ -45,7 +48,7 @@ class GtkVnc < Formula
   end
 
   on_linux do
-    depends_on "libx11"
+    depends_on "gettext" => :build
   end
 
   # coroutine: avoid ucontext impl on macOS M1 hardware. Remove in the next release
