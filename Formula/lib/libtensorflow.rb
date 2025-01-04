@@ -16,14 +16,14 @@ class Libtensorflow < Formula
 
   depends_on "bazelisk" => :build
   depends_on "numpy" => :build
-  depends_on "python@3.12" => :build
+  depends_on "python@3.13" => :build
 
   on_macos do
     depends_on "gnu-getopt" => :build
   end
 
   def install
-    python3 = "python3.12"
+    python3 = "python3.13"
     optflag = if Hardware::CPU.arm? && OS.mac?
       "-mcpu=apple-m1"
     elsif build.bottle?
