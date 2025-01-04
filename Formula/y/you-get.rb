@@ -3,8 +3,8 @@ class YouGet < Formula
 
   desc "Dumb downloader that scrapes the web"
   homepage "https://you-get.org/"
-  url "https://files.pythonhosted.org/packages/42/f3/c4bdf49e31ac1c6bc477711a4ec6a276ae0745a3b8fb143c161bf32e8b49/you_get-0.4.1730.tar.gz"
-  sha256 "65457b7b8893f08c082532eb34998dc477f533d32568be3bb34e592bdcb44f88"
+  url "https://files.pythonhosted.org/packages/2d/85/f4a22b842bc0e0f57dc56ae54266dbc451547cee90bae9480131100ad92a/you_get-0.4.1743.tar.gz"
+  sha256 "cbc1250d577246ec9d422cef113882844c80d8729f32d3183a5fa76648a20741"
   license "MIT"
   head "https://github.com/soimort/you-get.git", branch: "develop"
 
@@ -22,19 +22,8 @@ class YouGet < Formula
   depends_on "rtmpdump"
 
   resource "dukpy" do
-    url "https://files.pythonhosted.org/packages/d1/0b/402194ebcd92bb5a743106c0f4af8cf6fc75bcfeb441b90290accb197745/dukpy-0.4.0.tar.gz"
-    sha256 "677ec7102d1c1c511f7ef918078e8099778dbcea7caf3d6a2a2a72f72aa2d135"
-  end
-
-  resource "mutf8" do
-    url "https://files.pythonhosted.org/packages/ca/31/3c57313757b3a47dcf32d2a9bad55d913b797efc8814db31bed8a7142396/mutf8-1.0.6.tar.gz"
-    sha256 "1bbbefb67c2e5a57104750bb04b0912200b57b2fa9841be245279e83859cb346"
-  end
-
-  # Fix for compatibility with YouTube html change
-  patch do
-    url "https://github.com/soimort/you-get/commit/1c9c0f3ed1b8466239fa8656523658ccce8bb489.patch?full_index=1"
-    sha256 "3f00c40cde45e2e05a0a2704781e6618667fe71227dd6c42edd6ff8eb5a81e3a"
+    url "https://files.pythonhosted.org/packages/dd/fe/8cef39f269aed53e940c238bf9ceb3ca0f80d7f5be6df2c00a84d87ac5d8/dukpy-0.5.0.tar.gz"
+    sha256 "079fe2d65ac5e24df56806c6b4e1a26f92bb7f13dc764f4fb230a6746744c1ad"
   end
 
   def install
