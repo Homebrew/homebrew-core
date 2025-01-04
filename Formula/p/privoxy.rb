@@ -26,20 +26,24 @@ class Privoxy < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on "pcre"
+  depends_on "pcre2"
+
+  # Backport PCRE2 support from HEAD. Remove in the next release.
+  # Same patches used by Debian (excluding regression testcase 87253c99)
+  patch do
+    url "https://www.privoxy.org/gitweb/?p=privoxy.git;a=patch;h=53748ca8ca3c893025be34dd4f104546fcbd0602"
+    sha256 "61861bc3809f06eb77129d466c6e27f35972fa4aef8be2db2b6a789a3700fee8"
+  end
+  patch do
+    url "https://www.privoxy.org/gitweb/?p=privoxy.git;a=patch;h=e73b93ea9ad1f3e980bd78ed3ebf65dedbb598a2"
+    sha256 "19e58a263c308ada537109092e9b5dbb0e1625ce486b605d1392b72449adc174"
+  end
 
   def install
-    # Find Homebrew's libpcre
-    ENV.append "LDFLAGS", "-L#{HOMEBREW_PREFIX}/lib"
-
-    # No configure script is shipped with the source
-    system "autoreconf", "-i"
-
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--sysconfdir=#{etc}/privoxy",
-                          "--localstatedir=#{var}"
+    system "autoreconf", "--force", "--install", "--verbose"
+    system "./configure", "--sysconfdir=#{pkgetc}",
+                          "--localstatedir=#{var}",
+                          *std_configure_args
     system "make"
     system "make", "install"
   end
@@ -54,14 +58,14 @@ class Privoxy < Formula
   test do
     bind_address = "127.0.0.1:#{free_port}"
     (testpath/"config").write("listen-address #{bind_address}\n")
+    pid = spawn sbin/"privoxy", "--no-daemon", testpath/"config"
     begin
-      server = IO.popen("#{sbin}/privoxy --no-daemon #{testpath}/config")
       sleep 1
-      assert_match "HTTP/1.1 200 Connection established",
-                   shell_output("/usr/bin/curl -I -x #{bind_address} https://github.com")
+      output = shell_output("curl --head --proxy #{bind_address} https://github.com")
+      assert_match "HTTP/1.1 200 Connection established", output
     ensure
-      Process.kill("SIGINT", server.pid)
-      Process.wait(server.pid)
+      Process.kill("SIGINT", pid)
+      Process.wait(pid)
     end
   end
 end
