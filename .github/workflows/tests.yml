@@ -241,6 +241,7 @@ jobs:
             --added-formulae="$ADDED_FORMULAE" \
             --deleted-formulae="$DELETED_FORMULAE"
         env:
+          HOMEBREW_LIVECHECK_AUTOBUMP: 1
           TEST_BOT_FORMULAE_ARGS: ${{ needs.setup_tests.outputs.test-bot-formulae-args }}
           TESTING_FORMULAE: ${{ needs.formulae_detect.outputs.testing_formulae }}
           ADDED_FORMULAE: ${{ needs.formulae_detect.outputs.added_formulae }}
