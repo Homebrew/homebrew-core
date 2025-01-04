@@ -31,6 +31,7 @@ class Lnav < Formula
   depends_on "ncurses"
   depends_on "pcre2"
   depends_on "readline"
+  depends_on "rust"
   depends_on "sqlite"
 
   uses_from_macos "bzip2"
@@ -43,7 +44,8 @@ class Lnav < Formula
                           "--with-sqlite3=#{Formula["sqlite"].opt_prefix}",
                           "--with-readline=#{Formula["readline"].opt_prefix}",
                           "--with-libarchive=#{Formula["libarchive"].opt_prefix}",
-                          "--with-ncurses=#{Formula["ncurses"].opt_prefix}"
+                          "--with-ncurses=#{Formula["ncurses"].opt_prefix}",
+                          "--with-rust=#{Formula["rust"].opt_prefix}"
     system "make", "install", "V=1"
   end
 
