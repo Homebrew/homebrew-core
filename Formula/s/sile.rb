@@ -2,11 +2,10 @@ class Sile < Formula
   desc "Modern typesetting system inspired by TeX"
   homepage "https://sile-typesetter.org"
   license "MIT"
-  revision 1
 
   stable do
-    url "https://github.com/sile-typesetter/sile/releases/download/v0.15.8/sile-0.15.8.tar.zst"
-    sha256 "64c17abafd5b1ef30419a81b000998870c1b081b6372d55bc31df9c3b83f0f6a"
+    url "https://github.com/sile-typesetter/sile/releases/download/v0.15.9/sile-0.15.9.tar.zst"
+    sha256 "fbda59503b333d82661601db647d1a2ad67aa8b7098e1ef78c6d8216844ac567"
 
     # Needed to workaround upstream source dist snafu, see configure phase
     on_macos do
