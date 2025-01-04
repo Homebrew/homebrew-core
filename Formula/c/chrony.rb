@@ -4,6 +4,7 @@ class Chrony < Formula
   url "https://chrony-project.org/releases/chrony-4.6.1.tar.gz"
   sha256 "571ff73fbf0ae3097f0604eca2e00b1d8bb2e91affe1a3494785ff21d6199c5c"
   license "GPL-2.0-only"
+  revision 1
 
   livecheck do
     url "https://chrony-project.org/download.html"
