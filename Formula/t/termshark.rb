@@ -19,19 +19,15 @@ class Termshark < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "69ee110ad437376b219f4aaa960818850be8e28868c8a0dc3ceff715849c8b1f"
   end
 
+  # https://github.com/gcla/termshark/issues/167
+  deprecate! date: "2025-01-03", because: :unmaintained
+
   depends_on "go" => :build
   depends_on "socat" => :test
   depends_on "wireshark"
 
   def install
-    # Don't set GOPATH because we want to build using go modules to
-    # ensure our dependencies are the ones specified in go.mod.
-    mkdir_p buildpath
-    ln_sf buildpath, buildpath/"termshark"
-
-    cd "termshark" do
-      system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/termshark"
-    end
+    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/termshark"
   end
 
   test do
