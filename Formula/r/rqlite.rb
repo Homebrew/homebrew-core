@@ -1,8 +1,9 @@
 class Rqlite < Formula
   desc "Lightweight, distributed relational database built on SQLite"
   homepage "https://www.rqlite.io/"
-  url "https://github.com/rqlite/rqlite/archive/refs/tags/v8.36.3.tar.gz"
-  sha256 "c57e1499e013d69f2c0201a368546691537a67388e967c38c03948a9ea208b57"
+  url "https://github.com/rqlite/rqlite.git",
+    tag:      "v8.36.3",
+    revision: "92bcff8e0b50570294c3d13f6b598821ad3daff6"
   license "MIT"
   head "https://github.com/rqlite/rqlite.git", branch: "master"
 
@@ -18,8 +19,15 @@ class Rqlite < Formula
   depends_on "go" => :build
 
   def install
+    ldflags = %W[
+      -s -w
+      -X github.com/rqlite/rqlite/v8/cmd.Commit=#{Utils.git_head}
+      -X github.com/rqlite/rqlite/v8/cmd.Branch=master
+      -X github.com/rqlite/rqlite/v8/cmd.Buildtime=#{time.iso8601}
+      -X github.com/rqlite/rqlite/v8/cmd.Version=v#{version}
+    ]
     %w[rqbench rqlite rqlited].each do |cmd|
-      system "go", "build", *std_go_args(ldflags: "-s -w"), "-o", bin/cmd, "./cmd/#{cmd}"
+      system "go", "build", *std_go_args(ldflags:), "-o", bin/cmd, "./cmd/#{cmd}"
     end
   end
 
@@ -42,5 +50,7 @@ class Rqlite < Formula
 
     output = shell_output("#{bin}/rqbench -a localhost:#{port} 'SELECT 1'")
     assert_match "Statements/sec", output
+
+    assert_match "Version v#{version}", shell_output("#{bin}/rqlite -v")
   end
 end
