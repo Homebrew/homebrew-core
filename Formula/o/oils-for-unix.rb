@@ -25,6 +25,9 @@ class OilsForUnix < Formula
   conflicts_with "etsh", "omake", because: "both install 'osh' binaries"
 
   def install
+    # Workaround for newer Clang/GCC
+    ENV.append_to_cflags "-Wno-implicit-function-declaration"
+
     system "./configure", "--prefix=#{prefix}",
                           "--datarootdir=#{share}",
                           "--readline=#{Formula["readline"].opt_prefix}",
