@@ -2,7 +2,7 @@ class Rust < Formula
   desc "Safe, concurrent, practical language"
   homepage "https://www.rust-lang.org/"
   license any_of: ["Apache-2.0", "MIT"]
-  revision 1
+  revision 2
 
   stable do
     url "https://static.rust-lang.org/dist/rustc-1.83.0-src.tar.gz"
@@ -12,6 +12,9 @@ class Rust < Formula
     resource "cargo" do
       url "https://github.com/rust-lang/cargo/archive/refs/tags/0.84.0.tar.gz"
       sha256 "8d01b3cba1150ae34e5faec59894a9d4e9b46942b082f2bd4ed441ce417ed979"
+
+      # update to use libgit2 1.9, upstream pr ref,https://github.com/rust-lang/cargo/pull/15018
+      patch :DATA
     end
   end
 
@@ -32,7 +35,7 @@ class Rust < Formula
     end
   end
 
-  depends_on "libgit2@1.8" # needs https://github.com/rust-lang/git2-rs/issues/1109 to support libgit2 1.9
+  depends_on "libgit2"
   depends_on "libssh2"
   depends_on "llvm"
   depends_on macos: :sierra
@@ -252,7 +255,7 @@ class Rust < Formula
     # We only check the tools' linkage here. No need to check rustc.
     expected_linkage = {
       bin/"cargo" => [
-        Formula["libgit2@1.8"].opt_lib/shared_library("libgit2"),
+        Formula["libgit2"].opt_lib/shared_library("libgit2"),
         Formula["libssh2"].opt_lib/shared_library("libssh2"),
         Formula["openssl@3"].opt_lib/shared_library("libcrypto"),
         Formula["openssl@3"].opt_lib/shared_library("libssl"),
@@ -275,3 +278,69 @@ class Rust < Formula
     assert missing_linkage.empty?, "Missing linkage: #{missing_linkage.join(", ")}"
   end
 end
+
+__END__
+diff --git a/Cargo.lock b/Cargo.lock
+index 404e5d2..4844092 100644
+--- a/Cargo.lock
++++ b/Cargo.lock
+@@ -1117,9 +1117,9 @@ dependencies = [
+ 
+ [[package]]
+ name = "git2"
+-version = "0.19.0"
++version = "0.20.0"
+ source = "registry+https://github.com/rust-lang/crates.io-index"
+-checksum = "b903b73e45dc0c6c596f2d37eccece7c1c8bb6e4407b001096387c63d0d93724"
++checksum = "3fda788993cc341f69012feba8bf45c0ba4f3291fcc08e214b4d5a7332d88aff"
+ dependencies = [
+  "bitflags 2.6.0",
+  "libc",
+@@ -1132,9 +1132,9 @@ dependencies = [
+ 
+ [[package]]
+ name = "git2-curl"
+-version = "0.20.0"
++version = "0.21.0"
+ source = "registry+https://github.com/rust-lang/crates.io-index"
+-checksum = "68ff14527a1c242320039b138376f8e0786697a1b7b172bc44f6efda3ab9079f"
++checksum = "be8dcabbc09ece4d30a9aa983d5804203b7e2f8054a171f792deff59b56d31fa"
+ dependencies = [
+  "curl",
+  "git2",
+@@ -2216,9 +2216,9 @@ dependencies = [
+ 
+ [[package]]
+ name = "libgit2-sys"
+-version = "0.17.0+1.8.1"
++version = "0.18.0+1.9.0"
+ source = "registry+https://github.com/rust-lang/crates.io-index"
+-checksum = "10472326a8a6477c3c20a64547b0059e4b0d086869eee31e6d7da728a8eb7224"
++checksum = "e1a117465e7e1597e8febea8bb0c410f1c7fb93b1e1cddf34363f8390367ffec"
+ dependencies = [
+  "cc",
+  "libc",
+diff --git a/Cargo.toml b/Cargo.toml
+index c797f11..72b8f50 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -46,8 +46,8 @@ curl = "0.4.46"
+ curl-sys = "0.4.73"
+ filetime = "0.2.23"
+ flate2 = { version = "1.0.30", default-features = false, features = ["zlib"] }
+-git2 = "0.19.0"
+-git2-curl = "0.20.0"
++git2 = "0.20.0"
++git2-curl = "0.21.0"
+ gix = { version = "0.64.0", default-features = false, features = ["blocking-http-transport-curl", "progress-tree", "parallel", "dirwalk"] }
+ glob = "0.3.1"
+ handlebars = { version = "5.1.2", features = ["dir_source"] }
+@@ -63,7 +63,7 @@ itertools = "0.13.0"
+ jobserver = "0.1.32"
+ lazycell = "1.3.0"
+ libc = "0.2.155"
+-libgit2-sys = "0.17.0"
++libgit2-sys = "0.18.0"
+ libloading = "0.8.5"
+ memchr = "2.7.4"
+ miow = "0.6.0"
