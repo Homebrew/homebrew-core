@@ -171,9 +171,9 @@ class Agda < Formula
     <<~EOS
       To use the installed Agda libraries, execute the following commands:
 
-          mkdir -p $HOME/.config/agda
-          cp #{opt_lib}/agda/example-libraries $HOME/.config/agda/libraries
-          cp #{opt_lib}/agda/example-defaults $HOME/.config/agda/defaults
+          mkdir -p $HOME/.agda
+          cp #{opt_lib}/agda/example-libraries $HOME/.agda/libraries
+          cp #{opt_lib}/agda/example-defaults $HOME/.agda/defaults
 
       You can then inspect the copied files and customize them as needed.
     EOS
