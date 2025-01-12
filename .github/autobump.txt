@@ -2362,6 +2362,7 @@ osinfo-db-tools
 osm2pgsql
 ospray
 osslsigncode
+ossp-uuid
 osv-scanner
 otree
 ott
