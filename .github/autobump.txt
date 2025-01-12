@@ -2698,6 +2698,7 @@ repo
 repomix
 reposurgeon
 repren
+reprepro
 reproc
 restic
 restview
