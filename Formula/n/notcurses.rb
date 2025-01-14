@@ -1,17 +1,17 @@
 class Notcurses < Formula
   desc "Blingful character graphics/TUI library"
   homepage "https://nick-black.com/dankwiki/index.php/Notcurses"
-  url "https://github.com/dankamongmen/notcurses/archive/refs/tags/v3.0.13.tar.gz"
-  sha256 "cf6342e50c02b830869bd28d8c953d22316b942b671e833c0f36899502084b35"
+  url "https://github.com/dankamongmen/notcurses/archive/v3.0.13.tar.gz"
+  sha256 "b20014b9b89c30f16a5bbc13c1acdb8fe1df067efdc9c89c7460a71d52f01ef8"
   license "Apache-2.0"
 
   bottle do
-    sha256 arm64_sequoia: "1545c6acf227d75acb8eac61fe1e9560a3af3dfe341d82b20696a65eeb555a05"
-    sha256 arm64_sonoma:  "a63ab6d9910e361595832480785cc157e7b7f0ecd86051eb61b063f3fcb3c301"
-    sha256 arm64_ventura: "4a04db71fd48279d7da206b54a1cd7eb4a0c7999effa37f68facb33addf4d725"
-    sha256 sonoma:        "3b8e20008a62da4cc03b8d0905c88d9f0ab4e26bf21e76cd8207707e5aaef259"
-    sha256 ventura:       "5a2f7147f2a7c98c61ab5085d1050df216e30fb17258141a197ef6b64fa21cd4"
-    sha256 x86_64_linux:  "eb34f639ffe338807ae9d20ccebc4fad5948594daec483dfb97377038e15db83"
+    sha256 arm64_monterey: "9756102b1beb9415249da9c9f2acf51a81516e307ddc3702af0311f78dbc9fef"
+    sha256 arm64_big_sur:  "c21775dc4cfa460cc639e140be476c3dc19691430fe6c9d2860dc54f0336c816"
+    sha256 monterey:       "b59d31929cf258b83e92c76e357f67ca4dabdb38ebd5a896ca83364d058a8a86"
+    sha256 big_sur:        "7f4da6cb377229ed6d6200af930520217bae1f96407e722badda9d36f646bf50"
+    sha256 catalina:       "a91a83f40ecab3c8afdfbe63962e211d4fc05c22b41b59ca67d816fb0f595a94"
+    sha256 x86_64_linux:   "03a80b20f53131a4f7706e4dcf84ee91ac22493930b99e10dbe6b77991866dc7"
   end
 
   depends_on "cmake" => :build
@@ -23,8 +23,10 @@ class Notcurses < Formula
   depends_on "libunistring"
   depends_on "ncurses"
 
+  fails_with gcc: "5"
+
   def install
-    system "cmake", "-S", ".", "-B", "build", "-DCMAKE_INSTALL_RPATH=#{rpath}", *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DCMAKE_INSTALL_RPATH=#{rpath}"
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
@@ -33,6 +35,6 @@ class Notcurses < Formula
     # current homebrew CI runs with TERM=dumb. given that Notcurses explicitly
     # does not support dumb terminals (i.e. those lacking the "cup" terminfo
     # capability), we expect a failure here. all output will go to stderr.
-    assert_empty shell_output(bin/"notcurses-info", 1)
+    assert_empty shell_output("#{bin}/notcurses-info", 1)
   end
 end
