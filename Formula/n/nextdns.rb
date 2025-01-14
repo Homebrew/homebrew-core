@@ -1,10 +1,15 @@
 class Nextdns < Formula
   desc "CLI for NextDNS's DNS-over-HTTPS (DoH)"
   homepage "https://nextdns.io"
-  url "https://github.com/nextdns/nextdns/archive/refs/tags/v1.44.3.tar.gz"
-  sha256 "ac77f24eb0bded216b57a82ca93960547c07561080df3fc20d1b363e38b7f3af"
+  url "https://github.com/nextdns/nextdns/archive/refs/tags/v1.44.4.tar.gz"
+  sha256 "9d05571b8a25672f959fee30a3eac136150284ad4bfbeb363881a323a6a5b7af"
   license "MIT"
   head "https://github.com/nextdns/nextdns.git", branch: "master"
+
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "0685ea4c5cb55563548f3c94bce4c7e4cf0582f8d85ef494bc77c6e7aaaa54d5"
