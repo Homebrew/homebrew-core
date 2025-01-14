@@ -1,8 +1,8 @@
 class Envoy < Formula
   desc "Cloud-native high-performance edge/middle/service proxy"
   homepage "https://www.envoyproxy.io/index.html"
-  url "https://github.com/envoyproxy/envoy/archive/refs/tags/v1.31.0.tar.gz"
-  sha256 "39ba37aed81a9d4988a5736cf558243179f2bf1490843da25687d1aafd9d01c6"
+  url "https://github.com/envoyproxy/envoy/archive/refs/tags/v1.33.0.tar.gz"
+  sha256 "fd726135761ea163f0312d49960c602c9b4fcb78ca3c36600975fed16e0787c4"
   license "Apache-2.0"
   head "https://github.com/envoyproxy/envoy.git", branch: "main"
 
@@ -62,6 +62,12 @@ class Envoy < Formula
 
     # Write the current version SOURCE_VERSION.
     system "python3", "tools/github/write_current_source_version.py", "--skip_error_in_git"
+
+    if OS.linux?
+      # Fixes external/com_github_google_tcmalloc/tcmalloc/system-alloc.cc:618:13:
+      # error: variable 'err' set but not used [-Werror,-Wunused-but-set-variable]
+      ENV.append_to_cflags "-Wno-unused-but-set-variable"
+    end
 
     system Formula["bazelisk"].opt_bin/"bazelisk", "build", *args, "//source/exe:envoy-static.stripped"
     bin.install "bazel-bin/source/exe/envoy-static.stripped" => "envoy"
