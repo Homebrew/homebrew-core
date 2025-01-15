@@ -1,17 +1,17 @@
 class TRec < Formula
   desc "Blazingly fast terminal recorder that generates animated gif images for the web"
   homepage "https://github.com/sassman/t-rec-rs"
-  url "https://github.com/sassman/t-rec-rs/archive/refs/tags/v0.7.7.tar.gz"
-  sha256 "ec3a94178a6488d302a3eeaf2f41ffca6828cc53457d4bcb43e03cfff8cb7bb3"
+  url "https://github.com/sassman/t-rec-rs/archive/refs/tags/v0.7.8.tar.gz"
+  sha256 "681beb0ed7559efb85a6bbb34fdcec7329c16a71ae44851ea20e1b18e8142aae"
   license "GPL-3.0-only"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3491bb5fdecd77fac33ef5db295c18b461541be759848ba038c5c616df4f28ff"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cd27edfbae62912daadc08512921d246d17bc4c57fb8c3d43d2a5d7a8f35ff75"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "7a89d73c25e004836d9bb0a54a9499d671ed19d3d622b7dc7ba4514f2b51d5fb"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f112d22444d289b0b18d8e9ae0e50cb0f9d841ffd879a60335aa400308bbddbb"
-    sha256 cellar: :any_skip_relocation, ventura:       "fb86b684f9585ee658f20dd84b9aa337f776a662dedf04263fa41ad4ca740814"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "575c1197d81fdb6afe187dc570af44a63ab488a28cdc432258708baccdce79cb"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "991072eed6dabd956479718e01ab933fcd5bfbc139ee6e9c52ab097cd3e26b3f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f60587ab3f64cc1101574fe36a554de16d22b9b41d9fae897efb5593eab8ff52"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "a1a101b8bb37a5317fd3650ce6809e282f73f2d5b4fb0b4791914b3c334b8fee"
+    sha256 cellar: :any_skip_relocation, sonoma:        "69e4fdc909fb6a45cad285448044deea17ff592d72e52364ffb5c41305279306"
+    sha256 cellar: :any_skip_relocation, ventura:       "0be6a2634425cccfc5989a6cee087aa45f1e4bf2e6c167cd715df3f04530c647"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3ac50c1f38d896c6cc6a48c0395b330647bf35e795c16c7eccadba00b731395e"
   end
 
   depends_on "rust" => :build

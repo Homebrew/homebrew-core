@@ -1,8 +1,8 @@
 class Cbindgen < Formula
   desc "Project for generating C bindings from Rust code"
   homepage "https://github.com/mozilla/cbindgen"
-  url "https://github.com/mozilla/cbindgen/archive/refs/tags/v0.26.0.tar.gz"
-  sha256 "b45e1a64875b615702a86ac3084ef69ae32926241cd2b687a30c12474be15105"
+  url "https://github.com/mozilla/cbindgen/archive/refs/tags/v0.27.0.tar.gz"
+  sha256 "af74dd0452ace58895088048873a765fffacc3ad55eea00c0f2999cc4bcf9b5d"
   license "MPL-2.0"
 
   # Upstream uses GitHub releases to indicate that a version is released
@@ -14,16 +14,12 @@ class Cbindgen < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "20e50834cf9bedcded966bc6c6e60486d79f3480b689314fbf7a7101fce55ee8"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c1cf824d4724dccd013815867348ec646e821df5a7f868e2310afdb65be543af"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ecfa0bec5c75d0d5825976fcd6e553dbad08ee0121cd6d4269be6acf0174c6da"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "4baaec615fbb17f470d2634a326545a8bf4cb632f0a8e6bebec009413c132215"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1dc5f3936dca28bac0ed165764cff643713d8e1e5950935c99d7d1d51178532c"
-    sha256 cellar: :any_skip_relocation, sonoma:         "9810e3153d17d297f4ec84fc83d3e1b2b7c14a5d3025b80ed3e41c97d239464e"
-    sha256 cellar: :any_skip_relocation, ventura:        "34882ce72bfe4c66e03f532ff551f31b7db581e2202eeaa3487e162b39ff1d1d"
-    sha256 cellar: :any_skip_relocation, monterey:       "c703d487fad25bd3691ec779a23d5290e6fe18ebe69737d0ac0166c75e4bafe9"
-    sha256 cellar: :any_skip_relocation, big_sur:        "289c9451cb7462239c23bfe996a36f5ee19f30be40f99527a0fe3b08b596c356"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "93a1a09a5301c915d7c0b81068b9ce4aefa8873becb9e1aaef8e99d6a0d476e1"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a22e2c180c47b277e859d4967a4f032b447c3427c4f3d9c4ced02f0969a34ce8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1d07ecac429a68030fcb2c3924a541c086e326eb5cabd4fba4a4772b252d0646"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "3a6db1176b7a1528189a75c126c77f8d0ac6597adc1e06bcb4e48d4cf2cf16b2"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c6be1b16cb36b35d7bd12dbd59c083f38bee58fda0bda09624010bd2b13d4124"
+    sha256 cellar: :any_skip_relocation, ventura:       "598a96f4d0aa79d28b22341bddd873b3e67d6f72d39fcfe39d1b1c2aedbfdf5f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cb304bf7bbea54486ec6b2945efbf46c226faa3e766aae974a1447bcb5b9482a"
   end
 
   depends_on "rust" => :build
