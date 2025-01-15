@@ -30,6 +30,7 @@ class Tsduck < Formula
   uses_from_macos "curl"
   uses_from_macos "libedit"
   uses_from_macos "pcsc-lite"
+  uses_from_macos "zlib"
 
   on_macos do
     depends_on "bash" => :build
