@@ -11,13 +11,11 @@ class Qt < Formula
     "LGPL-3.0-only",
   ]
   head "https://code.qt.io/qt/qt5.git", branch: "dev"
-
-  stable do
-    url "https://download.qt.io/official_releases/qt/6.8/6.8.1/single/qt-everywhere-src-6.8.1.tar.xz"
-    mirror "https://qt.mirror.constant.com/archive/qt/6.8/6.8.1/single/qt-everywhere-src-6.8.1.tar.xz"
-    mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.8/6.8.1/single/qt-everywhere-src-6.8.1.tar.xz"
-    sha256 "45e3a9f6d33c92ffe65a1fde1a8eba5b228112df675f7f9026eaa332b2e2edff"
-  end
+ 
+  url "https://download.qt.io/official_releases/qt/6.8/6.8.1/single/qt-everywhere-src-6.8.1.tar.xz"
+  mirror "https://qt.mirror.constant.com/archive/qt/6.8/6.8.1/single/qt-everywhere-src-6.8.1.tar.xz"
+  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.8/6.8.1/single/qt-everywhere-src-6.8.1.tar.xz"
+  sha256 "45e3a9f6d33c92ffe65a1fde1a8eba5b228112df675f7f9026eaa332b2e2edff"
 
   # The first-party website doesn't make version information readily available,
   # so we check the `head` repository tags instead.
@@ -434,94 +432,3 @@ class Qt < Formula
     system "./test"
   end
 end
-
-__END__
-diff --git a/qtwebengine/src/3rdparty/chromium/media/filters/ffmpeg_video_decoder.cc b/qtwebengine/src/3rdparty/chromium/media/filters/ffmpeg_video_decoder.cc
-index aaab17bdc3b9c157981f2708c680eea03657f211..737ba737872ca5df4ee9a5efe03d17573a1f2e49 100644
---- a/qtwebengine/src/3rdparty/chromium/media/filters/ffmpeg_video_decoder.cc
-+++ b/qtwebengine/src/3rdparty/chromium/media/filters/ffmpeg_video_decoder.cc
-@@ -142,7 +142,7 @@ bool FFmpegVideoDecoder::IsCodecSupported(VideoCodec codec) {
- }
-
- FFmpegVideoDecoder::FFmpegVideoDecoder(MediaLog* media_log)
--    : media_log_(media_log) {
-+    : media_log_(media_log), timestamp_map_(128) {
-   DVLOG(1) << __func__;
-   DETACH_FROM_SEQUENCE(sequence_checker_);
- }
-@@ -371,8 +371,10 @@ bool FFmpegVideoDecoder::FFmpegDecode(const DecoderBuffer& buffer) {
-     DCHECK(packet->data);
-     DCHECK_GT(packet->size, 0);
-
--    // Let FFmpeg handle presentation timestamp reordering.
--    codec_context_->reordered_opaque = buffer.timestamp().InMicroseconds();
-+    const int64_t timestamp = buffer.timestamp().InMicroseconds();
-+    const TimestampId timestamp_id = timestamp_id_generator_.GenerateNextId();
-+    timestamp_map_.Put(std::make_pair(timestamp_id, timestamp));
-+    packet->opaque = reinterpret_cast<void*>(timestamp_id.GetUnsafeValue());
-   }
-   FFmpegDecodingLoop::DecodeStatus decode_status = decoding_loop_->DecodePacket(
-       packet, base::BindRepeating(&FFmpegVideoDecoder::OnNewFrame,
-@@ -431,7 +433,12 @@ bool FFmpegVideoDecoder::OnNewFrame(AVFrame* frame) {
-   }
-   gfx::Size natural_size = aspect_ratio.GetNaturalSize(visible_rect);
-
--  const auto pts = base::Microseconds(frame->reordered_opaque);
-+  const auto ts_id = TimestampId(reinterpret_cast<size_t>(frame->opaque));
-+  const auto ts_lookup = timestamp_map_.Get(ts_id);
-+  if (ts_lookup == timestamp_map_.end()) {
-+    return false;
-+  }
-+  const auto pts = base::Microseconds(std::get<1>(*ts_lookup));
-   auto video_frame = VideoFrame::WrapExternalDataWithLayout(
-       opaque->layout, visible_rect, natural_size, opaque->data, opaque->size,
-       pts);
-@@ -506,8 +513,10 @@ bool FFmpegVideoDecoder::ConfigureDecoder(const VideoDecoderConfig& config,
-   codec_context_->thread_count = GetFFmpegVideoDecoderThreadCount(config);
-   codec_context_->thread_type =
-       FF_THREAD_SLICE | (low_delay ? 0 : FF_THREAD_FRAME);
-+
-   codec_context_->opaque = this;
-   codec_context_->get_buffer2 = GetVideoBufferImpl;
-+  codec_context_->flags |= AV_CODEC_FLAG_COPY_OPAQUE;
-
-   if (decode_nalus_)
-     codec_context_->flags2 |= AV_CODEC_FLAG2_CHUNKS;
-diff --git a/qtwebengine/src/3rdparty/chromium/media/filters/ffmpeg_video_decoder.h b/qtwebengine/src/3rdparty/chromium/media/filters/ffmpeg_video_decoder.h
-index d02cb89c3ddf7cee0d1a79ee095eae5f52ff5111..0a2de1c623ffff7dc9c5d381344714e9ee3d2f2a 100644
---- a/qtwebengine/src/3rdparty/chromium/media/filters/ffmpeg_video_decoder.h
-+++ b/qtwebengine/src/3rdparty/chromium/media/filters/ffmpeg_video_decoder.h
-@@ -7,10 +7,12 @@
-
- #include <memory>
-
-+#include "base/containers/lru_cache.h"
- #include "base/functional/callback.h"
- #include "base/memory/raw_ptr.h"
- #include "base/memory/scoped_refptr.h"
- #include "base/sequence_checker.h"
-+#include "base/types/id_type.h"
- #include "media/base/supported_video_decoder_config.h"
- #include "media/base/video_decoder.h"
- #include "media/base/video_decoder_config.h"
-@@ -87,6 +89,20 @@ class MEDIA_EXPORT FFmpegVideoDecoder : public VideoDecoder {
-   // FFmpeg structures owned by this object.
-   std::unique_ptr<AVCodecContext, ScopedPtrAVFreeContext> codec_context_;
-
-+  // The gist here is that timestamps need to be 64 bits to store microsecond
-+  // precision. A 32 bit integer would overflow at ~35 minutes at this level of
-+  // precision. We can't cast the timestamp to the void ptr object used by the
-+  // opaque field in ffmpeg then, because it would lose data on a 32 bit build.
-+  // However, we don't actually have 2^31 timestamped frames in a single
-+  // playback, so it's fine to use the 32 bit value as a key in a map which
-+  // contains the actual timestamps. Additionally, we've in the past set 128
-+  // outstanding frames for re-ordering as a limit for cross-thread decoding
-+  // tasks, so we'll do that here too with the LRU cache.
-+  using TimestampId = base::IdType<int64_t, size_t, 0>;
-+
-+  TimestampId::Generator timestamp_id_generator_;
-+  base::LRUCache<TimestampId, int64_t> timestamp_map_;
-+
-   VideoDecoderConfig config_;
-
-   scoped_refptr<FrameBufferPool> frame_pool_;
