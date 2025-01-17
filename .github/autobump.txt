@@ -2677,6 +2677,7 @@ rabbitmq-c
 radamsa
 radare2
 rage
+rails-new
 railway
 rainfrog
 rakudo-star
