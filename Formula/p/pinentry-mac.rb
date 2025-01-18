@@ -1,24 +1,13 @@
 class PinentryMac < Formula
   desc "Pinentry for GPG on Mac"
   homepage "https://github.com/GPGTools/pinentry"
+  # There is currently no tag available. See
+  # https://gpgtools.tenderapp.com/discussions/feedback/18445-new-tag-for-gpgtools-pinentry
+  url "https://github.com/GPGTools/pinentry/archive/913d5076f5359d065ff90dee58450d21118e12d0.tar.gz"
+  version "1.3.1.1"
+  sha256 "d4ea0446183e9b27132a4daf6b70f58e85d3849b5314c994ecee3caa27be1821"
   license all_of: ["GPL-2.0-or-later", "GPL-3.0-or-later"]
-  revision 1
   head "https://github.com/GPGTools/pinentry.git", branch: "master"
-
-  stable do
-    url "https://github.com/GPGTools/pinentry/archive/refs/tags/v1.1.1.1.tar.gz"
-    sha256 "1a414f2e172cf8c18a121e60813413f27aedde891c5955151fbf8d50c46a9098"
-
-    # Backport support for newer `libassuan`
-    patch do
-      url "https://github.com/GPGTools/pinentry/commit/d8ca98aec634256cf4f6801874b6730eda12c5c5.patch?full_index=1"
-      sha256 "1490963f2a0ce75879123e56f94064e1b3263ef8aad222c3ca1966807c67ff7e"
-    end
-    patch do
-      url "https://github.com/GPGTools/pinentry/commit/a39ba412ab24721d4edb6476156371f8bf1d3ff9.patch?full_index=1"
-      sha256 "277d20f59bd37b3d41e547561b048f6a2af97f96157f1d4adc785bb57f387b5d"
-    end
-  end
 
   bottle do
     rebuild 1
@@ -59,6 +48,8 @@ class PinentryMac < Formula
   end
 
   test do
-    assert_match version.major_minor_patch.to_s, shell_output("#{bin}/pinentry-mac --version")
+    # Version 1.3.1.1 returns `1.3.2-unknown`.
+    # https://gpgtools.tenderapp.com/discussions/feedback/18445-new-tag-for-gpgtools-pinentry
+    assert_match version.major_minor.to_s, shell_output("#{bin}/pinentry-mac --version")
   end
 end
