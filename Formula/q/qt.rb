@@ -13,38 +13,10 @@ class Qt < Formula
   head "https://code.qt.io/qt/qt5.git", branch: "dev"
 
   stable do
-    url "https://download.qt.io/official_releases/qt/6.7/6.7.3/single/qt-everywhere-src-6.7.3.tar.xz"
-    mirror "https://qt.mirror.constant.com/archive/qt/6.7/6.7.3/single/qt-everywhere-src-6.7.3.tar.xz"
-    mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.7/6.7.3/single/qt-everywhere-src-6.7.3.tar.xz"
-    sha256 "a3f1d257cbb14c6536585ffccf7c203ce7017418e1a0c2ed7c316c20c729c801"
-
-    # Backport fix for Xcode 16. Remove in the next release
-    patch do
-      url "https://github.com/qt/qtwebengine-chromium/commit/8c5cf527c520edf9cd96c143af02ac94966fc2af.patch?full_index=1"
-      sha256 "ab14d8559c0470cc28f6ba279015dac9e7411135f5f58c285c6a7cf5995e61b4"
-      directory "qtwebengine/src/3rdparty"
-    end
-
-    # Backport support for FFMpeg 7.
-    # Ref: https://bugreports.qt.io/browse/QTBUG-125227
-    patch do
-      # Use Fedora's backport of https://github.com/qt/qtwebengine-chromium/commit/b30e3535717e1cb970c6e4095b412a2c5fdbce40
-      url "https://src.fedoraproject.org/rpms/qt6-qtwebengine/raw/864539f2140a11fda9bf3ef878a2e627f04f0b2d/f/qtwebengine-fix-building-with-system-ffmpeg.patch"
-      sha256 "70b8c468be1954b8dad59243069c6369d7c6eae332f154d99e3027b9119eb7c5"
-      directory "qtwebengine"
-    end
-    patch do
-      url "https://github.com/qt/qtwebengine-chromium/commit/65aaac35d040aef90c2e9f41a651b5a23470e457.patch?full_index=1"
-      sha256 "2875e9c534da34902fb113b4171d7a4960e6bc27f6ad45d49929ecf667856d48"
-      directory "qtwebengine/src/3rdparty"
-    end
-    patch do
-      url "https://github.com/qt/qtwebengine-chromium/commit/d9944bcb991c981574a229e5267e535b4eac8e1c.patch?full_index=1"
-      sha256 "11d8c7db91e76ea886dd0f30aedb3bfb33211f6ba39236d684ad63bfe80682ff"
-      directory "qtwebengine/src/3rdparty"
-    end
-    # Backport of https://github.com/qt/qtwebengine-chromium/commit/afcbb2eab7c5b0329ad0045782768dd2805d6a05
-    patch :DATA
+    url "https://download.qt.io/official_releases/qt/6.8/6.8.1/single/qt-everywhere-src-6.8.1.tar.xz"
+    mirror "https://qt.mirror.constant.com/archive/qt/6.8/6.8.1/single/qt-everywhere-src-6.8.1.tar.xz"
+    mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.8/6.8.1/single/qt-everywhere-src-6.8.1.tar.xz"
+    sha256 "45e3a9f6d33c92ffe65a1fde1a8eba5b228112df675f7f9026eaa332b2e2edff"
   end
 
   # The first-party website doesn't make version information readily available,
