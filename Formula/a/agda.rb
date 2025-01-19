@@ -97,7 +97,16 @@ class Agda < Formula
       ghc912_args << "--allow-newer=Agda:hashable"
     end
 
-    cabal_args = ghc912_args + std_cabal_v2_args.reject { |s| s["installdir"] }
+    shared_args = %w[
+      --disable-executable-static
+      --disable-static
+      --enable-executable-dynamic
+      --enable-shared
+    ]
+
+    cabal_bin_args = ghc912_args + std_cabal_v2_args
+    cabal_bin_args += shared_args if OS.mac? # TODO: allow on Linux
+    cabal_args = cabal_bin_args.reject { |s| s["installdir"] }
 
     system "cabal", "v2-update"
     # expose certain packages for building and testing
@@ -108,7 +117,7 @@ class Agda < Formula
 
     # install main Agda library and binaries
     system "cabal", "--store-dir=#{libexec}", "v2-install",
-           "--flags=optimise-heavily", *std_cabal_v2_args, *ghc912_args
+           "--flags=optimise-heavily", *cabal_bin_args
 
     # install agda2hs helper binary and library,
     # relying on the Agda library just installed
@@ -128,7 +137,7 @@ class Agda < Formula
       # Issue ref: https://github.com/agda/agda2hs/issues/347
       inreplace "agda2hs.cabal", /( base .*&&) < 4\.20,/, "\\1 < 4.21,", build.stable?
 
-      system "cabal", "--store-dir=#{libexec}", "v2-install", *std_cabal_v2_args, *ghc912_args
+      system "cabal", "--store-dir=#{libexec}", "v2-install", *cabal_bin_args
     end
 
     # generate the standard library's documentation and vim highlighting files
