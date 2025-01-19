@@ -19,15 +19,17 @@ class Inlyne < Formula
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
 
-  uses_from_macos "expect" => :test
-
   on_linux do
+    depends_on "xorg-server" => :test
+    depends_on "fontconfig" # for fontsdb
+    depends_on "libxcursor" # for winit on X11
     depends_on "libxkbcommon"
     depends_on "wayland"
   end
 
   def install
     system "cargo", "install", *std_cargo_args
+    bin.env_script_all_files libexec/"bin", FONTCONFIG_FILE: etc/"fonts/fonts.conf" if OS.linux?
 
     bash_completion.install "completions/inlyne.bash" => "inlyne"
     fish_completion.install "completions/inlyne.fish"
@@ -37,27 +39,43 @@ class Inlyne < Formula
   test do
     assert_match version.to_s, shell_output("#{bin}/inlyne --version")
 
-    # Fails in Linux CI with
-    # "Failed to initialize any backend! Wayland status: XdgRuntimeDirNotSet X11 status: XOpenDisplayFailed"
-    return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
-
     test_markdown = testpath/"test.md"
-    test_markdown.write <<~EOS
+    test_markdown.write <<~MARKDOWN
       _lorem_ **ipsum** dolor **sit** _amet_
-    EOS
+    MARKDOWN
 
-    script = (testpath/"test.exp")
-    script.write <<~EOS
-      #!/usr/bin/env expect -f
-      set timeout 2
+    ENV["INLYNE_LOG"] = "info,inlyne=debug,cosmic_text=trace"
+    ENV["NO_COLOR"] = "1"
+    ENV["TMPDIR"] = testpath
 
-      spawn #{bin}/inlyne #{test_markdown}
+    if OS.linux?
+      xvfb_pid = spawn Formula["xorg-server"].bin/"Xvfb", ":1", "-nolisten", "unix"
+      ENV["DISPLAY"] = ":1"
+      ENV["LC_ALL"] = "en_US.UTF-8"
+      ENV["XDG_RUNTIME_DIR"] = testpath
+      sleep 5
+    end
 
-      send -- "q\r"
-
-      expect eof
-    EOS
-
-    system "expect", "-f", "test.exp"
+    Open3.popen2e(bin/"inlyne", test_markdown) do |_stdin, stdout_and_stderr, wait_thread|
+      sleep 10
+      if wait_thread.alive?
+        Process.kill "TERM", wait_thread.pid
+        output = stdout_and_stderr.read
+        assert_match "Line LTR: 'lorem ipsum dolor sit amet'", output
+        assert_match(/style: Italic,.*\n.*Run \[\]: 'lorem'/, output)
+        refute_match "ERROR", output
+      elsif OS.mac? && Hardware::CPU.intel? && ENV["HOMEBREW_GITHUB_ACTIONS"]
+        # Ignore Intel macOS CI as unable to use Metal backend
+      else
+        # Output logs and crash report to help determine failure
+        message = "No running `inlyne` process. Logs:\n#{stdout_and_stderr.read}"
+        if (report = testpath.glob("report-*.toml").first)
+          message += "\nCrash Report:\n#{report.read}"
+        end
+        raise message
+      end
+    end
+  ensure
+    Process.kill "TERM", xvfb_pid if xvfb_pid
   end
 end
