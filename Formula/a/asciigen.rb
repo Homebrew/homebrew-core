@@ -1,8 +1,8 @@
 class Asciigen < Formula
   desc "Converts images/video to ASCII art"
   homepage "https://github.com/seatedro/asciigen"
-  url "https://github.com/seatedro/asciigen/archive/refs/tags/v1.0.4.tar.gz"
-  sha256 "2326d73376997f838bae25ebc7d1f6f84a7442db8f55ec841a7e11246b73c31f"
+  url "https://github.com/seatedro/asciigen/archive/refs/tags/v1.0.6.tar.gz"
+  sha256 "14decc7e70b8941f1635eef0192d38b617ea1942a05320b2d987c97d66fca1f9"
   license "MIT"
 
   bottle do
@@ -28,6 +28,7 @@ class Asciigen < Formula
 
     args = %W[
       --prefix #{prefix}
+      -Dstrip=true
     ]
 
     args << "-Dcpu=#{cpu}" if build.bottle?
