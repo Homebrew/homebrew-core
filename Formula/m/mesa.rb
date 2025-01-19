@@ -3,8 +3,6 @@ class Mesa < Formula
 
   desc "Graphics Library"
   homepage "https://www.mesa3d.org/"
-  url "https://archive.mesa3d.org/mesa-24.2.8.tar.xz"
-  sha256 "999d0a854f43864fc098266aaf25600ce7961318a1e2e358bff94a7f53580e30"
   license all_of: [
     "MIT",
     "Apache-2.0", # include/{EGL,GLES*,vk_video,vulkan}, src/egl/generate/egl.xml, src/mapi/glapi/registry/gl.xml
@@ -22,6 +20,36 @@ class Mesa < Formula
   ]
   head "https://gitlab.freedesktop.org/mesa/mesa.git", branch: "main"
 
+  stable do
+    url "https://mesa.freedesktop.org/archive/mesa-24.3.3.tar.xz"
+    sha256 "105afc00a4496fa4d29da74e227085544919ec7c86bd92b0b6e7fcc32c7125f4"
+
+    patch do
+      url "https://gitlab.freedesktop.org/mesa/mesa/-/commit/48ebbe27779f2576f72aef9eed13c4e4da1115b3.diff"
+      sha256 "c827e87be892e3701f09f64a3c12f1caa35e40e6800ea69257550bff1b11be0d"
+    end
+
+    patch do
+      url "https://gitlab.freedesktop.org/mesa/mesa/-/commit/20b806284aa93c9764b85397e638627d1fafcf18.diff"
+      sha256 "94d324a13bf724742d1679e477eb7973aa6b2a186a90c077c63662ff980f0114"
+    end
+
+    patch do
+      url "https://gitlab.freedesktop.org/mesa/mesa/-/commit/e89eba0796b3469f1d2cdbb600309f6231a8169d.diff"
+      sha256 "200de60b79594053c8b5702ddfd4784e760c533c18bfbd9bc219c4039e5c71f3"
+    end
+
+    patch do
+      url "https://gitlab.freedesktop.org/mesa/mesa/-/commit/568a4ca899762fe96fc9b34d2288d07e6656af87.diff"
+      sha256 "cbc7ef81c1c8c91a8d06dad53b3bb6af7d058698a226cddc1315f3ba668d07a9"
+    end
+
+    patch do
+      url "https://gitlab.freedesktop.org/mesa/mesa/-/commit/191d7c6cb617a3f5ea85d98ae0b8640d0ba60a75.diff"
+      sha256 "485bedca1878b4490b5acb29965e024caefd0f21a3edf2f181693843965f5c89"
+    end
+  end
+
   bottle do
     sha256 arm64_sequoia: "59d25f8ac493c61555438878dd9488b3ec7ede62aacc7306f689a6997c32cf14"
     sha256 arm64_sonoma:  "9924126d64e4933dbdddd6fcf94bcf3d03552e4b0c5e83d402adf6e7c195f49d"
@@ -31,49 +59,132 @@ class Mesa < Formula
     sha256 x86_64_linux:  "85a6f29e14a8b813b6c7f8edade7bb850e630656220682f6f4c137bd5f44152f"
   end
 
+  depends_on "bindgen" => :build
   depends_on "bison" => :build # can't use from macOS, needs '> 2.3'
+  depends_on "cbindgen" => :build
+  depends_on "glslang" => :build
+  depends_on "libxrandr" => :build
+  depends_on "libxshmfence" => :build
   depends_on "libyaml" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkgconf" => :build
   depends_on "python@3.13" => :build
+  depends_on "rust" => :build
   depends_on "xorgproto" => :build
 
   depends_on "expat"
+  depends_on "libclc"
+  depends_on "libpng"
   depends_on "libx11"
   depends_on "libxcb"
   depends_on "libxext"
   depends_on "libxfixes"
-  depends_on "libxrandr"
+  depends_on "libxrender"
+  depends_on "llvm"
+  depends_on "spirv-llvm-translator"
+  depends_on "spirv-tools"
 
   uses_from_macos "flex" => :build
-  uses_from_macos "llvm"
   uses_from_macos "zlib"
 
   on_linux do
-    depends_on "elfutils"
-    depends_on "glslang"
+    depends_on "directx-headers" => :build
+    depends_on "elfutils" => :build
+    depends_on "libva" => :build
+    depends_on "libvdpau" => :build
+    depends_on "libxml2" => :build # not used on macOS
+    depends_on "valgrind" => :build
+    depends_on "wayland-protocols" => :build
+
     depends_on "gzip"
-    depends_on "libclc"
     depends_on "libdrm"
-    depends_on "libva"
-    depends_on "libvdpau"
-    depends_on "libxml2" # not used on macOS
-    depends_on "libxshmfence"
     depends_on "libxv"
     depends_on "libxxf86vm"
     depends_on "lm-sensors"
-    depends_on "spirv-llvm-translator"
-    depends_on "spirv-tools"
     depends_on "valgrind"
     depends_on "wayland"
-    depends_on "wayland-protocols"
     depends_on "zstd"
+
+    resource "crate-equivalent" do
+      url "https://crates.io/api/v1/crates/equivalent/1.0.1/download"
+      sha256 "5443807d6dff69373d433ab9ef5378ad8df50ca6298caf15de6e52e24aaf54d5"
+    end
+
+    resource "crate-hashbrown" do
+      url "https://crates.io/api/v1/crates/hashbrown/0.14.1/download"
+      sha256 "7dfda62a12f55daeae5015f81b0baea145391cb4520f86c248fc615d72640d12"
+    end
+
+    resource "crate-indexmap" do
+      url "https://crates.io/api/v1/crates/indexmap/2.2.6/download"
+      sha256 "168fb715dda47215e360912c096649d23d58bf392ac62f73919e831745e40f26"
+    end
+
+    resource "crate-once_cell" do
+      url "https://crates.io/api/v1/crates/once_cell/1.8.0/download"
+      sha256 "692fcb63b64b1758029e0a96ee63e049ce8c5948587f2f7208df04625e5f6b56"
+    end
+
+    resource "crate-paste" do
+      url "https://crates.io/api/v1/crates/paste/1.0.14/download"
+      sha256 "de3145af08024dea9fa9914f381a17b8fc6034dfb00f3a84013f7ff43f29ed4c"
+    end
+
+    resource "crate-pest" do
+      url "https://crates.io/api/v1/crates/pest/2.7.11/download"
+      sha256 "cd53dff83f26735fdc1ca837098ccf133605d794cdae66acfc2bfac3ec809d95"
+    end
+
+    resource "crate-pest_derive" do
+      url "https://crates.io/api/v1/crates/pest_derive/2.7.11/download"
+      sha256 "2a548d2beca6773b1c244554d36fcf8548a8a58e74156968211567250e48e49a"
+    end
+
+    resource "crate-pest_generator" do
+      url "https://crates.io/api/v1/crates/pest_generator/2.7.11/download"
+      sha256 "3c93a82e8d145725dcbaf44e5ea887c8a869efdcc28706df2d08c69e17077183"
+    end
+
+    resource "crate-pest_meta" do
+      url "https://crates.io/api/v1/crates/pest_meta/2.7.11/download"
+      sha256 "a941429fea7e08bedec25e4f6785b6ffaacc6b755da98df5ef3e7dcf4a124c4f"
+    end
+
+    resource "crate-proc-macro2" do
+      url "https://crates.io/api/v1/crates/proc-macro2/1.0.86/download"
+      sha256 "5e719e8df665df0d1c8fbfd238015744736151d4445ec0836b8e628aae103b77"
+    end
+
+    resource "crate-quote" do
+      url "https://crates.io/api/v1/crates/quote/1.0.33/download"
+      sha256 "5267fca4496028628a95160fc423a33e8b2e6af8a5302579e322e4b520293cae"
+    end
+
+    resource "crate-roxmltree" do
+      url "https://crates.io/api/v1/crates/roxmltree/0.20.0/download"
+      sha256 "6c20b6793b5c2fa6553b250154b78d6d0db37e72700ae35fad9387a46f487c97"
+    end
+
+    resource "crate-syn" do
+      url "https://crates.io/api/v1/crates/syn/2.0.68/download"
+      sha256 "901fa70d88b9d6c98022e23b4136f9f3e54e4662c3bc1bd1d84a42a9a0f0c1e9"
+    end
+
+    resource "crate-ucd-trie" do
+      url "https://crates.io/api/v1/crates/ucd-trie/0.1.6/download"
+      sha256 "ed646292ffc8188ef8ea4d1e0e0150fb15a5c2e12ad9b8fc191ae7a8a7f3c4b9"
+    end
+
+    resource "crate-unicode-ident" do
+      url "https://crates.io/api/v1/crates/unicode-ident/1.0.12/download"
+      sha256 "3354b9ac3fae1ff6755cb6db53683adb661634f67557942dea4facebec0fee4b"
+    end
   end
 
   resource "mako" do
-    url "https://files.pythonhosted.org/packages/fa/0b/29bc5a230948bf209d3ed3165006d257e547c02c3c2a96f6286320dfe8dc/mako-1.3.6.tar.gz"
-    sha256 "9ec3a1583713479fae654f83ed9fa8c9a4c16b7bb0daba0e6bbebff50c0d983d"
+    url "https://files.pythonhosted.org/packages/5f/d9/8518279534ed7dace1795d5a47e49d5299dd0994eed1053996402a8902f9/mako-1.3.8.tar.gz"
+    sha256 "577b97e414580d3e088d47c2dbbe9594aa7a5146ed2875d4dfa9075af2dd3cc8"
   end
 
   resource "markupsafe" do
@@ -102,24 +213,37 @@ class Mesa < Formula
 
   def install
     venv = virtualenv_create(buildpath/"venv", python3)
-    venv.pip_install resources.reject { |r| OS.mac? && r.name == "ply" }
+    venv.pip_install resources.reject { |r| (OS.mac? && r.name == "ply") || r.name =~ /^crate/ }
     ENV.prepend_path "PYTHONPATH", venv.site_packages
     ENV.prepend_path "PATH", venv.root/"bin"
 
+    if OS.linux?
+      resources.select { |r| r.name =~ /^crate/ }.each { |r| r.stage(buildpath/r.name.gsub("crate-", "")) }
+      ENV["MESON_PACKAGE_CACHE_DIR"] = buildpath
+    end
+
     args = %w[
       -Db_ndebug=true
+      -Dopengl=true
       -Dosmesa=true
+      -Dstrip=true
+      -Dllvm=enabled
+      -Dgallium-drivers=auto
+      -Dvideo-codecs=all
+      -Dgallium-opencl=icd
+      -Dgallium-rusticl=true
     ]
-    if OS.mac?
-      args << "-Dgallium-drivers=softpipe"
+    args += if OS.mac?
+      %w[
+        -Dvulkan-drivers=swrast
+        -Dvulkan-layers=intel-nullhw,overlay,screenshot
+        -Dtools=etnaviv,glsl,nir,nouveau,asahi,imagination,dlclose-skip
+      ]
     else
-      args += %w[
-        -Ddri3=enabled
+      %w[
         -Degl=enabled
         -Dgallium-extra-hud=true
         -Dgallium-nine=true
-        -Dgallium-omx=disabled
-        -Dgallium-opencl=icd
         -Dgallium-va=enabled
         -Dgallium-vdpau=enabled
         -Dgallium-xa=enabled
@@ -129,22 +253,14 @@ class Mesa < Formula
         -Dglx=dri
         -Dintel-clc=enabled
         -Dlmsensors=enabled
-        -Dllvm=enabled
         -Dmicrosoft-clc=disabled
-        -Dopengl=true
         -Dplatforms=x11,wayland
         -Dshared-glapi=enabled
-        -Dtools=drm-shim,etnaviv,freedreno,glsl,nir,nouveau,lima
+        -Dtools=all
         -Dvalgrind=enabled
-        -Dvideo-codecs=vc1dec,h264dec,h264enc,h265dec,h265enc
-        -Dvulkan-drivers=amd,intel,intel_hasvk,swrast,virtio
-        -Dvulkan-layers=device-select,intel-nullhw,overlay
+        -Dvulkan-drivers=auto
+        -Dvulkan-layers=device-select,intel-nullhw,overlay,screenshot
       ]
-      if Hardware::CPU.intel?
-        args << "-Dgallium-drivers=r300,r600,radeonsi,nouveau,virgl,svga,softpipe,llvmpipe,i915,iris,crocus,zink"
-      end
-      # Strip executables/libraries/object files to reduce their size
-      args << "-Dstrip=true"
     end
 
     system "meson", "setup", "build", *args, *std_meson_args
