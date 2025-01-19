@@ -3,8 +3,8 @@ class Systemd < Formula
 
   desc "System and service manager"
   homepage "https://systemd.io"
-  url "https://github.com/systemd/systemd/archive/refs/tags/v257.1.tar.gz"
-  sha256 "375365b9f3718ba5fc2a972445eefcd9e229cc18bffe95818220c2a52efe8ed9"
+  url "https://github.com/systemd/systemd/archive/refs/tags/v257.2.tar.gz"
+  sha256 "7f2bc3253e4f87578132c5e433ef9ff7e8fee01d9eb5a5b7c64376d617f694d0"
   license all_of: [
     # Main license is LGPL-2.1-or-later while systemd-udevd is GPL-2.0-or-later
     "LGPL-2.1-or-later",
@@ -27,7 +27,6 @@ class Systemd < Formula
     { any_of: ["MIT", "GPL-2.0-or-later" => { with: "Linux-syscall-note" }] },
     { any_of: ["GPL-2.0-only", "BSD-2-Clause"] },
   ]
-  revision 1
   head "https://github.com/systemd/systemd.git", branch: "main"
 
   bottle do
@@ -70,6 +69,8 @@ class Systemd < Formula
   end
 
   def install
+    ENV.prepend_path "PKG_CONFIG_PATH", Formula["libxml2"].opt_lib/"pkgconfig"
+
     venv = virtualenv_create(buildpath/"venv", "python3.12")
     venv.pip_install resources
     ENV.prepend_path "PATH", venv.root/"bin"
