@@ -15,6 +15,10 @@ class Tsduck < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "27c7b137281536685aad911ccab6fe3dd99aa6fbea5d65e4b286d340d7446b5c"
   end
 
+  head do
+    uses_from_macos "zlib"
+  end
+
   depends_on "asciidoctor" => :build
   depends_on "dos2unix" => :build
   depends_on "gnu-sed" => :build
@@ -30,7 +34,6 @@ class Tsduck < Formula
   uses_from_macos "curl"
   uses_from_macos "libedit"
   uses_from_macos "pcsc-lite"
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "bash" => :build
