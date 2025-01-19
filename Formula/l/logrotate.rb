@@ -19,16 +19,19 @@ class Logrotate < Formula
   depends_on "popt"
 
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--with-compress-command=/usr/bin/gzip",
+    system "./configure", "--with-compress-command=/usr/bin/gzip",
                           "--with-uncompress-command=/usr/bin/gunzip",
-                          "--with-state-file-path=#{var}/lib/logrotate.status"
+                          "--with-state-file-path=#{var}/lib/logrotate.status",
+                          *std_configure_args
     system "make", "install"
 
     inreplace "examples/logrotate.conf", "/etc/logrotate.d", "#{etc}/logrotate.d"
     etc.install "examples/logrotate.conf" => "logrotate.conf"
+  end
+
+  def post_install
     (etc/"logrotate.d").mkpath
+    (var/"lib").mkpath
   end
 
   service do
