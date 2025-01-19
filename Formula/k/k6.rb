@@ -14,7 +14,7 @@ class K6 < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "6c59c33536818d69e337bd36ce5b3e58054a019260d35027efae3b50ca7b56a5"
   end
 
-  depends_on "go" => :build
+  depends_on "go@1.23" => :build # See https://github.com/grafana/k6/issues/2699 and https://github.com/grafana/k6/issues/2474
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w")
