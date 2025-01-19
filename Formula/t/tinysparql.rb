@@ -34,6 +34,8 @@ class Tinysparql < Formula
   depends_on :linux # macOS fatal error: 'gio/gdesktopappinfo.h' file not found
   depends_on "sqlite"
 
+  conflicts_with "tracker", because: "both install the same libraries"
+
   def install
     args = %w[
       -Dman=false
