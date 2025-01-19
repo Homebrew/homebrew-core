@@ -933,6 +933,7 @@ faiss
 fakeroot
 falco
 falcoctl
+fancy-cat
 fantom
 fanyi
 fast_float
