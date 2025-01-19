@@ -4,7 +4,6 @@ class Tsduck < Formula
   url "https://github.com/tsduck/tsduck/archive/refs/tags/v3.39-3956.tar.gz"
   sha256 "1a391504967bd7a6ffb1cabd98bc6ee904a742081c0a17ead4d6639d58c82979"
   license "BSD-2-Clause"
-  head "https://github.com/tsduck/tsduck.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "85fcccc144054ae42b8e3fc935b61a17f3de645bebbdf937f27b4b844fcbea1e"
@@ -13,6 +12,13 @@ class Tsduck < Formula
     sha256 cellar: :any,                 sonoma:        "49de30577f310a4f960c8edf64e33f1313cf40171e7e60a602d50d1f68ac0bdf"
     sha256 cellar: :any,                 ventura:       "18819fa81eaebdf055ab92176acb3e06962969e1efb12bd522aea05a45303f21"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "27c7b137281536685aad911ccab6fe3dd99aa6fbea5d65e4b286d340d7446b5c"
+  end
+
+  head do
+    url "https://github.com/tsduck/tsduck.git", branch: "master"
+
+    # will be needed for the next release
+    uses_from_macos "zlib"
   end
 
   depends_on "asciidoctor" => :build
