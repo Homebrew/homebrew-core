@@ -4,7 +4,6 @@ class Tsduck < Formula
   url "https://github.com/tsduck/tsduck/archive/refs/tags/v3.39-3956.tar.gz"
   sha256 "1a391504967bd7a6ffb1cabd98bc6ee904a742081c0a17ead4d6639d58c82979"
   license "BSD-2-Clause"
-  head "https://github.com/tsduck/tsduck.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "85fcccc144054ae42b8e3fc935b61a17f3de645bebbdf937f27b4b844fcbea1e"
@@ -16,6 +15,9 @@ class Tsduck < Formula
   end
 
   head do
+    url "https://github.com/tsduck/tsduck.git", branch: "master"
+
+    # will be needed for the next release
     uses_from_macos "zlib"
   end
 
