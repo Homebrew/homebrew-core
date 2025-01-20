@@ -3,7 +3,7 @@ class Ox < Formula
   homepage "https://github.com/curlpipe/ox"
   url "https://github.com/curlpipe/ox/archive/refs/tags/0.7.6.tar.gz"
   sha256 "03f49425e889e9ee4b747de219261c5aaebbaac11a0aa7266dca4e4c2581f6c4"
-  license "GPL-2.0-only"
+  license "GPL-2.0-or-later"
   head "https://github.com/curlpipe/ox.git", branch: "master"
 
   bottle do
