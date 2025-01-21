@@ -1,0 +1,15 @@
+[
+  "llvm",
+  "llvm@11",
+  "llvm@12",
+  "llvm@13",
+  "llvm@14",
+  "llvm@15",
+  "llvm@16",
+  "llvm@17",
+  "llvm@18",
+  "logstash",
+  "openjdk@11",
+  "sourcery",
+  "swift"
+]
