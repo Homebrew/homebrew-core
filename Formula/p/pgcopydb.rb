@@ -25,10 +25,19 @@ class Pgcopydb < Formula
     system "make", "bin"
     libexec.install "src/bin/pgcopydb/pgcopydb"
 
-    (bin/"pgcopydb").write_env_script libexec/"pgcopydb", PATH: "#{Formula["libpq"].opt_bin}:$PATH"
+    (bin/"pgcopydb").write_env_script libexec/"pgcopydb", PATH: "$PATH:#{Formula["libpq"].opt_bin}"
 
     system "make", "-C", "docs", "man"
     man1.install Dir["docs/_build/man/*"]
+  end
+
+  def caveats
+    <<~EOS
+      Pgcopydb searches for PostgreSQL command-line tools in your system's PATH environment variable.
+      To use a specific PostgreSQL version's command-line tools, ensure they are accessible in your PATH.
+
+      When no PostgreSQL tools are found in PATH, pgcopydb defaults to using the command-line tools provided by the libpq formula.
+    EOS
   end
 
   test do
