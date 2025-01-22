@@ -3,18 +3,17 @@ class Molecule < Formula
 
   desc "Automated testing for Ansible roles"
   homepage "https://molecule.readthedocs.io"
-  url "https://files.pythonhosted.org/packages/57/bc/a6dcfca6e4cae04fdb4fc385bda0bc637a338b6d72dea79ba93eaa68e1d3/molecule-24.12.0.tar.gz"
-  sha256 "7243ff58e0b8159aa2cf465ba9605d657f1d614617264307bef5b32518467afe"
+  url "https://files.pythonhosted.org/packages/a0/26/bfeca24fbfbdf12be51a8cc25f51585b47a972162f392737bc909f40f763/molecule-25.1.0.tar.gz"
+  sha256 "d3d3346465e3e4cf8614db6b083e352b65c76bbe05e511af85fbf42f5950adde"
   license "MIT"
-  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "506ab38aa9b763883db8c672e1e4c12fcfe9433ec8986960e52322732e51426c"
-    sha256 cellar: :any,                 arm64_sonoma:  "86cf8aa2b1ef27e4d21ccdf6a3c16f5feff81b2646c0e75644f0d9bd61a7b997"
-    sha256 cellar: :any,                 arm64_ventura: "ea40af787e2acf56d89fe4e1c4d9bbe163bcba625e613c182ea018c2ed36de4e"
-    sha256 cellar: :any,                 sonoma:        "37cc9cf2215a6264d3ae9ca09aedcfac006581807e4b33e22d3fa0e940c32ac4"
-    sha256 cellar: :any,                 ventura:       "25dd451e32bca612be54269914565dff3b9a3833debfd5f85d2b8c67b7725e26"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "63975d6bd95f39ba3c378fc3a23ec915802bf54d8fcf42b2aa364e9e512e7dec"
+    sha256 cellar: :any,                 arm64_sequoia: "2ab0f85806365c8ef0230553ba5a76e17b30991899ac86c123300aee6dd7d016"
+    sha256 cellar: :any,                 arm64_sonoma:  "852fb9b7c7938180c741fc72638d0ce0331aa2bbd1db5ea576a09ae18058f5a2"
+    sha256 cellar: :any,                 arm64_ventura: "5a8064fd5159107f4fbc082c7d416c7ceb2034df485fcdc38726e1d1f0989e9f"
+    sha256 cellar: :any,                 sonoma:        "523af8f6dcc1e3072219092772a5dccf1c5641b2b33f64e8080ed10368f8a186"
+    sha256 cellar: :any,                 ventura:       "3dea6a9559f3a0354126d3b28e6b590fe3558b31574285c0c82ad06bbde39db3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "92f664492795f6e6ffefba0220e5b7baa464e8c4a59ae19530fa0990ef6f5988"
   end
 
   depends_on "rust" => :build
@@ -51,8 +50,8 @@ class Molecule < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/f2/4f/e1808dc01273379acc506d18f1504eb2d299bd4131743b9fc54d7be4df1e/charset_normalizer-3.4.0.tar.gz"
-    sha256 "223217c3d4f82c3ac5e29032b3f1c2eb0fb591b72161f86d93f5719079dae93e"
+    url "https://files.pythonhosted.org/packages/16/b0/572805e227f01586461c80e0fd25d65a2115599cc9dad142fee4b747c357/charset_normalizer-3.4.1.tar.gz"
+    sha256 "44251f18cd68a75b56585dd00dae26183e102cd5e0f9f1466e6df5da2ed64ea3"
   end
 
   resource "click" do
@@ -136,8 +135,8 @@ class Molecule < Formula
   end
 
   resource "pygments" do
-    url "https://files.pythonhosted.org/packages/8e/62/8336eff65bcbc8e4cb5d05b55faf041285951b6e80f33e2bff2024788f31/pygments-2.18.0.tar.gz"
-    sha256 "786ff802f32e91311bff3889f6e9a86e81505fe99f2735bb6d60ae0c5004f199"
+    url "https://files.pythonhosted.org/packages/7c/2d/c3338d48ea6cc0feb8446d8e6937e1408088a72a39937982cc6111d17f84/pygments-2.19.1.tar.gz"
+    sha256 "61c16d2a8576dc0649d9f39e089b5f02bcd27fba10d8fb4dcc28173f7a45151f"
   end
 
   resource "python-vagrant" do
@@ -151,8 +150,8 @@ class Molecule < Formula
   end
 
   resource "referencing" do
-    url "https://files.pythonhosted.org/packages/99/5b/73ca1f8e72fff6fa52119dbd185f73a907b1989428917b24cff660129b6d/referencing-0.35.1.tar.gz"
-    sha256 "25b42124a6c8b632a425174f24087783efb348a6f1e0008e63cd4466fedf703c"
+    url "https://files.pythonhosted.org/packages/27/32/fd98246df7a0f309b58cae68b10b6b219ef2eb66747f00dfb34422687087/referencing-0.36.1.tar.gz"
+    sha256 "ca2e6492769e3602957e9b831b94211599d2aade9477f5d44110d2530cf9aade"
   end
 
   resource "requests" do

@@ -1,19 +1,18 @@
 class Proxsuite < Formula
   desc "Advanced Proximal Optimization Toolbox"
   homepage "https://github.com/Simple-Robotics/proxsuite"
-  url "https://github.com/Simple-Robotics/proxsuite/releases/download/v0.6.7/proxsuite-0.6.7.tar.gz"
-  sha256 "3a397ba96ddcfe5ade150951f70f867a3741206a694e50588f954a94c4cf3f27"
+  url "https://github.com/Simple-Robotics/proxsuite/releases/download/v0.7.0/proxsuite-0.7.0.tar.gz"
+  sha256 "4c06393ed0db6a2633261b3f634d22f7dd824d19087c427f77d0d7a97665feb1"
   license "BSD-2-Clause"
   head "https://github.com/Simple-Robotics/proxsuite.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia: "17c4c49ce286bf188e68bf8733da74140789b5cc51da3096ceeb5f70b2dbd0f9"
-    sha256 cellar: :any,                 arm64_sonoma:  "4c934f75594487b26c8927880d1196ffdf12afbe728305d676520491843923ee"
-    sha256 cellar: :any,                 arm64_ventura: "36c0c84817b158b2ac9ceb2ca30544d39295b61d8d229da7e5305f44fc83d30e"
-    sha256 cellar: :any,                 sonoma:        "d099504148402fcfa3060f59b5b65e2459bceed8fa4636bebd0effcc3f8636b3"
-    sha256 cellar: :any,                 ventura:       "0e3685e0638e44eda4de48da0530bf20f53d322efa891dc1483dc34353e6c988"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "97379c1bf25c81521de0438d5b9afe7bbea1bb82526f3fafb4426be161dea449"
+    sha256 cellar: :any,                 arm64_sequoia: "98e52f4a4382d23c457305f3223d2d6c10213f5f520408d972fa870c9d715d28"
+    sha256 cellar: :any,                 arm64_sonoma:  "17e2bf24ff25a59f368cbb0e0814539c377b2019494817c303d3585a531ecd8d"
+    sha256 cellar: :any,                 arm64_ventura: "a31ae867d19011a52bf67f8aba8105e166420a3ca7c3079aaff49dfa49a7c22f"
+    sha256 cellar: :any,                 sonoma:        "c017387443d36d1458b3cdcc0507cb22e62523208b7f8074f66786d4ebc11646"
+    sha256 cellar: :any,                 ventura:       "4731b3eb108d5f477b5b77712c3230b9626368780fb9b107334eea8fd7c0addb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5e07332533c6419b3e10c0d1f8a970097d09bd83f02782483085b336976b606c"
   end
 
   depends_on "cmake" => :build

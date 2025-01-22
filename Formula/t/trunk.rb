@@ -1,18 +1,18 @@
 class Trunk < Formula
   desc "Build, bundle & ship your Rust WASM application to the web"
   homepage "https://trunkrs.dev/"
-  url "https://github.com/trunk-rs/trunk/archive/refs/tags/v0.21.6.tar.gz"
-  sha256 "2a444fa4df07d3d14e95c44ca25e467c24ee774394136a5bd6b285a26a0e6a30"
+  url "https://github.com/trunk-rs/trunk/archive/refs/tags/v0.21.7.tar.gz"
+  sha256 "28775d7082f37db33b6ce9ccf2a6e1000677df1ee6c4851f639da196f655341e"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/trunk-rs/trunk.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2a6a4a30d397c13344480bd9dd835a190366c7031207f8e53f0441f81fb8a705"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "be67b94c7dadc98c8089fcb49e82ceb934f2d90338e53ecbe777ccfc7a6d02e2"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "6ec9b14ea48e4828a3cd2b11a78755e58c07561a8efd46e732e7246b57613b45"
-    sha256 cellar: :any_skip_relocation, sonoma:        "3df9cf36ed94d249e10c1794198129dbd156e445224a4bd50898b25f27797f6e"
-    sha256 cellar: :any_skip_relocation, ventura:       "f106d854fd04424e17562edf6611f6a5e6da3a67822f4f328e7196d2b32ded2f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1f4b7c1fc1372f5d0a02144b6f2c0f973301e772c4229544de8034c30f708cfd"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "29b49f0b96cd5e70d79b88d971e4f72f82d1361f80d1603f871002dd2c1dad1b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d5b5242bed2a8b31cb56e008d46e80d9e9e2ce86f5721a74125d2d4bb4524545"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "0e91aea7c89e45e2bd3d1170daedfc45baeacef07191831425ccfd7559c518f3"
+    sha256 cellar: :any_skip_relocation, sonoma:        "4c576cdb2209e5c593e5f7926b7d053cd451e6ef880288a082b981ba5ad61967"
+    sha256 cellar: :any_skip_relocation, ventura:       "c7a07b0f6bf48c881de187d2b0f77c1446033946eaff1f5768346b663cc87173"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "43cd6392077b4de3c4a76e7152e2f8b127ca84bb009e1b3cde5d9efe70069dcd"
   end
 
   depends_on "pkgconf" => :build

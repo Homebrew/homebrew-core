@@ -1,18 +1,18 @@
 class Httm < Formula
   desc "Interactive, file-level Time Machine-like tool for ZFS/btrfs"
   homepage "https://github.com/kimono-koans/httm"
-  url "https://github.com/kimono-koans/httm/archive/refs/tags/0.44.1.tar.gz"
-  sha256 "8d06f174a51312e1cf5a5ef6c8ed921a5d64e82f2bb848eb5614b251b9275f69"
+  url "https://github.com/kimono-koans/httm/archive/refs/tags/0.45.0.tar.gz"
+  sha256 "e137779c8acbbee639d5f70c8fd1130d3697e163bfa35ea33117d8e1cc39e7e2"
   license "MPL-2.0"
   head "https://github.com/kimono-koans/httm.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f5bd60064a162f3146ac1cafd74e36c375caeec249f65c29a2a7cbaa86fbba20"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a27d2042982921a76b5f342efa41eef86f399414c9578f54b826f3029734f7bb"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "cee73e4ebb3209f6d3777285a73b3306c15a64b055a3f989edff3d1ab503f17d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "dab34df3936ab58ed41f68a9ca7c4c60e3dcea198fd4d998ab89f31d51a23016"
-    sha256 cellar: :any_skip_relocation, ventura:       "5e849c3e7a2d97765efea68cedd1106f7afb68411872eac9c046f7c40fbd41fb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ef0fcb92f0f8b924a7786bebdd446354b8d9b88637c49d04f165a4853f1d2c8d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4c23c04148c44964f3c05d8a84d63195be4318e9af76370ccc2dc5160f0c7c89"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "bb3456bb60ace4b019b3ac2c07eb49ecf7d4b534d4fc3ccb22f89cab049eb83c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "d44b946a01239826a7c8cf6cd7eff15908ba2bd407df9b7a56f1af9c11e8fc71"
+    sha256 cellar: :any_skip_relocation, sonoma:        "91c64da6b935fcc6ec713533b86349ffc952e0d8f16bd53dd0a42ca971958632"
+    sha256 cellar: :any_skip_relocation, ventura:       "2fb87df0804499d46fe291d15e06c86c29a1f7121484e31db476e11e58b94419"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "88508c3d1d2522dc24dc0ee703d3f21610bf49379e216b9ccf2c5c10f82abc19"
   end
 
   depends_on "rust" => :build

@@ -1,18 +1,18 @@
 class Litmusctl < Formula
   desc "Command-line interface for interacting with LitmusChaos"
   homepage "https://litmuschaos.io"
-  url "https://github.com/litmuschaos/litmusctl/archive/refs/tags/1.13.0.tar.gz"
-  sha256 "b23e39085a0c9ea20c1fc1aaed1bcbe83c7971780411f098f2fa08061c060e41"
+  url "https://github.com/litmuschaos/litmusctl/archive/refs/tags/1.14.0.tar.gz"
+  sha256 "a1cf50378e83cd256e96157fe86dbe3cd6ba8a5084606b90b765d17c74545ca3"
   license "Apache-2.0"
   head "https://github.com/litmuschaos/litmusctl.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "329e71753e085ea224fb8a3ad91aa63f03502590f1c4b5a9c539cfd7cf88f5c7"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "329e71753e085ea224fb8a3ad91aa63f03502590f1c4b5a9c539cfd7cf88f5c7"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "329e71753e085ea224fb8a3ad91aa63f03502590f1c4b5a9c539cfd7cf88f5c7"
-    sha256 cellar: :any_skip_relocation, sonoma:        "eb5c24fc54edb506d027bfd734760a843d42983665b4acf4ad25928f4fe06ff6"
-    sha256 cellar: :any_skip_relocation, ventura:       "eb5c24fc54edb506d027bfd734760a843d42983665b4acf4ad25928f4fe06ff6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ecc4d33eb7b1ae4f0ba0476e559019a528e4f5109930738151ee89fa914f24cd"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "90fb9bef26fbb9806799163a424df6b782a3a2a6aabe25fecd46f1e71dc56bf8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "90fb9bef26fbb9806799163a424df6b782a3a2a6aabe25fecd46f1e71dc56bf8"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "90fb9bef26fbb9806799163a424df6b782a3a2a6aabe25fecd46f1e71dc56bf8"
+    sha256 cellar: :any_skip_relocation, sonoma:        "08ce60980771acf45114ad7638bf71362ab6915aac532cb558da91b404d0bae3"
+    sha256 cellar: :any_skip_relocation, ventura:       "08ce60980771acf45114ad7638bf71362ab6915aac532cb558da91b404d0bae3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "56e20b89e4d92a491e12404ece0a0726f9fa5afd0e4741923473c2e8b1aed3fe"
   end
 
   depends_on "go" => :build

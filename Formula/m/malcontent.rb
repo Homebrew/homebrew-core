@@ -1,17 +1,17 @@
 class Malcontent < Formula
   desc "Supply Chain Attack Detection, via context differential analysis and YARA"
   homepage "https://github.com/chainguard-dev/malcontent"
-  url "https://github.com/chainguard-dev/malcontent/archive/refs/tags/v1.8.3.tar.gz"
-  sha256 "60c000026dd33d82c439bb4a926c1afa11694edaa59dbfdaa336516e052c7b44"
+  url "https://github.com/chainguard-dev/malcontent/archive/refs/tags/v1.8.4.tar.gz"
+  sha256 "9a0a412603c9374a39a05f3a3f2e9ece32606e3e5858523ae1c27d87e347349f"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "158c9d50aa7b82b95d0cb7c97a8df4cc84471d00c9a179c688cb13b4e754ee06"
-    sha256 cellar: :any,                 arm64_sonoma:  "0d5878d82f417b1e8d9c7ec41905de9650446e4717c67cb21310f08d51500f2d"
-    sha256 cellar: :any,                 arm64_ventura: "e626c553a6e2a6c88a612f89ef8dd68440a59eb04c8a930693b93d82ac3d415e"
-    sha256 cellar: :any,                 sonoma:        "10ca8b30ada6f3f322ff0b3b733c77ed2a8e79439b0bd95c17fe5f6b4d0de47f"
-    sha256 cellar: :any,                 ventura:       "2c5fd9e94e81544d2dfc54fd7600ff69c14e9b7c2358d4620d83b4ecaf514767"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "60c27887d6e00bd2be1b802b254df54e97d1854d795f0a4a0d3f3fa58733ed57"
+    sha256 cellar: :any,                 arm64_sequoia: "3aa0fa3cf4e4ecc8fae555d894e76934448bf4b6b2f980d837d2a8099f14d3bc"
+    sha256 cellar: :any,                 arm64_sonoma:  "086a5eb0535429af8ae358b96dc1910fe42e1465fa2fdcc88cc95e00ad4d7881"
+    sha256 cellar: :any,                 arm64_ventura: "d97a80b78a1daec1b1f4aa281809858bcfdfafd283b3ffad538659c48fc5b41b"
+    sha256 cellar: :any,                 sonoma:        "3bc8e1ce3cf082ad549a14f9b1bd7779e15131370cf3cb96af9839b6f6c8e2b6"
+    sha256 cellar: :any,                 ventura:       "26b32baffc565e7818f3f56b232d811d9e7d1c2afaad1212e72f081482496e64"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b5e40a5a136b32e805be5fb017309bae59a95cd0d3fa6c51b38be7e2981b819c"
   end
 
   depends_on "go" => :build

@@ -1,8 +1,8 @@
 class NodeAT22 < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v22.13.0/node-v22.13.0.tar.xz"
-  sha256 "e50db6730716ba2ae953cf99d10c80295bd33bb72d3c829d9e99f6af56d626c7"
+  url "https://nodejs.org/dist/v22.13.1/node-v22.13.1.tar.xz"
+  sha256 "cfce282119390f7e0c2220410924428e90dadcb2df1744c0c4a0e7baae387cc2"
   license "MIT"
 
   livecheck do
@@ -11,12 +11,12 @@ class NodeAT22 < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "d977e2ee875b1faebc1a13d70b4d69a56d5942b024b1e1db6a57cda366a8a199"
-    sha256 arm64_sonoma:  "2da3d827f9171349163dbfca8633c14875a8798f75ff54bba9632992276b622f"
-    sha256 arm64_ventura: "70d5963616afba9cece88d5895508aa5b0ef528842b5b09c7225406c7f839475"
-    sha256 sonoma:        "07df64e9d73fd9955eb90170bb604355545fd598b46ebca39eafad819eb648ac"
-    sha256 ventura:       "5a60f44287f2f00ebf019e319bce2035cf490791e9292f3ef4d096b3bf87e267"
-    sha256 x86_64_linux:  "f70313fb80f2f214af76f17408ae6e08b36bfc2003ea3270611e42c2f3604bd1"
+    sha256 arm64_sequoia: "48c655457ef71270ea52a0b0bb5bba9ff1fd5f8e4896abce5f8f5f5b9c1d65cd"
+    sha256 arm64_sonoma:  "dec070d69c12d5feb7af9d3ef3b8b027c956620ae6dc9dd562f376b85242b9be"
+    sha256 arm64_ventura: "b6303af22e9b88ed9ca87eb5c027574e561d8c8f52cacba5db5a372acacee07f"
+    sha256 sonoma:        "d6d71961dea8c69527b7a038a41f53a6d2fc13578398d7ca9303cfaaf05aaa43"
+    sha256 ventura:       "b528303b6af305975bfe90d4b683023018e74e3ffdb5e335bfad6095d704b172"
+    sha256 x86_64_linux:  "e913b1b7b7ed4721e01d4878f4f1326bffcc990bb9d5cb40f7155dd032c36325"
   end
 
   keg_only :versioned_formula

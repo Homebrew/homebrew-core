@@ -6,12 +6,9 @@ class Msgpack < Formula
   license "BSL-1.0"
   head "https://github.com/msgpack/msgpack-c.git", branch: "c_master"
 
-  # Upstream creates releases that use a stable tag (e.g., `v1.2.3`) but are
-  # labeled as "pre-release" on GitHub before the version is released, so it's
-  # necessary to use the `GithubLatest` strategy.
   livecheck do
     url :stable
-    strategy :github_latest
+    regex(/^c[._-]v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do

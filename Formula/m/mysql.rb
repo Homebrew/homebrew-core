@@ -1,10 +1,9 @@
 class Mysql < Formula
   desc "Open source relational database management system"
-  homepage "https://dev.mysql.com/doc/refman/9.1/en/"
-  url "https://cdn.mysql.com/Downloads/MySQL-9.1/mysql-9.1.0.tar.gz"
-  sha256 "52c3675239bfd9d3c83224ff2002aa6e286fab97bf5b2b5ca1a85c9c347766fc"
+  homepage "https://dev.mysql.com/doc/refman/9.2/en/"
+  url "https://cdn.mysql.com/Downloads/MySQL-9.2/mysql-9.2.0.tar.gz"
+  sha256 "a39d11fdf6cf8d1b03b708d537a9132de4b99a9eb4d610293937f0687cd37a12"
   license "GPL-2.0-only" => { with: "Universal-FOSS-exception-1.0" }
-  revision 1
 
   livecheck do
     url "https://dev.mysql.com/downloads/mysql/?tpl=files&os=src"
@@ -12,12 +11,12 @@ class Mysql < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "d9a963c18839b98d79a14b587d353ca933b7edbd2de3c45e0a5c58f0eaa65567"
-    sha256 arm64_sonoma:  "d279d20a37b20204f9c0dfc05338d58fd9cbc98250bd65d7eeb29acab52743dd"
-    sha256 arm64_ventura: "5c9fba6284e8f9694d9d55afcec5efbdf1d913b3cea91d6490aed80878410000"
-    sha256 sonoma:        "d9d35a86cc96b41d3ed4db562eabe0bf80b5605c1d6da8b15213816047a6599b"
-    sha256 ventura:       "e9c4ea5838ea1605c2f42ba58d807b385c9755ab1ddadfd9e36224ca6ea2644d"
-    sha256 x86_64_linux:  "3aa8008c76e458d5c93f7f82f2a830ef124f490ccd3dd70ebbf927e403cd4271"
+    sha256 arm64_sequoia: "e68409722ac0d0f2cb7632458bcb29dfca76c395c99e6a97a2ea973710089208"
+    sha256 arm64_sonoma:  "01f9df0f35e6b977d394bba0c2df1c77486d6d89cf902e453efdf4749182b4db"
+    sha256 arm64_ventura: "23bbbd590674f0e08d0baa08f2aeba8cb9443df521e3c97d0cba3564f1b12db8"
+    sha256 sonoma:        "a7ca40f8824b33fb1d6061820e152c885c28632b3584a9303e5660f3d4c74ec3"
+    sha256 ventura:       "bba71c25b8bb0520448d4e54f776c1c46e46d55200a1d04db4ec48734fe76999"
+    sha256 x86_64_linux:  "9d6aebb967cfb22f09bdd8e37f15e6051af802ce0eacf6373537b3d58457fdd9"
   end
 
   depends_on "bison" => :build

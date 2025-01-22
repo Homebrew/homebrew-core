@@ -34,6 +34,7 @@ aiven-client
 akamai
 alda
 alembic
+algernon
 algol68g
 aliae
 aliddns
@@ -262,6 +263,7 @@ bind
 bindfs
 bindgen
 bingrep
+binocle
 binsider
 biodiff
 biome
@@ -334,6 +336,7 @@ c-ares
 c-blosc
 c-blosc2
 c2048
+c2patool
 c2rust
 c3c
 c4core
@@ -365,6 +368,7 @@ cargo-binstall
 cargo-bloat
 cargo-bundle
 cargo-c
+cargo-cache
 cargo-chef
 cargo-crev
 cargo-cyclonedx

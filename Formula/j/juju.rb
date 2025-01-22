@@ -1,8 +1,8 @@
 class Juju < Formula
   desc "DevOps management tool"
   homepage "https://juju.is/"
-  url "https://launchpad.net/juju/3.6/3.6.1/+download/juju-core_3.6.1.tar.gz"
-  sha256 "11b036d7f96fac0e403fcff673b9cf7ab6dfbce636a976d7006b413114490dde"
+  url "https://launchpad.net/juju/3.6/3.6.2/+download/juju-core_3.6.2.tar.gz"
+  sha256 "d4fe880b8547e416904e337a4b9737617212f12c089149a5e000d4304ada552f"
   license "AGPL-3.0-only"
   version_scheme 1
   head "https://github.com/juju/juju.git", branch: "develop"
@@ -16,12 +16,12 @@ class Juju < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e7182dc9f48bbaae9f1c40c851a91587a8a401ce94b4590ec5f0d11d940091a0"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a33fb2f15c6911bb33368f5b62964f42b2da7ba6710ca01907e3d82befb4d880"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "9504cc4d2be16033162abbe553dec377437233a6d560fb789faaa377c98fbcfd"
-    sha256 cellar: :any_skip_relocation, sonoma:        "fd8a56fe91b0e7c4193dc8ed13a7d28ec589c3ea07e04e4cc04682272734ae2f"
-    sha256 cellar: :any_skip_relocation, ventura:       "8e4eda0121c5ca91fcb84462b89b25caa7f85d84d1d85983cd4ce6aa808e2712"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ef2a159cbaa7dd44bb537662c2158afde2b166b294915214f5fba45b4dbb4386"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ec006d5e132b72f705e70ba37372d174eabb0d476208bb6612c7d486ac3cc544"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6bbbdfd6d9c0fd35ca40d3f2f2d6ce1794aa26cd956bff02fb9971a2d45bb282"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "914126f4a4c034a2bef01099c10b89d79d10154269d6953fc5dbfcc6360b26a3"
+    sha256 cellar: :any_skip_relocation, sonoma:        "ac07a6009dbb4a024cf10b33c7859bdc2c2d1a879b617f3f5ed2e3abe60086ea"
+    sha256 cellar: :any_skip_relocation, ventura:       "44d7386053135bb1ae4e308d2f11b3f69e278230c79ab57e68fbce1a0d5a9527"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2fefd5a24583fb310c1da0c5b5beac987a962ebc7f00536edaa12fa8cba16534"
   end
 
   depends_on "go" => :build

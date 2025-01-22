@@ -1,8 +1,8 @@
 class MysqlClient < Formula
   desc "Open source relational database management system"
-  homepage "https://dev.mysql.com/doc/refman/9.1/en/"
-  url "https://cdn.mysql.com/Downloads/MySQL-9.1/mysql-9.1.0.tar.gz"
-  sha256 "52c3675239bfd9d3c83224ff2002aa6e286fab97bf5b2b5ca1a85c9c347766fc"
+  homepage "https://dev.mysql.com/doc/refman/9.2/en/"
+  url "https://cdn.mysql.com/Downloads/MySQL-9.2/mysql-9.2.0.tar.gz"
+  sha256 "a39d11fdf6cf8d1b03b708d537a9132de4b99a9eb4d610293937f0687cd37a12"
   license "GPL-2.0-only" => { with: "Universal-FOSS-exception-1.0" }
 
   livecheck do
@@ -10,12 +10,12 @@ class MysqlClient < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "57bd260ff2bb4438de6c026f47e42173803a22623aa4a391ad4b4bd4363df01a"
-    sha256 arm64_sonoma:  "64fb448cdd43c733d1a36bdc5bd313e98fe819cab4a68f1c0dc1c01f3f8b2e9c"
-    sha256 arm64_ventura: "873df2cd90b7ebaf2fb7691b87be0cde4b0afcad6ad126f6a09572ec5c1d062c"
-    sha256 sonoma:        "e68d457789de2bf7f9071c06f5874f595cfc5933b52344800cc7deda1fbc3044"
-    sha256 ventura:       "a0db8fd37329414aedfb1be8def7ce698084468c2e34575deae563d4f67f5591"
-    sha256 x86_64_linux:  "b7d775433dc1802356181133202bd2468b9b569a2f9a367d87b4556f8f0f7057"
+    sha256 arm64_sequoia: "d7cbacfd9a72ce4175cca92f698bf6d5b0ad876cfe7ad56583da4eb47e711fb8"
+    sha256 arm64_sonoma:  "3518276d4ee3de355b13536159cd12e08806310533dd1f0b0ec0283e8a115b23"
+    sha256 arm64_ventura: "bf42757730352f5e72a9e82aa9f03d57e4489b246c56a26a6eb98a4f374e7ddd"
+    sha256 sonoma:        "d84203856589cfde7c8a240ea663f5867604312857b32c4a012f4f118bd46b68"
+    sha256 ventura:       "4f6d8d1fd35cef9713e9aaa04c363397db6d0956d28a29d0edc3440633ac7daa"
+    sha256 x86_64_linux:  "e701db03a28393941bfe883ad5a7c5f324285cffb16ad19a14a19da669ef54c3"
   end
 
   keg_only "it conflicts with mysql (which contains client libraries)"
@@ -38,6 +38,11 @@ class MysqlClient < Formula
   on_ventura :or_older do
     depends_on "llvm@18"
     fails_with :clang
+  end
+
+  on_linux do
+    depends_on "libtirpc" => :build
+    depends_on "krb5"
   end
 
   fails_with :gcc do

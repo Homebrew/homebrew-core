@@ -1,17 +1,17 @@
 class Grizzly < Formula
   desc "Command-line tool for managing and automating Grafana dashboards"
   homepage "https://grafana.github.io/grizzly/"
-  url "https://github.com/grafana/grizzly/archive/refs/tags/v0.6.1.tar.gz"
-  sha256 "bd5ed75eb4d7cf96cf58e58f7f134c9a4e803bf2237a8a8a1b9bc99176fc147d"
+  url "https://github.com/grafana/grizzly/archive/refs/tags/v0.7.0.tar.gz"
+  sha256 "7d8c461b8c56e617691f2062ba3a258ba239cbae6dddff7a34ccb9697c1421ef"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "222d3c70d76f6ccdc610e1239c9350602574511542ff34d8c45cc6ee6481a082"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "222d3c70d76f6ccdc610e1239c9350602574511542ff34d8c45cc6ee6481a082"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "222d3c70d76f6ccdc610e1239c9350602574511542ff34d8c45cc6ee6481a082"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e975a7122d07d2f3d9cba8fefd4be4598233d6b0877d902c386bc36c740601b4"
-    sha256 cellar: :any_skip_relocation, ventura:       "e975a7122d07d2f3d9cba8fefd4be4598233d6b0877d902c386bc36c740601b4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3a7070c9babdae827a599c6f6fab27ade707b7026b104e807492a37b19af5f03"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "182ef9838cb68ca168c9310e04be2136c6c7920f95035f360e1fba2d01ae8116"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "182ef9838cb68ca168c9310e04be2136c6c7920f95035f360e1fba2d01ae8116"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "182ef9838cb68ca168c9310e04be2136c6c7920f95035f360e1fba2d01ae8116"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f071774226ab0138ab2154913f6c8e0bbe2bb8d4b68ed4293bfa0889a9703e15"
+    sha256 cellar: :any_skip_relocation, ventura:       "f071774226ab0138ab2154913f6c8e0bbe2bb8d4b68ed4293bfa0889a9703e15"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fcc49d4991e6013fc69f02804527388c8fa88afdf38525dda02efa01fe52828b"
   end
 
   depends_on "go" => :build
