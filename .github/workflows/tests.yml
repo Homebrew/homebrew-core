@@ -212,7 +212,7 @@ jobs:
     strategy:
       matrix:
         include: ${{fromJson(needs.setup_runners.outputs.runners)}}
-      fail-fast: ${{fromJson(needs.setup_tests.outputs.fail-fast)}}
+      fail-fast: false
     name: ${{matrix.name}}
     runs-on: ${{matrix.runner}}
     container: ${{matrix.container}}
