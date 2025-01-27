@@ -21,7 +21,6 @@ class Manim < Formula
   depends_on "ninja" => :build
   depends_on "pkgconf" => :build
   depends_on "cairo" # for cairo.h
-  depends_on "ffmpeg"
   depends_on "fontconfig"
   depends_on "freetype"
   depends_on "glib"
