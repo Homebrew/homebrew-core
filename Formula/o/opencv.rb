@@ -61,6 +61,7 @@ class Opencv < Formula
   depends_on "openvino"
   depends_on "protobuf"
   depends_on "python@3.13"
+  depends_on "qt"
   depends_on "tbb"
   depends_on "tesseract"
   depends_on "vtk"
@@ -130,7 +131,7 @@ class Opencv < Formula
       -DWITH_OPENEXR=ON
       -DWITH_OPENGL=OFF
       -DWITH_OPENVINO=ON
-      -DWITH_QT=OFF
+      -DWITH_QT=ON
       -DWITH_TBB=ON
       -DWITH_VTK=ON
       -DBUILD_opencv_python2=OFF
