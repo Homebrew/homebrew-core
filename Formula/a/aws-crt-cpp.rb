@@ -26,11 +26,26 @@ class AwsCrtCpp < Formula
   depends_on "aws-c-sdkutils"
   depends_on "aws-checksums"
 
+  # Backport support for newer `aws-c-mqtt`. Using commits from PR to cleanly apply following:
+  # https://github.com/awslabs/aws-crt-cpp/commit/11fb6c0936013d6c36e44cdef265548822034d59
+  patch do
+    url "https://github.com/awslabs/aws-crt-cpp/commit/7627b482369c952a47982ee17b4ddeff6247e66e.patch?full_index=1"
+    sha256 "b934879af4c96b704276ff6159784b06fa210c42ab163ecaa9bd7a2dfd806027"
+  end
+  patch do
+    url "https://github.com/awslabs/aws-crt-cpp/commit/47b07b2bbae9e946de12bb5731c826dfaffbc224.patch?full_index=1"
+    sha256 "56336bdc977b479a38b24657ff3b4fdaf56747f79b62cadc141ef69a7c71678f"
+  end
+  patch do
+    url "https://github.com/awslabs/aws-crt-cpp/commit/8555c77fb353d73891d8f92df8d7a7161ad443ad.patch?full_index=1"
+    sha256 "b6ef264786434c0d063ef1e276b22f1a697ab5e0e03951db5e7daee211213ff3"
+  end
+
   def install
     args = %W[
       -DBUILD_DEPS=OFF
       -DBUILD_SHARED_LIBS=ON
-      -DCMAKE_MODULE_PATH=#{Formula["aws-c-common"].opt_lib}/cmake
+      -DCMAKE_MODULE_PATH=#{Formula["aws-c-common"].opt_lib}/cmake/aws-c-common/modules
     ]
     # Avoid linkage to `aws-c-compression`
     args << "-DCMAKE_SHARED_LINKER_FLAGS=-Wl,-dead_strip_dylibs" if OS.mac?
