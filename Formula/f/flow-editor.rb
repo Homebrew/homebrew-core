@@ -1,0 +1,32 @@
+class FlowEditor < Formula
+  version "0.2.1"
+  desc "Flow Control: a programmer's text editor"
+  homepage "https://github.com/neurocyte/flow"
+  stable do
+    url "https://github.com/neurocyte/flow/archive/refs/tags/#{version}.tar.gz"
+    sha256 "826097db34fe8ed012a0409872b1d46f9aa950949c551faf82a6c3f2b184532d"
+  end
+
+  head do
+    url "https://github.com/neurocyte/flow.git", branch: "master"
+  end
+  license "MIT"
+
+  depends_on "zig"
+
+  def install
+    # Remove the unsupported -Dversion flag
+    system "zig", "build", "-Doptimize=ReleaseSafe"
+    bin.install "zig-out/bin/flow"
+  end
+
+  test do
+    # Test that the binary exists and is executable
+    assert_predicate bin/"flow", :exist?, "Binary not found"
+    assert_predicate bin/"flow", :executable?, "Binary is not executable"
+
+    # Check for generic version output
+    output = shell_output("#{bin}/flow --version")
+    assert_match "unknown", output, "Unexpected version output: #{output}"
+  end
+end
