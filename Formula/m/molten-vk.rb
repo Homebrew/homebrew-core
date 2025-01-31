@@ -179,9 +179,9 @@ class MoltenVk < Formula
                         "MoltenVKShaderConverter"]
 
     inreplace "MoltenVK/icd/MoltenVK_icd.json",
-              "./libMoltenVK.dylib",
-              (lib/"libMoltenVK.dylib").relative_path_from(share/"vulkan/icd.d")
-    (share/"vulkan").install "MoltenVK/icd" => "icd.d"
+              "\"./libMoltenVK.dylib\"",
+              "\"#{lib}/libMoltenVK.dylib\""
+    (prefix/"etc/vulkan").install "MoltenVK/icd" => "icd.d"
   end
 
   test do
