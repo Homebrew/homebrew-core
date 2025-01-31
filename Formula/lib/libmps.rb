@@ -17,29 +17,21 @@ class Libmps < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "c54043c0fcf718172a1d9f20e9eae7287180d26f4306f652c19f3d460faf68e9"
   end
 
-  depends_on xcode: :build
-
   def install
-    if OS.mac?
-      # macOS build process
-      # for build native but not universal binary
-      # https://github.com/Ravenbrook/mps/blob/master/manual/build.txt
-      xcodebuild "-scheme", "mps",
-                 "-configuration", "Release",
-                 "-project", "code/mps.xcodeproj",
-                 "OTHER_CFLAGS=-Wno-error=unused-but-set-variable -Wno-unused-but-set-variable"
+    cd "code" do
+      # Universal build process for all platforms
+      # Build Release version
+      system ENV.cc, "-O2", "-c", "mps.c", "-o", "mps.o"
+      system "ar", "rvs", "libmps.a", "mps.o"
+      lib.install "libmps.a"
 
-      # Install the static library
-      lib.install "code/xc/Release/libmps.a"
+      # Build Debug version
+      system ENV.cc, "-O0", "-g", "-DCONFIG_VAR_COOL", "-c", "mps.c", "-o", "mps-debug.o"
+      system "ar", "rvs", "libmps-debug.a", "mps-debug.o"
+      lib.install "libmps-debug.a"
 
-      # Install header files
-      include.install Dir["code/mps*.h"]
-
-    else
-      ENV.deparallelize
-      system "./configure", "--prefix=#{prefix}"
-      system "make"
-      system "make", "install"
+      # Install headers
+      include.install Dir["mps*.h"]
     end
   end
 
