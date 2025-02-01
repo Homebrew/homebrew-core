@@ -113,7 +113,6 @@ class Podman < Formula
       end
 
       system "gmake", "podman-remote-darwin-docs"
-      man1.install Dir["docs/build/remote/darwin/*.1"]
 
       bash_completion.install "completions/bash/podman"
       zsh_completion.install "completions/zsh/_podman"
