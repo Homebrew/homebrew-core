@@ -19,6 +19,8 @@ class Rdap < Formula
 
   depends_on "go" => :build
 
+  conflicts_with "icann-rdap", because: "icann-rdap also ships a rdap binary"
+
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/rdap"
   end
