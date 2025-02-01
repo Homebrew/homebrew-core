@@ -4,8 +4,8 @@ class Rust < Formula
   license any_of: ["Apache-2.0", "MIT"]
 
   stable do
-    url "https://static.rust-lang.org/dist/rustc-1.84.0-src.tar.gz"
-    sha256 "15cee7395b07ffde022060455b3140366ec3a12cbbea8f1ef2ff371a9cca51bf"
+    url "https://static.rust-lang.org/dist/rustc-1.84.1-src.tar.gz"
+    sha256 "5e2fb5d49628a549f7671b2ccf9855ab379fd442831a7c2af16e0cdcc31bb375"
 
     # From https://github.com/rust-lang/rust/tree/#{version}/src/tools
     resource "cargo" do
