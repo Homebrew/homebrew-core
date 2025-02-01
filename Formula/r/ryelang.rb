@@ -22,9 +22,12 @@ class Ryelang < Formula
 
   depends_on "go" => :build
 
+  conflicts_with "rye", because: "both install `rye` binaries"
+
   def install
     ENV["CGO_ENABLED"] = OS.mac? ? "1" : "0"
-    system "go", "build", *std_go_args(ldflags: "-s -w")
+    system "go", "build", *std_go_args(ldflags: "-s -w", output: bin/"rye")
+    bin.install_symlink "rye" => "ryelang" # for backward compatibility
   end
 
   test do
@@ -33,7 +36,7 @@ class Ryelang < Formula
       "12 8 12 16 8 6" .load .unique .sum |print
     EOS
     assert_predicate testpath/"hello.rye", :exist?
-    output = shell_output("#{bin}/ryelang hello.rye 2>&1")
+    output = shell_output("#{bin}/rye hello.rye 2>&1")
     assert_equal "Hello Mars\n42", output.strip
   end
 end

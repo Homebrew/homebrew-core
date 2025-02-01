@@ -1,6 +1,6 @@
 class Rye < Formula
-  desc "Experimental Package Management Solution for Python"
-  homepage "https://rye-up.com/"
+  desc "Package Management Solution for Python (consider the successor \"uv\" instead)"
+  homepage "https://rye.astral.sh/"
   url "https://github.com/astral-sh/rye/archive/refs/tags/0.43.0.tar.gz"
   sha256 "e4106514141a2369802852346ad652f9b10d30b42e89d2e8e6c4a1dcbc65db6b"
   license "MIT"
@@ -23,6 +23,8 @@ class Rye < Formula
     depends_on "pkgconf" => :build
     depends_on "openssl@3"
   end
+
+  conflicts_with "ryelang", because: "both install `rye` binaries"
 
   def install
     system "cargo", "install", *std_cargo_args(path: "rye")
