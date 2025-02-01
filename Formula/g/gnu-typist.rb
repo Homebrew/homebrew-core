@@ -1,9 +1,9 @@
 class GnuTypist < Formula
   desc "GNU typing tutor"
   homepage "https://www.gnu.org/software/gtypist/"
-  url "https://ftp.gnu.org/gnu/gtypist/gtypist-2.10.tar.xz"
-  mirror "https://ftpmirror.gnu.org/gtypist/gtypist-2.10.tar.xz"
-  sha256 "f1e79cd95742c84c6d035f6d8f393a2a1be0e00b1c016a22462df16d6667562c"
+  url "https://ftp.gnu.org/gnu/gtypist/gtypist-2.10.1.tar.xz"
+  mirror "https://ftpmirror.gnu.org/gtypist/gtypist-2.10.1.tar.xz"
+  sha256 "6b734c307e6d0a69af1d3b1ca3c97282ddbce7359b6b816f0f120460c6795ffb"
   license "GPL-3.0-or-later"
 
   bottle do
