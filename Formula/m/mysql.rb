@@ -34,11 +34,14 @@ class Mysql < Formula
   uses_from_macos "cyrus-sasl"
   uses_from_macos "libedit"
 
-  # std::string_view is not fully compatible with the libc++ shipped
-  # with ventura, so we need to use the LLVM libc++ instead.
   on_ventura :or_older do
-    depends_on "llvm@18"
-    fails_with :clang
+    depends_on "llvm"
+    fails_with :clang do
+      cause <<~EOS
+        std::string_view is not fully compatible with the libc++ shipped
+        with ventura, so we need to use the LLVM libc++ instead.
+      EOS
+    end
   end
 
   on_linux do
@@ -73,18 +76,11 @@ class Mysql < Formula
       # Disable ABI checking
       inreplace "cmake/abi_check.cmake", "RUN_ABI_CHECK 1", "RUN_ABI_CHECK 0"
     elsif MacOS.version <= :ventura
-      ENV["CC"] = Formula["llvm@18"].opt_bin/"clang"
-      ENV["CXX"] = Formula["llvm@18"].opt_bin/"clang++"
-
-      # The dependencies need to be explicitly added to the environment
-      deps.each do |dep|
-        next if dep.build? || dep.test?
-
-        ENV.append "CXXFLAGS", "-I#{dep.to_formula.opt_include}"
-        ENV.append "LDFLAGS", "-L#{dep.to_formula.opt_lib}"
-      end
-
-      ENV.append "LDFLAGS", "-L#{Formula["llvm@18"].opt_lib}/c++ -L#{Formula["llvm@18"].opt_lib} -lunwind"
+      ENV.llvm_clang
+      ENV.append "LDFLAGS", "-L#{Formula["llvm"].opt_lib}/unwind -lunwind"
+      # When using Homebrew's superenv shims, we need to use HOMEBREW_LIBRARY_PATHS
+      # rather than LDFLAGS for libc++ in order to correctly link to LLVM's libc++.
+      ENV.prepend_path "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib/"c++"
     end
 
     icu4c = deps.find { |dep| dep.name.match?(/^icu4c(@\d+)?$/) }
@@ -114,19 +110,6 @@ class Mysql < Formula
       -DWITH_ZSTD=system
       -DWITH_UNIT_TESTS=OFF
     ]
-
-    # Add the dependencies to the CMake args
-    if OS.mac? && MacOS.version <=(:ventura)
-      args += %W[
-        -DABSL_INCLUDE_DIR=#{Formula["abseil"].opt_include}
-        -DICU_ROOT=#{Formula["icu4c@76"].opt_prefix}
-        -DLZ4_INCLUDE_DIR=#{Formula["lz4"].opt_include}
-        -DOPENSSL_INCLUDE_DIR=#{Formula["openssl@3"].opt_include}
-        -DPROTOBUF_INCLUDE_DIR=#{Formula["protobuf"].opt_include}
-        -DZLIB_INCLUDE_DIR=#{Formula["zlib"].opt_include}
-        -DZSTD_INCLUDE_DIR=#{Formula["zstd"].opt_include}
-      ]
-    end
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
