@@ -1,10 +1,9 @@
 class Fbthrift < Formula
   desc "Facebook's branch of Apache Thrift, including a new C++ server"
   homepage "https://github.com/facebook/fbthrift"
-  url "https://github.com/facebook/fbthrift/archive/refs/tags/v2024.12.02.00.tar.gz"
-  sha256 "c394eb7a607c54f6ec57979b06f4ebdcab6b3ae66ef71ad4a532b98ed39027fe"
+  url "https://github.com/facebook/fbthrift/archive/refs/tags/v2025.01.13.00.tar.gz"
+  sha256 "fea4364c6c28b0f488208a4ce3eee70c2596be7859d7d478fb14f4767fccb8e1"
   license "Apache-2.0"
-  revision 3
   head "https://github.com/facebook/fbthrift.git", branch: "main"
 
   bottle do
@@ -16,7 +15,6 @@ class Fbthrift < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "e857beb6da7183df4c265b141c1b22fea36fbd412a6e19ca3543264a7d704d84"
   end
 
-  depends_on "bison" => :build # Needs Bison 3.1+
   depends_on "cmake" => [:build, :test]
   depends_on "mvfst" => [:build, :test]
   depends_on "double-conversion"
@@ -33,10 +31,6 @@ class Fbthrift < Formula
   uses_from_macos "flex" => :build
   uses_from_macos "python" => :build
   uses_from_macos "zlib"
-
-  on_macos do
-    depends_on "llvm" if DevelopmentTools.clang_build_version <= 1100
-  end
 
   on_linux do
     depends_on "boost"
@@ -55,13 +49,17 @@ class Fbthrift < Formula
     # Issue ref: https://github.com/facebook/fbthrift/issues/607
     ENV.append "CXXFLAGS", "-fno-assume-unique-vtables" if DevelopmentTools.clang_build_version >= 1600
 
-    ENV.llvm_clang if OS.mac? && (DevelopmentTools.clang_build_version <= 1100)
     ENV["OPENSSL_ROOT_DIR"] = Formula["openssl@3"].opt_prefix
 
     # The static libraries are a bit annoying to build. If modifying this formula
     # to include them, make sure `bin/thrift1` links with the dynamic libraries
     # instead of the static ones (e.g. `libcompiler_base`, `libcompiler_lib`, etc.)
-    shared_args = ["-DBUILD_SHARED_LIBS=ON", "-DCMAKE_INSTALL_RPATH=#{rpath}", "-DCMAKE_POSITION_INDEPENDENT_CODE=ON"]
+    shared_args = %W[
+      -DBUILD_SHARED_LIBS=ON
+      -DCMAKE_INSTALL_RPATH=#{rpath}
+      -DCMAKE_POSITION_INDEPENDENT_CODE=ON
+      -Denable_tests=OFF
+    ]
     shared_args << "-DCMAKE_SHARED_LINKER_FLAGS=-Wl,-undefined,dynamic_lookup -Wl,-dead_strip_dylibs" if OS.mac?
 
     system "cmake", "-S", ".", "-B", "build/shared", *shared_args, *std_cmake_args
