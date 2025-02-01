@@ -131,6 +131,7 @@ assimp
 ast-grep
 astgen
 astro
+astroterm
 astrometry-net
 astyle
 asuka
