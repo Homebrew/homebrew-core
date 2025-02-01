@@ -1,8 +1,8 @@
 class Topiary < Formula
   desc "Uniform formatter for simple languages, as part of the Tree-sitter ecosystem"
   homepage "https://topiary.tweag.io/"
-  url "https://github.com/tweag/topiary/archive/refs/tags/v0.5.1.tar.gz"
-  sha256 "7c84c7f1c473609153895c8857a35925e2c0d623e60f3ee00255202c2461785a"
+  url "https://github.com/tweag/topiary/archive/refs/tags/v0.6.0.tar.gz"
+  sha256 "864f91de6bd113c1be26d019e69fc248e037d8fba2814817c6263eebea673a29"
   license "MIT"
 
   bottle do
