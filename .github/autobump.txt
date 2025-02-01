@@ -2028,6 +2028,7 @@ lttng-ust
 lua
 luacheck
 luajit-openresty
+luanti
 luarocks
 luau
 lucky-commit
@@ -2153,7 +2154,6 @@ millet
 mimalloc
 mimirtool
 minder
-minetest
 minica
 minigraph
 minijinja-cli
