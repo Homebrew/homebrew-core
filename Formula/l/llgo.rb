@@ -1,8 +1,8 @@
 class Llgo < Formula
   desc "Go compiler based on LLVM integrate with the C ecosystem and Python"
   homepage "https://github.com/goplus/llgo"
-  url "https://github.com/goplus/llgo/archive/refs/tags/v0.9.9.tar.gz"
-  sha256 "705fed97ef8b337863fd9bbb40653c22fd93ba689f879db06801d37e5d8fe809"
+  url "https://github.com/goplus/llgo/archive/refs/tags/v0.10.0-pre.1.tar.gz"
+  sha256 "5fdfe540ee1d443ae0572667d22fcf124b435d3e14c45006355e92887272c32f"
   license "Apache-2.0"
 
   bottle do
@@ -37,13 +37,15 @@ class Llgo < Formula
 
     ldflags = %W[
       -s -w
-      -X github.com/goplus/llgo/x/env.buildVersion=v#{version}
-      -X github.com/goplus/llgo/x/env.buildTime=#{time.iso8601}
+      -X github.com/goplus/llgo/compiler/internal/env.buildVersion=v#{version}
+      -X github.com/goplus/llgo/compiler/internal/env.buildTime=#{time.iso8601}
       -X github.com/goplus/llgo/xtool/env/llvm.ldLLVMConfigBin=#{llvm.opt_bin/"llvm-config"}
     ]
     build_args = *std_go_args(ldflags:)
     build_args += ["-tags", "byollvm"] if OS.linux?
-    system "go", "build", *build_args, "-o", libexec/"bin/", "./cmd/llgo"
+    cd "compiler" do
+      system "go", "build", *build_args, "-o", libexec/"bin/", "./cmd/llgo"
+    end
 
     libexec.install "LICENSE", "README.md"
 
