@@ -2870,6 +2870,7 @@ scala@2.13
 scala@3.3
 scalapack
 scalingo
+scalr-cli
 scamper
 scarb
 scc
