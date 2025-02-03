@@ -23,6 +23,16 @@ class Stashapp < Formula
   end
 
   test do
-    system "#{bin}/stash", "-v"
+    port = free_port
+    pid = spawn bin/"stash", "--port", port.to_s
+    sleep 2
+
+    begin
+      response = shell_output("curl -s http://127.0.0.1:#{port}")
+      assert_match "<title>Stash</title>", response
+    ensure
+      Process.kill("TERM", pid)
+      Process.wait(pid)
+    end
   end
 end
