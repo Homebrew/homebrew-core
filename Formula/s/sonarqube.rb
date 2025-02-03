@@ -1,8 +1,8 @@
 class Sonarqube < Formula
   desc "Manage code quality"
   homepage "https://www.sonarsource.com/products/sonarqube/"
-  url "https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-24.12.0.100206.zip"
-  sha256 "ac1d7b7e0348bd272b34d9ac037fa4e0835d6fb795f594339e5d698857840ea7"
+  url "https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-25.2.0.102705.zip"
+  sha256 "8457fa122149c9db87157ee7318e6a2fc4c57470022409cb6d1b9b07afeba188"
   license "LGPL-3.0-or-later"
 
   livecheck do
@@ -39,6 +39,12 @@ class Sonarqube < Formula
     env["PIDDIR"] = var/"run"
     platform = OS.mac? ? "macosx-universal-64" : "linux-x86-64"
     (bin/"sonar").write_env_script libexec/"bin"/platform/"sonar.sh", env
+
+    # remove non-native architecture pre-built libraries
+    os = OS.kernel_name.downcase
+    arch = Hardware::CPU.intel? ? "x64" : "aarch64"
+    Pathname.glob(libexec/"elasticsearch/lib/platform/*")
+            .each { |dir| rm_r(dir) if dir.basename.to_s != "#{os}-#{arch}" }
   end
 
   def post_install
