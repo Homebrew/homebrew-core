@@ -1,9 +1,9 @@
 class Plakar < Formula
   desc "Effortless Open-Source Backup"
   homepage "https://plakar.io/"
-  license "ISC"
-  url "https://github.com/PlakarKorp/plakar.git", branch: "main"
   version "1.0.0"
+  url "https://github.com/PlakarKorp/plakar.git", branch: "main", revision: "main"
+  license "ISC"
 
   depends_on "go" => :build
 
