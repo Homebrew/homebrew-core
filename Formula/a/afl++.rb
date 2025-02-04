@@ -4,6 +4,7 @@ class Aflxx < Formula
   url "https://github.com/AFLplusplus/AFLplusplus/archive/refs/tags/v4.30c.tar.gz"
   sha256 "7c08c81f59b6c1f0bc2428fdee9fb880520e72c50be0683072e66bcde662b480"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url :stable
