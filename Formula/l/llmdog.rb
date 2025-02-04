@@ -1,3 +1,7 @@
+# typed: strict
+# frozen_string_literal: true
+
+# Formula for llmdog, a tool to prepare files for LLM consumption.
 class Llmdog < Formula
   desc "Prepare files for LLM consumption"
   homepage "https://github.com/doganarif/llmdog"
