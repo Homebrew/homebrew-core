@@ -3,7 +3,7 @@ class Plakar < Formula
   homepage "https://plakar.io/"
   license "ISC"
   url "https://github.com/PlakarKorp/plakar.git", branch: "main"
-  version "main"
+  version "1.0.0"
 
   depends_on "go" => :build
 
