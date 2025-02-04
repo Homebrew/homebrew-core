@@ -4,7 +4,7 @@ class C2rust < Formula
   url "https://github.com/immunant/c2rust/archive/refs/tags/v0.19.0.tar.gz"
   sha256 "912c28e5e289d1a9ef1e0f6c89db97eba19eda58625ca8bdc5b513fdb3c19ba4"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
 
   bottle do
     rebuild 1
