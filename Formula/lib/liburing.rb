@@ -24,9 +24,10 @@ class Liburing < Formula
     (testpath/"test.c").write <<~C
       #include <assert.h>
       #include <liburing.h>
+      #define QD	64
       int main() {
         struct io_uring ring;
-        assert(io_uring_queue_init(1, &ring, 0) == 0);
+        assert(io_uring_queue_init(QD, &ring, 0) == 0);
         return 0;
       }
     C
