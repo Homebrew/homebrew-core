@@ -4,6 +4,7 @@ class Ispc < Formula
   url "https://github.com/ispc/ispc/archive/refs/tags/v1.25.3.tar.gz"
   sha256 "6f00038e0e86e90474f3117c3b393f6695a8fbe1b3d8fe3b1a0baf197dfb7557"
   license "BSD-3-Clause"
+  revision 1
 
   # Upstream sometimes creates releases that use a stable tag (e.g., `v1.2.3`)
   # but are labeled as "pre-release" on GitHub, so it's necessary to use the
