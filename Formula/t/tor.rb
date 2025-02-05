@@ -20,12 +20,12 @@ class Tor < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "c145702b169716f2d3945258a78609fdcddacddaea2bff154adc8a2599cc3252"
-    sha256 arm64_sonoma:  "c3ba7457be7ade66fbdd9183e0ea1af569095bc74a9760d91fdefb2b80f168e8"
-    sha256 arm64_ventura: "a3941a78504ade9acf7cd5b5311faee1ace9a6b2d7d36cfd32e2ef6aeccc6124"
-    sha256 sonoma:        "5372b93592b6d2306c2003acdc75001fcc6de1b606bc11b2bfe64e7aebbf2271"
-    sha256 ventura:       "4355e3f8d810a967daf2e76dcaf8929e0d1951d8dcfcaa9affd0dd6ce0e760d9"
-    sha256 x86_64_linux:  "61c54b14efec65e0f0cb97832e78a1740453859421769d2478f18e7a1ee6978b"
+    sha256 arm64_sequoia: "9725742a32a1aa38bfc31aa70a24106769fda973a8a90828ff9e06576e6746bc"
+    sha256 arm64_sonoma:  "f34c230592b448359282401430f14aad18abd80091c8a718bf202502daf5a235"
+    sha256 arm64_ventura: "1272b89435c1e980eeb9cca223c250a58406f33d70d093a5692cea13ab078d2c"
+    sha256 sonoma:        "ab8a098eeff29db5fb001192eecca892558b779f8bbd483d9b70bbf9d95820b5"
+    sha256 ventura:       "c0355dbfbbc25a1fc0732c37a2c36383fc6f1adc7f6744c509d80d5ebb98f802"
+    sha256 x86_64_linux:  "174b6eb695a34a59ce41225a2e75d1749d9006b39be560e36a86dd850ccf159c"
   end
 
   depends_on "pkgconf" => :build
