@@ -2,8 +2,8 @@ class Openj9 < Formula
   desc "High performance, scalable, Java virtual machine"
   homepage "https://www.eclipse.org/openj9/"
   url "https://github.com/eclipse-openj9/openj9.git",
-      tag:      "openj9-0.48.0",
-      revision: "1d5831436ec378c7dd9f57415bec39d3f5817d57"
+      tag:      "openj9-0.49.0",
+      revision: "3c3d179854a524d7f95225999169ee09fda46033"
   license any_of: [
     "EPL-2.0",
     "Apache-2.0",
@@ -67,24 +67,24 @@ class Openj9 < Formula
   resource "boot-jdk" do
     on_macos do
       on_arm do
-        url "https://github.com/AdoptOpenJDK/semeru22-binaries/releases/download/jdk-22.0.1%2B8_openj9-0.45.0/ibm-semeru-open-jdk_aarch64_mac_22.0.1_8_openj9-0.45.0.tar.gz"
-        sha256 "623cc15daa3b4c7f21d47f225c94a163e2261074cc3c11f30d2938fc249b9355"
+        url "https://github.com/AdoptOpenJDK/semeru22-binaries/releases/download/jdk-22.0.2%2B9_openj9-0.46.1/ibm-semeru-open-jdk_aarch64_mac_22.0.2_9_openj9-0.46.1.tar.gz"
+        sha256 "f5b3903136a5d590cddb694cfb04bf541c8daf91c95214b4111f169d66ea0015"
       end
       on_intel do
-        url "https://github.com/AdoptOpenJDK/semeru22-binaries/releases/download/jdk-22.0.1%2B8_openj9-0.45.0/ibm-semeru-open-jdk_x64_mac_22.0.1_8_openj9-0.45.0.tar.gz"
-        sha256 "f0e459df70b5a3c8fc0abc099d5c06a596da40b95f8226d76474516a646a3861"
+        url "https://github.com/AdoptOpenJDK/semeru22-binaries/releases/download/jdk-22.0.2%2B9_openj9-0.46.1/ibm-semeru-open-jdk_x64_mac_22.0.2_9_openj9-0.46.1.tar.gz"
+        sha256 "4bab7d10569c91f841616f8814b9ad51184ad7e87ea54ecc25764d59deff6809"
       end
     end
     on_linux do
-      url "https://github.com/AdoptOpenJDK/semeru22-binaries/releases/download/jdk-22.0.1%2B8_openj9-0.45.0/ibm-semeru-open-jdk_x64_linux_22.0.1_8_openj9-0.45.0.tar.gz"
-      sha256 "6e54d984bc0c058ffb7a604810dfffba210d79e12855e5c61e9295fedeff32db"
+      url "https://github.com/AdoptOpenJDK/semeru22-binaries/releases/download/jdk-22.0.2%2B9_openj9-0.46.1/ibm-semeru-open-jdk_x64_linux_22.0.2_9_openj9-0.46.1.tar.gz"
+      sha256 "7fa2780c81063aa2756c4d49940a368b7d2d41d0538809b6512e762a554052ac"
     end
   end
 
   resource "omr" do
     url "https://github.com/eclipse-openj9/openj9-omr.git",
-        tag:      "openj9-0.48.0",
-        revision: "d10a4d553a3cfbf35db0bcde9ebccb24cdf1189f"
+        tag:      "openj9-0.49.0",
+        revision: "e49875871c2862e0d132e3695d55273bfbac08b6"
   end
 
   resource "openj9-openjdk-jdk" do
