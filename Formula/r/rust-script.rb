@@ -4,6 +4,7 @@ class RustScript < Formula
   url "https://github.com/fornwall/rust-script/archive/refs/tags/0.35.0.tar.gz"
   sha256 "21061a471cdb25656952750d7436f12b57bac3c292485e9bc71a5352b290d5df"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "84ccef7a3d517ba17b93f95b279529a318501e56e9d6e3c7c9c6122b10c63fac"
