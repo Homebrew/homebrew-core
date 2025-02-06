@@ -1304,6 +1304,7 @@ groovy
 groovysdk
 grpc
 grpc-swift
+grpcui
 grype
 gsan
 gsettings-desktop-schemas
