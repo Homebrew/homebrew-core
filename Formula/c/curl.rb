@@ -36,12 +36,12 @@ class Curl < Formula
 
   depends_on "pkgconf" => [:build, :test]
   depends_on "brotli"
+  depends_on "c-ares"
   depends_on "libnghttp2"
   depends_on "libssh2"
   depends_on "openssl@3"
   depends_on "rtmpdump"
   depends_on "zstd"
-  depends_on "c-ares"
 
   uses_from_macos "krb5"
   uses_from_macos "openldap"
