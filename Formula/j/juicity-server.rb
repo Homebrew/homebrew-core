@@ -1,5 +1,5 @@
-class Juicity < Formula
-  desc "QUIC-based proxy protocol implementation"
+class JuicityServer < Formula
+  desc "Server app of Juicity QUIC-based proxy protocol implementation"
   homepage "https://github.com/juicity/juicity/"
   url "https://github.com/juicity/juicity/archive/refs/tags/v0.4.3.tar.gz"
   sha256 "dab433672ef7bb209443f5f668d1cb6f704ab9ac479013c7e9416b516340ca41"
@@ -7,85 +7,11 @@ class Juicity < Formula
   head "https://github.com/juicity/juicity.git", branch: "main"
 
   depends_on "go" => :build
-  depends_on "jq"
 
   def install
-    system "make", "CGO_ENABLED=0", "juicity-server"
-    system "make", "juicity-client"
+    ENV["CGO_ENABLED"] = "0"
+    system "make", "juicity-server"
     bin.install "juicity-server"
-    bin.install "juicity-client"
-    File.write bin/"juicity", <<~EOS
-      #!/bin/bash
-      set -e
-      SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-      # Show help if no arguments provided
-      if [ $# -eq 0 ]; then
-        echo "Usage: juicity <command> [arguments]"
-        echo ""
-        echo "Commands:"
-        echo "  server              Run server command"
-        echo "  client              Run client command"
-        echo "  help, -h, --help    Show this help"
-        exit 1
-      fi
-      # Get the subcommand
-      CMD=$1
-      shift
-      case "$CMD" in
-      server)
-        exec "$SCRIPT_DIR/juicity-server" "$@"
-        ;;
-      client)
-        exec "$SCRIPT_DIR/juicity-client" "$@"
-        ;;
-      -h | --help | help)
-        exec "$SCRIPT_DIR/juicity"
-        ;;
-      run)
-        CONFIG=""
-        args=()
-        while [[ $# -gt 0 ]]; do
-          case $1 in
-          -c | --config)
-            CONFIG="$2"
-            shift 2
-            ;;
-          *)
-            args+=("$1")
-            shift
-            ;;
-          esac
-        done
-        # Check if config file is provided
-        if [ -z "$CONFIG" ]; then
-          echo "Error: Config file not specified"
-          exit 1
-        fi
-        # Check if config file exists
-        if [ ! -f "$CONFIG" ]; then
-          echo "Error: Config file '$CONFIG' not found"
-          exit 1
-        fi
-        # Determine if this is a server or client based on config content
-        if jq -e 'has("users")' "$CONFIG" >/dev/null; then
-          echo "Starting server mode..."
-          exec "$SCRIPT_DIR/juicity-server" run -c "$CONFIG" "${args[@]}"
-        elif jq -e 'has("server")' "$CONFIG" >/dev/null; then
-          echo "Starting client mode..."
-          exec "$SCRIPT_DIR/juicity-client" run -c "$CONFIG" "${args[@]}"
-        else
-          echo "Error: Invalid configuration format"
-          exit 1
-        fi
-        ;;
-      *)
-        echo "Error: unknown command '$CMD'"
-        echo "Available commands: server, client"
-        exit 1
-        ;;
-      esac
-    EOS
-    chmod 0555, bin/"juicity"
   end
 
   def post_install
@@ -106,38 +32,12 @@ class Juicity < Formula
         "disable_outbound_udp443": true
       }
     EOS
-    File.write "#{etc}/juicity/client.json", <<~EOS
-      {
-        "listen": ":1080",
-        "server": "<ip or domain>:<port>",
-        "uuid": "00000000-0000-0000-0000-000000000000",
-        "password": "my_password",
-        "sni": "www.example.com",
-        "allow_insecure": false,
-        "congestion_control": "bbr",
-        "log_level": "info",
-        "pinned_certchain_sha256": "aQc4fdF4Nh1PD6MsCB3eofRyfRz5R8jJ1afgr37ABZs=",
-        "forward": {
-          "127.0.0.1:12322": "127.0.0.1:22",
-          "0.0.0.0:5201/tcp": "127.0.0.1:5201",
-          "0.0.0.0:5353/udp": "8.8.8.8:53"
-        }
-      }
-    EOS
-    (etc/"juicity").install_symlink etc/"juicity/server.json" => "config.json"
   end
 
   service do
-    run [opt_bin/"juicity", "run", "-c", etc/"juicity/config.json"]
+    run [opt_bin/"juicity-server", "run", "-c", etc/"juicity/server.json"]
     working_dir opt_prefix
     keep_alive true
-  end
-
-  def caveats
-    <<~EOS
-      Server mode is running by default because `config.json` is symlinked to `server.json`,
-      you can modify config files in #{etc}/juicity
-    EOS
   end
 
   test do
@@ -230,17 +130,6 @@ class Juicity < Formula
       -----END PRIVATE KEY-----
     EOS
     server_port = free_port
-    fork do
-      server = TCPServer.new(server_port)
-      loop do
-        socket = server.accept
-        socket.write "HTTP/1.1 200 OK\r\n" \
-                     "Content-Type: text/plain; charset=utf-8\r\n" \
-                     "Content-Length: 0\r\n" \
-                     "\r\n"
-        socket.close
-      end
-    end
     (testpath/"server.json").write <<~JSON
       {
         "listen": ":#{server_port}",
@@ -254,31 +143,14 @@ class Juicity < Formula
         "log_level": "info"
       }
     JSON
-    server = fork { exec bin/"juicity-server", "run", "-c", testpath/"server.json" }
-    client_port = free_port
-    (testpath/"client.json").write <<~JSON
-      {
-        "listen": ":#{client_port}",
-        "server": "127.0.0.1:#{server_port}",
-        "uuid": "00000000-0000-0000-0000-000000000000",
-        "password": "my_password",
-        "sni": "localhost",
-        "allow_insecure": true,
-        "congestion_control": "bbr",
-        "log_level": "info"
-      }
-    JSON
-    client = fork { exec bin/"juicity-client", "run", "-c", testpath/"client.json" }
-    sleep 5
-    begin
-      assert_match "<title>Example Domain</title>",
-shell_output("curl --socks5 127.0.0.1:#{client_port} www.example.com")
-      break
-    ensure
-      Process.kill 9, server
-      Process.wait server
-      Process.kill 9, client
-      Process.wait client
+
+    assert_match "Flags", shell_output("#{bin}/juicity-server -h")
+
+    read, write = IO.pipe
+    fork do
+      exec bin/"juicity-server", "run", "-c", testpath/"server.json", out: write
     end
+    sleep 3
+    assert_match "#{server_port}", read.gets
   end
 end
