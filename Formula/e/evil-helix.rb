@@ -6,6 +6,15 @@ class EvilHelix < Formula
   license "MPL-2.0"
   head "https://github.com/usagi-flow/evil-helix.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sequoia: "ef875c469d84849e51573b50474d2523c029f10309b1ed9eb15bab238893205c"
+    sha256 cellar: :any,                 arm64_sonoma:  "7aad6857cd93c4e16ae9481271dc47f5f100e32c4be3609e20bc650c53ac50bd"
+    sha256 cellar: :any,                 arm64_ventura: "84890f45493d8c9477111ac3435f64858990d372ec0de53896810eed8955e32e"
+    sha256 cellar: :any,                 sonoma:        "ca3d946010aa2de2dc7b4a5888701217812bf63c4a8615f476b7ff87138f0090"
+    sha256 cellar: :any,                 ventura:       "f74b75ba30308f77b8d5ba83b78d8f601ce9cc0056bb3c408ce37c35783bc2df"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "94ab70aa754ed371252ca56342dfc44a8ee188d1f167143fbece4f7fc436b56f"
+  end
+
   depends_on "rust" => :build
 
   def install
