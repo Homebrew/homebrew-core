@@ -633,6 +633,7 @@ croaring
 croc
 cromwell
 crossplane
+crosstool-ng
 crow
 crowdin
 crun
@@ -1381,6 +1382,7 @@ hive
 hivemind
 hivex
 hledger
+hlint
 hof
 homebank
 hopenpgp-tools
@@ -2743,6 +2745,7 @@ rbw
 rclone
 rcs
 rdb
+rdfind
 re-flex
 re2c
 readpe
@@ -2828,6 +2831,7 @@ rtl_433
 rtorrent
 rubberband
 ruby
+ruby-install
 ruby@3.1
 ruby@3.2
 ruby@3.3
@@ -3624,6 +3628,7 @@ zfind
 zig
 zigmod
 zim
+zint
 zipkin
 zix
 zizmor

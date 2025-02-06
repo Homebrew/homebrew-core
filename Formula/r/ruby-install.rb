@@ -1,13 +1,13 @@
 class RubyInstall < Formula
   desc "Install Ruby, JRuby, Rubinius, TruffleRuby, or mruby"
   homepage "https://github.com/postmodern/ruby-install"
-  url "https://github.com/postmodern/ruby-install/releases/download/v0.9.4/ruby-install-0.9.4.tar.gz"
-  sha256 "c932e5a61e5cf11056ba6224fd75f75f2a71a991d4fc216d670ba96d7cc5c6a0"
+  url "https://github.com/postmodern/ruby-install/releases/download/v0.10.0/ruby-install-0.10.0.tar.gz"
+  sha256 "8aee2224b33d661a7db777b094adb10390b8962ff9b5a76765dd4f3e9ef16176"
   license "MIT"
   head "https://github.com/postmodern/ruby-install.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "f469f77ab8e75bfd324cafaa522d5245a68c345d343f8996a8a16ba497981712"
+    sha256 cellar: :any_skip_relocation, all: "d51c12cf1121a924eb32650530cc19482d5c7396d622aaad7643d6b8d891b97d"
   end
 
   depends_on "xz"
@@ -16,7 +16,6 @@ class RubyInstall < Formula
     system "make", "install", "PREFIX=#{prefix}"
 
     # Ensure uniform bottles across prefixes
-    inreplace man1/"ruby-install.1", "/usr/local", "$HOMEBREW_PREFIX"
     inreplace [
       pkgshare/"ruby-install.sh",
       pkgshare/"truffleruby/functions.sh",

@@ -1,8 +1,8 @@
 class CrosstoolNg < Formula
   desc "Tool for building toolchains"
   homepage "https://crosstool-ng.github.io/"
-  url "http://crosstool-ng.org/download/crosstool-ng/crosstool-ng-1.26.0.tar.xz"
-  sha256 "e8ce69c5c8ca8d904e6923ccf86c53576761b9cf219e2e69235b139c8e1b74fc"
+  url "http://crosstool-ng.org/download/crosstool-ng/crosstool-ng-1.27.0.tar.xz"
+  sha256 "0506ab98fa0ad6d263a555feeb2c7fff9bc24a434635d4b0cdff9137fe5b4477"
   license "GPL-2.0-only"
   head "https://github.com/crosstool-ng/crosstool-ng.git", branch: "master"
 
@@ -12,13 +12,12 @@ class CrosstoolNg < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_sequoia: "e7df86ecdb02264bd95f6358555bd1f87bf67a3f8ee4d078156288cd77ab4eed"
-    sha256 cellar: :any,                 arm64_sonoma:  "9bfec37e326412f28ae18648421bde5ad19378846f84714fb2229fcafa2b16d0"
-    sha256 cellar: :any,                 arm64_ventura: "768483a3662021b51efd712f7be2312259f2b7801858392c4d648ff03b97dd59"
-    sha256 cellar: :any,                 sonoma:        "fb5dbf3696d3c12a48133e8837114fe934f29b15b58baadb850072c388d87b42"
-    sha256 cellar: :any,                 ventura:       "e3eed450f85dacc60d3f48fa36d61f343942e4d59dcd6cfe6f42a9e8844f6a71"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "299622083fdd00f4fb40955e2c90aa11f63fce4b1a77a91260d0bc644648a4cb"
+    sha256 cellar: :any,                 arm64_sequoia: "86c8e7e727cd75f79bb97d01765d510b48085412d7327b5d06f0f633021d26d9"
+    sha256 cellar: :any,                 arm64_sonoma:  "5e90dd18b0af819e9d7816b6ac239dd9b7636fc4976401468570b85f4a59ac21"
+    sha256 cellar: :any,                 arm64_ventura: "6ce8cb522f4b57f144017581913ebd9b9f401ebb80efb9b3efc0907299606272"
+    sha256 cellar: :any,                 sonoma:        "17ac89a41e37fa2f8e04122b22b49209a21d19dbccf9ad492dce6139ad64355d"
+    sha256 cellar: :any,                 ventura:       "339070b60acf2dfd7684df759c21f8c354baa6f1aa7a4b5a249c843d7724d55e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "44af39329adc4bf0bed2b213d5a9f7c6ae51b517ffb6a63814ce60be6e042b21"
   end
 
   depends_on "help2man" => :build
