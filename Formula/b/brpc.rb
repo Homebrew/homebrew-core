@@ -1,18 +1,18 @@
 class Brpc < Formula
   desc "Better RPC framework"
   homepage "https://brpc.apache.org/"
-  url "https://dlcdn.apache.org/brpc/1.12.0/apache-brpc-1.12.0-src.tar.gz"
-  sha256 "8318865a3178221580a075731e2a76254efd1428e0153a8147d8a74926ce8dfa"
+  url "https://dlcdn.apache.org/brpc/1.12.1/apache-brpc-1.12.1-src.tar.gz"
+  sha256 "6b315b33ae264e17e4f84bebbd4c3b7c313f5a64de7b398764c68a1dbb4a9e8e"
   license "Apache-2.0"
   head "https://github.com/apache/brpc.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "bbc997ce16192c1b81a0cb76f7593d66421c7e068ea2400bd6f1486567790a81"
-    sha256 cellar: :any,                 arm64_sonoma:  "ea029355c16445006dd91896b32d9fc2ebc4c8cdffcb7370847a0cfaabc50185"
-    sha256 cellar: :any,                 arm64_ventura: "f85e7760459b9ca973da450747ec22812e6436fc810132af465ae679026637e3"
-    sha256 cellar: :any,                 sonoma:        "fbcc762a81a1e3041a11aa2db995ed73674be8b8bfa63a98c5b2d0fdcc84bc37"
-    sha256 cellar: :any,                 ventura:       "491ed31eda4bf7b967a506a15407ea72bd764a354bae51d9cb7c743d01f06919"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "937da6edebc8e3afb57f5a3bc3189c04e15ec0ccdfb81582d0a0295f17722bea"
+    sha256 cellar: :any,                 arm64_sequoia: "df58cedaa897dd10c04705d1848044f888e61e8ec91be4f53d3baabe3cb68205"
+    sha256 cellar: :any,                 arm64_sonoma:  "7f25540edd6cb683afbfb7f5bd8b2691cb99b7ebe44884318e883fc563704a2b"
+    sha256 cellar: :any,                 arm64_ventura: "e01414f778fb7f10e9f6eef1018d80604d474c7107155e24c4c2544be7db76ac"
+    sha256 cellar: :any,                 sonoma:        "424a6f1bf623b331a7e994f01e4e7aa9c428b932006844d6267556baa64e1ac2"
+    sha256 cellar: :any,                 ventura:       "58d7a787321608a32799cd063242ad728d5ca64289652e51173385c0b53085ef"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "86170b8a2df17d343f671bd837046eab5320bb859f29925c3519e698a1f452d5"
   end
 
   depends_on "cmake" => :build

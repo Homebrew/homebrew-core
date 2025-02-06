@@ -1,9 +1,9 @@
 class MidnightCommander < Formula
   desc "Terminal-based visual file manager"
   homepage "https://www.midnight-commander.org/"
-  url "https://www.midnight-commander.org/downloads/mc-4.8.32.tar.xz"
-  mirror "https://ftp.osuosl.org/pub/midnightcommander/mc-4.8.32.tar.xz"
-  sha256 "4ddc83d1ede9af2363b3eab987f54b87cf6619324110ce2d3a0e70944d1359fe"
+  url "https://www.midnight-commander.org/downloads/mc-4.8.33.tar.xz"
+  mirror "https://ftp.osuosl.org/pub/midnightcommander/mc-4.8.33.tar.xz"
+  sha256 "cae149d42f844e5185d8c81d7db3913a8fa214c65f852200a9d896b468af164c"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -12,13 +12,12 @@ class MidnightCommander < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_sequoia: "ff5a4df237304db15c9c5b94e4f15814a18bb49e7f189dee446da7abc263a183"
-    sha256 arm64_sonoma:  "7d3943764d79ff29e7382500ca321686f077d93123d31fc61c430066b3c4b198"
-    sha256 arm64_ventura: "468bb2d2776bacef0dac42a73c69aa7d25157ca0aa933c468d491a47bf1f8a9f"
-    sha256 sonoma:        "994b3d8cd142aa8750901f095d5cc4b1fcc1fde4a34ac002f68d0b33c735b31c"
-    sha256 ventura:       "c93d522f8cba8bfed62da1feeaa6c8b18efbba6e8204e550f06e2ccc289cc049"
-    sha256 x86_64_linux:  "03878d306fb02d438b384f28df3680991a789efb5f5fcb8f67063f938c23fcbc"
+    sha256 arm64_sequoia: "c6914462166922365c2a56c49d4fc8bb3eb051d3022e67072e7fac0832e8121d"
+    sha256 arm64_sonoma:  "5b4c29d7bff65c72443cc3ae9e004d0af04c38392819c432f1bded428324b549"
+    sha256 arm64_ventura: "471749bae6d5735af1b5a8922700e74ef4f4f256b2e8b60ce5786a7148f51a7d"
+    sha256 sonoma:        "d6e4cf2c8b3f9f9bef3a7a0f3a066a378c1f4c1b4bd05c3b455f20b0bfc09792"
+    sha256 ventura:       "bd3a2cca7f5e7a5a19ce29ef376fdb01a6802a76d07daae05bf9bf7527edf08a"
+    sha256 x86_64_linux:  "512a595e57bbdea41c7b80ef305023874b21d7d77a8f63ce6218af3afa0863c4"
   end
 
   head do

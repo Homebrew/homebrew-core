@@ -1,18 +1,17 @@
 class PyqtAT5 < Formula
   desc "Python bindings for v5 of Qt"
   homepage "https://www.riverbankcomputing.com/software/pyqt/intro"
-  url "https://files.pythonhosted.org/packages/4d/5d/b8b6e26956ec113ad3f566e02abd12ac3a56b103fcc7e0735e27ee4a1df3/PyQt5-5.15.10.tar.gz"
-  sha256 "d46b7804b1b10a4ff91753f8113e5b5580d2b4462f3226288e2d84497334898a"
+  url "https://files.pythonhosted.org/packages/0e/07/c9ed0bd428df6f87183fca565a79fee19fa7c88c7f00a7f011ab4379e77a/PyQt5-5.15.11.tar.gz"
+  sha256 "fda45743ebb4a27b4b1a51c6d8ef455c4c1b5d610c90d2934c7802b5c1557c52"
   license "GPL-3.0-only"
-  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "cbb294870fe68a946ad473615463bf020f201e27b3e32b452a6139d268b9390a"
-    sha256 cellar: :any,                 arm64_sonoma:  "e23f3f9cdfced3bebb3e55ba99a187ea02da0d8b0708e9f6c8ee67c9049c0ba2"
-    sha256 cellar: :any,                 arm64_ventura: "9c6eefaa9ef275e41d7990d193c5024493f0e9a4702e807c87ee676466a41f6a"
-    sha256 cellar: :any,                 sonoma:        "528343b76225dddb2268ec7527536792f4b59ab923ed57db40cbfb94e94655d2"
-    sha256 cellar: :any,                 ventura:       "36a87c353b592a4e29a55acf9ed23e29197bb0547e0a9e78dc794b1b55127c71"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7f786acf87d628381c7ca0338afc417e5f95ce766116203253b957ce8f4c5fe3"
+    sha256 cellar: :any,                 arm64_sequoia: "ee754605e872d1b42d4dafe9b53980d4917a49003f4b54c32d282fafbc2dbe25"
+    sha256 cellar: :any,                 arm64_sonoma:  "4d1a259a2b1c7e926f1b84f60bf574348ce11d148e75ab7f47ca1f1310d696b2"
+    sha256 cellar: :any,                 arm64_ventura: "3216d813b7409248232632126fdf3532a167a7796bc1e269440d8afae51d465e"
+    sha256 cellar: :any,                 sonoma:        "a090e036da0b1d1dd57eedce4b51c5b0cc5032120b976cdaef3ceb57ae3d6eb5"
+    sha256 cellar: :any,                 ventura:       "751f0e1bd98b6beae7643760f65ab8ae33a992010e5265fbddeb4c9c012b676b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4f6a880862f2f69cc6fad70b2e6ca750bdfe8bb19ad41d41568cdeb4497d7278"
   end
 
   depends_on "pyqt-builder" => :build
@@ -21,38 +20,38 @@ class PyqtAT5 < Formula
 
   # extra components
   resource "pyqt3d" do
-    url "https://files.pythonhosted.org/packages/a5/80/26e3394c25187854bd3b68865b2b46cfd285aae01bbf448ddcac6f466af0/PyQt3D-5.15.6.tar.gz"
-    sha256 "7d6c6d55cd8fc221b313c995c0f8729a377114926f0377f8e9011d45ebf3881c"
+    url "https://files.pythonhosted.org/packages/ba/96/ab5686191cabca224dc0ecefedf8ff4c50c9e358ae3495f9a23a57068885/PyQt3D-5.15.7.tar.gz"
+    sha256 "ea783eb546c7dad2d5eaaf82ea5050dde45255a9842e0a1d7584881e9e25a951"
   end
 
   resource "pyqt5-sip" do
-    url "https://files.pythonhosted.org/packages/ee/81/fce2a475aa56c1f49707d9306b930695b6ff078c2242c9f2fd72a3214e1f/PyQt5_sip-12.13.0.tar.gz"
-    sha256 "7f321daf84b9c9dbca61b80e1ef37bdaffc0e93312edae2cd7da25b953971d91"
+    url "https://files.pythonhosted.org/packages/01/79/086b50414bafa71df494398ad277d72e58229a3d1c1b1c766d12b14c2e6d/pyqt5_sip-12.17.0.tar.gz"
+    sha256 "682dadcdbd2239af9fdc0c0628e2776b820e128bec88b49b8d692fe682f90b4f"
   end
 
   resource "pyqtchart" do
-    url "https://files.pythonhosted.org/packages/eb/17/1d9bb859b3e09a06633264ad91249ede0abd68c1e3f2f948ae7df94702d3/PyQtChart-5.15.6.tar.gz"
-    sha256 "2691796fe92a294a617592a5c5c35e785dc91f7759def9eb22da79df63762339"
+    url "https://files.pythonhosted.org/packages/f0/b9/c9548f0f5cab6640f4ea9e598a6a48e6d6a59ca23dad6004f90d25dc799a/PyQtChart-5.15.7.tar.gz"
+    sha256 "bc9f1d26c725e820b0fff8db6e906e8b286128a14b3a98c59a0cd0c3d9924095"
   end
 
   resource "pyqtdatavisualization" do
-    url "https://files.pythonhosted.org/packages/9c/ff/6ba767b4e1dbc32c7ffb93cd5d657048f6a4edf318c5b8810c8931a1733b/PyQtDataVisualization-5.15.5.tar.gz"
-    sha256 "8927f8f7aa70857ef00c51e3dfbf6f83dd9f3855f416e0d531592761cbb9dc7f"
+    url "https://files.pythonhosted.org/packages/33/d5/0e531557035e4b51aecbf6f2a7e58c0539f4047e2b550af75f44d5c37e1e/PyQtDataVisualization-5.15.6.tar.gz"
+    sha256 "9ed33b20e747bc69e1d619f147bb1625cc00d6ef404dbf076ba13a9ff6f6061d"
   end
 
   resource "pyqtnetworkauth" do
-    url "https://files.pythonhosted.org/packages/85/b6/6b8f30ebd7c15ded3d91ed8d6082dee8aebaf79c4e8d5af77b1172c805c2/PyQtNetworkAuth-5.15.5.tar.gz"
-    sha256 "2230b6f56f4c9ad2e88bf5ac648e2f3bee9cd757550de0fb98fe0bcb31217b16"
+    url "https://files.pythonhosted.org/packages/59/44/927d519cd6f4ee1ec364c103205f16c2f8474df34b35a99ffc4a64d357ed/PyQtNetworkAuth-5.15.6.tar.gz"
+    sha256 "85ada0c82b9787ffd614abff93bd6d9314d6528265f5f1d23a1922ef0cbeecb9"
   end
 
   resource "pyqtpurchasing" do
-    url "https://files.pythonhosted.org/packages/41/2a/354f0ae3fa02708719e2ed6a8c310da4283bf9a589e2a7fcf7dadb9638af/PyQtPurchasing-5.15.5.tar.gz"
-    sha256 "8bb1df553ba6a615f8ec3d9b9c5270db3e15e831a6161773dabfdc1a7afe4834"
+    url "https://files.pythonhosted.org/packages/68/cf/005c9e79536473c8354c1c2b59a2adcae8aa5b7269b42c06514490aa47fb/PyQtPurchasing-5.15.6.tar.gz"
+    sha256 "304b1ea3bfb6555202751220700d9a98d1de9eab464515dfccca96f306ddf00e"
   end
 
   resource "pyqtwebengine" do
-    url "https://files.pythonhosted.org/packages/cf/4b/ca01d875eff114ba5221ce9311912fbbc142b7bb4cbc4435e04f4f1f73cb/PyQtWebEngine-5.15.6.tar.gz"
-    sha256 "ae241ef2a61c782939c58b52c2aea53ad99b30f3934c8358d5e0a6ebb3fd0721"
+    url "https://files.pythonhosted.org/packages/18/e8/19a00646866e950307f8cd73841575cdb92800ae14837d5821bcbb91392c/PyQtWebEngine-5.15.7.tar.gz"
+    sha256 "f121ac6e4a2f96ac289619bcfc37f64e68362f24a346553f5d6c42efa4228a4d"
   end
 
   def python3

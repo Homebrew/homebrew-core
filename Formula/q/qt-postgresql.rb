@@ -1,8 +1,8 @@
 class QtPostgresql < Formula
   desc "Qt SQL Database Driver"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/6.7/6.7.3/submodules/qtbase-everywhere-src-6.7.3.tar.xz"
-  sha256 "8ccbb9ab055205ac76632c9eeddd1ed6fc66936fc56afc2ed0fd5d9e23da3097"
+  url "https://download.qt.io/official_releases/qt/6.8/6.8.2/submodules/qtbase-everywhere-src-6.8.2.tar.xz"
+  sha256 "012043ce6d411e6e8a91fdc4e05e6bedcfa10fcb1347d3c33908f7fdd10dfe05"
   license any_of: ["GPL-2.0-only", "GPL-3.0-only", "LGPL-3.0-only"]
 
   livecheck do
@@ -10,11 +10,11 @@ class QtPostgresql < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:  "d89736c75decc876b052eeb36393e97e9f4c143dc9e46198ead7a6dd3623a6af"
-    sha256 cellar: :any,                 arm64_ventura: "4f384379a9e15d4505d3af1dac2193bae6aa2fb2b110bcf680df2bd238fecb6f"
-    sha256 cellar: :any,                 sonoma:        "a08d5ce1744f9525c0d0026390d31d32fcc86d50171d81a32aeb6cbdff956013"
-    sha256 cellar: :any,                 ventura:       "f043c58e0d0786bb38d1bb71047df695733d01279b5568c9e650284245a93898"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aabe4f5f41cd999cf0464a3b4a9576ed368bcc95beb46be052cb845fce967d30"
+    sha256 cellar: :any,                 arm64_sonoma:  "60d550005f2e9028fd7e85ea56fde70e3e9643b5d88ee293a2d17964f7599952"
+    sha256 cellar: :any,                 arm64_ventura: "484e43f1a335d43d22dcd106ac3b30e32e5bf4cae6fb29178d54291b1f0b32e1"
+    sha256 cellar: :any,                 sonoma:        "363f93945d9ad39052c79328bb7cda3cac4138fb46ca76788a2aafee61a71d7d"
+    sha256 cellar: :any,                 ventura:       "a54c07f935e89a6e054c660840a482ace2c7360466dfe361a064a8524becf755"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "53f2847741670d5c049d91d60cda067324d4e86ea2c9ca8de17ae3f1f6ef93bc"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -23,22 +23,20 @@ class QtPostgresql < Formula
   depends_on "qt"
 
   def install
-    args = std_cmake_args + %W[
+    args = %W[
       -DCMAKE_STAGING_PREFIX=#{prefix}
-
       -DFEATURE_sql_ibase=OFF
       -DFEATURE_sql_mysql=OFF
       -DFEATURE_sql_oci=OFF
       -DFEATURE_sql_odbc=OFF
       -DFEATURE_sql_psql=ON
       -DFEATURE_sql_sqlite=OFF
+      -DQT_GENERATE_SBOM=OFF
     ]
 
-    cd "src/plugins/sqldrivers" do
-      system "cmake", ".", *args
-      system "cmake", "--build", "."
-      system "cmake", "--install", "."
-    end
+    system "cmake", "-S", "src/plugins/sqldrivers", "-B", "build", *args, *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do

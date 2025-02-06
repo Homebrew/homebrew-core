@@ -50,15 +50,9 @@ class Sheldon < Formula
     zsh_completion.install "completions/sheldon.zsh" => "_sheldon"
   end
 
-  def check_binary_linkage(binary, library)
-    binary.dynamically_linked_libraries.any? do |dll|
-      next false unless dll.start_with?(HOMEBREW_PREFIX.to_s)
-
-      File.realpath(dll) == File.realpath(library)
-    end
-  end
-
   test do
+    require "utils/linkage"
+
     touch testpath/"plugins.toml"
     system bin/"sheldon", "--config-dir", testpath, "--data-dir", testpath, "lock"
     assert_path_exists testpath/"plugins.lock"
@@ -72,7 +66,7 @@ class Sheldon < Formula
     libraries << (Formula["curl"].opt_lib/shared_library("libcurl")) if OS.linux?
 
     libraries.each do |library|
-      assert check_binary_linkage(bin/"sheldon", library),
+      assert Utils.binary_linked_to_library?(bin/"sheldon", library),
              "No linkage with #{library.basename}! Cargo is likely using a vendored version."
     end
   end

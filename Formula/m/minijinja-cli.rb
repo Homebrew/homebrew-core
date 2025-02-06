@@ -1,18 +1,18 @@
 class MinijinjaCli < Formula
   desc "Render Jinja2 templates directly from the command-line to stdout"
   homepage "https://docs.rs/minijinja/latest/minijinja/"
-  url "https://github.com/mitsuhiko/minijinja/archive/refs/tags/2.6.0.tar.gz"
-  sha256 "c1eb888635a550b886089a8b92753537533e84216c1324a644ae6149a4c1e7b7"
+  url "https://github.com/mitsuhiko/minijinja/archive/refs/tags/2.7.0.tar.gz"
+  sha256 "f644285a69f064e2ef951bbbc1aadbd2161229e1ee38076b15564e9d9a3923da"
   license "Apache-2.0"
   head "https://github.com/mitsuhiko/minijinja.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9eb5e97ebadca7bedb7e3160533cf252e06b7d5df7be2cd5cc916c73ce6a6a85"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "59115ec81f78c5972a87bb61f1583d8ae4715776bd3dedd977fd1e0809b47537"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "e25f6a8bfd2bbe9681437eff1e54b0cbe085bd05f61b3f6a714b89ef9c3c4090"
-    sha256 cellar: :any_skip_relocation, sonoma:        "3d7076bf2fcb4d71db86c56a776e098caefe996669e81b88fabbc48cc3391812"
-    sha256 cellar: :any_skip_relocation, ventura:       "b72ed6db6b822c4c98139b111e7c989f8b4da7c9722be8bf729dd4a6bd6ebcca"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a3b1480803991e1e3c6eabdabc7791c88d3391d132e5112125669901ff634f8b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "06f8818f988d6b26abd3568582f09f0a705d3b1effd4df63140592c324b7578c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f3f9f2f76aee46c485c29b5d491d950563d34111dfb87d62cce2609635554745"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "65478afd3e7f3f7e9495203da2773c24b6d20649e829314062092407552c299d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "78f0babfb82ed81cc7db182375bbda36b956fcec417a9f399c2189bcc6c7a2e9"
+    sha256 cellar: :any_skip_relocation, ventura:       "30276a941aeda43340c54ae72670bbad6561e11544a8f06192034a5919bb3e81"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d5fc36b8e4bf81d318b6157fede9e7d306185fd504d55f406e6f9b673a4a1517"
   end
 
   depends_on "rust" => :build

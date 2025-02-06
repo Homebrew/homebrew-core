@@ -1,8 +1,8 @@
 class Greenmask < Formula
   desc "PostgreSQL dump and obfuscation tool"
-  homepage "https://greenmask.io"
-  url "https://github.com/GreenmaskIO/greenmask/archive/refs/tags/v0.2.6.tar.gz"
-  sha256 "bd641d022a29e659b5c15e983031aceda5e12a4379312bc8dc82a4e32d71870b"
+  homepage "https://www.greenmask.io/"
+  url "https://github.com/GreenmaskIO/greenmask/archive/refs/tags/v0.2.7.tar.gz"
+  sha256 "da71261efb7f6866a28d227430c4b41e0a1a09f0eac6a597ae3800c0299765f3"
   license "Apache-2.0"
   head "https://github.com/GreenmaskIO/greenmask.git", branch: "main"
 
@@ -12,12 +12,12 @@ class Greenmask < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bd336499d2ead297c85d7d4ed7f56bccf9aa3eb553667bcb7c1fb266cac1a95d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "bd336499d2ead297c85d7d4ed7f56bccf9aa3eb553667bcb7c1fb266cac1a95d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "bd336499d2ead297c85d7d4ed7f56bccf9aa3eb553667bcb7c1fb266cac1a95d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "289ab6010b5fbeb8401bee9c428ab0eec9c02c91c761ccffe8300610f9076596"
-    sha256 cellar: :any_skip_relocation, ventura:       "289ab6010b5fbeb8401bee9c428ab0eec9c02c91c761ccffe8300610f9076596"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "be7d91b41522111a21bb23e88549b20a73c4e3a00eab3c9ae939b9f65972eaf8"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "38f1af0eb904f1d48c52682eef8ec71ba753d767fe80f0250fd818558c5b3a63"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "38f1af0eb904f1d48c52682eef8ec71ba753d767fe80f0250fd818558c5b3a63"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "38f1af0eb904f1d48c52682eef8ec71ba753d767fe80f0250fd818558c5b3a63"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c3ee79c68548c7dfcf456eb6f450a786774e9af5a58e68ff96ead080f9f4b7a3"
+    sha256 cellar: :any_skip_relocation, ventura:       "c3ee79c68548c7dfcf456eb6f450a786774e9af5a58e68ff96ead080f9f4b7a3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a8fdb5295deed4a2e2cbf6688d2cdff9b01e414d66a522cfa651b7a7b2196337"
   end
 
   depends_on "go" => :build

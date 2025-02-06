@@ -1,13 +1,12 @@
 class Mdds < Formula
   desc "Multi-dimensional data structure and indexing algorithm"
   homepage "https://gitlab.com/mdds/mdds"
-  url "https://kohei.us/files/mdds/src/mdds-2.1.1.tar.bz2"
-  sha256 "8a3767f0a60c53261b5ebbaa717381446813aef8cf28fe9d0ea1371123bbe3f1"
+  url "https://kohei.us/files/mdds/src/mdds-3.0.0.tar.bz2"
+  sha256 "5a0fb2dd88a6420e0a69ec4c7259bcd1fe8f4a80b232c150e11f3da4c68236d7"
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "a2da132b4ae29347c8f894f09e61c56289e41aadde6c789ea16fad7af97b1bd6"
+    sha256 cellar: :any_skip_relocation, all: "99803095584226de0e850b613fff80995a39fc01e40777c81bdebd43eb0991a8"
   end
 
   head do

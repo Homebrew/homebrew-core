@@ -1,8 +1,8 @@
 class Megatools < Formula
   desc "Command-line client for Mega.co.nz"
   homepage "https://megatools.megous.com/"
-  url "https://megatools.megous.com/builds/megatools-1.11.1.20241028.tar.gz"
-  sha256 "3632135a23aa737950e74183199eb23d4e44461ca4221842717225fb31527a4d"
+  url "https://megatools.megous.com/builds/megatools-1.11.3.20250203.tar.gz"
+  sha256 "37a426ecd360220c9d6c1389c19a9e8f3e07077a9d996e3fd9f756657c1df0a9"
   license "GPL-2.0-or-later" => { with: "openvpn-openssl-exception" }
 
   livecheck do
@@ -11,12 +11,12 @@ class Megatools < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia: "a148a907f62ef0d56c1b37fb6e4c353b98f8d2bf70c3edfea47c2748436038b4"
-    sha256 cellar: :any, arm64_sonoma:  "52dc8dc0be48c9892b452a93528f5ca3367ed388586ab2e3b1d8163b6037e8b2"
-    sha256 cellar: :any, arm64_ventura: "b9e5952709570af2516206bf02281cd5bc8213010b780f3c55e60d86e6fd59e7"
-    sha256 cellar: :any, sonoma:        "53486056197b1902084319e1107bba9831201bbf4c0486c87f9a9d966704c703"
-    sha256 cellar: :any, ventura:       "f273dc42b8873611dd8ac1a70013438749f7bb406d8a506b8fb8bffd01686941"
-    sha256               x86_64_linux:  "08d6b16aefc7d5691364a22fe12f02f34a14302ab0f0c44695f6e29bad5c7e56"
+    sha256 cellar: :any, arm64_sequoia: "19520e1d65d92271a6121eaf35024c4ffee40f0bb3eec18df9bd92e91a7d4cee"
+    sha256 cellar: :any, arm64_sonoma:  "a0594f2209aa02ffc51ddadd1ff9ea20546a744b4a76c1d86199d46060418163"
+    sha256 cellar: :any, arm64_ventura: "79b1ae40a19e36f9a8963ab64a7579d9a9130b43c4ab27b4245e0ffcc6c9b73e"
+    sha256 cellar: :any, sonoma:        "36adde8bade90a2f874e2587fccb82bfcf1b4f28eaa26b3b245e38d4a88da716"
+    sha256 cellar: :any, ventura:       "76fa318ed36ebecc48805149e8f5d6b6c98c47b3694245e57f669757589415a1"
+    sha256               x86_64_linux:  "a725e2de8dfc60a6155618a361c6b0587b5672910f481ab0b973e2100247b2c2"
   end
 
   depends_on "meson" => :build

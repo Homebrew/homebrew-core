@@ -6,6 +6,11 @@ class Libmediainfo < Formula
   license "BSD-2-Clause"
   head "https://github.com/MediaArea/MediaInfoLib.git", branch: "master"
 
+  livecheck do
+    url "https://mediaarea.net/en/MediaInfo/Download/Source"
+    regex(/href=.*?libmediainfo[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "37ab3702af71f5ec6cbee0625ee2e908585f0f548ae2e97d054a27664c0d1392"
     sha256 cellar: :any,                 arm64_sonoma:  "0be01fc262831945cd5ad8332eaecb9aadcf1ad2f9d463eed1d164a0b4ff5145"

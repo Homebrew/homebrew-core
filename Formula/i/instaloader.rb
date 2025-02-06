@@ -3,20 +3,20 @@ class Instaloader < Formula
 
   desc "Download media from Instagram"
   homepage "https://instaloader.github.io/"
-  url "https://files.pythonhosted.org/packages/57/73/61f4de60cdc21d56e61caf6a772cecafce5d86b553a1f3d8ef4ace66affb/instaloader-4.14.tar.gz"
-  sha256 "754425eb17af44ce4bb6056e4eacd044a518d13b5efc11b9d80eb229bb96c652"
+  url "https://files.pythonhosted.org/packages/d8/67/2adb34f2fc306d5fe8610c946f4b1fc4fb517b10034ef60f61d7674556b1/instaloader-4.14.1.tar.gz"
+  sha256 "a41a7372a18fb096b3ed545469479884de9cf768e12020c0e0e67c488d9d599c"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "0178a0514c550e7cc9fd1a730cfab79deab9af8c4e74201a1ad0107d59683b29"
+    sha256 cellar: :any_skip_relocation, all: "1258d3d6db08915ae0cc8096da6642c35e02c4be75258ec0e08372a2e18292e2"
   end
 
   depends_on "certifi"
   depends_on "python@3.13"
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/f2/4f/e1808dc01273379acc506d18f1504eb2d299bd4131743b9fc54d7be4df1e/charset_normalizer-3.4.0.tar.gz"
-    sha256 "223217c3d4f82c3ac5e29032b3f1c2eb0fb591b72161f86d93f5719079dae93e"
+    url "https://files.pythonhosted.org/packages/16/b0/572805e227f01586461c80e0fd25d65a2115599cc9dad142fee4b747c357/charset_normalizer-3.4.1.tar.gz"
+    sha256 "44251f18cd68a75b56585dd00dae26183e102cd5e0f9f1466e6df5da2ed64ea3"
   end
 
   resource "idna" do
@@ -30,8 +30,8 @@ class Instaloader < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/ed/63/22ba4ebfe7430b76388e7cd448d5478814d3032121827c12a2cc287e2260/urllib3-2.2.3.tar.gz"
-    sha256 "e7d814a81dad81e6caf2ec9fdedb284ecc9c73076b62654547cc64ccdcae26e9"
+    url "https://files.pythonhosted.org/packages/aa/63/e53da845320b757bf29ef6a9062f5c669fe997973f966045cb019c3f4b66/urllib3-2.3.0.tar.gz"
+    sha256 "f8c5449b3cf0861679ce7e0503c7b44b5ec981bec0d1d3795a07f1ba96f0204d"
   end
 
   def install

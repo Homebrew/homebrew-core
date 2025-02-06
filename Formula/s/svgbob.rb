@@ -1,18 +1,18 @@
 class Svgbob < Formula
   desc "Convert your ascii diagram scribbles into happy little SVG"
   homepage "https://ivanceras.github.io/svgbob-editor/"
-  url "https://github.com/ivanceras/svgbob/archive/refs/tags/0.7.4.tar.gz"
-  sha256 "ec44991bcb34afe227135f3465b12baa6f438d0f7df7765676acca43372feeef"
+  url "https://github.com/ivanceras/svgbob/archive/refs/tags/0.7.6.tar.gz"
+  sha256 "d5b5fc4a04e9efc1cd313c84a8f843d8221718b34e8d3e135e97d44b81317bbf"
   license "Apache-2.0"
   head "https://github.com/ivanceras/svgbob.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d21f5c5a35079bbf5a82a8790d309adf57fe258432f4589ddb15c8e04e4d6f4b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b9c5be532bfecaa0f41ef33bdf6b684bf83c21b7c7025da6fd6946d7af6c44d7"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "86f2e2f5ae44e6ef65eb9b2b3611b5ea4cf9abee9a958ea0f6f2ca661bd25c3c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e8bd966634e4f81983c0dbc8a506b47f1286a1141b939f32de49c12529c3678c"
-    sha256 cellar: :any_skip_relocation, ventura:       "5910ddb8d2a3bb2e21c36857120b2f95681350769308549d05a43969144adeae"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5348d7b6257d499805a07742691752a92be391b741a7391baffdbc306d351ccc"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2a03f39e2238bd9ef7e474b580f9bdf820e755d2a6bc4569c2e43accef6f9eb9"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "47b10e463d3bdf705337cfa3a8bf38bb369eb100403b5f0833ad2f53ee616a2d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "dff76ac4bbd579cca1d3a11e37e55f8b68285e3f45dba68d23fc289f193d129e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e6870e719346a6f048b08186f6832c6fa96e532f2198e42bc45d2c6039785492"
+    sha256 cellar: :any_skip_relocation, ventura:       "36dcdfa05c440af6513da77701762c7d97aee573eac47dec79cb9e72605bba10"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "39ef6cc1b6c2841686f831901ce97230633658fe2f76b16958af86e49f6d7e82"
   end
 
   depends_on "rust" => :build

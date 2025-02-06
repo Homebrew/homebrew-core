@@ -45,15 +45,9 @@ class CodeCli < Formula
     end
   end
 
-  def check_binary_linkage(binary, library)
-    binary.dynamically_linked_libraries.any? do |dll|
-      next false unless dll.start_with?(HOMEBREW_PREFIX.to_s)
-
-      File.realpath(dll) == File.realpath(library)
-    end
-  end
-
   test do
+    require "utils/linkage"
+
     assert_match "Successfully removed all unused servers",
       shell_output("#{bin}/code tunnel prune")
     assert_match version.to_s, shell_output("#{bin}/code --version")
@@ -64,7 +58,7 @@ class CodeCli < Formula
     ]
 
     linked_libraries.each do |library|
-      assert check_binary_linkage(bin/"code", library),
+      assert Utils.binary_linked_to_library?(bin/"code", library),
              "No linkage with #{library.basename}! Cargo is likely using a vendored version."
     end
   end

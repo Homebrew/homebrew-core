@@ -1,26 +1,22 @@
 class Dafny < Formula
   desc "Verification-aware programming language"
   homepage "https://github.com/dafny-lang/dafny/blob/master/README.md"
-  url "https://github.com/dafny-lang/dafny/archive/refs/tags/v4.9.0.tar.gz"
-  sha256 "dab75085d50e46b923a79b530a288f62a34d1bac45f6ca64881e094553c247b8"
+  url "https://github.com/dafny-lang/dafny/archive/refs/tags/v4.10.0.tar.gz"
+  sha256 "bd643ae9cd5b697505ca3682fa4d15238c6746701eaa1eeba4c541006674da40"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2a36bf3e4ca3d330259682a45b8e2819ff8c77c64268038675cab30ee2757f92"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1d0c2d698efa882dc35316a259c2d1bca1f3814f2b143f01e1088e3a4b10c77b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "b780a11bcc50e5c26ee52e3ea912be50caf1d0404afe9fb0f6bd3d55b3b48fe9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f5797f4585a7641abb8e04c9ff93410bb9efed682344b772edd313ff6622a2dd"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b0379afe58205e4e147a773cfe4e45102e4b6bda9a2a40e862641730e23381b6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8e361b9620dab3bc75b0f55c708fac271c5da152a11aade9873838b52af43c9c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "72f8fd00da940888a1a2cb7a5ad9ca0919a1537f2b2901336fd21e760f11cc6f"
+    sha256 cellar: :any_skip_relocation, ventura:       "a717a33ebf39dcfa1bf658103e5e70d07961643d9652c4823f6969beb47735ee"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3e7397f8784ded9a6688b1e1a3e5ee31b2278d44e55462429395f1b374b3b736"
   end
-
-  # Align deprecation with dotnet@6. Can be undeprecated if dependency is updated.
-  # Issue ref: https://github.com/dafny-lang/dafny/issues/4948
-  # PR ref: https://github.com/dafny-lang/dafny/pull/5322
-  deprecate! date: "2024-11-12", because: "uses deprecated `dotnet@6`"
 
   depends_on "gradle" => :build
   depends_on "openjdk" => [:build, :test]
 
-  depends_on "dotnet@6"
+  depends_on "dotnet@8"
   depends_on "z3"
 
   def install
@@ -33,7 +29,7 @@ class Dafny < Formula
 
     (bin/"dafny").write <<~EOS
       #!/bin/bash
-      exec "#{Formula["dotnet@6"].opt_bin}/dotnet" "#{libexec}/Dafny.dll" "$@"
+      exec "#{Formula["dotnet@8"].opt_bin}/dotnet" "#{libexec}/Dafny.dll" "$@"
     EOS
   end
 

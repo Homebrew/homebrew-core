@@ -1,13 +1,13 @@
 class Digdag < Formula
   desc "Workload Automation System"
   homepage "https://www.digdag.io/"
-  url "https://dl.digdag.io/digdag-0.10.5.1.jar"
+  url "https://github.com/treasure-data/digdag/releases/download/v0.10.5.1/digdag-0.10.5.1.jar"
   sha256 "4d1337d777bd334c2348e07ebc1795283aa50a2fd3b7d720cba5ee33b5486aa8"
   license "Apache-2.0"
 
   livecheck do
-    url "https://github.com/treasure-data/digdag.git"
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do

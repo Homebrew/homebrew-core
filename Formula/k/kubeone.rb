@@ -5,8 +5,8 @@ class Kubeone < Formula
   head "https://github.com/kubermatic/kubeone.git", branch: "main"
 
   stable do
-    url "https://github.com/kubermatic/kubeone/archive/refs/tags/v1.9.1.tar.gz"
-    sha256 "bd19d41be2a172b5ad280e29fe7aac6d1f6c8d10c42bc6a4655bc4bb72aab2af"
+    url "https://github.com/kubermatic/kubeone/archive/refs/tags/v1.9.2.tar.gz"
+    sha256 "642ac0217212374fa584fae47856646ce52e5a63484237c899578ac854136311"
 
     # fish completion support patch, upstream pr ref, https://github.com/kubermatic/kubeone/pull/3471
     patch do
@@ -16,13 +16,12 @@ class Kubeone < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "15f186802fdf199941c9ea7b9961c5958e68d5be9a2fb6a6eed2898697c71098"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9f73f0f99adafc291540f1f7fcd5c89ff3f58eef85e24f6eacf05973af335bde"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "f8c4ac1eb75a0186239525cea6638e133270eaa5252fcc2457895bbc12929354"
-    sha256 cellar: :any_skip_relocation, sonoma:        "90a06e7fbee48e812776ecc2d0598028661625b08c7edc9f52204993b7da47f9"
-    sha256 cellar: :any_skip_relocation, ventura:       "c29c13f212daf9f00c7ae20527ac837f8fb02e4b2e80a4eca105ad65ebeaada5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d9912f3baed4367c173e5a5127f3af63e7f06be05f6118e0a36136a3fd74bc63"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e8f3db4da01b8ae89b004406e754edc0c26c090820491a9d69e8e673d8660e99"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e64c98e12b80214ce48acf9c05fa7baaf5fa2c7aa99c30e3c970e81677c16e02"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "a4e9a67772d726b8631d58af17e0e3961a64c02c72ea3e6b8f5bb4b48beef873"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b373e65309bbc45ae8e5ca8c0b8232b0f2198087c255cc8cb8e074148dc21574"
+    sha256 cellar: :any_skip_relocation, ventura:       "2fd592f52fbbf6904f1252b801e2b5521e47d9c06d8bd0bd7c6684796f412682"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0801236906327bc1991e782d9e8b3a2d851486c0204dad163350b59899205c0a"
   end
 
   depends_on "go" => :build

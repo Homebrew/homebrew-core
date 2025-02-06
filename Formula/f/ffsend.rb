@@ -1,18 +1,17 @@
 class Ffsend < Formula
   desc "Fully featured Firefox Send client"
   homepage "https://gitlab.com/timvisee/ffsend"
-  url "https://github.com/timvisee/ffsend/archive/refs/tags/v0.2.76.tar.gz"
-  sha256 "7d91fc411b7363fd8842890c5ed25d6cc4481f76cd48dcac154cd6e99f8c4d7b"
+  url "https://github.com/timvisee/ffsend/archive/refs/tags/v0.2.77.tar.gz"
+  sha256 "b13329704c5eab7c74ebc29c3f2209290ea00e758139daaefc0ab0d5728c2fa4"
   license "GPL-3.0-only"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bf310e7b4721b1e784f174831c9d1c0338db34c809a7ec7a59ad2fef07b7a761"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "074ac3f31ccdd07ac55c0572b01945cf50300b9459b6c28876a09a7d78fc7ea7"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "bed1b2a2e6d425337d9b27e6ddfe2a00a56a73d2e75bc2e181368b8626bd07ac"
-    sha256 cellar: :any_skip_relocation, sonoma:        "4a3d98ac10ca71571355d00c738aa9ae6e3b6b5962278da5256c0c5bb6ce87a4"
-    sha256 cellar: :any_skip_relocation, ventura:       "26c6f0ecfebc1f880e894140c43ba945d8463de740be410de28f7288b0055f5f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "65b43d242c8b518fa7650eacad3c98420b8be9d05d9fbb0ba9d6a53f6d205c7b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6d60f43b2fdb056059608e05dd6e4e9f1fad57486180c3732a40ffaaa440116d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "98551254d908b6fa9496bfd9281fb359c7fdc34b9d172db68d1fa633d8c67f07"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "398d00de4d062551f33c186bdb932c9ae62847f5e0a594663d4d09886ecbcc69"
+    sha256 cellar: :any_skip_relocation, sonoma:        "58610267085cd19c5445172c1f59662c58b840b6ac3bcc4da04a8598ba222f6a"
+    sha256 cellar: :any_skip_relocation, ventura:       "f4784a7c6f31e7e0ab55e1c44095c84ab20544a05211c20b212e14daaf143e13"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2800da04659f26aacbd7ca4619fa0a06762cc5ef0c652630c139881f64c5aeba"
   end
 
   depends_on "rust" => :build

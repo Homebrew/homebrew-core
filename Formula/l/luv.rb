@@ -1,20 +1,18 @@
 class Luv < Formula
   desc "Bare libuv bindings for lua"
   homepage "https://github.com/luvit/luv"
-  url "https://github.com/luvit/luv/archive/refs/tags/1.48.0-2.tar.gz"
-  sha256 "e64cd8a0197449288b37df6ca058120e8d2308fc305f543162b5bf3e92273a05"
+  url "https://github.com/luvit/luv/archive/refs/tags/v1.50.0-0.tar.gz"
+  sha256 "9d56b793138a2e7dbf53148740a3ee4777d2d51842d175ba85fa907d71f079dc"
   license "Apache-2.0"
   head "https://github.com/luvit/luv.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "6fc436592e7512c75133cd501da7005a0ca564122198a20cdb28305ea0dc7f4d"
-    sha256 cellar: :any,                 arm64_sonoma:   "8eee983f433b14404e806a25d9d9d6a37dea290ecd07676eea143c244aa81b7c"
-    sha256 cellar: :any,                 arm64_ventura:  "5b52e62605db4618b943a313b7dc27fa1ca4d606289f773a934d62aa841ce822"
-    sha256 cellar: :any,                 arm64_monterey: "4ead7a7d5a515244136e919f531d24f1b9ea4ed01847476b0f1b50d5bcede873"
-    sha256 cellar: :any,                 sonoma:         "b573480537972f4d8479623184281fc3e5b78a3e8d92e8b5eaf743db9584e5d8"
-    sha256 cellar: :any,                 ventura:        "6dabf92fc2281a8c6f92dc2a58be611da35160b81daf54dc496cae8d6c63016c"
-    sha256 cellar: :any,                 monterey:       "fbb502ebd96a09cdf7bcc97a2e675a90d1261598bbc198eef328b06f524eaab0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bd96aeba470693fd6b86ed66ee7fc53171dc7ee04f141b69423b1301beddcc83"
+    sha256 cellar: :any,                 arm64_sequoia: "9aa88f6497caef7418024eb961a30f5bb5db097d2e1af90ef79939a15b8140f6"
+    sha256 cellar: :any,                 arm64_sonoma:  "0f83dcb1ff76d6e3a4c0cc4d4dff46fab4bc22b64e268ba6bfcebd7aedefbf48"
+    sha256 cellar: :any,                 arm64_ventura: "ec0979b54e5fd5471582f53d9c45003181fdd1f7f1865a3a90698839ffef729a"
+    sha256 cellar: :any,                 sonoma:        "29aa7d58757c2219fc4f5a80ee7b9626e24830536ee03fa44a50da5a19b16c4a"
+    sha256 cellar: :any,                 ventura:       "43e34238e63cfd0d5f5dfce09a52a31d59b06751e0eb07cc9439a223e30634b8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dffec8b9bf27ef16fd38a28cf73b076044ce6451085eda4e82663f965b5f8687"
   end
 
   depends_on "cmake" => :build
@@ -23,8 +21,8 @@ class Luv < Formula
   depends_on "libuv"
 
   resource "lua-compat-5.3" do
-    url "https://github.com/lunarmodules/lua-compat-5.3/archive/refs/tags/v0.12.tar.gz"
-    sha256 "1ad84bb7d78cd3d0f8b6edbbb4c3a649f2b2c58c0f4b911b134317ea76c75135"
+    url "https://github.com/lunarmodules/lua-compat-5.3/archive/refs/tags/v0.14.3.tar.gz"
+    sha256 "db8ffa2c5562fac4fce5e5f48fd25763e79190af5e3d3d91f0699e4711cfbf10"
   end
 
   def install

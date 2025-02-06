@@ -1,8 +1,8 @@
 class Openjdk < Formula
   desc "Development kit for the Java programming language"
   homepage "https://openjdk.java.net/"
-  url "https://github.com/openjdk/jdk23u/archive/refs/tags/jdk-23.0.1-ga.tar.gz"
-  sha256 "0e058ae2956871aafc5be33960b6e0f8dd954d234d590d249bcb3b619b579a0a"
+  url "https://github.com/openjdk/jdk23u/archive/refs/tags/jdk-23.0.2-ga.tar.gz"
+  sha256 "0812e2e4d51ab1d752c1d532150297a56bd47557db67f8e2b298199e7f65db1c"
   license "GPL-2.0-only" => { with: "Classpath-exception-2.0" }
 
   livecheck do
@@ -11,12 +11,12 @@ class Openjdk < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia: "5cba5c9149f823770a7aa5ddd12f8e0d48263284bfc8151b066d9c60b5945f04"
-    sha256 cellar: :any, arm64_sonoma:  "176f8199a78576ee2c58ff0991fe39715f5bfa2b3696f1524dd02d189b2bbecb"
-    sha256 cellar: :any, arm64_ventura: "28f082ca3d5a172b9991546169f74fbe1f69a9dbd3e96dc0fe02aa35e0332454"
-    sha256 cellar: :any, sonoma:        "0af938cb313d757ceadccb67ecb37ea8744de3a672ec23ee7fd19afd1ed9ff98"
-    sha256 cellar: :any, ventura:       "c682b196a6eb18f671c7f995d9c48ce8e88db01767822283f4ab3f74b3c51ce6"
-    sha256               x86_64_linux:  "873413e010c1bf4a928801aa74bd8d20fb8053a6bc303a74486ad17653d35e9e"
+    sha256 cellar: :any, arm64_sequoia: "1285eadf2b5998cda49e4470ee3875e855b0be199765401ad77dc38aea573f49"
+    sha256 cellar: :any, arm64_sonoma:  "1cccc8bb39130612a61ff9d18a208ec232b86a21d646748a7af3f3f693eab804"
+    sha256 cellar: :any, arm64_ventura: "bb9bc5a4c4128b4c61a99d419026811f7f5fcf3ac243b1e393449aa680715d36"
+    sha256 cellar: :any, sonoma:        "e0999137182b5abc4e0738330f4d9cb2f45b4d9642deffed420c0e7be4f337e8"
+    sha256 cellar: :any, ventura:       "f5effdfcbab956c20d0f65bdc504ac27723d81d9fe940abadf81764782881650"
+    sha256               x86_64_linux:  "a7bd3a62568d49149d566ed5cf98ec8a5cd2ab130019918ce42c8eaeb268b45b"
   end
 
   keg_only :shadowed_by_macos
@@ -53,22 +53,22 @@ class Openjdk < Formula
   resource "boot-jdk" do
     on_macos do
       on_arm do
-        url "https://download.java.net/java/GA/jdk22.0.2/c9ecb94cd31b495da20a27d4581645e8/9/GPL/openjdk-22.0.2_macos-aarch64_bin.tar.gz"
-        sha256 "3dab98730234e1a87aec14bcb8171d2cae101e96ff4eed1dab96abbb08e843fd"
+        url "https://download.java.net/java/GA/jdk23.0.1/c28985cbf10d4e648e4004050f8781aa/11/GPL/openjdk-23.0.1_macos-aarch64_bin.tar.gz"
+        sha256 "cd626e636fdd7e68467a9ca27d71107a27bd500c33ab40a91b57317c0c0f949f"
       end
       on_intel do
-        url "https://download.java.net/java/GA/jdk22.0.2/c9ecb94cd31b495da20a27d4581645e8/9/GPL/openjdk-22.0.2_macos-x64_bin.tar.gz"
-        sha256 "e8b3ec7a7077711223d31156e771f11723cd7af31c2017f1bd2eda20855940fb"
+        url "https://download.java.net/java/GA/jdk23.0.1/c28985cbf10d4e648e4004050f8781aa/11/GPL/openjdk-23.0.1_macos-x64_bin.tar.gz"
+        sha256 "3661d387ea2f1248364bc384a1e36197b3633f63dde7fd1f61b296e89eb0f768"
       end
     end
     on_linux do
       on_arm do
-        url "https://download.java.net/java/GA/jdk22.0.2/c9ecb94cd31b495da20a27d4581645e8/9/GPL/openjdk-22.0.2_linux-aarch64_bin.tar.gz"
-        sha256 "25fba2bd5585e1e9923134dc827f2bd5a2beaca3d242ae00b7e68c152faf7ba6"
+        url "https://download.java.net/java/GA/jdk23.0.1/c28985cbf10d4e648e4004050f8781aa/11/GPL/openjdk-23.0.1_linux-aarch64_bin.tar.gz"
+        sha256 "94586630f70f1e87d90c252a6a2a202655399d1358c9b226834179e8bcf800e9"
       end
       on_intel do
-        url "https://download.java.net/java/GA/jdk22.0.2/c9ecb94cd31b495da20a27d4581645e8/9/GPL/openjdk-22.0.2_linux-x64_bin.tar.gz"
-        sha256 "41536f115668308ecf4eba92aaf6acaeb0936225828b741efd83b6173ba82963"
+        url "https://download.java.net/java/GA/jdk23.0.1/c28985cbf10d4e648e4004050f8781aa/11/GPL/openjdk-23.0.1_linux-x64_bin.tar.gz"
+        sha256 "dc9b6adc1550afd95e30e131c1c38044925cb656923f92f6dbf0fbd8c1405629"
       end
     end
   end

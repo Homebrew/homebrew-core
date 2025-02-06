@@ -5,6 +5,7 @@ class Ntfs3g < Formula
   sha256 "f20e36ee68074b845e3629e6bced4706ad053804cbaf062fbae60738f854170c"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.0-or-later"]
 
+  # GitHub release descriptions contain a link to the `stable` tarball.
   livecheck do
     url :head
     strategy :github_latest

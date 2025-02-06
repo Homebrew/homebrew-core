@@ -1,17 +1,23 @@
 class NodeAT18 < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v18.20.5/node-v18.20.5.tar.xz"
-  sha256 "76037b9bad0ab9396349282dbfcec1b872ff7bd8c8d698853bebd982940858bf"
+  url "https://nodejs.org/dist/v18.20.6/node-v18.20.6.tar.xz"
+  sha256 "c669b48b632fa6797d4f5fa7bbd2b476ec961120957864402226cc9fd8ebbc0e"
   license "MIT"
 
+  # Remove livecheck on 2025-04-30
+  livecheck do
+    url "https://nodejs.org/dist/"
+    regex(%r{href=["']?v?(18(?:\.\d+)+)/?["' >]}i)
+  end
+
   bottle do
-    sha256 arm64_sequoia: "434f258d8fc32a3b1fff91bb529069a51bf1e9c79e7d834c70685a408cd7e2ec"
-    sha256 arm64_sonoma:  "a09d36a1b0f782ebaa36e170f6789e314cf1c830989d0e7bf8da39ec35234c42"
-    sha256 arm64_ventura: "a5f3760650bec4fffc5f669c9b13dfceeb5e826748828740c142155e6240cf21"
-    sha256 sonoma:        "19d6b4a6582578ee3a1ce412da80c5f63c506874f571912d49e6a16f8b9ffd66"
-    sha256 ventura:       "67e2434b0f770cdf0b77832912e9d71d847529ff98085fbc995c7f2b299c9342"
-    sha256 x86_64_linux:  "a1fa241b673cf2269c80237c39ccf6687ea9b3e4dd2513fb1a8cc6c0fc73e2b2"
+    sha256 arm64_sequoia: "95098e2169ced4c7a10c82e5d6498cd026f9c77e45d3d52c909f0a1cb7fa38d5"
+    sha256 arm64_sonoma:  "cb791bbb1638b9e44bc4de1be987188882aaa2f4b49600f04c94f3c6f5c7edb3"
+    sha256 arm64_ventura: "e80432c0519aef69de96fa6754ab48ab178fb348e0af9ad756d49ed3bac59e76"
+    sha256 sonoma:        "85ad8475d3138d2e290cf3e4894dd56130fdfbe8ef4ae389aa091339f4480481"
+    sha256 ventura:       "794f43f616dd58625f8f8987ff76c6a4f84f15b8563f777c0a196cdd17d2d5dc"
+    sha256 x86_64_linux:  "7562facda8bfe5c8cc515134648fa3df1345c991f205f999aa4e932366719b23"
   end
 
   keg_only :versioned_formula
@@ -34,7 +40,7 @@ class NodeAT18 < Formula
   uses_from_macos "zlib"
 
   on_macos do
-    depends_on "llvm" => [:build, :test] if DevelopmentTools.clang_build_version <= 1100
+    depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1100
   end
 
   fails_with :clang do

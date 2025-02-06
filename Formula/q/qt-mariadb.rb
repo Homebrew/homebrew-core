@@ -1,8 +1,8 @@
 class QtMariadb < Formula
   desc "Qt SQL Database Driver"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/6.7/6.7.3/submodules/qtbase-everywhere-src-6.7.3.tar.xz"
-  sha256 "8ccbb9ab055205ac76632c9eeddd1ed6fc66936fc56afc2ed0fd5d9e23da3097"
+  url "https://download.qt.io/official_releases/qt/6.8/6.8.2/submodules/qtbase-everywhere-src-6.8.2.tar.xz"
+  sha256 "012043ce6d411e6e8a91fdc4e05e6bedcfa10fcb1347d3c33908f7fdd10dfe05"
   license any_of: ["GPL-2.0-only", "GPL-3.0-only", "LGPL-3.0-only"]
 
   livecheck do
@@ -10,11 +10,11 @@ class QtMariadb < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:  "36df0a8bb8e0085f4dd4c3431ecc198edcb0e3a579160e565cdda35cbfec6cf1"
-    sha256 cellar: :any,                 arm64_ventura: "82acaa2afe947a56264be5673dc7dedbff76cc6cd2cce32241794920296d5f49"
-    sha256 cellar: :any,                 sonoma:        "f66b1041ae0f2861b81d6e728b893517c7a6246aa0c1f46742a97f27734f8db3"
-    sha256 cellar: :any,                 ventura:       "e5e0fd4650fd6dc4936ec257dbbc9275a8d0d603bef546c1020c9b21edb2e3dc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fe26e8dedfa68195ae611d654ec004731e975e6c1ae99b6655c9ce88f840bd48"
+    sha256 cellar: :any,                 arm64_sonoma:  "4d42506b7beecfab62b65c36fdcd784be6d69816527d936e5edd638f2f5a5c2e"
+    sha256 cellar: :any,                 arm64_ventura: "2719c7ade47c12b67ad5b1e09160ac6a58d8139a030c525104d89647818d6fcd"
+    sha256 cellar: :any,                 sonoma:        "a4df69579bdc41f009d1e686c67d654f10774bbee5b7124fbd810f74dd2aec8e"
+    sha256 cellar: :any,                 ventura:       "e0359f957bfb7f5207b1c7602e5af0087e311ae70f08b74f84769637be5901f5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4dcfeca0c1c6f6c4caf2f6b035d00d6578971e5012d926a22c8eede6f062f638"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -26,22 +26,20 @@ class QtMariadb < Formula
     because: "qt-mysql, qt-mariadb, and qt-percona-server install the same binaries"
 
   def install
-    args = std_cmake_args + %W[
+    args = %W[
       -DCMAKE_STAGING_PREFIX=#{prefix}
-
       -DFEATURE_sql_ibase=OFF
       -DFEATURE_sql_mysql=ON
       -DFEATURE_sql_oci=OFF
       -DFEATURE_sql_odbc=OFF
       -DFEATURE_sql_psql=OFF
       -DFEATURE_sql_sqlite=OFF
+      -DQT_GENERATE_SBOM=OFF
     ]
 
-    cd "src/plugins/sqldrivers" do
-      system "cmake", ".", *args
-      system "cmake", "--build", "."
-      system "cmake", "--install", "."
-    end
+    system "cmake", "-S", "src/plugins/sqldrivers", "-B", "build", *args, *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do

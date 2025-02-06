@@ -1,9 +1,8 @@
 class Orgalorg < Formula
   desc "Parallel SSH commands executioner and file synchronization tool"
   homepage "https://github.com/reconquest/orgalorg"
-  url "https://github.com/reconquest/orgalorg.git",
-      tag:      "1.3.1",
-      revision: "17aad3570a15099fc52949ac4359b350f045ca84"
+  url "https://github.com/reconquest/orgalorg/archive/refs/tags/1.3.1.tar.gz"
+  sha256 "b9292ac6af1c492c82e4c77a707a026ad9674139f02d3fa25b797f65e3d69a2c"
   license "MIT"
   head "https://github.com/reconquest/orgalorg.git", branch: "master"
 
@@ -37,8 +36,8 @@ class Orgalorg < Formula
 
     port = free_port
     output = shell_output("#{bin}/orgalorg -u tester --key '' --host=127.0.0.1:#{port} -C uptime 2>&1", 1)
-    assert_match("connecting to cluster failed", output)
-    assert_match("dial tcp 127.0.0.1:#{port}: connect: connection refused", output)
-    assert_match("can't connect to address: [tester@127.0.0.1:#{port}]", output)
+    assert_match "connecting to cluster failed", output
+    assert_match "dial tcp 127.0.0.1:#{port}: connect: connection refused", output
+    assert_match "can't connect to address: [tester@127.0.0.1:#{port}]", output
   end
 end

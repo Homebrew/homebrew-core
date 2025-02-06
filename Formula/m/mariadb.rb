@@ -1,7 +1,6 @@
 class Mariadb < Formula
   desc "Drop-in replacement for MySQL"
   homepage "https://mariadb.org/"
-  # TODO: Build with `-DWITH_LIBFMT=system` when fmt >= 11
   url "https://archive.mariadb.org/mariadb-11.6.2/source/mariadb-11.6.2.tar.gz"
   sha256 "7bad85bd1c77168afcae5db1396c0c52044dc044f7eae6fff5ac3cd4dec89bbd"
   license "GPL-2.0-only"
@@ -57,6 +56,12 @@ class Mariadb < Formula
   conflicts_with "mysql", "percona-server", because: "mariadb, mysql, and percona install the same binaries"
   conflicts_with "mytop", because: "both install `mytop` binaries"
 
+  # system libfmt patch, upstream pr ref, https://github.com/MariaDB/server/pull/3786
+  patch do
+    url "https://github.com/MariaDB/server/commit/b6a924b8478d2fab5d51245ff6719b365d7db7f4.patch?full_index=1"
+    sha256 "77b65b35cf0166b8bb576254ac289845db5a8e64e03b41f1bf4b2045ac1cd2d1"
+  end
+
   def install
     # Set basedir and ldata so that mysql_install_db can find the server
     # without needing an explicit path to be set. This can still
@@ -79,6 +84,7 @@ class Mariadb < Formula
       -DINSTALL_DOCDIR=share/doc/#{name}
       -DINSTALL_INFODIR=share/info
       -DINSTALL_MYSQLSHAREDIR=share/mysql
+      -DWITH_LIBFMT=system
       -DWITH_PCRE=system
       -DWITH_SSL=system
       -DWITH_ZLIB=system

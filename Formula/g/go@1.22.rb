@@ -1,11 +1,10 @@
 class GoAT122 < Formula
   desc "Open source programming language to build simple/reliable/efficient software"
   homepage "https://go.dev/"
-  url "https://go.dev/dl/go1.22.11.src.tar.gz"
-  mirror "https://fossies.org/linux/misc/go1.22.11.src.tar.gz"
-  sha256 "a60c23dec95d10a2576265ce580f57869d5ac2471c4f4aca805addc9ea0fc9fe"
+  url "https://go.dev/dl/go1.22.12.src.tar.gz"
+  mirror "https://fossies.org/linux/misc/go1.22.12.src.tar.gz"
+  sha256 "012a7e1f37f362c0918c1dfa3334458ac2da1628c4b9cf4d9ca02db986e17d71"
   license "BSD-3-Clause"
-  revision 1
 
   livecheck do
     url "https://go.dev/dl/?mode=json"
@@ -21,12 +20,12 @@ class GoAT122 < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "bf4bb48caf0fd288afd7fef5221494383054e7760900c54cb3a72c7cfd518d5e"
-    sha256 arm64_sonoma:  "f88650d91eadc4c714dc722de9011b08d9bc30d2f53c9ceb7cef355927232025"
-    sha256 arm64_ventura: "efce25229471aa84fda3cc92b5f0a13f3f1d5269a6b87f08969f3ec93818beda"
-    sha256 sonoma:        "9970ec125b2b0ccbdbecc3855538d60070d1e75dd0835185999d22b297dc71b9"
-    sha256 ventura:       "58bc476df5596177562958ab9419ee0ffefa4b59be39af47e6437ff5ce48665e"
-    sha256 x86_64_linux:  "070f65df59f86b5bd6b8d40183c0574c443e12dc133c8b0ea8cba0fd1d52c3c1"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "af5d726bee9702a638b3d311f14be29925d351537b861673710b68facfac9b8c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "095b712e18e4f6893d3a0e205c4b72bfa25854fd4fe56af648f182f1f8cb91cb"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "44f45e7dd769697e468306491890267cd6292e7d4bddfccf0c4a4ce084369df4"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2c868fe847318a435d895dc3f94891cd39fe3ed94c0092e064f456314ecef2e7"
+    sha256 cellar: :any_skip_relocation, ventura:       "9861be855108e1e3af8d4308b75e0ff1fadfa78700c3d05e9eacd52e6c6e6e38"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b5defb9fc2eb520604212c0617062dc3a1a3a6aa6c51269d32913ab1fe886308"
   end
 
   keg_only :versioned_formula

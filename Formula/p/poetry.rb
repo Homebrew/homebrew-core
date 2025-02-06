@@ -9,12 +9,13 @@ class Poetry < Formula
   head "https://github.com/python-poetry/poetry.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "163a2239451e7ca2db311920edc7e2c10c6fce3e4800acdd19d1ab82f2f44254"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d49f874e3be6f309e53a1dd3d3be394652b270aa4608bdeb575c0b5901a104b3"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "a1b00f252ca9d4e4faa81650abca0bfedea1838b956e737a5953e8d3a0c00c8c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "5314d0e0f814dec42d87724cd8907292353f35860d00100f545d9f30f7305a37"
-    sha256 cellar: :any_skip_relocation, ventura:       "e5a93b0151b4e4dfa932205738ae0342f370429bef78baf0273c1b93ca03d768"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b74ad2e4ca08a2b20341a8adbf45a20d7040ec1e51d19b3e579b4e2258bf8596"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9739447e48bee8688cdaf4177da0fb6d2f0292299dd9c1fc3b1912be94bf4879"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "894eac6add7e5bf5a8455afea937256283ea72af265264a31993319a09336135"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "d87721ba43ce4fd879e6c88c940c60646445ccbe63ea4c80b0e09a7e117287f5"
+    sha256 cellar: :any_skip_relocation, sonoma:        "0a47bae0127446e84d898e31fba2dbb2857c0a736bae1852619093fe6fe8399b"
+    sha256 cellar: :any_skip_relocation, ventura:       "3749a2211986fd058eff9ded56716967f759af6cee2576e8a453375ae185ec34"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0f95fe5a7d65f39a583ec3a61350bb3fcd6d5bc1eb6ac0bc0ddfb5be1c36c208"
   end
 
   depends_on "cmake" => :build # for rapidfuzz
@@ -195,8 +196,8 @@ class Poetry < Formula
   end
 
   def install
-    # poetry > filelock > hatchling, fix to `ZIP does not support timestamps before 1980` error
-    ENV["SOURCE_DATE_EPOCH"] = Time.now.to_i.to_s
+    # The source doesn't have a valid SOURCE_DATE_EPOCH, so here we set default.
+    ENV["SOURCE_DATE_EPOCH"] = "1451574000"
 
     virtualenv_install_with_resources
 

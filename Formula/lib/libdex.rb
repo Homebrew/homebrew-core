@@ -1,18 +1,18 @@
 class Libdex < Formula
   desc "Future-based programming for GLib-based applications"
   homepage "https://gitlab.gnome.org/GNOME/libdex"
-  url "https://gitlab.gnome.org/GNOME/libdex/-/archive/0.8.1/libdex-0.8.1.tar.gz"
-  sha256 "52b502ec163a08c96a557c0d1f6ac32bd15a2e135cef879d3b4cfd06b352b6a7"
+  url "https://gitlab.gnome.org/GNOME/libdex/-/archive/0.9.0/libdex-0.9.0.tar.gz"
+  sha256 "c4da72a9215dc30e51c7ca17be169233e26ed56298645c28445d0da71e69aec2"
   license "LGPL-2.1-or-later"
   head "https://gitlab.gnome.org/GNOME/libdex.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "df7c6ac48592f053e01b0cfe782c38385504ecd6b3e4c26e8bfb59cf7cac6a4a"
-    sha256 cellar: :any,                 arm64_sonoma:  "1023595e5fbcd3248ca0f1fe41fa0fbb613671b7fa358532f41e809a0a9aa880"
-    sha256 cellar: :any,                 arm64_ventura: "ed78a1cac0485787549dc48dea4110a4748be44ce3486520dd02c7109b3c47b5"
-    sha256 cellar: :any,                 sonoma:        "7570ad7ab98809ff45008b55fb8dab4696e4a303c483822189cd7a7235a1df86"
-    sha256 cellar: :any,                 ventura:       "b0b29b7ec0a4a6c0b87073a66e2363530fe2eeb9cf24d4a24ae0f6fb0b6718a1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1aaf0c0e625cd495cb6b2a357d16ea2017b176763d1dc3c2aca6bd96cd56ccca"
+    sha256 cellar: :any,                 arm64_sequoia: "fd7e47eec144b2219e9fa13736ca950a43b79e6ea75133baee8371f810733a5a"
+    sha256 cellar: :any,                 arm64_sonoma:  "0e8fddeff33873f745286c9aada0b6d16d789716bbb39ffbee9260d778b7940f"
+    sha256 cellar: :any,                 arm64_ventura: "26bf1efaa77e5feb426a0f9c5d4d875b547dcea3655731fdfcce3c2d703ddb6d"
+    sha256 cellar: :any,                 sonoma:        "ff91f2e1c9d9d86ca4ebf64540ccc5e9109e2a0282039e723f36f4ad9be0f817"
+    sha256 cellar: :any,                 ventura:       "1ebe34a708a5f6059dfbeb8bbb774e11971fac8b9b074111b2ed74ad0b2a508b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5665f555b8598f23ab43594e38e587dd195337ebb5c09aa12713622d1e5f2e91"
   end
 
   depends_on "gobject-introspection" => :build

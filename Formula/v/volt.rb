@@ -1,9 +1,8 @@
 class Volt < Formula
   desc "Meta-level vim package manager"
   homepage "https://github.com/vim-volt/volt"
-  url "https://github.com/vim-volt/volt.git",
-      tag:      "v0.3.7",
-      revision: "e604467d8b440c89793b2e113cd241915e431bf9"
+  url "https://github.com/vim-volt/volt/archive/refs/tags/v0.3.7.tar.gz"
+  sha256 "db64e9a04426d2b1c0873e1ffd7a4c2d0f1ffe61688bee670bb16089b9c98639"
   license "MIT"
   head "https://github.com/vim-volt/volt.git", branch: "master"
 
@@ -39,7 +38,7 @@ class Volt < Formula
 
     bash_completion.install "_contrib/completion/bash" => "volt"
     zsh_completion.install "_contrib/completion/zsh" => "_volt"
-    cp "#{bash_completion}/volt", "#{zsh_completion}/volt-completion.bash"
+    cp bash_completion/"volt", zsh_completion/"volt-completion.bash"
   end
 
   test do

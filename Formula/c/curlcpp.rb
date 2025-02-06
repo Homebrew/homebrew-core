@@ -4,26 +4,31 @@ class Curlcpp < Formula
   url "https://github.com/JosephP91/curlcpp/archive/refs/tags/3.1.tar.gz"
   sha256 "ba7aeed9fde9e5081936fbe08f7a584e452f9ac1199e5fabffbb3cfc95e85f4b"
   license "MIT"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "02d6013f6cebe3e32f938baf215bc25a97b6b20b04e7639f59f360f81c0984a1"
-    sha256 cellar: :any,                 arm64_sonoma:   "a7d90c04040339eb2d284bb2c1510806df36bc0fa37ddd8445db1dd63e9e5016"
-    sha256 cellar: :any,                 arm64_ventura:  "c3f9991c295224065b7df591bf5f28c1ec9247e16ebfa3318d20d99fcd20aa62"
-    sha256 cellar: :any,                 arm64_monterey: "0e9dad877d6c11ed3243c0463f69daaeabe74dcd54ccf80dad016d85c5951546"
-    sha256 cellar: :any,                 arm64_big_sur:  "5337cf2331b855265be23c9ad2209977c07ab6acf9ca7c808e14b58494923407"
-    sha256 cellar: :any,                 sonoma:         "786f28cab6cc4ef524212c85d133968158e692572148a1b4f06433c836ecabf6"
-    sha256 cellar: :any,                 ventura:        "ff1362a719032031c6dac022c9ccd060533a0b19d8dd5de454d0713461f8d24a"
-    sha256 cellar: :any,                 monterey:       "69efcd43355ab8ba5ed151d52462c1b87541f898d0f02046bfcf2d9da6e720cd"
-    sha256 cellar: :any,                 big_sur:        "05ea45b1b2fce091147574dab246b00275c2b97a6554c5e4071f66777c018b74"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2fab29cd023b9fa39d098dd1ab0f56bdc0709e68f2855596b48b3012c06bc9f6"
+    sha256 cellar: :any,                 arm64_sequoia: "c436767f9b31dfaf4bcb0b173c8a05c338954f2cfe310cc6a5a4b0abd07f19e1"
+    sha256 cellar: :any,                 arm64_sonoma:  "cf6ac3204eff880beee1d8e79aad0fcff5df2a9a9c7599b969a313892ea0d579"
+    sha256 cellar: :any,                 arm64_ventura: "fc4bb565327be35db477f5c94e99ac541107af06b9139a42484aba7f631c00b2"
+    sha256 cellar: :any,                 sonoma:        "38e40220123c5b9ffde970e0ba30d802b54caef5782019935677f597829ec37a"
+    sha256 cellar: :any,                 ventura:       "5676d84a6ce7dc9f2a65f19cb8752ca24f5f974c27d315e421b7ca1e82bdcdbe"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c7b8f28ef1d8782146a24e1687c1044b5f10149c721b098bf4514f8186b9649d"
   end
 
   depends_on "cmake" => :build
 
   uses_from_macos "curl"
 
+  # remove use of CURLOPT_CLOSEPOLICY (removed since curl 8.10+), upstream pr ref, https://github.com/JosephP91/curlcpp/pull/159
+  patch do
+    on_linux do
+      url "https://github.com/JosephP91/curlcpp/commit/bc3800510f30ed74c90227b166d134cd13fd63cf.patch?full_index=1"
+      sha256 "0954b32d0304ad9b4acecf3f647242b2c5736f4c6576a390e665e57883dcf10f"
+    end
+  end
+
   def install
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DBUILD_SHARED_LIBS=SHARED"
+    system "cmake", "-S", ".", "-B", "build", "-DBUILD_SHARED_LIBS=SHARED", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end

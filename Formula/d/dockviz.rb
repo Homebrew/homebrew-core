@@ -1,9 +1,8 @@
 class Dockviz < Formula
   desc "Visualizing docker data"
   homepage "https://github.com/justone/dockviz"
-  url "https://github.com/justone/dockviz.git",
-      tag:      "v0.6.4",
-      revision: "3ebdb75ed393d6f2eb0b38d83ee22d75c68f6524"
+  url "https://github.com/justone/dockviz/archive/refs/tags/v0.6.4.tar.gz"
+  sha256 "228e2c11fad1de38ec63e5d46e60bf9411625447c3c381dd0cd99aaa05d4e5db"
   license "Apache-2.0"
   head "https://github.com/justone/dockviz.git", branch: "master"
 
@@ -24,7 +23,7 @@ class Dockviz < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args
+    system "go", "build", *std_go_args(ldflags: "-s -w")
   end
 
   test do

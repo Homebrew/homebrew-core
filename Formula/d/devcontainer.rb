@@ -1,17 +1,17 @@
 class Devcontainer < Formula
   desc "Reference implementation for the Development Containers specification"
   homepage "https://containers.dev"
-  url "https://registry.npmjs.org/@devcontainers/cli/-/cli-0.72.0.tgz"
-  sha256 "dce95550333869e03660f98d4963f898f204af9a961f324ff2b6be048a4704db"
+  url "https://registry.npmjs.org/@devcontainers/cli/-/cli-0.73.0.tgz"
+  sha256 "9d28cfd1afd0b84e5930e2fb926b3b53586e83e2bd58eddb0930817cb82371ff"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2b23eec0465a7e0cb536cc57c61b0e2f2d0701cf5eb0aa2a0f298b6ae7673e4d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2b23eec0465a7e0cb536cc57c61b0e2f2d0701cf5eb0aa2a0f298b6ae7673e4d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "2b23eec0465a7e0cb536cc57c61b0e2f2d0701cf5eb0aa2a0f298b6ae7673e4d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "fd463e73fb6bb6ba250b87e5e418642d6d68ff6b81c779b6a087d4ba3ea8db6d"
-    sha256 cellar: :any_skip_relocation, ventura:       "fd463e73fb6bb6ba250b87e5e418642d6d68ff6b81c779b6a087d4ba3ea8db6d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2b23eec0465a7e0cb536cc57c61b0e2f2d0701cf5eb0aa2a0f298b6ae7673e4d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c5352493a74dc7a89777091ae39903f8ef313397abac483dd65cb17b5107ab7d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c5352493a74dc7a89777091ae39903f8ef313397abac483dd65cb17b5107ab7d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "c5352493a74dc7a89777091ae39903f8ef313397abac483dd65cb17b5107ab7d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "dd3464b98ea15f368fb5cbf2f3e818eb18d67fc39c75a1be64e3e997955fb17a"
+    sha256 cellar: :any_skip_relocation, ventura:       "dd3464b98ea15f368fb5cbf2f3e818eb18d67fc39c75a1be64e3e997955fb17a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c5352493a74dc7a89777091ae39903f8ef313397abac483dd65cb17b5107ab7d"
   end
 
   depends_on "node"

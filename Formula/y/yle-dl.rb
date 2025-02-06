@@ -3,19 +3,18 @@ class YleDl < Formula
 
   desc "Download Yle videos from the command-line"
   homepage "https://aajanki.github.io/yle-dl/index-en.html"
-  url "https://files.pythonhosted.org/packages/40/63/b0883346f67d8e30eaea48c717f54f07d97e962aeae99fca7e3ed373e787/yle_dl-20240927.tar.gz"
-  sha256 "ac5d6b73b1bf1816c6a03c736048286b20b2a9d8e67785c689bd3464e6252ecb"
+  url "https://files.pythonhosted.org/packages/60/5d/bde58d3197b54f90554c4308aef3622d3c07a0649646f5d92277df3e72a8/yle_dl-20250126.tar.gz"
+  sha256 "72e9a992896d6c0a86d5310574b9ebd432b45f0756b500396453079c6287ed66"
   license "GPL-3.0-or-later"
   head "https://github.com/aajanki/yle-dl.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2f89bad2a5c7a46e5d11ac087f3a0d0a4375c04a238625f5b6165c1da2a75cd9"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ec2463a68469d8f1715fd69fc5c0f77fb1a6db6fc402740e3f8e6350083dda43"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "325a17f678a42fcdced8fc3a0f19e0dcb4aa5b946983eb370df5312272528752"
-    sha256 cellar: :any_skip_relocation, sonoma:        "63bacab605691852643422d604315ee36bebc2ac2dc3cead4577949d67884ca5"
-    sha256 cellar: :any_skip_relocation, ventura:       "2adcf076e27423b9e9cd8f61706501db21f2de336d4d8c1e6f5fe5e1961aa605"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e49e940be919eb6033fe7f36c8a64d2da3dcb3400cfad6cdc23eb2a06fc81872"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "944d537bebf98ceca0b299d9aa45ace49ecf24541bfbf1e21efc00b26b7026fd"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "83242871bdb58c0064ba29c495e3e0eb388c81cbd81db193937cbdd1b95bddd2"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "795dd35b2075cc69fca128ac3c6ff5dbd72958b326c0b8063b04c217a5ca4c32"
+    sha256 cellar: :any_skip_relocation, sonoma:        "3ace580f81b1131fc85ac2d35124589b3963f0c486edbfc2657e9366b156da57"
+    sha256 cellar: :any_skip_relocation, ventura:       "2784da3870dfe4469ad107c1fe5e83d5f9b67a03ccf17450136c23aa4f86f055"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "196878c93f4a7989c97d5df00d24250d44de71a8a507d1cf89899fb6791ea7db"
   end
 
   depends_on "certifi"
@@ -27,8 +26,8 @@ class YleDl < Formula
   uses_from_macos "libxslt"
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/f2/4f/e1808dc01273379acc506d18f1504eb2d299bd4131743b9fc54d7be4df1e/charset_normalizer-3.4.0.tar.gz"
-    sha256 "223217c3d4f82c3ac5e29032b3f1c2eb0fb591b72161f86d93f5719079dae93e"
+    url "https://files.pythonhosted.org/packages/16/b0/572805e227f01586461c80e0fd25d65a2115599cc9dad142fee4b747c357/charset_normalizer-3.4.1.tar.gz"
+    sha256 "44251f18cd68a75b56585dd00dae26183e102cd5e0f9f1466e6df5da2ed64ea3"
   end
 
   resource "configargparse" do
@@ -52,8 +51,8 @@ class YleDl < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/ed/63/22ba4ebfe7430b76388e7cd448d5478814d3032121827c12a2cc287e2260/urllib3-2.2.3.tar.gz"
-    sha256 "e7d814a81dad81e6caf2ec9fdedb284ecc9c73076b62654547cc64ccdcae26e9"
+    url "https://files.pythonhosted.org/packages/aa/63/e53da845320b757bf29ef6a9062f5c669fe997973f966045cb019c3f4b66/urllib3-2.3.0.tar.gz"
+    sha256 "f8c5449b3cf0861679ce7e0503c7b44b5ec981bec0d1d3795a07f1ba96f0204d"
   end
 
   def install

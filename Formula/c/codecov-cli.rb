@@ -3,18 +3,18 @@ class CodecovCli < Formula
 
   desc "Codecov's command-line interface"
   homepage "https://cli.codecov.io/"
-  url "https://files.pythonhosted.org/packages/83/f6/9b3d63763920d96a6299af984aca836b6b324774945c615a168acb29d542/codecov_cli-10.0.0.tar.gz"
-  sha256 "637402d0dfbc4347dafc8496969e10e6c21aa96748d55d3931b4ab5ef5ff17a4"
+  url "https://files.pythonhosted.org/packages/da/06/3f623cb42b0a9f6bb050a82fdb3ba6611e91859f0806dd3abcfd12f6a30f/codecov_cli-10.0.1.tar.gz"
+  sha256 "6c91dbdada1c26c3ff261c8c23edc0fb1de6eac24d8037b5917113ed68218543"
   license "Apache-2.0"
   head "https://github.com/codecov/codecov-cli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "110f72c1e6f8704efea595803bb4f6522d2450de6ed9b83b222217ef3521389c"
-    sha256 cellar: :any,                 arm64_sonoma:  "c565abe5d8cba164b54b3531957bafdcd193ccfc22bf6dd10ff6384408131403"
-    sha256 cellar: :any,                 arm64_ventura: "9ec098e1c51f04198cb25c8938b0c6ad0499058a72a7445ca6765f686cd788b4"
-    sha256 cellar: :any,                 sonoma:        "16f2fd7fd3b09fe30c4d2ecdddc3420bfd750f64976c471fade00a1c0ef38983"
-    sha256 cellar: :any,                 ventura:       "e829ab231d358bf1ae2fa083bf300d88d9dbcdd932c091f2c9a329b183654013"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cd027ae073e59095d1b1e908c125fa54d34f8b08d31bd5cc9297a13a4b75d80d"
+    sha256 cellar: :any,                 arm64_sequoia: "fc6471330bab9738c952308ce513e646be357b5c3855e3443ae6706e467e1442"
+    sha256 cellar: :any,                 arm64_sonoma:  "552f1dedb3a697150794c5a7f91c3568a99f59551a4f215ec643ab29fa43bd7c"
+    sha256 cellar: :any,                 arm64_ventura: "5ef3b77a12da7c4f452ffbfb012c34f9689f63aea9b762ef2739512db2845e67"
+    sha256 cellar: :any,                 sonoma:        "5f9c6b7ea387f4b305d700e53625e8bf4f6d65bc44f7dc3c7719c6b3c5541fca"
+    sha256 cellar: :any,                 ventura:       "bfa97d5f294c4843fdec1aef085ed6848a140cffefe4f7f3eb8aaa6746d72c79"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "abdaf7fd3173f574a810f25396b3a63d92acdc9c90cc180cb55719f5a4261409"
   end
 
   depends_on "rust" => :build
@@ -41,11 +41,6 @@ class CodecovCli < Formula
     sha256 "ed53c9d8990d83c2a27deae68e4ee337473f6330c040a31d4225c9574d16096a"
   end
 
-  resource "deprecated" do
-    url "https://files.pythonhosted.org/packages/2e/a3/53e7d78a6850ffdd394d7048a31a6f14e44900adedf190f9a165f6b69439/deprecated-1.2.15.tar.gz"
-    sha256 "683e561a90de76239796e6b6feac66b99030d2dd3fcf61ef996330f14bbb9b0d"
-  end
-
   resource "h11" do
     url "https://files.pythonhosted.org/packages/f5/38/3af3d3633a34a3316095b39c8e8fb4853a28a536e55d347bd8d8e9a14b03/h11-0.14.0.tar.gz"
     sha256 "8f19fbbe99e72420ff35c00b27a34cb9937e902a8b810e2c88300c6f0a3b699d"
@@ -69,41 +64,6 @@ class CodecovCli < Formula
   resource "ijson" do
     url "https://files.pythonhosted.org/packages/6c/83/28e9e93a3a61913e334e3a2e78ea9924bb9f9b1ac45898977f9d9dd6133f/ijson-3.3.0.tar.gz"
     sha256 "7f172e6ba1bee0d4c8f8ebd639577bfe429dee0f3f96775a067b8bae4492d8a0"
-  end
-
-  resource "importlib-metadata" do
-    url "https://files.pythonhosted.org/packages/cd/12/33e59336dca5be0c398a7482335911a33aa0e20776128f038019f1a95f1b/importlib_metadata-8.5.0.tar.gz"
-    sha256 "71522656f0abace1d072b9e5481a48f07c138e00f079c38c8f883823f9c26bd7"
-  end
-
-  resource "opentelemetry-api" do
-    url "https://files.pythonhosted.org/packages/bc/8e/b886a5e9861afa188d1fe671fb96ff9a1d90a23d57799331e137cc95d573/opentelemetry_api-1.29.0.tar.gz"
-    sha256 "d04a6cf78aad09614f52964ecb38021e248f5714dc32c2e0d8fd99517b4d69cf"
-  end
-
-  resource "opentelemetry-distro" do
-    url "https://files.pythonhosted.org/packages/2c/38/30ad58042eba064796a8c01cf723f587320e23aa2677c69dfd9ee29435d8/opentelemetry_distro-0.50b0.tar.gz"
-    sha256 "3e059e00f53553ebd646d1162d1d3edf5d7c6d3ceafd54a49e74c90dc1c39a7d"
-  end
-
-  resource "opentelemetry-instrumentation" do
-    url "https://files.pythonhosted.org/packages/79/2e/2e59a7cb636dc394bd7cf1758ada5e8ed87590458ca6bb2f9c26e0243847/opentelemetry_instrumentation-0.50b0.tar.gz"
-    sha256 "7d98af72de8dec5323e5202e46122e5f908592b22c6d24733aad619f07d82979"
-  end
-
-  resource "opentelemetry-sdk" do
-    url "https://files.pythonhosted.org/packages/0c/5a/1ed4c3cf6c09f80565fc085f7e8efa0c222712fd2a9412d07424705dcf72/opentelemetry_sdk-1.29.0.tar.gz"
-    sha256 "b0787ce6aade6ab84315302e72bd7a7f2f014b0fb1b7c3295b88afe014ed0643"
-  end
-
-  resource "opentelemetry-semantic-conventions" do
-    url "https://files.pythonhosted.org/packages/e7/4e/d7c7c91ff47cd96fe4095dd7231701aec7347426fd66872ff320d6cd1fcc/opentelemetry_semantic_conventions-0.50b0.tar.gz"
-    sha256 "02dc6dbcb62f082de9b877ff19a3f1ffaa3c306300fa53bfac761c4567c83d38"
-  end
-
-  resource "packaging" do
-    url "https://files.pythonhosted.org/packages/d0/63/68dbb6eb2de9cb10ee4c9c14a0148804425e13c4fb20d61cce69f53106da/packaging-24.2.tar.gz"
-    sha256 "c228a6dc5e932d346bc5739379109d49e8853dd8223571c7c5b55260edc0b97f"
   end
 
   resource "pyyaml" do
@@ -151,11 +111,6 @@ class CodecovCli < Formula
     sha256 "6adb123e2f3e56399bbf2359924633c882cc40ee8344885200bca0922f713be5"
   end
 
-  resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/df/db/f35a00659bc03fec321ba8bce9420de607a1d37f8342eee1863174c69557/typing_extensions-4.12.2.tar.gz"
-    sha256 "1a7ead55c7e559dd4dee8856e3a88b41225abfe1ce8df57b7c13915fe121ffb8"
-  end
-
   resource "urllib3" do
     url "https://files.pythonhosted.org/packages/aa/63/e53da845320b757bf29ef6a9062f5c669fe997973f966045cb019c3f4b66/urllib3-2.3.0.tar.gz"
     sha256 "f8c5449b3cf0861679ce7e0503c7b44b5ec981bec0d1d3795a07f1ba96f0204d"
@@ -164,11 +119,6 @@ class CodecovCli < Formula
   resource "wrapt" do
     url "https://files.pythonhosted.org/packages/c3/fc/e91cc220803d7bc4db93fb02facd8461c37364151b8494762cc88b0fbcef/wrapt-1.17.2.tar.gz"
     sha256 "41388e9d4d1522446fe79d3213196bd9e3b301a336965b9e27ca2788ebd122f3"
-  end
-
-  resource "zipp" do
-    url "https://files.pythonhosted.org/packages/3f/50/bad581df71744867e9468ebd0bcd6505de3b275e06f202c2cb016e3ff56f/zipp-3.21.0.tar.gz"
-    sha256 "2c9958f6430a2040341a52eb608ed6dd93ef4392e02ffe219417c1b28b5dd1f4"
   end
 
   def install

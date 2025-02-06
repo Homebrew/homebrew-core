@@ -3,18 +3,17 @@ class Codespell < Formula
 
   desc "Fix common misspellings in source code and text files"
   homepage "https://github.com/codespell-project/codespell"
-  url "https://files.pythonhosted.org/packages/a0/a9/98353dfc7afcdf18cffd2dd3e959a25eaaf2728cf450caa59af89648a8e4/codespell-2.3.0.tar.gz"
-  sha256 "360c7d10f75e65f67bad720af7007e1060a5d395670ec11a7ed1fed9dd17471f"
+  url "https://files.pythonhosted.org/packages/15/e0/709453393c0ea77d007d907dd436b3ee262e28b30995ea1aa36c6ffbccaf/codespell-2.4.1.tar.gz"
+  sha256 "299fcdcb09d23e81e35a671bbe746d5ad7e8385972e65dbb833a2eaac33c01e5"
   license "GPL-2.0-only"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4264540b239225b10a614c5ea2a34102983e9d69553e0e884eb2657962f9ae9b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4264540b239225b10a614c5ea2a34102983e9d69553e0e884eb2657962f9ae9b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "4264540b239225b10a614c5ea2a34102983e9d69553e0e884eb2657962f9ae9b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "a0e8d1408cade997885fd7cc609e4322964e9ce128a34091caf950dad2e808c6"
-    sha256 cellar: :any_skip_relocation, ventura:       "a0e8d1408cade997885fd7cc609e4322964e9ce128a34091caf950dad2e808c6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4264540b239225b10a614c5ea2a34102983e9d69553e0e884eb2657962f9ae9b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0b25d8acdbc85fd54a446dbc8c8b77d008bdb7e19d2fcc034c2bb6bb566cdd80"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0b25d8acdbc85fd54a446dbc8c8b77d008bdb7e19d2fcc034c2bb6bb566cdd80"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "0b25d8acdbc85fd54a446dbc8c8b77d008bdb7e19d2fcc034c2bb6bb566cdd80"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8b4c26a1d31143074144646051489279e38203caa49c2f726e90489913ab9b15"
+    sha256 cellar: :any_skip_relocation, ventura:       "8b4c26a1d31143074144646051489279e38203caa49c2f726e90489913ab9b15"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0b25d8acdbc85fd54a446dbc8c8b77d008bdb7e19d2fcc034c2bb6bb566cdd80"
   end
 
   depends_on "python@3.13"

@@ -3,17 +3,17 @@ class Pylint < Formula
 
   desc "It's not just a linter that annoys you!"
   homepage "https://github.com/pylint-dev/pylint"
-  url "https://files.pythonhosted.org/packages/17/fd/e9a739afac274a39596bbe562e9d966db6f3917fdb2bd7322ffc56da0ba2/pylint-3.3.3.tar.gz"
-  sha256 "07c607523b17e6d16e2ae0d7ef59602e332caa762af64203c24b41c27139f36a"
+  url "https://files.pythonhosted.org/packages/ab/b9/50be49afc91469f832c4bf12318ab4abe56ee9aa3700a89aad5359ad195f/pylint-3.3.4.tar.gz"
+  sha256 "74ae7a38b177e69a9b525d0794bd8183820bfa7eb68cc1bee6e8ed22a42be4ce"
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "88343a7685198c1ddc82e824a22341888a0d364b6087f914cf0c872a8907315d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "88343a7685198c1ddc82e824a22341888a0d364b6087f914cf0c872a8907315d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "88343a7685198c1ddc82e824a22341888a0d364b6087f914cf0c872a8907315d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "a1c954f00547bf51012c4e1cb20b9dc463807796b07537cf4327bc70a32758f7"
-    sha256 cellar: :any_skip_relocation, ventura:       "a1c954f00547bf51012c4e1cb20b9dc463807796b07537cf4327bc70a32758f7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6360a878e46375342130cb09df940bae586b6427d06c6ddeb43c2642f4682328"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "83f629c2828d1f81dcd22b6283278a84046ca813f7fb3696092ab0b6cf4197d9"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "83f629c2828d1f81dcd22b6283278a84046ca813f7fb3696092ab0b6cf4197d9"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "83f629c2828d1f81dcd22b6283278a84046ca813f7fb3696092ab0b6cf4197d9"
+    sha256 cellar: :any_skip_relocation, sonoma:        "cfa14a1a948badfd1f28a29a1d3db38d5630d509a522cfd4450e0c9d3b1d0f23"
+    sha256 cellar: :any_skip_relocation, ventura:       "cfa14a1a948badfd1f28a29a1d3db38d5630d509a522cfd4450e0c9d3b1d0f23"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0312b2f2e46f7fb1b6429c132dde15c4e06c15ed9ba2db3e65d0bff079266b7f"
   end
 
   depends_on "python@3.13"
@@ -29,8 +29,8 @@ class Pylint < Formula
   end
 
   resource "isort" do
-    url "https://files.pythonhosted.org/packages/87/f9/c1eb8635a24e87ade2efce21e3ce8cd6b8630bb685ddc9cdaca1349b2eb5/isort-5.13.2.tar.gz"
-    sha256 "48fdfcb9face5d58a4f6dde2e72a1fb8dcaf8ab26f95ab49fab84c2ddefb0109"
+    url "https://files.pythonhosted.org/packages/1c/28/b382d1656ac0ee4cef4bf579b13f9c6c813bff8a5cb5996669592c8c75fa/isort-6.0.0.tar.gz"
+    sha256 "75d9d8a1438a9432a7d7b54f2d3b45cad9a4a0fdba43617d9873379704a8bdf1"
   end
 
   resource "mccabe" do

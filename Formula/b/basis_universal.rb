@@ -1,9 +1,8 @@
 class BasisUniversal < Formula
   desc "Basis Universal GPU texture codec command-line compression tool"
   homepage "https://github.com/BinomialLLC/basis_universal"
-  url "https://github.com/BinomialLLC/basis_universal/archive/refs/tags/v1_50_0_2.tar.gz"
-  version "1.50.0"
-  sha256 "0ef344cc7e3373ca9c15de2bd80512ea4ea17e09ed895febdf9e70f6c789bc27"
+  url "https://github.com/BinomialLLC/basis_universal/archive/refs/tags/v1_60.tar.gz"
+  sha256 "64ac9363656dc3eb41c59ee52af7e939abe574a92c85fd0ba27008c4a7ec9f40"
   license "Apache-2.0"
 
   livecheck do
@@ -15,12 +14,12 @@ class BasisUniversal < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ebcd8c592a1947d4e93cb14f267b1597ab31e287235719f0a45c97060cdb7016"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c646119bc9142de2a5061c365320ba8e5cf9ea9fb1383ada79e0cb08cdd0b2d3"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "81a8aae4f552f430183574fcb2c93292b828fa9fc0e59d04571e7cabba68c3de"
-    sha256 cellar: :any_skip_relocation, sonoma:        "92738bf15ddb3decbe553026401d1df2d0c5a855a5a5ba8a919c8083e05b10c6"
-    sha256 cellar: :any_skip_relocation, ventura:       "7467f56b85351044a9511937d6038995bfc7c2483a583b4966d6e11cf2194b9e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "62ad815a0def4683e48999723ef9c4d0dac6116e3471de0f6920584eedfb41f0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "96434e6249de92e5397c362a061db58527d27934d0c6eb0c8dfca00a0e713a79"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d0e189d41590b8af1cbf3dc09edad394432df308cfff3fd3ec2b7f59364229f7"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "11ad095bcfaed712c6bb0cad156195f547b62b25099017e42281081dd0625722"
+    sha256 cellar: :any_skip_relocation, sonoma:        "255ab827520159d10a65c679cba019b737567ab0f6fbeeedf72328668b266ded"
+    sha256 cellar: :any_skip_relocation, ventura:       "7968489b3cb67938213dc0ebabf094ac85d56cb6f7cec5f9815e7359f3efd074"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ae7370a2812a7acea4e1b85530eea51b4c2d9c98db98e5cefee7e25e81abf710"
   end
 
   depends_on "cmake" => :build

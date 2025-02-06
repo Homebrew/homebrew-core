@@ -46,15 +46,9 @@ class Jj < Formula
     (man1/"jj.1").write Utils.safe_popen_read(bin/"jj", "util", "mangen")
   end
 
-  def check_binary_linkage(binary, library)
-    binary.dynamically_linked_libraries.any? do |dll|
-      next false unless dll.start_with?(HOMEBREW_PREFIX.to_s)
-
-      File.realpath(dll) == File.realpath(library)
-    end
-  end
-
   test do
+    require "utils/linkage"
+
     system bin/"jj", "init", "--git"
     assert_predicate testpath/".jj", :exist?
 
@@ -64,7 +58,7 @@ class Jj < Formula
       Formula["openssl@3"].opt_lib/shared_library("libcrypto"),
       Formula["openssl@3"].opt_lib/shared_library("libssl"),
     ].each do |library|
-      assert check_binary_linkage(bin/"jj", library),
+      assert Utils.binary_linked_to_library?(bin/"jj", library),
              "No linkage with #{library.basename}! Cargo is likely using a vendored version."
     end
   end

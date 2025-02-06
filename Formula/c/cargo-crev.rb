@@ -1,6 +1,6 @@
 class CargoCrev < Formula
   desc "Code review system for the cargo package manager"
-  homepage "https://web.crev.dev/rust-reviews/"
+  homepage "https://github.com/crev-dev/cargo-crev"
   url "https://github.com/crev-dev/cargo-crev/archive/refs/tags/v0.26.3.tar.gz"
   sha256 "887f3af119b1501be27a35b293087ce2a1c94ae05e00c6052bc91ae86db680b2"
   license "Apache-2.0"
@@ -31,15 +31,9 @@ class CargoCrev < Formula
     system "cargo", "install", "--no-default-features", *std_cargo_args(path: "./cargo-crev")
   end
 
-  def check_binary_linkage(binary, library)
-    binary.dynamically_linked_libraries.any? do |dll|
-      next false unless dll.start_with?(HOMEBREW_PREFIX.to_s)
-
-      File.realpath(dll) == File.realpath(library)
-    end
-  end
-
   test do
+    require "utils/linkage"
+
     # Show that we can use a different toolchain than the one provided by the `rust` formula.
     # https://github.com/Homebrew/homebrew-core/pull/134074#pullrequestreview-1484979359
     ENV.prepend_path "PATH", Formula["rustup"].bin
@@ -52,7 +46,7 @@ class CargoCrev < Formula
       Formula["openssl@3"].opt_lib/shared_library("libssl"),
       Formula["openssl@3"].opt_lib/shared_library("libcrypto"),
     ].each do |library|
-      assert check_binary_linkage(bin/"cargo-crev", library),
+      assert Utils.binary_linked_to_library?(bin/"cargo-crev", library),
              "No linkage with #{library.basename}! Cargo is likely using a vendored version."
     end
   end

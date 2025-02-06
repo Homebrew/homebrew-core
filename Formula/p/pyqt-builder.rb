@@ -3,18 +3,18 @@ class PyqtBuilder < Formula
 
   desc "Tool to build PyQt"
   homepage "https://pyqt-builder.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/2b/36/e0b701f84ab469d0baab0f8973f51deca78224ff08c8dcf454ae926936a6/pyqt_builder-1.17.2.tar.gz"
-  sha256 "cef9e06ab78c147235a5e4691e6257c963e93c2235fe3db1fe38c92f11977596"
+  url "https://files.pythonhosted.org/packages/37/3f/a55dda1be5ff8bf426f5d6c649eff87fbca151cff611b165a10b7ae00924/pyqt_builder-1.18.0.tar.gz"
+  sha256 "ce9930aafc1ce0af928a6944bcc80ecf78c23ffdcad6ac111306c4c71057848e"
   license "BSD-2-Clause"
   head "https://github.com/Python-PyQt/PyQt-builder.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4842d3137184bc928a3b4631004c741bf1fdc1a52ac66448b874ae3822ba6312"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4842d3137184bc928a3b4631004c741bf1fdc1a52ac66448b874ae3822ba6312"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "4842d3137184bc928a3b4631004c741bf1fdc1a52ac66448b874ae3822ba6312"
-    sha256 cellar: :any_skip_relocation, sonoma:        "83407190b81b2792df81d51cbc4d1fd073835170071b95c5a245413f69944983"
-    sha256 cellar: :any_skip_relocation, ventura:       "83407190b81b2792df81d51cbc4d1fd073835170071b95c5a245413f69944983"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "be5e341bd73f0d092e4120eb255ddb5a77de27546407321c5ce219cab0166aa7"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ca96498596f7feeb7eb6bd887b4283681d1594c82d03945ceb86ab3bce4eb502"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ca96498596f7feeb7eb6bd887b4283681d1594c82d03945ceb86ab3bce4eb502"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "ca96498596f7feeb7eb6bd887b4283681d1594c82d03945ceb86ab3bce4eb502"
+    sha256 cellar: :any_skip_relocation, sonoma:        "393586c6865045e2f430d9e84a091eef39d517e18b88bb57c5b2613a29d50148"
+    sha256 cellar: :any_skip_relocation, ventura:       "393586c6865045e2f430d9e84a091eef39d517e18b88bb57c5b2613a29d50148"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "973ff057325b6ab58dcfa3b7f32c779edb7797781947d1d7813da5421f699d49"
   end
 
   depends_on "python@3.13"
@@ -30,8 +30,8 @@ class PyqtBuilder < Formula
   end
 
   resource "sip" do
-    url "https://files.pythonhosted.org/packages/e2/83/b23f610ef99fa23aa3c8dcd2ff8536c37b943654405ff4f45f3230327a40/sip-6.9.1.tar.gz"
-    sha256 "7904be5190d7879952563b78a3af0e58fa27d9525af7f53f93eac7a83b433e7b"
+    url "https://files.pythonhosted.org/packages/62/9a/78122735697dbfc6c1db363627309eb0da7e44d8c05ba017b08666530586/sip-6.10.0.tar.gz"
+    sha256 "fa0515697d4c98dbe04d9e898d816de1427e5b9ae5d0e152169109fd21f5d29c"
   end
 
   def python3

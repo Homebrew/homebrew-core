@@ -24,19 +24,15 @@ class WireguardGo < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "cea569e3ebb40ce3e341edacbb5b1c451c05534c2bdacc0d73aa2f0da73b2725"
   end
 
-  depends_on "go@1.22" => :build
+  depends_on "go" => :build
 
   def install
-    system "make", "PREFIX=#{prefix}", "install"
+    odie "Remove `-checklinkname=0` workaround" if build.stable? && version > "0.0.20230223"
+    system "go", "build", *std_go_args(ldflags: "-s -w -checklinkname=0")
   end
 
   test do
-    prog = "#{bin}/wireguard-go -f notrealutun 2>&1"
-    if OS.mac?
-      assert_match "be utun", pipe_output(prog)
-    else
-
-      assert_match "Running wireguard-go is not required because this", pipe_output(prog)
-    end
+    expected = OS.mac? ? "name must be utun" : "Running wireguard-go is not required"
+    assert_match expected, shell_output("#{bin}/wireguard-go -f notrealutun 2>&1", 1)
   end
 end

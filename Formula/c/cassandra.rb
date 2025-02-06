@@ -4,18 +4,18 @@ class Cassandra < Formula
 
   desc "Eventually consistent, distributed key-value store"
   homepage "https://cassandra.apache.org"
-  url "https://www.apache.org/dyn/closer.lua?path=cassandra/5.0.2/apache-cassandra-5.0.2-bin.tar.gz"
-  mirror "https://archive.apache.org/dist/cassandra/5.0.2/apache-cassandra-5.0.2-bin.tar.gz"
-  sha256 "d721834207838b9d01919dfc33625ad17b50fea03bf9f76cdd8d3ae3a8fd2947"
+  url "https://www.apache.org/dyn/closer.lua?path=cassandra/5.0.3/apache-cassandra-5.0.3-bin.tar.gz"
+  mirror "https://archive.apache.org/dist/cassandra/5.0.3/apache-cassandra-5.0.3-bin.tar.gz"
+  sha256 "fe1652e418c410b4eb77ae61def6934175759334171f9fdff0e455f77971515d"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "d93811c988659dac067376da548017ae75ed5386588c0ab46f616dc3de91b06c"
-    sha256 cellar: :any,                 arm64_sonoma:  "8aacacac5194c0b57467acc457c7267457f11b323fad6e8e1501cfe85caa2d93"
-    sha256 cellar: :any,                 arm64_ventura: "ae588dbb3d91beddea60d6c22635f8bc42a443425cefabb35f899e85f24c50dd"
-    sha256 cellar: :any,                 sonoma:        "5ae4378828dcbf84131cef2132a2ea91b9c4ccb75d7e0ba42abd14bd802f24b8"
-    sha256 cellar: :any,                 ventura:       "7a35926ce1e8f6bda081ff85fd32421eadd643b67dcc6a7b4fa3d3df2ee1ec22"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4c79b9928798c75d5a32d1dd71c62cb7343a7c89713a5d500325302206403b9c"
+    sha256 cellar: :any,                 arm64_sequoia: "e3966d3906adbb114e9b0a5967c9299079944904fcea9ad1518f84ee923904db"
+    sha256 cellar: :any,                 arm64_sonoma:  "1b738516ad7da366c62cb7f20787fa845b0780c7cde4c5e6efb94c6aa3629b25"
+    sha256 cellar: :any,                 arm64_ventura: "b7035537b67a4007bee47a4f63d7fd3dd629da61334ecaac6e6262dc547a53cd"
+    sha256 cellar: :any,                 sonoma:        "3e9f6d90decfa9eecc8b439289e0c8a78ea039a3a59407ea7d52e2d76da969f6"
+    sha256 cellar: :any,                 ventura:       "66c1e713dcd291ef19d000123ac2eb1e30719434961b4cfc60864e18ac2f938a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "16b105d1c8ce23ce4001923f010c7e29b6746f9a1ae86b842a6774ea3bbc7c6e"
   end
 
   depends_on "libev"
@@ -30,8 +30,8 @@ class Cassandra < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/96/d3/f04c7bfcf5c1862a2a5b845c6b2b360488cf47af55dfa79c98f6a6bf98b5/click-8.1.7.tar.gz"
-    sha256 "ca9853ad459e787e2192211578cc907e7594e294c7ccc834310722b41b9ca6de"
+    url "https://files.pythonhosted.org/packages/b9/2e/0090cbf739cee7d23781ad4b89a9894a41538e4fcf4c31dcdd705b78eb8b/click-8.1.8.tar.gz"
+    sha256 "ed53c9d8990d83c2a27deae68e4ee337473f6330c040a31d4225c9574d16096a"
   end
 
   resource "geomet" do
@@ -40,8 +40,8 @@ class Cassandra < Formula
   end
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
-    sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
+    url "https://files.pythonhosted.org/packages/94/e7/b2c673351809dca68a0e064b6af791aa332cf192da575fd474ed7d6f16a2/six-1.17.0.tar.gz"
+    sha256 "ff70335d468e7eb6ec65b95b99d3a2836546063f63acc5171de367e834932a81"
   end
 
   resource "wcwidth" do

@@ -2,17 +2,18 @@ class Dum < Formula
   desc "Npm scripts runner written in Rust"
   homepage "https://github.com/egoist/dum"
   url "https://github.com/egoist/dum/archive/refs/tags/v0.1.20.tar.gz"
-  sha256 "fb5aa412a1a034b74cfe0b0b7196ed2fa1e4d0728b3388f52481f9ff7e97547a"
+  sha256 "a1f4890f7edec4b5a376d3d6a30986b13ef8818593732f4a577a35c3c7145503"
   license "MIT"
   head "https://github.com/egoist/dum.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a80624adcb9049b506632f0ed70ddccc2eab98781f81a7dec36fd235fa888c03"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d8acfe5dcb35701bd50d2f5cd764248be753fcfa7b04a7b3e640f932ef28d2e0"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "904e8b9496ff15767a4409e908d15f7786663045d6bca0b827c18fc9f1ae1d45"
-    sha256 cellar: :any_skip_relocation, sonoma:        "62f2577516630ba5850bddbbe829560ebabb4733ede3f0957898c7141be2e87f"
-    sha256 cellar: :any_skip_relocation, ventura:       "cecd11f66c0bcac5a45cce6757327fb746c7c851a03842743a22c78d66839d8f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6dcdd00cd05691c2662d83d9e0275eaf494656f68311b0a7b45a52ff6b2807e9"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fc1a2eb6d29975956f3f6d0197d900dffe8c053bd27454276d59a74d66303250"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9b543985f14ec40fe02d399547c13d7c590248a1a04755b80992a63cc9e42a15"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "d893cad55e091b873833d75218ac6e5ff2ebdb0a65b6af0f819f784ea5e487da"
+    sha256 cellar: :any_skip_relocation, sonoma:        "9a2a36f535842db5effd2ebe482db07b634c8f801d75fe91eea29f273aa624e1"
+    sha256 cellar: :any_skip_relocation, ventura:       "04fa40d559dd0816671b58404c9e829f8ac6c94bb4f51a8403dfd80419815292"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e9db9dd61b5327e9bde5c5ebffd66076e3a72911012aecd8a8b3fda81057ea26"
   end
 
   depends_on "rust" => :build

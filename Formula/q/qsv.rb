@@ -1,18 +1,26 @@
 class Qsv < Formula
   desc "Ultra-fast CSV data-wrangling toolkit"
   homepage "https://github.com/dathere/qsv"
-  url "https://github.com/dathere/qsv/archive/refs/tags/2.1.0.tar.gz"
-  sha256 "b512b1ed78809a004ba8900815190d351750ea86638d031ccb0bc4e7510afb3e"
+  url "https://github.com/dathere/qsv/archive/refs/tags/2.2.1.tar.gz"
+  sha256 "3ada256641d4a56e82cd9d3e48f62188eb6d8dd80b96385ac72c302d729504a4"
   license any_of: ["MIT", "Unlicense"]
   head "https://github.com/dathere/qsv.git", branch: "master"
 
+  # There can be a notable gap between when a version is tagged and a
+  # corresponding release is created, so we check the "latest" release instead
+  # of the Git tags.
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0b790e165fcb0939ac4a6d7790a5e923e69299e0a33d66a95aaf7328d025757f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e1b3ad1a7fe8fe2bc07c10a725b66b8422d738021cc444490dc966c883b452f0"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "259e1164477593ec50eee0b0e8e19b59e1db094d1ce6b797eb5559267691100f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ccedeaef5cd1c9263c12b2f2770656b2d11e2e614855090bdd22f5566e1905b8"
-    sha256 cellar: :any_skip_relocation, ventura:       "04c8578b26829b303fd32b2311620ceaecd9f4e943d74c0357668e4153d76492"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0c5b0a7636bb2e1d9fe535ff0c288f06aeff8892979a72cb3ddb2de506b46eb1"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c2a58f287033c1a73c0ae90a72d564109a2e59d848a17fc48348e12eae36f847"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2cad0df4512177bd581822b3bbf7438517fb085d8471795ae2138d8873737662"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "ee5501186db0ca2a558a406c653821b86e9bcc93911f68f2032aefbb29225004"
+    sha256 cellar: :any_skip_relocation, sonoma:        "aeaac5da5b9a491e5773a075dcff134c429a67579936b5d5d35d64323ed219b6"
+    sha256 cellar: :any_skip_relocation, ventura:       "ef852130a655f3598489fc9f81224d626c971483d73254019ff25395579bb7e0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ae46300ed7267bfb3fa6621212e93806ea8a0f5f484e1d273be5caaae0abe1f2"
   end
 
   depends_on "rust" => :build

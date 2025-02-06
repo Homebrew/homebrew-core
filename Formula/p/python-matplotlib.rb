@@ -8,12 +8,13 @@ class PythonMatplotlib < Formula
   license "PSF-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5613499b2da59661ef0641bb7511d06ccf3d5bb883d56d850d5aef9c8c631274"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "95de62f87fb1452cd17e312c222365ecce6a5373b44b419463ca3a9253eaa6ef"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "ff089ba09fb4be9b99121dc59e8cb4748de748362f14ed6a8720cdcc12271b7f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f24f38951eaf91d7b39a3a62bcef60ae9956ba4783a1b41fd08743a3eca15c91"
-    sha256 cellar: :any_skip_relocation, ventura:       "5fa43def0604ce0e1702d0f1990aa90c930937716dad9baa9d9066d6f848e2e7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8b56e5a6aae2fc0ad6514c6f5b77114b450a396a700f7eaaad71b730b07e96cf"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "ea109680ad52f0a46ae78c6fc3721ae6b01656d2f20e8b7dc82a1eb30f392206"
+    sha256 cellar: :any,                 arm64_sonoma:  "417255b76b6ff3027ee0a8a3301c4734d475ac6d49688f21c55b16958c2adb8d"
+    sha256 cellar: :any,                 arm64_ventura: "575f7f9d6cf269728c17ed6c80733d71380bc0a3f81c94a8be49d2f1ad961f06"
+    sha256 cellar: :any,                 sonoma:        "91369a90bddfa89047237d4f39318acbcd293551e2dc6f600e8da35b3a1d77fe"
+    sha256 cellar: :any,                 ventura:       "5d4c75b32833904c71cf82d0f224a2a3e058727a95cc9ba59deb75f82fdc16fd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "59f185b8153044041d2d72f668af792c06f54d95c274187f0a9609085f70b519"
   end
 
   depends_on "meson" => :build
@@ -74,17 +75,13 @@ class PythonMatplotlib < Formula
   end
 
   def install
-    # `matplotlib` needs extra inputs to use system libraries.
-    # Ref: https://github.com/matplotlib/matplotlib/blob/v3.8.3/doc/users/installing/dependencies.rst#use-system-libraries
-    # TODO: Update build to use `--config-settings=setup-args=...` when `matplotlib` switches to `meson-python`.
-    ENV["MPLSETUPCFG"] = buildpath/"mplsetup.cfg"
-    (buildpath/"mplsetup.cfg").write <<~EOS
-      [libs]
-      system_freetype = true
-      system_qhull = true
-    EOS
+    venv = virtualenv_create(libexec, python3)
+    venv.pip_install resources
+    system python3, "-m", "pip", "--python=#{venv.root}", "install",
+                                 "--config-settings=setup-args=-Dsystem-freetype=true",
+                                 "--config-settings=setup-args=-Dsystem-qhull=true",
+                                 *std_pip_args(prefix: false, build_isolation: true), "."
 
-    venv = virtualenv_install_with_resources
     (prefix/Language::Python.site_packages(python3)/"homebrew-matplotlib.pth").write venv.site_packages
   end
 

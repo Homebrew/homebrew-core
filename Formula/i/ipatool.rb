@@ -1,18 +1,18 @@
 class Ipatool < Formula
   desc "CLI tool for searching and downloading app packages from the iOS App Store"
   homepage "https://github.com/majd/ipatool"
-  url "https://github.com/majd/ipatool/archive/refs/tags/v2.1.4.tar.gz"
-  sha256 "e0e01c88efb94f35a71f664267c6c9ab0e22932804e0af864a0a5cd8d348dbca"
+  url "https://github.com/majd/ipatool/archive/refs/tags/v2.1.5.tar.gz"
+  sha256 "cc2371353bb00a8050e0d2ba2f4819b6401e26ba3aede5d8ed40812037b59638"
   license "MIT"
   head "https://github.com/majd/ipatool.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "46bdef94c160943aba176a886fd1290e82f0052c6a3e9d138a66eda038310429"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5f220eedcdd45350b0e6700741e656202e8a46a230b5e5ecec61695220ca27a5"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "65057a9f1fcb864b8a87d55a3cb087a9cd202880eb689243a75e5186b48b5123"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e1eb8042ec855af1fdc1756993908b0d2827774eaf746bef0cd1aa3bf4feb027"
-    sha256 cellar: :any_skip_relocation, ventura:       "03fb519b251f04b4801d08d0aa8d9542cd8cf941a6c484b3561d7ed96a694fae"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "441b6be5ce0c2dd0cb7f9910c449e124d15e791cc6ac8d6b9989eb6d5c9b410f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7dcf3f1e12a65a08468bd7b8d99bc77acbcf8696a12428b050f9006698ed8a1b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ff62a9b35c52ded1c5646f3395ac6d433f8d091ccfe6e3c150dd432e62ce89ac"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "c22121736355451767894e5ecfb7b6faf7b9b501335368608d453e7612ca6c4a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f9b79898fa15c8d84273dfe513b6b7ea15386f6a7a4e83cca18346bd31eff4cc"
+    sha256 cellar: :any_skip_relocation, ventura:       "d91f027c5fabd83e52e50bb62a9debb0f90c53dc2520298c8f7ddde5f7819220"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a6a95ac765d5b50c68bf9f044d25d49396eed63ae94968246077d6ef87b53cb8"
   end
 
   depends_on "go" => :build

@@ -1,19 +1,17 @@
 class Libslirp < Formula
   desc "General purpose TCP-IP emulator"
   homepage "https://gitlab.freedesktop.org/slirp/libslirp"
-  url "https://gitlab.freedesktop.org/slirp/libslirp/-/archive/v4.8.0/libslirp-v4.8.0.tar.gz"
-  sha256 "2a98852e65666db313481943e7a1997abff0183bd9bea80caec1b5da89fda28c"
+  url "https://gitlab.freedesktop.org/slirp/libslirp/-/archive/v4.9.0/libslirp-v4.9.0.tar.gz"
+  sha256 "e744a32767668fe80e3cb3bd75d10d501f981e98c26a1f318154a97e99cdac22"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "469818c98320325537b527080018148b2a0890b538f2f860083cfd5ad54f5deb"
-    sha256 cellar: :any,                 arm64_sonoma:   "6c4d57761e16cc3a1cd0a9c02147d28072e80159d38bdb90216e980d51deb265"
-    sha256 cellar: :any,                 arm64_ventura:  "902f5a661dd64b96456aa93a61ba747f595a125698dc8d68d8652f2d3cfff33f"
-    sha256 cellar: :any,                 arm64_monterey: "66223e420806ad8b140e331a2cc0eef4decff44367d0e3e5c35afe50e51be04a"
-    sha256 cellar: :any,                 sonoma:         "547b399b0c5b850d29e9bcc9271527dc7f380576fc73b1d678f1995b0c0c7f4b"
-    sha256 cellar: :any,                 ventura:        "9b05510f9439baf4f75d9d22e76cc06e98029706f624dbeb5c290e1003a317d6"
-    sha256 cellar: :any,                 monterey:       "e1ea881475c02fac4b92e974fd0e638032a192d62d3fb9605e18f3347d1dcd79"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0f6f98589892ccd4d638809a454ecb06d8b6dc8dd4d87db9a27813bc1b30ccb4"
+    sha256 cellar: :any,                 arm64_sequoia: "41489d3292fc00e715930b65980adb384d23d248904c2a3ea126d6ef62c3328e"
+    sha256 cellar: :any,                 arm64_sonoma:  "06992c7d810c3352be4d465c5551f37275063b9f927496c88754a4ed70075bea"
+    sha256 cellar: :any,                 arm64_ventura: "d67c02807eab2c67b0fa0b6d60bcf945decbd1ec62d9586287d7966d34fb95ec"
+    sha256 cellar: :any,                 sonoma:        "8729bdd5d982f8b5f61bd9ff63a9f6916040d28fd65a407ed1bc5d8891d0ecf5"
+    sha256 cellar: :any,                 ventura:       "5a119322dedd978d5d6e269850bf5098d048a150a3689c9024561575a51368c0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "80aef1df64bdf83980438cf320d2c8af65fc395d94a5ada48b97fa81f1a23f41"
   end
 
   depends_on "meson" => :build

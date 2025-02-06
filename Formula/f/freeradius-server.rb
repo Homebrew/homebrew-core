@@ -1,20 +1,10 @@
 class FreeradiusServer < Formula
   desc "High-performance and highly configurable RADIUS server"
   homepage "https://freeradius.org/"
+  url "https://github.com/FreeRADIUS/freeradius-server/archive/refs/tags/release_3_2_7.tar.gz"
+  sha256 "ebb906a236a8db71ba96875c9e53405bc8493e363c3815af65ae829cb6c288a3"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
-  revision 2
   head "https://github.com/FreeRADIUS/freeradius-server.git", branch: "master"
-
-  stable do
-    url "https://github.com/FreeRADIUS/freeradius-server/archive/refs/tags/release_3_2_6.tar.gz"
-    sha256 "65e099edf5d72ac2f9f7198c800cf0199544f974aae13c93908ab739815b9625"
-
-    # Fix -flat_namespace being used
-    patch do
-      url "https://github.com/FreeRADIUS/freeradius-server/commit/6c1cdb0e75ce36f6fadb8ade1a69ba5e16283689.patch?full_index=1"
-      sha256 "7e7d055d72736880ca8e1be70b81271dd02f2467156404280a117cb5dc8dccdc"
-    end
-  end
 
   livecheck do
     url :stable
@@ -22,12 +12,12 @@ class FreeradiusServer < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "d8273c1e4724a8889b45df7127dc8bc0f9e2311d521d4c37d88d0b60e4268f45"
-    sha256 arm64_sonoma:  "550ad29d70fda795a136f5a68a4985a39457608daaed3e8793095bbc239037d3"
-    sha256 arm64_ventura: "ea53fcee6f0448a54b68658d3251b7bd47654dbca51b5994464749b50db13ae9"
-    sha256 sonoma:        "86e0e4e80f9ca6e4b01fa22c6886a6063acb626305976425508196130e39c8cf"
-    sha256 ventura:       "631343eab2dd4aa02175a17c3593a2effcf441e9df705f78562c83eb8565459e"
-    sha256 x86_64_linux:  "54af2578552e86f51d43f76f2892e387c71e07297f77083c01178a3ba54ca90e"
+    sha256 arm64_sequoia: "95cb101c2859a0765631f98c22516ec0ef7f04dca8e54a1eec172e6cb6d529c2"
+    sha256 arm64_sonoma:  "85dfb2f19b835f7a1e3591fc936c03abf32fa80c2e9bede757be2654c0cd160d"
+    sha256 arm64_ventura: "88f6183dc294964a3f22fc633249e491d6b9259368a59afc9bd4d9551af0d529"
+    sha256 sonoma:        "aa58c0ce790ce38f752530797991d9d2121a184d92cea2595e77989f91fc7057"
+    sha256 ventura:       "7827599b93f900268d966f9824471d36bea66fad37b64a60b470669b05787a6e"
+    sha256 x86_64_linux:  "8afee38a329ed1deed63477166edb60e3588399ae8ab116e050ee2fdd162d4d1"
   end
 
   depends_on "collectd"

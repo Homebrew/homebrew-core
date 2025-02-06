@@ -38,17 +38,10 @@ class GitInteractiveRebaseTool < Formula
     system "cargo", "install", *std_cargo_args
   end
 
-  def check_binary_linkage(binary, library)
-    binary.dynamically_linked_libraries.any? do |dll|
-      next false unless dll.start_with?(HOMEBREW_PREFIX.to_s)
-
-      File.realpath(dll) == File.realpath(library)
-    end
-  end
-
   test do
     require "pty"
     require "io/console"
+    require "utils/linkage"
 
     mkdir testpath/"repo" do
       system "git", "init"
@@ -75,7 +68,7 @@ class GitInteractiveRebaseTool < Formula
     [
       Formula["libgit2"].opt_lib/shared_library("libgit2"),
     ].each do |library|
-      assert check_binary_linkage(bin/"interactive-rebase-tool", library),
+      assert Utils.binary_linked_to_library?(bin/"interactive-rebase-tool", library),
              "No linkage with #{library.basename}! Cargo is likely using a vendored version."
     end
   end

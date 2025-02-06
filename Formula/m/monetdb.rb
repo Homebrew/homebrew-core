@@ -30,6 +30,8 @@ class Monetdb < Formula
   depends_on "xz"
 
   uses_from_macos "python" => :build
+  uses_from_macos "bzip2"
+  uses_from_macos "zlib"
 
   def install
     system "cmake", "-S", ".", "-B", "build",

@@ -3,26 +3,25 @@ class TerraformLocal < Formula
 
   desc "CLI wrapper to deploy your Terraform applications directly to LocalStack"
   homepage "https://localstack.cloud/"
-  url "https://files.pythonhosted.org/packages/3f/c8/e80071e1de6b2c3f9b069ae78cc2c0bfb0688ee4c2467742891ea254bb11/terraform_local-0.20.0.tar.gz"
-  sha256 "2f1c7f82d8cbb9f1595b372f3a2892514a6d33b26d1678a004dec31be9614318"
+  url "https://files.pythonhosted.org/packages/b8/71/8c4ff7fc4ccfa83861ad57f4cef487e6b9414dbdd60b40cf7ea3b7456791/terraform_local-0.20.1.tar.gz"
+  sha256 "922ffd2a094099fce81e07fec11e8bb5e0501faf7aab9284fc58bfb5312a0888"
   license "Apache-2.0"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "ec6ed8799b1f83f34e6f74b8920b0ca8ece70d1c5be9fd0bb1c2c8e1a4aea92e"
+    sha256 cellar: :any_skip_relocation, all: "f04fd62c2a4ca76317600c7e24325f61b16c957ee7079db129f21992efd5e3e3"
   end
 
   depends_on "localstack"
   depends_on "python@3.13"
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/b8/29/10988ceaa300ddc628cb899875d85d9998e3da4803226398e002d95b2741/boto3-1.35.39.tar.gz"
-    sha256 "670f811c65e3c5fe4ed8c8d69be0b44b1d649e992c0fc16de43816d1188f88f1"
+    url "https://files.pythonhosted.org/packages/e6/6e/afd7d74538a1684a3d5a5c2c7ca7c57f89ac6be3cae813e9466be135a25b/boto3-1.36.7.tar.gz"
+    sha256 "ae98634efa7b47ced1b0d7342e2940b32639eee913f33ab406590b8ed55ee94b"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/f7/28/d83dbd69d7015892b53ada4fded79a5bc1b7d77259361eb8302f88c2da81/botocore-1.35.39.tar.gz"
-    sha256 "cb7f851933b5ccc2fba4f0a8b846252410aa0efac5bfbe93b82d10801f5f8e90"
+    url "https://files.pythonhosted.org/packages/e3/93/d9188c30f4c3c674cd3ee893efc23fab748e311231b4c376972453f77316/botocore-1.36.7.tar.gz"
+    sha256 "9abc64bde5e7d8f814ea91d6fc0a8142511fc96427c19fe9209677c20a0c9e6e"
   end
 
   resource "jmespath" do
@@ -41,8 +40,8 @@ class TerraformLocal < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/51/65/50db4dda066951078f0a96cf12f4b9ada6e4b811516bf0262c0f4f7064d4/packaging-24.1.tar.gz"
-    sha256 "026ed72c8ed3fcce5bf8950572258698927fd1dbda10a5e981cdf0ac37f4f002"
+    url "https://files.pythonhosted.org/packages/d0/63/68dbb6eb2de9cb10ee4c9c14a0148804425e13c4fb20d61cce69f53106da/packaging-24.2.tar.gz"
+    sha256 "c228a6dc5e932d346bc5739379109d49e8853dd8223571c7c5b55260edc0b97f"
   end
 
   resource "python-dateutil" do
@@ -51,23 +50,23 @@ class TerraformLocal < Formula
   end
 
   resource "python-hcl2" do
-    url "https://files.pythonhosted.org/packages/c4/7a/7a6d45ca4bc53ddcd298facc7a9d79ba3c24930bfb368f11bed2155aafd1/python-hcl2-5.0.0.tar.gz"
-    sha256 "af454beae19cd0c8295130c7c36ffa8d7050775b13472e082b593b1f47bb1198"
+    url "https://files.pythonhosted.org/packages/5d/59/881b1644b748079c01d51b6c422cd625802c7690c34ff59660433295c88d/python-hcl2-6.1.0.tar.gz"
+    sha256 "c06c0547e731dcb2453d68470a0f1e38869d6b5115a833e44c50d7083ce2423e"
   end
 
   resource "s3transfer" do
-    url "https://files.pythonhosted.org/packages/a0/a8/e0a98fd7bd874914f0608ef7c90ffde17e116aefad765021de0f012690a2/s3transfer-0.10.3.tar.gz"
-    sha256 "4f50ed74ab84d474ce614475e0b8d5047ff080810aac5d01ea25231cfc944b0c"
+    url "https://files.pythonhosted.org/packages/62/45/2323b5928f86fd29f9afdcef4659f68fa73eaa5356912b774227f5cf46b5/s3transfer-0.11.2.tar.gz"
+    sha256 "3b39185cb72f5acc77db1a58b6e25b977f28d20496b6e58d6813d75f464d632f"
   end
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
-    sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
+    url "https://files.pythonhosted.org/packages/94/e7/b2c673351809dca68a0e064b6af791aa332cf192da575fd474ed7d6f16a2/six-1.17.0.tar.gz"
+    sha256 "ff70335d468e7eb6ec65b95b99d3a2836546063f63acc5171de367e834932a81"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/ed/63/22ba4ebfe7430b76388e7cd448d5478814d3032121827c12a2cc287e2260/urllib3-2.2.3.tar.gz"
-    sha256 "e7d814a81dad81e6caf2ec9fdedb284ecc9c73076b62654547cc64ccdcae26e9"
+    url "https://files.pythonhosted.org/packages/aa/63/e53da845320b757bf29ef6a9062f5c669fe997973f966045cb019c3f4b66/urllib3-2.3.0.tar.gz"
+    sha256 "f8c5449b3cf0861679ce7e0503c7b44b5ec981bec0d1d3795a07f1ba96f0204d"
   end
 
   def install

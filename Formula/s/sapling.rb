@@ -102,15 +102,9 @@ class Sapling < Formula
     system "make", "-C", "eden/scm", "install-oss", "PREFIX=#{prefix}", "PYTHON=#{python3}", "PYTHON3=#{python3}"
   end
 
-  def check_binary_linkage(binary, library)
-    binary.dynamically_linked_libraries.any? do |dll|
-      next false unless dll.start_with?(HOMEBREW_PREFIX.to_s)
-
-      File.realpath(dll) == File.realpath(library)
-    end
-  end
-
   test do
+    require "utils/linkage"
+
     assert_equal "Sapling #{version}", shell_output("#{bin}/sl --version").chomp
 
     system bin/"sl", "config", "--user", "ui.username", "Sapling <sapling@sapling-scm.com>"
@@ -131,7 +125,7 @@ class Sapling < Formula
     dylibs << (Formula["curl"].opt_lib/shared_library("libcurl")) if OS.linux?
 
     dylibs.each do |library|
-      assert check_binary_linkage(bin/"sl", library),
+      assert Utils.binary_linked_to_library?(bin/"sl", library),
              "No linkage with #{library.basename}! Cargo is likely using a vendored version."
     end
   end

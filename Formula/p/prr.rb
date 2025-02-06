@@ -42,15 +42,9 @@ class Prr < Formula
     man1.install Dir["man/*.1"]
   end
 
-  def check_binary_linkage(binary, library)
-    binary.dynamically_linked_libraries.any? do |dll|
-      next false unless dll.start_with?(HOMEBREW_PREFIX.to_s)
-
-      File.realpath(dll) == File.realpath(library)
-    end
-  end
-
   test do
+    require "utils/linkage"
+
     assert_match "Failed to read config", shell_output("#{bin}/prr get Homebrew/homebrew-core/6 2>&1", 1)
 
     [
@@ -59,7 +53,7 @@ class Prr < Formula
       Formula["openssl@3"].opt_lib/shared_library("libssl"),
       Formula["openssl@3"].opt_lib/shared_library("libcrypto"),
     ].each do |library|
-      assert check_binary_linkage(bin/"prr", library),
+      assert Utils.binary_linked_to_library?(bin/"prr", library),
              "No linkage with #{library.basename}! Cargo is likely using a vendored version."
     end
   end

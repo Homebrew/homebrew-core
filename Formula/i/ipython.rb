@@ -3,18 +3,18 @@ class Ipython < Formula
 
   desc "Interactive computing in Python"
   homepage "https://ipython.org/"
-  url "https://files.pythonhosted.org/packages/01/35/6f90fdddff7a08b7b715fccbd2427b5212c9525cd043d26fdc45bee0708d/ipython-8.31.0.tar.gz"
-  sha256 "b6a2274606bec6166405ff05e54932ed6e5cfecaca1fc05f2cacde7bb074d70b"
+  url "https://files.pythonhosted.org/packages/36/80/4d2a072e0db7d250f134bc11676517299264ebe16d62a8619d49a78ced73/ipython-8.32.0.tar.gz"
+  sha256 "be2c91895b0b9ea7ba49d33b23e2040c352b33eb6a519cca7ce6e0c743444251"
   license "BSD-3-Clause"
   head "https://github.com/ipython/ipython.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "20fc452c3852c60dbe8158c9ec0002552dfe18248f05ac86948e2e559d5d0577"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "20fc452c3852c60dbe8158c9ec0002552dfe18248f05ac86948e2e559d5d0577"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "20fc452c3852c60dbe8158c9ec0002552dfe18248f05ac86948e2e559d5d0577"
-    sha256 cellar: :any_skip_relocation, sonoma:        "4fe04f865643025442463f70a73ade9988c0b786d9b045b65d11e28ea2290f57"
-    sha256 cellar: :any_skip_relocation, ventura:       "4fe04f865643025442463f70a73ade9988c0b786d9b045b65d11e28ea2290f57"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "20fc452c3852c60dbe8158c9ec0002552dfe18248f05ac86948e2e559d5d0577"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "30530a603d1af4d3e316c407a7121efb876e48e81da08eb0f8c07b044b17f50e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "30530a603d1af4d3e316c407a7121efb876e48e81da08eb0f8c07b044b17f50e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "30530a603d1af4d3e316c407a7121efb876e48e81da08eb0f8c07b044b17f50e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e923fdee672486fd8cab5665afba57464c17d3b8cfcb547f9278a755b582a5a8"
+    sha256 cellar: :any_skip_relocation, ventura:       "e923fdee672486fd8cab5665afba57464c17d3b8cfcb547f9278a755b582a5a8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "30530a603d1af4d3e316c407a7121efb876e48e81da08eb0f8c07b044b17f50e"
   end
 
   depends_on "python@3.13"
@@ -30,8 +30,8 @@ class Ipython < Formula
   end
 
   resource "executing" do
-    url "https://files.pythonhosted.org/packages/8c/e3/7d45f492c2c4a0e8e0fad57d081a7c8a0286cdd86372b070cca1ec0caa1e/executing-2.1.0.tar.gz"
-    sha256 "8ea27ddd260da8150fa5a708269c4a10e76161e2496ec3e587da9e3c0fe4b9ab"
+    url "https://files.pythonhosted.org/packages/91/50/a9d80c47ff289c611ff12e63f7c5d13942c65d68125160cefd768c73e6e4/executing-2.2.0.tar.gz"
+    sha256 "5d108c028108fe2551d1a7b2e8b713341e2cb4fc0aa7dcf966fa4327a5226755"
   end
 
   resource "jedi" do
@@ -55,8 +55,8 @@ class Ipython < Formula
   end
 
   resource "prompt-toolkit" do
-    url "https://files.pythonhosted.org/packages/2d/4f/feb5e137aff82f7c7f3248267b97451da3644f6cdc218edfe549fb354127/prompt_toolkit-3.0.48.tar.gz"
-    sha256 "d6623ab0477a80df74e646bdbc93621143f5caf104206aa29294d53de1a03d90"
+    url "https://files.pythonhosted.org/packages/a1/e1/bd15cb8ffdcfeeb2bdc215de3c3cffca11408d829e4b8416dcfe71ba8854/prompt_toolkit-3.0.50.tar.gz"
+    sha256 "544748f3860a2623ca5cd6d2795e7a14f3d0e1c3c9728359013f79877fc89bab"
   end
 
   resource "ptyprocess" do
@@ -70,8 +70,8 @@ class Ipython < Formula
   end
 
   resource "pygments" do
-    url "https://files.pythonhosted.org/packages/8e/62/8336eff65bcbc8e4cb5d05b55faf041285951b6e80f33e2bff2024788f31/pygments-2.18.0.tar.gz"
-    sha256 "786ff802f32e91311bff3889f6e9a86e81505fe99f2735bb6d60ae0c5004f199"
+    url "https://files.pythonhosted.org/packages/7c/2d/c3338d48ea6cc0feb8446d8e6937e1408088a72a39937982cc6111d17f84/pygments-2.19.1.tar.gz"
+    sha256 "61c16d2a8576dc0649d9f39e089b5f02bcd27fba10d8fb4dcc28173f7a45151f"
   end
 
   resource "stack-data" do

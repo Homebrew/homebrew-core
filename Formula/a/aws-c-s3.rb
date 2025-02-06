@@ -1,17 +1,17 @@
 class AwsCS3 < Formula
   desc "C99 library implementation for communicating with the S3 service"
   homepage "https://github.com/awslabs/aws-c-s3"
-  url "https://github.com/awslabs/aws-c-s3/archive/refs/tags/v0.7.9.tar.gz"
-  sha256 "1942161f9b9d656604a0efeb1387ad99d67d1f2d09154e0395c8bf5da2a39b7a"
+  url "https://github.com/awslabs/aws-c-s3/archive/refs/tags/v0.7.11.tar.gz"
+  sha256 "6602c92c8b4602dee50636f4128a7842f7359314d030db35368120491b3582bc"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "96655bcbd3a7ed5e732dccf06fccd37750051beeffa137ebb83610cf1a6b4bc9"
-    sha256 cellar: :any,                 arm64_sonoma:  "ea9a7a17312df5ab273fb6f88b41b1c1b056156416e1545605a5e3b333df9d7c"
-    sha256 cellar: :any,                 arm64_ventura: "67157c9ba388bed2f4f525900509d50798833cbf245c42e1a110d6155d9bd678"
-    sha256 cellar: :any,                 sonoma:        "1d722b40aa5b25acfc06d2d6eef022db3cbc3533f3f3040c61d11959f6dd551a"
-    sha256 cellar: :any,                 ventura:       "4021c00757733cccdac9fb5f225b5d4d85ee5e952e302ac177fa458dd5d2c177"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "863ebbc660dcbc3323b7adff86b0277225cc75df288d68f038d74af01b77e53e"
+    sha256 cellar: :any,                 arm64_sequoia: "72f73b7f45700aaa043f8f9b31287702c6bdf2bfb0e173cbf1c1f0af2533abac"
+    sha256 cellar: :any,                 arm64_sonoma:  "c1618156ef021e7d30f9e50eb312d2f90f0d039e68bcf386bf2c4d732c96aa8e"
+    sha256 cellar: :any,                 arm64_ventura: "cca85069996891d362a456ca696adfe073d45dc9346fdb5adc925457c11ce42f"
+    sha256 cellar: :any,                 sonoma:        "ad6bdb23743cab902252625fd766fab41670249c16cb493c6c8f8c85ac827ff6"
+    sha256 cellar: :any,                 ventura:       "cbf82c495f78ec73efd218d29c9e131e53053bccea173eb3f55ae8316275a31e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0aa6137e875b96c394c916f966bdfb43a7965885a777d96d1a17fa1ac9cf00fb"
   end
 
   depends_on "cmake" => :build
@@ -23,10 +23,7 @@ class AwsCS3 < Formula
   depends_on "aws-checksums"
 
   def install
-    args = %W[
-      -DBUILD_SHARED_LIBS=ON
-      -DCMAKE_MODULE_PATH=#{Formula["aws-c-common"].opt_lib}/cmake
-    ]
+    args = ["-DBUILD_SHARED_LIBS=ON"]
     # Avoid linkage to `aws-c-compression` and `aws-c-sdkutils`
     args << "-DCMAKE_SHARED_LINKER_FLAGS=-Wl,-dead_strip_dylibs" if OS.mac?
 

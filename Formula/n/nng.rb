@@ -1,8 +1,8 @@
 class Nng < Formula
   desc "Nanomsg-next-generation -- light-weight brokerless messaging"
   homepage "https://nanomsg.github.io/nng/"
-  url "https://github.com/nanomsg/nng/archive/refs/tags/v1.10.tar.gz"
-  sha256 "7388923985ada3abe73d27400aec1f2abf418df1231875e82ffd88e752a143ba"
+  url "https://github.com/nanomsg/nng/archive/refs/tags/v1.10.1.tar.gz"
+  sha256 "a05936a64851809ea4b6d4d96d80f2a1b815ef14d6c4f6dd2c8716bd38dd1822"
   license "MIT"
 
   livecheck do
@@ -11,12 +11,12 @@ class Nng < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "32d746d712d540f04c2970f599f9d3139d758d8b04ec76d488a5ba78b9e06533"
-    sha256 cellar: :any,                 arm64_sonoma:  "0a36a6700be0c520a162ee5c2bac665bc68180e88f17f77b89bf13d47e90a31b"
-    sha256 cellar: :any,                 arm64_ventura: "e84db04e3b7ec8f22114debf1484a8246507cce7e327d3cf2949a93294867c71"
-    sha256 cellar: :any,                 sonoma:        "5ea2b828b2865a2138107c784676c21d4540a77b9bcef3c22d4a820710ff180b"
-    sha256 cellar: :any,                 ventura:       "b85346233d5785c4f42cff03a5297f6f16cffe4bd6331d85d8cf231652642919"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7dcde6e6c8dbab0c1e3b987e580a150b2d8290378a953f6178314a94a5d29558"
+    sha256 cellar: :any,                 arm64_sequoia: "f789508482605d3898a720b13ee0dd824ae18cdfce0bf84c2658bd4b9d8c307d"
+    sha256 cellar: :any,                 arm64_sonoma:  "cd22208f26b61a5fbac9c6e056bc0363be4ab8ec5edb12da7c3a6a900e64140d"
+    sha256 cellar: :any,                 arm64_ventura: "cc1d18cfce4ade76e5ad37f8c1f01762be60458447460b4580240e74d19c2196"
+    sha256 cellar: :any,                 sonoma:        "df7377f8a991aa85c06cef8cca79f2c3d6b2a5d788731ae7e383c9b49d763d62"
+    sha256 cellar: :any,                 ventura:       "1c9e50f925a44ed332d98420c2e3c12538336d175896e2fca83f04d809cbf6da"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c69fc95eeee497679a4e5914bb9cdf0f43aa5cd30418f89cb562c896420b919b"
   end
 
   depends_on "asciidoctor" => :build

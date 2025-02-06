@@ -31,15 +31,9 @@ class GitWorkspace < Formula
     system "cargo", "install", *std_cargo_args
   end
 
-  def check_binary_linkage(binary, library)
-    binary.dynamically_linked_libraries.any? do |dll|
-      next false unless dll.start_with?(HOMEBREW_PREFIX.to_s)
-
-      File.realpath(dll) == File.realpath(library)
-    end
-  end
-
   test do
+    require "utils/linkage"
+
     ENV["GIT_WORKSPACE"] = Pathname.pwd
     ENV["GITHUB_TOKEN"] = "foo"
     system bin/"git-workspace", "add", "github", "foo"
@@ -54,7 +48,7 @@ class GitWorkspace < Formula
     ]
     linked_libraries << (Formula["openssl@3"].opt_lib/shared_library("libcrypto")) if OS.mac?
     linked_libraries.each do |library|
-      assert check_binary_linkage(bin/"git-workspace", library),
+      assert Utils.binary_linked_to_library?(bin/"git-workspace", library),
              "No linkage with #{library.basename}! Cargo is likely using a vendored version."
     end
   end

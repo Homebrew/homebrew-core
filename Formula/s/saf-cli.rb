@@ -1,17 +1,17 @@
 class SafCli < Formula
   desc "CLI for the MITRE Security Automation Framework (SAF)"
   homepage "https://saf-cli.mitre.org"
-  url "https://registry.npmjs.org/@mitre/saf/-/saf-1.4.17.tgz"
-  sha256 "ca003e6453efac1b4c40e3ac63709cad76d9b6fe04269dacf14b2310373c5cc4"
+  url "https://registry.npmjs.org/@mitre/saf/-/saf-1.4.18.tgz"
+  sha256 "84181c173ab09a3edbf766c4f7d7c710b9ebe8b460ec7b2d5279e3ffef358255"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "be19818c032a7ecc50f0b895ffbb421fb7c2dd4f6d84e02523f09ef433b2c51e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "be19818c032a7ecc50f0b895ffbb421fb7c2dd4f6d84e02523f09ef433b2c51e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "be19818c032a7ecc50f0b895ffbb421fb7c2dd4f6d84e02523f09ef433b2c51e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "16dd13059f2ba1cf35528788552a8d2e455ae591c8ea543ff0f2532579017c95"
-    sha256 cellar: :any_skip_relocation, ventura:       "16dd13059f2ba1cf35528788552a8d2e455ae591c8ea543ff0f2532579017c95"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "be19818c032a7ecc50f0b895ffbb421fb7c2dd4f6d84e02523f09ef433b2c51e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9b82502f05eae0a29b66e7a854e49e7c6a29b3fa1f54c410b6a6db4bf957eeac"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9b82502f05eae0a29b66e7a854e49e7c6a29b3fa1f54c410b6a6db4bf957eeac"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "9b82502f05eae0a29b66e7a854e49e7c6a29b3fa1f54c410b6a6db4bf957eeac"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7f7ce590bdc17cdbe367594b85a5d5b098b6f77e08d8498917ba924d64bc31e6"
+    sha256 cellar: :any_skip_relocation, ventura:       "7f7ce590bdc17cdbe367594b85a5d5b098b6f77e08d8498917ba924d64bc31e6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2ea2f8530b4e3b3c88f7b4d81988f1b4857d0cd10c5bf8f5b96e013d70b348ef"
   end
 
   depends_on "node"

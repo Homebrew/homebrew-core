@@ -3,17 +3,17 @@ class Tmt < Formula
 
   desc "Test Management Tool"
   homepage "https://tmt.readthedocs.io"
-  url "https://files.pythonhosted.org/packages/37/9c/a73606216b7f929602a54bd71c9723dd84e77ddff6c78a3e58d1b6901fd1/tmt-1.41.0.tar.gz"
-  sha256 "5bccbc96b52be50e7e0fc2be3816abe6f2ddda04ea7730b4630394424f40f634"
+  url "https://files.pythonhosted.org/packages/fc/eb/5eaeaba925f68cadb62e5af4b394d270c580b6a8586deb253ebe9f669771/tmt-1.42.1.tar.gz"
+  sha256 "9f822f29294841fe8324a30f537462a0b07d215a8ef50a5d78bde579870b41d0"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "430a497bdb004d2135607fd5bddcf3d1ae676f19fce053c8d69a4c295729cced"
-    sha256 cellar: :any,                 arm64_sonoma:  "31d6f3bca5f47f930fa6dc30f287443d28b4ff23e7744bff032c9d7d9e4488ca"
-    sha256 cellar: :any,                 arm64_ventura: "822a5cb783f740be9cb815e2a469483ee6987e6f1aefe8055d90f87ff494bd5e"
-    sha256 cellar: :any,                 sonoma:        "4271d624d58a8f7b292a5a495b892777aef907c91d7f8f8801b6750c3273ddc8"
-    sha256 cellar: :any,                 ventura:       "4f45bbba761b51fce1aefa4bf477422837c99250af1a1f2cee8093c96fcb65d2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "03da241f9aafe7b7349dbc2930ac0e5322b607e6db132382f525a2af582d5ac2"
+    sha256 cellar: :any,                 arm64_sequoia: "39034a302ae70631a6b65ac6dc85fe94cf998710e52639f5899efb1de87873cf"
+    sha256 cellar: :any,                 arm64_sonoma:  "52a9ba9f158f5779633daa99f2fb000ea9c8692ac7c5031e2010cf4e5b6b4d33"
+    sha256 cellar: :any,                 arm64_ventura: "8436d4067fea7673c67a269e2089ed3f4e236b0f1f6c1773f7ba625448d9826f"
+    sha256 cellar: :any,                 sonoma:        "707a43bfb9f61089b6458e152a8904760edb567de2d5917a27b6514d06e10d3e"
+    sha256 cellar: :any,                 ventura:       "b7e908a6f592ae05a8b3145f1fd1af2678adb004a005674e38ac8fa2558cdd63"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f09f05fa3751547e6562291841999008e2d55d5980c8bd1db3b2e55d966b58bb"
   end
 
   depends_on "rust" => :build # for rpds-py
@@ -27,8 +27,8 @@ class Tmt < Formula
   end
 
   resource "attrs" do
-    url "https://files.pythonhosted.org/packages/48/c8/6260f8ccc11f0917360fc0da435c5c9c7504e3db174d5a12a1494887b045/attrs-24.3.0.tar.gz"
-    sha256 "8f5c07333d543103541ba7be0e2ce16eeee8130cb0b3f9238ab904ce1e85baff"
+    url "https://files.pythonhosted.org/packages/49/7c/fdf464bcc51d23881d110abd74b512a42b3d5d376a55a831b44c603ae17f/attrs-25.1.0.tar.gz"
+    sha256 "1c97078a80c814273a76b2a298a932eb681c87415c11dee0a6921de7f1b02c3e"
   end
 
   resource "charset-normalizer" do
@@ -47,8 +47,8 @@ class Tmt < Formula
   end
 
   resource "filelock" do
-    url "https://files.pythonhosted.org/packages/9d/db/3ef5bb276dae18d6ec2124224403d1d67bccdbefc17af4cc8f553e341ab1/filelock-3.16.1.tar.gz"
-    sha256 "c249fbfcd5db47e5e2d6d62198e565475ee65e4831e2561c8e313fa7eb961435"
+    url "https://files.pythonhosted.org/packages/dc/9c/0b15fb47b464e1b663b1acd1253a062aa5feecb07d4e597daea542ebd2b5/filelock-3.17.0.tar.gz"
+    sha256 "ee4e77401ef576ebb38cd7f13b9b28893194acc20a8e68e18730ba9c0e54660e"
   end
 
   resource "flexcache" do
@@ -62,8 +62,8 @@ class Tmt < Formula
   end
 
   resource "fmf" do
-    url "https://files.pythonhosted.org/packages/7f/79/db26728c9584c696a0984a39e256fa632bd54004d8ba30a6f54633440d0e/fmf-1.6.0.tar.gz"
-    sha256 "d9fba13ea139f9e3a03d965d1f82588d01274d268413d664d797bdd38176ff25"
+    url "https://files.pythonhosted.org/packages/52/1f/c8e8e74f0c40e9a0230dad81b87b4a4d7afad7c51db54e16350aaecefded/fmf-1.6.1.tar.gz"
+    sha256 "cf80a4ac3ca1d9cad4453fe8205ee02912d27269d6384723d6a6aa1808b43c2e"
   end
 
   resource "idna" do
@@ -107,8 +107,8 @@ class Tmt < Formula
   end
 
   resource "pydantic" do
-    url "https://files.pythonhosted.org/packages/6a/c7/ca334c2ef6f2e046b1144fe4bb2a5da8a4c574e7f2ebf7e16b34a6a2fa92/pydantic-2.10.5.tar.gz"
-    sha256 "278b38dbbaec562011d659ee05f63346951b3a248a6f3642e1bc68894ea2b4ff"
+    url "https://files.pythonhosted.org/packages/b7/ae/d5220c5c52b158b1de7ca89fc5edb72f304a70a4c540c84c8844bf4008de/pydantic-2.10.6.tar.gz"
+    sha256 "ca5daa827cce33de7a42be142548b0096bf05a7e7b365aebfa5f8eeec7128236"
   end
 
   resource "pydantic-core" do
@@ -122,8 +122,8 @@ class Tmt < Formula
   end
 
   resource "referencing" do
-    url "https://files.pythonhosted.org/packages/99/5b/73ca1f8e72fff6fa52119dbd185f73a907b1989428917b24cff660129b6d/referencing-0.35.1.tar.gz"
-    sha256 "25b42124a6c8b632a425174f24087783efb348a6f1e0008e63cd4466fedf703c"
+    url "https://files.pythonhosted.org/packages/2f/db/98b5c277be99dd18bfd91dd04e1b759cad18d1a338188c936e92f921c7e2/referencing-0.36.2.tar.gz"
+    sha256 "df2e89862cd09deabbdba16944cc3f10feb6b3e6f18e902f7cc25609a34775aa"
   end
 
   resource "requests" do

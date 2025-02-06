@@ -33,6 +33,8 @@ class Hz < Formula
   end
 
   test do
+    ENV["GOPATH"] = testpath
+
     output = shell_output("#{bin}/hz --version 2>&1")
     assert_match "hz version v#{version}", output
 

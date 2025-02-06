@@ -1,17 +1,17 @@
 class CargoChef < Formula
   desc "Cargo subcommand to speed up Rust Docker builds using Docker layer caching"
   homepage "https://github.com/LukeMathWalker/cargo-chef"
-  url "https://github.com/LukeMathWalker/cargo-chef/archive/refs/tags/v0.1.70.tar.gz"
-  sha256 "ee536ae950d06876cd2f990265fee0b988bef327aefaad7810e78326bf922a7a"
+  url "https://github.com/LukeMathWalker/cargo-chef/archive/refs/tags/v0.1.71.tar.gz"
+  sha256 "788efbe963f932eba64892841025e8c22ad3831ec4d7adfaab6817903da7706b"
   license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1588e13a8040165d4ef940ce48c843336164e3e25def1579086c064e48d71136"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9bf8e2b5b75b6194e6a267391ee5f65bfa7cc12ba279b220b7bf0d690955d375"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "3febfc109b751c6dbe45b8de79893565734aa5d8b6df23f2ab019284c5c1f0f7"
-    sha256 cellar: :any_skip_relocation, sonoma:        "5812b8acabf4c91e6d70ef51261bf2cdf03bfc079a8b8d25457d69089a7abb48"
-    sha256 cellar: :any_skip_relocation, ventura:       "483f7dadaf56f6361e2ceb24f60d9d614e706a4d4da0126df4df17fdc0c64225"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c76302bc1c4a78553764cba09ab5f415f2fb4a9ab1f8261f4e42af48f83f91c2"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "637818a618e5efb0b8417b77e4e96c7d9123f54464cb9fe4c7e11199d2ba67f0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3202657821902cf5a88ddfc5605d4d7ec3793fe5d794541d2d96a6b167b75124"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "2ad84d474218a8bef3060b73a016e3dd7167616f496bcc9c3b9072311c4d84bc"
+    sha256 cellar: :any_skip_relocation, sonoma:        "dfdbb72bf46604cd5f0f35bd8e6b7d5dcd67c14c6233eb186a62a18c1e35cbf4"
+    sha256 cellar: :any_skip_relocation, ventura:       "10c7510f672ed91552e10e702ab9f67014470e3375076552804c2666fd827fe0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7a3b2ee0048b5f03c09967054afd7be85182404094bea559326b4ea44aa8d5d0"
   end
 
   depends_on "rust" => :build

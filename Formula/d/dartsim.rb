@@ -4,14 +4,15 @@ class Dartsim < Formula
   url "https://github.com/dartsim/dart/archive/refs/tags/v6.15.0.tar.gz"
   sha256 "bbf954e283f464f6d0a8a5ab43ce92fd49ced357ccdd986c7cb4c29152df8692"
   license "BSD-2-Clause"
+  revision 1
 
   bottle do
-    sha256                               arm64_sequoia: "e535ad930fe32671752d6857924a7027a23b05c226d095adb2d3d090ebd6c40a"
-    sha256                               arm64_sonoma:  "2cfcce63b8f5efa854cf20e196a686b7d87efca67e17b436c2fac235b38a0ba9"
-    sha256                               arm64_ventura: "3c65ad8471fb493c412874b423fbd039ceda631dd6ab823b49c4e002e7ed20a6"
-    sha256                               sonoma:        "b62650e04e8d7938d63435472dc998ee188f5c0bd9e42d9cb0e77a1fe02e2c46"
-    sha256                               ventura:       "082d4233b947f2f43ef6232a62b531eea36c1e5484aca42d145ef5a74ac9373b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7f8f7901d2a25186e278030991f26c028aa3b62fe8cdefee42398b2480319774"
+    sha256                               arm64_sequoia: "1ed8e40ca64229dad1401fb93200a56bae92e35afae5ba15094f82cbcf847da8"
+    sha256                               arm64_sonoma:  "a8d4b9548c86cbd6977b25d4efa23d6a7a06e7c65b5de78d0825f74063652bf6"
+    sha256                               arm64_ventura: "9568155ae97f84ef84876c9aa469aee5de98bf6ab5767d8db5c2e3d2ff12e68d"
+    sha256                               sonoma:        "1c9274a2fdc91aa6831e3f8a5762cf5a3e98020c2ada27173725c94044824f32"
+    sha256                               ventura:       "bcbba9622135dc3aed69dc4cbfdbd959a8cd4e86c81b006a03e16169b7136bc9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d646739948bde97fd409c8c89d34a321bdd1ca8876ddefb66f4ff98aaac996b4"
   end
 
   depends_on "cmake" => :build

@@ -4,23 +4,22 @@ class Cmark < Formula
   url "https://github.com/commonmark/cmark/archive/refs/tags/0.31.1.tar.gz"
   sha256 "3da93db5469c30588cfeb283d9d62edfc6ded9eb0edc10a4f5bbfb7d722ea802"
   license "BSD-2-Clause"
+  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "2ef6e622a90bf422b50d87ced249c01fcddf68577dca5c1d253ae49e65507612"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1ddac8c6456bff3ff163cb189b713cf3993cc2515d740e39b4f135d4233eb368"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "19bbac821a80898d2fc9174479d3b0e6e8ec8e1fa104069714d504e8a859b4a5"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9520669d2fd57eb90ecda887a67c706bde219508516a1876ec73d4047acd0467"
-    sha256 cellar: :any_skip_relocation, sonoma:         "bc90c65f67d701afea02da66a2748b2cf5531a9ea490aca25ae05cab740b5550"
-    sha256 cellar: :any_skip_relocation, ventura:        "574b08c9836e1c14a4956b5fdf387c97ba36d7956be1c59db8315586ec37de45"
-    sha256 cellar: :any_skip_relocation, monterey:       "e94600f55338f8f6a328d24b917dfe4f2786f847f07bb178317aaf254c905bd8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "44766462af04cc1d8e0ed724abd72297db90add455b432a395ba7c6caf175591"
+    sha256 cellar: :any,                 arm64_sequoia: "93bab92b2ba9b451da62ad4a762d078cafc8d4e400c23a7322f2f9dd9fcc8ea3"
+    sha256 cellar: :any,                 arm64_sonoma:  "06bf4e3da615bfa454360952b105d18bdc02ad6191220845bd3a6a776769da87"
+    sha256 cellar: :any,                 arm64_ventura: "4381cbbe681dbf83352e58b8b0fdfafed4610e8017f8fb62c1e1769d90916431"
+    sha256 cellar: :any,                 sonoma:        "42a5bb96e297ac635bea30d77ee9a80f7b7c5ae4c810ba3a1c34aca53e87d4aa"
+    sha256 cellar: :any,                 ventura:       "b00c642cf2f806489f91071dfcf1bc20fcf342154a8bf21a60563639694232c1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "59a6fd552de7099141ad135382c032bed8efa0714e91ec20490c1e05342ec5fa"
   end
 
   depends_on "cmake" => :build
   uses_from_macos "python" => :build
 
   def install
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build", "-DBUILD_SHARED_LIBS=ON", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end

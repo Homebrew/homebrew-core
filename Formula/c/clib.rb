@@ -25,11 +25,13 @@ class Clib < Formula
   uses_from_macos "curl"
 
   def install
-    ENV["PREFIX"] = prefix
-    system "make", "install"
+    system "make", "install", "PREFIX=#{prefix}"
   end
 
   test do
-    system bin/"clib", "install", "stephenmathieson/rot13.c"
+    assert_match version.to_s, shell_output("#{bin}/clib --version")
+
+    pipe_output("#{bin}/clib init", "brewtest\n0.0.1\n", 0)
+    assert_match "brewtest", (testpath/"clib.json").read
   end
 end

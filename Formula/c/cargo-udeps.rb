@@ -32,15 +32,9 @@ class CargoUdeps < Formula
     system "cargo", "install", "--no-default-features", *std_cargo_args
   end
 
-  def check_binary_linkage(binary, library)
-    binary.dynamically_linked_libraries.any? do |dll|
-      next false unless dll.start_with?(HOMEBREW_PREFIX.to_s)
-
-      File.realpath(dll) == File.realpath(library)
-    end
-  end
-
   test do
+    require "utils/linkage"
+
     # Show that we can use a different toolchain than the one provided by the `rust` formula.
     # https://github.com/Homebrew/homebrew-core/pull/134074#pullrequestreview-1484979359
     ENV.prepend_path "PATH", Formula["rustup"].bin
@@ -70,7 +64,7 @@ class CargoUdeps < Formula
       Formula["openssl@3"].opt_lib/shared_library("libssl"),
       Formula["openssl@3"].opt_lib/shared_library("libcrypto"),
     ].each do |library|
-      assert check_binary_linkage(bin/"cargo-udeps", library),
+      assert Utils.binary_linked_to_library?(bin/"cargo-udeps", library),
              "No linkage with #{library.basename}! Cargo is likely using a vendored version."
     end
   end

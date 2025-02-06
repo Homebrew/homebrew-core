@@ -1,18 +1,18 @@
 class WoofDoom < Formula
   desc "Woof! is a continuation of the Boom/MBF bloodline of Doom source ports"
   homepage "https://github.com/fabiangreffrath/woof"
-  url "https://github.com/fabiangreffrath/woof/archive/refs/tags/woof_15.1.0.tar.gz"
-  sha256 "ee88668fd3c038bd5b1c144d663dadae3afb16ed997c2b660e47d4f6b3a006d7"
+  url "https://github.com/fabiangreffrath/woof/archive/refs/tags/woof_15.2.0.tar.gz"
+  sha256 "aa2842c2897b1a8c733a79db190c2e6c17cef10651c5cd5105c7bf1360799932"
   license "GPL-2.0-only"
   head "https://github.com/fabiangreffrath/woof.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "7ae0af569590d44c5afe343ea6cb48b8c7ba41efb5a32b80d0e24206c0edafaf"
-    sha256 cellar: :any,                 arm64_sonoma:  "a0a47bea8d52e73640436d4aac5460c7ef81b81544e09669de8da2959b80b9cb"
-    sha256 cellar: :any,                 arm64_ventura: "80b0c5dbf379da793eb2235d60df56b291092b356a88e3f54e6225d909d714c4"
-    sha256 cellar: :any,                 sonoma:        "88d7e88b43f987abba5fc0c8a23ee01566624f9e8c0f276e646fbbcaa6c8f67c"
-    sha256 cellar: :any,                 ventura:       "570cba51df33954ed527df5ff73e3ac6749deb1166e4a8c06de003def4b340a7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d2386f22a1f06b6696075ef7e5f573720846ae5c9303c92c3a04b7f9fcfdc914"
+    sha256 cellar: :any,                 arm64_sequoia: "9f0b9979cbb09840542e15f524abb725a5531e1c10b7d4bbcfc9333096acd39d"
+    sha256 cellar: :any,                 arm64_sonoma:  "5cbd903199d7c932b11e369c48ed666f975f54f7e0095d8d282827a16215f370"
+    sha256 cellar: :any,                 arm64_ventura: "ecb8f5469dc35e84049fa7ba8fe21548f16c12374fd883503fe301dc8d69e5bc"
+    sha256 cellar: :any,                 sonoma:        "1a0bb7a3fc9683e6d515d68e18132f7cab5e1b5815e75adf7144869e6078a4c0"
+    sha256 cellar: :any,                 ventura:       "9bd1b3c7acae2ef026e6d701aaf6daff8037ee9f4477c7a2d207b0403f7e3dd4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "65ec9fc0998e63cc399282a54cc1cdd7f3dd4c676907cc6ed377ad0af0bbd898"
   end
 
   depends_on "cmake" => :build

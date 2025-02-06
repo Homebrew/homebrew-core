@@ -7,15 +7,8 @@ class Chruby < Formula
   head "https://github.com/postmodern/chruby.git", branch: "master"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "8caeb54fdc29211e038cb6723c1109ae708ec30b6aeadbd5390af4e8de50cfc1"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "64a6475437b898659d47bded2e62cd7df312d5eb92b87008877755c11a041e34"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "64a6475437b898659d47bded2e62cd7df312d5eb92b87008877755c11a041e34"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "64a6475437b898659d47bded2e62cd7df312d5eb92b87008877755c11a041e34"
-    sha256 cellar: :any_skip_relocation, sonoma:         "0ff541a8d6e1c0f152ec30116c895526e1a7a47ed06a1b853adfb26f8aa35792"
-    sha256 cellar: :any_skip_relocation, ventura:        "0ff541a8d6e1c0f152ec30116c895526e1a7a47ed06a1b853adfb26f8aa35792"
-    sha256 cellar: :any_skip_relocation, monterey:       "64a6475437b898659d47bded2e62cd7df312d5eb92b87008877755c11a041e34"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "64a6475437b898659d47bded2e62cd7df312d5eb92b87008877755c11a041e34"
+    rebuild 3
+    sha256 cellar: :any_skip_relocation, all: "a93d7f31af99177bb1884086e94e0c9dcb99ba4ef1ffb1f6fe33bff584c385de"
   end
 
   def install

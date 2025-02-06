@@ -1,18 +1,18 @@
 class ProtocGenGo < Formula
   desc "Go support for Google's protocol buffers"
   homepage "https://github.com/protocolbuffers/protobuf-go"
-  url "https://github.com/protocolbuffers/protobuf-go/archive/refs/tags/v1.36.3.tar.gz"
-  sha256 "d15b5c42786fa47d716b1572e5ba21979dc3163121854ece5101f072d4fa95bb"
+  url "https://github.com/protocolbuffers/protobuf-go/archive/refs/tags/v1.36.4.tar.gz"
+  sha256 "aba12e3abb045d9fc995aad578f0c0ab569325bedc277ffc9b5d159ccc78bbc5"
   license "BSD-3-Clause"
   head "https://github.com/protocolbuffers/protobuf-go.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f51d5cabe181f241f4b5415a1baa0db83680470f659c2307dfb75aaec27d2d07"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f51d5cabe181f241f4b5415a1baa0db83680470f659c2307dfb75aaec27d2d07"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "f51d5cabe181f241f4b5415a1baa0db83680470f659c2307dfb75aaec27d2d07"
-    sha256 cellar: :any_skip_relocation, sonoma:        "a726717c196983423df9078c4a5c50bdf41f3ec13f37ac46e64234ac22172d8a"
-    sha256 cellar: :any_skip_relocation, ventura:       "a726717c196983423df9078c4a5c50bdf41f3ec13f37ac46e64234ac22172d8a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8d8b06c1e8070f9795af7c55c8a4b0ab6858f1fb9fdb25f108eaf1ec6d442aa2"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3c83b8b6e741d26ee66c66b1eea60e96ce85d3a643ded056edfdbdc29e88f801"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3c83b8b6e741d26ee66c66b1eea60e96ce85d3a643ded056edfdbdc29e88f801"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "3c83b8b6e741d26ee66c66b1eea60e96ce85d3a643ded056edfdbdc29e88f801"
+    sha256 cellar: :any_skip_relocation, sonoma:        "175480e1e54f1a69c7f51c53b3d1120c2fc8efaaea67564a6ca5fbbaea553dec"
+    sha256 cellar: :any_skip_relocation, ventura:       "175480e1e54f1a69c7f51c53b3d1120c2fc8efaaea67564a6ca5fbbaea553dec"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f5dd73abeb631323d673f29584a0c52e2352c0870fd702ca8d7072ef67109d46"
   end
 
   depends_on "go" => :build

@@ -4,16 +4,15 @@ class Gammaray < Formula
   url "https://github.com/KDAB/GammaRay/releases/download/v3.1.0/gammaray-3.1.0.tar.gz"
   sha256 "93b52d5318374896621e1d8b5dd03379c53e0458b1633b539d18737fe8c300cf"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/KDAB/GammaRay.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "27b11ab0fe6bbecfd521f137e55db9dbc981f1f36baed3059fb97b1836056def"
-    sha256 cellar: :any,                 arm64_ventura:  "248e616d7cd507ed84bf5f4650b2cb419ba81b00bcace44dde18714b92585ca6"
-    sha256 cellar: :any,                 arm64_monterey: "d524a2b8c87cae2a3f15f81761fc9bb2586861314b252b2f83a0420d8c59d789"
-    sha256 cellar: :any,                 sonoma:         "e577a7147b5fe61916eea610c6fe288ff8748195c1a20efd9d507fbae2789658"
-    sha256 cellar: :any,                 ventura:        "80354ec89605d4ddf345593bb2bcc8b05cde79cbc7ccf972eb5302859e484163"
-    sha256 cellar: :any,                 monterey:       "bcf7529613e3f65821f3709780aa2e36621aa62c4833cccda703c49f3f4fb8ca"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c9ef430a3fe1d565cf9cd3c129fec0477a3562e862058ffd6caf3cb92e44f14a"
+    sha256 cellar: :any,                 arm64_sonoma:  "856f4fb5562c31f46b3598983b1badffd86d980a816487c5968099ca72021979"
+    sha256 cellar: :any,                 arm64_ventura: "898f7d5f8a2558023706268424da3c6c39ccdde70fbbea6d6901eaf6ba8ee800"
+    sha256 cellar: :any,                 sonoma:        "ea93bdf906fa8fb37f5f4aae52beef3915de98237951a633a97e2845d26d414a"
+    sha256 cellar: :any,                 ventura:       "68ffd905f8553fa2e2ec6cc6a156a187d3470448c37f6be4ebc4524003a75caf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "398b131220442b19baaacd325476260fe62b2cc6b8e250650e7343e820fb24ba"
   end
 
   depends_on "cmake" => :build

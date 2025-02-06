@@ -1,8 +1,8 @@
 class Sbcl < Formula
   desc "Steel Bank Common Lisp system"
   homepage "https://www.sbcl.org/"
-  url "https://downloads.sourceforge.net/project/sbcl/sbcl/2.5.0/sbcl-2.5.0-source.tar.bz2"
-  sha256 "2e18afd088e4a2df21b77bae2e170ce570d11da6d27607292265f1cc6a8a19b1"
+  url "https://downloads.sourceforge.net/project/sbcl/sbcl/2.5.1/sbcl-2.5.1-source.tar.bz2"
+  sha256 "4133b36cd16d14d633969c37fd51c2c89a8ea5d6e1611552819d91f71b219f8b"
   license all_of: [:public_domain, "MIT", "Xerox", "BSD-3-Clause"]
   head "https://git.code.sf.net/p/sbcl/sbcl.git", branch: "master"
 
@@ -11,12 +11,12 @@ class Sbcl < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "867711dac81ac24df3ea192993517fa2a34c3d4f498f7a68e44387f55ce3aab9"
-    sha256 cellar: :any,                 arm64_sonoma:  "d12731edd267ffe90e5b1476da6ddbf39ecafab474bf6c234db85fe96d306ecf"
-    sha256 cellar: :any,                 arm64_ventura: "e36918c3b669f7b70b20fd44487fb5e48670fdac11c68b91d3f94ca738c5c084"
-    sha256 cellar: :any,                 sonoma:        "a7aa6fa9fbeb2969c0b6130b2f74bc8f862275e2c3b8e344b8c6b4afe8c269d7"
-    sha256 cellar: :any,                 ventura:       "ec95ffcc95abd4802a09e75ef45fc276783fbeb912986ac8eb5405bcaff1c28b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bff92c82892db07015e0a9419b90915be4a18f46c42cd5cbd408bbde98aedc42"
+    sha256 cellar: :any,                 arm64_sequoia: "ff5ffcb7027823e175f30b16d24df060e9eef8b98870a8506dbace7b8dde5f99"
+    sha256 cellar: :any,                 arm64_sonoma:  "ab700907735fa706f7ffbc12d16d9cec67d2185ae334cb87c1b330b98cb153a6"
+    sha256 cellar: :any,                 arm64_ventura: "2c00a6f8493bd0e4b18ad11aba956f0d723e9e9e9fa03652be881f2d13219f36"
+    sha256 cellar: :any,                 sonoma:        "1afab92fb95a54e74abebbf6520c5eb6683604a8e4bd767221040d20f05b2eb5"
+    sha256 cellar: :any,                 ventura:       "eb27c03ae2c5a0ed31323ff6c8af7ed738cfff807dc5457049ecd1e90dc93ec2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b1efac292aa726699149c4345caa3ed77168a9b580d1f5daa4b6351e58de3b8d"
   end
 
   depends_on "ecl" => :build

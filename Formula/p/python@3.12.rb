@@ -1,8 +1,8 @@
 class PythonAT312 < Formula
   desc "Interpreted, interactive, object-oriented programming language"
   homepage "https://www.python.org/"
-  url "https://www.python.org/ftp/python/3.12.8/Python-3.12.8.tgz"
-  sha256 "5978435c479a376648cb02854df3b892ace9ed7d32b1fead652712bee9d03a45"
+  url "https://www.python.org/ftp/python/3.12.9/Python-3.12.9.tgz"
+  sha256 "45313e4c5f0e8acdec9580161d565cf5fea578e3eabf25df7cc6355bf4afa1ee"
   license "Python-2.0"
 
   livecheck do
@@ -11,12 +11,12 @@ class PythonAT312 < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "20eb89eda4a412238d217124182c11c941036190003b39c87770d9f3cdc36ef0"
-    sha256 arm64_sonoma:  "bcccf419f310137cf017b6fb26120743ccc5f05f6dc5bde11f8b9a620544ec3d"
-    sha256 arm64_ventura: "d5d026a7e01ff74b8a591a67753a2dd28ebfdf68d6dd6eee456e8812b7130dcc"
-    sha256 sonoma:        "a7c54bc038bfba48875c4a972f85fa678c958a3ed28acbed44451ea0e495f7c2"
-    sha256 ventura:       "27bca8c5925f6cb42a706eab224fb199a98477515c585052303e34ae446bbd89"
-    sha256 x86_64_linux:  "8bf357ada068767c6f65e5a7eb04b137d9df1e02ba2d7277845fa3b11791954f"
+    sha256 arm64_sequoia: "71e9ee527c125b2fccb9a7495496c7f0dcc1aff8274a2c3992f5f4f5fb9adaa9"
+    sha256 arm64_sonoma:  "c9e66e2321e176e9df376f87f9e9ec945176fcb6600bc7efcc60a5cf74eb5e29"
+    sha256 arm64_ventura: "baf24645f477ac3ee234d093faa555784ab9bc031dd204c3b8244314e724f318"
+    sha256 sonoma:        "f6c2cd7fcb21085baca22c9806d3887429f77e1bbe77803b7d27be3fd0640e5a"
+    sha256 ventura:       "e119ba92f3944191dc95a6b9e0ff05f26f818b7dbdd02274b23af896d12bc914"
+    sha256 x86_64_linux:  "ccd07e056195c9929284bc1d1de1ac5c1a29a80a1930ac07571b39f7df140f72"
   end
 
   # setuptools remembers the build flags python is built with and uses them to
@@ -51,13 +51,13 @@ class PythonAT312 < Formula
   end
 
   resource "pip" do
-    url "https://files.pythonhosted.org/packages/f4/b1/b422acd212ad7eedddaf7981eee6e5de085154ff726459cf2da7c5a184c1/pip-24.3.1.tar.gz"
-    sha256 "ebcb60557f2aefabc2e0f918751cd24ea0d56d8ec5445fe1807f1d2109660b99"
+    url "https://files.pythonhosted.org/packages/47/3e/68beeeeb306ea20ffd30b3ed993f531d16cd884ec4f60c9b1e238f69f2af/pip-25.0.tar.gz"
+    sha256 "8e0a97f7b4c47ae4a494560da84775e9e2f671d415d8d828e052efefb206b30b"
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/43/54/292f26c208734e9a7f067aea4a7e282c080750c4546559b58e2e45413ca0/setuptools-75.6.0.tar.gz"
-    sha256 "8199222558df7c86216af4f84c30e9b34a61d8ba19366cc914424cdbd28252f6"
+    url "https://files.pythonhosted.org/packages/92/ec/089608b791d210aec4e7f97488e67ab0d33add3efccb83a056cbafe3a2a6/setuptools-75.8.0.tar.gz"
+    sha256 "c5afc8f407c626b8313a86e10311dd3f661c6cd9c09d4bf8c15c0e11f9f2b0e6"
   end
 
   resource "wheel" do

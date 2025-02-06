@@ -1,8 +1,8 @@
 class Groonga < Formula
   desc "Fulltext search engine and column store"
   homepage "https://groonga.org/"
-  url "https://github.com/groonga/groonga/releases/download/v14.1.2/groonga-14.1.2.tar.gz"
-  sha256 "3da6ba0a9d64582e1b8ef5daf6f6f5b1257e8d68e401341de625b08a1cc43b09"
+  url "https://github.com/groonga/groonga/releases/download/v14.1.3/groonga-14.1.3.tar.gz"
+  sha256 "d0e84232cec53209e3b2d1952471aa75d3b8b9c59a68632043d4657e10cd65d9"
   license "LGPL-2.1-or-later"
 
   livecheck do
@@ -11,12 +11,12 @@ class Groonga < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "fa3cb8fcae55350f1ff5f6d56f2fbf13595da00edf01d7bc3c4e74c1bdfe9c02"
-    sha256 arm64_sonoma:  "3186f80fbb740d0092d10fc2b44d6ec9b5efe00675ce83239c6f4d5893645ef1"
-    sha256 arm64_ventura: "291b73754cf6e14cc7ea86007c5ec351793bcdb0b73d32a83e0d7d95f8b702eb"
-    sha256 sonoma:        "50275becaa35901e0d0befa00d8ac20c818f1f6ff3f91fad23b6007cdd7c8f73"
-    sha256 ventura:       "a89a50bad7219197f19d41bb014f7957fc81e0ac2b059e6d5408101826b1ade0"
-    sha256 x86_64_linux:  "baf0f6c7c296c236ca325d95031bb494474c9b5e8b78a7213d4c43c227021c22"
+    sha256 arm64_sequoia: "0969129a993317dfd4190339bedcd76fe2a880bf17f4081d1066435ea975d7fc"
+    sha256 arm64_sonoma:  "0bc328328e02564e096394c1fe843d5adb224fb683cd8b3893de73d246ca57e9"
+    sha256 arm64_ventura: "6e241a0ce8b20117b2b0e22d4ae39610ce87f74f2d56d0932a79ff10eb689e19"
+    sha256 sonoma:        "89d0041b4e2213125fee6b5b68e26f23a265041c21b85a0b4fea589456ebc302"
+    sha256 ventura:       "d1e9bf86ad83f7aaa66f9bae8687c57e9ed2087bd70425f4d807683c09b077a8"
+    sha256 x86_64_linux:  "5a5e81bea954af3156d75d5a0dab0c77cab4f6429b043eabc503a833dd1bdeaa"
   end
 
   head do

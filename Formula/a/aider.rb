@@ -3,18 +3,18 @@ class Aider < Formula
 
   desc "AI pair programming in your terminal"
   homepage "https://aider.chat/"
-  url "https://files.pythonhosted.org/packages/84/52/9203fe094eb3b23ffd0173b45e9d2fcc6e3b50e1404b5ca038d4cbe4068e/aider_chat-0.71.1.tar.gz"
-  sha256 "af6c769c76f98b6adeefa183567cfac20c9c52d6ff7fbcdc541595ea76642065"
+  url "https://files.pythonhosted.org/packages/00/a0/713e14bbc2c5f23ec9f9dfbe34c4b9f89122bee5b805dbcbeb60f689c981/aider_chat-0.73.0.tar.gz"
+  sha256 "372b6cbfdb5ea9f04e3fdfdf2716731e3c8d906882758692db61bf1f95848a33"
   license "Apache-2.0"
   head "https://github.com/paul-gauthier/aider.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "e1a368c8d5d13b7bae3de6a69c6522fbe855a1df2e5684356d853b5b08b9d5a6"
-    sha256 cellar: :any,                 arm64_sonoma:  "7d354eed0c91c6ed69eaae971f075a449fdaf90f79523d4214855ceb3ca51efe"
-    sha256 cellar: :any,                 arm64_ventura: "c86ef39e2f2fc45bfeec6ae0d783ed7d4711262a6213df3946b905cd19582d2e"
-    sha256 cellar: :any,                 sonoma:        "c89fc541e5ce9ece4563c3d16e54caced2b6ef32d639c6652b7ad63009289720"
-    sha256 cellar: :any,                 ventura:       "0ba7c1acd09260515326e9484d1f48a4728006dde792536f11c02bb5ccca6ccf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "478b3d684860caec60ced5bc3ad6bfd6d549bece8c678550fad31d8772feceb6"
+    sha256 cellar: :any,                 arm64_sequoia: "eb625023146ecdbe92434ce18d97d3ad217c5e09178263e71c0abd089905dc53"
+    sha256 cellar: :any,                 arm64_sonoma:  "253077afb68609fb561b1ca93adc81b3e363e61a3940f8bffbb918629d1a3c5f"
+    sha256 cellar: :any,                 arm64_ventura: "50c0b4c0d696cb08273334909c8a22b2f9103cf735c2a2d87ab718502622c5fd"
+    sha256 cellar: :any,                 sonoma:        "62e483db22cf782ed5c4025bf5aef3213c694052c19ffb611839d11a75059f99"
+    sha256 cellar: :any,                 ventura:       "944bf4191677265e25bf9d1109314c1428c4ca16100fe44943a5dcb891c075aa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cf15a79a4218cc0e5a2e63b99c16b08c7cb4ba624c6d9e8a70d040d0f7f39933"
   end
 
   depends_on "rust" => :build # for pydantic_core
@@ -23,7 +23,7 @@ class Aider < Formula
   depends_on "libyaml"
   depends_on "numpy"
   depends_on "pillow"
-  depends_on "python@3.12" # py3.13 support issue, https://github.com/Aider-AI/aider/issues/1984
+  depends_on "python@3.12" # py3.13 support issue, https://github.com/Aider-AI/aider/issues/3037
   depends_on "scipy"
 
   resource "aiohappyeyeballs" do
@@ -480,7 +480,8 @@ class Aider < Formula
   test do
     mkdir "tmptestdir" do
       assert_match version.to_s, shell_output("#{bin}/aider --version")
-      assert_match "OPENAI_API_KEY: Not set", shell_output("#{bin}/aider --yes --exit --no-check-update")
+      output = shell_output("#{bin}/aider --yes --exit --no-check-update 2>&1", 1)
+      assert_match "You need to specify a --model and an --api-key to use", output
       ENV["OPENAI_API_KEY"] = "invalid"
       output = shell_output("#{bin}/aider --yes --exit --message=test --no-check-update 2>&1")
       assert_match "Incorrect API key", output

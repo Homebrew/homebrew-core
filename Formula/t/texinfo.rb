@@ -20,6 +20,7 @@ class Texinfo < Formula
 
   on_system :linux, macos: :high_sierra_or_older do
     depends_on "gettext"
+    depends_on "libunistring"
   end
 
   def install

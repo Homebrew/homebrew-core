@@ -1,8 +1,8 @@
 class Vile < Formula
   desc "Vi Like Emacs Editor"
   homepage "https://invisible-island.net/vile/"
-  url "https://invisible-island.net/archives/vile/current/vile-9.8z.tgz"
-  sha256 "0b3286c327b70a939f21992d22e42b5c1f8a6e953bd9ab9afa624ea2719272f7"
+  url "https://invisible-island.net/archives/vile/current/vile-9.8za.tgz"
+  sha256 "65ba15ec145dfc5506217162228c7d88f01c0490a0dccde7a8a19f1c7c1b93b2"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -11,14 +11,12 @@ class Vile < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia:  "84034c614555bb446473e976341e350c73dcb4471d210c67fe602e958faef612"
-    sha256 arm64_sonoma:   "e84be3fdb790f3335cd751171d55992f7bab1c53eebba6a06221a52665da04f4"
-    sha256 arm64_ventura:  "cdaba9b9b3fc2a83aabc80a1b76481fa81bf861c0667d4c4e37929b4b92b5025"
-    sha256 arm64_monterey: "a59ef3113b85e9b48da4bd05c297628d14aee271559257fc3bea1acac346ea72"
-    sha256 sonoma:         "d6a9755cd33df24d243597f47dfb1da3c9e0708665e64167a0e1fe6ba036abda"
-    sha256 ventura:        "9be509ddf2f63412f674624495e0e2c7e7475a21b448a0e027ae031c8b29bf25"
-    sha256 monterey:       "7edd3946a1dced6529483b4f19816ff4b6d6a6310ad069f9d609f6b3a4803417"
-    sha256 x86_64_linux:   "8fadd720ffa6b64bcdfe7fa7b99c76b79b452482aed43279b627ced5f285ac11"
+    sha256 arm64_sequoia: "7728979664a4c7edf21462cc0b8f92b142afb086ec09f25c95655ae505987f96"
+    sha256 arm64_sonoma:  "5f69aa47ad920cc7457274cbed9e6b9f7df93ae5212f95e32e67dc052fd5aa1f"
+    sha256 arm64_ventura: "1da870f5170e7ec88f561de66a0cc33ef311aff1286cc75fb81dcce222199438"
+    sha256 sonoma:        "d9b590f1bfa6fd0babaf72eed46cbecdb5e18c80e559451f8532af8771059e2f"
+    sha256 ventura:       "f9128012e729d2813788f6fa74366538105c6894bdc5955667f298cbaa3a3818"
+    sha256 x86_64_linux:  "9ec063cf33a1aaf4f5fa4f4d5eb0fb953b31c6ce159d7d171b5269db6a276f77"
   end
 
   uses_from_macos "flex" => :build

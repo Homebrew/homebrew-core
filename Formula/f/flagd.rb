@@ -2,18 +2,28 @@ class Flagd < Formula
   desc "Feature flag daemon with a Unix philosophy"
   homepage "https://github.com/open-feature/flagd"
   url "https://github.com/open-feature/flagd.git",
-      tag:      "flagd/v0.11.7",
-      revision: "600ce46d618cd9685fd0e736987941801fb07359"
+      tag:      "flagd/v0.12.1",
+      revision: "82dc4e4c6c229e42ecb723f4866ba343be9d2b89"
   license "Apache-2.0"
   head "https://github.com/open-feature/flagd.git", branch: "main"
 
+  # The upstream repository contains tags like `core/v1.2.3`,
+  # `flagd-proxy/v1.2.3`, etc. but we're only interested in the `flagd/v1.2.3`
+  # tags. Upstream only appears to mark the `core/v1.2.3` releases as "latest"
+  # and there isn't usually a notable gap between tag and release, so we check
+  # the Git tags.
+  livecheck do
+    url :stable
+    regex(%r{^flagd/v?(\d+(?:[.-]\d+)+)$}i)
+  end
+
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6225eecf3f437f485a49b184932467de886cfa3dc8435f52747be2a967d5b970"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6225eecf3f437f485a49b184932467de886cfa3dc8435f52747be2a967d5b970"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "6225eecf3f437f485a49b184932467de886cfa3dc8435f52747be2a967d5b970"
-    sha256 cellar: :any_skip_relocation, sonoma:        "d34829e21fcc9e201ebc7945f5d38a085cbad8b4cbe299d557dcc46eac3dcfb4"
-    sha256 cellar: :any_skip_relocation, ventura:       "d34829e21fcc9e201ebc7945f5d38a085cbad8b4cbe299d557dcc46eac3dcfb4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "87127c1454655095e935962d56ea8554372a8071842a80be086b6d74fc0df3b4"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "80aa357e3ab13a7e0d6c4c4ddfef8103a96c1cc3601221ab09986035b061e5e2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "80aa357e3ab13a7e0d6c4c4ddfef8103a96c1cc3601221ab09986035b061e5e2"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "80aa357e3ab13a7e0d6c4c4ddfef8103a96c1cc3601221ab09986035b061e5e2"
+    sha256 cellar: :any_skip_relocation, sonoma:        "fd2517daf3095929b764345dcdfe86bea65278fdf97af6bd0333483ab3128468"
+    sha256 cellar: :any_skip_relocation, ventura:       "fd2517daf3095929b764345dcdfe86bea65278fdf97af6bd0333483ab3128468"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "88486affd411cb9bd0d1d4d1c2b32484e2c4896824c1845cea417703b90245a6"
   end
 
   depends_on "go" => :build

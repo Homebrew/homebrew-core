@@ -31,7 +31,7 @@ class GhcAT96 < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-  depends_on "python@3.12" => :build
+  depends_on "python@3.13" => :build
   depends_on "sphinx-doc" => :build
 
   uses_from_macos "m4" => :build
@@ -119,7 +119,7 @@ class GhcAT96 < Formula
     ENV["CC"] = ENV["ac_cv_path_CC"] = OS.linux? ? "cc" : ENV.cc
     ENV["CXX"] = ENV["ac_cv_path_CXX"] = OS.linux? ? "c++" : ENV.cxx
     ENV["LD"] = "ld"
-    ENV["PYTHON"] = which("python3.12")
+    ENV["PYTHON"] = which("python3.13")
 
     binary = buildpath/"binary"
     resource("binary").stage do

@@ -1,18 +1,18 @@
 class Noseyparker < Formula
   desc "Finds secrets and sensitive information in textual data and Git history"
   homepage "https://github.com/praetorian-inc/noseyparker"
-  url "https://github.com/praetorian-inc/noseyparker/archive/refs/tags/v0.22.0.tar.gz"
-  sha256 "c1b5947692a4b5c4acdba5ece024b2058f4b5aff663305462da79188ba78fca5"
+  url "https://github.com/praetorian-inc/noseyparker/archive/refs/tags/v0.23.0.tar.gz"
+  sha256 "4de92335bdf68eaa8378b1f232b7082943cefc850df0bd2519d9d281247f1a5f"
   license "Apache-2.0"
   head "https://github.com/praetorian-inc/noseyparker.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "91a270bf1c1c12196a6ceebc33cc1a782371523b178fb76af732293711181209"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ef5a5e79fbe59d67cdf035c36ab2322401b4cb2c6483542e0f37475ff260f731"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "6f360b189b52b264c3f7a4d122c55cbde055c5fb9004aab13351a8f7eea87ede"
-    sha256 cellar: :any_skip_relocation, sonoma:        "8dfbb42df2f3c3c5b0f50238f968aeb3b42572bdeaf26dd0b456ce7516bbc711"
-    sha256 cellar: :any_skip_relocation, ventura:       "62afe8bd58c73b2fc04d36a54b4e9a1336cbc2e32ded6a90e638bdc7531ce31b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6de46a91fc4c6353a2114697c7eb290352d8ba9063bdf7a8872c0222783dfe39"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6ce37940acdde39b749116c996dd7593423b7c702c05a3dcb69c3d69715d123c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cb57f1fce63e93ff03a5bcdf688d4097d69a526021889d747ead2bc0233bc3f0"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "e29c106856a44d68686292217771f114fb9975f0cd13c0aa6f22003dc63baf29"
+    sha256 cellar: :any_skip_relocation, sonoma:        "dd07b2fbb4a8652eb3209a98e69860166bf0966e1eb279c993472b272dfdc596"
+    sha256 cellar: :any_skip_relocation, ventura:       "9a9f02b384542990d19d29d9f4ab0a86dabdd02da032caaa100c0b099f554dc6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "43d9f57dbf2601ff3c088caf989bc9338a2dc6ef1aac096582cc4d98919c4438"
   end
 
   depends_on "boost" => :build

@@ -2,20 +2,18 @@ class CloudflareQuiche < Formula
   desc "Savoury implementation of the QUIC transport protocol and HTTP/3"
   homepage "https://docs.quic.tech/quiche/"
   url "https://github.com/cloudflare/quiche.git",
-      tag:      "0.22.0",
-      revision: "4ff56ec2566622980bbb0e0d7b9217254d97c4ba"
+      tag:      "0.23.2",
+      revision: "c5fc0679ece63636a2264ef273c75f08a405fdf7"
   license "BSD-2-Clause"
   head "https://github.com/cloudflare/quiche.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "7f3cdeeb6ae9c59ef17151d9a55629b062f1d25e8589e7dfd67c2bc4d5d9e608"
-    sha256 cellar: :any,                 arm64_sonoma:   "edce91e6f01349436adc89ddb657619ee44b50dc4c0d2348a3a17938abdf948c"
-    sha256 cellar: :any,                 arm64_ventura:  "7c113bc0ac14fe5bfcbfecf79cf1d4cdb94c1efbb1ac31808347a252ccad7488"
-    sha256 cellar: :any,                 arm64_monterey: "6aff3a2f065cdb912aeca3cb46992ac119b02c56e0d51ce2c823bb2ca413b8d8"
-    sha256 cellar: :any,                 sonoma:         "876f91d5a1f9737a71767019e124f9337a1f52db81e4fa3d4ec4a27508733096"
-    sha256 cellar: :any,                 ventura:        "04b58c13fcbdec3306c12fa24175392d1ce85fd60e668dda649062194d76e49a"
-    sha256 cellar: :any,                 monterey:       "3433639f9423e5d994151f04802f9b33972e25a7f0d456730dc44a2d4de41789"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9242ad03216fa5dd05d2246674443884388ef7360276476ff0a1dd5383799df1"
+    sha256 cellar: :any,                 arm64_sequoia: "ce4557b96999526df17af6542bbe364a39b543e2439864be53014137397c69d1"
+    sha256 cellar: :any,                 arm64_sonoma:  "220432f61056cebfe7c8ec17fb517952453129fbd1e901712ccf9778c5f8c067"
+    sha256 cellar: :any,                 arm64_ventura: "41886440961660f8a8e8a1b0b04499d528ff19a4b0b48c312c036ec71b886bb5"
+    sha256 cellar: :any,                 sonoma:        "6fa5c717c65318ebfe51c8064073f8efe9fadc0f117e44d81300e64898b7cd93"
+    sha256 cellar: :any,                 ventura:       "9c2ca9c5075176e4e66c50645631da77978662e3970f7d9624fee5dd01260861"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4adbca974ad4e8a296889e0aed4f1e6c70d73a2be662f79773176a5fea29c4f7"
   end
 
   depends_on "cmake" => :build

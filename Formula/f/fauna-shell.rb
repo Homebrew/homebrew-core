@@ -1,18 +1,18 @@
 class FaunaShell < Formula
   desc "Interactive shell for FaunaDB"
   homepage "https://fauna.com/"
-  url "https://registry.npmjs.org/fauna-shell/-/fauna-shell-3.0.1.tgz"
-  sha256 "258ed7dcb3c369aee861a6e69bf807fea3f00540a6b86d2cfae8d8162e32c2de"
+  url "https://registry.npmjs.org/fauna-shell/-/fauna-shell-4.0.0.tgz"
+  sha256 "6dd5c853c1a62e72d6101741a498b3b9fe4db21e68ec2e024541b488b858c77f"
   license "MPL-2.0"
   head "https://github.com/fauna/fauna-shell.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f61c240a86f5c598cb335a81b0f9c4f1808c04e89a0a6159f837e61e60610a5d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f61c240a86f5c598cb335a81b0f9c4f1808c04e89a0a6159f837e61e60610a5d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "f61c240a86f5c598cb335a81b0f9c4f1808c04e89a0a6159f837e61e60610a5d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "0738790ea782077df1050168e258e91a85cdb5c1c61aa540bad7f579f43026e6"
-    sha256 cellar: :any_skip_relocation, ventura:       "0738790ea782077df1050168e258e91a85cdb5c1c61aa540bad7f579f43026e6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f61c240a86f5c598cb335a81b0f9c4f1808c04e89a0a6159f837e61e60610a5d"
+    sha256                               arm64_sequoia: "3a775fa6fad091d1c382d58c49d484e416261ce2073c36ed6271364a34fc4821"
+    sha256                               arm64_sonoma:  "9002e01f762eb91b75a41e88d537b00610cbfa942f2fa84c2bc157882cefa551"
+    sha256                               arm64_ventura: "374ccb0c275550317f8b579c6e663eaa8ae22a498c83f94cb33f5ca06d3b7640"
+    sha256                               sonoma:        "ff54487e87007c2255d2821735ef79a48e2110eabcced192b53efc067339eb63"
+    sha256                               ventura:       "1c13fb4091005e6408f8db2b02e2a56d69a1833d4b1dc3d4e9d9b50ea8676c5c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a682cf65cd7e19afb1a0c8af45d3d76325376311433592478c2412e091ba7cfd"
   end
 
   depends_on "node"
@@ -20,25 +20,19 @@ class FaunaShell < Formula
   def install
     system "npm", "install", *std_npm_args
     bin.install_symlink libexec.glob("bin/*")
+
+    # Remove incompatible pre-built binaries
+    libexec.glob("lib/node_modules/fauna-shell/dist/{*.node,fauna}")
+           .each { |f| rm(f) }
   end
 
   test do
-    output = shell_output("#{bin}/fauna endpoint list 2>&1")
-    assert_match "Available endpoints:\n", output
+    assert_match version.to_s, shell_output("#{bin}/fauna --version")
 
-    # FIXME: This test seems to stall indefinitely on Linux.
-    # https://github.com/jdxcode/password-prompt/issues/12
-    return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"].present?
+    output = shell_output("#{bin}/fauna database list 2>&1", 1)
+    assert_match "The requested user 'default' is not signed in or has expired.", output
 
-    output = shell_output("#{bin}/fauna endpoint add https://db.fauna.com:443 " \
-                          "--no-input --url http://localhost:8443 " \
-                          "--secret your_fauna_secret --set-default")
-    assert_match "Saved endpoint https://db.fauna.com:443", output
-
-    expected = <<~EOS
-      Available endpoints:
-      * https://db.fauna.com:443
-    EOS
-    assert_equal expected, shell_output("#{bin}/fauna endpoint list")
+    output = shell_output("#{bin}/fauna local --name local-fauna 2>&1", 1)
+    assert_match "[StartContainer] Docker service is not available", output
   end
 end

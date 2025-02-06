@@ -1,9 +1,8 @@
 class DroneCli < Formula
   desc "Command-line client for the Drone continuous integration server"
   homepage "https://drone.io"
-  url "https://github.com/harness/drone-cli.git",
-      tag:      "v1.8.0",
-      revision: "bb3f656485ac8c289fe85b9f62d59993ffabf6dc"
+  url "https://github.com/harness/drone-cli/archive/refs/tags/v1.8.0.tar.gz"
+  sha256 "715e1187b8ccace88111671999c296dbd91e7523e09b0ee22dfb328f1a1d831b"
   license "Apache-2.0"
   head "https://github.com/harness/drone-cli.git", branch: "master"
 

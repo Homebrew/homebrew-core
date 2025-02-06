@@ -1,17 +1,17 @@
 class Csprecon < Formula
   desc "Discover new target domains using Content Security Policy"
   homepage "https://github.com/edoardottt/csprecon"
-  url "https://github.com/edoardottt/csprecon/archive/refs/tags/v0.4.0.tar.gz"
-  sha256 "afadd6706ef13be458f5bc15bf8549a5772e141e4be49d2fec1507aabf79d4dd"
+  url "https://github.com/edoardottt/csprecon/archive/refs/tags/v0.4.1.tar.gz"
+  sha256 "69200ae4bc99ba41c5a884af6491373cf9cfc5cd66590804c6254460951da968"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b956d3fa9c93b3836eee14686427f38bbecbbf9f32a0bb61086b1a1a8c70cdd8"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b956d3fa9c93b3836eee14686427f38bbecbbf9f32a0bb61086b1a1a8c70cdd8"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "b956d3fa9c93b3836eee14686427f38bbecbbf9f32a0bb61086b1a1a8c70cdd8"
-    sha256 cellar: :any_skip_relocation, sonoma:        "8ebdc53f7cc7528796d7bcce6078c8b767e86cbf19451cfb7d5e8734a19433c2"
-    sha256 cellar: :any_skip_relocation, ventura:       "8ebdc53f7cc7528796d7bcce6078c8b767e86cbf19451cfb7d5e8734a19433c2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bf65d3c6574d9ae2f00b23cba88ede8f6756c0bbab8932b159c7bdd96b0f65c5"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6d107562498b42b0e1b90be7b20e5cce58e36e722aabaeed906478642b8f344b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6d107562498b42b0e1b90be7b20e5cce58e36e722aabaeed906478642b8f344b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "6d107562498b42b0e1b90be7b20e5cce58e36e722aabaeed906478642b8f344b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "02fe59829e752d8f022020ef1e4cd105da7c791e8f58c1588e55d0fda1ccf02c"
+    sha256 cellar: :any_skip_relocation, ventura:       "02fe59829e752d8f022020ef1e4cd105da7c791e8f58c1588e55d0fda1ccf02c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c58fc8a2225d8fb674e45f69015becdbdee1d4af13050b1837b1f26c6dbade70"
   end
 
   depends_on "go" => :build

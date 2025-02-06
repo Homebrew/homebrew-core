@@ -1,8 +1,8 @@
 class DosboxX < Formula
   desc "DOSBox with accurate emulation and wide testing"
   homepage "https://dosbox-x.com/"
-  url "https://github.com/joncampbell123/dosbox-x/archive/refs/tags/dosbox-x-v2025.01.01.tar.gz"
-  sha256 "40290a073f6b8894d9c2b8c3d9c39a410f84fe89837c87148653ea03e89cf7b2"
+  url "https://github.com/joncampbell123/dosbox-x/archive/refs/tags/dosbox-x-v2025.02.01.tar.gz"
+  sha256 "3a6fdfd659bb05db82bf2d850af806f666562cce9a37609fd33b59f7e4bd8fa4"
   license "GPL-2.0-or-later"
   version_scheme 1
   head "https://github.com/joncampbell123/dosbox-x.git", branch: "master"
@@ -19,12 +19,12 @@ class DosboxX < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "f5f1c1b5d8bb992c7f7ce2f4312e11ce5bece8148d5da88217d0c0f0ae4ee79f"
-    sha256 arm64_sonoma:  "cbb9aabab4e7e2c759089e43251183e8798d0bac8d6b3f44004cd83054260617"
-    sha256 arm64_ventura: "09a6642476abf1d09505f79d5648f99d67a035aa6b1a45146059e655c2f844ea"
-    sha256 sonoma:        "eac84f4f5bbff69ca344c2bc85eea193f546130668dddaedf8575ed19a463f3a"
-    sha256 ventura:       "1bf58de4c738c933496fb65f1bffcd6fa70b3955f346ebe01f42a9be829095e4"
-    sha256 x86_64_linux:  "dcd557e4ad09978c6f129b3746e041716f020e808c58f2d792bc239e59bd6598"
+    sha256 arm64_sequoia: "1915228ad714219b91d754889b3b7b0697759e4681bb1a93df33451455a64529"
+    sha256 arm64_sonoma:  "c586e33b8b2c38d8e44a4aef206dd9663b11f4c2ea082f125527bb32e5fe9e1a"
+    sha256 arm64_ventura: "10d53f31e326cc287bf4a006fc5390c1b073339b2cc012a914a91eaeddc844e8"
+    sha256 sonoma:        "bb9d3461045d8c5890ddf4dc8ccfd280fa3a48f9986896813c4d8af10cbb2a56"
+    sha256 ventura:       "4f24307a90518152e0b8d2658ab3965d22581156db1bea3a11a014af228d46bf"
+    sha256 x86_64_linux:  "be98a10835a52e665f2b8cb803a7f41d34383a358bbed82d355621f56bdc6db7"
   end
 
   depends_on "autoconf" => :build

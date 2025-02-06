@@ -2,11 +2,10 @@ class Pidgin < Formula
   desc "Multi-protocol chat client"
   homepage "https://pidgin.im/"
   license "GPL-2.0-or-later"
-  revision 1
 
   stable do
-    url "https://downloads.sourceforge.net/project/pidgin/Pidgin/2.14.13/pidgin-2.14.13.tar.bz2"
-    sha256 "120049dc8e17e09a2a7d256aff2191ff8491abb840c8c7eb319a161e2df16ba8"
+    url "https://downloads.sourceforge.net/project/pidgin/Pidgin/2.14.14/pidgin-2.14.14.tar.bz2"
+    sha256 "0ffc9994def10260f98a55cd132deefa8dc4a9835451cc0e982747bd458e2356"
 
     depends_on "intltool" => :build
     depends_on "at-spi2-core"
@@ -50,11 +49,11 @@ class Pidgin < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:  "4daf91819dc1a364ada4442d63358657b5cfe68a0e1228fd32d835caf0de1fbd"
-    sha256 arm64_ventura: "30eccf131427daec7b0138ba20c556087e5dbe52d5f9511d9966a0c7050581ab"
-    sha256 sonoma:        "aeb00e3b89912e895925c3164e673c337aca159acf97352cded6b78992e68443"
-    sha256 ventura:       "2534635abc7029ca83767ff1ad5e49cff3e297a4c07c905c5429b32d1864eb60"
-    sha256 x86_64_linux:  "71e0c8873098b5a1bca073c324da03a5848f3fd8d96100afa854f7c4c608d363"
+    sha256 arm64_sonoma:  "caa350ca46ced5772132c46319aade98a688e44e84c1b01358f5fb220255757b"
+    sha256 arm64_ventura: "20f82c9ff843f0dd90c67d8c0131819566f7890053a5e8f09650044fd63fe88e"
+    sha256 sonoma:        "b4703a7a10e3aa6d834336bd7a4bb0733060cec56f1cb3f104608efe7499b6ee"
+    sha256 ventura:       "7879c09f11287eece7b6850933b7a9846e810d040b6d17439f2be82912583b08"
+    sha256 x86_64_linux:  "fcfbc1d059e9878a6ef4e729a66d3f914996e9234c90bd3cdcd6cd6f431c9016"
   end
 
   head do

@@ -8,12 +8,13 @@ class Codelimit < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "3cd54b9ee434545100858b60aba0f467423e56d1b988a51ba5c9374e14aeb189"
-    sha256 cellar: :any,                 arm64_sonoma:  "2893026fe69383ada4c5008033875d324bf0c6dd4cee9110f10102454790ee52"
-    sha256 cellar: :any,                 arm64_ventura: "06459596e765f41a26532d531e365e4969e0c50f7ea96557e00b6ef456b57ee9"
-    sha256 cellar: :any,                 sonoma:        "cd36e25d2519fa0b950485afe494f021c0088175e94c8aef6544a9d3ee088895"
-    sha256 cellar: :any,                 ventura:       "72479733df5d31f7f10155cdecb86412cf45d8d65a37535f1cbb4dc803ff5a46"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d0394a533c4685bb39e241a2eccdeb10cd0a4cc610ce759d0aa03f91e343041c"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "f15f4541358fc187914d2f17704fedf18b03d44cc380836352e1adc81fcef479"
+    sha256 cellar: :any,                 arm64_sonoma:  "57e69422339ead6154135d5339bf4aad2ee3d15a8ec3d2cebe7b2e3c3c4396db"
+    sha256 cellar: :any,                 arm64_ventura: "76579687a8003b964e910009b0fce2eaf338162bf831d9f694a48f9a10a839a0"
+    sha256 cellar: :any,                 sonoma:        "903b1fc2e0653ed20f6759c80d41a19e64609b19cf147ee21fc07f9074787a13"
+    sha256 cellar: :any,                 ventura:       "b85f06932dd86d2ebddc8e9d8835a498a6dc9639ad8d605cbceceb333b0a3ecb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4fe6160e35e190a9070e3a420e37844eaffeb236689bac619266af1ae96c0766"
   end
 
   depends_on "certifi"
@@ -136,8 +137,8 @@ class Codelimit < Formula
   end
 
   def install
-    # attrs > hatchling, fix to `ZIP does not support timestamps before 1980` error
-    ENV["SOURCE_DATE_EPOCH"] = Time.now.to_i.to_s
+    # The source doesn't have a valid SOURCE_DATE_EPOCH, so here we set default.
+    ENV["SOURCE_DATE_EPOCH"] = "1451574000"
 
     virtualenv_install_with_resources
   end

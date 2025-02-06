@@ -4,7 +4,7 @@ class Gnuradio < Formula
   desc "SDK for signal processing blocks to implement software radios"
   homepage "https://gnuradio.org/"
   license "GPL-3.0-or-later"
-  revision 5
+  revision 7
   head "https://github.com/gnuradio/gnuradio.git", branch: "main"
 
   stable do
@@ -24,12 +24,12 @@ class Gnuradio < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "b5a69ca98194f4a789b67b278e12c5b21a6d55b25759cc1884176c8e26e6015f"
-    sha256 cellar: :any,                 arm64_sonoma:  "f3281080346ffc818c23199ad5d04de2888b824b3b9c0410f1a64805e6c7c824"
-    sha256 cellar: :any,                 arm64_ventura: "f98f7c0aebad4a933246718e007d6b17cd73e695b4589437ac2ee6ec26ac2d13"
-    sha256 cellar: :any,                 sonoma:        "90603f72df66f994cc93b5cf8a551217900fad96053fc8c24d49ffa95b38d617"
-    sha256 cellar: :any,                 ventura:       "72ccfe1ec4474abc73d60dafd1a7843f9e99fb172f9e9a94d46d001e7f3db0bc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cdd9096bf4fd0914ce2b68483a50ec240ab42ee331dfad7bdc3284de9098161d"
+    sha256 cellar: :any,                 arm64_sequoia: "fd7fbde6407ecddcd71ad291ac5c390bf6508385b1a877e50cb6a3ef0eb1c76b"
+    sha256 cellar: :any,                 arm64_sonoma:  "f20e104aae730523a85bdccb57d2de9f0deeae2e90217f8d01e36cb98ee43e23"
+    sha256 cellar: :any,                 arm64_ventura: "990223da9851a96dfe1db0a4a01ab0b2d7c6b5097a1a5815fd3435953e2a14c8"
+    sha256 cellar: :any,                 sonoma:        "da8e853596a23189cbee90c73a497e49ffe5f7865d3b53cc6617006ca7a9b943"
+    sha256 cellar: :any,                 ventura:       "4e1e0022db5be21ced5ad8c7b095b0f002ad55a8d774164fb532b5def25b1a76"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f865655179aacac2a70ceaece1b5734f734e9b8a30b0532249fcfe9bcc0a351d"
   end
 
   depends_on "cmake" => :build
@@ -54,7 +54,7 @@ class Gnuradio < Formula
   depends_on "pygobject3"
   depends_on "pyqt@5"
   depends_on "python@3.13"
-  depends_on "qt@5"
+  depends_on "qt@5" # Qt6 issue: https://github.com/gnuradio/gnuradio/issues/7708
   depends_on "qwt-qt5"
   depends_on "soapyrtlsdr"
   depends_on "soapysdr"

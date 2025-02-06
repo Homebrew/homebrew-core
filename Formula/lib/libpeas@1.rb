@@ -7,14 +7,13 @@ class LibpeasAT1 < Formula
   revision 1
 
   bottle do
-    sha256 arm64_sequoia:  "ee7c799aac58e588628dc92bef9cdcf28a261b6b3151b33d94914120d2dd0510"
-    sha256 arm64_sonoma:   "d8ad718a3d4649bdf4c8c3981dd763682adf2904c1d089a747629447d937028b"
-    sha256 arm64_ventura:  "c03ce13e7f2f1251e069aeb9192a519c4d9c1e7a90e1e328b450d0f19d0b96e4"
-    sha256 arm64_monterey: "c8e6f7153853cb6bd93e328eda9eda5f86512f13ffb904e46b3c9c8473eb87d0"
-    sha256 sonoma:         "05933fc5c5f848da3a886f7b9d9570b80a1dc3f6c0790652fa89dee09e7ea698"
-    sha256 ventura:        "912fb7516d914d5f642acd85e634008e2c7684fdd11dd74825779092dfc2fe75"
-    sha256 monterey:       "6d15b2225ac18bf8177404a939d0327f6ee262a8bba7dbb8094b80d77eddb397"
-    sha256 x86_64_linux:   "b44e4a9f261b68e1ae0f92a08a962d53b7b56f7c90acdc664b062a87cc2d541c"
+    rebuild 1
+    sha256 arm64_sequoia: "a7a811d4a2fe22ee7f65b6e5c72d77a9d4bbd9bbc2f1f2b799484695671447fa"
+    sha256 arm64_sonoma:  "ca08be169114c264356fc1556108c1bb42c326990bbd2bd3e68eb03b751c50db"
+    sha256 arm64_ventura: "706a31d9b99a1092ac5a93f71f3faeb1f23c6e4a6e9976a8e5c57e37dc6a5a4a"
+    sha256 sonoma:        "e3668a9bfe2c95576190265ba214ed90c928d5e7965f6bf75fe68fbfdd21d953"
+    sha256 ventura:       "46fe7102d129d7c31095ffcfe391317576295b2b4d43f44c0cd7c31e37616392"
+    sha256 x86_64_linux:  "64df87ebec61741b04d81e290758550ea317811584c413b29510396fe4cd19b5"
   end
 
   depends_on "meson" => :build
@@ -36,6 +35,9 @@ class LibpeasAT1 < Formula
     pyver = Language::Python.major_minor_version "python3.13"
     # Help pkg-config find python as we only provide `python3-embed` for aliased python formula
     inreplace "meson.build", "'python3-embed'", "'python-#{pyver}-embed'"
+
+    # ensure Meson uses homebrew python@3.13
+    ENV.prepend_path "PKG_CONFIG_PATH", Formula["python@3.13"].opt_lib/"pkgconfig"
 
     args = %w[
       -Dpython3=true

@@ -35,25 +35,16 @@ class Bat < Formula
     ENV["RUSTONIG_DYNAMIC_LIBONIG"] = "1"
     ENV["RUSTONIG_SYSTEM_LIBONIG"] = "1"
 
-    ENV["SHELL_COMPLETIONS_DIR"] = buildpath
     system "cargo", "install", *std_cargo_args
 
-    assets_dir = Dir["target/release/build/bat-*/out/assets"].first
-    man1.install "#{assets_dir}/manual/bat.1"
-    bash_completion.install "#{assets_dir}/completions/bat.bash" => "bat"
-    fish_completion.install "#{assets_dir}/completions/bat.fish"
-    zsh_completion.install "#{assets_dir}/completions/bat.zsh" => "_bat"
-  end
-
-  def check_binary_linkage(binary, library)
-    binary.dynamically_linked_libraries.any? do |dll|
-      next false unless dll.start_with?(HOMEBREW_PREFIX.to_s)
-
-      File.realpath(dll) == File.realpath(library)
-    end
+    assets = buildpath.glob("target/release/build/bat-*/out/assets").first
+    man1.install assets/"manual/bat.1"
+    generate_completions_from_executable(bin/"bat", "--completion")
   end
 
   test do
+    require "utils/linkage"
+
     pdf = test_fixtures("test.pdf")
     output = shell_output("#{bin}/bat #{pdf} --color=never")
     assert_match "Homebrew test", output
@@ -62,7 +53,7 @@ class Bat < Formula
       Formula["libgit2"].opt_lib/shared_library("libgit2"),
       Formula["oniguruma"].opt_lib/shared_library("libonig"),
     ].each do |library|
-      assert check_binary_linkage(bin/"bat", library),
+      assert Utils.binary_linked_to_library?(bin/"bat", library),
              "No linkage with #{library.basename}! Cargo is likely using a vendored version."
     end
   end

@@ -2,17 +2,17 @@ class Duckdb < Formula
   desc "Embeddable SQL OLAP Database Management System"
   homepage "https://www.duckdb.org"
   url "https://github.com/duckdb/duckdb.git",
-      tag:      "v1.1.3",
-      revision: "19864453f7d0ed095256d848b46e7b8630989bac"
+      tag:      "v1.2.0",
+      revision: "5f5512b827df6397afd31daedb4bbdee76520019"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "c0ee4c114f855cda3cedf3aa3ebc55e98d2478abd8f82afdb6c2f77b35f69a99"
-    sha256 cellar: :any,                 arm64_sonoma:  "e64f1b902ef3ff598494153defca23bba62975d122bf16264421278553d775dc"
-    sha256 cellar: :any,                 arm64_ventura: "06aff3e01d6a7727dc4c202df223e37d71daf63a8ba6f21d21b1a48655d1a3df"
-    sha256 cellar: :any,                 sonoma:        "56920ddb8940e09ac52352b2b05dc9daa0f39dfd03fd146894754b6e425b034a"
-    sha256 cellar: :any,                 ventura:       "3f0270c622867c1944df25c1b7e1085bacc4ac751b6b540ed58ac6e21d933f8b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "25d8fcc9c429a718e5e97d8312efd04672a9b91d5aa7b9cc1af42e2178851dc8"
+    sha256 cellar: :any,                 arm64_sequoia: "67d42c867049045ad8ec4b2fe8cb0fe3d25c19ca35f38df06d5495e6706f8b27"
+    sha256 cellar: :any,                 arm64_sonoma:  "94a5719f7dd2db40bb656c1daf9ec76c172e5d8acab8b672127f9f69e32b54ab"
+    sha256 cellar: :any,                 arm64_ventura: "162248ab916eae4cbd598ccb9965a2d1e68494bca6501c291eb3730739435990"
+    sha256 cellar: :any,                 sonoma:        "e052183aac83bd8cb8cd8a7768253d03a209b1964ec75e768c64ba12c28a88cb"
+    sha256 cellar: :any,                 ventura:       "a4958e6792c20d99b41b93dda5a081f4659585953240a31dab6515a2b5fe725c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "20afbf7a5bce579a3ad2ebb078e77b4b0b9bbb66affdd3ee4e8b55e3ae437a8e"
   end
 
   depends_on "cmake" => :build

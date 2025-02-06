@@ -1,18 +1,18 @@
 class FishLsp < Formula
   desc "LSP implementation for the fish shell language"
   homepage "https://www.fish-lsp.dev"
-  url "https://registry.npmjs.org/fish-lsp/-/fish-lsp-1.0.8-3.tgz"
-  sha256 "54b36663eb1ae807969d30399189285cea578d8b65e8943705601a98c81ee4b6"
+  url "https://registry.npmjs.org/fish-lsp/-/fish-lsp-1.0.8-4.tgz"
+  sha256 "5ab1efa4a3a28f97e934bf1dc7ba56347d6cbadd3817cbf3839e333108170597"
   license "MIT"
   head "https://github.com/ndonfris/fish-lsp.git", branch: "master"
 
   bottle do
-    sha256                               arm64_sequoia: "262affd100aa67d1959987036404ee1a1da277b5e3033ebf56f0add5152f86ca"
-    sha256                               arm64_sonoma:  "cc5d172d38d3e7cf02243da09f0269478abd5da536eb2c3fc6df0b69cb232f4d"
-    sha256                               arm64_ventura: "dee73c808f55636618f4d2794ec1def3bfff0d0ed24c5166fe817d1e27f2076c"
-    sha256                               sonoma:        "b0dfe36d799467431c8cadbdf830cef2ef82337005e4e59f6f7119172e3899d4"
-    sha256                               ventura:       "9015110d31f885b970a44fe7c735aa17166a595b93f70ccd2ee376cc01dfba21"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d5b261fb388f3f2d5ef74091c9292bd4689a7fce09dc590b7ad15ffda20b7159"
+    sha256                               arm64_sequoia: "209730a654962d09739a4e856b1667c2bb906bdb47571524103cd7d0c2c749e4"
+    sha256                               arm64_sonoma:  "7f32277b57118551a0198478158a56538947b9100eb7a53a483c967c844abb06"
+    sha256                               arm64_ventura: "31e6c98852b8adeb4ea2ba717edf1d8fe04afc772413abd68b78e4aa142e429f"
+    sha256                               sonoma:        "79eee676c4795956f596e2f2ca2799efa538ecd27e88bfd2775c5dca569e9fb9"
+    sha256                               ventura:       "e8d973d7d5dbd6662a91c30041f17d4e637cc037dee2d29c7b77654856bf3ae1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "009be9dbb5e8067f447680e1dba278fc7b73d84b222925253e207446487ebe97"
   end
 
   depends_on "fish" => [:build, :test]

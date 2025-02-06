@@ -1,18 +1,18 @@
 class Slackdump < Formula
   desc "Export Slack data without admin privileges"
   homepage "https://github.com/rusq/slackdump"
-  url "https://github.com/rusq/slackdump/archive/refs/tags/v3.0.3.tar.gz"
-  sha256 "3a460664e53edb6e25e01cb4546f887dfe16f2ef8168306a7d52afbd8edc3669"
+  url "https://github.com/rusq/slackdump/archive/refs/tags/v3.0.5.tar.gz"
+  sha256 "2a59e58bdd349d85855472bee6658a23029c678742d4adc2faf724bee587f482"
   license "GPL-3.0-only"
   head "https://github.com/rusq/slackdump.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "aac7e23b326ec76add3cd2691b3e205d14559450cd7036562017ad417d46756b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "aac7e23b326ec76add3cd2691b3e205d14559450cd7036562017ad417d46756b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "aac7e23b326ec76add3cd2691b3e205d14559450cd7036562017ad417d46756b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "cbe18965996abf7d873d3bd1d699d206ca7fe46024c1bef8f32bfc219fb33668"
-    sha256 cellar: :any_skip_relocation, ventura:       "cbe18965996abf7d873d3bd1d699d206ca7fe46024c1bef8f32bfc219fb33668"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "300106207c35029f2ae67b14c321d0b0bc740076d6e08a3b1928108e99bec101"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f532124601531183142bd25267396af6b004ce7debb519eaf32cf26c458f33c7"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f532124601531183142bd25267396af6b004ce7debb519eaf32cf26c458f33c7"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "f532124601531183142bd25267396af6b004ce7debb519eaf32cf26c458f33c7"
+    sha256 cellar: :any_skip_relocation, sonoma:        "76aad857e3c9b63e937c44a495278f3d7fce694b24d67e2b87318c484be5996b"
+    sha256 cellar: :any_skip_relocation, ventura:       "76aad857e3c9b63e937c44a495278f3d7fce694b24d67e2b87318c484be5996b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "40aaf1ec69bda731a6731e167e273692546103397c7a3d53ffad5e8297044841"
   end
 
   depends_on "go" => :build

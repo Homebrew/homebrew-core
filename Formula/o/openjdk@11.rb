@@ -1,8 +1,8 @@
 class OpenjdkAT11 < Formula
   desc "Development kit for the Java programming language"
   homepage "https://openjdk.java.net/"
-  url "https://github.com/openjdk/jdk11u/archive/refs/tags/jdk-11.0.25-ga.tar.gz"
-  sha256 "fc5a473f4679163b65379adbc92083004f7b3ac2402b4ac6097bba8b65443e8e"
+  url "https://github.com/openjdk/jdk11u/archive/refs/tags/jdk-11.0.26-ga.tar.gz"
+  sha256 "85b260f8ac5ed26b9881e353700c98e768d8cb17a484ef062fb0aa56494a32bf"
   license "GPL-2.0-only"
 
   livecheck do
@@ -11,12 +11,13 @@ class OpenjdkAT11 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "b3b0c90700249c9b37ef4700d23ff27d9961a4ccfa516f215b0a9253947aebe5"
-    sha256 cellar: :any,                 arm64_sonoma:  "31115f0ad3f4ef7db6588adc76b127252d2f25b37113fc854b460b3084c3be76"
-    sha256 cellar: :any,                 arm64_ventura: "541d61d7a7387578dbc2df2e9b456ff943e44cbc8753dd2410b57dfdfcefebb1"
-    sha256 cellar: :any,                 sonoma:        "04b76e07395573a6e56039c1bf826d55d2f78e818d0b7a57c687cdd9db68dddd"
-    sha256 cellar: :any,                 ventura:       "b293e8b9e96c0a2bbeab3735d48c1a403aadb76614f0c25593477afe2e91d699"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9aa19e0427499e93e51d6375f47473e029fa46cd45560b2b1323d3ed072a9116"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "1d8776a391586cc18274242b71e242e4f584f76d14e37d9a9af6c583fe652d68"
+    sha256 cellar: :any,                 arm64_sonoma:  "c04ecb2509c83fcd6b0ae4046b72b0be03b55833a1eaad8f57bd18dfe3a9c515"
+    sha256 cellar: :any,                 arm64_ventura: "d422efa69ab9782df3d406dc1799d5eb132b7673266987072ec3d984478fa64f"
+    sha256 cellar: :any,                 sonoma:        "a1170a4e2bce72f5bbae92dfef74911872ccd192e2559c73a06b715dd3f312b1"
+    sha256 cellar: :any,                 ventura:       "cb801c448904dc51093a4d4f7f174fb6d123aa0823de17b4c57937849caeaa9b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "16785740fce6f5b7b0a95229ba0b0a1c03f86627ff7f0c5e3a616250a497660a"
   end
 
   keg_only :versioned_formula
@@ -34,32 +35,6 @@ class OpenjdkAT11 < Formula
   uses_from_macos "unzip"
   uses_from_macos "zip"
   uses_from_macos "zlib"
-
-  on_macos do
-    if DevelopmentTools.clang_build_version == 1600
-      depends_on "llvm" => :build
-
-      fails_with :clang do
-        cause "fatal error while optimizing exploded image for BUILD_JIGSAW_TOOLS"
-      end
-
-      # Backport fix for UB that errors on LLVM 19
-      patch do
-        url "https://github.com/openjdk/jdk/commit/51be7db96f3fc32a7ddb24f8af19fb4fc0577aaf.patch?full_index=1"
-        sha256 "7fb09ce74a1cf534c976d0ea8aec285c86a832fe4fa016bdf79870ac5574b9a7"
-      end
-
-      # Apply FreeBSD workaround to avoid UB causing failure on recent Clang.
-      # A proper fix requires backport of 8229258[^1] which was previously attempted[^2].
-      #
-      # [^1]: https://bugs.openjdk.org/browse/JDK-8229258
-      # [^2]: https://github.com/openjdk/jdk11u/pull/23
-      patch do
-        url "https://github.com/battleblow/jdk11u/commit/305a68a90c722aa7a7b75589e24d5b5d554c96c1.patch?full_index=1"
-        sha256 "5327c249c379a8db6a9e844e4fb32471506db8b8e3fef1f62f5c0c892684fe15"
-      end
-    end
-  end
 
   on_linux do
     depends_on "alsa-lib"
@@ -99,16 +74,6 @@ class OpenjdkAT11 < Formula
   end
 
   def install
-    if DevelopmentTools.clang_build_version == 1600
-      ENV.llvm_clang
-      ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib
-      # ptrauth.h is not available in brew LLVM
-      inreplace "src/hotspot/os_cpu/bsd_aarch64/pauth_bsd_aarch64.inline.hpp" do |s|
-        s.sub! "#include <ptrauth.h>", ""
-        s.sub! "return ptrauth_strip(ptr, ptrauth_key_asib);", "return ptr;"
-      end
-    end
-
     boot_jdk = buildpath/"boot-jdk"
     resource("boot-jdk").stage boot_jdk
     boot_jdk /= "Contents/Home" if OS.mac? && !Hardware::CPU.arm?
@@ -162,6 +127,10 @@ class OpenjdkAT11 < Formula
       ]
     end
     args << "--with-extra-ldflags=#{ldflags.join(" ")}"
+
+    if DevelopmentTools.clang_build_version == 1600
+      args << "--with-extra-cflags=-mllvm -enable-constraint-elimination=0"
+    end
 
     system "bash", "configure", *args
 

@@ -1,17 +1,17 @@
 class Gnmic < Formula
   desc "GNMI CLI client and collector"
   homepage "https://gnmic.openconfig.net"
-  url "https://github.com/openconfig/gnmic/archive/refs/tags/v0.39.1.tar.gz"
-  sha256 "beaa239bfb02d907e13f07fecfc4329730319965adbb1a24106e7b42f60a67b4"
+  url "https://github.com/openconfig/gnmic/archive/refs/tags/v0.40.0.tar.gz"
+  sha256 "ec77ceaeda3f4082df9ec2c83f9bd14036a90d683364f11a70ea7aa2262fe3d4"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "68711dfb00bbc487f277bcf2527a0b64f75cee80a05f002305f79bc36670d109"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "68711dfb00bbc487f277bcf2527a0b64f75cee80a05f002305f79bc36670d109"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "68711dfb00bbc487f277bcf2527a0b64f75cee80a05f002305f79bc36670d109"
-    sha256 cellar: :any_skip_relocation, sonoma:        "059b74fd5ec7bf50a210781650e30fc00c7e50581b3bd82e3a87f9b52e19fcd2"
-    sha256 cellar: :any_skip_relocation, ventura:       "059b74fd5ec7bf50a210781650e30fc00c7e50581b3bd82e3a87f9b52e19fcd2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5ba9ae17f1994b7b1cb0055a876078485f0c859f0d69a1e201d69cb5d28794ef"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c3651b4b4f69c13ba3ff01e13408fbacca0c13e040d86759c802ec2a8730991a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c3651b4b4f69c13ba3ff01e13408fbacca0c13e040d86759c802ec2a8730991a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "c3651b4b4f69c13ba3ff01e13408fbacca0c13e040d86759c802ec2a8730991a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2dbf3f87cde6f2861d340dd2ec97815df0300da76c5a331ce532e2a551aea8a6"
+    sha256 cellar: :any_skip_relocation, ventura:       "2dbf3f87cde6f2861d340dd2ec97815df0300da76c5a331ce532e2a551aea8a6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f417484d3b71604433b8405302590f25db90e0f220384270a8bd00afd569d1ee"
   end
 
   depends_on "go" => :build

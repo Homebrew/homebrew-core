@@ -1,10 +1,9 @@
 class MysqlAT84 < Formula
   desc "Open source relational database management system"
   homepage "https://dev.mysql.com/doc/refman/8.4/en/"
-  url "https://cdn.mysql.com/Downloads/MySQL-8.4/mysql-8.4.3.tar.gz"
-  sha256 "7ac9564c478022f73005ff89bbb40f67b381fc06d5518416bdffec75e625b818"
+  url "https://cdn.mysql.com/Downloads/MySQL-8.4/mysql-8.4.4.tar.gz"
+  sha256 "fb290ef748894434085249c31bca52ac71853124446ab218bb3bc502bf0082a5"
   license "GPL-2.0-only" => { with: "Universal-FOSS-exception-1.0" }
-  revision 6
 
   livecheck do
     url "https://dev.mysql.com/downloads/mysql/8.4.html?tpl=files&os=src&version=8.4"
@@ -12,12 +11,12 @@ class MysqlAT84 < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "dcc6bca22b9524ca8b3dd69e1a460864dab488f09dda596e29bd8f02f132c746"
-    sha256 arm64_sonoma:  "53483baed2c3ca811e7e22bcb364f22345e274ca3f43fb915344a4346fbf4c17"
-    sha256 arm64_ventura: "6599e61b43e020b049e590b409bf90fb524dbb3c202a6c3016fd0d4a0559c776"
-    sha256 sonoma:        "34b554319e5ab0124fddc2370d22f8f5e0218cf0f624d131098d134f9d0a3766"
-    sha256 ventura:       "91aaec4dd74177b9c38935804890d16a6d2e0b2b768299346594a02a9ce6a459"
-    sha256 x86_64_linux:  "c9cce3c3bfbea3ed57e75dd5f23ff9c2c63daf4cda37f40116f82d0a2cc56c3f"
+    sha256 arm64_sequoia: "96af3be0319915c3a5679021d4b19dad33a50cba1ee8728ef9e37521940f951b"
+    sha256 arm64_sonoma:  "5d431233e5953398d1b93824e7b1ea0eb1ae7a2e0140ae0d083d3277caa01e51"
+    sha256 arm64_ventura: "60d06049ea564304f4f97ee1297ac45275fe040d0a8679895d5b8e57cffbbb72"
+    sha256 sonoma:        "9678e17789b85dd2f104aba429ff186b1875f61216c2d4adf7a415d89221362c"
+    sha256 ventura:       "480b3fbb61c5e059c78ff463a4e9fa7e46e77026e2b13991f7514121976e2798"
+    sha256 x86_64_linux:  "73d2082432dba4e5d6a68e96bbc21fdcba21b82f76d776b29f38740f46a95327"
   end
 
   keg_only :versioned_formula
@@ -69,7 +68,7 @@ class MysqlAT84 < Formula
     # Remove bundled libraries other than explicitly allowed below.
     # `boost` and `rapidjson` must use bundled copy due to patches.
     # `lz4` is still needed due to xxhash.c used by mysqlgcs
-    keep = %w[boost duktape libbacktrace libcno lz4 rapidjson unordered_dense]
+    keep = %w[boost libbacktrace libcno lz4 rapidjson unordered_dense]
     (buildpath/"extra").each_child { |dir| rm_r(dir) unless keep.include?(dir.basename.to_s) }
 
     if OS.linux?

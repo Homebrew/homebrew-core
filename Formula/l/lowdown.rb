@@ -1,18 +1,20 @@
 class Lowdown < Formula
   desc "Simple markdown translator"
   homepage "https://kristaps.bsd.lv/lowdown"
-  url "https://github.com/kristapsdz/lowdown/archive/refs/tags/VERSION_1_4_0.tar.gz"
-  sha256 "ee45a6270f38826490c17612c34cc8ac25269101deeca02d5d689b4bfd8f3f4c"
+  url "https://github.com/kristapsdz/lowdown/archive/refs/tags/VERSION_2_0_0.tar.gz"
+  sha256 "cad0c7eda8ce19aef4f0e261a66bceca162f9f33defd86c9ed1b243223f84b4b"
   license "ISC"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "181e8e0a814e4fa9725ba5fcc8631802b7b04cf88ae68adae8e28d0fc8a73b7a"
-    sha256 cellar: :any,                 arm64_sonoma:  "a7397114f540a185993e0f9638a56a549d7721f34d42d3d5b919b54c1e178977"
-    sha256 cellar: :any,                 arm64_ventura: "949c8543d76647936e619f147760325707d45e8f0763fc27dc3541fffaf7993b"
-    sha256 cellar: :any,                 sonoma:        "8566ae59d8db1f58fe382e254fa4667f7dbe291721d6f209dffde0f3d81d4468"
-    sha256 cellar: :any,                 ventura:       "bbf1cf509479e93fd209132d98eb07f85bb8a956f420de9439dda8f17184dc12"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4f64c8593b86e2032b5cfce2cf86d85fac19e78ab2bc4f16443d1ab52a3bb3bc"
+    sha256 cellar: :any,                 arm64_sequoia: "3358b72222ee75a055d1fd68c5c3a542ab5c58432270e7baa7215ea5fa564715"
+    sha256 cellar: :any,                 arm64_sonoma:  "d8223bf79ad550fa24ee0a918d1484a260598d9497c78a03d7229e0f803baa4b"
+    sha256 cellar: :any,                 arm64_ventura: "8f5fe8c1ebf91093f937099afa3db343fe2a6367df30db53a62883391d1cc758"
+    sha256 cellar: :any,                 sonoma:        "7b9924bc80697b7576f214ea8250a3455c9fcf148047a1f669acb4ca41a9768f"
+    sha256 cellar: :any,                 ventura:       "8ccd027224698f1f0bbc69b059ab114a346fddb0f2801591e26f4fb365f3a863"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5588bbb354934f3325b3d38b49b9c65550a77fdc79324c09ad9f8fefbe37987d"
   end
+
+  depends_on "bmake" => :build
 
   def install
     configure_args = %W[MANDIR=#{man} PREFIX=#{prefix}]
@@ -24,8 +26,8 @@ class Lowdown < Formula
     end
 
     system "./configure", *configure_args
-    system "make"
-    system "make", "install", "install_libs"
+    system "bmake"
+    system "bmake", "install", "install_libs"
   end
 
   test do

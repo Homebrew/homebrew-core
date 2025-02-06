@@ -3,13 +3,13 @@ class Recoverpy < Formula
 
   desc "TUI to recover overwritten or deleted data"
   homepage "https://github.com/PabloLec/recoverpy"
-  url "https://files.pythonhosted.org/packages/1e/3e/371ceea2d5fd1a3df4318d179f74225ed4279aeda9a9ec0ca885636b562d/recoverpy-2.1.10.tar.gz"
-  sha256 "573dc2c3fd32fc20506985d69336df6c5380539ff3900d09082fdf8da1069fa1"
+  url "https://files.pythonhosted.org/packages/70/9b/fe6ea08bb3d6cc26672d5cc8117b3479a460e07abc045a9b93c686f930ed/recoverpy-2.2.0.tar.gz"
+  sha256 "a382c9bc90b210374d3f3638037aa85dec6f4e97572792b7970deab031e873a2"
   license "GPL-3.0-or-later"
   head "https://github.com/PabloLec/recoverpy.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "48640517f1127d2140adc4f2e0d16c41c112f92300485ed865ebac008a813e70"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "37d2cca3d651cef7ca2e83060e3df28e3c72bf55e75b3d912f60d570833bd44f"
   end
 
   depends_on :linux
@@ -41,8 +41,8 @@ class Recoverpy < Formula
   end
 
   resource "pygments" do
-    url "https://files.pythonhosted.org/packages/8e/62/8336eff65bcbc8e4cb5d05b55faf041285951b6e80f33e2bff2024788f31/pygments-2.18.0.tar.gz"
-    sha256 "786ff802f32e91311bff3889f6e9a86e81505fe99f2735bb6d60ae0c5004f199"
+    url "https://files.pythonhosted.org/packages/7c/2d/c3338d48ea6cc0feb8446d8e6937e1408088a72a39937982cc6111d17f84/pygments-2.19.1.tar.gz"
+    sha256 "61c16d2a8576dc0649d9f39e089b5f02bcd27fba10d8fb4dcc28173f7a45151f"
   end
 
   resource "rich" do
@@ -51,8 +51,8 @@ class Recoverpy < Formula
   end
 
   resource "textual" do
-    url "https://files.pythonhosted.org/packages/a4/0d/9c3e18839b696fa6f3bf0e820579967d5c3ffafc9a7c28e557f0ed4a74a3/textual-0.79.1.tar.gz"
-    sha256 "2aaa9778beac5e56957794ee492bd8d281d39516ccb0e507e726484a1327d8b2"
+    url "https://files.pythonhosted.org/packages/1f/b6/59b1de04bb4dca0f21ed7ba0b19309ed7f3f5de4396edf20cc2855e53085/textual-1.0.0.tar.gz"
+    sha256 "bec9fe63547c1c552569d1b75d309038b7d456c03f86dfa3706ddb099b151399"
   end
 
   resource "typing-extensions" do

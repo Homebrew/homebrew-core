@@ -1,8 +1,8 @@
 class Lizard < Formula
   desc "Efficient compressor with very fast decompression"
   homepage "https://github.com/inikep/lizard"
-  url "https://github.com/inikep/lizard/archive/refs/tags/v1.0.tar.gz"
-  sha256 "6f666ed699fc15dc7fdaabfaa55787b40ac251681b50c0d8df017c671a9457e6"
+  url "https://github.com/inikep/lizard/archive/refs/tags/v2.1.tar.gz"
+  sha256 "0c1a7efceeb8ae66bfa2b7b659f01dec120925d846b01ce4dfc6960ba8cd61e5"
   license all_of: ["BSD-2-Clause", "GPL-2.0-or-later"]
   version_scheme 1
 
@@ -12,20 +12,12 @@ class Lizard < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia:  "63b78a3a1448020e2818baa44fd54fda999a71b99ba02529f465710351f0e0b1"
-    sha256 cellar: :any,                 arm64_sonoma:   "476ceb4a73d3142140462bc343d0efd3730580b26108977c304c39dee0142989"
-    sha256 cellar: :any,                 arm64_ventura:  "6fcf6c0c2243f9fa4a9f06ebb9b28c2fcf5aaed5916bc3ab6be36024e3096556"
-    sha256 cellar: :any,                 arm64_monterey: "870168a41711bd2dac174484f576c7573b422e9b9a9ba20a4f761b262747966f"
-    sha256 cellar: :any,                 arm64_big_sur:  "25adf9383bbad3ab6c4f51e38ea46ebe4fc636cc347c8625b2fbd65e89a3144d"
-    sha256 cellar: :any,                 sonoma:         "3e4a171bf7b68f9d77098a84121fd2d8adf2432c4bc9cb2201ad128cd0456e1d"
-    sha256 cellar: :any,                 ventura:        "75bd1c568655f58d515f452ee69c5b615e3d65c7f9eadba2581a4df5bd2e7d3c"
-    sha256 cellar: :any,                 monterey:       "463d92f46e8fbdd327b99b8322c2dbb24ff2d08635f44a2706665066741658d9"
-    sha256 cellar: :any,                 big_sur:        "3ddb2ae111832e46648ef4b0bf73bb890f96afd6cdb5dedc847857162163079e"
-    sha256 cellar: :any,                 catalina:       "18fe5004080acea3a2799a0e1bce34e0382bea9528a1ec036267c1eb8a702e3b"
-    sha256 cellar: :any,                 mojave:         "7375bcd75ec034939751ee0f44dd703ac81431957a92712d26fec1682e00ebc7"
-    sha256 cellar: :any,                 high_sierra:    "a42e90e02b4074e0c864ae32fe5833977cebd50b8f9c74339c7a91dcf169b098"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d50573d98593492aefbae83f872366e44915d241f975a9f3213c6fbc59b6a1f8"
+    sha256 cellar: :any,                 arm64_sequoia: "a9de7741a01031727be56d4e8114c07ca8b108607393e7fc81de10a3ef38ac2c"
+    sha256 cellar: :any,                 arm64_sonoma:  "f0096c7097d15b80a8b1380e9875f01dc9c774f9c4486037079e87614179b32f"
+    sha256 cellar: :any,                 arm64_ventura: "6e41f950c3122da4196d7f1f9501e9c32f095465587090615bba4be931543f07"
+    sha256 cellar: :any,                 sonoma:        "9bd2c13adb64d92944260e290b9416218f4eeb424487ea49ae83bb015ffd9f81"
+    sha256 cellar: :any,                 ventura:       "39b3961d0fc7b870dcc7d375782ccd5c51ac716e4a3ef8bb6ffa16431409ae37"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "baf6aa7976a0ebf3f70dca4b20b19dac4cebcf104d40806af223fa0be2b0607f"
   end
 
   conflicts_with "lizard-analyzer", because: "both install `lizard` binaries"

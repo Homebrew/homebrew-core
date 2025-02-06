@@ -487,6 +487,9 @@
   "linode-cli": {
     "exclude_packages": ["certifi"]
   },
+  "litecli": {
+    "exclude_packages": ["setuptools"]
+  },
   "literate-git": {
     "exclude_packages": ["pygit2"]
   },
@@ -945,6 +948,7 @@
     "exclude_packages": ["certifi"]
   },
   "zabbix-cli": {
+    "package_name": "zabbix_cli_uio",
     "exclude_packages": ["certifi"]
   },
   "zim": {

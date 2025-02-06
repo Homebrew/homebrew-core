@@ -3,47 +3,45 @@ class Black < Formula
 
   desc "Python code formatter"
   homepage "https://black.readthedocs.io/en/stable/"
-  url "https://files.pythonhosted.org/packages/d8/0d/cc2fb42b8c50d80143221515dd7e4766995bd07c56c9a3ed30baf080b6dc/black-24.10.0.tar.gz"
-  sha256 "846ea64c97afe3bc677b761787993be4991810ecc7a4a937816dd6bddedc4875"
+  url "https://files.pythonhosted.org/packages/94/49/26a7b0f3f35da4b5a65f081943b7bcd22d7002f5f0fb8098ec1ff21cb6ef/black-25.1.0.tar.gz"
+  sha256 "33496d5cd1222ad73391352b4ae8da15253c5de89b93a80b3e2c8d9a19ec2666"
   license "MIT"
-  revision 1
   head "https://github.com/psf/black.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1d907b91a649712809d1ee774c56b098d77824b94e844eeab813ccaa9473b118"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3317317a40344aa0134a70f9843208e3404de3b9884ff94d3b82903364238a60"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "6d2d3dd428ea124603044c3191378e9e2d86fc04a96b3d8cbda4265226934627"
-    sha256 cellar: :any_skip_relocation, sonoma:        "6a41000d596987c927ef1f018bb07de8f62aed2c38ee45b2a6bebc30ca5f33ee"
-    sha256 cellar: :any_skip_relocation, ventura:       "06b304505e915cdc75102d3cff1fd089237c454fd2bd73ee7b49fb29aeb9acb8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6f23e5359f4294329e7b47878c065d16e6497f106d7ec31b1d94fc52dd7922d0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "46c64691bb6258ab24509fee79523f5ff62cc09219ad325fe2872d3b8c2005ab"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "32faab47d3445dcf22eb782211f9959b38dd2933817b710b3c69774eb54270d2"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "5c78a437c2d5cb0cc4c2452be34a125b05e7d1bafc6d931f7fe337451cce67f6"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d647d07c26cb7d24012d24054f40be1e4e9cb93a4918b12090a7cd81b44c7b42"
+    sha256 cellar: :any_skip_relocation, ventura:       "57156446b37bee3a2f9c804793842a60b340dc97000d55e5ccf717dcaf5e4add"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fdf2182bd82d22039120cff8bd9eb9546e89231b241fd2f15701f36ed7009315"
   end
 
   depends_on "python@3.13"
 
   resource "aiohappyeyeballs" do
-    url "https://files.pythonhosted.org/packages/bc/69/2f6d5a019bd02e920a3417689a89887b39ad1e350b562f9955693d900c40/aiohappyeyeballs-2.4.3.tar.gz"
-    sha256 "75cf88a15106a5002a8eb1dab212525c00d1f4c0fa96e551c9fbe6f09a621586"
+    url "https://files.pythonhosted.org/packages/7f/55/e4373e888fdacb15563ef6fa9fa8c8252476ea071e96fb46defac9f18bf2/aiohappyeyeballs-2.4.4.tar.gz"
+    sha256 "5fdd7d87889c63183afc18ce9271f9b0a7d32c2303e394468dd45d514a757745"
   end
 
   resource "aiohttp" do
-    url "https://files.pythonhosted.org/packages/1d/cd/af0e573bdb77ae7df1148fe8e4ea854215a37db0b116aac6b5496335095e/aiohttp-3.11.4.tar.gz"
-    sha256 "9d95cce8bb010597b3f2217155befe4708e0538d3548aa08d640ebf54e3f57cb"
+    url "https://files.pythonhosted.org/packages/fe/ed/f26db39d29cd3cb2f5a3374304c713fe5ab5a0e4c8ee25a0c45cc6adf844/aiohttp-3.11.11.tar.gz"
+    sha256 "bb49c7f1e6ebf3821a42d81d494f538107610c3a705987f53068546b0e90303e"
   end
 
   resource "aiosignal" do
-    url "https://files.pythonhosted.org/packages/ae/67/0952ed97a9793b4958e5736f6d2b346b414a2cd63e82d05940032f45b32f/aiosignal-1.3.1.tar.gz"
-    sha256 "54cd96e15e1649b75d6c87526a6ff0b6c1b0dd3459f43d9ca11d48c339b68cfc"
+    url "https://files.pythonhosted.org/packages/ba/b5/6d55e80f6d8a08ce22b982eafa278d823b541c925f11ee774b0b9c43473d/aiosignal-1.3.2.tar.gz"
+    sha256 "a8c255c66fafb1e499c9351d0bf32ff2d8a0321595ebac3b93713656d2436f54"
   end
 
   resource "attrs" do
-    url "https://files.pythonhosted.org/packages/fc/0f/aafca9af9315aee06a89ffde799a10a582fe8de76c563ee80bbcdc08b3fb/attrs-24.2.0.tar.gz"
-    sha256 "5cfb1b9148b5b086569baec03f20d7b6bf3bcacc9a42bebf87ffaaca362f6346"
+    url "https://files.pythonhosted.org/packages/49/7c/fdf464bcc51d23881d110abd74b512a42b3d5d376a55a831b44c603ae17f/attrs-25.1.0.tar.gz"
+    sha256 "1c97078a80c814273a76b2a298a932eb681c87415c11dee0a6921de7f1b02c3e"
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/96/d3/f04c7bfcf5c1862a2a5b845c6b2b360488cf47af55dfa79c98f6a6bf98b5/click-8.1.7.tar.gz"
-    sha256 "ca9853ad459e787e2192211578cc907e7594e294c7ccc834310722b41b9ca6de"
+    url "https://files.pythonhosted.org/packages/b9/2e/0090cbf739cee7d23781ad4b89a9894a41538e4fcf4c31dcdd705b78eb8b/click-8.1.8.tar.gz"
+    sha256 "ed53c9d8990d83c2a27deae68e4ee337473f6330c040a31d4225c9574d16096a"
   end
 
   resource "frozenlist" do
@@ -82,13 +80,13 @@ class Black < Formula
   end
 
   resource "propcache" do
-    url "https://files.pythonhosted.org/packages/a9/4d/5e5a60b78dbc1d464f8a7bbaeb30957257afdc8512cbb9dfd5659304f5cd/propcache-0.2.0.tar.gz"
-    sha256 "df81779732feb9d01e5d513fad0122efb3d53bbc75f61b2a4f29a020bc985e70"
+    url "https://files.pythonhosted.org/packages/20/c8/2a13f78d82211490855b2fb303b6721348d0787fdd9a12ac46d99d3acde1/propcache-0.2.1.tar.gz"
+    sha256 "3f77ce728b19cb537714499928fe800c3dda29e8d9428778fc7c186da4c09a64"
   end
 
   resource "yarl" do
-    url "https://files.pythonhosted.org/packages/4b/d5/0d0481857de42a44ba4911f8010d4b361dc26487f48d5503c66a797cff48/yarl-1.17.2.tar.gz"
-    sha256 "753eaaa0c7195244c84b5cc159dc8204b7fd99f716f11198f999f2332a86b178"
+    url "https://files.pythonhosted.org/packages/b7/9d/4b94a8e6d2b51b599516a5cb88e5bc99b4d8d4583e468057eaa29d5f0918/yarl-1.18.3.tar.gz"
+    sha256 "ac1801c45cbf77b6c99242eeff4fffb5e4e73a800b5c4ad4fc0be5def634d2e1"
   end
 
   def install

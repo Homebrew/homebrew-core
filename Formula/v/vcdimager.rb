@@ -5,23 +5,15 @@ class Vcdimager < Formula
   mirror "https://ftpmirror.gnu.org/vcdimager/vcdimager-2.0.1.tar.gz"
   sha256 "67515fefb9829d054beae40f3e840309be60cda7d68753cafdd526727758f67a"
   license "GPL-2.0-or-later"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "85fbe503d6e9e641b2624d2a35840df34515ee12c018e269e6a536a553c59187"
-    sha256 cellar: :any,                 arm64_sonoma:   "51ea4ab8dd85928de3e593c7a5125ccd4d4e9329095f586384d59d2423a261f9"
-    sha256 cellar: :any,                 arm64_ventura:  "1468d801a2ebe345de5a8f0705aa9aed25dba7e667d050fefdaf860bb7bc1bd5"
-    sha256 cellar: :any,                 arm64_monterey: "1b7326b090a4da9db5da22bc68ddbbb5f2544fb4a9070d3d4bfbb56a8b6e8d67"
-    sha256 cellar: :any,                 arm64_big_sur:  "858d5a11fe090476123893d28b270ca807936569ed83b7b3808b79c9519fa99c"
-    sha256 cellar: :any,                 sonoma:         "7f1388f94872a3100923cd4c9026d972e9b028d3bb046d3c947a7c1e737bcbb4"
-    sha256 cellar: :any,                 ventura:        "4ba17eb68392d4d74137ec7dc693e044456749d71ae70016fc128680c6facd0f"
-    sha256 cellar: :any,                 monterey:       "4740dd40f4e93c75d5876da5079e13c162dd5053485b900e51024cdd2c99fa4d"
-    sha256 cellar: :any,                 big_sur:        "1cee3cb2e9d1bff3441733dce927dcff82b125d414c6c226095d0c334fe2b112"
-    sha256 cellar: :any,                 catalina:       "cc883a163479f28c7303fcd378eba5461fabeafa5970bbb55695fb097cc2f3e0"
-    sha256 cellar: :any,                 mojave:         "cb45bd1a48e551a60e8b344668a79e24414012ebc76a141ee6c0677ec21ad594"
-    sha256 cellar: :any,                 high_sierra:    "993b40efcd1af1844ed14064de2551cecbdacc3a1c4d39f9fe1d8b289b3b6eb9"
-    sha256 cellar: :any,                 sierra:         "2e8567e154610bb1c3c29a50c6fc9f150ddf84c36d6c94fc35a1f8ab3a495f13"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cb6dace78a99bd83f85d18ebc1630cdd0dc81be0cc6a630661d4d8fb2cfe64ee"
+    sha256 cellar: :any,                 arm64_sequoia: "2dbaab4b58479eca7337c3648f97c5f77bb8fb2ee40fd065b931215a16d52330"
+    sha256 cellar: :any,                 arm64_sonoma:  "3b3614dbce9b743fb1f7e31e2dfdd0a59ac7949277c5fb712c09d0fbdef0751d"
+    sha256 cellar: :any,                 arm64_ventura: "826dc8ca62806a582b3f6380e63c459e7f720a4a1d038fd9a3e9ddd0b6b0e260"
+    sha256 cellar: :any,                 sonoma:        "ead756089657c553a3d6e6f0fe321aa4075743698b15525101fcd6196bd1584f"
+    sha256 cellar: :any,                 ventura:       "418377dbcee1226a016018065deea7a062aff9dd367fc04af9ddd58ada1307a4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0352ab14296e214d729962fb5c50eb822c7abcacede083e5107c273a908fbaee"
   end
 
   depends_on "pkgconf" => :build

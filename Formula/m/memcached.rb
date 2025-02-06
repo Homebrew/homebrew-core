@@ -1,8 +1,8 @@
 class Memcached < Formula
   desc "High performance, distributed memory object caching system"
   homepage "https://memcached.org/"
-  url "https://www.memcached.org/files/memcached-1.6.34.tar.gz"
-  sha256 "0d5380e2e0a5b4fcef1d89a368a11c4f06686c6017c1fff778b3b4578f0674ec"
+  url "https://www.memcached.org/files/memcached-1.6.36.tar.gz"
+  sha256 "2eeeadbe8ab6c6848654594733e9da4875be7fc870a2c28f651f5bdb4053d041"
   license "BSD-3-Clause"
   head "https://github.com/memcached/memcached.git", branch: "master"
 
@@ -12,12 +12,12 @@ class Memcached < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "c998df28aa1dc2c6ef7ac394333fd1d7109647eea6cfb1e0babc65d7a462c2fd"
-    sha256 cellar: :any,                 arm64_sonoma:  "795b4feacaf53ca0016ff8ab65bd69ded715eec8037659f9893fc2ccaf992a11"
-    sha256 cellar: :any,                 arm64_ventura: "4a37c50edb4d425471441783a89554b61624c2950937e33ffcd762c07c53a79d"
-    sha256 cellar: :any,                 sonoma:        "77c30a2e56d6c34a611eab9e155a428d285e8a16bb7aac0096d072926ea8da20"
-    sha256 cellar: :any,                 ventura:       "42ef2660d8bc01c19d4409f042b469eb6ddabb68b7ce6c5fe865c0b3eabc02ea"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9e8a9186e60ec24da4b5b7e24689f4eedf1dad91d873b9dcb899165cb2d8923c"
+    sha256 cellar: :any,                 arm64_sequoia: "4d3fa1393c2e4eb2fd51a10f196477e85a42cbd2ffb33dfada35efaf3794bc70"
+    sha256 cellar: :any,                 arm64_sonoma:  "93610676a097bbbb563fe0e7c8cfdb1e789d3cf47aa5965aa512d7a8b39852a7"
+    sha256 cellar: :any,                 arm64_ventura: "6f112db291dc2fdf5ea1f1d1916b0c3abfda43e9f5da1ce7e6a53ebb4b2e87f7"
+    sha256 cellar: :any,                 sonoma:        "59a8f980fda25eeafc29e65e0594a1d4ad6dc20427b413487d70376395573449"
+    sha256 cellar: :any,                 ventura:       "e83be9562eafeaf4142a0ebba5d85573889a6d09ceb834777e2cdbe9947dfbc8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d5ee95f8c9b164a6be7034ed0fad33059ee73952639d73974657e2e34dbe8103"
   end
 
   depends_on "libevent"

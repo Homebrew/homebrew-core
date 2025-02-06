@@ -1,18 +1,18 @@
 class Ghostunnel < Formula
   desc "Simple SSL/TLS proxy with mutual authentication"
   homepage "https://github.com/ghostunnel/ghostunnel"
-  url "https://github.com/ghostunnel/ghostunnel/archive/refs/tags/v1.8.3.tar.gz"
-  sha256 "999cdc019ad1ec90b69370169469d4a32bf7bfffe646c7843aba083e2e35e613"
+  url "https://github.com/ghostunnel/ghostunnel/archive/refs/tags/v1.8.4.tar.gz"
+  sha256 "6700ea0ae9a83df18aa216f6346f177ff70e6d80df16690742b823a92af3af46"
   license "Apache-2.0"
   head "https://github.com/ghostunnel/ghostunnel.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "12a609d6b1db75c4a0910e3a5a2e8b284530846c06d9a58f8509dd04d18ef1fb"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6021c0bc7b644d11395e44b0a5cb8f6afe54d2deb2478724a60b8ab3f5c37995"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "65bdcb89f9390e37993a9b57655101280b186bf6b96830ea5c8d9770465a51bc"
-    sha256 cellar: :any_skip_relocation, sonoma:        "a3419797e2d0f9178538f9c6a196f6a6966251c3e30825b4258e42f6c179c510"
-    sha256 cellar: :any_skip_relocation, ventura:       "ea692e2c669cfad03bbcd9bcfcfd84fcce56e0f503f68f60b1bb12af1c71f713"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "618110170381d6a89b23b2681cc4ea3f5569399dd4be5aacfe7acb69ec7a3ee4"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c224c228e987028819e5d11a479f03ebba9173fe8efc946c00bf1df7820a8472"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "352ef0ea3c5832ce3469d5fa44d2820a9d9d1dc691f7189057a9b8fb5b450ff1"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "c2fb4451bc2b01b7eb2322c1b5477b97bf770deeb6476da7009e5f95a6873811"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c1e1083b6d3476a7ffea3a80471e54d120051f5b9283cc0755a6b3c20a57c8d9"
+    sha256 cellar: :any_skip_relocation, ventura:       "b6bd8fc84a044dac20a64b2559742e404d5a1e69bea41bbcffc623c14c939e1b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7ede20e59499a513433440f3d7c7b3cd2eef379baf06222fee5bc502c9bccc65"
   end
 
   depends_on "go" => :build
@@ -31,6 +31,7 @@ class Ghostunnel < Formula
         "--disable-authentication", "--shutdown-timeout=1s", "--connect-timeout=1s"
     end
     sleep 1
+    sleep 2 if OS.mac? && Hardware::CPU.intel?
     shell_output("curl -o /dev/null http://localhost:#{port}/", 56)
   end
 end

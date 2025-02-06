@@ -1,8 +1,8 @@
 class Ddclient < Formula
   desc "Update dynamic DNS entries"
   homepage "https://ddclient.net/"
-  url "https://github.com/ddclient/ddclient/archive/refs/tags/v3.11.2.tar.gz"
-  sha256 "243cd832abd3cdd2b49903e1b5ed7f450e2d9c4c0eaf8ce4fe692c244d3afd77"
+  url "https://github.com/ddclient/ddclient/archive/refs/tags/v4.0.0.tar.gz"
+  sha256 "4b37c99ac0011102d7db62f1ece7ff899b06df3d4b172e312703931a3c593c93"
   license "GPL-2.0-or-later"
   head "https://github.com/ddclient/ddclient.git", branch: "master"
 
@@ -12,14 +12,12 @@ class Ddclient < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "528b406d3d5259581701d70b58cfbab489a050f28ad638cd96fef4c7b717c8fb"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "414220db19df958c45f3d8ad699841ac8e115d1cba7a2c2b3768e36c9e0bbfbd"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "414220db19df958c45f3d8ad699841ac8e115d1cba7a2c2b3768e36c9e0bbfbd"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "414220db19df958c45f3d8ad699841ac8e115d1cba7a2c2b3768e36c9e0bbfbd"
-    sha256 cellar: :any_skip_relocation, sonoma:         "414220db19df958c45f3d8ad699841ac8e115d1cba7a2c2b3768e36c9e0bbfbd"
-    sha256 cellar: :any_skip_relocation, ventura:        "414220db19df958c45f3d8ad699841ac8e115d1cba7a2c2b3768e36c9e0bbfbd"
-    sha256 cellar: :any_skip_relocation, monterey:       "414220db19df958c45f3d8ad699841ac8e115d1cba7a2c2b3768e36c9e0bbfbd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "99341145cb0d0dcd3e2f2da1b726372b72e33a5ac9807d1b8f5a0bab26392078"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "295bbe6bc8b84952958cac5b33b021419cb51002f95c8c6a1f1eb67ff9b2cb72"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "295bbe6bc8b84952958cac5b33b021419cb51002f95c8c6a1f1eb67ff9b2cb72"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "295bbe6bc8b84952958cac5b33b021419cb51002f95c8c6a1f1eb67ff9b2cb72"
+    sha256 cellar: :any_skip_relocation, sonoma:        "295bbe6bc8b84952958cac5b33b021419cb51002f95c8c6a1f1eb67ff9b2cb72"
+    sha256 cellar: :any_skip_relocation, ventura:       "295bbe6bc8b84952958cac5b33b021419cb51002f95c8c6a1f1eb67ff9b2cb72"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c48a16e4d1c11696c5561210e47f3bb922c10f7b7bfdd0f6d3298bf0814d0caf"
   end
 
   depends_on "autoconf" => :build
@@ -52,12 +50,6 @@ class Ddclient < Formula
     end
   end
 
-  # disable automake treating warnings as error, upstream pr ref, https://github.com/ddclient/ddclient/pull/746
-  patch do
-    url "https://github.com/ddclient/ddclient/commit/9eb4558772b84516363c960fe53c014575d80df9.patch?full_index=1"
-    sha256 "e491f223f033aad7c213cd9a1a761fefffc6220660e3f4ac150ca65e1381cf7a"
-  end
-
   def install
     if OS.linux?
       ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
@@ -86,18 +78,7 @@ class Ddclient < Formula
 
   def post_install
     (var/"run").mkpath
-    chmod "go-r", etc/"ddclient.conf"
-
-    # Migrate old configuration files to the new location that `ddclient` checks.
-    # Remove on 31/12/2023.
-    old_config_file = pkgetc/"ddclient.conf"
-    return unless old_config_file.exist?
-
-    new_config_file = etc/"ddclient.conf"
-    ohai "Migrating `#{old_config_file}` to `#{new_config_file}`..."
-    etc.install new_config_file => "ddclient.conf.default" if new_config_file.exist?
-    etc.install old_config_file
-    rm_r(pkgetc) if pkgetc.empty?
+    chmod "go-r", pkgetc/"ddclient.conf"
   end
 
   def caveats

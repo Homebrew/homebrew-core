@@ -19,8 +19,6 @@ class AutoconfArchive < Formula
   # autoconf-archive is useless without autoconf
   depends_on "autoconf"
 
-  conflicts_with "gnome-common", because: "both install ax_check_enable_debug.m4 and ax_code_coverage.m4"
-
   # Fix quoting of `m4_fatal`
   # https://github.com/autoconf-archive/autoconf-archive/pull/312
   # https://github.com/Homebrew/homebrew-core/issues/202234

@@ -3,8 +3,8 @@ class Snapcraft < Formula
 
   desc "Package any app for every Linux desktop, server, cloud or device"
   homepage "https://snapcraft.io/"
-  url "https://github.com/canonical/snapcraft/archive/refs/tags/8.5.1.tar.gz"
-  sha256 "137e311a7489acd0107b28d9a42e1837b93f414185c6fc6424751e1e46107462"
+  url "https://github.com/canonical/snapcraft/archive/refs/tags/8.6.0.tar.gz"
+  sha256 "62ca7967ba1f05f4c08786ba4d05b474d606a1cde5d92ff3f3399cda596021b5"
   license "GPL-3.0-only"
   head "https://github.com/canonical/snapcraft.git", branch: "main"
 
@@ -14,13 +14,12 @@ class Snapcraft < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia: "54aadbdd25c296a2715d24da51b4a2cbd788becc251c8dce3045b5c0d383df1b"
-    sha256 cellar: :any,                 arm64_sonoma:  "8c10968ba9404e47eba95dfd5fe6807dfb9864d944e833e5f37253fa8aaff9f3"
-    sha256 cellar: :any,                 arm64_ventura: "c6da5e7f9a0eef8f4506d6f09844dbc856b20ba6535968fbc4d299c7a956a403"
-    sha256 cellar: :any,                 sonoma:        "e90f133c1294d33f7017967bc4eade150e9f8e6bd1a13ceadb2ebadb63384d9b"
-    sha256 cellar: :any,                 ventura:       "25a2ae5595b3b6d2ef420569f7e0338afb1ff8394698aaa4494490b1fb05db9e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cf77fa6c1c9734f60e523f4340db3de5e9d9ef70eee9c6d5be3ee3be9b3006e8"
+    sha256 cellar: :any,                 arm64_sequoia: "856b41532bdbb68a072b2847a34135b4c34bdca2615ef8df4f7f6893f342813a"
+    sha256 cellar: :any,                 arm64_sonoma:  "15cb505b01861e63d85e150653418c6ee37fd314c95915e04cda8c47c2f8e2b7"
+    sha256 cellar: :any,                 arm64_ventura: "acda3b3ba310b0c4a8e22fc0dd07c835c251a194d01be50331fa8a087eff55bd"
+    sha256 cellar: :any,                 sonoma:        "9145c48a23bde9e45b313537575231d8cf3acc01d9c047654a9d6d733ff59c7e"
+    sha256 cellar: :any,                 ventura:       "8818153dc3bb6cc40ac4c3335e7478b58f5f3c0bb024c17e0db0f0318b064179"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4a84f1059744a0b91721513246fb10e389760d88a79de8dbf8443127b1a0298c"
   end
 
   depends_on "rust" => :build # for pydantic_core

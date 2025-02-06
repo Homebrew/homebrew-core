@@ -2,18 +2,17 @@ class Librime < Formula
   desc "Rime Input Method Engine"
   homepage "https://rime.im"
   url "https://github.com/rime/librime.git",
-      tag:      "1.12.0",
-      revision: "c7ab6390c143a11d670f3add41218111edb883c9"
+      tag:      "1.13.0",
+      revision: "e8184dceaf9a89a21d6dc25c1850779cd652c472"
   license "BSD-3-Clause"
-  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "4323fda208914bea9fe7fba22b29cdd85a05fe13c10c143c65587a09eb16bb29"
-    sha256 cellar: :any,                 arm64_sonoma:  "55204838b59cafe490ca424d01f514e12f6493a66951bde7861ed6e7e918aff0"
-    sha256 cellar: :any,                 arm64_ventura: "8fefeb9c26128c48f185c36db20467b96e8a853d08fcab0528a3a7ad3f89abee"
-    sha256 cellar: :any,                 sonoma:        "f5376fcc0570920ac5e5f5b079d8149614469498a069509199e3c25a0704658f"
-    sha256 cellar: :any,                 ventura:       "902a7514f6a6be7439a75813e1dddfa01964fa8ecf25b618c54cdbb1ebef4e4f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "de4f702cbdfc346a5b1b4841da416a945842d343f2b7736da0f44b85cb07d008"
+    sha256 cellar: :any,                 arm64_sequoia: "d04890f004a5c3e5cd6d1923a22aab22e46b2088eab740c864f102261d1d7c53"
+    sha256 cellar: :any,                 arm64_sonoma:  "262d62125b0c661a74fa0f7b7dde3c5c30d90c5829d620156e5a856bcb99e402"
+    sha256 cellar: :any,                 arm64_ventura: "a9d956451acdad4a081f82710cd09091c0f7a87d8009c6caad6542b93d6ae4c2"
+    sha256 cellar: :any,                 sonoma:        "4c9bdad98763334157b974af05aec1470a14342df3ff7dfb9fd38810d894a85b"
+    sha256 cellar: :any,                 ventura:       "97db5688ee2d550d16b3f4c6658cb9e2e6147e2bee1d4e218e7fdcb235b44c22"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "48995b5c63a7219289de9fe15f5b3d26824f4f242093853b3fed410eb422986b"
   end
 
   depends_on "boost" => :build
@@ -24,20 +23,15 @@ class Librime < Formula
   depends_on "capnp"
   depends_on "gflags"
   depends_on "glog"
-  depends_on "googletest"
   depends_on "leveldb"
   depends_on "lua"
   depends_on "marisa"
   depends_on "opencc"
   depends_on "yaml-cpp"
 
-  on_linux do
-    depends_on "libunwind"
-  end
-
   resource "lua" do
     url "https://github.com/hchunhui/librime-lua.git",
-        revision: "b210d0cfbd2a3cc6edd4709dd0a92c479bfca10b"
+        revision: "e3912a4b3ac2c202d89face3fef3d41eb1d7fcd6"
   end
 
   resource "octagram" do
@@ -64,6 +58,7 @@ class Librime < Formula
       -DBUILD_MERGED_PLUGINS=OFF
       -DCMAKE_INSTALL_RPATH=#{rpath}
       -DENABLE_EXTERNAL_PLUGINS=ON
+      -DBUILD_TEST=OFF
     ]
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"

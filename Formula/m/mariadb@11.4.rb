@@ -1,9 +1,8 @@
 class MariadbAT114 < Formula
   desc "Drop-in replacement for MySQL"
   homepage "https://mariadb.org/"
-  # TODO: Build with `-DWITH_LIBFMT=system` when fmt >= 11
-  url "https://archive.mariadb.org/mariadb-11.4.4/source/mariadb-11.4.4.tar.gz"
-  sha256 "96fbd2e6e93fb7e8b373eea75d85b6fea57c0e111a02090cbbefed52599dc77b"
+  url "https://archive.mariadb.org/mariadb-11.4.5/source/mariadb-11.4.5.tar.gz"
+  sha256 "ff6595f8c482f9921e39b97fa1122377a69f0dcbd92553c6b9032cbf0e9b5354"
   license "GPL-2.0-only"
 
   livecheck do
@@ -19,12 +18,12 @@ class MariadbAT114 < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "0252074f4f69cfab24b18ace5488a89c800a60905d3785bded03d8c9ecd2bcf7"
-    sha256 arm64_sonoma:  "48f1db8037b4fdaf161d1c343a312a1f070ebf2462e672111efacb94372a08eb"
-    sha256 arm64_ventura: "846110ce634067cda4c693de058fe102978ba0856550d7852cfc4a6ecd2fb171"
-    sha256 sonoma:        "84275c251574a924980594168c4adc282a3b8d6d55a599653ee1e5b05cedd13e"
-    sha256 ventura:       "a70fb1d7a64bbe108fe866528ed03929ae95653bbe5e2528fd13eaf74bd42279"
-    sha256 x86_64_linux:  "5e1cf3cf07565977a41d31cfbf3de77bc444d6b0176d3b4655c3a1d0f3877e1b"
+    sha256 arm64_sequoia: "87a845829263889cd366220894d2dde7434e01c5c511210706f921a661d705d2"
+    sha256 arm64_sonoma:  "9b97d5578b40a74af45a00cd630c387c191ebca5adfb2e8a0c27040b2136942b"
+    sha256 arm64_ventura: "c8a51147722430cb5aa0cce6d30119812cc0d99ac46fe5acebaf8228a19820e7"
+    sha256 sonoma:        "f166a658a618d12aa5e6c32f30bb1436bb08a96481e1f6bb31d818d1ca275f37"
+    sha256 ventura:       "d69e4631108cb221d28f9209f0055e27949ed5c96e67ac9cbf5277eb3a407f64"
+    sha256 x86_64_linux:  "398d364ac0b0698a7efb9b0bcb4503895d51e48616a7e0d3ed21cf198b47f61f"
   end
 
   keg_only :versioned_formula
@@ -61,6 +60,12 @@ class MariadbAT114 < Formula
     depends_on "linux-pam"
   end
 
+  # system libfmt patch, upstream pr ref, https://github.com/MariaDB/server/pull/3786
+  patch do
+    url "https://github.com/MariaDB/server/commit/b6a924b8478d2fab5d51245ff6719b365d7db7f4.patch?full_index=1"
+    sha256 "77b65b35cf0166b8bb576254ac289845db5a8e64e03b41f1bf4b2045ac1cd2d1"
+  end
+
   def install
     # Set basedir and ldata so that mysql_install_db can find the server
     # without needing an explicit path to be set. This can still
@@ -83,6 +88,7 @@ class MariadbAT114 < Formula
       -DINSTALL_DOCDIR=share/doc/#{name}
       -DINSTALL_INFODIR=share/info
       -DINSTALL_MYSQLSHAREDIR=share/mysql
+      -DWITH_LIBFMT=system
       -DWITH_PCRE=system
       -DWITH_SSL=system
       -DWITH_ZLIB=system

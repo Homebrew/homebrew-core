@@ -1,8 +1,8 @@
 class Wartremover < Formula
   desc "Flexible Scala code linting tool"
   homepage "https://github.com/wartremover/wartremover"
-  url "https://github.com/wartremover/wartremover/archive/refs/tags/v3.2.5.tar.gz"
-  sha256 "ca0770ac24babfef1e16f168aae5ac98118343686e30088de5a65e26f8afc5a4"
+  url "https://github.com/wartremover/wartremover/archive/refs/tags/v3.3.0.tar.gz"
+  sha256 "96109e0096f82d562898186c927f1d8080cde1e66c3e32c351f6e2b92af6c3c9"
   license "Apache-2.0"
   head "https://github.com/wartremover/wartremover.git", branch: "master"
 
@@ -12,7 +12,7 @@ class Wartremover < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "dff546b54c6b14fe3be0e0b3ec7d05f4adb5e2343b6ca8dedda09aa6fe8233a9"
+    sha256 cellar: :any_skip_relocation, all: "b93c3ae7a449be47a27b088710bec5a36df51d75332cf476cdd43ff3aa0f8cb7"
   end
 
   depends_on "sbt" => :build

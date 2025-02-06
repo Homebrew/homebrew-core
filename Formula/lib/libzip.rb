@@ -1,8 +1,8 @@
 class Libzip < Formula
   desc "C library for reading, creating, and modifying zip archives"
   homepage "https://libzip.org/"
-  url "https://libzip.org/download/libzip-1.11.2.tar.xz", using: :homebrew_curl
-  sha256 "5d471308cef4c4752bbcf973d9cd37ba4cb53739116c30349d4764ba1410dfc1"
+  url "https://libzip.org/download/libzip-1.11.3.tar.xz", using: :homebrew_curl
+  sha256 "9509d878ba788271c8b5abca9cfde1720f075335686237b7e9a9e7210fe67c1b"
   license "BSD-3-Clause"
 
   livecheck do
@@ -11,12 +11,12 @@ class Libzip < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "2494bafc73a82fa1b2529edfa5fcfe182b8106224667cdf04ae5421d98c4d467"
-    sha256 cellar: :any,                 arm64_sonoma:  "ab4af5a2277a7fc98299be889a18b8a234025ab728415128029e50de2e3a68c9"
-    sha256 cellar: :any,                 arm64_ventura: "66813828486a24c74a23ccf43775c31933cc45cf6b1dbf52ac5c3348bd20adb6"
-    sha256 cellar: :any,                 sonoma:        "fdc878d65b2da686d8eb3177313766edeb70c2ddd0d25cf3f18d5d479dcdf30c"
-    sha256 cellar: :any,                 ventura:       "7e6909a3b89b416f531f3e1f4bc5f0d78f346c057fade881e81cf700c8bb6fdf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "98a73f6968abe482c71683d07d069e098b4f7b4163f187eaa85fb8f956877dbd"
+    sha256 cellar: :any,                 arm64_sequoia: "d047ed69c28d812b43092cdc11a95ebfb10c260294088b10c9e5c4013f8f7729"
+    sha256 cellar: :any,                 arm64_sonoma:  "0eef871bcff5568c941e603285f699b520fb0918876ab15129047b1eae8919c1"
+    sha256 cellar: :any,                 arm64_ventura: "a5f5cad9a74903117c3168e95aed359880001176cec4012caf3347768e4653b4"
+    sha256 cellar: :any,                 sonoma:        "e3a656692093ac165b0c07c830cc053dffc85f916168b584538d02c4c0205692"
+    sha256 cellar: :any,                 ventura:       "6b4c562f07821355fd8c641a42da8fde595ade1c1a26ab76c218e3394e6f318f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2ce5e38e6c13fcce7176c9acd84abdd28d495a1377b1e9b1d622ebdefebe11f7"
   end
 
   depends_on "cmake" => :build

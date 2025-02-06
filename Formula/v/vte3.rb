@@ -1,17 +1,17 @@
 class Vte3 < Formula
   desc "Terminal emulator widget used by GNOME terminal"
   homepage "https://wiki.gnome.org/Apps/Terminal/VTE"
-  url "https://download.gnome.org/sources/vte/0.78/vte-0.78.0.tar.xz"
-  sha256 "07f09c6228a8bb3c1599dd0f5a6ec797b30d3010c3ac91cf21b69d9635dfaf7c"
+  url "https://download.gnome.org/sources/vte/0.78/vte-0.78.3.tar.xz"
+  sha256 "97e2ac3a27bc5755358a223f55f5a2518654aa0361bfc61a196c1c2e08798eff"
   license "LGPL-2.0-or-later"
 
   bottle do
-    sha256 arm64_sequoia: "eef8c092ba17930300120ef2dfc3d80313d71c460032107034e8a385aa810993"
-    sha256 arm64_sonoma:  "735c2e01451c22e5f9852f228abb9fc8bf9f428ac26c1271798da1eb974c1ec8"
-    sha256 arm64_ventura: "14458e231ae63d8419e5df350edb561646f5ffdffa7cf66d58086577a2be85d3"
-    sha256 sonoma:        "2016d3be03232ffec5e8ac2eb8a842e9384c2a35e029f734aa6b338cf3c322fc"
-    sha256 ventura:       "b4ffbc7244f0109309ad2be6f0bfb52484927ea51d54ae780b06d8d7eefc4e35"
-    sha256 x86_64_linux:  "368fb07431244bf6312f01e73999f9d39792631cef5b7fca59a3b63f3b065515"
+    sha256 arm64_sequoia: "5d8b90728b495a1096a6519af078466be82f3e4e22e245655b5a76493aaac870"
+    sha256 arm64_sonoma:  "94efbe279a73f05e0b9964969f941238d6712425b26972a312afdba931724b2c"
+    sha256 arm64_ventura: "588d74599bb9bd4b45ab980188726e675e5cb33ecdb016fe42e5993c3237529f"
+    sha256 sonoma:        "ceba24ff8e472681504cd95f8e669d77c2966aee52942dd046c9705a30ce3c0c"
+    sha256 ventura:       "f780a09b36b91c8005ba86f301b2ac88d117b284b23380c7bcd89b437d484213"
+    sha256 x86_64_linux:  "be8db3c2db6111a98b9920a5d7e7d739c81b08e144a8ecb3c99637929fcae81b"
   end
 
   depends_on "gettext" => :build
@@ -49,10 +49,6 @@ class Vte3 < Formula
     # upstream bug report, https://gitlab.gnome.org/GNOME/vte/-/issues/2823
     # TODO: Investigate using the `fast_float` formula instead of the one bundled here.
     patch do
-      url "https://gitlab.gnome.org/kraj/vte/-/commit/c90b078ecf4382458a9af44d765d710eb46b0453.diff"
-      sha256 "fd8fd85339df1aa5ffb2617d6e67d26e26abb9caeb06ef7766b13341231c2c79"
-    end
-    patch do
       url "https://gitlab.gnome.org/kraj/vte/-/commit/2a32e43e43b04771a3357d3d4ccbafa7714e0114.diff"
       sha256 "f69f103b19de93f94fca05dea5a151b4109085ce716472acddb9a112502437d4"
     end
@@ -78,8 +74,6 @@ class Vte3 < Formula
   end
 
   # submitted upstream as https://gitlab.gnome.org/tschoonj/vte/merge_requests/1
-  # color-test upstream fix commit, https://gitlab.gnome.org/GNOME/vte/-/commit/c8838779d5f8c0e03411cef9775cd8f5a10a6204
-  # meson build fix, upstream bug report, https://gitlab.gnome.org/GNOME/vte/-/issues/2827
   patch :DATA
 
   def install
@@ -159,36 +153,3 @@ index 79d4a702..0495dea8 100644
      include_directories: incs,
      dependencies: libvte_gtk3_deps,
      cpp_args: libvte_gtk3_cppflags,
-diff --git a/src/color-test.cc b/src/color-test.cc
-index 0ed9089..1bfad31 100644
---- a/src/color-test.cc
-+++ b/src/color-test.cc
-@@ -165,7 +165,7 @@ static void
- test_color_to_string (void)
- {
-         auto test = [](std::string str,
--                       bool alpha = false) constexpr noexcept -> void
-+                       bool alpha = false) noexcept -> void
-         {
-                 auto const value = parse<rgba>(str);
-                 assert(value);
-diff --git a/src/meson.build b/src/meson.build
-index 228ecf0..fba5958 100644
---- a/src/meson.build
-+++ b/src/meson.build
-@@ -73,6 +73,7 @@ minifont_coverage_sources = custom_target(
-   ),
-   capture: false,
-   command: [
-+    python,
-     files('minifont-coverage.py'),
-     '--output', '@OUTPUT@',
-     '@INPUT@',
-@@ -596,6 +597,7 @@ test_minifont_sources += custom_target(
-   ),
-   capture: false,
-   command: [
-+    python,
-     files('minifont-coverage.py'),
-     '--output', '@OUTPUT@',
-     '--tests',

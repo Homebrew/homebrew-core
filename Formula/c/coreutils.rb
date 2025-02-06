@@ -44,7 +44,6 @@ class Coreutils < Formula
   end
 
   conflicts_with "b2sum", because: "both install `b2sum` binaries"
-  conflicts_with "ganglia", because: "both install `gstat` binaries"
   conflicts_with "gfold", because: "both install `gfold` binaries"
   conflicts_with "idutils", because: "both install `gid` and `gid.1`"
 

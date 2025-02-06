@@ -1,18 +1,18 @@
 class BeancountLanguageServer < Formula
   desc "Language server for beancount files"
   homepage "https://github.com/polarmutex/beancount-language-server"
-  url "https://github.com/polarmutex/beancount-language-server/archive/refs/tags/v1.3.6.tar.gz"
-  sha256 "b5f3d156dfbd1508e3e2825fbe87247969bec24a554bab3a5eec81beddca117b"
+  url "https://github.com/polarmutex/beancount-language-server/archive/refs/tags/v1.3.7.tar.gz"
+  sha256 "d1da21e518815514ebb1d69e863dc414ce6480ab0eb81e113edb91fca4a5d999"
   license "MIT"
   head "https://github.com/polarmutex/beancount-language-server.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c30035cc02c46d9f3999e846d3c016016355394a117306e82f4f80aea3715a34"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "16bc477a15d7bb325769cfce450d6b8186bff33b229add22cec64cd632b0fd55"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "14747d6b559a6e6e47750e88aca99cf9ffdea98120a9795c09dff827e2b534ab"
-    sha256 cellar: :any_skip_relocation, sonoma:        "a58edc5d901c13058f230f1025925cc701086288a7c8e8a8f0fa6d95658bb786"
-    sha256 cellar: :any_skip_relocation, ventura:       "b37ffe472aed413a8d8521d1afab3abc17e1d1673b33858f3ab7a7c55735a413"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a2c0df24d9789b88930d8a99f916354894ac5d6a2c062d2923e866c0199419de"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0e0c99b2f1dcb24b04cd4698c3518d3cecd0546aa374dbb6c6cc5887fdcd2896"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "648544219f5a5e8c470f7ff408b855d1fce73e2755b99126d3d097d6638bb638"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "556f325fb38bf9bffdc52b3b9e7fd88daac37560b78ceeb28efe389b2df9fd9e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d97d0cc203492c1a4a1f23b5b511ce7201866c9ac85a33c1801903549a7ef358"
+    sha256 cellar: :any_skip_relocation, ventura:       "a30e3c99c240779b2f31ddce88ef5e7ab090998b27d33b565802266f0e7db114"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3b1e6d556a63559ec5d98de3cc85ce144fbd5f9d4509fc8020bee4d69a995a4f"
   end
 
   depends_on "rust" => :build
@@ -40,5 +40,7 @@ class BeancountLanguageServer < Formula
       stdin.write "Content-Length: #{json.size}\r\n\r\n#{json}"
       assert_match(/^Content-Length: \d+/i, stdout.readline)
     end
+
+    assert_match version.to_s, shell_output("#{bin}/beancount-language-server --version")
   end
 end

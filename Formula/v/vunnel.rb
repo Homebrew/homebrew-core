@@ -9,12 +9,13 @@ class Vunnel < Formula
   head "https://github.com/anchore/vunnel.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "c34fbe1ffc0910c9adbe4b47a91d2a2a867c96d2af9bab1691c82fcb70be35c7"
-    sha256 cellar: :any,                 arm64_sonoma:  "64be177f070268cf977e394ca1f88448f90597ea29b3e3feb24b956c25756b92"
-    sha256 cellar: :any,                 arm64_ventura: "84e060d7bd37b6338cf72a06bca896a104e7b7da5796ccfb56826c47b9e29c42"
-    sha256 cellar: :any,                 sonoma:        "2888f119600874f3c2f3bd87564ad36c1f702f6ce7b76ac0f22cc84a947e96a0"
-    sha256 cellar: :any,                 ventura:       "5488ea44460648270e492a700dcee5357734092e0f5cfce51afca1f227b2e9e0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "315811a2fc797247bcb5d3778c84baf8d0c6bc743a12fd852f84d896c7b58076"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "8c3713972bc02a8f643ae6122dc3398f72f6a461b261145416dfdebb2bb9699e"
+    sha256 cellar: :any,                 arm64_sonoma:  "b9525111f04d3ab9983c242f7b5c7376c03559fd4c8cd0eb9d8dfae5ad295bed"
+    sha256 cellar: :any,                 arm64_ventura: "cf7986b2bb08febc02d0408259d0cdfb063e63bae506c5aff54fb0fd812e98a8"
+    sha256 cellar: :any,                 sonoma:        "9bf9158616a81b5dbb4a1d9c0adcb7c24df6b50c7415e0920aec2a007c300579"
+    sha256 cellar: :any,                 ventura:       "83c26694daf9c5448a0b5039d0153b6c253d9bed4b484a5e4685d1801823d745"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "40f58b5700e38196225f1e207b3944b5c2043e2c20120f7478ddae5640d68581"
   end
 
   depends_on "rust" => :build
@@ -211,6 +212,12 @@ class Vunnel < Formula
   end
 
   def install
+    # Remove with next version, already fixed in
+    # https://github.com/anchore/vunnel/commit/2831a9a55c80f8d6ba31862219e68f796dde7455.patch
+    inreplace "pyproject.toml" do |s|
+      s.gsub! 'python = ">=3.11,<=3.13"', 'python = ">=3.11,<3.14"'
+    end
+
     # Fix compilation of ijson native extensions, note:
     # This would not be needed if latest ijson version is used upstream, but there are reasons it is
     # currently held back: https://github.com/anchore/vunnel/pull/103

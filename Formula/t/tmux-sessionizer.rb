@@ -39,15 +39,9 @@ class TmuxSessionizer < Formula
     generate_completions_from_executable(bin/"tms", "--generate")
   end
 
-  def check_binary_linkage(binary, library)
-    binary.dynamically_linked_libraries.any? do |dll|
-      next false unless dll.start_with?(HOMEBREW_PREFIX.to_s)
-
-      File.realpath(dll) == File.realpath(library)
-    end
-  end
-
   test do
+    require "utils/linkage"
+
     assert_match "Configuration has been stored", shell_output("#{bin}/tms config -p /dev/null")
     assert_match version.to_s, shell_output("#{bin}/tms --version")
 
@@ -57,7 +51,7 @@ class TmuxSessionizer < Formula
       Formula["openssl@3"].opt_lib/shared_library("libssl"),
       Formula["openssl@3"].opt_lib/shared_library("libcrypto"),
     ].each do |library|
-      assert check_binary_linkage(bin/"tms", library),
+      assert Utils.binary_linked_to_library?(bin/"tms", library),
              "No linkage with #{library.basename}! Cargo is likely using a vendored version."
     end
   end
@@ -73,11 +67,11 @@ index 2274afd..18ec520 100644
  # It is not intended for manual editing.
 -version = 3
 +version = 4
- 
+
  [[package]]
  name = "aho-corasick"
 @@ -392,9 +392,9 @@ dependencies = [
- 
+
  [[package]]
  name = "git2"
 -version = "0.19.0"
@@ -89,7 +83,7 @@ index 2274afd..18ec520 100644
   "bitflags",
   "libc",
 @@ -496,9 +496,9 @@ checksum = "8e9489c2807c139ffd9c1794f4af0ebe86a828db53ecdc7fea2111d0fed085d1"
- 
+
  [[package]]
  name = "libgit2-sys"
 -version = "0.17.0+1.8.1"
@@ -105,9 +99,9 @@ index d1ebcd4..bbf59e3 100644
 --- a/Cargo.toml
 +++ b/Cargo.toml
 @@ -17,7 +17,7 @@ exclude = ["images/*"]
- 
+
  [dependencies]
- 
+
 -git2 = { version= "0.19", features = [ "vendored-openssl" ] }
 +git2 = { version= "0.20", features = [ "vendored-openssl" ] }
  clap = { version = "4.5", features = ["cargo", "derive"] }

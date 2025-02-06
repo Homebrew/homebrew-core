@@ -1,10 +1,9 @@
 class Kpcli < Formula
   desc "Command-line interface to KeePass database files"
   homepage "https://kpcli.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/kpcli/kpcli-4.1.2.pl"
-  sha256 "86fc820bc7945cd9b577583efe4127565951268902860256ceea100795ddf23f"
+  url "https://downloads.sourceforge.net/project/kpcli/kpcli-4.1.3.pl"
+  sha256 "c91363e4e07f3521a867f68db602c95b53dc167e4366ee7ff254252b4176c62f"
   license any_of: ["Artistic-1.0-Perl", "GPL-1.0-or-later"]
-  revision 1
 
   livecheck do
     url :stable
@@ -12,12 +11,12 @@ class Kpcli < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "0991d50f7bbfb5497cdc6f11451ae4afc7bc401f8fb42c22ed2fe2462f76fc3c"
-    sha256 cellar: :any,                 arm64_sonoma:  "e0e888f834e59b0f689b1a09b8a57a7b14486ed4e59ab57059148997426a9cfe"
-    sha256 cellar: :any,                 arm64_ventura: "cb5613547fabf4a3c64c63fca89d0dbb9ce89929af775e1b197dae269ad9c9f9"
-    sha256 cellar: :any,                 sonoma:        "3ac9362b734c246ac1712a6ca6ac6add3b4aece7d4855093f6bf60ec16069629"
-    sha256 cellar: :any,                 ventura:       "01e84f2fd256f2da77d888af856f78f44448516c862d567a9cebdc77ec507ec2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fdb39a1f8a11283be6f40c6c81bbf904cccea244f1ff6db0bb7c71e8da682e2c"
+    sha256 cellar: :any,                 arm64_sequoia: "07acbda85e763997f4f4350cb67ee904413309b57132dd9b528fd73913dc6320"
+    sha256 cellar: :any,                 arm64_sonoma:  "ccc808e72ee497400ca548656f35fa746f00c43acafa9000a2c82608e2d9a23e"
+    sha256 cellar: :any,                 arm64_ventura: "e749db8f89b0c44e1f4bdf8939f17d17588d0ad085b80eec57133550180974d9"
+    sha256 cellar: :any,                 sonoma:        "7e4fbc43db9b559627b88caeaac89eb1c0a7b3bf94830cc47fb52498a9121c71"
+    sha256 cellar: :any,                 ventura:       "5b6f7ccdcd16433c960df66d0219223f9b16879052f3762b632ded2f51ea104d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "194893adad47f2845c789a032750b49f46ce0900a6d72858305f9f820de97a04"
   end
 
   depends_on "readline"
@@ -82,13 +81,13 @@ class Kpcli < Formula
   end
 
   resource "Clipboard" do
-    url "https://cpan.metacpan.org/authors/id/S/SH/SHLOMIF/Clipboard-0.30.tar.gz"
-    sha256 "d7b3dd7b9ebaac546ec9d4862b1fa413b0279833917901d0b672fd1804384195"
+    url "https://cpan.metacpan.org/authors/id/S/SH/SHLOMIF/Clipboard-0.31.tar.gz"
+    sha256 "af6dc25cf8299d3ed612a2182d0c98e7a011f12ac5f6634c1e9180d3204c2cd8"
   end
 
   resource "Capture::Tiny" do
-    url "https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/Capture-Tiny-0.48.tar.gz"
-    sha256 "6c23113e87bad393308c90a207013e505f659274736638d8c79bac9c67cc3e19"
+    url "https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/Capture-Tiny-0.50.tar.gz"
+    sha256 "ca6e8d7ce7471c2be54e1009f64c367d7ee233a2894cacf52ebe6f53b04e81e5"
   end
 
   def install

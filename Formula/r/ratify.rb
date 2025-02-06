@@ -1,18 +1,18 @@
 class Ratify < Formula
   desc "Artifact Ratification Framework"
   homepage "https://ratify.dev"
-  url "https://github.com/ratify-project/ratify/archive/refs/tags/v1.3.1.tar.gz"
-  sha256 "ada5c3a3c453a0552c287d0979534fb3c708bd8f41fdec83dc5378520626e339"
+  url "https://github.com/ratify-project/ratify/archive/refs/tags/v1.4.0.tar.gz"
+  sha256 "ee4298819a6d72d1d35b2ee6ba52221800099ce88c360efd8a31d751027f6b35"
   license "Apache-2.0"
   head "https://github.com/ratify-project/ratify.git", branch: "dev"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0e288bb20adfce4de29b56e39519eb0a46aef9c63f8ac9a99495d30c775fcba3"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0e288bb20adfce4de29b56e39519eb0a46aef9c63f8ac9a99495d30c775fcba3"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "0e288bb20adfce4de29b56e39519eb0a46aef9c63f8ac9a99495d30c775fcba3"
-    sha256 cellar: :any_skip_relocation, sonoma:        "fdc911061d14b31045fcb8a24564bbb131ba1faaa9ad7de05059e682c1e54395"
-    sha256 cellar: :any_skip_relocation, ventura:       "0818e5ce845caafbdf43d5559e20a723d13b015bcc54ba2945dd1e4ba92be846"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "71644e4fbc5f83bf238d1ea71cdd2a2e607089e614b7e109febce75c2adcdead"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "03d7fa6ea0483779ecd438b37ad4abf4e5b79bf813191fa38b351b4e724d9208"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "03d7fa6ea0483779ecd438b37ad4abf4e5b79bf813191fa38b351b4e724d9208"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "03d7fa6ea0483779ecd438b37ad4abf4e5b79bf813191fa38b351b4e724d9208"
+    sha256 cellar: :any_skip_relocation, sonoma:        "9bcf40d7cb491db9b40ef4264699b440acf5806f20bad0f2ee1a9333f93a74ed"
+    sha256 cellar: :any_skip_relocation, ventura:       "b04d93460c9b39d6541ee0c0e3a7bc93170f09b4008b72a66ea8ec97d37dc099"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "17f651e142921c2f9ae135a1bdcffc39bf0b8b55b1a4622beab5da1ff183aa09"
   end
 
   depends_on "go" => :build

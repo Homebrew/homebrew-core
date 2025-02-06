@@ -42,15 +42,9 @@ class Sh4d0wup < Formula
     generate_completions_from_executable(bin/"sh4d0wup", "completions")
   end
 
-  def check_binary_linkage(binary, library)
-    binary.dynamically_linked_libraries.any? do |dll|
-      next false unless dll.start_with?(HOMEBREW_PREFIX.to_s)
-
-      File.realpath(dll) == File.realpath(library)
-    end
-  end
-
   test do
+    require "utils/linkage"
+
     output = shell_output("#{bin}/sh4d0wup keygen tls example.com | openssl x509 -text -noout")
     assert_match("DNS:example.com", output)
 
@@ -67,7 +61,7 @@ class Sh4d0wup < Formula
       Formula["openssl@3"].opt_lib/shared_library("libssl"),
       Formula["openssl@3"].opt_lib/shared_library("libcrypto"),
     ].each do |library|
-      assert check_binary_linkage(bin/"sh4d0wup", library),
+      assert Utils.binary_linked_to_library?(bin/"sh4d0wup", library),
              "No linkage with #{library.basename}! Cargo is likely using a vendored version."
     end
   end

@@ -1,26 +1,18 @@
 class Scalapack < Formula
   desc "High-performance linear algebra for distributed memory machines"
   homepage "https://netlib.org/scalapack/"
-  url "https://netlib.org/scalapack/scalapack-2.2.0.tgz"
-  sha256 "40b9406c20735a9a3009d863318cb8d3e496fb073d201c5463df810e01ab2a57"
+  url "https://github.com/Reference-ScaLAPACK/scalapack/archive/refs/tags/v2.2.2.tar.gz"
+  sha256 "a2f0c9180a210bf7ffe126c9cb81099cf337da1a7120ddb4cbe4894eb7b7d022"
   license "BSD-3-Clause"
-  revision 1
-
-  livecheck do
-    url :homepage
-    regex(/href=.*?scalapack[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
+  head "https://github.com/Reference-ScaLAPACK/scalapack.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia:  "c995d114d9ed5d64a4478188051b057f1afbda10f860a6ad05240089014525f1"
-    sha256 cellar: :any,                 arm64_sonoma:   "384fa978e53d02b1a25071e9cc0d89cd47a7d8881b735a946e947dca95590f25"
-    sha256 cellar: :any,                 arm64_ventura:  "82500bf38af074441e92db1599b2594959d811b0bcee284c8cc36f92120525b4"
-    sha256 cellar: :any,                 arm64_monterey: "4096375cb8f2af6801d1d0bbab6465b4e057e6c685ecf5e57f9f4fac8ea3166d"
-    sha256 cellar: :any,                 sonoma:         "30b66a1c884bc106b96b9e82cde6d8b1c026f24307e8d5aeddb8bf4e3f91eff1"
-    sha256 cellar: :any,                 ventura:        "5e64fada8dd814c16f4a2c620e8f1dc0b784519fc697ab1df907cc906aab6c8e"
-    sha256 cellar: :any,                 monterey:       "168b5c717d4f360d03990e104b18d32f16e1da9cf1b2e5b6ee88fff8a0a5b33d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7f792514fdcdf56ca86e9b562b3a3f5e2fef3b2e84ea2648a68d0cda1cd60653"
+    sha256 cellar: :any,                 arm64_sequoia: "dc18849ba919f1b668d9367aa6b3c33de0c5da835880a6cff52a0cec5e959480"
+    sha256 cellar: :any,                 arm64_sonoma:  "04781e79d6a399a6b78be71b07b4f1ff77c52763637607b3784d9eed0a9d5871"
+    sha256 cellar: :any,                 arm64_ventura: "cab596587baa484ed8304b5075f192dbbb867ea1794583937812d2e8b08f43e9"
+    sha256 cellar: :any,                 sonoma:        "08ed075c53763c8c8bab09b40dcf7e20eb4931e4191d67d295587f7caacacbb5"
+    sha256 cellar: :any,                 ventura:       "fed1f3d1a4eeca5c906e7c1bd84859631518e3901943fc5abce91823b8efdf91"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0ce59c95648217335fa463f14c0e3d2f87581f66ad82bdc5c0c60bda88b00048"
   end
 
   depends_on "cmake" => :build
@@ -28,55 +20,28 @@ class Scalapack < Formula
   depends_on "open-mpi"
   depends_on "openblas"
 
-  # Apply upstream commit to fix build with gfortran-12.  Remove in next release.
-  patch do
-    url "https://github.com/Reference-ScaLAPACK/scalapack/commit/a0f76fc0c1c16646875b454b7d6f8d9d17726b5a.patch?full_index=1"
-    sha256 "2b42d282a02b3e56bb9b3178e6279dc29fc8a17b9c42c0f54857109286a9461e"
-  end
-
-  patch :DATA
-
   def install
     # Fix compile with newer Clang
     ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
 
-    mkdir "build" do
-      blas = "-L#{Formula["openblas"].opt_lib} -lopenblas"
-      system "cmake", "..", *std_cmake_args, "-DBUILD_SHARED_LIBS=ON",
-                      "-DBLAS_LIBRARIES=#{blas}", "-DLAPACK_LIBRARIES=#{blas}"
-      system "make", "all"
-      system "make", "install"
-    end
+    blas = "-L#{Formula["openblas"].opt_lib} -lopenblas"
+    system "cmake", "-S", ".", "-B", "build",
+                    "-DBUILD_SHARED_LIBS=ON",
+                    "-DBLAS_LIBRARIES=#{blas}",
+                    "-DLAPACK_LIBRARIES=#{blas}",
+                    *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
 
     pkgshare.install "EXAMPLE"
   end
 
   test do
-    cp_r pkgshare/"EXAMPLE", testpath
-    cd "EXAMPLE" do
-      system "mpif90", "-o", "xsscaex", "psscaex.f", "pdscaexinfo.f", "-L#{opt_lib}", "-lscalapack"
-      assert `mpirun -np 4 ./xsscaex | grep 'INFO code' | awk '{print $NF}'`.to_i.zero?
-      system "mpif90", "-o", "xdscaex", "pdscaex.f", "pdscaexinfo.f", "-L#{opt_lib}", "-lscalapack"
-      assert `mpirun -np 4 ./xdscaex | grep 'INFO code' | awk '{print $NF}'`.to_i.zero?
-      system "mpif90", "-o", "xcscaex", "pcscaex.f", "pdscaexinfo.f", "-L#{opt_lib}", "-lscalapack"
-      assert `mpirun -np 4 ./xcscaex | grep 'INFO code' | awk '{print $NF}'`.to_i.zero?
-      system "mpif90", "-o", "xzscaex", "pzscaex.f", "pdscaexinfo.f", "-L#{opt_lib}", "-lscalapack"
-      assert `mpirun -np 4 ./xzscaex | grep 'INFO code' | awk '{print $NF}'`.to_i.zero?
+    cp_r (pkgshare/"EXAMPLE").children, testpath
+
+    %w[psscaex pdscaex pcscaex pzscaex].each do |name|
+      system "mpif90", "#{name}.f", "pdscaexinfo.f", "-L#{opt_lib}", "-lscalapack", "-o", name
+      assert_match(/INFO code returned by .* 0/, shell_output("mpirun --map-by :OVERSUBSCRIBE -np 4 ./#{name}"))
     end
   end
 end
-
-__END__
-diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 85ea82a..86222e0 100644
---- a/CMakeLists.txt
-+++ b/CMakeLists.txt
-@@ -232,7 +232,7 @@ append_subdir_files(src-C "SRC")
-
- if (UNIX)
-    add_library(scalapack ${blacs} ${tools} ${tools-C} ${extra_lapack} ${pblas} ${pblas-F} ${ptzblas} ${ptools} ${pbblas} ${redist} ${src} ${src-C})
--   target_link_libraries( scalapack ${LAPACK_LIBRARIES} ${BLAS_LIBRARIES})
-+   target_link_libraries( scalapack ${LAPACK_LIBRARIES} ${BLAS_LIBRARIES} ${MPI_Fortran_LIBRARIES})
-    scalapack_install_library(scalapack)
- else (UNIX) # Need to separate Fortran and C Code
-    OPTION(BUILD_SHARED_LIBS "Build shared libraries" ON )

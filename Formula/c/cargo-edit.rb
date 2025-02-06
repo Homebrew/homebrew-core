@@ -1,17 +1,17 @@
 class CargoEdit < Formula
   desc "Utility for managing cargo dependencies from the command-line"
   homepage "https://killercup.github.io/cargo-edit/"
-  url "https://github.com/killercup/cargo-edit/archive/refs/tags/v0.13.0.tar.gz"
-  sha256 "c81a73fb1ef4ffef722835baf473beed9868ce2c58ad98a27596f2cbabbfcba3"
+  url "https://github.com/killercup/cargo-edit/archive/refs/tags/v0.13.1.tar.gz"
+  sha256 "11a973bc77ef1562a599e8acc844bf763be4e9caf6e5a650239bc9c6d2077e5b"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "81b766b66cad606757d51623de9528c9903655ebf033b27e937223a80c00efdb"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8ae108fdc203e465e6848966d80c1a35bfa849d56b1c731ecbca7816e633561d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "8001ffca5d9922aecdac84259f3a2eabcb8addc230a5bf025d6bb540696baf44"
-    sha256 cellar: :any_skip_relocation, sonoma:        "47f845361ee58b364b10f603baea77a293cead7b2100941511394a2c06c9cada"
-    sha256 cellar: :any_skip_relocation, ventura:       "78769e2b803b68a887dcedf289236529880b2dae7b7b9eaf8d7a53bd7123d882"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "91a7e551e57b7ec7b6e22015bc2d4971ee8c9ec21eca1784855dd019c3b863ef"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "763cdcd9740bfc003f77a4001544d2382c7f29076c4f6f27ba3617fd6488df48"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cf9cdb02a17bf8057c62cec26e9d06e765f8a607c1e6a5ec22c7414d084d3dbb"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "23e9636f546189449194584d254d124f4bad412218f3905bdaf2314e59d48465"
+    sha256 cellar: :any_skip_relocation, sonoma:        "26d3e85d2ad06e42df060290510ced395aac62a24bb7b86c0d2f2da0bb42ac3c"
+    sha256 cellar: :any_skip_relocation, ventura:       "66641ae544ca6b5b42a00e1248ae64bfaf7453354a3cdb2d81eb2c7b724098a2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "119bd0a56a3cc5fe61eec7ae8b6bfc09ed4be06d8222c231c61e92d5b5de7178"
   end
 
   depends_on "pkgconf" => :build
@@ -20,15 +20,6 @@ class CargoEdit < Formula
 
   def install
     system "cargo", "install", *std_cargo_args
-  end
-
-  # TODO: Add this method to `brew`.
-  def check_binary_linkage(binary, library)
-    binary.dynamically_linked_libraries.any? do |dll|
-      next false unless dll.start_with?(HOMEBREW_PREFIX.to_s)
-
-      File.realpath(dll) == File.realpath(library)
-    end
   end
 
   test do

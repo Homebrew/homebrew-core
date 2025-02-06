@@ -1,17 +1,17 @@
 class StressNg < Formula
   desc "Stress test a computer system in various selectable ways"
   homepage "https://wiki.ubuntu.com/Kernel/Reference/stress-ng"
-  url "https://github.com/ColinIanKing/stress-ng/archive/refs/tags/V0.18.09.tar.gz"
-  sha256 "0694f2c24eb5d839fe11f41adc2c0ea31bb7e9c1a53316fc251847d1d55f6344"
+  url "https://github.com/ColinIanKing/stress-ng/archive/refs/tags/V0.18.10.tar.gz"
+  sha256 "bb729844b5a3c8953e58ddb705dce8a62078ad75f0b6f49092f8027d9c699700"
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3e5f3fda42bad803182c4c9e1c38e23bb685abf282daea67a3c7d846e940cf75"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f342c85e3df9f5dfda6142175216b3e9bf6c5422dbe676fb8d65442d6471da3d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "f962da4b7981b44d2d222782291bf912b051324feb35fc928d398dfbfaa36f55"
-    sha256 cellar: :any_skip_relocation, sonoma:        "0ed71318ec05cbde511221e95895318fc45b99ab68cd60f9a88aef51e890ee58"
-    sha256 cellar: :any_skip_relocation, ventura:       "598bef2ce4dc96003d353cca1d3eb50335f6dd40d764bf8e6258b331396b4387"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a41dd80f3b0fabd632972830a5c4b3adf673d2104f1b270c20cf86c62736c727"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "42e5d911125805f47e652edd1d05effb95b7ab1ba877f381e028c5bed8918755"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5b698dd30598d6fb76da743a622ea61d5ebf803e1aba165cb3e33460a31e938b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "675d9bea25e7bb3d2c86153baa4a00d5653404ca414762b2056501d7ba4e22be"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2cca717547bab2a7452ec311850c79fbec88d217e445600935ab349beaa17a25"
+    sha256 cellar: :any_skip_relocation, ventura:       "34a170fc0fc10703776f2dc2c56aad7228bdea735c02b9d34a79ceccd4fa1044"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d76049d085156ffbccd20204faac1c8c075af53ef568cc4d060579d457734da7"
   end
 
   depends_on macos: :sierra

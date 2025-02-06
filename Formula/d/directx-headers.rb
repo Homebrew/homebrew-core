@@ -1,17 +1,17 @@
 class DirectxHeaders < Formula
   desc "Official DirectX headers available under an open source license"
   homepage "https://devblogs.microsoft.com/directx/"
-  url "https://github.com/microsoft/DirectX-Headers/archive/refs/tags/v1.614.1.tar.gz"
-  sha256 "344eb454c979ea68d8255d82c818bf7daf01f5109d26ac104f9911d18fae3b21"
+  url "https://github.com/microsoft/DirectX-Headers/archive/refs/tags/v1.615.0.tar.gz"
+  sha256 "5394360b517f431949d751f3bcb4150313f28815aded514531c7aaea81bac314"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "425dc8307b005fcdae3f4ee34b4fa49564f854f52e8c0b805373b4b4002a0fe0"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cb1a83cc01fc2c78a1422bd073a8c357da3d2543999ccd12aff794be388781b5"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "60fe0d75c86a6321516e637d944353de30910b55f5d9c7705fac6c10adf21a8f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "8627e2ba3571850de43a8a5b64b92e216e949182ffb7957fe42a45d77e554485"
-    sha256 cellar: :any_skip_relocation, ventura:       "afc9d01669eef5d85fb9e6c7fc2a031285032afbc78ded8d1dd919169fbaad46"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "68c8d1889f90e8f07a83f180649955413e2684fdb8e10f8c2f92e1a7d4c680a3"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1faa5858f89b77c2dd492a5ccd6cda74370dc6d2c7d0bcfe840f9282aefa628a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "595d10c58c4361c6a1295b3d3dff7138eb77d700c0cd4c0d97b548df7dfc927d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "2fc37a89a3f7d4bf06a790889419a85f6c3f8779bdb808c02d5b43580df8f0aa"
+    sha256 cellar: :any_skip_relocation, sonoma:        "eb29c4055384634a995682654a7baeb1fa06765e05302fc6f0379edf7dcac747"
+    sha256 cellar: :any_skip_relocation, ventura:       "0774047098f7cf7b6ecb92bdd8276aef0e5c992b9985e6e29cac3109832c8e29"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d5e786b1e03793996fac1da7d9a4b8c0a55090212b67c6b054ba508892a22b02"
   end
 
   depends_on "meson" => :build

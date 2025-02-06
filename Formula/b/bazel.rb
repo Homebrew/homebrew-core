@@ -17,6 +17,7 @@ class Bazel < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "3fff3607b0e68a3ef19810fe60418093e9ba3ac59fa6dc1af71a8187ba8c304a"
     sha256 cellar: :any_skip_relocation, sonoma:        "819cc3996a5b758d2ee1892f777c8236849fd480fd9b742d4fb11cf13598fee8"
     sha256 cellar: :any_skip_relocation, ventura:       "d8d1a7f56fd5131c04fdf8c12056dbbee07252f371e0971d684591cec46600cc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b464c711857cfa9533e99754eef2a5d2acfd227f992777ac0973d373d6560bfb"
   end
 
   depends_on "python@3.13" => :build
@@ -25,45 +26,76 @@ class Bazel < Formula
   uses_from_macos "unzip"
   uses_from_macos "zip"
 
+  on_linux do
+    on_intel do
+      # We use a workaround to prevent modification of the `bazel-real` binary
+      # but this means brew cannot rewrite paths for non-default prefix
+      pour_bottle? only_if: :default_prefix
+    end
+  end
+
   conflicts_with "bazelisk", because: "Bazelisk replaces the bazel binary"
 
+  def bazel_real
+    libexec/"bin/bazel-real"
+  end
+
   def install
+    java_home_env = Language::Java.java_home_env("21")
+
     ENV["EMBED_LABEL"] = "#{version}-homebrew"
     # Force Bazel ./compile.sh to put its temporary files in the buildpath
     ENV["BAZEL_WRKDIR"] = buildpath/"work"
-    # Force Bazel to use openjdk@21
-    ENV["EXTRA_BAZEL_ARGS"] = "--tool_java_runtime_version=local_jdk"
-    ENV["JAVA_HOME"] = Language::Java.java_home("21")
-    # Force Bazel to use Homebrew python
-    ENV.prepend_path "PATH", Formula["python@3.13"].opt_libexec/"bin"
+    # Force Bazel to use brew OpenJDK
+    extra_bazel_args = ["--tool_java_runtime_version=local_jdk"]
+    ENV.merge! java_home_env.transform_keys(&:to_s)
+    # Bazel clears environment variables which breaks superenv shims
+    ENV.remove "PATH", Superenv.shims_path
 
-    # Bazel clears environment variables other than PATH during build, which
-    # breaks Homebrew's shim scripts that need HOMEBREW_* variables.
-    # Bazel's build also resolves the realpath of executables like `cc`,
-    # which breaks Homebrew's shim scripts that expect symlink paths.
-    #
-    # The workaround here is to disable the shim for C/C++ compilers.
-    ENV["CC"] = "/usr/bin/cc"
-    ENV["CXX"] = "/usr/bin/c++" if OS.linux?
+    # Set dynamic linker similar to cc shim so that bottle works on older Linux
+    if OS.linux? && build.bottle? && ENV["HOMEBREW_DYNAMIC_LINKER"]
+      extra_bazel_args << "--linkopt=-Wl,--dynamic-linker=#{ENV["HOMEBREW_DYNAMIC_LINKER"]}"
+    end
+    ENV["EXTRA_BAZEL_ARGS"] = extra_bazel_args.join(" ")
 
     (buildpath/"sources").install buildpath.children
 
     cd "sources" do
       system "./compile.sh"
-      system "./output/bazel", "--output_user_root",
-                               buildpath/"output_user_root",
+      system "./output/bazel", "--output_user_root=#{buildpath}/output_user_root",
                                "build",
                                "scripts:bash_completion",
                                "scripts:fish_completion"
 
       bin.install "scripts/packages/bazel.sh" => "bazel"
-      ln_s libexec/"bin/bazel-real", bin/"bazel-#{version}"
+      ln_s bazel_real, bin/"bazel-#{version}"
       (libexec/"bin").install "output/bazel" => "bazel-real"
-      bin.env_script_all_files libexec/"bin", Language::Java.java_home_env("21")
+      bin.env_script_all_files libexec/"bin", java_home_env
 
       bash_completion.install "bazel-bin/scripts/bazel-complete.bash" => "bazel"
       zsh_completion.install "scripts/zsh_completion/_bazel"
       fish_completion.install "bazel-bin/scripts/bazel.fish"
+    end
+
+    # Workaround to avoid breaking the zip-appended `bazel-real` binary.
+    # Can remove if brew correctly handles these binaries or if upstream
+    # provides an alternative in https://github.com/bazelbuild/bazel/issues/11842
+    if OS.linux? && build.bottle?
+      Utils::Gzip.compress(bazel_real)
+      bazel_real.write <<~SHELL
+        #!/bin/bash
+        echo 'ERROR: Need to run `brew postinstall #{name}`' >&2
+        exit 1
+      SHELL
+      bazel_real.chmod 0755
+    end
+  end
+
+  def post_install
+    if File.exist?("#{bazel_real}.gz")
+      rm(bazel_real)
+      system "gunzip", "#{bazel_real}.gz"
+      bazel_real.chmod 0755
     end
   end
 
@@ -78,13 +110,13 @@ class Bazel < Formula
       }
     JAVA
 
-    (testpath/"BUILD").write <<~EOS
+    (testpath/"BUILD").write <<~STARLARK
       java_binary(
         name = "bazel-test",
         srcs = glob(["*.java"]),
         main_class = "ProjectRunner",
       )
-    EOS
+    STARLARK
 
     system bin/"bazel", "build", "//:bazel-test"
     assert_equal "Hi!\n", shell_output("bazel-bin/bazel-test")

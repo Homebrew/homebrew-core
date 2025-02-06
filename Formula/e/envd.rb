@@ -27,22 +27,14 @@ class Envd < Formula
       -X github.com/tensorchord/envd/pkg/version.gitTreeState=clean
     ]
     system "go", "build", *std_go_args(ldflags:), "./cmd/envd"
-    generate_completions_from_executable(bin/"envd", "completion", "--no-install",
-                                         shell_parameter_format: "--shell=",
-                                         shells:                 [:bash, :zsh, :fish])
+    generate_completions_from_executable(bin/"envd", "completion", "--no-install", "--shell")
   end
 
   test do
-    output = shell_output("#{bin}/envd version --short")
-    assert_equal "envd: v#{version}", output.strip
+    assert_match version.to_s, shell_output("#{bin}/envd version --short")
 
-    expected = if OS.mac?
-      "failed to list containers: Cannot connect to the Docker daemon"
-    else
-      "failed to list containers: permission denied while trying to connect to the Docker daemon"
-    end
-
-    stderr = shell_output("#{bin}/envd env list 2>&1", 1)
-    assert_match expected, stderr
+    ENV["DOCKER_HOST"] = "unix://#{testpath}/invalid.sock"
+    expected = /failed to list containers: (Cannot|permission denied while trying to) connect to the Docker daemon/
+    assert_match expected, shell_output("#{bin}/envd env list 2>&1", 1)
   end
 end

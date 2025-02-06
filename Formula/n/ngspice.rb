@@ -68,6 +68,13 @@ class Ngspice < Formula
     rm_r(Dir[lib/"ngspice"])
   end
 
+  def caveats
+    <<~EOS
+      If you need the graphical plotting functions you need to install X11 with:
+        brew install --cask xquartz
+    EOS
+  end
+
   test do
     (testpath/"test.cir").write <<~EOS
       RC test circuit

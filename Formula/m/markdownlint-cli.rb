@@ -1,17 +1,17 @@
 class MarkdownlintCli < Formula
   desc "CLI for Node.js style checker and lint tool for Markdown files"
   homepage "https://github.com/igorshubovych/markdownlint-cli"
-  url "https://registry.npmjs.org/markdownlint-cli/-/markdownlint-cli-0.43.0.tgz"
-  sha256 "75f368cda3622f32df0971f834aee6bccaa64b7d1baffce021bb962328be316b"
+  url "https://registry.npmjs.org/markdownlint-cli/-/markdownlint-cli-0.44.0.tgz"
+  sha256 "df1ea79f06226d09e539f59e80b9c1f49baa01af3f97011fb5c621a3fd92bf6d"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5b821b6668e1fb447f4be2a67ea43544913b7e17bcd2fd8d7374cd7422239704"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5b821b6668e1fb447f4be2a67ea43544913b7e17bcd2fd8d7374cd7422239704"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "5b821b6668e1fb447f4be2a67ea43544913b7e17bcd2fd8d7374cd7422239704"
-    sha256 cellar: :any_skip_relocation, sonoma:        "3c474cd8d82383adbdb5f98012721beaf18a515754dc9fd4e7affe421a5af6d5"
-    sha256 cellar: :any_skip_relocation, ventura:       "3c474cd8d82383adbdb5f98012721beaf18a515754dc9fd4e7affe421a5af6d5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5b821b6668e1fb447f4be2a67ea43544913b7e17bcd2fd8d7374cd7422239704"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "37d23e1edb5a0361a19123e2e6a2536b242bf37952c6c44d39256c6bd60cc7a1"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "37d23e1edb5a0361a19123e2e6a2536b242bf37952c6c44d39256c6bd60cc7a1"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "37d23e1edb5a0361a19123e2e6a2536b242bf37952c6c44d39256c6bd60cc7a1"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c85a970380cbbe474257782bf59f347f8c9ebd62af9258dc0df33f0806a1ca88"
+    sha256 cellar: :any_skip_relocation, ventura:       "c85a970380cbbe474257782bf59f347f8c9ebd62af9258dc0df33f0806a1ca88"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "37d23e1edb5a0361a19123e2e6a2536b242bf37952c6c44d39256c6bd60cc7a1"
   end
 
   depends_on "node"

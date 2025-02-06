@@ -4,30 +4,28 @@ class SvtAv1 < Formula
   url "https://gitlab.com/AOMediaCodec/SVT-AV1/-/archive/v2.3.0/SVT-AV1-v2.3.0.tar.bz2"
   sha256 "f65358499f572a47d6b076dda73681a8162b02c0b619a551bc2d62ead8ee719a"
   license "BSD-3-Clause"
+  revision 1
   head "https://gitlab.com/AOMediaCodec/SVT-AV1.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "b7071bcdd49e6f95dbea917544ae580502b0bb3463b509b40a46f4bc76599c35"
-    sha256 cellar: :any,                 arm64_sonoma:  "9628c69df64063f970ed2886c0ee331021ddf62bdb240dc4a596c8a269f67341"
-    sha256 cellar: :any,                 arm64_ventura: "bb144183d7849c4e6a7621c447d4b7195255d7ab7f374a0cc417f398fd1cfe53"
-    sha256 cellar: :any,                 sonoma:        "16d30044c1f93b2e7d1761609049c98d6ae45a2761d20b16646da8988443b4c5"
-    sha256 cellar: :any,                 ventura:       "3f61bca9d63853428078901104a73485771985466300c25e8cb5eb68397b86de"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2102cd7a9136546cdaa969708b64d162dde990e74ba5caa4ed935b11bea9f616"
+    sha256 cellar: :any,                 arm64_sequoia: "605135cabe91df094a30c1fcbbbbce1915b7847de7ef8d46ab7bb0bee5c5f1e5"
+    sha256 cellar: :any,                 arm64_sonoma:  "ae9857ada8e720c1554c6d46bf32c91b8c2b78aa07c0df4ea936ecd91d3e7863"
+    sha256 cellar: :any,                 arm64_ventura: "6327e22f6630352beaac4edb8f7b362c92248d31078444e0981f6dcea172dca2"
+    sha256 cellar: :any,                 sonoma:        "7b9aabe63f4fe63854e7e6ca8a23c20ee5c8aad1232a2da3c9e32cfcc516b660"
+    sha256 cellar: :any,                 ventura:       "ea80f7ef7a52e89746296794dba5459524420bd68b26ef5df43e16600b1d1154"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0912347393354e14ffc4198e0d56ef10b0defc45576a543dcc2a0a4e75cb8a74"
   end
 
   depends_on "cmake" => :build
   depends_on "nasm" => :build
 
   def install
-    extra_cmake_args = %W[-DCMAKE_INSTALL_RPATH=#{rpath}]
+    # Features are enabled based on compiler support, and then the appropriate
+    # implementations are chosen at runtime.
+    # See https://gitlab.com/AOMediaCodec/SVT-AV1/-/blob/master/Source/Lib/Codec/common_dsp_rtcd.c
+    ENV.runtime_cpu_detection
 
-    # Explicitly disable ARM NEON I8MM extension on Apple Silicon: upstream
-    # build script attempts to detect CPU features via compiler flags, which
-    # are stripped by brew's compiler shim. The M1 chip does not support the
-    # I8MM extension (hw.optional.arm.FEAT_I8MM).
-    extra_cmake_args << "-DENABLE_NEON_I8MM=OFF" if OS.mac?
-
-    system "cmake", "-S", ".", "-B", "build", *extra_cmake_args, *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build", "-DCMAKE_INSTALL_RPATH=#{rpath}", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end

@@ -1,20 +1,18 @@
 class CouchbaseShell < Formula
   desc "Modern and fun shell for Couchbase Server and Capella"
   homepage "https://couchbase.sh"
-  url "https://github.com/couchbaselabs/couchbase-shell/archive/refs/tags/v1.0.0.tar.gz"
-  sha256 "404c704f5816c3abd26d460ecbd2e049e45170854948a7219cd9ec41a6fb753c"
+  url "https://github.com/couchbaselabs/couchbase-shell/archive/refs/tags/v1.1.0.tar.gz"
+  sha256 "2679e5e2655ea0744efe66cce665481d95676ef26d284ea0341311068ccfb972"
   license "Apache-2.0"
   head "https://github.com/couchbaselabs/couchbase-shell.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "658614f1b088002c32486bf1d28a94a98e764c731420def0b32ca6d462f85472"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6b7fbbd9244f86b8a2b62e9b66031f6b626458cdd02bf98aa1678da2f6e1f057"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6c2a1deb9682f3abf26523e1ee3ee06373cda0070b4d1a40112705fd1a054341"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "95b26b103f2e99c9a19dfe8b3362fc387ce561fa56e802fb764eb11882d9c509"
-    sha256 cellar: :any_skip_relocation, sonoma:         "eb0a6ecb43eb94f41945d1b51b18c5c0af5d4dbce058ce67f3ee118235884065"
-    sha256 cellar: :any_skip_relocation, ventura:        "97c85165badffe574ea33ccc90a1ef50663a43a3113e0dda0430906009df2752"
-    sha256 cellar: :any_skip_relocation, monterey:       "b5324717a89c5d0f84710c0c349e2fb0c7c9cfa8ba582c2c7163f9910c0f64de"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "85e214221dd2de75cbc472660b3ca76f9909be8dc3da77de19d2934030caace9"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1e4207cdae2d36437ad70fed865a844849ade6670facd075383a78a8152e8726"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "baeb1763d305776f71ac2519a2504f5904c4b166eca40f59dd2f6a5c4df1bb93"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "99354510fd9b1979a7da10ef2c67b282b0b029aca9450e3bbb8e1f2fca08801f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "cf75c7a65c8cddad02ca437e145f899dfae38e471df20f709f1119109a74b3c5"
+    sha256 cellar: :any_skip_relocation, ventura:       "a379e347f9b4325c6521cb7e30b24f122b3738324e013ea77d224eaf3df56dcc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dfbddc03319d40472bdae18473f650e51a29c68b9e2574a58b36f363f43faca0"
   end
 
   depends_on "rust" => :build

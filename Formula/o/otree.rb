@@ -1,18 +1,18 @@
 class Otree < Formula
   desc "Command-line tool to view objects (JSON/YAML/TOML) in TUI tree widget"
   homepage "https://github.com/fioncat/otree"
-  url "https://github.com/fioncat/otree/archive/refs/tags/v0.3.0.tar.gz"
-  sha256 "63a63b09af2186d2bc3aa8631989f1fbdeb7659d7f1857be7fae1e0af4d42fde"
+  url "https://github.com/fioncat/otree/archive/refs/tags/v0.3.1.tar.gz"
+  sha256 "f71064cac1c7fc1047a119bdd2b630eac67008546d13b51b1ace1ab9b0314e02"
   license "MIT"
   head "https://github.com/fioncat/otree.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "065cd405c1aece0c6b42f4634056969a3beea49263140cd5227515e3220bb0ba"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "bb70a7a0af610aeca065fb00950f4810cc1a78618c45f48c69f5ca462a330ef2"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "f6fc182480520ba8b09966d55887ab5315e449cb1f3d4af1ead0788d2fb2c41c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "0ba8f2709bce3ec34adc7911c233d1c95ce34d75f8da01e2bdea3afad5ecd5f7"
-    sha256 cellar: :any_skip_relocation, ventura:       "b56cc29e18911359278a7618e2a8e667433a90ebd532fe76ad4f841588a57c52"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "95f451a551bbb740a4356ba67f43d68fa9018ccdd2bc774a5dc3e72482d3fcfc"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7133f63fb0a0b7dccfdde99f6b46832ca8a9d15dd5c3a3a4aa4e6f49b0266c2b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "bec446f112db99edb483a6e8e6d116139401d5dd838f88985636be19781a9e23"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "37b9ac9b4424e26e8fe8db420414e500ffa33fa502d3ae165e87f1fdc1a7932e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "9a7210daf8444f20268668377bda516894f0ab79ddb438ead2db55424184c39a"
+    sha256 cellar: :any_skip_relocation, ventura:       "68cea001f2492706961a6bb879d065dc6faf7aeb6a39a9d7154a8a54d8eae8d6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "28f8344d536731ccea43e576687313f44c7891b0ac612c5560d0b662a99875ff"
   end
 
   depends_on "rust" => :build

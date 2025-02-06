@@ -1,18 +1,18 @@
 class Octobuild < Formula
   desc "Compiler cache for Unreal Engine"
   homepage "https://github.com/octobuild/octobuild"
-  url "https://github.com/octobuild/octobuild/archive/refs/tags/1.6.0.tar.gz"
-  sha256 "534215b646adef426810a1b371ecdfd087d432ca7b4262cff493dfedbacf9818"
+  url "https://github.com/octobuild/octobuild/archive/refs/tags/1.7.0.tar.gz"
+  sha256 "c89f162f7b7d3e197c3da6e736745f1105570c2fb5b30a23cf22edd46c6876bb"
   license "MIT"
   head "https://github.com/octobuild/octobuild.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7082f0eb5eb0f4ab3b67bcfc60e3411272388b32e81e4d5954e31fc12a01af11"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f5031d60300a4bed4adc3bfaa4367d64a1f30f896c632c62bc651f46fd7e9863"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "8b7bc35cb66bd00fc994a4aeabd31bb593adce49a23c806cadafd53843de24bb"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e8601d7641b785f8336ec6643d6671d3edf5dbf0b02c1e146d3c2d595da75cdd"
-    sha256 cellar: :any_skip_relocation, ventura:       "536e3d03ab8af38a5ad474a3e59dc127e40abadf3e4fcc1d457806f01eae1656"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "39e59384699ca25dcb9e6dde849ef81d980b035902c34b7a602974cb3eea6c71"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "72142b4636466ec9e91523c1d99cc77e1b12f6a6916b43af264edf23309ca901"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6b682aded6c48f1f3be1c60963918e79e3f0f8b36c4c785ff8829c115040bbba"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "7b25fb3405ea525260de88a3ede5c46150514679ad971b657a72265904ecc897"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c797c17138ab1dd3cdaf9393f8499fdc771e98629fa44d3eac9ad718e27bd041"
+    sha256 cellar: :any_skip_relocation, ventura:       "ce5f745b54b4e9251c48909e3f7350cd28b42970a619859fa2f02a808d08005b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "eef7f382ab1c2b2478be87ff67de4f4e57156f7241a7689a67f7105801b13f18"
   end
 
   depends_on "rust" => :build

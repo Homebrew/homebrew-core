@@ -8,12 +8,13 @@ class LiterateGit < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bdea2b194b7f348c15c88755d5ef0d975cd839dfdacc463bae9f36c7979ba822"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "efc79779edc2107eea264ac7c7c712136d42a6de1111239f030e8958f8521788"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "3b67ced36559322a068d9d5d68975732a7b9eb0e957d59bb790cafd4a293276c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "a894afe0669bc1c7dbdf7443fd16288203f67a162bc0f6469d1c801bf862d762"
-    sha256 cellar: :any_skip_relocation, ventura:       "213b4b3ee58237156691e35265a46e5e5b92765fe642d7eb0ecec5aaa27fe37f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cdd8ab9dcc85ecd5ce09b20c08732ff7017994b8053008c9acda85aeedd129d0"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0d61bd94784d7fb957ad8bfca0caf27fa43b8382e06d4c8428bb742d48bf8ea0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2ef46ab683337063ff292bc142023ff50350ea082b6371b40708e2470b0c634b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "28ddecacf42d08be7319f240c82569119e1268e1fdfb8461d89c1f872873ee47"
+    sha256 cellar: :any_skip_relocation, sonoma:        "4e691b1e9991d567684cd096f6d292b38dc0021f71260f64a0e84a03ddfa3083"
+    sha256 cellar: :any_skip_relocation, ventura:       "fca9dd9a0f110fef6ef64a8ce78a49f919a19c3ccb8d2ea0a80fb3e8db7361ca"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0947111884deb1763e926b5adaa99e3b49d9769ca7e297c340edeafc36931162"
   end
 
   depends_on "pygit2"
@@ -51,8 +52,8 @@ class LiterateGit < Formula
   end
 
   def install
-    # pygments > hatchling, fix to `ZIP does not support timestamps before 1980` error
-    ENV["SOURCE_DATE_EPOCH"] = Time.now.to_i.to_s
+    # The source doesn't have a valid SOURCE_DATE_EPOCH, so here we set default.
+    ENV["SOURCE_DATE_EPOCH"] = "1451574000"
 
     virtualenv_install_with_resources
   end

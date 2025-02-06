@@ -8,12 +8,13 @@ class Kaskade < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "f564b00f1b5966948f27322af11053408f67037b75d9f555328f06b82dc2ca2c"
-    sha256 cellar: :any,                 arm64_sonoma:  "747d06c7e5f90c15ec8579f5971ccd54f2bf9c4cebdf62e8c065ba452ae501e4"
-    sha256 cellar: :any,                 arm64_ventura: "466a402bf474e17ae289c95bde2e67ad38bdb5da0c9b6a780bf8788a93fe855a"
-    sha256 cellar: :any,                 sonoma:        "4eec3d49fcdb588ed73f17e15526c78ed8fc7cc33da49e4059eb459d8889b18b"
-    sha256 cellar: :any,                 ventura:       "75144300f1912e0c6e155f583395028dd8c7741203aaf28ff8d3e33bfe3cc630"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c5ebeec6969fc9779b080032a8919e1bd1795b8f78a247f6610f90ff11c4411e"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "7c5d25b0b0fc2905abebf72d657ca1ea39b196c52f8ba62f770b6dc87be46a2a"
+    sha256 cellar: :any,                 arm64_sonoma:  "c25c794c8fdb618cd5db3802d69a11589fd8ba8e7d540b9c496dbe7ca1630cbb"
+    sha256 cellar: :any,                 arm64_ventura: "9e6cf9fbd557f26ecb4405a43f7a5b6ba5549aaa253a36f1bd0b5b32253dbb9d"
+    sha256 cellar: :any,                 sonoma:        "40d8da8542b9042ce0bba79257a8527a3e15cb61c7b4008d819a5cd139ce75ff"
+    sha256 cellar: :any,                 ventura:       "ed5323a6851e9fef87f243456e261dac79dcec152478f64ba4192e1c12b386d4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6b7115989c9104c9293b73f243eada0c22f520e537e2e7faf7dcc33168e301f5"
   end
 
   depends_on "rust" => :build # for rpds-py
@@ -187,9 +188,8 @@ class Kaskade < Formula
   end
 
   def install
-    # attrs > hatchling, fix to `ZIP does not support timestamps before 1980` error
-    ENV["SOURCE_DATE_EPOCH"] = Time.now.to_i.to_s
-
+    # The source doesn't have a valid SOURCE_DATE_EPOCH, so here we set default.
+    ENV["SOURCE_DATE_EPOCH"] = "1451574000"
     virtualenv_install_with_resources
   end
 

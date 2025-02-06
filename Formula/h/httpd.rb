@@ -1,20 +1,18 @@
 class Httpd < Formula
   desc "Apache HTTP server"
   homepage "https://httpd.apache.org/"
-  url "https://dlcdn.apache.org/httpd/httpd-2.4.62.tar.bz2"
-  mirror "https://downloads.apache.org/httpd/httpd-2.4.62.tar.bz2"
-  sha256 "674188e7bf44ced82da8db522da946849e22080d73d16c93f7f4df89e25729ec"
+  url "https://dlcdn.apache.org/httpd/httpd-2.4.63.tar.bz2"
+  mirror "https://downloads.apache.org/httpd/httpd-2.4.63.tar.bz2"
+  sha256 "88fc236ab99b2864b248de7d49a008ec2afd7551e64dce8b95f58f32f94c46ab"
   license "Apache-2.0"
 
   bottle do
-    sha256 arm64_sequoia:  "d88e0c77616130710928d131e06659d58b241252cf53068b75d75a54df3d8ab3"
-    sha256 arm64_sonoma:   "e07d024239ee944db52ecebb1997c75e15144b343b347788b36dce01803bd7c0"
-    sha256 arm64_ventura:  "d497edfd46070f9f4552a5535901700cd20f885b48f2a45aa8550ad50b1f7ecc"
-    sha256 arm64_monterey: "f830c872c460dfe78c2a95ac3c21a2e0f432fa7f3e4dadacc0d1026e17d11c8a"
-    sha256 sonoma:         "f487133a012b379bfebc45bc90167a27c47e2a2985623b76f336ccb987638e87"
-    sha256 ventura:        "c3069f33e1bb675a6decd0228263f43a909d0351db6059d70bad2778bc83d36b"
-    sha256 monterey:       "ae984f66ee0b60b8955b6e9720ee7733226248f0bb052d195d9f67dc05b61641"
-    sha256 x86_64_linux:   "5a26f97286ecca3915f6a93910f0c624859205eb27f32756867b03708d98212b"
+    sha256 arm64_sequoia: "9ca7b90378d07613eb7f25d3f254e3c988392b6aa03724e2a391fc3900200b94"
+    sha256 arm64_sonoma:  "3cac4f194862dc3e6f0676a10307810a2b623603fd8d2e7b82e867a4dccc01ab"
+    sha256 arm64_ventura: "cfc960b54bf8dbdc87fc91de6cbad9a9e8c1775d69659ee206d6bbdd0d9d8cea"
+    sha256 sonoma:        "e0854ef063e66912912753c71fd85f4e92cc59930ed824974ca2b9709ddcaaaf"
+    sha256 ventura:       "d873c7c33a633d07739c0cef9551074dc53d5480a16e82c302f0ec0e9c01359b"
+    sha256 x86_64_linux:  "82136824ca8efeb096ba9236bf103b87d91d52e2c2de3081775fcbc9e7df55eb"
   end
 
   depends_on "apr"
@@ -166,10 +164,10 @@ class Httpd < Formula
         LoadModule mpm_prefork_module #{lib}/httpd/modules/mod_mpm_prefork.so
       EOS
 
-      pid = fork do
-        exec bin/"httpd", "-X", "-f", "#{testpath}/httpd.conf"
-      end
+      pid = spawn bin/"httpd", "-X", "-f", "#{testpath}/httpd.conf"
+
       sleep 3
+      sleep 2 if OS.mac? && Hardware::CPU.intel?
 
       assert_match expected_output, shell_output("curl -s 127.0.0.1:#{port}")
 

@@ -1,8 +1,8 @@
 class Ngt < Formula
   desc "Neighborhood graph and tree for indexing high-dimensional data"
   homepage "https://github.com/yahoojapan/NGT"
-  url "https://github.com/yahoojapan/NGT/archive/refs/tags/v2.3.7.tar.gz"
-  sha256 "eaff74bdd33220987f508d33162b201f13f98b902dceb7423c7a34fa25662f9c"
+  url "https://github.com/yahoojapan/NGT/archive/refs/tags/v2.3.11.tar.gz"
+  sha256 "81bdf5c47cbc66e0489c87c414ca1d844da9ddd006d4d44fa0fa5c256bcc5bdd"
   license "Apache-2.0"
 
   livecheck do
@@ -11,12 +11,12 @@ class Ngt < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "0fd7fdfa03e21d6cc7c9a91663b5da4008a032a4daebb4dd7ebf2aed3e4eee41"
-    sha256 cellar: :any,                 arm64_sonoma:  "abe52c3805dfb05250f0dbc6f47d71f18db8bc7a0993f410c2946b24b813a6eb"
-    sha256 cellar: :any,                 arm64_ventura: "f9f269b37c4941df394f3557a7633ebe17f8bee17542e690f79ae82a79c7ffdc"
-    sha256 cellar: :any,                 sonoma:        "70786320c841af6a27bb0dc0dd2a14ccd7e6c62d9e1db5817fec0815b7b31b35"
-    sha256 cellar: :any,                 ventura:       "560ed598cdb96b8b9eb755a04467225e5a0fa54ae9a90651e4e827779a402aed"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aa481d355cd75f6cc2aad13dddea843ffe5bb1a99cf2a5f93169b76734689204"
+    sha256 cellar: :any,                 arm64_sequoia: "1b2bcf7d7899b670018209c8ba3e160aad58b33fc22ba9dc9a91d2cb3a6cc9ce"
+    sha256 cellar: :any,                 arm64_sonoma:  "db3d2b32c86b046b33000b0edc7a71ecac5ada963b6424f6fc047258cdcc2fff"
+    sha256 cellar: :any,                 arm64_ventura: "3b7c13ef15ce44d45171e775fec42c2e2628963725427e261597ba3f551a0aa5"
+    sha256 cellar: :any,                 sonoma:        "517680b9b993ff74b51b38e0f79d3ab7a48de48f5f2aa4b60b988b2f4996e9b4"
+    sha256 cellar: :any,                 ventura:       "2ad9ee896cc5aedf1145ca5caf5e76d2f371abe68829e49d24f0ba1af80eddd0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "23de45076c70e7e798c7723a8473469a3af6c704b5441ea5b09e8c15bf8aa4f7"
   end
 
   depends_on "cmake" => :build

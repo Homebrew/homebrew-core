@@ -9,12 +9,13 @@ class Gptme < Formula
   head "https://github.com/ErikBjare/gptme.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "6cfe9eedbfc57bf54668c30ed36100f79ce0ed8df0cf83b20aa8c4b1fabd0435"
-    sha256 cellar: :any,                 arm64_sonoma:  "8c64e3cfccbf2cc73e0a2c0bf79da3ba9f9585f6504a6d08e1a45e642dc095cd"
-    sha256 cellar: :any,                 arm64_ventura: "6f7d11d24935fe750a652fe4f4ebc8de7b3723e85f5c0fb5df50f91d19d95bba"
-    sha256 cellar: :any,                 sonoma:        "4c9f848b4672c9aa204dcdbaedcb9aa092d7e0597ac0e433e9b090a77c69cf89"
-    sha256 cellar: :any,                 ventura:       "0847dbb49602e6e3209786fbeedc5a0253a4cd99f66ab7fe053ac98dcb5410a6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "323a72df24f28ce278e2e2f23e6e666874d1a28cf5707cf859d774c3b2039f6d"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "a9f4526f5d615920626c65e2db56b91f90cfa3d30c2b05da23fee60dbe83e179"
+    sha256 cellar: :any,                 arm64_sonoma:  "2ef976f6e500dab63b7159ac27a565debebf512a13a60d6f00cfb6702811875f"
+    sha256 cellar: :any,                 arm64_ventura: "d4111e610d3d75b6afb64aa89f6c9516614046efa8df876480a6388e559410b1"
+    sha256 cellar: :any,                 sonoma:        "b6d3842c4a5e6d8ef8661d64fe254520b3aee4754a8c2e0fa1daf028412caf62"
+    sha256 cellar: :any,                 ventura:       "7e1eb6a938a6a7e765dab8bfe9dedb21d66cbc156c90e6c94c7527d692e04329"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1c7b788dacac36000adaf04362a378542aacbd7e7bfbe841f336f26c06b4e526"
   end
 
   depends_on "rust" => :build
@@ -276,8 +277,8 @@ class Gptme < Formula
   end
 
   def install
-    # annotated_types > hatchling, fix to `ZIP does not support timestamps before 1980` error
-    ENV["SOURCE_DATE_EPOCH"] = Time.now.to_i.to_s
+    # The source doesn't have a valid SOURCE_DATE_EPOCH, so here we set default.
+    ENV["SOURCE_DATE_EPOCH"] = "1451574000"
 
     virtualenv_install_with_resources
 

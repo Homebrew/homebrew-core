@@ -29,15 +29,9 @@ class Gitui < Formula
     system "cargo", "install", *std_cargo_args
   end
 
-  def check_binary_linkage(binary, library)
-    binary.dynamically_linked_libraries.any? do |dll|
-      next false unless dll.start_with?(HOMEBREW_PREFIX.to_s)
-
-      File.realpath(dll) == File.realpath(library)
-    end
-  end
-
   test do
+    require "utils/linkage"
+
     system "git", "clone", "https://github.com/extrawurst/gitui.git"
     (testpath/"gitui").cd { system "git", "checkout", "v0.7.0" }
 
@@ -71,7 +65,7 @@ class Gitui < Formula
       Formula["openssl@3"].opt_lib/shared_library("libssl"),
     ]
     linked_libraries.each do |library|
-      assert check_binary_linkage(bin/"gitui", library),
+      assert Utils.binary_linked_to_library?(bin/"gitui", library),
              "No linkage with #{library.basename}! Cargo is likely using a vendored version."
     end
   ensure

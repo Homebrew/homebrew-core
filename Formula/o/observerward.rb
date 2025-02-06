@@ -25,15 +25,9 @@ class Observerward < Formula
     system "cargo", "install", *std_cargo_args(path: "observer_ward")
   end
 
-  def check_binary_linkage(binary, library)
-    binary.dynamically_linked_libraries.any? do |dll|
-      next false unless dll.start_with?(HOMEBREW_PREFIX.to_s)
-
-      File.realpath(dll) == File.realpath(library)
-    end
-  end
-
   test do
+    require "utils/linkage"
+
     system bin/"observer_ward", "-u"
     assert_match "0example", shell_output("#{bin}/observer_ward -t https://www.example.com/")
 
@@ -41,7 +35,7 @@ class Observerward < Formula
       Formula["openssl@3"].opt_lib/shared_library("libcrypto"),
       Formula["openssl@3"].opt_lib/shared_library("libssl"),
     ].each do |library|
-      assert check_binary_linkage(bin/"observer_ward", library),
+      assert Utils.binary_linked_to_library?(bin/"observer_ward", library),
              "No linkage with #{library.basename}! Cargo is likely using a vendored version."
     end
   end

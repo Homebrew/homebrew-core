@@ -30,15 +30,9 @@ class SshVault < Formula
     system "cargo", "install", *std_cargo_args
   end
 
-  def check_binary_linkage(binary, library)
-    binary.dynamically_linked_libraries.any? do |dll|
-      next false unless dll.start_with?(HOMEBREW_PREFIX.to_s)
-
-      File.realpath(dll) == File.realpath(library)
-    end
-  end
-
   test do
+    require "utils/linkage"
+
     test_key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINixf2m2nj8TDeazbWuemUY8ZHNg7znA7hVPN8TJLr2W"
     (testpath/"public_key").write test_key
     cmd = "#{bin}/ssh-vault f -k  #{testpath}/public_key"
@@ -49,7 +43,7 @@ class SshVault < Formula
         Formula["openssl@3"].opt_lib/shared_library("libssl"),
         Formula["openssl@3"].opt_lib/shared_library("libcrypto"),
       ].each do |library|
-        assert check_binary_linkage(bin/"ssh-vault", library),
+        assert Utils.binary_linked_to_library?(bin/"ssh-vault", library),
               "No linkage with #{library.basename}! Cargo is likely using a vendored version."
       end
     end

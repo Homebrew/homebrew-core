@@ -6,18 +6,20 @@ class Gitmoji < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "18d17cb63128d034310085647bce373ccf75c4649c7ab4ba07a396f10767d7de"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "18d17cb63128d034310085647bce373ccf75c4649c7ab4ba07a396f10767d7de"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "18d17cb63128d034310085647bce373ccf75c4649c7ab4ba07a396f10767d7de"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f37602e394aafe7488073a86ad39ea4bad7b61672b752980d8448dc05a7140bc"
-    sha256 cellar: :any_skip_relocation, ventura:       "f37602e394aafe7488073a86ad39ea4bad7b61672b752980d8448dc05a7140bc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "18d17cb63128d034310085647bce373ccf75c4649c7ab4ba07a396f10767d7de"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "bbfbb3f96888616a56eaa944a5a1b2da387071659545aa8cca870797ed8f1fbc"
   end
 
   depends_on "node"
 
   def install
     system "npm", "install", *std_npm_args
+    files = ["global-directory/index.d.ts", "npm-run-path/node_modules/path-key/index.d.ts",
+             "path-key/index.d.ts", "xdg-basedir/index.d.ts", "xdg-basedir/index.js",
+             "npm-run-path/index.d.ts", "global-directory/index.js", "@pnpm/npm-conf/lib/defaults.js"]
+    files.each do |file|
+      inreplace libexec/"lib/node_modules/gitmoji-cli/node_modules/#{file}", "/usr/local", "@@HOMEBREW_PREFIX@@"
+    end
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 

@@ -1,19 +1,18 @@
 class Wolfmqtt < Formula
   desc "Small, fast, portable MQTT client C implementation"
   homepage "https://github.com/wolfSSL/wolfMQTT"
-  url "https://github.com/wolfSSL/wolfMQTT/archive/refs/tags/v1.19.1.tar.gz"
-  sha256 "77031b151092e8506d7c621f5e12e79531edca2336edf23146d3d72c70e6557f"
+  url "https://github.com/wolfSSL/wolfMQTT/archive/refs/tags/v1.19.2.tar.gz"
+  sha256 "25a3ac5dbcbd94849640abf84d455a4fc76270b603b3fd2da1025daa257d8a70"
   license "GPL-2.0-or-later"
-  revision 1
   head "https://github.com/wolfSSL/wolfMQTT.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "3cc0ee01e3c1c852518ae34460393aa7bb635cd18edaaebbdc80da8111666227"
-    sha256 cellar: :any,                 arm64_sonoma:  "de6d9d05fe702f19a5f2a08d843475098fd68469c1a7ff84c542d3a68439bd41"
-    sha256 cellar: :any,                 arm64_ventura: "8ba8bd884b3c1a6181903d39e45828ebce5987ed16f179d2623aa55b8f4068a4"
-    sha256 cellar: :any,                 sonoma:        "f50115d12168622e7c272f78b5038b37b5f06fa63e711dd79962ad1c3305ffd7"
-    sha256 cellar: :any,                 ventura:       "e1c2586892699a4ec2adf9441950e1b6d0088ebeb31aa3944c0c9b6b9af2917a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "99a00efffceb07ebf6759f8a6756edad5696e2c8673bc31174f341711edf0dee"
+    sha256 cellar: :any,                 arm64_sequoia: "c6485268b58260c011050f127915913446bb769f3af16bdc9c32bcddcc8e46a9"
+    sha256 cellar: :any,                 arm64_sonoma:  "ec5b48573a777523557c454637b45851fe97b606e124ab30777f8ab1f82e42bb"
+    sha256 cellar: :any,                 arm64_ventura: "f96376285ccab96743f46e3dbfbf4d3ecbb11b31db6d3ad9aa85f985c37651b0"
+    sha256 cellar: :any,                 sonoma:        "2c1591b8c8e24a9c3faf511cffd00e1523d6fe17c6f2fc76f5b01bb518802486"
+    sha256 cellar: :any,                 ventura:       "ca399afde7599d41893b8ad601bcb4b2a524c5245c2ba3957ec43b0b09e50a6e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "95256209db65977a6d26a8dcb915dcac4992982e41ed1a058fbabc0668708924"
   end
 
   depends_on "autoconf" => :build

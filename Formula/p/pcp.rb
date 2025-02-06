@@ -22,15 +22,22 @@ class Pcp < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "be128448d96fd7005c9cbda1c1ba2c71e7f7a58468c1c5bb3ec7a1f75c5109c5"
   end
 
-  # use "go" again after https://github.com/dennis-tra/pcp/issues/30 is fixed and released
-  depends_on "go@1.22" => :build
+  depends_on "go" => :build
 
   def install
-    ldflags = "-X main.RawVersion=#{version} -X main.ShortCommit=#{Utils.git_short_head(length: 7)}"
-    system "go", "build", *std_go_args(ldflags:), "cmd/pcp/pcp.go"
+    # TODO: remove `-checklinkname=0` workaround when fixed
+    # https://github.com/dennis-tra/pcp/issues/30
+    ldflags = %W[
+      -s -w
+      -X main.RawVersion=#{version}
+      -X main.ShortCommit=#{Utils.git_short_head(length: 7)}
+      -checklinkname=0
+    ]
+    system "go", "build", *std_go_args(ldflags:), "./cmd/pcp"
   end
 
   test do
+    assert_match version.to_s, shell_output("#{bin}/pcp --version")
     expected = "error: failed to initialize node: could not find all words in a single wordlist"
     assert_equal expected, shell_output("#{bin}/pcp receive words-that-dont-exist 2>&1", 1).chomp
   end

@@ -17,7 +17,7 @@ class AzureStorageCpp < Formula
 
   # https://github.com/Azure/azure-storage-cpp/commit/b319b189067ac5f54137ddcfc18ef506816cbea4
   # https://aka.ms/AzStorageCPPSDKRetirement
-  disable! date: "2025-05-20", because: :deprecated_upstream
+  disable! date: "2025-05-20", because: :deprecated_upstream, replacement: "azure-storage-blobs-cpp"
 
   depends_on "cmake" => :build
   depends_on "boost@1.85"

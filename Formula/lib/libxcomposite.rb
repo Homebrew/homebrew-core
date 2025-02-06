@@ -19,6 +19,7 @@ class Libxcomposite < Formula
   end
 
   depends_on "pkgconf" => :build
+  depends_on "libx11"
   depends_on "libxfixes"
   depends_on "xorgproto"
 

@@ -3,20 +3,18 @@ class SshMitm < Formula
 
   desc "SSH server for security audits and malware analysis"
   homepage "https://docs.ssh-mitm.at"
-  url "https://files.pythonhosted.org/packages/65/22/d5a7a153b1f40f31e1a7e15439e4e3a2aad1413a486aa69c2f0be6482295/ssh_mitm-5.0.0.tar.gz"
-  sha256 "0c3ad0e925c7144e1c95efa08ab183100fcb8257068ae0729fb19493e3a45d60"
+  url "https://files.pythonhosted.org/packages/f0/4e/c804d08c336bcff29fd665fdc3ff9d3698d529b1d75462b89bc53527862a/ssh_mitm-5.0.1.tar.gz"
+  sha256 "221dafeed602c4cca7a3c7fb2eee55eb9725ea11d19a75fd13c9bc3a1cf274ed"
   license "GPL-3.0-only"
-  revision 1
   head "https://github.com/ssh-mitm/ssh-mitm.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia: "bad464b27d45fd17f9b91d5d2cd652ac9b66b4cbe45c4725ffb723820bb0319d"
-    sha256 cellar: :any,                 arm64_sonoma:  "8a4509d8f7de16690cb3c292ff9e19fe55d66550283effbfbef02a0bcd8e1152"
-    sha256 cellar: :any,                 arm64_ventura: "1000a33333cb126802387132f451f0eb777a5d899e556daef27ce03995c26a49"
-    sha256 cellar: :any,                 sonoma:        "349b210d8d17ed642d0000abbd7605b32fe790ac7b4a61a8daa813e3fce6885e"
-    sha256 cellar: :any,                 ventura:       "8b1f21b4a7a49deecba74ff91467dcda93895f9b79919f2b5ebac46aa9d1f72f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "972bf036544288557f5abe6b087d4a1355c12f47469abbb757dc41bf95a03a80"
+    sha256 cellar: :any,                 arm64_sequoia: "a55f5b4396464f2e0381ae81d6d8d979840c0cb44c2f7ccd1a497cb03098fc8f"
+    sha256 cellar: :any,                 arm64_sonoma:  "a446014221ba0da416901d29855310739ce926dc307b0786780a8a6f79d0c758"
+    sha256 cellar: :any,                 arm64_ventura: "4b8683db03fe15cc9ea0c26d3cd4a1f84c17653cc318538f58bdd60c9ef4bca2"
+    sha256 cellar: :any,                 sonoma:        "2ac9ca03de245736c9aa765420d8d902287427b33a5f98c503d71afdaaac6d03"
+    sha256 cellar: :any,                 ventura:       "d64f6ecb3406e0cdbab184d33372a4ff98cf995c09f436eff8b51c06b62ebe3d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1837df8e3c1b90cd075c5e6b33757f004211048f4c188b9384d5ff523c2ba166"
   end
 
   depends_on "rust" => :build # for bcrypt
@@ -31,13 +29,13 @@ class SshMitm < Formula
   end
 
   resource "argcomplete" do
-    url "https://files.pythonhosted.org/packages/7f/03/581b1c29d88fffaa08abbced2e628c34dd92d32f1adaed7e42fc416938b0/argcomplete-3.5.2.tar.gz"
-    sha256 "23146ed7ac4403b70bd6026402468942ceba34a6732255b9edf5b7354f68a6bb"
+    url "https://files.pythonhosted.org/packages/0c/be/6c23d80cb966fb8f83fb1ebfb988351ae6b0554d0c3a613ee4531c026597/argcomplete-3.5.3.tar.gz"
+    sha256 "c12bf50eded8aebb298c7b7da7a5ff3ee24dffd9f5281867dfe1424b58c55392"
   end
 
   resource "bcrypt" do
-    url "https://files.pythonhosted.org/packages/e4/7e/d95e7d96d4828e965891af92e43b52a4cd3395dc1c1ef4ee62748d0471d0/bcrypt-4.2.0.tar.gz"
-    sha256 "cf69eaf5185fd58f268f805b505ce31f9b9fc2d64b376642164e9244540c1221"
+    url "https://files.pythonhosted.org/packages/56/8c/dd696962612e4cd83c40a9e6b3db77bfe65a830f4b9af44098708584686c/bcrypt-4.2.1.tar.gz"
+    sha256 "6765386e3ab87f569b276988742039baab087b2cdb01e809d74e74503c2faafe"
   end
 
   resource "colored" do
@@ -61,8 +59,8 @@ class SshMitm < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/51/65/50db4dda066951078f0a96cf12f4b9ada6e4b811516bf0262c0f4f7064d4/packaging-24.1.tar.gz"
-    sha256 "026ed72c8ed3fcce5bf8950572258698927fd1dbda10a5e981cdf0ac37f4f002"
+    url "https://files.pythonhosted.org/packages/d0/63/68dbb6eb2de9cb10ee4c9c14a0148804425e13c4fb20d61cce69f53106da/packaging-24.2.tar.gz"
+    sha256 "c228a6dc5e932d346bc5739379109d49e8853dd8223571c7c5b55260edc0b97f"
   end
 
   resource "paramiko" do
@@ -71,8 +69,8 @@ class SshMitm < Formula
   end
 
   resource "pygments" do
-    url "https://files.pythonhosted.org/packages/8e/62/8336eff65bcbc8e4cb5d05b55faf041285951b6e80f33e2bff2024788f31/pygments-2.18.0.tar.gz"
-    sha256 "786ff802f32e91311bff3889f6e9a86e81505fe99f2735bb6d60ae0c5004f199"
+    url "https://files.pythonhosted.org/packages/7c/2d/c3338d48ea6cc0feb8446d8e6937e1408088a72a39937982cc6111d17f84/pygments-2.19.1.tar.gz"
+    sha256 "61c16d2a8576dc0649d9f39e089b5f02bcd27fba10d8fb4dcc28173f7a45151f"
   end
 
   resource "pynacl" do
@@ -81,8 +79,8 @@ class SshMitm < Formula
   end
 
   resource "python-json-logger" do
-    url "https://files.pythonhosted.org/packages/4f/da/95963cebfc578dabd323d7263958dfb68898617912bb09327dd30e9c8d13/python-json-logger-2.0.7.tar.gz"
-    sha256 "23e7ec02d34237c5aa1e29a070193a4ea87583bb4e7f8fd06d3de8264c4b2e1c"
+    url "https://files.pythonhosted.org/packages/e3/c4/358cd13daa1d912ef795010897a483ab2f0b41c9ea1b35235a8b2f7d15a7/python_json_logger-3.2.1.tar.gz"
+    sha256 "8eb0554ea17cb75b05d2848bc14fb02fbdbd9d6972120781b974380bfa162008"
   end
 
   resource "pytz" do
@@ -96,13 +94,13 @@ class SshMitm < Formula
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/aa/9e/1784d15b057b0075e5136445aaea92d23955aad2c93eaede673718a40d95/rich-13.9.2.tar.gz"
-    sha256 "51a2c62057461aaf7152b4d611168f93a9fc73068f8ded2790f29fe2b5366d0c"
+    url "https://files.pythonhosted.org/packages/ab/3a/0316b28d0761c6734d6bc14e770d85506c986c85ffb239e688eeaab2c2bc/rich-13.9.4.tar.gz"
+    sha256 "439594978a49a09530cff7ebc4b5c7103ef57baf48d5ea3184f21d9a2befa098"
   end
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
-    sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
+    url "https://files.pythonhosted.org/packages/94/e7/b2c673351809dca68a0e064b6af791aa332cf192da575fd474ed7d6f16a2/six-1.17.0.tar.gz"
+    sha256 "ff70335d468e7eb6ec65b95b99d3a2836546063f63acc5171de367e834932a81"
   end
 
   resource "sshpubkeys" do
@@ -111,8 +109,8 @@ class SshMitm < Formula
   end
 
   resource "wrapt" do
-    url "https://files.pythonhosted.org/packages/95/4c/063a912e20bcef7124e0df97282a8af3ff3e4b603ce84c481d6d7346be0a/wrapt-1.16.0.tar.gz"
-    sha256 "5f370f952971e7d17c7d1ead40e49f32345a7f7a5373571ef44d800d06b1899d"
+    url "https://files.pythonhosted.org/packages/c3/fc/e91cc220803d7bc4db93fb02facd8461c37364151b8494762cc88b0fbcef/wrapt-1.17.2.tar.gz"
+    sha256 "41388e9d4d1522446fe79d3213196bd9e3b301a336965b9e27ca2788ebd122f3"
   end
 
   def install

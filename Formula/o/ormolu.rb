@@ -1,24 +1,22 @@
 class Ormolu < Formula
   desc "Formatter for Haskell source code"
   homepage "https://github.com/tweag/ormolu"
-  url "https://github.com/tweag/ormolu/archive/refs/tags/0.7.7.0.tar.gz"
-  sha256 "443739623df64936894a8197a1c4e275afde65870020f27f61cb51a384bdc437"
+  url "https://github.com/tweag/ormolu/archive/refs/tags/0.8.0.0.tar.gz"
+  sha256 "e3948bfa80984b70cf0b701b15d206c9010862ea29d44a9a3ebd417646854948"
   license "BSD-3-Clause"
   head "https://github.com/tweag/ormolu.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "baf141487fd9c3c1a5f14e60a8f3e622e8ada4252a60d44b44eb308a031fd3a8"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "28db55d7c30cc5ee549956cdf5971899b7639931544d054239d9bc37eafcd1ce"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d3c40153dd5605a00b8e133d3ada010feb5d229aeb8dce714727d9e08943a23f"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "17c3e5a3657bf3d615c56b1dc1ca58412f8f44d7474167522796c006b70dccdc"
-    sha256 cellar: :any_skip_relocation, sonoma:         "7dced60b52d4a65ff917164a7cafcd8e468eacdb556a8234c0965d9b857072e9"
-    sha256 cellar: :any_skip_relocation, ventura:        "9d51732d3d11b030f02cc15f3bf41428da4f786bc586b6611970b53219b20617"
-    sha256 cellar: :any_skip_relocation, monterey:       "0915c0e534f5acc2531b016e254a610476d15ccda7924df8e06d965e6aa928cf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e76d2339287a46314ce25d8e8a4b35f863acfa4b4e4d18d5063649b90c2bee9e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6cee9b02ace0ce65f8a84cc635178647a8007b1daea9c652573e57399d43e80e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ae68f6fd985883a51bb7f6cfaa98e9a6c44eb247a78e19088e80a2701ed6861d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "84da61972b5d54b7d2a461c0b9a408ca0fdf2856abb1eacd777cd4b7bef69626"
+    sha256 cellar: :any_skip_relocation, sonoma:        "ace0cda866c90b4427927a38936d65db91ac1422b62a451b92a31e70a1b34eba"
+    sha256 cellar: :any_skip_relocation, ventura:       "c5d8fb13f9d1a8be511e9fd39c62237c0adb65ebc8f7fb373fe8d7d15eab45eb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "24cdc78d741ef47efd1f3b5ffcd480d538b43f427e7cc381ed09c453118fc01f"
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc@9.10" => :build # GHC 9.12 PR: https://github.com/tweag/ormolu/pull/1140
+  depends_on "ghc" => :build
 
   def install
     system "cabal", "v2-update"

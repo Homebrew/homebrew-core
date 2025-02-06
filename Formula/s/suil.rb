@@ -1,8 +1,8 @@
 class Suil < Formula
   desc "Lightweight C library for loading and wrapping LV2 plugin UIs"
   homepage "https://drobilla.net/software/suil.html"
-  url "https://download.drobilla.net/suil-0.10.20.tar.xz"
-  sha256 "334a3ed3e73d5e17ff400b3db9801f63809155b0faa8b1b9046f9dd3ffef934e"
+  url "https://download.drobilla.net/suil-0.10.22.tar.xz"
+  sha256 "d720969e0f44a99d5fba35c733a43ed63a16b0dab867970777efca4b25387eb7"
   license "ISC"
   head "https://gitlab.com/lv2/suil.git", branch: "master"
 
@@ -12,13 +12,12 @@ class Suil < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_sequoia: "3f7bb51baf30546a842c6aff377b19401598005151e2f488fc1551e4e9b612e9"
-    sha256 arm64_sonoma:  "5da5e7391da7c919b62dbbd8204ac6c45f3a6289e64d8997462bd7a98622ef46"
-    sha256 arm64_ventura: "845d4606abee75ca9ac8dc28dafd3a1a612c0008db81f52036ce1c83797420ee"
-    sha256 sonoma:        "f60c8293ada96ce3202490d5de286dea7d4f85ce121f73ea8a96c573813a7fb4"
-    sha256 ventura:       "2bca4490ee90cec539c35dce0091fce8d0b403ac518c20cd144bf1766a45c8e6"
-    sha256 x86_64_linux:  "7431c0fdf1c6610b7b901d73fa7701da649b0b612f30617853e19be51343ec1e"
+    sha256 arm64_sequoia: "b27db9a3ce79f632d05b548af8aa895cc763f16b501a9c9bdc8034e4859dea86"
+    sha256 arm64_sonoma:  "529c47a29c76d87980ea9834dd2a01e2590d0adb8dc9a2a47fb82eb5a705d984"
+    sha256 arm64_ventura: "bd054ff192b6136795fc419d57c5424d32e10ff8549d63429999e6fc6e85ecb4"
+    sha256 sonoma:        "f22ed2c24dfd9fdd0e046c4373717a5bcd9b5934d816357814b461cc3eba1e72"
+    sha256 ventura:       "28cba60e06927ded4633dedf3b1c9541e5ff8fe692df7e9d6ad0d52055f2abd4"
+    sha256 x86_64_linux:  "c82fc9ca3e304f4ddab55a00cddc288ba608f5114103e22a1afb7e85d413d87c"
   end
 
   depends_on "meson" => :build

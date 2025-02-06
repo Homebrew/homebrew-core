@@ -1,9 +1,9 @@
 class Naturaldocs < Formula
   desc "Extensible, multi-language documentation generator"
   homepage "https://www.naturaldocs.org/"
-  url "https://downloads.sourceforge.net/project/naturaldocs/Stable%20Releases/2.3/Natural_Docs_2.3.zip"
-  mirror "https://naturaldocs.org/download/natural_docs/2.3/Natural_Docs_2.3.zip"
-  sha256 "37dcfeaa0aee2a3622adc85882edacfb911c2e713dba6592cbee6812deddd2f2"
+  url "https://downloads.sourceforge.net/project/naturaldocs/Stable%20Releases/2.3.1/Natural_Docs_2.3.1.zip"
+  mirror "https://naturaldocs.org/download/natural_docs/2.3.1/Natural_Docs_2.3.1.zip"
+  sha256 "92144e2deb1ff2606d29343cfea203ea890549ad2f77c03df1cea2d8014972cb"
   license "AGPL-3.0-only"
 
   livecheck do
@@ -12,15 +12,12 @@ class Naturaldocs < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "96ecb125b759053f58d2bea9f564f4d534096c1598d2978449dc0b88dd06f168"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c8381f2df948395879acd6d145586b1f94f94cb99d5f7fb5a60560b2584934bf"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c8381f2df948395879acd6d145586b1f94f94cb99d5f7fb5a60560b2584934bf"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c8381f2df948395879acd6d145586b1f94f94cb99d5f7fb5a60560b2584934bf"
-    sha256 cellar: :any_skip_relocation, sonoma:         "c8381f2df948395879acd6d145586b1f94f94cb99d5f7fb5a60560b2584934bf"
-    sha256 cellar: :any_skip_relocation, ventura:        "c8381f2df948395879acd6d145586b1f94f94cb99d5f7fb5a60560b2584934bf"
-    sha256 cellar: :any_skip_relocation, monterey:       "c8381f2df948395879acd6d145586b1f94f94cb99d5f7fb5a60560b2584934bf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5c39b957abe3a6a51190a7ad008dc9bd8c7ef2014b8c03ff5f0b258c1293735e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cd5b8ae5f4eb425cfedd08ac4d23b5a5515851257576a0faf77592ba129c4d5c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cd5b8ae5f4eb425cfedd08ac4d23b5a5515851257576a0faf77592ba129c4d5c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "cd5b8ae5f4eb425cfedd08ac4d23b5a5515851257576a0faf77592ba129c4d5c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "cd5b8ae5f4eb425cfedd08ac4d23b5a5515851257576a0faf77592ba129c4d5c"
+    sha256 cellar: :any_skip_relocation, ventura:       "cd5b8ae5f4eb425cfedd08ac4d23b5a5515851257576a0faf77592ba129c4d5c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "42c3c57a234e360a982c706672b29094dcd6cf848e4854e91c57f852f9d90ba3"
   end
 
   depends_on "mono"

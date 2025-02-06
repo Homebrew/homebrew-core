@@ -1,29 +1,24 @@
 class AwsCCompression < Formula
   desc "C99 implementation of huffman encoding/decoding"
   homepage "https://github.com/awslabs/aws-c-compression"
-  url "https://github.com/awslabs/aws-c-compression/archive/refs/tags/v0.3.0.tar.gz"
-  sha256 "7e5d7308d1dbb1801eae9356ef65558f707edf33660dd6443c985db9474725eb"
+  url "https://github.com/awslabs/aws-c-compression/archive/refs/tags/v0.3.1.tar.gz"
+  sha256 "d89fca17a37de762dc34f332d2da402343078da8dbd2224c46a11a88adddf754"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "c632ff3b5ca3ca5ad5d18d2ea67694c5d56b79001b896aca15125092ca145e3c"
-    sha256 cellar: :any,                 arm64_sonoma:  "69a5b1c9ca168185b7094a8dfcc3a827fb97109ecf457027a407c79776f89cba"
-    sha256 cellar: :any,                 arm64_ventura: "2f34ad9665411033f41729cbddd83bb619c60c2162c76cee79264ecf5481523d"
-    sha256 cellar: :any,                 sonoma:        "c5d32b96e1c8a44eac804bb2cba6398d552068e4706dc8fc6a72d542f6d19845"
-    sha256 cellar: :any,                 ventura:       "809a35d629a365e728c24517eaac912141f3c3d9aaed347b25dffcacc91b536c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "64ef3162e3d5f2d31e9ef0b19b19b3b2049b937cf725c10d5be456a71c3bd74e"
+    sha256 cellar: :any,                 arm64_sequoia: "07ad5126a62967518823503ad65c6eceedb164aaa28e8f4b817d8fb8eb6d8f2c"
+    sha256 cellar: :any,                 arm64_sonoma:  "e90f0d8370adc024e41c89f650c4fd37c62e396a05d369e1b8e834bca6cf63dc"
+    sha256 cellar: :any,                 arm64_ventura: "8025bc877dd2221c32bb3527e34ee5d618156f40c972a13189857c63b0da2a56"
+    sha256 cellar: :any,                 sonoma:        "cca91302bdbb311dbf40825511da49c15da10943ec8ee9bf4f0d2761a7885306"
+    sha256 cellar: :any,                 ventura:       "9348145f22774820af3b513272e03e0d453b677d452671d42776fc0f735d7e4a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7a52c6fef0619145315545b21c86be299989bf437e5e8eac6bbc2ed817ac51dd"
   end
 
   depends_on "cmake" => :build
   depends_on "aws-c-common"
 
   def install
-    args = %W[
-      -DBUILD_SHARED_LIBS=ON
-      -DCMAKE_MODULE_PATH=#{Formula["aws-c-common"].opt_lib}/cmake
-    ]
-
-    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build", "-DBUILD_SHARED_LIBS=ON", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end

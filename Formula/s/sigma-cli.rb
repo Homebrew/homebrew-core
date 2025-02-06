@@ -3,20 +3,18 @@ class SigmaCli < Formula
 
   desc "CLI based on pySigma"
   homepage "https://github.com/SigmaHQ/sigma-cli"
-  url "https://files.pythonhosted.org/packages/70/e8/6a4e6aa2875494af43483a37c1715039d42a0ba54cb1353db5c3ebfded69/sigma_cli-1.0.4.tar.gz"
-  sha256 "30db40f7b6ea1cff8da5c03668ee37326fa371fa343129455741a6b8b68d81b2"
+  url "https://files.pythonhosted.org/packages/7e/9a/6ad847f2e2ad0ac673839504a9aa1bf1b69f2c38265cf119a8b3d3dbf481/sigma_cli-1.0.5.tar.gz"
+  sha256 "7720244026fabf5bbd1ba37ae67b9cc1dc9d61a79320562d55e2228409b159e7"
   license "LGPL-2.1-or-later"
-  revision 1
   head "https://github.com/SigmaHQ/sigma-cli.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia: "0f116a1cdfabb9a8ab372cbfbc5a58bb55d010599cf04dcd72ad0b9ff8d14af5"
-    sha256 cellar: :any,                 arm64_sonoma:  "5a0c149dee4040643ff7acaf2130a5597ac4663d7fdef750e523f4f5de337a85"
-    sha256 cellar: :any,                 arm64_ventura: "739f2a3e06f36c606514719ef2f661881b4544ec526c4ade8f01ed61a2738ee9"
-    sha256 cellar: :any,                 sonoma:        "2dd5b0ce7dd5a89f1e462aff4cc1a0dbfff5eb3235aa1c204a9fefbb9b7d4ce4"
-    sha256 cellar: :any,                 ventura:       "ceab2cfd3fcef97866e246e0e8c5f87146da00fda05c0d9f7139d20384136299"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6be7eabe41cc3119c7743d47cfe684b9315fbd265590cfeb8151d47a5fae535a"
+    sha256 cellar: :any,                 arm64_sequoia: "00f950319ec5a0ee7b0e9d901d00358317536ce86d16e1ab2dfbe3b909249258"
+    sha256 cellar: :any,                 arm64_sonoma:  "7f5497422afc9cd86f096ad6e30a061b8829a1523e687c42aff6521fc94308bf"
+    sha256 cellar: :any,                 arm64_ventura: "67e677d7d71a0f24fbfb9f35c47aa389ad54eb0861674c902e3e9f8b70e5a07a"
+    sha256 cellar: :any,                 sonoma:        "78139ac28c08d19fdb88872351edc5f98e5cb1f8da184c498ad0c4637dcbabe7"
+    sha256 cellar: :any,                 ventura:       "df30b4675e18625b8855eb5ac718be6ccd7e51dbdb9f64effaf10b9cd43668cd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "75a6365930956d68a9a7ba328c0892dcb59bc50e46565e6ce54643ebaf893f87"
   end
 
   depends_on "certifi"
@@ -26,8 +24,8 @@ class SigmaCli < Formula
   conflicts_with "open-simh", because: "both install `sigma` binaries"
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/f2/4f/e1808dc01273379acc506d18f1504eb2d299bd4131743b9fc54d7be4df1e/charset_normalizer-3.4.0.tar.gz"
-    sha256 "223217c3d4f82c3ac5e29032b3f1c2eb0fb591b72161f86d93f5719079dae93e"
+    url "https://files.pythonhosted.org/packages/16/b0/572805e227f01586461c80e0fd25d65a2115599cc9dad142fee4b747c357/charset_normalizer-3.4.1.tar.gz"
+    sha256 "44251f18cd68a75b56585dd00dae26183e102cd5e0f9f1466e6df5da2ed64ea3"
   end
 
   resource "click" do
@@ -66,18 +64,30 @@ class SigmaCli < Formula
   end
 
   resource "pyparsing" do
-    url "https://files.pythonhosted.org/packages/8c/d5/e5aeee5387091148a19e1145f63606619cb5f20b83fccb63efae6474e7b2/pyparsing-3.2.0.tar.gz"
-    sha256 "cbf74e27246d595d9a74b186b810f6fbb86726dbf3b9532efb343f6d7294fe9c"
+    url "https://files.pythonhosted.org/packages/8b/1a/3544f4f299a47911c2ab3710f534e52fea62a633c96806995da5d25be4b2/pyparsing-3.2.1.tar.gz"
+    sha256 "61980854fd66de3a90028d679a954d5f2623e83144b5afe5ee86f43d762e5f0a"
   end
 
   resource "pysigma" do
-    url "https://files.pythonhosted.org/packages/fc/34/5d7bf067f4219f8634609ce30190ff51da96deb3ed6d675140a1a3c03601/pysigma-0.11.18.tar.gz"
-    sha256 "eb625590dbc9822bed9ad0d64cb42fb3df69581d98c0c87f674df255b1a617d7"
+    url "https://files.pythonhosted.org/packages/4c/e8/88fe64e0ff626362a366dddb5ba8229b087aec5b0fae5ec76ad5988830a0/pysigma-0.11.19.tar.gz"
+    sha256 "075df35e56f2128491f8ad501cc063d88d282879d37b50213fc6b5008fac8625"
+
+    # poetry 2.0 build patch, upstream pr ref, https://github.com/SigmaHQ/pySigma/pull/318
+    patch do
+      url "https://github.com/Homebrew/formula-patches/commit/d0361c3e94fd7020a2f94d0c2e1124a9371134e5.patch?full_index=1"
+      sha256 "bd6e4fb6d4d214a469902e350d7d9429ae44ee55cf1d43ba36085d17cd5824d3"
+    end
   end
 
   resource "pysigma-backend-sqlite" do
     url "https://files.pythonhosted.org/packages/72/63/e618d84f770f982afa5f8e99a93c99c48bd87992d1ba4cc961aab6ba15e9/pysigma_backend_sqlite-0.2.0.tar.gz"
     sha256 "0ff1bbb0165477e938e2951808ba348bd29803fd3fae5c4cbcd117532e622217"
+
+    # poetry 2.0 build patch, upstream pr ref, https://github.com/SigmaHQ/pySigma-backend-sqlite/pull/6
+    patch do
+      url "https://github.com/SigmaHQ/pySigma-backend-sqlite/commit/865350ce1a398acd7182f6f8429c3048db54ef1d.patch?full_index=1"
+      sha256 "aff54090de9eecf5e5c0d69abd3be294ca86eba6b2e58d0c574528bd6058bfc4"
+    end
   end
 
   resource "pyyaml" do
@@ -114,6 +124,6 @@ class SigmaCli < Formula
 
     # Only show compatible plugins
     output = shell_output("#{bin}/sigma plugin list --compatible")
-    refute_match "Datadog Cloud SIEM backend", output
+    refute_match "IBM QRadar backend", output
   end
 end

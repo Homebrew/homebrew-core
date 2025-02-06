@@ -4,8 +4,8 @@ class Rust < Formula
   license any_of: ["Apache-2.0", "MIT"]
 
   stable do
-    url "https://static.rust-lang.org/dist/rustc-1.84.0-src.tar.gz"
-    sha256 "15cee7395b07ffde022060455b3140366ec3a12cbbea8f1ef2ff371a9cca51bf"
+    url "https://static.rust-lang.org/dist/rustc-1.84.1-src.tar.gz"
+    sha256 "5e2fb5d49628a549f7671b2ccf9855ab379fd442831a7c2af16e0cdcc31bb375"
 
     # From https://github.com/rust-lang/rust/tree/#{version}/src/tools
     resource "cargo" do
@@ -15,12 +15,13 @@ class Rust < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "5dedf3b3980c9682b52c6a943755a078cd3bea538c2972e4f700d8e18bbfbd15"
-    sha256 cellar: :any,                 arm64_sonoma:  "65124eaec587c800ee59a1c4954d41157b09e65566f08618f5191e581de9f1cf"
-    sha256 cellar: :any,                 arm64_ventura: "25b71070ef46ffafc04c934f8392865f98d0c288f4d2bffe06938a3857706ee7"
-    sha256 cellar: :any,                 sonoma:        "0248a6ed01be4593be4706fc1e9e172c7c2edd95c5ea2d85add33b0b59236793"
-    sha256 cellar: :any,                 ventura:       "9ce7d09fbcb60148fbb7d4b5c63abd2aedb4914e1ec9c21889546754fb2e10b9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dd1949478ca03cf44dd3a7fa1eb9015e7dc596160a3098bb4465886ad1d83495"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "6fe0e14f08adae82662551b478fdfaeb87f516be7762c60d28203e830c5caa91"
+    sha256 cellar: :any,                 arm64_sonoma:  "ded9d66d7a87295fe9570cec1ce54814068aa3fc000d26a5d9e509e6cdf6be62"
+    sha256 cellar: :any,                 arm64_ventura: "3a96ac743681822906e48f4bb8f481c78cc7823ebff3db20c41cdc35cb8fab91"
+    sha256 cellar: :any,                 sonoma:        "7af190ff67405820a8e48e3a00613414d5918944305c6b760584322a21b8d740"
+    sha256 cellar: :any,                 ventura:       "ca6593daae0d01d89d6f57762311bac3313aa8182ade7d79549b0d8d84c97809"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "14875a6dce2f6ae3d1e2e8d0d1a27bb3e24990e3feef0776c4eb33e6497a0a9a"
   end
 
   head do
@@ -221,15 +222,9 @@ class Rust < Formula
     end
   end
 
-  def check_binary_linkage(binary, library)
-    binary.dynamically_linked_libraries.any? do |dll|
-      next false unless dll.start_with?(HOMEBREW_PREFIX.to_s)
-
-      File.realpath(dll) == File.realpath(library)
-    end
-  end
-
   test do
+    require "utils/linkage"
+
     system bin/"rustdoc", "-h"
     (testpath/"hello.rs").write <<~RUST
       fn main() {
@@ -266,7 +261,7 @@ class Rust < Formula
     missing_linkage = []
     expected_linkage.each do |binary, dylibs|
       dylibs.each do |dylib|
-        next if check_binary_linkage(binary, dylib)
+        next if Utils.binary_linked_to_library?(binary, dylib)
 
         missing_linkage << "#{binary} => #{dylib}"
       end

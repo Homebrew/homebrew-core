@@ -1,10 +1,9 @@
 class SbomTool < Formula
   desc "Scalable and enterprise ready tool to create SBOMs for any variety of artifacts"
   homepage "https://github.com/microsoft/sbom-tool"
-  url "https://github.com/microsoft/sbom-tool/archive/refs/tags/v3.0.1.tar.gz"
-  sha256 "90085ab1f134f83d43767e46d6952be42a62dbb0f5368e293437620a96458867"
+  url "https://github.com/microsoft/sbom-tool/archive/refs/tags/v3.1.0.tar.gz"
+  sha256 "3e31ffe0d7bfe26ecfc59772b8e828f08ac8c39a3ddfdc0a24d7d603afa7e45b"
   license "MIT"
-  revision 1
   head "https://github.com/microsoft/sbom-tool.git", branch: "main"
 
   # There can be a notable gap between when a version is tagged and a
@@ -16,11 +15,11 @@ class SbomTool < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6bf387a8034456bb65d63d4f864ec3b81748652ad39dd38d3d3807d02b437433"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8c0d07a6e89a1f372531636ca561f2e5af41910ecc5791cf931730503f063795"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "67a77a8352820d51e87c58b88aa7e696a3ab97694866dffb3e8875c8fe208b89"
-    sha256 cellar: :any_skip_relocation, ventura:       "844c19d372a7fab9e4c596a4e36c61bf8c42a5d820cc683923d5b24bd6636b17"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9fd6bee59cbb61af9efeb983811f7f6e418395efc5bbc2ba3796c118c743f663"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ff8fbdbfb4a321fc72980e047cf8326fa745ab20d22da59152c3239fd9e58e85"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c0d387409a55a1965c920dc52033028049ae4bedeb759b054a4e716074763000"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "5022471bef61a6cf96c9172c925baf519ac0349f3a9d1e2ea9ebab8ffed1315d"
+    sha256 cellar: :any_skip_relocation, ventura:       "f4d9fc9f31e1bdbacc85656dd6811bb3dc77e7792cf27bd306f534721df57136"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4c87d83bc21c734cb7cd9355da63ba7b4b592c8996a26629c391b37acdf42615"
   end
 
   depends_on "dotnet@8"

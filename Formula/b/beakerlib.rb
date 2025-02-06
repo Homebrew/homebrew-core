@@ -1,17 +1,17 @@
 class Beakerlib < Formula
   desc "Shell-level integration testing library"
   homepage "https://github.com/beakerlib/beakerlib"
-  url "https://github.com/beakerlib/beakerlib/archive/refs/tags/1.31.3.tar.gz"
-  sha256 "7a8eeb8d38fbc75f44d05c95c6541d4ce848444daeaebc313d89afd6f04819e0"
+  url "https://github.com/beakerlib/beakerlib/archive/refs/tags/1.31.4.tar.gz"
+  sha256 "1c1a5a376e71332e350c56f3ac0433d6b7570b4583400ee1e7a4c7d9cdc5f4cd"
   license "GPL-2.0-only"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "40cc80b3e2143b17734bf359364df304b939d3dc8c8184e42935728103ed7144"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "02558da90fa20d0b3744d50fbba05dc9df2850018752566aeb34c7e41aeca289"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "be92557094374bc5d99cd99e1c26a9dda6d9c00f9f8527acdc44edcb5d1f7254"
-    sha256 cellar: :any_skip_relocation, sonoma:        "714e371e62644e3c12ebd88e7ce8e90f975edb4b7b69d8f8bd66266b306b92f0"
-    sha256 cellar: :any_skip_relocation, ventura:       "93ab05940a43bc936929ba5182690b1a4d940f009de856f3d42f29ffc7e1bf39"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "372f24305e0fe37180887775921ab0efa689ec7d8564b1b02698ccea7f1d2618"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9623f5cfcf093eced2c4e1c3695812ecf0a7db6a3896cdbf255f8b6ba44c3fad"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "09decd75f0914c2e34fbe97963d238a74f079e8d1ef27e82ef2e7ba41da1f9fb"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "b6fa04c4d94639a37919652667280c6eb8e85ce78defc76e2af94450fc7ec255"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7d3475bfc5406195fc15d3cf9a88f3324ad027efb50f4381799d9c36a86d872f"
+    sha256 cellar: :any_skip_relocation, ventura:       "8ed2d0956f6ac062e613ccb3914feff88f125b3dbd8e84caa5955dec414a965f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1e485dc5c3d91552a8fabf34c64dbde80caf20090009b789ded07851dfd6adc2"
   end
 
   on_macos do

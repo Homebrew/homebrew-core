@@ -1,17 +1,17 @@
 class Pkl < Formula
   desc "CLI for the Pkl programming language"
   homepage "https://pkl-lang.org"
-  url "https://github.com/apple/pkl/archive/refs/tags/0.27.1.tar.gz"
-  sha256 "e77f27b40484922bd1f29802c8b518c4d5515a9485fe4e7da8b488d9e80537f5"
+  url "https://github.com/apple/pkl/archive/refs/tags/0.27.2.tar.gz"
+  sha256 "804ab2dcd90c018da2976b7ecb118c069b9487b9800edc9cb198446661d9f685"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "055ab7e3be1a5b7e8e4a76070c6ad8d8ab8fadbb9f12c8e7edaf2b894d0eb9c2"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "27793fa8c369d76d0dd6f50591a5deecd0e1b0887901ea5f39988da36205ad57"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "e16f133baab7561b442354abfb5f6fdf4696b2adcbcadbe2c7803f02abff98e0"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c5ef056c3ca7f5d6f4a78ca5af1f44a51ab7672bd9aba5fbcea30e28d7df867c"
-    sha256 cellar: :any_skip_relocation, ventura:       "510a2fcab8690b73f9ccf952c77414cf8189afef33f348298e96ec14ab43c5c0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6def9e38b933c65a6913bd40a9efca3803c69e4e7a23eab9adb271c60d08d419"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6d3697d200bde72af6a7ca8604f747eb35b7b058ad048c4c33fab6dbbb5110e9"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "62acc6cc30b5c4c9ad784bcfd6e9abfb532a1db65e1d982717dc1cc2a27d80d3"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "4d39ed9dfcd003a7236379035965d125fcb1411b6f9fd755a4b2fc2cb002cfe6"
+    sha256 cellar: :any_skip_relocation, sonoma:        "82a371ffbfc2422b11c75786098549863ace0924d715f1b36f35198225d3e97e"
+    sha256 cellar: :any_skip_relocation, ventura:       "7697e9f5ef7ca2ef4cd85ac1551ae1dcffdfc4a6e119b41abe05547dc2466b67"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "84a0ca39650e945fc6514e5668d20c896de41ee3036d76b4fdc7086abba8d6dd"
   end
 
   depends_on "gradle" => :build

@@ -1,8 +1,8 @@
 class PythonTkAT312 < Formula
   desc "Python interface to Tcl/Tk"
   homepage "https://www.python.org/"
-  url "https://www.python.org/ftp/python/3.12.8/Python-3.12.8.tgz"
-  sha256 "5978435c479a376648cb02854df3b892ace9ed7d32b1fead652712bee9d03a45"
+  url "https://www.python.org/ftp/python/3.12.9/Python-3.12.9.tgz"
+  sha256 "45313e4c5f0e8acdec9580161d565cf5fea578e3eabf25df7cc6355bf4afa1ee"
   license "Python-2.0"
 
   livecheck do
@@ -10,13 +10,12 @@ class PythonTkAT312 < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia: "a3574367acf6709f2a7c0b17782833a2e001af410ef259050add4a43f90682db"
-    sha256 cellar: :any,                 arm64_sonoma:  "309b721eb2458cf6dc9dda0ecb35b89a954122d55cbe9bc917484762913e156c"
-    sha256 cellar: :any,                 arm64_ventura: "e22e1c111ea970d176af6a4c56a6b0e9652882ef13b82b68ce62274d762d3a33"
-    sha256 cellar: :any,                 sonoma:        "e56782b443230c04c1031e8b6b244c42ddfb962d89e52fc665ed958510dfec3f"
-    sha256 cellar: :any,                 ventura:       "2c39c750461cf635ef33a8926d4e8869a2c1aa290359ccfa12e00df4704296fb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "981b81b43b0bdc7270a6a03469f9262f453ae09b82c57e0ef1302bfa9073c97f"
+    sha256 cellar: :any,                 arm64_sequoia: "8e6bf4c2a6b46333f6dd3d737c1a269d6ddb0abc17289fe8d281908753d2e28e"
+    sha256 cellar: :any,                 arm64_sonoma:  "63296d492944131188db7e397da3055eb2502e1a79d558ee81ff1d784d7add1d"
+    sha256 cellar: :any,                 arm64_ventura: "de65feafb6393eb81d71380b8f2d032585b8baa037afcee2f93a20e2a9f77f5a"
+    sha256 cellar: :any,                 sonoma:        "2a536d3fc6bfef295a3fe45478b118d3014ca1064fddf84d4846dc716174294b"
+    sha256 cellar: :any,                 ventura:       "a8cdb43665f9d496241a33ad699803fb0db407942437ef976d1a21397771daa0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "43ca8c8c92f4ce2fe97346c3932272d734d199d9f68a48b4ef8092d80dab5328"
   end
 
   depends_on "python@3.12"
@@ -85,11 +84,11 @@ index 073b3ae20797c3..8ddb7f97e3b233 100644
 @@ -321,6 +321,8 @@ def _tclobj_to_py(val):
      elif hasattr(val, 'typename'): # some other (single) Tcl object
          val = _convert_stringval(val)
- 
+
 +    if isinstance(val, tuple) and len(val) == 0:
 +        return ''
      return val
- 
+
  def tclobjs_to_py(adict):
 diff --git a/Modules/_tkinter.c b/Modules/_tkinter.c
 index b0b70ccb8cc3d3..45897817a56051 100644
@@ -101,19 +100,19 @@ index b0b70ccb8cc3d3..45897817a56051 100644
      const Tcl_ObjType *UTF32StringType;
 +    const Tcl_ObjType *PixelType;
  } TkappObject;
- 
+
  #define Tkapp_Interp(v) (((TkappObject *) (v))->interp)
 @@ -637,6 +638,7 @@ Tkapp_New(const char *screenName, const char *className,
      v->ListType = Tcl_GetObjType("list");
      v->StringType = Tcl_GetObjType("string");
      v->UTF32StringType = Tcl_GetObjType("utf32string");
 +    v->PixelType = Tcl_GetObjType("pixel");
- 
+
      /* Delete the 'exit' command, which can screw things up */
      Tcl_DeleteCommand(v->interp, "exit");
 @@ -1236,7 +1238,8 @@ FromObj(TkappObject *tkapp, Tcl_Obj *value)
      }
- 
+
      if (value->typePtr == tkapp->StringType ||
 -        value->typePtr == tkapp->UTF32StringType)
 +        value->typePtr == tkapp->UTF32StringType ||

@@ -1,18 +1,18 @@
 class Dra < Formula
   desc "Command-line tool to download release assets from GitHub"
   homepage "https://github.com/devmatteini/dra"
-  url "https://github.com/devmatteini/dra/archive/refs/tags/0.7.1.tar.gz"
-  sha256 "6a607eeb65ed97703f746de228398ff560a812e7b6794eb654e96b5a64aacc1b"
+  url "https://github.com/devmatteini/dra/archive/refs/tags/0.8.0.tar.gz"
+  sha256 "3ce5648614b10369e6b158596b17bad0c2411d02ea317dca4dd06b26712fe279"
   license "MIT"
   head "https://github.com/devmatteini/dra.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d6fe9bbf58bce98cde75260ebdb7d95209ddbe2d767d11f12c22d6e68cae62f8"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "44373d8586f6c80fd48133a75e6a02c5ec856d835e874e8cb8013acc6a1506dc"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "2ee97e77cdc48f5d9476bac172bf86c2489f0dbbda64b5f50ffc24f7dff6ea46"
-    sha256 cellar: :any_skip_relocation, sonoma:        "5c3791ce9979dba28d89e36752cf6fe296a186b6482cec5d44470c466ff9af5d"
-    sha256 cellar: :any_skip_relocation, ventura:       "045b6b3b246446e6c1946c99636b22b529a890682252dbaea73b8ec210773536"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cdc5b6e5a9aca874aafdef816e7830ed07a12a8bdc5267da624cf7fe70072fbf"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d9ba3433133bf1eba224a344f93a1371991b65f7ed35f0c545d4a0c810147c9a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8a03e20f6ca7dd8061fd07934210b3beb48b1a274ee01511de6f67285d0e5f7c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "07e77721479af5c870b33acd47db8a05d8fbab0e04d96d66a342ee27279cd23c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d9284ddac1a591ca03badcb8f1021371c798d6536adb2e2d908cbd9be01a96c8"
+    sha256 cellar: :any_skip_relocation, ventura:       "903504fb4c6ea77c585235ae25cfa863abbd7367d805807679fa08d9c2cefab1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "392af8b64d2a147d8fda3f7960a6ca27573177a4883f8eb05caf15941bad15f5"
   end
 
   depends_on "rust" => :build

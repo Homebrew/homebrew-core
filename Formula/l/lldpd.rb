@@ -6,7 +6,8 @@ class Lldpd < Formula
   license "ISC"
 
   livecheck do
-    url "https://github.com/lldpd/lldpd.git"
+    url :homepage
+    regex(/href=.*?lldpd[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do

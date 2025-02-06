@@ -7,17 +7,18 @@ class Rdap < Formula
   head "https://github.com/openrdap/rdap.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "2b0cb4f88c751e154d5154f7aa902d886a280f0d4fc45618e7887ef810dd9fe4"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f017c594a757f00c98b0b48306a8b3a3a438d312b16a77c3840553c2debcbef4"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "54ea5ea4262c179ff3ce0ec8899ef858a5999e9c9c0ddef471badf66e7c3f2be"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9bc124e0bb9533626c3cbb0b35c852b8c4d48ab59b1102a241a9365e755e9868"
-    sha256 cellar: :any_skip_relocation, sonoma:         "c4879a4f4501db20b71e6ad669aceafce95d952081d1fa7c6f1b8a75a7066a98"
-    sha256 cellar: :any_skip_relocation, ventura:        "f9ed293d7e9c2cc430465f33e9e404e662912281764f65b7142f21409625dbec"
-    sha256 cellar: :any_skip_relocation, monterey:       "70c44872af154a6ba84ba86294b9b3c6d51e95167739cfe706ddbd5bee4e3e5b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d84e08854b7b1a1376035b1ddba94ffd6072e456f7cbe2f3a78b3bd40ed513f6"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4a73abdb1f73b15293ec718621dc35982af08454db08a899d6ddcf2f279eac55"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4a73abdb1f73b15293ec718621dc35982af08454db08a899d6ddcf2f279eac55"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "4a73abdb1f73b15293ec718621dc35982af08454db08a899d6ddcf2f279eac55"
+    sha256 cellar: :any_skip_relocation, sonoma:        "6941798ba46a5391886ce266bfb1c4b5bfeb9db8eb9cf11c33741256f0405784"
+    sha256 cellar: :any_skip_relocation, ventura:       "6941798ba46a5391886ce266bfb1c4b5bfeb9db8eb9cf11c33741256f0405784"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d791f01848f4e8c654a1174e55a1118d8f0ac743962bba87ec7350c81e027f58"
   end
 
   depends_on "go" => :build
+
+  conflicts_with "icann-rdap", because: "icann-rdap also ships a rdap binary"
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/rdap"

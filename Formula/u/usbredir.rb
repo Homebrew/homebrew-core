@@ -1,8 +1,8 @@
 class Usbredir < Formula
   desc "USB traffic redirection library"
   homepage "https://www.spice-space.org"
-  url "https://www.spice-space.org/download/usbredir/usbredir-0.14.0.tar.xz"
-  sha256 "924dfb5c78328fae45a4c93a01bc83bb72c1310abeed119109255627a8baa332"
+  url "https://www.spice-space.org/download/usbredir/usbredir-0.15.0.tar.xz"
+  sha256 "6dc2a380277688a068191245dac2ab7063a552999d8ac3ad8e841c10ff050961"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.0-or-later"]
 
   livecheck do
@@ -11,14 +11,12 @@ class Usbredir < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia:  "93df364f6c6aa2060c888db35acdedb3b77ca4a4ba52a27178cdc1524ac48982"
-    sha256 cellar: :any, arm64_sonoma:   "630fbbf88672a673a284c1abc36a9a0dc1d0e12272423c39ebf0a1820f581756"
-    sha256 cellar: :any, arm64_ventura:  "c38d15165e427c870dcb1a831cc703bee4abecc5975fa36987efe63a3c070a14"
-    sha256 cellar: :any, arm64_monterey: "d1a04df082293fbe993458d742001dfd17dba76b7e13ea2df7867e75617750f0"
-    sha256 cellar: :any, sonoma:         "4d34512af58a5a33de67df9e0d7944bd228dfcfa6942d4da3d5169fc4e550739"
-    sha256 cellar: :any, ventura:        "19ab01bfbd50bce5bd72f7f8bdaa497847eee0351a00402d7dbbfca3daae5b80"
-    sha256 cellar: :any, monterey:       "f6999448357d06ce4e2a655f594a6440612c1bb63e3e0a2db771b092f6b98f79"
-    sha256               x86_64_linux:   "63aadf6d6e85a7e6474124aa780e42df47b3759e8aca7c5dc02f642fe7e64b6c"
+    sha256 cellar: :any, arm64_sequoia: "9e802affea255b4b4510b5985491f20a25d4e890d45894a32f566ff709b63414"
+    sha256 cellar: :any, arm64_sonoma:  "7ae69db9be837baef0c19b6672d10da0cc466d3ff17cbe8deb86c492e5b1bc1e"
+    sha256 cellar: :any, arm64_ventura: "e40f49cf40316f8812f7df47be812df5bf1269eb77bcf6079624499adccdc310"
+    sha256 cellar: :any, sonoma:        "b30c9161cd179a576749dcf9a00ef50030fbdfe7fb6c93a05338dfc9b5bcf736"
+    sha256 cellar: :any, ventura:       "f9d8eeb3c790e34bd9e457380922676ef663f3df8057c5f857d627a97fbc490e"
+    sha256               x86_64_linux:  "a2e5043bd22e186e35537b39c64aa4c6360535a1cde629212b6c0ccf2c9a99b8"
   end
 
   depends_on "meson" => :build

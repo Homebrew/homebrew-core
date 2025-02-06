@@ -1,9 +1,8 @@
 class Gor < Formula
   desc "Real-time HTTP traffic replay tool written in Go"
   homepage "https://goreplay.org"
-  url "https://github.com/buger/goreplay.git",
-      tag:      "1.3.3",
-      revision: "f8ef77e8cf4aae59029daf6cbd2fc784af811cee"
+  url "https://github.com/buger/goreplay/archive/refs/tags/1.3.3.tar.gz"
+  sha256 "d8487e4d677546f9533b930e1d5f604628cd904f7e31a260552dfbf7b440876e"
   license "LGPL-3.0-only"
   head "https://github.com/buger/goreplay.git", branch: "master"
 
@@ -38,9 +37,7 @@ class Gor < Formula
 
   test do
     test_port = free_port
-    fork do
-      exec bin/"gor", "file-server", ":#{test_port}"
-    end
+    spawn bin/"gor", "file-server", ":#{test_port}"
 
     sleep 2
     system "nc", "-z", "localhost", test_port

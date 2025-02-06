@@ -7,8 +7,8 @@ class Zbar < Formula
   revision 2
 
   livecheck do
-    url :homepage
-    strategy :github_latest
+    url "https://linuxtv.org/downloads/zbar/"
+    regex(/href=.*?zbar[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do

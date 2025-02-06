@@ -34,12 +34,13 @@ class Texlive < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "d48b45c0eec8b09a66346f83935bec59db4fffc386189e990101fef3698f967c"
-    sha256 arm64_sonoma:  "8da78aea8a3984ee945484459267bde9a981ec3aea1ddaf65486c009e21014b4"
-    sha256 arm64_ventura: "c377511a9a069e926864b84da29ec1b947e4f9d55fcb0e32732d2222f344e023"
-    sha256 sonoma:        "d3a6f5fc610f32ee5438a836a248e5b72cefdf09cc6d7a7b514ef019ba07cc79"
-    sha256 ventura:       "fa109f6a8813e1cf08dedefd4a66f3204f427b57cb25ca6f0f0ad1784c2b7bc4"
-    sha256 x86_64_linux:  "75296912aab28aad7c0669d9f9f37a95dfc14b826d10c3b6e96af92d904781bb"
+    rebuild 1
+    sha256 arm64_sequoia: "040759bf8f47e1f13f40fa933002472ce4a1a2b831136974a3609970afedeeb5"
+    sha256 arm64_sonoma:  "9eaccb61885e8a976f15ac07b7e19521b158764f23d40e239d6a51fcce47993c"
+    sha256 arm64_ventura: "0f0284ee357a76d488aeb14e5e08a31fdf3a0a7135957326b7551e72c7ead333"
+    sha256 sonoma:        "29917e16eed903d0f5ed0c38604df9870fe6725cfde743ddc3e61077df92c134"
+    sha256 ventura:       "d8a870f71b848a32999ab526daf9dee58cfafd6fee202c5d2b39433ea96259e1"
+    sha256 x86_64_linux:  "709551a8ebdbd5951e7572db37112fa6c6417b7225b6ec68d46fa941637d8126"
   end
 
   depends_on "pkgconf" => :build
@@ -66,7 +67,7 @@ class Texlive < Formula
   depends_on "pixman"
   depends_on "potrace"
   depends_on "pstoedit"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   uses_from_macos "ncurses"
   uses_from_macos "ruby"
@@ -350,7 +351,7 @@ class Texlive < Formula
   end
 
   def install
-    python3 = "python3.12"
+    python3 = "python3.13"
     venv = virtualenv_create(libexec, python3)
     venv.pip_install resource("pygments")
 

@@ -1,17 +1,17 @@
 class AmplAsl < Formula
   desc "AMPL Solver Library"
   homepage "https://ampl.com/"
-  url "https://github.com/ampl/asl/archive/refs/tags/v1.0.0.tar.gz"
-  sha256 "28426e67b610874bbf8fd71fae982921aafe42310ef674c86aa6ec1181472ad0"
+  url "https://github.com/ampl/asl/archive/refs/tags/v1.0.1.tar.gz"
+  sha256 "57b767161fd95869757daa0761d9b19fa39ad5de4315f95a3c0dff08b0d4c4f2"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "373a3e24b7f2657e0e73e28e5c4c030fd8c48ac80d031df842bbaca1425a8813"
-    sha256 cellar: :any,                 arm64_sonoma:  "7191c28174b3e1bf2f9d8ea53919797ddca8c876c38cc90e7b848ddd05909245"
-    sha256 cellar: :any,                 arm64_ventura: "5a3e9946bbe3280c0b9505a6731287c152aa629cd6e889c09c2f210d9083a614"
-    sha256 cellar: :any,                 sonoma:        "00f3da5dcd89b747ee95af1b5e7adb65c3c064c4d5a40600cbce5ab203e7240d"
-    sha256 cellar: :any,                 ventura:       "59211198a2cc7d3889bd4057de05f9c382a7f07f6878f9e0a6d0511dfa36d272"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "be998f883db133c2712c1aeeaed54f9c1f0c53891d81248be858b843feca561e"
+    sha256 cellar: :any,                 arm64_sequoia: "df57b49399130fbfff59616c73f30a0751241e422bc817013870c339bb213537"
+    sha256 cellar: :any,                 arm64_sonoma:  "80dc283a53e12edbaa054669f376bc5fb6d54f90b4e94d9fa6b4119d46127531"
+    sha256 cellar: :any,                 arm64_ventura: "d8e6c8531c3fe9794f920361660e8e574a989ffb2be3d9bd2a175c765fce5937"
+    sha256 cellar: :any,                 sonoma:        "63dc38641db70dd681e96b4845458fbe9aed065dd896dca0ef8daba1c98f3724"
+    sha256 cellar: :any,                 ventura:       "60cfa373989ced8460b2d010ee473cf4be786b867f3198edc4f791fef9e80584"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6ed2974a2535806181150237068f2125ab75f64fc06644cd972b66278cfb8dda"
   end
 
   depends_on "cmake" => :build

@@ -1,8 +1,8 @@
 class Manticoresearch < Formula
   desc "Open source text search engine"
   homepage "https://manticoresearch.com"
-  url "https://github.com/manticoresoftware/manticoresearch/archive/refs/tags/6.3.8.tar.gz"
-  sha256 "633a55f20545eb4c722dd05175b7187ca802d765fc3eaf9cce3bc2ebb4eaebbe"
+  url "https://github.com/manticoresoftware/manticoresearch/archive/refs/tags/7.0.0.tar.gz"
+  sha256 "7d65ae4c40eb2641474fe7347590684b1a779df66f9d91374836887d486ddfdc"
   license all_of: [
     "GPL-3.0-or-later",
     "GPL-2.0-only", # wsrep
@@ -19,15 +19,15 @@ class Manticoresearch < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "6dcdd6b0272b3d137486441e402e76533ce3fa37af5ae5187b15f9b0d8e91323"
-    sha256 arm64_sonoma:  "1f37515148fac4f4b83d4c847900e3a4053671de246b6d6c969a8ef4995063d8"
-    sha256 arm64_ventura: "7d30b9fb98196c9a569adafb85f73c66d23f975beb1015931d9ee5933c8ba410"
-    sha256 sonoma:        "de5e34aa93653420dbd4f3cee685be832b6ddc8944ef8598265693030c966858"
-    sha256 ventura:       "006072f761e4ae6145779953a579ca3db29a3d505ffe5f10001d6b4faefdf850"
-    sha256 x86_64_linux:  "9499fd95c8b1e71dcd1d004531edc7b8baf0a8a52868f46c435adb752979a297"
+    sha256 arm64_sequoia: "f9cd06d7a60865cb5e903715569159aa0982a43e0c92c88303968d5a6138d1a0"
+    sha256 arm64_sonoma:  "5b3ae70847a9f113129794daf5f6334c5bfdb25cb26d9ace58348ff818757d6e"
+    sha256 arm64_ventura: "4b34465eb0a51a6c8a1d2e445cb29289e064cefdd01e62d1b494a815ffd0d327"
+    sha256 sonoma:        "3eba3b20b169fc783cc4d4263068d4cb4b07f8d6ffa3c4397b71be0a12e6feb7"
+    sha256 ventura:       "f885e6069dedf497b1260e584e597d0b75c69ecc3fef89f90b81f858790b37f4"
+    sha256 x86_64_linux:  "17b7c8d8284cd3d36691c692675d7a266ac733e410b9beb012b64cd36a515b6c"
   end
 
-  depends_on "boost" => :build
+  depends_on "boost@1.85" => :build
   depends_on "cmake" => :build
   depends_on "nlohmann-json" => :build
   depends_on "snowball" => :build # for libstemmer.a

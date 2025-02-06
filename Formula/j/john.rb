@@ -12,20 +12,16 @@ class John < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia:  "a185d4e78b71cbe1a8f08a8e3d9ad17d7a2ea43f83b08308f3a2b5d92c6a5c19"
-    sha256 arm64_sonoma:   "301d009f0b0ebe220d69e495ffb686c01ebc0448732427302431cdd8a6207684"
-    sha256 arm64_ventura:  "a80fb6428f4645134c126624c4516244aae4dee1b8eccfa024c0b0a16ba61bb5"
-    sha256 arm64_monterey: "eb3f2d751c1721126e5c5e578ab5863d88ac5fce9f7c5633b123d000acca61d9"
-    sha256 arm64_big_sur:  "f1f00939ed4d4fcabc3b210e44187c526dca2be9f7ee9b565ea6140eb193b14f"
-    sha256 sonoma:         "22469be25e31978d6cdb1f1970888f9d06d07fa3e1dda53c63433e382149284b"
-    sha256 ventura:        "fde757ed8282c062e218b7ec9533b5bc224b71cb85101ab668bf9d9975b7c16d"
-    sha256 monterey:       "acc402354e39d5bfb59c7e354dbe411cf93ea39ce7e2db26f422b3d4b0d2ec93"
-    sha256 big_sur:        "30a16098075a63a195abd36e2c55c83e5d0bce98476230436bc7a4590b6a523b"
-    sha256 catalina:       "bc61b94c66cd5e711cfb069f2f7dc8f448d717cd1179cbe2fed954f0786a0023"
-    sha256 mojave:         "6bc29b809b272d370240703ab20715a7e57c651cdcf27b918a49cc9232c386eb"
-    sha256 high_sierra:    "96fad56c615dad3f07b2c4babf9e03a0dce6533e3e4cc11e7c37e99ef9379253"
-    sha256 x86_64_linux:   "bdb9812c37929c373227f39150582a83711b083483631bad0fd1896b03b41c44"
+    rebuild 1
+    sha256 arm64_sequoia: "838f0767e0ffb76971a2a0c05c76edb7c0bcd457446ac25eb6b6ac003668197e"
+    sha256 arm64_sonoma:  "01e64e35c816560c4a058c4686fa08b821dee81418b56560ab8afdb42d83a567"
+    sha256 arm64_ventura: "08bdd817308d691493a5766687aef952d5f2310bed7342b0f8f9a6de10d9a73d"
+    sha256 sonoma:        "5bcb36b0fe61d6b2b432944ce913e6f04230ea487b857d931555cba2ab6d37f1"
+    sha256 ventura:       "452c5df9c3715d40aa5297a1b3b07f53eb03cff46601f4293904a9d07335d473"
+    sha256 x86_64_linux:  "5eed6eadc7ebee51813a7909faf2d436c7c66291f20e0ef1880936faa8b03269"
   end
+
+  uses_from_macos "libxcrypt"
 
   conflicts_with "john-jumbo", because: "both install the same binaries"
 

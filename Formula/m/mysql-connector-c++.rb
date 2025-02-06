@@ -1,8 +1,8 @@
 class MysqlConnectorCxx < Formula
   desc "MySQL database connector for C++ applications"
   homepage "https://dev.mysql.com/downloads/connector/cpp/"
-  url "https://dev.mysql.com/get/Downloads/Connector-C++/mysql-connector-c++-9.1.0-src.tar.gz"
-  sha256 "70fb6ca28ac154a5784090b3d8cc4f91636c208cf07c0000e3d22f72b557be13"
+  url "https://dev.mysql.com/get/Downloads/Connector-C++/mysql-connector-c++-9.2.0-src.tar.gz"
+  sha256 "249eac2c77f2e4780e0d61b1c3f671ac93cc6e37eee7c9cb81655930e3a38435"
   license "GPL-2.0-only" => { with: "Universal-FOSS-exception-1.0" }
 
   livecheck do
@@ -11,13 +11,12 @@ class MysqlConnectorCxx < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia: "c2b2490600fdbe3f9c0d8905b865226c43b1d18acde422368b60ac78cdb2d824"
-    sha256 cellar: :any,                 arm64_sonoma:  "abbe09e0b54dff9192c08d7590bb5471fcfe100cfddbb88da19c5fad07a8f53f"
-    sha256 cellar: :any,                 arm64_ventura: "74268250b16280da66df74087862538541b0743f6bf072e0dd73fa7ddb9cb68d"
-    sha256 cellar: :any,                 sonoma:        "b7f37cc9be177add80233edced3ca587144ecee5efa796dd05f6f024c5d43154"
-    sha256 cellar: :any,                 ventura:       "a66e65ee7ba2aff015c4e477b4041740916da4f8af70662f9621c53136f341dc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f43f4750299363720f98a8bb94292922722f2c039ba05b704de9b1b4f5dbd7e5"
+    sha256 cellar: :any,                 arm64_sequoia: "c1294550241b2cc6ccff3782a70408dcd6dfa39f354f9b0a41ffcc68caf7c093"
+    sha256 cellar: :any,                 arm64_sonoma:  "c4bc88549978f21cf52a143a389e982009ef61ae6a9eec6604cb0aac30e2a52d"
+    sha256 cellar: :any,                 arm64_ventura: "8b3803e560a68274050bcec0a6fddd07456f5728ba702a3e270f6d63dce6381a"
+    sha256 cellar: :any,                 sonoma:        "9b4da7849dd498166e14f2d3441b6be67d9e156a3870496db51723625720d368"
+    sha256 cellar: :any,                 ventura:       "74edf08d8a04e56c4a0b9fae3206c2d68254adde919cdd5d2c188933cede1e52"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "63877e2393a6e26f83636ce0f7962bdf0a6446acff8082b61ec283fcbd59d584"
   end
 
   depends_on "cmake" => :build

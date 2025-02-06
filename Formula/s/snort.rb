@@ -1,9 +1,9 @@
 class Snort < Formula
   desc "Flexible Network Intrusion Detection System"
   homepage "https://www.snort.org"
-  url "https://github.com/snort3/snort3/archive/refs/tags/3.6.1.0.tar.gz"
-  mirror "https://fossies.org/linux/misc/snort3-3.6.1.0.tar.gz"
-  sha256 "aba1c8d1dd099bf7abfeac7f073413ce4b6bd527d8ecaa92aa47726c753c3a89"
+  url "https://github.com/snort3/snort3/archive/refs/tags/3.6.3.0.tar.gz"
+  mirror "https://fossies.org/linux/misc/snort3-3.6.3.0.tar.gz"
+  sha256 "23476247a7e785008f91bebc84342d7c38bf608ce6ebefc352f3b7d008563b5f"
   license "GPL-2.0-only"
   head "https://github.com/snort3/snort3.git", branch: "master"
 
@@ -16,12 +16,12 @@ class Snort < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "d7bd66b401bceb3caeb5bbda60946ee009691f6b0484232fb76a1d687d07cfa2"
-    sha256 cellar: :any,                 arm64_sonoma:  "a567d082e09c81c64eaa5576793291cac50c8fc3a11e21b146a92a6a93c82ef6"
-    sha256 cellar: :any,                 arm64_ventura: "2d2d9bdf176831fa28bd4b373b7efc77a5785aee4a73ac05d5d09f70fb3bdc98"
-    sha256 cellar: :any,                 sonoma:        "caaf853abfda911109b20997f2c50bdbc5fab27ce6736bd513be4b6687a4ec83"
-    sha256 cellar: :any,                 ventura:       "8493270ce84dfe671011d1c218aba7eb0d4e92aee00080c9c6c150c5fb8f8188"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "be018499e0f606d7741574019f56d348207a719b81d39cc6cd1aa24d6bfecbf7"
+    sha256 cellar: :any,                 arm64_sequoia: "1c50401ad07cddaf33e5ffa2ac4a1e61b1d326595ca9ffb0b0600e93d303d71d"
+    sha256 cellar: :any,                 arm64_sonoma:  "530e6f22a3d864722915a31edd8fae9afaaf1bb89afab7074da30bb2cb02f6af"
+    sha256 cellar: :any,                 arm64_ventura: "ef2b795fb2c68eb395c8e5ecf7c3e39c523d0ccf686f5cf134b0a1628db0146d"
+    sha256 cellar: :any,                 sonoma:        "ee47c6ff859ecfda2d48f0f664b1403d7fc5b5333cb955b40964e94c35431982"
+    sha256 cellar: :any,                 ventura:       "b315a2e34234ff8dee0f99a60d840b119fa33868a1774dac39e74e9477803f02"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "01871c5f1edc402455f7218b432a275598640000ebf68cad08cc7f497fb572c0"
   end
 
   depends_on "cmake" => :build
@@ -34,7 +34,7 @@ class Snort < Formula
   depends_on "libpcap" # macOS version segfaults
   depends_on "luajit"
   depends_on "openssl@3"
-  depends_on "pcre" # PCRE2 issue: https://github.com/snort3/snort3/issues/254
+  depends_on "pcre2"
   depends_on "vectorscan"
   depends_on "xz" # for lzma.h
 

@@ -3,17 +3,17 @@ class Pipdeptree < Formula
 
   desc "CLI to display dependency tree of the installed Python packages"
   homepage "https://github.com/tox-dev/pipdeptree"
-  url "https://files.pythonhosted.org/packages/7e/01/a3c3bdbf1bb50e0c675c76a65071fdbc80dbe92e8ec7959b7ba81c642769/pipdeptree-2.24.0.tar.gz"
-  sha256 "d520e165535e217dd8958dfc14f1922efa0f6e4ff16126a61edb7ed6c538a930"
+  url "https://files.pythonhosted.org/packages/9b/e6/ccebfbb786e3804446ec35e336e5ebcb91e8f5a50e193e04eba8d74c11b2/pipdeptree-2.25.0.tar.gz"
+  sha256 "029bcdcbd2e0130ec33b222c7833b8b5e52f674760dcf2df40b4ae6ff007a74f"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "06272258cf29fd57b03724854c3b4ab0a60d5611b48b89e0eeeceeecbdde974a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "06272258cf29fd57b03724854c3b4ab0a60d5611b48b89e0eeeceeecbdde974a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "06272258cf29fd57b03724854c3b4ab0a60d5611b48b89e0eeeceeecbdde974a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e68e45064ac8a9b60d9fddc4f84db688fad835439740acc4de923707338a5a12"
-    sha256 cellar: :any_skip_relocation, ventura:       "e68e45064ac8a9b60d9fddc4f84db688fad835439740acc4de923707338a5a12"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "06272258cf29fd57b03724854c3b4ab0a60d5611b48b89e0eeeceeecbdde974a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "48f0ef115694b6916120a89ad2dc2cbffec26bb2ca104f64ac691c9c89c2d9a3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "48f0ef115694b6916120a89ad2dc2cbffec26bb2ca104f64ac691c9c89c2d9a3"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "48f0ef115694b6916120a89ad2dc2cbffec26bb2ca104f64ac691c9c89c2d9a3"
+    sha256 cellar: :any_skip_relocation, sonoma:        "bb63199d2b749836e54b4bcc5ec8c97f827c22ca8ef32333f9a642b16ad3c55a"
+    sha256 cellar: :any_skip_relocation, ventura:       "bb63199d2b749836e54b4bcc5ec8c97f827c22ca8ef32333f9a642b16ad3c55a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "48f0ef115694b6916120a89ad2dc2cbffec26bb2ca104f64ac691c9c89c2d9a3"
   end
 
   depends_on "python@3.13"

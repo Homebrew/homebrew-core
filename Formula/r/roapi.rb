@@ -1,17 +1,17 @@
 class Roapi < Formula
   desc "Full-fledged APIs for static datasets without writing a single line of code"
   homepage "https://roapi.github.io/docs"
-  url "https://github.com/roapi/roapi/archive/refs/tags/roapi-v0.12.3.tar.gz"
-  sha256 "3ffb4c3aaa261dd18d8d4def4a2330d498181b4e1ec7f3dd7f1844af85f6d90e"
+  url "https://github.com/roapi/roapi/archive/refs/tags/roapi-v0.12.4.tar.gz"
+  sha256 "93eaccd70b7b21d0d8f349d6ad594761b8c4ecba884c7106cfefa37d86e3649c"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ac2f2fcd242495a8ee0a8cca2c3f0149998e6e2698399b502cd35ec76e15f300"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "73591b92cc358261463e3ee4bc8120989324ffd6620d40b22bc57b21e7af39b5"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "7c3a85d935b249fe3afd3c41ea6595707325edfe9d0ebe808fe7d5037f629164"
-    sha256 cellar: :any_skip_relocation, sonoma:        "235343dfea88062d54a19833f0e0484b7ee330a9e256476be33f55fbfb63aef2"
-    sha256 cellar: :any_skip_relocation, ventura:       "ed1f8f47e61389ae026c515d8bcd954aff7b2178cf5a061135966958a035eb8d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fedd7c0ce890700874a490d1fbbdf0124ca1dd7d0cdce09fdddde74c805b27eb"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4b120ba55e3cae8c3b3979b6a4d899dc07fe831cbd1d81ea5bcd06f455e14e10"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1eaf36297f5273f3465dd39b7441e2d4b17048116d2034e2644d642c06c70da3"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "3f27bf73c7209c9f00134bbf49a26a20fef0ae6a2e4c2902519117e6c15b9ff9"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f4f39cfc03ef9f4bfe2bd2c3ab2669039927f3febd15ad78bb9c5fd782cd978b"
+    sha256 cellar: :any_skip_relocation, ventura:       "a09c14307b47d74173190e59281ec75b837c7331a7682e9990ad0f5398930f4d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "83c065cae70543fd020625fda6651e1a2dc3ab1e622db72ebf978d23b986fb57"
   end
 
   depends_on "rust" => :build

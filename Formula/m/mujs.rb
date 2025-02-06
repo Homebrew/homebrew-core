@@ -1,8 +1,8 @@
 class Mujs < Formula
   desc "Embeddable Javascript interpreter"
   homepage "https://www.mujs.com/"
-  url "https://mujs.com/downloads/mujs-1.3.5.tar.gz"
-  sha256 "78a311ae4224400774cb09ef5baa2633c26971513f8b931d3224a0eb85b13e0b"
+  url "https://mujs.com/downloads/mujs-1.3.6.tar.gz"
+  sha256 "7cf3a5e622cff41903efff0334518fc94af063256752c38ba4618a5191e44f18"
   license "ISC"
   head "https://github.com/ccxvii/mujs.git", branch: "master"
 
@@ -12,14 +12,12 @@ class Mujs < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "774c344e1bbc23f97e3d91d4fcfaa04a7f818a65b58836682005e78c5f44187a"
-    sha256 cellar: :any,                 arm64_sonoma:   "730e76d17786653ff4a36ce09f749b203b6883195f645fefb9958d413a5cef66"
-    sha256 cellar: :any,                 arm64_ventura:  "bdc098dc98efa7aaa8ea6ddb60d8ee9213172c287a5c3118d0f9575b862f8305"
-    sha256 cellar: :any,                 arm64_monterey: "21a773ee06aae5577d93ce0ac15e87074fe99e93f1f2cbebb25d6c3c3f828c7c"
-    sha256 cellar: :any,                 sonoma:         "a9dff00d5a896f441559aed7e1cfa583938e7889fd7b6cf9f0522dc2c4ab8e87"
-    sha256 cellar: :any,                 ventura:        "171d8c3d6413c3a97c4d3dd39cb1babf13a92cd460f8803362a82d9ad513704e"
-    sha256 cellar: :any,                 monterey:       "4d25f724d36fc11718a2937dcf44e846156f7dd1c9dd4cc4fd0cdc28248be239"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a5a378c307b4b3d0f14c3035959ea57f956023b93bc38011e9e8e7102b59b4ee"
+    sha256 cellar: :any,                 arm64_sequoia: "839b3fa73f32ef2b53a2e52af833fa2257786dd32bf6094f19dba18d4d47f274"
+    sha256 cellar: :any,                 arm64_sonoma:  "84220bdaa3fc8a2e33185fb4e1b0426cf37a31f83bcfdeed90a2fb37e50780c1"
+    sha256 cellar: :any,                 arm64_ventura: "0765c40d6deb118da5f0f8edd014bd4de89d889bee4fed10a7b7c64c23affcee"
+    sha256 cellar: :any,                 sonoma:        "8a354ea3d674b092ead9ed37be5d584c2ef8470ebbbad298c00af7fb7fbc0f8e"
+    sha256 cellar: :any,                 ventura:       "20a7ee4f3d183a7fcae93ecedfd9562485b3462a6cc013e74e0cc66a5ad34ace"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "16f8f85b13a69a0962fab110a0215ebd002220ab84878bd164cd3dd7171cf9db"
   end
 
   depends_on "pkgconf" => :test

@@ -1,8 +1,8 @@
 class QtLibiodbc < Formula
   desc "Qt SQL Database Driver"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/6.7/6.7.3/submodules/qtbase-everywhere-src-6.7.3.tar.xz"
-  sha256 "8ccbb9ab055205ac76632c9eeddd1ed6fc66936fc56afc2ed0fd5d9e23da3097"
+  url "https://download.qt.io/official_releases/qt/6.8/6.8.2/submodules/qtbase-everywhere-src-6.8.2.tar.xz"
+  sha256 "012043ce6d411e6e8a91fdc4e05e6bedcfa10fcb1347d3c33908f7fdd10dfe05"
   license any_of: ["GPL-2.0-only", "GPL-3.0-only", "LGPL-3.0-only"]
 
   livecheck do
@@ -10,11 +10,11 @@ class QtLibiodbc < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:  "7517e0b201aaed2e8f1ad106e08b083897ad6dc7511c168295b2cc8d6575c58e"
-    sha256 cellar: :any,                 arm64_ventura: "a2de5a69ec30cd4901a9948c67253d93941e9ecb7525f6e7b38e0436c4d26cdf"
-    sha256 cellar: :any,                 sonoma:        "2dfdebaf34df8cf8f4e4b7c5231b714634cbf0e09bce7aa9ea91845dea8f44b8"
-    sha256 cellar: :any,                 ventura:       "e56665089aed5d36a9bddf34fbb6ee8ed77e9acc07ba8f864f021c5a4a07214b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "49551d8ae16cea38ba33bb49a0713926aca8a15fac13e92487729970b9c57a5d"
+    sha256 cellar: :any,                 arm64_sonoma:  "68ded867458c9f80cc2307701c17a05d6b0eaee148c0a0e5a07f6ebb33b1ebb7"
+    sha256 cellar: :any,                 arm64_ventura: "9d1949a20e305fa356e57c0624ed2a0bfb3bfd28880811ca80a54e1ce4ea61fd"
+    sha256 cellar: :any,                 sonoma:        "1a264a8968a0f4183118b74e2ef7650758e2ad25c7ed803e3040c090e7390260"
+    sha256 cellar: :any,                 ventura:       "435c09d5c0e70ef93d9a0cdcfd96177a860cdb9d99f357d9ca36a8d03e03a91e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a58356b0c18f649bef94b7f6c50bf36952d9078c0862a337fa05110f647a1002"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -34,6 +34,7 @@ class QtLibiodbc < Formula
       -DFEATURE_sql_odbc=ON
       -DFEATURE_sql_psql=OFF
       -DFEATURE_sql_sqlite=OFF
+      -DQT_GENERATE_SBOM=OFF
     ]
 
     system "cmake", "-S", "src/plugins/sqldrivers", "-B", "build", *args, *std_cmake_args

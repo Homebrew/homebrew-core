@@ -1,10 +1,25 @@
 class DhallLspServer < Formula
   desc "Language Server Protocol (LSP) server for Dhall"
-  homepage "https://github.com/dhall-lang/dhall-haskell/tree/master/dhall-lsp-server"
-  url "https://hackage.haskell.org/package/dhall-lsp-server-1.1.4/dhall-lsp-server-1.1.4.tar.gz"
-  sha256 "4c7f056c8414f811edb14d26b0a7d3f3225762d0023965e474b5712ed18c9a6d"
+  homepage "https://github.com/dhall-lang/dhall-haskell/tree/main/dhall-lsp-server"
   license "BSD-3-Clause"
   head "https://github.com/dhall-lang/dhall-haskell.git", branch: "main"
+
+  stable do
+    url "https://hackage.haskell.org/package/dhall-lsp-server-1.1.4/dhall-lsp-server-1.1.4.tar.gz"
+    sha256 "4c7f056c8414f811edb14d26b0a7d3f3225762d0023965e474b5712ed18c9a6d"
+
+    # Backport relaxed upper bounds for lsp dependencies
+    patch :p2 do
+      url "https://github.com/dhall-lang/dhall-haskell/commit/a621e1438df5865d966597e2e1b0bb37e8311447.patch?full_index=1"
+      sha256 "89b768b642c0a891e5d0a33ac43c84f07f509c538cf2a035fad967ce6af074ef"
+    end
+
+    # Backport support for text 2.1.2 picked by GHC 9.10+
+    patch :p2 do
+      url "https://github.com/dhall-lang/dhall-haskell/commit/9f2d4d44be643229784bfc502ab49184ec82bc05.patch?full_index=1"
+      sha256 "877ac62d2aa87d8aeb13e021b134298a299917f30b6a7a5962d5a06407c38067"
+    end
+  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "bc15cc3642206d59076f34a82cb4280e2755d427065711763529f848a711c401"
@@ -16,20 +31,24 @@ class DhallLspServer < Formula
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc@9.8" => :build
+  depends_on "ghc@9.10" => :build
 
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
   def install
-    cd name if build.head?
+    args = if build.head?
+      # Skip trying to resolve constraints for packages that are not compatible with GHC 9.10
+      # Remove after https://github.com/dhall-lang/dhall-haskell/pull/2637
+      inreplace "cabal.project", %r{^\s*\./dhall-nix.*\n}, "", audit_result: false
 
-    # Workaround until dhall-json has a new package release or metadata revision
-    # https://github.com/dhall-lang/dhall-haskell/commit/28d346f00d12fa134b4c315974f76cc5557f1330
-    args = ["--allow-newer=dhall-json:aeson", "--constraint=aeson<2.3"]
-
-    # Workaround until https://github.com/dhall-lang/dhall-haskell/pull/2571 is available
-    args += ["--allow-newer=lsp:lsp-types", "--constraint=lsp-types>=2.1 && <2.2"]
+      ["./#{name}"]
+    else
+      # Workaround until dhall-json has a new package release or metadata revision
+      # https://github.com/dhall-lang/dhall-haskell/commit/28d346f00d12fa134b4c315974f76cc5557f1330
+      # https://github.com/dhall-lang/dhall-haskell/commit/277d8b1b3637ba2ce125783cc1936dc9591e67a7
+      ["--allow-newer=dhall-json:aeson,dhall-json:text", "--constraint=aeson<2.3"]
+    end
 
     system "cabal", "v2-update"
     system "cabal", "v2-install", *args, *std_cabal_v2_args

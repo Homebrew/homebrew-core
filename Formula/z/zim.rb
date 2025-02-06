@@ -3,13 +3,13 @@ class Zim < Formula
 
   desc "Graphical text editor used to maintain a collection of wiki pages"
   homepage "https://zim-wiki.org/"
-  url "https://github.com/zim-desktop-wiki/zim-desktop-wiki/archive/refs/tags/0.76.0.tar.gz"
-  sha256 "7373b175b05029e73a39a7259f6e50c67b83736d0cca64c5e5de70910117ee0f"
+  url "https://github.com/zim-desktop-wiki/zim-desktop-wiki/archive/refs/tags/0.76.1.tar.gz"
+  sha256 "19a47812ed5f4b5af3bb894354381542f1eaace561b726c6df89cd9c780fe3e2"
   license "GPL-2.0-or-later"
   head "https://github.com/zim-desktop-wiki/zim-desktop-wiki.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "93ca5096b6032ce96d12926d672019011b0996d0430db4e4a96d3251539956d1"
+    sha256 cellar: :any_skip_relocation, all: "0e52f374984ff0afe00dbdb9567e70d055a7fc7c2057c8a864d12a98422d589b"
   end
 
   depends_on "pkgconf" => :build
@@ -26,8 +26,8 @@ class Zim < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/43/54/292f26c208734e9a7f067aea4a7e282c080750c4546559b58e2e45413ca0/setuptools-75.6.0.tar.gz"
-    sha256 "8199222558df7c86216af4f84c30e9b34a61d8ba19366cc914424cdbd28252f6"
+    url "https://files.pythonhosted.org/packages/92/ec/089608b791d210aec4e7f97488e67ab0d33add3efccb83a056cbafe3a2a6/setuptools-75.8.0.tar.gz"
+    sha256 "c5afc8f407c626b8313a86e10311dd3f661c6cd9c09d4bf8c15c0e11f9f2b0e6"
   end
 
   def python3

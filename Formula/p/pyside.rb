@@ -3,9 +3,9 @@ class Pyside < Formula
 
   desc "Official Python bindings for Qt"
   homepage "https://wiki.qt.io/Qt_for_Python"
-  url "https://download.qt.io/official_releases/QtForPython/pyside6/PySide6-6.7.3-src/pyside-setup-everywhere-src-6.7.3.tar.xz"
-  mirror "https://cdimage.debian.org/mirror/qt.io/qtproject/official_releases/QtForPython/pyside6-addons/PySide6-6.7.3-src/pyside-setup-everywhere-src-6.7.3.tar.xz"
-  sha256 "a4c414be013d5051a2d10a9a1151e686488a3172c08a57461ea04b0a0ab74e09"
+  url "https://download.qt.io/official_releases/QtForPython/pyside6/PySide6-6.8.2-src/pyside-setup-everywhere-src-6.8.2.tar.xz"
+  mirror "https://cdimage.debian.org/mirror/qt.io/qtproject/official_releases/QtForPython/pyside6/PySide6-6.8.2-src/pyside-setup-everywhere-src-6.8.2.tar.xz"
+  sha256 "8422e9aa403f4119e3192853e9b0cfa09e57e3e0a1a3393e7fdf394179c112f8"
   # NOTE: We omit some licenses even though they are in SPDX-License-Identifier or LICENSES/ directory:
   # 1. LicenseRef-Qt-Commercial is removed from "OR" options as non-free
   # 2. GFDL-1.3-no-invariants-only is only used by not installed docs, e.g. sources/{pyside6,shiboken6}/doc
@@ -15,7 +15,6 @@ class Pyside < Formula
     { "GPL-3.0-only" => { with: "Qt-GPL-exception-1.0" } },
     { any_of: ["LGPL-3.0-only", "GPL-2.0-only", "GPL-3.0-only"] },
   ]
-  revision 1
 
   livecheck do
     url "https://download.qt.io/official_releases/QtForPython/pyside6/"
@@ -23,11 +22,11 @@ class Pyside < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:  "dc93c539db28959cf90f3007bafa5aee52051e79a594e78625dc076712512471"
-    sha256 cellar: :any,                 arm64_ventura: "f5e321f36f4f35a16e504ca5c856464cfba8680cddf98714e1aca3a01bc6e64c"
-    sha256 cellar: :any,                 sonoma:        "2264961ab93c38f68e224ab9b6ccc1ee2f9b48cecbac234861ca0933e0ac7a86"
-    sha256 cellar: :any,                 ventura:       "d142edf80b5c8a07e40d56e260f3ba08ed879deedd8ebeaea0bb1580a5b26093"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "242f0b1bf3dd12c40c30b8b58b55a770a3e32e3ef4824e6fafdd99e0cd5bc538"
+    sha256 cellar: :any,                 arm64_sonoma:  "a1caacfa3da0d18bef1823c393bef382748b8dcf912c884560533603a7cfa8ef"
+    sha256 cellar: :any,                 arm64_ventura: "058a21291e9d1109ed2dd8ad4260473173d2a833b60203b4967ec8c341acd8c9"
+    sha256 cellar: :any,                 sonoma:        "9702bcb176f1ddcbe9b572adb5ee5505b774de2725f357f857c5fbd192c80d07"
+    sha256 cellar: :any,                 ventura:       "7a3df03a9650e733bc0e54dc64922b49d7c8b03b495282811a0123b6ccd96956"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "371a6c8ee5db5826b325f9332341243fa1d3a49ab391f69ac1cdb9422c3726a7"
   end
 
   depends_on "cmake" => :build
@@ -65,13 +64,6 @@ class Pyside < Formula
               "${shiboken_include_dirs}",
               "${shiboken_include_dirs}:#{extra_include_dirs.join(":")}"
 
-    # Fix build failure on macOS because `CMAKE_BINARY_DIR` points to /tmp but
-    # `location` points to `/private/tmp`, which makes this conditional fail.
-    # Submitted upstream here: https://codereview.qt-project.org/c/pyside/pyside-setup/+/416706.
-    inreplace "sources/pyside6/PySide6/__init__.py.in",
-              "in_build = Path(\"@CMAKE_BINARY_DIR@\") in location.parents",
-              "in_build = Path(\"@CMAKE_BINARY_DIR@\").resolve() in location.parents"
-
     # Install python scripts into pkgshare rather than bin
     inreplace "sources/pyside-tools/CMakeLists.txt", "DESTINATION bin", "DESTINATION #{pkgshare}"
 
@@ -79,14 +71,14 @@ class Pyside < Formula
     inreplace "sources/shiboken6/ApiExtractor/CMakeLists.txt", "${CMAKE_CXX_COMPILER}", ENV.cxx
 
     system "cmake", "-S", ".", "-B", "build",
-                     "-DCMAKE_INSTALL_RPATH=#{lib}",
-                     "-DCMAKE_PREFIX_PATH=#{Formula["qt"].opt_lib}",
-                     "-DPYTHON_EXECUTABLE=#{which(python3)}",
-                     "-DBUILD_TESTS=OFF",
-                     "-DNO_QT_TOOLS=yes",
-                     # Limited API (maybe combined with keg relocation) breaks the Linux bottle
-                     "-DFORCE_LIMITED_API=#{OS.mac? ? "yes" : "no"}",
-                     *std_cmake_args
+                    "-DCMAKE_INSTALL_RPATH=#{lib}",
+                    "-DCMAKE_PREFIX_PATH=#{Formula["qt"].opt_lib}",
+                    "-DPYTHON_EXECUTABLE=#{which(python3)}",
+                    "-DBUILD_TESTS=OFF",
+                    "-DNO_QT_TOOLS=yes",
+                    # Limited API (maybe combined with keg relocation) breaks the Linux bottle
+                    "-DFORCE_LIMITED_API=#{OS.mac? ? "yes" : "no"}",
+                    *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
@@ -105,7 +97,7 @@ class Pyside < Formula
       Widgets
       Xml
     ]
-    modules << "WebEngineCore" if OS.linux? || (DevelopmentTools.clang_build_version > 1200)
+    modules << "WebEngineCore" if OS.linux? || MacOS.version > :ventura
     modules.each { |mod| system python3, "-c", "import PySide6.Qt#{mod}" }
 
     pyincludes = shell_output("#{python3}-config --includes").chomp.split

@@ -41,15 +41,9 @@ class CargoC < Formula
     system "cargo", "install", *std_cargo_args
   end
 
-  def check_binary_linkage(binary, library)
-    binary.dynamically_linked_libraries.any? do |dll|
-      next false unless dll.start_with?(HOMEBREW_PREFIX.to_s)
-
-      File.realpath(dll) == File.realpath(library)
-    end
-  end
-
   test do
+    require "utils/linkage"
+
     cargo_error = "could not find `Cargo.toml`"
     assert_match cargo_error, shell_output("#{bin}/cargo-cinstall cinstall 2>&1", 1)
     assert_match cargo_error, shell_output("#{bin}/cargo-cbuild cbuild 2>&1", 1)
@@ -60,7 +54,7 @@ class CargoC < Formula
       Formula["openssl@3"].opt_lib/shared_library("libssl"),
       Formula["openssl@3"].opt_lib/shared_library("libcrypto"),
     ].each do |library|
-      assert check_binary_linkage(bin/"cargo-cbuild", library),
+      assert Utils.binary_linked_to_library?(bin/"cargo-cbuild", library),
              "No linkage with #{library.basename}! Cargo is likely using a vendored version."
     end
   end

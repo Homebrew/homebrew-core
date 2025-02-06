@@ -1,8 +1,8 @@
 class Tlsx < Formula
   desc "Fast and configurable TLS grabber focused on TLS based data collection"
   homepage "https://github.com/projectdiscovery/tlsx"
-  url "https://github.com/projectdiscovery/tlsx/archive/refs/tags/v1.1.8.tar.gz"
-  sha256 "272330eb814dc79d367b18c9aa5033a507f9214616d97ac4c1b2f75054767504"
+  url "https://github.com/projectdiscovery/tlsx/archive/refs/tags/v1.1.9.tar.gz"
+  sha256 "96280c609d8e82258ec2da99487702d1696d6430bdd179cbc64ff035be8f92c9"
   license "MIT"
   head "https://github.com/projectdiscovery/tlsx.git", branch: "main"
 
@@ -12,12 +12,12 @@ class Tlsx < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b40e84e207184b3d5ba8df0cfc15b9b0e38ac219131b10d32d59fb4231f710c5"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "91424e94b9e80bcb352c39f8f45b9a9290fc97afc58c0bafa435ccee44ce9e8c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "f023f11876cb65f7558142fd39c85c8309f43eed1eb00fddd4b1bf8cbc24a3c2"
-    sha256 cellar: :any_skip_relocation, sonoma:        "4d308e255ba04418d6580cde651e766a55f4d75bf74af4bc25f9def4ded7e1a5"
-    sha256 cellar: :any_skip_relocation, ventura:       "5f71f4320d10ebfd2f0ff012ff35050cc9015dd4252498cfd412ac2d6d85d169"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "731a43d294f9ca51520d2e54991972bb3e2034bf6b28fccd90e4357d65341d67"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1a75b7caa8eb3620f06e521b5089a6f855fbc678a5b33f94d3f4aa7257cc7769"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5f86c2d8958e80ee7fc67d722fb365daf6464db063a9d2628e345ac57c4985b6"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "7b9e4d8105f1b75e0dd35719a9abf3252c0d22c1da0fc85376172467eceb1973"
+    sha256 cellar: :any_skip_relocation, sonoma:        "6ebb76c7c8f89a1865a76458f82b912d7d68b3a203822f88a43e40f4db151150"
+    sha256 cellar: :any_skip_relocation, ventura:       "0c2a977abfdd73a2f4f4e215ec9988620b22ff539b355c42d67922079ef31a31"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "64a75bb051709028ee1165ac69fa0ec92189a8e4a0899cc283fd7fc3ecd630d4"
   end
 
   depends_on "go" => :build

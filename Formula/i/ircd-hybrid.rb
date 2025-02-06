@@ -1,8 +1,8 @@
 class IrcdHybrid < Formula
   desc "High-performance secure IRC server"
   homepage "https://www.ircd-hybrid.org/"
-  url "https://downloads.sourceforge.net/project/ircd-hybrid/ircd-hybrid/ircd-hybrid-8.2.45/ircd-hybrid-8.2.45.tgz"
-  sha256 "951ae032ab04a87b47e602339e07e0d06b6e87bd5a4eb334f3b395be14f75e44"
+  url "https://downloads.sourceforge.net/project/ircd-hybrid/ircd-hybrid/ircd-hybrid-8.2.46/ircd-hybrid-8.2.46.tgz"
+  sha256 "a5d5c8f1888fa82fbded7a313456f5a659b871f2ce07e6ff81eb5a8d73f3c74b"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -11,14 +11,12 @@ class IrcdHybrid < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia:  "ad947c9098ff51224cf64839f4cb44eac442696d49377a311322b9e5feeca7da"
-    sha256 arm64_sonoma:   "3300892aed735776d3f13175baa889f5d7c9d483d7748418c0909f8415531e97"
-    sha256 arm64_ventura:  "23adcd2ed7ea0ec6f2d1697bd9a3387320056d9675da6c7674fadf91a543e8c7"
-    sha256 arm64_monterey: "88fb3d88a5c22db625840ab9c5e0b56602249c398a66a5ec588b384dab3f8dc9"
-    sha256 sonoma:         "6a7ff02a200163d69f6db115ff5b4ac256d9f0f0d206f209496f209bd34a5a5b"
-    sha256 ventura:        "b671e85eb7f66efdd2b797dc67d026d29330f0b9911e246766f7e96108bc2cd5"
-    sha256 monterey:       "032ceb7c545a5fceda538205a747e231505b899c7a3ba81099a59ad08d69ea38"
-    sha256 x86_64_linux:   "d972f1b694aa724347492b9c39a747d63bd46f202f9e86b7fb086fc5bba3f284"
+    sha256 arm64_sequoia: "482a6473c6ba13884a37432848afbebcdc3942a5528fdcfe79740d0b9968e4ae"
+    sha256 arm64_sonoma:  "2f170975dbcadbbdfdadcc779760c14657d3248d1f098c238f6111293e79bf92"
+    sha256 arm64_ventura: "1d31e662ad08d3399c13de2de890351b7450e448bb7dd5f9dcc2e4c040c6d77f"
+    sha256 sonoma:        "613595b0cafc86ee1cd5d2622b4370a9b8718dd052ee6dd363e7698bdd5f0670"
+    sha256 ventura:       "2148dfdd86ba6c791a0fc1e49fbe918c2a1e4874fe4bd58774fd6a8b2e56dc52"
+    sha256 x86_64_linux:  "031299ee9f3e08184069491b048f1005e5c73b098247a0d33765c95fbae7a438"
   end
 
   depends_on "openssl@3"

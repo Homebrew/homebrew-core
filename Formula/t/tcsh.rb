@@ -1,9 +1,9 @@
 class Tcsh < Formula
   desc "Enhanced, fully compatible version of the Berkeley C shell"
   homepage "https://www.tcsh.org/"
-  url "https://astron.com/pub/tcsh/tcsh-6.24.14.tar.gz"
-  mirror "https://ftp.osuosl.org/pub/blfs/conglomeration/tcsh/tcsh-6.24.14.tar.gz"
-  sha256 "36880f258a63fc11fe72a65098b585ebc4ecdee24388b8ebec97e6ae8e485318"
+  url "https://astron.com/pub/tcsh/tcsh-6.24.15.tar.gz"
+  mirror "https://ftp.osuosl.org/pub/blfs/conglomeration/tcsh/tcsh-6.24.15.tar.gz"
+  sha256 "d4d0b2a4df320f57a518e44c359ef36bbcf85d64f5146d0cb8ff34984e0d23fd"
   license "BSD-3-Clause"
 
   livecheck do
@@ -12,12 +12,12 @@ class Tcsh < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "b460d7025a11e390417b99856092d9910efa2f782860ec2eac1b69818fc80ff8"
-    sha256 arm64_sonoma:  "298251e43c80d546516f9b428c63b691f3b6d19dfae15153ef599ef493eb17d9"
-    sha256 arm64_ventura: "83aa4593aeb551300ac7a23dd246c7b7fea918fcfd84bba5ab01ec7612a6f2c7"
-    sha256 sonoma:        "4f15dd7ac8b3da7915f7f797a68223540f5f5f525c70f0cc800aa17ae6f6c398"
-    sha256 ventura:       "2bebcbc5a02fa991f1a9a46e347f2528af16813787ff302097095d5aafd7bee0"
-    sha256 x86_64_linux:  "110669eac6b4e5a1c8fe4e0dcb87e06928e77c938c5ed97fbf3e10eaa7df01fb"
+    sha256 arm64_sequoia: "2cbe0bdd46defee1ad3ff4c5e8d3088e1d774d82d9f789f6d8e9f71541e1a325"
+    sha256 arm64_sonoma:  "2bd1839f9539304030031297aea14002847bac05fbfdd6b40daba0e046da9011"
+    sha256 arm64_ventura: "c616a15a27d0a6405039006e645b602a146c5dfba372e8e586de3352e5668d36"
+    sha256 sonoma:        "ddd888de4c89d208ab867ce6ccb3a190aa1ace13bfd678b93eeefe1858ab6206"
+    sha256 ventura:       "f4434873a4a37fbe06aa64e90512021171b9a6728b1411cbe0f0b5f9e2f7d6bb"
+    sha256 x86_64_linux:  "3b1b397961ac020ec12a78df1b9c4401f1f8ca16cfcb59cc6d99c51c475c0c61"
   end
 
   uses_from_macos "libxcrypt"
