@@ -27,7 +27,7 @@ class PythonFreethreading < Formula
   # not actually used, we just want this installed to ensure there are no conflicts.
   uses_from_macos "python" => :test
   uses_from_macos "bzip2"
-  uses_from_macos "expat", since: :sequoia
+  uses_from_macos "expat", since: :sonoma
   uses_from_macos "libedit"
   uses_from_macos "libffi", since: :catalina
   uses_from_macos "libxcrypt"
