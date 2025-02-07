@@ -1,14 +1,16 @@
 class GitRecent < Formula
   desc "See your latest local git branches, formatted real fancy"
   homepage "https://github.com/paulirish/git-recent"
-  url "https://github.com/paulirish/git-recent/archive/refs/tags/v1.1.1.tar.gz"
-  sha256 "790c0de09ea19948b3b0ad642d82c30ee20c8d14a04b761fa2a2f716dc19eedc"
+  url "https://github.com/paulirish/git-recent/archive/refs/tags/v2.0.1.tar.gz"
+  sha256 "ab9c3f5da92747f7b53f1a301b22433116ee8d204562cc8f0364f70f4a79d318"
   license "MIT"
 
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "3a4143920243a863447daa6f2b17b3cda4e0a163e8502c6c36a910eee4ee7450"
   end
+
+  depends_on "fzf"
 
   depends_on macos: :sierra
 
@@ -20,6 +22,7 @@ class GitRecent < Formula
 
   def install
     bin.install "git-recent"
+    bin.install "git-recent-og"
   end
 
   test do
