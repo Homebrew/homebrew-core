@@ -1,8 +1,8 @@
 class Apt < Formula
   desc "Advanced Package Tool"
   homepage "https://wiki.debian.org/Apt"
-  url "https://deb.debian.org/debian/pool/main/a/apt/apt_2.9.27.tar.xz"
-  sha256 "c9f52d6a3a608c995c19b0d431b0bdf4191e08761ed6a22c37ce3d4fd847eee0"
+  url "https://deb.debian.org/debian/pool/main/a/apt/apt_2.9.28.tar.xz"
+  sha256 "69efe05f475656a721510dfb2584a1f1f083c39c10192d6a0db30da3d18af536"
   license "GPL-2.0-or-later"
 
   livecheck do
