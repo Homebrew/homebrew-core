@@ -57,12 +57,6 @@ class JuicityClient < Formula
     JSON
 
     assert_match "Flags", shell_output("#{bin}/juicity-client -h")
-
-    read, write = IO.pipe
-    fork do
-      exec bin/"juicity-client", "run", "-c", testpath/"client.json", out: write
-    end
-    sleep 3
-    assert_match "#{client_port}", read.gets
+    assert_match client_port.to_s, shell_output("#{bin}/juicity-client run -c #{testpath}/client.json")
   end
 end

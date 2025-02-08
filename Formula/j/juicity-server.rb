@@ -144,13 +144,7 @@ class JuicityServer < Formula
       }
     JSON
 
-    assert_match "Flags", shell_output("#{bin}/juicity-server -h")
-
-    read, write = IO.pipe
-    fork do
-      exec bin/"juicity-server", "run", "-c", testpath/"server.json", out: write
-    end
-    sleep 3
-    assert_match "#{server_port}", read.gets
+    assert_match "generate-certchain-hash", shell_output("#{bin}/juicity-server -h")
+    assert_match server_port.to_s, shell_output("#{bin}/juicity-server run -c #{testpath}/server.json")
   end
 end
