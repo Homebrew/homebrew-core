@@ -1,8 +1,7 @@
 class FlowControl < Formula
   desc "Flow Control: a programmer's text editor"
   homepage "https://github.com/neurocyte/flow"
-  version "0.3.2"
-  url "https://github.com/neurocyte/flow/archive/refs/tags/v#{version}.tar.gz"
+  url "https://github.com/neurocyte/flow/archive/refs/tags/v0.3.2.tar.gz"
   sha256 "f495084d926cfbb35323c21f11cdb9382e40790534600677526b4367cdd26602"
   license "MIT"
   head "https://github.com/neurocyte/flow.git", branch: "master"
