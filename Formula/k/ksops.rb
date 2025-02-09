@@ -2,7 +2,7 @@ class Ksops < Formula
   desc "Flexible Kustomize Plugin for SOPS Encrypted Resources"
   homepage "https://github.com/viaduct-ai/kustomize-sops"
   url "https://github.com/viaduct-ai/kustomize-sops/archive/refs/tags/v4.3.3.tar.gz"
-  sha256 "a843b5bbb036027c72bc37fce29135362b8a13e58e6d53a760ed0b7dbe8fe66b"
+  sha256 "9943f47cb1c469316d28f11f845c44e63802e9cd37d28b6a20b1890f4c2133d7"
   license "Apache-2.0"
 
   bottle do
@@ -15,12 +15,6 @@ class Ksops < Formula
   end
 
   depends_on "go" => :build
-
-  # update go.mod, upstream pr ref, https://github.com/viaduct-ai/kustomize-sops/pull/269
-  patch do
-    url "https://github.com/viaduct-ai/kustomize-sops/commit/feb0eae92c10c1e248928be55f6577f28b6468a8.patch?full_index=1"
-    sha256 "a9dbae051b35f209bb64bf783f3d2c36f6b26cd395abe3d92dbbd996793a965d"
-  end
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w")
