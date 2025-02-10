@@ -191,30 +191,30 @@ class Qt < Formula
       -no-sql-psql
     ]
 
-    # We prefer CMake `-DQT_FEATURE_system*=ON` arg over configure `-system-*` arg
+    # We prefer CMake `-DFEATURE_system*=ON` arg over configure `-system-*` arg
     # since the latter may be ignored when auto-detection fails.
     #
     # We disable clang feature to avoid linkage to `llvm`. This is how we have always
     # built on macOS and it prevents complicating `llvm` version bumps on Linux.
     cmake_args = std_cmake_args(install_prefix: HOMEBREW_PREFIX, find_framework: "FIRST") + %w[
       -DFEATURE_pkg_config=ON
-      -DQT_FEATURE_clang=OFF
-      -DQT_FEATURE_relocatable=OFF
-      -DQT_FEATURE_system_assimp=ON
-      -DQT_FEATURE_system_doubleconversion=ON
-      -DQT_FEATURE_system_freetype=ON
-      -DQT_FEATURE_system_harfbuzz=ON
-      -DQT_FEATURE_system_hunspell=ON
-      -DQT_FEATURE_system_jpeg=ON
-      -DQT_FEATURE_system_libb2=ON
-      -DQT_FEATURE_system_pcre2=ON
-      -DQT_FEATURE_system_png=ON
-      -DQT_FEATURE_system_sqlite=ON
-      -DQT_FEATURE_system_tiff=ON
-      -DQT_FEATURE_system_webp=ON
-      -DQT_FEATURE_system_zlib=ON
-      -DQT_FEATURE_webengine_proprietary_codecs=ON
-      -DQT_FEATURE_webengine_kerberos=ON
+      -DFEATURE_clang=OFF
+      -DFEATURE_relocatable=OFF
+      -DFEATURE_system_assimp=ON
+      -DFEATURE_system_doubleconversion=ON
+      -DFEATURE_system_freetype=ON
+      -DFEATURE_system_harfbuzz=ON
+      -DFEATURE_system_hunspell=ON
+      -DFEATURE_system_jpeg=ON
+      -DFEATURE_system_libb2=ON
+      -DFEATURE_system_pcre2=ON
+      -DFEATURE_system_png=ON
+      -DFEATURE_system_sqlite=ON
+      -DFEATURE_system_tiff=ON
+      -DFEATURE_system_webp=ON
+      -DFEATURE_system_zlib=ON
+      -DFEATURE_webengine_proprietary_codecs=ON
+      -DFEATURE_webengine_kerberos=ON
       -DQT_ALLOW_SYMLINK_IN_PATHS=ON
     ]
 
@@ -227,13 +227,13 @@ class Qt < Formula
       # See https://bugreports.qt.io/browse/QTBUG-130922
       config_args << "-skip" << "qtwebengine" if MacOS::Xcode.version < "15.3"
 
-      # FIXME: `-DQT_FEATURE_webengine_vulkan=OFF` is a workaround for
+      # FIXME: `-DFEATURE_webengine_vulkan=OFF` is a workaround for
       # error: use of undeclared identifier 'importMemoryHandleInfo'
       # Remove once properly handled by Qt.
       %W[
         -DCMAKE_OSX_DEPLOYMENT_TARGET=#{MacOS.version}.0
-        -DQT_FEATURE_ffmpeg=OFF
-        -DQT_FEATURE_webengine_vulkan=OFF
+        -DFEATURE_ffmpeg=OFF
+        -DFEATURE_webengine_vulkan=OFF
       ]
     else
       # Explicitly specify QT_BUILD_INTERNALS_RELOCATABLE_INSTALL_PREFIX so
@@ -245,30 +245,30 @@ class Qt < Formula
       # * The vendored copy of `re2` is used to avoid rebuilds with `re2` version
       #   bumps and due to frequent API incompatibilities in Qt's copy of Chromium
       # * On macOS Chromium will always use bundled copies and the
-      #   -DQT_FEATURE_webengine_system_*=ON arguments are ignored.
+      #   -DFEATURE_webengine_system_*=ON arguments are ignored.
       # * As of Qt 6.6.0, webengine_ozone_x11 feature appears to be mandatory for Linux.
       %W[
         -DQT_BUILD_INTERNALS_RELOCATABLE_INSTALL_PREFIX=#{prefix}
-        -DQT_FEATURE_xcb=ON
-        -DQT_FEATURE_system_xcb_xinput=ON
-        -DQT_FEATURE_webengine_ozone_x11=ON
-        -DQT_FEATURE_webengine_system_alsa=ON
-        -DQT_FEATURE_webengine_system_ffmpeg=ON
-        -DQT_FEATURE_webengine_system_freetype=ON
-        -DQT_FEATURE_webengine_system_harfbuzz=ON
-        -DQT_FEATURE_webengine_system_icu=ON
-        -DQT_FEATURE_webengine_system_lcms2=ON
-        -DQT_FEATURE_webengine_system_libevent=ON
-        -DQT_FEATURE_webengine_system_libjpeg=ON
-        -DQT_FEATURE_webengine_system_libpng=ON
-        -DQT_FEATURE_webengine_system_libxml=ON
-        -DQT_FEATURE_webengine_system_libwebp=ON
-        -DQT_FEATURE_webengine_system_minizip=ON
-        -DQT_FEATURE_webengine_system_opus=ON
-        -DQT_FEATURE_webengine_system_poppler=ON
-        -DQT_FEATURE_webengine_system_pulseaudio=ON
-        -DQT_FEATURE_webengine_system_snappy=ON
-        -DQT_FEATURE_webengine_system_zlib=ON
+        -DFEATURE_xcb=ON
+        -DFEATURE_system_xcb_xinput=ON
+        -DFEATURE_webengine_ozone_x11=ON
+        -DFEATURE_webengine_system_alsa=ON
+        -DFEATURE_webengine_system_ffmpeg=ON
+        -DFEATURE_webengine_system_freetype=ON
+        -DFEATURE_webengine_system_harfbuzz=ON
+        -DFEATURE_webengine_system_icu=ON
+        -DFEATURE_webengine_system_lcms2=ON
+        -DFEATURE_webengine_system_libevent=ON
+        -DFEATURE_webengine_system_libjpeg=ON
+        -DFEATURE_webengine_system_libpng=ON
+        -DFEATURE_webengine_system_libxml=ON
+        -DFEATURE_webengine_system_libwebp=ON
+        -DFEATURE_webengine_system_minizip=ON
+        -DFEATURE_webengine_system_opus=ON
+        -DFEATURE_webengine_system_poppler=ON
+        -DFEATURE_webengine_system_pulseaudio=ON
+        -DFEATURE_webengine_system_snappy=ON
+        -DFEATURE_webengine_system_zlib=ON
       ]
     end
 
