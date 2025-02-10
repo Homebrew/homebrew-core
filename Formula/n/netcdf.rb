@@ -1,10 +1,9 @@
 class Netcdf < Formula
   desc "Libraries and data formats for array-oriented scientific data"
   homepage "https://www.unidata.ucar.edu/software/netcdf/"
-  url "https://github.com/Unidata/netcdf-c/archive/refs/tags/v4.9.2.tar.gz"
-  sha256 "bc104d101278c68b303359b3dc4192f81592ae8640f1aee486921138f7f88cb7"
+  url "https://github.com/Unidata/netcdf-c/archive/refs/tags/v4.9.3.tar.gz"
+  sha256 "990f46d49525d6ab5dc4249f8684c6deeaf54de6fec63a187e9fb382cc0ffdff"
   license "BSD-3-Clause"
-  revision 2
   head "https://github.com/Unidata/netcdf-c.git", branch: "main"
 
   livecheck do
@@ -31,6 +30,7 @@ class Netcdf < Formula
   uses_from_macos "libxml2"
 
   on_macos do
+    depends_on "libaec"
     depends_on "zstd"
   end
 
@@ -44,7 +44,7 @@ class Netcdf < Formula
     system "cmake", "--install", "build_shared"
     system "cmake", "-S", ".", "-B", "build_static", *args, "-DBUILD_SHARED_LIBS=OFF", *std_cmake_args
     system "cmake", "--build", "build_static"
-    lib.install "build_static/liblib/libnetcdf.a"
+    lib.install "build_static/libnetcdf.a"
 
     # Remove shim paths
     inreplace [bin/"nc-config", lib/"pkgconfig/netcdf.pc", lib/"cmake/netCDF/netCDFConfig.cmake",

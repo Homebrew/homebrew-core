@@ -2243,6 +2243,7 @@ nerdfix
 nest
 nestopia-ue
 netaddr
+netcdf
 nethogs
 netlify-cli
 nettle
