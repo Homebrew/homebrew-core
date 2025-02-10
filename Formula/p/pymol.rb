@@ -6,6 +6,7 @@ class Pymol < Formula
   url "https://github.com/schrodinger/pymol-open-source/archive/refs/tags/v3.1.0.tar.gz"
   sha256 "54306d65060bd58ed8b3dab1a8af521aeb4fd417871f15f463ff05ccb4e121fe"
   license :cannot_represent
+  revision 1
   head "https://github.com/schrodinger/pymol-open-source.git", branch: "master"
 
   bottle do
