@@ -4,6 +4,7 @@ class Ncview < Formula
   url "https://cirrus.ucsd.edu/~pierce/ncview/ncview-2.1.11.tar.gz"
   sha256 "597cfddf9c2d7993e9b0b86bca1b73839567ee9116ee33f6d750a449b5033d91"
   license "GPL-3.0-only"
+  revision 1
 
   livecheck do
     url :homepage
