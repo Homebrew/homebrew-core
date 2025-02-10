@@ -4,6 +4,7 @@ class GrpcSwift < Formula
   url "https://github.com/grpc/grpc-swift/archive/refs/tags/1.24.2.tar.gz"
   sha256 "06f504ec5ce4b375e48e25983d06bb7f55dea126a65669d326def832c8da3581"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/grpc/grpc-swift.git", branch: "main"
 
   livecheck do

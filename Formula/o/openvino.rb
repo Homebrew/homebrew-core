@@ -4,7 +4,7 @@ class Openvino < Formula
   desc "Open Visual Inference And Optimization toolkit for AI inference"
   homepage "https://docs.openvino.ai"
   license "Apache-2.0"
-  revision 1
+  revision 2
   head "https://github.com/openvinotoolkit/openvino.git", branch: "master"
 
   stable do
