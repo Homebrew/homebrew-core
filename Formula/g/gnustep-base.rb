@@ -1,10 +1,9 @@
 class GnustepBase < Formula
   desc "Library of general-purpose, non-graphical Objective C objects"
   homepage "https://github.com/gnustep/libs-base"
-  url "https://github.com/gnustep/libs-base/releases/download/base-1_30_0/gnustep-base-1.30.0.tar.gz"
-  sha256 "00b5bc4179045b581f9f9dc3751b800c07a5d204682e3e0eddd8b5e5dee51faa"
+  url "https://github.com/gnustep/libs-base/releases/download/base-1_31_0/gnustep-base-1.31.0.tar.gz"
+  sha256 "d493ed2ba2a32f559f94e2ae5e339c440ae77d481dff1eb0d51eeac4d9127e33"
   license "GPL-2.0-or-later"
-  revision 2
 
   livecheck do
     url :stable
@@ -45,12 +44,6 @@ class GnustepBase < Formula
     depends_on "libobjc2"
     depends_on "zstd"
     fails_with :gcc
-  end
-
-  # fix incompatible pointer error, upstream pr ref, https://github.com/gnustep/libs-base/pull/414
-  patch do
-    url "https://github.com/gnustep/libs-base/commit/2b2dc3da7148fa6e01049aae89d3e456b5cc618f.patch?full_index=1"
-    sha256 "680a1911a7a600eca09ec25b2f5df82814652af2c345d48a8e5ef23959636fe6"
   end
 
   def install
