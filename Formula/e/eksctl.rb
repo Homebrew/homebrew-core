@@ -17,7 +17,8 @@ class Eksctl < Formula
   end
 
   depends_on "counterfeiter" => :build
-  depends_on "go" => :build
+  # use "go" again after https://github.com/eksctl-io/eksctl/issues/8209 is fixed and released
+  depends_on "go@1.23" => :build
   depends_on "go-bindata" => :build
   depends_on "ifacemaker" => :build
   depends_on "mockery" => :build
