@@ -4,6 +4,7 @@ class Cmus < Formula
   url "https://github.com/cmus/cmus/archive/refs/tags/v2.12.0.tar.gz"
   sha256 "44b96cd5f84b0d84c33097c48454232d5e6a19cd33b9b6503ba9c13b6686bfc7"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/cmus/cmus.git", branch: "master"
 
   bottle do
