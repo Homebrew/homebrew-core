@@ -4,7 +4,7 @@ class EasyTag < Formula
   url "https://download.gnome.org/sources/easytag/2.4/easytag-2.4.3.tar.xz"
   sha256 "fc51ee92a705e3c5979dff1655f7496effb68b98f1ada0547e8cbbc033b67dd5"
   license "GPL-2.0-or-later"
-  revision 10
+  revision 11
 
   bottle do
     sha256 arm64_sequoia:  "69174334e32cc36f5782d2357320dc68e49790a51ea6c1c2d9822e9566aa750f"
