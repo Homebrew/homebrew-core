@@ -8,10 +8,20 @@ class Statesmith < Formula
   depends_on "dotnet" => :build
 
   def install
+    os_arch =
+      case RUBY_PLATFORM
+      when /darwin/
+        Hardware::CPU.arm? ? "osx-arm64" : "osx-x86_64"
+      when /linux/
+        Hardware::CPU.arm? ? "linux-arm64" : "linux-x86_64"
+      else
+        raise "Unsupported platform: #{RUBY_PLATFORM}"
+      end
+
     chdir "src/StateSmith.Cli" do
       system "dotnet", "publish", "-c", "Release", "-p:PublishSingleFile=true", "--self-contained",
           "--framework", "net8.0", "/p:DefineConstants=SS_SINGLE_FILE_APPLICATION"
-      bin.install "./bin/Release/net8.0/osx-arm64/publish/StateSmith.Cli" => "ss.cli"
+      bin.install "./bin/Release/net8.0/#{os_arch}/publish/StateSmith.Cli" => "ss.cli"
     end
   end
 
