@@ -4,6 +4,7 @@ class Ocp < Formula
   url "https://stian.cubic.org/ocp/ocp-3.0.1.tar.xz"
   sha256 "60a03d73883ea9c5dd94253907fc2002aa229e0fc41febb17d7baa341b228db1"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/mywave82/opencubicplayer.git", branch: "master"
 
   livecheck do
