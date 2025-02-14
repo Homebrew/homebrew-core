@@ -11,9 +11,9 @@ class Statesmith < Formula
     os_arch =
       case RUBY_PLATFORM
       when /darwin/
-        Hardware::CPU.arm? ? "osx-arm64" : "osx-x86_64"
+        Hardware::CPU.arm? ? "osx-arm64" : "osx-x64"
       when /linux/
-        Hardware::CPU.arm? ? "linux-arm64" : "linux-x86_64"
+        Hardware::CPU.arm? ? "linux-arm64" : "linux-x64"
       else
         raise "Unsupported platform: #{RUBY_PLATFORM}"
       end
