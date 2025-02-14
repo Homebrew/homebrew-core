@@ -7,6 +7,7 @@ class Statesmith < Formula
 
   depends_on "dotnet" => :build
   depends_on "icu4c@76"
+  uses_from_macos "zlib"
 
   def install
     dotnet_os_arch =
