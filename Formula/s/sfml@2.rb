@@ -4,6 +4,7 @@ class SfmlAT2 < Formula
   url "https://www.sfml-dev.org/files/SFML-2.6.2-sources.zip"
   sha256 "19d6dbd9c901c74441d9888c13cb1399f614fe8993d59062a72cfbceb00fed04"
   license "Zlib"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "81de83008ed518d05566483013d6bd9fcf2deb990a9c573e196e63d3010cc630"
