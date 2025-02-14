@@ -5,6 +5,7 @@ class Sfml < Formula
   url "https://www.sfml-dev.org/files/SFML-3.0.0-sources.zip"
   sha256 "8cc41db46b59f07c44ecf21c74a0f956d37735dec9d90ff4522856cb162ba642"
   license "Zlib"
+  revision 1
   head "https://github.com/SFML/SFML.git", branch: "master"
 
   bottle do
