@@ -9,7 +9,7 @@ class VorbisTools < Formula
     "GPL-2.0-or-later", # share/
     "GPL-2.0-only", # oggenc/, vorbiscomment/
   ]
-  revision 1
+  revision 2
 
   livecheck do
     url "https://ftp.osuosl.org/pub/xiph/releases/vorbis/?C=M&O=D"
