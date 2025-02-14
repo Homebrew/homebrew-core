@@ -6,6 +6,7 @@ class Statesmith < Formula
   license "Apache-2.0"
 
   depends_on "dotnet" => :build
+  depends_on "icu4c@76"
 
   def install
     dotnet_os_arch =
