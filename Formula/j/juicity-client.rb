@@ -13,28 +13,6 @@ class JuicityClient < Formula
     bin.install "juicity-client"
   end
 
-  def post_install
-    (etc/"juicity").mkpath
-    File.write "#{etc}/juicity/client.json", <<~EOS
-      {
-        "listen": ":1080",
-        "server": "<ip or domain>:<port>",
-        "uuid": "00000000-0000-0000-0000-000000000000",
-        "password": "my_password",
-        "sni": "www.example.com",
-        "allow_insecure": false,
-        "congestion_control": "bbr",
-        "log_level": "info",
-        "pinned_certchain_sha256": "aQc4fdF4Nh1PD6MsCB3eofRyfRz5R8jJ1afgr37ABZs=",
-        "forward": {
-          "127.0.0.1:12322": "127.0.0.1:22",
-          "0.0.0.0:5201/tcp": "127.0.0.1:5201",
-          "0.0.0.0:5353/udp": "8.8.8.8:53"
-        }
-      }
-    EOS
-  end
-
   service do
     run [opt_bin/"juicity-client", "run", "-c", etc/"juicity/client.json"]
     working_dir opt_prefix

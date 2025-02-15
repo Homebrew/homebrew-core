@@ -14,26 +14,6 @@ class JuicityServer < Formula
     bin.install "juicity-server"
   end
 
-  def post_install
-    (etc/"juicity").mkpath
-    File.write "#{etc}/juicity/server.json", <<~EOS
-      {
-        "listen": ":23182",
-        "users": {
-          "00000000-0000-0000-0000-000000000000": "my_password"
-        },
-        "certificate": "/path/to/fullchain.cer",
-        "private_key": "/path/to/private.key",
-        "congestion_control": "bbr",
-        "log_level": "info",
-        "fwmark": "0x1000",
-        "send_through": "113.25.132.3",
-        "dialer_link": "socks5://127.0.0.1:1080",
-        "disable_outbound_udp443": true
-      }
-    EOS
-  end
-
   service do
     run [opt_bin/"juicity-server", "run", "-c", etc/"juicity/server.json"]
     working_dir opt_prefix
