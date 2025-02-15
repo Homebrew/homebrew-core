@@ -27,7 +27,7 @@ class PythonAT313 < Formula
   depends_on "xz"
 
   uses_from_macos "bzip2"
-  uses_from_macos "expat", since: :sequoia
+  uses_from_macos "expat"
   uses_from_macos "libedit"
   uses_from_macos "libffi", since: :catalina
   uses_from_macos "ncurses"
@@ -54,6 +54,16 @@ class PythonAT313 < Formula
   link_overwrite "Frameworks/Python.framework/Resources"
   link_overwrite "Frameworks/Python.framework/Versions/Current"
 
+  # Align with the libexpat version in latest Ventura/Sonoma (will likely remain at 2.6.3).
+  # TODO: Automatically handle in brew to avoid maintaining workaround in multiple formulae
+  resource "expat.h" do
+    on_sonoma :or_older do
+      url "https://raw.githubusercontent.com/libexpat/libexpat/refs/tags/R_2_6_3/expat/lib/expat.h"
+      version "2.6.3"
+      sha256 "7bd4e53a8015534b5bbb58afe1a131b3989d3d4fca29bca685c44d34bcaa2555"
+    end
+  end
+
   # Always update to latest release
   resource "flit-core" do
     url "https://files.pythonhosted.org/packages/d5/ae/09427bea9227a33ec834ed5461432752fd5d02b14f93dd68406c91684622/flit_core-3.10.1.tar.gz"
@@ -61,8 +71,8 @@ class PythonAT313 < Formula
   end
 
   resource "pip" do
-    url "https://files.pythonhosted.org/packages/47/3e/68beeeeb306ea20ffd30b3ed993f531d16cd884ec4f60c9b1e238f69f2af/pip-25.0.tar.gz"
-    sha256 "8e0a97f7b4c47ae4a494560da84775e9e2f671d415d8d828e052efefb206b30b"
+    url "https://files.pythonhosted.org/packages/70/53/b309b4a497b09655cb7e07088966881a57d082f48ac3cb54ea729fd2c6cf/pip-25.0.1.tar.gz"
+    sha256 "88f96547ea48b940a3a385494e181e29fb8637898f88d88737c5049780f196ea"
   end
 
   resource "setuptools" do
@@ -81,6 +91,16 @@ class PythonAT313 < Formula
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/8b5bcbb262d1ea4e572bba55043bf7d2341a6821/python/3.13-sysconfig.diff"
     sha256 "e1c2699cf3e39731a19207ed69400a67336cda7767aa08f6f46029f26b1d733b"
+  end
+
+  def need_expat_header?
+    on_ventura do
+      return MacOS.full_version >= "13.7.2"
+    end
+    on_sonoma do
+      return MacOS.full_version >= "14.7.2"
+    end
+    false
   end
 
   def lib_cellar
@@ -111,11 +131,17 @@ class PythonAT313 < Formula
     ENV["PYTHONHOME"] = nil
     ENV["PYTHONPATH"] = nil
 
-    # Override the auto-detection of libmpdec, which assumes a universal build.
-    # This is currently an inreplace due to https://github.com/python/cpython/issues/98557.
     if OS.mac?
+      # Override the auto-detection of libmpdec, which assumes a universal build.
+      # This is currently an inreplace due to https://github.com/python/cpython/issues/98557.
       inreplace "configure", "libmpdec_machine=universal",
                 "libmpdec_machine=#{ENV["PYTHON_DECIMAL_WITH_MACHINE"] = Hardware::CPU.arm? ? "uint128" : "x64"}"
+
+      # Workaround for libexpat changes in 13.7.2 and 14.7.2
+      if need_expat_header?
+        (buildpath/"expat").install resource("expat.h")
+        ENV.append_to_cflags "-I#{buildpath}/expat"
+      end
     end
 
     # The --enable-optimization and --with-lto flags diverge from what upstream
@@ -180,9 +206,7 @@ class PythonAT313 < Formula
     args << "CPPFLAGS=#{cppflags.join(" ")}" unless cppflags.empty?
 
     # Disabled modules - provided in separate formulae
-    args += %w[
-      py_cv_module__tkinter=n/a
-    ]
+    args << "py_cv_module__tkinter=n/a"
 
     system "./configure", *args
     system "make"
@@ -458,6 +482,12 @@ class PythonAT313 < Formula
   end
 
   test do
+    # Check if expat.h version matches system libexpat
+    if need_expat_header?
+      expat_version = shell_output("#{python3} -c 'import pyexpat; print(pyexpat.EXPAT_VERSION)'")
+      assert_equal "expat_#{resource("expat.h").version}", expat_version.chomp
+    end
+
     # Check if sqlite is ok, because we build with --enable-loadable-sqlite-extensions
     # and it can occur that building sqlite silently fails if OSX's sqlite is used.
     system python3, "-c", "import sqlite3"
