@@ -60,13 +60,13 @@ class Lcm < Formula
       }
     EOS
     system bin/"lcm-gen", "-c", "example_t.lcm"
-    assert_predicate testpath/"exlcm_example_t.h", :exist?, "lcm-gen did not generate C header file"
-    assert_predicate testpath/"exlcm_example_t.c", :exist?, "lcm-gen did not generate C source file"
+    assert_path_exists testpath/"exlcm_example_t.h", "lcm-gen did not generate C header file"
+    assert_path_exists testpath/"exlcm_example_t.c", "lcm-gen did not generate C source file"
     system bin/"lcm-gen", "-x", "example_t.lcm"
-    assert_predicate testpath/"exlcm/example_t.hpp", :exist?, "lcm-gen did not generate C++ header file"
+    assert_path_exists testpath/"exlcm/example_t.hpp", "lcm-gen did not generate C++ header file"
     system bin/"lcm-gen", "-j", "example_t.lcm"
-    assert_predicate testpath/"exlcm/example_t.java", :exist?, "lcm-gen did not generate Java source file"
+    assert_path_exists testpath/"exlcm/example_t.java", "lcm-gen did not generate Java source file"
     system bin/"lcm-gen", "-p", "example_t.lcm"
-    assert_predicate testpath/"exlcm/example_t.py", :exist?, "lcm-gen did not generate Python source file"
+    assert_path_exists testpath/"exlcm/example_t.py", "lcm-gen did not generate Python source file"
   end
 end
