@@ -30,9 +30,9 @@ class F2 < Formula
     touch "test1-foo.foo"
     touch "test2-foo.foo"
     system bin/"f2", "-s", "-f", ".foo", "-r", ".bar", "-x"
-    assert_predicate testpath/"test1-foo.bar", :exist?
-    assert_predicate testpath/"test2-foo.bar", :exist?
-    refute_predicate testpath/"test1-foo.foo", :exist?
-    refute_predicate testpath/"test2-foo.foo", :exist?
+    assert_path_exists testpath/"test1-foo.bar"
+    assert_path_exists testpath/"test2-foo.bar"
+    refute_path_exists testpath/"test1-foo.foo"
+    refute_path_exists testpath/"test2-foo.foo"
   end
 end
