@@ -31,6 +31,6 @@ class JxlOxide < Formula
     resource("sunset-logo-jxl").stage do
       system bin/"jxl-oxide", "input.jxl", "-o", testpath/"out.png"
     end
-    assert_predicate testpath/"out.png", :exist?
+    assert_path_exists testpath/"out.png"
   end
 end
