@@ -25,6 +25,6 @@ class Ignite < Formula
     ENV["DO_NOT_TRACK"] = "1"
     system bin/"ignite", "s", "chain", "mars"
     sleep 2
-    assert_predicate testpath/"mars/go.mod", :exist?
+    assert_path_exists testpath/"mars/go.mod"
   end
 end
