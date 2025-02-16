@@ -88,7 +88,7 @@ class Luajit < Formula
     # Check that LuaJIT can find its own `jit.*` modules
     touch "empty.lua"
     system bin/"luajit", "-b", "-o", "osx", "empty.lua", "empty.o"
-    assert_predicate testpath/"empty.o", :exist?
+    assert_path_exists testpath/"empty.o"
 
     # Check that we're not affected by LuaJIT/LuaJIT/issues/865.
     require "macho"
