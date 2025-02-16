@@ -26,6 +26,6 @@ class MypaintBrushes < Formula
   end
 
   test do
-    assert_predicate share.glob("mypaint-data/*/brushes/classic/marker_small_prev.png").first, :exist?
+    assert_path_exists share.glob("mypaint-data/*/brushes/classic/marker_small_prev.png").first
   end
 end
