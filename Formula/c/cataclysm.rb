@@ -83,8 +83,7 @@ class Cataclysm < Formula
     pid = spawn bin/"cataclysm"
     begin
       sleep 50
-      assert_predicate user_config_dir/"config",
-                       :exist?, "User config directory should exist"
+      assert_path_exists user_config_dir/"config", "User config directory should exist"
     ensure
       Process.kill("TERM", pid)
     end
