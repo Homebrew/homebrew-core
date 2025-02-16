@@ -50,6 +50,6 @@ class Geogram < Formula
 
     resource("homebrew-bunny").stage { testpath.install Dir["*"].first => "bunny.xyz" }
     system bin/"vorpalite", "profile=reconstruct", "bunny.xyz", "bunny.meshb"
-    assert_predicate testpath/"bunny.meshb", :exist?, "bunny.meshb should exist!"
+    assert_path_exists testpath/"bunny.meshb", "bunny.meshb should exist!"
   end
 end
