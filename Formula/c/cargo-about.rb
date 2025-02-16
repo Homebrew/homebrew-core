@@ -48,7 +48,7 @@ class CargoAbout < Formula
       TOML
 
       system bin/"cargo-about", "init"
-      assert_predicate crate/"about.hbs", :exist?
+      assert_path_exists crate/"about.hbs"
 
       expected = <<~EOS
         accepted = [
