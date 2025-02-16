@@ -47,6 +47,6 @@ class GatsbyCli < Formula
 
   test do
     system bin/"gatsby", "new", "hello-world", "https://github.com/gatsbyjs/gatsby-starter-hello-world"
-    assert_predicate testpath/"hello-world/package.json", :exist?, "package.json was not cloned"
+    assert_path_exists testpath/"hello-world/package.json", "package.json was not cloned"
   end
 end
