@@ -35,13 +35,13 @@ class SafeRm < Formula
     touch foo
     touch bar
     system bin/"safe-rm", foo
-    refute_predicate foo, :exist?
+    refute_path_exists foo
     if OS.linux?
       shell_output("#{bin}/safe-rm #{bar} 2>&1", 1)
     else
       shell_output("#{bin}/safe-rm #{bar} 2>&1", 64)
     end
 
-    assert_predicate bar, :exist?
+    assert_path_exists bar
   end
 end
