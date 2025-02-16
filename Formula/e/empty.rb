@@ -44,6 +44,6 @@ class Empty < Formula
 
     system bin/"empty", "-k", File.read(testpath/"test.pid")
     sleep 1
-    %w[in out test.pid].each { |file| refute_predicate testpath/file, :exist? }
+    %w[in out test.pid].each { |file| refute_path_exists testpath/file }
   end
 end
