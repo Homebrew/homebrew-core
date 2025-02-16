@@ -35,6 +35,6 @@ class GitFilterRepo < Formula
     # (expected freshly packed repo)
     system bin/"git-filter-repo", "--path-rename=foo:bar", "--force"
 
-    assert_predicate testpath/"bar", :exist?
+    assert_path_exists testpath/"bar"
   end
 end
