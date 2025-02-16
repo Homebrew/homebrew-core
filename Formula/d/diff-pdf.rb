@@ -38,6 +38,6 @@ class DiffPdf < Formula
   test do
     testpdf = test_fixtures("test.pdf")
     system bin/"diff-pdf", "--output-diff=no_diff.pdf", testpdf, testpdf
-    assert_predicate testpath/"no_diff.pdf", :exist?
+    assert_path_exists testpath/"no_diff.pdf"
   end
 end
