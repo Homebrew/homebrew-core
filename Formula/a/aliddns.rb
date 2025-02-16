@@ -41,6 +41,6 @@ class Aliddns < Formula
   test do
     assert_match version.to_s, shell_output("#{bin}/aliddns -v 2>&1")
     assert_match "config created", shell_output("#{bin}/aliddns init --config=aliddns.yml 2>&1")
-    assert_predicate testpath/"aliddns.yml", :exist?
+    assert_path_exists testpath/"aliddns.yml"
   end
 end
