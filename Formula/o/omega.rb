@@ -33,6 +33,6 @@ class Omega < Formula
 
   test do
     system bin/"omindex", "--db", "./test", "--url", "/", share/"doc/xapian-omega"
-    assert_predicate testpath/"./test/flintlock", :exist?
+    assert_path_exists testpath/"./test/flintlock"
   end
 end
