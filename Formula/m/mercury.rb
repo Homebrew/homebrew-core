@@ -53,12 +53,12 @@ class Mercury < Formula
     EOS
 
     system bin/"mmc", "-o", "hello_c", "hello"
-    assert_predicate testpath/"hello_c", :exist?
+    assert_path_exists testpath/"hello_c"
 
     assert_equal test_string, shell_output("#{testpath}/hello_c")
 
     system bin/"mmc", "--grade", "java", "hello"
-    assert_predicate testpath/"hello", :exist?
+    assert_path_exists testpath/"hello"
 
     assert_equal test_string, shell_output("#{testpath}/hello")
   end
