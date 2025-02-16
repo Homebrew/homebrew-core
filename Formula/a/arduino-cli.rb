@@ -36,7 +36,7 @@ class ArduinoCli < Formula
 
   test do
     system bin/"arduino-cli", "sketch", "new", "test_sketch"
-    assert_predicate testpath/"test_sketch/test_sketch.ino", :exist?
+    assert_path_exists testpath/"test_sketch/test_sketch.ino"
 
     assert_match version.to_s, shell_output("#{bin}/arduino-cli version")
   end
