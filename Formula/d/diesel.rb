@@ -30,6 +30,6 @@ class Diesel < Formula
     ENV["DATABASE_URL"] = "db.sqlite"
     system "cargo", "init"
     system bin/"diesel", "setup"
-    assert_predicate testpath/"db.sqlite", :exist?, "SQLite database should be created"
+    assert_path_exists testpath/"db.sqlite", "SQLite database should be created"
   end
 end
