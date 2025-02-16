@@ -27,6 +27,6 @@ class Fastp < Formula
 
   test do
     system bin/"fastp", "-i", pkgshare/"testdata/R1.fq", "-o", "out.fq"
-    assert_predicate testpath/"out.fq", :exist?
+    assert_path_exists testpath/"out.fq"
   end
 end
