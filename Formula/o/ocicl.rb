@@ -48,7 +48,7 @@ class Ocicl < Formula
 
   test do
     system bin/"ocicl", "install", "chat"
-    assert_predicate testpath/"systems.csv", :exist?
+    assert_path_exists testpath/"systems.csv"
 
     version_files = testpath.glob("systems/cl-chat*/_00_OCICL_VERSION")
     assert_equal 1, version_files.length, "Expected exactly one _00_OCICL_VERSION file"
