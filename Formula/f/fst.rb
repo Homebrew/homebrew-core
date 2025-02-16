@@ -44,7 +44,7 @@ class Fst < Formula
       two,2
     EOF
     system bin/"fst", "map", "--sorted", testpath/"map.csv", testpath/"map.fst"
-    assert_predicate testpath/"map.fst", :exist?
+    assert_path_exists testpath/"map.fst"
     system bin/"fst", "verify", testpath/"map.fst"
     assert_equal expected, shell_output("#{bin}/fst grep -o #{testpath}/map.fst 'tw.*'")
   end
