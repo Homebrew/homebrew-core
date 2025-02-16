@@ -34,8 +34,8 @@ class Rdfind < Formula
     (testpath/"folder/file2").write("bar")
     (testpath/"folder/file3").write("foo")
     system bin/"rdfind", "-deleteduplicates", "true", "folder"
-    assert_predicate testpath/"folder/file1", :exist?
-    assert_predicate testpath/"folder/file2", :exist?
-    refute_predicate testpath/"folder/file3", :exist?
+    assert_path_exists testpath/"folder/file1"
+    assert_path_exists testpath/"folder/file2"
+    refute_path_exists testpath/"folder/file3"
   end
 end
