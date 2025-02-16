@@ -32,6 +32,6 @@ class CargoFuzz < Formula
 
     system "cargo", "init"
     system bin/"cargo-fuzz", "init"
-    assert_predicate testpath/"fuzz/Cargo.toml", :exist?
+    assert_path_exists testpath/"fuzz/Cargo.toml"
   end
 end
