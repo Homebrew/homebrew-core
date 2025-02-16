@@ -66,10 +66,10 @@ class Spago < Formula
 
   test do
     system bin/"spago", "init"
-    assert_predicate testpath/"packages.dhall", :exist?
-    assert_predicate testpath/"spago.dhall", :exist?
-    assert_predicate testpath/"src"/"Main.purs", :exist?
+    assert_path_exists testpath/"packages.dhall"
+    assert_path_exists testpath/"spago.dhall"
+    assert_path_exists testpath/"src"/"Main.purs"
     system bin/"spago", "build"
-    assert_predicate testpath/"output"/"Main"/"index.js", :exist?
+    assert_path_exists testpath/"output"/"Main"/"index.js"
   end
 end
