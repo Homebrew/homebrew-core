@@ -40,6 +40,6 @@ class Bento4 < Formula
 
   test do
     system bin/"mp4mux", "--track", test_fixtures("test.m4a"), "out.mp4"
-    assert_predicate testpath/"out.mp4", :exist?, "Failed to create out.mp4!"
+    assert_path_exists testpath/"out.mp4", "Failed to create out.mp4!"
   end
 end
