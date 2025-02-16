@@ -32,7 +32,7 @@ class CartridgeCli < Formula
     project_path = Pathname("test-project")
     rm_r(project_path) if project_path.exist?
     system bin/"cartridge", "create", "--name", project_path
-    assert_predicate project_path, :exist?
-    assert_predicate project_path.join("init.lua"), :exist?
+    assert_path_exists project_path
+    assert_path_exists project_path.join("init.lua")
   end
 end
