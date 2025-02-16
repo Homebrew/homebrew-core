@@ -105,7 +105,7 @@ class Lilypond < Formula
   test do
     (testpath/"test.ly").write "\\relative { c' d e f g a b c }"
     system bin/"lilypond", "--loglevel=ERROR", "test.ly"
-    assert_predicate testpath/"test.pdf", :exist?
+    assert_path_exists testpath/"test.pdf"
 
     output = shell_output("#{bin}/lilypond --define-default=show-available-fonts 2>&1")
              .encode("UTF-8", invalid: :replace, replace: "\ufffd")
