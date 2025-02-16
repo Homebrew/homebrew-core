@@ -24,7 +24,7 @@ class ApifyCli < Formula
   test do
     output = shell_output("#{bin}/apify init -y testing-actor 2>&1")
     assert_includes output, "Success: The Actor has been initialized in the current directory"
-    assert_predicate testpath/"storage/key_value_stores/default/INPUT.json", :exist?
+    assert_path_exists testpath/"storage/key_value_stores/default/INPUT.json"
 
     assert_includes shell_output("#{bin}/apify --version 2>&1"), version.to_s
   end
