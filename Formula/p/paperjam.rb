@@ -34,6 +34,6 @@ class Paperjam < Formula
 
   test do
     system bin/"paperjam", "modulo(2) { 1, 2: rotate(180) }", test_fixtures("test.pdf"), "output.pdf"
-    assert_predicate testpath/"output.pdf", :exist?
+    assert_path_exists testpath/"output.pdf"
   end
 end
