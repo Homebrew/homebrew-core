@@ -25,6 +25,6 @@ class Nq < Formula
   test do
     system bin/"nq", "touch", "TEST"
     assert_match "exited with status 0", shell_output("#{bin}/nqtail -a 2>&1")
-    assert_predicate testpath/"TEST", :exist?
+    assert_path_exists testpath/"TEST"
   end
 end
