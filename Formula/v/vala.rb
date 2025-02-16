@@ -56,7 +56,7 @@ class Vala < Formula
     ]
 
     system bin/"valac", *valac_args
-    assert_predicate testpath/"hello.c", :exist?
+    assert_path_exists testpath/"hello.c"
 
     assert_equal test_string, shell_output("#{testpath}/hello")
   end
