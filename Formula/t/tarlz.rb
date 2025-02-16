@@ -41,7 +41,7 @@ class Tarlz < Formula
     mkdir_p dpath
 
     system bin/"tarlz", "-C", testpath, "-cf", lzipfilepath, "source"
-    assert_predicate lzipfilepath, :exist?
+    assert_path_exists lzipfilepath
 
     system bin/"tarlz", "-C", dpath, "-xf", lzipfilepath
     assert_equal "TEST CONTENT", dtestfilepath.read
