@@ -372,6 +372,6 @@ class Charmcraft < Formula
     system bin/"charmcraft", "version"
     system bin/"charmcraft", "help"
     system bin/"charmcraft", "init", "--author", "Foo Bar", "-p", testpath/"charm"
-    assert_predicate testpath/"charm/charmcraft.yaml", :exist?
+    assert_path_exists testpath/"charm/charmcraft.yaml"
   end
 end
