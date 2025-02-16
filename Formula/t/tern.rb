@@ -164,7 +164,7 @@ class Tern < Formula
       shell_output(bin/"tern report --image alpine:3.13.5 2>&1")
     end
     assert_match "rootfs - Running command", output
-    assert_predicate testpath/"tern.log", :exist?
+    assert_path_exists testpath/"tern.log"
 
     assert_match version.to_s, shell_output(bin/"tern --version")
   end
