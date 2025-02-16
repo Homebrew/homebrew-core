@@ -34,6 +34,6 @@ class Antidote < Formula
 
     system "zsh", "--login", "-i", "-c", "antidote install rupa/z"
     assert_equal (testpath/".zsh_plugins.txt").read, "rupa/z\n"
-    assert_predicate testpath/".zplugins/https-COLON--SLASH--SLASH-github.com-SLASH-rupa-SLASH-z/z.sh", :exist?
+    assert_path_exists testpath/".zplugins/https-COLON--SLASH--SLASH-github.com-SLASH-rupa-SLASH-z/z.sh"
   end
 end
