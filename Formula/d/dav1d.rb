@@ -36,7 +36,7 @@ class Dav1d < Formula
     testpath.install resource("homebrew-00000000.ivf")
     system bin/"dav1d", "-i", testpath/"00000000.ivf", "-o", testpath/"00000000.md5"
 
-    assert_predicate (testpath/"00000000.md5"), :exist?
+    assert_path_exists (testpath/"00000000.md5")
     assert_match "0b31f7ae90dfa22cefe0f2a1ad97c620", (testpath/"00000000.md5").read
   end
 end
