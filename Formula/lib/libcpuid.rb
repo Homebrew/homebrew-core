@@ -25,8 +25,8 @@ class Libcpuid < Formula
 
   test do
     system bin/"cpuid_tool"
-    assert_predicate testpath/"raw.txt", :exist?
-    assert_predicate testpath/"report.txt", :exist?
+    assert_path_exists testpath/"raw.txt"
+    assert_path_exists testpath/"report.txt"
     assert_match "CPUID is present", File.read(testpath/"report.txt")
   end
 end
