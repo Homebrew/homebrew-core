@@ -42,7 +42,7 @@ class AnsibleCreator < Formula
     ENV["ANSIBLE_REMOTE_TEMP"] = testpath/"tmp"
     system bin/"ansible-creator", "init", "examplenamespace.examplename",
       "--init-path", testpath/"example"
-    assert_predicate testpath/"example/galaxy.yml", :exist?
+    assert_path_exists testpath/"example/galaxy.yml"
 
     assert_match version.to_s, shell_output("#{bin}/ansible-creator --version")
   end
