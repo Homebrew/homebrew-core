@@ -24,7 +24,7 @@ class OpenscaCli < Formula
 
   test do
     system bin/"opensca-cli", "-path", testpath
-    assert_predicate testpath/"opensca.log", :exist?
+    assert_path_exists testpath/"opensca.log"
     assert_match version.to_s, shell_output(bin/"opensca-cli -version")
   end
 end
