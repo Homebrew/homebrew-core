@@ -48,6 +48,6 @@ class Gostatic < Formula
     (testpath/"src/index.md").write "Hello world!"
 
     system bin/"gostatic", testpath/"config"
-    assert_predicate testpath/"out/index.html", :exist?
+    assert_path_exists testpath/"out/index.html"
   end
 end
