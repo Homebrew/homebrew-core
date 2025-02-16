@@ -58,6 +58,6 @@ class Fop < Formula
       </xsl:stylesheet>
     EOS
     system bin/"fop", "-xml", "test.xml", "-xsl", "test.xsl", "-pdf", "test.pdf"
-    assert_predicate testpath/"test.pdf", :exist?
+    assert_path_exists testpath/"test.pdf"
   end
 end
