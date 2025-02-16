@@ -19,7 +19,7 @@ class Dynaconf < Formula
 
   test do
     system bin/"dynaconf", "init"
-    assert_predicate testpath/"settings.toml", :exist?
+    assert_path_exists testpath/"settings.toml"
     assert_match "from dynaconf import Dynaconf", (testpath/"config.py").read
   end
 end
