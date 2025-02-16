@@ -49,6 +49,6 @@ class Httrack < Formula
   test do
     download = "https://raw.githubusercontent.com/Homebrew/homebrew/65c59dedea31/.yardopts"
     system bin/"httrack", download, "-O", testpath
-    assert_predicate testpath/"raw.githubusercontent.com", :exist?
+    assert_path_exists testpath/"raw.githubusercontent.com"
   end
 end
