@@ -63,7 +63,7 @@ class Tile38 < Formula
     tile38_server = JSON.parse(json_output)
 
     assert_equal tile38_server["ok"], true
-    assert_predicate testpath/"data", :exist?
+    assert_path_exists testpath/"data"
   ensure
     Process.kill("HUP", pid)
   end
