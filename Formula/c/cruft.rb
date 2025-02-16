@@ -163,6 +163,6 @@ class Cruft < Formula
   test do
     system bin/"cruft", "create", "--no-input", "https://github.com/audreyr/cookiecutter-pypackage.git"
     assert (testpath/"python_boilerplate").directory?
-    assert_predicate testpath/"python_boilerplate/.cruft.json", :exist?
+    assert_path_exists testpath/"python_boilerplate/.cruft.json"
   end
 end
