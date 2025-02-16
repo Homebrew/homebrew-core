@@ -30,6 +30,6 @@ class Agg < Formula
       [6.541828, "o", "Bye!"]
     EOS
     system bin/"agg", "--verbose", "test.cast", "test.gif"
-    assert_predicate testpath/"test.gif", :exist?
+    assert_path_exists testpath/"test.gif"
   end
 end
