@@ -29,6 +29,6 @@ class Minica < Formula
 
   test do
     system bin/"minica", "--domains", "foo.com"
-    assert_predicate testpath/"minica.pem", :exist?
+    assert_path_exists testpath/"minica.pem"
   end
 end
