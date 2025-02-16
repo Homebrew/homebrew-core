@@ -27,7 +27,7 @@ class AdwaitaIconTheme < Formula
     # Someone who understands GTK4 could probably write better tests that
     # check if GTK4 can find the icons.
     png = "audio-headphones.png"
-    assert_predicate share/"icons/Adwaita/16x16/devices/#{png}", :exist?
-    assert_predicate share/"icons/Adwaita/index.theme", :exist?
+    assert_path_exists share/"icons/Adwaita/16x16/devices/#{png}"
+    assert_path_exists share/"icons/Adwaita/index.theme"
   end
 end
