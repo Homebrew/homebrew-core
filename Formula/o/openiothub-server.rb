@@ -45,6 +45,6 @@ class OpeniothubServer < Formula
   test do
     assert_match version.to_s, shell_output("#{bin}/openiothub-server -v 2>&1")
     assert_match "config created", shell_output("#{bin}/openiothub-server init --config=server.yml 2>&1")
-    assert_predicate testpath/"server.yml", :exist?
+    assert_path_exists testpath/"server.yml"
   end
 end
