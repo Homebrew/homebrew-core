@@ -32,7 +32,6 @@ class Bowtie2 < Formula
   test do
     system bin/"bowtie2-build",
            "#{pkgshare}/example/reference/lambda_virus.fa", "lambda_virus"
-    assert_predicate testpath/"lambda_virus.1.bt2", :exist?,
-                     "Failed to create viral alignment lambda_virus.1.bt2"
+    assert_path_exists testpath/"lambda_virus.1.bt2", "Failed to create viral alignment lambda_virus.1.bt2"
   end
 end
