@@ -61,6 +61,6 @@ class AbiComplianceChecker < Formula
     end
 
     system bin/"abi-compliance-checker", *args, "-lib", "foo", "-old", "foo.1.xml", "-new", "foo.2.xml"
-    assert_predicate testpath/"compat_reports/foo/1.0_to_2.0/compat_report.html", :exist?
+    assert_path_exists testpath/"compat_reports/foo/1.0_to_2.0/compat_report.html"
   end
 end
