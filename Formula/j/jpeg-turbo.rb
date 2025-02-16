@@ -68,6 +68,6 @@ class JpegTurbo < Formula
                            "-perfect",
                            "-outfile", "out.jpg",
                            test_fixtures("test.jpg")
-    assert_predicate testpath/"out.jpg", :exist?
+    assert_path_exists testpath/"out.jpg"
   end
 end
