@@ -62,6 +62,6 @@ class Pgsync < Formula
 
   test do
     system bin/"pgsync", "--init"
-    assert_predicate testpath/".pgsync.yml", :exist?
+    assert_path_exists testpath/".pgsync.yml"
   end
 end
