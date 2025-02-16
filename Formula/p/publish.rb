@@ -36,7 +36,7 @@ class Publish < Formula
   test do
     mkdir testpath/"test" do
       system bin/"publish", "new"
-      assert_predicate testpath/"test"/"Package.swift", :exist?
+      assert_path_exists testpath/"test"/"Package.swift"
     end
   end
 end
