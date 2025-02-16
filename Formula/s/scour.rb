@@ -28,6 +28,6 @@ class Scour < Formula
 
   test do
     system bin/"scour", "-i", test_fixtures("test.svg"), "-o", "scrubbed.svg"
-    assert_predicate testpath/"scrubbed.svg", :exist?
+    assert_path_exists testpath/"scrubbed.svg"
   end
 end
