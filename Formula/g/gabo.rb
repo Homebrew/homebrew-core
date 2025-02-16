@@ -29,6 +29,6 @@ class Gabo < Formula
     gabo_test.mkpath
     (gabo_test/".git").mkpath # Emulate git
     system bin/"gabo", "-dir", gabo_test, "-for", "lint-yaml", "-mode=generate"
-    assert_predicate gabo_test/".github/workflows/lint-yaml.yaml", :exist?
+    assert_path_exists gabo_test/".github/workflows/lint-yaml.yaml"
   end
 end
