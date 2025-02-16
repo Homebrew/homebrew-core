@@ -38,8 +38,8 @@ class TrashCli < Formula
 
   test do
     touch "testfile"
-    assert_predicate testpath/"testfile", :exist?
+    assert_path_exists testpath/"testfile"
     system bin/"trash-put", "testfile"
-    refute_predicate testpath/"testfile", :exist?
+    refute_path_exists testpath/"testfile"
   end
 end
