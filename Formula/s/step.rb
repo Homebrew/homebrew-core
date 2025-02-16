@@ -40,14 +40,14 @@ class Step < Formula
   test do
     # Generate a public / private key pair. Creates foo.pub and foo.priv.
     system bin/"step", "crypto", "keypair", "foo.pub", "foo.priv", "--no-password", "--insecure"
-    assert_predicate testpath/"foo.pub", :exist?
-    assert_predicate testpath/"foo.priv", :exist?
+    assert_path_exists testpath/"foo.pub"
+    assert_path_exists testpath/"foo.priv"
 
     # Generate a root certificate and private key with subject baz written to baz.crt and baz.key.
     system bin/"step", "certificate", "create", "--profile", "root-ca",
         "--no-password", "--insecure", "baz", "baz.crt", "baz.key"
-    assert_predicate testpath/"baz.crt", :exist?
-    assert_predicate testpath/"baz.key", :exist?
+    assert_path_exists testpath/"baz.crt"
+    assert_path_exists testpath/"baz.key"
     baz_crt = File.read(testpath/"baz.crt")
     assert_match(/^-----BEGIN CERTIFICATE-----.*/, baz_crt)
     assert_match(/.*-----END CERTIFICATE-----$/, baz_crt)
@@ -63,8 +63,8 @@ class Step < Formula
     system bin/"step", "certificate", "create", "--profile", "intermediate-ca",
         "--no-password", "--insecure", "--ca", "baz.crt", "--ca-key", "baz.key",
         "zap", "zap.crt", "zap.key"
-    assert_predicate testpath/"zap.crt", :exist?
-    assert_predicate testpath/"zap.key", :exist?
+    assert_path_exists testpath/"zap.crt"
+    assert_path_exists testpath/"zap.key"
     zap_crt = File.read(testpath/"zap.crt")
     assert_match(/^-----BEGIN CERTIFICATE-----.*/, zap_crt)
     assert_match(/.*-----END CERTIFICATE-----$/, zap_crt)
@@ -103,8 +103,8 @@ class Step < Formula
       system bin/"step", "ca", "certificate", "--token", token,
           "homebrew-smallstep-leaf", "brew.crt", "brew.key"
 
-      assert_predicate testpath/"brew.crt", :exist?
-      assert_predicate testpath/"brew.key", :exist?
+      assert_path_exists testpath/"brew.crt"
+      assert_path_exists testpath/"brew.key"
       brew_crt = File.read(testpath/"brew.crt")
       assert_match(/^-----BEGIN CERTIFICATE-----.*/, brew_crt)
       assert_match(/.*-----END CERTIFICATE-----$/, brew_crt)
