@@ -55,7 +55,7 @@ class Autoconf < Formula
 
     system bin/"autoconf"
     system "./configure"
-    assert_predicate testpath/"config.status", :exist?
+    assert_path_exists testpath/"config.status"
     assert_match(/\nCC=.*#{ENV.cc}/, (testpath/"config.log").read)
   end
 end
