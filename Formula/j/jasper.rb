@@ -59,6 +59,6 @@ class Jasper < Formula
   test do
     system bin/"jasper", "--input", test_fixtures("test.jpg"),
                          "--output", "test.bmp"
-    assert_predicate testpath/"test.bmp", :exist?
+    assert_path_exists testpath/"test.bmp"
   end
 end
