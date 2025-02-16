@@ -65,6 +65,6 @@ class Castget < Formula
     EOS
 
     system bin/"castget", "-C", testpath/"castgetrc"
-    assert_predicate testpath/"test.mp3", :exist?
+    assert_path_exists testpath/"test.mp3"
   end
 end
