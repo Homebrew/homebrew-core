@@ -33,7 +33,7 @@ class Bcpp < Formula
             test
     EOS
     system bin/"bcpp", "test.txt", "-fnc", "#{etc}/bcpp.cfg"
-    assert_predicate testpath/"test.txt.orig", :exist?
-    assert_predicate testpath/"test.txt", :exist?
+    assert_path_exists testpath/"test.txt.orig"
+    assert_path_exists testpath/"test.txt"
   end
 end
