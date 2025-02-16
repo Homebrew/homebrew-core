@@ -38,6 +38,6 @@ class Quex < Formula
 
   test do
     system bin/"quex", "-i", doc/"demo/C/01-Trivial/easy.qx", "-o", "tiny_lexer"
-    assert_predicate testpath/"tiny_lexer", :exist?
+    assert_path_exists testpath/"tiny_lexer"
   end
 end
