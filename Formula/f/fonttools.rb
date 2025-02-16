@@ -38,9 +38,9 @@ class Fonttools < Formula
       cp "/System/Library/Fonts/ZapfDingbats.ttf", testpath
 
       system bin/"ttx", "ZapfDingbats.ttf"
-      assert_predicate testpath/"ZapfDingbats.ttx", :exist?
+      assert_path_exists testpath/"ZapfDingbats.ttx"
       system bin/"fonttools", "ttLib.woff2", "compress", "ZapfDingbats.ttf"
-      assert_predicate testpath/"ZapfDingbats.woff2", :exist?
+      assert_path_exists testpath/"ZapfDingbats.woff2"
     else
       assert_match "usage", shell_output("#{bin}/ttx -h")
     end
