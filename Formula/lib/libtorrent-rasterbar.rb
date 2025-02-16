@@ -67,7 +67,7 @@ class LibtorrentRasterbar < Formula
     system ENV.cxx, libexec/"examples/make_torrent.cpp",
                     "-std=c++14", *args, "-o", "test"
     system "./test", test_fixtures("test.mp3"), "-o", "test.torrent"
-    assert_predicate testpath/"test.torrent", :exist?
+    assert_path_exists testpath/"test.torrent"
 
     system "python3.13", "-c", "import libtorrent"
   end
