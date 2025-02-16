@@ -47,7 +47,7 @@ class Configen < Formula
       retryCount : Int
     EOS
     system bin/"configen", "-p", "test.plist", "-h", "test.map", "-n", "AppConfig", "-o", testpath
-    assert_predicate testpath/"AppConfig.swift", :exist?, "Failed to create config class!"
+    assert_path_exists testpath/"AppConfig.swift", "Failed to create config class!"
     assert_match "static let testURL: URL = URL(string: \"https://example.com/api\")", File.read("AppConfig.swift")
     assert_match "static let retryCount: Int = 2", File.read("AppConfig.swift")
   end
