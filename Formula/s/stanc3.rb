@@ -43,7 +43,7 @@ class Stanc3 < Formula
     testpath.install resource("homebrew-testfile")
 
     system bin/"stanc", "algebra_solver_good.stan"
-    assert_predicate testpath/"algebra_solver_good.hpp", :exist?
+    assert_path_exists testpath/"algebra_solver_good.hpp"
 
     assert_match "stanc3 v#{version}", shell_output("#{bin}/stanc --version")
   end
