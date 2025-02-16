@@ -25,6 +25,6 @@ class Chkbit < Formula
   test do
     assert_match version.to_s, shell_output("#{bin}/chkbit version").chomp
     system bin/"chkbit", "init", "split", testpath
-    assert_predicate testpath/".chkbit", :exist?
+    assert_path_exists testpath/".chkbit"
   end
 end
