@@ -83,7 +83,7 @@ class Cmusfm < Formula
       Process.wait server
     end
 
-    assert_predicate cmusfm_cache, :exist?
+    assert_path_exists cmusfm_cache
     strings = shell_output "strings #{cmusfm_cache}"
     assert_match(/^#{test_artist}$/, strings)
     assert_match(/^#{test_title}$/, strings)
