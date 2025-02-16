@@ -35,6 +35,6 @@ class KaitaiStructCompiler < Formula
           type: u4
     EOS
     system bin/"kaitai-struct-compiler", "Test.ksy", "-t", "java", "--outdir", testpath
-    assert_predicate testpath/"Test.java", :exist?
+    assert_path_exists testpath/"Test.java"
   end
 end
