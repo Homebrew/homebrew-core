@@ -56,6 +56,6 @@ class Pymupdf < Formula
     out_png = testpath/"test.png"
 
     system python3, testpath/"test.py", in_pdf, out_png
-    assert_predicate out_png, :exist?
+    assert_path_exists out_png
   end
 end
