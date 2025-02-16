@@ -40,7 +40,7 @@ class Caire < Formula
     pid = fork do
       system bin/"caire", "-in", test_fixtures("test.png"), "-out", testpath/"test_out.png",
             "-width=1", "-height=1", "-perc=1"
-      assert_predicate testpath/"test_out.png", :exist?
+      assert_path_exists testpath/"test_out.png"
     end
 
     assert_match version.to_s, shell_output("#{bin}/caire -help 2>&1")
