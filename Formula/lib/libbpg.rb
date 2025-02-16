@@ -40,6 +40,6 @@ class Libbpg < Formula
 
   test do
     system bin/"bpgenc", test_fixtures("test.png")
-    assert_predicate testpath/"out.bpg", :exist?
+    assert_path_exists testpath/"out.bpg"
   end
 end
