@@ -34,6 +34,6 @@ class Ansilove < Formula
     assert_match "Font: 80x25", output
     assert_match "Id: SAUCE v00", output
     assert_match "Tinfos: IBM VGA", output
-    assert_predicate testpath/"output.png", :exist?
+    assert_path_exists testpath/"output.png"
   end
 end
