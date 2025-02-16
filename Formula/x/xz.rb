@@ -36,7 +36,7 @@ class Xz < Formula
 
     # compress: data.txt -> data.txt.xz
     system bin/"xz", path
-    refute_predicate path, :exist?
+    refute_path_exists path
 
     # decompress: data.txt.xz -> data.txt
     system bin/"xz", "-d", "#{path}.xz"
