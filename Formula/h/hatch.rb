@@ -210,7 +210,7 @@ class Hatch < Formula
   test do
     ENV["HATCH_PYTHON"] = "self"
     system bin/"hatch", "new", "homebrew"
-    assert_predicate testpath/"homebrew/pyproject.toml", :exist?
+    assert_path_exists testpath/"homebrew/pyproject.toml"
 
     cd testpath/"homebrew" do
       inreplace "pyproject.toml", "dependencies = []", "dependencies = ['requests==2.31.0']"
