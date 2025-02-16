@@ -20,7 +20,7 @@ class Fileicon < Formula
   test do
     icon = test_fixtures "test.png"
     system bin/"fileicon", "set", testpath, icon
-    assert_predicate testpath/"Icon\r", :exist?
+    assert_path_exists testpath/"Icon\r"
     stdout = shell_output "#{bin}/fileicon test #{testpath}"
     assert_includes stdout, "HAS custom icon: folder '#{testpath}'"
   end
