@@ -31,6 +31,6 @@ class Agedu < Formula
 
   test do
     system bin/"agedu", "-s", "."
-    assert_predicate testpath/"agedu.dat", :exist?
+    assert_path_exists testpath/"agedu.dat"
   end
 end
