@@ -31,6 +31,6 @@ class Tippecanoe < Formula
       {"type":"Feature","properties":{},"geometry":{"type":"Point","coordinates":[0,0]}}
     JSON
     safe_system bin/"tippecanoe", "-o", "test.mbtiles", "test.json"
-    assert_predicate testpath/"test.mbtiles", :exist?, "tippecanoe generated no output!"
+    assert_path_exists testpath/"test.mbtiles", "tippecanoe generated no output!"
   end
 end
