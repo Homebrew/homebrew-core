@@ -64,7 +64,7 @@ class Janet < Formula
     janet = bin/"janet"
     jpm = HOMEBREW_PREFIX/"bin/jpm"
     assert_equal "12", shell_output("#{janet} -e '(print (+ 5 7))'").strip
-    assert_predicate jpm, :exist?, "jpm must exist"
+    assert_path_exists jpm, "jpm must exist"
     assert_predicate jpm, :executable?, "jpm must be executable"
     assert_match syspath.to_s, shell_output("#{jpm} show-paths")
   end
