@@ -42,7 +42,7 @@ class OdoDev < Formula
     ENV["GLOBALODOCONFIG"] = "#{testpath}/preference.yaml"
     system bin/"odo", "preference", "set", "ConsentTelemetry", "false"
     system bin/"odo", "preference", "add", "registry", "StagingRegistry", "https://registry.stage.devfile.io"
-    assert_predicate testpath/"preference.yaml", :exist?
+    assert_path_exists testpath/"preference.yaml"
 
     # test version
     version_output = shell_output("#{bin}/odo version --client 2>&1").strip
@@ -50,7 +50,7 @@ class OdoDev < Formula
 
     # try to create a new component
     system bin/"odo", "init", "--devfile", "nodejs", "--name", "test", "--devfile-registry", "StagingRegistry"
-    assert_predicate testpath/"devfile.yaml", :exist?
+    assert_path_exists testpath/"devfile.yaml"
 
     dev_output = shell_output("#{bin}/odo dev 2>&1", 1).strip
     assert_match "✗  unable to access the cluster", dev_output
