@@ -29,7 +29,7 @@ class Juicefs < Formula
 
   test do
     output = shell_output("#{bin}/juicefs format sqlite3://test.db testfs 2>&1")
-    assert_predicate testpath/"test.db", :exist?
+    assert_path_exists testpath/"test.db"
     assert_match "Meta address: sqlite3://test.db", output
   end
 end
