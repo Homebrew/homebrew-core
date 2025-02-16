@@ -24,6 +24,6 @@ class Babel < Formula
     JS
 
     system bin/"babel", "script.js", "--out-file", "script-compiled.js"
-    assert_predicate testpath/"script-compiled.js", :exist?, "script-compiled.js was not generated"
+    assert_path_exists testpath/"script-compiled.js", "script-compiled.js was not generated"
   end
 end
