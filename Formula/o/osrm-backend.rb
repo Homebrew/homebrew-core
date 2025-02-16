@@ -113,7 +113,7 @@ class OsrmBackend < Formula
 
     safe_system bin/"osrm-extract", "test.osm", "--profile", "tiny-profile.lua"
     safe_system bin/"osrm-contract", "test.osrm"
-    assert_predicate testpath/"test.osrm.names", :exist?, "osrm-extract generated no output!"
+    assert_path_exists testpath/"test.osrm.names", "osrm-extract generated no output!"
   end
 end
 
