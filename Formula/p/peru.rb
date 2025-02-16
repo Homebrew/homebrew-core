@@ -42,7 +42,7 @@ class Peru < Formula
     YAML
 
     system bin/"peru", "sync"
-    assert_predicate testpath/".peru", :exist?
-    assert_predicate testpath/"peru", :exist?
+    assert_path_exists testpath/".peru"
+    assert_path_exists testpath/"peru"
   end
 end
