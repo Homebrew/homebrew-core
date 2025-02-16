@@ -58,6 +58,6 @@ class Clipboard < Formula
     ENV["CLIPBOARD_NOGUI"] = "1"
     system bin/"cb", "copy", test_fixtures("test.png")
     system bin/"cb", "paste"
-    assert_predicate testpath/"test.png", :exist?
+    assert_path_exists testpath/"test.png"
   end
 end
