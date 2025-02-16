@@ -36,6 +36,6 @@ class Rio < Formula
     # which is the case of x86 in the CI
 
     system bin/"rio", "-e", "touch", testpath/"testfile"
-    assert_predicate testpath/"testfile", :exist?
+    assert_path_exists testpath/"testfile"
   end
 end
