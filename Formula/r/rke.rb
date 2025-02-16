@@ -33,6 +33,6 @@ class Rke < Formula
 
   test do
     system bin/"rke", "config", "-e"
-    assert_predicate testpath/"cluster.yml", :exist?
+    assert_path_exists testpath/"cluster.yml"
   end
 end
