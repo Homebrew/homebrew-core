@@ -39,7 +39,7 @@ class Hz < Formula
     assert_match "hz version v#{version}", output
 
     system bin/"hz", "new", "--mod=test"
-    assert_predicate testpath/"main.go", :exist?
+    assert_path_exists testpath/"main.go"
     refute_predicate (testpath/"main.go").size, :zero?
   end
 end
