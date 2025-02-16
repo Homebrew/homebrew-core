@@ -38,6 +38,6 @@ class Pandemics < Formula
     # does compile to pdf?
     touch testpath/"test.md"
     system bin/"pandemics", "publish", "--format", "html", "#{testpath}/test.md"
-    assert_predicate testpath/"pandemics/test.html", :exist?
+    assert_path_exists testpath/"pandemics/test.html"
   end
 end
