@@ -21,7 +21,7 @@ class Fmpp < Formula
   test do
     (testpath/"input").write '<#assign foo="bar"/>${foo}'
     system bin/"fmpp", "input", "-o", "output"
-    assert_predicate testpath/"output", :exist?
+    assert_path_exists testpath/"output"
     assert_equal("bar", File.read("output"))
   end
 end
