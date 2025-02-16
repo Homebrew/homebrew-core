@@ -40,6 +40,6 @@ class Debianutils < Formula
 
   test do
     output = shell_output("#{bin}/tempfile -d #{Dir.pwd}").strip
-    assert_predicate Pathname.new(output), :exist?
+    assert_path_exists Pathname.new(output)
   end
 end
