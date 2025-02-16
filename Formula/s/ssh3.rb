@@ -31,7 +31,7 @@ class Ssh3 < Formula
            "-generate-selfsigned-cert",
            "-key", "test.key",
            "-cert", "test.pem"
-    assert_predicate testpath/"test.key", :exist?
-    assert_predicate testpath/"test.pem", :exist?
+    assert_path_exists testpath/"test.key"
+    assert_path_exists testpath/"test.pem"
   end
 end
