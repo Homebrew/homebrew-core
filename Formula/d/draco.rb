@@ -30,7 +30,7 @@ class Draco < Formula
     cp pkgshare/"cube_att.ply", testpath
 
     output = shell_output("#{bin}/draco_encoder -i cube_att.ply -o cube_att.drc")
-    assert_predicate testpath/"cube_att.drc", :exist?
+    assert_path_exists testpath/"cube_att.drc"
     assert_match <<~EOS, output
       Encoder options:
         Compression level = 7
