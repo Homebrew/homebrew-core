@@ -37,7 +37,7 @@ class Dotbot < Formula
 
     output = shell_output("#{bin}/dotbot -c #{testpath}/install.conf.yaml")
     assert_match "All tasks executed successfully", output
-    assert_predicate testpath/"brew", :exist?
-    assert_predicate testpath/".brew/test", :exist?
+    assert_path_exists testpath/"brew"
+    assert_path_exists testpath/".brew/test"
   end
 end
