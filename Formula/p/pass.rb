@@ -57,7 +57,7 @@ class Pass < Formula
       system Formula["gnupg"].opt_bin/"gpg", "--batch", "--gen-key", "batch.gpg"
       system bin/"pass", "init", "Testing"
       assert_match "The generated password for", shell_output("#{bin}/pass generate Email/testing@foo.bar 15")
-      assert_predicate testpath/".password-store/Email/testing@foo.bar.gpg", :exist?
+      assert_path_exists testpath/".password-store/Email/testing@foo.bar.gpg"
     ensure
       system Formula["gnupg"].opt_bin/"gpgconf", "--kill", "gpg-agent"
     end
