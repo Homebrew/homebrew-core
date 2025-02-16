@@ -28,8 +28,8 @@ class Mkcert < Formula
   test do
     ENV["CAROOT"] = testpath
     system bin/"mkcert", "brew.test"
-    assert_predicate testpath/"brew.test.pem", :exist?
-    assert_predicate testpath/"brew.test-key.pem", :exist?
+    assert_path_exists testpath/"brew.test.pem"
+    assert_path_exists testpath/"brew.test-key.pem"
     output = (testpath/"brew.test.pem").read
     assert_match "-----BEGIN CERTIFICATE-----", output
     output = (testpath/"brew.test-key.pem").read
