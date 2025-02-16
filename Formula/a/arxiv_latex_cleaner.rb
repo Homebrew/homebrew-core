@@ -49,7 +49,7 @@ class ArxivLatexCleaner < Formula
       keep
     TEX
     system bin/"arxiv_latex_cleaner", latexdir
-    assert_predicate testpath/"latex_arXiv", :exist?
+    assert_path_exists testpath/"latex_arXiv"
     assert_equal "keep", (testpath/"latex_arXiv/test.tex").read.strip
   end
 end
