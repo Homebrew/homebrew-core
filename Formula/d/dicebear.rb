@@ -36,7 +36,7 @@ class Dicebear < Formula
   test do
     output = shell_output("#{bin}/dicebear avataaars")
     assert_match "Avataaars by Pablo Stanley", output
-    assert_predicate testpath/"avataaars-0.svg", :exist?
+    assert_path_exists testpath/"avataaars-0.svg"
 
     assert_match version.to_s, shell_output("#{bin}/dicebear --version")
   end
