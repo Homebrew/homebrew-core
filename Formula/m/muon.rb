@@ -52,7 +52,7 @@ class Muon < Formula
     MESON
 
     system bin/"muon", "setup", "build"
-    assert_predicate testpath/"build/build.ninja", :exist?
+    assert_path_exists testpath/"build/build.ninja"
 
     system "ninja", "-C", "build", "--verbose"
     assert_equal "hi", shell_output("build/hello").chomp
