@@ -40,6 +40,6 @@ class Mp3wrap < Formula
   test do
     source = test_fixtures("test.mp3")
     system bin/"mp3wrap", "#{testpath}/t.mp3", source, source
-    assert_predicate testpath/"t_MP3WRAP.mp3", :exist?
+    assert_path_exists testpath/"t_MP3WRAP.mp3"
   end
 end
