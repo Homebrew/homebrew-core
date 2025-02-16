@@ -45,6 +45,6 @@ class SwiftProtobuf < Formula
       }
     PROTO
     system Formula["protobuf"].opt_bin/"protoc", "test.proto", "--swift_out=."
-    assert_predicate testpath/"test.pb.swift", :exist?
+    assert_path_exists testpath/"test.pb.swift"
   end
 end
