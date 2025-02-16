@@ -42,7 +42,7 @@ class Kvazaar < Formula
     # download small sample and try to encode it
     resource("homebrew-videosample").stage do
       system bin/"kvazaar", "-i", "lm20.avi", "--input-res", "16x16", "-o", "lm20.hevc"
-      assert_predicate Pathname.pwd/"lm20.hevc", :exist?
+      assert_path_exists Pathname.pwd/"lm20.hevc"
     end
   end
 end
