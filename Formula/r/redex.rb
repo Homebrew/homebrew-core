@@ -103,7 +103,7 @@ class Redex < Formula
 
     testpath.install resource("homebrew-test_apk")
     system bin/"redex", "--ignore-zipalign", "redex-test.apk", "-o", "redex-test-out.apk"
-    assert_predicate testpath/"redex-test-out.apk", :exist?
+    assert_path_exists testpath/"redex-test-out.apk"
   end
 end
 
