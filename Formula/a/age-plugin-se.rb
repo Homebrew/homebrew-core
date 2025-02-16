@@ -30,7 +30,7 @@ class AgePluginSe < Formula
     system "age", "--encrypt",
            "-r", "age1se1qgg72x2qfk9wg3wh0qg9u0v7l5dkq4jx69fv80p6wdus3ftg6flwg5dz2dp",
            "-o", "secret.txt.age", "secret.txt"
-    assert_predicate testpath/"secret.txt.age", :exist?
+    assert_path_exists testpath/"secret.txt.age"
 
     assert_match version.to_s, shell_output("#{bin}/age-plugin-se --version")
   end
