@@ -22,7 +22,7 @@ class Ttdl < Formula
 
   test do
     assert_match "Added todo", shell_output("#{bin}/ttdl 'add readme due:tomorrow'")
-    assert_predicate testpath/"todo.txt", :exist?
+    assert_path_exists testpath/"todo.txt"
     assert_match "add readme", shell_output("#{bin}/ttdl list")
   end
 end
