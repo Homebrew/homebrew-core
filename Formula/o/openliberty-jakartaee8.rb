@@ -36,12 +36,12 @@ class OpenlibertyJakartaee8 < Formula
 
     begin
       system bin/"openliberty-jakartaee8", "start"
-      assert_predicate testpath/"servers/.pid/defaultServer.pid", :exist?
+      assert_path_exists testpath/"servers/.pid/defaultServer.pid"
     ensure
       system bin/"openliberty-jakartaee8", "stop"
     end
 
-    refute_predicate testpath/"servers/.pid/defaultServer.pid", :exist?
+    refute_path_exists testpath/"servers/.pid/defaultServer.pid"
     assert_match "<feature>javaee-8.0</feature>", (testpath/"servers/defaultServer/server.xml").read
   end
 end
