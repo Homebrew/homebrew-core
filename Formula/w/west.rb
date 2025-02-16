@@ -78,7 +78,7 @@ class West < Formula
             path: test-project
       YAML
       system bin/"west", "init", "-l", testpath/"west/test-project"
-      assert_predicate testpath/"west/.west", :exist?
+      assert_path_exists testpath/"west/.west"
     end
   end
 end
