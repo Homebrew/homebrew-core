@@ -63,7 +63,7 @@ class Djview4 < Formula
     else
       "djview"
     end
-    assert_predicate prefix/name, :exist?
+    assert_path_exists prefix/name
   end
 end
 
