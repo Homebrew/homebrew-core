@@ -28,7 +28,7 @@ class Umple < Formula
   test do
     (testpath/"test.ump").write("class X{ a; }")
     system bin/"umple", "test.ump", "-c", "-"
-    assert_predicate testpath/"X.java", :exist?
-    assert_predicate testpath/"X.class", :exist?
+    assert_path_exists testpath/"X.java"
+    assert_path_exists testpath/"X.class"
   end
 end
