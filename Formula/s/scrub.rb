@@ -45,6 +45,6 @@ class Scrub < Formula
 
     output = shell_output("#{bin}/scrub -r -p dod #{path}")
     assert_match "scrubbing #{path}", output
-    refute_predicate path, :exist?
+    refute_path_exists path
   end
 end
