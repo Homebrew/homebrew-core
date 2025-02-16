@@ -29,7 +29,7 @@ class Ultralist < Formula
 
   test do
     system bin/"ultralist", "init"
-    assert_predicate testpath/".todos.json", :exist?
+    assert_path_exists testpath/".todos.json"
     add_task = shell_output("#{bin}/ultralist add learn the Tango")
     assert_match(/Todo.* added/, add_task)
   end
