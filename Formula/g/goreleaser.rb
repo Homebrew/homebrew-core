@@ -35,6 +35,6 @@ class Goreleaser < Formula
   test do
     assert_match version.to_s, shell_output("#{bin}/goreleaser -v 2>&1")
     assert_match "thanks for using GoReleaser!", shell_output("#{bin}/goreleaser init --config=.goreleaser.yml 2>&1")
-    assert_predicate testpath/".goreleaser.yml", :exist?
+    assert_path_exists testpath/".goreleaser.yml"
   end
 end
