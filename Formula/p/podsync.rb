@@ -53,6 +53,6 @@ class Podsync < Formula
     Process.kill("SIGINT", pid)
     Process.wait(pid)
 
-    assert_predicate testpath/"podsync.log", :exist?
+    assert_path_exists testpath/"podsync.log"
   end
 end
