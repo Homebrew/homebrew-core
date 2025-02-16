@@ -42,11 +42,11 @@ class Sdl12Compat < Formula
   end
 
   test do
-    assert_predicate lib/shared_library("libSDL"), :exist?
+    assert_path_exists lib/shared_library("libSDL")
     versioned_libsdl = "libSDL-1.2"
     versioned_libsdl << ".0" if OS.mac?
-    assert_predicate lib/shared_library(versioned_libsdl), :exist?
-    assert_predicate lib/"libSDLmain.a", :exist?
+    assert_path_exists lib/shared_library(versioned_libsdl)
+    assert_path_exists lib/"libSDLmain.a"
     assert_equal version.to_s, shell_output("#{bin}/sdl-config --version").strip
 
     (testpath/"test.c").write <<~C
