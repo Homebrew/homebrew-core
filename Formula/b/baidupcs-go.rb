@@ -23,6 +23,6 @@ class BaidupcsGo < Formula
 
   test do
     system bin/"baidupcs-go", "run", "touch", "test.txt"
-    assert_predicate testpath/"test.txt", :exist?
+    assert_path_exists testpath/"test.txt"
   end
 end
