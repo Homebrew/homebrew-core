@@ -39,7 +39,7 @@ class Thriftgo < Formula
       }
     THRIFT
     system bin/"thriftgo", "-o=.", "-g=go", "test.thrift"
-    assert_predicate testpath/"api"/"test.go", :exist?
+    assert_path_exists testpath/"api"/"test.go"
     refute_predicate (testpath/"api"/"test.go").size, :zero?
   end
 end
