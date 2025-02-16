@@ -36,7 +36,7 @@ class Ryelang < Formula
       "Hello World" .replace "World" "Mars" |print
       "12 8 12 16 8 6" .load .unique .sum |print
     EOS
-    assert_predicate testpath/"hello.rye", :exist?
+    assert_path_exists testpath/"hello.rye"
     output = shell_output("#{bin}/rye hello.rye 2>&1")
     assert_equal "Hello Mars\n42", output.strip
   end
