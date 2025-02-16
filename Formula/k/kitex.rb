@@ -45,9 +45,9 @@ class Kitex < Formula
       }
     EOS
     system bin/"kitex", "-module", "test", "test.thrift"
-    assert_predicate testpath/"go.mod", :exist?
+    assert_path_exists testpath/"go.mod"
     refute_predicate (testpath/"go.mod").size, :zero?
-    assert_predicate testpath/"kitex_gen"/"api"/"test.go", :exist?
+    assert_path_exists testpath/"kitex_gen"/"api"/"test.go"
     refute_predicate (testpath/"kitex_gen"/"api"/"test.go").size, :zero?
   end
 end
