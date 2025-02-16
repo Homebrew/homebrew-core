@@ -33,6 +33,6 @@ class Vapor < Formula
 
   test do
     system bin/"vapor", "new", "hello-world", "-n"
-    assert_predicate testpath/"hello-world/Package.swift", :exist?
+    assert_path_exists testpath/"hello-world/Package.swift"
   end
 end
