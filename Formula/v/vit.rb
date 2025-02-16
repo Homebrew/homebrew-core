@@ -50,6 +50,6 @@ class Vit < Formula
       sleep 3
       Process.kill "TERM", pid
     end
-    assert_predicate testpath/".task", :exist?
+    assert_path_exists testpath/".task"
   end
 end
