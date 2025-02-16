@@ -34,7 +34,7 @@ class Pyflow < Formula
     python3 = "python3"
     pyver = Language::Python.major_minor_version python3
     pipe_output("#{bin}/pyflow init", "#{pyver}\n1")
-    assert_predicate testpath/"pyproject.toml", :exist?
-    assert_predicate testpath/"pyflow.lock", :exist?
+    assert_path_exists testpath/"pyproject.toml"
+    assert_path_exists testpath/"pyflow.lock"
   end
 end
