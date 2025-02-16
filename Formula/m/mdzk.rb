@@ -41,6 +41,6 @@ class Mdzk < Formula
 
   test do
     system bin/"mdzk", "init", "test_mdzk"
-    assert_predicate testpath/"test_mdzk", :exist?
+    assert_path_exists testpath/"test_mdzk"
   end
 end
