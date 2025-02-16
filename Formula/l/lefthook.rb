@@ -27,7 +27,7 @@ class Lefthook < Formula
     system "git", "init"
     system bin/"lefthook", "install"
 
-    assert_predicate testpath/"lefthook.yml", :exist?
+    assert_path_exists testpath/"lefthook.yml"
     assert_match version.to_s, shell_output("#{bin}/lefthook version")
   end
 end
