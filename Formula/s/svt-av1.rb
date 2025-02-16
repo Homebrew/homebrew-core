@@ -38,6 +38,6 @@ class SvtAv1 < Formula
 
     testpath.install resource("homebrew-testvideo")
     system bin/"SvtAv1EncApp", "-w", "64", "-h", "64", "-i", "video_64x64_yuv420p_25frames.yuv", "-b", "output.ivf"
-    assert_predicate testpath/"output.ivf", :exist?
+    assert_path_exists testpath/"output.ivf"
   end
 end
