@@ -53,6 +53,6 @@ class GrpcSwift < Formula
       }
     PROTO
     system Formula["protobuf"].opt_bin/"protoc", "echo.proto", "--grpc-swift_out=."
-    assert_predicate testpath/"echo.grpc.swift", :exist?
+    assert_path_exists testpath/"echo.grpc.swift"
   end
 end
