@@ -47,7 +47,7 @@ class Gzrt < Formula
 
     # Compress data into archive
     Utils::Gzip.compress path
-    refute_predicate path, :exist?
+    refute_path_exists path
 
     # Corrupt the archive to test the recovery process
     File.open("#{path}.gz", "r+b") do |file|
