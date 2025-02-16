@@ -110,11 +110,11 @@ class Dpkg < Formula
 
     EOS
     system bin/"dpkg", "-b", testpath/"test", "test.deb"
-    assert_predicate testpath/"test.deb", :exist?
+    assert_path_exists testpath/"test.deb"
 
     rm_r("test")
     system bin/"dpkg", "-x", "test.deb", testpath
-    assert_predicate testpath/"data/homebrew.txt", :exist?
+    assert_path_exists testpath/"data/homebrew.txt"
   end
 end
 
