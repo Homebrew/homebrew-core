@@ -51,6 +51,6 @@ class Sdcc < Formula
       }
     C
     system bin/"sdcc", "-mz80", "#{testpath}/test.c"
-    assert_predicate testpath/"test.ihx", :exist?
+    assert_path_exists testpath/"test.ihx"
   end
 end
