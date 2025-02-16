@@ -39,6 +39,6 @@ class Kepubify < Formula
     assert_match "Error: invalid extension", output
 
     system bin/"kepubify", test_fixtures("test.epub")
-    assert_predicate testpath/"test_converted.kepub.epub", :exist?
+    assert_path_exists testpath/"test_converted.kepub.epub"
   end
 end
