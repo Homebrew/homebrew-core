@@ -210,6 +210,6 @@ class Datalad < Formula
 
   test do
     system bin/"datalad", "create", "-d", "testdata"
-    assert_predicate testpath/"testdata", :exist?
+    assert_path_exists testpath/"testdata"
   end
 end
