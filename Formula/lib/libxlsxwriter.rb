@@ -39,6 +39,6 @@ class Libxlsxwriter < Formula
 
     system ENV.cc, "test.c", "-L#{lib}", "-I#{include}", "-lxlsxwriter", "-o", "test"
     system "./test"
-    assert_predicate testpath/"myexcel.xlsx", :exist?, "Failed to create xlsx file"
+    assert_path_exists testpath/"myexcel.xlsx", "Failed to create xlsx file"
   end
 end
