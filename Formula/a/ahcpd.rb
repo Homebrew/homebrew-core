@@ -57,8 +57,8 @@ class Ahcpd < Formula
     system bin/"ahcpd", "-c", "ahcpd.conf", "-I", pid_file, "-L", log_file, "-D", "lo0"
     sleep(2)
 
-    assert_predicate pid_file, :exist?, "The file containing the PID of the child process was not created."
-    assert_predicate log_file, :exist?, "The file containing the log was not created."
+    assert_path_exists pid_file, "The file containing the PID of the child process was not created."
+    assert_path_exists log_file, "The file containing the log was not created."
 
     Process.kill("TERM", pid_file.read.to_i)
   end
