@@ -104,12 +104,12 @@ class Unzip < Formula
     end
     %w[test1 test2 test3].each do |f|
       rm f
-      refute_predicate testpath/f, :exist?, "Text files should have been removed!"
+      refute_path_exists testpath/f, "Text files should have been removed!"
     end
 
     system bin/"unzip", "test.zip"
     %w[test1 test2 test3].each do |f|
-      assert_predicate testpath/f, :exist?, "Failure unzipping test.zip!"
+      assert_path_exists testpath/f, "Failure unzipping test.zip!"
     end
 
     assert_match "Hello!", File.read(testpath/"test1")
