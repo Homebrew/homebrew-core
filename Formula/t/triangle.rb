@@ -27,6 +27,6 @@ class Triangle < Formula
 
   test do
     system bin/"triangle", "-in", test_fixtures("test.png"), "-out", "out.png"
-    assert_predicate testpath/"out.png", :exist?
+    assert_path_exists testpath/"out.png"
   end
 end
