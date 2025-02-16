@@ -103,6 +103,6 @@ class Xray < Formula
     output = shell_output "#{bin}/xray -c #{testpath}/config.json -test"
 
     assert_match "Configuration OK", output
-    assert_predicate testpath/"log", :exist?
+    assert_path_exists testpath/"log"
   end
 end
