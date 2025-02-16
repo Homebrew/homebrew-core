@@ -30,7 +30,7 @@ class Nomino < Formula
 
     (1..9).each do |n|
       assert_equal n.to_s, (testpath/"#{n}.txt").read
-      refute_predicate testpath/"Homebrew-#{n}.txt", :exist?
+      refute_path_exists testpath/"Homebrew-#{n}.txt"
     end
   end
 end
