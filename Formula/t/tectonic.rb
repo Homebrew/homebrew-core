@@ -71,11 +71,11 @@ class Tectonic < Formula
   test do
     (testpath/"test.tex").write 'Hello, World!\bye'
     system bin/"tectonic", "-o", testpath, "--format", "plain", testpath/"test.tex"
-    assert_predicate testpath/"test.pdf", :exist?, "Failed to create test.pdf"
+    assert_path_exists testpath/"test.pdf", "Failed to create test.pdf"
     assert_match "PDF document", shell_output("file test.pdf")
 
     system bin/"nextonic", "new", "."
     system bin/"nextonic", "build"
-    assert_predicate testpath/"build/default/default.pdf", :exist?, "Failed to create default.pdf"
+    assert_path_exists testpath/"build/default/default.pdf", "Failed to create default.pdf"
   end
 end
