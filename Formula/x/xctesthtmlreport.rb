@@ -34,6 +34,6 @@ class Xctesthtmlreport < Formula
     resource("homebrew-testdata").stage("SanityResult.xcresult")
     # It will generate an index.html file
     system bin/"xchtmlreport", "-r", "SanityResult.xcresult"
-    assert_predicate testpath/"index.html", :exist?
+    assert_path_exists testpath/"index.html"
   end
 end
