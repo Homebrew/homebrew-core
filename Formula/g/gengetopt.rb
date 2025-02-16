@@ -46,8 +46,8 @@ class Gengetopt < Formula
     EOS
 
     pipe_output("#{bin}/gengetopt --file-name=test", ggo, 0)
-    assert_predicate testpath/"test.h", :exist?
-    assert_predicate testpath/"test.c", :exist?
+    assert_path_exists testpath/"test.h"
+    assert_path_exists testpath/"test.c"
     assert_match(/verbose_given/, File.read("test.h"))
   end
 end
