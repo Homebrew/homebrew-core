@@ -93,7 +93,7 @@ class Cekit < Formula
     assert_match "INFO  Finished!",
 shell_output("#{bin}/cekit --descriptor #{testpath}/test.yml build --dry-run docker 2>&1")
     system bin/"cekit", "--descriptor", "#{testpath}/test.yml", "build", "--dry-run", "docker"
-    assert_predicate testpath/"target/image/Dockerfile", :exist?
+    assert_path_exists testpath/"target/image/Dockerfile"
     assert_match "FROM scratch", File.read(testpath/"target/image/Dockerfile")
   end
 end
