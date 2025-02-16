@@ -41,7 +41,7 @@ class Sambamba < Formula
     resource("homebrew-testdata").stage testpath
     system bin/"sambamba", "view", "-S", "ex1_header.sam", "-f", "bam", "-o", "ex1_header.bam"
     system bin/"sambamba", "sort", "-t2", "-n", "ex1_header.bam", "-o", "ex1_header.sorted.bam", "-m", "200K"
-    assert_predicate testpath/"ex1_header.sorted.bam", :exist?
+    assert_path_exists testpath/"ex1_header.sorted.bam"
   end
 end
 
