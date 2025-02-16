@@ -143,9 +143,9 @@ class Httpd < Formula
 
   test do
     # Ensure modules depending on zlib and xml2 have been compiled
-    assert_predicate lib/"httpd/modules/mod_deflate.so", :exist?
-    assert_predicate lib/"httpd/modules/mod_proxy_html.so", :exist?
-    assert_predicate lib/"httpd/modules/mod_xml2enc.so", :exist?
+    assert_path_exists lib/"httpd/modules/mod_deflate.so"
+    assert_path_exists lib/"httpd/modules/mod_proxy_html.so"
+    assert_path_exists lib/"httpd/modules/mod_xml2enc.so"
 
     begin
       port = free_port
