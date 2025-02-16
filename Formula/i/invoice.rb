@@ -29,6 +29,6 @@ class Invoice < Formula
           "--tax 0.13 --discount 0.15 " \
           "--note \"For debugging purposes.\""
     assert_equal "Generated invoice.pdf", shell_output(cmd).chomp
-    assert_predicate testpath/"invoice.pdf", :exist?
+    assert_path_exists testpath/"invoice.pdf"
   end
 end
