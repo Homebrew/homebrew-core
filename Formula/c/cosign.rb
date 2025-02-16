@@ -36,7 +36,7 @@ class Cosign < Formula
   test do
     assert_match "Private key written to cosign.key",
       pipe_output("#{bin}/cosign generate-key-pair 2>&1", "foo\nfoo\n")
-    assert_predicate testpath/"cosign.pub", :exist?
+    assert_path_exists testpath/"cosign.pub"
 
     assert_match version.to_s, shell_output(bin/"cosign version 2>&1")
   end
