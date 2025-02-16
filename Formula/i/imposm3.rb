@@ -64,9 +64,9 @@ class Imposm3 < Formula
     system bin/"imposm", "import", "-read", testpath/"sample.osm.pbf", "-mapping", testpath/"mapping.yml",
             "-cachedir", testpath/"cache"
 
-    assert_predicate testpath/"cache/coords/LOG", :exist?
-    assert_predicate testpath/"cache/nodes/LOG", :exist?
-    assert_predicate testpath/"cache/relations/LOG", :exist?
-    assert_predicate testpath/"cache/ways/LOG", :exist?
+    assert_path_exists testpath/"cache/coords/LOG"
+    assert_path_exists testpath/"cache/nodes/LOG"
+    assert_path_exists testpath/"cache/relations/LOG"
+    assert_path_exists testpath/"cache/ways/LOG"
   end
 end
