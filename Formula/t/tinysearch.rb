@@ -35,7 +35,7 @@ class Tinysearch < Formula
     system "rustup", "set", "profile", "minimal"
 
     system bin/"tinysearch", pkgshare/"fixtures/index.json"
-    assert_predicate testpath/"wasm_output/tinysearch_engine_bg.wasm", :exist?
+    assert_path_exists testpath/"wasm_output/tinysearch_engine_bg.wasm"
     assert_match "A tiny search engine for static websites", (testpath/"wasm_output/package.json").read
   end
 end
