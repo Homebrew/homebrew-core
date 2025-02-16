@@ -34,7 +34,7 @@ class ProtocGenGo < Formula
       }
     EOS
     system "protoc", "--go_out=.", "--go_opt=paths=source_relative", "proto3.proto"
-    assert_predicate testpath/"proto3.pb.go", :exist?
+    assert_path_exists testpath/"proto3.pb.go"
     refute_predicate (testpath/"proto3.pb.go").size, :zero?
   end
 end
