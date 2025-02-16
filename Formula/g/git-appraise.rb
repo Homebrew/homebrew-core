@@ -44,7 +44,7 @@ class GitAppraise < Formula
     system "git", "add", "README"
     system "git", "commit", "-m", "Update"
     system "git", "appraise", "request", "--allow-uncommitted"
-    assert_predicate testpath/".git/refs/notes/devtools/reviews", :exist?
+    assert_path_exists testpath/".git/refs/notes/devtools/reviews"
   end
 end
 
