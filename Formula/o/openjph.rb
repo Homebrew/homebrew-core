@@ -39,6 +39,6 @@ class Openjph < Formula
 
     system bin/"ojph_compress", "-i", "Malamute.ppm", "-o", "homebrew.j2c"
     system bin/"ojph_expand", "-i", "homebrew.j2c", "-o", "homebrew.ppm"
-    assert_predicate testpath/"homebrew.ppm", :exist?
+    assert_path_exists testpath/"homebrew.ppm"
   end
 end
