@@ -29,7 +29,7 @@ class Pget < Formula
   test do
     file = "https://raw.githubusercontent.com/Homebrew/homebrew-core/master/README.md"
     system bin/"pget", "-p", "4", file
-    assert_predicate testpath/"README.md", :exist?
+    assert_path_exists testpath/"README.md"
 
     assert_match version.to_s, shell_output("#{bin}/pget --help", 1)
   end
