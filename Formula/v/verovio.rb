@@ -33,6 +33,6 @@ class Verovio < Formula
     resource("homebrew-testdata").stage do
       shell_output("#{bin}/verovio Ahle_Jesu_meines_Herzens_Freud.mei -o #{testpath}/output.svg")
     end
-    assert_predicate testpath/"output.svg", :exist?
+    assert_path_exists testpath/"output.svg"
   end
 end
