@@ -27,11 +27,11 @@ class ChromeExport < Formula
     cp_r (pkgshare/"test").children, testpath
     system bin/"export-chrome-bookmarks", "Bookmarks",
            "bookmarks_actual_output.html"
-    assert_predicate testpath/"bookmarks_actual_output.html", :exist?
+    assert_path_exists testpath/"bookmarks_actual_output.html"
     assert_equal (testpath/"bookmarks_expected_output.html").read,
                  (testpath/"bookmarks_actual_output.html").read
     system bin/"export-chrome-history", "History", "history_actual_output.html"
-    assert_predicate testpath/"history_actual_output.html", :exist?
+    assert_path_exists testpath/"history_actual_output.html"
     assert_equal (testpath/"history_expected_output.html").read,
                  (testpath/"history_actual_output.html").read
   end
