@@ -54,7 +54,7 @@ class TerraformRover < Formula
       }
     HCL
     system bin/"terraform-rover", "-standalone", "-tfPath", Formula["terraform"].bin/"terraform"
-    assert_predicate testpath/"rover.zip", :exist?
+    assert_path_exists testpath/"rover.zip"
 
     assert_match version.to_s, shell_output("#{bin}/terraform-rover --version")
   end
