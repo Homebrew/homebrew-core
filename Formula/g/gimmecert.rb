@@ -40,9 +40,9 @@ class Gimmecert < Formula
     output2 = shell_output(bin/"gimmecert status")
     assert_match "No server certificates have been issued", output2
 
-    assert_predicate testpath/".gimmecert/ca/level1.key.pem", :exist?
-    assert_predicate testpath/".gimmecert/ca/level1.cert.pem", :exist?
-    assert_predicate testpath/".gimmecert/ca/chain-full.cert.pem", :exist?
+    assert_path_exists testpath/".gimmecert/ca/level1.key.pem"
+    assert_path_exists testpath/".gimmecert/ca/level1.cert.pem"
+    assert_path_exists testpath/".gimmecert/ca/chain-full.cert.pem"
   end
 end
 
