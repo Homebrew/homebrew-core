@@ -45,6 +45,6 @@ class GruntCli < Formula
 
     system "npm", "install", *std_npm_args(prefix: false)
     system bin/"grunt"
-    assert_predicate testpath/"output.txt", :exist?, "output.txt was not generated"
+    assert_path_exists testpath/"output.txt", "output.txt was not generated"
   end
 end
