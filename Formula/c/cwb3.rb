@@ -94,14 +94,12 @@ class Cwb3 < Formula
       system(bin/"cwb-encode", "-c", "ascii",
         "-d", "data", "-R", "registry/ex", "-f", "example.vrt",
         "-P", "pos", "-P", "lemma", "-S", "s:0")
-      assert_predicate(Pathname("registry")/"ex", :exist?,
-        "registry file has been created")
-      assert_predicate(Pathname("data")/"lemma.lexicon", :exist?,
-        "lexicon file for p-attribute lemma has been created")
+      assert_path_exists Pathname("registry")/"ex", "registry file has been created"
+      assert_path_exists Pathname("data")/"lemma.lexicon", "lexicon file for p-attribute lemma has been created"
 
       system(bin/"cwb-makeall", "-r", "registry", "EX")
-      assert_predicate(Pathname("data")/"lemma.corpus.rev", :exist?,
-        "reverse index file for p-attribute lemma has been created")
+      assert_path_exists Pathname("data")/"lemma.corpus.rev",
+"reverse index file for p-attribute lemma has been created"
 
       assert_equal("Tokens:\t5\nTypes:\t5\n",
         shell_output("#{bin}/cwb-lexdecode -r registry -S EX"),
