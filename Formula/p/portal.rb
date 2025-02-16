@@ -61,7 +61,7 @@ class Portal < Formula
 
     test_file_receiver=(receiver_path/test_file_name)
 
-    assert_predicate test_file_receiver, :exist?
+    assert_path_exists test_file_receiver
     assert_equal test_file_receiver.read, test_file_content
   end
 end
