@@ -24,6 +24,6 @@ class Dbmate < Formula
   test do
     (testpath/".env").write("DATABASE_URL=sqlite3:test.sqlite3")
     system bin/"dbmate", "create"
-    assert_predicate testpath/"test.sqlite3", :exist?, "failed to create test.sqlite3"
+    assert_path_exists testpath/"test.sqlite3", "failed to create test.sqlite3"
   end
 end
