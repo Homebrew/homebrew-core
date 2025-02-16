@@ -82,6 +82,6 @@ class AdrViewer < Formula
       See Michael Nygard's article, linked above. For a lightweight ADR toolset, see Nat Pryce's [adr-tools](https://github.com/npryce/adr-tools).
     MARKDOWN
     system bin/"adr-viewer", "--adr-path", adr_dir, "--output", "index.html"
-    assert_predicate testpath/"index.html", :exist?
+    assert_path_exists testpath/"index.html"
   end
 end
