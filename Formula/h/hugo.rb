@@ -38,7 +38,7 @@ class Hugo < Formula
   test do
     site = testpath/"hops-yeast-malt-water"
     system bin/"hugo", "new", "site", site
-    assert_predicate site/"hugo.toml", :exist?
+    assert_path_exists site/"hugo.toml"
 
     assert_match version.to_s, shell_output(bin/"hugo version")
   end
