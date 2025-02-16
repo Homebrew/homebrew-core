@@ -40,6 +40,6 @@ class Pax < Formula
     system bin/"pax", "-f", "#{testpath}/foo.pax", "-w", "#{testpath}/foo"
     rm testpath/"foo"
     system bin/"pax", "-f", testpath/"foo.pax", "-r"
-    assert_predicate testpath/"foo", :exist?
+    assert_path_exists testpath/"foo"
   end
 end
