@@ -39,17 +39,17 @@ class Dashing < Formula
     testpath.install resource("redux_saga_docs_tarball")
     innerpath = testpath
     system bin/"dashing", "create"
-    assert_predicate innerpath/"dashing.json", :exist?
+    assert_path_exists innerpath/"dashing.json"
     system bin/"dashing", "build", "."
     innerpath /= "dashing.docset/Contents"
-    assert_predicate innerpath/"Info.plist", :exist?
+    assert_path_exists innerpath/"Info.plist"
     innerpath /= "Resources"
-    assert_predicate innerpath/"docSet.dsidx", :exist?
+    assert_path_exists innerpath/"docSet.dsidx"
     innerpath /= "Documents"
-    assert_predicate innerpath/"README.md", :exist?
+    assert_path_exists innerpath/"README.md"
     innerpath /= "docs"
-    assert_predicate innerpath/"index.html", :exist?
+    assert_path_exists innerpath/"index.html"
     innerpath /= "introduction"
-    assert_predicate innerpath/"SagaBackground.html", :exist?
+    assert_path_exists innerpath/"SagaBackground.html"
   end
 end
