@@ -48,6 +48,6 @@ class DependencyCheck < Formula
               "--project", "dc", "-s", libexec, "-d", testpath, "-o", testpath,
               "--nvdDatafeed", "https://jeremylong.github.io/DependencyCheck/hb_nvd/",
               "--disableKnownExploited"
-    assert_predicate testpath/"dependency-check-report.xml", :exist?
+    assert_path_exists testpath/"dependency-check-report.xml"
   end
 end
