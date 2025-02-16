@@ -40,6 +40,6 @@ class Jsonschema2pojo < Formula
       }
     JSON
     system bin/"jsonschema2pojo", "-s", "src", "-t", testpath
-    assert_predicate testpath/"Jsonschema.java", :exist?, "Failed to generate Jsonschema.java"
+    assert_path_exists testpath/"Jsonschema.java", "Failed to generate Jsonschema.java"
   end
 end
