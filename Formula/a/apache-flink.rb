@@ -43,7 +43,7 @@ class ApacheFlink < Formula
            libexec/"examples/streaming/WordCount.jar", "--input", testpath/"input",
            "--output", testpath/"result"
     system libexec/"bin/stop-cluster.sh"
-    assert_predicate testpath/"result", :exist?
+    assert_path_exists testpath/"result"
     result_files = Dir[testpath/"result/*/*"]
     assert_equal 1, result_files.length
     assert_equal expected, (testpath/result_files.first).read
