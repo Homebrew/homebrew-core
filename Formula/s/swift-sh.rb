@@ -34,6 +34,6 @@ class SwiftSh < Formula
   test do
     (testpath/"test.swift").write "#!/usr/bin/env swift sh"
     system bin/"swift-sh", "eject", "test.swift"
-    assert_predicate testpath/"Test"/"Package.swift", :exist?
+    assert_path_exists testpath/"Test"/"Package.swift"
   end
 end
