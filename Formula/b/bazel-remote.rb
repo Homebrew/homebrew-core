@@ -28,7 +28,7 @@ class BazelRemote < Formula
     begin
       pid = fork { exec bin/"bazel-remote" }
       sleep 2
-      assert_predicate testpath/"test", :exist?, "Failed to create test directory"
+      assert_path_exists testpath/"test", "Failed to create test directory"
     ensure
       Process.kill("SIGINT", pid)
       Process.wait(pid)
