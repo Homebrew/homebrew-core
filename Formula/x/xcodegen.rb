@@ -40,8 +40,8 @@ class Xcodegen < Formula
     YAML
     (testpath/"TestProject").mkpath
     system bin/"xcodegen", "--spec", testpath/"xcodegen.yml"
-    assert_predicate testpath/"GeneratedProject.xcodeproj", :exist?
-    assert_predicate testpath/"GeneratedProject.xcodeproj/project.pbxproj", :exist?
+    assert_path_exists testpath/"GeneratedProject.xcodeproj"
+    assert_path_exists testpath/"GeneratedProject.xcodeproj/project.pbxproj"
     output = (testpath/"GeneratedProject.xcodeproj/project.pbxproj").read
     assert_match "name = TestProject", output
     assert_match "isa = PBXNativeTarget", output
