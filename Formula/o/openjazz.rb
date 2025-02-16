@@ -50,6 +50,6 @@ class Openjazz < Formula
 
   test do
     system bin/"OpenJazz", "--version"
-    assert_predicate testpath/"openjazz.log", :exist?
+    assert_path_exists testpath/"openjazz.log"
   end
 end
