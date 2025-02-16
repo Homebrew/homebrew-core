@@ -25,7 +25,7 @@ class Rospo < Formula
   test do
     system bin/"rospo", "-v"
     system bin/"rospo", "keygen", "-s"
-    assert_predicate testpath/"identity", :exist?
-    assert_predicate testpath/"identity.pub", :exist?
+    assert_path_exists testpath/"identity"
+    assert_path_exists testpath/"identity.pub"
   end
 end
