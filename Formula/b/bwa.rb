@@ -34,7 +34,7 @@ class Bwa < Formula
   test do
     (testpath/"test.fasta").write ">0\nAGATGTGCTG\n"
     system bin/"bwa", "index", "test.fasta"
-    assert_predicate testpath/"test.fasta.bwt", :exist?
+    assert_path_exists testpath/"test.fasta.bwt"
     assert_match "AGATGTGCTG", shell_output("#{bin}/bwa mem test.fasta test.fasta")
   end
 end
