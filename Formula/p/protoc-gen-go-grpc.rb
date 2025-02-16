@@ -45,6 +45,6 @@ class ProtocGenGoGrpc < Formula
 
     system "protoc", "--plugin=#{bin}/protoc-gen-go-grpc", "--go-grpc_out=.", "service.proto"
 
-    assert_predicate testpath/"service_grpc.pb.go", :exist?
+    assert_path_exists testpath/"service_grpc.pb.go"
   end
 end
