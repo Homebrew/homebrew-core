@@ -17,6 +17,6 @@ class Deployer < Formula
 
   test do
     system bin/"dep", "init", "--no-interaction"
-    assert_predicate testpath/"deploy.php", :exist?
+    assert_path_exists testpath/"deploy.php"
   end
 end
