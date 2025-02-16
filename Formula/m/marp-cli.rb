@@ -44,7 +44,7 @@ class MarpCli < Formula
     MARKDOWN
 
     system bin/"marp", testpath/"deck.md", "-o", testpath/"deck.html"
-    assert_predicate testpath/"deck.html", :exist?
+    assert_path_exists testpath/"deck.html"
     content = (testpath/"deck.html").read
     assert_match "theme:uncover", content
     assert_match "<h1 id=\"hello-homebrew\">Hello, Homebrew!</h1>", content
