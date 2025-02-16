@@ -48,7 +48,7 @@ class LuaLanguageServer < Formula
   test do
     pid = spawn bin/"lua-language-server", "--logpath=."
     sleep 5
-    assert_predicate testpath/"service.log", :exist?
+    assert_path_exists testpath/"service.log"
     refute_predicate testpath/"service.log", :empty?
   ensure
     Process.kill "TERM", pid
