@@ -37,7 +37,7 @@ class SqlMigrate < Formula
 
     timestamp = Time.now.utc.strftime("%Y%m%d%H%M%S")
     test_sql = testpath/"migrations/sqlite3/#{timestamp}-brewtest.sql"
-    assert_predicate test_sql, :exist?, "failed to create test.sql"
+    assert_path_exists test_sql, "failed to create test.sql"
 
     output = shell_output("#{bin}/sql-migrate status")
     expected = <<~EOS
