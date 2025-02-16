@@ -42,9 +42,9 @@ class Ebook2cw < Formula
 
   test do
     pipe_output("#{bin}/ebook2cw -o test", "test mp3 file generation")
-    assert_predicate testpath/"test0000.mp3", :exist?
+    assert_path_exists testpath/"test0000.mp3"
 
     pipe_output("#{bin}/ebook2cw -O -o test", "test ogg file generation")
-    assert_predicate testpath/"test0000.ogg", :exist?
+    assert_path_exists testpath/"test0000.ogg"
   end
 end
