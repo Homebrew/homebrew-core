@@ -38,6 +38,6 @@ class Argus < Formula
     assert_match "Pages", shell_output(bin/"argus-vmstat") if OS.mac?
     assert_match "Argus Version #{version}", shell_output("#{sbin}/argus -h", 255)
     system sbin/"argus", "-r", test_fixtures("test.pcap"), "-w", testpath/"test.argus"
-    assert_predicate testpath/"test.argus", :exist?
+    assert_path_exists testpath/"test.argus"
   end
 end
