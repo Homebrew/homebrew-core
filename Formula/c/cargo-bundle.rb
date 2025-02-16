@@ -60,7 +60,7 @@ class CargoBundle < Formula
       "deb/#{testproject}_#{version}_amd64.deb"
     end
     bundle_path = testpath/testproject/"target/release/bundle"/bundle_subdir
-    assert_predicate bundle_path, :exist?
+    assert_path_exists bundle_path
     return if OS.linux? # The test below has no equivalent on Linux.
 
     cargo_built_bin = testpath/testproject/"target/release"/testproject
