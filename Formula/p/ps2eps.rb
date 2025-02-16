@@ -37,6 +37,6 @@ class Ps2eps < Formula
   test do
     cp test_fixtures("test.ps"), testpath/"test.ps"
     system bin/"ps2eps", testpath/"test.ps"
-    assert_predicate testpath/"test.eps", :exist?
+    assert_path_exists testpath/"test.eps"
   end
 end
