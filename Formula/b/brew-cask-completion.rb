@@ -27,6 +27,6 @@ class BrewCaskCompletion < Formula
   end
 
   test do
-    assert_predicate fish_completion/"brew-cask.fish", :exist?
+    assert_path_exists fish_completion/"brew-cask.fish"
   end
 end
