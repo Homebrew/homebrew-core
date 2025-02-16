@@ -78,8 +78,8 @@ class Pipenv < Formula
     system bin/"pipenv", "--python", which(python3)
     system bin/"pipenv", "install", "requests"
     system bin/"pipenv", "install", "boto3"
-    assert_predicate testpath/"Pipfile", :exist?
-    assert_predicate testpath/"Pipfile.lock", :exist?
+    assert_path_exists testpath/"Pipfile"
+    assert_path_exists testpath/"Pipfile.lock"
     assert_match "requests", (testpath/"Pipfile").read
     assert_match "boto3", (testpath/"Pipfile").read
   end
