@@ -33,6 +33,6 @@ class Uvg266 < Formula
     testpath.install resource("homebrew-videosample")
 
     system bin/"uvg266", "-i", "lm20.avi", "--input-res", "16x16", "-o", "lm20.vvc"
-    assert_predicate testpath/"lm20.vvc", :exist?
+    assert_path_exists testpath/"lm20.vvc"
   end
 end
