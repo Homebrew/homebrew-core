@@ -61,6 +61,6 @@ class Erigon < Formula
       --log.dir.path #{testpath}
     ]
     system bin/"erigon", *args, "init", "genesis.json"
-    assert_predicate testpath/"erigon.log", :exist?
+    assert_path_exists testpath/"erigon.log"
   end
 end
