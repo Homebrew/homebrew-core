@@ -51,6 +51,6 @@ class Qtads < Formula
 
   test do
     bin_name = OS.mac? ? "QTads" : "qtads"
-    assert_predicate testpath/"#{bin}/#{bin_name}", :exist?, "I'm an untestable GUI app."
+    assert_path_exists testpath/"#{bin}/#{bin_name}", "I'm an untestable GUI app."
   end
 end
