@@ -33,7 +33,7 @@ class Avra < Formula
     (testpath/"test.asm").write " .device attiny10\n ldi r16,0x42\n"
     output = shell_output("#{bin}/avra -l test.lst test.asm")
     assert_match "Assembly complete with no errors.", output
-    assert_predicate testpath/"test.hex", :exist?
+    assert_path_exists testpath/"test.hex"
     assert_match "ldi r16,0x42", File.read("test.lst")
   end
 end
