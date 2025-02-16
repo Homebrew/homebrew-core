@@ -31,6 +31,6 @@ class Netlistsvg < Formula
     VERILOG
     system "yosys -q -p \"prep -top DFF; write_json dff.json\" dff.v"
     system bin/"netlistsvg", "dff.json", "-o", "dff.svg"
-    assert_predicate testpath/"dff.svg", :exist?
+    assert_path_exists testpath/"dff.svg"
   end
 end
