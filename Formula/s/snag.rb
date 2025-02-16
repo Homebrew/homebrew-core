@@ -54,6 +54,6 @@ class Snag < Formula
       Process.kill "TERM", pid
       Process.wait pid
     end
-    assert_predicate testpath/"snagged", :exist?
+    assert_path_exists testpath/"snagged"
   end
 end
