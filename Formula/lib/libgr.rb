@@ -62,6 +62,6 @@ class Libgr < Formula
     system ENV.cc, "test.c", "-o", "test", "-I#{include}", "-L#{lib}", "-lGR"
     system "./test"
 
-    assert_predicate testpath/"test.png", :exist?
+    assert_path_exists testpath/"test.png"
   end
 end
