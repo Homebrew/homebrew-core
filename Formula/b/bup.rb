@@ -37,6 +37,6 @@ class Bup < Formula
 
   test do
     system bin/"bup", "init"
-    assert_predicate testpath/".bup", :exist?
+    assert_path_exists testpath/".bup"
   end
 end
