@@ -189,7 +189,7 @@ class Pdm < Formula
     TOML
     system bin/"pdm", "add", "requests==2.31.0"
     assert_match "dependencies = [\"requests==2.31.0\"]", (testpath/"pyproject.toml").read
-    assert_predicate testpath/"pdm.lock", :exist?
+    assert_path_exists testpath/"pdm.lock"
     assert_match "name = \"urllib3\"", (testpath/"pdm.lock").read
     output = shell_output("#{bin}/pdm run python -c 'import requests;print(requests.__version__)'")
     assert_equal "2.31.0", output.strip
