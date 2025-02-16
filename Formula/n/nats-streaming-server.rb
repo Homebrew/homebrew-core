@@ -41,7 +41,7 @@ class NatsStreamingServer < Formula
 
     begin
       assert_match "uptime", shell_output("curl localhost:#{http_port}/varz")
-      assert_predicate testpath/"log", :exist?
+      assert_path_exists testpath/"log"
       assert_match version.to_s, File.read(testpath/"log")
     ensure
       Process.kill "SIGINT", pid
