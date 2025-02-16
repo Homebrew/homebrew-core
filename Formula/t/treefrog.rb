@@ -41,12 +41,12 @@ class Treefrog < Formula
   test do
     ENV.delete "CPATH"
     system bin/"tspawn", "new", "hello"
-    assert_predicate testpath/"hello", :exist?
+    assert_path_exists testpath/"hello"
     cd "hello" do
-      assert_predicate Pathname.pwd/"hello.pro", :exist?
+      assert_path_exists Pathname.pwd/"hello.pro"
 
       system Formula["qt"].opt_bin/"qmake"
-      assert_predicate Pathname.pwd/"Makefile", :exist?
+      assert_path_exists Pathname.pwd/"Makefile"
       system "make"
       system bin/"treefrog", "-v"
     end
