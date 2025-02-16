@@ -36,6 +36,6 @@ class Sdns < Formula
       exec bin/"sdns", "-config", testpath/"sdns.conf"
     end
     sleep(2)
-    assert_predicate testpath/"sdns.conf", :exist?
+    assert_path_exists testpath/"sdns.conf"
   end
 end
