@@ -38,6 +38,6 @@ class Ttf2eot < Formula
     end
     cp "#{font_dir}/#{font_name}.ttf", testpath
     system("#{bin}/ttf2eot < '#{font_name}.ttf' > '#{font_name}.eot'")
-    assert_predicate testpath/"#{font_name}.eot", :exist?
+    assert_path_exists testpath/"#{font_name}.eot"
   end
 end
