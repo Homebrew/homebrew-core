@@ -45,7 +45,7 @@ class CargoAuditable < Formula
       TOML
 
       system "cargo", "auditable", "build", "--release"
-      assert_predicate crate/"target/release/demo-crate", :exist?
+      assert_path_exists crate/"target/release/demo-crate"
       output = shell_output("./target/release/demo-crate")
       assert_match "Hello BrewTestBot!", output
     end
