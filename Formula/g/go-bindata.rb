@@ -27,7 +27,7 @@ class GoBindata < Formula
   test do
     (testpath/"data").write "hello world"
     system bin/"go-bindata", "-o", "data.go", "data"
-    assert_predicate testpath/"data.go", :exist?
+    assert_path_exists testpath/"data.go"
     assert_match '\xff\xff\x85\x11\x4a', (testpath/"data.go").read
   end
 end
