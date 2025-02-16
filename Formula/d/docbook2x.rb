@@ -92,6 +92,6 @@ class Docbook2x < Formula
       </refentry>
     XML
     system bin/"docbook2man", testpath/"brew.1.xml"
-    assert_predicate testpath/"brew.1", :exist?, "Failed to create man page!"
+    assert_path_exists testpath/"brew.1", "Failed to create man page!"
   end
 end
