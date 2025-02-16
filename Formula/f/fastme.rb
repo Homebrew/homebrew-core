@@ -46,6 +46,6 @@ class Fastme < Formula
     EOS
 
     system bin/"fastme", "-i", "test.dist"
-    assert_predicate testpath/"test.dist_fastme_tree.nwk", :exist?
+    assert_path_exists testpath/"test.dist_fastme_tree.nwk"
   end
 end
