@@ -220,8 +220,8 @@ class Molecule < Formula
     # Test the Vagrant driver
     system bin/"molecule", "init", "scenario", "acme.foo_vagrant", "--driver-name",
                            "vagrant", "--provisioner-name", "ansible"
-    assert_predicate testpath/"molecule/acme.foo_vagrant/molecule.yml", :exist?,
-                     "Failed to create 'molecule/acme.foo_vagrant/molecule.yml' file!"
+    assert_path_exists testpath/"molecule/acme.foo_vagrant/molecule.yml",
+"Failed to create 'molecule/acme.foo_vagrant/molecule.yml' file!"
     output = shell_output("#{bin}/molecule list --format yaml").chomp
     assert_match "Scenario Name: acme.foo_vagrant", output
   end
