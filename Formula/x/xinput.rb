@@ -39,7 +39,7 @@ class Xinput < Formula
   end
 
   test do
-    assert_predicate bin/"xinput", :exist?
+    assert_path_exists bin/"xinput"
     assert_equal %Q(.TH xinput 1 "xinput #{version}" "X Version 11"),
       shell_output("head -n 1 #{man1}/xinput.1").chomp
   end
