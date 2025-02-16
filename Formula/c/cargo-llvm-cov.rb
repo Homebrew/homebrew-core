@@ -34,6 +34,6 @@ class CargoLlvmCov < Formula
     cd "hello_world" do
       system "cargo", "llvm-cov", "--html"
     end
-    assert_predicate testpath/"hello_world/target/llvm-cov/html/index.html", :exist?
+    assert_path_exists testpath/"hello_world/target/llvm-cov/html/index.html"
   end
 end
