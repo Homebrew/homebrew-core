@@ -26,6 +26,6 @@ class Grin < Formula
 
   test do
     system bin/"grin", "server", "config"
-    assert_predicate testpath/"grin-server.toml", :exist?
+    assert_path_exists testpath/"grin-server.toml"
   end
 end
