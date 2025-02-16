@@ -35,8 +35,8 @@ class Xpipe < Formula
 
   test do
     system "echo foo | xpipe -b 1 -J % /bin/sh -c 'cat >%'"
-    assert_predicate testpath/"1", :exist?
-    assert_predicate testpath/"2", :exist?
-    assert_predicate testpath/"3", :exist?
+    assert_path_exists testpath/"1"
+    assert_path_exists testpath/"2"
+    assert_path_exists testpath/"3"
   end
 end
