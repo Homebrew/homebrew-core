@@ -38,6 +38,6 @@ class Hiredis < Formula
     # sure it compiles
     system ENV.cc, pkgshare/"examples/example.c", "-o", testpath/"test",
                    "-I#{include}/hiredis", "-L#{lib}", "-lhiredis"
-    assert_predicate testpath/"test", :exist?
+    assert_path_exists testpath/"test"
   end
 end
