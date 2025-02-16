@@ -29,6 +29,6 @@ class Shellz < Formula
   test do
     output = shell_output("#{bin}/shellz -no-banner -no-effects -path #{testpath}", 1)
     assert_match "creating", output
-    assert_predicate testpath/"shells", :exist?
+    assert_path_exists testpath/"shells"
   end
 end
