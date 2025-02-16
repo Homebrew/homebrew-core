@@ -43,7 +43,7 @@ class AllRepos < Formula
     JSON
 
     system bin/"all-repos-clone"
-    assert_predicate testpath/"out/discussions", :exist?
+    assert_path_exists testpath/"out/discussions"
     output = shell_output("#{bin}/all-repos-grep discussions")
     assert_match "out/discussions:README.md", output
   end
