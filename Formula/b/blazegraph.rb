@@ -37,7 +37,7 @@ class Blazegraph < Formula
     end
     sleep 5
     Process.kill("TERM", server)
-    assert_predicate testpath/"blazegraph.jnl", :exist?
-    assert_predicate testpath/"rules.log", :exist?
+    assert_path_exists testpath/"blazegraph.jnl"
+    assert_path_exists testpath/"rules.log"
   end
 end
