@@ -36,7 +36,7 @@ class Tdb < Formula
 
     # database creation
     pipe_output("#{bin}/tdbtool", "create #{testdb}\ninsert foo bar\n", 0)
-    assert_predicate testpath/testdb, :exist?
+    assert_path_exists testpath/testdb
     assert_match "Database integrity is OK and has 1 records.", pipe_output("#{bin}/tdbtool #{testdb}", "check\n")
     assert_match "key 3 bytes: foo", pipe_output("#{bin}/tdbtool #{testdb}", "keys\n")
   end
