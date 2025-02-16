@@ -30,6 +30,6 @@ class Stencil < Formula
   test do
     (testpath/"service.yaml").write "name: test"
     system bin/"stencil"
-    assert_predicate testpath/"stencil.lock", :exist?
+    assert_path_exists testpath/"stencil.lock"
   end
 end
