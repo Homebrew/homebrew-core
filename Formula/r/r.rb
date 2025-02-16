@@ -157,8 +157,7 @@ class R < Formula
     system bin/"Rscript", "-e", "if(!capabilities('cairo')) stop('cairo not available')"
 
     system bin/"Rscript", "-e", "install.packages('gss', '.', 'https://cloud.r-project.org')"
-    assert_predicate testpath/"gss/libs/gss.so", :exist?,
-                     "Failed to install gss package"
+    assert_path_exists testpath/"gss/libs/gss.so", "Failed to install gss package"
 
     winsys = "[1] \"aqua\""
     if OS.linux?
