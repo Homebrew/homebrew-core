@@ -125,7 +125,7 @@ class Libtensorflow < Formula
     ].join(" ")
     shell_output(transform_command)
 
-    assert_predicate testpath/"graph-new.pb", :exist?, "transform_graph did not create an output graph"
+    assert_path_exists testpath/"graph-new.pb", "transform_graph did not create an output graph"
 
     new_summarize_graph_output = shell_output("#{bin}/summarize_graph --in_graph=#{testpath}/graph-new.pb 2>&1")
     new_variables_match = /Found \d+ variables:.+$/.match(new_summarize_graph_output)
