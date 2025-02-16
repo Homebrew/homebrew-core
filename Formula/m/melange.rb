@@ -79,7 +79,7 @@ class Melange < Formula
     assert_equal "hello-2.12-r0", shell_output("#{bin}/melange package-version #{testpath}/test.yml")
 
     system bin/"melange", "keygen"
-    assert_predicate testpath/"melange.rsa", :exist?
+    assert_path_exists testpath/"melange.rsa"
 
     assert_match version.to_s, shell_output(bin/"melange version 2>&1")
   end
