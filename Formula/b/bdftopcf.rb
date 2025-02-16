@@ -61,6 +61,6 @@ class Bdftopcf < Formula
     EOS
 
     system bin/"bdftopcf", "./test.bdf", "-o", "test.pcf"
-    assert_predicate testpath/"test.pcf", :exist?
+    assert_path_exists testpath/"test.pcf"
   end
 end
