@@ -66,7 +66,7 @@ class Meson < Formula
     MESON
 
     system bin/"meson", "setup", "build"
-    assert_predicate testpath/"build/build.ninja", :exist?
+    assert_path_exists testpath/"build/build.ninja"
 
     system bin/"meson", "compile", "-C", "build", "--verbose"
     assert_equal "hi", shell_output("build/hello").chomp
