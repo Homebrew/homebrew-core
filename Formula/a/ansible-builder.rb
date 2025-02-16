@@ -94,7 +94,7 @@ class AnsibleBuilder < Formula
     system bin/"ansible-builder", "create", "-c", test_tmp,
       "--output-filename", "Containerfile",
       "--file", testpath/"execution-environment.yml"
-    assert_predicate test_tmp/"Containerfile", :exist?
+    assert_path_exists test_tmp/"Containerfile"
 
     assert_match version.to_s, shell_output("#{bin}/ansible-builder --version")
   end
