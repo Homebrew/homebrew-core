@@ -41,9 +41,9 @@ class AtomistCli < Formula
   end
 
   test do
-    assert_predicate bin/"atomist", :exist?
+    assert_path_exists bin/"atomist"
     assert_predicate bin/"atomist", :executable?
-    assert_predicate bin/"@atomist", :exist?
+    assert_path_exists bin/"@atomist"
     assert_predicate bin/"@atomist", :executable?
 
     run_output = shell_output("#{bin}/atomist 2>&1", 1)
