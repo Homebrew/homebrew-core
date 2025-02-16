@@ -22,6 +22,6 @@ class Wcurl < Formula
     assert_match version.to_s, shell_output(bin/"wcurl --version")
 
     system bin/"wcurl", "https://github.com/curl/wcurl/blob/main/wcurl.1"
-    assert_predicate testpath/"wcurl.1", :exist?
+    assert_path_exists testpath/"wcurl.1"
   end
 end
