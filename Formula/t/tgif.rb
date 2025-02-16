@@ -78,7 +78,7 @@ class Tgif < Formula
 
     EOS
     system bin/"tgif", "-print", "-text", "-quiet", "test.obj"
-    assert_predicate testpath/"test.txt", :exist?
+    assert_path_exists testpath/"test.txt"
   end
 end
 __END__
