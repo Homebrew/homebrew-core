@@ -30,9 +30,9 @@ class Jot < Formula
     system bin/"jt", "enter", "testvault"
 
     system bin/"jt", "note", "testnote"
-    assert_predicate testpath/"testvault/testnote.md", :exist?
+    assert_path_exists testpath/"testvault/testnote.md"
 
     system bin/"jt", "remove", "note", "testnote"
-    refute_predicate testpath/"testvault/testnote.md", :exist?
+    refute_path_exists testpath/"testvault/testnote.md"
   end
 end
