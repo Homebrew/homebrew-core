@@ -35,7 +35,7 @@ class Lzip < Formula
 
     # compress: data.txt -> data.txt.lz
     system bin/"lzip", path
-    refute_predicate path, :exist?
+    refute_path_exists path
 
     # decompress: data.txt.lz -> data.txt
     system bin/"lzip", "-d", "#{path}.lz"
