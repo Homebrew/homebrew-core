@@ -71,6 +71,6 @@ class Cereal < Formula
     CPP
     system ENV.cxx, "test.cpp", "-std=c++11", "-I#{include}", "-o", "test"
     system "./test"
-    assert_predicate testpath/"out.cereal", :exist?
+    assert_path_exists testpath/"out.cereal"
   end
 end
