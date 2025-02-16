@@ -25,9 +25,9 @@ class MmCommon < Formula
     touch testpath/"test/a"
 
     system bin/"mm-common-prepare", "-c", testpath/"test/a"
-    assert_predicate testpath/"test/compile-binding.am", :exist?
-    assert_predicate testpath/"test/dist-changelog.am", :exist?
-    assert_predicate testpath/"test/doc-reference.am", :exist?
-    assert_predicate testpath/"test/generate-binding.am", :exist?
+    assert_path_exists testpath/"test/compile-binding.am"
+    assert_path_exists testpath/"test/dist-changelog.am"
+    assert_path_exists testpath/"test/doc-reference.am"
+    assert_path_exists testpath/"test/generate-binding.am"
   end
 end
