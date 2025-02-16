@@ -91,8 +91,8 @@ class Filebeat < Formula
     log_file.append_lines "foo bar baz"
     sleep 5
 
-    assert_predicate testpath/"meta.json", :exist?
-    assert_predicate testpath/"registry/filebeat", :exist?
+    assert_path_exists testpath/"meta.json"
+    assert_path_exists testpath/"registry/filebeat"
   ensure
     Process.kill("TERM", pid)
     Process.wait(pid)
