@@ -42,7 +42,6 @@ class Docfx < Formula
 
   test do
     system bin/"docfx", "init", "--yes", "--output", testpath/"docfx_project"
-    assert_predicate testpath/"docfx_project/docfx.json", :exist?,
-                     "Failed to generate project"
+    assert_path_exists testpath/"docfx_project/docfx.json", "Failed to generate project"
   end
 end
