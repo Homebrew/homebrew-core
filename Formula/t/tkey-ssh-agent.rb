@@ -74,6 +74,6 @@ class TkeySshAgent < Formula
     socket = testpath/"tkey-ssh-agent.sock"
     fork { exec bin/"tkey-ssh-agent", "--agent-socket", socket }
     sleep 1
-    assert_predicate socket, :exist?
+    assert_path_exists socket
   end
 end
