@@ -37,7 +37,7 @@ class Lziprecover < Formula
 
     # Compress data into archive
     system Formula["lzip"].opt_bin/"lzip", path
-    refute_predicate path, :exist?
+    refute_path_exists path
 
     # Corrupt the archive to test the recovery process
     File.open("#{path}.lz", "r+b") do |file|
