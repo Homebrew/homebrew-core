@@ -44,6 +44,6 @@ class Xkbcomp < Formula
     EOS
 
     system bin/"xkbcomp", "./test.xkb"
-    assert_predicate testpath/"test.xkm", :exist?
+    assert_path_exists testpath/"test.xkm"
   end
 end
