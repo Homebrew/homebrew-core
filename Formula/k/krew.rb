@@ -42,7 +42,7 @@ class Krew < Formula
 
     system bin/"kubectl-krew", "update"
     system bin/"kubectl-krew", "install", "ctx"
-    assert_predicate testpath/"bin/kubectl-ctx", :exist?
+    assert_path_exists testpath/"bin/kubectl-ctx"
 
     assert_match "v#{version}", shell_output("#{bin}/kubectl-krew version")
     assert_match (HOMEBREW_PREFIX/"bin/kubectl-krew").to_s, shell_output("#{kubectl} plugin list")
