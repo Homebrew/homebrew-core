@@ -55,7 +55,7 @@ class HgFastExport < Formula
       system "git", "checkout", "HEAD"
     end
 
-    assert_predicate testpath/"git-repo/test.txt", :exist?
+    assert_path_exists testpath/"git-repo/test.txt"
     assert_equal "Hello", (testpath/"git-repo/test.txt").read
   end
 end
