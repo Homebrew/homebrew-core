@@ -127,6 +127,6 @@ class Copier < Formula
     system bin/"copier", "copy", *params, "--vcs-ref=v0.1.0",
       "https://github.com/copier-org/autopretty.git", "template"
     assert (testpath/"template").directory?
-    assert_predicate testpath/"template/.copier-answers.autopretty.yml", :exist?
+    assert_path_exists testpath/"template/.copier-answers.autopretty.yml"
   end
 end
