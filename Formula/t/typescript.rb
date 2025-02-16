@@ -29,6 +29,6 @@ class Typescript < Formula
     EOS
 
     system bin/"tsc", "test.ts"
-    assert_predicate testpath/"test.js", :exist?, "test.js was not generated"
+    assert_path_exists testpath/"test.js", "test.js was not generated"
   end
 end
