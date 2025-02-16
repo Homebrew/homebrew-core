@@ -66,7 +66,7 @@ class Borgbackup < Formula
       system bin/"borg", "extract", testpath/"test-repo::test-archive"
     end
 
-    assert_predicate testpath/"restore/test.pdf", :exist?
+    assert_path_exists testpath/"restore/test.pdf"
     assert_equal File.size(testpath/"restore/test.pdf"), File.size(testpath/"test.pdf")
   end
 end
