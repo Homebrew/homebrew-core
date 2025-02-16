@@ -54,6 +54,6 @@ class Rgbds < Formula
     system bin/"rgbasm", "-o", "output.o", "source.asm"
     system bin/"rgbobj", "-A", "-s", "data", "-p", "data", "output.o"
     system bin/"rgbgfx", test_fixtures("test.png"), "-o", testpath/"test.2bpp"
-    assert_predicate testpath/"test.2bpp", :exist?
+    assert_path_exists testpath/"test.2bpp"
   end
 end
