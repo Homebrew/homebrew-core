@@ -30,7 +30,7 @@ class D2 < Formula
     EOS
 
     system bin/"d2", "test.d2"
-    assert_predicate testpath/"test.svg", :exist?
+    assert_path_exists testpath/"test.svg"
 
     assert_match "dagre is a directed graph layout library for JavaScript",
       shell_output("#{bin}/d2 layout dagre")
