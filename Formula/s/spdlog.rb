@@ -63,7 +63,7 @@ class Spdlog < Formula
 
     system ENV.cxx, "-std=c++11", "test.cpp", "-I#{include}", "-L#{Formula["fmt"].opt_lib}", "-lfmt", "-o", "test"
     system "./test"
-    assert_predicate testpath/"basic-log.txt", :exist?
+    assert_path_exists testpath/"basic-log.txt"
     assert_match "Test", (testpath/"basic-log.txt").read
   end
 end
