@@ -68,7 +68,7 @@ class AescryptPacketizer < Formula
     path.write original_contents
 
     system bin/"paescrypt", "-e", "-p", "fire", path
-    assert_predicate testpath/"#{path}.aes", :exist?
+    assert_path_exists testpath/"#{path}.aes"
 
     system bin/"paescrypt", "-d", "-p", "fire", "#{path}.aes"
     assert_equal original_contents, path.read
