@@ -74,7 +74,7 @@ class Nuvie < Formula
     end
     sleep 3
 
-    assert_predicate bin/"nuvie", :exist?
+    assert_path_exists bin/"nuvie"
     assert_predicate bin/"nuvie", :executable?
   ensure
     Process.kill("TERM", pid)
