@@ -23,6 +23,6 @@ class Negfix8 < Formula
     (testpath/".negfix8/frameprofile").write "1 1 1 1 1 1 1"
     system bin/"negfix8", "-u", "frameprofile", test_fixtures("test.tiff"),
         "#{testpath}/output.tiff"
-    assert_predicate testpath/"output.tiff", :exist?
+    assert_path_exists testpath/"output.tiff"
   end
 end
