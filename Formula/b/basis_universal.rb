@@ -33,6 +33,6 @@ class BasisUniversal < Formula
 
   test do
     system bin/"basisu", test_fixtures("test.png")
-    assert_predicate testpath/"test.ktx2", :exist?
+    assert_path_exists testpath/"test.ktx2"
   end
 end
