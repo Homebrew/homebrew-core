@@ -49,7 +49,7 @@ class CargoDocset < Formula
       TOML
 
       output = shell_output("cargo docset --all-features")
-      assert_predicate crate/"target/docset/demo-crate.docset", :exist?
+      assert_path_exists crate/"target/docset/demo-crate.docset"
       assert_match "Docset succesfully generated", output
     end
   end
