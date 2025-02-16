@@ -46,7 +46,7 @@ class Libaec < Formula
 
   test do
     # Check directory structure of CMake file in case new release changed layout
-    assert_predicate lib/"cmake/libaec/libaec-config.cmake", :exist?
+    assert_path_exists lib/"cmake/libaec/libaec-config.cmake"
 
     (testpath/"test.cpp").write <<~CPP
       #include <cassert>
