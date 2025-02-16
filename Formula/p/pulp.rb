@@ -28,7 +28,7 @@ class Pulp < Formula
     assert_match version.to_s, shell_output("#{bin}/pulp --version")
 
     system bin/"pulp", "init"
-    assert_predicate testpath/".gitignore", :exist?
-    assert_predicate testpath/"bower.json", :exist?
+    assert_path_exists testpath/".gitignore"
+    assert_path_exists testpath/"bower.json"
   end
 end
