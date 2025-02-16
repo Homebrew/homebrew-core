@@ -99,6 +99,6 @@ class V2ray < Formula
     output = shell_output "#{bin}/v2ray test -c #{testpath}/config.json"
 
     assert_match "Configuration OK", output
-    assert_predicate testpath/"log", :exist?
+    assert_path_exists testpath/"log"
   end
 end
