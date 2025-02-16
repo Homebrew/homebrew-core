@@ -23,6 +23,6 @@ class Asyncapi < Formula
 
   test do
     system bin/"asyncapi", "new", "file", "--file-name=asyncapi.yml", "--example=default-example.yaml", "--no-tty"
-    assert_predicate testpath/"asyncapi.yml", :exist?, "AsyncAPI file was not created"
+    assert_path_exists testpath/"asyncapi.yml", "AsyncAPI file was not created"
   end
 end
