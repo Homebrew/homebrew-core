@@ -27,10 +27,10 @@ class Wllvm < Formula
     with_env(LLVM_COMPILER: "clang") do
       system bin/"wllvm", testpath/"test.c", "-o", testpath/"test"
     end
-    assert_predicate testpath/".test.o", :exist?
-    assert_predicate testpath/".test.o.bc", :exist?
+    assert_path_exists testpath/".test.o"
+    assert_path_exists testpath/".test.o.bc"
 
     system bin/"extract-bc", testpath/"test"
-    assert_predicate testpath/"test.bc", :exist?
+    assert_path_exists testpath/"test.bc"
   end
 end
