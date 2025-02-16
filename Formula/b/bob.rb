@@ -36,7 +36,7 @@ class Bob < Formula
 
     system bin/"bob", "install", "v0.9.0"
     assert_match "v0.9.0", shell_output("#{bin}/bob list")
-    assert_predicate testpath/".local/share/bob/v0.9.0", :exist?
+    assert_path_exists testpath/".local/share/bob/v0.9.0"
     system bin/"bob", "erase"
   end
 end
