@@ -45,7 +45,7 @@ class Bastet < Formula
     end
     sleep 3
 
-    assert_predicate bin/"bastet", :exist?
+    assert_path_exists bin/"bastet"
     assert_predicate bin/"bastet", :executable?
   ensure
     Process.kill("TERM", pid)
