@@ -107,12 +107,12 @@ class NodeAT16 < Formula
       ENV.prepend_path "PATH", Formula["python@3.11"].opt_libexec/"bin"
     end
     assert_equal which("node"), opt_bin/"node"
-    assert_predicate bin/"npm", :exist?, "npm must exist"
+    assert_path_exists bin/"npm", "npm must exist"
     assert_predicate bin/"npm", :executable?, "npm must be executable"
     npm_args = ["-ddd", "--cache=#{HOMEBREW_CACHE}/npm_cache", "--build-from-source"]
     system bin/"npm", *npm_args, "install", "npm@latest"
     system bin/"npm", *npm_args, "install", "ref-napi"
-    assert_predicate bin/"npx", :exist?, "npx must exist"
+    assert_path_exists bin/"npx", "npx must exist"
     assert_predicate bin/"npx", :executable?, "npx must be executable"
     assert_match "< hello >", shell_output("#{bin}/npx --yes cowsay hello")
   end
