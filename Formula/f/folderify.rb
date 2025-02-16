@@ -35,6 +35,6 @@ class Folderify < Formula
     # folderify applies the test icon to a folder
     system bin/"folderify", "test.svg", testpath.to_s
     # Tests for the presence of the file icon
-    assert_predicate testpath/"Icon\r", :exist?
+    assert_path_exists testpath/"Icon\r"
   end
 end
