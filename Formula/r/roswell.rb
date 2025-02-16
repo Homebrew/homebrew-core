@@ -31,6 +31,6 @@ class Roswell < Formula
   test do
     ENV["ROSWELL_HOME"] = testpath
     system bin/"ros", "init"
-    assert_predicate testpath/"config", :exist?
+    assert_path_exists testpath/"config"
   end
 end
