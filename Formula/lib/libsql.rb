@@ -31,7 +31,7 @@ class Libsql < Formula
     pid = spawn(bin/"sqld")
     sleep 2
     sleep 3 if OS.mac? && Hardware::CPU.intel?
-    assert_predicate testpath/"data.sqld", :exist?
+    assert_path_exists testpath/"data.sqld"
 
     assert_match version.to_s, shell_output("#{bin}/sqld --version")
   ensure
