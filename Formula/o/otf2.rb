@@ -90,21 +90,21 @@ class Otf2 < Formula
         otf2_pthread_writer_example
         otf2_reader_example
         otf2_writer_example
-      ].each { |p| assert_predicate workdir/p, :exist? }
+      ].each { |p| assert_path_exists workdir/p }
       system "./otf2_writer_example"
-      assert_predicate workdir/"ArchivePath/ArchiveName.otf2", :exist?
+      assert_path_exists workdir/"ArchivePath/ArchiveName.otf2"
       system "./otf2_reader_example"
       rm_r("./ArchivePath")
       system Formula["open-mpi"].opt_bin/"mpirun", "-n", "2", "./otf2_mpi_writer_example"
-      assert_predicate workdir/"ArchivePath/ArchiveName.otf2", :exist?
+      assert_path_exists workdir/"ArchivePath/ArchiveName.otf2"
       2.times do |n|
-        assert_predicate workdir/"ArchivePath/ArchiveName/#{n}.evt", :exist?
+        assert_path_exists workdir/"ArchivePath/ArchiveName/#{n}.evt"
       end
       system Formula["open-mpi"].opt_bin/"mpirun", "-n", "2", "./otf2_mpi_reader_example"
       system "./otf2_reader_example"
       rm_r("./ArchivePath")
       system "./otf2_pthread_writer_example"
-      assert_predicate workdir/"ArchivePath/ArchiveName.otf2", :exist?
+      assert_path_exists workdir/"ArchivePath/ArchiveName.otf2"
       system "./otf2_reader_example"
     end
 
