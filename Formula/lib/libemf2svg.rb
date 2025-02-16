@@ -43,6 +43,6 @@ class Libemf2svg < Formula
     resource("homebrew-testdata").stage do
       system bin/"emf2svg-conv", "-i", "test-037.emf", "-o", testpath/"test.svg"
     end
-    assert_predicate testpath/"test.svg", :exist?
+    assert_path_exists testpath/"test.svg"
   end
 end
