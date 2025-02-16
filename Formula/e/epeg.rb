@@ -32,6 +32,6 @@ class Epeg < Formula
 
   test do
     system bin/"epeg", "--width=1", "--height=1", test_fixtures("test.jpg"), "out.jpg"
-    assert_predicate testpath/"out.jpg", :exist?
+    assert_path_exists testpath/"out.jpg"
   end
 end
