@@ -26,6 +26,6 @@ class Pygments < Formula
     PYTHON
 
     system bin/"pygmentize", "-f", "html", "-o", "test.html", testpath/"test.py"
-    assert_predicate testpath/"test.html", :exist?
+    assert_path_exists testpath/"test.html"
   end
 end
