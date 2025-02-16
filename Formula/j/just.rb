@@ -35,7 +35,7 @@ class Just < Formula
         touch it-worked
     EOS
     system bin/"just"
-    assert_predicate testpath/"it-worked", :exist?
+    assert_path_exists testpath/"it-worked"
 
     assert_match version.to_s, shell_output("#{bin}/just --version")
   end
