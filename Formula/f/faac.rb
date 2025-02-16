@@ -31,6 +31,6 @@ class Faac < Formula
 
   test do
     system bin/"faac", test_fixtures("test.mp3"), "-P", "-o", "test.m4a"
-    assert_predicate testpath/"test.m4a", :exist?
+    assert_path_exists testpath/"test.m4a"
   end
 end
