@@ -43,7 +43,6 @@ class Pdfsandwich < Formula
   test do
     system bin/"pdfsandwich", "-o", testpath/"test_ocr.pdf",
            test_fixtures("test.pdf")
-    assert_predicate testpath/"test_ocr.pdf", :exist?,
-                     "Failed to create ocr file"
+    assert_path_exists testpath/"test_ocr.pdf", "Failed to create ocr file"
   end
 end
