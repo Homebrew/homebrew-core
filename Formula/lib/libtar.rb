@@ -41,10 +41,10 @@ class Libtar < Formula
     (testpath/"homebrew.txt").write "This is a simple example"
     system "tar", "-cvf", "test.tar", "homebrew.txt"
     rm "homebrew.txt"
-    refute_predicate testpath/"homebrew.txt", :exist?
-    assert_predicate testpath/"test.tar", :exist?
+    refute_path_exists testpath/"homebrew.txt"
+    assert_path_exists testpath/"test.tar"
 
     system bin/"libtar", "-x", "test.tar"
-    assert_predicate testpath/"homebrew.txt", :exist?
+    assert_path_exists testpath/"homebrew.txt"
   end
 end
