@@ -44,6 +44,6 @@ class Tass64 < Formula
     ASM
 
     system bin/"64tass", "-a", "hello.asm", "-o", "hello.prg"
-    assert_predicate testpath/"hello.prg", :exist?
+    assert_path_exists testpath/"hello.prg"
   end
 end
