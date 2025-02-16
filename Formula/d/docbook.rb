@@ -104,6 +104,6 @@ class Docbook < Formula
   end
 
   test do
-    assert_predicate etc/"xml/catalog", :exist?
+    assert_path_exists etc/"xml/catalog"
   end
 end
