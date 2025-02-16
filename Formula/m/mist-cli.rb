@@ -31,7 +31,7 @@ class MistCli < Formula
     # check we can export the output list
     out = testpath/"out.json"
     system bin/"mist", "list", "firmware", "--quiet", "--export=#{out}", "--output-type=json"
-    assert_predicate out, :exist?
+    assert_path_exists out
 
     # check that it's parseable JSON in the format we expect
     parsed = JSON.parse(File.read(out))
