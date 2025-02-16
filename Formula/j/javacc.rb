@@ -45,12 +45,12 @@ class Javacc < Formula
     output_file_stem = testpath/"Simple1"
 
     system bin/"javacc", src_file
-    assert_predicate output_file_stem.sub_ext(".java"), :exist?
+    assert_path_exists output_file_stem.sub_ext(".java")
 
     system bin/"jjtree", src_file
-    assert_predicate output_file_stem.sub_ext(".jj.jj"), :exist?
+    assert_path_exists output_file_stem.sub_ext(".jj.jj")
 
     system bin/"jjdoc", src_file
-    assert_predicate output_file_stem.sub_ext(".html"), :exist?
+    assert_path_exists output_file_stem.sub_ext(".html")
   end
 end
