@@ -35,7 +35,7 @@ class GoStatik < Formula
       "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"
     end
     system bin/"statik", "-src", font_path
-    assert_predicate testpath/"statik/statik.go", :exist?
+    assert_path_exists testpath/"statik/statik.go"
     refute_predicate (testpath/"statik/statik.go").size, :zero?
   end
 end
