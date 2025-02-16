@@ -48,6 +48,6 @@ class Abcm2ps < Formula
     ABC
 
     system bin/"abcm2ps", testpath/"voices"
-    assert_predicate testpath/"Out.ps", :exist?
+    assert_path_exists testpath/"Out.ps"
   end
 end
