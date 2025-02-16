@@ -35,6 +35,6 @@ class Flamebearer < Formula
         shell_output("#{Formula["node"].bin}/node --prof-process --preprocess -j #{logs.join(" ")}"),
       )
 
-    assert_predicate testpath/"flamegraph.html", :exist?
+    assert_path_exists testpath/"flamegraph.html"
   end
 end
