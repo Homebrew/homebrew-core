@@ -25,7 +25,7 @@ class ElixirLs < Formula
   end
 
   test do
-    assert_predicate bin/"elixir-ls", :exist?
+    assert_path_exists bin/"elixir-ls"
     system "mix", "local.hex", "--force"
 
     input =
