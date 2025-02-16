@@ -47,7 +47,7 @@ class Cuetools < Formula
           INDEX 01 00:00:00
     CUE
     system bin/"cueconvert", testpath/"test.cue", testpath/"test.toc"
-    assert_predicate testpath/"test.toc", :exist?
+    assert_path_exists testpath/"test.toc"
   end
 end
 
