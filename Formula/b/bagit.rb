@@ -30,8 +30,8 @@ class Bagit < Formula
 
   test do
     system bin/"bagit.py", "--source-organization", "Library of Congress", testpath.to_s
-    assert_predicate testpath/"bag-info.txt", :exist?
-    assert_predicate testpath/"bagit.txt", :exist?
+    assert_path_exists testpath/"bag-info.txt"
+    assert_path_exists testpath/"bagit.txt"
     assert_match "Bag-Software-Agent: bagit.py", File.read("bag-info.txt")
     assert_match "BagIt-Version: 0.97", File.read("bagit.txt")
 
