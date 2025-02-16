@@ -84,7 +84,7 @@ class Fbthrift < Formula
     THRIFT
 
     system bin/"thrift1", "--gen", "mstch_cpp2", "example.thrift"
-    assert_predicate testpath/"gen-cpp2", :exist?
+    assert_path_exists testpath/"gen-cpp2"
     assert_predicate testpath/"gen-cpp2", :directory?
 
     # TODO: consider adding an actual test
