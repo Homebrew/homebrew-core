@@ -56,6 +56,6 @@ class Tvnamer < Formula
     expected_file = testpath/"Brass Eye - [01x01] - Animals.avi"
     touch raw_file
     system bin/"tvnamer", "-b", raw_file
-    assert_predicate expected_file, :exist?
+    assert_path_exists expected_file
   end
 end
