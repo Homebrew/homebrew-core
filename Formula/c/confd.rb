@@ -57,7 +57,7 @@ class Confd < Formula
     YAML
 
     system bin/"confd", "-backend", "file", "-file", "keys.yaml", "-onetime", "-confdir=."
-    assert_predicate testpath/"test.conf", :exist?
+    assert_path_exists testpath/"test.conf"
     refute_predicate (testpath/"test.conf").size, :zero?
   end
 end
