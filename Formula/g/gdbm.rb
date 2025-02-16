@@ -46,7 +46,7 @@ class Gdbm < Formula
 
   test do
     pipe_output("#{bin}/gdbmtool --norc --newdb test", "store 1 2\nquit\n")
-    assert_predicate testpath/"test", :exist?
+    assert_path_exists testpath/"test"
     assert_match "2", pipe_output("#{bin}/gdbmtool --norc test", "fetch 1\nquit\n")
   end
 end
