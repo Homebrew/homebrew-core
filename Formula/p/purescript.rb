@@ -48,6 +48,6 @@ class Purescript < Formula
       main = 1
     EOS
     system bin/"purs", "compile", test_module_path, "-o", test_target_path
-    assert_predicate test_target_path, :exist?
+    assert_path_exists test_target_path
   end
 end
