@@ -39,6 +39,6 @@ class Pulumi < Formula
     ENV["PULUMI_TEMPLATE_PATH"] = testpath/"templates"
     system bin/"pulumi", "new", "aws-typescript", "--generate-only",
                                                      "--force", "-y"
-    assert_predicate testpath/"Pulumi.yaml", :exist?, "Project was not created"
+    assert_path_exists testpath/"Pulumi.yaml", "Project was not created"
   end
 end
