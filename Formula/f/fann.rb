@@ -73,6 +73,6 @@ class Fann < Formula
 
     assert epoch.to_i <= max_epochs
     assert error.to_f <= desired_error
-    assert_predicate testpath/"xor_float.net", :exist?
+    assert_path_exists testpath/"xor_float.net"
   end
 end
