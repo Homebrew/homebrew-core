@@ -32,6 +32,6 @@ class Porter < Formula
     assert_match "porter #{version}", shell_output("#{bin}/porter --version")
 
     system bin/"porter", "create"
-    assert_predicate testpath/"porter.yaml", :exist?
+    assert_path_exists testpath/"porter.yaml"
   end
 end
