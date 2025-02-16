@@ -60,6 +60,6 @@ class Crfsuite < Formula
     Process.wait(pid)
 
     system bin/"crfsuite", "learn", "--model", "CoNLL2000.model", "train.crfsuite.txt"
-    assert_predicate testpath/"CoNLL2000.model", :exist?
+    assert_path_exists testpath/"CoNLL2000.model"
   end
 end
