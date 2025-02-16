@@ -35,7 +35,7 @@ class Inform6 < Formula
 
     resource("homebrew-test_resource").stage do
       system bin/"inform", "Adventureland.inf"
-      assert_predicate Pathname.pwd/"Adventureland.z5", :exist?
+      assert_path_exists Pathname.pwd/"Adventureland.z5"
     end
   end
 end
