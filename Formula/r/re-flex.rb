@@ -36,6 +36,6 @@ class ReFlex < Formula
       %%
     EOS
     system bin/"reflex", "--flex", "echo.l"
-    assert_predicate testpath/"lex.yy.cpp", :exist?
+    assert_path_exists testpath/"lex.yy.cpp"
   end
 end
