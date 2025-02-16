@@ -89,8 +89,8 @@ class GiDocgen < Formula
 
     output = shell_output("#{bin}/gi-docgen generate -C brew.toml brew.gir")
     assert_match "Creating namespace index file for brew-1.0", output
-    assert_predicate testpath/"brew-1.0/index.html", :exist?
-    assert_predicate testpath/"brew-1.0/struct.Formula.html", :exist?
+    assert_path_exists testpath/"brew-1.0/index.html"
+    assert_path_exists testpath/"brew-1.0/struct.Formula.html"
     assert_match %r{Website.*>https://brew.sh/}, (testpath/"brew-1.0/index.html").read
     assert_match(/struct.*Formula.*{/, (testpath/"brew-1.0/struct.Formula.html").read)
   end
