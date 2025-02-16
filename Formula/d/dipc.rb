@@ -25,7 +25,7 @@ class Dipc < Formula
     output_path = testpath/"output.png"
     system bin/"dipc", "gruvbox", "--styles", "Dark mode", "-o", output_path, test_fixtures("test.png")
 
-    assert_predicate output_path, :exist?
+    assert_path_exists output_path
     assert_operator output_path.size, :>, 0
 
     assert_match version.to_s, shell_output("#{bin}/dipc --version")
