@@ -30,10 +30,10 @@ class Sf < Formula
 
   test do
     system bin/"sf", "project", "generate", "-n", "projectname", "-t", "empty"
-    assert_predicate testpath/"projectname", :exist?
-    assert_predicate testpath/"projectname/config/project-scratch-def.json", :exist?
-    assert_predicate testpath/"projectname/README.md", :exist?
-    assert_predicate testpath/"projectname/sfdx-project.json", :exist?
-    assert_predicate testpath/"projectname/.forceignore", :exist?
+    assert_path_exists testpath/"projectname"
+    assert_path_exists testpath/"projectname/config/project-scratch-def.json"
+    assert_path_exists testpath/"projectname/README.md"
+    assert_path_exists testpath/"projectname/sfdx-project.json"
+    assert_path_exists testpath/"projectname/.forceignore"
   end
 end
