@@ -49,6 +49,6 @@ class Duc < Formula
     system "dd", "if=/dev/zero", "of=test", "count=1"
     system bin/"duc", "index", "-d", db_file, "."
     system bin/"duc", "graph", "-d", db_file, "-o", "duc.png"
-    assert_predicate testpath/"duc.png", :exist?, "Failed to create duc.png!"
+    assert_path_exists testpath/"duc.png", "Failed to create duc.png!"
   end
 end
