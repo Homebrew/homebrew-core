@@ -28,7 +28,7 @@ class Cfv < Formula
 
     cd "test" do
       system bin/"cfv", "-t", "sha1", "-C", "test.txt"
-      assert_predicate Pathname.pwd/"test.sha1", :exist?
+      assert_path_exists Pathname.pwd/"test.sha1"
       assert_match "9afe8b4d99fb2dd5f6b7b3e548b43a038dc3dc38", File.read("test.sha1")
     end
   end
