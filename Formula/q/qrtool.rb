@@ -32,7 +32,7 @@ class Qrtool < Formula
 
   test do
     (testpath/"output.png").write shell_output("#{bin}/qrtool encode 'QR code'")
-    assert_predicate testpath/"output.png", :exist?
+    assert_path_exists testpath/"output.png"
     assert_equal "QR code", shell_output("#{bin}/qrtool decode output.png")
   end
 end
