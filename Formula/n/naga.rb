@@ -33,6 +33,6 @@ class Naga < Formula
   end
 
   test do
-    assert_predicate bin/"naga", :exist?
+    assert_path_exists bin/"naga"
   end
 end
