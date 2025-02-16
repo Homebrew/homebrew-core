@@ -40,6 +40,6 @@ class Since < Formula
       bar
     EOS
     system bin/"since", "-z", "test"
-    assert_predicate testpath/".since", :exist?
+    assert_path_exists testpath/".since"
   end
 end
