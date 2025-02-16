@@ -40,6 +40,6 @@ class Vvenc < Formula
            "--format", "yuv420_10",
            "--hdr", "hdr10_2020",
            "-o", testpath/"RTn23_80x44p15_f15.vvc"
-    assert_predicate testpath/"RTn23_80x44p15_f15.vvc", :exist?
+    assert_path_exists testpath/"RTn23_80x44p15_f15.vvc"
   end
 end
