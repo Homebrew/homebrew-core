@@ -34,6 +34,6 @@ class Mage < Formula
 
   test do
     assert_match "magefile.go created", shell_output("#{bin}/mage -init 2>&1")
-    assert_predicate testpath/"magefile.go", :exist?
+    assert_path_exists testpath/"magefile.go"
   end
 end
