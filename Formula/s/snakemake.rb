@@ -257,7 +257,7 @@ class Snakemake < Formula
                "touch {output}"
     EOS
     test_output = shell_output("#{bin}/snakemake --cores 1 -s #{testpath}/Snakefile 2>&1")
-    assert_predicate testpath/"test.out", :exist?
+    assert_path_exists testpath/"test.out"
     assert_match "Building DAG of jobs...", test_output
   end
 end
