@@ -49,6 +49,6 @@ class Ecasound < Formula
   test do
     fixture = test_fixtures("test.wav")
     system bin/"ecasound", "-i", "resample,auto,#{fixture}", "-o", testpath/"test.cdr"
-    assert_predicate testpath/"test.cdr", :exist?
+    assert_path_exists testpath/"test.cdr"
   end
 end
