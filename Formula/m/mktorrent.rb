@@ -32,7 +32,7 @@ class Mktorrent < Formula
     EOS
 
     system bin/"mktorrent", "-d", "-c", "Martin Luther King Jr", "test.txt"
-    assert_predicate testpath/"test.txt.torrent", :exist?, "Torrent was not created"
+    assert_path_exists testpath/"test.txt.torrent", "Torrent was not created"
 
     file = File.read(testpath/"test.txt.torrent")
     output = file.force_encoding("ASCII-8BIT") if file.respond_to?(:force_encoding)
