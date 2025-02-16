@@ -94,7 +94,7 @@ class Minidlna < Formula
 
     io = IO.popen("#{sbin}/minidlnad -d -f minidlna.conf -p #{port} -P #{testpath}/minidlna.pid", "r")
     io.expect("debug: Initial file scan completed", 30)
-    assert_predicate testpath/"minidlna.pid", :exist?
+    assert_path_exists testpath/"minidlna.pid"
 
     # change back to localhost once https://sourceforge.net/p/minidlna/bugs/346/ is addressed
     assert_match "MiniDLNA #{version}", shell_output("curl 127.0.0.1:#{port}")
