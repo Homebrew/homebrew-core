@@ -386,7 +386,7 @@ class Sickchill < Formula
       Process.kill("TERM", pid)
       Process.wait(pid)
     end
-    assert_predicate testpath/"config.ini", :exist?
-    assert_predicate testpath/"sickchill.db", :exist?
+    assert_path_exists testpath/"config.ini"
+    assert_path_exists testpath/"sickchill.db"
   end
 end
