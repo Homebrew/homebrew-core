@@ -32,6 +32,6 @@ class WasmPack < Formula
 
     system bin/"wasm-pack", "new", "hello-wasm"
     system bin/"wasm-pack", "build", "hello-wasm"
-    assert_predicate testpath/"hello-wasm/pkg/hello_wasm_bg.wasm", :exist?
+    assert_path_exists testpath/"hello-wasm/pkg/hello_wasm_bg.wasm"
   end
 end
