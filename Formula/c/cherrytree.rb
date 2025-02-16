@@ -89,7 +89,7 @@ class Cherrytree < Formula
     XML
 
     system bin/"cherrytree", testpath/"homebrew.ctd", "--export_to_txt_dir", testpath, "--export_single_file"
-    assert_predicate testpath/"homebrew.ctd.txt", :exist?
+    assert_path_exists testpath/"homebrew.ctd.txt"
     assert_match "rich text", (testpath/"homebrew.ctd.txt").read
     assert_match "this is a simple command line test for homebrew", (testpath/"homebrew.ctd.txt").read
     assert_match "code", (testpath/"homebrew.ctd.txt").read
