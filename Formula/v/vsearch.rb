@@ -32,6 +32,6 @@ class Vsearch < Formula
       AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTAAAAAAAGAGTGTCTGATAGCAGC
     EOS
     system bin/"vsearch", "--rereplicate", "test.fasta", "--output", "output.txt"
-    assert_predicate testpath/"output.txt", :exist?
+    assert_path_exists testpath/"output.txt"
   end
 end
