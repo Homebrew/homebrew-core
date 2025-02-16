@@ -37,11 +37,11 @@ class Ccrypt < Formula
   test do
     touch "homebrew.txt"
     system bin/"ccrypt", "-e", testpath/"homebrew.txt", "-K", "secret"
-    assert_predicate testpath/"homebrew.txt.cpt", :exist?
-    refute_predicate testpath/"homebrew.txt", :exist?
+    assert_path_exists testpath/"homebrew.txt.cpt"
+    refute_path_exists testpath/"homebrew.txt"
 
     system bin/"ccrypt", "-d", testpath/"homebrew.txt.cpt", "-K", "secret"
-    assert_predicate testpath/"homebrew.txt", :exist?
-    refute_predicate testpath/"homebrew.txt.cpt", :exist?
+    assert_path_exists testpath/"homebrew.txt"
+    refute_path_exists testpath/"homebrew.txt.cpt"
   end
 end
