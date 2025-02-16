@@ -43,15 +43,15 @@ class Prjtrellis < Formula
     testpath.install resource("homeebrew-ecp-config")
 
     system bin/"ecppack", testpath/"blink.config", testpath/"blink.bit"
-    assert_predicate testpath/"blink.bit", :exist?
+    assert_path_exists testpath/"blink.bit"
 
     system bin/"ecpunpack", testpath/"blink.bit", testpath/"foo.config"
-    assert_predicate testpath/"foo.config", :exist?
+    assert_path_exists testpath/"foo.config"
 
     system bin/"ecppll", "-i", "12", "-o", "24", "-f", "pll.v"
-    assert_predicate testpath/"pll.v", :exist?
+    assert_path_exists testpath/"pll.v"
 
     system bin/"ecpbram", "-g", "ram.hex", "-w", "16", "-d", "512"
-    assert_predicate testpath/"ram.hex", :exist?
+    assert_path_exists testpath/"ram.hex"
   end
 end
