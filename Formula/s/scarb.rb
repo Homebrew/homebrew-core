@@ -41,7 +41,7 @@ class Scarb < Formula
     assert_match "#{testpath}/Scarb.toml", shell_output("#{bin}/scarb manifest-path")
 
     system bin/"scarb", "init", "--name", "brewtest", "--no-vcs"
-    assert_predicate testpath/"src/lib.cairo", :exist?
+    assert_path_exists testpath/"src/lib.cairo"
     assert_match "brewtest", (testpath/"Scarb.toml").read
 
     assert_match version.to_s, shell_output("#{bin}/scarb --version")
