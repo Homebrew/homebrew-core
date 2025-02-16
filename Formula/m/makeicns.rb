@@ -37,6 +37,6 @@ class Makeicns < Formula
   test do
     system bin/"makeicns", "-in", test_fixtures("test.png"),
            "-out", testpath/"test.icns"
-    assert_predicate testpath/"test.icns", :exist?
+    assert_path_exists testpath/"test.icns"
   end
 end
