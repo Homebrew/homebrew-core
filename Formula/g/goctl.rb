@@ -42,6 +42,6 @@ class Goctl < Formula
       mkdir_p testpath/"#{version}/#{f}"
     end
     system bin/"goctl", "template", "init", "--home=#{testpath}"
-    assert_predicate testpath/"api/main.tpl", :exist?, "goctl install fail"
+    assert_path_exists testpath/"api/main.tpl", "goctl install fail"
   end
 end
