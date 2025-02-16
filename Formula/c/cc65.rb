@@ -37,6 +37,6 @@ class Cc65 < Formula
     (testpath/"foo.c").write "int main (void) { return 0; }"
 
     system bin/"cl65", "foo.c" # compile and link
-    assert_predicate testpath/"foo", :exist? # binary
+    assert_path_exists testpath/"foo" # binary
   end
 end
