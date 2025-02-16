@@ -43,6 +43,6 @@ class Qbe < Formula
     EOS
 
     system bin/"qbe", "-o", "out.s", "main.ssa"
-    assert_predicate testpath/"out.s", :exist?
+    assert_path_exists testpath/"out.s"
   end
 end
