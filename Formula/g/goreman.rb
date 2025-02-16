@@ -29,7 +29,7 @@ class Goreman < Formula
   test do
     (testpath/"Procfile").write "web: echo 'hello' > goreman-homebrew-test.out"
     system bin/"goreman", "start"
-    assert_predicate testpath/"goreman-homebrew-test.out", :exist?
+    assert_path_exists testpath/"goreman-homebrew-test.out"
     assert_match "hello", (testpath/"goreman-homebrew-test.out").read
   end
 end
