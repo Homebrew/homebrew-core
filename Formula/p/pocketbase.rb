@@ -33,13 +33,13 @@ class Pocketbase < Formula
 
     system "nc", "-z", "localhost", port
 
-    assert_predicate testpath/"pb_data", :exist?, "pb_data directory should exist"
+    assert_path_exists testpath/"pb_data", "pb_data directory should exist"
     assert_predicate testpath/"pb_data", :directory?, "pb_data should be a directory"
 
-    assert_predicate testpath/"pb_data/data.db", :exist?, "pb_data/data.db should exist"
+    assert_path_exists testpath/"pb_data/data.db", "pb_data/data.db should exist"
     assert_predicate testpath/"pb_data/data.db", :file?, "pb_data/data.db should be a file"
 
-    assert_predicate testpath/"pb_data/auxiliary.db", :exist?, "pb_data/auxiliary.db should exist"
+    assert_path_exists testpath/"pb_data/auxiliary.db", "pb_data/auxiliary.db should exist"
     assert_predicate testpath/"pb_data/auxiliary.db", :file?, "pb_data/auxiliary.db should be a file"
   ensure
     Process.kill "TERM", pid
