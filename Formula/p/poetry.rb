@@ -259,8 +259,8 @@ class Poetry < Formula
       system bin/"poetry", "add", "boto3"
     end
 
-    assert_predicate testpath/"homebrew/pyproject.toml", :exist?
-    assert_predicate testpath/"homebrew/poetry.lock", :exist?
+    assert_path_exists testpath/"homebrew/pyproject.toml"
+    assert_path_exists testpath/"homebrew/poetry.lock"
     assert_match "requests", (testpath/"homebrew/pyproject.toml").read
     assert_match "boto3", (testpath/"homebrew/pyproject.toml").read
   end
