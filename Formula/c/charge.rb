@@ -51,6 +51,6 @@ class Charge < Formula
     JS
 
     system bin/"charge", "build", "src", "out"
-    assert_predicate testpath/"out/index.html", :exist?
+    assert_path_exists testpath/"out/index.html"
   end
 end
