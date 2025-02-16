@@ -38,6 +38,6 @@ class Gotop < Formula
     else
       ".config/gotop/gotop.conf"
     end
-    assert_predicate testpath/conf_path, :exist?
+    assert_path_exists testpath/conf_path
   end
 end
