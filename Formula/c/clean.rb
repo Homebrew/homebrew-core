@@ -34,7 +34,7 @@ class Clean < Formula
     touch testpath/"backup1234.testing-rm"
 
     system bin/"clean", "-f", "-l", "-e", "*.testing-rm"
-    assert_predicate testpath/"backup1234", :exist?
-    refute_predicate testpath/"backup1234.testing-rm", :exist?
+    assert_path_exists testpath/"backup1234"
+    refute_path_exists testpath/"backup1234.testing-rm"
   end
 end
