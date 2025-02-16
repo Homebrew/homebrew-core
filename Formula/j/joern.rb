@@ -62,6 +62,6 @@ class Joern < Formula
     CPP
 
     assert_match "Parsing code", shell_output("#{bin}/joern-parse test.cpp")
-    assert_predicate testpath/"cpg.bin", :exist?
+    assert_path_exists testpath/"cpg.bin"
   end
 end
