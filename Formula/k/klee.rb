@@ -161,7 +161,7 @@ class Klee < Formula
       KLEE: done: generated tests = 3
     EOS
     assert_match expected_output, shell_output("#{bin}/klee get_sign.bc 2>&1")
-    assert_predicate testpath/"klee-out-0", :exist?
+    assert_path_exists testpath/"klee-out-0"
 
     assert_match "['get_sign.bc']", shell_output("#{bin}/ktest-tool klee-last/test000001.ktest")
 
