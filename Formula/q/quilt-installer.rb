@@ -23,6 +23,6 @@ class QuiltInstaller < Formula
 
   test do
     system bin/"quilt-installer", "install", "server", "1.19.2"
-    assert_predicate testpath/"server/quilt-server-launch.jar", :exist?
+    assert_path_exists testpath/"server/quilt-server-launch.jar"
   end
 end
