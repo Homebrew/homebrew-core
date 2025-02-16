@@ -47,9 +47,9 @@ class Htslib < Formula
     assert_match "SAM", shell_output("#{bin}/htsfile #{sam}")
 
     system "#{bin}/bgzip -c #{sam} > sam.gz"
-    assert_predicate testpath/"sam.gz", :exist?
+    assert_path_exists testpath/"sam.gz"
 
     system bin/"tabix", "-p", "sam", "sam.gz"
-    assert_predicate testpath/"sam.gz.tbi", :exist?
+    assert_path_exists testpath/"sam.gz.tbi"
   end
 end
