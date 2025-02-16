@@ -32,7 +32,7 @@ class VercelCli < Formula
 
   test do
     system bin/"vercel", "init", "jekyll"
-    assert_predicate testpath/"jekyll/_config.yml", :exist?, "_config.yml must exist"
-    assert_predicate testpath/"jekyll/README.md", :exist?, "README.md must exist"
+    assert_path_exists testpath/"jekyll/_config.yml", "_config.yml must exist"
+    assert_path_exists testpath/"jekyll/README.md", "README.md must exist"
   end
 end
