@@ -24,6 +24,6 @@ class Kumo < Formula
 
   test do
     system bin/"kumo", "-i", "https://wikipedia.org", "-o", testpath/"wikipedia.png"
-    assert_predicate testpath/"wikipedia.png", :exist?, "Wordcloud was not generated!"
+    assert_path_exists testpath/"wikipedia.png", "Wordcloud was not generated!"
   end
 end
