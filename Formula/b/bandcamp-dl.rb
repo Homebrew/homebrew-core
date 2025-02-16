@@ -87,6 +87,6 @@ class BandcampDl < Formula
   test do
     (testpath/".config").mkpath
     system bin/"bandcamp-dl", "https://iamsleepless.bandcamp.com/track/under-the-glass-dome"
-    assert_predicate testpath/"iamsleepless/under-the-glass-dome/Single - under-the-glass-dome.mp3", :exist?
+    assert_path_exists testpath/"iamsleepless/under-the-glass-dome/Single - under-the-glass-dome.mp3"
   end
 end
