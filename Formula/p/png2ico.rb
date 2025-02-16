@@ -44,7 +44,7 @@ class Png2ico < Formula
 
   test do
     system bin/"png2ico", "out.ico", test_fixtures("test.png")
-    assert_predicate testpath/"out.ico", :exist?
+    assert_path_exists testpath/"out.ico"
   end
 end
 
