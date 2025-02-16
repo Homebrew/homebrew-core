@@ -23,6 +23,6 @@ class Aliyunpan < Formula
 
   test do
     system bin/"aliyunpan", "run", "touch", "output.txt"
-    assert_predicate testpath/"output.txt", :exist?
+    assert_path_exists testpath/"output.txt"
   end
 end
