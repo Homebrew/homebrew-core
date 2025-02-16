@@ -39,7 +39,7 @@ class Rename < Formula
   test do
     touch "foo.doc"
     system bin/"rename -s .doc .txt *.d*"
-    refute_predicate testpath/"foo.doc", :exist?
-    assert_predicate testpath/"foo.txt", :exist?
+    refute_path_exists testpath/"foo.doc"
+    assert_path_exists testpath/"foo.txt"
   end
 end
