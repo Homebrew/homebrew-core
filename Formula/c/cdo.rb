@@ -60,6 +60,6 @@ class Cdo < Formula
     EOF
     File.binwrite("test.grb", data)
     system bin/"cdo", "-f", "nc", "copy", "test.grb", "test.nc"
-    assert_predicate testpath/"test.nc", :exist?
+    assert_path_exists testpath/"test.nc"
   end
 end
