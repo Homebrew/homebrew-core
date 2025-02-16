@@ -31,6 +31,6 @@ class FontsEncodings < Formula
   end
 
   test do
-    assert_predicate share/"fonts/X11/encodings/encodings.dir", :exist?
+    assert_path_exists share/"fonts/X11/encodings/encodings.dir"
   end
 end
