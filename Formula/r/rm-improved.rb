@@ -44,9 +44,9 @@ class RmImproved < Formula
 
     system bin/"rip", source_file
     assert_match deleted_file.to_s, shell_output("#{bin}/rip -s")
-    assert_predicate deleted_file, :exist?
+    assert_path_exists deleted_file
 
     system bin/"rip", "-u", deleted_file
-    assert_predicate source_file, :exist?
+    assert_path_exists source_file
   end
 end
