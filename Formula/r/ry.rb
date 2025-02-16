@@ -34,6 +34,6 @@ class Ry < Formula
     ENV["RY_RUBIES"] = testpath/"rubies"
 
     system bin/"ry", "ls"
-    assert_predicate testpath/"rubies", :exist?
+    assert_path_exists testpath/"rubies"
   end
 end
