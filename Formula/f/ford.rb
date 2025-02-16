@@ -188,6 +188,6 @@ class Ford < Formula
       FORTRAN
     end
     system bin/"ford", testpath/"test-project.md"
-    assert_predicate testpath/"doc"/"index.html", :exist?
+    assert_path_exists testpath/"doc"/"index.html"
   end
 end
