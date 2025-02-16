@@ -43,6 +43,6 @@ class Aftman < Formula
 
     system bin/"aftman", "install", "--no-trust-check"
 
-    assert_predicate testpath/".aftman", :exist?
+    assert_path_exists testpath/".aftman"
   end
 end
