@@ -70,7 +70,7 @@ class Polynote < Formula
   test do
     mkdir testpath/"notebooks"
 
-    assert_predicate bin/"polynote", :exist?
+    assert_path_exists bin/"polynote"
     assert_predicate bin/"polynote", :executable?
 
     output = shell_output("#{bin}/polynote version 2>&1", 1)
