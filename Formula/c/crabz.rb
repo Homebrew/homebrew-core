@@ -28,7 +28,7 @@ class Crabz < Formula
     test_data = "a" * 1000
     (testpath/"example").write test_data
     system bin/"crabz", "-f", "gzip", testpath/"example", "-o", testpath/"example.gz"
-    assert_predicate testpath/"example.gz", :exist?
+    assert_path_exists testpath/"example.gz"
     system bin/"crabz", "-d", testpath/"example.gz", "-o", testpath/"example2"
     assert_equal test_data, (testpath/"example2").read
 
