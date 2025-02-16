@@ -63,8 +63,8 @@ class Tm < Formula
 
     # node
     system bin/"tm", "generate", "node", "foo-node"
-    assert_predicate testpath/"foo-node/serverless.yaml", :exist?
-    assert_predicate testpath/"foo-node/handler.js", :exist?
+    assert_path_exists testpath/"foo-node/serverless.yaml"
+    assert_path_exists testpath/"foo-node/handler.js"
 
     runtime = "https://raw.githubusercontent.com/triggermesh/knative-lambda-runtime/master/node10/runtime.yaml"
     yaml = File.read("foo-node/serverless.yaml")
@@ -72,8 +72,8 @@ class Tm < Formula
 
     # python
     system bin/"tm", "generate", "python", "foo-python"
-    assert_predicate testpath/"foo-python/serverless.yaml", :exist?
-    assert_predicate testpath/"foo-python/handler.py", :exist?
+    assert_path_exists testpath/"foo-python/serverless.yaml"
+    assert_path_exists testpath/"foo-python/handler.py"
 
     runtime = "https://raw.githubusercontent.com/triggermesh/knative-lambda-runtime/master/python37/runtime.yaml"
     yaml = File.read("foo-python/serverless.yaml")
@@ -81,8 +81,8 @@ class Tm < Formula
 
     # go
     system bin/"tm", "generate", "go", "foo-go"
-    assert_predicate testpath/"foo-go/serverless.yaml", :exist?
-    assert_predicate testpath/"foo-go/main.go", :exist?
+    assert_path_exists testpath/"foo-go/serverless.yaml"
+    assert_path_exists testpath/"foo-go/main.go"
 
     runtime = "https://raw.githubusercontent.com/triggermesh/knative-lambda-runtime/master/go/runtime.yaml"
     yaml = File.read("foo-go/serverless.yaml")
@@ -90,8 +90,8 @@ class Tm < Formula
 
     # ruby
     system bin/"tm", "generate", "ruby", "foo-ruby"
-    assert_predicate testpath/"foo-ruby/serverless.yaml", :exist?
-    assert_predicate testpath/"foo-ruby/handler.rb", :exist?
+    assert_path_exists testpath/"foo-ruby/serverless.yaml"
+    assert_path_exists testpath/"foo-ruby/handler.rb"
 
     runtime = "https://raw.githubusercontent.com/triggermesh/knative-lambda-runtime/master/ruby25/runtime.yaml"
     yaml = File.read("foo-ruby/serverless.yaml")
