@@ -43,7 +43,7 @@ class Sfst < Formula
 
     (testpath/"foo.fst").write "Hello"
     system bin/"fst-compiler", "foo.fst", "foo.a"
-    assert_predicate testpath/"foo.a", :exist?, "Foo.a should exist but does not!"
+    assert_path_exists testpath/"foo.a", "Foo.a should exist but does not!"
 
     Open3.popen3("#{bin}/fst-mor", "foo.a") do |stdin, stdout, _|
       stdin.write("Hello")
