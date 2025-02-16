@@ -44,7 +44,7 @@ class Xterm < Formula
 
   test do
     %w[koi8rxterm resize uxterm xterm].each do |exe|
-      assert_predicate bin/exe, :exist?
+      assert_path_exists bin/exe
       assert_predicate bin/exe, :executable?
     end
   end
