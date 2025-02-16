@@ -31,6 +31,6 @@ class Pdftilecut < Formula
   test do
     testpdf = test_fixtures("test.pdf")
     system bin/"pdftilecut", "-tile-size", "A6", "-in", testpdf, "-out", "split.pdf"
-    assert_predicate testpath/"split.pdf", :exist?, "Failed to create split.pdf"
+    assert_path_exists testpath/"split.pdf", "Failed to create split.pdf"
   end
 end
