@@ -53,6 +53,6 @@ class Openfst < Formula
     EOS
 
     system bin/"fstcompile", "--isymbols=isyms.txt", "--osymbols=osyms.txt", "text.fst", "binary.fst"
-    assert_predicate testpath/"binary.fst", :exist?
+    assert_path_exists testpath/"binary.fst"
   end
 end
