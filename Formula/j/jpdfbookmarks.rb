@@ -32,7 +32,7 @@ class Jpdfbookmarks < Formula
     (testpath/"in.txt").write(test_bookmark)
 
     system bin/"jpdfbookmarks", test_fixtures("test.pdf"), "-a", "in.txt", "-o", "out.pdf"
-    assert_predicate testpath/"out.pdf", :exist?
+    assert_path_exists testpath/"out.pdf"
 
     assert_equal test_bookmark, shell_output("#{bin}/jpdfbookmarks out.pdf -d").strip
   end
