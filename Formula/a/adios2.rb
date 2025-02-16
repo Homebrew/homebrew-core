@@ -100,10 +100,10 @@ class Adios2 < Formula
     adios2_config_flags = Utils.safe_popen_read(bin/"adios2-config", "--cxx").chomp.split
     system "mpic++", pkgshare/"test/bpWriter.cpp", *adios2_config_flags
     system "./a.out"
-    assert_predicate testpath/"myVector_cpp.bp", :exist?
+    assert_path_exists testpath/"myVector_cpp.bp"
 
     system python3, "-c", "import adios2"
     system python3, pkgshare/"test/bpWriter.py"
-    assert_predicate testpath/"bpWriter-py.bp", :exist?
+    assert_path_exists testpath/"bpWriter-py.bp"
   end
 end
