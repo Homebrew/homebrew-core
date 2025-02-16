@@ -49,14 +49,14 @@ class Butane < Formula
     EOS
 
     system bin/"butane", "--strict", "--output=#{testpath}/example.ign", "#{testpath}/example.bu"
-    assert_predicate testpath/"example.ign", :exist?
+    assert_path_exists testpath/"example.ign"
     assert_match(/.*"sshAuthorizedKeys":\["ssh-rsa mykey"\].*/m, File.read(testpath/"example.ign").strip)
 
     output = shell_output("#{bin}/butane --strict #{testpath}/example.bu")
     assert_match(/.*"sshAuthorizedKeys":\["ssh-rsa mykey"\].*/m, output.strip)
 
     shell_output("#{bin}/butane --strict --output=#{testpath}/broken.ign #{testpath}/broken.bu", 1)
-    refute_predicate testpath/"broken.ign", :exist?
+    refute_path_exists testpath/"broken.ign"
 
     assert_match version.to_s, shell_output("#{bin}/butane --version 2>&1")
   end
