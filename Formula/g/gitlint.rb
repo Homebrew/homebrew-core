@@ -56,7 +56,7 @@ class Gitlint < Formula
     # Install gitlint as a git commit-msg hook
     system "git", "init"
     system bin/"gitlint", "install-hook"
-    assert_predicate testpath/".git/hooks/commit-msg", :exist?
+    assert_path_exists testpath/".git/hooks/commit-msg"
 
     # Verifies that the second line of the hook is the title
     output = File.open(testpath/".git/hooks/commit-msg").each_line.take(2).last
