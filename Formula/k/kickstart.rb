@@ -47,7 +47,7 @@ class Kickstart < Formula
     # Run template interpolation
     system bin/"kickstart", "--no-input", "--output-dir", output_dir, template_dir
 
-    assert_predicate output_dir/"myfilename.txt", :exist?
+    assert_path_exists output_dir/"myfilename.txt"
     assert_equal "kickstart is awesome!", (output_dir/"myfilename.txt").read
   end
 end
