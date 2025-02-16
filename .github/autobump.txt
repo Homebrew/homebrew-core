@@ -1068,6 +1068,7 @@ fping
 fplll
 fq
 fred
+freebayes
 freeciv
 freeglut
 freeipmi
