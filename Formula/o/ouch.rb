@@ -43,7 +43,7 @@ class Ouch < Formula
 
     %w[tar zip tar.bz2 tar.gz tar.xz tar.zst].each do |format|
       system bin/"ouch", "compress", "file1", "file2", "archive.#{format}"
-      assert_predicate testpath/"archive.#{format}", :exist?
+      assert_path_exists testpath/"archive.#{format}"
 
       system bin/"ouch", "decompress", "-y", "archive.#{format}", "--dir", testpath/format
       assert_equal "Hello", (testpath/format/"archive/file1").read
