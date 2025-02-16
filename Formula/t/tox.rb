@@ -97,6 +97,6 @@ class Tox < Formula
     chdir "src" do
       system bin/"tox", "run"
     end
-    assert_predicate testpath/"src/.tox/py#{pyver}", :exist?
+    assert_path_exists testpath/"src/.tox/py#{pyver}"
   end
 end
