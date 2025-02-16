@@ -34,6 +34,6 @@ class FdkAac < Formula
 
   test do
     system bin/"aac-enc", test_fixtures("test.wav"), "test.aac"
-    assert_predicate testpath/"test.aac", :exist?
+    assert_path_exists testpath/"test.aac"
   end
 end
