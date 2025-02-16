@@ -40,6 +40,6 @@ class Nbimg < Formula
   test do
     resource("homebrew-test-bmp").stage testpath
     system bin/"nbimg", "-Ftiny.bmp"
-    assert_predicate testpath/"tiny.bmp.nb", :exist?
+    assert_path_exists testpath/"tiny.bmp.nb"
   end
 end
