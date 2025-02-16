@@ -53,6 +53,6 @@ class Tmuxp < Formula
 
     system bin/"tmuxp", "debug-info"
     system bin/"tmuxp", "convert", "--yes", "test_session.yaml"
-    assert_predicate testpath/"test_session.json", :exist?
+    assert_path_exists testpath/"test_session.json"
   end
 end
