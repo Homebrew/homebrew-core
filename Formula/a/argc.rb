@@ -24,7 +24,7 @@ class Argc < Formula
 
   test do
     system bin/"argc", "--argc-create", "build"
-    assert_predicate testpath/"Argcfile.sh", :exist?
+    assert_path_exists testpath/"Argcfile.sh"
     assert_match "build", shell_output("#{bin}/argc build")
   end
 end
