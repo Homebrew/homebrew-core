@@ -40,6 +40,6 @@ class GatewayGo < Formula
   test do
     assert_match version.to_s, shell_output("#{bin}/gateway-go -v 2>&1")
     assert_match "config created", shell_output("#{bin}/gateway-go init --config=gateway.yml 2>&1")
-    assert_predicate testpath/"gateway.yml", :exist?
+    assert_path_exists testpath/"gateway.yml"
   end
 end
