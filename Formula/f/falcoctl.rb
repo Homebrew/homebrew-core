@@ -33,8 +33,8 @@ class Falcoctl < Formula
 
   test do
     system bin/"falcoctl", "tls", "install"
-    assert_predicate testpath/"ca.crt", :exist?
-    assert_predicate testpath/"client.crt", :exist?
+    assert_path_exists testpath/"ca.crt"
+    assert_path_exists testpath/"client.crt"
 
     assert_match version.to_s, shell_output(bin/"falcoctl version")
   end
