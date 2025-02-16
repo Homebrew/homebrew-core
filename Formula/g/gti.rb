@@ -28,6 +28,6 @@ class Gti < Formula
 
   test do
     system bin/"gti", "init"
-    assert_predicate testpath/".git", :exist?
+    assert_path_exists testpath/".git"
   end
 end
