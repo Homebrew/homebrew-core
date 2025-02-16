@@ -24,8 +24,8 @@ class Fn < Formula
   test do
     assert_match version.to_s, shell_output("#{bin}/fn --version")
     system bin/"fn", "init", "--runtime", "go", "--name", "myfunc"
-    assert_predicate testpath/"func.go", :exist?, "expected file func.go doesn't exist"
-    assert_predicate testpath/"func.yaml", :exist?, "expected file func.yaml doesn't exist"
+    assert_path_exists testpath/"func.go", "expected file func.go doesn't exist"
+    assert_path_exists testpath/"func.yaml", "expected file func.yaml doesn't exist"
     port = free_port
     server = TCPServer.new("localhost", port)
     pid = fork do
