@@ -32,8 +32,8 @@ class Rnr < Formula
     touch "one/foo.doc"
 
     system bin/"rnr", "regex", "-f", "doc", "txt", "foo.doc", "one/foo.doc"
-    refute_predicate testpath/"foo.doc", :exist?
-    assert_predicate testpath/"foo.txt", :exist?
+    refute_path_exists testpath/"foo.doc"
+    assert_path_exists testpath/"foo.txt"
 
     assert_match version.to_s, shell_output("#{bin}/rnr --version")
   end
