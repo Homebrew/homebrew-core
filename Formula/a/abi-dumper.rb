@@ -29,6 +29,6 @@ class AbiDumper < Formula
     (testpath/"test.c").write "int foo() { return 0; }"
     system ENV.cc, "-g", "-Og", "-shared", "test.c", "-o", testlib
     system bin/"abi-dumper", testlib, "-o", "test.dump"
-    assert_predicate testpath/"test.dump", :exist?
+    assert_path_exists testpath/"test.dump"
   end
 end
