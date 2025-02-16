@@ -37,10 +37,10 @@ class Resvg < Formula
     EOS
 
     system bin/"resvg", testpath/"circle.svg", testpath/"test.png"
-    assert_predicate testpath/"test.png", :exist?
+    assert_path_exists testpath/"test.png"
 
     system bin/"usvg", testpath/"circle.svg", testpath/"test.svg"
-    assert_predicate testpath/"test.svg", :exist?
+    assert_path_exists testpath/"test.svg"
 
     (testpath/"test.c").write <<~C
       #include <stdlib.h>
