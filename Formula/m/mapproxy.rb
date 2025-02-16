@@ -80,6 +80,6 @@ class Mapproxy < Formula
 
   test do
     system bin/"mapproxy-util", "create", "-t", "base-config", testpath
-    assert_predicate testpath/"seed.yaml", :exist?
+    assert_path_exists testpath/"seed.yaml"
   end
 end
