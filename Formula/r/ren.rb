@@ -42,9 +42,9 @@ class Ren < Formula
     touch "test1.foo"
     touch "test2.foo"
     system bin/"ren", "*.foo", "#1.bar"
-    assert_predicate testpath/"test1.bar", :exist?
-    assert_predicate testpath/"test2.bar", :exist?
-    refute_predicate testpath/"test1.foo", :exist?
-    refute_predicate testpath/"test2.foo", :exist?
+    assert_path_exists testpath/"test1.bar"
+    assert_path_exists testpath/"test2.bar"
+    refute_path_exists testpath/"test1.foo"
+    refute_path_exists testpath/"test2.foo"
   end
 end
