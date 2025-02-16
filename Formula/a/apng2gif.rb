@@ -34,6 +34,6 @@ class Apng2gif < Formula
   test do
     cp test_fixtures("test.png"), testpath/"test.png"
     system bin/"apng2gif", testpath/"test.png"
-    assert_predicate testpath/"test.gif", :exist?, "Failed to create test.gif"
+    assert_path_exists testpath/"test.gif", "Failed to create test.gif"
   end
 end
