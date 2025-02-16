@@ -28,11 +28,11 @@ class Subfinder < Formula
 
     # upstream issue, https://github.com/projectdiscovery/subfinder/issues/1124
     if OS.mac?
-      assert_predicate testpath/"Library/Application Support/subfinder/config.yaml", :exist?
-      assert_predicate testpath/"Library/Application Support/subfinder/provider-config.yaml", :exist?
+      assert_path_exists testpath/"Library/Application Support/subfinder/config.yaml"
+      assert_path_exists testpath/"Library/Application Support/subfinder/provider-config.yaml"
     else
-      assert_predicate testpath/".config/subfinder/config.yaml", :exist?
-      assert_predicate testpath/".config/subfinder/provider-config.yaml", :exist?
+      assert_path_exists testpath/".config/subfinder/config.yaml"
+      assert_path_exists testpath/".config/subfinder/provider-config.yaml"
     end
 
     assert_match version.to_s, shell_output("#{bin}/subfinder -version 2>&1")
