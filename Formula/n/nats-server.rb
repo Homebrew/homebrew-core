@@ -43,6 +43,6 @@ class NatsServer < Formula
     sleep 3
 
     assert_match version.to_s, shell_output("curl localhost:#{http_port}/varz")
-    assert_predicate testpath/"log", :exist?
+    assert_path_exists testpath/"log"
   end
 end
