@@ -28,10 +28,10 @@ class JsonnetBundler < Formula
     assert_match "A jsonnet package manager", shell_output("#{bin}/jb 2>&1")
 
     system bin/"jb", "init"
-    assert_predicate testpath/"jsonnetfile.json", :exist?
+    assert_path_exists testpath/"jsonnetfile.json"
 
     system bin/"jb", "install", "https://github.com/grafana/grafonnet-lib"
     assert_predicate testpath/"vendor", :directory?
-    assert_predicate testpath/"jsonnetfile.lock.json", :exist?
+    assert_path_exists testpath/"jsonnetfile.lock.json"
   end
 end
