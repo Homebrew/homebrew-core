@@ -34,6 +34,6 @@ class Smap < Formula
   test do
     assert_match "scan report for google.com", shell_output("#{bin}/smap google.com p80,443")
     system bin/"smap", "google.com", "-oX", "output.xml"
-    assert_predicate testpath/"output.xml", :exist?
+    assert_path_exists testpath/"output.xml"
   end
 end
