@@ -34,6 +34,6 @@ class Vvdec < Formula
   test do
     resource("homebrew-test-video").stage testpath
     system bin/"vvdecapp", "-b", testpath/"test.vvc", "-o", testpath/"test.yuv"
-    assert_predicate testpath/"test.yuv", :exist?
+    assert_path_exists testpath/"test.yuv"
   end
 end
