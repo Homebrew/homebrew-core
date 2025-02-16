@@ -25,7 +25,7 @@ class Clive < Formula
 
   test do
     system bin/"clive", "init"
-    assert_predicate testpath/"clive.yml", :exist?
+    assert_path_exists testpath/"clive.yml"
 
     system bin/"clive", "validate"
     assert_match version.to_s, shell_output("#{bin}/clive --version")
