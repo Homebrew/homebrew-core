@@ -36,7 +36,7 @@ class Terramaid < Formula
     HCL
 
     system bin/"terramaid", "run", "-w", testpath.to_s, "-o", testpath/"output.mmd"
-    assert_predicate testpath/"output.mmd", :exist?
+    assert_path_exists testpath/"output.mmd"
 
     assert_match version.to_s, shell_output("#{bin}/terramaid version")
   end
