@@ -35,6 +35,6 @@ class CamlpStreams < Formula
     EOS
     system "ocamlfind", "ocamlopt", "-linkpkg", "-package", "camlp-streams",
                                     "-warn-error", "+3", "-o", "test", "test.ml"
-    assert_predicate testpath/"test", :exist?
+    assert_path_exists testpath/"test"
   end
 end
