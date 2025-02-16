@@ -56,6 +56,6 @@ class MinioMc < Formula
                  "`version` is incorrect"
 
     system bin/"mc", "mb", testpath/"test"
-    assert_predicate testpath/"test", :exist?
+    assert_path_exists testpath/"test"
   end
 end
