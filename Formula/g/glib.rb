@@ -188,7 +188,7 @@ class Glib < Formula
                                 "--c-namespace", "MyApp",
                                 "--interface-prefix", "net.corp.MyApp.",
                                 "net.Corp.MyApp.Frobber.xml"
-    assert_predicate testpath/"myapp-generated.c", :exist?
+    assert_path_exists testpath/"myapp-generated.c"
     assert_match "my_app_net_corp_my_app_frobber_call_hello_world", (testpath/"myapp-generated.h").read
 
     # Keep (u)int64_t and g(u)int64 aligned. See install comment for details
