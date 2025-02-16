@@ -37,7 +37,7 @@ class Archiver < Formula
     system bin/"arc", "archive", "test.zip",
            "test1", "test2", "test3"
 
-    assert_predicate testpath/"test.zip", :exist?
+    assert_path_exists testpath/"test.zip"
     assert_match "Zip archive data",
                  shell_output("file -b #{testpath}/test.zip")
 
