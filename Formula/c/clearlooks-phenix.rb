@@ -24,6 +24,6 @@ class ClearlooksPhenix < Formula
   end
 
   test do
-    assert_predicate testpath/"#{share}/themes/Clearlooks-Phenix/index.theme", :exist?
+    assert_path_exists testpath/"#{share}/themes/Clearlooks-Phenix/index.theme"
   end
 end
