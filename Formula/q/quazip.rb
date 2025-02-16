@@ -58,7 +58,7 @@ class Quazip < Formula
 
     system Formula["qt"].bin/"qmake", "test.pro"
     system "make"
-    assert_predicate testpath/"test", :exist?, "test output file does not exist!"
+    assert_path_exists testpath/"test", "test output file does not exist!"
     system "./test"
   end
 end
