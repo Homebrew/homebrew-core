@@ -42,6 +42,6 @@ class Nfpm < Formula
     YAML
 
     system bin/"nfpm", "pkg", "--packager", "deb", "--target", "."
-    assert_predicate testpath/"foo_1.0.0_amd64.deb", :exist?
+    assert_path_exists testpath/"foo_1.0.0_amd64.deb"
   end
 end
