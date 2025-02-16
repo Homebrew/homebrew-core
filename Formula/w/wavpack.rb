@@ -46,6 +46,6 @@ class Wavpack < Formula
 
   test do
     system bin/"wavpack", test_fixtures("test.wav"), "-o", testpath/"test.wv"
-    assert_predicate testpath/"test.wv", :exist?
+    assert_path_exists testpath/"test.wv"
   end
 end
