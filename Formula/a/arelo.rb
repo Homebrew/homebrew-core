@@ -38,7 +38,7 @@ class Arelo < Formula
     touch testpath/"test.sh"
     sleep 1
 
-    assert_predicate testpath/"test.sh", :exist?
+    assert_path_exists testpath/"test.sh"
     assert_match "Hello, world!", logfile.read
   ensure
     Process.kill("TERM", arelo_pid)
