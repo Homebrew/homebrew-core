@@ -86,7 +86,7 @@ class Weasyprint < Formula
       <p>This is a PDF</p>
     HTML
     system bin/"weasyprint", "example.html", "example.pdf"
-    assert_predicate testpath/"example.pdf", :exist?
+    assert_path_exists testpath/"example.pdf"
     File.open(testpath/"example.pdf", encoding: "iso-8859-1") do |f|
       contents = f.read
       assert_match(/^%PDF-1.7\n/, contents)
