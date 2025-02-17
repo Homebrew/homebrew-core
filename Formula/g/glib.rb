@@ -22,17 +22,19 @@ class Glib < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkgconf" => :build
-  depends_on "python-setuptools" => :build # for gobject-introspection
   depends_on "pcre2"
-  depends_on "python-packaging"
-  depends_on "python@3.13"
 
   uses_from_macos "flex" => :build # for gobject-introspection
   uses_from_macos "libffi", since: :catalina
+  uses_from_macos "python", since: :catalina
   uses_from_macos "zlib"
 
   on_macos do
     depends_on "gettext"
+  end
+
+  on_system :linux, macos: :mojave_or_older do
+    depends_on "python-setuptools" => :build # for gobject-introspection
   end
 
   on_linux do
@@ -54,6 +56,12 @@ class Glib < Formula
     sha256 "0f5a4c1908424bf26bc41e9361168c363685080fbdb87a196c891c8401ca2f09"
   end
 
+  # Backport PATH python shebang rather than manually rewriting
+  patch do
+    url "https://gitlab.gnome.org/GNOME/glib/-/commit/160e55575e2183464dbf5aa733d6c2df3c674c4c.diff"
+    sha256 "29b178b53a9a636ca9538ee97e20838b9942d24018d6679d3cc29e59b3b6c0c1"
+  end
+
   # replace several hardcoded paths with homebrew counterparts
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/b46d8deae6983110b4e39bb2971bcbd10bb59716/glib/hardcoded-paths.diff"
@@ -61,12 +69,8 @@ class Glib < Formula
   end
 
   def install
-    python = "python3.13"
     # Avoid the sandbox violation when an empty directory is created outside of the formula prefix.
     inreplace "gio/meson.build", "install_emptydir(glib_giomodulesdir)", ""
-
-    python_packaging_site_packages = Formula["python-packaging"].opt_prefix/Language::Python.site_packages(python)
-    (share/"glib-2.0").install_symlink python_packaging_site_packages.children
 
     # build patch for `ld: missing LC_LOAD_DYLIB (must link with at least libSystem.dylib) \
     # in ../gobject-introspection-1.80.1/build/tests/offsets/liboffsets-1.0.1.dylib`
@@ -117,7 +121,6 @@ class Glib < Formula
 
     (buildpath/"gio/completion/.gitignore").unlink
     bash_completion.install (buildpath/"gio/completion").children
-    rewrite_shebang detected_python_shebang, *bin.children
     return unless OS.mac?
 
     # `pkg-config --libs glib-2.0` includes -lintl, and gettext itself does not
