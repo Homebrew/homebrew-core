@@ -1,4 +1,4 @@
-class CloudflareWrangler2 < Formula
+class CloudflareWrangler < Formula
   desc "CLI tool for Cloudflare Workers"
   homepage "https://github.com/cloudflare/workers-sdk"
   url "https://registry.npmjs.org/wrangler/-/wrangler-3.109.1.tgz"

@@ -18,6 +18,7 @@
   "bro": "zeek",
   "cdiff": "ydiff",
   "cloog018": "cloog",
+  "cloudflare-wrangler2": "cloudflare-wrangler",
   "commonmark": "cmark",
   "corepack": "node",
   "cppformat": "fmt",
