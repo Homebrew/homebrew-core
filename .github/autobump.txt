@@ -3708,6 +3708,7 @@ zizmor
 zk
 zlib
 zlib-ng
+zlib-ng-compat
 zlint
 zlog
 zls
