@@ -4,7 +4,7 @@ class Sdl2Mixer < Formula
   url "https://github.com/libsdl-org/SDL_mixer/releases/download/release-2.8.1/SDL2_mixer-2.8.1.tar.gz"
   sha256 "cb760211b056bfe44f4a1e180cc7cb201137e4d1572f2002cc1be728efd22660"
   license "Zlib"
-
+  revision 1
   # This formula uses a file from a GitHub release, so we check the latest
   # release version instead of Git tags.
   livecheck do

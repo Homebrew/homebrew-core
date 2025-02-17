@@ -4,6 +4,7 @@ class Flac123 < Formula
   url "https://github.com/flac123/flac123/archive/refs/tags/v2.1.1.tar.gz"
   sha256 "c09676dce51383ce4fe7a553e67f4369918cf40ee6d922e585e50c11bce9e227"
   license "GPL-2.0-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "9e700b54a0a992a7383e2eb9bceccf66da63c51895d58931c37512334f0ec690"

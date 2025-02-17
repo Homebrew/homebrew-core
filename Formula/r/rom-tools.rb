@@ -5,6 +5,7 @@ class RomTools < Formula
   version "0.274"
   sha256 "f8112eb0b175935cf6db93f708186dcaeec5a89400ecf3d5782fd2c0b94907c8"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/mamedev/mame.git", branch: "master"
 
   livecheck do

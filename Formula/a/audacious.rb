@@ -2,7 +2,7 @@ class Audacious < Formula
   desc "Lightweight and versatile audio player"
   homepage "https://audacious-media-player.org/"
   license "BSD-2-Clause"
-  revision 1
+  revision 2
 
   stable do
     url "https://distfiles.audacious-media-player.org/audacious-4.4.2.tar.bz2"

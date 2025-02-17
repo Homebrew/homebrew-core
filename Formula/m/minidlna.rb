@@ -4,7 +4,7 @@ class Minidlna < Formula
   url "https://downloads.sourceforge.net/project/minidlna/minidlna/1.3.3/minidlna-1.3.3.tar.gz"
   sha256 "39026c6d4a139b9180192d1c37225aa3376fdf4f1a74d7debbdbb693d996afa4"
   license "GPL-2.0-only"
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "870534ea2c84fb92abc96978f8da8b22f75dc5e681884602cffd4ed4f76fbffa"
@@ -93,7 +93,12 @@ class Minidlna < Formula
     port = free_port
 
     io = IO.popen("#{sbin}/minidlnad -d -f minidlna.conf -p #{port} -P #{testpath}/minidlna.pid", "r")
-    io.expect("debug: Initial file scan completed", 30)
+    timeout = if Hardware::CPU.arm?
+      30
+    else
+      50
+    end
+    io.expect("debug: Initial file scan completed", timeout)
     assert_predicate testpath/"minidlna.pid", :exist?
 
     # change back to localhost once https://sourceforge.net/p/minidlna/bugs/346/ is addressed
