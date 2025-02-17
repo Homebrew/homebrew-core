@@ -6,8 +6,8 @@ class Freebayes < Formula
 
   stable do
     # Use tarball and resources as workaround for https://github.com/freebayes/freebayes/pull/799
-    url "https://github.com/freebayes/freebayes/archive/refs/tags/v1.3.8.tar.gz"
-    sha256 "d1c24b1d1b35277e7403cd67063557998218a105c916b01a745e7704715fce67"
+    url "https://github.com/freebayes/freebayes/archive/refs/tags/v1.3.9.tar.gz"
+    sha256 "41ed3074c7648375286168a6708e02dac6788eaca4ca6039ff5a7ed91f257b53"
 
     depends_on "cmake" => :build
     depends_on "pybind11" => :build
@@ -34,8 +34,8 @@ class Freebayes < Formula
 
     resource "contrib/vcflib" do
       url "https://github.com/vcflib/vcflib.git",
-          tag:      "v1.0.10",
-          revision: "2ad261860807e66dbd9bcb07fee1af47b9930d70"
+          tag:      "v1.0.12",
+          revision: "f8425d239e1bc406cdfe46a2e37f47ac3476dd8a"
     end
   end
 
