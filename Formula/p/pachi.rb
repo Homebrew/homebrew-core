@@ -1,8 +1,8 @@
 class Pachi < Formula
   desc "Software for the Board Game of Go/Weiqi/Baduk"
   homepage "https://pachi.or.cz/"
-  url "https://github.com/pasky/pachi/archive/refs/tags/pachi-12.84.tar.gz"
-  sha256 "5ced9ffd9fdb0ee4cdb24ad341abbcb7df0ab8a7f244932b7dd3bfa0ff6180ba"
+  url "https://github.com/pasky/pachi/archive/refs/tags/pachi-12.86.tar.gz"
+  sha256 "025958d4c071d6aa031c6c6523039cfed0dce4e9c0962b1559c4e8ba1b8cbaa8"
   license "GPL-2.0-only"
   head "https://github.com/pasky/pachi.git", branch: "master"
 
@@ -16,6 +16,8 @@ class Pachi < Formula
     sha256 monterey:       "8d0c1b96f212172117f2f44d2880d906d043c0601d8a7b1dd4dc796cf8ddc57d"
     sha256 x86_64_linux:   "eb13f42af4891d563b870f8840182c9b6f99f76dfd7afcfeaf9c1cbf8bff4790"
   end
+
+  depends_on "cmake" => :build
 
   resource "datafiles" do
     url "https://github.com/pasky/pachi/releases/download/pachi-12.84/pachi-12.84-linux-static.zip", using: :nounzip

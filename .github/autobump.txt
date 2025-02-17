@@ -2477,6 +2477,7 @@ oxlint
 p11-kit
 p7zip
 pacapt
+pachi
 packcc
 packetbeat
 packetq
