@@ -1,8 +1,8 @@
 class Rsyslog < Formula
   desc "Enhanced, multi-threaded syslogd"
   homepage "https://www.rsyslog.com/"
-  url "https://www.rsyslog.com/files/download/rsyslog/rsyslog-8.2412.0.tar.gz"
-  sha256 "8cdfa5a077cba576bdd6b1841cc2848b774e663b2e44a39512bb820174174802"
+  url "https://www.rsyslog.com/files/download/rsyslog/rsyslog-8.2502.0.tar.gz"
+  sha256 "02fa197d21d519f5a25a928deb9397cd387ba7382b9b449782ba31d8f3118206"
   license all_of: ["Apache-2.0", "GPL-3.0-or-later", "LGPL-3.0-or-later"]
 
   livecheck do
