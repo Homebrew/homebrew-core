@@ -8,11 +8,9 @@ class Norminette < Formula
   license "MIT"
   head "https://github.com/42School/norminette.git", branch: "master"
 
-  depends_on "python"
+  depends_on "python@3.11"
 
   def install
-    python_version = Language::Python.major_minor_version "python3"
-    odie "Python 3.8 or newer is required." if python_version < Version.new("3.8")
     virtualenv_install_with_resources
   end
 
