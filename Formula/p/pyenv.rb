@@ -25,6 +25,8 @@ class Pyenv < Formula
   depends_on "openssl@3"
   depends_on "pkgconf"
   depends_on "readline"
+  depends_on "sqlite3"
+  depends_on "tcl-tk@8"
 
   uses_from_macos "python" => :test
   uses_from_macos "bzip2"
