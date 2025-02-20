@@ -1,14 +1,14 @@
 class Getquotes < Formula
   desc "Terminal tool for fetching quotes from WikiQuotes"
   homepage "https://github.com/MuntasirSZN/getquotes"
-  version "0.3.5"
-  license "MIT"
 
   url "https://github.com/MuntasirSZN/getquotes.git",
-      tag:      "v#{version}"
+      tag: "v#{version}"
 
-  depends_on "rust" => :build
+  license "MIT"
+
   depends_on "git" => :build
+  depends_on "rust" => :build
 
   def install
     system "cargo", "install", *std_cargo_args
