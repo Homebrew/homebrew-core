@@ -6,7 +6,6 @@ class Getquotes < Formula
       tag:      "v0.3.5",
       revision: "d474acb9dcab7a8769759c0fc9b85c09a07b2964"
 
-  version "0.3.5"
   license "MIT"
 
   depends_on "git" => :build
