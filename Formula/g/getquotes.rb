@@ -19,7 +19,7 @@ class Getquotes < Formula
   test do
     assert_match "getquotes v", shell_output("#{bin}/getquotes --version")
     assert_match "Usage: getquotes", shell_output("#{bin}/getquotes --help")
-    assert_path_exists man1/"getquotes.1"
+    assert_path_exists prefix/"share/man/man1/getquotes.1"
     system bin/"getquotes"
   end
 end
