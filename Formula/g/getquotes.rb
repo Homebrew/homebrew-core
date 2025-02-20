@@ -5,8 +5,7 @@ class Getquotes < Formula
   license "MIT"
 
   url "https://github.com/MuntasirSZN/getquotes.git",
-      tag:      "v#{version}",
-      revision: "HEAD"
+      tag:      "v#{version}"
 
   depends_on "rust" => :build
   depends_on "git" => :build
