@@ -2055,6 +2055,7 @@ makepkg
 mako
 malcontent
 man-db
+mandown
 manifest-tool
 manim
 manticoresearch
