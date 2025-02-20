@@ -3,12 +3,13 @@ class Getquotes < Formula
   homepage "https://github.com/MuntasirSZN/getquotes"
   version "0.3.5"
   license "MIT"
-  
-  url "https://github.com/MuntasirSZN/getquotes/archive/refs/tags/v#{version}.tar.gz"
-  # You'll need to update this SHA256 with the actual source archive hash
-  sha256 "2a723b0d449613d7d85404872b8ec2fac43dbc858df8670445e698c70855a343"
+
+  url "https://github.com/MuntasirSZN/getquotes.git",
+      tag:      "v#{version}",
+      revision: "HEAD"
 
   depends_on "rust" => :build
+  depends_on "git" => :build
 
   def install
     system "cargo", "install", *std_cargo_args
