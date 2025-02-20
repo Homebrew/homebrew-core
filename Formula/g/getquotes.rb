@@ -8,7 +8,6 @@ class Getquotes < Formula
 
   license "MIT"
 
-  depends_on "git" => :build
   depends_on "rust" => :build
 
   def install
