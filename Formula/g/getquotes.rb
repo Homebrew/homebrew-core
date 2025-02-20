@@ -3,7 +3,7 @@ class Getquotes < Formula
   homepage "https://github.com/MuntasirSZN/getquotes"
 
   url "https://github.com/MuntasirSZN/getquotes.git",
-      tag: "v#{version}",
+      tag:      "v#{version}",
       revision: "d474acb9dcab7a8769759c0fc9b85c09a07b2964"
 
   version "0.3.5"
