@@ -1143,6 +1143,7 @@ geos
 geoserver
 geph4
 getmail6
+getquotes
 gettext
 gexiv2
 gf
