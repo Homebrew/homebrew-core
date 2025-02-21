@@ -4,6 +4,7 @@ class Snapcast < Formula
   url "https://github.com/badaix/snapcast/archive/refs/tags/v0.31.0.tar.gz"
   sha256 "d38d576f85bfa936412413b6860875ba3b462a8e67405f3984a0485778f2fdac"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_sequoia: "6b17c4eedd473db0afc71acd236274684301d5f2afd59a4ac3fcea1ac70e9fd3"
@@ -42,21 +43,17 @@ class Snapcast < Formula
   end
 
   test do
-    server_pid = fork do
-      exec bin/"snapserver"
+    server_pid = spawn bin/"snapserver"
+    sleep 2
+
+    begin
+      output_log = testpath/"output.log"
+      client_pid = spawn bin/"snapclient", [:out, :err] => output_log.to_s
+      sleep 10
+      assert_match("Connected to", output_log.read)
+    ensure
+      Process.kill("SIGTERM", client_pid)
     end
-
-    r, w = IO.pipe
-    client_pid = spawn bin/"snapclient", out: w
-    w.close
-
-    sleep 10
-    Process.kill("SIGTERM", client_pid)
-
-    output = r.read
-    r.close
-
-    assert_match("Connected to", output)
   ensure
     Process.kill("SIGTERM", server_pid)
   end

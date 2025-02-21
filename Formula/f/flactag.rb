@@ -4,7 +4,7 @@ class Flactag < Formula
   url "https://downloads.sourceforge.net/project/flactag/v2.0.4/flactag-2.0.4.tar.gz"
   sha256 "c96718ac3ed3a0af494a1970ff64a606bfa54ac78854c5d1c7c19586177335b2"
   license "GPL-3.0-or-later"
-  revision 3
+  revision 4
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "449102d72de85c2f778bdcd677aa9311be628fa5f68791c5b6e22aed954ecf81"

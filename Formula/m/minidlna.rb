@@ -4,7 +4,7 @@ class Minidlna < Formula
   url "https://downloads.sourceforge.net/project/minidlna/minidlna/1.3.3/minidlna-1.3.3.tar.gz"
   sha256 "39026c6d4a139b9180192d1c37225aa3376fdf4f1a74d7debbdbb693d996afa4"
   license "GPL-2.0-only"
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "870534ea2c84fb92abc96978f8da8b22f75dc5e681884602cffd4ed4f76fbffa"
@@ -28,16 +28,13 @@ class Minidlna < Formula
 
   depends_on "ffmpeg@6" # ffmpeg 7 issue: https://sourceforge.net/p/minidlna/bugs/363/
   depends_on "flac"
+  depends_on "gettext"
   depends_on "jpeg-turbo"
   depends_on "libexif"
   depends_on "libid3tag"
   depends_on "libogg"
   depends_on "libvorbis"
   depends_on "sqlite"
-
-  on_macos do
-    depends_on "gettext"
-  end
 
   # Add missing include: https://sourceforge.net/p/minidlna/bugs/351/
   patch :DATA
@@ -93,7 +90,12 @@ class Minidlna < Formula
     port = free_port
 
     io = IO.popen("#{sbin}/minidlnad -d -f minidlna.conf -p #{port} -P #{testpath}/minidlna.pid", "r")
-    io.expect("debug: Initial file scan completed", 30)
+    timeout = if Hardware::CPU.arm?
+      30
+    else
+      50
+    end
+    io.expect("debug: Initial file scan completed", timeout)
     assert_path_exists testpath/"minidlna.pid"
 
     # change back to localhost once https://sourceforge.net/p/minidlna/bugs/346/ is addressed

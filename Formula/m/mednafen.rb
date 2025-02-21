@@ -4,6 +4,7 @@ class Mednafen < Formula
   url "https://mednafen.github.io/releases/files/mednafen-1.32.1.tar.xz"
   sha256 "de7eb94ab66212ae7758376524368a8ab208234b33796625ca630547dbc83832"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url "https://mednafen.github.io/releases/"

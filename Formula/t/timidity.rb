@@ -4,7 +4,7 @@ class Timidity < Formula
   url "https://downloads.sourceforge.net/project/timidity/TiMidity++/TiMidity++-2.15.0/TiMidity++-2.15.0.tar.bz2"
   sha256 "161fc0395af16b51f7117ad007c3e434c825a308fa29ad44b626ee8f9bb1c8f5"
   license "GPL-2.0-or-later"
-  revision 2
+  revision 3
 
   livecheck do
     url :stable
@@ -34,8 +34,8 @@ class Timidity < Formula
   depends_on "speex"
 
   resource "freepats" do
-    url "https://freepats.zenvoid.org/freepats-20060219.zip"
-    sha256 "532048a5777aea717effabf19a35551d3fcc23b1ad6edd92f5de1d64600acd48"
+    url "https://github.com/feross/freepats/archive/refs/tags/v1.0.3.tar.gz"
+    sha256 "d79fa8719500880627b1b65286fde6ddb06274540a3eba21178d2058d525007e"
   end
 
   def install
@@ -55,7 +55,7 @@ class Timidity < Formula
                           "--enable-audio=#{audio_options.join(",")}"
     system "make", "install"
 
-    # Freepats instrument patches from https://freepats.zenvoid.org/
+    # Freepats instrument patches from https://github.com/feross/freepats
     (share/"freepats").install resource("freepats")
     pkgshare.install_symlink share/"freepats/Tone_000",
                              share/"freepats/Drum_000",

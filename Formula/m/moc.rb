@@ -2,7 +2,7 @@ class Moc < Formula
   desc "Terminal-based music player"
   homepage "https://moc.daper.net/"
   license "GPL-2.0-or-later"
-  revision 8
+  revision 9
 
   stable do
     url "https://ftp.daper.net/pub/soft/moc/stable/moc-2.5.2.tar.bz2"
@@ -81,6 +81,10 @@ class Moc < Formula
   end
 
   def install
+    # macOS iconv implementation is slightly broken since Sonoma.
+    # upstream bug report: https://savannah.gnu.org/bugs/index.php?66541
+    ENV["am_cv_func_iconv_works"] = "yes" if OS.mac? && MacOS.version == :sequoia
+
     # Not needed for > 2.5.2
     system "autoreconf", "--force", "--install", "--verbose"
     system "./configure", *std_configure_args

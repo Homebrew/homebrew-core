@@ -5,7 +5,7 @@ class OpusTools < Formula
   mirror "https://archive.mozilla.org/pub/opus/opus-tools-0.2.tar.gz"
   sha256 "b4e56cb00d3e509acfba9a9b627ffd8273b876b4e2408642259f6da28fa0ff86"
   license "BSD-2-Clause"
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "767da6805391b531d325625a6585a6f6c9b243a5c5f9667f49d3af6fd6212d00"
