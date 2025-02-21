@@ -1,9 +1,8 @@
 class Virgil < Formula
   desc "CLI tool to manage your Virgil account and applications"
   homepage "https://github.com/VirgilSecurity/virgil-cli"
-  url "https://github.com/VirgilSecurity/virgil-cli.git",
-     tag:      "v5.2.9",
-     revision: "604e4339d100c9cd133f4730ba0efbd599321ecb"
+  url "https://github.com/VirgilSecurity/virgil-cli/archive/refs/tags/v5.2.9.tar.gz"
+  sha256 "2d20e265e5bd04a121d36403508d436d08c756d495ea004e1fddce4d9a736870"
   license "BSD-3-Clause"
   head "https://github.com/VirgilSecurity/virgil-cli.git", branch: "master"
 
@@ -28,7 +27,6 @@ class Virgil < Formula
   end
 
   test do
-    result = shell_output "#{bin}/virgil purekit keygen"
-    assert_match "SK.1.", result
+    assert_match "SK.1.", shell_output("#{bin}/virgil purekit keygen")
   end
 end
