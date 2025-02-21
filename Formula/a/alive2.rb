@@ -5,6 +5,7 @@ class Alive2 < Formula
       tag:      "v19.0",
       revision: "84041960f183aec74d740ff881c95a4ce5234d3d"
   license "MIT"
+  revision 1
   head "https://github.com/AliveToolkit/alive2.git", branch: "master"
 
   bottle do
@@ -19,7 +20,7 @@ class Alive2 < Formula
   depends_on "cmake" => :build
   depends_on "re2c" => :build
   depends_on "hiredis"
-  depends_on "llvm"
+  depends_on "llvm@19"
   depends_on "z3"
   depends_on "zstd"
   uses_from_macos "zlib"

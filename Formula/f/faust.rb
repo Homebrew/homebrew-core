@@ -4,6 +4,7 @@ class Faust < Formula
   url "https://github.com/grame-cncm/faust/releases/download/2.77.3/faust-2.77.3.tar.gz"
   sha256 "3685348ba2482547fc7675b345caea490ff380814c5dcabc8a5f772682617c0e"
   license "GPL-2.0-or-later"
+  revision 1
 
   # Upstream creates releases that use a stable tag (e.g., `v1.2.3`) but are
   # labeled as "pre-release" on GitHub before the version is released, so it's
