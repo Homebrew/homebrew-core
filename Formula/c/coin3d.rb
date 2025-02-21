@@ -13,14 +13,15 @@ class Coin3d < Formula
       sha256 "fb483b20015ab827ba46eb090bd7be5bc2f3d0349c2f947c3089af2b7003869c"
     end
 
-    # We use the pre-release to support `pyside` and `python@3.12`.
-    # This matches Arch Linux[^1] and Debian[^2] packages.
-    #
-    # [^1]: https://archlinux.org/packages/extra/x86_64/python-pivy/
-    # [^2]: https://packages.debian.org/trixie/python3-pivy
     resource "pivy" do
-      url "https://github.com/coin3d/pivy/archive/refs/tags/0.6.9.a0.tar.gz"
-      sha256 "2c2da80ae216fe06394562f4a8fc081179d678f20bf6f8ec412cda470d7eeb91"
+      url "https://github.com/coin3d/pivy/archive/refs/tags/0.6.9.tar.gz"
+      sha256 "c207f5ed73089b2281356da4a504c38faaab90900b95639c80772d9d25ba0bbc"
+
+      # Backport fix for Qt6 QtOpenGLWidgets
+      patch do
+        url "https://github.com/coin3d/pivy/commit/e81c5f32538891c740b90b5d2eb77fa6a9e1cb43.patch?full_index=1"
+        sha256 "c54b660f09957ad7673d29328fb1cbe77b9eb4b090f2371b6e16b4c333e679c4"
+      end
     end
   end
 
@@ -49,13 +50,15 @@ class Coin3d < Formula
     end
   end
 
+  depends_on "boost" => :build
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
   depends_on "swig" => :build
-  depends_on "boost"
   depends_on "pyside"
   depends_on "python@3.13"
   depends_on "qt"
+
+  uses_from_macos "expat"
 
   on_linux do
     depends_on "libx11"
@@ -73,6 +76,7 @@ class Coin3d < Formula
                     "-DCOIN_BUILD_MAC_FRAMEWORK=OFF",
                     "-DCOIN_BUILD_DOCUMENTATION=ON",
                     "-DCOIN_BUILD_TESTS=OFF",
+                    "-DUSE_EXTERNAL_EXPAT=ON",
                     *std_cmake_args(find_framework: "FIRST")
     system "cmake", "--build", "_build"
     system "cmake", "--install", "_build"
@@ -89,13 +93,17 @@ class Coin3d < Formula
     end
 
     resource("pivy").stage do
-      # Allow setup.py to build with Qt6 as we saw some issues using CMake directly on Intel
-      inreplace "distutils_cmake/CMakeLists.txt", " NONE)", ")" # allow languages
-      ENV.append "CXXFLAGS", "-std=c++17"
+      site_packages = prefix/Language::Python.site_packages(python3)
+      rpaths = [rpath(source: site_packages/"pivy"), rpath(source: site_packages/"pivy/gui")]
 
-      ENV.append_path "CMAKE_PREFIX_PATH", prefix.to_s
-      ENV["LDFLAGS"] = "-Wl,-rpath,#{opt_lib}"
-      system python3, "-m", "pip", "install", *std_pip_args(build_isolation: true), "."
+      system "cmake", "-S", ".", "-B", "_build",
+                      "-DCMAKE_INSTALL_RPATH=#{rpaths.join(";")}",
+                      "-DPython_EXECUTABLE=#{which(python3)}",
+                      "-DPIVY_Python_SITEARCH=#{site_packages}",
+                      "-DPIVY_USE_QT6=ON",
+                      *std_cmake_args(find_framework: "FIRST")
+      system "cmake", "--build", "_build"
+      system "cmake", "--install", "_build"
     end
   end
 
@@ -123,6 +131,7 @@ class Coin3d < Formula
     ENV["QT_QPA_PLATFORM"] = "minimal" if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
     system python3, "-c", <<~PYTHON
       import shiboken6
+      from pivy.quarter import QuarterWidget
       from pivy.sogui import SoGui
       assert SoGui.init("test") is not None
     PYTHON
