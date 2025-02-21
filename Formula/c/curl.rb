@@ -36,6 +36,7 @@ class Curl < Formula
 
   depends_on "pkgconf" => [:build, :test]
   depends_on "brotli"
+  depends_on "c-ares"
   depends_on "libnghttp2"
   depends_on "libssh2"
   depends_on "openssl@3"
@@ -72,6 +73,7 @@ class Curl < Formula
       --without-libpsl
       --with-zsh-functions-dir=#{zsh_completion}
       --with-fish-functions-dir=#{fish_completion}
+      --enable-ares
     ]
 
     args << if OS.mac?
