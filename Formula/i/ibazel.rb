@@ -15,21 +15,25 @@ class Ibazel < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "1dd9fbcb138b56677b3123f7194cb5d13675a5cdd6f8dcfd9a41f218b3b67828"
   end
 
-  depends_on "bazelisk" => [:build, :test]
+  depends_on "bazel@7" => [:build, :test]
   depends_on "go" => [:build, :test]
 
-  # bazel 6.x support issue, https://github.com/bazelbuild/bazel-watcher/issues/616
-  # patch to use bazel 6.4.0, upstream PR, https://github.com/bazelbuild/bazel-watcher/pull/575
-  patch :DATA
-
   def install
+    # Bazel clears environment variables which breaks superenv shims
+    ENV.remove "PATH", Superenv.shims_path
+
+    # Allow using our bazel rather than pre-built from bazelisk
+    rm(".bazelversion")
+
     system "bazel", "build", "--config=release", "--workspace_status_command", "echo STABLE_GIT_VERSION #{version}", "//cmd/ibazel:ibazel"
     bin.install "bazel-bin/cmd/ibazel/ibazel_/ibazel"
   end
 
   test do
+    ENV.prepend_path "PATH", Formula["bazel@7"].bin
+
     # Write MODULE.bazel with Bazel module dependencies
-    (testpath/"MODULE.bazel").write <<~BAZEL
+    (testpath/"MODULE.bazel").write <<~STARLARK
       bazel_dep(name = "rules_go", version = "0.50.1")
       bazel_dep(name = "gazelle", version = "0.40.0")
 
@@ -38,16 +42,16 @@ class Ibazel < Formula
 
       # Register the Go SDK installed on the host.
       go_sdk.host()
-    BAZEL
+    STARLARK
 
-    (testpath/"BUILD.bazel").write <<~BAZEL
+    (testpath/"BUILD.bazel").write <<~STARLARK
       load("@rules_go//go:def.bzl", "go_binary")
 
       go_binary(
           name = "bazel-test",
           srcs = ["test.go"],
       )
-    BAZEL
+    STARLARK
 
     (testpath/"test.go").write <<~GO
       package main
@@ -57,7 +61,7 @@ class Ibazel < Formula
       }
     GO
 
-    pid = fork { exec("ibazel", "build", "//:bazel-test") }
+    pid = spawn("ibazel", "build", "//:bazel-test")
     out_file = "bazel-bin/bazel-test_/bazel-test"
     sleep 1 until File.exist?(out_file)
     assert_equal "Hi!\n", shell_output(out_file)
@@ -67,12 +71,3 @@ class Ibazel < Formula
     Process.kill("TERM", pid)
   end
 end
-
-__END__
-diff --git a/.bazelversion b/.bazelversion
-index 8a30e8f..09b254e 100644
---- a/.bazelversion
-+++ b/.bazelversion
-@@ -1 +1 @@
--5.4.0
-+6.4.0
