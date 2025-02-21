@@ -2145,7 +2145,7 @@ millet
 mimalloc
 mimirtool
 minder
-minetest
+luanti
 minica
 minigraph
 minijinja-cli
