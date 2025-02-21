@@ -115,42 +115,11 @@ class PostgresqlAT12 < Formula
     (postgresql_datadir/"PG_VERSION").exist?
   end
 
-  def old_postgres_data_dir
-    var/"postgres"
-  end
-
-  # Figure out what version of PostgreSQL the old data dir is
-  # using
-  def old_postgresql_datadir_version
-    pg_version = old_postgres_data_dir/"PG_VERSION"
-    pg_version.exist? && pg_version.read.chomp
-  end
-
   def caveats
-    caveats = ""
-
-    # Extract the version from the formula name
-    pg_formula_version = version.major.to_s
-    # ... and check it against the old data dir postgres version number
-    # to see if we need to print a warning re: data dir
-    if old_postgresql_datadir_version == pg_formula_version
-      caveats += <<~EOS
-        Previous versions of postgresql shared the same data directory.
-
-        You can migrate to a versioned data directory by running:
-          mv -v "#{old_postgres_data_dir}" "#{postgresql_datadir}"
-
-        (Make sure PostgreSQL is stopped before executing this command)
-
-      EOS
-    end
-
-    caveats += <<~EOS
+    <<~EOS
       This formula has created a default database cluster with:
         initdb --locale=C -E UTF-8 #{postgresql_datadir}
     EOS
-
-    caveats
   end
 
   service do

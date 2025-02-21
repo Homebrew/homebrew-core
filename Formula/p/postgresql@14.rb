@@ -93,7 +93,18 @@ class PostgresqlAT14 < Formula
     (var/"log").mkpath
     postgresql_datadir.mkpath
 
-    odeprecated old_postgres_data_dir, new_postgres_data_dir if old_postgres_data_dir.exist?
+    old_postgres_data_dir = var/"postgres"
+    if old_postgres_data_dir.exist?
+      opoo "The old PostgreSQL data directory (#{old_postgres_data_dir}) still exists!"
+      puts <<~EOS
+        Previous versions of postgresql shared the same data directory.
+
+        You can migrate to a versioned data directory by running:
+          mv -v "#{old_postgres_data_dir}" "#{postgresql_datadir}"
+
+        (Make sure PostgreSQL is stopped before executing this command)
+      EOS
+    end
 
     # Don't initialize database, it clashes when testing other PostgreSQL versions.
     return if ENV["HOMEBREW_GITHUB_ACTIONS"]
@@ -102,11 +113,7 @@ class PostgresqlAT14 < Formula
   end
 
   def postgresql_datadir
-    if old_postgres_data_dir.exist?
-      old_postgres_data_dir
-    else
-      new_postgres_data_dir
-    end
+    var/name
   end
 
   def postgresql_log_path
@@ -117,46 +124,11 @@ class PostgresqlAT14 < Formula
     (postgresql_datadir/"PG_VERSION").exist?
   end
 
-  def new_postgres_data_dir
-    var/name
-  end
-
-  def old_postgres_data_dir
-    var/"postgres"
-  end
-
-  # Figure out what version of PostgreSQL the old data dir is
-  # using
-  def old_postgresql_datadir_version
-    pg_version = old_postgres_data_dir/"PG_VERSION"
-    pg_version.exist? && pg_version.read.chomp
-  end
-
   def caveats
-    caveats = ""
-
-    # Extract the version from the formula name
-    pg_formula_version = version.major.to_s
-    # ... and check it against the old data dir postgres version number
-    # to see if we need to print a warning re: data dir
-    if old_postgresql_datadir_version == pg_formula_version
-      caveats += <<~EOS
-        Previous versions of postgresql shared the same data directory.
-
-        You can migrate to a versioned data directory by running:
-          mv -v "#{old_postgres_data_dir}" "#{new_postgres_data_dir}"
-
-        (Make sure PostgreSQL is stopped before executing this command)
-
-      EOS
-    end
-
-    caveats += <<~EOS
+    <<~EOS
       This formula has created a default database cluster with:
         initdb --locale=C -E UTF-8 #{postgresql_datadir}
     EOS
-
-    caveats
   end
 
   service do
