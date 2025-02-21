@@ -1,8 +1,8 @@
 class Moarvm < Formula
   desc "VM with adaptive optimization and JIT compilation, built for Rakudo"
   homepage "https://moarvm.org"
-  url "https://github.com/MoarVM/MoarVM/releases/download/2024.12/MoarVM-2024.12.tar.gz"
-  sha256 "7f8ae605a19189ebb48a51bae486bacd32141326df8289509825bdb1bee3984c"
+  url "https://github.com/MoarVM/MoarVM/releases/download/2025.01/MoarVM-2025.01.tar.gz"
+  sha256 "5b5fb5421f3d7e09c59057c054ce8079f9fec0cbc5b13b7c9f65fe922920a833"
   license "Artistic-2.0"
 
   livecheck do
@@ -31,11 +31,13 @@ class Moarvm < Formula
   conflicts_with "rakudo-star", because: "rakudo-star currently ships with moarvm included"
 
   resource "nqp" do
-    url "https://github.com/Raku/nqp/releases/download/2024.12/nqp-2024.12.tar.gz"
-    sha256 "026ff25d7eaae299b2d644e46b389642774cdf51fd803047f4291731dc4b2477"
+    url "https://github.com/Raku/nqp/releases/download/2025.01/nqp-2025.01.tar.gz"
+    sha256 "c0533292c388feaf747b62ca5728efaf15d5905296de32c4cf37ee22de9fd1e6"
   end
 
   def install
+    ENV["SOURCE_DATE_EPOCH"] = Time.now.to_i.to_s
+
     configure_args = %W[
       --c11-atomics
       --has-libffi
