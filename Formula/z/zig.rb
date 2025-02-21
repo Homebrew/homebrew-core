@@ -4,6 +4,7 @@ class Zig < Formula
   url "https://ziglang.org/download/0.13.0/zig-0.13.0.tar.xz"
   sha256 "06c73596beeccb71cc073805bdb9c0e05764128f16478fa53bf17dfabc1d4318"
   license "MIT"
+  revision 1
 
   livecheck do
     url "https://ziglang.org/download/"
@@ -22,9 +23,8 @@ class Zig < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "llvm" => :build
+  depends_on "llvm@18" => :build
   depends_on macos: :big_sur # https://github.com/ziglang/zig/issues/13313
-  depends_on "z3" # Remove when using versioned LLVM
   depends_on "zstd"
 
   uses_from_macos "ncurses"
