@@ -533,7 +533,7 @@ cloud-nuke
 cloud-sql-proxy
 cloudflare-cli4
 cloudflare-quiche
-cloudflare-wrangler2
+cloudflare-wrangler
 cloudflared
 cloudformation-cli
 cloudformation-guard
