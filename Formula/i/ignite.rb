@@ -19,6 +19,8 @@ class Ignite < Formula
 
   def install
     system "go", "build", "-mod=readonly", *std_go_args(ldflags: "-s -w", output: bin/"ignite"), "./ignite/cmd/ignite"
+
+    generate_completions_from_executable(bin/"ignite", "completion")
   end
 
   test do
