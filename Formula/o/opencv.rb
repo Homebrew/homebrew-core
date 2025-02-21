@@ -185,6 +185,14 @@ class Opencv < Formula
 
     # Prevent dependents from using fragile Cellar paths
     inreplace lib/"pkgconfig/opencv#{version.major}.pc", prefix, opt_prefix
+    inreplace lib/"cmake/opencv#{version.major}/OpenCVConfig.cmake" do |s|
+      s.gsub! 'get_filename_component(OpenCV_CONFIG_PATH "${CMAKE_CURRENT_LIST_DIR}" REALPATH)',
+              'get_filename_component(OpenCV_CONFIG_PATH "${CMAKE_CURRENT_LIST_DIR}" ABSOLUTE)'
+      s.gsub! 'get_filename_component(OpenCV_INSTALL_PATH "${OpenCV_CONFIG_PATH}/../../../" REALPATH)',
+              'get_filename_component(OpenCV_INSTALL_PATH "${OpenCV_CONFIG_PATH}/../../../" ABSOLUTE)'
+      s.gsub! 'get_filename_component(__d "${d}" REALPATH)',
+              'get_filename_component(__d "${d}" ABSOLUTE)'
+    end
   end
 
   test do
