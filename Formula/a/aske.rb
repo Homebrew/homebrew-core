@@ -3,8 +3,8 @@ class Aske < Formula
 
   desc "Platform Architect Development Framework"
   homepage "https://github.com/caraveo/aske"
-  url "https://github.com/Caraveo/Aske/releases/download/alpha/aske-0.1.0.tar.gz"
-  sha256 "c57ba6c9f56facf351e8632a3a9999d22d8df207844a3e1953538b47c52eb7f1"
+  url "https://github.com/Caraveo/Aske/releases/download/0.1.2/aske-0.1.2.tar.gz"
+  sha256 "46ee2ba7ccc511560decd8d2ea65906f4d3a34242559952805a3cb56002e8714"
   license "MIT"
 
   depends_on "python@3.11"
@@ -31,4 +31,4 @@ class Aske < Formula
   test do
     system bin/"aske", "--version"
   end
-end 
+end
