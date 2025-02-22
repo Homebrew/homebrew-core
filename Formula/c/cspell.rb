@@ -1,8 +1,8 @@
 class Cspell < Formula
   desc "Spell checker for code"
   homepage "https://cspell.org"
-  url "https://registry.npmjs.org/cspell/-/cspell-8.17.4.tgz"
-  sha256 "706660433488a9889c2b81e1a10c86a0595b742ccd4815077af749f3aaa70d61"
+  url "https://registry.npmjs.org/cspell/-/cspell-8.17.5.tgz"
+  sha256 "8f2eabe7948718bc5b0833fdd68e4cf304140ecbc3ec501a7a59795a2ecc5861"
   license "MIT"
 
   bottle do
