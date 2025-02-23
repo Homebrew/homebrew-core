@@ -27,7 +27,7 @@ class PythonAT313 < Formula
   depends_on "xz"
 
   uses_from_macos "bzip2"
-  uses_from_macos "expat", since: :sequoia
+  uses_from_macos "expat"
   uses_from_macos "libedit"
   uses_from_macos "libffi", since: :catalina
   uses_from_macos "ncurses"
@@ -132,10 +132,13 @@ class PythonAT313 < Formula
       --enable-loadable-sqlite-extensions
       --with-openssl=#{Formula["openssl@3"].opt_prefix}
       --enable-optimizations
-      --with-system-expat
       --with-system-libmpdec
       --with-readline=editline
     ]
+    # Use bundled expat for Ventura and Sonoma as Apple updated libexpat to 2.6.3 but
+    # kept headers/tbd on 2.5.0 in macOS 14.7.2 / 13.7.2. This means bottles built on
+    # particular macOS patch version may not be compatible with other patch versions.
+    args << "--with-system-expat" if !OS.mac? || MacOS.version > :sonoma || MacOS.version < :ventura
 
     # Python re-uses flags when building native modules.
     # Since we don't want native modules prioritizing the brew
