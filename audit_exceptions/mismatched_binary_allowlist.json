@@ -6,5 +6,6 @@
   "i686-elf-grub": "lib/i686-elf/grub/i386-pc/*",
   "lima": "share/lima/lima-guestagent.Linux-*",
   "picotool": "share/picotool/xip_ram_perms.elf",
-  "qemu": "share/qemu/*"
+  "qemu": "share/qemu/*",
+  "x86_64-elf-grub": "lib/x86_64-elf/grub/i386-pc/*"
 }
