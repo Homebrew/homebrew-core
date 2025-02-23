@@ -57,6 +57,6 @@ class Hpack < Formula
     system bin/"hpack"
 
     # Skip the first lines because they contain the hpack version number.
-    assert_equal expected, (testpath/"homebrew.cabal").read.lines[6..].join
+    assert_equal expected, (testpath/"homebrew.cabal").readlines.drop(6).join
   end
 end
