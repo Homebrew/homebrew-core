@@ -33,7 +33,7 @@ class Deark < Formula
       H4sICKU51VoAA3Rlc3QudHh0APNIzcnJ11HwyM9NTSpKLVfkAgBuKJNJEQAAAA==
     EOS
     system bin/"deark", "test.gz"
-    file = (testpath/"output.000.test.txt").readlines.first
+    file = File.open(testpath/"output.000.test.txt").first
     assert_match "Hello, Homebrew!", file
   end
 end
