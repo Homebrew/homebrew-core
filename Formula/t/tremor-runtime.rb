@@ -130,6 +130,6 @@ class TremorRuntime < Formula
 
     system bin/"tremor-wrapper", "run", testpath/"test.troy"
 
-    assert_match(/^HELLO/, (testpath/"out.txt").readlines.first)
+    assert_match(/^HELLO/, File.open(testpath/"out.txt").first)
   end
 end
