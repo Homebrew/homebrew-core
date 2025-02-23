@@ -110,7 +110,7 @@ class Lilypond < Formula
              .encode("UTF-8", invalid: :replace, replace: "\ufffd")
     common_styles = ["Regular", "Bold", "Italic", "Bold Italic"]
     {
-      "C059"            => ["Roman", *common_styles[1..]],
+      "C059"            => ["Roman", *common_styles.drop(1)],
       "Nimbus Mono PS"  => common_styles,
       "Nimbus Sans"     => common_styles,
       "TeX Gyre Cursor" => common_styles,
