@@ -4,6 +4,7 @@ class SpirvLlvmTranslator < Formula
   url "https://github.com/KhronosGroup/SPIRV-LLVM-Translator/archive/refs/tags/v19.1.4.tar.gz"
   sha256 "8f15eb0c998ca29ac59dab25be093d41f36d77c215f54ad9402a405495bea183"
   license "Apache-2.0" => { with: "LLVM-exception" }
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "d5eb10fb69bb946e25288b9337dc2b1a1c9fd68866086a1de20caf81de6d0407"
@@ -17,7 +18,7 @@ class SpirvLlvmTranslator < Formula
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
   depends_on "spirv-headers" => :build
-  depends_on "llvm"
+  depends_on "llvm@19"
 
   def llvm
     deps.map(&:to_formula).find { |f| f.name.match?(/^llvm(@\d+)?$/) }

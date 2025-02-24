@@ -5,7 +5,7 @@ class ApacheArrow < Formula
   mirror "https://archive.apache.org/dist/arrow/arrow-19.0.0/apache-arrow-19.0.0.tar.gz"
   sha256 "f89b93f39954740f7184735ff1e1d3b5be2640396febc872c4955274a011f56b"
   license "Apache-2.0"
-  revision 1
+  revision 2
   head "https://github.com/apache/arrow.git", branch: "main"
 
   bottle do
@@ -27,7 +27,7 @@ class ApacheArrow < Formula
   depends_on "aws-sdk-cpp"
   depends_on "brotli"
   depends_on "grpc"
-  depends_on "llvm"
+  depends_on "llvm@19"
   depends_on "lz4"
   depends_on "openssl@3"
   depends_on "protobuf"
@@ -37,6 +37,7 @@ class ApacheArrow < Formula
   depends_on "utf8proc"
   depends_on "zstd"
 
+  uses_from_macos "llvm" => :build
   uses_from_macos "python" => :build
   uses_from_macos "bzip2"
   uses_from_macos "zlib"
@@ -53,7 +54,7 @@ class ApacheArrow < Formula
     # We set `ARROW_ORC=OFF` because it fails to build with Protobuf 27.0
     args = %W[
       -DCMAKE_INSTALL_RPATH=#{rpath}
-      -DLLVM_ROOT=#{Formula["llvm"].opt_prefix}
+      -DLLVM_ROOT=#{Formula["llvm@19"].opt_prefix}
       -DARROW_DEPENDENCY_SOURCE=SYSTEM
       -DARROW_ACERO=ON
       -DARROW_COMPUTE=ON

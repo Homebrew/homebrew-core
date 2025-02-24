@@ -2,13 +2,17 @@
   "aalib": "1.4rc",
   "automysqlbackup": "3.0-rc",
   "aview": "1.3.0rc",
+  "flang": "20.1.0-rc",
   "ftgl": "2.1.3-rc",
   "libcaca": "0.99b",
   "librasterlite2": "1.1.0-beta",
+  "lld": "20.1.0-rc",
+  "llvm": "20.1.0-rc",
   "premake": "5.0.0-beta",
   "pwnat": "0.3-beta",
   "recode": "3.7-beta",
   "spatialite-gui": "2.1.0-beta",
   "tcptraceroute": "1.5beta",
-  "vbindiff": "3.0_beta"
+  "vbindiff": "3.0_beta",
+  "wasi-runtimes": "20.1.0-rc"
 }
