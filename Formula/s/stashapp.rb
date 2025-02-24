@@ -11,7 +11,11 @@ class Stashapp < Formula
   depends_on "ffmpeg"
 
   def install
+    # Upstream developers asked to enable parallel build
+    # https://github.com/stashapp/stash/issues/5674
     ENV.deparallelize
+    # Upsream developers asked to provide make install target
+    # https://github.com/stashapp/stash/issues/5673
     system "make", "release"
     bin.install "stash"
     bin.install "phasher"
