@@ -3465,6 +3465,7 @@ unisonlang
 universal-ctags
 unxip
 uptimed
+upx
 urdfdom
 urdfdom_headers
 uriparser
