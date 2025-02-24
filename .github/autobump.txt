@@ -2978,6 +2978,7 @@ scrapy
 scrcpy
 screen
 screenfetch
+screenpipe
 scriptisto
 scrypt
 scs
