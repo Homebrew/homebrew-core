@@ -32,7 +32,6 @@ class Screenpipe < Formula
   def install
     features = ["--features", "metal"] if OS.mac? && Hardware::CPU.arm?
     system "cargo", "install", *features, *std_cargo_args(path: "screenpipe-server")
-    lib.install "screenpipe-vision/lib/libscreenpipe_#{Hardware::CPU.arch}.dylib" if OS.mac?
   end
 
   test do
