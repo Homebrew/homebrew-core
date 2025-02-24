@@ -2,17 +2,16 @@ class Sysdig < Formula
   desc "System-level exploration and troubleshooting tool"
   homepage "https://sysdig.com/"
   license "Apache-2.0"
-  revision 15
 
   stable do
-    url "https://github.com/draios/sysdig/archive/refs/tags/0.38.1.tar.gz"
-    sha256 "68085ea118a4209dbde8f1b75584f9f84610b5856e507ffb0703d8add6331132"
+    url "https://github.com/draios/sysdig/archive/refs/tags/0.40.0.tar.gz"
+    sha256 "b60f155d4379c84dc17cc60d61cbf3b4e90c31e7c1b3d66f05f7e76ba29412e8"
 
     # Update to value of FALCOSECURITY_LIBS_VERSION with
     # VERSION=#{version} && curl -fsSL https://raw.githubusercontent.com/draios/sysdig/$VERSION/cmake/modules/falcosecurity-libs.cmake | grep -o 'set(FALCOSECURITY_LIBS_VERSION "[0-9.]*")' | awk -F'"' '{print $2}'
     resource "falcosecurity-libs" do
-      url "https://github.com/falcosecurity/libs/archive/refs/tags/0.17.2.tar.gz"
-      sha256 "5c4f0c987272b7d5236f6ab2bbe3906ffdaf76b59817b63cf90cc8c387ab5b15"
+      url "https://github.com/falcosecurity/libs/archive/refs/tags/0.20.0.tar.gz"
+      sha256 "4ae6ddb42a1012bacd88c63abdaa7bd27ca0143c4721338a22c45597e63bc99d"
     end
   end
 
@@ -40,6 +39,7 @@ class Sysdig < Formula
 
   depends_on "cmake" => :build
   depends_on "nlohmann-json" => :build
+  depends_on "pkgconf" => :build
   depends_on "valijson" => :build
   depends_on "jsoncpp"
   depends_on "luajit"
