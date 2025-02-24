@@ -11,7 +11,7 @@ class OpenprojectCli < Formula
     strategy :github_latest
   end
 
-  depends_on "go" => ["1.24.0", :build]
+  depends_on "go" => :build
 
   def install
     if build.stable?
@@ -23,15 +23,13 @@ class OpenprojectCli < Formula
     end
 
     ldflags = %W[
-      -s -w -extldflags -static
+      -s -w -extldflags
       -X main.version=#{op_cli_version}
       -X main.commit=#{op_cli_commit}
     ].join(" ")
 
-    with_env("CGO_ENABLED" => "0") do
-      system "go", "build", *std_go_args(ldflags: ldflags)
-    end
-    prefix.install_metafiles
+    ENV["CGO_ENABLED"] = "0"
+    system "go", "build", *std_go_args(ldflags: ldflags)
   end
 
   test do
