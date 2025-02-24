@@ -1,8 +1,8 @@
 class Qemu < Formula
   desc "Generic machine emulator and virtualizer"
   homepage "https://www.qemu.org/"
-  url "https://download.qemu.org/qemu-9.2.1.tar.xz"
-  sha256 "b7b0782ead63a5373fdfe08e084d3949a9395ec196180286b841f78a464d169c"
+  url "https://download.qemu.org/qemu-9.2.2.tar.xz"
+  sha256 "752eaeeb772923a73d536b231e05bcc09c9b1f51690a41ad9973d900e4ec9fbf"
   license "GPL-2.0-only"
   head "https://gitlab.com/qemu-project/qemu.git", branch: "master"
 
@@ -24,6 +24,7 @@ class Qemu < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkgconf" => :build
+  depends_on "python@3.13" => :build # keep aligned with meson
   depends_on "spice-protocol" => :build
 
   depends_on "capstone"
@@ -62,14 +63,27 @@ class Qemu < Formula
     depends_on "systemd"
   end
 
+  # 820KB floppy disk image file of FreeDOS 1.2, used to test QEMU
+  # NOTE: Keep outside test block so that `brew fetch` is able to handle slow download/retries
+  resource "homebrew-test-image" do
+    url "https://www.ibiblio.org/pub/micro/pc-stuff/freedos/files/distributions/1.2/official/FD12FLOPPY.zip"
+    sha256 "81237c7b42dc0ffc8b32a2f5734e3480a3f9a470c50c14a9c4576a2561a35807"
+  end
+
   def install
     ENV["LIBTOOL"] = "glibtool"
+
+    # Remove wheels unless explicitly permitted. Currently this:
+    # * removes `meson` so that brew `meson` is always used
+    # * keeps `pycotap` which is a pure-python "none-any" wheel (allowed in homebrew/core)
+    rm(Dir["python/wheels/*"] - Dir["python/wheels/pycotap-*-none-any.whl"])
 
     args = %W[
       --prefix=#{prefix}
       --cc=#{ENV.cc}
       --host-cc=#{ENV.cc}
       --disable-bsd-user
+      --disable-download
       --disable-guest-agent
       --enable-slirp
       --enable-capstone
@@ -101,12 +115,6 @@ class Qemu < Formula
   end
 
   test do
-    # 820KB floppy disk image file of FreeDOS 1.2, used to test QEMU
-    resource "homebrew-test-image" do
-      url "https://www.ibiblio.org/pub/micro/pc-stuff/freedos/files/distributions/1.2/official/FD12FLOPPY.zip"
-      sha256 "81237c7b42dc0ffc8b32a2f5734e3480a3f9a470c50c14a9c4576a2561a35807"
-    end
-
     archs = %w[
       aarch64 alpha arm avr hppa i386 loongarch64 m68k microblaze microblazeel mips
       mips64 mips64el mipsel or1k ppc ppc64 riscv32 riscv64 rx
