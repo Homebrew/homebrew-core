@@ -41,6 +41,7 @@ class Semgrep < Formula
   depends_on "python@3.13"
   depends_on "sqlite"
   depends_on "tree-sitter"
+  depends_on "zstd"
 
   uses_from_macos "rsync" => :build
   uses_from_macos "curl"
@@ -269,6 +270,7 @@ class Semgrep < Formula
     # Ensure dynamic linkage to our libraries
     inreplace "src/main/flags.sh" do |s|
       s.gsub!("$(brew --prefix libev)/lib/libev.a", Formula["libev"].opt_lib/shared_library("libev"))
+      s.gsub!("$(brew --prefix zstd)/lib/libzstd.a", Formula["zstd"].opt_lib/shared_library("libzstd"))
       s.gsub!("$(pkg-config gmp --variable libdir)/libgmp.a", Formula["gmp"].opt_lib/shared_library("libgmp"))
       s.gsub!(
         "$(pkg-config tree-sitter --variable libdir)/libtree-sitter.a",
@@ -302,7 +304,7 @@ class Semgrep < Formula
       ENV["OPAMSOLVERTIMEOUT"] = "1200"
 
       system "opam", "init", "--no-setup", "--disable-sandboxing"
-      ENV.deparallelize { system "opam", "switch", "create", "ocaml-base-compiler.4.14.0" }
+      ENV.deparallelize { system "opam", "switch", "create", "ocaml-base-compiler.5.2.1" }
 
       # Manually run steps from `opam exec -- make setup` to link Homebrew's tree-sitter
       system "opam", "update", "-y"
