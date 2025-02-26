@@ -2,8 +2,8 @@ class Carrot2 < Formula
   desc "Search results clustering engine"
   homepage "https://search.carrot2.org/"
   url "https://github.com/carrot2/carrot2.git",
-      tag:      "release/4.6.0",
-      revision: "a29bd71366f2ac3c135ee1a9cb9da3748954e088"
+      tag:      "release/4.7.0",
+      revision: "fd0b5a95214679f919746ab5abd710bc900d38ec"
   license "Apache-2.0"
 
   bottle do
@@ -19,7 +19,7 @@ class Carrot2 < Formula
   end
 
   depends_on "gradle" => :build
-  depends_on "node" => :build
+  depends_on "node@22" => :build # failed to build with node 23, https://github.com/carrot2/carrot2/issues/1494
   depends_on "yarn" => :build
   depends_on "openjdk@21"
 
