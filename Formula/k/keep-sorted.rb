@@ -1,7 +1,9 @@
 class KeepSorted < Formula
   desc "Language-agnostic formatter that sorts selected lines"
   homepage "https://github.com/google/keep-sorted"
-  url "https://github.com/google/keep-sorted/archive/refs/tags/v0.6.0.tar.gz"
+  url "https://github.com/google/keep-sorted.git",
+      tag:      "v0.6.0",
+      revision: "df93c2722b6126556183749880f16a9beb664bb4"
   sha256 "28a8290da4908999712896ed0a94a0e26f290f22b565f290a0782220379a033c"
   license "Apache-2.0"
 
@@ -21,6 +23,7 @@ class KeepSorted < Formula
   end
 
   test do
+    assert_match "v#{version}", shell_output("#{bin}/keep-sorted --version")
     test_file = testpath + "test_input"
     test_file.write <<~EOS
       line will not be touched.
