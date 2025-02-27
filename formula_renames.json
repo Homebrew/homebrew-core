@@ -103,6 +103,7 @@
   "mkl-dnn": "onednn",
   "mobile-shell": "mosh",
   "mongo-c": "mongo-c-driver",
+  "minetest": "luanti",
   "mpich2": "mpich",
   "mps-youtube": "yewtube",
   "mr2": "zoro",
