@@ -21,6 +21,7 @@ class Cointop < Formula
   end
 
   deprecate! date: "2024-02-25", because: :repo_archived
+  disable! date: "2025-02-26", because: :repo_archived
 
   depends_on "go" => :build
 
