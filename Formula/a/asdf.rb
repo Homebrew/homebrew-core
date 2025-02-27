@@ -25,6 +25,7 @@ class Asdf < Formula
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w -X main.version=#{version}"), "./cmd/asdf"
     generate_completions_from_executable(bin/"asdf", "completion")
+    libexec.install Dir["asdf.*"]
   end
 
   test do
