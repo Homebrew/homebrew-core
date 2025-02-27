@@ -1,8 +1,8 @@
 class Fnt < Formula
   desc "Apt for fonts, the missing font manager for macOS/linux"
   homepage "https://github.com/alexmyczko/fnt"
-  url "https://github.com/alexmyczko/fnt/archive/refs/tags/1.8.tar.gz"
-  sha256 "9d0888ead98aae4d47ecb23d8208d4d48faea1c1628d49d00cea7c795afb8b65"
+  url "https://github.com/alexmyczko/fnt/archive/refs/tags/1.9.tar.gz"
+  sha256 "4801b58e007aa5d84b112afbea3a5e449fb8d73124fb34182efe228fc37ac3e0"
   license "MIT"
 
   bottle do
@@ -17,6 +17,10 @@ class Fnt < Formula
   depends_on "chafa"
   depends_on "lcdf-typetools"
   depends_on "xz"
+
+  on_macos do
+    depends_on "md5sha1sum"
+  end
 
   def install
     bin.install "fnt"
