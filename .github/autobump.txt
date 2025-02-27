@@ -2559,6 +2559,8 @@ pdns
 pdnsrec
 pedump
 pegtl
+percona-server
+percona-server@8.0
 percona-toolkit
 percona-xtrabackup
 percona-xtrabackup@8.0
