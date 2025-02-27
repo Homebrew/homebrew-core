@@ -191,6 +191,14 @@ class QtAT5 < Formula
     directory "qtbase"
   end
 
+  # CVE-2025-23050
+  # Remove with Qt 5.15.19
+  patch do
+    url "https://download.qt.io/official_releases/qt/5.15/CVE-2025-23050-qtconnectivity-5.15.diff"
+    sha256 "76e303b6465babb6d0d275792f7f3c41e3df87a6a17992e8b7b8e47272682ce7"
+    directory "qtconnectivity"
+  end
+
   def install
     # Install python dependencies for QtWebEngine
     venv = virtualenv_create(buildpath/"venv", "python3.12")
@@ -299,9 +307,7 @@ class QtAT5 < Formula
     # own version.
     # If you read this and you can eliminate it or upstream it: please do!
     # More context in https://github.com/Homebrew/homebrew-core/pull/124923
-    qtversion_xml = share/"qtcreator/QtProject/qtcreator/qtversion.xml"
-    qtversion_xml.dirname.mkpath
-    qtversion_xml.write <<~XML
+    (share/"qtcreator/QtProject/qtcreator/qtversion.xml").write <<~XML
       <?xml version="1.0" encoding="UTF-8"?>
       <!DOCTYPE QtCreatorQtVersions>
       <qtcreator>
