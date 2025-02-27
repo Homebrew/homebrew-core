@@ -71,9 +71,7 @@ class GdkPixbuf < Formula
     # Other packages should use the top-level modules directory
     # rather than dumping their files into the gdk-pixbuf keg.
     inreplace lib/"pkgconfig/gdk-pixbuf-#{gdk_so_ver}.pc" do |s|
-      libv = s.get_make_var "gdk_pixbuf_binary_version"
-      s.change_make_var! "gdk_pixbuf_binarydir",
-        HOMEBREW_PREFIX/"lib/gdk-pixbuf-#{gdk_so_ver}"/libv
+      s.change_make_var! "prefix", HOMEBREW_PREFIX
     end
   end
 
