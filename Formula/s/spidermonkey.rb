@@ -5,6 +5,7 @@ class Spidermonkey < Formula
   version "128.7.0"
   sha256 "e0a7bf4eddfa33cbc8797d68ecea8fb4e6404ca197d3b2242cbc8daed03794f7"
   license "MPL-2.0"
+  revision 1
   head "https://hg.mozilla.org/mozilla-central", using: :hg
 
   # Spidermonkey versions use the same versions as Firefox, so we simply check
@@ -27,7 +28,7 @@ class Spidermonkey < Formula
   depends_on "pkgconf" => :build
   depends_on "python@3.13" => :build
   depends_on "rust" => :build
-  depends_on "icu4c@76"
+  depends_on "icu4c@77"
   depends_on "nspr"
   depends_on "readline"
 

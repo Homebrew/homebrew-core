@@ -4,6 +4,7 @@ class Freeciv < Formula
   url "https://downloads.sourceforge.net/project/freeciv/Freeciv%203.1/3.1.4/freeciv-3.1.4.tar.xz"
   sha256 "14999bb903c4507cc287d5a8dd1b89eee623bb41b4e01e0836567fb5f13296e4"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url :stable
@@ -38,7 +39,7 @@ class Freeciv < Formula
   depends_on "glib"
   depends_on "gtk+3"
   depends_on "harfbuzz"
-  depends_on "icu4c@76"
+  depends_on "icu4c@77"
   depends_on "pango"
   depends_on "readline"
   depends_on "sdl2"
