@@ -4,6 +4,7 @@ class Enzyme < Formula
   url "https://github.com/EnzymeAD/Enzyme/archive/refs/tags/v0.0.172.tar.gz"
   sha256 "688200164787d543641cb446cff20f6a8e8b5c92bb7032ebe7f867efa67ceafb"
   license "Apache-2.0" => { with: "LLVM-exception" }
+  revision 1
   head "https://github.com/EnzymeAD/Enzyme.git", branch: "main"
 
   bottle do
@@ -16,7 +17,7 @@ class Enzyme < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "llvm"
+  depends_on "llvm@19"
 
   def llvm
     deps.map(&:to_formula).find { |f| f.name.match?(/^llvm(@\d+)?$/) }

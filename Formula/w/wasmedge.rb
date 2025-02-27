@@ -4,7 +4,7 @@ class Wasmedge < Formula
   url "https://github.com/WasmEdge/WasmEdge/releases/download/0.14.1/WasmEdge-0.14.1-src.tar.gz"
   sha256 "e5a944975fb949ecda73d6fe80a86507deb2d0a221b2274338807b63758350b4"
   license "Apache-2.0"
-  revision 1
+  revision 2
   head "https://github.com/WasmEdge/WasmEdge.git", branch: "master"
 
   bottle do
@@ -18,15 +18,10 @@ class Wasmedge < Formula
 
   depends_on "cmake" => :build
   depends_on "fmt"
-  depends_on "lld"
-  depends_on "llvm"
+  depends_on "llvm@19"
   depends_on "spdlog"
-
+  depends_on "zstd"
   uses_from_macos "zlib"
-
-  on_linux do
-    depends_on "zstd"
-  end
 
   def install
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args

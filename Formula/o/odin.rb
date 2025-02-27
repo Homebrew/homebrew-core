@@ -6,6 +6,7 @@ class Odin < Formula
       revision: "584fdc0d4ab9dcc01e218e499fdaef9969223d65"
   version "2025-02"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/odin-lang/Odin.git", branch: "master"
 
   bottle do
@@ -18,7 +19,7 @@ class Odin < Formula
   end
 
   depends_on "glfw"
-  depends_on "llvm"
+  depends_on "llvm@19"
   depends_on "raylib"
 
   resource "raygui" do
