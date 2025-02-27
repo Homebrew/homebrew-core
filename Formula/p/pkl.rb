@@ -1,8 +1,8 @@
 class Pkl < Formula
   desc "CLI for the Pkl programming language"
   homepage "https://pkl-lang.org"
-  url "https://github.com/apple/pkl/archive/refs/tags/0.27.2.tar.gz"
-  sha256 "804ab2dcd90c018da2976b7ecb118c069b9487b9800edc9cb198446661d9f685"
+  url "https://github.com/apple/pkl/archive/refs/tags/0.28.0.tar.gz"
+  sha256 "91a85f35e8d7bdffbca44dcc035cde33c8be8b4965ff869cfd810cc0f17b64e7"
   license "Apache-2.0"
 
   bottle do
@@ -15,13 +15,12 @@ class Pkl < Formula
   end
 
   depends_on "gradle" => :build
-  # Can change this to 21 in later releases.
-  depends_on "openjdk@17" => :build
+  depends_on "openjdk@21" => :build
 
   uses_from_macos "zlib"
 
   def install
-    ENV["JAVA_HOME"] = Formula["openjdk@17"].opt_prefix
+    ENV["JAVA_HOME"] = Formula["openjdk@21"].opt_prefix
 
     arch = Hardware::CPU.arm? ? "aarch64" : "amd64"
     job_name = "#{OS.mac? ? "mac" : "linux"}Executable#{arch.capitalize}"
