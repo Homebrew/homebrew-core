@@ -5,6 +5,11 @@ class Grpcui < Formula
   sha256 "8548a3ccde0b886ae14ea78fae3e58d28922079e78a08d29e6ef7b9230190375"
   license "MIT"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "d539469158ca6d9251f59f73f8e28fde16cb9ac1aa4b020779dff541a598c4e3"

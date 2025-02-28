@@ -960,7 +960,9 @@ exult
 eza
 f2
 f3d
+faac
 faas-cli
+fabio
 fabric
 fabric-installer
 facad
@@ -1341,6 +1343,7 @@ groovy
 groovysdk
 grpc
 grpc-swift
+grpcui
 grype
 gsan
 gsettings-desktop-schemas
@@ -2162,6 +2165,7 @@ mimirtool
 minder
 minetest
 minica
+minicom
 minigraph
 minijinja-cli
 minikube
@@ -2646,6 +2650,7 @@ po4a
 pocketbase
 pocl
 poco
+pocsuite3
 pod2man
 podlet
 podman
@@ -3714,6 +3719,7 @@ yices2
 ykman
 yle-dl
 yo
+yoke
 yor
 yorkie
 yosys

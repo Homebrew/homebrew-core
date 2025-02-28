@@ -3,38 +3,18 @@ class Pocsuite3 < Formula
 
   desc "Open-sourced remote vulnerability testing framework"
   homepage "https://pocsuite.org/"
+  url "https://files.pythonhosted.org/packages/12/33/a9f77b222075f034c04c615de19c9ef0f93457d9b627e95cc40d07949e70/pocsuite3-2.1.0.tar.gz"
+  sha256 "4107396b5fbbeeb65b27b574c6fb5a40831d1983ad4fd2f9a83c87006bed98e6"
   license "GPL-2.0-only"
-  revision 1
   head "https://github.com/knownsec/pocsuite3.git", branch: "master"
 
-  stable do
-    url "https://files.pythonhosted.org/packages/0f/05/b17921332ab312c04ccc67b3d01a0d4318a4d45eb0315531f66d41a89639/pocsuite3-2.0.8.tar.gz"
-    sha256 "9508ffec49519e5421f19472a582d747b44bf3db289357ed39227e9addfceec3"
-
-    # Drop setuptools dep: https://github.com/knownsec/pocsuite3/pull/420
-    patch do
-      url "https://github.com/knownsec/pocsuite3/commit/cddfbdb6b7df51f985abe8db7ecd24d5d3b5a92a.patch?full_index=1"
-      sha256 "b1aff714f6002b46c2687354ce51ce0f917d5d13beb20fb175f3927f673f9163"
-    end
-
-    # Fix SyntaxWarning's: https://github.com/knownsec/pocsuite3/pull/420
-    patch do
-      url "https://github.com/knownsec/pocsuite3/commit/2505bc8b1501866b9193398575c5653614e131f4.patch?full_index=1"
-      sha256 "656929162b5ddd99ae7d98a4580e9dab8914bf0c66f23ab1d7aacb0c2b13a84c"
-    end
-
-    # Backport of https://github.com/knownsec/pocsuite3/commit/a632e4986d01adaacb5cd363261bbc4bbdf666d8
-    patch :DATA
-  end
-
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia: "148dce91ced8405367b6758e0d47bb9a2f41cfc6fa1b9c20049b6f712e2a5c1d"
-    sha256 cellar: :any,                 arm64_sonoma:  "e62ec6439b38aa364a77482c242578e9b89f5cb7ea83bd85a274d4a4e0ba411b"
-    sha256 cellar: :any,                 arm64_ventura: "c72deb8b5e16df341d216141b9bee62fa211413781b3c2d935c9c7bbe07c9d8a"
-    sha256 cellar: :any,                 sonoma:        "6f86e39cb3b17ff2c3a2fd19df02325958527450c23fac2f0197ac3dab01ce9d"
-    sha256 cellar: :any,                 ventura:       "09a8bb0237f9a8a2dd8fc61ab3617b734dcb26fd39b6240becc9a2e15bc50afb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b9c5ba490de8b4677b999d77b38ec7925f935e055bdf697d0a1862c4ec5062c7"
+    sha256 cellar: :any,                 arm64_sequoia: "6fcd0d853a1ebac12792c165de9f44d70b817ebb9daa50f2a54dac46d1144d1c"
+    sha256 cellar: :any,                 arm64_sonoma:  "1bb0ed43b2e6fb1cb4d7151cf565025cb522538279397685b6deb04fd6f6f3d3"
+    sha256 cellar: :any,                 arm64_ventura: "1024b8dd052d7fe620044a0b586b68d30b9a47458befc5505fabc3763ef0b781"
+    sha256 cellar: :any,                 sonoma:        "8ff6c043f358751b8ec87f4e31e809e2d327c8106d1af9902300467ebb1b23ee"
+    sha256 cellar: :any,                 ventura:       "d28d2d073a6750baab12d7c6634ab49414285ff0514431fbdd03be91b92c1ada"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ac20fffbe19b7f2cc52fe4f16c89dd193023686dc2857957720816bb8d81486c"
   end
 
   depends_on "certifi"
@@ -71,8 +51,8 @@ class Pocsuite3 < Formula
   end
 
   resource "dacite" do
-    url "https://files.pythonhosted.org/packages/21/0f/cf0943f4f55f0fbc7c6bd60caf1343061dff818b02af5a0d444e473bb78d/dacite-1.8.1-py3-none-any.whl"
-    sha256 "cc31ad6fdea1f49962ea42db9421772afe01ac5442380d9a99fcf3d188c61afe"
+    url "https://files.pythonhosted.org/packages/55/a0/7ca79796e799a3e782045d29bf052b5cde7439a2bbb17f15ff44f7aacc63/dacite-1.9.2.tar.gz"
+    sha256 "6ccc3b299727c7aa17582f0021f6ae14d5de47c7227932c47fec4cdfefd26f09"
   end
 
   resource "docker" do
@@ -81,8 +61,8 @@ class Pocsuite3 < Formula
   end
 
   resource "faker" do
-    url "https://files.pythonhosted.org/packages/9c/50/48ab6ba3f07ee7d0eac367695aeb8bc9eb9c3debc0445a67cd07e2d62b44/faker-33.3.1.tar.gz"
-    sha256 "49dde3b06a5602177bc2ad013149b6f60a290b7154539180d37b6f876ae79b20"
+    url "https://files.pythonhosted.org/packages/55/8f/40d002bed58bd6b79bf970505582b769fc975afcacc62c2fe1518d5729c2/faker-36.1.1.tar.gz"
+    sha256 "7cb2bbd4c8f040e4a340ae4019e9a48b6cf1db6a71bda4e5a61d8d13b7bef28d"
   end
 
   resource "idna" do
@@ -96,13 +76,13 @@ class Pocsuite3 < Formula
   end
 
   resource "lxml" do
-    url "https://files.pythonhosted.org/packages/e7/6b/20c3a4b24751377aaa6307eb230b66701024012c29dd374999cc92983269/lxml-5.3.0.tar.gz"
-    sha256 "4e109ca30d1edec1ac60cdbe341905dc3b8f55b16855e03a54aaf59e51ec8c6f"
+    url "https://files.pythonhosted.org/packages/ef/f6/c15ca8e5646e937c148e147244817672cf920b56ac0bf2cc1512ae674be8/lxml-5.3.1.tar.gz"
+    sha256 "106b7b5d2977b339f1e97efe2778e2ab20e99994cbb0ec5e55771ed0795920c8"
   end
 
   resource "mmh3" do
-    url "https://files.pythonhosted.org/packages/e2/08/04ad6419f072ea3f51f9a0f429dd30f5f0a0b02ead7ca11a831117b6f9e8/mmh3-5.0.1.tar.gz"
-    sha256 "7dab080061aeb31a6069a181f27c473a1f67933854e36a3464931f2716508896"
+    url "https://files.pythonhosted.org/packages/47/1b/1fc6888c74cbd8abad1292dde2ddfcf8fc059e114c97dd6bf16d12f36293/mmh3-5.1.0.tar.gz"
+    sha256 "136e1e670500f177f49ec106a4ebf0adf20d18d96990cc36ea492c651d2b406c"
   end
 
   resource "packaging" do
@@ -111,8 +91,8 @@ class Pocsuite3 < Formula
   end
 
   resource "prettytable" do
-    url "https://files.pythonhosted.org/packages/3b/8a/de4dc1a6098621781c266b3fb3964009af1e9023527180cb8a3b0dd9d09e/prettytable-3.12.0.tar.gz"
-    sha256 "f04b3e1ba35747ac86e96ec33e3bb9748ce08e254dc2a1c6253945901beec804"
+    url "https://files.pythonhosted.org/packages/38/95/78080e58efbdde46cda8d4498737bf9687839ed4a9744b068cc730a073ed/prettytable-3.15.1.tar.gz"
+    sha256 "f0edb38060cb9161b2417939bfd5cd9877da73388fb19d1e8bf7987e8558896e"
   end
 
   resource "pycryptodomex" do
@@ -128,11 +108,6 @@ class Pocsuite3 < Formula
   resource "pysocks" do
     url "https://files.pythonhosted.org/packages/bd/11/293dd436aea955d45fc4e8a35b6ae7270f5b8e00b53cf6c024c83b657a11/PySocks-1.7.1.tar.gz"
     sha256 "3f8804571ebe159c380ac6de37643bb4685970655d3bba243530d6558b799aa0"
-  end
-
-  resource "python-dateutil" do
-    url "https://files.pythonhosted.org/packages/66/c0/0c8b6ad9f17a802ee498c46e004a0eb49bc148f2fd230864601a86dcf6db/python-dateutil-2.9.0.post0.tar.gz"
-    sha256 "37dd54208da7e1cd875388217d5e00ebd4179249f90fb72437e91a35459a0ad3"
   end
 
   resource "pyyaml" do
@@ -155,19 +130,14 @@ class Pocsuite3 < Formula
     sha256 "7600d7e2383c853e5c3a6e05d37e17643beebf2b3e10d7914dffcc3bc3c6e6c5"
   end
 
-  resource "six" do
-    url "https://files.pythonhosted.org/packages/94/e7/b2c673351809dca68a0e064b6af791aa332cf192da575fd474ed7d6f16a2/six-1.17.0.tar.gz"
-    sha256 "ff70335d468e7eb6ec65b95b99d3a2836546063f63acc5171de367e834932a81"
-  end
-
   resource "termcolor" do
     url "https://files.pythonhosted.org/packages/37/72/88311445fd44c455c7d553e61f95412cf89054308a1aa2434ab835075fc5/termcolor-2.5.0.tar.gz"
     sha256 "998d8d27da6d48442e8e1f016119076b690d962507531df4890fcd2db2ef8a6f"
   end
 
-  resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/df/db/f35a00659bc03fec321ba8bce9420de607a1d37f8342eee1863174c69557/typing_extensions-4.12.2.tar.gz"
-    sha256 "1a7ead55c7e559dd4dee8856e3a88b41225abfe1ce8df57b7c13915fe121ffb8"
+  resource "tzdata" do
+    url "https://files.pythonhosted.org/packages/43/0f/fa4723f22942480be4ca9527bbde8d43f6c3f2fe8412f00e7f5f6746bc8b/tzdata-2025.1.tar.gz"
+    sha256 "24894909e88cdb28bd1636c6887801df64cb485bd593f2fd83ef29075a81d694"
   end
 
   resource "urllib3" do
@@ -188,77 +158,3 @@ class Pocsuite3 < Formula
     assert_match "Module (pocs_ecshop_rce) options:", shell_output("#{bin}/pocsuite -k ecshop --options")
   end
 end
-
-__END__
-diff --git a/pocsuite3/modules/listener/bind_tcp.py b/pocsuite3/modules/listener/bind_tcp.py
-index e7143daa..b554201e 100644
---- a/pocsuite3/modules/listener/bind_tcp.py
-+++ b/pocsuite3/modules/listener/bind_tcp.py
-@@ -4,7 +4,6 @@
- import pickle
- import base64
- import select
--import telnetlib
- import threading
- from pocsuite3.lib.core.poc import POCBase
- from pocsuite3.lib.utils import random_str
-@@ -25,25 +24,18 @@ def read_inputs(s):
-     return b''.join(buffer)
- 
- 
-+def read_until(conn, inputs):
-+    try:
-+        while True:
-+            msg = conn.recv(1024).decode('utf-8', errors='ignore')
-+            if inputs in msg.lower():
-+                break
-+    except Exception:
-+        pass
-+
-+
- def read_results(conn, inputs):
--    if isinstance(conn, telnetlib.Telnet):
--        flag = random_str(6).encode()
--        inputs = inputs.strip() + b';' + flag + b'\n'
--        results = b''
--        conn.write(inputs)
--        count = 10
--        while count:
--            count -= 1
--            chunk = conn.read_until(random_str(6).encode(), 0.2)
--            if len(chunk) > 0:
--                results += chunk
--            if results.count(flag) >= 2:
--                # remove the Telnet input echo
--                results = results.split(inputs.strip())[-1]
--                results = os.linesep.encode().join(
--                    results.split(flag)[0].splitlines()[0:-1])
--                return results.strip() + b'\n'
--    elif callable(conn):
-+    if callable(conn):
-         results = conn(inputs.decode())
-         if not isinstance(results, bytes):
-             results = results.encode()
-@@ -116,15 +108,16 @@ def bind_tcp_shell(host, port, check=True):
- 
- 
- def bind_telnet_shell(host, port, user, pwd, check=True):
-+    # see https://peps.python.org/pep-0594/#telnetlib
-     if not check_port(host, port):
-         return False
-     try:
--        tn = telnetlib.Telnet(host, port)
--        tn.expect([b'Login: ', b'login: '], 10)
--        tn.write(user.encode() + b'\n')
--        tn.expect([b'Password: ', b'password: '], 10)
--        tn.write(pwd.encode() + b'\n')
--        tn.write(b'\n')
-+        tn = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-+        tn.connect((host, port))
-+        read_until(tn, 'login: ')
-+        tn.sendall((user + "\n").encode('utf-8'))
-+        read_until(tn, 'password: ')
-+        tn.sendall((pwd + "\n").encode('utf-8'))
-         if check:
-             flag = random_str(6).encode()
-             if flag not in read_results(tn, b'echo %s' % flag):

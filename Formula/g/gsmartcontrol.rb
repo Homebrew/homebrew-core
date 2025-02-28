@@ -1,45 +1,41 @@
 class Gsmartcontrol < Formula
   desc "Graphical user interface for smartctl"
   homepage "https://gsmartcontrol.shaduri.dev/"
-  url "https://downloads.sourceforge.net/project/gsmartcontrol/2.0.1/v2.0.1%20source%20code.tar.gz"
-  sha256 "9a7e4fefc34aef7358a5196633e89924ff1e94e721b53609a51af68b1902a947"
+  url "https://downloads.sourceforge.net/project/gsmartcontrol/2.0.2/gsmartcontrol-2.0.2.tar.gz"
+  sha256 "7cebd83fd34883d51e143389aa88f8173ea7b67c760b12b7de847f3c3c8cee34"
   license any_of: ["GPL-2.0-only", "GPL-3.0-only"]
 
   bottle do
-    sha256 arm64_sequoia: "e875029759200a2c4bd7f8b7e175674a480c82f2fc41fe59b5e56275f6140061"
-    sha256 arm64_sonoma:  "c2d68195ae4cc20596e46ea5bae1c2130c77bc45750e902b22956c4acc8d5dc4"
-    sha256 arm64_ventura: "10607b6d069fdf1dda25c09523269ed3bb22d4a13698ded27faaa67dd40e489e"
-    sha256 sonoma:        "f5dc8c9ca3d57f2b5f6ed089dc4307551a5f8c2af87c75a46d80c72338fdb7c1"
-    sha256 ventura:       "43f9947df585e4a457e3a127dcb66da734955658e148845fa2b432e14f382edc"
-    sha256 x86_64_linux:  "e23627ffc2e440c984c9927a797936442244af1e6f68765d70614ce173a7bba8"
+    sha256 arm64_sequoia: "fec689ece510c21ae0589fce4d135a403f7b59904e2fd565d00079a21d3cf2e2"
+    sha256 arm64_sonoma:  "dfb1e49374740cbeb2392d5b645e12df3669389f45e575eae5114cf2bbd89f4b"
+    sha256 arm64_ventura: "06c41cd9e482c9477e5e06131536cd9b678d52bf4e547cfc48414eb645ec4fd0"
+    sha256 sonoma:        "3c772fa791354268934693ea60962ffbe839ca07219b9a69925e7bd862d0ff61"
+    sha256 ventura:       "244de0b2b1617a8a7f71210230f94fd32d3f77a87745a4e3a893e6621e1da4f2"
+    sha256 x86_64_linux:  "6cd4fa97e19fee44f12fe02e4d7edf882c098c80d83472d036d61f8e730c7b81"
   end
 
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
-  depends_on "at-spi2-core"
   depends_on "atkmm@2.28"
   depends_on "cairo"
   depends_on "cairomm@1.14"
-  depends_on "gdk-pixbuf"
   depends_on "glib"
   depends_on "glibmm@2.66"
   depends_on "gtk+3"
   depends_on "gtkmm3"
-  depends_on "harfbuzz"
   depends_on "libsigc++@2"
-  depends_on "pango"
   depends_on "pangomm@2.46"
-  depends_on "pcre2"
   depends_on "smartmontools"
 
   on_macos do
     depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1500
 
+    depends_on "at-spi2-core"
+    depends_on "gdk-pixbuf"
     depends_on "gettext"
-  end
-
-  on_linux do
-    depends_on "gcc"
+    depends_on "harfbuzz"
+    depends_on "pango"
+    depends_on "pcre2"
   end
 
   fails_with :clang do
@@ -48,7 +44,7 @@ class Gsmartcontrol < Formula
   end
 
   fails_with :gcc do
-    version "11"
+    version "10"
     cause "Requires C++20"
   end
 

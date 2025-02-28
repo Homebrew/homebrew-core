@@ -1,8 +1,8 @@
 class Minicom < Formula
   desc "Menu-driven communications program"
   homepage "https://packages.debian.org/sid/minicom"
-  url "https://deb.debian.org/debian/pool/main/m/minicom/minicom_2.9.orig.tar.bz2"
-  sha256 "9efbb6458140e5a0de445613f0e76bcf12cbf7a9892b2f53e075c2e7beaba86c"
+  url "https://deb.debian.org/debian/pool/main/m/minicom/minicom_2.10.orig.tar.bz2"
+  sha256 "90e7ce2856b3eaaa3f452354d17981c49d32c426a255b6f0d3063a227c101538"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -11,14 +11,12 @@ class Minicom < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia:  "3fffa1688f76eecf53156914c4e793b55bc98ec39ef9d1012dd71e6d036ef959"
-    sha256 arm64_sonoma:   "b92b70950bd1142625c5a91bb815cc6b5a6e302bac3d2deb2ba6a27346275a82"
-    sha256 arm64_ventura:  "c0027370447eb9cfb68179a1d27bbecc4a0682351b454da5dd563f0641f6d9e1"
-    sha256 arm64_monterey: "3ffb59047f0ddedd946f3396ff160438b6d7642824f5a1a63a1d2d37e3aa9c6e"
-    sha256 sonoma:         "dfaaf1a7d3ed1c5fa8478c15daf7b0a730187fb8272df248051a32e4ca734030"
-    sha256 ventura:        "afd820441655a587192dedb3e38563fd57b899efdeee1c306e785cc0ff706fb9"
-    sha256 monterey:       "37884d21fe67fb95c0b637a98d6fdd969c4a98bacda9a4724f3d32e0639d6df3"
-    sha256 x86_64_linux:   "8d7abc35dc2a14d94619c4ee3d81812e94bb9287eb23455b4f1cb686680f558d"
+    sha256 arm64_sequoia: "80e14a35d53c8bee7865f9dca76d9b674b5790d18d3dd1b468847ed99970c96f"
+    sha256 arm64_sonoma:  "00ee0220e0307094c74374572ffbca318368f33083b9881b22783d36d4a12ca6"
+    sha256 arm64_ventura: "f004fb2db42fbdd149fc40eae5bc653b15860f06506f2d91f3be7b7e3b62f4e1"
+    sha256 sonoma:        "ae861c3e3530b8dd98ddd8256aa243a3205a6dac85e04f9351f5fc157d3948bf"
+    sha256 ventura:       "7e524e53bc69ffd181757cff6564264674e1bc2c46255792c58b3265f9fe61dc"
+    sha256 x86_64_linux:  "5de5bb5448b6444e3ddcdcbb615bd96fb138df6d216c565e661e101ebd507208"
   end
 
   head do

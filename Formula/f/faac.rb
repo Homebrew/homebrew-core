@@ -1,22 +1,17 @@
 class Faac < Formula
   desc "ISO AAC audio encoder"
   homepage "https://sourceforge.net/projects/faac/"
-  url "https://github.com/knik0/faac/archive/refs/tags/1_30.tar.gz"
-  sha256 "adc387ce588cca16d98c03b6ec1e58f0ffd9fc6eadb00e254157d6b16203b2d2"
+  url "https://github.com/knik0/faac/archive/refs/tags/faac-1.31.tar.gz"
+  sha256 "92894e3205ca7fbb0b0d38161ae94c9e884efe5af65886e5ad60eb1a318c78f1"
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "18a110273bcd3cd08517ef6a86ded5a6ca8179b5444c593a5b6dfcf2d662febe"
-    sha256 cellar: :any,                 arm64_sonoma:   "3701a45eecedf782012467d4b37393790d69bac55c08b8df5619dd57213ad7c7"
-    sha256 cellar: :any,                 arm64_ventura:  "1af7b3a977137c5e1a3a3e8466fcbeddfb77f7656b07e790530ed90c3f85b819"
-    sha256 cellar: :any,                 arm64_monterey: "413a14d54cc48a4fd7ae0363438f8ef75c0f0e076a889d3484cb93afa4b464aa"
-    sha256 cellar: :any,                 arm64_big_sur:  "0e3e4e7ac9a55ca918a495b7ae577fb89e7d575e8ae52d8a8f2fd989b56f38f1"
-    sha256 cellar: :any,                 sonoma:         "2ce8ca0cad392e932041cbd6bcf81eb0e9a31a82cbd4dba12857fec59fea505a"
-    sha256 cellar: :any,                 ventura:        "0cc0b9e690f4d687b4c531359f036e6f7bdd63fb20c19aab22ffb972917f8958"
-    sha256 cellar: :any,                 monterey:       "5a59cfb676ba67e6386cc9d0a5726ef1546de461364f88a96d6eaa4ca664bf18"
-    sha256 cellar: :any,                 big_sur:        "6b5f296f4cbf136daaf34236ad07b76f79aa4452eb2914efbd641a97aee2b5c9"
-    sha256 cellar: :any,                 catalina:       "36620606b1b45f273e61ebaf4527b226a8fc586808c9570d69940da680af14a6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fb2acbc5251d69a81adf1481f2e2cf631fbc13b588b53c206f6c6e07819c6e00"
+    sha256 cellar: :any,                 arm64_sequoia: "eec6c8c0a73c04dc3b3eb84d6ad8bcbef4295c4979876a91fc9d241ae63cb1cf"
+    sha256 cellar: :any,                 arm64_sonoma:  "d475a9653d888e375953c98822ecb934181adecd681e4db21a62a02fb732b1a0"
+    sha256 cellar: :any,                 arm64_ventura: "21b6fb8977f3f5135b2d07b1756f86a253af2d570437b99ac3bdc04ad504a656"
+    sha256 cellar: :any,                 sonoma:        "959d62ee5f16c4c474b0d4bcc1dd6f918d8fc5a9cf8780402c5dd22f0b4ef764"
+    sha256 cellar: :any,                 ventura:       "3983d0dcdece97a9fa3ee713046cd332b16a5b5dc7c0a77b7180c7ff66989cbd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "71e49d2a602524e54ef23f3b8dc2730e5881f74a14fcbb62f5252a239aed24f0"
   end
 
   depends_on "autoconf" => :build

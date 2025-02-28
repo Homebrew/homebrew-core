@@ -3,19 +3,18 @@ class GiDocgen < Formula
 
   desc "Documentation tool for GObject-based libraries"
   homepage "https://gnome.pages.gitlab.gnome.org/gi-docgen/"
-  url "https://files.pythonhosted.org/packages/d1/86/d17f162d174b6340031fc96474405f13d50ceda4b6bf6588593cf31eb84b/gi_docgen-2024.1.tar.gz"
-  sha256 "2a4a5569f91109777481aa71451751289227f7c2652cfac366184a41eb19c231"
+  url "https://files.pythonhosted.org/packages/55/e1/c32a1ee817fc7d11462b4ed8722b049c70dd61ce0b236f74e7cf4262412e/gi_docgen-2025.3.tar.gz"
+  sha256 "2fdb4f0f6b61184ab862fcfb41dafe1a795636de9fd8d21a8ca4feea3b6bf858"
   license any_of: ["Apache-2.0", "GPL-3.0-or-later"]
   head "https://gitlab.gnome.org/GNOME/gi-docgen.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "efb6000d36c8b1d943c9168de1e24f786cea02c666ae6ce217569bbe5cd71d97"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "461500915dfbb1790cd88991c34a6b2eb74825bc4ccf8334ee00b885a583d7fc"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "57d9467b5ebbc3635d1a74e8492a7aa890f6149ab32d49328254bdadf458304b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ba5cd04c92b601181e5423e558f711a6125869ebf1feb79d5340c83ad63d0026"
-    sha256 cellar: :any_skip_relocation, ventura:       "68f3b5360ae636a399e0874fcca8e0fff433bcc38b9a0bb230f3baa7c7e47e82"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cee5988c247f1e42d7cd84da6e053af9735ad303dab31a0831cfa49be99836e3"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0aa97f57971062c123e025311cee713886f9864cc8310fd53befe7bb77412ac0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "395b6e9efcb926d26d6840163dbabcbeb22e37d3d33b48015a78c8d2cb97865e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "ca42b418a8fb2213a20293b9d898f1d35c2353f3a4e2639107497b2fc907aee9"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d5f8321066724c5ec51be489d5712b919c2475086dfae82903b53e251ddec68f"
+    sha256 cellar: :any_skip_relocation, ventura:       "fdf24279284551a55f263c562b7b6be74e444916efae31682925aea82710cfc1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "36f3a153cac22ae02776de17e6714abb9215f25116878a3fa12fd5be8391abf6"
   end
 
   depends_on "python@3.13"
@@ -28,8 +27,8 @@ class GiDocgen < Formula
   end
 
   resource "jinja2" do
-    url "https://files.pythonhosted.org/packages/ed/55/39036716d19cab0747a5020fc7e907f362fbf48c984b14e62127f7e68e5d/jinja2-3.1.4.tar.gz"
-    sha256 "4a3aee7acbbe7303aede8e9648d13b8bf88a429282aa6122a993f0ac800cb369"
+    url "https://files.pythonhosted.org/packages/af/92/b3130cbbf5591acf9ade8708c365f3238046ac7cb8ccba6e81abccb0ccff/jinja2-3.1.5.tar.gz"
+    sha256 "8fefff8dc3034e27bb80d67c671eb8a9bc424c0ef4c0826edbff304cceff43bb"
   end
 
   resource "markdown" do
@@ -38,23 +37,23 @@ class GiDocgen < Formula
   end
 
   resource "markupsafe" do
-    url "https://files.pythonhosted.org/packages/b4/d2/38ff920762f2247c3af5cbbbbc40756f575d9692d381d7c520f45deb9b8f/markupsafe-3.0.1.tar.gz"
-    sha256 "3e683ee4f5d0fa2dde4db77ed8dd8a876686e3fc417655c2ece9a90576905344"
+    url "https://files.pythonhosted.org/packages/b2/97/5d42485e71dfc078108a86d6de8fa46db44a1a9295e89c5d6d4a06e23a62/markupsafe-3.0.2.tar.gz"
+    sha256 "ee55d3edf80167e48ea11a923c7386f4669df67d7994554387f84e7d8b0a2bf0"
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/51/65/50db4dda066951078f0a96cf12f4b9ada6e4b811516bf0262c0f4f7064d4/packaging-24.1.tar.gz"
-    sha256 "026ed72c8ed3fcce5bf8950572258698927fd1dbda10a5e981cdf0ac37f4f002"
+    url "https://files.pythonhosted.org/packages/d0/63/68dbb6eb2de9cb10ee4c9c14a0148804425e13c4fb20d61cce69f53106da/packaging-24.2.tar.gz"
+    sha256 "c228a6dc5e932d346bc5739379109d49e8853dd8223571c7c5b55260edc0b97f"
   end
 
   resource "pygments" do
-    url "https://files.pythonhosted.org/packages/8e/62/8336eff65bcbc8e4cb5d05b55faf041285951b6e80f33e2bff2024788f31/pygments-2.18.0.tar.gz"
-    sha256 "786ff802f32e91311bff3889f6e9a86e81505fe99f2735bb6d60ae0c5004f199"
+    url "https://files.pythonhosted.org/packages/7c/2d/c3338d48ea6cc0feb8446d8e6937e1408088a72a39937982cc6111d17f84/pygments-2.19.1.tar.gz"
+    sha256 "61c16d2a8576dc0649d9f39e089b5f02bcd27fba10d8fb4dcc28173f7a45151f"
   end
 
   resource "typogrify" do
-    url "https://files.pythonhosted.org/packages/8a/bf/64959d6187d42472acb846bcf462347c9124952c05bd57e5769d5f28f9a6/typogrify-2.0.7.tar.gz"
-    sha256 "8be4668cda434163ce229d87ca273a11922cb1614cb359970b7dc96eed13cb38"
+    url "https://files.pythonhosted.org/packages/93/8c/b73fe0050bbf67c172b7c6d0c74c356939de0e891e669667f20381c099a8/typogrify-2.1.0.tar.gz"
+    sha256 "f0aa004e98032a6e6be4c9da65e7eb7150e36ca3bf508adbcda82b4d003e61ee"
   end
 
   def install
