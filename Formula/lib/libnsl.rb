@@ -10,18 +10,28 @@ class Libnsl < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux: "fa7613b30e9bfe15166339d119c19115ec21f13cea259280182e0c083502ff40"
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "gettext" => :build
+  depends_on "libtool" => :build
   depends_on "pkgconf" => :build
   depends_on "libtirpc"
-  depends_on :linux
 
   link_overwrite "include/rpcsvc"
   link_overwrite "lib/libnsl.a"
   link_overwrite "lib/libnsl.so"
 
+  # patch to support macos build, upstream pr ref, https://github.com/thkukuk/libnsl/pull/24
+  patch do
+    url "https://github.com/thkukuk/libnsl/commit/db614c41660fc8c06f7c4a40dd36cd82feb471d5.patch?full_index=1"
+    sha256 "60f4098fcb5d97fc2158e805ed8fe5936d50bfb6af57cab54a281fd9d8677b62"
+  end
+
   def install
-    system "./configure", *std_configure_args,
-                          "--disable-silent-rules"
-    system "make"
+    odie "check if autoreconf line can be removed" if version > "2.0.1"
+    system "autoreconf", "--force", "--install", "--verbose"
+
+    system "./configure", "--disable-silent-rules", *std_configure_args
     system "make", "install"
   end
 
