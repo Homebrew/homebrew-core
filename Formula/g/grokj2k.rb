@@ -56,7 +56,7 @@ class Grokj2k < Formula
     ENV.llvm_clang if OS.mac? && (DevelopmentTools.clang_build_version <= 1200)
 
     # Fix: ExifTool Perl module not found
-    ENV.prepend_path "PERL5LIB", Formula["exiftool"].opt_libexec/"lib"
+    ENV.prepend_path "PERL5LIB", Formula["exiftool"].opt_libexec/"lib/perl5"
 
     # Ensure we use Homebrew libraries
     %w[liblcms2 libpng libtiff libz].each { |l| rm_r(buildpath/"thirdparty"/l) }
