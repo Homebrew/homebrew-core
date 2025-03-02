@@ -16,6 +16,7 @@ class Vtk < Formula
   end
 
   depends_on "cmake" => [:build, :test]
+  depends_on "python@3.13" => [:build, :test] # for bindings, avoid runtime dependency due to `expat`
   depends_on "boost"
   depends_on "cgns"
   depends_on "double-conversion"
@@ -34,8 +35,6 @@ class Vtk < Formula
   depends_on "nlohmann-json"
   depends_on "proj"
   depends_on "pugixml"
-  depends_on "pyqt"
-  depends_on "python@3.13"
   depends_on "qt"
   depends_on "sqlite"
   depends_on "theora"
@@ -46,19 +45,6 @@ class Vtk < Formula
   uses_from_macos "libxml2"
   uses_from_macos "tcl-tk"
   uses_from_macos "zlib"
-
-  on_macos do
-    on_arm do
-      if DevelopmentTools.clang_build_version == 1316
-        depends_on "llvm" => :build
-
-        # clang: error: unable to execute command: Segmentation fault: 11
-        # clang: error: clang frontend command failed due to signal (use -v to see invocation)
-        # Apple clang version 13.1.6 (clang-1316.0.21.2)
-        fails_with :clang
-      end
-    end
-  end
 
   on_linux do
     depends_on "gl2ps"
@@ -72,8 +58,6 @@ class Vtk < Formula
     # Ref: https://github.com/Unidata/netcdf-c/issues/1444
     odie "Try removing netCDF workaround!" if Formula["netcdf"].stable.version > "4.9.2"
     inreplace "CMake/FindNetCDF.cmake", "find_package(netCDF CONFIG QUIET)", "# \\0"
-
-    ENV.llvm_clang if DevelopmentTools.clang_build_version == 1316 && Hardware::CPU.arm?
 
     python = "python3.13"
     qml_plugin_dir = lib/"qml/VTK.#{version.major_minor}"
@@ -128,9 +112,6 @@ class Vtk < Formula
   end
 
   test do
-    # Force use of Apple Clang on macOS that needs LLVM to build
-    ENV.clang if DevelopmentTools.clang_build_version == 1316 && Hardware::CPU.arm?
-
     vtk_dir = lib/"cmake/vtk-#{version.major_minor}"
     vtk_cmake_module = vtk_dir/"VTK-vtk-module-find-packages.cmake"
     assert_match Formula["boost"].version.to_s, vtk_cmake_module.read, "VTK needs to be rebuilt against Boost!"
