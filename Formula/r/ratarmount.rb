@@ -12,12 +12,14 @@ class Ratarmount < Formula
   end
 
   depends_on "libffi"
-  depends_on "libfuse"
   depends_on "libgit2"
-  depends_on :linux
   depends_on "python@3.13"
   depends_on "zlib"
   depends_on "zstd"
+
+  on_linux do
+    depends_on "libfuse"
+  end
 
   resource "cffi" do
     url "https://files.pythonhosted.org/packages/fc/97/c783634659c2920c3fc70419e3af40972dbaf758daa229a7d6ea6135c90d/cffi-1.17.1.tar.gz"
@@ -76,6 +78,13 @@ class Ratarmount < Formula
 
   def install
     virtualenv_install_with_resources
+  end
+
+  def caveats
+    <<~EOS
+      To use `ratarmount` on macOS:
+        brew install --cask macfuse
+    EOS
   end
 
   test do
