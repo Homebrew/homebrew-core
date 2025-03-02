@@ -22,7 +22,7 @@ class Chapel < Formula
   depends_on "gmp"
   depends_on "hwloc"
   depends_on "jemalloc"
-  depends_on "llvm"
+  depends_on "llvm@19"
   depends_on "pkgconf"
   depends_on "python@3.13"
 

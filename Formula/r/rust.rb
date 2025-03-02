@@ -2,6 +2,7 @@ class Rust < Formula
   desc "Safe, concurrent, practical language"
   homepage "https://www.rust-lang.org/"
   license any_of: ["Apache-2.0", "MIT"]
+  revision 1
 
   stable do
     url "https://static.rust-lang.org/dist/rustc-1.85.0-src.tar.gz"
@@ -33,7 +34,7 @@ class Rust < Formula
 
   depends_on "libgit2@1.8" # upstream issue, https://github.com/rust-lang/cargo/issues/15043
   depends_on "libssh2"
-  depends_on "llvm"
+  depends_on "llvm@19"
   depends_on macos: :sierra
   depends_on "openssl@3"
   depends_on "pkgconf"
@@ -123,7 +124,7 @@ class Rust < Formula
   end
 
   def llvm
-    Formula["llvm"]
+    Formula["llvm@19"]
   end
 
   def install
@@ -213,7 +214,7 @@ class Rust < Formula
     end
     return unless OS.mac?
 
-    # Symlink our LLVM here to make sure the adjacent bin/rust-lld can find it.
+    # Symlink our LLVM here to make sure the adjacent bin/rust-* tools can find it.
     # Needs to be done in `postinstall` to avoid having `change_dylib_id` done on it.
     lib.glob("rustlib/*/lib") do |dir|
       # Use `ln_sf` instead of `install_symlink` to avoid resolving this into a Cellar path.

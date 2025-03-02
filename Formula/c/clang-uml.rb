@@ -4,6 +4,7 @@ class ClangUml < Formula
   url "https://github.com/bkryza/clang-uml/archive/refs/tags/0.6.0.tar.gz"
   sha256 "df50f715ab4b5f8705893aba45f6146b77cbd1c0653e81e2555772d8584601d5"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/bkryza/clang-uml.git", branch: "master"
 
   bottle do
