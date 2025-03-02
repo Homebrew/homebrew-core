@@ -1,8 +1,8 @@
 class Librsvg < Formula
   desc "Library to render SVG files using Cairo"
   homepage "https://wiki.gnome.org/Projects/LibRsvg"
-  url "https://download.gnome.org/sources/librsvg/2.58/librsvg-2.58.4.tar.xz"
-  sha256 "296e3760d2347d0767c3e291dec962ab36baecd25c4898c6e8150a731f967c7b"
+  url "https://download.gnome.org/sources/librsvg/2.59/librsvg-2.59.2.tar.xz"
+  sha256 "ecd293fb0cc338c170171bbc7bcfbea6725d041c95f31385dc935409933e4597"
   license "LGPL-2.1-or-later"
 
   # librsvg doesn't use GNOME's "even-numbered minor is stable" version scheme.
@@ -24,8 +24,11 @@ class Librsvg < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "2c71dffd85fd7b3553766305adf685a59fc00b87d3120f0e96b199f079ac0fda"
   end
 
+  depends_on "cargo-c" => :build
   depends_on "gobject-introspection" => :build
-  depends_on "pkgconf" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
+  depends_on "pkgconf" => [:build, :test]
   depends_on "rust" => :build
   depends_on "cairo"
   depends_on "gdk-pixbuf"
@@ -43,24 +46,27 @@ class Librsvg < Formula
   end
 
   def install
-    args = %w[
-      --disable-Bsymbolic
-      --enable-tools=yes
-      --enable-pixbuf-loader=yes
-      --enable-introspection=yes
-    ]
-
-    system "./configure", *args, *std_configure_args
+    # Set `RPATH` since `cargo-c` doesn't seem to.
+    ENV.append "RUSTFLAGS", "--codegen link-args=-Wl,-rpath,#{lib}" if OS.mac?
 
     # disable updating gdk-pixbuf cache, we will do this manually in post_install
     # https://github.com/Homebrew/homebrew/issues/40833
-    inreplace "gdk-pixbuf-loader/Makefile",
-              "$(GDK_PIXBUF_QUERYLOADERS) > $(DESTDIR)$(gdk_pixbuf_cache_file) ;",
-              ""
+    ENV["DESTDIR"] = "/"
 
-    system "make", "install",
-      "gdk_pixbuf_binarydir=#{lib}/gdk-pixbuf-2.0/2.10.0/loaders",
-      "gdk_pixbuf_moduledir=#{lib}/gdk-pixbuf-2.0/2.10.0/loaders"
+    system "meson", "setup", "build", "-Dintrospection=enabled",
+                                      "-Dpixbuf=enabled",
+                                      "-Dpixbuf-loader=enabled",
+                                      *std_meson_args
+    system "meson", "compile", "-C", "build", "--verbose"
+    system "meson", "install", "-C", "build"
+
+    # Workaround until https://gitlab.gnome.org/GNOME/librsvg/-/merge_requests/1049
+    if OS.mac?
+      gdk_pixbuf_moduledir = lib.glob("gdk-pixbuf-*/*/loaders").first
+      gdk_pixbuf_modules = gdk_pixbuf_moduledir.glob("*.dylib")
+      odie "Try removing .so symlink workaround!" if gdk_pixbuf_modules.empty?
+      gdk_pixbuf_moduledir.install_symlink gdk_pixbuf_modules.to_h { |m| [m, m.sub_ext(".so").basename] }
+    end
   end
 
   def post_install
@@ -79,40 +85,7 @@ class Librsvg < Formula
         return 0;
       }
     C
-    cairo = Formula["cairo"]
-    fontconfig = Formula["fontconfig"]
-    freetype = Formula["freetype"]
-    gdk_pixbuf = Formula["gdk-pixbuf"]
-    gettext = Formula["gettext"]
-    glib = Formula["glib"]
-    libpng = Formula["libpng"]
-    pixman = Formula["pixman"]
-    flags = %W[
-      -I#{cairo.opt_include}/cairo
-      -I#{fontconfig.opt_include}
-      -I#{freetype.opt_include}/freetype2
-      -I#{gdk_pixbuf.opt_include}/gdk-pixbuf-2.0
-      -I#{gettext.opt_include}
-      -I#{glib.opt_include}/glib-2.0
-      -I#{glib.opt_lib}/glib-2.0/include
-      -I#{include}/librsvg-2.0
-      -I#{libpng.opt_include}/libpng16
-      -I#{pixman.opt_include}/pixman-1
-      -D_REENTRANT
-      -L#{cairo.opt_lib}
-      -L#{gdk_pixbuf.opt_lib}
-      -L#{gettext.opt_lib}
-      -L#{glib.opt_lib}
-      -L#{lib}
-      -lcairo
-      -lgdk_pixbuf-2.0
-      -lgio-2.0
-      -lglib-2.0
-      -lgobject-2.0
-      -lm
-      -lrsvg-2
-    ]
-    flags << "-lintl" if OS.mac?
+    flags = shell_output("pkgconf --cflags --libs librsvg-2.0").chomp.split
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end
