@@ -4,6 +4,7 @@ class LibgeditTepl < Formula
   url "https://gitlab.gnome.org/World/gedit/libgedit-tepl/-/archive/6.12.0/libgedit-tepl-6.12.0.tar.bz2"
   sha256 "2170a6db99803b08fe7437bd8382ed2938baf4f5838349ba90dee1308a7dc08d"
   license "LGPL-2.1-or-later"
+  revision 1
   head "https://gitlab.gnome.org/World/gedit/libgedit-tepl.git", branch: "main"
 
   bottle do
@@ -23,7 +24,7 @@ class LibgeditTepl < Formula
   depends_on "cairo"
   depends_on "glib"
   depends_on "gtk+3"
-  depends_on "icu4c@76"
+  depends_on "icu4c@77"
   depends_on "libgedit-amtk"
   depends_on "libgedit-gfls"
   depends_on "libgedit-gtksourceview"

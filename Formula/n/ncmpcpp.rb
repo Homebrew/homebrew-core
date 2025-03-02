@@ -5,7 +5,7 @@ class Ncmpcpp < Formula
   url "https://github.com/ncmpcpp/ncmpcpp/archive/refs/tags/0.10.1.tar.gz"
   sha256 "ddc89da86595d272282ae8726cc7913867b9517eec6e765e66e6da860b58e2f9"
   license "GPL-2.0-or-later"
-  revision 1
+  revision 2
   head "https://github.com/ncmpcpp/ncmpcpp.git", branch: "master"
 
   bottle do
@@ -23,7 +23,7 @@ class Ncmpcpp < Formula
   depends_on "pkgconf" => :build
   depends_on "boost"
   depends_on "fftw"
-  depends_on "icu4c@76"
+  depends_on "icu4c@77"
   depends_on "libmpdclient"
   depends_on "ncurses"
   depends_on "readline"
