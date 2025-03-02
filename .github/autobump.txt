@@ -3397,6 +3397,7 @@ tmux-xpanes
 tmuxp
 tmx
 toast
+todoist
 todoman
 tofuenv
 toipe
