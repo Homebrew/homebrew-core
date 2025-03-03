@@ -21,6 +21,8 @@ class Lazyjournal < Formula
   test do
     assert_match version.to_s, shell_output("#{bin}/lazyjournal --version")
     system "tar", "xvf", cached_download
-    system "go", "test", "-v", "--run", "TestUnixFiles"
+    Dir.chdir("lazyjournal-#{version}") do
+      system "go", "test", "-v", "--run", "TestUnixFiles"
+    end
   end
 end
