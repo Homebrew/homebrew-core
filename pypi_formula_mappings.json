@@ -413,7 +413,7 @@
   },
   "harlequin": {
     "package_name": "harlequin[mysql,odbc,postgres]",
-    "exclude_packages": ["psycopg-binary", "tree-sitter-languages"],
+    "exclude_packages": ["numpy", "psycopg-binary", "tree-sitter-languages"],
     "extra_packages": ["psycopg-c"]
   },
   "hatch": {
