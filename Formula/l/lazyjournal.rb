@@ -6,7 +6,7 @@ class Lazyjournal < Formula
   license "MIT"
   head "https://github.com/Lifailon/lazyjournal.git", branch: "main"
 
-  depends_on "go" => :build
+  depends_on "go" => [:build, :test]
 
   def install
     ldflags = %W[
