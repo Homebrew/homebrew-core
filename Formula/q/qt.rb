@@ -10,6 +10,7 @@ class Qt < Formula
     { "GPL-3.0-only" => { with: "Qt-GPL-exception-1.0" } },
     "LGPL-3.0-only",
   ]
+  revision 1
   head "https://code.qt.io/qt/qt5.git", branch: "dev"
 
   stable do
@@ -60,7 +61,7 @@ class Qt < Formula
   depends_on "glib"
   depends_on "harfbuzz"
   depends_on "hunspell"
-  depends_on "icu4c@76"
+  depends_on "icu4c@77"
   depends_on "jasper"
   depends_on "jpeg-turbo"
   depends_on "libb2"
