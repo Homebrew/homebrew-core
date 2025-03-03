@@ -6,7 +6,7 @@ class FfmpegAT6 < Formula
   # None of these parts are used by default, you have to explicitly pass `--enable-gpl`
   # to configure to activate them. In this case, FFmpeg's license changes to GPL v2+.
   license "GPL-2.0-or-later"
-  revision 7
+  revision 8
 
   livecheck do
     url "https://ffmpeg.org/download.html"
@@ -91,6 +91,12 @@ class FfmpegAT6 < Formula
   patch do
     url "https://gitlab.archlinux.org/archlinux/packaging/packages/ffmpeg/-/raw/5670ccd86d3b816f49ebc18cab878125eca2f81f/add-av_stream_get_first_dts-for-chromium.patch"
     sha256 "57e26caced5a1382cb639235f9555fc50e45e7bf8333f7c9ae3d49b3241d3f77"
+  end
+
+  # Backport support for recent svt-av1 (3.0.0)
+  patch do
+    url "https://github.com/FFmpeg/FFmpeg/commit/d1ed5c06e3edc5f2b5f3664c80121fa55b0baa95.patch?full_index=1"
+    sha256 "0eb23ab90c0e5904590731dd3b81c86a4127785bc2b367267d77723990fb94a2"
   end
 
   def install
