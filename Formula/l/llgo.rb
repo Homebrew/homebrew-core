@@ -1,10 +1,9 @@
 class Llgo < Formula
   desc "Go compiler based on LLVM integrate with the C ecosystem and Python"
   homepage "https://github.com/goplus/llgo"
-  url "https://github.com/goplus/llgo/archive/refs/tags/v0.9.9.tar.gz"
-  sha256 "705fed97ef8b337863fd9bbb40653c22fd93ba689f879db06801d37e5d8fe809"
+  url "https://github.com/goplus/llgo/archive/refs/tags/v0.10.0.tar.gz"
+  sha256 "a47af34904645ddf26d69018a7b44ec0350f41b1a860bd1d8f4bddebc27cde80"
   license "Apache-2.0"
-  revision 1
 
   livecheck do
     url :stable
