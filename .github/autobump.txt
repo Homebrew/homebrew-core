@@ -122,7 +122,6 @@ asak
 ascii
 asciidoctor
 asciidoctorj
-asciigen
 asdf
 asio
 ask-cli
@@ -1234,6 +1233,7 @@ globstar
 glooctl
 glow
 glslang
+glyph
 gmailctl
 gmic
 gmime
