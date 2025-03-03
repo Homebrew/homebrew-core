@@ -1,10 +1,9 @@
 class Llgo < Formula
   desc "Go compiler based on LLVM integrate with the C ecosystem and Python"
   homepage "https://github.com/goplus/llgo"
-  url "https://github.com/goplus/llgo/archive/refs/tags/v0.9.9.tar.gz"
-  sha256 "705fed97ef8b337863fd9bbb40653c22fd93ba689f879db06801d37e5d8fe809"
+  url "https://github.com/cpunion/llgo/archive/refs/tags/v0.10.1.tar.gz"
+  sha256 "2113aca02f119ee4d1651bcde0ab6dbe6611617cceaa8302cdd96dbf747cfd81"
   license "Apache-2.0"
-  revision 1
 
   livecheck do
     url :stable
@@ -22,12 +21,32 @@ class Llgo < Formula
 
   depends_on "bdw-gc"
   depends_on "go"
+  depends_on "libffi"
+  depends_on "libuv"
   depends_on "llvm@18"
   depends_on "openssl@3"
   depends_on "pkgconf"
+  depends_on "zlib"
+
+  def find_dep(name)
+    deps.map(&:to_formula).find { |f| f.name.match?(/^#{name}(@\d+)?$/) }
+  end
 
   def llvm
-    deps.map(&:to_formula).find { |f| f.name.match?(/^llvm(@\d+)?$/) }
+    find_dep("llvm")
+  end
+
+  def go
+    find_dep("go")
+  end
+
+  def lib_deps
+    %w[bdw-gc openssl libffi llvm zlib].map { |name| find_dep(name).opt_lib }
+  end
+
+  def path_deps
+    deps = %w[llvm go pkgconf]
+    deps.map { |name| find_dep(name).opt_bin }
   end
 
   def install
@@ -43,51 +62,81 @@ class Llgo < Formula
 
     ldflags = %W[
       -s -w
-      -X github.com/goplus/llgo/x/env.buildVersion=v#{version}
-      -X github.com/goplus/llgo/x/env.buildTime=#{time.iso8601}
-      -X github.com/goplus/llgo/xtool/env/llvm.ldLLVMConfigBin=#{llvm.opt_bin/"llvm-config"}
+      -X github.com/goplus/llgo/compiler/internal/env.buildVersion=v#{version}
+      -X github.com/goplus/llgo/compiler/internal/env.buildTime=#{time.iso8601}
+      -X github.com/goplus/llgo/compiler/internal/env/llvm.ldLLVMConfigBin=#{llvm.opt_bin/"llvm-config"}
     ]
     build_args = *std_go_args(ldflags:)
     build_args += ["-tags", "byollvm"] if OS.linux?
-    system "go", "build", *build_args, "-o", libexec/"bin/", "./cmd/llgo"
+    cd "compiler" do
+      system go.opt_bin/"go", "build", *build_args, "-o", libexec/"bin/", "./cmd/llgo"
+    end
 
-    libexec.install "LICENSE", "README.md"
-
-    path = llvm.opt_bin + ":" + %w[go pkgconf].map { |f| Formula[f].opt_bin }.join(":")
-    opt_lib = %w[bdw-gc openssl@3].map { |f| Formula[f].opt_lib }.join(":")
+    libexec.install "LICENSE", "README.md", "runtime"
 
     (libexec/"bin").children.each do |f|
       next if f.directory?
 
       cmd = File.basename(f)
       (bin/cmd).write_env_script libexec/"bin"/cmd,
-        PATH:            "#{path}:$PATH",
-        LD_LIBRARY_PATH: "#{opt_lib}:$LD_LIBRARY_PATH"
+        PATH:              "#{path_deps.join(":")}:$PATH",
+        LD_LIBRARY_PATH:   "#{lib_deps.join(":")}:$LD_LIBRARY_PATH",
+        DYLD_LIBRARY_PATH: "#{lib_deps.join(":")}:$DYLD_LIBRARY_PATH"
     end
   end
 
   test do
-    opt_lib = %w[bdw-gc openssl@3].map { |f| Formula[f].opt_lib }.join(":")
-    ENV.prepend_path "LD_LIBRARY_PATH", opt_lib
+    ENV.prepend_path "LD_LIBRARY_PATH", lib_deps.join(":")
 
-    goos = shell_output(Formula["go"].opt_bin/"go env GOOS").chomp
-    goarch = shell_output(Formula["go"].opt_bin/"go env GOARCH").chomp
+    goos = shell_output("#{go.opt_bin}/go env GOOS").chomp
+    goarch = shell_output("#{go.opt_bin}/go env GOARCH").chomp
     assert_equal "llgo v#{version} #{goos}/#{goarch}", shell_output("#{bin}/llgo version").chomp
 
     (testpath/"hello.go").write <<~GO
       package main
 
-      import "github.com/goplus/llgo/c"
+      import (
+          "fmt"
+
+          "github.com/goplus/llgo/c"
+      )
+
+      func Foo() string {
+        return "Hello LLGO by Foo"
+      }
 
       func main() {
-        c.Printf(c.Str("Hello LLGO\\n"))
+        fmt.Println("Hello LLGO by fmt.Println")
+        c.Printf(c.Str("Hello LLGO by c.Printf\\n"))
+      }
+    GO
+    (testpath/"hello_test.go").write <<~GO
+      package main
+
+      import "testing"
+
+      func Test_Foo(t *testing.T) {
+        got := Foo()
+        want := "Hello LLGO by Foo"
+        if got != want {
+          t.Errorf("foo() = %q, want %q", got, want)
+        }
       }
     GO
     (testpath/"go.mod").write <<~GOMOD
       module hello
     GOMOD
-    system Formula["go"].opt_bin/"go", "get", "github.com/goplus/llgo@v#{version}"
+    system go.opt_bin/"go", "get", "github.com/goplus/llgo"
+    # Test llgo run
+    assert_equal "Hello LLGO by fmt.Println\n" \
+                 "Hello LLGO by c.Printf\n",
+                 shell_output("#{bin}/llgo run .")
+    # Test llgo build
     system bin/"llgo", "build", "-o", "hello", "."
-    assert_equal "Hello LLGO\n", shell_output("./hello")
+    assert_equal "Hello LLGO by fmt.Println\n" \
+                 "Hello LLGO by c.Printf\n",
+                 shell_output("DYLD_LIBRARY_PATH=#{lib_deps.join(":")} ./hello")
+    # Test llgo test
+    assert_match "PASS", shell_output("#{bin}/llgo test .")
   end
 end
