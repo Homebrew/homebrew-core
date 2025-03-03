@@ -17,6 +17,9 @@ class Libtirpc < Formula
 
   depends_on "krb5"
 
+  # submitted the patch to libtirpc-devel@lists.sourceforge.net mailing list
+  patch :DATA
+
   def install
     ENV.append_to_cflags "-D__APPLE_USE_RFC_3542" if OS.mac?
     system "./configure", "--disable-silent-rules", *std_configure_args.reject { |s| s["--disable-debug"] }
@@ -43,3 +46,18 @@ class Libtirpc < Formula
     system "./test"
   end
 end
+
+__END__
+diff --git a/tirpc/rpc/rpcent.h b/tirpc/rpc/rpcent.h
+index 2e5fc0c..afde974 100644
+--- a/tirpc/rpc/rpcent.h
++++ b/tirpc/rpc/rpcent.h
+@@ -50,7 +50,7 @@ extern "C" {
+
+ /* These are defined in /usr/include/rpc/netdb.h, unless we are using
+    the C library without RPC support. */
+-#if defined(__UCLIBC__) && !defined(__UCLIBC_HAS_RPC__) || !defined(__GLIBC__) && !defined(HAVE_STRUCT_RPCENT)
++#if !defined(__APPLE__) && ((defined(__UCLIBC__) && !defined(__UCLIBC_HAS_RPC__)) || (!defined(__GLIBC__) && !defined(HAVE_STRUCT_RPCENT)))
+
+ struct rpcent {
+ 	char	*r_name;	/* name of server for this rpc program */
