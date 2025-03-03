@@ -28,11 +28,12 @@ class Buildapp < Formula
   end
 
   test do
-    # Fails in Linux CI with "Can't find sbcl.core"
-    return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
+    sbcl = Formula["sbcl"]
+    ENV["SBCL_HOME"] = sbcl.lib/"sbcl"
 
     code = "(defun f (a) (declare (ignore a)) (write-line \"Hello, homebrew\"))"
-    system bin/"buildapp", "--eval", code, "--entry", "f", "--output", "t"
-    assert_equal `./t`, "Hello, homebrew\n"
+    system bin/"buildapp", "--eval", code, "--entry", "f", "--output", "t", "--sbcl", sbcl.bin/"sbcl"
+    system "ls"
+    assert_equal "Hello, homebrew\n", shell_output("./t")
   end
 end
