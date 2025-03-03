@@ -1,8 +1,8 @@
 class Opensearch < Formula
   desc "Open source distributed and RESTful search engine"
   homepage "https://github.com/opensearch-project/OpenSearch"
-  url "https://github.com/opensearch-project/OpenSearch/archive/refs/tags/2.19.0.tar.gz"
-  sha256 "c94e9f793393aa6ff4eb00f0ed0dd18a9f3502d2e1c84f947dad6d5c64f1fe31"
+  url "https://github.com/opensearch-project/OpenSearch/archive/refs/tags/2.19.1.tar.gz"
+  sha256 "99999a392dcf90bafebfa143ed071b45662fb022dcbcfa77df802248338d3a63"
   license "Apache-2.0"
 
   bottle do
@@ -20,7 +20,7 @@ class Opensearch < Formula
   def install
     platform = OS.kernel_name.downcase
     platform += "-arm64" if Hardware::CPU.arm?
-    system "gradle", "-Dbuild.snapshot=false", ":distribution:archives:no-jdk-#{platform}-tar:assemble"
+    system "gradle", "-Dbuild.snapshot=false", ":distribution:archives:no-jdk-#{platform}-tar:assemble", "-x", "test"
 
     mkdir "tar" do
       # Extract the package to the tar directory
