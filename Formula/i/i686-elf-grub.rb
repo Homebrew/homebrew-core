@@ -1,9 +1,9 @@
 class I686ElfGrub < Formula
   desc "GNU GRUB bootloader for i686-elf"
   homepage "https://savannah.gnu.org/projects/grub"
-  url "https://ftp.gnu.org/gnu/grub/grub-2.06.tar.xz"
-  mirror "https://mirrors.ocf.berkeley.edu/gnu/grub/grub-2.06.tar.xz"
-  sha256 "b79ea44af91b93d17cd3fe80bdae6ed43770678a9a5ae192ccea803ebb657ee1"
+  url "https://ftp.gnu.org/gnu/grub/grub-2.12.tar.xz"
+  mirror "https://mirrors.ocf.berkeley.edu/gnu/grub/grub-2.12.tar.xz"
+  sha256 "f3c97391f7c4eaa677a78e090c7e97e6dc47b16f655f04683ebd37bef7fe0faa"
   license "GPL-3.0-or-later"
 
   bottle do
