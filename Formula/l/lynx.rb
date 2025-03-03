@@ -1,16 +1,14 @@
 class Lynx < Formula
   desc "Text-based web browser"
   homepage "https://invisible-island.net/lynx/"
-  url "https://invisible-mirror.net/archives/lynx/tarballs/lynx2.8.9rel.1.tar.bz2"
-  mirror "https://fossies.org/linux/www/lynx2.8.9rel.1.tar.bz2"
-  version "2.8.9rel.1"
-  sha256 "387f193d7792f9cfada14c60b0e5c0bff18f227d9257a39483e14fa1aaf79595"
+  url "https://invisible-mirror.net/archives/lynx/tarballs/lynx2.9.2.tar.bz2"
+  mirror "https://fossies.org/linux/www/lynx2.9.2.tar.bz2"
+  sha256 "7374b89936d991669e101f4e97f2c9592036e1e8cdaa7bafc259a77ab6fb07ce"
   license "GPL-2.0-only"
-  revision 2
 
   livecheck do
     url "https://invisible-mirror.net/archives/lynx/tarballs/?C=M&O=D"
-    regex(/href=.*?lynx[._-]?v?(\d+(?:\.\d+)+(?:rel\.?\d+))\.t/i)
+    regex(/href=.*?lynx[._-]?v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
