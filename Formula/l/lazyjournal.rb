@@ -20,6 +20,8 @@ class Lazyjournal < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/lazyjournal --version")
-    system "go", "test", "-v", "--run", "TestUnixFiles"
+    Dir.chdir(testpath) do
+      system "go", "test", "-v", "--run", "TestUnixFiles"
+    end
   end
 end
