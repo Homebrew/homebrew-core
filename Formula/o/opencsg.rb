@@ -1,8 +1,8 @@
 class Opencsg < Formula
   desc "Constructive solid geometry rendering library"
   homepage "https://www.opencsg.org/"
-  url "https://www.opencsg.org/OpenCSG-1.7.0.tar.gz"
-  sha256 "b892decc81a9e67c2c4d25c5399d576d8f77c3b0c05260606743243c86539df8"
+  url "https://www.opencsg.org/OpenCSG-1.8.0.tar.gz"
+  sha256 "cb2fca02f73d9846566a97cd40863a68143a141aff34c75935be452e52efdb10"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -18,17 +18,16 @@ class Opencsg < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "b37ea3b9c6749f57cf8b91102f334a161b707a27e9c5d4f939ea946b445207e0"
   end
 
-  depends_on "qt" => :build
+  depends_on "cmake" => :build
   depends_on "glew"
 
   def install
-    # Disable building examples
-    inreplace "opencsg.pro", "src example", "src"
+    # Target "opencsg" links to: OpenGL::OpenGL but the target was not found.
+    inreplace "src/CMakeLists.txt", "target_link_libraries(opencsg PRIVATE OpenGL::OpenGL)", ""
 
-    system "qmake", "-r", "INSTALLDIR=#{prefix}",
-                          "INCLUDEPATH+=#{Formula["glew"].opt_include}",
-                          "LIBS+=-L#{Formula["glew"].opt_lib} -lGLEW"
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DBUILD_EXAMPLE=OFF"
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
