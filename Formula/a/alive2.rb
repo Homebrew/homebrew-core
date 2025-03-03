@@ -20,7 +20,7 @@ class Alive2 < Formula
   depends_on "cmake" => :build
   depends_on "re2c" => :build
   depends_on "hiredis"
-  depends_on "llvm"
+  depends_on "llvm@19"
   depends_on "z3"
   depends_on "zstd"
   uses_from_macos "zlib"
