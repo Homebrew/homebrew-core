@@ -1,8 +1,8 @@
 class Rakudo < Formula
   desc "Mature, production-ready implementation of the Raku language"
   homepage "https://rakudo.org"
-  url "https://github.com/rakudo/rakudo/releases/download/2024.12/rakudo-2024.12.tar.gz"
-  sha256 "15d1ba405ea5cd74bde7c2a7e51546b74394ba0b01b23c9d215362cfc718c96a"
+  url "https://github.com/rakudo/rakudo/releases/download/2025.02/rakudo-2025.02.tar.gz"
+  sha256 "fb5b1bdebd5690fce37853c3f0a49dfc8c2a14830124365ace40c6b280b6f463"
   license "Artistic-2.0"
 
   livecheck do
@@ -19,14 +19,10 @@ class Rakudo < Formula
     sha256 x86_64_linux:  "13d529274a9972da1986f66c5a25a9ca5159f5e0deb65ac222ad9b983bfe9b6f"
   end
 
-  depends_on "libtommath"
-  depends_on "libuv"
   depends_on "moarvm"
   depends_on "nqp"
-  depends_on "zstd"
 
   uses_from_macos "perl" => :build
-  uses_from_macos "libffi"
 
   conflicts_with "rakudo-star"
 
@@ -35,6 +31,14 @@ class Rakudo < Formula
                    "--backends=moar",
                    "--prefix=#{prefix}",
                    "--with-nqp=#{Formula["nqp"].bin}/nqp"
+
+    # Reduce overlinking on macOS
+    if OS.mac?
+      inreplace "Makefile" do |s|
+        s.change_make_var! "M_LDFLAGS", "#{s.get_make_var("M_LDFLAGS")} -Wl,-dead_strip_dylibs"
+      end
+    end
+
     system "make"
     system "make", "install"
     bin.install "tools/install-dist.raku" => "raku-install-dist"
