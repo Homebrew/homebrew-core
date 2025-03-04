@@ -12,6 +12,8 @@
   "opencv",
   "open-mpi",
   "qt",
+  "qt-base",
+  "qt-shadertools",
   "spidermonkey",
   "svt-av1",
   "vc",
