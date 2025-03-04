@@ -1,10 +1,9 @@
 class MathComp < Formula
   desc "Mathematical Components for the Coq proof assistant"
   homepage "https://math-comp.github.io/math-comp/"
-  url "https://github.com/math-comp/math-comp/archive/refs/tags/mathcomp-1.19.0.tar.gz"
-  sha256 "786db902d904347f2108ffceae15ba29037ff8e63a6c58b87928f08671456394"
+  url "https://github.com/math-comp/math-comp/archive/refs/tags/mathcomp-2.3.0.tar.gz"
+  sha256 "19e13c8765007f95b4656d8902bc66e10b072ab94ab51031c5efb860827d05ec"
   license "CECILL-B"
-  revision 6
   head "https://github.com/math-comp/math-comp.git", branch: "master"
 
   bottle do
@@ -19,12 +18,18 @@ class MathComp < Formula
   depends_on "ocaml" => :build
   depends_on "ocaml-findlib" => :build
   depends_on "coq"
+  depends_on "opam"
 
   def install
     # Work around for https://github.com/Homebrew/homebrew-test-bot/issues/805
     if ENV["HOMEBREW_GITHUB_ACTIONS"] && !(Formula["ocaml-findlib"].etc/"findlib.conf").exist?
       ENV["OCAMLFIND_CONF"] = Formula["ocaml-findlib"].opt_libexec/"findlib.conf"
     end
+
+    # Installing hierarchy-builder, required by the program
+    # Instructions taken from https://github.com/math-comp/hierarchy-builder
+    system "opam", "repo", "add", "coq-released", "https://coq.inria.fr/opam/released"
+    system "opam", "install", "coq-hierarchy-builder"
 
     coqlib = "#{lib}/coq/"
 
