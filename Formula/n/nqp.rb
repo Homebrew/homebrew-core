@@ -1,8 +1,8 @@
 class Nqp < Formula
   desc "Lightweight Raku-like environment for virtual machines"
   homepage "https://github.com/Raku/nqp"
-  url "https://github.com/Raku/nqp/releases/download/2024.12/nqp-2024.12.tar.gz"
-  sha256 "026ff25d7eaae299b2d644e46b389642774cdf51fd803047f4291731dc4b2477"
+  url "https://github.com/Raku/nqp/releases/download/2025.02/nqp-2025.02.tar.gz"
+  sha256 "6cc4321cebecbe656e92b5ca0d245d50a5ecbda74ea28ca08c010c21a7d47dad"
   license "Artistic-2.0"
 
   livecheck do
@@ -19,12 +19,9 @@ class Nqp < Formula
     sha256 x86_64_linux:  "ff9384e7a67da0e5d22902204bceb0053e2266ebccedb8eca0a69e788a908491"
   end
 
-  depends_on "libtommath"
-  depends_on "libuv"
   depends_on "moarvm"
 
   uses_from_macos "perl" => :build
-  uses_from_macos "libffi"
 
   conflicts_with "rakudo-star", because: "rakudo-star currently ships with nqp included"
 
