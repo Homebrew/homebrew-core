@@ -1,8 +1,8 @@
 class Moarvm < Formula
   desc "VM with adaptive optimization and JIT compilation, built for Rakudo"
   homepage "https://moarvm.org"
-  url "https://github.com/MoarVM/MoarVM/releases/download/2024.12/MoarVM-2024.12.tar.gz"
-  sha256 "7f8ae605a19189ebb48a51bae486bacd32141326df8289509825bdb1bee3984c"
+  url "https://github.com/MoarVM/MoarVM/releases/download/2025.02/MoarVM-2025.02.tar.gz"
+  sha256 "32a754c6daa5587084318614a8914b3df3c6cb434fc9469f38f1449d4bfa0974"
   license "Artistic-2.0"
 
   livecheck do
@@ -22,6 +22,7 @@ class Moarvm < Formula
   depends_on "pkgconf" => :build
   depends_on "libtommath"
   depends_on "libuv"
+  depends_on "mimalloc"
   depends_on "zstd"
 
   uses_from_macos "perl" => :build
@@ -31,16 +32,18 @@ class Moarvm < Formula
   conflicts_with "rakudo-star", because: "rakudo-star currently ships with moarvm included"
 
   resource "nqp" do
-    url "https://github.com/Raku/nqp/releases/download/2024.12/nqp-2024.12.tar.gz"
-    sha256 "026ff25d7eaae299b2d644e46b389642774cdf51fd803047f4291731dc4b2477"
+    url "https://github.com/Raku/nqp/releases/download/2025.02/nqp-2025.02.tar.gz"
+    sha256 "6cc4321cebecbe656e92b5ca0d245d50a5ecbda74ea28ca08c010c21a7d47dad"
   end
 
   def install
+    # Remove bundled libraries
+    %w[libtommath].each { |dir| rm_r("3rdparty/#{dir}") }
+
+    # TODO: Restore unbundling
     configure_args = %W[
-      --c11-atomics
       --has-libffi
       --has-libtommath
-      --has-libuv
       --optimize
       --pkgconfig=#{Formula["pkgconf"].opt_bin}/pkgconf
       --prefix=#{prefix}
