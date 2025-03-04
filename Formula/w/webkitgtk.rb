@@ -4,6 +4,7 @@ class Webkitgtk < Formula
   url "https://webkitgtk.org/releases/webkitgtk-2.46.6.tar.xz"
   sha256 "f2b31de693220ba9bab76ce6ddfe5b0bfab2515cb2b0a70f3c54d4050766c32b"
   license "GPL-3.0-or-later"
+  revision 1
 
   livecheck do
     url "https://webkitgtk.org/releases/"
@@ -33,7 +34,7 @@ class Webkitgtk < Formula
   depends_on "gstreamer"
   depends_on "gtk+3"
   depends_on "harfbuzz"
-  depends_on "icu4c@76"
+  depends_on "icu4c@77"
   depends_on "jpeg-turbo"
   depends_on "jpeg-xl"
   depends_on "libavif"

@@ -4,6 +4,7 @@ class Postgis < Formula
   url "https://download.osgeo.org/postgis/source/postgis-3.5.2.tar.gz"
   sha256 "fb9f95d56e3aaef6a296473c76a3b99005ac41864d486c197cd478c9b14f791a"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url "https://download.osgeo.org/postgis/source/"
@@ -33,7 +34,7 @@ class Postgis < Formula
 
   depends_on "gdal"
   depends_on "geos"
-  depends_on "icu4c@76"
+  depends_on "icu4c@77"
   depends_on "json-c"
   depends_on "libpq"
   depends_on "libxml2"

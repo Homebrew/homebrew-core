@@ -4,6 +4,7 @@ class Libphonenumber < Formula
   url "https://github.com/google/libphonenumber/archive/refs/tags/v9.0.0.tar.gz"
   sha256 "d6a4cdaa26aa68676344a9b34f61753e340cc96e644c45c3546f36f367a3772a"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url :stable
@@ -23,7 +24,7 @@ class Libphonenumber < Formula
   depends_on "openjdk" => :build
   depends_on "abseil"
   depends_on "boost"
-  depends_on "icu4c@76"
+  depends_on "icu4c@77"
   depends_on "protobuf"
 
   def install
