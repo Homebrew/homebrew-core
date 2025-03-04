@@ -43,11 +43,10 @@ end
 class Glibc < Formula
   desc "GNU C Library"
   homepage "https://www.gnu.org/software/libc/"
-  url "https://ftp.gnu.org/gnu/glibc/glibc-2.35.tar.gz"
-  mirror "https://ftpmirror.gnu.org/gnu/glibc/glibc-2.35.tar.gz"
-  sha256 "3e8e0c6195da8dfbd31d77c56fb8d99576fb855fafd47a9e0a895e51fd5942d4"
+  url "https://ftp.gnu.org/gnu/glibc/glibc-2.39.tar.gz"
+  mirror "https://ftpmirror.gnu.org/gnu/glibc/glibc-2.39.tar.gz"
+  sha256 "97f84f3b7588cd54093a6f6389b0c1a81e70d99708d74963a2e3eab7c7dc942d"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
-  revision 1
 
   livecheck do
     skip "glibc is pinned to the version present in Homebrew CI"
@@ -68,38 +67,38 @@ class Glibc < Formula
   # Automatic bootstrapping is only supported for Intel.
   on_intel do
     resource "bootstrap-binutils" do
-      url "https://github.com/Homebrew/glibc-bootstrap/releases/download/1.0.0/bootstrap-binutils-2.38.tar.gz"
-      sha256 "a2971fd77743a1d82242736c646bfa201137a4df28d829b1aa7f556fc57215e2"
+      url "https://github.com/Homebrew/glibc-bootstrap/releases/download/1.1.0/bootstrap-x86_64-binutils-2.43.1.tar.gz"
+      sha256 "5deed1e65b9121f21a6ebcd673b7d3f37e678fa77a9b087fdf97e846d38fe92d"
     end
 
     resource "bootstrap-bison" do
-      url "https://github.com/Homebrew/glibc-bootstrap/releases/download/1.0.0/bootstrap-bison-3.8.2.tar.gz"
-      sha256 "f914c0dee9fc8a200f6607d52a2d25c253b665d02aaac360711ebd5fbd9cb346"
+      url "https://github.com/Homebrew/glibc-bootstrap/releases/download/1.1.0/bootstrap-x86_64-bison-3.8.2.tar.gz"
+      sha256 "97d82cf4b3b00cfacbf142679ae77cbb8e80490f564a4d1d4921b892994c073b"
     end
 
     resource "bootstrap-gawk" do
-      url "https://github.com/Homebrew/glibc-bootstrap/releases/download/1.0.0/bootstrap-gawk-5.1.1.tar.gz"
-      sha256 "ec3f0115b156b418a189f9868aaa0655f18c40f5c40f437e407ac60b7c749e0a"
+      url "https://github.com/Homebrew/glibc-bootstrap/releases/download/1.1.0/bootstrap-x86_64-gawk-5.3.1.tar.gz"
+      sha256 "fbcf19d79eafb1921abd11ab6c1cb662c7e7984ba19ea4a10ac88dd27fcf645b"
     end
 
     resource "bootstrap-gcc" do
-      url "https://github.com/Homebrew/glibc-bootstrap/releases/download/1.0.0/bootstrap-gcc-9.5.0.tar.gz"
-      sha256 "d549cf096864de5da77b4f068fab3741636206f3b7ace593b46a226d726f4538"
+      url "https://github.com/Homebrew/glibc-bootstrap/releases/download/1.1.0/bootstrap-x86_64-gcc-9.5.0.tar.gz"
+      sha256 "8472155b74727dc84e396866f2d224443d2ab7765f57a7c9638ccacce98dd585"
     end
 
     resource "bootstrap-make" do
-      url "https://github.com/Homebrew/glibc-bootstrap/releases/download/1.0.0/bootstrap-make-4.3.tar.gz"
-      sha256 "aa684eff83e5a986391475547c29b3ade04a307aa5730866aa5d2caa905e7166"
+      url "https://github.com/Homebrew/glibc-bootstrap/releases/download/1.1.0/bootstrap-x86_64-make-4.4.1.tar.gz"
+      sha256 "d68f444c6491946a3a5fc9a0521fded4559b3936241158c54d05edcc90a50e5e"
     end
 
     resource "bootstrap-python3" do
-      url "https://github.com/Homebrew/glibc-bootstrap/releases/download/1.0.0/bootstrap-python3-3.9.13.tar.gz"
-      sha256 "93d258ab9240d247a66322926deb6728e2aa7877711196fde02d716c20ada490"
+      url "https://github.com/Homebrew/glibc-bootstrap/releases/download/1.1.0/bootstrap-x86_64-python3-3.11.10.tar.gz"
+      sha256 "0fc2735fee338f6fb25bce707d1bdc783e1b8c49814e6d7d897d992dad1d72be"
     end
 
     resource "bootstrap-sed" do
-      url "https://github.com/Homebrew/glibc-bootstrap/releases/download/1.0.0/bootstrap-sed-4.8.tar.gz"
-      sha256 "404f86a92a15303f9b08960712ee8a8b398efc345d80b4e0401dd9ef82452046"
+      url "https://github.com/Homebrew/glibc-bootstrap/releases/download/1.1.0/bootstrap-x86_64-sed-4.9.tar.gz"
+      sha256 "64ff039f91e6043b5ce4cc48561a7f1ae53ad0f47aefed8239dfb5686bf1d547"
     end
   end
 
