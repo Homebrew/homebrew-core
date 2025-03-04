@@ -38,14 +38,12 @@ class Moarvm < Formula
 
   def install
     # Remove bundled libraries
-    %w[dyncall libatomicops libtommath libuv mimalloc].each { |dir| rm_r("3rdparty/#{dir}") }
+    %w[libtommath].each { |dir| rm_r("3rdparty/#{dir}") }
 
+    # TODO: Restore unbundling
     configure_args = %W[
-      --c11-atomics
       --has-libffi
       --has-libtommath
-      --has-libuv
-      --has-mimalloc
       --optimize
       --pkgconfig=#{Formula["pkgconf"].opt_bin}/pkgconf
       --prefix=#{prefix}
