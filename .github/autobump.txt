@@ -2715,6 +2715,7 @@ procps
 procs
 proftpd
 proj
+projectable
 prometheus
 prometheus-cpp
 promptfoo
