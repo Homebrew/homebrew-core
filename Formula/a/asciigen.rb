@@ -1,8 +1,8 @@
 class Asciigen < Formula
   desc "Converts images/video to ASCII art"
   homepage "https://github.com/seatedro/asciigen"
-  url "https://github.com/seatedro/asciigen/archive/refs/tags/v1.0.4.tar.gz"
-  sha256 "2326d73376997f838bae25ebc7d1f6f84a7442db8f55ec841a7e11246b73c31f"
+  url "https://github.com/seatedro/asciigen/archive/refs/tags/v1.0.10.tar.gz"
+  sha256 "1cfb17da971cc0daac9d0a7744dd1c05fd3382b2522d64e62cdfb28a8faf5d84"
   license "MIT"
 
   bottle do
