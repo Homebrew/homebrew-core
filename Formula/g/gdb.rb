@@ -22,10 +22,6 @@ class Gdb < Formula
   uses_from_macos "expat", since: :sequoia # minimum macOS due to python
   uses_from_macos "ncurses"
 
-  on_macos do
-    depends_on arch: :x86_64 # gdb is not supported on macOS ARM
-  end
-
   # Workaround for https://github.com/Homebrew/brew/issues/19315
   on_sequoia :or_newer do
     on_intel do
@@ -61,6 +57,13 @@ class Gdb < Formula
       --with-python=#{which("python3.13")}
       --disable-binutils
     ]
+
+    # Fix: Apple Silicon build, this is only way to build native GDB
+    if OS.mac? && Hardware::CPU.arm?
+      # Workaround: "--target" must be "faked"
+      args << "--target=arm-none-eabi"
+      args << "--program-prefix="
+    end
 
     mkdir "build" do
       system "../configure", *args, *std_configure_args
