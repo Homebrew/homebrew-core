@@ -1,8 +1,8 @@
 class Bde < Formula
   desc "Basic Development Environment: foundational C++ libraries used at Bloomberg"
   homepage "https://github.com/bloomberg/bde"
-  url "https://github.com/bloomberg/bde/archive/refs/tags/4.18.0.0.tar.gz"
-  sha256 "87426d6837a1261e385e755361e961c5d75ec35fb1a227a9763a6388de4129fc"
+  url "https://github.com/bloomberg/bde/archive/refs/tags/4.21.0.2.tar.gz"
+  sha256 "e6b86f4f0324e0fe41014893c81e135ad145af626f4a572d584c088fe5487e72"
   license "Apache-2.0"
 
   livecheck do
@@ -25,8 +25,13 @@ class Bde < Formula
   depends_on "pcre2"
 
   resource "bde-tools" do
-    url "https://github.com/bloomberg/bde-tools/archive/refs/tags/4.13.0.0.tar.gz"
-    sha256 "d70ab85eb1a4325f3d569a6b7ea0f0a44a6143fd91905ab5fbaa5e1fed111a68"
+    url "https://github.com/bloomberg/bde-tools/archive/refs/tags/4.21.0.0.tar.gz"
+    sha256 "3dcae665e6bae32236d82e83b2d74788f01ef41c2cd6f0fe967f69271114d2a8"
+
+    livecheck do
+      url "https://github.com/bloomberg/bde-tools.git"
+      regex(/^v?(\d+\.\d+\.\d+(?:\.\d+)?)$/i)
+    end
   end
 
   def install
@@ -34,7 +39,6 @@ class Bde < Formula
 
     # Use brewed pcre2 instead of bundled sources
     rm_r buildpath/"thirdparty/pcre2"
-    inreplace "project.cmake", "${listDir}/thirdparty/pcre2\n", ""
     inreplace "groups/bdl/group/bdl.dep", "pcre2", "libpcre2-posix"
     inreplace "groups/bdl/bdlpcre/bdlpcre_regex.h", "#include <pcre2/pcre2.h>", "#include <pcre2.h>"
 
