@@ -34,7 +34,7 @@ class Reprepro < Formula
   uses_from_macos "zlib"
 
   on_macos do
-    depends_on "gcc"
+    depends_on "gcc" => :build
   end
 
   fails_with :clang do
@@ -53,7 +53,7 @@ class Reprepro < Formula
   end
 
   test do
-    (testpath/"conf"/"distributions").write <<~EOF
+    (testpath/"conf/distributions").write <<~EOF
       Codename: test_codename
       Architectures: source
       Components: main
