@@ -55,7 +55,7 @@ class Zig < Formula
     else Hardware.oldest_cpu
     end
 
-    args = ["-DZIG_SHARED_LLVM=ON"]
+    args = ["-DZIG_STATIC_LLVM=ON"]
     args << "-DZIG_TARGET_MCPU=#{cpu}" if build.bottle?
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
@@ -64,6 +64,9 @@ class Zig < Formula
   end
 
   test do
+    version_output = shell_output("#{bin}/zig version").strip
+    assert_equal 1, version_output.lines.length
+
     (testpath/"hello.zig").write <<~ZIG
       const std = @import("std");
       pub fn main() !void {
