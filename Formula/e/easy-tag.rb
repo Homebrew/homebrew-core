@@ -4,7 +4,7 @@ class EasyTag < Formula
   url "https://download.gnome.org/sources/easytag/2.4/easytag-2.4.3.tar.xz"
   sha256 "fc51ee92a705e3c5979dff1655f7496effb68b98f1ada0547e8cbbc033b67dd5"
   license "GPL-2.0-or-later"
-  revision 11
+  revision 12
 
   bottle do
     sha256 arm64_sequoia: "8c29dc74a17f41bde4c53800d5e27b53b3fe54e14231cf7bb4825826007edae9"
@@ -35,7 +35,7 @@ class EasyTag < Formula
   depends_on "libvorbis"
   depends_on "pango"
   depends_on "speex"
-  depends_on "taglib"
+  depends_on "taglib@1"
   depends_on "wavpack"
 
   uses_from_macos "perl" => :build
@@ -50,6 +50,8 @@ class EasyTag < Formula
   end
 
   def install
+    ENV.append_path "CMAKE_PREFIX_PATH", Formula["taglib@1"].prefix
+
     ENV.append "LIBS", "-lz"
     ENV["DESTDIR"] = "/"
 
