@@ -11,15 +11,16 @@ class Reuse < Formula
     "CC0-1.0",
     "Apache-2.0",
   ]
+  revision 1
   head "https://github.com/fsfe/reuse-tool.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "435c32f0ed5458f6b1cf78b31a7bdc8bfbb06200259dd5e8118aa411ebb04c44"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "16db21b6f6e97a7436dda3857890556fc3307ff3007d455e49058ab468b1e4ff"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "7c28246a79c8a98e751d9482869f734175a1221bcfa59f865c05c6827cbeb2ec"
-    sha256 cellar: :any_skip_relocation, sonoma:        "0ad7d0a980489ede6cf0eee44fcfac99de765cd4311edd059b88f07fd3e610ec"
-    sha256 cellar: :any_skip_relocation, ventura:       "85f04a61780f915a76525107d516e91c40ec29cd8fe667959d74e34adf61e132"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "285bccad1dbe8f775264e53482f94827e73df845f74399f0274d69702396adca"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "551212af17250b9915380deb399938ef83c9c65421f21f93cebace81a8052473"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5e79cdd016638b994ff1ed958af013f6508befc4a4156ead5cf05a31c686d386"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "4a8559c7cde92a42085453e1709d560edb273cbba7727d0a4510e319aa5c4063"
+    sha256 cellar: :any_skip_relocation, sonoma:        "fc3f9f7652314304f811bbfa6417e2167ebaa7c08efca445042db46fc202b7d4"
+    sha256 cellar: :any_skip_relocation, ventura:       "75b6702ee1a9bb535a10b425370d71f36d1a32668f06c56fb030c6431c54d1f0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "38c32a28aaa81ffefd92812911a5ed2bcc41004e2166537aea798303804149c7"
   end
 
   depends_on "python@3.13"
@@ -50,8 +51,8 @@ class Reuse < Formula
   end
 
   resource "jinja2" do
-    url "https://files.pythonhosted.org/packages/af/92/b3130cbbf5591acf9ade8708c365f3238046ac7cb8ccba6e81abccb0ccff/jinja2-3.1.5.tar.gz"
-    sha256 "8fefff8dc3034e27bb80d67c671eb8a9bc424c0ef4c0826edbff304cceff43bb"
+    url "https://files.pythonhosted.org/packages/df/bf/f7da0350254c0ed7c72f3e33cef02e048281fec7ecec5f032d4aac52226b/jinja2-3.1.6.tar.gz"
+    sha256 "0137fb05990d35f1275a587e9aee6d56da821fc83491a0fb838183be43f66d6d"
   end
 
   resource "license-expression" do

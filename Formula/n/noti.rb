@@ -1,21 +1,17 @@
 class Noti < Formula
   desc "Trigger notifications when a process completes"
   homepage "https://github.com/variadico/noti"
-  url "https://github.com/variadico/noti/archive/refs/tags/3.7.0.tar.gz"
-  sha256 "f970a4dd242e6b58edf51320aa237bb20d689bbc8fd0f7d0db5aa1980a2dc269"
+  url "https://github.com/variadico/noti/archive/refs/tags/3.8.0.tar.gz"
+  sha256 "b637b4b4e5eb10b3ea2c5b2cf0fbd1904ab8fd26eaec4b911f4ce2db3ab881a2"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "556e4c93320b18b3b5ecd2c8a28ba3b70119c6eafeb18d589e382f0fd3f1618f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3c61bfcfc68cbce95932c5defef0f61f180acddb95a64b9c205dae59cb0e5a2e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "fc237b7b1e28e0974312a7b154dd06b8bc5cdde57f7dd197e008b7e1450d9ffd"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e93a4812623537c4f636b81238d48049c2aa74920c4b34945d317b0001714e11"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "00bbb0435c2d8478f994220e4b209561428a535bb36b9b298f169e51f8abfe9f"
-    sha256 cellar: :any_skip_relocation, sonoma:         "fd6f284fbde2693d59cafed00f83c1d8f997578f05b46856d757efb5beb28bbc"
-    sha256 cellar: :any_skip_relocation, ventura:        "d0a210912a499f329ee9709b5544147df22ccb09544c323f1ecdde4dcbbfe956"
-    sha256 cellar: :any_skip_relocation, monterey:       "468ea5232ab7fb8acd9818fe0c285a38f2b16eb23bb66b1d57dedc5c572f443a"
-    sha256 cellar: :any_skip_relocation, big_sur:        "32a52ff508147b1ff62967f173391b14c7f865dc1a56163b243e71c3d38f2bdf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "01035f395f9d150621351e73a6f87091dd10d2af579ffc1c1b636990f6d937e8"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7373f99acea5809bcc89237de6cfe9b869fb194603f9ffa69d90c6a01ae60cf1"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a6990ad34fe5bc000e70e99dba5d95ce91d21de18bc4aef2138af3140981da26"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "9879896973d077b35c59c8485a875f45be367a68879879ba58c5ce643fa1576f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "994c5a03f74ad08b6dedf050d601701b2a72e58b9dbc078e0cf185da984a75ab"
+    sha256 cellar: :any_skip_relocation, ventura:       "ab62225e51f6f38ce4ffae1addbd91e5536dfc47ee86e9325c867030709b758f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "823432578796ba95f2e4b9dab197cb978935159e7282e83738778a3f492259da"
   end
 
   depends_on "go" => :build

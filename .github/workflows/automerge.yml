@@ -65,8 +65,7 @@ jobs:
           publishable=true
           while IFS='' read -r label
           do
-            if [[ "$label" = "new formula" ]] ||
-               [[ "$label" = "automerge-skip" ]] ||
+            if [[ "$label" = "automerge-skip" ]] ||
                [[ "$label" = "pre-release" ]] ||
                [[ "$label" = "CI-published-bottle-commits" ]]
             then

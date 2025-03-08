@@ -1,8 +1,8 @@
 class Ncdc < Formula
   desc "NCurses direct connect"
   homepage "https://dev.yorhel.nl/ncdc"
-  url "https://dev.yorhel.nl/download/ncdc-1.24.1.tar.gz"
-  sha256 "2a8ab9ad7d43f018fc73ba8babd689dfa44aba8cec53b88e4770185cb97778f7"
+  url "https://dev.yorhel.nl/download/ncdc-1.25.tar.gz"
+  sha256 "b9be58e7dbe677f2ac1c472f6e76fad618a65e2f8bf1c7b9d3d97bc169feb740"
   license "MIT"
 
   livecheck do
@@ -11,14 +11,12 @@ class Ncdc < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "13803ef57b3a3d6667f18f905028c90bfb530d9e5acd8111f45b437d0cb737c4"
-    sha256 cellar: :any,                 arm64_sonoma:   "f884fa65e0a6aaa95760bdb4d91c12afacdf22b74ffb375a39a2972d43fabf1c"
-    sha256 cellar: :any,                 arm64_ventura:  "f124ac7652a0e93dde6d7c6c510f480f16ffea499e6c961231d039148dfc6ffb"
-    sha256 cellar: :any,                 arm64_monterey: "376708c070cc338a43aa667c5c630cc68bbd7c42210b7575037362ff3bd7c164"
-    sha256 cellar: :any,                 sonoma:         "6cf5a1ce79a0388917e3373edd356cecf6ba40f2397099771df2716d86a4f79d"
-    sha256 cellar: :any,                 ventura:        "8e369c78a9451732e39333de521b367de84c3479220d3d22fdba3a1ff8eb6d09"
-    sha256 cellar: :any,                 monterey:       "2d2701fd69a852d40c759a29dc44d4bf8adec22e0f1f9b220df923bcb8726ca2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b371dba9e7e1c26d81886ac469eee57844f9476b78f6f3873b9aba04b9d8fbfc"
+    sha256 cellar: :any,                 arm64_sequoia: "4d18bc67d0060378c9e8aa8160c9cec8ab87ac473ab219052aff65e0cc8399ef"
+    sha256 cellar: :any,                 arm64_sonoma:  "8311ceb65f6aabdb8b81404455abcc1a54e4e08eefd01956dc3f76f13c1189a0"
+    sha256 cellar: :any,                 arm64_ventura: "94810e9e763b6f15b2cabd1579ab2995582493f9f9ebac57e56f40e8f8d59cae"
+    sha256 cellar: :any,                 sonoma:        "cf910ac39cc769044fdc4302f266f68f11b9eb03f73d4cd013c3c396753ba1f3"
+    sha256 cellar: :any,                 ventura:       "a468507ac3e9724260be8ba7b32dfbf96d0a4daba19b21aef44040bbd1a3970f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a5dadf6576e959b0891b26599f60d6d3de70b5a05d1298ca534688e16cd4427e"
   end
 
   head do

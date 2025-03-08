@@ -1,17 +1,17 @@
 class Cyphernetes < Formula
   desc "Kubernetes Query Language"
   homepage "https://cyphernet.es"
-  url "https://github.com/AvitalTamir/cyphernetes/archive/refs/tags/v0.16.0.tar.gz"
-  sha256 "be4929cf4930c8e766ab36164e2645664a39407c6fd6709f708be9de8ff45094"
+  url "https://github.com/AvitalTamir/cyphernetes/archive/refs/tags/v0.17.0.tar.gz"
+  sha256 "07458595e60f01f764bf4a98b7fdd45d934064efac12b68f4f1d2d0c9ad43bd2"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8f91cbea3a004a1363a26d4e1c9c48f35d8131d9bb456e5ff25af319bbf956a4"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8f91cbea3a004a1363a26d4e1c9c48f35d8131d9bb456e5ff25af319bbf956a4"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "8f91cbea3a004a1363a26d4e1c9c48f35d8131d9bb456e5ff25af319bbf956a4"
-    sha256 cellar: :any_skip_relocation, sonoma:        "880fc2315cdce045bf20bc16992f2f129c48eb9a4b47b62aa0e1d6a9bc601078"
-    sha256 cellar: :any_skip_relocation, ventura:       "880fc2315cdce045bf20bc16992f2f129c48eb9a4b47b62aa0e1d6a9bc601078"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4925ec5ea32390b1f62ef27c4928279a5b685d7a2122addd0a08ca362e571ca0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d16a46528dbd86c54386cdbc4bc235e6c6cce92c6167e02ef45972357df49a77"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d16a46528dbd86c54386cdbc4bc235e6c6cce92c6167e02ef45972357df49a77"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "d16a46528dbd86c54386cdbc4bc235e6c6cce92c6167e02ef45972357df49a77"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b3793b10dc8d9cb4f00bb1d32da4042e8f56c45ffde388a18ae272c9c834fd34"
+    sha256 cellar: :any_skip_relocation, ventura:       "b3793b10dc8d9cb4f00bb1d32da4042e8f56c45ffde388a18ae272c9c834fd34"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "55135b1c34efe184c1397b5a048c3115a6f34fb8df7e5c0459d243f34304ac7f"
   end
 
   depends_on "go" => :build

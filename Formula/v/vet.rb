@@ -1,27 +1,23 @@
 class Vet < Formula
   desc "Policy driven vetting of open source dependencies"
   homepage "https://github.com/safedep/vet"
-  url "https://github.com/safedep/vet/archive/refs/tags/v1.9.4.tar.gz"
-  sha256 "4d6b31de086a88b66d45f36353d4e67846a3ef8b85c310492b67628c17c88896"
+  url "https://github.com/safedep/vet/archive/refs/tags/v1.9.5.tar.gz"
+  sha256 "2089c9660f2200cdb56bb6c0fbd039bd411dbefd3d64a42bf44c99540fe4e8c5"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "576406d59968e936115509000a64c35b45610b6b1bd6c456618d780458070141"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3e7d32ab4e89108e7ad2ebe0dc95d30792ffb48a6f1496d279c9780b089d4210"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "da95fac4084d5a5453f3be0acc5a2f344fca975390377ab8f20cb28aa5ae1931"
-    sha256 cellar: :any_skip_relocation, sonoma:        "50787f2f2beb8a920eb956435d4ccd4f0a29ee7a82e53c359747d1a6db4daf14"
-    sha256 cellar: :any_skip_relocation, ventura:       "e54c6dec7bad20d761213e0f60c27d248619f04098d0f67d789a362ab5a23f0b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1cd2ade93ca9d6ebbbefc852b31764bbe0d8197b53e71a370d2dcdb97977ad2d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "309df94b09a32952fda11a503d3a109a21904b6e57d503dcfbf4f8a9bdb25766"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7c7ffd4f60bc08f569d67cac24ee82a7909fc2e8cefdb6ab50c8fe5da7d68cf5"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "19fc667d1b658e589dd668a4c01fa23d741552487657f64f450bba1dfbb0b5c5"
+    sha256 cellar: :any_skip_relocation, sonoma:        "501adabfa02cd99fb515267548bfb028a43a3544deb17b5172dce4bf89b92a32"
+    sha256 cellar: :any_skip_relocation, ventura:       "a5e83673066d14fcdf2a0ba57508eb5bd3ebd9f6b85f5b06d9f08811d0988e3b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ccc721c53de10e9ac82002ebd26376743a6352a326a8590b754487b4bc9c66fb"
   end
 
-  depends_on "go" => :build
+  depends_on "go"
 
   def install
-    ldflags = %W[
-      -s -w
-      -X main.commit=#{tap.user}
-      -X main.version=#{version}
-    ]
+    ldflags = "-s -w -X main.version=#{version} -X main.commit=#{tap.user}"
     system "go", "build", *std_go_args(ldflags:)
 
     generate_completions_from_executable(bin/"vet", "completion")

@@ -6,15 +6,16 @@ class SigmaCli < Formula
   url "https://files.pythonhosted.org/packages/7e/9a/6ad847f2e2ad0ac673839504a9aa1bf1b69f2c38265cf119a8b3d3dbf481/sigma_cli-1.0.5.tar.gz"
   sha256 "7720244026fabf5bbd1ba37ae67b9cc1dc9d61a79320562d55e2228409b159e7"
   license "LGPL-2.1-or-later"
+  revision 1
   head "https://github.com/SigmaHQ/sigma-cli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "00f950319ec5a0ee7b0e9d901d00358317536ce86d16e1ab2dfbe3b909249258"
-    sha256 cellar: :any,                 arm64_sonoma:  "7f5497422afc9cd86f096ad6e30a061b8829a1523e687c42aff6521fc94308bf"
-    sha256 cellar: :any,                 arm64_ventura: "67e677d7d71a0f24fbfb9f35c47aa389ad54eb0861674c902e3e9f8b70e5a07a"
-    sha256 cellar: :any,                 sonoma:        "78139ac28c08d19fdb88872351edc5f98e5cb1f8da184c498ad0c4637dcbabe7"
-    sha256 cellar: :any,                 ventura:       "df30b4675e18625b8855eb5ac718be6ccd7e51dbdb9f64effaf10b9cd43668cd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "75a6365930956d68a9a7ba328c0892dcb59bc50e46565e6ce54643ebaf893f87"
+    sha256 cellar: :any,                 arm64_sequoia: "4e5a5e2500a78686eb148ad2ec997f4b99093503b5efdc4b04127aaa0392b237"
+    sha256 cellar: :any,                 arm64_sonoma:  "6f5bc461b76f4c1960482d648e708839464a7c6b6a8dff911f4fb4365d5cb236"
+    sha256 cellar: :any,                 arm64_ventura: "8c884e0e252c3c76ea47a893de6689dd776913f9076875ccbf75b0e2dc23af70"
+    sha256 cellar: :any,                 sonoma:        "02a0c87e8d0b6b34c392a38d4f978818522f9ec3d4641cafaf6e0a174a8e85a5"
+    sha256 cellar: :any,                 ventura:       "d5dd6070e60661bd85e93b04ef7276d890e3cd826a11c8f6df66a178fc1e4cdd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "85b48f3544a8b9111dc264ebfa6ebe09890fc1e7fe755a47b96b24c5acd1a6d9"
   end
 
   depends_on "certifi"
@@ -44,8 +45,8 @@ class SigmaCli < Formula
   end
 
   resource "jinja2" do
-    url "https://files.pythonhosted.org/packages/af/92/b3130cbbf5591acf9ade8708c365f3238046ac7cb8ccba6e81abccb0ccff/jinja2-3.1.5.tar.gz"
-    sha256 "8fefff8dc3034e27bb80d67c671eb8a9bc424c0ef4c0826edbff304cceff43bb"
+    url "https://files.pythonhosted.org/packages/df/bf/f7da0350254c0ed7c72f3e33cef02e048281fec7ecec5f032d4aac52226b/jinja2-3.1.6.tar.gz"
+    sha256 "0137fb05990d35f1275a587e9aee6d56da821fc83491a0fb838183be43f66d6d"
   end
 
   resource "markupsafe" do
@@ -59,8 +60,8 @@ class SigmaCli < Formula
   end
 
   resource "prettytable" do
-    url "https://files.pythonhosted.org/packages/3b/8a/de4dc1a6098621781c266b3fb3964009af1e9023527180cb8a3b0dd9d09e/prettytable-3.12.0.tar.gz"
-    sha256 "f04b3e1ba35747ac86e96ec33e3bb9748ce08e254dc2a1c6253945901beec804"
+    url "https://files.pythonhosted.org/packages/38/95/78080e58efbdde46cda8d4498737bf9687839ed4a9744b068cc730a073ed/prettytable-3.15.1.tar.gz"
+    sha256 "f0edb38060cb9161b2417939bfd5cd9877da73388fb19d1e8bf7987e8558896e"
   end
 
   resource "pyparsing" do

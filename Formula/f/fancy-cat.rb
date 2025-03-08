@@ -1,27 +1,21 @@
 class FancyCat < Formula
   desc "PDF reader for terminal emulators using the Kitty image protocol"
   homepage "https://github.com/freref/fancy-cat"
-  url "https://github.com/freref/fancy-cat/archive/refs/tags/v0.3.1.tar.gz"
-  sha256 "818650bd3c5c1d3aa3a573d185a49ea3466bda86d3e659965941887b424661d7"
+  url "https://github.com/freref/fancy-cat/archive/refs/tags/v0.4.0.tar.gz"
+  sha256 "bce101d5eb009ec9057f7b87f6ad767ee96238abcee8854a9db7febd0229a2bf"
   license "AGPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "2168063861e16f7c8e6a59934252274ce8cefee07a11aa1cadee1ff823b7b20a"
-    sha256 cellar: :any,                 arm64_sonoma:  "ec416117eb9115fddb92ff7b546bc64d86a4e1627acf3c41ca96d4d73f0799b7"
-    sha256 cellar: :any,                 arm64_ventura: "e81fe6d6a16c3b59f16d14e2c5cc699ce3780d74d737b97883163c226758611e"
-    sha256 cellar: :any,                 sonoma:        "9b6ebe97aa70c3ef8244ac046eac44ed907ba6326e3c311e7b944c6561cf8f6d"
-    sha256 cellar: :any,                 ventura:       "84135af3ed3934774f5b9500fec41f3e02b25477efaa8e8baa8c04e63a8722c4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3490ee5ac7f87a3d84540f573c07cef898ee4c6172224e6226ac2cf015683564"
+    sha256 cellar: :any,                 arm64_sequoia: "c58a78244bc3fa2960e7da1fef67cb37fa95044de6b3d18c71f21d09acdc9a82"
+    sha256 cellar: :any,                 arm64_sonoma:  "85ed09ccf93cc98a5bee963234cfe58d73f40425124f5b2e548e6eee48b97d50"
+    sha256 cellar: :any,                 arm64_ventura: "0f10abd85dfe9b4a4cdbed1341ceca7793d97f792477752a858c9d139e8d5198"
+    sha256 cellar: :any,                 sonoma:        "74333ba909b6af5f78d3f966ce3a2f44a215e3016feda09f8cdc29e3db0a5620"
+    sha256 cellar: :any,                 ventura:       "0a489a3529ffca4c283680fe3ac734d614fdea54d66696fbefbc7a06c24ae604"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3ae039db5bcb1d98c058aedf2616c119ad51e6dc2d025a54eab28c79aff0733d"
   end
 
   depends_on "zig" => :build
   depends_on "mupdf"
-
-  # version patch, upstream pr ref, https://github.com/freref/fancy-cat/pull/68
-  patch do
-    url "https://github.com/freref/fancy-cat/commit/817906c7a08907da1acc4a436acd2650d5e7ba72.patch?full_index=1"
-    sha256 "ddb4e776077b9b7d79eead905964a95c790a75a2c1bc8f43b86dfc814ee5de27"
-  end
 
   def install
     # Fix illegal instruction errors when using bottles on older CPUs.

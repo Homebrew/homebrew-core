@@ -6,16 +6,16 @@ class Cookiecutter < Formula
   url "https://files.pythonhosted.org/packages/52/17/9f2cd228eb949a91915acd38d3eecdc9d8893dde353b603f0db7e9f6be55/cookiecutter-2.6.0.tar.gz"
   sha256 "db21f8169ea4f4fdc2408d48ca44859349de2647fbe494a9d6c3edfc0542c21c"
   license "BSD-3-Clause"
-  revision 5
+  revision 6
   head "https://github.com/cookiecutter/cookiecutter.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "6b18f65b421864841624803c1f5260cfd15498ed14e5e38e5dc2bccbaf4c80fe"
-    sha256 cellar: :any,                 arm64_sonoma:  "682673779acfc8cba7ddcd089f1455a64112316abd1a2a6cc0dc0302b4efaa16"
-    sha256 cellar: :any,                 arm64_ventura: "0bbfba0e658a55aa4a679d9fae8c8365b92dcd84ed5b657b0f68cafb02fd6b3a"
-    sha256 cellar: :any,                 sonoma:        "51295aac2f5eb2eb17f15175b16cafcae5520e37debbfbc356941ecdfcea45d6"
-    sha256 cellar: :any,                 ventura:       "af189e5581a8c12195277ceb0cd6c270ba70d07f5916246d26baef64b4ad8f74"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2d2376f8a33e2d94da865bd2f94d17d3ca3038d67ec6a2015bb414cccfec6050"
+    sha256 cellar: :any,                 arm64_sequoia: "d0036f452cda2cd559991bfa098fa8c84934c9d9f145b68cd272e830a751d9d2"
+    sha256 cellar: :any,                 arm64_sonoma:  "76167c501c04aafbf8dbac2f1ad85e14910f20a8b18bd9887775a3fc47181337"
+    sha256 cellar: :any,                 arm64_ventura: "2831c2f88a491579a7d1e7bb3e3e057c60024da924435afd3571983b61acdfb0"
+    sha256 cellar: :any,                 sonoma:        "cc47a54732cc52494899fdf6b5e64e225e4cf03006b3d82a94d05046dd02b34c"
+    sha256 cellar: :any,                 ventura:       "89b76f4f082b74b05c4f91181d0a4199f1390b457bc8b3e1cd29453d95f6e27f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8f7909a1d0b54a0ab1c0f1c1fac38488e10ae9309ce710a2a4099b69ca5d635f"
   end
 
   depends_on "certifi"
@@ -38,8 +38,8 @@ class Cookiecutter < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/f2/4f/e1808dc01273379acc506d18f1504eb2d299bd4131743b9fc54d7be4df1e/charset_normalizer-3.4.0.tar.gz"
-    sha256 "223217c3d4f82c3ac5e29032b3f1c2eb0fb591b72161f86d93f5719079dae93e"
+    url "https://files.pythonhosted.org/packages/16/b0/572805e227f01586461c80e0fd25d65a2115599cc9dad142fee4b747c357/charset_normalizer-3.4.1.tar.gz"
+    sha256 "44251f18cd68a75b56585dd00dae26183e102cd5e0f9f1466e6df5da2ed64ea3"
   end
 
   resource "click" do
@@ -53,8 +53,8 @@ class Cookiecutter < Formula
   end
 
   resource "jinja2" do
-    url "https://files.pythonhosted.org/packages/af/92/b3130cbbf5591acf9ade8708c365f3238046ac7cb8ccba6e81abccb0ccff/jinja2-3.1.5.tar.gz"
-    sha256 "8fefff8dc3034e27bb80d67c671eb8a9bc424c0ef4c0826edbff304cceff43bb"
+    url "https://files.pythonhosted.org/packages/df/bf/f7da0350254c0ed7c72f3e33cef02e048281fec7ecec5f032d4aac52226b/jinja2-3.1.6.tar.gz"
+    sha256 "0137fb05990d35f1275a587e9aee6d56da821fc83491a0fb838183be43f66d6d"
   end
 
   resource "markdown-it-py" do
@@ -73,8 +73,8 @@ class Cookiecutter < Formula
   end
 
   resource "pygments" do
-    url "https://files.pythonhosted.org/packages/8e/62/8336eff65bcbc8e4cb5d05b55faf041285951b6e80f33e2bff2024788f31/pygments-2.18.0.tar.gz"
-    sha256 "786ff802f32e91311bff3889f6e9a86e81505fe99f2735bb6d60ae0c5004f199"
+    url "https://files.pythonhosted.org/packages/7c/2d/c3338d48ea6cc0feb8446d8e6937e1408088a72a39937982cc6111d17f84/pygments-2.19.1.tar.gz"
+    sha256 "61c16d2a8576dc0649d9f39e089b5f02bcd27fba10d8fb4dcc28173f7a45151f"
   end
 
   resource "python-dateutil" do

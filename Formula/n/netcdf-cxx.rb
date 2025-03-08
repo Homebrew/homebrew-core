@@ -4,15 +4,15 @@ class NetcdfCxx < Formula
   url "https://github.com/Unidata/netcdf-cxx4/archive/refs/tags/v4.3.1.tar.gz"
   sha256 "e3fe3d2ec06c1c2772555bf1208d220aab5fee186d04bd265219b0bc7a978edc"
   license "NetCDF"
-  revision 2
+  revision 3
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "fa65ea58fe18f5efee9cfe415cc6fe06f6c461068a679d539db66bdad48f442c"
-    sha256 cellar: :any,                 arm64_sonoma:  "590fd101fb9fa4cf1a99e3472d6401dbe1b5b1119a542e7134a4d9c5f3f03db0"
-    sha256 cellar: :any,                 arm64_ventura: "e3f3483e6fc0d72b6dc01db50fd73bd39ac1bf4a28b1d43e11432b623a4787e7"
-    sha256 cellar: :any,                 sonoma:        "ad5b26a0c7acba00c155ec9357a37fad6712eea68ed5d6a5d87aa75e4094cd17"
-    sha256 cellar: :any,                 ventura:       "bff9294786d018153888af19624377f2947fb7132d5b259f24241318bc1e6d62"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2b51b28de46082854a8f0e614b7827e5f1d4ecd6f346503992e115e97e8cf277"
+    sha256 cellar: :any,                 arm64_sequoia: "50dfd3ba9dea12a4a355e8643a74ca53b6c184c96e3bcdf0e24e3052491be0c8"
+    sha256 cellar: :any,                 arm64_sonoma:  "e80f685cdd7fd31e72e0fdeb96a8770a243f4729d0a2f0417808782dfd2d5bc9"
+    sha256 cellar: :any,                 arm64_ventura: "f6c50e7a23adf951aae09e8a600f560a4679fb9ce19eabfd692f92442a5a5314"
+    sha256 cellar: :any,                 sonoma:        "34da3acc3752fc50b9315b33f90624e2e51eb450af0974d88a3f3895da320d92"
+    sha256 cellar: :any,                 ventura:       "7c452e7a0b055cd09f127c86be95fdc41b5f2fdf75f0c00b480a19f79f362ef8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4ab172c8268b7d323e568565c3eddaba2596c6990f9465bdeed7823cbfc81354"
   end
 
   depends_on "cmake" => :build

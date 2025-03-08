@@ -1,10 +1,11 @@
-class GrpcSwift < Formula
-  desc "Swift language implementation of gRPC"
-  homepage "https://github.com/grpc/grpc-swift"
-  url "https://github.com/grpc/grpc-swift/archive/refs/tags/1.24.2.tar.gz"
-  sha256 "06f504ec5ce4b375e48e25983d06bb7f55dea126a65669d326def832c8da3581"
+class ProtocGenGrpcSwift < Formula
+  desc "Protoc plugin for generating gRPC Swift stubs"
+  homepage "https://github.com/grpc/grpc-swift-protobuf"
+  url "https://github.com/grpc/grpc-swift-protobuf/archive/refs/tags/1.1.0.tar.gz"
+  sha256 "fe19d6931605e957031369578ab03faa6b3b3ad8fdee0214a08275ef209f36f9"
   license "Apache-2.0"
-  head "https://github.com/grpc/grpc-swift.git", branch: "main"
+  version_scheme 1
+  head "https://github.com/grpc/grpc-swift-protobuf.git", branch: "main"
 
   livecheck do
     url :stable
@@ -12,15 +13,13 @@ class GrpcSwift < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "77a3718fec21c195890abd756f9367c397ea99d35af5d299602cb57fb08dbad8"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "67eb22f2334a994e04bfc6ab89d2f3427812d478240434163108bed1a6494b00"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "ac62dc16446915e1d0df21846c2688ec7080fb0c2faf183df50d0359b0c57d51"
-    sha256 cellar: :any_skip_relocation, sonoma:        "26896664dc139e80c7b8d08fc0ea44fcd506fe3643a278c3e80b7acb5893ad39"
-    sha256 cellar: :any_skip_relocation, ventura:       "5fcedf2f3a4fa371ed947446d396b4dafaf0f8ccda8885f16a64a2b15c6731bc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d44b36b070eed8ad0209fd694490d6b0b31cf53cbe9516061ff266d517e8af04"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "19c9c068affc59d455635cf5d2749d3f36eb35ea8bb05bdea9a708df1b90497d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5f196d46a031f46add8ca18b687de951994fc96f007099125b2acb5b64a84da2"
   end
 
   depends_on xcode: ["15.0", :build]
+  # https://swiftpackageindex.com/grpc/grpc-swift/documentation/grpccore/compatibility#Platforms
+  depends_on macos: :sequoia
   depends_on "protobuf"
   depends_on "swift-protobuf"
 

@@ -33,7 +33,8 @@ class YoutubeDl < Formula
 
   # https://github.com/ytdl-org/youtube-dl/issues/31585
   # https://github.com/ytdl-org/youtube-dl/issues/31067
-  disable! date: "2024-11-23", because: "has a failing test since forever and no new release since 2021"
+  disable! date: "2024-11-23", because: "has a failing test since forever and no new release since 2021",
+    replacement: "yt-dlp"
 
   depends_on "python@3.13"
 

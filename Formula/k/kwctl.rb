@@ -1,18 +1,18 @@
 class Kwctl < Formula
   desc "CLI tool for the Kubewarden policy engine for Kubernetes"
   homepage "https://www.kubewarden.io/"
-  url "https://github.com/kubewarden/kwctl/archive/refs/tags/v1.22.0.tar.gz"
-  sha256 "12942bf9bd41b11fcf6dcf36d7be64e77be36664b3909828fed8cb3d165af2b4"
+  url "https://github.com/kubewarden/kwctl/archive/refs/tags/v1.22.1.tar.gz"
+  sha256 "105b1856347e3e602b522aa43c521d8dbf4bff581fa3536bd3fab2dfe3883561"
   license "Apache-2.0"
   head "https://github.com/kubewarden/kwctl.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a30412b673e57ad17f8c4502fba589fba0e5e78feeb289ff7fe6ac62d9684d95"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f95a7855ad220b05b2a2156f09e772a7596b49b17a6c47ff27655c63186a2b27"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "2ae30eaf0871897a6b45416b2a1b422662f2336592190611d2fd2ee322019cbd"
-    sha256 cellar: :any_skip_relocation, sonoma:        "b51ba2422f84b8e6a52510d422b96cea7fdd144302e63355c2958a671d17695f"
-    sha256 cellar: :any_skip_relocation, ventura:       "e9c5b1ed77115d65bdb1f604421aea56b22d73c5170e1b27a59ed90fa40bb765"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d95a5404af87aacf8e363b601ef36b1d10c3c890402a5291441a3d2bb1a46d7c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8e7cbcb696deac5c921a9d98b9cbc4858de3d43b0ba15a5e9519ad7251337db9"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "050badeeb65b5b1b5817bc01c375dc3306a51d9b9936b3206f649b0827fb401d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "58bcad45346e107784d5169bd00154d80f0d251487c071181900cb1453cdb131"
+    sha256 cellar: :any_skip_relocation, sonoma:        "fda8a8dbaee14367fd8c513ab8471a3a4d5ed7bd03f65a08959e54b83bf5d51b"
+    sha256 cellar: :any_skip_relocation, ventura:       "9c95c58afb172a685155591a6e8effc7d5a6b88189758c70c56e818470f15f0d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "984093af29eba1bb7eebb21e32f280c5d7af3862f7308ea45638cf135b2a5579"
   end
 
   depends_on "rust" => :build

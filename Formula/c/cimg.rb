@@ -1,8 +1,8 @@
 class Cimg < Formula
   desc "C++ toolkit for image processing"
   homepage "https://cimg.eu/"
-  url "https://cimg.eu/files/CImg_3.5.2.zip"
-  sha256 "3397b9c84d66e63b46ebad41e52932605bab2979fc513484bcde6df923bd9a20"
+  url "https://cimg.eu/files/CImg_3.5.3.zip"
+  sha256 "a9b825366ade0a1cfda784c87b40aa5e65f84f2d5ec562ae48928161880ed01b"
   license "CECILL-2.0"
 
   livecheck do
@@ -11,12 +11,12 @@ class Cimg < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8cc321629f6b4eb79c45a84097875ad2c6ba8a7f1a4d57a015804b80c7d95db8"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8cc321629f6b4eb79c45a84097875ad2c6ba8a7f1a4d57a015804b80c7d95db8"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "8cc321629f6b4eb79c45a84097875ad2c6ba8a7f1a4d57a015804b80c7d95db8"
-    sha256 cellar: :any_skip_relocation, sonoma:        "a4b296a0ea2c9ce126088c9b3349fc1e488ddfe9cfcba5d2438ae4a5dd0189cc"
-    sha256 cellar: :any_skip_relocation, ventura:       "a4b296a0ea2c9ce126088c9b3349fc1e488ddfe9cfcba5d2438ae4a5dd0189cc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8cc321629f6b4eb79c45a84097875ad2c6ba8a7f1a4d57a015804b80c7d95db8"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "802f049ec2de8d9e442fff040210ee61a9a7fee12cb5db03aa047f40b3979dc0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "802f049ec2de8d9e442fff040210ee61a9a7fee12cb5db03aa047f40b3979dc0"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "802f049ec2de8d9e442fff040210ee61a9a7fee12cb5db03aa047f40b3979dc0"
+    sha256 cellar: :any_skip_relocation, sonoma:        "dc9c5dc3c55049540f22cc19afec3e7f2716b81984ee64a6bdba2e055e812c28"
+    sha256 cellar: :any_skip_relocation, ventura:       "dc9c5dc3c55049540f22cc19afec3e7f2716b81984ee64a6bdba2e055e812c28"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "802f049ec2de8d9e442fff040210ee61a9a7fee12cb5db03aa047f40b3979dc0"
   end
 
   def install

@@ -1,17 +1,17 @@
 class ProtocGenGrpcJava < Formula
   desc "Protoc plugin for gRPC Java"
   homepage "https://grpc.io/docs/languages/java/"
-  url "https://github.com/grpc/grpc-java/archive/refs/tags/v1.70.0.tar.gz"
-  sha256 "14e31cc6605afc3f1d8bd04767ec741f49eada314a167dd45886206c31341e33"
+  url "https://github.com/grpc/grpc-java/archive/refs/tags/v1.71.0.tar.gz"
+  sha256 "2942a56b794479a0bc1c0e69039c9ae615f1cb39d0e3af12af35c0eb3bd73fdf"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "b70698f884694f3e2cc568d468be6e0a2317eec766e52fa4978200445b9a0203"
-    sha256 cellar: :any,                 arm64_sonoma:  "a5529380842c516553a400c8cf4e0a5ed0715380adb14d36a2091ad2827ad6d1"
-    sha256 cellar: :any,                 arm64_ventura: "c46e467b28cf7733d21150b83b4dfa904ead213fda4e5bbf420c7a5b7d67467f"
-    sha256 cellar: :any,                 sonoma:        "0e24d39e214a7eb3e8aef997ccb118e813b110a71a7c0f19ee62f5fecdd4054e"
-    sha256 cellar: :any,                 ventura:       "c240aaeff937e3a188981d1dc6cdf704cf355f8c8b1551d0ef71ec1c9f0dc359"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3b0cbab28f53aced7391db6f85af8d55a825bbfaac7ba2c4d196c9c3a233b580"
+    sha256 cellar: :any,                 arm64_sequoia: "eddb7acbcc4edcc0785283131a80fb2b003917aab3cd72725f879b93241cabfe"
+    sha256 cellar: :any,                 arm64_sonoma:  "74ffcffbc652761997d38433bcdfecfde9830bb57bb259a071761b5d3a07957f"
+    sha256 cellar: :any,                 arm64_ventura: "6accc306df2fb0278da95c82baa1fdbdd02ebb67e862e41616303df1a689196f"
+    sha256 cellar: :any,                 sonoma:        "fb1a984cd2fdaebf1eff1ac2da5c98631e2f4842dbb8ced281a9cb3984d7ac6a"
+    sha256 cellar: :any,                 ventura:       "c8a7ee5b8572243073a298694651bce4a6a371ed92339641c03c127cd8252fc0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d5409cf2417b4765cfed0343613f998845d3290c31028b514ee8125e18bce4be"
   end
 
   depends_on "openjdk@21" => :build # due to Gradle 8.5

@@ -6,14 +6,13 @@ class Wdfs < Formula
   license "GPL-2.0-or-later"
   revision 1
 
-  livecheck do
-    skip "No longer developed or maintained"
-  end
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, x86_64_linux: "8e9e8b67d2d470f355a46983ac2a52cb2c34a6ebd63e1720e5ceb010c7bd9298"
   end
+
+  # Also needs `libfuse@2` and had 0 installs in 90 days on deprecation date
+  deprecate! date: "2025-03-06", because: :unmaintained
 
   depends_on "pkgconf" => :build
   depends_on "glib"

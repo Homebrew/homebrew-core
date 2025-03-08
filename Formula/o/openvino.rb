@@ -10,7 +10,7 @@ class Openvino < Formula
 
   livecheck do
     url :stable
-    regex(/^(\d+(?:\.\d+)+)$/i)
+    strategy :github_latest
   end
 
   bottle do

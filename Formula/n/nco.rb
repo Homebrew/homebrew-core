@@ -4,14 +4,15 @@ class Nco < Formula
   url "https://github.com/nco/nco/archive/refs/tags/5.3.2.tar.gz"
   sha256 "645179433e0f54e7e6fefa9fcc74c1866ad55dd69f0fccbc262c550fcc186385"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "7a574a0bc89064c2dd7deab62f89345bb4daa66b44542d9c57e6cd685761dd05"
-    sha256 cellar: :any,                 arm64_sonoma:  "3d40c36eca8a9c7d62af0dcb71bea75853ccd4e39e40b9b52fb1f2eb33163aae"
-    sha256 cellar: :any,                 arm64_ventura: "9a4b445ec682dface0628879a438ebba386e4317ce6f2e668c6f45c0dd2aa3bc"
-    sha256 cellar: :any,                 sonoma:        "b5497609c3cd7b5d4d2a75c1be1b46f9da428cec1ef99bbe0b234e84c30f1061"
-    sha256 cellar: :any,                 ventura:       "b577c88fa6a214118000e181761c61da233bf10a4d552240800531d690071070"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3e7630a379735f70e2760eb79d0bc75fdd21e8e90699309b4d9a2cf1b8dba471"
+    sha256 cellar: :any,                 arm64_sequoia: "a6cd6f95fb509e651f102f7661629c5e9e1b31012d319350d2edc4b055097f0a"
+    sha256 cellar: :any,                 arm64_sonoma:  "285c9ca280d40e18705496d0f526593a894528d66c892fbae7507d5fcf58e7de"
+    sha256 cellar: :any,                 arm64_ventura: "e23dd8c190d9d4d2f6f3d73e935ac7703ce0350fd134c3453b0feaa7a28807ec"
+    sha256 cellar: :any,                 sonoma:        "9e80f02fdb620fe164ceac40df83274d35a1a80200942a88987f0ca755c60ac0"
+    sha256 cellar: :any,                 ventura:       "ac6f9a2636e734ff4f97c908c0c9047b7dde255b686c23bdf5c5090e12e4393b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cc08715251d28ffaab94121a436109f297346698b672c175510081c26b91abc8"
   end
 
   head do

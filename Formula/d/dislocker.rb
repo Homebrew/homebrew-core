@@ -11,7 +11,7 @@ class Dislocker < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "libfuse@2"
+  depends_on "libfuse@2" # FUSE 3 PR: https://github.com/Aorimn/dislocker/pull/340
   depends_on :linux # on macOS, requires closed-source macFUSE
   depends_on "mbedtls"
 

@@ -1,8 +1,8 @@
 class Unicorn < Formula
   desc "Lightweight multi-architecture CPU emulation framework"
   homepage "https://www.unicorn-engine.org/"
-  url "https://github.com/unicorn-engine/unicorn/archive/refs/tags/2.1.2.tar.gz"
-  sha256 "bfc6dbff23288c4ae9eb73d8cd01099bc9caed35bf9f0c5afc951080d3ff3fa5"
+  url "https://github.com/unicorn-engine/unicorn/archive/refs/tags/2.1.3.tar.gz"
+  sha256 "5572eecd903fff0e66694310ca438531243b18782ce331a4262eeb6f6ad675bc"
   license all_of: [
     "GPL-2.0-only",
     "GPL-2.0-or-later", # glib, qemu
@@ -10,12 +10,12 @@ class Unicorn < Formula
   head "https://github.com/unicorn-engine/unicorn.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "bd7852e6ed8f9cadd2e3e50ed7da6df5d577b33c3021c56dab5a926bd006e83c"
-    sha256 cellar: :any,                 arm64_sonoma:  "8ecd87d04d221d4b756056a85a69220a8184e25827aa415d800c6635baa183df"
-    sha256 cellar: :any,                 arm64_ventura: "af4a69b5ee19db6723106ce8bb0166e5fdb2aba242839982bf0a76d2bf237835"
-    sha256 cellar: :any,                 sonoma:        "3f91d7fc55b15557b23a8349dfc197277eb8867c897202202647ac0b3760089b"
-    sha256 cellar: :any,                 ventura:       "bfaf40cef1d184648ddd53a953f8276ba37e8df7b7fda71be70f16c21cf1db5e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c8df2c53e1bae3995aa99a2a8414a279930ab9ec94ffecd5b6a32d1581976378"
+    sha256 cellar: :any,                 arm64_sequoia: "be54fd832159f1d3fda1b1c23e01f2f4a981df0b2832bf6dc3421fde20f8d2ba"
+    sha256 cellar: :any,                 arm64_sonoma:  "ad018ba42442daad5e4dfd902d6dff8ad851c4540d18c268f513e6f2f70e8cd4"
+    sha256 cellar: :any,                 arm64_ventura: "2be056cfd6cfbd60ee30fefee65a8d6bfefd0fce7a15b2e9d7b14f7fa0fb26c8"
+    sha256 cellar: :any,                 sonoma:        "dbe751ecc5f13bb438892e671ef7efa7a5d4fa4b82c25fb110ea587bc46ce74e"
+    sha256 cellar: :any,                 ventura:       "79c598b769e4368bc5ec5f49468f4a00652703945d567b3fe5b193dc093fffb0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "30a61ebcf75b64b23cd9c1043d08e1ab680d6f1d752538b42d72a8b33bbc7c0e"
   end
 
   depends_on "cmake" => :build

@@ -6,23 +6,22 @@ class AdrViewer < Formula
   url "https://files.pythonhosted.org/packages/1b/72/0f787da38d0f9d69c06b31d8f412735ed4fad383edd7f7d2286f4fc7b5b0/adr_viewer-1.4.0.tar.gz"
   sha256 "9a2f02a9feb3a6d03d055dd8599b20d34126f8e755b4b4ee1a353ecbbd590cef"
   license "MIT"
-  revision 2
+  revision 3
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "143453f18e9b27f3b1d51930fb8ca1292d9e0fb13c985b1e81fa0437672e896d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fd01c16b95553f18fe3a3c3d45096ea6f31d86a66c1fabaff41f19599235a47a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "d14d677402e4748b4ea9b102fea98217e8aa2238949e8de93d7dc828fbcb340e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "93890ea63e05aa0abfe5bf3d7122202ac0ddf5e73f392eb9885146d7e4baccfb"
-    sha256 cellar: :any_skip_relocation, ventura:       "9c163a6e3d018aa199b50b3cf8f0a1444a0778530b5b90d3432fab8329b6839a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3ba4e0ebd1d35e153e2086802e220a011e734ebc3999bd1e589c23260116938f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c1efd8ef88f39d6598004615184612871efc040d1d7b05aeb306a5732e0770bb"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3cca20e479818c98d5fe2a005af51a1fdd742a7d914e6f44f5dffc32ee2f972e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "c8b5d19a206d65635a9da6eacd09b232a7ef73c560049cc63a28e03f1f8b0b41"
+    sha256 cellar: :any_skip_relocation, sonoma:        "58674e3fb84c3e62f1aba6a501abd1c856b6807c8bcaf7df74eb4d04ef81f1e4"
+    sha256 cellar: :any_skip_relocation, ventura:       "880572d016d57566ee09ba653c09b78b0a668d423eba6661c788e09b65436c66"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a3f3e22f63e93ae52d53b8a07b3ccef467d8b213b5a55fb66118fa1681681525"
   end
 
   depends_on "python@3.13"
 
   resource "beautifulsoup4" do
-    url "https://files.pythonhosted.org/packages/b3/ca/824b1195773ce6166d388573fc106ce56d4a805bd7427b624e063596ec58/beautifulsoup4-4.12.3.tar.gz"
-    sha256 "74e3d1928edc070d21748185c46e3fb33490f22f52a3addee9aee0f4f7781051"
+    url "https://files.pythonhosted.org/packages/f0/3c/adaf39ce1fb4afdd21b611e3d530b183bb7759c9b673d60db0e347fd4439/beautifulsoup4-4.13.3.tar.gz"
+    sha256 "1bd32405dacc920b42b83ba01644747ed77456a65760e285fbc47633ceddaf8b"
   end
 
   resource "bottle" do
@@ -41,8 +40,8 @@ class AdrViewer < Formula
   end
 
   resource "jinja2" do
-    url "https://files.pythonhosted.org/packages/af/92/b3130cbbf5591acf9ade8708c365f3238046ac7cb8ccba6e81abccb0ccff/jinja2-3.1.5.tar.gz"
-    sha256 "8fefff8dc3034e27bb80d67c671eb8a9bc424c0ef4c0826edbff304cceff43bb"
+    url "https://files.pythonhosted.org/packages/df/bf/f7da0350254c0ed7c72f3e33cef02e048281fec7ecec5f032d4aac52226b/jinja2-3.1.6.tar.gz"
+    sha256 "0137fb05990d35f1275a587e9aee6d56da821fc83491a0fb838183be43f66d6d"
   end
 
   resource "markupsafe" do
@@ -51,13 +50,18 @@ class AdrViewer < Formula
   end
 
   resource "mistune" do
-    url "https://files.pythonhosted.org/packages/ef/c8/f0173fe3bf85fd891aee2e7bcd8207dfe26c2c683d727c5a6cc3aec7b628/mistune-3.0.2.tar.gz"
-    sha256 "fc7f93ded930c92394ef2cb6f04a8aabab4117a91449e72dcc8dfa646a508be8"
+    url "https://files.pythonhosted.org/packages/80/f7/f6d06304c61c2a73213c0a4815280f70d985429cda26272f490e42119c1a/mistune-3.1.2.tar.gz"
+    sha256 "733bf018ba007e8b5f2d3a9eb624034f6ee26c4ea769a98ec533ee111d504dff"
   end
 
   resource "soupsieve" do
     url "https://files.pythonhosted.org/packages/d7/ce/fbaeed4f9fb8b2daa961f90591662df6a86c1abf25c548329a86920aedfb/soupsieve-2.6.tar.gz"
     sha256 "e2e68417777af359ec65daac1057404a3c8a5455bb8abc36f1a9866ab1a51abb"
+  end
+
+  resource "typing-extensions" do
+    url "https://files.pythonhosted.org/packages/df/db/f35a00659bc03fec321ba8bce9420de607a1d37f8342eee1863174c69557/typing_extensions-4.12.2.tar.gz"
+    sha256 "1a7ead55c7e559dd4dee8856e3a88b41225abfe1ce8df57b7c13915fe121ffb8"
   end
 
   def install

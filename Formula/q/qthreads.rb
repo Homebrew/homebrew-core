@@ -1,29 +1,26 @@
 class Qthreads < Formula
   desc "Lightweight locality-aware user-level threading runtime"
   homepage "https://www.sandia.gov/qthreads/"
-  url "https://github.com/sandialabs/qthreads/releases/download/1.21/qthreads-1.21.tar.gz"
-  sha256 "428983e7423d10ca9be2830c3b3935516286b160694d1d054ed76ae12c510171"
+  url "https://github.com/sandialabs/qthreads/archive/refs/tags/1.22.tar.gz"
+  sha256 "76804e730145ee26f661c0fbe3f773f2886d96cb8a72ea79666f7714403d48ad"
   license "BSD-3-Clause"
   head "https://github.com/sandialabs/qthreads.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "96285a04844a48e8d9fb1b42603028838283daa73d0f128b2f5693ae26b0034f"
-    sha256 cellar: :any,                 arm64_sonoma:  "e4c8067e01b5b13796c266aadef6f0b87a55eb98074f491213b4278402a84eec"
-    sha256 cellar: :any,                 arm64_ventura: "d6f302754331981d1eb27dc3171ac6d959abf587c8fa73f9bcf43314a1e9b979"
-    sha256 cellar: :any,                 sonoma:        "350662c7facb3943957870c0769b1442c051f824512276c15ae1171eaf69d49d"
-    sha256 cellar: :any,                 ventura:       "0e23710563e3ebdb83505cd7817dada31a3aafd2fa9460aace926dc022eefabb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c1d37bb159cb706c38bf76372026532407eba1e1f93702147710c0d5ecffae32"
+    sha256 cellar: :any,                 arm64_sequoia: "1188df7c2c0b888e42e8958aab67b0aa563f3e4579281053d8a9b7635f6693d1"
+    sha256 cellar: :any,                 arm64_sonoma:  "2b17730f29d4c8e5c35c9293799261e1f6003ff1f27e1c24f5cf5fb26f89df5c"
+    sha256 cellar: :any,                 arm64_ventura: "fc5d929394203a698cfdafb7172344f68f0e86eedb6df2a2619b30011bb352bd"
+    sha256 cellar: :any,                 sonoma:        "65aaf051110cc87ff81dfa3bcbc53c0f50fb94ecc6247328e6bd1be026317f1f"
+    sha256 cellar: :any,                 ventura:       "3670129186200d05bd096d1a7f58374cf346bc8d23245cb583c2f385e0e1ea7b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "feae8cb66d7a8c8258f4da08523a1c94da25a89ef4d645b5cd14d35b8d3c2190"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
+  depends_on "cmake" => :build
 
   def install
-    system "./autogen.sh"
-    system "./configure", "--disable-silent-rules", *std_configure_args
-    system "make"
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
     pkgshare.install "userguide/examples"
     doc.install "userguide"
   end

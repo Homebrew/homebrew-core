@@ -3,12 +3,12 @@ class GitDeleteMergedBranches < Formula
 
   desc "Command-line tool to delete merged Git branches"
   homepage "https://github.com/hartwork/git-delete-merged-branches"
-  url "https://files.pythonhosted.org/packages/dc/e5/c76a87598f2c76574e6741abedbda6bd50e709f8b51a3d0a30bb130a8dce/git_delete_merged_branches-7.4.2.tar.gz"
-  sha256 "44a4ae5a83f194f0800e373519fd22c6bb3e6e99b883221f7b666bd36cdac415"
+  url "https://files.pythonhosted.org/packages/7d/54/891599afae3523ea99f3b03010f9da5d12a2eebf38cfa66f6897fcc42e18/git_delete_merged_branches-7.5.0.tar.gz"
+  sha256 "ca369e5f10c6027813432180cdbb5a7d644cee4d30e4ee2d6ff483a343df2222"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "4681c0148a8b4bf480fc79f0f6ba3b89ebe0ba936f9a3d165f2099422684a5a1"
+    sha256 cellar: :any_skip_relocation, all: "014ca6e4ca551c4756e5cc79940da71ae98d777b45d5539e98dc43276edeeee9"
   end
 
   depends_on "python@3.13"
@@ -21,8 +21,8 @@ class GitDeleteMergedBranches < Formula
   end
 
   resource "prompt-toolkit" do
-    url "https://files.pythonhosted.org/packages/2d/4f/feb5e137aff82f7c7f3248267b97451da3644f6cdc218edfe549fb354127/prompt_toolkit-3.0.48.tar.gz"
-    sha256 "d6623ab0477a80df74e646bdbc93621143f5caf104206aa29294d53de1a03d90"
+    url "https://files.pythonhosted.org/packages/a1/e1/bd15cb8ffdcfeeb2bdc215de3c3cffca11408d829e4b8416dcfe71ba8854/prompt_toolkit-3.0.50.tar.gz"
+    sha256 "544748f3860a2623ca5cd6d2795e7a14f3d0e1c3c9728359013f79877fc89bab"
   end
 
   resource "wcwidth" do

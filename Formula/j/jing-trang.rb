@@ -7,29 +7,29 @@ class JingTrang < Formula
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "dd185ecd711ae39122b5a5c2b7d1ac25fb655d24db51a20ddbfe3fe081bc0be5"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c59e3c55b275f245636396619acf1d1d99e5673aca25f21d546bfc151cb370ea"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "908bcd6e6f9ed7d3a00030052aadef34a4fd796fde206f54b61299c26a320a73"
-    sha256 cellar: :any_skip_relocation, sonoma:        "3f7742f4501958222de06977c2be07e64fdcf2197400aa3043136bf6e370bd1e"
-    sha256 cellar: :any_skip_relocation, ventura:       "384ffca335b8ed354aabcc431f161a8da3f375116d1e20b56de0f080f3182166"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d0a3f1c8df1a2607c3640ea20c71d26027067f9ec7c8fe5878d627d222dd26a5"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0890bae04b71b2979b5e95bcc055476ef225a24e02db05288c514c63542606fb"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4c64de5b7fc48a47a2fea2e480330ca435a177346f7ef4465ebf21312a1387f2"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "e7b9d4dea1561b777b9fe73f26774cab635683266d5da7b1c5996a11e1604aef"
+    sha256 cellar: :any_skip_relocation, sonoma:        "073e593cac616bbae9b72dd5fbd417540b5c7019259a969965d3a0f64e567978"
+    sha256 cellar: :any_skip_relocation, ventura:       "0a99746daf81cd2730cb3a5eb6a387e3f48c274cdc6b6431d37c1bc1cf1e342f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1215b5eaf1160829b26fcb226de0a9050c40c6e29e291d6c339f7408faf900ab"
   end
 
   depends_on "ant" => :build
-  depends_on "openjdk@11"
+  depends_on "openjdk"
 
   uses_from_macos "unzip" => :build
 
   def install
-    ENV["JAVA_HOME"] = Formula["openjdk@11"].opt_prefix
-    system "./ant", "jing-dist"
-    system "./ant", "trang-dist"
+    system "ant", "jing-dist"
+    system "ant", "trang-dist"
     system "unzip", "-o", "-d", "build/dist", "build/dist/jing-#{version}.zip"
     system "unzip", "-o", "-d", "build/dist", "build/dist/trang-#{version}.zip"
     libexec.install Dir["build/dist/jing-#{version}"]
     libexec.install Dir["build/dist/trang-#{version}"]
-    bin.write_jar_script libexec/"jing-#{version}/bin/jing.jar", "jing", java_version: "11"
-    bin.write_jar_script libexec/"trang-#{version}/trang.jar", "trang", java_version: "11"
+    bin.write_jar_script libexec/"jing-#{version}/bin/jing.jar", "jing"
+    bin.write_jar_script libexec/"trang-#{version}/trang.jar", "trang"
   end
 
   test do

@@ -1,8 +1,8 @@
 class Typst < Formula
   desc "Markup-based typesetting system"
   homepage "https://typst.app/"
-  url "https://github.com/typst/typst/archive/refs/tags/v0.13.0.tar.gz"
-  sha256 "5a7224e32a555ac647ff202667a183b80d35539b685b3ce64bedf5d4e5a1a286"
+  url "https://github.com/typst/typst/archive/refs/tags/v0.13.1.tar.gz"
+  sha256 "2ffd8443668bc0adb59e9893f7904fd9f64dce8799a1930569f56a91305e8b71"
   license "Apache-2.0"
   version_scheme 1
   head "https://github.com/typst/typst.git", branch: "main"
@@ -13,12 +13,12 @@ class Typst < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1580ea3c506877f28ecd84309fd41f5288e2a1abd256c6c9062c9c6d67e036e9"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "94e37e2fdfc6e5e206d1eca0eda8d40016cc96c49ce6da66cff3fe8247b98394"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "bb4983a178b9f4799aa5a28faee8bb4cb964f2148c12bea2ed64bf1bd7376020"
-    sha256 cellar: :any_skip_relocation, sonoma:        "347d549d747b03a4b72495b74fb314556e50d68e0b4591733099d96ce5b6d6a5"
-    sha256 cellar: :any_skip_relocation, ventura:       "db0c697a38eb3b3847b090b62552785090b1fe9bb2cd76a4dc5e133aef3886a4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "93cf2d010f1e1ba97b4622814cae12961306c74831eec822fffc0cc5711c3f36"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c187e0b7e86411fb7925307d34c2e63429103cee0da30bac01479d1abb7b0160"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "808d9896ed7680fbb788182c8de04914229f1fe36b4e8d48a826ce7f9a78d471"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "9d7fded4d1f467a78524ec9aeb9cb81ed08f5c0da380f0e81f91b7dc28772ac1"
+    sha256 cellar: :any_skip_relocation, sonoma:        "a4af1021420e590f933035c3f996e70ec27131c0d12e7404d3abc7a0f68320b6"
+    sha256 cellar: :any_skip_relocation, ventura:       "39ce285d7af6080b660db41590acf877b3be5f51327e4e4914b7c324a65e5be0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c411beb9f7379cbec800b101ded8249d3f02ea469a5a312b328c81806f7924db"
   end
 
   depends_on "pkgconf" => :build

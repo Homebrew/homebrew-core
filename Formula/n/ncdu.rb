@@ -1,8 +1,8 @@
 class Ncdu < Formula
   desc "NCurses Disk Usage"
   homepage "https://dev.yorhel.nl/ncdu"
-  url "https://dev.yorhel.nl/download/ncdu-2.7.tar.gz"
-  sha256 "b218cc14a2bb9852cf951db4e21aec8980e7a8c3aca097e3aa3417f20eb93000"
+  url "https://dev.yorhel.nl/download/ncdu-2.8.tar.gz"
+  sha256 "aa61576f7ec9fdf532cb178142ef5b32aad42567705992cf3e0d1c6fe7e38e40"
   license "MIT"
   head "https://g.blicky.net/ncdu.git", branch: "zig"
 
@@ -12,12 +12,12 @@ class Ncdu < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "94e8907cf6b72057a4cc6913ff0a8b942172f82f231384dc2659c2476ffa7a8e"
-    sha256 cellar: :any,                 arm64_sonoma:  "1041490c1b919a6d63c9108ff77ed89f62fc12c766ca2be16068a2da553abb94"
-    sha256 cellar: :any,                 arm64_ventura: "dbd4d5e5b8d15bfc0923ed9bf43040e04e9f32e8d8d32cae75a26ef1dbc35b3b"
-    sha256 cellar: :any,                 sonoma:        "43a6e24ab5ff83297138f2aec826aa6ccc57ca64b8eb3b2f87e64ad7b60b155d"
-    sha256 cellar: :any,                 ventura:       "4ffc8d1553dbe38037cb3019c4607afb3c0b22399cc72a6d41b37c2f1a0db4af"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bed452df75f7c3eab2ace9ed72104d9a12bc0f75241ab562a1a023b5e5aa9416"
+    sha256 cellar: :any,                 arm64_sequoia: "65e7b7a4bfa0778f42039831c4b676221dd54dce6b4712dfdf5076b815f314c0"
+    sha256 cellar: :any,                 arm64_sonoma:  "969fcd255d9bd661e21365e892a81a3ec4ba627bff670c191ce9ac6c479547ce"
+    sha256 cellar: :any,                 arm64_ventura: "381da04aa7b67c97792091bef8ab891999999d96f2403609e7046e84b7ea79de"
+    sha256 cellar: :any,                 sonoma:        "b51a05f44c243a25bc59f3fb3748c0c049edc5fc7f339f9378c58b35fc74b2a3"
+    sha256 cellar: :any,                 ventura:       "4f434c0eda07500bd77df9494bf6f81cca0941b4463ba4e0f3fd0aab9181c89b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a146f8836fb916c83063c4eded192bb1d90449b97ea33c8465bbfe86edce901f"
   end
 
   depends_on "pkgconf" => :build

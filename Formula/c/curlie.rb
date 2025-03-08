@@ -1,17 +1,17 @@
 class Curlie < Formula
   desc "Power of curl, ease of use of httpie"
   homepage "https://github.com/rs/curlie"
-  url "https://github.com/rs/curlie/archive/refs/tags/v1.8.1.tar.gz"
-  sha256 "0b90d359b94af1d32cb2d34607f2bee10200e2f6a35f55840472e78dab7ed6f4"
+  url "https://github.com/rs/curlie/archive/refs/tags/v1.8.2.tar.gz"
+  sha256 "846ca3c5f2cca60c15eaef24949cf49607f09bdd68cbe9d81a2a026e434fa715"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "97885e654230197afb49fcbbe27e15b7938d1cd144d15149a1f9b2b585364e35"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "97885e654230197afb49fcbbe27e15b7938d1cd144d15149a1f9b2b585364e35"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "97885e654230197afb49fcbbe27e15b7938d1cd144d15149a1f9b2b585364e35"
-    sha256 cellar: :any_skip_relocation, sonoma:        "aa1c3af58c3196b7eccbc096fd8a8af0036044ad528e21ea35794ffbf79499dc"
-    sha256 cellar: :any_skip_relocation, ventura:       "aa1c3af58c3196b7eccbc096fd8a8af0036044ad528e21ea35794ffbf79499dc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ee1ca8a2f3407b408bc2e4a8c94775872617198507e216d69997c462bb590264"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "63443e27253ec013a3bb25c18a4c1f0da439ce63cf484e5dd18fdc5e56be082f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "63443e27253ec013a3bb25c18a4c1f0da439ce63cf484e5dd18fdc5e56be082f"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "63443e27253ec013a3bb25c18a4c1f0da439ce63cf484e5dd18fdc5e56be082f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "0989be89b84c97a2e8b9e1efcf124844728919f3ff7b9aab9bb3d832f042358e"
+    sha256 cellar: :any_skip_relocation, ventura:       "0989be89b84c97a2e8b9e1efcf124844728919f3ff7b9aab9bb3d832f042358e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8923e92fa583529ba8dcbdea7eacda66601bece881eeb33217787198a3434dad"
   end
 
   depends_on "go" => :build

@@ -1,17 +1,17 @@
 class Openlibm < Formula
   desc "High quality, portable, open source libm implementation"
   homepage "https://openlibm.org"
-  url "https://github.com/JuliaMath/openlibm/archive/refs/tags/v0.8.5.tar.gz"
-  sha256 "d380c2d871f6dc16e22893569d57bda9121742cc8f6534510526e5278867c6cf"
+  url "https://github.com/JuliaMath/openlibm/archive/refs/tags/v0.8.6.tar.gz"
+  sha256 "347998968cfeb2f9b91de6a8e85d2ba92dec0915d53500a4bc483e056f85b94c"
   license all_of: ["MIT", "ISC", "BSD-2-Clause"]
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "ebb6a4126500ffa530262bc877e8b902549373ed7fdf260988ccb814aeeea71a"
-    sha256 cellar: :any,                 arm64_sonoma:  "bc23a592bf2a7bc1997aa2dc9eed30a4aee5fdc46ded528848145aadbfa26c01"
-    sha256 cellar: :any,                 arm64_ventura: "9411ef9fade3b7288f08fbbb85c0b0c5a1aba3f598a9b1ed8fd6cf32e1b8ac46"
-    sha256 cellar: :any,                 sonoma:        "4a11a69b74568f64a3162246b92acbb20999a3bdca9e29aeb432de59649f7548"
-    sha256 cellar: :any,                 ventura:       "f56c0d4a666c1a5d65c7fcf2a43658f39491c5269ff3530955b324e181d8d088"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c35214d56a3ce8d747fe4651d941fda780c00df385d0a06698be7952459453fc"
+    sha256 cellar: :any,                 arm64_sequoia: "a0dc81e93df4ac3b526f26c735c5c08da119a54209e49fc0f2a5d2bb4d82b6af"
+    sha256 cellar: :any,                 arm64_sonoma:  "64d50bcefebd111f29c11bc05eb551b037fd35a7fbf28faf564a69963a153700"
+    sha256 cellar: :any,                 arm64_ventura: "0830994898d6ba15c3b9185e930d38f94693cf033d1dbdcd90d02795921e8a51"
+    sha256 cellar: :any,                 sonoma:        "d578955d8218e8c931a6e351119a53e3ab5038abdc616952b1ee7e6f86d31607"
+    sha256 cellar: :any,                 ventura:       "2704daa0edcd8da9b5d5329354936ded7d51126b2814fe2c9f54a0da17b440cc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "226b4eb1ee269df454fb708a5f862f2d9e98cbc7d4a9ce0d662cc239fa37d0a8"
   end
 
   def install

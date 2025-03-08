@@ -4,6 +4,7 @@ class Ncview < Formula
   url "https://cirrus.ucsd.edu/~pierce/ncview/ncview-2.1.11.tar.gz"
   sha256 "597cfddf9c2d7993e9b0b86bca1b73839567ee9116ee33f6d750a449b5033d91"
   license "GPL-3.0-only"
+  revision 1
 
   livecheck do
     url :homepage
@@ -11,12 +12,12 @@ class Ncview < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "5e7a66ee669661ddcc3212e291e1b9f315dc81e97a7457471c16fa806bb7f604"
-    sha256 cellar: :any,                 arm64_sonoma:  "6ff3a39169afd61af20dac04a213f0ef832e6a11f928d358fb2145a5ef249d6d"
-    sha256 cellar: :any,                 arm64_ventura: "f3909f25f887347c09702cb0b64464a7a2e7ee6432bb04e932954fe6daca6576"
-    sha256 cellar: :any,                 sonoma:        "94e98efb569e6580c73cc3f4c5f4e28bb06440c447c6ff292b5d11cc02aca350"
-    sha256 cellar: :any,                 ventura:       "b41fef5fc2a91cd5dfb10b4a934aa473cda99c532ec99fd15849afedf665fb4c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a4a7443caf71f6f422b38f1aa1b332793871815a6f75c0669b9ca5bc19bafdf8"
+    sha256 cellar: :any,                 arm64_sequoia: "2834b30675b2ef5ac05d70cf900f8dee5543198f5bdd95e67af41a732222f9c4"
+    sha256 cellar: :any,                 arm64_sonoma:  "65dcdc11101cafd4f43490814d21345cc5f4ffb9c57a8f64fb396b2731fda2ed"
+    sha256 cellar: :any,                 arm64_ventura: "2bc952df1f41c6f9050a745254138365ae9496d82b1be390712d69820dca9409"
+    sha256 cellar: :any,                 sonoma:        "2936bd01d289bc341a2a52e604692c7baa1611f8a2f7aa33d2a2c8e0fef22081"
+    sha256 cellar: :any,                 ventura:       "51021664ece85a65f8941d091657cd9c10f7a6d5875cd2306cf8cd3d50437ef9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ed6715afe50ab90f472bcdd31e4b51f047b0705796cc1e103162f74d113a4f44"
   end
 
   depends_on "libice"

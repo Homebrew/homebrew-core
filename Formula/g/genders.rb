@@ -1,9 +1,9 @@
 class Genders < Formula
   desc "Static cluster configuration database for cluster management"
   homepage "https://github.com/chaos/genders"
-  url "https://github.com/chaos/genders/archive/refs/tags/genders-1-31-1.tar.gz"
-  version "1.31.1"
-  sha256 "bb443a3c3b8b09a22d97550a997966cb9cd77ca47c24026393988702b07ffe07"
+  url "https://github.com/chaos/genders/archive/refs/tags/genders-1-32-1.tar.gz"
+  version "1.32.1"
+  sha256 "0dc186ec8fd01ec10b5e171d8b8ef632a56d17c135baee2570c0a3c0ffd9d64d"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -15,12 +15,12 @@ class Genders < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "08037b25160e755b0a73603e76a83002445a6472485b1e856b82788fbe0e46a2"
-    sha256 cellar: :any,                 arm64_sonoma:  "a0dbc1f4c41b3bb42f8ed22afd2be19bdf5ab706ada683f1938dff14f4ed67d7"
-    sha256 cellar: :any,                 arm64_ventura: "084206ecd3a25697c7758ffedcdedd132ba73df4fcc312a2d323c4ed397d1aa3"
-    sha256 cellar: :any,                 sonoma:        "306fef11d5e6921048d027818a91388760030c062a345bca095424ed9a844bab"
-    sha256 cellar: :any,                 ventura:       "528da84b44bc81f8041d8e51a4d5917d4f9198760e2170e9161a953f070be5e8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cc192e901b3cc085f303e2f61af4ef817a69e689ee03619835a9eaa189b8d852"
+    sha256 cellar: :any,                 arm64_sequoia: "62f03cd7307b153442bf0354c80db74e9f17b6eb76fc0913e9f58d24d3eca939"
+    sha256 cellar: :any,                 arm64_sonoma:  "378b3b15497a18109d4083be8b58c69926f5aba003335ad6ead80187bcba23fa"
+    sha256 cellar: :any,                 arm64_ventura: "85ce393a73b4c8102f4337e4fdd14cbe801e003951b92452ae7cacd733c37b0f"
+    sha256 cellar: :any,                 sonoma:        "dc5878427ff5e64542ee04d17fe4cafe426b0aa8de57ce6772d6caefa858eb67"
+    sha256 cellar: :any,                 ventura:       "418c4f1cd65608a9b31203c3fe1351260ab9af1c5e0ed7dc7ad6df40b2f816d4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9d4d80a5708b75bb42090098c791379194c9da4fc9cb41a1ff40193b69d0bea3"
   end
 
   uses_from_macos "bison" => :build

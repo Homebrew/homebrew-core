@@ -1,18 +1,18 @@
 class DockerCredentialHelper < Formula
   desc "Platform keystore credential helper for Docker"
   homepage "https://github.com/docker/docker-credential-helpers"
-  url "https://github.com/docker/docker-credential-helpers/archive/refs/tags/v0.9.1.tar.gz"
-  sha256 "aa4c2aa7987e780769b116f5cef263c13813ef9d40367c7830f71ce486c937b3"
+  url "https://github.com/docker/docker-credential-helpers/archive/refs/tags/v0.9.2.tar.gz"
+  sha256 "bdad4f712244f11dc64890db2f915166306bb4b040149f4497c31f33c7a87327"
   license "MIT"
   head "https://github.com/docker/docker-credential-helpers.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9c4d3952b99dff8c1a00a934c006f588c1a6ddf9191b809e0dee399b5c3d24b9"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9f6b8166ec7c92dcf3126f64cffcb715bd84f76985dbb9358e48caec4b403fee"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "2bd2e25684f04c1c4b7fed88f1b865710613aaea91e03f24ecbd4f9c5408f59e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "678d6dd2deb4b1c06e8b87e0a9fc8522f04523c9d81eb0afb30a06e406a814f5"
-    sha256 cellar: :any_skip_relocation, ventura:       "b9190eff7c746575e7d2deab3bd4a57024f31b10168ff0e599e9213e94925933"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "73960b75d9aa46d4b61c4188097c72406dddc0821e5e0293c22230e0444cb6fe"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fcd1300d81482b2caafb3bf72f4c92a7ffb7729101fad076ae6cf4cf40f3d301"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "aaaffe49a54c96fc6b6ad778e9fde495d49f4cca60f49343aa7736b87594d0b7"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "268897c05a0ceef58f40bb067c4ae8fe7bd2da45826edda4996ce87fd7918a0d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "267746edfe93981ddd4f761bd5e6ec2516fa3910120d5c6f167fdb04aae10081"
+    sha256 cellar: :any_skip_relocation, ventura:       "8f7e5511f55c528bd31f897a4b15b35271fc61e793d25e1bd0f5346a9b560c25"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "45b56edbcfe9483e55d2aee15d7f4cca6a7484709b2118e346b7da76746d4df7"
   end
 
   depends_on "go" => :build

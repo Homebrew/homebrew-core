@@ -1,8 +1,8 @@
 class Bmake < Formula
   desc "Portable version of NetBSD make(1)"
   homepage "https://www.crufty.net/help/sjg/bmake.html"
-  url "https://www.crufty.net/ftp/pub/sjg/bmake-20250125.tar.gz"
-  sha256 "4c7db7d04dbbfad00e57adc750cdd183095cc494bbeaf9daf338415cb5a599b2"
+  url "https://www.crufty.net/ftp/pub/sjg/bmake-20250225.tar.gz"
+  sha256 "cc19b15438b454e334a23a8c91e3b87fd4b8be08c6fd9500d48e55cc683bba10"
   license "BSD-3-Clause"
 
   livecheck do
@@ -11,12 +11,12 @@ class Bmake < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0a9c3aad2eb28b01f0372c90a02a9909e04aed379f031ad058c4b917f6609c4a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6577add099e87c65b506a08bd342e75864dac0f29d79b204484a2de6d0bdb66b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "2f7495a742b4e4f3a6bdb5e4d062f5b28c3d2155acb8cb5e249d810edc01fe1b"
-    sha256                               sonoma:        "ca25aff5b24c3b53b14be96c8f560e03481904fc1bb897047dafcc7b93a5cb9b"
-    sha256                               ventura:       "ed4fd1977d1c840ac610f35b4574f5bf76718dd9ae2f4b2ed9c8299f688ce36f"
-    sha256                               x86_64_linux:  "c205f62896d355106beb59ac6e56a3d979d187c5a56cbc2f2b2c66b3c945b5a6"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "36d52222847a69ed08bb551b8968aa97055651147386bde2cf16609b98a0679e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e83ed8d13d43be577c51d34ed503938324a068a019b9575c83d113db03daa053"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "0e38af867ff08da365c450013c51fae92e536bd4a41058d41ebff84fd4469f24"
+    sha256                               sonoma:        "8fc3a7161b7f38a9ee9138e9f92f9df69840767ada4600203ad068992b875cf7"
+    sha256                               ventura:       "16439b8a295855461a7872d65af6732533c26d59d6c3b0100b62c42e949b148a"
+    sha256                               x86_64_linux:  "eda28f9d899e4461ceb9125aa32da82405589d1fe0aaf78e669cdd60b5600497"
   end
 
   uses_from_macos "bc" => :build

@@ -4,7 +4,7 @@ class TransmissionCli < Formula
   url "https://github.com/transmission/transmission/releases/download/4.0.6/transmission-4.0.6.tar.xz"
   sha256 "2a38fe6d8a23991680b691c277a335f8875bdeca2b97c6b26b598bc9c7b0c45f"
   license any_of: ["GPL-2.0-only", "GPL-3.0-only"]
-  revision 2
+  revision 3
 
   livecheck do
     url :stable
@@ -12,12 +12,12 @@ class TransmissionCli < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "ae8206cd8a14489774e7bf2581d7e0ab55c2b5868d7667be203a69f76cf4b631"
-    sha256 arm64_sonoma:  "0520fc63dc94fb29d64eec122c55903ef45f2ada76d1e6c732da8ced05f3cce1"
-    sha256 arm64_ventura: "a516aea8e739d2e38cc2378ee5fe5e18ee8a1c676d8254ea5cea32cb2196c3e2"
-    sha256 sonoma:        "2a49dc19a425a257071fa3dbebfaf2cc53dbbb49c58f6eefd37f463793f47a57"
-    sha256 ventura:       "50466452e65aa64a5d3272b76e0c728f60396c69f025357f949ed22c55fae994"
-    sha256 x86_64_linux:  "ffb3eef78632cc6ab975c547536163e0ddd6b7620c7bc76b9b040bcba13efacd"
+    sha256 arm64_sequoia: "b9e4113a3030e91fd27c5bbced1e21c7c67261050ff8f11c1a4e173a4f747a04"
+    sha256 arm64_sonoma:  "ca4dbdf34346c6bc37192dc9ee53971b265cf9c3fbba6e38339f5766c11fbb15"
+    sha256 arm64_ventura: "8176400e94d9c4f5a33034b353021ccc35f55663f8d31f11bbf23ce78123527c"
+    sha256 sonoma:        "0237d99f85751e50e87c31577c7903680c5f16051c1541a0b84865bb22e237ec"
+    sha256 ventura:       "3268040e7f67f734934bdaa0e7c439bc120c4ba12ac06f345e74b2b633298ae1"
+    sha256 x86_64_linux:  "ef83d1cad5d89e26eea96e4ed7fe42769c94947735ca013fe7b8a8bdc0e007e2"
   end
 
   depends_on "cmake" => :build

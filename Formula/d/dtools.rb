@@ -1,20 +1,18 @@
 class Dtools < Formula
   desc "D programming language tools"
   homepage "https://dlang.org/"
-  url "https://github.com/dlang/tools/archive/refs/tags/v2.109.1.tar.gz"
-  sha256 "6f9db3ec124356f1ba6b10681e6bb07e364a434faf8d1644ef2e254b90a16459"
+  url "https://github.com/dlang/tools/archive/refs/tags/v2.110.0.tar.gz"
+  sha256 "2f1c1b29da3317321f0cf0776bdc39a682e4ef8b8bb5a919899c9a2d26e9d211"
   license "BSL-1.0"
   head "https://github.com/dlang/tools.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "014f22a3cb9d11924138766bcb02867a949faf4d555287c8aa37a29358047de0"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e4da9f80c0dd636bdbdc3dc13440887df95716c9f718a64ea7ba9eacf69f41c8"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d07da51134f24a745adfde5e2876e6cf81b650e3286648e5cce94b7e289eb450"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "422bb5c6da88abfe0055afa0e8d0a57f1d039b18cd1ecf70903dad2b946a3f5a"
-    sha256 cellar: :any_skip_relocation, sonoma:         "58cc9814b16fe73c3223b9190aad9e4208671f1272f2458fb02d1e77c03708bd"
-    sha256 cellar: :any_skip_relocation, ventura:        "dbfd5583ea5a1a2f26aad14c97152bef1599157fc6679f6d9949815eecc6ce73"
-    sha256 cellar: :any_skip_relocation, monterey:       "6344b77d8ab17334e4ccac3c3ab53d6c617871cf2a7c1ddda56ec502abdff3d0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4bcfd9495f99afff506110cd6bdf016c70b993f4437fab7567fa3e56bf0d46eb"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c583c2f992c3c332b760340d2baf4a6aa6cb004eddb6b2da61960b7a48fc7fdc"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a5350f732bacaad93af5c18147b7b21cef6ca34a8641193ea2fecd32d4134195"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "dab53f360a3dfa2047bb2f186ed9f41a35dbfa4efe6f871d1619676fdb765c9f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c695c100c2274bd1303bb1e1fd8664689a16a62bce54c9deed538de8263df05d"
+    sha256 cellar: :any_skip_relocation, ventura:       "d32eed31d7f7e167a636ba88473a66d8121e128a2024d2e2c009e58ba3ce94cd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7313add8db2da9fc4d1d08fef4bc9039a79ac54cb6f0fe83c7191a0787d56aeb"
   end
 
   depends_on "dub" => :build

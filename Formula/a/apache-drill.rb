@@ -12,22 +12,46 @@ class ApacheDrill < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "9645d66cd920bf65041bac079231869addd9e6217450bb6694af1067e06dc723"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "1fdc04dff9efe56387a375149ae2d30249bf790dd6a821f3410439b92bc51dd0"
   end
 
-  depends_on "openjdk@11"
+  depends_on "openjdk@21"
 
   def install
     rm(Dir["bin/*.bat"])
     libexec.install Dir["*"]
     bin.install Dir["#{libexec}/bin/*"]
-    bin.env_script_all_files(libexec/"bin", Language::Java.java_home_env("11"))
+    bin.env_script_all_files(libexec/"bin", Language::Java.java_home_env("21"))
     rm(Dir["#{bin}/*.txt"])
   end
 
   test do
     ENV["DRILL_LOG_DIR"] = ENV["TMP"]
-    pipe_output("#{bin}/sqlline -u jdbc:drill:zk=local", "!tables", 0)
+    output = pipe_output("#{bin}/sqlline -u jdbc:drill:zk=local 2>&1", "!tables", 0)
+    refute_match "Exception:", output
+
+    (testpath/"query.sql").write <<~SQL
+      SELECT employee_id, last_name, birth_date FROM cp.`employee.json` LIMIT 3;
+      SELECT * FROM dfs.`#{libexec}/sample-data/region.parquet`;
+    SQL
+    assert_match <<~EOS, shell_output("#{bin}/drill-embedded --run=#{testpath}/query.sql")
+      +-------------+-----------+------------+
+      | employee_id | last_name | birth_date |
+      +-------------+-----------+------------+
+      | 1           | Nowmer    | 1961-08-26 |
+      | 2           | Whelply   | 1915-07-03 |
+      | 4           | Spence    | 1969-06-20 |
+      +-------------+-----------+------------+
+      +-------------+-------------+----------------------+
+      | R_REGIONKEY |   R_NAME    |      R_COMMENT       |
+      +-------------+-------------+----------------------+
+      | 0           | AFRICA      | lar deposits. blithe |
+      | 1           | AMERICA     | hs use ironic, even  |
+      | 2           | ASIA        | ges. thinly even pin |
+      | 3           | EUROPE      | ly final courts cajo |
+      | 4           | MIDDLE EAST | uickly special accou |
+      +-------------+-------------+----------------------+
+    EOS
   end
 end

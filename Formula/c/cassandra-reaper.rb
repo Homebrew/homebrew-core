@@ -9,7 +9,7 @@ class CassandraReaper < Formula
     sha256 cellar: :any_skip_relocation, all: "a3b94b283a4b06b17c6c38dd31937863bd69b68e6396eb0f9a64b402ec9fef06"
   end
 
-  depends_on "openjdk@11"
+  depends_on "openjdk@11" # OpenJDK 17/21 issue: https://github.com/thelastpickle/cassandra-reaper/issues/1437
 
   def install
     inreplace Dir["resource/*.yaml"], " /var/log", " #{var}/log"

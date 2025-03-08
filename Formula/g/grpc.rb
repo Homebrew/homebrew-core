@@ -2,8 +2,8 @@ class Grpc < Formula
   desc "Next generation open source RPC library and framework"
   homepage "https://grpc.io/"
   url "https://github.com/grpc/grpc.git",
-      tag:      "v1.70.1",
-      revision: "5e099002c1600c580ebe1e6741f8ff8b182ffea4"
+      tag:      "v1.71.0",
+      revision: "4e9357bca1408596663a218c0c608a4c0560a867"
   license "Apache-2.0"
   head "https://github.com/grpc/grpc.git", branch: "master"
 
@@ -19,12 +19,12 @@ class Grpc < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "261703f183a9c388efd45a78efb06e78806fb60d91276a3fc4eac979e2bb49e8"
-    sha256 cellar: :any,                 arm64_sonoma:  "afd82adba9fb239db164a32c7bc56c731ecabdd419016c7cd2d0ae154a28e9ca"
-    sha256 cellar: :any,                 arm64_ventura: "923d24f4dbb14125b5d6779dc7fdad99ba7e70942cf88b6990d4c1858a4e534b"
-    sha256 cellar: :any,                 sonoma:        "9b1f58a3c2446909d96ef3b49afde53862c217bbae7d3e503a82fa69c5d288f9"
-    sha256 cellar: :any,                 ventura:       "6c431afa5e8ad0185ce5d20db7edc062ecac8965df6bf98a98d85415dc4b9fa1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "76d2ed0e8fbc3433c31b7e7259e24fa05a9929fa333a3c357b5612f6a0d1664c"
+    sha256                               arm64_sequoia: "491de4434f7245b0f75baebee6804fa79bbdd7004272bfd2332803634617e717"
+    sha256                               arm64_sonoma:  "130e28c4a782f25c6d9e35b3e551da24983a9a3042e2c6f40de75269bfd47cc3"
+    sha256                               arm64_ventura: "af0d19afaec71efc9d91fbb83610da8b78bdd422001c838c227d8ac61d665d87"
+    sha256 cellar: :any,                 sonoma:        "dfdbb317632d882ba24fb1bdbcd51f483aa5d04b31d6a462d1c1773e5b4ca613"
+    sha256 cellar: :any,                 ventura:       "30462b5367d26e38c0018cda7858f8d15b503aeaae21d7ab50e915d79b452b1e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "97d8dd8ebaa29c04d9a62131d1c9239d9bbec2def4d1dc8b11ac7fc367554b25"
   end
 
   depends_on "autoconf" => :build

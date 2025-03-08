@@ -1,15 +1,10 @@
 class Hatari < Formula
   desc "Atari ST/STE/TT/Falcon emulator"
-  homepage "https://hatari.tuxfamily.org"
-  url "https://download.tuxfamily.org/hatari/2.5.0/hatari-2.5.0.tar.bz2"
+  homepage "https://www.hatari-emu.org/"
+  url "https://framagit.org/hatari/releases/-/raw/main/v2.5/hatari-2.5.0.tar.bz2"
   sha256 "d76c22fc3de69fb1bb4af3e8ba500b7e40f5a2a45d07783f24cb7101e53c3457"
   license "GPL-2.0-or-later"
-  head "https://git.tuxfamily.org/hatari/hatari.git", branch: "master"
-
-  livecheck do
-    url "https://download.tuxfamily.org/hatari/"
-    regex(%r{href=["']?v?(\d+(?:\.\d+)+)/?["' >]}i)
-  end
+  head "https://framagit.org/hatari/hatari.git", branch: "main"
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "fd62555b198d19de0d5afa2dcf6538030b015edbecbb67e7f71b6b0650b51e4e"
@@ -29,6 +24,7 @@ class Hatari < Formula
   uses_from_macos "zlib"
 
   on_linux do
+    depends_on "libx11"
     depends_on "readline"
   end
 

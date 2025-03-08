@@ -1,10 +1,9 @@
 class Netcdf < Formula
   desc "Libraries and data formats for array-oriented scientific data"
   homepage "https://www.unidata.ucar.edu/software/netcdf/"
-  url "https://github.com/Unidata/netcdf-c/archive/refs/tags/v4.9.2.tar.gz"
-  sha256 "bc104d101278c68b303359b3dc4192f81592ae8640f1aee486921138f7f88cb7"
+  url "https://github.com/Unidata/netcdf-c/archive/refs/tags/v4.9.3.tar.gz"
+  sha256 "990f46d49525d6ab5dc4249f8684c6deeaf54de6fec63a187e9fb382cc0ffdff"
   license "BSD-3-Clause"
-  revision 2
   head "https://github.com/Unidata/netcdf-c.git", branch: "main"
 
   livecheck do
@@ -13,13 +12,12 @@ class Netcdf < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia: "70dfa63c3d6c0bc99c87e3396640dab20168be0922c86220b37249f12aca32b5"
-    sha256 cellar: :any,                 arm64_sonoma:  "1de9848cbbca463fb680cd0d9046eb0074c4fc5a576c6ec170226b7e8003e29c"
-    sha256 cellar: :any,                 arm64_ventura: "de58c0589a531564788da724ea83373d9a7d6e5eb85eb59106fc8141be027edc"
-    sha256 cellar: :any,                 sonoma:        "3c20b4751784056cefd18fc1c3d6d8c5f000a2f3cfdd0ae17889d2d3f7f7fb04"
-    sha256 cellar: :any,                 ventura:       "55bfa492d1653d4b73ef9cb288d4133e00ec101427d406461f20d379dadc7d12"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d08319d7d9cc73b8dbdea396221f5c499a3db2f50933640af1407e2140875a22"
+    sha256 cellar: :any,                 arm64_sequoia: "b6556411dffb6a79cade21f4c5935a7732f32b0566fbd95adc9c803578dd7f4c"
+    sha256 cellar: :any,                 arm64_sonoma:  "8e5f6edbc1bdc0514eabbb6ba699bfd3a1dac8056d0a18e76eacb4dfdbc747f5"
+    sha256 cellar: :any,                 arm64_ventura: "db5219d0b13f8c474852b9786e1c604ec6776a488cfa78446b6cbff87a917827"
+    sha256 cellar: :any,                 sonoma:        "8dc2871bf05e90c183d942121bdbeb217b52e84d3c2d76945a747b47664b5206"
+    sha256 cellar: :any,                 ventura:       "1521a5bcfc4a455a2b7848c85c4351c7809e31a11d11df4d7739236fe8d80588"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6c90a09f5e615e4c0bd1140e7e33341eb0dc0bc61934bea412cbb2d54066a191"
   end
 
   depends_on "cmake" => :build
@@ -31,11 +29,12 @@ class Netcdf < Formula
   uses_from_macos "libxml2"
 
   on_macos do
+    depends_on "libaec"
     depends_on "zstd"
   end
 
   def install
-    args = %w[-DENABLE_TESTS=OFF -DENABLE_NETCDF_4=ON -DENABLE_DOXYGEN=OFF]
+    args = %w[-DNETCDF_ENABLE_TESTS=OFF -DNETCDF_ENABLE_NETCDF_4=ON -DNETCDF_ENABLE_DOXYGEN=OFF]
     # Fixes "relocation R_X86_64_PC32 against symbol `stderr@@GLIBC_2.2.5' can not be used" on Linux
     args << "-DCMAKE_POSITION_INDEPENDENT_CODE=ON" if OS.linux?
 
@@ -44,7 +43,7 @@ class Netcdf < Formula
     system "cmake", "--install", "build_shared"
     system "cmake", "-S", ".", "-B", "build_static", *args, "-DBUILD_SHARED_LIBS=OFF", *std_cmake_args
     system "cmake", "--build", "build_static"
-    lib.install "build_static/liblib/libnetcdf.a"
+    lib.install "build_static/libnetcdf.a"
 
     # Remove shim paths
     inreplace [bin/"nc-config", lib/"pkgconfig/netcdf.pc", lib/"cmake/netCDF/netCDFConfig.cmake",

@@ -49,6 +49,7 @@
   "gold": "binutils",
   "google-perftools": "gperftools",
   "grakn": "typedb",
+  "grpc-swift": "protoc-gen-grpc-swift",
   "grunt": "grunt-cli",
   "gst-devtools": "gstreamer",
   "gst-editing-services": "gstreamer",

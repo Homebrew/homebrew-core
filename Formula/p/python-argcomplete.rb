@@ -3,17 +3,17 @@ class PythonArgcomplete < Formula
 
   desc "Tab completion for Python argparse"
   homepage "https://kislyuk.github.io/argcomplete/"
-  url "https://files.pythonhosted.org/packages/0c/be/6c23d80cb966fb8f83fb1ebfb988351ae6b0554d0c3a613ee4531c026597/argcomplete-3.5.3.tar.gz"
-  sha256 "c12bf50eded8aebb298c7b7da7a5ff3ee24dffd9f5281867dfe1424b58c55392"
+  url "https://files.pythonhosted.org/packages/ee/be/29abccb5d9f61a92886a2fba2ac22bf74326b5c4f55d36d0a56094630589/argcomplete-3.6.0.tar.gz"
+  sha256 "2e4e42ec0ba2fff54b0d244d0b1623e86057673e57bafe72dda59c64bd5dee8b"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "982cb0f26b5dfe5090e33156d2b34e38bdeba8f2cdab54895a5f273096ff4d59"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "982cb0f26b5dfe5090e33156d2b34e38bdeba8f2cdab54895a5f273096ff4d59"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "982cb0f26b5dfe5090e33156d2b34e38bdeba8f2cdab54895a5f273096ff4d59"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c4707397f76be1f1e95b3249087c508b5ef64b4c0f3516adb52d1fd47ef7cdd3"
-    sha256 cellar: :any_skip_relocation, ventura:       "c4707397f76be1f1e95b3249087c508b5ef64b4c0f3516adb52d1fd47ef7cdd3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "56b12d97b4b00ef8c9430c388f5ab6c7f62003d56434628c701ec139e306047c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f07fc88e9036cb1b5f5d1367b2d6e444a88205acccb0c04aef0191d9863c1cbf"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f07fc88e9036cb1b5f5d1367b2d6e444a88205acccb0c04aef0191d9863c1cbf"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "f07fc88e9036cb1b5f5d1367b2d6e444a88205acccb0c04aef0191d9863c1cbf"
+    sha256 cellar: :any_skip_relocation, sonoma:        "18bf1a1bc7c045fdd6daca3a143be3daf956f5c084c9681f6593a89b30f47165"
+    sha256 cellar: :any_skip_relocation, ventura:       "18bf1a1bc7c045fdd6daca3a143be3daf956f5c084c9681f6593a89b30f47165"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9dc00776a43d63dceb2c600c5c6ffae949dec009a453d339e0f5ed1a294605d0"
   end
 
   depends_on "python@3.13"

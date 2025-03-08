@@ -21,6 +21,8 @@ class Ddcutil < Formula
   depends_on "kmod"
   depends_on "libdrm"
   depends_on "libusb"
+  depends_on "libx11"
+  depends_on "libxext"
   depends_on "libxrandr"
   depends_on :linux
   depends_on "systemd"

@@ -1,18 +1,18 @@
 class Helmify < Formula
   desc "Create Helm chart from Kubernetes yaml"
   homepage "https://github.com/arttor/helmify"
-  url "https://github.com/arttor/helmify/archive/refs/tags/v0.4.17.tar.gz"
-  sha256 "81ea18dcbf1f135c9fae8c3502cb845dcfd99f2ead7234f03913ebebf563beb7"
+  url "https://github.com/arttor/helmify/archive/refs/tags/v0.4.18.tar.gz"
+  sha256 "d5d30c59f29355d8e6f0722ea863c0e72d8958d75206d948500defa36b57d430"
   license "MIT"
   head "https://github.com/arttor/helmify.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1245594585c7cde444edd84dfa10a42f31bd78f853153ac7bc7cf6d4dfe72132"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1245594585c7cde444edd84dfa10a42f31bd78f853153ac7bc7cf6d4dfe72132"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "1245594585c7cde444edd84dfa10a42f31bd78f853153ac7bc7cf6d4dfe72132"
-    sha256 cellar: :any_skip_relocation, sonoma:        "906399dee463915b51a296d41708920370efbf7727d67e3750923222ad985cce"
-    sha256 cellar: :any_skip_relocation, ventura:       "906399dee463915b51a296d41708920370efbf7727d67e3750923222ad985cce"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2b531a6283d42bdeb97c354d38ed75995127f1219ef4dc68aa860038bdc31310"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e9292bcbd63dec204dfdfb1ee1445c40af97365351b1013b612f7b8c2d288118"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e9292bcbd63dec204dfdfb1ee1445c40af97365351b1013b612f7b8c2d288118"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "e9292bcbd63dec204dfdfb1ee1445c40af97365351b1013b612f7b8c2d288118"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c879d0d8990dd78ae5719e95be9ff32ece4abfb0e0279fce0faaeebb51f19f5b"
+    sha256 cellar: :any_skip_relocation, ventura:       "c879d0d8990dd78ae5719e95be9ff32ece4abfb0e0279fce0faaeebb51f19f5b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "664f4e993ea457c1f691ecc749086493979d37034b3cc12e589ee2bb9c4f31f2"
   end
 
   depends_on "go" => :build

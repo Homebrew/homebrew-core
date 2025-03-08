@@ -12,26 +12,27 @@ class Verapdf < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "421f58e1c12ca320726e62f858107bba6fbf83ff40f1218d2edf939fdb55dc85"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "31fdef7dd908c4029bdd9b6e2a1aa8eb1b0b7634563edbf584f97f16eb59a494"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "6d037040888b3555e6f139c1278f19fc288601aa84ae80085104eb0f89ab7b71"
-    sha256 cellar: :any_skip_relocation, sonoma:        "6a81bacaef4bd6c9a71ac84c9506db0bc0a96357ba4376913b07cd3bacaa1443"
-    sha256 cellar: :any_skip_relocation, ventura:       "69a982bee3a812109c8424b0b2555f69850dd8e8e0ccaca9abdec300be972398"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1066fbf01e66e75e9aa4cea5e973134e9a480118bcede71a544c6ab8b6d118e5"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cbae6f8987f4179f7ad7ca597ce8cc22510578be96612a3c98fbeea5abe96ba5"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "25d9502450022e1e7a3145e783827f96f82c597671a22a4cb91a4d03267b33b8"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "9225f5e2d89debd75e186bda22d8459fccd2897ae1a87ac79a412641d1826573"
+    sha256 cellar: :any_skip_relocation, sonoma:        "294e4d35454edc87c8a4425e213f2afc02d7c629b95221c9d74d25aa553ae3bc"
+    sha256 cellar: :any_skip_relocation, ventura:       "5044cc1f06ae5d32fe6c879798cbe5c63385042c7804611413dc99e037da848f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0b4de9a77c593403d7924e13c93326568811b62986b2b0c53c986e5211d48efe"
   end
 
   depends_on "maven" => :build
-  depends_on "openjdk@21"
+  depends_on "openjdk"
 
   def install
-    ENV["JAVA_HOME"] = Formula["openjdk@21"].opt_prefix
+    ENV["JAVA_HOME"] = Language::Java.java_home
     system "mvn", "clean", "install", "-DskipTests"
 
     installer_file = Pathname.glob("installer/target/verapdf-izpack-installer-*.jar").first
     system "java", "-DINSTALL_PATH=#{libexec}", "-jar", installer_file, "-options-system"
 
     bin.install libexec/"verapdf", libexec/"verapdf-gui"
-    bin.env_script_all_files libexec, Language::Java.overridable_java_home_env("21")
+    bin.env_script_all_files libexec, Language::Java.overridable_java_home_env
     prefix.install "tests"
   end
 

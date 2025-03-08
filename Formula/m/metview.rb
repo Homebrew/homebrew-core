@@ -5,6 +5,7 @@ class Metview < Formula
   version "5.23.1"
   sha256 "4af1333431664bdbf0a11a6ff20bac847f83647358319864d1b1ad421d33970a"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url "https://confluence.ecmwf.int/display/METV/The+Metview+Source+Bundle"
@@ -12,11 +13,11 @@ class Metview < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:  "1314f5c83a7a6ad72a56bfdb8fd4bc19014028236c37269c686ec9a519c28aca"
-    sha256 arm64_ventura: "0f7b60d920d345f33b58eba7dbfdcfe8afbe00cfc7c33dd0eebb608ea93f7eb2"
-    sha256 sonoma:        "367af12844ef7651bfabcec56b81cf3cbb95e76ad3ad5e897e70478015ea8a17"
-    sha256 ventura:       "ed0d9f837e4dff2db019d3b43116eb434bbc2191eeee6a4fee35f0c287e13273"
-    sha256 x86_64_linux:  "958440b3d5bac08713c4b13ad6911ef885b8b4fdddcc5bd158a51cb91cc8be4a"
+    sha256 arm64_sonoma:  "a91ea407bda805391d017241b93713a0fe588145e2b168a2af751bc48d208436"
+    sha256 arm64_ventura: "26ba6b9c9d04acb75b2c67462666e19224c2c94fa14a38c7a094fc52f329c73b"
+    sha256 sonoma:        "28d3218151c12dc2b05e4adc0d0eabd10db58d692bd8e30030e5bf91ee54c853"
+    sha256 ventura:       "d2a661c173d35c61c5ce87f74af750f723b8c389189db1ff7617434acaea37fa"
+    sha256 x86_64_linux:  "7cd42b0b3cd17c91bc5121d3e43c29d4d10ab44413507f26e3bb6eec10c9a50c"
   end
 
   depends_on "cmake" => :build

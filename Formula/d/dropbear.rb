@@ -1,8 +1,8 @@
 class Dropbear < Formula
   desc "Small SSH server/client for POSIX-based system"
   homepage "https://matt.ucc.asn.au/dropbear/dropbear.html"
-  url "https://matt.ucc.asn.au/dropbear/releases/dropbear-2024.86.tar.bz2"
-  sha256 "e78936dffc395f2e0db099321d6be659190966b99712b55c530dd0a1822e0a5e"
+  url "https://matt.ucc.asn.au/dropbear/releases/dropbear-2025.87.tar.bz2"
+  sha256 "738b7f358547f0c64c3e1a56bbc5ef98d34d9ec6adf9ccdf01dc0bf2caa2bc8d"
   license "MIT"
 
   livecheck do
@@ -11,12 +11,12 @@ class Dropbear < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3e29395a023ddb759271d39c25e8d617ba5c4289e58fea0209b7271566c4c2e4"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "017e16888e6f0d05adbade2eee8ac8fa380ed4d47cf3dbb14a139f8274e98bdb"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "86fb52679bb14e9b71bccc1e1fa720bbd66d30d8c8799f21cf4ab2ab978687a9"
-    sha256 cellar: :any_skip_relocation, sonoma:        "001918a57d55adfc29571bb1344a5fd4872e2b05ba0b1bb2ee640c40ecb48c81"
-    sha256 cellar: :any_skip_relocation, ventura:       "2f9dd80d129c81a4169499b49e5492e9f20ecd783cc39a02b6ef1e4d2f0c75d4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e27cd4a21c7a4f699ca726bb5d8b5220acb47258e86eca69e5580ea7d0501d6d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1dfc0dcddaa51ff418928bbab824cd4382635ba80ae30cdd90e666ea08a965b6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7f4677b6768e3875db44518083f5ac557c17fc9fb964b12839677d0e6284d3f9"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "35ef5691418b6927d65e7158ae999b21ee8ee6cbf01d5a6d3a92c44e5fd0836d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8c1b9b713aed39530cc9ff87b499998293e601d10055bb037498cd9ae29f6dfd"
+    sha256 cellar: :any_skip_relocation, ventura:       "150f8a1e98c529ed24a7e544772de85dcec36d853007938bf0e55a4802758585"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1ea8c7093f3d411aea877bfc1d26c9538dcf3c6a973aa21696a34b2902e72b5c"
   end
 
   head do

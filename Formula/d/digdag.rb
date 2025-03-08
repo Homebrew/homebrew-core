@@ -23,5 +23,9 @@ class Digdag < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/digdag --version")
+    system bin/"digdag", "init", "mydag"
+    cd "mydag" do
+      system bin/"digdag", "run", "mydag.dig"
+    end
   end
 end

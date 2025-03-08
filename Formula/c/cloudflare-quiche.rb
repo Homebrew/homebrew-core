@@ -2,8 +2,8 @@ class CloudflareQuiche < Formula
   desc "Savoury implementation of the QUIC transport protocol and HTTP/3"
   homepage "https://docs.quic.tech/quiche/"
   url "https://github.com/cloudflare/quiche.git",
-      tag:      "0.23.2",
-      revision: "c5fc0679ece63636a2264ef273c75f08a405fdf7"
+      tag:      "0.23.4",
+      revision: "68c296009f87a10e1cb935c5879e53bcc412d00c"
   license "BSD-2-Clause"
   head "https://github.com/cloudflare/quiche.git", branch: "master"
 
@@ -13,16 +13,18 @@ class CloudflareQuiche < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "ce4557b96999526df17af6542bbe364a39b543e2439864be53014137397c69d1"
-    sha256 cellar: :any,                 arm64_sonoma:  "220432f61056cebfe7c8ec17fb517952453129fbd1e901712ccf9778c5f8c067"
-    sha256 cellar: :any,                 arm64_ventura: "41886440961660f8a8e8a1b0b04499d528ff19a4b0b48c312c036ec71b886bb5"
-    sha256 cellar: :any,                 sonoma:        "6fa5c717c65318ebfe51c8064073f8efe9fadc0f117e44d81300e64898b7cd93"
-    sha256 cellar: :any,                 ventura:       "9c2ca9c5075176e4e66c50645631da77978662e3970f7d9624fee5dd01260861"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4adbca974ad4e8a296889e0aed4f1e6c70d73a2be662f79773176a5fea29c4f7"
+    sha256 cellar: :any,                 arm64_sequoia: "afddeaf5d2089ad484a744f23271313b5eed852cb3af9c335e3b99e49c037dd6"
+    sha256 cellar: :any,                 arm64_sonoma:  "c4c73ba89bcee679f997182979cd184b8c3b1361d3b9424cccc353c09fbb12d2"
+    sha256 cellar: :any,                 arm64_ventura: "11b9d81731f8116ce8631b011c19733533e8baea9029c666b8b02a617a9bee37"
+    sha256 cellar: :any,                 sonoma:        "cd267945270cb89a76abb0e4f5083d57da92d6d9b3ae490d34597df9acd10765"
+    sha256 cellar: :any,                 ventura:       "c85bdae28fa4379dabebcdbc7951e642afd4a728abeba559827c67c356a64e41"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8d72eb72fbfea5ca1fcdf86cd89b2fe487e93d80bd575ac9902d27e2b40cf636"
   end
 
   depends_on "cmake" => :build
   depends_on "rust" => :build
+
+  uses_from_macos "llvm" => :build
 
   def install
     system "cargo", "install", *std_cargo_args(path: "apps")

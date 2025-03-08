@@ -3,18 +3,18 @@ class Aider < Formula
 
   desc "AI pair programming in your terminal"
   homepage "https://aider.chat/"
-  url "https://files.pythonhosted.org/packages/04/61/82fb836df2fc9c1691fe757b0ff08b44a50114e4f0be1e625936bff7a82e/aider_chat-0.75.1.tar.gz"
-  sha256 "e770f3f4a036f97d0dd75d193551e7e6edf937540415f41be6584a4581688750"
+  url "https://files.pythonhosted.org/packages/9d/f8/5a4ccbbf8a8368fd5ccdd1621c1296289360692da822123b7f0b27336fd7/aider_chat-0.75.2.tar.gz"
+  sha256 "d8a66c592efd2fd024f5387f311b03e90e738ff37d2217b8b6d650285ee0e589"
   license "Apache-2.0"
   head "https://github.com/paul-gauthier/aider.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "cf2b33efdd254dc5c54db79949bdda3ba1e995ec93d189a89b90d0019fd21be6"
-    sha256 cellar: :any,                 arm64_sonoma:  "010910660e1c90730664f71ec4fd6be726cf50d279fa311eab092d6fd97255fc"
-    sha256 cellar: :any,                 arm64_ventura: "fdc8cd7dd17721e29e19ab55ca83a5e56243beda8053d4ccc8c2bcdccffdce2e"
-    sha256 cellar: :any,                 sonoma:        "a67306a3fe4a301eaaf2fa49ede59d83adc4caab7c3a01ad1223d392a4b12f4a"
-    sha256 cellar: :any,                 ventura:       "0244f34e9e631836e583b90fedbce098416cf54128f645b4b2006b7996947cb4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "48ca539e2f7e4d6fab881a71eec2712cdfe6ef4f8dab64d096e77c5911f35e16"
+    sha256 cellar: :any,                 arm64_sequoia: "ef06361025f00b395f995b556670512463540cc0faf55b9a041d38f30bc24c31"
+    sha256 cellar: :any,                 arm64_sonoma:  "b17b5f0b5af8172303e05727c4771b97758698eeb68783cecc90c7e9cfd9107c"
+    sha256 cellar: :any,                 arm64_ventura: "f930b3f65432d8b2269afd3decb91d945e9ec58da8cc7b573144e7020f21e748"
+    sha256 cellar: :any,                 sonoma:        "1f5a99484c6dcd34ab66375871136f58a335809ed174afd78e86e0a387ae7f3c"
+    sha256 cellar: :any,                 ventura:       "1f85435005730e48077380e190e9dd486677eb91d87302653b497c37eff5e6f3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f0377043974aa94270532d7347209be133fac596aa78a4eb2c1a678669b08f8c"
   end
 
   depends_on "rust" => :build # for pydantic_core
@@ -27,13 +27,13 @@ class Aider < Formula
   depends_on "scipy"
 
   resource "aiohappyeyeballs" do
-    url "https://files.pythonhosted.org/packages/08/07/508f9ebba367fc3370162e53a3cfd12f5652ad79f0e0bfdf9f9847c6f159/aiohappyeyeballs-2.4.6.tar.gz"
-    sha256 "9b05052f9042985d32ecbe4b59a77ae19c006a78f1344d7fdad69d28ded3d0b0"
+    url "https://files.pythonhosted.org/packages/de/7c/79a15272e88d2563c9d63599fa59f05778975f35b255bf8f90c8b12b4ada/aiohappyeyeballs-2.4.8.tar.gz"
+    sha256 "19728772cb12263077982d2f55453babd8bec6a052a926cd5c0c42796da8bf62"
   end
 
   resource "aiohttp" do
-    url "https://files.pythonhosted.org/packages/37/4b/952d49c73084fb790cb5c6ead50848c8e96b4980ad806cf4d2ad341eaa03/aiohttp-3.11.12.tar.gz"
-    sha256 "7603ca26d75b1b86160ce1bbe2787a0b706e592af5b2504e12caa88a217767b0"
+    url "https://files.pythonhosted.org/packages/b3/3f/c4a667d184c69667b8f16e0704127efc5f1e60577df429382b4d95fd381e/aiohttp-3.11.13.tar.gz"
+    sha256 "8ce789231404ca8fff7f693cdce398abf6d90fd5dae2b1847477196c243b1fbb"
   end
 
   resource "aiosignal" do
@@ -152,8 +152,8 @@ class Aider < Formula
   end
 
   resource "huggingface-hub" do
-    url "https://files.pythonhosted.org/packages/e2/ac/9f7010c8b050d80b64bfddcc09ef4a4450ae4369940d1b01fa13f5d083de/huggingface_hub-0.29.0.tar.gz"
-    sha256 "64034c852be270cac16c5743fe1f659b14515a9de6342d6f42cbb2ede191fc80"
+    url "https://files.pythonhosted.org/packages/22/37/797d6476f13e5ef6af5fc48a5d641d32b39c37e166ccf40c3714c5854a85/huggingface_hub-0.29.1.tar.gz"
+    sha256 "9524eae42077b8ff4fc459ceb7a514eca1c1232b775276b009709fe2a084f250"
   end
 
   resource "idna" do
@@ -197,8 +197,8 @@ class Aider < Formula
   end
 
   resource "litellm" do
-    url "https://files.pythonhosted.org/packages/a8/40/81785cf0a61c23039322eafea23caac2a4e98da994044469a209ca10a1dd/litellm-1.61.9.tar.gz"
-    sha256 "792263ab0e40ce10e5bb05f789bbef4578a0caaf40b7a4fc1c373a6eabf9aa0d"
+    url "https://files.pythonhosted.org/packages/cd/05/a671625824733f3b0718f9a72ad16bd3074f76f988378b99c03165543593/litellm-1.62.1.tar.gz"
+    sha256 "eee9cc40dc9c1da7e411af2f4ef145a67bb61702ae4e1218c1bc15b9e6404daa"
   end
 
   resource "markdown-it-py" do
@@ -242,8 +242,8 @@ class Aider < Formula
   end
 
   resource "openai" do
-    url "https://files.pythonhosted.org/packages/e6/1c/11b520deb71f9ea54ced3c52cd6a5f7131215deba63ad07f23982e328141/openai-1.63.2.tar.gz"
-    sha256 "aeabeec984a7d2957b4928ceaa339e2ead19c61cfcf35ae62b7c363368d26360"
+    url "https://files.pythonhosted.org/packages/f6/03/0bbf201a7e44920d892db0445874c8111be4255cb9495379df18d6d36ea1/openai-1.65.2.tar.gz"
+    sha256 "729623efc3fd91c956f35dd387fa5c718edd528c4bed9f00b40ef290200fb2ce"
   end
 
   resource "packaging" do
@@ -262,8 +262,8 @@ class Aider < Formula
   end
 
   resource "posthog" do
-    url "https://files.pythonhosted.org/packages/5b/16/422ef6b6d4068d83b8c12b411c2a63807c233b73c83d09fb5f9e10e017e2/posthog-3.14.1.tar.gz"
-    sha256 "c8ea74ac6b3dff726e08d9e0f11f4726be46f0b4d335cc51ea25568fc8d23d99"
+    url "https://files.pythonhosted.org/packages/a5/1c/aa6bb26491108e9e350cd7af4d4b0a54d48c755cc76b2c2d90ef2916b8b3/posthog-3.18.1.tar.gz"
+    sha256 "ce115b8422f26c57cd4143499115b741f5683c93d0b5b87bab391579aaef084b"
   end
 
   resource "prompt-toolkit" do
@@ -272,8 +272,8 @@ class Aider < Formula
   end
 
   resource "propcache" do
-    url "https://files.pythonhosted.org/packages/20/c8/2a13f78d82211490855b2fb303b6721348d0787fdd9a12ac46d99d3acde1/propcache-0.2.1.tar.gz"
-    sha256 "3f77ce728b19cb537714499928fe800c3dda29e8d9428778fc7c186da4c09a64"
+    url "https://files.pythonhosted.org/packages/92/76/f941e63d55c0293ff7829dd21e7cf1147e90a526756869a9070f287a68c9/propcache-0.3.0.tar.gz"
+    sha256 "a8fd93de4e1d278046345f49e2238cdb298589325849b2645d4a94c53faeffc5"
   end
 
   resource "psutil" do
@@ -367,13 +367,13 @@ class Aider < Formula
   end
 
   resource "rpds-py" do
-    url "https://files.pythonhosted.org/packages/01/80/cce854d0921ff2f0a9fa831ba3ad3c65cee3a46711addf39a2af52df2cfd/rpds_py-0.22.3.tar.gz"
-    sha256 "e32fee8ab45d3c2db6da19a5323bc3362237c8b653c70194414b892fd06a080d"
+    url "https://files.pythonhosted.org/packages/0a/79/2ce611b18c4fd83d9e3aecb5cba93e1917c050f556db39842889fa69b79f/rpds_py-0.23.1.tar.gz"
+    sha256 "7f3240dcfa14d198dba24b8b9cb3b108c06b68d45b7babd9eefc1038fdf7e707"
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/92/ec/089608b791d210aec4e7f97488e67ab0d33add3efccb83a056cbafe3a2a6/setuptools-75.8.0.tar.gz"
-    sha256 "c5afc8f407c626b8313a86e10311dd3f661c6cd9c09d4bf8c15c0e11f9f2b0e6"
+    url "https://files.pythonhosted.org/packages/d1/53/43d99d7687e8cdef5ab5f9ec5eaf2c0423c2b35133a2b7e7bc276fc32b21/setuptools-75.8.2.tar.gz"
+    sha256 "4880473a969e5f23f2a2be3646b2dfd84af9028716d398e46192f84bc36900d2"
   end
 
   resource "six" do

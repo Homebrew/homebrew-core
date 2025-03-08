@@ -1,8 +1,8 @@
 class Asdf < Formula
   desc "Extendable version manager with support for Ruby, Node.js, Erlang & more"
   homepage "https://asdf-vm.com/"
-  url "https://github.com/asdf-vm/asdf/archive/refs/tags/v0.16.4.tar.gz"
-  sha256 "6b63b7b5edc37fb8af9d676a0f7bf2cc3cf449045eef8f9d1bf45b99b42842ee"
+  url "https://github.com/asdf-vm/asdf/archive/refs/tags/v0.16.5.tar.gz"
+  sha256 "d7b6e1efcdd62c881c7f4a539ce3a56131d9ddcbcc13e8099ee371545d38706a"
   license "MIT"
   head "https://github.com/asdf-vm/asdf.git", branch: "master"
 
@@ -12,13 +12,12 @@ class Asdf < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c1dd4007177e58892fae2a75114d7de4948e78ce8a9b98a417e98448953ffeb9"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c1dd4007177e58892fae2a75114d7de4948e78ce8a9b98a417e98448953ffeb9"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "c1dd4007177e58892fae2a75114d7de4948e78ce8a9b98a417e98448953ffeb9"
-    sha256 cellar: :any_skip_relocation, sonoma:        "66337c0d0e4e7115ded298ec3bff0bf38a92a2c1584161927ca5cb18be43b398"
-    sha256 cellar: :any_skip_relocation, ventura:       "66337c0d0e4e7115ded298ec3bff0bf38a92a2c1584161927ca5cb18be43b398"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "97c2bc741439f811ac0ae93b4595f506e154a745f5075503f4b52543bd3cf15a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "afceac20abb167cd85d4da04e1c89acdd06098f2aa4373deb640729bf7c0012f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "afceac20abb167cd85d4da04e1c89acdd06098f2aa4373deb640729bf7c0012f"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "afceac20abb167cd85d4da04e1c89acdd06098f2aa4373deb640729bf7c0012f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "27e44c008fffe03e266a992090543f73f66d189b68579a6e6e1048c969a3e89e"
+    sha256 cellar: :any_skip_relocation, ventura:       "27e44c008fffe03e266a992090543f73f66d189b68579a6e6e1048c969a3e89e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1b804f7d106519efff0a355dcf4c62b8edea0997abef667a1c9b4d5462fd9000"
   end
 
   depends_on "go" => :build

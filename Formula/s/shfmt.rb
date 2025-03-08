@@ -1,18 +1,18 @@
 class Shfmt < Formula
   desc "Autoformat shell script source code"
   homepage "https://github.com/mvdan/sh"
-  url "https://github.com/mvdan/sh/archive/refs/tags/v3.10.0.tar.gz"
-  sha256 "4cad722b7a569a05c86ec489b1d5980843ae60ca8db15aa71174c7810378a8ec"
+  url "https://github.com/mvdan/sh/archive/refs/tags/v3.11.0.tar.gz"
+  sha256 "69aebb0dd4bf5e62842c186ad38b76f6ec2e781188cd71cea33cb4e729086e94"
   license "BSD-3-Clause"
   head "https://github.com/mvdan/sh.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "88d60bca61406671618ecf94f2d81104882f9dd8db838a70d0c2cd6c0fa46863"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "88d60bca61406671618ecf94f2d81104882f9dd8db838a70d0c2cd6c0fa46863"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "88d60bca61406671618ecf94f2d81104882f9dd8db838a70d0c2cd6c0fa46863"
-    sha256 cellar: :any_skip_relocation, sonoma:        "788b7ecff02bbff7fa1563a4937999972799361b4a0c49b1ed8545983d6ff989"
-    sha256 cellar: :any_skip_relocation, ventura:       "788b7ecff02bbff7fa1563a4937999972799361b4a0c49b1ed8545983d6ff989"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0b15af30edec238edf607c38a95bd45249cdd6f48f30ab33bdd0a9c2ae2da956"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "86443c9bdac7eb362c1f37111b65c5571ac9c1ff3af9cc400fa21339638df3d7"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "86443c9bdac7eb362c1f37111b65c5571ac9c1ff3af9cc400fa21339638df3d7"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "86443c9bdac7eb362c1f37111b65c5571ac9c1ff3af9cc400fa21339638df3d7"
+    sha256 cellar: :any_skip_relocation, sonoma:        "30ebd6b438e9bb454607def57433c30bfecff1e409f9715e8c568393b4804001"
+    sha256 cellar: :any_skip_relocation, ventura:       "30ebd6b438e9bb454607def57433c30bfecff1e409f9715e8c568393b4804001"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3cf55cb5df6f5ba0b8bdbb9a734dbae95f110080b87909b2698f0ffa6d0d7912"
   end
 
   depends_on "go" => :build

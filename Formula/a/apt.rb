@@ -1,8 +1,9 @@
 class Apt < Formula
   desc "Advanced Package Tool"
   homepage "https://wiki.debian.org/Apt"
-  url "https://deb.debian.org/debian/pool/main/a/apt/apt_2.9.27.tar.xz"
-  sha256 "c9f52d6a3a608c995c19b0d431b0bdf4191e08761ed6a22c37ce3d4fd847eee0"
+  # Using git tarball as Debian does not retain old versions at deb.debian.org
+  url "https://salsa.debian.org/apt-team/apt/-/archive/2.9.27/apt-2.9.27.tar.bz2"
+  sha256 "80402ee2b505592636d6a6e75e2a3e5b69d1ddde3cf3ca487bc22d0377d98241"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -29,10 +30,9 @@ class Apt < Formula
   depends_on "bzip2"
   depends_on "dpkg"
   depends_on "gnupg"
-  depends_on "gnutls"
-  depends_on "libgcrypt"
   depends_on :linux
   depends_on "lz4"
+  depends_on "openssl@3"
   depends_on "perl"
   depends_on "systemd"
   depends_on "xxhash"

@@ -2,12 +2,12 @@ class PhpCsFixer < Formula
   desc "Tool to automatically fix PHP coding standards issues"
   homepage "https://cs.symfony.com/"
   # Bump to php 8.4 on the next release, if possible.
-  url "https://github.com/PHP-CS-Fixer/PHP-CS-Fixer/releases/download/v3.70.2/php-cs-fixer.phar"
-  sha256 "e3fc73c8a479efcc16abd072e902fab84860e4fb5d95f272eb29617524079f95"
+  url "https://github.com/PHP-CS-Fixer/PHP-CS-Fixer/releases/download/v3.71.0/php-cs-fixer.phar"
+  sha256 "c6f8a9beff2b563d653163636a7ec7956f17a456e9755323d5c2e0e547e6e148"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "4b7abb293530c32433261d7cfb0316c248ab2129a043a548544a1db82629e850"
+    sha256 cellar: :any_skip_relocation, all: "3d22fcb9028eece4a4aaaf00364806449154a7231251a8fa9269366c99162cdd"
   end
 
   depends_on "php@8.3" # php 8.4 support milestone, https://github.com/PHP-CS-Fixer/PHP-CS-Fixer/milestone/173

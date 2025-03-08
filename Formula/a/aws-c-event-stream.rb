@@ -1,17 +1,17 @@
 class AwsCEventStream < Formula
   desc "C99 implementation of the vnd.amazon.eventstream content-type"
   homepage "https://github.com/awslabs/aws-c-event-stream"
-  url "https://github.com/awslabs/aws-c-event-stream/archive/refs/tags/v0.5.2.tar.gz"
-  sha256 "df56bcaab671e4aa898725e35e5d60becf5410bc652be9f9025ab414ba3ab7db"
+  url "https://github.com/awslabs/aws-c-event-stream/archive/refs/tags/v0.5.4.tar.gz"
+  sha256 "cef8b78e362836d15514110fb43a0a0c7a86b0a210d5fe25fd248a82027a7272"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "1d5031f9be3e33e04dccd3853a8e9e83deb78043597571b29ca3ad8f3d39299a"
-    sha256 cellar: :any,                 arm64_sonoma:  "cb2bc5592c46f2f78f89a2c923430141d29d318308e79921b0b6e0885aecdd5d"
-    sha256 cellar: :any,                 arm64_ventura: "21b7c06a561252cf2e4372372563eb1b1b223988bd86653de19eff6d36a8936b"
-    sha256 cellar: :any,                 sonoma:        "977395532265203256a30031f2feb90488f117d230337ed8b564c6ad762d9638"
-    sha256 cellar: :any,                 ventura:       "4d61465d06018e895fa018d9e494e48b506c1211f9a987c7f9a691c6f85953bf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "59829d48ff55ea56f59115bdf58543b641a8d43fe898a02d0a4971c8696a5a9a"
+    sha256 cellar: :any,                 arm64_sequoia: "7bb1c234fc76207143274392938efa1c7912b82db36c2d7bd3e1ff31c2b21a97"
+    sha256 cellar: :any,                 arm64_sonoma:  "22adf47866d7f196b5296469044723b94223a3c536590517605930a8c76461ec"
+    sha256 cellar: :any,                 arm64_ventura: "fea45020a2341c46d9671671bc59bc788c4301615d5365e44cde87fca734f0f6"
+    sha256 cellar: :any,                 sonoma:        "50ab76b1c74f6639a8af58478426de6e91201d1f0a32a81d3d20b63c6da44de1"
+    sha256 cellar: :any,                 ventura:       "7cb1403ff68bd39da60c9051539cb3b9f88447baf5e199e6805bcdb8ec2a2ea2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d4bd0d80ba4c490b1e0548caad95670e5c6937e5056b8945e11c2f58bde41d36"
   end
 
   depends_on "cmake" => :build

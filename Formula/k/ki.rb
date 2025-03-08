@@ -7,27 +7,24 @@ class Ki < Formula
   head "https://github.com/Kotlin/kotlin-interactive-shell.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "330ff80f542bcfdde3309e437525259e0cab61b373d0ad8239188a01049b8c3f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ce1c2bff302746a72187c41054af8a7918291d8a60b14eb9e5382a85e6854739"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "48be2a1031fc2bf7fdac348fb639a7d2feb6f4cf0c357b77a750d8c2c3fac901"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "14cbfb27e03216a1e02e9058a30bc2ff3523fc2f29b00790a7fc3eb13b7148c9"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "14cbfb27e03216a1e02e9058a30bc2ff3523fc2f29b00790a7fc3eb13b7148c9"
-    sha256 cellar: :any_skip_relocation, sonoma:         "2f47a123067722562c4d81197f0898bb4ba5abb8975ede38060ecf5eea135804"
-    sha256 cellar: :any_skip_relocation, ventura:        "cd8ade77bdf44028519583eb08717c28cabeaed469f70abb75f0458170525474"
-    sha256 cellar: :any_skip_relocation, monterey:       "f218424013a975e865931fcc3b045a01665ce88345fe257e38e84c655cffd728"
-    sha256 cellar: :any_skip_relocation, big_sur:        "2c2eb51ed8339eb71d19bb9ed6a8ac3bd30056f2efd33a74d8078808079ae59f"
-    sha256 cellar: :any_skip_relocation, catalina:       "137ed3bd1905cc0a60ef1d5433b9baed66ed36fdd0bbb60d2da6956c58bd00e5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "07c1f7055c425eef58c5a15b1b838d54e15d7b4347ac2e85a28eeb7e42fcee46"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b4f17d3db413634dc6b07e462760db4358c8ec02012342c3048c52728ab71888"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "08da91f35d7ce64edc948fda63ef969592e9e299c2fe713559b300cb95d73f57"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "34f86ba275df07618724236322138b5b53027a6c4b772e178660460be2362cf1"
+    sha256 cellar: :any_skip_relocation, sonoma:        "39be21332141ebf86fd1b73ba0d6bfe8f8dec07caf5ddc8e8d9734f513681c5d"
+    sha256 cellar: :any_skip_relocation, ventura:       "f44890a5523df5d74707bdedead4d8c617cbddea01322d541371235b878c402d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f6c23ecade167e9a2e175a6b34693c45fbbd2b7b4b9565554aa34ddcf1988d74"
   end
 
   depends_on "maven" => :build
-  depends_on "openjdk@11"
+  depends_on "openjdk"
 
   def install
-    ENV["JAVA_HOME"] = Formula["openjdk@11"].opt_prefix
+    ENV["JAVA_HOME"] = Language::Java.java_home
+
     system "mvn", "-DskipTests", "package"
     libexec.install "lib/ki-shell.jar"
-    bin.write_jar_script libexec/"ki-shell.jar", "ki", java_version: "11"
+    bin.write_jar_script libexec/"ki-shell.jar", "ki"
   end
 
   test do

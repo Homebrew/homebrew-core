@@ -40,6 +40,7 @@ alda
 alembic
 algernon
 algol68g
+algolia
 aliae
 aliddns
 aliyun-cli
@@ -678,6 +679,7 @@ cucumber-ruby
 cue
 cups
 curl
+curlie
 cvs-fast-export
 cweb
 cxgo
@@ -962,6 +964,7 @@ eza
 f2
 f3d
 faac
+faad2
 faas-cli
 fabio
 fabric
@@ -1075,6 +1078,7 @@ foreman
 forgit
 fork-cleaner
 fortio
+fortitude
 fortls
 fossil
 fourmolu
@@ -1126,6 +1130,7 @@ gambit
 game-music-emu
 gammaray
 garble
+garnet
 gat
 gateway-go
 gator
@@ -1155,6 +1160,7 @@ geoipupdate
 geos
 geoserver
 geph4
+gersemi
 getmail6
 gettext
 gexiv2
@@ -1261,7 +1267,7 @@ go-feature-flag-relay-proxy
 go-md2man
 go-size-analyzer
 go-task
-go@1.22
+go@1.23
 goaccess
 goawk
 gobject-introspection
@@ -1348,7 +1354,6 @@ groonga
 groovy
 groovysdk
 grpc
-grpc-swift
 grpcui
 grype
 gsan
@@ -2317,6 +2322,8 @@ nerdfix
 nest
 nestopia-ue
 netaddr
+netcdf
+netfetch
 nethogs
 netlify-cli
 nettle
@@ -2352,11 +2359,13 @@ node@18
 node@20
 node@22
 nodeenv
+nom
 nomino
 nopoll
 noseyparker
 notation
 notcurses
+noti
 notify
 nox
 nping
@@ -2594,6 +2603,7 @@ pg_cron
 pg_partman
 pgbadger
 pgbouncer
+pgcli
 pgpool-ii
 pgrok
 pgroonga
@@ -2725,6 +2735,7 @@ protobuf-c
 protoc-gen-go
 protoc-gen-go-grpc
 protoc-gen-grpc-java
+protoc-gen-grpc-swift
 protoc-gen-grpc-web
 protolint
 prowler
@@ -2815,6 +2826,7 @@ qtkeychain
 quantlib
 quantum++
 quasi88
+quazip
 questdb
 quick-lint-js
 quicktype
@@ -2842,6 +2854,7 @@ ratchet
 ratfor
 ratify
 rattler-build
+rattler-index
 rav1e
 raven
 raxml-ng
@@ -2892,6 +2905,7 @@ reveal-md
 revive
 rex
 rgbds
+rhai
 rhash
 rhino
 rhit
@@ -2923,6 +2937,7 @@ roswell
 rover
 roxctl
 rp
+rpds-py
 rpg-cli
 rpki-client
 rpl
@@ -3035,12 +3050,14 @@ securefs
 selene
 selenium-server
 semgrep
+semver
 sendme
 sentencepiece
 sentry-cli
 seqkit
 sequin
 sequoia-sq
+sequoia-sqv
 ser2net
 serd
 serf
@@ -3139,6 +3156,7 @@ snowflake-cli
 snyk-cli
 soapyremote
 socat
+soci
 socket_vmnet
 soft-serve
 solana
@@ -3473,6 +3491,7 @@ typescript-language-server
 typeshare
 typewritten
 typical
+typioca
 typos-cli
 typos-lsp
 typst

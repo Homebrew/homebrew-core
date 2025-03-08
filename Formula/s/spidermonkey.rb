@@ -1,9 +1,9 @@
 class Spidermonkey < Formula
   desc "JavaScript-C Engine"
   homepage "https://spidermonkey.dev"
-  url "https://archive.mozilla.org/pub/firefox/releases/128.7.0esr/source/firefox-128.7.0esr.source.tar.xz"
-  version "128.7.0"
-  sha256 "e0a7bf4eddfa33cbc8797d68ecea8fb4e6404ca197d3b2242cbc8daed03794f7"
+  url "https://archive.mozilla.org/pub/firefox/releases/128.8.0esr/source/firefox-128.8.0esr.source.tar.xz"
+  version "128.8.0"
+  sha256 "201fcb12c285470f2b3cdf050f0fe7d96d5e0c5d352e86ef8957b595329a32bf"
   license "MPL-2.0"
   head "https://hg.mozilla.org/mozilla-central", using: :hg
 
@@ -15,12 +15,12 @@ class Spidermonkey < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia: "87c699d9331e223c485ac64795c43c3495b359cec431d2f9c94499f73cc67761"
-    sha256 cellar: :any, arm64_sonoma:  "4a0e35f532e855103703602ee8ad19a58ac023da175587ed2bf4582eb16fcd42"
-    sha256 cellar: :any, arm64_ventura: "756b9562dfdfe1c5f0428fc89cc9cb55bd652b053b2575e9b7667db97748226e"
-    sha256 cellar: :any, sonoma:        "bc72ec9d8810c132861d4159bd59af740dcd84c216892a01688201d78d855a62"
-    sha256 cellar: :any, ventura:       "d38acf1650334e54c9399871c66a0998da05b50535fe5905a0450e5d3e2d9a50"
-    sha256               x86_64_linux:  "5400ba52fb2299ddd49cbe3ed52dcbbce7a3d0b94ff9a023b8e71abaf1cc5ab9"
+    sha256 cellar: :any, arm64_sequoia: "d0cf4935321000d95a4193cd5c4e3e2259ec78af3e80b9953219664ae13f2944"
+    sha256 cellar: :any, arm64_sonoma:  "479d51f57c2380098afcd54682a526de7b4d8df28212577cb5a1dbaf7bd919a6"
+    sha256 cellar: :any, arm64_ventura: "4ca151ebde216c98464a129391984906c594180cd9d3c35f19e90cecc6e4bfed"
+    sha256 cellar: :any, sonoma:        "92b59986f7c63d318c65e5b86256941ba5236815b04e99b1a107e89b9d72b2db"
+    sha256 cellar: :any, ventura:       "ab7756a870b730b47d821938cb50838caa08e7df8c5af16cdf26cc05f6e179d1"
+    sha256               x86_64_linux:  "743b8f35bd01c1ff9e6ba3527a4e4e9523e592fa9ac1655395f0f98c1f023190"
   end
 
   depends_on "cbindgen" => :build

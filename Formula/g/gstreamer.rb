@@ -2,11 +2,18 @@ class Gstreamer < Formula
   desc "Development framework for multimedia applications"
   homepage "https://gstreamer.freedesktop.org/"
   license all_of: ["LGPL-2.0-or-later", "LGPL-2.1-or-later", "MIT"]
-  revision 1
+  revision 2
 
   stable do
     url "https://gitlab.freedesktop.org/gstreamer/gstreamer/-/archive/1.24.12/gstreamer-1.24.12.tar.bz2"
     sha256 "23c0e1de51ce96be8ef26c79f9b971a11ab82c8e6267cea8c3933ede28fba155"
+
+    # Backport support for `svt-av1` >= 3.0.0
+    # upstream commit ref, https://gitlab.freedesktop.org/gstreamer/gstreamer/-/commit/6bdfaa4606c417be8a64f4494fe95ea30421c24b
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/6cf03eafb8a3e77dcd4a7ddfc668f142dd42f9ee/gstreamer/gst-plugins-bad-svtav1.patch"
+      sha256 "a45f7a192df14b22c4bd106a63ad691ca6f8a219a37904f7a6e9dab9cc9dafea"
+    end
 
     # When updating this resource, use the tag that matches the GStreamer version.
     resource "rs" do
@@ -32,12 +39,12 @@ class Gstreamer < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "bf3974990e4a3446e2e31b08b4a8ad8f13028693bf3977e272538aa0f95bd277"
-    sha256 arm64_sonoma:  "99df12a0ff7622aac46873d224a7257361222bf13e714826144cbd6fb4480569"
-    sha256 arm64_ventura: "c6d1c6ee4eeb7bd08a805ad5f20cd25f4a95c77b19445872507d046a7f9d214c"
-    sha256 sonoma:        "3d0a8846b64771753d1e1dd09229c7ff9c24209b1c59adf1228ec687ebf05fef"
-    sha256 ventura:       "3a6beeddea440868b56f595e205bd6fb4ebac5f04b77723c09a434c5b536a143"
-    sha256 x86_64_linux:  "7277b9f2ede925d0e153aaa1c11de3b6f8cbe70c35b17d23836c752984971beb"
+    sha256 arm64_sequoia: "102bf34ab44d565700cdb6e453260dde5d18118745765185deac713b24ce9fb7"
+    sha256 arm64_sonoma:  "0f4954c4c2cd9917cf57f293034941a2e4f5561dcbcf5f7f9f43f05e09b241d4"
+    sha256 arm64_ventura: "2c3ba0c1a45f1262a004cbfdc18c7702fe3e9b92185ab9d7e5eff66ff6f9e2de"
+    sha256 sonoma:        "99d1e420d0f113526f518268392cb7caa39ca5d4345eba369d91196809574d7f"
+    sha256 ventura:       "1ba127c6dfc34c2c7c08e8d575d6827890b607027e374ee2368937d1131f22b6"
+    sha256 x86_64_linux:  "dbca54e518223ec0ff472d2bbe27926d17d8cb11c1331dfe0d2a30d165008ef1"
   end
 
   head do

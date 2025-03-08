@@ -6,15 +6,16 @@ class Fwupd < Formula
   url "https://github.com/fwupd/fwupd/releases/download/2.0.6/fwupd-2.0.6.tar.xz"
   sha256 "57d91327c4541490ce731f24d4bcd5301ba7561e264db2f0a4031f48e6d6dae2"
   license "LGPL-2.1-or-later"
+  revision 1
   head "https://github.com/fwupd/fwupd.git", branch: "main"
 
   bottle do
-    sha256 arm64_sequoia: "564430d805d96cba2824eebde847365e10799102e8ef3a702652247613e4f489"
-    sha256 arm64_sonoma:  "6039342e5306055a3b3ad03d150a354afa9485d21a86715603e073569b1472c7"
-    sha256 arm64_ventura: "5dd90f18b643888c5d1588d1861b01f1a84697009b41719d14c381d69399b9f4"
-    sha256 sonoma:        "b2cefc15eaf7d5cea219012481213cbd6dd33bab193db6ca35703801dcd93c55"
-    sha256 ventura:       "1409bab0cd7acd1fa308c87e9775b3c2594b73c328f73d4ed36d7343e3eff43b"
-    sha256 x86_64_linux:  "484b7c2cdaf831a1ad6281e2426495546ab91f9c6d1d9cbafcf136f61ccb9b0c"
+    sha256 arm64_sequoia: "95831d852f73c4bdcbac7c34c3870d9b965b6714b2c58504c6960ead8d57a2f1"
+    sha256 arm64_sonoma:  "f3f5e55c938567cd16b18ad606b5ab9cb69dc2ecd6e22e5fbd7643feb6a2312e"
+    sha256 arm64_ventura: "f66b06f9ade6d2c4fc280d45efac127825062d851484e32b37bb0a645c0858ec"
+    sha256 sonoma:        "94d5bc64898c66336ebd90208072bda18ef4ff4aa23e9610c57ac3d68fce7474"
+    sha256 ventura:       "e7b423eeb9a05502c950fb170f80cce0b95b07ed3e52072689ba8ff131db3332"
+    sha256 x86_64_linux:  "bc1252020938df1c49d8ff7a7dc4adb0184eb60fde97d592995772ab11aeeca5"
   end
 
   depends_on "gettext" => :build
@@ -52,8 +53,8 @@ class Fwupd < Formula
   end
 
   resource "jinja2" do
-    url "https://files.pythonhosted.org/packages/af/92/b3130cbbf5591acf9ade8708c365f3238046ac7cb8ccba6e81abccb0ccff/jinja2-3.1.5.tar.gz"
-    sha256 "8fefff8dc3034e27bb80d67c671eb8a9bc424c0ef4c0826edbff304cceff43bb"
+    url "https://files.pythonhosted.org/packages/df/bf/f7da0350254c0ed7c72f3e33cef02e048281fec7ecec5f032d4aac52226b/jinja2-3.1.6.tar.gz"
+    sha256 "0137fb05990d35f1275a587e9aee6d56da821fc83491a0fb838183be43f66d6d"
   end
 
   resource "markupsafe" do

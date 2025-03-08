@@ -1,18 +1,18 @@
 class Jj < Formula
   desc "Git-compatible distributed version control system"
   homepage "https://github.com/jj-vcs/jj"
-  url "https://github.com/jj-vcs/jj/archive/refs/tags/v0.26.0.tar.gz"
-  sha256 "099eeb346f32a4968ebb8273566321eff2e6ca6a7de0c9dcfd7eee016b37cba1"
+  url "https://github.com/jj-vcs/jj/archive/refs/tags/v0.27.0.tar.gz"
+  sha256 "a9d2ab04698f971a215ae2510082d0bc00540188deb90d48e12e86a6d6a023af"
   license "Apache-2.0"
   head "https://github.com/jj-vcs/jj.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "7cd799ab79d243b5b5a4d6e7e76c8099c28b0611eaac75c4bb262ff92512db47"
-    sha256 cellar: :any,                 arm64_sonoma:  "87ee2ec2eacd2a8776a81e16b32aa57490a3faa740973bfeb49239241674853b"
-    sha256 cellar: :any,                 arm64_ventura: "0475f8f30621838eda92a15364ab044c870fb6535168d019b0edbc9dbe493e1d"
-    sha256 cellar: :any,                 sonoma:        "0fca81f48667c8c017417f7a0a370b15175db25e52cd01332f384de358d5014e"
-    sha256 cellar: :any,                 ventura:       "286c3273628ab71e4ac65fc18f10fdb55fbb0fe06af0a57f597800adacf7ef74"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0f83cfb4bd0cdec091d154063fb68aeb3af0a15c487d35b4fdc60ea79a5b2595"
+    sha256 cellar: :any,                 arm64_sequoia: "6d0634c7e5d2d58395b669e17fd6216cd1b479d053c6939758944b5773cb4379"
+    sha256 cellar: :any,                 arm64_sonoma:  "d274c267c3ee8e1e7c44118f02161f2aeb6edcaea36a2624efc68710e38bccb1"
+    sha256 cellar: :any,                 arm64_ventura: "c0f83bf316cd23337defe87ebd3af29c79eb8c946440e945ae47ee4b0bdbac3a"
+    sha256 cellar: :any,                 sonoma:        "5f68e6206a8b6ada72b5c775a28a6fa9b5537e07932cf73d2fb4c31a1c69f6ab"
+    sha256 cellar: :any,                 ventura:       "ffc4619099fdd5a445efda8e5e00afeaec487e748ee63673321829b2ed6872cb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ff87d1f90bfbe3daf2a0566d661c73bb94d957019ca762fd02781160b23142db"
   end
 
   depends_on "pkgconf" => :build

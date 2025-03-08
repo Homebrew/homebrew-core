@@ -6,15 +6,16 @@ class Fava < Formula
   url "https://files.pythonhosted.org/packages/6e/a0/93e702e3ff56b058539f0ad62b6df6a8d8d00aba1c0b393aeccb277a25d4/fava-1.30.1.tar.gz"
   sha256 "ebd5b1f7f1fb9cb0cf64ff4b3949c3267818f584c272bfa843413afb178858f1"
   license "MIT"
+  revision 1
   head "https://github.com/beancount/fava.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "86dffea8363bde5a0949c0ce6d2f2423ee26a4639dc277fc33dbb08773bb57be"
-    sha256 cellar: :any,                 arm64_sonoma:  "2a22c3399e8ef68248b3d2f70b1cce3d7fa6ad6fb1b61e3f80f9b6d7dc8d9015"
-    sha256 cellar: :any,                 arm64_ventura: "92e321458fdd5d7cadbac674d5971df11b391068edea8a522b669680493fb570"
-    sha256 cellar: :any,                 sonoma:        "5c8f7aa0157ed7417c4061612e8a4946e1f5ec6bb07f4982e28d86b422701eb1"
-    sha256 cellar: :any,                 ventura:       "a46453464c3e722123958a9115d20844e52afb6ae7a2ce112b28c9e7b26c8836"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "822b41828ca604c4c5aae2aea0fd8c17b1b4ebeb6f4d8f42ae457bc451824d34"
+    sha256 cellar: :any,                 arm64_sequoia: "2a40103331ad97301f87a7548dc1d58b5a397e8bdbccfda31408bef2bf786de9"
+    sha256 cellar: :any,                 arm64_sonoma:  "b91a203ab893b195f38a0fec13cde84e83e2c27b9e5bcbc87369afe307674984"
+    sha256 cellar: :any,                 arm64_ventura: "a7b743d3fc86c54650248694067d0198523eaa71119035e4edcca0abff6c1d20"
+    sha256 cellar: :any,                 sonoma:        "250b3e3755b046ac688b8dcc35e56a7d6179d26ea30c716bc34acbdd7e107bec"
+    sha256 cellar: :any,                 ventura:       "d522789b27b90118c85a5de8943c0ebd4c7e2beed17f598eb6a0ea9a3d467faa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "313c09784dda3c14df2ca71fcea1ed38d4dd22a4701b53d7dfbb187aa49b8742"
   end
 
   depends_on "bison" => :build # for beancount
@@ -108,13 +109,13 @@ class Fava < Formula
   end
 
   resource "jinja2" do
-    url "https://files.pythonhosted.org/packages/af/92/b3130cbbf5591acf9ade8708c365f3238046ac7cb8ccba6e81abccb0ccff/jinja2-3.1.5.tar.gz"
-    sha256 "8fefff8dc3034e27bb80d67c671eb8a9bc424c0ef4c0826edbff304cceff43bb"
+    url "https://files.pythonhosted.org/packages/df/bf/f7da0350254c0ed7c72f3e33cef02e048281fec7ecec5f032d4aac52226b/jinja2-3.1.6.tar.gz"
+    sha256 "0137fb05990d35f1275a587e9aee6d56da821fc83491a0fb838183be43f66d6d"
   end
 
   resource "lxml" do
-    url "https://files.pythonhosted.org/packages/e7/6b/20c3a4b24751377aaa6307eb230b66701024012c29dd374999cc92983269/lxml-5.3.0.tar.gz"
-    sha256 "4e109ca30d1edec1ac60cdbe341905dc3b8f55b16855e03a54aaf59e51ec8c6f"
+    url "https://files.pythonhosted.org/packages/ef/f6/c15ca8e5646e937c148e147244817672cf920b56ac0bf2cc1512ae674be8/lxml-5.3.1.tar.gz"
+    sha256 "106b7b5d2977b339f1e97efe2778e2ab20e99994cbb0ec5e55771ed0795920c8"
   end
 
   resource "markdown2" do
@@ -158,8 +159,8 @@ class Fava < Formula
   end
 
   resource "simplejson" do
-    url "https://files.pythonhosted.org/packages/3d/29/085111f19717f865eceaf0d4397bf3e76b08d60428b076b64e2a1903706d/simplejson-3.19.3.tar.gz"
-    sha256 "8e086896c36210ab6050f2f9f095a5f1e03c83fa0e7f296d6cba425411364680"
+    url "https://files.pythonhosted.org/packages/af/92/51b417685abd96b31308b61b9acce7ec50d8e1de8fbc39a7fd4962c60689/simplejson-3.20.1.tar.gz"
+    sha256 "e64139b4ec4f1f24c142ff7dcafe55a22b811a74d86d66560c8815687143037d"
   end
 
   resource "six" do

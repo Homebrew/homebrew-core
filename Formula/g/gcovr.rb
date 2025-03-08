@@ -6,15 +6,16 @@ class Gcovr < Formula
   url "https://files.pythonhosted.org/packages/40/9f/2883275d71f27f81919a7f000afe7eb344496ab74d62e1c0e4a804918b9f/gcovr-8.3.tar.gz"
   sha256 "faa371f9c4a7f78c9800da655107d4f99f04b718d1c0d9f48cafdcbef0049079"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/gcovr/gcovr.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e179e2cd37f94eb410806766538397917fd09acf36a6dc96504f28d4f7745c6d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "78e813071f2c5b4908a39f3c6516a7a0fc3dc21a43f4edb313cf9fe2f1fe921c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "daec4dc864c1887ccffca64cc88d19e3a9fb19cbc3e4c9c8c3e339a2e407a008"
-    sha256 cellar: :any_skip_relocation, sonoma:        "026ab59c029c65cb1d15e13f3497fa13ccc94ace13ea30b51bf9ebadb4af9ce7"
-    sha256 cellar: :any_skip_relocation, ventura:       "98460e4cc1b0983100acf000888b654b633f9364ff5cefba6e1c456d7eba09fb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "762ce9c639ffa7c798e91e1bf2ca2a621467406b34657b6e400c775cec21b48a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9bbb80b9db76a6b006d56229948f56abae10a00ede9fe0a4546bddf847d078e1"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fe5e05f6529a00d03b708fa4588b2741d9b7f1df01905a55a4e4dbc6ab254fff"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "0fd089bfa06c18013cae107199c2da512fb7b9c2a4bdb7cdaf260f17931681c3"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7dcdf19da6dd9ac9a6aebc0da570b5a849ecd0f39ef195c287c0f765c933fd96"
+    sha256 cellar: :any_skip_relocation, ventura:       "823beec7344b7dce24e94660603d5a4c9b1199ed232803983ee70e92a3a0e992"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1bd87ae3e136cf7758e904e80510ff06c6fa8005c42f38beba6e375248f62a19"
   end
 
   depends_on "python@3.13"
@@ -28,13 +29,13 @@ class Gcovr < Formula
   end
 
   resource "jinja2" do
-    url "https://files.pythonhosted.org/packages/af/92/b3130cbbf5591acf9ade8708c365f3238046ac7cb8ccba6e81abccb0ccff/jinja2-3.1.5.tar.gz"
-    sha256 "8fefff8dc3034e27bb80d67c671eb8a9bc424c0ef4c0826edbff304cceff43bb"
+    url "https://files.pythonhosted.org/packages/df/bf/f7da0350254c0ed7c72f3e33cef02e048281fec7ecec5f032d4aac52226b/jinja2-3.1.6.tar.gz"
+    sha256 "0137fb05990d35f1275a587e9aee6d56da821fc83491a0fb838183be43f66d6d"
   end
 
   resource "lxml" do
-    url "https://files.pythonhosted.org/packages/e7/6b/20c3a4b24751377aaa6307eb230b66701024012c29dd374999cc92983269/lxml-5.3.0.tar.gz"
-    sha256 "4e109ca30d1edec1ac60cdbe341905dc3b8f55b16855e03a54aaf59e51ec8c6f"
+    url "https://files.pythonhosted.org/packages/ef/f6/c15ca8e5646e937c148e147244817672cf920b56ac0bf2cc1512ae674be8/lxml-5.3.1.tar.gz"
+    sha256 "106b7b5d2977b339f1e97efe2778e2ab20e99994cbb0ec5e55771ed0795920c8"
   end
 
   resource "markupsafe" do

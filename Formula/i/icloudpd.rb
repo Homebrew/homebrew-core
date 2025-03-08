@@ -8,15 +8,16 @@ class Icloudpd < Formula
       tag:      "v1.27.0",
       revision: "4e75ff7d178f45ea1146c52e789b1fd72c3f2a77"
   license "MIT"
+  revision 1
   head "https://github.com/icloud-photos-downloader/icloud_photos_downloader.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "42e875328c2157e722807f58c812e0a10f6951dcd463ee55161300a750926b14"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e537671ce4b8327c5471a38fe1c3ecb6c341ae813e67ddf70d17b298d04718e8"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "5ed01649f14dede9efce3d272bdcd9c8a9200801ff465cac5cae002cfb76da34"
-    sha256 cellar: :any_skip_relocation, sonoma:        "a145c6d1a539502da863f4de54500f668d257cb0d480eef7e856847cd7cdd908"
-    sha256 cellar: :any_skip_relocation, ventura:       "64d6f89ed63d3ca274855efa06b8c9c2a3392e66e245d172649e4cb7544ffc0b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "69d0d3b1f15a3d375ff2af740fd2e8477063fdef07e95f2cd2a897e16109307d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4da6a22120369f7ed6264547aa454f0b63f82170a4184815d99d6dfdcfbcc022"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "62b51f2f17bd5e76cc23ff3fbd8bd740e631ab0e355aa2c03df9a101e3357845"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "92f6920d0b9ba94472cdb68853203643fa5080ef62cfdf11b292b84f6fc7102c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "0ecf40731883157c59e623c65a109818f8be2009fe1c7b94967c23806a142dc7"
+    sha256 cellar: :any_skip_relocation, ventura:       "8fcf9c57df1bb378af37eb86e6f21e3ac2e5ce9dd330ba699311be15483d644c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3dd62860a03e47738eab6d3543c8140edea80775bf53fb0671ae0385323c5a39"
   end
 
   depends_on "certifi"
@@ -72,8 +73,8 @@ class Icloudpd < Formula
   end
 
   resource "jinja2" do
-    url "https://files.pythonhosted.org/packages/af/92/b3130cbbf5591acf9ade8708c365f3238046ac7cb8ccba6e81abccb0ccff/jinja2-3.1.5.tar.gz"
-    sha256 "8fefff8dc3034e27bb80d67c671eb8a9bc424c0ef4c0826edbff304cceff43bb"
+    url "https://files.pythonhosted.org/packages/df/bf/f7da0350254c0ed7c72f3e33cef02e048281fec7ecec5f032d4aac52226b/jinja2-3.1.6.tar.gz"
+    sha256 "0137fb05990d35f1275a587e9aee6d56da821fc83491a0fb838183be43f66d6d"
   end
 
   resource "keyring" do

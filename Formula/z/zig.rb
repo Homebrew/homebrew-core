@@ -1,10 +1,9 @@
 class Zig < Formula
   desc "Programming language designed for robustness, optimality, and clarity"
   homepage "https://ziglang.org/"
-  url "https://ziglang.org/download/0.13.0/zig-0.13.0.tar.xz"
-  sha256 "06c73596beeccb71cc073805bdb9c0e05764128f16478fa53bf17dfabc1d4318"
+  url "https://ziglang.org/download/0.14.0/zig-0.14.0.tar.xz"
+  sha256 "c76638c03eb204c4432ae092f6fa07c208567e110fbd4d862d131a7332584046"
   license "MIT"
-  revision 1
 
   livecheck do
     url "https://ziglang.org/download/"
@@ -12,22 +11,24 @@ class Zig < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia: "17784661a18ed940e5ca7f851d5e625e71c90d16c826e439fa01f8fa834ef241"
-    sha256 cellar: :any,                 arm64_sonoma:  "bb7838db2d04fc4b92176a626946e6911f007c76aef67f7d548a5b1f64c1579f"
-    sha256 cellar: :any,                 arm64_ventura: "b1e01694ffbde41aa5cb5a1b9854443d4c6e45958884aeb2a27d2f750bbd2e02"
-    sha256 cellar: :any,                 sonoma:        "a7bba266b97942083b54ea6c117128b0ccb09d70c58a5b3bb8548c7e60e2889a"
-    sha256 cellar: :any,                 ventura:       "ebeb4e27ed049b3df9978a7efd8074a11282f7ce7d2bfa598fb3f9a6821c7480"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "13ff67f794f962c1d73be3191df29c78f806f7f4b64407ee7c581cc3c94ca37a"
+    sha256 cellar: :any,                 arm64_sequoia: "a17b92f1104e62390a01a8e31e295c71dd52d79508499708b4b5b799082f245d"
+    sha256 cellar: :any,                 arm64_sonoma:  "c1f2f16abedca60a68a1bc74276637584977c6247437a9e06a0ac2a8c9192dd3"
+    sha256 cellar: :any,                 arm64_ventura: "1acb25e4cd4a8a64370fde167a782a12b45a2e1a88f75956a8eba92ca28e60f7"
+    sha256 cellar: :any,                 sonoma:        "baa5432cfb71ed4753567a363aaacbbf8abf21ce0b4d073ba8fee26b871096db"
+    sha256 cellar: :any,                 ventura:       "76cdb82a0f756ad875823349f092d16ace69b42d7f1c0a28b5b43997729d4c55"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e3bec4d81efadf0922823ec4b711abc304b844941551427261d1f47080106405"
   end
 
   depends_on "cmake" => :build
-  depends_on "llvm@18" => :build
+  depends_on "lld"
+  depends_on "llvm"
   depends_on macos: :big_sur # https://github.com/ziglang/zig/issues/13313
-  depends_on "zstd"
 
-  uses_from_macos "ncurses"
-  uses_from_macos "zlib"
+  # NOTE: `z3` should be macOS-only dependency whenever we need to re-add
+  on_macos do
+    depends_on "z3"
+    depends_on "zstd"
+  end
 
   # https://github.com/Homebrew/homebrew-core/issues/209483
   skip_clean "lib/zig/libc/darwin/libSystem.tbd"
@@ -54,7 +55,7 @@ class Zig < Formula
     else Hardware.oldest_cpu
     end
 
-    args = ["-DZIG_STATIC_LLVM=ON"]
+    args = ["-DZIG_SHARED_LLVM=ON"]
     args << "-DZIG_TARGET_MCPU=#{cpu}" if build.bottle?
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args

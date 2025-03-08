@@ -6,14 +6,15 @@ class AwsSamCli < Formula
   url "https://files.pythonhosted.org/packages/2f/73/aa0dad3ac023852cc66d331e114732258458954e7097fb1ad5e6b04487cf/aws_sam_cli-1.134.0.tar.gz"
   sha256 "247cd8b9ff64d146cd95e10a51b7c5b44f5c5e404149fd0b0fab183b412a69ef"
   license "Apache-2.0"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "1710b5dc20cf20437576339dd0ef37d138e522f46ade098a4af6538e384e64ec"
-    sha256 cellar: :any,                 arm64_sonoma:  "4fff504ea8dde0b4edc868b43a238eedde09236b7bfad2305fac5b69bfaa5943"
-    sha256 cellar: :any,                 arm64_ventura: "aa48c19c202843fb95c2b2fef9c553d505f62be5e54c3ca39c769d6235997c9c"
-    sha256 cellar: :any,                 sonoma:        "42f69866088f07de45d0287cd6b0e4d1841b0151ba73ba01d72f9127ad3a2d8c"
-    sha256 cellar: :any,                 ventura:       "889c4266438b19a0d2180c780a2fd4c6c8b0f19f169a95bdef4d09c484e1eeeb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2ceaa5c640660ba89643f6b077bb2add5af338b35c12c17d150689a25122dafe"
+    sha256 cellar: :any,                 arm64_sequoia: "e39c480ed1ed70c9496aecb533b2704286e2992c31e6116c27e4b6705921d8e2"
+    sha256 cellar: :any,                 arm64_sonoma:  "7c93dc8d5ef35471aabb3482d6f380cdfd8e304c715807aecde98fcbab09b4c2"
+    sha256 cellar: :any,                 arm64_ventura: "cf786f8b52d1cf1b36aef48dfde36eb1199c47b9b551740f8aa62875d35209ac"
+    sha256 cellar: :any,                 sonoma:        "99e394b31b17d51c802236204376bf168a0afa18b5dfe8ac03e1cffa5abcc9b3"
+    sha256 cellar: :any,                 ventura:       "04e8bcf2a57f52fcbbe8c5f2694179c80a9941d9d06909280858884797f52950"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4de64ceb02eea7ab78fc0d9df6e822d72350aaa9aea68bf98cb028520dae8644"
   end
 
   depends_on "pkgconf" => :build
@@ -61,8 +62,8 @@ class AwsSamCli < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/50/d0/4b0f04a8704cc303645e8c8f2f701ae01d802e73e755720a7e8be515736e/boto3-1.36.22.tar.gz"
-    sha256 "768c8a4d4a6227fe2258105efa086f1424cba5ca915a5eb2305b2cd979306ad1"
+    url "https://files.pythonhosted.org/packages/6b/e6/40f8c1fb52c02adad1c104c4c4ac0488bf8f2b1397f24db07779322e420b/boto3-1.37.7.tar.gz"
+    sha256 "ac2e022edcd6a94a2adbb21f0ad373a16557ec14a8910366bee0bbc7138fc72a"
   end
 
   resource "boto3-stubs" do
@@ -71,13 +72,13 @@ class AwsSamCli < Formula
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/a6/88/0b5d5674d26ae43f0115cad6bd8e0c2b4da7ac5b14352e52c682702863c5/botocore-1.36.22.tar.gz"
-    sha256 "59520247d5a479731724f97c995d5a1c2aae3b303b324f39d99efcfad1d3019e"
+    url "https://files.pythonhosted.org/packages/53/4b/096b2fac3ba92ace94f69f238eea9948af568b487c3898e9a8881bfe506b/botocore-1.37.7.tar.gz"
+    sha256 "2faeac11766db912bc444669b04359080b7b83b2f57a3906c77c8105b70ce1e8"
   end
 
   resource "botocore-stubs" do
-    url "https://files.pythonhosted.org/packages/6b/cf/37dd8c91169efae5e1c6bced8eba6d5547d33be625ccdbd2a091ba959ac3/botocore_stubs-1.36.22.tar.gz"
-    sha256 "20d46e9639edd2eef37197bba0f9dbee77410ac00a9c4de627711c949c543454"
+    url "https://files.pythonhosted.org/packages/cf/e3/dce03f1e053fd49ce587a95eee3a610e460d0de0da051606817e3162d028/botocore_stubs-1.37.7.tar.gz"
+    sha256 "c91971468a7e795707883676bc5de9f06efae639b18f9add95dc2bd174d74b9e"
   end
 
   resource "cfn-lint" do
@@ -136,8 +137,8 @@ class AwsSamCli < Formula
   end
 
   resource "jinja2" do
-    url "https://files.pythonhosted.org/packages/af/92/b3130cbbf5591acf9ade8708c365f3238046ac7cb8ccba6e81abccb0ccff/jinja2-3.1.5.tar.gz"
-    sha256 "8fefff8dc3034e27bb80d67c671eb8a9bc424c0ef4c0826edbff304cceff43bb"
+    url "https://files.pythonhosted.org/packages/df/bf/f7da0350254c0ed7c72f3e33cef02e048281fec7ecec5f032d4aac52226b/jinja2-3.1.6.tar.gz"
+    sha256 "0137fb05990d35f1275a587e9aee6d56da821fc83491a0fb838183be43f66d6d"
   end
 
   resource "jmespath" do
@@ -321,8 +322,8 @@ class AwsSamCli < Formula
   end
 
   resource "rpds-py" do
-    url "https://files.pythonhosted.org/packages/01/80/cce854d0921ff2f0a9fa831ba3ad3c65cee3a46711addf39a2af52df2cfd/rpds_py-0.22.3.tar.gz"
-    sha256 "e32fee8ab45d3c2db6da19a5323bc3362237c8b653c70194414b892fd06a080d"
+    url "https://files.pythonhosted.org/packages/0a/79/2ce611b18c4fd83d9e3aecb5cba93e1917c050f556db39842889fa69b79f/rpds_py-0.23.1.tar.gz"
+    sha256 "7f3240dcfa14d198dba24b8b9cb3b108c06b68d45b7babd9eefc1038fdf7e707"
   end
 
   resource "ruamel-yaml" do
@@ -331,13 +332,13 @@ class AwsSamCli < Formula
   end
 
   resource "s3transfer" do
-    url "https://files.pythonhosted.org/packages/62/45/2323b5928f86fd29f9afdcef4659f68fa73eaa5356912b774227f5cf46b5/s3transfer-0.11.2.tar.gz"
-    sha256 "3b39185cb72f5acc77db1a58b6e25b977f28d20496b6e58d6813d75f464d632f"
+    url "https://files.pythonhosted.org/packages/0f/ec/aa1a215e5c126fe5decbee2e107468f51d9ce190b9763cb649f76bb45938/s3transfer-0.11.4.tar.gz"
+    sha256 "559f161658e1cf0a911f45940552c696735f5c74e64362e515f333ebed87d679"
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/92/ec/089608b791d210aec4e7f97488e67ab0d33add3efccb83a056cbafe3a2a6/setuptools-75.8.0.tar.gz"
-    sha256 "c5afc8f407c626b8313a86e10311dd3f661c6cd9c09d4bf8c15c0e11f9f2b0e6"
+    url "https://files.pythonhosted.org/packages/d1/53/43d99d7687e8cdef5ab5f9ec5eaf2c0423c2b35133a2b7e7bc276fc32b21/setuptools-75.8.2.tar.gz"
+    sha256 "4880473a969e5f23f2a2be3646b2dfd84af9028716d398e46192f84bc36900d2"
   end
 
   resource "six" do
@@ -371,8 +372,8 @@ class AwsSamCli < Formula
   end
 
   resource "types-s3transfer" do
-    url "https://files.pythonhosted.org/packages/56/a9/21967d4fc03bb7980b7af040642d67c4f1e5bf093dc7ff263d4f06020043/types_s3transfer-0.11.2.tar.gz"
-    sha256 "3ccb8b90b14434af2fb0d6c08500596d93f3a83fb804a2bb843d9bf4f7c2ca60"
+    url "https://files.pythonhosted.org/packages/93/a9/440d8ba72a81bcf2cc5a56ef63f23b58ce93e7b9b62409697553bdcdd181/types_s3transfer-0.11.4.tar.gz"
+    sha256 "05fde593c84270f19fd053f0b1e08f5a057d7c5f036b9884e68fb8cd3041ac30"
   end
 
   resource "typing-extensions" do

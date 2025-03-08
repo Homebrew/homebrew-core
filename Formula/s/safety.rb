@@ -6,15 +6,16 @@ class Safety < Formula
   url "https://files.pythonhosted.org/packages/dc/55/873096606ff9cfad99cb3de8377461fb05217f65ad0690b9fe6a6e3afe95/safety-3.3.1.tar.gz"
   sha256 "679834432d0ad64c54e0b864ac6715d4743a65f8db67512380ee7ee2011c206a"
   license "MIT"
+  revision 1
   head "https://github.com/pyupio/safety.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "5f98b2ab1a47ed571199bc41bcf9c29e970917bcc47c8466db41b9a1b0f1afce"
-    sha256 cellar: :any,                 arm64_sonoma:  "0eb0a45ccfa649f3aebc580d5574bee7e946a72b0b8c800740c17f1907c77c07"
-    sha256 cellar: :any,                 arm64_ventura: "951d2d8eae2c73f6d0562ab3ccd80488674d91b6df546e1c7c52c9478a011c96"
-    sha256 cellar: :any,                 sonoma:        "00e91b7adbacf870e3e761cefcd908960b910bd10669eb78fa1f981250a4632b"
-    sha256 cellar: :any,                 ventura:       "50f40d923f5737f91abd636ccde7fd22f5da09f780169ededa47c954b92029ba"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "35776b0ccbf2a9d46313b513ff9b6c91e08f3ec515e5bfbaacab7423328a52fc"
+    sha256 cellar: :any,                 arm64_sequoia: "b5f859f34943efa6af4e6fdda6b1046c01b8d29fd28b1bcb2a83136907cafeff"
+    sha256 cellar: :any,                 arm64_sonoma:  "943ffb4f36191bba5cf888c69c0b0eb3d6d585ed8a8e3934a5f5edae22ae57e4"
+    sha256 cellar: :any,                 arm64_ventura: "e322642821107f4f995381075dd8ab28c2170b6a0d8bc2f313269d989a28d9aa"
+    sha256 cellar: :any,                 sonoma:        "024728a332e4ea14aeacc9923e0a9d48504707598898087a435d292d5e1dfcba"
+    sha256 cellar: :any,                 ventura:       "024841eb53bae6c8fb0743d3a3449b0044c61b8c9a82dfe289065a2209d70b05"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5b0857ee18129fb598663d744e56cc17f284fc357a45985cfb3004dd7abf778e"
   end
 
   depends_on "cmake" => :build
@@ -29,8 +30,8 @@ class Safety < Formula
   end
 
   resource "authlib" do
-    url "https://files.pythonhosted.org/packages/58/73/0aa3d68b1c3caeac01ae0bad7a3d2a23029c4a3b42c7ccb89d752ed67eb2/authlib-1.4.1.tar.gz"
-    sha256 "30ead9ea4993cdbab821dc6e01e818362f92da290c04c7f6a1940f86507a790d"
+    url "https://files.pythonhosted.org/packages/36/aa/e1c199d27ea06a13f9641746a9b19f15bd75b04b40b6bd72a89156c75d10/authlib-1.5.1.tar.gz"
+    sha256 "5cbc85ecb0667312c1cdc2f9095680bb735883b123fb509fde1e65b1c5df972e"
   end
 
   resource "charset-normalizer" do
@@ -59,8 +60,8 @@ class Safety < Formula
   end
 
   resource "jinja2" do
-    url "https://files.pythonhosted.org/packages/af/92/b3130cbbf5591acf9ade8708c365f3238046ac7cb8ccba6e81abccb0ccff/jinja2-3.1.5.tar.gz"
-    sha256 "8fefff8dc3034e27bb80d67c671eb8a9bc424c0ef4c0826edbff304cceff43bb"
+    url "https://files.pythonhosted.org/packages/df/bf/f7da0350254c0ed7c72f3e33cef02e048281fec7ecec5f032d4aac52226b/jinja2-3.1.6.tar.gz"
+    sha256 "0137fb05990d35f1275a587e9aee6d56da821fc83491a0fb838183be43f66d6d"
   end
 
   resource "joblib" do
@@ -144,8 +145,8 @@ class Safety < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/92/ec/089608b791d210aec4e7f97488e67ab0d33add3efccb83a056cbafe3a2a6/setuptools-75.8.0.tar.gz"
-    sha256 "c5afc8f407c626b8313a86e10311dd3f661c6cd9c09d4bf8c15c0e11f9f2b0e6"
+    url "https://files.pythonhosted.org/packages/d1/53/43d99d7687e8cdef5ab5f9ec5eaf2c0423c2b35133a2b7e7bc276fc32b21/setuptools-75.8.2.tar.gz"
+    sha256 "4880473a969e5f23f2a2be3646b2dfd84af9028716d398e46192f84bc36900d2"
   end
 
   resource "shellingham" do
@@ -159,8 +160,8 @@ class Safety < Formula
   end
 
   resource "typer" do
-    url "https://files.pythonhosted.org/packages/cb/ce/dca7b219718afd37a0068f4f2530a727c2b74a8b6e8e0c0080a4c0de4fcd/typer-0.15.1.tar.gz"
-    sha256 "a0588c0a7fa68a1978a069818657778f86abe6ff5ea6abf472f940a08bfe4f0a"
+    url "https://files.pythonhosted.org/packages/8b/6f/3991f0f1c7fcb2df31aef28e0594d8d54b05393a0e4e34c65e475c2a5d41/typer-0.15.2.tar.gz"
+    sha256 "ab2fab47533a813c49fe1f16b1a370fd5819099c00b119e0633df65f22144ba5"
   end
 
   resource "typing-extensions" do

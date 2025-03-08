@@ -6,15 +6,15 @@ class LiterateGit < Formula
   url "https://files.pythonhosted.org/packages/67/0e/e37f96177ca5227416bbf06e96d23077214fbb3968b02fe2a36c835bf49e/literategit-0.5.1.tar.gz"
   sha256 "3db9099c9618afd398444562738ef3142ef3295d1f6ce56251ba8d22385afe44"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0d61bd94784d7fb957ad8bfca0caf27fa43b8382e06d4c8428bb742d48bf8ea0"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2ef46ab683337063ff292bc142023ff50350ea082b6371b40708e2470b0c634b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "28ddecacf42d08be7319f240c82569119e1268e1fdfb8461d89c1f872873ee47"
-    sha256 cellar: :any_skip_relocation, sonoma:        "4e691b1e9991d567684cd096f6d292b38dc0021f71260f64a0e84a03ddfa3083"
-    sha256 cellar: :any_skip_relocation, ventura:       "fca9dd9a0f110fef6ef64a8ce78a49f919a19c3ccb8d2ea0a80fb3e8db7361ca"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0947111884deb1763e926b5adaa99e3b49d9769ca7e297c340edeafc36931162"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c78fca9768aa28cc91c7fcd0fdb6f74e6d2edab8ff267912ee079a0d13667188"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "97beb2e869acd67d690d1a51a32f49366b73e3cc6aaad8ea0e7384b8ee493645"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "72e3eb02cd1b9f4656d7c2a1cc941f9c61caebc5c3d134f18364bc0cd896f889"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2d21c7e6ada9f49184787a19d7fd67dda9e933e3c267f5af318ad90fad3a9aa4"
+    sha256 cellar: :any_skip_relocation, ventura:       "4719c71162e17145fcafbd29a0b78341fbba740191ea2b4533072350560db2dd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "98a17d82f86fca6482e0d1ef72023b9f8ba90837247c7116661a2c8b8cc9e001"
   end
 
   depends_on "pygit2"
@@ -32,13 +32,13 @@ class LiterateGit < Formula
   end
 
   resource "jinja2" do
-    url "https://files.pythonhosted.org/packages/af/92/b3130cbbf5591acf9ade8708c365f3238046ac7cb8ccba6e81abccb0ccff/jinja2-3.1.5.tar.gz"
-    sha256 "8fefff8dc3034e27bb80d67c671eb8a9bc424c0ef4c0826edbff304cceff43bb"
+    url "https://files.pythonhosted.org/packages/df/bf/f7da0350254c0ed7c72f3e33cef02e048281fec7ecec5f032d4aac52226b/jinja2-3.1.6.tar.gz"
+    sha256 "0137fb05990d35f1275a587e9aee6d56da821fc83491a0fb838183be43f66d6d"
   end
 
   resource "markdown2" do
-    url "https://files.pythonhosted.org/packages/a0/61/d3c0c21280ba1fc348822a4410847cf78f99bba8625755a5062a44d2e228/markdown2-2.5.2.tar.gz"
-    sha256 "3ac02226a901c4b2f6fc21dbd17c26d118d2c25bcbb28cee093a1f8b5c46f3f1"
+    url "https://files.pythonhosted.org/packages/44/52/d7dcc6284d59edb8301b8400435fbb4926a9b0f13a12b5cbaf3a4a54bb7b/markdown2-2.5.3.tar.gz"
+    sha256 "4d502953a4633408b0ab3ec503c5d6984d1b14307e32b325ec7d16ea57524895"
   end
 
   resource "markupsafe" do

@@ -6,15 +6,16 @@ class Vunnel < Formula
   url "https://files.pythonhosted.org/packages/42/42/d00c34e440ca4dc47f622cd453b25d8470ce2453bd8365b874803d933360/vunnel-0.31.0.tar.gz"
   sha256 "b3120162a21e67d51bf7fa5b3b591c2372597b16a06368b4ac2aed247c9ba2cc"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/anchore/vunnel.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "eb1cac75438e921c61cac2556443c8516006060b5324dcb273ae6653cd11e198"
-    sha256 cellar: :any,                 arm64_sonoma:  "9c7c2d3e765470519807ff8e9a90e8849225f13744469dac4f4a270d39edf7cd"
-    sha256 cellar: :any,                 arm64_ventura: "1dcf8198392c0aad1f6234dc52d39121b80b5a9c016490668dfc5510c8e01be2"
-    sha256 cellar: :any,                 sonoma:        "09c8f3539e82d1a0a8b91438eaebe5ca5082f0a31adeaed7c988f1254c5bd437"
-    sha256 cellar: :any,                 ventura:       "9d119c6fb82c8aadaa53272ccf8c6d5f710868da5ffd47e5f331969947905d51"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "08cfef8568f2980c05ba2ac8982cc44dbc70902b38c813545ae0ac7ddbec1932"
+    sha256 cellar: :any,                 arm64_sequoia: "1fd3ef2117b123bc346971af83edbe7f5c66a1dbaac57785e1452b174caf2ddc"
+    sha256 cellar: :any,                 arm64_sonoma:  "d93366010235b24d4729851748f97e083b7a2c5b4565658021a668846be3b43b"
+    sha256 cellar: :any,                 arm64_ventura: "983c534b521c1438a99a80e8ecae032137461be2caa2340b376b4f84e87aafb0"
+    sha256 cellar: :any,                 sonoma:        "c5b7ca6a49a24062ae84e99d648fddb1e0624c8d369dd5b1f1c3c58add3cea43"
+    sha256 cellar: :any,                 ventura:       "2ee7c751b1c4d28b39e51a0bd34418f6024d69541ffd16ee0d4aa98014ce2da5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "26094598a648112adf78255435c9dbe8c2a91c425d6f94974d6db035bd760641"
   end
 
   depends_on "rust" => :build
@@ -60,11 +61,6 @@ class Vunnel < Formula
     sha256 "9dc71659d3b853c3018cd7b2ec34d5d054370128e12b79ee655498cb339cc711"
   end
 
-  resource "greenlet" do
-    url "https://files.pythonhosted.org/packages/2f/ff/df5fede753cc10f6a5be0931204ea30c35fa2f2ea7a35b25bdaf4fe40e46/greenlet-3.1.1.tar.gz"
-    sha256 "4ce3ac6cdb6adf7946475d7ef31777c26d94bccc377e070a7986bd2d5c515467"
-  end
-
   resource "idna" do
     url "https://files.pythonhosted.org/packages/f1/70/7703c29685631f5a7590aa73f1f1d3fa9a380e654b86af429e0934a32f7d/idna-3.10.tar.gz"
     sha256 "12f65c9b470abda6dc35cf8e63cc574b1c52b11df2c86030af0ac09b01b13ea9"
@@ -91,8 +87,8 @@ class Vunnel < Formula
   end
 
   resource "jinja2" do
-    url "https://files.pythonhosted.org/packages/af/92/b3130cbbf5591acf9ade8708c365f3238046ac7cb8ccba6e81abccb0ccff/jinja2-3.1.5.tar.gz"
-    sha256 "8fefff8dc3034e27bb80d67c671eb8a9bc424c0ef4c0826edbff304cceff43bb"
+    url "https://files.pythonhosted.org/packages/df/bf/f7da0350254c0ed7c72f3e33cef02e048281fec7ecec5f032d4aac52226b/jinja2-3.1.6.tar.gz"
+    sha256 "0137fb05990d35f1275a587e9aee6d56da821fc83491a0fb838183be43f66d6d"
   end
 
   resource "lxml" do
@@ -136,8 +132,8 @@ class Vunnel < Formula
   end
 
   resource "pytest" do
-    url "https://files.pythonhosted.org/packages/05/35/30e0d83068951d90a01852cb1cef56e5d8a09d20c7f511634cc2f7e0372a/pytest-8.3.4.tar.gz"
-    sha256 "965370d062bce11e73868e0335abac31b4d3de0e82f4007408d242b4f8610761"
+    url "https://files.pythonhosted.org/packages/ae/3c/c9d525a414d506893f0cd8a8d0de7706446213181570cdbd766691164e40/pytest-8.3.5.tar.gz"
+    sha256 "f4efe70cc14e511565ac476b57c279e12a855b11f48f212af1080ef2263d3845"
   end
 
   resource "pytest-snapshot" do

@@ -1,9 +1,9 @@
 class SpidermonkeyAT115 < Formula
   desc "JavaScript-C Engine"
   homepage "https://spidermonkey.dev"
-  url "https://archive.mozilla.org/pub/firefox/releases/115.20.0esr/source/firefox-115.20.0esr.source.tar.xz"
-  version "115.20.0"
-  sha256 "bd893c7ce04e23aa17c48ebcbbb43c0911e03fbc5fb8660e9085d798d6a1c8b1"
+  url "https://archive.mozilla.org/pub/firefox/releases/115.21.0esr/source/firefox-115.21.0esr.source.tar.xz"
+  version "115.21.0"
+  sha256 "ff118b1d6d17cefe8eef08bba74ae0d47939010d21afdbaadd8859fd4016b674"
   license "MPL-2.0"
 
   # Spidermonkey versions use the same versions as Firefox, so we simply check
@@ -14,12 +14,12 @@ class SpidermonkeyAT115 < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia: "93862e971a36ada2d0b2f19a5e8e8930ae76d8b706e8d59306ee6b09ba35e600"
-    sha256 cellar: :any, arm64_sonoma:  "f42dbdfc5fd6006f6cc3d8f79dd2304d8d2efa478c4322a6f7939f9a51beecd2"
-    sha256 cellar: :any, arm64_ventura: "cdc0bc072238f7b0bce54bfcc4f714008f453894cc063f036544e66ecf2eafca"
-    sha256 cellar: :any, sonoma:        "e019b17bdbcedb22b6acf650a8bc4bb71f1b9effd5e3ee1abb9e8ab488441a67"
-    sha256 cellar: :any, ventura:       "770140c7f5ce13b94007293e7a1031aee3e249e2bf093d24d957ea8e04f481b7"
-    sha256               x86_64_linux:  "146147959a5f20a13cc719dd9996c52897b2970b0f556d568055184e2b254251"
+    sha256 cellar: :any, arm64_sequoia: "79c292c235d28ccca95422e38e8a3bb11ed17679317181238cffa071c50868bb"
+    sha256 cellar: :any, arm64_sonoma:  "84811a850e6e15e66ed67ae1320fe4e15245eba812db65c271c73528388f902c"
+    sha256 cellar: :any, arm64_ventura: "97a40a74ef64335ebe21243b7ab85a8ba854744e392537295fa33cfc21ef51f8"
+    sha256 cellar: :any, sonoma:        "17d17df8dfd81ff1770fc07dfa26d7fedc0a18f65fc796c6034c1d6e7fa9fe36"
+    sha256 cellar: :any, ventura:       "96e59d8369db111c6a8b23246db3ee300c04ceb60725aa312cab0c6b3008d708"
+    sha256               x86_64_linux:  "7728fbaf5bf6f373925398791504801841204a496ac84e1b7addbc0cd004bfc4"
   end
 
   disable! date: "2025-07-01", because: :versioned_formula

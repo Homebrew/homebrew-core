@@ -1,8 +1,8 @@
 class CargoBinstall < Formula
   desc "Binary installation for rust projects"
   homepage "https://github.com/cargo-bins/cargo-binstall"
-  url "https://github.com/cargo-bins/cargo-binstall/archive/refs/tags/v1.11.2.tar.gz"
-  sha256 "cbb57ec964aa4aaf77f0f1ada3820b0172099396069fbc1639cebd527eb646b5"
+  url "https://github.com/cargo-bins/cargo-binstall/archive/refs/tags/v1.12.0.tar.gz"
+  sha256 "689a84e2041c36ad23e279da49cf91d5414895e06be875ff9b7ad84313d5306d"
   license "GPL-3.0-only"
   head "https://github.com/cargo-bins/cargo-binstall.git", branch: "main"
 
@@ -15,12 +15,12 @@ class CargoBinstall < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c74ae85af83cce0119e596bb321abcbdcfe58cae0361bbe3d4c0703cbcaf1fe8"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "71254bbaaef198cc50e19127fb8ae8ee54102a290dc2be6c019e6760c70c0fc9"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "211e48a69cc4a79aea2d2bfc21160f757712231bbcc89eaa06d3fd2d373f9464"
-    sha256 cellar: :any_skip_relocation, sonoma:        "fcf9aca7c73b1f3676f0104f143a2e511018fd329024f42c3c8318a17ef3e7ea"
-    sha256 cellar: :any_skip_relocation, ventura:       "96d6bb007d2dbcb0d2903127eea4864c28a51f7b49ddce181c3764c8419d6f68"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a858f8b1d88577d3f5873ad15c9e9e207218acada5382e2cec8692a644b17ddd"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3d22c2fe0397e440db0f813b49d0426206b3a5c56d566c2c0ddd48df8b91d5ae"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f49fafec755df6262a0d8868ef87e016ee05ffc539c93b9950eea78a1e4d697d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "f43d74dbecedfcc43bb70b6b5c093d347ef4e3d570886a363ef5c167843cf43f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "307cfdfeca37a3915e7f4613a6dcf46bb15cfe87b6ae5d379dd2c8c06eecfa0b"
+    sha256 cellar: :any_skip_relocation, ventura:       "5ac6e9e36cbe1656bdc698588dcef1da68dbe6f9a95676f4a8bee05e6c496711"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "644ced87d9abfac417986f2eeb952561016e3fa455320acaac229b2024c5ad1f"
   end
 
   depends_on "rust" => :build

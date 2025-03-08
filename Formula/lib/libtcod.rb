@@ -25,6 +25,7 @@ class Libtcod < Formula
   depends_on "sdl2"
 
   uses_from_macos "python" => :build
+  uses_from_macos "zlib"
 
   conflicts_with "libzip", because: "libtcod and libzip install a `zip.h` header"
 

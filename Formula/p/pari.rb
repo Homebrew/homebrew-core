@@ -1,8 +1,8 @@
 class Pari < Formula
   desc "Computer algebra system designed for fast computations in number theory"
   homepage "https://pari.math.u-bordeaux.fr/"
-  url "https://pari.math.u-bordeaux.fr/pub/pari/unix/pari-2.17.1.tar.gz"
-  sha256 "67ba6f3071233725258541e4f174b5efbc64c65ae5115bade9edfc45f1fde5dc"
+  url "https://pari.math.u-bordeaux.fr/pub/pari/unix/pari-2.17.2.tar.gz"
+  sha256 "7d30578f5cf97b137a281f4548d131aafc0cde86bcfd10cc1e1bd72a81e65061"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -11,13 +11,12 @@ class Pari < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia: "5d60799a5a3fe3f5b610669487587e5d341645cf4c245b8fe7522e8749dbf51c"
-    sha256 cellar: :any,                 arm64_sonoma:  "d2391b33541e3f214238fd4da4fb98be3c55c065c851e9d17a61572505fe792e"
-    sha256 cellar: :any,                 arm64_ventura: "f58bc25546277fb6993b81518243d50db1c8903d1e18c8d2b3919e0e8c0d4018"
-    sha256 cellar: :any,                 sonoma:        "2f948ff9f4bca45282200bfd756bcea0e5cbe811962a255ef9ed61f39c54358a"
-    sha256 cellar: :any,                 ventura:       "9a60e13d8c13559ef68a75add3000375ec0dddc160878b4546d5df873aa00804"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7eb4ac08a4b34cc4eda8cc2daff5378545447afb4c954e0c2929a4b34c93d580"
+    sha256               arm64_sequoia: "5dd598ddd07c409257bad75db3c20f0da0509c07b3be0e0a4248535457594a51"
+    sha256               arm64_sonoma:  "bf58c1bdf22c69cf679423fa396efc69996edb7567bd30811e65fccb20816558"
+    sha256               arm64_ventura: "0739c7e681b5776a48634fea706d860b950f28b3020ae9f7ce830121f6208e7f"
+    sha256 cellar: :any, sonoma:        "ddddbc46872cd877dc6d2bb383ec2c796a726c84b952a0a648220d98cfb00165"
+    sha256 cellar: :any, ventura:       "325077871981fd84776c2cb9119b402bf5fd4ba865615e99cfeb8814b10eec08"
+    sha256               x86_64_linux:  "045451f669359b20630a47b6b9fb2da2d2ad7ee2442965ddefb8efc7e67f776d"
   end
 
   depends_on "gmp"

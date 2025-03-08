@@ -11,6 +11,9 @@ class Ext2fuse < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux: "fe9d3ea0a65c95de091aecb536ee498015bdc07b7c12e4367617cf9e78c76941"
   end
 
+  # Last release on 2008-06-26. Needs `libfuse@2` and patches to build
+  deprecate! date: "2025-03-06", because: :unmaintained
+
   depends_on "e2fsprogs"
   depends_on "libfuse@2"
   depends_on :linux # on macOS, requires closed-source macFUSE

@@ -1,8 +1,8 @@
 class Tailwindcss < Formula
   desc "Utility-first CSS framework"
   homepage "https://tailwindcss.com"
-  url "https://registry.npmjs.org/@tailwindcss/cli/-/cli-4.0.9.tgz"
-  sha256 "a474025f9a85d282ad000270aa683c9522c4a1e0a4ff3e998eb07ee10dc3a674"
+  url "https://registry.npmjs.org/@tailwindcss/cli/-/cli-4.0.12.tgz"
+  sha256 "38b57c0a52e3acfab3e7a5b721152b21dfe4ddd2531e553993cf6eb6fbad5354"
   license "MIT"
   head "https://github.com/tailwindlabs/tailwindcss.git", branch: "next"
 
@@ -15,12 +15,12 @@ class Tailwindcss < Formula
   end
 
   bottle do
-    sha256                               arm64_sequoia: "2c8790c11183a52eaa5f73a0e38bc561af6d3d65eed810ebb277abd0ba410dd0"
-    sha256                               arm64_sonoma:  "d6fdb0e5dc1a8db616acd267883e6f1295312de3dea4fd4a469f7c989248fc4b"
-    sha256                               arm64_ventura: "af16b9e1b89153c5f4f0b01e68e0b520f6c77c5b3bee88e7cbaf2b177f49eaae"
-    sha256                               sonoma:        "caa33b06be95251cf2ffadebf2b645ecf38e5b09ef3bed901330abeb56a61221"
-    sha256                               ventura:       "f990e9a7a202c46a186de50f8633bdf80547bfc27485e0299610ba7fb8c2896d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6a59f30eda665ab06f2c05f821824ff1e62b44912aba242bf356abe4280a398b"
+    sha256                               arm64_sequoia: "db7bd868ee3197fc3d7d46af85b8d3e7e6c8b69d77f15d38291873371e7b9a91"
+    sha256                               arm64_sonoma:  "ecb850839c85690b7edb904a40818b05898377b614ff07aa35d736ce5171c65b"
+    sha256                               arm64_ventura: "d52b9b1d8de91c01a2361b35e4cb2d69a6c1fb65d17c44c62718ac95cbacc6d4"
+    sha256                               sonoma:        "c6d38e8d64e834542b8b367476a36088f85f50a47d764178619ae34f925a3162"
+    sha256                               ventura:       "1b26373fffb4cad2e13c0663744f72436204733a95ee1f3c189adcf66264619e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2a92012a3c0ac166e7bc906072b5fcfefd8cb5fa87eaa5c07cccf7a526106efa"
   end
 
   depends_on "node"

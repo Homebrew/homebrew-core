@@ -11,7 +11,8 @@ class OpenapiGenerator < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "adca8369ed18df1ba58b546aa955a291b2ef76a150b1554be26968856d6787a8"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "2942b86edd383627e68995f4e1230f2a9083100a0e9abbe385cc43385f6143fc"
   end
 
   head do
@@ -20,7 +21,7 @@ class OpenapiGenerator < Formula
     depends_on "maven" => :build
   end
 
-  depends_on "openjdk@11"
+  depends_on "openjdk"
 
   def install
     if build.head?
@@ -30,7 +31,7 @@ class OpenapiGenerator < Formula
       libexec.install "openapi-generator-cli-#{version}.jar" => "openapi-generator-cli.jar"
     end
 
-    bin.write_jar_script libexec/"openapi-generator-cli.jar", "openapi-generator", java_version: "11"
+    bin.write_jar_script libexec/"openapi-generator-cli.jar", "openapi-generator"
   end
 
   test do

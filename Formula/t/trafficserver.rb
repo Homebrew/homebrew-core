@@ -1,18 +1,18 @@
 class Trafficserver < Formula
   desc "HTTP/1.1 and HTTP/2 compliant caching proxy server"
   homepage "https://trafficserver.apache.org/"
-  url "https://downloads.apache.org/trafficserver/trafficserver-10.0.3.tar.bz2"
-  mirror "https://archive.apache.org/dist/trafficserver/trafficserver-10.0.3.tar.bz2"
-  sha256 "ec36c1e587e5e54408e4e2a2ec4943533493a2d1f0f708d15e903f836e30db9a"
+  url "https://downloads.apache.org/trafficserver/trafficserver-10.0.4.tar.bz2"
+  mirror "https://archive.apache.org/dist/trafficserver/trafficserver-10.0.4.tar.bz2"
+  sha256 "6a52dd860587564440e9e476eefa33b80f915f49e4e3636610d90cffa0f565b9"
   license "Apache-2.0"
 
   bottle do
-    sha256 arm64_sequoia: "45f2da56a034362030749ba740116e7a5705e010703ac0b85dffefdcfb074c49"
-    sha256 arm64_sonoma:  "4d45f2555b6cdb78724ca47baf496281ed4a60584c6bf669138b255bfa2837ca"
-    sha256 arm64_ventura: "2409ba13e0700ea086ff114226e92e941227b4af1c20ca10d97e1e63d9f1fcf8"
-    sha256 sonoma:        "2ae71da942af2ea900d4a7e442e73197d893db3c94ac3c96c3a13ea8203effa6"
-    sha256 ventura:       "4fafe711f45484a78723ac0e88fe8ff3773d82bb404e54cc1bf21aa77f541a2d"
-    sha256 x86_64_linux:  "9f1bb58be4f4c802c3ae94306379e7d0ecef1edf987403f5e4f55d02879802f1"
+    sha256 arm64_sequoia: "d67edd42a8f953bf3ad9d96832448acf8f52b6828182b21594eb97bd77ce6a31"
+    sha256 arm64_sonoma:  "8490c22e694d53f423219cc7857a41eb8c461265aaba15f1671ba850413af981"
+    sha256 arm64_ventura: "32e938ff096a2f21e1a2536e074803de2d24c3adae2491a8d1a3f4c437c0c116"
+    sha256 sonoma:        "6fda6ee4e4c9497dc58a7f6f0f172d3c3ee7077c3867b979ced55fb7cc2e40d2"
+    sha256 ventura:       "179316fa10b7b84c3f22f6dc492fc63cb1bace967dd286035d809cf4c73939d0"
+    sha256 x86_64_linux:  "5559e873406e4237a1f749814d9606f54305742f6360677d759f7d685138467d"
   end
 
   depends_on "cmake" => :build

@@ -1,19 +1,18 @@
 class Staticcheck < Formula
   desc "State of the art linter for the Go programming language"
   homepage "https://staticcheck.dev/"
-  url "https://github.com/dominikh/go-tools/archive/refs/tags/2025.1.tar.gz"
-  sha256 "314e7858de2bc35f7c8ded8537cecf323baf944e657d7075c0d70af9bb3e6d47"
+  url "https://github.com/dominikh/go-tools/archive/refs/tags/2025.1.1.tar.gz"
+  sha256 "259aaf528e4d98e7d3652e283e8551cfdb98cd033a7c01003cd377c2444dd6de"
   license "MIT"
-  revision 1
   head "https://github.com/dominikh/go-tools.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "96473206ee1357a156f8ec9cede903971593cd2f1fb227c093c045fe71effb68"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "96473206ee1357a156f8ec9cede903971593cd2f1fb227c093c045fe71effb68"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "96473206ee1357a156f8ec9cede903971593cd2f1fb227c093c045fe71effb68"
-    sha256 cellar: :any_skip_relocation, sonoma:        "a4e947d6bc5ecdc56b373be2c81a1bf0277a273c97e19e882c132c491c17a950"
-    sha256 cellar: :any_skip_relocation, ventura:       "a4e947d6bc5ecdc56b373be2c81a1bf0277a273c97e19e882c132c491c17a950"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0affc401b566452f7b98a2a0ab3af8521e822931c288ed85a098bbb5b121abe4"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "568d26b0cd97bf3efc7f538a4dcedb4771bfbfadb6aef6ad91d963e1679a2a40"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "568d26b0cd97bf3efc7f538a4dcedb4771bfbfadb6aef6ad91d963e1679a2a40"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "568d26b0cd97bf3efc7f538a4dcedb4771bfbfadb6aef6ad91d963e1679a2a40"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f1bb67d07eab5bde74d2139172abd699122fe426d24bc29419b56b08596c7d84"
+    sha256 cellar: :any_skip_relocation, ventura:       "f1bb67d07eab5bde74d2139172abd699122fe426d24bc29419b56b08596c7d84"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c1056fd6a5ef767cb1d90ba19773e15f8c7dc52a95d0a9b0a7bfa6f122322c97"
   end
 
   depends_on "go"

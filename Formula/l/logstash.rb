@@ -1,8 +1,8 @@
 class Logstash < Formula
   desc "Tool for managing events and logs"
   homepage "https://www.elastic.co/products/logstash"
-  url "https://github.com/elastic/logstash/archive/refs/tags/v8.17.2.tar.gz"
-  sha256 "48a7b2296a3609dbda301f572e67532a4f1a75568f56797f87a10f8ad01c2d48"
+  url "https://github.com/elastic/logstash/archive/refs/tags/v8.17.3.tar.gz"
+  sha256 "bff528c9ad73294393e875c94e3014d104879a1b19153570e182f8e556c4cb93"
   license "Apache-2.0"
   version_scheme 1
   head "https://github.com/elastic/logstash.git", branch: "main"
@@ -13,15 +13,16 @@ class Logstash < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2079b76e702a208b0a2b8260334143fa109f3001bf387513157c4c79dd03dda9"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c912f700a8378e7938e0c66dbe595b39206f1be4d2d776c5646473c9fc48422b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "a77399af32406db54c66863665075c772a1addcff13ba26a1132278089dfd4cd"
-    sha256 cellar: :any,                 sonoma:        "2e1d19d466814a0c7aaf71854660d349511020b32609cbddb204efbf891c1319"
-    sha256 cellar: :any,                 ventura:       "009924eb4bbfe8732f5cbe5e5fbfefced0e6f7784c94972fb7f74c72ed7788a5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e7cbf79613dd0b9ef1f7805b544316993d904c5bf73672d0eada905a9c74b144"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "957a75a3bf21e8fa6136904f131b3925179e32a18c2e93aeab1197e64df87ddb"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b9a895b94ada47b845518b32d915a7ab3e5fb036c27f674b8ae0cc5cad23302e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "731920a00fc30d6947ad95fab25dd3ee3a355faf12ccf5092cb6683c2560903c"
+    sha256 cellar: :any,                 sonoma:        "23ce9e31ba57773cca57429a976357ca9d376aee13826a84d7f2c1024bcb4776"
+    sha256 cellar: :any,                 ventura:       "39b8fc6e2221f741cbaf9f6a3ebff2d1e81e35509835b56110ebdc81eaebeb5b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "846c3d24bcbe97ebdf2c0900ce8cb11f31e3e0630ff28ccd36e420c2f27d5c53"
   end
 
-  depends_on "openjdk@17"
+  depends_on "openjdk@21"
 
   uses_from_macos "ruby" => :build
 
@@ -61,7 +62,7 @@ class Logstash < Formula
     rm_r(libexec/"config")
 
     bin.install libexec/"bin/logstash", libexec/"bin/logstash-plugin"
-    bin.env_script_all_files libexec/"bin", LS_JAVA_HOME: "${LS_JAVA_HOME:-#{Language::Java.java_home("17")}}"
+    bin.env_script_all_files libexec/"bin", LS_JAVA_HOME: "${LS_JAVA_HOME:-#{Language::Java.java_home("21")}}"
 
     # remove non-native architecture pre-built libraries
     paths = [

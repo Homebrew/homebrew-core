@@ -1,18 +1,18 @@
 class Nzbget < Formula
   desc "Binary newsgrabber for nzb files"
   homepage "https://nzbget.com"
-  url "https://github.com/nzbgetcom/nzbget/archive/refs/tags/v24.6.tar.gz"
-  sha256 "93626dff2e725a1f1d99d14377826b264c7ae500559c6ad29d7cdd3c6d2dc6a3"
+  url "https://github.com/nzbgetcom/nzbget/archive/refs/tags/v24.7.tar.gz"
+  sha256 "41bdb7dc737ad8cacd3a19506b7363db12843e2957dd64d49bbd034c6da3fe4b"
   license "GPL-2.0-or-later"
   head "https://github.com/nzbgetcom/nzbget.git", branch: "develop"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "0b61cb20345b1fb54b98edd863b48b47da5f906b4cbff3486352296af0f57ba8"
-    sha256 cellar: :any,                 arm64_sonoma:  "5b736189675da556ea77485bf2b12f1c2b80e1399a596880ffc52ea7a24d2c3c"
-    sha256 cellar: :any,                 arm64_ventura: "df109ed7741f8148f8cda7a6d61d0d1c05677237ac25bc00fdd1b5b2e0596450"
-    sha256                               sonoma:        "1251b23e8d642da652e285d4d021f436361ae574da4c089f01a232b588190fdc"
-    sha256                               ventura:       "80d686d49febbe498c90beae74e82f572050d07c816206fa769ad934437183d6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ccde90d75fdbe04df2ab283f0df4cac588d282fc8d37b136460d1ae804110f34"
+    sha256 cellar: :any,                 arm64_sequoia: "be8f922f31a0cacc1a54f1ef2594e24c9b2f9a7460ec95b7a2461218dbdd0792"
+    sha256 cellar: :any,                 arm64_sonoma:  "737447e5a37ee0e3820536baf6cdb8799dbb22ad3d95c86ef12ff90b28663b02"
+    sha256 cellar: :any,                 arm64_ventura: "3d581dcc844a7d1d61664a50f1a56a5b7e4c175ba53af2e7dbfdabe7d6fcaefd"
+    sha256                               sonoma:        "a8e093cf539afd2bc09924a33e08ad21cede2b325959cde722c4b5eed7f177ea"
+    sha256                               ventura:       "b4d18f45a2ab5bbd1b46317a96fe1a63bcf1e430c8930697e325c29515617052"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e70d90bbd8fae9c246a103a83008dd21df6f5d101089f710a37992ae633c6340"
   end
 
   depends_on "cmake" => :build

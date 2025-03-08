@@ -6,7 +6,7 @@ class AnsibleAT10 < Formula
   url "https://files.pythonhosted.org/packages/d4/64/29fdff6fe7682342adb54802c1cd90b2272d382e1743089af88f90a1d986/ansible-10.7.0.tar.gz"
   sha256 "59d29e3de1080e740dfa974517d455217601b16d16880314d9be26145c68dc22"
   license "GPL-3.0-or-later"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://pypi.org/rss/project/ansible/releases.xml"
@@ -17,13 +17,12 @@ class AnsibleAT10 < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia: "4589084616e33ecc4204bcd7420d7101d8057780e6c81b97cc2c98148d3cc532"
-    sha256 cellar: :any,                 arm64_sonoma:  "ad0bd6e00d33324e5ba9d68c6d0dba97d757f525b1c16b5cb1a07c595e6146bb"
-    sha256 cellar: :any,                 arm64_ventura: "2bce7a5686d76af33ac1c3e85ec83763f166800af5f1b06cf5d73cb12f5e71bb"
-    sha256 cellar: :any,                 sonoma:        "9cc203ece4cc214a086aa1faa2377053bab8d631ac76946a6b96f985d5d6b165"
-    sha256 cellar: :any,                 ventura:       "25b0d5eedfb8a0a530d2e0654b9144438eb0dc5381ae3982e2e57c3828a373af"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e40e58a50cc249d2f8394fb23e390198680e0ab5c342abd287770bb45f4675d3"
+    sha256 cellar: :any,                 arm64_sequoia: "eb35c6587563894c9c47c992eba095fd00c6ce48ff8a55cf21cdfcc24ce36d53"
+    sha256 cellar: :any,                 arm64_sonoma:  "6fc1fd2c5a4873b4c1d235917d476f9fbb1ead387710486389bdf39a4325cbf6"
+    sha256 cellar: :any,                 arm64_ventura: "7dcae55d5cb95c8a65fa6613021032ea72ac9eb4e046c781362d2df62fbf072a"
+    sha256 cellar: :any,                 sonoma:        "666e98a3739b8fdcfb528a5dc00fdbd0bfeaeac66f98f8bfb3b1bfb45f8050fe"
+    sha256 cellar: :any,                 ventura:       "a61275ac9c5607c0d2beed46c00eab2c5f3ddf25336d5d9a055e992a77d083a8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5b032d1d41e0e0f5d7e4d2adf57d02b0adc09cf0ea032932fd548620a806e1ac"
   end
 
   keg_only :versioned_formula
@@ -85,13 +84,13 @@ class AnsibleAT10 < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/6e/c5/3c55e916745e5f43de2ea8b5c71d97ec7828b0fd9d03bc2c56aede328fd8/boto3-1.37.4.tar.gz"
-    sha256 "024c37c2f85f4b907f5fc817d0db6fda7fd6ab3c6148ee4ed35fe7cecdf7db0c"
+    url "https://files.pythonhosted.org/packages/6b/e6/40f8c1fb52c02adad1c104c4c4ac0488bf8f2b1397f24db07779322e420b/boto3-1.37.7.tar.gz"
+    sha256 "ac2e022edcd6a94a2adbb21f0ad373a16557ec14a8910366bee0bbc7138fc72a"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/e1/4b/ddf3bdfdae59a6de8936be04e6d79235612ca546e2517c4449fa6e969ef3/botocore-1.37.4.tar.gz"
-    sha256 "7e15cd487617440e9eac3144044b6a2bd833d7f3e2bed6a2865693cc11489cc3"
+    url "https://files.pythonhosted.org/packages/53/4b/096b2fac3ba92ace94f69f238eea9948af568b487c3898e9a8881bfe506b/botocore-1.37.7.tar.gz"
+    sha256 "2faeac11766db912bc444669b04359080b7b83b2f57a3906c77c8105b70ce1e8"
   end
 
   resource "cachetools" do
@@ -165,8 +164,8 @@ class AnsibleAT10 < Formula
   end
 
   resource "jinja2" do
-    url "https://files.pythonhosted.org/packages/af/92/b3130cbbf5591acf9ade8708c365f3238046ac7cb8ccba6e81abccb0ccff/jinja2-3.1.5.tar.gz"
-    sha256 "8fefff8dc3034e27bb80d67c671eb8a9bc424c0ef4c0826edbff304cceff43bb"
+    url "https://files.pythonhosted.org/packages/df/bf/f7da0350254c0ed7c72f3e33cef02e048281fec7ecec5f032d4aac52226b/jinja2-3.1.6.tar.gz"
+    sha256 "0137fb05990d35f1275a587e9aee6d56da821fc83491a0fb838183be43f66d6d"
   end
 
   resource "jmespath" do
@@ -475,8 +474,8 @@ class AnsibleAT10 < Formula
   end
 
   resource "s3transfer" do
-    url "https://files.pythonhosted.org/packages/39/24/1390172471d569e281fcfd29b92f2f73774e95972c965d14b6c802ff2352/s3transfer-0.11.3.tar.gz"
-    sha256 "edae4977e3a122445660c7c114bba949f9d191bae3b34a096f18a1c8c354527a"
+    url "https://files.pythonhosted.org/packages/0f/ec/aa1a215e5c126fe5decbee2e107468f51d9ce190b9763cb649f76bb45938/s3transfer-0.11.4.tar.gz"
+    sha256 "559f161658e1cf0a911f45940552c696735f5c74e64362e515f333ebed87d679"
   end
 
   resource "scp" do

@@ -1,18 +1,18 @@
 class Bibtexconv < Formula
   desc "BibTeX file converter"
   homepage "https://github.com/dreibh/bibtexconv"
-  url "https://github.com/dreibh/bibtexconv/archive/refs/tags/bibtexconv-1.4.2.tar.gz"
-  sha256 "6e48f4c126ece596ee5fd086ad4e0c0d70b682b485cb5286f3b0c0fb8bd55d56"
+  url "https://github.com/dreibh/bibtexconv/archive/refs/tags/bibtexconv-1.4.3.tar.gz"
+  sha256 "06c2998aa849b2ef19902dc3ebe910eb164543c3f864c4ea29402d75a519e09d"
   license "GPL-3.0-or-later"
   head "https://github.com/dreibh/bibtexconv.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "4602cce4ed15087892deb6b08b5ddf744a7182d4a97931e05e64343132e6f99d"
-    sha256 cellar: :any,                 arm64_sonoma:  "c1342b87e9c3bcdff21b49a6bddf914d63a6518f561012c359dab1d1e1c89a36"
-    sha256 cellar: :any,                 arm64_ventura: "b1f68f2b2b7b02679ed98cdd755ba225301d605d4bcb672b6611701004501966"
-    sha256 cellar: :any,                 sonoma:        "2e3764a846a146314b0c1da829e72bc7fd879a244857f4ebd68c6821c1dbad51"
-    sha256 cellar: :any,                 ventura:       "7ba3f32a2ea7a1cb0280b3125c31e7af434b52df4d95c6670081e856a576f5ab"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ecfbfd8288215525f44c3153f6dd2f3d6e03480a18653c0a9a73e7dde5f41798"
+    sha256 cellar: :any,                 arm64_sequoia: "0478d3aff5514efee5d780753b03b8054aa4da807ef6aec65719583a505bf092"
+    sha256 cellar: :any,                 arm64_sonoma:  "027884416e09e8e4ccbe81cbedd31155df48caca196717ba3bc932ef91e37afa"
+    sha256 cellar: :any,                 arm64_ventura: "fb3a73be47b67d2b450d704b65a32374187608c1b1ca5656fd397cc8fbb99269"
+    sha256 cellar: :any,                 sonoma:        "a43344cd2bbb10f7a5ef9b696027977f7b80961e8a5b2913e1600c8997e0b53f"
+    sha256 cellar: :any,                 ventura:       "5f51662a73ef80bbf3a7d23838e6a9b32f2c190dc146e9e2f7656d37bc6582a0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a6ba5f43840616a92558851dedfddf7a164bcf206e4a3a4c77fbd5f687bda934"
   end
 
   depends_on "bison" => :build

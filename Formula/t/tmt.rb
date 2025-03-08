@@ -6,14 +6,15 @@ class Tmt < Formula
   url "https://files.pythonhosted.org/packages/83/ac/e26eaa08ca1dbcd77f7f70206a64e82554a2d60cf756ee348dc614771df7/tmt-1.43.0.tar.gz"
   sha256 "81d33c0f0edd71fd265d51a07245d783fa608264adac1a55db90059ff7a012da"
   license "MIT"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "1219b1e7df3216230a11041afbde85331b63a0ddf0a21fdebcedc54749b6f8e2"
-    sha256 cellar: :any,                 arm64_sonoma:  "f45b8ecc5fd0e1feb0a509b8e113074859dd95e9f1519910bd3e39d7f3a821a6"
-    sha256 cellar: :any,                 arm64_ventura: "ab55c1b60712c368fdbf65d72e81998e1c6898db5891587401845e8c31f53904"
-    sha256 cellar: :any,                 sonoma:        "5fe5245c2b084f00b128afc4d6281596734c00efe3fbce52a52619de622b97b3"
-    sha256 cellar: :any,                 ventura:       "19d123a1e6a991441703f71be065f74ad3f88861f7df66da1601776b0ad99cdd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6b05b64f640b9204eec3cb800e8df8646bb5352507afb56af5b21dcf50a37fba"
+    sha256 cellar: :any,                 arm64_sequoia: "986abeb4e7392267af156d7a4c38ecd5a2fd9d8789bebcce4f8d201415a09c31"
+    sha256 cellar: :any,                 arm64_sonoma:  "0449dfc2a046b0cf593468d7ea4a5b87767065258ed42392ba752a2c0b507367"
+    sha256 cellar: :any,                 arm64_ventura: "2503858fd03a60f2d116916b5f4a1496824a34ca74b4280a43676475e31a9739"
+    sha256 cellar: :any,                 sonoma:        "59aed1f8de7ae4d9db5e77eff9219246ed8dd4f22a1d08f4cd2bbd7a1cfa82f7"
+    sha256 cellar: :any,                 ventura:       "8dacdeb76576f73c39fe7d78c4071906198a36fe8e8a2782ab44f4630fa71657"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "03407489d29645cbad5be7432a54e0da40f051f2d11d64f278fbc4494283a26f"
   end
 
   depends_on "rust" => :build # for rpds-py
@@ -72,8 +73,8 @@ class Tmt < Formula
   end
 
   resource "jinja2" do
-    url "https://files.pythonhosted.org/packages/af/92/b3130cbbf5591acf9ade8708c365f3238046ac7cb8ccba6e81abccb0ccff/jinja2-3.1.5.tar.gz"
-    sha256 "8fefff8dc3034e27bb80d67c671eb8a9bc424c0ef4c0826edbff304cceff43bb"
+    url "https://files.pythonhosted.org/packages/df/bf/f7da0350254c0ed7c72f3e33cef02e048281fec7ecec5f032d4aac52226b/jinja2-3.1.6.tar.gz"
+    sha256 "0137fb05990d35f1275a587e9aee6d56da821fc83491a0fb838183be43f66d6d"
   end
 
   resource "jsonschema" do

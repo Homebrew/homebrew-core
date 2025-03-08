@@ -1,18 +1,18 @@
 class Millet < Formula
   desc "Language server for Standard ML (SML)"
   homepage "https://github.com/azdavis/millet"
-  url "https://github.com/azdavis/millet/archive/refs/tags/v0.14.7.tar.gz"
-  sha256 "5971d48101549ceeb2cdee4e3863c52821fd438c1e27a40dd8892220f447f4b6"
+  url "https://github.com/azdavis/millet/archive/refs/tags/v0.14.8.tar.gz"
+  sha256 "8009a3441eba86d965de1482b1453947b21d36fe94f2287735a39e2d7bfe2ca4"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/azdavis/millet.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6f28322be48cbcab756a89b808173b794070b574e7d1bee162848cb1e4155967"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "469d45f934becf09462d6f5a24970eab07b142ee95d591813870819f6d5ed985"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "a81e0d2237392a1a8fa19f9cf0127eec2b119dfc266c836b74de7047202be89d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "183a1eaa2cca28c6e5ea44cdde478c691504dbbb4ca8f017f4cc670557984f42"
-    sha256 cellar: :any_skip_relocation, ventura:       "29169df7ccdaf3422f073d9a771c999eaa5fc0e2018ad867bfe3eac9e6793e4e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "96064a8f9bbfe20287b0c8e122f9df0dd67bb91f81dcea4e7e69c16345449885"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "eb302fc566189bc784b66c41e349e3f3fc7b0f5a0796b4ed993fc1a828aca678"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "439a08b77bae4e8e6ae6f0a818734284632071582d1a65baf45f2865b438c15d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "ed41078db233116bd6339fd1310b21836c69a18f6adfb797e120959dfa645296"
+    sha256 cellar: :any_skip_relocation, sonoma:        "51eb5c7b5c5444577af054c15e57396877acf8c06aa5a2eba362dd4d3d74860d"
+    sha256 cellar: :any_skip_relocation, ventura:       "879e9aadf0be9827af083b1153e1375c466edb15df4129137dfeabe35b126147"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c5870da021524dd1a04cf8e9a8942d4d5a45e6e8482af1f40cfcc9a493f2ebe4"
   end
 
   depends_on "rust" => :build

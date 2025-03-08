@@ -4,15 +4,15 @@ class NetcdfFortran < Formula
   url "https://github.com/Unidata/netcdf-fortran/archive/refs/tags/v4.6.1.tar.gz"
   sha256 "40b534e0c81b853081c67ccde095367bd8a5eead2ee883431331674e7aa9509f"
   license "NetCDF"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "8b62a93777fedd65dc1fb67b84cde354588dab2352f216f89930aec00ed768f6"
-    sha256 cellar: :any,                 arm64_sonoma:  "993ceaa41b2e1fc8710ca48606136ff18f6bde953f563719b60528929b910a04"
-    sha256 cellar: :any,                 arm64_ventura: "17d6a2cf65bfdc1842136df9c62789b4ec21783d3989309bc795d7859235dd4b"
-    sha256 cellar: :any,                 sonoma:        "28c45ad6a04dc865332cb5ab992c24b595a0282263d8990a9b8d2f2441840a9b"
-    sha256 cellar: :any,                 ventura:       "5243be662389c3f85b0dc96d90cd6706dd2ff7393c493af3dbc3dbaab6a8a8fe"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b555cd5b1f9e6486a6804214836de433c9f97b118ba76d073949d37990f1da40"
+    sha256 cellar: :any,                 arm64_sequoia: "e9798dfd835b908c9580046e00d5e096b10a60565cd24d231a2ef74f2fcb2964"
+    sha256 cellar: :any,                 arm64_sonoma:  "2b0d549474c4bdf670ea0688c9a0711a81e904ae20ba2a400e0a618fd3f28e0b"
+    sha256 cellar: :any,                 arm64_ventura: "ae2c7a62ac4c6c236ae8f5b641346c9f4472018c1c775370da955b94fe28ca0a"
+    sha256 cellar: :any,                 sonoma:        "0cb1829fd3a86a2a018b517bb42360a1390e34d1112e65168a6317b249c0bcad"
+    sha256 cellar: :any,                 ventura:       "ac11a65a396284b3b834bfe7e76ef7d55dd3c673e8aa53ddcc161872d13626d1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "65cb973811a732c8ebe5f1d8bebe7210495534c4e5ebec18003718c6347dddd5"
   end
 
   depends_on "cmake" => :build

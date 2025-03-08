@@ -6,6 +6,7 @@ class Snapcraft < Formula
   url "https://github.com/canonical/snapcraft/archive/refs/tags/8.6.3.tar.gz"
   sha256 "8f27bdfac3b4597c9d8cb6445530ea284664c8b490af77ba215ee1e46fc7f9e8"
   license "GPL-3.0-only"
+  revision 1
   head "https://github.com/canonical/snapcraft.git", branch: "main"
 
   livecheck do
@@ -14,12 +15,12 @@ class Snapcraft < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "dc6586e1b49a0577e87ef746859c1abce1c4a33405ad27c0b693d9cf033ab31b"
-    sha256 cellar: :any,                 arm64_sonoma:  "531e41199a555cf6e5725b8d56638b191ad67d2895b9ae8393db9c453286dceb"
-    sha256 cellar: :any,                 arm64_ventura: "09db17707531eb211ac0d551a7f64a6414c104bac78f907d41a2e0252dbe902c"
-    sha256 cellar: :any,                 sonoma:        "ebd570b950023cffab350196cec3e341726c632ec8c6f55d71182384f7c3acc2"
-    sha256 cellar: :any,                 ventura:       "07baa6debc5d191249b1ffafd5d5da90b5efa9a1b4edddb888152432c4d3f67a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c80827f50c0889c77b44ffa4b48d15f4531e7b0c9b9051ff64ed29fb4cc86a87"
+    sha256 cellar: :any,                 arm64_sequoia: "4138dc59b2842fce88870698011b085195652164d84283686f9e6bc0f305b3bf"
+    sha256 cellar: :any,                 arm64_sonoma:  "fc93a9c8edb8fa796eef633643c290d44151b6a8e9331abb8acadda4dd2836a1"
+    sha256 cellar: :any,                 arm64_ventura: "70baa664fa45d26e826372ca810ed2eb228b89beb2c2f34844d8159d4d4d1003"
+    sha256 cellar: :any,                 sonoma:        "63c652d4689bbed4a1a801b1246c749ab60052724647dd05c8504ccce1d63ac2"
+    sha256 cellar: :any,                 ventura:       "fadb717506d93fa9d7cf2d275d75aa7a4e2a23f6720648a8d1a49663556088f9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b66c4fec78caa3bf10b49787b3bd1bd4553dc944ad31ba38da07f819b4b9a252"
   end
 
   depends_on "rust" => :build # for pydantic_core
@@ -45,8 +46,8 @@ class Snapcraft < Formula
   # We hit a build failure with requested 2.4.0ubuntu1 tarball so just using latest Debian
   resource "python-apt" do
     on_linux do
-      url "https://deb.debian.org/debian/pool/main/p/python-apt/python-apt_2.9.8.tar.xz"
-      sha256 "d07e9a9a8cf988f95210fefdd7dd788cd6342b34c6a1220821185678c1b7adf4"
+      url "https://deb.debian.org/debian/pool/main/p/python-apt/python-apt_2.9.9.tar.xz"
+      sha256 "26164ca27fcb7b7e8ebdb516dbbfb54c8671ee54ba1d11bf2dd44309510103f1"
     end
   end
 
@@ -91,13 +92,13 @@ class Snapcraft < Formula
   end
 
   resource "craft-application" do
-    url "https://files.pythonhosted.org/packages/d8/c5/0e7e7f712e5024c106641ef7b0b77e40964a3f79747ea0d5308e0e97d3f2/craft_application-4.9.1.tar.gz"
-    sha256 "71e674c89cb492e16011741ee9d423dde9d851aa895c8073a2925c583a2d505b"
+    url "https://files.pythonhosted.org/packages/86/86/20bac2f1a4e45097c01040328ff8ffd5313533d03231db08435559c684c3/craft_application-4.10.0.tar.gz"
+    sha256 "7a9cda0e854877fb80464e03274e69b97540a618e0c53cbc500b6fce25b9b8c4"
   end
 
   resource "craft-archives" do
-    url "https://files.pythonhosted.org/packages/8b/8e/efd531838ceb591d4aaa4d032807131082bf20e39112472be33346cc9267/craft-archives-2.0.2.tar.gz"
-    sha256 "8dfc0a78ba0bf1e63891975463e2a15c0028b9697b2282d6e9fe05bd6477960d"
+    url "https://files.pythonhosted.org/packages/a0/b2/40c6f0fc84c87be9fe93aafbc0e98d0d5529aad351e9261fbab9ed1955fa/craft_archives-2.1.0.tar.gz"
+    sha256 "1796ddbdd841443884b4820a9d95ea96639ae8d776c4f0c4a287346e2ccc8e94"
   end
 
   resource "craft-cli" do
@@ -186,13 +187,13 @@ class Snapcraft < Formula
   end
 
   resource "jeepney" do
-    url "https://files.pythonhosted.org/packages/d6/f4/154cf374c2daf2020e05c3c6a03c91348d59b23c5366e968feb198306fdf/jeepney-0.8.0.tar.gz"
-    sha256 "5efe48d255973902f6badc3ce55e2aa6c5c3b3bc642059ef3a91247bcfcc5806"
+    url "https://files.pythonhosted.org/packages/7b/6f/357efd7602486741aa73ffc0617fb310a29b588ed0fd69c2399acbb85b0c/jeepney-0.9.0.tar.gz"
+    sha256 "cf0e9e845622b81e4a28df94c40345400256ec608d0e55bb8a3feaa9163f5732"
   end
 
   resource "jinja2" do
-    url "https://files.pythonhosted.org/packages/af/92/b3130cbbf5591acf9ade8708c365f3238046ac7cb8ccba6e81abccb0ccff/jinja2-3.1.5.tar.gz"
-    sha256 "8fefff8dc3034e27bb80d67c671eb8a9bc424c0ef4c0826edbff304cceff43bb"
+    url "https://files.pythonhosted.org/packages/df/bf/f7da0350254c0ed7c72f3e33cef02e048281fec7ecec5f032d4aac52226b/jinja2-3.1.6.tar.gz"
+    sha256 "0137fb05990d35f1275a587e9aee6d56da821fc83491a0fb838183be43f66d6d"
   end
 
   resource "jsonschema" do
@@ -276,8 +277,8 @@ class Snapcraft < Formula
   end
 
   resource "protobuf" do
-    url "https://files.pythonhosted.org/packages/f7/d1/e0a911544ca9993e0f17ce6d3cc0932752356c1b0a834397f28e63479344/protobuf-5.29.3.tar.gz"
-    sha256 "5da0f41edaf117bde316404bad1a486cb4ededf8e4a54891296f648e8e076620"
+    url "https://files.pythonhosted.org/packages/53/6a/2629bb3529e5bdfbd6c4608ff5c7d942cd4beae85793f84ba543aab2548a/protobuf-6.30.0.tar.gz"
+    sha256 "852b675d276a7d028f660da075af1841c768618f76b90af771a8e2c29e6f5965"
   end
 
   resource "psutil" do
@@ -376,8 +377,8 @@ class Snapcraft < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/92/ec/089608b791d210aec4e7f97488e67ab0d33add3efccb83a056cbafe3a2a6/setuptools-75.8.0.tar.gz"
-    sha256 "c5afc8f407c626b8313a86e10311dd3f661c6cd9c09d4bf8c15c0e11f9f2b0e6"
+    url "https://files.pythonhosted.org/packages/d1/53/43d99d7687e8cdef5ab5f9ec5eaf2c0423c2b35133a2b7e7bc276fc32b21/setuptools-75.8.2.tar.gz"
+    sha256 "4880473a969e5f23f2a2be3646b2dfd84af9028716d398e46192f84bc36900d2"
   end
 
   resource "simplejson" do

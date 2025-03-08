@@ -1,19 +1,17 @@
 class Proxytunnel < Formula
   desc "Create TCP tunnels through HTTPS proxies"
   homepage "https://github.com/proxytunnel/proxytunnel"
-  url "https://github.com/proxytunnel/proxytunnel/archive/refs/tags/v1.12.2.tar.gz"
-  sha256 "edb33a74ba49e745b55b790f123366c8336729947225f4b5d816f1f90551ecfe"
+  url "https://github.com/proxytunnel/proxytunnel/archive/refs/tags/v1.12.3.tar.gz"
+  sha256 "106cfba7aba91faccb158e1c12a4a7c4c65adc95aa1f81b76b987882a68c5afb"
   license "GPL-2.0-or-later" => { with: "openvpn-openssl-exception" }
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "a93c7c73d901172f9aaf39d216de727231dee07349d626732278087016970952"
-    sha256 cellar: :any,                 arm64_sonoma:   "cc4ec787e8432e1d2ca660da6a12c6fb3b5c3f7d9a5ba45d9497559ba38b500f"
-    sha256 cellar: :any,                 arm64_ventura:  "4b8fc03744979dac682161da15fa8076b904a5b17582bc81588d61ac460c99ba"
-    sha256 cellar: :any,                 arm64_monterey: "dd2e453c1f4c7066dc12a122453345abe43ea77a8d405c530600ad1fef10b780"
-    sha256 cellar: :any,                 sonoma:         "22e300ce753b252dd49e225f0f6532a2d2b942681b5f83215728c40a09f657bc"
-    sha256 cellar: :any,                 ventura:        "0b0e7b53fa09dedc6fd0d1f57151992da961cc66fde1ccc353399265db0e0233"
-    sha256 cellar: :any,                 monterey:       "ca0729c5efb1753546e44dfa32b2d287ac254e70b74a5e711c545edebc7e2ee4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e85b78dc09d5c849110d32f44b3276babb0649ee5a545ebb69d786de8bba4f6b"
+    sha256 cellar: :any,                 arm64_sequoia: "6b7dd6ac425100875ce71c7439bfba022d89b03470e108f040abf8f9a1865ed1"
+    sha256 cellar: :any,                 arm64_sonoma:  "4180c52f43d7bc1d79471a57ec13978ace1642e6a9ebf003b5867ad12c22b08f"
+    sha256 cellar: :any,                 arm64_ventura: "b304a1e197fc8840549b2b4f240a6eec34dbdd45eb035bed45fb591201dd0ed3"
+    sha256 cellar: :any,                 sonoma:        "20b05437c58f9ac5e129dbfd9da88d6c57338deb994ad88af6ee2a558a430304"
+    sha256 cellar: :any,                 ventura:       "a7877a40edfc840c91921d0bfb161e1f87d4eef6b8f3bc06789d9a6b89b06dbe"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "68f0a86ab22a1406b3215b1f48abd7bb1cd686a2eab4cd707f989a9bee830a4c"
   end
 
   depends_on "asciidoc" => :build

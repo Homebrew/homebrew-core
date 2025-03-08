@@ -5,14 +5,15 @@ class MkdocsMaterial < Formula
   url "https://files.pythonhosted.org/packages/9b/d7/93e19c9587e5f4ed25647890555d58cf484a4d412be7037dc17b9c9179d9/mkdocs_material-9.6.7.tar.gz"
   sha256 "3e2c1fceb9410056c2d91f334a00cdea3215c28750e00c691c1e46b2a33309b4"
   license "MIT"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "ae824351d375bfa2012ce4ed313a3d2d9b79827dea057681d11525914d59d580"
-    sha256 cellar: :any,                 arm64_sonoma:  "159e80312eada07d26f27e504cd594e3757ee7a5bec2c940225b28c159141748"
-    sha256 cellar: :any,                 arm64_ventura: "73eff7566ff8fe0244149a1a3400f01bb408273f5b97eae8c58e4740a287d77a"
-    sha256 cellar: :any,                 sonoma:        "5d17359e991052cb742fed741a1eac1403d941f798bb8ef8fca8d9d2e4172b17"
-    sha256 cellar: :any,                 ventura:       "1ffffa00a2a67e0ac7796e546103a9bab66f13318d037eac3a741f35d9e1a606"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "61c01702599ffc38367557654b136151422b375a3e297e6aa44247ec57627347"
+    sha256 cellar: :any,                 arm64_sequoia: "6581322a8abffdf1f2896b2c3429bd0f6ad6893581343d0091d6b06eefb4dc82"
+    sha256 cellar: :any,                 arm64_sonoma:  "6ba6f797c78ad1986e871f136d6aa55cc4e67f6dce962fae66e827caf008aade"
+    sha256 cellar: :any,                 arm64_ventura: "67083ecd1aa431384e123011b07d9dca0b30139a8bf1616b158bf35002b42292"
+    sha256 cellar: :any,                 sonoma:        "94cb32f8421e723cb6c2c9be2d73b75d6874c28e859ba5c42662f2986efaeb67"
+    sha256 cellar: :any,                 ventura:       "a3763e7d38f07236fe46c0128c5c4a5f0c9c18584278552c62e137b0a01736a8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "197549a28cc4bf92e9990c29b81cf854ea65dda8a5a5927aabf7bc53c664299f"
   end
 
   depends_on "libyaml"
@@ -61,8 +62,8 @@ class MkdocsMaterial < Formula
   end
 
   resource "jinja2" do
-    url "https://files.pythonhosted.org/packages/af/92/b3130cbbf5591acf9ade8708c365f3238046ac7cb8ccba6e81abccb0ccff/jinja2-3.1.5.tar.gz"
-    sha256 "8fefff8dc3034e27bb80d67c671eb8a9bc424c0ef4c0826edbff304cceff43bb"
+    url "https://files.pythonhosted.org/packages/df/bf/f7da0350254c0ed7c72f3e33cef02e048281fec7ecec5f032d4aac52226b/jinja2-3.1.6.tar.gz"
+    sha256 "0137fb05990d35f1275a587e9aee6d56da821fc83491a0fb838183be43f66d6d"
   end
 
   resource "markdown" do

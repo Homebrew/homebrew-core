@@ -6,23 +6,23 @@ class Jinja2Cli < Formula
   url "https://files.pythonhosted.org/packages/a4/22/c922839761b311b72ccc95c2ca2239311a3e80916458878962626f96922a/jinja2-cli-0.8.2.tar.gz"
   sha256 "a16bb1454111128e206f568c95938cdef5b5a139929378f72bb8cf6179e18e50"
   license "BSD-2-Clause"
-  revision 2
+  revision 3
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "2620ee9fd5aa2da33d5fea6841d1cb77d5b630d2111a17530249ea7def9d422f"
-    sha256 cellar: :any,                 arm64_sonoma:  "132a13e406d3654c199ec4784062d26d932eed486e8ac5171bb2bb37a2b676f2"
-    sha256 cellar: :any,                 arm64_ventura: "7eea787f9991ad399d517df9e893f659ba9cbbb1ae36bdd9071d246e6a59b28f"
-    sha256 cellar: :any,                 sonoma:        "6749a16cc095372a402f64dc1db6bdafc112095a816f6ff557be0146a1d04c6d"
-    sha256 cellar: :any,                 ventura:       "d1c80d14802b51adc586580f53456c1604cab02792b65eb56eddfebd487857df"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b2369a0b06a7384ce3a8c3c2cc0b69fea4d08c6a0cd83381b349ee58b329295c"
+    sha256 cellar: :any,                 arm64_sequoia: "69847d8dd63445895938e9a787d879a81c933764fea8b3df683ae18a3c0465e9"
+    sha256 cellar: :any,                 arm64_sonoma:  "883bb7f1ecae9adf6e224cec532dac1738f95c82e3a414d2d29be0d6555eed31"
+    sha256 cellar: :any,                 arm64_ventura: "81a8d22c74237ad6b2117cd41b7d21ee621d6c6cfad796408300b09c298f6e0f"
+    sha256 cellar: :any,                 sonoma:        "fab5b3eb00bbcd5be43140b924899df658422035a7480014310701456637fa67"
+    sha256 cellar: :any,                 ventura:       "8d5a194592d04897522819d11b4983d8ed5580726ab8133318c73c4c47eea334"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3614f38dc9f33988fbdb1e3a5bce147e5e315f6a1aafa54bbf8252723e7d79a0"
   end
 
   depends_on "libyaml"
   depends_on "python@3.13"
 
   resource "jinja2" do
-    url "https://files.pythonhosted.org/packages/af/92/b3130cbbf5591acf9ade8708c365f3238046ac7cb8ccba6e81abccb0ccff/jinja2-3.1.5.tar.gz"
-    sha256 "8fefff8dc3034e27bb80d67c671eb8a9bc424c0ef4c0826edbff304cceff43bb"
+    url "https://files.pythonhosted.org/packages/df/bf/f7da0350254c0ed7c72f3e33cef02e048281fec7ecec5f032d4aac52226b/jinja2-3.1.6.tar.gz"
+    sha256 "0137fb05990d35f1275a587e9aee6d56da821fc83491a0fb838183be43f66d6d"
   end
 
   resource "markupsafe" do

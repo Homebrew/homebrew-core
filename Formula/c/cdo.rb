@@ -4,6 +4,7 @@ class Cdo < Formula
   url "https://code.mpimet.mpg.de/attachments/download/29786/cdo-2.5.0.tar.gz"
   sha256 "e865c05c1b52fd76b80e33421554db81b38b75210820bdc40e8690f4552f68e2"
   license "GPL-2.0-only"
+  revision 1
 
   livecheck do
     url "https://code.mpimet.mpg.de/projects/cdo/news"
@@ -11,12 +12,12 @@ class Cdo < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "9e8287ef7ba4bfa75cbfc05bece8551659f08414c8e08a0cb325c96050fe15ed"
-    sha256 cellar: :any,                 arm64_sonoma:  "5f704008eb15821fe51a09d45669cb9bb3a747fa9dad331f959cda9eef9b1144"
-    sha256 cellar: :any,                 arm64_ventura: "931d982a240f485a70106b5503112e161663bc4cadb49d9ae657775f77fa15d9"
-    sha256 cellar: :any,                 sonoma:        "7d4f5fa47192e958525a656365ff42f99b54769a0561a883f6d631f01c853e21"
-    sha256 cellar: :any,                 ventura:       "34da9ee1d052377bcf87e4f99272be70b716643ef0562f36f9aee8b37cd1687e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1bce6ed92f56839cbc064ef38a54a0cf585136dd2b29a061795c71259b4cbca7"
+    sha256 cellar: :any,                 arm64_sequoia: "5bfb89e3eef1e110a1d0813d3f1075081517b1a0cb619febc6f4c929662f5a14"
+    sha256 cellar: :any,                 arm64_sonoma:  "56c6ecb97d39275362a9ea0765920cbb0f8e16a9664550d532f53c5a3b17cd8e"
+    sha256 cellar: :any,                 arm64_ventura: "50135f7afffe6d66409ef2e17ddcc2fa1e3c20a4a81283712b50e95cc7d37ef6"
+    sha256 cellar: :any,                 sonoma:        "9dd3ea94e634eeec45eab563f244edb53725ecbacea4f9d798361bee1f3cfd7c"
+    sha256 cellar: :any,                 ventura:       "fe11bad09c587b0e8bf7de19580ee9224e394b94e79c34fb8bdb820b22fce63b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c3779198c547c91ea220675e3545179e66ffb0000d8950942510dcf280899c2f"
   end
 
   depends_on "eccodes"

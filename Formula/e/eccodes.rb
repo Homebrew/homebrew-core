@@ -4,6 +4,7 @@ class Eccodes < Formula
   url "https://confluence.ecmwf.int/download/attachments/45757960/eccodes-2.40.0-Source.tar.gz"
   sha256 "f58d5d7390fce86c62b26d76b9bc3c4d7d9a6cf2e5f8145d1d598089195e51ff"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url "https://confluence.ecmwf.int/display/ECC/Releases"
@@ -11,12 +12,12 @@ class Eccodes < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "63b3435ed34b7af5856f4b9c57cdaa4c23f47749ad2aa665f01a97f28fcc5da6"
-    sha256 arm64_sonoma:  "81fd4655d539acaaa54ddf83dc3e9fcd8a2a191b7a2e410f6020339758710405"
-    sha256 arm64_ventura: "ecbbf575d50dbfd68c0799c751ea2358d9a684072efb8e29381d564629277e11"
-    sha256 sonoma:        "5b1ab49dfec9188ff63644aebc3521abb7cc2a188134c199944631fad2b8699d"
-    sha256 ventura:       "4f91cd88bb054dbbbe92d97eb2fbf58d0696b6c62f8b584d9352e6013ea0932f"
-    sha256 x86_64_linux:  "2e1fc7f9b7cc5ee2ed26138b81d8ca9b1b768dc3e096013dcc22bab40c2065fd"
+    sha256 arm64_sequoia: "0643fe3aa66edf998b80f393ab200934d2b055c3eb497da46458d8aaba7860ab"
+    sha256 arm64_sonoma:  "e5586c52a0f8d08201f0d83f9f7d3a6df4d707512c2f2bfdbff5138e7847e02b"
+    sha256 arm64_ventura: "d119abb244cf287d71c062655d2833c82b717575a14cec8c72c927c4202ee39f"
+    sha256 sonoma:        "f9113e5a8427be24b469da5794ad46f67143fc127c2255b2c96f972d52a90faa"
+    sha256 ventura:       "bda65f7d3788109e09e48ac2f7c704c105a0c3d83f2682db4e3637cbb9272dd1"
+    sha256 x86_64_linux:  "9fb1affd973a32a59c3472384e611e36ff51b9b2d32d0243ab0dab35ab4c1c4a"
   end
 
   depends_on "cmake" => :build

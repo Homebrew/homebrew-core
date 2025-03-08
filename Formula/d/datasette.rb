@@ -5,16 +5,16 @@ class Datasette < Formula
   url "https://files.pythonhosted.org/packages/db/94/e6408997861e9de3ec61fb8107efe9eaf70f765ad2cd4e20b552dd340899/datasette-0.65.1.tar.gz"
   sha256 "d8be37ae6dafbfd8e510d49c0dc0fc6696081614d048a507eed86dd2ae433223"
   license "Apache-2.0"
-  revision 1
+  revision 2
   head "https://github.com/simonw/datasette.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "ffa734d4a5fd8afe46ef65f090d01a8ef3d2e7f69fbcc6b58f075bf3e540fd0c"
-    sha256 cellar: :any,                 arm64_sonoma:  "446659b50706ceeafd7c982e66233a7210d04283f0ed46b7555d7d63c694c987"
-    sha256 cellar: :any,                 arm64_ventura: "6cc18f3fa88dfcd14632256b92a010011dd07768d892959dab68662fef01a69a"
-    sha256 cellar: :any,                 sonoma:        "001c5a1cf121f171cda025811999c0723302280c55dd99d753618b288a507317"
-    sha256 cellar: :any,                 ventura:       "bbd75061ceebfb9fb3805bc421f147e1ae87fd4d90aecaea5ff41bcc4e85eac8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "db737874b944e0ad701fe60bd760849b4d3ab9fc010f3855ea71ac6b203f7cd2"
+    sha256 cellar: :any,                 arm64_sequoia: "13bf936eddbfa57fc4a5955f1bf31337e4a718f912883ab951f85fe088e71d81"
+    sha256 cellar: :any,                 arm64_sonoma:  "09ad677c2e60ece17263f5632d7d0642832a6050539234c68725b1f4bea948a6"
+    sha256 cellar: :any,                 arm64_ventura: "2d7657e90cfc079138110b6aeea100ddc27fa424f32141efcf965f52b148e61c"
+    sha256 cellar: :any,                 sonoma:        "7d17a192b993a290fc4e83f91be96f60541b91a6f836ee1e6f94ea3efe87520d"
+    sha256 cellar: :any,                 ventura:       "5171c2098fa6b8aa80898fa19f6d8e0223ad6fa6e9f17b7979751f24ad85bb5c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "30b3e1bd9d559333bdba21004aedfdbfa350609fac9e777f95728d6e42cf4d6c"
   end
 
   depends_on "certifi"
@@ -27,8 +27,8 @@ class Datasette < Formula
   end
 
   resource "anyio" do
-    url "https://files.pythonhosted.org/packages/f6/40/318e58f669b1a9e00f5c4453910682e2d9dd594334539c7b7817dabb765f/anyio-4.7.0.tar.gz"
-    sha256 "2f834749c602966b7d456a7567cafcb309f96482b5081d14ac93ccd457f9dd48"
+    url "https://files.pythonhosted.org/packages/a3/73/199a98fc2dae33535d6b8e8e6ec01f8c1d76c9adb096c6b7d64823038cde/anyio-4.8.0.tar.gz"
+    sha256 "1d9fe889df5212298c0c0723fa20479d1b94883a2df44bd3897aa91083316f7a"
   end
 
   resource "asgi-csrf" do
@@ -97,8 +97,8 @@ class Datasette < Formula
   end
 
   resource "jinja2" do
-    url "https://files.pythonhosted.org/packages/af/92/b3130cbbf5591acf9ade8708c365f3238046ac7cb8ccba6e81abccb0ccff/jinja2-3.1.5.tar.gz"
-    sha256 "8fefff8dc3034e27bb80d67c671eb8a9bc424c0ef4c0826edbff304cceff43bb"
+    url "https://files.pythonhosted.org/packages/df/bf/f7da0350254c0ed7c72f3e33cef02e048281fec7ecec5f032d4aac52226b/jinja2-3.1.6.tar.gz"
+    sha256 "0137fb05990d35f1275a587e9aee6d56da821fc83491a0fb838183be43f66d6d"
   end
 
   resource "markupsafe" do
@@ -132,8 +132,8 @@ class Datasette < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/43/54/292f26c208734e9a7f067aea4a7e282c080750c4546559b58e2e45413ca0/setuptools-75.6.0.tar.gz"
-    sha256 "8199222558df7c86216af4f84c30e9b34a61d8ba19366cc914424cdbd28252f6"
+    url "https://files.pythonhosted.org/packages/d1/53/43d99d7687e8cdef5ab5f9ec5eaf2c0423c2b35133a2b7e7bc276fc32b21/setuptools-75.8.2.tar.gz"
+    sha256 "4880473a969e5f23f2a2be3646b2dfd84af9028716d398e46192f84bc36900d2"
   end
 
   resource "sniffio" do

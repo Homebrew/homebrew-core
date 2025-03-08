@@ -6,14 +6,15 @@ class Copier < Formula
   url "https://files.pythonhosted.org/packages/44/49/1a43fade92e3af317393943ac005ed1b4094a88e999acda34f3d0e27aef8/copier-9.5.0.tar.gz"
   sha256 "db7311075176376ee746fe610ffb5b27db7ac755585d6149894f677ffbce127d"
   license "MIT"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "29893a8ca4dd0637eed1bcf1bc9fdf0b4d7f0a07feb9c26842c34497cb72a264"
-    sha256 cellar: :any,                 arm64_sonoma:  "adba93becb3d6f3a47cb52e3df6e8956525811f6aac0a8ea7f25604e3095cca1"
-    sha256 cellar: :any,                 arm64_ventura: "25effab23c81268f27f63c3c5b8d183832e03319abe473bcb5dc72b0a1941598"
-    sha256 cellar: :any,                 sonoma:        "05c7fb5e2685e536df70c80be8870fb759994095e32b42af742a1993dd64c14a"
-    sha256 cellar: :any,                 ventura:       "8cb7d4d186aaf5b2e4d12d331c4121e406328dc550c3f6ac3726a8c1198b126e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e2d8cb35b4586d1cbeb6f392111ef1e77d59fc9b84682aa624ef47a5b85f82ae"
+    sha256 cellar: :any,                 arm64_sequoia: "fff70a27727168bf3a475fdda7308eed4ef488f8f9e06b4de684e8f68a7e6c8e"
+    sha256 cellar: :any,                 arm64_sonoma:  "4a7e30a8d9285d92bb1b77a9c01a5520ab388baf8ef2d2ebdfde015034020518"
+    sha256 cellar: :any,                 arm64_ventura: "2f4f69769014de5a93060540494909c121c151482c9229b2c5c1f83c59981c3f"
+    sha256 cellar: :any,                 sonoma:        "10262ce7cb8b7c5c767866aa1c42f1ff292f82cafeceda4ab97e0887d31a8b26"
+    sha256 cellar: :any,                 ventura:       "ba9f0266deedb312c7aeed274e6765915f8b414ca228d3a71c02aaf1989cd85e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7fae8a4f731ca0c05997491f4c4027ebcdc6ae9893ee9455166b6ae5dbbf6e34"
   end
 
   depends_on "rust" => :build
@@ -41,8 +42,8 @@ class Copier < Formula
   end
 
   resource "jinja2" do
-    url "https://files.pythonhosted.org/packages/af/92/b3130cbbf5591acf9ade8708c365f3238046ac7cb8ccba6e81abccb0ccff/jinja2-3.1.5.tar.gz"
-    sha256 "8fefff8dc3034e27bb80d67c671eb8a9bc424c0ef4c0826edbff304cceff43bb"
+    url "https://files.pythonhosted.org/packages/df/bf/f7da0350254c0ed7c72f3e33cef02e048281fec7ecec5f032d4aac52226b/jinja2-3.1.6.tar.gz"
+    sha256 "0137fb05990d35f1275a587e9aee6d56da821fc83491a0fb838183be43f66d6d"
   end
 
   resource "jinja2-ansible-filters" do

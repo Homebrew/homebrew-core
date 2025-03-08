@@ -1,8 +1,8 @@
 class Kmod < Formula
   desc "Linux kernel module handling"
   homepage "https://git.kernel.org/pub/scm/utils/kernel/kmod/kmod.git"
-  url "https://mirrors.edge.kernel.org/pub/linux/utils/kernel/kmod/kmod-34.tar.xz"
-  sha256 "12e7884484151fbd432b6a520170ea185c159f4393c7a2c2a886ab820313149a"
+  url "https://mirrors.edge.kernel.org/pub/linux/utils/kernel/kmod/kmod-34.1.tar.xz"
+  sha256 "125957c9125fc5db1bd6a2641a1c9a6a0b500882fb8ccf7fb6483fcae5309b17"
   license all_of: ["LGPL-2.1-or-later", "GPL-2.0-or-later"]
 
   livecheck do
@@ -11,7 +11,7 @@ class Kmod < Formula
   end
 
   bottle do
-    sha256 x86_64_linux: "46807b3e434fcdf1a9d60c69d09e0df25295f3a04ad7a44c2a087534e6f95d1b"
+    sha256 x86_64_linux: "a9c448f63fbe982988fd1a823f89ea41adfbf2460b8fd3f03eccae799b8064db"
   end
 
   depends_on "meson" => :build

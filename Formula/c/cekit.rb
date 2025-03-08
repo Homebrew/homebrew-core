@@ -6,15 +6,15 @@ class Cekit < Formula
   url "https://files.pythonhosted.org/packages/c6/b0/12fffe7912cf673213a7422353e167b8d6415cce82a20005e5b63d9a465a/cekit-4.14.0.tar.gz"
   sha256 "ccfd56a3cf7140e448b8a22a1357a300fc662480854b5bd70c6f74c2530b22fa"
   license "MIT"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "c3f67a2079625296cab085ccf82c68fcfff6904f8a04041df9fa329693ce2e3d"
-    sha256 cellar: :any,                 arm64_sonoma:  "28d6bba702f3450b6618f7b2b50bba5e700b6b85c4d12e20b42fa597dfe166fa"
-    sha256 cellar: :any,                 arm64_ventura: "860bca53e9ab0e83b36c15d6242467d996fca1b29f8367619caff88ba8317434"
-    sha256 cellar: :any,                 sonoma:        "2018d73c01ec3490d485e745ca57315c61063a81570355623bd7597c1128f9b8"
-    sha256 cellar: :any,                 ventura:       "5e76d111b2f93f3975f3eece8f0c0e0bf4a76224f501c955c5d3777e98a0c93d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "81d6a14d90541ba0aafa333acbc7e09bf86d7e2185c4b7eec8ecba5670fbbf62"
+    sha256 cellar: :any,                 arm64_sequoia: "4a1518ee5e13fcc8ae641c9ffc7096e710a422bb30ad27fa0f65a85a252736ed"
+    sha256 cellar: :any,                 arm64_sonoma:  "34c477344da4a29dc877e6d5bb7ddcb3faf509a97482fb08f33ba855bfd3fc1e"
+    sha256 cellar: :any,                 arm64_ventura: "5098418cc8c2be7af41bce2d92bc76e567b64c80e0a1b8e30f054a264e76c97e"
+    sha256 cellar: :any,                 sonoma:        "ec3643fb30c0ca346a766f69f36088cdfd593107b47f7eaa1c8869ca254e7925"
+    sha256 cellar: :any,                 ventura:       "ec047824bb4408fef35ba39b4d45f68f2a740e3f7c35f3f42155f68d6911274b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "67284c9fa4386de681b41502d3d5257d3b370f8ec5beb84cba9aff62e79764a5"
   end
 
   depends_on "libyaml"
@@ -36,8 +36,8 @@ class Cekit < Formula
   end
 
   resource "jinja2" do
-    url "https://files.pythonhosted.org/packages/af/92/b3130cbbf5591acf9ade8708c365f3238046ac7cb8ccba6e81abccb0ccff/jinja2-3.1.5.tar.gz"
-    sha256 "8fefff8dc3034e27bb80d67c671eb8a9bc424c0ef4c0826edbff304cceff43bb"
+    url "https://files.pythonhosted.org/packages/df/bf/f7da0350254c0ed7c72f3e33cef02e048281fec7ecec5f032d4aac52226b/jinja2-3.1.6.tar.gz"
+    sha256 "0137fb05990d35f1275a587e9aee6d56da821fc83491a0fb838183be43f66d6d"
   end
 
   resource "markupsafe" do
@@ -66,8 +66,8 @@ class Cekit < Formula
   end
 
   resource "ruamel-yaml" do
-    url "https://files.pythonhosted.org/packages/29/81/4dfc17eb6ebb1aac314a3eb863c1325b907863a1b8b1382cdffcb6ac0ed9/ruamel.yaml-0.18.6.tar.gz"
-    sha256 "8b27e6a217e786c6fbe5634d8f3f11bc63e0f80f6a5890f28863d9c45aac311b"
+    url "https://files.pythonhosted.org/packages/ea/46/f44d8be06b85bc7c4d8c95d658be2b68f27711f279bf9dd0612a5e4794f5/ruamel.yaml-0.18.10.tar.gz"
+    sha256 "20c86ab29ac2153f80a428e1254a8adf686d3383df04490514ca3b79a362db58"
   end
 
   resource "six" do

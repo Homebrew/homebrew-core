@@ -1,8 +1,8 @@
 class Libclc < Formula
   desc "Implementation of the library requirements of the OpenCL C programming language"
   homepage "https://libclc.llvm.org/"
-  url "https://github.com/llvm/llvm-project/releases/download/llvmorg-19.1.7/libclc-19.1.7.src.tar.xz"
-  sha256 "77e2d71f5cea1d0b1014ba88186299d1a0848eb3dc20948baae649db9e7641cb"
+  url "https://github.com/llvm/llvm-project/releases/download/llvmorg-20.1.0/libclc-20.1.0.src.tar.xz"
+  sha256 "02ee864c9974268509d3777e8f15bb3ebb2cc4ffe456d9aa79a352c5788c15a8"
   license "Apache-2.0" => { with: "LLVM-exception" }
 
   livecheck do
@@ -11,12 +11,12 @@ class Libclc < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "34d2546339cfe4a4e6b59342c748769187ba560a2e6b314a32c40f953d4e596a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "34d2546339cfe4a4e6b59342c748769187ba560a2e6b314a32c40f953d4e596a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "34d2546339cfe4a4e6b59342c748769187ba560a2e6b314a32c40f953d4e596a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "34d2546339cfe4a4e6b59342c748769187ba560a2e6b314a32c40f953d4e596a"
-    sha256 cellar: :any_skip_relocation, ventura:       "34d2546339cfe4a4e6b59342c748769187ba560a2e6b314a32c40f953d4e596a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ef445f4088c23fe0189b67d868fce5843e434ac52ee90a9993ee73558b4fb518"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "15ebc0a82779249a9c4e393477ce3faa74c859341b8717a5a77bb1619a3652f2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "15ebc0a82779249a9c4e393477ce3faa74c859341b8717a5a77bb1619a3652f2"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "15ebc0a82779249a9c4e393477ce3faa74c859341b8717a5a77bb1619a3652f2"
+    sha256 cellar: :any_skip_relocation, sonoma:        "15ebc0a82779249a9c4e393477ce3faa74c859341b8717a5a77bb1619a3652f2"
+    sha256 cellar: :any_skip_relocation, ventura:       "15ebc0a82779249a9c4e393477ce3faa74c859341b8717a5a77bb1619a3652f2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1c5acd4cbd601238e25000b4e2872d9b3bd8e38e415f51d69fc1d63b2239fa2e"
   end
 
   depends_on "cmake" => :build

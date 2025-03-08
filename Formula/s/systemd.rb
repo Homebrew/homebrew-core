@@ -3,8 +3,8 @@ class Systemd < Formula
 
   desc "System and service manager"
   homepage "https://systemd.io"
-  url "https://github.com/systemd/systemd/archive/refs/tags/v257.3.tar.gz"
-  sha256 "99365d1a01bcc59a659ab59c7bae9c34f7eb2998f1656ee0a4aae05312eacdc9"
+  url "https://github.com/systemd/systemd/archive/refs/tags/v257.4.tar.gz"
+  sha256 "3e7955ecdb8ad317b2876a31ad749e4dd71d371f343de40d856d62c1eb2ffa2a"
   license all_of: [
     # Main license is LGPL-2.1-or-later while systemd-udevd is GPL-2.0-or-later
     "LGPL-2.1-or-later",
@@ -30,7 +30,7 @@ class Systemd < Formula
   head "https://github.com/systemd/systemd.git", branch: "main"
 
   bottle do
-    sha256 x86_64_linux: "06bb06a6a612764a2fcde5fabdc38a27adb34fe03816538ea18671c6a8c77312"
+    sha256 x86_64_linux: "11cbe75b25e7bd77625f0c56710059ced178576e6d1ad0e865418a2f38210cb8"
   end
 
   depends_on "coreutils" => :build
@@ -55,8 +55,8 @@ class Systemd < Formula
   depends_on "zstd"
 
   resource "jinja2" do
-    url "https://files.pythonhosted.org/packages/af/92/b3130cbbf5591acf9ade8708c365f3238046ac7cb8ccba6e81abccb0ccff/jinja2-3.1.5.tar.gz"
-    sha256 "8fefff8dc3034e27bb80d67c671eb8a9bc424c0ef4c0826edbff304cceff43bb"
+    url "https://files.pythonhosted.org/packages/df/bf/f7da0350254c0ed7c72f3e33cef02e048281fec7ecec5f032d4aac52226b/jinja2-3.1.6.tar.gz"
+    sha256 "0137fb05990d35f1275a587e9aee6d56da821fc83491a0fb838183be43f66d6d"
   end
 
   resource "lxml" do

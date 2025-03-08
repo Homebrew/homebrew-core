@@ -1,18 +1,18 @@
 class Edencommon < Formula
   desc "Shared library for Watchman and Eden projects"
   homepage "https://github.com/facebookexperimental/edencommon"
-  url "https://github.com/facebookexperimental/edencommon/archive/refs/tags/v2025.02.17.00.tar.gz"
-  sha256 "9d8092d84cb4489318587f65058c38e486cbdc705ec935366ae150fcf4c99a9d"
+  url "https://github.com/facebookexperimental/edencommon/archive/refs/tags/v2025.03.03.00.tar.gz"
+  sha256 "06287c72531b2c0088c4a18efec581fc28ffaa8fb8c3b60761a8deb0d81dd1df"
   license "MIT"
   head "https://github.com/facebookexperimental/edencommon.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "d6f77631cd944e3c019527138b3845b591f0f56bb46ac6b8b46ab4d2a2b1600f"
-    sha256 cellar: :any,                 arm64_sonoma:  "3e067551bac2d4209475228317daf67f4bc24334b586ad1890f48d14bac1aaaf"
-    sha256 cellar: :any,                 arm64_ventura: "c24c60c481e6f9ae93968221c1afc7c4cde7ccc7745e0e4d8b14e85cc9a82530"
-    sha256 cellar: :any,                 sonoma:        "ca8a96b97042958b98f04062146df69b5b5c5b92f40643f3e65c6232b6927dfb"
-    sha256 cellar: :any,                 ventura:       "1156d9e7ef722b336449617a938e2a2265ac31f44bf51e247628ba9877815f69"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "544f3f8da3e2740b4676fbdd056abee46d8b41c78c3dc29a546341cf350baf5d"
+    sha256 cellar: :any,                 arm64_sequoia: "e35c51dae3769f96fdede78f5bfbaf5b3a013339bbcd03f9f7702b513f366080"
+    sha256 cellar: :any,                 arm64_sonoma:  "ee84311523ffe8b20f8432b135f5c16b889e1e7a067820db45c97b5acf03c3e2"
+    sha256 cellar: :any,                 arm64_ventura: "361820117515ff22118222abba372e8de3c6a83bbfce8e81b06d9f9ffea99dc2"
+    sha256 cellar: :any,                 sonoma:        "b9e207dc7ae19698b30459bd1b9e2ff4840deb7f022cefee446a0b00fd9a3f8c"
+    sha256 cellar: :any,                 ventura:       "40980f2fdefec08f2171436abc88bcb270538b9ed8971a084b8b96b2c25049c8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ee239dc17047fd19783504106a8835c18405b4a1ebe118f93e1798b659777d86"
   end
 
   depends_on "cmake" => :build

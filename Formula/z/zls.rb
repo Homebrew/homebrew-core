@@ -1,20 +1,18 @@
 class Zls < Formula
   desc "Language Server for Zig"
   homepage "https://zigtools.org/zls/"
-  url "https://github.com/zigtools/zls/archive/refs/tags/0.13.0.tar.gz"
-  sha256 "2e8046b6b0de765a4bf4bb828345e2badc8b828bc257dc931d0f56b147684d9f"
+  url "https://github.com/zigtools/zls/archive/refs/tags/0.14.0.tar.gz"
+  sha256 "44cae74073b2f75cf627755398afadafaa382cccf7555b5b66b147dcaa6cef0d"
   license "MIT"
   head "https://github.com/zigtools/zls.git", branch: "master"
 
   bottle do
-    sha256 arm64_sequoia:  "40ae2eed62a206035ef1ac4744f0b29e57c608edc19256d6dbc4e5a04a9e6731"
-    sha256 arm64_sonoma:   "ad033c76a56c3e673f5a98b858044b6cce0943e4efc1f65e1808e96e6bc35526"
-    sha256 arm64_ventura:  "8cec98eb089329c697832b25e173f6b136c007dfbcb6c3831d6b20df9ca65738"
-    sha256 arm64_monterey: "dc17fa3ed91c7f1fe2f3978d5179f1b7d3bf49be1efe432c0de5c7934bc4b984"
-    sha256 sonoma:         "0b9f2c664b2df58c11636bb2e79c29ea6fd3763ec294ad4df9752943241bf0f7"
-    sha256 ventura:        "4b901bea62efa0dac5ab5301f50c6130bc749820e4c00769ab17fa6f33e7b9cc"
-    sha256 monterey:       "c8f8837db476edf57943adc3a050c7f7514eec746f6d5deace1f0877a3ca6e08"
-    sha256 x86_64_linux:   "efbbcc9ee2e1ff6189e5efe21281b621114c44091ca07e3e05fcb10ea4a3c60c"
+    sha256 arm64_sequoia: "7c368a129e8f7f77847510de90e109b6c01e35901f065327551bdda25c9bacc4"
+    sha256 arm64_sonoma:  "660c0950e552712568b2a14230e6d866cd6f16c48cfc4fb4b9bbd8d4b4708979"
+    sha256 arm64_ventura: "8f9f6f64f69751589f4e9c746f1bd8c07d1364dc104bd68654f32cb5641b0856"
+    sha256 sonoma:        "5fbe4882be0c8049da4fe626e6a0dd1adf6cda6d6f561c92765c0454d9967cfb"
+    sha256 ventura:       "667924a98f0b4de9cbb5df7bf8f14da4b26cecd53c0dd4dcbf746a85274375e8"
+    sha256 x86_64_linux:  "b99285236749312380349bc72d1c109a9108c439ecb4381c228a95b469608c07"
   end
 
   depends_on "zig"

@@ -1,17 +1,17 @@
 class AwsCS3 < Formula
   desc "C99 library implementation for communicating with the S3 service"
   homepage "https://github.com/awslabs/aws-c-s3"
-  url "https://github.com/awslabs/aws-c-s3/archive/refs/tags/v0.7.11.tar.gz"
-  sha256 "6602c92c8b4602dee50636f4128a7842f7359314d030db35368120491b3582bc"
+  url "https://github.com/awslabs/aws-c-s3/archive/refs/tags/v0.7.12.tar.gz"
+  sha256 "096ac66bc830c8a29cb12652db095e03a2ed5b15645baa4d7c78de419a0d6a54"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "72f73b7f45700aaa043f8f9b31287702c6bdf2bfb0e173cbf1c1f0af2533abac"
-    sha256 cellar: :any,                 arm64_sonoma:  "c1618156ef021e7d30f9e50eb312d2f90f0d039e68bcf386bf2c4d732c96aa8e"
-    sha256 cellar: :any,                 arm64_ventura: "cca85069996891d362a456ca696adfe073d45dc9346fdb5adc925457c11ce42f"
-    sha256 cellar: :any,                 sonoma:        "ad6bdb23743cab902252625fd766fab41670249c16cb493c6c8f8c85ac827ff6"
-    sha256 cellar: :any,                 ventura:       "cbf82c495f78ec73efd218d29c9e131e53053bccea173eb3f55ae8316275a31e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0aa6137e875b96c394c916f966bdfb43a7965885a777d96d1a17fa1ac9cf00fb"
+    sha256 cellar: :any,                 arm64_sequoia: "799f60ad9662ce3146c742bdd23320a2c94cc85e648b4176f2faac0cd26c51ea"
+    sha256 cellar: :any,                 arm64_sonoma:  "0ef42217cf7f0aef34bdd5609577092ddbe6c90d11634b79e863b58a60119b5a"
+    sha256 cellar: :any,                 arm64_ventura: "a89e68bee2d886d87acedb08feba1937a6c2b16d48dca4ab086caabd0369973d"
+    sha256 cellar: :any,                 sonoma:        "79d76f327013c5622ffa011f9a3896fe90dfc11e625e9517e1db4556fe0607c0"
+    sha256 cellar: :any,                 ventura:       "67821f7e86bc18438b0824c24d239b6f883d0fe6b912787bf85764d2013f44dd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "28d19f90e169bb63d65cd34da8baaa7307320fe7483ab7af7b2c322f9b92957c"
   end
 
   depends_on "cmake" => :build

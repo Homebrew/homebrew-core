@@ -3,17 +3,17 @@ class Cycode < Formula
 
   desc "Boost security in your dev lifecycle via SAST, SCA, Secrets & IaC scanning"
   homepage "https://github.com/cycodehq/cycode-cli"
-  url "https://files.pythonhosted.org/packages/c4/30/6fa03f2a36e493e2e7aea7485e784ae2a56f6117f915d5e7ba262a84d2d8/cycode-2.3.0.tar.gz"
-  sha256 "1c01f8ceef9706435d82c89a9bcf0589db91aaa93d78fed0eaf708a7dcc41993"
+  url "https://files.pythonhosted.org/packages/16/73/e17769255a4d0d12e273e2ea00b7995fcdbc65c9987faed6cdfbba162a69/cycode-2.3.1.tar.gz"
+  sha256 "24f1b70ea7420141a9e70d85c3f6997e8db1208d4f069a6248ecf4dcbae8f3a8"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "42fb0cee091e77413eb39f20c6b5e56f71b34d503155b76c294aa00e82450310"
-    sha256 cellar: :any,                 arm64_sonoma:  "670926daa18914eedd830db2c2f949fb3a0d0cebd2ce0c929eae49d72e3542c5"
-    sha256 cellar: :any,                 arm64_ventura: "ae22510c3aa28acbcf5212676ceb84c292c348261872b9d4bad0ed373d78700d"
-    sha256 cellar: :any,                 sonoma:        "49e01ef0b908e9d6b3825b73a29bc32ed3be38e9aa8593fcc7892a9e8901c9f9"
-    sha256 cellar: :any,                 ventura:       "cb879dbfc78a49e025ef6568d234bc0ca2f6eaee1f33c94faf68d83c05375ded"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "daea9bf45790c84fd7c8423abc1401b9daaec0d3a95b84c4eb47feb18bf738d8"
+    sha256 cellar: :any,                 arm64_sequoia: "c0560a0fb0c5616995509e00f3591be8e5cecab5cfa345edbd5e6992be117be5"
+    sha256 cellar: :any,                 arm64_sonoma:  "4bb15f2a0df5fcd81565b9ff0ec376f1acc8ffd9b551ca44ffc0f7bfef2d9b98"
+    sha256 cellar: :any,                 arm64_ventura: "4d60cbefb1a0deafeb3807dce848e14930818aba4f18ae0e538219c44c107758"
+    sha256 cellar: :any,                 sonoma:        "952b361563d3c4e61b1d234c017a20add5ab547e3f8be441a716f56d1a490960"
+    sha256 cellar: :any,                 ventura:       "c75da601a180a1aa448988d90fd3640f01271e18761c7f3038cca2b524d8750d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "919273b62de92b56a80ee38150df45500820b7b657e173e325bacaaa06e8b086"
   end
 
   depends_on "certifi"

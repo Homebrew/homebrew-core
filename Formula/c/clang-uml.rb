@@ -1,18 +1,18 @@
 class ClangUml < Formula
   desc "Customizable automatic UML diagram generator for C++ based on Clang"
   homepage "https://github.com/bkryza/clang-uml"
-  url "https://github.com/bkryza/clang-uml/archive/refs/tags/0.6.0.tar.gz"
-  sha256 "df50f715ab4b5f8705893aba45f6146b77cbd1c0653e81e2555772d8584601d5"
+  url "https://github.com/bkryza/clang-uml/archive/refs/tags/0.6.1.tar.gz"
+  sha256 "a64c3cae87a282be207e4c5faf47534dca21b06cb6f463bb7b04de979dccf17e"
   license "Apache-2.0"
   head "https://github.com/bkryza/clang-uml.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "ef69e10427ae18579ded81c976f7ff99b510b8a259c00537e86c623408b5be58"
-    sha256 cellar: :any,                 arm64_sonoma:  "519d24f4f5cf1c8fd66aa25974ae1f22cb2b28d24212c7c257d7614f883572e7"
-    sha256 cellar: :any,                 arm64_ventura: "bca97dfb431d4e18fbfdd1a410ac8ed82322f7e1978d9954e313cffdf69043dd"
-    sha256 cellar: :any,                 sonoma:        "d25f9faa7cfeafd93066cca12d265a0bd88001e659e458941c4cbab4e4a25c4c"
-    sha256 cellar: :any,                 ventura:       "abb5969d6c8223b45daf82408a6ca80bd6f6f0cea2565ba994b17eb9e7ae0864"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f9ea7ee16b42512e71a166f1a8227b2be24a645ae7f50a8b0bfcd9c57ebb617f"
+    sha256 cellar: :any,                 arm64_sequoia: "5fd22620d40efe64c0f4b1a480b5971ded072a946a9b9a30867c5ecf115db537"
+    sha256 cellar: :any,                 arm64_sonoma:  "327a49a6c41f4a4f178d13bc4a41321c738f28d7dc1b88608912c28575800488"
+    sha256 cellar: :any,                 arm64_ventura: "2bb66e775151529dc30f96fde62afda7c936386d75d29ecba8b07123d311674e"
+    sha256 cellar: :any,                 sonoma:        "9295ba057159bc80373717119e58ba181bd020267c849b56559b0245871711b3"
+    sha256 cellar: :any,                 ventura:       "d22a834e0e6b3fac00fd05b76ad2c46cd0f694d9de6531a6b5ff31fa32b8f444"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "81908d08a72c9c46a26e1c7f408c85cf408d0938e23bc14cf47a8446998073ef"
   end
 
   depends_on "cmake" => [:build, :test]

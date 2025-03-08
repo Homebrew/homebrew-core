@@ -149,9 +149,10 @@ jobs:
 
           if [[ "$bottles" = "true" ]]
           then
-            if jq --exit-status 'any(.[].filename; startswith("Formula/")) | not'
+            array_has_unremoved_formulae_filter='any((.filename | startswith("Formula/")) and (.status != "removed"))'
+            if jq --exit-status ". | $array_has_unremoved_formulae_filter | not"
             then
-              echo '::notice ::PR does not modify formulae; no bottles to publish.'
+              echo '::notice ::PR does not add or modify formulae; no bottles to publish.'
               bottles=false
             fi < <(
               gh api \

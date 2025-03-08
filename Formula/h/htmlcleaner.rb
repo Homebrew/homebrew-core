@@ -1,33 +1,29 @@
 class Htmlcleaner < Formula
   desc "HTML parser written in Java"
   homepage "https://htmlcleaner.sourceforge.net/"
-  # TODO: Check if we can use unversioned `openjdk` (or `openjdk@21`) at version bump.
   url "https://downloads.sourceforge.net/project/htmlcleaner/htmlcleaner/htmlcleaner%20v2.29/htmlcleaner-src-2.29.zip"
   sha256 "9fc68d7161be6f34f781e109bf63894d260428f186d88f315b1d2e3a33495350"
   license "BSD-3-Clause"
   revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "2985dd8f7728f3fd22c5a28748b2f8fc9c4da5627fb7cc0f1a5c0c97b31b3c50"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "80b49c3d2908f0b16012c0df1ca1b8106b89c3cf32acec145297e73fd9b07db2"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7a24575c2b43f626d3d9da81c7c5827552373384c34906e311e609d65e443485"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f8f9df98d6b5f4876d20c9b92912655d90cde869c551749e341df6c7e267d308"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8845ce2d35c04af60ced49eff3a85c9bc36aa04f1bb6aaf4cca88ceaebe4304f"
-    sha256 cellar: :any_skip_relocation, sonoma:         "0693691bbeeb073072948882cc808f3614781c2cc641d2e20fad1511ee3f883e"
-    sha256 cellar: :any_skip_relocation, ventura:        "92b7d24b687fb475b97e90e783c69f9ef552ee52517d7c15b7f36f1389751bc7"
-    sha256 cellar: :any_skip_relocation, monterey:       "9e41d626c3516fc8790e4e5a0dbb25063bca90204847acdf3024ea59bb825b3b"
-    sha256 cellar: :any_skip_relocation, big_sur:        "d0d1da20c65da61938e3a1f13987a8668eb0c11d7a437ffbf03c25a5d5829253"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "695a4bdb667ae979c639e63083a696d823992bc37db1fc7deb23502cc54ed63c"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1ee4cfa168e59ef59a77de847f53f23c4f9a2a7be9a1f1844608c72b5ff1b7af"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "35348580167a179573bf545a60831a398a8d70a0c567d313acdb1707d9068d15"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "b8823d1ba1ef2e847fe95da75054ec681d3aafcafef2c1bf084b7f917c02884c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "5e7f1b1c468d1a5ead2ed450fed70e621ee5b429486da31ac05474d9871473ed"
+    sha256 cellar: :any_skip_relocation, ventura:       "8dc19a84c07fee65cef8e0889cae31a1e9f1a437f78911808340bbaf5a7a9a2b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "49d3b92068ee5e037f6efe9232227d6b49069c0f6e0a09a1abd34467290755b1"
   end
 
   depends_on "maven" => :build
-  depends_on "openjdk@17"
+  depends_on "openjdk"
 
   def install
-    ENV["JAVA_HOME"] = Formula["openjdk@17"].opt_prefix
+    ENV["JAVA_HOME"] = Language::Java.java_home
     system "mvn", "clean", "package", "-DskipTests=true", "-Dmaven.javadoc.skip=true"
     libexec.install "target/htmlcleaner-#{version}.jar"
-    bin.write_jar_script libexec/"htmlcleaner-#{version}.jar", "htmlcleaner", java_version: "17"
+    bin.write_jar_script libexec/"htmlcleaner-#{version}.jar", "htmlcleaner"
   end
 
   test do

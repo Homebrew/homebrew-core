@@ -4,16 +4,16 @@ class OpentelemetryCpp < Formula
   url "https://github.com/open-telemetry/opentelemetry-cpp/archive/refs/tags/v1.19.0.tar.gz"
   sha256 "e0330194b72f2fe4c0ce3ece06b02dc4aa0ab491eb75bf42c6f5e283912e468c"
   license "Apache-2.0"
-  revision 1
+  revision 2
   head "https://github.com/open-telemetry/opentelemetry-cpp.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "2be89c377b53a1df9d2bd6d58cf47229a97ec59dffe864fb55ecfa9e4b35adf9"
-    sha256 cellar: :any,                 arm64_sonoma:  "7b7f400254f1906aa3bc89e7bbbfac2f5035cbefcd71c4b16836788ba0d52633"
-    sha256 cellar: :any,                 arm64_ventura: "fdb18ad2634377ff579e4efb86bb96a4d42dc7415ac8877a15830f99d362bca8"
-    sha256 cellar: :any,                 sonoma:        "e044a0bc3b21e917b05ec0e99fb39299c4caeed03028823001d4e25b28d1f1d7"
-    sha256 cellar: :any,                 ventura:       "13b36f13660c9c57f0a482ae572b13dcc623164753f284cf578b73a37ab58e51"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "41f8a4a3dc224438d7f33adc0272dbe3d9bb97a720e86b434add1d8711272565"
+    sha256                               arm64_sequoia: "c652b84a2ce6c7f820de16b651d9cb0ae6fb1e0f552ac29de558372bd03c18b5"
+    sha256                               arm64_sonoma:  "912a2c32aeb01bd3f11b97ec7fe8f1087cd4048a8637ed63a5b62755a06287f6"
+    sha256                               arm64_ventura: "70e37dd3afe14008a1aa45af4680693cf62110e229104af2a5479d90907cba81"
+    sha256 cellar: :any,                 sonoma:        "e8df11415f61cb4bd9a992c10408aeee7234bc6d7fdc826961f07e0e3cc69f05"
+    sha256 cellar: :any,                 ventura:       "a6deb2c20413aab929e648039d6d9147e1abb33c863acd768fe971ab3da4a6db"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1b8721856cef340e4830b0f3852460abda1fc3f13b13c245114881f3177e84e8"
   end
 
   depends_on "cmake" => :build

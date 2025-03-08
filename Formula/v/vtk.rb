@@ -4,15 +4,15 @@ class Vtk < Formula
   url "https://www.vtk.org/files/release/9.4/VTK-9.4.1.tar.gz"
   sha256 "c253b0c8d002aaf98871c6d0cb76afc4936c301b72358a08d5f3f72ef8bc4529"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
   head "https://gitlab.kitware.com/vtk/vtk.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:  "f254c5cf1ccad940159632c4bb596b0ffd2bd32734147487d4fd9ec902c3a58e"
-    sha256 cellar: :any,                 arm64_ventura: "ca7f25ceb75b2bc9029bb8ac83cc6e4779acfcc2fd7d1692c720f3ada934b4bc"
-    sha256 cellar: :any,                 sonoma:        "c00f790c1ef56226acb35df63719affe69e0583f23c0e9b56960da383508e3e2"
-    sha256 cellar: :any,                 ventura:       "cabbe49856fb972a8f663f17ec84197770ded18a5016abbb3099dba17cb7c8b3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e9ad32e6ffe89c6ce0312a871c2a159d15d24ef2ac628b7d9a688e665a3dfc94"
+    sha256 cellar: :any, arm64_sonoma:  "9ed23f4be40eb53e2bdd9fd6b3e567416655f6e33252cfeaba5ec4479ac0d3d9"
+    sha256 cellar: :any, arm64_ventura: "132410470b595b7b6d69a21e2130be2f6d4eb32e668e1a5d8098d8510e833c9f"
+    sha256 cellar: :any, sonoma:        "361f2053f5cf0c086e287f5e689a2ab4a6c3a3cabbb60bc6618070736393bbc9"
+    sha256 cellar: :any, ventura:       "1e46c17261ed861900df2542341e408c6d1f6800b5ddd3c6e5e6181d75ee93c3"
+    sha256               x86_64_linux:  "9429fd810d7f4238c30a5bbbf94b616a4ca6fe038b09cee2349cf69800106a16"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -54,12 +54,14 @@ class Vtk < Formula
     depends_on "mesa"
   end
 
-  def install
-    # Work around problematic netCDF CMake file by forcing pkg-config fallback.
-    # Ref: https://github.com/Unidata/netcdf-c/issues/1444
-    odie "Try removing netCDF workaround!" if Formula["netcdf"].stable.version > "4.9.2"
-    inreplace "CMake/FindNetCDF.cmake", "find_package(netCDF CONFIG QUIET)", "# \\0"
+  # Apply Arch Linux patch to fix build with netcdf 4.9.3+
+  # Issue ref: https://gitlab.kitware.com/vtk/vtk/-/issues/19616
+  patch do
+    url "https://gitlab.archlinux.org/archlinux/packaging/packages/vtk/-/raw/b4d07bd7ee5917e2c32f7f056cf78472bcf1cec2/netcdf-4.9.3.patch"
+    sha256 "87535578bbb0023ede506fd64afae95cdf4fb698c543f9735e6267730634afbc"
+  end
 
+  def install
     # Work around superenv to avoid mixing `expat` usage in libraries across dependency tree.
     # Brew `expat` usage in Python has low impact as it isn't loaded unless pyexpat is used.
     # TODO: Consider adding a DSL for this or change how we handle Python's `expat` dependency

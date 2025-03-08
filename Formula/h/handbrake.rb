@@ -1,19 +1,18 @@
 class Handbrake < Formula
   desc "Open-source video transcoder available for Linux, Mac, and Windows"
   homepage "https://handbrake.fr/"
-  url "https://github.com/HandBrake/HandBrake/releases/download/1.7.3/HandBrake-1.7.3-source.tar.bz2"
-  sha256 "228681e9f361a69f1e813a112e9029d90fcf89e54172e7ff1863ce1995eae79a"
+  url "https://github.com/HandBrake/HandBrake/releases/download/1.9.2/HandBrake-1.9.2-source.tar.bz2"
+  sha256 "f56696b9863a6c926c0eabdcb980cece9aa222c650278d455ac6873d3220ce49"
   license "GPL-2.0-only"
-  revision 1
   head "https://github.com/HandBrake/HandBrake.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a8a5a841bf2d70e6c069a296f35069715bc34a96d74c6942a865aafbda0d88c8"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "af0147a74aea0cb4dc8e7090b2d4625ba2c359c3a13690e42315918c86e0a368"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "6f04c2bb371e0d477d6fab8f27c75f26ea965d50be376d7d7341e83ca158132d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "d13a5b05c623a1a99503bff93f2d7721e0ddbc98de6b9a0b16b3c5858dbf3999"
-    sha256 cellar: :any_skip_relocation, ventura:       "f3097de7b645328be204d1d6558678f8e5cc9d378a644863fb4f3077dad7ee5a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c85fa158e4b574b808fee42a03e76c3d870ac91cbb3cc1d4a2dbcb1e1133a0f9"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e522355fdd80a18975dff369e4f84f114db24bdd998c9aabf0412e37870d3c14"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2bf626472451af5250d1ad1bda30d045fd8524c8ead478ba10c6617137513ea4"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "0963b2fe7afb36039db49f6d70bfb956d762e2f45dc8f8f75f6b788f130e27e7"
+    sha256 cellar: :any_skip_relocation, sonoma:        "90d51673f0d57cf519ca07cef60fd47d3102352a7eb15c9b74cd5528cfc34dce"
+    sha256 cellar: :any_skip_relocation, ventura:       "e4566e9531e9b4ef8e1424d2b64881a42849fa998c4f41723e7901ac69fa869c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d369bff496ed3e599714b882be69de1d774ec7f4c36863de22e230ea1739cca7"
   end
 
   depends_on "autoconf" => :build
@@ -48,6 +47,10 @@ class Handbrake < Formula
   end
 
   def install
+    # Several vendored dependencies, including x265 and svt-av1, attempt detection
+    # of supported CPU features in the compiler via -march flags.
+    ENV.runtime_cpu_detection
+
     inreplace "contrib/ffmpeg/module.defs", "$(FFMPEG.GCC.gcc)", "cc"
 
     ENV.append "CFLAGS", "-I#{Formula["libxml2"].opt_include}/libxml2" if OS.linux?

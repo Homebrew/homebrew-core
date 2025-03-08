@@ -1,8 +1,8 @@
 class Cdi < Formula
   desc "C and Fortran Interface to access Climate and NWP model Data"
   homepage "https://code.mpimet.mpg.de/projects/cdi"
-  url "https://code.mpimet.mpg.de/attachments/download/29833/cdi-2.5.0.tar.gz"
-  sha256 "19654af187d8b29e708b1c7e4726143cf26547966dceba8cc5b68690281ddad9"
+  url "https://code.mpimet.mpg.de/attachments/download/29860/cdi-2.5.1.tar.gz"
+  sha256 "7e369ed455d153bfbfcb5abd343779dc254b798b0d5ea641cd497a49e39f4de5"
   license "GPL-2.0-only"
 
   livecheck do
@@ -11,12 +11,12 @@ class Cdi < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "f798120f10757919038021b9a9e4510d331b614ac678818a636cf7c33c730ac0"
-    sha256 cellar: :any,                 arm64_sonoma:  "053f10293e8fb895eb957978e7ac14a8b974c1df4a0b2cb7111e60befda3f2cc"
-    sha256 cellar: :any,                 arm64_ventura: "3db0ffc99f12fa23bc860e769b42c06b994b3d51930a1395ca642ab771d34a89"
-    sha256 cellar: :any,                 sonoma:        "c1d6beb0092822a5b1d8f179a5c00d7d18af5894fd12bf12a47979d51a817887"
-    sha256 cellar: :any,                 ventura:       "8aaf19d666c9153a30716fa898303a1810b4f264e92bca4a2b7506f36e1a8225"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "979e1583f8751f47f6a04c3d06dc53a51c041ee7e9c4eec5b019397ae06864bf"
+    sha256 cellar: :any,                 arm64_sequoia: "1a2af30986bdf223d03abb0eadea7cd2a925f12edd0c33170b4e533378a3d579"
+    sha256 cellar: :any,                 arm64_sonoma:  "16025104184587aedd23423d3b5852d3fe70e0784d7716dbaaa8446d4bb498bd"
+    sha256 cellar: :any,                 arm64_ventura: "67bca1e2d7b566358cce8f0d334cf4e7cdd9988ade451eb529916f133c1d55f4"
+    sha256 cellar: :any,                 sonoma:        "2479b5cfe6dc105af9800571e330422934c0b532cfea292d33c7fbfef936068d"
+    sha256 cellar: :any,                 ventura:       "4239b14c23ec729a89006d68e81e342c81e04d014c487d60fc915b9ff3dd50e0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c8f0e635a82532348a73894dec184a2081e04ddff27562766ff1f1b30c345398"
   end
 
   depends_on "eccodes"

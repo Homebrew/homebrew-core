@@ -6,16 +6,16 @@ class Buku < Formula
   url "https://github.com/jarun/buku/archive/refs/tags/v4.9.tar.gz"
   sha256 "1e432270ae78c7852110dcf2c2e215893bcc338299a4998f14a1f6b26e37bfac"
   license "GPL-3.0-or-later"
-  revision 4
+  revision 5
   head "https://github.com/jarun/buku.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1e21aab12edfb5ed957b882de61b739cfa96cd2b66475181b882c3c30323fd4b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b623288b44db6297ba1f2d8d513103291d18b43c29f980fe5a571f944864b68d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "2f76d0977a40c829227c09e24d51e7c4d4b47280b686fb2ecd1a441bd4414b40"
-    sha256 cellar: :any_skip_relocation, sonoma:        "3417f96fdd88257c76fa40dd7942959c96121c1414ce8e6d2354ee7c563804c7"
-    sha256 cellar: :any_skip_relocation, ventura:       "682f27f719652fcd1cd08291182dbedc112ac985ed15c94e9ae94e10a21f8b6b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "03eb99f07115d1dca39d1daaea0df354c18f37703ae386880ae1c772219772dd"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f9e9ada33f4ceed0d64870888ef0aa2d47fbc8d7472d44d5d04903f4e23a53f3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0e2a3f573759f416945e12dcd41dc2e2b90db44ca9bdc441983937920f7ef79c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "54de12a32e4ea424bc008f27eab490643467760d2647bb21e2b541fa651ef01a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "a6204f9d6e6877bc9aaba326aa03b00375c01162062777d4e465a11916688986"
+    sha256 cellar: :any_skip_relocation, ventura:       "0ef74ba32389f16e7735f633b93146fd3e4edbbfd6e193c9cd488f91dc452428"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f3050ed929c5c6c9bbdf01b22ce7eb5c12f366736a4af95a91e818e8300685f6"
   end
 
   depends_on "certifi"
@@ -30,8 +30,8 @@ class Buku < Formula
   end
 
   resource "beautifulsoup4" do
-    url "https://files.pythonhosted.org/packages/b3/ca/824b1195773ce6166d388573fc106ce56d4a805bd7427b624e063596ec58/beautifulsoup4-4.12.3.tar.gz"
-    sha256 "74e3d1928edc070d21748185c46e3fb33490f22f52a3addee9aee0f4f7781051"
+    url "https://files.pythonhosted.org/packages/f0/3c/adaf39ce1fb4afdd21b611e3d530b183bb7759c9b673d60db0e347fd4439/beautifulsoup4-4.13.3.tar.gz"
+    sha256 "1bd32405dacc920b42b83ba01644747ed77456a65760e285fbc47633ceddaf8b"
   end
 
   resource "click" do
@@ -85,8 +85,8 @@ class Buku < Formula
   end
 
   resource "jinja2" do
-    url "https://files.pythonhosted.org/packages/af/92/b3130cbbf5591acf9ade8708c365f3238046ac7cb8ccba6e81abccb0ccff/jinja2-3.1.5.tar.gz"
-    sha256 "8fefff8dc3034e27bb80d67c671eb8a9bc424c0ef4c0826edbff304cceff43bb"
+    url "https://files.pythonhosted.org/packages/df/bf/f7da0350254c0ed7c72f3e33cef02e048281fec7ecec5f032d4aac52226b/jinja2-3.1.6.tar.gz"
+    sha256 "0137fb05990d35f1275a587e9aee6d56da821fc83491a0fb838183be43f66d6d"
   end
 
   resource "markupsafe" do
@@ -112,6 +112,11 @@ class Buku < Formula
   resource "types-python-dateutil" do
     url "https://files.pythonhosted.org/packages/a9/60/47d92293d9bc521cd2301e423a358abfac0ad409b3a1606d8fbae1321961/types_python_dateutil-2.9.0.20241206.tar.gz"
     sha256 "18f493414c26ffba692a72369fea7a154c502646301ebfe3d56a04b3767284cb"
+  end
+
+  resource "typing-extensions" do
+    url "https://files.pythonhosted.org/packages/df/db/f35a00659bc03fec321ba8bce9420de607a1d37f8342eee1863174c69557/typing_extensions-4.12.2.tar.gz"
+    sha256 "1a7ead55c7e559dd4dee8856e3a88b41225abfe1ce8df57b7c13915fe121ffb8"
   end
 
   resource "urllib3" do

@@ -11,26 +11,28 @@ class SwaggerCodegenAT2 < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "93390df04af8f77e55f6758d808fe4b022729cff8cca6be8a08c3692936ae8da"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "749278049cc1975aaa1e8aec068ad636a0c20165dca71c5276fcf766ca072fd9"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "16d85444b730f0a2c258bb97b4053ad1cfbb75e4f309cc44b72a06098316623e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "2f1f9ac33a296483e8d22c148194ba860edf36e69cd55f70655f98aed2290eaa"
-    sha256 cellar: :any_skip_relocation, ventura:       "30f36152fba7b75bb39da1848f944d7757c28f9fe108ecb4dc40e5c69e445c87"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e2f90f09191691d4f57eda897c9bcf520a5e8c1d4e04e7b1c48cb94565d3303b"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9957ad6a72c5b0d33cca934d61fa39df3140deaa1901e1a578068356cb2f8c80"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "110e581cb812f4ecc7c493c3fa82d0fd27b6a30945f4af1330245943a9e400e9"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "7c868d84b9873fb1e66c3033d4c898bfee02e9b9e6f03312a68ebe50eff510fd"
+    sha256 cellar: :any_skip_relocation, sonoma:        "58eae21ef53d08a199c16bcb221decd751987360141bc0a6b28213e1c86e6f1a"
+    sha256 cellar: :any_skip_relocation, ventura:       "06d0d89da4abbdea0267da07c2922731d116de55c00466ae178c5570a38d4475"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "88015a18565d8eca250566fd82768c20d7e0e4bcd4a27339ddb34cc313d848dd"
   end
 
   keg_only :versioned_formula
 
   depends_on "maven" => :build
-  depends_on "openjdk@11"
+  depends_on "openjdk@21"
 
   def install
     # Need to set JAVA_HOME manually since maven overrides 1.8 with 1.7+
-    ENV["JAVA_HOME"] = Formula["openjdk@11"].opt_prefix
+    java_version = "21"
+    ENV["JAVA_HOME"] = Language::Java.java_home(java_version)
 
     system "mvn", "clean", "package"
     libexec.install "modules/swagger-codegen-cli/target/swagger-codegen-cli.jar"
-    bin.write_jar_script libexec/"swagger-codegen-cli.jar", "swagger-codegen", java_version: "11"
+    bin.write_jar_script(libexec/"swagger-codegen-cli.jar", "swagger-codegen", java_version:)
   end
 
   test do

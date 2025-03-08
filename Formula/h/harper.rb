@@ -1,18 +1,18 @@
 class Harper < Formula
   desc "Grammar Checker for Developers"
   homepage "https://github.com/elijah-potter/harper"
-  url "https://github.com/elijah-potter/harper/archive/refs/tags/v0.23.0.tar.gz"
-  sha256 "6990e83036d77d3c854a2a5551836e7413cddddf5ea18f08aa4a074e88f2f0b0"
+  url "https://github.com/elijah-potter/harper/archive/refs/tags/v0.24.0.tar.gz"
+  sha256 "0d03374ef03ef189fa3824439fb7075cf309a0284857b6d8d22107f164ad8487"
   license "Apache-2.0"
   head "https://github.com/elijah-potter/harper.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "18fb5f6c852425e0c1e6e3628eaaffde2fe4d4d9d003be8e03934bc3712809e0"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c834e0a96e74f648c7aba25d7e2a5f6f5b1abd42abc0c8b9118f5a242d9e7533"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "07b9cada127fef2b1429b02e127670f5982da05c7430ff76c656638a82a0013a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "b3fb00533a7030a09cf016f5b0ab70f2f86458bf0052a53afffddeb5c997d7d5"
-    sha256 cellar: :any_skip_relocation, ventura:       "d376c697bbfbe8ba51ff4c41823f6d4aee80a0b3d2fcb90920b9213ffaf81604"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ca55ac6a38702fd191b098c442d9c94a88add6b71b27525b4b821746ba8542d3"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "89a3fc3bb0ee137a3aa5bb3de9f8a999b9e9d2dbc99364de5d7b6ec036c2563e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c2ff108c632f99d5c7f28ac2fffe0865626ce0d97720ac7cf70d8ab074037ca8"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "57c6a21e85eebbf1105cf5e1a0a99d1a69d0bb4fdd5b4be4b1e7ef220969f58f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "755dc893bc3d6a07d528d7a16b035648448b78e371a081776204056f87a06cd9"
+    sha256 cellar: :any_skip_relocation, ventura:       "3eca236bd445cc600c7103f242369a19bc78e5244c874b3e26f6c0cb89416874"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c3804fdb907918477f96a1d4520019b52910f1ab351036b0e1c559943b11e1fc"
   end
 
   depends_on "rust" => :build

@@ -10,7 +10,6 @@ class Julia < Formula
     sha256 "027b258b47b4e1a81d1ecdd355adeffdb6c0181c9ad988e717f5e475a12a1de8"
 
     depends_on "libgit2@1.8"
-    depends_on "mbedtls@2"
 
     # Link against libgcc_s.1.1.dylib, not libgcc_s.1.dylib
     # https://github.com/JuliaLang/julia/pull/56965#event-15826575851
@@ -31,12 +30,13 @@ class Julia < Formula
   end
 
   bottle do
-    sha256                               arm64_sequoia: "94518bc424efed0ed491c60dd9e59fe49579b88d1e7440b1309af168bf5d7db1"
-    sha256 cellar: :any,                 arm64_sonoma:  "edd292bee7c874addca11584dbd896938b475b24247a9058c0451bd38590650f"
-    sha256                               arm64_ventura: "2a1fb1e68f1ab84fe82415bfafb9707d24a16502d5f56cb442461dafd11b5919"
-    sha256 cellar: :any,                 sonoma:        "c5636dcbe31c7290e677bcdd96236ebba9c057d17b711d50fa142d22045b7a98"
-    sha256 cellar: :any,                 ventura:       "3eaa1ab4ea41515ffa84472efc80a92337a4c519f78557932cecaaf66675fa61"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fd669e58000ccd79453c249009c0aa4f6ddb25c05a6142da06c2aadc6d02b532"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "6ea8593028babf39b143a62508270ef26d269e3f83ee9685c9e7c7b57f644d83"
+    sha256 cellar: :any,                 arm64_sonoma:  "ccd746c88700b1d22e17c22458f6bdab649a60b1d64c42c02865c74731dd4bde"
+    sha256 cellar: :any,                 arm64_ventura: "ec3b72f48bf2c2be114f822e49684cd45d38aeaad4cbcc85f5284ed36b9df3d4"
+    sha256 cellar: :any,                 sonoma:        "d0511e1200d1262d182a0ffcf4339418c1592c5264976fbdf9edf2193aa1fa1e"
+    sha256 cellar: :any,                 ventura:       "c08bdd15e1644414c2d4047a7ad5ceddfa0d2a7c856dd20fad8a5355acd41147"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6f084cee91baaeff584c5e2baf946bf35aa368bbb23033eb0d915049485557bf"
   end
 
   head do
@@ -91,7 +91,6 @@ class Julia < Formula
       USE_SYSTEM_LIBGIT2=1
       USE_SYSTEM_LIBSSH2=1
       USE_SYSTEM_LIBSUITESPARSE=1
-      USE_SYSTEM_MBEDTLS=1
       USE_SYSTEM_MPFR=1
       USE_SYSTEM_NGHTTP2=1
       USE_SYSTEM_OPENLIBM=1
@@ -157,10 +156,9 @@ class Julia < Formula
       ENV.append "LDFLAGS", "-Wl,-rpath,#{lib}"
     end
 
-    # Remove library versions from MbedTLS_jll, nghttp2_jll and others
+    # Remove library versions from nghttp2_jll and others
     # https://git.archlinux.org/svntogit/community.git/tree/trunk/julia-hardcoded-libs.patch?h=packages/julia
     stdlib_deps = %w[nghttp2 LibGit2 OpenLibm SuiteSparse]
-    stdlib_deps << "MbedTLS" if build.stable?
     stdlib_deps.each do |dep|
       inreplace (buildpath/"stdlib").glob("**/#{dep}_jll.jl") do |s|
         s.gsub!(%r{@rpath/lib(\w+)(\.\d+)*\.dylib}, "@rpath/lib\\1.dylib")
@@ -174,11 +172,12 @@ class Julia < Formula
     if build.head?
       args << "USE_SYSTEM_CURL=1"
     else
-      args << "USE_SYSTEM_CURL=0"
+      args += ["USE_SYSTEM_CURL=0", "USE_SYSTEM_MBEDTLS=0"]
       # Julia 1.11 is incompatible with curl >= 8.10
       # Issue ref: https://github.com/JuliaLang/Downloads.jl/issues/260
-      odie "Try unbundling curl!" if version >= "1.12"
+      odie "Try unbundling curl and removing mbedtls references!" if version >= "1.12"
       # Workaround to install bundled curl without bundling other libs
+      system "make", "-C", "deps", "install-mbedtls", *args
       system "make", "-C", "deps", "install-curl", *args
     end
 
@@ -238,7 +237,7 @@ class Julia < Formula
     # Most of these also check that Julia can load Homebrew-provided libraries.
     jlls = %w[
       MPFR_jll SuiteSparse_jll Zlib_jll OpenLibm_jll
-      nghttp2_jll MbedTLS_jll LibGit2_jll GMP_jll
+      nghttp2_jll LibGit2_jll GMP_jll
       OpenBLAS_jll CompilerSupportLibraries_jll dSFMT_jll LibUV_jll
       LibSSH2_jll LibCURL_jll libLLVM_jll PCRE2_jll
     ]

@@ -1,19 +1,17 @@
 class Faad2 < Formula
   desc "ISO AAC audio decoder"
   homepage "https://sourceforge.net/projects/faac/"
-  url "https://github.com/knik0/faad2/archive/refs/tags/2.11.1.tar.gz"
-  sha256 "72dbc0494de9ee38d240f670eccf2b10ef715fd0508c305532ca3def3225bb06"
+  url "https://github.com/knik0/faad2/archive/refs/tags/2.11.2.tar.gz"
+  sha256 "3fcbd305e4abd34768c62050e18ca0986f7d9c5eca343fb98275418013065c0e"
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "2235c9a4c2e4dfe500c185e191f6a3487c0e18706a401b1fd403f2ad009dca8c"
-    sha256 cellar: :any,                 arm64_sonoma:   "0130a83d47053aa23ad1687d1eac324f9bde6b1f22ab758e640bf3922c962bd5"
-    sha256 cellar: :any,                 arm64_ventura:  "5f0fab6de9cf4dc35864e5ce8a7b8b5549dce4757da5f24d26bf7df058bbe628"
-    sha256 cellar: :any,                 arm64_monterey: "8c1b8e4f6a5381a051289223200107587f040bbb76e4187785e59e0887d27d75"
-    sha256 cellar: :any,                 sonoma:         "b4f4eeb17fc2aa94010f27a15996ab5a4e3285e6d9846b2ed436b20287c8d535"
-    sha256 cellar: :any,                 ventura:        "d92da7073a8fe95e076caa978732cd56030a1904813fb3a277982512db347bc8"
-    sha256 cellar: :any,                 monterey:       "c689f6e071a961e704f09722bc81d0c27aeccab1c155e322fdd44339b2894d3b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "680c21b82bfc3510ae708fda077f4e74dbb4662f6fd8250a5481f522f99f36da"
+    sha256 cellar: :any,                 arm64_sequoia: "8778a14f57fd5d09238b9f35247fa3150b5c9fcb80e38bb5d6f730cb5c1cfd82"
+    sha256 cellar: :any,                 arm64_sonoma:  "2474465c5fda244f0841c983afb014b802332b04190ae10cb3a0c4ef00c18515"
+    sha256 cellar: :any,                 arm64_ventura: "de416959deef6759acef50251453fc80ed2dc7cc59756e04014369b61d58ef53"
+    sha256 cellar: :any,                 sonoma:        "c35f541928355a39a84f727c99f1ec98792c7a4ea60cf1e4e4f004a503ef19ce"
+    sha256 cellar: :any,                 ventura:       "561f17f4430cb7808ab93cf94a65852f24f13186bb8dd5d3f5f6f920e5b63dd8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b83a27d69240eda9c177272cf3858a078d10240cd0d45783fda5836bcde86c6f"
   end
 
   depends_on "cmake" => :build

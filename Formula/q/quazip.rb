@@ -1,20 +1,16 @@
 class Quazip < Formula
   desc "C++ wrapper over Gilles Vollant's ZIP/UNZIP package"
   homepage "https://github.com/stachenov/quazip/"
-  url "https://github.com/stachenov/quazip/archive/refs/tags/v1.4.tar.gz"
-  sha256 "79633fd3a18e2d11a7d5c40c4c79c1786ba0c74b59ad752e8429746fe1781dd6"
+  url "https://github.com/stachenov/quazip/archive/refs/tags/v1.5.tar.gz"
+  sha256 "405b72b6e76c8987ff41a762523b8f64876ba406d8a831d268ee0b63f1369582"
   license "LGPL-2.1-only"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "b917ed1fd711fd8abaf77825f077340bfdea202ea1ee96e3fdb4b073d62b2db2"
-    sha256 cellar: :any,                 arm64_ventura:  "29ad7c05c766208ae51d0c220e83a98313ebd55e804cac3a627e9097591bbbb6"
-    sha256 cellar: :any,                 arm64_monterey: "86c13aac1ac1d25a71d4a293c1b5c4cc683cc900c12d3a0bb40f64f5e5867a5f"
-    sha256 cellar: :any,                 arm64_big_sur:  "247b7788823f0b63f6e07644478a39c44d282fd7ec1d87302549c1905bef8898"
-    sha256 cellar: :any,                 sonoma:         "04cf70a2114e204931e750b79e6573fb6d8914a2c0893fe1412e413e5e5c0b67"
-    sha256 cellar: :any,                 ventura:        "787aa2aad4f009e230c77c92d73c40851f82bd8711e02da3f490426adea5c5d2"
-    sha256 cellar: :any,                 monterey:       "1ba3e44696f2612a297050db3502f0087cc41eedb4e07be65ee13af72e182a16"
-    sha256 cellar: :any,                 big_sur:        "dbc4fd05eb139a16baa6d0a1c8f3dba25d63f6272b0c2cc0e4d3b5f363911eea"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b0523a1e075f87a641161a89a6b936e975923fc2e29afa9b61e40562be74f639"
+    sha256 cellar: :any,                 arm64_sonoma:  "568975c79a7542774eba015531d200fba3ab5bea77c1c6497761d8168e09d2ad"
+    sha256 cellar: :any,                 arm64_ventura: "6ae800f41e9dd803ededcee7f81736cde1fe9aaabb52ffafd8423620dd8dd701"
+    sha256 cellar: :any,                 sonoma:        "2f12beb8f666e4e9d885a0c155e1cbab98fe2a7ee17130244e527d11f0a2a7fd"
+    sha256 cellar: :any,                 ventura:       "e4144bd17991b751d5d43307b07a480b9ba216c0882f555b8c40933a903ac29e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3f5ee3084b058aad33e77d0f7e8d07af219f5ada4e3db0f7897d00660de19825"
   end
 
   depends_on "cmake" => :build

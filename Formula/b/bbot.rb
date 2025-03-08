@@ -6,14 +6,15 @@ class Bbot < Formula
   url "https://files.pythonhosted.org/packages/ac/e4/57bcd8983c0a22ea49552345b4f508bd8d03f0025a0a74064d9137bed15d/bbot-2.4.0.tar.gz"
   sha256 "049a3235a090846a13d91f3df77b1c8974a2f08ce410982a95a6832c19f3ebde"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "300979563b389e707c3ff49eb11fd7a914de61c268aaf27380052db962c566ab"
-    sha256 cellar: :any,                 arm64_sonoma:  "c40a74c65d5705e6a93e5f95d5742e363432bc3e06911e310d47ff6a79f9d833"
-    sha256 cellar: :any,                 arm64_ventura: "fb7a402a964365e1349940ae71f165ded328a4ddd2f92b396af9e937385d1f4b"
-    sha256 cellar: :any,                 sonoma:        "b949e4a22b9e7b34389f376a817bfb4e89eaef4b887ff75290a6580d6e11fe03"
-    sha256 cellar: :any,                 ventura:       "664718f88fd17c342ef8a01cd593e071b5f64a706c588e03f7d8685e636a61b9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "24f3aec722ff2f598fc4215f5e651a15eda980cc13508fe2b3e8eb41cbe51540"
+    sha256 cellar: :any,                 arm64_sequoia: "4710d2308986364f607453d421977485fa58c318faa67e8d80aa280fc2181959"
+    sha256 cellar: :any,                 arm64_sonoma:  "1fa4122e8a062ad26507c0041feb0df0f61bcbe81d6a14face0351ba3c82ca8c"
+    sha256 cellar: :any,                 arm64_ventura: "0868ab3e8a9a667ce8a19b856213e309a698bc3456129daaa25f515d67fb46c6"
+    sha256 cellar: :any,                 sonoma:        "b7e538504a39bdd20c1859a7ad3bc2718774a2dc27838d1a5d7126482aea8b8f"
+    sha256 cellar: :any,                 ventura:       "7d391d12f36627c1ca200ae69e4e5ecefaa1db4ab56d7b83d2181958830ba9da"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "019fbb6ba3ef3c400468df621ed013c80f375593bb75e4cf5d1a5d8f7bb3321c"
   end
 
   depends_on "cmake" => :build
@@ -77,8 +78,8 @@ class Bbot < Formula
   end
 
   resource "deepdiff" do
-    url "https://files.pythonhosted.org/packages/89/12/207d2ec96a526cf9d04fc2423ff9832e93b665e94b9d7c9b5198903e18a7/deepdiff-8.2.0.tar.gz"
-    sha256 "6ec78f65031485735545ffbe7a61e716c3c2d12ca6416886d5e9291fc76c46c3"
+    url "https://files.pythonhosted.org/packages/06/23/26a13806c06d9a9202433dae15740444d0bfbb365965a8af8a0b6b3a95bb/deepdiff-8.3.0.tar.gz"
+    sha256 "92a8d7c75a4b26b385ec0372269de258e20082307ccf74a4314341add3d88391"
   end
 
   resource "dnspython" do
@@ -112,8 +113,8 @@ class Bbot < Formula
   end
 
   resource "jinja2" do
-    url "https://files.pythonhosted.org/packages/af/92/b3130cbbf5591acf9ade8708c365f3238046ac7cb8ccba6e81abccb0ccff/jinja2-3.1.5.tar.gz"
-    sha256 "8fefff8dc3034e27bb80d67c671eb8a9bc424c0ef4c0826edbff304cceff43bb"
+    url "https://files.pythonhosted.org/packages/df/bf/f7da0350254c0ed7c72f3e33cef02e048281fec7ecec5f032d4aac52226b/jinja2-3.1.6.tar.gz"
+    sha256 "0137fb05990d35f1275a587e9aee6d56da821fc83491a0fb838183be43f66d6d"
   end
 
   resource "lockfile" do
@@ -282,8 +283,8 @@ class Bbot < Formula
   end
 
   resource "websockets" do
-    url "https://files.pythonhosted.org/packages/2e/7a/8bc4d15af7ff30f7ba34f9a172063bfcee9f5001d7cef04bee800a658f33/websockets-15.0.tar.gz"
-    sha256 "ca36151289a15b39d8d683fd8b7abbe26fc50be311066c5f8dcf3cb8cee107ab"
+    url "https://files.pythonhosted.org/packages/21/e6/26d09fab466b7ca9c7737474c52be4f76a40301b08362eb2dbc19dcc16c1/websockets-15.0.1.tar.gz"
+    sha256 "82544de02076bafba038ce055ee6412d68da13ab47f0c60cab827346de828dee"
   end
 
   resource "wordninja" do
