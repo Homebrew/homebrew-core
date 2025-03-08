@@ -34,6 +34,14 @@ class Openblas < Formula
     ENV.runtime_cpu_detection
     ENV.deparallelize # build is parallel by default, but setting -j confuses it
 
+    # Work around GCC passing SDK version 0.0 at https://gcc.gnu.org/git/?p=gcc.git;a=blob;f=gcc/config/darwin.h#l289
+    # Apple added `-platform_version` to ld64 in 512.4. Since `MacOS::DevelopmentTools.ld64_version` is private API,
+    # we instead check the Apple Clang version as both correspond to Xcode 11.0 release
+    # TODO: Fix in GCC and remove workaround
+    if DevelopmentTools.clang_build_version >= 1100
+      minos = "#{MacOS.version.major}.#{MacOS.version.minor.to_i}"
+      ENV.append "LDFLAGS", "-Wl,-platform_version,macos,#{minos},#{minos}"
+    end
     # The build log has many warnings of macOS build version mismatches.
     ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version.to_s if OS.mac?
     ENV["DYNAMIC_ARCH"] = "1"
@@ -87,5 +95,10 @@ class Openblas < Formula
     system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lopenblas",
                    "-o", "test"
     system "./test"
+
+    if OS.mac?
+      libopenblas = Formula["openblas"].lib/shared_library("libopenblas")
+      assert_match "sdk #{MacOS.version}", shell_output("otool -l #{libopenblas} | grep sdk")
+    end
   end
 end
