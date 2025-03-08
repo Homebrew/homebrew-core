@@ -20,6 +20,8 @@ class Atool < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "c90268b9621aa25c6cae07db4313c857cc3e4a6ece918a9d55753e1b8055fef1"
   end
 
+  conflicts_with "agda", because: "both install `als` binaries"
+
   def install
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
