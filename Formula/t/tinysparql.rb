@@ -4,6 +4,7 @@ class Tinysparql < Formula
   url "https://download.gnome.org/sources/tinysparql/3.8/tinysparql-3.8.2.tar.xz"
   sha256 "bb8643386c8edc591a03205d4a0eda661dcdd2094473bffb9bbdb94e93589cb2"
   license all_of: ["LGPL-2.1-or-later", "GPL-2.0-or-later"]
+  revision 1
   head "https://gitlab.gnome.org/GNOME/tinysparql.git", branch: "main"
 
   # TinySPARQL doesn't follow GNOME's "even-numbered minor is stable" version
@@ -27,7 +28,7 @@ class Tinysparql < Formula
 
   depends_on "dbus"
   depends_on "glib"
-  depends_on "icu4c@76"
+  depends_on "icu4c@77"
   depends_on "json-glib"
   depends_on "libsoup"
   depends_on "libxml2"
