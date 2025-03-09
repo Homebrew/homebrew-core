@@ -1,14 +1,14 @@
 class Mono < Formula
   desc "Cross platform, open source .NET development framework"
   homepage "https://www.mono-project.com/"
-  url "https://github.com/mono/mono.git",
-      tag:      "mono-6.12.0.206",
-      revision: "0cbf0e290c31adb476f9de0fa44b1d8829affa40"
-  license "MIT"
+  url "https://dl.winehq.org/mono/sources/mono/mono-6.14.0.tar.xz"
+  sha256 "6dd64b3900f5e5d5f55016d89ccf7635c8739cbb33cdb81c1c3b61622e91d510"
+  license "Apache-2.0"
+  head "https://gitlab.winehq.org/mono/mono.git", branch: "main"
 
   livecheck do
-    url "https://www.mono-project.com/download/stable/"
-    regex(/href=.*?(\d+(?:\.\d+)+)[._-]macos/i)
+    url "https://gitlab.winehq.org/mono/mono/-/releases"
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
@@ -78,10 +78,6 @@ class Mono < Formula
       man/mozroots.1
     ]
     inreplace inreplace_files, %r{/usr/share(?=[/"])}, pkgshare
-
-    # Remove use of -flat_namespace. Upstreamed at
-    # https://github.com/mono/mono/pull/21257
-    inreplace "mono/profiler/Makefile.am", "-Wl,suppress -Wl,-flat_namespace", "-Wl,dynamic_lookup"
 
     system "./autogen.sh", "--disable-nls",
                            "--disable-silent-rules",
