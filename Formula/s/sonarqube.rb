@@ -19,7 +19,7 @@ class Sonarqube < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "6626cfdbf5fa74c3c93c84981c1ab8774b523e3ed2a4ab94bf66e39a03c42c6b"
   end
 
-  depends_on "openjdk@17"
+  depends_on "openjdk@21"
 
   conflicts_with "sonarqube-lts", because: "both install the same binaries"
 
@@ -34,7 +34,7 @@ class Sonarqube < Formula
     libexec.install Dir["*"]
     (libexec/"extensions/downloads").mkpath
 
-    env = Language::Java.overridable_java_home_env("17")
+    env = Language::Java.overridable_java_home_env("21")
     env["PATH"] = "$JAVA_HOME/bin:$PATH"
     env["PIDDIR"] = var/"run"
     platform = OS.mac? ? "macosx-universal-64" : "linux-x86-64"
