@@ -69,6 +69,7 @@ class Moc < Formula
   depends_on "libogg"
   depends_on "libsamplerate"
   depends_on "libsndfile"
+  depends_on "libmodplug"
   depends_on "libtool"
   depends_on "libvorbis"
   depends_on "ncurses"
