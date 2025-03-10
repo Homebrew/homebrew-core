@@ -13,6 +13,7 @@ class Musikcube < Formula
     "bcrypt-Solar-Designer", # src/3rdparty/{include,src}/md5.*
     "blessing", # src/3rdparty/{include,src}/sqlite/sqlite3*
   ]
+  revision 1
   head "https://github.com/clangen/musikcube.git", branch: "master"
 
   livecheck do

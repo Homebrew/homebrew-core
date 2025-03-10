@@ -4,6 +4,7 @@ class Navidrome < Formula
   url "https://github.com/navidrome/navidrome/archive/refs/tags/v0.54.5.tar.gz"
   sha256 "38d20258b418a33ffbb8b36db9a82c4efc49edf434de4f4e36e2ec7d01010f77"
   license "GPL-3.0-only"
+  revision 1
   head "https://github.com/navidrome/navidrome.git", branch: "master"
 
   bottle do

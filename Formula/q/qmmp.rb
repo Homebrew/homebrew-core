@@ -4,7 +4,7 @@ class Qmmp < Formula
   url "https://qmmp.ylsoftware.com/files/qmmp/2.2/qmmp-2.2.3.tar.bz2"
   sha256 "993e57d8e11b083bb6f246738505edf35d498ffe82a1936f3129b8bb09eab244"
   license "GPL-2.0-or-later"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://qmmp.ylsoftware.com/downloads.php"
@@ -73,6 +73,12 @@ class Qmmp < Formula
   resource "qmmp-plugin-pack" do
     url "https://qmmp.ylsoftware.com/files/qmmp-plugin-pack/2.2/qmmp-plugin-pack-2.2.1.tar.bz2"
     sha256 "bfb19dfc657a3b2d882bb1cf4069551488352ae920d8efac391d218c00770682"
+  end
+
+  # add taglib 2.x support
+  patch do
+    url "https://sources.debian.org/data/main/q/qmmp/2.2.3-1/debian/patches/0002-Fix-taglib-2.x-compatibility.patch"
+    sha256 "837bea7d6af9dc0be072b450f74ce9382ae1c7963d2e4a78c9eb2208b283ea62"
   end
 
   def install
