@@ -2,7 +2,7 @@ class Moc < Formula
   desc "Terminal-based music player"
   homepage "https://moc.daper.net/"
   license "GPL-2.0-or-later"
-  revision 9
+  revision 10
 
   stable do
     url "https://ftp.daper.net/pub/soft/moc/stable/moc-2.5.2.tar.bz2"
