@@ -28,7 +28,7 @@ class Chezmoi < Formula
     ldflags = %W[
       -s -w
       -X main.version=#{version}
-      -X main.commit=#{tap.user}
+      -X main.commit=#{Utils.git_head}
       -X main.date=#{time.iso8601}
       -X main.builtBy=#{tap.user}
     ]
