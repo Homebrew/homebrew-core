@@ -3,8 +3,8 @@ class Glib < Formula
 
   desc "Core application library for C"
   homepage "https://docs.gtk.org/glib/"
-  url "https://download.gnome.org/sources/glib/2.82/glib-2.82.5.tar.xz"
-  sha256 "05c2031f9bdf6b5aba7a06ca84f0b4aced28b19bf1b50c6ab25cc675277cbc3f"
+  url "https://download.gnome.org/sources/glib/2.84/glib-2.84.0.tar.xz"
+  sha256 "f8823600cb85425e2815cfad82ea20fdaa538482ab74e7293d58b3f64a5aff6a"
   license "LGPL-2.1-or-later"
 
   bottle do
@@ -22,10 +22,11 @@ class Glib < Formula
   depends_on "ninja" => :build
   depends_on "pkgconf" => :build
   depends_on "pcre2"
+  depends_on "python-setuptools"
 
   uses_from_macos "flex" => :build # for gobject-introspection
   uses_from_macos "libffi", since: :catalina
-  uses_from_macos "python", since: :catalina
+  uses_from_macos "python"
   uses_from_macos "zlib"
 
   on_macos do
@@ -53,12 +54,6 @@ class Glib < Formula
   resource "gobject-introspection" do
     url "https://download.gnome.org/sources/gobject-introspection/1.82/gobject-introspection-1.82.0.tar.xz"
     sha256 "0f5a4c1908424bf26bc41e9361168c363685080fbdb87a196c891c8401ca2f09"
-  end
-
-  # Backport PATH python shebang rather than manually rewriting
-  patch do
-    url "https://gitlab.gnome.org/GNOME/glib/-/commit/160e55575e2183464dbf5aa733d6c2df3c674c4c.diff"
-    sha256 "29b178b53a9a636ca9538ee97e20838b9942d24018d6679d3cc29e59b3b6c0c1"
   end
 
   # replace several hardcoded paths with homebrew counterparts
