@@ -1,11 +1,10 @@
 class Flang < Formula
   desc "LLVM Fortran Frontend"
   homepage "https://flang.llvm.org/"
-  url "https://github.com/llvm/llvm-project/releases/download/llvmorg-19.1.7/llvm-project-19.1.7.src.tar.xz"
-  sha256 "82401fea7b79d0078043f7598b835284d6650a75b93e64b6f761ea7b63097501"
+  url "https://github.com/llvm/llvm-project/releases/download/llvmorg-20.1.0-rc2/llvm-project-20.1.0-rc2.src.tar.xz"
+  sha256 "cc496b3d3670dfdd9a95cdb3e8412d9365e6dea8b3aac9e8564ff5991cd625fc"
   # The LLVM Project is under the Apache License v2.0 with LLVM Exceptions
   license "Apache-2.0" => { with: "LLVM-exception" }
-  revision 1
   head "https://github.com/llvm/llvm-project.git", branch: "main"
 
   livecheck do
@@ -110,6 +109,7 @@ class Flang < Formula
     #        this seems to break CI (but can't be reproduced locally).
     # ENV.delete "CPATH"
     # ENV.delete "SDKROOT"
+    assert_match "Configuration file: #{etc}/clang/", shell_output("#{bin/flang_driver} --version")
 
     (testpath/"hello.f90").write <<~FORTRAN
       PROGRAM hello
