@@ -10,7 +10,7 @@ class Pinot < Formula
     sha256 cellar: :any_skip_relocation, all: "ba258d8e7b33eb25c8b492258d22365260bfd4a60494030559e174309c271219"
   end
 
-  depends_on "openjdk@11"
+  depends_on "openjdk@21"
 
   def install
     (var/"lib/pinot/data").mkpath
@@ -19,7 +19,7 @@ class Pinot < Formula
     libexec.install "plugins"
 
     prefix.install "bin"
-    bin.env_script_all_files(libexec/"bin", Language::Java.java_home_env("11"))
+    bin.env_script_all_files(libexec/"bin", Language::Java.java_home_env("21"))
     bin.glob("*.sh").each { |f| mv f, bin/f.basename(".sh") }
   end
 
@@ -42,7 +42,7 @@ class Pinot < Formula
         zkport.to_s
     end
 
-    sleep 10
+    sleep 15
 
     controller_pid = fork do
       exec "#{opt_bin}/pinot-admin",
