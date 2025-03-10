@@ -4,6 +4,7 @@ class Gedit < Formula
   url "https://download.gnome.org/sources/gedit/48/gedit-48.1.tar.xz"
   sha256 "971e7ac26bc0a3a3ded27a7563772415687db0e5a092b4547e5b10a55858b30a"
   license "GPL-2.0-or-later"
+  revision 1
 
   # gedit doesn't seem to follow the typical GNOME version scheme, so we
   # provide a regex to disable the `Gnome` strategy's version filtering.
