@@ -3,8 +3,8 @@ class Mesa < Formula
 
   desc "Graphics Library"
   homepage "https://www.mesa3d.org/"
-  url "https://archive.mesa3d.org/mesa-24.2.8.tar.xz"
-  sha256 "999d0a854f43864fc098266aaf25600ce7961318a1e2e358bff94a7f53580e30"
+  url "https://archive.mesa3d.org/mesa-25.0.1.tar.xz"
+  sha256 "49eb55ba5acccae91deb566573a6a73144a0f39014be1982d78c21c5b6b0bb3f"
   license all_of: [
     "MIT",
     "Apache-2.0", # include/{EGL,GLES*,vk_video,vulkan}, src/egl/generate/egl.xml, src/mapi/glapi/registry/gl.xml
@@ -72,8 +72,8 @@ class Mesa < Formula
   end
 
   resource "mako" do
-    url "https://files.pythonhosted.org/packages/fa/0b/29bc5a230948bf209d3ed3165006d257e547c02c3c2a96f6286320dfe8dc/mako-1.3.6.tar.gz"
-    sha256 "9ec3a1583713479fae654f83ed9fa8c9a4c16b7bb0daba0e6bbebff50c0d983d"
+    url "https://files.pythonhosted.org/packages/62/4f/ddb1965901bc388958db9f0c991255b2c469349a741ae8c9cd8a562d70a6/mako-1.3.9.tar.gz"
+    sha256 "b5d65ff3462870feec922dbccf38f6efb44e5714d7b593a656be86663d8600ac"
   end
 
   resource "markupsafe" do
