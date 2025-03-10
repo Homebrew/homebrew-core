@@ -2306,6 +2306,7 @@ nbdime
 ncc
 ncdc
 ncdu
+ncmdump
 ncmpc
 ncmpcpp
 ncnn
@@ -3324,6 +3325,7 @@ t-completion
 ta-lib
 tabiew
 tach
+taglib
 tailscale
 tailspin
 tailwindcss

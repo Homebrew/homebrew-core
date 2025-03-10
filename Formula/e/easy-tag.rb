@@ -4,7 +4,7 @@ class EasyTag < Formula
   url "https://download.gnome.org/sources/easytag/2.4/easytag-2.4.3.tar.xz"
   sha256 "fc51ee92a705e3c5979dff1655f7496effb68b98f1ada0547e8cbbc033b67dd5"
   license "GPL-2.0-or-later"
-  revision 11
+  revision 12
 
   bottle do
     sha256 arm64_sequoia: "8c29dc74a17f41bde4c53800d5e27b53b3fe54e14231cf7bb4825826007edae9"
@@ -15,10 +15,15 @@ class EasyTag < Formula
     sha256 x86_64_linux:  "3076252648242e093cbd37926bf16a6a9a3967b4123355d5fc5f2d115ee46095"
   end
 
+  depends_on "appstream-glib" => :build
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
   depends_on "gettext" => :build
   depends_on "intltool" => :build
   depends_on "itstool" => :build
+  depends_on "libtool" => :build
   depends_on "pkgconf" => :build
+  depends_on "yelp-tools" => :build
 
   depends_on "adwaita-icon-theme"
   depends_on "at-spi2-core"
@@ -35,7 +40,6 @@ class EasyTag < Formula
   depends_on "libvorbis"
   depends_on "pango"
   depends_on "speex"
-  depends_on "taglib"
   depends_on "wavpack"
 
   uses_from_macos "perl" => :build
@@ -49,7 +53,20 @@ class EasyTag < Formula
     depends_on "perl-xml-parser" => :build
   end
 
+  # easy-tag doesn't support taglib 2.x
+  patch do
+    url "https://sources.debian.org/data/main/e/easytag/2.4.3-9/debian/patches/03_port-to-taglib-2.patch"
+    sha256 "8b096f58ce08a059a992428fb239f8ab3a5887434bf8db33302a8635d0965aa4"
+  end
+
+  patch do
+    url "https://sources.debian.org/data/main/e/easytag/2.4.3-9/debian/patches/04_taglib-2-further-fix.patch"
+    sha256 "3a5a7880e56a011a291b4b2c2c9ba1d378acc505c7eebd0a306735afc58c7b9f"
+  end
+
   def install
+    ENV["LIBTOOLIZE"] = "glibtoolize"
+    system "autoreconf", "--force", "--install", "--verbose"
     ENV.append "LIBS", "-lz"
     ENV["DESTDIR"] = "/"
 
