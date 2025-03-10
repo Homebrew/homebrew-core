@@ -1,8 +1,8 @@
 class CargoDeny < Formula
   desc "Cargo plugin for linting your dependencies"
   homepage "https://github.com/EmbarkStudios/cargo-deny"
-  url "https://github.com/EmbarkStudios/cargo-deny/archive/refs/tags/0.18.1.tar.gz"
-  sha256 "280c2d2a67622b86a0a09796bb118cc7a74cded32574215a796314d59ba3ffec"
+  url "https://github.com/EmbarkStudios/cargo-deny/archive/refs/tags/0.18.2.tar.gz"
+  sha256 "bb47741fada886c166e2a697a87fe93fca38ec083db489d404c73bcb0b9d7445"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/EmbarkStudios/cargo-deny.git", branch: "main"
 
