@@ -101,6 +101,7 @@ arcade-learning-environment
 archi-steam-farm
 arduino-cli
 arelo
+ares
 argc
 argo
 argocd
