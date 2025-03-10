@@ -1,9 +1,10 @@
 class GitAbsorb < Formula
   desc "Automatic git commit --fixup"
   homepage "https://github.com/tummychow/git-absorb"
-  url "https://github.com/tummychow/git-absorb/archive/refs/tags/0.6.17.tar.gz"
-  sha256 "512ef2bf0e642f8c34eb56aad657413bd9e04595e3bc4650ecf1c0799f148ca4"
+  url "https://github.com/tummychow/git-absorb/archive/refs/tags/0.7.0.tar.gz"
+  sha256 "65f5b80bcb726a0c40eeda94ccb47fce7f3fc4ed16021465196a37b907083eb8"
   license "BSD-3-Clause"
+  head "https://github.com/tummychow/git-absorb.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "bb985890d415ff167d823f5ecb8a8e627b97375b81efb58fc00db2995dc806b2"
@@ -14,6 +15,7 @@ class GitAbsorb < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "e75f77c1f10cefb7a8400671d7d2eb307ea41d4d36e0aeb7f71c266e0d1590c3"
   end
 
+  depends_on "asciidoctor" => :build
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
   depends_on "libgit2"
@@ -23,8 +25,11 @@ class GitAbsorb < Formula
 
     system "cargo", "install", *std_cargo_args
 
-    man1.install "Documentation/git-absorb.1"
     generate_completions_from_executable(bin/"git-absorb", "--gen-completions")
+    cd "Documentation" do
+      system "asciidoctor", "-b", "manpage", "git-absorb.adoc"
+      man1.install "git-absorb.1"
+    end
   end
 
   test do
