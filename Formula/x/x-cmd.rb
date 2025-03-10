@@ -9,6 +9,7 @@ class XCmd < Formula
 
   def install
     prefix.install Dir.glob("*")
+    prefix.install Dir.glob(".x-cmd")
     replace_path_in_file(prefix/"mod/x-cmd/lib/bin/x-cmd")
     bin.install prefix/"mod/x-cmd/lib/bin/x-cmd"
   end
