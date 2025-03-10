@@ -1,10 +1,9 @@
 class Netdata < Formula
   desc "Diagnose infrastructure problems with metrics, visualizations & alarms"
   homepage "https://www.netdata.cloud/"
-  url "https://github.com/netdata/netdata/releases/download/v1.44.3/netdata-v1.44.3.tar.gz"
-  sha256 "50df30a9aaf60d550eb8e607230d982827e04194f7df3eba0e83ff7919270ad2"
+  url "https://github.com/netdata/netdata/releases/download/v2.2.6/netdata-v2.2.6.tar.gz"
+  sha256 "bd98c146aa6d0c25f80cb50b1447b8aca8a17f0995b28a11a23e843b8f210f42"
   license "GPL-3.0-or-later"
-  revision 15
 
   livecheck do
     url :stable
@@ -71,10 +70,6 @@ class Netdata < Formula
     ENV["PREFIX"] = prefix
     ENV.append "CFLAGS", "-I#{judyprefix}/include"
     ENV.append "LDFLAGS", "-L#{judyprefix}/lib"
-
-    # We need C++17 for protobuf.
-    inreplace "configure.ac", "# AX_CXX_COMPILE_STDCXX(17, noext, optional)",
-                              "AX_CXX_COMPILE_STDCXX(17, noext, mandatory)"
 
     system "autoreconf", "--force", "--install", "--verbose"
     args = %W[
