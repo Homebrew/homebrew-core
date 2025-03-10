@@ -1,8 +1,8 @@
 class Ares < Formula
   desc "Automated decoding of encrypted text"
   homepage "https://github.com/bee-san/Ares"
-  url "https://github.com/bee-san/Ares/archive/refs/tags/v0.10.0.tar.gz"
-  sha256 "d951302b572ed0786c366762b430d0d37479be8649b16122548ece1ea0a28900"
+  url "https://github.com/bee-san/Ares/archive/refs/tags/0.11.0.tar.gz"
+  sha256 "fd8751de6c46eb523d62d4ca52018b9127b9fa5fbd4a372b7f22e0f9957f030f"
   license "MIT"
 
   livecheck do
