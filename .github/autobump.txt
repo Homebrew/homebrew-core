@@ -3208,6 +3208,7 @@ spoofdpi
 spot
 spotbugs
 spotify_player
+spotifyd
 sq
 sql-formatter
 sql-migrate
