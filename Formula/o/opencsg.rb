@@ -20,13 +20,6 @@ class Opencsg < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "glew"
-
-  # glew linkage patch, upstream pr ref, https://github.com/floriankirsch/OpenCSG/pull/16
-  patch do
-    url "https://github.com/floriankirsch/OpenCSG/commit/881a41b52ebee60fb3f4511cd63813b06e8e05c1.patch?full_index=1"
-    sha256 "97e56d7a8bf01d153bce8b5685b0f06eb2befdefa07bb644a12dc79e4143f9ab"
-  end
 
   def install
     system "cmake", "-S", ".", "-B", "build", "-DBUILD_EXAMPLE=OFF", *std_cmake_args
