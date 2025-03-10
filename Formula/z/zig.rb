@@ -55,7 +55,13 @@ class Zig < Formula
     else Hardware.oldest_cpu
     end
 
-    args = ["-DZIG_SHARED_LLVM=ON"]
+    # Workaround for https://github.com/Homebrew/homebrew-core/issues/210073
+    # Suggested by https://github.com/Homebrew/homebrew-core/pull/210107#issuecomment-2706566289
+    if OS.linux?
+      args = ["-DZIG_SHARED_LLVM=ON"]
+    elsif OS.mac?
+      args = ["-DZIG_STATIC_LLVM=ON"]
+    end
     args << "-DZIG_TARGET_MCPU=#{cpu}" if build.bottle?
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
