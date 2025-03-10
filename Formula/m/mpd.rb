@@ -2,7 +2,7 @@ class Mpd < Formula
   desc "Music Player Daemon"
   homepage "https://github.com/MusicPlayerDaemon/MPD"
   license "GPL-2.0-or-later"
-  revision 1
+  revision 2
   head "https://github.com/MusicPlayerDaemon/MPD.git", branch: "master"
 
   stable do
@@ -39,7 +39,7 @@ class Mpd < Formula
   depends_on "fmt"
   depends_on "game-music-emu"
   depends_on "glib"
-  depends_on "icu4c@76"
+  depends_on "icu4c@77"
   depends_on "lame"
   depends_on "libao"
   depends_on "libgcrypt"
