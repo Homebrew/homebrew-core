@@ -5,7 +5,7 @@ class Ola < Formula
   desc "Open Lighting Architecture for lighting control information"
   homepage "https://www.openlighting.org/ola/"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
-  revision 5
+  revision 6
 
   stable do
     # TODO: Check if we can use unversioned `protobuf` at version bump
@@ -57,7 +57,7 @@ class Ola < Formula
   depends_on "libmicrohttpd"
   depends_on "libusb"
   depends_on "numpy"
-  depends_on "protobuf"
+  depends_on "protobuf@29"
   depends_on "python@3.13"
 
   uses_from_macos "bison" => :build
