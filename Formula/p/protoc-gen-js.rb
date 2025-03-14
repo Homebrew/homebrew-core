@@ -4,7 +4,7 @@ class ProtocGenJs < Formula
   url "https://github.com/protocolbuffers/protobuf-javascript/archive/refs/tags/v3.21.4.tar.gz"
   sha256 "8cef92b4c803429af0c11c4090a76b6a931f82d21e0830760a17f9c6cb358150"
   license "BSD-3-Clause"
-  revision 7
+  revision 8
   head "https://github.com/protocolbuffers/protobuf-javascript.git", branch: "main"
 
   bottle do
@@ -18,7 +18,7 @@ class ProtocGenJs < Formula
 
   depends_on "pkgconf" => :build
   depends_on "abseil"
-  depends_on "protobuf"
+  depends_on "protobuf@29"
 
   # We manually build rather than use Bazel as Bazel will build its own copy of Abseil
   # and Protobuf that get statically linked into binary. Check for any upstream changes at
@@ -38,7 +38,7 @@ class ProtocGenJs < Formula
         string name = 2;
       }
     PROTO
-    system Formula["protobuf"].bin/"protoc", "--js_out=import_style=commonjs:.", "person.proto"
+    system Formula["protobuf@29"].bin/"protoc", "--js_out=import_style=commonjs:.", "person.proto"
     assert_path_exists testpath/"person_pb.js"
     refute_predicate (testpath/"person_pb.js").size, :zero?
   end
