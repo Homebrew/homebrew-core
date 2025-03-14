@@ -1,10 +1,9 @@
 class OrTools < Formula
   desc "Google's Operations Research tools"
   homepage "https://developers.google.com/optimization/"
-  url "https://github.com/google/or-tools/archive/refs/tags/v9.11.tar.gz"
-  sha256 "f6a0bd5b9f3058aa1a814b798db5d393c31ec9cbb6103486728997b49ab127bc"
+  url "https://github.com/google/or-tools/archive/refs/tags/v9.12.tar.gz"
+  sha256 "de7a743c8ec097ab8906c1e00ea782ee8a4fe4ec297e15d7bdf3a187b2f8829c"
   license "Apache-2.0"
-  revision 7
   head "https://github.com/google/or-tools.git", branch: "stable"
 
   livecheck do
@@ -36,13 +35,6 @@ class OrTools < Formula
   depends_on "scip"
   uses_from_macos "zlib"
 
-  # Add missing `#include`s to fix incompatibility with `abseil` 20240722.0.
-  # https://github.com/google/or-tools/pull/4339
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/bb1af4bcb2ac8b2af4de4411d1ce8a6876ed9c15/or-tools/abseil-vlog-is-on.patch"
-    sha256 "0f8f28e7363a36c6bafb9b60dc6da880b39d5b56d8ead350f27c8cb1e275f6b6"
-  end
-
   def install
     # FIXME: Upstream enabled Highs support in their binary distribution, but our build fails with it.
     args = %w[
@@ -60,40 +52,38 @@ class OrTools < Formula
   end
 
   test do
-    # Linear Solver & Glop Solver
     (testpath/"CMakeLists.txt").write <<~CMAKE
       cmake_minimum_required(VERSION 3.14)
       project(test LANGUAGES CXX)
       find_package(ortools CONFIG REQUIRED)
+
+      # Linear Solver & Glop Solver
       add_executable(simple_lp_program #{pkgshare}/simple_lp_program.cc)
       target_compile_features(simple_lp_program PUBLIC cxx_std_17)
       target_link_libraries(simple_lp_program PRIVATE ortools::ortools)
+
+      # Routing Solver
+      add_executable(simple_routing_program #{pkgshare}/simple_routing_program.cc)
+      target_compile_features(simple_routing_program PUBLIC cxx_std_17)
+      target_link_libraries(simple_routing_program PRIVATE ortools::ortools)
+
+      # Sat Solver
+      add_executable(simple_sat_program #{pkgshare}/simple_sat_program.cc)
+      target_compile_features(simple_sat_program PUBLIC cxx_std_17)
+      target_link_libraries(simple_sat_program PRIVATE ortools::ortools)
     CMAKE
+
     cmake_args = []
-    build_env = {}
     if OS.mac?
-      build_env["CPATH"] = nil
+      ENV.delete "CPATH"
     else
       cmake_args << "-DCMAKE_BUILD_RPATH=#{lib};#{HOMEBREW_PREFIX}/lib"
     end
-    with_env(build_env) do
-      system "cmake", "-S", ".", "-B", ".", *cmake_args, *std_cmake_args
-      system "cmake", "--build", "."
-    end
+
+    system "cmake", "-S", ".", "-B", ".", *cmake_args, *std_cmake_args
+    system "cmake", "--build", "."
     system "./simple_lp_program"
-
-    # Routing Solver
-    system ENV.cxx, "-std=c++17", pkgshare/"simple_routing_program.cc",
-                    "-I#{include}", "-L#{lib}", "-lortools",
-                    *shell_output("pkg-config --cflags --libs absl_check absl_log").chomp.split,
-                    "-o", "simple_routing_program"
     system "./simple_routing_program"
-
-    # Sat Solver
-    system ENV.cxx, "-std=c++17", pkgshare/"simple_sat_program.cc",
-                    "-I#{include}", "-L#{lib}", "-lortools",
-                    *shell_output("pkg-config --cflags --libs absl_check absl_log absl_raw_hash_set").chomp.split,
-                    "-o", "simple_sat_program"
     system "./simple_sat_program"
   end
 end
