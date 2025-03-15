@@ -57,6 +57,16 @@ class OrTools < Formula
     pkgshare.install "ortools/linear_solver/samples/simple_lp_program.cc"
     pkgshare.install "ortools/constraint_solver/samples/simple_routing_program.cc"
     pkgshare.install "ortools/sat/samples/simple_sat_program.cc"
+
+    cd prefix do
+      system "tar", "zcf", "lib.tar.gz", "lib/"
+    end
+  end
+
+  def post_install
+    cd prefix do
+      system "tar", "zxf", "lib.tar.gz"
+    end
   end
 
   test do
