@@ -1,8 +1,8 @@
 class Bde < Formula
   desc "Basic Development Environment: foundational C++ libraries used at Bloomberg"
   homepage "https://github.com/bloomberg/bde"
-  url "https://github.com/bloomberg/bde/archive/refs/tags/4.18.0.0.tar.gz"
-  sha256 "87426d6837a1261e385e755361e961c5d75ec35fb1a227a9763a6388de4129fc"
+  url "https://github.com/bloomberg/bde/archive/refs/tags/4.22.0.0.tar.gz"
+  sha256 "949241697e90f12204aaa25e55612869c5c7baa55d1e5ee9f4ccd610ed9c95c1"
   license "Apache-2.0"
 
   livecheck do
@@ -25,8 +25,12 @@ class Bde < Formula
   depends_on "pcre2"
 
   resource "bde-tools" do
-    url "https://github.com/bloomberg/bde-tools/archive/refs/tags/4.13.0.0.tar.gz"
-    sha256 "d70ab85eb1a4325f3d569a6b7ea0f0a44a6143fd91905ab5fbaa5e1fed111a68"
+    url "https://github.com/bloomberg/bde-tools/archive/refs/tags/4.22.0.0.tar.gz"
+    sha256 "14e46ebb12f15d4a97b2d6967bc98780af77b97f5904a86203b43028c3587944"
+
+    livecheck do
+      formula :parent
+    end
   end
 
   def install
@@ -34,7 +38,7 @@ class Bde < Formula
 
     # Use brewed pcre2 instead of bundled sources
     rm_r buildpath/"thirdparty/pcre2"
-    inreplace "project.cmake", "${listDir}/thirdparty/pcre2\n", ""
+    inreplace "thirdparty/CMakeLists.txt", "add_subdirectory(pcre2)\n", ""
     inreplace "groups/bdl/group/bdl.dep", "pcre2", "libpcre2-posix"
     inreplace "groups/bdl/bdlpcre/bdlpcre_regex.h", "#include <pcre2/pcre2.h>", "#include <pcre2.h>"
 
@@ -46,15 +50,12 @@ class Bde < Formula
       -DCMAKE_INSTALL_RPATH=#{rpath}
       -DCMAKE_TOOLCHAIN_FILE=#{toolchain_file}
       -DPYTHON_EXECUTABLE=#{which("python3.13")}
+      -DBdeBuildSystem_DIR=#{buildpath}/bde-tools/BdeBuildSystem/
     ]
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
-
-    # CMake install step does not conform to FHS
-    lib.install Dir[bin/"so/64/*"]
-    lib.install lib/"opt_exc_mt_shr/cmake"
   end
 
   test do
