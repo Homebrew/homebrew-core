@@ -1,10 +1,9 @@
 class Netdata < Formula
   desc "Diagnose infrastructure problems with metrics, visualizations & alarms"
   homepage "https://www.netdata.cloud/"
-  url "https://github.com/netdata/netdata/releases/download/v1.44.3/netdata-v1.44.3.tar.gz"
-  sha256 "50df30a9aaf60d550eb8e607230d982827e04194f7df3eba0e83ff7919270ad2"
+  url "https://github.com/netdata/netdata/releases/download/v2.2.6/netdata-v2.2.6.tar.gz"
+  sha256 "bd98c146aa6d0c25f80cb50b1447b8aca8a17f0995b28a11a23e843b8f210f42"
   license "GPL-3.0-or-later"
-  revision 15
 
   livecheck do
     url :stable
@@ -21,11 +20,11 @@ class Netdata < Formula
     sha256 x86_64_linux:  "1ea6bc52591b731ffecebc4e3cc134f51b6aeb9c48645bc70e0c0a7dfe9a7f49"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "m4" => :build
+  depends_on "cmake" => :build
+  depends_on "go" => :build
   depends_on "pkgconf" => :build
   depends_on "abseil"
+  depends_on "curl"
   depends_on "json-c"
   depends_on "libuv"
   depends_on "libyaml"
@@ -38,6 +37,9 @@ class Netdata < Formula
   uses_from_macos "zlib"
 
   on_linux do
+    depends_on "bison"
+    depends_on "elfutils"
+    depends_on "flex"
     depends_on "util-linux"
   end
 
@@ -47,11 +49,6 @@ class Netdata < Formula
   end
 
   def install
-    # daemon/buildinfo.c saves the configure args and certain environment
-    # variables used to build netdata. Remove the environment variable that may
-    # reference `HOMEBREW_LIBRARY`, which can make bottling fail.
-    ENV.delete "PKG_CONFIG_LIBDIR"
-
     # https://github.com/protocolbuffers/protobuf/issues/9947
     ENV.append_to_cflags "-DNDEBUG"
 
@@ -68,25 +65,19 @@ class Netdata < Formula
       end
     end
 
-    ENV["PREFIX"] = prefix
+    inreplace "CMakeLists.txt" do |s|
+      s.gsub!(%r{(?<!/)usr/}, "#{prefix}/")
+      s.gsub!("/usr/", "/")
+    end
+
     ENV.append "CFLAGS", "-I#{judyprefix}/include"
     ENV.append "LDFLAGS", "-L#{judyprefix}/lib"
 
-    # We need C++17 for protobuf.
-    inreplace "configure.ac", "# AX_CXX_COMPILE_STDCXX(17, noext, optional)",
-                              "AX_CXX_COMPILE_STDCXX(17, noext, mandatory)"
-
-    system "autoreconf", "--force", "--install", "--verbose"
-    args = %W[
-      --disable-silent-rules
-      --sysconfdir=#{etc}
-      --localstatedir=#{var}
-      --libexecdir=#{libexec}
-      --with-math
-      --with-zlib
-      --enable-dbengine
-      --with-user=netdata
+    args = [
+      "-DBUILD_FOR_PACKAGING=1",
+      "-DNETDATA_RUNTIME_PREFIX=#{prefix}",
     ]
+
     if OS.mac?
       args << "UUID_LIBS=-lc"
       args << "UUID_CFLAGS=-I/usr/include"
@@ -94,11 +85,12 @@ class Netdata < Formula
       args << "UUID_LIBS=-luuid"
       args << "UUID_CFLAGS=-I#{Formula["util-linux"].opt_include}"
     end
-    system "./configure", *args, *std_configure_args
-    system "make", "clean"
-    system "make", "install"
 
-    (etc/"netdata").install "system/netdata.conf"
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
+
+    (prefix/"etc/netdata").install "#{buildpath}/system/netdata.conf"
   end
 
   def post_install
