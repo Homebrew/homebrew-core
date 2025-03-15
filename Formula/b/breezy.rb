@@ -3,8 +3,8 @@ class Breezy < Formula
 
   desc "Version control system implemented in Python with multi-format support"
   homepage "https://www.breezy-vcs.org/"
-  url "https://files.pythonhosted.org/packages/c4/32/1e95fdf00568790cf6316eb729a99c7754bbcb1773384c46da959eddfef8/breezy-3.3.9.tar.gz"
-  sha256 "c2588bf217c8a4056987ecf6599f0ad9fb8484285953b2e61905141f43c3d5d8"
+  url "https://files.pythonhosted.org/packages/15/b1/4d7fe9b01f072bd18bf4c6c4bf546b9f18ad4c3890f3f11fbb4d20f5bdbf/breezy-3.3.10.tar.gz"
+  sha256 "8e61aeb4800048d6f8fe43f701e510b571255387e64a999624caf46227b58cf7"
   license "GPL-2.0-or-later"
 
   bottle do
@@ -27,8 +27,8 @@ class Breezy < Formula
   end
 
   resource "dulwich" do
-    url "https://files.pythonhosted.org/packages/da/47/c8bf38f8874829730775fbe5510b54087ff8529dbb9612bd144b76376ea7/dulwich-0.22.3.tar.gz"
-    sha256 "7968c7b8a877b614c46b5ee7c1b28411772123004d7cf6357e763ad2cbeb8254"
+    url "https://files.pythonhosted.org/packages/d4/8b/0f2de00c0c0d5881dc39be147ec2918725fb3628deeeb1f27d1c6cf6d9f4/dulwich-0.22.8.tar.gz"
+    sha256 "701547310415de300269331abe29cb5717aa1ea377af826bf513d0adfb1c209b"
   end
 
   resource "fastbencode" do
@@ -51,14 +51,9 @@ class Breezy < Formula
     sha256 "d584d9ec91ad65861cc08d42e834324ef890a082e591037abe114850ff7bbc3e"
   end
 
-  resource "tzlocal" do
-    url "https://files.pythonhosted.org/packages/04/d3/c19d65ae67636fe63953b20c2e4a8ced4497ea232c43ff8d01db16de8dc0/tzlocal-5.2.tar.gz"
-    sha256 "8d399205578f1a9342816409cc1e46a93ebd5755e39ea2d85334bea911bf0e6e"
-  end
-
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/ed/63/22ba4ebfe7430b76388e7cd448d5478814d3032121827c12a2cc287e2260/urllib3-2.2.3.tar.gz"
-    sha256 "e7d814a81dad81e6caf2ec9fdedb284ecc9c73076b62654547cc64ccdcae26e9"
+    url "https://files.pythonhosted.org/packages/aa/63/e53da845320b757bf29ef6a9062f5c669fe997973f966045cb019c3f4b66/urllib3-2.3.0.tar.gz"
+    sha256 "f8c5449b3cf0861679ce7e0503c7b44b5ec981bec0d1d3795a07f1ba96f0204d"
   end
 
   def install
