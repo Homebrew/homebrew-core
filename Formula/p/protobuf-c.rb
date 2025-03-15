@@ -1,9 +1,18 @@
 class ProtobufC < Formula
   desc "Protocol buffers library"
   homepage "https://github.com/protobuf-c/protobuf-c"
-  url "https://github.com/protobuf-c/protobuf-c/releases/download/v1.5.1/protobuf-c-1.5.1.tar.gz"
-  sha256 "20d1dc257da96f8ddff8be4dd9779215bbd0a6069ed53bbe9de38fa7629be06b"
   license "BSD-2-Clause"
+  revision 1
+
+  stable do
+    url "https://github.com/protobuf-c/protobuf-c/releases/download/v1.5.1/protobuf-c-1.5.1.tar.gz"
+    sha256 "20d1dc257da96f8ddff8be4dd9779215bbd0a6069ed53bbe9de38fa7629be06b"
+
+    # TODO: Remove these dependencies when making autoreconf HEAD-only
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "446715f1e5c9c96bcbac59e1e4f5744c6ac29b72e17f01c0440cac3badc1f4bd"
@@ -27,8 +36,15 @@ class ProtobufC < Formula
   depends_on "abseil"
   depends_on "protobuf"
 
+  # Backport support for Protobuf 30
+  patch do
+    url "https://github.com/protobuf-c/protobuf-c/commit/25174818178d4761f971dab1c47083b892297dc2.patch?full_index=1"
+    sha256 "e3ea2f84a94e96165c551d5bd217ebcff117d15edd52694642d15449908a9290"
+  end
+
   def install
-    system "autoreconf", "--force", "--install", "--verbose" if build.head?
+    odie "Try making autoreconf HEAD-only!" if build.stable? && version > "1.5.1"
+    system "autoreconf", "--force", "--install", "--verbose" # TODO: if build.head?
     system "./configure", *std_configure_args
     system "make", "install"
   end

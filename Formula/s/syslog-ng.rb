@@ -6,7 +6,7 @@ class SyslogNg < Formula
   url "https://github.com/syslog-ng/syslog-ng/releases/download/syslog-ng-4.8.1/syslog-ng-4.8.1.tar.gz"
   sha256 "e8b8b98c60a5b68b25e3462c4104c35d05b975e6778d38d8a81b8ff7c0e64c5b"
   license all_of: ["LGPL-2.1-or-later", "GPL-2.0-or-later"]
-  revision 10
+  revision 11
   head "https://github.com/syslog-ng/syslog-ng.git", branch: "master"
 
   bottle do
@@ -20,9 +20,7 @@ class SyslogNg < Formula
 
   depends_on "pkgconf" => :build
 
-  depends_on "abseil"
   depends_on "glib"
-  depends_on "grpc"
   depends_on "hiredis"
   depends_on "ivykis"
   depends_on "json-c"
@@ -35,7 +33,6 @@ class SyslogNg < Formula
   depends_on "net-snmp"
   depends_on "openssl@3"
   depends_on "pcre2"
-  depends_on "protobuf"
   depends_on "python@3.12"
   depends_on "rabbitmq-c"
   depends_on "riemann-client"
@@ -57,8 +54,7 @@ class SyslogNg < Formula
     system python3, "-m", "pip", "--python=#{venv.root}/bin/python",
                           "install", *args, "--requirement=#{buildpath}/requirements.txt"
 
-    system "./configure", *std_configure_args,
-                          "CXXFLAGS=-std=c++17",
+    system "./configure", "CXXFLAGS=-std=c++17",
                           "--disable-silent-rules",
                           "--enable-all-modules",
                           "--sysconfdir=#{pkgetc}",
@@ -67,9 +63,11 @@ class SyslogNg < Formula
                           "--with-python=#{Language::Python.major_minor_version python3}",
                           "--with-python-venv-dir=#{venv.root}",
                           "--disable-example-modules",
+                          "--disable-grpc", # incompatible with newer protobuf used by grpc
                           "--disable-java",
                           "--disable-java-modules",
-                          "--disable-smtp"
+                          "--disable-smtp",
+                          *std_configure_args
     system "make", "install"
   end
 
