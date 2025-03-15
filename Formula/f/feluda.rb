@@ -1,19 +1,10 @@
 class Feluda < Formula
   desc "Detect license usage restrictions in your project"
   homepage "https://github.com/anistark/feluda"
+  url "https://github.com/anistark/feluda/archive/refs/tags/1.5.2.tar.gz"
+  sha256 "7b79f5374bb6b1b1bdb4e8f2bd0bac5d52a66b4aed58cbd2fae7b6facf153701"
   license "MIT"
   head "https://github.com/anistark/feluda.git", branch: "main"
-
-  stable do
-    url "https://github.com/anistark/feluda/archive/refs/tags/1.5.1.tar.gz"
-    sha256 "7a011aae95cf26927730aa31e4470600b35feeb01a03b39be5c01a3b171797e1"
-
-    # version patch
-    patch do
-      url "https://github.com/anistark/feluda/commit/a9b3cbab62baff0bae23afa3f02426e8eeab38d3.patch?full_index=1"
-      sha256 "139fabfcfc2a929894f4b95278ae911fbf2839b29059ceb6ff02546ce936581e"
-    end
-  end
 
   # Upstream creates releases that use a stable tag (e.g., `v1.2.3`) but are
   # labeled as "pre-release" on GitHub before the version is released, so it's
@@ -33,6 +24,10 @@ class Feluda < Formula
   end
 
   depends_on "rust" => :build
+
+  on_linux do
+    depends_on "pkgconf" => :build
+  end
 
   def install
     system "cargo", "install", *std_cargo_args
