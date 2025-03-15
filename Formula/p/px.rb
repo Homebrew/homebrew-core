@@ -26,6 +26,8 @@ class Px < Formula
   conflicts_with "pixie", because: "both install `px` binaries"
 
   def install
+    system "python3", "devbin/update_version_py.py"
+
     virtualenv_install_with_resources
 
     man1.install Dir["doc/*.1"]
