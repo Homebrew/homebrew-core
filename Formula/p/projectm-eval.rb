@@ -16,6 +16,20 @@ class ProjectmEval < Formula
     system "cmake", "-S", ".", "-B", "build", "-DENABLE_PROJECTM_EVAL_INSTALL=ON", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
+
+     # Create pkgconfig file
+     (lib/"pkgconfig/projectM-Eval.pc").write <<~EOS
+     prefix=#{prefix}
+     exec_prefix=${prefix}
+     libdir=${exec_prefix}/lib
+     includedir=${prefix}/include/projectm-eval
+
+     Name: projectM-Eval
+     Description: Milkdrop-compatible music visualizer preset evaluation library
+     Version: #{version}
+     Libs: -L${libdir} -lprojectM_eval
+     Cflags: -I${includedir}
+   EOS
   end
 
   test do
