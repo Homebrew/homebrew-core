@@ -1,20 +1,10 @@
 class Mpd < Formula
   desc "Music Player Daemon"
   homepage "https://github.com/MusicPlayerDaemon/MPD"
+  url "https://github.com/MusicPlayerDaemon/MPD/archive/refs/tags/v0.24.tar.gz"
+  sha256 "1d536e715e38b4a19ff68859c88adc1a0fd4e385d23ad5add5fdcafdc02aaf2d"
   license "GPL-2.0-or-later"
-  revision 1
   head "https://github.com/MusicPlayerDaemon/MPD.git", branch: "master"
-
-  stable do
-    url "https://github.com/MusicPlayerDaemon/MPD/archive/refs/tags/v0.23.17.tar.gz"
-    sha256 "6fcdc5db284297150734afd9b3d1a5697a29f6297eff1b56379018e31d023838"
-
-    # support libnfs 6.0.0, upstream commit ref, https://github.com/MusicPlayerDaemon/MPD/commit/31e583e9f8d14b9e67eab2581be8e21cd5712b47
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/557ad661621fa81b5e6ff92ab169ba40eba58786/mpd/0.23.16-libnfs-6.patch"
-      sha256 "e0f2e6783fbb92d9850d31f245044068dc0614721788d16ecfa8aacfc5c27ff3"
-    end
-  end
 
   bottle do
     sha256 cellar: :any, arm64_sequoia: "90e12fc71d7428a90102ffb762384846a28b39c39d7371218373c3a8a78d6406"
@@ -79,9 +69,6 @@ class Mpd < Formula
     # that against libstdc++ anyway, which won't work.
     # The build is fine with G++.
     ENV.libcxx
-
-    # https://github.com/MusicPlayerDaemon/MPD/pull/2198
-    inreplace "src/lib/nfs/meson.build", "['>= 4', '< 6']", "['>= 4']"
 
     args = %W[
       -Dcpp_std=c++20
