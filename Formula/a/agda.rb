@@ -4,6 +4,7 @@ class Agda < Formula
   # agda2hs.cabal specifies BSD-3-Clause but it installs an MIT LICENSE file.
   # Everything else specifies MIT license and installs corresponding file.
   license all_of: ["MIT", "BSD-3-Clause"]
+  revision 1
 
   stable do
     url "https://github.com/agda/agda/archive/refs/tags/v2.7.0.1.tar.gz"
@@ -48,6 +49,11 @@ class Agda < Formula
       url "https://github.com/agda/agda2hs/archive/refs/tags/v1.3.tar.gz"
       sha256 "0e2c11eae0af459d4c78c24efadb9a4725d12c951f9d94da4adda5a0bcb1b6f6"
     end
+
+    resource "agda-language-server" do
+      url "https://github.com/agda/agda-language-server/archive/refs/tags/v0.2.7.0.1.5.tar.gz"
+      sha256 "fb244b2ce465912b80f1c7c48f27f095a8506d620d612da64e228d3990ae3b07"
+    end
   end
 
   # The regex below is intended to match stable tags like `2.6.3` but not
@@ -84,17 +90,26 @@ class Agda < Formula
     resource "agda2hs" do
       url "https://github.com/agda/agda2hs.git", branch: "master"
     end
+
+    resource "agda-language-server" do
+      url "https://github.com/agda/agda-language-server.git", branch: "master"
+    end
   end
 
   depends_on "cabal-install" => :build
   depends_on "emacs" => :build
+  depends_on "pkgconf" => :build
   depends_on "ghc"
+  depends_on "icu4c@76"
 
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
+  conflicts_with "atool", because: "both install `als` binaries"
+
   def install
     agda2hs = buildpath/"agda2hs"
+    als = buildpath/"agda-language-server"
     agdalib = pkgshare # for write permissions needed to re-generate .agdai when using different options
     cubicallib = agdalib/"cubical"
     categorieslib = agdalib/"categories"
@@ -103,6 +118,7 @@ class Agda < Formula
     lib.install_symlink pkgshare
 
     resource("agda2hs").stage agda2hs
+    resource("agda-language-server").stage als
     resource("stdlib").stage agdalib
     resource("cubical").stage cubicallib
     resource("categories").stage categorieslib
@@ -111,9 +127,11 @@ class Agda < Formula
     inreplace categorieslib/"agda-categories.agda-lib", /(standard-library)-2\.1$/, "\\1", audit_result: build.stable?
 
     (buildpath/"cabal.project.local").write <<~HASKELL
-      packages: . #{agda2hs}
+      packages: . #{agda2hs} #{als}
       package Agda
         flags: +optimise-heavily
+      package agda-language-server
+        flags: +Agda-2-7-0-1
       -- Workaround for GHC 9.12 until official supported, https://github.com/agda/agda/issues/7574
       allow-newer: Agda:base, agda2hs:base, agda2hs:filepath
     HASKELL
@@ -128,7 +146,7 @@ class Agda < Formula
 
     system "cabal", "v2-update"
     system "cabal", "--store-dir=#{libexec}", "v2-install", *exposed_packages, "--lib", *cabal_args
-    system "cabal", "--store-dir=#{libexec}", "v2-install", ".", agda2hs, *cabal_args
+    system "cabal", "--store-dir=#{libexec}", "v2-install", ".", agda2hs, als, *cabal_args
 
     # Allow build scripts to find stdlib and just built agda binary
     Pathname("#{Dir.home}/.config/agda/libraries").write "#{agdalib}/standard-library.agda-lib"
@@ -312,5 +330,8 @@ class Agda < Formula
     # translate a simple file via agda2hs
     system bin/"agda2hs", "--out-dir=#{testpath}", agda2hstest
     assert_equal agda2hsexpect, agda2hsout.read
+
+    # check that the installed als binary reports the correct version
+    assert_equal "Agda v2.7.0.1 Language Server v5", shell_output("#{bin}/als -V").strip
   end
 end
