@@ -23,6 +23,8 @@ class Carrot2 < Formula
   depends_on "yarn" => :build
   depends_on "openjdk@21"
 
+  uses_from_macos "curl" => :test
+
   def install
     # Make possible to build the formula with the latest available in Homebrew gradle
     inreplace "gradle/validation/check-environment.gradle",
