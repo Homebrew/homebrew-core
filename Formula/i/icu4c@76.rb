@@ -5,7 +5,7 @@ class Icu4cAT76 < Formula
   version "76.1"
   sha256 "dfacb46bfe4747410472ce3e1144bf28a102feeaa4e3875bac9b4c6cf30f4f3e"
   license "ICU"
-  revision 1
+  revision 2
 
   livecheck do
     url :stable
@@ -24,7 +24,7 @@ class Icu4cAT76 < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "e371567ddebb72c0aac6143d10bc47d6f0e0ed87aa7d3962a1ee8b6d86438f26"
   end
 
-  keg_only :shadowed_by_macos, "macOS provides libicucore.dylib (but nothing else)"
+  keg_only :versioned_formula
 
   def install
     args = %w[

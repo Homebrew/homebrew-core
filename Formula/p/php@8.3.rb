@@ -6,6 +6,7 @@ class PhpAT83 < Formula
   mirror "https://fossies.org/linux/www/php-8.3.19.tar.xz"
   sha256 "976e4077dd25bec96b5dfe8938052d243bbd838f95368a204896eff12756545f"
   license "PHP-3.01"
+  revision 1
 
   livecheck do
     url "https://www.php.net/downloads"
@@ -39,7 +40,7 @@ class PhpAT83 < Formula
   depends_on "gd"
   depends_on "gettext"
   depends_on "gmp"
-  depends_on "icu4c@76"
+  depends_on "icu4c@77"
   depends_on "krb5"
   depends_on "libpq"
   depends_on "libsodium"
