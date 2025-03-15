@@ -22,12 +22,27 @@ class RedwaxTool < Formula
   depends_on "pkgconf" => :build
   depends_on "apr"
   depends_on "apr-util"
+  depends_on "ldns"
+  depends_on "libical"
+  depends_on "nss"
   depends_on "openssl@3"
+  depends_on "p11-kit"
+  depends_on "unbound"
 
   uses_from_macos "expat"
 
   def install
-    system "./configure", "--disable-silent-rules", "--with-openssl", *std_configure_args
+    args = %w[
+      --disable-silent-rules
+      --with-openssl
+      --with-nss
+      --with-p11-kit
+      --with-libical
+      --with-ldns
+      --with-unbound
+    ]
+    args << "--with-keychain" if OS.mac?
+    system "./configure", *args, *std_configure_args
     system "make", "install"
   end
 
