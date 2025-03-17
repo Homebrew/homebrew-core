@@ -1,6 +1,6 @@
 class Kubevpn < Formula
   desc "Offers a Cloud-Native Dev Environment that connects to your K8s cluster network"
-  homepage "https://www.kubevpn.cn"
+  homepage "https://www.kubevpn.dev"
   url "https://github.com/kubenetworks/kubevpn/archive/refs/tags/v2.4.1.tar.gz"
   sha256 "e734f22be1b18f379916059300a448a64ab84f8b9fea896750ef9cc3bd002315"
   license "MIT"
@@ -23,7 +23,7 @@ class Kubevpn < Formula
     project = "github.com/wencaiwulue/kubevpn/v2"
     ldflags = %W[
       -s -w
-      -X #{project}/pkg/config.Image=docker.io/naison/kubevpn:v#{version}
+      -X #{project}/pkg/config.Image=ghcr.io/kubenetworks/kubevpn:v#{version}
       -X #{project}/pkg/config.Version=v#{version}
       -X #{project}/pkg/config.GitCommit=brew
       -X #{project}/cmd/kubevpn/cmds.BuildTime=#{time.iso8601}
