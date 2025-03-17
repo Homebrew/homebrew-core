@@ -5,6 +5,7 @@ class Zrok < Formula
   sha256 "2980581c45514240598135deed8a999bc65359527ded31a5bb855d05e70f2254"
   # The main license is Apache-2.0. ACKNOWLEDGEMENTS.md lists licenses for parts of code
   license all_of: ["Apache-2.0", "BSD-3-Clause", "MIT"]
+  revision 1
   head "https://github.com/openziti/zrok.git", branch: "main"
 
   bottle do
@@ -29,7 +30,7 @@ class Zrok < Formula
 
     ldflags = %W[
       -s -w
-      -X github.com/openziti/zrok/build.Version=#{version}
+      -X github.com/openziti/zrok/build.Version=v#{version}
       -X github.com/openziti/zrok/build.Hash=#{tap.user}
     ]
     system "go", "build", *std_go_args(ldflags:), "./cmd/zrok"
@@ -50,7 +51,7 @@ class Zrok < Formula
     YAML
 
     version_output = shell_output("#{bin}/zrok version")
-    assert_match(version.to_s, version_output)
+    assert_match(/\bv#{version}\b/, version_output)
     assert_match(/[[a-f0-9]{40}]/, version_output)
 
     status_output = shell_output("#{bin}/zrok controller validate #{testpath}/ctrl.yml 2>&1")
