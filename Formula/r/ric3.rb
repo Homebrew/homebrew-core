@@ -9,12 +9,11 @@ class Ric3 < Formula
   head "https://github.com/gipsyh/rIC3.git", branch: "master"
 
   depends_on "cmake" => :build
+  depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1200
+  depends_on "pkgconf" => :build
   depends_on "rust" => :build
-
-  # This formula requires Rust nightly
-  on_macos do
-    depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1200
-  end
+  depends_on "libgit2@1.8"
+  depends_on "openssl@3"
 
   def install
     # Ensure all submodules are fetched
