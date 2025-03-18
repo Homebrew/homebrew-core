@@ -76,6 +76,17 @@ class Evince < Formula
     system "#{Formula["gtk+3"].opt_bin}/gtk3-update-icon-cache", "-f", "-t", "#{HOMEBREW_PREFIX}/share/icons/hicolor"
   end
 
+  def caveats
+    <<~EOS
+      Before using Evince ensure the path to GSettings schemas is exported.
+      It should be exported on most Linux distributions but it might not be the case
+      on your computer or macOS.
+      It can be done by adding the following to your shell profile e.g. ~/.profile
+      or ~/.zshrc:
+        export GSETTINGS_SCHEMA_DIR="#{HOMEBREW_PREFIX}/share/glib-2.0/schemas"
+    EOS
+  end
+
   test do
     assert_match version.to_s, shell_output("#{bin}/evince --version")
   end
