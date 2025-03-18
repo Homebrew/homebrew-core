@@ -5,7 +5,7 @@ class Zrok < Formula
   sha256 "2980581c45514240598135deed8a999bc65359527ded31a5bb855d05e70f2254"
   # The main license is Apache-2.0. ACKNOWLEDGEMENTS.md lists licenses for parts of code
   license all_of: ["Apache-2.0", "BSD-3-Clause", "MIT"]
-  revision 1
+  revision 2
   head "https://github.com/openziti/zrok.git", branch: "main"
 
   bottle do
