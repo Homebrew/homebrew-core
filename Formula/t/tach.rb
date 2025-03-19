@@ -3,8 +3,8 @@ class Tach < Formula
 
   desc "Tool to enforce dependencies using modular architecture"
   homepage "https://docs.gauge.sh/getting-started/introduction"
-  url "https://files.pythonhosted.org/packages/b3/4b/e618b08b1e6354673cb39f8d52bf4677448b81404579073e1c4e85401d79/tach-0.28.1.tar.gz"
-  sha256 "c03bf287e22672eba61329d9cdc586e4cfa97f6ce7d774f33ff20af9caed531f"
+  url "https://files.pythonhosted.org/packages/19/c5/4e7c0d446b14b7dce609bb819e95e77d5b57c3f296ed6be7288778fcc057/tach-0.28.2.tar.gz"
+  sha256 "5f6d9f75b126c9c1456efaea88472b63e7d1fb222d8fc73556ffda5af4cfbad9"
   license "MIT"
   head "https://github.com/gauge-sh/tach.git", branch: "main"
 
@@ -94,6 +94,12 @@ class Tach < Formula
   resource "wcwidth" do
     url "https://files.pythonhosted.org/packages/6c/63/53559446a878410fc5a5974feb13d31d78d752eb18aeba59c7fef1af7598/wcwidth-0.2.13.tar.gz"
     sha256 "72ea0c06399eb286d978fdedb6923a9eb47e1c486ce63e9b4e64fc18303972b5"
+  end
+
+  # patch version, upstream pr ref, https://github.com/gauge-sh/tach/pull/701
+  patch do
+    url "https://github.com/gauge-sh/tach/commit/adb4646cdbcbc294a1afad2cddd13ff231c788f5.patch?full_index=1"
+    sha256 "44fe7975b60b6089da264bb4a1e812b2764610bcc5993fe13403e77634af7437"
   end
 
   def install
