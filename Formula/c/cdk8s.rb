@@ -15,7 +15,7 @@ class Cdk8s < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "da5c3a4c5ce3ca69a3cc8cb6dca3ed8767bce370eae556d003063d469d26d8cb"
   end
 
-  depends_on "node"
+  depends_on "node@22"
 
   def install
     system "npm", "install", *std_npm_args
