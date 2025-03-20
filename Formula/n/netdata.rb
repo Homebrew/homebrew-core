@@ -4,7 +4,7 @@ class Netdata < Formula
   url "https://github.com/netdata/netdata/releases/download/v1.44.3/netdata-v1.44.3.tar.gz"
   sha256 "50df30a9aaf60d550eb8e607230d982827e04194f7df3eba0e83ff7919270ad2"
   license "GPL-3.0-or-later"
-  revision 15
+  revision 16
 
   livecheck do
     url :stable
@@ -44,6 +44,12 @@ class Netdata < Formula
   resource "judy" do
     url "https://downloads.sourceforge.net/project/judy/judy/Judy-1.0.5/Judy-1.0.5.tar.gz"
     sha256 "d2704089f85fdb6f2cd7e77be21170ced4b4375c03ef1ad4cf1075bd414a63eb"
+  end
+
+  # Backport fix for Protobuf 30
+  patch :p2 do
+    url "https://github.com/netdata/netdata/commit/a6cc2215f49be2f862cbd8747555b561dc0d6eef.patch?full_index=1"
+    sha256 "4c197b54bddf9c997843d08c54eccf54d8892ace1a7eb43a1e46691292441eed"
   end
 
   def install
@@ -96,7 +102,8 @@ class Netdata < Formula
     end
     system "./configure", *args, *std_configure_args
     system "make", "clean"
-    system "make", "install"
+    system "make"
+    ENV.deparallelize { system "make", "install" }
 
     (etc/"netdata").install "system/netdata.conf"
   end

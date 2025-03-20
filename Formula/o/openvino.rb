@@ -6,6 +6,7 @@ class Openvino < Formula
   url "https://github.com/openvinotoolkit/openvino/archive/refs/tags/2025.0.0.tar.gz"
   sha256 "d2cbff5a0ac1bc738c33ba103569f8daf20d3a17d3db94da11ae207ffb9e4395"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/openvinotoolkit/openvino.git", branch: "master"
 
   livecheck do
@@ -86,6 +87,10 @@ class Openvino < Formula
   end
 
   def install
+    # Workaround to allow building with Protobuf 30+ until upstream support
+    # TODO: Open upstream issue/PR
+    inreplace "thirdparty/dependencies.cmake", "find_package(Protobuf 5.26.0", "find_package(Protobuf 6.30.0"
+
     # Remove git cloned 3rd party to make sure formula dependencies are used
     dependencies = %w[thirdparty/ocl
                       thirdparty/xbyak thirdparty/gflags
@@ -148,8 +153,6 @@ class Openvino < Formula
   end
 
   test do
-    pkg_config_flags = shell_output("pkg-config --cflags --libs openvino").chomp.split
-
     (testpath/"openvino_available_devices.c").write <<~C
       #include <openvino/c/openvino.h>
 
@@ -173,9 +176,10 @@ class Openvino < Formula
           return 0;
       }
     C
-    system ENV.cc, "#{testpath}/openvino_available_devices.c", *pkg_config_flags,
-                   "-o", "#{testpath}/openvino_devices_test"
-    system "#{testpath}/openvino_devices_test"
+
+    pkgconf_flags = shell_output("pkgconf --define-prefix --cflags --libs openvino").chomp.split
+    system ENV.cc, "openvino_available_devices.c", "-o", "openvino_devices_test", *pkgconf_flags
+    system "./openvino_devices_test"
 
     (testpath/"openvino_available_frontends.cpp").write <<~CPP
       #include <openvino/frontend/manager.hpp>

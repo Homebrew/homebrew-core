@@ -6,7 +6,7 @@ class SyslogNg < Formula
   url "https://github.com/syslog-ng/syslog-ng/releases/download/syslog-ng-4.8.1/syslog-ng-4.8.1.tar.gz"
   sha256 "e8b8b98c60a5b68b25e3462c4104c35d05b975e6778d38d8a81b8ff7c0e64c5b"
   license all_of: ["LGPL-2.1-or-later", "GPL-2.0-or-later"]
-  revision 10
+  revision 11
   head "https://github.com/syslog-ng/syslog-ng.git", branch: "master"
 
   bottle do
@@ -44,6 +44,13 @@ class SyslogNg < Formula
 
   on_macos do
     depends_on "gettext"
+  end
+
+  # Apply Arch Linux patch to build with Protobuf 30+
+  # Ref: https://github.com/syslog-ng/syslog-ng/pull/5263
+  patch do
+    url "https://github.com/syslog-ng/syslog-ng/commit/4d2f490807560c11ec62067718b2acf01cac49ef.patch?full_index=1"
+    sha256 "ddce9ca805a557b86dec3beb149e54883da653b79c7bbc003a4f05fb11ae2889"
   end
 
   def install
