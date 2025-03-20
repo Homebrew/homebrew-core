@@ -27,6 +27,27 @@ class Dolt < Formula
     end
   end
 
+  def logdir
+    var/"log"
+  end
+
+  def datadir
+    var/"dolt"
+  end
+
+  def post_install
+    logdir.mkpath
+    datadir.mkpath
+  end
+
+  service do
+    run [opt_bin/"dolt", "sql-server"]
+    keep_alive true
+    log_path f.logdir/"dolt.log"
+    error_log_path f.logdir/"dolt.error.log"
+    working_dir f.datadir
+  end
+
   test do
     ENV["DOLT_ROOT_PATH"] = testpath
 
