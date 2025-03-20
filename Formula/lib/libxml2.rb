@@ -77,6 +77,7 @@ class Libxml2 < Formula
     system "autoreconf", "--force", "--install", "--verbose" # if build.head?
     system "./configure", "--disable-silent-rules",
                           "--sysconfdir=#{etc}",
+                          "--enable-static",
                           "--with-history",
                           "--with-http",
                           "--with-icu",
