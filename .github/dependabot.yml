@@ -6,6 +6,7 @@ updates:
   directory: "/"
   schedule:
     interval: weekly
+    cron: 0 8 * * 1
   allow:
   - dependency-type: all
   ignore:
