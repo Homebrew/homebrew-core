@@ -1,8 +1,8 @@
 class Deno < Formula
   desc "Secure runtime for JavaScript and TypeScript"
   homepage "https://deno.com/"
-  url "https://github.com/denoland/deno/releases/download/v2.2.4/deno_src.tar.gz"
-  sha256 "67808c70241abe878f177767585863d8442214b7a18c0ba7527c4a8f464f8cb3"
+  url "https://github.com/denoland/deno/releases/download/v2.2.5/deno_src.tar.gz"
+  sha256 "667202459b48b8ff293d6698b7abdcb7266c1812f9644e185db81da2af5ae927"
   license "MIT"
   head "https://github.com/denoland/deno.git", branch: "main"
 
@@ -38,35 +38,35 @@ class Deno < Formula
   # TODO: Remove this and `v8` resource when https://github.com/denoland/rusty_v8/issues/1065 is resolved
   # VERSION=#{version} && curl -s https://raw.githubusercontent.com/denoland/deno/v$VERSION/Cargo.lock | grep -C 1 'name = "v8"'
   resource "rusty_v8" do
-    url "https://static.crates.io/crates/v8/v8-134.5.0.crate"
-    sha256 "21c7a224a7eaf3f98c1bad772fbaee56394dce185ef7b19a2e0ca5e3d274165d"
+    url "https://static.crates.io/crates/v8/v8-135.0.0.crate"
+    sha256 "bc24d3e68c7e9b581fce2f0ceb9d1ad61565bf783a36d80d530ccf2be212a295"
   end
 
   # Find the v8 version from the last commit message at:
   # https://github.com/denoland/rusty_v8/commits/v#{rusty_v8_version}/v8
   # Then, use the corresponding tag found in https://github.com/denoland/v8/tags
   resource "v8" do
-    url "https://github.com/denoland/v8/archive/refs/tags/13.4.114.11-denoland-060f4e2b72e373d63fc6.tar.gz"
-    sha256 "13244bee611589ea607d92a7a59bcce0add58fbf7cec7379945c3af6855da07f"
+    url "https://github.com/denoland/v8/archive/refs/tags/13.5.212.4-denoland-215b5b11776cbba8e100.tar.gz"
+    sha256 "79a7aaa2a74d867f0c187a01c49d9a83eff753cebc862e4c61dfd05bfdfce212"
   end
 
   # VERSION=#{version} && curl -s https://raw.githubusercontent.com/denoland/deno/v$VERSION/Cargo.lock | grep -C 1 'name = "deno_core"'
   resource "deno_core" do
-    url "https://github.com/denoland/deno_core/archive/refs/tags/0.340.0.tar.gz"
-    sha256 "2137eecf512dfc74e252e693f958e282aae4fd4c564a3b754692f05c00662442"
+    url "https://github.com/denoland/deno_core/archive/refs/tags/0.341.0.tar.gz"
+    sha256 "1cb551b5943a4f8a9495cbd6449c65d1b688f467cff976ee35d268dcf2e3dd1d"
   end
 
   # The latest commit from `denoland/icu`, go to https://github.com/denoland/rusty_v8/tree/v#{rusty_v8_version}/third_party
   # and check the commit of the `icu` directory
   resource "icu" do
     url "https://chromium.googlesource.com/chromium/deps/icu.git",
-        revision: "bbccc2f6efc1b825de5f2c903c48be685cd0cf22"
+        revision: "d30b7b0bb3829f2e220df403ed461a1ede78b774"
   end
 
   # V8_TAG=#{v8_resource_tag} && curl -s https://raw.githubusercontent.com/denoland/v8/$V8_TAG/DEPS | grep gn_version
   resource "gn" do
     url "https://gn.googlesource.com/gn.git",
-        revision: "ed1abc107815210dc66ec439542bee2f6cbabc00"
+        revision: "4a8016dc391553fa1644c0740cc04eaac844121e"
   end
 
   def llvm
@@ -91,8 +91,8 @@ class Deno < Formula
               /^libffi-sys = "(.+)"$/,
               'libffi-sys = { version = "\\1", features = ["system"] }'
     inreplace "Cargo.toml",
-              /^rusqlite = { version = "(.+)", features = \["unlock_notify", "bundled", "session"\] }$/,
-              'rusqlite = { version = "\\1", features = ["unlock_notify", "session"] }'
+              /^rusqlite = { version = "(.+)", features = \["unlock_notify", "bundled", "session"/,
+              'rusqlite = { version = "\\1", features = ["unlock_notify", "session"'
 
     if OS.mac? && (MacOS.version < :mojave)
       # Overwrite Chromium minimum SDK version of 10.15
