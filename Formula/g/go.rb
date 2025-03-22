@@ -5,6 +5,7 @@ class Go < Formula
   mirror "https://fossies.org/linux/misc/go1.24.1.src.tar.gz"
   sha256 "8244ebf46c65607db10222b5806aeb31c1fcf8979c1b6b12f60c677e9a3c0656"
   license "BSD-3-Clause"
+  revision 1
   head "https://go.googlesource.com/go.git", branch: "master"
 
   livecheck do
