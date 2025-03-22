@@ -26,11 +26,25 @@ class Typespeed < Formula
   uses_from_macos "ncurses"
 
   def install
+    # Work around failure from GCC 10+ using default of `-fno-common`
+    # multiple definition of `rules'; typespeed-file.o:(.bss+0x2050): first defined here
+    # multiple definition of `words'; typespeed-file.o:(.bss+0x30): first defined here
+    # multiple definition of `opt'; typespeed-file.o:(.bss+0x0): first defined here
+    # multiple definition of `now'; typespeed-file.o:(.bss+0x30b0): first defined here
+    ENV.append_to_cflags "-fcommon" if OS.linux?
+
+    args = []
+    # Help old config scripts identify arm64 linux
+    args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+
     # Fix the hardcoded gcc.
     inreplace "src/Makefile.in", "gcc", ENV.cc
     inreplace "testsuite/Makefile.in", "gcc", ENV.cc
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    system "./configure", *args, *std_configure_args
     system "make", "install"
+  end
+
+  test do
+    assert_match version.to_s, shell_output("#{bin}/typespeed --version")
   end
 end
