@@ -6,6 +6,7 @@ class Glib < Formula
   url "https://download.gnome.org/sources/glib/2.84/glib-2.84.0.tar.xz"
   sha256 "f8823600cb85425e2815cfad82ea20fdaa538482ab74e7293d58b3f64a5aff6a"
   license "LGPL-2.1-or-later"
+  revision 1
 
   bottle do
     rebuild 1
@@ -51,8 +52,8 @@ class Glib < Formula
                  "share/gir-1.0/GObject-2.0.gir", "share/gir-1.0/Gio-2.0.gir"
 
   resource "gobject-introspection" do
-    url "https://download.gnome.org/sources/gobject-introspection/1.82/gobject-introspection-1.82.0.tar.xz"
-    sha256 "0f5a4c1908424bf26bc41e9361168c363685080fbdb87a196c891c8401ca2f09"
+    url "https://download.gnome.org/sources/gobject-introspection/1.84/gobject-introspection-1.84.0.tar.xz"
+    sha256 "945b57da7ec262e5c266b89e091d14be800cc424277d82a02872b7d794a84779"
   end
 
   # replace several hardcoded paths with homebrew counterparts
