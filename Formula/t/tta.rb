@@ -28,6 +28,11 @@ class Tta < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "30808b3d8bf5450eb396ecbf102837b9943355ea54cb6b27c052b6e2fd902adc"
   end
 
+  # CPU aarch64 is not supported
+  on_linux do
+    depends_on arch: :x86_64
+  end
+
   def install
     args = ["--disable-silent-rules"]
     if Hardware::CPU.intel?
