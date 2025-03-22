@@ -1,19 +1,10 @@
 class Spotifyd < Formula
   desc "Spotify daemon"
   homepage "https://spotifyd.rs/"
+  url "https://github.com/Spotifyd/spotifyd/archive/refs/tags/v0.4.1.tar.gz"
+  sha256 "fdbf93c51232d85a0ef29813a02f3c23aacf733444eacf898729593e8837bcfc"
   license "GPL-3.0-only"
   head "https://github.com/Spotifyd/spotifyd.git", branch: "master"
-
-  stable do
-    url "https://github.com/Spotifyd/spotifyd/archive/refs/tags/v0.3.5.tar.gz"
-    sha256 "59103f7097aa4e2ed960f1cc307ac8f4bdb2f0067aad664af32344aa8a972df7"
-
-    # rust 1.80 build patch, upstream pr ref, https://github.com/Spotifyd/spotifyd/pull/1297
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/7cb21d6370a1eae320f06a4f9150111db0bbf952/spotifyd/rust-1.80.patch"
-      sha256 "0bfc8c4805cc99c249d1411aff29a0d9107c3ce69f1fabbdc3ab41701ca4f2f6"
-    end
-  end
 
   livecheck do
     url :stable
@@ -35,24 +26,63 @@ class Spotifyd < Formula
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
   depends_on "dbus"
-  depends_on "portaudio"
+
+  on_macos do
+    depends_on "portaudio"
+  end
+
+  on_linux do
+    depends_on "alsa-lib"
+    depends_on "pulseaudio"
+  end
+
+  def backend
+    on_macos do
+      return "portaudio"
+    end
+    on_linux do
+      return "pulseaudio"
+    end
+  end
 
   def install
     ENV["COREAUDIO_SDK_PATH"] = MacOS.sdk_path_if_needed if OS.mac?
 
-    system "cargo", "install", "--no-default-features",
-                               "--features", "dbus_keyring,portaudio_backend",
-                               *std_cargo_args
+    # The same features as upstream's "default" feature set binaries
+    # https://github.com/Spotifyd/spotifyd/blob/master/.github/workflows/cd.yml
+    features = %w[dbus_mpris rodio_backend]
+    features += if OS.mac?
+      %w[portaudio_backend]
+    else
+      %w[alsa_backend pulseaudio_backend]
+    end
+
+    system "cargo", "install", "--no-default-features", "--features", features.join(","), *std_cargo_args
+
+    inreplace "contrib/spotifyd.conf", /^#backend = "alsa"/, "backend = \"#{backend}\""
+    etc.install "contrib/spotifyd.conf"
+  end
+
+  def caveats
+    "The service's configuration can be modified at #{etc}/spotifyd.conf"
   end
 
   service do
-    run [opt_bin/"spotifyd", "--no-daemon", "--backend", "portaudio"]
+    run [opt_bin/"spotifyd", "--no-daemon", "--config-path", etc/"spotifyd.conf"]
     keep_alive true
   end
 
   test do
-    cmd = "#{bin}/spotifyd --username homebrew_fake_user_for_testing \
-      --password homebrew --no-daemon --backend portaudio"
-    assert_match "Bad credentials", shell_output(cmd)
+    require "open3"
+
+    port = free_port
+    args = ["--no-daemon", "--use-mpris=false", "--backend=#{backend}", "--verbose", "--zeroconf-port=#{port}"]
+    Open3.popen2e(bin/"spotifyd", *args) do |_, stdout_and_stderr, wait_thread|
+      sleep 5
+      Process.kill "TERM", wait_thread.pid
+      output = stdout_and_stderr.read
+      assert_match "Zeroconf server listening on 0.0.0.0:#{port}", output
+      refute_match "ERROR", output
+    end
   end
 end
