@@ -11,6 +11,7 @@ class Lout < Formula
     sha256 arm64_ventura: "36d4dbcfb60cd3e34ef95b0149b63c95d0f6c80d3a1f091077f2099dc6d059c0"
     sha256 sonoma:        "557fabce8567fc87281e2fca29f967ba46a52e99e30263a37dfd106eb41505e4"
     sha256 ventura:       "2fdb333adee5e2d4c51b1357b60887993cebb74c00e6ec90dbff285ba7e11b29"
+    sha256 arm64_linux:   "ab6bc86fa05d9dc8246468b734aaeebf39cd8ecb2d023e5affc0a742fc225c51"
     sha256 x86_64_linux:  "4066e6e926425dd434b6f48343e4cdf8a8a0e1ecf54638f16d483aeda4183b26"
   end
 

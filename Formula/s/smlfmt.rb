@@ -14,6 +14,7 @@ class Smlfmt < Formula
     sha256 cellar: :any,                 sonoma:         "a380f2a3f561e4a0f2c4c9a78caa9767d8f5585ed33dd6a49fd495dcf75f0323"
     sha256 cellar: :any,                 ventura:        "f40b271e4ea6a8d87e64a7776e1ba2d57cb0c0bd25d242ce8ed3d5bee74eb6fa"
     sha256 cellar: :any,                 monterey:       "cd0d919fc4a9557aedc0e2e6ef8e854b66b9daf5c956f66a45d38a30a815e635"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "517116d4374f5eb646431e1ade9474694e9cfe2685706ddafe67c45f03818d38"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "d1b92b3ef804bcf8cb98eed9d42550f9752ac31479328e53e7e2d74c86687ec3"
   end
 

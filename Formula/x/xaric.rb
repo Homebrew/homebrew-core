@@ -22,6 +22,7 @@ class Xaric < Formula
     sha256 monterey:       "d71030b64a334132691fae5896e5924428138fa2de5bed1634cbcf22d625bedf"
     sha256 big_sur:        "98a7bcefda0b4262da3bfbb45fe6985fae25db911cc60ea33b503be4e4598bed"
     sha256 catalina:       "74bf2f31d52f8057a22fd38858314668cd62b89adad5a299209890a717718856"
+    sha256 arm64_linux:    "fcad340e8b719ea6a033f341a272696912a178f0945000ba90ccbf103ef5f041"
     sha256 x86_64_linux:   "633be739d85e31a8d4e7af822a11a8c07f30c0491035fb76cd68f3b81145940b"
   end
 

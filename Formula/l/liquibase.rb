@@ -16,6 +16,7 @@ class Liquibase < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "b25c49301574fe40a67ab16d944c363dffec2de0c8ad8680835dcd44c648837b"
     sha256 cellar: :any_skip_relocation, sonoma:        "cb951450860829e9d7ba103ca5df2a5c7ab2aef156ac9799e45fbd088374307b"
     sha256 cellar: :any_skip_relocation, ventura:       "cb951450860829e9d7ba103ca5df2a5c7ab2aef156ac9799e45fbd088374307b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b25c49301574fe40a67ab16d944c363dffec2de0c8ad8680835dcd44c648837b"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "b25c49301574fe40a67ab16d944c363dffec2de0c8ad8680835dcd44c648837b"
   end
 

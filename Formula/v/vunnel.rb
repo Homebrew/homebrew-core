@@ -15,6 +15,7 @@ class Vunnel < Formula
     sha256 cellar: :any,                 arm64_ventura: "983c534b521c1438a99a80e8ecae032137461be2caa2340b376b4f84e87aafb0"
     sha256 cellar: :any,                 sonoma:        "c5b7ca6a49a24062ae84e99d648fddb1e0624c8d369dd5b1f1c3c58add3cea43"
     sha256 cellar: :any,                 ventura:       "2ee7c751b1c4d28b39e51a0bd34418f6024d69541ffd16ee0d4aa98014ce2da5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c158a30e03b84f1f602a86aa2c6893792550c816316060c067a4519f6de79ba7"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "26094598a648112adf78255435c9dbe8c2a91c425d6f94974d6db035bd760641"
   end
 

@@ -13,6 +13,7 @@ class Jellyfish < Formula
     sha256 cellar: :any,                 sonoma:         "5cea64914e0780caa84ed59a40def3e32711715e5459f4a49b29e9bdcdf374c4"
     sha256 cellar: :any,                 ventura:        "55f9ba9cc23d3f238d711973cad51e2db5e9805f2abb9b2c2016ecb183dfd55c"
     sha256 cellar: :any,                 monterey:       "ef1f0988a3d81bc9fe2179887d4b49b585f98fdaa130567626c594b3dc92c012"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "a85634ad3dd7342122d1298e2ff0971e6a0807da1b36c46997a01d25a39bae19"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "105fae95b5a56dea674d9e6f97e6dadde81372f86b3c3dc8303548460dfb376e"
   end
 

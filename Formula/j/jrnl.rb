@@ -14,6 +14,7 @@ class Jrnl < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "25ebc4285ec83ca5d14e3b82dac44745c7eab8e3ba799e3224379bccc18da0d3"
     sha256 cellar: :any_skip_relocation, sonoma:        "f949633a884a972b1b95e8d23f68a7530642d4a205de43e1e1c5497d56607ed7"
     sha256 cellar: :any_skip_relocation, ventura:       "f949633a884a972b1b95e8d23f68a7530642d4a205de43e1e1c5497d56607ed7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f01d2c733150b3597a4fbc1153605db8bd40542bd2a3741127ccb8310f3e8982"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "9eeb3e076ae9f7c2098d01e6712b1d8a78dfd5175827efefa6e947e9a1cd3c2c"
   end
 

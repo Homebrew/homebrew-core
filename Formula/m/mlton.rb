@@ -19,6 +19,7 @@ class Mlton < Formula
     sha256 cellar: :any,                 arm64_ventura: "bed247cd0a0a8e1d219a0aa227bc0c1521546c982d6e39252471ca9788037702"
     sha256 cellar: :any,                 sonoma:        "6d43cf4850c6254329c6a4c1ee06f6e860bf133fca2772eac31c9d8f9e1645dd"
     sha256 cellar: :any,                 ventura:       "de3736436eba0b0a13c9f5c04dc472912366b1ab4aafce7c88d0b0b7687d1fbf"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8d7c7205060e030f40a39f4eb83ca2a24a177bba7fddfa929222ec287251eddd"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "ed7629b2e4edf19250fc7c6311fbf582b2f8b63658b3e8dd37083ceb98c8a801"
   end
 

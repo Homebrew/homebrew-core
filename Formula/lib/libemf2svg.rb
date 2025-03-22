@@ -16,6 +16,7 @@ class Libemf2svg < Formula
     sha256 cellar: :any,                 monterey:       "282508d66b3fd198648a798040205d7f3e42720cc9fc64572ac397767b369851"
     sha256 cellar: :any,                 big_sur:        "2da6c337708d8666ddfd4295b77f81b72c099f31c564f4efd79bed5f620a0d7a"
     sha256 cellar: :any,                 catalina:       "22a0d2002ff89d8583fa86c103d465b23fe7809a527aae4c6dad29b39db020f5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "06d60d5e8329cb81fa95b4ffc2253df5e29c98106b08e07248adaf811df48605"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "271caea2750597c1a8f0b30b80f4cdd901c439db73ca0d179420a0e3cb12c4bc"
   end
 

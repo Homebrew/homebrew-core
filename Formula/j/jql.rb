@@ -12,6 +12,7 @@ class Jql < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "43e964810dc101e795e867628d86ad25404c15416a6ba90637dda6179401143f"
     sha256 cellar: :any_skip_relocation, sonoma:        "535d6bb3802d13821fe8be34ac3ac58ae8ba68d4b414227d467cc873db1086f9"
     sha256 cellar: :any_skip_relocation, ventura:       "06408e47393138a24a5b2e775903bf1785e1759445d7a9616a3a53bc5343f386"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ee5160796f83b90b02bb5d1e821b2a33e8c98f4f687cdecab28377a067921b41"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "981b4266ef8f57a92d74113d452b8464c7fc0c480c29d33e94d1f8e9b7e7c103"
   end
 

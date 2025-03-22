@@ -12,6 +12,7 @@ class LtexLsPlus < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "a8176a228b9388cad267fa7dc9c0042e1722eceb0f80c4465cb3ee44b4f9695c"
     sha256 cellar: :any_skip_relocation, sonoma:        "734f9f960525ce8b50d52d631374a83e33343e675eb06dc4626693717c563ffe"
     sha256 cellar: :any_skip_relocation, ventura:       "fd750197b5af6fece30b097f507cd943344f171302ffbdf0a54730104471e5a5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2b594c705350b20fa46e8e2347fe256eea624a95c9fb8fa1c9edf8116cc0d2d6"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "840f32395ede074d625b9fefd139a7eece037f31c779216c6838ed1414de652b"
   end
 

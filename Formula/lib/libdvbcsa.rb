@@ -22,6 +22,7 @@ class Libdvbcsa < Formula
     sha256 cellar: :any,                 ventura:        "6dbe9f5323baa58981e962a837d19357806a3d5ca233f87daf8e606855635146"
     sha256 cellar: :any,                 monterey:       "bbda0b438d4a659c99d2f23fd706db9fe72bfacea2394c69e0e8130f43e1d9d7"
     sha256 cellar: :any,                 big_sur:        "478a1dc726d6a48236b199e709f95440083afda1e25aee072ab33fac7f783183"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "0cd1059d9eab19ada7bf0c2035749b39665f32abb2b521ac344e1372f7093548"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "0cda58fe30ffc94214d77f45ee2d087a1bf8382c6429ad0bf1dd6503b208e23a"
   end
 

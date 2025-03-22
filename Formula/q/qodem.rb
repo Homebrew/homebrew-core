@@ -17,6 +17,7 @@ class Qodem < Formula
     sha256 cellar: :any_skip_relocation, big_sur:        "ac2537f733ed6952656aec3016302414b37166b64b2d89836f17354008276f73"
     sha256 cellar: :any_skip_relocation, catalina:       "14491121c60a5368cf41e4cab4df43bd918f31342f8aedf7e43241a3e49b22b7"
     sha256 cellar: :any_skip_relocation, mojave:         "e5b1c53c02b9111a447d2eae8d74231ba3f9374ba7775215bd1559eb1b326e61"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "6e3c2992c032736b98f58b50eaa897b282a3843012fc22371dd43bd93cd4ed7b"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "19414f9b69d7423a5f2ab1ecb2690bf1bd285f96832d151835741867f22f2e6e"
   end
 

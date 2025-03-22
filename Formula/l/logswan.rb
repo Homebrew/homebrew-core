@@ -15,6 +15,7 @@ class Logswan < Formula
     sha256 cellar: :any,                 ventura:        "80e8dcb3297de3ed06b1eb8d5181475f6e50fc1274173407c05f4728af3ac0b2"
     sha256 cellar: :any,                 monterey:       "141f991b685894f9f98d943523450561054611b3d28136b77bb051e9e9a82d18"
     sha256 cellar: :any,                 big_sur:        "844db408c05246ded9307d94044800c96d7d8329911c5151075cbf9d2d232306"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "a25a99fdcba7a5a3a98e6cae6748b95d472998fde0853afe634175bc2d116a1c"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "8d49f9622084644cb992ec23953d51a13661ff48625a110dbf00a5895d628fbb"
   end
 

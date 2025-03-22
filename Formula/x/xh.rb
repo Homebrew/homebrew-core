@@ -12,6 +12,7 @@ class Xh < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "851d029f70f421569a2e6ad39624c28ac71bd1969397efc5cb8e44b6598e86a8"
     sha256 cellar: :any_skip_relocation, sonoma:        "ed62d206f4000099ffa4ebf28d30d6fd33801c224065a7e1598910f4bf3f4ea8"
     sha256 cellar: :any_skip_relocation, ventura:       "3c7acef4c3353d345b1b43395733feeed01f02f9fd481e3d7a57b2def080659c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d75025becc1e529c9082f231aaa769333d67eeb8d9a9250a0e5e0aeebf89c06e"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "24c7791c326b3f823d8777cb4ed9d041cf9b2a74ae1aac5167af69170d1695e5"
   end
 

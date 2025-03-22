@@ -11,6 +11,7 @@ class Lexbor < Formula
     sha256 cellar: :any,                 arm64_ventura: "18858851e6b62f275a59fd82917f88895783e7efc81ab44bd3dc8bf0e99ced57"
     sha256 cellar: :any,                 sonoma:        "5cfa710c1d1eeb449f5572a62145485b4f4f15f2bb13b481d8c8970b8a7b33de"
     sha256 cellar: :any,                 ventura:       "20518f3481290a5b5e6ea9caa2e5e41ba64b2bb3c4d75ee797cd0061c8b1ac6b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7a061a2d6bf59442960ee085412491903f0090062bc8145b2496537033764ea6"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "2a6f152a6789ce2fb0139d1c576976c987aee305f5d8e902fc87c939a7fe9b4a"
   end
 

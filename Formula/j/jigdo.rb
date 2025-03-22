@@ -21,6 +21,7 @@ class Jigdo < Formula
     sha256 ventura:        "5a247d726d179602b3249137efa25d13c025d3a9bc2bbb24d923b57f022cc6f4"
     sha256 monterey:       "037de4d08cf85ffb4dd2a698a01f16ea31e1eada585544d8f803e6f266a757ae"
     sha256 big_sur:        "be8f640734494f2a4daf4bac0407b80ddf8b56e8136456732d4c5693355b2ccf"
+    sha256 arm64_linux:    "6670ac99a8894d24976bea482ef00cd7f7be95aa8b151406b9cb097285f72a82"
     sha256 x86_64_linux:   "244d944cf955deef5bfb200e61e3fae6cfc49038883f2c542e534b0c498dc4c6"
   end
 

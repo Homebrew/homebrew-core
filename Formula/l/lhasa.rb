@@ -16,6 +16,7 @@ class Lhasa < Formula
     sha256 cellar: :any,                 ventura:        "ff83cb798608b1449fade603eeea29336d2e26c9a6c15cd7685416c2fbd43862"
     sha256 cellar: :any,                 monterey:       "9263082424c274662632b1c8e1a1c321a6fca8ed859e0a137f795c3579b564e4"
     sha256 cellar: :any,                 big_sur:        "ebb0a2f44f7d1a50d22a7599e52f859d42773a181c41eb1abe52ac6a261626e3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "11128ff960405bd86482164ee889d2a3a4523ff6e923302550c74b4889b94d00"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "3d2389e91a008a7fe1bf3cf80ea0398679d6fc783208261a60459b3851b65622"
   end
 

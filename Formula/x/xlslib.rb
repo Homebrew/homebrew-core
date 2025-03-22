@@ -20,6 +20,7 @@ class Xlslib < Formula
     sha256 cellar: :any,                 high_sierra:    "bb4b5aa643155d211af17a47b5337d65431b1ade0e233af9770d62dbb7ab1448"
     sha256 cellar: :any,                 sierra:         "bcdef576e03aa1cad74d341f6fcc72a1e7944a54542941f96cb8ef8063c2190e"
     sha256 cellar: :any,                 el_capitan:     "a4d5714e19c1d4e44d67bbe9cda064120dc01e9cf207771ae5ef208e76ed2cd9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "40d32ca11dd587663402feb5883cddb2db289ec21b807ed6d462658fe1650cf7"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "5be639eb5da6af885ea1d8c549b8cf4a40aba417b550ea64b29caf6f9600bc4a"
   end
 

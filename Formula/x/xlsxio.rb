@@ -14,6 +14,7 @@ class Xlsxio < Formula
     sha256 cellar: :any,                 sonoma:         "99c91608660f9ebc234b5c5c28a6d41e9b6aa832de812fa68e3ec243e5fbca20"
     sha256 cellar: :any,                 ventura:        "bd385c70fb296b74c0cb39017994f297a469c02d093c127d0ce7ef56bd961856"
     sha256 cellar: :any,                 monterey:       "6925d07058e4a7407049cab76bd1658a026a219ce9e4faf9b6d42b13c70e9410"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "bb8fd94006a7ba840ba2c0759a7cdcada0c07e393609a03e488133e17ffb7a3c"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "f9438d1de48e33e92f6734366f4164281ce6aac33da36b330dd1898f98c14048"
   end
 

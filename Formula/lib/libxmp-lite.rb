@@ -11,6 +11,7 @@ class LibxmpLite < Formula
     sha256 cellar: :any,                 arm64_ventura: "3adcb85150babc53ba6c3a78a109515fbde4e97891606c629e3f6de81b688c56"
     sha256 cellar: :any,                 sonoma:        "83edec8369c8897c694717b3d7d6d24bf07757e6c1fb9337ec2671f770b8ec5e"
     sha256 cellar: :any,                 ventura:       "befdc733f863ccf59f13a7735514c87e4cbbd68a8f33ac46d6cc0ea2c0a6c4c3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9c7649711ff0d41f54b9e91ccdc51a5b49b9d8c17d3d311e4abc0da5657a4e55"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "b494f34f5a002db0090ed95c00445921d774b8d757e3b72caf26cf79abd5f7d4"
   end
 

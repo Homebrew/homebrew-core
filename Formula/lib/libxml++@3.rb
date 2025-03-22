@@ -17,6 +17,7 @@ class LibxmlxxAT3 < Formula
     sha256 cellar: :any, arm64_ventura: "93b3ed88b404c4d7897789a37fa78a5798b395916a4753a1ab4b5df53ae83439"
     sha256 cellar: :any, sonoma:        "04fe9da87109a92954ffa01cd5d7cb02356d6e1d6a7526240af5bf92c0836920"
     sha256 cellar: :any, ventura:       "1ce4596e40a056ceffebf9d53e9d1af0c1dd1b392590a5c528412eeb8093ea12"
+    sha256               arm64_linux:   "4c076e487be6a8ab63d8bc581a94769a5f720265c2991fd56182b034c70d8c09"
     sha256               x86_64_linux:  "982a460245b85912af6064eec18e6fc0a1bd9cc42f96a949df9d309640a5088c"
   end
 

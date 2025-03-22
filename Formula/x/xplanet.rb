@@ -16,6 +16,7 @@ class Xplanet < Formula
     sha256                               ventura:        "e567fd98fcd6d0f8903ee632f21b6658756eaff80d46de2730a91d0e600289dc"
     sha256                               monterey:       "0d4fd995ed8518e11c0e7072dba0364b8d9db777625a114aab6696ab927fadf7"
     sha256                               big_sur:        "227cbd44a9be2502a24f459725881e7705263af1a00ae53e38a8cc9b111b87b0"
+    sha256                               arm64_linux:    "e4c5d2d7f3a186e8094fe3b0e8ab2502b48c7d6811cca6c024ac4ac771d49b92"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "ff1ddc436b45234444d121e117b299ec702da829391200dfae26547114834d02"
   end
 

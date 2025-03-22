@@ -23,6 +23,7 @@ class Jrsonnet < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "89080991d6ec832d7fa2d868a4323e08921291a01100797a7343790b3ab30088"
     sha256 cellar: :any_skip_relocation, big_sur:        "8e96db079868f110cd8b9fc4b29a1340bd5539ab1740928d8c2a8d8a7c34b25e"
     sha256 cellar: :any_skip_relocation, catalina:       "fbbaf136a231569a619722188c22fed49d586431ee1a1515e9cfc84bac0eafd2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "a2c0b31f422bd414ea9a03f66e47131e10513157ce995499770e364a6b944692"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "3a04748fc43150da3210809034f82864313d7706869ec78265462a22cf2a4812"
   end
 

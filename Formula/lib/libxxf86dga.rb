@@ -15,6 +15,7 @@ class Libxxf86dga < Formula
     sha256 cellar: :any,                 ventura:        "0b31da893a8d2b2f88925e2d433252bfc712e2777916dc34e3c1c11be7b6e8b1"
     sha256 cellar: :any,                 monterey:       "b1248f35772649eed2823a6a37bacfc1d2a860c9c5187ceafae9dedd511db70a"
     sha256 cellar: :any,                 big_sur:        "e5cbd5be1621338c7040d39bc3b7e3a8296d0171e747372e3d3b0b1f1747081c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "b559dfe88d4ae3895c798f0de94f418fede30bb5a114c5cf6f0074efd1373c31"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "80432c3b9c22e33647c255fc8669b182d3980df952d6e5f7f1c93e6d31b56285"
   end
 

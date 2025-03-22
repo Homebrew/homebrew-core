@@ -11,6 +11,7 @@ class JxlOxide < Formula
     sha256 cellar: :any,                 arm64_ventura: "cd1666a34d73b38a3062e3fb5ff54c8232b4e1a6ef1939db4b14a48b3ab14432"
     sha256 cellar: :any,                 sonoma:        "a7e5a1b94056370a4088538d25668b6c26915cfbd53f4fb08222d9021dd6c77c"
     sha256 cellar: :any,                 ventura:       "639481aaeaa5e4290dd926de35201ba9c4ba1f2d62b6cec2d144d66dd58160f8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3400a8869006b1ed8cabb36b1fb8237239d2f9a8150aa1d32009820c59083197"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "3539329b71056e6218a03dc407c296fe195efca346132ac4965c77c37e21ce1a"
   end
 

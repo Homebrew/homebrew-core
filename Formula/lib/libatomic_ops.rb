@@ -20,6 +20,7 @@ class LibatomicOps < Formula
     sha256 cellar: :any,                 sonoma:         "4f402b92483d9647fc328a8b02e2ea1abeb25d3460720f4530d3cc432c5c5550"
     sha256 cellar: :any,                 ventura:        "37d4fa5e739558798fc23471ba5efe49043ec46a8c07242fcc790f28f9940806"
     sha256 cellar: :any,                 monterey:       "e673e4f5126a4c2d43a98209bd9165413fc6d189d22e3481824bca60f74ec4c4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "f35abbec6820d8c0597494560dff420dfd416511f4538c81eea5e3ab599c4fb3"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "d1eac8d8ea0bd234b72ce311c92d02dc2ca33029b819327b6c2236309d549bca"
   end
 

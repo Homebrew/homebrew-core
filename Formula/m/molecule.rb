@@ -14,6 +14,7 @@ class Molecule < Formula
     sha256 cellar: :any,                 arm64_ventura: "9911b16f88e15c0c82277ee812153378cf700b55ccc835b6f054b24c44176f08"
     sha256 cellar: :any,                 sonoma:        "92d6f767497d619575fe61a95dd9e4ea5c1eadaadaedc2733461308bb5a03656"
     sha256 cellar: :any,                 ventura:       "2b21d04ef5760ad0d083c2a188efe1384c92d29ea0aa30f5770a5e9b98d24207"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "087ad7d06a1423a0fdc94055533d2cb3004f29c1ac32e0ff1fee1c84daa1dbb7"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "65b64d6a433547ed1ee0acdfcd2a62f239fe28e8b158e512d967a282ac4daabe"
   end
 

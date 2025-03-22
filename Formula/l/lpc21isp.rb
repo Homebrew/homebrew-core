@@ -21,6 +21,7 @@ class Lpc21isp < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:    "fa1c7462808e18f1b2a180c5db6c0ccd4481b5c0d29c5e834dd1feb888c96dba"
     sha256 cellar: :any_skip_relocation, sierra:         "68c3756fd99268814cfdc861e971d1201bac42bf5b922ab37119fcb082c86a1c"
     sha256 cellar: :any_skip_relocation, el_capitan:     "c12b33d514be2490a3a5bb9d3c1f8468e7e24d13eee0a636a9d067f486af59fc"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "2d7b449d040a4108099e8d6569fed602400b95b762da98e134867185b3d6419b"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "9b431e013e9df59ee8888f46bc8b972285c7f4c7d559c7441162179d7d920f66"
   end
 

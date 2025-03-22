@@ -19,6 +19,7 @@ class Libtrng < Formula
     sha256 cellar: :any_skip_relocation, sonoma:         "f94814bf56e5b761119f7a33904dd3c4895691018be79c8934ab145622f93b8a"
     sha256 cellar: :any_skip_relocation, ventura:        "c1a58202bea8f27b2536caa21b8deb2e8262cb79bdea6dd7c59c016793c8c14f"
     sha256 cellar: :any_skip_relocation, monterey:       "a92a32f26d5aa37518d5833705493fbee25149ed6a80be7f743422cdca9d8316"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "708d01a459562714fea9eae25da01662acaa5b72c45d177e6e39e37941cc4f53"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "6280ea4740a8de759219fe78f9a2610b02065c2c16e63c892a60017395b3d1c6"
   end
 

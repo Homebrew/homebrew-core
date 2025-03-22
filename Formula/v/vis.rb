@@ -14,6 +14,7 @@ class Vis < Formula
     sha256 sonoma:         "77bfde98fc76bf93d057923482bd1e9b3d538ef8c3875f4b9b579a63cbb75d22"
     sha256 ventura:        "b27829afe0c6cbb2792f3340ac3605caa16c68677764a1c586879f5387064ca4"
     sha256 monterey:       "30d9272d1e6e00b8b87c61157e157df124a32c265d4f8befc52df8ac8e2545fb"
+    sha256 arm64_linux:    "20a9cd517f37b2fb444de7e9b6df60a3b57e519a189d7c824501aae6b5251e78"
     sha256 x86_64_linux:   "6f7e0f61479a8c931556361f8c0dd42a913211ddff0a8b8dfb6b2240f6fb2c6b"
   end
 

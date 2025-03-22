@@ -35,6 +35,7 @@ class Lha < Formula
     sha256 cellar: :any_skip_relocation, sonoma:         "41136df3dd0dda91fe8044b6d3478d410310a17bc9b7ac3f048de1279eaf433f"
     sha256 cellar: :any_skip_relocation, ventura:        "8b4acdd2bc29dadcc998d34d3fa8ce69f2d51b3de3c173d9e646b2c6fb8ea8a3"
     sha256 cellar: :any_skip_relocation, monterey:       "c502509c3aedc222e706f37ce333c2bb7ceaea113e21c8e7e06f19d3d4ed0cfb"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "40503778ff31beba0feca4fa26281db3d903d282569be248a665924766107664"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "350b62bf10fb130b75a0fa2e778e92e94e49e519385a59d9b6b1c128e78519ba"
   end
 

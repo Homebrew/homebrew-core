@@ -7,6 +7,7 @@ class Xmount < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_linux:  "cdf5ec6b85ce5815f1c09664c2a5b4dcb948e36980b61c731639a22b8a66db5e"
     sha256 x86_64_linux: "eb88a9f07d863af3e661ab1be49b32353d8a5890d2081f9feefcef0e79af504c"
   end
 

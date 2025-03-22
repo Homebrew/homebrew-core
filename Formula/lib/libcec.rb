@@ -11,6 +11,7 @@ class Libcec < Formula
     sha256 cellar: :any,                 arm64_ventura: "a3f634f61d5a27f31057a3e5deec39973d7bbdda09a8cefeeb903bf155411587"
     sha256 cellar: :any,                 sonoma:        "559cbd188d933dad82b923434da5cbdcbc8f59972f157d04b518e968a05a62dc"
     sha256 cellar: :any,                 ventura:       "a942eaf1c28a2ac335203421541da6347dc4f5bd5da1ce5015241d79dc845d73"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8dc79b71ae7d6917a919038ee0aa6a75adf4f97a6ea49dd389ee54efc53d5e9d"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "916e33306e1006b5a8c5337c8ed5341c445598bb5eb90de65137ff1bbc0a1225"
   end
 

@@ -16,6 +16,7 @@ class Libomp < Formula
     sha256 cellar: :any,                 arm64_ventura: "873bdae8c0c7b52562614a936a7e92eec5d1ff211140e6ef4adf9a84e544cc4d"
     sha256 cellar: :any,                 sonoma:        "edaa8b5568131f6f78c4994ce1d7fffdbf8b03f9f24eb83a7f3bbf7e79afefcd"
     sha256 cellar: :any,                 ventura:       "62a0297459dfc6d2afed5c96262dda587aee4f5ac01732e7d4b2d640c3f94505"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e165d1c341672f66474f7561162210afea7f27902b0c3c2be53ce604737e5254"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "713a0c09054a13c1beb37e2efc84dc0dac048f01a5ffbab805b32a545f9b59c0"
   end
 

@@ -12,6 +12,7 @@ class Licensed < Formula
     sha256 cellar: :any,                 arm64_ventura: "26430a39ccfaa5b32322f3b8793059edf7f78403fab2f0f6ff1499f206033ee6"
     sha256 cellar: :any,                 sonoma:        "9082bb6da4377192b3faceb165b92dd07c93b05072f4a267e9b289b825ba912f"
     sha256 cellar: :any,                 ventura:       "744a822354683afaba54723d9347d77344434bb6af3cce9d4a179f135e454ed5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "06e53d24346127e6479b7f826acbf5b52e41dcf0517350dccf4b2df5f7885866"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "0c075dd97b51a96d2e86e0e7480c368b45c8ebe55c7e4f8c2ed6fc493d4c2848"
   end
 

@@ -16,6 +16,7 @@ class Vttest < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "5ce70a33f514b64a73dd2012c56b0654a599cae4df45d7987f76ae50f6c84a6c"
     sha256 cellar: :any_skip_relocation, sonoma:        "f6297dcf4f42e03066edf5ecf2440a4c40e19a63a57f3dd1857600adeb29422c"
     sha256 cellar: :any_skip_relocation, ventura:       "1fa08429b674d918c8e3c4f68c070228f155fce751bfde191875b65f34a455de"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a961a2d59fc8e50c696c22fa6b129751d3c8eefbff8778abd51f6c67597d31ab"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "e0e0ebc43609027dc1615b1b71dd18f1d4a7e662cee41e3cd57ea480130f5205"
   end
 

@@ -17,6 +17,7 @@ class Veryfasttree < Formula
     sha256 cellar: :any,                 arm64_ventura: "3a1062d7ed565cb1429d559ed74b54473320305f26268bd76d2733121f2ff77d"
     sha256 cellar: :any,                 sonoma:        "8d2e08a346280fa22e36641d702d1fc7feb5a95cd37d94b6e213171379c9a63e"
     sha256 cellar: :any,                 ventura:       "f5c4898142258d22a2f9eb459596656de0a4f446a9c6fa68926b2d56b4b6cef5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "17517e0f776012479018748edccccc2042d9bc72b6e03943eac593a0e80720fe"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "9055dc85be8ca2fc65b2f47f13c8bd6d38427f6ee8f92f1128e502cb538dc341"
   end
 

@@ -15,6 +15,7 @@ class Xdpyinfo < Formula
     sha256 cellar: :any,                 ventura:        "9df6c27f362d5ad88cb70ec4f81c77e63eda93f8be5f47e4882b15275c469be2"
     sha256 cellar: :any,                 monterey:       "657234728dc1b95dd0a01297bb63c4c7a9dc8a0c9884a9ec4fe26f2f5e697571"
     sha256 cellar: :any,                 big_sur:        "715024678add793ed4a3649bec8b5d57fc8f0f17bbd1bff780662160068b6719"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "eb4084730b91a26fc9ede2cf183a56eb74792d4b27ec1266d1618cbe1fe3a520"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "5f37e0dbf3c6c0741151f53befb6a5bc82b2fab008b3d28ce4cedf63e6a8bbbf"
   end
 

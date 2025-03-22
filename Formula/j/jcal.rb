@@ -25,6 +25,7 @@ class Jcal < Formula
     sha256 cellar: :any,                 high_sierra:    "348fdd02ce58859bf75ebe00feaf5c90e1f4f052d531e7667343f4c220d8e7bb"
     sha256 cellar: :any,                 sierra:         "d6f50844723751f0de8181f751ffc0912013b518b5ac60777a3ade7e1aaa3179"
     sha256 cellar: :any,                 el_capitan:     "4d876e18cb50c7aa31211b60b66e42637ca3c9eeed9c688c1945dc4755977597"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "e7566343f085ff5aa380a9a52b6ef5299c1b09f6dfc629fdcd9fe1937fb424f3"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "e7b67ec668f4880126342f70bb106b66744773ebbe8afc9e11eacf96d5a11108"
   end
 

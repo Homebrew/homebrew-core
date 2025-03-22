@@ -11,6 +11,7 @@ class Xeyes < Formula
     sha256 cellar: :any,                 arm64_ventura: "897825d1a62e7e083aecb0c147dac2105d09ee2ffe6ae8d1474f13bd1db6f7ca"
     sha256 cellar: :any,                 sonoma:        "d3c0b81ec0978277c09cd13284835f8043e2dd3b26828f8979bdfdbbbff9f4b3"
     sha256 cellar: :any,                 ventura:       "aa8c90253dbc533b4be0e796644d3064bc06a661f0f6ec690111692e9c21b86c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5feb5ba49b6ad60ff5291b15fbbd9f89eb9dc9210e87c42c83ee4c0c6b943323"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "858c8dbe27ed47cc97b4a87877b97fa3268bcd138e2eeb7d509f8148404fcc85"
   end
 

@@ -12,6 +12,7 @@ class Viu < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "e6bd7363df65a5b02121c0ba2ad2267983432e70a1a4396dbd5dab19a8c4c673"
     sha256 cellar: :any_skip_relocation, sonoma:        "392053a600ae8d3a24db90f17c2e1ff88a4a00d047c15ec94c112cd193b9d70b"
     sha256 cellar: :any_skip_relocation, ventura:       "22194f25fab54b3543e2902d2b028d9767a00788bbc69eb4bc9591ee7682aaee"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "259fa1d80abdad023497161eddfaf32f334a32a867302506884c0ae149c2a859"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "da1bdb071e5a0e473a01d3cfbbbd88546184c20c61b0fd14b9b941b449474f3f"
   end
 

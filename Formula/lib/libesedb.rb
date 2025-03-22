@@ -11,6 +11,7 @@ class Libesedb < Formula
     sha256 cellar: :any,                 arm64_ventura: "26c666149c74a54e744f41d18e75ab750b147a8f60ad14bade6beae81e1039a6"
     sha256 cellar: :any,                 sonoma:        "ca35e641f9022088e61dd568b98b928beac7247b6606a3dda6e5c925e6ded138"
     sha256 cellar: :any,                 ventura:       "85d5028c3fe1e6db45290397b9f5fd4773fdb70336058266a8f25e67b80e041a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "07462cd653aae3448ae737536aebe605064ae7c75113dd467787fbc767ee8f3b"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "0de46fa5de3819ee8025595a4579aac0982dcac0345302d6293228258bdee6dd"
   end
 

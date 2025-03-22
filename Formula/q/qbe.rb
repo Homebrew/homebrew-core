@@ -18,6 +18,7 @@ class Qbe < Formula
     sha256 cellar: :any_skip_relocation, sonoma:         "08b4c0f09bc6459c9439b017e60848b4cef7ae2f9c69fe9b54576b64a9c66742"
     sha256 cellar: :any_skip_relocation, ventura:        "5a74085a4f075f38f4945d760ab274c4a5e4fc059ef27f0fdecef82b8f29eafc"
     sha256 cellar: :any_skip_relocation, monterey:       "ffb1426fef8e72648b3fcc550d2dd72454cb40d82f553b75c42f16e4d91f4a23"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "fcf0274fdecef1821c3fcaed007074429d8517168f31747c1eaed904a3bb13dd"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "56401769cc3485e1d15f4a245404068c2b2d7996e86e470904a76b77f9eae01f"
   end
 

@@ -11,6 +11,7 @@ class Jhipster < Formula
     sha256 cellar: :any,                 arm64_ventura: "943c4bbd21047b795f81f828c44e229f01d609fe84f3aeb93a0992d9b1cb045d"
     sha256 cellar: :any,                 sonoma:        "b26373ca5af6be83cfd967318a3b4ddcbb78d6794c417f533a5d33e7e791d71b"
     sha256 cellar: :any,                 ventura:       "b26373ca5af6be83cfd967318a3b4ddcbb78d6794c417f533a5d33e7e791d71b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3ba07fb865420067252689d62ea6897be4da46d6e994f8a6cbc5ae97eeb81d5c"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "bfd6136d147b387493bbe8957b86f8449a03202b1407c28285b707d941fecd00"
   end
 

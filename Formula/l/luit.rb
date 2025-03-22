@@ -18,6 +18,7 @@ class Luit < Formula
     sha256 cellar: :any_skip_relocation, sonoma:         "c0592ebe8ed9e681825751321c0e3ab8673d25ac47e22c4ea6b9cb1bb792f237"
     sha256 cellar: :any_skip_relocation, ventura:        "25a7cc8a54ca686cc97a010ac512a1130ef5b6fc4f8c7701436b6d0de96dc8e5"
     sha256 cellar: :any_skip_relocation, monterey:       "98ee90ca679b3b451df2dd122cc1846f1ca41af22ffd56bad142eb9944feb733"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "16768af2646e4b9ea7a1841eaf353ebb1ea82d6bd752e18d557484ab9503b4cf"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "731e2b4330c98ecd23d1cb1220bd123c5561a91e8e43a0c8f7ac42ac68e14896"
   end
 

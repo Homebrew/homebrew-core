@@ -12,6 +12,7 @@ class Vvenc < Formula
     sha256 cellar: :any,                 arm64_ventura: "2ae0e24d7f2d84238c98bf7f57fca61652348b3e915195d7bbb30cd2cdee4c43"
     sha256 cellar: :any,                 sonoma:        "9e14a23f8a69305779d246ff1c1401250d07d5599419e034dd136421510501d6"
     sha256 cellar: :any,                 ventura:       "16c29cb6a182e02a04594cf43dd9c72e21dbf2c1e2061443ebdd3d19b01615fd"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0621f4273cc43a0320e06a61647300c4a05fc14c2e75e3c8a1919b312d675c5e"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "8bff00818fee11e6b176f71b084247d14b41f1bc2e4920a2cff1acc50faa9d2c"
   end
 

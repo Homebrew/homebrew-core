@@ -14,6 +14,7 @@ class Vedic < Formula
     sha256 cellar: :any_skip_relocation, sonoma:         "a852103a96ff00273820b27230d0f482cf1690978c2f6587b1f7f778a343c4f4"
     sha256 cellar: :any_skip_relocation, ventura:        "c012da02f916791259476071c8fc1bdf92e3273033411b90154b43672e39bbac"
     sha256 cellar: :any_skip_relocation, monterey:       "7a53d21f56acac6b0322b0da98880f29efe8f24badfa62bb850d6ff52a4da378"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "1ea67bafadca41308429cc2ffa531885f65a4ce2eb6dc373148f87a8c00356e1"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "2334b13281923d5c4f0964b6ce0ea51e8770866304de94b76e6de92d200566e9"
   end
 

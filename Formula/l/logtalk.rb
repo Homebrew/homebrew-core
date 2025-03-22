@@ -18,6 +18,7 @@ class Logtalk < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "c1023d16c0b2132746b0fc01c9e7d55667ffb70b0d965672515d5f35a384ca2e"
     sha256 cellar: :any_skip_relocation, sonoma:        "5f7db918dd58eb18cdb664f9c1d7faa81f2530bc7c3165294591c901888aec60"
     sha256 cellar: :any_skip_relocation, ventura:       "615de0b1780e08654babf7278b844d53422a493dd688c65abacb442b42df6ecd"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "25bc242870fda348ff5c09328a924085836064a7cd392a2ab3d3f49fda7dae52"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "b726616b45c37b3eb1a760f452372a1654c69c8f1b3149992d770fef95d7cb1a"
   end
 

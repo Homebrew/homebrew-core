@@ -14,6 +14,7 @@ class Xxh < Formula
     sha256 cellar: :any,                 arm64_ventura: "58f728daf50085a2789ff3e60aaa79c9bdf8311d81a72229db17845339d27b23"
     sha256 cellar: :any,                 sonoma:        "e84bf6a6f1ec3a8c64808143699230cd051658b93e41392229f89b435dc935ba"
     sha256 cellar: :any,                 ventura:       "21ede13f1c2be72389b89d535d878bb67df550bad7ac5e738117fd0517b10802"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3040b653b3eeec14c4875be095568480975c537ea9bcbd8db3f2f9f3b2a2326d"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "2335bd805b3ec23dfbc6f32bef599e4da99420c48b0676d055050ca3d5f7de04"
   end
 

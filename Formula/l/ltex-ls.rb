@@ -15,6 +15,7 @@ class LtexLs < Formula
     sha256 cellar: :any_skip_relocation, sonoma:         "cc962f2d453e6c73bf0f1212d5c238d5ef19d30fc744d6f785f68ae51ce02a70"
     sha256 cellar: :any_skip_relocation, ventura:        "be324e4cc1e537cca541f829854e5cc0ccbf6b4e62f31c3e1c5cf870acb7133c"
     sha256 cellar: :any_skip_relocation, monterey:       "6895ed3a2824794a968d4887408673d84d21de3d877c428c2eac6e3ddcd575aa"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "eaa4ff6ad9232578daa881669ca27fc7a5c088a57623d0a267ee1005b09159ec"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "8ecb068a51e5bc4b26f0d64cd60feccf026f6c7b006c34e7a459cd901b1d05ed"
   end
 

@@ -17,6 +17,7 @@ class Libmspub < Formula
     sha256 cellar: :any,                 arm64_ventura: "fca947dbb384a02a7384989d0f5aa87e74d51460ef01e90555414d3b6b221473"
     sha256 cellar: :any,                 sonoma:        "363ef78cf1ad4658325059fb88d5ffbd1ff9dfb755a46480d7bf355dad00a07c"
     sha256 cellar: :any,                 ventura:       "3ff4c780cd0546ea13e77aeffa63b9b8b5e31dd6a12c1b34bcc9275239942965"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "87665795cf7ed3a80d5798d80760aa4780ee5658512ee0563802951cb9057c60"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "256986816dfba4c397abe672d087ed464766aff3aaad05f80c4a99672fb155d4"
   end
 

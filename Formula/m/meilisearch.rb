@@ -19,6 +19,7 @@ class Meilisearch < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "4c7ca45aced11c5482278ac15e522fa02a39ec3a9e286b7b281f4ed87f7695f8"
     sha256 cellar: :any_skip_relocation, sonoma:        "7d86a20b9c690bb488fb7feece50aa7ef024146f783d3035b01590730b795ad0"
     sha256 cellar: :any_skip_relocation, ventura:       "c0a0afe31142f2221c5c7de07ee41bae8451ee5dcdf51b98ab7b278132b4dd90"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2ad0fb5eea66340d9118ecdf7e8ea8a56fc488e8f35e6284f2c5d4df112849fa"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "75ceea95340f9681f0b0b91606f84497552f5210d31dc30ddb19a89778643756"
   end
 

@@ -12,6 +12,7 @@ class Jnv < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "73d2990fed120cf65fecc358b2da15447ab4540253ba21908f3ff67c69d76791"
     sha256 cellar: :any_skip_relocation, sonoma:        "b33c998f4f590c6363fd450fd4bbdcd7115d6f1a7302c73016a4b2cdcd4eb946"
     sha256 cellar: :any_skip_relocation, ventura:       "ce13308a377d7f3d19095a57a178ab5cfe770b0a590659f97fb6cefbee41296c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b62612be90c9690884b9256a226c3131d8171ddc5d56d7e3065327e2ac44f606"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "0ff26530bbe19dc29210440a2a9459583d56e6026291f80e63058c95aede0f5e"
   end
 

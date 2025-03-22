@@ -30,6 +30,7 @@ class Vim < Formula
     sha256 arm64_ventura: "e915c4ea4f32b036bd1b90c5cdf1025b9fa01038cb7fef34d610040ad65a80ae"
     sha256 sonoma:        "ea02b995a6b042e7f2b33ee10e1cd51bdd041f7d25a73f7f148f9a3bbf1d0082"
     sha256 ventura:       "8f27cb3d3d2042afd5e552f1625a9de887f812a5f032c05e320563f751a16190"
+    sha256 arm64_linux:   "76627b4a5e986b10b75c3535f0a55ef3a2a7aabeccc46cdfab868a07338d80d6"
     sha256 x86_64_linux:  "95732c4a9127caf0a1067e6b0d21ba4619194166f1e5edf5fa6f3526b2c91f39"
   end
 

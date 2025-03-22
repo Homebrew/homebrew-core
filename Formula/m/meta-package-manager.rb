@@ -16,6 +16,7 @@ class MetaPackageManager < Formula
     sha256 cellar: :any,                 arm64_ventura: "4fc787d52a7d884903bdca03a5bd3d1cf8ade9497d881da85a19986f7e6c709e"
     sha256 cellar: :any,                 sonoma:        "a09a4fae321228c575444a597f050b97b4e30a80ce75ab170569bb365326ad4a"
     sha256 cellar: :any,                 ventura:       "5ef47cff88cbcc062492a62d7edbc7877de4d8e93fadeb726a3ce9f99760c420"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b193b5f89bba2ed6497db904c2c9d2a67c5b5224218ee51c80c5da3b378927ec"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "dffc1654fbe7af22ead2d939727e289c42e8914fc0a56fa4c0d5d409def943df"
   end
 

@@ -15,6 +15,7 @@ class Libxres < Formula
     sha256 cellar: :any,                 ventura:        "7ba9d4daab9d3636b53d98510309eb2c37dd07ba9efd5585947d1e3609067388"
     sha256 cellar: :any,                 monterey:       "ab7139ca0d7d8b12508d9211704963ff34d8b62a3888b222018c76dad8702280"
     sha256 cellar: :any,                 big_sur:        "6dfe38b8542221db4841c3326d2c647894b7a86b45cae7b82ee83e95105ec150"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "d4c512a727a4d313ed53f32bf7d7aabc96e0ef445b1a56a175ec3381dcbb1ef7"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "b0a84c746909317e32b8e527e20d56df64836bf461e8719d5bbab2be1f249cc0"
   end
 

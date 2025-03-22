@@ -24,6 +24,7 @@ class LuajitOpenresty < Formula
     sha256 cellar: :any,                 arm64_ventura: "6bd280a7968c4bec58727904d802d4ac9f16040ffd8db04b29c65d020b9ed50b"
     sha256 cellar: :any,                 sonoma:        "eb292ec2d73a634bcf712fa76c13c320904d70c2b1b68cf84da3db830bf273cc"
     sha256 cellar: :any,                 ventura:       "527754b4089eae5a0c0209244ddf2dd33d51662d97354375adba05635f2386be"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f283cd3e249222122c19164bd157939f39e59dad641b5b8feba7727a2a524375"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "3c707e14c0302d7affc41d37e59e652003277fc06569239ce22f466e90175f0f"
   end
 

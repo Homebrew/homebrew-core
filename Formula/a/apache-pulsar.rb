@@ -13,6 +13,7 @@ class ApachePulsar < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "b2236df218511dc8dfd1d17f78929ef155291ae77ee397458d4ec0151cb7ad49"
     sha256 cellar: :any_skip_relocation, sonoma:        "de74a2781e78064f53d4800e5818bdef59f82370d20c0491804cb4c6e21aa0e8"
     sha256 cellar: :any_skip_relocation, ventura:       "6838b226c6476924f1d3f487e9aa1d9dd3312f36476686c2404542eed2803156"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3f8cbdd38039d15ac61ac6f1854bc7e04179f33e36027e17d6b30a38891a04e2"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "d6b8de267f6d650211a6a1290b80724d678c9d113f2921501c87b9328f4c71a9"
   end
 

@@ -15,6 +15,7 @@ class Libversion < Formula
     sha256 cellar: :any,                 ventura:        "55214b46e71ca86a53fced6ec189f5d5d88f1683534578816562c0ea59b23f65"
     sha256 cellar: :any,                 monterey:       "f4f9d55d39e551756a77055b77108b65f2aea9bc2d8f3bb0eaa13b3f6023c142"
     sha256 cellar: :any,                 big_sur:        "3b8a9af1caeeba055c351dd7b39fec1cc2adc3e7dd125c63bebcbc06c3cce9f1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "376dd65501387cfc8c9b69e4e8d58e41e157020a061e62ddfab8583ca18843ae"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "244074a47f2d78925338b7e54defef0b35a250c50e4cd0ae4247c5c659a7c87f"
   end
 

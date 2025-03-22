@@ -11,6 +11,7 @@ class Libkate < Formula
     sha256 cellar: :any,                 arm64_ventura: "ac5cad7548115a8aec9fff623487cba4504770caa66a89c61dbcf90b59d79cad"
     sha256 cellar: :any,                 sonoma:        "3ab7c7cda82f7bbfb515d3b9deaadc1dd09069a9a7f47ada41311dd7fc963eff"
     sha256 cellar: :any,                 ventura:       "6cf99c16fdde5990e942310f75915a0465c9dce559ca94c23d3df846f6f17532"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "af8b104ad8cc5105c019c6c809e4b2897f56458a134f61ede9b1617d043ce547"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "e8e41a5b6906b6cae6d0bd82030cecfd66f1115f39b1669b99baf5501e424452"
   end
 

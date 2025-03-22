@@ -11,6 +11,7 @@ class Libdpp < Formula
     sha256 cellar: :any,                 arm64_ventura: "f622d491be1b229606a29223fccb0f1a118ea0593b7074afc23e92ccfa806f9b"
     sha256 cellar: :any,                 sonoma:        "920148455d24bf5e5e9f74855ae96aaf513f63516b253a6351844014265034d7"
     sha256 cellar: :any,                 ventura:       "2da37488f353e467fc7004b609e06afe24d039fea1e48e1f9c31e54aa3bba5ab"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f8e511ba2aa3be34220a05f641bf48aece828c0ac8d7b518b27083b1b713639b"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "505666b971cc6cb3928342b78b0290f5f046374385ff69a16e3e228314300cb3"
   end
 

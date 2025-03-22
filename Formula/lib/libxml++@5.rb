@@ -18,6 +18,7 @@ class LibxmlxxAT5 < Formula
     sha256 cellar: :any,                 sonoma:         "d55199dafe752477e6db5375a0635b9ca76ae444288f6ef3d1de9c5ce6e58ddd"
     sha256 cellar: :any,                 ventura:        "fc8d4eb8e4bd8d3eb20b7942557202b9628c5933058bb83c5621f93f4c0b047a"
     sha256 cellar: :any,                 monterey:       "b38022f1cbc5d07e4c5969b98849c218823863f8ec97faf3680cb77545c4c343"
+    sha256                               arm64_linux:    "04bd576bd7befe5da3d2cc17ce5ab1f2232356228e033162aff468209222d9ff"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "7e0691b094a3ab56f2add27e4cf43a8d7f6d79a13a61d9fe97d243e2956c6fff"
   end
 

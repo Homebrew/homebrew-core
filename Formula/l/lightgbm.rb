@@ -12,6 +12,7 @@ class Lightgbm < Formula
     sha256 cellar: :any,                 arm64_ventura: "b34c5223a88dbc4875008eb7a1f3015df5481f68a3d79b10ab7a1f6e8d74a792"
     sha256 cellar: :any,                 sonoma:        "f385bfe479b4c3c5bbe7547807124b2d9ca3b4d3866105e96f9bcaee8c199494"
     sha256 cellar: :any,                 ventura:       "80b5259b0063771afbd9d458c6fb1a4d0c8ca3e731d73eaf6386b726a331c001"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "68e47a0dca38a807ab030626f65d442a6f89852040d6292cc8e53b181c490664"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "1915c11735c5ebf8f666c1895c6f7d5430777352c10ed5eb96f7692ba18bc130"
   end
 

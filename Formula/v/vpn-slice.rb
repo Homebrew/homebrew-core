@@ -16,6 +16,7 @@ class VpnSlice < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "cc5792e45ec19a84b271d7a64c67b563c5d47de935573999fe393ce8d6b0e57b"
     sha256 cellar: :any_skip_relocation, sonoma:        "0ba7166b31584166d94509199258de76bed44198e7cf5ad9e81a2aaa12534dcc"
     sha256 cellar: :any_skip_relocation, ventura:       "be287f30e018f5ce7cefa4ed424b71ee9267d8ecc4436e17cc3a06935cd73b64"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "00d745fe50d1635ac36c9ca32e320c5924537b4da2109385c452b349b5246b1f"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "e85e74c3c382b4f67cc29d48cab021c3dd9a64a71fc06f9f9de5d9a22bfe1402"
   end
 

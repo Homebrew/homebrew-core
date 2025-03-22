@@ -1,6 +1,6 @@
 class Spr < Formula
   desc "Submit pull requests for individual, amendable, rebaseable commits to GitHub"
-  homepage "https://github.com/spacedentist/spr"
+  homepage "https://spacedentist.github.io/spr/"
   url "https://github.com/spacedentist/spr/archive/refs/tags/v1.3.5.tar.gz"
   sha256 "d1f53f4222fd9916c9edc0457bfe04bac66d9ff60a7c0e7a0c4519317c3f3fb8"
   license "MIT"

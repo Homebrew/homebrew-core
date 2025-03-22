@@ -13,6 +13,7 @@ class Xwin < Formula
     sha256 cellar: :any_skip_relocation, sonoma:         "8eb6be6eddc5bdaa98e9bedd06e15fe9dd98189ff5ee9f969093160eb91d0b3b"
     sha256 cellar: :any_skip_relocation, ventura:        "3b9c9cc7645f66e685ad98c7f9a450b45bfc36eddbcea151f25c857f132c28b9"
     sha256 cellar: :any_skip_relocation, monterey:       "ecee39a502597e5ce214487c8031c1b2679a835390b3385fbe0fafe7592d2ea2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "26d3fa39975e18376479c47984edfe5028031031ad9f8dd117a02a2cbe68232d"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "244e179fcfcca8f1df7ca7d9490764602279f6dc45a678b5dfb2845ef5cb95ff"
   end
 

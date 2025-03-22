@@ -13,6 +13,7 @@ class Libwebm < Formula
     sha256 cellar: :any_skip_relocation, sonoma:         "25960105fc505deab8de42959a2586cf14ae0aafb8fe8bce4ffcb389b43badd5"
     sha256 cellar: :any_skip_relocation, ventura:        "a6dedcb3fb10cf5363a2cd18f95c62fb8e35f4383f524d29f08541c9f9bcd26d"
     sha256 cellar: :any_skip_relocation, monterey:       "1c9bce06869370b1e3222777fb5c29fe9f1f9f281f4a830e45b7f3e37441b64c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "fe3eadf731b1ff0e1fea5a69a77f88e9643f6c27ce60202f80c583494b607fef"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "3ca54a3fe3b38d5c2ccb316ab18779dfa6c7fa5b4d9533be5be3cb5bb822e64f"
   end
 

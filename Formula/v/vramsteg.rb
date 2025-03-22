@@ -26,6 +26,7 @@ class Vramsteg < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:    "0c9aff3582ad05a388cba8c43770ead295d921a8e419323a3c4115f09e609ba1"
     sha256 cellar: :any_skip_relocation, sierra:         "7f65668b7bb036fb19e69bdc9cbc2ec48728bc8c1936253f6d5e8d74a113a3fd"
     sha256 cellar: :any_skip_relocation, el_capitan:     "e4b3e2e66c2f772a38de529b884091a2ffa1f920af6604696129d21cc9e70b99"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "c7d833b721091e38b120fb58944129769f20109b74d881735f7ab1dadf62b487"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "17541c74c89bdac3887fca1b40afe76b5a1778aef0ccb8dd092d04088ed3b281"
   end
 

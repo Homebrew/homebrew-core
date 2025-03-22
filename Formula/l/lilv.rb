@@ -16,6 +16,7 @@ class Lilv < Formula
     sha256 cellar: :any, arm64_ventura: "d431fdcb61334aa6cc1c87690d60fb8c7c797323ee1367a76f7dc21d90191897"
     sha256 cellar: :any, sonoma:        "7b52532cfaf18e979cba4759c99b09613da4a5a26dac78961fe2f3f49ce3f240"
     sha256 cellar: :any, ventura:       "60b045f4327237d0bc4913bfd0f5628efb2c19a86a26f939eb65100a0aa2da4c"
+    sha256               arm64_linux:   "7ba6affd762fbf6e51a685e9c1eb5e763a820ead40d96f1d3eb9e744378ebed2"
     sha256               x86_64_linux:  "061f4cfac8ca9ea8567fd399f092805e3ec13a29403e36e46345d371d3103447"
   end
 

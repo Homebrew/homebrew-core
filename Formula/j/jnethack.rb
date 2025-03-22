@@ -16,6 +16,7 @@ class Jnethack < Formula
     sha256 sonoma:         "3b46b1e5f270af3786dcebde6c0fc008dd22ffdf0a51a3aaa6daa08fd96a0696"
     sha256 ventura:        "84ac8940603749b3f1e3dbf11f8bdef227307c0e34bb9f0d2b227dd138223ac4"
     sha256 monterey:       "82edd9a68cc86d599b8eb70f23b6e813c3b587af96b9986eb51679d82f6b1f83"
+    sha256 arm64_linux:    "48967c39f0adeb6f89b7adef4b086372e4faa33b27218c314b2acbc5943cb246"
     sha256 x86_64_linux:   "b9d9a667b5f140032db12e1384be61894be2bc94340bba0fd08dfcfd5ec16031"
   end
 

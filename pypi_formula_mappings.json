@@ -414,6 +414,10 @@
   "gsan": {
     "exclude_packages": ["cryptography"]
   },
+  "gtk-doc": {
+    "package_name": "",
+    "extra_packages": ["lxml", "pygments"]
+  },
   "gyb": {
     "package_name": "",
     "exclude_packages": ["certifi"],

@@ -18,6 +18,7 @@ class Jython < Formula
     sha256 cellar: :any_skip_relocation, sonoma:         "fd1fb28373af09ab635cf1ba9a4531bdfd0ca61f777c880844daa8d6df426673"
     sha256 cellar: :any_skip_relocation, ventura:        "c24c368c2bdd03928c74e6807c2954343c05d72ea0bde7d048add87354d49d12"
     sha256 cellar: :any_skip_relocation, monterey:       "48be7bdcbcd3be1e5733a1181eb4f1a02f75d7d3a442a7a52e0aef7b7a29fb4f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "64f495d1221b38c43ba23f2855c15d7953774602701abc80d843254b2e9646d6"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "ace9b3d90e73ef28c68731acdb4ace7ff14889380da8c07c0b3ddb425e8d43b0"
   end
 

@@ -12,6 +12,7 @@ class Jikken < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "d622380e17454f705b66505fd95eb06da9db61087ebd214c629897ae5747855b"
     sha256 cellar: :any_skip_relocation, sonoma:        "3ba12e70622eb28d3e238caf01757a4d135974aac22afa93cdf179674782fd5d"
     sha256 cellar: :any_skip_relocation, ventura:       "f67f299b1636e64c251bf71ee05b8cf669e5f63ae9639ffb7a0bc78422350c42"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9c34b45e472855dd186da085c54f0599b0e89eaee23420377a602218da6b95a6"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "e16712754cad5e86d225ea36efb22b9275f31f46083a426ae4ba4d4b5c03455d"
   end
 

@@ -11,6 +11,7 @@ class Libultrahdr < Formula
     sha256 cellar: :any,                 arm64_ventura: "09d834c256bf1b6cf18ed1031d4ca817c91bb32bbbcb14efa4bc94ddfd76da56"
     sha256 cellar: :any,                 sonoma:        "bcc9eb419fbd3537629dad795cf7aebfa4003054f1ed048938fd921a5dbcf7d6"
     sha256 cellar: :any,                 ventura:       "3b8c26a6c5454bbf9e92f44ffd08e0827e233a2557ca72c3c5fd6165da3897c8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "57a6cfa364eee5cc9c731bab793e26cecfb58828519daefacdc50e3a4602379a"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "90793c83c2f180f134f70c76e8e7bb3a72dd1d5959bff6f0add687f792b544ac"
   end
 

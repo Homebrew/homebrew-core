@@ -17,6 +17,7 @@ class MingwW64 < Formula
     sha256 arm64_ventura: "89efec3e856815a99508d8cbdd8b0543fce718f87cae7496ef24c043337dfcba"
     sha256 sonoma:        "0e919c0f0b9d1c4b6be622d288cc3cbf8123068c8eb0017137af4400a1353567"
     sha256 ventura:       "ff802381fb2acf5f5064333848580f3f2adca0840c2a9b8b23dea7f9400e436f"
+    sha256 arm64_linux:   "9fa7d1f94d4e7711c1da576d484a62e2fdc25a5bd37c5b66baf87c39e927c55d"
     sha256 x86_64_linux:  "d141883dac3a136750e0c68126ec6a820947b16c4a8959adf0d133f08fd6c5d7"
   end
 

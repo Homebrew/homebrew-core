@@ -22,6 +22,7 @@ class Libflowmanager < Formula
     sha256 cellar: :any,                 ventura:        "db47efecc48ea69795a1ee1317217d63825d25678ab8a25fdb5da6bd7daa043d"
     sha256 cellar: :any,                 monterey:       "55a184421e4903a2de88d74bfbb7dc46dcdb649778f01ce7e13b1315d8803279"
     sha256 cellar: :any,                 big_sur:        "cb56969ba9c9417ca57ea914fd33358260cdec432b7fae979cfbde80d27ad3bc"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "90b6a7d18fac55711aeaa7c43caa493db1684451a2d89d2694b8b4fca2b84a28"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "447c6ca7a8d3774ddc4e5adcb21b9735aff22be9287bb6fbd054e7cd95063286"
   end
 

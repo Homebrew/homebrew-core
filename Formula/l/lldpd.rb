@@ -16,6 +16,7 @@ class Lldpd < Formula
     sha256 arm64_ventura: "a05f4c8be6b40da8dbc10ec8275ecf4a070e4f3323b88f346f2af0a3915ad744"
     sha256 sonoma:        "56faf4f3d7d021301e0c4cfc3f3839392dcc60580eef6640aa95b9e1d06c67b9"
     sha256 ventura:       "d0512084df8dff94554d29f70d007b87ebb5bdd2c38828e5f5a5df35efdd247f"
+    sha256 arm64_linux:   "4209af75c9145720691edc613bd7b2b739b42e1f43afb029966452be50e7e92f"
     sha256 x86_64_linux:  "95e2f798c865fa7e2bea24e503f66ec931e7851ab9146e2f4c0821de360fe8c8"
   end
 

@@ -11,6 +11,7 @@ class Miniserve < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "8e775b2fc727210da8bf295ecbc0dd02b013af0e0bb4a90e0dd540391074cdc3"
     sha256 cellar: :any_skip_relocation, sonoma:        "c8b4efb102194aa5934ff2a666b2dc602a676a4ae895e4099202974b4b464e06"
     sha256 cellar: :any_skip_relocation, ventura:       "b1535654a5a0e5c5907340965c8dcd3e2bbc3430afbbe794a70df7a1e98920c6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e6762e154da3ffc86f85cc9d67a1bb9a2b666696e6f1490bf9ebec53dca88ca9"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "3abba9ddbbe7f139aa9cccbbd15d1eb3067e3e3881c437b9fea20274934a58d2"
   end
 

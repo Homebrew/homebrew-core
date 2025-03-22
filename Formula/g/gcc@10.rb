@@ -37,6 +37,10 @@ class GccAT10 < Formula
 
   on_linux do
     depends_on "binutils"
+
+    on_arm do
+      depends_on "zstd"
+    end
   end
 
   # GCC bootstraps itself, so it is OK to have an incompatible C++ stdlib

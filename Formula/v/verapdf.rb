@@ -18,6 +18,7 @@ class Verapdf < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "9225f5e2d89debd75e186bda22d8459fccd2897ae1a87ac79a412641d1826573"
     sha256 cellar: :any_skip_relocation, sonoma:        "294e4d35454edc87c8a4425e213f2afc02d7c629b95221c9d74d25aa553ae3bc"
     sha256 cellar: :any_skip_relocation, ventura:       "5044cc1f06ae5d32fe6c879798cbe5c63385042c7804611413dc99e037da848f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "372c94906bf400dd729456396c5147d464c6426d908c43e22532f73a196e3e62"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "0b4de9a77c593403d7924e13c93326568811b62986b2b0c53c986e5211d48efe"
   end
 

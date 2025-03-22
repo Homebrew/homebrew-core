@@ -13,6 +13,7 @@ class Libucl < Formula
     sha256 cellar: :any,                 sonoma:         "404849ecb35a31bc40df771fca0bfe75da4d1b552e1073526d645ad25094f8b6"
     sha256 cellar: :any,                 ventura:        "28caf0f7502a50965881748e9d6f66fa0481be2ca8d3bcf75a296621aebfe805"
     sha256 cellar: :any,                 monterey:       "b349883d0fdfccac70c706f8a9cf439bb528f59c9f2dbc89a2d3c80d2dfcdcaa"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "f85409dcfcae075574b158cfc45a43893b3b351885c8d2f1cdb2c5b1a3c79f4d"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "c28950d57c3275bddb3df7ee14c7ca99f94e49e0baa58be832a17b9928d0ed0d"
   end
 

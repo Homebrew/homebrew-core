@@ -17,6 +17,7 @@ class Juliaup < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "b634b1c81717b7e7ceab75f583ea4e255374236fa7ecb124c588555584cf83f8"
     sha256 cellar: :any_skip_relocation, sonoma:        "65bfe2d8f94b699c62aad98378f55250b403e7762fd6dac5621a97aa230f0561"
     sha256 cellar: :any_skip_relocation, ventura:       "85e1cddc3e02a50b600c2a2ca35c58a82967a3f18b3b31fbef76e96a9f318156"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "55080146ecb614cc3a18bada83a4dec691afc5fcac42c1dae1b1aed0303e3071"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "72b66362aab1212786f10f8e356c43b91574a009c974e59ba11d84ec242f272f"
   end
 

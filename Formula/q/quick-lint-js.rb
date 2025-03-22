@@ -13,6 +13,7 @@ class QuickLintJs < Formula
     sha256 cellar: :any,                 arm64_ventura: "2f756eeb26e05573ac69db780c82831f594c12bf36ba194cea767de422b46628"
     sha256 cellar: :any,                 sonoma:        "4939daaa3f8d302bfbb3b3061e95b94c33b5b105956bd8190f4916ead9c77369"
     sha256 cellar: :any,                 ventura:       "c77cb4db725fe78fa82cceaead890b035a6c05d89e133e9897935919ee2713c1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4e38faa6ea5b9c72ea1975dad60629e8004aa7fcaeda07acff30f86b72227101"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "aec9493f33efc20dd88dbd4172ef4dc1ecce5fc7b79396ce048b871a7ee55f09"
   end
 

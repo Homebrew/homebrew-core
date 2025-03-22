@@ -20,6 +20,7 @@ class Vtclock < Formula
     sha256 cellar: :any_skip_relocation, sonoma:         "33c363d3176a4db688176faf1e83d3fe8492fa2efb62361b9c1efef3104aab29"
     sha256 cellar: :any_skip_relocation, ventura:        "192f4a0d954282a6e38a1733c4cfea3c8d50ff06c752cbf1d8ec039240ba3c49"
     sha256 cellar: :any_skip_relocation, monterey:       "f10bddbdc44fb16506a386997ebbfc54641481f84538cb5c0ca7089291e951c8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "393f3bbb5eaeb24e1893ea7e71738dc0095d68b28cbbbab6a71cb8ec18aa1492"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "8aaffb5793d37cea515c7e1c1d428225dcd58cb898d088f1113fadb76b9fd0e7"
   end
 

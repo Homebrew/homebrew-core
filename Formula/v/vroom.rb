@@ -15,6 +15,7 @@ class Vroom < Formula
     sha256 cellar: :any,                 sonoma:         "7cd025997ecb18d3d5fc35a953720fb96ce631ede626a9cb8bcf315187ce83c8"
     sha256 cellar: :any,                 ventura:        "788ecd2b38d2c912a0a573f7a0a7b2f7ac926dcf0ea9de61a1bb7e7ed8111d88"
     sha256 cellar: :any,                 monterey:       "bb59f660179205c05dc8ab2990b8fd3064be81b436f4b9ec12466906fa17c2fd"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "0e679e29f0cff84510a44089366d2109889217dc40e4ff8eb8df3c72cde24ea6"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "42d4abf7176dba741db892b3708064ea7ffaa687892edd30dc0146d9144fe767"
   end
 

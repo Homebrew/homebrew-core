@@ -28,6 +28,7 @@ class Lockrun < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:    "8e2764324f3709946ee1dc7b9c2135dca1e6c94b265d79fdb3f171809d88dfc4"
     sha256 cellar: :any_skip_relocation, sierra:         "5c37b3e9c3f55cfa50379c72fc00259bffa8d3d48688bcaaa44122805ffa4c3a"
     sha256 cellar: :any_skip_relocation, el_capitan:     "10782346442c28b235f80579c1b0dac3ec784fb151f7bef475757c1bde944b16"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "141fc5e4c50953b8ed382b7c3cee817d578808ccaed0c72e00d7fc3c0eda8942"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "f98a31a7651fbacfd1ccd1085b99fd53d1f4a5a981e4ed2702f2cbf1293126dc"
   end
 

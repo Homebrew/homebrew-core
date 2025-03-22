@@ -11,6 +11,7 @@ class Libunicode < Formula
     sha256 cellar: :any,                 arm64_ventura: "dcbad1aeabc61e9e4ef5b0776cc40fcaab878e67931bf0b057847e3e9e69e86c"
     sha256 cellar: :any,                 sonoma:        "eb839f56e6eb0d2d877a623eeab2ba46fa4a2f8e7c5b6133232caef634f14fb8"
     sha256 cellar: :any,                 ventura:       "88b268f809736144bc316d83d38ece5c25c96c4b97b563173a8ca925fccddbc8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0dd8a8d2af9689cf2b7e45dfc7ac13ffd68cf9926041c787943c6d6d5f26ffd5"
   end
 
   depends_on "cmake" => :build

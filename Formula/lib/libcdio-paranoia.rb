@@ -13,6 +13,7 @@ class LibcdioParanoia < Formula
     sha256 cellar: :any,                 arm64_ventura: "0d2130ca34ade60885f0838c9032563a1cac1267b9c88c99c6e87c1922f8b513"
     sha256 cellar: :any,                 sonoma:        "8b89fb7bf1812fb9bd7910ab0a323996aade2c07bc46a8a163843fff6c531776"
     sha256 cellar: :any,                 ventura:       "7b9d73af248b22fab2504e019d3c62daf93e8c6beb91ed9f463905f1e066b514"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4a1ec8c229b09241872472ddddea228bd4a8aff3ea7406a8148a12ca78c7b333"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "3d1e9aab49489534af51d75d1b222be76479ab2d15cfebc930ca570be8dd0d95"
   end
 

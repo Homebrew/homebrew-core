@@ -13,6 +13,7 @@ class Vimpc < Formula
     sha256 arm64_ventura: "c8ba4e9529a838e511d9a8cef03df1fff057074983c6ec28a8b89b5b948257d3"
     sha256 sonoma:        "f176d799036dee333704bb6fbc5c682703b384df24710d566353fbd36c5c73c1"
     sha256 ventura:       "5c2aaf2d541312c5cc94edee59489088f397a5345e548e869057b1c62eb32d65"
+    sha256 arm64_linux:   "7228a6e08f338c414bd766a2616bc2b25dab0daad7d6c0c381c62724f634a1c9"
     sha256 x86_64_linux:  "20f51a883a9520406f7cbfd7e8c8d9bc533efbb03ce4ecd63e3578aca351daa4"
   end
 

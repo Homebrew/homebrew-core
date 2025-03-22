@@ -20,6 +20,7 @@ class Libsvm < Formula
     sha256 cellar: :any,                 sonoma:         "cf42abb68e45caccd897b737ce1aa00b2c5f0e79f5c5336432e56171ebf2b95e"
     sha256 cellar: :any,                 ventura:        "7d908bc4532b8e00b9a03f91b7e67d6e279b51ec5a8ec67465ca914dd0b899f2"
     sha256 cellar: :any,                 monterey:       "ddaef78accfa874e5d2b3638b8dcd00f73ed979d012d6cb97307b56d72ee5311"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "d98d136eb5efb5ac277db2ba33fc7ee191df107e74d6937ece0ed5f596a1a853"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "180e48479f4ce02ec77db9750d16a1eb71f29768d90f4f012e152e5f542a6cdb"
   end
 

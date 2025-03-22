@@ -17,6 +17,7 @@ class Libfixposix < Formula
     sha256 cellar: :any,                 monterey:       "1d7590797c0860a0d26dd646ce2b7e3fbd1c3a4822fc6a4fcd811abb42c8e0c8"
     sha256 cellar: :any,                 big_sur:        "e943656ff8b13e2b577be3098534a2a6d2c4de9494b1a93b34d303fd4c79a388"
     sha256 cellar: :any,                 catalina:       "e683efeabc1a25cea8a7d56701ed332d7bac33f608e9501e05f51a0e1cbf86ec"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "c830b4e29003a72949cc73e2ff51ef21f8794799f0419dcde5aad13fccf311a0"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "af87e982e579778df2e7e49331b81489445e30753fe9397f340dc95f293f43ec"
   end
 

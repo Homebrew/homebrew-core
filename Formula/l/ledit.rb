@@ -23,6 +23,7 @@ class Ledit < Formula
     sha256 cellar: :any_skip_relocation, sonoma:         "ba5e850a2325c803b48366814ccd65ccf4acf57112f9cb16b4bc5ef43add3a8a"
     sha256 cellar: :any_skip_relocation, ventura:        "61b71950ed308177659d6d98f88e83d9f26b2ce8c9f41cffab9e92eef9988144"
     sha256 cellar: :any_skip_relocation, monterey:       "482dd44cabb6afec89846ad02430f0b48e2aee3e32885c58eedd38619fdc4886"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "f97323d9419ce17f3a5f3cf7586966484c7e073186588f7a9b86a7219749915d"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "280c140f1337f33186cc2d9a1946cd27732435292e98fff8c1a431d408ebb237"
   end
 

@@ -16,6 +16,7 @@ class VoAmrwbenc < Formula
     sha256 cellar: :any,                 arm64_ventura: "d627a6b0fb346506f9723a73eeb0f3e3d6d267e2e657ef4f13da37131fa88a31"
     sha256 cellar: :any,                 sonoma:        "e32dbde8f52e3a617f4ee48deb707b07f530ba72206c25df1fb82b19ccf085a7"
     sha256 cellar: :any,                 ventura:       "d12ffd9e43f25d2f17e86773ac2704a37577310042799eac2b59193184e4937a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4dc5fe1a71f25d535c42c04b8927b2d34eb807301f2c226f2d803b9800c96db5"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "16b6d44ce234aa2ec2c3a3a0051f0ea76b469d6bf0b285b1878f761e0c7bf33c"
   end
 

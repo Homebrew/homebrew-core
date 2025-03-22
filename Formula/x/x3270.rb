@@ -16,6 +16,7 @@ class X3270 < Formula
     sha256 arm64_ventura: "32a47d2031ce6608310198c61f7e5edaf9da6bfaa075470b29dda039c5193766"
     sha256 sonoma:        "0ab40fb951595af0d131cfff5d6d27e3ffcc8ddcff35c5b5955696b55f852b21"
     sha256 ventura:       "82edc406ca1dbfc9914a8a51bab21327ddc6da3e6db0716bc8ea592580ad848e"
+    sha256 arm64_linux:   "74be989d42404f2e54d2e951c3215965f46a3eea2daa37110d7a866bb5a7b087"
     sha256 x86_64_linux:  "e75d93e507400c3c20d2d37e43d3938a4c52016f35782992bc3b9291c3eaf89c"
   end
 

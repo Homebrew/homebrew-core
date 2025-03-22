@@ -16,6 +16,7 @@ class Vile < Formula
     sha256 arm64_ventura: "1da870f5170e7ec88f561de66a0cc33ef311aff1286cc75fb81dcce222199438"
     sha256 sonoma:        "d9b590f1bfa6fd0babaf72eed46cbecdb5e18c80e559451f8532af8771059e2f"
     sha256 ventura:       "f9128012e729d2813788f6fa74366538105c6894bdc5955667f298cbaa3a3818"
+    sha256 arm64_linux:   "d567c9686cfda46b23c1f9a9fbd3f94b7b7d769dca59646e234673ac2c67b80f"
     sha256 x86_64_linux:  "9ec063cf33a1aaf4f5fa4f4d5eb0fb953b31c6ce159d7d171b5269db6a276f77"
   end
 

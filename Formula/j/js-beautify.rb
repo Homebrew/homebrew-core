@@ -11,6 +11,7 @@ class JsBeautify < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "7c7e52487e23c2cd2674a6cc83610b8509209489fc632b86f69f936bc596aafd"
     sha256 cellar: :any_skip_relocation, sonoma:        "21cbc33bb8e2b885663dfcc5bd5219dd571ea648ac5ad4b29833b45951824c78"
     sha256 cellar: :any_skip_relocation, ventura:       "21cbc33bb8e2b885663dfcc5bd5219dd571ea648ac5ad4b29833b45951824c78"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7c7e52487e23c2cd2674a6cc83610b8509209489fc632b86f69f936bc596aafd"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "7c7e52487e23c2cd2674a6cc83610b8509209489fc632b86f69f936bc596aafd"
   end
 

@@ -24,6 +24,7 @@ class XbeeComm < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:    "935948849935f3f11e6cf8992b1c6ad79e92716583c6b5685bf55cc6c4bd2d7a"
     sha256 cellar: :any_skip_relocation, sierra:         "9f6d626176e06f69934f3a3a3c56ddfa6a02be4f49d2e53dbce9d92b17f9eeb0"
     sha256 cellar: :any_skip_relocation, el_capitan:     "64b15ac79da143e2b092db702fd22c92ef064093be1c4c81cb60fd5b08f44075"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "fc58db4ba36c437b60007679bc67881898167c5f2fb490fd1c71c9707b1338c2"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "cf23d16b599dc5427dd3552004d307bacd82b77b89ac2bd0a018bf1f986fc720"
   end
 

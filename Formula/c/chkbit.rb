@@ -1,18 +1,18 @@
 class Chkbit < Formula
   desc "Check your files for data corruption"
   homepage "https://github.com/laktak/chkbit"
-  url "https://github.com/laktak/chkbit/archive/refs/tags/v6.3.0.tar.gz"
-  sha256 "69b48926eb3bff15e8e7a1501d906e7ca84646275d47121399e7f3b10d629449"
+  url "https://github.com/laktak/chkbit/archive/refs/tags/v6.4.0.tar.gz"
+  sha256 "99a69e05172ed27f0cf60d4aa967bc3f00a34f49c0d6529f6df41242cab789f8"
   license "MIT"
   head "https://github.com/laktak/chkbit.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b3c7e001bb849028265c2f36f23091593918931170a795a1c3c7cfd8eee360ba"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b3c7e001bb849028265c2f36f23091593918931170a795a1c3c7cfd8eee360ba"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "b3c7e001bb849028265c2f36f23091593918931170a795a1c3c7cfd8eee360ba"
-    sha256 cellar: :any_skip_relocation, sonoma:        "6e5f08f13de435bcfb330835e98daae082159e13a5f9585fef78743684139f8b"
-    sha256 cellar: :any_skip_relocation, ventura:       "6e5f08f13de435bcfb330835e98daae082159e13a5f9585fef78743684139f8b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cb7447e81531314e5c7353cc812268d53e3aae66265828479e31fc7adf8c0f8f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fa3de15f0dd07551bfcd3e36a3b228cf66332893fca929b4dd37869b03ab8f37"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fa3de15f0dd07551bfcd3e36a3b228cf66332893fca929b4dd37869b03ab8f37"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "fa3de15f0dd07551bfcd3e36a3b228cf66332893fca929b4dd37869b03ab8f37"
+    sha256 cellar: :any_skip_relocation, sonoma:        "45d20ff4444e1f13ebdd46bf0f85397c7c49abc79e9a54d99549bd960b0c5e85"
+    sha256 cellar: :any_skip_relocation, ventura:       "45d20ff4444e1f13ebdd46bf0f85397c7c49abc79e9a54d99549bd960b0c5e85"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1be986d6bf7eb3637f5d9afdf6ddc904cbd21d4c67af7e76df8bb4edcb4bf7d9"
   end
 
   depends_on "go" => :build

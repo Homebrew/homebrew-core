@@ -12,6 +12,7 @@ class Libzim < Formula
     sha256 cellar: :any, arm64_ventura: "1826eb83d9904bd839fd9459f8bf0effb234e25d3724b14f06ab9d065a284a70"
     sha256 cellar: :any, sonoma:        "5701596ba77fb25c9b4990ac647592844d0a53bbf6213dd4c5afedbf2921eba5"
     sha256 cellar: :any, ventura:       "44801a35ab9a4ad761fe566e565cb2d41d3faf1e2a132b977a46902686570150"
+    sha256               arm64_linux:   "455af49f77ee108e0d4a963709985a36666136a037ddde4d5d044d80073e2d9a"
     sha256               x86_64_linux:  "92e210cb78cc081b61445f86c3311afbc469ab8edf2eb2a04c6f3f96ba8dbc5a"
   end
 

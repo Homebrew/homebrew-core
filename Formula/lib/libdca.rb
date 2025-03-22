@@ -23,6 +23,7 @@ class Libdca < Formula
     sha256 cellar: :any,                 catalina:       "d9c4b3a350744867f5782db738d25d1212b9be89449030492083364574f914d7"
     sha256 cellar: :any,                 mojave:         "594d6b26eb3ca16c3046ff2792de4f78a0f038dc94b1972c8827e86331a46fde"
     sha256 cellar: :any,                 high_sierra:    "f8ba469ce443efa0e9fc87b51a87c6b4d510bd3e7bb91ae11d1f91e99f760acc"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "a2f265e353b2c9fb8073ce2a4a5eafc96b615c9e30acde2045cfdeb0b754a657"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "6d7ec4a08990df38fb26a4c719e6bd669bd35e3e5e89d49d43fea007b74e3edf"
   end
 

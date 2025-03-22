@@ -14,6 +14,7 @@ class JenkinsJobBuilder < Formula
     sha256 cellar: :any,                 arm64_ventura: "bb40c3437843345877eaa8855552e404d01de9b79864cfdc31eea072e0bc1d7d"
     sha256 cellar: :any,                 sonoma:        "7fd8695bedd1e037d7a4a15c51ff31fba6415830471dfc69c4035073b5847816"
     sha256 cellar: :any,                 ventura:       "00617cf898606deaa7e7859c3b6b015b6fadbeb8b096f37f962cf79f6422420e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "34b0e66ad76aedc5b9c813ebb7ce8840611eb9a011afb3ae75cb71b750a36216"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "13ff9e3be7f4ff98f0ca825084a4737fb4b5ad8c07caaa5a9f42f38c7e72ad96"
   end
 

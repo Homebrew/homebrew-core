@@ -14,6 +14,7 @@ class Jtbl < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "d36c946d8efc31ba345e4b8933c3b460034df431373eb632837778ade53378ec"
     sha256 cellar: :any_skip_relocation, sonoma:        "6070ec308bdd9b1030b07c7dd4846bb5b09bd268879b21aeeb352453d1fe0f8f"
     sha256 cellar: :any_skip_relocation, ventura:       "6070ec308bdd9b1030b07c7dd4846bb5b09bd268879b21aeeb352453d1fe0f8f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ebc3fe830e2fe701963c723a4fdfb96e8a9acbedb5a1ec4588b66067466d7172"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "d36c946d8efc31ba345e4b8933c3b460034df431373eb632837778ade53378ec"
   end
 

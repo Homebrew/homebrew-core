@@ -11,6 +11,7 @@ class Virtuoso < Formula
     sha256 cellar: :any,                 arm64_ventura: "ec1ba9dcf65b8306a7cf1355b9fdca4a36a2e4bbce092cf23be53a534e6b95d9"
     sha256 cellar: :any,                 sonoma:        "12e6d1230335e4c77fc52c31c3657cd31cb3cb6a6ad7e519c7e903a0522170a8"
     sha256 cellar: :any,                 ventura:       "97bb2a181efc5991b247244da81b046f3c51991f20a3523ce3140ad2a1bbfcf7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3b07c607f72b4b3954a9c13c97fa9d02ebebee1499d3a41fac32b79e5729bdfe"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "d3486ce694b17ad0decf53bb95f975885604623291f34076f7ea2922c3328d9b"
   end
 

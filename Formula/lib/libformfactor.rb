@@ -11,6 +11,7 @@ class Libformfactor < Formula
     sha256 cellar: :any,                 arm64_ventura: "5e2697c2750eb779fae247e8c036bd1ef4ea24dce6838e0cc8a4105a54b51add"
     sha256 cellar: :any,                 sonoma:        "f667e9915fd8f41658cd766c48b2474cda8a3b63a167602bb3bcae1c82d5b458"
     sha256 cellar: :any,                 ventura:       "50b9dcbf09251833119e43094d579b2e4f1afeb298e92acbd7567c5f3cd51b84"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f36e5a920f775af8b21c3bcc8f60060a67c619aaa3afef918f0260b1199b6673"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "990e748955e89c33aeced770f50ea1ea985ef4526b19472fcbeae6cac1299a16"
   end
 

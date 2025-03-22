@@ -18,6 +18,7 @@ class VisionmediaWatch < Formula
     sha256 cellar: :any_skip_relocation, big_sur:        "9df96f9ac4ae658f41cc25dbbb863f1a9974cbe28cb0ef7b8efbb54751fd41cb"
     sha256 cellar: :any_skip_relocation, catalina:       "8a8d2389c8d830b692fdb2431a6414bfa68e80575b5cf303b81fc04ba851e5c8"
     sha256 cellar: :any_skip_relocation, mojave:         "8cb94f6e2c5faca9161daf2f8332862c7130ef2ac82f7b8258f5d927f40f5b11"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "49af167e4231314e0b015c7fbc606983a7149546798d147d9f439f912230edec"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "1dcfe8e94d71a7fd667ce896127b665675c2a4d18f04c8c3d317efe50e5ae68f"
   end
 

@@ -16,6 +16,7 @@ class Libtickit < Formula
     sha256 cellar: :any,                 arm64_ventura: "c105a349bb5d28ea65b1ae84f6f1f8490cf6476ed5060b1b630ec95b9dcfa7ab"
     sha256 cellar: :any,                 sonoma:        "10dc3acf43ae29195233e836585da752b48e46e57baaea697217724309bfdfa8"
     sha256 cellar: :any,                 ventura:       "60e09a74122d538fbd5908b73325751ef74b7b4266785bcf7e34b00b2d6542c2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3d883629a90f2ff74a67fd9f0b7e0778cda2894d0b6e22887b164f500516a619"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "a10701b8ac09fe1cd30ace8bad096ac9916b8f266a07af0ba162c8ce4cb0e8e7"
   end
 

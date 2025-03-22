@@ -17,6 +17,7 @@ class VrcGet < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "42fab214e3b40da97fe5368b838a1a03b5c534574d0ee1894869dd2819717ca6"
     sha256 cellar: :any_skip_relocation, sonoma:        "d611cd64afa6c1b8a76a0ecc52a2fdaf1ed514ca13b35d28950bbc7f45337b3d"
     sha256 cellar: :any_skip_relocation, ventura:       "6a8ac8b21c07dc4ef748b0365388463f481b765e60c9492a611e996f17aef78e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6e636f793b45860c1fa3039f64272c62be84cbe35d10bb85650ca8b32b054222"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "cf27fd9ca3c93fe01e9db091775dec6c2a6c48c03e79ee90b23ed8b8fc2f03da"
   end
 

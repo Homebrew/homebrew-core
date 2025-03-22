@@ -18,6 +18,7 @@ class Libcmph < Formula
     sha256 cellar: :any,                 catalina:       "c38019c153c728a28acbfe340cc86764285ec24edbdba5234b0593f83d355c22"
     sha256 cellar: :any,                 mojave:         "d02c761bd6b52424528bfdcd56b8d469d7cdd2e55f625c719229edb7f011889c"
     sha256 cellar: :any,                 high_sierra:    "abffeaf075db6387e636d43eb8fda9b76f02091bdb5533368306f899a46406c1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "09b7ae4a3fe814126fff575f57ba2cfac5599eb86cded4d810ae777d2e4c229e"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "6b4a556fa47365d3ebf9312acddf3fc64921094161bd6d6e1bcda3df92be70cd"
   end
 

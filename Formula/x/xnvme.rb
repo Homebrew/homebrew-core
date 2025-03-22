@@ -16,6 +16,7 @@ class Xnvme < Formula
     sha256 cellar: :any,                 arm64_ventura: "98be4270d703ba24e95af9714302b41bf45346a3ecc69220889a889381210c9d"
     sha256 cellar: :any,                 sonoma:        "ab2c11503d96c5d333b599ce0c2a18a4f25712bb8c7c53c681b34de481d8c6b4"
     sha256 cellar: :any,                 ventura:       "f91938361da2f149e42e493be2702bafbc55221854f92c40cc5a7b3ffef7639b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e9d905badf1945c4991a143fb6d817d510998578f76afe30130894b1eae8a07e"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "1f6f44f9a1deeec057afbff777aa156acf353fbf02f6c85ecb858a4d741baf69"
   end
 

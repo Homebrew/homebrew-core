@@ -979,6 +979,7 @@ faad2
 faas-cli
 fabio
 fabric
+fabric-ai
 fabric-installer
 facad
 fail2ban

@@ -16,6 +16,7 @@ class Jruby < Formula
     sha256 cellar: :any,                 arm64_ventura: "d146ced4843359f4e1292a53a3d7275721716ed16045d4b9bf638948034a2258"
     sha256 cellar: :any,                 sonoma:        "c1f32aafec98d8c1e38e0482b40a554adb21c7b05ebb6acd2818e77f0c1e5062"
     sha256 cellar: :any,                 ventura:       "c1f32aafec98d8c1e38e0482b40a554adb21c7b05ebb6acd2818e77f0c1e5062"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5f40ac999534f5af98d3f99c2fdebc211cc3d8b0bac8ed00e49ed605da58947f"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "49da0e54dca76b9d1967e3b1aae453618dcfe6f1f04b85ac6d5dd16982ebf672"
   end
 

@@ -12,6 +12,7 @@ class Log4cxx < Formula
     sha256 cellar: :any,                 arm64_ventura: "317df9001cb2c399dff56f52a27c5a5bc97e1b6c94916f5adae651270980b36c"
     sha256 cellar: :any,                 sonoma:        "daaa2bc0fd4e9a91892c625d9f41f6e87237d54811eb5b4afec1bd35d84a482c"
     sha256 cellar: :any,                 ventura:       "da0e6890b5b2188e034584dbeea0327f475dfa305e1e482d457c93d5708bbc12"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "47823f5f2c6cb811c3c8b853b5989dba6277d0344adae7adde4d34dffd49b4c3"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "1b594119142a0c99175b561b2048a7272e93091a039ea3f1d45671eddec0a625"
   end
 

@@ -17,6 +17,7 @@ class VulkanValidationlayers < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "1f5b603179069b35ed3878071a2fd3cb0cce7cd06a95d33f6a188cb42eebea76"
     sha256 cellar: :any_skip_relocation, sonoma:        "1d1f2f9ffedb0b022be9d4276d6179b7a62db90f0eb021fa562e6b4494f032c6"
     sha256 cellar: :any_skip_relocation, ventura:       "9a0475b191ac9b8b0d0ce0725cab1f8084764af02a2b0879414368252e2e486d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d23fa7b743f4cf85793209606628d83d35313288ead7418e15dad3dfd669a06f"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "069b25982bb9728b445fa1190f16d569adb9faa1918ffe4dc5c8fbb042dfc234"
   end
 

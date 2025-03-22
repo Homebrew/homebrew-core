@@ -16,6 +16,7 @@ class Libxspf < Formula
     sha256 cellar: :any,                 monterey:       "fbeb2b06f536534acd8e85c7cd86b0603f85e059dfb0277cf093c4aeb5875dca"
     sha256 cellar: :any,                 big_sur:        "3bdd88ce60539e5c451fbfbb39d85719b9551965550b5b2937f409f152b08330"
     sha256 cellar: :any,                 catalina:       "e0047524231105d369ade5acf8110d3e64f5d98f39848df201cfcdc9ded7ec39"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "2e7ee0f7026c5cfe6bbf84efc5474a94274645bdd0e7a498c20e5b6a37e21a2f"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "e901fd286da4e617543de36efef5f7e0a115d936eeb3ec01326ae92a02df29d8"
   end
 

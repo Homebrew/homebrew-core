@@ -12,6 +12,7 @@ class Viddy < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "5132a22bfe77049378f62158a9c2fb9e52ab6f04c426e9cfdff4e7c78a0de06f"
     sha256 cellar: :any_skip_relocation, sonoma:        "a635acfdd97d4fb6f785a0164db30c399430f156b8012b85ad82a3872f39b869"
     sha256 cellar: :any_skip_relocation, ventura:       "81a7bf5985de9f5702b68665dfa75f562819d363b5d6a4c882c5ef9b778ed18d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3f3f38348b9fd1683ec0e625e899e8254fd6a7d1f54d2f0e7d3b09dd887aca16"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "2936c3ac0cc4092280d63ccc8ef986cfaad49c117fc763266ae435edaa1626e2"
   end
 

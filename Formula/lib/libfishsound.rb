@@ -17,6 +17,7 @@ class Libfishsound < Formula
     sha256 cellar: :any,                 arm64_ventura: "4fe1b44bee66fc57a820a3838cc0d38cf410b1f22a88c56dd996072edff460de"
     sha256 cellar: :any,                 sonoma:        "dc4573276c3c89484244b1ab2b121ab7d954d6e360c1a0e170dcaceb6d829e24"
     sha256 cellar: :any,                 ventura:       "a6ff774dad2e7d8bd2d46a33192b0aa1d53f6b34a6fbf49da9cc7a5d2718fd65"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b5706aa37fd98136ce0e3a9f3d3293d5483bb92e6f768163ffaef10267155d95"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "cfaa33c5d408f6f60308bc962a9815b0456de64c8f559c797589ab3f4118f4c3"
   end
 

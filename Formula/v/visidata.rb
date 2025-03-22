@@ -13,6 +13,7 @@ class Visidata < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "c59340511e66537da6a9d30fc32913ab638cde115e0f9ebcf39c3a60e9251734"
     sha256 cellar: :any_skip_relocation, sonoma:        "386ca2b4afbaf1f0e79ee848379fd2d11b023134dcb58e2dd95d259e62b02706"
     sha256 cellar: :any_skip_relocation, ventura:       "386ca2b4afbaf1f0e79ee848379fd2d11b023134dcb58e2dd95d259e62b02706"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d9c7de494b7a6b175f136c3b3bfc99a7eeb57b5cedd8be75f87f8df1c44004db"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "c59340511e66537da6a9d30fc32913ab638cde115e0f9ebcf39c3a60e9251734"
   end
 

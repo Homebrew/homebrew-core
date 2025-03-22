@@ -12,6 +12,7 @@ class JwtCli < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "7b47ec1157a9dea61645c802355907945b40fce48536af4adb46f7ebc99cb5b6"
     sha256 cellar: :any_skip_relocation, sonoma:        "680cbbcf2e399fe52e9b2439cfa52ee5bce2b17ac2773bc4a82067e72a823092"
     sha256 cellar: :any_skip_relocation, ventura:       "60ffb058e6075cbbddd0b23ce137bc00679553f0d875e9db5addbf903dfb478d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c2908de84a0365cdd926afea4a2fd75884d5ac24b757f17577c800fb6dc2015e"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "0489c4208b5020bee00984994a5ce2d8a2a1f80f67de14a43520f38e918f9b8c"
   end
 

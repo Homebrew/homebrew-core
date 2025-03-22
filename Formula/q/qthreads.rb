@@ -12,6 +12,7 @@ class Qthreads < Formula
     sha256 cellar: :any,                 arm64_ventura: "fc5d929394203a698cfdafb7172344f68f0e86eedb6df2a2619b30011bb352bd"
     sha256 cellar: :any,                 sonoma:        "65aaf051110cc87ff81dfa3bcbc53c0f50fb94ecc6247328e6bd1be026317f1f"
     sha256 cellar: :any,                 ventura:       "3670129186200d05bd096d1a7f58374cf346bc8d23245cb583c2f385e0e1ea7b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d861e9b0e27ab4312c6ca2b6836c040a13e77ef5e7222f05c4530809afcb4ada"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "feae8cb66d7a8c8258f4da08523a1c94da25a89ef4d645b5cd14d35b8d3c2190"
   end
 

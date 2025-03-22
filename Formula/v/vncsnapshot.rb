@@ -22,6 +22,7 @@ class Vncsnapshot < Formula
     sha256 cellar: :any,                 monterey:       "47f55734407ee86c9eca1740751bf822f239151c8f119d26883f27f109380030"
     sha256 cellar: :any,                 big_sur:        "cba42f4c7903e6a9c817cab231c2a553cb3ef5e9df4c11ee4c1402a1c3e82dc1"
     sha256 cellar: :any,                 catalina:       "d64a17a417984662cb80caf048ba2898ccf432da49d9e160c4a3aca47dc01ad2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "dbafb1d33173e5fc8126864c0b92736461b3c3873e362c5d17230f42a1fe623e"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "6accb435728be7238acce06e9235ac713b796025055e03bc0aadb28dc21f6546"
   end
 

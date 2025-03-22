@@ -22,6 +22,7 @@ class Joshuto < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "f514471db634eef5bc7be735708cb9a3d3adc731c0bd17536b9bdf659a2db118"
     sha256 cellar: :any_skip_relocation, sonoma:        "87d5f791245b275fef1e0ea33481a5ead7ce2ee3ff8b3335d48ccc1ea767e552"
     sha256 cellar: :any_skip_relocation, ventura:       "e1bf0abd5d2379a4611cf2860282f8d456816c57c103ba59af215499e4a67a95"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ea5cf4a2e5805fc10747db4e9b7b5c00a99171bac7967fca974879e0110779ef"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "4f5fd70baa48a4e36ac7c6be47c6c4517ddd39af97e88509cd3e0dad8f6efcdc"
   end
 

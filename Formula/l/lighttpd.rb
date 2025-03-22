@@ -16,6 +16,7 @@ class Lighttpd < Formula
     sha256 arm64_ventura: "853dff40ff89429e50a349b1c595fcd130e175b2a409f21ceb9542afe06b940c"
     sha256 sonoma:        "85fb623779424c20ac74ca7559a56f9315ee1573acb1d110512a335dd536d8c5"
     sha256 ventura:       "3e0178fa9120a7a92e49dea1bd4815e17408fe8c5d16838b5a811fb3c118b122"
+    sha256 arm64_linux:   "f9720eac9aa4eb7b22637e01a79327e5c6dd65f1d45493cbc6c99c7e9be6e8da"
     sha256 x86_64_linux:  "91b5e99bae350afd3df2dc183c42c81cba441a64f9488af7e3866ad7fe55c135"
   end
 

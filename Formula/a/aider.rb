@@ -14,6 +14,7 @@ class Aider < Formula
     sha256 cellar: :any,                 arm64_ventura: "92846ac66a6b8321b01d60c2e782435f5a5746f9a635d8d09d0ad365f2803095"
     sha256 cellar: :any,                 sonoma:        "29647392581a86f690128878f55a7450d9b38c01ee75daf1651e2adeaba93d57"
     sha256 cellar: :any,                 ventura:       "8bc3f56674ba393f92a4b2603dd98d143da2841b4fdb4971408b038758e0fe6e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "847c3f9b07dd4da645d7c9e8e71916050551f739808ea1bfcfd85e7c9ed405c2"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "14541a87c748ad1fb5a5539acf25648ced364dddb4cc102841a90218b2eef124"
   end
 

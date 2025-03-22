@@ -12,6 +12,7 @@ class Jsvc < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "f86b48615d15ad2559ed1f46207bbf801be90db8e1402fc98a10670e38923db0"
     sha256 cellar: :any_skip_relocation, sonoma:        "4be28d772d108728d3ddc06017a22b8848649e86a55d53e6123aa1c4c7779fa2"
     sha256 cellar: :any_skip_relocation, ventura:       "369d45598b76c1c87b4f511095ef4b53e17364255ee1218192dcf5d79c1ac642"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "74d1d873adb94b9c89f94d985bd35b88e5a723544d3b8d3d790eab699f7c50d6"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "20801baa244214c265bfb7c71e6601b44141b658851fce801e0e52de7e6a829b"
   end
 

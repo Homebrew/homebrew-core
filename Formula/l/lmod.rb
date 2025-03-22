@@ -11,6 +11,7 @@ class Lmod < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "acdde72ec300a079d1ca7cf250013de7688d620cd7b9423e2a0f10c09968cbd3"
     sha256 cellar: :any_skip_relocation, sonoma:        "b1a7e179f32187cb6603beeef45e5343ba62a24726cec188a3bf918f228d6d67"
     sha256 cellar: :any_skip_relocation, ventura:       "5a6b69760b292adcc437736b5dab515e4abd91db1ad474ac1d877b1de47a69af"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "32e93a7d8abaa6c5de31835e38a834204c646b228cc57b69e51a79b6a60737a2"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "a2a47ce8c9b2ceff6b425c8079b86f8453aaf76191654e14fc1b079ac4bf98d6"
   end
 

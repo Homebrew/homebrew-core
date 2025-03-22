@@ -17,6 +17,7 @@ class X8664ElfGdb < Formula
     sha256 arm64_ventura: "5992bcfc7efda98494052c965cb6b0360e1680c2c1b6ac6299d962d2cde71b01"
     sha256 sonoma:        "8a0f7aca58e0736c3faead51e6f80fad9565a67e8097214c85ead9fd913ca874"
     sha256 ventura:       "184ee71eb79f730ca61b2edbd673cfd096b9085b792547070cf45e9245fd5360"
+    sha256 arm64_linux:   "7d5cb5a359150d67f315077aeffdc64e2ad255b3eec0a9a3abc7ab1731fc2b8f"
     sha256 x86_64_linux:  "0e74c4348f72702b1ddf300469815ef0e919780a17176dcdd8c2c5550fa833e1"
   end
 

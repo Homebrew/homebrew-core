@@ -18,6 +18,7 @@ class Libxfont < Formula
     sha256 cellar: :any,                 catalina:       "0321fea5b7329575b6d4b3ed762d741309c329c74df6a9ae2693667828e9a1da"
     sha256 cellar: :any,                 mojave:         "68cfb860815eedac8d96bb1853a64a12c3cc77bcc0e99ffbd693666b2bfb9119"
     sha256 cellar: :any,                 high_sierra:    "54fe9ff4143205d5d14a416f276193c4f9f5dc83898a057823462ac78c8de891"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "cd90ca9f06f262584a557fb3109a3090f12a6786de1ca899b08a6fd99ea7de45"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "c2c2202c343f1c42b642eaa9e4410f3886faf1158fd7a271ad928623922a43ee"
   end
 

@@ -14,6 +14,7 @@ class VapoursynthOcr < Formula
     sha256 cellar: :any,                 arm64_ventura: "cd5724d21e95a31025bf0d0bad580406d2b3921a1afbd0778a3fafe123809b70"
     sha256 cellar: :any,                 sonoma:        "2106c78c52a64e3dee5fffaf924358216e2a4d962614d47dc1055721d0e535fe"
     sha256 cellar: :any,                 ventura:       "04e3d8edb77293bb176d2757f36ad28deb8d1c4fd571c7de3a95e04395ed731f"
+    sha256                               arm64_linux:   "4e8060e44aa0bb280d0338e204154016949a9d54e5c9216849c0ef3f276fba73"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "3ba3f2ce6d29c86e69853b445c6b8a4a4f95c26f88dc7e3947ecea9845009882"
   end
 

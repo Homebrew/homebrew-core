@@ -12,6 +12,7 @@ class MagicWormholeRs < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "aa6f077f88352fb495121281f716404269b340c09248f077a873b3fadd2ef3b9"
     sha256 cellar: :any_skip_relocation, sonoma:        "e0502598e8d284804ece531825870bf1a2c3839ee651c79fdf1f0411fae5ac2d"
     sha256 cellar: :any_skip_relocation, ventura:       "9a3f50cf5584e1c85d828309012027fa693519b6e275b843ea9b01dab62ca3fc"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8c182159ac0fed782a8d89767cd133f97cf340af722941f09e6b5c1691e2bf31"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "7753ab72d6c4140a859107ed211290441565e8f19c2c5f097f70a9fafd1e1b0f"
   end
 

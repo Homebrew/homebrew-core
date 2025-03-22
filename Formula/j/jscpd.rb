@@ -14,6 +14,7 @@ class Jscpd < Formula
     sha256 cellar: :any_skip_relocation, sonoma:         "2e76cf1e82fe5ae1995207ff03b8ef0856452f10febcb7b00305897b8e20bc8a"
     sha256 cellar: :any_skip_relocation, ventura:        "2e76cf1e82fe5ae1995207ff03b8ef0856452f10febcb7b00305897b8e20bc8a"
     sha256 cellar: :any_skip_relocation, monterey:       "2e76cf1e82fe5ae1995207ff03b8ef0856452f10febcb7b00305897b8e20bc8a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "25641d2af5043374c2dc7fe30d38290923e380fe2673219e8d9320afa3d87c79"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "3659994d220039eff175732b7ba2d5cd3c0213e6ff2d4129e2b9b3b93611efe1"
   end
 

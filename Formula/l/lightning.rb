@@ -15,6 +15,7 @@ class Lightning < Formula
     sha256 cellar: :any,                 sonoma:         "6bbab88edb452016502a26349f899eb4c4a5547b698c6496d78df6ed7c012fb8"
     sha256 cellar: :any,                 ventura:        "4b560322ed7277918cc27b34064730088f37560d0aec5f8b6e7389db5c5813c2"
     sha256 cellar: :any,                 monterey:       "149a92d3f323b5f4b52481c3eeba41aad3ba6fede45859159ac3a4de041e0a17"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "5af0fa5ffd268c4d721624a01ee21826d6a5bbcccd277be7f12a6ce1df7f32ac"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "f8a31092e058742cf79549bb7d50979296326151bec52214ea580dc823748a20"
   end
 

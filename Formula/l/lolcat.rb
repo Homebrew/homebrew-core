@@ -19,6 +19,7 @@ class Lolcat < Formula
     sha256 cellar: :any_skip_relocation, catalina:       "c0e179d579938e4301f04b4896bb2c234f4b643e53e53cbd4a7f796978d2ea6d"
     sha256 cellar: :any_skip_relocation, mojave:         "ac56190c6ec7e25d49f979aff7f6cc3e45820002ef22fbc444196b64de2590f9"
     sha256 cellar: :any_skip_relocation, high_sierra:    "1eb5cf4cd5565e07659f37e2531be1e72b0e2e8e57587af229e230fa00315ed3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "5a08e03669527c3536a86119c90576a9b984ec3c772a36f88cab1f16a5d71f09"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "8110115e78f3bcb1aca5f3aee73cb81726e59a1293236a780ce99af733a8f524"
   end
 

@@ -24,6 +24,7 @@ class JsonSpirit < Formula
     sha256 cellar: :any,                 arm64_ventura: "b6a402f81d1433720746b73094e02b2160f47761ef3849ef42352aa374e9b45f"
     sha256 cellar: :any,                 sonoma:        "8d6aebd68c1f523e42e9eef02d3feb3116b5995ae781f02d5be5a31ce1beb51a"
     sha256 cellar: :any,                 ventura:       "0d753bf6024d053de0a479e014234dd2bf6c3cf05613385f2c80b768dcc06fed"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c566f08e81cb1b691dc3d853865e14786593f4226a51ab830502812425df5b05"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "968fe8f76818664ec719fa71cfee0f4c520f42b192ad61ad7b747f1f893ce557"
   end
 

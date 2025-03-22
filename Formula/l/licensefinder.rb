@@ -16,6 +16,7 @@ class Licensefinder < Formula
     sha256 cellar: :any_skip_relocation, sonoma:         "77ac7350b5c910ef956d6fac8ffe98232bce930476f6b462e8fcf31379e2254d"
     sha256 cellar: :any_skip_relocation, ventura:        "1c03235aa33eb51bee7344de88c4e16808a8f6283a0845c873784d37ec14a406"
     sha256 cellar: :any_skip_relocation, monterey:       "076664ad53828cc598b55fa5dc0177bc57fd2a808d0c0ab20d85fac4e98dd3f0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "51eb4b6c26c2d5088c2f382ffff159e64d3c54b1c1cecc539200024f31217171"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "4f8093e28fbd29078317ad298dd33971cd32950e5c56204eb2bff5de074b6ed9"
   end
 

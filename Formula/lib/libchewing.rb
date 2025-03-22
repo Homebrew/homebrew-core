@@ -11,6 +11,7 @@ class Libchewing < Formula
     sha256 cellar: :any,                 arm64_ventura: "2698f929ef06c474f8f08f5729a6a923c89aef36b572163f353360158188f51d"
     sha256 cellar: :any,                 sonoma:        "a8bb15dfebb22f402c3bd8182b90324c273f363474c9d7ebc170e1c672e800a8"
     sha256 cellar: :any,                 ventura:       "99d2a65e3971de39db1e15f8c63c8b2b944cc25f762c903a6f161fae2d15c33f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "608ffd3001265904a295d4b66d02764cbf5b63be4b8fb3e5eaa477f3ae8bfa87"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "d104abaa34a16aeb177b1c644b01bf8480b372405c3ca4d02ff90b9aad661196"
   end
 

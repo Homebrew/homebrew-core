@@ -17,6 +17,7 @@ class LibxdgBasedir < Formula
     sha256 cellar: :any,                 big_sur:        "815e73cfc0be4d8091e83b4083bd583e2514a4768c553480d70be1a3e21d77c2"
     sha256 cellar: :any,                 catalina:       "dc5854179a0d219e058f13e294625d4ebd755e82ca2302ce462b33f75d8113c0"
     sha256 cellar: :any,                 mojave:         "228bec555704181d31f3f0baf6d95a5839483d4e16374eef5f91063e29f4e89b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "6211f3d04b552e82d3f0b8fc89494ac42fcc45fa6f7fc6fa05e63893dc929f0f"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "d160ef91d8ec2c931defacad6ff525a7e1336f42e8196e0625bc93a266e54f72"
   end
 

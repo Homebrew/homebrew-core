@@ -1,22 +1,11 @@
 class Mpfr < Formula
   desc "C library for multiple-precision floating-point computations"
   homepage "https://www.mpfr.org/"
-  url "https://ftp.gnu.org/gnu/mpfr/mpfr-4.2.1.tar.xz"
-  mirror "https://ftpmirror.gnu.org/mpfr/mpfr-4.2.1.tar.xz"
-  version "4.2.1-p1"
-  sha256 "277807353a6726978996945af13e52829e3abd7a9a5b7fb2793894e18f1fcbb2"
+  url "https://ftp.gnu.org/gnu/mpfr/mpfr-4.2.2.tar.xz"
+  mirror "https://ftpmirror.gnu.org/mpfr/mpfr-4.2.2.tar.xz"
+  sha256 "b67ba0383ef7e8a8563734e2e889ef5ec3c3b898a01d00fa0a6869ad81c6ce01"
   license "LGPL-3.0-or-later"
   head "https://gitlab.inria.fr/mpfr/mpfr.git", branch: "master"
-
-  # Upstream patches, list at https://www.mpfr.org/mpfr-current/#fixed
-  %w[
-    01 3ec29a67cfa75c35e90d32cafa552956018c79526b4aa412f3beff21dacfb41e
-  ].each_slice(2) do |p, checksum|
-    patch do
-      url "https://www.mpfr.org/mpfr-4.2.1/patch#{p}"
-      sha256 checksum
-    end
-  end
 
   livecheck do
     url "https://www.mpfr.org/mpfr-current/"
@@ -36,13 +25,13 @@ class Mpfr < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "7681c552a36cdb76ae27a85890c7d0c53839de1d258cb338a0140af8dec3e6ec"
-    sha256 cellar: :any,                 arm64_sonoma:  "9caf9ecffc77d2b880604b5f17daabe425503d7a3049ec07328bb27365d99806"
-    sha256 cellar: :any,                 arm64_ventura: "afe9df468349ca8f54931e4522f9dc6b61bac40a75625d94f3019cafe1e5ee39"
-    sha256 cellar: :any,                 sonoma:        "a6e9493b190dbd51bded0cacdc8acad0ad660ef5d7bbc531f956ae2b6dc91695"
-    sha256 cellar: :any,                 ventura:       "e5c4c1b9aa9e6a295d492b234ea89fd650eb3e61ad1fea8c9ba83013324539c9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "69d202fb1fbe0a2328f3637019c3e0db9c9f9587d6f74c6df985e29a0d9829b9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ad9e72febad8f534c2222d3a11b54caefbcb5607960e4cf8ced0edf3a8afb18c"
+    sha256 cellar: :any,                 arm64_sequoia: "ed822b7e77645d7c17abb3ee9cc2b2a82a4d0f003acc7615b5df6226031479b2"
+    sha256 cellar: :any,                 arm64_sonoma:  "15168719e4dbbc4f497e6f7ec91dfec55659113020e2af705a704af566dbe888"
+    sha256 cellar: :any,                 arm64_ventura: "12528a52c96fb1318bf07778ee236d69f4f1c67e616f0c97375431056c27e34e"
+    sha256 cellar: :any,                 sonoma:        "d0d63cabde366839e9140f92451c7e53f7a89d1986d1903bc9851f6122916213"
+    sha256 cellar: :any,                 ventura:       "69c8ea465b74361779391dd02f3fcb474f72d4f76d43dc0c2597fd4c1358936e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "fc5527d722406e18631498339752226ebebecc915bf5da08bfa48cffebeb1ba1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "91dfeb407daeeabb3c3caceb89af41dc02b1aa473b88e76c7533efbc2ad6066d"
   end
 
   depends_on "autoconf" => :build
@@ -56,10 +45,6 @@ class Mpfr < Formula
 
   def install
     system "./autogen.sh" if build.head?
-
-    odie "check if autoreconf line can be removed" if version > "4.2.1-p1"
-    # regenerate since the files were generated using automake 1.17
-    system "autoreconf", "--force", "--install", "--verbose"
 
     system "./configure", "--disable-silent-rules", *std_configure_args
     system "make"

@@ -12,6 +12,7 @@ class Vscli < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "e8c0b3a54aa8f18e0e3bdf96941855a4641f73374e4c9c282c72b2aba9decb89"
     sha256 cellar: :any_skip_relocation, sonoma:        "367ff1a937fc6b20de3ac0f80feb8626e352bdb543ec0ac8958bd9e58a10d2c3"
     sha256 cellar: :any_skip_relocation, ventura:       "fa1962291453a1152836cd93461515b4eef44d9ae99c70de6f4f204836e7450d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "bc5eee1bdaa04dd44a7e813abc87e406ec2186f9f638399efeb9fc34b9c08ca3"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "f8e75d6e48da77d6493750ce4d02c5de079d684e62908f7d3db2219477a8c250"
   end
 

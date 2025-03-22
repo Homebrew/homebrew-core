@@ -16,6 +16,7 @@ class Vint < Formula
     sha256 cellar: :any,                 arm64_ventura: "e5bc6e57ded07e6f471eec105c4257f76939e2cb1f6efb4ec428bac68aac9e7b"
     sha256 cellar: :any,                 sonoma:        "b768c5d123e23695279516cc24c2bd6de3b2a31bf8d9c25e2f9b252a6ce045b4"
     sha256 cellar: :any,                 ventura:       "c3d75f055b30da8429d0506965e1770baa6dfa8eed9c6b371125e20bfc1296e8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "16adbea12b2c4447bc977212aec4286b94b7a1b16afdadb780efcab233a862f6"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "e353a7a8aef81e094ecdc67dece6c35786b9cf38c263b3f600a190166a07bebd"
   end
 
