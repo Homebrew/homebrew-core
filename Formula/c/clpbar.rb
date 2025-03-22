@@ -23,10 +23,18 @@ class Clpbar < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "34f612cc13329af2cb8bb90f7457a5222538acbd7304ad2ebf0a16650bec2dfc"
   end
 
+  on_linux do
+    on_arm do
+      depends_on "autoconf" => :build
+      depends_on "automake" => :build
+      depends_on "libtool" => :build
+    end
+  end
+
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--program-prefix='clp'"
+    system "autoreconf", "--force", "--install", "--verbose" if OS.linux? && Hardware::CPU.arm?
+
+    system "./configure", "--program-prefix='clp'", *std_configure_args
     system "make", "install"
   end
 
