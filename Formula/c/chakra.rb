@@ -2,7 +2,7 @@ class Chakra < Formula
   desc "Core part of the JavaScript engine that powers Microsoft Edge"
   homepage "https://github.com/chakra-core/ChakraCore"
   license "MIT"
-  revision 9
+  revision 10
   head "https://github.com/chakra-core/ChakraCore.git", branch: "master"
 
   stable do
@@ -43,7 +43,7 @@ class Chakra < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "icu4c@76"
+  depends_on "icu4c@77"
 
   uses_from_macos "llvm" => :build
   uses_from_macos "python" => :build
