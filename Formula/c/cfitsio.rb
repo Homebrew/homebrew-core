@@ -21,11 +21,23 @@ class Cfitsio < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "pkgconf" => :test
   uses_from_macos "zlib"
 
   def install
+    # Incorporates upstream commits:
+    #   https://github.com/HEASARC/cfitsio/commit/8ea4846049ba89e5ace4cc03d7118e8b86490a7e
+    #   https://github.com/HEASARC/cfitsio/commit/6aee9403917f8564d733938a6baa21b9695da442
+    # Review for removal in next release
+    inreplace "cfitsio.pc.cmake" do |f|
+      f.sub!(/exec_prefix=.*/, "exec_prefix=${prefix}")
+      f.sub!(/libdir=.*/, "libdir=${exec_prefix}/@CMAKE_INSTALL_LIBDIR@")
+      f.sub!(/includedir=.*/, "includedir=${prefix}/@CMAKE_INSTALL_INCLUDEDIR@")
+    end
+
     args = %W[
       -DCMAKE_INSTALL_RPATH=#{rpath}
+      -DCMAKE_INSTALL_INCLUDEDIR=include
       -DUSE_PTHREADS=ON
       -DTESTS=OFF
     ]
@@ -38,8 +50,8 @@ class Cfitsio < Formula
 
   test do
     cp Dir["#{pkgshare}/testprog/testprog*"], testpath
-    system ENV.cc, "testprog.c", "-o", "testprog", "-I#{include}",
-                   "-L#{lib}", "-lcfitsio"
+    flags = shell_output("pkg-config --cflags --libs #{name}").split
+    system ENV.cc, "testprog.c", "-o", "testprog", *flags
     system "./testprog > testprog.lis"
     cmp "testprog.lis", "testprog.out"
     cmp "testprog.fit", "testprog.std"
