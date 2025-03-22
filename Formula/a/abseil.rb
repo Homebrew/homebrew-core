@@ -1,8 +1,8 @@
 class Abseil < Formula
   desc "C++ Common Libraries"
   homepage "https://abseil.io"
-  url "https://github.com/abseil/abseil-cpp/archive/refs/tags/20240722.1.tar.gz"
-  sha256 "40cee67604060a7c8794d931538cb55f4d444073e556980c88b6c49bb9b19bb7"
+  url "https://github.com/abseil/abseil-cpp/archive/refs/tags/20250127.1.tar.gz"
+  sha256 "b396401fd29e2e679cace77867481d388c807671dc2acc602a0259eeb79b7811"
   license "Apache-2.0"
   head "https://github.com/abseil/abseil-cpp.git", branch: "master"
 
