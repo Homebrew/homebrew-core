@@ -5,8 +5,8 @@ class VulkanTools < Formula
   head "https://github.com/KhronosGroup/Vulkan-Tools.git", branch: "main"
 
   stable do
-    url "https://github.com/KhronosGroup/Vulkan-Tools/archive/refs/tags/v1.4.310.tar.gz"
-    sha256 "304c3f6c3395186a6559078f3b174de58b467a5b5a3254bf2f1a6fecd833bcfb"
+    url "https://github.com/KhronosGroup/Vulkan-Tools/archive/refs/tags/v1.4.311.tar.gz"
+    sha256 "7113bc0c746b45072e269fada0d684b4ae9de609c38d9e764b59793b14120a7b"
 
     # patch to support support for iOS and Metal surfaces
     patch do
