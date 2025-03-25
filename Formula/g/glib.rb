@@ -99,7 +99,7 @@ class Glib < Formula
     end
     ENV.append_path "PKG_CONFIG_PATH", staging_dir/"lib/pkgconfig"
     ENV.append_path "LD_LIBRARY_PATH", staging_dir/"lib" if OS.linux?
-    ENV.append_path "PATH", staging_dir/"bin"
+    ENV.prepend_path "PATH", staging_dir/"bin"
 
     system "meson", "setup", "build", "--default-library=both", "-Dintrospection=enabled", *args, *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"
