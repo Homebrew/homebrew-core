@@ -1,7 +1,8 @@
 class Pax < Formula
   desc "Portable Archive Interchange archive tool"
-  homepage "https://www.mirbsd.org/pax.htm"
-  url "https://www.mirbsd.org/MirOS/dist/mir/cpio/paxmirabilis-20201030.tgz"
+  # error:0A000102:SSL routines::unsupported protocol
+  homepage "http://www.mirbsd.org/pax.htm"
+  url "http://www.mirbsd.org/MirOS/dist/mir/cpio/paxmirabilis-20201030.tgz"
   sha256 "1cc892c9c8ce265d28457bab4225eda71490d93def0a1d2271430c2863b728dc"
   license "MirOS"
 
