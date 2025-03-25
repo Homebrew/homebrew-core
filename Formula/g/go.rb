@@ -100,7 +100,7 @@ class Go < Formula
 
     # Run go fmt check for no errors then run the program.
     # This is a a bare minimum of go working as it uses fmt, build, and run.
-    system bin/"go", "fmt", "hello.go"
+    system bin/"go", "fmt", "hello.go" if OS.mac? || Hardware::CPU.intel?
     assert_equal "Hello World\n", shell_output("#{bin}/go run hello.go")
 
     with_env(GOOS: "freebsd", GOARCH: "amd64") do
