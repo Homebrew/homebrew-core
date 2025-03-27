@@ -9,6 +9,8 @@ class Vdt < Formula
 
   depends_on "cmake" => :build
 
+  uses_from_macos "python" => :build
+
   def install
     system "cmake", "-S", ".", "-B", "builddir", *std_cmake_args
     system "cmake", "--build", "builddir"
