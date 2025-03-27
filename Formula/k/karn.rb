@@ -21,6 +21,10 @@ class Karn < Formula
   depends_on "go" => :build
 
   def install
+    args = []
+    # Help old config scripts identify arm64 linux
+    args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+
     system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/karn/karn.go"
   end
 
