@@ -21,7 +21,14 @@ class When < Formula
   end
 
   def install
-    system "make", "prefix=#{prefix}", "install"
+    args = []
+    # Help old config scripts identify arm64 linux
+    args << "prefix=#{prefix}"
+    if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      args << "ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu-"
+    end
+
+    system "make", "install", *args
   end
 
   test do
