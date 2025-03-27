@@ -1,24 +1,10 @@
 class Glslang < Formula
   desc "OpenGL and OpenGL ES reference compiler for shading languages"
   homepage "https://www.khronos.org/opengles/sdk/tools/Reference-Compiler/"
+  url "https://github.com/KhronosGroup/glslang/archive/refs/tags/15.2.0.tar.gz"
+  sha256 "45e3920d264d5c2cc3bfaec0e5dbb66cffd549255e0aaaf38cd283918e35c8ba"
   license all_of: ["BSD-3-Clause", "GPL-3.0-or-later", "MIT", "Apache-2.0"]
-
-  stable do
-    url "https://github.com/KhronosGroup/glslang/archive/refs/tags/15.1.0.tar.gz"
-    sha256 "4bdcd8cdb330313f0d4deed7be527b0ac1c115ff272e492853a6e98add61b4bc"
-
-    resource "SPIRV-Tools" do
-      # in known_good.json
-      url "https://github.com/KhronosGroup/SPIRV-Tools.git",
-          revision: "4d2f0b40bfe290dea6c6904dafdf7fd8328ba346"
-    end
-
-    resource "SPIRV-Headers" do
-      # in known_good.json
-      url "https://github.com/KhronosGroup/SPIRV-Headers.git",
-          revision: "3f17b2af6784bfa2c5aa5dbb8e0e74a607dd8b3b"
-    end
-  end
+  head "https://github.com/KhronosGroup/glslang.git", branch: "main"
 
   livecheck do
     url :stable
@@ -35,25 +21,14 @@ class Glslang < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "3968014ff1d39cb6760dddb458c74b05c5d539c630db05ead07b2d2d23a7e284"
   end
 
-  head do
-    url "https://github.com/KhronosGroup/glslang.git", branch: "main"
-
-    resource "SPIRV-Tools" do
-      url "https://github.com/KhronosGroup/SPIRV-Tools.git", branch: "main"
-    end
-
-    resource "SPIRV-Headers" do
-      url "https://github.com/KhronosGroup/SPIRV-Headers.git", branch: "main"
-    end
-  end
-
   depends_on "cmake" => :build
+  # This will ignore known_good.json and might break the build
+  depends_on "spirv-headers"
+  depends_on "spirv-tools"
+
   uses_from_macos "python" => :build
 
   def install
-    (buildpath/"External/spirv-tools").install resource("SPIRV-Tools")
-    (buildpath/"External/spirv-tools/external/spirv-headers").install resource("SPIRV-Headers")
-
     args = %W[
       -DBUILD_EXTERNAL=OFF
       -DALLOW_EXTERNAL_SPIRV_TOOLS=ON
