@@ -4,7 +4,7 @@ class Glade < Formula
   url "https://download.gnome.org/sources/glade/3.40/glade-3.40.0.tar.xz"
   sha256 "31c9adaea849972ab9517b564e19ac19977ca97758b109edc3167008f53e3d9c"
   license "LGPL-2.1-or-later"
-  revision 1
+  revision 2
 
   bottle do
     sha256 arm64_sequoia:  "e162366f083df623dd7cd1854a781cdf3d520bfde698588abc9296ab33fd8804"
