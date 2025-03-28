@@ -48,7 +48,7 @@ class Ocicl < Formula
 
   test do
     system bin/"ocicl", "install", "chat"
-    assert_path_exists testpath/"systems.csv"
+    assert_path_exists testpath/"ocicl.csv"
 
     version_files = testpath.glob("systems/cl-chat*/_00_OCICL_VERSION")
     assert_equal 1, version_files.length, "Expected exactly one _00_OCICL_VERSION file"
