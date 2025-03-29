@@ -7,6 +7,7 @@ class YelpTools < Formula
   url "https://download.gnome.org/sources/yelp-tools/42/yelp-tools-42.1.tar.xz"
   sha256 "3e496a4020d4145b99fd508a25fa09336a503a4e8900028421e72c6a4b11f905"
   license "GPL-2.0-or-later"
+  revision 1
 
   bottle do
     rebuild 5
