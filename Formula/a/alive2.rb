@@ -2,10 +2,9 @@ class Alive2 < Formula
   desc "Automatic verification of LLVM optimizations"
   homepage "https://github.com/AliveToolkit/alive2"
   url "https://github.com/AliveToolkit/alive2.git",
-      tag:      "v19.0",
-      revision: "84041960f183aec74d740ff881c95a4ce5234d3d"
+      tag:      "v20.0",
+      revision: "c0f5434f402ad91714ee0952f686cd0f524920ad"
   license "MIT"
-  revision 1
   head "https://github.com/AliveToolkit/alive2.git", branch: "master"
 
   bottle do

@@ -6,10 +6,20 @@ class Ccls < Formula
   #       https://github.com/Homebrew/homebrew-core/pull/106939
   #       https://github.com/MaskRay/ccls/issues/786
   #       https://github.com/MaskRay/ccls/issues/895
-  url "https://github.com/MaskRay/ccls/archive/refs/tags/0.20241108.tar.gz"
-  sha256 "76224663c3554eef9102dca66d804874d0252312d7c7d02941c615c87dcb68af"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/MaskRay/ccls.git", branch: "master"
+
+  stable do
+    url "https://github.com/MaskRay/ccls/archive/refs/tags/0.20241108.tar.gz"
+    sha256 "76224663c3554eef9102dca66d804874d0252312d7c7d02941c615c87dcb68af"
+
+    # Backport support for LLVM 20
+    patch do
+      url "https://github.com/MaskRay/ccls/commit/4331c8958698d42933bf4e132f8a7d61f3cedb8c.patch?full_index=1"
+      sha256 "5420b53cf912268688953a2863e86f6b88334ed548852eaedb9f8ce4871ee034"
+    end
+  end
 
   bottle do
     sha256                               arm64_sequoia: "ece6c26479841524dee0e88a2bf2a777b2574467634a97d97d24faeb727105cc"

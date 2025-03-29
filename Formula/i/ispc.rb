@@ -4,6 +4,7 @@ class Ispc < Formula
   url "https://github.com/ispc/ispc/archive/refs/tags/v1.26.0.tar.gz"
   sha256 "f75b26894af1429a3dc6929ae03e2c9e99bb8c5930eda14add5d2f6674db7afb"
   license "BSD-3-Clause"
+  revision 1
 
   # Upstream sometimes creates releases that use a stable tag (e.g., `v1.2.3`)
   # but are labeled as "pre-release" on GitHub, so it's necessary to use the
@@ -32,6 +33,20 @@ class Ispc < Formula
 
   on_linux do
     depends_on "tbb"
+  end
+
+  # Backport commits for LLVM 20, https://github.com/ispc/ispc/pull/3286
+  patch do
+    url "https://github.com/ispc/ispc/commit/d8082c8e73a7998d2d527c1ac87d5acf1d35aba4.patch?full_index=1"
+    sha256 "f21388d50719bf282b161a59a3dba4b6cb8b4f4b3be5fb88c501a63086566112"
+  end
+  patch do
+    url "https://github.com/ispc/ispc/commit/26e0c53ee7e3639fe37f796ebc402776fd5ac771.patch?full_index=1"
+    sha256 "66a5148a1baf02a64c52faba61094ae186001b7a2595ef42b7b88a05d423301d"
+  end
+  patch do
+    url "https://github.com/ispc/ispc/commit/2e7b817e1a4dbb623d922eb5eec94749002e5585.patch?full_index=1"
+    sha256 "44d4ee4c256180abc9590d640c5fe3d1175102fd9365ab1976a45c64d1ef81ba"
   end
 
   def llvm
