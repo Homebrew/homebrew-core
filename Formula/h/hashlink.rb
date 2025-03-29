@@ -1,23 +1,10 @@
 class Hashlink < Formula
   desc "Virtual machine for Haxe"
   homepage "https://hashlink.haxe.org/"
+  url "https://github.com/HaxeFoundation/hashlink/archive/refs/tags/1.15.tar.gz"
+  sha256 "3c3e3d47ed05139163310cbe49200de8fb220cd343a979cd1f39afd91e176973"
   license "MIT"
   head "https://github.com/HaxeFoundation/hashlink.git", branch: "master"
-
-  stable do
-    url "https://github.com/HaxeFoundation/hashlink/archive/refs/tags/1.14.tar.gz"
-    sha256 "7def473c8fa620011c7359dc36524246c83d0b6a25d495d421750ecb7182cc99"
-
-    # Backport support for mbedtls 3.x
-    patch do
-      url "https://github.com/HaxeFoundation/hashlink/commit/5406694b010f30a244d28626c8fd93fc335adcec.patch?full_index=1"
-      sha256 "4bf2739b2e1177e6ad325829dcd5e4e2b600051549773efbb1b01a53349365a6"
-    end
-    patch do
-      url "https://github.com/HaxeFoundation/hashlink/commit/54e97e34f29e80bcdccdb69af8ccd02bd7c0bc3a.patch?full_index=1"
-      sha256 "d5c1cd0a1aed504b01eee275459cc54d219092265f71f505a5491cced6e0061b"
-    end
-  end
 
   bottle do
     rebuild 2
