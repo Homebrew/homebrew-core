@@ -5,7 +5,7 @@ class Ledit < Formula
   version "2.06"
   sha256 "9fb4fe256ca9e878a0b47dfd43b4c64c6a3f089c9e76193b2db347f0d90855be"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
 
   livecheck do
     url :stable
