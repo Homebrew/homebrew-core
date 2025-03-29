@@ -1,8 +1,8 @@
 class Chainsaw < Formula
   desc "Rapidly Search and Hunt through Windows Forensic Artefacts"
   homepage "https://github.com/WithSecureLabs/chainsaw"
-  url "https://github.com/WithSecureLabs/chainsaw/archive/refs/tags/v2.11.0.tar.gz"
-  sha256 "87a66e39fd6417dfd53d026e72bf2ea9cffc72f3ab5e7b65e633bd4ab95d2a87"
+  url "https://github.com/WithSecureLabs/chainsaw/archive/refs/tags/v2.12.2.tar.gz"
+  sha256 "1233acdf9f8de6c4724b7d7709e7c8052c17d6769cc71fb806cd767f453fd18c"
   license "GPL-3.0-only"
   head "https://github.com/WithSecureLabs/chainsaw.git", branch: "master"
 
@@ -19,6 +19,11 @@ class Chainsaw < Formula
   depends_on "rust" => :build
 
   def install
+    # Fix version mismatch with tag, should be removed later
+    # Issue ref: https://github.com/WithSecureLabs/chainsaw/issues/215
+    odie "Please remove version patch" if version > "2.12.2"
+    inreplace "Cargo.toml", "version = \"2.12.0\"", "version = \"2.12.2\""
+
     system "cargo", "install", *std_cargo_args
   end
 
