@@ -1,8 +1,8 @@
 class Gtk4 < Formula
   desc "Toolkit for creating graphical user interfaces"
   homepage "https://gtk.org/"
-  url "https://download.gnome.org/sources/gtk/4.18/gtk-4.18.2.tar.xz"
-  sha256 "cca5677be4c3e501b49f1c50bcafacba8dcf4bd3a2d016388f834eff274dc159"
+  url "https://download.gnome.org/sources/gtk/4.18/gtk-4.18.3.tar.xz"
+  sha256 "081e1bc0b17db41a935af8d1f6f090fb1988936c42ff734d149f3d004119f8bb"
   license "LGPL-2.1-or-later"
 
   livecheck do
@@ -50,6 +50,7 @@ class Gtk4 < Formula
   end
 
   on_linux do
+    depends_on "wayland-protocols" => :build
     depends_on "libx11"
     depends_on "libxcursor"
     depends_on "libxdamage"
