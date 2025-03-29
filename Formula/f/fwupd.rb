@@ -3,10 +3,9 @@ class Fwupd < Formula
 
   desc "Firmware update daemon"
   homepage "https://github.com/fwupd/fwupd"
-  url "https://github.com/fwupd/fwupd/releases/download/2.0.6/fwupd-2.0.6.tar.xz"
-  sha256 "57d91327c4541490ce731f24d4bcd5301ba7561e264db2f0a4031f48e6d6dae2"
+  url "https://github.com/fwupd/fwupd/releases/download/2.0.7/fwupd-2.0.7.tar.xz"
+  sha256 "50cb8a5c1e66de941bb2be72d2a689cad992b86394e4e42dda58c81ddb847235"
   license "LGPL-2.1-or-later"
-  revision 2
   head "https://github.com/fwupd/fwupd.git", branch: "main"
 
   bottle do
@@ -28,7 +27,6 @@ class Fwupd < Formula
   depends_on "python@3.13" => :build
   depends_on "vala" => :build
 
-  depends_on "gcab"
   depends_on "glib"
   depends_on "gnutls"
   depends_on "json-glib"
@@ -78,15 +76,9 @@ class Fwupd < Formula
                     "-Dpython=#{which(python3)}",
                     "-Dsupported_build=enabled",
                     "-Dplugin_flashrom=disabled",
-                    "-Dplugin_gpio=disabled",
                     "-Dplugin_modem_manager=disabled",
-                    "-Dplugin_msr=disabled",
-                    "-Dplugin_tpm=disabled",
-                    "-Dplugin_uefi_capsule=disabled",
-                    "-Dplugin_uefi_pk=disabled",
-                    # these two are needed for https://github.com/fwupd/fwupd/pull/6147
-                    "-Dplugin_logitech_scribe=disabled",
-                    "-Dplugin_logitech_tap=disabled",
+                    "-Dplugin_uefi_capsule_splash=false",
+                    "-Dtests=false",
                     "-Dvendor_ids_dir=#{Formula["usb.ids"].opt_share}/misc/usb.ids",
                     *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"
