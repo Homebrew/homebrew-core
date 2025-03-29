@@ -45,6 +45,7 @@ algol68g
 algolia
 aliae
 aliddns
+alive2
 aliyun-cli
 aliyunpan
 all-repos
