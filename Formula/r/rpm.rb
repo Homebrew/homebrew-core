@@ -1,8 +1,8 @@
 class Rpm < Formula
   desc "Standard unix software packaging tool"
   homepage "https://rpm.org/"
-  url "https://ftp.osuosl.org/pub/rpm/releases/rpm-4.19.x/rpm-4.19.1.1.tar.bz2"
-  sha256 "874091b80efe66f9de8e3242ae2337162e2d7131e3aa4ac99ac22155e9c521e5"
+  url "https://ftp.osuosl.org/pub/rpm/releases/rpm-4.20.x/rpm-4.20.1.tar.bz2"
+  sha256 "52647e12638364533ab671cbc8e485c96f9f08889d93fe0ed104a6632661124f"
   license "GPL-2.0-only"
   version_scheme 1
   head "https://github.com/rpm-software-management/rpm.git", branch: "master"
@@ -51,6 +51,10 @@ class Rpm < Formula
     depends_on "libomp"
   end
 
+  on_linux do
+    depends_on "elfutils"
+  end
+
   conflicts_with "rpm2cpio", because: "both install `rpm2cpio` binaries"
 
   def python3
@@ -58,7 +62,11 @@ class Rpm < Formula
   end
 
   def install
-    ENV.append "LDFLAGS", "-lomp" if OS.mac?
+    if OS.mac?
+      ENV.append "LDFLAGS", "-lomp"
+      # Work around CMake check_c_compiler_flag not detecting some flags with Apple Clang
+      inreplace "CMakeLists.txt", " -fhardened)", ")"
+    end
 
     # only rpm should go into HOMEBREW_CELLAR, not rpms built
     inreplace ["macros.in", "platform.in"], "@prefix@", HOMEBREW_PREFIX
@@ -87,7 +95,10 @@ class Rpm < Formula
       -DENABLE_TESTSUITE=OFF
       -DWITH_ACL=OFF
       -DWITH_CAP=OFF
+      -DWITH_SEQUOIA=OFF
     ]
+    args += ["-DWITH_LIBELF=OFF", "-DWITH_LIBDW=OFF"] if OS.mac?
+
     system "cmake", "-S", ".", "-B", "_build", *args, *std_cmake_args
     system "cmake", "--build", "_build"
     system "cmake", "--install", "_build"
