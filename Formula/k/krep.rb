@@ -1,8 +1,8 @@
 class Krep < Formula
   desc "High-Performance String Search Utility"
   homepage "https://davidesantangelo.github.io/krep/"
-  url "https://github.com/davidesantangelo/krep/archive/refs/tags/v0.1.7.tar.gz"
-  sha256 "a42f1d70dd1826bcfc5ffc91c9a6f52ff3e85bb47bda7b67038f549dd6c00982"
+  url "https://github.com/davidesantangelo/krep/archive/refs/tags/v0.2.1.tar.gz"
+  sha256 "a1aad2904df970ce557603f19b4d619be6ef464dd4a9c685d361450c50a9cfd4"
   license "BSD-2-Clause"
 
   bottle do
@@ -15,13 +15,11 @@ class Krep < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "6ee3401fc0295b747eb1af5d787538af453240f369c89544f3628fbdd01e05f8"
   end
 
-  # version patch, PR: https://github.com/davidesantangelo/krep/pull/14
-  patch do
-    url "https://github.com/davidesantangelo/krep/commit/d3957a2100961b29ba1259a1d2c8d4028d187e78.patch?full_index=1"
-    sha256 "fcedb45bf86c870173595eb5353ca64d03fc69ff8a074043f6e198f84e13a57a"
-  end
-
   def install
+    # Fix to correct version
+    odie "Remove version patch for v0.2.1" if version >= "0.2.2"
+    inreplace "krep.c", "VERSION \"0.2.2\"", "VERSION \"#{version}\""
+
     system "make", "install", "PREFIX=#{prefix}"
   end
 
