@@ -1,8 +1,8 @@
 class Scrcpy < Formula
   desc "Display and control your Android device"
   homepage "https://github.com/Genymobile/scrcpy"
-  url "https://github.com/Genymobile/scrcpy/archive/refs/tags/v3.1.tar.gz"
-  sha256 "beaa5050a3c45faa77cedc70ad13d88ef26b74d29d52f512b7708671e037d24d"
+  url "https://github.com/Genymobile/scrcpy/archive/refs/tags/v3.2.tar.gz"
+  sha256 "9902a3afd75f9a5da64898ac06ffaf77065dd713a58f47a408630b98f03ba9ce"
   license "Apache-2.0"
 
   livecheck do
@@ -28,8 +28,8 @@ class Scrcpy < Formula
   depends_on "sdl2"
 
   resource "prebuilt-server" do
-    url "https://github.com/Genymobile/scrcpy/releases/download/v3.1/scrcpy-server-v3.1", using: :nounzip
-    sha256 "958f0944a62f23b1f33a16e9eb14844c1a04b882ca175a738c16d23cb22b86c0"
+    url "https://github.com/Genymobile/scrcpy/releases/download/v3.2/scrcpy-server-v3.2"
+    sha256 "b920e0ea01936bf2482f4ba2fa985c22c13c621999e3d33b45baa5acfc1ea3d0"
 
     livecheck do
       formula :parent
