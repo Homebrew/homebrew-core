@@ -3,6 +3,7 @@ class Sysgomon < Formula
   homepage "https://github.com/samirspatel/sysgomon"
   url "https://github.com/samirspatel/sysgomon/archive/refs/tags/v0.1.0.tar.gz"
   sha256 "75d77d161370496f8321560c2f89121c4f591a07119b13e141008a51a9c78666"
+  license "MIT"
 
   depends_on "go" => :build
 
