@@ -105,7 +105,7 @@ jobs:
               path: Formula/.+
               content: \n  bottle do\n
               missing_content:
-                - '\n    sha256.* x86_64_linux: +"[a-fA-F0-9]+"\n'
+                - '\n    sha256.* (x86_64|arm64)_linux: +"[a-fA-F0-9]+"\n'
                 - '\n    sha256.* all: +"[a-fA-F0-9]+"\n'
                 - depends_on :macos
 
