@@ -7,7 +7,8 @@ class Distribution < Formula
   head "https://github.com/time-less-ness/distribution.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "46e6afa7ee3cdc08f4fde478e6235b1df80813391abe507505e1452926d5aff2"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "fb43e41f635c1b01bc7f1d518d871c3f9462cbfebadbb526a484bac260da213a"
   end
 
   def install
