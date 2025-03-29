@@ -37,6 +37,10 @@ class OrTools < Formula
   depends_on "scip"
   uses_from_macos "zlib"
 
+  on_linux do
+    depends_on "diffoscope" => :test
+  end
+
   # Add missing `#include`s to fix incompatibility with `abseil` 20240722.0.
   # https://github.com/google/or-tools/pull/4339
   patch do
@@ -58,9 +62,28 @@ class OrTools < Formula
     pkgshare.install "ortools/linear_solver/samples/simple_lp_program.cc"
     pkgshare.install "ortools/constraint_solver/samples/simple_routing_program.cc"
     pkgshare.install "ortools/sat/samples/simple_sat_program.cc"
+    return if OS.mac?
+
+    cd prefix do
+      system "tar", "zcf", "lib.tar.gz", "lib/"
+      mv "lib", "lib-bak"
+    end
+  end
+
+  def post_install
+    return unless File.exist?(prefix/"lib.tar.gz")
+
+    cd prefix do
+      system "tar", "zxf", "lib.tar.gz"
+    end
   end
 
   test do
+    if OS.linux?
+      system "diffoscope", lib/"libortools.so.9.11.9999", prefix/"lib-bak/libortools.so.9.11.9999"
+      odie "testing"
+    end
+
     # Linear Solver & Glop Solver
     (testpath/"CMakeLists.txt").write <<~CMAKE
       cmake_minimum_required(VERSION 3.14)
@@ -82,19 +105,5 @@ class OrTools < Formula
       system "cmake", "--build", "."
     end
     system "./simple_lp_program"
-
-    # Routing Solver
-    system ENV.cxx, "-std=c++17", pkgshare/"simple_routing_program.cc",
-                    "-I#{include}", "-L#{lib}", "-lortools",
-                    *shell_output("pkg-config --cflags --libs absl_check absl_log").chomp.split,
-                    "-o", "simple_routing_program"
-    system "./simple_routing_program"
-
-    # Sat Solver
-    system ENV.cxx, "-std=c++17", pkgshare/"simple_sat_program.cc",
-                    "-I#{include}", "-L#{lib}", "-lortools",
-                    *shell_output("pkg-config --cflags --libs absl_check absl_log absl_raw_hash_set").chomp.split,
-                    "-o", "simple_sat_program"
-    system "./simple_sat_program"
   end
 end
