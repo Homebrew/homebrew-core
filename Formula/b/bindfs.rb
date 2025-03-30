@@ -4,6 +4,7 @@ class Bindfs < Formula
   url "https://bindfs.org/downloads/bindfs-1.17.7.tar.gz"
   sha256 "c0b060e94c3a231a1d4aa0bcf266ff189981a4ef38e42fbe23296a7d81719b7a"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url "https://bindfs.org/downloads/"
