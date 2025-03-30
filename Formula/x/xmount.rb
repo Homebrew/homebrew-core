@@ -4,6 +4,7 @@ class Xmount < Formula
   url "https://code.sits.lu/foss/xmount/-/archive/1.2.0/xmount-1.2.0.tar.bz2"
   sha256 "07c261e54e1e4cbcd4f7eaaf4f62efcbbbc68c76797ddca704592d99ebed3d10"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
     rebuild 1
