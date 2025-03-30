@@ -4,6 +4,7 @@ class Freerdp < Formula
   url "https://github.com/FreeRDP/FreeRDP/releases/download/3.14.1/freerdp-3.14.1.tar.gz"
   sha256 "2f9a81f8dda223045d3d493790d5d4c2f83edf0afb30eba95da4ce492ed13051"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 arm64_sequoia: "2a7869efd065afc268e08fadd99b9ea73e078a108fda24adb7aa2f414dbb767c"
