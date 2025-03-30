@@ -1986,6 +1986,7 @@ libstrophe
 libsvgtiny
 libsvm
 libtasn1
+libtcod
 libtensorflow
 libtickit
 libtiff

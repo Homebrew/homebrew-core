@@ -1,8 +1,8 @@
 class Libtcod < Formula
   desc "API for roguelike developers"
   homepage "https://github.com/libtcod/libtcod"
-  url "https://github.com/libtcod/libtcod/archive/refs/tags/1.24.0.tar.gz"
-  sha256 "13e7ed49f91b897ac637e29295df8eeac24e284fbd9129bb09fd05dba0dcc1fb"
+  url "https://github.com/libtcod/libtcod/archive/refs/tags/2.0.0.tar.gz"
+  sha256 "86e87fa5ae5da3936fcbf8178dd044aad717c0f610eb9e24da09072bae34f917"
   license "BSD-3-Clause"
 
   bottle do
@@ -23,7 +23,7 @@ class Libtcod < Formula
   depends_on "libtool" => :build
   depends_on "pkgconf" => :build
   depends_on macos: :catalina
-  depends_on "sdl2"
+  depends_on "sdl3"
 
   uses_from_macos "python" => :build
   uses_from_macos "zlib"
@@ -49,8 +49,10 @@ class Libtcod < Formula
         return 0;
       }
     C
+
     system ENV.cc, "-I#{include}", "-L#{lib}", "-ltcod", "version-c.c", "-o", "version-c"
     assert_equal version.to_s, shell_output("./version-c").strip
+
     (testpath/"version-cc.cc").write <<~CPP
       #include <libtcod/libtcod.hpp>
       #include <iostream>
@@ -60,6 +62,7 @@ class Libtcod < Formula
         return 0;
       }
     CPP
+
     system ENV.cxx, "-std=c++17", "-I#{include}", "-L#{lib}", "-ltcod", "version-cc.cc", "-o", "version-cc"
     assert_equal version.to_s, shell_output("./version-cc").strip
   end
