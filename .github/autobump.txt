@@ -3191,6 +3191,7 @@ skylighting
 slackcat
 slackdump
 sleef
+slepc
 sleuthkit
 slides
 slirp4netns
