@@ -8,6 +8,7 @@ class S3ql < Formula
   url "https://github.com/s3ql/s3ql/releases/download/s3ql-5.2.3/s3ql-5.2.3.tar.gz"
   sha256 "892acf8a479fc837256100d820408bc5e2c27c0ba9ee2b5f8aa114d593b5af87"
   license "GPL-3.0-only"
+  revision 1
 
   livecheck do
     url :stable
