@@ -4,6 +4,7 @@ class Squashfuse < Formula
   url "https://github.com/vasi/squashfuse/releases/download/0.6.0/squashfuse-0.6.0.tar.gz"
   sha256 "56ff48814d3a083fad0ef427742bc95c9754d1ddaf9b08a990d4e26969f8eeeb"
   license "BSD-2-Clause"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_linux:  "3eb9a638243d6c68329901cdc71fa5e5302b659d4559549764d604d55bf2355c"
