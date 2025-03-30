@@ -2,7 +2,7 @@ class Ifuse < Formula
   desc "FUSE module for iOS devices"
   homepage "https://libimobiledevice.org/"
   license "LGPL-2.1-or-later"
-  revision 1
+  revision 2
   head "https://github.com/libimobiledevice/ifuse.git", branch: "master"
 
   stable do
