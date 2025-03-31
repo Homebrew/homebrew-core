@@ -19,6 +19,8 @@ class Glab < Formula
   depends_on "go" => :build
 
   def install
+    ENV["CGO_ENABLED"] = "1" if OS.mac?
+    
     system "make"
     bin.install "bin/glab"
     generate_completions_from_executable(bin/"glab", "completion", "--shell")
