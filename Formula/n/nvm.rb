@@ -19,6 +19,8 @@ class Nvm < Formula
       [ -e "$NVM_DIR" ] || mkdir -p "$NVM_DIR"
       [ -e "$NVM_DIR/nvm.sh" ] || ln -s #{opt_libexec}/nvm.sh "$NVM_DIR/nvm.sh"
       [ -e "$NVM_DIR/nvm-exec" ] || ln -s #{opt_libexec}/nvm-exec "$NVM_DIR/nvm-exec"
+      # Also symlink bash_completion for consistency with manual install instructions https://github.com/nvm-sh/nvm/blob/master/README.md#manual-install
+      [ -e "$NVM_DIR/bash_completion ] || ln -s #{opt_prefix}/etc/bash_completion.d/nvm "$NVM_DIR/bash_completion"
     SH
     libexec.install "nvm.sh", "nvm-exec"
     prefix.install_symlink libexec/"nvm-exec"
@@ -34,10 +36,10 @@ class Nvm < Formula
       You should create NVM's working directory if it doesn't exist:
         mkdir ~/.nvm
 
-      Add the following to your shell profile e.g. ~/.profile or ~/.zshrc:
+      Add the following to your shell profile e.g. ~/.profile, ~/.bashrc, or ~/.zshrc:
         export NVM_DIR="$HOME/.nvm"
-        [ -s "#{opt_prefix}/nvm.sh" ] && \\. "#{opt_prefix}/nvm.sh"  # This loads nvm
-        [ -s "#{opt_prefix}/etc/bash_completion.d/nvm" ] && \\. "#{opt_prefix}/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+        [ -s "$NVM_DIR/nvm.sh" ] && \\. "$NVM_DIR/nvm.sh"  # This loads nvm
+        [ -s "$NVM_DIR/bash_completion" ] && \\. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
       You can set $NVM_DIR to any location, but leaving it unchanged from
       #{prefix} will destroy any nvm-installed Node installations
