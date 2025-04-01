@@ -4,7 +4,7 @@ class AvroCpp < Formula
   url "https://www.apache.org/dyn/closer.lua?path=avro/avro-1.11.3/cpp/avro-cpp-1.11.3.tar.gz"
   sha256 "fba242aef77ec819d07561fcba93751721956de8d0cae8e1f2f300b54b331bae"
   license "Apache-2.0"
-  revision 5
+  revision 6
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "e73e3635f152d88ce0c8da13877b5209a603e36827041ec5c720753b30a2a17c"

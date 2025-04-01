@@ -4,6 +4,7 @@ class Votca < Formula
   url "https://github.com/votca/votca/archive/refs/tags/v2025.tar.gz"
   sha256 "ee2ac59c858ee41ef3ecf636b263464cac5895c0ee9c8f97b1aafca4b8b76350"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "0af8d4ac732328083b4365843fd5f7d9966ea3c0b2a93a877b14e8e98854f1fc"
@@ -40,6 +41,7 @@ class Votca < Formula
       "-DBUILD_XTP=ON",
       "-DCMAKE_DISABLE_FIND_PACKAGE_GROMACS=ON",
       "-DENABLE_RPATH_INJECT=ON",
+      "-DPYrdkit_FOUND=OFF",
     ]
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args, *args
     system "cmake", "--build", "build"

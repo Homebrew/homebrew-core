@@ -6,6 +6,7 @@ class Gnuradio < Formula
   url "https://github.com/gnuradio/gnuradio/archive/refs/tags/v3.10.12.0.tar.gz"
   sha256 "fe78ad9f74c8ebf93d5c8ad6fa2c13236af330f3c67149d91a0647b3dc6f3958"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://github.com/gnuradio/gnuradio.git", branch: "main"
 
   livecheck do

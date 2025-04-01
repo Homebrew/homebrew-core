@@ -9,6 +9,7 @@ class Manticoresearch < Formula
     { "GPL-2.0-only" => { with: "x11vnc-openssl-exception" } }, # galera
     { any_of: ["Unlicense", "MIT"] }, # uni-algo (our formula is too new)
   ]
+  revision 1
   version_scheme 1
   head "https://github.com/manticoresoftware/manticoresearch.git", branch: "master"
 
@@ -48,6 +49,12 @@ class Manticoresearch < Formula
   uses_from_macos "expat"
   uses_from_macos "libxml2"
   uses_from_macos "zlib"
+
+  # Support for Boost 1.88.0, pr ref: https://github.com/manticoresoftware/manticoresearch/pull/3275
+  patch do
+    url "https://github.com/manticoresoftware/manticoresearch/commit/48a9a7b7f4bf50e1f7cb61a31e9b721a20058ea1.patch?full_index=1"
+    sha256 "7667efafe8e805133a1aae53cf8cfcc35b04ad19feb00646c0f6603f97211645"
+  end
 
   def install
     # Avoid statically linking to boost

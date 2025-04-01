@@ -4,6 +4,7 @@ class Dwarfs < Formula
   url "https://github.com/mhx/dwarfs/releases/download/v0.11.3/dwarfs-0.11.3.tar.xz"
   sha256 "5ccfc293d74e0509a848d10416b9682cf7318c8fa9291ba9e92e967b9a6bb994"
   license "GPL-3.0-or-later"
+  revision 1
 
   livecheck do
     url :stable
@@ -57,6 +58,10 @@ class Dwarfs < Formula
     build 1499
     cause "Not all required C++20 features are supported"
   end
+
+  # Support Boost 1.88.0.
+  # TODO: Replace with upstream fix
+  patch :DATA
 
   def install
     args = %W[
@@ -129,3 +134,59 @@ class Dwarfs < Formula
     assert_equal version.to_s, shell_output("./test").chomp
   end
 end
+
+__END__
+diff --git a/src/os_access_generic.cpp b/src/os_access_generic.cpp
+index 93d60d11..e87a459e 100644
+--- a/src/os_access_generic.cpp
++++ b/src/os_access_generic.cpp
+@@ -26,6 +26,7 @@
+ #include <folly/portability/Unistd.h>
+ 
+ #if __has_include(<boost/process/v1/search_path.hpp>)
++#define BOOST_PROCESS_VERSION 1
+ #include <boost/process/v1/search_path.hpp>
+ #else
+ #include <boost/process/search_path.hpp>
+diff --git a/test/tools_test.cpp b/test/tools_test.cpp
+index a9a9f711..7f1b172c 100644
+--- a/test/tools_test.cpp
++++ b/test/tools_test.cpp
+@@ -47,7 +47,15 @@
+ #endif
+ 
+ #include <boost/asio/io_context.hpp>
++#if __has_include(<boost/process/v1/args.hpp>)
++#define BOOST_PROCESS_VERSION 1
++#include <boost/process/v1/args.hpp>
++#include <boost/process/v1/async.hpp>
++#include <boost/process/v1/child.hpp>
++#include <boost/process/v1/io.hpp>
++#else
+ #include <boost/process.hpp>
++#endif
+ 
+ #include <fmt/format.h>
+ #if FMT_VERSION >= 110000
+diff --git a/tools/src/tool/pager.cpp b/tools/src/tool/pager.cpp
+index 9f8ddea7..4ea67b23 100644
+--- a/tools/src/tool/pager.cpp
++++ b/tools/src/tool/pager.cpp
+@@ -23,8 +23,17 @@
+ #include <string_view>
+ #include <vector>
+ 
++#include <boost/asio/buffer.hpp>
+ #include <boost/asio/io_context.hpp>
++#if __has_include(<boost/process/v1/args.hpp>)
++#define BOOST_PROCESS_VERSION 1
++#include <boost/process/v1/args.hpp>
++#include <boost/process/v1/async.hpp>
++#include <boost/process/v1/child.hpp>
++#include <boost/process/v1/io.hpp>
++#else
+ #include <boost/process.hpp>
++#endif
+ 
+ #include <dwarfs/os_access.h>
+ #include <dwarfs/tool/pager.h>

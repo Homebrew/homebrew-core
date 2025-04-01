@@ -2,7 +2,7 @@ class OsrmBackend < Formula
   desc "High performance routing engine"
   homepage "https://project-osrm.org/"
   license "BSD-2-Clause"
-  revision 7
+  revision 8
   head "https://github.com/Project-OSRM/osrm-backend.git", branch: "master"
 
   # TODO: Remove `conflicts_with "mapnik"` in release that has following commit:

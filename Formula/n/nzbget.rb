@@ -4,6 +4,7 @@ class Nzbget < Formula
   url "https://github.com/nzbgetcom/nzbget/archive/refs/tags/v24.8.tar.gz"
   sha256 "8d67af6c0aab025ca3da2f701ef62ce9c14a1cedc2e55600fd7e872ef60c0fdf"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/nzbgetcom/nzbget.git", branch: "develop"
 
   bottle do

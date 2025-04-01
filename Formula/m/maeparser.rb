@@ -4,7 +4,7 @@ class Maeparser < Formula
   url "https://github.com/schrodinger/maeparser/archive/refs/tags/v1.3.1.tar.gz"
   sha256 "a8d80f67d1b9be6e23b9651cb747f4a3200132e7d878a285119c86bf44568e36"
   license "MIT"
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "f6b3e9889ac81328137f42c232abc8ed084f6fccd7f8f9d228925e52d17734b0"

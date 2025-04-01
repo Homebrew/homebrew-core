@@ -6,7 +6,7 @@ class LeelaZero < Formula
       tag:      "v0.17",
       revision: "3f297889563bcbec671982c655996ccff63fa253"
   license "GPL-3.0-or-later"
-  revision 9
+  revision 10
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "85cae46d6ad50e1b55c9e1abbaa02248745b34108f2cfc0808392da051f395eb"
@@ -35,6 +35,11 @@ class LeelaZero < Formula
   end
 
   def install
+    # Workaround as upstream targets C++14 for older distros but Boost.Spirit 1.88.0 needs C++17 std::optional
+    # https://github.com/leela-zero/leela-zero/blob/next/CONTRIBUTING.md#upgrading-dependencies
+    inreplace "CMakeLists.txt", "set(CMAKE_CXX_STANDARD 14)", "set(CMAKE_CXX_STANDARD 17)"
+    ENV.append "CXXFLAGS", "-D_LIBCPP_ENABLE_CXX17_REMOVED_UNARY_BINARY_FUNCTION" if ENV.compiler == :clang
+
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"

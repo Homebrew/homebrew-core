@@ -4,6 +4,7 @@ class Pdns < Formula
   url "https://downloads.powerdns.com/releases/pdns-4.9.4.tar.bz2"
   sha256 "cac466d7cb056434c60632e554be50543cb0cecd9d3b33bb5785c149b5979fc1"
   license "GPL-2.0-or-later"
+  revision 1
 
   # The first-party download page (https://www.powerdns.com/downloads) isn't
   # always updated for newer versions, so for now we have to check the

@@ -4,7 +4,7 @@ class Mapcrafter < Formula
   url "https://github.com/mapcrafter/mapcrafter/archive/refs/tags/v.2.4.tar.gz"
   sha256 "f3b698d34c02c2da0c4d2b7f4e251bcba058d0d1e4479c0418eeba264d1c8dae"
   license "GPL-3.0-or-later"
-  revision 13
+  revision 14
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "d4556cc5cdbe849c4749c90f875acf0d6c8fd23161067c32896f21b7774baf55"

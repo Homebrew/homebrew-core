@@ -4,7 +4,7 @@ class I2pd < Formula
   url "https://github.com/PurpleI2P/i2pd/archive/refs/tags/2.56.0.tar.gz"
   sha256 "eb83f7e98afeb3704d9ee0da2499205f73bab0b1becaf4494ccdcbe4295f8550"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "2c9b463410459b90a2f019b21fbf428dafa4933f7e41353b71e699da7d526254"

@@ -4,7 +4,7 @@ class Pokerstove < Formula
   url "https://github.com/andrewprock/pokerstove/archive/refs/tags/v1.1.tar.gz"
   sha256 "ee263f579846b95df51cf3a4b6beeb2ea5ea0450ce7f1c8d87ed6dd77b377220"
   license "BSD-3-Clause"
-  revision 4
+  revision 5
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "978e66f99c443c8d099a702d1c0dea99055183d8b16f81a3ca793538bef81828"

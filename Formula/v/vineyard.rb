@@ -4,7 +4,7 @@ class Vineyard < Formula
   url "https://github.com/v6d-io/v6d/releases/download/v0.24.2/v6d-0.24.2.tar.gz"
   sha256 "a3acf9a9332bf5cce99712f9fd00a271b4330add302a5a8bbfd388e696a795c8"
   license "Apache-2.0"
-  revision 1
+  revision 2
 
   bottle do
     sha256                               arm64_sequoia: "561165ad084f00d50a006cbc129d2f680d09fc0ad125d2f3984a95bcbcc72321"
@@ -49,6 +49,23 @@ class Vineyard < Formula
     inreplace boost_asio_post_files, /^(\s*)(\S+)\.post\(/, "\\1boost::asio::post(\\2,"
     inreplace "src/server/services/etcd_meta_service.cc", "backoff_timer_->cancel(ec);", "backoff_timer_->cancel();"
 
+    # Workaround to support Boost 1.88.0+
+    # TODO: Try upstreaming fix along with above
+    boost_process_files = %w[
+      src/server/util/etcd_launcher.cc
+      src/server/util/etcd_member.cc
+      src/server/util/kubectl.cc
+      src/server/util/proc.cc
+      src/server/util/proc.h
+      src/server/util/redis_launcher.h
+    ]
+    inreplace boost_process_files, '#include "boost/process.hpp"', ""
+    inreplace "src/server/util/etcd_launcher.h", '#include "boost/process/child.hpp"', ""
+    ENV.append "CXXFLAGS", "-std=c++17"
+    ENV.append "CXXFLAGS", "-DBOOST_PROCESS_VERSION=1"
+    headers = %w[args async child env environment io search_path]
+    headers.each { |header| ENV.append "CXXFLAGS", "-include boost/process/v1/#{header}.hpp" }
+
     python3 = "python3.13"
     # LLVM is keg-only.
     llvm = deps.map(&:to_formula).find { |f| f.name.match?(/^llvm(@\d+)?$/) }
@@ -60,6 +77,7 @@ class Vineyard < Formula
       "-DCMAKE_CXX_STANDARD=17",
       "-DCMAKE_CXX_STANDARD_REQUIRED=TRUE",
       "-DCMAKE_FIND_PACKAGE_PREFER_CONFIG=ON", # for newer protobuf
+      "-DCMAKE_POLICY_VERSION_MINIMUM=3.5",
       "-DLIBGRAPELITE_INCLUDE_DIRS=#{Formula["libgrape-lite"].opt_include}",
       "-DOPENSSL_ROOT_DIR=#{Formula["openssl@3"].opt_prefix}",
       "-DPYTHON_EXECUTABLE=#{which(python3)}",

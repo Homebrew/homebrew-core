@@ -4,7 +4,7 @@ class ScummvmTools < Formula
   url "https://downloads.scummvm.org/frs/scummvm-tools/2.9.0/scummvm-tools-2.9.0.tar.xz"
   sha256 "1b4bbd7a7ccf4584bfc2c0142b7c1b4e5db97c39d8d214757c72d50e0905b71d"
   license "GPL-3.0-or-later"
-  revision 1
+  revision 2
   head "https://github.com/scummvm/scummvm-tools.git", branch: "master"
 
   livecheck do

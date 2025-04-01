@@ -2,6 +2,7 @@ class Edencommon < Formula
   desc "Shared library for Watchman and Eden projects"
   homepage "https://github.com/facebookexperimental/edencommon"
   license "MIT"
+  revision 1
   head "https://github.com/facebookexperimental/edencommon.git", branch: "main"
 
   # Remove stable block when patch is no longer needed.

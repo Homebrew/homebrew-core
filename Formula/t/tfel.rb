@@ -2,6 +2,7 @@ class Tfel < Formula
   desc "Code generation tool dedicated to material knowledge for numerical mechanics"
   homepage "https://thelfer.github.io/tfel/web/index.html"
   license "GPL-1.0-or-later"
+  revision 1
   head "https://github.com/thelfer/tfel.git", branch: "master"
 
   stable do

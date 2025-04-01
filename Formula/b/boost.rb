@@ -1,10 +1,9 @@
 class Boost < Formula
   desc "Collection of portable C++ source libraries"
   homepage "https://www.boost.org/"
-  url "https://github.com/boostorg/boost/releases/download/boost-1.87.0/boost-1.87.0-b2-nodocs.tar.xz"
-  sha256 "3abd7a51118a5dd74673b25e0a3f0a4ab1752d8d618f4b8cea84a603aeecc680"
+  url "https://github.com/boostorg/boost/releases/download/boost-1.88.0.beta1/boost-1.88.0.beta1-b2-nodocs.tar.xz"
+  sha256 "a137bc52f38273802ae6c12aaadc305a9e755a17773ce71bc03e214fb891361e"
   license "BSL-1.0"
-  revision 1
   head "https://github.com/boostorg/boost.git", branch: "master"
 
   livecheck do
@@ -31,6 +30,20 @@ class Boost < Formula
 
   uses_from_macos "bzip2"
   uses_from_macos "zlib"
+
+  # Fix for `ncmpcpp`, pr ref: https://github.com/boostorg/range/pull/157
+  patch :p3 do
+    url "https://github.com/boostorg/range/commit/9ac89e9936b826c13e90611cb9a81a7aa0508d20.patch?full_index=1"
+    sha256 "914464ffa1d53b3bf56ee0ff1a78c25799170c99c9a1cda075e6298f730236ad"
+    directory "boost"
+  end
+
+  # Backport fix for C++14 support in Boost.DLL
+  patch :p3 do
+    url "https://github.com/boostorg/dll/commit/c30df76b0492827c6e3b6177c733f45987094426.patch?full_index=1"
+    sha256 "f6604b344816cf03a63943cddd9430f95b2b7de39c1db176c1da3df4f695829c"
+    directory "boost"
+  end
 
   def install
     # Force boost to compile with the desired compiler
