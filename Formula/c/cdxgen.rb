@@ -1,8 +1,8 @@
 class Cdxgen < Formula
   desc "Creates CycloneDX Software Bill-of-Materials (SBOM) for projects"
   homepage "https://github.com/CycloneDX/cdxgen"
-  url "https://registry.npmjs.org/@cyclonedx/cdxgen/-/cdxgen-11.2.2.tgz"
-  sha256 "4952a313c611dc7a2341d97dc28d1809fc2e7cfb7bb9858b53353ba4fd2a16e0"
+  url "https://registry.npmjs.org/@cyclonedx/cdxgen/-/cdxgen-11.2.3.tgz"
+  sha256 "78369fccaa389210a37e8e672f0c9d0930611efefb60459be0a56ea54b6bfdd6"
   license "Apache-2.0"
 
   bottle do
@@ -17,6 +17,7 @@ class Cdxgen < Formula
   depends_on "node"
 
   uses_from_macos "ruby"
+  uses_from_macos "swift"
 
   def install
     system "npm", "install", *std_npm_args
