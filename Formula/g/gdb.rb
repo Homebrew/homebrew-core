@@ -31,6 +31,8 @@ class Gdb < Formula
     on_intel do
       depends_on "expat"
     end
+    depends_on "pkgconf" => :build
+    depends_on "guile"
   end
 
   on_system :linux, macos: :ventura_or_newer do
@@ -60,6 +62,7 @@ class Gdb < Formula
       --with-lzma
       --with-python=#{which("python3.13")}
       --disable-binutils
+      --with-guile=guile-3.0
     ]
 
     # Fix: Apple Silicon build, this is only way to build native GDB
