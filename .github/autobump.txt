@@ -1665,6 +1665,7 @@ jsrepo
 jsvc
 jtbl
 juicefs
+juise
 juju
 julia
 jupyterlab
