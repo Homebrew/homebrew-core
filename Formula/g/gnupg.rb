@@ -23,7 +23,7 @@ class Gnupg < Formula
   end
 
   depends_on "pkgconf" => :build
-  depends_on "gnutls"
+  depends_on "ntbtls"
   depends_on "libassuan"
   depends_on "libgcrypt"
   depends_on "libgpg-error"
