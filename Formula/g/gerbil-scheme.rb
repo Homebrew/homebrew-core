@@ -1,10 +1,11 @@
 class GerbilScheme < Formula
   desc "Opinionated dialect of Scheme designed for Systems Programming"
   homepage "https://cons.io"
-  url "https://github.com/vyzo/gerbil/archive/refs/tags/v0.17.tar.gz"
-  sha256 "1e81265aba7e9022432649eb26b2e5c85a2bb631a315e4fa840b14cf336b2483"
+  # submodules + build system requires `.git` directory
+  url "https://github.com/mighty-gerbils/gerbil.git",
+    tag:      "v0.18.1",
+    revision: "23c30a6062cd7e63f9d85300ce01585bb9035d2d"
   license any_of: ["LGPL-2.1-or-later", "Apache-2.0"]
-  revision 3
 
   livecheck do
     url :stable
@@ -25,13 +26,10 @@ class GerbilScheme < Formula
     sha256 x86_64_linux:   "878b862448fe401b00980688c6c880ef4344cc88272bb29ed6c1ddb1ce14460f"
   end
 
-  depends_on "gambit-scheme"
-  depends_on "leveldb"
-  depends_on "libyaml"
-  depends_on "lmdb"
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
   depends_on "openssl@3"
 
-  uses_from_macos "libxml2"
   uses_from_macos "sqlite"
   uses_from_macos "zlib"
 
@@ -44,17 +42,17 @@ class GerbilScheme < Formula
   end
 
   def install
-    cd "src" do
-      system "./configure", "--prefix=#{prefix}",
-                            "--with-gambit=#{Formula["gambit-scheme"].opt_prefix}",
-                            "--enable-leveldb",
-                            "--enable-libxml",
-                            "--enable-libyaml",
-                            "--enable-lmdb"
-      system "./build.sh"
-      system "./install"
+    system "./configure", *std_configure_args
+    system "make"
+    ENV.deparallelize
+    system "make", "install"
 
-      mv "#{share}/emacs/site-lisp/gerbil", "#{share}/emacs/site-lisp/gerbil-scheme"
+    rm prefix/"bin"
+    mkdir prefix/"bin"
+
+    cd prefix/"current/bin" do
+      ln "gerbil", prefix/"bin", verbose: true
+      cp %w[gxc gxensemble gxi gxpkg gxprof gxtags gxtest], prefix/"bin"
     end
   end
 

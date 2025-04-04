@@ -1151,6 +1151,7 @@ gabo
 gallery-dl
 gama
 gambit
+gambit-scheme
 game-music-emu
 gammaray
 garble
