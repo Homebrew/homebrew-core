@@ -1,8 +1,8 @@
 class Aqua < Formula
   desc "Declarative CLI Version manager"
   homepage "https://aquaproj.github.io/"
-  url "https://github.com/aquaproj/aqua/archive/refs/tags/v2.46.0.tar.gz"
-  sha256 "99998a9fe72a26cc852992a40dc689aeb269bfcd19360549d222a4e066d51162"
+  url "https://github.com/aquaproj/aqua/archive/refs/tags/v2.47.0.tar.gz"
+  sha256 "50784439c2f1dee4a0f73bda664ea96e056bd9f070d92a4c3979a3ceaacc26e8"
   license "MIT"
   head "https://github.com/aquaproj/aqua.git", branch: "main"
 
@@ -21,6 +21,13 @@ class Aqua < Formula
   end
 
   depends_on "go" => :build
+
+  # Fix to correct version output
+  # PR ref : https://github.com/aquaproj/aqua/pull/3717
+  patch do
+    url "https://github.com/aquaproj/aqua/commit/a02bc2d7d6d131ac778f4d8a22adc7c50cd3b772.patch?full_index=1"
+    sha256 "a0f79a2f036c81f87753640cc8df41f90a8d5c099942ee2beb8efeac03cb687b"
+  end
 
   def install
     ldflags = "-s -w -X main.version=#{version} -X main.commit=#{tap.user} -X main.date=#{time.iso8601}"
