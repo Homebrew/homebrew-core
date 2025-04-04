@@ -1,29 +1,19 @@
-class ApacheFlink < Formula
+class ApacheFlinkAT1 < Formula
   desc "Scalable batch and stream data processing"
   homepage "https://flink.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=flink/flink-2.0.0/flink-2.0.0-bin-scala_2.12.tgz"
-  mirror "https://archive.apache.org/dist/flink/flink-2.0.0/flink-2.0.0-bin-scala_2.12.tgz"
-  version "2.0.0"
-  sha256 "04fe5be9841a10d30e0e1cd682ec4d015a86603f710f2f857c43c75beae97aad"
+  url "https://www.apache.org/dyn/closer.lua?path=flink/flink-1.20.1/flink-1.20.1-bin-scala_2.12.tgz"
+  mirror "https://archive.apache.org/dist/flink/flink-1.20.1/flink-1.20.1-bin-scala_2.12.tgz"
+  version "1.20.1"
+  sha256 "5fc4551cd11aee83a9569392339c43fb32a60847db456e1cb4fa64c8daae0186"
   license "Apache-2.0"
-  head "https://github.com/apache/flink.git", branch: "master"
 
-  livecheck do
-    url "https://flink.apache.org/downloads/"
-    regex(/href=.*?flink[._-]v?(\d+(?:\.\d+)+)-bin[^"' >]*?\.t/i)
-  end
+  keg_only :versioned_formula
 
-  bottle do
-    sha256 cellar: :any_skip_relocation, all: "fbe2fb53fc2f5ac4138833d16af72d80e6ee2f8a3ba38b5fa41cf993d5710ea0"
-  end
-
-  # Java 11, 17 (Default), and 21 are supported.
-  # See: https://github.com/apache/flink?tab=readme-ov-file#building-apache-flink-from-source
-  depends_on "openjdk@21"
+  depends_on "openjdk@11"
 
   def install
     inreplace "conf/config.yaml" do |s|
-      s.sub!(/^env:/, "env.java.home: #{Language::Java.java_home("21")}\n\\0")
+      s.sub!(/^env:/, "env.java.home: #{Language::Java.java_home("11")}\n\\0")
     end
     libexec.install Dir["*"]
     bin.write_exec_script libexec/"bin/flink"
