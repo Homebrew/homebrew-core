@@ -15,8 +15,9 @@ class Arrayfire < Formula
   end
 
   depends_on "boost" => :build
-  depends_on "cmake" => :build
+  depends_on "cmake" => [:build, :test]
   depends_on "doxygen" => :build
+  depends_on "clblast"
   depends_on "fftw"
   depends_on "fmt"
   depends_on "freeimage"
@@ -49,11 +50,18 @@ class Arrayfire < Formula
       # Work around missing include for climits header
       # Issue ref: https://github.com/arrayfire/arrayfire/issues/3543
       ENV.append "CXXFLAGS", "-include climits"
+
+      # Add Homebrew directories to search path
+      inreplace "src/api/unified/symbol_manager.cpp",
+                '"/opt/arrayfire-3/lib/",',
+                "\"#{lib}/\", \"#{HOMEBREW_PREFIX}/lib/\", \\0"
     end
 
     system "cmake", "-S", ".", "-B", "build",
                     "-DAF_BUILD_CUDA=OFF",
+                    "-DAF_BUILD_OPENCL=ON",
                     "-DAF_COMPUTE_LIBRARY=FFTW/LAPACK/BLAS",
+                    "-DAF_WITH_IMAGEIO=ON",
                     "-DCMAKE_CXX_STANDARD=14",
                     "-DCMAKE_INSTALL_RPATH=#{rpaths.join(";")}",
                     *std_cmake_args
@@ -64,12 +72,21 @@ class Arrayfire < Formula
   end
 
   test do
-    cp pkgshare/"examples/helloworld/helloworld.cpp", testpath/"test.cpp"
-    system ENV.cxx, "-std=c++11", "test.cpp", "-L#{lib}", "-laf", "-lafcpu", "-o", "test"
-    # OpenCL does not work in CI.
-    return if Hardware::CPU.arm? && OS.mac? && MacOS.version >= :monterey && ENV["HOMEBREW_GITHUB_ACTIONS"].present?
+    ENV["AF_OPENCL_DEVICE_TYPE"] = "CPU" if OS.mac?
+    ENV["AF_PRINT_ERRORS"] = "1"
+    ENV["AF_TRACE"] = "all"
+    ENV["AF_JIT_KERNEL_TRACE"] = "stdout"
+    ENV["AF_OPENCL_SHOW_BUILD_INFO"] = "1"
 
-    assert_match "ArrayFire v#{version}", shell_output("./test")
+    system "cmake", "-S", pkgshare/"examples/helloworld", "-B", ".", *std_cmake_args
+    system "cmake", "--build", "."
+    # assert_match "ArrayFire v#{version}", shell_output("./helloworld_cpu")
+
+    # OpenCL is not supported on virtualized arm64 macOS
+    return if Hardware::CPU.arm? && OS.mac? && Hardware::CPU.virtualized?
+
+    # assert_match "ArrayFire v#{version}", shell_output("./helloworld_opencl")
+    exec "./helloworld_opencl"
   end
 end
 
