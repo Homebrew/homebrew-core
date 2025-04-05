@@ -222,6 +222,16 @@ class Rust < Formula
     end
   end
 
+  def caveats
+    <<~EOS
+      If you have installed `rustup`, the toolchain provided by this package may
+      introduce conflicts. To address this issue, you may want to unlink `rust`
+      and link it with `rustup` instead under the name `system`:
+        brew unlink rust
+        rustup toolchain link system "$(brew --prefix rust)"
+    EOS
+  end
+
   test do
     require "utils/linkage"
 
