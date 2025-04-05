@@ -20,10 +20,11 @@ class Jmxtrans < Formula
   deprecate! date: "2024-07-26", because: :unmaintained
 
   depends_on "maven" => :build
-  depends_on arch: :x86_64 # openjdk@8 is not supported on ARM
   depends_on "openjdk@8"
 
-  uses_from_macos "netcat" => :test
+  on_macos do
+    depends_on arch: :x86_64 # openjdk@8 is not supported on ARM
+  end
 
   def install
     ENV["JAVA_HOME"] = Formula["openjdk@8"].opt_prefix
@@ -54,14 +55,21 @@ class Jmxtrans < Formula
     rm Dir[libexec/"target/generated-resources/appassembler/jsw/jmxtrans/{bin,lib}/*wrapper-linux-x86-32*"]
   end
 
+  def port_open?(ip_address, port, seconds = 1)
+    Timeout.timeout(seconds) do
+      TCPSocket.new(ip_address, port).close
+    end
+    true
+  rescue Errno::ECONNREFUSED, Errno::EHOSTUNREACH, Timeout::Error
+    false
+  end
+
   test do
     jmx_port = free_port
-    fork do
-      ENV["JMX_PORT"] = jmx_port.to_s
-      exec bin/"jmxtrans", pkgshare/"example.json"
-    end
-    sleep 2
-
-    system "nc", "-z", "localhost", jmx_port
+    pid = spawn({ "JMX_PORT" => jmx_port.to_s }, bin/"jmxtrans", pkgshare/"example.json")
+    sleep 5
+    assert port_open?("localhost", jmx_port)
+  ensure
+    Process.kill "TERM", pid
   end
 end
