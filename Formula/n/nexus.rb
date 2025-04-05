@@ -1,8 +1,11 @@
 class Nexus < Formula
   desc "Repository manager for binary software components"
   homepage "https://www.sonatype.com/"
-  url "https://github.com/sonatype/nexus-public/archive/refs/tags/release-3.76.1-01.tar.gz"
-  sha256 "e2fe13994f4ffcc3e5389ea90e14a1dcc7af92ce37015a961f89bbf151d29c86"
+  url "https://github.com/sonatype/nexus-public.git",
+    tag:      "release-3.79.0-09",
+    revision: "dc5baca2ae85fcba02d65d82deee0ad671d235fc"
+  # url "https://github.com/sonatype/nexus-public/archive/refs/tags/release-3.79.0-09.tar.gz"
+  # sha256 "30da3fd2427ad977bc7ddf8960f53cf3594db31a94b8f9a27aed2290846d89e2"
   license "EPL-1.0"
 
   # As of writing, upstream is publishing both v2 and v3 releases. The "latest"
@@ -55,11 +58,14 @@ class Nexus < Formula
     end
 
     system "mvn", "install", "-DskipTests", "-Dpublic"
-    system "unzip", "-o", "-d", "target", "assemblies/nexus-base-template/target/nexus-base-template-#{version}.zip"
+    # breaking changes
+    #
+    # system "unzip", "-o", "-d", "target", "assemblies/nexus-base-template/target/nexus-base-template-#{version}.zip"
 
-    rm(Dir["target/nexus-base-template-#{version}/bin/*.bat"])
-    rm_r("target/nexus-base-template-#{version}/bin/contrib")
-    libexec.install Dir["target/nexus-base-template-#{version}/*"]
+    # rm(Dir["target/nexus-base-template-#{version}/bin/*.bat"])
+    # rm_r("target/nexus-base-template-#{version}/bin/contrib")
+    # libexec.install Dir["target/nexus-base-template-#{version}/*"]
+    share.install Dir["*"]
     (bin/"nexus").write_env_script libexec/"bin/nexus", java_env
   end
 
