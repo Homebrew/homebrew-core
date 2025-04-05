@@ -30,7 +30,7 @@ class Onnxruntime < Formula
   depends_on "safeint" => :build
   depends_on "abseil"
   depends_on "nsync"
-  depends_on "onnx"
+  depends_on "onnxnostaticreg"
   depends_on "protobuf"
   depends_on "re2"
 
