@@ -1,8 +1,8 @@
 class Neomutt < Formula
   desc "E-mail reader with support for Notmuch, NNTP and much more"
   homepage "https://neomutt.org/"
-  url "https://github.com/neomutt/neomutt/archive/refs/tags/20250113.tar.gz"
-  sha256 "cc7835e80fd72af104a8e146e009e93e687cefbc6c11725ee2ed11d7377486ff"
+  url "https://github.com/neomutt/neomutt/archive/refs/tags/20250404.tar.gz"
+  sha256 "732d4fd006856030971c99ef0e569846d0358feababea115a353f90ab02d3142"
   license "GPL-2.0-or-later"
   head "https://github.com/neomutt/neomutt.git", branch: "main"
 
