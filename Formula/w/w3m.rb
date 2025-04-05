@@ -2,29 +2,23 @@ class W3m < Formula
   desc "Pager/text based browser"
   homepage "https://w3m.sourceforge.net/"
   license "w3m"
-  revision 8
   head "https://github.com/tats/w3m.git", branch: "master"
 
   stable do
-    url "https://deb.debian.org/debian/pool/main/w/w3m/w3m_0.5.3.orig.tar.gz"
-    sha256 "e994d263f2fd2c22febfbe45103526e00145a7674a0fda79c822b97c2770a9e3"
+    url "https://deb.debian.org/debian/pool/main/w/w3m/w3m_0.5.3+git20230121.orig.tar.xz"
+    sha256 "974d1095a47f1976150a792fe9c5a44cc821c02b6bdd714a37a098386250e03a"
+    version "0.5.3_git20230121"
 
-    # Upstream is effectively Debian https://github.com/tats/w3m at this point.
-    # The patches fix a pile of CVEs
+    # Fix for CVE-2023-4255
     patch do
-      url "https://salsa.debian.org/debian/w3m/-/raw/debian/0.5.3-38/debian/patches/010_upstream.patch"
-      sha256 "39e80b36bc5213d15a3ef015ce8df87f7fab5f157e784c7f06dc3936f28d11bc"
-    end
-
-    patch do
-      url "https://salsa.debian.org/debian/w3m/-/raw/debian/0.5.3-38/debian/patches/020_debian.patch"
-      sha256 "08bd013064dc544dc2e70599ea1c9e90f18998bc207dd8053188417fbdaeefb2"
+      url "https://sources.debian.org/data/main/w/w3m/0.5.3%2Bgit20230121-2.1/debian/patches/0002-CVE-2023-4255.patch"
+      sha256 "7a84744bae63f3e470b877038da5a221ed8289395d300a904ac5a8626b0a9cea"
     end
   end
 
   livecheck do
     url "https://deb.debian.org/debian/pool/main/w/w3m/"
-    regex(/href=.*?w3m[._-]v?(\d+(?:\.\d+)+)\.orig\.t/i)
+    regex(/href=.*?w3m[._-]v?(\d+(?:\.\d+)+(?:\+git\d+)?)\.orig\.t/i)
   end
 
   bottle do
@@ -48,18 +42,10 @@ class W3m < Formula
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
-  on_linux do
-    depends_on "gettext"
-    depends_on "libbsd"
-  end
-
   def install
-    # Fix compile with newer Clang
-    ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1200
-
-    system "./configure", "--prefix=#{prefix}",
-                          "--disable-image",
-                          "--with-ssl=#{Formula["openssl@3"].opt_prefix}"
+    system "./configure", "--disable-image",
+                          "--with-ssl=#{Formula["openssl@3"].opt_prefix}",
+                          *std_configure_args
     system "make", "install"
   end
 
