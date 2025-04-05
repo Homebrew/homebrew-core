@@ -4,6 +4,7 @@ class Openslide < Formula
   url "https://github.com/openslide/openslide/releases/download/v4.0.0/openslide-4.0.0.tar.xz"
   sha256 "cc227c44316abb65fb28f1c967706eb7254f91dbfab31e9ae6a48db6cf4ae562"
   license "LGPL-2.1-only"
+  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_sequoia:  "cc59b3af87286b37130ec9a898f182814aa291268a9e2548e5525e765f4996df"
