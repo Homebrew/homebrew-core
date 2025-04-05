@@ -35,6 +35,7 @@ class Bonniexx < Formula
   end
 
   def install
+    ENV.cxx11
     system "./configure", "--disable-debug",
                           "--prefix=#{prefix}",
                           "--mandir=#{man}"
