@@ -17,6 +17,7 @@ class Asdf < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "1b11cb41bc93a3cebef6569e49be6f5d0e10ab5ec73a9d2ace497051be47d86f"
     sha256 cellar: :any_skip_relocation, sonoma:        "adbd7a982debcdc997738056fdcc6660e374b827f5343de7718a71dd23328426"
     sha256 cellar: :any_skip_relocation, ventura:       "adbd7a982debcdc997738056fdcc6660e374b827f5343de7718a71dd23328426"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3ba150264f752477093acb8439bf79783d140adccae666e16a6be67665d9c155"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "e8faea147297d8c56864d414580966e398edf447b47a21d125c7accddb886fed"
   end
 
