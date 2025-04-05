@@ -34,9 +34,10 @@ class Bob < Formula
     mkdir_p "#{testpath}/.local/share/bob"
     mkdir_p "#{testpath}/.local/share/nvim-bin"
 
-    system bin/"bob", "install", "v0.9.0"
-    assert_match "v0.9.0", shell_output("#{bin}/bob list")
-    assert_path_exists testpath/".local/share/bob/v0.9.0"
+    neovim_version = "v0.9.0"
+    system bin/"bob", "install", neovim_version
+    assert_match neovim_version, shell_output("#{bin}/bob list")
+    assert_path_exists testpath/".local/share/bob"/neovim_version
     system bin/"bob", "erase"
   end
 end
