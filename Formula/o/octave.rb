@@ -1,9 +1,9 @@
 class Octave < Formula
   desc "High-level interpreted language for numerical computing"
   homepage "https://octave.org/index.html"
-  url "https://ftp.gnu.org/gnu/octave/octave-9.4.0.tar.xz"
-  mirror "https://ftpmirror.gnu.org/octave/octave-9.4.0.tar.xz"
-  sha256 "fff911909ef79f95ba244dab5b8c1cb8c693a6c447d31deabb53994f17cb7b3d"
+  url "https://ftp.gnu.org/gnu/octave/octave-10.1.0.tar.xz"
+  mirror "https://ftpmirror.gnu.org/octave/octave-10.1.0.tar.xz"
+  sha256 "051d092fe7abbed4ed9b74c8c40f3dfb1b9aa9eede770ac6c7e9c8c9e895e0c9"
   license "GPL-3.0-or-later"
 
   # New tarballs appear on https://ftp.gnu.org/gnu/octave/ before a release is
