@@ -11,6 +11,7 @@ class Oxipng < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "d06dcc039c3bf834b3113edaf709b8078be595da4aaacc67506e8233db7279e2"
     sha256 cellar: :any_skip_relocation, sonoma:        "a6d39e08ae92fb6fccf442b2ae25df9d10bea2ab455f81165a3b2b554b097b2d"
     sha256 cellar: :any_skip_relocation, ventura:       "0982090f6d9c96ce7cff3fe657a821be958d466a9fa3e22887f4cb2111523419"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4c098f3480e7bcc0122689e66db4dbb71ca591891e8f8e3091d6e744a2fec48a"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "0c5729f0c726dfe3a4b0cff7dbf3e149c07e392d260db707c99a80ed0b0e4264"
   end
 
