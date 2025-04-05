@@ -1,11 +1,20 @@
 class Vcpkg < Formula
   desc "C++ Library Manager"
   homepage "https://github.com/microsoft/vcpkg"
-  url "https://github.com/microsoft/vcpkg-tool/archive/refs/tags/2025-03-13.tar.gz"
-  version "2025.03.13"
-  sha256 "63cd7075c5beae841112933b4c82856d8a8196b5eb62d661e7457746d2fbf639"
   license "MIT"
   head "https://github.com/microsoft/vcpkg-tool.git", branch: "main"
+
+  stable do
+    url "https://github.com/microsoft/vcpkg-tool/archive/refs/tags/2025-03-22.tar.gz"
+    version "2025.03.22"
+    sha256 "767b78481bc518e1886a5f8a7473059e21b7d5305d036a1e87241c2014413955"
+
+    # cmake 4.0 patch, upstream pr ref, https://github.com/microsoft/vcpkg-tool/pull/1632
+    patch do
+      url "https://github.com/strega-nil/vcpkg-tool/commit/2bea367a563f990e53224bda37df7926518882cd.patch?full_index=1"
+      sha256 "e528b7e3030c5b9abae25654eeeb7e096c2e40740e5cfedecf3b3b1c9992615b"
+    end
+  end
 
   # The source repository has pre-release tags with the same
   # format as the stable tags.
@@ -47,6 +56,7 @@ class Vcpkg < Formula
                     "-DVCPKG_VERSION=#{version}",
                     "-DVCPKG_DEPENDENCY_EXTERNAL_FMT=ON",
                     "-DVCPKG_DEPENDENCY_CMAKERC=ON",
+                    "-DCMAKE_POLICY_VERSION_MINIMUM=3.5", # FIXME: workaround for CMake 4+
                     *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
