@@ -19,12 +19,21 @@ class Activemq < Formula
   depends_on "openjdk"
 
   def install
-    useless = OS.mac? ? "linux" : "{macosx,linux-x86-32}"
-    buildpath.glob("bin/#{useless}*").map(&:rmtree)
+    if OS.mac?
+      wrapper_dir = "macosx"
+    else
+      # https://github.com/apache/activemq/blob/main/assembly/src/release/bin/linux-x86-64/activemq#L176-L183
+      arch = Hardware::CPU.intel? ? "x86" : Utils.safe_popen_read("uname", "-p").downcase.strip
+      wrapper_dir = "#{OS.kernel_name.downcase}-#{arch}-#{Hardware::CPU.bits}"
+      odie "Remove workaround for arm64 linux!" unless buildpath.glob("bin/linux-{arm,aarch}*").empty?
+      mv "bin/linux-x86-64", "bin/#{wrapper_dir}" unless Hardware::CPU.intel?
+    end
+
+    useless = OS.mac? ? "linux" : "macosx"
+    rm_r buildpath.glob("bin/#{useless}*")
+    rm buildpath.glob("bin/#{wrapper_dir}/{wrapper,libwrapper.{so,jnilib}}")
 
     libexec.install buildpath.children
-    wrapper_dir = OS.mac? ? "macosx" : "#{OS.kernel_name.downcase}-#{Hardware::CPU.arch}".tr("_", "-")
-    libexec.glob("bin/#{wrapper_dir}/{wrapper,libwrapper.{so,jnilib}}").map(&:unlink)
     (bin/"activemq").write_env_script libexec/"bin/activemq", Language::Java.overridable_java_home_env
 
     wrapper = Formula["java-service-wrapper"].opt_libexec

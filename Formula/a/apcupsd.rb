@@ -29,7 +29,12 @@ class Apcupsd < Formula
   depends_on "gd"
   depends_on "libusb-compat"
 
+  on_linux do
+    depends_on "systemd" # for shutdown
+  end
+
   def install
+    ENV.prepend_path "PATH", Formula["systemd"].opt_sbin if OS.linux?
     sysconfdir = etc/name
     args = %W[
       --prefix=#{prefix}

@@ -40,12 +40,17 @@ class Aalib < Formula
     # Workaround for newer Clang
     ENV.append_to_cflags "-Wno-implicit-int" if DevelopmentTools.clang_build_version >= 1403
 
-    system "./configure", "--mandir=#{man}",
-                          "--infodir=#{info}",
-                          "--enable-shared=yes",
-                          "--enable-static=yes",
-                          "--without-x",
-                          *std_configure_args
+    args = %W[
+      --mandir=#{man}
+      --infodir=#{info}
+      --enable-shared=yes
+      --enable-static=yes
+      --without-x
+    ]
+    # Help old config scripts identify arm64 linux
+    args << "--host=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+
+    system "./configure", *args, *std_configure_args
     system "make", "install"
   end
 
