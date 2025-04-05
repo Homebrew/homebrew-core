@@ -1,10 +1,11 @@
 class Glab < Formula
   desc "Open-source GitLab command-line tool"
   homepage "https://gitlab.com/gitlab-org/cli"
-  url "https://gitlab.com/gitlab-org/cli/-/archive/v1.55.0/cli-v1.55.0.tar.gz"
-  sha256 "21f58698b92035461e8e8ba9040429f4b5a0f6d528d8333834ef522a973384c8"
+  url "https://gitlab.com/gitlab-org/cli.git",
+    tag:      "v1.55.0",
+    revision: "a806d3d2ae8515ca43be48a83598c04bb71c9328"
   license "MIT"
-  head "https://gitlab.com/gitlab-org/cli.git", branch: "trunk"
+  head "https://gitlab.com/gitlab-org/cli.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "3af9f7cae3c5ee6b52bf3cebbefd581878a1db6656ef6c89cb9cba0a7fc18abe"
@@ -19,8 +20,8 @@ class Glab < Formula
 
   def install
     ENV["CGO_ENABLED"] = "1" if OS.mac?
-
-    system "make", "GLAB_VERSION=v#{version}"
+    
+    system "make"
     bin.install "bin/glab"
     generate_completions_from_executable(bin/"glab", "completion", "--shell")
   end
