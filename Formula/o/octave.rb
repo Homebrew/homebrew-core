@@ -1,11 +1,10 @@
 class Octave < Formula
   desc "High-level interpreted language for numerical computing"
   homepage "https://octave.org/index.html"
-  url "https://ftpmirror.gnu.org/gnu/octave/octave-9.4.0.tar.xz"
-  mirror "https://ftp.gnu.org/gnu/octave/octave-9.4.0.tar.xz"
-  sha256 "fff911909ef79f95ba244dab5b8c1cb8c693a6c447d31deabb53994f17cb7b3d"
+  url "https://ftpmirror.gnu.org/gnu/octave/octave-10.2.0.tar.xz"
+  mirror "https://ftp.gnu.org/gnu/octave/octave-10.2.0.tar.xz"
+  sha256 "c9a0b0f83381866e816842e83eb35042d9dbc9d684557ba776e9e30292b2f76b"
   license "GPL-3.0-or-later"
-  revision 1
 
   # New tarballs appear on https://ftp.gnu.org/gnu/octave/ before a release is
   # announced, so we check the octave.org download page instead.
@@ -84,15 +83,6 @@ class Octave < Formula
   cxxstdlib_check :skip
 
   def install
-    # Default configuration passes all linker flags to mkoctfile, to be
-    # inserted into every oct/mex build. This is unnecessary and can cause
-    # cause linking problems.
-    inreplace "src/mkoctfile.in.cc",
-              /%OCTAVE_CONF_OCT(AVE)?_LINK_(DEPS|OPTS)%/,
-              '""'
-
-    ENV.prepend_path "PKG_CONFIG_PATH", Formula["qt"].opt_libexec/"lib/pkgconfig" if OS.mac?
-
     system "./bootstrap" if build.head?
     args = [
       "--disable-silent-rules",
@@ -153,14 +143,14 @@ class Octave < Formula
       { return ovl (42); }
     CPP
     system bin/"octave", "--eval", <<~MATLAB
-      mkoctfile ('-v', '-std=c++11', '-L#{lib}/octave/#{version}', 'oct_demo.cc');
+      mkoctfile ('-v', '-std=c++17', '-L#{lib}/octave/#{version}', 'oct_demo.cc');
       assert(oct_demo, 42)
     MATLAB
     # Test FLIBS environment variable
     system bin/"octave", "--eval", <<~MATLAB
       args = strsplit (mkoctfile ('-p', 'FLIBS'));
       args = args(~cellfun('isempty', args));
-      mkoctfile ('-v', '-std=c++11', '-L#{lib}/octave/#{version}', args{:}, 'oct_demo.cc');
+      mkoctfile ('-v', '-std=c++17', '-L#{lib}/octave/#{version}', args{:}, 'oct_demo.cc');
       assert(oct_demo, 42)
     MATLAB
     ENV["QT_QPA_PLATFORM"] = "minimal"
