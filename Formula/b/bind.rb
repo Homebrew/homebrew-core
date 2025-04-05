@@ -8,11 +8,21 @@ class Bind < Formula
   # "version_scheme" because someone upgraded to 9.15.0, and required a
   # downgrade.
 
-  url "https://downloads.isc.org/isc/bind9/9.20.7/bind-9.20.7.tar.xz"
-  sha256 "43323c8d22d2144282c37b4060ec11e98c24835e225688876fad08ba7b95dca6"
+  # TODO: Uncomment below when patch is no longer needed.
+  # url "https://downloads.isc.org/isc/bind9/9.20.7/bind-9.20.7.tar.xz"
+  # sha256 "43323c8d22d2144282c37b4060ec11e98c24835e225688876fad08ba7b95dca6"
   license "MPL-2.0"
+  revision 1
   version_scheme 1
   head "https://gitlab.isc.org/isc-projects/bind9.git", branch: "main"
+
+  # TODO: Remove `stable` block when patch is no longer needed.
+  stable do
+    url "https://downloads.isc.org/isc/bind9/9.20.7/bind-9.20.7.tar.xz"
+    sha256 "43323c8d22d2144282c37b4060ec11e98c24835e225688876fad08ba7b95dca6"
+
+    patch :DATA
+  end
 
   # BIND indicates stable releases with an even-numbered minor (e.g., x.2.x)
   # and the regex below only matches these versions.
@@ -104,3 +114,52 @@ class Bind < Formula
     system bin/"dig", "ü.cl"
   end
 end
+
+__END__
+diff --git i/lib/isc/xml.c w/lib/isc/xml.c
+index 7dd9424..ed8ee94 100644
+--- i/lib/isc/xml.c
++++ w/lib/isc/xml.c
+@@ -19,6 +19,7 @@
+ #include <libxml/parser.h>
+ #include <libxml/xmlversion.h>
+ 
++#ifndef __APPLE__
+ static isc_mem_t *isc__xml_mctx = NULL;
+ 
+ static void *
+@@ -44,17 +45,20 @@ isc__xml_free(void *ptr) {
+ 	isc_mem_free(isc__xml_mctx, ptr);
+ }
+ 
++#endif /* !__APPLE__ */
+ #endif /* HAVE_LIBXML2 */
+ 
+ void
+ isc__xml_initialize(void) {
+ #ifdef HAVE_LIBXML2
++#ifndef __APPLE__
+ 	isc_mem_create(&isc__xml_mctx);
+ 	isc_mem_setname(isc__xml_mctx, "libxml2");
+ 	isc_mem_setdestroycheck(isc__xml_mctx, false);
+ 
+ 	RUNTIME_CHECK(xmlMemSetup(isc__xml_free, isc__xml_malloc,
+ 				  isc__xml_realloc, isc__xml_strdup) == 0);
++#endif /* !__APPLE__ */
+ 
+ 	xmlInitParser();
+ #endif /* HAVE_LIBXML2 */
+@@ -69,10 +73,8 @@ isc__xml_shutdown(void) {
+ }
+ 
+ void
+-isc__xml_setdestroycheck(bool check) {
+-#if HAVE_LIBXML2
++isc__xml_setdestroycheck(bool check ISC_ATTTR_UNUSED) {
++#if defined(HAVE_LIBXML2) && !defined(__APPLE__)
+ 	isc_mem_setdestroycheck(isc__xml_mctx, check);
+-#else
+-	UNUSED(check);
+-#endif
++#endif /* HAVE_LIBXML2 && !__APPLE__ */
+ }
