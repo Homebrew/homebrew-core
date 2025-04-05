@@ -1,8 +1,8 @@
 class Wangle < Formula
   desc "Modular, composable client/server abstractions framework"
   homepage "https://github.com/facebook/wangle"
-  url "https://github.com/facebook/wangle/archive/refs/tags/v2025.03.10.00.tar.gz"
-  sha256 "5d26ffc54fb47ecb041dcaf9d31e5f14fd3426b427108e3a87fb115211a00d11"
+  url "https://github.com/facebook/wangle/archive/refs/tags/v2025.03.31.00.tar.gz"
+  sha256 "7529e3673dc8105e65ab512fafe93d3a3980745de393becff1db00f6a916876d"
   license "Apache-2.0"
   head "https://github.com/facebook/wangle.git", branch: "main"
 
@@ -35,6 +35,8 @@ class Wangle < Formula
     linker_flags = %w[-dead_strip_dylibs]
     args << "-DCMAKE_SHARED_LINKER_FLAGS=-Wl,#{linker_flags.join(",")}" if OS.mac?
 
+    # FIXME: workaround for CMake 4+
+    args << "-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
     system "cmake", "-S", "wangle", "-B", "build/shared", "-DBUILD_SHARED_LIBS=ON", *args, *std_cmake_args
     system "cmake", "--build", "build/shared"
     system "cmake", "--install", "build/shared"
@@ -55,7 +57,7 @@ class Wangle < Formula
     (testpath/"cmake").install resource("FindSodium.cmake")
 
     (testpath/"CMakeLists.txt").write <<~CMAKE
-      cmake_minimum_required(VERSION 3.5)
+      cmake_minimum_required(VERSION 3.10)
       project(Echo LANGUAGES CXX)
       set(CMAKE_CXX_STANDARD 17)
 
