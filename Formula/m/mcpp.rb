@@ -41,12 +41,21 @@ class Mcpp < Formula
     # Fix compile with newer Clang
     ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
 
-    system "./configure", *std_configure_args,
-                          "--enable-mcpplib"
+    # expand.c:713:21: error: assignment to 'char *' from incompatible pointer type 'LOCATION *' {aka 'struct location *'}
+    ENV.append_to_cflags "-Wno-error=incompatible-pointer-types"
+
+    args = []
+    # Help old config scripts identify arm64 linux
+    args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+
+    system "./configure", "--enable-mcpplib", *args, *std_configure_args
     system "make", "install"
   end
 
   test do
+    # fix `warning: Unknown encoding: C.utf8`
+    ENV["LC_ALL"] = "en_US.UTF-8"
+
     (testpath/"test.c.in").write <<~C
       #define RET 5
       int main() { return RET; }
