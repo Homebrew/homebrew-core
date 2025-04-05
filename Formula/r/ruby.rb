@@ -132,37 +132,39 @@ class Ruby < Formula
       end
     end
 
-    return if build.head? # Use bundled RubyGems for --HEAD (will be newer)
+    unless build.head? # Use bundled RubyGems for --HEAD (will be newer)
+      # This is easier than trying to keep both current & versioned Ruby
+      # formulae repeatedly updated with Rubygem patches.
+      resource("rubygems").stage do
+        ENV.prepend_path "PATH", bin
 
-    # This is easier than trying to keep both current & versioned Ruby
-    # formulae repeatedly updated with Rubygem patches.
-    resource("rubygems").stage do
-      ENV.prepend_path "PATH", bin
+        system bin/"ruby", "setup.rb", "--prefix=#{buildpath}/vendor_gem"
+        rg_in = lib/"ruby/#{api_version}"
+        rg_gems_in = lib/"ruby/gems/#{api_version}"
 
-      system bin/"ruby", "setup.rb", "--prefix=#{buildpath}/vendor_gem"
-      rg_in = lib/"ruby/#{api_version}"
-      rg_gems_in = lib/"ruby/gems/#{api_version}"
+        # Remove bundled Rubygem and Bundler
+        rm_r rg_in/"bundler"
+        rm rg_in/"bundler.rb"
+        rm_r Dir[rg_gems_in/"gems/bundler-*"]
+        rm Dir[rg_gems_in/"specifications/default/bundler-*.gemspec"]
+        rm_r rg_in/"rubygems"
+        rm rg_in/"rubygems.rb"
+        rm bin/"gem"
 
-      # Remove bundled Rubygem and Bundler
-      rm_r rg_in/"bundler"
-      rm rg_in/"bundler.rb"
-      rm_r Dir[rg_gems_in/"gems/bundler-*"]
-      rm Dir[rg_gems_in/"specifications/default/bundler-*.gemspec"]
-      rm_r rg_in/"rubygems"
-      rm rg_in/"rubygems.rb"
-      rm bin/"gem"
-
-      # Drop in the new version.
-      rg_in.install Dir[buildpath/"vendor_gem/lib/*"]
-      (rg_gems_in/"gems").install Dir[buildpath/"vendor_gem/gems/*"]
-      (rg_gems_in/"specifications/default").install Dir[buildpath/"vendor_gem/specifications/default/*"]
-      bin.install buildpath/"vendor_gem/bin/gem" => "gem"
-      (libexec/"gembin").install buildpath/"vendor_gem/bin/bundle" => "bundle"
-      (libexec/"gembin").install_symlink "bundle" => "bundler"
+        # Drop in the new version.
+        rg_in.install Dir[buildpath/"vendor_gem/lib/*"]
+        (rg_gems_in/"gems").install Dir[buildpath/"vendor_gem/gems/*"]
+        (rg_gems_in/"specifications/default").install Dir[buildpath/"vendor_gem/specifications/default/*"]
+        bin.install buildpath/"vendor_gem/bin/gem" => "gem"
+        (libexec/"gembin").install buildpath/"vendor_gem/bin/bundle" => "bundle"
+        (libexec/"gembin").install_symlink "bundle" => "bundler"
+      end
     end
 
-    # remove all lockfiles in bin folder
-    rm Dir[bin/"*.lock"]
+    # Customize rubygems to look/install in the global gem directory
+    # instead of in the Cellar, making gems last across reinstalls
+    config_file = lib/"ruby/#{api_version}/rubygems/defaults/operating_system.rb"
+    config_file.write rubygems_config
   end
 
   def post_install
@@ -176,19 +178,13 @@ class Ruby < Formula
     rm_r(Dir[HOMEBREW_PREFIX/"lib/ruby/gems/#{api_version}/gems/bundler-*"])
     rubygems_bindir.install_symlink Dir[libexec/"gembin/*"]
 
-    # Customize rubygems to look/install in the global gem directory
-    # instead of in the Cellar, making gems last across reinstalls
-    config_file = lib/"ruby/#{api_version}/rubygems/defaults/operating_system.rb"
-    config_file.unlink if config_file.exist?
-    config_file.write rubygems_config(api_version)
-
     # Create the sitedir and vendordir that were skipped during install
     %w[sitearchdir vendorarchdir].each do |dir|
       mkdir_p `#{bin}/ruby -rrbconfig -e 'print RbConfig::CONFIG["#{dir}"]'`
     end
   end
 
-  def rubygems_config(api_version)
+  def rubygems_config
     <<~RUBY
       module Gem
         class << self
@@ -205,7 +201,7 @@ class Ruby < Formula
             "lib",
             "ruby",
             "gems",
-            "#{api_version}"
+            RbConfig::CONFIG['ruby_version']
           ]
 
           @homebrew_path ||= File.join(*path)
