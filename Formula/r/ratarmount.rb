@@ -6,6 +6,7 @@ class Ratarmount < Formula
   url "https://github.com/mxmlnkn/ratarmount/archive/refs/tags/v1.0.0.tar.gz"
   sha256 "fc5fadfc4dc268613eb3df832a0b3a3bc7fd40cd119b6aff83beaaa29ed05254"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_linux:  "f9e6cc9dacbba3ef90ca0f09e9c652d68333e2bdd1d08f08bef54fc7e897eceb"

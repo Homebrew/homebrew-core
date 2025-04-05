@@ -4,6 +4,7 @@ class Tup < Formula
   url "https://github.com/gittup/tup/archive/refs/tags/v0.8.tar.gz"
   sha256 "45ca35c4c1d140f3faaab7fabf9d68fd9c21074af2af9a720cff4b27cab47d07"
   license "GPL-2.0-only"
+  revision 1
   head "https://github.com/gittup/tup.git", branch: "master"
 
   bottle do
