@@ -39,6 +39,9 @@ class Ollama < Formula
 
     system "go", "generate", "./..."
     system "go", "build", *std_go_args(ldflags:)
+
+    # Install shell completions
+    generate_completions_from_executable(bin/"ollama", "--shell-completion")
   end
 
   service do
