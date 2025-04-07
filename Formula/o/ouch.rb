@@ -1,8 +1,8 @@
 class Ouch < Formula
   desc "Painless compression and decompression for your terminal"
   homepage "https://github.com/ouch-org/ouch"
-  url "https://github.com/ouch-org/ouch/archive/refs/tags/0.5.1.tar.gz"
-  sha256 "46cc2b14f53de2f706436df59300eb90c5a58f08ac8c738fd976fcb8ec0cd335"
+  url "https://github.com/ouch-org/ouch/archive/refs/tags/0.6.0.tar.gz"
+  sha256 "c1430e3b99481eacd1802f6a9cd8dd837d4534cff974a29914d15d8130d19b16"
   license "MIT"
   head "https://github.com/ouch-org/ouch.git", branch: "main"
 
@@ -23,6 +23,10 @@ class Ouch < Formula
   uses_from_macos "xz"
   uses_from_macos "zlib"
 
+  on_linux do
+    depends_on "llvm" => :build
+  end
+
   def install
     # for completion and manpage generation
     ENV["OUCH_ARTIFACTS_FOLDER"] = buildpath
@@ -42,13 +46,13 @@ class Ouch < Formula
     (testpath/"file1").write "Hello"
     (testpath/"file2").write "World!"
 
-    %w[tar zip tar.bz2 tar.gz tar.xz tar.zst].each do |format|
+    %w[tar zip 7z tar.bz2 tar.bz3 tar.lz4 tar.gz tar.xz tar.zst tar.sz tar.br].each do |format|
       system bin/"ouch", "compress", "file1", "file2", "archive.#{format}"
       assert_path_exists testpath/"archive.#{format}"
 
       system bin/"ouch", "decompress", "-y", "archive.#{format}", "--dir", testpath/format
-      assert_equal "Hello", (testpath/format/"archive/file1").read
-      assert_equal "World!", (testpath/format/"archive/file2").read
+      assert_equal "Hello", (testpath/format/"file1").read
+      assert_equal "World!", (testpath/format/"file2").read
     end
   end
 end
