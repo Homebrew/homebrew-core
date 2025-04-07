@@ -47,6 +47,7 @@ class Nvm < Formula
     EOS
   end
 
+
   test do
     output = pipe_output("NODE_VERSION=homebrewtest #{prefix}/nvm-exec 2>&1")
     refute_match(/No such file or directory/, output)
