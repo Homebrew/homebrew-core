@@ -1,4 +1,5 @@
 class Bornagain < Formula
+  include Language::Python::Virtualenv
   require "etc"
 
   desc "Simulate and fit neutron and x-ray reflectometry and GISAS"
@@ -9,166 +10,81 @@ class Bornagain < Formula
 
   license "GPL-3.0-or-later"
 
-  depends_on "cmake" => [:build, "3.20"]
+  depends_on :macos
+  depends_on arch: [:arm64, :x86_64]
+
+  depends_on "cmake" => :build
   depends_on "fftw"
   depends_on "gsl"
   depends_on "libcerf"
-  depends_on "libformfactor" => "0.3.2"
-  depends_on "libheinz" => "2.0.1"
+  depends_on "libformfactor"
+  depends_on "libheinz"
   depends_on "libtiff"
-  depends_on "python@3"
-  depends_on "qt@6"
+  depends_on "python"
+  depends_on "qt"
 
-  def build_dir
-    "#{buildpath}/build/"
+  resource "setuptools" do
+    url "https://files.pythonhosted.org/packages/a9/5a/0db4da3bc908df06e5efae42b44e75c81dd52716e10192ff36d0c1c8e379/setuptools-78.1.0.tar.gz"
+    sha256 "18fd474d4a82a5f83dac888df697af65afa82dec7323d09c3e37d1f14288da54"
   end
 
-  def local_dir
-    "#{build_dir}/var/local/"
+  resource "numpy" do
+    url "https://files.pythonhosted.org/packages/e1/78/31103410a57bc2c2b93a3597340a8119588571f6a4539067546cb9a0bfac/numpy-2.2.4.tar.gz"
+    sha256 "9ba03692a45d3eef66559efe1d1096c4b9b75c0986b5dff5530c378fb8331d4f"
   end
 
-  def nproc
-    [Etc.nprocessors - 2, 1].max
+  resource "matplotlib" do
+    url "https://files.pythonhosted.org/packages/2f/08/b89867ecea2e305f408fbb417139a8dd941ecf7b23a2e02157c36da546f0/matplotlib-3.10.1.tar.gz"
+    sha256 "e8d2d0e3881b129268585bf4765ad3ee73a4591d77b9a18c214ac7e3a79fb2ba"
   end
 
-  def cmake_exe
-    "#{Formula["cmake"].opt_bin.realpath}/cmake"
-  end
-
-  def ctest_exe
-    "#{Formula["cmake"].opt_bin.realpath}/ctest"
-  end
-
-  def python3_exe
-    # default Python
-    "python3"
-  end
-
-  def qt_cmake_dir
-    Formula["qt@6"].prefix/"lib/cmake/"
-  end
-
-  def ff_cmake_dir
-    Formula["libformfactor"].prefix/"cmake/"
-  end
-
-  def heinz_cmake_dir
-    Formula["libheinz"].prefix/"cmake/"
-  end
-
-  def create_venv(root, prompt = "")
-    puts ".: Creating a Python virtualenv in '#{root}'..."
-
-    if prompt.empty?
-      system python3_exe, "-m", "venv", "--clear", root
-    else
-      system python3_exe, "-m", "venv", "--clear", "--prompt", prompt, root
-    end
-
-    "#{root}/bin/python3"
+  resource "fabio" do
+    url "https://files.pythonhosted.org/packages/ac/47/cd067e985b8a2476024b64373538c7e2b65b53415b39229e253d168d6d78/fabio-2024.9.0.tar.gz"
+    sha256 "f873df51f468531c11aae7e0cd88a14f221f4ef09431fbc5a6ca67b1ed47535b"
   end
 
   def install
-    odie ".: Error: This BornAgain install script is intended for MacOS only." unless OS.mac?
+    build_dir = buildpath/"build/"
+    local_dir =  build_dir/"var/local/"
+    nproc = [Etc.nprocessors - 2, 1].max
+    cmake_exe = Formula["cmake"].opt_bin.realpath/"cmake"
+    python3_exe = "python3"
+    qt_cmake_dir = Formula["qt"].prefix/"lib/cmake/"
+    ff_cmake_dir = Formula["libformfactor"].prefix/"cmake/"
+    heinz_cmake_dir = Formula["libheinz"].prefix/"cmake/"
+    brew_bin_pth = (Pathname HOMEBREW_PREFIX/"bin/").realpath
 
-    if Hardware::CPU.arm?
-      puts ".: ARM architecture detected."
-    elsif Hardware::CPU.intel?
-      puts ".: Intel architecture detected."
-    else
-      odie ".: Error: Hardware architecture is not supported."
-    end
+    # Build a Python virtual environment with the required packages
+    venv = virtualenv_create(libexec, "python3")
+    venv_root = venv.instance_variable_get(:@venv_root)
+    venv_py = venv_root/"bin/python3"
+    venv.pip_install resources
 
-    if Hardware::CPU.is_64_bit?
-      puts ".: 64-bit architecture detected."
-    else
-      odie ".: Error: Hardware architecture is not supported."
-    end
-
-    cmake = Formula["cmake"]
-    cmake_dir = cmake.prefix.realpath
-    cmake_ver = cmake.version
-    # path of the Python executable
-    py_dir = `#{python3_exe} -c "import sys; print(sys.executable)"`.strip
-    # major and minor version of the Python platform
-    py_ver = `#{python3_exe} --version`.split[1]
-    py_v = py_ver.split(".")
-    py_v_major = py_v[0].to_i
-    py_v_minor = py_v[1].to_i
-
-    puts ".: CMake #{cmake_ver} at '#{cmake_dir}'"
-    puts ".: Python #{py_ver} at '#{py_dir}'"
-    puts ".: BornAgain #{version} build directory: '#{build_dir}'"
-    puts ".: BornAgain installation prefix: '#{prefix}'"
-    puts ".: std_cmake_args = ", std_cmake_args.inspect
-
-    odie ".: Error: BornAgain requires Python 3.10 or later." if py_v_major < 3 || py_v_minor < 10
-
-    # Python virtual environment
-    venv_root = "#{local_dir}/venv"
-    venv_py = create_venv(venv_root)
-
-    puts "   - Installing the required packages in the Python virtualenv..."
-    system venv_py, "-m", "pip", "install", "numpy>=2.0.0", "setuptools", "wheel"
-
-    py_pkgs = ["numpy", "setuptools", "wheel"]
-    py_pkg_info = {}
-    name_rx = /^\s*Name\s*:\s*([\w_]+)/i        # eg. 'Name: numpy'
-    version_rx = /^\s*Version\s*:\s*([\d.]+)/i  # eg., 'Version: 1.2.3'
-
-    py_pkgs.each do |pkg|
-      # extract package info via `pip show`
-      info = `#{venv_py} -m pip show #{pkg}`
-      nm = info.match(name_rx)[1]
-      ver = info.match(version_rx)[1]
-      py_pkg_info[nm] = ver
-    end
-
-    puts ".: Python virtualenv:"
-    py_pkg_info.each do |nm, ver|
-      puts "   #{nm} : #{ver}"
-    end
-
-    puts ".: Building BornAgain..."
-
+    # Build BornAgain
     ba_cmd = [cmake_exe, "-S", buildpath.to_s, "-B", build_dir.to_s,
               *std_cmake_args, "-DBA_TESTS=OFF",
               "-DCMAKE_PREFIX_PATH=#{qt_cmake_dir};#{ff_cmake_dir};#{heinz_cmake_dir};",
               "-DBORNAGAIN_PYTHON=ON", "-DBA_PY_PACK=ON",
               "-DPython3_EXECUTABLE=#{venv_py}"]
 
-    puts "   >> " + ba_cmd.join(" ")
-
     # CMake configuration step
     system(*ba_cmd)
 
     # CMake build step
     system cmake_exe, "--build", build_dir.to_s,
-           "--config", "Release", "--parallel", nproc
+          "--config", "Release", "--parallel", nproc
 
-    puts "   - Building BornAgain Python wheel..."
     system cmake_exe, "--build", build_dir.to_s,
            "--config", "Release", "--target", "ba_wheel"
 
-    puts ".: Building BornAgain: Done."
-
     # CMake install step
-    puts ".: Installing BornAgain..."
     system cmake_exe, "--install", build_dir.to_s, "--config", "Release"
-    puts ".: Installing BornAgain: Done."
-  end
 
-  def post_install
-    # install the BornAgain Python wheel in a dedicated virtual environment
-    puts ".: Building BornAgain virtual environment..."
-    venv_root = (Pathname "#{prefix}/").realpath/"venv"
-    venv_py = create_venv(venv_root, "BornAgain")
+    # Install the BornAgain Python wheel in the virtual environment
+    ba_wheel = Dir.glob(build_dir/"py/wheel/*.whl").first
+    system venv_py, "-m", "pip", "install", ba_wheel
 
-    wheelname = Dir.glob("#{share}/BornAgain/wheel/*.whl").first
-    puts ".: Installing BornAgain wheel '#{wheelname}'..."
-    system venv_py, "-m", "pip", "install", wheelname
-    # install Fabio package
-    system venv_py, "-m", "pip", "install", "fabio"
+    # Produce helper scripts
 
     # extract the installation location of the BornAgain package via `pip show`
     # eg. 'Location: /opt/homebrew/Cellar/bornagain/22.0/venv/lib/python3.12/site-packages'
@@ -176,52 +92,49 @@ class Bornagain < Formula
     info = `#{venv_py} -m pip show bornagain`
     ba_loc = info.match(location_rx)[1]
 
+    shim = prefix/"shim"
+    mkdir_p shim
+
     # script to run BornAgain GUI with embedded Python
     gui_script = %Q(\
      #! /bin/sh
 
      # run BornAgain with Python support
-     source #{venv_root}/bin/activate
      export PYTHONPATH="#{ba_loc}:${PYTHONPATH}"
      #{bin}/bornagain
     )
 
-    ba_gui_cmd = "#{bin}/bornagain_gui.sh"
+    ba_gui_cmd = shim/"bornagain_gui"
     File.write(ba_gui_cmd, gui_script, mode: "w")
     # make the script executable for all users
     chmod 0755, ba_gui_cmd
 
-    # GUI entrypoint (symlink)
-    brew_bin_pth = (Pathname "#{HOMEBREW_PREFIX}/bin/").realpath
-    brew_bin_pth.install_symlink ba_gui_cmd => "bornagain"
-
-    # script to activate BornAgain's Python virtual environment
+    # script to use BornAgain Python package
     pyenv_script = %Q(\
      #! /bin/sh
 
-     # activate BornAgain's Python virtual environment
-     source #{venv_root}/bin/activate
+     # add BornAgain package path to PYTHONPATH
      export PYTHONPATH="#{ba_loc}:${PYTHONPATH}"
 
      # usage:
      # $ source #{brew_bin_pth}/bornagain_py"
     )
 
-    ba_pyenv_cmd = "#{bin}/bornagain_py.sh"
-
-    File.write(ba_pyenv_cmd, pyenv_script, mode: "w")
+    ba_pyenv_cmd = shim/"bornagain_py"
+    f = File.write(ba_pyenv_cmd, pyenv_script, mode: "w")
     chmod 0755, ba_pyenv_cmd
-    brew_bin_pth.install_symlink ba_pyenv_cmd => "bornagain_py"
-
-    puts ".: Building BornAgain virtual environment: Done."
 
     # script to display info about BornAgain
-    ba_share = "#{share}/BornAgain"
+    ba_share = share/"BornAgain"
     info_script = %Q(\
      #! /bin/sh
 
      echo '-------------- BornAgain ---------------'
-     echo '* BornAgain #{version}: #{prefix}/'
+     echo '* BornAgain: simulate and fit reflection and scattering'
+     echo '* Homepage: <http://www.bornagainproject.org>'
+     echo '* Copyright Forschungszentrum Jülich GmbH 2018'
+     echo '----------------------------------------'
+     echo '* Version #{version}: #{prefix}/'
      echo '* Python wheel: #{ba_share}/wheel/'
      echo '* Python examples: #{ba_share}/Examples/'
      echo '* Build log: #{ba_share}/bornagain_build.log'
@@ -229,35 +142,42 @@ class Bornagain < Formula
      echo '* Run GUI with Python support:'
      echo '$ bornagain'
      echo '----------------------------------------'
-     echo "* Activate BornAgain's Python virtual environment"
-     echo "  where BornAgain wheel is already installed:"
+     echo "* Use BornAgain as a Python package:"
      echo '$ source #{brew_bin_pth}/bornagain_py'
      echo '----------------------------------------'
     )
 
-    ba_info_cmd = "#{bin}/bornagain_info.sh"
+    ba_info_cmd = shim/"bornagain_info"
     File.write(ba_info_cmd, info_script, mode: "w")
     chmod 0755, ba_info_cmd
-    brew_bin_pth.install_symlink ba_info_cmd => "bornagain_info"
+  end
 
-    puts ".: To obtain info about BornAgain, use the shell command:"
-    puts "   $ bornagain_info"
+  def post_install
+    brew_bin_pth = (Pathname "#{HOMEBREW_PREFIX}/bin/").realpath
+    shim = prefix/"shim"
+
+    # GUI entrypoint
+    brew_bin_pth.install_symlink shim/"bornagain_gui" => "bornagain"
+
+    # BornAgain Python environment
+    brew_bin_pth.install_symlink shim/"bornagain_py" => "bornagain_py"
+
+    # BornAgain info
+    brew_bin_pth.install_symlink shim/"bornagain_info" => "bornagain_info"
   end
 
   test do
-    puts ".: Testing BornAgain..."
     test_script = %Q(\
      #! /bin/sh
 
      # test BornAgain wheel
      source "#{HOMEBREW_PREFIX}/bin/bornagain_py"
-     #{python3_exe} "#{share}/BornAgain/Examples/fit/scatter2d/fit2d.py"
+     python3 "#{share}/BornAgain/Examples/fit/scatter2d/fit2d.py"
     )
 
-    ba_test_cmd = "#{testpath}/test_bornagain.sh"
+    ba_test_cmd = testpath/"test_bornagain.sh"
     File.write(ba_test_cmd, test_script, mode: "w")
 
     system "/bin/sh", ba_test_cmd
-    puts ".: Testing BornAgain: Done."
   end
 end
