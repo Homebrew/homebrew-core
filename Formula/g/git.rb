@@ -170,16 +170,6 @@ class Git < Formula
     # only contains the perllocal.pod installation file.
     perl_dir = prefix/"Library/Perl"
     rm_r perl_dir if perl_dir.exist?
-
-    # Set the macOS keychain credential helper by default
-    # (as Apple's CLT's git also does this).
-    if OS.mac?
-      (buildpath/"gitconfig").write <<~EOS
-        [credential]
-        \thelper = osxkeychain
-      EOS
-      etc.install "gitconfig"
-    end
   end
 
   def caveats
