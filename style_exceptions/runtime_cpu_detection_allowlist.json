@@ -1,6 +1,7 @@
 [
   "abseil",
   "aom",
+  "aws-checksums",
   "blis",
   "botan",
   "coreutils",
