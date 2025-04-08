@@ -11,7 +11,6 @@ class Bornagain < Formula
   license "GPL-3.0-or-later"
 
   depends_on :macos
-  depends_on arch: [:arm64, :x86_64]
 
   depends_on "cmake" => :build
   depends_on "fftw"
@@ -43,48 +42,8 @@ class Bornagain < Formula
     sha256 "f873df51f468531c11aae7e0cd88a14f221f4ef09431fbc5a6ca67b1ed47535b"
   end
 
-  def install
-    build_dir = buildpath/"build/"
-    local_dir =  build_dir/"var/local/"
-    nproc = [Etc.nprocessors - 2, 1].max
-    cmake_exe = Formula["cmake"].opt_bin.realpath/"cmake"
-    python3_exe = "python3"
-    qt_cmake_dir = Formula["qt"].prefix/"lib/cmake/"
-    ff_cmake_dir = Formula["libformfactor"].prefix/"cmake/"
-    heinz_cmake_dir = Formula["libheinz"].prefix/"cmake/"
-    brew_bin_pth = (Pathname HOMEBREW_PREFIX/"bin/").realpath
-
-    # Build a Python virtual environment with the required packages
-    venv = virtualenv_create(libexec, "python3")
-    venv_root = venv.instance_variable_get(:@venv_root)
-    venv_py = venv_root/"bin/python3"
-    venv.pip_install resources
-
-    # Build BornAgain
-    ba_cmd = [cmake_exe, "-S", buildpath.to_s, "-B", build_dir.to_s,
-              *std_cmake_args, "-DBA_TESTS=OFF",
-              "-DCMAKE_PREFIX_PATH=#{qt_cmake_dir};#{ff_cmake_dir};#{heinz_cmake_dir};",
-              "-DBORNAGAIN_PYTHON=ON", "-DBA_PY_PACK=ON",
-              "-DPython3_EXECUTABLE=#{venv_py}"]
-
-    # CMake configuration step
-    system(*ba_cmd)
-
-    # CMake build step
-    system cmake_exe, "--build", build_dir.to_s,
-          "--config", "Release", "--parallel", nproc
-
-    system cmake_exe, "--build", build_dir.to_s,
-           "--config", "Release", "--target", "ba_wheel"
-
-    # CMake install step
-    system cmake_exe, "--install", build_dir.to_s, "--config", "Release"
-
-    # Install the BornAgain Python wheel in the virtual environment
-    ba_wheel = Dir.glob(build_dir/"py/wheel/*.whl").first
-    system venv_py, "-m", "pip", "install", ba_wheel
-
-    # Produce helper scripts
+  def make_shims(venv_py)
+    brew_bin_pth = (HOMEBREW_PREFIX/"bin/").realpath
 
     # extract the installation location of the BornAgain package via `pip show`
     # eg. 'Location: /opt/homebrew/Cellar/bornagain/22.0/venv/lib/python3.12/site-packages'
@@ -101,6 +60,7 @@ class Bornagain < Formula
 
      # run BornAgain with Python support
      export PYTHONPATH="#{ba_loc}:${PYTHONPATH}"
+
      #{bin}/bornagain
     )
 
@@ -126,6 +86,7 @@ class Bornagain < Formula
 
     # script to display info about BornAgain
     ba_share = share/"BornAgain"
+
     info_script = %Q(\
      #! /bin/sh
 
@@ -152,8 +113,51 @@ class Bornagain < Formula
     chmod 0755, ba_info_cmd
   end
 
+  def install
+    build_dir = buildpath/"build/"
+    nproc = [Etc.nprocessors - 2, 1].max
+    cmake_exe = Formula["cmake"].opt_bin.realpath/"cmake"
+    python3_exe = "python3"
+    qt_cmake_dir = Formula["qt"].prefix/"lib/cmake/"
+    ff_cmake_dir = Formula["libformfactor"].prefix/"cmake/"
+    heinz_cmake_dir = Formula["libheinz"].prefix/"cmake/"
+
+    # Build a Python virtual environment with the required packages
+    venv = virtualenv_create(libexec, "python3")
+    venv_root = venv.instance_variable_get(:@venv_root)
+    venv_py = venv_root/"bin/python3"
+    venv.pip_install resources
+
+    # Build BornAgain
+    ba_cmake = ["-S", buildpath.to_s, "-B", build_dir.to_s,
+                *std_cmake_args, "-DBA_TESTS=OFF",
+                "-DCMAKE_PREFIX_PATH=#{qt_cmake_dir};#{ff_cmake_dir};#{heinz_cmake_dir};",
+                "-DBORNAGAIN_PYTHON=ON", "-DBA_PY_PACK=ON",
+                "-DPython3_EXECUTABLE=#{venv_py}"]
+
+    # CMake configuration step
+    system cmake_exe, *ba_cmake
+
+    # CMake build step
+    system cmake_exe, "--build", build_dir.to_s,
+          "--config", "Release", "--parallel", nproc
+
+    system cmake_exe, "--build", build_dir.to_s,
+           "--config", "Release", "--target", "ba_wheel"
+
+    # CMake install step
+    system cmake_exe, "--install", build_dir.to_s, "--config", "Release"
+
+    # Install the BornAgain Python wheel in the virtual environment
+    ba_wheel = Dir.glob(build_dir/"py/wheel/*.whl").first
+    system venv_py, "-m", "pip", "install", ba_wheel
+
+    # Produce helper scripts
+    make_shims(venv_py)
+  end
+
   def post_install
-    brew_bin_pth = (Pathname "#{HOMEBREW_PREFIX}/bin/").realpath
+    brew_bin_pth = (HOMEBREW_PREFIX/"bin/").realpath
     shim = prefix/"shim"
 
     # GUI entrypoint
