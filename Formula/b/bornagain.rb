@@ -1,6 +1,5 @@
 class Bornagain < Formula
   include Language::Python::Virtualenv
-  require "etc"
 
   desc "Simulate and fit neutron and x-ray reflectometry and GISAS"
   homepage "https://bornagainproject.org"
@@ -43,6 +42,8 @@ class Bornagain < Formula
   end
 
   def make_shims(venv_py)
+    # produce helper scripts
+
     brew_bin_pth = (HOMEBREW_PREFIX/"bin/").realpath
 
     # extract the installation location of the BornAgain package via `pip show`
@@ -114,45 +115,30 @@ class Bornagain < Formula
   end
 
   def install
-    build_dir = buildpath/"build/"
-    nproc = [Etc.nprocessors - 2, 1].max
-    cmake_exe = Formula["cmake"].opt_bin.realpath/"cmake"
-    python3_exe = "python3"
-    qt_cmake_dir = Formula["qt"].prefix/"lib/cmake/"
     ff_cmake_dir = Formula["libformfactor"].prefix/"cmake/"
     heinz_cmake_dir = Formula["libheinz"].prefix/"cmake/"
 
     # Build a Python virtual environment with the required packages
-    venv = virtualenv_create(libexec, "python3")
+    venv = virtualenv_create(prefix/"venv", "python3")
     venv_root = venv.instance_variable_get(:@venv_root)
     venv_py = venv_root/"bin/python3"
     venv.pip_install resources
 
-    # Build BornAgain
-    ba_cmake = ["-S", buildpath.to_s, "-B", build_dir.to_s,
-                *std_cmake_args, "-DBA_TESTS=OFF",
-                "-DCMAKE_PREFIX_PATH=#{qt_cmake_dir};#{ff_cmake_dir};#{heinz_cmake_dir};",
-                "-DBORNAGAIN_PYTHON=ON", "-DBA_PY_PACK=ON",
-                "-DPython3_EXECUTABLE=#{venv_py}"]
+    system "cmake", "-S", ".", "-B", "build",
+           *std_cmake_args, "-DBA_TESTS=OFF",
+           "-DBORNAGAIN_PYTHON=ON",
+           "-DBA_PY_PACK=ON",
+           "-DCMAKE_PREFIX_PATH=#{ff_cmake_dir};#{heinz_cmake_dir};",
+           "-DPython3_EXECUTABLE=#{venv_py}"
 
-    # CMake configuration step
-    system cmake_exe, *ba_cmake
-
-    # CMake build step
-    system cmake_exe, "--build", build_dir.to_s,
-          "--config", "Release", "--parallel", nproc
-
-    system cmake_exe, "--build", build_dir.to_s,
-           "--config", "Release", "--target", "ba_wheel"
-
-    # CMake install step
-    system cmake_exe, "--install", build_dir.to_s, "--config", "Release"
+    system "cmake", "--build", "build"
+    system "cmake", "--build", "build", "--target", "ba_wheel"
+    system "cmake", "--install", "build"
 
     # Install the BornAgain Python wheel in the virtual environment
-    ba_wheel = Dir.glob(build_dir/"py/wheel/*.whl").first
+    ba_wheel = Dir.glob("build/py/wheel/*.whl").first
     system venv_py, "-m", "pip", "install", ba_wheel
 
-    # Produce helper scripts
     make_shims(venv_py)
   end
 
