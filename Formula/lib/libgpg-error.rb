@@ -1,8 +1,8 @@
 class LibgpgError < Formula
   desc "Common error values for all GnuPG components"
   homepage "https://www.gnupg.org/related_software/libgpg-error/"
-  url "https://gnupg.org/ftp/gcrypt/libgpg-error/libgpg-error-1.51.tar.bz2"
-  sha256 "be0f1b2db6b93eed55369cdf79f19f72750c8c7c39fc20b577e724545427e6b2"
+  url "https://gnupg.org/ftp/gcrypt/libgpg-error/libgpg-error-1.52.tar.bz2"
+  sha256 "a1d3180cbdf07011e15931ed50561415af6b7305fe672d1cfa484a3dc7f49325"
   license "LGPL-2.1-or-later"
 
   livecheck do
