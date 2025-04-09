@@ -1,9 +1,14 @@
 class Asyncapi < Formula
   desc "All in one CLI for all AsyncAPI tools"
   homepage "https://github.com/asyncapi/cli"
-  url "https://registry.npmjs.org/@asyncapi/cli/-/cli-3.1.0.tgz"
-  sha256 "e9ffee10683ef9bdb97cafb19a4c3046b6e90cc92cf778696086e0e1afd16e4e"
+  url "https://registry.npmjs.org/@asyncapi/cli/-/cli-3.1.1.tgz"
+  sha256 "7156fdd3ab24df4aaf513fa7fec736e3b7297417d5156db8a4dfce7edb1789c9"
   license "Apache-2.0"
+
+  # https://github.com/asyncapi/cli/blob/master/.github/workflows/bump-homebrew-formula.yml
+  livecheck do
+    skip "Developers bump Homebrew formula themselves"
+  end
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "a0bff8b9cb9ebcd8afbdb064897c62ac41068b09e01427ebba5f1255c31a9fc0"
