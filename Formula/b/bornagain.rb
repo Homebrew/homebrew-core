@@ -35,11 +35,10 @@ class Bornagain < Formula
     venv.pip_install resources
 
     system "cmake", "-S", ".", "-B", "build",
-           *std_cmake_args, "-DBA_TESTS=OFF",
-           "-DBORNAGAIN_PYTHON=ON",
-           "-DBA_PY_PACK=ON",
+           "-DBA_TESTS=OFF", "-DBORNAGAIN_PYTHON=ON", "-DBA_PY_PACK=ON",
            "-DCMAKE_PREFIX_PATH=#{ff_cmake_dir};#{heinz_cmake_dir};",
-           "-DPython3_EXECUTABLE=#{buildpath}/venv/bin/python"
+           "-DPython3_EXECUTABLE=#{buildpath}/venv/bin/python",
+           *std_cmake_args
 
     system "cmake", "--build", "build"
     system "cmake", "--build", "build", "--target", "ba_wheel"
