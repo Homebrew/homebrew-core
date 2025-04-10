@@ -1,25 +1,14 @@
-class Pypy310 < Formula
+class Pypy311 < Formula
   desc "Implementation of Python 3 in Python"
   homepage "https://pypy.org/"
-  url "https://downloads.python.org/pypy/pypy3.10-v7.3.17-src.tar.bz2"
-  sha256 "6ad74bc578e9c6d3a8a1c51503313058e3c58c35df86f7485453c4be6ab24bf7"
+  url "https://downloads.python.org/pypy/pypy3.11-v7.3.19-src.tar.bz2"
+  sha256 "4817c044bb469a3274e60aa3645770f81eb4f9166ea7fdc4e6c351345554c8d8"
   license "MIT"
-  revision 2
   head "https://github.com/pypy/pypy.git", branch: "main"
 
   livecheck do
     url "https://downloads.python.org/pypy/"
     regex(/href=.*?pypy3(?:\.\d+)*[._-]v?(\d+(?:\.\d+)+)-src\.t/i)
-  end
-
-  bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "311b947a1528ae90983edc2176864a00865fb678c13c2286efe24075463a1796"
-    sha256 cellar: :any,                 arm64_sonoma:  "8276c86a74591aec5dcd72722caeaa9c5a950f922b77c5ac20fc1147e21698b5"
-    sha256 cellar: :any,                 arm64_ventura: "9e80dff6aaa3e465055533fe201daa041baf2e24af5ea96dca4951b56a171589"
-    sha256 cellar: :any,                 sonoma:        "cbac71c93a07a6e926836763d9d67662b157a12525ce5c333504a4e10eff14f6"
-    sha256 cellar: :any,                 ventura:       "f8216079a9bc035470ac314f3dacaab40839ea20edc53b8fea250af4128612e3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6c838f8f2bde36ec834a8d390cd441e75aec83b1cc21126e8e974e05024a5d09"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c4032a756625270ffb7945d97b0116ac7e9acb1e5731eab7590241874f2fb12d"
   end
 
   depends_on "pkgconf" => :build
@@ -44,6 +33,8 @@ class Pypy310 < Formula
   def newest_abi_version?
     self == Formula["pypy3"]
   end
+
+  link_overwrite "bin/pypy3", "lib/libpypy3-c"
 
   # setuptools >= 60 required sysconfig patch
   # See https://github.com/Homebrew/homebrew-core/pull/99892#issuecomment-1108492321
