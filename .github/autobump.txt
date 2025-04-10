@@ -1008,6 +1008,7 @@ falcoctl
 fancy-cat
 fantom
 fanyi
+fasmg
 fast_float
 fastapi
 fastd
