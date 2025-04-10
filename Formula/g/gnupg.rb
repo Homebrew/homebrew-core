@@ -23,6 +23,7 @@ class Gnupg < Formula
   end
 
   depends_on "pkgconf" => :build
+  # Please don't change this to ntbtls. https://github.com/Homebrew/homebrew-core/pull/218008#pullrequestreview-2738730628
   depends_on "gnutls"
   depends_on "libassuan"
   depends_on "libgcrypt"
@@ -43,6 +44,8 @@ class Gnupg < Formula
   end
 
   def install
+    odie "Please don't change the TLS implementation to ntbtls." if deps.any? { |dep| dep.name == "ntbtls" }
+
     libusb = Formula["libusb"]
     ENV.append "CPPFLAGS", "-I#{libusb.opt_include}/libusb-#{libusb.version.major_minor}"
 
