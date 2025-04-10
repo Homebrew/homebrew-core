@@ -14,9 +14,6 @@ class Scala < Formula
     sha256 cellar: :any_skip_relocation, all: "766187b4b8b191e3df5cccc2697ffd55e01c6234f02d9598dc40cb837fa29ad8"
   end
 
-  # JDK Compatibility: https://docs.scala-lang.org/overviews/jdk-compatibility/overview.html
-  depends_on "openjdk"
-
   conflicts_with "pwntools", because: "both install `common` binaries"
 
   def install
@@ -24,7 +21,7 @@ class Scala < Formula
 
     libexec.install "lib", "maven2", "VERSION", "libexec"
     prefix.install "bin"
-    bin.env_script_all_files libexec/"bin", Language::Java.overridable_java_home_env
+    bin.env_script_all_files libexec/"bin"
 
     # Set up an IntelliJ compatible symlink farm in 'idea'
     idea = prefix/"idea"
