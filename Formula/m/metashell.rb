@@ -35,6 +35,10 @@ class Metashell < Formula
   end
 
   def install
+    sse41 = Hardware::CPU.intel? && ((OS.mac? && MacOS.version.requires_sse41?) ||
+                                     (!build.bottle? && Hardware::CPU.sse4_1?))
+    inreplace "3rd/boost/atomic/CMakeLists.txt", /\btarget_compile_options\(.*-msse4\.1/, "#\\0" unless sse41
+
     # Build internal Clang
     system "cmake", "-S", "3rd/templight/llvm",
                     "-B", "build/templight",
@@ -44,7 +48,7 @@ class Metashell < Formula
                     *std_cmake_args
     system "cmake", "--build", "build/templight", "--target", "templight"
 
-    system "cmake", "-S", ".", "-B", "build/metashell", *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build/metashell", "-DCMAKE_POLICY_VERSION_MINIMUM=3.5", *std_cmake_args
     system "cmake", "--build", "build/metashell"
     system "cmake", "--install", "build/metashell"
   end
