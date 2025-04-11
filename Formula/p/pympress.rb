@@ -32,12 +32,16 @@ class Pympress < Formula
   end
 
   def install
+    # Workaround for build failure with Setuptools 78
+    # Issue ref: https://github.com/Cimbali/pympress/issues/332
+    inreplace "pyproject.toml", '"setuptools>=42"', '"setuptools>=42,<78"'
+
     virtualenv_install_with_resources
   end
 
   test do
     # (pympress:48790): Gtk-WARNING **: 13:03:37.080: cannot open display
-    ENV["PYMPRESS_HEADLESS_TEST"]="1" if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
+    ENV["PYMPRESS_HEADLESS_TEST"] = "1" if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
 
     (testpath/"Library/Preferences").mkpath
 
