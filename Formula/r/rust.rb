@@ -222,6 +222,22 @@ class Rust < Formula
     end
   end
 
+  def caveats
+    <<~EOS
+      If you have installed rustup, the toolchain provided by this package may
+      introduce conflicts.
+
+      To address this issue, please make sure that your rustup installation comes
+      BEFORE this package in $PATH. This is usually done by modifying your shell's
+      configuration (e.g. .bashrc/.zshrc) so that Homebrew's `eval $(brew shellenv)`
+      line is evaluated BEFORE rustup's `. $HOME/.cargo/env` line (the actual syntax
+      might vary).
+
+      You may also want to link this toolchain with `rustup` under the name `system`:
+        rustup toolchain link system "$(brew --prefix rust)"
+    EOS
+  end
+
   test do
     require "utils/linkage"
 
