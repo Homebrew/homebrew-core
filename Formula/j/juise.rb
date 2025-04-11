@@ -1,8 +1,8 @@
 class Juise < Formula
   desc "JUNOS user interface scripting environment"
   homepage "https://github.com/Juniper/juise/wiki"
-  url "https://github.com/Juniper/juise/releases/download/0.9.0/juise-0.9.0.tar.gz"
-  sha256 "7eb7985944b7322fe290f4e5a080a4018ed84bf576e23b8a32e3f94eb13f4c27"
+  url "https://github.com/Juniper/juise/releases/download/3.0.0/juise-3.0.0.tar.gz"
+  sha256 "54d641789bf9a531bc262876914e76888382522ad193eace132d16203546d51e"
   license "BSD-3-Clause"
 
   bottle do
@@ -28,7 +28,9 @@ class Juise < Formula
     depends_on "automake" => :build
   end
 
+  depends_on "libssh2" => :build
   depends_on "libtool" => :build
+  depends_on "pkgconf" => :build
   depends_on "libslax"
 
   def install
@@ -41,9 +43,7 @@ class Juise < Formula
       "SLAX_EXTDIR=\"`$SLAX_CONFIG --extdir | head -1`\"",
       "SLAX_EXTDIR=\"#{lib}/slax/extensions\""
 
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--enable-libedit"
+    system "./configure", "--enable-libedit", *std_configure_args
     system "make", "install"
   end
 
