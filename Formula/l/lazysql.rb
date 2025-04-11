@@ -4,6 +4,7 @@ class Lazysql < Formula
   url "https://github.com/jorgerojas26/lazysql/archive/refs/tags/v0.3.7.tar.gz"
   sha256 "de14848d91db3bd70dac399030fd7f5053b8fd6479d2b15fdafcda03ff136724"
   license "MIT"
+  head "https://github.com/jorgerojas26/lazysql.git", branch: "main"
 
   livecheck do
     url :stable

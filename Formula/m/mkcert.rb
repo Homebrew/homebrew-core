@@ -4,6 +4,7 @@ class Mkcert < Formula
   url "https://github.com/FiloSottile/mkcert/archive/refs/tags/v1.4.4.tar.gz"
   sha256 "32bd5519581bf0b03f53e5b22721692b99f39ab5b161dc27532c51eafa512ca9"
   license "BSD-3-Clause"
+  head "https://github.com/FiloSottile/mkcert.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "f8988b4b5f85474931db021d3b5968576f2be4b151c00d943441196f4186324f"

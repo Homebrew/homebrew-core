@@ -6,6 +6,7 @@ class Mediamtx < Formula
       tag:      "v1.11.3",
       revision: "b66efd66da92ce475f3bf2a229efa56724f3fa64"
   license "MIT"
+  head "https://github.com/bluenviron/mediamtx.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "f7aad648e383406142deb7063d3a22ee87db1fd138ba3d6d40b8cb7e956ba8df"

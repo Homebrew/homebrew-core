@@ -4,6 +4,7 @@ class Lexido < Formula
   url "https://github.com/micr0-dev/lexido/archive/refs/tags/v1.4.3.tar.gz"
   sha256 "c39cf8f93cce2480773c9099ece1d8a90c1e350cf48cad56eebea96fbc04981f"
   license "AGPL-3.0-or-later"
+  head "https://github.com/micr0-dev/lexido.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "f118ba60cdf4e4e921ff03359e5e57e481f6c2178e098cd3192305c1792ba054"

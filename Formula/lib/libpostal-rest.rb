@@ -4,6 +4,7 @@ class LibpostalRest < Formula
   url "https://github.com/johnlonganecker/libpostal-rest/archive/refs/tags/v1.1.0.tar.gz"
   sha256 "d02d738fe1d8aee034c47ff9e8123e55885fe481f1a6307fbfe286b7b755468d"
   license "MIT"
+  head "https://github.com/johnlonganecker/libpostal-rest.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "fd5d9cfcd9ea16dd5b1990b18ec200eef3de42b32dbcfc71e74d60dc1e77d5ec"

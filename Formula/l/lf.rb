@@ -4,6 +4,7 @@ class Lf < Formula
   url "https://github.com/gokcehan/lf/archive/refs/tags/r34.tar.gz"
   sha256 "9c78735fa88c0b77664d7de41e7edbbca99ace5410f522530307244a09839263"
   license "MIT"
+  head "https://github.com/gokcehan/lf.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "32c43f6aef68d5e4b161b51422bf6e52854a0e5f069964f890da9f32cf356a46"

@@ -4,6 +4,7 @@ class OsctrlCli < Formula
   url "https://github.com/jmpsec/osctrl/archive/refs/tags/v0.4.4.tar.gz"
   sha256 "1c4f8ef27539e071ce8af437b2a1d046f2e0af34eb2a7aa8016ee201cc55b0bf"
   license "MIT"
+  head "https://github.com/jmpsec/osctrl.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "cfa9cc7ba8022d4aedfb2f06d055927fb41fc4738a43f6857e067d64448d8583"

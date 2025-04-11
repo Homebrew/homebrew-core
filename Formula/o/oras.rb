@@ -4,6 +4,7 @@ class Oras < Formula
   url "https://github.com/oras-project/oras/archive/refs/tags/v1.2.2.tar.gz"
   sha256 "09436b3048aab42fdfd5662f71da7d211f9d6e7ce66740cbbd8f3695ae621f6a"
   license "Apache-2.0"
+  head "https://github.com/oras-project/oras.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "c0ab4fed3980c7d6975df20975d447004b17c604da7947b2e99d999d55170345"

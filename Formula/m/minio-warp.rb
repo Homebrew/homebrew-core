@@ -4,6 +4,7 @@ class MinioWarp < Formula
   url "https://github.com/minio/warp/archive/refs/tags/v1.1.1.tar.gz"
   sha256 "567aab773f0cf27aa37a9e8df5d0f609be0a0a3a41cb9ddee9255b2249152f75"
   license "AGPL-3.0-or-later"
+  head "https://github.com/minio/warp.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "ecb99932d941444df1fc3d1ba1a267adc6aee55b0eb0099d2454dd5609ad2d82"

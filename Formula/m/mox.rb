@@ -4,6 +4,7 @@ class Mox < Formula
   url "https://github.com/mjl-/mox/archive/refs/tags/v0.0.14.tar.gz"
   sha256 "77d6424e6b4cdafdb5a19ea79adeef982c426c58804671a6a0167edda883d50c"
   license "MIT"
+  head "https://github.com/mjl-/mox.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "b7f267981e17ec7e001f6c88b2c372e8e6da332a6efb28794ec589e7d480c7c0"

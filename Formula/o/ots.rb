@@ -4,6 +4,7 @@ class Ots < Formula
   url "https://github.com/sniptt-official/ots/archive/refs/tags/v0.3.1.tar.gz"
   sha256 "09f0b0d7ca44ec8414dbf631009df8c00f4750247c0f9ba25a32f0aa270e09cc"
   license "Apache-2.0"
+  head "https://github.com/sniptt-official/ots.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "c078703b06ed8d14bc91d73307528444a9fdbac4b30b36db115fd3936792da45"
