@@ -7,6 +7,12 @@ class XCmd < Formula
 
   head "https://github.com/x-cmd/x-cmd.git", branch: "X"
 
+  # Ensure x-cmd tag is not a pre-release
+  livecheck do
+    url :stable
+    strategy :github_releases
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "a9e9d45759eb975546409d87239bc4dc4481bfcf5ede5c671a41847d4e95179b"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a9e9d45759eb975546409d87239bc4dc4481bfcf5ede5c671a41847d4e95179b"
