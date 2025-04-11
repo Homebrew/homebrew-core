@@ -46,6 +46,32 @@ class Bornagain < Formula
   end
 
   test do
-    # No tests for the GUI.
+    test_cpp = %Q(\
+    #include <cmath>
+
+    namespace Math {
+    namespace Bessel {
+        // Bessel function of the first kind and order 0
+        double J0(double x);
+    }
+    }
+
+    int main()
+    {
+        const double J0_x = 0.7651976865579666E0; // J0(x = 1)
+        const double x0 = 1.E0, j_x0 = Math::Bessel::J0(x0),
+              delta = std::abs(J0_x - j_x0);
+
+        const int valid = (delta < 1e-12)? 0 : 1;
+        return valid;
+    }
+    )
+
+    ba_test = testpath/"ba_test.cpp"
+    File.write(ba_test, test_cpp, mode: "w")
+    system "g++", "-std=c++17", "-o", testpath/"test.out",
+           testpath/ba_test,
+           "#{lib}/_libBornAgainBase.so"
+    system testpath/"test.out"
   end
 end
