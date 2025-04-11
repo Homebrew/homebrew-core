@@ -3084,6 +3084,7 @@ rtorrent
 rubberband
 ruby
 ruby-install
+ruby-lsp
 ruby@3.1
 ruby@3.2
 ruby@3.3
