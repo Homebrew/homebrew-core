@@ -2050,6 +2050,7 @@ libvirt
 libvirt-python
 libvisio
 libvncserver
+libvpx
 libwbxml
 libwebsockets
 libwpe
