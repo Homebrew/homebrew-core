@@ -5,6 +5,11 @@ class Asyncapi < Formula
   sha256 "7156fdd3ab24df4aaf513fa7fec736e3b7297417d5156db8a4dfce7edb1789c9"
   license "Apache-2.0"
 
+  # https://github.com/asyncapi/cli/blob/master/.github/workflows/bump-homebrew-formula.yml
+  livecheck do
+    skip "Developers bump Homebrew formula themselves"
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "198a12f3799fb1d2e8477b8b48898eb42a8048a7c71a800eac8b3c97810f2fe8"
     sha256 cellar: :any,                 arm64_sonoma:  "198a12f3799fb1d2e8477b8b48898eb42a8048a7c71a800eac8b3c97810f2fe8"
