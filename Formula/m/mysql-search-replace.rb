@@ -9,11 +9,13 @@ class MysqlSearchReplace < Formula
     sha256 cellar: :any_skip_relocation, all: "08b03d69eae7a4b2f89ead89f79ac09cd0bd093da29e0255329c308fd559ff43"
   end
 
+  depends_on "php"
+
   def install
     libexec.install "srdb.class.php"
     libexec.install "srdb.cli.php" => "srdb"
-    chmod 0755, libexec/"srdb"
-    bin.install_symlink libexec/"srdb"
+    inreplace libexec/"srdb", "#!/usr/bin/env php -q", "#!/usr/bin/env -S php -q" if OS.linux?
+    bin.write_exec_script libexec/"srdb"
   end
 
   test do
