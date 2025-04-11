@@ -1,9 +1,9 @@
 class Octave < Formula
   desc "High-level interpreted language for numerical computing"
   homepage "https://octave.org/index.html"
-  url "https://ftp.gnu.org/gnu/octave/octave-9.4.0.tar.xz"
-  mirror "https://ftpmirror.gnu.org/octave/octave-9.4.0.tar.xz"
-  sha256 "fff911909ef79f95ba244dab5b8c1cb8c693a6c447d31deabb53994f17cb7b3d"
+  url "https://ftp.gnu.org/gnu/octave/octave-10.1.0.tar.xz"
+  mirror "https://ftpmirror.gnu.org/octave/octave-10.1.0.tar.xz"
+  sha256 "051d092fe7abbed4ed9b74c8c40f3dfb1b9aa9eede770ac6c7e9c8c9e895e0c9"
   license "GPL-3.0-or-later"
 
   # New tarballs appear on https://ftp.gnu.org/gnu/octave/ before a release is
@@ -83,13 +83,6 @@ class Octave < Formula
   cxxstdlib_check :skip
 
   def install
-    # Default configuration passes all linker flags to mkoctfile, to be
-    # inserted into every oct/mex build. This is unnecessary and can cause
-    # cause linking problems.
-    inreplace "src/mkoctfile.in.cc",
-              /%OCTAVE_CONF_OCT(AVE)?_LINK_(DEPS|OPTS)%/,
-              '""'
-
     ENV.prepend_path "PKG_CONFIG_PATH", Formula["qt"].opt_libexec/"lib/pkgconfig" if OS.mac?
 
     system "./bootstrap" if build.head?
@@ -152,14 +145,14 @@ class Octave < Formula
       { return ovl (42); }
     CPP
     system bin/"octave", "--eval", <<~MATLAB
-      mkoctfile ('-v', '-std=c++11', '-L#{lib}/octave/#{version}', 'oct_demo.cc');
+      mkoctfile ('-v', '-std=c++17', '-L#{lib}/octave/#{version}', 'oct_demo.cc');
       assert(oct_demo, 42)
     MATLAB
     # Test FLIBS environment variable
     system bin/"octave", "--eval", <<~MATLAB
       args = strsplit (mkoctfile ('-p', 'FLIBS'));
       args = args(~cellfun('isempty', args));
-      mkoctfile ('-v', '-std=c++11', '-L#{lib}/octave/#{version}', args{:}, 'oct_demo.cc');
+      mkoctfile ('-v', '-std=c++17', '-L#{lib}/octave/#{version}', args{:}, 'oct_demo.cc');
       assert(oct_demo, 42)
     MATLAB
     ENV["QT_QPA_PLATFORM"] = "minimal"
