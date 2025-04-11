@@ -1,9 +1,9 @@
 class OpensslAT3 < Formula
   desc "Cryptography and SSL/TLS Toolkit"
   homepage "https://openssl-library.org"
-  url "https://github.com/openssl/openssl/releases/download/openssl-3.4.1/openssl-3.4.1.tar.gz"
-  mirror "http://fresh-center.net/linux/misc/openssl-3.4.1.tar.gz"
-  sha256 "002a2d6b30b58bf4bea46c43bdd96365aaf8daa6c428782aa4feee06da197df3"
+  url "https://github.com/openssl/openssl/releases/download/openssl-3.5.0/openssl-3.5.0.tar.gz"
+  mirror "http://fresh-center.net/linux/misc/openssl-3.5.0.tar.gz"
+  sha256 "344d0a79f1a9b08029b0744e2cc401a43f9c90acd1044d09a530b4885a8e9fc0"
   license "Apache-2.0"
 
   livecheck do
@@ -32,15 +32,15 @@ class OpensslAT3 < Formula
     end
 
     resource "Test::More" do
-      url "https://cpan.metacpan.org/authors/id/E/EX/EXODIST/Test-Simple-1.302209.tar.gz"
-      mirror "http://cpan.metacpan.org/authors/id/E/EX/EXODIST/Test-Simple-1.302209.tar.gz"
-      sha256 "dde1a388b94e178808039361f6393c7195f72518c39967a7a3582299b8c39e3e"
+      url "https://cpan.metacpan.org/authors/id/E/EX/EXODIST/Test-Simple-1.302210.tar.gz"
+      mirror "http://cpan.metacpan.org/authors/id/E/EX/EXODIST/Test-Simple-1.302210.tar.gz"
+      sha256 "acb9ca8d582b8c0bbe53c6d9b3264f1cf66eaa7135f41f979747104183aea509"
     end
 
     resource "ExtUtils::MakeMaker" do
-      url "https://cpan.metacpan.org/authors/id/B/BI/BINGOS/ExtUtils-MakeMaker-7.70.tar.gz"
-      mirror "http://cpan.metacpan.org/authors/id/B/BI/BINGOS/ExtUtils-MakeMaker-7.70.tar.gz"
-      sha256 "f108bd46420d2f00d242825f865b0f68851084924924f92261d684c49e3e7a74"
+      url "https://cpan.metacpan.org/authors/id/B/BI/BINGOS/ExtUtils-MakeMaker-7.74.tar.gz"
+      mirror "http://cpan.metacpan.org/authors/id/B/BI/BINGOS/ExtUtils-MakeMaker-7.74.tar.gz"
+      sha256 "8ad2be00713b49dcfd386286e0a64ff9297b771a485f2425fbc144794f5a3e8c"
     end
   end
 
