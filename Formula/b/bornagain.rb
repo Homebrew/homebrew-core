@@ -27,16 +27,14 @@ class Bornagain < Formula
   end
 
   def install
-    ff_cmake_dir = Formula["libformfactor"].prefix/"cmake/"
-    heinz_cmake_dir = Formula["libheinz"].prefix/"cmake/"
-
     # Build a Python virtual environment with the required packages
     venv = virtualenv_create(buildpath/"venv", "python3")
     venv.pip_install resources
 
     system "cmake", "-S", ".", "-B", "build",
            "-DBA_TESTS=OFF", "-DBORNAGAIN_PYTHON=ON", "-DBA_PY_PACK=ON",
-           "-DCMAKE_PREFIX_PATH=#{ff_cmake_dir};#{heinz_cmake_dir};",
+           "-DLibHeinz_DIR=#{Formula["libheinz"].opt_prefix}/cmake/",
+           "-Dformfactor_DIR=#{Formula["libformfactor"].opt_prefix}/cmake/",
            "-DPython3_EXECUTABLE=#{buildpath}/venv/bin/python",
            *std_cmake_args
 
