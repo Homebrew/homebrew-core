@@ -2,7 +2,7 @@ class Packcc < Formula
   desc "Parser generator for C"
   homepage "https://github.com/arithy/packcc"
   url "https://github.com/arithy/packcc/archive/refs/tags/v2.2.0.tar.gz"
-  sha256 "9f4d486ff34ff191cb01bd6ac41e707e93a90a581f997d45414422958af142f6"
+  sha256 "eeb123e2d328de60e0a4171649c7e4c78b25a08b60de35beffd14f3d8fdbdcc8"
   license "MIT"
   head "https://github.com/arithy/packcc.git", branch: "master"
 
