@@ -21,13 +21,14 @@ class Go < Formula
   end
 
   bottle do
-    sha256                               arm64_sequoia: "af3b7e49c04ba9c7c5da1f18ad09ca9282388507ac0455d6a7d67ad3a634b403"
-    sha256                               arm64_sonoma:  "af3b7e49c04ba9c7c5da1f18ad09ca9282388507ac0455d6a7d67ad3a634b403"
-    sha256                               arm64_ventura: "af3b7e49c04ba9c7c5da1f18ad09ca9282388507ac0455d6a7d67ad3a634b403"
-    sha256                               sonoma:        "f34bd91a7f803e9bd4a15c66fec9e08a7c5d47cde9afd9ca1f10d35ac31a0cef"
-    sha256                               ventura:       "f34bd91a7f803e9bd4a15c66fec9e08a7c5d47cde9afd9ca1f10d35ac31a0cef"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "14d92fa4a9239cdc17429d10d828163f83a3e185e01b9f1a154140cc98844eee"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "14d92fa4a9239cdc17429d10d828163f83a3e185e01b9f1a154140cc98844eee"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "14d92fa4a9239cdc17429d10d828163f83a3e185e01b9f1a154140cc98844eee"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2f68df3f4ce278cda137cefa1a8b1e6f6f0cfd293b50d8cfbf01bd57a5afed88"
+    sha256 cellar: :any_skip_relocation, ventura:       "2f68df3f4ce278cda137cefa1a8b1e6f6f0cfd293b50d8cfbf01bd57a5afed88"
     sha256 cellar: :any_skip_relocation, arm64_linux:   "0eae1c913860d8682a7e7594cf53f28862de3e64b13b5b66b443c518560f0668"
-    sha256                               x86_64_linux:  "33ab89c5b736bc433a2118050bfcc09a238f72f821ea8e5add409928579806a2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e6c7d79d16d629379e48484f4cce96a058f06da90e3c3fc4feae46707e3a0498"
   end
 
   # Don't update this unless this version cannot bootstrap the new version.
