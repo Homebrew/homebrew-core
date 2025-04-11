@@ -2,7 +2,7 @@ class Wumpus < Formula
   desc "Exact clone of the ancient BASIC Hunt the Wumpus game"
   homepage "http://www.catb.org/~esr/wumpus/"
   url "http://www.catb.org/~esr/wumpus/wumpus-1.10.tar.gz"
-  sha256 "aa059e163b4f516580b83931ae29fbd5796302e854da283b85cc7fc887677d7c"
+  sha256 "5cb0cf4300c91dd83bb86e9c36af2bcafc3f64caf66d649183e748e38a25d592"
   license "BSD-2-Clause"
 
   livecheck do
