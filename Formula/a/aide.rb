@@ -1,8 +1,8 @@
 class Aide < Formula
   desc "File and directory integrity checker"
   homepage "https://aide.github.io/"
-  url "https://github.com/aide/aide/releases/download/v0.18.8/aide-0.18.8.tar.gz"
-  sha256 "16662dc632d17e2c5630b801752f97912a8e22697c065ebde175f1cc37b83a60"
+  url "https://github.com/aide/aide/releases/download/v0.19/aide-0.19.tar.gz"
+  sha256 "e7fba0214be01299d76359bff2975233ed241332e4cfcfff59cd1b6a89aba5e4"
   license "GPL-2.0-or-later"
 
   bottle do
@@ -35,6 +35,10 @@ class Aide < Formula
   uses_from_macos "flex" => :build
   uses_from_macos "curl"
   uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "linux-headers@5.15" => :build
+  end
 
   def install
     # use sdk's strnstr instead
