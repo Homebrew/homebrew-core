@@ -264,6 +264,7 @@ beanquery
 bear
 beautysh
 bed
+bedops
 bee
 bench
 bender
