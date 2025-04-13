@@ -1,0 +1,13 @@
+{
+  "gcr": "4.3",
+  "gtk-vnc": "1.5",
+  "libadwaita": "1.7",
+  "libart": "2.3",
+  "libepoxy": "1.5",
+  "librsvg": "2.59",
+  "libshumate": "1.3",
+  "libxml2": "2.13",
+  "libxslt": "1.1",
+  "pango": "1.55",
+  "tinysparql": "3.9"
+}
