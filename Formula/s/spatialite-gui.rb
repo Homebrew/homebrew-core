@@ -4,7 +4,7 @@ class SpatialiteGui < Formula
   url "https://www.gaia-gis.it/gaia-sins/spatialite-gui-sources/spatialite_gui-2.1.0-beta1.tar.gz"
   sha256 "ba48d96df18cebc3ff23f69797207ae1582cce62f4596b69bae300ca3c23db33"
   license "GPL-3.0-or-later"
-  revision 10
+  revision 11
 
   livecheck do
     url "https://www.gaia-gis.it/gaia-sins/spatialite-gui-sources/"
