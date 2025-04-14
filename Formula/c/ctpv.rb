@@ -5,6 +5,11 @@ class Ctpv < Formula
   sha256 "29e458fbc822e960f052b47a1550cb149c28768615cc2dddf21facc5c86f7463"
   license "MIT"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "37152d389946123d23de9ee5d1bcda011032a94ba42e1df5ce82363c4224ae56"
     sha256 cellar: :any,                 arm64_sonoma:   "5b92c898bfc950574c2a7b15d19dc064610d2a7df9c0825839ae83d864d49a35"
