@@ -28,6 +28,8 @@
   "postgresql@16",
   "postgresql@17",
   "qt",
+  "qt-base",
+  "qt-shadertools",
   "spidermonkey",
   "svt-av1",
   "vc",
