@@ -41,9 +41,6 @@ class Knot < Formula
   uses_from_macos "libedit"
 
   def install
-    # https://gitlab.nic.cz/knot/knot-dns/-/blob/master/src/knot/modules/rrl/kru-avx2.c
-    ENV.runtime_cpu_detection if Hardware::CPU.intel?
-
     system "autoreconf", "--force", "--install", "--verbose" if build.head?
     system "./configure", "--disable-silent-rules",
                           "--with-configdir=#{etc}",
