@@ -3276,6 +3276,7 @@ slepc-complex
 sleuthkit
 slides
 slirp4netns
+slither-analyzer
 sloc
 sloth
 slsa-verifier
