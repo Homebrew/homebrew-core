@@ -1,9 +1,9 @@
 class Ipafetch < Formula
   desc "Tool to fetch IPA files from Apple Configurator"
   homepage "https://github.com/drewg233/ipafetch"
-  url "https://github.com/drewg233/ipafetch.git",
-      tag:      "v0.1.0",
-      revision: "HEAD" # Replace with actual git commit hash
+  url "https://github.com/drewg233/ipafetch/archive/813924615064914070a7e9098d1bced5e8359c16.tar.gz"
+  sha256 "099598b1b0810c56faf08f0b76ebc44d9ff6f193b61ac724cf4d49eb08b5719f"
+  version "0.1.0"
   license "MIT"
 
   depends_on "python@3.11"
@@ -26,4 +26,4 @@ class Ipafetch < Formula
   test do
     assert_match "IPA Fetcher", shell_output("#{bin}/ipafetch --help")
   end
-end
+end 
