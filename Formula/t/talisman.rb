@@ -1,8 +1,8 @@
 class Talisman < Formula
   desc "Tool to detect and prevent secrets from getting checked in"
   homepage "https://thoughtworks.github.io/talisman/"
-  url "https://github.com/thoughtworks/talisman/archive/refs/tags/v1.34.0.tar.gz"
-  sha256 "273c200ce3950d3064c2077545b0d2d41d1c14708f61343b30ea8ee667b83474"
+  url "https://github.com/thoughtworks/talisman/archive/refs/tags/v1.35.0.tar.gz"
+  sha256 "ae178426ba9156cdfbd838b98652365694a8986d86d11ff92234f0e86aef274d"
   license "MIT"
   version_scheme 1
   head "https://github.com/thoughtworks/talisman.git", branch: "master"
@@ -24,6 +24,10 @@ class Talisman < Formula
   depends_on "go" => :build
 
   def install
+    # go: updates to go.mod needed; to update it:
+    # go mod tidy
+    system "go", "mod", "tidy"
+
     system "go", "build", *std_go_args(ldflags: "-s -w -X main.Version=#{version}"), "./cmd"
   end
 
