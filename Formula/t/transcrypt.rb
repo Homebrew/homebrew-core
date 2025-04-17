@@ -4,6 +4,7 @@ class Transcrypt < Formula
   url "https://github.com/elasticdog/transcrypt/archive/refs/tags/v2.3.1.tar.gz"
   sha256 "c5f5af35016474ffd1f8605be1eac2e2f17743737237065657e3759c8d8d1a66"
   license "MIT"
+  revision 1
   head "https://github.com/elasticdog/transcrypt.git", branch: "main"
 
   bottle do
@@ -12,7 +13,6 @@ class Transcrypt < Formula
 
   on_linux do
     depends_on "util-linux"
-    depends_on "vim" # needed for xxd
   end
 
   def install
