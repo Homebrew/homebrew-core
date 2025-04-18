@@ -16,7 +16,19 @@ class AgentBrowser < Formula
 
   test do
     ENV["NO_COLOR"] = "1"
-    output = shell_output("#{bin}/agent-browser 2>&1")
-    assert_match "2025-04-18T00:41:55-07:00 DBG provided module= output_types=", output
+    shell_script = <<~EOS
+      #{bin}/agent-browser &
+      pid=$!
+      sleep 1
+      if ps -p $pid > /dev/null; then
+        kill $pid
+        echo "Success: agent-browser started and was killed."
+      else
+        wait $pid
+        status=$?
+        echo "Error: agent-browser failed to start or exited immediately with status $status."
+      fi
+    EOS
+    assert_match "Success: agent-browser started", shell_output(shell_script)
   end
 end
