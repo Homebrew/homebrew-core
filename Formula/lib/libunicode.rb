@@ -22,6 +22,13 @@ class Libunicode < Formula
     depends_on "llvm" if DevelopmentTools.clang_build_version <= 1500
   end
 
+  on_linux do
+    if DevelopmentTools.gcc_version("/usr/bin/gcc") < 13
+      depends_on "gcc@13" => :build # oldest possible GCC for higher compatibility
+      depends_on "gcc" => :test
+    end
+  end
+
   fails_with :clang do
     build 1500
     cause "Requires C++20"
@@ -35,16 +42,28 @@ class Libunicode < Formula
   def install
     ENV.llvm_clang if OS.mac? && DevelopmentTools.clang_build_version <= 1500
 
+    rpaths = [rpath]
+    if OS.linux? && build.bottle?
+      rpaths += Formula["gcc"].versioned_formulae
+                              .filter_map { |gcc| gcc.opt_lib/"gcc"/gcc.version.major if gcc.version >= 13 }
+    end
+
     args = %W[
       -DLIBUNICODE_EXAMPLES=OFF
       -DLIBUNICODE_TESTING=OFF
       -DLIBUNICODE_BENCHMARK=OFF
-      -DCMAKE_INSTALL_RPATH=#{rpath}
+      -DCMAKE_INSTALL_RPATH=#{rpaths.join(";")}
     ]
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
+  end
+
+  def caveats
+    on_linux do
+      "libunicode requires at least GCC 13+."
+    end
   end
 
   test do
