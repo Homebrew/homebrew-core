@@ -33,9 +33,37 @@ class Tal < Formula
     system "make", "linux"
     bin.install "tal"
     man1.install "tal.1"
+
+    (buildpath/"test.c").write <<~C
+      /***************************************************/
+      /* some text and so on                    */
+      /*       even more text                                   */
+      /*       foo, bar. bar bar.                   */
+      /***************************************************/
+    C
+    assert_equal <<~C, shell_output("#{bin}/tal -p 0 test.c")
+      /***************************************************/
+      /* some text and so on                             */
+      /*       even more text                            */
+      /*       foo, bar. bar bar.                        */
+      /***************************************************/
+    C
   end
 
   test do
-    system bin/"tal", "/etc/passwd"
+    (testpath/"test.c").write <<~C
+      /***************************************************/
+      /* some text and so on                    */
+      /*       even more text                                   */
+      /*       foo, bar. bar bar.                   */
+      /***************************************************/
+    C
+    assert_equal <<~C, shell_output("#{bin}/tal -p 0 test.c")
+      /***************************************************/
+      /* some text and so on                             */
+      /*       even more text                            */
+      /*       foo, bar. bar bar.                        */
+      /***************************************************/
+    C
   end
 end
