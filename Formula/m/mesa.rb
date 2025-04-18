@@ -61,6 +61,10 @@ class Mesa < Formula
   uses_from_macos "expat"
   uses_from_macos "zlib"
 
+  on_macos do
+    depends_on "molten-vk"
+  end
+
   on_linux do
     depends_on "directx-headers" => :build
     depends_on "gzip" => :build
@@ -136,19 +140,22 @@ class Mesa < Formula
       -Dopengl=true
       -Dstrip=true
       -Dllvm=enabled
-      -Dgallium-drivers=auto
+
       -Dvideo-codecs=all
       -Dgallium-rusticl=true
     ]
     args += if OS.mac?
-      %w[
+      %W[
+        -Dgallium-drivers=llvmpipe,zink
         -Dvulkan-drivers=swrast
         -Dvulkan-layers=intel-nullhw,overlay,screenshot
         -Dtools=etnaviv,glsl,nir,nouveau,imagination,dlclose-skip
+        -Dmoltenvk-dir=#{Formula["molten-vk"].prefix}
       ]
     else
       %w[
         -Degl=enabled
+        -Dgallium-drivers=auto
         -Dgallium-extra-hud=true
         -Dgallium-nine=true
         -Dgallium-va=enabled
