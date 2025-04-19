@@ -1,11 +1,84 @@
 class Freeimage < Formula
-  desc "Library for FreeImage, a dependency-free graphics library"
+  desc "Graphics library"
   homepage "https://sourceforge.net/projects/freeimage/"
-  url "https://downloads.sourceforge.net/project/freeimage/Source%20Distribution/3.18.0/FreeImage3180.zip"
-  version "3.18.0"
-  sha256 "f41379682f9ada94ea7b34fe86bf9ee00935a3147be41b6569c9605a53e438fd"
   license "FreeImage"
-  head "https://svn.code.sf.net/p/freeimage/svn/FreeImage/trunk/"
+
+  stable do
+    url "https://downloads.sourceforge.net/project/freeimage/Source%20Distribution/3.18.0/FreeImage3180.zip"
+    version "3.18.0"
+    sha256 "f41379682f9ada94ea7b34fe86bf9ee00935a3147be41b6569c9605a53e438fd"
+
+    depends_on "pkgconf" => :build
+    depends_on "imath"
+    depends_on "jpeg-turbo"
+    depends_on "jxrlib"
+    depends_on "libpng"
+    depends_on "libraw"
+    depends_on "libtiff"
+    depends_on "openexr"
+    depends_on "openjpeg"
+    depends_on "webp"
+
+    uses_from_macos "zlib"
+
+    # Apply Debian patches to unbundle libraries and fix some CVEs. Debian's
+    # unbundle patch is based on Fedora's patch though some differences like
+    # LDFLAGS vs. LIBRARIES usage makes the Debian patch more suitable when
+    # building on an Ubuntu machine.
+    patch do
+      url "https://deb.debian.org/debian/pool/main/f/freeimage/freeimage_3.18.0+ds2-11.debian.tar.xz"
+      sha256 "4ebd3a84c696dd650d756a43ec60fe22f5b2e591bc5cf8df94a605c5d740c904"
+      # Debian patches to unbundle libraries and build without root
+      apply "patches/Disable-vendored-dependencies.patch",
+            "patches/Use-system-dependencies.patch",
+            "patches/build-without-root.patch",
+            # fixes for newer `libraw`
+            "patches/Fix-macro-redefinition-for-64-bit-integer-types.patch",
+            "patches/Fix-libraw-compilation.patch",
+            "patches/Fix-libraw-compilation-2.patch",
+            # fixes for newer `jpeg-turbo`
+            "patches/Fix_compilation_external-static.patch",
+            "patches/Use-system-jpeg_read_icc_profile.patch",
+            # CVE-2019-12211
+            "patches/CVE-2019-12211-13.patch",
+            # CVE-2020-21427
+            "patches/r1830-minor-refactoring.patch",
+            "patches/r1832-improved-BMP-plugin-when-working-with-malicious-images.patch",
+            "patches/r1836-improved-BMP-plugin-when-working-with-malicious-images.patch",
+            # CVE-2020-22524
+            "patches/r1848-improved-PFM-plugin-against-malicious-images.patch",
+            # CVE-2020-21428
+            "patches/r1877-improved-DDS-plugin-against-malicious-images.patch"
+    end
+
+    # Modify Debian patch for Homebrew compatibility like `jxrlib` path
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/53efe785df9a41a00d63a9ff088a9846bceba398/freeimage/debian-to-homebrew.patch"
+      sha256 "fb678426fe403a07dc9bd9dd0d18237fcb5f815a0a3660d1757d200fa9b2d23a"
+    end
+
+    # Fix build with unbundled `imath` as type change impacts macOS.
+    # May be able to remove if upstream updates bundled OpenEXR.
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/53efe785df9a41a00d63a9ff088a9846bceba398/freeimage/imath-int64.patch"
+      sha256 "e940d5925bcfc9cfd40a01e8d7f45747b49c757e0f7995b6255f228022d1a3d5"
+    end
+
+    # Workaround to silence some warnings from unbundled `libtiff` otherwise
+    # dependents like `perceptualdiff` will flood warnings as tags are searched
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/53efe785df9a41a00d63a9ff088a9846bceba398/freeimage/libtiff-warning.patch"
+      sha256 "ab9281cb3f2a4aa67cb6de15e7876666d5894374087ff9fad635ef6de351e9b1"
+    end
+
+    # Makefile.osx isn't ideal for Homebrew use so modify Linux Makefiles for macOS
+    patch do
+      on_macos do
+        url "https://raw.githubusercontent.com/Homebrew/formula-patches/53efe785df9a41a00d63a9ff088a9846bceba398/freeimage/macos.patch"
+        sha256 "231248bab0a92c7004b33c3c4590f40496f551c818222dda2a4634d4c3edc0ca"
+      end
+    end
+  end
 
   bottle do
     rebuild 3
@@ -23,32 +96,39 @@ class Freeimage < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "a6c63d08f4adf2395f983ad5f8a51f36ac1e749de9fe6428d056859b199ac6e6"
   end
 
-  patch do
-    on_macos do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/4dcf528/freeimage/3.17.0.patch"
-      sha256 "8ef390fece4d2166d58e739df76b5e7996c879efbff777a8a94bcd1dd9a313e2"
-    end
-    on_linux do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/696e313c1f89925a8d04f00282d3b6c204a64f48/freeimage/3.17.0-linux.patch"
-      sha256 "537a4045d31a3ce1c3bab2736d17b979543758cf2081e97fff4d72786f1830dc"
+  head do
+    url "https://svn.code.sf.net/p/freeimage/svn/FreeImage/trunk/"
+
+    patch do
+      on_macos do
+        url "https://raw.githubusercontent.com/Homebrew/formula-patches/53efe785df9a41a00d63a9ff088a9846bceba398/freeimage/head-macos.patch"
+        sha256 "f113aa6a815584dc604e83c1bf64c00dff6259dd0068f2d10798690d43cc2cb2"
+      end
+      on_linux do
+        url "https://raw.githubusercontent.com/Homebrew/formula-patches/53efe785df9a41a00d63a9ff088a9846bceba398/freeimage/head-linux.patch"
+        sha256 "dad2e80c19c927c0502142843b9551af869e29bb5555fe3f301f9e588cb74253"
+      end
     end
   end
 
   def install
-    # Temporary workaround for ARM. Upstream tracking issue:
-    # https://sourceforge.net/p/freeimage/bugs/325/
-    # https://sourceforge.net/p/freeimage/discussion/36111/thread/cc4cd71c6e/
-    ENV["CFLAGS"] = "-O3 -fPIC -fexceptions -fvisibility=hidden -DPNG_ARM_NEON_OPT=0" if Hardware::CPU.arm?
+    if build.stable?
+      # OpenEXR 3+ needs at least C++11. Can remove after https://sourceforge.net/p/freeimage/svn/1821/
+      ENV.cxx11
 
-    # Fix compile with newer Clang
-    ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
+      # Avoid overlinking to `little-cms2` and help find installed freeimage library
+      ENV.append "LDFLAGS", "-Wl,#{OS.mac? ? "-dead_strip_dylibs" : "--as-needed"} -L#{lib}"
 
-    # Fix build error on Linux: ImathVec.h:771:37: error: ISO C++17 does not allow dynamic exception specifications
-    ENV["CXXFLAGS"] = "-std=c++98" if OS.linux?
+      # Remove the bundled libraries and regenerate some Makefiles
+      rm_r([*Dir["Source/Lib*"], "Source/ZLib", "Source/OpenEXR"])
+      system "bash", "gensrclist.sh"
+      system "bash", "genfipsrclist.sh"
+    end
+
     system "make", "-f", "Makefile.gnu"
-    system "make", "-f", "Makefile.gnu", "install", "PREFIX=#{prefix}"
+    system "make", "-f", "Makefile.gnu", "install", "INCDIR=#{include}", "INSTALLDIR=#{lib}"
     system "make", "-f", "Makefile.fip"
-    system "make", "-f", "Makefile.fip", "install", "PREFIX=#{prefix}"
+    system "make", "-f", "Makefile.fip", "install", "INCDIR=#{include}", "INSTALLDIR=#{lib}"
   end
 
   test do
