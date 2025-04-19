@@ -33,6 +33,8 @@ class Duckdb < Formula
     # The cli tool was renamed (0.1.8 -> 0.1.9)
     # Create a symlink to not break compatibility
     bin.install_symlink bin/"duckdb" => "duckdb_cli"
+
+    rm lib.glob("*.a")
   end
 
   test do
