@@ -26,6 +26,11 @@ class Tika < Formula
     bin.write_jar_script libexec/"tika-server-standard-#{version}.jar", "tika-rest-server"
   end
 
+  service do
+    run [opt_bin/"tika-rest-server"]
+    working_dir HOMEBREW_PREFIX
+  end
+
   test do
     assert_match version.to_s, resource("server").version.to_s, "server resource out of sync with formula"
     pdf = test_fixtures("test.pdf")
