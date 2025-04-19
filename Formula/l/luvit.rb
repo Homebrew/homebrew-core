@@ -21,7 +21,7 @@ class Luvit < Formula
   depends_on "pkgconf" => :build
   depends_on "libuv"
   depends_on "luajit"
-  depends_on "luv"
+  # TODO: depends_on "luv"
   depends_on "openssl@3"
   depends_on "pcre"
 
@@ -89,7 +89,6 @@ class Luvit < Formula
 
     ENV["PREFIX"] = prefix
     luajit = Formula["luajit"]
-    luv = Formula["luv"]
 
     resource("luvi").stage do
       # Build scripts set LUA_PATH before invoking LuaJIT, but that causes errors.
@@ -104,17 +103,33 @@ class Luvit < Formula
       rm_r "deps/lua-openssl"
       Pathname("deps/lua-openssl").install resource("lua-openssl")
 
+      # Build the bundled `luv` as `luvi` is not compatible with newer version.
+      # We cannot use `-DWithSharedLibluv=OFF` as it will bundle `luajit` too.
+      # TODO: Restore brew `luv` once support is available
+      system "cmake", "-S", "deps/luv", "-B", "build_luv",
+                      "-DBUILD_MODULE=ON",
+                      "-DBUILD_SHARED_LIBS=ON",
+                      "-DBUILD_STATIC_LIBS=OFF",
+                      "-DCMAKE_POLICY_VERSION_MINIMUM=3.5",
+                      "-DLUA_BUILD_TYPE=System",
+                      "-DWITH_LUA_ENGINE=LuaJIT",
+                      "-DWITH_SHARED_LIBUV=ON",
+                      *std_cmake_args(install_prefix: libexec)
+      system "cmake", "--build", "build_luv"
+      system "cmake", "--install", "build_luv"
+
       # CMake flags adapted from
       # https://github.com/luvit/luvi/blob/#{luvi_version}/Makefile#L73-L74
       luvi_args = %W[
+        -DCMAKE_POLICY_VERSION_MINIMUM=3.5
         -DWithOpenSSL=ON
         -DWithSharedOpenSSL=ON
         -DWithPCRE=ON
         -DWithLPEG=ON
         -DWithSharedPCRE=ON
         -DWithSharedLibluv=ON
-        -DLIBLUV_INCLUDE_DIR=#{luv.opt_include}/luv
-        -DLIBLUV_LIBRARIES=#{luv.opt_lib/shared_library("libluv")}
+        -DLIBLUV_INCLUDE_DIR=#{libexec}/include/luv
+        -DLIBLUV_LIBRARIES=#{libexec}/lib/#{shared_library("libluv")}
         -DLUAJIT_INCLUDE_DIR=#{luajit.opt_include}/luajit-2.1
         -DLUAJIT_LIBRARIES=#{luajit.opt_lib/shared_library("libluajit")}
       ]
