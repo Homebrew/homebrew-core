@@ -46,14 +46,14 @@ class Qrupdate < Formula
     lib.mkpath
 
     system "make", "install", "PREFIX=#{prefix}"
-    pkgshare.install "test/tch1dn.f", "test/utils.f"
+    pkgshare.install "test/tqr1up.f", "test/utils.f"
   end
 
   test do
-    system "gfortran", "-o", "test", pkgshare/"tch1dn.f", pkgshare/"utils.f",
+    system "gfortran", "-o", "test", pkgshare/"tqr1up.f", pkgshare/"utils.f",
                        "-fallow-argument-mismatch",
                        "-L#{lib}", "-lqrupdate",
                        "-L#{Formula["openblas"].opt_lib}", "-lopenblas"
-    assert_match "PASSED   4     FAILED   0", shell_output("./test")
+    assert_match "PASSED  24     FAILED   0", shell_output("./test")
   end
 end
