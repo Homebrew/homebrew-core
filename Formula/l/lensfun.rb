@@ -53,7 +53,7 @@ class Lensfun < Formula
     inreplace "apps/CMakeLists.txt", "${PYTHON} ${SETUP_PY} build", "mkdir build"
     inreplace "apps/CMakeLists.txt", /^\s*INSTALL\(CODE "execute_process\(.*SETUP_PY/, "#\\0"
 
-    system "cmake", "-S", ".", "-B", "build", "-DBUILD_LENSTOOL=ON", *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build", "-DBUILD_LENSTOOL=ON", "-DCMAKE_POLICY_VERSION_MINIMUM=3.5", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
     rewrite_shebang detected_python_shebang, *bin.children
