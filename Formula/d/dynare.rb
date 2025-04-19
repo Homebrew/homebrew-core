@@ -4,6 +4,7 @@ class Dynare < Formula
   url "https://www.dynare.org/release/source/dynare-6.3.tar.xz"
   sha256 "232788788a72c7bc4329eaa4e1ed24318c264095d7646622b871d6e711ff322c"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://git.dynare.org/Dynare/dynare.git", branch: "master"
 
   livecheck do
@@ -48,6 +49,11 @@ class Dynare < Formula
     sha256 "fa80f7c75dab6bfaca93c3b374c774fd87876f34fba969af9133eeaea5f39a3d"
   end
 
+  patch do
+    url "https://git.dynare.org/Dynare/dynare/-/commit/e3ff2f108862b462bfb8f5b92bcebaaf6f8a6aa9.patch?full_index=1"
+    sha256 "79a334a8198c435563fe66e3f87bbbb534ae908c5cbe489cfabe3d4a0ac2b9f8"
+  end
+
   def install
     resource("slicot").stage do
       system "make", "lib", "OPTS=-fPIC", "SLICOTLIB=../libslicot_pic.a",
@@ -82,11 +88,12 @@ class Dynare < Formula
 
   test do
     resource "statistics" do
-      url "https://github.com/gnu-octave/statistics/archive/refs/tags/release-1.6.5.tar.gz", using: :nounzip
-      sha256 "0ea8258c92ce67e1bb75a9813b7ceb56fff1dacf6c47236d3da776e27b684cee"
+      url "https://github.com/gnu-octave/statistics/archive/refs/tags/release-1.7.3.tar.gz", using: :nounzip
+      sha256 "570d52af975ea9861a6fb024c23fc0f403199e4b56d7a883ee6ca17072e26990"
     end
 
-    ENV.cxx11
+    ENV.cxx
+    ENV.append "CXXFLAGS", "-std=gnu++17"
     ENV.delete "LDFLAGS" # avoid overriding Octave flags
 
     # Work around Xcode 15.0 ld error with GCC: https://github.com/Homebrew/homebrew-core/issues/145991
