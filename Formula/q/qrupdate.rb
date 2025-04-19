@@ -4,7 +4,7 @@ class Qrupdate < Formula
   url "https://downloads.sourceforge.net/project/qrupdate/qrupdate/1.2/qrupdate-1.1.2.tar.gz"
   sha256 "e2a1c711dc8ebc418e21195833814cb2f84b878b90a2774365f0166402308e08"
   license "GPL-3.0-or-later"
-  revision 15
+  revision 16
 
   livecheck do
     url :stable
