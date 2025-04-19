@@ -32,6 +32,15 @@ class Qdbm < Formula
 
   uses_from_macos "zlib"
 
+  on_linux do
+    depends_on "gcc" => :build if DevelopmentTools.gcc_version("/usr/bin/gcc") < 13
+  end
+
+  fails_with :gcc do
+    version "12"
+    cause "resulting binary causes `hyperestraier` to segmentation fault"
+  end
+
   def install
     args = %W[
       --disable-debug
