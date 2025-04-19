@@ -4,7 +4,7 @@ class Omega < Formula
   url "https://oligarchy.co.uk/xapian/1.4.28/xapian-omega-1.4.28.tar.xz"
   sha256 "870d2f2d7f9f0bc67337aa505fdc13f67f84cce4d93b7e5c82c7310226f0d30a"
   license "GPL-2.0-or-later"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://xapian.org/download"

@@ -4,7 +4,7 @@ class Nmail < Formula
   url "https://github.com/d99kris/nmail/archive/refs/tags/v5.3.5.tar.gz"
   sha256 "071abc7c9c1d5a26616410872d4f7310cd00416f8da0860e1f368ca642ccc025"
   license "MIT"
-  revision 1
+  revision 2
   head "https://github.com/d99kris/nmail.git", branch: "master"
 
   bottle do

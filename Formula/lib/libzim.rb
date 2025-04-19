@@ -4,7 +4,7 @@ class Libzim < Formula
   url "https://github.com/openzim/libzim/archive/refs/tags/9.3.0.tar.gz"
   sha256 "791220e51e6a160d349491b9744ec1a9c1a104f11a79e8e73673daf242be69ed"
   license "GPL-2.0-or-later"
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any, arm64_sequoia: "d7244fd1793443e1462d548dc161ed6a0beca8bbccb8c05665aff15fe9b50ec6"
