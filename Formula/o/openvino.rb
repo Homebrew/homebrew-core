@@ -3,8 +3,8 @@ class Openvino < Formula
 
   desc "Open Visual Inference And Optimization toolkit for AI inference"
   homepage "https://docs.openvino.ai"
-  url "https://github.com/openvinotoolkit/openvino/archive/refs/tags/2025.0.0.tar.gz"
-  sha256 "d2cbff5a0ac1bc738c33ba103569f8daf20d3a17d3db94da11ae207ffb9e4395"
+  url "https://github.com/openvinotoolkit/openvino/archive/refs/tags/2025.1.0.tar.gz"
+  sha256 "246c68e1799d035c85f773c986e4eb08f867d821c287abc638b9828e94852457"
   license "Apache-2.0"
   head "https://github.com/openvinotoolkit/openvino.git", branch: "master"
 
@@ -24,6 +24,7 @@ class Openvino < Formula
 
   depends_on "cmake" => [:build, :test]
   depends_on "flatbuffers" => :build
+  depends_on "nlohmann-json" => :build
   depends_on "pkgconf" => [:build, :test]
   depends_on "pybind11" => :build
   depends_on "python-setuptools" => :build
@@ -43,8 +44,8 @@ class Openvino < Formula
     depends_on "opencl-icd-loader"
 
     resource "onednn_gpu" do
-      url "https://github.com/oneapi-src/oneDNN/archive/706a3ce3b391cf1d8a904a8efa981c70078719eb.tar.gz"
-      sha256 "1a656eb32f383cef82b703c355d762b2162f5aaa7b6f54b2c1e47995a9cee1f2"
+      url "https://github.com/oneapi-src/oneDNN/archive/refs/tags/v3.8-pc.tar.gz"
+      sha256 "dcf8382b520b1e23c7c450128533feaea8145d341be14671c8dbc9ede2f59912"
     end
   end
 
@@ -54,6 +55,10 @@ class Openvino < Formula
     resource "arm_compute" do
       url "https://github.com/ARM-software/ComputeLibrary/archive/refs/tags/v24.09.tar.gz"
       sha256 "49b8620f21cbbe49e825a131d9eacd548532646289b50e070b83860bd88087fe"
+    end
+    resource "arm_kleidiai" do
+      url "https://github.com/ARM-software/kleidiai/archive/eaf63a6ae9a903fb4fa8a4d004a974995011f444.tar.gz"
+      sha256 "756fa3040ff23f78a4c3f4c1984a3814d78d302b0b5dc3f0b255322368aefc58"
     end
   end
 
@@ -67,8 +72,8 @@ class Openvino < Formula
   end
 
   resource "onednn_cpu" do
-    url "https://github.com/openvinotoolkit/oneDNN/archive/1789b1e0ae441de15d793123003a900a35d1dc71.tar.gz"
-    sha256 "551070032ce5d2ed6adc2216e9b061782da097b1ce28c403eaa16b230b09f6a7"
+    url "https://github.com/openvinotoolkit/oneDNN/archive/5baba714e16e11309774a62783f363cad30e97c7.tar.gz"
+    sha256 "4430875c1690abecc57d9cc8464be690430e217a0453c69e030c667e5801e749"
   end
 
   resource "openvino-telemetry" do
@@ -86,6 +91,9 @@ class Openvino < Formula
   end
 
   def install
+    # cmake 4 build patch for third parties
+    ENV["CMAKE_POLICY_VERSION_MINIMUM"] = "3.5"
+
     # Remove git cloned 3rd party to make sure formula dependencies are used
     dependencies = %w[thirdparty/ocl
                       thirdparty/xbyak thirdparty/gflags
@@ -104,6 +112,7 @@ class Openvino < Formula
 
     if Hardware::CPU.arm?
       resource("arm_compute").stage buildpath/"src/plugins/intel_cpu/thirdparty/ComputeLibrary"
+      resource("arm_kleidiai").stage buildpath/"src/plugins/intel_cpu/thirdparty/kleidiai"
     elsif OS.linux?
       resource("onednn_gpu").stage buildpath/"src/plugins/intel_gpu/thirdparty/onednn_gpu"
     end
