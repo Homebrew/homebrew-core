@@ -23,32 +23,74 @@ class Freeimage < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "a6c63d08f4adf2395f983ad5f8a51f36ac1e749de9fe6428d056859b199ac6e6"
   end
 
+  depends_on "pkgconf" => :build
+  depends_on "imath"
+  depends_on "jpeg-turbo"
+  depends_on "jxrlib"
+  depends_on "libpng"
+  depends_on "libraw"
+  depends_on "libtiff"
+  depends_on "openexr"
+  depends_on "openjpeg"
+  depends_on "webp"
+
+  uses_from_macos "zlib"
+
   patch do
-    on_macos do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/4dcf528/freeimage/3.17.0.patch"
-      sha256 "8ef390fece4d2166d58e739df76b5e7996c879efbff777a8a94bcd1dd9a313e2"
-    end
-    on_linux do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/696e313c1f89925a8d04f00282d3b6c204a64f48/freeimage/3.17.0-linux.patch"
-      sha256 "537a4045d31a3ce1c3bab2736d17b979543758cf2081e97fff4d72786f1830dc"
-    end
+    # Apply Debian patches to unbundle libraries and other fixes
+    url "https://deb.debian.org/debian/pool/main/f/freeimage/freeimage_3.18.0+ds2-11.debian.tar.xz"
+    sha256 "4ebd3a84c696dd650d756a43ec60fe22f5b2e591bc5cf8df94a605c5d740c904"
+    apply "patches/Disable-vendored-dependencies.patch",
+          "patches/Use-system-dependencies.patch",
+          "patches/Fix-macro-redefinition-for-64-bit-integer-types.patch",
+          "patches/Fix_compilation_external-static.patch",
+          "patches/Use-system-jpeg_read_icc_profile.patch",
+          "patches/Fix-libraw-compilation.patch",
+          "patches/Fix-libraw-compilation-2.patch",
+          "patches/build-without-root.patch",
+          "patches/CVE-2019-12211-13.patch"
   end
 
   def install
-    # Temporary workaround for ARM. Upstream tracking issue:
-    # https://sourceforge.net/p/freeimage/bugs/325/
-    # https://sourceforge.net/p/freeimage/discussion/36111/thread/cc4cd71c6e/
-    ENV["CFLAGS"] = "-O3 -fPIC -fexceptions -fvisibility=hidden -DPNG_ARM_NEON_OPT=0" if Hardware::CPU.arm?
+    ENV.cxx11
 
-    # Fix compile with newer Clang
-    ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
+    # Avoid overlinking with `little-cms2`
+    ENV.append "LDFLAGS", "-Wl,#{OS.mac? ? "-dead_strip_dylibs" : "--as-needed"}"
 
-    # Fix build error on Linux: ImathVec.h:771:37: error: ISO C++17 does not allow dynamic exception specifications
-    ENV["CXXFLAGS"] = "-std=c++98" if OS.linux?
-    system "make", "-f", "Makefile.gnu"
-    system "make", "-f", "Makefile.gnu", "install", "PREFIX=#{prefix}"
-    system "make", "-f", "Makefile.fip"
-    system "make", "-f", "Makefile.fip", "install", "PREFIX=#{prefix}"
+    # Update jxrlib path from Debian patch to work with Homebrew's jxrlib
+    inreplace "Makefile.gnu", "-I/usr/include/jxrlib", "-I#{Formula["jxrlib"].opt_include}/jxrlib"
+
+    # Update to fix build with OpenEXR 3 on macOS where type has changed
+    inreplace "Source/FreeImage/PluginEXR.cpp", /\bImath::Int64\b/, "uint64_t"
+
+    # Remove the bundled libraries and regenerate some Makefiles
+    rm_r([*Dir["Source/Lib*"], "Source/ZLib", "Source/OpenEXR"])
+    system "bash", "gensrclist.sh"
+    system "bash", "genfipsrclist.sh"
+
+    args = ["INCDIR=#{include}", "INSTALLDIR=#{lib}"]
+    if OS.mac?
+      # Make the Linux Makefiles compatible with macOS
+      args += %w[
+        SHAREDLIB=lib$(TARGET).$(VER_MAJOR).$(VER_MINOR).dylib
+        LIBNAME=lib$(TARGET).dylib
+        VERLIBNAME=lib$(TARGET).$(VER_MAJOR).dylib
+      ]
+      ld_version_args = "-current_version $(VER_MAJOR).$(VER_MINOR) -compatibility_version $(VER_MAJOR)"
+      inreplace ["Makefile.gnu", "Makefile.fip"] do |s|
+        s.gsub! "-shared -Wl,-soname,$(VERLIBNAME)", "-dynamiclib -install_name $(VERLIBNAME) #{ld_version_args}"
+
+        # Update Debian patch to include `pkgconf ... libwebp`
+        s.gsub! " libwebpmux ", " libwebp libwebpmux "
+      end
+    end
+
+    system "make", "-f", "Makefile.gnu", *args
+    system "make", "-f", "Makefile.gnu", "install", *args
+
+    ENV.append "LDFLAGS", "-L#{lib} -lfreeimage"
+    system "make", "-f", "Makefile.fip", *args
+    system "make", "-f", "Makefile.fip", "install", *args
   end
 
   test do
