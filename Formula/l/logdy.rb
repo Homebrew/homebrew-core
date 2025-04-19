@@ -4,6 +4,7 @@ class Logdy < Formula
   url "https://github.com/logdyhq/logdy-core/archive/refs/tags/v0.16.0.tar.gz"
   sha256 "c9db35d4dfe619ec7af79324568c17db373eb3266f88a25de291cec636a5a1d0"
   license "Apache-2.0"
+  head "https://github.com/logdyhq/logdy-core.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "f824b88435510732a6b795cf100cd9de6249febc70afa7d339d817a7d7f31739"

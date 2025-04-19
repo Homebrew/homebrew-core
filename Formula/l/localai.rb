@@ -6,6 +6,7 @@ class Localai < Formula
   url "https://github.com/mudler/LocalAI/archive/refs/tags/v2.28.0.tar.gz"
   sha256 "b75f7cffb3b105c1f5e7cd4aa2d5c18cf461b6af0977d150d654d596f1dc8d79"
   license "MIT"
+  head "https://github.com/mudler/LocalAI.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "b50f832facfac7f166ca59de5d3b7f241b10bcfe0dcdee6afec90b3d557e1812"

@@ -4,6 +4,7 @@ class Mdz < Formula
   url "https://github.com/LerianStudio/midaz/archive/refs/tags/v2.1.0.tar.gz"
   sha256 "a7b886cec0a60d8c3c80f741269fd73e6022f09581c07dffad8d695f44d8d153"
   license "Apache-2.0"
+  head "https://github.com/LerianStudio/midaz.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "8603cddee2269c2336e148ba060abe7017172345c2f36ddee38ed5c3d8aeaaf8"

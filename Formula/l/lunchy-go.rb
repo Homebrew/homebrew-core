@@ -4,6 +4,7 @@ class LunchyGo < Formula
   url "https://github.com/sosedoff/lunchy-go/archive/refs/tags/v0.2.1.tar.gz"
   sha256 "58f10dd7d823eff369a3181b7b244e41c09ad8fec2820c9976b822b3daee022e"
   license "MIT"
+  head "https://github.com/sosedoff/lunchy-go.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "fba65395dd87db751184f0d6a5023465484f321d47b4cd62ff0095837656c1e6"

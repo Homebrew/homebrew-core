@@ -4,6 +4,7 @@ class ManifestTool < Formula
   url "https://github.com/estesp/manifest-tool/archive/refs/tags/v2.2.0.tar.gz"
   sha256 "a3d770b7fde65d3146c0987e7e7b7be796a2a7a0556476c48b24bd237890cb06"
   license "Apache-2.0"
+  head "https://github.com/estesp/manifest-tool.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "8a037dc929dd0dfb5cad51397794e1a946d788a81bb54225498ecdb903271adb"

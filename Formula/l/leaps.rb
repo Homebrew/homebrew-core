@@ -4,6 +4,7 @@ class Leaps < Formula
   url "https://github.com/Jeffail/leaps/archive/refs/tags/v0.9.1.tar.gz"
   sha256 "8335e2a939ac5928a05f71df4014529b5b0f2097152017d691a0fb6d5ae27be4"
   license "MIT"
+  head "https://github.com/jeffail/leaps.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "43d3cbf4a3539d7309b2d12ddab84541f1360921b6d67d7b727096998329d952"

@@ -4,6 +4,7 @@ class Mmark < Formula
   url "https://github.com/mmarkdown/mmark/archive/refs/tags/v2.2.46.tar.gz"
   sha256 "829659158f0dc4f079105b4d35e090045420ec678ee5946a60885c698703255a"
   license "BSD-2-Clause"
+  head "https://github.com/mmarkdown/mmark.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "262640ffecbc9ef0162b833564471b356178a90a941c31f1a22f1843ab9dd4fc"

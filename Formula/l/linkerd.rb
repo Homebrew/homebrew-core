@@ -5,6 +5,7 @@ class Linkerd < Formula
       tag:      "stable-2.14.10",
       revision: "1ea6b271718f90182bdf747490895784988e980e"
   license "Apache-2.0"
+  head "https://github.com/linkerd/linkerd2.git", branch: "main"
 
   livecheck do
     url :stable

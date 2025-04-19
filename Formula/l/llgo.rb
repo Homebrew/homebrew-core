@@ -4,6 +4,7 @@ class Llgo < Formula
   url "https://github.com/goplus/llgo/archive/refs/tags/v0.11.0.tar.gz"
   sha256 "f7b55b0d91527c11adbfde4e95f78ab8238e8a35066cd8663882074ac18f2b6b"
   license "Apache-2.0"
+  head "https://github.com/goplus/llgo.git", branch: "main"
 
   livecheck do
     url :stable

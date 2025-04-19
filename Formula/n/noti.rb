@@ -4,6 +4,7 @@ class Noti < Formula
   url "https://github.com/variadico/noti/archive/refs/tags/3.8.0.tar.gz"
   sha256 "b637b4b4e5eb10b3ea2c5b2cf0fbd1904ab8fd26eaec4b911f4ce2db3ab881a2"
   license "MIT"
+  head "https://github.com/variadico/noti.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "7373f99acea5809bcc89237de6cfe9b869fb194603f9ffa69d90c6a01ae60cf1"

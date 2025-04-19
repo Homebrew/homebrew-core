@@ -4,6 +4,7 @@ class Lego < Formula
   url "https://github.com/go-acme/lego/archive/refs/tags/v4.23.1.tar.gz"
   sha256 "e86e62946397964d6f2db2a2487cc75acac08e9ad7811c2302d56c35ca521699"
   license "MIT"
+  head "https://github.com/go-acme/lego.git", branch: "master"
 
   livecheck do
     url :stable

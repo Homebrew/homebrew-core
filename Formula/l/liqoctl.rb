@@ -4,6 +4,7 @@ class Liqoctl < Formula
   url "https://github.com/liqotech/liqo/archive/refs/tags/v1.0.0.tar.gz"
   sha256 "0fc334ed6a1f0b7afa337b6a76796c1485e93af9cdd35c562fc52136b32611bf"
   license "Apache-2.0"
+  head "https://github.com/liqotech/liqo.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "bcad183bb34ecb46edefd59e25cf15c4552e932d7f4cb569de63378f53f07786"
