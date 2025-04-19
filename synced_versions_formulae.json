@@ -44,7 +44,7 @@
   ["libnghttp2", "nghttp2"],
   ["libngspice", "ngspice"],
   ["libnice", "libnice-gstreamer"],
-  ["llvm", "lld", "flang"],
+  ["llvm", "lld", "flang", "wasi-runtimes"],
   ["qalculate-gtk", "qalculate-qt"],
   ["mame", "rom-tools"],
   ["mecab-unidic", "mecab-unidic-extended"],
