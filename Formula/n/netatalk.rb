@@ -1,8 +1,8 @@
 class Netatalk < Formula
   desc "File server for Macs, compliant with Apple Filing Protocol (AFP)"
   homepage "https://netatalk.io"
-  url "https://github.com/Netatalk/netatalk/releases/download/netatalk-4-2-1/netatalk-4.2.1.tar.xz"
-  sha256 "43a51064eef0d3d786e6359888bc000d1458b509bf709bae8cbd4526388f468b"
+  url "https://github.com/Netatalk/netatalk/releases/download/netatalk-4-2-2/netatalk-4.2.2.tar.xz"
+  sha256 "43a51064eef0d3d786e6359888bc000d1458b509bf709bae8cbd4526388f468c"
   license all_of: [
     "GPL-2.0-only",
     "GPL-2.0-or-later",
@@ -24,7 +24,7 @@ class Netatalk < Formula
     sha256 x86_64_linux:  "f372de141b504d3cafdae217f3e39599ac1fdb3da384c61f6868004c1928af32"
   end
 
-  depends_on "docbook-xsl" => :build
+  depends_on "cmark-gfm" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkgconf" => :build
@@ -36,8 +36,6 @@ class Netatalk < Formula
   depends_on "libgcrypt"
   depends_on "mariadb-connector-c"
   depends_on "openldap" # macOS LDAP.Framework is not fork safe
-
-  uses_from_macos "libxslt" => :build
 
   uses_from_macos "krb5"
   uses_from_macos "libxcrypt"
@@ -57,22 +55,23 @@ class Netatalk < Formula
     inreplace "distrib/initscripts/macos.netatalk.plist.in", "@bindir@", opt_bin
     inreplace "distrib/initscripts/macos.netatalk.plist.in", "@sbindir@", opt_sbin
     inreplace "distrib/initscripts/systemd.netatalk.service.in", "@sbindir@", opt_sbin
-    inreplace "config/meson.build", "cups_libdir / 'cups/backend'", "'#{libexec}/cups/backend'"
     bdb5_rpath = rpath(target: Formula["berkeley-db@5"].opt_lib)
     ENV.append "LDFLAGS", "-Wl,-rpath,#{bdb5_rpath}" if OS.linux?
     args = [
       "-Dwith-afpstats=false",
       "-Dwith-appletalk=#{OS.linux?}", # macOS doesn't have an AppleTalk stack
       "-Dwith-bdb-path=#{Formula["berkeley-db@5"].opt_prefix}",
-      "-Dwith-docbook-path=#{Formula["docbook-xsl"].opt_prefix}/docbook-xsl",
+      "-Dwith-cups-libdir-path=#{libexec}",
+      "-Dwith-cups-pap-backend=true",
+      "-Dwith-docs=man",
       "-Dwith-init-dir=#{prefix}",
       "-Dwith-init-hooks=false",
       "-Dwith-install-hooks=false",
       "-Dwith-lockfile-path=#{var}/run",
-      "-Dwith-statedir-path=#{var}",
       "-Dwith-pam-config-path=#{etc}/pam.d",
       "-Dwith-rpath=false",
       "-Dwith-spotlight=false",
+      "-Dwith-statedir-path=#{var}",
     ]
 
     system "meson", "setup", "build", *args, *std_meson_args
