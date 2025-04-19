@@ -40,11 +40,13 @@ class MoonBuggy < Formula
   uses_from_macos "ncurses"
 
   def install
-    system "./autogen.sh" if build.head?
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--mandir=#{man}",
-                          "--infodir=#{info}"
+    args = ["--mandir=#{man}", "--infodir=#{info}"]
+    if build.head?
+      system "./autogen.sh"
+    elsif OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      args << "--build=aarch64-unknown-linux-gnu"
+    end
+    system "./configure", *args, *std_configure_args
     system "make", "install"
   end
 
