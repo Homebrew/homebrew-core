@@ -19,8 +19,11 @@ class Zigup < Formula
   def install
     # Fix illegal instruction errors when using bottles on older CPUs.
     # https://github.com/Homebrew/homebrew-core/issues/92282
-    cpu = case Hardware.oldest_cpu
-    when :arm_vortex_tempest then "apple_m1" # See `zig targets`.
+    cpu = case Hardware.oldest_cpu # See `zig targets`.
+    # Cortex A-53 seems to be the oldest available ARMv8-A processor.
+    # https://en.wikipedia.org/wiki/ARM_Cortex-A53
+    when :armv8 then "cortex_a53"
+    when :arm_vortex_tempest then "apple_m1"
     else Hardware.oldest_cpu
     end
 
