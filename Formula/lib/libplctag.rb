@@ -1,8 +1,8 @@
 class Libplctag < Formula
   desc "Portable and simple API for accessing AB PLC data over Ethernet"
   homepage "https://github.com/libplctag/libplctag"
-  url "https://github.com/libplctag/libplctag/archive/refs/tags/v2.6.3.tar.gz"
-  sha256 "ebbcd659d5137d1299780e49b139d1e991b5a731df6dca0d7130b58555673a6d"
+  url "https://github.com/libplctag/libplctag/archive/refs/tags/v2.6.4.tar.gz"
+  sha256 "be2ab427cbf34f5294ce5d831947352e54d5196401fe9c232722cc41257a91e1"
   license any_of: ["LGPL-2.0-or-later", "MPL-2.0"]
 
   livecheck do
@@ -25,6 +25,12 @@ class Libplctag < Formula
   depends_on "cmake" => :build
 
   def install
+    # Fix to install libraries and .pc file
+    # Issue ref: https://github.com/libplctag/libplctag/issues/526
+    inreplace "src/libplctag/CMakeLists.txt" do |s|
+      s.gsub!("# install(", "install(")
+      s.gsub!("if(EXISTS \"${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/libplctag.pc\")", "if(TRUE)")
+    end
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
