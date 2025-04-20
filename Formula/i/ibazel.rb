@@ -1,8 +1,8 @@
 class Ibazel < Formula
   desc "Tools for building Bazel targets when source files change"
   homepage "https://github.com/bazelbuild/bazel-watcher"
-  url "https://github.com/bazelbuild/bazel-watcher/archive/refs/tags/v0.25.3.tar.gz"
-  sha256 "064e313f2e2fa39ebd71a8f6b5eb44e7c832b713c0fc4077811d88830aa2e68e"
+  url "https://github.com/bazelbuild/bazel-watcher/archive/refs/tags/v0.26.0.tar.gz"
+  sha256 "da81965d48e474df31aea02b613eb5d9696675166cabdc6fb1e6e2e8103f32b5"
   license "Apache-2.0"
   head "https://github.com/bazelbuild/bazel-watcher.git", branch: "master"
 
@@ -17,23 +17,15 @@ class Ibazel < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "1dd9fbcb138b56677b3123f7194cb5d13675a5cdd6f8dcfd9a41f218b3b67828"
   end
 
-  depends_on "bazel@7" => [:build, :test]
   depends_on "go" => [:build, :test]
+  depends_on "bazel" => :test
 
   def install
-    # Bazel clears environment variables which breaks superenv shims
-    ENV.remove "PATH", Superenv.shims_path
-
-    # Allow using our bazel rather than pre-built from bazelisk
-    rm(".bazelversion")
-
-    system "bazel", "build", "--config=release", "--workspace_status_command", "echo STABLE_GIT_VERSION #{version}", "//cmd/ibazel:ibazel"
-    bin.install "bazel-bin/cmd/ibazel/ibazel_/ibazel"
+    ldflags = "-s -w -X main.Version=v#{version}"
+    system "go", "build", *std_go_args(ldflags:), "./cmd/ibazel"
   end
 
   test do
-    ENV.prepend_path "PATH", Formula["bazel@7"].bin
-
     # Write MODULE.bazel with Bazel module dependencies
     (testpath/"MODULE.bazel").write <<~STARLARK
       bazel_dep(name = "rules_go", version = "0.50.1")
