@@ -59,12 +59,6 @@ class Influxdb < Formula
     end
   end
 
-  # rust 1.83 build patch, upstream pr ref, https://github.com/influxdata/flux/pull/5516
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/a188defd190459f5d1faa8c8f9e253e8f83ca161/influxdb/2.7.11-rust-1.83.patch"
-    sha256 "15fa09ae18389b21b8d93792934abcf85855a666ddd8faeaeca6890452fd5bd4"
-  end
-
   def install
     # Set up the influxdata pkg-config wrapper to enable just-in-time compilation & linking
     # of the Rust components in the server.
