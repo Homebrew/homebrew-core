@@ -1,13 +1,11 @@
 class Influxdb < Formula
   desc "Time series, events, and metrics database"
   homepage "https://influxdata.com/time-series-platform/influxdb/"
-  # When bumping to 3.x, update license stanza to `license any_of: ["Apache-2.0", "MIT"]`
-  # Ref: https://github.com/influxdata/influxdb/blob/main/Cargo.toml#L124
   url "https://github.com/influxdata/influxdb.git",
       tag:      "v3.0.1",
       revision: "d7c071e0c4959beebc7a1a433daf8916abd51214"
-  license "MIT"
-  head "https://github.com/influxdata/influxdb.git", branch: "main-2.x"
+  license any_of: ["Apache-2.0", "MIT"]
+  head "https://github.com/influxdata/influxdb.git", branch: "main"
 
   # There can be a notable gap between when a version is tagged and a
   # corresponding release is created, so we check releases instead of the Git
@@ -29,65 +27,13 @@ class Influxdb < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "dce1ad38f5b09ae95904350471e1d3dd7dd9eb1558e07c52e9dda1db2dd8ab2a"
   end
 
-  depends_on "breezy" => :build
-  depends_on "go" => :build
   depends_on "pkgconf" => :build
   depends_on "protobuf" => :build
   depends_on "rust" => :build
 
-  # NOTE: The version here is specified in the go.mod of influxdb.
-  # If you're upgrading to a newer influxdb version, check to see if this needs upgraded too.
-  resource "pkg-config-wrapper" do
-    url "https://github.com/influxdata/pkg-config/archive/refs/tags/v0.2.11.tar.gz"
-    sha256 "52b22c151163dfb051fd44e7d103fc4cde6ae8ff852ffc13adeef19d21c36682"
-
-    livecheck do
-      url "https://raw.githubusercontent.com/influxdata/influxdb/v#{LATEST_VERSION}/go.mod"
-      regex(/pkg-config\s+v?(\d+(?:\.\d+)+)/i)
-    end
-  end
-
-  # NOTE: The version/URL here is specified in scripts/fetch-ui-assets.sh in influxdb.
-  # If you're upgrading to a newer influxdb version, check to see if this needs upgraded too.
-  resource "ui-assets" do
-    url "https://github.com/influxdata/ui/releases/download/OSS-2.7.8/build.tar.gz"
-    sha256 "28ace1df37b7860b011e5c1b8c74830b0ec584d2f86c24e58a7c855c168f58a8"
-
-    livecheck do
-      url "https://raw.githubusercontent.com/influxdata/influxdb/v#{LATEST_VERSION}/scripts/fetch-ui-assets.sh"
-      regex(/UI_RELEASE=["']?OSS[._-]v?(\d+(?:\.\d+)+)["']?$/i)
-    end
-  end
-
   def install
-    # Set up the influxdata pkg-config wrapper to enable just-in-time compilation & linking
-    # of the Rust components in the server.
-    resource("pkg-config-wrapper").stage do
-      system "go", "build", *std_go_args(output: buildpath/"bootstrap/pkg-config")
-    end
-    ENV.prepend_path "PATH", buildpath/"bootstrap"
-
-    # Extract pre-build UI resources to the location expected by go-bindata.
-    resource("ui-assets").stage(buildpath/"static/data/build")
-    # Embed UI files into the Go source code.
-    system "make", "generate-web-assets"
-
-    # Build the server.
-    ldflags = %W[
-      -s -w
-      -X main.version=#{version}
-      -X main.commit=#{Utils.git_short_head(length: 10)}
-      -X main.date=#{time.iso8601}
-    ]
-    tags = %w[
-      assets
-      sqlite_foreign_keys
-      sqlite_json
-    ]
-
-    system "go", "build", *std_go_args(output: bin/"influxd", ldflags:, tags:), "./cmd/influxd"
-
-    data = var/"lib/influxdb2"
+    system "cargo", "install", *std_cargo_args
+    data = var/"lib/influxdb#{version.major}"
     data.mkpath
 
     # Generate default config file.
@@ -95,10 +41,10 @@ class Influxdb < Formula
     config.write Utils.safe_popen_read(bin/"influxd", "print-config",
                                        "--bolt-path=#{data}/influxdb.bolt",
                                        "--engine-path=#{data}/engine")
-    (etc/"influxdb2").install config
+    (etc/"influxdb#{version.major}").install config
 
     # Create directory for DB stdout+stderr logs.
-    (var/"log/influxdb2").mkpath
+    (var/"log/influxdb#{version.major}").mkpath
   end
 
   def caveats
