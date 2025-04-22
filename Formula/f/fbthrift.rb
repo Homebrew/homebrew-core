@@ -1,8 +1,8 @@
 class Fbthrift < Formula
   desc "Facebook's branch of Apache Thrift, including a new C++ server"
   homepage "https://github.com/facebook/fbthrift"
-  url "https://github.com/facebook/fbthrift/archive/refs/tags/v2025.04.14.00.tar.gz"
-  sha256 "049bbeafb84db3e091e4cba2575c1bffe45e246e0aee6425564435084c8c364e"
+  url "https://github.com/facebook/fbthrift/archive/refs/tags/v2025.04.21.00.tar.gz"
+  sha256 "9a05a49230aa1d0aecb04d50cc0af5e259c3c5337e7e881457dcc7e58a4767e8"
   license "Apache-2.0"
   head "https://github.com/facebook/fbthrift.git", branch: "main"
 
