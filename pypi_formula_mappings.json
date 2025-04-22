@@ -613,7 +613,7 @@
   },
   "openstackclient": {
     "extra_packages": [
-      "keystoneauth-websso", "osc-placement", "python-barbicanclient",
+      "gnureadline", "keystoneauth-websso", "osc-placement", "python-barbicanclient",
       "python-cloudkittyclient", "python-designateclient",
       "python-glanceclient", "python-heatclient", "python-ironicclient",
       "python-magnumclient", "python-manilaclient", "python-mistralclient",
