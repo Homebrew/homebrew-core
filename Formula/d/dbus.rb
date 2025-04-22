@@ -65,17 +65,17 @@ class Dbus < Formula
   def caveats
     on_macos do
       <<~EOS
-        To load #{name} at startup, activate the included Launch Daemon:
+        To load #{name} at startup, activate the included Launch Agent:
 
-          sudo cp #{lib}/Library/LaunchDaemons/org.freedesktop.dbus-session.plist /Library/LaunchDaemons
-          sudo chmod 644 /Library/LaunchDaemons/org.freedesktop.dbus-session.plist
-          sudo launchctl load -w /Library/LaunchDaemons/org.freedesktop.dbus-session.plist
+          sudo cp #{lib}/Library/LaunchAgents/org.freedesktop.dbus-session.plist /Library/LaunchAgents
+          sudo chmod 644 /Library/LaunchAgents/org.freedesktop.dbus-session.plist
+          sudo launchctl load -w /Library/LaunchAgents/org.freedesktop.dbus-session.plist
 
-        If this is an upgrade and you already have the Launch Daemon loaded, you
-        have to unload the Launch Daemon before reinstalling it:
+        If this is an upgrade and you already have the Launch Agent loaded, you
+        have to unload the Launch Agent before reinstalling it:
 
-          sudo launchctl unload -w /Library/LaunchDaemons/org.freedesktop.dbus-session.plist
-          sudo rm /Library/LaunchDaemons/org.freedesktop.dbus-session.plist
+          sudo launchctl unload -w /Library/LaunchAgents/org.freedesktop.dbus-session.plist
+          sudo rm /Library/LaunchAgents/org.freedesktop.dbus-session.plist
       EOS
     end
   end
