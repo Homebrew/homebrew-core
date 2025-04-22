@@ -2,28 +2,19 @@ class Gcc < Formula
   desc "GNU compiler collection"
   homepage "https://gcc.gnu.org/"
   license "GPL-3.0-or-later" => { with: "GCC-exception-3.1" }
-  revision 1
   head "https://gcc.gnu.org/git/gcc.git", branch: "master"
 
   stable do
-    url "https://ftp.gnu.org/gnu/gcc/gcc-14.2.0/gcc-14.2.0.tar.xz"
-    mirror "https://ftpmirror.gnu.org/gcc/gcc-14.2.0/gcc-14.2.0.tar.xz"
-    sha256 "a7b39bc69cbf9e25826c5a60ab26477001f7c08d85cec04bc0e29cabed6f3cc9"
+    url "https://ftp.gnu.org/gnu/gcc/gcc-15.1.0/gcc-15.1.0.tar.xz"
+    mirror "https://ftpmirror.gnu.org/gcc/gcc-15.1.0/gcc-15.1.0.tar.xz"
+    sha256 "e2b09ec21660f01fecffb715e0120265216943f038d0e48a9868713e54f06cea"
 
     # Branch from the Darwin maintainer of GCC, with a few generic fixes and
     # Apple Silicon support, located at https://github.com/iains/gcc-14-branch
     patch do
       on_macos do
-        url "https://raw.githubusercontent.com/Homebrew/formula-patches/f30c309442a60cfb926e780eae5d70571f8ab2cb/gcc/gcc-14.2.0-r2.diff"
-        sha256 "6c0a4708f35ccf2275e6401197a491e3ad77f9f0f9ef5761860768fa6da14d3d"
-      end
-    end
-
-    # Fix for macOS 15.4 SDK issue https://gcc.gnu.org/bugzilla/show_bug.cgi?id=119590
-    patch do
-      on_macos do
-        url "https://github.com/iains/gcc-14-branch/commit/efb88ebe0a6886f816c0d037df33df6556544ad6.patch?full_index=1"
-        sha256 "4077af416eaf40a968e4b9d382aeb6470c2b79f09a52da2dd6aa91ace7af5c87"
+        url "https://raw.githubusercontent.com/Homebrew/formula-patches/575ffcaed6d3112916fed77d271dd3799a7255c4/gcc/gcc-15.1.0.diff"
+        sha256 "360fba75cd3ab840c2cd3b04207f745c418df44502298ab156db81d41edf3594"
       end
     end
   end
@@ -85,9 +76,14 @@ class Gcc < Formula
 
     # We avoiding building:
     #  - Ada and D, which require a pre-existing GCC to bootstrap
+    #  - Cobol, not fully stable yet
     #  - Go, currently not supported on macOS
     #  - BRIG
-    languages = %w[c c++ objc obj-c++ fortran m2]
+    languages = %w[c c++ objc obj-c++ fortran]
+
+    # Modula-2 has problems with macOS 15 for now
+    # https://github.com/Homebrew/homebrew-core/pull/221029
+    languages << "m2" if !OS.mac? || MacOS.version < :sequoia
 
     pkgversion = "Homebrew GCC #{pkg_version} #{build.used_options*" "}".strip
 
@@ -118,7 +114,10 @@ class Gcc < Formula
       sdk = MacOS.sdk_path_if_needed
       args << "--with-sysroot=#{sdk}" if sdk
 
-      make_args = []
+      # Avoid this semi-random failure:
+      # "Error: Failed changing install name"
+      # "Updated load commands do not fit in the header"
+      make_args = %w[BOOT_LDFLAGS=-Wl,-headerpad_max_install_names]
     else
       # Fix cc1: error while loading shared libraries: libisl.so.15
       args << "--with-boot-ldflags=-static-libstdc++ -static-libgcc #{ENV.ldflags}"
@@ -304,6 +303,9 @@ class Gcc < Formula
     FORTRAN
     system bin/"gfortran", "-o", "test", "test.f90"
     assert_equal "Done\n", shell_output("./test")
+
+    # Modula-2 is temporarily disabled on macOS 15
+    return if OS.mac? && MacOS.version >= :sequoia
 
     (testpath/"hello.mod").write <<~EOS
       MODULE hello;
