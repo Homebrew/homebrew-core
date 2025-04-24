@@ -3,10 +3,9 @@ class Pytorch < Formula
 
   desc "Tensors and dynamic neural networks"
   homepage "https://pytorch.org/"
-  url "https://github.com/pytorch/pytorch/releases/download/v2.5.1/pytorch-v2.5.1.tar.gz"
-  sha256 "740eb5fff95e33cfe699bad43be83523f569c7cc7f9c285c2a255416443dd266"
+  url "https://github.com/pytorch/pytorch/releases/download/v2.7.0/pytorch-v2.7.0.tar.gz"
+  sha256 "ecca266fa2de4235a9fd5a18a33299a9de55ab3babb87f8c297c1c9ab8d436bd"
   license "BSD-3-Clause"
-  revision 4
 
   livecheck do
     url :stable
@@ -41,19 +40,29 @@ class Pytorch < Formula
     depends_on "libomp"
   end
 
+  # Fix to FileNotFoundError for `.ci/docker/ci_commit_pins/nccl-cu12.txt`
+  # This resource is only used to get the `.ci` directory for the release artifact.
+  # 1. Release artifact is missing `.ci` directory.
+  # 2. Tag artifact is missing git submodules.
+  # 3. Pulling tag revision takes too long.
+  resource "pytorch-ci" do
+    url "https://github.com/pytorch/pytorch/archive/refs/tags/v2.7.0.tar.gz"
+    sha256 "994196e9bb12ffd5198e3b0fb3c479e3c6945674c79853f69c3c6330d2e62148"
+  end
+
   resource "filelock" do
-    url "https://files.pythonhosted.org/packages/9d/db/3ef5bb276dae18d6ec2124224403d1d67bccdbefc17af4cc8f553e341ab1/filelock-3.16.1.tar.gz"
-    sha256 "c249fbfcd5db47e5e2d6d62198e565475ee65e4831e2561c8e313fa7eb961435"
+    url "https://files.pythonhosted.org/packages/0a/10/c23352565a6544bdc5353e0b15fc1c563352101f30e24bf500207a54df9a/filelock-3.18.0.tar.gz"
+    sha256 "adbc88eabb99d2fec8c9c1b229b171f18afa655400173ddc653d5d01501fb9f2"
   end
 
   resource "fsspec" do
-    url "https://files.pythonhosted.org/packages/62/7c/12b0943011daaaa9c35c2a2e22e5eb929ac90002f08f1259d69aedad84de/fsspec-2024.9.0.tar.gz"
-    sha256 "4b0afb90c2f21832df142f292649035d80b421f60a9e1c027802e5a0da2b04e8"
+    url "https://files.pythonhosted.org/packages/45/d8/8425e6ba5fcec61a1d16e41b1b71d2bf9344f1fe48012c2b48b9620feae5/fsspec-2025.3.2.tar.gz"
+    sha256 "e52c77ef398680bbd6a98c0e628fbc469491282981209907bbc8aea76a04fdc6"
   end
 
   resource "jinja2" do
-    url "https://files.pythonhosted.org/packages/ed/55/39036716d19cab0747a5020fc7e907f362fbf48c984b14e62127f7e68e5d/jinja2-3.1.4.tar.gz"
-    sha256 "4a3aee7acbbe7303aede8e9648d13b8bf88a429282aa6122a993f0ac800cb369"
+    url "https://files.pythonhosted.org/packages/df/bf/f7da0350254c0ed7c72f3e33cef02e048281fec7ecec5f032d4aac52226b/jinja2-3.1.6.tar.gz"
+    sha256 "0137fb05990d35f1275a587e9aee6d56da821fc83491a0fb838183be43f66d6d"
   end
 
   resource "markupsafe" do
@@ -67,8 +76,8 @@ class Pytorch < Formula
   end
 
   resource "networkx" do
-    url "https://files.pythonhosted.org/packages/36/2b/20ad9eecdda3f1b0dc63fb8f82d2ea99163dbca08bfa392594fc2ed81869/networkx-3.4.1.tar.gz"
-    sha256 "f9df45e85b78f5bd010993e897b4f1fdb242c11e015b101bd951e5c0e29982d8"
+    url "https://files.pythonhosted.org/packages/fd/1d/06475e1cd5264c0b870ea2cc6fdb3e37177c1e565c43f56ff17a10e3937f/networkx-3.4.2.tar.gz"
+    sha256 "307c3669428c5362aab27c8a1260aa8f47c4e91d3891f48be0141738d8d053e1"
   end
 
   resource "opt-einsum" do
@@ -82,22 +91,27 @@ class Pytorch < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/07/37/b31be7e4b9f13b59cde9dcaeff112d401d49e0dc5b37ed4a9fc8fb12f409/setuptools-75.2.0.tar.gz"
-    sha256 "753bb6ebf1f465a1912e19ed1d41f403a79173a9acf66a42e7e6aec45c3c16ec"
+    url "https://files.pythonhosted.org/packages/aa/b2/bd26ed086b842b68c8fe9aac380ad7e5118cf84fa7abd45bb059a88368a8/setuptools-80.1.0.tar.gz"
+    sha256 "2e308396e1d83de287ada2c2fd6e64286008fe6aca5008e0b6a8cb0e2c86eedd"
   end
 
   resource "sympy" do
-    url "https://files.pythonhosted.org/packages/ca/99/5a5b6f19ff9f083671ddf7b9632028436167cd3d33e11015754e41b249a4/sympy-1.13.1.tar.gz"
-    sha256 "9cebf7e04ff162015ce31c9c6c9144daa34a93bd082f54fd8f12deca4f47515f"
+    url "https://files.pythonhosted.org/packages/83/d3/803453b36afefb7c2bb238361cd4ae6125a569b4db67cd9e79846ba2d68c/sympy-1.14.0.tar.gz"
+    sha256 "d3d3fe8df1e5a0b42f0e7bdf50541697dbe7d23746e894990c030e2b05e72517"
   end
 
   resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/df/db/f35a00659bc03fec321ba8bce9420de607a1d37f8342eee1863174c69557/typing_extensions-4.12.2.tar.gz"
-    sha256 "1a7ead55c7e559dd4dee8856e3a88b41225abfe1ce8df57b7c13915fe121ffb8"
+    url "https://files.pythonhosted.org/packages/f6/37/23083fcd6e35492953e8d2aaaa68b860eb422b34627b13f2ce3eb6106061/typing_extensions-4.13.2.tar.gz"
+    sha256 "e6c81219bd689f51865d9e372991c540bda33a0379d5573cddb9a3a23f7caaef"
   end
 
   def install
     python3 = "python3.13"
+
+    # Install `.ci` directory for the release artifact.
+    resource("pytorch-ci").stage do
+      buildpath.install ".ci"
+    end
 
     # Avoid building AVX512 code
     inreplace "cmake/Modules/FindAVX.cmake", /^CHECK_SSE\(CXX "AVX512"/, "#\\0"
@@ -113,6 +127,7 @@ class Pytorch < Formula
     ENV["USE_CCACHE"] = "OFF"
     ENV["USE_CUDA"] = "OFF"
     ENV["USE_DISTRIBUTED"] = "ON"
+    ENV["USE_KLEIDIAI"] = "OFF" if Hardware::CPU.arm?
     ENV["USE_MKLDNN"] = "OFF"
     ENV["USE_NNPACK"] = "OFF"
     ENV["USE_OPENMP"] = "ON"
@@ -125,7 +140,11 @@ class Pytorch < Formula
     inreplace "caffe2/core/macros.h.in", "${CMAKE_CXX_COMPILER}", ENV.cxx
 
     venv = virtualenv_create(libexec, python3)
-    venv.pip_install resources
+    venv.pip_install resources.reject { |r| r.name == "pytorch-ci" }
+
+    # Fix to error: a template argument list is expected after a name prefixed by the template keyword
+    # [-Wmissing-template-arg-list-after-template-kw], from `third_party/tensorpipe/third_party/libnop`
+    ENV.append_to_cflags "-Wno-missing-template-arg-list-after-template-kw"
     venv.pip_install_and_link(buildpath, build_isolation: false)
 
     # Expose C++ API
