@@ -2,9 +2,9 @@ class Cjsh < Formula
   desc "CJ's Shell"
   homepage "https://github.com/CadenFinley/CJsShell"
   url "https://github.com/CadenFinley/CJsShell.git",
-      tag:      "2.0.3.0",
-      revision: "5bc1e4209526b00852a8fd674553b5cbe4df4b0c"
-  version "2.0.3.0"
+      tag:      "2.0.3.1",
+      revision: "22fcd2ef9ed81c36df7df369de30f06878db1db0"
+  version "2.0.3.1"
 
   license "MIT"
 
@@ -15,27 +15,16 @@ class Cjsh < Formula
   depends_on "nlohmann-json"
 
   def install
-    mkdir "build" do
-      system "cmake", "..",
-             "-DCMAKE_BUILD_TYPE=Release",
-             "-DCMAKE_INSTALL_PREFIX=#{prefix}",
-             "-DCMAKE_PREFIX_PATH=#{Formula["openssl@3"].opt_prefix}",
-             *std_cmake_args
-      system "make"
-      bin.install "cjsh"
-    end
+    system "cmake", "-S", ".", "-B", "build",
+           "-DCMAKE_PREFIX_PATH=#{Formula["openssl@3"].opt_prefix}",
+           *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   def post_install
     original_shell = ENV["SHELL"]
     (prefix/"original_shell.txt").write original_shell
-  end
-
-  def post_uninstall
-    original = (prefix/"original_shell.txt").read.chomp rescue nil
-    return if original.to_s.empty?
-    ohai "Restoring your original shell to #{original}"
-    safe_system "sudo", "chsh", "-s", original, ENV["USER"]
   end
 
   test do
