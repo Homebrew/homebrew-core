@@ -4,7 +4,7 @@ class Mailcatcher < Formula
   url "https://github.com/sj26/mailcatcher/archive/refs/tags/v0.10.0.tar.gz"
   sha256 "4cd027e22878342d6a002402306d42ada1f34045cc1d7f35b5a7fa37b944326e"
   license "MIT"
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "42f5b6813789c297bfb3f2cf9867cb89c387124336f78f0b2db31a9490ff8e39"
@@ -32,8 +32,8 @@ class Mailcatcher < Formula
   end
 
   resource "rack" do
-    url "https://rubygems.org/downloads/rack-2.2.9.gem"
-    sha256 "fd6301a97a1c1e955e68f85c861fcb1cde6145a32c532e1ea321a72ff8cc4042"
+    url "https://rubygems.org/downloads/rack-2.2.13.gem"
+    sha256 "ccee101719696a5da12ee9da6fb3b1d20cb329939e089e0e458be6e93667f0fb"
   end
 
   resource "eventmachine" do
@@ -53,18 +53,18 @@ class Mailcatcher < Formula
 
   # needed for sqlite
   resource "mini_portile2" do
-    url "https://rubygems.org/downloads/mini_portile2-2.8.5.gem"
-    sha256 "7a37db8ae758086c3c3ac3a59c036704d331e965d5e106635e4a42d6e66089ce"
+    url "https://rubygems.org/downloads/mini_portile2-2.8.8.gem"
+    sha256 "8e47136cdac04ce81750bb6c09733b37895bf06962554e4b4056d78168d70a75"
   end
 
-  resource "sqlite" do
+  resource "sqlite3" do
     url "https://rubygems.org/downloads/sqlite3-1.7.3.gem"
     sha256 "fa77f63c709548f46d4e9b6bb45cda52aa3881aa12cc85991132758e8968701c"
   end
 
   resource "tilt" do
-    url "https://rubygems.org/downloads/tilt-2.3.0.gem"
-    sha256 "82dd903d61213c63679d28e404ee8e10d1b0fdf5270f1ad0898ec314cc3e745c"
+    url "https://rubygems.org/downloads/tilt-2.6.0.gem"
+    sha256 "263d748466e0d83e510aa1a2e2281eff547937f0ef06be33d3632721e255f76b"
   end
 
   resource "base64" do
@@ -83,8 +83,8 @@ class Mailcatcher < Formula
   end
 
   resource "mustermann" do
-    url "https://rubygems.org/downloads/mustermann-3.0.0.gem"
-    sha256 "6d3569aa3c3b2f048c60626f48d9b2d561cc8d2ef269296943b03da181c08b67"
+    url "https://rubygems.org/downloads/mustermann-3.0.3.gem"
+    sha256 "d1f8e9ba2ddaed47150ddf81f6a7ea046826b64c672fbc92d83bce6b70657e88"
   end
 
   resource "sinatra" do
@@ -93,8 +93,8 @@ class Mailcatcher < Formula
   end
 
   resource "timeout" do
-    url "https://rubygems.org/downloads/timeout-0.4.1.gem"
-    sha256 "6f1f4edd4bca28cffa59501733a94215407c6960bd2107331f0280d4abdebb9a"
+    url "https://rubygems.org/downloads/timeout-0.4.3.gem"
+    sha256 "9509f079b2b55fe4236d79633bd75e34c1c1e7e3fb4b56cb5fda61f80a0fe30e"
   end
 
   resource "net-protocol" do
@@ -103,8 +103,8 @@ class Mailcatcher < Formula
   end
 
   resource "net-smtp" do
-    url "https://rubygems.org/downloads/net-smtp-0.4.0.1.gem"
-    sha256 "098d28fab9d9bc280a2cfada77692cdca89c83c6789bdbb8d8429f97f1bf5a33"
+    url "https://rubygems.org/downloads/net-smtp-0.5.1.gem"
+    sha256 "ed96a0af63c524fceb4b29b0d352195c30d82dd916a42f03c62a3a70e5b70736"
   end
 
   resource "net-pop" do
@@ -113,13 +113,13 @@ class Mailcatcher < Formula
   end
 
   resource "date" do
-    url "https://rubygems.org/downloads/date-3.3.4.gem"
-    sha256 "971f2cb66b945bcbea4ddd9c7908c9400b31a71bc316833cb42fa584b59d3291"
+    url "https://rubygems.org/downloads/date-3.4.1.gem"
+    sha256 "bf268e14ef7158009bfeaec40b5fa3c7271906e88b196d958a89d4b408abe64f"
   end
 
   resource "net-imap" do
-    url "https://rubygems.org/downloads/net-imap-0.4.9.1.gem"
-    sha256 "2f869dc18e3f4a61e5f4c68d6e33e2db5b6d661dfa9151b2b20aa7dfdd342e7d"
+    url "https://rubygems.org/downloads/net-imap-0.5.7.gem"
+    sha256 "d5c0247832439b62298c0935ba67d8bc02fdb476d7a3e099d6f75b3daf498b91"
   end
 
   resource "mini_mime" do
@@ -138,14 +138,17 @@ class Mailcatcher < Formula
   end
 
   resource "websocket-driver" do
-    url "https://rubygems.org/downloads/websocket-driver-0.7.6.gem"
-    sha256 "f69400be7bc197879726ad8e6f5869a61823147372fd8928836a53c2c741d0db"
+    url "https://rubygems.org/downloads/websocket-driver-0.7.7.gem"
+    sha256 "056d99f2cd545712cfb1291650fde7478e4f2661dc1db6a0fa3b966231a146b4"
   end
 
   resource "faye-websocket" do
     url "https://rubygems.org/downloads/faye-websocket-0.11.3.gem"
     sha256 "109187161939c57032d2bba9e5c45621251d73f806bb608d2d4c3ab2cabeb307"
   end
+
+  # Fixes `LoadError: cannot load such file -- mail_catcher/version (LoadError)`
+  patch :DATA
 
   def install
     if OS.mac? && MacOS.version >= :mojave && MacOS::CLT.installed?
@@ -159,6 +162,7 @@ class Mailcatcher < Formula
              "--no-document", "--install-dir", libexec
     end
 
+    system "rake", "assets"
     system "gem", "build", "#{name}.gemspec"
     system "gem", "install", "--ignore-dependencies", "#{name}-#{version}.gem"
     bin.install libexec/"bin"/name, libexec/"bin/catchmail"
@@ -167,7 +171,7 @@ class Mailcatcher < Formula
     # Remove temporary logs that reference Homebrew shims.
     # TODO: See if we can handle this better:
     #       https://github.com/sparklemotion/sqlite3-ruby/discussions/394
-    rm_r(libexec/"gems/sqlite3-#{resource("sqlite").version}/ext/sqlite3/tmp")
+    rm_r(libexec/"gems/sqlite3-#{resource("sqlite3").version}/ext/sqlite3/tmp")
   end
 
   service do
@@ -210,6 +214,21 @@ class Mailcatcher < Formula
 
     assert_match "bob@example.org", shell_output("curl --silent http://localhost:#{http_port}/messages")
     assert_equal "Hello Alice.", shell_output("curl --silent http://localhost:#{http_port}/messages/1.plain").strip
+    assert_match "Content-Type: application/javascript", shell_output("curl --silent -i http://localhost:#{http_port}/assets/mailcatcher.js").strip
     system "curl", "--silent", "-X", "DELETE", "http://localhost:#{http_port}/"
   end
 end
+
+__END__
+diff --git a/Rakefile b/Rakefile
+index 6f1f2b4..1381ec2 100644
+--- a/Rakefile
++++ b/Rakefile
+@@ -3,6 +3,7 @@
+ require "fileutils"
+ require "rubygems"
+
++$LOAD_PATH.unshift File.expand_path("lib", __dir__)
+ require "mail_catcher/version"
+
+ # XXX: Would prefer to use Rake::SprocketsTask but can't populate
