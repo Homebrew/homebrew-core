@@ -1,8 +1,8 @@
 class Llgo < Formula
   desc "Go compiler based on LLVM integrate with the C ecosystem and Python"
   homepage "https://github.com/goplus/llgo"
-  url "https://github.com/goplus/llgo/archive/refs/tags/v0.11.0.tar.gz"
-  sha256 "f7b55b0d91527c11adbfde4e95f78ab8238e8a35066cd8663882074ac18f2b6b"
+  url "https://github.com/goplus/llgo/archive/refs/tags/v0.11.1.tar.gz"
+  sha256 "abbd9b8b16c1f5273db86a6970c0ffa333b9aec7d5644d296a10686564822f1c"
   license "Apache-2.0"
 
   livecheck do
@@ -65,9 +65,12 @@ class Llgo < Formula
     script_env = { PATH: "#{path_deps.join(":")}:$PATH" }
 
     if OS.linux?
+      libgc = find_dep("bdw-gc")
       libunwind = find_dep("libunwind")
-      script_env[:CFLAGS] = "-I#{libunwind.opt_include} $CFLAGS"
-      script_env[:LDFLAGS] = "-L#{libunwind.opt_lib} -rpath #{libunwind.opt_lib} $LDFLAGS"
+      script_env[:CFLAGS] = "-I#{libunwind.opt_include} -I#{libgc.opt_include} $CFLAGS"
+      script_env[:LDFLAGS] = "-L#{libunwind.opt_lib} -L#{libgc.opt_lib} " \
+                             "-Wl,-rpath,#{libgc.opt_lib} " \
+                             "-Wl,-rpath,#{libunwind.opt_lib} $LDFLAGS"
     end
 
     (libexec/"bin").children.each do |f|
