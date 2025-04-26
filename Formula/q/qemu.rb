@@ -72,6 +72,12 @@ class Qemu < Formula
   end
 
   def install
+    # Fix segfault on macOS 15.0-15.3
+    # https://github.com/Homebrew/homebrew-core/issues/221154
+    if OS.mac? && MacOS.version == :sequoia && build.bottle?
+      inreplace "meson.build", "config_host_data.set('HAVE_STRCHRNUL', cc.has_function('strchrnul'))\n", ""
+    end
+
     ENV["LIBTOOL"] = "glibtool"
 
     # Remove wheels unless explicitly permitted. Currently this:
