@@ -12,13 +12,14 @@ class MysqlClient < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "7213d0e8ee62da27799aa432fa730f52923c1dc67c07a7ba28b12a00fb3b687e"
-    sha256 arm64_sonoma:  "608f5e77f5402aa33077b4c0db91ebe1e1c032e04534a167879e27494279d776"
-    sha256 arm64_ventura: "eefebca0be8b11bb7c6e48471fabecfb109b37326a2b137ee0e3dd0870c0b9e7"
-    sha256 sonoma:        "aef0b032afdee3c5ca2c1ace18c1951d10a415a6fa5958b3dc0df197fc053f15"
-    sha256 ventura:       "bff9a70b2e67a182de68c67d1610d7fe7c4e81a62d273a9f7a87764df355ce5b"
-    sha256 arm64_linux:   "5d0b68e68bdca08b9aead388108e7ac2f6a50ba90545bd45137a1aa2dee1792d"
-    sha256 x86_64_linux:  "9e4f76f7c086ebf5fc1446e1e653964f4a4ff1d07fa370b09b4fd2b7c137ee8e"
+    rebuild 1
+    sha256 arm64_sequoia: "975fd82ddc975521c79adc5b8d91c8fe739e2d4b4f2f7716bb52dfaad32cd8cb"
+    sha256 arm64_sonoma:  "b0f29c9fbf56dd9f36ba0518e6a08fcedd7cf39884a2828a34e3c1b69cf5ac5d"
+    sha256 arm64_ventura: "20d77f2b858872d0fdfdddc552d0f0c513bdc4e939bfe43eea57a6b47fb7070d"
+    sha256 sonoma:        "418c9c100877a4dae7dd49b6e78c1aafb0db23bcddbf94e522e39a78c8130398"
+    sha256 ventura:       "3529c333d6cc9ca4925f0297a4ed70cf5d41bbcdb3d45dfee4a81bd16b56a8e7"
+    sha256 arm64_linux:   "b7cb2de7878be31f6896f08617393a83d836620192ad20649361c101a48b591f"
+    sha256 x86_64_linux:  "b19afb43de7e7a05235af8abbabec78a12fddac8278079d449cda6824683205e"
   end
 
   keg_only "it conflicts with mysql (which contains client libraries)"
@@ -66,8 +67,6 @@ class MysqlClient < Formula
     # -DINSTALL_* are relative to `CMAKE_INSTALL_PREFIX` (`prefix`)
     args = %W[
       -DCOMPILATION_COMMENT=Homebrew
-      -DDEFAULT_CHARSET=utf8mb4
-      -DDEFAULT_COLLATION=utf8mb4_general_ci
       -DINSTALL_DOCDIR=share/doc/#{name}
       -DINSTALL_INCLUDEDIR=include/mysql
       -DINSTALL_INFODIR=share/info

@@ -19,6 +19,7 @@ class HaskellLanguageServer < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "61bf5b68dc9cd636f5a2ef3792a8c955a33e461544ce2da87efcb1cb29975358"
     sha256 cellar: :any_skip_relocation, sonoma:        "d2b798ae2b7c005c05170f7e92f653b939ed51e4f6e907e737ae9b3bf5645923"
     sha256 cellar: :any_skip_relocation, ventura:       "e04bb44cbacf239ec843f840bc6887a760c4a021abc6996465a5d8d85b88947b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7784b1f454b182e6227b1ead86db9e4a04d5b22cef627bb3743ec4d95645711d"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "bab5d18cee8d36906dc58806f1c42ef705ad217c2b2521648284ecf900f8d042"
   end
 
@@ -26,7 +27,9 @@ class HaskellLanguageServer < Formula
   depends_on "ghc" => [:build, :test]
   depends_on "ghc@9.10" => [:build, :test]
   depends_on "ghc@9.8" => [:build, :test]
+  depends_on "gmp"
 
+  uses_from_macos "libffi"
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 

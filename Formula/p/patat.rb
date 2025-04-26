@@ -12,6 +12,7 @@ class Patat < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "1d74d8ef26abb5124378368df7fdf4d74943b2a48ef97d77858031232e5368e6"
     sha256 cellar: :any_skip_relocation, sonoma:        "c8c5c4de61348f06d137c102c5adb6ca5c2e87c592e7d149dd8ba868c7058ee3"
     sha256 cellar: :any_skip_relocation, ventura:       "637694b462ba2b5d2fd2bfdde614e34b9d1fde8b90496fbd2fbdbd0e081fc822"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6390067a6165e948ac19e1acbc7fd963f65ba9c75ea651a7fbebf22b4645023f"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "cd3d53ae252d26191e0afda4140ea3a2e1d6f671e2d7326f05ba7789119a21a8"
   end
 

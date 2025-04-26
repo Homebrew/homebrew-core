@@ -1,18 +1,18 @@
 class Bbtools < Formula
   desc "Brian Bushnell's tools for manipulating reads"
   homepage "https://jgi.doe.gov/data-and-tools/software-tools/bbtools/"
-  url "https://downloads.sourceforge.net/bbmap/BBMap_39.22.tar.gz"
-  sha256 "5072e94a8cc0f76a93a7cd594dccc1f67d112604e06feedda92f01f166583db7"
+  url "https://downloads.sourceforge.net/bbmap/BBMap_39.23.tar.gz"
+  sha256 "1a6ec22bc8269b701b73617bcd1d67cc9f98d8539b70f253605ae9888538f3d3"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "220e3f120864b76793a3a96f63373799d34b7ab2ee7e4f6014d2a0b353dcf2f1"
-    sha256 cellar: :any,                 arm64_sonoma:  "b4e7e0261d5032e504db6b755aeebcdf79df4c84676f6dd2a888ddaf13dec0b3"
-    sha256 cellar: :any,                 arm64_ventura: "c160cd4e89ff05ca2594e1df5f8897f3e031a085c7f955f06b3cdc6e3735b40b"
-    sha256 cellar: :any,                 sonoma:        "eee4fbf08c2d60599489796a554bd17408e8449f116828cbd86b881f785c4ae8"
-    sha256 cellar: :any,                 ventura:       "73446e6b4cf3ad5837472034760e4adde93f9e9d12de7ab506b77eaed5c3457a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "654e364cd0ebb7e3cb55a3200a0743a732118b58609675307f11cb5e8bdb73d8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7913b13625345aa4fdf355224a111263c73f47e947f3a2a209656ff887dcebf7"
+    sha256 cellar: :any,                 arm64_sequoia: "c12f877d4f552aa3aff9cfac1c19abf475ba23df2cc36b3e3191d054961ff2fe"
+    sha256 cellar: :any,                 arm64_sonoma:  "4c152de969e4b90b2d128544da69eafca6f4f3d0c9625e93f7d6433a810f1136"
+    sha256 cellar: :any,                 arm64_ventura: "d5f45cc3b431a645f50fd8876aa551d997a20911ef30b9603319b8c091af8224"
+    sha256 cellar: :any,                 sonoma:        "856f637d0437a303d6957b870706a96baec691382a77d27d82528dda0146e7fa"
+    sha256 cellar: :any,                 ventura:       "0176d48e2281b80d231255b8721b88f5d52e5b0d271adfae9810dfbc36692bd4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1b6b5f08d315858cc54b7fc881d9b255a9ba0995e7177dc4e198aa34165c0358"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ce1d45e00daa612d2e4c1e5fa04ae5b98bf8a0722bf5b1a604333b7daf1903b2"
   end
 
   depends_on "openjdk"

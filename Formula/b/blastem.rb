@@ -9,7 +9,15 @@ class Blastem < Formula
 
   livecheck do
     url "https://www.retrodev.com/repos/blastem/json-tags"
-    regex(/["']tag["']:\s*?["']v?(\d+(?:\.\d+)+)["']/i)
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+    strategy :json do |json, regex|
+      json["tags"]&.map do |item|
+        match = item["tag"]&.match(regex)
+        next if match.blank?
+
+        match[1]
+      end
+    end
   end
 
   bottle do

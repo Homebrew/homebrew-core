@@ -11,6 +11,7 @@ class PandocPlot < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "a576bb85965c0aaab47ea0d10b1ce99310ce7ea453361e28f90fd6142644da7c"
     sha256 cellar: :any_skip_relocation, sonoma:        "eb0f022f0722c571818a6d9a4786e6aa92ed6a7ce0af8e47ce43bae83dd0c193"
     sha256 cellar: :any_skip_relocation, ventura:       "624f4ee454a269b92a633a306632b99e0365e952b0bd2de17e40bfec21443fb6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d8054d18e5ca238e9dc229083d65ea5aba64262cac3f175fd412038dd70981b5"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "177f0c90f6cb82159908834ad1ad93a3b60d4df9e282036862a9b9634f29bb2f"
   end
 

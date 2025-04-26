@@ -22,7 +22,7 @@ class OpentracingCpp < Formula
   end
 
   deprecate! date: "2024-03-09", because: :repo_archived
-  disable! date: "2025-03-24", because: :repo_archived, replacement: "opentelemetry-cpp"
+  disable! date: "2025-03-24", because: :repo_archived, replacement_formula: "opentelemetry-cpp"
 
   depends_on "cmake" => :build
 

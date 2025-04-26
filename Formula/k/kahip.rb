@@ -1,19 +1,19 @@
 class Kahip < Formula
   desc "Karlsruhe High Quality Partitioning"
   homepage "https://algo2.iti.kit.edu/documents/kahip/index.html"
-  url "https://github.com/KaHIP/KaHIP/archive/refs/tags/v3.18.tar.gz"
-  sha256 "e5003fa324362255d837899186cd0c3e42d376664f0d555e7e7a1d51334817c9"
+  url "https://github.com/KaHIP/KaHIP/archive/refs/tags/v3.19.tar.gz"
+  sha256 "ab128104d198061b4dcad76f760aca240b96de781c1b586235ee4f12fd6829c6"
   license "MIT"
   head "https://github.com/KaHIP/KaHIP.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "e9d7337dedb52872bd7519b923fca4d0f42fa07d3a39b99855715401555dae56"
-    sha256 cellar: :any,                 arm64_sonoma:  "ec1ecec6d98c010eeeb0972b027c275188e82cb10cbd39048cdb4252be7b1575"
-    sha256 cellar: :any,                 arm64_ventura: "e0525044a406b7a0e53ce2aa395fa7ecf21dfc2b28ea7b4c7ce162291da087b6"
-    sha256 cellar: :any,                 sonoma:        "320d2635c2ec32ccd3de2127a8736e7e0e34278bb08863656dea52027f0904af"
-    sha256 cellar: :any,                 ventura:       "c1173ffd2a8bec573cc70073fe764fc0fbeed8c9659a31eb3f12917f80a7a03b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d0511449c8a47e48911efb5b8bde068854e0865a42aa56f67f70b51a3418feec"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f8aefc291785e6952f1b6e2f0d51e90266934d00e8abfb66c5328a7820c1bf2b"
+    sha256 cellar: :any,                 arm64_sequoia: "e35ec707621f77c3931c1ea5a1fc5391aca68b6b17ccd0c2a0939bdc55efd0b5"
+    sha256 cellar: :any,                 arm64_sonoma:  "70237608f0031ea32bc841583f0f2bd6541b68db482cd91b635b3cbf84375796"
+    sha256 cellar: :any,                 arm64_ventura: "b694039fe2f48ddc68966e89b6fbcbc09864eb2bcc3e88edcf38f9da66ccb74a"
+    sha256 cellar: :any,                 sonoma:        "8d60453b8a94e0ade7f3d3548bc557a0dfd81cead02ad90743fdea32e00ac510"
+    sha256 cellar: :any,                 ventura:       "0d3b5371c8287d213dfcb1b3414885dd7bd52e1736f6ac4f3c3c27f10468408b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "18f3208834cbc20617007ced155eaa640defb1a5a25f9f985226eff7d6278678"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "de4b05fc30581f8d2d30972c19d088a25980d69eaf81e657c0f54321a146add5"
   end
 
   depends_on "cmake" => :build

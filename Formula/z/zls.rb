@@ -12,6 +12,7 @@ class Zls < Formula
     sha256 arm64_ventura: "8f9f6f64f69751589f4e9c746f1bd8c07d1364dc104bd68654f32cb5641b0856"
     sha256 sonoma:        "5fbe4882be0c8049da4fe626e6a0dd1adf6cda6d6f561c92765c0454d9967cfb"
     sha256 ventura:       "667924a98f0b4de9cbb5df7bf8f14da4b26cecd53c0dd4dcbf746a85274375e8"
+    sha256 arm64_linux:   "5cfedf309286303cdb7070ea8693607a4fa12737dc1685721ff717a25e7a0df2"
     sha256 x86_64_linux:  "b99285236749312380349bc72d1c109a9108c439ecb4381c228a95b469608c07"
   end
 
@@ -20,9 +21,10 @@ class Zls < Formula
   def install
     # Fix illegal instruction errors when using bottles on older CPUs.
     # https://github.com/Homebrew/homebrew-core/issues/92282
-    cpu = case Hardware.oldest_cpu
+    cpu = case ENV.effective_arch
     when :arm_vortex_tempest then "apple_m1" # See `zig targets`.
-    else Hardware.oldest_cpu
+    when :armv8 then "xgene1" # Closest to `-march=armv8-a`
+    else ENV.effective_arch
     end
 
     args = []

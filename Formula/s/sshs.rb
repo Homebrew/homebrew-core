@@ -1,22 +1,21 @@
 class Sshs < Formula
   desc "Graphical command-line client for SSH"
   homepage "https://github.com/quantumsheep/sshs"
-  url "https://github.com/quantumsheep/sshs/archive/refs/tags/4.6.1.tar.gz"
-  sha256 "4a8d96ca607f3d20e641341b82e5d6118fcf5c8fbbab74f114dd9ad4eef6e1c0"
+  url "https://github.com/quantumsheep/sshs/archive/refs/tags/4.7.2.tar.gz"
+  sha256 "cb14fd50599bfb8de3f04b00cffb8eac9207f67e0ebbdd9380c311d141882f3b"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2cbb5d4b3b81679d4b2cc0029f1a722a21b9ec32b33eca81cbdc451ed2f1f413"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9b845cd9ad8c40b3c5abb7fafbae386484da548970b5c106e48c7514379eb2d0"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "c388573ae4a0d16297b83c523a4b98c14a621a1047570d0d3678371afab08eb6"
-    sha256 cellar: :any_skip_relocation, sonoma:        "471b43a830adf962bac98836cfa0c5cea36a5850745b718ab899bf60d782f017"
-    sha256 cellar: :any_skip_relocation, ventura:       "79e97b90b867548e0d93411a6201e78a5453bcb29d0e5274f075f252d28d18be"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9808919e91500458fc5801c1d6cbeb6596998bd278219ba79d1a01599e3b5f8d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "359f65870724e6d085668f438c77b529bfa82fe04b302cd372a9ac1251811de2"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9c8691620baa73fad3c9d41b66bb555b49018b5a4026f78b8ebfc24b726b3a8e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "438e736bbae8e0aeeac0f5b1e9833fe59601e8f94aad84093a2bf6ad7b4f3e8d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "dee907cd51f13ea86e5ff1905ab59f896f6896a06fe8ce5da239719638bc0061"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f1fa7aba391712fb5797c09cb9f77e41662e722402754aad4acde490dc0d2429"
+    sha256 cellar: :any_skip_relocation, ventura:       "7e8fa97a5a345fecb049ee6b602009dfdd7a85102e80ab31691422d82fe83d59"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "78da6be289b347c12f3c4d25788707e582fcb499be6a9e548d54add0c0254a75"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e4fdb3557d5009b2c521a74fc93c456b1bc3b2772da8002fb072cfbd445d14be"
   end
 
   depends_on "rust" => :build
-
   def install
     system "cargo", "install", *std_cargo_args
   end

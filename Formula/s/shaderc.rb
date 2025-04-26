@@ -4,8 +4,8 @@ class Shaderc < Formula
   license "Apache-2.0"
 
   stable do
-    url "https://github.com/google/shaderc/archive/refs/tags/v2025.1.tar.gz"
-    sha256 "358f9fa87b503bc7a3efe1575fbf581fca7f16dbc6d502ea2b02628d2d0d4014"
+    url "https://github.com/google/shaderc/archive/refs/tags/v2025.2.tar.gz"
+    sha256 "3fddc13bbb87411c6f7b8f447e87c1637933450087e70fc21da650041f4e0132"
 
     resource "glslang" do
       # https://github.com/google/shaderc/blob/known-good/known_good.json
@@ -27,13 +27,13 @@ class Shaderc < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "cab87874a6aabc3902e05187031a4534821de567b4508e563daa82992f32642a"
-    sha256 cellar: :any,                 arm64_sonoma:  "3697d2825e3bf9cd30c0bf2af7838006fa8dff561837364c3b9e61888c444992"
-    sha256 cellar: :any,                 arm64_ventura: "f899564c376e443f5b61e97e22052284aa35b615d5df1ecfcb3834f79f1877c5"
-    sha256 cellar: :any,                 sonoma:        "8c0a39a316f5d90216185a968e486821d44888bf31a366bde7be8e1da74ebb3f"
-    sha256 cellar: :any,                 ventura:       "608fbddc83cf6c8433d832e57d14692ba3e363cc326278f18df8894d3d162ce5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "bdea790f75cce457cf9ef72b881df5b7b31b6a0acd57fa77a4d2a6412b3f9d72"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b838c19717fe8f12592931432ab34f078271eccb6319fd7715d22361113eb43f"
+    sha256 cellar: :any,                 arm64_sequoia: "d754215b97ff59175e5b49ac7583837e004d6f0fff59fedd9b42fe5dc779bd9c"
+    sha256 cellar: :any,                 arm64_sonoma:  "8fb423c7f2631260378576f9f90fa830aa78e1a6f1e059da9371ad73c3570da1"
+    sha256 cellar: :any,                 arm64_ventura: "ffc37dd4facbae80c0c6fd4a85621220898facaf2c2e66346d490e65302c86d8"
+    sha256 cellar: :any,                 sonoma:        "cce9f7b41fbfc64373bb63c6e8b6884f635a56b531ce858bc14534c700677e40"
+    sha256 cellar: :any,                 ventura:       "9c5bd57e3a5822fef1f0d42c187d9f77dd740068f8bd40d08cdb03710c29d7c1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7bb01f0bdd6d5f06d4a0bdaa78707d30763b4f0fb3ca7815ce9790318472e10f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f7be1ea16a85ac988a3e25142dde846feec4477b6b6584730f8d1b3f55b5a8f3"
   end
 
   head do

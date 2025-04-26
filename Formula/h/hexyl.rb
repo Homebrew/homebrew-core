@@ -12,6 +12,7 @@ class Hexyl < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "779a6fdb3c0f2e6510bd57178035273a0f9646f5040d7a5f62c71b6acfe40242"
     sha256 cellar: :any_skip_relocation, sonoma:        "61036a4e637cedfd6552216797444bf1bf0cbd1d2904fa45be32ac595cfbcb78"
     sha256 cellar: :any_skip_relocation, ventura:       "42429a6a91e2d1f963559a9c618397be4ab0fbd70e206c599e49acab065cdff4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "80fe3aabca5af968a98011d4eafacf571e107ef9650342a293f9585de3980009"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "84ad345fa48b2ea4a6e62145423924a9f4112f10b1cfd1f765bdb7b3531d56c5"
   end
 

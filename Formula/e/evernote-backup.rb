@@ -3,18 +3,18 @@ class EvernoteBackup < Formula
 
   desc "Backup & export all Evernote notes and notebooks"
   homepage "https://github.com/vzhd1701/evernote-backup"
-  url "https://files.pythonhosted.org/packages/2c/c0/490d9cb0d4ef43ae630e7bc1ddde286d020ca8696ebe257a144f28e976ee/evernote_backup-1.13.0.tar.gz"
-  sha256 "c332c9c51ecdc3e14630729aab0e099730177b7ff4742466196f16a692106f6e"
+  url "https://files.pythonhosted.org/packages/77/09/021f30d5e05df5587f0621b4144b687d94af331fefa54f5a14b7cd2d80d1/evernote_backup-1.13.1.tar.gz"
+  sha256 "564c39cd92633e9e9492346363bd3f85175c15a9f73d5c34d35835a2ef05e197"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7705e612afe7b8375022a094305f8eeca8bbb7b3a01dcef82439114e8221de55"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "bb263a4ceac5b1b27900a92be783f5491b6c9953d843d47f6114dbb9460d9f78"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "f9254f8873a208f7273c607d8ee3312e7940676daffd426f117fdbd5b8a04955"
-    sha256 cellar: :any_skip_relocation, sonoma:        "5d7edfcbab6e4b6b42c5cb5c1e617b84663b2d0fce79b70b6014f1b25a3ec000"
-    sha256 cellar: :any_skip_relocation, ventura:       "644bd7725272953c845b8263ce7237e1d6d79fb252ef8a480dacc21c6a207429"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9f3d9b96331aca016a78691a9ca9d2e560644a1c52431b2af6dad01c4975d36c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f066cc9931768b865e10168daf2aaa7ac817be335cdd0d052ff278037c9589a9"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bf2e5bf18ebe4af610081206fb38e9124cadf4e596df687b90924480b91f8dc9"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f9b31ec399d7dde71784ee3d71c605d0041260f865f41057d3349cae3c494a20"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "4ea61ddd13136e0e3814e757789fbeb9f8dbd85468c3c4c4cc78e4f4e6ea58c5"
+    sha256 cellar: :any_skip_relocation, sonoma:        "a86e54cdb8638d4f64ada56815fdd09cd4168c00384aae450d555cf9ad563d3f"
+    sha256 cellar: :any_skip_relocation, ventura:       "8e6562bba45f91be1b194675431bc1cba3fa404aa420fbb4908d2d1fd4e753fa"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c6f025f8f554c38e73546c8e8db3c44aeb9c56408787efa33df5720bd2a1fa43"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "042e87c2d48e0f702ad7fdd6169178d5a6cc483773c626f4bab90546785e3380"
   end
 
   depends_on "certifi"
@@ -36,8 +36,8 @@ class EvernoteBackup < Formula
   end
 
   resource "evernote-plus" do
-    url "https://files.pythonhosted.org/packages/a0/5c/01fdd4fdfccbe63949c93622b87dd68fd53e0e2203feed561e45c9750108/evernote_plus-1.28.1.dev1.tar.gz"
-    sha256 "40ae5b5c93745de65e90cb4d1bba1ff63946cbac4ae447b2641f1d1b0f82869e"
+    url "https://files.pythonhosted.org/packages/d8/e8/d43bebb6f532598c98a11d07d2c9a114bd11ba780dc40b1d74f7466926a9/evernote_plus-1.28.1.dev2.tar.gz"
+    sha256 "fb5e2e6785814205e623bc70c3a1b5abb47dc90a3a7ff28b3d3b0dbc5fb31881"
   end
 
   resource "idna" do

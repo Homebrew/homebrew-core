@@ -19,6 +19,7 @@ class Ghcup < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "cd2e01620a880f49cc79d81103aec79e8cf983aa5c6340a43ec8e87cee26c30b"
     sha256 cellar: :any_skip_relocation, sonoma:        "fb7d758f909de3b49429bda3784be2907943acbc44d65c5463c1c31a2eb6590b"
     sha256 cellar: :any_skip_relocation, ventura:       "8bab4e483b4676231880375bb519eb87cf0a88b803c4e7f7df3a810428964104"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "bd852a02f121e84823a02bdb77fbad3d0f37ba81c1a414cccc660788f6d8c589"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "a82ddd7e62f4d72c2ac0934cfc30d8987a159d801624541d766ed6541a55379c"
   end
 

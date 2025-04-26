@@ -1,19 +1,19 @@
 class Hjson < Formula
   desc "Convert JSON to HJSON and vice versa"
   homepage "https://hjson.github.io/"
-  url "https://github.com/hjson/hjson-go/archive/refs/tags/v4.4.0.tar.gz"
-  sha256 "ba09dd33d655d99578f78722035e136449fcc6eaf1dc1b12eef1f0bb858749d4"
+  url "https://github.com/hjson/hjson-go/archive/refs/tags/v4.5.0.tar.gz"
+  sha256 "bd73ffdee391a51137544ca3fc0550a6d1e839d20088fe27bc20b2a79f7910b4"
   license "MIT"
   head "https://github.com/hjson/hjson-go.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a524276874872d3ffbfee5f62065b5a6f6e23471ca54462b1c51d4871629fdd3"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a524276874872d3ffbfee5f62065b5a6f6e23471ca54462b1c51d4871629fdd3"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "a524276874872d3ffbfee5f62065b5a6f6e23471ca54462b1c51d4871629fdd3"
-    sha256 cellar: :any_skip_relocation, sonoma:        "820698eab9d0e0387089b4ef8bae5241a467b5cadbddfc75637aab484af2029f"
-    sha256 cellar: :any_skip_relocation, ventura:       "820698eab9d0e0387089b4ef8bae5241a467b5cadbddfc75637aab484af2029f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "239a4f01ec7c8f255cce7823b7ef9361edbbe1ff036b469b7f0cac6c13dcb121"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "601b7b091f0d37b1d40e798903dc3fa4fe1a4dbf80caa7de60cce49ad5831707"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "56b3481c44007e1c2bbe12d642ec95d55ecf79525580ce026ef1c26e9ad16fc2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "56b3481c44007e1c2bbe12d642ec95d55ecf79525580ce026ef1c26e9ad16fc2"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "56b3481c44007e1c2bbe12d642ec95d55ecf79525580ce026ef1c26e9ad16fc2"
+    sha256 cellar: :any_skip_relocation, sonoma:        "bcfc6613edc2126cad95c59980dc47d8efd368ad8ebfe19ba8fc644e45ef34cd"
+    sha256 cellar: :any_skip_relocation, ventura:       "bcfc6613edc2126cad95c59980dc47d8efd368ad8ebfe19ba8fc644e45ef34cd"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "54c62c7a294556247b593ef0ccbdeb41e83086d141990ac6e9e00b5abe6d1bba"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9daafea6f326b56f2922c76fc086e29ef65ac0ab49b8e7cfe660e9aa678c3ad9"
   end
 
   depends_on "go" => :build

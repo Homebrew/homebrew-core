@@ -1,8 +1,8 @@
 class Hz < Formula
   desc "Golang HTTP framework for microservices"
   homepage "https://github.com/cloudwego/hertz"
-  url "https://github.com/cloudwego/hertz/archive/refs/tags/cmd/hz/v0.9.1.tar.gz"
-  sha256 "0d894328108891d43355c92a7ccb48630fd9c1b9ae8306df81f8ba547ea268ea"
+  url "https://github.com/cloudwego/hertz/archive/refs/tags/cmd/hz/v0.9.7.tar.gz"
+  sha256 "c2d894db10414648cd4d131ca1405cb1fde0dcdd3287fbd4c4623c9916ae6717"
   license "Apache-2.0"
   head "https://github.com/cloudwego/hertz.git", branch: "develop"
 
@@ -12,14 +12,12 @@ class Hz < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "61479a9c40925a86178ac02e323ac67426a2d3125b1e5cefc8758dfaf99b8846"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "88684bfd79820cd12a8b0a67703b52e4fac34cebda709b6f0a1c7e09d30104ab"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "72aaef0246a23f5b96d6273de8ecdb1c5f5057baa6a714ffc448d7225d0a4d4e"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8c7e93ea14667b6e3f5b23b2c76ae222dc70700bd8ad61effac10f4194ced37e"
-    sha256 cellar: :any_skip_relocation, sonoma:         "28951831c4ff12ad203d486264eddb667a85f0bcc727cab972f7137da0331315"
-    sha256 cellar: :any_skip_relocation, ventura:        "fab58df6f5785d57cb1cfb76a1b4802ef55edaddf90a10395a43aa12ef66bfa1"
-    sha256 cellar: :any_skip_relocation, monterey:       "94b22308d44a143b1061e3591b8dc4259468f8a9c9a185fd574b9bd681791de3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9788112eb3e8e0bc5251d0884d4d6230b0936969d559747fcc20b062c91dc104"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4ce4bbaf5113e48f449db2b510cd18797b23c40035d488bc1fc8a364a16d9a6c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4ce4bbaf5113e48f449db2b510cd18797b23c40035d488bc1fc8a364a16d9a6c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "4ce4bbaf5113e48f449db2b510cd18797b23c40035d488bc1fc8a364a16d9a6c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "464319954276a791ad9366da2feb521563721204dc1ffe4c18e733b4a6acd4c0"
+    sha256 cellar: :any_skip_relocation, ventura:       "464319954276a791ad9366da2feb521563721204dc1ffe4c18e733b4a6acd4c0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9906a09535199349b1e5bae6c8b5ffd62b9f2a74437480d4783e705d4cc161a6"
   end
 
   depends_on "go" => [:build, :test]

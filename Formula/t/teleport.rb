@@ -1,8 +1,8 @@
 class Teleport < Formula
   desc "Modern SSH server for teams managing distributed infrastructure"
   homepage "https://goteleport.com/"
-  url "https://github.com/gravitational/teleport/archive/refs/tags/v17.4.5.tar.gz"
-  sha256 "344371174bfa6c242e7cdfcbfbeda95d57119c9bb0a634fdd0da948cdc9234bb"
+  url "https://github.com/gravitational/teleport/archive/refs/tags/v17.4.6.tar.gz"
+  sha256 "1bb0113cfb63a0b1e48b66444a6da0cbe392a6af3770e881cf1dd5d42bff0fef"
   license all_of: ["AGPL-3.0-or-later", "Apache-2.0"]
   head "https://github.com/gravitational/teleport.git", branch: "master"
 
@@ -18,13 +18,13 @@ class Teleport < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "6a771c0edc1d6e6ff598cd010b7cf8f64fe25de74d1474e5cd1a30b93e3a556e"
-    sha256 cellar: :any,                 arm64_sonoma:  "30403ca0363fbbac85e961f0dd217d5f18bb642155165a3e942e435117713e6e"
-    sha256 cellar: :any,                 arm64_ventura: "608deda80094a4c92e945031adc2a7738439414c3fff344c3231540929d88e69"
-    sha256 cellar: :any,                 sonoma:        "ba50df178b275212a5aba87ea6c874d437c68e85faf41ae34cd629e29a7189b9"
-    sha256 cellar: :any,                 ventura:       "051899cf156a0dda0c38d009a993b72044581b083feab62fca1cdbc834bc5093"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d158b86c2077475c0f219151d638748c85d3fd6e37e1fee8bd1c2d94baad03b3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1b3f1fcf652189f3ff93116feccd471c428fd69694e1d46e5fcdf41f0070116f"
+    sha256 cellar: :any,                 arm64_sequoia: "7d4d646e85a04daa00d17a5103b9856c1621b59421d05bee76407445212cccfd"
+    sha256 cellar: :any,                 arm64_sonoma:  "d223e24022352a3a63d298244c5a9926c8320ec85b336a7d374f59bc3aa2e32d"
+    sha256 cellar: :any,                 arm64_ventura: "6bd58d520374bed6694a54bce4a910f755bf03c55dfc29426ba5fab61de89876"
+    sha256 cellar: :any,                 sonoma:        "f0d00ea166abcaf2a6deff49386bb1cf724a14d53c5c007b7c56a5f4e7076f7a"
+    sha256 cellar: :any,                 ventura:       "dbd8e369731e40347a5f2895de85364734e6f558eed8b3a7dc7e510af516d5a9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "067b363f8b06e3e4085fc6038fb4c2c818399aeabca4e614b1af1ce8a4924ff3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cfcc8f356e2b8424fcf8bad6a1636ff94b2f8fad9219e4d26920023bc09c803f"
   end
 
   depends_on "go" => :build
@@ -56,8 +56,8 @@ class Teleport < Formula
     YAML
 
     ENV.prepend_path "PATH", Formula["rustup"].bin
-    system "rustup", "default", "stable"
     system "rustup", "set", "profile", "minimal"
+    system "rustup", "default", "stable"
 
     ENV.deparallelize { system "make", "full", "FIDO2=dynamic" }
     bin.install Dir["build/*"]

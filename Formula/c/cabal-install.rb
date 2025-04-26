@@ -12,10 +12,14 @@ class CabalInstall < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "35f8c9c087cf7be5efbfa16248cda01f7fc64bfddf969dd4c0bc7c948f14a5c4"
     sha256 cellar: :any_skip_relocation, sonoma:        "23ae2f85cc3dab2e22ddf853b2479fe0c16a43f089c44242bb065ec8f846faf5"
     sha256 cellar: :any_skip_relocation, ventura:       "2e541aa04959d1550d57bab5f938c11c89e725160565318d5e7e9228bbfa234e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f7290ebfaa382db0b42cda163f8fd00271fbf3fa2c199165d85ff53288c9c3ed"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "305b229f4b2de647cbd67e93ca479ccc70ac0870c3c52c19e0a112b88666add6"
   end
 
   depends_on "ghc"
+  depends_on "gmp"
+
+  uses_from_macos "libffi"
   uses_from_macos "zlib"
 
   resource "bootstrap" do

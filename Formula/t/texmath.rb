@@ -12,11 +12,15 @@ class Texmath < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "19f1ff78f57aaefe59eb93c3791d95d066c41908655e3de0ac5194323ba20e24"
     sha256 cellar: :any_skip_relocation, sonoma:        "65c689a50943c33ce98d0923c1565a9f2669e3e8f842f8ee1a47639a58aed74e"
     sha256 cellar: :any_skip_relocation, ventura:       "d5573e3fae8d93d830f2e2fd29c2b430f7f32bc14b86a92c03fcee26340471a4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "22aa1fac81b32e222f13e81d6a753022493bb3c5e85762e8c4e58a4256e1a253"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "f1623d869fb7ae3b778353a8d2435e5ef979425d795e4bc0d11205e03d7860ae"
   end
 
   depends_on "cabal-install" => :build
   depends_on "ghc" => :build
+  depends_on "gmp"
+
+  uses_from_macos "libffi"
 
   def install
     system "cabal", "v2-update"

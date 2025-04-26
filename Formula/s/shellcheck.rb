@@ -23,12 +23,16 @@ class Shellcheck < Formula
     sha256 cellar: :any_skip_relocation, sonoma:         "b53cf1e5464406ee49743fc2db84850b6d34d3a2098cf729e629b23f9d6dd6e0"
     sha256 cellar: :any_skip_relocation, ventura:        "15ba88c48a5ae3b08e085791e3c5e514d9d78ce88414c96bd21ed33f29fb4aca"
     sha256 cellar: :any_skip_relocation, monterey:       "b3d14cb62e325d0f7221cd24a7fb4533936feae4ed4dce00e8983ec6e55123f8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "2e5ceec4e238594c795e31266086f0dd6d511d858ca21a4f9783f0e6b3dd7e2d"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "6d0867f144686a5caa025cb15ecac49286654b78e7b89979a54eedc9a0cc9b6b"
   end
 
   depends_on "cabal-install" => :build
   depends_on "ghc" => :build
   depends_on "pandoc" => :build
+  depends_on "gmp"
+
+  uses_from_macos "libffi"
 
   def install
     system "cabal", "v2-update"

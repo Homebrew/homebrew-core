@@ -1,18 +1,18 @@
 class SpectralCli < Formula
   desc "JSON/YAML linter and support OpenAPI v3.1/v3.0/v2.0, and AsyncAPI v2.x"
   homepage "https://stoplight.io/open-source/spectral"
-  url "https://registry.npmjs.org/@stoplight/spectral-cli/-/spectral-cli-6.14.3.tgz"
-  sha256 "804c2db75dc07f50c503e75b23833aec89bb6563f8a33e08d26bc8e0239fae31"
+  url "https://registry.npmjs.org/@stoplight/spectral-cli/-/spectral-cli-6.15.0.tgz"
+  sha256 "d4e7bd215586ba1619bb495b6d7ecc336431eab9ab0214f0b16ab56a9c145072"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "01e31faa4731b14f0763311261d3618be487397f552c702419e83a04ca42aea8"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "01e31faa4731b14f0763311261d3618be487397f552c702419e83a04ca42aea8"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "01e31faa4731b14f0763311261d3618be487397f552c702419e83a04ca42aea8"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c326ca57e88ae276c8d2248e46ea4cea5150514384c656431cbd4d2930a2aed2"
-    sha256 cellar: :any_skip_relocation, ventura:       "c326ca57e88ae276c8d2248e46ea4cea5150514384c656431cbd4d2930a2aed2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1bcdcbb1fb3d677f318a2ca9c52b3fdc37b9cdf68bcf62dda238317900d96b05"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "01e31faa4731b14f0763311261d3618be487397f552c702419e83a04ca42aea8"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0386c9607a723c93d0811eb9876eb84466667f7ad7b2c93ac1c48f2909a5b26c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0386c9607a723c93d0811eb9876eb84466667f7ad7b2c93ac1c48f2909a5b26c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "0386c9607a723c93d0811eb9876eb84466667f7ad7b2c93ac1c48f2909a5b26c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "6a980039a70ffc224d6285ffe72f96a8253f68c8cb625f79199f6d3c49979946"
+    sha256 cellar: :any_skip_relocation, ventura:       "6a980039a70ffc224d6285ffe72f96a8253f68c8cb625f79199f6d3c49979946"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0386c9607a723c93d0811eb9876eb84466667f7ad7b2c93ac1c48f2909a5b26c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0386c9607a723c93d0811eb9876eb84466667f7ad7b2c93ac1c48f2909a5b26c"
   end
 
   depends_on "node"

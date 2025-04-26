@@ -16,6 +16,7 @@ class Checkmake < Formula
     sha256 cellar: :any_skip_relocation, ventura:        "836d536fe0255fc744a2fa630572e54477f8e59ab19006ddfebb09be51fd14c0"
     sha256 cellar: :any_skip_relocation, monterey:       "16692c95f5e36286cfeedfe914b239200d428b7ed64c1ae61c931c1568dcdbdd"
     sha256 cellar: :any_skip_relocation, big_sur:        "e8f88660a76082b44e64c8485238aaf46d5e18575ea11ce47c93a2466af24bcd"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "3f014f3713165ff2f13b59b28db7d7a7672d57b12514284477372bd097dea574"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "920aea0127e9224ec538e4c4f1f1e4fafec0f6e10610687e60c20d053cc02f0e"
   end
 

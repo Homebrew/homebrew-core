@@ -1,18 +1,18 @@
 class Atmos < Formula
   desc "Universal Tool for DevOps and Cloud Automation"
   homepage "https://github.com/cloudposse/atmos"
-  url "https://github.com/cloudposse/atmos/archive/refs/tags/v1.171.0.tar.gz"
-  sha256 "17cf36d2105f05210e16b970de8b45a336c32e837fb67d983d4ed2d97e59aefe"
+  url "https://github.com/cloudposse/atmos/archive/refs/tags/v1.173.0.tar.gz"
+  sha256 "08175c121423d9eafb061f19bcb964a583f40f72c09588941760cfe3d20aa8b4"
   license "Apache-2.0"
   head "https://github.com/cloudposse/atmos.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2373bb2bd3e79a7ca3df56a8a7a9a41d073cfa28c8201b20e18047d98b885c16"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "60ca730a42af261190764ae586ec0fee8384c413b2ac74c0e3c8c2f9247038f2"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "6627fba435367e3e0b57545adb3c4e645538ecca4029a4fc3bb6bd8b605f71c2"
-    sha256 cellar: :any_skip_relocation, sonoma:        "9b2704d5bb0861cac2dbe09f45d103c6043fb8e2379ee4bb59ebd295239a7c4b"
-    sha256 cellar: :any_skip_relocation, ventura:       "c56d2171e67e52e2c394cde978c0f3fcc66ed5124fe2bc480280d268e55bb734"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b6c51fef4ecf23e4176b13cc54a7200187f2b535ba345c6eb25b5991855c9337"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9fa3a70daea60ab34f81b884060e2ca2da7159f79c61a6cd680e1fc8a9211437"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c7d7016c2413821f6a79dc65a67dd884d4d005ff53b2015f701e0dbc47ce01ed"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "642b5703bb6c628d6c1bf66a7cea14731d4c5446c7fa4633f3ad7951cb53dc66"
+    sha256 cellar: :any_skip_relocation, sonoma:        "844bcd229aa30585db660553280eaaf9ba3b4e77495042da993fce2c6567b3fc"
+    sha256 cellar: :any_skip_relocation, ventura:       "3aad0a8edce1fbad85d979b376a36606e96f2a5b62b6d4715908cfa3cfd5e3c9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9b040a9149a9dec92431715cea80c97eacd767dd7d0aec1663e71b016d70ee7c"
   end
 
   depends_on "go" => :build

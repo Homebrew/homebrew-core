@@ -42,6 +42,9 @@ class Cmake < Formula
   # For the GUI application please instead use `brew install --cask cmake`.
 
   def install
+    # Work around "error: no member named 'signbit' in the global namespace"
+    ENV["SDKROOT"] = MacOS.sdk_path if OS.mac? && MacOS.version == :high_sierra
+
     args = %W[
       --prefix=#{prefix}
       --no-system-libs

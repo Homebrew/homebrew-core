@@ -1,18 +1,18 @@
 class Libsidplayfp < Formula
   desc "Library to play Commodore 64 music"
   homepage "https://github.com/libsidplayfp/libsidplayfp"
-  url "https://github.com/libsidplayfp/libsidplayfp/releases/download/v2.13.0/libsidplayfp-2.13.0.tar.gz"
-  sha256 "1c09e3182dd53fc9ee37800f194f0d68e1fe06a8b5aee9abb5ab35d7bf6274b7"
+  url "https://github.com/libsidplayfp/libsidplayfp/releases/download/v2.13.1/libsidplayfp-2.13.1.tar.gz"
+  sha256 "adda6ce516d6a61e741bcf390d85a0afc72a51c9ff342ff93bb522d4af2f7cd4"
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "fe9018d70b16174c34474fffed7c243196cc2d04fef95ba95363da4e33aa36c2"
-    sha256 cellar: :any,                 arm64_sonoma:  "ac7ad7579e04f30612efee23fef38f83c868b0141ed4a1a521bb330bb8c540a7"
-    sha256 cellar: :any,                 arm64_ventura: "be42cbe2b491ea6cebcf1412dd7f41db2b0aad685af7e4571cca8ff446234bd1"
-    sha256 cellar: :any,                 sonoma:        "ec604c5e3823bee79faef88633d6f8d157dc6cb61d6d8434736bcd820c774bd8"
-    sha256 cellar: :any,                 ventura:       "6c7ba91626e4112330f2376c6fd4147cf0af95bb565a6796b83a79bb7ee34564"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0182a3553d0744947f093a557eaf953b2e32fba2c2cedf69c83c59095b68089f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "28f6ecaec8ff4984de531eea1240dbccce14e5ebb763705cc2b1750c2df27502"
+    sha256 cellar: :any,                 arm64_sequoia: "a08182d0154c8a2ee3d8612aefcbe99c9e031a01e8e611edb0788422ee55df8c"
+    sha256 cellar: :any,                 arm64_sonoma:  "50df29ce9c4db2c980847477b517ed87fff0272b1daf6f736134e4f1a8d99d93"
+    sha256 cellar: :any,                 arm64_ventura: "468899ecea582754df6d155838978bc42e5d91b05b6ee528d97ae4b988d675d1"
+    sha256 cellar: :any,                 sonoma:        "606df70c23d4ee651b101ffb72331c8a6a202925b982ba6f11a2ece3fae67a2b"
+    sha256 cellar: :any,                 ventura:       "527afccbd807e0e9a5dd293c1ba31f0a3f6a7eb6383050a8fbd00496eade31cb"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7c7cf82e34aa6eb058860458f7d0eb622f8397f72868374977a3861bbe700ea1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ef7cde3a67b18b5c5f0cd13618046ceca62c785079d034adf2e61ce92b3e72ba"
   end
 
   head do

@@ -12,7 +12,9 @@ class Ghostscript < Formula
   # check the version from the first-party website instead.
   livecheck do
     url "https://www.ghostscript.com/json/settings.json"
-    regex(/["']GS_VER["']:\s*?["']v?(\d+(?:\.\d+)+)["']/i)
+    strategy :json do |json|
+      json["GS_VER"]
+    end
   end
 
   bottle do

@@ -1,8 +1,8 @@
 class Nim < Formula
   desc "Statically typed compiled systems programming language"
   homepage "https://nim-lang.org/"
-  url "https://nim-lang.org/download/nim-2.2.2.tar.xz"
-  sha256 "7fcc9b87ac9c0ba5a489fdc26e2d8480ce96a3ca622100d6267ef92135fd8a1f"
+  url "https://nim-lang.org/download/nim-2.2.4.tar.xz"
+  sha256 "f82b419750fcce561f3f897a0486b180186845d76fb5d99f248ce166108189c7"
   license "MIT"
   head "https://github.com/nim-lang/Nim.git", branch: "devel"
 
@@ -12,13 +12,13 @@ class Nim < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0340ae372df6f2576a03ced8cf2b01d51cf297fac9a493b4aa2a416339661fe3"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7c16338f976e40751ea6f8ce76f5eab72f430f1a2d8a54ac50d9403f6d6a50f4"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "078694d8c799818a058d74fa382c11768aea9aef66f37d42d64ff5a580bcaf8c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "aa7e2efb3883390c2a2b61c492b7585205b5bd093553fc37bb4b52d6dfde6a13"
-    sha256 cellar: :any_skip_relocation, ventura:       "4ab3f16b347e8c8429dc9da97eda9840eb52b61013ead7e5357e5b55e102d98c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c74f2cb8701b6c9953ea5b35fb93a11055c853be635f7d5bebfe29ac1589a192"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5dae8e50a1e04461da0c654945051de206839b47510810c327b024284ae14cc7"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7b253ab1acb1ccae1a0530bbeb7f101b335bb6fce1ed9813d01bbfa5d05e0413"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c93fb307e80b60809d6209b0e16f20e009878964ea74f701dc7ece4666a3fa70"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "8f3df4b38e174bfef1cc73029021bc1674f005dc0e54c2e2c648a0432d08dde7"
+    sha256 cellar: :any_skip_relocation, sonoma:        "baa4eb7a7c6ec3bbcd9ae6da71c058f2e1435364548d299c476600323d287fe6"
+    sha256 cellar: :any_skip_relocation, ventura:       "a3fccf2fcc860c5add56455604c071f49c29c374efbfc16c5c98220d046da4dc"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8936a401e75c0a211f66e48f4159314e82251b542a60216d1c42dd99df695dcb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4083ac43fc55d0349ef42598ea47ab909cc11d13306a158c2c76aef8562b3d99"
   end
 
   depends_on "help2man" => :build

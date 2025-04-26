@@ -21,6 +21,7 @@ class Authoscope < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "3cf7f5e3bc8dbe57cc22cd6bbdd5b62a7c69c54e1da1cc6ea7e1e19b0166c413"
   end
 
+  depends_on "pkgconf" => :build
   depends_on "rust" => :build
 
   uses_from_macos "zlib"
@@ -30,10 +31,6 @@ class Authoscope < Formula
   end
 
   def install
-    # Ensure that the `openssl` crate picks up the intended library.
-    # https://crates.io/crates/openssl#manual-configuration
-    ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix if OS.linux?
-
     system "cargo", "install", *std_cargo_args
     man1.install "docs/authoscope.1"
 

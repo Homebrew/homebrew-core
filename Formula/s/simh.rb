@@ -22,7 +22,8 @@ class Simh < Formula
 
   # https://github.com/simh/simh/issues/1163
   # Use open-simh instead
-  disable! date: "2024-10-11", because: "changed to a non-free license in master branch", replacement: "open-simh"
+  disable! date: "2024-10-11", because: "changed to a non-free license in master branch",
+           replacement_formula: "open-simh"
 
   depends_on "libpng"
   uses_from_macos "zlib"

@@ -2,10 +2,9 @@ class Rdkit < Formula
   desc "Open-source chemoinformatics library"
   homepage "https://rdkit.org/"
   # NOTE: Make sure to update RPATHs if any "@rpath-referenced libraries" show up in `brew linkage`
-  url "https://github.com/rdkit/rdkit/archive/refs/tags/Release_2025_03_1.tar.gz"
-  sha256 "947e5aa004047fbec4bf4ba93b84a50ca7f68e248a0654080d8ca0cdb06e3534"
+  url "https://github.com/rdkit/rdkit/archive/refs/tags/Release_2025_03_2.tar.gz"
+  sha256 "4db5d503c3e0040321c32a2dc60d60221dc73ee9e5902b8208f2a39057bbfb15"
   license "BSD-3-Clause"
-  revision 1
   head "https://github.com/rdkit/rdkit.git", branch: "master"
 
   livecheck do
@@ -17,13 +16,13 @@ class Rdkit < Formula
   end
 
   bottle do
-    sha256                               arm64_sequoia: "854798021c519f811713bb4ba3abd4c609741794ff4a84d1db1e56f2180c272d"
-    sha256                               arm64_sonoma:  "0393e5527230562e86a99353b6512e8ef988f4f07dfac2242f4eb20c45483370"
-    sha256                               arm64_ventura: "5df7c4eed7de4bf7340ef6b67ac9f28faefda38847efaba04cd6c6fa0761a72a"
-    sha256 cellar: :any,                 sonoma:        "ad4276bbb4dd4dd19dcfc736f9d7022178cf2e2694225a6cd99dbb78ba8caf83"
-    sha256 cellar: :any,                 ventura:       "450c6fabf644dd001bf2ddd97d3dafee1082ee9586d6f5a0f977cb9b09476c6b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d7cef9eed7c6b13c2ccf60331245ab9968c273ad3be1aea4614e7c575f441852"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9b689fe35fd8c36d7cf62d1cc0f8295a8720a1ad05ce5119602571dfc6b5776a"
+    sha256                               arm64_sequoia: "fc0084d88f8068bc87338a68421b0178d089cfc10e9d55ba0a58498c1807830c"
+    sha256                               arm64_sonoma:  "aff5c49f467699a77fa87cdd1b1ad3cf91a5d5b484e7afe7dc1d2df7f0f90f37"
+    sha256                               arm64_ventura: "59e482ee31900e49c08b716970ebeceaf78e72d678e3a681d2e936c639a3a552"
+    sha256 cellar: :any,                 sonoma:        "86ab0cbb0d2414b87ee993bffdd75ddaa8bfd197c568645bfc77d122de2cd33a"
+    sha256 cellar: :any,                 ventura:       "eec570d4cec882a75b3cbe9f7ae1c3346a4cf4cd64b8f314b9f187e01af92dd6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c8c63f853cafee1a32449279e2ac6604a400f6786f4493e2f9167fe94a220933"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8283dbef87308e95d19c0721a67f42470475cf74b19ce4eb8c306197569bddc3"
   end
 
   depends_on "catch2" => :build

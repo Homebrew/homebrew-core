@@ -1,18 +1,18 @@
 class Render < Formula
   desc "Command-line interface for Render"
   homepage "https://render.com/docs/cli"
-  url "https://github.com/render-oss/cli/archive/refs/tags/v2.1.1.tar.gz"
-  sha256 "3f7cd5a46ee79e0e450b88bc07794ffa535c5b0faa661f611d5ccf7bfd6e4815"
+  url "https://github.com/render-oss/cli/archive/refs/tags/v2.1.3.tar.gz"
+  sha256 "68eb2bc7129f14c925ee681f97abccd3b1c926936fcf6c94a168504e9326bbf1"
   license "Apache-2.0"
   head "https://github.com/render-oss/cli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c43cec1399d5875a5dec259bc02e6b871cf3b6b6b887b5568cb4ab3b17396cef"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c43cec1399d5875a5dec259bc02e6b871cf3b6b6b887b5568cb4ab3b17396cef"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "c43cec1399d5875a5dec259bc02e6b871cf3b6b6b887b5568cb4ab3b17396cef"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ce2dc537b890dac6707edb3827e24ef8406a3e39d17256557add9c8451720a45"
-    sha256 cellar: :any_skip_relocation, ventura:       "ce2dc537b890dac6707edb3827e24ef8406a3e39d17256557add9c8451720a45"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ed16ae8e2aa21b28da260dce977afc9efa5f4a813c7c694dfb3c5363190d7571"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b58db380f76f4a47467e192a47516a781277648a6a16fd556a316e7ac4ce9f54"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b58db380f76f4a47467e192a47516a781277648a6a16fd556a316e7ac4ce9f54"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "b58db380f76f4a47467e192a47516a781277648a6a16fd556a316e7ac4ce9f54"
+    sha256 cellar: :any_skip_relocation, sonoma:        "1b0c73f1f61eb4ca10eb7377bc021ee4a3e892c797da74ac401350789b7a7ed4"
+    sha256 cellar: :any_skip_relocation, ventura:       "1b0c73f1f61eb4ca10eb7377bc021ee4a3e892c797da74ac401350789b7a7ed4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c05adba8d5c87144c55255d6d85e3c7fd124c7a5bbd1b58be13f4958e4f381a8"
   end
 
   depends_on "go" => :build

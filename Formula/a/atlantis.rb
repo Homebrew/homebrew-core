@@ -12,17 +12,17 @@ class Atlantis < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "42ffbb98e33c3681c42c8fe9e4d95e31a7dee7a6d54916f3439e55b459f9db3c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "42ffbb98e33c3681c42c8fe9e4d95e31a7dee7a6d54916f3439e55b459f9db3c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "42ffbb98e33c3681c42c8fe9e4d95e31a7dee7a6d54916f3439e55b459f9db3c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "3731dc8da6b18a92bc89876ccb5f63b433c585036203d4badfd99bef8579a477"
-    sha256 cellar: :any_skip_relocation, ventura:       "3731dc8da6b18a92bc89876ccb5f63b433c585036203d4badfd99bef8579a477"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "76dc8770847e76b0b5d4939fe5d2870958a17cc8408485aec3f4da71c974e90a"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d8ca407cd145a50b557c01c069fb0616f17df02a06a3a5729dfff34c54e98246"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d8ca407cd145a50b557c01c069fb0616f17df02a06a3a5729dfff34c54e98246"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "d8ca407cd145a50b557c01c069fb0616f17df02a06a3a5729dfff34c54e98246"
+    sha256 cellar: :any_skip_relocation, sonoma:        "ff96e80c18e57f55e6be966d4ef62c8b0d0565b209dec0485bd51e805a172582"
+    sha256 cellar: :any_skip_relocation, ventura:       "ff96e80c18e57f55e6be966d4ef62c8b0d0565b209dec0485bd51e805a172582"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d60c3d551d569050ac1ea9d7ac02a86aa22e22936381feeb4342cfed293527bb"
   end
 
   depends_on "go" => :build
-  depends_on "opentofu"
+  depends_on "opentofu" => :test
 
   def install
     ldflags = %W[
@@ -31,9 +31,7 @@ class Atlantis < Formula
       -X main.commit=brew
       -X main.date=#{time.iso8601}
     ]
-    system "go", "build", *std_go_args(ldflags:, output: libexec/"bin/atlantis")
-
-    (bin/"atlantis").write_env_script libexec/"bin/atlantis", PATH: libexec/"bin"
+    system "go", "build", *std_go_args(ldflags:)
   end
 
   test do

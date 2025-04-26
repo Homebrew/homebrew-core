@@ -4,8 +4,8 @@ class Wolfssl < Formula
   # Git checkout automatically enables extra hardening flags
   # Ref: https://github.com/wolfSSL/wolfssl/blob/master/m4/ax_harden_compiler_flags.m4#L71
   url "https://github.com/wolfSSL/wolfssl.git",
-      tag:      "v5.7.6-stable",
-      revision: "239b85c80438bf60d9a5b9e0ebe9ff097a760d0d"
+      tag:      "v5.8.0-stable",
+      revision: "b077c81eb635392e694ccedbab8b644297ec0285"
   license "GPL-2.0-or-later"
   head "https://github.com/wolfSSL/wolfssl.git", branch: "master"
 
@@ -16,13 +16,13 @@ class Wolfssl < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "279d3047b1e2989642f1b41d425271c367c3247e9498f30c9d896b29bfff937b"
-    sha256 cellar: :any,                 arm64_sonoma:  "8552b5f3dcd75c63f5c889b8cbfb0c905f31d861fa7c52544437ad8c16d56581"
-    sha256 cellar: :any,                 arm64_ventura: "49d9838fff32b81f23583f7786f3fffa71b075a8eeef272fb9403919fa29ba19"
-    sha256 cellar: :any,                 sonoma:        "b45eb105ad94558596f602f16c144993d2c2a387a5f5d65c4c8fb217e9a41849"
-    sha256 cellar: :any,                 ventura:       "e40361b9eda5db93e0027ecc80c3c272325238c2c2cbb3c48f69311271f6dac0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8676b397a445d0f7fd207544237cf9c89671c9b6b13853edf14c2ddfeb071011"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8b3563b45e35cd04f63b626fa115d4a137e8e80ec4a3b08c31ed9da39aabb3a5"
+    sha256 cellar: :any,                 arm64_sequoia: "efc64785e620d8b1c5e208b99fe2a236b945cdbb777fe5af8284b43c08f48e84"
+    sha256 cellar: :any,                 arm64_sonoma:  "4ee88f3a4c99780161ac2c928ebd0d01dc87207eaa0604425a1f3b474fe1619e"
+    sha256 cellar: :any,                 arm64_ventura: "8e651bbeb00f69694557d26ad4e59c5c83c6f17ec614fc18f6355e33213c5d5f"
+    sha256 cellar: :any,                 sonoma:        "c4e4c1deb606b4eac0534ff557ea62e761a82b9cdc03b49d745155b5d3c206c6"
+    sha256 cellar: :any,                 ventura:       "436ff4612e6a9c04aee827ca18e267313826b9977916e2e8a3355c3fdc4e61ef"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "bac5f9b9f00adec84003757ac0c3cc39ea4afa512b889af0d6274d8a9774ba29"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b2eada4b8e21f9f2b033159dca61c0f0b00be104b8458c0cd6ccd4e270ee4e2e"
   end
 
   depends_on "autoconf" => :build

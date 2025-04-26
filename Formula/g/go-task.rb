@@ -1,29 +1,23 @@
 class GoTask < Formula
   desc "Task is a task runner/build tool that aims to be simpler and easier to use"
   homepage "https://taskfile.dev/"
-  url "https://github.com/go-task/task/archive/refs/tags/v3.42.1.tar.gz"
-  sha256 "ebda29f1ec14e3e78f6d1e89136822c8177cc0b6d214fac8b1f027abce3c9042"
+  url "https://github.com/go-task/task/archive/refs/tags/v3.43.2.tar.gz"
+  sha256 "41ed911af61d582e2824e2ee6ac8b1a845968b09ed188e79846557226aa96bed"
   license "MIT"
   head "https://github.com/go-task/task.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "faa5d2c0cd64faa5164cdcd0c99e6aa3ca49b7cb04faac3bf18239d426f67f96"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "faa5d2c0cd64faa5164cdcd0c99e6aa3ca49b7cb04faac3bf18239d426f67f96"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "faa5d2c0cd64faa5164cdcd0c99e6aa3ca49b7cb04faac3bf18239d426f67f96"
-    sha256 cellar: :any_skip_relocation, sonoma:        "7eee617a37e79e781478ecf6064dfa726c5ddd978c47498546c1e54828274b5f"
-    sha256 cellar: :any_skip_relocation, ventura:       "7eee617a37e79e781478ecf6064dfa726c5ddd978c47498546c1e54828274b5f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a1119df7993b26ecfb59996e6896b14ad93333f900e71d07b489995f50723233"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f7a458c6fa4d2fa352082c40301a2e652c51b68172128dd6f23628b0525fd662"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f7a458c6fa4d2fa352082c40301a2e652c51b68172128dd6f23628b0525fd662"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "f7a458c6fa4d2fa352082c40301a2e652c51b68172128dd6f23628b0525fd662"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f84648545cd541ce2c0defd1531e975db8c81fba5e5e40c56f52a5c0713acd25"
+    sha256 cellar: :any_skip_relocation, ventura:       "f84648545cd541ce2c0defd1531e975db8c81fba5e5e40c56f52a5c0713acd25"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fe31c6f7e090d745a215d049991fe277e7427f27048f19939df0689b1c100e0e"
   end
 
   depends_on "go" => :build
 
   conflicts_with "task", because: "both install `task` binaries"
-
-  # version report patch, upstream pr ref, https://github.com/go-task/task/pull/2105
-  patch do
-    url "https://github.com/go-task/task/commit/44cb98cb0620ea98c43d0f11ce92f5692ad57212.patch?full_index=1"
-    sha256 "78861415be4e9da4f40ecff7b50300926f70fc4d993c3d83cd808040d711b35e"
-  end
 
   def install
     ldflags = %W[
@@ -38,8 +32,7 @@ class GoTask < Formula
   end
 
   test do
-    output = shell_output("#{bin}/task --version")
-    assert_match "Task version: #{version}", output
+    assert_match version.to_s, shell_output("#{bin}/task --version")
 
     (testpath/"Taskfile.yml").write <<~YAML
       version: '3'

@@ -20,6 +20,7 @@ class Hledger < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "cf2be7014cae8f431a444f602c87140f53f84442f50f091c062fb42220454f59"
     sha256 cellar: :any_skip_relocation, sonoma:        "63f0dc6e1350138fbd4dc87d834e8e34541a6571af225c3f31046a2f996193e7"
     sha256 cellar: :any_skip_relocation, ventura:       "7ce2d500f72423d8916c557d0eac3c484b4b43d29e0c83577e877381c35e1829"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1ac5ecf1f2e73dbff32e466330c31c9622d81acc1b913cee21fd5885581ca754"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "dedee0b7c5e25ae0af2417c5594e11efd59c919856dc74dbcb3865b799eb7647"
   end
 

@@ -3,18 +3,18 @@ class AwsElasticbeanstalk < Formula
 
   desc "Client for Amazon Elastic Beanstalk web service"
   homepage "https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/eb-cli3.html"
-  url "https://files.pythonhosted.org/packages/bb/2a/ee0a6d0b2a001d48ab3f9aa957c031c61a98d350a31dd602dded2d7f00a8/awsebcli-3.23.1.tar.gz"
-  sha256 "3cecb7337e3be630364ec1bedb20e39ffa7523afeb96309becc7732bdf8806b9"
+  url "https://files.pythonhosted.org/packages/26/c7/c0c930ae049ff0071fea1a4dcf8ffa1be4c7d23c35043e26477e6cef02fe/awsebcli-3.23.2.tar.gz"
+  sha256 "39cfc7db0f512b5d51b928640eed516866d27ef875f7596d8b9282172fb91a53"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "5b9d146c25a951fbe114fc22569b7268297c6097ab7abe071a7348c5598c8d50"
-    sha256 cellar: :any,                 arm64_sonoma:  "6e7cba1c2fa1d5f66acff2332ac68de5f69e729d3f81e62e9d785e55e4548e74"
-    sha256 cellar: :any,                 arm64_ventura: "fc434f21876e6a1c75fedc1dc3f19893c550c2f6c4187ee258008cc66f90dd0d"
-    sha256 cellar: :any,                 sonoma:        "987cfe8a6c01f0c77ab50355fcdd5d39f876825f6d3e4bc7077d679c52a2b736"
-    sha256 cellar: :any,                 ventura:       "0290eb5362c2a5f7a51b87ef10b8674f9717edad7a2ae9330fbf2bd88f349381"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6bab3e4182bb534a91dbeffa296eb99d40eff630cdb99bf975fffb5baf8af8f2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d09e1888a183c5004e5e5741dc0a8515c3de0b0cf693008ff6b42f4799f24792"
+    sha256 cellar: :any,                 arm64_sequoia: "e6d999157ebdd2a71dcd4d3cc5aad0bc0c89db2d853a8f739cfd3ebd42c1d782"
+    sha256 cellar: :any,                 arm64_sonoma:  "739337ebb02fd6b36b84603a929671db41a495d7833074cec9cfae08a3c7a2b2"
+    sha256 cellar: :any,                 arm64_ventura: "17eb13a783b4434bdaa1cd2c3850122bb43f367ac38bcb60de788af55026a357"
+    sha256 cellar: :any,                 sonoma:        "2072dc5aec96e3da550dd2842639912e0d345fd72717bcf25420f77fe0e73761"
+    sha256 cellar: :any,                 ventura:       "f062573064c43c13c9747fae270a90d07de3cd3893484bf0498cb23775ddeebf"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b65359f9209e1b1824c5099cb17de5d37542b462c5ca49c1e32d669032eb5d72"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f12a382fc9efec8357911e1394e934fb58079c1ad5f5e99e1b9223411701e3c2"
   end
 
   depends_on "certifi"
@@ -29,8 +29,8 @@ class AwsElasticbeanstalk < Formula
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/96/d0/70969515e3ae8ff0fcccf22827d5d131bc7b8729331127415cf8f2861d63/botocore-1.37.37.tar.gz"
-    sha256 "3eadde6fed95c4cb469cc39d1c3558528b7fa76d23e7e16d4bddc77250431a64"
+    url "https://files.pythonhosted.org/packages/87/be/2bacb06ef6809c665f315adf4e4d760f84a9664762685e12cebccc241d25/botocore-1.38.0.tar.gz"
+    sha256 "ac8997291bcfd28d329a779ceda429fbe9f8950ba051429a37ba93cbda025e94"
   end
 
   resource "cement" do
@@ -89,8 +89,8 @@ class AwsElasticbeanstalk < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/a9/5a/0db4da3bc908df06e5efae42b44e75c81dd52716e10192ff36d0c1c8e379/setuptools-78.1.0.tar.gz"
-    sha256 "18fd474d4a82a5f83dac888df697af65afa82dec7323d09c3e37d1f14288da54"
+    url "https://files.pythonhosted.org/packages/7d/19/fecb7e2825616270f34512b3394cdcf6f45a79b5b6d94fdbd86a509e67b5/setuptools-79.0.0.tar.gz"
+    sha256 "9828422e7541213b0aacb6e10bbf9dd8febeaa45a48570e09b6d100e063fc9f9"
   end
 
   resource "six" do

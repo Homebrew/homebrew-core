@@ -25,8 +25,8 @@ class CargoExpand < Formula
 
   test do
     ENV.prepend_path "PATH", Formula["rustup"].bin
-    system "rustup", "default", "stable"
     system "rustup", "set", "profile", "minimal"
+    system "rustup", "default", "stable"
 
     system "cargo", "new", "hello_world", "--lib"
     cd "hello_world" do

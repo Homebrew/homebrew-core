@@ -32,8 +32,8 @@ class CargoWatch < Formula
     # Show that we can use a different toolchain than the one provided by the `rust` formula.
     # https://github.com/Homebrew/homebrew-core/pull/134074#pullrequestreview-1484979359
     ENV.prepend_path "PATH", Formula["rustup"].bin
-    system "rustup", "default", "beta"
     system "rustup", "set", "profile", "minimal"
+    system "rustup", "default", "beta"
 
     output = shell_output("#{bin}/cargo-watch -x build 2>&1", 1)
     assert_match "error: project root does not exist", output

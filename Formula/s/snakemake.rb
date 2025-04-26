@@ -3,19 +3,19 @@ class Snakemake < Formula
 
   desc "Pythonic workflow system"
   homepage "https://snakemake.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/c4/a8/6bb279dc67b54021b2b7a0d0a017024d5ed6fc20cbddd20300067a1160b8/snakemake-9.3.0.tar.gz"
-  sha256 "fbef1f10df5c75fd4806871fd17564d1eaebe74b945d3267771bd93d0d4b7de3"
+  url "https://files.pythonhosted.org/packages/c6/98/55b672c573f93c6635fb92a4795137846cacdd69891d1d30f47aba4a2e1c/snakemake-9.3.1.tar.gz"
+  sha256 "68b2f3cf541b86b418db88e2f13a0a7e736f9c01248709ba899e1ffbdf04c77d"
   license "MIT"
   head "https://github.com/snakemake/snakemake.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "2e3cf83d624a7c53d6ad7b2c086b4fb1edc8c740eb177db123785a42d735d526"
-    sha256 cellar: :any,                 arm64_sonoma:  "c3209dfc272b6554526213008b99549188208405c139159d26fb54d21e07fbb3"
-    sha256 cellar: :any,                 arm64_ventura: "7e4436b5e74f3408db501a2137c09e404de3d04736e8b050753ad80ed43d13b7"
-    sha256 cellar: :any,                 sonoma:        "e0fd0fe0eb05e645927ce0b1c9890f41cc3ddc3fe8f4a2a738cb4b40517791ab"
-    sha256 cellar: :any,                 ventura:       "0f0b6dd11596def6e97c2b6dce95a537cc2b056b9cb98421763524b226cd9c76"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "27b06de143e8387c79d1daf0c77b5015c760ddd1dfb81ca6a94742a59084245a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c8a5b07ae689ee3e8c5685c0cbf843cd0117cfa12feb4be1a3dcb5f57144a12a"
+    sha256 cellar: :any,                 arm64_sequoia: "e6876e29ec6f83e06fcca071153354347dcc24690d342a882846c6d2cbb6b2b4"
+    sha256 cellar: :any,                 arm64_sonoma:  "7f74180b9317c43b04991c9e3cca8be8a886137ac3fbef67d244172c0d995655"
+    sha256 cellar: :any,                 arm64_ventura: "db1770c033e89f8d9542b38742b1fc2f5eaf53dd50164ef8fed183f6d89da0b1"
+    sha256 cellar: :any,                 sonoma:        "0fd50b0844e0597e1d10af4955dfc30847fdcac9cedeb14ddddb3f0092e96042"
+    sha256 cellar: :any,                 ventura:       "66a0405a449d6b4d44d6b893bbdd43014e28d3966623cb425173826cbea339bb"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "39fa1b86dc64e71c42b7f153e76480f793e2adaa56c8b288b6bbdc48e89d6df2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "453a65f23e2c60c67b86673e453daaef925e0b753c201bfa399ec9a6249ab2d6"
   end
 
   depends_on "rust" => :build
@@ -110,8 +110,8 @@ class Snakemake < Formula
   end
 
   resource "jsonschema-specifications" do
-    url "https://files.pythonhosted.org/packages/10/db/58f950c996c793472e336ff3655b13fbcf1e3b359dcf52dcf3ed3b52c352/jsonschema_specifications-2024.10.1.tar.gz"
-    sha256 "0f38b83639958ce1152d02a7f062902c41c8fd20d558b0c34344292d417ae272"
+    url "https://files.pythonhosted.org/packages/bf/ce/46fbd9c8119cfc3581ee5643ea49464d168028cfb5caff5fc0596d0cf914/jsonschema_specifications-2025.4.1.tar.gz"
+    sha256 "630159c9f4dbea161a6a2205c3011cc4f18ff381b189fff48bb39b9bf26ae608"
   end
 
   resource "jupyter-core" do
@@ -130,8 +130,8 @@ class Snakemake < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/d0/63/68dbb6eb2de9cb10ee4c9c14a0148804425e13c4fb20d61cce69f53106da/packaging-24.2.tar.gz"
-    sha256 "c228a6dc5e932d346bc5739379109d49e8853dd8223571c7c5b55260edc0b97f"
+    url "https://files.pythonhosted.org/packages/a1/d4/1fc4078c65507b51b96ca8f8c3ba19e6a61c8253c72794544580a7b6c24d/packaging-25.0.tar.gz"
+    sha256 "d443872c98d677bf60f6a1f2f8c1cb748e8fe762d2bf9d3148b5599295b0fc4f"
   end
 
   resource "plac" do
@@ -150,8 +150,8 @@ class Snakemake < Formula
   end
 
   resource "pulp" do
-    url "https://files.pythonhosted.org/packages/ce/44/4d2ebd90b5f6f018f9443b597a290f8a5d245d0f2e775e8b7472f68d9929/pulp-3.0.2.tar.gz"
-    sha256 "7e57cd4eb145bdca80214acb07315f03583dd1c00cc8f24f91bf037649f93eb6"
+    url "https://files.pythonhosted.org/packages/fb/92/bf4b947ec8aac629b835b588e70664c1d0150a8369f798b6c5adb32e39ba/pulp-3.1.1.tar.gz"
+    sha256 "300a330e917c9ca9ac7fda6f5849bbf30d489c368117f197a3e3fd0bc1966d95"
   end
 
   resource "pyyaml" do

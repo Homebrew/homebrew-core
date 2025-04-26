@@ -1,25 +1,25 @@
 class Goku < Formula
   desc "HTTP load testing tool"
   homepage "https://github.com/jcaromiq/goku"
-  url "https://github.com/jcaromiq/goku/archive/refs/tags/v1.1.8.tar.gz"
-  sha256 "d03020d63d36465bda0f07b3f3790b9e33579afe176a25fd01e89e9e9d066fc1"
+  url "https://github.com/jcaromiq/goku/archive/refs/tags/v2.0.0.tar.gz"
+  sha256 "52a95fa94b808d2c93bc875d78278abc2d9bb9da373d6782f0d4e08394eb6c99"
   license "MIT"
   head "https://github.com/jcaromiq/goku.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "100754f13107f0414f552aebbf087ffa1ee892777cc9fb29ba9836cab4f5f65b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d7cf2053dc80e501e5c0cf9755da15df707dcf922f5afb9d4bff62c5cd778e02"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "83e19267ed4940b2f1b5831d712e193ea56105d1d5d5277bb2300f4cf8df45fa"
-    sha256 cellar: :any_skip_relocation, sonoma:        "41fc9a7fbc8b4314e4732287613fbcb653afa01960786781f66af564c4828c5a"
-    sha256 cellar: :any_skip_relocation, ventura:       "041d9131b78280d3e2b11a4a1c01bed36b6ed74c637c5229b43635752225b36c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d67ffd7afb7f73d2b6cbb7e6dac11baf060f95569e4453ae3f9bd2c33e522d85"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "08a058051f645a93d9f5c9eb5f18adad0eea699259b173873d077d6464211d0b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6b0433fb67b204f465869f46247110db4ce45d825e8113a7eb19e10ef6c41c58"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c59d8ce791678c1539fbc9576efc75b6aa4b6a1e2f6f18a0fb961ef8ea31e7fd"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "f995b45c3e316860001ce711e5ad339e18e25ac89898ec7a3ba0cc7b378fe2aa"
+    sha256 cellar: :any_skip_relocation, sonoma:        "bc0de507a1b8ab91033c777f20bc62596acd84bec402a6e15013866818cc81b2"
+    sha256 cellar: :any_skip_relocation, ventura:       "0b562227e21b9b34cdce8798166f08ab67f692d1c58faf42c8e06625f14004c6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1c0c3f3eb4ed12f83c1d8791437de8344d1a8b5c4347a9d384ac53b98ca3c269"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "52ca9ed29c403fee3de04093d278d1c413a99334d5781772bd7920f2f92690bd"
   end
 
   depends_on "rust" => :build
 
   def install
-    system "cargo", "install", *std_cargo_args
+    system "cargo", "install", *std_cargo_args(path: "cli")
   end
 
   test do

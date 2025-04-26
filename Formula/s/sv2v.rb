@@ -11,11 +11,15 @@ class Sv2v < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "252e933952b8d680607936324cf65e335bf6287c676ec9b99b853a9a4b10ad64"
     sha256 cellar: :any_skip_relocation, sonoma:        "6b210f350cfb69d6df2a46f06277e59d62b0e2310ca52b89de86e57125dda49e"
     sha256 cellar: :any_skip_relocation, ventura:       "ffd19a1ab08b2e06e7d04ddafd34ca60231aa9c591e6c642ae0a2658af2b03b4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "aff1b5dac603d45d117e5f58300311de1d2e9d2d5e2b1a7cf3718f79dfa50b25"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "d1718ff41c4a8701aa9b5ef78f9ea0856fa2de5e739237b70e6cb64ce6f61096"
   end
 
   depends_on "cabal-install" => :build
   depends_on "ghc" => :build
+  depends_on "gmp"
+
+  uses_from_macos "libffi"
 
   def install
     system "cabal", "v2-update"

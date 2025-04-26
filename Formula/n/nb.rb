@@ -12,6 +12,7 @@ class Nb < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "6ccaac19205784fb7cb81fc7f03e4f77f65c8da6297d1fd8c93e63e0df8be472"
     sha256 cellar: :any_skip_relocation, sonoma:        "bc4c8ee86526bccedc3a1a6f04416e1faa89166d3450f732a3a76c9a15a9b225"
     sha256 cellar: :any_skip_relocation, ventura:       "bc4c8ee86526bccedc3a1a6f04416e1faa89166d3450f732a3a76c9a15a9b225"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6ccaac19205784fb7cb81fc7f03e4f77f65c8da6297d1fd8c93e63e0df8be472"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "6ccaac19205784fb7cb81fc7f03e4f77f65c8da6297d1fd8c93e63e0df8be472"
   end
 

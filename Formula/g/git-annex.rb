@@ -18,6 +18,7 @@ class GitAnnex < Formula
     sha256 cellar: :any,                 arm64_ventura: "34cebd05c2a7b6fb70ffae9727d96590f0b90ca1c11d676abf11156d707e0609"
     sha256 cellar: :any,                 sonoma:        "4eaef74f193dd44c5956759b06308361827fa4d1fdd6a2b34b8ca6127f1cff54"
     sha256 cellar: :any,                 ventura:       "b83e57e99f8964a6059ceeb3f1d3b1dec25e751a0e5e2ec77aad54fc8fcc8946"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c1237c40a0fab841d15d05cdf0a46d3e1adf15ca442fc601cdd8fc9988ca9be5"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "fa1720688c0d3565d2eff67353a7b8895a092788122ac7b28d7724a586786866"
   end
 

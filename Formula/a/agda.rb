@@ -64,6 +64,7 @@ class Agda < Formula
     sha256 arm64_ventura: "36482626ec686b45ccbdd4b3687a9712b9e6536289aa9ca837800ef7c412a94f"
     sha256 sonoma:        "4fc274813a4bd8253be86441068fe9d9839ec63f9b0e2054353363924c93afda"
     sha256 ventura:       "a308ed26bc07c352ddc0dcaca281fe4071394dafe727634df199dbce741b9df9"
+    sha256 arm64_linux:   "71576e2ceb209a3c7ffeb5d81893b0cd6467ce31a1fa3f72fec9541701d5058b"
     sha256 x86_64_linux:  "5f40483798d6b0f2bee203693b81ff5c500c1bd8ebf93386e0fb2ca6bee803d4"
   end
 

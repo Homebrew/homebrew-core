@@ -235,6 +235,7 @@ jobs:
                 emscripten|\
                 envoy|\
                 gcc|\
+                gdb|\
                 ghc|\
                 graph-tool|\
                 gstreamer|\

@@ -1,21 +1,20 @@
 class Gdb < Formula
   desc "GNU debugger"
   homepage "https://www.gnu.org/software/gdb/"
-  url "https://ftp.gnu.org/gnu/gdb/gdb-16.2.tar.xz"
-  mirror "https://ftpmirror.gnu.org/gdb/gdb-16.2.tar.xz"
-  sha256 "4002cb7f23f45c37c790536a13a720942ce4be0402d929c9085e92f10d480119"
+  url "https://ftp.gnu.org/gnu/gdb/gdb-16.3.tar.xz"
+  mirror "https://ftpmirror.gnu.org/gdb/gdb-16.3.tar.xz"
+  sha256 "bcfcd095528a987917acf9fff3f1672181694926cc18d609c99d0042c00224c5"
   license "GPL-3.0-or-later"
   head "https://sourceware.org/git/binutils-gdb.git", branch: "master"
 
   bottle do
-    rebuild 2
-    sha256 arm64_sequoia: "e19f455ea5aed064e4d91c6a1aff73f1ce2d7183c188dc48c587d0cc35fc3d61"
-    sha256 arm64_sonoma:  "dd538bad2a1415e5ddfedf6b3b466871d9abbe17ee880dc34425f80b03616360"
-    sha256 arm64_ventura: "21a37a8e18f1974a8342e9fd0b089829b7ce17b93c75300d8b25def54a681638"
-    sha256 sonoma:        "b20978682d45b707576385b6f28bb51e7e5400e2e1b885ebcef52ba5e9823c2a"
-    sha256 ventura:       "583530e65b7112358a1d4b8d200b597bb348e91863c51cdc7eea515f83e0be7d"
-    sha256 arm64_linux:   "8be5b619c9bb8c729cb9947601f2dcafddccf3516d54baa9acae312da9018d67"
-    sha256 x86_64_linux:  "90ef1f376c0cf3534e765206a918d294129598b0953ab6a983371b0ebc0f0ed7"
+    sha256 arm64_sequoia: "9e5f18aa75cef9f236a7f07d4e444d54a8cccf3ff7e119f9923db8bef62d1252"
+    sha256 arm64_sonoma:  "06baf22991ec402640b1d6d886e3218d208abd368e8ba50c2116b17923f633ae"
+    sha256 arm64_ventura: "b0d0fc6a961b484803767ee5a1ba108de2a61e06522236536c7e600ea1d541cc"
+    sha256 sonoma:        "1f09c138f3bdeaf1066dc83fe96e6c6a9bdab4e1a73553048606708c84fc5d70"
+    sha256 ventura:       "1f477ff41885a15a223c3c17931e4f8cd530262f3c7286969028af78dfa8e8bf"
+    sha256 arm64_linux:   "bdc566b8b01f046ce432ed7445f7a9ff929f155bf48643288362b78340239bb3"
+    sha256 x86_64_linux:  "5dce623e116162d2edb8668a5f5b5085dea0b0dbce8b245985de933ed0079097"
   end
 
   depends_on "gmp"
@@ -25,6 +24,7 @@ class Gdb < Formula
 
   uses_from_macos "expat", since: :sequoia # minimum macOS due to python
   uses_from_macos "ncurses"
+  uses_from_macos "zlib"
 
   # Workaround for https://github.com/Homebrew/brew/issues/19315
   on_sequoia :or_newer do
@@ -60,6 +60,7 @@ class Gdb < Formula
       --with-lzma
       --with-python=#{which("python3.13")}
       --disable-binutils
+      --with-system-zlib
     ]
 
     # Fix: Apple Silicon build, this is only way to build native GDB

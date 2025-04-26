@@ -1,8 +1,8 @@
 class Flowpipe < Formula
   desc "Cloud scripting engine"
   homepage "https://flowpipe.io"
-  url "https://github.com/turbot/flowpipe/archive/refs/tags/v1.1.0.tar.gz"
-  sha256 "7eaf7d993b4672be9ae9db69678d4b263e80d7524ac486ebe52048b03af2a6bc"
+  url "https://github.com/turbot/flowpipe/archive/refs/tags/v1.1.1.tar.gz"
+  sha256 "fe981ce95de045618264f01728bf59cd4a6f3463e58f408eaeda2f24900a187e"
   license "AGPL-3.0-only"
   head "https://github.com/turbot/flowpipe.git", branch: "develop"
 
@@ -15,12 +15,12 @@ class Flowpipe < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fa5432a400489155775d41497e94518cae73c44be1ffa7a61edd6c6f92b97034"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "395fb9eb8639b4e94966172e1e37d4e00be793ae7a54321dc604eb26f744f104"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "714cc69fb231a362c880828f99e0fbfc7ae058e22edec97c4ecf153021c07e1e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "8850931850ac78e4955be5d5e0b39cdf30ccd512ea97b969518ac1203c189bb9"
-    sha256 cellar: :any_skip_relocation, ventura:       "72a8372d39112987c5938f03e4770ed929e4aa0847acda2c3a4bc309bb1753b5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7454128cb4841b797208d27b1fe325d5835c706f4f1b8a015db8250d58e8a1e5"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "64ae558b8f13d272f295e7632e847d8b0dc157f309335141e2ba60ece28a0a76"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "69f742edfecdeee9401630cf53d3b92b4247af0eee94e2b0a5fb4ace31bfaac9"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "e730b06a3c720b30a343a67ab22148cb0418f5d36d3ae9bdbbfa5f62f6017ef1"
+    sha256 cellar: :any_skip_relocation, sonoma:        "4da51fea07766e45ef1748767ccbc35a0f75f645cbed1be7ea890d95909e57c2"
+    sha256 cellar: :any_skip_relocation, ventura:       "cd87904b97ce46751c0c7f59214b083a576777809c52308ac297be16d46d3515"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "050f55f3d6d0ebb85647e317fb27e10a7c58a61369b42743e9cbb003dc9de179"
   end
 
   depends_on "go" => :build

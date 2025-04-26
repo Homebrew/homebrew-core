@@ -6,16 +6,18 @@ class Proteinortho < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "691114c22c7b2da4e5f32b9899793f87bf1288b116907a838328c3ba9665ccf2"
-    sha256 cellar: :any,                 arm64_sonoma:  "4b31f93f3664b884ca7d1e75cec1443eaec3176cdd378d2d097b3df442fc846d"
-    sha256 cellar: :any,                 arm64_ventura: "6bb3b85a66eb9f7b274c5da08d9e521d9049e2e362cf810d526a026d4e2c7a7f"
-    sha256 cellar: :any,                 sonoma:        "ab241ce26173fedd1e3e705355bb1ad5cfd011c4ffa91f878ee3b413ac551c25"
-    sha256 cellar: :any,                 ventura:       "17a1cf8b7f0266b63fecf18342dad5276dcac2d153937b194a2b343a1cb0e0a5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f26d43b6f2913fb05d1309e6bbeacd1d86ea69da151565cf148a69c096d6be96"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7f34a42b6359383dcf6040c2445f76bb662dc36e0585ac6d1709c7f83f20f755"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "2356058c1df4e150a263dbfc0f732c7be1d0554c28962d2c3c1bbbff3234470e"
+    sha256 cellar: :any,                 arm64_sonoma:  "6563d591255724b9b4d51b183ee88e1896a88947cf27711b98c64b808e788e1d"
+    sha256 cellar: :any,                 arm64_ventura: "76bbfd627206c5a346c8b40207cc4c002dbc9a348317032a4eb3dcda98153f46"
+    sha256 cellar: :any,                 sonoma:        "9127cb17cb8e363c879b0ecf81c349f61120ef0e0206366defa07ce11e9cb39d"
+    sha256 cellar: :any,                 ventura:       "1eeab6b4ab460ca0e684f123b1b6e6a293cd005df2209835530d7d08393ac36f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ec96e52a4bea6125ac647b78c022e739b7f1f3bc66f33e3cf19349b8e84134dc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bde04add25030aed32aac06465de994ca04e4410181a53deac825858df3df18c"
   end
 
   depends_on "diamond"
+  depends_on "libomp"
   depends_on "openblas"
 
   def install

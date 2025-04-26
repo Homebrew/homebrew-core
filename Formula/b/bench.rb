@@ -27,12 +27,15 @@ class Bench < Formula
     sha256 cellar: :any_skip_relocation, sonoma:         "a3bb09eecf4d8c6a6be9de614227f20d1745abbb11d6de6e55d627ab82e381a7"
     sha256 cellar: :any_skip_relocation, ventura:        "dc156d8b5153328baa9611a2b3debce3ba9579ce5de607843f7cb1446499e3f7"
     sha256 cellar: :any_skip_relocation, monterey:       "0b40ea1f0980aa3d99c04d339739a8a9db6f149122e327b5b6f8107f972d597c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "9524c8585e0d39098a57f013cbd52142c7bc67c409bffded1f3fc9198c3e218f"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "fe9558853d72f47d9f9ebec85e2e80eef181c37e607c7e40cf398845e49cf576"
   end
 
   depends_on "cabal-install" => :build
   depends_on "ghc" => :build
+  depends_on "gmp"
 
+  uses_from_macos "libffi"
   uses_from_macos "zlib"
 
   def install

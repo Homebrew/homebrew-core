@@ -13,6 +13,7 @@ class HopenpgpTools < Formula
     sha256 cellar: :any,                 arm64_ventura: "b83d81cff76f58a88f73c353b6807a82bb6186419bc525f7e90aaddea2e0c272"
     sha256 cellar: :any_skip_relocation, sonoma:        "81a7de6f22c94c9e6511f74ac6caab00902a992db025cc63503746ff7ddebe95"
     sha256 cellar: :any,                 ventura:       "8d3b9bf6403e965b552105bf02b1dd620325f5c37174d3c3959899eae71fe055"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3b60d684c2fee4c0a2bf97fbc083340f7830183f7372edadb6e7a0fd9042843e"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "2e51c27ef595c911cb7a2f208b6a5c5426e767240f3651e072b5af7bd6213156"
   end
 

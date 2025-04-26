@@ -14,6 +14,7 @@ class JupyterR < Formula
     sha256 cellar: :any,                 sonoma:         "0316f97858c3952691008a53a36107235976bc213a24c894d89de8890c8822eb"
     sha256 cellar: :any,                 ventura:        "7d99a0c04195211aaad73759ee745a55823854e0d326e34627220103fbf4d545"
     sha256 cellar: :any,                 monterey:       "a10453cf63c2b498366e1a90dd42d47b828502a870e527684558d1bef37e07ab"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "20d47dc1d9832690199b9db766244d9a9a2fa8bf54b09441744b5dac333a8209"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "c5b13b7b57330d27afc80e134f7d27c2b5207a9abc00a92f081d2fa21f834ede"
   end
 

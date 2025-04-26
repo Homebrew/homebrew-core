@@ -7,7 +7,13 @@ class Nuget < Formula
 
   livecheck do
     url "https://dist.nuget.org/tools.json"
-    regex(%r{"url":\s*?"[^"]+/v?(\d+(?:\.\d+)+)/nuget\.exe",\s*?"stage":\s*?"ReleasedAndBlessed"}i)
+    strategy :json do |json|
+      json["nuget.exe"]&.map do |item|
+        next if item["stage"] != "ReleasedAndBlessed"
+
+        item["version"]
+      end
+    end
   end
 
   bottle do

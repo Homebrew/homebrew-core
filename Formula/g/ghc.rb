@@ -18,6 +18,7 @@ class Ghc < Formula
     sha256 cellar: :any, arm64_ventura: "1027b79cd2c730cc7268f5f1582fa94a23cb66c99d1d937f5395379e1e5c7d2b"
     sha256 cellar: :any, sonoma:        "9a399cf1d62161f0d278b106af0dd02f5ba2bad96d911e1a96704bca34985914"
     sha256 cellar: :any, ventura:       "ef06c3ecf24f8855afe44cd10f40088db82aead9ac408425fdf731e73a70c41b"
+    sha256               arm64_linux:   "787493ddf23e1220aa1cda774272ac80bbfeb95a0ee69f585c1836c32dd18d10"
     sha256               x86_64_linux:  "8ddfb5d203315132ae9a5ea1f05a3398bf781c1e41b077cd2c88084dbce548c8"
   end
 
@@ -35,6 +36,23 @@ class Ghc < Formula
   # Build uses sed -r option, which is not available in Catalina shipped sed.
   on_catalina :or_older do
     depends_on "gnu-sed" => :build
+  end
+
+  on_linux do
+    on_arm do
+      depends_on "gcc" => :build if DevelopmentTools.gcc_version("gcc") < 12
+
+      fails_with :gcc do
+        version "11"
+        cause <<~CAUSE
+          _build/stage1/compiler/build/GHC.p_dyn_o:(.text..LsO3B_info+0x198):
+          relocation truncated to fit: R_AARCH64_JUMP26 against symbol
+          `ghczm9zi12zi2zminplace_GHCziUtilsziPanic_showGhcException_info'
+          defined in .text.ghczm9zi12zi2zminplace_GHCziUtilsziPanic_showGhcException_info
+          section in _build/stage1/compiler/build/GHC/Utils/Panic.p_dyn_o
+        CAUSE
+      end
+    end
   end
 
   # A binary of ghc is needed to bootstrap ghc

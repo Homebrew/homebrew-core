@@ -12,6 +12,7 @@ class Imposm3 < Formula
     sha256 cellar: :any,                 arm64_ventura: "cad098da6f178da1722aad7bda43bfc701d7b2227d41c6e29256f7b100e3ff26"
     sha256 cellar: :any,                 sonoma:        "923730f19c0d45256c9fe8f3dc19edd7fc5b7467b5bb5173ae98c44e4e256da4"
     sha256 cellar: :any,                 ventura:       "4bdf8a9074e1072f1573c175e3541bcf4098f3a6149d75c1f53bf4a6c888cfed"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c1e925c74b23c271906369233d1620786168149e65610c2ee5ca2376204cb80a"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "27929945a7f1302d1bc192ec024181fca4cfec9ebb5b1eab90c4bc0e1430af9d"
   end
 

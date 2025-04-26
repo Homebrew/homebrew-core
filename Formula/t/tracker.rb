@@ -41,9 +41,9 @@ class Tracker < Formula
   end
 
   on_linux do
-    deprecate! date:        "2025-01-18",
-               because:     "was renamed but we cannot formula rename due to macOS build failure",
-               replacement: "tinysparql"
+    deprecate! date:                "2025-01-18",
+               because:             "was renamed but we cannot formula rename due to macOS build failure",
+               replacement_formula: "tinysparql"
   end
 
   conflicts_with "tinysparql", because: "both install the same libraries"

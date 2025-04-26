@@ -12,6 +12,7 @@ class StylishHaskell < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "caa3a5292125407b6489eb7f121d45b2f10a41759362d552a54edef87c176fb1"
     sha256 cellar: :any_skip_relocation, sonoma:        "05d8ff7fa92c64e886dd67007d151292701f7558106143dcd821d1469a2ce74a"
     sha256 cellar: :any_skip_relocation, ventura:       "af74b98d36e9806edf65cc30fb9dacbaa76cbadabb2ecbd5aa75039e9a1d5760"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ce716b2eec6706796822c8c638969d9156534747a57f68a90e4d929692774bac"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "e9386aab06b8ff3f6fa0d670681e2d7176f6250f5546281f4003265d365b9224"
   end
 

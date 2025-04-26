@@ -28,6 +28,7 @@ class Tcptrace < Formula
   end
 
   deprecate! date: "2024-04-18", because: :unmaintained
+  disable! date: "2025-04-22", because: :unmaintained
 
   uses_from_macos "libpcap"
 

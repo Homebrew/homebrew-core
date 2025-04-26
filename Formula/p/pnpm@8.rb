@@ -7,7 +7,9 @@ class PnpmAT8 < Formula
 
   livecheck do
     url "https://registry.npmjs.org/pnpm/latest-8"
-    regex(/["']version["']:\s*?["'](8[^"']+)["']/i)
+    strategy :json do |json|
+      json["version"]
+    end
   end
 
   bottle do

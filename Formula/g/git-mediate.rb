@@ -11,11 +11,15 @@ class GitMediate < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "b57ee5c16d7e4747d9f255bc02109fc0da671ba7cfda9d13798286bf80958e38"
     sha256 cellar: :any_skip_relocation, sonoma:        "f9b46bfa29542509a7fa1b33dadf15a415dbd154066ea58ec7683861a9ab3544"
     sha256 cellar: :any_skip_relocation, ventura:       "45a20d5499cf2ed0a7c0037459b50222cbcf0d18643142c66a3958bc227b2d09"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "58caff9b2789c99a435feb86be3fc3f7e6a9b05c4fffba13e8c87b23886eb11a"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "54dd625814a87c231bc8d8fc83ddb4b3366ca87f068a0a6f63e17ace1e842744"
   end
 
   depends_on "cabal-install" => :build
   depends_on "ghc" => :build
+  depends_on "gmp"
+
+  uses_from_macos "libffi"
 
   def install
     system "cabal", "v2-update"

@@ -1,18 +1,18 @@
 class Cli53 < Formula
   desc "Command-line tool for Amazon Route 53"
   homepage "https://github.com/barnybug/cli53"
-  url "https://github.com/barnybug/cli53/archive/refs/tags/0.8.23.tar.gz"
-  sha256 "89fca8cdc0894a5d8392432f5012b9b3634ed2b71d07c9b4ca4ca4b6a63c1f1a"
+  url "https://github.com/barnybug/cli53/archive/refs/tags/v0.8.24.tar.gz"
+  sha256 "1886c5ef32882ed3389bbd15226f1bb9d0c3c411eebefdaef0c3941ae1c2bcf9"
   license "MIT"
   head "https://github.com/barnybug/cli53.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a4eb5b6ce734d8d797030c2d39a6b4ff90a37abe1281c4d01b4a7d1b215b3e94"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a4eb5b6ce734d8d797030c2d39a6b4ff90a37abe1281c4d01b4a7d1b215b3e94"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "a4eb5b6ce734d8d797030c2d39a6b4ff90a37abe1281c4d01b4a7d1b215b3e94"
-    sha256 cellar: :any_skip_relocation, sonoma:        "1b6d1ed52257ac5b4c58bef141b91897edee6f92996f51853a5f3e67270f4580"
-    sha256 cellar: :any_skip_relocation, ventura:       "1b6d1ed52257ac5b4c58bef141b91897edee6f92996f51853a5f3e67270f4580"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "778c51ff129eb2143f8e8bec83ada4b8c2e339a2b8233d6dc28aa5234693383d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5cbf53595fb96420c262541ac11ef60f88a90cb965b86a08d698759879f31f12"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5cbf53595fb96420c262541ac11ef60f88a90cb965b86a08d698759879f31f12"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "5cbf53595fb96420c262541ac11ef60f88a90cb965b86a08d698759879f31f12"
+    sha256 cellar: :any_skip_relocation, sonoma:        "29505b49a794c9b121fdca56bc0d4f823d4ed6b334e9463be158eaed1fb72f75"
+    sha256 cellar: :any_skip_relocation, ventura:       "29505b49a794c9b121fdca56bc0d4f823d4ed6b334e9463be158eaed1fb72f75"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f680ca15bb30e5a668529f526d6242ee392a7e3fa5601624d7cc9816d95f4e8f"
   end
 
   depends_on "go" => :build

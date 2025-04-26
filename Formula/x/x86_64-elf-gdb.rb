@@ -1,9 +1,9 @@
 class X8664ElfGdb < Formula
   desc "GNU debugger for x86_64-elf cross development"
   homepage "https://www.gnu.org/software/gdb/"
-  url "https://ftp.gnu.org/gnu/gdb/gdb-16.2.tar.xz"
-  mirror "https://ftpmirror.gnu.org/gdb/gdb-16.2.tar.xz"
-  sha256 "4002cb7f23f45c37c790536a13a720942ce4be0402d929c9085e92f10d480119"
+  url "https://ftp.gnu.org/gnu/gdb/gdb-16.3.tar.xz"
+  mirror "https://ftpmirror.gnu.org/gdb/gdb-16.3.tar.xz"
+  sha256 "bcfcd095528a987917acf9fff3f1672181694926cc18d609c99d0042c00224c5"
   license "GPL-3.0-or-later"
   head "https://sourceware.org/git/binutils-gdb.git", branch: "master"
 
@@ -12,13 +12,13 @@ class X8664ElfGdb < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "de74875cbd1859e8c1fa82848274c39547668f7be7d97b722177017c61ea8497"
-    sha256 arm64_sonoma:  "30072350c40b7764e703fef9a4829e3ed6b7d6e9aa78845a5c3f9e00a4ce094f"
-    sha256 arm64_ventura: "5992bcfc7efda98494052c965cb6b0360e1680c2c1b6ac6299d962d2cde71b01"
-    sha256 sonoma:        "8a0f7aca58e0736c3faead51e6f80fad9565a67e8097214c85ead9fd913ca874"
-    sha256 ventura:       "184ee71eb79f730ca61b2edbd673cfd096b9085b792547070cf45e9245fd5360"
-    sha256 arm64_linux:   "7d5cb5a359150d67f315077aeffdc64e2ad255b3eec0a9a3abc7ab1731fc2b8f"
-    sha256 x86_64_linux:  "0e74c4348f72702b1ddf300469815ef0e919780a17176dcdd8c2c5550fa833e1"
+    sha256 arm64_sequoia: "28f100b92ecb7457ced120b8d0522a178c1c7b41602ce928a135573196f0f118"
+    sha256 arm64_sonoma:  "f3bfe8ae0d22a8a29df3487ab9a02183c03ebc40aee4dbb791f951152739d451"
+    sha256 arm64_ventura: "12f8ce79c5b517f25f323720050fb2f348e556f90cd510b4d58e3f5ae20fc3dc"
+    sha256 sonoma:        "e4b1c236f1b4317c08f212b2ee18e12c511edf81adb3a376697da97e286b88c0"
+    sha256 ventura:       "6a08a716548bb8e045f191db3854584be6d48619a64886e69d2f6617bf09c623"
+    sha256 arm64_linux:   "8b54865a39c1be49422e670ffd3992d391159acba028d87a1b73affa796c86cd"
+    sha256 x86_64_linux:  "38caa41e87bae9d85259c0497a9300af7c51f236e299476a8fc38da29f7d76ca"
   end
 
   depends_on "x86_64-elf-gcc" => :test

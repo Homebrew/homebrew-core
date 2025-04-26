@@ -12,6 +12,7 @@ class OsmiumTool < Formula
     sha256 cellar: :any,                 arm64_ventura: "0a22fe26b6c72c6e121016d76297cf9d27554bca154d89615bb7b6c810c4b396"
     sha256 cellar: :any,                 sonoma:        "367ed9eedac294312bfd850de02a3b473756c5087a29bc9aa419cd866aad6667"
     sha256 cellar: :any,                 ventura:       "34d3160c4d7488c5a7bde951b81de589cd93477d7d75ba69ba6209424fa7e2a5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "68645a5288ae2d775939bdd3d860712854ad59d7595ce3bfd167a093f6f2e9be"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "d4b896b74aeb6e8c6104bfec7cf7c29f6e0b79d97830c518e8a8331800695edf"
   end
 

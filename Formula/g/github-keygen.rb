@@ -10,6 +10,8 @@ class GithubKeygen < Formula
     sha256 cellar: :any_skip_relocation, all: "ce4d2d363e88f82852998fb401ac8bdbcffae2c1028c521bb3e99dc9e1fc598f"
   end
 
+  uses_from_macos "perl"
+
   def install
     bin.install "github-keygen"
   end

@@ -14,6 +14,7 @@ class DhallJson < Formula
     sha256 cellar: :any_skip_relocation, sonoma:         "6fe9a18931ce049c972b01ece18dd99b5519c8b81dc297ea739c855222501849"
     sha256 cellar: :any_skip_relocation, ventura:        "3a07abe91ba35acd16e9e3a4d293895b3722dde3c3b55ce9212d70220512c9d0"
     sha256 cellar: :any_skip_relocation, monterey:       "4cd90ca4159871376eb10cfc730116e7a55d78260aa9705dcc87bb00530ee9bd"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "51005894d801cc179e2e5246e27968f63a92466274c5b9e1ab073048d7084231"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "06ab63373f3d40884b9111382390b21525460927f12692a158e3983f68c9e0aa"
   end
 

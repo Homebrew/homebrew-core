@@ -1,8 +1,8 @@
 class Gitoxide < Formula
   desc "Idiomatic, lean, fast & safe pure Rust implementation of Git"
   homepage "https://github.com/Byron/gitoxide"
-  url "https://github.com/Byron/gitoxide/archive/refs/tags/v0.42.0.tar.gz"
-  sha256 "4f7febd1bc45d96afc643142d26753ccb7fde7e69f68ca201f04953c1fc6ba7a"
+  url "https://github.com/Byron/gitoxide/archive/refs/tags/v0.44.0.tar.gz"
+  sha256 "1166627cd41daf68eb4e97591cd5daaccf94aa75bb454f657b93766a9bf70da9"
   license "Apache-2.0"
   head "https://github.com/Byron/gitoxide.git", branch: "main"
 
@@ -12,13 +12,13 @@ class Gitoxide < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "66413371fbb6e945119d644ea703ad6c58c957869cd379b6c201de7dad6cd00b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "480133289233aa243cd9048cedb254871ccd78c3ed20a966ee425d08fdb08afc"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "799041e6257ad52e8aa16b3ac2942d5351096b9925fe63da98402fc09f1aaaac"
-    sha256 cellar: :any_skip_relocation, sonoma:        "6b889bdaf50135b9d2b245383fac3846874d2bceb3595c2c572b0b26cb63c15e"
-    sha256 cellar: :any_skip_relocation, ventura:       "d8efb7d266423ac9a1b6c9d6136eaa8695885ec2669127199ce0bc7703c1987a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "54a98bc0e12d5f832baa8412731272902ec4ff451a237db5d719dbbfc68656c9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f2439117b3363e20b6b5a0cd62ce5e44052b5787955810e9ebb01d87a77b2f1c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "86304e974bd41ea30521c61b8404ec459fa0228f986a22c09368cd89ffbe2ce0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9b5c854272b3182e3abd2d555b1153a817328e9dad78ba991ecd7b8aa61a7dbc"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "1d85afbabe8fb9f0ff09e2d5f7208645663e1d766897c7c9d3a2935813c222d9"
+    sha256 cellar: :any_skip_relocation, sonoma:        "589c23d80b049a8ae104186fcf4b047b5c87102f44e9c1b4764dd3c78069b1b8"
+    sha256 cellar: :any_skip_relocation, ventura:       "85ae6e0efb80512f985345886c98c7117a40621a97597852d322c2efd3d22e56"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5336edbf824817628bc5900db57cda81f5fbba455ea79509f3fa9fdc4da551b7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9b245e918ee10027e0e9c70f3cbfb7b5af9419856573e8b3a0bd9f74dfd1230c"
   end
 
   depends_on "pkgconf" => :build

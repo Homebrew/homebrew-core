@@ -1,8 +1,8 @@
 class Armadillo < Formula
   desc "C++ linear algebra library"
   homepage "https://arma.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/arma/armadillo-14.4.1.tar.xz"
-  sha256 "26ce272bfdc8246c278e6f8cfa53777a1efb14ef196e88082fee05da1a463491"
+  url "https://downloads.sourceforge.net/project/arma/armadillo-14.4.2.tar.xz"
+  sha256 "6dfddcfbd91e70679d7c11e94a5963a7efda002fec351e6f4875ac8e245c5117"
   license "Apache-2.0"
 
   livecheck do
@@ -11,13 +11,13 @@ class Armadillo < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "5ac51127da28f670eec024765c9227d56f53159d6b6a47bf6257bf8dd7b7e8d3"
-    sha256 cellar: :any,                 arm64_sonoma:  "8863d69dc4e23c05c742b450424ed68fc6e994bccacf751e135d3eca38f19871"
-    sha256 cellar: :any,                 arm64_ventura: "b495e8cf5b65087f8715ec2e79cce9a345ba7365aac214858c9ef9e637d4673a"
-    sha256 cellar: :any,                 sonoma:        "dc2537516e0307dfcea323be3428198e8049d88a420f890fef7eb9a9666eb27a"
-    sha256 cellar: :any,                 ventura:       "7b135d1b4ac6fc89fad691fa2c0429657904d7376581e672370cccd1c35b6712"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "68212db3b6dcb2df51e9c5f879e04ae353464025456e1496bb74bdec74800846"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "41e6a574a9673e69e133cae07e44493890361f0e2458bcead9b938c15c5f0749"
+    sha256 cellar: :any,                 arm64_sequoia: "5a4c62a61f6c9ebf9d6df1aed9299c9ac496f67d22fa801021580a98f18a757f"
+    sha256 cellar: :any,                 arm64_sonoma:  "12abd91318b767e5b3f06a086a7fa5bd0ebb8627382b6783cd750be987239175"
+    sha256 cellar: :any,                 arm64_ventura: "ee00d2190e28f52f572645cd698bff73690f44a05d124610f53c3b4c0fe9a201"
+    sha256 cellar: :any,                 sonoma:        "fce7394c80252b4026300a498090df74c31c166907fcfa0d99ac6e36f90ee991"
+    sha256 cellar: :any,                 ventura:       "79a8e27963c3123e2fde50be489263b6222eff42b930e68238857b824d8116a1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9253e78f3ac7ef9e5a21c33857cfd1ba3ec1e6c18826da5a12947eec3074da63"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "635b61051983a0c1dfb3e4463c4ba34f511ee5ca35638531c5845f0514c55cec"
   end
 
   depends_on "cmake" => :build

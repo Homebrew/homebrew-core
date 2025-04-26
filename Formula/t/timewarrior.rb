@@ -1,21 +1,19 @@
 class Timewarrior < Formula
   desc "Command-line time tracking application"
   homepage "https://timewarrior.net/"
-  url "https://github.com/GothenburgBitFactory/timewarrior/releases/download/v1.7.1/timew-1.7.1.tar.gz"
-  sha256 "5e0817fbf092beff12598537c894ec1f34b0a21019f5a3001fe4e6d15c11bd94"
+  url "https://github.com/GothenburgBitFactory/timewarrior/releases/download/v1.8.0/timew-1.8.0.tar.gz"
+  sha256 "1ea54302dcefa4aa658f89b6b825f0e8b49c04f15cf153a2e7d8bce5525920b4"
   license "MIT"
   head "https://github.com/GothenburgBitFactory/timewarrior.git", branch: "dev"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "b56a2d57b45d9c90248412d0cfefb5e835c2b9579defa625c02d3aa5a197668c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "011894ee1488cab1f925146d51a4856d08c6d63437e6e91bae24484bbdda527b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1fb57a435ceeaf1fa0b261f48dc438d40bb8d45b4895151e44a2d7951d587faa"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8eefaa54fa7a4e286990e3751316917daa84f8ff050dc1620eb57fd528870313"
-    sha256 cellar: :any_skip_relocation, sonoma:         "65e2024a1bdd9e939272ae7ce8801811a1b29cff9c9e9f8d27755fe14f01641d"
-    sha256 cellar: :any_skip_relocation, ventura:        "d96a671bf4dcdec6fd9da826ec95e013e520bc326a9130fff9f36979f7bff58a"
-    sha256 cellar: :any_skip_relocation, monterey:       "a6cca6e51a04ed7106919357514290007475c794f23e756da10d9bbb5a3d1bb1"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "226ffe655b01abae4bab6903eb0cc682f2702b572cd9165fd1e9a581a81c1d21"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9073e350620c7067b35e6eea867ed7d02b45210cf8163673e7ee009ffcb1d1e4"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7edd9e0034a3bd39c258258841e95b440bc66ec2598daf7777350f84df0e196c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "40022ab9a10321ff7cfdb94aa6c7addc287b49502405ea252a2be3f5425ab7d4"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "c9e5fcb7c4d143cc6f76ab26bddf904983f62d15f14691189a1c71d0d4749a52"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f54d9143c188b384873fde1f7b6ecb520ffff93db922f9dbe334bb9b764b1ef9"
+    sha256 cellar: :any_skip_relocation, ventura:       "1d62dadfee84d1d5df682c0ab60856a5a17cc4b2fe28c061eb4e41dfdce31b0e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0b8a1aa42b0f42f513e76fe1708b327ea8fc23f7c99b181fa53f336f308c5f89"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cb7285a172a3f71d7c8798d673026f50948933ada3aa28205764ba520523c532"
   end
 
   depends_on "asciidoctor" => :build

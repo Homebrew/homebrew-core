@@ -372,8 +372,8 @@
     "exclude_packages": ["certifi"]
   },
   "glances": {
-    "package_name": "glances[web]",
-    "exclude_packages": ["certifi"]
+    "package_name": "glances[all]",
+    "exclude_packages": ["certifi", "cffi", "cryptography", "pycparser", "six"]
   },
   "gnuradio": {
     "package_name": "",

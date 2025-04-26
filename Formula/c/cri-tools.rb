@@ -1,19 +1,19 @@
 class CriTools < Formula
   desc "CLI and validation tools for Kubelet Container Runtime Interface (CRI)"
   homepage "https://github.com/kubernetes-sigs/cri-tools"
-  url "https://github.com/kubernetes-sigs/cri-tools/archive/refs/tags/v1.32.0.tar.gz"
-  sha256 "2d48319be933df77c660fbfe7efef8c3d61bbde6787e2f33725bcc519858b287"
+  url "https://github.com/kubernetes-sigs/cri-tools/archive/refs/tags/v1.33.0.tar.gz"
+  sha256 "2d71ca416a4657646d54725345f993fc1b66c8023da02952bd0e63fd515f49e3"
   license "Apache-2.0"
   head "https://github.com/kubernetes-sigs/cri-tools.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b68927510eade50bfadd828b034f4537b890ace8cb0e23e780ecef795108eea5"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b68927510eade50bfadd828b034f4537b890ace8cb0e23e780ecef795108eea5"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "b68927510eade50bfadd828b034f4537b890ace8cb0e23e780ecef795108eea5"
-    sha256 cellar: :any_skip_relocation, sonoma:        "aa41eef8bbde177b4d6ea9579442882f1e1442345efef797ccb79c9465d44c77"
-    sha256 cellar: :any_skip_relocation, ventura:       "aa41eef8bbde177b4d6ea9579442882f1e1442345efef797ccb79c9465d44c77"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d504d73365ad545f8180fc0b51599b8524acee447ea490354b595765a51d3bfb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9ce3accc44490a4e3cbc38e6a657a90c04520a7339f9e83d69d4126230731812"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "008934d075ccd36341e98414e5bf5d42988d4e2e0e7a73f4dc242aff4bd4a51d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "008934d075ccd36341e98414e5bf5d42988d4e2e0e7a73f4dc242aff4bd4a51d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "008934d075ccd36341e98414e5bf5d42988d4e2e0e7a73f4dc242aff4bd4a51d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f21321f265b02859092aa0678ed0c633991a5ebc5462cabfd2207a872b409602"
+    sha256 cellar: :any_skip_relocation, ventura:       "f21321f265b02859092aa0678ed0c633991a5ebc5462cabfd2207a872b409602"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9f66d7e6cb312b27388c8cf93cae4f02136d4731b013a019f85e82153063f66d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4cf3c77059a9da11c6adc99068249b0acb444bf9fdf163e43110bb26e7fca0ac"
   end
 
   depends_on "go" => :build

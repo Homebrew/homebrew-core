@@ -12,13 +12,14 @@ class MysqlClientAT84 < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "098bd1fb85e596375605a98fd4b858f0ef637892e511bab32916bb3a89071de6"
-    sha256 arm64_sonoma:  "8da66dc0bab291f44ad946bd885f7d329f5930731e19439e6477c4ed5f7844e1"
-    sha256 arm64_ventura: "f51a3cb48ef59767363918d3c5b89d46b4f30f9d517a5bc7ca43e00008bb3fac"
-    sha256 sonoma:        "78c3154c717f72d1fd324b07d8b46918b2c43c1461da84d0f27d88fcf18f4193"
-    sha256 ventura:       "e68554c52c29cb5e4b3bd0a2d7a16490b768860558f3c6a510b6a767aed66d48"
-    sha256 arm64_linux:   "a5432f30021d501b71f23d22708dc884e3d206afc0bc55d4edfd00e031d443aa"
-    sha256 x86_64_linux:  "f2420644264a3b7c64112482ee3753ca4ff297dd6b0b8b7f8fbf6a84f7130ccb"
+    rebuild 1
+    sha256 arm64_sequoia: "64277d6ec414f92e516089a4e2c6ad176fdb6152a607676392995002149a1a17"
+    sha256 arm64_sonoma:  "43b670624ca50f578df25b7a8fa655bd31e283afa27083018f07d759cb43bfdf"
+    sha256 arm64_ventura: "630f42abd4c09710dcd37691ed213e84aac2f1ebd10c56023ba1098265694b36"
+    sha256 sonoma:        "2ff98ae96608ebb56f38ffbdccf9583902bf9bf75357d9ff4535814177f9b3c2"
+    sha256 ventura:       "4b163c87cd423182b1ddfd4da72e81ddc3361994d9edd824c9f942164332681b"
+    sha256 arm64_linux:   "8ba67332d9fb971c345746a9765de11e57b08df6b729c5119ab654df230a86e0"
+    sha256 x86_64_linux:  "3f1027c7649a348bc50137d817aa9d119808ab02408431063fc5d71dd58761e6"
   end
 
   keg_only :versioned_formula
@@ -45,8 +46,6 @@ class MysqlClientAT84 < Formula
     args = %W[
       -DFORCE_INSOURCE_BUILD=1
       -DCOMPILATION_COMMENT=Homebrew
-      -DDEFAULT_CHARSET=utf8mb4
-      -DDEFAULT_COLLATION=utf8mb4_general_ci
       -DINSTALL_DOCDIR=share/doc/#{name}
       -DINSTALL_INCLUDEDIR=include/mysql
       -DINSTALL_INFODIR=share/info

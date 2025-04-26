@@ -1,19 +1,19 @@
 class Television < Formula
   desc "General purpose fuzzy finder TUI"
   homepage "https://github.com/alexpasmantier/television"
-  url "https://github.com/alexpasmantier/television/archive/refs/tags/0.11.8.tar.gz"
-  sha256 "5f7bfdc27ea7adb1ee1335d86e0d4eae9454481b88df20e8984a1e3a455e0a09"
+  url "https://github.com/alexpasmantier/television/archive/refs/tags/0.11.9.tar.gz"
+  sha256 "be58e6011ce1228afa1c6ba15f33023484b1bc8673c466f186ac2a130bb25bdb"
   license "MIT"
   head "https://github.com/alexpasmantier/television.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3385680a3ea44bcadceeff397dc57095785e1637a156034841f743a4faa1e206"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cc492649603060a6e18395e28dfe1ebf7f44d929203ac68ad06889986cf6968f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "cfbe980da4d5eecef799dc2b04e16b37ffa31c4512f92ed23f102c2823bafb15"
-    sha256 cellar: :any_skip_relocation, sonoma:        "caba808c9bd26519c0570167f3f47d631e2dc82462999af4b80b1319a697d1a6"
-    sha256 cellar: :any_skip_relocation, ventura:       "c63f075e9f58881ac3cc96709cc62713222f0171a9245dcab5645aaab7f83bd9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "25046de7f855e15e2f785b039d5db9cac894230ab40721688f1b27726ba913e2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f813bd6aa083accc847d211ee65a9ce5671d98081979e040ae82edc2aeb3cc40"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1428b66b3f3d2c99f53e4bec1e48c00af41e16e5fe664692a48cd70e4ceb73f5"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a2f931202207d44d4d947e1545ff61939866dcfef6061e5e670590ab909b593b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "be40e9b300a7b77adaf9cee7d3197abb0559100450d0d0ffa42192284e8a9344"
+    sha256 cellar: :any_skip_relocation, sonoma:        "594b7ffcdb2d1b95aecf396dee25fa74e9dea87b19aaddf558bb1c7a6b6e1116"
+    sha256 cellar: :any_skip_relocation, ventura:       "6c377cac03136721c6df87656ecc300c5976785b7dbc185d6c0f967016ecdb21"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9e4631ba3524b8524a0ec64c70a348ee2815d971b18aee3a6a821b478c7458b4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3968192f05119be2ad9e33eb70d5b2edaa38e30453c88266f726e4dcd358c57a"
   end
 
   depends_on "rust" => :build

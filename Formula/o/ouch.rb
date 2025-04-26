@@ -1,8 +1,8 @@
 class Ouch < Formula
   desc "Painless compression and decompression for your terminal"
   homepage "https://github.com/ouch-org/ouch"
-  url "https://github.com/ouch-org/ouch/archive/refs/tags/0.6.0.tar.gz"
-  sha256 "508f627342e6bcc560e24c2700406b037effbf120510d3d80192cd9acaa588fe"
+  url "https://github.com/ouch-org/ouch/archive/refs/tags/0.6.1.tar.gz"
+  sha256 "e6265071affab228ba7d3ca85f2206029445038b3a3d96036e9bf02b795ad651"
   license "MIT"
   head "https://github.com/ouch-org/ouch.git", branch: "main"
 
@@ -15,13 +15,13 @@ class Ouch < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8dac8830acd7a35d705e224933ef32c5bfb951cc38574b467b9090198cb696ff"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6d29680299b28ff96acec040e75f71582d4f0d219fbeb3143e16e1094b8ae1b5"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "ea048d23715f30a3c80e48ff8eb74201f47e867598b01c8dc0ecc801498f13f1"
-    sha256 cellar: :any_skip_relocation, sonoma:        "0276b1474c09480e1bb44e743138fcccf0cbbe8f8f48bf72e82ba1e734af2a01"
-    sha256 cellar: :any_skip_relocation, ventura:       "c0e96794643f64bdace58f62c79419ee40584f7bc7df4f655007d1824c4f5951"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "06f1054814ebfb5a6a1220e85d8ba3e8df5a30cc807c68b9a602c7c63f6de830"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ca3426a89731da1626147d43cebe2dca36c783c6630826122e9c7843cfe75eb1"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cfb7387471264b6089243b31d22b40ba75ac370c64c1835d06585df5c2dbfafe"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "326375a6f882717b1026228a031e840133b9944115be3251edd7897c6ec00378"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "66f692a605fdbfb28109a8a83e3c51539910783fc33310802c79d5b97f7ce57c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "89a565161184ecfedd0860b555615c0d01b6dc8495e1ddb99d90c2c274d96602"
+    sha256 cellar: :any_skip_relocation, ventura:       "54dc9ec1164b7058dceabeb8db74993f87110a967fe3fa969b98f37339608837"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b114aa892caae3291d102fd04c811b4b60091a3a1ede4cc36fddcf16bc421866"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1d0d0e3fe53abf7a1a280cf73786d1125de2800927f8a01d90d5658f02b581a6"
   end
 
   depends_on "rust" => :build

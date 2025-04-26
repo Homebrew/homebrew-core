@@ -1,18 +1,18 @@
 class Kubecolor < Formula
   desc "Colorize your kubectl output"
   homepage "https://kubecolor.github.io/"
-  url "https://github.com/kubecolor/kubecolor/archive/refs/tags/v0.5.0.tar.gz"
-  sha256 "251b3e2e84bd3574a9c628961066c8b41c403de6ecfb83b7aebd0dd5d7018290"
+  url "https://github.com/kubecolor/kubecolor/archive/refs/tags/v0.5.1.tar.gz"
+  sha256 "cd68aad8c1f62f05bce06416e928c2922b76b608bd8af8311f518e2941acfd76"
   license "MIT"
   head "https://github.com/kubecolor/kubecolor.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f5678518ea6e881bc07ccf1e2e1b5d51b40b8e058f092c3bd46adaa95e41e524"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f5678518ea6e881bc07ccf1e2e1b5d51b40b8e058f092c3bd46adaa95e41e524"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "f5678518ea6e881bc07ccf1e2e1b5d51b40b8e058f092c3bd46adaa95e41e524"
-    sha256 cellar: :any_skip_relocation, sonoma:        "1cae57cd23b3d6e1d0bde361f2eb93608ca1f4638f186e24f870c765711d395b"
-    sha256 cellar: :any_skip_relocation, ventura:       "1cae57cd23b3d6e1d0bde361f2eb93608ca1f4638f186e24f870c765711d395b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b10a83835f58b0cce6eeedcccc14d83b5ab1afbbc1e127023385df694a35a0a3"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "795369e861c4fd5cad6c14bcb2aefff51654cce635abf17daf52cbc60c0c7110"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "795369e861c4fd5cad6c14bcb2aefff51654cce635abf17daf52cbc60c0c7110"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "795369e861c4fd5cad6c14bcb2aefff51654cce635abf17daf52cbc60c0c7110"
+    sha256 cellar: :any_skip_relocation, sonoma:        "ce7ebb36f732a599e5fa3f41e6dcb2d3ba0d35b654524f54276bd2ef885d6739"
+    sha256 cellar: :any_skip_relocation, ventura:       "ce7ebb36f732a599e5fa3f41e6dcb2d3ba0d35b654524f54276bd2ef885d6739"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8a29ee32f9a398c5bfcb5aa8b38d24caae5015ff722fdfa712b6bbaefc21bfbc"
   end
 
   depends_on "go" => :build

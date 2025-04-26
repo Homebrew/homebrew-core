@@ -1,20 +1,19 @@
 class Gopass < Formula
   desc "Slightly more awesome Standard Unix Password Manager for Teams"
   homepage "https://www.gopass.pw/"
-  url "https://github.com/gopasspw/gopass/releases/download/v1.15.15/gopass-1.15.15.tar.gz"
-  sha256 "f1b0cf88f37d9de7c858021d79512be084b527dd00f3d9d762d660a29ad843aa"
+  url "https://github.com/gopasspw/gopass/releases/download/v1.15.16/gopass-1.15.16.tar.gz"
+  sha256 "058db6b24221864b1b9879d10a91a3ccaeef8a3da269898c7936ae257d7da5c3"
   license "MIT"
   head "https://github.com/gopasspw/gopass.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ea1a999505bb9fc45de94d7c798a9d4a5085d467f3d5b01e6a267dbe72d616b8"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "538aefb269b6fff24e5f618f140787d032f146af739f01ac760e6824deee0a05"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "69dc4091d1142d25a59e44ab4614fa38cb5314d4bd80403f7de18e5ac5c3ccc9"
-    sha256 cellar: :any_skip_relocation, sonoma:        "af05bb99ecb7d158aa8883086304a995ad76d26593160b797e87167133b650b6"
-    sha256 cellar: :any_skip_relocation, ventura:       "2bbbf7a40c463eb4ca6bef1a6c02a6998935fac8786461134fe56255e40e808f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "48947aa1f84a98a70358a76dd3cdc882dab3a5ebd3ee228ad4e10313632d5c07"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a9523381527deaef2fb45b7405872f973aac88c097d0a91563caf4f2b3248fde"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f5d6b11f91dceed0a451dafa4797bbcfacb8bf628115d4357e613db6ae570e30"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3e00a7e037e5216d21ac4df9e4f4e3799fde10e53f0c53d1aa575cbdf8d38b4d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "55be93d17b03eee7dbc09cb6ef81563f2f0b3296f0ed415ec7d7217c19c2eb2a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "843769e687a522798e7b8c6b7f012104ec3ccc1f5b0b05367cdf991c50e1e174"
+    sha256 cellar: :any_skip_relocation, ventura:       "af7a60cd020f108a7c2a5a318bd2a712930ede4f47f2a197ad960507ced32934"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "99e86c10fc61251d147ef0dfab8913f8805041e65332bab5eb08bfcf7ac5d503"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7170b08deef414db5c16934472e4715c0f8ff6fbe8bf191764bdc6a1cdcc9614"
   end
 
   depends_on "go" => :build

@@ -17,6 +17,7 @@ class HaskellStack < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "58ed8f3b45ce0d96ef92ce596ee4aa8c898c2a004d3fa94ac5ac7aad3da10d7b"
     sha256 cellar: :any_skip_relocation, sonoma:        "5492d567c98c075d1312897d0afb4645f44d500814bce73785729f86f95099d7"
     sha256 cellar: :any_skip_relocation, ventura:       "27831d3d54f8b3b7ab1e59da20dedc67c8da46e85bb2c7379df0f1333af47a15"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9e6a57d5ccfc7082cde45e9b926a774c7f3d455d2c693fa0f758e881328d0d8a"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "dfbfa1acd47505570bbb0b1989c824af5bc0b280f2003bbb10df1f2e566cab4d"
   end
 

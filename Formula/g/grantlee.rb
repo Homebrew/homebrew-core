@@ -23,7 +23,7 @@ class Grantlee < Formula
   # > The continuation of Grantlee for Qt 6 is happening as KTextTemplate
   #
   # Just deprecating with replacement message due to incompatible API.
-  deprecate! date: "2025-04-03", because: :unmaintained, replacement: "ktexttemplate"
+  deprecate! date: "2025-04-03", because: :unmaintained, replacement_formula: "ktexttemplate"
 
   depends_on "cmake" => [:build, :test]
   depends_on "doxygen" => :build

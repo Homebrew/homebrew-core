@@ -12,12 +12,15 @@ class Hpack < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "d0773c8ef24951ae47c9f8857787ddcb1cfe167e3a26f0947cce5fffa25b88ba"
     sha256 cellar: :any_skip_relocation, sonoma:        "fd8894d5c462ad64921917b06d6fb5218498c3449be09efc863f7ef403efb27e"
     sha256 cellar: :any_skip_relocation, ventura:       "e523a9d85f322584f051fe7714f9c83ab58ff17a56deb9ae73526a22f47e7a52"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8ecf79f06c6d22e1e71b63d44c89fec1ba2abff56b1e14d51af04e7ae734a6f6"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "c8c54054592cd045802666c94874a5637edc6745fa94cda90fc3af1b1d97770c"
   end
 
   depends_on "cabal-install" => :build
   depends_on "ghc" => :build
+  depends_on "gmp"
 
+  uses_from_macos "libffi"
   uses_from_macos "zlib"
 
   def install

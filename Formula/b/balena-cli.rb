@@ -7,7 +7,9 @@ class BalenaCli < Formula
 
   livecheck do
     url "https://registry.npmjs.org/balena-cli/latest"
-    regex(/["']version["']:\s*?["']([^"']+)["']/i)
+    strategy :json do |json|
+      json["version"]
+    end
   end
 
   bottle do

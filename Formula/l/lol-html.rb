@@ -1,25 +1,27 @@
 class LolHtml < Formula
   desc "Low output latency streaming HTML parser/rewriter with CSS selector-based API"
   homepage "https://github.com/cloudflare/lol-html"
-  url "https://github.com/cloudflare/lol-html/archive/refs/tags/v2.2.0.tar.gz"
-  sha256 "4c5fe6a8497b1ced1b6db8d9fb16c934375b1f02f69db765713f6bd367719e65"
+  url "https://github.com/cloudflare/lol-html/archive/refs/tags/v2.3.0.tar.gz"
+  sha256 "b36ad8ccafce9da350f4d9c32bb31bf46dddae0798d4ad6213cabd7e166e159e"
   license "BSD-3-Clause"
   head "https://github.com/cloudflare/lol-html.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia: "45df0bd8f2d9ffbe6e35d78c28460153c7ea027d85a7099a47b1230d8534b028"
-    sha256 cellar: :any,                 arm64_sonoma:  "36a82c0cc34a08b53271a474f07b252b99e023fc575d2c6324c82aee09baaf1c"
-    sha256 cellar: :any,                 arm64_ventura: "2d06a9212960f7f3bb2476917e940a91798d7b8d691a58897341d45f654cba68"
-    sha256 cellar: :any,                 sonoma:        "8a0ca1ae6536161cc06fca2e6114a1eb705ff7d4e4628de76689cd7837a2fd10"
-    sha256 cellar: :any,                 ventura:       "5b28644fd53619b3a41a9f851326fd18476db1c2a031149dbf62367122db1873"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "cfca2de58efc4cf2e9730f5b317038b61583ca4a377df0f0562f0b92e97a2620"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0462c13b05648e3e4080101d9f10b111a9c7cd3826e8059e749f2d713d44bde2"
+    sha256 cellar: :any,                 arm64_sequoia: "d4cadd58a4d682208b314cc60b00179588b8f97108232ef9ff53fa70af6155d8"
+    sha256 cellar: :any,                 arm64_sonoma:  "91d1f354c3cc9be65d141f16fbb1af71ebbbd8faf83160522665289b3c25d6dd"
+    sha256 cellar: :any,                 arm64_ventura: "1cfa2ca138b7cbae4d243b2614035731dec1957d4240d59bdb94c5c3f57d01e9"
+    sha256 cellar: :any,                 sonoma:        "f98f2ef369748568691b5c543947a28a9578f49622df800ed41a3fc74329f0b6"
+    sha256 cellar: :any,                 ventura:       "a3a0fecd1225ec17fd595d6837a6068c4fa67a4b994a1cd2c8649b90682d73e7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "51e1689d13719659a73ab392aa50c4aed0cc1e9a53ac4cc58d02f04355917f35"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "39fbe4d09f2a5713cd82bccfb637cb7178edb9b34ce23b31a53c783c98631f8e"
   end
 
   depends_on "cargo-c" => :build
   depends_on "rust" => :build
   depends_on "pkgconf" => :test
+
+  # update cargo.lock, upstream pr ref, https://github.com/cloudflare/lol-html/pull/266
+  patch :DATA
 
   def install
     system "cargo", "cinstall", "--jobs", ENV.make_jobs.to_s, "--release", "--locked",
@@ -47,3 +49,27 @@ class LolHtml < Formula
     system "./test"
   end
 end
+
+__END__
+diff --git a/c-api/Cargo.lock b/c-api/Cargo.lock
+index 954418c..14d2c9c 100644
+--- a/c-api/Cargo.lock
++++ b/c-api/Cargo.lock
+@@ -176,7 +176,7 @@ checksum = "a7a70ba024b9dc04c27ea2f0c0548feb474ec5c54bba33a7f72f873a39d07b24"
+ 
+ [[package]]
+ name = "lol_html"
+-version = "2.2.0"
++version = "2.3.0"
+ dependencies = [
+  "bitflags 2.6.0",
+  "cfg-if",
+@@ -191,7 +191,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "lol_html_c_api"
+-version = "1.1.2"
++version = "1.3.0"
+ dependencies = [
+  "encoding_rs",
+  "libc",

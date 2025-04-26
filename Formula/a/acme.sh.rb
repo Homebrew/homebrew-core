@@ -1,18 +1,18 @@
 class AcmeSh < Formula
   desc "ACME client"
   homepage "https://github.com/acmesh-official/acme.sh"
-  url "https://github.com/acmesh-official/acme.sh/archive/refs/tags/3.1.0.tar.gz"
-  sha256 "5bc8a72095e16a1a177d1a516728bbd3436abf8060232d5d36b462fce74447aa"
+  url "https://github.com/acmesh-official/acme.sh/archive/refs/tags/3.1.1.tar.gz"
+  sha256 "c5d623ac0af400e83cd676aefaf045228f60e9fc597fea5db4c3a5bd7f6bfcf4"
   license "GPL-3.0-only"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3ed468ee7ca382405545a7c022fcf28f45e8cdbc0feb87e0e4c5e64018600f74"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3ed468ee7ca382405545a7c022fcf28f45e8cdbc0feb87e0e4c5e64018600f74"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "3ed468ee7ca382405545a7c022fcf28f45e8cdbc0feb87e0e4c5e64018600f74"
-    sha256 cellar: :any_skip_relocation, sonoma:        "45d864aacf2a2e4d2eb4ec6b2eea0f8d1f65fc2f533d549d780f7e03f54afc4c"
-    sha256 cellar: :any_skip_relocation, ventura:       "45d864aacf2a2e4d2eb4ec6b2eea0f8d1f65fc2f533d549d780f7e03f54afc4c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3ed468ee7ca382405545a7c022fcf28f45e8cdbc0feb87e0e4c5e64018600f74"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3ed468ee7ca382405545a7c022fcf28f45e8cdbc0feb87e0e4c5e64018600f74"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6d00192c5ed57c194866906887b7407562b52c191d0db0df2462dfb31b46db3c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6d00192c5ed57c194866906887b7407562b52c191d0db0df2462dfb31b46db3c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "6d00192c5ed57c194866906887b7407562b52c191d0db0df2462dfb31b46db3c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2dea65246401fb500e1cdee17b5ddf2b9b06079d736e1de9d4082464b3fbe5d1"
+    sha256 cellar: :any_skip_relocation, ventura:       "2dea65246401fb500e1cdee17b5ddf2b9b06079d736e1de9d4082464b3fbe5d1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6d00192c5ed57c194866906887b7407562b52c191d0db0df2462dfb31b46db3c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6d00192c5ed57c194866906887b7407562b52c191d0db0df2462dfb31b46db3c"
   end
 
   def install

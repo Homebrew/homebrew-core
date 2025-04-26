@@ -1,18 +1,18 @@
 class Erlfmt < Formula
   desc "Automated code formatter for Erlang"
   homepage "https://github.com/WhatsApp/erlfmt"
-  url "https://github.com/WhatsApp/erlfmt/archive/refs/tags/v1.6.1.tar.gz"
-  sha256 "198f33ff305806d4cee5113884364d8874912f3ad0ec3d0aa2ca243cfadc44b6"
+  url "https://github.com/WhatsApp/erlfmt/archive/refs/tags/v1.6.2.tar.gz"
+  sha256 "e3643d8833c3a9170d695fd6c44914342240bd8bd10cfacaeac2633ee0561709"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1fbbef6f018c0c72fc01f47a19fb0dcbf67139a6e2dc20b823a31a0c360b797f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "72f652c4227d1ca282720fdc28897acbb2e3ee4d7819478b9d47396c968b72aa"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "f1ee4356795cfda85a71a60d1c881ddd929cd2d3407723394abd541da5c0641d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "b8b92b9571a99b94d4e70ac8eff531ae1237ed6ee5180ee95f79b50f606164f2"
-    sha256 cellar: :any_skip_relocation, ventura:       "c0b75fa981fd2a99924ca62063759138d14c1e30016977a5a8d9900fa77eb8d2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e04c2c3c2379399b583171d345a3e48abb88a0ac2b8eaa5c35037dea6da11fd9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e128140ccd3ebf3093cb97d9e0dbdf7024ba8d8477f6a1b6996c074963fe7034"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "721b5216c77bfdcd0e63cf7e4eb40b335d1cbf7840b0ff94505c5ca232cac095"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "342d7aa1b364d7803738bafd0fa57360a2e582376641da3668e72e4154cdc9e9"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "9e6ce55ff99b8e30e2d5ff43daf266957ef188871bc489bc29f5055201cb1dc9"
+    sha256 cellar: :any_skip_relocation, sonoma:        "918cb5a1f2944d9ac4ca7e26a9b33533116ec2b625fbbe6eeca9528abc022025"
+    sha256 cellar: :any_skip_relocation, ventura:       "3a712002a3d0ce448cd6616ef1f2461ea83a1ddd5d4548b238897750cca6155a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c3cc28f10592fc02db316bda0e1f3eab14a007c5e54e5327a94b537a7c8cda1f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "261f24c2bb060e63028aea10b440069b2c914de89bef3af7e2f65394790f89d4"
   end
 
   depends_on "rebar3" => :build

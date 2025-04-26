@@ -1,18 +1,18 @@
 class Appstream < Formula
   desc "Tools and libraries to work with AppStream metadata"
   homepage "https://www.freedesktop.org/wiki/Distributions/AppStream/"
-  url "https://github.com/ximion/appstream/archive/refs/tags/v1.0.4.tar.gz"
-  sha256 "dff6efa67d9ea4797870d70e3370b9e3fa66ce3c749aba68e6b10222473463cf"
+  url "https://github.com/ximion/appstream/archive/refs/tags/v1.0.5.tar.gz"
+  sha256 "dd33b1375ba4221ffee060e2778c478e8150d7b1108c6309148f5fb1ca6e90c0"
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 arm64_sequoia: "de62d82451bf33ab222ab41e080b269ccccbdf783b937bd12dae73d58eb38bca"
-    sha256 arm64_sonoma:  "e75acaef6c396718c861b43aabd22f0c2c94ba48d255f11ce09e74bd74f91611"
-    sha256 arm64_ventura: "b1b77b98da40f286a86224a0b1558883b18da353300aa9a3f45d8fa66ac4e6c9"
-    sha256 sonoma:        "53a3c53f4b245c5a0a0272d50b2b0299a5192c31f764e4754f964023582404f6"
-    sha256 ventura:       "7988e078155c5dda38b04fe087175a424cde46ee55cd1aa475b0f561588fa536"
-    sha256 arm64_linux:   "4651474d05de22c8c8e97f40a642f4b2571abe72bb3105c2fc4aaf84077ba6b6"
-    sha256 x86_64_linux:  "7c5f10150e811806ef75adff56a94eabae08eb4c37b5afb22b81374c57ceb63a"
+    sha256 arm64_sequoia: "62af458e208bcd4469e9ecd149cbcc0ae6775fd3e42e61d3f75526e4340c8d3c"
+    sha256 arm64_sonoma:  "b802060c9d3ee181badb15af8c0167368f4639600d4a97a1b44a1cfd54061e12"
+    sha256 arm64_ventura: "d4ff9bd76af846d0f5bd81ac3520303b22f0702e207ab2b2bffcd1a713eaf84f"
+    sha256 sonoma:        "5ab8381af28d0b7872f445423ed5a42050f1a60df427e62c4836e9bf46131557"
+    sha256 ventura:       "d17ed0a5700fb7550edc54185e1735dac8cca1150ade8b7da78a005eac347818"
+    sha256 arm64_linux:   "c138a6b9a40af6fbfe764c0c76af622aa03853fd28aac2a42f1a3af06de64a49"
+    sha256 x86_64_linux:  "17ffe5258052484fdf85a3038b6df1ac21a2bf4f13eb3367dfe4480959182f88"
   end
 
   depends_on "gobject-introspection" => :build

@@ -1,19 +1,19 @@
 class Katana < Formula
   desc "Crawling and spidering framework"
   homepage "https://github.com/projectdiscovery/katana"
-  url "https://github.com/projectdiscovery/katana/archive/refs/tags/v1.1.2.tar.gz"
-  sha256 "f88acace9ceee767cf15a5212ada2ef0c40dc1e4863e4dfbeb4418f5def55098"
+  url "https://github.com/projectdiscovery/katana/archive/refs/tags/v1.1.3.tar.gz"
+  sha256 "94d72b9132b536b1125f51c6ee4ddf6b11bf55013a88172fe0fed979799410fc"
   license "MIT"
   head "https://github.com/projectdiscovery/katana.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "eb97945db87b8300094bc9563a7556149c2a61be37aeda5874e5797ca973c2b8"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ac0aa96a1804ab6cb7b575c2352fdee0a34ac46a74e762af2429cc99f212e7b6"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "c439b24c21960c83458a81abc22005b250486ee7d509fac9c55e4b51ec63b4b3"
-    sha256 cellar: :any_skip_relocation, sonoma:        "666940bdcee26b77aecbf423ef8c42561fdbca3ee07372869bc4ea451112cc40"
-    sha256 cellar: :any_skip_relocation, ventura:       "15782ff5c3f4fa84fd9a40bd4283dac1798be4dd8d76b2db88013420fc9e7991"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "4a0b106acf4cf9b56ea6a2df0a46f51a19f0b746c0046082661a06db94ad1304"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c0b5144fb31754168c0f7b0f8f0714c5372242a84c7ba0f72d5fc810cf8a1848"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6c758ca0022728b3168f6331fb5579737afc480b0b76a5cf894a58bcc5f7b037"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "baa7d2200c443194fff7293766f5b7835a2ebc866d2dff2cfabd0d1ba82198d0"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "0cbaf79f1f6899140543daed881e22daa43e592efb51d24ac240add06c82e087"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f41e84b88cfda58a0f8a6f5e4308e877b9849a532c2e8a81915e698908c58558"
+    sha256 cellar: :any_skip_relocation, ventura:       "a57ed8ac69c5a8c7dd6d43c24e4b5e03c1dd8ef8fd79d65dfbc0b1337abcea0d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c9f1cbff466397ee43e7d860cbb37ab798fcb3d08b4960a0f96f2811f34cc8ff"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "648813a8db57086ba07fe0957d72b33411e5e48d8169c44933737346a729683c"
   end
 
   depends_on "go" => :build

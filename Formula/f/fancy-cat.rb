@@ -12,6 +12,7 @@ class FancyCat < Formula
     sha256 cellar: :any,                 arm64_ventura: "9e2ee80fd453a54fe9dfcb0b7670ea9540719eb292227c84a66f995542ffc8b6"
     sha256 cellar: :any,                 sonoma:        "da434a308c5403ea201190114504160310061026bf7bc773b5bbd73baf139e24"
     sha256 cellar: :any,                 ventura:       "b1e3e63dad0d297dfabe58a21dff30ff6167612ec6a7fd063c86374f42082b18"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b388b4d8664618f95007db25995a26d3ea03a5a28243168af333cbf3ca34b592"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "8553d25dd61c2ff312bda88e9a468036749be2c9d34bdda45afc1d452c88688d"
   end
 
@@ -21,9 +22,10 @@ class FancyCat < Formula
   def install
     # Fix illegal instruction errors when using bottles on older CPUs.
     # https://github.com/Homebrew/homebrew-core/issues/92282
-    cpu = case Hardware.oldest_cpu
+    cpu = case ENV.effective_arch
     when :arm_vortex_tempest then "apple_m1" # See `zig targets`.
-    else Hardware.oldest_cpu
+    when :armv8 then "xgene1" # Closest to `-march=armv8-a`
+    else ENV.effective_arch
     end
 
     args = []

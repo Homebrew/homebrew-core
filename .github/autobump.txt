@@ -172,6 +172,9 @@ autorestic
 autotrace
 avfs
 avrdude
+avro-c
+avro-cpp
+avro-tools
 awk
 aws-amplify
 aws-c-auth
@@ -209,6 +212,7 @@ azure-core-cpp
 azure-storage-common-cpp
 azurehound
 b2-tools
+b3sum
 babel
 babl
 bacon
@@ -298,6 +302,7 @@ bkcrack
 bkt
 black
 blades
+blake3
 blast
 blis
 blisp
@@ -919,6 +924,7 @@ ecl
 ecs-deploy
 ed
 edbrowse
+edencommon
 edgevpn
 editorconfig
 editorconfig-checker
@@ -1029,7 +1035,9 @@ faudio
 fauna-shell
 faust
 favirecon
+fb303
 fblog
+fbthrift
 fcft
 fcgi
 fclones
@@ -1071,8 +1079,10 @@ firebase-cli
 firefly
 firefoxpwa
 fisher
+fizz
 flac
 flake8
+flang
 flank
 flann
 flarectl
@@ -1101,6 +1111,7 @@ fnm
 fnt
 fobis
 folderify
+folly
 fontconfig
 fontforge
 fonts-encodings
@@ -2130,9 +2141,11 @@ lizard
 lizard-analyzer
 lla
 llama.cpp
+lld
 lldpd
 llgo
 llm
+llvm
 lmdb
 lmod
 lnav
@@ -2240,6 +2253,7 @@ mbedtls@2
 mbt
 mcap
 mcfly
+mcpm
 md2pdf
 md4c
 mdbook
@@ -2375,12 +2389,14 @@ mubeng
 muffet
 mujs
 multi-git-status
+multi-gitter
 multitail
 muon
 muparser
 murex
 musikcube
 mutt
+mvfst
 mvnvm
 mvt
 mvtools
@@ -2626,6 +2642,7 @@ openttd
 openvdb
 openvpn
 operator-sdk
+opkssh
 optipng
 opus
 or-tools
@@ -2845,6 +2862,7 @@ powerman-dockerize
 pqiv
 pre-commit
 precious
+preevy
 premake
 presenterm
 prestd
@@ -2884,6 +2902,7 @@ protolint
 prowler
 proxify
 proxsuite
+proxygen
 proxytunnel
 prqlc
 prr
@@ -3138,6 +3157,7 @@ s3scanner
 s6
 sad
 saf-cli
+safety
 sagittarius-scheme
 samba
 saml2aws
@@ -3535,6 +3555,7 @@ terraform-iam-policy-validator
 terraform-inventory
 terraform-local
 terraform-ls
+terraform-module-versions
 terraform-provider-libvirt
 terraformer
 terragrunt
@@ -3561,10 +3582,12 @@ tfautomv
 tfcmt
 tfel
 tfmigrate
+tfmv
 tfprovidercheck
 tfproviderlint
 tfschema
 tfsec
+tfsort
 tfupdate
 tgenv
 tgpt
@@ -3579,6 +3602,7 @@ tig
 tiger-vnc
 tika
 tile38
+timewarrior
 timg
 tin
 tintin
@@ -3814,7 +3838,9 @@ wails
 wakatime-cli
 walk
 wallpaper
+wangle
 wartremover
+wasi-runtimes
 wasm-component-ld
 wasm-micro-runtime
 wasm-pack
@@ -3825,6 +3851,7 @@ wasmtime
 watch
 watcher
 watchexec
+watchman
 wavpack
 wayland
 wayland-protocols
@@ -3875,6 +3902,7 @@ woodpecker-cli
 woof-doom
 wormhole-william
 wpebackend-fdo
+wrkflw
 wstunnel
 wtfis
 wthrr

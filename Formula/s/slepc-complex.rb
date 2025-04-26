@@ -10,23 +10,28 @@ class SlepcComplex < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "28a4f94479c586cf452f90911bd643c1781bfc62b787db99a208179d4a7a9549"
-    sha256 arm64_sonoma:  "c0917a212c8888bb946ba9ec282bdb60986b2fa29cbaa566fdd160f93f34feed"
-    sha256 arm64_ventura: "a8679229f0c2befa3f76feb2c69eb479d3ef882f2436f3ee1784c6634a2fa125"
-    sha256 sonoma:        "d73a31882881c83dd96aa0e26694d2d3a3060675ddc919fd04e98631f11f868c"
-    sha256 ventura:       "af9d83dae9a5ca03f1c52b3125c4cf0b0f22c667322c49a046fb391e27aee75b"
-    sha256 arm64_linux:   "c18fab6ddd8d27ec7474ca34cd91da6dc4f7b5a591525953b62fca6d93359994"
-    sha256 x86_64_linux:  "cfa1feab93781a66b95621c6b3433f92a14826ea9beb5d322ffd53aade3c112a"
+    rebuild 1
+    sha256 arm64_sequoia: "7127c06c486a284343f4a308ad54eb0cbf624f163fce126b96a3c4aa3bccd647"
+    sha256 arm64_sonoma:  "e2bc68272cf1a631d123b5dc55479ab44b811ee2129094a5532087ae6005c8bf"
+    sha256 arm64_ventura: "cf049f68cdf38ea865edb4a1169d8811a69902ec7fe884e3fe09d5a5247342d1"
+    sha256 sonoma:        "b855ca0f3ceb2850253d4cd801783d521e1220868b42126bb902a8023e4b5601"
+    sha256 ventura:       "b3e860d090577fcb728fe14b7ac57f6ba27d091dd46b84f11afdcf09c0bb888e"
+    sha256 arm64_linux:   "3404a7a85532b3f1fbe5a6b641296ddda109242f6237954548675497fd8f33f8"
+    sha256 x86_64_linux:  "e4db03472502c0136b518d858547a434a2832374f25d63d69b81770e0ee206d2"
   end
 
   depends_on "open-mpi"
   depends_on "openblas"
   depends_on "petsc-complex"
+  depends_on "scalapack"
 
   uses_from_macos "python" => :build
 
   on_macos do
+    depends_on "fftw"
     depends_on "gcc"
+    depends_on "hdf5-mpi"
+    depends_on "metis"
   end
 
   conflicts_with "slepc", because: "slepc must be installed with either real or complex support, not both"

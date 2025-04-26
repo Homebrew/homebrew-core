@@ -1,20 +1,19 @@
 class Calc < Formula
   desc "Arbitrary precision calculator"
   homepage "http://www.isthe.com/chongo/tech/comp/calc/"
-  url "https://downloads.sourceforge.net/project/calc/calc/2.15.1.0/calc-2.15.1.0.tar.bz2"
-  sha256 "633df610a5f5d2f69ad377e320afc85009052b4acc245f0586cbf932a179e2d6"
+  url "https://github.com/lcn2/calc/archive/refs/tags/v2.15.1.1.tar.gz"
+  sha256 "ad432c3202885fb93a82985c0a9cdd4c82f3877acc8f12a1504f56c8359e6bee"
   license "LGPL-2.1-or-later"
+  head "https://github.com/lcn2/calc.git", branch: "master"
 
   bottle do
-    sha256 arm64_sequoia:  "d5522f39a915d85ae4fac013aad878a11f71228e3cc972a3149d6b33f1af92eb"
-    sha256 arm64_sonoma:   "1bb4b0d615a345ad8b9b93ae42415ec5859f752ceb34b8dc031f4c29d1a2ac86"
-    sha256 arm64_ventura:  "fde7ae06ed20db156d90e1c05e691531d9e7a3a409f9ce9b117b216e6914f781"
-    sha256 arm64_monterey: "15f728d7d5f1e0547fa8e8e74b6cb98cf7bd15ef488a2385f89a650d1bfc3389"
-    sha256 sonoma:         "8eb4e34f1a3b55392b9cee759415595863a790dc391814b574f8515fb968f14d"
-    sha256 ventura:        "ac313396a34754426514eb0fe001e4fba32653dd14e532613abe5ee1374b74f8"
-    sha256 monterey:       "dc68f56dc6b3a7d6891e6cef15bebfa9c681d431408c1e93f05a05b40dc87417"
-    sha256 arm64_linux:    "c50258503a103ccbbafbd98a77fc1d4fa439f0ad6461bd21c5e836b73bec74c8"
-    sha256 x86_64_linux:   "deaffb8e67645aa29842b78bd50596bc7cd460f0b826d88babe74af2ca1f7be7"
+    sha256 arm64_sequoia: "473e3761dcf18e6c8f0657eee8a690ba5b094c55bb79c44e28e110cd80ed58f3"
+    sha256 arm64_sonoma:  "8897a859be300533821ba09c5c681158940be5ac85b4f4736a074bc3db3e1560"
+    sha256 arm64_ventura: "de564162098982b1546f3243c618ba8731160442d0efb0be360bc50044a1dd19"
+    sha256 sonoma:        "3363fbda78c962b3b57f945a3c368add2c043ce8f344fec0d0d23177d71e82c9"
+    sha256 ventura:       "eeaf9f4a77a5d6427d7f1802d9d4a402605d0aa66fcbadb9ced944520a13dff7"
+    sha256 arm64_linux:   "b13ca7062d6d574f01430e5dac76a5450360f2c4eadf6772f258db194dd16040"
+    sha256 x86_64_linux:  "762c4ff259e90fcbc371703b1a311a7716cb4ff228957d0499aebe46b163e2fb"
   end
 
   depends_on "readline"

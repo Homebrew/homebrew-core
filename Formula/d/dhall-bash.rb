@@ -23,6 +23,7 @@ class DhallBash < Formula
     sha256 cellar: :any_skip_relocation, sonoma:         "f33bd2e5fb093aad3b961486d55a9616d43e7411452242863babd5973e95d9c7"
     sha256 cellar: :any_skip_relocation, ventura:        "52af086896ca9903342a123aa91ef7fdff9b76e8a3bf6827eba53bd6cc78817e"
     sha256 cellar: :any_skip_relocation, monterey:       "46dc888d21b56242ba9f076b07379e351858bf88a0bd5b896c5cc93dca87b7f3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "a62ca6ba93469e9d31b9d25bd5e4bb830419d73cca637e0734fa6395bcc918ea"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "dd6520e32209110b00b6a9aad89cd4217b93f367140cbe870206c117d22027ed"
   end
 

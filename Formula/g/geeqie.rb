@@ -16,6 +16,7 @@ class Geeqie < Formula
     sha256 cellar: :any, arm64_ventura: "96f1a9e5afdceb7cd6528fa0219aef930e31414ba6b887aa04a06b93dd0d5dea"
     sha256 cellar: :any, sonoma:        "fdbf605a9b19a52011a500a07978cc468648939622de22f0c4416b9b38e21542"
     sha256 cellar: :any, ventura:       "580834b9d461fba3a84bb36c4fa854139de828c4ff46d544b14661dd8b32fd12"
+    sha256               arm64_linux:   "4b5fa1aa367fc587d8d2eb8ad3341453a9381886888b8c50961cb726788ca6b0"
     sha256               x86_64_linux:  "a8a49ff2e1f2662ade21392ba02e296cffb0b5cee6b7f8906446701323031824"
   end
 

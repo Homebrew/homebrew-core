@@ -27,6 +27,7 @@ class DhallLspServer < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "7d24735c86a2713a7016cc94bece0ab9421470f4be47e7fede73217b43c18d27"
     sha256 cellar: :any_skip_relocation, sonoma:        "2978096a8175e81e0b89b4b55b3de417206850c0abbe14ca869c13faf916df34"
     sha256 cellar: :any_skip_relocation, ventura:       "1bd665c5789efa9e61e36859dd4381663b05913c38c9d5e8e98e34783d3e8db1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "386e383923218adddb93e597da6ec639d81f3bb0033a7bf197a683c003762ae3"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "590cc648ccea52123ff837a8f00cf19983ac2672d1be0fe570bd7500bed6c2c2"
   end
 

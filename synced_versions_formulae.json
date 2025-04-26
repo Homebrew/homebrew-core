@@ -64,6 +64,7 @@
   ["qt", "qt-libiodbc", "qt-mariadb", "qt-mysql", "qt-percona-server", "qt-postgresql", "qt-unixodbc"],
   ["qwt", "qwt-qt5"],
   ["surelog", "uhdm"],
+  ["technitium-dns", "technitium-library"],
   ["tmuxinator", "tmuxinator-completion"],
   ["vulkan-headers", "vulkan-loader", "vulkan-tools", "vulkan-utility-libraries"],
   ["wp-cli", "wp-cli-completion"]

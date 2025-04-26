@@ -17,6 +17,7 @@ class Ncdu < Formula
     sha256 cellar: :any,                 arm64_ventura: "381da04aa7b67c97792091bef8ab891999999d96f2403609e7046e84b7ea79de"
     sha256 cellar: :any,                 sonoma:        "b51a05f44c243a25bc59f3fb3748c0c049edc5fc7f339f9378c58b35fc74b2a3"
     sha256 cellar: :any,                 ventura:       "4f434c0eda07500bd77df9494bf6f81cca0941b4463ba4e0f3fd0aab9181c89b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1b1681ff444ac85caca6d8daa890d29a186b6086b4f6762e26c0ea420a2027a8"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "a146f8836fb916c83063c4eded192bb1d90449b97ea33c8465bbfe86edce901f"
   end
 
@@ -29,9 +30,10 @@ class Ncdu < Formula
   def install
     # Fix illegal instruction errors when using bottles on older CPUs.
     # https://github.com/Homebrew/homebrew-core/issues/92282
-    cpu = case Hardware.oldest_cpu
+    cpu = case ENV.effective_arch
     when :arm_vortex_tempest then "apple_m1" # See `zig targets`.
-    else Hardware.oldest_cpu
+    when :armv8 then "xgene1" # Closest to `-march=armv8-a`
+    else ENV.effective_arch
     end
 
     args = []

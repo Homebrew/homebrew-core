@@ -12,6 +12,7 @@ class Nuspell < Formula
     sha256 cellar: :any,                 arm64_ventura: "02756d92662cd21767555be0978764212c94bf7be5a9194fa6635e49239f1de5"
     sha256 cellar: :any,                 sonoma:        "23775d359fef306735dc2afd3042a386f22ec7de882bea316685d1822942e3a5"
     sha256 cellar: :any,                 ventura:       "90574b2385853fd7d0894a9c06e10385f371a63e56c5299eacf0f96783547ed0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ff039a8596d1432cda8a748094dfa39d7952e31164a4ad62b3f0b442daff43eb"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "108063c1f0d81a9da12e8f82a98b942a80245bba5458415d76e6cd2f760ac678"
   end
 

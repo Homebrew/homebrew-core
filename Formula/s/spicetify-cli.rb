@@ -1,18 +1,18 @@
 class SpicetifyCli < Formula
   desc "Command-line tool to customize Spotify client"
   homepage "https://spicetify.app/"
-  url "https://github.com/spicetify/cli/archive/refs/tags/v2.39.7/v2.39.7.tar.gz"
-  sha256 "d1a6968bdf8992a0c70da8b1993fd1d81a4fc2d1819c94c6bff9be5dbc9afac4"
+  url "https://github.com/spicetify/cli/archive/refs/tags/v2.40.4/v2.40.4.tar.gz"
+  sha256 "9a7216ab600a5c53b1b2351d6bb88df613d7c19570742f8deca978d900d90d5c"
   license "LGPL-2.1-only"
   head "https://github.com/spicetify/cli.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "dd904ad0dd6524814857b485e767189855a7c222fc8d9246d053cf132288418e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "dd904ad0dd6524814857b485e767189855a7c222fc8d9246d053cf132288418e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "dd904ad0dd6524814857b485e767189855a7c222fc8d9246d053cf132288418e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "348e98605ba17ed1964d92faae4864abf33492d64d6301efe5257ca6132fb10f"
-    sha256 cellar: :any_skip_relocation, ventura:       "348e98605ba17ed1964d92faae4864abf33492d64d6301efe5257ca6132fb10f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "da2a4f666a0ee4add99fa88277a94db0a2854eecd94302127c4ee275498422b4"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "721efc62664ddf43b27207ce2918ec2a7aaf9d8a5c645a5bee08a8048f3d9b83"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "721efc62664ddf43b27207ce2918ec2a7aaf9d8a5c645a5bee08a8048f3d9b83"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "721efc62664ddf43b27207ce2918ec2a7aaf9d8a5c645a5bee08a8048f3d9b83"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f32e7cf759c752e433a6efb242c9e41560968a8d947b86b7129e6535f9952b65"
+    sha256 cellar: :any_skip_relocation, ventura:       "f32e7cf759c752e433a6efb242c9e41560968a8d947b86b7129e6535f9952b65"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f398d05d703fcf8b9f42c0cf43e83ab9a075186e7bc15cc881684ec4b14ec0b0"
   end
 
   depends_on "go" => :build

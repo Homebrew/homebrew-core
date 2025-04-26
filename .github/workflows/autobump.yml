@@ -57,7 +57,7 @@ jobs:
           HOMEBREW_GIT_COMMITTER_EMAIL: 1589480+BrewTestBot@users.noreply.github.com
           FORMULAE: ${{ inputs.formulae }}
         run: |
-          BREW_BUMP=(brew bump --no-fork --open-pr --formulae)
+          BREW_BUMP=(brew bump --no-fork --open-pr --formulae --bump-synced)
           if [[ -n "${FORMULAE-}" ]]; then
             xargs "${BREW_BUMP[@]}" <<<"${FORMULAE}"
           else

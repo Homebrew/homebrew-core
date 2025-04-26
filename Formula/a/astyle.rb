@@ -1,8 +1,8 @@
 class Astyle < Formula
   desc "Source code beautifier for C, C++, C#, and Java"
   homepage "https://astyle.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/astyle/astyle/astyle%203.6/astyle-3.6.8.tar.bz2"
-  sha256 "5af8ae7a05c5e616dd1f84d758b4909c2d2ecfc179f883fd104d223f34cc6dff"
+  url "https://downloads.sourceforge.net/project/astyle/astyle/astyle%203.6/astyle-3.6.9.tar.bz2"
+  sha256 "b644597654df5b40087be4a46723c65040f7ce59f3369f1b8f690f9c10cababc"
   license "MIT"
   head "https://svn.code.sf.net/p/astyle/code/trunk/AStyle"
 
@@ -12,13 +12,13 @@ class Astyle < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "39ab1f295367377a4db66dab4cde2867181a8374c8f90060f00d2f545ef408c5"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ac24b65e3a76d092eef8c8b93c9328536bbce54d461e2fc627a5ae466253a881"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "9431331e2a6c5fedcf82b1c043cc127ca81d729bc4b965f84f6da933a7e4b6a1"
-    sha256 cellar: :any_skip_relocation, sonoma:        "3019431176432845fd8795db74102cdf88b63dd13b20111f1acf3f884af3a5ee"
-    sha256 cellar: :any_skip_relocation, ventura:       "2c2c0b641450453a9e4d15aa6e929b9c5183b05001f848c321ca923b20b68dca"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1398b917d1d63a5846c0cde6cfa51a55c0034abad90aadb5f458d770533dd5df"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3764cb4ea5705eff8f3e8095ad33faefd3a78d4368d0ab0d1222b7095da7060a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1924b800e0762b97092a054f71a0b4a00000a46fbce445bbc1b08e80b834380b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b140cafb548eb0f68bf568638739a79394dbb00e86978e0ebe77c4929b30504d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "2d380184cc9ed5666da4da07ac65deff0c31636299016f2590d81c301b747561"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2a148a2a2d9fad398a2bf2f665d4248afd6fc8ed9c14b6aec384306e2b1e4661"
+    sha256 cellar: :any_skip_relocation, ventura:       "127b30426d5873fc619831935328f3f52763e0bf6e8959fa91b8922b65f550d4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d8676bc30e1c62d74c38b79a8d675a310f609890c148b5f45444b66c128615fc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1e193b2a1b876b905a9bcc3c4487de747d26c2eaab0a87b4d2309d7d1f6a7540"
   end
 
   depends_on "cmake" => :build

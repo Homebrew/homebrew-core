@@ -1,9 +1,9 @@
 class Aarch64ElfGdb < Formula
   desc "GNU debugger for aarch64-elf cross development"
   homepage "https://www.gnu.org/software/gdb/"
-  url "https://ftp.gnu.org/gnu/gdb/gdb-16.2.tar.xz"
-  mirror "https://ftpmirror.gnu.org/gdb/gdb-16.2.tar.xz"
-  sha256 "4002cb7f23f45c37c790536a13a720942ce4be0402d929c9085e92f10d480119"
+  url "https://ftp.gnu.org/gnu/gdb/gdb-16.3.tar.xz"
+  mirror "https://ftpmirror.gnu.org/gdb/gdb-16.3.tar.xz"
+  sha256 "bcfcd095528a987917acf9fff3f1672181694926cc18d609c99d0042c00224c5"
   license "GPL-3.0-or-later"
   head "https://sourceware.org/git/binutils-gdb.git", branch: "master"
 
@@ -12,13 +12,13 @@ class Aarch64ElfGdb < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "324a6c319ea8a9d175e6327d89593fc9eea7d1fbe484d41533479f5b1795b3a8"
-    sha256 arm64_sonoma:  "9a79fc135975687ba9f0ec19696895f6df8c0ba831930e3abf66bc9814f49a4b"
-    sha256 arm64_ventura: "5c1056bf8a6b599855947d3c449e43f439c0367dd0e9a2a2d7501e039f69e250"
-    sha256 sonoma:        "07d44f785b149db031e9b6f9c65ab4bc96bad7cf348c047e7023f8b8618d3026"
-    sha256 ventura:       "96bc5b3fa085b1ca452460f1619eeef4c1a9109616e5f0d5891d36aeb9682a7c"
-    sha256 arm64_linux:   "97ac90c8694702eb0699084ef28711c7969f41cc6459dc34371c08dba5509d00"
-    sha256 x86_64_linux:  "b424c1bce12d07f93a06767ea48703bdcf10a6bcba460b1ef4b4b99a4c3c36cf"
+    sha256 arm64_sequoia: "0a926fe5dc3bc4e539f41c646716b31f5d1286edb897298b01f32134cbb3abef"
+    sha256 arm64_sonoma:  "f521ba77ba54ff94b1bed1e5cd0b42a57d9854922dfff195f71e8eb7e55dcd6b"
+    sha256 arm64_ventura: "4cf29fad518c942bd1310ba0bfd38c0ecbcdf30b7e36312d129719278da7175b"
+    sha256 sonoma:        "bb07e3cc246b3668c6cc918fc3ba3702b155b11674533d75e02dbe4664c4c2b6"
+    sha256 ventura:       "763a0c51b03e2e614429e0a5598e6cf242ebea2be8f5c94fa5a23cc511dfd101"
+    sha256 arm64_linux:   "05c39d0fccad36e0b46a99eeb08c129bf61744522aac5e9fde1cfff57454cbc3"
+    sha256 x86_64_linux:  "09ad9bdbf4e7cce7979fa2fed88e9b31ee1a06cc82e5f625dd6dae9d1ab2e9a9"
   end
 
   depends_on "pkgconf" => :build

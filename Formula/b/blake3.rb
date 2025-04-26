@@ -1,18 +1,18 @@
 class Blake3 < Formula
   desc "C implementation of the BLAKE3 cryptographic hash function"
   homepage "https://github.com/BLAKE3-team/BLAKE3"
-  url "https://github.com/BLAKE3-team/BLAKE3/archive/refs/tags/1.8.1.tar.gz"
-  sha256 "fc2aac36643db7e45c3653fd98a2a745e6d4d16ff3711e4b7abd3b88639463dd"
+  url "https://github.com/BLAKE3-team/BLAKE3/archive/refs/tags/1.8.2.tar.gz"
+  sha256 "6b51aefe515969785da02e87befafc7fdc7a065cd3458cf1141f29267749e81f"
   license any_of: ["CC0-1.0", "Apache-2.0"]
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "0ae7a5d11b12fc0fb64cea8881f65db817f1f2a6bbde29c2a1787d9f95f64d09"
-    sha256 cellar: :any,                 arm64_sonoma:  "da6189c6ef56b588d3d08f4c821bd44f9d33ff2816aa17adf7164613decfee57"
-    sha256 cellar: :any,                 arm64_ventura: "b03763e6a25c48732f9c20994ffe1c7d58ecacd31b91e508e39257620a31b7ba"
-    sha256 cellar: :any,                 sonoma:        "4ebd0e744956db93d9012e1dbe83654428598166068fecfe1764abc280ab24fb"
-    sha256 cellar: :any,                 ventura:       "22a7c26a126e62eabbd56af06b5f647d4f62cfd921fac91c65842b9834ac8cf9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b8f94bb99da8f7a073bc82999c169556e3f27331ef5e794bc0807a7ff49d8064"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "08ab87339de37d746471bfed3d39a29b73fbb30fc984f6c4b4ad28314024ce01"
+    sha256 cellar: :any,                 arm64_sequoia: "601904a1b1f08581bc60847875b444ccd2c23f11aa68acb8d635ae57fb104304"
+    sha256 cellar: :any,                 arm64_sonoma:  "ab21d31a2ea8bfc1c5dde99a668ef0bd3a804db97c8834300f4e5f27ea34533b"
+    sha256 cellar: :any,                 arm64_ventura: "2afe34ef022997cfddd89c7f605be83dec6dd5eac01191877d57340c109e1119"
+    sha256 cellar: :any,                 sonoma:        "5e3979ad7b545050d0649b6737690b573c9a2cae8440c239e04f2c3deb07caec"
+    sha256 cellar: :any,                 ventura:       "bcaabb50e183c271a6fdb8bcc7cfc4aefb20f01a8549d2b4dfb91c0f9e423a5b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "19550713c46e8be51cf069d04fb610fc86fc808125c4df118e6b5eb979402edd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4c9b135dbb37c400ed1f02a52ec4d40eff9a971bd960d8e65646242baaed4dcc"
   end
 
   depends_on "cmake" => :build

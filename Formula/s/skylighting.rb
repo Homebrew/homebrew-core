@@ -12,12 +12,15 @@ class Skylighting < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "349e25915741331c7f6982402dce1d6a5b5d85d1505701fe71c6f265198a4eb7"
     sha256 cellar: :any_skip_relocation, sonoma:        "46ace354ae631044134268037344d1b2f3d44510bcfb60ca37738b8f9d83cc26"
     sha256 cellar: :any_skip_relocation, ventura:       "8040d0df7ba15d49dc5aed911c5dab1014eceec887af27fea2dbca5c6a8c9d06"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ff15b8cc26e8d8c88e05d5e4ed9de474c2525a59cb2c1f1c886765506282f601"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "a3c54aa4802ff828fd7b6dc738e429c0394a686bbf00c43705e2f559ae2ed3ff"
   end
 
   depends_on "cabal-install" => :build
   depends_on "ghc" => :build
+  depends_on "gmp"
 
+  uses_from_macos "libffi"
   uses_from_macos "zlib"
 
   def install
