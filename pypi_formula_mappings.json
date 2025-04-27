@@ -394,7 +394,8 @@
     "exclude_packages": ["certifi"]
   },
   "gptline": {
-    "exclude_packages": ["certifi", "pillow"]
+    "exclude_packages": ["certifi", "pillow"],
+    "extra_packages": ["lxml-html-clean"]
   },
   "gptme": {
     "exclude_packages": ["certifi", "pillow"]
