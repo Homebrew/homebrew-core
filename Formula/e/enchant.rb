@@ -1,8 +1,8 @@
 class Enchant < Formula
   desc "Spellchecker wrapping library"
   homepage "https://rrthomas.github.io/enchant/"
-  url "https://github.com/rrthomas/enchant/releases/download/v2.8.2/enchant-2.8.2.tar.gz"
-  sha256 "8f19535adb5577b83b00e02f330fe9b9eb40dd21f19e2899636fc4d3a7696375"
+  url "https://github.com/rrthomas/enchant/releases/download/v2.8.3/enchant-2.8.3.tar.gz"
+  sha256 "31bb3df74cb60d6150f8611a7875d915f15d070e5a68687e075876faebef7ef7"
   license "LGPL-2.1-or-later"
 
   bottle do
@@ -44,7 +44,7 @@ class Enchant < Formula
   end
 
   test do
-    text = "Teh quikc brwon fox iumpz ovr teh lAzy d0g"
+    text = "quik brwon fox iumpz ovr teh lAzy d0g"
     enchant_result = text.sub("fox ", "").split.join("\n")
     file = "test.txt"
     (testpath/file).write text
