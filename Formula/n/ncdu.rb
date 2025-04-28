@@ -1,8 +1,8 @@
 class Ncdu < Formula
   desc "NCurses Disk Usage"
   homepage "https://dev.yorhel.nl/ncdu"
-  url "https://dev.yorhel.nl/download/ncdu-2.8.tar.gz"
-  sha256 "aa61576f7ec9fdf532cb178142ef5b32aad42567705992cf3e0d1c6fe7e38e40"
+  url "https://dev.yorhel.nl/download/ncdu-2.8.1.tar.gz"
+  sha256 "58104006d8a9e94f35e4df1d89119391250d2545d6c982cbc83ea37f375026e6"
   license "MIT"
   head "https://g.blicky.net/ncdu.git", branch: "zig"
 
@@ -26,6 +26,13 @@ class Ncdu < Formula
   # Without this, `ncdu` is unusable when `TERM=tmux-256color`.
   depends_on "ncurses"
   depends_on "zstd"
+
+  # Fix to error: no field named 'mtim', remove on next release
+  # Issue ref: https://code.blicky.net/yorhel/ncdu/issues/258
+  patch do
+    url "https://code.blicky.net/yorhel/ncdu/commit/58e6458130a8dd09d7e9cfcbd3b5ab9996d81bfa.patch"
+    sha256 "15c1cbe1b1aa1f3c825de1cd649e56e8726fae4893c9b064b7c9a5e63c12b5eb"
+  end
 
   def install
     # Fix illegal instruction errors when using bottles on older CPUs.
