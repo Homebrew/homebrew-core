@@ -27,6 +27,11 @@ class Ibex < Formula
 
   uses_from_macos "zlib"
 
+  on_macos do
+    # test to see if this triggers CI pipeline for arm mac
+    depends_on arch: [:arm, :intel]
+  end
+
   on_linux do
     # https://github.com/ibex-team/ibex-lib/blob/master/interval_lib_wrapper/gaol/3rd/mathlib-2.1.1/CMakeLists.txt
     depends_on arch: :x86_64
