@@ -1,10 +1,9 @@
 class MathComp < Formula
   desc "Mathematical Components for the Coq proof assistant"
   homepage "https://math-comp.github.io/math-comp/"
-  url "https://github.com/math-comp/math-comp/archive/refs/tags/mathcomp-1.19.0.tar.gz"
-  sha256 "786db902d904347f2108ffceae15ba29037ff8e63a6c58b87928f08671456394"
+  url "https://github.com/math-comp/math-comp/archive/refs/tags/mathcomp-2.4.0.tar.gz"
+  sha256 "6307218d7e434fb6ffc81b9275c673d3f7f1f4884ad59b904abd205c437021a0"
   license "CECILL-B"
-  revision 6
   head "https://github.com/math-comp/math-comp.git", branch: "master"
 
   bottle do
