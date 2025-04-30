@@ -1,10 +1,9 @@
 class Recc < Formula
   desc "Remote Execution Caching Compiler"
   homepage "https://buildgrid.gitlab.io/recc"
-  url "https://gitlab.com/BuildGrid/buildbox/buildbox/-/archive/1.3.11/buildbox-1.3.11.tar.gz"
-  sha256 "dfebf2b8a25ce9ed21bc3d5c4720279baf21e56dd7fb944ea9d30763a245bf59"
+  url "https://gitlab.com/BuildGrid/buildbox/buildbox/-/archive/1.3.14/buildbox-1.3.14.tar.gz"
+  sha256 "ebe85cd4a6536c87bab67271b8875200837231fbf2b63060ae97080606a2a9e9"
   license "Apache-2.0"
-  revision 1
   head "https://gitlab.com/BuildGrid/buildbox/buildbox.git", branch: "master"
 
   bottle do
@@ -31,6 +30,7 @@ class Recc < Formula
 
   on_macos do
     depends_on "gflags"
+    depends_on "llvm" if DevelopmentTools.clang_build_version <= 1500
   end
 
   on_linux do
@@ -39,6 +39,11 @@ class Recc < Formula
   end
 
   def install
+    if OS.mac? && DevelopmentTools.clang_build_version <= 1500
+      ENV.llvm_clang
+      ENV.append "LDFLAGS", "-L#{Formula["llvm"].opt_lib}/c++ -L#{Formula["llvm"].opt_lib}/unwind -lunwind"
+    end
+
     buildbox_cmake_args = %W[
       -DCASD=ON
       -DCASD_BUILD_BENCHMARK=OFF
