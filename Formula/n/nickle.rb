@@ -1,13 +1,12 @@
 class Nickle < Formula
   desc "Desk calculator language"
   homepage "https://www.nickle.org/"
-  url "https://deb.debian.org/debian/pool/main/n/nickle/nickle_2.103.tar.xz"
+  url "https://nickle.org/release/nickle-2.103.tar.xz"
   sha256 "ac38c95c36950be888bda1f5738a81efa8bf15ceefc6eb39e1a51c5487dedcbc"
   license "MIT"
-  head "https://keithp.com/cgit/nickle.git", branch: "master"
 
   livecheck do
-    url "https://deb.debian.org/debian/pool/main/n/nickle/"
+    url "https://nickle.org/release/"
     regex(/href=.*?nickle[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
