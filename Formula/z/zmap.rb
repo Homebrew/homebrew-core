@@ -36,6 +36,7 @@ class Zmap < Formula
 
   def install
     inreplace ["conf/zmap.conf", "src/constants.h", "src/zopt.ggo.in"], "/etc", etc
+    inreplace "CMakeLists.txt", "set(ZMAP_VERSION DEVELOPMENT)", "set(ZMAP_VERSION #{version})"
     args = %w[-DENABLE_DEVELOPMENT=OFF -DRESPECT_INSTALL_PREFIX_CONFIG=ON]
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
