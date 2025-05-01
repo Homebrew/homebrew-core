@@ -68,13 +68,6 @@ class Openssh < Formula
       # Ensure sandbox profile prefix is correct.
       # We introduce this issue with patching, it's not an upstream bug.
       inreplace "sandbox-darwin.c", "@PREFIX@/share/openssh", etc/"ssh"
-
-      # FIXME: `ssh-keygen` errors out when this is built with optimisation.
-      # Reported upstream at https://bugzilla.mindrot.org/show_bug.cgi?id=3584
-      # Also can segfault at runtime: https://github.com/Homebrew/homebrew-core/issues/135200
-      if Hardware::CPU.intel? && DevelopmentTools.clang_build_version == 1403
-        inreplace "configure", "-fzero-call-used-regs=all", "-fzero-call-used-regs=used"
-      end
     end
 
     args = %W[
