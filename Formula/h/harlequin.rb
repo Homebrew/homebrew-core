@@ -6,6 +6,7 @@ class Harlequin < Formula
   url "https://files.pythonhosted.org/packages/b2/e2/e9176c2102b0f9fa4384dcf6e20aa11aedd50f446180cca32e44e06f7fe1/harlequin-2.1.2.tar.gz"
   sha256 "751f71384a40443810f192f48f1c9bbd6f24be053231368971c2271fb56956fa"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "1cb7396dda2a840f7ffa488d3d7f6358152c727df60e22437de383732a7683c1"
@@ -121,8 +122,8 @@ class Harlequin < Formula
   end
 
   resource "pyarrow" do
-    url "https://files.pythonhosted.org/packages/7f/09/a9046344212690f0632b9c709f9bf18506522feb333c894d0de81d62341a/pyarrow-19.0.1.tar.gz"
-    sha256 "3bf266b485df66a400f282ac0b6d1b500b9d2ae73314a153dbe97d6d5cc8a99e"
+    url "https://files.pythonhosted.org/packages/a2/ee/a7810cb9f3d6e9238e61d312076a9859bf3668fd21c69744de9532383912/pyarrow-20.0.0.tar.gz"
+    sha256 "febc4a913592573c8d5805091a6c2b5064c8bd6e002131f01061797d91c783c1"
   end
 
   resource "pygments" do
