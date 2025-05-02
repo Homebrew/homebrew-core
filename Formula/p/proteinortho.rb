@@ -16,19 +16,35 @@ class Proteinortho < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "bde04add25030aed32aac06465de994ca04e4410181a53deac825858df3df18c"
   end
 
+  depends_on "gcc" => :build
   depends_on "diamond"
   depends_on "libomp"
   depends_on "openblas"
 
   def install
     ENV.cxx11
-
     bin.mkpath
-    system "make", "install", "PREFIX=#{bin}"
+
+    if OS.linux?
+      gcc_formula = Formula["gcc"]
+      cc_major_ver = gcc_formula.any_installed_version.major
+      system "make", "install", "CXX=#{gcc_formula.opt_bin}/g++-#{cc_major_ver}", "PREFIX=#{bin}"
+    elsif OS.mac?
+      omp_include = Formula["libomp"].opt_include
+      omp_lib = Formula["libomp"].opt_lib
+      ENV.append "CPPFLAGS", "-Xpreprocessor -fopenmp -I#{omp_include}"
+      ENV.append "LDFLAGS", "-L#{omp_lib} -lomp -Wl,-rpath,#{omp_lib}"
+      system "make", "install", "PREFIX=#{bin}"
+    end
+
+    pkgshare.install "test"
     doc.install "manual.html"
   end
 
   test do
+    cp_r pkgshare/"test", testpath
+    files = Dir[testpath/"test/*.faa"]
+    system bin/"proteinortho", *files
     system bin/"proteinortho", "-test"
     system bin/"proteinortho_clustering", "-test"
   end
