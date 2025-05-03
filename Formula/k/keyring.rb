@@ -1,11 +1,10 @@
 class Keyring < Formula
-  include Language::Python::Virtualenv
-
   desc "Easy way to access the system keyring service from python"
   homepage "https://github.com/jaraco/keyring"
   url "https://files.pythonhosted.org/packages/70/09/d904a6e96f76ff214be59e7aa6ef7190008f52a0ab6689760a98de0bf37d/keyring-25.6.0.tar.gz"
   sha256 "0b39998aa941431eb3d9b0d4b2460bc773b9df6fed7621c2dfb291a7e0187a66"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "b6751512859d21a591e9a129a2ae7280e4d7eebec85895469fac19bb600b8bf6"
@@ -58,15 +57,27 @@ class Keyring < Formula
     sha256 "4e4bcb02eeb82ec45920a5d0add92eac9c9b63b2804c9196c1f1fdc2d039243c"
   end
 
-  def install
-    virtualenv_install_with_resources
+  def python3
+    "python3.13"
+  end
 
-    generate_completions_from_executable(bin/"keyring", "--print-completion", shells: [:bash, :zsh])
+  def install
+    # Install dependencies first
+    resources.each do |r|
+      r.stage do
+        system python3, "-m", "pip", "install", *std_pip_args(build_isolation: true), "."
+      end
+    end
+
+    # Install keyring itself
+    system python3, "-m", "pip", "install", *std_pip_args(build_isolation: true), "."
   end
 
   test do
+    # Test import
+    system python3, "-c", "import keyring"
+
+    # Test CLI
     assert_empty shell_output("#{bin}/keyring get https://example.com HomebrewTest2", 1)
-    assert_match "-F _shtab_keyring",
-      shell_output("bash -c 'source #{bash_completion}/keyring && complete -p keyring'")
   end
 end
