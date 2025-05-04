@@ -1,8 +1,8 @@
 class Bob < Formula
   desc "Version manager for neovim"
   homepage "https://github.com/MordechaiHadad/bob"
-  url "https://github.com/MordechaiHadad/bob/archive/refs/tags/v4.0.3.tar.gz"
-  sha256 "cb0b084ca0454fc17c387d9662b420764b2aa1152dfe035238b1d08bb7ab34f1"
+  url "https://github.com/MordechaiHadad/bob/archive/refs/tags/v4.1.0.tar.gz"
+  sha256 "1f0d722c2abbcc4f9df15d834f7fe64c79c3286fae219ccf31b09f78ee5f84ed"
   license "MIT"
 
   bottle do
@@ -16,6 +16,13 @@ class Bob < Formula
   end
 
   depends_on "rust" => :build
+
+  # Fix to Error: Custom directory #{downloads_location} doesn't exist!, when `bob erase`
+  # PR ref: https://github.com/MordechaiHadad/bob/pull/275
+  patch do
+    url "https://github.com/MordechaiHadad/bob/commit/867fc07c4f2c1c423e5fa1e75f41411a4e48e8fd.patch?full_index=1"
+    sha256 "55cf8e45a084cdfed9c300ecb325c94a51d974b66d095b9ed3154ff6b91a0479"
+  end
 
   def install
     system "cargo", "install", *std_cargo_args
