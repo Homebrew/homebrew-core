@@ -7,13 +7,12 @@ class AsyncProfiler < Formula
   head "https://github.com/async-profiler/async-profiler.git", branch: "master"
 
   depends_on "cmake" => :build
-  depends_on "openjdk" => :test
+  depends_on "openjdk" => [:build, :test]
 
   def install
     args = []
     args << "COMMIT_TAG=#{Utils.git_head}" if build.head?
-    args << "FAT_BINARY=true" if OS.mac?
-    # args << "CC=/usr/local/musl/bin/musl-gcc" if OS.linux?
+    args << "CC=#{ENV.cc}" if OS.linux?
 
     system "make", *args, "all"
 
