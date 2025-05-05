@@ -37,8 +37,14 @@ class AsyncProfiler < Formula
       }
     JAVA
 
-    pid = spawn Formula["openjdk"].bin/"java", testpath/"Main.java", "8"
+    ohai pipe_output(
+      "#{Formula["openjdk"].bin}/jshell -q -",
+      "System.out.println(System.getProperty(\"java.io.tmpdir\"))",
+    )
+
+    pid = spawn Formula["openjdk"].bin/"java", "-XX:+StartAttachListener", testpath/"Main.java", "8"
     begin
+      ohai shell_output("bash -c 'lsof -p #{pid}'")
       sleep 1
       system bin/"asprof",
              "-d", "2",
