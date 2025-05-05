@@ -1,8 +1,8 @@
 class Envoy < Formula
   desc "Cloud-native high-performance edge/middle/service proxy"
   homepage "https://www.envoyproxy.io/index.html"
-  url "https://github.com/envoyproxy/envoy/archive/refs/tags/v1.33.2.tar.gz"
-  sha256 "e54d444a8d4197c1dca56e7f6e7bc3b7d83c1695197f5699f62e250ecbece169"
+  url "https://github.com/envoyproxy/envoy/archive/refs/tags/v1.34.0.tar.gz"
+  sha256 "a3ac192b874d45aa8b414ef95c5c368cce5ac0ec8c610bdf55feac26000436a8"
   license "Apache-2.0"
   head "https://github.com/envoyproxy/envoy.git", branch: "main"
 
@@ -39,6 +39,7 @@ class Envoy < Formula
 
   on_linux do
     depends_on "lld" => :build
+    depends_on "llvm@18" => :build
   end
 
   # https://github.com/envoyproxy/envoy/tree/main/bazel#supported-compiler-versions
@@ -47,6 +48,12 @@ class Envoy < Formula
 
   def install
     env_path = "#{HOMEBREW_PREFIX}/bin:/usr/bin:/bin"
+
+    if OS.linux?
+      # Override the default clang to use the one from llvm@18 in PATH in Linux
+      env_path = "#{Formula["llvm@18"].opt_bin}:" + env_path
+    end
+
     args = %W[
       --compilation_mode=opt
       --curses=no
@@ -64,13 +71,11 @@ class Envoy < Formula
       # https://github.com/envoyproxy/envoy/issues/37911
       args << "--copt=-Wno-thread-safety-reference-return"
 
-      # Workaround to build with Clang 19 until envoy uses newer tcmalloc
-      # https://github.com/google/tcmalloc/commit/a37da0243b83bd2a7b1b53c187efd4fbf46e6e38
-      args << "--copt=-Wno-unused-but-set-variable"
-
-      # Workaround to build with Clang 19 until envoy uses newer grpc
-      # https://github.com/grpc/grpc/commit/e55f69cedd0ef7344e0bcb64b5ec9205e6aa4f04
-      args << "--copt=-Wno-missing-template-arg-list-after-template-kw"
+      # Use LLVM 18 for the build for Linux
+      # Override the default clang to use the one from llvm@18 in Linux
+      args << "--action_env=CC=#{Formula["llvm@18"].opt_bin}/clang"
+      args << "--action_env=CXX=#{Formula["llvm@18"].opt_bin}/clang++"
+      args << "--action_env=BAZEL_USE_CPP_ONLY_TOOLCHAIN=1"
     end
 
     # Write the current version SOURCE_VERSION.
