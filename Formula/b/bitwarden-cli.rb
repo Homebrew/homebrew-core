@@ -23,6 +23,7 @@ class BitwardenCli < Formula
   depends_on "node"
 
   def install
+    system "npm", "install", "core-js", *std_npm_args
     system "npm", "ci", "--ignore-scripts"
 
     cd buildpath/"apps/cli" do
@@ -37,10 +38,13 @@ class BitwardenCli < Formula
     # Remove incompatible pre-built `argon2` binaries
     os = OS.kernel_name.downcase
     arch = Hardware::CPU.intel? ? "x64" : Hardware::CPU.arch.to_s
-    node_modules = libexec/"lib/node_modules/@bitwarden/cli/node_modules"
-    (node_modules/"argon2/prebuilds/linux-arm64/argon2.armv8.musl.node").unlink
-    (node_modules/"argon2/prebuilds/linux-x64/argon2.musl.node").unlink
-    (node_modules/"argon2/prebuilds").each_child { |dir| rm_r(dir) if dir.basename.to_s != "#{os}-#{arch}" }
+    base = (libexec/"lib/node_modules/@bitwarden")
+    universals = "{@microsoft/signalr/node_modules/utf-8-validate,bufferutil,utf-8-validate}"
+    base.glob("clients/node_modules/#{universals}/prebuilds/darwin-x64+arm64/*.node").each(&:unlink)
+    base.glob("{cli,clients}/node_modules/argon2/prebuilds") do |path|
+      path.glob("**/*.musl.node").each(&:unlink)
+      path.children.each { |dir| rm_r(dir) if dir.directory? && dir.basename.to_s != "#{os}-#{arch}" }
+    end
 
     generate_completions_from_executable(bin/"bw", "completion", shells: [:zsh], shell_parameter_format: :arg)
   end
