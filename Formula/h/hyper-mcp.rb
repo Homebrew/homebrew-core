@@ -7,6 +7,7 @@ class HyperMcp < Formula
   head "https://github.com/tuananh/hyper-mcp.git", branch: "main"
 
   depends_on "rust" => :build
+  depends_on "openssl@3"
 
   def install
     system "cargo", "install", *std_cargo_args
