@@ -21,26 +21,38 @@ class AsyncProfiler < Formula
   end
 
   test do
-    assert_match "Async-profiler #{version}", shell_output("#{bin}/asprof --version")
+    output = shell_output("#{bin}/asprof --version")
+
+    if build.head?
+      assert_match(/^Async-profiler #{version}-#{Utils.git_head}.+/, output)
+    else
+      assert_match("Async-profiler #{version}", output)
+    end
 
     (testpath/"Main.java").write <<~JAVA
       public class Main {
         public static void main(String[] args) throws Exception {
-          Thread.sleep(8_000);
+          Thread.sleep(Integer.parseInt(args[0]));
         }
       }
     JAVA
 
-    pid = spawn Formula["openjdk"].bin/"java", testpath/"Main.java"
-    system bin/"asprof",
-           "-d", "2",
-           "-f", testpath/"test-profile-via-attach.html",
-           "jps"
-    assert_path_exists testpath/"test-profile-via-attach.html"
+    pid = spawn Formula["openjdk"].bin/"java", testpath/"Main.java", "8"
+    begin
+      sleep 1
+      system bin/"asprof",
+             "-d", "2",
+             "-f", testpath/"test-profile-via-attach.html",
+             "jps"
+      assert_path_exists testpath/"test-profile-via-attach.html"
+    ensure
+      Process.kill("TERM", pid)
+      Process.wait(pid)
+    end
 
     system Formula["openjdk"].bin/"java",
            "-agentpath:#{lib}/libasyncProfiler.dylib=start,event=cpu,lock=10ms,file=test-profile-via-lib.jfr",
-           testpath/"Main.java"
+           testpath/"Main.java", "2"
     assert_path_exists testpath/"test-profile-via-lib.jfr"
 
     system bin/"jfrconv",
@@ -48,7 +60,5 @@ class AsyncProfiler < Formula
            testpath/"test-profile-via-lib.jfr",
            testpath/"test-profile-via-lib.pprof"
     assert_path_exists testpath/"test-profile-via-lib.pprof"
-  ensure
-    Process.kill("TERM", pid)
   end
 end
