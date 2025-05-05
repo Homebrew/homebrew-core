@@ -12,7 +12,6 @@ class AsyncProfiler < Formula
   def install
     args = []
     args << "COMMIT_TAG=#{Utils.git_head}" if build.head?
-    args << "CC=#{ENV.cc}" if OS.linux?
 
     system "make", *args, "all"
 
