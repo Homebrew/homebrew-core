@@ -21,7 +21,7 @@ class FlowCli < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "c8a080da468f50926d4ae50d2aedeec2a0132e4473115949a25ebe3b23988257"
   end
 
-  depends_on "go" => :build
+  depends_on "go@1.23" => :build # crashes with go 1.24, see https://github.com/onflow/flow-cli/issues/1902
 
   conflicts_with "flow", because: "both install `flow` binaries"
 
@@ -33,12 +33,36 @@ class FlowCli < Formula
   end
 
   test do
+    # Test running a simple Cadence program
     (testpath/"hello.cdc").write <<~EOS
       access(all) fun main() {
         log("Hello, world!")
       }
     EOS
-
     system bin/"flow", "cadence", "hello.cdc"
+
+    # Test signing a transaction
+    (testpath/"payload").write <<~EOS.gsub(/\s+/, "")
+      f876f872ae7472616e73616374696f6e207b0a20202020707265706172652861
+      6363743a20264163636f756e7429207b7d0a7dc0a0ffd371d438be53123984f4
+      cdf4f72dafdbcb65d833c0fb3251ed6e04f4a8ff428203e888f8d6e0586b0a20
+      c7808088f8d6e0586b0a20c7c988f8d6e0586b0a20c7c0c0
+    EOS
+    (testpath/"flow.json").write <<~JSON
+      {
+        "networks": {
+          "emulator": "127.0.0.1:3569"
+        },
+        "accounts": {
+          "emulator-account": {
+            "address": "f8d6e0586b0a20c7",
+            "key": "0xe22241dc1eba680b7e1f6bae380cc4741cd262f017fa4f75fbae3ea9d2f292a4"
+          }
+        }
+      }
+    JSON
+    Timeout.timeout(5) do
+      system bin/"flow", "transactions", "sign", "payload", "--yes"
+    end
   end
 end
