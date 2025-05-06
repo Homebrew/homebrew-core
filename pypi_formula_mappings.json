@@ -635,6 +635,10 @@
   "otterdog": {
     "exclude_packages": ["certifi", "cryptography"]
   },
+  "paperless-ngx": {
+    "exclude_packages": ["certifi", "cffi", "cryptography", "numpy", "pillow", "scipy", "six"],
+    "extra_packages": ["granian", "uvloop"]
+  },
   "parliament": {
     "extra_packages": ["setuptools"]
   },
