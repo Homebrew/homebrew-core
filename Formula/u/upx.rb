@@ -1,8 +1,8 @@
 class Upx < Formula
   desc "Compress/expand executable files"
   homepage "https://upx.github.io/"
-  url "https://github.com/upx/upx/releases/download/v4.2.4/upx-4.2.4-src.tar.xz"
-  sha256 "5ed6561607d27fb4ef346fc19f08a93696fa8fa127081e7a7114068306b8e1c4"
+  url "https://github.com/upx/upx/releases/download/v5.0.1/upx-5.0.1-src.tar.xz"
+  sha256 "2b11323a9f6c7f0247a4936deee35afb486a2fdf808a5bc4abf10a085ec884d9"
   license "GPL-2.0-or-later"
   head "https://github.com/upx/upx.git", branch: "devel"
 
