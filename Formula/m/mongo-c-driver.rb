@@ -1,8 +1,8 @@
 class MongoCDriver < Formula
   desc "C driver for MongoDB"
   homepage "https://github.com/mongodb/mongo-c-driver"
-  url "https://github.com/mongodb/mongo-c-driver/archive/refs/tags/1.30.2.tar.gz"
-  sha256 "e3b2d7c18f27b868b99c0ab2e9c811852fa4d86fe2d1d55a53f42d51859dd99d"
+  url "https://github.com/mongodb/mongo-c-driver/archive/refs/tags/2.0.1.tar.gz"
+  sha256 "3fb98aa71e292f0aabcbcf6b9bd624affafa9375ee4ab53baeababeccc194dbd"
   license "Apache-2.0"
   head "https://github.com/mongodb/mongo-c-driver.git", branch: "master"
 
@@ -42,13 +42,13 @@ class MongoCDriver < Formula
 
   test do
     system ENV.cc, "-o", "test", pkgshare/"libbson/examples/json-to-bson.c",
-      "-I#{include}/libbson-1.0", "-L#{lib}", "-lbson-1.0"
+      "-I#{include}/bson-#{version}", "-L#{lib}", "-lbson#{version.major}"
     (testpath/"test.json").write('{"name": "test"}')
     assert_match "\u0000test\u0000", shell_output("./test test.json")
 
     system ENV.cc, "-o", "test", pkgshare/"libmongoc/examples/mongoc-ping.c",
-      "-I#{include}/libmongoc-1.0", "-I#{include}/libbson-1.0",
-      "-L#{lib}", "-lmongoc-1.0", "-lbson-1.0"
+      "-I/#{include}/bson-#{version}", "-L#{lib}", "-lbson#{version.major}",
+      "-I/#{include}/mongoc-#{version}", "-lmongoc#{version.major}"
     assert_match "No suitable servers", shell_output("./test mongodb://0.0.0.0 2>&1", 3)
   end
 end
