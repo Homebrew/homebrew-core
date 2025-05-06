@@ -1,8 +1,8 @@
 class VulkanLoader < Formula
   desc "Vulkan ICD Loader"
   homepage "https://github.com/KhronosGroup/Vulkan-Loader"
-  url "https://github.com/KhronosGroup/Vulkan-Loader/archive/refs/tags/v1.4.311.tar.gz"
-  sha256 "bcebd281753384a2b019a633e6a81dca0e75414f0c8ec49f56edfcda8020ec20"
+  url "https://github.com/KhronosGroup/Vulkan-Loader/archive/refs/tags/v1.4.314.tar.gz"
+  sha256 "0ab4147003b881df01eec1cceabe3a2e1491dd45bf90bb50113f791af6b8d86c"
   license "Apache-2.0"
   head "https://github.com/KhronosGroup/Vulkan-Loader.git", branch: "main"
 
@@ -12,13 +12,14 @@ class VulkanLoader < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "9f37c926807cbb20f411245c875b6130e5975f21ac58619529894726f911c8ef"
-    sha256 arm64_sonoma:  "c7c2f4233a9ea4723a1c4dd439105fd6c17265d25adcd0f2631a636f73da1c51"
-    sha256 arm64_ventura: "799cf2b5262b7230bee356127dd409e98d9250890a753d533f2bbd162f86bc31"
-    sha256 sonoma:        "f70ad361257e259d577cc57e1e245b0773df8d3fb8a7f31fa53433f5267e13d7"
-    sha256 ventura:       "d6931de3ac96f85c6374f9322cce35af70e4808577ccbd12f57bf046a760f2f0"
-    sha256 arm64_linux:   "b36c588ab4587a9e61fa1654fdf6f987db79735edcc753e1fd57390a6c147c16"
-    sha256 x86_64_linux:  "89c639bab5d525f935d89ffe667903a9132adebcbec9c399848cf78a0561d7b0"
+    sha256 arm64_sequoia: "596c8bd8f28488df4bb06d56ad5a691dbf73926d3f124649591b978792acfcc4"
+    sha256 arm64_sonoma:  "2c125f1610a562a89e23bf99fadc32f0bbe428ab51dd964ad946a53c697778c0"
+    sha256 arm64_ventura: "aa4c386986fbf9b82f1311d2bd1089c0f3af0441947583bd53579c5aa5974c0c"
+    sha256 sequoia:       "e2ba1fccc5b2c19389e2e575c12de4403bcf3e4122f1714ca9403d4a00ffbdb1"
+    sha256 sonoma:        "27868e1b2db58f4f6d4c466ba1ebc3e9763ae71ade76f8c743c14e97d1330e17"
+    sha256 ventura:       "67d829de9eee5eab2d9ec2c4aa2e04e19c3424777e049f1873ff6bdce8059e29"
+    sha256 arm64_linux:   "12ec33a2f9c8c722b4856c540b937bc0ef3ca43e2ccba0f6ee786b8c117e5f93"
+    sha256 x86_64_linux:  "c921ea0a86444bfd4dfae863b5584d6ac8bb7f7b6aae40de98aafc761ac5f08e"
   end
 
   depends_on "cmake" => :build

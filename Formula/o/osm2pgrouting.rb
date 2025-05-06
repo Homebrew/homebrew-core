@@ -4,16 +4,16 @@ class Osm2pgrouting < Formula
   url "https://github.com/pgRouting/osm2pgrouting/archive/refs/tags/v2.3.8.tar.gz"
   sha256 "e3a58bcacf0c8811e0dcf3cf3791a4a7cc5ea2a901276133eacf227b30fd8355"
   license "GPL-2.0-or-later"
-  revision 15
+  revision 16
   head "https://github.com/pgRouting/osm2pgrouting.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "53a7e3aba8bdfe9a4da235abc518b79792e53ddc141137e028388d598c58107b"
-    sha256 cellar: :any,                 arm64_sonoma:  "b7834fce5a1d857f102568aeff1bed0289f37fb0ddb43151d8724ee43e5f5a66"
-    sha256 cellar: :any,                 arm64_ventura: "8e9795f661e6a485111af835cd9a1564d4e1b489c708bd59bafb1d7f4fe698aa"
-    sha256 cellar: :any,                 sonoma:        "be10d1bf1fb865fd1057514a75c362636e93d5ada3b2efdf98d855aed6c76494"
-    sha256 cellar: :any,                 ventura:       "d2fb31aa53a17b15686bced89e3b3e30d573cf5537969612e1c5ff712638899a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "614b191dc5a642277df733a0d7c056b69f5c490ec10e44b78ed1983234e44500"
+    sha256 cellar: :any,                 arm64_sequoia: "8d5da6cbb1019f6896dcd1c2ec6b5b85364f5ab8e1eaf03faa363a9ac741f708"
+    sha256 cellar: :any,                 arm64_sonoma:  "07719354b8de8ec105fb5fff9b6f5555af88d5fa25b2c740669beb753d4d879d"
+    sha256 cellar: :any,                 arm64_ventura: "5c8c6568d0a0a8b8e2e702fbaeef2423d56e6da413a39aab02d6247da9c8bce3"
+    sha256 cellar: :any,                 sonoma:        "e062d6e09ecbd479fbd21d8abfa972dcb0fffb463ad2f80e0cddbc844304ac6b"
+    sha256 cellar: :any,                 ventura:       "db7de5922d67e005b7f007b8a00448e668dcf292766858c8415e52f5301592a4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ac2b94e89037e79c0faa8acbf0d4f702f03d55905be7a0edf452c2eebf6b9408"
   end
 
   depends_on "cmake" => :build
@@ -29,16 +29,7 @@ class Osm2pgrouting < Formula
   patch :DATA
 
   def install
-    # Work around an Xcode 15 linker issue which causes linkage against LLVM's
-    # libunwind due to it being present in a library search path.
-    if DevelopmentTools.clang_build_version >= 1500
-      recursive_dependencies
-        .select { |d| d.name.match?(/^llvm(@\d+)?$/) }
-        .map { |llvm_dep| llvm_dep.to_formula.opt_lib }
-        .each { |llvm_lib| ENV.remove "HOMEBREW_LIBRARY_PATHS", llvm_lib }
-    end
-
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build", "-DCMAKE_POLICY_VERSION_MINIMUM=3.5", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end

@@ -1,9 +1,9 @@
 class GnuChess < Formula
   desc "Chess-playing program"
   homepage "https://www.gnu.org/software/chess/"
-  url "https://ftp.gnu.org/gnu/chess/gnuchess-6.2.9.tar.gz"
-  mirror "https://ftpmirror.gnu.org/chess/gnuchess-6.2.9.tar.gz"
-  sha256 "ddfcc20bdd756900a9ab6c42c7daf90a2893bf7f19ce347420ce36baebc41890"
+  url "https://ftp.gnu.org/gnu/chess/gnuchess-6.2.11.tar.gz"
+  mirror "https://ftpmirror.gnu.org/chess/gnuchess-6.2.11.tar.gz"
+  sha256 "d81140eea5c69d14b0cfb63816d4b4c9e18fba51f5267de5b1539f468939e9bd"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -12,19 +12,13 @@ class GnuChess < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia:  "53be7d8233670e2625a1228e1f3e9af4cca023c74396755a3ed88c6c37412391"
-    sha256 arm64_sonoma:   "e2dc7bd2b90516f3b5683473f39fdf20f0da1759b1b5ee6c2ea8c6055d079e8b"
-    sha256 arm64_ventura:  "86f7885d980763cbe4543012b9f9f55b8cf3065da939d06bb35dd9b0f94272de"
-    sha256 arm64_monterey: "b03db46e113c63c8d141181ca6f89626414827a3d0aa15dc88e7cb72f2fcaf69"
-    sha256 arm64_big_sur:  "8e356eccb6a541eee641342bc7f923b35271fd51c094ca6b83e8abdecd7226a1"
-    sha256 sonoma:         "11bd3d26a4ef8104f2a800b06ba672e3202b5755792de0e1ae936450f053b888"
-    sha256 ventura:        "1d5ac1a6260b684188c024f2bdb4e6838ce78d442f42fa59ebf2af1b00d18123"
-    sha256 monterey:       "7e1eed30943db3dc80910b5f10ae6df5b65354e65748fff524dba044ea495da8"
-    sha256 big_sur:        "11997b7b97ab58380f07e491fc9b75649f52ab6d7edfdfbdbf025a3a12d81d3a"
-    sha256 catalina:       "d3dcc4bec287a4b09dbb0dba0f7fc51943812fed43eeda21a5f3d314ae77dbf6"
-    sha256 mojave:         "03d9103b7fbbfeaf487d3b6dbac291eaacd51299052b62ddd3564eaedc513f08"
-    sha256 arm64_linux:    "3fae629ef6e8a25ade5b26ad9786722b70ba6ce8597445dfaa691aa6898f1398"
-    sha256 x86_64_linux:   "ef91217fa368cd712df9a7c4c6def92eeb5a26b37d5c0e9ee51e13a3ab7cca26"
+    sha256 arm64_sequoia: "42cd71a3f878830a2f20357cafb8c187286449b61554ee40a39e912eb875191a"
+    sha256 arm64_sonoma:  "bc42a14400312b8a5a4bdd3b911c597205168f82cf5434250e96ed26cb94e157"
+    sha256 arm64_ventura: "e0b50d39c42948e951377dba087745bc9800a742f5c0661cd962f9ef5c0ca795"
+    sha256 sonoma:        "7feace56b47c9af020b6ebd88accc58e9a60acafb704fda5f8f3e34c5a5bc33e"
+    sha256 ventura:       "77ced1bf8ab64d6c3e30aece47587d1bed8dbd123e742356f495d1411b0ef58a"
+    sha256 arm64_linux:   "6b2bdd2733793500bafa854af6c7d64cf7ffd2db1f0b833ae758da19af958b60"
+    sha256 x86_64_linux:  "1872f4bfa7445271a190bc1a7392c440e31874f09bb71428d9a8b061a0ad73e1"
   end
 
   head do
@@ -40,6 +34,11 @@ class GnuChess < Formula
   resource "book" do
     url "https://ftp.gnu.org/gnu/chess/book_1.02.pgn.gz"
     sha256 "deac77edb061a59249a19deb03da349cae051e52527a6cb5af808d9398d32d44"
+
+    livecheck do
+      url "https://ftp.gnu.org/gnu/chess/"
+      regex(/href=.*?book[._-]v?(\d+(?:\.\d+)+\.pgn)/i)
+    end
   end
 
   def install

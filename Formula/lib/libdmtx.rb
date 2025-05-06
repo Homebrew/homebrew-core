@@ -1,23 +1,18 @@
 class Libdmtx < Formula
   desc "Data Matrix library"
   homepage "https://libdmtx.sourceforge.net/"
-  url "https://github.com/dmtx/libdmtx/archive/refs/tags/v0.7.7.tar.gz"
-  sha256 "7aa62adcefdd6e24bdabeb82b3ce41a8d35f4a0c95ab0c4438206aecafd6e1a1"
+  url "https://github.com/dmtx/libdmtx/archive/refs/tags/v0.7.8.tar.gz"
+  sha256 "2394bf1d1d693a5a4ca3cfcc1bb28a4d878bdb831ea9ca8f3d5c995d274bdc39"
   license "BSD-2-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "2727b03def8ebe1d6ce7c7a0960845bbef9142169cf2b10cd66afc5c4a7eb3e0"
-    sha256 cellar: :any,                 arm64_sonoma:   "86a00d977a1da4337be67a2745ba22e81d8d18bd1dc78e38cec708725dd4c6c1"
-    sha256 cellar: :any,                 arm64_ventura:  "8b618efa0c3059ac26262d016e74fdd1d8e2e9507fba28a614fae2435011eddf"
-    sha256 cellar: :any,                 arm64_monterey: "561f25578f3a60d6d122900a35d3a8e55745f74caeead32bbaa91f9cd0681a65"
-    sha256 cellar: :any,                 arm64_big_sur:  "af07cb3d3398112398d1a0a50bb05569490506f7e679a5e31a31949f7b3e694e"
-    sha256 cellar: :any,                 sonoma:         "9a46d90ce73a0c535937c0cfc1957b767e39a4d048cb882c5999fe4f485af8fa"
-    sha256 cellar: :any,                 ventura:        "73bc2b78b88622b27ad5ac1283ce98d8a3288739dac1df45acea255e013e280b"
-    sha256 cellar: :any,                 monterey:       "3728775d7a7d51ca7d837e9dc031e3e0fea98c46afac79955a49e631c82661f8"
-    sha256 cellar: :any,                 big_sur:        "139365f0bea5191d4cd5d7d66ad82dccb5298f7d96601e7c67ba26b6d12fe42b"
-    sha256 cellar: :any,                 catalina:       "eabd4735b2e09deeb7746eec9205c47c6600d95fb196118f497d55461342c1f1"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "c22954cac72a2d2d321704af3b24189b795bb18563d37d1a2451a35063995596"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "09b0cd47edf7d77d1ab0ba619ee03e0b41c6896ef37ec6d0841e0bedf286f988"
+    sha256 cellar: :any,                 arm64_sequoia: "df99e1993d7ed98ff3d11e02eea48940d0eaf29c81f74c45a381832c7e714de0"
+    sha256 cellar: :any,                 arm64_sonoma:  "172a87d5ad2bb9e501480bdbb7af5542079729747cd71d2086a8d5025a56e082"
+    sha256 cellar: :any,                 arm64_ventura: "b503e7c2c698a420f523d34104850f33ab1f36ddb2f47cc474801ded26bb6d96"
+    sha256 cellar: :any,                 sonoma:        "44c8a0c8b7ea70f42368c2633bd4569072dc724f7e38c21cd16ed567a510ce55"
+    sha256 cellar: :any,                 ventura:       "e19afbbbf3e0eaed8f35a854f465611e53fcf2865164776a8e7302c9e55a6a7c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1a368525adad2afbfc932f8d332f840b7bd5bafde75da5b8639974236123d73e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "db8cf01939d9ca1f8c7e6fd7fc6f9c3f243a20893052dbe4e8861eb2b67a7ce0"
   end
 
   depends_on "autoconf" => :build

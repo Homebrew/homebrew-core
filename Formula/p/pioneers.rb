@@ -14,6 +14,7 @@ class Pioneers < Formula
     sha256 sonoma:         "18c79c7b8137ddbb485fa0a501ab0b163dd08670370a25b8d1abbcac7032ccb7"
     sha256 ventura:        "120b652031fbd995e43ef02538d039e44c99f5b845901d329703fb5d027b6d27"
     sha256 monterey:       "b1f802ac210dbce9ce41084ea23c54af80519e44730546734b56dc2db6ae44f2"
+    sha256 arm64_linux:    "dee6715b417bc783ebdce0da7c02b6bca21d1ffa02e6f84db1dad9d409abaee4"
     sha256 x86_64_linux:   "3efeb1b6c8a348562ebb969cbd877612cefe83e65b54bd52533f9bed290f8bc9"
   end
 

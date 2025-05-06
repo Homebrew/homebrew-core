@@ -18,6 +18,7 @@ class Ldid < Formula
     sha256 cellar: :any,                 ventura:        "b6aba3db5dd5aab6835280e0fe777a566cc5eb524290482602ee2b8018145760"
     sha256 cellar: :any,                 monterey:       "2adcc78190f359d7c5485a29cc84c37f5bf3360c39e2cd2cc975a5449bf3db6c"
     sha256 cellar: :any,                 big_sur:        "7373fc777890c829de08c79475c3b2caa55f68c30f97398201ff3dd9c55638ca"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "81c37cabe7538847906e84785f70a8592c5853374424e5866e124dabde43ea2d"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "4519a8fb688fea614c230562638a0d4704e7f1aad8d9372845d0b28cc5281479"
   end
 

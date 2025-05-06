@@ -16,6 +16,7 @@ class Lgeneral < Formula
     sha256 ventura:        "237418ae7e4069b558b046d4b68044c3c307c28898ff00ca56a20aa97d13d542"
     sha256 monterey:       "bc51bd29569a83218f84748d31bac40cadff60a7caacaead3e499970aba25b37"
     sha256 big_sur:        "643779c73ca7a36a3db58993aa374f451bfb3e4c50bd699968137e77330acddf"
+    sha256 arm64_linux:    "7218dd57f33b59765539d81c7ea93b6f34fb3011f900fb04de59c603f824b967"
     sha256 x86_64_linux:   "eefab1384276b2406cbdb286bfc730b3d434112f2d5ea8be6c3edb451d34f2e9"
   end
 
@@ -27,9 +28,12 @@ class Lgeneral < Formula
   def install
     # Applied in community , to remove in next release
     inreplace "configure", "#include <unistd.h>", "#include <sys/stat.h>\n#include <unistd.h>"
-    system "./configure", *std_configure_args,
-                         "--disable-silent-rules",
-                         "--disable-sdltest"
+
+    args = ["--disable-silent-rules", "--disable-sdltest"]
+    # Help old config scripts identify arm64 linux
+    args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+
+    system "./configure", *args, *std_configure_args
     system "make", "install"
   end
 

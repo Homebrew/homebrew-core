@@ -4,6 +4,7 @@ class Bomber < Formula
   url "https://github.com/devops-kung-fu/bomber/archive/refs/tags/v0.5.1.tar.gz"
   sha256 "f4d8165ea9d3be0e88fdb33d35870588df308f31a4c40f14f09f0b68570f6ae1"
   license "MPL-2.0"
+  head "https://github.com/devops-kung-fu/bomber.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "989ad14e281150f655296b8aa8ca9a3d24965bbd690d9ce8db45163e92429004"

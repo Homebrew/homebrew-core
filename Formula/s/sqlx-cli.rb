@@ -1,18 +1,18 @@
 class SqlxCli < Formula
   desc "Command-line utility for SQLx, the Rust SQL toolkit"
   homepage "https://github.com/launchbadge/sqlx"
-  url "https://github.com/launchbadge/sqlx/archive/refs/tags/v0.8.3.tar.gz"
-  sha256 "35b1598670e6701021b2622dbc5e05acaba60ced5285b3fdc97b26910fed4bfb"
+  url "https://github.com/launchbadge/sqlx/archive/refs/tags/v0.8.5.tar.gz"
+  sha256 "c6a32bb7d733fd598ba7473da9f82e9971557302e180ca3da0b1e29028dc9027"
   license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "331d0242afed8925d3c05ede24458de34689fbb50d45107764d7986dd3648b65"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9b7d2c265450b36ec7fcfccab40228c1a7c5edeb0fc0252be2d86c2d517577f3"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "e666d726788aad08b2f4bc2239facd2fbb8a3e50ab4ba7e7159ba3535655f1fa"
-    sha256 cellar: :any_skip_relocation, sonoma:        "09c26b1c79b13a2490dd4d879ecbf991caecc6b8c664a9ea58a879b1bb7c8791"
-    sha256 cellar: :any_skip_relocation, ventura:       "53d1e78bb72ffcd53aadb31f29cf16e8498dd33eb1f3e070b62122578cc2f302"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "737c1876539505faf6ebcb8fe4163a3223470b37608b60f6da31edb3b47dd94d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fe41a753bd41e992ae110e22f50855eb3e5bcdc3f796308bee36fa2efac12a3f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "17c46172b54aa2fb1e0e4cefb06ab0736bd223fcccac60f061bdd55e66aaf2a7"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d9673914ecf85ede3a6076d57bad9caf28df9a39e95af7263da8559f4dbc4df6"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "a0f358c1c19ad0dec41e48292a9971ff844905c9f82abbf809316f8a4b4d5478"
+    sha256 cellar: :any_skip_relocation, sonoma:        "aabafa16b518a697e5169c2e4d1f00a789fb396ab6b4dcd8828f3e95eaa833a5"
+    sha256 cellar: :any_skip_relocation, ventura:       "309ed400ad81629058d2128697ce70ee80ae9b411fe16e899a2a9f4807260beb"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3464997e93de30ce3b413adb8115b8917b9b538450aa0cad7cefeb2734ca32ca"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3934e22542a2706089c12fe6fca9c41c6ac49ea881a4b60a780f4f29516916dd"
   end
 
   depends_on "rust" => :build

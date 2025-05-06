@@ -1,19 +1,19 @@
 class Tinyxml2 < Formula
   desc "Improved tinyxml (in memory efficiency and size)"
   homepage "https://leethomason.github.io/tinyxml2/"
-  url "https://github.com/leethomason/tinyxml2/archive/refs/tags/10.1.0.tar.gz"
-  sha256 "9da7e1aebbf180ef6f39044b9740a4e96fa69e54a01318488512ae92ca97a685"
+  url "https://github.com/leethomason/tinyxml2/archive/refs/tags/11.0.0.tar.gz"
+  sha256 "5556deb5081fb246ee92afae73efd943c889cef0cafea92b0b82422d6a18f289"
   license "Zlib"
   head "https://github.com/leethomason/tinyxml2.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "94a4e165cc2e528257550eaa40aeafa7ecf04f7675755b6bbabd80fe29cc7956"
-    sha256 cellar: :any,                 arm64_sonoma:  "420989ffd47e892d2080b51d32f7bbb7f5ffd17fd62f604bd429bad98c17d19e"
-    sha256 cellar: :any,                 arm64_ventura: "b89d53386ce4376da928ac82e2a74f9fb3bd4312afd177de7e9422c59561765f"
-    sha256 cellar: :any,                 sonoma:        "1e22b22ee274991d50a5a72e3cb903fcc166c73f95fb4668f835b5b92668011d"
-    sha256 cellar: :any,                 ventura:       "3b83afa4c9927e534eabc9e31803510ef86a06a87c2311ab6c6d26f31ec2fa53"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b0ca7bb327d5610d27894b0504b78602965a775ed8c66ed2f9ea1fb6314794de"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "062be8551513e2b2eca3ac2e3ed1241de9d2b0b92282f9c605ddb45a47f56e20"
+    sha256 cellar: :any,                 arm64_sequoia: "547cd64f4a05b78839ba3b1aa14f062a0bfe39c54fe22d34229c729f5258fbd4"
+    sha256 cellar: :any,                 arm64_sonoma:  "c2003e2db45283b198c1bdedde97f4802da748639ccf484d1bd88a7802bd6149"
+    sha256 cellar: :any,                 arm64_ventura: "1e5668be8fa0aa9055dd729b63c8e588093e2ed7142f3f1987b646ede0cd46eb"
+    sha256 cellar: :any,                 sonoma:        "7e9a788c39b407964a7c3fe4314597f9dcd79ccfb2e0285bed668400a683f656"
+    sha256 cellar: :any,                 ventura:       "65a3ebdb7165567537c04c772f7bda89bf86c76aaeae1bed179807be0925b04f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e7f5f7fc450393d4fc812c231db8b66464ee6f40be800b5e77bfb89ea819e6b6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "13c9eee32ef5d3a82e63177c56653c9514b179a4c07f42c4b1bccbae27e0670b"
   end
 
   depends_on "cmake" => :build

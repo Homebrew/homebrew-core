@@ -1,19 +1,19 @@
 class CargoFlamegraph < Formula
   desc "Easy flamegraphs for Rust projects and everything else"
   homepage "https://github.com/flamegraph-rs/flamegraph"
-  url "https://github.com/flamegraph-rs/flamegraph/archive/refs/tags/v0.6.7.tar.gz"
-  sha256 "d7fa901673f4ece09226aeda416b98f919b7d946541ec948f1ef682bd6eec23b"
+  url "https://github.com/flamegraph-rs/flamegraph/archive/refs/tags/v0.6.8.tar.gz"
+  sha256 "2673a04bd4de142220d42706e0c25a4dea08aee52cdffbf87cca5738cec649ff"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/flamegraph-rs/flamegraph.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "83b62778b73581c7e53152c4e73fd438b68bb8beeee5102811d8ae4d40e89f75"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6ede9bd1f60031ed9e4d923108fd437297e436d4086aca244bf8c9758061ff17"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "64a11d47c7eec1f0763a07f464e6fbf0f69585f4292a17fe76bbdda2170f7eab"
-    sha256 cellar: :any_skip_relocation, sonoma:        "36249021702766ea6d42e784c76167a45286238a3252220128e6cd6c2ddc2bce"
-    sha256 cellar: :any_skip_relocation, ventura:       "3d318a74ddf55a95efd0e7c266269db79bb3ca206d8175422d1f64b17fdc2844"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f202dd91f412b3b9a839757309d613a81e126905cec1834a364cd141eb21c3cc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bc5ec07e6bec4c930cffa793537cab6f01569e5a7a44915201505003c7badcd7"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "740ef8f614bf69783f1d25c138bc5eb7e57f0318d05ecb87c1de8796a84c6190"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "933b50f514c63ed78874e8443330c4e01fa0284c33f3b4dd2739d19233e5118e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "745ed3bedef3ac3b3a17a589edfe3321bd2731e4b1036cfaadfab9e7a5b37aee"
+    sha256 cellar: :any_skip_relocation, sonoma:        "3d5c2847b5ec9787c6b4ca4b71dfd959c6171e283d0bd5752cef352e6417d1f4"
+    sha256 cellar: :any_skip_relocation, ventura:       "f2af510d43d381717f9ef3b1b8a631a9ce37a1b3c87d35126bb2e3e593e73254"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "53d4cd9e5880a2a350ab626769520f62c130060ab69a1c60f6b14f015583e695"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4f1a3f5a80fb194e66fe415e19881ecc18ebda99abac0a049988fc9d54954780"
   end
 
   depends_on "rust" => :build
@@ -29,20 +29,15 @@ class CargoFlamegraph < Formula
     # Show that we can use a different toolchain than the one provided by the `rust` formula.
     # https://github.com/Homebrew/homebrew-core/pull/134074#pullrequestreview-1484979359
     ENV.prepend_path "PATH", Formula["rustup"].bin
-    system "rustup", "default", "beta"
     system "rustup", "set", "profile", "minimal"
+    system "rustup", "default", "beta"
 
     assert_match version.to_s, shell_output("#{bin}/flamegraph --version")
 
     system "cargo", "new", "testproj", "--bin"
     cd "testproj" do
       system "cargo", "build", "--release"
-      expected = if OS.mac?
-        "Error: DTrace requires elevated permissions"
-      else
-        "WARNING: profiling without debuginfo"
-      end
-      assert_match expected, shell_output("cargo flamegraph 2>&1", 1)
+      assert_match "WARNING: profiling without debuginfo", shell_output("cargo flamegraph 2>&1", 1)
     end
 
     expected = if OS.mac?

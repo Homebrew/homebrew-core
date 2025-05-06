@@ -17,6 +17,7 @@ class PostgresqlAT14 < Formula
     sha256 arm64_ventura: "46fe2d7204221525795de6c47429f5faf6c4afb53633918e7e407e563f186a3b"
     sha256 sonoma:        "a44badaa8944f58f4e2637e011af7247a18f4dd056e1c6b057f97b2d23ff3ad6"
     sha256 ventura:       "590ce4ed9f348abc6ab012dd636f59041e472afb110ee5e64e99c68f680d5029"
+    sha256 arm64_linux:   "a2be9241e00df2b9c24f751007cc31e919a40e766ce9c8b1902b10123d26cdcb"
     sha256 x86_64_linux:  "3debb0cd234c156ed0fd93695cdc54ee87041b8a10bd26f80502e661e27a76ed"
   end
 
@@ -46,6 +47,7 @@ class PostgresqlAT14 < Formula
   end
 
   def install
+    ENV.runtime_cpu_detection
     ENV.prepend "LDFLAGS", "-L#{Formula["openssl@3"].opt_lib} -L#{Formula["readline"].opt_lib}"
     ENV.prepend "CPPFLAGS", "-I#{Formula["openssl@3"].opt_include} -I#{Formula["readline"].opt_include}"
 

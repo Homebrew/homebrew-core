@@ -40,8 +40,9 @@ class Libsbol < Formula
       args << "-DLIBXSLT_LIBRARIES=#{sdk}/usr/lib/libxslt.tbd"
     end
 
-    system "cmake", ".", *args
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build", *args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do

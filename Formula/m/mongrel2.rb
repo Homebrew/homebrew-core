@@ -12,6 +12,7 @@ class Mongrel2 < Formula
     sha256 cellar: :any,                 monterey:     "5bbd0bb3f0ff9147810b45a7a9c55e1c1b7cab73e3f5ba7f03a77b9c385bc4bd"
     sha256 cellar: :any,                 big_sur:      "560c6b6dc8cd05ee5feefe62e3f87c740be212a8a7e4ddda290549448650f395"
     sha256 cellar: :any,                 catalina:     "b7e0d3b8495e1eccf5acfe73981aa84fe0245b1c7d9f7a2db6cee6b64dcd4b76"
+    sha256 cellar: :any_skip_relocation, arm64_linux:  "607b1753fe345dac5076c15097358c082795cf06df6294e49b72591169c07f28"
     sha256 cellar: :any_skip_relocation, x86_64_linux: "d117a88b346fc34a3a279f08abd2707876d73aa6cd2e6a46eb085c67f440ea32"
   end
 

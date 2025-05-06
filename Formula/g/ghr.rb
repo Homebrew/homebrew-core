@@ -4,6 +4,7 @@ class Ghr < Formula
   url "https://github.com/tcnksm/ghr/archive/refs/tags/v0.17.0.tar.gz"
   sha256 "3880f783dc9bded96d67bd3138a283eea8da767559ca8ae904b316965315199a"
   license "MIT"
+  head "https://github.com/tcnksm/ghr.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "33eb8a6c60098a3b5f4c8f86fa0362c33a96d9666c2f9327f2af05822c40ad72"

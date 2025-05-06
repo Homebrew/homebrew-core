@@ -1,22 +1,18 @@
 class Logswan < Formula
   desc "Fast Web log analyzer using probabilistic data structures"
   homepage "https://www.logswan.org"
-  url "https://github.com/fcambus/logswan/archive/refs/tags/2.1.14.tar.gz"
-  sha256 "689e9af1ba8f22443e6ed3480693cc3a3add68c296d8e535dffa641c0c25e459"
+  url "https://github.com/fcambus/logswan/archive/refs/tags/2.1.15.tar.gz"
+  sha256 "6e500f33b741fce766225048ec2197e57047f91baa42ecd55ec2b94cdc2c3b5d"
   license "BSD-2-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "974dab0839e9b27ff17ae06429f35afa70dca195987f113d06c97d8cb8f76809"
-    sha256 cellar: :any,                 arm64_sonoma:   "32ae83eb50fa25acf2381bb182f42c54480fb35f2e059d6e68cf32bf8d072601"
-    sha256 cellar: :any,                 arm64_ventura:  "34a5d3784442be907bb3f1cdea2a8db5761b6434bf95e388ee613c4975d70eb5"
-    sha256 cellar: :any,                 arm64_monterey: "44cf0367927f113091cb1050d5a5c6dd55b26eafb4a1842dc370ae1e2a866267"
-    sha256 cellar: :any,                 arm64_big_sur:  "8fcddaba23605ecaa144b219d4343247e0607cd5cc6d1eff0fdfb0d7ccdd01d5"
-    sha256 cellar: :any,                 sonoma:         "045a9cf326ea5dea7a20f6124ee5adaa75677a2912bf4a4400cf71cb20c2c55a"
-    sha256 cellar: :any,                 ventura:        "80e8dcb3297de3ed06b1eb8d5181475f6e50fc1274173407c05f4728af3ac0b2"
-    sha256 cellar: :any,                 monterey:       "141f991b685894f9f98d943523450561054611b3d28136b77bb051e9e9a82d18"
-    sha256 cellar: :any,                 big_sur:        "844db408c05246ded9307d94044800c96d7d8329911c5151075cbf9d2d232306"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "a25a99fdcba7a5a3a98e6cae6748b95d472998fde0853afe634175bc2d116a1c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8d49f9622084644cb992ec23953d51a13661ff48625a110dbf00a5895d628fbb"
+    sha256 cellar: :any,                 arm64_sequoia: "7723c48f946745fda128783c73682abcd538a34b87512f17ab7a48c2ec7d7b95"
+    sha256 cellar: :any,                 arm64_sonoma:  "1c26389b0b04f97cdf2c79edd4ee731dd7660ae8565bbc02cc79b2818774258d"
+    sha256 cellar: :any,                 arm64_ventura: "1706e833e83efa99e5376328bd2562b541661bcfd7b7b07e16c1632e983a82f8"
+    sha256 cellar: :any,                 sonoma:        "e9c9114e2891d2c055a7ba55fc456b269082c11e32aadc7c894e8104b18c59cf"
+    sha256 cellar: :any,                 ventura:       "397fd860ac0ce631568275746eab2407c2351c5c6cdf489e2363b64f7d996bfd"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6d6c645f860d61304eafebf743fbfd4a2854c2e390bd9873c5e9defd8f917c09"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "339fb70c5c850f38feb2410126b57ea5b4b03e813aac818a28d2050ddb8c6f35"
   end
 
   depends_on "cmake" => :build

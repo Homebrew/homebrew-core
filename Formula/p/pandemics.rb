@@ -14,6 +14,7 @@ class Pandemics < Formula
     sha256 cellar: :any_skip_relocation, sonoma:         "a759108afc20634004c21dde25897cf10004a275c33706af36f4c6a2e19bbaf0"
     sha256 cellar: :any_skip_relocation, ventura:        "a759108afc20634004c21dde25897cf10004a275c33706af36f4c6a2e19bbaf0"
     sha256 cellar: :any_skip_relocation, monterey:       "a759108afc20634004c21dde25897cf10004a275c33706af36f4c6a2e19bbaf0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "64951c574fd94a0802e1cc2a5934927ca9a4c35f418f6e212b5d462e22177ff7"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "c286b0bc6887c50d894e25699b0e312a2663b40e5d8c44dbc73501cca334d8e4"
   end
 

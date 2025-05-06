@@ -8,20 +8,20 @@ class Luvit < Formula
   head "https://github.com/luvit/luvit.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia: "6b60306e827d1ae928e60c37b00b83ca10a5bdfb02b0a67812e1eb999827c96d"
-    sha256 cellar: :any,                 arm64_sonoma:  "b0eb78bcb741a4096ecfdfcbf8656f73a1a36de52027ac2a1f001b646ff5c260"
-    sha256 cellar: :any,                 arm64_ventura: "4617df0255020cc2092491fcae316e8b24bb3dbad41199d478adc2347354be1d"
-    sha256 cellar: :any,                 sonoma:        "f339f8f017f800383975270f241aa1b422581d9bbb23968a3a93f1a414bb406c"
-    sha256 cellar: :any,                 ventura:       "a8ccb357aa21457d1faf621fda482fa4f70997121f31fd77256974a79d409e09"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9f938d579e8d759b9880b38f4f8ad8aa6caab85b0e500c3a082b611a003e7ad1"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_sequoia: "f004efa20e48708ea7d0a1ea8bfa25bbe3d799ee20984e44f961021364d1dd92"
+    sha256 cellar: :any,                 arm64_sonoma:  "cb68897cf4876b88d1d6f4145fc9ede06ef04f4b882c7eff6a9ca8a10e0eb668"
+    sha256 cellar: :any,                 arm64_ventura: "7cd6942821d45baa652c413d10d4ad521828d0a86ee581f0f72ff06098491c27"
+    sha256 cellar: :any,                 sonoma:        "6f261a667091381e962a5ff45a4080328c111bfe5883ec9d988b08b4eefaa8e5"
+    sha256 cellar: :any,                 ventura:       "c18b8fc2393a68b9b37f5ad5676fd619cca659348fb16938574a0a3b2731ce91"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "39109c056556f13c412c554fd1b421812b32e6d2bd01c4e103d71188612c21e9"
   end
 
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
   depends_on "libuv"
   depends_on "luajit"
-  depends_on "luv"
+  # TODO: depends_on "luv"
   depends_on "openssl@3"
   depends_on "pcre"
 
@@ -89,7 +89,6 @@ class Luvit < Formula
 
     ENV["PREFIX"] = prefix
     luajit = Formula["luajit"]
-    luv = Formula["luv"]
 
     resource("luvi").stage do
       # Build scripts set LUA_PATH before invoking LuaJIT, but that causes errors.
@@ -104,17 +103,33 @@ class Luvit < Formula
       rm_r "deps/lua-openssl"
       Pathname("deps/lua-openssl").install resource("lua-openssl")
 
+      # Build the bundled `luv` as `luvi` is not compatible with newer version.
+      # We cannot use `-DWithSharedLibluv=OFF` as it will bundle `luajit` too.
+      # TODO: Restore brew `luv` once support is available
+      system "cmake", "-S", "deps/luv", "-B", "build_luv",
+                      "-DBUILD_MODULE=ON",
+                      "-DBUILD_SHARED_LIBS=ON",
+                      "-DBUILD_STATIC_LIBS=OFF",
+                      "-DCMAKE_POLICY_VERSION_MINIMUM=3.5",
+                      "-DLUA_BUILD_TYPE=System",
+                      "-DWITH_LUA_ENGINE=LuaJIT",
+                      "-DWITH_SHARED_LIBUV=ON",
+                      *std_cmake_args(install_prefix: libexec)
+      system "cmake", "--build", "build_luv"
+      system "cmake", "--install", "build_luv"
+
       # CMake flags adapted from
       # https://github.com/luvit/luvi/blob/#{luvi_version}/Makefile#L73-L74
       luvi_args = %W[
+        -DCMAKE_POLICY_VERSION_MINIMUM=3.5
         -DWithOpenSSL=ON
         -DWithSharedOpenSSL=ON
         -DWithPCRE=ON
         -DWithLPEG=ON
         -DWithSharedPCRE=ON
         -DWithSharedLibluv=ON
-        -DLIBLUV_INCLUDE_DIR=#{luv.opt_include}/luv
-        -DLIBLUV_LIBRARIES=#{luv.opt_lib/shared_library("libluv")}
+        -DLIBLUV_INCLUDE_DIR=#{libexec}/include/luv
+        -DLIBLUV_LIBRARIES=#{libexec}/lib/#{shared_library("libluv")}
         -DLUAJIT_INCLUDE_DIR=#{luajit.opt_include}/luajit-2.1
         -DLUAJIT_LIBRARIES=#{luajit.opt_lib/shared_library("libluajit")}
       ]

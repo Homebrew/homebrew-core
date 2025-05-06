@@ -4,6 +4,7 @@ class Uuu < Formula
   url "https://github.com/nxp-imx/mfgtools/releases/download/uuu_1.5.201/uuu_source-uuu_1.5.201.tar.gz"
   sha256 "c763b87ffdf10ac5499a0c319463759caa336bc6567b56d6d0ef448590c1a76d"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/nxp-imx/mfgtools.git", branch: "master"
 
   livecheck do
@@ -13,13 +14,13 @@ class Uuu < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "02a11844bc1d48ac72b4e6ce82a5325c38023f53de9d58cfa45148000d9c2270"
-    sha256 arm64_sonoma:  "7fb0bf7f0fb5d7e9f428d98d500daf3f3c8a721b23eb1187d2c4e3785004606a"
-    sha256 arm64_ventura: "a7dbb4dd0967afb3f747dfbf84257a48f8a4fed067e4f76d6997dba6eaf34747"
-    sha256 sonoma:        "6773e6f293f4eb2a8ac298ca7035970d9e26ba2379b020dc3e3a6c4e74d14775"
-    sha256 ventura:       "7fead959d22f46f47ef56de8f0de054b66bfe7115ff155b66a17346d757c7aab"
-    sha256 arm64_linux:   "a68e9bffd0c8555a36213fb6ed4e9f64b5bfc356b3ceb4ec57bca56f01eff301"
-    sha256 x86_64_linux:  "68d4fb9b7c85d21ccba50ab8aa60f5cef6ef6d9d3befaee32deecc5bce6377a6"
+    sha256 arm64_sequoia: "d0dc183bd58f476ccf616ecb35d4b96a95e345859da2adea6c50ecaafb3c482c"
+    sha256 arm64_sonoma:  "cee3bc7e87a0a6554789ce3545c6254f1ddd99b74fa4958bd1e63611b7b4a52e"
+    sha256 arm64_ventura: "040d1ce65a6874b5cb49fff2b1ea0117e088a6432a50757750ee4ee71a03a695"
+    sha256 sonoma:        "c53b10c409834bb554170339dff52cbb948c7aa1a5a8f895b29c99f60dbf2dd3"
+    sha256 ventura:       "a0dc155bb4e5404c93e4d7fc492876367c3776d6120d0c04201f9258e438656e"
+    sha256 arm64_linux:   "3ad4106bf0c1f97dd53645f7d4e60c7f17352169cd67e1a25a9bc6ff75aeb3cc"
+    sha256 x86_64_linux:  "4aa91b9b65de6c00a02e2d6d5922521da22633139829b348f1186296225e348c"
   end
 
   depends_on "cmake" => :build
@@ -33,6 +34,12 @@ class Uuu < Formula
 
   uses_from_macos "bzip2"
   uses_from_macos "zlib"
+
+  # cmake 4.0 build patch, upstream pr ref, https://github.com/nxp-imx/mfgtools/pull/467
+  patch do
+    url "https://github.com/nxp-imx/mfgtools/commit/2c712cb86478a3527145272f0cc96533f9386b7a.patch?full_index=1"
+    sha256 "220fd4a7d9f1abe957e621da486eabe6c8a35e61d4c3e6c5f54bcedcf0e13ed0"
+  end
 
   def install
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args

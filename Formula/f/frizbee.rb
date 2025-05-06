@@ -1,18 +1,18 @@
 class Frizbee < Formula
   desc "Throw a tag at and it comes back with a checksum"
   homepage "https://github.com/stacklok/frizbee"
-  url "https://github.com/stacklok/frizbee/archive/refs/tags/v0.1.6.tar.gz"
-  sha256 "3aca6e86a27fd659f2c543c3516a50ca46d1e6b0a85df5363d90e792dbf90f2b"
+  url "https://github.com/stacklok/frizbee/archive/refs/tags/v0.1.7.tar.gz"
+  sha256 "71ad0532b478c942b74c53e5ddec45df4b737d4db05192bc899d2ba7ff0a2196"
   license "Apache-2.0"
   head "https://github.com/stacklok/frizbee.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "46c25d69ec52fab8fa9cbb339aae62c8d4072853e33d779c95cd5f9e146aa6ab"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "46c25d69ec52fab8fa9cbb339aae62c8d4072853e33d779c95cd5f9e146aa6ab"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "46c25d69ec52fab8fa9cbb339aae62c8d4072853e33d779c95cd5f9e146aa6ab"
-    sha256 cellar: :any_skip_relocation, sonoma:        "0a4435d62f083d5e20b0893ef8673cead2aaa27a5c707ddc988a153c9ca885a7"
-    sha256 cellar: :any_skip_relocation, ventura:       "0a4435d62f083d5e20b0893ef8673cead2aaa27a5c707ddc988a153c9ca885a7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a36516da0357fc73d5d8398854ddd467d808f1d97b5ebf61b21620f38b6cdbe0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f3cccb25cf914098b92d2d170231b8ea4ae65a7e2ab325aaa2c834e027c026f5"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f3cccb25cf914098b92d2d170231b8ea4ae65a7e2ab325aaa2c834e027c026f5"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "f3cccb25cf914098b92d2d170231b8ea4ae65a7e2ab325aaa2c834e027c026f5"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8350ae10a806428da912b930be21e87f5476630bf10d2c0fe4d00bbb7f7406c8"
+    sha256 cellar: :any_skip_relocation, ventura:       "8350ae10a806428da912b930be21e87f5476630bf10d2c0fe4d00bbb7f7406c8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "99ccd2e57c9257a04aea350b7f284d8788311f636c071ac3113571b538f5dae8"
   end
 
   depends_on "go" => :build

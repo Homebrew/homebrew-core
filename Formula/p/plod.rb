@@ -18,6 +18,7 @@ class Plod < Formula
     sha256 cellar: :any_skip_relocation, big_sur:        "7398f28822ffb0a9b2d84ba2bf98ed4bb49dea0c26ed4d8b6b0c16360173ca4b"
     sha256 cellar: :any_skip_relocation, catalina:       "7398f28822ffb0a9b2d84ba2bf98ed4bb49dea0c26ed4d8b6b0c16360173ca4b"
     sha256 cellar: :any_skip_relocation, mojave:         "7398f28822ffb0a9b2d84ba2bf98ed4bb49dea0c26ed4d8b6b0c16360173ca4b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "427039e1e718a334f7d4a2e803de0567e33d38908ea56204f3bb6476709d82ad"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "8361343544ac10cdf1c2c6b37b4a8a4882d199c2d49ac22fc35b776199527fbf"
   end
 

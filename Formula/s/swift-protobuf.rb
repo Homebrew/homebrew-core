@@ -12,6 +12,7 @@ class SwiftProtobuf < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "2600bb6e8d77d8ad51b7d00bbb05c2648f1cde0a67076ec1735fbbf6b13b90dc"
     sha256 cellar: :any_skip_relocation, sonoma:        "876fb05e81951bc16d828cd4b6fc6eec24132ca96900b35f4310f617180a4275"
     sha256 cellar: :any_skip_relocation, ventura:       "2a684814cc304f25e1ea59d3079dd6835b6701d84946919db538f76caf1d87c4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4150b8bbb82cb4ea9f4cc3a346ae22a5cf11fdc144003931dce837dba50e4a35"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "d6dc45f84a76c05d6fc9060801d94394a46b8e3bb541161d6aeef4f160f29b2b"
   end
 

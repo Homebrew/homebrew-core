@@ -22,6 +22,7 @@ class SpiceGtk < Formula
     sha256 sonoma:         "5899efc0635b8e80ed5d8500bbfb654aaaf241a457d7a817d51c066f991d73ed"
     sha256 ventura:        "25c6fdcf7449f65c449d4ef7379d80b607c6d6aabc2a5823b4bd0241394e73cf"
     sha256 monterey:       "a553e9a2c8c13b84545376374a8a1418c35bb9aa10baeeb6c536c09c106b7a5b"
+    sha256 arm64_linux:    "0c23d1d447cdcb8881dcccdd7e5ebdd2d2fd58b8bf8aa486568dfa2c1e835ef3"
     sha256 x86_64_linux:   "7ffdfb8565e07edaa4aaaed8ec4926679bfbe5242b32343e9c97dfe6ff02f69a"
   end
 

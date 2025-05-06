@@ -17,6 +17,7 @@ class Ncview < Formula
     sha256 cellar: :any,                 arm64_ventura: "2bc952df1f41c6f9050a745254138365ae9496d82b1be390712d69820dca9409"
     sha256 cellar: :any,                 sonoma:        "2936bd01d289bc341a2a52e604692c7baa1611f8a2f7aa33d2a2c8e0fef22081"
     sha256 cellar: :any,                 ventura:       "51021664ece85a65f8941d091657cd9c10f7a6d5875cd2306cf8cd3d50437ef9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "29d0391497116f259d6adbe90d555e92bc49a78fc040e0ba3636354f0cf8284d"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "ed6715afe50ab90f472bcdd31e4b51f047b0705796cc1e103162f74d113a4f44"
   end
 

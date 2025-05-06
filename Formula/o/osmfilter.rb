@@ -22,6 +22,7 @@ class Osmfilter < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:    "b2e2d4190462b0b0e473da4a50ab5e25da007aca21db898d2d359e9e9eb2cde7"
     sha256 cellar: :any_skip_relocation, sierra:         "d7a8285fe18af71d0093b89e9b5613a4fe30ceb4978e07f61ad1974e734d7f50"
     sha256 cellar: :any_skip_relocation, el_capitan:     "6a0fd608e0bc8094f08edb6f86a51b45745506d3ef84e0454ef1498dd77f61b0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "71fba6dd634a34968c4296190c8dd7925e6a536c0a289fe97c1bb3abfe75b6ac"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "55e3476d7bcb3d9a71fc2d192812526ad3497f17647c9d08daac16b5cbdcfea6"
   end
 

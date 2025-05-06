@@ -1,42 +1,30 @@
 class Weighttp < Formula
   desc "Webserver benchmarking tool that supports multithreading"
   homepage "https://redmine.lighttpd.net/projects/weighttp/wiki"
-  url "https://github.com/lighttpd/weighttp/archive/refs/tags/weighttp-0.4.tar.gz"
-  sha256 "b4954f2a1eca118260ffd503a8e3504dd32942e2e61d0fa18ccb6b8166594447"
+  url "https://github.com/lighttpd/weighttp/archive/refs/tags/weighttp-0.5.tar.gz"
+  sha256 "5900600cc108041d0e38abd02354d7d3b14649c827c4266c0d550b87904f1141"
   license "MIT"
   head "https://git.lighttpd.net/lighttpd/weighttp.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "55b511aee9ca33b3136e4c06d1fe7c83e5b9edc06b4d8a00d6b9228f0c61ca6f"
-    sha256 cellar: :any,                 arm64_sonoma:   "8ef536a1d1625b63bd6fb92bc1980ff152c52e5598e308412f224cfd1d5b5a8d"
-    sha256 cellar: :any,                 arm64_ventura:  "21eca9535f85701e10a816f1841397c2a8bd7792503dfcec9c5a1f3a07121d6b"
-    sha256 cellar: :any,                 arm64_monterey: "64057edc2b2ff52e19975c6fadcc94bb456b4a37ad0a3e7f94b93b7477cdc867"
-    sha256 cellar: :any,                 arm64_big_sur:  "61bd26ebdcd743d1078d4bd2138f55bcd943900c85acf567ccfda9fe4fc89379"
-    sha256 cellar: :any,                 sonoma:         "8a7cd2b59587829920b7eda66607f7546371d569f0567bd74f619417b6245620"
-    sha256 cellar: :any,                 ventura:        "21435b447ad202da969ce1132061ec141e73dd0e62b7f92a8298f67e7c37eb35"
-    sha256 cellar: :any,                 monterey:       "6c94e449d1376949e49017b614bd578d297f64b59738e4a0616667d6f2f8892d"
-    sha256 cellar: :any,                 big_sur:        "73c147309603c830719feac16847dc9ec2f09d27dc3a3f702760efe1eaaf8405"
-    sha256 cellar: :any,                 catalina:       "b76ee9060b8cb86897af45c620b1f1fb3d757955a2a2f8e4c55ef6a153bfc547"
-    sha256 cellar: :any,                 mojave:         "2ab4f5e31f9411d55c4a4653f78bb381b70f53f49d07efaf6e99b5a86281b62a"
-    sha256 cellar: :any,                 high_sierra:    "4225f653fe64067e3330c33202a15ad65a6b194ce23619ae045cbe50528a9b02"
-    sha256 cellar: :any,                 sierra:         "242f14d7a7fb477e4722a3818a98ad25ffedd5d2c80e7c97d67c80fe2a20366c"
-    sha256 cellar: :any,                 el_capitan:     "e96be0135f552ddde0547ca914c2bc6635dcc59ce4bdeb803ab9412100d8d15b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "bb0635cbcb87b8e145d88c1992eda333d22f4369bfaf14589dcb74239763b5b4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c7ef5cfd2cdadf8036c30295d3c51a56399d8acee7e2dc96aa1d75d471e2c1a0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "747f42a474d5c96eb75aa6d3f26dd2871d4df6f4d81b183331fd884fa3494548"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ed5486cf450787db1c33a75595384abb0be250d3f7f1e72acca58f2a917dd653"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "6598256aa773c154c7d1583f35350c8e79bda87113d10010560f026b4f71dbb8"
+    sha256 cellar: :any_skip_relocation, sonoma:        "29aa4d4033b8d42c0d19775341bb677ed2ad36a76c63560b5f30f6c14a92a6e2"
+    sha256 cellar: :any_skip_relocation, ventura:       "f8b15a0b7e333586d24a4b6dd1993bfa45b0b95a173b620210016e13aba538da"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9a163f9c93a97ef7facda6ceb7e353d18d4467bba6649c7ec5ea99659f53559c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "07a8f6aaec0a3cd34539dc74acb30d4ca3d392b70e1ca89342545ee7830aa343"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkgconf" => :build
   depends_on "libev"
 
   def install
-    system "autoupdate"
-    system "./autogen.sh"
-    system "./configure", *std_configure_args
-    system "make"
-    system "make", "install"
+    system "meson", "setup", "build", *std_meson_args
+    system "meson", "compile", "-C", "build", "--verbose"
+    system "meson", "install", "-C", "build"
   end
 
   test do

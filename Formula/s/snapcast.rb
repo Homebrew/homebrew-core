@@ -7,11 +7,13 @@ class Snapcast < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia: "503bcd02e9c1cee66a0fe1c31b4fb92c456e0403dbeff251ab37a89d097800ba"
-    sha256 cellar: :any, arm64_sonoma:  "5148be65fd513313ab9eae89eada1ab878e311c5bf7bae260adc8d9742005213"
-    sha256 cellar: :any, arm64_ventura: "0dbfc1421b25651a69006ac4f2dc5995c79ad832f582b57877b53deed618b47e"
-    sha256 cellar: :any, sonoma:        "e7a695a5486603ca20361ee1ea25680f77cbfefe31b073b2f881c1f4dd7e7302"
-    sha256 cellar: :any, ventura:       "7c12245e729a102ec2b284ce3cc5ff11532269effd442175acc8890c440a1b7f"
+    sha256 cellar: :any,                 arm64_sequoia: "503bcd02e9c1cee66a0fe1c31b4fb92c456e0403dbeff251ab37a89d097800ba"
+    sha256 cellar: :any,                 arm64_sonoma:  "5148be65fd513313ab9eae89eada1ab878e311c5bf7bae260adc8d9742005213"
+    sha256 cellar: :any,                 arm64_ventura: "0dbfc1421b25651a69006ac4f2dc5995c79ad832f582b57877b53deed618b47e"
+    sha256 cellar: :any,                 sonoma:        "e7a695a5486603ca20361ee1ea25680f77cbfefe31b073b2f881c1f4dd7e7302"
+    sha256 cellar: :any,                 ventura:       "7c12245e729a102ec2b284ce3cc5ff11532269effd442175acc8890c440a1b7f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f75f295d76b5e75bdebb3131c00c38d134d74ec6268951a27e14fcfb7d1486ca"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f5f9f7d0a5ee35ffa91c5d4e115ce9ba9a16d4cd3511ce01bc882f37b1f3f1f2"
   end
 
   depends_on "boost" => :build
@@ -50,7 +52,12 @@ class Snapcast < Formula
       output_log = testpath/"output.log"
       client_pid = spawn bin/"snapclient", [:out, :err] => output_log.to_s
       sleep 10
-      assert_match("Connected to", output_log.read)
+      if OS.mac?
+        assert_match("Connected to", output_log.read)
+      else
+        # Needs Avahi (which also needs D-Bus system bus) which requires root
+        assert_match "BrowseAvahi - Failed to create client", output_log.read
+      end
     ensure
       Process.kill("SIGTERM", client_pid)
     end

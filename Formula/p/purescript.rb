@@ -16,6 +16,7 @@ class Purescript < Formula
     sha256 cellar: :any_skip_relocation, sonoma:         "133fd37b35ea0ebc610965f55332f02bbf67a00db14c4b518f9e7b714fdd705f"
     sha256 cellar: :any_skip_relocation, ventura:        "25f3df8f4c4e5eaf94f4fb9411dfcd48ffaaf257f96e454eef88ff387dd7bc8d"
     sha256 cellar: :any_skip_relocation, monterey:       "a5cf0585bded8ce93f09124d885a8dc00b373b6ca63407300d5b3bcc10aebe9d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "b63d16bc91ca4f7bb745607399bf01273f7a4b31afb689ea10b7db7ac43bd13e"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "c07fee914dfa9648df6df6152b7c5d7f0297d2e8133a653a4f3511dcfb72b01c"
   end
 

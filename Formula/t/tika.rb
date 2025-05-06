@@ -7,7 +7,8 @@ class Tika < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "92bd1bfdc17fa792f3094c3045c399f0fa94070e754b22b68c5113ee1568a6ce"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "6b8514dd76bbf0d80792b06d878ab6aacf44c2be4dad3149477ead5742fe0736"
   end
 
   depends_on "openjdk"
@@ -24,6 +25,11 @@ class Tika < Formula
 
     libexec.install resource("server")
     bin.write_jar_script libexec/"tika-server-standard-#{version}.jar", "tika-rest-server"
+  end
+
+  service do
+    run [opt_bin/"tika-rest-server"]
+    working_dir HOMEBREW_PREFIX
   end
 
   test do

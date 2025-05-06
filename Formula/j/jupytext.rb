@@ -3,18 +3,18 @@ class Jupytext < Formula
 
   desc "Jupyter notebooks as Markdown documents, Julia, Python or R scripts"
   homepage "https://jupytext.readthedocs.io/en/latest/"
-  url "https://files.pythonhosted.org/packages/a0/40/641e0a94d84dee18b7815233a1e0e3c54228169fad529f12c3549a12f9ac/jupytext-1.16.7.tar.gz"
-  sha256 "fc4e97f0890e22062c4ef10313c7ca960b07b3767246a1fef7585888cc2afe5d"
+  url "https://files.pythonhosted.org/packages/6e/d9/b7acd3bed66c194cec1915c5bbec30994dbb50693ec209e5b115c28ddf63/jupytext-1.17.1.tar.gz"
+  sha256 "c02fda8af76ffd6e064a04cf2d3cc8aae242b2f0e38c42b4cd80baf89c3325d3"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "7710b25faeb208cb201066c33c840194d0d9a0fbd012fabc57dbcb3088a643fb"
-    sha256 cellar: :any,                 arm64_sonoma:  "83aa7f66d243d1e12d9ac65b8d02d8e5fa4abcb1fa3be9eca3711b8e0365eaf6"
-    sha256 cellar: :any,                 arm64_ventura: "65e83be7858490dd6a3d4265d9d12828802f7af6eb0dbf8bd7b38513fe276634"
-    sha256 cellar: :any,                 sonoma:        "de8faf4d069862bf893f2e8bd6aac5c425abd6154d41c48ef98dd3b2a395a53e"
-    sha256 cellar: :any,                 ventura:       "eac45328d8e8716634e6da1002290fdc599c33e50d82f3b69eb6589f21b61e18"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "4b45c57a730072f160a33c011bc36eafd141ab8621180ef08c204c4f781b2308"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8fd2c8359e912e7f14b13265775e25d29986ef0f7989a739bc7ea54dce3bc948"
+    sha256 cellar: :any,                 arm64_sequoia: "5ce194de72ca6c8357b22c5b5b360e77c3a63634ec268e8d9bf555472bef40f5"
+    sha256 cellar: :any,                 arm64_sonoma:  "e7c77b385f26f38af19888adf99292501cbae4e7af476e7dede2b0d56224c3c3"
+    sha256 cellar: :any,                 arm64_ventura: "fe60a7d034fbce8ec3a004d4e74d25b6fc345ee9ce4c4a5db2caafc8b491e67e"
+    sha256 cellar: :any,                 sonoma:        "4726493052daecc270357f717b1abdc5da3b9b853b59716f37ffeb9d29d4bd51"
+    sha256 cellar: :any,                 ventura:       "c895f236d503d64dff854a75a64c1f07a17447378285f9777cdd4c1a61346f49"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "037ec64acac01cd7abac9f45ea81e47544c8e3843062064f98b60fb77228ddc7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4602499865c5689bc5d8774f1187648c38c88209573f841ef78167df235145bc"
   end
 
   depends_on "rust" => :build # for rpds-py
@@ -22,8 +22,8 @@ class Jupytext < Formula
   depends_on "python@3.13"
 
   resource "attrs" do
-    url "https://files.pythonhosted.org/packages/49/7c/fdf464bcc51d23881d110abd74b512a42b3d5d376a55a831b44c603ae17f/attrs-25.1.0.tar.gz"
-    sha256 "1c97078a80c814273a76b2a298a932eb681c87415c11dee0a6921de7f1b02c3e"
+    url "https://files.pythonhosted.org/packages/5a/b0/1367933a8532ee6ff8d63537de4f1177af4bff9f3e829baf7331f595bb24/attrs-25.3.0.tar.gz"
+    sha256 "75d7cefc7fb576747b2c81b4442d4d4a1ce0900973527c011d1030fd3bf4af1b"
   end
 
   resource "fastjsonschema" do
@@ -37,8 +37,8 @@ class Jupytext < Formula
   end
 
   resource "jsonschema-specifications" do
-    url "https://files.pythonhosted.org/packages/10/db/58f950c996c793472e336ff3655b13fbcf1e3b359dcf52dcf3ed3b52c352/jsonschema_specifications-2024.10.1.tar.gz"
-    sha256 "0f38b83639958ce1152d02a7f062902c41c8fd20d558b0c34344292d417ae272"
+    url "https://files.pythonhosted.org/packages/bf/ce/46fbd9c8119cfc3581ee5643ea49464d168028cfb5caff5fc0596d0cf914/jsonschema_specifications-2025.4.1.tar.gz"
+    sha256 "630159c9f4dbea161a6a2205c3011cc4f18ff381b189fff48bb39b9bf26ae608"
   end
 
   resource "jupyter-core" do
@@ -67,13 +67,13 @@ class Jupytext < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/d0/63/68dbb6eb2de9cb10ee4c9c14a0148804425e13c4fb20d61cce69f53106da/packaging-24.2.tar.gz"
-    sha256 "c228a6dc5e932d346bc5739379109d49e8853dd8223571c7c5b55260edc0b97f"
+    url "https://files.pythonhosted.org/packages/a1/d4/1fc4078c65507b51b96ca8f8c3ba19e6a61c8253c72794544580a7b6c24d/packaging-25.0.tar.gz"
+    sha256 "d443872c98d677bf60f6a1f2f8c1cb748e8fe762d2bf9d3148b5599295b0fc4f"
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/13/fc/128cc9cb8f03208bdbf93d3aa862e16d376844a14f9a0ce5cf4507372de4/platformdirs-4.3.6.tar.gz"
-    sha256 "357fb2acbc885b0419afd3ce3ed34564c13c9b95c89360cd9563f73aa5e2b907"
+    url "https://files.pythonhosted.org/packages/b6/2d/7d512a3913d60623e7eb945c6d1b4f0bddf1d0b7ada5225274c87e5b53d1/platformdirs-4.3.7.tar.gz"
+    sha256 "eb437d586b6a0986388f0d6f74aa0cde27b48d0e3d66843640bfb6bdcdb6e351"
   end
 
   resource "pyyaml" do
@@ -87,8 +87,8 @@ class Jupytext < Formula
   end
 
   resource "rpds-py" do
-    url "https://files.pythonhosted.org/packages/01/80/cce854d0921ff2f0a9fa831ba3ad3c65cee3a46711addf39a2af52df2cfd/rpds_py-0.22.3.tar.gz"
-    sha256 "e32fee8ab45d3c2db6da19a5323bc3362237c8b653c70194414b892fd06a080d"
+    url "https://files.pythonhosted.org/packages/0b/b3/52b213298a0ba7097c7ea96bee95e1947aa84cc816d48cebb539770cdf41/rpds_py-0.24.0.tar.gz"
+    sha256 "772cc1b2cd963e7e17e6cc55fe0371fb9c704d63e44cacec7b9b7f523b78919e"
   end
 
   resource "traitlets" do

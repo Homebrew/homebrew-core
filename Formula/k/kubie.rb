@@ -1,8 +1,8 @@
 class Kubie < Formula
   desc "Much more powerful alternative to kubectx and kubens"
   homepage "https://blog.sbstp.ca/introducing-kubie/"
-  url "https://github.com/sbstp/kubie/archive/refs/tags/v0.25.1.tar.gz"
-  sha256 "b025db51bb95d1b585f3fbf5700deac592880904b67b32a30182c5d9af216b5a"
+  url "https://github.com/sbstp/kubie/archive/refs/tags/v0.25.2.tar.gz"
+  sha256 "4d41e441eb006999f91f962b264730ec092a1352b16e45094f703144e855857e"
   license "Zlib"
   head "https://github.com/sbstp/kubie.git", branch: "master"
 
@@ -12,12 +12,13 @@ class Kubie < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "255bb3b545ea95f7f53718820fe5506a6133f85194b153c469c766e1f9f969df"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "dfa938269222460b61f874d8bba2267b14f03377613b8b9d5a32eb70f92d933d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "7b28869ca3c60611f92af5c38770c969a04d4f00b0d0bac2bab1049936c51176"
-    sha256 cellar: :any_skip_relocation, sonoma:        "2213fefbd8804af9a21e2edbf6c11bb4b5db4fb717fe64610ebbd8fb78b207b9"
-    sha256 cellar: :any_skip_relocation, ventura:       "899ac3f82060e8a2d1969875b5ba773bae9f781dd97df19331faf43ebc6ac814"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ea7e571e00ca7496dba0631bab8cd30ea6f25b04f4b347729e7c435bd6c136d6"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "162563da6d7eda341e64f02a2c8a6bc7990316f5b44d3bd0011baae7f4824bfc"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ef35d6d5916a20e7e40049f29f5f482c69931f36601002a77e2d2edb884270ba"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "69a9ea8f4288fe18075f1b1c71815f94554ad168cb9c8ce0dfb639e677234392"
+    sha256 cellar: :any_skip_relocation, sonoma:        "32d2c5ec2ce7902d06cf859253fecf9489d779529f32e318d68a15a16a87a7fc"
+    sha256 cellar: :any_skip_relocation, ventura:       "ec6940cb0934fc87b51cb10448b84970752589ef6fd06963ffedcba9e4177617"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1c53608c2b438262b8d14adbc31cb2524e4e5c75e1b8d4e6791ff9405472392c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "988ef522300b19560127b32022aa92d7d27ece39087c747aed21781c22c74812"
   end
 
   depends_on "rust" => :build

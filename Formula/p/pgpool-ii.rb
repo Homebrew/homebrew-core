@@ -16,6 +16,7 @@ class PgpoolIi < Formula
     sha256 arm64_ventura: "b47f99e2db215776015b534ffd81e7f26cba5f0c1f3b38733ddf9cca27268577"
     sha256 sonoma:        "921c4c4ec0b784b821869eb335cc79fe258749209b8e2834a03433f6d965a344"
     sha256 ventura:       "c09d9871883f08c7221371ca809e0fe34253a1bd47bb490bdc812c4276118ff9"
+    sha256 arm64_linux:   "c69bae12f5e7ae2b8ad7a68c3e4f342dd2183965d67a75887c155fa5d3cc941c"
     sha256 x86_64_linux:  "b538d5fe57290bf9bd84e418a44d46dff2d0543703e17a0acd32e2903fbbaab6"
   end
 

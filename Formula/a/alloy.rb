@@ -16,6 +16,8 @@ class Alloy < Formula
 
   depends_on "openjdk"
 
+  conflicts_with "grafana-alloy", because: "both install `alloy` binaries"
+
   def install
     libexec.install "org.alloytools.alloy.dist-#{version}.jar"
     bin.write_jar_script libexec/"org.alloytools.alloy.dist-#{version}.jar", "alloy"

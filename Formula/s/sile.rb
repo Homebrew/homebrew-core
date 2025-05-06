@@ -1,18 +1,18 @@
 class Sile < Formula
   desc "Modern typesetting system inspired by TeX"
   homepage "https://sile-typesetter.org"
-  url "https://github.com/sile-typesetter/sile/releases/download/v0.15.10/sile-0.15.10.tar.zst"
-  sha256 "b0f001b4a7c8a5a98635610b9c29e455a8077ae1eaff52a84f7eb8fda2c70eed"
+  url "https://github.com/sile-typesetter/sile/releases/download/v0.15.12/sile-0.15.12.tar.zst"
+  sha256 "a3234111d56bb22f0cba2608954ec88df260eb4772f054ed29770912003ec8a0"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "2a6968fb6144b39d040bdefadacac75796742235af61fc58791d07bfbda77f3a"
-    sha256 cellar: :any,                 arm64_sonoma:  "0511fe34bcf5e1b6f95fac61d3386fd73ce33bdef415886b4eb547210db91654"
-    sha256 cellar: :any,                 arm64_ventura: "003d6c2b5d0c9b93da9efc9a8155995be48c67eae0149a5f68647cde984f1b3c"
-    sha256 cellar: :any,                 sonoma:        "43bdcfbac5b7a4a47c779756362e787513bb656ee02cc13e1e20c23b38acb252"
-    sha256 cellar: :any,                 ventura:       "943c213b26ab249f62484ecfca9697d1b24f3a274f65e3d36d2efb831c56843b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "52eedd51759ee718e5ff822b5afdbb946d4dbfc8ead9ef17a2f97d12ca4bdf2a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bf7992e72264de7b6154e6db7968fbddb9e106bcce15a7b1dc6c404b7859db03"
+    sha256 cellar: :any,                 arm64_sequoia: "eca1e70dd844c9facaedb981b388afb6a238fba2f953b60dcf82a9dc00daf0fb"
+    sha256 cellar: :any,                 arm64_sonoma:  "336bc3d0f83537822e1b9613d0271246cb6f61a7e80b911f5aec23509662813c"
+    sha256 cellar: :any,                 arm64_ventura: "9776105f8da8dbefa26535ca9dd15ac771476b5a7a1d7320f038ddde52d79962"
+    sha256 cellar: :any,                 sonoma:        "89d04ca5e3ec6e92e79959f9a16a329ad6b47db644932f75c2024f2d3d0396dc"
+    sha256 cellar: :any,                 ventura:       "44367b55c868bd3659d507654a101812a2b4ea4876b9ff76bcef05aa8d27528d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "706444ee18db2eb49fe44044c9fbc170dd91180b3a80c5ab533658dcd03731b1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "570ca957d702a09bb5901515a9216c72b2a770da6064bf8d5d276c1558fb3ad5"
   end
 
   head do

@@ -22,13 +22,23 @@ class Dvorak7min < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:    "0cfad9ea53f984ebc81c87fe2bd7fd8f3bad6c8c0032085de36eb499b041b5b0"
     sha256 cellar: :any_skip_relocation, sierra:         "052c259da37d2e9576fdf1809ce526dd54cedd362bbe747f02fa088e6568983b"
     sha256 cellar: :any_skip_relocation, el_capitan:     "d4bf1a053028f0712193e33911c2af3fb4f0a71b37480969b5c03b798d4930ae"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "a3db52bd009b55ad53eb6c23914b8b39d9bc098cc48cc6d175d57da6806db717"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "88198e60fed089e8dcc4c8bb9fb955428cecd480578fd1a339e177b1c1e748df"
   end
 
   # source is a copy from debian
   deprecate! date: "2024-05-04", because: :repo_removed
+  disable! date: "2025-05-05", because: :repo_removed
 
   uses_from_macos "ncurses"
+
+  # Apply Debian patch to fix build
+  patch do
+    on_linux do
+      url "https://salsa.debian.org/debian/dvorak7min/-/raw/56019daffd5c0628ef5b8ae200a69ba43263d7d6/debian/patches/debian-changes.patch"
+      sha256 "05303478d7006e376325db9d3ea00551acb0e6113e0d7e436f96df8d6f339e2e"
+    end
+  end
 
   def install
     # Remove pre-built ELF binary first

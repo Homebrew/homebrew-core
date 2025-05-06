@@ -1,16 +1,16 @@
 class Faircamp < Formula
   desc "Static site generator for audio producers"
   homepage "https://codeberg.org/simonrepp/faircamp"
-  url "https://codeberg.org/simonrepp/faircamp/archive/1.2.0.tar.gz"
-  sha256 "4aecd8ea0b9a975fd8880ac75829d3f8611abd853a0bf40512b7e8cec450d2c8"
+  url "https://codeberg.org/simonrepp/faircamp/archive/1.4.0.tar.gz"
+  sha256 "f0966203417f73664c0a88ceddef249d54fdd64cfbb5819564ac496d2376ef0b"
   license "AGPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia: "bbdd3d54344268377c388af5c043920fe78ced6e0b647ff20e3bd33a2364b1bd"
-    sha256 cellar: :any, arm64_sonoma:  "d4c7d3655cb5927bf065322af0f851e8f766dfe0b9da0a9fe6d675bee952f41f"
-    sha256 cellar: :any, arm64_ventura: "b0fb2eeeb9b76f212c34312d5ceba0780373f686e6f6d4f4fbb13ed983664d69"
-    sha256 cellar: :any, sonoma:        "db5653355b984de39d47e19cd85c4dc1da0e509657f505355e4cba4750f0249e"
-    sha256 cellar: :any, ventura:       "bd7f5330d2eeffd884c7fb2c4aa6d85821e7673e993c685edde3670294a8e327"
+    sha256 cellar: :any, arm64_sequoia: "1c86f0ade713cfef2a77cda052d566859e22c8fa309324b93c95d910f918346f"
+    sha256 cellar: :any, arm64_sonoma:  "bd572ca10c3545edbb295b75460d7edaa01f813789335f0fde1541be906fd284"
+    sha256 cellar: :any, arm64_ventura: "88d895bf0ee2572c9470b143f2c14d88c2fc66fc483cbc34c7fb94c794b61125"
+    sha256 cellar: :any, sonoma:        "cb12fdaf1c4ee02af3e427ff2b5c30e5da48bd87bbe7c92da5d9046b7567228a"
+    sha256 cellar: :any, ventura:       "cfcc73ed66fe91c56cf82a4b96014cb4c479a6a409ab578fe804da36c9da3351"
   end
 
   depends_on "opus" => :build
@@ -38,8 +38,9 @@ class Faircamp < Formula
 
   test do
     # Check properly compiled with optional libvips feature
-    version_str = shell_output("#{bin}/faircamp --version").chomp
-    assert_match "faircamp #{version} (compiled with libvips)", version_str
+    output = shell_output("#{bin}/faircamp --version").chomp
+    assert_match version.to_s, output
+    assert_match "compiled with libvips", output
 
     # Check site generation
     catalog_dir = testpath/"Catalog"

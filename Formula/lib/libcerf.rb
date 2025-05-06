@@ -1,8 +1,8 @@
 class Libcerf < Formula
   desc "Numeric library for complex error functions"
   homepage "https://jugit.fz-juelich.de/mlz/libcerf"
-  url "https://jugit.fz-juelich.de/mlz/libcerf/-/archive/v2.4/libcerf-v2.4.tar.gz"
-  sha256 "080b30ae564c3dabe3b89264522adaf5647ec754021572bee54929697b276cdc"
+  url "https://jugit.fz-juelich.de/mlz/libcerf/-/archive/v3.0/libcerf-v3.0.tar.gz"
+  sha256 "c6108fbda89af37f588119c0c542b6c1e824845a36bea2fa31f7ed2cc1a246db"
   license "MIT"
   version_scheme 1
   head "https://jugit.fz-juelich.de/mlz/libcerf.git", branch: "master"
@@ -13,17 +13,13 @@ class Libcerf < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "f98b11354a3acc473bd2697aa55845991c99f4e94577882a63a2511c00f6c703"
-    sha256 cellar: :any,                 arm64_sonoma:   "34b1ea071894550defd96682761ad9a6e9b9df19ac66ce5e0541bc5f82267946"
-    sha256 cellar: :any,                 arm64_ventura:  "b3b61822329b217da59ae7255dda43a504ac83256f6fa0ac8420317a2d73c339"
-    sha256 cellar: :any,                 arm64_monterey: "ded6d40e220e6e5258f589f36172ad6e0ddd110b1a38134dca1676b7db43f089"
-    sha256 cellar: :any,                 arm64_big_sur:  "939d2020151a7061a1615ff87b841121662d6be8d6441eb5e41beac6586b9625"
-    sha256 cellar: :any,                 sonoma:         "449f2996aa67026fab6fd8e70068d78d507f3855c844274b01757015de16d364"
-    sha256 cellar: :any,                 ventura:        "24d10b02769be590e55fca864a080e13fd0def7f2b655a5e0f0861393d036f22"
-    sha256 cellar: :any,                 monterey:       "5338caa2b9422debd382f920fef79a1f0acaedd843ab3924905cf332df708144"
-    sha256 cellar: :any,                 big_sur:        "237d8d549c7bfc15d7d770eff70cfe3df04fe264b156f63bc156ac1a9ddf52a7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "f1ebb2bf9fae0b50756e077f78cce4105637f115a18528af6c78c79529942725"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "24d01493cf36431018586ecbef6ad3d7a14837e257188d0f78d18f4c0f77113f"
+    sha256 cellar: :any,                 arm64_sequoia: "093e9b7e5a294c1064d174f62b4a17e09bfb57f0fe2dd97b8b6091cf9e6d4ff6"
+    sha256 cellar: :any,                 arm64_sonoma:  "8abb6bed129a07ae4601cd1bd84f1c4c062ad8eca2bdb15ea3fa33c1dd8e8f39"
+    sha256 cellar: :any,                 arm64_ventura: "05f13dcf138876b29e6a9ac49b356ee1afdaae3671a19973cdc6688b73f1cc07"
+    sha256 cellar: :any,                 sonoma:        "d1f71ef6427fe87f8c1fca1ac83ff534a4b01086ae8835d8b14c2ea72710c97f"
+    sha256 cellar: :any,                 ventura:       "52409e3c2993db96a2edcb1a9229530fb9b5d1f3375c1dfafe18476ccb087e5b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0b2e39bf56ebf87f61fdb69caf20157ee0c20f1f55d0c57cd5676de672969ae5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b1181cfb82445d2b1fb89fbc80a2337d598ce59d8f71e9159344851eb05288e9"
   end
 
   depends_on "cmake" => :build

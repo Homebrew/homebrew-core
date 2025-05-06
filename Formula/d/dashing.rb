@@ -5,6 +5,7 @@ class Dashing < Formula
   sha256 "81b21acae83c144f10d9eea05a0b89f0dcdfa694c3760c2a25bd4eab72a2a3b9"
   license "MIT"
   revision 1
+  head "https://github.com/technosophos/dashing.git", branch: "master"
 
   bottle do
     rebuild 2
@@ -19,6 +20,7 @@ class Dashing < Formula
     sha256 cellar: :any_skip_relocation, big_sur:        "7297bb9c8b50feeda73af51b59acfcac18f9d2beb57738de293146aaca7cd089"
     sha256 cellar: :any_skip_relocation, catalina:       "43702cf1fbdeb449e9205716635cba4c62449e575f9a6ab45eeb4aeb166fdf9a"
     sha256 cellar: :any_skip_relocation, mojave:         "bbd3a7995a6b5a0a87f4a08a4e4bb52fe75990bdde6b63bea1a9c56c7c144165"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "6ac970aad0a46e0f50606334b2218aa1b2103347300e59e01fc2cc942580e7d1"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "982d82dc58980aa81fadf686557c5c075ddb95b9ef0f8456e7b32b6ed49aa382"
   end
 

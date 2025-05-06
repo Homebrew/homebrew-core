@@ -12,6 +12,7 @@ class DotnetAT6 < Formula
     sha256 cellar: :any,                 arm64_sequoia: "17a1b695a3859a75a1379c9ff5aa044a1e0d4517d27454ab699a88992ed4054c"
     sha256 cellar: :any,                 arm64_sonoma:  "3842fe4efbd79ee741fddf3e27f33e9d3a14533c4a7a8b27ebc9fa6423906cf7"
     sha256 cellar: :any,                 sonoma:        "10a9849193aa400d0542751ba82dfc7c03721f01c38a143fcf7f7bdd1e762349"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "194441cf808cb24d14994881e2f30fd0bce8f28375430f4c8c75881cc801116f"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "a66fa701d2a875604a253d37f89772910bb6aae1ed402abe5c52444f62264ecf"
   end
 

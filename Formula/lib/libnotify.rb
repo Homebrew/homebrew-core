@@ -1,18 +1,18 @@
 class Libnotify < Formula
   desc "Library that sends desktop notifications to a notification daemon"
   homepage "https://gitlab.gnome.org/GNOME/libnotify"
-  url "https://download.gnome.org/sources/libnotify/0.8/libnotify-0.8.4.tar.xz"
-  sha256 "8fa04d4ebdc155b0a239df88bd9f09e8f2739d5707a1390b427ab4985f83d25a"
+  url "https://download.gnome.org/sources/libnotify/0.8/libnotify-0.8.6.tar.xz"
+  sha256 "c5540aaefb60e1d63b1c587c05f2284ebe72ece7d0c0e5e4a778cfd5844b6b58"
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia: "be9fea541f9dd869578a942e43e9e7b4f2462b96f6f51c54472f891627254e38"
-    sha256 cellar: :any, arm64_sonoma:  "01821b19aea1ebb712811a7acb8082e468cae0d297185affd4ca1a152aed7773"
-    sha256 cellar: :any, arm64_ventura: "515213c0803eef0e37a15413731641ee56175692eef55f12c3c67171ed00368a"
-    sha256 cellar: :any, sonoma:        "6b10b6d544ba69ffd42f261b153f43f675eceb857ac1288c7bbc5c9f7a241d28"
-    sha256 cellar: :any, ventura:       "d8decd9d63237513537284f5faaec68bdf474c4899d438cf76b022dc3afa3151"
-    sha256               arm64_linux:   "02f1dd22971f47fbd7c896bf969c239b5f04c9627f641d4c0671b9e3e0b7a96c"
-    sha256               x86_64_linux:  "e79d9d7b5f18b7236dc21e60ea6de33751a0a5bcf9b53d9ab6581346cc1684fc"
+    sha256 cellar: :any, arm64_sequoia: "ea69f7b5455c3a6541cf0860074b7b6e3e68e6bbb48c64cb4cc6221e6ce8dde9"
+    sha256 cellar: :any, arm64_sonoma:  "ebea4c89f379ab596f73e8613cdb45085b91995f8ab225b22abc9143ef3418c6"
+    sha256 cellar: :any, arm64_ventura: "d4c06f68f3f4fd97e56695bb166a806488f78ccd6d677d943d2a49bde302aef7"
+    sha256 cellar: :any, sonoma:        "d6a909e188f2dff4caa76a5c8cdc1204cb8b8e6cf752cefb5dd8e25b19be774f"
+    sha256 cellar: :any, ventura:       "75bab3ee807d8c9f36a039b973279f8e154bd29d9a2cbcf533141b82bced5450"
+    sha256               arm64_linux:   "995dc473382763e33a51546b3ae69ba723c5cb5815e1a5f688f9c17e62ba9b42"
+    sha256               x86_64_linux:  "f040cf5598067f5d9af35c90bd5df9520f5a3d422c78a1b0fd01c01ddcbee021"
   end
 
   depends_on "docbook-xsl" => :build

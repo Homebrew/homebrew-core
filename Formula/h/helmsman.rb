@@ -1,18 +1,18 @@
 class Helmsman < Formula
   desc "Helm Charts as Code tool"
   homepage "https://github.com/Praqma/helmsman"
-  url "https://github.com/Praqma/helmsman/archive/refs/tags/v3.17.1.tar.gz"
-  sha256 "fd8da6faafe31661cd6690d1aee9bca53b54491264e1392c5f131d3a8e592e97"
+  url "https://github.com/Praqma/helmsman/archive/refs/tags/v4.0.1.tar.gz"
+  sha256 "1fd57af9978681f0c148157e5ef7929b5154e6e79bc13c41711892340320254e"
   license "MIT"
   head "https://github.com/Praqma/helmsman.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5f3fcfafb13a1c2242fead84ff3f2852157d34b4c19285e5e2705ab3dcb4066b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5f3fcfafb13a1c2242fead84ff3f2852157d34b4c19285e5e2705ab3dcb4066b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "5f3fcfafb13a1c2242fead84ff3f2852157d34b4c19285e5e2705ab3dcb4066b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "a0b7e6374f25556479c46efa1252f68a9b1793b64568c71e9deace2924f5d13f"
-    sha256 cellar: :any_skip_relocation, ventura:       "a0b7e6374f25556479c46efa1252f68a9b1793b64568c71e9deace2924f5d13f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c76b767dc0a37dd3d02d9a8c09b578d85cfb5c0fccbaf9a848e54a2a00d0a0ec"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b083ce72a651f9040fcd994a3c2472ea05689e460a1837d793ddd2fae40800ed"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b083ce72a651f9040fcd994a3c2472ea05689e460a1837d793ddd2fae40800ed"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "b083ce72a651f9040fcd994a3c2472ea05689e460a1837d793ddd2fae40800ed"
+    sha256 cellar: :any_skip_relocation, sonoma:        "a3446b60d03f301e50972b2a38239cc0ffe0a0052bef78ecac9cb892aeacb9f3"
+    sha256 cellar: :any_skip_relocation, ventura:       "a3446b60d03f301e50972b2a38239cc0ffe0a0052bef78ecac9cb892aeacb9f3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d40bb6b1568328e315a28aa502c5cbf8b86cb95f493647ff4edd639878f7ba1d"
   end
 
   depends_on "go" => :build

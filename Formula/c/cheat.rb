@@ -4,6 +4,7 @@ class Cheat < Formula
   url "https://github.com/cheat/cheat/archive/refs/tags/4.4.2.tar.gz"
   sha256 "6968ffdebb7c2a8390dea45f97884af3c623cda6c2d36c4c04443ed2454da431"
   license "MIT"
+  head "https://github.com/cheat/cheat.git", branch: "master"
 
   bottle do
     rebuild 2

@@ -17,6 +17,7 @@ class Dsq < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "1378c8a63d25c81803072c3ae5092e9abb3edd3ac5dd56f51409671f1ff3b8b9"
     sha256 cellar: :any_skip_relocation, big_sur:        "f18c7a77e60d4c6ffebab006f5eacb751c8a0ffa729f506b153e837c03f59934"
     sha256 cellar: :any_skip_relocation, catalina:       "4733972637d9dd70139520cf2dfd0b243fcd3a8bd62b455efc144dd8bcd1c895"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "b5627ad8b74b97db053faec48c4bfb41f483aad98a70265efcf0b3fcda3b4b5c"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "328ba290cbe117afa004b3ac9c9ea32fad38b062150ba47de467ba409ebd0069"
   end
 

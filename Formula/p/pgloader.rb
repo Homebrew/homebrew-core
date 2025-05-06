@@ -21,6 +21,7 @@ class Pgloader < Formula
     sha256 cellar: :any,                 sonoma:         "4b2bb7c9ae9bd104768e44181fcb9536928d5d37a20a39b66dd29d3446eecef8"
     sha256 cellar: :any,                 ventura:        "8abc681975f40539f48f3444ffee0d6028080ee7dfbff23a69d2d1ad283079cd"
     sha256 cellar: :any,                 monterey:       "52cdba8d7bf8f2a836eeba8b6e2eae1521d95a31a0203edb0f5ae9b1a05ae394"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "cbd685f4531bdf498e069785d26e5944ee7f25a505c9e6f3e5a9a41d2a6d2dbe"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "b3066fd9fdb9548c8e1d3f6bb445017b0da557e00247d72bb8c2cafc4aed41d3"
   end
 

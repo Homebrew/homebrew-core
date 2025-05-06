@@ -27,7 +27,7 @@ class UniAlgo < Formula
 
   test do
     (testpath/"CMakeLists.txt").write <<~CMAKE
-      cmake_minimum_required(VERSION 3.0.2)
+      cmake_minimum_required(VERSION 4.0)
       project(utf8_norm LANGUAGES CXX)
       find_package(uni-algo CONFIG REQUIRED)
       add_executable(utf8_norm utf8_norm.cpp)

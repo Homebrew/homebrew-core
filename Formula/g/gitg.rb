@@ -17,6 +17,7 @@ class Gitg < Formula
     sha256 arm64_ventura: "c240b9f00f0451039e51877d7d87594dedc7a91267c1fcef5c1a98b3db8301d9"
     sha256 sonoma:        "83a586e672472e4366c642728d117503449f3f1ef1a02efe8dce344aa5834a0a"
     sha256 ventura:       "91cd1b4972e6d1cf5063132a130f2691e29762124f2736f34fb71e83de340ed8"
+    sha256 arm64_linux:   "0c04e03d46b0bb6f5845b09b6ab7114c4ff2164e44f1ccf72d7cc5955ce3d313"
     sha256 x86_64_linux:  "f269ef5daf90cbc9b7bdc38f532fc208df31a6e03b156d9bbc15e5c698f302e7"
   end
 

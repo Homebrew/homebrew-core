@@ -1,21 +1,19 @@
 class UutilsFindutils < Formula
   desc "Cross-platform Rust rewrite of the GNU findutils"
   homepage "https://uutils.github.io/findutils/"
-  url "https://github.com/uutils/findutils/archive/refs/tags/0.7.0.tar.gz"
-  sha256 "129c263c6953b5c6aa756666aa9f5e968e04c1d0315d9d8ad9e93ec3d1823bc0"
+  url "https://github.com/uutils/findutils/archive/refs/tags/0.8.0.tar.gz"
+  sha256 "932f153d256f7a4cf40255a948689bf59a10f14c8804151817ab50fa1b46429a"
   license "MIT"
   head "https://github.com/uutils/findutils.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "a2b1a4305f6c079d9ce173c0f498c6f7b2caa89598fd70ff9575ac416cb3cbe3"
-    sha256 cellar: :any,                 arm64_sonoma:   "1eeebb99c9740e5ea9150fccc38a24fd8e87e5a80b9c6270059b81d10e70c6ec"
-    sha256 cellar: :any,                 arm64_ventura:  "6a36f901c622e3cf5a998e8d7df717f5affe8f5a6331e347adefb87e186bdbbb"
-    sha256 cellar: :any,                 arm64_monterey: "91ce728daeb833d7efe8483a47b48e7938c1f023bfe491f2144e5eac60980ba5"
-    sha256 cellar: :any,                 sonoma:         "a73adc73887339585c483b4b11eef740bf31e466245fac18a842208d385720f6"
-    sha256 cellar: :any,                 ventura:        "519814920c34176946e9a41fbecfa86d851c65dbcd0ea8de1ab344e16e6de38e"
-    sha256 cellar: :any,                 monterey:       "97839bae94b7710646bfac19a06b20732a714b0641c4f7899fbd73a1225483f4"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "12fd850161a4bcea44f2fc2351e6769647187b14c4d8a451af5f26c1c6523273"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1960b1bfa82f3b45f2df7580e15e9114a04503da577ec1cc76a02c3e2191bb7d"
+    sha256 cellar: :any,                 arm64_sequoia: "c197c5ae51adde63a7d0a3770d89156032935597db27883e24d912043411bd9f"
+    sha256 cellar: :any,                 arm64_sonoma:  "3cd43adf157c7f4ffe8ff244b90b7d01a42206cf3cf7dd55d314e815a2462da9"
+    sha256 cellar: :any,                 arm64_ventura: "5edf7fd9d0c8f2be1ee7cb0ed463225bc1fa36dd31b04bb3127448cdd35001a0"
+    sha256 cellar: :any,                 sonoma:        "f3518a5685deaf7be0e4f12d5ea7f84eeaaedcc6ec1c0d1280810a7678ee302e"
+    sha256 cellar: :any,                 ventura:       "aa9cc3375d6bda074e8fb1011ef52f3ae0d0f99bcc952aa27e93e834e16af145"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e1d8413308ed4eb7a6001c5dde07faaf73a96aa26e5e9d0aa6a382bcb6a64918"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d595a82a20897f5ec7fbe852d50fca44f05d20e537913bf9b86aab9e2ef4e4c5"
   end
 
   depends_on "pkgconf" => :build

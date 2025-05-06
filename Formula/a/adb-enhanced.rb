@@ -3,19 +3,18 @@ class AdbEnhanced < Formula
 
   desc "Swiss-army knife for Android testing and development"
   homepage "https://ashishb.net/tech/introducing-adb-enhanced-a-swiss-army-knife-for-android-development/"
-  url "https://files.pythonhosted.org/packages/8d/7d/baff371b8795aec480c607b08473502dde2dcaf4b887f22aa30c42979293/adb-enhanced-2.5.24.tar.gz"
-  sha256 "1b26a774bb6de61910f9cc53cd1b6ff5480d4d69cc07dd9768712f316263920d"
+  url "https://files.pythonhosted.org/packages/c4/a5/9066bb8c0dd47025aafbb3388b87f68df02f2cf64a83933feee0b3c7c259/adb_enhanced-2.6.0.tar.gz"
+  sha256 "ead467df4e0e4fc964007c62b0b55801a5f158793bd551ec4b25154801fc3f5a"
   license "Apache-2.0"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8cf9d90b43874da9f96f287e01eff19306019042c9dbc1641d40e0d7eb950612"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2c6ffd4ecea05981249f50b94d12fb602c2915858c837b9d61dbfc0d467c2be1"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "fdcc36321c5778c81bb587694d04608f9c1e1617c781b0818339c23f9cf78cf9"
-    sha256 cellar: :any_skip_relocation, sonoma:        "4ef1a0c31c3dd44a7bd2c72abd676c7b1c2af29f5a16bcd9b3827d0854e304e2"
-    sha256 cellar: :any_skip_relocation, ventura:       "22a91ffb280d4b143607d9d4d3040b926e9761ef43772f329f2f8d1fb55b9cb6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1edfaedf9c999a4b316cd95896b499351bca6741e152ea47bda70294af008d1f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4d0d9eb3a03003615e28a362234771ee2c200d732c82a8a155cf99d800ae27af"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5acfb19069d8d153e2e299d880d17c94ebedf2aeddda6a11447978a615eb8a3f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "be8f29d3429a042f03692f57e5ba81d29274bb90d3b4dc5a5f4ba23a595d1e76"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "3b6d507e23a98bcf245172a6141eb5af9865f56ec5961c0b592f160c7267bea0"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7ac54642e1b66b5237cb6092b4e354407a5a2c8e58cc9a7fb9ecfdcc68e80f94"
+    sha256 cellar: :any_skip_relocation, ventura:       "f1c7d11dbaa3543c3265673c5e5920e61bcfe71d284419d2a60d39ebafd79c30"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d8fc53e7dcbc88fd7cfb3bfe50e5313ede172aeee9bde7f8408204f3f7aae6db"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a3a552e117835c2e8d9935f73c7fae1ad107bd298598ccf5d4f0a7bbc939270b"
   end
 
   depends_on "python@3.13"
@@ -26,8 +25,8 @@ class AdbEnhanced < Formula
   end
 
   resource "psutil" do
-    url "https://files.pythonhosted.org/packages/18/c7/8c6872f7372eb6a6b2e4708b88419fb46b857f7a2e1892966b851cc79fc9/psutil-6.0.0.tar.gz"
-    sha256 "8faae4f310b6d969fa26ca0545338b21f73c6b15db7c4a8d934a5482faa818f2"
+    url "https://files.pythonhosted.org/packages/2a/80/336820c1ad9286a4ded7e845b2eccfcb27851ab8ac6abece774a6ff4d3de/psutil-7.0.0.tar.gz"
+    sha256 "7be9c3eba38beccb6495ea33afd982a44074b78f28c434a1f51cc07fd315c456"
   end
 
   def install

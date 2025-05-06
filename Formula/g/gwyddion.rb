@@ -15,6 +15,7 @@ class Gwyddion < Formula
     sha256 arm64_ventura: "102134d0cc82e99b16f10beca65fbff50cf90fc20e8dfb9109947f38397c6e27"
     sha256 sonoma:        "2a46d8ac980a10cff9a5dd4e6ad6676732f36f3683e3f15527e73cbd2fbc00fe"
     sha256 ventura:       "98f80d6914545e03d705f8b36386f25c40c24b28790c68b3cd960f57736777e0"
+    sha256 arm64_linux:   "50c3c92bfa90b717cd0363f1848160dd2f09460cf7c9bc2bac377dc773c976cc"
     sha256 x86_64_linux:  "ddb58bb61054c7d019aa1db4b8da4378829026a723bcd40d3181382e2809f562"
   end
 

@@ -1,28 +1,19 @@
 class Mpd < Formula
   desc "Music Player Daemon"
   homepage "https://www.musicpd.org/"
+  url "https://github.com/MusicPlayerDaemon/MPD/archive/refs/tags/v0.24.3.tar.gz"
+  sha256 "80bb03c32cc2c85cb2e91711f96c6e25cba5546908b003d0254946397f42acf7"
   license "GPL-2.0-or-later"
-  revision 2
   head "https://github.com/MusicPlayerDaemon/MPD.git", branch: "master"
 
-  stable do
-    url "https://github.com/MusicPlayerDaemon/MPD/archive/refs/tags/v0.23.17.tar.gz"
-    sha256 "6fcdc5db284297150734afd9b3d1a5697a29f6297eff1b56379018e31d023838"
-
-    # support libnfs 6.0.0, upstream commit ref, https://github.com/MusicPlayerDaemon/MPD/commit/31e583e9f8d14b9e67eab2581be8e21cd5712b47
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/557ad661621fa81b5e6ff92ab169ba40eba58786/mpd/0.23.16-libnfs-6.patch"
-      sha256 "e0f2e6783fbb92d9850d31f245044068dc0614721788d16ecfa8aacfc5c27ff3"
-    end
-  end
-
   bottle do
-    sha256 cellar: :any, arm64_sequoia: "e75d7e545378317554e51e1c4f7d94cfa75380b00dde5b50a955963b1095857d"
-    sha256 cellar: :any, arm64_sonoma:  "a2d726e27a04e06885974622a1b406a7a74050a447a60bd2ede454ed3dc767a1"
-    sha256 cellar: :any, arm64_ventura: "80873f92f2c8acf97908b734fb6cd765db587f9777b47058e309e28f7b8b306b"
-    sha256 cellar: :any, sonoma:        "b03a179d88bfba90b4b2e9cffe7fd4b0618008f6bcea1c0e530f3337304ec1e7"
-    sha256 cellar: :any, ventura:       "74f7e4be6592d64afdd9f8140cf98563f1bd2fcd9ddaef48e3f6036d5ecfefc6"
-    sha256               x86_64_linux:  "83eb62450b51cd37ede830ae2cf52cc55b9acc9ef94b9b4349bfdf58fd957aa7"
+    sha256 cellar: :any, arm64_sequoia: "a7d9949ec3f0f88c797180ee7019a1c44df2681978547e0bde2dcf8e68036201"
+    sha256 cellar: :any, arm64_sonoma:  "734d5549a13cc23d026f5e5d753a6620ab08e0d6096c8fc948d8ded1d3b455cd"
+    sha256 cellar: :any, arm64_ventura: "4438d702c743f05bba8be6e061defc3256b7c3fbbfa69c2f844c0c6cdc21d244"
+    sha256 cellar: :any, sonoma:        "94293b58505c532dd6e622125de61c0b64b591b7ce8acabf1ffb3647a1315652"
+    sha256 cellar: :any, ventura:       "bc99d04f570580fb5f47036deff8c7bbdd4fcebb86fa3b5d9e41d5713b95be70"
+    sha256               arm64_linux:   "2230b7523e4621a0e521c7c601dac2aa4d5a339471481b18a9a6ce450a847d66"
+    sha256               x86_64_linux:  "8606c8825eabbc1ff262131f95d715c87608f10d8eddcc3486512203db62230e"
   end
 
   depends_on "boost" => :build
@@ -56,6 +47,7 @@ class Mpd < Formula
   depends_on "libvorbis"
   depends_on macos: :mojave # requires C++17 features unavailable in High Sierra
   depends_on "mpg123"
+  depends_on "nlohmann-json"
   depends_on "opus"
   depends_on "pcre2"
   depends_on "sqlite"
@@ -64,6 +56,14 @@ class Mpd < Formula
   uses_from_macos "bzip2"
   uses_from_macos "curl"
   uses_from_macos "zlib"
+
+  on_ventura :or_older do
+    depends_on "llvm"
+
+    fails_with :clang do
+      cause "Needs C++20 std::make_unique_for_overwrite"
+    end
+  end
 
   on_linux do
     depends_on "systemd" => :build
@@ -75,20 +75,18 @@ class Mpd < Formula
   end
 
   def install
-    # mpd specifies -std=gnu++0x, but clang appears to try to build
-    # that against libstdc++ anyway, which won't work.
-    # The build is fine with G++.
-    ENV.libcxx
-
-    # https://github.com/MusicPlayerDaemon/MPD/pull/2198
-    inreplace "src/lib/nfs/meson.build", "['>= 4', '< 6']", "['>= 4']"
+    if OS.mac? && MacOS.version <= :ventura
+      ENV.llvm_clang
+      ENV.append "LDFLAGS", "-L#{Formula["llvm"].opt_lib}/unwind -lunwind"
+      # When using Homebrew's superenv shims, we need to use HOMEBREW_LIBRARY_PATHS
+      # rather than LDFLAGS for libc++ in order to correctly link to LLVM's libc++.
+      ENV.prepend_path "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib/"c++"
+    end
 
     args = %W[
-      -Dcpp_std=c++20
       --sysconfdir=#{etc}
       -Dmad=disabled
       -Dmpcdec=disabled
-      -Dsoundcloud=disabled
       -Dao=enabled
       -Dbzip2=enabled
       -Dchromaprint=enabled
@@ -102,6 +100,7 @@ class Mpd < Formula
       -Dwavpack=enabled
       -Dgme=enabled
       -Dmikmod=enabled
+      -Dnlohmann_json=enabled
       -Dsystemd_system_unit_dir=#{lib}/systemd/system
       -Dsystemd_user_unit_dir=#{lib}/systemd/user
     ]

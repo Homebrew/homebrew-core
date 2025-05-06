@@ -17,6 +17,7 @@ class Mednafen < Formula
     sha256 arm64_ventura: "41f73f24d64c67f03e321ca8c5e69cb63af7335865894bd977d1733ffc47a2dd"
     sha256 sonoma:        "64d38f660b3c5b464efe66424b0cbd5b20601a69a00b138733bc706ffa88cc55"
     sha256 ventura:       "b40afba5777537935fe7c79d0b275e0ef186d91d4220cdc82de150d31d212575"
+    sha256 arm64_linux:   "3a7871f139d7ab711a311bf62be6de85445694aa79e0fb11f1e532d5600bce61"
     sha256 x86_64_linux:  "dfd1940dfa9917d20668ee7f53f30b682d49b6674a768b43dd77db6f181d135d"
   end
 

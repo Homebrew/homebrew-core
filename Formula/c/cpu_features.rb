@@ -1,22 +1,19 @@
 class CpuFeatures < Formula
   desc "Cross platform C99 library to get cpu features at runtime"
   homepage "https://github.com/google/cpu_features"
-  url "https://github.com/google/cpu_features/archive/refs/tags/v0.9.0.tar.gz"
-  sha256 "bdb3484de8297c49b59955c3b22dba834401bc2df984ef5cfc17acbe69c5018e"
+  url "https://github.com/google/cpu_features/archive/refs/tags/v0.10.0.tar.gz"
+  sha256 "dc1be36d02b178e904aa91cce5c2701fe418d728f1c0a130a4196b66b087471a"
   license "Apache-2.0"
   head "https://github.com/google/cpu_features.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia:  "ae8b9832131a6a9d50cb1c811f945c5e5cb6725f4dfafb6dd6df8eec4c87ba4d"
-    sha256 cellar: :any,                 arm64_sonoma:   "ce0a600098af980c41651295e62323e64312fc784b58894d8dda0c8ee3af7257"
-    sha256 cellar: :any,                 arm64_ventura:  "a553042b0852ac60b9ffa9d84f1651316a2425a8eeb8c7e031850ef7d1d4b142"
-    sha256 cellar: :any,                 arm64_monterey: "3b46124865d45cc7f9521e220bfa6d812fe2c72db6cb11cd5b100ae78bf7eefc"
-    sha256 cellar: :any,                 sonoma:         "4c6fdef575b3acac228f0b880dd7d1154dffbafac08df0bafd82d1630ab8b722"
-    sha256 cellar: :any,                 ventura:        "3598175140e64a33064ae94b81e3ef252051313acc4344a7e7ff42fc891a3c79"
-    sha256 cellar: :any,                 monterey:       "750715774bcd3306efac26b9b5173c9126b8a25613e7fc54100cf5814ef7cdcd"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "7dc0212abd26381578fe8ebd0b5143eec8afb727070ab1463a993c807d885f17"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d728f5f093b6666edcba57a77aa36e9f9dc6949634fd9a1e76f55ec5abadd4a8"
+    sha256 cellar: :any,                 arm64_sequoia: "c20bb96f3ed6b0a436d1e5ef4352e2362668d88c119340f19d8d5566c1f1302d"
+    sha256 cellar: :any,                 arm64_sonoma:  "0f8f698cad043f1c27984083dead6d7a4d133283873339078720becf5b2a2e89"
+    sha256 cellar: :any,                 arm64_ventura: "17d2dc220735c2cc356c1cf995e13d8dbf5011903e2e0048c5a875ea97ead59b"
+    sha256 cellar: :any,                 sonoma:        "bdd716ad8038f9dbb12d8ec5080b03330825027e023d574cf755bb8f91d300b1"
+    sha256 cellar: :any,                 ventura:       "472190b6db3f3255849897768e6b90c48d2348ad52b845dae54a040893fb2ee7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "30c446e08c12c07373c65c5c71e4c6268d72464d1763716a90ccaae1277a3078"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "50756e6931f77d6095ff2cf4606373c779f0c358315ffaa8df08d37345e3b98d"
   end
 
   depends_on "cmake" => :build

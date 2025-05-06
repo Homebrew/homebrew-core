@@ -5,6 +5,7 @@ class CartridgeCli < Formula
       tag:      "2.12.12",
       revision: "7f7efcfd4aaf7a2b4061f8424b6843a462794ed6"
   license "BSD-2-Clause"
+  head "https://github.com/tarantool/cartridge-cli.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "c347030987d8638b17325dedf3ecd8a8271de8f1333aa086f7cfb0777c0ff8ae"

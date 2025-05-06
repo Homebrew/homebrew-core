@@ -1,8 +1,8 @@
 class BoostMpi < Formula
   desc "C++ library for C++/MPI interoperability"
   homepage "https://www.boost.org/"
-  url "https://github.com/boostorg/boost/releases/download/boost-1.87.0/boost-1.87.0-b2-nodocs.tar.xz"
-  sha256 "3abd7a51118a5dd74673b25e0a3f0a4ab1752d8d618f4b8cea84a603aeecc680"
+  url "https://github.com/boostorg/boost/releases/download/boost-1.88.0/boost-1.88.0-b2-nodocs.tar.xz"
+  sha256 "ad9ce2c91bc0977a7adc92d51558f3b9c53596bb88246a280175ebb475da1762"
   license "BSL-1.0"
   head "https://github.com/boostorg/boost.git", branch: "master"
 
@@ -11,13 +11,13 @@ class BoostMpi < Formula
   end
 
   bottle do
-    sha256                               arm64_sequoia: "9efa4e62e7552a5ddfb642b8d6ec3007792d0deb868285f64ce7e1b9a149ec20"
-    sha256                               arm64_sonoma:  "fc59a592f4d3b42eb0e873884bcf67bdfd45382c01c4a7287dd5642d74b3982e"
-    sha256                               arm64_ventura: "f7d78fe074a21546a30dec3688b5c5dabde5a07b830d82ffcbe5f31aa96b7124"
-    sha256                               sonoma:        "a3d8b33c333cd20e91133573cad92a5a8300587d1eb91afdbee34c94d5ee4e21"
-    sha256                               ventura:       "06a0c896e162a8fc19ae5ecdd850c3491fe3d010f5817a373cf52bb3f18d88e3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c32fd48727982934b0a1f8a7cac07901eecb34c84471b59c150643ee03216e1c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6c066f845dbd122c9b597fd598facfb099118f4f46d084804833324a7938bcee"
+    sha256                               arm64_sequoia: "c214ac20967386a38a1de487e0c20bbdc466e459065b970887eaf35371e54402"
+    sha256                               arm64_sonoma:  "ed980f9505b4403dc52d9a091f07cc0e118f4185dc1d9ef17cd2b8ae542a5429"
+    sha256                               arm64_ventura: "98cc35fc6851d822f0c026e86131d97e83575722063c5552b814406331f8bf14"
+    sha256                               sonoma:        "2fdef3897c4ac951086aeef0f1701b4896dc1781bca6c596096d52bb6121e5c3"
+    sha256                               ventura:       "50b09f6f2800a5044c57074f945dd7b9af1424e165e3911e2f9036e2741d9348"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a5186de020b7743b4a0cdc320fe447e28b37b80a945c4c693868c4653c51ce42"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5f97a0a0b5d9388d97948a3a2c02005b935770f968de76d7a2ce626ab5f57888"
   end
 
   # Test with cmake to avoid issues like:
@@ -119,7 +119,10 @@ class BoostMpi < Formula
     system "mpic++", "test.cpp", *args, "-o", "test"
     system "mpirun", "-np", "2", "./test"
 
-    (testpath/"CMakeLists.txt").write "find_package(Boost COMPONENTS mpi REQUIRED)"
+    (testpath/"CMakeLists.txt").write <<~CMAKE
+      cmake_minimum_required(VERSION 4.0)
+      find_package(Boost COMPONENTS mpi REQUIRED)
+    CMAKE
     system "cmake", ".", "-Wno-dev"
   end
 end

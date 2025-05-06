@@ -16,6 +16,7 @@ class Efl < Formula
     sha256 arm64_ventura: "1ba80183f196e5a7270c7aeb0278eded8f11e0a06c3c1379f10bb2b78e7aa05b"
     sha256 sonoma:        "babf88521d92e177519e9abe1f72252550a91be1d5656e64d290d7edfeb1480b"
     sha256 ventura:       "fca929565aa586300f59d5e377dd9ff43abe337c7ccf4b99d0a9af55ef1fd1a3"
+    sha256 arm64_linux:   "1d26d6975b267b3bc016364b0747e1ed58df5945795759d40683c3d8f27d3eec"
     sha256 x86_64_linux:  "f1adfecfef5d86dccaf1ccce34f6cc8fa0748c440422c697986f6ff53e966717"
   end
 

@@ -22,6 +22,7 @@ class MecabKoDic < Formula
     sha256 cellar: :any_skip_relocation, big_sur:        "ab72fcbb7b1e0bc1ec8667a2d183ad5beab66279d27486ef1ae241d4114fddd1"
     sha256 cellar: :any_skip_relocation, catalina:       "02f67f9bd82e7310074c4c47097bcb4244c79211af9736db8fa73861dbbb820d"
     sha256 cellar: :any_skip_relocation, mojave:         "8d9c37045d060855f558ef8706cee66e918e553ff5c8893811e5cf78767893cb"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "db85d7f7315243abae780af58802a0489fef9c429635eb2ded768465245f3824"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "4fda9a5da9f32090ef09eca7a8f5098b686079573483b4eb401b7e80db266552"
   end
 

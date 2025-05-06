@@ -1,18 +1,18 @@
 class Nmrpflash < Formula
   desc "Netgear Unbrick Utility"
   homepage "https://github.com/jclehner/nmrpflash"
-  url "https://github.com/jclehner/nmrpflash/archive/refs/tags/v0.9.24.tar.gz"
-  sha256 "e902b8098a41c4c949fccd661dedcc8ca3791c83919a2b233286eae4752f25ea"
+  url "https://github.com/jclehner/nmrpflash/archive/refs/tags/v0.9.25.tar.gz"
+  sha256 "729b2890620febda4748b502f652f17b9343c9bdd80c1608656c2767e86f6b04"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "efeb54ff3d6742942eef67f323024dca99d99a44989dab0d45ab43a96946564d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7af0f8bd60d446593bd7ec7f32c4c4cf1ada677bd7033c69ab5591b0c5dbc3be"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "e9e06317b3956276ab636c5c847a90554d61ce680ae0728116ea745afad94f99"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c840206c76bb926c5987fa4c201ec74ade3cd5a632bcccdc4b19a3a99d7cea0e"
-    sha256 cellar: :any_skip_relocation, ventura:       "155a0a593129729d74995cfdfec9d7b10e42effed644c86e13ca7ab984f5d11b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b03e266a2c556928d36c0d0e98bcf68eba0348224f3bd0ff44c9fd06f2637a7c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4c766ffefb78975b2c25d35726782e2b776888c7565b84c06f76db7f602c83db"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "58b638caa14a68dc8396e69df7a8774d5f32afa8ff94259842b58ea2bb835b3c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4ee2c4b9e0928711561e54d90a74ba22729ea004ee8a680fadfb03ceaf4d44b7"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "1170fff7a61b522585f0de7fed71eee17acdada99eddcb876de3f1209fa72aa7"
+    sha256 cellar: :any_skip_relocation, sonoma:        "5118548149535c43336bc6c42a6907ac529bfa1387b47621cb3a14655def1556"
+    sha256 cellar: :any_skip_relocation, ventura:       "55c02b5c5686dc38ae336ffd865874146fdf315a30381f962d8929ebca04bf87"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "48c4d4e7e9cbb093ce3f552eef69e1ad5adc0e8b84279e347f03489c138937ec"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "02204c8781d87e4c00790807d5367f6826f8420984af35eccaa606f8c1217d90"
   end
 
   uses_from_macos "libpcap"

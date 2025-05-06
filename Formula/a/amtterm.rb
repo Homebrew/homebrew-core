@@ -13,6 +13,7 @@ class Amtterm < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_linux:  "33934a9d2469315d7e292462ed352c552a01ef9717c98ed502b693fc496731f4"
     sha256 cellar: :any_skip_relocation, x86_64_linux: "18584332d73c1ec0c92903282b8363ec3d459b2bfacd19748f69607652cc40c8"
   end
 

@@ -1,9 +1,9 @@
 class GoAT123 < Formula
   desc "Open source programming language to build simple/reliable/efficient software"
   homepage "https://go.dev/"
-  url "https://go.dev/dl/go1.23.7.src.tar.gz"
-  mirror "https://fossies.org/linux/misc/go1.23.7.src.tar.gz"
-  sha256 "7cfabd46b73eb4c26b19d69515dd043d7183a6559acccd5cfdb25eb6b266a458"
+  url "https://go.dev/dl/go1.23.8.src.tar.gz"
+  mirror "https://fossies.org/linux/misc/go1.23.8.src.tar.gz"
+  sha256 "0ca1f1e37ea255e3ce283af3f4e628502fb444587da987a5bb96d6c6f15930d4"
   license "BSD-3-Clause"
 
   livecheck do
@@ -20,12 +20,13 @@ class GoAT123 < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "361cb99ae614d2c54f66f843501ce987d541a61fe8aed8d46767fd3aeb97cb9a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "361cb99ae614d2c54f66f843501ce987d541a61fe8aed8d46767fd3aeb97cb9a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "361cb99ae614d2c54f66f843501ce987d541a61fe8aed8d46767fd3aeb97cb9a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "2e5e5a4712cb4528af46112f7d3206adac31792190e2d661cb4ba1c17a2c423b"
-    sha256 cellar: :any_skip_relocation, ventura:       "2e5e5a4712cb4528af46112f7d3206adac31792190e2d661cb4ba1c17a2c423b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "70c9e0e9679f718dc2ecfe44d8791ed967495503da9d5cec3cdf7964d0d7b2cc"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c1c61ec0f6759a7cbba8ccd58ce776e520fc6342c317eaff1bfc191b9cbbf0db"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c1c61ec0f6759a7cbba8ccd58ce776e520fc6342c317eaff1bfc191b9cbbf0db"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "c1c61ec0f6759a7cbba8ccd58ce776e520fc6342c317eaff1bfc191b9cbbf0db"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7039ddf9427de2f02ee33963fa28ad920b116ac99c2f5b0003cd044b9eb779a3"
+    sha256 cellar: :any_skip_relocation, ventura:       "7039ddf9427de2f02ee33963fa28ad920b116ac99c2f5b0003cd044b9eb779a3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "bf3c7abd6007536cca37a09dbf62d08bd141c1f5b905ba3d8ba82a9b19e2b6ea"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dec1e5f00def83c22d0bb0b9503bfdf50ace2f655efdb2388c0d13b5ceb92ee7"
   end
 
   keg_only :versioned_formula
@@ -33,22 +34,22 @@ class GoAT123 < Formula
   depends_on "go" => :build
 
   def install
-    cd "src" do
-      ENV["GOROOT_FINAL"] = libexec
+    libexec.install Dir["*"]
+
+    cd libexec/"src" do
       # Set portable defaults for CC/CXX to be used by cgo
       with_env(CC: "cc", CXX: "c++") { system "./make.bash" }
     end
 
-    libexec.install Dir["*"]
     bin.install_symlink Dir[libexec/"bin/go*"]
-
-    system bin/"go", "install", "std", "cmd"
 
     # Remove useless files.
     # Breaks patchelf because folder contains weird debug/test files
     rm_r(libexec/"src/debug/elf/testdata")
     # Binaries built for an incompatible architecture
     rm_r(libexec/"src/runtime/pprof/testdata")
+    # Remove testdata with binaries for non-native architectures.
+    rm_r(libexec/"src/debug/dwarf/testdata")
   end
 
   test do

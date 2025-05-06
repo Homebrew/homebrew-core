@@ -26,8 +26,9 @@ class Catimg < Formula
   depends_on "cmake" => :build
 
   def install
-    system "cmake", "-DMAN_OUTPUT_PATH=#{man1}", ".", *std_cmake_args
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build", "-DMAN_OUTPUT_PATH=#{man1}", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do

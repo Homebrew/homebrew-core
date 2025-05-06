@@ -12,6 +12,7 @@ class Tenv < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "095ede69e3d74d32267576839572e168f9b9c98489bdc4ae6f69c3902afeaea0"
     sha256 cellar: :any_skip_relocation, sonoma:        "2511e98d81309fc37be0304b54cfc44d9c1b7bcca08015cbea0539a7df55b45c"
     sha256 cellar: :any_skip_relocation, ventura:       "2511e98d81309fc37be0304b54cfc44d9c1b7bcca08015cbea0539a7df55b45c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d8cba15f2557329865c7d849f741829e260b2a00cc9c695841888689be2bf539"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "4295099b88e34e39a1ced6dc712ac6e2851492a885e533735e5f3547fc6638c0"
   end
 

@@ -3,18 +3,18 @@ class Memray < Formula
 
   desc "Memory profiler for Python applications"
   homepage "https://bloomberg.github.io/memray/"
-  url "https://files.pythonhosted.org/packages/22/82/61c74f5bde38a57b3087f8838bcdb4d91c11860f03f56e7f9fb829ef045f/memray-1.16.0.tar.gz"
-  sha256 "57319f74333a58a9b3d5fba411b0bff3f2974a37e362a09a577e7c6fe1d29a36"
+  url "https://files.pythonhosted.org/packages/b9/bd/2614cf6d3d68eb53fc0bcb04f85ac3a94922150c2d786b7f8b204f602dda/memray-1.17.1.tar.gz"
+  sha256 "99f6672d435878e3251a9c4600bb8f14cf205d2d6da3d6f0e6b309e535f9fc4a"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "8bc1a5e7dc4138e052ed3512195e32f0d1941f2e6f5b0ba0febe725d5afab316"
-    sha256 cellar: :any,                 arm64_sonoma:  "18c7e6ca3bc4f67c5ae622373d156466844e35739f488a4a43765ded665b5ad4"
-    sha256 cellar: :any,                 arm64_ventura: "ae8bbfe86a710917420b5ff15d316a07062291facb3893281ce49b276d74c6df"
-    sha256 cellar: :any,                 sonoma:        "a3758666d6c8e4dcd3346131fd08030e85e9e3ffbe6b556e03cbf7a86b8ac1e7"
-    sha256 cellar: :any,                 ventura:       "9c035ef9ea0cddcea807fdad91a7c435d9085bf5acbadd2b8d74b016a7d7f992"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0295f2a6ff8814a87702f8600ab73f7b33a7332ad93781713f5c27aa230abcbf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "74d9bf6fa7fefe76fbb78945647f805bed51455a3c0961c22e8c8fd0c7d1010f"
+    sha256 cellar: :any,                 arm64_sequoia: "17272f7adecc072265492748044ce2c047b91abf8dc8b7cb2a2c9459a67292c4"
+    sha256 cellar: :any,                 arm64_sonoma:  "55beb65ee82ab38f96bf48c7839fe865fc67c2e05456f62d9d47afbaa35a54ec"
+    sha256 cellar: :any,                 arm64_ventura: "5bcb4c8963c4b2959df6bb62c41d080a1d0650fde140abe50d52fd8902951dd8"
+    sha256 cellar: :any,                 sonoma:        "472f1211109502aa37ce2d48b2373eaacebdf86564d90eb57a36cb45797fb7d6"
+    sha256 cellar: :any,                 ventura:       "0c1429e3702c1a7e6f08a9d5f0e9a629231c2d8667692f701b38753643dbf933"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "cd233f927a7de10aa99ec08084168cd82f32abb40a1e7fc652d80dcf7e971d9d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "da998e77dd56ebccb30c64aa5fafd350474d92d72135ea4d9beee1cf6a54a9c0"
   end
 
   depends_on "lz4"
@@ -65,8 +65,8 @@ class Memray < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/13/fc/128cc9cb8f03208bdbf93d3aa862e16d376844a14f9a0ce5cf4507372de4/platformdirs-4.3.6.tar.gz"
-    sha256 "357fb2acbc885b0419afd3ce3ed34564c13c9b95c89360cd9563f73aa5e2b907"
+    url "https://files.pythonhosted.org/packages/b6/2d/7d512a3913d60623e7eb945c6d1b4f0bddf1d0b7ada5225274c87e5b53d1/platformdirs-4.3.7.tar.gz"
+    sha256 "eb437d586b6a0986388f0d6f74aa0cde27b48d0e3d66843640bfb6bdcdb6e351"
   end
 
   resource "pygments" do
@@ -75,18 +75,18 @@ class Memray < Formula
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/ab/3a/0316b28d0761c6734d6bc14e770d85506c986c85ffb239e688eeaab2c2bc/rich-13.9.4.tar.gz"
-    sha256 "439594978a49a09530cff7ebc4b5c7103ef57baf48d5ea3184f21d9a2befa098"
+    url "https://files.pythonhosted.org/packages/a1/53/830aa4c3066a8ab0ae9a9955976fb770fe9c6102117c8ec4ab3ea62d89e8/rich-14.0.0.tar.gz"
+    sha256 "82f1bc23a6a21ebca4ae0c45af9bdbc492ed20231dcb63f297d6d1021a9d5725"
   end
 
   resource "textual" do
-    url "https://files.pythonhosted.org/packages/41/62/4af4689dd971ed4fb3215467624016d53550bff1df9ca02e7625eec07f8b/textual-2.1.2.tar.gz"
-    sha256 "aae3f9fde00c7440be00e3c3ac189e02d014f5298afdc32132f93480f9e09146"
+    url "https://files.pythonhosted.org/packages/dc/1f/df371f1455524a3d0079871e49e3850c82767904e9f4e2bdea6d30a866a7/textual-3.1.0.tar.gz"
+    sha256 "6bcab6581e9753d2a2043caf49f43c5818feb35f8049ed185bd38982bfb310ca"
   end
 
   resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/df/db/f35a00659bc03fec321ba8bce9420de607a1d37f8342eee1863174c69557/typing_extensions-4.12.2.tar.gz"
-    sha256 "1a7ead55c7e559dd4dee8856e3a88b41225abfe1ce8df57b7c13915fe121ffb8"
+    url "https://files.pythonhosted.org/packages/f6/37/23083fcd6e35492953e8d2aaaa68b860eb422b34627b13f2ce3eb6106061/typing_extensions-4.13.2.tar.gz"
+    sha256 "e6c81219bd689f51865d9e372991c540bda33a0379d5573cddb9a3a23f7caaef"
   end
 
   resource "uc-micro-py" do

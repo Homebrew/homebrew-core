@@ -22,6 +22,8 @@ class CargoShuttle < Formula
 
   uses_from_macos "bzip2"
 
+  conflicts_with "shuttle", because: "both install `shuttle` binaries"
+
   def install
     ENV["LIBGIT2_NO_VENDOR"] = "1"
     system "cargo", "install", *std_cargo_args(path: "cargo-shuttle")
@@ -36,7 +38,7 @@ class CargoShuttle < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/shuttle --version")
-    assert_match "Forbidden", shell_output("#{bin}/shuttle account 2>&1", 1)
+    assert_match "Unauthorized", shell_output("#{bin}/shuttle account 2>&1", 1)
     output = shell_output("#{bin}/shuttle deployment status 2>&1", 1)
     assert_match "ailed to find a Rust project in this directory.", output
   end

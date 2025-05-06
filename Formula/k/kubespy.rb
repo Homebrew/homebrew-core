@@ -4,6 +4,7 @@ class Kubespy < Formula
   url "https://github.com/pulumi/kubespy/archive/refs/tags/v0.6.3.tar.gz"
   sha256 "1975bf0a0aeb03e69c42ac626c16cd404610226cc5f50fab96d611d9eb6a6d29"
   license "Apache-2.0"
+  head "https://github.com/pulumi/kubespy.git", branch: "master"
 
   bottle do
     rebuild 1
@@ -12,6 +13,7 @@ class Kubespy < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "5f330bfacc517d413078b720bd062241fa133473261bc683d9817e7a0b102d73"
     sha256 cellar: :any_skip_relocation, sonoma:        "f9759118bb4059b89ddc15eeffde235cf2f38e6c43e3e8ab3f3c0963360da5d8"
     sha256 cellar: :any_skip_relocation, ventura:       "efee99c55ca31291aab9dad8badf602a0d8eae65f201f407ec40eaed9362f1cb"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0e00ec0730211581e28e9ce51a735efc19081821f363c0541e74917384544384"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "36b1c1fb59db56e36ca01cfb315313a94796d679d7ae85988132f20b6706ffe3"
   end
 

@@ -4,17 +4,17 @@ class ColladaDom < Formula
   url "https://github.com/rdiankov/collada-dom/archive/refs/tags/v2.5.0.tar.gz"
   sha256 "3be672407a7aef60b64ce4b39704b32816b0b28f61ebffd4fbd02c8012901e0d"
   license "MIT"
-  revision 11
+  revision 12
   head "https://github.com/rdiankov/collada-dom.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "7f2f14ada8f52d59fab95a8daa171a5f8190c082e3e593200715c15e24128758"
-    sha256 cellar: :any,                 arm64_sonoma:  "5751a4df5552a182392748da057b6609ebaf823a9d0f5153e320769ec0c63261"
-    sha256 cellar: :any,                 arm64_ventura: "c1c63c11e7a9cdfe018e8840078db2d38118e68484e8aa97c20327d3d313d5f6"
-    sha256 cellar: :any,                 sonoma:        "183a9d8e0ec094106681fc44295ed04c3b3575407e6fea95cfae3d257704745b"
-    sha256 cellar: :any,                 ventura:       "295fff9dae9857f830805e1edfec4f35a10d80f821c86012549b0d763b2ea02a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9185b9bec36d7fe0a31c70ff2721635135ed089b6b0619d6ed5df45b3541cc90"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0954666d6fe07b3cc599f72f797c61f9ef3ae2ba51d3c07dfd876bf3fbe26d8a"
+    sha256 cellar: :any,                 arm64_sequoia: "f8fe9c458f7b484d0cd0cf9621f9b84d6e63937a1d7bfeb705e801e026cab1e6"
+    sha256 cellar: :any,                 arm64_sonoma:  "1a93d3a82bb601f66d34629015f53ab87e3193b61c364a5da75d83c7a0060685"
+    sha256 cellar: :any,                 arm64_ventura: "f76da451276e9251727ddfbe40b9dade4db304847a9c1cffd635d1089aa8f0bb"
+    sha256 cellar: :any,                 sonoma:        "e9aba40820c17f45f7498b445f45d25698fc5fa2c324745404e55590189c9ab7"
+    sha256 cellar: :any,                 ventura:       "25a584b502fb59ab0493eaaa7da669464d18481a8d5cd001c86c7ba0ba493ba7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7785299a5c30c771300721863afb15b7e8a42a1990f80bbfef5a0816393e7737"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b72d91084f267637a321260f8bce9f79085ac8c6fd0c16d57c748ba483614a0d"
   end
 
   depends_on "cmake" => :build
@@ -33,7 +33,10 @@ class ColladaDom < Formula
     # Remove bundled libraries to avoid fallback
     rm_r(buildpath/"dom/external-libs")
 
-    system "cmake", "-S", ".", "-B", "build", "-DCMAKE_CXX_STANDARD=11", *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build",
+                    "-DCMAKE_CXX_STANDARD=11",
+                    "-DCMAKE_POLICY_VERSION_MINIMUM=3.5",
+                    *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end

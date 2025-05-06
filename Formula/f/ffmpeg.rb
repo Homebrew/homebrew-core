@@ -4,7 +4,7 @@ class Ffmpeg < Formula
   # None of these parts are used by default, you have to explicitly pass `--enable-gpl`
   # to configure to activate them. In this case, FFmpeg's license changes to GPL v2+.
   license "GPL-2.0-or-later"
-  revision 1
+  revision 2
 
   head "https://github.com/FFmpeg/FFmpeg.git", branch: "master"
 
@@ -25,13 +25,13 @@ class Ffmpeg < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "56bc79c6948de8961c0cfd4199f45d346962a7e073e60c76cc93fa32d3075be4"
-    sha256 arm64_sonoma:  "9a9fc0c1fd68fb2a4f44fa438ea5cc66277d7967c7e6bbbac7671021d5da5b30"
-    sha256 arm64_ventura: "d586aaab950e703be754350c97dc46278b6b8644376306461b1b2bc9ab508eaa"
-    sha256 sonoma:        "85ebb6e65226b2d72e1f436e2afc0b22a84cd80760bee0f40c60c9a77a1dd028"
-    sha256 ventura:       "1589d333d214232b2e317c9dea13e3b3d5abaa3b78a524c44316ed9050723c53"
-    sha256 arm64_linux:   "0953c679ce503f5585cc1a6a6e045856d01deea4074c5a02383c36da0dfdcaae"
-    sha256 x86_64_linux:  "a11b8453bbf44bca69529d299e7fa0476075c9f4c1be3a4d311947152b26681e"
+    sha256 arm64_sequoia: "089a1e82e5fee3c5e01cab1f4fe001b531a5a14e5c2a5e7b1f7c60b09462dfd2"
+    sha256 arm64_sonoma:  "2d96461289ff6cca44d7bb1434ddc3de441677c7f4608d0cba65f3668f6e2707"
+    sha256 arm64_ventura: "990a5582abb5fec5d8e0fc88bf678d79016b3e2951578dafe344628eb9430a86"
+    sha256 sonoma:        "968a05f063bca7911e4fbe462e2a7994188dd6ef326e4f86f35c45aa9fc4be22"
+    sha256 ventura:       "bd420d22a246f9b84ef68dc495cd33ab01694b91e0081681224628da3f9d74ab"
+    sha256 arm64_linux:   "147bc2de6e99ae88a321024b38d246fdd96273de80cfaf30b296ea734901ef13"
+    sha256 x86_64_linux:  "f9fa8c68413331c29fc2fb5110a23ed3cc3c4c94d7a4c20a3c1e144b93045b31"
   end
 
   depends_on "pkgconf" => :build

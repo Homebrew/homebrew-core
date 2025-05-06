@@ -1,8 +1,8 @@
 class Netdata < Formula
   desc "Diagnose infrastructure problems with metrics, visualizations & alarms"
   homepage "https://www.netdata.cloud/"
-  url "https://github.com/netdata/netdata/releases/download/v2.3.0/netdata-v2.3.0.tar.gz"
-  sha256 "a5470c547f11deeb58ae6faf21e0b891997055ea293a626102be85e3ab7f011f"
+  url "https://github.com/netdata/netdata/releases/download/v2.5.0/netdata-v2.5.0.tar.gz"
+  sha256 "eb98dfe1aad6a97b48976c1888ec07adb5a26eb316e2e12d0d0efb928a801340"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -12,18 +12,19 @@ class Netdata < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "5b04243d61f40289d64bf10503de5934ab02fc794c31e6999c47bc1305f4a2b2"
-    sha256 arm64_sonoma:  "8b9b0ba4f1349ff2cd40fa76341ce9d38e989da3ea72e1069d1e49193b6d2430"
-    sha256 arm64_ventura: "842d17e734e12fba64c693707f3054b66fd9e795c76c7ad9b56aa6263914c1d4"
-    sha256 sonoma:        "0ccd380970cd677d4c51b3fbeea7233a90c2aedfa7578befd88fc1cb7ccdc163"
-    sha256 ventura:       "551c77d23c64029806aa27b6a894adc8739c1d16623191d8a57681ca5c22263b"
-    sha256 x86_64_linux:  "d124b07aa6061ec17b44def219b2652df12dc8033dcfccb22f450f9cd39e4e01"
+    sha256 arm64_sequoia: "3dd852ad855928a1efefa6acd7dba57d5f82baec20cdaafadf6382ffed8bd3ce"
+    sha256 arm64_sonoma:  "d9fcfb438c4f9b7d2c77bac12ff9c9d7630b863ae9c75968235b897e9ecb7e92"
+    sha256 arm64_ventura: "8e602f35b2f98b93c4e1fd74c398ea35b535dd38834ab259bf040289026c79ab"
+    sha256 sonoma:        "317f89b6e54789012d0db26b6b19fedcf1f3c01033bf809080920fd8202787c6"
+    sha256 ventura:       "9e36fa4488255ef6518f8bd873764f88d72697ce9b50e5f3a8b638e31839e4c3"
+    sha256 x86_64_linux:  "afbe44f18e7884efd52ffc60cae0255814b55e9e6d0dd0dd4e6726813b3d8a29"
   end
 
   depends_on "cmake" => :build
   depends_on "go" => :build
   depends_on "pkgconf" => :build
   depends_on "abseil"
+  depends_on "dlib"
   depends_on "json-c"
   depends_on "libuv"
   depends_on "libyaml"
@@ -32,6 +33,7 @@ class Netdata < Formula
   depends_on "pcre2"
   depends_on "protobuf"
   depends_on "snappy"
+  depends_on "zstd"
 
   uses_from_macos "curl"
   uses_from_macos "zlib"
@@ -56,6 +58,10 @@ class Netdata < Formula
       s.gsub! %r{(\s"?(?:\$\{NETDATA_RUNTIME_PREFIX\}/)?)usr/}, "\\1"
       s.gsub! %r{(\s"?)(?:\$\{NETDATA_RUNTIME_PREFIX\}/)?etc/}, "\\1#{etc}/"
       s.gsub! %r{(\s"?)(?:\$\{NETDATA_RUNTIME_PREFIX\}/)?var/}, "\\1#{var}/"
+      # Fix not to use `fetchContent` for `dlib` library
+      # Issue ref: https://github.com/netdata/netdata/issues/20147
+      s.gsub! "netdata_bundle_dlib()", "find_package(dlib REQUIRED)"
+      s.gsub! "netdata_add_dlib_to_target(netdata)", ""
     end
 
     system "cmake", "-S", ".", "-B", "build",

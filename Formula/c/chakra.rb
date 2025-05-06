@@ -42,6 +42,9 @@ class Chakra < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux: "cb090973883ca8832598f8d020bb6c3454567a7a1dd8537325a636be45fb0300"
   end
 
+  # Can be considered for un-deprecation if upstream does a new release
+  deprecate! date: "2025-03-28", because: "fails to run on Linux after rebuild and last release was 2020-12-08"
+
   depends_on "cmake" => :build
   depends_on "icu4c@76"
 

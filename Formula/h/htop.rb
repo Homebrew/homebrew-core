@@ -1,8 +1,8 @@
 class Htop < Formula
   desc "Improved top (interactive process viewer)"
   homepage "https://htop.dev/"
-  url "https://github.com/htop-dev/htop/archive/refs/tags/3.4.0.tar.gz"
-  sha256 "7a45cd93b393eaa5804a7e490d58d0940b1c74bb24ecff2ae7b5c49e7a3c1198"
+  url "https://github.com/htop-dev/htop/archive/refs/tags/3.4.1.tar.gz"
+  sha256 "af9ec878f831b7c27d33e775c668ec79d569aa781861c995a0fbadc1bdb666cf"
   license "GPL-2.0-or-later"
   head "https://github.com/htop-dev/htop.git", branch: "main"
 
@@ -12,13 +12,13 @@ class Htop < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "677c0a92041b0e6ac154165ffbcfd67a6213e54a7f76c02c77c7f857f38f47ae"
-    sha256 cellar: :any,                 arm64_sonoma:  "22187a55adee8dd80b5ad15fd746d5f6284a88d5c4e450e38c463e0c957f8811"
-    sha256 cellar: :any,                 arm64_ventura: "890cb59f4dade937992d35ac71c571c429da4ba3f858174647dae00d2b30f044"
-    sha256 cellar: :any,                 sonoma:        "49b47ec58f7bdf9fa2fe65b3cbadf6f80290745ddd8b6b7d9a71df89da9ebf65"
-    sha256 cellar: :any,                 ventura:       "4a9209d7c67437994a49dcbf4560148283152b655ffef51111e3160700fff430"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5b816693a30c5dd907fe954118d86208bee991cba541609ab4b35d11aeed7066"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "66dbb45ffe4c0a28e0bef60a2819db27d2f61b03ad8417b3d6a95fc19eb5243d"
+    sha256 cellar: :any,                 arm64_sequoia: "275705af5f32669121f09010359ed54a913cd25c268cde4956753da6d3ed73c9"
+    sha256 cellar: :any,                 arm64_sonoma:  "f8c77ed7920bc1a2b6bc2fa7eb578dfc12a061142bc29729f9cb66d3ac7c0234"
+    sha256 cellar: :any,                 arm64_ventura: "c848a84e90f7882cee84f24fe5c6d77c38b8530eaef24ef09172fc54c1c81ca3"
+    sha256 cellar: :any,                 sonoma:        "66f129d4a7275937877eb128b208a53879d8a7c518903522ff0a7318f84d9867"
+    sha256 cellar: :any,                 ventura:       "e046c6078e2d30e54f2d0b10417b9b0e6de02aa31d889586cd1d3a5e87b8643c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4f1eb1a8b344bda3f1f805743419260c0187ea3a05fdce7bb23708b085261a4f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "33b22b0ce29e0e73a86575daeaf0a01c6bb913f95d0b54172bba9021ec514fa7"
   end
 
   depends_on "autoconf" => :build

@@ -4,6 +4,7 @@ class Grizzly < Formula
   url "https://github.com/grafana/grizzly/archive/refs/tags/v0.7.1.tar.gz"
   sha256 "81811b684ef1bddd3b7147c5095224552a0b35dc3ff210d10e6cbc5e12331160"
   license "Apache-2.0"
+  head "https://github.com/grafana/grizzly.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "9c00e5b79f192d86d855287c9abb183eede829f47d6892bfef011d0977fb45cc"

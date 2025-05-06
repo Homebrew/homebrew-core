@@ -11,6 +11,7 @@ class Packetry < Formula
     sha256 cellar: :any,                 arm64_ventura: "ac33c2598d3ab7e4ba32c23b306510eea957383caddcbd8f9a8d4ec4fde0564e"
     sha256 cellar: :any,                 sonoma:        "08dddc60262a32e355af6a43d70c1eaa0c782d482c61f958891359d672405005"
     sha256 cellar: :any,                 ventura:       "21ddfa4541496350dada1a3ec6361180ae1a70c2d5bf3920cc92c1190437f376"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f7f3300e7ef993045cc58515cb726db211888c35a3765c7553f7fed862fb8da6"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "46ab971b2e7e71791bf0e2bfbcbc2a8d89beed2069f3b82b9c096a6f17914273"
   end
 

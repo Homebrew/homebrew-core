@@ -7,7 +7,13 @@ class Cfengine < Formula
 
   livecheck do
     url "https://cfengine-package-repos.s3.amazonaws.com/release-data/community/releases.json"
-    regex(/["']version["']:\s*["'](\d+(?:\.\d+)+)["']/i)
+    strategy :json do |json|
+      json["releases"]&.map do |release|
+        next if release["beta"] || release["debug"]
+
+        release["version"]
+      end
+    end
   end
 
   bottle do

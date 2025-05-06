@@ -11,6 +11,7 @@ class Gnumeric < Formula
     sha256                               arm64_ventura: "b3db35307a7753e36193530495205e12e2a375745687fd565d0f292002830f35"
     sha256                               sonoma:        "011604f935d00185e04de4dab0593c4cda3869531e7d8da3c7c16f60b5e7adc4"
     sha256                               ventura:       "431655b749b2dc4e9540390d9101df685bd2d4dc844826937e5a91d07c69198e"
+    sha256                               arm64_linux:   "d63099284e1adac91e09c19878c6a1e65bc4621ff1f9e3172ae7026f1a058734"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "0bf651f16b89c62b500b4da5773a75dc96ddab040d055ba13f9a3d697a8e4ea5"
   end
 

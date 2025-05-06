@@ -5,6 +5,7 @@ class Govulncheck < Formula
   sha256 "da1a7f3224cf874325814dd198eaa42897143fc871226a04944583cb121a15c9"
   license "BSD-3-Clause"
   revision 1
+  head "https://github.com/golang/vuln.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "ab516a4d8e06b264e4056cc7b2559a6283d3b22837bd1f6fb0aa793ab26f86c6"

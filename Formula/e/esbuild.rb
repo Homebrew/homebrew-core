@@ -1,17 +1,19 @@
 class Esbuild < Formula
   desc "Extremely fast JavaScript bundler and minifier"
   homepage "https://esbuild.github.io/"
-  url "https://github.com/evanw/esbuild/archive/refs/tags/v0.25.1.tar.gz"
-  sha256 "5e84e44d7d2c2751f0b67e8cf909def3b0189b8e9549bcd663cadab582ab2947"
+  url "https://github.com/evanw/esbuild/archive/refs/tags/v0.25.4.tar.gz"
+  sha256 "4661a2b1d2b1db035a19eca5e771a40b6c16b23279aae02022def9fa45ed5ad9"
   license "MIT"
+  head "https://github.com/evanw/esbuild.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "09dfe66cbcefe6080f5c063e239f4c4e8131391fc0d3b772a199c4295ed4d41c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "09dfe66cbcefe6080f5c063e239f4c4e8131391fc0d3b772a199c4295ed4d41c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "09dfe66cbcefe6080f5c063e239f4c4e8131391fc0d3b772a199c4295ed4d41c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "85cba96764f545dd9dfd101cc45d25619b953594ac1b4d1aa255a17ed5f3801c"
-    sha256 cellar: :any_skip_relocation, ventura:       "85cba96764f545dd9dfd101cc45d25619b953594ac1b4d1aa255a17ed5f3801c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b5f76bb808ab1be6e20ebc211cd88d3597444818c5eb22d7ec50be2c8c413c12"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bdd37229ff118962d2d8092b36c18af0e72a5cb8ab824dfe90fdecbb8b8ce5e7"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "bdd37229ff118962d2d8092b36c18af0e72a5cb8ab824dfe90fdecbb8b8ce5e7"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "bdd37229ff118962d2d8092b36c18af0e72a5cb8ab824dfe90fdecbb8b8ce5e7"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7a322a64d412c13933430679569cfb5d623d05c19ab266d13205cb975fe0ebbc"
+    sha256 cellar: :any_skip_relocation, ventura:       "7a322a64d412c13933430679569cfb5d623d05c19ab266d13205cb975fe0ebbc"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "42bc8c07e1ed3ec052f691012c14c8fc13bc4a5c2439d5fbbe09de7bc1da9e93"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f1fd9dfe035aa0dad5f65db9f9509d32d42dece05dabaef7deb639b9f5bee247"
   end
 
   depends_on "go" => :build

@@ -1,8 +1,8 @@
 class Conduit < Formula
   desc "Streams data between data stores. Kafka Connect replacement. No JVM required"
   homepage "https://conduit.io/"
-  url "https://github.com/ConduitIO/conduit/archive/refs/tags/v0.13.3.tar.gz"
-  sha256 "5d685430b75c4e047cb09041070773947ea27fe087af0c96559d3bb156d0f778"
+  url "https://github.com/ConduitIO/conduit/archive/refs/tags/v0.13.4.tar.gz"
+  sha256 "96dc9b58369025ef60d877ad776347c09b80dbb54800253936655489bb2273e8"
   license "Apache-2.0"
   head "https://github.com/ConduitIO/conduit.git", branch: "main"
 
@@ -12,12 +12,12 @@ class Conduit < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "64f64ca36cff8bb14765333978d22a6d3a587ddd5709489f20b9997aab6b74f4"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c3ce0397ccde91413e6edcf124e5517369a3894d855df2310de487153e5d25d7"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "822c1294cb25c2a2afa8151fd06f930bd53d83e9352b63f4473dc0530509a90d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e88d6e783199b79fdb6c58760588f609b74d6f06aebc1efc46bc994c8da022a3"
-    sha256 cellar: :any_skip_relocation, ventura:       "ef5647d7bd087d52498671c20fa933fd03ac487743b828fa965399d21878c04f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "24524f612873cf8023a12e219af339f62846c6b4b65af2f4793e8de4eb3934ac"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1d7442b88e26aab3468f3f967cdd1247a18be6d0dabbfc4ec1cbdbc9b781a598"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d1d293e397e3869b6935453839173714658107b75c6996326c28bc66d31c6262"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "6fbe86a1172ecd47dba7a7820959d492d67df7a5203202aae83c842b64031cee"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8c2f24df3998e0b26beca132b9da9465af1044b020e68c98c10d046501e07d24"
+    sha256 cellar: :any_skip_relocation, ventura:       "b6d70e9f5d3994cd95c8698518e22747073867dca197c9c4fe4866d30b958498"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f13b176d8a74de86b8f81c670017178b2a96fec5a911572e3b6c35261dc81a52"
   end
 
   depends_on "go" => :build

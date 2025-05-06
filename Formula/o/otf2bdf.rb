@@ -1,21 +1,24 @@
 class Otf2bdf < Formula
   desc "OpenType to BDF font converter"
   homepage "https://github.com/jirutka/otf2bdf"
-  url "https://slackware.uk/~urchlay/src/otf2bdf-3.1.tbz2"
-  sha256 "3d63892e81187d5192edb96c0dc6efca2e59577f00e461c28503006681aa5a83"
+  url "https://github.com/jirutka/otf2bdf/archive/refs/tags/v3.1_p1.tar.gz"
+  version "3.1_p1"
+  sha256 "deb1590c249edf11dda1c7136759b59207ea0ac1c737e1c2d68dedf87c51716e"
   license "MIT"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+(?:[._-]?p\d+)?)$/i)
+  end
+
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_sequoia:  "5e44f2e2e203dd4d581516ddc4e6819fb99a8029356414019c63b7698910c3a2"
-    sha256 cellar: :any,                 arm64_sonoma:   "d870da25b4ff6680200b767f9bd5c2d94bb4be4413498a4a80ea52d2af87aea1"
-    sha256 cellar: :any,                 arm64_ventura:  "1ad51b1db3e7b521fb3608e43e27c495aae5438f03913f133b7ab14a85cd1ce6"
-    sha256 cellar: :any,                 arm64_monterey: "6886123b0c45985af7cba20da8c3dad5b7781087f2ef1c7202eecb2d598c898f"
-    sha256 cellar: :any,                 sonoma:         "1d140fa94e091509910ca6713ab82a97f7af120833ccc2e3978068be815f6fee"
-    sha256 cellar: :any,                 ventura:        "edfb01b76f2db5887a66bdc3ecdc42081a03a4645a76fe6c15f626a7c6925129"
-    sha256 cellar: :any,                 monterey:       "dafee8b4a63fb155ed161200df6c15e64ba054863cfcfc3171038b795bfc2ea1"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "bf72e8a6145aa7353605131697e0299f92c5607366494ffb06337965fdd4b41a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "06814ebf37e5b3387409a79c416d52ab43c3a67d32ea1bea076d471bb0c84142"
+    sha256 cellar: :any,                 arm64_sequoia: "51d176016f0bb1ef87c844b246d9f733e594314fb7fbc19f7a2a4bbae330cf6a"
+    sha256 cellar: :any,                 arm64_sonoma:  "deb8ebe605b3723509213f415b25315efbc0fb1e72ad3866cabec7830b523894"
+    sha256 cellar: :any,                 arm64_ventura: "a68522af5768c71394633ec7f1d347191d638fc89676d0d91f72fc4c95bb13f5"
+    sha256 cellar: :any,                 sonoma:        "aa6b56b8934b71fca2d22699b41a11d6375f85afdd4325d9edf6529301796a21"
+    sha256 cellar: :any,                 ventura:       "00c0aac1e143142550d43ababffa8551fdec3c31903fc08cb8ac130875a7f5b7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d0978c8ced64cd766bbbb7bfe4fbbfd1855f3f872d17628d15c5221409b01ce8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ed108fc68b1333987e18c32c6ea67add776ce92b913b80e6c1a1af3af7be847b"
   end
 
   depends_on "freetype"
@@ -27,15 +30,14 @@ class Otf2bdf < Formula
     end
   end
 
-  resource "mkinstalldirs" do
-    url "https://raw.githubusercontent.com/jirutka/otf2bdf/master/mkinstalldirs"
-    sha256 "e7b13759bd5caac0976facbd1672312fe624dd172bbfd989ffcc5918ab21bfc1"
-  end
-
   def install
-    buildpath.install resource("mkinstalldirs")
     chmod 0755, "mkinstalldirs"
-    system "./configure", "--prefix=#{prefix}", "--mandir=#{man}"
+
+    # `otf2bdf.c` uses `#include <ft2build.h>`, not `<freetype2/ft2build.h>`,
+    # so freetype2 must be put into the search path.
+    ENV.append "CFLAGS", "-I#{Formula["freetype"].opt_include}/freetype2"
+
+    system "./configure", "--mandir=#{man}", *std_configure_args
     system "make", "install"
   end
 

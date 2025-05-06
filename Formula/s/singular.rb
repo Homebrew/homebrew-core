@@ -35,13 +35,14 @@ class Singular < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "70b291bd6c98c86973cb8db92391d51b37725dbce650ce9270a5da2bf4d40da7"
-    sha256 arm64_sonoma:  "1d3125671e760cd654015351a9e8e9399a928126fd3303f547e495c61bfb865e"
-    sha256 arm64_ventura: "89a18b75b03f523ebda9e2e0df5f566aed4ee94e8feb8d79fead7aa60a7f311f"
-    sha256 sonoma:        "d6aa383f1e6c98f1226c70d5ce193d43f7ae41537ed368604d9b8210e44d974b"
-    sha256 ventura:       "9fd6df9be35e01b7e4e1d003d6845c917b980db7d7223ec05e18df5efe6b3660"
-    sha256 arm64_linux:   "ab0f3dad935025696cdc3207449769b84d9e0523c9ed79c7e00c9ff9fee771fa"
-    sha256 x86_64_linux:  "cb5c5d972e67df545b6d6fb5703dc910b20c28474202df0b1ddcb28e604f351d"
+    rebuild 1
+    sha256 arm64_sequoia: "896fbb9eef9f94af1eaf50f0b9aa74349fa09c4af793afb5750191528d8abd2a"
+    sha256 arm64_sonoma:  "f5af6764654d8eb0bc0d37ad92eb4604d89d0d6948b567207305a97b06131a9a"
+    sha256 arm64_ventura: "25dbec84237a3a91179bb8821cc467380db5e9a6afb0c527c1892df8e7cc953b"
+    sha256 sonoma:        "fa44347fa78090b4159d95f152c2c1b44e139543366733e8999a7b7550a0993d"
+    sha256 ventura:       "45495c62336592f855eb8ce7a6bfe65317d3ebb09ef283e7a44a7b514e43d2bc"
+    sha256 arm64_linux:   "1c40c1d54986a5fe26d7b9be4c6ad059b910afb0289c145e4373c895526d74c4"
+    sha256 x86_64_linux:  "6648ecbf457333344ef6c772f27c9dc60e54deff011f4c211ddb5b3a1fa9dcfd"
   end
 
   head do
@@ -52,6 +53,7 @@ class Singular < Formula
     depends_on "libtool" => :build
   end
 
+  depends_on "flint"
   depends_on "gmp"
   depends_on "mpfr"
   depends_on "ntl"

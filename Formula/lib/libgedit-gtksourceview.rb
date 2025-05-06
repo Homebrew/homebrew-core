@@ -12,6 +12,7 @@ class LibgeditGtksourceview < Formula
     sha256 arm64_ventura: "ca4477e848ec00b7efb680ad7e0171bf6883ca08d0ca678034270997f352b420"
     sha256 sonoma:        "5f373605872fff3fdce72f24fdece0dbe151501bac38df500e69d12a999cd423"
     sha256 ventura:       "dc2b6a5cef2387db52487d5256816c5c84e6bbb4fe21e97210e7cf8416ec2f7a"
+    sha256 arm64_linux:   "2b6ef325b230560435d929f07bb39dd60fe321c2243282951e3046160de6f092"
     sha256 x86_64_linux:  "8241a8bacd6e3ad437cbf3b1082251925235897a14e7a4b8da93fe860afd35a0"
   end
 

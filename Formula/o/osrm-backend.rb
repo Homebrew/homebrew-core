@@ -2,7 +2,7 @@ class OsrmBackend < Formula
   desc "High performance routing engine"
   homepage "https://project-osrm.org/"
   license "BSD-2-Clause"
-  revision 7
+  revision 8
   head "https://github.com/Project-OSRM/osrm-backend.git", branch: "master"
 
   # TODO: Remove `conflicts_with "mapnik"` in release that has following commit:
@@ -10,6 +10,12 @@ class OsrmBackend < Formula
   stable do
     url "https://github.com/Project-OSRM/osrm-backend/archive/refs/tags/v5.27.1.tar.gz"
     sha256 "52391580e0f92663dd7b21cbcc7b9064d6704470e2601bf3ec5c5170b471629a"
+
+    # Backport commit to build with CMake 4. Remove in the next release
+    patch do
+      url "https://github.com/Project-OSRM/osrm-backend/commit/d691af4860350287041676178ceb511b240c336c.patch?full_index=1"
+      sha256 "216a143e58ee96abf4585b0f1d046469f7b42966e175b3b7b30350c232b48fff"
+    end
 
     # Backport fix for Boost 1.85.0. Remove in the next release.
     # PR ref: https://github.com/Project-OSRM/osrm-backend/pull/6856
@@ -35,13 +41,13 @@ class OsrmBackend < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "21aa25fa7a3562fcfe9d8a0ae47ecaf39dc96a129fe4335f84a2bb45bce9c5bd"
-    sha256 cellar: :any,                 arm64_sonoma:  "95139386132a79afbf03c241e3bc94b20aba6b4a1b73674a3887be3f4810b229"
-    sha256 cellar: :any,                 arm64_ventura: "6bd26f9a7d81c614e8da57f44b036d9399f27b02780cd7f1e5fc240958e9c694"
-    sha256 cellar: :any,                 sonoma:        "da566a8ea2bd4625ac39fb6be072ad44b2e98e1114f47e4dd21ed76f0218e52e"
-    sha256 cellar: :any,                 ventura:       "4fb6126c266f179069dd0b8f159baa07fd14aab2f99f10b812448dea27a291db"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "304509c4464f1d27415bfea2e4e1a0434e44cf630be492cf737a4b775054f83b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fae7b39121c03728fa24a88578072dcc1a0bed6aacc6fb60c51eb0f3b651d064"
+    sha256 cellar: :any,                 arm64_sequoia: "81bccb3ebd19507e9fd25afecce4ebef9226f4a2fdc7438c8cfd1f4e39d03932"
+    sha256 cellar: :any,                 arm64_sonoma:  "3d055a3ce881d4d191620dc35ea7d7fcc4c30578eb0ba9de126a6c53daeeed19"
+    sha256 cellar: :any,                 arm64_ventura: "22e157f68d7694ee9f4e3be99e571dbb782a4322df6b5126bafacc8c68c25bd7"
+    sha256 cellar: :any,                 sonoma:        "1bbde2078ad5bf2dc875f06e5ce07725962e3e47263ed5e35b649beb3d25b7f7"
+    sha256 cellar: :any,                 ventura:       "4e3d544640bbfefb638be3bf2e098463db14f12ede06285d1a284a8446335e92"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "448c8a5d909afa8bd305ee80e5cbdeda34f1bebdc4df34b869ec8a85ab12fffd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1b010082cf4787ceec009ed78886362aded2f95eb0605a543328e92a3d38e758"
   end
 
   depends_on "cmake" => :build
@@ -61,6 +67,12 @@ class OsrmBackend < Formula
   conflicts_with "mapnik", because: "both install Mapbox Variant headers"
 
   def install
+    # Workaround to build with CMake 4. Remove in the next release
+    if build.stable?
+      odie "Remove CMake 4 workaround!" if version >= 6
+      ENV["CMAKE_POLICY_VERSION_MINIMUM"] = "3.5"
+    end
+
     # Work around build failure: duplicate symbol 'boost::phoenix::placeholders::uarg9'
     # Issue ref: https://github.com/boostorg/phoenix/issues/111
     ENV.append_to_cflags "-DBOOST_PHOENIX_STL_TUPLE_H_"

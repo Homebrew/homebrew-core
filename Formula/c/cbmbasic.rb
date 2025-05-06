@@ -21,10 +21,15 @@ class Cbmbasic < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:    "99490e603e86319b7c4307657bf58511dacb801dddb30ed7c4269feaa19eb6bc"
     sha256 cellar: :any_skip_relocation, sierra:         "018c1d1fa3050bdbd88c092f19c1ca787098ea1183e1227671507af3fca07b52"
     sha256 cellar: :any_skip_relocation, el_capitan:     "92762d9b7f5f21190b98d23e7fedf787cccc14e1c82699b60036948beaf1e7d1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "0d449cf17cf6a0c1b07c3f46721f68ec826913f703e7e98daeb6b5e42cfe2867"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "0e08527ac4b01d5d2c747776b5d8be5ae6e402862a87bafe7331c3c3b49d6170"
   end
 
   def install
+    # Work around failure from GCC 10+ using default of `-fno-common`
+    # multiple definition of `RAM'; cbmbasic.o:(.bss+0x10): first defined here
+    ENV.append_to_cflags "-fcommon" if OS.linux?
+
     system "make", "CFLAGS=#{ENV.cflags}", "LDFLAGS=#{ENV.ldflags}"
     bin.install "cbmbasic"
   end

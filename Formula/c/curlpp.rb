@@ -30,8 +30,10 @@ class Curlpp < Formula
 
   def install
     ENV.cxx11
-    system "cmake", ".", *std_cmake_args
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
+
     inreplace bin/"curlpp-config", Superenv.shims_path/ENV.cc, ENV.cc
   end
 

@@ -7,15 +7,14 @@ class Glfw < Formula
   head "https://github.com/glfw/glfw.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia:  "f76d85e284182f2ad8b5d98e34bbd2b124a71fb65741305f3ec32860cd39fa62"
-    sha256 cellar: :any,                 arm64_sonoma:   "f4339af5fb5faa3df804bf54d30eaeb70e5eb09136433a7dd12a9a4c4f7891a0"
-    sha256 cellar: :any,                 arm64_ventura:  "3dc29608d2a685d2a89dabcf2c636952aa65d64801af10ab54d848da66115fc2"
-    sha256 cellar: :any,                 arm64_monterey: "a3069efe74c2d3f563db176c0c0ed30f7a22ab144674ce6e4406b13b291ee700"
-    sha256 cellar: :any,                 sonoma:         "f62736f5f8d62fe9e3eefc97b9629f93e6d5513fe970449d56e1379bf17e6ce0"
-    sha256 cellar: :any,                 ventura:        "4c2dda8866485758ea1bf446ffd09d99aab8874e3fc3b6f6f968ca8d80ef3344"
-    sha256 cellar: :any,                 monterey:       "fbeb82f1e016c9b2acbf51acedcbd3b70f98006a6793c5946466ecaa78dde94f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "707c1b8a6dc5362e2e00ba631aad8dd85c5d44d8ef721fd7c65cb68f3b9192f1"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_sequoia: "c81ce0e7ad94a9b1fc06e9e6bb1cb1c03338f093cc2b2d51bf5ee05f704d1dd5"
+    sha256 cellar: :any,                 arm64_sonoma:  "e8b219d638bcba7ca5d518cad42cefa577de1a648b583fa59838354554ecf709"
+    sha256 cellar: :any,                 arm64_ventura: "3d2030cdf6ab73f5de30be6fc0ce2ef0c4ea4b1757574b1afb4498c5bf50131f"
+    sha256 cellar: :any,                 sonoma:        "754e958d4c5c56ca1a93f2fffa99b3e9152b30510dd6d624a2e83cad8824138c"
+    sha256 cellar: :any,                 ventura:       "864034d178bafe5885fa656ef00519c38aeab796454d47da5c5e207a1e362ad1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "446bea0d77cbdc446e196247b220750e0a3f5a07083c32c600004103e6bb5e74"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bc9db7e9be50b978984167690242f6bdeb30e639ef6f2692b66443dd923fe488"
   end
 
   depends_on "cmake" => :build
@@ -29,17 +28,11 @@ class Glfw < Formula
   end
 
   def install
-    args = %w[
-      -DGLFW_USE_CHDIR=TRUE
-      -DGLFW_USE_MENUBAR=TRUE
-    ]
-
-    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"
     lib.install "build/src/libglfw3.a"
 
-    args << "-DBUILD_SHARED_LIBS=TRUE"
-    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build", "-DBUILD_SHARED_LIBS=TRUE", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end

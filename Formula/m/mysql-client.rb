@@ -1,10 +1,10 @@
 class MysqlClient < Formula
   desc "Open source relational database management system"
   # FIXME: Actual homepage fails audit due to Homebrew's user-agent
-  # homepage "https://dev.mysql.com/doc/refman/9.2/en/"
+  # homepage "https://dev.mysql.com/doc/refman/9.3/en/"
   homepage "https://github.com/mysql/mysql-server"
-  url "https://cdn.mysql.com/Downloads/MySQL-9.2/mysql-9.2.0.tar.gz"
-  sha256 "a39d11fdf6cf8d1b03b708d537a9132de4b99a9eb4d610293937f0687cd37a12"
+  url "https://cdn.mysql.com/Downloads/MySQL-9.3/mysql-9.3.0.tar.gz"
+  sha256 "1a3ee236f1daac5ef897c6325c9b0e0aae486389be1b8001deb3ff77ce682d60"
   license "GPL-2.0-only" => { with: "Universal-FOSS-exception-1.0" }
 
   livecheck do
@@ -13,13 +13,13 @@ class MysqlClient < Formula
 
   bottle do
     rebuild 1
-    sha256 arm64_sequoia: "c4b51d60d329627b0bca80778923029370114a70254997708c575fadfd9015c4"
-    sha256 arm64_sonoma:  "3672adb23db8d2a37e0944de6d65bb1fcc24d2e6857e087b6571597f41614c66"
-    sha256 arm64_ventura: "c4372cac59de87ed6fefc83219c733e572bf07eeaba5b715ef0a103ea0427e70"
-    sha256 sonoma:        "1f226108adb194a8ab72e5aa869942b0d522de4d1e604c46ad749c9639a4bfdb"
-    sha256 ventura:       "7e92947dd3cee27ff2b6c31b09ba72fe4293ec706b60794fca616de76a93a30c"
-    sha256 arm64_linux:   "ec083fc3fc9311259a0f481ea98127dac915985b506e9cea31c5678d376364a4"
-    sha256 x86_64_linux:  "c0c20206bcff3871a7c039a7435c22f255a1f29c2582dcfe0a9198e1b6a30fc9"
+    sha256 arm64_sequoia: "975fd82ddc975521c79adc5b8d91c8fe739e2d4b4f2f7716bb52dfaad32cd8cb"
+    sha256 arm64_sonoma:  "b0f29c9fbf56dd9f36ba0518e6a08fcedd7cf39884a2828a34e3c1b69cf5ac5d"
+    sha256 arm64_ventura: "20d77f2b858872d0fdfdddc552d0f0c513bdc4e939bfe43eea57a6b47fb7070d"
+    sha256 sonoma:        "418c9c100877a4dae7dd49b6e78c1aafb0db23bcddbf94e522e39a78c8130398"
+    sha256 ventura:       "3529c333d6cc9ca4925f0297a4ed70cf5d41bbcdb3d45dfee4a81bd16b56a8e7"
+    sha256 arm64_linux:   "b7cb2de7878be31f6896f08617393a83d836620192ad20649361c101a48b591f"
+    sha256 x86_64_linux:  "b19afb43de7e7a05235af8abbabec78a12fddac8278079d449cda6824683205e"
   end
 
   keg_only "it conflicts with mysql (which contains client libraries)"
@@ -67,8 +67,6 @@ class MysqlClient < Formula
     # -DINSTALL_* are relative to `CMAKE_INSTALL_PREFIX` (`prefix`)
     args = %W[
       -DCOMPILATION_COMMENT=Homebrew
-      -DDEFAULT_CHARSET=utf8mb4
-      -DDEFAULT_COLLATION=utf8mb4_general_ci
       -DINSTALL_DOCDIR=share/doc/#{name}
       -DINSTALL_INCLUDEDIR=include/mysql
       -DINSTALL_INFODIR=share/info

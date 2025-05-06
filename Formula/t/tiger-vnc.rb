@@ -16,6 +16,7 @@ class TigerVnc < Formula
     sha256 cellar: :any, arm64_ventura: "c65397dac1671e42fdbc3df44d242ef44e21fa7671901f9f56e96a88526ab3cf"
     sha256 cellar: :any, sonoma:        "31e91e161513884c41ad3e821d96b2972ac93f3bac5352b56ea94031d5c6b376"
     sha256 cellar: :any, ventura:       "73dc4363e534ffeb8b4370ad23d4cfb6af0cecf6c5cb0e22f44bb6838feb356c"
+    sha256               arm64_linux:   "221f90791a23f0b9ed7d13585c582e8ace7dc8afb42c37ff994ae3baa56c3c1f"
     sha256               x86_64_linux:  "a55108da56f37feaa9f9b1f3da1837bae065ac4f4d8bbcbf9de80676c03d205f"
   end
 

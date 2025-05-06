@@ -1,18 +1,18 @@
 class Libjuice < Formula
   desc "UDP Interactive Connectivity Establishment (ICE) library"
   homepage "https://github.com/paullouisageneau/libjuice"
-  url "https://github.com/paullouisageneau/libjuice/archive/refs/tags/v1.5.9.tar.gz"
-  sha256 "952c9ae86491e1b7920e034281759a16158525e56e3dfa07060aac2532c77c6f"
+  url "https://github.com/paullouisageneau/libjuice/archive/refs/tags/v1.6.0.tar.gz"
+  sha256 "90a13ed7049b97af4dcb494e5a82ebbffc41d29f917d17f0aa1b0b651034ae4c"
   license "MPL-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "841d199a73da93f066285b3795d984badc69b0e12981caed84228af28a2cb126"
-    sha256 cellar: :any,                 arm64_sonoma:  "aafc3541a80281ee7eb230c3ca08a30bdf306f17f204e0e9a6d2163b7930c403"
-    sha256 cellar: :any,                 arm64_ventura: "b95c9ed61269bd48ebb7ed28b1cd9c4a0a92d52f2e9272d22f55f7b04fbdff51"
-    sha256 cellar: :any,                 sonoma:        "fd0d5f8183ef6793008759d51fc7213c7318a372635f7588d0e893904ff72064"
-    sha256 cellar: :any,                 ventura:       "4352bd91de5dd4450da0e2f3edacecd0ade28479ed54d37a7bdea9366d4939ac"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "fcbf56174cbcd1f28ddf08b6f79633bff3574343222426b50c98ad36075adb71"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cd63688db47b13c70f4de6e006c86df8e856cb78b8cc5a55042d3e7d237a62f3"
+    sha256 cellar: :any,                 arm64_sequoia: "6bd090a24a94428cab57fb034e1455e0619c65d5a0a97985f90368b843be5598"
+    sha256 cellar: :any,                 arm64_sonoma:  "e7d063977b60306b38c406e11535fcfbdcb27dfb61e1bb3e9867ab98c98a4ee0"
+    sha256 cellar: :any,                 arm64_ventura: "efd9bbb6690c378921d744548057133dfe173fadddc71f68a989aa0df623c5f9"
+    sha256 cellar: :any,                 sonoma:        "99406c20337f6c8e4047378c776ab4746215fe62cc1c88f39ff05a8122f1acf4"
+    sha256 cellar: :any,                 ventura:       "19a281b7db9b022432d1b17d162de31527dcf4add8a24590f3b8e958bd4a4b6e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f408f03e6fb479d4a327f71c585fd6aaea1ae52b5217b8c4b42cb2e27014d0c2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "eea94f4f7ffe75d7dfe4fc8fabf02996f92a2db2cb2debd5d32d60a23ad6d32e"
   end
 
   depends_on "cmake" => :build

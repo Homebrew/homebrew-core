@@ -17,6 +17,7 @@ class Freeciv < Formula
     sha256 arm64_ventura: "751d5859aafda7a2f22f47e5aa83f8e7740aae1fc72310d67ee2d0efa2fb8351"
     sha256 sonoma:        "46928f3bc95629d3149e3ee1a44071ede46d2a7dc1e3c7d3d5ddbb672899f97f"
     sha256 ventura:       "c984ccc6dfd5d44d4cc24f834ddc7409f8fb7453084d5ca1296f6aebe0c2ebdc"
+    sha256 arm64_linux:   "163e31e82cf0fbb9b2bbecf83d3965275db2aa1efcced265c0c60549f9b36e5a"
     sha256 x86_64_linux:  "8c414f76445e8eb8bcdaf130941e9d6a39c41e6a51c29d00da4dd439a06b9eac"
   end
 

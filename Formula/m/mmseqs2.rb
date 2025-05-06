@@ -8,13 +8,14 @@ class Mmseqs2 < Formula
   head "https://github.com/soedinglab/MMseqs2.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c8daf8dbec7c29c1d3eea5a0121219586ed24ea957d12e00acadb2e290fb96b3"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1896588e7c11aecd04b53c19c6ab529f3800ad15f8f4ec7d95d007b486a009eb"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "e677b94b349b48bfd2d2840db79407fc00055c4780690cd8434b94bf1f288f41"
-    sha256 cellar: :any_skip_relocation, sonoma:        "a4fa462c8bb251cdd7076cc6afe8a25484f676fde45d45e4ce8637e742063e97"
-    sha256 cellar: :any_skip_relocation, ventura:       "137d46f6776eeff0b856cf2eca03c972b49a50238ce083d0f7c7782e2f1eb6d9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3030c88f137230537f7bd3c4a58646147e1319753786b81250d49320eae4ae1b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9f75c259b582cc4cf86ee97be763e59f9590e58d4f67a43b5e213bcc8a283401"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "d6e60b4dab916c2783b876db9af4351b6a2a8db35a4bcd566e14ad897b2cdd30"
+    sha256 cellar: :any,                 arm64_sonoma:  "48f4da646306654a7ba6e6a7a08f8a023a57468544f3e7586f55d1b10379e6bd"
+    sha256 cellar: :any,                 arm64_ventura: "5ff54b4b1996f420d1bc76d40ca69748a3e51ffb9da937abaf73488bfe2c13d2"
+    sha256 cellar: :any,                 sonoma:        "6f417d8a97a1fccbfedef502bbdf2fc35d1c1635f1f0343f85f230e2fac34654"
+    sha256 cellar: :any,                 ventura:       "411080f71627445783e1333574c5de1cbe9a41b3852fc5eeaa693efb8de1d4e6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d996d17e951ff3ce554fff2f1eaf834220b35ac4991b566ef078ae90bad3b40f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5fc3d695d1c1db71311cf2c0306d7affdc088ff445618970413c896b641a210c"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -39,6 +40,7 @@ class Mmseqs2 < Formula
 
   def install
     args = %W[
+      -DCMAKE_POLICY_VERSION_MINIMUM=3.5
       -DHAVE_TESTS=0
       -DHAVE_MPI=0
       -DVERSION_OVERRIDE=#{version}
@@ -48,15 +50,6 @@ class Mmseqs2 < Formula
       "-DHAVE_ARM8=1"
     else
       "-DHAVE_SSE4_1=1"
-    end
-
-    if OS.mac?
-      libomp = Formula["libomp"]
-      args << "-DOpenMP_C_FLAGS=-Xpreprocessor -fopenmp -I#{libomp.opt_include}"
-      args << "-DOpenMP_C_LIB_NAMES=omp"
-      args << "-DOpenMP_CXX_FLAGS=-Xpreprocessor -fopenmp -I#{libomp.opt_include}"
-      args << "-DOpenMP_CXX_LIB_NAMES=omp"
-      args << "-DOpenMP_omp_LIBRARY=#{libomp.opt_lib}/libomp.a"
     end
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
@@ -81,6 +74,7 @@ class Mmseqs2 < Formula
     end
 
     resource("homebrew-testdata").stage do
+      ENV["CMAKE_POLICY_VERSION_MINIMUM"] = "3.5"
       system "./run_regression.sh", "#{bin}/mmseqs", "scratch"
     end
   end

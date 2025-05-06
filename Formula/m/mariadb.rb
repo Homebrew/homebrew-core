@@ -22,6 +22,7 @@ class Mariadb < Formula
     sha256 arm64_ventura: "93d5d35242544df13cd074a324ee5d93565ca75e1278efb7393f3e767eb343c3"
     sha256 sonoma:        "a6274271328cb579529ec17ec0a5daca2a98c490ad9c2c726be4cc74a99e3ba8"
     sha256 ventura:       "7d03aa1668de2cfb383369d4a84d86aa8445a0000950a152e6b92865489d4d7c"
+    sha256 arm64_linux:   "9e75ebe01b3ef57d95ea18bbaa32e8dab5c00a90596b2739dc0a95365be73250"
     sha256 x86_64_linux:  "74ce4ec27335b9aec7c54cb57a76d1e686f31f4e24a5705e93fe3ff8affe8ade"
   end
 
@@ -61,7 +62,20 @@ class Mariadb < Formula
     sha256 "77b65b35cf0166b8bb576254ac289845db5a8e64e03b41f1bf4b2045ac1cd2d1"
   end
 
+  # Backport fix for CMake 4.0
+  patch do
+    url "https://github.com/codership/wsrep-lib/commit/324b01e4315623ce026688dd9da1a5f921ce7084.patch?full_index=1"
+    sha256 "eaa0c3b648b712b3dbab3d37dfca7fef8a072908dc28f2ed383fbe8d217be421"
+    directory "wsrep-lib"
+  end
+
   def install
+    ENV.runtime_cpu_detection
+
+    # Backport fix for CMake 4.0
+    # https://github.com/MariaDB/server/commit/cacaaebf01939d387645fb850ceeec5392496171
+    inreplace "storage/mroonga/CMakeLists.txt", "cmake_minimum_required(VERSION 2.8.12)", ""
+
     # Set basedir and ldata so that mysql_install_db can find the server
     # without needing an explicit path to be set. This can still
     # be overridden by calling --basedir= when calling.

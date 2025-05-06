@@ -1,8 +1,8 @@
 class Mpdecimal < Formula
   desc "Library for decimal floating point arithmetic"
   homepage "https://www.bytereef.org/mpdecimal/"
-  url "https://www.bytereef.org/software/mpdecimal/releases/mpdecimal-4.0.0.tar.gz"
-  sha256 "942445c3245b22730fd41a67a7c5c231d11cb1b9936b9c0f76334fb7d0b4468c"
+  url "https://www.bytereef.org/software/mpdecimal/releases/mpdecimal-4.0.1.tar.gz"
+  sha256 "96d33abb4bb0070c7be0fed4246cd38416188325f820468214471938545b1ac8"
   license "BSD-2-Clause"
 
   livecheck do
@@ -11,17 +11,14 @@ class Mpdecimal < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia:  "0f5f269bed0e6be2de3edfc4b52867e656f993e5bcff40717f26ee94dd0d2211"
-    sha256 cellar: :any,                 arm64_sonoma:   "2965eec8a30f462b3bd6a8cc2756c1645e75f4399471594e434e36e886239e2e"
-    sha256 cellar: :any,                 arm64_ventura:  "1fd72d5f4b35a3d4735efd7d934154ec8b3666267571f96d64244ad35b3ee814"
-    sha256 cellar: :any,                 arm64_monterey: "57311ecd036fae8d74c541ab5a30944a5a5cfea7abaa6b8c936b7376821edafd"
-    sha256 cellar: :any,                 sequoia:        "3d6f4fb042ca6910f8926a094363ccfa1ec8ced0816dc75c6c52f066490d2dc0"
-    sha256 cellar: :any,                 sonoma:         "377dc5e30dd1292ac1666dd43a447b861ad283024f70a3e914c7e11572ae869e"
-    sha256 cellar: :any,                 ventura:        "bb1729bd410275aab1bd276f99fb22678b6ad53de2c9c474fdda854ed0ebaebd"
-    sha256 cellar: :any,                 monterey:       "266a3f517227bb9f3806b18313c3b8a33688f9659e5001751e15f1f38538dacc"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "4e33dc493fe68f28d37ffe15f2888fe90205fc4cb4d36a39f85b87f142fc5410"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ca79318fa094531bd57b3f07d5b8574cd9986bac4c876043336ea4176e8c294f"
+    sha256 cellar: :any,                 arm64_sequoia: "e21da583e42e86d5a2f0aedfaf7820e51b8af3065da599cff179d1a39903f3ab"
+    sha256 cellar: :any,                 arm64_sonoma:  "51a9fd907163c4f99be93607db99668cbb3e115ff577f9413e5dd6e5d4070e2c"
+    sha256 cellar: :any,                 arm64_ventura: "e764118699fff81e4861a081d5e50546be2631a2fa2f58f4681dee6727648a87"
+    sha256 cellar: :any,                 sequoia:       "2d5d6956ca6cafdcd541611c99eed16c0f7a3c7c217efb0141ecfed265716564"
+    sha256 cellar: :any,                 sonoma:        "bc8fdd21107bda1c93c82f90f4adad05b85d6b7d175df10d0d566a23a7fd5ab5"
+    sha256 cellar: :any,                 ventura:       "40b0bb7a71de19ec68449a7f4f6c3816b625a6499e5119f476b3cec3df2d21ac"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d5f5f08846de66026cc3d4029e3202498ffb3996d4eca62623da85ade7b6f106"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f540928b0baae439b6b7bbbb54aa0b0d8fda3631a2fb46c1d1ccd6bf9c2b5389"
   end
 
   def install

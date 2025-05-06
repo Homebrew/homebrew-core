@@ -12,6 +12,7 @@ class Copa < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "d403fa235446f405793bc94b659e8b1db4f73dc7940f33032bca3fe2783235d8"
     sha256 cellar: :any_skip_relocation, sonoma:        "c473dedf7ed6d875c86756962b74a93b4f0ffe98294a368cd3941dac491f2056"
     sha256 cellar: :any_skip_relocation, ventura:       "b0d0dec095c5035c77c97115a91cc31014a665798a79dbddc0cb7c26ec0bdeef"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "bd4e8c261fd31d0cdcbce2401183b2fc2b386feb10c520f1c10bb9f02a9adad7"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "5e41b16c68e598ddecd219bee333ad8a405dbcdd6759fcbf49ac226638ba957c"
   end
 

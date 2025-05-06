@@ -3,10 +3,9 @@ class Notmuch < Formula
 
   desc "Thread-based email index, search, and tagging"
   homepage "https://notmuchmail.org/"
-  url "https://notmuchmail.org/releases/notmuch-0.38.3.tar.xz"
-  sha256 "9af46cc80da58b4301ca2baefcc25a40d112d0315507e632c0f3f0f08328d054"
+  url "https://notmuchmail.org/releases/notmuch-0.39.tar.xz"
+  sha256 "b88bb02a76c46bad8d313fd2bb4f8e39298b51f66fcbeb304d9f80c3eef704e3"
   license "GPL-3.0-or-later"
-  revision 2
   head "https://git.notmuchmail.org/git/notmuch", using: :git, branch: "master"
 
   livecheck do
@@ -15,14 +14,13 @@ class Notmuch < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia: "cd717cdea34175ce4b3ecb26f15594ed015483ce17e14204864b208afed3cf5e"
-    sha256 cellar: :any,                 arm64_sonoma:  "7844df568b86b1b6309c3aa0f6c4cf68ccb8a9b35fc90121b109d05a208b7cac"
-    sha256 cellar: :any,                 arm64_ventura: "592e3240392b89a60c68eba4c9bcb7d705c60733a3a8366642336c6369811cc4"
-    sha256 cellar: :any,                 sonoma:        "10fa6fbceadb544587d026f3591a1a43c3054cfce290f5d56beda33a201fc98b"
-    sha256 cellar: :any,                 ventura:       "3de2605deb58d1854e07fa28ac0730ee6ea82599510297a910d03df7cabbbb4a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c80cca3bee58a9d91c20a624e643b924a5dbda61b7563c26a3d526b31f80d2f8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1572f5f82da23d1493d0651c6294c7694f473c36c77d0d08c6f8d535c3ad700b"
+    sha256 cellar: :any,                 arm64_sequoia: "d82ad567f35dc86cfe9c3238f211849ec7ebd6a64d39728d1be7979885c19a2d"
+    sha256 cellar: :any,                 arm64_sonoma:  "ff9e440133a39ffb3a01054b5762e0d5ed7ed14b7aa66db9dc3d586540fc0918"
+    sha256 cellar: :any,                 arm64_ventura: "e384a4f762886b8d5e59f6e752574085d2af177c370caab601668eda1725549f"
+    sha256 cellar: :any,                 sonoma:        "f2234ee4ad5abe3603aafdd2a79f838c409b5385b4e57cfc9e9e4a794d87d4bc"
+    sha256 cellar: :any,                 ventura:       "66dc7a1087e43c91d4a4173a1e8f1f84ec30c9ce852be303440d5f8fc735179d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8ba411d8183c7e59331dc5bb6df073d8b2b2cbf17ca94c5d61a382a9a2400816"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "66b8788cc35e7be17f259b58f807332e5a18bf444578a33e54b3e4f9162f058f"
   end
 
   depends_on "doxygen" => :build
@@ -72,9 +70,7 @@ class Notmuch < Formula
     (prefix/"vim/doc").install "vim/notmuch.txt"
     (prefix/"vim").install "vim/syntax"
 
-    ["python", "python-cffi"].each do |subdir|
-      system python3, "-m", "pip", "install", *std_pip_args(build_isolation: true), "./bindings/#{subdir}"
-    end
+    system python3, "-m", "pip", "install", *std_pip_args(build_isolation: true), "./bindings/python-cffi"
   end
 
   test do
@@ -84,8 +80,6 @@ class Notmuch < Formula
     INI
     (testpath/"Mail").mkpath
     assert_match "0 total", shell_output("#{bin}/notmuch new")
-
-    system python3, "-c", "import notmuch"
 
     system python3, "-c", <<~PYTHON
       import notmuch2

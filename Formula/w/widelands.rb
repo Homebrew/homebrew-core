@@ -18,6 +18,7 @@ class Widelands < Formula
     sha256 arm64_ventura: "cc89f8628d9dbc446a7a5d4f65269eb2e720c4b0f69a922fc05f62532f8a2e04"
     sha256 sonoma:        "f6572c7feb4e4713414d27692883553a637aadf95ed03958f27a10bf5d0625fd"
     sha256 ventura:       "181a93b0acd13093356cf0d919a013dbe4ffc00019f8f3e6ae1772d5c5a24749"
+    sha256 arm64_linux:   "6dc0a351fdca77d0ad76a78519f0582a2d452dabef0d20569daa98a420101585"
     sha256 x86_64_linux:  "f2d1782fc0592643d470a43c5f269bc3172e5faa05f9f83bf97e609cb6ef8e57"
   end
 

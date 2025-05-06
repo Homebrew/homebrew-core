@@ -16,6 +16,7 @@ class Pgroonga < Formula
     sha256 cellar: :any,                 arm64_ventura: "566650be1da201e6b58e18550dc401de99f37ea306fbc9594e996b6609a1eba2"
     sha256 cellar: :any,                 sonoma:        "bb3eb6dc07a7dde21c8425cc50a384a345a2d3af35e06e8048763701ce89be03"
     sha256 cellar: :any,                 ventura:       "ac024d77294e071078565678f948821774d596b97152f8d660c547bfdde11b44"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d95b94358412a53dc2f15df1f277953581a1a4d2a3ae526b1553c6ee0fd0d29d"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "3d3a3e602ca372150b2c8b9d3ae993fef0434fd9a86bcea549335c37bd2cd38b"
   end
 

@@ -11,6 +11,7 @@ class Partio < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "7b11218fc52dd89ebea09525a28d6c545598962faf5b9faf63607c357944fcc5"
     sha256 cellar: :any_skip_relocation, sonoma:        "95b4c5061132adf97267f3a52c0a35476124df0f40ad54c93d7e0c141605277f"
     sha256 cellar: :any_skip_relocation, ventura:       "7300f161aaa679f5798b6a8bab305da1a22777b5a17e6a07ee7e4d2b750ba93e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5866cdd8c7d761d3cacdea80dc76cf177dc986e9b0b2e2518b2d325b2b556a76"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "5376a76f425c703390142d15aec36b56a8b14cd9ef133abca229838a377c238c"
   end
 

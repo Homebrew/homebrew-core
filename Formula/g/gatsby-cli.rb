@@ -11,6 +11,7 @@ class GatsbyCli < Formula
     sha256                               arm64_ventura: "c722cc790dc1697fa764ad02594c80cb2b506f84a5da412d5ffc00e2e03a2a3d"
     sha256                               sonoma:        "15744fd268f96a9b7634574cae8037136c25a632d4e1355b736db8fb452050da"
     sha256                               ventura:       "94670b31b65a8cc2bbaa067ad45c5a0de9224365e64185459b5c084b9156f779"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c595e92a5bcddd68c2fb37310eec42c83b196b557aa3cda7016a93fb3afedacb"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "f03cf15550ff1ed472c2c71bfa7aa1746ea83144e8c56ec675350511f4f4b320"
   end
 
@@ -46,6 +47,9 @@ class GatsbyCli < Formula
   end
 
   test do
+    # Workaround for https://github.com/nodejs/node-addon-api/issues/1007
+    ENV.append "CXXFLAGS", "-std=c++17" if OS.linux?
+
     system bin/"gatsby", "new", "hello-world", "https://github.com/gatsbyjs/gatsby-starter-hello-world"
     assert_path_exists testpath/"hello-world/package.json", "package.json was not cloned"
   end

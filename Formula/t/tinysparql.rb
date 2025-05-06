@@ -1,8 +1,8 @@
 class Tinysparql < Formula
   desc "Low-footprint RDF triple store with SPARQL 1.1 interface"
   homepage "https://tinysparql.org/"
-  url "https://download.gnome.org/sources/tinysparql/3.9/tinysparql-3.9.1.tar.xz"
-  sha256 "98e8933b946d8c54a77eadabd7f1d14cddd88fa43eef0d0ace3c0fcce646722b"
+  url "https://download.gnome.org/sources/tinysparql/3.9/tinysparql-3.9.2.tar.xz"
+  sha256 "14ce039024135e181022bcce4b1aad2e00377dd9c7d812b98391ccfc756dad8e"
   license all_of: ["LGPL-2.1-or-later", "GPL-2.0-or-later"]
   head "https://gitlab.gnome.org/GNOME/tinysparql.git", branch: "main"
 
@@ -15,8 +15,8 @@ class Tinysparql < Formula
   end
 
   bottle do
-    sha256 arm64_linux:  "5c284fccef5b0b7af359a9fc4cffce37aed9ec4205d909b2c25da39609a1c9e1"
-    sha256 x86_64_linux: "2289bb008fc9bad101d446e7ac5b03d22bd568eacbad0f9ea6bc38149a7c04da"
+    sha256 arm64_linux:  "ad70717895214c5cc08d5998cae06f2cd4f7701fff5f12aee9dbda5e094c11b2"
+    sha256 x86_64_linux: "c1ad67b48f79ec4f893d00e2232225a15f60d1ef7af281f7dbcb334c0797c79e"
   end
 
   depends_on "gettext" => :build

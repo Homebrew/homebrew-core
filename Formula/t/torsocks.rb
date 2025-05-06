@@ -1,20 +1,19 @@
 class Torsocks < Formula
   desc "Use SOCKS-friendly applications with Tor"
   homepage "https://gitlab.torproject.org/tpo/core/torsocks"
-  url "https://gitlab.torproject.org/tpo/core/torsocks/-/archive/v2.4.0/torsocks-v2.4.0.tar.bz2"
-  sha256 "54b2e3255b697fb69bb92388376419bcef1f94d511da3980f9ed5cd8a41df3a8"
+  url "https://gitlab.torproject.org/tpo/core/torsocks/-/archive/v2.5.0/torsocks-v2.5.0.tar.bz2"
+  sha256 "31a917328b221e955230b7663abfbc50d3a9b445a68cb0313c11cf884f8cb41f"
   license "GPL-2.0-only"
   head "https://gitlab.torproject.org/tpo/core/torsocks.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 arm64_sequoia: "b5d5931945d4eb5f2fd28481d2498492f2de77e987d3d3622008281f9b40ca01"
-    sha256 arm64_sonoma:  "a8da2ce1c5139f9ead58af8a1ba51e6938bcd6073440927b37c0386238b28a73"
-    sha256 arm64_ventura: "af12596e6a8e4f4c4ff3fe6e78bdd10208a2f0dc6d7febb4e07045849b197b6a"
-    sha256 sonoma:        "895ce81c30fff7067666ab08c5e57fbc5f1d15fea84d5afb5439842a487a0675"
-    sha256 ventura:       "b028a43bbf38e062a4fae15d77d681a3b5a09ee9bc80076d28113276d74fc9dc"
-    sha256 arm64_linux:   "6ef52a78edb6a251c63923dbdaab88c8b77a569821e6ac750c331ce7715371e9"
-    sha256 x86_64_linux:  "162199d0f4d1f3419971ccac67db06cb27a50358d39b304f6098e683f4b2b935"
+    sha256 arm64_sequoia: "9f967a566d267075d63cb069a6d77973bfc4cb5e1244c2ca57171a04352f0b26"
+    sha256 arm64_sonoma:  "b25792853457dbbc903f6aac9d252de7889ba0006c5a0cb904a9428cee03c066"
+    sha256 arm64_ventura: "4593fd902084328734cda9b1bfccd26242211d6beae0c510100630fbf31b07c0"
+    sha256 sonoma:        "df428080ebd167aecf3abb603b6207ad469c9c52c55677a4e8deb0635ef1fac1"
+    sha256 ventura:       "383a9b0bcdc089b45a2a13badbf11aebcf37674b749f086636d432bca79b6f2c"
+    sha256 arm64_linux:   "3a273bb1e5923f05e4caa4d9a269c97020844c935a36845224acf4bf7799e129"
+    sha256 x86_64_linux:  "4b4330e179d1c4a866f8be595ed65c1b443f5cc40e21bb30d0fb6be030c6e6a7"
   end
 
   depends_on "autoconf" => :build

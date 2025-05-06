@@ -17,6 +17,7 @@ class Pjproject < Formula
     sha256 cellar: :any,                 arm64_ventura: "8a168da1989261e327802b0416972f5dd7a743598da0607a99ba3f19d2fba116"
     sha256 cellar: :any,                 sonoma:        "04c5521468cab3b1985f3a9ad0d936bdaddf84c3bf20cc907465672a500ae530"
     sha256 cellar: :any,                 ventura:       "142ed76d42dc51b501f2efadeb7ef4dfe214ad90bc64e93447fb80a591e67705"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5c3249ca0b0e84e1f6e8e5c9fce8213727d2cfb16f0224daaeb88e3d6e9fd6f0"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "b0fb2516ec89621fc3622cd52ed7dfa0d814f49f496c32ec6763c2a8f605be66"
   end
 
@@ -30,7 +31,13 @@ class Pjproject < Formula
     system "make"
     system "make", "install"
 
-    arch = (OS.mac? && Hardware::CPU.arm?) ? "arm" : Hardware::CPU.arch.to_s
+    arch = if OS.mac? && Hardware::CPU.arm?
+      "arm"
+    elsif Hardware::CPU.arm?
+      "aarch64"
+    else
+      Hardware::CPU.arch.to_s
+    end
     target = OS.mac? ? "apple-darwin#{OS.kernel_version}" : "unknown-linux-gnu"
 
     bin.install "pjsip-apps/bin/pjsua-#{arch}-#{target}" => "pjsua"

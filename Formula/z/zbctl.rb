@@ -12,6 +12,7 @@ class Zbctl < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "1489e5d2afe5a0243c62c1387ba42bdd12bceb5882ee85b8f86acea85efb1a7b"
     sha256 cellar: :any_skip_relocation, sonoma:        "4245328e2a26df964fcf9afe06ee3859950aaacdb7e1fdcb3e77971188c74c3e"
     sha256 cellar: :any_skip_relocation, ventura:       "4245328e2a26df964fcf9afe06ee3859950aaacdb7e1fdcb3e77971188c74c3e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5a4691f4d70ecc1d630ae132bcb7f32179197ee2d4b156dc11abfa8045db7b95"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "93dc50b3cfafaf9fd2fe26864fa7e92fb603d8c097a167c40910a3bef58d3ba3"
   end
 

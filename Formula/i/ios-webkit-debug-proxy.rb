@@ -14,6 +14,7 @@ class IosWebkitDebugProxy < Formula
     sha256 cellar: :any,                 sonoma:         "f62dc78d90d3d02d3d0ea7f4d4d3d82b13affcdc403955113ec0d73d56c74fc3"
     sha256 cellar: :any,                 ventura:        "22cb1b17edbddfc17bf64112a60d32fd659dfadce8cf1521018b994f89194f0d"
     sha256 cellar: :any,                 monterey:       "a2ec7d1750d1c8d4370679e255f75957f6365bb55259b21967216ea5549ee88f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "5838f6c52b74b403ec6ec7bc002bbda9336cfb033144fa2a48aa87d644fc2c74"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "44137a86b9210566d60a3b8b8e09f5cca01340f2db9441c6a29375df8e8e6db9"
   end
 

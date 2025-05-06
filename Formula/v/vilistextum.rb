@@ -31,10 +31,15 @@ class Vilistextum < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:    "6005ce3b4c593707dfe7ffbc10ea64f26ce6e441803a9133ab46ba0fbaee422f"
     sha256 cellar: :any_skip_relocation, sierra:         "b8fa6ddde71b9b86128e12bbc343935ca5ec58e15d28da2a1a9972a23df9becd"
     sha256 cellar: :any_skip_relocation, el_capitan:     "d46bae51c7e9a7193a735660af8583960c98e50f03aa33c8a9d81c22b2d9bf61"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "6a04388664012287fb80e99c0fc242735287a279d74ee7a0e29c4414567c41a1"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "8b6ebe879dd14d1bf3482d057ab7364ff9851f2ab3d4af5d0a97a59c9c2ca8d8"
   end
 
   def install
+    # Work around failure from GCC 10+ using default of `-fno-common`
+    # multiple definition of `<symbol>`; <file>.o:<location>: first defined here
+    ENV.append_to_cflags "-fcommon" if OS.linux?
+
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}", "--mandir=#{man}"
     system "make", "install"

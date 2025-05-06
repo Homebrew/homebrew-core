@@ -14,6 +14,7 @@ class ShadowsocksLibev < Formula
     sha256 cellar: :any,                 sonoma:         "089044be226fa8913cea75aa91e488c9b0a4a20bdab101c53bcf73629b912a39"
     sha256 cellar: :any,                 ventura:        "64e0226723e4b01a528bd151671bf72cd53cb620821f7db372a1776eea430cf3"
     sha256 cellar: :any,                 monterey:       "3f8d3f710752c395800db2d8805d126c67a4ea63665ce24eb8f4d562d3f139ff"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "b81d13f1ecbfacb40446d83b12acf298aaeaa326d06c15aaab11606848c87d9b"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "707c0ff929995f51fd54807d4a569a754173288596df027fd49290021a25a1a0"
   end
 

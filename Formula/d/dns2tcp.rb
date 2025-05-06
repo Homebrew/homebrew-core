@@ -25,11 +25,20 @@ class Dns2tcp < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:    "d6fb240175854e0a0b5069544a58c4fbcd161d3337288c2f289f48999c4dde10"
     sha256 cellar: :any_skip_relocation, sierra:         "e948ddde1e95f055a9cd3e73cd2756c22f729d9feed9ebc2929cb3df6fe09584"
     sha256 cellar: :any_skip_relocation, el_capitan:     "2cd5e77bec42f0f5e2715494c38eb8773ab30d53b140509d3f428d38890bf640"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "3439b7a053baae453e709bbab25fc3ed8f389037b73234d0cd886ae492f51c13"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "44282da4806ffc130f6a3326925e708d70379c9c44ec735b251010927d5b920e"
   end
 
   def install
-    system "./configure", "--prefix=#{prefix}", "--disable-dependency-tracking"
+    # Work around failure from GCC 10+ using default of `-fno-common`
+    # multiple definition of `debug'; rr.o:(.bss+0x0): first defined here
+    ENV.append_to_cflags "-fcommon" if OS.linux?
+
+    args = []
+    # Help old config scripts identify arm64 linux
+    args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+
+    system "./configure", *args, *std_configure_args
     system "make", "install"
   end
 

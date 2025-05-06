@@ -22,6 +22,7 @@ class Pth < Formula
     sha256 cellar: :any,                 high_sierra:    "da4549f9e89a71478b47f4454f9a259dc3a56a109f24083ce8f4ea69b11ac9c5"
     sha256 cellar: :any,                 sierra:         "583d6ae1681974c7461650151253c5a302f33fb16dae74b5546a4a693cec71d1"
     sha256 cellar: :any,                 el_capitan:     "bac7f73c061797768be28e21bec2e7773cfd70ff7c3f46eafd464b9632d5eae4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "a8ac563cbeacea2eab01935e62cc4835b1811dfac30f9fb3c0d6a80cfc8b3f41"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "66cd52703b09b137d33237be545677ba50729264ef0ad34d5f4c3891bba86173"
   end
 
@@ -32,8 +33,14 @@ class Pth < Formula
     inreplace "configure", "${wl}-flat_namespace ${wl}-undefined ${wl}suppress",
       "${wl}-undefined ${wl}dynamic_lookup"
 
+    args = []
+    # Help old config scripts identify arm64 linux
+    if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      args += ["--build=aarch64-unknown-linux-gnu", "--host=aarch64-unknown-linux-gnu"]
+    end
+
     # NOTE: The shared library will not be build with --disable-debug, so don't add that flag
-    system "./configure", "--prefix=#{prefix}", "--mandir=#{man}"
+    system "./configure", "--prefix=#{prefix}", "--mandir=#{man}", *args
     system "make"
     system "make", "install"
   end

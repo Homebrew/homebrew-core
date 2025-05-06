@@ -25,6 +25,7 @@ class Zsync < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:    "b766bfc58f753376213e234d8e0e4238af1be39f77f239370583464040758fd6"
     sha256 cellar: :any_skip_relocation, sierra:         "8d6e7eade289c62689e752151021e7bccac7900a5e7217e8885f2c38aec42c2c"
     sha256 cellar: :any_skip_relocation, el_capitan:     "9bbe0e102ca6a2b7ca57af6b2b29984f7da59ce97d15ce550bbbb206f1ad1815"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "5f5cceeb3fb7c8ee118d8a79621144a9e39a3d4f9c804f5c2181f6c193966c44"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "1961843c2195ae143b2f2ece7e26f91aa4c5a0acc67721441c221b5ae3404150"
   end
 
@@ -35,7 +36,11 @@ class Zsync < Formula
     # Fix compile with newer Clang
     ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
 
-    system "./configure", *std_configure_args
+    args = []
+    # Help old config scripts identify arm64 linux
+    args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+
+    system "./configure", *args, *std_configure_args
     system "make", "install"
   end
 

@@ -1,8 +1,8 @@
 class Libmikmod < Formula
   desc "Portable sound library"
   homepage "https://mikmod.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/mikmod/libmikmod/3.3.12/libmikmod-3.3.12.tar.gz"
-  sha256 "adef6214863516a4a5b44ebf2c71ef84ecdfeb3444973dacbac70911c9bc67e9"
+  url "https://downloads.sourceforge.net/project/mikmod/libmikmod/3.3.13/libmikmod-3.3.13.tar.gz"
+  sha256 "9fc1799f7ea6a95c7c5882de98be85fc7d20ba0a4a6fcacae11c8c6b382bb207"
   license "LGPL-2.0-or-later"
 
   livecheck do
@@ -11,13 +11,13 @@ class Libmikmod < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "bcca5107fd327242b0ce2b1ad1a8d5309e24ecd2ff87bfdb73670444879830fb"
-    sha256 cellar: :any,                 arm64_sonoma:  "f9852b8403459b0e47c8bd1da5a2aef9fba3ee7e6919cc61f2451fab1cba06fd"
-    sha256 cellar: :any,                 arm64_ventura: "8f0297731ec4cae97562b8d748bf007817bc25804b135c19e5f0639d917b6c17"
-    sha256 cellar: :any,                 sonoma:        "09db4f2be20a851a09ea6821f6913cf799a0414f44ac9fdd1477d0f4425378cd"
-    sha256 cellar: :any,                 ventura:       "6fd0a06c81b3a27e4acdd9618d0a5b01e64caf4d20abcb5af660fe85f7df06be"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ee00da9c6bd042ecd8d81a2604ddacb93410047c61967fb1036d0f036c9a2629"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c5603dcd37819b47c6f9fc36dc60d9fb269412ae0b6bc941b89bd38092fc7fb9"
+    sha256 cellar: :any,                 arm64_sequoia: "c884c16332ab7a4e5f0885ac41dc8465cad460a8d6d0b16de20df05517b0bd5e"
+    sha256 cellar: :any,                 arm64_sonoma:  "9d5c7c973d4608a40a9936b7f6dffc655f2347dc039954db9a1a8a5e55a88000"
+    sha256 cellar: :any,                 arm64_ventura: "ff1c9e7e9a3f65e4a087c5acb0e6240be6dffe6fd5fa7b9aa2b3f88968152918"
+    sha256 cellar: :any,                 sonoma:        "8ba4615681cd65abe541b9f271b9044f0f9973fd3ca87ff4b0f91a11272ab741"
+    sha256 cellar: :any,                 ventura:       "ebdda328138ed7cf1ce442eb573cbacdac9cdcc4073167137c6a0bb7d7972a4a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "84447d6469b55c513e2151b9bc890ec99cc01b964db194ab45c31adbc04abd26"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8fbaa53e60245b70b5b025c64da98ed014dd083a5c1ad77259139a51df77c216"
   end
 
   def install

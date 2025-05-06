@@ -14,6 +14,7 @@ class Serialosc < Formula
     sha256 cellar: :any,                 arm64_ventura: "f52aa361a0b6fcd4636a6e98d7b14d720ada9da0f2a78389f94296a54532d294"
     sha256 cellar: :any,                 sonoma:        "594dd66c1a55996360013bad6a3f6fe042a5ee853b855b19e8703e0b501ac5cd"
     sha256 cellar: :any,                 ventura:       "20f48d409724d37c319fd7595e47cc051be3e4343771168dfecbb9cd83e420d4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6b01477de4be9295d6c2997b07611a4d52428a819bd5662b34f04d55e110c8b8"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "9b66b2d89de42e40b3f3659dbb4f461698d0ff515047af8fd58ca543efe2757c"
   end
 

@@ -13,6 +13,7 @@ class Terrascan < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "592b8157f3ccc5c93b0639f8309a4a5a302ca89df28ac7d2d0952844db61966a"
     sha256 cellar: :any_skip_relocation, sonoma:        "32e3939c3b64a6998af3fdb27aa6d47e783c4add9025b96b26a752075c5759c8"
     sha256 cellar: :any_skip_relocation, ventura:       "d8339a426f1cdf82ac986fdf3a72ecb4b8405c2c34f17552aca0ff55218de9ec"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9b993936733949479fd684722cec212f9820553e9e21fede7b3da620067c1a69"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "dc9651bca3ae4b21cea476f602ee391066e161aa1151a3eb80d32b5c725ffe1e"
   end
 

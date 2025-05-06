@@ -12,6 +12,7 @@ class Bettercap < Formula
     sha256 cellar: :any,                 arm64_ventura: "eafe12346381ada74b4731575c798968bb578c17b83f872ed83da548d0503780"
     sha256 cellar: :any,                 sonoma:        "e52b66aca3679d41baead4ba4dae3f239ad4f83c6387aa48bbfddf6f6b5e2959"
     sha256 cellar: :any,                 ventura:       "6d62416e253212a3d212fd0f904cf429782bcda5aa138da4ba0383f54cf51d75"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "289ba4d5fafb3902334b73fa4a6ceaf9f1879d5f1eb1c13a2d82b2ff813c3227"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "682d2dad8463513c60ff7eb7918b4f561d28d6dfdd8c7471ac136cdbb5935bf9"
   end
 

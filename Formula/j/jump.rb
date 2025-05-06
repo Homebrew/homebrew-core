@@ -13,6 +13,7 @@ class Jump < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "ecddcb16acf0ec0cfd882ba188e731b1a82afc22aa30131f15331ccea1135ece"
     sha256 cellar: :any_skip_relocation, sonoma:        "3a6bef70aca4c86f24e680096a7137ebba478b1420acca74e131987f3fdb2fc8"
     sha256 cellar: :any_skip_relocation, ventura:       "3a6bef70aca4c86f24e680096a7137ebba478b1420acca74e131987f3fdb2fc8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "705352accfdad579ce325bda4651dc9190a67437b026fd20f07d67e9fa0a23fc"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "5db113fb8a6cb2652adb039f6cc0056341c95df09201ead5d5dd306e2c7f5921"
   end
 

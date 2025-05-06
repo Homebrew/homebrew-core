@@ -19,10 +19,12 @@ class Pfetch < Formula
     sha256 cellar: :any_skip_relocation, catalina:       "f93914feee7f4e3cda77341c3bddf2cf51eb4b2aed01f6ace771db75078da570"
     sha256 cellar: :any_skip_relocation, mojave:         "f93914feee7f4e3cda77341c3bddf2cf51eb4b2aed01f6ace771db75078da570"
     sha256 cellar: :any_skip_relocation, high_sierra:    "f93914feee7f4e3cda77341c3bddf2cf51eb4b2aed01f6ace771db75078da570"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "8331cf22d8477865e7c61b71c9f121b41c245f1caeb4cde2faf809dcee51058b"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "dfa6a98908cbd7ac49f1fd4813011ee6f18849130d84b4c4fa3c01282a33c568"
   end
 
   deprecate! date: "2024-05-04", because: :repo_archived
+  disable! date: "2025-05-05", because: :repo_archived
 
   def install
     if build.head?

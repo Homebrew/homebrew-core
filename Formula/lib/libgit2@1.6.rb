@@ -13,6 +13,7 @@ class Libgit2AT16 < Formula
     sha256 cellar: :any,                 sonoma:         "6ab0d20d176740e61ef21cf5e583ca1642953d74c278af0668a761f646d10b3b"
     sha256 cellar: :any,                 ventura:        "331e0768ad6bb277c1d84901c83e851e8ab5af7a791a61ac8b962cb938df20c3"
     sha256 cellar: :any,                 monterey:       "d4ac0449a3342561c75ffa40d92cdc4e3fd4bcef7deff58827e59b584149bd65"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "7823dda8e704e415756ab83591fb4f1999159ee74d705848e5867dd0d40779f0"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "bccdefbeb5fcbf1ad61fbd89ea1ac463a4b66421287723d72386d5f6ed81cf50"
   end
 
@@ -20,6 +21,7 @@ class Libgit2AT16 < Formula
 
   # https://github.com/libgit2/libgit2/?tab=security-ov-file
   deprecate! date: "2024-04-11", because: :unmaintained
+  disable! date: "2025-04-12", because: :unmaintained
 
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build

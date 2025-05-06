@@ -1,8 +1,8 @@
 class Mupdf < Formula
   desc "Lightweight PDF and XPS viewer"
   homepage "https://mupdf.com/"
-  url "https://mupdf.com/downloads/archive/mupdf-1.25.5-source.tar.gz"
-  sha256 "1fe78c0667f176459bbd52a576ac4a7a2d2c9f633382c3d2a3e07e8659e6c1e4"
+  url "https://mupdf.com/downloads/archive/mupdf-1.25.6-source.tar.gz"
+  sha256 "5a51d8bd5ed690d3c8bf82b3c7c3f1cf5f9dde40887a36e3b5aa78a7e3ccd1bb"
   license "AGPL-3.0-or-later"
   head "https://git.ghostscript.com/mupdf.git", branch: "master"
 
@@ -12,12 +12,13 @@ class Mupdf < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "92cba41f1d601a28bcc1d96d7bf4152c9e26a804b31dc841bdaa157f7826d836"
-    sha256 cellar: :any,                 arm64_sonoma:  "8719dd9a2e7fc555c95c30eb2ff337b09a28cd0ac2742c419dc5acf962f53c28"
-    sha256 cellar: :any,                 arm64_ventura: "699818cc0de919de56b5c32ce1e2fc5f965746728cd96ff6be63043e6cc6516f"
-    sha256 cellar: :any,                 sonoma:        "7f30bf71db88c867afe96df5856d5d11bf801f7bfbcdd7013562edac5f576142"
-    sha256 cellar: :any,                 ventura:       "def9f3db1053e5f0e7ccf1f702eddc0987a2c60d53aacd460e6a98c2115168ea"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1631275b07835c659e38d73b1acd2722cdb4a1ba76d3698a53b0030d7521e9fa"
+    sha256 cellar: :any,                 arm64_sequoia: "2c89022717759320788277832bc1b32046ab66ac087d3fc30313d5c1523a7a6d"
+    sha256 cellar: :any,                 arm64_sonoma:  "56802fd81143808e87860b507b780adf1ee038dc2e2d8620e752e5752f38ae44"
+    sha256 cellar: :any,                 arm64_ventura: "c85e9a9cd588c0acb522923d8f10fc40dd7b4cb3b56cac2e48658bf47b2b85bf"
+    sha256 cellar: :any,                 sonoma:        "d5082269651e4eeabc03418ec9ae2fd13b77c6a3a0de6d201139acb656a9f265"
+    sha256 cellar: :any,                 ventura:       "f7da4facc2e6cea4346b3167c8419a4d3ed5b31a753586639b87a5e26149c9c8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ec4677bc71f33bd3d749f42d56af351a2c1b21af0692c91151b9eabcac7d6ce6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5e4d872cb42f1ffd63f44d6f05168bd71f3f80783be6f3861d5a96c03d2d7b62"
   end
 
   depends_on "llvm" => :build

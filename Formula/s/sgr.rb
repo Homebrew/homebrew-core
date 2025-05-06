@@ -15,6 +15,7 @@ class Sgr < Formula
     sha256 cellar: :any,                 arm64_ventura: "73a811fd6b38dad68a34a4d10cbac9eab2eac2d33ec2a83fe7f65964d60ac66c"
     sha256 cellar: :any,                 sonoma:        "4bd60cdcc4352090c6bddbe71b1aa59ecc165aed2589e04b100529c86e706960"
     sha256 cellar: :any,                 ventura:       "41a3d7953cf04002d66e9000949ed920d7e0a7a58a63b536141fb368518efb61"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9a385d849ae4408eac7b94ebbb160a9c6437f41b278a041586472a29bf372fa6"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "4a98218b3ca5c8416ebfcabe5f1aaa3cc6a6a57aa6e94b7e3e8df0ab596ca4e2"
   end
 

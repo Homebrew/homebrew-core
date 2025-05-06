@@ -26,14 +26,18 @@ class Chipmunk < Formula
     sha256 cellar: :any,                 mojave:         "16292e5518bae60c6990a6f1565e1416f91ffe1c878ab43b58465bb2a24d3d11"
     sha256 cellar: :any,                 high_sierra:    "5370b9d8db489d6b8944c23fd4906768c84d87e22f054ca3381c7ee527233f4d"
     sha256 cellar: :any,                 sierra:         "c92a9c1134a272244ca3936b2c94431df7ed7002a9eec99f6914fe1128adae12"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "857cbad68b4a02449610842ae6abc4f1ecd573a4f06f286b7880e2906cb353c4"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "fe06ebff94b32562d036af4c9e34edb95a32fc4bdae48b846b1f21702441dfe2"
   end
 
   depends_on "cmake" => :build
 
   def install
-    system "cmake", ".", "-DBUILD_DEMOS=OFF", *std_cmake_args
-    system "make", "install"
+    inreplace "src/cpHastySpace.c", "#include <sys/sysctl.h>", "#include <linux/sysctl.h>" if OS.linux?
+
+    system "cmake", "-S", ".", "-B", "build", "-DBUILD_DEMOS=OFF", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
 
     doc.install Dir["doc/*"]
   end

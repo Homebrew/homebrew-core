@@ -19,6 +19,7 @@ class Gtksourceview3 < Formula
     sha256 sonoma:         "79296a156876f62aed3b1025d8dd869403562d03ed112d118d1076496e3cd8ef"
     sha256 ventura:        "fb3887ecc8c0938f012b851eaba6c3025ed6836f54aad8cd07e5d367c63084bd"
     sha256 monterey:       "e72638ee3511326f622b20975c568d0b0f054c318ae944b15505d1816af10c2d"
+    sha256 arm64_linux:    "57b4a62f57cac2da14e784b1fd9f5e33b359ceb0e78cec0fb07cbbba7834cca2"
     sha256 x86_64_linux:   "a29fc106c186da13c48399358ec0152907ca4bc3be2545632400409aaffcce2e"
   end
 

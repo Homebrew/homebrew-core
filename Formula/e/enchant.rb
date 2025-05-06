@@ -1,20 +1,18 @@
 class Enchant < Formula
   desc "Spellchecker wrapping library"
   homepage "https://rrthomas.github.io/enchant/"
-  url "https://github.com/rrthomas/enchant/releases/download/v2.8.2/enchant-2.8.2.tar.gz"
-  sha256 "8f19535adb5577b83b00e02f330fe9b9eb40dd21f19e2899636fc4d3a7696375"
+  url "https://github.com/rrthomas/enchant/releases/download/v2.8.4/enchant-2.8.4.tar.gz"
+  sha256 "e28f98208df5f99320d6a05cd49f83420bf71e69052debe3b343c9bb15c833ed"
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 arm64_sequoia:  "19eeaec7ada86c6fd72e94de82f2c1647dc712274ac0a67a072057db8ae7675e"
-    sha256 arm64_sonoma:   "4327d3746697c8a0935580936c827a2ded1dd92d91bc2655d4ba9ee643ede046"
-    sha256 arm64_ventura:  "912e6067764e4402e6c718a909cca6b1fe1a380902d5e536cae1fe05d6cad047"
-    sha256 arm64_monterey: "e617eed7551db798a3b0fbcf8da0f8fbb51c72a351952309a5ba5a70b189dc12"
-    sha256 sonoma:         "7c53b37a59b7be9b065d5a45e75a4b605fd671c6e4495abd96b3e689b8624aba"
-    sha256 ventura:        "f6ea7979e2ef7d12132449e590ef560b6c1d2a068da3bbe42206051d00f08eca"
-    sha256 monterey:       "10cdfb36ac05c8f07d43cf0687425f3677a03cddcd0ab39c42065aad1e7d0f22"
-    sha256 arm64_linux:    "b1f775e646bce03f676c2628c0219b9984ab2f4eb95ed1c95e053f500b81d779"
-    sha256 x86_64_linux:   "d0aab4334f7a0feb7d168863bb81a4800982aacd709bee3b96146328b0a9f097"
+    sha256 arm64_sequoia: "7520f97041dafed8ab04639d896fd59d2c0e82f1dfa1ad11246bed146f1943d7"
+    sha256 arm64_sonoma:  "c54a37727ee8bbcc101116ff21ed519caf243905ea7f62e0b6a5c6792dfc371c"
+    sha256 arm64_ventura: "4dfc3876af089baf31cf8db3c150ca9bfba81bef3d0f35f33fe37072410c20ff"
+    sha256 sonoma:        "b6de80fc2bdc464d4d0f900b77b19a15408c2da0d9343d7829c5500aafa8ffba"
+    sha256 ventura:       "59164700fa4ba18f22d2f04ec5759e9de544c50bc013d18d88c104f25a2da71f"
+    sha256 arm64_linux:   "7da22b832708e36a1ea7e6d5b25760f3343505fedb0769d607c3aaa3d9fcbc98"
+    sha256 x86_64_linux:  "cd586193db002d9c7ba5c10b0d4266b7bf0e60a27d7bd45256c867f7c26e2d7c"
   end
 
   depends_on "pkgconf" => :build

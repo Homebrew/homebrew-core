@@ -1,13 +1,13 @@
 class Picat < Formula
   desc "Simple, and yet powerful, logic-based multi-paradigm programming language"
-  homepage "http://picat-lang.org/"
-  url "http://picat-lang.org/download/picat38_src.tar.gz"
+  homepage "https://picat-lang.org/"
+  url "https://picat-lang.org/download/picat38_src.tar.gz"
   version "3.8"
   sha256 "c238a474f345a1b339acbd00d5fc332bd908e9822b9bd89fb855d2c8a7a10e72"
   license "MPL-2.0"
 
   livecheck do
-    url "http://picat-lang.org/download.html"
+    url "https://picat-lang.org/download.html"
     regex(/>\s*?Released version v?(\d+(?:[.#]\d+)+)\s*?,/i)
   end
 

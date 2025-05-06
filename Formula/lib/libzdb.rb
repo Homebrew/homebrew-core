@@ -16,6 +16,7 @@ class Libzdb < Formula
     sha256 cellar: :any,                 arm64_ventura: "726e589d4f8923d5637a0e2e783646b72c27fc67be1b9964751a84756eff31f0"
     sha256 cellar: :any,                 sonoma:        "7edcecb1ca7c17d03534e6af574756ec864b4def522cb7e08eafe6b6644a726c"
     sha256 cellar: :any,                 ventura:       "241ebf0e383ea2e76a0f50a7631732196b766c2db21a7a9777dbfb698b099661"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5298d25e7949700706d31195a5e6002340099bb67bda72a895f068cc5b8205a6"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "a3c1a98b88d064a8046b123cd741283a5135edc37bac2567a650fdf561c9ed22"
   end
 

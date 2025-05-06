@@ -17,19 +17,20 @@ class Cryptopp < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia:  "d6cdbe84008d6489b21fed34813dbc6b349c90c52cc7573f7bf5b670b3290d3c"
-    sha256 cellar: :any,                 arm64_sonoma:   "272e8028bcdf871a7c35d6590af87d3520aa9d1c053d2d5253dec85656c1b19d"
-    sha256 cellar: :any,                 arm64_ventura:  "d4a8d3ba690a9762d7fdd84a048b8e73ca14a44c52ee82d40b309799c5603890"
-    sha256 cellar: :any,                 arm64_monterey: "44322c46519ccadfb08e746e54b71a7183ae5daa348a04f2a0c8399f13409f59"
-    sha256 cellar: :any,                 sonoma:         "d9b7900ca928fd39e568a259e6f1f4e093d5ae7e33debbd0f94c6e6d7e8578ad"
-    sha256 cellar: :any,                 ventura:        "9703073429f04a5b3e2e0f1ae3adb4419ecc87c520471d4f19ba45b1fd45c68e"
-    sha256 cellar: :any,                 monterey:       "a8fbbbb8ab93c348d4d6258a7d2423843bb1a04a465ac1eac85df26e46eb9788"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d6404ced52f843fd29dc3a495ff3706c4040641597ae50e1cd58e19e1d915777"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_sequoia: "bdd7bfce252e592dc412d8b735a4fac2c9d5868607abbf9253a581c288c21dd9"
+    sha256 cellar: :any,                 arm64_sonoma:  "cb1da0fe0980b17d853b47b0c9fb35d1f3706170054535b1778a4ae0239a2e59"
+    sha256 cellar: :any,                 arm64_ventura: "2d9ecda6fcc0053372db8935aeb739998802bc0023e667f6df8836b15385b848"
+    sha256 cellar: :any,                 sonoma:        "7b027167f9f423f7c74506cfc69bdf95a6bf81a43a352e779763dda2dc6275c8"
+    sha256 cellar: :any,                 ventura:       "8ce970a2b184c1e9f086a267e076218f8b7d59c5675bdbe8660e7ca47526a0a2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ec942ec0a779138e44ad756701c4d75a2ad6cc2c0aba9b6778503886c3ea57fa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3f784742a258c83ac87f661ea435fbe4ec565c57dc517f8dca6af6f549981c5f"
   end
 
   def install
     ENV.cxx11
+    ENV.runtime_cpu_detection # https://github.com/weidai11/cryptopp/blob/master/cpu.h
+
     system "make", "all", "libcryptopp.pc", "PREFIX=#{prefix}"
     system "make", "test"
     system "make", "install-lib", "PREFIX=#{prefix}"

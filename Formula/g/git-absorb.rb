@@ -1,19 +1,19 @@
 class GitAbsorb < Formula
   desc "Automatic git commit --fixup"
   homepage "https://github.com/tummychow/git-absorb"
-  url "https://github.com/tummychow/git-absorb/archive/refs/tags/0.7.0.tar.gz"
-  sha256 "65f5b80bcb726a0c40eeda94ccb47fce7f3fc4ed16021465196a37b907083eb8"
+  url "https://github.com/tummychow/git-absorb/archive/refs/tags/0.8.0.tar.gz"
+  sha256 "9ed6fef801fbfeb7110744cac38ae5b3387d8832749ae20077b9139d032211f1"
   license "BSD-3-Clause"
   head "https://github.com/tummychow/git-absorb.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "2a0a02563c008f357386f98611bd4fc620d9cde08ef34601e8153d114ba41bbb"
-    sha256 cellar: :any,                 arm64_sonoma:  "67c6e9f547b87f4eb0993fc813746d0a352b1ff6077a59f25e8ac95f301d7e6f"
-    sha256 cellar: :any,                 arm64_ventura: "2460eca14e40946b5d739f9b89b9de70acbd87b7f0849e464a60e58b6de7daed"
-    sha256 cellar: :any,                 sonoma:        "ad181f87d1bb47476db2e533b3b03d4c6f9e8c9a2aa9db914aa7df416259d5a4"
-    sha256 cellar: :any,                 ventura:       "6a8785c9939b7fb75b2595ea5f3d1dffcb2b6dde34ceb58572f68ca25fb73974"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "fe48890abe6494521b53581355c3a5ae1fce29de4982133250ae43aaaf376c4a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1955fcb9602e4dab7e6ac246f16337c6b4565cc5d0a5f8abca1d0542d6f10248"
+    sha256 cellar: :any,                 arm64_sequoia: "bbfc1e3dfbfcda686df0aea15468eec4549ea36fd82454397e5b549e8f867b42"
+    sha256 cellar: :any,                 arm64_sonoma:  "341871005558c9ee562ce65d7937664279a6a87b8ed4fec08706a4a75b8ebf00"
+    sha256 cellar: :any,                 arm64_ventura: "775f14a76615d9432e16ceb484d8c2dc28e5f019fe054563118df025caee269e"
+    sha256 cellar: :any,                 sonoma:        "b8dbc17ae633c630a3ce42743a56d74d5a60b92f6374f7dc9c44f173d07e8ff3"
+    sha256 cellar: :any,                 ventura:       "41d7ac555ada72c4c06ba94112bd306a61a81a267d441b1eabb04907a61c5f22"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "25ad1bee716eea6cc6b0dc91a5cbd1caf3fe8c7bfdaee87b56e1656b5811ccaf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "21f8b05c5d835e0582690c4dc7d5b6fc8cbfe231022ae594c03bcd9d592fcb73"
   end
 
   depends_on "asciidoctor" => :build

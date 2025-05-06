@@ -12,6 +12,7 @@ class NestopiaUe < Formula
     sha256 arm64_ventura: "4e9a0b4a72e6e41b6ce1064504e0784f56282f8e923baf7be176c98a3cc262d5"
     sha256 sonoma:        "ae9bddfba1d0fcb99e3b6fcb0a1c8f5671db3c76431ce9e3654fb7387da0a8ee"
     sha256 ventura:       "107be843559d0aa3bb8b331cd75a3e1361eac8c2ce73463c73e944d0ff9fd66f"
+    sha256 arm64_linux:   "7d2a96b45a372cb24b73391d12423a3056dfc2167f4926528b292b4de763efa1"
     sha256 x86_64_linux:  "a04a201661a975527c42693e5b84b11f2f3eff999a78c7ee966483165959d7ed"
   end
 

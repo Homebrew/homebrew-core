@@ -24,6 +24,7 @@ class Openttd < Formula
     sha256 cellar: :any, arm64_ventura: "96fc8bd75124c582c395b096510ac5a5181011324e864245405868b986e5c98a"
     sha256 cellar: :any, sonoma:        "21fe8f3bdf5dc3a72cb9611b803ded25636c2810011e92473ea746e8a408aa47"
     sha256 cellar: :any, ventura:       "ec77cc4c95af77799c2633ad0a923407d1bdc41b1f01f64c19c02e49fa4474a1"
+    sha256               arm64_linux:   "08de4aa05ee549111d0864cd81896e025b36f4bf003b0a309a799e0b8692ee4d"
     sha256               x86_64_linux:  "3f9df17a1ca7f18ea2c30b5de7c02658d9dee44dbdf1561d34c9c58fe6043906"
   end
 

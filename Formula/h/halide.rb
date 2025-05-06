@@ -1,10 +1,16 @@
 class Halide < Formula
   desc "Language for fast, portable data-parallel computation"
   homepage "https://halide-lang.org"
-  url "https://github.com/halide/Halide/archive/refs/tags/v19.0.0.tar.gz"
-  sha256 "83bae1f0e24dc44d9d85014d5cd0474df2dd03975680894ce3fafd6e97dffee2"
   license "MIT"
-  head "https://github.com/halide/Halide.git", branch: "main"
+  revision 1
+
+  stable do
+    url "https://github.com/halide/Halide/archive/refs/tags/v19.0.0.tar.gz"
+    sha256 "83bae1f0e24dc44d9d85014d5cd0474df2dd03975680894ce3fafd6e97dffee2"
+
+    depends_on "lld@19"
+    depends_on "llvm@19" # TODO: Use `lld`/`llvm` in both stable and head in Halide 20
+  end
 
   livecheck do
     url :stable
@@ -12,13 +18,20 @@ class Halide < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "63e0a77f37e9db89b85ee69af56a4c48af67f4131acc439d103c834c973b696e"
-    sha256 cellar: :any,                 arm64_sonoma:  "95a7b448f9ed4e23d48603ae2a63b92e5d0cf4729ee5e3bda4128234d3861baa"
-    sha256 cellar: :any,                 arm64_ventura: "57bae5cff5b521cc42a80f786411acf9cadc049ab5f7100d71e429c8986be6f4"
-    sha256 cellar: :any,                 sonoma:        "51ffd96b6e358f9e53ad81f0d3e9987c72d2ba2c19f85563fcd334baf0f25cf0"
-    sha256 cellar: :any,                 ventura:       "53888029c3c797b57577bb390dbcc34a4fe909b6aac219c81be9f55555764d3d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e15e08f3a1ef3e6a42625dc96f4b4d5410f69d0b6f1fc5d4bd7002f41dd63ca8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2a0bf8651e7a1c027c38776e0df09d4117156145efbacbc0fbbf00e0806cea21"
+    sha256 cellar: :any,                 arm64_sequoia: "33f39347076af5498e35bed325acfb3f3251de6efb4d54c72380901a3524ec70"
+    sha256 cellar: :any,                 arm64_sonoma:  "5fde8b88d62f8e6320f235828f0e81a91c021c1854688edfdb2203da69701a82"
+    sha256 cellar: :any,                 arm64_ventura: "14d6bd1d3b21ddd8c2048fb026c0602be863df3126f686e9e830ff0a475ccd9f"
+    sha256 cellar: :any,                 sonoma:        "aae907b9c881d5a750264f333ba2f3991fbe95c8d3dd50e6b2246fdbe0b37665"
+    sha256 cellar: :any,                 ventura:       "25f68206d87d7f26f557115db0f87686df2d2d378e619e0fd692d61c9333884a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "fa6fe703b19d08cfee1366d5366fc1f5a9e93286566a91634007fa3191410417"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "559910d964d788f02580e34bb3483e083f4a292cd9cfb3ee52ee8d6fe0d76c24"
+  end
+
+  head do
+    url "https://github.com/halide/Halide.git", branch: "main"
+
+    depends_on "lld"
+    depends_on "llvm"
   end
 
   depends_on "cmake" => :build
@@ -26,8 +39,6 @@ class Halide < Formula
   depends_on "flatbuffers"
   depends_on "jpeg-turbo"
   depends_on "libpng"
-  depends_on "lld"
-  depends_on "llvm"
   depends_on "python@3.13"
   depends_on "wabt"
 
@@ -40,8 +51,10 @@ class Halide < Formula
   end
 
   def install
+    llvm = deps.map(&:to_formula).find { |f| f.name.match?(/^llvm(@\d+(\.\d+)*)?$/) }
     site_packages = prefix/Language::Python.site_packages(python3)
     rpaths = [rpath, rpath(source: site_packages/"halide")]
+    rpaths << llvm.opt_lib.to_s if OS.linux?
     args = [
       "-DCMAKE_INSTALL_RPATH=#{rpaths.join(";")}",
       "-DHalide_INSTALL_PYTHONDIR=#{site_packages}/halide",

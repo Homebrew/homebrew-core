@@ -1,20 +1,19 @@
 class Coreutils < Formula
   desc "GNU File, Shell, and Text utilities"
   homepage "https://www.gnu.org/software/coreutils/"
-  url "https://ftp.gnu.org/gnu/coreutils/coreutils-9.6.tar.xz"
-  mirror "https://ftpmirror.gnu.org/coreutils/coreutils-9.6.tar.xz"
-  sha256 "7a0124327b398fd9eb1a6abde583389821422c744ffa10734b24f557610d3283"
+  url "https://ftp.gnu.org/gnu/coreutils/coreutils-9.7.tar.xz"
+  mirror "https://ftpmirror.gnu.org/coreutils/coreutils-9.7.tar.xz"
+  sha256 "e8bb26ad0293f9b5a1fc43fb42ba970e312c66ce92c1b0b16713d7500db251bf"
   license "GPL-3.0-or-later"
 
   bottle do
-    rebuild 1
-    sha256 arm64_sequoia: "7bf380e4ce9771ce6f030f3719385c06e88f84370181d93f9648570b11387179"
-    sha256 arm64_sonoma:  "8c7f7842f107875e1e34a86b111a8a555d4c4c7a462384efb2ca2fc8dc4b1e65"
-    sha256 arm64_ventura: "660a337982d5823866a3fa1a96176a02be60ed36e60b11f3d2daddda36070edc"
-    sha256 sonoma:        "39905d59ea233abe321d959141ae14a8abd28d94fa06e8b92c64c886b630febd"
-    sha256 ventura:       "f3a168a88b2e1c90be1e8281927f9b6fcf74c19ab391477af859d7a01d8696ae"
-    sha256 arm64_linux:   "7c00b70363d68afd160edab9acc5b09abee3588b329c0c8f76d6333cb26ed13f"
-    sha256 x86_64_linux:  "3735c0172cd6a0679f3dc2b37f5b1b4f55fd290fa48ab07231f55e898be6fe69"
+    sha256 arm64_sequoia: "5d3e3c74de367a4d8ae6f22457732a8e5d39030c46f8f585b1780c0a916d0c8e"
+    sha256 arm64_sonoma:  "4092845c230a1b20213f3896125f12484cf72dcaca28e111544dbacb1110c8eb"
+    sha256 arm64_ventura: "84dc5707dd057de5ed4c6b79ae33c807dd00890cf470a64d3f200295974dec33"
+    sha256 sonoma:        "c7580a41bcd888acda07bd8b2c6c0c194a3763a27d36b1a48210a96f22ee773c"
+    sha256 ventura:       "838f1374519d8ddab94bfb910d57f802d6551baf4b97d6580e323d7d01f3180c"
+    sha256 arm64_linux:   "485b2b05cc5e1293ef2e7dc4b3471e916dddb170424d5a4a57483f2d829d0a60"
+    sha256 x86_64_linux:  "b4c41fd3102b03845f5ed8163a09dea3534db3773415524ddb5be10145aecb78"
   end
 
   head do

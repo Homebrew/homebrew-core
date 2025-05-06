@@ -4,6 +4,7 @@ class GoJira < Formula
   url "https://github.com/go-jira/jira/archive/refs/tags/v1.0.27.tar.gz"
   sha256 "c5bcf7b61300b67a8f4e42ab60e462204130c352050e8551b1c23ab2ecafefc7"
   license "Apache-2.0"
+  head "https://github.com/go-jira/jira.git", branch: "master"
 
   livecheck do
     url :stable

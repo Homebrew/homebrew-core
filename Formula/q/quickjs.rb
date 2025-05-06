@@ -1,8 +1,8 @@
 class Quickjs < Formula
   desc "Small and embeddable JavaScript engine"
   homepage "https://bellard.org/quickjs/"
-  url "https://bellard.org/quickjs/quickjs-2024-01-13.tar.xz"
-  sha256 "3c4bf8f895bfa54beb486c8d1218112771ecfc5ac3be1036851ef41568212e03"
+  url "https://bellard.org/quickjs/quickjs-2025-04-26.tar.xz"
+  sha256 "2f20074c25166ef6f781f381c50d57b502cb85d470d639abccebbef7954c83bf"
   license "MIT"
 
   livecheck do
@@ -11,15 +11,13 @@ class Quickjs < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia:  "9ac6a1c14a372f8e110aa703ccace27e88126187cb3af83c8182dfdad70dc0df"
-    sha256 arm64_sonoma:   "d8e22767ae91c9911e9c4d2dcac7af64721903c7c90cb90a4ff5218b14c9e403"
-    sha256 arm64_ventura:  "7470c608a6769f8269a9a66644291809ab3f453a974736973487a0e3abbbdee6"
-    sha256 arm64_monterey: "0f7cbd908a98955c57b6ab1cd86614c560c98992107c9a0c4a565bec96e77168"
-    sha256 sonoma:         "4b4183ec2ae090f33781c4ca33446ae5597910c3bbc6ad23dab6197c1396b35c"
-    sha256 ventura:        "5f0d78ed0a0ce5e317996918f860783f4744573ef601b56ae3df0346730b5ab3"
-    sha256 monterey:       "6f93efa66e963ddc9f2eae93713aed75373a7b7d62ceaeba9c57da6c98969cf8"
-    sha256 arm64_linux:    "bdc7f23de1ceceb56e7d5a7dd705a4cf3e4a23830ebbc96eeddded0b67f4e662"
-    sha256 x86_64_linux:   "34e76af7014843804104d0885e72d6c9adc203cb54bfabff61577230e4498c9e"
+    sha256 arm64_sequoia: "c95d9c212cf28f7236c7cec3207bb0e60f9366113dd01fb376758ec63e813486"
+    sha256 arm64_sonoma:  "50ad44fcd6572ec6eca42f8c8b940d443003dcfac3a79389e64c4ba5b9834660"
+    sha256 arm64_ventura: "90f7789068432ae2c08bdb22d541cfcecfe49215448ffc36cbdaaaaf52c3bf6d"
+    sha256 sonoma:        "87856de7dd77c5ae0866f3d8b2c1f44c6c6cbd5ceb2b3b2627c0db7a837f800a"
+    sha256 ventura:       "b3ddcc47985fd12e9ce6e454ecb5f89a02238c4ead72e41ee7939d958f825cf0"
+    sha256 arm64_linux:   "7e005a218d3fc37162d006ad37207f8ffe087d5ffddf8fff3fa3ccf20d660b0a"
+    sha256 x86_64_linux:  "c2e635a3d0744604802bf5c7ebbf65c3b74faf1898bd2d37db014d4d858c942b"
   end
 
   def install

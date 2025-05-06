@@ -4,6 +4,7 @@ class Gdu < Formula
   url "https://github.com/dundee/gdu/archive/refs/tags/v5.30.1.tar.gz"
   sha256 "ad363967b6a34e02812e4cba36bb340f377cf64a435e23f6e8e9e6b3f775220e"
   license "MIT"
+  head "https://github.com/dundee/gdu.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "30f8670a47423d2d9ab75cc3dcfc0c7b5996120cd2a2df56f5a54c79904c5d17"

@@ -1,19 +1,19 @@
 class AbAv1 < Formula
   desc "AV1 re-encoding using ffmpeg, svt-av1 & vmaf"
   homepage "https://github.com/alexheretic/ab-av1"
-  url "https://github.com/alexheretic/ab-av1/archive/refs/tags/v0.9.3.tar.gz"
-  sha256 "bd1b16ead392a58dfe7851d872e9296ffe63a15940fcee62a60e804596186e4e"
+  url "https://github.com/alexheretic/ab-av1/archive/refs/tags/v0.9.4.tar.gz"
+  sha256 "dc5f94e477b447c2a944789872dc878c61ac59a149b260d35032f3f785c85dd1"
   license "MIT"
   head "https://github.com/alexheretic/ab-av1.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "369e78e67daf8c152e0056759b705c3846b2275057c2efc598b89a46a0d4b550"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0df51a681c8acc463b4dd5462686e94057fa9bd9431b30a090c375f8563af3e5"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "a37bd68b59b2c45360a4c0f98cb7576724721b5da8e5edb741580af9162a2c2b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "b218932b4ac28bb9d37643bd9d9e178268e5ffe1ae3bbd35d3db8bc569c6cdef"
-    sha256 cellar: :any_skip_relocation, ventura:       "5cc90e3553454c11c1538c2a19248feca6edae9047268863c2f27331cd7d3998"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8c63a0659214937348c490038c52a08174cfa5844967081e5250c1d7cbc5fe76"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "697001bcb02b52018af6b8e45eca402d141136cacfc8a4cfbbab5d6f69dd1f64"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c75613d8101d4c8ca36c5cf3e9e7c19bc03ae852d7b4453ad539d9706c28adaf"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d9a55c083674f1880aecd633382df71b1f0311355947ed0df059c49bc3bec33e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "847e94448d75a54a23304210fc3c78974f8103a7341d582b92a4ed4fe46a1c87"
+    sha256 cellar: :any_skip_relocation, sonoma:        "806cc8b716393aacf82fbdbf58ab4628c912a278d41ebf69ed22d9f192dd45c1"
+    sha256 cellar: :any_skip_relocation, ventura:       "f5e3c1baafad271e2a01653e822d1b8d34e46c0f0c4d60367eecb0ae6645d2e9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e78bed34fa05d4c60c1352e089a45337907f85f8a5cb8a84a2bff1d7cce32ab8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "55433d1b895b1fd244736cb918f9c848c194124f02ffca52e1e7b13f13185ae5"
   end
 
   depends_on "rust" => :build

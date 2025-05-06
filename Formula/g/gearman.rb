@@ -4,16 +4,16 @@ class Gearman < Formula
   url "https://github.com/gearman/gearmand/releases/download/1.1.21/gearmand-1.1.21.tar.gz"
   sha256 "2688b83e48f26fdcd4fbaef2413ff1a76c9ecb067d1621d0e0986196efecd308"
   license "BSD-3-Clause"
-  revision 4
+  revision 5
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "4467566d914682138283953f1311ddf23572a4afd959d82ac0b2a603549e0cee"
-    sha256 cellar: :any,                 arm64_sonoma:  "4b67a0129dce2a868d5079867cbdb4d115d9eae56ec52a41c9b562a509415599"
-    sha256 cellar: :any,                 arm64_ventura: "008c71b1e3df7004c782f0278295b7b3a7e664ffba761a30975e4913134ad2b2"
-    sha256 cellar: :any,                 sonoma:        "6c5c2cace944c91f0306e7f4ec3ee247fa9af89b8b9b24c2ce66a6c9ce1260de"
-    sha256 cellar: :any,                 ventura:       "6fc4431c7fab994717bb3a95f4b0f716398a4ebd83a5c677ea9776f7df211600"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "fcdfa0c72ccddd61c6de5257c5e2288ca0747784200bee31dc797967ad7d1de8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4c855de1197c2a51653daf11305124821fe5fa2283f604dfbc332f6cee4e4236"
+    sha256 cellar: :any,                 arm64_sequoia: "060faa3a9871dcbbaeef57333b7fa75f078ff5494649708b9dbefa88ae73f163"
+    sha256 cellar: :any,                 arm64_sonoma:  "df3265ff5e08cd1e45980fce280622cc1f193928bc01032af8ee26513b6fef76"
+    sha256 cellar: :any,                 arm64_ventura: "5ca0cc364c7b043186134711deb86d75c91fda9bc3c684040ac927175e646858"
+    sha256 cellar: :any,                 sonoma:        "eb219f8ad13112d89d5c93886c3f50296fbeba85b9fdc3a8f72c7a17fcf40826"
+    sha256 cellar: :any,                 ventura:       "c8481a6f4d55d6b47ae8aac28bb7c44dbbc641fae253d0e074e31d8dabefba83"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6dff3c3b09510935a9099cf7a08f9d8cc83005d2b724b6910bf095ea2fe36697"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b6e753a4c1a89536e1e907a2a4006d947052c7103271289371ca0301d7a9ba83"
   end
 
   depends_on "pkgconf" => :build

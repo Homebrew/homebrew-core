@@ -32,6 +32,7 @@ class Haxe < Formula
     sha256 cellar: :any,                 arm64_ventura: "20d95b7e36e2332cb253d226ddd5d321376235aa505e2a0a5ae20bdf023b4a6f"
     sha256 cellar: :any,                 sonoma:        "bc78b84d45023ee30a3dc005043d89171b3bd3489a917670bff5d91aeb48c6bd"
     sha256 cellar: :any,                 ventura:       "23effcc0f7131aa4c4367a357b1f6f905bfaf214ee08ba83d15e57b211680a6b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f095dbf4adcdbc71e5a95b089f67c25d9955e4f1a2dc4f1e158ad63491a2ae0c"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "3b93448c64ffe1c9250e868fde52012b3cef2543b4954e7e24697a221c57b645"
   end
 
@@ -89,7 +90,7 @@ class Haxe < Formula
 
     # Rebuild haxelib as a valid binary
     cd "extra/haxelib_src" do
-      system "cmake", ".", *std_cmake_args
+      system "cmake", ".", "-DCMAKE_POLICY_VERSION_MINIMUM=3.5", *std_cmake_args
       system "make"
     end
     rm "haxelib"

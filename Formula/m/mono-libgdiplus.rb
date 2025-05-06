@@ -6,8 +6,11 @@ class MonoLibgdiplus < Formula
   license "MIT"
 
   livecheck do
-    url "https://dl.winehq.org/mono/sources/libgdiplus/"
-    regex(/href=.*?libgdiplus[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    url "https://gitlab.winehq.org/api/v4/projects/1906/releases"
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+    strategy :json do |json, regex|
+      json.map { |item| item["tag_name"]&.[](regex, 1) }
+    end
   end
 
   bottle do

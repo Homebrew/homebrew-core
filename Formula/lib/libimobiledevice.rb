@@ -13,6 +13,7 @@ class Libimobiledevice < Formula
     sha256 cellar: :any,                 arm64_ventura: "7017a85a4322e960abb9cc122ed45cf159eddc90c45a30d4a24aef14173ea0c6"
     sha256 cellar: :any,                 sonoma:        "7ca1985300a97b783b50752ff9110cb9b02dc7d278a62451b36fa5b98d359708"
     sha256 cellar: :any,                 ventura:       "c811173f433f58df573afeb557308c55be71309442e6088f0b2b93cafffb39cb"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "871739207d85ff9dafe6c8f24f7ac24242216bc6154ed5d3b0c8e238ab62f24a"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "d38d4434dc756c8153d4a0ed23ba0e68c643c7e9e1086cf08c5497700867cdb4"
   end
 

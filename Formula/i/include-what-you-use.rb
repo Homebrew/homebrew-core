@@ -1,8 +1,8 @@
 class IncludeWhatYouUse < Formula
   desc "Tool to analyze #includes in C and C++ source files"
   homepage "https://include-what-you-use.org/"
-  url "https://include-what-you-use.org/downloads/include-what-you-use-0.23.src.tar.gz"
-  sha256 "0004d5a9169717acf2f481248a5bfc15c7d55ddc2b9cdc7f461b06e93d49c73f"
+  url "https://include-what-you-use.org/downloads/include-what-you-use-0.24.src.tar.gz"
+  sha256 "a23421ceff601d3ea215e8fa9292bfa8ca39eb1ac2098dbbedfc6cfe65541c10"
   license "NCSA"
   head "https://github.com/include-what-you-use/include-what-you-use.git", branch: "master"
 
@@ -16,13 +16,13 @@ class IncludeWhatYouUse < Formula
   end
 
   bottle do
-    sha256                               arm64_sequoia: "a8307abd8c23d70a35855013b286128c3dceda53210899d08c2d8f024fec5e38"
-    sha256                               arm64_sonoma:  "d85880990d860d87280266824dd679f6217ce41a992d9328db02c368ab1bad10"
-    sha256                               arm64_ventura: "b472dba9655f4c7507e030920a6685f43df1fb83ef579963566ed68eb631d2f1"
-    sha256                               sonoma:        "18e5e4c104cf60277ed64ef2684a405cb01e8819238d2e7562da22708ac7cdce"
-    sha256                               ventura:       "17769bac14163c7ad46d30dafa09fbbd20b5f5f38ccf0c384b0dc2ebc29d1de9"
-    sha256                               arm64_linux:   "277106ad842cd17bf56d17bab47a5de7edc17ab602cf257aa4dc1af226eaf5b0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cfdcef7a0aa4aeeefeb10637aba7bcb3ab5c620671bbefd4f0eb35cc1a0057c6"
+    sha256 arm64_sequoia: "30ac8c04e8b22d83d3840790810ad8d4e8fc42f2feef42a24da884e9ad0a33e8"
+    sha256 arm64_sonoma:  "e25d02bca2115e3249049bcfe411560870fa816ffc1a07f5fe18d5c8875367f1"
+    sha256 arm64_ventura: "79ef55188a1c7328c7f717a96661403093a724e3fd5031b5799315ff7247232b"
+    sha256 sonoma:        "b84eea76382134fcb83e0de05b86c7984d1743ca128fdb9967bd09e81699bf4b"
+    sha256 ventura:       "2cff619261a5c37db862623ac06cc058d83f171ee8b1298d4812a1e1106cbdc6"
+    sha256 arm64_linux:   "c098fa5be99719ee60989eba3970d9c242ba789a1bae7b105e8ed4adac757f68"
+    sha256 x86_64_linux:  "4a76b914ec9e0b003450f409db649fe518e16bce7d5e175158de6d345abb409c"
   end
 
   depends_on "cmake" => :build

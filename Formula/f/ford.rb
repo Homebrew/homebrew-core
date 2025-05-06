@@ -3,20 +3,20 @@ class Ford < Formula
 
   desc "Automatic documentation generator for modern Fortran programs"
   homepage "https://github.com/Fortran-FOSS-Programmers/ford"
-  url "https://files.pythonhosted.org/packages/b5/eb/ec32133d28c57141d96081f5a23060e7cca71b423ff96505cd7ebac50aa7/ford-7.0.9.tar.gz"
-  sha256 "b9b660552a753f1d5265c3355548ca2bc4e38828a0802c03da347ebdd6d594ab"
+  url "https://files.pythonhosted.org/packages/01/08/a2380f5a63e0dc8e428c9307ee26e4455fce4775a76964a86b7068a9edc7/ford-7.0.10.tar.gz"
+  sha256 "b1271adcd8a33af89aa65cd176ed25fe252b3e0a52aa9f1fd00b0e8c51fc4086"
   license "GPL-3.0-or-later"
-  revision 2
   head "https://github.com/Fortran-FOSS-Programmers/ford.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5005ea1da7c3e6630cbdc275327a2b2c3a7fae8b9602044d944c85a2dabdb3b4"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0890114dc0f27f1afaae6a22b0afa868a236a5e863c926179a6e09a556c639b4"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "690a29a1c06d2631170d4cc42d3cb8de60115afdf38500c74e7d37ca48e461c5"
-    sha256 cellar: :any_skip_relocation, sonoma:        "3c8ec1b98469f13e70e1a61d8fd19b398117386f37051749e183a63299bcd96d"
-    sha256 cellar: :any_skip_relocation, ventura:       "83cb9e6edb78355189cc384d823ba8ecad5ac27f97a50b0fe0f91dfeba1b955d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "4dfed2eea9893742f594abe1cfa03bda317bcd1ba7026ef11c5d37c1b2a23a42"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "082b1fd740fa16b21b998b1924bb900773dce341daddb561c32ecf8e6acd6543"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b064d880206f80b5c53d75f52d883e2c0f00a81067820fe3bfc2ffa3b41310b6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5886a9cc98a97e8f204e2eb813e04f7176dd4084961d38a05753b455b6ef896d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "eac3e85730ed7bc65c9c7796a5141b03bfe18010d4b130f1ffb854c976de372d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "692f7fb9a31df9ee0194ed34d282ed969710e1fa61ce5c6ced6d16db55e3d577"
+    sha256 cellar: :any_skip_relocation, ventura:       "0de0150ff4d60a7afff61a186a1c122edf27e2aa7ca8fcb1054827fac2b55fdb"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0ea70b70a6e3df4f7b621251ad96dc1fc9803ad41aeec2c728362fd664a0e67a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2f6057a4ff856011848da2c688453f88d23a8bddd80b61a781a1717d9b97ff93"
   end
 
   depends_on "graphviz"

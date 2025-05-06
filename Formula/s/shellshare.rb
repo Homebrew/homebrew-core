@@ -2,7 +2,7 @@ class Shellshare < Formula
   include Language::Python::Shebang
 
   desc "Live Terminal Broadcast"
-  homepage "https://shellshare.net"
+  homepage "https://github.com/vitorbaptista/shellshare"
   url "https://github.com/vitorbaptista/shellshare/archive/refs/tags/v1.1.0.tar.gz"
   sha256 "0a102c863f60402ab48908563edde38450add0ae02454360fa94065824a61907"
   license "Apache-2.0"

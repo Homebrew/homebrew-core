@@ -3,19 +3,18 @@ class Borgbackup < Formula
 
   desc "Deduplicating archiver with compression and authenticated encryption"
   homepage "https://www.borgbackup.org/"
-  url "https://files.pythonhosted.org/packages/dd/0d/28e60180ce4ae171adba65ce9f8878fce3580c6d2cfdfa998929175105dd/borgbackup-1.4.0.tar.gz"
-  sha256 "c54c45155643fa66fed7f9ff2d134ea0a58d0ac197c18781ddc2fb236bf6ed29"
+  url "https://files.pythonhosted.org/packages/d3/8b/f24d8ab37b8d8cd85a55fa6cfaf98754bb7b6c7534c03ffe087506080a53/borgbackup-1.4.1.tar.gz"
+  sha256 "b8fbf8f1c19d900b6b32a5a1dc131c5d8665a7c7eea409e9095209100b903839"
   license "BSD-3-Clause"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia: "ea0b6a39efabe6534d4c0d61ac53544ec56e7160c21a6c7554b9a5f1435d2f0c"
-    sha256 cellar: :any,                 arm64_sonoma:  "913762693084b7db20b9dd17f8bf6ad44e9f1b558279126455d316b0d60bfcb4"
-    sha256 cellar: :any,                 arm64_ventura: "8d180c48615881e8375ffec0da4b7f2489b88b13fa639934c24a48b07a395bfc"
-    sha256 cellar: :any,                 sonoma:        "74a7a54445937d1553688936cdc131b58a64b8ebbee692a8bd1f284d8583f03f"
-    sha256 cellar: :any,                 ventura:       "70cbbc7f8cace22332f240aeb6e8ad8036fe2f712b203f75534dd0253d80387b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "054cd88f9778dc56ac202d7edc1e70d9220519d0c0484e4cd0ed4e52d5f47654"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b362ecca7e4b2d507ed33b16553b61db7d63124584b7d665533ef26971bd278f"
+    sha256 cellar: :any,                 arm64_sequoia: "9c79fdc448cb708b9508b0860965a57921a1698f951efd0eea11272509949085"
+    sha256 cellar: :any,                 arm64_sonoma:  "6cf7a454cf9b38e348594a6965c07c21947cbb2d7f9cc737a4289032898d2d7e"
+    sha256 cellar: :any,                 arm64_ventura: "c1a05f137139afdb6252f12d3408a6f8b6924bded32c81c21fd913b5a00352d6"
+    sha256 cellar: :any,                 sonoma:        "efa12e14fae859240c6b9c6878246d757e8ee756a0bac43ce22bc1f8c21b5ba9"
+    sha256 cellar: :any,                 ventura:       "cd24f51bf718fd2d4b2ff427972b35ec6c40c946e544f5884aaafee30fe9c5ac"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d8f9a96fb57c0342d32dc41591d53b22342ac0086a67d4ed6aaaf80451ec301f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a1de924be5f22308b7414f2a70173315d2d33f116564d734ec9ae5b75741fdec"
   end
 
   depends_on "pkgconf" => :build
@@ -36,8 +35,8 @@ class Borgbackup < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/51/65/50db4dda066951078f0a96cf12f4b9ada6e4b811516bf0262c0f4f7064d4/packaging-24.1.tar.gz"
-    sha256 "026ed72c8ed3fcce5bf8950572258698927fd1dbda10a5e981cdf0ac37f4f002"
+    url "https://files.pythonhosted.org/packages/d0/63/68dbb6eb2de9cb10ee4c9c14a0148804425e13c4fb20d61cce69f53106da/packaging-24.2.tar.gz"
+    sha256 "c228a6dc5e932d346bc5739379109d49e8853dd8223571c7c5b55260edc0b97f"
   end
 
   def install

@@ -17,6 +17,7 @@ class Glui < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "1ae9d5b6a49f0a0b82ed3763ba118e7614a690dda330d1db0124293257bc3711"
     sha256 cellar: :any_skip_relocation, big_sur:        "c1884496c319d53faf60c40a4dfe83d0198af2d4a13d377e06c0187624392f74"
     sha256 cellar: :any_skip_relocation, catalina:       "aeea8d3b8f76471bfdcf0f10bb51afc0d721452cbd8fa4613135685d7bbb00ae"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "81191fb99d33694da5fc359deb0ba64ab27be242459d931df7771415cf886de6"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "a89d82496e644e5501928803452b47ff2399c9386757b6013e9a58868255bf90"
   end
 

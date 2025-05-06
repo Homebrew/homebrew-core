@@ -10,7 +10,7 @@ class PerconaServerAT80 < Formula
     url "https://www.percona.com/products-api.php", post_form: {
       version: "Percona-Server-#{version.major_minor}",
     }
-    regex(/value=["']?[^"' >]*?v?(\d+(?:[.-]\d+)+)["' >]/i)
+    regex(/value=["']?[^"' >]*?v?(\d+(?:[.-]\d+)+)[|"' >]/i)
     strategy :page_match do |page, regex|
       page.scan(regex).map do |match|
         # Convert a version like 1.2.3-4.0 to 1.2.3-4 (but leave a version like
@@ -26,6 +26,7 @@ class PerconaServerAT80 < Formula
     sha256 arm64_ventura: "0c920c59d823d73888e88abc3102626ab4574422f71a391428d2e18b198d5008"
     sha256 sonoma:        "450c309327f0a71240e8b6c54bd561749a930d662343e002ddde4eadc982154d"
     sha256 ventura:       "d289a66cdfd3de7ed9f87d98dda41ebeba1dc18ac8223604b92e122ccd37d8e0"
+    sha256 arm64_linux:   "558a1988053cb70145a837ca6b62fe99396a02f4191a2801c7c5ddde6da00bb4"
     sha256 x86_64_linux:  "5614bdeb9028553c82137264547db91e208c016ad98c2796eb703c8f66959848"
   end
 
@@ -87,6 +88,13 @@ class PerconaServerAT80 < Formula
     sha256 "d4afcdfb0dd8dcb7c0f7e380a88605b515874628107295ab5b892e8f1e019604"
   end
 
+  # Backport fix for CMake 4.0
+  patch do
+    url "https://github.com/Percona-Lab/coredumper/commit/715fa9da1d7958e39d69e9b959c7a23fec8650ab.patch?full_index=1"
+    sha256 "632a6aff4091d9cbe010ed600eeb548ae7762ac7e822113f9c93e3fef9aafb4f"
+    directory "extra/coredumper"
+  end
+
   def datadir
     var/"mysql"
   end
@@ -141,9 +149,10 @@ class PerconaServerAT80 < Formula
       -DWITH_UNIT_TESTS=OFF
       -DWITH_INNODB_MEMCACHED=ON
       -DROCKSDB_BUILD_ARCH=#{ENV.effective_arch}
+      -DALLOW_NO_ARMV81A_CRYPTO=ON
+      -DALLOW_NO_SSE42=ON
     ]
     args << "-DROCKSDB_DISABLE_AVX2=ON" if build.bottle?
-    args << "-DALLOW_NO_SSE42=ON" if Hardware::CPU.intel? && (!OS.mac? || !MacOS.version.requires_sse42?)
     args << "-DWITH_KERBEROS=system" unless OS.mac?
 
     ENV.append "CXXFLAGS", "-std=c++17"

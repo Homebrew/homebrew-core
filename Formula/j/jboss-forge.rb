@@ -10,7 +10,9 @@ class JbossForge < Formula
   # from the /api/metadata endpoint in JSON format.
   livecheck do
     url "https://forge.jboss.org/api/metadata"
-    regex(/["']latestVersion["']:\s*["']([^"']+?)["']/i)
+    strategy :json do |json|
+      json["latestVersion"]
+    end
   end
 
   bottle do

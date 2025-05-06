@@ -13,6 +13,7 @@ class Massren < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "3a4d8c870ee69dc77582da2c058e5ab5630cfda919d5ed461fa4f1fe286d86a8"
     sha256 cellar: :any_skip_relocation, sonoma:        "a6a209d62fb3ae2ecef7d695c580dba2ab2de99b4052db0bd59ead450e35f0d6"
     sha256 cellar: :any_skip_relocation, ventura:       "2110bb0e290f470412225c98f0d6a5c6083c20371b4dc1e8b5f36c0a6779c084"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "70619f09b98eaf12e8c356accbebe73802aa58cf440d70b5bd921fa867904b25"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "4fb23682755ba48ba5f33e3ea6bacf7f24f2323531bb919ea7c037f0179a2977"
   end
 

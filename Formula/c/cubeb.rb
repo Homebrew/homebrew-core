@@ -28,6 +28,7 @@ class Cubeb < Formula
     sha256 cellar: :any,                 sierra:         "f89e89027370ea9da99f72f0af0529f9b63fbe31c434d3ccafdc7230664a41c2"
     sha256 cellar: :any,                 el_capitan:     "f7e738b374bb07e1c420e56dfeb72caa814495b446c71d8158ef98c9b33d3a60"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "77b3bb04b39d06f00b3e2fc82d5cb29b4d4d370655fda6e9d1654841b429024f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9d67a504265f1431f6a44b2d28d235ce3f565e4872bed9e2e26ef6d7ee9b6e41"
   end
 
   head do

@@ -18,6 +18,7 @@ class BatExtras < Formula
     sha256 cellar: :any_skip_relocation, sonoma:         "ad0c1049cd4c49a98517ab67a2bf6f9e5b4304ff26e2b930216e3badb069a054"
     sha256 cellar: :any_skip_relocation, ventura:        "eba7f97907ba5dc853dcbbcaa038d5e6f77e1929e50088c715ba51476de51855"
     sha256 cellar: :any_skip_relocation, monterey:       "cb838dc35e747b7510d75e919449059858f676d31265acaa5445d234e759902f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "474398e0365c6378393ee7eaa78eb8e453ffa325f3082e6f7a304180bddbcf06"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "493e6115711432e8e2cc3527b3660bb47762a7e609d16dbdc19cbe8d6fb61307"
   end
 

@@ -4,6 +4,7 @@ class GitHound < Formula
   url "https://github.com/ezekg/git-hound/archive/refs/tags/1.0.0.tar.gz"
   sha256 "32f79f470c790db068a23fd68e9763b3bedc84309a281b4c99b941d4f33f5763"
   license "MIT"
+  head "https://github.com/ezekg/git-hound.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "373e91c48dda4ac71e85490387430dbfdb73d27d72a0964a33933e8e6d5f1753"
@@ -18,6 +19,7 @@ class GitHound < Formula
     sha256 cellar: :any_skip_relocation, catalina:       "b800dc830647b0806200364a0b242c64cef639618a5ccc9268f3333f3a645802"
     sha256 cellar: :any_skip_relocation, mojave:         "6bfbbe48552eaa75d5fd861c1feb9bd21a5d47c1718f4295ce469062965311de"
     sha256 cellar: :any_skip_relocation, high_sierra:    "5951f740815c5e38e8d0a97270bf867f99cb0a2ea2ec9ee3cc4b4ccba5ee96fd"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "b3f6b4750e32e5f6b3a11bd754c2b026261373e3e1b54256b6ae3e48dc3bc4a2"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "f27441dca7619968e685c5b91221d251872376412332fea4d318a17d4c283c4c"
   end
 

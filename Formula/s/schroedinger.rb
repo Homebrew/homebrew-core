@@ -22,6 +22,7 @@ class Schroedinger < Formula
     sha256 cellar: :any,                 high_sierra:    "1e9953cbef67e87a7ca9ebecfcc4af5f0eb2261d17f3a1195386b7512b9312be"
     sha256 cellar: :any,                 sierra:         "7d2d6d343f571e21f27ce5c13645ebe7039e4d45d2b96dba550f6383185c18f6"
     sha256 cellar: :any,                 el_capitan:     "1b990c49b7d72f3030bcee52bf70094a6cf16111867565cdb7541f670636cf05"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "2f2674c5ae2910ea63da7347b73cbb12f45f1531babac60af4ef50d82a1f79cb"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "32c7db0617f2a2d01b89d446860529fc3520f377e601a460fadc5e3ce2bc0baa"
   end
 
@@ -37,8 +38,12 @@ class Schroedinger < Formula
   depends_on "orc"
 
   def install
+    args = []
+    # Help old config scripts identify arm64 linux
+    args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+
     system "autoreconf", "--force", "--install", "--verbose" if build.head?
-    system "./configure", *std_configure_args
+    system "./configure", *args, *std_configure_args
 
     # The test suite is known not to build against Orc >0.4.16 in Schroedinger 1.0.11.
     # A fix is in upstream, so test when pulling 1.0.12 if this is still needed. See:

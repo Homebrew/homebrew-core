@@ -11,6 +11,7 @@ class Sftpgo < Formula
     sha256 arm64_ventura: "f5b1195ebb945df9faa935aff174de9305be4e66deb7d015271255c23df2293c"
     sha256 sonoma:        "b0e1b0c942ab7489cae8fd45b1f8586ecccf2c9f95e08d3c21b762690e4af66e"
     sha256 ventura:       "b8be7324b8fc6d0ba8c3d833043f042cf0a161d4c31242686ef0915773aad7cd"
+    sha256 arm64_linux:   "03ccf1abb305691c6d1c169fceaa36057810a6e2888baac8977ccb1ebfb6a90e"
     sha256 x86_64_linux:  "e1b0617a0ea156c8d4a002fbfdeb8d3b1fa448e8bb8167dd9c5f5f0934af1efc"
   end
 

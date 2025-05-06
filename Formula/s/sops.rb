@@ -1,26 +1,23 @@
 class Sops < Formula
   desc "Editor of encrypted files"
   homepage "https://getsops.io/"
-  url "https://github.com/getsops/sops/archive/refs/tags/v3.9.4.tar.gz"
-  sha256 "3e0fc9a43885e849eba3b099d3440c3147ad0a0cd5dd77a9ef87c266a8488249"
+  url "https://github.com/getsops/sops/archive/refs/tags/v3.10.2.tar.gz"
+  sha256 "2f7cfa67f23ccc553538450a1c3e3f7666ec934d94034457b3890dbcd49b0469"
   license "MPL-2.0"
   head "https://github.com/getsops/sops.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "37e076fb5868d03a09f4d1dc0362985f6287277f2f6e52071319d909c5ee572a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "37e076fb5868d03a09f4d1dc0362985f6287277f2f6e52071319d909c5ee572a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "37e076fb5868d03a09f4d1dc0362985f6287277f2f6e52071319d909c5ee572a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "7044f03ea020947e1e855ca703de6044fbd778f06d892652da35725ff6db2100"
-    sha256 cellar: :any_skip_relocation, ventura:       "7044f03ea020947e1e855ca703de6044fbd778f06d892652da35725ff6db2100"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6f5356d7cc9fb4b00f111872dfe2a6d06a60f11cf083d993c74de2ca3f821f07"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "94f96e22f7a5e0aa190cd3ad84bd1c69c8a301c82c40c4aa915a7bfd47d3e59b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "94f96e22f7a5e0aa190cd3ad84bd1c69c8a301c82c40c4aa915a7bfd47d3e59b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "94f96e22f7a5e0aa190cd3ad84bd1c69c8a301c82c40c4aa915a7bfd47d3e59b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "5103c9c60d2e5117114d429e3f488560127788b9bda5463fb4dff972417bd220"
+    sha256 cellar: :any_skip_relocation, ventura:       "5103c9c60d2e5117114d429e3f488560127788b9bda5463fb4dff972417bd220"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "86539d39f3aef614e81590fb805a61ffd4112dfd5abca1d35e553da388f3d4dd"
   end
 
   depends_on "go" => :build
 
   def install
-    system "go", "mod", "tidy"
-
     ldflags = "-s -w -X github.com/getsops/sops/v3/version.Version=#{version}"
     system "go", "build", *std_go_args(ldflags:), "./cmd/sops"
     pkgshare.install "example.yaml"

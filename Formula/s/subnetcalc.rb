@@ -1,19 +1,19 @@
 class Subnetcalc < Formula
   desc "IPv4/IPv6 subnet calculator"
   homepage "https://www.nntb.no/~dreibh/subnetcalc/index.html"
-  url "https://github.com/dreibh/subnetcalc/archive/refs/tags/subnetcalc-2.6.2.tar.gz"
-  sha256 "86f19e25b6bc61acd87bd0a6c36eeca1ba3d5710f5b99d047d74e719b83b3daa"
+  url "https://github.com/dreibh/subnetcalc/archive/refs/tags/subnetcalc-2.6.4.tar.gz"
+  sha256 "0730855c8b619e4a6237882e0bd12c2220285a12b7b869e1193b0f92e189a262"
   license "GPL-3.0-or-later"
   head "https://github.com/dreibh/subnetcalc.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "82e699f797b2e36523bfbde9f984efa7a4f389a97cacc4ceafa693a468fe9186"
-    sha256 cellar: :any,                 arm64_sonoma:  "c499df5030a705ba8ee61dfac09f57aef83e3f96cf097726de8ab70f3d30f31e"
-    sha256 cellar: :any,                 arm64_ventura: "58d33d69ea03aa071f886e17844195c353e5fa0097f0dc151b065585beb2a2b6"
-    sha256 cellar: :any,                 sonoma:        "aa856ed114bf797b86b9969b98b16ab1f80d127b2ee346cd923f66b40c2c9dcd"
-    sha256 cellar: :any,                 ventura:       "20b90b6a8187f41c8b0e32983fabea0cefe05ee8434e1453efacc152280468df"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "12b2b90c91bdcf2f889ca1b3d8bc26c61a84ce6ecd2cec47b430dfbed03ef268"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5754d5860222151455f2b01d10005d2d38635c83c8fb9f093655e00e8f493cc3"
+    sha256 cellar: :any,                 arm64_sequoia: "fabdbeae955ea728d9eae0de44710cbee5e16cf43ba6cae647d4dad0b0450f08"
+    sha256 cellar: :any,                 arm64_sonoma:  "1790982a2d3245a83958803257775f56fb37b0f3b11110a861c851221570ee8c"
+    sha256 cellar: :any,                 arm64_ventura: "5dcaf2b58612c6fe992e7d601330d019df0d96db3a30763c6d81e7d33079158c"
+    sha256 cellar: :any,                 sonoma:        "832a61d27689832f65aee4517107e046a182aff53037dba7c2e205dfb4031d37"
+    sha256 cellar: :any,                 ventura:       "52413178955b01a026648bac5e4af714666911cdab595f669b380392255369e8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2b7cc635edd10a32dcc9922495890a2381735eb4662e04e8437b31dd9bf9b8ec"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7790fc9a8581bd12c61062ad16595fded5b17506bc4faf1777a033b50391f806"
   end
 
   depends_on "cmake" => :build

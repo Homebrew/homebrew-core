@@ -1,8 +1,8 @@
 class Gfold < Formula
   desc "Help keep track of your Git repositories, written in Rust"
   homepage "https://github.com/nickgerace/gfold"
-  url "https://github.com/nickgerace/gfold/archive/refs/tags/2025.2.1.tar.gz"
-  sha256 "f4bfb2c69da1f2e1a70713b316c2befef553039bc7248594f8f990115a66cc33"
+  url "https://github.com/nickgerace/gfold/archive/refs/tags/2025.4.0.tar.gz"
+  sha256 "47e397843bdc03cdc6711e56dd51f8b81e598d02adbd0ce3df0c7979c5d89758"
   license "Apache-2.0"
   head "https://github.com/nickgerace/gfold.git", branch: "main"
 
@@ -12,13 +12,13 @@ class Gfold < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "7bb9ab4516cf303807d550bd93f23554e10f4f4482369d3ab1fbf7506e4a605b"
-    sha256 cellar: :any,                 arm64_sonoma:  "56125c3b687ac854b0ffb3bb5b34d0e4c158395b43fa8f86151220322cecd4fb"
-    sha256 cellar: :any,                 arm64_ventura: "06169b9151d2bde14a0c1782a1357dafd8d0a0fb51f8673c86c8307e3131df35"
-    sha256 cellar: :any,                 sonoma:        "4f809c3dc6027ecf9a95fce8773c9722a249d450c8201ff8d46e6869c7840a21"
-    sha256 cellar: :any,                 ventura:       "6aac2335765c4330e3977f8cb185773f99fb065cc4c4f75a28701ec25a1d9b48"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b56852105659ce48445bb2fd6a251040bb545b4f84d8a3f1dafbc4adbcf0e62a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "512c8665866e3918dc0d2ed50dceea71ec220498e9be5eb33cb249faeda251dc"
+    sha256 cellar: :any,                 arm64_sequoia: "d591efa7fcb9846f9d0727ff45facdd64a9203881a8c975eb19c1aed42c898e7"
+    sha256 cellar: :any,                 arm64_sonoma:  "cfc15cc0221780afbabf5d41bc8dd882f217a13355f501ee2627a634fd9fe7be"
+    sha256 cellar: :any,                 arm64_ventura: "ccd245e5b090c845eec586d0b8bf6a82442eece9a099d4f433611546d47bd438"
+    sha256 cellar: :any,                 sonoma:        "ddacceb6c48dda9ebe01226f479f9993f5eed9e280eef8f06e4c643d91c261e4"
+    sha256 cellar: :any,                 ventura:       "ee2c81b52a3f262a1147738f3a662c6004bd8d948cdd903ae073f001fa4c9a7d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d37925a0f0594f354b06c220a1404179aa509798313bd4b6da43aacda8b6d18d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d01109465ba0f2c78c1d92449c93c3aa03af423e9fd17704922c0c3699cd352c"
   end
 
   depends_on "pkgconf" => :build

@@ -14,6 +14,7 @@ class Ext2fuse < Formula
   # Last release on 2008-06-26. Needs `libfuse@2` and patches to build
   deprecate! date: "2025-03-06", because: :unmaintained
 
+  depends_on arch: :x86_64
   depends_on "e2fsprogs"
   depends_on "libfuse@2"
   depends_on :linux # on macOS, requires closed-source macFUSE

@@ -17,6 +17,7 @@ class ProtocGenGoGrpc < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "6fea4b83597ec851d649c1b749618dda37e3815b4780b28467557aa0a29df606"
     sha256 cellar: :any_skip_relocation, sonoma:        "5f99bc500ba51adf40e538a0400b8f345647cc0e7b0275745aa1f195e87910a3"
     sha256 cellar: :any_skip_relocation, ventura:       "5f99bc500ba51adf40e538a0400b8f345647cc0e7b0275745aa1f195e87910a3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "62026292030029c59eae929f0bf18641e9fd74e88a1b4ec68450c7b7bf4bd61a"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "b754fb14b20c7f4fe1f9f3f03693b2100ea882ffb3fad7c40f96df092437f870"
   end
 

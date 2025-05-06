@@ -1,17 +1,18 @@
 class Ko < Formula
   desc "Build and deploy Go applications on Kubernetes"
   homepage "https://ko.build"
-  url "https://github.com/ko-build/ko/archive/refs/tags/v0.17.1.tar.gz"
-  sha256 "cc45d71db67186022e0587d81fa50d82f0da05fac2723be1f188e5caf3655107"
+  url "https://github.com/ko-build/ko/archive/refs/tags/v0.18.0.tar.gz"
+  sha256 "4499c8a65f9474443bcf9c194cd0406b03887a7c36557a94f22f040a33a95608"
   license "Apache-2.0"
+  head "https://github.com/ko-build/ko.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "88d255b3923b6b3fc6253d94367a2a398d396759a1aaea943f6834a1645519c0"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "88d255b3923b6b3fc6253d94367a2a398d396759a1aaea943f6834a1645519c0"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "88d255b3923b6b3fc6253d94367a2a398d396759a1aaea943f6834a1645519c0"
-    sha256 cellar: :any_skip_relocation, sonoma:        "d5c9999d32150f8c616329946d9182589c2c975e35a75dd09d84c3b2b3f48a2e"
-    sha256 cellar: :any_skip_relocation, ventura:       "d5c9999d32150f8c616329946d9182589c2c975e35a75dd09d84c3b2b3f48a2e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "514e891956612851d6b04b7ab624049fa95772391e02b8bebb62774c5f9ed0e0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "51ebbf1f9c0117c708c6837f964c9cd66192d0d40b6bf70be489b232c2b97e90"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "51ebbf1f9c0117c708c6837f964c9cd66192d0d40b6bf70be489b232c2b97e90"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "51ebbf1f9c0117c708c6837f964c9cd66192d0d40b6bf70be489b232c2b97e90"
+    sha256 cellar: :any_skip_relocation, sonoma:        "ede5eb93a54e739e5d2a957ae57c26aa5ca6e58bcf4dcae69985f968ea2e8a06"
+    sha256 cellar: :any_skip_relocation, ventura:       "72711771259318dce21574c99cee46c9ffcaeec187f307875e0d45327359601e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4ab0a89bed6ceefe2fd0d40f46e086e105c43e76ea50c94f7bca1ae217a188a8"
   end
 
   depends_on "go" => :build

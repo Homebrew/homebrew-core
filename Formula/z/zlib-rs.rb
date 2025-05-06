@@ -1,19 +1,19 @@
 class ZlibRs < Formula
   desc "C API for zlib-rs"
   homepage "https://github.com/trifectatechfoundation/zlib-rs/tree/main/libz-rs-sys-cdylib#libz-rs-sys-cdylib"
-  url "https://github.com/trifectatechfoundation/zlib-rs/archive/refs/tags/v0.4.2.tar.gz"
-  sha256 "c1ddc10c38e50e9a465e7d76d6a5a8182656ae3fd35094af2b2d5c9606e58092"
+  url "https://github.com/trifectatechfoundation/zlib-rs/archive/refs/tags/v0.5.0.tar.gz"
+  sha256 "a5ef58c30220173b44c1304a9e367ec8fd6ac03c6c93ca41fc24b4837754ed1a"
   license "Zlib"
   head "https://github.com/trifectatechfoundation/zlib-rs.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "87fd48003fbcd8c032d3d8fe59ce9362f21e2b1d38d4c479fac2c96ed7e077b4"
-    sha256 cellar: :any,                 arm64_sonoma:  "80da2d68b663d36aaaa2b730a6fa61672ff6dea56f76f4f9d7f4be241147fea0"
-    sha256 cellar: :any,                 arm64_ventura: "de491b402c9dd40f96b4eefbcf08ab9b46b852b26ec9f9fd26d16c38a860236f"
-    sha256 cellar: :any,                 sonoma:        "560187385d4e908f454b6f323820707e4874c49a95d82666fb8c5a00c1b9279f"
-    sha256 cellar: :any,                 ventura:       "299dfcf47452723f5bde1dda76340552fff351112a79a97eb785f1b9f7bf8601"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6d989c3505015858b9dd3f2e8bfdfe62d6e3c2779a84c6e1d97d75873b4bf2e2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3d67e3cfb2f3381cdcf1ba2c3f0c62a2bc90f0929175ea3ea8750ed77849af9a"
+    sha256 cellar: :any,                 arm64_sequoia: "14055c1717edc6ed5c02400fb796ec92358e860e89769fbe3cffbe535370e9e2"
+    sha256 cellar: :any,                 arm64_sonoma:  "e22c071ad8235312de8088a945cd8d4fd3e70d817e8a37b56f20446e1f2bd913"
+    sha256 cellar: :any,                 arm64_ventura: "26806a408c5db4382b74e235832d67df54cfbc196c295b4d3d3360e468ba3160"
+    sha256 cellar: :any,                 sonoma:        "8e009873fd7b806d61ee3adbf21b28a9c4c6f8922b00a4f15011496061bac822"
+    sha256 cellar: :any,                 ventura:       "845797bf7b2fc8f47cfc8fb6367b763145879706c17dbaf47bd1e8a682dfa3ec"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ce7248f219ceaf414ad7fa7510dccb82ed4e24d39a30beec24a15517db57a27c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a3eaaf5a413bc07ac46e88f40551f0f8ff40a88461526e0fa04587541607319b"
   end
 
   depends_on "cargo-c" => :build

@@ -1,21 +1,23 @@
 class Proteinortho < Formula
   desc "Detecting orthologous genes within different species"
   homepage "https://gitlab.com/paulklemm_PHD/proteinortho"
-  url "https://gitlab.com/paulklemm_PHD/proteinortho/-/archive/v6.3.4/proteinortho-v6.3.4.tar.gz"
-  sha256 "d38514e8d5a08cc99b0539348fff89a200325d46241af8ad13037ad57151c161"
+  url "https://gitlab.com/paulklemm_PHD/proteinortho/-/archive/v6.3.5/proteinortho-v6.3.5.tar.gz"
+  sha256 "1b477657c44eeba304d3ec6d5179733d4c2b3857ad92dcbfe151564790328ce0"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "ab1f22b01cfc07a670899ed269a5be76b7a991b85c9c5f5f56dc7de05284a444"
-    sha256 cellar: :any,                 arm64_sonoma:  "8e2599dd5ab127cf9b60a909327a5358285fb941d594491b176b25ac796c53b2"
-    sha256 cellar: :any,                 arm64_ventura: "f14f92ee384b488e968e5cded89ec08387285b96e1d925ca2fe2d5d2cff57aa1"
-    sha256 cellar: :any,                 sonoma:        "d19e5fa55ae03aaf19c9299dc4d575ade198b4ea50ba58a48206f1f7f738782b"
-    sha256 cellar: :any,                 ventura:       "1c282b335913eb836cc6854b3f0a3cdb971e381e80a63d8978ddf16c89684bb2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d5c144cc8298e774bf04fc81c79da88a37ed15733886313710c12abce7cafb1b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2f32a54de7c62301afa12bab82924266855662010de36ea55a7190cd1aaf6a6c"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "2356058c1df4e150a263dbfc0f732c7be1d0554c28962d2c3c1bbbff3234470e"
+    sha256 cellar: :any,                 arm64_sonoma:  "6563d591255724b9b4d51b183ee88e1896a88947cf27711b98c64b808e788e1d"
+    sha256 cellar: :any,                 arm64_ventura: "76bbfd627206c5a346c8b40207cc4c002dbc9a348317032a4eb3dcda98153f46"
+    sha256 cellar: :any,                 sonoma:        "9127cb17cb8e363c879b0ecf81c349f61120ef0e0206366defa07ce11e9cb39d"
+    sha256 cellar: :any,                 ventura:       "1eeab6b4ab460ca0e684f123b1b6e6a293cd005df2209835530d7d08393ac36f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ec96e52a4bea6125ac647b78c022e739b7f1f3bc66f33e3cf19349b8e84134dc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bde04add25030aed32aac06465de994ca04e4410181a53deac825858df3df18c"
   end
 
   depends_on "diamond"
+  depends_on "libomp"
   depends_on "openblas"
 
   def install

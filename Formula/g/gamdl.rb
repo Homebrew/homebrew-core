@@ -13,6 +13,7 @@ class Gamdl < Formula
     sha256 cellar: :any,                 arm64_ventura: "c3c7f7225ff3660e3a0db5058353f55948e4dbb94f5c6370e3d09da5b53fc808"
     sha256 cellar: :any,                 sonoma:        "da5929198fec45772924c3d5b6088a6e6b82c843cd92cf6ce6a272e4ad27cb1c"
     sha256 cellar: :any,                 ventura:       "28aa31801dd24152f92e1082eeaa836c2b3843087a6856e11522a8611b5438c8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "43d1812c842b8dbb7e31be3ad03aca95e229bf2d055fbeea668b921a4952f307"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "7913d8e003f11487d28f8094c0659f0e2aca80dfcbe441c206313bb36ac31dd1"
   end
 

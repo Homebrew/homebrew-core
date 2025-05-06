@@ -21,13 +21,17 @@ class Mkcue < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:    "284cfe9fe5a81a75f59610d93710627167dbc48c1d72b89311562c87cea8f8ff"
     sha256 cellar: :any_skip_relocation, sierra:         "b1bec8cabaddb6a78a3c2e0a13f73eb426922b64e6d9ef3c0103e92e203f6af4"
     sha256 cellar: :any_skip_relocation, el_capitan:     "7677f358f99d733a6f43d02cbf5365f3c59b4f93c6a59ee05bd48045a12cbb52"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "d0bcd3ad24b610cb79b5b41498a9ec6428a42e921edc2ba21406c0804c176ff4"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "1ffe89a918fbd678d1dd78349a5cc46d6496f2150215f698560b9e4453f13143"
   end
 
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    ENV.cxx11
+    args = []
+    # Help old config scripts identify arm64 linux
+    args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+
+    system "./configure", *args, *std_configure_args
     bin.mkpath
     system "make", "install"
   end

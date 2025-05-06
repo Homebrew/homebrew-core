@@ -2,18 +2,18 @@ class Openfast < Formula
   desc "NREL-supported OpenFAST whole-turbine simulation code"
   homepage "https://openfast.readthedocs.io"
   url "https://github.com/openfast/openfast.git",
-      tag:      "v4.0.2",
-      revision: "fc1110183bcc87b16d93129edabdce6d30e3a497"
+      tag:      "v4.0.4",
+      revision: "d28a823169e75029d73362b07a2942d0a454f03b"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "cd5095bbe049469485f3251f40bda7f44bfa958171c39131c5a78e960ec5c1ce"
-    sha256 cellar: :any,                 arm64_sonoma:  "eec9172028aaf509b0786bebe58396d929d6a17cfa0b1f4621e4901bdd3794a0"
-    sha256 cellar: :any,                 arm64_ventura: "7bbd8132a6d9ef494306b27be5ca7a6bf1e341ab69dd39212cd2afb07a897da6"
-    sha256 cellar: :any,                 sonoma:        "7a7fcd497c537582743ecd8bda6120ec76089d46487deb042ae3a03b2dea5ee0"
-    sha256 cellar: :any,                 ventura:       "d102edc70850fbb4ea05026cd4a76cf2263991d90c975df3d18f36e78284a7e2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8f85ffdd7b33027542793b0f1e3f460faaa3c2843389d06cf3e7dfcb224cf1d2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4400e775dde1f8dc1654f8bf33333dd2359a2f4b1082172a8064dd651cdf8563"
+    sha256 cellar: :any,                 arm64_sequoia: "2e89b7a85921381093c8ebb7c03d3453287725e32bf548a78c4d96687e13984d"
+    sha256 cellar: :any,                 arm64_sonoma:  "aae62eb732843dccd695d0228166fb77bd7f39350464ebec9b1dadf83116434c"
+    sha256 cellar: :any,                 arm64_ventura: "a651f9197f973c8b9846d3e5d4d8415d4f846dd074b44d4c9cc6aee38027c2d5"
+    sha256 cellar: :any,                 sonoma:        "baaeffca5e7d33ecea19f76071bd3679845c3626dda3d3fef36506609b13569c"
+    sha256 cellar: :any,                 ventura:       "56d53252d63b0ef61aa6465401500bc692c2ea3bc90324f10d72f5370bb8dd63"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4660629844154eb7e200d48e84b842108d3649096881db26348b0472a7d66cdb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6d8a1b246f53b43a2e7db5d6fd5c3ec12209be17374cdc5b310e1129e43843c6"
   end
 
   depends_on "cmake" => :build

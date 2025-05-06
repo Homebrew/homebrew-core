@@ -2,19 +2,19 @@ class GitCinnabar < Formula
   desc "Git remote helper to interact with mercurial repositories"
   homepage "https://github.com/glandium/git-cinnabar"
   url "https://github.com/glandium/git-cinnabar.git",
-      tag:      "0.7.1",
-      revision: "ff7d25b5900b49ae2b5df34d14d1f8ff618a481d"
+      tag:      "0.7.2",
+      revision: "1975d040654a4f015456eef6869e40d32761d083"
   license "GPL-2.0-only"
   head "https://github.com/glandium/git-cinnabar.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "96556af3b8cca54304dc518d29030dcde61f8fd7a6c20593ebe4db50dfcc6131"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fff1deec847c334fd982db49a01b7c1b7b31e456f0a2283832392e12991f80b8"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "51ba0623200a95ef946f80961b3019c1a7bfda3418decb3d6ef1a6b33ec6f131"
-    sha256 cellar: :any_skip_relocation, sonoma:        "5e7394a0a10d4f1c3f9a632fc94e2725c49834dd67984b6f2ad4ff6545dd9daf"
-    sha256 cellar: :any_skip_relocation, ventura:       "7300928447559286b22ecc7a7ccfa337f56be2df371ba0e0cc034af6ba879be1"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "319f84058d67e249e5aaeec5a4e12dc57dbe5484ce926a57604fe441a8045ece"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c91ae191c4f9e28b7dc95c015ab88a7a6fabb9b292a5a062da57b4d30f39d6f1"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "52a241ac1a64424dd93ba9794a5319f1bedcf64fc3c028e3e89ee7d6cea60e9a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c95e69fb7a618b4bed2e50649d27db679169fed3eccb16676c7edf17ba4ffda7"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "675934ba581d5911c174970e37886d46791d36baa49f4e73251ca42673a73b91"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c5f148aa44537226a43200dc72ab9493e7adce2170d0d972191a5f5d3228d253"
+    sha256 cellar: :any_skip_relocation, ventura:       "c85802f34296425e635bf069f74f4eba5bd960aca294df2b0cfc329ab051e842"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f24f9a2e493c0f4cc251f681b993072df26e04ebb9174eed029f2b8877c3e6d6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5ed2073510084eff7527436e382ca7b833384b145e0c786b3fe8d002ae0a5402"
   end
 
   depends_on "rust" => :build

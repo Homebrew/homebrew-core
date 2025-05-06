@@ -1,8 +1,8 @@
 class Lwtools < Formula
   desc "Cross-development tools for Motorola 6809 and Hitachi 6309"
   homepage "http://www.lwtools.ca/"
-  url "http://www.lwtools.ca/releases/lwtools/lwtools-4.23.tar.gz"
-  sha256 "f05255516783ea5b118e7e32e8e4d420b6835864c2833ecde3477b4be19db038"
+  url "http://www.lwtools.ca/releases/lwtools/lwtools-4.24.tar.gz"
+  sha256 "e18c01841be3b149b79df38a67b59c51247ec40df0740b972eb724a3a3c72869"
   license "GPL-3.0-only"
 
   livecheck do
@@ -11,15 +11,13 @@ class Lwtools < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "eab3dfe12c7aeb0bf11de4c44d983b9f8fa8d6145738f440ff69bb93971a522c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "006c60eee04ec235ed358e0395e992d9158610fecba2f5b668af81b5c3e6ab74"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "182534ce1b37a6230553cee3d3e794629a0e885ab762c621eb47b59bc055e8ef"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "fa3093f31f2365fd394d4f5785c12cc8fe38b8e7e99b53d422ac5b1dade6fa82"
-    sha256 cellar: :any_skip_relocation, sonoma:         "f0285e0f21559766bc595222d32c1e5a49495d0eb0bc13596152fd16e2112d2e"
-    sha256 cellar: :any_skip_relocation, ventura:        "e3a03360ee1f0c8a452f8b070724401adeadd46730174ba53786b4d645f1bea9"
-    sha256 cellar: :any_skip_relocation, monterey:       "cee52e52672b605b4a38d6596cc2fa7a0613bea352a47f86ec27e2123bb73a3d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "e2c8033e4bc751555d4f503180c5cc0ef3e69e20a494edf0dad88b4a6764209d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7fdd3cffd56bce4bb757bcfc522d20df58e10abf0148960f5db0d3c3f8ae6adc"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c2c535cbdfccc0f0d70af61a64eaed21800db4c8874ad4749d4a5de66fffc0cc"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "df2d82ee525776c58d4ce6a558472296880e4e188705913b14f30df5f7d9fc3d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "a095d8215eff8b61b2695ec8bbc9abe05f0eec83760a84ca89a5fafcc9f46ab5"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2ccfad0b580bd6f209e0b7a30c9dcd79f97af82736eff0fd746da510e567aa14"
+    sha256 cellar: :any_skip_relocation, ventura:       "5e82da67fdba591dd1f30154d20cf56af219a6c8b28ad061f508c795c8b9f33e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0928f64aa46c2c2ef89c78918d2c0c6512a76156109fdaa49dbd2cf0ebd7b249"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4ae555d8339dd78feb3172793c8d69442c77297217b867a4e87fd6c40260f79c"
   end
 
   def install

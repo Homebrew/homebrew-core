@@ -1,18 +1,18 @@
 class Vals < Formula
   desc "Helm-like configuration values loader with support for various sources"
   homepage "https://github.com/helmfile/vals"
-  url "https://github.com/helmfile/vals/archive/refs/tags/v0.39.4.tar.gz"
-  sha256 "36e4bd0295b4f7f015e8f1fbbedbdb9fd0ad4a2be698df4b9152b249c96b0fee"
+  url "https://github.com/helmfile/vals/archive/refs/tags/v0.41.0.tar.gz"
+  sha256 "aa1133fc97a3ee75de0c7e3ace19324f7ab1655296e017f53aac9cdde9f5c759"
   license "Apache-2.0"
   head "https://github.com/helmfile/vals.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a782a1cf9c6b93ed594939ce26c34904e30bc8ab3ba94f20b828451273810f69"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a782a1cf9c6b93ed594939ce26c34904e30bc8ab3ba94f20b828451273810f69"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "a782a1cf9c6b93ed594939ce26c34904e30bc8ab3ba94f20b828451273810f69"
-    sha256 cellar: :any_skip_relocation, sonoma:        "a6f0028eb4796f3a5b84cb59f4e562d82f4a0cd415b4ad547648c903f73fdf45"
-    sha256 cellar: :any_skip_relocation, ventura:       "a6f0028eb4796f3a5b84cb59f4e562d82f4a0cd415b4ad547648c903f73fdf45"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5903471660a7c1a148c535a590b19d60465b3fb2eabbab5e6faede9552e0607c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cdc50d4ccfd6d18013c51304922faf4fda5b13ccedca9f5a798df5197539cd51"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cdc50d4ccfd6d18013c51304922faf4fda5b13ccedca9f5a798df5197539cd51"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "cdc50d4ccfd6d18013c51304922faf4fda5b13ccedca9f5a798df5197539cd51"
+    sha256 cellar: :any_skip_relocation, sonoma:        "0392f355fd063a7b2597c955c4af079d647d5627a67dc3d330812976e74c0c78"
+    sha256 cellar: :any_skip_relocation, ventura:       "0392f355fd063a7b2597c955c4af079d647d5627a67dc3d330812976e74c0c78"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "417e63d659f080edf35a0bf1284653930aba9ce15b1db7c5c49c3a724123db34"
   end
 
   depends_on "go" => :build

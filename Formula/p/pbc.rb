@@ -34,6 +34,7 @@ class Pbc < Formula
     sha256 cellar: :any,                 mojave:         "85855bfe6dfe9a4fc0b0359f74aa7ea587283c1c724a6c4aee77972ecfc1d390"
     sha256 cellar: :any,                 high_sierra:    "adc712fd4cc68990b669922be5b8ab15e4d499176c09facb5b129c6d7c847262"
     sha256 cellar: :any_skip_relocation, arm64_linux:    "85ffa4238451ccfe2c90072b100d48a53d352e6209613bdee067f2347d088d47"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cefb9bc4223d88aa32583abbee1bf2af89e36760b8cabbe4af2e11819f993eb1"
   end
 
   head do

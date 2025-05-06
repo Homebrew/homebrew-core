@@ -18,11 +18,12 @@ class Pwnat < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "d68b2a2bd9f47b349bd50fca156330eac3abd07ab7704da5ea4c9fb5be120605"
     sha256 cellar: :any_skip_relocation, big_sur:        "5b2649eef333edd35081d7aa05b128cc7957fedc7037383ef986cbffe4d4f1be"
     sha256 cellar: :any_skip_relocation, catalina:       "ba13960f81cbb1e739807717b54f7232b8ae5658b112c6a943d9560f9d68114f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "3b4609ea9b0e88cbb8d62bcb69fbc1f98a5fda3aa7c688f96efc0efad2be9b6b"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "0d00f8d395764951d6f77834e4fab75bed808679e85f7fe9cd939657481da51c"
   end
 
   def install
-    system "make", "CC=#{ENV.cc}", "CFLAGS=#{ENV.cflags}", "LDFLAGS=-lz"
+    system "make", "CC=#{ENV.cc}", "CFLAGS=#{ENV.cflags}"
     bin.install "pwnat"
     man1.install "manpage.txt" => "pwnat.1"
   end

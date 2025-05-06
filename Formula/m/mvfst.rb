@@ -1,19 +1,19 @@
 class Mvfst < Formula
   desc "QUIC transport protocol implementation"
   homepage "https://github.com/facebook/mvfst"
-  url "https://github.com/facebook/mvfst/archive/refs/tags/v2025.03.10.00.tar.gz"
-  sha256 "6594644f616c414e8c191cf7c2107c84a26aae0cc23ebff62c770b55ade6c61a"
+  url "https://github.com/facebook/mvfst/archive/refs/tags/v2025.04.28.00.tar.gz"
+  sha256 "10f47a23f96dfbe14587666821b5a8f06eb38972c5ef403a1bfb2135fae8976a"
   license "MIT"
   head "https://github.com/facebook/mvfst.git", branch: "main"
 
   bottle do
-    sha256                               arm64_sequoia: "fe59fcec05b33f10ce9e3246765a09e051a387b512bbb58484fb0734e579048f"
-    sha256                               arm64_sonoma:  "e0f878b1afd0587f2ddcf175ce9a65d07e18925287849c101ada3a05854bcf3e"
-    sha256                               arm64_ventura: "65149f475b662ab31ab7696edb29ae951615781d7e441fa99551b8abced31b99"
-    sha256 cellar: :any,                 sonoma:        "47975c5261ac1eff8aa6ee6d84a3adb0ee6ccaff3a76753f430217e0cfd6d0ef"
-    sha256 cellar: :any,                 ventura:       "2c078985ee248ce3de2b1c3382af7a3aeb274f4196fdffc2575d4e29e25fbcd3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ca4a6c45e74257eeb3e303a954da32152b2d67eda90144ee6f2f81db26deea33"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9f64017cd45021d00c2334c15f173168201f72cb461ffc3f67fc5105504f2a10"
+    sha256                               arm64_sequoia: "22cc2215303e5d288e42863bcc3782734c272e9a05ab90c4c3e81ce2f5d29e66"
+    sha256                               arm64_sonoma:  "0c93f591f4ae8857bbff2fad3c4431212309af9da17fd765e34b328040aa8c46"
+    sha256                               arm64_ventura: "08182583110c78be07422ed698191dc0fcb8acacf41574d928bd1543f499798b"
+    sha256 cellar: :any,                 sonoma:        "334f8480e9d7a87c47b51dcbf5c78919c45df0f9e41d64690611b8c32a896f21"
+    sha256 cellar: :any,                 ventura:       "605cf3db630d713f95092a496e1e3fa4458a1ebc34cb3d08322e88b78970c5f2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c12e0faf3049caa08d867721cd01d89cca48cec4f36431a37d3ff7278fc75f20"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "69a986ceaa672cc32f11f8b8a19f177db4f264db0239dcc3ed747e6ee3b9af48"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -60,6 +60,7 @@ class Mvfst < Formula
       )
       target_link_libraries(echo ${mvfst_LIBRARIES} fizz::fizz_test_support GTest::gmock)
       target_include_directories(echo PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
+      set_target_properties(echo PROPERTIES BUILD_RPATH "#{lib};#{HOMEBREW_PREFIX}/lib")
     CMAKE
 
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args

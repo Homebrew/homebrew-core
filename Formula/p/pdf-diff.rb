@@ -16,6 +16,7 @@ class PdfDiff < Formula
     sha256 cellar: :any_skip_relocation, ventura:        "e8b0e6e652c67281398e49a6d61c2b8624c5ea7fb538771fc4b47ce50188a877"
     sha256 cellar: :any_skip_relocation, monterey:       "e8b0e6e652c67281398e49a6d61c2b8624c5ea7fb538771fc4b47ce50188a877"
     sha256 cellar: :any_skip_relocation, big_sur:        "e8b0e6e652c67281398e49a6d61c2b8624c5ea7fb538771fc4b47ce50188a877"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "84cee2f29e043eacbe31386f0b25ec75558d4dd1971c627d71b4a5071ce5ae02"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "66929021a8898ca16128f0ed3b1fb9ffbc4ac8b5778bdb48259207c91daa64fa"
   end
 

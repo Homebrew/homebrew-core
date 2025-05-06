@@ -27,6 +27,7 @@ class Phpmyadmin < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "93d7d0a1972beb0f25710049a6a9397be080440c3f8aec1c43b151607133f6f8"
     sha256 cellar: :any_skip_relocation, sonoma:        "82e7df63e44dff329d37ab987bdee2415dea8c4ac14fb636e80ab471860d958a"
     sha256 cellar: :any_skip_relocation, ventura:       "82e7df63e44dff329d37ab987bdee2415dea8c4ac14fb636e80ab471860d958a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a2dea00945d920af4a076e5034ac58a13bc88821298828068a4d35da29bc96ef"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "a2dea00945d920af4a076e5034ac58a13bc88821298828068a4d35da29bc96ef"
   end
 

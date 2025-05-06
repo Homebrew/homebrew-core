@@ -3,19 +3,18 @@ class Sqlfluff < Formula
 
   desc "SQL linter and auto-formatter for Humans"
   homepage "https://docs.sqlfluff.com/"
-  url "https://files.pythonhosted.org/packages/e5/1d/2bdff48cfe61115ecec38ba5e64fcb74f446449aa88d4c1e5d98f8100bf7/sqlfluff-3.3.1.tar.gz"
-  sha256 "fbd877395ea597686421a5d453c6844243f1b4082563e05d20b36171804e459a"
+  url "https://files.pythonhosted.org/packages/37/9f/501f119821c8e1eaccf079a0f82428e84a3411bd6a2f7a418620689c769d/sqlfluff-3.4.0.tar.gz"
+  sha256 "6e1ea2d39b20cc791a1a009c234afaf043b448c7f2eb1c11551316fb41f36f47"
   license "MIT"
-  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "1c22fe94c9e66c065a8b5044438f5fbdd16aa1e4ef4ced915d3c8d182066dec6"
-    sha256 cellar: :any,                 arm64_sonoma:  "72c273eac5d4436cea2ecd3222e2ca8535a7fc935f28c53c4a55ffb373f81ad7"
-    sha256 cellar: :any,                 arm64_ventura: "1c1dfc1a00b80c430f154928a3c5ad54fd7b937281d2280cc3b03cc49c4317f1"
-    sha256 cellar: :any,                 sonoma:        "a01c10a0ff30e16202a5a62bf4caf5d2ce76053d9ad7dfe053061e2c43a6433c"
-    sha256 cellar: :any,                 ventura:       "967b723b4a6109309a6450f251fc5210939fdbbb9676a9428f52f4fb2fee49c7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a21f357bb8abc6915e7714ee03be7925411593d107938b5460a03c69d37f48e6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "079b5e4a30ba4e2100aa473c49c36f2b8feb5b80b29d819ad97800a833153ff5"
+    sha256 cellar: :any,                 arm64_sequoia: "79d0609bac30eaa8a836c9febe29633cbd0c16d40f6fb12e35d8747679a164e0"
+    sha256 cellar: :any,                 arm64_sonoma:  "97d7c3b44b47ee1abf5cc1ec560aad49d6a032c7c938cf9899f39943c1d2f0d4"
+    sha256 cellar: :any,                 arm64_ventura: "3c8d747c5683b9cb3316b13202243b66c5def9481b08e6654f861582ae4c87a6"
+    sha256 cellar: :any,                 sonoma:        "1d2a6d961e7f4c9743fd1422ac36afdd2e402462f78e6d86d9a3856e0b5adc74"
+    sha256 cellar: :any,                 ventura:       "69263ff81e0237e9eb30a93ba84b512e4cbc4b8ffc16e6582c82587a7146d8a6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0d2ab03455b21b4860fa6195e974c82bd7c66e7ce8972ae7c5807cc574e1b381"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "68ba4d86da76ea257c187d85f36ab0a4030ac5a72aff82fbb8337779bcd57f5b"
   end
 
   depends_on "libyaml"
@@ -37,13 +36,13 @@ class Sqlfluff < Formula
   end
 
   resource "diff-cover" do
-    url "https://files.pythonhosted.org/packages/27/03/9b78acb6ccd661a7679776885eda642ad33061697f054516324c0526c906/diff_cover-9.2.3.tar.gz"
-    sha256 "342e92128e6236b1adee2ddb4e6cbc1d470465c14829cfc64c4cdae581115f3b"
+    url "https://files.pythonhosted.org/packages/3f/a8/20e11859ee291893ef9711ca868d277b66cdf886278e73abdb72b172cc5f/diff_cover-9.2.4.tar.gz"
+    sha256 "6ea44711f09199a1b8bcaa2eae002e1f337dd22f2d798fcfd62a6a1554bb2a86"
   end
 
   resource "iniconfig" do
-    url "https://files.pythonhosted.org/packages/d7/4b/cbd8e699e64a6f16ca3a8220661b5f83792b3017d0f79807cb8708d33913/iniconfig-2.0.0.tar.gz"
-    sha256 "2d91e135bf72d31a410b17c16da610a82cb55f6b0477d1a902134b24a455b8b3"
+    url "https://files.pythonhosted.org/packages/f2/97/ebf4da567aa6827c909642694d71c9fcf53e5b504f2d96afea02718862f3/iniconfig-2.1.0.tar.gz"
+    sha256 "3abbd2e30b36733fee78f9c7f7308f2d0050e88f0087fd25c2645f63c773e1c7"
   end
 
   resource "jinja2" do
@@ -67,8 +66,8 @@ class Sqlfluff < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/13/fc/128cc9cb8f03208bdbf93d3aa862e16d376844a14f9a0ce5cf4507372de4/platformdirs-4.3.6.tar.gz"
-    sha256 "357fb2acbc885b0419afd3ce3ed34564c13c9b95c89360cd9563f73aa5e2b907"
+    url "https://files.pythonhosted.org/packages/b6/2d/7d512a3913d60623e7eb945c6d1b4f0bddf1d0b7ada5225274c87e5b53d1/platformdirs-4.3.7.tar.gz"
+    sha256 "eb437d586b6a0986388f0d6f74aa0cde27b48d0e3d66843640bfb6bdcdb6e351"
   end
 
   resource "pluggy" do
@@ -97,8 +96,8 @@ class Sqlfluff < Formula
   end
 
   resource "tblib" do
-    url "https://files.pythonhosted.org/packages/1a/df/4f2cd7eaa6d41a7994d46527349569d46e34d9cdd07590b5c5b0dcf53de3/tblib-3.0.0.tar.gz"
-    sha256 "93622790a0a29e04f0346458face1e144dc4d32f493714c6c3dff82a4adb77e6"
+    url "https://files.pythonhosted.org/packages/54/95/4b3044ec4bf248186769629bbfb495a458deb6e4c1f9eff7f298ae1e336e/tblib-3.1.0.tar.gz"
+    sha256 "06404c2c9f07f66fee2d7d6ad43accc46f9c3361714d9b8426e7f47e595cd652"
   end
 
   resource "tqdm" do

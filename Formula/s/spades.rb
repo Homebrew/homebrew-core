@@ -19,6 +19,7 @@ class Spades < Formula
     sha256 cellar: :any,                 arm64_ventura: "72a0885601ba7ccd4d33d012a87717d7ac534cabe4038934edf78d85327fe222"
     sha256 cellar: :any,                 sonoma:        "d7aeb7950ae594ee222349482647583010a62d4a081d444b26b0a49e7987fcee"
     sha256 cellar: :any,                 ventura:       "d62717c7f424bb42fd57d6c435c39b14ae141fb0e410e391d25146042d64a5f2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "12f639676a23ffde4853d73d6befda35a38bbc02e919dc44cd09e55159b2273e"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "7316228bf8b38afeaf0ea84a3010d973f4650f5e0a71d024d7e009c92f17e26a"
   end
 
@@ -39,7 +40,12 @@ class Spades < Formula
   end
 
   def install
-    system "cmake", "-S", "src", "-B", "build", *std_cmake_args
+    system "cmake", "-S", "src", "-B", "build", "-DCMAKE_POLICY_VERSION_MINIMUM=3.5", *std_cmake_args
+    # Build bundled zlib-ng with runtime detection
+    with_env(HOMEBREW_CCCFG: ENV["HOMEBREW_CCCFG"]) do
+      ENV.runtime_cpu_detection
+      system "cmake", "--build", "build", "--target", "zlibstatic"
+    end
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
     rewrite_shebang detected_python_shebang, *bin.children

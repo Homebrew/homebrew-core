@@ -22,6 +22,7 @@ class Classads < Formula
     sha256 cellar: :any,                 monterey:       "3543be5b0a443e9600bab626a336244bdee95bf7a79856def626e740e6d0a0f8"
     sha256 cellar: :any,                 big_sur:        "738e16888e4030668b0bf2b7fe190b559b4c1d92dfcd09f95f190cef8deddcfb"
     sha256 cellar: :any,                 catalina:       "6217077882b497726e1b05407038fcff6ae512cabe8580f35731c5c3a3523538"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "a5e99703af8185a5f39c39f6bf7f56707c17bab75d5a599c40294925d8f1d94e"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "21874caebbec12fa4ee41c6f4830146dc725dfec2658b8c08eb02dc7d2585583"
   end
 
@@ -39,10 +40,14 @@ class Classads < Formula
   patch :DATA
 
   def install
+    args = ["--enable-namespace"]
+    # Help old config scripts identify arm64 linux
+    args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+
     # Run autoreconf on macOS to rebuild configure script so that it doesn't try
     # to build with a flat namespace.
     system "autoreconf", "--force", "--verbose", "--install" if OS.mac?
-    system "./configure", "--enable-namespace", "--prefix=#{prefix}"
+    system "./configure", *args, *std_configure_args
     system "make", "install"
   end
 end

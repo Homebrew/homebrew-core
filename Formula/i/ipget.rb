@@ -12,6 +12,7 @@ class Ipget < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "4e5a57ab51fe284bb42595846d991d16f16c9af8b9edc1ca59a8d4601abc2ffa"
     sha256 cellar: :any_skip_relocation, sonoma:        "f918f9a023d8f9259c75ed408752e6a0cfe660806ec2e9aef326ebaf19ac199f"
     sha256 cellar: :any_skip_relocation, ventura:       "f5725f63532333b6729f26664512984c4e2914358344894c6c9cfe8fabf81245"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f21317d1628e7a600ef4480d5ab43d707ad7a1241fd873fb1afad2f9fac5674d"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "304bebe13417bc89ee71aab782f6f528824b4fd3dae6d8bf6a01540b2e11832c"
   end
 

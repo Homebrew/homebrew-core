@@ -19,6 +19,7 @@ class Luanti < Formula
   end
 
   bottle do
+    sha256 arm64_linux:  "b99c0038fa9684ceebf2e258fd0dc7f46cf2e84338afde2890d906654903b7ab"
     sha256 x86_64_linux: "a569fcf42e7b1541322d1e6164eb8e15331efc65d8accb33418629b62fbb525a"
   end
 
@@ -48,6 +49,7 @@ class Luanti < Formula
   depends_on "mesa"
   depends_on "ncurses"
   depends_on "openal-soft"
+  depends_on "openssl@3"
   depends_on "sqlite"
   depends_on "xinput"
   depends_on "zlib"

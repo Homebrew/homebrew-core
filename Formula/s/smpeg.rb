@@ -27,6 +27,7 @@ class Smpeg < Formula
     sha256 cellar: :any,                 ventura:        "03c1eb05860e58ea080834b7fc760a10dc28aec402fb684c9a263b716693ec8f"
     sha256 cellar: :any,                 monterey:       "27336fb6005e4d498db6eb1f68deee86cad53c86ac10843984f833e2bf5bcb7d"
     sha256 cellar: :any,                 big_sur:        "7c97d1fb7a8df3df8cca2eb794a7898d9dc4c93ae3f201dc582ed8982c74e725"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "b4b46134434032d24f664aac17650a6641c70f589fce7dda983fb5b78a2db25b"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "b98076e9055fbe29549fd5c340deb22c733c24f3ab754a638dd24c425ba076d3"
   end
 
@@ -50,6 +51,8 @@ class Smpeg < Formula
       --disable-opengl-player
       --disable-sdltest
     ]
+    # Help old config scripts identify arm64 linux
+    args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
 
     system "./autogen.sh"
     system "./configure", *args, *std_configure_args

@@ -18,6 +18,7 @@ class Cataclysm < Formula
     sha256 cellar: :any,                 arm64_ventura: "cbbbf7dcd3b21d4db6f5e7994677269b79e871c43eecde80ea9fa16c84065859"
     sha256 cellar: :any,                 sonoma:        "2fdb081a3ec309197e0909ad4d9fa32802595e661370b9c1a507d6942fa155d0"
     sha256 cellar: :any,                 ventura:       "7cac6a7e522742a8657f2f0bcbfa3a8814390c2ff47dfea131d7f03028517768"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c58fbd6b591afb768dcca07ff541c9f8871bc99a59ab34aae14e281048f06c47"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "3e864a77dc73f1e8c043b4b7c0c7d728e23ce09f77d0c75cf258e87cf8cb3d42"
   end
 

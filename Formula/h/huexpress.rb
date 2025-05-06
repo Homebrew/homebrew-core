@@ -18,6 +18,7 @@ class Huexpress < Formula
     sha256 cellar: :any, monterey:       "5c02e7de59a65392f1347c65df445e2d447daaac2eb508c920f8ce452628dbd5"
     sha256 cellar: :any, big_sur:        "37272d08ed74984450ae2f08e17e9b41fdf32cc487aee1c0ab0832c10177474a"
     sha256 cellar: :any, catalina:       "9e714566437e60a45c978daeade8dbb3515ee37c5d2b6de1a203443f243917d8"
+    sha256               arm64_linux:    "cf8c9ea08ea0615c32f11b3b2574054bc950436bca1539c7c7d0625c1a7fd3ec"
     sha256               x86_64_linux:   "8f5ca6b63b8fc347e8221765dc09ac1000f4b6a62e53424fb578bb14103c8952"
   end
 

@@ -25,6 +25,7 @@ class Dvdrtools < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:    "f697f22349d9ed05ad580d06b5dc38c4b626187d50cfc364af4bb5634f16b152"
     sha256 cellar: :any_skip_relocation, sierra:         "afa198a1854643ac7657ad1c93bfc5f9b05760e3b3375dd3ec43ad0b51e4ea7e"
     sha256 cellar: :any_skip_relocation, el_capitan:     "8d29698226d26f42559f4913a13920632b85cafc389122697fa2c5c4d0cd2d8b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "8049f79b1ed1c0d2a581343623b60d621797365f0fdfec5f5b5e12ba1ea37650"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "b0ded8f875ea08da1c4ac07675a925b475414f03e03071b6e4445ec690494d88"
   end
 
@@ -55,10 +56,11 @@ class Dvdrtools < Formula
 
     ENV["LIBS"] = "-framework IOKit -framework CoreFoundation" if OS.mac?
 
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--mandir=#{man}"
+    args = ["--mandir=#{man}"]
+    # Help old config scripts identify arm64 linux
+    args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+
+    system "./configure", *args, *std_configure_args
     system "make", "install"
   end
 end

@@ -1,19 +1,19 @@
 class Catch2 < Formula
   desc "Modern, C++-native, test framework"
   homepage "https://github.com/catchorg/Catch2"
-  url "https://github.com/catchorg/Catch2/archive/refs/tags/v3.8.0.tar.gz"
-  sha256 "1ab2de20460d4641553addfdfe6acd4109d871d5531f8f519a52ea4926303087"
+  url "https://github.com/catchorg/Catch2/archive/refs/tags/v3.8.1.tar.gz"
+  sha256 "18b3f70ac80fccc340d8c6ff0f339b2ae64944782f8d2fca2bd705cf47cadb79"
   license "BSL-1.0"
   head "https://github.com/catchorg/Catch2.git", branch: "devel"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "591ec46514fc1c4e1934b8be1e8592d376864ae7a9f1a0de46c266795b6b98af"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ba90a4079821a6246f5a9fa302e1b8a5f61eef26732f178913372a8bc2db0eab"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "d02f3e55951c66fbd0326dddfee7abcec3de50c659de20adc33319784a0e713e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "3768de93034cb1c80114c107a828e0664affe03c0d6062104e8f9876c9c48154"
-    sha256 cellar: :any_skip_relocation, ventura:       "1635617308a7b44e6a6c0f9abfda0a5c0ef6d16259333d6b87ceb9092b5c1381"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "dfab4e3929fb212957bc054d5a4219da77bd45e4a5cb0b613ea7ef3aac1a4cb4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fddf61b46104e66518b774a67afc1ec16167ffe9cb52d514e2e37fe72d58b3a1"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "79e132019cd20543b609b41c78bda19576adc6de2f523f5d50528813209daa78"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8b89254a957d82d388a96a3d3217182c767cfab788d86b704055dd7afd3f57ff"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "f279dc10ab81e414fb9590ffe74e149f3731cb5b835df69069fd7a5f7b555c79"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8d819d75133e26e6c58ea5c34e4aff0968841d7e6e977c7f2fc89ed25417d794"
+    sha256 cellar: :any_skip_relocation, ventura:       "05e195d8f2ccead1f25d72fe8642a5dcab8b36d2be7c820eb43d745375139cb0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "17138f43947287169ce009e66619625eafc831962754788404b33de42984672f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "945bdaaab135af5a8646c2099c4a3f7cc8848e2d837b2dec89434106a2ddd0dd"
   end
 
   depends_on "cmake" => :build

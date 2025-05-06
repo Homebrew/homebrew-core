@@ -13,6 +13,7 @@ class Richgo < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "967353f6b2bfa1c35a96f76eb85b98d3e6ea91d8b424a2655e80ab957884591b"
     sha256 cellar: :any_skip_relocation, sonoma:        "31d3f488ac0adb8874295408a1ea9c56acfbf9a90484d90b3e34d76ffcf20927"
     sha256 cellar: :any_skip_relocation, ventura:       "31d3f488ac0adb8874295408a1ea9c56acfbf9a90484d90b3e34d76ffcf20927"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a1fc560cd4dc811280afea8b811f126da120bb2546af32f601131837feb41e9e"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "da63b93248cf2292a4c287cc5973c39eded1d3c349ebfba315b3913883045d3c"
   end
 

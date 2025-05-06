@@ -39,10 +39,6 @@ class YouGet < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/you-get --version 2>&1")
-
-    # Tests fail with bot detection
-    return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
-
-    system bin/"you-get", "--info", "https://youtu.be/he2a4xK8ctk"
+    assert_match "82 bytes", shell_output("#{bin}/you-get --info https://imgur.com/ZTZ6Xy1")
   end
 end

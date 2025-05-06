@@ -22,6 +22,7 @@ class Libgweather < Formula
     sha256 arm64_ventura: "bb2d31e83d13f02446f7e5b523eeeb4cdf86e2065a8572ff1cd449b9abf1ea7c"
     sha256 sonoma:        "186ce1fa070215a5d1bd8a1f7d8ab3e64113dfb069a315a82c30853d230fecdf"
     sha256 ventura:       "255051452c7188eeec6d22267edae06a83e797a0713ab80d805ec52968cf7d65"
+    sha256 arm64_linux:   "095621c2603b0088caea217355becba74fb1ece6bd06c1a4f21a0b23496711a1"
     sha256 x86_64_linux:  "e2107ed28850147098f165b516687d2e7a0aa494d39fbb4ac1326ebdb74c4ecc"
   end
 

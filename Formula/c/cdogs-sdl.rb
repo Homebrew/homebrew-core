@@ -17,6 +17,7 @@ class CdogsSdl < Formula
     sha256 arm64_ventura: "9d525e0b2132b29d012dd04fa065bf67a0424dba356c112e80370cc65e4fa446"
     sha256 sonoma:        "f49ea1edd7342d5645cf54b49c0a07f4116df52c86d357c966d304615f4afc90"
     sha256 ventura:       "1a60efaeb8e6680ff86ba951abf2ff25078a0e4fc6c6dcada978f547b85694e3"
+    sha256 arm64_linux:   "bf9707f098bb504f6ce1bb5d0b597e6325a68229a5e9fc8de9e6fe634f9d44eb"
     sha256 x86_64_linux:  "6eed5b0c3979d10ba041c7755640461247e63979d6287fde09554dd712ec151e"
   end
 
@@ -35,7 +36,10 @@ class CdogsSdl < Formula
   end
 
   def install
-    system "cmake", "-S", ".", "-B", "build", "-DCDOGS_DATA_DIR=#{pkgshare}/", *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build",
+                    "-DCDOGS_DATA_DIR=#{pkgshare}/",
+                    "-DCMAKE_POLICY_VERSION_MINIMUM=3.5",
+                    *std_cmake_args
     system "cmake", "--build", "build"
 
     bin.install %w[build/src/cdogs-sdl build/src/cdogs-sdl-editor]

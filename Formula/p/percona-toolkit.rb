@@ -10,7 +10,7 @@ class PerconaToolkit < Formula
     url "https://www.percona.com/products-api.php", post_form: {
       version: "percona-toolkit",
     }
-    regex(/value=["']?[^"' >]*?v?(\d+(?:[.-]\d+)+)["' >]/i)
+    regex(/value=["']?[^"' >]*?v?(\d+(?:[.-]\d+)+)[|"' >]/i)
   end
 
   bottle do

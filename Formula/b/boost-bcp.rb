@@ -1,8 +1,8 @@
 class BoostBcp < Formula
   desc "Utility for extracting subsets of the Boost library"
   homepage "https://www.boost.org/doc/tools/bcp/"
-  url "https://github.com/boostorg/boost/releases/download/boost-1.87.0/boost-1.87.0-b2-nodocs.tar.xz"
-  sha256 "3abd7a51118a5dd74673b25e0a3f0a4ab1752d8d618f4b8cea84a603aeecc680"
+  url "https://github.com/boostorg/boost/releases/download/boost-1.88.0/boost-1.88.0-b2-nodocs.tar.xz"
+  sha256 "ad9ce2c91bc0977a7adc92d51558f3b9c53596bb88246a280175ebb475da1762"
   license "BSL-1.0"
   head "https://github.com/boostorg/boost.git", branch: "master"
 
@@ -11,13 +11,13 @@ class BoostBcp < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "171968ec74f288dbeafafbd6b9499260c9419949e744448f95b4cebcfff46190"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "67ac1798a2a94eed7036d444894605317a8913124de7ce95b8c10df2a723e1d4"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "b5c7ae2f79c8ebc6f9e6132cddb866a03c97e04b5f0b671550d113d4602799db"
-    sha256 cellar: :any_skip_relocation, sonoma:        "1171bb8e3d580f0338e57a3d352a9bcb088937550f3d0d9f7a0bc11211d33860"
-    sha256 cellar: :any_skip_relocation, ventura:       "da4bd6cc7653a68f3568e673b5b6470d48e224b817d5b700f4ba480b6042ff02"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0c71c3f08406c560af9723a12a88af8ea7293418c5aa2b66b7cc9e3b7c54ab64"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9e4050db4c0364d62a8476fb8f4294eaf577cfbd5445061cfdbc69eb1aed449e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a8e002a55974a472bc3a578fbaa1fd915d7a13f0065444ebcf153b6fe479320a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3ddbe2024ec99f3d5a53ff5f98cbc6773b5d3eb5421d8683739cdc6d95300a00"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "8a42346d9849a8625053c04bf7b4443f004a542dddfea91ed794e1d6dcfbe4ec"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2dd736a775c362230f19fc186c9cfdd7d012829639e54fda96eb3e9445cbd809"
+    sha256 cellar: :any_skip_relocation, ventura:       "50c827f9e992ff5dfb2fa2df38dd51601abe142ce4098afdcac4b736207c3856"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d48c4acb2a107f58c300c64142dc162837d40ef6862cb9b711db6b408c19c582"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "333766f7346ac77c9d28122f7798ee112dc7ef6a34696259e7ca1117a493e92e"
   end
 
   depends_on "boost-build" => :build

@@ -4,6 +4,7 @@ class Gibo < Formula
   url "https://github.com/simonwhitaker/gibo/archive/refs/tags/v3.0.12.tar.gz"
   sha256 "6bc51d54587234b8d223c392ec9c88478780de4ae5851d493ab10acaacf65ed1"
   license "Unlicense"
+  head "https://github.com/simonwhitaker/gibo.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "20e9694f273ff53268b679a0fd068ebb3c1aee284232aae079a60e1641beb5cd"

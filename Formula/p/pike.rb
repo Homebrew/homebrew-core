@@ -17,6 +17,7 @@ class Pike < Formula
     sha256 arm64_ventura: "6b6f4b66d20a1d4f0d12955f939280a02635e8c459d803ae90ba900d9b3d2401"
     sha256 sonoma:        "3020a095c90dea0257703d3c47f594c5c9d136655469d57e369d9e89daf3fe97"
     sha256 ventura:       "6cbd38e90fd0f66a8e87e084e7b78a659cf8e27c9b6f5e3ab001bdec2bd72656"
+    sha256 arm64_linux:   "d508b63e39b6dc8e7be55395dc1a87dfc1da292ddc638a254b49c0bd7052887d"
     sha256 x86_64_linux:  "59dae235eeb446e2a34bcf99aa113b9571bb012f4559e44b973d2fbbd6d40832"
   end
 
@@ -43,7 +44,7 @@ class Pike < Formula
   end
 
   def install
-    ENV.append "CFLAGS", "-m64"
+    ENV.append "CFLAGS", "-m64" if !OS.linux? || Hardware::CPU.intel?
     ENV.deparallelize
 
     # Use GNU sed on macOS to avoid this build failure:

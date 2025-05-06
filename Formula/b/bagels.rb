@@ -3,19 +3,18 @@ class Bagels < Formula
 
   desc "Powerful expense tracker that lives in your terminal"
   homepage "https://github.com/EnhancedJax/Bagels"
-  url "https://files.pythonhosted.org/packages/94/0e/7a7b25e3e6d1d58e78f41ca2ac48ae5beebb53dcfefd9204321480f04971/bagels-0.3.6.tar.gz"
-  sha256 "799dfde373a1fa9deddf2190b4a39023b32c64e9d5efef1608cc5132b8fb61a3"
+  url "https://files.pythonhosted.org/packages/62/2a/b8d02438c49943378181f59221fdf2c82f12f098ebe8bbc81ebe59b7c963/bagels-0.3.8.tar.gz"
+  sha256 "54a56145eae3ff7c55e55ecfefb91dab37711f0053ac68470d65da1bb2f572c9"
   license "GPL-3.0-or-later"
-  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "3c38ef265cefbcde5865d480afec114475f411b6c4fcd85ee89acb6e4f02ccbc"
-    sha256 cellar: :any,                 arm64_sonoma:  "4a3b658faa7b53e4883242897a292f010ac772b4fd941053d4e293f93c858ddc"
-    sha256 cellar: :any,                 arm64_ventura: "d3db4513910e10d3e861533ec5342a3c6770c0cc504eb63fc251ef33a55a1176"
-    sha256 cellar: :any,                 sonoma:        "c758156e9dbada38ac2c6df955244b7ee17a72267e52e44dbc909687e867f360"
-    sha256 cellar: :any,                 ventura:       "c0f48fceb0a818eb2a7896ade45037ebf1587b47a3d4081c718fe3a6ded406c0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1198808bab36552df34974abd475ad14d0167be0ad55f6d73572f5648ddee094"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "01071fb499bd79999b742520da8ad7ac67090bce37b5d7891c15506f57d07299"
+    sha256 cellar: :any,                 arm64_sequoia: "d78bd44e68e810f5ebd7ad5ea2232a83866b0c56a47a8ba72c2837880ee5dab3"
+    sha256 cellar: :any,                 arm64_sonoma:  "45f6ba14f5290cabdfe3ffeec501e76b2acca30031fd5a1e863fafdad30acc0f"
+    sha256 cellar: :any,                 arm64_ventura: "41db25047d2a1064a1abeb7e578c9b199c4ad7d447010b14962dca8741a08247"
+    sha256 cellar: :any,                 sonoma:        "517c3aaa93ca73f17deb2cf4fee4b9b3257734f77064cd3495e8615e42ff61dd"
+    sha256 cellar: :any,                 ventura:       "ee02ed93e7f474d81ee0bbb42f31dd9224f45c2a23cf8c06328976baaf6d5551"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2fdb6efbbbca1d62989b655b68e44de8913ed21b8c05b28a4ab998ef4eba83e4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c37d3db3e32d626dde9ff457111f9ac13a90fa7420cdfa1de1f03db7fcfdac89"
   end
 
   depends_on "rust" => :build # for pydantic_core

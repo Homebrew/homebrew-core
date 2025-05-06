@@ -12,6 +12,7 @@ class Havener < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "7508c64e16751ec9db51a2c3bb20723c81a63d41e1c5f764cd905f80c1f01501"
     sha256 cellar: :any_skip_relocation, sonoma:        "d92ca660499fd2425363e86b2a4e8705d66f6fdca8ecd9d67df608268f5957c3"
     sha256 cellar: :any_skip_relocation, ventura:       "c0c17a5fc1a6da70aa556b4fd99705774d13d1afd2a66e0b027d76177a08b9ed"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f045d9de94acb50ebf35282493b8111f01e7b94acb8dac684df1b4cc2d2fd1fc"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "b26d282528a406601cfe3abb4d5ad3d5809b0403e00389d6e8736750d35ce419"
   end
 

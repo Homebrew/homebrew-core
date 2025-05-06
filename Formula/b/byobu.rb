@@ -1,10 +1,9 @@
 class Byobu < Formula
   desc "Text-based window manager and terminal multiplexer"
   homepage "https://github.com/dustinkirkland/byobu"
-  url "https://github.com/dustinkirkland/byobu/archive/refs/tags/6.12.tar.gz"
-  sha256 "abb000331858609dfda9214115705506249f69237625633c80487abe2093dd45"
+  url "https://github.com/dustinkirkland/byobu/archive/refs/tags/6.13.tar.gz"
+  sha256 "9690c629588e8f95d16b2461950d39934faaf8005dd2a283886d4e3bd6c86df6"
   license "GPL-3.0-only"
-  revision 1
 
   livecheck do
     url :stable
@@ -12,7 +11,7 @@ class Byobu < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "b611adbdd842b9d1cb00130161b54e76ab27da7a1aadc9881e4bcf5771f87dfc"
+    sha256 cellar: :any_skip_relocation, all: "cf3d8aef3bbd52b3dadb87d50cfb8962d46c1bef4381b9260e65b0783c2618fd"
   end
 
   depends_on "autoconf" => :build

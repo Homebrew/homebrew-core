@@ -1,19 +1,19 @@
 class CBlosc2 < Formula
   desc "Fast, compressed, persistent binary data store library for C"
   homepage "https://www.blosc.org"
-  url "https://github.com/Blosc/c-blosc2/archive/refs/tags/v2.17.0.tar.gz"
-  sha256 "f8d5b7167f6032bc286b4de63a7feae281d1845d962edcfa21d81a025eef2bb2"
+  url "https://github.com/Blosc/c-blosc2/archive/refs/tags/v2.17.1.tar.gz"
+  sha256 "53c6ed1167683502f5db69d212106e782180548ca5495745eb580e796b7f7505"
   license "BSD-3-Clause"
   head "https://github.com/Blosc/c-blosc2.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "c1c2f86f261cc31f6def5abaf8edc8180eaa401512a2123caf10b6def7a599c7"
-    sha256 cellar: :any,                 arm64_sonoma:  "24bb535454241a339692d86ee2c6cf8e594bba7c2e667958a0d9531ffc034dab"
-    sha256 cellar: :any,                 arm64_ventura: "87fad3d9f01a6b3a6875a863b716b7c3c94f4a88b632ebcf7d14d54f00fa91de"
-    sha256 cellar: :any,                 sonoma:        "3dad5b1fbac9f11ba573f7d6705cc9ada47bb190380b72c31844606b9195c01d"
-    sha256 cellar: :any,                 ventura:       "a599182a883be6c842874df5efb6d0620c6eca30c2679e81e17fa5fc43949d08"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "08f6ee867408aa5f9b8952c486812932dcca511a90c3be12224946f28cb41b30"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8f780bb9ba93e846788dc7ed5044563fb59293bfb028e8d01e177b3ccf8e7537"
+    sha256 cellar: :any,                 arm64_sequoia: "58beb2b79bb984d4e73c71b84614cfbba11e85c68575202d5b3a5cc81d8f5221"
+    sha256 cellar: :any,                 arm64_sonoma:  "b5f40feddf8a2f2e39825db956b8cf1974d884ffdde312b7e7afae86a69bcfa4"
+    sha256 cellar: :any,                 arm64_ventura: "5feb28dd5e0f6d0aa40d616b8658e3978bb5da8b4bf381d62b1b3c03f72f5e4d"
+    sha256 cellar: :any,                 sonoma:        "797bb0441a67fa5d52ba8cc46eee6f14a2b87acda45fd0e52f0cd2fa1cf7d68f"
+    sha256 cellar: :any,                 ventura:       "503723663a9800963f7a0b3521dd05014771d84945b79d9395a368d7e2762264"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "23d52dea4d4b15f3daeee5f2f7099734e151700531831e2cd13e03200ceb0180"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0d252ebf05d445af884824d32ab6c6622588c1c200bd3d3aa9285f9579bf5436"
   end
 
   depends_on "cmake" => :build

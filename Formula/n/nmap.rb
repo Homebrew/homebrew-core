@@ -37,6 +37,7 @@ class Nmap < Formula
 
   conflicts_with "cern-ndiff", "ndiff", because: "both install `ndiff` binaries"
   conflicts_with "nping", because: "both install `nping` binaries"
+  conflicts_with cask: "zenmap", because: "both install `nmap` binaries"
 
   def install
     ENV.deparallelize

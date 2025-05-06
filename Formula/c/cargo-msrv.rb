@@ -1,19 +1,19 @@
 class CargoMsrv < Formula
   desc "Find the minimum supported Rust version (MSRV) for your project"
   homepage "https://foresterre.github.io/cargo-msrv"
-  url "https://github.com/foresterre/cargo-msrv/archive/refs/tags/v0.18.3.tar.gz"
-  sha256 "5ebe6dd493cd9641d31cf736458ea0ef61a74d162ca0364b56c91239efc88ee6"
+  url "https://github.com/foresterre/cargo-msrv/archive/refs/tags/v0.18.4.tar.gz"
+  sha256 "9e8d743a9948ec91e4d82ce34b8f0f9e65385ed78739cb36376f65049d8b8da5"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/foresterre/cargo-msrv.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bc1ba56ad77fbd7b986c1d4645eabfcbf5e945b62a2b6e3913433d433c56ec12"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ccfbb358d7fa2a26c3c0cf8d2c5e4e33cdc1c20e3142b249e02ff637bd96f9e3"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "daf377e846a33a704032ffa2884671eeaf14b4c424f8647278643a8cfb578878"
-    sha256 cellar: :any_skip_relocation, sonoma:        "a4c2df9052995c392d2593f76dec47f4e59b391f27b32c834f14416dd178d50f"
-    sha256 cellar: :any_skip_relocation, ventura:       "44d546a93282b93cdc519eb82c43e6a7ff0a317959ce08558ce0486605338fb2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6ec7eb2b2adde497a73003925addec0f94f4120e709b8e05e79cb921f4506bfa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3071bf253f249aa4e37d5a52a5b52b0d03427d7c99f7adeaa69c4f2f655e4111"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a51548c6d0b81c3dd24e17569505ad9cb6760a5dbc111fa9dc4993f162ca0eca"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "813162996051721d05770fdc9ed7f8878c76ba57e12e9525e9a3547bbc4356e8"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "a4ae3bbd41c2cbd23e07ccd1c26f8ea854d63bc49daf043384ad980029268f2a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "45e5d88a23f0d0f1dfc83b86a6d7425008d0a86ad21520fc9a42837fd9de3cfa"
+    sha256 cellar: :any_skip_relocation, ventura:       "b0048b375dbdcd010ac19829bc4d5b2733819578ebb2880f8cd772f72f88df53"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f7e2393546f7f2b9a3cad3db9803e4c9a1bbdf83f2cf5e2a0cad963f1a03b930"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ea9a3477964f0e30b7cae9881998f0f0520cf254e382e1c9680dbbe412d4bb89"
   end
 
   depends_on "rust" => :build
@@ -29,8 +29,8 @@ class CargoMsrv < Formula
     # Show that we can use a different toolchain than the one provided by the `rust` formula.
     # https://github.com/Homebrew/homebrew-core/pull/134074#pullrequestreview-1484979359
     ENV.prepend_path "PATH", Formula["rustup"].bin
-    system "rustup", "default", "beta"
     system "rustup", "set", "profile", "minimal"
+    system "rustup", "default", "beta"
 
     assert_match version.to_s, shell_output("#{bin}/cargo-msrv --version")
 

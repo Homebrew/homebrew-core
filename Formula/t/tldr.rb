@@ -14,10 +14,11 @@ class Tldr < Formula
     sha256 cellar: :any,                 sonoma:         "86f757f6250dc09efccab23100a8a5b402475c8ae4e3264eebf4563dddf5435b"
     sha256 cellar: :any,                 ventura:        "af00415190134abec3feec158ebc30e3511c43fc07b22dd2d8acf4e669564d0e"
     sha256 cellar: :any,                 monterey:       "65388c830508d2935fc720af7ca9851dfe8a0a08000644f513b26e61098450de"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "ebe1e16b5e69d08b0cf773f4a681d1f28cef6b0cab984d41ceef64d9cf68721d"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "e1e92ca409631c8006533f00706aeb966dcd6d7ee175b51c8aceeab523ebb3f5"
   end
 
-  deprecate! date: "2024-10-24", because: :unmaintained, replacement: "tlrc"
+  deprecate! date: "2024-10-24", because: :unmaintained, replacement_formula: "tlrc"
 
   depends_on "pkgconf" => :build
   depends_on "libzip"

@@ -4,6 +4,7 @@ class ApacheBrooklynCli < Formula
   url "https://github.com/apache/brooklyn-client/archive/refs/tags/rel/apache-brooklyn-1.1.0.tar.gz"
   sha256 "0c9ec77413e88d4ca23d0821c4d053b7cc69818962d4ccb9e7082c9d1dea7146"
   license "Apache-2.0"
+  head "https://github.com/apache/brooklyn-client.git", branch: "master"
 
   livecheck do
     url :stable

@@ -15,6 +15,7 @@ class Mpack < Formula
     sha256 cellar: :any_skip_relocation, sonoma:         "a7a9affafe46b5198dc95c2b0cfb4bf9514f6a58d43fae6524b735a6a9cf76a1"
     sha256 cellar: :any_skip_relocation, ventura:        "1cd7be9284fb871ac17b2cd0be687719104fa5a792c608f22f875c21c3fed004"
     sha256 cellar: :any_skip_relocation, monterey:       "1622ba058cfb546fae179857ce3a9878d770ae2a16c801b3ef019c39a7a40a66"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "078f23d93e4a983bd4ac5fe1be780f900e3ddbb1258e9544388afa43534974eb"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "f75abfc3198ea5dfd73192c148cf90a0a01e80143acde96fc9f18ff63e3e9514"
   end
 

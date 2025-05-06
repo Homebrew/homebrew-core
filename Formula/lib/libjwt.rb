@@ -1,8 +1,8 @@
 class Libjwt < Formula
   desc "JSON Web Token C library"
   homepage "https://libjwt.io/"
-  url "https://github.com/benmcollins/libjwt/releases/download/v3.2.0/libjwt-3.2.0.tar.xz"
-  sha256 "17ee4e25adfbb91003946af967ff04068a5c93d6b51ad7ad892f1441736b71b9"
+  url "https://github.com/benmcollins/libjwt/releases/download/v3.2.1/libjwt-3.2.1.tar.xz"
+  sha256 "b7800a6b085855690b401b41dbdf0bcb49207d5fe43c13abbdc8106c16a9250c"
   license "MPL-2.0"
   head "https://github.com/benmcollins/libjwt.git", branch: "master"
 
@@ -12,13 +12,13 @@ class Libjwt < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "5d4f3d28567daf4a427ff7d98aafa1a812e917159bf5da992a68d9c5cbde3402"
-    sha256 cellar: :any,                 arm64_sonoma:  "a7af31abe96a7a3f1cca4508376e19471783bfee1729749eed6476f0aa7305a6"
-    sha256 cellar: :any,                 arm64_ventura: "96f02b4299ca14c11385c2cf9700f6938d415c4ac304e087199c2a7608003280"
-    sha256 cellar: :any,                 sonoma:        "f2099c80842a0edd9655d3e2f4cb255f3d94d963a957c5f830f0ddf1c80b0082"
-    sha256 cellar: :any,                 ventura:       "317b411b882679040c72d2d62d42fb86c706111650386689df2e9a75495f5f20"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "00666188d1844cb30a4452cf56019360a425d6aace69199d1a5bca0cdc5572a7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1defb719e07be7e05546b3512320ba7b01cd015ac71063d89e3c609747911b31"
+    sha256 cellar: :any,                 arm64_sequoia: "2819ec3a3adfc26a3211bad2a92fd63e82288e9eb6f46670d29f95cb2d68fe25"
+    sha256 cellar: :any,                 arm64_sonoma:  "9d00c6b506e1f368e5e3ccf4cf7e6b3971c983d85b8a829a5f70aae20790d879"
+    sha256 cellar: :any,                 arm64_ventura: "a3e9b7bc0361f1f6726ea8863f7fa4f1793f7fcbfab11bd88e66c6e894339d31"
+    sha256 cellar: :any,                 sonoma:        "78d16019a3009299578e2a6cfbe9f09950d534379f37b6e990da35b95d3ac14f"
+    sha256 cellar: :any,                 ventura:       "c87231ba166ec2339d045a88dbd17be3f54a66df254d7e1d67bb9b80d03599a7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "852d7b446652b256221c6cc279838ea377cd1b3d2a2fe706b73577a843320c1d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3a2f1f5567817e4d996c654b63a80236beedce4c221060d551d184c9780013aa"
   end
 
   depends_on "cmake" => :build

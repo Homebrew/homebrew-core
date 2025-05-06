@@ -1,19 +1,19 @@
 class Libzim < Formula
   desc "Reference implementation of the ZIM specification"
   homepage "https://github.com/openzim/libzim"
-  url "https://github.com/openzim/libzim/archive/refs/tags/9.2.3.tar.gz"
-  sha256 "7c6e7fcaf5bc82447edb12c6c573779af6d77b3b79227da57586e81c4e13f1bf"
+  url "https://github.com/openzim/libzim/archive/refs/tags/9.3.0.tar.gz"
+  sha256 "791220e51e6a160d349491b9744ec1a9c1a104f11a79e8e73673daf242be69ed"
   license "GPL-2.0-or-later"
-  revision 3
+  revision 2
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia: "0f7b5ed88d189f946020179039adfe64ba74df4a6c6fd9e16c7fc37d2353da44"
-    sha256 cellar: :any, arm64_sonoma:  "d9c654e92d111e38f9ae04f4eb6735b064873a7b34c8f3df06dd813740a3f46b"
-    sha256 cellar: :any, arm64_ventura: "1826eb83d9904bd839fd9459f8bf0effb234e25d3724b14f06ab9d065a284a70"
-    sha256 cellar: :any, sonoma:        "5701596ba77fb25c9b4990ac647592844d0a53bbf6213dd4c5afedbf2921eba5"
-    sha256 cellar: :any, ventura:       "44801a35ab9a4ad761fe566e565cb2d41d3faf1e2a132b977a46902686570150"
-    sha256               arm64_linux:   "455af49f77ee108e0d4a963709985a36666136a037ddde4d5d044d80073e2d9a"
-    sha256               x86_64_linux:  "92e210cb78cc081b61445f86c3311afbc469ab8edf2eb2a04c6f3f96ba8dbc5a"
+    sha256 cellar: :any, arm64_sequoia: "b4ceecbeedcfc12b93d6f09afd9108509970317095e61792c171908037dfebd7"
+    sha256 cellar: :any, arm64_sonoma:  "faebeb4b051a2de69ce34863390dbb6c623ea2f01d0ddc7265e9b73cab5aa917"
+    sha256 cellar: :any, arm64_ventura: "0a36f78d2ec284ba491c030e071a9a5875106dac327bd6e060f479410b6c9331"
+    sha256 cellar: :any, sonoma:        "c68a4e4aeb4d87ac9faec8349222751f49a4e570c15d5b1c05e93d2ca5cc57a7"
+    sha256 cellar: :any, ventura:       "d342df82217c3d5d6e160bd5b5c6eb1301854bfeb7d2691bb250c04e3a634389"
+    sha256               arm64_linux:   "5c4f15314c93fa0ab0f858bae329925eb9fabc5eeb75b390b34100f91208d6ee"
+    sha256               x86_64_linux:  "8e90267f0cbdcda4336951766f6bce92b4b694031c98b19597ee146546bf9781"
   end
 
   depends_on "meson" => :build

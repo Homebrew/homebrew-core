@@ -1,8 +1,8 @@
 class Dust < Formula
   desc "More intuitive version of du in rust"
   homepage "https://github.com/bootandy/dust"
-  url "https://github.com/bootandy/dust/archive/refs/tags/v1.1.2.tar.gz"
-  sha256 "31da99483ee6110d43ed5e7c56a59f40f33b389e45d09d91fca022b42d442040"
+  url "https://github.com/bootandy/dust/archive/refs/tags/v1.2.0.tar.gz"
+  sha256 "e879e6bf662e07cff2962b68529dd78c3bafb67541aaa76e8c9d25ecb505b850"
   license "Apache-2.0"
   head "https://github.com/bootandy/dust.git", branch: "master"
 
@@ -12,13 +12,13 @@ class Dust < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3798757adf5b998362bb0183337c4085b5edaecb26719bdec849656aafd83557"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b0946971982006b04529fa7330d142ca9b5a2baee707f736962675676504428e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "9da5e05e0e6501858e20f592b05b311b490522d1614c3c96ab6a24de7c4156d5"
-    sha256 cellar: :any_skip_relocation, sonoma:        "be3492cf0abbfec5e6c55fe6a014d6c94dc0d586dad709a74b300ec7b251d489"
-    sha256 cellar: :any_skip_relocation, ventura:       "239dfd5587cda64044f8c7e42665111e868856ae3451e32826befc1e57da561c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2863f676bd927b26075497e3adb25b053e7b1f34d526b136fbdae60ad41801c0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9077948ddeefd028ed4db202363c5c00b8151a3ab8ff62974b2717114f6b5ff6"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ae87355d4a34dcd3faf75ad83c8948cafc58d2d62bd4d381e3b904d22658b8e1"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f95942e56163d80b2dc8c7fc656bbf75484ace461415e1b33f1973f6e0710b78"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "f4f211b8d9243525047070230690681b7d7aaf1546978768f2c59241288b1dd2"
+    sha256 cellar: :any_skip_relocation, sonoma:        "4e592912e74415e6e9826530cfdd82aa6b112f18c261e1144b7de3eb4a024bad"
+    sha256 cellar: :any_skip_relocation, ventura:       "6822e29006988602032e639ef5d846e2eb1826725b04b2f14a4df60a451aa278"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "38e10954139f77edbb32bac6dfc8168fde6793e919838862b899f79940f470bd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b2292e06d094c5c363395d48527e95d9c978d9aff6711c1847727b37683c3a1f"
   end
 
   depends_on "rust" => :build

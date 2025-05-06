@@ -13,6 +13,7 @@ class Sourcery < Formula
     sha256 cellar: :any,                 arm64_ventura: "8e8c8c7e8ec176a95edfb8ce21ee280d9ff5420d03cb90d7caeb60579335a252"
     sha256 cellar: :any_skip_relocation, sonoma:        "9b422f632ebfbaaad72bf6322a8006d330d7cb9af346d782e030becc0f2e0228"
     sha256 cellar: :any,                 ventura:       "8a4809736a2732ad61de0bd27a835081dd66d54fb0438f390c442b7a2902efed"
+    sha256                               arm64_linux:   "4816e8319a6bf722876aa293f279c968bf4f13b633c1d38567ced0e6520730a7"
     sha256                               x86_64_linux:  "48f8ec1325bcae22e80053804d915b42c17368fa2a3c0cb11e755b2b6db8e55d"
   end
 

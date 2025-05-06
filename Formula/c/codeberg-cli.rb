@@ -1,19 +1,19 @@
 class CodebergCli < Formula
   desc "CLI for Codeberg"
   homepage "https://codeberg.org/Aviac/codeberg-cli"
-  url "https://codeberg.org/Aviac/codeberg-cli/archive/v0.4.9.tar.gz"
-  sha256 "e5f5bcbde7f09e90bd987862e1c7217ce8993d8016d7fec20daf50056e6dafce"
+  url "https://codeberg.org/Aviac/codeberg-cli/archive/v0.4.11.tar.gz"
+  sha256 "15e637ebf3cbac0bfc4175939753db14f3536c8fb8b1ef57da3f93b14553f73c"
   license "AGPL-3.0-or-later"
   head "https://codeberg.org/Aviac/codeberg-cli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "21d2cd2ea6730f8ef6e08f58492fa33d91140ef96c843b0aed67ce92107f3c62"
-    sha256 cellar: :any,                 arm64_sonoma:  "7de0a03f0cd0c10d0fd3cdc5f5ff48f7c5bdfa2e4b6e894fdcf5f9f5c79a2481"
-    sha256 cellar: :any,                 arm64_ventura: "f8e8824143098d71ddeba4c33e58d091a4b899b2c785fc6ff990a714a325c69b"
-    sha256 cellar: :any,                 sonoma:        "745cc127a2cd69da11b14a18db4aca864533d237de3d31f1dad63c6cd3b01db2"
-    sha256 cellar: :any,                 ventura:       "01f84efd74f4eb2581d569d008905bd555367bf074089d907c8987569fb0d9b5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b49a88dfa1abef266a0adf6efbd8deb667c342ad02583d7c6329900198a7f592"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0ff0610fc76fa040d713d925372cce80286a2b8f1f399400f94127fc2277cabb"
+    sha256 cellar: :any,                 arm64_sequoia: "cd4dbc05182ca3546f636e0adeac3b23c187fe3ee64666fb54a03e0b213601bc"
+    sha256 cellar: :any,                 arm64_sonoma:  "b7aab4dc62e541c5829689a7772881f75e9f84c6c802a983695584780d4c20cb"
+    sha256 cellar: :any,                 arm64_ventura: "8406ae43d5de60f8ba5c2d29f012c19b770fb4864ed276f14b3e79b2df70baf7"
+    sha256 cellar: :any,                 sonoma:        "b6a10266f12cc59094ebec6ccfe7cd4e8dd2b60e63003c6d4d6f914b651a888f"
+    sha256 cellar: :any,                 ventura:       "8eb3120448b7662097e091f060860d9e83786925e346973850281eca92665d73"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e783102e9bc4a84144cba4341f6c73819be53c7e119efa1b1a334b1b3cb8a98b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2a02de1c89ab410a520b842500995aad13b214475f16cf7b9be504351dbcca54"
   end
 
   depends_on "pkgconf" => :build

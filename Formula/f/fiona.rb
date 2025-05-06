@@ -13,12 +13,15 @@ class Fiona < Formula
     sha256 cellar: :any,                 arm64_ventura: "69bf18aeb4f2097080198331df624d1c0cb3cc513aaae674bc6b9a96f5ef7eb6"
     sha256 cellar: :any,                 sonoma:        "0503bf091d2469c634b4e9adcd1006694fd0bb8a94b4e6303f7174047e97f202"
     sha256 cellar: :any,                 ventura:       "0eb27e2fa495234f3a09126af55384b4fb98ce50cffac8274ea398dad91f3bf0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5036103d33a7dc454778a2957b8dd9eabf880835a6986dc2a09ac617de461c6e"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "2b9ecbc80ed54a93dc848950821fdb15a292b9589da5acc1250b33eb4bf1faa3"
   end
 
   depends_on "certifi"
   depends_on "gdal"
   depends_on "python@3.13"
+
+  conflicts_with "fio", because: "both install `fio` binaries"
 
   resource "attrs" do
     url "https://files.pythonhosted.org/packages/5a/b0/1367933a8532ee6ff8d63537de4f1177af4bff9f3e829baf7331f595bb24/attrs-25.3.0.tar.gz"

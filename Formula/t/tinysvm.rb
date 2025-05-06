@@ -25,6 +25,7 @@ class Tinysvm < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:    "62f0920fdf8f5b7f29cebacc1add1396daef668c67e3d10644d9d35d1b49afc5"
     sha256 cellar: :any_skip_relocation, sierra:         "a6ad14c984b337bee83372ac6a29ffe7c0491180a302cfcd8f53b1a3ee6816e1"
     sha256 cellar: :any_skip_relocation, el_capitan:     "2b84b75043ba1d97172e2756e3da870a8ec8e074167ab5402e7a4e1b4c923864"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "b94cad8abff9ac7cd69e6e0946255e477dba4c6038e1ff8609b9ea499c9d5e1e"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "8706fa788fd556b7f18b3c1aee12390a933b5eafaa909508304d6992f218e02d"
   end
 
@@ -41,11 +42,11 @@ class Tinysvm < Formula
     # Fix for newer clang
     ENV.append_to_cflags "-Wno-implicit-int" if DevelopmentTools.clang_build_version >= 1403
 
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--mandir=#{man}",
-                          "--disable-shared"
+    args = []
+    # Help old config scripts identify arm64 linux
+    args << "--host=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+
+    system "./configure", "--mandir=#{man}", "--disable-shared", *args, *std_configure_args
     system "make", "install"
   end
 

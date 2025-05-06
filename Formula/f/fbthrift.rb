@@ -1,19 +1,19 @@
 class Fbthrift < Formula
   desc "Facebook's branch of Apache Thrift, including a new C++ server"
   homepage "https://github.com/facebook/fbthrift"
-  url "https://github.com/facebook/fbthrift/archive/refs/tags/v2025.03.10.00.tar.gz"
-  sha256 "68f827e59de74587b4deed7cad52452f79b5bf2e89c04312011cbb4b34594b6a"
+  url "https://github.com/facebook/fbthrift/archive/refs/tags/v2025.04.28.00.tar.gz"
+  sha256 "f88781be3be1417545e9c9772edc7f01ea7a2fcce860ea6a682c4d4650511d71"
   license "Apache-2.0"
   head "https://github.com/facebook/fbthrift.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "d426b0e3139aaf6ea168565f39aefc5b694d88492a7a7a46d5a8d2f4918165b4"
-    sha256 cellar: :any,                 arm64_sonoma:  "6214fe0b927a6dc6da1d2c6af23164fe3b6620200c841f92601d24dd1308230f"
-    sha256 cellar: :any,                 arm64_ventura: "ccbb94583407e4d3d8aa6adc296a46d79e1ef4b13b93103303a1955d16bce6f6"
-    sha256 cellar: :any,                 sonoma:        "7f9a65626af2b599d677d6238e00b145dc3f68e2f40e5944c3b52e82fd7526e2"
-    sha256 cellar: :any,                 ventura:       "d4147568ba37ff70783d52b61a6b1b6806e0b68bd8512ceea7e26eb4c3321e75"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "85fa8685fef453af09cf07ae23aabfe22a54708de180d3970ad25f3b6a9d094f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "616ecd8fc0c84e85666c6f10eca0258a35205023e90c8d308f2fca7cf4704d55"
+    sha256 cellar: :any,                 arm64_sequoia: "fa9dd453baead792d99d50fb5f47b78b1ec3cf0f15cb3dc838c416dce70527ba"
+    sha256 cellar: :any,                 arm64_sonoma:  "430ef9f213f1af1a2d65e17f13000a9717d690ab3c8552dc736bb1f6b0dfd687"
+    sha256 cellar: :any,                 arm64_ventura: "f3760e506555b65bc5a7fcf963ecf29260f79c53ff566ece54404c75ed4c9d0c"
+    sha256 cellar: :any,                 sonoma:        "384a26583562c5910d2502fd9579c0e1dfda3464bf0d624281483290bd066f54"
+    sha256 cellar: :any,                 ventura:       "e1bbe4d99d930e21d773939f6d61858046aecf308d1f5e8a29b19e1e4902de2a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ce1abc5c78208a54f95323593c9a81e0602d730dcfebe23d150aac8e9f0715d3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1c1cf7480dfe0b4eb7be9c6062bf504386212901d4aa0b2b55a7275b5e49b41f"
   end
 
   depends_on "bison" => :build # Needs Bison 3.1+
@@ -73,6 +73,9 @@ class Fbthrift < Formula
 
     elisp.install "thrift/contrib/thrift.el"
     (share/"vim/vimfiles/syntax").install "thrift/contrib/thrift.vim"
+
+    # Save a copy of FindxxHash.cmake to test with as it is used in FBThriftConfig.cmake
+    (libexec/"cmake").install "build/fbcode_builder/CMake/FindXxhash.cmake"
   end
 
   test do
@@ -98,6 +101,7 @@ class Fbthrift < Formula
       project(test LANGUAGES CXX)
 
       list(APPEND CMAKE_MODULE_PATH "#{Formula["fizz"].opt_libexec}/cmake")
+      list(APPEND CMAKE_MODULE_PATH "#{opt_libexec}/cmake")
       find_package(gflags REQUIRED)
       find_package(FBThrift CONFIG REQUIRED)
 

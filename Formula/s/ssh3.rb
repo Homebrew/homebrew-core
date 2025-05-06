@@ -14,6 +14,7 @@ class Ssh3 < Formula
     sha256 cellar: :any_skip_relocation, sonoma:         "b59edc9f47796dcbf9009dd3e862e5558e21cfe78b8260cb0a6e5d519632e865"
     sha256 cellar: :any_skip_relocation, ventura:        "fd05c0f9fc69ee952285dbdd8becacfc88fc69fb06aeb705035906fc166dad5e"
     sha256 cellar: :any_skip_relocation, monterey:       "994b1e63734368f14718507f653b797d99cc472c22482f8cb68a86165ffeab21"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "f5d55521952438ac8b31391476252c88f70bb6d59e3d978c86c2287a9bf46825"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "89a55c20f0e83d74d05032b6e832bcd761d6377a226183e99d4102c1ad66935a"
   end
 

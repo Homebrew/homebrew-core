@@ -1,8 +1,8 @@
 class Yazpp < Formula
   desc "C++ API for the Yaz toolkit"
   homepage "https://www.indexdata.com/resources/software/yazpp/"
-  url "https://ftp.indexdata.com/pub/yazpp/yazpp-1.8.1.tar.gz"
-  sha256 "13b7e61b2f20a57d0925bf6925c1d82e40a11092a8d1ab1d9d49dfd1863dbb05"
+  url "https://ftp.indexdata.com/pub/yazpp/yazpp-1.9.0.tar.gz"
+  sha256 "17aa0f5b45edbfa9ee0363cb3b684e895d3d05e74024384d6c8707875621dcfc"
   license "BSD-3-Clause"
 
   livecheck do
@@ -11,17 +11,13 @@ class Yazpp < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "3eb4675650e06795a7621b5ff0c82ee35be02f68b88f7e4e1ee356d8241329ee"
-    sha256 cellar: :any,                 arm64_sonoma:   "be00d05febf66d4595ffe681fe00d93ca6c5f107bb7171b097ce52d74aaf0809"
-    sha256 cellar: :any,                 arm64_ventura:  "6e7458ff48b91fc278beb85d320d739425c6ba2077b15f951866e6ead6cc09ac"
-    sha256 cellar: :any,                 arm64_monterey: "aa4653b1b4bac44bb483c8f05a31f91b92a4cfe7ff5d338f357b01dc30156c4f"
-    sha256 cellar: :any,                 arm64_big_sur:  "ca058f59600e3f8931894e93a6aa901bffd86306e84f8cbabb971a3115210022"
-    sha256 cellar: :any,                 sonoma:         "2fef1de6d47229987bd0e0c8ba0702357336fa05182c1c114997b048b9b5c192"
-    sha256 cellar: :any,                 ventura:        "5968798b57294be416bb06594f46b73720d0f3406cff786c3eb2255ac175c367"
-    sha256 cellar: :any,                 monterey:       "fa049b03743d65e259b3fa771bf3228432b1d0edac7313f33843cbfa64683e0f"
-    sha256 cellar: :any,                 big_sur:        "8ace99b6b578b30de4fba470ec066283240faef60528a847d617c8c33bd1c405"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "023606024330c09fce8784454d5555b7601226e7fcaeb263a51103a97dba82e2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "674c51fc6edefe40af90e0fd8b2c7ad2546f5c9edee89b973967b713d9a0eee8"
+    sha256 cellar: :any,                 arm64_sequoia: "3db462397a75847cfe8f47b63a8e72357aeb56c3e6ad39f1e56f961fa6c67031"
+    sha256 cellar: :any,                 arm64_sonoma:  "8a0413a93b0784924650e2e642e5044b3547361916ca81e4231828ce24ce3322"
+    sha256 cellar: :any,                 arm64_ventura: "de090b1f94e5f04a32d266054df63e033d664af6baf02d70be02ee13ca2d2736"
+    sha256 cellar: :any,                 sonoma:        "9a5bc3ac4c69833f33f9712a26d823c1f99348fec776a63eb04c1bf1b9cdc5d9"
+    sha256 cellar: :any,                 ventura:       "41e4fc7540a5215ad4e4eff87779f604723adefc05223b4f16041fabdfe0723d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "90e01abea34f80017b98c621560c31326b42fc4abb0668b84e943117918e1ce6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fadea04212654ddcc34aa0a5bf5127f6c53a652c21d98a52b168c584e3a3fccc"
   end
 
   depends_on "yaz"

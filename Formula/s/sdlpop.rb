@@ -5,6 +5,11 @@ class Sdlpop < Formula
   sha256 "41a9aa64b4e8d0a9d7a84ffced48f74f9528d81adbffc08593ecf84776c5d77a"
   license "GPL-3.0-or-later"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "b71553517e9b05d247c8d440606ece9cb18ed9362e2dacdda29ff653158777fb"
     sha256 cellar: :any,                 arm64_sonoma:   "1100bae067cd7cee5b4846be8718e0ecb2a9ada163c97b681cf767be47fc6c8a"

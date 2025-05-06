@@ -1,10 +1,37 @@
 class Qemu < Formula
   desc "Generic machine emulator and virtualizer"
   homepage "https://www.qemu.org/"
-  url "https://download.qemu.org/qemu-9.2.2.tar.xz"
-  sha256 "752eaeeb772923a73d536b231e05bcc09c9b1f51690a41ad9973d900e4ec9fbf"
   license "GPL-2.0-only"
   head "https://gitlab.com/qemu-project/qemu.git", branch: "master"
+
+  stable do
+    url "https://download.qemu.org/qemu-10.0.0.tar.xz"
+    sha256 "22c075601fdcf8c7b2671a839ebdcef1d4f2973eb6735254fd2e1bd0f30b3896"
+
+    # The next four patches fix segmentation faults on macOS 15.0-15.3
+    # See https://github.com/Homebrew/homebrew-core/issues/221154
+    # Changes already merged upstream, remove on next release
+
+    patch do
+      url "https://gitlab.com/qemu-project/qemu/-/commit/563cd698dffb977eea0ccfef3b95f6f9786766f3.diff"
+      sha256 "51d07db06532bdd655bec3fdd7eb15cd2004fc96652f0d4dc25522917c9b129a"
+    end
+
+    patch do
+      url "https://gitlab.com/qemu-project/qemu/-/commit/6804b89fb531f5dd49c1e038214c89272383e220.diff"
+      sha256 "7e17787f09488fa731d6de8304b689df767236009c19a3bb662904189028d687"
+    end
+
+    patch do
+      url "https://gitlab.com/qemu-project/qemu/-/commit/797150d69d2edba8b1bd4a7d8c7ba2df1219c503.diff"
+      sha256 "82f14935f588f7ee103e2ba25852aa3cbf19a4319588f270e09d3bd33fe83001"
+    end
+
+    patch do
+      url "https://gitlab.com/qemu-project/qemu/-/commit/a5b30be534538dc6e44a68ce9734e45dd08f52ec.diff"
+      sha256 "a1ff1e8e7c64e7f7dfe7284277f2bef76b837a4c3a86394dd29768d1b1586818"
+    end
+  end
 
   livecheck do
     url "https://www.qemu.org/download/"
@@ -12,12 +39,14 @@ class Qemu < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "3321a5ab1d59d5b13ac55c800e1b66135750694a934b60cd5004aa9e68ebf036"
-    sha256 arm64_sonoma:  "d03c6ff577251bfd9c6686aff8d034c354ae566f0357764d8ea046001390f565"
-    sha256 arm64_ventura: "cd5ad1410972261a2e5805a3918d15233e3595e136af2379f8d3c899d5aab5eb"
-    sha256 sonoma:        "b73172e1640ede09f5bed06ca41ae1d0af1be9af43f42e9d0f817bfcbe503bcc"
-    sha256 ventura:       "e5d9bb8f4099dd61a49e67aac8df7370133c9047c613c3ecfd78cf61c32c597e"
-    sha256 x86_64_linux:  "992e455d103e0bd3ac3617b692a9cd434e4551307d8fbe2edae005bec12c4966"
+    rebuild 1
+    sha256 arm64_sequoia: "7231d454bb9f7fd7cfeff99727552963c3e8e3fba527a081497e6f3d4540d308"
+    sha256 arm64_sonoma:  "aef31f95edeedeb93fd423a9baf655e532869cdeec46e206662a0a4f7370b285"
+    sha256 arm64_ventura: "a071c06840012951d7f2103b64ad44dcaa79ab87aeb80429897f1b3114d8a495"
+    sha256 sonoma:        "409faa24495d47c4246109b8c10ba9a04e911c5682061cfe5872e8dbe2c2a07c"
+    sha256 ventura:       "8edf18802c7b11f88926bc6d6d6de2d09b7c967ad3bd0f678b0b1e7c311d556e"
+    sha256 arm64_linux:   "f1fb82f1381011a958406b1c27ae6070e2d042f73c4d3816c402dbb9e8e285d5"
+    sha256 x86_64_linux:  "e30368126aeb3ca11ed54502921826fd90a4d15535eb3f8a43d7900655af8ff7"
   end
 
   depends_on "libtool" => :build

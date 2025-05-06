@@ -1,19 +1,18 @@
 class Libfido2 < Formula
   desc "Provides library functionality for FIDO U2F & FIDO 2.0, including USB"
   homepage "https://developers.yubico.com/libfido2/"
-  url "https://github.com/Yubico/libfido2/archive/refs/tags/1.15.0.tar.gz"
-  sha256 "32e3e431cfe29b45f497300fdb7076971cb77fc584fcfa80084d823a6ed94fbb"
+  url "https://github.com/Yubico/libfido2/archive/refs/tags/1.16.0.tar.gz"
+  sha256 "7d86088ef4a48f9faad4ff6f41343328157849153a8dc94d88f4b5461cb29474"
   license "BSD-2-Clause"
-  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "77a7f87267cbe477df703af3d80958c0de22f3a8466c1fa56c6f0dfbbdf790b8"
-    sha256 cellar: :any,                 arm64_sonoma:  "71e2af315c37d9f530adaaaafb3f0507ee0dffd4006aa242df8ca5553270ea97"
-    sha256 cellar: :any,                 arm64_ventura: "275606b563b5b5da93406363be140811b4b935e8a9de78757a73667d96d78011"
-    sha256 cellar: :any,                 sonoma:        "722486b1889bcbd088be7e361ebc8f770a902f770b181fce53a19e851dcb2b69"
-    sha256 cellar: :any,                 ventura:       "73955c899e3ef7463e3033045adcfa5a18731f58aa5dbc53f108fd96dabdd0f2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c87591439f22000414d33cc9a182b0efb1e48e4096ba6b2b398b07f54675ac24"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4d8cbd9a644cc9317ee7742693b6a1066a8afeba5adb45e0c5b29d8bae0bb706"
+    sha256 cellar: :any,                 arm64_sequoia: "fc3ca624819563b43e5ddc18ea7f391df1573e4e392a8a49c6aa3a510973f4dd"
+    sha256 cellar: :any,                 arm64_sonoma:  "763d62c0d6240560ccdb3249477b7461e941454d8b4697a0d14a4d174eb9a6c4"
+    sha256 cellar: :any,                 arm64_ventura: "64bd12fd3d3f964e781ac631f6f8dae04be4736111e857f17fd65a3cfe37c132"
+    sha256 cellar: :any,                 sonoma:        "2bd458622e779d77c7ae6c359d29223a070ebbb89fcf0324db7671ac30ce8aa5"
+    sha256 cellar: :any,                 ventura:       "c8a44132a8e43fb1dd859cf5f17192a453711ff251f12571bf0e926b86c60fc3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e85e993e3403b124faafd3ab0c1a16ff9b494f54766f504e90e83bf62fe40675"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "98507976bf7cd461abce2639656bd4456c0e2f52fee5bcd384a7cbec474a28ff"
   end
 
   depends_on "cmake" => :build

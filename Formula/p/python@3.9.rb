@@ -1,8 +1,8 @@
 class PythonAT39 < Formula
   desc "Interpreted, interactive, object-oriented programming language"
   homepage "https://www.python.org/"
-  url "https://www.python.org/ftp/python/3.9.21/Python-3.9.21.tar.xz"
-  sha256 "3126f59592c9b0d798584755f2bf7b081fa1ca35ce7a6fea980108d752a05bb1"
+  url "https://www.python.org/ftp/python/3.9.22/Python-3.9.22.tar.xz"
+  sha256 "8c136d199d3637a1fce98a16adc809c1d83c922d02d41f3614b34f8b6e7d38ec"
   license "Python-2.0"
 
   livecheck do
@@ -11,18 +11,21 @@ class PythonAT39 < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "072624b4503baabd76e37324d4eda6dfdedf4e859c90f53b323c4adbf346adb9"
-    sha256 arm64_sonoma:  "0d8938a8a41666982846e76338c2269dfaad5a1eed0d2c62b7bc519bf434153a"
-    sha256 arm64_ventura: "8fae6515c8d1dc3efd6009c1648dca72d15c77753e1e884895df9621c1b07225"
-    sha256 sonoma:        "ed8adf7e7e85490d7cf057aafaf293dddf830c421b656d4fd0e7fab6d0a8c265"
-    sha256 ventura:       "105f74d5ba6fdbdca5017cab63942c5c6dff727fabf0816ec169cfa8235702ae"
-    sha256 arm64_linux:   "da96bd7d2e23edbbc0740a1885ee8853a8cbe687b9e5c2d8d653b32123159839"
-    sha256 x86_64_linux:  "cac4999f29fc4d66222af64145bb50d4a0a74483385260b3cdb72962330173de"
+    sha256 arm64_sequoia: "87f9a866cba5103b6e2551f109781f413d6b69ef7d6bd0137222054dce965dc9"
+    sha256 arm64_sonoma:  "cd7e1f45d0a0f898cca96e61411f3a32360e7cc28276f784be7876a98f064500"
+    sha256 arm64_ventura: "c13bd1128b70283d76c86b38fd2029fd7ee6c2dbdbc7ce7de98f59b217977001"
+    sha256 sonoma:        "f9f06241188b3bc368b5533f3fa175b4deff12a882bdd2d58e1f6d7b72d93292"
+    sha256 ventura:       "16e029a7744e63c97c9e3339ccd664203af5c449eab55a6c2ad6e6e6fdd93e53"
+    sha256 arm64_linux:   "03a115cf797cfa15f8313e3ce113b45c9f99a4fdfe6ad98f4fe775c275a1747c"
+    sha256 x86_64_linux:  "ac113081bcc9fa8d2e4967ba47444aea8df3c07e017e3ef89d5bc6cad8171d4d"
   end
 
   # setuptools remembers the build flags python is built with and uses them to
   # build packages later. Xcode-only systems need different flags.
   pour_bottle? only_if: :clt_installed
+
+  # https://devguide.python.org/versions/#versions
+  deprecate! date: "2025-10-15", because: :deprecated_upstream
 
   depends_on "pkgconf" => :build
   depends_on "gdbm"
@@ -42,22 +45,23 @@ class PythonAT39 < Formula
 
   on_linux do
     depends_on "libnsl"
+    depends_on "libtirpc"
   end
 
   # Always update to latest release
   resource "flit-core" do
-    url "https://files.pythonhosted.org/packages/d5/ae/09427bea9227a33ec834ed5461432752fd5d02b14f93dd68406c91684622/flit_core-3.10.1.tar.gz"
-    sha256 "66e5b87874a0d6e39691f0e22f09306736b633548670ad3c09ec9db03c5662f7"
+    url "https://files.pythonhosted.org/packages/69/59/b6fc2188dfc7ea4f936cd12b49d707f66a1cb7a1d2c16172963534db741b/flit_core-3.12.0.tar.gz"
+    sha256 "18f63100d6f94385c6ed57a72073443e1a71a4acb4339491615d0f16d6ff01b2"
   end
 
   resource "pip" do
-    url "https://files.pythonhosted.org/packages/f4/b1/b422acd212ad7eedddaf7981eee6e5de085154ff726459cf2da7c5a184c1/pip-24.3.1.tar.gz"
-    sha256 "ebcb60557f2aefabc2e0f918751cd24ea0d56d8ec5445fe1807f1d2109660b99"
+    url "https://files.pythonhosted.org/packages/70/53/b309b4a497b09655cb7e07088966881a57d082f48ac3cb54ea729fd2c6cf/pip-25.0.1.tar.gz"
+    sha256 "88f96547ea48b940a3a385494e181e29fb8637898f88d88737c5049780f196ea"
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/43/54/292f26c208734e9a7f067aea4a7e282c080750c4546559b58e2e45413ca0/setuptools-75.6.0.tar.gz"
-    sha256 "8199222558df7c86216af4f84c30e9b34a61d8ba19366cc914424cdbd28252f6"
+    url "https://files.pythonhosted.org/packages/a9/5a/0db4da3bc908df06e5efae42b44e75c81dd52716e10192ff36d0c1c8e379/setuptools-78.1.0.tar.gz"
+    sha256 "18fd474d4a82a5f83dac888df697af65afa82dec7323d09c3e37d1f14288da54"
   end
 
   resource "wheel" do

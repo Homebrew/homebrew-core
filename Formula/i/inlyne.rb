@@ -12,6 +12,7 @@ class Inlyne < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "ce4fafe2f79643c467a358a1ad72309be4f791eade01de70dfb7e91d4ef41298"
     sha256 cellar: :any_skip_relocation, sonoma:        "420ff2e57ec6742be5eb6074b489dd8a04a5811a471ba3448ddfedf821447de8"
     sha256 cellar: :any_skip_relocation, ventura:       "34aee2a7ddd8c4b85a2f4187a0d380f69a9830ef00e2c57d3165f7e55319056c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b2a1671d0354386d01527ce7fceb5d00eebbe9ed629760c8a4aff044b38be002"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "1c1df3c19155248403249b2d8f39a1633c058142eaa20c9023925a21d18d5c48"
   end
 

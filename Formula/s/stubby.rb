@@ -37,9 +37,13 @@ class Stubby < Formula
   end
 
   def install
-    system "cmake", "-DCMAKE_INSTALL_RUNSTATEDIR=#{HOMEBREW_PREFIX}/var/run/", \
-                    "-DCMAKE_INSTALL_SYSCONFDIR=#{HOMEBREW_PREFIX}/etc", ".", *std_cmake_args
-    system "make", "install"
+    args = %W[
+      -DCMAKE_INSTALL_RUNSTATEDIR=#{var}/run/
+      -DCMAKE_INSTALL_SYSCONFDIR=#{etc}
+    ]
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   service do

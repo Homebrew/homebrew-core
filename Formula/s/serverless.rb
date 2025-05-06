@@ -12,6 +12,7 @@ class Serverless < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "06a1d77422f266cc1d32de082fd88653ff2acba640e4369391749f8308232abf"
     sha256 cellar: :any_skip_relocation, sonoma:        "b64fa8af7e98666d443ca3e0df89433fc4613e1c6c4a1e677139f4e9091f8a2d"
     sha256 cellar: :any_skip_relocation, ventura:       "b64fa8af7e98666d443ca3e0df89433fc4613e1c6c4a1e677139f4e9091f8a2d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "dd7982f62c055d7fe2ac3a8251d9f18a60a37b7211fb42708242fcb7615d6da1"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "06a1d77422f266cc1d32de082fd88653ff2acba640e4369391749f8308232abf"
   end
 

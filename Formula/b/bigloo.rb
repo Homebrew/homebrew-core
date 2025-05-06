@@ -2,7 +2,7 @@ class Bigloo < Formula
   desc "Scheme implementation with object system, C, and Java interfaces"
   homepage "https://www-sop.inria.fr/indes/fp/Bigloo/"
   url "https://www-sop.inria.fr/indes/fp/Bigloo/download/bigloo-4.6a.tar.gz"
-  sha256 "c538929e040d0d7a25ed0d2b7bba6e6a482446df5f03a21a7598ab20a85f5522"
+  sha256 "9705ec3de00cc1c51ee7699894841a3770c06a874215b45635b8844ae6daf0a6"
   license "GPL-2.0-or-later"
   head "https://github.com/manuel-serrano/bigloo.git", branch: "master"
 
@@ -12,12 +12,13 @@ class Bigloo < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "6bfb6e05b7b761e60e5a0eee80d23db93e60adbb0880f5e958e5e49f0abaeaad"
-    sha256 arm64_sonoma:  "8723768bd382b813e4f174748f7e24a30c4057fc621b85bfe626f2de3733d22c"
-    sha256 arm64_ventura: "8c89e1697c5edc4553159ed58c38cb335e13ce7f77c42344c775366cbcf86b5f"
-    sha256 sonoma:        "124693cf3bfbab077a4f5a04ec303afee067cdae075c0b592d94a086cec29ff0"
-    sha256 ventura:       "96afc3354138710c08ee5a425a14873ecc26b89e9fd17f878395a3bd30224d87"
-    sha256 x86_64_linux:  "c9f677f9a73a1f415d34af3d0a77b04f4b7279caa0b6e9447fcce5fdf5b7d874"
+    rebuild 1
+    sha256 arm64_sequoia: "9e898912750ff4524755d1523733824a82dfec9f4767f516a1cb0df291d02f6a"
+    sha256 arm64_sonoma:  "fc56675d3c2d9dc400d02d0ba451fd0890e0af8530fddb01ae2f7a0b0e7732d5"
+    sha256 arm64_ventura: "863ef84f5fe7ecde18164f1fd2b39a89d578aa6e5bee1d174441c455e9ff4dd1"
+    sha256 sonoma:        "e8530b989fb53f9b92bc7de0e67291c8b74b10f615de0ba3afc6f2c2d806be77"
+    sha256 ventura:       "0c5e0237240777f5e8471f3c0fbe471638fdf56d3308ddf021273b14ae88df6e"
+    sha256 x86_64_linux:  "26df19d7509a28fdc224f29265138d5c4c7644e02256bda6c272614ef41ba09b"
   end
 
   depends_on "autoconf" => :build

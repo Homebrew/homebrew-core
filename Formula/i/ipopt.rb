@@ -71,7 +71,7 @@ class Ipopt < Formula
       lib.install Dir[
         "lib/#{shared_library("*")}",
         "libseq/#{shared_library("*")}",
-        "PORD/lib/#{shared_library("*")}"
+        "PORD/lib/#{shared_library("*")}",
       ]
     end
 

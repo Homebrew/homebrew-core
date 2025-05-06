@@ -18,6 +18,7 @@ class Zsdx < Formula
     sha256 cellar: :any_skip_relocation, big_sur:        "3267503e66537fe829db44b5d36d97200c78911f171659e9c5fc66912beea4fa"
     sha256 cellar: :any_skip_relocation, catalina:       "bf58b35d61058612b8497abcc7c29930b1b6d6f9ea0aa7b88bc00ae7181b1f35"
     sha256 cellar: :any_skip_relocation, mojave:         "332fd78f55b41f593403d76839cd51befb586f34036c89a43446c3f39a240d3b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "b1bba51d6059e4d5922550be0ad0f6b3ef4f1f4161421ef2c41483b6fe4cfc49"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "e0c835e5e48efab248d3f5347d04a9ced81d0869c4fd4afa0176e2331b2c8374"
   end
 
@@ -28,7 +29,10 @@ class Zsdx < Formula
   uses_from_macos "unzip" => :test
 
   def install
-    system "cmake", "-S", ".", "-B", "build", "-DSOLARUS_INSTALL_DATADIR=#{share}", *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build",
+                    "-DCMAKE_POLICY_VERSION_MINIMUM=3.5",
+                    "-DSOLARUS_INSTALL_DATADIR=#{share}",
+                    *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end

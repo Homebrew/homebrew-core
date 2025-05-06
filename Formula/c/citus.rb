@@ -29,6 +29,7 @@ class Citus < Formula
     sha256 cellar: :any,                 arm64_ventura: "87853877c161b9c1f533871c4948d8e9df5018d4f9cda31ad4dafa60972e3e51"
     sha256 cellar: :any,                 sonoma:        "68a85ce9faf1bd1adbf6745daacedbb320cc691001740750d92e10c8b92198c7"
     sha256 cellar: :any,                 ventura:       "a6fbe35a9813c2b2bcc8eb7b05487bc1a20c5e02c41d7e7813b57b78fcdd7cbe"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b9071869ac5660e49bd27acc7e2dfdcf3d258749c4575b13f0b4f703bb48811f"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "42694cb8148e29b50a36b8ce0b48853be1d0a46b9f59a1dca1cee7b5b80b55df"
   end
 

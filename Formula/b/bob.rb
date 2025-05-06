@@ -11,6 +11,7 @@ class Bob < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "59d937fb5ca0b8f8e360a4685be621be76f843583bcb1711b3cf6b79007b1b6f"
     sha256 cellar: :any_skip_relocation, sonoma:        "37a0ae66998c2dcec0a690d1a3c56e2ee3c5ec6ebe4345a28a43858e80910d25"
     sha256 cellar: :any_skip_relocation, ventura:       "ec91b851216fb3b9489a1f58279f4290662bb7cb6ba2b74c49305b9ab61ba1ab"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a9ab71e83cf296494c2fdcdefca38822f5cad293a94afdf13dba5c4a7afcfaee"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "771d6922ebbff58d6c998d5c5217816d8f439a9c8462a4ce32886e7c183d0cce"
   end
 
@@ -34,9 +35,10 @@ class Bob < Formula
     mkdir_p "#{testpath}/.local/share/bob"
     mkdir_p "#{testpath}/.local/share/nvim-bin"
 
-    system bin/"bob", "install", "v0.9.0"
-    assert_match "v0.9.0", shell_output("#{bin}/bob list")
-    assert_path_exists testpath/".local/share/bob/v0.9.0"
+    neovim_version = "v0.11.0"
+    system bin/"bob", "install", neovim_version
+    assert_match neovim_version, shell_output("#{bin}/bob list")
+    assert_path_exists testpath/".local/share/bob"/neovim_version
     system bin/"bob", "erase"
   end
 end

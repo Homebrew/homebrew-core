@@ -3,20 +3,19 @@ class Fwupd < Formula
 
   desc "Firmware update daemon"
   homepage "https://github.com/fwupd/fwupd"
-  url "https://github.com/fwupd/fwupd/releases/download/2.0.6/fwupd-2.0.6.tar.xz"
-  sha256 "57d91327c4541490ce731f24d4bcd5301ba7561e264db2f0a4031f48e6d6dae2"
+  url "https://github.com/fwupd/fwupd/releases/download/2.0.8/fwupd-2.0.8.tar.xz"
+  sha256 "9aac805d18ed8a48fb37c7e8d9644520c33984326b7954584fe38ee2d10a3988"
   license "LGPL-2.1-or-later"
-  revision 2
   head "https://github.com/fwupd/fwupd.git", branch: "main"
 
   bottle do
-    sha256 arm64_sequoia: "d9a9b277da66ea360d63d5292c86ca37950474debc6dc4075c5de164f70f5cad"
-    sha256 arm64_sonoma:  "176dad40c433e30903501da74c1268bf0d80261e71113b6c33fd60f056714eb3"
-    sha256 arm64_ventura: "2e4e27b15df450b9fc576fa2b351dd54158981d803105bea202d78a895902f16"
-    sha256 sonoma:        "6759b3a269ddcdb927bf1cb237a839284270d9780b2f0b441735528a3ce9a090"
-    sha256 ventura:       "01cd6cba588e4efbaaf8efe5967ba146c109b41172f8193385a9b23f58b0b473"
-    sha256 arm64_linux:   "5092af32d929ea789f904e961f3a7081a27a4f5a07a8ac4eadb3ca8c37fc1f50"
-    sha256 x86_64_linux:  "089c3c240a4b966635ff7a89130363b25380bcd813d0e278ef6e5cf44d38ea54"
+    sha256 arm64_sequoia: "7d49636df66927c758efe2487a219b70bdc527da5caa86c67742018e8599ca72"
+    sha256 arm64_sonoma:  "f4fbec9c586cc70c4be7b32332cc5f815a0d9256aa59968159aafa528ea8cadf"
+    sha256 arm64_ventura: "c51cafcea5d9b33f7c19468d9db44ae427ee3dce540e6bf9266279f8cf66aa2b"
+    sha256 sonoma:        "14ec7ea3ea80063019ec6825e1f3f77bdb0f1fcdfc3d11a524ec141f74f6cf96"
+    sha256 ventura:       "04f8e8820fabce1477bca0886daeb4865b570aadaed0378e7be3a08a7d61f4f5"
+    sha256 arm64_linux:   "32ed3f93ab30fdcc83c67b208987e23db0b04290aa0658be14c3a8d25938f6f8"
+    sha256 x86_64_linux:  "22d48e644b5aa022f9b27c6df0537e0f9d89f78d55b8e73bb30a4628dbda7a3f"
   end
 
   depends_on "gettext" => :build
@@ -28,7 +27,6 @@ class Fwupd < Formula
   depends_on "python@3.13" => :build
   depends_on "vala" => :build
 
-  depends_on "gcab"
   depends_on "glib"
   depends_on "gnutls"
   depends_on "json-glib"
@@ -78,15 +76,9 @@ class Fwupd < Formula
                     "-Dpython=#{which(python3)}",
                     "-Dsupported_build=enabled",
                     "-Dplugin_flashrom=disabled",
-                    "-Dplugin_gpio=disabled",
                     "-Dplugin_modem_manager=disabled",
-                    "-Dplugin_msr=disabled",
-                    "-Dplugin_tpm=disabled",
-                    "-Dplugin_uefi_capsule=disabled",
-                    "-Dplugin_uefi_pk=disabled",
-                    # these two are needed for https://github.com/fwupd/fwupd/pull/6147
-                    "-Dplugin_logitech_scribe=disabled",
-                    "-Dplugin_logitech_tap=disabled",
+                    "-Dplugin_uefi_capsule_splash=false",
+                    "-Dtests=false",
                     "-Dvendor_ids_dir=#{Formula["usb.ids"].opt_share}/misc/usb.ids",
                     *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"

@@ -12,6 +12,7 @@ class Threatcl < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "a9ba82386458b23a469c2a44f63d0082f29a70e0b4fae6e2f1639d5ea70a4c0f"
     sha256 cellar: :any_skip_relocation, sonoma:        "46da682adf6735fdadae113fc41d653e5c9ea7a8166baea4f3cc1488454b430f"
     sha256 cellar: :any_skip_relocation, ventura:       "7a88eab63c27dffe542c17e399c31f3e66c4b094fe84d2e30c0aa9b642fee91b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "09cfa3f948a2085274aa67e048987c2696ecc609aabbf8092e13c304474ceaf2"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "fc4b42f55268b9805ae1f337db8491a91f7ac456cd27b07f3320ecd427355801"
   end
 

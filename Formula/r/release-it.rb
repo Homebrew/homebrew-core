@@ -1,18 +1,23 @@
 class ReleaseIt < Formula
   desc "Generic CLI tool to automate versioning and package publishing related tasks"
   homepage "https://github.com/release-it/release-it"
-  url "https://registry.npmjs.org/release-it/-/release-it-18.1.2.tgz"
-  sha256 "f35150b5144779a0cea9fc1929ef611e83d7a2f30ae0c622a9015ad3891ca167"
+  url "https://registry.npmjs.org/release-it/-/release-it-19.0.2.tgz"
+  sha256 "01479d1ce2790bb3cd627b30aa76a4330aa6e9e33d0c866520fc6e9d3dd68690"
   license "MIT"
 
+  livecheck do
+    url :homepage
+    strategy :github_latest
+  end
+
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d134f703a9f2370491711555ec5a6e5fd56191cbf146dafac8fc4b6cce589794"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d134f703a9f2370491711555ec5a6e5fd56191cbf146dafac8fc4b6cce589794"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "d134f703a9f2370491711555ec5a6e5fd56191cbf146dafac8fc4b6cce589794"
-    sha256 cellar: :any_skip_relocation, sonoma:        "a9e29f79b5bb405179134e0c540301da0ff5f2870990ff89b53e7579e3cfaebb"
-    sha256 cellar: :any_skip_relocation, ventura:       "a9e29f79b5bb405179134e0c540301da0ff5f2870990ff89b53e7579e3cfaebb"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e25057ab9adb9f425648790faacc5aaa68c1679ef43571da31ca41ac9b1cf1f9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d134f703a9f2370491711555ec5a6e5fd56191cbf146dafac8fc4b6cce589794"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "46e2b43473116c1d1503893eeeb35f0d1e24426e514a0a2459b30556b625d309"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "46e2b43473116c1d1503893eeeb35f0d1e24426e514a0a2459b30556b625d309"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "46e2b43473116c1d1503893eeeb35f0d1e24426e514a0a2459b30556b625d309"
+    sha256 cellar: :any_skip_relocation, sonoma:        "afd352d5a5a5ae9fd7925685e4245fbfe1b3ba37e6d9ff6a9497d1b84c9712eb"
+    sha256 cellar: :any_skip_relocation, ventura:       "afd352d5a5a5ae9fd7925685e4245fbfe1b3ba37e6d9ff6a9497d1b84c9712eb"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "46e2b43473116c1d1503893eeeb35f0d1e24426e514a0a2459b30556b625d309"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "46e2b43473116c1d1503893eeeb35f0d1e24426e514a0a2459b30556b625d309"
   end
 
   depends_on "node"
@@ -24,6 +29,7 @@ class ReleaseIt < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/release-it -v")
+    (testpath/".release-it.json").write("{\"foo\": \"bar\"}")
     (testpath/"package.json").write("{\"name\":\"test-pkg\",\"version\":\"1.0.0\"}")
     assert_match(/Let's release test-pkg.+\(1\.0\.0\.\.\.1\.0\.1\).+Empty changelog.+Done \(in \d+s\.\)/m,
       shell_output("#{bin}/release-it --npm.skipChecks --no-npm.publish --ci"))

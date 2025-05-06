@@ -23,6 +23,7 @@ class BrigadeCli < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "ac352707fa64317b9a5f9761bca6e51ef9da7381e070bfcbe54aceb6561f2ba0"
     sha256 cellar: :any_skip_relocation, big_sur:        "df47dabe1fa9f31b4e192307622c25134f09672b5a3149f634b360beef60a31c"
     sha256 cellar: :any_skip_relocation, catalina:       "c8053952e004fb4455c0402425de2e7099141964f914d3c906206e69865c98cc"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "e99412f76441b9a81e06bcb4a343498e2910d1b67a24995acbfafa840fc2289d"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "17449306b36ee93b21a273f1e7435610e11b903f49ebf5566dceac471fd0fe89"
   end
 

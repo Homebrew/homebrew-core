@@ -1,19 +1,19 @@
 class Giza < Formula
   desc "Scientific plotting library for C/Fortran built on cairo"
   homepage "https://danieljprice.github.io/giza/"
-  url "https://github.com/danieljprice/giza/archive/refs/tags/v1.4.4.tar.gz"
-  sha256 "cbd25427b52ffbf87ae7a54aea906f9fab55ed7773857a9b2f724efd79923de1"
+  url "https://github.com/danieljprice/giza/archive/refs/tags/v1.5.0.tar.gz"
+  sha256 "d45f1f930b4e4a3c77e0b110b97b732c290d169bf9ae0c3fc7dcd2895c1b3afe"
   license "LGPL-3.0-only"
   head "https://github.com/danieljprice/giza.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "7aee9fc789a50a7b402e9166e06a06bfd76414493ad80df18b0b4ade8d32f77f"
-    sha256 cellar: :any,                 arm64_sonoma:  "67971fd27cc7e40d5f98754836ef42dcb4ef1c0ddf66331f0d21e26207257bdb"
-    sha256 cellar: :any,                 arm64_ventura: "4a3c0833ec4b3e8a6431418eb094d105cd2e2df86af4dbf7c0528895b16b1aae"
-    sha256 cellar: :any,                 sonoma:        "c4ed0b1ac1908380e160dd5a16ec08e8a9e9043bad61c027aa58cbe4674307ce"
-    sha256 cellar: :any,                 ventura:       "1ccfaacf89c4afeabb14a61e4fea79c6912d7b0d0f50e7aa0f006aedf867d490"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c5b8c6b1c0102fb9937510a31a056f7efc90253c5ee721fe35e1ced3ba836343"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3a531fc97b0597105115166b51577526bd9f4d23a7166985daafa29914dd409c"
+    sha256 cellar: :any,                 arm64_sequoia: "d5cc5b8ea3baf6cb3405ec37acb4ef91623456492cd0222787bf9461272d4e80"
+    sha256 cellar: :any,                 arm64_sonoma:  "77d5fc21407f015635c46f41f0bdcb5aabbb320c967f30d3eafe639f9b1d9b71"
+    sha256 cellar: :any,                 arm64_ventura: "bdd8d667ec2cd0d4553748b79f8e77f41a4740f7bae0e584e0981274f3def56d"
+    sha256 cellar: :any,                 sonoma:        "b4eed7ab19e5b3d979c9e3329d764ad7059b4d65b6ae3fcf75ce2a6159cf2f7c"
+    sha256 cellar: :any,                 ventura:       "0e7d7bed8f2db32709a52169fb98bd47c57c361138364e4dbc7a4a41604273e5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7d695e84283aa5d04c6565ef04815a27020c0011ffdf3f6a58e86565a08aef9d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ce3e71bc56a0ebaaf18f8649b0b92eec8e51149ebc6a2ce5bdd9ffce0e5c6cdf"
   end
 
   depends_on "pkgconf" => :build

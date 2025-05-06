@@ -13,6 +13,7 @@ class Uni < Formula
     sha256 cellar: :any_skip_relocation, sonoma:         "e35a0f3bdaf6a9c3eeac5bfeb1041c2f1bc454cfc3f13be21e97081e77a33530"
     sha256 cellar: :any_skip_relocation, ventura:        "e35a0f3bdaf6a9c3eeac5bfeb1041c2f1bc454cfc3f13be21e97081e77a33530"
     sha256 cellar: :any_skip_relocation, monterey:       "e35a0f3bdaf6a9c3eeac5bfeb1041c2f1bc454cfc3f13be21e97081e77a33530"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "8c1644a7b55d42d6d5745029d5f4d861702dd3c331f4d6dbca67606c2ea4afc9"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "e806e0bf1993f45ab980bd2a01bd4ae1d00b60adc33449c5ec5fdb766c0eebc2"
   end
 

@@ -21,6 +21,7 @@ class Cmockery2 < Formula
     sha256 cellar: :any,                 high_sierra:    "3651caa0ed8c5e2ec5dc0fe8932a53e20c2af28d3887161d1cdfe9c46fb9f220"
     sha256 cellar: :any,                 sierra:         "661b4a8751a4dbe7e52b19cd9452d8b7dd61c929d73da27ac4fca5623a0dff6c"
     sha256 cellar: :any,                 el_capitan:     "61b64aeaf89d205742bbb254148502cd2df83bcf05d20377bdce8637f275bee5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "c6ac6d81a0948d2367a87348f13d73d93551be94be3c90040222d0530decce9c"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "3277107c3831686b1fbd803f8d5613f1c29800293c144b982b018f61b63b1870"
   end
 

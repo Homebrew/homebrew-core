@@ -21,6 +21,7 @@ class Daemonlogger < Formula
     sha256 cellar: :any,                 high_sierra:    "04242956845e71d839b050dd765829a217268486eb625a481a3fae85bd577f0d"
     sha256 cellar: :any,                 sierra:         "c3ac14ab04174e06129fc0a51d31ad992f3d11f362ecb1cf3803092b6c68b146"
     sha256 cellar: :any,                 el_capitan:     "582aa8e07f269bdfa00b1f66157c06339b62285d94f6b8ffa6a472eac063e5e5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "f113a27d6f67fb9de34fd6b13d6736aa466df7d0d6d9eb91c21446937500b596"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "462b6ecbf94169210be2591de29de97b69a701cc810485fb956bf7892e1b57fa"
   end
 
@@ -29,7 +30,11 @@ class Daemonlogger < Formula
   uses_from_macos "libpcap"
 
   def install
-    system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
+    args = []
+    # Help old config scripts identify arm64 linux
+    args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+
+    system "./configure", *args, *std_configure_args
     system "make", "install"
   end
 

@@ -12,6 +12,7 @@ class Pandoc < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "4d4840372e692b8dd8a29f5f209b78ae2d73886a2c9bfc263c157c3721841ae3"
     sha256 cellar: :any_skip_relocation, sonoma:        "a3bc92d621607b1bea6ebda5374d24bb1ebede20d8039e73894b1b82051b9b87"
     sha256 cellar: :any_skip_relocation, ventura:       "0155aee5bcc2916df8a1a69232c0f43d1f9efd33f66cf96716cbb04558c446cf"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "963549fdbd70cdb14d55bec244eabd87f1c6735cba7704f8789ef559520fdfed"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "1e4c600cc033ebad74e6acecef8358e8b7d42006651c58f79e07fb9f36860fc3"
   end
 

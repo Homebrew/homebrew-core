@@ -6,6 +6,7 @@ class Libgudev < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
+    sha256 arm64_linux:  "87a74706d570f25e40cec26c3ab07258b0b7e1b99950927d14083310f6998869"
     sha256 x86_64_linux: "c1e3053f6df286a07df2a34c82054fabb56af45680102943a5e459d12cc94cad"
   end
 
@@ -42,6 +43,7 @@ class Libgudev < Formula
         return 0;
       }
     C
+    ENV.append_path "PKG_CONFIG_PATH", Formula["systemd"].lib/"pkgconfig"
     system ENV.cc, "test.c", "-o", "test", *shell_output("pkgconf --cflags --libs gudev-1.0").chomp.split
     system "./test"
   end

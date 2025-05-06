@@ -1,18 +1,19 @@
 class Tbls < Formula
-  desc "CI-Friendly tool for document a database"
+  desc "CI-Friendly tool to document a database"
   homepage "https://github.com/k1LoW/tbls"
-  url "https://github.com/k1LoW/tbls/archive/refs/tags/v1.84.0.tar.gz"
-  sha256 "8c1cc0475bd4e1524da9522c19a5165ce5d3e36fcfa637b2d4bf47c002114c67"
+  url "https://github.com/k1LoW/tbls/archive/refs/tags/v1.85.2.tar.gz"
+  sha256 "74ad380e107f6c7999834ea041b2626030e5d482274816400d48ab5a489de709"
   license "MIT"
   head "https://github.com/k1LoW/tbls.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b36b8b349ed40eac85fb8b8fd40aea2c326fb6bbbf393ef8b59e7d325d76ac6f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e0430b76a186b8ceb76529e8440a8b5f85f84008ca185c108bb1c236f48182e9"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "8c17022c7de7533840b3662db1d41dad79fafcbbcf616a316eaaa029c8cc31da"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c14f258ad4b044bc2f1eea2f548709105a180761124c7f3888714f07ee621dcc"
-    sha256 cellar: :any_skip_relocation, ventura:       "7089671e8e614bf3f017e1b12bb1d855f098c91cde0f4b6c161a49bbbfe3b253"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3bf1b49421470dcc5dc638e616160215dc9ebb7c54beb39eb05966ffd71bf651"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "821798f211971f15433e79224c7015179596bfb5415344f392c48138e6d0ea87"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2a8f3f910e96579129acd272c0cd562d14357c544edb3e71fb915d12487b38b9"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "9984c4049e0cd5416f31f5b940af9399e0d0bf1377ba976915e285ee91bcccf3"
+    sha256 cellar: :any_skip_relocation, sonoma:        "eb3e3e2f34f30565dc02f1ec3e5631005d4a5ef48ea2e795cd84ddca103a91d7"
+    sha256 cellar: :any_skip_relocation, ventura:       "09afac0e48f184ced4ea5beffe8944538803264f823871eb07d5e74cd60f30be"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ada59ae79d2b42d0d0e24612adfaaf5541b093b95406800c95401ccfbbb747f8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5de3a57b627a9efb09c2afffb773d4de9dd19abf0aa4f0e02ed588e7da848627"
   end
 
   depends_on "go" => :build

@@ -13,6 +13,7 @@ class Tfproviderlint < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "f7ed7fe0393b6cc3591ca9dbcce920c84698ff11ab9446e29e93888a67a494f8"
     sha256 cellar: :any_skip_relocation, sonoma:        "a6ff646a23f8738c5e0b3dcb848c09b1125182d03e0d7925d58927bb6b066f36"
     sha256 cellar: :any_skip_relocation, ventura:       "a6ff646a23f8738c5e0b3dcb848c09b1125182d03e0d7925d58927bb6b066f36"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a31f564bfe6ecb8bb9ac76043141bf54674b05d51ef4c0df2cfa964fdf25742c"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "45dcc2992373e36bd948f80f3a4e9db317c4d209ee2e449c476fbd1e4490854c"
   end
 

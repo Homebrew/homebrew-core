@@ -4,18 +4,16 @@ class Libecpint < Formula
   url "https://github.com/robashaw/libecpint/archive/refs/tags/v1.0.7.tar.gz"
   sha256 "e9c60fddb2614f113ab59ec620799d961db73979845e6e637c4a6fb72aee51cc"
   license "MIT"
+  revision 1
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia:  "a1e4ea8f5ae8f9516095177b10dc19154d4d808f7f66a9dec5b8094fafb7f92a"
-    sha256 cellar: :any,                 arm64_sonoma:   "d754e834771a32fc1c9e09e0d90b72232970512fc889a84b5a9b9ce6ca110cd4"
-    sha256 cellar: :any,                 arm64_ventura:  "2c6e35a7a116b61a0ce86a7c98ea815366bf50e05262ce95695402ec0963906f"
-    sha256 cellar: :any,                 arm64_monterey: "354ad48d6548c4c14a11c7fe6906d3144b62970ed28b6945449bacd68070a654"
-    sha256 cellar: :any,                 sonoma:         "fac0c8b117413ae906344bef51c1c39fcfcea62ef89d17d232602e0d3e62ff90"
-    sha256 cellar: :any,                 ventura:        "2ad164c6bde6c42997d6d520c1b948c6fd068eb8a014bcb37a27a794cf73e61a"
-    sha256 cellar: :any,                 monterey:       "4679cb57350812962b316debc76e489ea8b19806a566aaa7c00f25d47d821a5f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "2b0d3cc23fe08806db0815176dc10d20c38a68e36de59e56135f518b46c9c373"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3f0c3872e62c90591879e5de99b0f67932051815627ebbdabe2653203d7337ed"
+    sha256 cellar: :any,                 arm64_sequoia: "c52edb64ef2f58d2917ed6c23b673ba7a91e235d5f484dd33f5b09aa667d165a"
+    sha256 cellar: :any,                 arm64_sonoma:  "ddfb7be7a3099e1b6f55f39207977de575a8073143259a1bc4f9ee1ab4f4618e"
+    sha256 cellar: :any,                 arm64_ventura: "d925cc07595e0fc312ff86fdcdbed3e9952a0c6cb097152d7c54ce9de46b6587"
+    sha256 cellar: :any,                 sonoma:        "a6f706be76c6675f4ec6ae3e4745557764273336a650c6dd35272f07221c35bf"
+    sha256 cellar: :any,                 ventura:       "a0f40b815e0a8c17a5afaee0f7fc302cada2bebadccbd016a684001b03e964fb"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "beadc5b890d76cc2a78af3a2d848dd5b647b9287bb38d38ce81affc88aa2ebf6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "87eb0928e103b94c921b2a7dc1c12b0e12033e917f67ba0b01d2015af1d126b9"
   end
 
   depends_on "cmake" => :build
@@ -25,6 +23,10 @@ class Libecpint < Formula
   uses_from_macos "python" => :build
 
   def install
+    # Fix the error: found '_dawson' in libcerf.3.0.dylib, declaration possibly missing 'extern "C"'
+    # Issue ref: https://github.com/robashaw/libecpint/issues/65
+    inreplace "src/CMakeLists.txt", "cerf::cerf", "cerf::cerfcpp"
+
     args = [
       "-DBUILD_SHARED_LIBS=ON",
       "-DLIBECPINT_USE_CERF=ON",

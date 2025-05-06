@@ -3,7 +3,7 @@ class MoonBuggy < Formula
   homepage "https://www.seehuhn.de/pages/moon-buggy.html"
   url "https://m.seehuhn.de/programs/moon-buggy-1.0.tar.gz"
   sha256 "f8296f3fabd93aa0f83c247fbad7759effc49eba6ab5fdd7992f603d2d78e51a"
-  license "GPL-2.0-or-later"
+  license any_of: ["GPL-2.0-or-later", "GPL-3.0-or-later"]
 
   # Upstream uses a similar version format for stable and unstable versions
   # (e.g. 1.0 is stable but 1.0.51 is experimental), so this identifies stable
@@ -28,6 +28,7 @@ class MoonBuggy < Formula
     sha256 high_sierra:    "54948d0646240382661b765ab2253258946fb10b2974587d719b24a771172d91"
     sha256 sierra:         "fb2abda84d3e2b20f286caa036fadb9bfd6c4df151352a171385a54ca43acda9"
     sha256 el_capitan:     "b71bfe4abfb1d2c3d35db544850cb56f1b2ba50df18d27d3fef3ed5845b30e76"
+    sha256 arm64_linux:    "4b9e2098eb4035d86768d9850ecc00f5e92e89406a3780c6efc598030af95a5a"
     sha256 x86_64_linux:   "72e827a7015b8a6d3fa38358221125375c8c4d2ae96b6c47a391714706dcfdbf"
   end
 
@@ -40,11 +41,13 @@ class MoonBuggy < Formula
   uses_from_macos "ncurses"
 
   def install
-    system "./autogen.sh" if build.head?
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--mandir=#{man}",
-                          "--infodir=#{info}"
+    args = ["--mandir=#{man}", "--infodir=#{info}"]
+    if build.head?
+      system "./autogen.sh"
+    elsif OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      args << "--build=aarch64-unknown-linux-gnu"
+    end
+    system "./configure", *args, *std_configure_args
     system "make", "install"
   end
 

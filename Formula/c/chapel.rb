@@ -6,22 +6,24 @@ class Chapel < Formula
   url "https://github.com/chapel-lang/chapel/releases/download/2.4.0/chapel-2.4.0.tar.gz"
   sha256 "a51a472488290df12d1657db2e7118ab519743094f33650f910d92b54c56f315"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/chapel-lang/chapel.git", branch: "main"
 
   bottle do
-    sha256 arm64_sequoia: "59188f8485768959302c9f4a458ff66e5c2c4ece64691fa5a639880936d6c990"
-    sha256 arm64_sonoma:  "05e8d2137ebd0722a4d533ffaa3fad94400f98f8b83d6b52c63eef609844fdae"
-    sha256 arm64_ventura: "8312360f28974f10d754a44400f399dcdb3758061e6cb350adb3f4459cdd84a1"
-    sha256 sonoma:        "b207875a623eaf69641509aa3329fc6baebc1ad6e7d7bbe103b7377a52cf6406"
-    sha256 ventura:       "9b1730b815cee7c4e2b2e88d153e7e7ba3c560461cbfe6dcf9c7bddffce00741"
-    sha256 x86_64_linux:  "972bc472973e5f3e40826b31f66c30464b8a0fe1e28ac173cfae4a54be54160f"
+    sha256 arm64_sequoia: "39d09a4ea7a236789faabbda9e37a1959092a7e62b78bdc766a103c2a5a7e7dd"
+    sha256 arm64_sonoma:  "ed069fbef4e4c55675657e27889a903dd33dc096211a57fe5e76978969c8d25c"
+    sha256 arm64_ventura: "f3bb27f2dcc20c01fe7a2ba76f6035b8acbc8f90435c996122065c744f7308cf"
+    sha256 sonoma:        "df799ae0298a4dce4d9723f447fdbb3d1e8d4e6ba9351d3c4d2de36dd21e591e"
+    sha256 ventura:       "d34c180e3189d10e91f9bc0027c2284b5dd56d0c487502d68e5261be3b9ab665"
+    sha256 arm64_linux:   "e4a6d3dc4ab06f2a8274501989aec21ff31f9cbe52eb640e1b27b2c8bc9cd048"
+    sha256 x86_64_linux:  "8b4606eb517371eab693e70bf8b4170fe21d8b8ce411d0fc347e2cd53f780148"
   end
 
   depends_on "cmake"
   depends_on "gmp"
   depends_on "hwloc"
   depends_on "jemalloc"
-  depends_on "llvm"
+  depends_on "llvm@19"
   depends_on "pkgconf"
   depends_on "python@3.13"
 
@@ -89,7 +91,7 @@ class Chapel < Formula
 
     # Install chpl and other binaries (e.g. chpldoc) into bin/ as exec scripts.
     platform = if OS.linux? && Hardware::CPU.is_64_bit?
-      "linux64-#{Hardware::CPU.arch}"
+      "linux64-#{Hardware::CPU.arm? ? "aarch64" : Hardware::CPU.arch}"
     else
       "#{OS.kernel_name.downcase}-#{Hardware::CPU.arch}"
     end

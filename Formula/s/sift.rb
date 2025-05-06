@@ -19,6 +19,7 @@ class Sift < Formula
 
   # https://github.com/svent/sift/issues/120
   deprecate! date: "2024-03-26", because: :unmaintained
+  disable! date: "2025-03-26", because: :unmaintained
 
   depends_on "go" => :build
 

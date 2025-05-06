@@ -1,10 +1,9 @@
 class Qmmp < Formula
   desc "Qt-based Multimedia Player"
   homepage "https://qmmp.ylsoftware.com/"
-  url "https://qmmp.ylsoftware.com/files/qmmp/2.2/qmmp-2.2.3.tar.bz2"
-  sha256 "993e57d8e11b083bb6f246738505edf35d498ffe82a1936f3129b8bb09eab244"
+  url "https://qmmp.ylsoftware.com/files/qmmp/2.2/qmmp-2.2.5.tar.bz2"
+  sha256 "58211f327ac385abbc7d75e6a5d8dd64bcdb5cc0f1119329f2927d1631097e18"
   license "GPL-2.0-or-later"
-  revision 2
 
   livecheck do
     url "https://qmmp.ylsoftware.com/downloads.php"
@@ -12,11 +11,11 @@ class Qmmp < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:  "5a026724dfaa94732e7cc749baa013bc25782b03e6155f40025fc6692fe4b1b3"
-    sha256 cellar: :any,                 arm64_ventura: "0097a2462c6cd4af2f8e017117d57bf04cdb8eae14e2ec2add0b09d764d940c1"
-    sha256 cellar: :any,                 sonoma:        "2683f5bb4937701adaa655158da8f78eeea817622c7f7fd020ce9110c2fbb851"
-    sha256 cellar: :any,                 ventura:       "50553475fd30aea759262b890cf9f7cf9dbd89a43cfae266607b482c11add98b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6b154d59693a72394df6eb920a2c193b4b55f2f892a18f4989ffcf3465f7228a"
+    sha256 cellar: :any,                 arm64_sonoma:  "da4d29849942a54e81aaecba1120a1e60a307e8198c1a61139a4705912b20753"
+    sha256 cellar: :any,                 arm64_ventura: "a7885cfcd49b682ded597300822ecd608fb8568a8ebce0840ccec2f09451f425"
+    sha256 cellar: :any,                 sonoma:        "f1e021e589dc0d078da8ad510be52b828a554499853aa1e62ff6d0485f1943f1"
+    sha256 cellar: :any,                 ventura:       "a24704593d01e95c2eafc1ec66497af5c3b30e77b5247ddc8e5ed5900fecc0d0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "32a0a2618ddbe6ac58cd3697bd7b094214f13e5255da22fee576b8a8c5967238"
   end
 
   depends_on "cmake" => :build
@@ -71,14 +70,13 @@ class Qmmp < Formula
   end
 
   resource "qmmp-plugin-pack" do
-    url "https://qmmp.ylsoftware.com/files/qmmp-plugin-pack/2.2/qmmp-plugin-pack-2.2.1.tar.bz2"
-    sha256 "bfb19dfc657a3b2d882bb1cf4069551488352ae920d8efac391d218c00770682"
-  end
+    url "https://qmmp.ylsoftware.com/files/qmmp-plugin-pack/2.2/qmmp-plugin-pack-2.2.2.tar.bz2"
+    sha256 "0e85c8290b49aceddb7a52f9452d9c0c008539b6fba4ab2296b59a67d0b0846b"
 
-  # add taglib 2.x support
-  patch do
-    url "https://sources.debian.org/data/main/q/qmmp/2.2.3-1/debian/patches/0002-Fix-taglib-2.x-compatibility.patch"
-    sha256 "837bea7d6af9dc0be072b450f74ce9382ae1c7963d2e4a78c9eb2208b283ea62"
+    livecheck do
+      url "https://qmmp.ylsoftware.com/plugins.php"
+      regex(/href=.*?qmmp-plugin-pack[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    end
   end
 
   def install
@@ -94,10 +92,6 @@ class Qmmp < Formula
       cmake_args << "-DCMAKE_SHARED_LINKER_FLAGS=-Wl,-undefined,dynamic_lookup"
       cmake_args << "-DCMAKE_MODULE_LINKER_FLAGS=-Wl,-undefined,dynamic_lookup"
     end
-
-    # Fix to recognize x11
-    # Issue ref: https://sourceforge.net/p/qmmp-dev/tickets/1177/
-    inreplace "src/plugins/Ui/skinned/CMakeLists.txt", "PkgConfig::X11", "${X11_LDFLAGS}"
 
     system "cmake", "-S", ".", "-B", "build", *cmake_args, *std_cmake_args
     system "cmake", "--build", "build"

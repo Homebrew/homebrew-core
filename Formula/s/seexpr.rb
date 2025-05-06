@@ -11,15 +11,14 @@ class Seexpr < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia:  "d568f50ded114a9116f96515049ba0938ab9d348e6254c649412426edb7a6909"
-    sha256 cellar: :any,                 arm64_sonoma:   "5da5b2e705b2aa90b55a91e3671c07bbad530694de37ad57d6be0441bcd4421f"
-    sha256 cellar: :any,                 arm64_ventura:  "b28dd49e3d0b93c67e39ed97067547643b9254119e9bc117b575739fda21ba9d"
-    sha256 cellar: :any,                 arm64_monterey: "164fa646ad87a1c238d9581a59f6d4cc2992aff2a70cb1c2467cd20eaea02823"
-    sha256 cellar: :any,                 sonoma:         "f996afede28403cf87f1cab3ce3d689358dc0f588cb056cea633beddc5e7b26d"
-    sha256 cellar: :any,                 ventura:        "ff14944ca49cfb596a51a60e99b4af150869d58ff50f4e696144dbc2f329198e"
-    sha256 cellar: :any,                 monterey:       "015e7bfe379958ce3e7cf76160b7db986bb3b64b352d9d7d7264408efacd5b3c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2e1e13ab5faa794301571ff544a072b4cc4398affe0f61113ff13918025e3680"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_sequoia: "bb4a0dda70f5ddd52570aa14998475ca6a14a02e57c0703084d32b25fee3b69d"
+    sha256 cellar: :any,                 arm64_sonoma:  "1b5ce1a0a308b584bd43837a5cc06fa4d1c88276bec2b1a510088a96d947033f"
+    sha256 cellar: :any,                 arm64_ventura: "48d883728af997e5d3805c2b162973aa5d883b38db75ce2caeb5174406276713"
+    sha256 cellar: :any,                 sonoma:        "e4c95048b7bef18faee54008b94f674863f18b42fd1fa6bc978c6c96a0167791"
+    sha256 cellar: :any,                 ventura:       "1634179b0990f9b55997ea81ff5a9b8702cb4d8fdaaa3f3ef64d34b5ccb45bfb"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "fc21c3bcac5847ffdfab83c45e85312726b9bc0bc4f6af7b3a1457b85e2baa97"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cb306407c4c3dceac93d89e8505a81bde4b4a20798f2e856bf7189ae41dc77ea"
   end
 
   depends_on "cmake" => :build
@@ -35,11 +34,15 @@ class Seexpr < Formula
   end
 
   def install
+    sse4 = Hardware::CPU.intel? && ((OS.mac? && MacOS.version.requires_sse4?) ||
+                                    (!build.bottle? && Hardware::CPU.sse4?))
+
     args = %W[
       -DCMAKE_INSTALL_RPATH=#{rpath}
       -DUSE_PYTHON=FALSE
       -DENABLE_LLVM_BACKEND=FALSE
       -DENABLE_QT5=FALSE
+      -DENABLE_SSE4=#{sse4 ? "ON" : "OFF"}
     ]
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
@@ -50,7 +53,7 @@ class Seexpr < Formula
 
   test do
     actual_output = shell_output("#{bin}/asciiGraph2 'x^3-8*x'").lines.map(&:rstrip).join("\n")
-    roundoff = "#" if Hardware::CPU.arm? && OS.mac? && MacOS.version >= :ventura
+    roundoff = "#" if Hardware::CPU.arm? && (!OS.mac? || MacOS.version >= :ventura)
     expected_output = <<~EOS
                                     |        #
                               ##    |        #
@@ -84,6 +87,6 @@ class Seexpr < Formula
                           #         |
     EOS
 
-    assert_equal actual_output, expected_output.rstrip
+    assert_equal expected_output.rstrip, actual_output
   end
 end

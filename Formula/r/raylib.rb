@@ -12,6 +12,7 @@ class Raylib < Formula
     sha256 cellar: :any,                 arm64_ventura: "b7dd5d1afd3c21145c7ca8e850f9acffb773a86ab05fa8b271d70fdc877874c0"
     sha256 cellar: :any,                 sonoma:        "27792cb3dacfecbebac27d0f131352dd83a8cfef788dc0c22eb981805a65bfda"
     sha256 cellar: :any,                 ventura:       "3e2398dfe727607adcb84c4f45144570235cdb97dba82eb0e01df188bf7776d0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a59c2b0c8f2860a6373111e355eccca9170fb2aba77f9acd2aa5589c5de5b62f"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "401315b8abc27b4351ec647fc8add4bdd8213012fe6d3200f1981afd357f7d7e"
   end
 

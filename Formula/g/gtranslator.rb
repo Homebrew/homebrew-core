@@ -11,6 +11,7 @@ class Gtranslator < Formula
     sha256 arm64_ventura: "25e6488bef8333cdcf5cdd7bdaebcaa9b4aed313b7d622c63471cb0dd283cb15"
     sha256 sonoma:        "726b1853ffff31972de87fe405054ba68275e37795ae9008d4e32b261b87822f"
     sha256 ventura:       "b0a7410ae57d2dfe88fb9b1b24280c17be9f0328391ce5d8c4daeb988ea7cd61"
+    sha256 arm64_linux:   "3ed87f53f600bfa97ff051503934004292f80fcf87bdfe3ccfd4df0dee35c092"
     sha256 x86_64_linux:  "f90143186e87fb3d3216ea137e1976b4d60fb3e77fcbd0ea8b2444de389358a2"
   end
 

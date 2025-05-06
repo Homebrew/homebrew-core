@@ -12,6 +12,7 @@ class Trdsql < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "8c3a2bd0fe2bf86949101930b1efb4c280a52756d59f69b3f04d0c8c612dd415"
     sha256 cellar: :any_skip_relocation, sonoma:        "1dc4cae00a081d54f378ff91ab8b3b80c538063efec0633b11ce0e24c4dc64e4"
     sha256 cellar: :any_skip_relocation, ventura:       "bb08c8329af1c57cdda3d50b3d685274c45835665a9d91bf7db15caf01d5c19e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0f84e77253c3cb7ad195e7e3dae37b9981e018aa6bc18be292566f433efa7c07"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "bcfdc24169094af5142de81d1f342512c639c262bc8f10566e5ee5230ae6a2ac"
   end
 

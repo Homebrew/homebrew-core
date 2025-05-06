@@ -1,12 +1,11 @@
 class Mysql < Formula
   desc "Open source relational database management system"
   # FIXME: Actual homepage fails audit due to Homebrew's user-agent
-  # homepage "https://dev.mysql.com/doc/refman/9.2/en/"
+  # homepage "https://dev.mysql.com/doc/refman/9.3/en/"
   homepage "https://github.com/mysql/mysql-server"
-  url "https://cdn.mysql.com/Downloads/MySQL-9.2/mysql-9.2.0.tar.gz"
-  sha256 "a39d11fdf6cf8d1b03b708d537a9132de4b99a9eb4d610293937f0687cd37a12"
+  url "https://cdn.mysql.com/Downloads/MySQL-9.3/mysql-9.3.0.tar.gz"
+  sha256 "1a3ee236f1daac5ef897c6325c9b0e0aae486389be1b8001deb3ff77ce682d60"
   license "GPL-2.0-only" => { with: "Universal-FOSS-exception-1.0" }
-  revision 3
 
   livecheck do
     url "https://dev.mysql.com/downloads/mysql/?tpl=files&os=src"
@@ -14,13 +13,13 @@ class Mysql < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "32753b6f6cfa2a6a7941de8e9c6efeb134ada05b7160e8e8fde7714907374554"
-    sha256 arm64_sonoma:  "d5c6e57001b7e3bd6f4389a12d8fa9ce77288ae0074c76d255b8350b6287e4d0"
-    sha256 arm64_ventura: "2203d5f4d456a954842b7de96b32802f587ed4c4c8dc0ba4ab4f5063b8822809"
-    sha256 sonoma:        "774354f586c49cdfcab91a18925b241b14152809290ef0bf4aae4fd00027b3ae"
-    sha256 ventura:       "5eb8c1b68d480e0f545a5217ed5f18bea33a28d1c4a6e5a79eace6b0fe29f5e0"
-    sha256 arm64_linux:   "097dca4d0c77a3cc70d88d0216949b6d45ee990bc7ee803ae74113f6e251a29e"
-    sha256 x86_64_linux:  "36fb5e843bfa6add36de2c68d88af0cdd83f9451c575d48f4499dd347b8bfa11"
+    sha256 arm64_sequoia: "a1c4bcbfc9cd29ebd827d898ee23fa671d38e53fe38ed941d4de9dc5f2925bab"
+    sha256 arm64_sonoma:  "a85846ee100275d3aff0e1fb367d236efe2f08b01486a4e17d95f44065a99777"
+    sha256 arm64_ventura: "bbd5331e6cad86f69fd249644870e12298fb7700941c4b442766d6b39ad2efcd"
+    sha256 sonoma:        "246637314ceb5efb5f4df6e8e9548523fd24bf99d2ab2249baf55c990323a083"
+    sha256 ventura:       "e3485cdac165beee6846f57b678938929e2339e80fa83f1f16f152130c1f46b1"
+    sha256 arm64_linux:   "6b3feff6a22a3dc3ebc0b52aa20be21de6c15c4508236e6c2c718c6630f235b0"
+    sha256 x86_64_linux:  "4f4f12f8b6e178121b92995ed4a3153dca966f6c304fc74765066761aa86a56e"
   end
 
   depends_on "bison" => :build
@@ -73,7 +72,7 @@ class Mysql < Formula
     # Remove bundled libraries other than explicitly allowed below.
     # `boost` and `rapidjson` must use bundled copy due to patches.
     # `lz4` is still needed due to xxhash.c used by mysqlgcs
-    keep = %w[boost duktape libbacktrace libcno lz4 rapidjson unordered_dense]
+    keep = %w[boost duktape libbacktrace libcno lz4 rapidjson unordered_dense xxhash]
     (buildpath/"extra").each_child { |dir| rm_r(dir) unless keep.include?(dir.basename.to_s) }
 
     if OS.linux?

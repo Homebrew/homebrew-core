@@ -7,7 +7,9 @@ class PnpmAT8 < Formula
 
   livecheck do
     url "https://registry.npmjs.org/pnpm/latest-8"
-    regex(/["']version["']:\s*?["'](8[^"']+)["']/i)
+    strategy :json do |json|
+      json["version"]
+    end
   end
 
   bottle do
@@ -19,6 +21,7 @@ class PnpmAT8 < Formula
     sha256 cellar: :any,                 sonoma:         "b0146e361c9446d60b53583e83ca15eb49843b7d7056db3eced35b1c7066fc8c"
     sha256 cellar: :any,                 ventura:        "b0146e361c9446d60b53583e83ca15eb49843b7d7056db3eced35b1c7066fc8c"
     sha256 cellar: :any,                 monterey:       "b0146e361c9446d60b53583e83ca15eb49843b7d7056db3eced35b1c7066fc8c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "e0ebd800d22d8e8c65092bfe4778a268493f5f0c4eca6df5fe9d7bcb63876245"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "7814ebe5944979026566edb11fa7466d282b4e7ec4fcfa6778c1a9cefdf02948"
   end
 

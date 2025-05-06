@@ -22,6 +22,7 @@ class Bioperl < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "cce1be0687ce0d7b8cbaaaa2192dcc0ee3e624978c7e5296c2676099fb9c647e"
     sha256 cellar: :any_skip_relocation, sonoma:        "a79018530a34ea3fc2515bf85a4db9ed4379ccf7aeb9ef5d744d5fdb3009596e"
     sha256 cellar: :any_skip_relocation, ventura:       "ff98f524ac97416bd3893e5decb6f4e5deb9340f27fbca59a5b8f231bd800829"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "14e32e55fcf6f8242d16b3200ca0df932f03752526af6d26c08256f98acbe8d6"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "c28697f03736035682992843bd2dae185e38958cea70dde760636d5fe5661f13"
   end
 

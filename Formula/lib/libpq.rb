@@ -17,6 +17,7 @@ class Libpq < Formula
     sha256 arm64_ventura: "e99ecda84fb5f0916f880c9c948f09b39c9d41e8753fd1fbc8bba6df69fac2ea"
     sha256 sonoma:        "56e9a1b6989876211ac979f936f54aed74af06371f039b331f15c970d9924ec7"
     sha256 ventura:       "020d0f1ad534770b2341a0bc0c836377a5e741fa1aa288a2c700e980d1f9ced1"
+    sha256 arm64_linux:   "b53f6a940943be15290dac3a7efe1985c4595e78263a2c81622dc74ebe232715"
     sha256 x86_64_linux:  "85f0b26d9fca6e6edb0683ce4a39279cdbce9c447bcd278041c1bac9e8ef5af8"
   end
 
@@ -43,6 +44,7 @@ class Libpq < Formula
 
   def install
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
+    ENV.runtime_cpu_detection
 
     system "./configure", "--disable-debug",
                           "--prefix=#{prefix}",

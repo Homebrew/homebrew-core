@@ -16,6 +16,7 @@ class Ser2net < Formula
     sha256 arm64_ventura: "9b44815a69d50a6b90ba151efd9d249c84fe72e79af313c45cbc7024a9d17c69"
     sha256 sonoma:        "b2768bd79fee75dfa6c90e867c0cd310aca45d783dc3670e29c8c6fc44b685ef"
     sha256 ventura:       "29cab0a79d777129131d2deb84463f5d0ef4ed5e8a5d6e713c1ab3ef18e12141"
+    sha256 arm64_linux:   "25a61d3a99c2c5886eef9ff5e2d21a60d6901083858215fa22e66fb3e07adf1e"
     sha256 x86_64_linux:  "548cc6d37793cd0028a9e57b86958ef53b0b7283284051adb0dd9448d81e5faf"
   end
 

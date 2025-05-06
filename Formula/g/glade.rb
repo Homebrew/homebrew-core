@@ -14,6 +14,7 @@ class Glade < Formula
     sha256 sonoma:         "00e5ab66baac9cb320fc6f95281d3a0d647fef6c8f461c0ba4ff1c45ecc56a58"
     sha256 ventura:        "ce76321eef07573869f0f9d38048981c32780dc98e1e8cd40761dd62725c770d"
     sha256 monterey:       "6564eb300ee2bf7ad5b8d587cd77f66bddf91087626bb9b07c0148776a1fe95a"
+    sha256 arm64_linux:    "b62ca594e2c8e5add5bbc8180897aa24816e9a528f306aff4fc3da13aad03ec0"
     sha256 x86_64_linux:   "a68666c43b3c79b9532742a2351093d587fe0da66c369ba3e62ed35f223c4deb"
   end
 

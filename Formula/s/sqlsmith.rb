@@ -17,6 +17,7 @@ class Sqlsmith < Formula
     sha256 cellar: :any,                 arm64_ventura: "d04086ed41c23bdeb8f3a2530e3ab40dfc49b48ee25ebfb0e7e98678ff6ed366"
     sha256 cellar: :any,                 sonoma:        "15bf710fd3748acb8aedb46336e91ee7646a2ba566f920ad71d6bcc36887228c"
     sha256 cellar: :any,                 ventura:       "4ba417966b98ed9413a2bc5770f33d2d185678c3662cc6783d4db3e9cc03221a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8d6801038b4cff8cec72c060386fd5fba691188e4dfbe784de0085237dbfc9b9"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "0097bee5057fa4d814dfa431ff700cfc87253c243bf1b806f6515b08c05b3b1b"
   end
 

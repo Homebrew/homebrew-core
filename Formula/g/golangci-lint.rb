@@ -2,18 +2,19 @@ class GolangciLint < Formula
   desc "Fast linters runner for Go"
   homepage "https://golangci-lint.run/"
   url "https://github.com/golangci/golangci-lint.git",
-        tag:      "v2.0.0",
-        revision: "f1f8343d12ac33720efeb5898141d1e065789751"
+      tag:      "v2.1.6",
+      revision: "eabc2638a66daf5bb6c6fb052a32fa3ef7b6600d"
   license "GPL-3.0-only"
   head "https://github.com/golangci/golangci-lint.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "69bafb867ab4f84c4218ce5b70a31761a660c63737ce1be7387bd26b17eb7e7d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f698c4fff3e3ee7e3632da42410289e12caaea2c32c15f1cf6dbe80ff7cfebfb"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "e6af4de275c54cb51da8517912ab3f2516e23efe80db2e66536884ea1639b209"
-    sha256 cellar: :any_skip_relocation, sonoma:        "87daf456e2c2a7eb170b2b1365021c07c16a5a520e0e3e9240692e3531211a6a"
-    sha256 cellar: :any_skip_relocation, ventura:       "96cda0ae1662c1aab7b86736a71362c0c54ac557c67f9e803f180c99635192d3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "24ee643a0c6c9a77b61c65a18fb29b6687857290e3a6a853b9fe46057f814bb8"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b80012d1179f11a0a79d0ec3fa9155db068ba75d638fce9fbb386c4e605cfbab"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fcc6b4a7485deddbb1cbed2846b7cc4384dc7977c34706dbc8d7561b795f2254"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "d7b4c863107265a25e9bf4f68344023038a30c18ac3168dab44941464f040de4"
+    sha256 cellar: :any_skip_relocation, sonoma:        "0f32dc08095420d13326009a0abdccd6c91bfdeb573c94dc83fddea51a66e17b"
+    sha256 cellar: :any_skip_relocation, ventura:       "63994547cab21c5da7206b9df1da16b2df75d78abd44a30db493aff1f5d51b98"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7640a45b1e0c68a0096d97b45d60851f1e60be478e681f5b3bac20998ecbc63e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6b90ac1736b55e6e911bf760b1bb1d3ca637c4c62aee270f34d3e95783cd7bbb"
   end
 
   depends_on "go"

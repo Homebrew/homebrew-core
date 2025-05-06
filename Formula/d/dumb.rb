@@ -7,6 +7,10 @@ class Dumb < Formula
   # https://src.fedoraproject.org/rpms/dumb/blob/rawhide/f/license-clarification.eml
   license :cannot_represent
 
+  livecheck do
+    skip "No longer developed or maintained"
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "7158a40eed75a578dd615fdf83840be91a4fd565b0ce5170c4e91d494e0a0a16"
     sha256 cellar: :any,                 arm64_sonoma:   "f9510e55b969457e77567594f6963a7a6470f86dac7f252ed3c01757314c44dd"
@@ -18,6 +22,7 @@ class Dumb < Formula
     sha256 cellar: :any,                 monterey:       "a0933282bbe2feb52a06cac1a1a189b83af422e422036f78b0fcfa0e55f5726c"
     sha256 cellar: :any,                 big_sur:        "2dade8ff6646f71df07f3b2d586c9bb49ae24c3f0b5ddddea7a09a3762501f5c"
     sha256 cellar: :any,                 catalina:       "f9d0768b3b50614adfb2190899362e250f20a14be0fb0c2d21d37bee0afea672"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "040bc8a1b4387d297c3c83f33fc68f79b885a4fe0530e9ce9c70257f38faadc9"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "de4310947cbbc1807cf9c2bbdb9dcc42cc381de7153b3dc4f206718a1923fe40"
   end
 

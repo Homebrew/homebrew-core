@@ -1,8 +1,8 @@
 class Tfsec < Formula
   desc "Static analysis security scanner for your terraform code"
   homepage "https://aquasecurity.github.io/tfsec/latest/"
-  url "https://github.com/aquasecurity/tfsec/archive/refs/tags/v1.28.13.tar.gz"
-  sha256 "da61798e226a98e3d13de9d8c3b46d304834098e56422e6481cf58ef17891dd9"
+  url "https://github.com/aquasecurity/tfsec/archive/refs/tags/v1.28.14.tar.gz"
+  sha256 "61fe8ee670cceaf45d85c2789da66616d0045f8dbba4ec2b9db453436f9b9804"
   license "MIT"
   head "https://github.com/aquasecurity/tfsec.git", branch: "master"
 
@@ -12,12 +12,13 @@ class Tfsec < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5ba29ee5620cf9caa84d5383b03bdd3652d77bb5d5d75b8e28c9a01dfd6e5863"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e5d8f51adbd6ec93430504d56257f40b996353e180f764fbd083027db1825c9e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "7e939545e948611f9cb9af0e3c0493807dab898240b9a15123d1f8e355fc7b54"
-    sha256 cellar: :any_skip_relocation, sonoma:        "4b365c01dc9f6149159d6cad32feb0c9d6cbb123b8cfca3554d43713326c6ea8"
-    sha256 cellar: :any_skip_relocation, ventura:       "7982570ec2ca494dae2a1f55d764fdd7216b90ac3797f0b7068fb8861eea6887"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "11d652ef5f0a858dfac179de3e323e82c10d9ce5cef3387756a3c6edfd386525"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8cf695583885541d5458402c40342efa2beebee6ad5cfce832c738bfc5b8a2c9"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "95f94624c56f21064b7621e9d01c9cc78a60186864119a7f738b62d9fb97727b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "4c3fed3af871e78aa8129120ee048064e4f6bfc8a8d44a8aff8582a0e48732c9"
+    sha256 cellar: :any_skip_relocation, sonoma:        "181f6a3acfe91948ad4482b079d602bc1c03ad5c415c916f2dba42d590eed863"
+    sha256 cellar: :any_skip_relocation, ventura:       "d7384e0c097b2e9668cd12a696f4b5bd6ae8df1832051fcafa32e6583b715057"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3ba4ea5c30dc01b827abd7f4f8719806a1a76ecda0ff3096a6a170a3461b4c82"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dde3909cdd3d6c5e799ad913a640ba9d2ba2af6e7112254ab4d280335dda52cf"
   end
 
   depends_on "go" => :build

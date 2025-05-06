@@ -1,8 +1,8 @@
 class Geogram < Formula
   desc "Programming library of geometric algorithms"
   homepage "https://github.com/BrunoLevy/geogram/wiki"
-  url "https://github.com/BrunoLevy/geogram/releases/download/v1.9.4/geogram_1.9.4.tar.gz"
-  sha256 "d0d54887e3c07cefc801de553a9d3bbddece43400c28d36ba031302a196c1c91"
+  url "https://github.com/BrunoLevy/geogram/releases/download/v1.9.5/geogram_1.9.5.tar.gz"
+  sha256 "d560dd16d19bb9095f999d7fb6c3ba6b6380d0d4bd0fdb469614c118cf610e1e"
   license all_of: ["BSD-3-Clause", :public_domain, "LGPL-3.0-or-later", "MIT"]
   head "https://github.com/BrunoLevy/geogram.git", branch: "main"
 
@@ -12,12 +12,13 @@ class Geogram < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "d9ec4a1dcbc9c34930bcac08b4caa931bf7c118b7a21f8812bfb30e2aa8668b6"
-    sha256 cellar: :any,                 arm64_sonoma:  "80293b283bfd042e8a063c7bd9c7754caac4cf2d3b160f40a1d9710740d6159f"
-    sha256 cellar: :any,                 arm64_ventura: "c26302ea1ec636582f5cebec7c9672ac5a5add5c6ebd19d8c62141f994f5a3f4"
-    sha256 cellar: :any,                 sonoma:        "5e2d3e32d05cfe4281fb00a9ca76ae409422f39782cab42be6cdb962b98db653"
-    sha256 cellar: :any,                 ventura:       "7b796fe15499a5a9abfd476e54590345bd1dacc6853cc57b8a65e0665bc9f150"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "caf3c4a262b8f5c7dfc6e14b21f4b4da86a0bcbf22d401ec9ff04b5869893e5e"
+    sha256 cellar: :any,                 arm64_sequoia: "29687107bb45ab0d397d927f900a3534dbbb26ebb8b3574fcd2422dccd0144d1"
+    sha256 cellar: :any,                 arm64_sonoma:  "7b4d6118e4949d4767ecf2c1f5d78c644350acbeb9568780abf0a34d0152118a"
+    sha256 cellar: :any,                 arm64_ventura: "ab91e6e70dcb12d181fd7b13efcf923ff3971c883f6ef1c4e1cac971da3867e1"
+    sha256 cellar: :any,                 sonoma:        "28e36d51008b5787861e14c5c821144699b29602f555dab6bcd1a9379e6d7432"
+    sha256 cellar: :any,                 ventura:       "283a675b700596c7536aad422bb5658b16c127ba6f0324763af56e877911c614"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "27389e3bf7fc6336c68794710de6207b6ce1fc003c39ed6bc4dbac8b1bf79a25"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "59a3b9c57e27ee8128ae157e42c7cd0c89967fc6b205a44e68fe867018d4b92e"
   end
 
   depends_on "cmake" => :build
@@ -28,16 +29,21 @@ class Geogram < Formula
   end
 
   def install
-    (buildpath/"CMakeOptions.txt").append_lines <<~EOS
+    (buildpath/"CMakeOptions.txt").append_lines <<~CMAKE
       set(CMAKE_INSTALL_PREFIX #{prefix})
       set(GEOGRAM_USE_SYSTEM_GLFW3 ON)
-    EOS
+    CMAKE
+
+    platform = if OS.mac?
+      "Darwin-clang-dynamic"
+    elsif Hardware::CPU.intel?
+      "Linux64-gcc-dynamic"
+    else
+      "Linux64-gcc-aarch64"
+    end
 
     system "./configure.sh"
-    platform = OS.mac? ? "Darwin-clang" : "Linux64-gcc"
-    cd "build/#{platform}-dynamic-Release" do
-      system "make", "install"
-    end
+    system "make", "-C", "build/#{platform}-Release", "install"
 
     (share/"cmake/Modules").install Dir[lib/"cmake/modules/*"]
   end

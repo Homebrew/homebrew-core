@@ -13,6 +13,7 @@ class Boolector < Formula
     sha256 cellar: :any_skip_relocation, sonoma:         "4a4617f2272b60e1abed3faa99242423bdae8d761d508abe457b68487f91a030"
     sha256 cellar: :any_skip_relocation, ventura:        "9c19e47efd028a1a3104a53a1102d30ebc239828b5756461e2a7df222c1ee98d"
     sha256 cellar: :any_skip_relocation, monterey:       "7b93dcb7a6974662f62d5bd7b24138117d80d474ca82c3eca2ba42d138040631"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "d6312b85c8f97aafbe24c940186b4fb2e12990ca54e93fe5edf29401b7966081"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "4745395152455d49e3833ee69624a437e36fba98caf9d1d57f0c168d3e9034ca"
   end
 

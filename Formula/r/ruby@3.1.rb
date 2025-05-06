@@ -1,27 +1,25 @@
 class RubyAT31 < Formula
   desc "Powerful, clean, object-oriented scripting language"
   homepage "https://www.ruby-lang.org/"
-  url "https://cache.ruby-lang.org/pub/ruby/3.1/ruby-3.1.6.tar.gz"
-  sha256 "0d0dafb859e76763432571a3109d1537d976266be3083445651dc68deed25c22"
+  url "https://cache.ruby-lang.org/pub/ruby/3.1/ruby-3.1.7.tar.gz"
+  sha256 "0556acd69f141ddace03fa5dd8d76e7ea0d8f5232edf012429579bcdaab30e7b"
   license "Ruby"
-
-  livecheck do
-    url "https://www.ruby-lang.org/en/downloads/releases/"
-    regex(/href=.*?ruby[._-]v?(3\.1(?:\.\d+)+)\.t/i)
-  end
 
   bottle do
     rebuild 1
-    sha256 arm64_sequoia: "7c2cfc1d13b3cf6f9d5f512c5db1671ac59a45587e801afffff865e563317591"
-    sha256 arm64_sonoma:  "f56c01cd8d7cf4054fd95503f738e83e87cda639a0f9080441a753e8ccbc88df"
-    sha256 arm64_ventura: "8ebbc78941564e92a8990b2835e142dc7c800f51968563215ebd8a896ff11292"
-    sha256 sonoma:        "55ecb9dfb93f5e3627054c0b549e1c1a1c370c9722a0048d27383233df4168a8"
-    sha256 ventura:       "04616b21752a8d3f7db1280cfb2ef995c1756fc9a604fb247b7e67637745fcde"
-    sha256 arm64_linux:   "dcf541acf3a58e9627102fed214bbae1027093b97b8d6d612912493f69a7919c"
-    sha256 x86_64_linux:  "1cbdd53137f42894eec9423fa7bd2b1d9849f7e15f2a9964c9b0e7ba7a9fd56f"
+    sha256 arm64_sequoia: "0b2c994b56cc016e46c5897105ec0c68ce7a84dc755e2ffab9fbcbca55997998"
+    sha256 arm64_sonoma:  "3198d30fb1e0727f1a68f20378d7a91be4de039fb2f0ef6fe818e0be1122e36f"
+    sha256 arm64_ventura: "ccb66ea8882437d80774ca761207d8207d061958615fc5869f8a4e717950d45a"
+    sha256 sonoma:        "6fbb3535f124ecccb1a8d717d724c64d623e8622aac47c19861db79cee5119f6"
+    sha256 ventura:       "4eae88a8a7d9606e90a79a05e9dd26f95f0f3e66741361b43c6f5b09ebe87345"
+    sha256 arm64_linux:   "3ea209c0300bd00dd41982809bcdfae936e4b0dea615be35fbfbadebdeb1fa64"
+    sha256 x86_64_linux:  "09a389c668f653f5d2fbc5de2c94e5bb13591a3161731828561033c8b994db4f"
   end
 
   keg_only :versioned_formula
+
+  # EOL: 2025-03-26
+  deprecate! date: "2025-04-08", because: :unsupported
 
   depends_on "pkgconf" => :build
   depends_on "libyaml"
@@ -129,9 +127,14 @@ class RubyAT31 < Formula
       (rg_gems_in/"gems").install Dir[buildpath/"vendor_gem/gems/*"]
       (rg_gems_in/"specifications/default").install Dir[buildpath/"vendor_gem/specifications/default/*"]
       bin.install buildpath/"vendor_gem/bin/gem" => "gem"
-      (libexec/"gembin").install buildpath/"vendor_gem/bin/bundle" => "bundle"
-      (libexec/"gembin").install_symlink "bundle" => "bundler"
+      bin.install buildpath/"vendor_gem/bin/bundle" => "bundle"
+      bin.install buildpath/"vendor_gem/bin/bundler" => "bundler"
     end
+
+    # Customize rubygems to look/install in the global gem directory
+    # instead of in the Cellar, making gems last across reinstalls
+    config_file = lib/"ruby/#{api_version}/rubygems/defaults/operating_system.rb"
+    config_file.write rubygems_config
   end
 
   def post_install
@@ -143,21 +146,9 @@ class RubyAT31 < Formula
       #{rubygems_bindir}/bundler
     ].select { |file| File.exist?(file) })
     rm_r(Dir[HOMEBREW_PREFIX/"lib/ruby/gems/#{api_version}/gems/bundler-*"])
-    rubygems_bindir.install_symlink Dir[libexec/"gembin/*"]
-
-    # Customize rubygems to look/install in the global gem directory
-    # instead of in the Cellar, making gems last across reinstalls
-    config_file = lib/"ruby/#{api_version}/rubygems/defaults/operating_system.rb"
-    config_file.unlink if config_file.exist?
-    config_file.write rubygems_config(api_version)
-
-    # Create the sitedir and vendordir that were skipped during install
-    %w[sitearchdir vendorarchdir].each do |dir|
-      mkdir_p `#{bin}/ruby -rrbconfig -e 'print RbConfig::CONFIG["#{dir}"]'`
-    end
   end
 
-  def rubygems_config(api_version)
+  def rubygems_config
     <<~RUBY
       module Gem
         class << self
@@ -174,7 +165,7 @@ class RubyAT31 < Formula
             "lib",
             "ruby",
             "gems",
-            "#{api_version}"
+            RbConfig::CONFIG['ruby_version']
           ]
 
           @homebrew_path ||= File.join(*path)

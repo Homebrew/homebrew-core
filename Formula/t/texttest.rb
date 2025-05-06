@@ -13,6 +13,7 @@ class Texttest < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "c8d7b7a4826de374e7414534591609dfe3aa111dcdd7a97760451307900095d0"
     sha256 cellar: :any_skip_relocation, sonoma:        "e831db453a20deab3af02382342054bc1b5e4e80d2611d4e78b63169b2807b1d"
     sha256 cellar: :any_skip_relocation, ventura:       "935d18c9bedd751a7acb64eec6cb7571e8673a8d0c5e9fb7024b6aa1c263dc9d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b4ffc29e1deb1313dbea1455f09307d7879bf51c198507654fdc118a7fccb3e9"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "0c202f3d700abfdb9f4246882e0ac47beb7d644bb9576521c255145cddd7a0c7"
   end
 

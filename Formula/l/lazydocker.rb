@@ -4,6 +4,7 @@ class Lazydocker < Formula
   url "https://github.com/jesseduffield/lazydocker/archive/refs/tags/v0.24.1.tar.gz"
   sha256 "f54197d333a28e658d2eb4d9b22461ae73721ec9e4106ba23ed177fc530c21f4"
   license "MIT"
+  head "https://github.com/jesseduffield/lazydocker.git", branch: "master"
 
   bottle do
     rebuild 2

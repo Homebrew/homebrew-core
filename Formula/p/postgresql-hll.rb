@@ -11,6 +11,7 @@ class PostgresqlHll < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "7eff2df8ade96abbf8b6ea92b187994a875ef21491f57628b67b3e17524a896b"
     sha256 cellar: :any_skip_relocation, sonoma:        "ef85b1da74c48d8c1338dd3ba819f728d3c10ff0e2eb9df0144b684741bdcd55"
     sha256 cellar: :any_skip_relocation, ventura:       "f02c71f284135ed072743b270584d958183d8951c85faa42472dc0c602748b5f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "01e309e288fe1c16b2b47e4ec6ea57bc17da8d41bda3f49bbd869ef6aa62fd16"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "87c9b558987de3f251c0339c3427bf6e0c8172b887a697048b13b7cb0710e4de"
   end
 

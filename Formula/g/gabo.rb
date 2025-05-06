@@ -4,6 +4,7 @@ class Gabo < Formula
   url "https://github.com/ashishb/gabo/archive/refs/tags/v1.5.0.tar.gz"
   sha256 "e9f35080fc54490c5bba5eea27f6b336d3741c29ad039f270a1511d07d3e2cda"
   license "Apache-2.0"
+  head "https://github.com/ashishb/gabo.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "45cd2db844081e8bca9262d1858ab1e0f96f7efa9c8f21eb4c0ee38c9a06c03f"

@@ -14,6 +14,7 @@ class DroneCli < Formula
     sha256 cellar: :any_skip_relocation, sonoma:         "bdb5c00c40d6176cd7f9dcf1d5d2e16bd73301687f8feca565f6ac7ab99b5651"
     sha256 cellar: :any_skip_relocation, ventura:        "bdb5c00c40d6176cd7f9dcf1d5d2e16bd73301687f8feca565f6ac7ab99b5651"
     sha256 cellar: :any_skip_relocation, monterey:       "bdb5c00c40d6176cd7f9dcf1d5d2e16bd73301687f8feca565f6ac7ab99b5651"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "e416b331781eb265b5d9c17160bbf733290c38927a64dbe173da68935572d00f"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "c9f53894149db17b3bb43aeaf2b72cf81f4d9f564fe810b1e7ec241645a5be2e"
   end
 

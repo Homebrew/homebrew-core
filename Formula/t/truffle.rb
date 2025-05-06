@@ -14,6 +14,7 @@ class Truffle < Formula
     sha256                               sonoma:         "3f7dbf05369a67669711f1d7358446c46380a5caf38b599d1653156441d5e60e"
     sha256                               ventura:        "7fda9c9211a1884fe42f87dcdfe896eb35d8e5dd332e324d0fb25230417e3c1a"
     sha256                               monterey:       "ea609ec0150beda892f4bdad71aff910c78fbe91338798e8a6a65c37a0434f11"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "561cb47cb5d7ca64d71b9464c9fd356b06fccf878432c303ba6bbd5ddbf1b133"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "9db01e2a5e1d9ab923419eafc7a0588dd02bca55f62310277838a41d4cc5c653"
   end
 
@@ -23,28 +24,25 @@ class Truffle < Formula
     system "npm", "install", *std_npm_args
     bin.install_symlink Dir[libexec/"bin/*"]
 
+    # Remove incompatible pre-built binaries
     truffle_dir = libexec/"lib/node_modules/truffle"
     os = OS.kernel_name.downcase
     arch = Hardware::CPU.intel? ? "x64" : Hardware::CPU.arch.to_s
+    platforms = ["#{os}-#{arch}"]
+    platforms << "#{os}-x64+arm64" if OS.mac?
     %w[
       **/node_modules/*
       node_modules/ganache/node_modules/@trufflesuite/bigint-buffer
-      node_modules/ganache/node_modules/@trufflesuite/uws-js-unofficial
     ].each do |pattern|
-      truffle_dir.glob("#{pattern}/{prebuilds,binaries}/*").each do |dir|
-        if OS.mac? && dir.basename.to_s == "darwin-x64+arm64"
-          # Replace universal binaries with their native slices
-          deuniversalize_machos dir/"node.napi.node"
-        else
-          # Remove incompatible pre-built binaries
-          dir.glob("*.musl.node").map(&:unlink)
-          rm_r(dir) if dir.basename.to_s != "#{os}-#{arch}"
-        end
+      truffle_dir.glob("#{pattern}/prebuilds/*").each do |dir|
+        dir.glob("*.musl.node").map(&:unlink)
+        rm_r(dir) if platforms.exclude?(dir.basename.to_s)
       end
     end
-
-    # Replace remaining universal binaries with their native slices
-    deuniversalize_machos truffle_dir/"node_modules/ganache/node_modules/fsevents/fsevents.node"
+    pattern = "node_modules/ganache/node_modules/@trufflesuite/uws-js-unofficial/{binaries,dist}/*.node"
+    truffle_dir.glob(pattern) do |f|
+      rm(f) unless f.basename.to_s.match?("_#{os}_#{arch}_")
+    end
 
     # Remove incompatible pre-built binaries that have arbitrary names
     truffle_dir.glob("node_modules/ganache/dist/node{/,/F/}*.node").each do |f|
@@ -54,6 +52,9 @@ class Truffle < Formula
 
       f.unlink
     end
+
+    # Replace universal binaries with their native slices
+    deuniversalize_machos
   end
 
   test do

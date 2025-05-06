@@ -1,34 +1,30 @@
 class Exempi < Formula
   desc "Library to parse XMP metadata"
-  homepage "https://wiki.freedesktop.org/libopenraw/Exempi/"
-  url "https://libopenraw.freedesktop.org/download/exempi-2.6.5.tar.bz2"
-  sha256 "e9f9a3d42bff73b5eb0f77ec22cd0163c3e21949cc414ad1f19a0465dde41ffe"
+  homepage "https://libopenraw.freedesktop.org/exempi/"
+  url "https://libopenraw.freedesktop.org/download/exempi-2.6.6.tar.bz2"
+  sha256 "7513b7e42c3bd90a58d77d938c60d2e87c68f81646e7cb8b12d71fe334391c6f"
   license "BSD-3-Clause"
 
   livecheck do
-    url "https://libopenraw.freedesktop.org/exempi/"
+    url :homepage
     regex(/href=.*?exempi[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "e4a036c99bc1e87333deaecbd4d7fbaf08558b462acca4b295ed922505f31367"
-    sha256 cellar: :any,                 arm64_sonoma:   "fffe2e2da9ff2117ed01b3055811aa6b3c0348f33ca7da88bed84bbab3345767"
-    sha256 cellar: :any,                 arm64_ventura:  "f97b4edaedaf3346999176b2f790bee721e9684c4faba1fd6d8b4f95df5a512d"
-    sha256 cellar: :any,                 arm64_monterey: "3ea8dc1aaca7c2c12bd2673bdcb73dcb4c6f8fb6a928c9369e4cfcad5841e302"
-    sha256 cellar: :any,                 sonoma:         "d4a92c827d8e702c9de91c44749c4448b611fea06b2a0cb444b505366e80f3f7"
-    sha256 cellar: :any,                 ventura:        "ca6ef07fd6862b9148a8cabe608c0937f9da287638eec78d7402b29ba76c7fe2"
-    sha256 cellar: :any,                 monterey:       "9595f29483fb85b894f482fd86221d791a02878bf5395638b63d90313abbf890"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "f1f27c24cf771b5c4ff708f2db8b6171dc61ce52f5057f93133f684b76fded1a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "30ae54f527539c8f605086923bb33cb44560cb84bca42c06ec052d74a894f14c"
+    sha256 cellar: :any,                 arm64_sequoia: "b77fbb41fbb1dc44fb16bbf0219b73ee64f7007fda3218fcac57798b49958f74"
+    sha256 cellar: :any,                 arm64_sonoma:  "366a3c2192d027bf4678769b949d8d8c61881545a70fd10a5770c426428a92ad"
+    sha256 cellar: :any,                 arm64_ventura: "f0ea275a48137990d39787f8d82f679170ee2d2d6fb01087e16f324c85c90874"
+    sha256 cellar: :any,                 sonoma:        "5a556039d50589667e0571a46c0256821017e746512fd25b60de182259b61b54"
+    sha256 cellar: :any,                 ventura:       "403e67b569a604c3df1c1e16e6be47d5e347716ba63da67107473be8b19dd124"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3387fd15ebd91d6cd96671c317bf76ef49e3d98b163e70c58813eb0e4e04d426"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9784c25d2ff756cf7dc147211e48a7ea321803cd9e8e6747709fd000488aaf66"
   end
 
   uses_from_macos "expat"
   uses_from_macos "zlib"
 
   def install
-    system "./configure", "--disable-silent-rules",
-                          "--disable-unittest",
-                          *std_configure_args
+    system "./configure", "--disable-silent-rules", "--disable-unittest", *std_configure_args
     system "make", "install"
   end
 

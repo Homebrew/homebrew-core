@@ -6,11 +6,6 @@ class CargoWatch < Formula
   license "CC0-1.0"
   head "https://github.com/watchexec/cargo-watch.git", branch: "main"
 
-  livecheck do
-    url :stable
-    strategy :github_latest
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "3e89525ad4d4dcff0e84930435fafab04934a7ed2cf2701e5747a9d953c9e9b3"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d767cc28d20886e772e0ba5ea5b32be862b609d79ddaf8f8dd7dfde4e1cbb8a6"
@@ -20,6 +15,8 @@ class CargoWatch < Formula
     sha256 cellar: :any_skip_relocation, arm64_linux:   "1e1f3420f8e56134c4c42400399b67ea3e3389490ed5fd6d5fbce8b3b93289f4"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "9bc56bac3a510bfeb102997b3bdba25b01f83dddf771b116c46ef101dc8df988"
   end
+
+  deprecate! date: "2025-04-27", because: :repo_archived
 
   depends_on "rust" => :build
   depends_on "rustup" => :test
@@ -32,8 +29,8 @@ class CargoWatch < Formula
     # Show that we can use a different toolchain than the one provided by the `rust` formula.
     # https://github.com/Homebrew/homebrew-core/pull/134074#pullrequestreview-1484979359
     ENV.prepend_path "PATH", Formula["rustup"].bin
-    system "rustup", "default", "beta"
     system "rustup", "set", "profile", "minimal"
+    system "rustup", "default", "beta"
 
     output = shell_output("#{bin}/cargo-watch -x build 2>&1", 1)
     assert_match "error: project root does not exist", output

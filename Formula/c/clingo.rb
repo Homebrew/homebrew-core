@@ -1,8 +1,8 @@
 class Clingo < Formula
   desc "ASP system to ground and solve logic programs"
   homepage "https://potassco.org/clingo/"
-  url "https://github.com/potassco/clingo/archive/refs/tags/v5.7.1.tar.gz"
-  sha256 "544b76779676075bb4f557f05a015cbdbfbd0df4b2cc925ad976e86870154d81"
+  url "https://github.com/potassco/clingo/archive/refs/tags/v5.8.0.tar.gz"
+  sha256 "4ddd5975e79d7a0f8d126039f1b923a371b1a43e0e0687e1537a37d6d6d5cc7c"
   license "MIT"
 
   livecheck do
@@ -11,14 +11,13 @@ class Clingo < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia: "8e5be49e6063cf80941192bf2220a678e5829079692a66428f27e017f949d9d1"
-    sha256 cellar: :any,                 arm64_sonoma:  "9c67786766375e1e7512170cc52c16a9ef58d1c81ac7466279fdc4335051efaf"
-    sha256 cellar: :any,                 arm64_ventura: "dbdf5f8ae9de6a7779cc2bee5a4d6e890f8bdad5fa3535c1897739685a4f3c08"
-    sha256 cellar: :any,                 sonoma:        "aaf82b17129c9e137b41dd5915e1135f4de0900d73e155e1873a8d45a7646e5a"
-    sha256 cellar: :any,                 ventura:       "4382263c5c5fb381544df8158138cbafd982b3b2ee26ae3082cc6d2f1bb422c2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f8fa4997f759d75ec7ed0214d035fe58a3be992308a1aa72421d5cd092127eb2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2ed3aded3facd05a4372bfb4c4a4112b89762af2da0e9e858dc09918f17e6937"
+    sha256 cellar: :any,                 arm64_sequoia: "35d24c0f73cd44d4c42517ba3621df5d6a400ff7f4fd8306cc2f4622d40b008f"
+    sha256 cellar: :any,                 arm64_sonoma:  "e76e8773450698143ffdacc0bfc1d489caada722d4b2bd5714b66b4a5d0c59fe"
+    sha256 cellar: :any,                 arm64_ventura: "2db3b04fe55e9957addd3bbc2e7a211a9b1be4d114b3b5b04795f1a0576659ed"
+    sha256 cellar: :any,                 sonoma:        "ee580dd3486d3a83a0b71d5a3a9f0c3853862004079e3cb36e5c03226ff7f74a"
+    sha256 cellar: :any,                 ventura:       "acf4bec16f8de6c2f8c5d3c9139dc607a2d9ebfbb44da8777bfd4f84af449f9a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6b945753340a64e78a96e4aa1f030e9f5734937c33111c948be3e25cac089d5d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bcb0aa794aab95ff9376eaf61ecd30a803bdde61cf061998881b734687bdaedf"
   end
 
   head do

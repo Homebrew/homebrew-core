@@ -1,9 +1,10 @@
 class Root < Formula
   desc "Analyzing petabytes of data, scientifically"
   homepage "https://root.cern"
-  url "https://root.cern/download/root_v6.34.04.source.tar.gz"
-  sha256 "e320c5373a8e87bb29b7280954ca8355ad8c4295cf49235606f0c8b200acb374"
+  url "https://root.cern/download/root_v6.34.08.source.tar.gz"
+  sha256 "806045b156de03fe8f5661a670eab877f2e4d2da6c234dc3e31e98e2d7d96fe8"
   license "LGPL-2.1-or-later"
+  revision 1
   head "https://github.com/root-project/root.git", branch: "master"
 
   livecheck do
@@ -15,12 +16,13 @@ class Root < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "c795614a01a887ebf51918e4e0f5d50dd32b29fdbb8540cdbf56b50d5d56b939"
-    sha256 arm64_sonoma:  "943fa93aa59e03e53bca7b9723d88b09e2a8ecb004de93930056348e009d55fc"
-    sha256 arm64_ventura: "92e704a197505f29cd9530ec158496cb87d8e0696e7cf88d60f475fde6a38204"
-    sha256 sonoma:        "a108f575edca912e22e468b2cf013d0def14fe0e5bfd1c718835ae17a0aed7ec"
-    sha256 ventura:       "f565e670a9aeab04be5f665119681f4093d334a94ebecbbba4de5b766bf9678a"
-    sha256 x86_64_linux:  "9254f31ab37919c5eb58fe3c0d275f98424bbf1e57c1249a0632c676c930ceb4"
+    sha256 arm64_sequoia: "f46a695e06f2e4c05ede2c921f7240ba752169da241ecbcf8f115bd9a48f160d"
+    sha256 arm64_sonoma:  "d8623c949053b3b43a86726e90905609ceaf9a2f4229a9b612e32f2f44558409"
+    sha256 arm64_ventura: "a2dba4a7ab0688cbea5a194e8c57a195a354b6e0296fb640a51cca2438d84073"
+    sha256 sonoma:        "88a286786a1ec92b7f23298d7581fba2d71548940d65d88891c0a55265224ddb"
+    sha256 ventura:       "b806bb2a566e9692c4c9316acd7dded9e5816ce15a54f87a3a47124162c7939a"
+    sha256 arm64_linux:   "a2d95824af6ba1c333eae94ff69f364892aa8b270abfee5bc5809da5e9785c44"
+    sha256 x86_64_linux:  "fadc571765a24452c4ec7ae645c26185da731ee68b89c8f9d364b199096007a2"
   end
 
   depends_on "cmake" => :build
@@ -32,10 +34,14 @@ class Root < Formula
   depends_on "freetype"
   depends_on "ftgl"
   depends_on "gcc" # for gfortran
+  depends_on "giflib"
   depends_on "gl2ps"
   depends_on "glew"
   depends_on "graphviz"
   depends_on "gsl"
+  depends_on "jpeg-turbo"
+  depends_on "libpng"
+  depends_on "libtiff"
   depends_on "lz4"
   depends_on "mariadb-connector-c"
   depends_on "nlohmann-json"
@@ -62,10 +68,6 @@ class Root < Formula
   end
 
   on_linux do
-    depends_on "giflib"
-    depends_on "jpeg-turbo"
-    depends_on "libpng"
-    depends_on "libtiff"
     depends_on "libx11"
     depends_on "libxext"
     depends_on "libxft"
@@ -81,6 +83,9 @@ class Root < Formula
   end
 
   def install
+    # Workaround for CMake 4 due to VDT, https://github.com/dpiparo/vdt/blob/master/CMakeLists.txt
+    ENV["CMAKE_POLICY_VERSION_MINIMUM"] = "3.5"
+
     # Skip modification of CLING_OSX_SYSROOT to the unversioned SDK path
     # Related: https://github.com/Homebrew/homebrew-core/issues/135714
     # Related: https://github.com/root-project/cling/issues/457

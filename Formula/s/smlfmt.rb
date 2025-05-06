@@ -1,21 +1,19 @@
 class Smlfmt < Formula
   desc "Custom parser and code formatter for Standard ML"
   homepage "https://github.com/shwestrick/smlfmt"
-  url "https://github.com/shwestrick/smlfmt/archive/refs/tags/v1.1.0.tar.gz"
-  sha256 "ca957b3a72615d292443742a1b155d180d963e1c4e17d4d2644af4fb53be627f"
+  url "https://github.com/shwestrick/smlfmt/archive/refs/tags/v1.2.0.tar.gz"
+  sha256 "6517b0186518308d26f388d882af3b6106103a3ca3f00a4974e54fb526225df5"
   license "MIT"
   head "https://github.com/shwestrick/smlfmt.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "2329e3a4e23e56b1013035baaf9c9c1f157405aa2b07b853b982964c4a2f919d"
-    sha256 cellar: :any,                 arm64_sonoma:   "36c764b23fb9b73301fcf0601c7b09ec340da7e9196ae447ea38fa3060bfb8ef"
-    sha256 cellar: :any,                 arm64_ventura:  "868903facaf75ef62c7287e3cb00e2c2f2b6196c63329d0b79ce6e11c6a34ead"
-    sha256 cellar: :any,                 arm64_monterey: "f445a8363987d090c4e699f4875e16d05c04f0debb27b15bc2fc34fd3dcc2049"
-    sha256 cellar: :any,                 sonoma:         "a380f2a3f561e4a0f2c4c9a78caa9767d8f5585ed33dd6a49fd495dcf75f0323"
-    sha256 cellar: :any,                 ventura:        "f40b271e4ea6a8d87e64a7776e1ba2d57cb0c0bd25d242ce8ed3d5bee74eb6fa"
-    sha256 cellar: :any,                 monterey:       "cd0d919fc4a9557aedc0e2e6ef8e854b66b9daf5c956f66a45d38a30a815e635"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "517116d4374f5eb646431e1ade9474694e9cfe2685706ddafe67c45f03818d38"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d1b92b3ef804bcf8cb98eed9d42550f9752ac31479328e53e7e2d74c86687ec3"
+    sha256 cellar: :any,                 arm64_sequoia: "ca671852fb33a6c846046fc88e6ba48b80f18a2b41844bbb6f711c9ca6600e2b"
+    sha256 cellar: :any,                 arm64_sonoma:  "4a4d72dd8bc6a5eb4cc96f5b8029163371f7a8d8bc8ca005a6a01f874f8b24d7"
+    sha256 cellar: :any,                 arm64_ventura: "a69daa52e744e9fad8803348b5f29487de9d07fd1f4d7146402371e765c55da2"
+    sha256 cellar: :any,                 sonoma:        "76372f8a0e174f68b5dadaaa5cc621fb5cc71ea212284333c9b26dfc3d3a3a36"
+    sha256 cellar: :any,                 ventura:       "d64483f4b661c239a66377251e21db3c9194f9e5146e1bf0150994fd93c4f4d5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "215c5fe4dc87bb774faa139d50d6e794398d09f96e1f20da68d1ba58208de60b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "24cd0363e581e4721ee4717895fcd05cbe4cfeab264515bdcbb7d6bd905ee2f9"
   end
 
   depends_on "mlton" => :build

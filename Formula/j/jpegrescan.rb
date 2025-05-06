@@ -18,10 +18,12 @@ class Jpegrescan < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "b7e337050c5026743c9ef33c6b49423de22348cbac8f28f2a49f4635a52232d5"
     sha256 cellar: :any_skip_relocation, big_sur:        "b7e337050c5026743c9ef33c6b49423de22348cbac8f28f2a49f4635a52232d5"
     sha256 cellar: :any_skip_relocation, catalina:       "b7e337050c5026743c9ef33c6b49423de22348cbac8f28f2a49f4635a52232d5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "bac1bb840c090e49e0d900a61448ba4ed094fa29e758f6f7f3803e0e1d89ab3e"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "e57f2d0e5e4c03913297ea1c9d1c41164756dffd1899e89b4024125bf81477f2"
   end
 
   deprecate! date: "2024-04-05", because: :repo_archived
+  disable! date: "2025-04-08", because: :repo_archived
 
   depends_on "jpeg-turbo"
 

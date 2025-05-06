@@ -1,24 +1,25 @@
 class Adaptivecpp < Formula
   desc "SYCL and C++ standard parallelism for CPUs and GPUs"
-  homepage "https://github.com/AdaptiveCpp/AdaptiveCpp"
+  homepage "https://adaptivecpp.github.io/"
   url "https://github.com/AdaptiveCpp/AdaptiveCpp/archive/refs/tags/v24.10.0.tar.gz"
   sha256 "3bcd94eee41adea3ccc58390498ec9fd30e1548af5330a319be8ce3e034a6a0b"
   license "BSD-2-Clause"
+  revision 1
   head "https://github.com/AdaptiveCpp/AdaptiveCpp.git", branch: "develop"
 
   bottle do
-    sha256 arm64_sequoia: "6af7a60866ba36c0ba11868fc6e297770759edd2a27cc0a5b0b367710e86b6bb"
-    sha256 arm64_sonoma:  "f9c9b8747b3683f0867fd1a5fa9003c79021eb0e348f4dff8151be1df7489edd"
-    sha256 arm64_ventura: "6712a76c4d5506b9cd9c687bbc6e70897753b976597ee2f92461efe818261dab"
-    sha256 sonoma:        "4d6a4b0814bf29cd7c1c42fe56f5c6fe35bbf92616c3aefd40f54f97069cfe9a"
-    sha256 ventura:       "a3d0b58605759af86b67a17f88ffdf7bb34219f8ca45a6b4886e142ed8301a9c"
-    sha256 arm64_linux:   "ba37452491530ad9be470ede52f2f0e8533a340bc16c0a2498386e27670ee97c"
-    sha256 x86_64_linux:  "8fbf35c1a2f4dfec80ed3d99d03908d8fcfcf8ad85f8fb7c587414b9b1be5859"
+    sha256 arm64_sequoia: "8cb6f094a3fbf0f910601703c6d7e65831b8e568967e5a66ebfa950a98b0a968"
+    sha256 arm64_sonoma:  "8d9a08397ebf84cbbd09d37aca3b75464e3ee888a01d509aa8271dedf4dfbcbc"
+    sha256 arm64_ventura: "3c6e4a92536c76c3b791a5c905d37d5f1d61e392f0dce155cf9720ece150aa83"
+    sha256 sonoma:        "28388ca4a208e7e7d116bbbb4fb91458fa6217632db3579e9d3cf2ae2d4c4485"
+    sha256 ventura:       "3571494508ad1edb0f2f7636613b6c200725befa53190239d95a6b2cc5579a36"
+    sha256 arm64_linux:   "dd452feb307577a151f2132bc2c3508c26c44249d57a1445970dc7ee850591cc"
+    sha256 x86_64_linux:  "fbd4be61d9ad7377b5a54884ad1feeb4b4bf0e12df662d81ba0387100ce586c5"
   end
 
   depends_on "cmake" => :build
   depends_on "boost"
-  depends_on "llvm"
+  depends_on "llvm@19"
   uses_from_macos "python"
 
   on_macos do
@@ -26,19 +27,24 @@ class Adaptivecpp < Formula
   end
 
   def install
-    libomp_root = Formula["libomp"].opt_prefix
+    args = []
+    if OS.mac?
+      libomp_root = Formula["libomp"].opt_prefix
+      args << "-DOpenMP_ROOT=#{libomp_root}"
+    end
 
-    system "cmake", "-S", ".", "-B", "build", "-DOpenMP_ROOT=#{libomp_root}", *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
     # Avoid references to Homebrew shims directory
-    shim_references = [prefix/"etc/AdaptiveCpp/acpp-core.json"]
-    inreplace shim_references, Superenv.shims_path/ENV.cxx, ENV.cxx
+    inreplace prefix/"etc/AdaptiveCpp/acpp-core.json", Superenv.shims_path/ENV.cxx, ENV.cxx
+    return unless OS.mac?
 
     # we add -I#{libomp_root}/include to default-omp-cxx-flags
     inreplace prefix/"etc/AdaptiveCpp/acpp-core.json",
-      "\"default-omp-cxx-flags\" : \"", "\"default-omp-cxx-flags\" : \"-I#{libomp_root}/include "
+              "\"default-omp-cxx-flags\" : \"",
+              "\"default-omp-cxx-flags\" : \"-I#{libomp_root}/include "
   end
 
   test do

@@ -1,8 +1,8 @@
 class Perl < Formula
   desc "Highly capable, feature-rich programming language"
   homepage "https://www.perl.org/"
-  url "https://www.cpan.org/src/5.0/perl-5.40.1.tar.xz"
-  sha256 "dfa20c2eef2b4af133525610bbb65dd13777ecf998c9c5b1ccf0d308e732ee3f"
+  url "https://www.cpan.org/src/5.0/perl-5.40.2.tar.xz"
+  sha256 "0551c717458e703ef7972307ab19385edfa231198d88998df74e12226abf563b"
   license any_of: ["Artistic-1.0-Perl", "GPL-1.0-or-later"]
   head "https://github.com/perl/perl5.git", branch: "blead"
 
@@ -12,13 +12,13 @@ class Perl < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "deb1e0598e9fab86054f345c3569f252688a897725e9c7ed1634c9660f2dc9fa"
-    sha256 arm64_sonoma:  "7c145640d0b8a24f123ef285499946e3c5a35b9aacb29d465b0a413be49010ae"
-    sha256 arm64_ventura: "7a3aed6cec31ffd74bda529ce285018ad0e7e55b0d423f1ee6af3e4e7e068bb5"
-    sha256 sonoma:        "a9f24675258f611a4ef8be7168d9919e9830edd5754385ea15804713d4971458"
-    sha256 ventura:       "4be98edcecb72f5e3cc11d19e225a2bc69b7603416c20867e0a4a17348e32fef"
-    sha256 arm64_linux:   "c12a340cedff9a5a634ce06579660c2d2ae52d4f58917f7675c721fae244c786"
-    sha256 x86_64_linux:  "9f17ff3b6120694245653662db441c31d08e3bebaf20e4ddc9283ec86a8a2703"
+    sha256 arm64_sequoia: "c984a79cf9dba490a830081f3587349723c8c156b79dc7b6c159360624181299"
+    sha256 arm64_sonoma:  "3900203e58329e754f54397b61b9120a892f70d61ba48835b90b2fde45c1ecc0"
+    sha256 arm64_ventura: "f695d132859207d5406bb2ec7f5c522df7085065da91b2fdee94c53d090fc8b0"
+    sha256 sonoma:        "99d35f068ce3f224448fe8a2b6d11639a0a07a5df1213907337add51e5700bc7"
+    sha256 ventura:       "0c121d939ac294ca374240fa2aa755bb7f1debf2545961552e30ab464b337f30"
+    sha256 arm64_linux:   "6c2b1d9010669da23fe973949dc0d714bdff92d2cbd006d52a0d4736e743ffca"
+    sha256 x86_64_linux:  "018804347f6d231ea705e0b43c0d9ef6f996d9432697146dcce7fb65a8c3787f"
   end
 
   depends_on "berkeley-db@5" # keep berkeley-db < 6 to avoid AGPL-3.0 restrictions

@@ -1,17 +1,17 @@
 class Pgrok < Formula
   desc "Poor man's ngrok, multi-tenant HTTP/TCP reverse tunnel solution"
   homepage "https://github.com/pgrok/pgrok"
-  url "https://github.com/pgrok/pgrok/archive/refs/tags/v1.4.4.tar.gz"
-  sha256 "163fa1148de55580d68a0a13244c9e383d5648f81879fca375e43aaad870c23b"
+  url "https://github.com/pgrok/pgrok/archive/refs/tags/v1.4.5.tar.gz"
+  sha256 "b43c145970d8a3f02aa7f1e96d5607ea57daabd675e0d760bbc837f7113bdc43"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a122b633d1350ed2eb7dd40de635f87011d5d7b41594455d5fcb0e7443d95d0d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a122b633d1350ed2eb7dd40de635f87011d5d7b41594455d5fcb0e7443d95d0d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "a122b633d1350ed2eb7dd40de635f87011d5d7b41594455d5fcb0e7443d95d0d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "2f24566142b5e82f2dbc62f0e2509babc878c556a6a16f1ad6ddac6d9e699938"
-    sha256 cellar: :any_skip_relocation, ventura:       "2f24566142b5e82f2dbc62f0e2509babc878c556a6a16f1ad6ddac6d9e699938"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d3fcff195ca1c7a6499f4a0ae6b5fbb3b37af3e94c30faef86b8c0a7f556b4b6"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "72caa37de045c38a7f309e615264d7debd46d4aef4db4eecbc1bd27242363366"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "72caa37de045c38a7f309e615264d7debd46d4aef4db4eecbc1bd27242363366"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "72caa37de045c38a7f309e615264d7debd46d4aef4db4eecbc1bd27242363366"
+    sha256 cellar: :any_skip_relocation, sonoma:        "20cd73267e742a16928e424e9dcbd4d2df87c454a1b82a89eaa5f7bc4f4651b8"
+    sha256 cellar: :any_skip_relocation, ventura:       "20cd73267e742a16928e424e9dcbd4d2df87c454a1b82a89eaa5f7bc4f4651b8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cde6109a399efd862ca12f6c59a5153ce46d40fe1533d1b3e21cc3e4a46e8eb2"
   end
 
   depends_on "go" => :build

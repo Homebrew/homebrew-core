@@ -18,6 +18,7 @@ class Pixie < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "1cf672d31b3b683081c257958eb297f56ff5f0b394dc48f51e4be862751f9bce"
     sha256 cellar: :any_skip_relocation, sonoma:        "8fdd739ced12415fabcad6ceeb96550171e1b585143f274376ec56f776c83d90"
     sha256 cellar: :any_skip_relocation, ventura:       "afdfd7b18e2528f563336d90b53d9266a72b86d847df1afac796fc70f7f6e8e8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "eac95efb5aa8d4021a5c102cfcba35c8f5be2ebc2ce5f310cea8214699ae5f45"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "da530afc94d1ab1753b32d48e963b6cb6e4c45ef4daaaa2cad0255e54fab966a"
   end
 

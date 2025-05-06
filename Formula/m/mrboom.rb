@@ -13,6 +13,7 @@ class Mrboom < Formula
     sha256 cellar: :any,                 sonoma:         "0e9ade944b362e11025baa34ca19d545f8ba6f92668044288fc9b67d6ba0c35b"
     sha256 cellar: :any,                 ventura:        "2eae2f3ed78912724d5518e2e68f4cf96b30461b69c770b413f85564266a5231"
     sha256 cellar: :any,                 monterey:       "928df5b59e0ca8fd75ba6d73643c40a8f1de19be35c251a288dc0e991e2c57df"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "4e01474f0bc6aae305f5ca6bc0f0ed6de99fd70112540185d9d7baec1de89916"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "c5d458cb0a2f0ed01cca78bf15db00aa8e4f5750538456bd2024e640da79dc4e"
   end
 

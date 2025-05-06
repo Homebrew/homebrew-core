@@ -3,18 +3,18 @@ class Diffoscope < Formula
 
   desc "In-depth comparison of files, archives, and directories"
   homepage "https://diffoscope.org"
-  url "https://files.pythonhosted.org/packages/79/e8/7006c2434df59ce5027745256269c27b67d533dcae91c9c07290a248808a/diffoscope-291.tar.gz"
-  sha256 "fee52063f963b30bb940042b7f279c2321e33386221dfa210e360dde82eb6d01"
+  url "https://files.pythonhosted.org/packages/51/49/eb7545893027dda1767858b39305c9048a0d9636804616d79a8dc906f2fb/diffoscope-294.tar.gz"
+  sha256 "6833785359cade9930fa6d0699f646d62e937bebdb00182e499420f79084cb0d"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c34e3531ed45431cab7f5046af09e32395126c6e8a454ab747c36a77b4dad662"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c34e3531ed45431cab7f5046af09e32395126c6e8a454ab747c36a77b4dad662"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "c34e3531ed45431cab7f5046af09e32395126c6e8a454ab747c36a77b4dad662"
-    sha256 cellar: :any_skip_relocation, sonoma:        "933f5f45b545019bfd57dfce5519e066b1ef66d6bb65bd075eca393e36c41101"
-    sha256 cellar: :any_skip_relocation, ventura:       "933f5f45b545019bfd57dfce5519e066b1ef66d6bb65bd075eca393e36c41101"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3fdb743e664e82047572bb24a3351aff65d0db0c6f862345da00669ecf110aac"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3fdb743e664e82047572bb24a3351aff65d0db0c6f862345da00669ecf110aac"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "983b3a72e64edd88c16803eab9e1cc88db894ca60cb69556916f97a0801c7624"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "983b3a72e64edd88c16803eab9e1cc88db894ca60cb69556916f97a0801c7624"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "983b3a72e64edd88c16803eab9e1cc88db894ca60cb69556916f97a0801c7624"
+    sha256 cellar: :any_skip_relocation, sonoma:        "15b0b4cd688c1e1c950479457586cd5ffe3f5f6775a0bab688d68ba6ea64e71e"
+    sha256 cellar: :any_skip_relocation, ventura:       "15b0b4cd688c1e1c950479457586cd5ffe3f5f6775a0bab688d68ba6ea64e71e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "346fcaa9e1298415f29d71d43d093e2bcc9f19ba024613cb13b4a28a3947c19f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "346fcaa9e1298415f29d71d43d093e2bcc9f19ba024613cb13b4a28a3947c19f"
   end
 
   depends_on "libarchive"
@@ -22,8 +22,8 @@ class Diffoscope < Formula
   depends_on "python@3.13"
 
   resource "argcomplete" do
-    url "https://files.pythonhosted.org/packages/ee/be/29abccb5d9f61a92886a2fba2ac22bf74326b5c4f55d36d0a56094630589/argcomplete-3.6.0.tar.gz"
-    sha256 "2e4e42ec0ba2fff54b0d244d0b1623e86057673e57bafe72dda59c64bd5dee8b"
+    url "https://files.pythonhosted.org/packages/16/0f/861e168fc813c56a78b35f3c30d91c6757d1fd185af1110f1aec784b35d0/argcomplete-3.6.2.tar.gz"
+    sha256 "d0519b1bc867f5f4f4713c41ad0aba73a4a5f007449716b16f385f2166dc6adf"
   end
 
   resource "libarchive-c" do

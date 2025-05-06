@@ -12,6 +12,7 @@ class EasyTag < Formula
     sha256 arm64_ventura: "7aab98173864bbc6c9be2abd2e1ffaaa0629820740ac7299e3ee31bd858da934"
     sha256 sonoma:        "01e68eed3d45841e47f3dc5d881a96edcbb687795cb79c94adcf51f83bd291a4"
     sha256 ventura:       "e66e57435c818f0c4fd5e9a926e4716fee394f91c2391be98f0a5c31514eb897"
+    sha256 arm64_linux:   "8ea78b5349b575c0af14b9b98462173493f74b418330fd4b3408bf307d4139b4"
     sha256 x86_64_linux:  "7732a032b2ed7d6aafbe639d15ecd7d2583b286b1ba7e6433e6b58d9d9f0935f"
   end
 

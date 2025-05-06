@@ -17,6 +17,7 @@ class Kustomizer < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "826930275079d88859fd26976d3e7d8d7e9ebf57edeae256e232ce4c3603ce2f"
     sha256 cellar: :any_skip_relocation, big_sur:        "8f9ac16b04e1da34901f680da8c8f481e605d374822cf77752d68777f9cd9cf1"
     sha256 cellar: :any_skip_relocation, catalina:       "e954a47cd5a1e00b299a62432ec532ddd4545a7c2de6c4d669e2242af9080eb8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "b48f88c7d495d1eeb79bd63cff70648d07c4ca9615fa4d9a7ff89ea3e66bc1b1"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "2ed1242aaec95d97b1c835476b50556d96a6f8902d1bcdeca14fa7625243b437"
   end
 

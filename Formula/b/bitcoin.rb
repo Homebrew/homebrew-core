@@ -1,15 +1,14 @@
 class Bitcoin < Formula
   desc "Decentralized, peer to peer payment network"
   homepage "https://bitcoincore.org/"
-  url "https://bitcoincore.org/bin/bitcoin-core-28.1/bitcoin-28.1.tar.gz"
-  sha256 "c5ae2dd041c7f9d9b7c722490ba5a9d624f7e9a089c67090615e1ba4ad0883ba"
+  url "https://bitcoincore.org/bin/bitcoin-core-29.0/bitcoin-29.0.tar.gz"
+  sha256 "882c782c34a3bf2eacd1fae5cdc58b35b869883512f197f7d6dc8f195decfdaa"
   license all_of: [
     "MIT",
     "BSD-3-Clause", # src/crc32c, src/leveldb
     "BSL-1.0", # src/tinyformat.h
     "Sleepycat", # resource("bdb")
   ]
-  revision 1
   head "https://github.com/bitcoin/bitcoin.git", branch: "master"
 
   livecheck do
@@ -18,29 +17,23 @@ class Bitcoin < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "06006ddd8355af774ec5a8f2353e0caf55a7ca56d353a3f47e33e201e8cf5367"
-    sha256 cellar: :any,                 arm64_sonoma:  "c86da89b55363e4172e971d0b42badd7aadf8ea4113f364a0a16fe07b1ad01fb"
-    sha256 cellar: :any,                 arm64_ventura: "b955f167908e20578d6c964433c395ad9daee31f248c94165cd029b5a681d990"
-    sha256 cellar: :any,                 sonoma:        "e8a97cac935bf909971e2b7fce84c479ee630da0cc2d72444127a83ceac055ec"
-    sha256 cellar: :any,                 ventura:       "db32711ae5d7c918368fa0dd422105f7e1c54e7d607c5885b587e2daab7ea274"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7ab7e564dcc037305947232633244012fbe4043e09ab38db130bed6087d72325"
+    sha256 cellar: :any, arm64_sequoia: "8fa8fcf7ccb91a577436dcacdc6ff4140b960518466de5c6086788c5b705e737"
+    sha256 cellar: :any, arm64_sonoma:  "dc06414451b6958961bbb761c30596111a1108b90553990b2c23e4583c59cced"
+    sha256 cellar: :any, arm64_ventura: "b44e261cc593181a6d7911747ceb9fcac26ef45e2c464539133291032226a050"
+    sha256 cellar: :any, sonoma:        "060611cfbfba123b4c61cb4622d292ba56995184581a466d7967eb6263dce0c3"
+    sha256 cellar: :any, ventura:       "4ad32aea3bf5f4f2f0cab5e1d25a2a6ae8e7cdec9322fa8f3942f0968cd2bfa8"
+    sha256               arm64_linux:   "70752d59e92fe46e0942521e9d05c02ae73e0003258c7ec0da481e30fd8a6c09"
+    sha256               x86_64_linux:  "a1dfba272b3381616eec1ea655b2cf320070b48985272517fb36277917188efe"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
   depends_on "boost" => :build
-  depends_on "libtool" => :build
+  depends_on "cmake" => :build
   depends_on "pkgconf" => :build
   depends_on "libevent"
   depends_on macos: :big_sur
-  depends_on "miniupnpc"
   depends_on "zeromq"
 
   uses_from_macos "sqlite"
-
-  on_linux do
-    depends_on "util-linux" => :build # for `hexdump`
-  end
 
   fails_with :gcc do
     version "10"
@@ -80,25 +73,30 @@ class Bitcoin < Formula
       with_env(CFLAGS: ENV.cflags) do
         # Fix compile with newer Clang
         ENV.append "CFLAGS", "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1200
+        # Fix linking with static libdb
+        ENV.append "CFLAGS", "-fPIC" if OS.linux?
+
+        args = ["--disable-replication", "--disable-shared", "--enable-cxx"]
+        args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+
         # BerkeleyDB requires you to build everything from the build_unix subdirectory
         cd "build_unix" do
-          system "../dist/configure", "--disable-replication",
-                                      "--disable-shared",
-                                      "--enable-cxx",
-                                      *std_configure_args(prefix: buildpath/"bdb")
+          system "../dist/configure", *args, *std_configure_args(prefix: buildpath/"bdb")
           system "make", "libdb_cxx-4.8.a", "libdb-4.8.a"
           system "make", "install_lib", "install_include"
         end
       end
     end
 
-    system "./autogen.sh"
-    system "./configure", "--disable-silent-rules",
-                          "--with-boost-libdir=#{Formula["boost"].opt_lib}",
-                          "BDB_LIBS=-L#{buildpath}/bdb/lib -ldb_cxx-4.8",
-                          "BDB_CFLAGS=-I#{buildpath}/bdb/include",
-                          *std_configure_args
-    system "make", "install"
+    ENV.runtime_cpu_detection
+    args = %W[
+      -DWITH_BDB=ON
+      -DBerkeleyDB_INCLUDE_DIR:PATH=#{buildpath}/bdb/include
+      -DWITH_ZMQ=ON
+    ]
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
     pkgshare.install "share/rpcauth"
   end
 

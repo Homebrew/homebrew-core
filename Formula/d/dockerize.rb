@@ -4,6 +4,7 @@ class Dockerize < Formula
   url "https://github.com/jwilder/dockerize/archive/refs/tags/v0.9.3.tar.gz"
   sha256 "73e1d74e4548affc8491c678b35560468998462c677c8be555c2a24657b4222a"
   license "MIT"
+  head "https://github.com/jwilder/dockerize.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "2d9678f32f8aa1cbb9ab471d09d55191d4c0d2a04af7888fed7512d37ae042e6"

@@ -1,13 +1,15 @@
 class Udunits < Formula
   desc "Unidata unit conversion library"
-  homepage "https://www.unidata.ucar.edu/software/udunits/"
-  url "https://artifacts.unidata.ucar.edu/repository/downloads-udunits/2.2.28/udunits-2.2.28.tar.gz"
+  homepage "https://docs.unidata.ucar.edu/udunits/current/"
+  url "https://downloads.unidata.ucar.edu/udunits/2.2.28/udunits-2.2.28.tar.gz"
   sha256 "590baec83161a3fd62c00efa66f6113cec8a7c461e3f61a5182167e0cc5d579e"
   license "UCAR"
 
   livecheck do
-    url "https://artifacts.unidata.ucar.edu/service/rest/repository/browse/downloads-udunits/current/"
-    regex(/href=.*?udunits[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    url "https://downloads.unidata.ucar.edu/udunits/release_info.json"
+    strategy :json do |json|
+      json["releases"]&.map { |item| item["version"] }
+    end
   end
 
   bottle do
@@ -22,6 +24,7 @@ class Udunits < Formula
     sha256 big_sur:        "cb3a237ce5aa71c094ece2c9a7ba3199238d8facf053760a5f29ebec93f29e53"
     sha256 catalina:       "5787ba730b9969468621db38503a036de75aea0a8e62cbd253e9c73262355419"
     sha256 mojave:         "c1c3d199cfc58d42469bfb423e269dd9b7771e155f710e0e46bfb6a33fdc19f4"
+    sha256 arm64_linux:    "9f5ace99f37c2ada5a443b740687abd53823d454265843bd9f029a7cbe49bea6"
     sha256 x86_64_linux:   "9df6142349c78d0ebb0922ea53c48f702ca83cf223513437022086ee332c22a8"
   end
 

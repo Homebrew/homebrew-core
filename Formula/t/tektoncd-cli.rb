@@ -16,6 +16,7 @@ class TektoncdCli < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "d3c8a69268bb37ec5beb0716e7cee2a3c3dff358ef2583b2c35e0bd65c4a37df"
     sha256 cellar: :any_skip_relocation, sonoma:        "5d70361c241a222d0f109c16d1eb2a6c9815105a18811434971f3024f099e8c2"
     sha256 cellar: :any_skip_relocation, ventura:       "7bdd8d402587a5c373f7f59ef5a14384e3b58fa8fa875c810e4186464909c3a5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b91cbfdce7d57cac87b37af5fdce93acba738a2c8a9d5ded7773500b7723868f"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "794a9bf68544c01e3bf6d55b24146dd5751c739af235318de23408dc85c5e327"
   end
 

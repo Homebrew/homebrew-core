@@ -21,6 +21,7 @@ class Skymaker < Formula
     sha256 cellar: :any,                 catalina:       "af78e7af9c84517e8f7db071ef3718a34eafc39d6eac3357d77ee183d4fe2cdf"
     sha256 cellar: :any,                 mojave:         "ef2182885eb6952289057ce2756ac56ec9a88397e746b694529a937eaa28b943"
     sha256 cellar: :any,                 high_sierra:    "6e7aa4c817624d5631293d0421b25eec132e41bfe3d75f9044a85dd02f73de4a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "fa9e4c7c056d4a8465d105e059ef46c1256724d5dbe879c6e26ef218390e5fb3"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "10fd94a91d3a556bbc800e809c596451cd08893656ad8f2205759e2016411328"
   end
 
@@ -30,11 +31,15 @@ class Skymaker < Formula
   depends_on "fftw"
 
   def install
+    # Work around failure from GCC 10+ using default of `-fno-common`
+    ENV.append_to_cflags "-fcommon" if OS.linux?
+
+    args = []
+    # Help old config scripts identify arm64 linux
+    args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+
     system "autoconf"
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}"
+    system "./configure", *args, *std_configure_args
     system "make"
     system "make", "install"
   end

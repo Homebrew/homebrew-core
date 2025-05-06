@@ -8,14 +8,14 @@ class Pypy39 < Formula
   head "https://github.com/pypy/pypy.git", branch: "py3.9"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "a147f271d172ee225be736d5cda627ce1645f7d2e86e3989d677c113b4c452ed"
-    sha256 cellar: :any,                 arm64_sonoma:   "6f37ec35ee98a5c6bcdaba34437f76375de8cc0d4084a344abf7a34955c73e90"
-    sha256 cellar: :any,                 arm64_ventura:  "f3df8fd4f62e414c6971ce2fa09522940cde83933a0275cf4ebcaecad900d942"
-    sha256 cellar: :any,                 arm64_monterey: "b3dae1efc53da5b765da402b5399956b4845139835e6916ab497a971bc62e890"
-    sha256 cellar: :any,                 sonoma:         "7c3053d5d0013db586eea7c249c9f9e0de6617ba2c345e9ec48f82c96c405f16"
-    sha256 cellar: :any,                 ventura:        "821cae48e6ac89ae9aa79f187cb0738e6359e91482fadbd988067994dec4afac"
-    sha256 cellar: :any,                 monterey:       "a344b96ddc366677a1f16c2984e58ad185db7db3d1f2944c24daf9b7deb7fae9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d26b6fadffbcda3c4ece84ddc1bec2beac461732279c4ec294865474d6a02389"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "ed01fb6eb45c0578207c4dbf98b0d52331fb00bef1d396642ef09805775c0877"
+    sha256 cellar: :any,                 arm64_sonoma:  "01ca079d9a0367c1c9b269d7b0070d3433d90734f9f29d12dc6a6d6928bea184"
+    sha256 cellar: :any,                 arm64_ventura: "7093697807420f79bee3f5460e9b299f2af0b5a6c0575f7b0d62818240674c2f"
+    sha256 cellar: :any,                 sonoma:        "f7f05f94c024769c30430cf4f6bcd7f2f623a3750f79e1bcc329c0494c37560f"
+    sha256 cellar: :any,                 ventura:       "62da1b87b483f0820b1f4e39980bcd4199ac8a9b29622e596841d1128cf4a417"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "185a9042e0501b1bab93f7741ff4bada3d5fa288b2c680958c89d2df73238052"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e93eaacb73d4693cd455999a555fffacc3f718b52b25294ae72aaa7ba358e256"
   end
 
   # https://doc.pypy.org/en/latest/release-v7.3.17.html#pypy-versions-and-speed-pypy-org
@@ -26,7 +26,7 @@ class Pypy39 < Formula
   depends_on "gdbm"
   depends_on "openssl@3"
   depends_on "sqlite"
-  depends_on "tcl-tk"
+  depends_on "tcl-tk@8"
   depends_on "xz"
 
   uses_from_macos "bzip2"
@@ -68,11 +68,13 @@ class Pypy39 < Formula
     ENV.append_to_cflags "-Wno-incompatible-function-pointer-types" if DevelopmentTools.clang_build_version >= 1500
 
     # The `tcl-tk` library paths are hardcoded and need to be modified for non-/usr/local prefix
+    tcltk = Formula["tcl-tk@8"]
     inreplace "lib_pypy/_tkinter/tklib_build.py" do |s|
-      s.gsub! "/usr/local/opt/tcl-tk/", Formula["tcl-tk"].opt_prefix/""
-      # We moved `tcl-tk` headers to `include/tcl-tk`.
+      s.gsub! "['/usr/local/opt/tcl-tk/include']", "[]"
+      # We moved `tcl-tk` headers to `include/tcl-tk` and versioned TCL 8
       # TODO: upstream this.
-      s.gsub! "/include'", "/include/tcl-tk'"
+      s.gsub! "(homebrew + '/include')", "('#{tcltk.opt_include}/tcl-tk')"
+      s.gsub! "(homebrew + '/opt/tcl-tk/lib')", "('#{tcltk.opt_lib}')"
     end
 
     # Having PYTHONPATH set can cause the build to fail if another
@@ -153,10 +155,10 @@ class Pypy39 < Formula
     libexec.install_symlink scripts_folder => "bin" unless (libexec/"bin").exist?
 
     # Tell distutils-based installers where to put scripts
-    (distutils/"distutils.cfg").atomic_write <<~EOS
+    (distutils/"distutils.cfg").atomic_write <<~INI
       [install]
       install-scripts=#{scripts_folder}
-    EOS
+    INI
 
     %w[setuptools pip].each do |pkg|
       resource(pkg).stage do

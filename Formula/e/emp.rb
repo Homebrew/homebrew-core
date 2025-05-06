@@ -4,6 +4,7 @@ class Emp < Formula
   url "https://github.com/remind101/empire/archive/refs/tags/v0.13.0.tar.gz"
   sha256 "1294de5b02eaec211549199c5595ab0dbbcfdeb99f670b66e7890c8ba11db22b"
   license "BSD-2-Clause"
+  head "https://github.com/remind101/empire.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "7ef67fd96c5a64e80725b692c1aee910be954a1b176304d2286d1c55d3c40df2"

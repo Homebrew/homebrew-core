@@ -11,17 +11,14 @@ class Libgsm < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "93cefc094ad064330c51f5fc139343cfe13d3554ca3e1fcd28bf1af3240829fc"
-    sha256 cellar: :any,                 arm64_sonoma:   "7733596095803d3248e23e37224e5914d39560ae476b9d282f79b59f6a5b05c5"
-    sha256 cellar: :any,                 arm64_ventura:  "99fc0cf57ca6ccb2fca847f53f5201347e58c10b2a50c9f766319029d57a6556"
-    sha256 cellar: :any,                 arm64_monterey: "3adbd0618b07bd0546aed790ae76275b5a5c4ea4f822f5375b358339f8c73e53"
-    sha256 cellar: :any,                 arm64_big_sur:  "a65d58777535fd4113ba3d9b667d4b7710e51311e218b947f0977d279288fcda"
-    sha256 cellar: :any,                 sonoma:         "15fde999ee045e12dadcc18c5eed373cdf485d78ba97174c8587c4031e317910"
-    sha256 cellar: :any,                 ventura:        "17604726bbc6db357dfb44a26a2c8ca4cde02c7ff11fc547b940e15c6ae68350"
-    sha256 cellar: :any,                 monterey:       "b7746165e220e043311776189b8739dd8bc6c2b83cb101d409b563a647195ad6"
-    sha256 cellar: :any,                 big_sur:        "60591d316a866bb64d58b718627103ffe1adf71d4665baf491c9c5454bc172ca"
-    sha256 cellar: :any,                 catalina:       "fc559f8e94bc509708df438b830ec4276260e108f91ece47b5a7d3a1293fa498"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2398c2265658796adac35f2494dc97e0bd4fa6e20d1fd7bd70d15ea389782a05"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "73ab84857bda140ae2dbf8dcbba53376739db92a4943fa2aa5e9939ebe7365ba"
+    sha256 cellar: :any,                 arm64_sonoma:  "b67bf46ae228c9cdb566c31cbf903c2b36933a43c225600420b7c95a41516601"
+    sha256 cellar: :any,                 arm64_ventura: "873e314d6adc194af517d5e44f780822d23f39e19b13baec333bd28d990fa5ea"
+    sha256 cellar: :any,                 sonoma:        "b3ffd6c44c59f8cba9394605a52ac959cd69d50dc2e4173cdb6ea395bdbc493b"
+    sha256 cellar: :any,                 ventura:       "b8c2c17f921fb1fe0bdf21868c08d66b6792a14e419c4ac15ee0d4d79f15e628"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1d58e3f81b1b007ea285d82e680f1dff3fae11ebce2bb2c712af0d2dd0cca343"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2a2e88a7ac1d423da03aba16b51e7eb10eb69925ad46fd98259c5bf054301600"
   end
 
   conflicts_with "toast", because: "both install `toast` binaries"
@@ -42,7 +39,10 @@ class Libgsm < Formula
         -install_name #{lib/shared_library("libgsm", version.major.to_s)}
       ]
     else
-      ["-shared"]
+      %W[
+        -shared
+        -Wl,-soname,#{shared_library("libgsm", version.major.to_s)}
+      ]
     end
     arflags << "-o"
 

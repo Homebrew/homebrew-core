@@ -1,8 +1,8 @@
 class OpenjdkAT11 < Formula
   desc "Development kit for the Java programming language"
   homepage "https://openjdk.java.net/"
-  url "https://github.com/openjdk/jdk11u/archive/refs/tags/jdk-11.0.26-ga.tar.gz"
-  sha256 "85b260f8ac5ed26b9881e353700c98e768d8cb17a484ef062fb0aa56494a32bf"
+  url "https://github.com/openjdk/jdk11u/archive/refs/tags/jdk-11.0.27-ga.tar.gz"
+  sha256 "eb1d802f854824261d7babac917179ce21c608a39675cf6e78f2ab19121cc7d0"
   license "GPL-2.0-only"
 
   livecheck do
@@ -11,14 +11,13 @@ class OpenjdkAT11 < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia: "1d8776a391586cc18274242b71e242e4f584f76d14e37d9a9af6c583fe652d68"
-    sha256 cellar: :any,                 arm64_sonoma:  "c04ecb2509c83fcd6b0ae4046b72b0be03b55833a1eaad8f57bd18dfe3a9c515"
-    sha256 cellar: :any,                 arm64_ventura: "d422efa69ab9782df3d406dc1799d5eb132b7673266987072ec3d984478fa64f"
-    sha256 cellar: :any,                 sonoma:        "a1170a4e2bce72f5bbae92dfef74911872ccd192e2559c73a06b715dd3f312b1"
-    sha256 cellar: :any,                 ventura:       "cb801c448904dc51093a4d4f7f174fb6d123aa0823de17b4c57937849caeaa9b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c857857d837ea6b1079631894788de3f860e927d22f0b015b2844099de8fdc8c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "16785740fce6f5b7b0a95229ba0b0a1c03f86627ff7f0c5e3a616250a497660a"
+    sha256 cellar: :any,                 arm64_sequoia: "9157b4fbd9639c0f0883b5fd5ceae4eeda0700bb3807d320ed2b72a3c802aec0"
+    sha256 cellar: :any,                 arm64_sonoma:  "950dc219e095f26315840c2799a4788bc57cfb52dae8d0b3003c2b534e64b526"
+    sha256 cellar: :any,                 arm64_ventura: "416364e4ba1a5639c493526ce24774dd65b7e78aeb47cff5652d266039a29e5f"
+    sha256 cellar: :any,                 sonoma:        "b0c482904b5f09bfa89ea86c5b83eada87d13eea5c756d3ea52120c4fa9c07ed"
+    sha256 cellar: :any,                 ventura:       "0393436da6670cd7ab79aa6fd8ed37471101de76c3f8a3763d053848b204c162"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5649d2248a80ade02a9d5fc4af67db156495355d0b2d2138e34b6db62163a293"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d9f3618a9669acc39a9420a8666867908ceaded5d554b5b786f05b2dc2531253"
   end
 
   keg_only :versioned_formula

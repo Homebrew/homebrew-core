@@ -1,18 +1,18 @@
 class JxlOxide < Formula
   desc "JPEG XL decoder"
   homepage "https://github.com/tirr-c/jxl-oxide"
-  url "https://github.com/tirr-c/jxl-oxide/archive/refs/tags/0.11.3.tar.gz"
-  sha256 "9492c2542b1116168c805737844780d5509b7afbe129f956499f6ccd9eeba412"
+  url "https://github.com/tirr-c/jxl-oxide/archive/refs/tags/0.12.0.tar.gz"
+  sha256 "82675a4e831274415f0086f24afa8e97a701a6bba6f5c69baeeec0d924ca4542"
   license any_of: ["MIT", "Apache-2.0"]
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "e1e549075f1d10f4041d452124061af52ef69300dfe7e40c29442a8aaa6b5e0a"
-    sha256 cellar: :any,                 arm64_sonoma:  "c61df2c670718e8fde9a1b150bd4062ee51b63191b34d1ad765de2823c7c7a4e"
-    sha256 cellar: :any,                 arm64_ventura: "cd1666a34d73b38a3062e3fb5ff54c8232b4e1a6ef1939db4b14a48b3ab14432"
-    sha256 cellar: :any,                 sonoma:        "a7e5a1b94056370a4088538d25668b6c26915cfbd53f4fb08222d9021dd6c77c"
-    sha256 cellar: :any,                 ventura:       "639481aaeaa5e4290dd926de35201ba9c4ba1f2d62b6cec2d144d66dd58160f8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3400a8869006b1ed8cabb36b1fb8237239d2f9a8150aa1d32009820c59083197"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3539329b71056e6218a03dc407c296fe195efca346132ac4965c77c37e21ce1a"
+    sha256 cellar: :any,                 arm64_sequoia: "3f8185ea9bbeedc96ea608745f1ba4133cfa4078c9e3dda166b9bc37ac44e862"
+    sha256 cellar: :any,                 arm64_sonoma:  "e1a3dd72449d34d70ad5e648cbf29be4178d2a92dcb958815605d9787424110b"
+    sha256 cellar: :any,                 arm64_ventura: "849149fbaac0a4ae8fc499b0139a9888f466e7ed5bcd7f6cd3628270a3793470"
+    sha256 cellar: :any,                 sonoma:        "02e376f6ada9698cf63dfe5630df5cd6ade1116c01870c9972cb5d8a50333e23"
+    sha256 cellar: :any,                 ventura:       "d39d584caa351aacaad3b41767a494e38dcb1e9d2e176ca5cf30a3769288d3cd"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "17a5c36a075a6a3955d3d14a0bea81f8bbc11285c64b56337e7df989c2b58349"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "879165782c8fd51a7ecd86a3bc20cd14d003f9d2766edd89bc9b12824a694940"
   end
 
   depends_on "rust" => :build

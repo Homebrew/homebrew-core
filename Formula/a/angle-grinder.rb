@@ -1,20 +1,18 @@
 class AngleGrinder < Formula
   desc "Slice and dice log files on the command-line"
   homepage "https://github.com/rcoh/angle-grinder"
-  url "https://github.com/rcoh/angle-grinder/archive/refs/tags/v0.19.4.tar.gz"
-  sha256 "13ae3912dcc34c2648d8ef57fe8d976cb978c70e6976ead079ea5d7609532172"
+  url "https://github.com/rcoh/angle-grinder/archive/refs/tags/v0.19.6.tar.gz"
+  sha256 "f76e236f0825ca3f0b165e37d6448fa36e39c41690e7469d02c37eeb0c972222"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "34bee33321a752ef7c4286f25190b9e052373f87b3010ecb373897639fca9c5a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1f94b6a8db8825e5671af8ea2753012bb1029d54cd94c62cca9bb8b65c8b0823"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7d65579f03d9917cd269ba985805a8d9a35187e316fe7dbdbc555348127e87a9"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "0ff947abe9071113699323e0c2fc94311f5635b05b6729af54e69c56e39106fe"
-    sha256 cellar: :any_skip_relocation, sonoma:         "50f0ba886e21fe5768e728f589354d1f578dbab556fd3a1d7a591258f24b09a9"
-    sha256 cellar: :any_skip_relocation, ventura:        "22a6b97d5f193e1fe41ae978f0b4c51726b5e1cdd8359d1cc42808c1590a25af"
-    sha256 cellar: :any_skip_relocation, monterey:       "16cd61cadfe4ee8355888a61b6fed3f773f3a178cf08a2f563d4e8b460cfdf6f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "15c2920c3cb2a37a75eee068bd8a5d720026349b33b6196a1e8305d1129171e1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "90432e2f65c6230ccf74f297c3bbdae7790796431d753228e9a064d2d62ffc91"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "280e3f3eeb588c1af385fad6a05e08f5e6091f8114c268d56bba319a61800c92"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d56a1aa983b7e82416a161f67ba167e0621adaa77f105c54d6718d67077ea0ec"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "a50e61175718bb7bf7308a14048d490ddf3e7da8fe757f5155468b997dd7d121"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2159b170bb90518e07ae0e8cfc5d3600c15d9289c88845ca2e9891f5618f731e"
+    sha256 cellar: :any_skip_relocation, ventura:       "558f1dcc5e0109898a9e49511cfda872245e9c4cdf42d0785214c197f8b04e2f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e0ee850784501fcc08b3a8e5b04b0ed884d15cd5563d5fade0e1bfcbcdbc1cc8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "881ad5857fabe8dc722b466099b20ce47b582f7508612419425af047e73c2ba5"
   end
 
   depends_on "rust" => :build

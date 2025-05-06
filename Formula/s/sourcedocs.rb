@@ -16,6 +16,7 @@ class Sourcedocs < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "974904c0b5b4d0d54fe8392c84fe06b3aa23e47fb76f95579f09e5fc94704d2d"
     sha256 cellar: :any_skip_relocation, big_sur:        "292dbf6713d17716e685ac74c0e9fdbe07038b95bca36f234a94bfe2fffe5aab"
     sha256 cellar: :any_skip_relocation, catalina:       "56cad5d1e01271614fd93c5ec93b4b7fc7cabb64bef767581bc5ad179ee20a63"
+    sha256                               arm64_linux:    "a5ede432a4cc147f30658c33f26b704e039b102f0c10d6e522296818dbb2bfdd"
     sha256                               x86_64_linux:   "ebd23518f4371e70e885900d73fdf0ea71a4d30a0695a1dff8fa4d762abfa5e1"
   end
 

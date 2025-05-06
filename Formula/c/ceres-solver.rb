@@ -20,6 +20,7 @@ class CeresSolver < Formula
     sha256 cellar: :any,                 sonoma:         "f949ae21f99855aa96d25e8cb2a30cf7d001b8af8193a9b0ab4032969c5ab6a9"
     sha256 cellar: :any,                 ventura:        "0fb671f15c3b25e771ebeacb0bd8cfe5f3b47535c766091e24adc6f50e7e4e23"
     sha256 cellar: :any,                 monterey:       "c3dce08c0c5c4c239c60fad44ebe52333428f4925fd3f69faa30d1ad34d11f65"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "a81bb14618a9bb0c8e3bace126d01e4d0e1c643aa10bc3bd6ce00f93a03ae3b4"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "68107edf1952d270ebdad753857acf97e253956b48cd115047d89b6364c3f903"
   end
 

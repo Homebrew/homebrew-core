@@ -20,15 +20,18 @@ class Hexcurse < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:    "071ab88d401cc9ff24c6d466f291217d57082d07649ddb39f7d6aa28dd9ed7e6"
     sha256 cellar: :any_skip_relocation, sierra:         "580efaffc5d8dccb0f4f6532ad5be35e372c6b8d91dfb6d3930aa773c9bf7ea1"
     sha256 cellar: :any_skip_relocation, el_capitan:     "ffe690a87522627dc0088c391f7237fc6a3f2aa12fc5a3487c0aa6694905dc4d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "dfdd735912fd3c69d3e62a7b71b0e4e453b762e5ad5bc7c6788f19c83e4abb59"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "5a77e765183c6f25ab2334662999e980f9c3ee127394682d3723262e0e80b64a"
   end
 
   uses_from_macos "ncurses"
 
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--mandir=#{man}"
+    # Work around failure from GCC 10+ using default of `-fno-common`
+    # multiple definition of `fpIN'; file.o:(.bss+0x0): first defined here
+    ENV.append_to_cflags "-fcommon" if OS.linux?
+
+    system "./configure", "--mandir=#{man}", *std_configure_args
     system "make", "install"
   end
 

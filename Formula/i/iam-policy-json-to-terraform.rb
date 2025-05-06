@@ -12,6 +12,7 @@ class IamPolicyJsonToTerraform < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "016bb0b29e4f5c61e1c7e0e0c99ba74757327a146ddf9906df1d628694e31ae2"
     sha256 cellar: :any_skip_relocation, sonoma:        "717be4d1e9c56ce0f37199dee4b9d7e2055f166cc47b56101e7f2f9d22c6d8a3"
     sha256 cellar: :any_skip_relocation, ventura:       "717be4d1e9c56ce0f37199dee4b9d7e2055f166cc47b56101e7f2f9d22c6d8a3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "92ee9be34d8a9dddfe40f1a969683233cd80495d87f3d91956292db8b13c8846"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "7f62890eb65845d86e84179b17762c573d9f77a1cafbe3bba430f73602f9b3ff"
   end
 

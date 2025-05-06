@@ -20,6 +20,7 @@ class Rlog < Formula
     sha256 cellar: :any,                 high_sierra:    "5d85e13db4c6dd2892d136a96af4ac46d72254a39b842559ac9a4f9f3841af3e"
     sha256 cellar: :any,                 sierra:         "51f6586bcfa2235a19b311189ca63431c596c689c7b014850e4a0cef2275074e"
     sha256 cellar: :any,                 el_capitan:     "c95d8998639fd75131f923191eaa857bc3ff8f33ee64ca3b5d459ac1979e6fa2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "5bde76b56501c03e8394ffb8302a2e80523b25b64a664ab6155a49a71a7ef88c"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "a272cb9d709fffe4c798d278a49455a5a05a0e4c408e158609b168718b9c5e1b"
   end
 
@@ -29,7 +30,11 @@ class Rlog < Formula
     # Fix flat namespace usage
     inreplace "configure", "${wl}-flat_namespace ${wl}-undefined ${wl}suppress", "${wl}-undefined ${wl}dynamic_lookup"
 
-    system "./configure", "--disable-debug", "--disable-dependency-tracking", "--prefix=#{prefix}"
+    args = []
+    # Help old config scripts identify arm64 linux
+    args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+
+    system "./configure", *args, *std_configure_args
     system "make", "install"
   end
 

@@ -3,21 +3,21 @@ class GalleryDl < Formula
 
   desc "Command-line downloader for image-hosting site galleries and collections"
   homepage "https://github.com/mikf/gallery-dl"
-  url "https://files.pythonhosted.org/packages/96/f6/5da1f588c86519bec61579e00daf832a11f18c2094e6ba8766fbf795bd45/gallery_dl-1.29.2.tar.gz"
-  sha256 "2c80fbdad3236dc0e6a821df8bda0cf46ac021485e34d40db6e98a775e40b328"
+  url "https://files.pythonhosted.org/packages/91/da/99023263093f4554839ee17de9c210695cf61abd7005f6e36306485fdd83/gallery_dl-1.29.6.tar.gz"
+  sha256 "ba4e0ed52e3f5308b5f33779af510576e3bcb92caa6cc58c3aea4605c581a91e"
   license "GPL-2.0-only"
   head "https://github.com/mikf/gallery-dl.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "3b6cad4f65c43fdc9599b854dde94df1036ccdbba80afb0b47fbbeb0a68f25fc"
+    sha256 cellar: :any_skip_relocation, all: "e94960ec3a0160bf2431af55989d4f8bad0705652710f7a998d74e7a0d7a193f"
   end
 
   depends_on "certifi"
   depends_on "python@3.13"
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/16/b0/572805e227f01586461c80e0fd25d65a2115599cc9dad142fee4b747c357/charset_normalizer-3.4.1.tar.gz"
-    sha256 "44251f18cd68a75b56585dd00dae26183e102cd5e0f9f1466e6df5da2ed64ea3"
+    url "https://files.pythonhosted.org/packages/e4/33/89c2ced2b67d1c2a61c19c6751aa8902d46ce3dacb23600a283619f5a12d/charset_normalizer-3.4.2.tar.gz"
+    sha256 "5baececa9ecba31eff645232d59845c07aa030f0c81ee70184a90d35099a0e63"
   end
 
   resource "idna" do
@@ -31,8 +31,8 @@ class GalleryDl < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/aa/63/e53da845320b757bf29ef6a9062f5c669fe997973f966045cb019c3f4b66/urllib3-2.3.0.tar.gz"
-    sha256 "f8c5449b3cf0861679ce7e0503c7b44b5ec981bec0d1d3795a07f1ba96f0204d"
+    url "https://files.pythonhosted.org/packages/8a/78/16493d9c386d8e60e442a35feac5e00f0913c0f4b7c217c11e8ec2ff53e0/urllib3-2.4.0.tar.gz"
+    sha256 "414bc6535b787febd7567804cc015fee39daab8ad86268f1310a9250697de466"
   end
 
   def install

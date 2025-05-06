@@ -1,8 +1,8 @@
 class Libraw < Formula
   desc "Library for reading RAW files from digital photo cameras"
   homepage "https://www.libraw.org/"
-  url "https://www.libraw.org/data/LibRaw-0.21.3.tar.gz"
-  sha256 "dba34b7fc1143503942fa32ad9db43e94f714e62a4a856e91617f8f3e1e0aa5c"
+  url "https://www.libraw.org/data/LibRaw-0.21.4.tar.gz"
+  sha256 "6be43f19397e43214ff56aab056bf3ff4925ca14012ce5a1538a172406a09e63"
   license any_of: ["LGPL-2.1-only", "CDDL-1.0"]
 
   livecheck do
@@ -11,13 +11,13 @@ class Libraw < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "ba55dd6e2ef79dd0209e014e8daeb551bc570d9e7ac2487d21e3c46560833197"
-    sha256 cellar: :any,                 arm64_sonoma:  "31667768485f1282524aabb8d87d67a5a5486474f46ebf39032332d100951270"
-    sha256 cellar: :any,                 arm64_ventura: "a838c01a9bbcec7c03e07aef69d05ce9a03c7e9baae6a6548fed400bf50f448d"
-    sha256 cellar: :any,                 sonoma:        "90c5c097b1a8434966ebd16fe499dbd8450497eb6f6a387f19dd1481f7d071b9"
-    sha256 cellar: :any,                 ventura:       "64318f3bc3cec56cb5ff4e2669fcba4e5fd5a5e49f2c4bb392f3000f8d625cb6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "883136b08adcb5417d58bfc49404307dbccb7502490b771f4c178fd9d3945ce9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3d1ddb246412946860765bb57fa3ebb3cfd6d4d1a13be9a1524decb3404e7ff5"
+    sha256 cellar: :any,                 arm64_sequoia: "3ae642e1a337a7183e77b6a3d59fdaf9fa13b56fcd8e565498c494427cc085b3"
+    sha256 cellar: :any,                 arm64_sonoma:  "38e57ff44d6cc053438c04e4654d7a7d1e3d3ce401eb02b94162ac5ad33a30ab"
+    sha256 cellar: :any,                 arm64_ventura: "91aebf5f2364ad1b770c25d9026f6e8feb380d01de21f871acc63e4d41868b3f"
+    sha256 cellar: :any,                 sonoma:        "6ddce452df9c2f67cea7d9e0a55c54d79b1adcebfc63af069531b447493e7576"
+    sha256 cellar: :any,                 ventura:       "2e632c46f2d8f9f1789787844d1a7c97fc1d08dd55fed9f7c6ab6c6ecd48a8a1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1d3619295185f5f2a8f12f3718c1edad97f825504a8c05262de5057aa9a8c3c7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "69fbec4dfdee24831513339f9315f18bf73ee343190c906ec1eea21fa22ffd0b"
   end
 
   depends_on "autoconf" => :build

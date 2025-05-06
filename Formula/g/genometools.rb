@@ -8,20 +8,27 @@ class Genometools < Formula
   head "https://github.com/genometools/genometools.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia: "da1c94350cca5fa3b665086a411fb4ed8cc5688ae2481634bb0247f8cdaa27e4"
-    sha256 cellar: :any,                 arm64_sonoma:  "d02b971ab006caed47c9684c217f2a7c7e71989acbc7747032041c71255da092"
-    sha256 cellar: :any,                 arm64_ventura: "0c63a6b823fb704a5b1b770576af562524cb4330efb2ab95ef00193cc8a0558c"
-    sha256 cellar: :any,                 sonoma:        "fcb8877202b8dbf18e12fe4dbca2a4cadbdcae3003b969cc747859be14d0e0cd"
-    sha256 cellar: :any,                 ventura:       "c7793a7fffe811824e76f17669d35189e7ddb96273e8e6fca0ceeb7b9ee905df"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "38195c0605998af265648a4c1efb0804987c6505110a0db321dd14512480b46d"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_sequoia: "c1a9595a2911398dab4d2b22c2b0182e1cf5b83f5c648ba3e61787ac9a2f9250"
+    sha256 cellar: :any,                 arm64_sonoma:  "fada49496d68c5b3270ca9a075e7ea313eeb9c9bdaa263e3f16d12b3cb087b69"
+    sha256 cellar: :any,                 arm64_ventura: "a6ee8e5efc50803249afd3d9eb483e48f0008840800075aa1ab3a382b3800fad"
+    sha256 cellar: :any,                 sonoma:        "a04778fc4c9cb45a2b8f728527e3d865f653c1674f19c1972ef8d1144afdb955"
+    sha256 cellar: :any,                 ventura:       "14a0b5028decdfcc90c0d3220cbe2b48880e346509a05507bb0dabbefa91a9f2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "dd73938ff6ed8d07d1d3e028ff9b198e3439b7987daf61dd92c68b4c744926e0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c570e15eef30b96b5ae3e6e398097589d6c8f9827a0694835071026e2793b3cf"
   end
 
   depends_on "pkgconf" => :build
+  depends_on "python@3.13" => [:build, :test]
   depends_on "cairo"
   depends_on "glib"
   depends_on "pango"
-  depends_on "python@3.13"
+  depends_on "tre"
+
+  uses_from_macos "bzip2"
+  uses_from_macos "expat"
+  uses_from_macos "sqlite"
+  uses_from_macos "zlib"
 
   on_macos do
     depends_on "gettext"
@@ -35,8 +42,23 @@ class Genometools < Formula
   end
 
   def install
-    system "make", "prefix=#{prefix}"
-    system "make", "install", "prefix=#{prefix}"
+    # Workaround for arm64 linux from char being unsigned.
+    # Same root cause as https://github.com/genometools/genometools/issues/311
+    ENV.append_to_cflags "-fsigned-char" if OS.linux? && Hardware::CPU.arm?
+
+    # Manually unbundle as useshared=yes requires Lua 5.1 and older SAMtools
+    rm_r(Dir["src/external/{bzip2,expat,sqlite,tre,zlib}*"])
+
+    system "make", "install", "prefix=#{prefix}",
+                              "ADDITIONAL_SO_DEPS=",
+                              "ADDITIONAL_ZLIBS=",
+                              "DEPLIBS=-lbz2 -lz -lexpat -ltre -lsqlite3",
+                              "LIBBZ2_SRC=",
+                              "LIBEXPAT_SRC=",
+                              "LIBTRE_SRC=",
+                              "OVERRIDELIBS=",
+                              "SQLITE3_SRC=",
+                              "ZLIB_SRC="
 
     cd "gtpython" do
       # Use the shared library from this specific version of genometools.

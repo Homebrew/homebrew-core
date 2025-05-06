@@ -7,19 +7,15 @@ class GnuSed < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "7bf9b1bc4e946b0f316cfe1aeacc5fbf418d0045588d381f35439d96dba64f4c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5ffd49517ed790e52a088e720de77f1dd4de4e88816fb6a1d244be3f6b01314d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3770e9098033bc1f32427d3b6502a1ab10082b3945e204286c87060d82d03d19"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e41980dc2d528301c562ed7ec59ee8bcfe43d1f9a4dc734652e9c216ac3fbdf4"
-    sha256 cellar: :any_skip_relocation, sonoma:         "4d10e5703feb75bc37e450178f2c6bdc3a6b2cf9eb72594cfab90f89b270136c"
-    sha256 cellar: :any_skip_relocation, ventura:        "66f640fbd1291801c04dc8af37378c051aa1ddbb3a620df2b4b85b9f0f6df80e"
-    sha256 cellar: :any_skip_relocation, monterey:       "0f63397072520ce4c163974de6f0313a9117d106890c8cb0fb9344c723543674"
-    sha256                               arm64_linux:    "890a8710d5e8ad38035932ee4bd99471b298f0a0b0b53019ff93a210ff0462b0"
-    sha256                               x86_64_linux:   "6ecac3ffdd0517ed1516ff18d79d4ea44f761b6fb2a5040c124bb51da35c03e1"
+    rebuild 3
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "70edbfd4aa9ec24bd48e21353d18433741c13ec10c9903d5c93349eabb83bebb"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "829d21105387351f6c7b07cd845d7e234c1a460ea5e50cc2f5dbcface45e378d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "9a9b26c3bd0bdcfc258a24bb6b16eaf8677deaa5242adb8153f5ef0799f16946"
+    sha256 cellar: :any_skip_relocation, sonoma:        "4993928cc2d43c4eeb320e5851bb4d2ab31bd88a1c52f287141af18e46afc4b9"
+    sha256 cellar: :any_skip_relocation, ventura:       "9308ada3186ff94fafa9f3c8f2d937de4c2c4cde7ceeb2a69984095b072d795c"
+    sha256                               arm64_linux:   "6a3e57a3c43b15a0bd0cfe27e176f0b935650fd482a028a184dbb6b67f47d0a9"
+    sha256                               x86_64_linux:  "1b67527e8abadc04f961bb46ac20e54f731bcfe485d2813932735096f34ceca8"
   end
-
-  conflicts_with "ssed", because: "both install share/info/sed.info"
 
   def install
     args = %W[

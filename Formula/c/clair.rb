@@ -4,6 +4,7 @@ class Clair < Formula
   url "https://github.com/quay/clair/archive/refs/tags/v4.8.0.tar.gz"
   sha256 "354cfddb1e4594fd5982fdf55096f8b0e19649bcc5024156170a409aabcf3081"
   license "Apache-2.0"
+  head "https://github.com/quay/clair.git", branch: "main"
 
   livecheck do
     url :stable

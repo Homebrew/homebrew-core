@@ -12,6 +12,8 @@ class PySpy < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "435af0f030c2ea05c0b55327f5947b3605159116f2f78e770c690a16a39da565"
     sha256 cellar: :any_skip_relocation, sonoma:        "54396a0c050b5504064dca4b99be3a6fdaaaeca5c774877b4df8f442374bc62c"
     sha256 cellar: :any_skip_relocation, ventura:       "b9c65a548a147573ebe2659f64b0474e449ca41e6f803b9ad876bf0712316869"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "57c660efd24bd7a643482fffb7f1ccd0813dc608691b3975b3263c0d709bc139"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cdc38114b097523653b6afaf18982784c63dd1001057278e8c22a6b8f4724bbf"
   end
 
   depends_on "rust" => :build
@@ -28,7 +30,12 @@ class PySpy < Formula
 
   test do
     python = "python3"
-    output = shell_output("#{bin}/py-spy record #{python} 2>&1", 1)
-    assert_match "Try running again with elevated permissions by going", output
+    if OS.mac?
+      output = shell_output("#{bin}/py-spy record #{python} 2>&1", 1)
+      assert_match "Try running again with elevated permissions by going", output
+    else
+      output = shell_output("#{bin}/py-spy record -- #{python} -c 'import time; time.sleep(1)' 2>&1")
+      assert_match(/Samples: \d+ Errors: 0/, output)
+    end
   end
 end

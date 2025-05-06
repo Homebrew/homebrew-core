@@ -12,6 +12,7 @@ class Babelfish < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "7f8115802286fe41309a1b8b9291312e08f2b0ebdb65c4d928d59b8189bae38c"
     sha256 cellar: :any_skip_relocation, sonoma:        "edaf31144744c63fd91293ddaf4c5f5cdc96217c3c5df59065d95d04839ecbde"
     sha256 cellar: :any_skip_relocation, ventura:       "edaf31144744c63fd91293ddaf4c5f5cdc96217c3c5df59065d95d04839ecbde"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "169834375c342c0ebcc87f43e78190c2c16bfd1b610da40fc3d6b27dc80dca87"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "828cb037747b3780fc6b91d03e1377c3220ec7ea7a86f87e9db928e89bbffcc6"
   end
 

@@ -7,6 +7,7 @@ class Umockdev < Formula
   head "https://github.com/martinpitt/umockdev.git", branch: "main"
 
   bottle do
+    sha256 arm64_linux:  "ca0cdf39df6bd2a6520a838d7c72945674574019b48b7863f31df0e4e5d67234"
     sha256 x86_64_linux: "7ad4f20e560ca3dbff215a5780424964b2773b4f8f10269cab867ffaa5dbb86d"
   end
 
@@ -68,6 +69,7 @@ class Umockdev < Formula
       }
     C
 
+    ENV.append_path "PKG_CONFIG_PATH", Formula["systemd"].lib/"pkgconfig" if OS.linux?
     flags = shell_output("pkgconf --cflags --libs umockdev-1.0 libudev").chomp.split
     system ENV.cc, "test.c", "-o", "test", *flags
     system bin/"umockdev-wrapper", testpath/"test"

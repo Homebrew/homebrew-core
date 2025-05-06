@@ -1,26 +1,19 @@
 class Unshield < Formula
   desc "Extract files from InstallShield cabinet files"
   homepage "https://github.com/twogood/unshield"
-  url "https://github.com/twogood/unshield/archive/refs/tags/1.5.1.tar.gz"
-  sha256 "34cd97ff1e6f764436d71676e3d6842dc7bd8e2dd5014068da5c560fe4661f60"
+  url "https://github.com/twogood/unshield/archive/refs/tags/1.6.2.tar.gz"
+  sha256 "a937ef596ad94d16e7ed2c8553ad7be305798dcdcfd65ae60210b1e54ab51a2f"
   license "MIT"
-  revision 1
   head "https://github.com/twogood/unshield.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia:  "6baf9727f3ecef1b5ef365fae0713b8c684e07badee120838e4c3cc2ae5976ed"
-    sha256 cellar: :any,                 arm64_sonoma:   "3c94cad60f60b556e156ca326c5e6a85416b866c2e76b97ffe61213080744317"
-    sha256 cellar: :any,                 arm64_ventura:  "4919d2591a3822980fc17ed43ce5550ec7a40aa5f0a3df597222147d4eded84d"
-    sha256 cellar: :any,                 arm64_monterey: "1956ca8994e481560c1f7d548d3af0f5ebdf82ff632a6bbd5de320cb87162436"
-    sha256 cellar: :any,                 arm64_big_sur:  "3f410a76b57b1cde50eb5f564afec25ebc83a5a07b0251bcdbba468c2d902610"
-    sha256 cellar: :any,                 sonoma:         "98605661de105fbc71fd02729d5d7468b0680f593ee96debaf67c12dfafc3929"
-    sha256 cellar: :any,                 ventura:        "32e84d1e1fd8e1b06dede6e390d72c1335cefefcecf875d2088093ac56f67836"
-    sha256 cellar: :any,                 monterey:       "cd329f3c7c6a0eb689adc539072a66228042b126b89e41fd7fc2e2017c302b4b"
-    sha256 cellar: :any,                 big_sur:        "bcfab080b4f19f79161072f22eb8dbc16ca0907c65ed497784e156f83c102959"
-    sha256 cellar: :any,                 catalina:       "459cca0a961fff42ce428014c5ae250925835a722f2553fc015ae0a52d178c25"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "169897b145142e707017329e9a535cd2789fb84daa745f93f35c3fae1c63eee9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c30ebbc1b331b3eff9f80d5ef689f8934ee3c684f7b1cba914b9c1e45795128d"
+    sha256 cellar: :any,                 arm64_sequoia: "958b5103955b4485df69ee82cfefd26fb6f41da6852b05a10b0fa75ec04ae558"
+    sha256 cellar: :any,                 arm64_sonoma:  "397ed621a6603bd58822fe74cd47f32a74396f64daeba951c57ffa3fa699eb80"
+    sha256 cellar: :any,                 arm64_ventura: "b7cf5fafee5891f097cba5e79298640a672df925261bb8ecf033d07ccd15df2d"
+    sha256 cellar: :any,                 sonoma:        "22fe14bf3e367654c7899946475a7eaf8238e27b59a4b7f9c79b0d2705fdba4e"
+    sha256 cellar: :any,                 ventura:       "f853aee13b486fec004917ef8a3d35a5ba21171da6f0b0a1c7b0cd1904ff6cf3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9b65582b6f445ae0cd30ac4761345fb6fedfbdca7ae043818b649645d85f329f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bed5e7793bcfe46608d32e67dd616e8e3058909abb805d4f2f91fa9b8b7e3518"
   end
 
   depends_on "cmake" => :build

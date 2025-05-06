@@ -13,6 +13,7 @@ class SourceToImage < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "aa538c25c7eae3ad9bab46fbdb0b30bcbbc605dae5b71d99910f712f6afbe4e2"
     sha256 cellar: :any_skip_relocation, sonoma:        "ce38585c88d6e803123974ab374dd585f2241638dc14bd79d8c599cc4f3bf2e1"
     sha256 cellar: :any_skip_relocation, ventura:       "d01daccfdd4542b6149624f6ed92520d1772ef42b1123286e4a79e4989afd65a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "492c132b45630ec2b851a5e764dc34f5306647ec137f31f246386689abf6df7c"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "92044d0bc7833e792f5843fa634889fdf843ce0132f1791fd282af63060a0521"
   end
 

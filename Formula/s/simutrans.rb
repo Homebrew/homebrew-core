@@ -1,10 +1,9 @@
 class Simutrans < Formula
   desc "Transport simulator"
   homepage "https://www.simutrans.com/"
-  url "svn://servers.simutrans.org/simutrans/trunk/", revision: "11590"
-  version "124.3"
+  url "svn://servers.simutrans.org/simutrans/trunk/", revision: "11671"
+  version "124.3.1"
   license "Artistic-1.0"
-  revision 1
   head "https://github.com/simutrans/simutrans.git", branch: "master"
 
   livecheck do
@@ -16,12 +15,13 @@ class Simutrans < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "f195ba8e5f9415de40880f9f4f9bf1f09c549942918dfe7f3ae2ff2b77912d8b"
-    sha256 cellar: :any,                 arm64_sonoma:  "7d5e16db8a9de64d87019d0baeb7527a6fc5f9b63fa492b45c80593c9d9952d3"
-    sha256 cellar: :any,                 arm64_ventura: "30baf17577b6913f0550224427ca8ad05719c8d65280796702081de8b9676b75"
-    sha256 cellar: :any,                 sonoma:        "3ba71d009c07ffe94aa6558b6a6b6a30e5935da52a41461e96aaaf3bdca48ee8"
-    sha256 cellar: :any,                 ventura:       "f0c4952bda42254d80f6ebdca79f1bec31bd47f1e29d19719ad0c40e250ef41b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4080eb0e51cc520fd599a9b5846bb88f8957c377b3f6e312289628af2ed57e1b"
+    sha256 cellar: :any,                 arm64_sequoia: "3b9fd4e6ba4309127af63b8b2235cc85692074421bd8439f58504c0da54bb6fa"
+    sha256 cellar: :any,                 arm64_sonoma:  "fd96b3fea3664838f1904736407321b836c391f510fa0eec90799922466d66da"
+    sha256 cellar: :any,                 arm64_ventura: "3c284b3aee6632a0a09ad8589a8e25c96739f54c75b6c009ef59f6a105a8d2da"
+    sha256 cellar: :any,                 sonoma:        "c685e4ac7e5896302331543c0d68d239d83f100be0d26e3ff5fffbb620d1a464"
+    sha256 cellar: :any,                 ventura:       "0caad2fbd63d5f858309a3c33e422ab3b820a19de07abfad3582fddef20e2854"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "fe34f7c07cd37deb98e04284d86c493b6c4960ec34dccde334647113fbb2f86b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e46e0b9b4cfd60ddf8ba9f07ac9f80050712f7ecc416b607d63f8517cf248a94"
   end
 
   depends_on "cmake" => :build
@@ -49,6 +49,9 @@ class Simutrans < Formula
   end
 
   def install
+    # fixed in 9aa819, remove in next release
+    inreplace "cmake/MacBundle.cmake", "SOURCE_DIR}src", "SOURCE_DIR}/src"
+
     # These translations are dynamically generated.
     system "./tools/get_lang_files.sh"
 

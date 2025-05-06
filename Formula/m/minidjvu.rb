@@ -21,6 +21,7 @@ class Minidjvu < Formula
     sha256 cellar: :any,                 ventura:        "4ebde838536ddeb8879a44fedea358296ede38ec2ca9d6d43ff10aeade2df579"
     sha256 cellar: :any,                 monterey:       "af61231d4d560cd5476697ea6ef186adaa388569d5cb73d9c03dcec659746c92"
     sha256 cellar: :any,                 big_sur:        "7cefcca081ea49ddddc9bd0731dc0eb2246921720cc7b9ed9a1d2e3e62086aa8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "d5f55dab0d6f87ddc0433308b582a901da2ab14244213b7392afd081f4ffde5a"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "1ec855a0237182522d9598ea0afa9e42bb1b008c5a5233d79bb5630e2cf86802"
   end
 
@@ -38,8 +39,9 @@ class Minidjvu < Formula
     inreplace "Makefile.in", "/usr/bin/gzip", Formula["gzip"].opt_bin/"gzip" unless OS.mac?
 
     ENV.deparallelize
-    # force detection of BSD mkdir
-    system "autoreconf", "--force", "--install", "--verbose" if OS.mac?
+    # force detection of BSD mkdir (macos)
+    # outdated configure scripts fail to detect the correct build type (linux arm)
+    system "autoreconf", "--force", "--install", "--verbose"
     system "./configure", *std_configure_args
     system "make"
     system "make", "install"

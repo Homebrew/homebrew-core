@@ -17,6 +17,7 @@ class Mintoolkit < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "485651b0b4be33e48ef7907f6239b83585e3028902c266fbab797b4c39bdd46a"
     sha256 cellar: :any_skip_relocation, sonoma:        "c9c396b50f98b248eb69cafd4c800f6ad8ae8b25ed136fbcbeff4ec0ec9bc93c"
     sha256 cellar: :any_skip_relocation, ventura:       "fa2b6fcf6dc740377b6400639d8d1fb00af713fd86f1c7b4027bbe2285f9dcbc"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "fc6136219b75f2793bbeeafe5192fb43dda87b68eee59e87c448a7c30fce64ca"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "dc9d72e0904771231b5c75d6444d6cbdc8d7185abeaa1cafb18257a731e98f8d"
   end
 
@@ -25,6 +26,8 @@ class Mintoolkit < Formula
   on_linux do
     depends_on "btrfs-progs" => :build
   end
+
+  conflicts_with "mint", because: "both install `mint` binaries"
 
   skip_clean "bin/mint-sensor"
 

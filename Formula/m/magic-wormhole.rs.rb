@@ -1,19 +1,19 @@
 class MagicWormholeRs < Formula
   desc "Rust implementation of Magic Wormhole, with new features and enhancements"
   homepage "https://github.com/magic-wormhole/magic-wormhole.rs"
-  url "https://github.com/magic-wormhole/magic-wormhole.rs/archive/refs/tags/0.7.5.tar.gz"
-  sha256 "b0560c3310e7ab3c9361d6eae7a471658ed5b5ac991f22094b8e737c8f6f1a64"
+  url "https://github.com/magic-wormhole/magic-wormhole.rs/archive/refs/tags/0.7.6.tar.gz"
+  sha256 "1d76e80108291f0a31e1a0e2e1d6199decb55bec73bc725baacb93ea0ae06e5e"
   license "EUPL-1.2"
   head "https://github.com/magic-wormhole/magic-wormhole.rs.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b0b49e021f9139b9ad21f90a9a94be31f197642400626394a62e1f6917e163e9"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d2402ed9a4cf685e07dc1d85e007c1cab5c9677ada4bc1cec5d0f99e32cd033e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "aa6f077f88352fb495121281f716404269b340c09248f077a873b3fadd2ef3b9"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e0502598e8d284804ece531825870bf1a2c3839ee651c79fdf1f0411fae5ac2d"
-    sha256 cellar: :any_skip_relocation, ventura:       "9a3f50cf5584e1c85d828309012027fa693519b6e275b843ea9b01dab62ca3fc"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8c182159ac0fed782a8d89767cd133f97cf340af722941f09e6b5c1691e2bf31"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7753ab72d6c4140a859107ed211290441565e8f19c2c5f097f70a9fafd1e1b0f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9a058269ba3e3e3c576f06dee4eb6a70314d3c0dd0719d515e6f56e33e111992"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a24e2037972109a21496b081c6fa088bb6b8b25f62f68a809f3a8d072a11560b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "94c8ee7bcc6387c3c52241a68a2477e615d39507720fe119d839b378274b09c8"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d314198a3901d447399ad6ebd117abfec4ab8cd0f54baf6b5b3e9abcfff9175e"
+    sha256 cellar: :any_skip_relocation, ventura:       "9abb33389fee9aa69696240610c279ca352f31288734567abcab358b2d6f5316"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a29c5e0d8c9519a3d2ac5e19c27bcdd43cf9541f95a30c9610f71ccdd2fe586f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1e782d1de02d84ac02c48447eaa78fca5a60b23d3131d3f661683f2ce41ec734"
   end
 
   depends_on "rust" => :build

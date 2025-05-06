@@ -1,12 +1,19 @@
 class Gmt < Formula
   desc "Tools for manipulating and plotting geographic and Cartesian data"
   homepage "https://www.generic-mapping-tools.org/"
-  url "https://github.com/GenericMappingTools/gmt/releases/download/6.5.0/gmt-6.5.0-src.tar.xz"
-  mirror "https://mirrors.ustc.edu.cn/gmt/gmt-6.5.0-src.tar.xz"
-  sha256 "4022adb44033f9c1d5a4d275b69506449e4d486efe2218313f3ff7a6c6c3141e"
   license "LGPL-3.0-or-later"
   revision 4
   head "https://github.com/GenericMappingTools/gmt.git", branch: "master"
+
+  stable do
+    url "https://github.com/GenericMappingTools/gmt/releases/download/6.5.0/gmt-6.5.0-src.tar.xz"
+    mirror "https://mirrors.ustc.edu.cn/gmt/gmt-6.5.0-src.tar.xz"
+    sha256 "4022adb44033f9c1d5a4d275b69506449e4d486efe2218313f3ff7a6c6c3141e"
+
+    # Backport update to minimum CMake version
+    # https://github.com/GenericMappingTools/gmt/commit/e8d68a575c0427f66b82f28a63ba87cdbd91aca7
+    patch :DATA
+  end
 
   bottle do
     sha256 arm64_sequoia: "1b462c2bcbc6e95ce082b68729b36d2b8949045918256d7031c49908e1a7c75f"
@@ -14,6 +21,7 @@ class Gmt < Formula
     sha256 arm64_ventura: "3c6954e97839d63256dcb0247a83a9dbe2521a7860e1a32c7bff7418a917872a"
     sha256 sonoma:        "83fcc1c4401e4c9577a1b776fca7bec6fd22835bc5d41e4190d18872b9961bfe"
     sha256 ventura:       "adcb429977f1fcc83e2296cd1d2aea653c718025114e99fde2108848b844fd64"
+    sha256 arm64_linux:   "d8d9ae98c3def5ba170544c7197b90c199447dabd2002f1010f9a43e1dd9b39d"
     sha256 x86_64_linux:  "780e03a2e26081390f07a272817bc4bad9a398ad0ee982734144ac81569e9574"
   end
 
@@ -88,3 +96,16 @@ class Gmt < Formula
     refute_predicate shell_output(cmd), :empty?
   end
 end
+
+__END__
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -46,7 +46,7 @@ if (${srcdir} STREQUAL ${bindir})
+ endif (${srcdir} STREQUAL ${bindir})
+ 
+ # Define minimum CMake version required
+-cmake_minimum_required (VERSION 2.8.12)
++cmake_minimum_required (VERSION 3.16)
+ message ("CMake version: ${CMAKE_VERSION}")
+ 
+ # Use NEW behavior with newer CMake releases

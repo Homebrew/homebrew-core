@@ -6,13 +6,16 @@ class Encfs < Formula
   # The code comprising the EncFS library (libencfs) is licensed under the LGPL.
   # The main programs (encfs, encfsctl, etc) are licensed under the GPL.
   license "GPL-3.0-or-later"
-  revision 4
+  revision 5
   head "https://github.com/vgough/encfs.git", branch: "master"
 
   bottle do
-    sha256 arm64_linux:  "6d38dcf06c974347dc61dac331933df2e4a1f1a2bc4f6b5458f3b685c7efd094"
-    sha256 x86_64_linux: "1952d5ef71cdd862776574b47add8ae4649b907c6ed734fac41b7357d13250f7"
+    sha256 arm64_linux:  "7d77f8ffc7974b777c3a753c7388209c3c6313a0867d9845a84bd7cdcfc2f94e"
+    sha256 x86_64_linux: "526d5bef867b8dc2246146ce5936e25b9a53ff26721fb1d79cccb6d82a3d2b96"
   end
+
+  # see commit, https://github.com/vgough/encfs/commit/aa106e6eddcc16ce7f763c63e5f20dd9eb7f0f52
+  deprecate! date: "2025-04-01", because: :unmaintained
 
   depends_on "cmake" => :build
   depends_on "gettext" => :build
@@ -26,6 +29,7 @@ class Encfs < Formula
     system "cmake", "-S", ".", "-B", "build",
                     "-DBUILD_UNIT_TESTS=OFF",
                     "-DUSE_INTERNAL_TINYXML=OFF",
+                    "-DCMAKE_POLICY_VERSION_MINIMUM=3.5",
                     *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"

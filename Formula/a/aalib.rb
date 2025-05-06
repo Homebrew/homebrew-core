@@ -25,6 +25,7 @@ class Aalib < Formula
     sha256 cellar: :any_skip_relocation, big_sur:        "fb1df93a418c2ae4b7c358d19b58afc0ad73d9d1e6f22b92aa5d5f086cb48a70"
     sha256 cellar: :any_skip_relocation, catalina:       "d83c1b827ca16ae5450356db32fe1b27e910a27bbe2b074a9b4c22fe310bc5b7"
     sha256 cellar: :any_skip_relocation, mojave:         "46feeea3fc331a6982fa1960645e1851d3f395f36fbd99cbf92a7406030d9511"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "6205456db777cfa9097a0285ef6fdc29876b21df831295a0c9f2837ce236fdda"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "6ba926f8aadec9e5c30880ae6e6497d44f9045d1ca1f680baf28e67309bd8ecd"
   end
 
@@ -40,12 +41,17 @@ class Aalib < Formula
     # Workaround for newer Clang
     ENV.append_to_cflags "-Wno-implicit-int" if DevelopmentTools.clang_build_version >= 1403
 
-    system "./configure", "--mandir=#{man}",
-                          "--infodir=#{info}",
-                          "--enable-shared=yes",
-                          "--enable-static=yes",
-                          "--without-x",
-                          *std_configure_args
+    args = %W[
+      --mandir=#{man}
+      --infodir=#{info}
+      --enable-shared=yes
+      --enable-static=yes
+      --without-x
+    ]
+    # Help old config scripts identify arm64 linux
+    args << "--host=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+
+    system "./configure", *args, *std_configure_args
     system "make", "install"
   end
 

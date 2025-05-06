@@ -18,6 +18,7 @@ class TrezorAgent < Formula
     sha256 cellar: :any,                 arm64_ventura: "ee85d4ac6e1a6951e37cfa77ec7ff46eac91fb9cb0c858feb51dc0c5dba69db5"
     sha256 cellar: :any,                 sonoma:        "7aaad0a948426ba6ae82128e18501ebed5f2279c9e3d1f0dfd00f0fa38e79fb6"
     sha256 cellar: :any,                 ventura:       "ff6bd171a518ccbd6aaa4d6f8f6c1e0b9b14f843cebf10268c556fededd98984"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "700035e02dda5a8198db4d54383d8a2bbc2549df3273089fcd024c170d633a95"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "ea07ce42c9c3de33f2c307f30522d41a43809ad90096078f3d48657be95b1942"
   end
 
@@ -118,6 +119,12 @@ class TrezorAgent < Formula
   resource "libagent" do
     url "https://files.pythonhosted.org/packages/33/9f/d80eb0568f617d4041fd83b8b301fdb817290503ee4c1546024df916454e/libagent-0.15.0.tar.gz"
     sha256 "c87caebdb932ed42bcd8a8cbe40ce3589587c71c3513ca79cadf7a040e24b4eb"
+
+    # Backport replacement of pkg_resources to fix issue seen on arm64 linux
+    patch do
+      url "https://github.com/romanz/trezor-agent/commit/68e39c14216f466c8710bf65ef133c744f8f92da.patch?full_index=1"
+      sha256 "a2b2279ba0eaf7a11d2a2e1f79155829bc8939942848b01602062f6c269b68b0"
+    end
   end
 
   resource "libusb1" do

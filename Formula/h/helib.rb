@@ -25,10 +25,9 @@ class Helib < Formula
   depends_on "ntl"
 
   def install
-    mkdir "build" do
-      system "cmake", "-DBUILD_SHARED=ON", "..", *std_cmake_args
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build", "-DBUILD_SHARED=ON", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
     pkgshare.install "examples"
   end
 

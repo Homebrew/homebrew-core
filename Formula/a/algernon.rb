@@ -18,6 +18,7 @@ class Algernon < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "a2e43bb0117c0506fc5380ade27f49e0291c4d3321ebef4c180fd3ad267fa4c4"
     sha256 cellar: :any_skip_relocation, sonoma:        "dafb99f1425261d43809009f66dc86eb5496d12255358f22ab62e131845e5877"
     sha256 cellar: :any_skip_relocation, ventura:       "afe85eae1aa3f78180566e9d0764b3d3d362af421754494cc023015ebf894336"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "98d16ba48aea3c81bd73432a4f3732b66b1cd63f6df6c6d7c56a23fbc0610e9e"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "30ab869540b7d63439b0bc438f3309b90eeaf9f80915089e5ba072083afa0301"
   end
 

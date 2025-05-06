@@ -16,6 +16,7 @@ class Tinysearch < Formula
     sha256 cellar: :any_skip_relocation, ventura:        "149fcc1be09119c692b20381ed2646170c004909a1998ddab8b5e451d19e6c0c"
     sha256 cellar: :any_skip_relocation, monterey:       "bb5e206aff6a7ffbf2bf1da5dbb9907e6e72873ad507059f53699984080e6fe6"
     sha256 cellar: :any_skip_relocation, big_sur:        "0a256b304d49a871b20915721fde4aea47ef132afa5cd537c6bfba36b8ff24d9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "a3357914b084ecdc5935888629a57cea9b210b263ea6f6c9a53f749d220bf410"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "741bdce133c7ac5a2fecddb639fa17b3d7b11c3a2adda9f7998bf69e5b2376ce"
   end
 
@@ -31,8 +32,8 @@ class Tinysearch < Formula
 
   test do
     ENV.prepend_path "PATH", Formula["rustup"].bin
-    system "rustup", "default", "stable"
     system "rustup", "set", "profile", "minimal"
+    system "rustup", "default", "stable"
 
     system bin/"tinysearch", pkgshare/"fixtures/index.json"
     assert_path_exists testpath/"wasm_output/tinysearch_engine_bg.wasm"

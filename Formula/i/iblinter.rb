@@ -15,14 +15,18 @@ class Iblinter < Formula
     sha256 cellar: :any_skip_relocation, sonoma:         "769206183628990b57eec91a82781e399a6e1581551f85308bdc1342cc8b0265"
     sha256 cellar: :any_skip_relocation, ventura:        "cc719fe755a7c5af129d7e9cf053935ff4daf35fe48ead5fbff3d4a74be49cd4"
     sha256 cellar: :any_skip_relocation, monterey:       "dc4ca4585eaa86c2fec24e712100925b460dd75ed13c8d15eab5141a88a43a30"
+    sha256                               arm64_linux:    "c38241d3217c0ebb29e163e3f50cbf43308b33197e475a29b9d215286f21e504"
+    sha256                               x86_64_linux:   "7284a5a01c79771e29fa8c9fe44d2cb6412ad4b09f1c3338908eeaf905c34e95"
   end
 
   depends_on xcode: ["10.2", :build]
 
+  uses_from_macos "swift"
+
   # Fetch a copy of SourceKitten in order to fix build with newer Swift.
   # Issue ref: https://github.com/IBDecodable/IBLinter/issues/189
   resource "SourceKitten" do
-    on_sequoia :or_newer do
+    on_system :linux, macos: :sonoma_or_newer do
       # https://github.com/IBDecodable/IBLinter/blob/0.5.0/Package.resolved#L41-L47
       url "https://github.com/jpsim/SourceKitten.git",
           tag:      "0.29.0",
@@ -35,7 +39,7 @@ class Iblinter < Formula
 
   def install
     args = ["--disable-sandbox", "--configuration", "release"]
-    if OS.mac? && MacOS.version >= :sequoia
+    if !OS.mac? || MacOS.version >= :sonoma
       (buildpath/"SourceKitten").install resource("SourceKitten")
       system "swift", "package", *args, "edit", "SourceKitten", "--path", buildpath/"SourceKitten"
     end

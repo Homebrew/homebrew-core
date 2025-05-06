@@ -21,6 +21,7 @@ class NetSnmp < Formula
     sha256 ventura:        "72c6a3af4f5dc6649fdf8ace41e27c917d88bfb4f25b6a468cc072944ae42cc1"
     sha256 monterey:       "25f84e57f018ce8d5c4f60ecdb28bf93a53f53fb7c3fe2d2ade1053013ba8993"
     sha256 big_sur:        "6eb8407f90572a45ff98d040761b9857998638d9a739bd21c06e1420412009ee"
+    sha256 arm64_linux:    "acf8bb48c7f532c9b87aacd38766c0bf73686619aff0369a2755eb3ff814a9e9"
     sha256 x86_64_linux:   "909269505e442c956639f60e3b0cd1dbdc1e7723eb96b291e9fdba7781d533f4"
   end
 
@@ -59,6 +60,8 @@ class NetSnmp < Formula
     system "autoreconf", "-fvi" if Hardware::CPU.arm?
     system "./configure", *args
     system "make"
+    # Work around snmptrapd.c:(.text+0x1e0): undefined reference to `dropauth'
+    ENV.deparallelize if OS.linux?
     system "make", "install"
   end
 

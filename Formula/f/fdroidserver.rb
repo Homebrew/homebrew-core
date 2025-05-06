@@ -3,18 +3,18 @@ class Fdroidserver < Formula
 
   desc "Create and manage Android app repositories for F-Droid"
   homepage "https://f-droid.org"
-  url "https://files.pythonhosted.org/packages/49/35/4b42bc9aed28a3b38bd126e6d6c74060ed422f3b5fdca34a8dde157e28dd/fdroidserver-2.3.5.tar.gz"
-  sha256 "feb49c95da5d71b9683c0dd43fbeea4278f163250e5fe29f384f2db36291f73b"
+  url "https://files.pythonhosted.org/packages/bd/81/728a7426ef7db26bee1a1737dbafe48f4253b249155ec1d6910ecad0c30c/fdroidserver-2.4.0.tar.gz"
+  sha256 "15d91bb8ca0fbc81a346ec222d910af064670c51f20a2b649ef2834c0555d19c"
   license "AGPL-3.0-or-later"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia: "87584b4e50932313e4676a916cc1079f58080abec52fcb41ba7878d68c115696"
-    sha256 cellar: :any,                 arm64_sonoma:  "20b3219ab1e0c3389187e5fd2d6e1dc998fe21fbb6e093fea650e938ba09567a"
-    sha256 cellar: :any,                 arm64_ventura: "2478cb1193af86c2b4a31ea82292c4ce0a99cf5adb2ff930dbdd2174e50308a0"
-    sha256 cellar: :any,                 sonoma:        "4e96157cde9c2e92e3ae4733d65578912317ab5c0ee72f02f1ea9758c46dbd92"
-    sha256 cellar: :any,                 ventura:       "7642cf6115bb3444cc50a1fc5c3eb352ec76fb3ebf198610eaa3655928936658"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "037f7ff146e94c497b74262a2e946d96a4e41a37a5a426a81f4ab557968c7103"
+    sha256 cellar: :any,                 arm64_sequoia: "35611a78e8afa3af653ebccef13225e253f403987b3c29cbc455fe2b71a39a55"
+    sha256 cellar: :any,                 arm64_sonoma:  "ff32a8ab6d3ccff3f51ed84413e74889cc0c826768ed0e82771f16c3dfedc5ea"
+    sha256 cellar: :any,                 arm64_ventura: "c86a74b3d85a721dce3ca1b102b2b48a863689488e599f2d333e1db1f886f560"
+    sha256 cellar: :any,                 sonoma:        "eaca6825674340fab36daeb50ce6d16e881babce54afe487aab4356768832444"
+    sha256 cellar: :any,                 ventura:       "140d36230c7b1579834a2644568dd98147809eb778f7023bd0042a5409899d47"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "46b0898bcaa4aec72c68a3a79c8de87caa4bbbbd2415ffccd09568d7deeeda37"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f603edefdaabf1a9c71ea53180f2864f439e95f7a3e76becba6dc672530e9ceb"
   end
 
   depends_on "ninja" => :build
@@ -59,8 +59,8 @@ class Fdroidserver < Formula
   end
 
   resource "argcomplete" do
-    url "https://files.pythonhosted.org/packages/0c/be/6c23d80cb966fb8f83fb1ebfb988351ae6b0554d0c3a613ee4531c026597/argcomplete-3.5.3.tar.gz"
-    sha256 "c12bf50eded8aebb298c7b7da7a5ff3ee24dffd9f5281867dfe1424b58c55392"
+    url "https://files.pythonhosted.org/packages/0a/35/aacd2207c79d95e4ace44292feedff8fccfd8b48135f42d84893c24cc39b/argcomplete-3.6.1.tar.gz"
+    sha256 "927531c2fbaa004979f18c2316f6ffadcfc5cc2de15ae2624dfe65deaf60e14f"
   end
 
   resource "args" do
@@ -159,8 +159,8 @@ class Fdroidserver < Formula
   end
 
   resource "ipython" do
-    url "https://files.pythonhosted.org/packages/de/39/264894738a202ddaf6abae39b3f84671ddee23fd292dbb3e10039e70300c/ipython-9.0.0.tar.gz"
-    sha256 "9368d65b3d4a471e9a698fed3ea486bbf6737e45111e915279c971b77f974397"
+    url "https://files.pythonhosted.org/packages/7d/ce/012a0f40ca58a966f87a6e894d6828e2817657cbdf522b02a5d3a87d92ce/ipython-9.0.2.tar.gz"
+    sha256 "ec7b479e3e5656bf4f58c652c120494df1820f4f28f522fb7ca09e213c2aab52"
   end
 
   resource "ipython-pygments-lexers" do
@@ -234,8 +234,8 @@ class Fdroidserver < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/13/fc/128cc9cb8f03208bdbf93d3aa862e16d376844a14f9a0ce5cf4507372de4/platformdirs-4.3.6.tar.gz"
-    sha256 "357fb2acbc885b0419afd3ce3ed34564c13c9b95c89360cd9563f73aa5e2b907"
+    url "https://files.pythonhosted.org/packages/b6/2d/7d512a3913d60623e7eb945c6d1b4f0bddf1d0b7ada5225274c87e5b53d1/platformdirs-4.3.7.tar.gz"
+    sha256 "eb437d586b6a0986388f0d6f74aa0cde27b48d0e3d66843640bfb6bdcdb6e351"
   end
 
   resource "prompt-toolkit" do
@@ -274,8 +274,8 @@ class Fdroidserver < Formula
   end
 
   resource "pyparsing" do
-    url "https://files.pythonhosted.org/packages/8b/1a/3544f4f299a47911c2ab3710f534e52fea62a633c96806995da5d25be4b2/pyparsing-3.2.1.tar.gz"
-    sha256 "61980854fd66de3a90028d679a954d5f2623e83144b5afe5ee86f43d762e5f0a"
+    url "https://files.pythonhosted.org/packages/bb/22/f1129e69d94ffff626bdb5c835506b3a5b4f3d070f17ea295e12c2c6f60f/pyparsing-3.2.3.tar.gz"
+    sha256 "b9c13f1ab8b3b542f72e28f634bad4de758ab3ce4546e4301970ad6fa77c38be"
   end
 
   resource "python-dateutil" do
@@ -349,8 +349,8 @@ class Fdroidserver < Formula
   end
 
   resource "yamllint" do
-    url "https://files.pythonhosted.org/packages/da/06/d8cee5c3dfd550cc0a466ead8b321138198485d1034130ac1393cc49d63e/yamllint-1.35.1.tar.gz"
-    sha256 "7a003809f88324fd2c877734f2d575ee7881dd9043360657cc8049c809eba6cd"
+    url "https://files.pythonhosted.org/packages/4e/82/b2b6fa4c3e24df501d14eff23100b37e6d9f80cbed80644de4d1260ff402/yamllint-1.37.0.tar.gz"
+    sha256 "ead81921d4d87216b2528b7a055664708f9fb8267beb0c427cb706ac6ab93580"
   end
 
   def install

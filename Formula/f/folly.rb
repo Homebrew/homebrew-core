@@ -1,19 +1,19 @@
 class Folly < Formula
   desc "Collection of reusable C++ library artifacts developed at Facebook"
   homepage "https://github.com/facebook/folly"
-  url "https://github.com/facebook/folly/archive/refs/tags/v2025.03.10.00.tar.gz"
-  sha256 "c375a4fdf9785f49e53a602bdfc023668062d37887d5127b97bd6c289ab5f8f0"
+  url "https://github.com/facebook/folly/archive/refs/tags/v2025.04.28.00.tar.gz"
+  sha256 "2198e153707459df9e931e07009aea9d6ef5fc8ee1a244c24761d326f3a21393"
   license "Apache-2.0"
   head "https://github.com/facebook/folly.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "eb0a6764edd67cf5a2d97b268384e009768d6b2054cad169fda55e25a4bfdce0"
-    sha256 cellar: :any,                 arm64_sonoma:  "3621a485b8386ce8911f841d0eed01f82aa96b25d93d251eaf03b2e29cd9c166"
-    sha256 cellar: :any,                 arm64_ventura: "1975dae7302c3b63d28e953b7d869570b7a0fcfb305958819ae3bbc0b3280582"
-    sha256 cellar: :any,                 sonoma:        "6ceab777ed6434ac3cc64cd81c56907be0b275a448ead18b9887dd9be1ffa81d"
-    sha256 cellar: :any,                 ventura:       "02752d66648bfe9958e245336215d709894c7f941fc9d87d400f5bffb3c8d83d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "57ed5c0f57d7af472f35592f910708c61b279c49468aab3402e1fe5b53ef6d36"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6d990e8af39d617b19cf88236a62440bd8d4727025ab0f9cfec0faddf2d9006f"
+    sha256 cellar: :any,                 arm64_sequoia: "c27c5787b15bb544ec71985cf13e3c5122885e47306456fa09ac9f878a4b4f92"
+    sha256 cellar: :any,                 arm64_sonoma:  "9828d83906a429cfd6d969d551e3efd98e82a35ef69b8814fe634ba326575659"
+    sha256 cellar: :any,                 arm64_ventura: "30a70c608e74d2e5a24ba66d38984a1e7063b21f97faf71389276c92dfb479ea"
+    sha256 cellar: :any,                 sonoma:        "988560a7f3274780dfd44eda99a5a7d5ed0704ec72728e69ce1fe1d9e803d660"
+    sha256 cellar: :any,                 ventura:       "9bfccb24fd140416675be2ae201b268c7f781a074e1d53440a7df0275297ff91"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "35565e9e6167a1804a1092ce611da4a4e0bace199e13ebebbe8f03a82356bcc9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0e1cc51b5d681855fa6a1796c60b76677f89239562066ca9928928efae349189"
   end
 
   depends_on "cmake" => :build

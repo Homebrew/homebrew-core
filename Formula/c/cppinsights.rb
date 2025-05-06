@@ -4,15 +4,16 @@ class Cppinsights < Formula
   url "https://github.com/andreasfertig/cppinsights/archive/refs/tags/v_19.1.tar.gz"
   sha256 "88853a67b9eaf6917c531071436a275c62f1dcfe6f2e02e521c39ce81b05e6a7"
   license "MIT"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "cd9ff90a4c18618444e8aa6fbb2d3f83fa9450ca19e88b166cb7984e566acf2e"
-    sha256 cellar: :any,                 arm64_sonoma:  "a77a5abbd96b6aa0d47bf09187ede25457ade5570a71f996b174fc631ec38cb0"
-    sha256 cellar: :any,                 arm64_ventura: "181c1ef524e834aa0b2974363173c86c186c9f18b7ab67d593e4d640398b3281"
-    sha256 cellar: :any,                 sonoma:        "506c9a94441c12056bcf5edeb77d1308076a9ac8cb28ed01ee9a7d9025cff28d"
-    sha256 cellar: :any,                 ventura:       "7009e97127fee0124103b9a4966beb85bb6cb5801d708270dffba7702ea4b8eb"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6a6a94326d2c9c631acdb209f70e0c7a42227c9f7c1eaa28a696470b84575529"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cc1962e932cdd04e649b28111d04e53ba7f5a26441ba702b54d85de7f2ce0a14"
+    sha256 cellar: :any,                 arm64_sequoia: "d18cd5ec355ee5837de270d8d9e344fa1b51c6f05d3564e0d83feda98eabbf4a"
+    sha256 cellar: :any,                 arm64_sonoma:  "c341a589e89f5d8f6b6709ac1707aa8c964b6bc02fe70310f341916a4ff62286"
+    sha256 cellar: :any,                 arm64_ventura: "bad909888167aa7f7604a28857051bbcbfdc1d0aae3c9df2be799f312b0609b1"
+    sha256 cellar: :any,                 sonoma:        "9b0e9c60ce28117102ffeafcb367ebe44c378d11d8b2a6818c59d09295156159"
+    sha256 cellar: :any,                 ventura:       "ab1c19c457f35f607c4afe660d31c8458a500c7faf04cd7b5560f5bdf97690d3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a9f09af7a75a146f5bbb5ab2b518e7d421680cb1be41f1c2da0ad8b388ad2aa5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "72b45f335bbd304b2d97110b337586a98aa87d750786942f8d1bd2505df144de"
   end
 
   depends_on "cmake" => :build

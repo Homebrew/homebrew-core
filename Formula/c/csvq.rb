@@ -4,6 +4,7 @@ class Csvq < Formula
   url "https://github.com/mithrandie/csvq/archive/refs/tags/v1.18.1.tar.gz"
   sha256 "69f98d0d26c055cbe4ebfe2cedf79c744bebafac604ea55fb0081826b1ac7b74"
   license "MIT"
+  head "https://github.com/mithrandie/csvq.git", branch: "master"
 
   livecheck do
     url :stable

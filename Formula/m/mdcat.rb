@@ -12,6 +12,7 @@ class Mdcat < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "200c351ba8ad70ddd893f6735451af5ecef7cf7670504af15b471b625e26c705"
     sha256 cellar: :any_skip_relocation, sonoma:        "fe41c5dbc3b3ef5656a566a95df8227296c1b9c0bd17857892a641e3d54c73ec"
     sha256 cellar: :any_skip_relocation, ventura:       "aaf95c5c8d0b6d2acf5fb02ae129fb8d8db0b32eaabc878b6a9423a14cc5f0fc"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "85b2d4cdae8247b29aaf22ba0390f2febcf5a9ee2dd9abd60cf7ae5fb9a1c1dd"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "87635e02c1cf4066926983af95ae4b67647749adaf2020687c3b258e3937fc9e"
   end
 

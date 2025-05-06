@@ -4,16 +4,16 @@ class Prjtrellis < Formula
   url "https://github.com/YosysHQ/prjtrellis/archive/refs/tags/1.4.tar.gz"
   sha256 "46fe9d98676953e0cccf1d6332755d217a0861e420f1a12dabfda74d81ccc147"
   license all_of: ["ISC", "MIT"]
-  revision 4
+  revision 5
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "3fcf3ad5a10549e1de32c6c296af661f30b8c651005310777fef3d9e84e2a4cc"
-    sha256 cellar: :any,                 arm64_sonoma:  "7efc22584a244817fca20fc8f3a19af1630932d72d166d0f6dcf096ac2b599e7"
-    sha256 cellar: :any,                 arm64_ventura: "c146035dc653ecbe88c38f3ed237ded5feaac5c614c8f86ce623f94e950fe01b"
-    sha256 cellar: :any,                 sonoma:        "50514ae38b2cccdd1dd9d2249c807c631a28f00dfe8dc54df01562162a0b38c7"
-    sha256 cellar: :any,                 ventura:       "b66e7fa03d996662fa0737a573c7a35b2f90ac43fd0268836aaccd33847fbcf8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "97f76a88d200996b5aeb70a6944c500ad31c8e31cf7801ae804999f64fb11fdd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d96199f848fc43cf9160e1c0c66eb699985fee7069cb41a5de90f970764bd15b"
+    sha256 cellar: :any,                 arm64_sequoia: "9b1dba8073f95e4e62578867fa4413c96546ed01af8a9368dd71f226e242f824"
+    sha256 cellar: :any,                 arm64_sonoma:  "c88a90c50cf9b1118812077911e320ada13ad47ca5e26bb9b71cea451cc83935"
+    sha256 cellar: :any,                 arm64_ventura: "528c6c2f526e1a8a9a6374a27740ec190b09e2cd8d55166d7adb8954e5f481e5"
+    sha256 cellar: :any,                 sonoma:        "17166123d4960d5612ddd664fb46a4728162fae98327f379b2940ea05dd5cf61"
+    sha256 cellar: :any,                 ventura:       "66fe4759bb1294f951a36d578ed68cba116539ddbd4bb71cf73c0f5bc2eca105"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c2244c986587aae3a6d6feb0b89d8e2650999ebad9cd3b6f77fe138b1f0b326e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4a091d4126aff828ab290e08cf68316f68a7952fb192482a993ab4484dc21a5b"
   end
 
   depends_on "cmake" => :build

@@ -1,19 +1,19 @@
 class Clangql < Formula
   desc "Run a SQL like language to perform queries on C/C++ files"
   homepage "https://github.com/AmrDeveloper/ClangQL"
-  url "https://github.com/AmrDeveloper/ClangQL/archive/refs/tags/0.9.0.tar.gz"
-  sha256 "da6ad3bf11a12eed63a7f92149315fd419f371f1935be3e26b405bb0fa46f31b"
+  url "https://github.com/AmrDeveloper/ClangQL/archive/refs/tags/0.10.0.tar.gz"
+  sha256 "216a8faf76cd59f149bac4800cf7bebd5c709d6f97abbe4fffde2f9585f7c518"
   license "MIT"
   head "https://github.com/AmrDeveloper/ClangQL.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "c4e91252c30f653864d01a31273e35bcf4e37acb724aefecf0765c7a76e79eff"
-    sha256 cellar: :any,                 arm64_sonoma:  "f146f5b00c096e057e96020923f2a9adcc8efacc5d91c7818d76575c5768ff61"
-    sha256 cellar: :any,                 arm64_ventura: "756ef36347451bb2d8758f517df05d880ebbbc26ffdb92ca714698db76a9c8a7"
-    sha256 cellar: :any,                 sonoma:        "7100a9c07eab226d4595724c468833ff3a5aaebfdbfc566452236764aabadcb9"
-    sha256 cellar: :any,                 ventura:       "b7b54e88a6d304f5c997bcdef6ca93c6080310517ab0612719fc1e11295d516f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d5d0472655d7640d73d137b51117e1a3c502bd5fabc3b50259a6e073551e8704"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e839576243b1fa2c349642f8f3a80a665f5aae5d04ae7e0bd3501776bf84afb1"
+    sha256 cellar: :any,                 arm64_sequoia: "4d7d3dec4acffb5b26561003d115b54fb8c0ca6c137e5796ffc97e21c0a5d521"
+    sha256 cellar: :any,                 arm64_sonoma:  "35f90c49a03e4b853dfbf18b9dd32f1c42f84ca169937c500e6ed905c02663d3"
+    sha256 cellar: :any,                 arm64_ventura: "f604b5653930a425e60e2cc950b37d8e29a03d376c9274a0593238c40120047c"
+    sha256 cellar: :any,                 sonoma:        "0f65e6b0883e4400c4e34d798512f45ec72418f20032b58d6df2584d0890a2dd"
+    sha256 cellar: :any,                 ventura:       "699ff49df43c3573ec8af08088f74a3cf22446455b3a04ad70236f1119963f74"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f4f5f96f98ecc434bb4384c83c3d5d1e9569b3865b037749ac54ba12806d4ff5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fc5764fcf9ee640feb9dc8867101bfc613365aa5c96963d16070486039acc88f"
   end
 
   depends_on "rust" => :build

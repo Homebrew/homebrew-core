@@ -1,18 +1,18 @@
 class Micropython < Formula
   desc "Python implementation for microcontrollers and constrained systems"
   homepage "https://www.micropython.org/"
-  url "https://github.com/micropython/micropython/releases/download/v1.24.1/micropython-1.24.1.tar.xz"
-  sha256 "5d624a0b23389134d963b204601db9bc4ca57bfb615d13f13592bc2b5b494c03"
+  url "https://github.com/micropython/micropython/releases/download/v1.25.0/micropython-1.25.0.tar.xz"
+  sha256 "9fe99ad5808e66bb40d374f5cad187c32c7d1c49cf47f72b38fd453c28c2aebe"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7119417af2aac51f933f3fdf56463271e059a5809a3fed2156d1f581fdedf70c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "90640d85ddaee22d1e8c811d4a0a77684cd61959634428e673a8e70958a18803"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "8ca6087dc2087c3bdd0c83be91573ef2c5ea24fab910b7d80d934f23deb5ec1b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "dfe7cd0c32d85d09ab9ae8c747c4fa0201e987cf00f16ea27c47756bd98613f1"
-    sha256 cellar: :any_skip_relocation, ventura:       "6601736a89957321cdb26111f3d6da67575ee7a5324b1af791cf2370240b259b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ec98e6590dacbadd324e733f189c0af27dba16ebc669fe95c58f64e240cba116"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "051ed9e99ab5253da80a44cae0e8bcc177f0da957b1f67261f10801798b39e9f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "470bfae6fc4f82301df5ae1f265b00d7b981a5db70120b4242b67890c5190a98"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "545f7cf7279b407e843e349024e2fcd264032be5312c1bd7fc9a59f440aae5fb"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "295730364d3c8f548e2fa71c71d9ddbb5acd3dd7b1e37ee3cc2af7862f4f92c3"
+    sha256 cellar: :any_skip_relocation, sonoma:        "936cc289f796f38be76d8e61d895498007aac8a3d686d3a7f10260d77cb77657"
+    sha256 cellar: :any_skip_relocation, ventura:       "2d473ef1dbda05c2759730d8c592599ce8a5712ea2607154db81c0244258241e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7a9e34b94bc6d146b7c7db61c02fba86eedf56812dc389fbe0b8d712d54c43a2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3e6f131cc475b96a98e22d54c82905c055d46072a4b15d6fdb027fe25100d25d"
   end
 
   depends_on "pkgconf" => :build

@@ -4,6 +4,7 @@ class Killswitch < Formula
   url "https://github.com/vpn-kill-switch/killswitch/archive/refs/tags/v0.7.3.tar.gz"
   sha256 "dbc1fc04e9945049e0cad3aa18740394cac9d93a0aacca00d45c82ec891346f1"
   license "BSD-3-Clause"
+  head "https://github.com/vpn-kill-switch/killswitch.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "774a26f0fc7ef071f5b5ff472ac6dba6f0ef5e117096f2de5bd558f1398ac464"

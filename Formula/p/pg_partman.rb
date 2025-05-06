@@ -11,6 +11,7 @@ class PgPartman < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "da418435f548516e2c08d7152618cba4944c05ea97e7a6caf885d392367d6b1f"
     sha256 cellar: :any_skip_relocation, sonoma:        "4ff364c6122dd2f76874efa3993473d44c1875a9af05f87ac2b6162e0d3c3081"
     sha256 cellar: :any_skip_relocation, ventura:       "d354534be1f5892af69af5ad223d00864f39f49a1a05a161a45c32440f51bb87"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "514b8f6796d0853c9dee95b01cae31d554351c999f1ebbc989553d0572fe833a"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "35d4cb1858223e0a1b0badd91bc8d83393da2fcd30d9609bef6285d8fe5fef3c"
   end
 

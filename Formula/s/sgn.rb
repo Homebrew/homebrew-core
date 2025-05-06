@@ -13,6 +13,7 @@ class Sgn < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "0da9903de5c67fa1ab04304476c4d87312e50ec8cecf4f63ca45adac527112e6"
     sha256 cellar: :any_skip_relocation, sonoma:        "4cd2918b3875487f6e2d9927e2bad5d39b09c77a7406716ac98bbc8266a60a9f"
     sha256 cellar: :any_skip_relocation, ventura:       "b5b2795c30c949a7772859cb74da2d499600069bd65bdd1c8c1a9137a6e9c8ab"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "16fb106569f1bd6fa3893f57fd84751c4f0d6df486bfefe4ede5388845b9eb06"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "21bd9b282190025a691793764bf3212e1f26990ece0991fbb201d2ef03043ffc"
   end
 

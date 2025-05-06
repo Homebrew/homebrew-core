@@ -12,6 +12,7 @@ class LibspellingAT02 < Formula
     sha256 cellar: :any, arm64_ventura: "3fd146874edb16cefef9b8b2288fdcfbe0ef6811ee8e2d87635e6eb13acb2eb2"
     sha256 cellar: :any, sonoma:        "00d924b8e7f5cd27fbbe087e60a343c5a10617ac99d3605340eac21d0e31c171"
     sha256 cellar: :any, ventura:       "611812775575e4302a6612301a51d6036dc14dbbd4c031d848446e89219f08c5"
+    sha256               arm64_linux:   "40fee8eb0750567f7e799007e4961a924b9139d469a65608528a7a1396392698"
     sha256               x86_64_linux:  "624143b2d621071b4239dbdf74b9adde6f7da4a8cbc42742bdee7435fd187749"
   end
 

@@ -1,7 +1,7 @@
 class IrcdIrc2 < Formula
   desc "Original IRC server daemon"
-  homepage "http://www.irc.org/"
-  url "http://www.irc.org/ftp/irc/server/irc2.11.2p3.tgz"
+  homepage "https://web.archive.org/web/20240814044559/http://www.irc.org/"
+  url "https://web.archive.org/web/20240805183402/http://www.irc.org/ftp/irc/server/irc2.11.2p3.tgz"
   version "2.11.2p3"
   sha256 "be94051845f9be7da0e558699c4af7963af7e647745d339351985a697eca2c81"
   # The `:cannot_represent` is for a Digital Equipment Corporation license.
@@ -14,11 +14,6 @@ class IrcdIrc2 < Formula
     :cannot_represent, # ircd/{res_comp.c,res_init.c,res_mkquery.c,resolv_def.h}
   ]
 
-  livecheck do
-    url "http://www.irc.org/ftp/irc/server/"
-    regex(/href=.*?irc[._-]?v?(\d+(?:\.\d+)+(?:p\d+)?)\.t/i)
-  end
-
   bottle do
     rebuild 2
     sha256 arm64_sequoia:  "11a1e704e3078514219037593b14351817074e38045f95a056d048ced644fed1"
@@ -28,6 +23,7 @@ class IrcdIrc2 < Formula
     sha256 sonoma:         "f5fcb1c6dea38be635adcc3bb4a6b32d8034d4c02ee5ea1034a66e6b64059cbd"
     sha256 ventura:        "fcde6372721ec2700d587fd077cb410df0afdc5100d8181576a5f905728e7ed9"
     sha256 monterey:       "90c0639ec3e7ab17eaa97b90af15b30b14896d23f7f3c492b88a3190555781ff"
+    sha256 arm64_linux:    "6dab067580b38df4623c5256bb04d641f108ec8997491b483e91b58df06e9257"
     sha256 x86_64_linux:   "524aef733a367cce6eb115c4453ec851ffe7ac7d731c3d5ce91195be201bddb1"
   end
 
@@ -52,7 +48,17 @@ class IrcdIrc2 < Formula
     EOS
   end
 
+  # Last release on 2010-08-13 and site is down
+  deprecate! date: "2025-04-06", because: :unmaintained
+
   uses_from_macos "libxcrypt"
+
+  on_linux do
+    on_arm do
+      # Added automake as a build dependency to update config files for ARM support.
+      depends_on "automake" => :build
+    end
+  end
 
   conflicts_with "ircd-hybrid", because: "both install `ircd` binaries"
 
@@ -64,6 +70,13 @@ class IrcdIrc2 < Formula
     # Remove header with incompatible IBM license and add linker flags to use system library instead
     rm("ircd/nameser_def.h")
     ENV.append "LIBS", "-lresolv"
+
+    if OS.linux? && Hardware::CPU.arm?
+      # Workaround for ancient config files not recognizing aarch64 macos.
+      %w[config.guess config.sub].each do |fn|
+        cp Formula["automake"].share/"automake-#{Formula["automake"].version.major_minor}"/fn, "support/#{fn}"
+      end
+    end
 
     system "./configure", "--prefix=#{prefix}",
                           "--localstatedir=#{var}",

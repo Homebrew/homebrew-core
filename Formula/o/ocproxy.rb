@@ -26,6 +26,7 @@ class Ocproxy < Formula
     sha256 cellar: :any,                 mojave:         "786f0c42a3d282b78d8dc2fa18c36e46707451f4ac848e9af7dd82ab31b40f6d"
     sha256 cellar: :any,                 high_sierra:    "0cd70ac67ebd419b869ad4dd70c6cd1217248c8e7b7a57d3a7c8e15c7d2f7dfc"
     sha256 cellar: :any,                 sierra:         "8e33eae007c082ec9b6787210096a4e20992151a7b2c5f345941f68c478ae0e2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "f0a1a2ac8cb2cbb91663cfcf06be5ac5d931ea8e9168ddbd3ca498cd1e2ff98e"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "04fbf035ccc8cc3ab0073c0d2299d47276268f8d47aa298cac9b8897cc9065e1"
   end
 

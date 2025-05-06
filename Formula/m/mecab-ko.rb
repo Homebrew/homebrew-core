@@ -27,20 +27,22 @@ class MecabKo < Formula
     sha256 high_sierra:    "d254239a9fec5e99de9590feb8d7c82f87e31324908003b059aea9a5d6092f2a"
     sha256 sierra:         "86b35c767cb97ab0b5e895475c3254589b101bdc3c8666abc694ea9a480421ec"
     sha256 el_capitan:     "c348042904040c28772c3f8f299debe574c6ebaaed7e41b23cac4980aeb8aa97"
+    sha256 arm64_linux:    "207ec6dd09f1e79dd4fc75135376ccfd0b998f0d9ccaf13d7832b2708b0c2a23"
     sha256 x86_64_linux:   "15f29ad6bf47615efaeab3db5f5108ee7232fc3c31cd905c7524b619d0bab818"
   end
 
   conflicts_with "mecab", because: "both install mecab binaries"
 
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--sysconfdir=#{etc}"
+    args = ["--sysconfdir=#{etc}"]
+    # Help old config scripts identify arm64 linux
+    args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+
+    system "./configure", *args, *std_configure_args
     system "make", "install"
 
     # Put dic files in HOMEBREW_PREFIX/lib instead of lib
-    inreplace "#{bin}/mecab-config", "${exec_prefix}/lib/mecab/dic", "#{HOMEBREW_PREFIX}/lib/mecab/dic"
-    inreplace "#{etc}/mecabrc", "#{lib}/mecab/dic", "#{HOMEBREW_PREFIX}/lib/mecab/dic"
+    inreplace [bin/"mecab-config", etc/"mecabrc"], "#{lib}/mecab/dic", "#{HOMEBREW_PREFIX}/lib/mecab/dic"
   end
 
   def post_install

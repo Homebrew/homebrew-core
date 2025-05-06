@@ -21,6 +21,7 @@ class Dynomite < Formula
     sha256 cellar: :any,                 monterey:       "5679f89f06a1f5ac53e3c4d2481f35e944238be44579423aab64077e5033c637"
     sha256 cellar: :any,                 big_sur:        "8a79d6ed731e5a44a26b5691723edc02ca0ed66e4c54fa08bdc183082dd8531b"
     sha256 cellar: :any,                 catalina:       "879a8a2ca6905ca4cd0cf3cc7e6020415b54b12f3a90f51e52a289c1818da46a"
+    sha256                               arm64_linux:    "2839e6134a007f1e5471394362bef65e4083c1a17c98ec6fe51caac34e349b81"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "9251d7d3c85de18d648cee8fec1d415a634a820efe26559702a61b01f47c0e52"
   end
 
@@ -45,8 +46,12 @@ class Dynomite < Formula
       ENV.append_to_cflags "-Wno-implicit-function-declaration -Wno-int-conversion"
     end
 
+    args = ["--disable-silent-rules", "--sysconfdir=#{pkgetc}"]
+    # Help old config script for bundled libyaml identify arm64 linux
+    args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+
     system "autoreconf", "--force", "--install", "--verbose"
-    system "./configure", "--disable-silent-rules", "--sysconfdir=#{pkgetc}", *std_configure_args
+    system "./configure", *args, *std_configure_args
     system "make"
     system "make", "install"
     pkgetc.install Dir["conf/*"]
@@ -64,7 +69,7 @@ class Dynomite < Formula
     end
 
     fork { exec sbin/"dynomite", "-c", "redis_single.yml" }
-    sleep 1
+    sleep 5
     assert_match "OK", shell_output("curl -s 127.0.0.1:#{stats_port}")
   end
 end

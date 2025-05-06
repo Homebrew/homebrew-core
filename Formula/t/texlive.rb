@@ -39,6 +39,7 @@ class Texlive < Formula
     sha256 arm64_ventura: "bf3f81f2101f658532f917b49cdb220c21e6b5465f27f0fcdefa4b361d0f119c"
     sha256 sonoma:        "e0353127249a2ac7229787cdd7f2a555f115c9b2ff466f4e339557117c59a664"
     sha256 ventura:       "b065a0aa04c54fdef596148f0fcae226fc38cd8bfca6632dd194bc04121ad0de"
+    sha256 arm64_linux:   "5124fbe9981c8e14b7b505701a62a75671eff00c910b0af49acbc2cd8d0e56e8"
     sha256 x86_64_linux:  "6855a829bd2a7facbcaa400b2c3a5c342248abc606f479a538a03bbefdc6bacc"
   end
 

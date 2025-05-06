@@ -1,8 +1,8 @@
 class Proguard < Formula
   desc "Java class file shrinker, optimizer, and obfuscator"
   homepage "https://www.guardsquare.com/en/products/proguard"
-  url "https://github.com/Guardsquare/proguard/releases/download/v7.6.1/proguard-7.6.1.tar.gz"
-  sha256 "672ef62a3154474a6172cbfde9a2f09da1642a17a80e1c7b79a6cc58953fbe06"
+  url "https://github.com/Guardsquare/proguard/releases/download/v7.7/proguard-7.7.0.tar.gz"
+  sha256 "6769a5c6219a81651c34554228497b52a4fc162d341e2ff07875b32e730c64d7"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -11,10 +11,12 @@ class Proguard < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "358c58112336b1909bdf8c5f550caf781a584ea98514716ac80dd20f5f8f2ca8"
+    sha256 cellar: :any_skip_relocation, all: "6cbbd228033de155297ce16984c8f4b876c85c9d4d398c72060241bb5a01e735"
   end
 
   depends_on "openjdk"
+
+  conflicts_with cask: "android-commandlinetools", because: "both install `retrace` binaries"
 
   def install
     libexec.install "lib/proguard.jar"

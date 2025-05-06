@@ -1,8 +1,8 @@
 class ImmichGo < Formula
   desc "Alternative to the official immich-CLI command written in Go"
   homepage "https://github.com/simulot/immich-go"
-  url "https://github.com/simulot/immich-go/archive/refs/tags/v0.25.0.tar.gz"
-  sha256 "a4c819c96cb32f4534caec5c692477c9af95763fcebcf3fadcb5750226943c74"
+  url "https://github.com/simulot/immich-go/archive/refs/tags/v0.26.0.tar.gz"
+  sha256 "1887a6e1be06d65d955c31cc24b714608e3e28c86811a624763de10aded83d09"
   license "AGPL-3.0-only"
   head "https://github.com/simulot/immich-go.git", branch: "main"
 
@@ -12,12 +12,12 @@ class ImmichGo < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c77df9af83ab818bc2d1bd4ff68b644ee6a3bab4e05349dd70aa8bb78ddac903"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8bd14807b207baad6d35980f175dfa99706955af9b594df3c691e02b60a34c31"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "3b485e96622bb704bf3a4081eee029c6f5cfbc9ce91dc635cb0b813ed9f80da1"
-    sha256 cellar: :any_skip_relocation, sonoma:        "7a7335768b33fe45ad78a84f665822b9baf3400aad8cba369fc53e3b1a7f1cd7"
-    sha256 cellar: :any_skip_relocation, ventura:       "84dc6781753a72c3647d5b64a97103f45c91f0b3fabb8310045613da93f3fac9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ea0a3c7912ba02158e52365ac6848ea82d42b9526ac5e6683835550a8515da21"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3e9ab51772ada53f2cec07b49bfbf3d8c50639694d1f4181f01e00259464a33f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "27835b15dace08af282e5fe1ebb4285ec2bb620ef0c58e36ab74b0ca047d983e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "8f8497d80f35d0cbf0f96aaeb9f3b2a224bc8a6bf994356fbd163099ed8e2d78"
+    sha256 cellar: :any_skip_relocation, sonoma:        "147e658b390382e73217852e4f2a77089b025d69039d7ab98ccaabe4481c4f9c"
+    sha256 cellar: :any_skip_relocation, ventura:       "fb68d3ed6eb43da4b47447ec18bd09060b3e8a694e81b8a10cee899b8d8c7667"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "806424b0dd414394ff5052ec34b0977e06ec25f644fc025e1b5940577806132d"
   end
 
   depends_on "go" => :build
@@ -31,7 +31,7 @@ class ImmichGo < Formula
 
   test do
     output = shell_output("#{bin}/immich-go --server http://localhost --api-key test upload from-folder . 2>&1", 1)
-    assert_match "Error: unexpected response to the immich's ping API at this address", output
+    assert_match "Error: error while calling the immich's ping API", output
 
     assert_match version.to_s, shell_output("#{bin}/immich-go --version")
   end

@@ -1,10 +1,9 @@
 class KitchenSync < Formula
   desc "Fast efficiently sync database without dumping & reloading"
   homepage "https://github.com/willbryant/kitchen_sync"
-  url "https://github.com/willbryant/kitchen_sync/archive/refs/tags/v2.20.tar.gz"
-  sha256 "e79e5dfad48b8345b1d80444a0e992b2f9b9c53f29f6f607647e567292a7d0f2"
+  url "https://github.com/willbryant/kitchen_sync/archive/refs/tags/v2.21.tar.gz"
+  sha256 "0a2c25001069c90135a91b1cc70c1b9096c3c6e127f6a14f1b45cdbb0c209f09"
   license "MIT"
-  revision 3
   head "https://github.com/willbryant/kitchen_sync.git", branch: "main"
 
   livecheck do
@@ -13,12 +12,13 @@ class KitchenSync < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "2684885be33f370f74f819981353fa6899910f6bc6217ff89db2ec703a7604ad"
-    sha256 cellar: :any,                 arm64_sonoma:  "c29d901bfc762ba6b9a8388856e0f02bb14f22bda35470639fbcca2dad20abe5"
-    sha256 cellar: :any,                 arm64_ventura: "2f96d60670814741428174b3b3459b52919437a27b0d2e6dd5649454921a98a6"
-    sha256 cellar: :any,                 sonoma:        "dfcac11bf0d2ec89bf2674a869f4a97b260de93ab0d5b6c471b0fb971f11d37d"
-    sha256 cellar: :any,                 ventura:       "cf4732bbdb5d936d9025af607d8282362d0db5325efb206ec37c4e307597fa5e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c0d7d9619e53a5f92ae9f77ce8998887682e7cbd89fc61f32665bbceb0699e13"
+    sha256 cellar: :any,                 arm64_sequoia: "7a4ef7280430f9a4bf5464e8b516f53af6eb9e8307cd5070b9d51e4373be601f"
+    sha256 cellar: :any,                 arm64_sonoma:  "12c2064e9e97f09562912a635453b0b015071117ae19062ab3cd804435139072"
+    sha256 cellar: :any,                 arm64_ventura: "541760108930e985207dae586caeed9aeddacfd348295a5f5af26bebc225246c"
+    sha256 cellar: :any,                 sonoma:        "d5c53943f1d960045b1fbd64124d2004531f9c046b3ed7cae5246b4d813c0cc5"
+    sha256 cellar: :any,                 ventura:       "d73ae2d23fd13510fd8b6fba2130dd2761587cc505866a8e2bb4686be1d14ad0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "afb7f3f8129476eec9257b88dda07e647af4209af5784b9b3758a37e95786f54"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7884a6d66df364341ac6ee59613ed1a1198f8171fbb22a53f2849194cf4ac728"
   end
 
   depends_on "cmake" => :build

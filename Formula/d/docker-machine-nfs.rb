@@ -10,6 +10,8 @@ class DockerMachineNfs < Formula
     sha256 cellar: :any_skip_relocation, all: "7adcced71d07397c241cf4999adf40d17b6f773aa28fc53625df5982484d4c6e"
   end
 
+  deprecate! date: "2025-04-27", because: :repo_archived
+
   def install
     inreplace "docker-machine-nfs.sh", "/usr/local", HOMEBREW_PREFIX
     bin.install "docker-machine-nfs.sh" => "docker-machine-nfs"

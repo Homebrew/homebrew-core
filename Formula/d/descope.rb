@@ -4,6 +4,7 @@ class Descope < Formula
   url "https://github.com/descope/descopecli/archive/refs/tags/v0.8.13.tar.gz"
   sha256 "0f2aea0e65687db859563206c421567c4a5b664b5975fc621b4c2bada17ac6e5"
   license "MIT"
+  head "https://github.com/descope/descopecli.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "056ade67fc5866133bd18e5c5a3f618fc89267f07b094e88ee363d5dc36581e4"

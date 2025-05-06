@@ -3,30 +3,30 @@ class Nox < Formula
 
   desc "Flexible test automation for Python"
   homepage "https://nox.thea.codes/"
-  url "https://files.pythonhosted.org/packages/0d/22/84a2d3442cb33e6fb1af18172a15deb1eea3f970417f1f4c5fa1600143e8/nox-2025.2.9.tar.gz"
-  sha256 "d50cd4ca568bd7621c2e6cbbc4845b3b7f7697f25d5fb0190ce8f4600be79768"
+  url "https://files.pythonhosted.org/packages/b4/80/47712208c410defec169992e57c179f0f4d92f5dd17ba8daca50a8077e23/nox-2025.5.1.tar.gz"
+  sha256 "2a571dfa7a58acc726521ac3cd8184455ebcdcbf26401c7b737b5bc6701427b2"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "554fbabf55addaf8cbd65ee2133de6871ffd38a2af3da0177a9e746b5859bf42"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "554fbabf55addaf8cbd65ee2133de6871ffd38a2af3da0177a9e746b5859bf42"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "554fbabf55addaf8cbd65ee2133de6871ffd38a2af3da0177a9e746b5859bf42"
-    sha256 cellar: :any_skip_relocation, sonoma:        "da455caf1512f3fc3e6517cb384bed3e6b59b17d363c907b4bb5e36e24726ec8"
-    sha256 cellar: :any_skip_relocation, ventura:       "da455caf1512f3fc3e6517cb384bed3e6b59b17d363c907b4bb5e36e24726ec8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6b6a27ac0a075d93e37595666f75ce0dc5aaa536f6e6df54512f8c9b16ba0fb9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "efadaff2f65e6b0cacf2fe7b40bd891777f84a2bcab00334cdb7b02269169bdf"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3e2714259195a768dc9390d04a0d2f9f0bcc1a1bd6cad293b3865a0b305eac9b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3e2714259195a768dc9390d04a0d2f9f0bcc1a1bd6cad293b3865a0b305eac9b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "3e2714259195a768dc9390d04a0d2f9f0bcc1a1bd6cad293b3865a0b305eac9b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f9718d5d586aad781bf74f6808694ffe294b2e7ef40e07bd185ced9c9831531c"
+    sha256 cellar: :any_skip_relocation, ventura:       "f9718d5d586aad781bf74f6808694ffe294b2e7ef40e07bd185ced9c9831531c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8fe7df1af903820f571e1d6b1c08449a743f06e9908e1bcd6005eed4225a0140"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8fe7df1af903820f571e1d6b1c08449a743f06e9908e1bcd6005eed4225a0140"
   end
 
   depends_on "python@3.13"
 
   resource "argcomplete" do
-    url "https://files.pythonhosted.org/packages/0c/be/6c23d80cb966fb8f83fb1ebfb988351ae6b0554d0c3a613ee4531c026597/argcomplete-3.5.3.tar.gz"
-    sha256 "c12bf50eded8aebb298c7b7da7a5ff3ee24dffd9f5281867dfe1424b58c55392"
+    url "https://files.pythonhosted.org/packages/16/0f/861e168fc813c56a78b35f3c30d91c6757d1fd185af1110f1aec784b35d0/argcomplete-3.6.2.tar.gz"
+    sha256 "d0519b1bc867f5f4f4713c41ad0aba73a4a5f007449716b16f385f2166dc6adf"
   end
 
   resource "attrs" do
-    url "https://files.pythonhosted.org/packages/49/7c/fdf464bcc51d23881d110abd74b512a42b3d5d376a55a831b44c603ae17f/attrs-25.1.0.tar.gz"
-    sha256 "1c97078a80c814273a76b2a298a932eb681c87415c11dee0a6921de7f1b02c3e"
+    url "https://files.pythonhosted.org/packages/5a/b0/1367933a8532ee6ff8d63537de4f1177af4bff9f3e829baf7331f595bb24/attrs-25.3.0.tar.gz"
+    sha256 "75d7cefc7fb576747b2c81b4442d4d4a1ce0900973527c011d1030fd3bf4af1b"
   end
 
   resource "colorlog" do
@@ -45,23 +45,23 @@ class Nox < Formula
   end
 
   resource "filelock" do
-    url "https://files.pythonhosted.org/packages/dc/9c/0b15fb47b464e1b663b1acd1253a062aa5feecb07d4e597daea542ebd2b5/filelock-3.17.0.tar.gz"
-    sha256 "ee4e77401ef576ebb38cd7f13b9b28893194acc20a8e68e18730ba9c0e54660e"
+    url "https://files.pythonhosted.org/packages/0a/10/c23352565a6544bdc5353e0b15fc1c563352101f30e24bf500207a54df9a/filelock-3.18.0.tar.gz"
+    sha256 "adbc88eabb99d2fec8c9c1b229b171f18afa655400173ddc653d5d01501fb9f2"
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/d0/63/68dbb6eb2de9cb10ee4c9c14a0148804425e13c4fb20d61cce69f53106da/packaging-24.2.tar.gz"
-    sha256 "c228a6dc5e932d346bc5739379109d49e8853dd8223571c7c5b55260edc0b97f"
+    url "https://files.pythonhosted.org/packages/a1/d4/1fc4078c65507b51b96ca8f8c3ba19e6a61c8253c72794544580a7b6c24d/packaging-25.0.tar.gz"
+    sha256 "d443872c98d677bf60f6a1f2f8c1cb748e8fe762d2bf9d3148b5599295b0fc4f"
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/13/fc/128cc9cb8f03208bdbf93d3aa862e16d376844a14f9a0ce5cf4507372de4/platformdirs-4.3.6.tar.gz"
-    sha256 "357fb2acbc885b0419afd3ce3ed34564c13c9b95c89360cd9563f73aa5e2b907"
+    url "https://files.pythonhosted.org/packages/b6/2d/7d512a3913d60623e7eb945c6d1b4f0bddf1d0b7ada5225274c87e5b53d1/platformdirs-4.3.7.tar.gz"
+    sha256 "eb437d586b6a0986388f0d6f74aa0cde27b48d0e3d66843640bfb6bdcdb6e351"
   end
 
   resource "virtualenv" do
-    url "https://files.pythonhosted.org/packages/a7/ca/f23dcb02e161a9bba141b1c08aa50e8da6ea25e6d780528f1d385a3efe25/virtualenv-20.29.1.tar.gz"
-    sha256 "b8b8970138d32fb606192cb97f6cd4bb644fa486be9308fb9b63f81091b5dc35"
+    url "https://files.pythonhosted.org/packages/38/e0/633e369b91bbc664df47dcb5454b6c7cf441e8f5b9d0c250ce9f0546401e/virtualenv-20.30.0.tar.gz"
+    sha256 "800863162bcaa5450a6e4d721049730e7f2dae07720e0902b0e4040bd6f9ada8"
   end
 
   def install

@@ -20,12 +20,20 @@ class Dbacl < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:    "42c1c03e8df0b4db91dc99ace3ec87f3901f1aa6975430d597240ab5f9182c1f"
     sha256 cellar: :any_skip_relocation, sierra:         "c6e6d74e2f2a86325ee895f8ef6893d99e1463d0018ead0d0da46e0dfd95c272"
     sha256 cellar: :any_skip_relocation, el_capitan:     "750c29761c5784ddbd0d46643f2d462d8b22c14822773e2366db01be17a3e310"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "4e4f747f411c297f6c0eedf5f0da68f7c48df9190beba950accc13837ef5a912"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "27ddb0fca1dfb2cc615befe472927ff657b689dad255e26913ce118f7d83dfcb"
   end
 
   def install
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    args = []
+    if OS.linux?
+      # Help old config scripts identify arm64 linux
+      args << "--build=aarch64-unknown-linux-gnu" if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      # Work around error: unknown type name 'locale_t'
+      ENV.append "CFLAGS", "-std=gnu99"
+    end
+
+    system "./configure", *args, *std_configure_args
     system "make", "install"
   end
 

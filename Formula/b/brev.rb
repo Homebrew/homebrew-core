@@ -1,9 +1,10 @@
 class Brev < Formula
   desc "CLI tool for managing workspaces provided by brev.dev"
   homepage "https://developer.nvidia.com/brev"
-  url "https://github.com/brevdev/brev-cli/archive/refs/tags/v0.6.307.tar.gz"
-  sha256 "7055e4eaa428fc28d25c7addde6cf5837a06ea918c067563211ec944548160af"
+  url "https://github.com/brevdev/brev-cli/archive/refs/tags/v0.6.308.tar.gz"
+  sha256 "129badf38e3a66e9ca0f8f7f518ff9d8d06bb88a7a6a38c2acf7a729cd421ba7"
   license "MIT"
+  head "https://github.com/brevdev/brev-cli.git", branch: "main"
 
   # Upstream appears to use GitHub releases to indicate that a version is
   # released (and some tagged versions don't end up as a release), so it's
@@ -14,12 +15,12 @@ class Brev < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "97c0818ab757d34e53de52c9162ae4c47df3311ddca85f33f14369033cc0f4ed"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "97c0818ab757d34e53de52c9162ae4c47df3311ddca85f33f14369033cc0f4ed"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "97c0818ab757d34e53de52c9162ae4c47df3311ddca85f33f14369033cc0f4ed"
-    sha256 cellar: :any_skip_relocation, sonoma:        "41a6f33113d709b4b7d1d9933e88801c1233eab305256c21004517f70cc21290"
-    sha256 cellar: :any_skip_relocation, ventura:       "41a6f33113d709b4b7d1d9933e88801c1233eab305256c21004517f70cc21290"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2869ff1d72e59f9d6f8c0522dc46d3096d049e7707a8b2b33cd184f0f8709f15"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "13463c4142ee0116c444901995d1cc1289ce018a485cdc1053b7bc80ec6fb5c2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "13463c4142ee0116c444901995d1cc1289ce018a485cdc1053b7bc80ec6fb5c2"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "13463c4142ee0116c444901995d1cc1289ce018a485cdc1053b7bc80ec6fb5c2"
+    sha256 cellar: :any_skip_relocation, sonoma:        "dc1633e3374b1dfd4bcbbdd8170eae7ac094732f991c2adf2de1f657bf5aadd4"
+    sha256 cellar: :any_skip_relocation, ventura:       "dc1633e3374b1dfd4bcbbdd8170eae7ac094732f991c2adf2de1f657bf5aadd4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c5c8d8e9b835fc47fdc5605a1c9792b1408d7c369a185ab850ac4256caf9ae44"
   end
 
   depends_on "go" => :build

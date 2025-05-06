@@ -4,25 +4,37 @@ class CargoUdeps < Formula
   url "https://github.com/est31/cargo-udeps/archive/refs/tags/v0.1.55.tar.gz"
   sha256 "bc84beb17213c69fd452d240a85697b96b167e45f43207e8f9202b5bd4277926"
   license any_of: ["Apache-2.0", "MIT"]
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "667c084abc9e6a266bf67e636a0a639353563ae250b07061f0b73e762dc3da57"
-    sha256 cellar: :any,                 arm64_sonoma:  "b47b6cc533aa11dc4bb65235a7dde433613d420d12d569c2e95d4f0202614094"
-    sha256 cellar: :any,                 arm64_ventura: "8c7aaf65ba61a034e24ae83e8e69dcb6d9abc5bae632a9c01045a74f237b01b0"
-    sha256 cellar: :any,                 sonoma:        "8ec7010ac3faee5ac94316a16a770b39ea9f2038d10f9b29f726fa6373c7818c"
-    sha256 cellar: :any,                 ventura:       "663032427fc3280d388c78ad1e7ddede092fab440f1c14fbdce105f185a08374"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "143ce3d1e11c284ca3f202f72c86ae4ad9d127f343bbc23f72afde0babde4bd8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4a5c175ef1dbc2df1ec423b863c47a453e4efafacc402bd50943fdafc1352cbe"
+    sha256 cellar: :any,                 arm64_sequoia: "3560b35fd8924f4ec6302fa0ea7b863d6c414c3c0b3aa4e6e298492ed0ec8624"
+    sha256 cellar: :any,                 arm64_sonoma:  "606e4b2328d76762bd073eeab96270944674ce07434b3fae9443559a4fe2d9a8"
+    sha256 cellar: :any,                 arm64_ventura: "129f68ff4fe461ab23c956c0f3e51b67bc1b262ae7546d9c2c061ebc95a21f97"
+    sha256 cellar: :any,                 sonoma:        "2da242eca94859097a7baa91d471d939e64e21b111a90b9653af0b32a5a0315a"
+    sha256 cellar: :any,                 ventura:       "4a494ab4fef41d74b00be5c5d6346a46aed3c88a2c22951c7e7736e18a278bbc"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2530630d9bc5f7c7a08eb4c16c47c5a86ea709ace3a7db541f7482d2e0bc293e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f50c44c0c93396485ab604ebf9c953afa7a83ef222c41caa1a1d53e9dec89250"
   end
 
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
   depends_on "rustup" => :test
-  depends_on "libgit2@1.8" # needs https://github.com/rust-lang/git2-rs/issues/1109 to support libgit2 1.9
+  depends_on "libgit2"
   depends_on "libssh2"
   depends_on "openssl@3"
 
   uses_from_macos "zlib"
+
+  # patch to use libgit2 1.9, upstream pr ref, https://github.com/est31/cargo-udeps/pull/305
+  patch do
+    url "https://github.com/est31/cargo-udeps/commit/adede771b25ce753ca223cc1c5f36ff0951e5032.patch?full_index=1"
+    sha256 "e8119b2c2d6aada2b7f48c8011a0aec494abb516a443950fd8de1496497aefe2"
+  end
+  # cargo 0.87 fix
+  patch do
+    url "https://github.com/est31/cargo-udeps/commit/401859a2ea50a72e2764c997cf39ca805d3e7c5d.patch?full_index=1"
+    sha256 "f9be0d2587084c0d6e5ddb71b2a0b8a63271b7205a3871af1a32c9933ca4ddd8"
+  end
 
   def install
     ENV["LIBGIT2_NO_VENDOR"] = "1"
@@ -39,8 +51,8 @@ class CargoUdeps < Formula
     # Show that we can use a different toolchain than the one provided by the `rust` formula.
     # https://github.com/Homebrew/homebrew-core/pull/134074#pullrequestreview-1484979359
     ENV.prepend_path "PATH", Formula["rustup"].bin
-    system "rustup", "default", "beta"
     system "rustup", "set", "profile", "minimal"
+    system "rustup", "default", "beta"
 
     crate = testpath/"demo-crate"
     mkdir crate do
@@ -60,7 +72,7 @@ class CargoUdeps < Formula
     end
 
     [
-      Formula["libgit2@1.8"].opt_lib/shared_library("libgit2"),
+      Formula["libgit2"].opt_lib/shared_library("libgit2"),
       Formula["libssh2"].opt_lib/shared_library("libssh2"),
       Formula["openssl@3"].opt_lib/shared_library("libssl"),
       Formula["openssl@3"].opt_lib/shared_library("libcrypto"),

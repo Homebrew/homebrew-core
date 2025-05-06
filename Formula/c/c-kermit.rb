@@ -24,6 +24,7 @@ class CKermit < Formula
     sha256 cellar: :any_skip_relocation, ventura:        "0772fae0e560c8e726c611bd1e5b55d03e77f6f42feb3f763cb12f15a0151dc9"
     sha256 cellar: :any_skip_relocation, monterey:       "e379dd0cdd6eb9eec792cdd48ca7c5b7cd9281288840b15ce1d860fbb78982b2"
     sha256 cellar: :any_skip_relocation, big_sur:        "c2867c176bc81a35f56d5fe29847500b7c5f8c3e05ac10b5986073502a888a0f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "7c5ef16933a585d24b5186f5588e5cbb59d3a57af93e447660e159dc98a649f0"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "0d5959e91d9fce4bee2b835433a8d2cc589f8f9f37e02c0f1078dbe645e6351a"
   end
 
@@ -36,6 +37,16 @@ class CKermit < Formula
   patch :DATA
 
   def install
+    # Makefile only supports system libraries on Linux
+    if OS.linux?
+      inreplace "makefile" do |s|
+        s.gsub! "/usr/include/ncurses", "#{Formula["ncurses"].opt_include}/ncurses"
+        s.gsub! "/usr/lib/libncurses", "#{Formula["ncurses"].opt_lib}/libncurses"
+        s.gsub! "/usr/include/crypt", "#{Formula["libxcrypt"].opt_include}/crypt"
+        s.gsub! "/usr/lib/libcrypt", "#{Formula["libxcrypt"].opt_lib}/libcrypt"
+      end
+    end
+
     os = OS.mac? ? "macosx" : "linux"
     system "make", os
     man1.mkpath

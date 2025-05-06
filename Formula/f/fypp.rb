@@ -13,7 +13,6 @@ class Fypp < Formula
     sha256 cellar: :any_skip_relocation, all: "c8c4c383f5fa91ab12d838277ef39f7b8e11807e3e328379fb52b46c9a5b73f4"
   end
 
-  depends_on "python-setuptools" => :build
   depends_on "gcc" => :test
   depends_on "python@3.13"
 
@@ -22,7 +21,7 @@ class Fypp < Formula
   end
 
   def install
-    system python3, "-m", "pip", "install", *std_pip_args, "."
+    system python3, "-m", "pip", "install", *std_pip_args(build_isolation: true), "."
   end
 
   test do

@@ -1,19 +1,19 @@
 class Googletest < Formula
   desc "Google Testing and Mocking Framework"
   homepage "https://google.github.io/googletest/"
-  url "https://github.com/google/googletest/archive/refs/tags/v1.16.0.tar.gz"
-  sha256 "78c676fc63881529bf97bf9d45948d905a66833fbfa5318ea2cd7478cb98f399"
+  url "https://github.com/google/googletest/archive/refs/tags/v1.17.0.tar.gz"
+  sha256 "65fab701d9829d38cb77c14acdc431d2108bfdbf8979e40eb8ae567edf10b27c"
   license "BSD-3-Clause"
   head "https://github.com/google/googletest.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "190d3bd68d4bf26da5f36dc32e88011643e84aef8196edebbbcbf757d08d2c2a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6a6de6e806ca44915576aafb65d50d1b58ab4f337560a02c8780a3b9fe8c1010"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "7ef1cc29975aac943340518a6057af030da284f73cc6122fa6bc1127bfc8d5e0"
-    sha256 cellar: :any_skip_relocation, sonoma:        "71bf77319c7b3c51b22f28cb3a91f833ea89dec750fbb76a45827d6f834ac56e"
-    sha256 cellar: :any_skip_relocation, ventura:       "146609ea00020a57519b405cfa3e0247aad824fd83779190af4bd6d1f9fd7067"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "320717b24155c70f960a6a9eddef87e92b0a4a65edbaee339361f662c589ad1d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4b1e5b95cd807d28a81a8380cc1c05823e211daa8a0bada47215d3275f2b0385"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ec7368aaeb0d09dcab75a230f7b5a7db6f85dd1270fa7425c3cbb92fea187375"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0e657620864762a65a2a2417e0f15bf6f32c6c7a1ed01e48e108e5f972a74d77"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "5e0935d01dd27b107fbc52b2932007d5379abef84cba41e1ff9b4c7dd5ae896b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e262a6fed7e35a951a30f61363f802d2a95533a038989c23caa25c1c62cc265b"
+    sha256 cellar: :any_skip_relocation, ventura:       "98b453d726dfc77def1c06896ff974c00b3a6ad26c943204bf8c10de66c9751d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4b3a3bf959e4676e3193ae6a2f94b1fad5105cb9af1302f8556c749fed76d638"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f3209555def5bd0c5ffaf61cd972fa0c13963932460fcbb7772b85fb92dd5e09"
   end
 
   depends_on "cmake" => :build

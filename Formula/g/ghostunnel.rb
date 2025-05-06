@@ -12,6 +12,7 @@ class Ghostunnel < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "c2fb4451bc2b01b7eb2322c1b5477b97bf770deeb6476da7009e5f95a6873811"
     sha256 cellar: :any_skip_relocation, sonoma:        "c1e1083b6d3476a7ffea3a80471e54d120051f5b9283cc0755a6b3c20a57c8d9"
     sha256 cellar: :any_skip_relocation, ventura:       "b6bd8fc84a044dac20a64b2559742e404d5a1e69bea41bbcffc623c14c939e1b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6782ee6ff76538a6681c530f078da7ab66560e32ed4265d948a10a7e3e6a06e1"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "7ede20e59499a513433440f3d7c7b3cd2eef379baf06222fee5bc502c9bccc65"
   end
 

@@ -14,6 +14,7 @@ class Goocanvas < Formula
     sha256                               sonoma:         "6994404c6b91d235eda6a3a10b5a3a1a6b268d1fbbcdbc81ea3d538b19c71db0"
     sha256                               ventura:        "555e4e209cfcb7476df00bba6e4c23e99c3dddf938bdee7389f454cfc3dc7aba"
     sha256                               monterey:       "142e227274383dbc2c9e492f4cd84b9d12299fbb1a59813ce0d67eba5455e305"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "6c3bb638ce2932282d43879c06235c8f16d0548f2be355ee19b480266b253792"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "33355d4dbdef036db01c5948d764d8202047838d08a68c1de6d323e5f18bc6ef"
   end
 

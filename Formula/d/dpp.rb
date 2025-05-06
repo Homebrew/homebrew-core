@@ -5,17 +5,16 @@ class Dpp < Formula
       tag:      "v0.6.0",
       revision: "9c2b175b32cc46581a94a7ee1c0026f0cda045fc"
   license "BSL-1.0"
+  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "b9bac32440464a7d775ef641fff284d5de50ab7ecf6c1ad37e3a137898435504"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2476590c375c79bc2b694bf10a2edd7721d3603f7738b8d6c935d487ac9655f9"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a55479222fdfcb5350b7a06f509ce37a7af58d6b2f0c36807a3250b0a3169618"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "56f17de3bca828d4d844a811f40ed824827876530e8c4f3bef427c1f1c934678"
-    sha256 cellar: :any_skip_relocation, sonoma:         "a342da9f8b506999916e8ab83b6a0b7ca1574852e5daa106d4eb5308b1f4e588"
-    sha256 cellar: :any_skip_relocation, ventura:        "cff6526644d8ebdf667ad74b1ef8c420bf76014f0dd57b05bf9706f45efba495"
-    sha256 cellar: :any_skip_relocation, monterey:       "0dea447606ae46a62481252ea7cd16c2a6545be69918abea6949c787b55c39b7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "b5d7706120bcdd68aa87702e23cd5b1057af2ffb1f1c55a2a978f26ff79df070"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ac1f792f0814d1b5b07b10b751308dd7efc34f7105f93fc27946d3a649857db4"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e5f0fc9c62c460aba1532c7389e42c9bb85da0bcfa38607b76a361cb66c0d396"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "49bf533852469130afaf24027a2d88f6825d35cd90515e041bdddccff3620640"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "443e5a65e5f70dc1c1af23f374c94cb1c6ff26836a4b23c9c6e4597502dbd060"
+    sha256 cellar: :any_skip_relocation, sonoma:        "aebc8ca08df57de8624e9fb1a324872bb5883b207bb2a650a59125efc54e823b"
+    sha256 cellar: :any_skip_relocation, ventura:       "8acb22136bec153dd078adc4ad53441ce33e65a1ad96c25161a13cc19ca9e1e0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5115fc9b696c79b4acaa885bf0476915c91993d8a0ecfe393fd85cbd2b5af56d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2831967224ea98d7b494448db999203aead8f24183bb33319315f5af8d271185"
   end
 
   depends_on "dtools" => :build

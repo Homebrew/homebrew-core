@@ -1,18 +1,18 @@
 class Pgrx < Formula
   desc "Build Postgres Extensions with Rust"
   homepage "https://github.com/pgcentralfoundation/pgrx"
-  url "https://github.com/pgcentralfoundation/pgrx/archive/refs/tags/v0.13.1.tar.gz"
-  sha256 "4416fc78cf5758931d0fd220c8343d3a8255e98af81833e87234fe35f02df7a0"
+  url "https://github.com/pgcentralfoundation/pgrx/archive/refs/tags/v0.14.1.tar.gz"
+  sha256 "65243eb07e2979db3f4536e353accec1037bb33d5485669afb2f652ffc4f550f"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "229720422d7a56ee5780fe8dd87d086820b9151829153493f67fb8a85390f188"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "bdf3c63cdef75b4570d7b43db86878446054ee6f5ac2888232c4749ca6a1db8a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "371bc19c907b50402cf6100f191c597c7130afdd539f206150e87c55799887d2"
-    sha256 cellar: :any_skip_relocation, sonoma:        "01040beae0a8e57c3680c1368f1927a1b4c0a3a42b4734da79235d1a098ef17b"
-    sha256 cellar: :any_skip_relocation, ventura:       "54b5e97dbcfc280f1d884d6de16fd660d5b2df7c93070033d41e66c46067b782"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1350aa7d1b15817f57d43c84577e26e6911896357f2c57a68ab8116941ff738f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1f9cad5d2f19aabb5fdccc23b76c05c90df5366d80a8c7f89c6544522f2c93da"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9dd5b2d8f08d7d6ecb120e789ab2c9dd61082bb1be08617d4c8efceaeb82e64f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cab3f075c46646063a259cef20b00c579514f60f4974bf09a8915e43348541f7"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "eba6c0b8b346ce032c32e4b3be1ec6310b10cb9d70a0ebb61c4537bade5a0fa9"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8d6f3f683b189fede332739d6d65e7337c49ea4469c83274331155bdb4b6ea19"
+    sha256 cellar: :any_skip_relocation, ventura:       "ece4fc9c89237b468784170068f1a3e476c9c2536c3850b0a9d471490109d526"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c6eb1275c721e9d6ebad7601ed3857183009988a1d4ce11803bdd754a9d8c110"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7fae180ab458941618f2afc02b206b277f4cae2830218cd6c7701addffd14b3a"
   end
 
   depends_on "pkgconf" => :build
@@ -30,8 +30,8 @@ class Pgrx < Formula
     # Show that we can use a different toolchain than the one provided by the `rust` formula.
     # https://github.com/Homebrew/homebrew-core/pull/134074#pullrequestreview-1484979359
     ENV.prepend_path "PATH", Formula["rustup"].bin
-    system "rustup", "default", "beta"
     system "rustup", "set", "profile", "minimal"
+    system "rustup", "default", "beta"
 
     system "cargo", "pgrx", "new", "my_extension"
     assert_path_exists testpath/"my_extension/my_extension.control"

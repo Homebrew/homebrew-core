@@ -12,6 +12,7 @@ class Neofetch < Formula
   end
 
   deprecate! date: "2024-05-04", because: :repo_archived
+  disable! date: "2025-05-05", because: :repo_archived
 
   on_macos do
     depends_on "screenresolution"

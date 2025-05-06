@@ -4,6 +4,7 @@ class BitGit < Formula
   url "https://github.com/chriswalz/bit/archive/refs/tags/v1.1.2.tar.gz"
   sha256 "563ae6b0fa279cb8ea8f66b4b455c7cb74a9e65a0edbe694505b2c8fc719b2ff"
   license "Apache-2.0"
+  head "https://github.com/chriswalz/bit.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "512fae594f8692aea23014f35c5ef02d23c49c2ce28b2f772cffaeadc55b2c9d"

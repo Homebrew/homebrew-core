@@ -25,6 +25,7 @@ class Libmpd < Formula
     sha256 cellar: :any,                 mojave:         "9a7f7829ec1d79442d3dade12c338b42a0f248b35aa25475b512f0b70171d8db"
     sha256 cellar: :any,                 high_sierra:    "2d8f1fae6ecc3ab4b440531ae13a2db5bc82282a89f2670a986cc6136da16068"
     sha256 cellar: :any,                 sierra:         "8518a3880db71a27a414e8e2ae020afec29afbb777694389cd57d983ec1904a5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "1c113bbd470bb857807d840af2692dc933613f308b5e1a854b308da5b3a4b070"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "4035c1bec6e7cdd64abca505361da64a9de52e82dcd5da6bd84f2902fbab6157"
   end
 
@@ -43,7 +44,12 @@ class Libmpd < Formula
     ENV.append_to_cflags "-Wno-int-conversion" if DevelopmentTools.clang_build_version >= 1500
 
     ENV.append "CFLAGS", "-DHAVE_STRNDUP" unless OS.mac?
-    system "./configure", *std_configure_args
+
+    args = []
+    # Help old config scripts identify arm64 linux
+    args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+
+    system "./configure", *args, *std_configure_args
     system "make", "install"
   end
 

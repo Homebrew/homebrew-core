@@ -15,6 +15,7 @@ class DhallYaml < Formula
     sha256 cellar: :any_skip_relocation, sonoma:         "e284407208df9a5e48874e297ae5b959525d7de877fac148f5cf76aa9104003b"
     sha256 cellar: :any_skip_relocation, ventura:        "3d8172163ef684ea6612f87972161c4a1e0527f0a4e1d8108032bc40d6a73d8d"
     sha256 cellar: :any_skip_relocation, monterey:       "63b5a9360c083143320cdba1e3e2d3d9c28784cc7d0cdcf3fbf885579379eab7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "665b32d846ffab9fc4449756daaaa03bc428bd4b1aad881d3e3bba0781b65498"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "b906ee758e3780cf57c12d8c4229f0c33781f1d8b82e5ef73ff9c31c4ac72c86"
   end
 

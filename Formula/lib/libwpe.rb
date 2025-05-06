@@ -12,6 +12,7 @@ class Libwpe < Formula
   end
 
   bottle do
+    sha256                               arm64_linux:  "21430cbe282f3c972c7816b2694042bbbe05817410119e62ecbceacb984d4586"
     sha256 cellar: :any_skip_relocation, x86_64_linux: "a306319524cd2e8d329c387f4f62bf4bc8511c5dd6f58527911c6560f2109ce4"
   end
 

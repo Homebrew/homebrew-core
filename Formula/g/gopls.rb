@@ -4,6 +4,7 @@ class Gopls < Formula
   url "https://github.com/golang/tools/archive/refs/tags/gopls/v0.18.1.tar.gz"
   sha256 "e49fae5dd964432a0ea1661868e858acd2aa66aaf7e1c1d646fb8506f15c8e52"
   license "BSD-3-Clause"
+  head "https://github.com/golang/tools.git", branch: "master"
 
   livecheck do
     url :stable

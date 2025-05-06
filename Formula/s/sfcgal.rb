@@ -4,15 +4,15 @@ class Sfcgal < Formula
   url "https://gitlab.com/sfcgal/SFCGAL/-/archive/v2.0.0/SFCGAL-v2.0.0.tar.gz"
   sha256 "11843953f49e7e4432c42fd27d54e1ff7ca55d0cc72507725c2a5d840c2c6535"
   license "LGPL-2.0-or-later"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "5a5a7f00226cf8b89b1f5ff32b9fe9631cd6b9f4e5c327f623a772d41b9fb416"
-    sha256 cellar: :any,                 arm64_sonoma:  "a12e862ef7496cb0bfdb492ec9949be9c50fa1a984c8b9f20dafef512f315fc4"
-    sha256 cellar: :any,                 arm64_ventura: "315a037148929c830f9c288734944ccc74a0a8f688d43e5fc0ffaac7c54b26c3"
-    sha256 cellar: :any,                 sonoma:        "8609c67b397d379b5f2beef2f34a9ec7ad92874f06f524a4b48698696f9f0d0f"
-    sha256 cellar: :any,                 ventura:       "a0e4ed2664ff65b78076b2a00d1197a529e03719ee7265a5381eb20e6d564686"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5f87e1dfd50b1aa58838daa7246cfdce0dbe6304627b8a78b791758874fd3f32"
+    sha256 cellar: :any,                 arm64_sequoia: "80d4522710c8eb197f01e3d3f87dd850180007211f806e681ba6686624bd2f38"
+    sha256 cellar: :any,                 arm64_sonoma:  "64a1390eba8851948fcb377e95cc358f9411001c6ea1c9db6d83df8ddab90b22"
+    sha256 cellar: :any,                 arm64_ventura: "0b508c43373ae8110453a0deb0ba9b7e8e12f63201ba3c73ce770cc74d10195e"
+    sha256 cellar: :any,                 sonoma:        "45f58305ff1c4dfd97073088ede8eba3f09eff50c3d4131bdceba3de5863ee16"
+    sha256 cellar: :any,                 ventura:       "b0a9afee6f483df2da88e2f51c262d2099af8cd83a27dc45d83101d2f27f9ed2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "eb76f0a64fead5296106c2eedd97acbe4c06dea5ffd4c7f50c03150ba248993d"
   end
 
   depends_on "cmake" => :build

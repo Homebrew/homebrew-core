@@ -5,6 +5,7 @@ class Batt < Formula
       tag:      "v0.3.7",
       revision: "0292e5913c404f5d752f72bd340e161e3030c28c"
   license "GPL-2.0-only"
+  head "https://github.com/charlie0129/batt.git", branch: "master"
 
   livecheck do
     url :stable

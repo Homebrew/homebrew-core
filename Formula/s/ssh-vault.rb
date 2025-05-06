@@ -1,19 +1,19 @@
 class SshVault < Formula
   desc "Encrypt/decrypt using SSH keys"
   homepage "https://ssh-vault.com/"
-  url "https://github.com/ssh-vault/ssh-vault/archive/refs/tags/1.0.14.tar.gz"
-  sha256 "d7b678b73694f23f96833405693189e09a3577a8de0a3de774d636970d0e9ea9"
+  url "https://github.com/ssh-vault/ssh-vault/archive/refs/tags/1.1.0.tar.gz"
+  sha256 "3bde1ad4d1f8f0eb7ade501e4b12a89e83b6508675d46286462af1eccbda646c"
   license "BSD-3-Clause"
   head "https://github.com/ssh-vault/ssh-vault.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e3ee108d59eb02a626c5054fd031c5d5731e840b08aa1321a06317c0a8cd8b9d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "320ead45e8af50a17ed6f408d5993929259a67c3e559c1f165dad7e3aba7e945"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "77942f2f03a4abbd4ebf8c37a1b49052ce08189d35a11598bdaf68205ffb9916"
-    sha256 cellar: :any_skip_relocation, sonoma:        "84b37f454c937c319be9c17a7864a965c536a82bcd3bf4f54f718f5a71f4d2e9"
-    sha256 cellar: :any_skip_relocation, ventura:       "48d96be53c0be444e4f7c542597095966f57d6c85056e4abe8d575cb5e65af1a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "119c275a1cdf6353f1f4956d58e1a29176e8948a4423f3be72dd1517b35b11e9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "39a78207e70b5c7d52b43e70ef9437b84633eafcd179b0ca73a47254e3d62053"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c27ff2adc2e2a950011fb85982e3475dd00f95696354090bd0d498448a65aa76"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8b55c4f946385ceff1df3a4f742f53a895d1582faff4b3ed155b2c8947a2d5e8"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "dd1ab07e07ca2ab36d424d8840d7926aecf18d4b223d5289adf982c219c60112"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f21314b53412c0c49618b3384a885eeed3e58784e797d067f12d89dffb57241f"
+    sha256 cellar: :any_skip_relocation, ventura:       "cee7b74f65d8e5d79dac9fc296a4fadfd02939790a94208c167f3aec805d0f30"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d73c8e8b90a8ffdb58c8eb42810e8c1db67330ed559bee688f9a5fdf0c1946ed"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5e813a71072ece7cdca7723f9fe65f7d79709de88ee0240f9fdfe8febac4929a"
   end
 
   depends_on "rust" => :build

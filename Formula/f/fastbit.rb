@@ -22,6 +22,7 @@ class Fastbit < Formula
     sha256 cellar: :any,                 catalina:       "31e723c0610621033859357ab2a6dc373cf955847ab5c3dcf32696d260fa0de3"
     sha256 cellar: :any,                 mojave:         "0f9a32fe10c3e5c6e2826009f247bc55064ad5612dcda9724cda203c8b18e00e"
     sha256 cellar: :any,                 high_sierra:    "a7d7330e664e04191fe183050b588e4d3ad13aa101553f8f6965deb708c96d72"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "dfa19dae8cb7913a539c7940590873ef363462e06b7e68392bfd8e94ebfde0cd"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "198c4ca4965a0f5285fe2c887295f34dbd0481ec7eb6898d5cf325688dccfb96"
   end
 
@@ -45,10 +46,11 @@ class Fastbit < Formula
 
   def install
     ENV.cxx11
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--with-java=#{Formula["openjdk"].opt_prefix}"
+    args = ["--with-java=#{Formula["openjdk"].opt_prefix}"]
+    # Help old config scripts identify arm64 linux
+    args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+
+    system "./configure", *args, *std_configure_args
     system "make", "install"
     libexec.install lib/"fastbitjni.jar"
     bin.write_jar_script libexec/"fastbitjni.jar", "fastbitjni"

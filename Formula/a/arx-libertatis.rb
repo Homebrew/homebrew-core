@@ -21,6 +21,7 @@ class ArxLibertatis < Formula
     sha256 monterey:       "d9c218e036852e73dea349e17eaa6e03358f7118bd41acd98a5f4bae7b25bc9d"
     sha256 big_sur:        "e855dfe524dd05d0ebf94acee4cb2e74f2037d0c4c44eb76fd5f49fbbb8477f8"
     sha256 catalina:       "a8a9036477373bd0065f739c0bbc8bd6e20b09da4d643f20483ab6aec6a6d289"
+    sha256 arm64_linux:    "a6feb6bee70f09bafb43c03d91727cad508dac8176a2858d8f4ef761121c78f4"
     sha256 x86_64_linux:   "fcdc6dcedd23cc35e9bf57f97b4aa5946fe36adc3ffc9e15140224f79cc7d14f"
   end
 

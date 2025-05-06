@@ -21,6 +21,7 @@ class Dash < Formula
     sha256 cellar: :any_skip_relocation, ventura:        "909fda81a80744fd2e8ac80694258a2abf4ee52a7412fd2617d07fa61fb36586"
     sha256 cellar: :any_skip_relocation, monterey:       "5f282ad1ebb1967545d5fd96625943ef81fa89be33487da251c7fd780bb22564"
     sha256 cellar: :any_skip_relocation, big_sur:        "e7c20c1749cc4272f95828ba80ff122e7f451f887ba84892227017146759d69d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "59fefab5a530e94574f47321047cdea061cff60df562e33048af7a318b7a0492"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "22df39762896ca47c7d2463dd5a150a98ee005f382cfde38f6750f2a7937fd5a"
   end
 
@@ -30,12 +31,9 @@ class Dash < Formula
   uses_from_macos "libedit"
 
   def install
-    ENV["ac_cv_func_stat64"] = "no" if Hardware::CPU.arm?
+    ENV["ac_cv_func_stat64"] = "no" if OS.mac? && Hardware::CPU.arm?
     system "./autogen.sh" if build.head?
-
-    system "./configure", "--prefix=#{prefix}",
-                          "--with-libedit",
-                          "--disable-dependency-tracking"
+    system "./configure", "--with-libedit", *std_configure_args
     system "make"
     system "make", "install"
   end

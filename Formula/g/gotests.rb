@@ -4,6 +4,7 @@ class Gotests < Formula
   url "https://github.com/cweill/gotests/archive/refs/tags/v1.6.0.tar.gz"
   sha256 "f0236dbebd8a3fd19ec4260f490cb164240e1d518d3971b42872978f7a50c040"
   license "Apache-2.0"
+  head "https://github.com/cweill/gotests.git", branch: "develop"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "0a4ead9137295c0e945537a9deb41f5ff067502aff113bf316a5248efb187fdf"

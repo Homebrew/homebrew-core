@@ -23,13 +23,19 @@ class Apcupsd < Formula
     sha256 big_sur:        "1c425f1d6db43a760e4d068ae8ef193c3ca32a3157564989ba1a6aa2ce44a2c7"
     sha256 catalina:       "7636fe8d43fde7368817c64dc8f689526f48d2a958532e3fdd3f05db3deb4c5e"
     sha256 mojave:         "7c87a398311314a0f789cabb5956932962800297e2ba4890f07ac60c13cc3f68"
+    sha256 arm64_linux:    "2e4b840420d4e7b2712118ca0e9d789e0d6c1f44f54ea6bb49eca03b5548aef5"
     sha256 x86_64_linux:   "d393e850548713a383f89d2375fdbd895eae93c063c97b7e16cd767c881d983e"
   end
 
   depends_on "gd"
   depends_on "libusb-compat"
 
+  on_linux do
+    depends_on "systemd" # for shutdown
+  end
+
   def install
+    ENV.prepend_path "PATH", Formula["systemd"].opt_sbin if OS.linux?
     sysconfdir = etc/name
     args = %W[
       --prefix=#{prefix}

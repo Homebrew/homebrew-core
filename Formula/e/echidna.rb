@@ -17,6 +17,7 @@ class Echidna < Formula
     sha256 cellar: :any,                 arm64_ventura: "8f529c4e97f41611657d0fdfbbc2aa5b88c54af0fe578d176413caca679ea89f"
     sha256 cellar: :any,                 sonoma:        "169113958d861631bf7ab556fac14807670d4333edf491d12b53ee727ec32da2"
     sha256 cellar: :any,                 ventura:       "f70af17e76fc6c33f74499e9e5e8fa571c88476fb9497d78aac53d26b6a9fee8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2de0d84873ef2ad234ca0410bd72a217fad5f225aae6fb3df215c7db23f218f5"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "22c09f288e1586ba70df669311ec7ecb02acdd378970fbfd731a76033eacd751"
   end
 

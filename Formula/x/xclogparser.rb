@@ -11,6 +11,7 @@ class Xclogparser < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "325dca4b969addb194bc8be42bdfdda4b61cc6549d186f1372cd7e781e03db96"
     sha256 cellar: :any_skip_relocation, sonoma:        "3ecb9ea804d75559570439b988c2f75310052ac31362d5c39e0e58f66ed0b177"
     sha256 cellar: :any_skip_relocation, ventura:       "ce099c27e0ee07214729ee9578472919bafc72056c80e5560293715fb45701ef"
+    sha256                               arm64_linux:   "5aa0b09e87329be677f7fa43e12e52e7bad79315697294d730dceeb8b06ce3c5"
     sha256                               x86_64_linux:  "3a456db1fd20985ed03089f28e6256f7c0b4441cf70ad4d4c87f12cf021cc7db"
   end
 

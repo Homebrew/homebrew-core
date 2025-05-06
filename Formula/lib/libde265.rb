@@ -1,21 +1,18 @@
 class Libde265 < Formula
   desc "Open h.265 video codec implementation"
   homepage "https://github.com/strukturag/libde265"
-  url "https://github.com/strukturag/libde265/releases/download/v1.0.15/libde265-1.0.15.tar.gz"
-  sha256 "00251986c29d34d3af7117ed05874950c875dd9292d016be29d3b3762666511d"
+  url "https://github.com/strukturag/libde265/releases/download/v1.0.16/libde265-1.0.16.tar.gz"
+  sha256 "b92beb6b53c346db9a8fae968d686ab706240099cdd5aff87777362d668b0de7"
   license "LGPL-3.0-or-later"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia:  "1fed239f2b1a5a9e61745084d2c36041218f378970bc89ab84b0d1016ab7e585"
-    sha256 cellar: :any,                 arm64_sonoma:   "cb6a409ae8d92ad4c96bf94b14e4987e102faf7ebdf264eeaee2180d091dccaa"
-    sha256 cellar: :any,                 arm64_ventura:  "d72d238b5d13f6a9731cf29ace23fcf4f6538059ba1c0b7b9bcf06f49ce3aa52"
-    sha256 cellar: :any,                 arm64_monterey: "29b0a2838055970a932a9f5a2a3c338d13bb9785066b33c745ed8f0b75a6e115"
-    sha256 cellar: :any,                 sonoma:         "6b05ac06d5104b99cb0df1ea963c84b10403328f3991d00d5c94ed94a91e3b34"
-    sha256 cellar: :any,                 ventura:        "0725e3968335cb67cc1165ab5eeafed9b6c1cd45d069b3ab0b14e3eb819e3101"
-    sha256 cellar: :any,                 monterey:       "8695ef7abd578bbb838a2f735e178b0f1d30b58e5cc1c17a34a4225b6a7dd672"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "6f62c7760fd256e40bb7fc746b078bfda669955bb1c879930f5a714f99d68600"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d47718fc2bc23792e71cc2aa7d5cf8c6443d17d6df70e4f34dfe2b506a934cf4"
+    sha256 cellar: :any,                 arm64_sequoia: "3ae5875dd16e86734c59ff156ef6f03f0cc11f972193e678241ec10ac19dbf48"
+    sha256 cellar: :any,                 arm64_sonoma:  "08a3fd4a3e01254f12590f292157a8b92a898d9b4d31659f3e25d34a164f9cd6"
+    sha256 cellar: :any,                 arm64_ventura: "2837e8b323ed255ca2efb59a266cd5da0740524758df2d51e5a9834da79720f8"
+    sha256 cellar: :any,                 sonoma:        "dcee9a83c604fc27ccb54af849fe45124e12dbf66b63c53d5775aa0c1a49e34c"
+    sha256 cellar: :any,                 ventura:       "55f13980c54642c830932f317c1e458882daca74f80118cff8e4bb204ac1b0cb"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "650fa2c9ab2bd73545addb81842bb9442d929b25af4eef7fedfb34a4f93cfe87"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1bca710186d841ef99740adb1bdd747ae4b0bebb4ffcfa4bc4024199b26c0a5d"
   end
 
   # Fix -flat_namespace being used on Big Sur and later.
@@ -37,8 +34,7 @@ class Libde265 < Formula
     system "make", "install"
 
     # Install the test-related executables in libexec.
-    (libexec/"bin").install bin/"acceleration_speed",
-                            bin/"block-rate-estim",
+    (libexec/"bin").install bin/"block-rate-estim",
                             bin/"tests"
   end
 

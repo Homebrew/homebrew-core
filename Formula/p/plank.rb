@@ -23,9 +23,13 @@ class Plank < Formula
     sha256 cellar: :any_skip_relocation, big_sur:        "ea5dbcccb44df98be951af22f29b81b24bdba7731f88a472708fe7c5bc3d53e3"
     sha256 cellar: :any_skip_relocation, catalina:       "fc6838079a8a975c9bb77d17a050aa722d8446fcf9f62ca9fe09c8822d8651b4"
     sha256 cellar: :any_skip_relocation, mojave:         "04d2dddb094914fa219304fea8f6e5aa3315c2e51b63ef4077fcf25a54c8b268"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "69d69e6bee1ede7fecdb840ac121ce0d61d72d1d0218e501ca0bcea06c1a3d89"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ea941cd9c41a8ac9cb53678eaf17d5f0eeb04930758bcac1be793d17d60fe861"
   end
 
   depends_on xcode: ["11.3", :build]
+
+  uses_from_macos "swift" => :build
 
   # fix build failures, upstream pr ref, https://github.com/pinterest/plank/pull/301
   patch do

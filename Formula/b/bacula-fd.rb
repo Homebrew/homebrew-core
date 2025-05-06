@@ -1,8 +1,8 @@
 class BaculaFd < Formula
   desc "Network backup solution"
   homepage "https://www.bacula.org/"
-  url "https://downloads.sourceforge.net/project/bacula/bacula/15.0.2/bacula-15.0.2.tar.gz"
-  sha256 "55515c2a66af9a86b955daea4089378b864d051b2e6e30383bef36e693acea7a"
+  url "https://downloads.sourceforge.net/project/bacula/bacula/15.0.3/bacula-15.0.3.tar.gz"
+  sha256 "294afd3d2eb9d5b71c3d0e88fdf19eb513bfdb843b28d35c0552e4ae062827a1"
   license "AGPL-3.0-only" => { with: "openvpn-openssl-exception" }
 
   livecheck do
@@ -11,15 +11,13 @@ class BaculaFd < Formula
   end
 
   bottle do
-    sha256                               arm64_sequoia:  "30b99d348ab468244a22a3b427a61b97318b374886c3134e62610ab320a8911c"
-    sha256                               arm64_sonoma:   "dc5d2dec89a360588b9a03b6d02957d5e6d52d4bbd372942ff7c92a2d479f7a6"
-    sha256                               arm64_ventura:  "c69f5533858ba83175376a7bc2a8f3646a7bf7da113979cd65380962fa327dd5"
-    sha256                               arm64_monterey: "27eda5572a2b67bf8aac9e1282d4582e6121b9cbe3cf9d7ca198f1f9ea66020d"
-    sha256                               sonoma:         "ef78e6f0a2e9da0faf7aa175cce2ab48a46f895b87465d471088482157231047"
-    sha256                               ventura:        "f6b4d9fa73464865a7fe466465734ac25350542f96d04c82857d202c82500089"
-    sha256                               monterey:       "09e9b0c1974b7a98fdefd0e56bb1ca2201a606e9b4a0263d49e9b923a8aa0702"
-    sha256                               arm64_linux:    "1f811f1a3656533a9215407cbd228c2e6902dda5e16e18398658396001a0a45c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c4fca3bb3f6540789c3a55bd213431c8f768f9d0e0522c3f13ead2541fee6df2"
+    sha256                               arm64_sequoia: "5865d13599bead592dd24ba7ad6b630f1aeb33adadf8a204f63b2778d9f89bee"
+    sha256                               arm64_sonoma:  "bbe8baa1d28de02cf1da748963a63c79f7a6a8730af1d43c314809e7f835e649"
+    sha256                               arm64_ventura: "952b7913ffd831cc691731c74aa73976197958187d71cf544755bd8536640ffa"
+    sha256                               sonoma:        "9e3fe3200227872cc89e6f9606edc904fbc8e416b87349bb40a6b1faa774c56f"
+    sha256                               ventura:       "e16028347bfe77bcd7ac5f511440225b545d256bcd8e53b510a90c1ea5306a24"
+    sha256                               arm64_linux:   "7b13e3aead69c44d4ee74e7781414a2aaa4b273710837d5a623c4076f25cbb5e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c9427205610275599c958920ccf09b076528aa2ad5e73118260cdae55e15b964"
   end
 
   depends_on "openssl@3"

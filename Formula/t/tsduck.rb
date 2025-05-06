@@ -12,6 +12,7 @@ class Tsduck < Formula
     sha256 cellar: :any,                 arm64_ventura: "51c022c41fea15c8aa592bc07a52134c3c06d0fd6363859cdd1b11586d8dba9d"
     sha256 cellar: :any,                 sonoma:        "86170581f6a47ae249719e20f1f6d6ae0c0790629e259645f19d0cd9969df73b"
     sha256 cellar: :any,                 ventura:       "b32c4b0d3949c9d4002c792ff62ef31a5e203437ddf06c42c3a196961ef38e93"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "aec04b863d8bf4caffbfeec47188e4d3dc4dcb142c89046c534c0a11df5aee38"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "6ef0a792b04b22c32b7d6fbacf6fe97f0f36ce8e5306a772db4fa4d8986e7105"
   end
 
@@ -45,7 +46,10 @@ class Tsduck < Formula
   end
 
   def install
-    ENV["LINUXBREW"] = "true" if OS.linux?
+    if OS.linux?
+      ENV["LINUXBREW"] = "true"
+      ENV["VATEK_CFLAGS"] = "-I#{Formula["libvatek"].opt_include}/vatek"
+    end
     system "gmake", "NOGITHUB=1", "NOTEST=1"
     ENV.deparallelize
     system "gmake", "NOGITHUB=1", "NOTEST=1", "install", "SYSPREFIX=#{prefix}"

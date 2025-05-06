@@ -23,6 +23,7 @@ class Zstd < Formula
     sha256 cellar: :any,                 arm64_sequoia: "b039c851ef22617804576274872c33727ebb3a0b5e0db2ab62e0d8a97ec9605a"
     sha256 cellar: :any,                 arm64_sonoma:  "af7a39452f08144cb27f8f9c31feafd46beca7eb4dd3047c49925800e00c6e7a"
     sha256 cellar: :any,                 arm64_ventura: "56faac95df2a57e866c23339db384c5b3fe7d58984314c1a0bba2823123e0972"
+    sha256 cellar: :any,                 sequoia:       "bcfccd14315dedf3291f77682702f80711fb8829bd14a53431d60204eb99ec32"
     sha256 cellar: :any,                 sonoma:        "fa320bd56f0b839438336ae22fa6f404522e53f8297d72de04355f5483324499"
     sha256 cellar: :any,                 ventura:       "a109e4645ddd9a1f091f082b525b5ef5032d3568c016c3ec657f63068c068cc4"
     sha256 cellar: :any_skip_relocation, arm64_linux:   "c37f70b21f32017d893b751f9d3d1f7b10e7b742b35a1d7c7c1d357a35e14cb0"

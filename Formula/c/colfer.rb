@@ -4,6 +4,7 @@ class Colfer < Formula
   url "https://github.com/pascaldekloe/colfer/archive/refs/tags/v1.8.1.tar.gz"
   sha256 "5d184c8a311543f26c957fff6cad3908b9b0a4d31e454bb7f254b300d004dca7"
   license "CC0-1.0"
+  head "https://github.com/pascaldekloe/colfer.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "46194d5083a34ae3e54cdd690610c1dd5fa385e2311cb1bd61e852029a53ec85"
@@ -18,6 +19,7 @@ class Colfer < Formula
     sha256 cellar: :any_skip_relocation, catalina:       "dfdb2743960de62ee18ab35a7ead3d2d8de4207cc6ffa11ff0d8ebf393a591e8"
     sha256 cellar: :any_skip_relocation, mojave:         "dfdb2743960de62ee18ab35a7ead3d2d8de4207cc6ffa11ff0d8ebf393a591e8"
     sha256 cellar: :any_skip_relocation, high_sierra:    "dfdb2743960de62ee18ab35a7ead3d2d8de4207cc6ffa11ff0d8ebf393a591e8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "ce8f82ed2dc94b3000d7d4f591058affc15e693b64e62204b39b012915f9068e"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "3e68acefc34743620979a02b3adce372b7a0a0a93c0e3a6c51480bfa2c02c29f"
   end
 

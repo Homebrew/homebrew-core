@@ -11,6 +11,7 @@ class Baobab < Formula
     sha256 arm64_ventura: "47e23d24e4c49ba8f2c76242e4c2c390ae0b1e0b768bd54f92ed14cf79cc77ce"
     sha256 sonoma:        "f7b366f966ca320df98ced77afe68a69053c1e2ff0b2441d0b3f53899a5d9617"
     sha256 ventura:       "1f6c2a5c773468e35139918a620e569607566b10ec6ee066537eec7c1a78bc05"
+    sha256 arm64_linux:   "3f39c11e4a91021ba34908f1c5ee64ef45ceb5ed39e26f914047fabc54293252"
     sha256 x86_64_linux:  "55ec8b4e2e83bfaf90340312772aae33aead8e268f68caab0a845af626e0a64c"
   end
 

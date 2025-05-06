@@ -19,17 +19,24 @@ class Btparse < Formula
     sha256 cellar: :any,                 mojave:         "d69b814282b1205eb311f2b8f1f2d0077e2adeef72c2a010084eec34ffef7b71"
     sha256 cellar: :any,                 high_sierra:    "92fe826bfbaed8583343dbae8d2cf51d6161658e8ecd44a4bf7a308ab1f06d61"
     sha256 cellar: :any,                 sierra:         "b31041f88e5253fd880d38190b4828f8c9cee34f141352d5c3b70b33e18d824f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "a38cb6010173a8291ff7f70a323775f1131adfcdb6a755a7ebdf3e8269397353"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "eb28ef3caa60d179c008ab9fbd54395014c35119cb9b1c1f2168a3e6bde294d0"
   end
 
   def install
     # workaround for Xcode 14.3
-    ENV.append "CFLAGS", "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
+    if DevelopmentTools.clang_build_version >= 1403 || (OS.linux? && Hardware::CPU.arm?)
+      ENV.append "CFLAGS", "-Wno-implicit-function-declaration"
+    end
 
     # Fix flat namespace usage
     inreplace "configure", "${wl}-flat_namespace ${wl}-undefined ${wl}suppress", "${wl}-undefined ${wl}dynamic_lookup"
 
-    system "./configure", "--mandir=#{man}", *std_configure_args
+    args = []
+    # Help old config scripts identify arm64 linux
+    args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+
+    system "./configure", "--mandir=#{man}", *args, *std_configure_args
     system "make", "install"
   end
 

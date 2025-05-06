@@ -1,28 +1,28 @@
 class Vineyard < Formula
-  include Language::Python::Virtualenv
-
   desc "In-memory immutable data manager. (Project under CNCF)"
   homepage "https://v6d.io"
-  url "https://github.com/v6d-io/v6d/releases/download/v0.23.2/v6d-0.23.2.tar.gz"
-  sha256 "2a2788ed77b9459477b3e90767a910e77e2035a34f33c29c25b9876568683fd4"
+  url "https://github.com/v6d-io/v6d/releases/download/v0.24.2/v6d-0.24.2.tar.gz"
+  sha256 "a3acf9a9332bf5cce99712f9fd00a271b4330add302a5a8bbfd388e696a795c8"
   license "Apache-2.0"
-  revision 11
+  revision 2
 
   bottle do
-    sha256                               arm64_sequoia: "b6dc11e4e502840985f86d45b4107f81025805784e7f65694cd528c096acb737"
-    sha256                               arm64_sonoma:  "8f0240b97cb7be288e52bd6a3f0004bae5c14491062447e98d583b059e00b66c"
-    sha256                               arm64_ventura: "45e20492b2ff3ce178518b95f0d8a1c0b7e3dc1ae083bb45b0bfebdaddac566d"
-    sha256                               sonoma:        "f016f3e8d63b65b2f30a775357c3f0e4f6aba2ff8d62df4d3c523ab845a11410"
-    sha256                               ventura:       "1c22a5e1e3fe00ec81653af2bd21de6aa862e732ec3c731fa00e59ef3589775c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2e427ead7197ad2b3664740369ca0ccac1264df4702cad61ac39d4489a9c7d22"
+    sha256                               arm64_sequoia: "e5fefb6b4cf166c97d1fbe080cc238b2eb3ca965be76f6da9f89ffcb68e09239"
+    sha256                               arm64_sonoma:  "c89b4be50ae6ebeaa028a1747ad0b41dd89a9dabf6e1aa818f720099ddcc895b"
+    sha256                               arm64_ventura: "d5b9f9c75e05e2ad226205c8039ebb59bc422820be50f4af1b4bd9c4158b5a3e"
+    sha256                               sonoma:        "4dbc7c6a1185063c18dafe402cc953e97f465c3ca4d71c765122583fe9d961eb"
+    sha256                               ventura:       "34d272fa2442ea030f0063a9b196986190f3d6a7e4ed83621fbd09faa044c138"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0fdb9b27a792dcf2a0ba98dd1c02f20e1a48f897167c7758d0ee09a38da8093c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "872e8fa3f8756f576120bf817cc87bf4999fb788dc38626d99171ee97db99ad4"
   end
 
   depends_on "cmake" => [:build, :test]
   depends_on "llvm" => :build # for clang Python bindings
   depends_on "openssl@3" => :build # indirect (not linked) but CMakeLists.txt checks for it
+  depends_on "python-setuptools" => :build
   depends_on "python@3.13" => :build
   depends_on "apache-arrow"
-  depends_on "boost@1.85"
+  depends_on "boost"
   depends_on "cpprestsdk"
   depends_on "etcd"
   depends_on "etcd-cpp-apiv3"
@@ -31,15 +31,43 @@ class Vineyard < Formula
   depends_on "libgrape-lite"
   depends_on "open-mpi"
 
-  resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/27/b8/f21073fde99492b33ca357876430822e4800cdf522011f18041351dfa74b/setuptools-75.1.0.tar.gz"
-    sha256 "d59a21b17a275fb872a9c3dae73963160ae079f1049ed956880cd7c09b120538"
+  on_linux do
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
   end
 
   def install
+    # Workaround to support Boost 1.87.0+ until upstream fix for https://github.com/v6d-io/v6d/issues/2041
+    boost_asio_post_files = %w[
+      src/server/async/socket_server.cc
+      src/server/server/vineyard_server.cc
+      src/server/services/etcd_meta_service.cc
+      src/server/services/local_meta_service.cc
+      src/server/services/local_meta_service.h
+      src/server/services/meta_service.cc
+    ]
+    inreplace boost_asio_post_files, /^(\s*)(\S+)\.post\(/, "\\1boost::asio::post(\\2,"
+    inreplace "src/server/services/etcd_meta_service.cc", "backoff_timer_->cancel(ec);", "backoff_timer_->cancel();"
+
+    # Workaround to support Boost 1.88.0+
+    # TODO: Try upstreaming fix along with above
+    boost_process_files = %w[
+      src/server/util/etcd_launcher.cc
+      src/server/util/etcd_member.cc
+      src/server/util/kubectl.cc
+      src/server/util/proc.cc
+      src/server/util/proc.h
+      src/server/util/redis_launcher.h
+    ]
+    inreplace boost_process_files, '#include "boost/process.hpp"', ""
+    inreplace "src/server/util/etcd_launcher.h", '#include "boost/process/child.hpp"', ""
+    ENV.append "CXXFLAGS", "-std=c++17"
+    ENV.append "CXXFLAGS", "-DBOOST_PROCESS_VERSION=1"
+    headers = %w[args async child env environment io search_path]
+    headers.each { |header| ENV.append "CXXFLAGS", "-include boost/process/v1/#{header}.hpp" }
+
     python3 = "python3.13"
-    venv = virtualenv_create(buildpath/"venv", python3)
-    venv.pip_install resources
     # LLVM is keg-only.
     llvm = deps.map(&:to_formula).find { |f| f.name.match?(/^llvm(@\d+)?$/) }
     ENV.prepend_path "PYTHONPATH", llvm.opt_prefix/Language::Python.site_packages(python3)
@@ -50,9 +78,10 @@ class Vineyard < Formula
       "-DCMAKE_CXX_STANDARD=17",
       "-DCMAKE_CXX_STANDARD_REQUIRED=TRUE",
       "-DCMAKE_FIND_PACKAGE_PREFER_CONFIG=ON", # for newer protobuf
+      "-DCMAKE_POLICY_VERSION_MINIMUM=3.5",
       "-DLIBGRAPELITE_INCLUDE_DIRS=#{Formula["libgrape-lite"].opt_include}",
       "-DOPENSSL_ROOT_DIR=#{Formula["openssl@3"].opt_prefix}",
-      "-DPYTHON_EXECUTABLE=#{venv.root}/bin/python",
+      "-DPYTHON_EXECUTABLE=#{which(python3)}",
       "-DUSE_EXTERNAL_ETCD_LIBS=ON",
       "-DUSE_EXTERNAL_HIREDIS_LIBS=ON",
       "-DUSE_EXTERNAL_REDIS_LIBS=ON",

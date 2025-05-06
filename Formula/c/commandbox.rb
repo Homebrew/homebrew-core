@@ -1,8 +1,8 @@
 class Commandbox < Formula
   desc "CFML embedded server, package manager, and app scaffolding tools"
   homepage "https://www.ortussolutions.com/products/commandbox"
-  url "https://downloads.ortussolutions.com/ortussolutions/commandbox/6.1.0/commandbox-bin-6.1.0.zip"
-  sha256 "2bbf025ced8ae99fd7edb8f09c8a66ed0df095e45d2474f69e7d7e07fb55066b"
+  url "https://downloads.ortussolutions.com/ortussolutions/commandbox/6.2.1/commandbox-bin-6.2.1.zip"
+  sha256 "c8f4c9befda31046fd535542024b21ae121ce12fa517f6c1405f88b432ce1f1a"
   license "Apache-2.0"
 
   livecheck do
@@ -11,14 +11,14 @@ class Commandbox < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "51c08acddaea8be081a9c56e66aed42f0055a68e2ceaebae346afad2bae3bd1f"
+    sha256 cellar: :any_skip_relocation, all: "89fa62b33dfb9f7f9e0ff49252d252cf366d496ae3191d9fda916b4a6c999ef4"
   end
 
   depends_on "openjdk"
 
   resource "apidocs" do
-    url "https://downloads.ortussolutions.com/ortussolutions/commandbox/6.1.0/commandbox-apidocs-6.1.0.zip"
-    sha256 "f4bf29732cc97cfd1ef6bd11af3bed0cb9423030b2365af9806eeb8ff83ffa00"
+    url "https://downloads.ortussolutions.com/ortussolutions/commandbox/6.2.1/commandbox-apidocs-6.2.1.zip"
+    sha256 "ff1c3eed5fd1036de851b57a6be25041844ca00516b7aa4ce6d1365eb8be47d5"
 
     livecheck do
       formula :parent

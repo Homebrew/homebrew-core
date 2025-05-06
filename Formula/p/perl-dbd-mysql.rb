@@ -3,19 +3,19 @@
 class PerlDbdMysql < Formula
   desc "MySQL driver for the Perl5 Database Interface (DBI)"
   homepage "https://dbi.perl.org/"
-  url "https://cpan.metacpan.org/authors/id/D/DV/DVEEDEN/DBD-mysql-5.011.tar.gz"
-  sha256 "a3a70873ed965b172bff298f285f5d9bbffdcceba73d229b772b4d8b1b3992a1"
+  url "https://cpan.metacpan.org/authors/id/D/DV/DVEEDEN/DBD-mysql-5.012.tar.gz"
+  sha256 "f54ad1bb7ae167e26cd557b5e1b87f7fa49c1dd126f3523eaace6e5c19dbaf46"
   license any_of: ["Artistic-1.0-Perl", "GPL-1.0-or-later"]
   head "https://github.com/perl5-dbi/DBD-mysql.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "183dd4118c27e2bebe2093168aff319e5ff64a54203a93eb61dc76dd364fce3a"
-    sha256 cellar: :any,                 arm64_sonoma:  "8e66e32483e6d64406631fc43b352661d910def183200c8bb1e967b2211ced3d"
-    sha256 cellar: :any,                 arm64_ventura: "5856394a6972be37c393c398e37eb562228bd8f395242474578fe5f0163e855c"
-    sha256 cellar: :any,                 sonoma:        "8b3cea6ad248e91a4f742699682795bb9bf5ae0fa5fff437b5b028cec230838a"
-    sha256 cellar: :any,                 ventura:       "45ea4c402cf8daab4b4d95068563cef1a0938aad685fb17af19a64664b889fcf"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b3b533ae5b046ffdfa7afc597b93db4bf46fad4ad21ce0ee4aaf272e4585ff2d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7566a04934048eb35442e588b0d1e45510e3cd5495c7ae383ccc87972a97f060"
+    sha256 cellar: :any,                 arm64_sequoia: "a818c34194b7033c3468ec5d901cdbf66afe40d5a4efccb7d634eecd773b0677"
+    sha256 cellar: :any,                 arm64_sonoma:  "377d85c6b652c4e94befb922f6cbe3a4736306b1e8c5846a6bf8e4d6cfa6d7b6"
+    sha256 cellar: :any,                 arm64_ventura: "51d1372055361e144df670899db7e349a6b044050ac6857ab7c02930865f3647"
+    sha256 cellar: :any,                 sonoma:        "6107ea139da53c0a82292c9df4f44b499715893afefd7fb9eab6479b87c2d3f8"
+    sha256 cellar: :any,                 ventura:       "53036da34b010da8aae2779c40af2ab50f74af7a4e4efeb49c3600d754d47ca8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0b2557186487224db79a8dc207eed88e1f6d309f585d7056c8b40770442daa20"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "639203685dc517e9960efaa4a3bfe8004456627ba79f2328d6034c48cc1e0710"
   end
 
   keg_only <<~EOS
@@ -35,8 +35,8 @@ class PerlDbdMysql < Formula
 
   resource "DBI" do
     on_linux do
-      url "https://cpan.metacpan.org/authors/id/H/HM/HMBRAND/DBI-1.646.tar.gz"
-      sha256 "53ab32ac8c30295a776dde658df22be760936cdca5a3c003a23bda6d829fa184"
+      url "https://cpan.metacpan.org/authors/id/H/HM/HMBRAND/DBI-1.647.tgz"
+      sha256 "0df16af8e5b3225a68b7b592ab531004ddb35a9682b50300ce50174ad867d9aa"
     end
   end
 

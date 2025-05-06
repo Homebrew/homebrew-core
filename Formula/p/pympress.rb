@@ -15,6 +15,7 @@ class Pympress < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "8ce2f60ddac40de33cc031840e04394845868616a0eaa6a745cde325857c432c"
     sha256 cellar: :any_skip_relocation, sonoma:        "f283e466751b2d7830e51cc7d443e548abf7b3d6f3052f019bf69c579af74760"
     sha256 cellar: :any_skip_relocation, ventura:       "b64e3e0efbad5aae12e6641c4f50feaac3b59a6904f52a48aa3e88324cd094c6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b1ef86cd9f32e930f359ab3ab6fc5edba54923183a019b36811076d16634da34"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "13ab4556e72e88102a4dbac70df1e885a231cf90a0a1ece7e60c9413ff782bec"
   end
 
@@ -32,12 +33,16 @@ class Pympress < Formula
   end
 
   def install
+    # Workaround for build failure with Setuptools 78
+    # Issue ref: https://github.com/Cimbali/pympress/issues/332
+    inreplace "pyproject.toml", '"setuptools>=42"', '"setuptools>=42,<78"'
+
     virtualenv_install_with_resources
   end
 
   test do
     # (pympress:48790): Gtk-WARNING **: 13:03:37.080: cannot open display
-    ENV["PYMPRESS_HEADLESS_TEST"]="1" if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
+    ENV["PYMPRESS_HEADLESS_TEST"] = "1" if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
 
     (testpath/"Library/Preferences").mkpath
 

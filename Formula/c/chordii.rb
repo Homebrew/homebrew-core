@@ -23,10 +23,14 @@ class Chordii < Formula
     sha256 cellar: :any_skip_relocation, catalina:       "ed1f635a737973af4b9f4f784757cdf0ddbb3f946cb285917c171392a9b59d4a"
     sha256 cellar: :any_skip_relocation, mojave:         "def6b665fba55dfb8fa30269966e059b0a827f62a2338f73ea89c47a42fa7de7"
     sha256 cellar: :any_skip_relocation, high_sierra:    "1901080a06bb4728ec9858e4e548f68e044534b9d65dee1996f0590b56abc1a9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "03f604ff4981449be5916104ec86dc67e1c1df565f0f064b9689149f82b9b58d"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "8dc33f2a8fd3dda76dc87a7a919c7e590a4853a0736bc92c20d25e0d8382db6d"
   end
 
   def install
+    # Work around failure from GCC 10+ using default of `-fno-common`
+    ENV.append_to_cflags "-fcommon" if OS.linux?
+
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
     system "make", "install"
   end

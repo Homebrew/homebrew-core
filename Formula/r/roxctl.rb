@@ -1,8 +1,8 @@
 class Roxctl < Formula
   desc "CLI for Stackrox"
   homepage "https://www.stackrox.io/"
-  url "https://github.com/stackrox/stackrox/archive/refs/tags/4.7.0.tar.gz"
-  sha256 "171e1c72b117b702eea8559f8411bbbb63afeb3a1b468616a0faac13f2775160"
+  url "https://github.com/stackrox/stackrox/archive/refs/tags/4.7.2.tar.gz"
+  sha256 "cf810c876d7b0519ce9ea0662c8d42962d95f3f76e995d8c8849460ecf0da34b"
   license "Apache-2.0"
   head "https://github.com/stackrox/stackrox.git", branch: "master"
 
@@ -12,12 +12,13 @@ class Roxctl < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d8882f2915833d44944652bec35a21f30ab15934206c273328ae3c4753babc96"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "232c08826eef542f9d39c2ae156b9a585f4dd0171f2cb2c698ad607516b7db31"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "2889b5f037c851105fb1a26572e730a31a36467d10a0f126f73d9b358120644a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e0aab55fa475fab78d281ecbb16f95b00350d146ebf9e22a0866e9a97012aa30"
-    sha256 cellar: :any_skip_relocation, ventura:       "ecdb7dd87fc3dc5728227656046e3597a7d1e179ff8c8f40fe8692f76773941c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "25426a288d00acdc314e986fc106018d4382b3b3e459599d8e65642a2096591b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7fd6fc84cc8911454aa3c80038ef458b7c301e6f12824b8250e35bff687e9af5"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "11bc4fc2c18b5bfacb8422a1abd4b141ebd5f0c5626f2f2fbc637a30c5de9e99"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "97fe83918261beb043d43aab66d94e78c6726a7d42c22ba6e7f27e432546ef53"
+    sha256 cellar: :any_skip_relocation, sonoma:        "aa8637b95dd437fa47b3ab98c0042a4648541a5807b830fe32548ab8d11e2075"
+    sha256 cellar: :any_skip_relocation, ventura:       "9a4bde0023cd16c1e9ae65688145cb76a96d1c708dd602e9ffa4c9277ec4f41c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "fed2f79484a5547e8e6f097fda87a6fbb7d4f375ea4559a3fe896be5847b2627"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f831de84e06706b3017b5910864e4c33c98527d55f82d33addf13301bc54aabf"
   end
 
   depends_on "go" => :build

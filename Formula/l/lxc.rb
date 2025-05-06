@@ -12,6 +12,7 @@ class Lxc < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "e959fd595d3b3a797f4eeb8bf8f4407bd2df3fb268fb638cc8db154c9c9a6127"
     sha256 cellar: :any_skip_relocation, sonoma:        "53c3fb571b80c2fb5b093bc32ed2502631f65cd0cab1ba1bf2b1917ae6163e3d"
     sha256 cellar: :any_skip_relocation, ventura:       "53c3fb571b80c2fb5b093bc32ed2502631f65cd0cab1ba1bf2b1917ae6163e3d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "68b507578c65c458e8fd003351ed5027c867ae978067f41ec0a2b34b3f2451c9"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "da7dc438ebb5bb7d3941f69c550f92a689f64ec460db812871d619fd11a05e4c"
   end
 

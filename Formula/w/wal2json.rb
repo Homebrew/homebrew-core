@@ -18,6 +18,7 @@ class Wal2json < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "03a5c4a6e4048d088a5a23aed0251a4cf05f86d271eb23f8c681c139f6336672"
     sha256 cellar: :any_skip_relocation, sonoma:        "4e53de38eccaf3a9a23587ea164b8723f68648c84d3c3017d362823daaacd113"
     sha256 cellar: :any_skip_relocation, ventura:       "1ac11a6eb237df8ffab44e8a903925e0896628a3ba78b31b919ea6a61d1b54e6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d86989d3fc89bd67beea43908aeff1306132d88234f93e24aa2a9a952dd9ba33"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "44d6b43deefc69fbd0cb1df19957d8f827d74f49693d43ddd2df058ebb3bfb1f"
   end
 

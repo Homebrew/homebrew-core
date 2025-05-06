@@ -1,10 +1,19 @@
 class Cmrc < Formula
   desc "CMake Resource Compiler"
   homepage "https://github.com/vector-of-bool/cmrc"
-  url "https://github.com/vector-of-bool/cmrc/archive/refs/tags/2.0.1.tar.gz"
-  sha256 "edad5faaa0bea1df124b5e8cb00bf0adbd2faeccecd3b5c146796cbcb8b5b71b"
   license "MIT"
   head "https://github.com/vector-of-bool/cmrc.git", branch: "master"
+
+  stable do
+    url "https://github.com/vector-of-bool/cmrc/archive/refs/tags/2.0.1.tar.gz"
+    sha256 "edad5faaa0bea1df124b5e8cb00bf0adbd2faeccecd3b5c146796cbcb8b5b71b"
+
+    # cmake 4.0 build patch, upstream pr ref, https://github.com/vector-of-bool/cmrc/pull/48
+    patch do
+      url "https://github.com/vector-of-bool/cmrc/commit/91c9522ee59654e2f4d9701947a4600a4436d076.patch?full_index=1"
+      sha256 "feea3f04cdf49295497f3c48dd3ad5938716e47a9b29aacc98dc6580493d74ff"
+    end
+  end
 
   bottle do
     rebuild 1
@@ -28,7 +37,7 @@ class Cmrc < Formula
 
     cmakelists.unlink
     cmakelists.write <<~CMAKE
-      cmake_minimum_required(VERSION 3.30)
+      cmake_minimum_required(VERSION 4.0)
       find_package(CMakeRC CONFIG REQUIRED)
     CMAKE
 

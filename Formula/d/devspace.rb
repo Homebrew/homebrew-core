@@ -17,6 +17,7 @@ class Devspace < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "1f0e716dd00a472b69723cc700f66d4937a1c770b78aeaf04d2316d6970e1448"
     sha256 cellar: :any_skip_relocation, sonoma:        "ae9b0e8033c854dbc3dfe746c563adf0bf39b99e60c00131261ac805df910ae7"
     sha256 cellar: :any_skip_relocation, ventura:       "b35af98d07349b71630e0f2cb0bd87fa231bc2058ca519e087599b30fddf58c8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a8602287611d26cfb6e820739c4184dabaa91e86ff4f797bc39795357be3c0bb"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "a7cb388594525cf14b8f36560ac0becb2ff284b71b1547ebff46d9bda6fa2ef6"
   end
 

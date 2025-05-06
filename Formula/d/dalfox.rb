@@ -1,18 +1,18 @@
 class Dalfox < Formula
   desc "XSS scanner and utility focused on automation"
   homepage "https://dalfox.hahwul.com"
-  url "https://github.com/hahwul/dalfox/archive/refs/tags/v2.10.0.tar.gz"
-  sha256 "cec08c3256b072cf6aa1408aa4e0a111baad4a069601fdc7502119afe61077ee"
+  url "https://github.com/hahwul/dalfox/archive/refs/tags/v2.11.0.tar.gz"
+  sha256 "3bb78fcdcfd620aebb5f7488770ee4df7c7fb6448181963f290e60a1cba95459"
   license "MIT"
   head "https://github.com/hahwul/dalfox.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1f6fc3493d1989bd64cff86554e6be1c0d397b966b88000041917810cce12764"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1f6fc3493d1989bd64cff86554e6be1c0d397b966b88000041917810cce12764"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "1f6fc3493d1989bd64cff86554e6be1c0d397b966b88000041917810cce12764"
-    sha256 cellar: :any_skip_relocation, sonoma:        "88a35ff5ec2a4c7db0b451fbd4ad20d45346ee10386841a2270c45d6a47d0766"
-    sha256 cellar: :any_skip_relocation, ventura:       "88a35ff5ec2a4c7db0b451fbd4ad20d45346ee10386841a2270c45d6a47d0766"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cd1a1b8b5b9d015f06704bbe902bb8b9183806c425bd26aa34dce39e84916250"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "91f55801c696f298971522b7ce6d824a9a1df13b047916ae74f0ab5316ee3d64"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "91f55801c696f298971522b7ce6d824a9a1df13b047916ae74f0ab5316ee3d64"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "91f55801c696f298971522b7ce6d824a9a1df13b047916ae74f0ab5316ee3d64"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d89e7889cfb98452513664f667326fc9d75cca2ac01c1f3efe70703ee9f4a81e"
+    sha256 cellar: :any_skip_relocation, ventura:       "d89e7889cfb98452513664f667326fc9d75cca2ac01c1f3efe70703ee9f4a81e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f947d564a27d70be00487e9ba33ba79e681e6f6ad230f2e635ad32aef925e5f4"
   end
 
   depends_on "go" => :build

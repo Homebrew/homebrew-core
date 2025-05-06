@@ -1,17 +1,17 @@
 class Templ < Formula
   desc "Language for writing HTML user interfaces in Go"
   homepage "https://templ.guide"
-  url "https://github.com/a-h/templ/archive/refs/tags/v0.3.856.tar.gz"
-  sha256 "ac5e140fa9482c838234bfad9fd70f3e2f3f5f781e1e2cff252c392da10c0393"
+  url "https://github.com/a-h/templ/archive/refs/tags/v0.3.865.tar.gz"
+  sha256 "62c9d64aa11f1783db06a27e8f8f649c762486b14f0c64ce08d3eeb4a1a06ec1"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bf9edecff2579c4cf98b49994be62ec0a3885c14406d0af8ed7457e3db4cb792"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "bf9edecff2579c4cf98b49994be62ec0a3885c14406d0af8ed7457e3db4cb792"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "bf9edecff2579c4cf98b49994be62ec0a3885c14406d0af8ed7457e3db4cb792"
-    sha256 cellar: :any_skip_relocation, sonoma:        "28bac6e49380b8cc44a39b8f27aa4a4b3e696eeb37845c24edf84e6c4f3021f1"
-    sha256 cellar: :any_skip_relocation, ventura:       "28bac6e49380b8cc44a39b8f27aa4a4b3e696eeb37845c24edf84e6c4f3021f1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e2178c2cee00a5490a7e2412fea042a7e12823df9aa5c1c9f5240417a6d49626"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d24511ebc9f88569ef54178791d5f0ef2902c016cb5d0a0883c133518b4ee759"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d24511ebc9f88569ef54178791d5f0ef2902c016cb5d0a0883c133518b4ee759"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "d24511ebc9f88569ef54178791d5f0ef2902c016cb5d0a0883c133518b4ee759"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d3520fab888a182436be7f25932399c40d9b4023bf148dc0393d120ab31e83f6"
+    sha256 cellar: :any_skip_relocation, ventura:       "d3520fab888a182436be7f25932399c40d9b4023bf148dc0393d120ab31e83f6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f33eeb717191fa6ce337b4ed5233b422343ee8b42c265523a3cbf3ad6e02b569"
   end
 
   depends_on "go" => :build

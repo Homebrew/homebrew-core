@@ -8,6 +8,7 @@ class FalcosecurityLibs < Formula
     { any_of: ["GPL-2.0-only", "MIT"] }, # driver/
     { "GPL-2.0-only" => { with: "Linux-syscall-note" } }, # userspace/libscap/compat/
   ]
+  revision 1
 
   livecheck do
     url :stable
@@ -15,13 +16,13 @@ class FalcosecurityLibs < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "4a6ffe7949b2b99681b5910fa8e446474fb9da0f77bb456f4648a36326859d0d"
-    sha256 cellar: :any,                 arm64_sonoma:  "7a03e319abca76c699350e6cd29ecc4a64034783529dd4f5f174816015665604"
-    sha256 cellar: :any,                 arm64_ventura: "34039bf2d3496a572bf2ac212b3f9cc38345a0e80e56e8d793bc5968debff22b"
-    sha256 cellar: :any,                 sonoma:        "83488cbd04dfd36f495d901d219ad43d14b0acdd92dd72796a442229054c4586"
-    sha256 cellar: :any,                 ventura:       "3b3d9451afb904eb09553ea09f17d8f23959dd5aa0deeaa0f84219f9c7b8d637"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e813a5f7afbf2097931699e748fff735474d5ab0ab5ca70822fba459188dedb2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a691bd6a78782032b328fb7a70d3c16b743c58a644602f020a5c0c60eec65361"
+    sha256 cellar: :any,                 arm64_sequoia: "12242b5955f63f5bb1d63da1e7d6aff53dcd8e46c7ee1d45f0f5c97188b52bd9"
+    sha256 cellar: :any,                 arm64_sonoma:  "5f0b5bbeace6d97d2d4d530efb6ceb31bb832254ba53da7603ff49cbd3cec29c"
+    sha256 cellar: :any,                 arm64_ventura: "35901d50ffb0081af5a0691a7bf48f88493ddb91009247e20cab075975b3b3bc"
+    sha256 cellar: :any,                 sonoma:        "9430e05e710fb2f4ca5e05650c97dc1fe9801d041955e99fb3700f8424156214"
+    sha256 cellar: :any,                 ventura:       "2d28344e368790fb18c019b4ad5f36652e4682631d965d868e56139d689fc191"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b6b485446614d05f9e36290b4ea161f414497c84b6791fd48825526b3f346c5a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c4e4c9e0bce8685f4c154ffa0a4e926b0717558d155bf43f367618bef8eb1e95"
   end
 
   depends_on "cmake" => :build

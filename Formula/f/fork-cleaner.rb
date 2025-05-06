@@ -4,6 +4,7 @@ class ForkCleaner < Formula
   url "https://github.com/caarlos0/fork-cleaner/archive/refs/tags/v2.3.1.tar.gz"
   sha256 "9fde99ed9877efc80e6940f9958468531b72a232d98c433cfe7022fd4c6018d8"
   license "MIT"
+  head "https://github.com/caarlos0/fork-cleaner.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "be8dcf5b7a339c075e68b9730dff3d8eb91995ff18000c36b4aa21eaffbc867e"

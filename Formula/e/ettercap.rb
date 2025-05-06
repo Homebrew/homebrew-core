@@ -40,6 +40,7 @@ class Ettercap < Formula
     sha256 sonoma:         "197cbb987473cb58c67447cd85f104762640df66e2e24f8ab6366539dc3fa087"
     sha256 ventura:        "385d806561cfbb2513e6b0bb3b487312eaba6e5bdbcfffb36f6004a53f1348e8"
     sha256 monterey:       "e09c5c23e3f73b224dd8d6be74ca8b80bf24989eaaa786b102d82f2979fda47e"
+    sha256 arm64_linux:    "b82aa41d486d4ee548e666a325bd8a2c7e1e3bfdb40c4431b151628d0995d412"
     sha256 x86_64_linux:   "ed90068515d35787a0e19066936f3689eea7a1e7ed85ab1119ab60a71c7881d6"
   end
 
@@ -87,6 +88,7 @@ class Ettercap < Formula
     args = %W[
       -DBUNDLED_LIBS=OFF
       -DCMAKE_INSTALL_RPATH=#{rpath}
+      -DCMAKE_POLICY_VERSION_MINIMUM=3.5
       -DENABLE_CURSES=ON
       -DENABLE_GTK=ON
       -DENABLE_IPV6=ON

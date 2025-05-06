@@ -1,20 +1,19 @@
 class Gpatch < Formula
   desc "Apply a diff file to an original"
   homepage "https://savannah.gnu.org/projects/patch/"
-  url "https://ftp.gnu.org/gnu/patch/patch-2.7.6.tar.xz"
-  mirror "https://ftpmirror.gnu.org/patch/patch-2.7.6.tar.xz"
-  sha256 "ac610bda97abe0d9f6b7c963255a11dcb196c25e337c61f94e4778d632f1d8fd"
+  url "https://ftp.gnu.org/gnu/patch/patch-2.8.tar.xz"
+  mirror "https://ftpmirror.gnu.org/patch/patch-2.8.tar.xz"
+  sha256 "f87cee69eec2b4fcbf60a396b030ad6aa3415f192aa5f7ee84cad5e11f7f5ae3"
   license "GPL-3.0-or-later"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "aa12158f8c8c19015ba6569e1b2395d071520b8d2d8cc5155cfcdfcbc50f09b6"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e8417fef3457d9cb9a09d0bdaa40ddd6c867ea30a597fc668808486e1135e641"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "7bac8e7a0b6b1862a61bc686ab6df327c3eede8c28bd524127ed1b45000ecb1c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f4d79d31ed845a3389abd1e7e8d59d62544f6371348d22592ec95e28023ef446"
-    sha256 cellar: :any_skip_relocation, ventura:       "bb8c06471dbfa2cf24efa88eaede791bd8f4d39ea5f08e5b92b38108e54b5c27"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1adbdac31fdec09f4baf97ce1fe13f26cd5b7b36f9bca3578c0d977587d4785d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f10fc17d95257c9de34edf1ea0a8d852a41cc6f7d5bbb18d62c75d7a295469f9"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "01993d9f869309a9494840d4da0ed1997b4d21181679fd226bb9038a0e59f81e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "692a394eae0b5a7fd95bb25822e8750cd493f9afee1e5db272f6445c88ae3bef"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "78c60664e4eb56d03f582b2ca45a1f3861ae6a331bd9f7997ce587ac2415b440"
+    sha256 cellar: :any_skip_relocation, sonoma:        "5c46ba36e9b3e9fee27bd96ea873caa2a5938119a0e1dbd241fe408eca239a1f"
+    sha256 cellar: :any_skip_relocation, ventura:       "c953a2bb4faddd18394392879c8dce68094772834f5f9de162bd87657f56b8a9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "390fa81b06e4db0aca8c86068b653c3dc27494508c4febd61ee647fb2deb4ce2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "62f0d5010f2d0a3e11af30cc8b7b5982b1da2c7badc027f01d4fb33f2e6cc2bb"
   end
 
   def install

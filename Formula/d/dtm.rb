@@ -4,6 +4,7 @@ class Dtm < Formula
   url "https://github.com/dtm-labs/dtm/archive/refs/tags/v1.19.0.tar.gz"
   sha256 "11340c32e810dfd463953bca0a5f5a2c41a88c35782efc2ab70cfa78733fa823"
   license "BSD-3-Clause"
+  head "https://github.com/dtm-labs/dtm.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "818718052e97df9ffcfed8c29a8f7bbce0e5302c6639c208c3c080d188ce75c6"

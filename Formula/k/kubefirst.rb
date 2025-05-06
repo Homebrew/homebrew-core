@@ -19,6 +19,7 @@ class Kubefirst < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "8f824f371e912db8d34c3cb87b03fa27dd41bff1d590deaef592ee4a75c49b39"
     sha256 cellar: :any_skip_relocation, sonoma:        "5cd14a498f4fde2cca1f8b90bbe81eb05efe280dd75e408db4299b2cacfa650c"
     sha256 cellar: :any_skip_relocation, ventura:       "940edbf4ddbe5edeca5ca6118bba9e2cdd463354af9f2770990346252674cdf6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "bce88d2189bc3e4c77516411f23e792ccdb25ac24ef7a27823b5f713a006a3ff"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "1d6cfe745f9bd922a71b445721c8acb18afe7cf538188dcd41c4f6a14c91bdf2"
   end
 

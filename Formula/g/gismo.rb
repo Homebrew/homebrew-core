@@ -20,6 +20,7 @@ class Gismo < Formula
     sha256 cellar: :any,                 arm64_ventura: "3119c3a59c2b2a28875eb6e40eafd5889da5bd62f698c269dfe4b05f30eddf10"
     sha256 cellar: :any,                 sonoma:        "992c1d9e553767311d57b918950ed5bf1a67847f4847ecd8130a783d36f7a745"
     sha256 cellar: :any,                 ventura:       "8be99fca669151b6be0f2082abe7c8fa55f68a613fa63d76b04e257773abc1e7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "58de1dc7a347fcdb0b09fc03d4fea99ba9bfa29cc38c94def18254630095a46d"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "79f6aebd7ab833f834c834c129b0aab808a62f9d3d66aa19281d4ed6db0277a2"
   end
 

@@ -12,6 +12,7 @@ class Cpuid < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "407aa5d6b2f38800ef7c9163a0b36458accb97585c79216200fbafd66a734c0c"
     sha256 cellar: :any_skip_relocation, sonoma:        "ecfa112b44890d4e7f642b877c481cb42f97bbde314fc3f129a2c013dd897e60"
     sha256 cellar: :any_skip_relocation, ventura:       "ecfa112b44890d4e7f642b877c481cb42f97bbde314fc3f129a2c013dd897e60"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "08f1cbad37f37822d1bb0ce32758b0ca0b6649fc89ba0328a658a446b2e8acba"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "8ce13ee61313acec4f188de11c6707403489972057906b950aaf19bf5af8c6f6"
   end
 

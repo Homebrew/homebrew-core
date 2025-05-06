@@ -3,25 +3,25 @@ class EcsDeploy < Formula
 
   desc "CLI tool to simplify Amazon ECS deployments, rollbacks & scaling"
   homepage "https://github.com/fabfuel/ecs-deploy"
-  url "https://files.pythonhosted.org/packages/8d/d6/bc7539a7ce66064e81ffdf2ccb87083d01d0d801550b5d1dffcebfa273e6/ecs-deploy-1.15.1.tar.gz"
-  sha256 "19b476f8874c1eebda32be58fd28420b3ab4a2867a69bff683f4c68a09a0a0c8"
+  url "https://files.pythonhosted.org/packages/b3/66/c382012fc501aafc5257237440677506134863b623a0b7385221d5071f46/ecs_deploy-1.15.2.tar.gz"
+  sha256 "81fe02900caa4721c8277629ea371eb38f2cf854ff57b0443b17990ab377f5da"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "87b891d72d228bbeade79cd5ec987a7d29def9b0797e49375221e589a898c5af"
+    sha256 cellar: :any_skip_relocation, all: "637c520b46cdabb777fbf09da5a12ffe80dc71c88ba9db27da462a6bc11e2b68"
   end
 
   depends_on "certifi"
   depends_on "python@3.13"
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/c2/03/43244d4c6b67f34a979d2805ebb4f63c29b9aef3683ad179470fea52a5f3/boto3-1.37.19.tar.gz"
-    sha256 "c69c90500f18fd72d782d1612170b7d3db9a98ed51a4da3bebe38e693497ebf8"
+    url "https://files.pythonhosted.org/packages/9f/91/899a795437da14cbf401b026b6df57fa37973a789052eb6c1d9c5e8cf456/boto3-1.37.20.tar.gz"
+    sha256 "87d9bd6ad49be754d4ae2724cfb892eb3f9f17bcafd781fb3ce0d98cc539bdd6"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/a5/4a/cf22a677045a02cf769d8126ce25572695508e4bd5d7f6fe984dc5d23c76/botocore-1.37.19.tar.gz"
-    sha256 "eadcdc37de09df25cf1e62e8106660c61f60a68e984acfc1a8d43fb6267e53b8"
+    url "https://files.pythonhosted.org/packages/5d/eb/b90ec01a82278a283db0b788f0a36201e485ceb31df762c44cddbcda2085/botocore-1.37.20.tar.gz"
+    sha256 "9295385740f9d30f9b679f76ee51f49b80ae73183d84d499c1c3f1d54d820f54"
   end
 
   resource "charset-normalizer" do

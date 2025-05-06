@@ -20,6 +20,7 @@ class PhoronixTestSuite < Formula
     sha256 cellar: :any_skip_relocation, sonoma:         "f97dee399c72ee996f9deb479a9bcdb016a4cc4329b7f96c99ebe617daa3333b"
     sha256 cellar: :any_skip_relocation, ventura:        "f97dee399c72ee996f9deb479a9bcdb016a4cc4329b7f96c99ebe617daa3333b"
     sha256 cellar: :any_skip_relocation, monterey:       "f97dee399c72ee996f9deb479a9bcdb016a4cc4329b7f96c99ebe617daa3333b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "eb1ad060dea2cecad6a238116fb42bc49596d85221ac7219e02a2be5799b6100"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "8d864f4ef6757c34a9633f69b1096ade2927797be0493d5e9d5969cba375f512"
   end
 

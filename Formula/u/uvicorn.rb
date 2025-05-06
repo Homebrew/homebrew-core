@@ -3,19 +3,20 @@ class Uvicorn < Formula
 
   desc "ASGI web server"
   homepage "https://www.uvicorn.org/"
-  url "https://files.pythonhosted.org/packages/4b/4d/938bd85e5bf2edeec766267a5015ad969730bb91e31b44021dfe8b22df6c/uvicorn-0.34.0.tar.gz"
-  sha256 "404051050cd7e905de2c9a7e61790943440b3416f49cb409f965d9dcd0fa73e9"
+  url "https://files.pythonhosted.org/packages/a6/ae/9bbb19b9e1c450cf9ecaef06463e40234d98d95bf572fab11b4f19ae5ded/uvicorn-0.34.2.tar.gz"
+  sha256 "0e929828f6186353a80b58ea719861d2629d766293b6d19baf086ba31d4f3328"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/encode/uvicorn.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "b3cfd7cde5b65b0d1bb79b5caf03a6ad75dbcb37599e32a2729846faafd40661"
-    sha256 cellar: :any,                 arm64_sonoma:  "7d5630a561260129550ae97230f1c3ebb4e819026266aff2009abfe844e035ac"
-    sha256 cellar: :any,                 arm64_ventura: "c4a18ded44da9c61b6161d24bad526683409caeb00c9fb809dd8c85dfa0b63bd"
-    sha256 cellar: :any,                 sonoma:        "5581d58fd33accef771ed74d31f9ceed9c7dc0fe48797f2c75042a6b3800304c"
-    sha256 cellar: :any,                 ventura:       "e8aad8ebffd6e8743739a3376e86fdfc4ece53d52126a468835328def3c28160"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f418797397fcdef58fba22a1f7099441f30523e8bf5a802658432667cca9e419"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bd652f5a0fa89e4ac3228fb2765eb156a9e1cccfdce7ff88d47288d963289a9f"
+    sha256 cellar: :any,                 arm64_sequoia: "1bd7688b18d59c329f5b95e74e61b4e5a66e676e3665d086b8a3ab2e007ab35d"
+    sha256 cellar: :any,                 arm64_sonoma:  "ae3f26dbe2ab02ed1f1e6bd8998e80e22a48b9a670fecc5e1a4d18745381bd7b"
+    sha256 cellar: :any,                 arm64_ventura: "a8a59f729e815343180887bdbaea2e8a0b0192ffdc708c688e35411bde0f9cf5"
+    sha256 cellar: :any,                 sonoma:        "0934f4b22654c3a390eb114e9983f51829d6d345b0a3adda51bbb3f64ab05ae9"
+    sha256 cellar: :any,                 ventura:       "95370d8dbcef211dacc7888dcf07d6693d535383a5b9fb01df6ab8b2437e4b2a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "23425e76ef828c39ae2921afe559aa13cedb77f5ec95dc87e5afd73f86fddf38"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b92b3949fc7b24c9485bdac2ba38dadc71e061646c428b47a3466539d5a4aa80"
   end
 
   depends_on "rust" => :build
@@ -23,18 +24,18 @@ class Uvicorn < Formula
   depends_on "python@3.13"
 
   resource "anyio" do
-    url "https://files.pythonhosted.org/packages/f6/40/318e58f669b1a9e00f5c4453910682e2d9dd594334539c7b7817dabb765f/anyio-4.7.0.tar.gz"
-    sha256 "2f834749c602966b7d456a7567cafcb309f96482b5081d14ac93ccd457f9dd48"
+    url "https://files.pythonhosted.org/packages/95/7d/4c1bd541d4dffa1b52bd83fb8527089e097a106fc90b467a7313b105f840/anyio-4.9.0.tar.gz"
+    sha256 "673c0c244e15788651a4ff38710fea9675823028a6f08a5eda409e0c9840a028"
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/96/d3/f04c7bfcf5c1862a2a5b845c6b2b360488cf47af55dfa79c98f6a6bf98b5/click-8.1.7.tar.gz"
-    sha256 "ca9853ad459e787e2192211578cc907e7594e294c7ccc834310722b41b9ca6de"
+    url "https://files.pythonhosted.org/packages/b9/2e/0090cbf739cee7d23781ad4b89a9894a41538e4fcf4c31dcdd705b78eb8b/click-8.1.8.tar.gz"
+    sha256 "ed53c9d8990d83c2a27deae68e4ee337473f6330c040a31d4225c9574d16096a"
   end
 
   resource "h11" do
-    url "https://files.pythonhosted.org/packages/f5/38/3af3d3633a34a3316095b39c8e8fb4853a28a536e55d347bd8d8e9a14b03/h11-0.14.0.tar.gz"
-    sha256 "8f19fbbe99e72420ff35c00b27a34cb9937e902a8b810e2c88300c6f0a3b699d"
+    url "https://files.pythonhosted.org/packages/01/ee/02a2c011bdab74c6fb3c75474d40b3052059d95df7e73351460c8588d963/h11-0.16.0.tar.gz"
+    sha256 "4e35b956cf45792e4caa5885e69fba00bdbc6ffafbfa020300e549b208ee5ff1"
   end
 
   resource "httptools" do
@@ -48,8 +49,8 @@ class Uvicorn < Formula
   end
 
   resource "python-dotenv" do
-    url "https://files.pythonhosted.org/packages/bc/57/e84d88dfe0aec03b7a2d4327012c1627ab5f03652216c63d49846d7a6c58/python-dotenv-1.0.1.tar.gz"
-    sha256 "e324ee90a023d808f1959c46bcbc04446a10ced277783dc6ee09987c37ec10ca"
+    url "https://files.pythonhosted.org/packages/88/2c/7bb1416c5620485aa793f2de31d3df393d3686aa8a8506d11e10e13c5baf/python_dotenv-1.1.0.tar.gz"
+    sha256 "41f90bc6f5f177fb41f53e87666db362025010eb28f60a01c9143bfa33a2b2d5"
   end
 
   resource "pyyaml" do
@@ -68,13 +69,13 @@ class Uvicorn < Formula
   end
 
   resource "watchfiles" do
-    url "https://files.pythonhosted.org/packages/3c/7e/4569184ea04b501840771b8fcecee19b2233a8b72c196061263c0ef23c0b/watchfiles-1.0.3.tar.gz"
-    sha256 "f3ff7da165c99a5412fe5dd2304dd2dbaaaa5da718aad942dcb3a178eaa70c56"
+    url "https://files.pythonhosted.org/packages/03/e2/8ed598c42057de7aa5d97c472254af4906ff0a59a66699d426fc9ef795d7/watchfiles-1.0.5.tar.gz"
+    sha256 "b7529b5dcc114679d43827d8c35a07c493ad6f083633d573d81c660abc5979e9"
   end
 
   resource "websockets" do
-    url "https://files.pythonhosted.org/packages/f4/1b/380b883ce05bb5f45a905b61790319a28958a9ab1e4b6b95ff5464b60ca1/websockets-14.1.tar.gz"
-    sha256 "398b10c77d471c0aab20a845e7a60076b6390bfdaac7a6d2edb0d2c59d75e8d8"
+    url "https://files.pythonhosted.org/packages/21/e6/26d09fab466b7ca9c7737474c52be4f76a40301b08362eb2dbc19dcc16c1/websockets-15.0.1.tar.gz"
+    sha256 "82544de02076bafba038ce055ee6412d68da13ab47f0c60cab827346de828dee"
   end
 
   def install

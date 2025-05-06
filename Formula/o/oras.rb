@@ -1,17 +1,18 @@
 class Oras < Formula
   desc "OCI Registry As Storage"
   homepage "https://github.com/oras-project/oras"
-  url "https://github.com/oras-project/oras/archive/refs/tags/v1.2.2.tar.gz"
-  sha256 "09436b3048aab42fdfd5662f71da7d211f9d6e7ce66740cbbd8f3695ae621f6a"
+  url "https://github.com/oras-project/oras/archive/refs/tags/v1.2.3.tar.gz"
+  sha256 "f08ddcccaedbb336e85942b6ccb9625c2a7e4e411d5909bd6f670eb0d7ab3977"
   license "Apache-2.0"
+  head "https://github.com/oras-project/oras.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c0ab4fed3980c7d6975df20975d447004b17c604da7947b2e99d999d55170345"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c0ab4fed3980c7d6975df20975d447004b17c604da7947b2e99d999d55170345"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "c0ab4fed3980c7d6975df20975d447004b17c604da7947b2e99d999d55170345"
-    sha256 cellar: :any_skip_relocation, sonoma:        "2ab9bd7c87e28d26180474be395d27458369dc7225a6618223882d7ef03f6073"
-    sha256 cellar: :any_skip_relocation, ventura:       "2ab9bd7c87e28d26180474be395d27458369dc7225a6618223882d7ef03f6073"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bf849b37520f25e5fa0c0cef23a23b8b28fe64d51c45465c9cd0024f9dc18d1e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cc809d29e38e49c915a7df9dcfaa2071638430e5c3c4cd072473a5e98962cc81"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cc809d29e38e49c915a7df9dcfaa2071638430e5c3c4cd072473a5e98962cc81"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "cc809d29e38e49c915a7df9dcfaa2071638430e5c3c4cd072473a5e98962cc81"
+    sha256 cellar: :any_skip_relocation, sonoma:        "ad350040cacf68be5334bf9ee4b236a2308a2a21ed0e5d303706b881c9ef50e8"
+    sha256 cellar: :any_skip_relocation, ventura:       "ad350040cacf68be5334bf9ee4b236a2308a2a21ed0e5d303706b881c9ef50e8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "12b21aabf4213e0b7e5833a535a4a7942d71290117108d083f0d518025f589f7"
   end
 
   depends_on "go" => :build

@@ -78,6 +78,7 @@ class GlibcAT213 < Formula
   depends_on "linux-headers@4.4" => :build
   depends_on MakeRequirement => :build
   depends_on SedRequirement => :build
+  depends_on arch: :x86_64
   depends_on :linux
   depends_on LinuxKernelRequirement
 

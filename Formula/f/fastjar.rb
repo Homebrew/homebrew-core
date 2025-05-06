@@ -24,14 +24,18 @@ class Fastjar < Formula
     sha256 cellar: :any_skip_relocation, mojave:         "2dba61ec801db3d83692b9c9dd26eab247cb4bb6a6d6afc27f059bb6ba6052e5"
     sha256 cellar: :any_skip_relocation, high_sierra:    "87b2c870895191b309b595481f73346e763b87c661e64ef35b821e54395d5cc1"
     sha256 cellar: :any_skip_relocation, sierra:         "35230e788987e3a3c63d126af24c634bcbf58c0a320223d61f0eae69f6cbcc00"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "63d997e0731537e0a78b936cc74b609770452ff861403226aff0c31a5fed3436"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "3ac2c41e11f88db5dd88b6cfceb7620f9f2dc26a6f7a89f224f8bd874774c6d3"
   end
 
   uses_from_macos "zlib"
 
   def install
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    args = []
+    # Help old config scripts identify arm64 linux
+    args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+
+    system "./configure", *args, *std_configure_args
     system "make", "install"
   end
 

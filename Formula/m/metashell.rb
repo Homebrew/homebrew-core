@@ -14,6 +14,7 @@ class Metashell < Formula
     sha256 cellar: :any_skip_relocation, sonoma:         "8fca9954509cf6db5673c609974da67a844b2bc0f8b51b4acbc39a99ecea42da"
     sha256 cellar: :any_skip_relocation, ventura:        "99787eaf229f32b79c509af891747afa30315dd4e8530a4d298f0bc438c051ce"
     sha256 cellar: :any_skip_relocation, monterey:       "3e8541db362af85b6564cf836accecb73ec8d529d586d52adbae3fe7e5cc88b0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "9ca77aef4b0bde4d3cb95aea6d5f7d58d66f464b544ab4002e1c0cb6c27eb105"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "cd4c0e36370c2b809c525c309f22e0bc849bb0bc8cc92e5d1dfe34f29e9e9ddd"
   end
 
@@ -34,7 +35,16 @@ class Metashell < Formula
     sha256 "31472db5ae8e67483319dcbe104d5c7a533031f9845af2ddf5147f3caabf3ac2"
   end
 
+  # fix build with cmake 4, upstream PR ref, https://github.com/metashell/metashell/pull/306
+  patch do
+    url "https://github.com/metashell/metashell/commit/38b524ae291799a7ea9077745d3fc10ef2d40d54.patch?full_index=1"
+    sha256 "e97590ca1d2b5510dcfcca86aa608e828040bb91519f6b161f7b4311676f4fd4"
+  end
+
   def install
+    # remove -msse4.1 if unsupported, issue ref: https://github.com/metashell/metashell/issues/305
+    inreplace "3rd/boost/atomic/CMakeLists.txt", /\btarget_compile_options.*-msse4/, "#\\0" if Hardware::CPU.arm?
+
     # Build internal Clang
     system "cmake", "-S", "3rd/templight/llvm",
                     "-B", "build/templight",

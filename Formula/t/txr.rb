@@ -16,6 +16,7 @@ class Txr < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "6de5f5a5bf6d757fba045f6c3c2a03f63662d5909ed6467b9bf4e07c2fe01e4c"
     sha256 cellar: :any_skip_relocation, sonoma:        "adc193c9171eb012618c4a990020428c5b8c8f481a7a91b415a1764d1d00d111"
     sha256 cellar: :any_skip_relocation, ventura:       "c071be5370824ec8c3225aaf1d7d8dc74919cf8669c48598184a8c2b0fa2d581"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "91ddc85af12c95ff8070bd5359ef3e2451930ec9788304264be9bb1f9c458589"
   end
 
   depends_on "pkgconf" => :build
@@ -23,11 +24,24 @@ class Txr < Formula
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
   uses_from_macos "libffi", since: :catalina
+  uses_from_macos "libxcrypt"
+  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "gcc" => :build
+  end
+
+  fails_with :gcc do
+    version "11"
+    cause "Segmentation faults running TXR"
+  end
 
   def install
-    system "./configure", "--prefix=#{prefix}", "--inline=static inline"
+    system "./configure", "--prefix=#{prefix}"
     system "make"
+    system "make", "tests" # run tests as upstream has gotten reports of broken TXR in Homebrew
     system "make", "install"
+    (share/"vim/vimfiles/syntax").install Dir["*.vim"]
   end
 
   test do

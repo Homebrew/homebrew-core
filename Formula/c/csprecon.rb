@@ -4,6 +4,7 @@ class Csprecon < Formula
   url "https://github.com/edoardottt/csprecon/archive/refs/tags/v0.4.1.tar.gz"
   sha256 "69200ae4bc99ba41c5a884af6491373cf9cfc5cd66590804c6254460951da968"
   license "MIT"
+  head "https://github.com/edoardottt/csprecon.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "6d107562498b42b0e1b90be7b20e5cce58e36e722aabaeed906478642b8f344b"

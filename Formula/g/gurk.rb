@@ -1,18 +1,18 @@
 class Gurk < Formula
   desc "Signal Messenger client for terminal"
   homepage "https://github.com/boxdot/gurk-rs"
-  url "https://github.com/boxdot/gurk-rs/archive/refs/tags/v0.6.4.tar.gz"
-  sha256 "6e1ea43aad916e5c7f1fbbb852b06b28d9a5546d1bf80d93a50c3d6d9d3c42a4"
+  url "https://github.com/boxdot/gurk-rs/archive/refs/tags/v0.7.1.tar.gz"
+  sha256 "e86e6e0938439ac84af5b1f08a99810f0e632c60c63ba58e566181ffd2578874"
   license "AGPL-3.0-only"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "2d662402b6bc9599e64e798c08694cfd9e1500baadfb2021b67c0b7a251a0660"
-    sha256 cellar: :any,                 arm64_sonoma:  "19e81b481169949f427200a84199f9a43bb0ba697c5d1849e55a62192fe6860b"
-    sha256 cellar: :any,                 arm64_ventura: "efb878f8b9ae2e7c3d5a46b8b4859762a2ba7393ac80a5302dd16553c0df6fe6"
-    sha256 cellar: :any,                 sonoma:        "e2480251a4ff3678b6192daac409a07446ed881e243e76b89722f9bc37ba9a43"
-    sha256 cellar: :any,                 ventura:       "649d980b5309cefa205d569ee8495423f3ab3131c931cfcc4f85b9d4e61aa344"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "345cf3b5657678297d8aecf60bfeb67ee4ba1fdac10c49309526dda5a84dc9af"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "46253e8c881a99548b384fef25a64591bcb61d06fb65c0a2601e2e43dbe86467"
+    sha256 cellar: :any,                 arm64_sequoia: "f0cc3cef149a12b05ca5b52ca1ea0d888b5f65dd083e4b315f4b3a5a77829a3b"
+    sha256 cellar: :any,                 arm64_sonoma:  "8e156d730b5d988e6b33a2a783067c65010c2624eba23d7b3e28d3446300413f"
+    sha256 cellar: :any,                 arm64_ventura: "fe8c8e3fbff8fa370e82484f882e8455c122d439bf2a81cd68cca44f822db364"
+    sha256 cellar: :any,                 sonoma:        "7d6d5437c710ed6103022b2f61fdf0e88ee8096e206bd5d2e4411fe28fd50c26"
+    sha256 cellar: :any,                 ventura:       "a91f26706d7f12cab12b4ca8c532cb49c5327cc63e7ba3929a10a4dc1fcfd93b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a7285b0beae708e057aed8f506b9eef76657e7a8739e25c390e877dff026ea45"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "699e7f4e25955cd8a7613da7bf1f3b07d345672d3b2dac7f8d466fca61f8909c"
   end
 
   depends_on "pkgconf" => :build
@@ -37,7 +37,7 @@ class Gurk < Formula
       output_log = testpath/"output.log"
       pid = spawn bin/"gurk", "--relink", [:out, :err] => output_log.to_s
       sleep 2
-      assert_match "Linking new device with device name", output_log.read
+      assert_match "Please enter your display name", output_log.read
     ensure
       Process.kill("TERM", pid)
       Process.wait(pid)

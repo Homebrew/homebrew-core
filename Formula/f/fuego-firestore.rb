@@ -4,6 +4,7 @@ class FuegoFirestore < Formula
   url "https://github.com/sgarciac/fuego/archive/refs/tags/0.35.0.tar.gz"
   sha256 "25446224f1d20d2e843127639450526fcdaa8e3ce03701f4ed9007821cb2020a"
   license "GPL-3.0-only"
+  head "https://github.com/sgarciac/fuego.git", branch: "develop"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "f86b1ba65cdafa226e82a3fc623eccbab6147244389fb05be05bb5c732439f27"

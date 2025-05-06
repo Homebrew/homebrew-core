@@ -4,6 +4,7 @@ class Brook < Formula
   url "https://github.com/txthinking/brook/archive/refs/tags/v20250202.tar.gz"
   sha256 "2ee6bf43345b2cbf883eeaa8350da161352610e4fee82c29b0d3411a3e761f1f"
   license "GPL-3.0-only"
+  head "https://github.com/txthinking/brook.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "04547e268b88935b2c6101b9324126819adb599e795cabaa740e5fb04325c17f"

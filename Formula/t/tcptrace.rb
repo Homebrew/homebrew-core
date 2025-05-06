@@ -23,12 +23,20 @@ class Tcptrace < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:    "39916506fcd6385aee6375813128a126a84f947623594011f6c2c9df1b6dc8b2"
     sha256 cellar: :any_skip_relocation, sierra:         "7ccc5e6859be970a5a8a064630704111d37b03a7e3cf3a9874e16a60e4abe02b"
     sha256 cellar: :any_skip_relocation, el_capitan:     "e46775d7cc808b5b52a0a36a33142b824a9b2d8bce5b0557bc1041c2e55c5ffb"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "048969e3fdf2e0c22e2e65b3a6548a0e5da8dd032ee770b32f8444e5ce007835"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "7516135879ddee3a7a4271980b8485ac12c3b1826cb99ba23e9f6f849fda4ceb"
   end
 
   deprecate! date: "2024-04-18", because: :unmaintained
+  disable! date: "2025-04-22", because: :unmaintained
 
   uses_from_macos "libpcap"
+
+  on_linux do
+    on_arm do
+      depends_on "automake" => :build
+    end
+  end
 
   patch do
     url "https://github.com/msagarpatel/tcptrace/commit/f36b1567a5691d4c32489ab8493d8d4faaad3935.patch?full_index=1"
@@ -36,9 +44,14 @@ class Tcptrace < Formula
   end
 
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    # Workaround for ancient config files not recognizing aarch64 linux.
+    if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      %w[config.guess config.sub].each do |fn|
+        cp Formula["automake"].share/"automake-#{Formula["automake"].version.major_minor}"/fn, fn
+      end
+    end
+
+    system "./configure", *std_configure_args
     system "make", "tcptrace"
 
     # don't install with owner/group

@@ -29,6 +29,7 @@ class Wownero < Formula
     sha256 cellar: :any,                 arm64_ventura: "a7573258aa7a6c1aa62858fabdd590b4546d57e3c1c569ba5355361d7e9d7a47"
     sha256 cellar: :any,                 sonoma:        "6f1149d4459630ab60f67a3d84a75e73d933b2dd2885ec215e2dbf05a37fbecf"
     sha256 cellar: :any,                 ventura:       "b31910c666b6bba034ed47c3a6100f6b42ab5e15ab9f5213e4b831ffc2883d1d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3c99746fadcd9c5542b9559676cb78175550a5fb77df7ca024e59c9439a98a6e"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "b579603a0d8d4e8f796ef7efb40e6ff5ceab8272bb585b95914991cc2538f720"
   end
 
@@ -50,6 +51,8 @@ class Wownero < Formula
   conflicts_with "monero", because: "both install a wallet2_api.h header"
 
   def install
+    ENV["CMAKE_POLICY_VERSION_MINIMUM"] = "3.5"
+
     # Need to help CMake find `readline` when not using /usr/local prefix
     args = %W[-DReadline_ROOT_DIR=#{Formula["readline"].opt_prefix}]
 

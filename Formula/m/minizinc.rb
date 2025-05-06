@@ -23,6 +23,8 @@ class Minizinc < Formula
   depends_on "gecode"
   depends_on "osi"
 
+  conflicts_with cask: "minizincide", because: "both install `minizinc` binaries"
+
   def install
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"

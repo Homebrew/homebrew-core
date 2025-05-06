@@ -13,6 +13,7 @@ class Abricate < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "a1019399ae72e1e4b793e287b92c2b000b6680f44c60faa2aa63e61683fae70c"
     sha256 cellar: :any_skip_relocation, sonoma:        "f72cb3d2b9f6d42fe8ff2ff6c72d9dab66d5e7a5f867ae384ae06f2477c8e53c"
     sha256 cellar: :any_skip_relocation, ventura:       "e64a514eafd58745186e9302e4a5fa0d9da4eb9e686ff15ec3fa53c29b9b3a3b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d6862ba41484e2752fbfa93c339fd12a691f164f5342a7864b8af2e786cbbe23"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "7ccff5939400556b14677e73e48b33f8794781a62ed6df468bef9d240ecaffb4"
   end
 

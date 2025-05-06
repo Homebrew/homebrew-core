@@ -1,8 +1,8 @@
 class BuildpulseTestReporter < Formula
   desc "Connect your CI to BuildPulse to detect, track, and rank flaky tests"
   homepage "https://buildpulse.io"
-  url "https://github.com/buildpulse/test-reporter/archive/refs/tags/v0.28.0.tar.gz"
-  sha256 "8006002a0899470f782a965724ebb3ab19fd48873cb50ce7722d474710d22995"
+  url "https://github.com/buildpulse/test-reporter/archive/refs/tags/v0.29.0.tar.gz"
+  sha256 "4235de52b6068f9f3d2d04f3b43ca8d2de1d1e421ae3cfbcdbcef2629d9b8263"
   license "MIT"
   head "https://github.com/buildpulse/test-reporter.git", branch: "main"
 
@@ -12,14 +12,12 @@ class BuildpulseTestReporter < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "5fa7bdd1ab10afc961caea3a0e669e917f1af32c315ddfd24d95accc4febf4bd"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "210c03916b8e4ec0d2172f9b7a4f52ca5447a81e6517979609b0d958d8b4fcc5"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5446e9c167595aa6e31a558b0ba82d5505d58cd07f6168dac76474f57bf4417a"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "04e6c06647c7d0dc90497ffaf4cffa437f41259e53070fee8bac6cf465941a52"
-    sha256 cellar: :any_skip_relocation, sonoma:         "17a887a1df832df6cb9d37705395b962cae39a22c859387be3f34864cad7d54e"
-    sha256 cellar: :any_skip_relocation, ventura:        "7a96a8f6df56003b66454334f86760a0f151d4182e2a3884ffcfdde4246dc297"
-    sha256 cellar: :any_skip_relocation, monterey:       "1da2717a31beea4f4a469d611beb9e0f568da7ba85b8dd2783850e16e1969c35"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "34af7cf6797de10a49d6f03cc1b9a4899715ec223fe0bfe7adc02a41e2386d43"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cb3e526cd4bab198e54e8c9fe74f399236a7acd7e367e3cd256bc76d9b32682d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cb3e526cd4bab198e54e8c9fe74f399236a7acd7e367e3cd256bc76d9b32682d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "cb3e526cd4bab198e54e8c9fe74f399236a7acd7e367e3cd256bc76d9b32682d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "ce5fac61ab3bdf6a12a4e4f6bebea5c28b84af09d9669b8179cf9562b8181f98"
+    sha256 cellar: :any_skip_relocation, ventura:       "ce5fac61ab3bdf6a12a4e4f6bebea5c28b84af09d9669b8179cf9562b8181f98"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "81c223352eed836b439d1ab44e7f3d807f738a1f762d095e7f51f7644a53fa1a"
   end
 
   depends_on "go" => :build

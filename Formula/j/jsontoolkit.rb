@@ -16,6 +16,9 @@ class Jsontoolkit < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "7201211ab61aa4766b12221174fd6fa7215e99571a2f898395d1fedbe19432c7"
   end
 
+  # Original source is no longer available after repo change
+  deprecate! date: "2025-04-17", because: :does_not_build
+
   depends_on "cmake" => :build
 
   def install

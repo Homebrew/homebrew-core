@@ -3,21 +3,20 @@ class Mackup < Formula
 
   desc "Keep your Mac's application settings in sync"
   homepage "https://github.com/lra/mackup"
-  url "https://files.pythonhosted.org/packages/63/37/8f5ee72905948757f284e7a4fea1cd8b7203f13e57d2cf4917f2f1afa7a8/mackup-0.8.41.tar.gz"
-  sha256 "49f929d502b3efbc01b5a206af6cff877447ac5821591b2a9231cbf42d97b17a"
+  url "https://files.pythonhosted.org/packages/c9/80/3c0f1755c612f32a215b2ebc8a2669a9b7f78d2ada58bbf1002d94601c79/mackup-0.8.43.tar.gz"
+  sha256 "22bb21412dfee660a5ec2ef018b95302eb72635cf45b04cbc7f53364de24ed54"
   license "GPL-3.0-or-later"
   head "https://github.com/lra/mackup.git", branch: "master"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, all: "48147c55dcef0d94cd60ca788872d0eb45f504b5f661b32a1ceb6da73164e6cc"
+    sha256 cellar: :any_skip_relocation, all: "f0d80fa9efb59208a386293d95384f3440291ba11121fc43dd4c69707b515fce"
   end
 
   depends_on "python@3.13"
 
-  resource "docopt" do
-    url "https://files.pythonhosted.org/packages/a2/55/8f8cab2afd404cf578136ef2cc5dfb50baa1761b68c9da1fb1e4eed343c9/docopt-0.6.2.tar.gz"
-    sha256 "49b3a825280bd66b3aa83585ef59c4a8c82f2c8a522dbe754a8bc8d08c85c491"
+  resource "docopt-ng" do
+    url "https://files.pythonhosted.org/packages/e4/50/8d6806cf13138127692ae6ff79ddeb4e25eb3b0bcc3c1bd033e7e04531a9/docopt_ng-0.9.0.tar.gz"
+    sha256 "91c6da10b5bb6f2e9e25345829fb8278c78af019f6fc40887ad49b060483b1d7"
   end
 
   def install

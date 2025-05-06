@@ -14,6 +14,7 @@ class Csfml < Formula
     sha256 cellar: :any,                 arm64_ventura: "0f5543e8c4f83ba20d16b986870afdb4d127326e9b4545b2d98bab4430be4000"
     sha256 cellar: :any,                 sonoma:        "c63caf00bb7ab923a8d49448b410dd7c269fc1a6e8f194326286d610b972f6af"
     sha256 cellar: :any,                 ventura:       "d2d7e9b7eef45f2cd6fa0a48c3f0e606f9690945c8bc7ef396eeeb6640bd62e1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8233ef7ba98f94386973b6594231a3fdae9706f0c769aa5ae4b23a2ce12a103f"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "d4c772a79cfa52cd66d37f85c6964473519693d3661f593ede05b4103ae09983"
   end
 

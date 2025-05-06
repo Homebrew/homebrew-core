@@ -8,25 +8,27 @@ class Johnnydep < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "81e1ee32a7ec861d280708ac2d06304a795658377cb9153bc0600368363d1f1e"
-    sha256 cellar: :any,                 arm64_sonoma:  "9c00ece50e174a7612b360ab836c27a2ab5e8b120856847b0d637ca15dee1dea"
-    sha256 cellar: :any,                 arm64_ventura: "3699fbfcdfcbcd3ec9ec8180a18280a5d3df7ac2e74e7b910a0081fe00d53909"
-    sha256 cellar: :any,                 sonoma:        "4eea94989813c8cb15b0743e1d982ebc7a1f2306cc355379df8d10be21b4d95f"
-    sha256 cellar: :any,                 ventura:       "15529e60f9ee2272f6389c84576a1274ee5f5ba2d82ebd2d3a832cdea4fe0c31"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ad06847d4a80c665aeb4775ce0800cd4c8b4c633d850913d60f86eff6d7350f2"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "f8a1c7e9a1e998a436515dee6d884184825809cb8b28e0e3ada0535741623cd2"
+    sha256 cellar: :any,                 arm64_sonoma:  "0129fb3e931ed3daf34bc8a3f8ee2f8c977f5bca3715e2217bcebf4b892cee40"
+    sha256 cellar: :any,                 arm64_ventura: "e2db6a6d86bd35707bcb6c59374ec6c2e2028762608f277765c5c231ef7968f5"
+    sha256 cellar: :any,                 sonoma:        "91989a32152c46c1679308e47df4f09324d553c367bb6a8831e10c28d6219d9e"
+    sha256 cellar: :any,                 ventura:       "16c7f002b8f7e9b8c62f364bd7eef09fd86d1b97d71527eae9fd3ceba81a7840"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "abf004439db78ed17e882aabbaea88c03f86de37985d2cc31673fcffcee291e2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9e599029b28fd894192f6cc5fc57df31f6e1b3bf3d2ceae69aa8763c3037a352"
   end
 
   depends_on "libyaml"
   depends_on "python@3.13"
 
   resource "anytree" do
-    url "https://files.pythonhosted.org/packages/f9/44/2dd9c5d0c3befe899738b930aa056e003b1441bfbf34aab8fce90b2b7dea/anytree-2.12.1.tar.gz"
-    sha256 "244def434ccf31b668ed282954e5d315b4e066c4940b94aff4a7962d85947830"
+    url "https://files.pythonhosted.org/packages/bc/a8/eb55fab589c56f9b6be2b3fd6997aa04bb6f3da93b01154ce6fc8e799db2/anytree-2.13.0.tar.gz"
+    sha256 "c9d3aa6825fdd06af7ebb05b4ef291d2db63e62bb1f9b7d9b71354be9d362714"
   end
 
   resource "cachetools" do
-    url "https://files.pythonhosted.org/packages/c3/38/a0f315319737ecf45b4319a8cd1f3a908e29d9277b46942263292115eee7/cachetools-5.5.0.tar.gz"
-    sha256 "2cc24fb4cbe39633fb7badd9db9ca6295d766d9c2995f245725a46715d050f2a"
+    url "https://files.pythonhosted.org/packages/6c/81/3747dad6b14fa2cf53fcf10548cf5aea6913e96fab41a3c198676f8948a5/cachetools-5.5.2.tar.gz"
+    sha256 "1a661caa9175d26759571b2e19580f9d6393969e5dfca11fdb1f947a23e640d4"
   end
 
   resource "oyaml" do
@@ -35,8 +37,8 @@ class Johnnydep < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/51/65/50db4dda066951078f0a96cf12f4b9ada6e4b811516bf0262c0f4f7064d4/packaging-24.1.tar.gz"
-    sha256 "026ed72c8ed3fcce5bf8950572258698927fd1dbda10a5e981cdf0ac37f4f002"
+    url "https://files.pythonhosted.org/packages/d0/63/68dbb6eb2de9cb10ee4c9c14a0148804425e13c4fb20d61cce69f53106da/packaging-24.2.tar.gz"
+    sha256 "c228a6dc5e932d346bc5739379109d49e8853dd8223571c7c5b55260edc0b97f"
   end
 
   resource "pyyaml" do
@@ -44,14 +46,9 @@ class Johnnydep < Formula
     sha256 "d584d9ec91ad65861cc08d42e834324ef890a082e591037abe114850ff7bbc3e"
   end
 
-  resource "six" do
-    url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
-    sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
-  end
-
   resource "structlog" do
-    url "https://files.pythonhosted.org/packages/78/a3/e811a94ac3853826805253c906faa99219b79951c7d58605e89c79e65768/structlog-24.4.0.tar.gz"
-    sha256 "b27bfecede327a6d2da5fbc96bd859f114ecc398a6389d664f62085ee7ae6fc4"
+    url "https://files.pythonhosted.org/packages/78/b8/d3670aec25747e32d54cd5258102ae0d69b9c61c79e7aa326be61a570d0d/structlog-25.2.0.tar.gz"
+    sha256 "d9f9776944207d1035b8b26072b9b140c63702fd7aa57c2f85d28ab701bd8e92"
   end
 
   resource "tabulate" do
@@ -65,8 +62,8 @@ class Johnnydep < Formula
   end
 
   resource "wheel" do
-    url "https://files.pythonhosted.org/packages/b7/a0/95e9e962c5fd9da11c1e28aa4c0d8210ab277b1ada951d2aee336b505813/wheel-0.44.0.tar.gz"
-    sha256 "a29c3f2817e95ab89aa4660681ad547c0e9547f20e75b0562fe7723c9a2a9d49"
+    url "https://files.pythonhosted.org/packages/8a/98/2d9906746cdc6a6ef809ae6338005b3f21bb568bea3165cfc6a243fdc25c/wheel-0.45.1.tar.gz"
+    sha256 "661e1abd9198507b1409a20c02106d9670b2576e916d58f520316666abca6729"
   end
 
   resource "wimpy" do
@@ -79,9 +76,7 @@ class Johnnydep < Formula
   end
 
   test do
-    output = shell_output("#{bin}/johnnydep johnnydep")
-    resources.each do |r|
-      assert_match r.name, output
-    end
+    output = shell_output("#{bin}/johnnydep -v0 --output-format=pinned pip==25.0.1")
+    assert_match "pip==25.0.1", output
   end
 end

@@ -7,8 +7,7 @@ class Oniguruma < Formula
   head "https://github.com/kkos/oniguruma.git", branch: "master"
 
   livecheck do
-    url :stable
-    regex(/^v?(\d+(?:\.\d+)+(?:[._-](?:mark|rev)\d+)?)$/i)
+    skip "No longer developed or maintained"
   end
 
   bottle do

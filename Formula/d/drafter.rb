@@ -16,6 +16,7 @@ class Drafter < Formula
     sha256 cellar: :any,                 ventura:        "b3b7bf960af127738f0e212336255a2b94321a90366d9e01447013e9537c9ae7"
     sha256 cellar: :any,                 monterey:       "4c920f38e6a755f97eb063becfa8da9c11e2dd30b2a99019929b2c896af72e5b"
     sha256 cellar: :any,                 big_sur:        "a9a9a413c78370fbc9d3a47e861e4f4166fab68caea29f2a1ae745a6c963162b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "b8c30af375bc0f9dd48dfb3ecd7029c1b136a158355a235379678363a766edc1"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "00241d159577722e4fb7d98b661a2d81c91e6fa3beaca88d010b6eecea4377b0"
   end
 

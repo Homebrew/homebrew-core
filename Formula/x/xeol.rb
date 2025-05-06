@@ -11,6 +11,7 @@ class Xeol < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "3689cdfc20e5b62ed6853f8d71ef4695ba9a9e0884f5965ce5b5f4aafb5a24d9"
     sha256 cellar: :any_skip_relocation, sonoma:        "504c4e3d827048d30f47dcab2d2717d13ba99e9a8d90e1775b99bfd5f85881d4"
     sha256 cellar: :any_skip_relocation, ventura:       "3ee6c78f1c51e03f2d26121218c815959e2e7287b0825dbd56f92b7ffd0b0403"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "87ad9b0ee49109813a35ee1d7030457a1bf8a72cf75938562722389dfa1d26ff"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "386c785c6a49becb1da6ae31414ceb1d95b9ad8299d9ebb34afe0c10a6d98dbd"
   end
 

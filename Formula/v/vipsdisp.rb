@@ -11,6 +11,7 @@ class Vipsdisp < Formula
     sha256 cellar: :any, arm64_ventura: "04dff97da157a1807ef04cf555d74c42fceea4f63fed8f569f1b5f41d7ce2146"
     sha256 cellar: :any, sonoma:        "ab4c0f5577e3e3d12fee9d18b7d4033b3930a7b861185eaa74891e6bc954e04a"
     sha256 cellar: :any, ventura:       "b53418e567653dd0da7087a0f48c21205eb9198871e18ccc51eff0f75ffc947a"
+    sha256               arm64_linux:   "0337ec69ca9d8102849c8a000b075c1f6b09cb5841c703225b8678bcaa1b6ad8"
     sha256               x86_64_linux:  "59bba41fe00cac2d5012a4a3526233f1c3d77f8d926a0160d95b63c7c4c2360d"
   end
 

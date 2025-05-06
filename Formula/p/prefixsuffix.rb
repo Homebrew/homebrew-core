@@ -14,6 +14,7 @@ class Prefixsuffix < Formula
     sha256                               sonoma:         "e5750bf2bc2db7e78a87ce10a8e348c15b6cc8f560a1ee4f97dafcd3968a8dc9"
     sha256                               ventura:        "5226011c5383e3328b4872a1e559ce249b5da4f817c7d4bfab2d417ce0fc095f"
     sha256                               monterey:       "4a0a8c588c5d78a1bffbeeeb1f6dc566fb1ff39de91900ce2d089af27e19fd5e"
+    sha256                               arm64_linux:    "74bcf8905a1953a54f17b65d4c68b48d0fb78e0d5f3988204e99620aa6b474bc"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "1bd8de221d43b7d0d511a7a0cb6ebd3a35f045524a02917cf839eb426ae65d41"
   end
 

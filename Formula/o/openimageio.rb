@@ -1,8 +1,8 @@
 class Openimageio < Formula
   desc "Library for reading, processing and writing images"
   homepage "https://openimageio.readthedocs.io/en/stable/"
-  url "https://github.com/AcademySoftwareFoundation/OpenImageIO/archive/refs/tags/v3.0.4.0.tar.gz"
-  sha256 "dd481071d532c1ab38242011bb7af16f6ec7d915c58cada9fb78ed72b402ebc5"
+  url "https://github.com/AcademySoftwareFoundation/OpenImageIO/archive/refs/tags/v3.0.6.1.tar.gz"
+  sha256 "4d0fb92e4964f79dfaed77ac73f1a7f754c671a9f5ad29c7950c0844916ce5f5"
   license "Apache-2.0"
   head "https://github.com/AcademySoftwareFoundation/OpenImageIO.git", branch: "master"
 
@@ -13,13 +13,13 @@ class Openimageio < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "fabfcbfcd422a179aca1b2667b7fc97afbbfcb33068c24be4cf13a9d2df506d9"
-    sha256 cellar: :any,                 arm64_sonoma:  "15844d3b731b19888a755b7d19605a8a2c13ea913628399265144271443710f7"
-    sha256 cellar: :any,                 arm64_ventura: "62afb78dcccaedb0d0c47ebd8bb040bc3e3542c6deb3a6507e8b750bfa4ac534"
-    sha256 cellar: :any,                 sonoma:        "9846a1521b2fffbf9236993ed57887ce648df52d41cec348e7ef2cc7b0b1b3f2"
-    sha256 cellar: :any,                 ventura:       "34883f8bf7495f8ea40fca3d71e369f3df8a75cec938bcd7f476b266f8100c81"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e3409039beffcbf97455e2876503b014e803ee3d5974ce240db59cd038bc9cd7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7e0e791e125f44eb6f6bee02f4f070ce818e52391f78008cdc8c1561f2d833c1"
+    sha256 cellar: :any,                 arm64_sequoia: "042229d9572e0781d83d52782d51425adefbca12103ddf8d35748ba534ad489e"
+    sha256 cellar: :any,                 arm64_sonoma:  "c6811474b4f0ba603e7867b406fe79d9f1e9bcac7ae0d680952b93d8df2bef34"
+    sha256 cellar: :any,                 arm64_ventura: "80b3bd93516c2e8b5c638bba24c955c64d17c5dd16fc1cf35822488dbf36d937"
+    sha256 cellar: :any,                 sonoma:        "9fbd6f150c6fdd9a5c44138483948ed4b02dd227d9f685d6ac08e602ac15e779"
+    sha256 cellar: :any,                 ventura:       "529c49719bf807377ffb84fe0177bc739902b66b87d9d1b02267eb0dd60f3664"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "22376d93e5365079d1c2aee035f527dff439d0012ceda68ed2937d94d5e437a5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "82535c15c16e7de879d951152f1b50712cda8689466624f7b89db7df711009b7"
   end
 
   depends_on "cmake" => :build

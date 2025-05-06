@@ -1,19 +1,19 @@
 class Jnv < Formula
   desc "Interactive JSON filter using jq"
   homepage "https://github.com/ynqa/jnv"
-  url "https://github.com/ynqa/jnv/archive/refs/tags/v0.5.0.tar.gz"
-  sha256 "45cf21e6f33ea6c40a52d6d281a4ac4b67bcc02f8de6d615a56ad150a27ed666"
+  url "https://github.com/ynqa/jnv/archive/refs/tags/v0.6.0.tar.gz"
+  sha256 "8220bf433728b57ddb174920a48c1750c5087b52154567074020b6800d6579d3"
   license "MIT"
   head "https://github.com/ynqa/jnv.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d01a95c658e9704e2ff8356c94ab58625571f9dcff6ea616b558e6f6c2cc61ef"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c688c552454c6bfd534d75c20f8dbe8745c846a456e4c150bdc7aa8ad03602bc"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "73d2990fed120cf65fecc358b2da15447ab4540253ba21908f3ff67c69d76791"
-    sha256 cellar: :any_skip_relocation, sonoma:        "b33c998f4f590c6363fd450fd4bbdcd7115d6f1a7302c73016a4b2cdcd4eb946"
-    sha256 cellar: :any_skip_relocation, ventura:       "ce13308a377d7f3d19095a57a178ab5cfe770b0a590659f97fb6cefbee41296c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b62612be90c9690884b9256a226c3131d8171ddc5d56d7e3065327e2ac44f606"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0ff26530bbe19dc29210440a2a9459583d56e6026291f80e63058c95aede0f5e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "868d0e7996d85cc836e6c960afdeb90c99b169ee2c23e0070988e8957439cd4b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "dcdfa08801f21e518a4266af55108d88408b25dbf74a5dc454997bf973458ba5"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "6aa1d7c82025eb2e7f3bfdcc9a9a0f18b71336048df06cc4798b5d93f3fbd944"
+    sha256 cellar: :any_skip_relocation, sonoma:        "462b69793597865aa518a58d74c292897b48a240e5a674bd27012de6ef69741d"
+    sha256 cellar: :any_skip_relocation, ventura:       "fe8abec51096410939da83933523f5a2dd2be3f5eb5e7c3a24cebf7439ce6876"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "133259d9690645a87aab683e8d09a6e7f269df570f15cf6c91a427ca04f120d2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5bea05489eb962c26df754b18931fb62752d741db352789d64b4199ba666da71"
   end
 
   depends_on "rust" => :build

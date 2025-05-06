@@ -6,10 +6,11 @@ class Ratarmount < Formula
   url "https://github.com/mxmlnkn/ratarmount/archive/refs/tags/v1.0.0.tar.gz"
   sha256 "fc5fadfc4dc268613eb3df832a0b3a3bc7fd40cd119b6aff83beaaa29ed05254"
   license "MIT"
+  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_linux:  "f9e6cc9dacbba3ef90ca0f09e9c652d68333e2bdd1d08f08bef54fc7e897eceb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "11268d8d0bd4a24d02de87d4834083d228f6d4a1de4ee88a5686039fb6679ac4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:  "71afbf252f7c7f0c94fe39b89175f2abffc5f7ff84b64eaee8e77d0d846e52e8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "9834cce582b558270e76d63e92a7a1aed99e55f43401c46c6d2c2910c7a7b284"
   end
 
   depends_on "libffi"
@@ -73,6 +74,12 @@ class Ratarmount < Formula
   resource "ratarmountcore" do
     url "https://files.pythonhosted.org/packages/a1/5a/5600a4abe37426e9f3206bed3519b392f01816679226f4058049ea0e4a7d/ratarmountcore-0.8.0.tar.gz"
     sha256 "f1991a79b020b94e75c37c92c199677c80186db5f86a7a9717def68f1ae08207"
+
+    # Fix to use libfuse 3.16+ because of ABI problem
+    # Issue ref: https://github.com/mxmlnkn/ratarmount/issues/153
+    # But it is resolved in 3.17.x
+    # Issue ref: https://github.com/libfuse/libfuse/issues/1029
+    patch :DATA
   end
 
   def install
@@ -85,3 +92,18 @@ class Ratarmount < Formula
     assert_match "FUSE mountpoint could not be created", shell_output("#{bin}/ratarmount #{tarball} 2>&1", 1)
   end
 end
+
+__END__
+diff --git a/ratarmountcore/fusepy/fuse.py b/ratarmountcore/fusepy/fuse.py
+index 5e8e976..aedfa06 100644
+--- a/ratarmountcore/fusepy/fuse.py
++++ b/ratarmountcore/fusepy/fuse.py
+@@ -171,7 +171,7 @@ if fuse_version_major != 2 and not (fuse_version_major == 3 and _system == 'Linu
+         f"Found library {_libfuse_path} has wrong major version: {fuse_version_major}. "
+         "Expected FUSE 2!"
+     )
+-if fuse_version_major == 3 and fuse_version_minor > 16:
++if fuse_version_major == 3 and fuse_version_minor > 17:
+     raise AttributeError(
+         f"Found library {_libfuse_path} is too new ({fuse_version_major}.{fuse_version_minor}) "
+         "and will not be used because FUSE 3 has no track record of ABI compatibility."

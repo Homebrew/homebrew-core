@@ -26,6 +26,7 @@ class Jed < Formula
     sha256 mojave:         "74df74658f783e6de97ed841b1e2532ead3681c7816d55c52e56d4d5056050b9"
     sha256 high_sierra:    "b8e8f13a1936067960fd2040019d30fc3cedabba4f5c3c22712990f64e09c752"
     sha256 sierra:         "caa1269eeac2bd84b2287426c77d501956632f01f92c44605bf8b5d76ab7550a"
+    sha256 arm64_linux:    "a38ab025d8320824a54a21c5c2c7819ddc29f81f6b5b6e60603cfccd279fa635"
     sha256 x86_64_linux:   "4f1c9d8427fbce7053ed60f13fdcaa4b2dcde1398595d37cfc2fcce4a16669dc"
   end
 
@@ -39,13 +40,17 @@ class Jed < Formula
   depends_on "s-lang"
 
   def install
+    args = ["--with-slang=#{Formula["s-lang"].opt_prefix}"]
+
     if build.head?
       cd "autoconf" do
         system "make"
       end
+    elsif OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      # Help old config scripts identify arm64 linux
+      args << "--build=aarch64-unknown-linux-gnu"
     end
-    system "./configure", "--prefix=#{prefix}",
-                          "--with-slang=#{Formula["s-lang"].opt_prefix}"
+    system "./configure", *args, *std_configure_args
     system "make"
     ENV.deparallelize
     system "make", "install"

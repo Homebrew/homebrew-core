@@ -11,6 +11,7 @@ class Pgvector < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "0d0edb94eda91ef957b4497c0173c33579f860843d6c105d5668f1ceb86d11a7"
     sha256 cellar: :any_skip_relocation, sonoma:        "b9e229a72dbc9e7b8e4587389823caa307fc1ee0f2338e45140a49e4ece5c4eb"
     sha256 cellar: :any_skip_relocation, ventura:       "21e40f77e8afca2fae9303cc45216b53ec79d48ebc3f8d7cd79b2fa8a22aa6ac"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0bd92df44356b7200defec0029fc583550a1121a5ceddc0e8a0fab98a42571e4"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "7765039d7b20e78006e2ff2c3b197185a9c80e8b930a384b8e5feeb88eaf3afa"
   end
 

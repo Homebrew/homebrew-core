@@ -20,6 +20,7 @@ class Yamdi < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:    "1c524b6c2d791792b27d15941ecd179b487fbdcd299640f06cbf17bd5f8cf434"
     sha256 cellar: :any_skip_relocation, sierra:         "546a4c5400ef75431ecd3a39dbabda5e5599d82ac3f65f6dafc5d3745a90d8e2"
     sha256 cellar: :any_skip_relocation, el_capitan:     "cfaf451a985b0a8cba24a0131c8e0e9a6102eb4b6c315e045ce258999cb19494"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "04279d34401c1e4eccc81bbd8889cf79efcdf61a2a8c228ab22497ab6b200e53"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "b4a7cf29beb52e599c9d245d550d00848b935a8d8e5c0b9f3d46fd362e28a32b"
   end
 

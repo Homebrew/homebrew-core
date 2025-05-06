@@ -4,16 +4,16 @@ class Pagmo < Formula
   url "https://github.com/esa/pagmo2/archive/refs/tags/v2.19.1.tar.gz"
   sha256 "ecc180e669fa6bbece959429ac7d92439e89e1fd1c523aa72b11b6c82e414a1d"
   license any_of: ["LGPL-3.0-or-later", "GPL-3.0-or-later"]
-  revision 3
+  revision 4
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "1f4257366200beb78f2385c1b4d2fc62e81599415827d213200b7403682d54b0"
-    sha256 cellar: :any,                 arm64_sonoma:  "5f1c8021bf68ac533e781a06c1d02d03697b85336de041899a8d05226768c09c"
-    sha256 cellar: :any,                 arm64_ventura: "ad960b3a69b6283e74399cbe09fe941a13183815c7f26d0f0fd111883c166e8e"
-    sha256 cellar: :any,                 sonoma:        "feec9497fbae6ea91e8a2a55dc4a03b5b784731eeb540620233c9f01b0d78828"
-    sha256 cellar: :any,                 ventura:       "0f83b648ec1a642473ba6b71c29cfc1c8f37fcfe8fcb87112624839cecef4424"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "91420f1fbcb0890a1808493d3a47b965af26f7f6824905093f1aff100c651d9f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ccb61eb3620d314de4a02ac9450b6be46326faf7180f8c19d98ca5046cf918fe"
+    sha256 cellar: :any,                 arm64_sequoia: "de89536a11df055792e5438ec658c6cd16c55315b84c6c424b49e3982a9dbd44"
+    sha256 cellar: :any,                 arm64_sonoma:  "b3ebceb0271d0a389f1ae4078941e8269c9efbec372e5305a172102de4b74f8f"
+    sha256 cellar: :any,                 arm64_ventura: "1154611438e8b1316c7f3f8ce0951deab54322bf5537b59494eec4106f8a7e48"
+    sha256 cellar: :any,                 sonoma:        "5f3bef1e0ed24dfbbde890a7b5b2474b585a1cdbd412c559d6a54043ed378c76"
+    sha256 cellar: :any,                 ventura:       "d4f0b7cbda497ce7f766efd08984bd52534a2ceddb7e070c91213bfba60a0567"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c3a36065e0fc45e3705fac89c77412947deb37532f777538d8aa98bb71d8abd9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1c3b4f42b1a460e73058cf7e82ce44fccd069ba476755ba37c0c07ff78787d34"
   end
 
   depends_on "cmake" => :build

@@ -4,6 +4,7 @@ class Hcloud < Formula
   url "https://github.com/hetznercloud/cli/archive/refs/tags/v1.50.0.tar.gz"
   sha256 "61fb1823a176ec77c102c30b3a7de50c67df7eda6dd8a3bf1f17c882e8c78011"
   license "MIT"
+  head "https://github.com/hetznercloud/cli.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "5926c1e2cb28a791212b47aee1fa99ef3a269b7e29325d21cd3844754e2d3053"

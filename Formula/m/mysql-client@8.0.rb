@@ -1,8 +1,10 @@
 class MysqlClientAT80 < Formula
   desc "Open source relational database management system"
-  homepage "https://dev.mysql.com/doc/refman/8.0/en/"
-  url "https://cdn.mysql.com/Downloads/MySQL-8.0/mysql-boost-8.0.41.tar.gz"
-  sha256 "719589993b1a6769edb82b59f28e0dab8d47df94fa53ac4e9340b7c5eaba937c"
+  # FIXME: Actual homepage fails audit due to Homebrew's user-agent
+  # homepage "https://dev.mysql.com/doc/refman/8.0/en/"
+  homepage "https://github.com/mysql/mysql-server"
+  url "https://cdn.mysql.com/Downloads/MySQL-8.0/mysql-boost-8.0.42.tar.gz"
+  sha256 "c2aa67c618edfa1bc379107fe819ca8e94cba5d85f156d1053b8fedc88cc5f8f"
   license "GPL-2.0-only" => { with: "Universal-FOSS-exception-1.0" }
 
   livecheck do
@@ -10,13 +12,13 @@ class MysqlClientAT80 < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "fa0d41d38ac39cdb0e76aaf8ed8934b752d8698ca62a1fcd5faa4af63c88c083"
-    sha256 arm64_sonoma:  "e7a966df0518248e26b00359d751268519cfb4476854457a0f5b44bb5858a5cd"
-    sha256 arm64_ventura: "9fac29cf31bd06a736c355cd669c3824ca9c34ad56088e621fe0249f10fff61e"
-    sha256 sonoma:        "0be2cea19b6c1bce3a8e8059b6accb3dd83e20ee1cc104db537fe7b747241d05"
-    sha256 ventura:       "7b3cbdeda4191c3d67db0acbaafc373859ede643864081e6fc84edf0f9749603"
-    sha256 arm64_linux:   "28af24d70f18909793715af3f9af99c0d10c4968e1828a82909d830262f9fd14"
-    sha256 x86_64_linux:  "fba059331650d7affa85c8b10e43c2afe7b8ea054f96ab679a4499b396c876db"
+    sha256 arm64_sequoia: "59d43aed334afcda44273940a08e0a60d50228607fbd57965657f25578e3fd61"
+    sha256 arm64_sonoma:  "ced161166185b2f6c1dc0676b771a4d794eb5bcaa85393411993bb7b8c6a31de"
+    sha256 arm64_ventura: "b18647515429259f046aa0fb49e93929cbed48065d506e6260962b7e4ad87d5e"
+    sha256 sonoma:        "e282d68aadf1142ac6058970a904b323c8483e6a72eda42e987b7078218136d8"
+    sha256 ventura:       "cb190923a14eb844124f48aa292aeb696220f96231dd6be5cac916ea4cb5a7bb"
+    sha256 arm64_linux:   "cf5203c31e25fafe9f5b0663262fcd36abf05be669337ca10a0eedf4bc9deaf8"
+    sha256 x86_64_linux:  "3b94ce7a61aca93ad2c91e7f387231cb490a603e22cb9ed5869a7e7cde2abe25"
   end
 
   keg_only :versioned_formula

@@ -1,8 +1,8 @@
 class Jruby < Formula
   desc "Ruby implementation in pure Java"
   homepage "https://www.jruby.org/"
-  url "https://search.maven.org/remotecontent?filepath=org/jruby/jruby-dist/9.4.12.0/jruby-dist-9.4.12.0-bin.tar.gz"
-  sha256 "05c5d203d6990c92671cc42f57d2fa1c1083bbfd16fa7023dc5848cdb8f0aa2e"
+  url "https://search.maven.org/remotecontent?filepath=org/jruby/jruby-dist/10.0.0.0/jruby-dist-10.0.0.0-bin.tar.gz"
+  sha256 "427d9827ed23fe6b4d11fe61665c75dd7476ba36a0438376eb310ce2a8d24733"
   license any_of: ["EPL-2.0", "GPL-2.0-only", "LGPL-2.1-only"]
 
   livecheck do
@@ -11,13 +11,13 @@ class Jruby < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "d146ced4843359f4e1292a53a3d7275721716ed16045d4b9bf638948034a2258"
-    sha256 cellar: :any,                 arm64_sonoma:  "d146ced4843359f4e1292a53a3d7275721716ed16045d4b9bf638948034a2258"
-    sha256 cellar: :any,                 arm64_ventura: "d146ced4843359f4e1292a53a3d7275721716ed16045d4b9bf638948034a2258"
-    sha256 cellar: :any,                 sonoma:        "c1f32aafec98d8c1e38e0482b40a554adb21c7b05ebb6acd2818e77f0c1e5062"
-    sha256 cellar: :any,                 ventura:       "c1f32aafec98d8c1e38e0482b40a554adb21c7b05ebb6acd2818e77f0c1e5062"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5f40ac999534f5af98d3f99c2fdebc211cc3d8b0bac8ed00e49ed605da58947f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "49da0e54dca76b9d1967e3b1aae453618dcfe6f1f04b85ac6d5dd16982ebf672"
+    sha256 cellar: :any,                 arm64_sequoia: "ad196fcad0f3c6a97b69c12fab1f0961c2c94182edca8c5e2918639ec66f3817"
+    sha256 cellar: :any,                 arm64_sonoma:  "ad196fcad0f3c6a97b69c12fab1f0961c2c94182edca8c5e2918639ec66f3817"
+    sha256 cellar: :any,                 arm64_ventura: "ad196fcad0f3c6a97b69c12fab1f0961c2c94182edca8c5e2918639ec66f3817"
+    sha256 cellar: :any,                 sonoma:        "3a5a010bde4c89457722c83401bef605a28ea35b82dd6ce0c387c088ff7e04c1"
+    sha256 cellar: :any,                 ventura:       "3a5a010bde4c89457722c83401bef605a28ea35b82dd6ce0c387c088ff7e04c1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6df34cf800775713d76d8e689df4792bf5310d8b2e1af249d186a806bc1328c5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "93de6a0e45595d8a1e47eefa3c6a950c0c915eb9d1a7b0bdf2ee0de028b61743"
   end
 
   depends_on "openjdk"

@@ -13,6 +13,7 @@ class Gtkglext < Formula
     sha256 cellar: :any,                 sonoma:         "ea372181dc03023ea581b14ca996646f6da8cdb54d81911f5b999281c70ecdd7"
     sha256 cellar: :any,                 ventura:        "986da9680b6032a4f4ae363e3c18176dce0bd276367e311c36b09494198d79d1"
     sha256 cellar: :any,                 monterey:       "6f045d38e2a584449fa6b5fc275f13b46bce7a4bd892219bb9dbe9bae44a9835"
+    sha256                               arm64_linux:    "8111b6fa90b879f9572ff71ebec5ff279bc5b4532c19f52331286f39783c04ab"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "bea86597c739ebbf55d551970dee174085bfc3d0c4d70f06f0cce969979ef2af"
   end
 

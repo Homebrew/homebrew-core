@@ -14,6 +14,7 @@ class Elvish < Formula
     sha256 cellar: :any_skip_relocation, sonoma:         "2bebab1544e5e8a296212b246bb12302e5115dc1bcdb5d9722d7b08c5219e126"
     sha256 cellar: :any_skip_relocation, ventura:        "f14e578bcbe405c2e867d92e048da270f212ccd9335feee4ddf4f132d77b0a93"
     sha256 cellar: :any_skip_relocation, monterey:       "fd52f724fb5c36b8f393cbd610b6c54867382c202d0d2474bc832534e3303f97"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "73d28cc43ad48e808dd7d5fe0942a7d53da195e538fe8d76363f04915d6b0936"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "b9b4d25746ddb91b1c63be65408dd2e2c46b20e4703ebec8943e2697d9a7b990"
   end
 

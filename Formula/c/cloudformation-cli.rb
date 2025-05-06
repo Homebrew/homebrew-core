@@ -3,18 +3,18 @@ class CloudformationCli < Formula
 
   desc "CloudFormation Provider Development Toolkit"
   homepage "https://github.com/aws-cloudformation/cloudformation-cli/"
-  url "https://files.pythonhosted.org/packages/51/46/e1a0bad01e7e1f14b7e3190d73818c4a903f44aeb228dfcabd18d197a0bf/cloudformation-cli-0.2.38.tar.gz"
-  sha256 "1dfc73847d7bc293036762434b758d7b76806f28367dfa6b50f1d9da5f51f4e8"
+  url "https://files.pythonhosted.org/packages/12/ed/36f14b63957e99d9f2cbb5ac5671eed9fb93569e57add60534d47fc630e4/cloudformation-cli-0.2.39.tar.gz"
+  sha256 "63bd83ad0b40b6ad21983dfe05f0717aeaa36cb3f935ef6825f8ca73d7a8e5a7"
   license "Apache-2.0"
-  revision 3
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "59ef56ddc5339a7b682424482633485eece0e70661f31ad0ad315e8187ddf305"
-    sha256 cellar: :any,                 arm64_sonoma:  "8c6ace29a7b231c0805a6b735375009b628b98fc20a04d3f60990f4853337399"
-    sha256 cellar: :any,                 arm64_ventura: "812f45a40eccc5c16045e0bc4eb85bbde01565efd6686f84134d1589f7c3753b"
-    sha256 cellar: :any,                 sonoma:        "fd86eaf04ed4bddf2ed5520f4e335bde0dddf75017b5f028f82f0bb0c49f6d2a"
-    sha256 cellar: :any,                 ventura:       "9f0025026e43f144de67d2f4dd0f7c3e74daac83d15f7e5ecfe9f5eacb5c6dfb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4846cc61ee65c993098ca501770a70552e3205d8e42bc798fa5c0db2a94df15b"
+    sha256 cellar: :any,                 arm64_sequoia: "ba79f959879ed5aab895484307930ff3299f3642ccd62b2533e3ab3a5d3aa9c7"
+    sha256 cellar: :any,                 arm64_sonoma:  "a4cad543270d232e1f72f7e1e8adedf530a2d691eb493b57af68cdf0c14080d4"
+    sha256 cellar: :any,                 arm64_ventura: "8151e881a695810c7ee4b336302bb3f945584df750b9ac8c8861cd7d0e9f0f17"
+    sha256 cellar: :any,                 sonoma:        "f5fa412f4167c7870c6ac1545b6e29c72a846fb749f58d971e647bd44863b1ff"
+    sha256 cellar: :any,                 ventura:       "8238dceaedfdf1356cc47d3bad9080e213c47e1939bf50408a4050bb4d03a069"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6685fc8f3baddad9e65afdec02d7bcf266c55b3ac21fbf71b94a5e121c98abca"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e2a0b1703d5a14a5c328eae34d86d6e74934f2252c9d07853b4d39aea25424a4"
   end
 
   depends_on "rust" => :build # for pydantic
@@ -29,8 +29,8 @@ class CloudformationCli < Formula
   end
 
   resource "attrs" do
-    url "https://files.pythonhosted.org/packages/49/7c/fdf464bcc51d23881d110abd74b512a42b3d5d376a55a831b44c603ae17f/attrs-25.1.0.tar.gz"
-    sha256 "1c97078a80c814273a76b2a298a932eb681c87415c11dee0a6921de7f1b02c3e"
+    url "https://files.pythonhosted.org/packages/5a/b0/1367933a8532ee6ff8d63537de4f1177af4bff9f3e829baf7331f595bb24/attrs-25.3.0.tar.gz"
+    sha256 "75d7cefc7fb576747b2c81b4442d4d4a1ce0900973527c011d1030fd3bf4af1b"
   end
 
   resource "aws-sam-translator" do
@@ -39,13 +39,13 @@ class CloudformationCli < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/6b/e6/40f8c1fb52c02adad1c104c4c4ac0488bf8f2b1397f24db07779322e420b/boto3-1.37.7.tar.gz"
-    sha256 "ac2e022edcd6a94a2adbb21f0ad373a16557ec14a8910366bee0bbc7138fc72a"
+    url "https://files.pythonhosted.org/packages/f9/1c/3901ff3ea6a9ddc7de17aade70b4ee2c25edd91f0a772bdb3419b58014a2/boto3-1.37.24.tar.gz"
+    sha256 "1d3c6fc63a9efba0af8b531ec6b7f7c6b0ef197bf3dcd875f03c9097ac68b58f"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/53/4b/096b2fac3ba92ace94f69f238eea9948af568b487c3898e9a8881bfe506b/botocore-1.37.7.tar.gz"
-    sha256 "2faeac11766db912bc444669b04359080b7b83b2f57a3906c77c8105b70ce1e8"
+    url "https://files.pythonhosted.org/packages/39/a3/b42468ef87f3282059a7a4b5533437d1f3d364120e724304d6ddf89004ce/botocore-1.37.24.tar.gz"
+    sha256 "a0bcc3c376a371f2c11afcbcc9917010c1c0a701d0e45d1ea3ec3bddeb06a8ff"
   end
 
   resource "cfn-flip" do
@@ -54,8 +54,8 @@ class CloudformationCli < Formula
   end
 
   resource "cfn-lint" do
-    url "https://files.pythonhosted.org/packages/90/4c/42104d719310625c2decf4a6a8c6040cb1e9dd2160fca0dbf666b60f89bf/cfn_lint-1.28.0.tar.gz"
-    sha256 "5ba44c441d69dcf8f78cd0b5ebe4a6fcd55c0073d2d21af62e4201825b175c2a"
+    url "https://files.pythonhosted.org/packages/ab/e5/155cad94f2162268cb5acd56e164bb2f9e146a490b5f68ae881686cd3819/cfn_lint-1.32.1.tar.gz"
+    sha256 "10282c0ec7fc6391da4877d9381a6b954f3c54ddcc0d3c97ee86f4783b5ae680"
   end
 
   resource "charset-normalizer" do
@@ -79,8 +79,8 @@ class CloudformationCli < Formula
   end
 
   resource "cloudformation-cli-python-plugin" do
-    url "https://files.pythonhosted.org/packages/ac/ee/cd6078cf90f516d0a12950fe554015a55a771527140f8a57519bc744e25f/cloudformation-cli-python-plugin-2.1.9.tar.gz"
-    sha256 "791824f05ee9f8e1fcb790346942769c24320d3986ac9a301adddc1a00b106e6"
+    url "https://files.pythonhosted.org/packages/ae/f1/bd758290777dd9b87b2ffebd9b4271a95188aed0acb9f6bc44af940ccb31/cloudformation-cli-python-plugin-2.1.10.tar.gz"
+    sha256 "3883751baaa1c6f9778e946e2758f129b7276b9192e21f921fc815b0765961d6"
   end
 
   resource "colorama" do
@@ -94,8 +94,8 @@ class CloudformationCli < Formula
   end
 
   resource "hypothesis" do
-    url "https://files.pythonhosted.org/packages/ce/ce/2d40118c953d592843ebd832b33b3f231773efecb309313aef04642dd37c/hypothesis-6.127.8.tar.gz"
-    sha256 "2df4cfb131b30bf85d785892137b7d39b978aea7cfbe319a574dc13071b7ee4b"
+    url "https://files.pythonhosted.org/packages/82/26/01514ec525bbeb2cd166347e5c33e2aa5ec39406fcf24d91a884a6d72e96/hypothesis-6.130.6.tar.gz"
+    sha256 "994abd048924e365dbb8c21e3ea44c2ac576e02fa3d34b04288281768ae83b53"
   end
 
   resource "idna" do
@@ -104,8 +104,8 @@ class CloudformationCli < Formula
   end
 
   resource "iniconfig" do
-    url "https://files.pythonhosted.org/packages/d7/4b/cbd8e699e64a6f16ca3a8220661b5f83792b3017d0f79807cb8708d33913/iniconfig-2.0.0.tar.gz"
-    sha256 "2d91e135bf72d31a410b17c16da610a82cb55f6b0477d1a902134b24a455b8b3"
+    url "https://files.pythonhosted.org/packages/f2/97/ebf4da567aa6827c909642694d71c9fcf53e5b504f2d96afea02718862f3/iniconfig-2.1.0.tar.gz"
+    sha256 "3abbd2e30b36733fee78f9c7f7308f2d0050e88f0087fd25c2645f63c773e1c7"
   end
 
   resource "jinja2" do
@@ -169,13 +169,13 @@ class CloudformationCli < Formula
   end
 
   resource "pydantic" do
-    url "https://files.pythonhosted.org/packages/b7/ae/d5220c5c52b158b1de7ca89fc5edb72f304a70a4c540c84c8844bf4008de/pydantic-2.10.6.tar.gz"
-    sha256 "ca5daa827cce33de7a42be142548b0096bf05a7e7b365aebfa5f8eeec7128236"
+    url "https://files.pythonhosted.org/packages/93/a3/698b87a4d4d303d7c5f62ea5fbf7a79cab236ccfbd0a17847b7f77f8163e/pydantic-2.11.1.tar.gz"
+    sha256 "442557d2910e75c991c39f4b4ab18963d57b9b55122c8b2a9cd176d8c29ce968"
   end
 
   resource "pydantic-core" do
-    url "https://files.pythonhosted.org/packages/fc/01/f3e5ac5e7c25833db5eb555f7b7ab24cd6f8c322d3a3ad2d67a952dc0abc/pydantic_core-2.27.2.tar.gz"
-    sha256 "eb026e5a4c1fee05726072337ff51d1efb6f59090b7da90d30ea58625b1ffb39"
+    url "https://files.pythonhosted.org/packages/b9/05/91ce14dfd5a3a99555fce436318cc0fd1f08c4daa32b3248ad63669ea8b4/pydantic_core-2.33.0.tar.gz"
+    sha256 "40eb8af662ba409c3cbf4a8150ad32ae73514cd7cb1f1a2113af39763dd616b3"
   end
 
   resource "pyrsistent" do
@@ -229,8 +229,8 @@ class CloudformationCli < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/d1/53/43d99d7687e8cdef5ab5f9ec5eaf2c0423c2b35133a2b7e7bc276fc32b21/setuptools-75.8.2.tar.gz"
-    sha256 "4880473a969e5f23f2a2be3646b2dfd84af9028716d398e46192f84bc36900d2"
+    url "https://files.pythonhosted.org/packages/a9/5a/0db4da3bc908df06e5efae42b44e75c81dd52716e10192ff36d0c1c8e379/setuptools-78.1.0.tar.gz"
+    sha256 "18fd474d4a82a5f83dac888df697af65afa82dec7323d09c3e37d1f14288da54"
   end
 
   resource "six" do
@@ -254,8 +254,13 @@ class CloudformationCli < Formula
   end
 
   resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/df/db/f35a00659bc03fec321ba8bce9420de607a1d37f8342eee1863174c69557/typing_extensions-4.12.2.tar.gz"
-    sha256 "1a7ead55c7e559dd4dee8856e3a88b41225abfe1ce8df57b7c13915fe121ffb8"
+    url "https://files.pythonhosted.org/packages/0e/3e/b00a62db91a83fff600de219b6ea9908e6918664899a2d85db222f4fbf19/typing_extensions-4.13.0.tar.gz"
+    sha256 "0a4ac55a5820789d87e297727d229866c9650f6521b64206413c4fbada24d95b"
+  end
+
+  resource "typing-inspection" do
+    url "https://files.pythonhosted.org/packages/82/5c/e6082df02e215b846b4b8c0b887a64d7d08ffaba30605502639d44c06b82/typing_inspection-0.4.0.tar.gz"
+    sha256 "9765c87de36671694a67904bf2c96e395be9c6439bb6c87b5142569dcdd65122"
   end
 
   resource "urllib3" do

@@ -1,19 +1,19 @@
 class Elvis < Formula
   desc "Erlang Style Reviewer"
   homepage "https://github.com/inaka/elvis"
-  url "https://github.com/inaka/elvis/archive/refs/tags/3.2.6.tar.gz"
-  sha256 "55edcd5c0c995b3c093c83f51bce1f00ea4d3322234531e03b6181a99cb42ff9"
+  url "https://github.com/inaka/elvis/archive/refs/tags/4.0.0.tar.gz"
+  sha256 "002b4ee354b398e62cd29edc3f8ecdadef8d3cfe963bd0047e9512335e307f43"
   license "Apache-2.0"
   head "https://github.com/inaka/elvis.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c294e25fa6cebdfb3bfb99d34018d6a24dccdacc7f0cb52b521c1a6ab3fb0c63"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8e14ca75d06019d005cca1c6f1519742a3194176e57aafec3ffb5cc914293984"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "d3098513d6bbb4cf61672d57c6949816db49d7335b5f8db683a504b4bab020b4"
-    sha256 cellar: :any_skip_relocation, sonoma:        "2e8af221781d3edec43170f5291c11bd1d12e5b9b784eb9fa4ce43152f7cba06"
-    sha256 cellar: :any_skip_relocation, ventura:       "4e7fe17f8a2cbe5198095ca431331f68e56e641b1192eef4f74bf953349fce21"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dd362818e6ddbb536713dc715923e2fd82e26549209629bbf2bf2647dce431b7"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "869ab7edf1230befdc9f7dc7cfd3c5b9374dcc95950301d52f194b941685aafd"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c2591e0e85e7fc9b629bc1ff228c87d978e048b1b9bc2de01cce733ae3ca9e0e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "c45f857aad49e4a6566251d7fc18cbaf98574111f5bf77d13e28307b1cac606c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "73bcdae25b799793a1087f545caa5074e432361dd97b69604ebdaaf56742da31"
+    sha256 cellar: :any_skip_relocation, ventura:       "f82822d583ea81ce907916f7ac5d67c6d6787c160406bf097a56675f53779416"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1b39aa4ed566bc02c07f350ff9d0a54ab040003ced3318b06d0a52f17ac27f0b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "640e7e5f6211bb72b71e5acb3c2bc4b34dc96c5e1e11c739955ce82f097bee24"
   end
 
   depends_on "rebar3" => :build

@@ -5,11 +5,6 @@ class PythonAT38 < Formula
   sha256 "6fb89a7124201c61125c0ab4cf7f6894df339a40c02833bfd28ab4d7691fafb4"
   license "Python-2.0"
 
-  livecheck do
-    url "https://www.python.org/ftp/python/"
-    regex(%r{href=.*?v?(3\.8(?:\.\d+)*)/?["' >]}i)
-  end
-
   bottle do
     sha256 arm64_sequoia:  "1fa19eccb400ea5724d9cd6077ef473ecb1d506b8f515034b3565222f0cd8cb6"
     sha256 arm64_sonoma:   "49082bc289bc3547b509f24e962cc8cbefad015345c0675631e42b3b23d2ecc7"

@@ -20,6 +20,7 @@ class Fox < Formula
     sha256 cellar: :any,                 arm64_ventura: "913fd94fc1d4051b12d88df4659942892cf9c3e05fd4ad582c2a2fc38efe0def"
     sha256 cellar: :any,                 sonoma:        "6e12aa948749cb6bb0618a376ced17b39a3c6d043b97598b91e31ac1c2d09306"
     sha256 cellar: :any,                 ventura:       "365ecefc5bf0fa8070f7b13604b4706cdf13e0510ede27f0531d905664d1672e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "afeeb42bdca4ebed1fe9e1b177cd23eccc01aa296c5395722392e59e84ac8e2c"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "192f9a030ddd8f3613d2bc213b843f9ca0b667f08a67e3a5dbd43e84ff3b8ea5"
   end
 

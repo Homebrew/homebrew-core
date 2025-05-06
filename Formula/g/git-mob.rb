@@ -1,18 +1,18 @@
 class GitMob < Formula
   desc "CLI tool for including co-authors in commits"
   homepage "https://github.com/rkotze/git-mob/blob/master/packages/git-mob"
-  url "https://registry.npmjs.org/git-mob/-/git-mob-4.0.0.tgz"
-  sha256 "eab3ac78b6a2eb910cc6d5d3829713ff75bd3df0c26d0339a549d3d88620def6"
+  url "https://registry.npmjs.org/git-mob/-/git-mob-4.0.1.tgz"
+  sha256 "b2f2c558aa7674b1275bb4f92cd6b967c90a6ee8a8db7d3a567524bf33d78242"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "01a58f261435d930f61c7445d7913c56dda3681608edbb59043b4a0f47ab1e94"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "01a58f261435d930f61c7445d7913c56dda3681608edbb59043b4a0f47ab1e94"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "01a58f261435d930f61c7445d7913c56dda3681608edbb59043b4a0f47ab1e94"
-    sha256 cellar: :any_skip_relocation, sonoma:        "65c238da45f6d94c3352c1cc37bdcb924330a56dfc451c115c66c558d9979baa"
-    sha256 cellar: :any_skip_relocation, ventura:       "65c238da45f6d94c3352c1cc37bdcb924330a56dfc451c115c66c558d9979baa"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0df457ddeb052da0e55dcd3afcb544f11186cfd383c4addf7985292a87ce051c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "01a58f261435d930f61c7445d7913c56dda3681608edbb59043b4a0f47ab1e94"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6d4df77faaec483ecc9ad676aee4b794f318a0a511495aaa22886a3c0f54d74a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6d4df77faaec483ecc9ad676aee4b794f318a0a511495aaa22886a3c0f54d74a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "6d4df77faaec483ecc9ad676aee4b794f318a0a511495aaa22886a3c0f54d74a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "3b53efab454df496e789a6daa64025ca50c6e81168123f600d7a1e57ad00b005"
+    sha256 cellar: :any_skip_relocation, ventura:       "3b53efab454df496e789a6daa64025ca50c6e81168123f600d7a1e57ad00b005"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6d4df77faaec483ecc9ad676aee4b794f318a0a511495aaa22886a3c0f54d74a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6d4df77faaec483ecc9ad676aee4b794f318a0a511495aaa22886a3c0f54d74a"
   end
 
   depends_on "node"

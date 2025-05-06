@@ -1,17 +1,17 @@
 class Garnet < Formula
   desc "High-performance cache-store"
   homepage "https://microsoft.github.io/garnet/"
-  url "https://github.com/microsoft/garnet/archive/refs/tags/v1.0.61.tar.gz"
-  sha256 "faef1fac90b6479eb992ec9bec01e3dcff4bef164f425d96c4a10953b668868a"
+  url "https://github.com/microsoft/garnet/archive/refs/tags/v1.0.63.tar.gz"
+  sha256 "50806ab9ac54bde5f4ec3bbd9d125fe76c727050d304d1189907f7bea7e88df3"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "375542189a7e911f51493bf2521c901f72688dd1bdeecf5367e4609923035669"
-    sha256 cellar: :any,                 arm64_sonoma:  "ec98dfc633be8abdf9ac5a4ac45ec4c009a0ef63266f6f8680b641fc097b4525"
-    sha256 cellar: :any,                 arm64_ventura: "b0e81a0695913eb8c1acc29f95cf63bba3698084a74cd9922f73117fad3fbd63"
-    sha256 cellar: :any,                 ventura:       "6779306205af0efe53e18b00e5fcdde336c1273c96f5d7ed3f53adf57da2641a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "09f52cc4fcc79f9d8b1474da71d258305f27fb31b3614fa6a5aa8c5b63d991f4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "269ee8f334c463551dffbf5f05f86bc9c6ce3baf9b29bcf7db7b6cdcbfcb1bb5"
+    sha256 cellar: :any,                 arm64_sequoia: "8fe34fed471728b7e7b958a12324f6cdaf1c824191aa378fb1773de336e21d21"
+    sha256 cellar: :any,                 arm64_sonoma:  "0d701d5dcafe8774431acfba5a54733d6aaed83414d7893c66b689ded3ada1b4"
+    sha256 cellar: :any,                 arm64_ventura: "bf80041ae13fd77feca8a1059353e867bcbd3ae7c7cf74b31d7622ebda3d77a3"
+    sha256 cellar: :any,                 ventura:       "fa993148492fd29fcfcb60204bf1f387da426bb499bd5ec8245ed52037d02199"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d2897019ca88b8bd47434b59de71c170258793a803ee31164152deb4477abad3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4ad716cc5a8c5d1cd585bce48c942998e59dad6927ec9cd6f0a4a70711ef5ce4"
   end
 
   depends_on "valkey" => :test
@@ -26,7 +26,9 @@ class Garnet < Formula
   def install
     if OS.linux?
       cd "libs/storage/Tsavorite/cc" do
-        system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+        # Fix to cmake version 4 compatibility
+        arg = "-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
+        system "cmake", "-S", ".", "-B", "build", arg, *std_cmake_args
         system "cmake", "--build", "build"
         rm "../cs/src/core/Device/runtimes/linux-x64/native/libnative_device.so"
         cp "build/libnative_device.so", "../cs/src/core/Device/runtimes/linux-x64/native/libnative_device.so"

@@ -24,6 +24,7 @@ class Rogue < Formula
     sha256 cellar: :any_skip_relocation, big_sur:        "c6e8bb630a966cd8885e378242f9175ffd8327e26ec1ed679016302b437a5156"
     sha256 cellar: :any_skip_relocation, catalina:       "c576555f6857ff3ec7f0b2e39625d3c1f86989315b735a5e27d9416c095e5efc"
     sha256 cellar: :any_skip_relocation, mojave:         "7a7a380bb29967b8e795aa2407e8f205752b93952082491e20fff84394819294"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "6010fd6661da3ce1ab2a3115fa4776827e91a7da713a6c13ec5db192edcfd3c8"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "2edb3e1d6fb4af2f87d065012e68d09abda6035c5f4394d685336d0763f31869"
   end
 
@@ -31,10 +32,13 @@ class Rogue < Formula
 
   def install
     # Fix main.c:241:11: error: incomplete definition of type 'struct _win_st'
-    ENV.append "CPPFLAGS", "-DNCURSES_OPAQUE=0"
+    ENV.append "CPPFLAGS", "-DNCURSES_OPAQUE=0 -DNCURSES_INTERNALS"
 
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    args = []
+    # Help old config scripts identify arm64 linux
+    args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+
+    system "./configure", *args, *std_configure_args
 
     inreplace "config.h", "rogue.scr", "#{var}/rogue/rogue.scr"
 

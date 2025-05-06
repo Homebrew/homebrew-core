@@ -1,24 +1,26 @@
 class Vsce < Formula
   desc "Tool for packaging, publishing and managing VS Code extensions"
   homepage "https://code.visualstudio.com/api/working-with-extensions/publishing-extension#vsce"
-  url "https://registry.npmjs.org/@vscode/vsce/-/vsce-3.3.0.tgz"
-  sha256 "62872641b49fc7ee306a0cf482a5815230d7f61f333fde2d2c1e5bc5acde8295"
+  url "https://registry.npmjs.org/@vscode/vsce/-/vsce-3.3.2.tgz"
+  sha256 "7951916bcc8532023decdb5eccd2c88944b3191acbe8fd6c63dc7c371a14f2eb"
   license "MIT"
   head "https://github.com/microsoft/vscode-vsce.git", branch: "main"
 
   livecheck do
     url "https://registry.npmjs.org/@vscode/vsce/latest"
-    regex(/["']version["']:\s*?["']([^"']+)["']/i)
+    strategy :json do |json|
+      json["version"]
+    end
   end
 
   bottle do
-    sha256                               arm64_sequoia: "cc8e386c9ef456ea3f994750c5068b41dfeea997842199568bd09d44cb1930a3"
-    sha256                               arm64_sonoma:  "db07f5a8784826ac05f4e44edf56ac51b58173271536e15f9e52e8ee893d7c6b"
-    sha256                               arm64_ventura: "28083d90ccc596385b60b38c6b8430e69af847232a294f8bfd5dc8870002f9f7"
-    sha256                               sonoma:        "5b8838497a1ba2bdf7506493648bb72da4568dda62b1b33347a80d7f0637725f"
-    sha256                               ventura:       "66f34bda0af6336d57c0286c820c1c7c1cc8efd0becd340ebf8666cec2a4fe66"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "bea08838dc023a2f937482c38c45188b1e19eda2bc8a0fa386a3983896351b91"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "75d8ce19d34f6380c08188a1c4858e29953b0fd3831b3044861c73cbb78c9698"
+    sha256                               arm64_sequoia: "f2e6ec67090ef3874f53a5ad49cab86e2d0aa66473098f598de6cbe8eba18df3"
+    sha256                               arm64_sonoma:  "ceb4234b0f8d030213f0bb8b4b2abf689079d208ae81f53e21b66d6567ad8587"
+    sha256                               arm64_ventura: "d2b9df14ffdb5b52fba7191f9f17cd27a0a62a4ebcfbf21a542ab4b9b1c09292"
+    sha256                               sonoma:        "87d9337c3e78fc86aaf9547993903c8ee7a495fad8228af0e9f987912cd4d81c"
+    sha256                               ventura:       "2361d50b3d28721ff40b33adab9a71eaf06893fd8afc0768e2e9898ee659490a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a6f891607b2eb325b6a87cd7ef8d775511e754df5f1802b7bc1c0f983bc05196"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d030011272008cb81d162b28a2a998c83b9d7ef75c77df903b7ba3d8bfad9efc"
   end
 
   depends_on "node"

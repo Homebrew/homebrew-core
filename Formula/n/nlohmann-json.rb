@@ -1,17 +1,24 @@
 class NlohmannJson < Formula
   desc "JSON for modern C++"
   homepage "https://json.nlohmann.me/"
-  url "https://github.com/nlohmann/json/archive/refs/tags/v3.11.3.tar.gz"
-  sha256 "0d8ef5af7f9794e3263480193c491549b2ba6cc74bb018906202ada498a79406"
+  url "https://github.com/nlohmann/json/archive/refs/tags/v3.12.0.tar.gz"
+  sha256 "4b92eb0c06d10683f7447ce9406cb97cd4b453be18d7279320f7b2f025c10187"
   license "MIT"
   head "https://github.com/nlohmann/json.git", branch: "develop"
 
   bottle do
     rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "3ebd5da2b7596028e92c6a82226aaa026a84fcca8a85db96b064b70e5426e810"
+    sha256 cellar: :any_skip_relocation, all: "df65065eb8504f15f8802b7c681df015a592a68336db7fe290eeeda59fa1e440"
   end
 
   depends_on "cmake" => :build
+
+  # Fix to error: unknown type name 'char8_t' for clang, remove in next release
+  # PR ref: https://github.com/nlohmann/json/pull/4736
+  patch do
+    url "https://github.com/nlohmann/json/commit/34868f90149de02432ea758a29227a6ad74f098c.patch?full_index=1"
+    sha256 "fb4db3640ce333b145b53acc64c78eb3011f57012dc4b9c6689d5d485d2434cd"
+  end
 
   def install
     system "cmake", "-S", ".", "-B", "build",

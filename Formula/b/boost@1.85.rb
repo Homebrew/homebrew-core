@@ -12,10 +12,13 @@ class BoostAT185 < Formula
     sha256                               arm64_ventura: "c60cdfef891f2f447509c8a460db5fd1b16e07111c7169457044eaa46674c9f3"
     sha256 cellar: :any,                 sonoma:        "21d45293e2b2ded9f5ac1c8bfa04867fd0e5d02f15911aa24e73a69665968d69"
     sha256 cellar: :any,                 ventura:       "834cb3ac5b69ae8a4768e2e1773798d7a1ae01aadb761a9e737ff84b8d07a837"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c7fd2dc979f3b442f80669bfbb081f05eae3bfa4dd12fa46d21594154104600f"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "1afa1ddd0506aa3991d3e6b86941fb066fae250feecc9adeaad82780efac55da"
   end
 
   keg_only :versioned_formula
+
+  deprecate! date: "2025-04-05", because: :versioned_formula
 
   depends_on "icu4c@77"
   depends_on "xz"
@@ -70,6 +73,12 @@ class BoostAT185 < Formula
     # C++17 is due to `icu4c`.
     args << "cxxflags=-std=c++17"
     args << "cxxflags=-stdlib=libc++" << "linkflags=-stdlib=libc++" if ENV.compiler == :clang
+
+    # Workaround mentioned in build error:
+    # > Define `BOOST_STACKTRACE_LIBCXX_RUNTIME_MAY_CAUSE_MEMORY_LEAK` to
+    # > suppress this error if the library would not be used with libc++ runtime
+    # > (for example, it would be only used with GCC runtime)
+    args << "define=BOOST_STACKTRACE_LIBCXX_RUNTIME_MAY_CAUSE_MEMORY_LEAK" if OS.linux? && Hardware::CPU.arm?
 
     system "./bootstrap.sh", *bootstrap_args
     system "./b2", "headers"

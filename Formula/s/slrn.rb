@@ -23,6 +23,7 @@ class Slrn < Formula
     sha256 ventura:        "409721aae6f317e0e3e0b471c7488dd634585a193957c4feb7916a6a645768a1"
     sha256 monterey:       "8018c76bf03539804c59b85442cb2c8b578208f0a8b0ea325b559b810cc4a8cf"
     sha256 big_sur:        "e29042ebfccfb58c2ce1883f763173da76c5a38d190e98255abebf6dc632e343"
+    sha256 arm64_linux:    "068f15a993a5007e14a1f8f1daf439682aedc5a098b58b271496f7996d011b5d"
     sha256 x86_64_linux:   "5bf9ff614629b46445541310dd089e4893dbfa2e463944aff5596cb14476f812"
   end
 
@@ -41,9 +42,8 @@ class Slrn < Formula
                           "--with-ssl=#{Formula["openssl@3"].opt_prefix}",
                           "--with-slrnpull=#{var}/spool/news/slrnpull",
                           "--with-slang=#{HOMEBREW_PREFIX}"
-    system "make", "all", "slrnpull"
-
     ENV.deparallelize
+    system "make", "all", "slrnpull"
     system "make", "install"
   end
 

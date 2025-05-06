@@ -12,6 +12,7 @@ class Progressline < Formula
     sha256 cellar: :any,                 arm64_ventura: "99959093aafeb1bd100e2f720fbfefc377595338d60e004e31f43b50204e5bf1"
     sha256 cellar: :any_skip_relocation, sonoma:        "4d86284fddc430f9312ff6e74e0ecd510b6d0b34edcdcaca2c4645c4fbf8cd15"
     sha256 cellar: :any,                 ventura:       "1612ae0bb38a9f3a1897a27b87b14509527208e132d6a9d1c4c238bfd5d518ab"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e48df80a4b56abf1757d634986174db54dec6d74680a9d6bf65b3847bad0a3f6"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "8429bc2bf925b50e2794b5e1a192e7a4bc896ea666cea8cd33c235a086872266"
   end
 

@@ -1,9 +1,9 @@
 class I386ElfGdb < Formula
   desc "GNU debugger for i386-elf cross development"
   homepage "https://www.gnu.org/software/gdb/"
-  url "https://ftp.gnu.org/gnu/gdb/gdb-16.2.tar.xz"
-  mirror "https://ftpmirror.gnu.org/gdb/gdb-16.2.tar.xz"
-  sha256 "4002cb7f23f45c37c790536a13a720942ce4be0402d929c9085e92f10d480119"
+  url "https://ftp.gnu.org/gnu/gdb/gdb-16.3.tar.xz"
+  mirror "https://ftpmirror.gnu.org/gdb/gdb-16.3.tar.xz"
+  sha256 "bcfcd095528a987917acf9fff3f1672181694926cc18d609c99d0042c00224c5"
   license "GPL-3.0-or-later"
   head "https://sourceware.org/git/binutils-gdb.git", branch: "master"
 
@@ -12,13 +12,13 @@ class I386ElfGdb < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "59ce7ab783da5490d59be3a7cc1ebb048711501e91a7fb43365a99c4ca62c4c3"
-    sha256 arm64_sonoma:  "5e892bdad375fccc5b950692d917b3b9b1cbea713a5845ea00a6450b3e137ae8"
-    sha256 arm64_ventura: "bc1098d808117951a4944c9e66c8161725f6a0d230c188074708c311bbb4c4a7"
-    sha256 sonoma:        "bd1fe9eca3dd9c00f938887815f55acd158beef0208ae573350ac9ccd1754d0e"
-    sha256 ventura:       "485a217eb5c5798d6b1182eee07449c993809f40afa37c143192e9fdb81d9129"
-    sha256 arm64_linux:   "4c6784bb068eb1b59bb5653a4141f2d22e259a89f6d9a7c57eb92e6e5e02fce7"
-    sha256 x86_64_linux:  "997e66c3b98bb1ae9612bd4d4ce6b60c4384cd821e9e0265a6088381a0913c10"
+    sha256 arm64_sequoia: "af939496c6245db5f2f812e196fb9e4b3623f15a2db5035716f392d6633ffe8c"
+    sha256 arm64_sonoma:  "951dac8073ae7de6fb7d74db8b7694a4bc323e02013f1ac541b1f03f45e8d319"
+    sha256 arm64_ventura: "b8c97775ea52dfbb3459fae62aa433402a2fb23a1d3b4553be7c206b38e63701"
+    sha256 sonoma:        "a7a43697ffade75a422458eb851588a15b042272729d9850339ae465069cd5cf"
+    sha256 ventura:       "c9d550dcb8ddb0db49e41f7a72339424e320ee23537ed52e8f66b2887185d889"
+    sha256 arm64_linux:   "2a7f9f61e3f2faac56dfd439e1488567643896454a98acf4d03fa7e201a6d57f"
+    sha256 x86_64_linux:  "3f2f5cd65a663532604928725a87b015fd9f596ae92b647a4ee6b4fb9c61fd97"
   end
 
   depends_on "i686-elf-gcc" => :test

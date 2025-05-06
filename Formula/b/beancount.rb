@@ -18,9 +18,9 @@ class Beancount < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "f61124a05787d02519432086cbbbafef2b979e40747d7e9801559d81b0b1003f"
   end
 
+  depends_on "bison" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
-  depends_on "bison" => :buildß
   depends_on "certifi"
   depends_on "python@3.13"
 

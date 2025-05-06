@@ -4,8 +4,9 @@ class Crystal < Formula
   license "Apache-2.0"
 
   stable do
-    url "https://github.com/crystal-lang/crystal/archive/refs/tags/1.15.1.tar.gz"
-    sha256 "72b32f2da09059ca96331be124cf611d3c6bd6da80f52cd551df59bfe14e6ebd"
+    # TODO: Replace arm64 linux bootstrap with official when available
+    url "https://github.com/crystal-lang/crystal/archive/refs/tags/1.16.2.tar.gz"
+    sha256 "4f032761a4018c6fbcf1649b866217d9eb2f3139599c70fcb6dac83714839c5e"
 
     resource "shards" do
       url "https://github.com/crystal-lang/shards/archive/refs/tags/v0.19.1.tar.gz"
@@ -19,12 +20,13 @@ class Crystal < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "48d0c40f34fe8a56b4b9be12be92e07ca77febf8161f5ca935598369b08d77bc"
-    sha256 cellar: :any,                 arm64_sonoma:  "984846d9b3147d3ab0a541dd77133b440f35befded818d01a1d52472b67b78b7"
-    sha256 cellar: :any,                 arm64_ventura: "fb23a172caa2d2344a2b532b0534de7eff7cd7e6b76a63ad5c97e4fe879cdffe"
-    sha256 cellar: :any,                 sonoma:        "f1bee61902000836204198f5de56958e77debc7ecfed1a40001fe3e1a41fc22c"
-    sha256 cellar: :any,                 ventura:       "6429ca72f367d24837091ae59ccf014cbf053c9bacf20413df6092c29bcac607"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3fc4a30c4b4ba306b238d7de1ad46fdf65c4a3b53714c5697853c88333c3f6cf"
+    sha256 cellar: :any,                 arm64_sequoia: "91206f9deb2a2e62553cb4909a11ad5279f288a0ea8f8197103b2a5b2a03c781"
+    sha256 cellar: :any,                 arm64_sonoma:  "a0f73997bbb6268a36999522c421921d17a07ceac1b0fd19e8901ea4bdef6a8b"
+    sha256 cellar: :any,                 arm64_ventura: "df6879491431e773d06e9bb0ea312bc210fb9ecb522f106f5001e23fb9ff99d1"
+    sha256 cellar: :any,                 sonoma:        "755202db808772f74342de1826127b4427b637fb292b08d6f91b01cce248f4af"
+    sha256 cellar: :any,                 ventura:       "76fd47a005d14769ebd33ab083fcc73109ec56033fee7e93b0281471710bcd13"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "74cf2da2996b4d11ec7eb5db4883237696ecaf8ab576880c36d2d8da6b7ac1b4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "636b1385e439d2bcb4c40529c9832fb72a931dfa962c38f4a084e0c100686f0b"
   end
 
   head do
@@ -46,11 +48,6 @@ class Crystal < Formula
 
   uses_from_macos "libffi" # for the interpreter
 
-  on_linux do
-    # There is no bootstrap compiler for arm64 Linux
-    depends_on arch: :x86_64
-  end
-
   # It used to be the case that every new crystal release was built from a
   # previous release, except patches. Crystal is updating its policy to
   # allow 4 minor releases of compatibility unless otherwise specified.
@@ -69,6 +66,16 @@ class Crystal < Formula
     end
 
     on_linux do
+      on_arm do
+        # NOTE: Since there are no official arm64 linux builds, we use the recommended[^1]
+        # community-maintained builds. Upstream CI also uses 84codes docker images[^2].
+        # The version used is 1.11.0 as there was an issue building with 1.10.1.
+        #
+        # [^1]: https://github.com/crystal-lang/crystal/issues/9833#issuecomment-1766007872
+        # [^2]: https://github.com/crystal-lang/crystal/blob/master/.github/workflows/aarch64.yml#L70
+        url "https://packagecloud.io/84codes/crystal/packages/any/any/crystal_1.11.0-124_arm64.deb/download.deb?distro_version_id=35"
+        sha256 "fc42e49f703a9b60c81a87be67ea68726125cf7fddce2d4cafceb4324dca1ec8"
+      end
       on_intel do
         url "https://github.com/crystal-lang/crystal/releases/download/#{boot_version.major_minor_patch}/crystal-#{boot_version}-linux-x86_64.tar.gz"
         # version boot_version
@@ -89,7 +96,15 @@ class Crystal < Formula
     non_keg_only_runtime_deps = deps.filter_map { |dep| dep.to_formula unless dep.build? }
                                     .reject(&:keg_only?)
 
-    resource("boot").stage "boot"
+    if OS.linux? && Hardware::CPU.arm?
+      resource("boot").stage do
+        system "ar", "x", Dir["*.deb"].first
+        system "tar", "xf", "data.tar.gz"
+        (buildpath/"boot").install Dir["usr/*"]
+      end
+    else
+      resource("boot").stage "boot"
+    end
     ENV.append_path "PATH", "boot/bin"
     ENV["LLVM_CONFIG"] = llvm.opt_bin/"llvm-config"
     ENV["CRYSTAL_LIBRARY_PATH"] = ENV["HOMEBREW_LIBRARY_PATHS"]

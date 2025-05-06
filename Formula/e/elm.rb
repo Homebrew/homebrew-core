@@ -14,12 +14,15 @@ class Elm < Formula
     sha256 cellar: :any_skip_relocation, sonoma:         "114104b3a08b3d609c9fdbe01f0216c2b5e689ac0f36ba7ec9855e01e6e5412c"
     sha256 cellar: :any_skip_relocation, ventura:        "57f7be542255990ab3f4f95c014ee98bd5943dd1c4af92cee1d1f994e55c513c"
     sha256 cellar: :any_skip_relocation, monterey:       "bbf5b72f0ce8a8a15eec445e56702d983a955da17b05828f69c5634bfcc5ee5a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "5e06c54109480ff1eae52e887d4902c7b33e41cbdb648f2702a8f2a78b3312de"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "cbb29db68081d05284e41a32a2deb06c4696a3a6db0adea067754c44057d7af9"
   end
 
   depends_on "cabal-install" => :build
   depends_on "ghc" => :build
+  depends_on "gmp"
 
+  uses_from_macos "libffi"
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 

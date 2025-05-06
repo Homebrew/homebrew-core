@@ -1,8 +1,8 @@
 class Libffi < Formula
   desc "Portable Foreign Function Interface library"
   homepage "https://sourceware.org/libffi/"
-  url "https://github.com/libffi/libffi/releases/download/v3.4.7/libffi-3.4.7.tar.gz"
-  sha256 "138607dee268bdecf374adf9144c00e839e38541f75f24a1fcf18b78fda48b2d"
+  url "https://github.com/libffi/libffi/releases/download/v3.4.8/libffi-3.4.8.tar.gz"
+  sha256 "bc9842a18898bfacb0ed1252c4febcc7e78fa139fd27fdc7a3e30d9d9356119b"
   license "MIT"
 
   livecheck do
@@ -11,13 +11,13 @@ class Libffi < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "b402f2b540c097a01aca656f66c7194b15d80c6490345a0d61c6b75417c6d438"
-    sha256 cellar: :any,                 arm64_sonoma:  "559ffc0a457cbaea3abbdfa85fbfc00831741bb19d88bd6c14dce468f8994fce"
-    sha256 cellar: :any,                 arm64_ventura: "423220c0d91181fd0bea9739d023402deb68f6af4dafba772de1153cc9b960f6"
-    sha256 cellar: :any,                 sonoma:        "98bac85bf39a8b7d0f9bafef282793a8b5ab85bb17e502b27c0bf5f7d5cf8a1b"
-    sha256 cellar: :any,                 ventura:       "8c6ddb10ef9d24f35611f9aca29eb290baf1f89ce8835a6fa0a19caac2531020"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d1d61627d5b6db0933fa7110e5b5f4de98a703e5b9793a1ebc0cce07ad28b7af"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ea07199765ba473ae2b693aea558e8865a60358ccc1ae209dd8bbd94f219048b"
+    sha256 cellar: :any,                 arm64_sequoia: "72cdf45be8925928df2c880faa24261b8a71dda1996caa50f4ce4bdf4d1e95f3"
+    sha256 cellar: :any,                 arm64_sonoma:  "651001f28aaff71f1e5a8a5972a0c5580fb62dd6ea090303864e5ebec60567bb"
+    sha256 cellar: :any,                 arm64_ventura: "cce541626d83ab0975f9d117d338ca430ce93dd6bd8a1e0a0da5db1e16043497"
+    sha256 cellar: :any,                 sonoma:        "d90b539a53c4e58aca72ba735b7f25bcaa5b631b049ab4f49482e379210823ef"
+    sha256 cellar: :any,                 ventura:       "f8ea26ec45f4a7a563cb81aa5c8fefb32741799e80819e8c8571cf9fd7c62b36"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6771f1c17f35b6bee6748bbff759728ebfc9cb36155088fffe8f0f1e9d1b4c0f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c3dd4f7ce49728e37e9f8f868a8b85bdca6279b2f7781feb96b9e4bb400c18a0"
   end
 
   head do

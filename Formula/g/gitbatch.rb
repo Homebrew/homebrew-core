@@ -4,6 +4,7 @@ class Gitbatch < Formula
   url "https://github.com/isacikgoz/gitbatch/archive/refs/tags/v0.6.1.tar.gz"
   sha256 "0ef36a4ea0b6cf4beb51928dd51281ec106006ba800c439d2588515c1bfeaf41"
   license "MIT"
+  head "https://github.com/isacikgoz/gitbatch.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "0a46587ffb66c2c071a4052ee70f81ddd41b93151e09b19404f789b5fe9f1b1e"

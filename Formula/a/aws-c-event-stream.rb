@@ -11,6 +11,7 @@ class AwsCEventStream < Formula
     sha256 cellar: :any,                 arm64_ventura: "fea45020a2341c46d9671671bc59bc788c4301615d5365e44cde87fca734f0f6"
     sha256 cellar: :any,                 sonoma:        "50ab76b1c74f6639a8af58478426de6e91201d1f0a32a81d3d20b63c6da44de1"
     sha256 cellar: :any,                 ventura:       "7cb1403ff68bd39da60c9051539cb3b9f88447baf5e199e6805bcdb8ec2a2ea2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c2903ade590868a253d877b9c85684fa1a128d263141a3360833ea67692bf3d4"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "d4bd0d80ba4c490b1e0548caad95670e5c6937e5056b8945e11c2f58bde41d36"
   end
 

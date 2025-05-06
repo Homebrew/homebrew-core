@@ -21,6 +21,7 @@ class Antiword < Formula
     sha256 high_sierra:    "cacd3e8a83231fd139a5b845f17fb99a34f728d10df2eb6289457037ee8c827f"
     sha256 sierra:         "6456be83a3f867a0df1121b7c7b6c413d94d1e38bc920c9c5fda73851265fb2e"
     sha256 el_capitan:     "ffc3b61781ffb2ae04537e34b28a19a4fe33683c534dd2d1504d2ec8d5ef4bef"
+    sha256 arm64_linux:    "80b3df205c403d29dc8f09ddfd181a3418b2ad6b84f7f54029717d1326896a48"
     sha256 x86_64_linux:   "12935daff8ed3ffc2a68b8be542ea190bff6d7d2a2d46c854080d4023346d526"
   end
 

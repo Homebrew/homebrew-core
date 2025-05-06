@@ -1,18 +1,18 @@
 class Gut < Formula
   desc "Beginner friendly porcelain for git"
   homepage "https://gut-cli.dev/"
-  url "https://github.com/julien040/gut/archive/refs/tags/0.3.1.tar.gz"
-  sha256 "6e9f8bed00dcdf6ccb605384cb3b46afea8ad16c8b4a823c0cc631f9e92a9535"
+  url "https://github.com/julien040/gut/archive/refs/tags/0.3.2.tar.gz"
+  sha256 "49431ba0d24f9abf4c7cdbdf1956d2b6e70e16f955b5bbb70d8d8f4b8a5a48d1"
   license "MIT"
   head "https://github.com/julien040/gut.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0286431f2fcf5c76d35ef9b12f7288b68ca2305d8792d8772a5af7edf51174af"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a516511ac10156d192ef9b11a2fc5fd44eed5580eb5fd4aeb913e7fc56f65d45"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "e093901851842d9b2316f7c9a409521b5e251c1d15547237a755c74afea70d1b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "227d54c64f017833a47729813d0331b1b69af6355da3c84c08cb17a9c9f92e03"
-    sha256 cellar: :any_skip_relocation, ventura:       "411974d0e89662faa21eb89f7f818f497550d06434ae101a7a6072b40046dc5d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "975ad42fab24e3560a6c7b437dfa323004be12807e1013d83cf96f078e22ef13"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2ffd25ab7b96ef2951a298214af160e7beb7e0079019bfac20f398bec5a42ce0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "993f5e0250aa0c86e7f439a332093c1e3384fcc5fd3979ba09485d0816947dc1"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "e0c4fba2fc790008bd0813b2313e81f75e2d02539e38f09141ee4082c5cafeb3"
+    sha256 cellar: :any_skip_relocation, sonoma:        "6e61dc52c2aecadc43b95b5a2a1e3c4b278ac6c182b37d989e81af5bdf162847"
+    sha256 cellar: :any_skip_relocation, ventura:       "c0bf2735f14841209395250135915692de7df22bafe1ad32e0e9d2f47c5b7ff5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "41e669eaafcb962c1f07cfe0daed82e5a7342d017e8c0160059498c168db8d35"
   end
 
   depends_on "go" => :build

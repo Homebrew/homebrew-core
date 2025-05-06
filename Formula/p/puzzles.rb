@@ -23,6 +23,7 @@ class Puzzles < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "8739712b883278230ef68d1ac4c8ff6251305cde2207af405e0e44a596cdf664"
     sha256 cellar: :any_skip_relocation, sonoma:        "89f28aebcd427dfc2d99bae6913dee7e78676050914fab9497786a3d4892004d"
     sha256 cellar: :any_skip_relocation, ventura:       "2c7ee6196f9a1f5360aad8beec6a586f3f4273a54e8713b16b1fc17cd351130b"
+    sha256                               arm64_linux:   "ab9c8b395e4859f4cae0b6285bb610a6a0eab5d55981536cb2e2422b0af4bce6"
     sha256                               x86_64_linux:  "bb29ef58af08fd4f4279715ced6378ddac8b8374fe4adda40d96a868125140e9"
   end
 

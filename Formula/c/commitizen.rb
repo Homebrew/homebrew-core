@@ -3,33 +3,32 @@ class Commitizen < Formula
 
   desc "Defines a standard way of committing rules and communicating it"
   homepage "https://commitizen-tools.github.io/commitizen/"
-  url "https://files.pythonhosted.org/packages/b5/fd/cd449bed87a26ecb61c950410e2d94e97ac31bf1f3ec69cc718b215384ce/commitizen-4.4.1.tar.gz"
-  sha256 "626d9f545fb9b2db42305e16ef35d6348a35081a80527bad863a05a7ba0bec21"
+  url "https://files.pythonhosted.org/packages/42/da/87f897d7c1a8054b879174450f682c0a096176d4816d54518a1f3024184f/commitizen-4.6.2.tar.gz"
+  sha256 "82ed227ac3978338809b15dade8d58e88e3d0266f3aac5ac4e75f2a93ae7340e"
   license "MIT"
-  revision 1
   head "https://github.com/commitizen-tools/commitizen.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "24af960325f535c2c61a1b30cdac5944bb115424ab374a606f78b8826af54d2e"
-    sha256 cellar: :any,                 arm64_sonoma:  "93d10fb9faa22401a7579a5154544745bb4d5605f60f04152d6b73ffd24e4b07"
-    sha256 cellar: :any,                 arm64_ventura: "828cbe6beb5b2225852f0385e11bfbc29422fcf5a0103e421052030ee6230bde"
-    sha256 cellar: :any,                 sonoma:        "71b2ad65e06788d46fbe07ed499665c7d9021e6166708c92fea46ea487b24e91"
-    sha256 cellar: :any,                 ventura:       "d3de7a06897ae5f23c198e90347df30a114bd6d01b8303c3521013776af4bcab"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e20c4a7024faef11307f284ac434106ea7e8f432592faa5bafcf345e554947d6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d5f10f192386921f8c2a7de7ba62190ecabf26d15e94ee0dfeeeaa59eb647cf4"
+    sha256 cellar: :any,                 arm64_sequoia: "fe0cbd86fa4116533b7ee552eda9c4033603f4be3bfbf69deb2186f30ea3fd7e"
+    sha256 cellar: :any,                 arm64_sonoma:  "c3d2a68b50cfc80608efcfe720925feeb64116738f196839ab70aaaf4e1f906d"
+    sha256 cellar: :any,                 arm64_ventura: "d21e6acc2b830479b68bd2799d0d3f8952b21dddacdb0ed926c29a938f1aa195"
+    sha256 cellar: :any,                 sonoma:        "0a4f6f604cca2c3cef27842fddb3e29bafc93be7f33ea2e73a4ec67118a805e1"
+    sha256 cellar: :any,                 ventura:       "3c095a5a0e4e7dcdbb3e0943c25b551d3000c5ee7b3273fa4870e30931216237"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "60d4d60da27ee1e563646cc6635aa999b8319ff0674c6e2227d65999182985c8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ab9a133cf1ca43055c84a0826f9d0c7b663f7bf444cf0362db3bb75b5acc5988"
   end
 
   depends_on "libyaml"
   depends_on "python@3.13"
 
   resource "argcomplete" do
-    url "https://files.pythonhosted.org/packages/0c/be/6c23d80cb966fb8f83fb1ebfb988351ae6b0554d0c3a613ee4531c026597/argcomplete-3.5.3.tar.gz"
-    sha256 "c12bf50eded8aebb298c7b7da7a5ff3ee24dffd9f5281867dfe1424b58c55392"
+    url "https://files.pythonhosted.org/packages/16/0f/861e168fc813c56a78b35f3c30d91c6757d1fd185af1110f1aec784b35d0/argcomplete-3.6.2.tar.gz"
+    sha256 "d0519b1bc867f5f4f4713c41ad0aba73a4a5f007449716b16f385f2166dc6adf"
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/16/b0/572805e227f01586461c80e0fd25d65a2115599cc9dad142fee4b747c357/charset_normalizer-3.4.1.tar.gz"
-    sha256 "44251f18cd68a75b56585dd00dae26183e102cd5e0f9f1466e6df5da2ed64ea3"
+    url "https://files.pythonhosted.org/packages/e4/33/89c2ced2b67d1c2a61c19c6751aa8902d46ce3dacb23600a283619f5a12d/charset_normalizer-3.4.2.tar.gz"
+    sha256 "5baececa9ecba31eff645232d59845c07aa030f0c81ee70184a90d35099a0e63"
   end
 
   resource "colorama" do
@@ -53,13 +52,13 @@ class Commitizen < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/d0/63/68dbb6eb2de9cb10ee4c9c14a0148804425e13c4fb20d61cce69f53106da/packaging-24.2.tar.gz"
-    sha256 "c228a6dc5e932d346bc5739379109d49e8853dd8223571c7c5b55260edc0b97f"
+    url "https://files.pythonhosted.org/packages/a1/d4/1fc4078c65507b51b96ca8f8c3ba19e6a61c8253c72794544580a7b6c24d/packaging-25.0.tar.gz"
+    sha256 "d443872c98d677bf60f6a1f2f8c1cb748e8fe762d2bf9d3148b5599295b0fc4f"
   end
 
   resource "prompt-toolkit" do
-    url "https://files.pythonhosted.org/packages/a1/e1/bd15cb8ffdcfeeb2bdc215de3c3cffca11408d829e4b8416dcfe71ba8854/prompt_toolkit-3.0.50.tar.gz"
-    sha256 "544748f3860a2623ca5cd6d2795e7a14f3d0e1c3c9728359013f79877fc89bab"
+    url "https://files.pythonhosted.org/packages/bb/6e/9d084c929dfe9e3bfe0c6a47e31f78a25c54627d64a66e884a8bf5474f1c/prompt_toolkit-3.0.51.tar.gz"
+    sha256 "931a162e3b27fc90c86f1b48bb1fb2c528c2761475e57c9c06de13311c7b54ed"
   end
 
   resource "pyyaml" do

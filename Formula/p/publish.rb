@@ -13,6 +13,7 @@ class Publish < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "75ad288c89a4abfff3648d4628b71133b15a9da2a7e85ea2ce72558c8b6a5ced"
     sha256 cellar: :any_skip_relocation, sonoma:        "4653f1571901ea7091329d5f935e8a5c05b2c7a5d9a8c8751b9a0ad6052547e4"
     sha256 cellar: :any_skip_relocation, ventura:       "4e568dd197329c4fe8ef509c03dbc0071615353caccd1fca8307b97a039fa08c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f58f789837bfe9b47b668faf048f2324176d665cc91d8f28b8bd3e6644425378"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "dbf8d184068be460c2c8fb09aa1faad7180b1341bd50f670d7ca97a6d93e8672"
   end
 

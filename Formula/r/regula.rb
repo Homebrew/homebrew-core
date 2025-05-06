@@ -20,6 +20,8 @@ class Regula < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "abbb2a4a62e5c18d4a2ecfb9c34fa98ff7d93b5275d0b288482fa65379978cd7"
   end
 
+  deprecate! date: "2025-04-27", because: :repo_archived, replacement_formula: "policy-engine"
+
   depends_on "go" => :build
 
   def install

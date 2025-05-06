@@ -17,6 +17,7 @@ class Wordle < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "629c70f19e09643f02fe8469d09431e2750f43035133195b048d55ce5538452a"
     sha256 cellar: :any_skip_relocation, big_sur:        "5d5f3906a8ae79361f3b872af994a0352156aa5ed63a85bbc879631c55e02935"
     sha256 cellar: :any_skip_relocation, catalina:       "4695e1205537e4f9838111d28acf5b00df5606511237ae271a278f6ab565a332"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "08089c943e688b6d6ba8ce8574b289cbc29e8b21d08654b294e495104b483535"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "30e3260ce269c6e96713e1b0d4f67b8111c7552293c3e37988b6bd59c0a8a6b3"
   end
 

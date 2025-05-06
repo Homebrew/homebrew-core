@@ -1,19 +1,19 @@
 class MinizipNg < Formula
   desc "Zip file manipulation library with minizip 1.x compatibility layer"
   homepage "https://github.com/zlib-ng/minizip-ng"
-  url "https://github.com/zlib-ng/minizip-ng/archive/refs/tags/4.0.8.tar.gz"
-  sha256 "c3e9ceab2bec26cb72eba1cf46d0e2c7cad5d2fe3adf5df77e17d6bbfea4ec8f"
+  url "https://github.com/zlib-ng/minizip-ng/archive/refs/tags/4.0.10.tar.gz"
+  sha256 "c362e35ee973fa7be58cc5e38a4a6c23cc8f7e652555daf4f115a9eb2d3a6be7"
   license "Zlib"
   head "https://github.com/zlib-ng/minizip-ng.git", branch: "dev"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "97f310adcc883207a29cc100cf0c413fc3171984c75e7da2e09ea8a4fdf8cb33"
-    sha256 cellar: :any,                 arm64_sonoma:  "a1acf2df956550a474b1f7ba493e0965ef02ff796390b6216ebbb15986c83862"
-    sha256 cellar: :any,                 arm64_ventura: "fc08746ae2c5c4350d9d62e69b4c9c9f6ac8fa988448417ecd76e3a7287ec1dd"
-    sha256 cellar: :any,                 sonoma:        "d26b0e89901e4046ae3492a9366992598a24c1f4ad40cef0afbcf36fc34d8440"
-    sha256 cellar: :any,                 ventura:       "10475ef77199558419a4e026fba1df63e4c025dd22f940766f5f549fe494baf9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6fad07188c0b7c4c879428f57c82b585130413510ed539824320c2a561dc9eac"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9baaa7081cab2ebd2c05cd6fdbfe3007eda6530543cd4310c73cd932eb55b71d"
+    sha256 cellar: :any,                 arm64_sequoia: "f0172b547c9dfaf812dea4d560e8fb9aa879aed5ff8bf497c2a2625929853d06"
+    sha256 cellar: :any,                 arm64_sonoma:  "e8a04d677e0ca6bfe1a8573d6f5fc3e50954fe2e45dea1c59e36ae518179ec05"
+    sha256 cellar: :any,                 arm64_ventura: "bbfe1f69b6da17bb8be57d1451864d68100c799923796d8777bab9fae75c2286"
+    sha256 cellar: :any,                 sonoma:        "0c2b4b52eb15c5b33773d44473121c1bac2ca53297931932bfc744fd3ecf8b3c"
+    sha256 cellar: :any,                 ventura:       "69fb82c03a680bdd98be7662b3c861474e468d8a3a0abfc3eaceefba7e4d8c1b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "881da858fe2c257d124471bf7cc635755dbdf53da6a7b9e75f05dbe4d2858e2e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "eb8e136ccc36ba064833246e031359432b097a6170a5d7b53cc249ae57a64a78"
   end
 
   depends_on "cmake" => :build

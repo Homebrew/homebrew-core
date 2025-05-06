@@ -16,6 +16,7 @@ class Libgosu < Formula
     sha256 cellar: :any,                 ventura:        "9249cfa9a1cb2faa015c4b4d8c5a34e15d5d4c5623af8b5bd212b160f5b23869"
     sha256 cellar: :any,                 monterey:       "a06cbc49f0b79d5ce52875fbd2601e3e0acb1c4eec00b074d12809abc504e1e8"
     sha256 cellar: :any,                 big_sur:        "d06e787193c8f18a0696a64dbcb0a82ef7aeae666e2ef6b0470788ac0ebd65fa"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "48f8286f58619e5155092fe286194251c63398dbcc20bdfd17bfe6ac82b792ba"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "925189b43a69daaf38ec2011cdfa605d5f6f07aded7ca4828eb33570dee8f695"
   end
 

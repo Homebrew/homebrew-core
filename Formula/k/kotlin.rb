@@ -19,6 +19,8 @@ class Kotlin < Formula
 
   depends_on "openjdk"
 
+  conflicts_with cask: "kotlin-native"
+
   def install
     libexec.install "bin", "build.txt", "lib"
     rm Dir[libexec/"bin/*.bat"]

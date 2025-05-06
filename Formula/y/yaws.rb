@@ -20,6 +20,7 @@ class Yaws < Formula
     sha256 cellar: :any_skip_relocation, sonoma:         "78f9aeed03048a8ee5694bb72eeaf63722051ba849262b692f9a280202f4cb7d"
     sha256 cellar: :any_skip_relocation, ventura:        "46107a726d6a380084466ba19a082db129dc5deee526ac9a0801240e4385bb33"
     sha256 cellar: :any_skip_relocation, monterey:       "f9a6516efc7a805c785d2a2080dce0bf4c2fc7df5ee7650433d50d97c94acf55"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "645fba5f0f938d597c54f3341742e6e7f62c56e88b39be42456038625fef62bb"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "bf623679c1cb98ce64347d7cd92cb3ebcbfd01c16a149632581da989d112cd26"
   end
 

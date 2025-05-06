@@ -1,8 +1,8 @@
 class PythonTkAT312 < Formula
   desc "Python interface to Tcl/Tk"
   homepage "https://www.python.org/"
-  url "https://www.python.org/ftp/python/3.12.9/Python-3.12.9.tgz"
-  sha256 "45313e4c5f0e8acdec9580161d565cf5fea578e3eabf25df7cc6355bf4afa1ee"
+  url "https://www.python.org/ftp/python/3.12.10/Python-3.12.10.tgz"
+  sha256 "15d9c623abfd2165fe816ea1fb385d6ed8cf3c664661ab357f1782e3036a6dac"
   license "Python-2.0"
 
   livecheck do
@@ -10,13 +10,13 @@ class PythonTkAT312 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "8e6bf4c2a6b46333f6dd3d737c1a269d6ddb0abc17289fe8d281908753d2e28e"
-    sha256 cellar: :any,                 arm64_sonoma:  "63296d492944131188db7e397da3055eb2502e1a79d558ee81ff1d784d7add1d"
-    sha256 cellar: :any,                 arm64_ventura: "de65feafb6393eb81d71380b8f2d032585b8baa037afcee2f93a20e2a9f77f5a"
-    sha256 cellar: :any,                 sonoma:        "2a536d3fc6bfef295a3fe45478b118d3014ca1064fddf84d4846dc716174294b"
-    sha256 cellar: :any,                 ventura:       "a8cdb43665f9d496241a33ad699803fb0db407942437ef976d1a21397771daa0"
-    sha256                               arm64_linux:   "e8522df8c85945cb1c67cbcaa5b49b3c4274effe7c383019de63c54133b403ec"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "43ca8c8c92f4ce2fe97346c3932272d734d199d9f68a48b4ef8092d80dab5328"
+    sha256 cellar: :any, arm64_sequoia: "4f832d4f9d8159f5f43965a918ef8ba9ea84a42e4c165eb344d8b319e6585285"
+    sha256 cellar: :any, arm64_sonoma:  "a2e2a63a3c42b4e8679b8ae5ec1c996d61eb101fed24a7b119222a856f5291f3"
+    sha256 cellar: :any, arm64_ventura: "2ebc6fd91d82f4b92983349a9727feba917f64838b64cc33f273676ef9af1809"
+    sha256 cellar: :any, sonoma:        "c08bb26635a9e2e68a1b345dbe6db5c188e304d2acd496b6c9e7cfb89494d206"
+    sha256 cellar: :any, ventura:       "df8622d18ffcddcf2cc83f44cab17b35e4dd3284154dff83882ff5ce1ed6da89"
+    sha256               arm64_linux:   "1b0e9487ab705bd667c5938d99f73f6e5a4fb0cc9f8de20617eb0e54a5e0a17c"
+    sha256               x86_64_linux:  "e2e34bffb1d1eb5b3c7c3e9cff5bdf41d8a991f18927674a5eafa03911626b93"
   end
 
   depends_on "python@3.12"

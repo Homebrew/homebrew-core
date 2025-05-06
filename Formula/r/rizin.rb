@@ -1,22 +1,22 @@
 class Rizin < Formula
   desc "UNIX-like reverse engineering framework and command-line toolset"
   homepage "https://rizin.re"
-  url "https://github.com/rizinorg/rizin/releases/download/v0.7.4/rizin-src-v0.7.4.tar.xz"
-  sha256 "f7118910e5dc843c38baa3e00b30ec019a1cdd5c132ba2bc16cf0c7497631201"
+  url "https://github.com/rizinorg/rizin/releases/download/v0.8.1/rizin-src-v0.8.1.tar.xz"
+  sha256 "ef2b1e6525d7dc36ac43525b956749c1cca07bf17c1fed8b66402d82010a4ec2"
   license "LGPL-3.0-only"
-  revision 1
   head "https://github.com/rizinorg/rizin.git", branch: "dev"
 
   bottle do
-    sha256 arm64_sequoia: "72e7554b32c691c794bc33fec7e9a22568a44ace68bd0ada691f8536be27f865"
-    sha256 arm64_sonoma:  "c2b60efec9e77b47d5295b947c0d67a25e7377a11a0496b41b8119d653df4857"
-    sha256 arm64_ventura: "d0b7c57ace5a8845a7a9cb1cea2bd722f96772376bba6a2ed9932ac6234a269b"
-    sha256 sonoma:        "9b0e91753ad69d002f079108bad3fc7182041d5cc540c88ee79595e2809b724a"
-    sha256 ventura:       "022364accc372f60791c70e778d7a93f4ce065dc44a17767f0789b98a5680e3b"
-    sha256 arm64_linux:   "c93c59a13793f75540fd4de561e9c1240a41ff11f7128b4aaf6169bc391adbe9"
-    sha256 x86_64_linux:  "4f10fb6b1caced9fc229536a711097b10c143f9ff3b946cb82681d419bcdc5c5"
+    sha256 arm64_sequoia: "7c1365dc16e0421bca82d1b045973bbada8191297992744fa8311b9b271645fa"
+    sha256 arm64_sonoma:  "328c1528f26638dd2ea942c0c2bbc4dfa7745c56cde1252b9638712003d317c0"
+    sha256 arm64_ventura: "085d109b54887985cd8b0a6fa0871992f7019b87ba95f81d1d9fbf11d2448f0c"
+    sha256 sonoma:        "9a9270d14cd3a2aa28b06f20b7197277e3964e6c168df012ca803c1c913b8bf8"
+    sha256 ventura:       "f274b57f7f40220103f294b245487cc149030390ff1e114082de554b08b10d5b"
+    sha256 arm64_linux:   "450223987c11d8a126f9167278b987c77d113c94092857e8568b71d50e4aa268"
+    sha256 x86_64_linux:  "05ec7e5950237bb3d0640c5dae2061b878e30da76306f5272bae0466c1bb2f21"
   end
 
+  depends_on "cmake" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkgconf" => :build

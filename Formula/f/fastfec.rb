@@ -15,6 +15,7 @@ class Fastfec < Formula
     sha256 cellar: :any,                 sonoma:         "89c081d16fcb8be8b1c39ddef7dfeac4ce7b226db72579ab59bc87f11326839c"
     sha256 cellar: :any,                 ventura:        "3ccdf0685ecc6553e6c1c01356b82e9713b4dd0dc6634e7862afddd088a840c4"
     sha256 cellar: :any,                 monterey:       "ab1b085557839ed4b19cc49d839b025ce2bb4fd9a474140121b153b0ca63aff1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "cc006a58982fc06a8ceb17f6bbc083eb0c7e35591ca12bd1bb9b643adb83e7dd"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "bf228d820220f1c3499eced326d33d6492bcb86745db6aaaef29e41e8405f01f"
   end
 

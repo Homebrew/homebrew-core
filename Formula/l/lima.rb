@@ -12,6 +12,7 @@ class Lima < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "69ef12a79d1a2057073cdb7e659d6f903fc02cb816f49c856e032df853b549fa"
     sha256 cellar: :any_skip_relocation, sonoma:        "bfabc4017b8412a0d6d69445c2a398a387af58c5b5c232542d07689d00e1c345"
     sha256 cellar: :any_skip_relocation, ventura:       "2f04d37e54c94d413434f5e0ac74f52d7c2714df72f12198e86545b7aa71310d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b6385e14aa7c7b095f780d3143121353dd63383cac97f050e0b45e86ea7975ba"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "7dee156f0206d0ddb735d4da04a1eeade34799dd9b5e37db32da404a14fb49cf"
   end
 

@@ -9,6 +9,7 @@ class Mockolo < Formula
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "21db991c7dc13e12fbd75ed7f6692222ed005c211eef03f27a18a23b115cf06f"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1b0726cdef7ae2ee5e4248a36dce0c4bdec6a6c8fcb1f9a7cd65f3e206819910"
     sha256 cellar: :any_skip_relocation, sonoma:        "6e8778005fb76e85b0eba303110ef437760803943622425ba7bf08f261018bda"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "551717f7aa5740c1dbb9816643acc0ab1634e804199bb247b2e64cc0cc5000a3"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "de62f57ed9cb0ede299a2b323a257edbeca7336c243433f4b9eda7ea48926b24"
   end
 

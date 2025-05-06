@@ -20,6 +20,8 @@ class Cocoapods < Formula
   depends_on "ruby"
   uses_from_macos "libffi", since: :catalina
 
+  conflicts_with cask: "cocoapods", because: "both install `pod` binaries"
+
   def install
     ENV["GEM_HOME"] = libexec
     system "gem", "build", "cocoapods.gemspec"

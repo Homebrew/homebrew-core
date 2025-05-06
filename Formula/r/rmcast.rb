@@ -25,19 +25,21 @@ class Rmcast < Formula
     sha256 cellar: :any,                 high_sierra:    "d30e495d583d02a5ea74cd7ec82d1bd67b62981248d853ce7138a7997f6b6ed2"
     sha256 cellar: :any,                 sierra:         "9ef73c5d52886029cd89d829cdceccca0d03bce0dc72647d8cce6704d492f080"
     sha256 cellar: :any,                 el_capitan:     "4fe0a1745659bb99748972c2fa0640e6b864e92739ba192a89ed12c0614b1372"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "d9f0ff68c1fcb1dabf6fad88d8987d71bea9d26634fdb94b2611149af01fa967"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "ecbaa8a68d7cb766021fb1f1bff97c911a5e16720508cf71648c6e96a2b93c4f"
   end
 
-  on_macos do
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-  end
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
 
   def install
-    # Run autoreconf on macOS to rebuild configure script so that it doesn't try
-    # to build with a flat namespace.
-    system "autoreconf", "--force", "--install", "--verbose" if OS.mac?
+    # Run autoreconf to regenerate the configure script and update outdated macros.
+    # This ensures that the build system is properly configured on both macOS
+    # (avoiding issues like flat namespace conflicts) and Linux (where outdated
+    # config scripts may fail to detect the correct build type).
+    system "autoreconf", "--force", "--install", "--verbose"
+
     system "./configure", *std_configure_args
     system "make", "install"
   end

@@ -1,8 +1,8 @@
 class Rlwrap < Formula
   desc "Readline wrapper: adds readline support to tools that lack it"
   homepage "https://github.com/hanslub42/rlwrap"
-  url "https://github.com/hanslub42/rlwrap/archive/refs/tags/0.46.1.tar.gz"
-  sha256 "c537e8a53df36f1f996601d776203478ad56fab1d67b3c1a63057badb0851cec"
+  url "https://github.com/hanslub42/rlwrap/archive/refs/tags/v0.46.2.tar.gz"
+  sha256 "9abb0a0dc19e85794d9b8e72e480530563eb4ee1bf243e87c0e0dd05ea4a2f09"
   license "GPL-2.0-or-later"
   head "https://github.com/hanslub42/rlwrap.git", branch: "master"
 
@@ -12,18 +12,13 @@ class Rlwrap < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia:  "b9e569a7c00c9fd78141b579eeeeef23afc1fb54ed91505b0ee3a5ca93e195c1"
-    sha256 arm64_sonoma:   "62d18bcd615a559341ee325e3a8ed7266b952efd2c1d45ca4fdddb095575fa47"
-    sha256 arm64_ventura:  "6cc64e120040bde8ff3680d02a5233073756f3a9ecfa159230636574747be809"
-    sha256 arm64_monterey: "800128c200ac5cd3ba45d50a835bd48f9ffb62e04886d1d615604477a599b91b"
-    sha256 arm64_big_sur:  "4273ede2a9d3c9c7812e596db58b7ec36446fb9e26d9fcbe908f8afa68cf8672"
-    sha256 sonoma:         "705d9ee6f55fbef3f852a3b75aa8a9230cb4e4081665a70afebc5e17a528f91e"
-    sha256 ventura:        "9e480ae1326e022bbec1454240504e1361fb8b62c9df64b378f5072d6e27fb35"
-    sha256 monterey:       "073698b12b6cb3cb5bc9934bd1b0048562ba32b320fcc2cef9b5652b7354f825"
-    sha256 big_sur:        "b4b03c2fa68bfb2210e7fda2153bc6a6866ae3c16105465d14818e3ea87795b6"
-    sha256 catalina:       "a46ae39723ca361493eb0b81e15cd85de9a2b0b9ff26d8de49d0f606b328658c"
-    sha256 arm64_linux:    "2a406c9628c9601f772a99d79fa849552480548108bf110f06abd225c62f0028"
-    sha256 x86_64_linux:   "d8ea0283b1103d38b58122b54334229769b61fd78cf1d9f1d4716437389cbc3e"
+    sha256 arm64_sequoia: "906fd4f2ac755fb709b34489cfbbfaf5fca3ae746d264f5f3348105721c9a367"
+    sha256 arm64_sonoma:  "587dddf6ead7b200929b507550c2b1e1ad309f8fad2d979a15af7a572cab22c3"
+    sha256 arm64_ventura: "f447017ce6f993fffbb881bdeb5c82de9c3fd172f3732240ba3b13e0a1a47505"
+    sha256 sonoma:        "7e552c35f02259d75f68e98086d02374a2f5165eba4cc96ea15ec3e072a70ef5"
+    sha256 ventura:       "a9c4c978ab08e6cdafbf80ee9c1298c84ca24bb05587f80574ddc69992a15d19"
+    sha256 arm64_linux:   "1af86f576186eff68c58e5b598439bd7b13767dd359084eb87f12bdf4bd024a4"
+    sha256 x86_64_linux:  "172eba8bec2d2771dbaa277417b499c878fdc8dcd0c71957f89489d794f70832"
   end
 
   depends_on "autoconf" => :build

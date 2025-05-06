@@ -16,6 +16,7 @@ class Algol68g < Formula
     sha256 arm64_ventura: "00e86e6a1049d307c35c2f129680bbf2172ee4aede3ef35ae90b50d236fb2843"
     sha256 sonoma:        "3bb454cf07b1aaaa4910c9833ac65f295c7fc06990b5ed1c887bb8c5515915ab"
     sha256 ventura:       "e9e8041ff2fb6786a0def289a776a2b159f4bf6285105f3e3432f3a03513a819"
+    sha256 arm64_linux:   "244c2ac6c5998c1216ca18848b2d16a1bad8d1d42a3e93752bc9aa6d3a5d251c"
     sha256 x86_64_linux:  "47a93c8a312a2bfe6c57b98d13e155b0fa0eab4fa8e48167ef0b4b0664844c70"
   end
 

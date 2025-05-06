@@ -12,6 +12,7 @@ class DockerCredentialHelper < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "e7d0a074a828667999d5ccbc63a9014c496d8080f5588c5ca97c3f960ffab3e1"
     sha256 cellar: :any_skip_relocation, sonoma:        "87eb53c2e0c38484d644a34fa771252fa80a9357b448029a6878e5e8e8db58e7"
     sha256 cellar: :any_skip_relocation, ventura:       "e1fe2f7169aa164531f1184404d8213af4725dd85c9ff5257487c28d260788a9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "81fe5fb3a19c029f2a4b89a5b8f7446de61c7ef9749630419c4e8c6760f55bee"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "a87eaee572a78cf7b00111afa196e6732f05794d83189620bb7be85c4dd217ed"
   end
 

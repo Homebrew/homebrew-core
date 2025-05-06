@@ -27,6 +27,12 @@ class Glm < Formula
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
 
+  # Fix deprecated attribute handling with older Clang versions
+  patch do
+    url "https://github.com/g-truc/glm/commit/c00e7251e699dfb6ca61935b5a1fb0495093269a.patch?full_index=1"
+    sha256 "fba2d342643c4fcf586ed0da073c36d829a56bd41e04d9f63d9e06d2fc9777db"
+  end
+
   def install
     args = %w[
       -DGLM_BUILD_TESTS=OFF

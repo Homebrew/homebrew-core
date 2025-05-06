@@ -1,20 +1,18 @@
 class Profanity < Formula
   desc "Console based XMPP client"
   homepage "https://profanity-im.github.io"
-  url "https://profanity-im.github.io/tarballs/profanity-0.14.0.tar.gz"
-  sha256 "fd23ffd38a31907974a680a3900c959e14d44e16f1fb7df2bdb7f6c67bd7cf7f"
+  url "https://profanity-im.github.io/tarballs/profanity-0.15.0.tar.gz"
+  sha256 "4a9f578f750ec9a7c2a4412ba22e601811b92bba877c636631cc3ccc7ceac7fb"
   license "GPL-3.0-or-later"
-  revision 2
 
   bottle do
-    rebuild 1
-    sha256 arm64_sequoia: "5472427158d470dc62004a3eff884d110f543dd5e3bb51e39942221fec17b2bd"
-    sha256 arm64_sonoma:  "d32e8c7bdc2ee007a81b549fe0e653abc78bc72af6169657ae818a4b03d769bc"
-    sha256 arm64_ventura: "da6d961c10c3235d680bd60128535dc26638355326e7d7a41b2e9205b534be5e"
-    sha256 sonoma:        "a10d71f7205684010cf72602145a126e69d16a7c32749ab9c6847045bd81db2e"
-    sha256 ventura:       "a58829da652b3b43c52af964bced191d6f27a92303744ccd07b6fb3e51b2143b"
-    sha256 arm64_linux:   "2c15ed4073e507473a283310f0f7b30897a2316716593bc51e24c88243f47cb3"
-    sha256 x86_64_linux:  "1a87d774068b14ea9fa2ed30baf30107d2d06839b5a153b2ab285c49be54e874"
+    sha256 arm64_sequoia: "a125f864203c3d6baa3e2498257ac7bae373dd91ac737a0a098d2e9f9d4b1ab5"
+    sha256 arm64_sonoma:  "1d902913042d0c15d2b1b151215a68e6e230a7355f95209e39e8ea4d54742e03"
+    sha256 arm64_ventura: "50400b9bdf982500f3d76171990f9379fb287f74f31fa4e58d4e3153940c385f"
+    sha256 sonoma:        "6859c02911c5f4fee55ac153b0ca88c2aabaa254c61438ec1d4e89c55deeae16"
+    sha256 ventura:       "c0626881a455da269346b59f0f2e0fe89e29d42d71a889bcfa7c53976e196f3a"
+    sha256 arm64_linux:   "d5cffb20803a839e6cfcb3d21499a3583abcf0ebea350535b7ffb2fba2866dce"
+    sha256 x86_64_linux:  "935efcd1f5e57ca74f0874255c7fb78027ff498dc76b894163e7e28d91386f28"
   end
 
   head do

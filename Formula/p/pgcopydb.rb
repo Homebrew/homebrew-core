@@ -13,6 +13,7 @@ class Pgcopydb < Formula
     sha256 arm64_ventura: "b1fbef60821224b0230fae583caaebf0b70750d0dd7d8ec0a9ec2ec7cb0eb8bd"
     sha256 sonoma:        "a3e2806d74af8c705b2077032255a7cd39ac079c4997c980231b49651416c109"
     sha256 ventura:       "daefeb247366553b851071c3d429869d26695d11b4a675f7e51245039301b3f2"
+    sha256 arm64_linux:   "c92d7b713b5620eee463b7c5a355c9c9d04676cc3d7d5e1bbf298d3bc0c4bd0d"
     sha256 x86_64_linux:  "6f99b95987e4d9873cb365c5be588e3b55281ccf09e2879f67d63dd97cf8370e"
   end
 

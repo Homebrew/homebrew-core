@@ -5,6 +5,7 @@ class DockerMachineDriverVmware < Formula
       tag:      "v0.1.5",
       revision: "faa4b93573820340d44333ffab35e2beee3f984a"
   license "Apache-2.0"
+  head "https://github.com/machine-drivers/docker-machine-driver-vmware.git", branch: "master"
 
   bottle do
     rebuild 1

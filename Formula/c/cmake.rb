@@ -1,10 +1,10 @@
 class Cmake < Formula
   desc "Cross-platform make"
   homepage "https://www.cmake.org/"
-  url "https://github.com/Kitware/CMake/releases/download/v3.31.6/cmake-3.31.6.tar.gz"
-  mirror "http://fresh-center.net/linux/misc/cmake-3.31.6.tar.gz"
-  mirror "http://fresh-center.net/linux/misc/legacy/cmake-3.31.6.tar.gz"
-  sha256 "653427f0f5014750aafff22727fb2aa60c6c732ca91808cfb78ce22ddd9e55f0"
+  url "https://github.com/Kitware/CMake/releases/download/v4.0.1/cmake-4.0.1.tar.gz"
+  mirror "http://fresh-center.net/linux/misc/cmake-4.0.1.tar.gz"
+  mirror "http://fresh-center.net/linux/misc/legacy/cmake-4.0.1.tar.gz"
+  sha256 "d630a7e00e63e520b25259f83d425ef783b4661bdc8f47e21c7f23f3780a21e1"
   license "BSD-3-Clause"
   head "https://gitlab.kitware.com/cmake/cmake.git", branch: "master"
 
@@ -17,13 +17,14 @@ class Cmake < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "755552ccd83c7342624996860b9f18b08b02c5f722ba6ddfb7eed167a9748c1f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4a3c640a30ae5aa8f083956aeda589e07b3c0ee4e3c1a0e8ad8d35a64add4367"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "36c5d06776a711a2113344e8936e524b5b45c2bce54494a25dc8cc79a107a497"
-    sha256 cellar: :any_skip_relocation, sonoma:        "29e93d4eba2852f295d041870b5b09b3b2b623debc05401fa7d4258ca5f9ef4a"
-    sha256 cellar: :any_skip_relocation, ventura:       "25245623b0a79c06783a9fb289821d0d26fba4d7a0b7821dd49d420eade9c872"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f9f70b75f2cb7a0e3ab8fc134b8cc4cf791749e5d34d514f6271875f821e93a9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b08ed01c567884c35fb3950bc82261f3fd968c372e5c63bf9136b1a928ef70e0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5fc195bfee6a1a218f792107dcf52da2f49c764dad521367ef8134e65bab442b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ff8a06cee1e54ba4bce2a1d8bc81654ee2090a9037cbd323d2d160432b179a8c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "d709ac137ca543c3eb3af98d516a4a321087a57a4c19d0b4b490b8c3176c2b46"
+    sha256 cellar: :any_skip_relocation, sequoia:       "09c377a31e872e5f817e3b31d770c23c8c14975c9481da37621dde81411bc313"
+    sha256 cellar: :any_skip_relocation, sonoma:        "965132c38bfa0fdb8f8ed287f3c66ce9b689ba3d35de9a619083ecb5aaafb0ca"
+    sha256 cellar: :any_skip_relocation, ventura:       "e8b44379ffd02b1e74c9a4b6fb5712940f6bddce83eb6324d3aff28a890971fa"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "080f7483ffc67e124b6de04623b366512cef0c74962fe8f546ab732684fc7cf0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "93fea13b3848b9b4d3db0848e4e2db49ebd3564c039d35cafe58754789a77373"
   end
 
   uses_from_macos "ncurses"
@@ -32,10 +33,7 @@ class Cmake < Formula
     depends_on "openssl@3"
   end
 
-  # Prevent the formula from breaking on version/revision bumps.
-  # Check if possible to remove in 3.32.0
-  # https://gitlab.kitware.com/cmake/cmake/-/merge_requests/9978
-  patch :DATA
+  conflicts_with cask: "cmake"
 
   # The completions were removed because of problems with system bash
 
@@ -44,6 +42,9 @@ class Cmake < Formula
   # For the GUI application please instead use `brew install --cask cmake`.
 
   def install
+    # Work around "error: no member named 'signbit' in the global namespace"
+    ENV["SDKROOT"] = MacOS.sdk_path if OS.mac? && MacOS.version == :high_sierra
+
     args = %W[
       --prefix=#{prefix}
       --no-system-libs
@@ -76,7 +77,10 @@ class Cmake < Formula
   end
 
   test do
-    (testpath/"CMakeLists.txt").write("find_package(Ruby)")
+    (testpath/"CMakeLists.txt").write <<~CMAKE
+      cmake_minimum_required(VERSION #{version.major_minor})
+      find_package(Ruby)
+    CMAKE
     system bin/"cmake", "."
 
     # These should be supplied in a separate cmake-docs formula.
@@ -84,26 +88,3 @@ class Cmake < Formula
     refute_path_exists man
   end
 end
-
-__END__
-diff --git a/Source/cmSystemTools.cxx b/Source/cmSystemTools.cxx
-index 5ad0439c..161257cf 100644
---- a/Source/cmSystemTools.cxx
-+++ b/Source/cmSystemTools.cxx
-@@ -2551,7 +2551,7 @@ void cmSystemTools::FindCMakeResources(const char* argv0)
-     _NSGetExecutablePath(exe_path, &exe_path_size);
-   }
-   exe_dir =
--    cmSystemTools::GetFilenamePath(cmSystemTools::GetRealPath(exe_path));
-+    cmSystemTools::GetFilenamePath(exe_path);
-   if (exe_path != exe_path_local) {
-     free(exe_path);
-   }
-@@ -2572,7 +2572,6 @@ void cmSystemTools::FindCMakeResources(const char* argv0)
-   std::string exe;
-   if (cmSystemTools::FindProgramPath(argv0, exe, errorMsg)) {
-     // remove symlinks
--    exe = cmSystemTools::GetRealPath(exe);
-     exe_dir = cmSystemTools::GetFilenamePath(exe);
-   } else {
-     // ???

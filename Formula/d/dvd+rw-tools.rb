@@ -25,10 +25,19 @@ class DvdxrwTools < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:    "acf8d9a92ff74fdbfc409dc42980be607c4dd263aca89444713972a055d5967a"
     sha256 cellar: :any_skip_relocation, sierra:         "932e3879247dd1587f35d99c7132c302ddeaf3b5efad9effb05f5b086a55541a"
     sha256 cellar: :any_skip_relocation, el_capitan:     "01bae78a5187a47ea770a9cb9c0cabdbafb60485e333a563240a6ea74d6718b0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "7acc04dbb06fd517b729b4ae9b103c1be311d5065b4fac1b6e955704214dbcd0"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "d491eb26d5db91ea03ea2403ae8866675d268a4d9962a4dc9cb4bdb0aedecb47"
   end
 
   uses_from_macos "m4" => :build
+
+  # Apply Fedora patch for missing header on Linux
+  patch do
+    on_linux do
+      url "https://src.fedoraproject.org/rpms/dvd+rw-tools/raw/938529cda09efcc2f79478be1632648adc3537af/f/dvd+rw-tools-7.1-sysmacro-inc.patch"
+      sha256 "28a69bb73c5d819cb445add766e1d68134dc0ec26fe83cc87164ec4853c9541d"
+    end
+  end
 
   # Respect $prefix on macOS.
   # Fix build failure because of missing #include <limits.h> on Linux.

@@ -1,13 +1,14 @@
 class Squashfuse < Formula
   desc "FUSE filesystem to mount squashfs archives"
   homepage "https://github.com/vasi/squashfuse"
-  url "https://github.com/vasi/squashfuse/releases/download/0.6.0/squashfuse-0.6.0.tar.gz"
-  sha256 "56ff48814d3a083fad0ef427742bc95c9754d1ddaf9b08a990d4e26969f8eeeb"
+  url "https://github.com/vasi/squashfuse/releases/download/0.6.1/squashfuse-0.6.1.tar.gz"
+  sha256 "7b18a58c40a3161b5c329ae925b72336b5316941f906b446b8ed6c5a90989f8c"
   license "BSD-2-Clause"
+  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_linux:  "3eb9a638243d6c68329901cdc71fa5e5302b659d4559549764d604d55bf2355c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "c247357fc40588fe09b20c1210247f90ed03265d2ca4572edc3ecdc2c5b2fcac"
+    sha256 cellar: :any_skip_relocation, arm64_linux:  "2ac81c35fe8e2339d2da50ba09484eff8f69552fb3f501f33d8df133d358173a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "a8f4cd10ca2e0d20f7407ba2d8fa8240d3786dd4c65b40f1e24a7878e0f828e4"
   end
 
   depends_on "autoconf" => :build

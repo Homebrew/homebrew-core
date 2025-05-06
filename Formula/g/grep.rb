@@ -1,22 +1,19 @@
 class Grep < Formula
   desc "GNU grep, egrep and fgrep"
   homepage "https://www.gnu.org/software/grep/"
-  url "https://ftp.gnu.org/gnu/grep/grep-3.11.tar.xz"
-  mirror "https://ftpmirror.gnu.org/grep/grep-3.11.tar.xz"
-  sha256 "1db2aedde89d0dea42b16d9528f894c8d15dae4e190b59aecc78f5a951276eab"
+  url "https://ftp.gnu.org/gnu/grep/grep-3.12.tar.xz"
+  mirror "https://ftpmirror.gnu.org/grep/grep-3.12.tar.xz"
+  sha256 "2649b27c0e90e632eadcd757be06c6e9a4f48d941de51e7c0f83ff76408a07b9"
   license "GPL-3.0-or-later"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_sequoia:  "b2b59b800b2017f64aa518d30dd83bb009486b67bab2b9fd2f5b96383741ccf3"
-    sha256 cellar: :any,                 arm64_sonoma:   "bad191c3178de90cfea096ef75c4ae8c97a3fed1aa36a9fd0eb88e02e0300ecd"
-    sha256 cellar: :any,                 arm64_ventura:  "3b671635a7a98ec6a5fd2f1ed1f7b61274fe68aa5ba2e23c448241777e5c23e0"
-    sha256 cellar: :any,                 arm64_monterey: "f4b2ed835aac8ced4b617609f502c657ea1f20a97282e1c19aa75b08316bd952"
-    sha256 cellar: :any,                 sonoma:         "ce3337c484b58a52ffc841fae13f3f530fbe8132a53f7f8a3fae8e17a994fa6c"
-    sha256 cellar: :any,                 ventura:        "0499226ca301f19321f44d9e0229f5dffceea6af6509835af86c073ac3a3e329"
-    sha256 cellar: :any,                 monterey:       "85f180f4b3c3563befd80d4d91389a9a7e4e69eb956c74251a3d3ed83fa26cf8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "25754fa95edae29ecb33a9e7bd01bc70337a8d3b651a3a5033f58d3309a8313b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f8a180d77300df9dfad5d2e12b7f2061207fef15b63a6a4ed6d4082daa00345d"
+    sha256 cellar: :any,                 arm64_sequoia: "cb3715e0ab1d3d667c577b6823d444ade6ea5ca2f6bf82a30daf072bdb8f0f3a"
+    sha256 cellar: :any,                 arm64_sonoma:  "195169d334c119c284407191a0a3b55b008d16ba59c4046391b7f5c4b747b2ed"
+    sha256 cellar: :any,                 arm64_ventura: "3bca0cd49cefeac06e5656a349069e8435fd07e3f3c97f04c1351d48bbc44e4d"
+    sha256 cellar: :any,                 sonoma:        "742da3d1e04f240f7dc0de96eb1a9d309a36e238af851adc1623d1482c1f6699"
+    sha256 cellar: :any,                 ventura:       "92d27595ccca0054a7995282b20d004dfa41e8f11a28cfac18f9f4b80e26ec9e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3c15cf4f4a7a9f24466a59e6b0deb5cc785015adac16f87777ac346a333f0c8c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8c50dff022ebab698c92d9accf3534d6e38ae5d5920ffcd172fa1bfbb9017c71"
   end
 
   head do

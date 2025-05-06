@@ -22,6 +22,7 @@ class Readosm < Formula
     sha256 cellar: :any,                 big_sur:        "6f0a6b5f33f57429ed7d4608cf6819d85b829468abd7c954c381a599c8c73647"
     sha256 cellar: :any,                 catalina:       "2ea6c35bdfab9c28d9a5bc8a87e5306cbec6be17c26b1ad6f63ca70207a332a5"
     sha256 cellar: :any,                 mojave:         "fcc1af52f7c13bfe4b3df0e1ca559ab79cee172c8941f51a335fb0fbb505027f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "cc269327efe3b1d43e2ef9040b17cd094fa6334f128ee9a18af4e5f58a23a4d3"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "3ba3380d75fdc00590269ff90d2f0b6d4daab79b63ded61df883cadb0f5d96c0"
   end
 
@@ -29,27 +30,17 @@ class Readosm < Formula
   uses_from_macos "zlib"
 
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    args = []
+    # Help old config scripts identify arm64 linux
+    args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+
+    system "./configure", *args, *std_configure_args
     system "make", "install"
 
     # Install examples but don't include Makefiles or objects
     doc.install "examples"
     rm doc.glob("examples/Makefile*")
     rm doc.glob("examples/*.o")
-
-    if OS.linux?
-      # Remove shim references
-      shim_files = [
-        doc/"examples/test_osm1",
-        doc/"examples/test_osm2",
-        doc/"examples/test_osm3",
-      ]
-
-      shim_files.each do |f|
-        inreplace f, Superenv.shims_path, HOMEBREW_PREFIX/bin
-      end
-    end
   end
 
   test do

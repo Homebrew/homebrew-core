@@ -20,6 +20,7 @@ class Doublecpp < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:    "ca161369434cba6763add99e4e470a495662c866a328b374c5d6184e687361cc"
     sha256 cellar: :any_skip_relocation, sierra:         "748af7fb63392453cc4b648cea20786173202f5c891b45765dbf374e4ac2c2d5"
     sha256 cellar: :any_skip_relocation, el_capitan:     "208aa405fce2959b47f705ab8ba9104e8eadec3e8e709bddd3117ef7b074bedf"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "59e9b672d857ae8953d8555b9687be1508f38f1c9702eaa27a67caba2d60b08c"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "989076ce2ebaba5ca834b159332a0e4b4bf15dd51d5dc2617594d367bffee9f2"
   end
 
@@ -28,8 +29,11 @@ class Doublecpp < Formula
   patch :DATA
 
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    args = []
+    # Help old config scripts identify arm64 linux
+    args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+
+    system "./configure", *args, *std_configure_args
     system "make", "install"
   end
 

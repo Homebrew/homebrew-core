@@ -15,6 +15,7 @@ class LibniceGstreamer < Formula
     sha256 cellar: :any, arm64_ventura: "b2c462902cec4eb8b59e895c9b2cc9e027b42d1421dcf0f8199c9ee41bace504"
     sha256 cellar: :any, sonoma:        "f1289203e767492cbe9662b55f2a57f475756599cd76bee48496236f544bf52f"
     sha256 cellar: :any, ventura:       "919a1d68e6aee4608a4de25f0ca4db6e9619d8721f83c638b9426531116a92e4"
+    sha256               arm64_linux:   "6fce42f6e93b85c2cee857d783c4ce310d41d53686ff54f6b7cdcabc50f1860f"
     sha256               x86_64_linux:  "7afcec37ace358ed8bbd079e36333af68605f2d592828ffdf3dc492c7dc7e963"
   end
 

@@ -1,11 +1,23 @@
 class Rpm < Formula
   desc "Standard unix software packaging tool"
   homepage "https://rpm.org/"
-  url "https://ftp.osuosl.org/pub/rpm/releases/rpm-4.19.x/rpm-4.19.1.1.tar.bz2"
-  sha256 "874091b80efe66f9de8e3242ae2337162e2d7131e3aa4ac99ac22155e9c521e5"
-  license "GPL-2.0-only"
+  license all_of: [
+    "GPL-2.0-only",
+    "LGPL-2.0-or-later", # rpm-sequoia
+  ]
   version_scheme 1
   head "https://github.com/rpm-software-management/rpm.git", branch: "master"
+
+  stable do
+    url "https://ftp.osuosl.org/pub/rpm/releases/rpm-4.20.x/rpm-4.20.1.tar.bz2"
+    sha256 "52647e12638364533ab671cbc8e485c96f9f08889d93fe0ed104a6632661124f"
+
+    # Backport commit needed to fix handling of -fhardened
+    patch do
+      url "https://github.com/rpm-software-management/rpm/commit/e1d7046ba6662eac9e5e7638e484eb792afa36cc.patch?full_index=1"
+      sha256 "ae5358bb8d2b4f1d1a80463adf6b4fa3f28872efad3f9157e822f9318876ad9c"
+    end
+  end
 
   # Upstream uses a 90+ patch to indicate prerelease versions (e.g., the
   # tarball for "RPM 4.19 ALPHA" is `rpm-4.18.90.tar.bz2`).
@@ -15,28 +27,27 @@ class Rpm < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 arm64_sequoia: "13c5452de71ad6162ef07c7712a9419734da128ea6c1d443abb7756a2a105551"
-    sha256 arm64_sonoma:  "dd2ff5b5bb9efbe1fff85619dd3d221291eb530f7d94558867c981a170bb54e4"
-    sha256 arm64_ventura: "64e55e92671e5947a51e69aaa7e95fad907f8b9790cc8481414e31144a6640c0"
-    sha256 sonoma:        "fda6009a2e5190fd74e8edb9cf8fe46d001d2fcacd71265eeb8c133b351cb3ae"
-    sha256 ventura:       "983e017cd82c4a2ff5b150fa9755c2a948d4e9566eccf216e407f29a568764f1"
-    sha256 arm64_linux:   "388a121f14d978c518bed065849a455c86bfb253871a48eaec3b7f9051c365d4"
-    sha256 x86_64_linux:  "66c98e854bc22abb034a74b2bbb44fcf3332c5a783250a971fc38f43768aa596"
+    sha256 arm64_sequoia: "b68a3e9add758b36a2547372709f655d29948680c2403d8819a46445a9211a50"
+    sha256 arm64_sonoma:  "7319baf421ef56e8cdf5e937f0624a5ff14521d0d045d27446611faede12a0f8"
+    sha256 arm64_ventura: "5070355f11041aedf2f1559a4b04af7e87c596576e80c54db3e2674b6d40bd69"
+    sha256 sonoma:        "bc5c3289f2afaf8d6c12b1f530284be837ad9ab1c7376b1da93feb4b8588f2b1"
+    sha256 ventura:       "b47ab72d2f0b6d82eb7cc20e3b69655e92367ea9b5700834330bd76eb2c7eddb"
+    sha256 arm64_linux:   "25fc73da026efc9660a4373b10837df0c99f773ad000ddda3a3d07dcab1a459a"
+    sha256 x86_64_linux:  "529d59e759920b457292f5a378ccb796bf6d98587e6bb1d2b51ac2a17f1bb678"
   end
 
   depends_on "cmake" => :build
-  depends_on "doxygen" => :build
-  depends_on "gawk" => :build
+  depends_on "gettext" => :build
   depends_on "python@3.13" => [:build, :test]
+  depends_on "rust" => :build # for rpm-sequoia
 
-  depends_on "gettext"
+  depends_on "gmp"
   depends_on "libarchive"
   depends_on "libmagic"
   depends_on "lua"
   # See https://github.com/rpm-software-management/rpm/issues/2222 for details.
   depends_on macos: :ventura
-  depends_on "openssl@3"
+  depends_on "nettle" # for rpm-sequoia
   depends_on "pkgconf"
   depends_on "popt"
   depends_on "readline"
@@ -44,20 +55,53 @@ class Rpm < Formula
   depends_on "xz"
   depends_on "zstd"
 
+  uses_from_macos "llvm" => :build
   uses_from_macos "bzip2"
   uses_from_macos "zlib"
 
   on_macos do
+    depends_on "gettext"
     depends_on "libomp"
   end
 
+  on_linux do
+    depends_on "elfutils"
+  end
+
   conflicts_with "rpm2cpio", because: "both install `rpm2cpio` binaries"
+
+  resource "rpm-sequoia" do
+    url "https://github.com/rpm-software-management/rpm-sequoia/archive/refs/tags/v1.8.0.tar.gz"
+    sha256 "a34de2923f07b2610de82baa42f664850a4caedc23c35b39df315d94cb5dc751"
+  end
+
+  # Apply nixpkgs patch to work around build failure on macOS
+  # Issue ref: https://github.com/rpm-software-management/rpm/issues/3688
+  patch do
+    on_macos do
+      url "https://raw.githubusercontent.com/NixOS/nixpkgs/3d52077f5a6331c12eeb7b6a0723b49bea10d6fe/pkgs/tools/package-management/rpm/sighandler_t-macos.patch"
+      sha256 "701ffe03d546484aac57789f3489c86842945ad7fb6f2cd854b099c4efa0f4e5"
+    end
+  end
 
   def python3
     "python3.13"
   end
 
   def install
+    resource("rpm-sequoia").stage do |r|
+      with_env(PREFIX: prefix) do
+        build_args = ["build", "--release"] # there is no `cargo install`-able components
+        system "cargo", *build_args, *std_cargo_args.reject { |arg| arg["--root"] || arg["--path"] }
+      end
+      # Rename the library to match versioned soname
+      versioned_lib = shared_library("librpm_sequoia", OS.mac? ? r.version.to_s : r.version.major.to_s)
+      lib.install "target/release/#{shared_library("librpm_sequoia")}" => versioned_lib
+      lib.install_symlink versioned_lib => shared_library("librpm_sequoia")
+      (lib/"pkgconfig").install "target/release/rpm-sequoia.pc"
+      ENV.append_path "PKG_CONFIG_PATH", lib/"pkgconfig"
+    end
+
     ENV.append "LDFLAGS", "-lomp" if OS.mac?
 
     # only rpm should go into HOMEBREW_CELLAR, not rpms built
@@ -68,10 +112,10 @@ class Rpm < Formula
               "/usr/bin/pkg-config", Formula["pkgconf"].opt_bin/"pkg-config"
 
     # work around Homebrew's prefix scheme which sets Python3_SITEARCH outside of prefix
-    inreplace "python/CMakeLists.txt", "${Python3_SITEARCH}", prefix/Language::Python.site_packages(python3)
+    site_packages = prefix/Language::Python.site_packages(python3)
+    inreplace "python/CMakeLists.txt", "${Python3_SITEARCH}", site_packages
 
-    # WITH_INTERNAL_OPENPGP and WITH_OPENSSL are deprecated
-    rpaths = [rpath, rpath(source: lib/"rpm")]
+    rpaths = [rpath, rpath(source: lib/"rpm"), rpath(source: site_packages/"rpm")]
     args = %W[
       -DCMAKE_INSTALL_RPATH=#{rpaths.join(";")}
       -DCMAKE_INSTALL_SYSCONFDIR=#{etc}
@@ -80,14 +124,14 @@ class Rpm < Formula
       -DENABLE_NLS=ON
       -DENABLE_PLUGINS=OFF
       -DWITH_AUDIT=OFF
-      -DWITH_INTERNAL_OPENPGP=ON
-      -DWITH_OPENSSL=ON
       -DWITH_SELINUX=OFF
       -DRPM_VENDOR=#{tap.user}
       -DENABLE_TESTSUITE=OFF
       -DWITH_ACL=OFF
       -DWITH_CAP=OFF
     ]
+    args += %w[-DWITH_LIBELF=OFF -DWITH_LIBDW=OFF] if OS.mac?
+
     system "cmake", "-S", ".", "-B", "_build", *args, *std_cmake_args
     system "cmake", "--build", "_build"
     system "cmake", "--install", "_build"

@@ -1,23 +1,18 @@
 class Proper < Formula
   desc "QuickCheck-inspired property-based testing tool for Erlang"
   homepage "https://proper-testing.github.io"
-  url "https://github.com/proper-testing/proper/archive/refs/tags/v1.4.tar.gz"
-  sha256 "38b14926f974c849fad74b031c25e32bf581974103e7a30ec2b325990fc32334"
+  url "https://github.com/proper-testing/proper/archive/refs/tags/v1.5.0.tar.gz"
+  sha256 "68fcc3b23ea98537d7a2b926de688dc347e02804c54d0f8d79ca7092c9456b68"
   license "GPL-3.0-or-later"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "a566b9d8925d5912685ebcd4391e790d2ca05d24ac02dd5027fed6024749f632"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9e3f49c043a708e27699c534dc9c4ee5e7762f5c4ffa62a9b0ae464406f008df"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8ba16c265d878f2385d16020577833fc18f3f34ebfacebf9806ffae99caaed6f"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "1fb7580b8ec4be37ae5eb66f3d474f5cb7134d91968b6a3ffd57e946601c3e7c"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "77657642632df4b47ea81fe644f297b729b6727a65c14e4b55205878b7c2efa4"
-    sha256 cellar: :any_skip_relocation, sonoma:         "21f4baa4e3c3ed5f9cc2b2820799c77892abab08b825a03899e41575243bcc1c"
-    sha256 cellar: :any_skip_relocation, ventura:        "0595b2fcc45df233b568344d6169b781ea9e7c5ae95fbfb6696d77ae5fa0d5cd"
-    sha256 cellar: :any_skip_relocation, monterey:       "61c38ab31cc8a971a833b3659cf7ca0907d2c3a8fe76ce9a83e17ae322154a2f"
-    sha256 cellar: :any_skip_relocation, big_sur:        "90cc29581b44ff082445a03c2955dba09000b8d4734d739764c702e6da72dda3"
-    sha256 cellar: :any_skip_relocation, catalina:       "c24a2347c8832f7db7aa536c7761e1f7c24d1beecbf542feff21bc3a82ffb0fb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5ab7d497f0decd957772de50ce1ed18da6dd4a4d4f8583fa92fbf554fc69a64e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2a639af1f2fb8cb688b919b54037d671b65ecc5ae791ddd8d73ba115af86e135"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7a9399e52a16770d3d839cab3d68e563e6d5cdfa978c9fbaefd3681799d64358"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "1ebfd48008cf6e2414fd327b4417dcd3f178733eb0bf4c8f482820078d606ecf"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b871a437a48e0bd4f35687256c82caff38cc8ed91662daacf465638290dbad49"
+    sha256 cellar: :any_skip_relocation, ventura:       "8121ebc9c4160073387dbdb7012f0c536783f811152220a7b09108ec6777886f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0d95538e53374c507c624b17c23e9bc1218d83ad2a8c96006bb941681d7170be"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3c46ff9ea392d1503cfc49f425fd04ed35376da507fe13985306057715558924"
   end
 
   depends_on "rebar3" => :build

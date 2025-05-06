@@ -2,19 +2,20 @@ class Breezy < Formula
   include Language::Python::Virtualenv
 
   desc "Version control system implemented in Python with multi-format support"
-  homepage "https://www.breezy-vcs.org/"
-  url "https://files.pythonhosted.org/packages/c4/32/1e95fdf00568790cf6316eb729a99c7754bbcb1773384c46da959eddfef8/breezy-3.3.9.tar.gz"
-  sha256 "c2588bf217c8a4056987ecf6599f0ad9fb8484285953b2e61905141f43c3d5d8"
+  # homepage "https://www.breezy-vcs.org/" # https://bugs.launchpad.net/brz/+bug/2102204
+  homepage "https://github.com/breezy-team/breezy"
+  url "https://files.pythonhosted.org/packages/d6/47/165a8967701fb047b46879db7d2fa50b80fd3e7da22fb54ba131b823081c/breezy-3.3.11.tar.gz"
+  sha256 "11cb9c5e2fac2038630e863088f047eade4653cbf2b995f732322f6c143bbb3b"
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "632597502c8193a468b86edc1e926415e17945a044c55bc6eef0785cdafa025e"
-    sha256 cellar: :any,                 arm64_sonoma:  "32162b4e48bed6abd9223423de11fd10f3e512cb8076aa4b6d60788db4d4c0c4"
-    sha256 cellar: :any,                 arm64_ventura: "a7922bc0194274a0699ebaf107d4124b0ba660da338d178bff2c0ae4db7c7d53"
-    sha256 cellar: :any,                 sonoma:        "05fe3857ce2ab38a93f2697405bbbeced3d528c0f34a98cc3eedcda458e18d74"
-    sha256 cellar: :any,                 ventura:       "09cd865c9142a653f13c9eca3c7a070537a8d4af4fa9c3384067f75cd7ad1e2b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d8b7301157505024f7d9c83b85f938aad2ffef80d034dc9e01a69fa1968cf6f3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1e2e0d12ce6916e0db46a858a6a91d3f9a676ca7f5d078f2305fd83ffde43368"
+    sha256 cellar: :any,                 arm64_sequoia: "18de1e46e39cc1fffd09957e8ad4e0540888ae0dced13ed845215e48df3be1d5"
+    sha256 cellar: :any,                 arm64_sonoma:  "90af0ddd36f5145ec511a2a7f08ffd0b401ac803239b68ccda6b077971c7e328"
+    sha256 cellar: :any,                 arm64_ventura: "91a651789c915c683c12e12de61c32acb1c3e717ab3c30b76cabad8ed3736c1e"
+    sha256 cellar: :any,                 sonoma:        "afd4d74f45956b3a17cd28d50ebb2d64dbbc88d0ef7ff71ef7f1235fc9bc45e1"
+    sha256 cellar: :any,                 ventura:       "f293746961a03e4daba8041edf6a69228b029f29289ab065e4cca1761e3b170b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "62669cf5622f684b2602b79687f4cd8b87581ea2f3dbb596609f669f1a0a7457"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "87623611f90764d2b2d56f9aab33335efa3987776e606bf02c81f7315ea54bdb"
   end
 
   depends_on "gettext" => :build
@@ -28,8 +29,8 @@ class Breezy < Formula
   end
 
   resource "dulwich" do
-    url "https://files.pythonhosted.org/packages/da/47/c8bf38f8874829730775fbe5510b54087ff8529dbb9612bd144b76376ea7/dulwich-0.22.3.tar.gz"
-    sha256 "7968c7b8a877b614c46b5ee7c1b28411772123004d7cf6357e763ad2cbeb8254"
+    url "https://files.pythonhosted.org/packages/d4/8b/0f2de00c0c0d5881dc39be147ec2918725fb3628deeeb1f27d1c6cf6d9f4/dulwich-0.22.8.tar.gz"
+    sha256 "701547310415de300269331abe29cb5717aa1ea377af826bf513d0adfb1c209b"
   end
 
   resource "fastbencode" do
@@ -52,14 +53,9 @@ class Breezy < Formula
     sha256 "d584d9ec91ad65861cc08d42e834324ef890a082e591037abe114850ff7bbc3e"
   end
 
-  resource "tzlocal" do
-    url "https://files.pythonhosted.org/packages/04/d3/c19d65ae67636fe63953b20c2e4a8ced4497ea232c43ff8d01db16de8dc0/tzlocal-5.2.tar.gz"
-    sha256 "8d399205578f1a9342816409cc1e46a93ebd5755e39ea2d85334bea911bf0e6e"
-  end
-
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/ed/63/22ba4ebfe7430b76388e7cd448d5478814d3032121827c12a2cc287e2260/urllib3-2.2.3.tar.gz"
-    sha256 "e7d814a81dad81e6caf2ec9fdedb284ecc9c73076b62654547cc64ccdcae26e9"
+    url "https://files.pythonhosted.org/packages/aa/63/e53da845320b757bf29ef6a9062f5c669fe997973f966045cb019c3f4b66/urllib3-2.3.0.tar.gz"
+    sha256 "f8c5449b3cf0861679ce7e0503c7b44b5ec981bec0d1d3795a07f1ba96f0204d"
   end
 
   def install

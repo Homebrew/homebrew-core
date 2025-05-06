@@ -1,13 +1,13 @@
 class Lbfgspp < Formula
   desc "Header-only C++ library for L-BFGS and L-BFGS-B algorithms"
   homepage "https://lbfgspp.statr.me/"
-  url "https://github.com/yixuan/LBFGSpp/archive/refs/tags/v0.3.0.tar.gz"
-  sha256 "490720b9d5acce6459cb0336ca3ae0ffc48677225f0ebfb35c9bef6baefdfc6a"
+  url "https://github.com/yixuan/LBFGSpp/archive/refs/tags/v0.4.0.tar.gz"
+  sha256 "39c4aaebd8b94ccdc98191d51913a31cddd618cc0869d99f07a4b6da83ca6254"
   license "MIT"
   head "https://github.com/yixuan/LBFGSpp.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "a3fa9b668aa4ce459443ed3a31812abc4d072a8674ed7bf852ab0a8f1d01df45"
+    sha256 cellar: :any_skip_relocation, all: "915d14792b76cd42afb89064bd50c8119dcf4ba0f500d3d06032c6126a349011"
   end
 
   depends_on "cmake" => :build

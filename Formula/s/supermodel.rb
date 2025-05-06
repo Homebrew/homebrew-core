@@ -23,6 +23,7 @@ class Supermodel < Formula
     sha256 arm64_ventura: "60d857bc4b057fdb6950645b22eb04970bca9e21e5065f44486bbf5dfd4b4754"
     sha256 sonoma:        "8a730dcfcf67bd5091d7b589f9111ae735ec35c939caf14e4e8469be35c2611a"
     sha256 ventura:       "c3d65f9c8c50660fb2f6fe7cdc3cf6e641f6acefdb396088328ec6c103258d11"
+    sha256 arm64_linux:   "9a8fbf1e975303f9c7858caa8d2829cf0cce382971ffa6035576bf9fae7b8e71"
     sha256 x86_64_linux:  "9bffc6af81706a65a8355fe1618d9a4062e48ae2ae969d24888d0802434ca38d"
   end
 

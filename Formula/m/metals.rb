@@ -1,8 +1,8 @@
 class Metals < Formula
   desc "Scala language server"
   homepage "https://github.com/scalameta/metals"
-  url "https://github.com/scalameta/metals/archive/refs/tags/v1.5.1.tar.gz"
-  sha256 "18129489076b71428131af22a81a4e1e6b1b5ef879fcff74429cf822617fec5c"
+  url "https://github.com/scalameta/metals/archive/refs/tags/v1.5.2.tar.gz"
+  sha256 "e961a43afa10d386192a4aa018025972166b3dfa046653cb6aa8b2bdcd065594"
   license "Apache-2.0"
 
   # Some version tags don't become a release, so it's necessary to check the
@@ -13,13 +13,13 @@ class Metals < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fadf1d0d19ba2deb8c7ef3f7ad7b7c3e40b00540a5af933b3364df62be1a34f6"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "203741e97a0af5334c3716fc88237a871fa81b9b7e6e880f26955ece8f5575ae"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "8f4e6d2a638380812ecb24695da15b56d5c1a86259436984352b0ce9ecbcacdb"
-    sha256 cellar: :any_skip_relocation, sonoma:        "0ae82a3c64b1925d4c1f672fea06bef32fd2f2155bdf03497490d355870376a0"
-    sha256 cellar: :any_skip_relocation, ventura:       "cbce8c9e8c771b705fa32a5469cc7ba0a53735d51369aaf070f6a29818570d4b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "341db3cd37d058d417787c218166b817bbcff9d6d899e0435cb23974f4373f9d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4a8e1c6c0396e8541d3666a79ec6b9893655f47e3ca47c38188e9fbb193c639c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3ec5166dec9f73897a0c2bed54561532f3ba96860cac82786c264f53df7cd015"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3be3e75ec85f178bae8ae6be53569353cffa880cef21c4ef9f31e72a755ffe83"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "760e4cd8a5b0441dded0d6edcdd10fbb65720762ff5a10fff242059811c5350f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "fc2a3b4701d2fd52f4545a89d7bed7e88ac0827ab9d75e3a42892de33a3ed14f"
+    sha256 cellar: :any_skip_relocation, ventura:       "2849c6b6df1937e75f052c481b3b74b4d777c2d8557fb0b1b2b9b05b7a8c6f69"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "bec136cfc0c576dabe8ed533cc00a537bbc001d4cf8b9747c35a2d22b18caf81"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a10bb3b687a1c3207b15c1f9aa2c4efb6ed2c03613c8656d2414e3703487a059"
   end
 
   depends_on "sbt" => :build

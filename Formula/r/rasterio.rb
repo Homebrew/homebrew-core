@@ -13,6 +13,7 @@ class Rasterio < Formula
     sha256 cellar: :any,                 arm64_ventura: "a7f901287973fee54bbbe87c7a98f71cd790e2b941c87118469cc45d6768062d"
     sha256 cellar: :any,                 sonoma:        "08dcd483af2d7e48cebf0bdb69c0e881d77eb8cdc00f131dd3ffb7e27fb112fa"
     sha256 cellar: :any,                 ventura:       "b11fc4d43981cd10e892d7a023ad165697ef0205d3a8d29ce5ba4fcd8d29d604"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2fc1257c4bebaf72e821fee8717d3df235bc85ce4fa2f822e2b0c2f64a2d9987"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "cb48e6529ce61237e5da0d9f80b495289a53cc7e772d6ed4cc3af55a9f9f0de5"
   end
 
@@ -27,6 +28,9 @@ class Rasterio < Formula
   on_linux do
     depends_on "patchelf" => :build
   end
+
+  conflicts_with "rio", because: "both install `rio` binaries"
+  conflicts_with cask: "rio", because: "both install `rio` binaries"
 
   resource "affine" do
     url "https://files.pythonhosted.org/packages/69/98/d2f0bb06385069e799fc7d2870d9e078cfa0fa396dc8a2b81227d0da08b9/affine-2.4.0.tar.gz"

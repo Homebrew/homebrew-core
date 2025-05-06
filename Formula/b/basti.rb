@@ -1,18 +1,18 @@
 class Basti < Formula
   desc "Securely connect to RDS, Elasticache, and other AWS resources in VPCs"
   homepage "https://github.com/basti-app/basti"
-  url "https://registry.npmjs.org/basti/-/basti-1.7.0.tgz"
-  sha256 "0651972e9059354dd934b01b08b8f895da7cdaa3ffb52046e318dd10d9f36701"
+  url "https://registry.npmjs.org/basti/-/basti-1.7.1.tgz"
+  sha256 "a3105943b1ca2efd2f756f2e381725a3668ea30fe2edb3d2436d8c2fb2df81a5"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9ff427644cc71dbef154812ea218d9ea3c52058f50eb835a7d5b0442afc80e46"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9ff427644cc71dbef154812ea218d9ea3c52058f50eb835a7d5b0442afc80e46"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "9ff427644cc71dbef154812ea218d9ea3c52058f50eb835a7d5b0442afc80e46"
-    sha256 cellar: :any_skip_relocation, sonoma:        "41122c17de5e710ae0bd301de1358fd35e3995893434a750838c42c4e5004303"
-    sha256 cellar: :any_skip_relocation, ventura:       "41122c17de5e710ae0bd301de1358fd35e3995893434a750838c42c4e5004303"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "4cbbb6d8bd99595e8720c8661e540f9a33054373e74c82853703890e6b1745f9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1ffdeb9e292a573a356abdc46fd03447c88a45c844bdf1c135ac61f22b8244c7"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0549ae3e2472e1e53c820caf50872ed6d3f124c05ccfbd7a8a98386406ecbbe8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0549ae3e2472e1e53c820caf50872ed6d3f124c05ccfbd7a8a98386406ecbbe8"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "0549ae3e2472e1e53c820caf50872ed6d3f124c05ccfbd7a8a98386406ecbbe8"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2da4b1374a33cfb194b65260ca559b7a93f75b21a081d0643764597351b6b2cc"
+    sha256 cellar: :any_skip_relocation, ventura:       "2da4b1374a33cfb194b65260ca559b7a93f75b21a081d0643764597351b6b2cc"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a0e04e4ab6509d397dff2273c18f8fb28d71fa5e60a5f1c27fabfb7a1d2fc7e3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2d31d3a8cf98a28daf71345f66b0730740f606b5397af215bcde8d3e9bc57a25"
   end
 
   depends_on "node"

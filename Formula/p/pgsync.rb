@@ -12,6 +12,7 @@ class Pgsync < Formula
     sha256 cellar: :any,                 arm64_ventura: "c3fe3a0ab9336a9fd3343e1466ba5a137294d2ffbae99110adb2e2c152f1e206"
     sha256 cellar: :any,                 sonoma:        "0b1082fa75fb757eea994e9d50be3116d701587c5880430fb20d3a018b875a3d"
     sha256 cellar: :any,                 ventura:       "01e1f89f86a1cb51e8c4821a98611c5bad2f18d7145c82e39498d474af9af87c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d7c5c55097831aec49697673333f9806f2a989ae19f1cdaf2b37dad97007a657"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "ce4b49836360a1abe20cd60228f4e555765a5e41483709706584931abb6dd64d"
   end
 

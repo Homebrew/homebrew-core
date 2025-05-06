@@ -1,9 +1,9 @@
 class Riscv64ElfGdb < Formula
   desc "GNU debugger for riscv64-elf cross development"
   homepage "https://www.gnu.org/software/gdb/"
-  url "https://ftp.gnu.org/gnu/gdb/gdb-16.2.tar.xz"
-  mirror "https://ftpmirror.gnu.org/gdb/gdb-16.2.tar.xz"
-  sha256 "4002cb7f23f45c37c790536a13a720942ce4be0402d929c9085e92f10d480119"
+  url "https://ftp.gnu.org/gnu/gdb/gdb-16.3.tar.xz"
+  mirror "https://ftpmirror.gnu.org/gdb/gdb-16.3.tar.xz"
+  sha256 "bcfcd095528a987917acf9fff3f1672181694926cc18d609c99d0042c00224c5"
   license "GPL-3.0-or-later"
   head "https://sourceware.org/git/binutils-gdb.git", branch: "master"
 
@@ -12,13 +12,13 @@ class Riscv64ElfGdb < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "a49f2518da1c45d36c859eb865144227d4d07486b8ba024170db83dd80f2eba1"
-    sha256 arm64_sonoma:  "e7b19f8779b005c08bbe5a9489504e93264c2a3eff23d595238897fb53b72cc3"
-    sha256 arm64_ventura: "fccea4d5843a8e3d9f85355f50aa13abeef2396172710a9ff9c5670cdad1d03d"
-    sha256 sonoma:        "ac495dcb93f738f074ac61abbdc5c66ea3f43646eed971cd9cb0efb758d059cd"
-    sha256 ventura:       "dd8565db43dd825209c342591779a47bc117b26e19c1904a1f7f71079813e7b0"
-    sha256 arm64_linux:   "700ca13b7901ba06c0a424f781e307f1e3d2733dd5aa29f7ad4230f74378a43c"
-    sha256 x86_64_linux:  "30ec6c9bd936d13e75de1c5c4f6bbb210c75b5b1dd3fd0327dd0f90a40dbba52"
+    sha256 arm64_sequoia: "fc182c3f9b43f0706c5e38ad0cc227b5a0462f413b3e7975137baafcbf9f75bb"
+    sha256 arm64_sonoma:  "0e376f70fab060eb7a19ea146565b21f25c39fad626b9345f16ba541f98b7e05"
+    sha256 arm64_ventura: "c6289ed531b09195c7288e49bdd5ea128b7b95d0c28b15408a8a24041dbdc748"
+    sha256 sonoma:        "67fbc5381005c1223d1c3bdd444f7114c748448913a81daa57db9d27df947b1b"
+    sha256 ventura:       "efcdc16f939bad13162938caf972b390bbd62be3f5888af79bf0062d6f87adfb"
+    sha256 arm64_linux:   "1cec187ec64758bdacd6fb7707fbc7851a70efcbe6ba3f42881c0889d19b710e"
+    sha256 x86_64_linux:  "8bf342fa7ae748f0917c42d37db64a0b44e7f2f5c867898f975b93928bd3c292"
   end
 
   depends_on "riscv64-elf-gcc" => :test

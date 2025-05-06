@@ -4,6 +4,7 @@ class Dvm < Formula
   url "https://github.com/howtowhale/dvm/archive/refs/tags/1.0.3.tar.gz"
   sha256 "148c2c48a17435ebcfff17476528522ec39c3f7a5be5866e723c245e0eb21098"
   license "Apache-2.0"
+  head "https://github.com/howtowhale/dvm.git", branch: "main"
 
   bottle do
     rebuild 1
@@ -17,6 +18,7 @@ class Dvm < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "784f7bf4ae96b861351f4bd3d51f70b81fe820d0924f1966fa1a73a1b2bbf755"
     sha256 cellar: :any_skip_relocation, big_sur:        "bbf9a8f217c5913219d2495990c893bfd0fd9e6b0e14664899d4f9f21deafafc"
     sha256 cellar: :any_skip_relocation, catalina:       "05b7b3c003c71860b6dfcf4189f1169ac6da67f464c7c7f25ae1230031701acb"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "cf480158f41f547119ac4e6ed7e1c4cc169d8604bbc0da1f80eacca874a08838"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "675af6c08670c77e16010b4b2a3de3828ffc22dcaa832c5db013b4209cd0617a"
   end
 

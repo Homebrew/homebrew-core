@@ -21,6 +21,7 @@ class PegMarkdown < Formula
     sha256 cellar: :any,                 mojave:         "a60087175a8f3c5242e9183eeddb433e6bdbe68409cae0a7c61d66da4622b150"
     sha256 cellar: :any,                 high_sierra:    "207764b26b253904cf61e9e13eb32e81a51d61d548b7dafd366da5a5394a5f08"
     sha256 cellar: :any,                 sierra:         "2d75448f008aa176b624ecb02bc6e3f7492ea8953a99f84fcdacc6b301b39412"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "2a9e3a5818daa858757ddbac902c2d0795bfa0bb6b02ce96a6fc35469b6c96ee"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "d1b2212c3e3a3610a02a5f668e3b88785c0bf1c6383f36ed3674abe42cc941bc"
   end
 
@@ -32,6 +33,9 @@ class PegMarkdown < Formula
   end
 
   def install
+    # Workaround for arm64 linux. Upstream isn't maintained
+    ENV.append_to_cflags "-fsigned-char" if OS.linux? && Hardware::CPU.arm?
+
     system "make"
     bin.install "markdown" => "peg-markdown"
   end

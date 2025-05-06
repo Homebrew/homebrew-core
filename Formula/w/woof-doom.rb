@@ -12,6 +12,7 @@ class WoofDoom < Formula
     sha256 cellar: :any,                 arm64_ventura: "ecb8f5469dc35e84049fa7ba8fe21548f16c12374fd883503fe301dc8d69e5bc"
     sha256 cellar: :any,                 sonoma:        "1a0bb7a3fc9683e6d515d68e18132f7cab5e1b5815e75adf7144869e6078a4c0"
     sha256 cellar: :any,                 ventura:       "9bd1b3c7acae2ef026e6d701aaf6daff8037ee9f4477c7a2d207b0403f7e3dd4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "dacc4a1a6f973620fc386939b682a9727ddbc26759d8484cfa1a56fe5c815d92"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "65ec9fc0998e63cc399282a54cc1cdd7f3dd4c676907cc6ed377ad0af0bbd898"
   end
 

@@ -1,9 +1,9 @@
 class Openiked < Formula
   desc "IKEv2 daemon - portable version of OpenBSD iked"
   homepage "https://openiked.org"
-  url "https://cdn.openbsd.org/pub/OpenBSD/OpenIKED/openiked-7.3.tar.gz"
-  mirror "https://mirror.edgecast.com/pub/OpenBSD/OpenIKED/openiked-7.3.tar.gz"
-  sha256 "9a04d513a81f9d5a873a0bd9992067a55796812674c9a96791b3adc6a63e6347"
+  url "https://cdn.openbsd.org/pub/OpenBSD/OpenIKED/openiked-7.4.tar.gz"
+  mirror "https://mirror.edgecast.com/pub/OpenBSD/OpenIKED/openiked-7.4.tar.gz"
+  sha256 "19b72b48080240c3eff585f5cbcf6aa7b5734192ad8bc6677ae64a455074358a"
   license "ISC"
 
   livecheck do
@@ -12,15 +12,13 @@ class Openiked < Formula
   end
 
   bottle do
-    sha256                               arm64_sequoia:  "7c229f067ee01e9d9c836b52370695f08b8f382a3fb7620ec95051de872f715e"
-    sha256                               arm64_sonoma:   "8b138fbe3eb1179b35223a7f54d6ae54177393d8b743723632f6b4a8beff019e"
-    sha256                               arm64_ventura:  "533d59a19657c6cadb5b4347c3e40016cbc0bd269ffb84d1605c7bce6801f66f"
-    sha256                               arm64_monterey: "d718da1d03105aed43bd7ec97e5f2b60f71577296a555bb7f3278b070f04030c"
-    sha256                               sonoma:         "78e7655a4f26f4e74e5fc81a22a8b32d8d4ec19d32645529bbc42a51fd801f16"
-    sha256                               ventura:        "9d22679a1192e1aabd262ea41dedb4236ea62ff133faab3602bfa3de4b5b5c9e"
-    sha256                               monterey:       "dbba1126cc4b34ed420abac2fe3f2a0602c37fd856572456c208562e07d49df2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "d4c823dc7cef5996ecf6a76559ccc820107dfe88634325392aea71416712f79c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dec0feb61a323ed45258f074cfd68cb7f0f4a0746bfbb59b754c9d5b21675e60"
+    sha256                               arm64_sequoia: "6617660a67f84c4e2cc0c10be9f523df25a65ffded5fcfe49ba494557e9b1fa3"
+    sha256                               arm64_sonoma:  "36a643015e36b8c418bc506f11638f8a750f09d04a47204181084f0d6d08b6a4"
+    sha256                               arm64_ventura: "254aef034a2d10277cc1f8234ec8c580e40cd4f12407154a3d80860a84e6439d"
+    sha256                               sonoma:        "0fc6152ed7bab0d78931c74a821e771ac561b54b8a8735885cbef6707d4f01b8"
+    sha256                               ventura:       "44a959ba4bfde86399a6eaf7843efe14db59376a159f59ce5a3b4dca6a1a4290"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "96d79b9b681bb06ede6d673219578710236f9547f28892fee23f5b38e9a269c0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4d42194f764e5ed3cf329655303362999b79fb5350646e57df381c1ecd419c8a"
   end
 
   depends_on "cmake" => :build

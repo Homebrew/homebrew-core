@@ -4,6 +4,7 @@ class Ffuf < Formula
   url "https://github.com/ffuf/ffuf/archive/refs/tags/v2.1.0.tar.gz"
   sha256 "52d3daf5b97528a74b7b3305decd4bb01a553a8f18d39fc107ebc15dc3113de7"
   license "MIT"
+  head "https://github.com/ffuf/ffuf.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "1b155bee7a2fb90ad42abeed41a16e2f5bb0dec4fc000d62abc790009785f051"

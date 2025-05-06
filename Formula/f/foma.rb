@@ -19,9 +19,11 @@ class Foma < Formula
     sha256 cellar: :any,                 catalina:       "dc0a238f67280d9e15e50bc7064669f1715170c9a59d608537ed195801db0c9e"
     sha256 cellar: :any,                 mojave:         "a3b11300d427959a0ca8aa908d6c43369a8c17889a63f56d7772c6c4fdaeee04"
     sha256 cellar: :any,                 high_sierra:    "d223eaa3a2f821d24b5f3b5486494a1a029f96e1640d4fe6f3633e6ad53e14a9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "725abcddb8ddd46b7d328624b335a6a0f660c596340cee2ec69c45a68b7e6537"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "ed4b46bd3f62ab26bbb0407019c2989448d3b9df0680ebb87266bdbfe5b3e9c9"
   end
 
+  uses_from_macos "flex" => :build
   uses_from_macos "zlib"
 
   on_linux do
@@ -31,6 +33,15 @@ class Foma < Formula
   conflicts_with "freeling", because: "freeling ships its own copy of foma"
 
   def install
+    # Work around failure from GCC 10+ using default of `-fno-common`
+    # multiple definition of `g_defines_f'; int_stack.o:(.bss+0x1800000): first defined here
+    # multiple definition of `g_defines'; int_stack.o:(.bss+0x1800008): first defined here
+    if OS.linux?
+      inreplace "Makefile" do |s|
+        s.change_make_var! "CFLAGS", "#{s.get_make_var("CFLAGS")} -fcommon"
+      end
+    end
+
     system "make"
     system "make", "install", "prefix=#{prefix}"
   end

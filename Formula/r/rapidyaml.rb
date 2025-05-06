@@ -1,18 +1,18 @@
 class Rapidyaml < Formula
   desc "Library to parse and emit YAML, and do it fast"
   homepage "https://github.com/biojppm/rapidyaml"
-  url "https://github.com/biojppm/rapidyaml/releases/download/v0.8.0/rapidyaml-0.8.0-src.tgz"
-  sha256 "232476329f0937f16488fc0425070bf0176e686ed638f8b03fd96201ea08dac5"
+  url "https://github.com/biojppm/rapidyaml/releases/download/v0.9.0/rapidyaml-0.9.0-src.tgz"
+  sha256 "e01c66b21dfbe3d7382ecab3dfe7efcdc47a068cd25fcc8279e8f462f69c995d"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "14f4366c7f067e0a7868ff3a7cc9a82fa17afb8015fb04165d0ad85535917fd0"
-    sha256 cellar: :any,                 arm64_sonoma:  "375061f4513f3c207a9256e6fb69c6a07025b65e8b972526b2be4aad7205125f"
-    sha256 cellar: :any,                 arm64_ventura: "1ef7740556d1d6b632b1c59a70e2a8c71814352fc2a7e3e1de7691fd7d055226"
-    sha256 cellar: :any,                 sonoma:        "a1c64249db6aa07b91a3b31e77033de50cbd87159ec05e225e52f3af190cab0c"
-    sha256 cellar: :any,                 ventura:       "444dedad7f09dbf4883d646644b5e1693d056a605083c881702c681a4a2eed28"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3bc96dbce42fdb2c1925a1716db8e99d6e001644906f9071e6210b811dd836a4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "59ada91df478aa2e07c2b50cbf4f339115c207a38815d0c0f13ee43539dbde78"
+    sha256 cellar: :any,                 arm64_sequoia: "a926b5137c4f63bb5ff171b5d7db7b5723ec241ca24151f01e94085796c5e2a5"
+    sha256 cellar: :any,                 arm64_sonoma:  "eb19678c2ed14af83f23f00a5e290670a10879c10ff45801e758fffd9c710361"
+    sha256 cellar: :any,                 arm64_ventura: "d38245d9b58586970547cadeddacdabc64aba97364605fec1818043e7b74b680"
+    sha256 cellar: :any,                 sonoma:        "53a6ed410c614d69717df813c05e0874aef7b1ddec62faee50dbb10dd7f92158"
+    sha256 cellar: :any,                 ventura:       "59eede95d14fba8e567d1c3101b30a1dc474038eba06159805caadc2813ed927"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6af592cde3cde4adc1af59e80dde10d048d7af6108ec34aeb21f9c4c5ead41a6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f4b2a7dae11ce18a1dbe21856222bde0585ab5a96b08349d94741805ff74bd6a"
   end
 
   depends_on "cmake" => :build

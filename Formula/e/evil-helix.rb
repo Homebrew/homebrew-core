@@ -1,19 +1,19 @@
 class EvilHelix < Formula
   desc "Soft fork of the helix editor"
   homepage "https://github.com/usagi-flow/evil-helix"
-  url "https://github.com/usagi-flow/evil-helix/archive/refs/tags/release-20250104.tar.gz"
-  sha256 "b03c78ea4cacd11eac8c2fb2e40c4a20e5d6d29ab151e3176876bf58c298b7b5"
+  url "https://github.com/usagi-flow/evil-helix/archive/refs/tags/release-20250413.tar.gz"
+  sha256 "60e0aadf9e833e0b579028b7f21803722b3705d74dd062bac96ff8ac4da91a5a"
   license "MPL-2.0"
   head "https://github.com/usagi-flow/evil-helix.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "ef875c469d84849e51573b50474d2523c029f10309b1ed9eb15bab238893205c"
-    sha256 cellar: :any,                 arm64_sonoma:  "7aad6857cd93c4e16ae9481271dc47f5f100e32c4be3609e20bc650c53ac50bd"
-    sha256 cellar: :any,                 arm64_ventura: "84890f45493d8c9477111ac3435f64858990d372ec0de53896810eed8955e32e"
-    sha256 cellar: :any,                 sonoma:        "ca3d946010aa2de2dc7b4a5888701217812bf63c4a8615f476b7ff87138f0090"
-    sha256 cellar: :any,                 ventura:       "f74b75ba30308f77b8d5ba83b78d8f601ce9cc0056bb3c408ce37c35783bc2df"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "91c55c8de31ebd6d53335994a2f10c0ea7eb38c5fc45091c70c6ae3497a9d6b0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "94ab70aa754ed371252ca56342dfc44a8ee188d1f167143fbece4f7fc436b56f"
+    sha256 cellar: :any,                 arm64_sequoia: "1c8584a1bc7048842c36c3d042edcab3ccfe52ab91de4d5826a3223de50b34ad"
+    sha256 cellar: :any,                 arm64_sonoma:  "8beb27e8167b0df9392b01a0e89fce4ad85279997206a1ae1912b27c436739f3"
+    sha256 cellar: :any,                 arm64_ventura: "c34a0d85c771e2b3b50d6356d6c3ff3adf920fb3904253c76c0d6063d09820ab"
+    sha256 cellar: :any,                 sonoma:        "533e9fce3a0c4e68b0df0060025bc20b1b749ce442bdd880babc46e40a6720bc"
+    sha256 cellar: :any,                 ventura:       "9e404ef46aefa053a4c2eac1668fb5c3f2a527d99179e8876956601b3692750a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "aa18bf850af8c53b1fca9b0eb2e8a4febb66cae9b3d7f7df5da86322bca976cc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "067ae88beeaabfee440870efa7a0b56bdb3ad648ef3a962160551b2cf0f9ad17"
   end
 
   depends_on "rust" => :build

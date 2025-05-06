@@ -1,19 +1,19 @@
 class Gitu < Formula
   desc "TUI Git client inspired by Magit"
   homepage "https://github.com/altsem/gitu"
-  url "https://github.com/altsem/gitu/archive/refs/tags/v0.29.0.tar.gz"
-  sha256 "eb65c9470bcf59ce76f7e73893a2a40302a39fd339af38a746b78c596d80615f"
+  url "https://github.com/altsem/gitu/archive/refs/tags/v0.31.0.tar.gz"
+  sha256 "a6eafe8fc5ce0dfec029d919bc970de330e6d5d8404d7f57ba89be27e7feec1c"
   license "MIT"
   head "https://github.com/altsem/gitu.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "81a5a48a585eb2b259b4765df3e5abcdd07ccf7ed3edccd1cc7cf11f9ff39e28"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3d4d3bd2c0760c705e8db14273ea7ac4fad5afeda1790fba6fcf9684c74fce88"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "b324b0578a7767123b6dc583dfc5c2f0acd92eff163a995e56a55c3dc6f3c080"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ba9b0717f0cc0cab86a87fb8586688f254d1397221331c3d4bbdf4421cfe3546"
-    sha256 cellar: :any_skip_relocation, ventura:       "666802de4cfe1467f2c7824716be5f6ddc76f698a95861093e701a2bf03457b7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "42f9a56ee3f331de972bce4060f6986b075674292da4a35340019acd4cb6ae9a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "daf49de50f2a9222931f9f584aa4238a877ae67466644a368344ba44f9613cf8"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "71ded9c5875c835df107d664a0c19397e6ac8ef989035b456eded97d619ff4c6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "541aefb18ba19fa9efe9a9450b9a028b5c6fe600aa6c38615e9a5bb3d17fdb3d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "deae137c427764d86c006ed8247af8b6f6ef73d3c2864e5e073263566174b18e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "28c10ba1b0f94e63cc945e3d2d6f40268a16d4e6f3c3260a7ad1672bb6e7dfae"
+    sha256 cellar: :any_skip_relocation, ventura:       "e3ef2fb47522664afc8c238fcb5d032d17e97f76b2ad3dbffcf1078382d5368d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8796fec41b1d3027f346bf3296e0c11dd74ba76270641359cf0fb2b9820764c8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cb0b1adaa66d8e1f33afa763077ea0484ff981ee12b1b937c45b8e22c05a9b58"
   end
 
   depends_on "rust" => :build
@@ -31,7 +31,7 @@ class Gitu < Formula
     if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
       assert_match "No such device or address", output
     else
-      assert_match "No .git found in the current directory", output
+      assert_match "could not find repository", output
     end
   end
 end

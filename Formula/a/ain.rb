@@ -20,6 +20,7 @@ class Ain < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "470ca30ee09a8e40745f90086841c36f4efe34acdd7c7398089a6a6597314bfa"
     sha256 cellar: :any_skip_relocation, sonoma:        "9299bcb45b88a76fa588d7352925a379b41cc6cfc0d23f4c38b80903b2391bf5"
     sha256 cellar: :any_skip_relocation, ventura:       "9299bcb45b88a76fa588d7352925a379b41cc6cfc0d23f4c38b80903b2391bf5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c56fbc38b0d4116a3fff8bfd8dcc8d0ed9860433b03625a7dd4a60c6c628ead7"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "0b63dff05d2c4e4c322a6f4213271cf5e5a80d9a55d8a0cdca5dcbf3bda87748"
   end
 

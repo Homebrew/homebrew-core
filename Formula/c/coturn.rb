@@ -4,6 +4,7 @@ class Coturn < Formula
   url "https://github.com/coturn/coturn/archive/refs/tags/4.6.3.tar.gz"
   sha256 "dc3a529fd9956dc8771752a7169c5ad4c18b9deef3ec96049de30fabf1637704"
   license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     url :stable
@@ -11,12 +12,13 @@ class Coturn < Formula
   end
 
   bottle do
-    sha256                               arm64_sequoia: "cc1e87b2bd8ea182e22a581153ddc693dd38ac1f15fc0e463fcd154bd3eee57c"
-    sha256                               arm64_sonoma:  "341e8ef28b555221b0511e20e7265d41d2dbefb1f0e8c289d914aa8e4725ef8b"
-    sha256                               arm64_ventura: "ce340904c0e8031987effce0e9806806d633929d718f1be50bc535e7815549cc"
-    sha256                               sonoma:        "46fcb4c3078988a2182c214ff9a3d1789f65003a877729ba8371cbc464ad495f"
-    sha256                               ventura:       "14664b015f3e3d9842b5ee261a5d56a9685edd37be0712c59ee82a5df950f5be"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "14cb601252934f11e56bf2be311806d9031745ad2b6cb22c2d4daf9244daa1d7"
+    sha256                               arm64_sequoia: "d9bc46fa338fa68b9a829f2086b359e2cd92291ac2334d23d2d25bce73210647"
+    sha256                               arm64_sonoma:  "f48367d4e77f52c69ab4ad0276a3b8f8200679e8dfcb5ac5995dfa0603454778"
+    sha256                               arm64_ventura: "177e302f3af1048a929dafbdd0ee76c11f94d37fa5463b38e29ee3967c02d099"
+    sha256                               sonoma:        "94d3da45859fbc4ff34196fba84e0af037a9654efe84e5656f2287b22808ca25"
+    sha256                               ventura:       "de095f3b7f5020ba028b1b01aa6750400e395f1a87c6c6d89748d07b5dcf5250"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "64207317fa171d91d0088b4d8cc9f97de409735a2343b18b6a724489d6fd9edb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "231c71724dd5e78c2373cbc3e145b30552e36663ae210c305f2935d025681982"
   end
 
   depends_on "pkgconf" => :build

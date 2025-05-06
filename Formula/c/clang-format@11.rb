@@ -16,11 +16,13 @@ class ClangFormatAT11 < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "e59f3acdd1ccb01100c1e22093b61c5d442b3eb290857e9226ace3e070376b20"
     sha256 cellar: :any_skip_relocation, big_sur:        "d05a3e8c962d0170d27dd1cba184cd9fc7fabad7792e60402dc530c1849b33f6"
     sha256 cellar: :any_skip_relocation, catalina:       "34600b6ed222dfaa3ad410e6abbbc2ec86da0cc8f6906156d443665f57472db0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "0b4ef3bd69407a87625451feb91e7487e215d247de4d5c7308953ec3a12fa6ee"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "fd67883368c8948f35545a2bce2356f8af91f1c518b17e5e41fc95d286dc9a00"
   end
 
   depends_on "cmake" => :build
 
+  uses_from_macos "python" => :build
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
@@ -32,7 +34,7 @@ class ClangFormatAT11 < Formula
   def install
     (buildpath/"tools/clang").install resource("clang")
 
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build", "-DCMAKE_POLICY_VERSION_MINIMUM=3.5", *std_cmake_args
     system "cmake", "--build", "build", "--target", "clang-format"
 
     bin.install buildpath/"build/bin/clang-format" => "clang-format-11"

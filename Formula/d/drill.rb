@@ -20,6 +20,7 @@ class Drill < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "701f7a9ab685f50091ce4c85d09cffde2a6b46ecda5052cdce5a41b06dafffd6"
   end
 
+  depends_on "pkgconf" => :build
   depends_on "rust" => :build
 
   on_linux do
@@ -29,7 +30,6 @@ class Drill < Formula
   conflicts_with "ldns", because: "both install a `drill` binary"
 
   def install
-    ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix if OS.linux?
     system "cargo", "install", *std_cargo_args
   end
 

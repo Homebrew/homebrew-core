@@ -1,18 +1,18 @@
 class Chronograf < Formula
   desc "Open source monitoring and visualization UI for the TICK stack"
   homepage "https://docs.influxdata.com/chronograf/latest/"
-  url "https://github.com/influxdata/chronograf/archive/refs/tags/1.10.6.tar.gz"
-  sha256 "fdfa914ae75ed62f6ab9e2052df0463a10c0a8164a968bbd240dfaa9b4b4336b"
+  url "https://github.com/influxdata/chronograf/archive/refs/tags/1.10.7.tar.gz"
+  sha256 "1b88a6a1d7eb36d8b6b5ac1506d9647c978bc9bd466cba37c45bed2d86bd20e5"
   license "AGPL-3.0-or-later"
   head "https://github.com/influxdata/chronograf.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9c6f0c50fbbcb105c16ab85f14c9617686184ea77ef865b3d9e70cb0cbf3b299"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "72264340eac06789de942e6e0cef807da0dc47960a74a86fdb0cb6df54f7ef55"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "8b664526d0b3264296a448545be20bffcf55f6f881dba130dd4e4a668ffcc996"
-    sha256 cellar: :any_skip_relocation, sonoma:        "71ae894712f61af67b7e6e621c64a381b47a699b08865a66e199392bd847a658"
-    sha256 cellar: :any_skip_relocation, ventura:       "04c46f01b5e570eb2ca462d6d52e6ca675458e11664bbae49ea017452f8a0b7e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0ae34e06a0a406da8cadae54ef3d4ac06fda959916ea9511b08ab4cf6207ff45"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "51f35a21cae93b46a86a08c5c5332b89eb7404cd6787795c8a8f1692774d3476"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1e2fd137ebfb0cce98c94a3d37b5d783a280845052c8c54f75c422e14c5f0674"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "e8cc046d7259a5ee5e1323781b3f0bec179880e4c4212bae48deb24111eae83f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8a66a4feaee1f1fc2fffc98f9d041158db45707c63c17555c18ddb04f8ff9e48"
+    sha256 cellar: :any_skip_relocation, ventura:       "c33e782ad82a70043529faee89384568ce7e29a1361eadd5c0ebb59bc2c686c0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7e759876413c0d7824dce27426b7dc96ccf9efd097872569210da0dcb8c8ff58"
   end
 
   depends_on "go" => :build

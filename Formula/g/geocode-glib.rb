@@ -17,6 +17,7 @@ class GeocodeGlib < Formula
     sha256 cellar: :any, monterey:       "657fcab9602371c260494510436cecf83e37f7526e2d96fd9ee87b133fd73547"
     sha256 cellar: :any, big_sur:        "46f8b7fb5ae054a58b11bf54b7869335fa7b29b82875dbe4f14b9aa50b43c7cb"
     sha256 cellar: :any, catalina:       "f4715dbb2ed9bb363a61f0e40c885f3218262d87bf1a22a1f341c6acdab3cf56"
+    sha256               arm64_linux:    "e1d35bca6f2c7072afbee67dc0d23ebcc57df3a103fba2e54c4a0cbcee6ff49e"
     sha256               x86_64_linux:   "705672b2c649c9dad5061d9d010d6faa106f67a278e90eab7c6b6a7a8f66e9ca"
   end
 

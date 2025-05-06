@@ -1,21 +1,19 @@
 class Edbrowse < Formula
   desc "Command-line editor and web browser"
   homepage "https://edbrowse.org"
-  url "https://github.com/CMB/edbrowse/archive/refs/tags/v3.8.10.tar.gz"
-  sha256 "3c194ce45b7348211ce3ad8e3304a0eacf8b27e623cbf8c08687785f88174e03"
+  url "https://github.com/CMB/edbrowse/archive/refs/tags/v3.8.12.tar.gz"
+  sha256 "b5125c7d13c2ed4491dc0d5a31116b244db62ae1c417ba5d29910311d1194632"
   license "GPL-2.0-or-later"
   head "https://github.com/cmb/edbrowse.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "d2824e9e8c3391b47d6ad414b0b45256b5f857a9a8d1a0cb1c1760739223245f"
-    sha256 cellar: :any,                 arm64_sonoma:   "2eee1c0542e0ded8ffe313fb87b85163f196a66e7f71f60095a9334ef868d676"
-    sha256 cellar: :any,                 arm64_ventura:  "5474ecc1ac83b2105d4903ff021177e342bf836ee8cbbc9478bb82b9791b1124"
-    sha256 cellar: :any,                 arm64_monterey: "f315ec5cbc69a61ca9ab3a9ebb5b60d72a3ad1ae83ff4ef66d342bdba33152a9"
-    sha256 cellar: :any,                 sonoma:         "1676e0f9d76fa15be36fdccb36642339a687dc0934a5264c16de342c012489ae"
-    sha256 cellar: :any,                 ventura:        "b636c25683db853afd169a8e7f71df6cd469746bddd8b5724bf89167528ea353"
-    sha256 cellar: :any,                 monterey:       "97bafb01fc2aea63b9dba3a79ffd5aed0206402751e6133ce3713c1c6ccb85f9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "db3748f9d01a17f547f46713a225572b1c58046d3042f0f712601343aac50227"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9e500898284f9a555e06cae23b9329e734825dcb1c1fc743327ee51584a226f9"
+    sha256 cellar: :any,                 arm64_sequoia: "1059c249fdc4473bb94aecdb88165610ce77bb5ac7ef3b0f305de0547b9f95e2"
+    sha256 cellar: :any,                 arm64_sonoma:  "61776b8d57d723fa908d7adbd7e4809ddb74cf6d79dcb328bca7d968f53efdcc"
+    sha256 cellar: :any,                 arm64_ventura: "b2f567f1855a2f083486a0071ed7ee99c722262baa9da61490b5dc7d2a2f2343"
+    sha256 cellar: :any,                 sonoma:        "fa304945f90088cd4376c092d1c37757e50849b8d3c23f773311f0ae10dd31d3"
+    sha256 cellar: :any,                 ventura:       "65f9a2871c07b22ec5a62bd1b1ad344c3fe83758b5f54607cf9df0dd657ebd34"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "19e13259385a839bc97d2a8c915b071c7bcd52ccd197ad0f8612564db33ae57d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e1b5862d17d78723f9685cf613663b788c0430e86ee8accb80f5182ed800fa16"
   end
 
   depends_on "pkgconf" => :build

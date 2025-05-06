@@ -14,6 +14,7 @@ class Terrahub < Formula
     sha256 cellar: :any_skip_relocation, sonoma:         "bf9b067ad0af2c0b17f573103306810203382430682d497201701f944d4394b8"
     sha256 cellar: :any_skip_relocation, ventura:        "bf9b067ad0af2c0b17f573103306810203382430682d497201701f944d4394b8"
     sha256 cellar: :any_skip_relocation, monterey:       "bf9b067ad0af2c0b17f573103306810203382430682d497201701f944d4394b8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "d910829fdd680a735d1683dd502ec0f52720d2b340c9ad435d69ec7f6acf5e22"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "4916e5335be420a247d7aa5785bb29ac1e17d3bd55015e3cb8d75e726b73d656"
   end
 

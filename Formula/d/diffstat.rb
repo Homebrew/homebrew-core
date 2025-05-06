@@ -1,8 +1,8 @@
 class Diffstat < Formula
   desc "Produce graph of changes introduced by a diff file"
   homepage "https://invisible-island.net/diffstat/"
-  url "https://invisible-mirror.net/archives/diffstat/diffstat-1.67.tgz"
-  sha256 "760ed0c99c6d643238d41b80e60278cf1683ffb94a283954ac7ef168c852766a"
+  url "https://invisible-mirror.net/archives/diffstat/diffstat-1.68.tgz"
+  sha256 "89f9294a8ac74fcef6f1b9ac408f43ebedf8d208e3efe0b99b4acc16dc6582c7"
   license "MIT-CMU"
 
   livecheck do
@@ -11,13 +11,13 @@ class Diffstat < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0d3103e7984058fc71ab1f3eb09cf3d29f98351f1ea34647afc446bbf78ead8f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "747e0b5ddbdcdd9b446bc71a56677e5edd7330216594aba4bae7a1b169b6683f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "ae91655c0d795f880f9c9c49dcfbedb5ee1fee98b5f90373875eb4e9b3768fda"
-    sha256 cellar: :any_skip_relocation, sonoma:        "cfde6a270ac292e75e80e2d699b14218afe2a3badd8e81d0ec69fd049372843f"
-    sha256 cellar: :any_skip_relocation, ventura:       "8350b4b38eac630b7013450248e2e86da255cd4f81bd4952066aaec9097a18b0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8d909a5e36f0daa1e2062fa9e612d1d2e99359362f79f0bb800e2513efd6869e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c4cb9055a8446d72ceafba4ae145efcba5bffd11d5c17f36cad97a76a1782d65"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "78c1cc462b3452c45dfc0a2ee6d512c399a11da0b6e303791ec0c565abf2eb45"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f8091ee39103e241afc375850844ef3d69dd366ff80b8e1b4946690f6b8be995"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "ff5cf1a420613275a0ddbbbeb9037a4a3751cc2374f72d8f77b769534a8aafd6"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7dd431cf2efacf1ec9b3f171413962f0cabe1cac57a5c0dc838740b19df9181f"
+    sha256 cellar: :any_skip_relocation, ventura:       "c693917f62ffb2ab2dd3b8fbee4c59d8acf0e1851777d42462432e8086c75139"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0d852a70b43e45bc2b4c7e6a175be6a363d34c13ae9bdb7d62f7bc7360cfcb24"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bbb2dfa4d3d9dfa85a897e3514edfd699c972200a758a998458569a7e369cac8"
   end
 
   def install
@@ -38,7 +38,7 @@ class Diffstat < Formula
       -  version '1.58'
       -  sha256 'fad5135199c3b9aea132c5d45874248f4ce0ff35f61abb8d03c3b90258713793'
       +  url 'https://deb.debian.org/debian/pool/main/d/diffstat/diffstat_1.61.orig.tar.gz'
-      +  sha256 '760ed0c99c6d643238d41b80e60278cf1683ffb94a283954ac7ef168c852766a'
+      +  sha256 '89f9294a8ac74fcef6f1b9ac408f43ebedf8d208e3efe0b99b4acc16dc6582c7'
     DIFF
     output = shell_output("#{bin}/diffstat diff.diff")
     assert_match "2 insertions(+), 3 deletions(-)", output

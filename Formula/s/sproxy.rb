@@ -21,6 +21,7 @@ class Sproxy < Formula
     sha256 cellar: :any_skip_relocation, ventura:        "ba5b54502dcbb781c47640129208bfbd794770262afbcc2909773f01f2938687"
     sha256 cellar: :any_skip_relocation, monterey:       "ba5b54502dcbb781c47640129208bfbd794770262afbcc2909773f01f2938687"
     sha256 cellar: :any_skip_relocation, big_sur:        "a0bbfcf15c625d3fc022b0d1960f05a05bbd2e0a7f21458f92dbd537cd0a614a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "8924c72b741d24b2ea9f0c59ce12725ef3ca551fd526ab48c77051c943afddce"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "4eefc2816eb2f502c05a7713f2d34efc56f81016e9fdef5c86299c04f69bd734"
   end
 
@@ -30,6 +31,7 @@ class Sproxy < Formula
   depends_on "libtool" => :build
 
   uses_from_macos "perl"
+  uses_from_macos "zlib"
 
   on_linux do
     depends_on "openssl@3"

@@ -28,6 +28,7 @@ class Slashem < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:    "5bac56b4e76ea1db5b5e211ac88c4f10c2fa8b179ada29512f41868af1669b3d"
     sha256 cellar: :any_skip_relocation, sierra:         "80a4df38057ec2bef889b92b4edfc80158add542a1bd9f1ca50ed8d39eb21e2c"
     sha256 cellar: :any_skip_relocation, el_capitan:     "3b0ec09db5b1e2abccc22d2cc9282de211d9a15e4d2d66c404f898af2768d1b3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "5e539a21570dc7e8141bdf68fcaf8dbce515fc6839e55e24a62a82b0362a8caa"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "03e6ce8d29f4ebd5eba336525f8d314b1f26c032d935389c704698f5881396f0"
   end
 
@@ -60,11 +61,16 @@ class Slashem < Formula
     # Fix issue where ioctl is not declared and fails on Sonoma
     inreplace "sys/share/ioctl.c", "#include \"hack.h\"", "#include \"hack.h\"\n#include <sys/ioctl.h>"
 
-    system "./configure", "--with-mandir=#{man}",
-                          "--with-group=#{Etc.getpwuid.gid}",
-                          "--with-owner=#{Etc.getpwuid.name}",
-                          "--enable-wizmode=#{Etc.getpwuid.name}",
-                          *std_configure_args
+    args = %W[
+      --with-mandir=#{man}
+      --with-group=#{Etc.getpwuid.gid}
+      --with-owner=#{Etc.getpwuid.name}
+      --enable-wizmode=#{Etc.getpwuid.name}
+    ]
+    # Help old config scripts identify arm64 linux
+    args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+
+    system "./configure", *args, *std_configure_args
     system "make", "install"
 
     man6.install "doc/slashem.6", "doc/recover.6"

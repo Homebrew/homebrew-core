@@ -12,6 +12,7 @@ class OcamlNum < Formula
     sha256 cellar: :any,                 arm64_ventura: "4c8ae18c3e506a523126dfbaa5c0e985403b3755605acd2958e77c8ae8b92ddb"
     sha256 cellar: :any,                 sonoma:        "893b09b47a9314c067180e6ed6aef8ee5409367b879b34c0bcfa9f2f4fb6dbbe"
     sha256 cellar: :any,                 ventura:       "8ac2491b750fcba45378a3078a59c946d05f770a97852e2f6ed300b47b91517f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "bea4a13f1bd4a051e1589226b5349defd7d7b61a37817e673c15edc56d9dccdb"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "db6ecc0fac0cfe98ec8caa2f97962d497d9e892aa9064a81490852555f65fc19"
   end
 
@@ -34,7 +35,7 @@ class OcamlNum < Formula
       s.change_make_var! "prefix", prefix
     end
 
-    system "make"
+    ENV.deparallelize { system "make" }
     (lib/"ocaml/stublibs").mkpath # `make install` assumes this directory exists
     system "make", "install", "STDLIBDIR=#{lib}/ocaml"
 

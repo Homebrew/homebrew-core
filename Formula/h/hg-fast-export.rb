@@ -3,24 +3,16 @@ class HgFastExport < Formula
 
   desc "Fast Mercurial to Git converter"
   homepage "https://repo.or.cz/fast-export.git"
-  url "https://github.com/frej/fast-export/archive/refs/tags/v231118.tar.gz"
-  sha256 "2173c8cb2649c05affe6ef1137bc6a06913f06e285bcd710277478a04a3a937f"
+  url "https://github.com/frej/fast-export/archive/refs/tags/v250330.tar.gz"
+  sha256 "1c4785f1e9e63e0ada87e0be5a7236d6889eea98975800671e3c3805b54bf801"
   license "GPL-2.0-or-later"
-  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "3317445f1426df1a1ab11123b3e7bc65e024def9e20f3a6ae6c2f584f6528ec7"
+    sha256 cellar: :any_skip_relocation, all: "b1030f2a360f970ad4d58c661adb4793be8e4abcf4f602e0d0e217a601542e0b"
   end
 
   depends_on "mercurial"
   depends_on "python@3.13"
-
-  # Fix compatibility with Python 3.12 using open PR.
-  # PR ref: https://github.com/frej/fast-export/pull/311
-  patch do
-    url "https://github.com/frej/fast-export/commit/a3d0562737e1e711659e03264e45cb47a5a2f46d.patch?full_index=1"
-    sha256 "8d9d5a41939506110204ae00607061f85362467affd376387230e074bcae2667"
-  end
 
   def install
     # The Python executable is tested from PATH

@@ -11,6 +11,7 @@ class Evince < Formula
     sha256 arm64_ventura: "d40fcb16a50d7af03d8f8405c7e8358fcc3447d1f5a2ab45caafffd5f86116bd"
     sha256 sonoma:        "5fc73ca3e812c7eca0efd9566d551e6f19ffc5d09bb42ad775063e58c9b45d4b"
     sha256 ventura:       "469e3e39a3cfe526672023f858709ef36a5c2e36e0f331f9edf7ef1af804d9a9"
+    sha256 arm64_linux:   "6eee002e41f96cacaaee4e67f504211042a179f247b8145e07d2a6671cae8ca0"
     sha256 x86_64_linux:  "76f12771c7c5d04c33729e069083608825ff10ef5af421837c4d540cc44eacf1"
   end
 

@@ -11,6 +11,7 @@ class Dexter < Formula
     sha256 cellar: :any,                 arm64_ventura: "6a409cba5aeaff176b666c1cd2e9b53deaa704b5a1b46a3fe697703d8df302bb"
     sha256 cellar: :any,                 sonoma:        "3b9d57da475b9026fc2e469f6a442d1acd744192e817fb46086def143d75b5b5"
     sha256 cellar: :any,                 ventura:       "f21626ffdfeb5712eee1d1d6d311eb29c1bb6bf5e15a74de726628b4204474be"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "20acd2b97f4698c0105d2dbcd5778f7adddb4336f9a1715911d2fc5e8bbda66e"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "c769be717ed914c7552d0aaccff2e9d53171f256ac7c9d9bbad0afa40b4bbaf8"
   end
 

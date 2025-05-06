@@ -1,8 +1,8 @@
 class Libfixbuf < Formula
   desc "Implements the IPFIX Protocol as a C library"
   homepage "https://tools.netsa.cert.org/fixbuf/"
-  url "https://tools.netsa.cert.org/releases/libfixbuf-2.5.0.tar.gz"
-  sha256 "f985827d543f4f8802d12740f576d232aef1a364bcc9d85ad0ca3fe9142c6ead"
+  url "https://tools.netsa.cert.org/releases/libfixbuf-2.5.1.tar.gz"
+  sha256 "e75a463855a3d8a6060860f6490e79dee3305e650bbb60111c4dae8e52cbdae7"
   license "LGPL-3.0-only"
 
   # NOTE: This should be updated to check the main `/fixbuf/download.html`
@@ -13,15 +13,13 @@ class Libfixbuf < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "de8ec946c4b02f477430189347b3c8b14367ac470f5e94dcb8ee68e0ef0ecd6d"
-    sha256 cellar: :any,                 arm64_sonoma:   "518869515bf5258d7fa1fbc4d5235ef2fcad2aa7eb54fdff01e2289ebb95c528"
-    sha256 cellar: :any,                 arm64_ventura:  "3b2990b0c53315f72e45461f9c2bcf5eec08ce9a8f371f5a0889661ee4b71235"
-    sha256 cellar: :any,                 arm64_monterey: "7a1dcbcf8d8d5023d69d7557cbf71de42fa7097a43f0e40992daf89960650670"
-    sha256 cellar: :any,                 sonoma:         "9579de64f32cfee3768108e137e39a5e024eede7e72aadad97236e8acbc07eb3"
-    sha256 cellar: :any,                 ventura:        "448c2587bfa6fe93bc09fd27002a4efa8eaa7f402bfce7aba40ec70c0c16c02b"
-    sha256 cellar: :any,                 monterey:       "34c5b4ec70085244ffd8273af2ba5f08f94856fb7eb7c17e672ad2a0e4c27734"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "6f762d72f73fb168fddc9b0eff2478ccc94479d5a90a14c002de6ac79a9b9393"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b2c6294855ef75ae5b347c818c9caf938640f7dc128a52fca9db6ed7b079c71b"
+    sha256 cellar: :any,                 arm64_sequoia: "eb0844f675d129e9c133bc28bbd5d9b1915b429f5f761094d3ff2db7563df0d6"
+    sha256 cellar: :any,                 arm64_sonoma:  "4966c36322bf9c69e915c226185d00499bd66e0499d42700c8079bbe4e9517a1"
+    sha256 cellar: :any,                 arm64_ventura: "6f143991654646e12feff3b8cd2f951e1ce21ce42c48b2093f5fb676d22b165e"
+    sha256 cellar: :any,                 sonoma:        "d68ce40ce5149760d24d0fb26511ec462d4491b9766dbfcd35afdde6bf365932"
+    sha256 cellar: :any,                 ventura:       "dce1cab17bef5b90dad6064628703f5c6d35ec630b2158b8d2dc5f8a347adbe4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "34bf31cf7ae49ee6cdc4d4fa074d35d68a567cdfa9d89fc7fe958e15eeeca51a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e2f2ea84ed0a6cfafd82cca320ae2626d9240b10265318eb26300b5e88ca6df3"
   end
 
   depends_on "pkgconf" => [:build, :test]

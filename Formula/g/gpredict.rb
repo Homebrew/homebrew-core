@@ -38,6 +38,7 @@ class Gpredict < Formula
     sha256 sonoma:         "1f22599c86203b19a4a41d0b99b8a149ba6a5453f77f870af3febc88b41b8086"
     sha256 ventura:        "e87506b7e96f33c83ba138514835c060ea7f8574a2c85547264c03fe666ae5bc"
     sha256 monterey:       "ba26824909be3fb95aceca85485c8e858071f1e0ad861c7c9e541630859a1dc4"
+    sha256 arm64_linux:    "e225f47753f56821f579153f77e91f03dce0150f9065bf2f4d962987eaaa7980"
     sha256 x86_64_linux:   "e81cbab517c5a422abe3f0cc1a2fdac16b9c6d118949d343dfd30cd4d5026e8d"
   end
 

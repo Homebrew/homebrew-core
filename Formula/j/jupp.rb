@@ -1,7 +1,7 @@
 class Jupp < Formula
   desc "Professional screen editor for programmers"
-  homepage "http://www.mirbsd.org/jupp.htm"
-  url "http://www.mirbsd.org/MirOS/dist/jupp/joe-3.1jupp41.tgz"
+  homepage "https://mbsd.evolvis.org/jupp.htm"
+  url "https://mbsd.evolvis.org/MirOS/dist/jupp/joe-3.1jupp41.tgz"
   version "3.1jupp41"
   sha256 "7bb8ea8af519befefff93ec3c9e32108d7f2b83216c9bc7b01aef5098861c82f"
   license "GPL-1.0-or-later"

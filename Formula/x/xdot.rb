@@ -15,6 +15,7 @@ class Xdot < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "8f3a6484db099186946f2e3fca16c51cd622e70030959554352b1128c1169d07"
     sha256 cellar: :any_skip_relocation, sonoma:        "8f3a6484db099186946f2e3fca16c51cd622e70030959554352b1128c1169d07"
     sha256 cellar: :any_skip_relocation, ventura:       "8f3a6484db099186946f2e3fca16c51cd622e70030959554352b1128c1169d07"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4b3962fef1f997c4e28a6ee0684728d9be91070c1ffee7e974dcabdf556839b1"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "f9784e3d92d41e7cc137ec42897898b98428120f7107e168ec24b8b97ea0f8fb"
   end
 

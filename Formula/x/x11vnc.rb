@@ -1,33 +1,19 @@
 class X11vnc < Formula
   desc "VNC server for real X displays"
   homepage "https://github.com/LibVNC/x11vnc"
+  url "https://github.com/LibVNC/x11vnc/archive/refs/tags/0.9.17.tar.gz"
+  sha256 "3ab47c042bc1c33f00c7e9273ab674665b85ab10592a8e0425589fe7f3eb1a69"
   license "GPL-2.0-or-later" => { with: "x11vnc-openssl-exception" }
-  revision 1
   head "https://github.com/LibVNC/x11vnc.git", branch: "master"
 
-  stable do
-    url "https://github.com/LibVNC/x11vnc/archive/refs/tags/0.9.16.tar.gz"
-    sha256 "885e5b5f5f25eec6f9e4a1e8be3d0ac71a686331ee1cfb442dba391111bd32bd"
-
-    # Fix build with -fno-common. Remove in the next release
-    patch do
-      url "https://github.com/LibVNC/x11vnc/commit/a48b0b1cd887d7f3ae67f525d7d334bd2feffe60.patch?full_index=1"
-      sha256 "c8c699f0dd4af42a91782df4291459ba2855b22661dc9e6698a0a63ca361a832"
-    end
-  end
-
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "9456fa709c106e9b1bd0501fa329ac203f4e1df4458cc73ce44a6dbde525b26c"
-    sha256 cellar: :any,                 arm64_sonoma:   "7173e891559711b0819828a51c0e0ba2a2759120b7a1fecabeb03bc0610b9d8a"
-    sha256 cellar: :any,                 arm64_ventura:  "149fbe8e1ec220543b848e416642d67c02c291dff1d92be07ab795c5dcff68ae"
-    sha256 cellar: :any,                 arm64_monterey: "1a1da7cf49c8db71624ab470a44a19fadeb7a2c7097aee491b84dbd00cf6eae2"
-    sha256 cellar: :any,                 arm64_big_sur:  "18957522ad8fcef3f0f402d9c83c0fcf7754af1f05a1319527c1794c59f333de"
-    sha256 cellar: :any,                 sonoma:         "5ff6c17ca26d4c50d47371f218696c2ee395ae57a5fe3458c1efb299998ca32f"
-    sha256 cellar: :any,                 ventura:        "885177de8737aa58f7af2bbe1321aab8c68280237f2236df74810f1d5122245c"
-    sha256 cellar: :any,                 monterey:       "825a2a9601050e1b2170f75f3a3b994262ff973dbcb98fa74155e1a8f5d80260"
-    sha256 cellar: :any,                 big_sur:        "1f3fcfd70a28c8af3b95460611f7960c4c3092e8faf564110cd509e2ff9237ff"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "e549d703b609767ec44c2f3b4c2ea2bcdabf1fe397942cbd8d4bfd308e9aabde"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "eccdb28862610ff2f7ab45c9fe0de824185981df75454c96fcd4f82532d11e79"
+    sha256 cellar: :any,                 arm64_sequoia: "04683ae07f04702dffa93bf7fda5c4019e61d64505539c712559ed4dbe82a41d"
+    sha256 cellar: :any,                 arm64_sonoma:  "dd9d309ac45e10b7fd969b4dd4d08a63612728ef746c3efffee2317b4c996425"
+    sha256 cellar: :any,                 arm64_ventura: "54c171880e9966130ce503f32af1ad3fb48175a86cfe7d07f05bb21a37fca4db"
+    sha256 cellar: :any,                 sonoma:        "88e64a8742c4ade347ddc88ccf385b94b02da30b6be1f90cfd9793ff4cfe421b"
+    sha256 cellar: :any,                 ventura:       "1a49795ee32fa6a062d2106375a0fc639c3498ab14042e5dd3a8e2af462b574e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a0f7c9f45cf87d7609f58dd039c0f0a8ef1c3cfe2eec0afcb5a6d817829b3f82"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "676b00ad2fdec853d0f1e29c3b31f33ec88be24b1ec75f1bbf05b4449d9146f4"
   end
 
   depends_on "autoconf" => :build

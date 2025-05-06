@@ -6,25 +6,6 @@ class Solana < Formula
   license "Apache-2.0"
   version_scheme 1
 
-  # This formula tracks the stable channel but the "latest" release on GitHub
-  # varies between Mainnet and Testnet releases. This only returns versions
-  # from releases with "Mainnet" in the title (e.g. "Mainnet - v1.2.3").
-  livecheck do
-    url :stable
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
-    strategy :github_releases do |json, regex|
-      json.map do |release|
-        next if release["draft"] || release["prerelease"]
-        next unless release["name"]&.downcase&.include?("mainnet")
-
-        match = release["tag_name"]&.match(regex)
-        next if match.blank?
-
-        match[1]
-      end
-    end
-  end
-
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_sequoia: "587663fffc9f10da1338bd74511ee9997dab9283353b6f1cc57dc52e5dedca0f"
@@ -35,6 +16,8 @@ class Solana < Formula
     sha256 cellar: :any_skip_relocation, arm64_linux:   "dd0f91388df10d9e4f452fa7a13070d2d8cbf0212474ad5074df19fe732bdc01"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "e327904665e09bb0beb049379e085cdf2c7ecfec1af44fdfd8eb60c664777a5a"
   end
+
+  deprecate! date: "2025-04-27", because: :repo_archived
 
   depends_on "pkgconf" => :build
   depends_on "protobuf" => :build

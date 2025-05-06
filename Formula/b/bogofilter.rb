@@ -5,6 +5,10 @@ class Bogofilter < Formula
   sha256 "3248a1373bff552c500834adbea4b6caee04224516ae581fb25a4c6a6dee89ea"
   license all_of: ["GPL-2.0-or-later", "GPL-3.0-or-later"]
 
+  livecheck do
+    url "https://sourceforge.net/projects/bogofilter/rss?path=/bogofilter-stable"
+  end
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "9cdd5e3131e6b0880369ac2070e25880f55225b18eb6750bbcf997ffe7864555"

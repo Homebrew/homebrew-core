@@ -33,6 +33,7 @@ class Httperf < Formula
     sha256 cellar: :any,                 ventura:        "3f61658586cbdac24c810c9b201d8054f9f800046a7ec1b6754e82e49be64244"
     sha256 cellar: :any,                 monterey:       "72bdd969d2e88750ea3827860143f05756fb0da35f9ce04d185ed9de0f42791f"
     sha256 cellar: :any,                 big_sur:        "a77143c2960957c7b998ef8259f23f7252264e297c1f8a7f812c7712eec756f3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "1b14593cb779357511b91b27d4de352324c2eafa8390353cdc7e8332ca230443"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "da0a7ad0ca9b357505cc3c26fa174dd7c4f289e2054e654eb82e2678aad8dc74"
   end
 
@@ -48,7 +49,15 @@ class Httperf < Formula
 
   def install
     system "autoreconf", "--force", "--install", "--verbose" if build.head?
-    system "./configure", *std_configure_args
+
+    # idleconn.c:164:28: error: passing argument 2 of ‘connect’ from incompatible pointer type
+    ENV.append_to_cflags "-Wno-error=incompatible-pointer-types"
+
+    args = []
+    # Help old config scripts identify arm64 linux
+    args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+
+    system "./configure", *args, *std_configure_args
     system "make", "install"
   end
 

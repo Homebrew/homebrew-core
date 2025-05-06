@@ -2,43 +2,36 @@ class W3m < Formula
   desc "Pager/text based browser"
   homepage "https://w3m.sourceforge.net/"
   license "w3m"
-  revision 8
   head "https://github.com/tats/w3m.git", branch: "master"
 
   stable do
-    url "https://deb.debian.org/debian/pool/main/w/w3m/w3m_0.5.3.orig.tar.gz"
-    sha256 "e994d263f2fd2c22febfbe45103526e00145a7674a0fda79c822b97c2770a9e3"
+    url "https://deb.debian.org/debian/pool/main/w/w3m/w3m_0.5.3+git20230121.orig.tar.xz"
+    sha256 "974d1095a47f1976150a792fe9c5a44cc821c02b6bdd714a37a098386250e03a"
+    version "0.5.3-git20230121"
 
-    # Upstream is effectively Debian https://github.com/tats/w3m at this point.
-    # The patches fix a pile of CVEs
+    # Fix for CVE-2023-4255
     patch do
-      url "https://salsa.debian.org/debian/w3m/-/raw/debian/0.5.3-38/debian/patches/010_upstream.patch"
-      sha256 "39e80b36bc5213d15a3ef015ce8df87f7fab5f157e784c7f06dc3936f28d11bc"
-    end
-
-    patch do
-      url "https://salsa.debian.org/debian/w3m/-/raw/debian/0.5.3-38/debian/patches/020_debian.patch"
-      sha256 "08bd013064dc544dc2e70599ea1c9e90f18998bc207dd8053188417fbdaeefb2"
+      url "https://sources.debian.org/data/main/w/w3m/0.5.3%2Bgit20230121-2.1/debian/patches/0002-CVE-2023-4255.patch"
+      sha256 "7a84744bae63f3e470b877038da5a221ed8289395d300a904ac5a8626b0a9cea"
     end
   end
 
   livecheck do
     url "https://deb.debian.org/debian/pool/main/w/w3m/"
-    regex(/href=.*?w3m[._-]v?(\d+(?:\.\d+)+)\.orig\.t/i)
+    regex(/href=.*?w3m[._-]v?(\d+(?:\.\d+)+(?:\+git\d+)?)\.orig\.t/i)
+    strategy :page_match do |page, regex|
+      page.scan(regex).map { |match| match.first.tr("+", "-") }
+    end
   end
 
   bottle do
-    sha256 arm64_sequoia:  "df1fa11c7bee916e98b1dee448030ab78a7ce622c1a3a1a3ef7937a5898ea3f5"
-    sha256 arm64_sonoma:   "efae67d8d635d8f05a27fc9ae4e75156bffa465828735428e3dfb6d1a117b6eb"
-    sha256 arm64_ventura:  "fc4a77c30411f61b24a69be7ac380d6f79d3e9617c47f18f9c26e9c7a5ae11ef"
-    sha256 arm64_monterey: "f987092472928a6f55bc65930ca911de4415f312cf9c9b8f3662baf4058b4b05"
-    sha256 arm64_big_sur:  "d777d1b1193a49785df6150d908e38db8b2de415432f4acc55a635be32e69f64"
-    sha256 sonoma:         "6a3667e99c6b8a5a0febbbe8567ed3a6a712d8421e34176cc2a51c7e20019fd0"
-    sha256 ventura:        "9403514e48aabc3e5ed768524465eafa7bb5b5f1f67f3a128fe98a1fbae4aaa8"
-    sha256 monterey:       "9e6a1fc7660ebab1bce04646cc625d107b43e0a5cba52c5b1f9868f56b4e4825"
-    sha256 big_sur:        "3e32fcd2f971f88a8dcac24702147ff5847afb329d9c54cadd40e9c102bcb3c5"
-    sha256 arm64_linux:    "8153cdf87230c974c302e3c1c8de717bbc95344be3e28fd8293f6a680b95256a"
-    sha256 x86_64_linux:   "1835ec7faed90c796e7290a5b6271dda1ac6b2bdb15ce577367852ad92681c39"
+    sha256 arm64_sequoia: "d43c6ea193e92ae3a7ff8c68d77dfa6b69b28695bf0ef4009c07a8b55049bbb0"
+    sha256 arm64_sonoma:  "7ebcfdfd3b2424232e38d4bb2df40b78aa189a5f9f59d7d95479a5c9b5504962"
+    sha256 arm64_ventura: "76450cc0ba39c902c03f3262950fc6fbd71ab37487d8b739d3c39294e08f269f"
+    sha256 sonoma:        "b832f5eced22941c1c3f44520dd6bc6f656d861c27eb52a942b93723df23d0da"
+    sha256 ventura:       "b0a1d6e3855af50f3d32878d2889fa99f281985bec224b18ce42e48d55df89a1"
+    sha256 arm64_linux:   "bf66af8f63d1faba8adeccf8539174f8cf1e40834068a57745ef7f8916694079"
+    sha256 x86_64_linux:  "08f462b37359e85d7d9628d5bfce123da1f7e28c1811157b3d485cb6424fff39"
   end
 
   depends_on "pkgconf" => :build
@@ -48,18 +41,10 @@ class W3m < Formula
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
-  on_linux do
-    depends_on "gettext"
-    depends_on "libbsd"
-  end
-
   def install
-    # Fix compile with newer Clang
-    ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1200
-
-    system "./configure", "--prefix=#{prefix}",
-                          "--disable-image",
-                          "--with-ssl=#{Formula["openssl@3"].opt_prefix}"
+    system "./configure", "--disable-image",
+                          "--with-ssl=#{Formula["openssl@3"].opt_prefix}",
+                          *std_configure_args
     system "make", "install"
   end
 

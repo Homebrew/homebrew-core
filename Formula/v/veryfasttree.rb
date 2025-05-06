@@ -1,8 +1,8 @@
 class Veryfasttree < Formula
   desc "Efficient phylogenetic tree inference for massive taxonomic datasets"
   homepage "https://github.com/citiususc/veryfasttree"
-  url "https://github.com/citiususc/veryfasttree/archive/refs/tags/v4.0.4.tar.gz"
-  sha256 "27c779164f4fa0c75897a6e95b35f820a2a10e7c244b8923c575e0ea46f15f6b"
+  url "https://github.com/citiususc/veryfasttree/archive/refs/tags/v4.0.5.tar.gz"
+  sha256 "e753c01555b3363747ea1d51248d691aa1e79d228cac187a6725ea8cd86ad321"
   license all_of: [
     "GPL-3.0-only",
     "BSD-3-Clause", # libs/cli11
@@ -11,14 +11,13 @@ class Veryfasttree < Formula
   head "https://github.com/citiususc/veryfasttree.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia: "3b4f10da88fbaf21f6082772ddc623d10f9cff34d3be95ac45924baf5c17769b"
-    sha256 cellar: :any,                 arm64_sonoma:  "ff5e59bfbcad12d6870b9409386bb11501d3713444863286c576abc8ebfac815"
-    sha256 cellar: :any,                 arm64_ventura: "3a1062d7ed565cb1429d559ed74b54473320305f26268bd76d2733121f2ff77d"
-    sha256 cellar: :any,                 sonoma:        "8d2e08a346280fa22e36641d702d1fc7feb5a95cd37d94b6e213171379c9a63e"
-    sha256 cellar: :any,                 ventura:       "f5c4898142258d22a2f9eb459596656de0a4f446a9c6fa68926b2d56b4b6cef5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "17517e0f776012479018748edccccc2042d9bc72b6e03943eac593a0e80720fe"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9055dc85be8ca2fc65b2f47f13c8bd6d38427f6ee8f92f1128e502cb538dc341"
+    sha256 cellar: :any,                 arm64_sequoia: "e377c3426836e11514282dfcd1fc2699fc6c25f721eaae8cf4f2bdf9ea41d0b1"
+    sha256 cellar: :any,                 arm64_sonoma:  "bbbb02a03c029e97e52372649ba3ed63176cfd17567eb6a58ae05307bc63db3c"
+    sha256 cellar: :any,                 arm64_ventura: "d78b15098c68bd0567765551e2cd6139df15b5e17426768b716ff8a8b9183a80"
+    sha256 cellar: :any,                 sonoma:        "b52e607f554c788ee123c30fdd3fe87a0be0cdd175374eee9e9e380866a0ce74"
+    sha256 cellar: :any,                 ventura:       "914f6187005dc9c904f502bc865f53beb0b041cd5c93f233c6b84b8688cf3483"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7b220e9b734bfd7db831ba87a603065222e23d7b72d485c3bfabb309e6117faf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f7a8c21c3829da9c21800b2107f95fccc5758bdf2a5c9cbe1546be455bb82b76"
   end
 
   depends_on "boost" => :build
@@ -36,6 +35,10 @@ class Veryfasttree < Formula
   def install
     # remove libraries that can be unbundled
     rm_r(Dir["libs/*"] - ["libs/CLI11", "libs/bxzstr"])
+
+    # workaround to use brew `robin-map` which needs C++17
+    inreplace "CMakeLists.txt", "set(CMAKE_CXX_STANDARD 11)", "set(CMAKE_CXX_STANDARD 17)"
+    ENV.append_to_cflags "-Wno-register"
 
     args = ["-DUSE_SHARED=ON"]
     args << "-DUSE_NATIVE=OFF" if ENV.effective_arch != :native

@@ -37,6 +37,9 @@ class Emacs < Formula
     depends_on "jpeg-turbo"
   end
 
+  conflicts_with cask: "emacs"
+  conflicts_with cask: "emacs@nightly"
+
   def install
     # Mojave uses the Catalina SDK which causes issues like
     # https://github.com/Homebrew/homebrew-core/issues/46393

@@ -1,21 +1,19 @@
 class Glbinding < Formula
   desc "C++ binding for the OpenGL API"
   homepage "https://glbinding.org/"
-  url "https://github.com/cginternals/glbinding/archive/refs/tags/v3.3.0.tar.gz"
-  sha256 "a0aa5e67b538649979a71705313fc2b2c3aa49cf9af62a97f7ee9a665fd30564"
+  url "https://github.com/cginternals/glbinding/archive/refs/tags/v3.5.0.tar.gz"
+  sha256 "bb39a97d5d94f70fe6e9c2152e0d8d760758bb031b352e1707fa90f00a43fc69"
   license "MIT"
   head "https://github.com/cginternals/glbinding.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia:  "19f89a79ed3b5e342660fcd1c0c700aa4efd16d4dd6fb1538814dbcfb820056c"
-    sha256 cellar: :any,                 arm64_sonoma:   "80956bf8a0370c6264bd39643f4eafb464b709fc4424f704271b709e3c5656b6"
-    sha256 cellar: :any,                 arm64_ventura:  "c9e26b3581c3e61c4ce3b18106e0d9fc2a92c1770822c3a93fcaad76fd3e7fcf"
-    sha256 cellar: :any,                 arm64_monterey: "785ae1ae8e1aee4cf8dcd8843ed7e105d1c354d555c2819efba3756bc6b41a56"
-    sha256 cellar: :any,                 sonoma:         "9db31e60950241feb36d36d5cdda92031e3eb66b547e2e00f9c53d487a918bf6"
-    sha256 cellar: :any,                 ventura:        "1499185669c882d9710c890a6448296ad79586ab0a7975fa6e496d083285e841"
-    sha256 cellar: :any,                 monterey:       "b902b69d802b33e8d7448c97fbd07d914d1075b28f6fba80bbaf56e7ebe0d9ac"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a6ac8e1d61c4806679d2d8cb4d305a8a62573db5ed6ff96b2fc0a4cc4dff567e"
+    sha256 cellar: :any,                 arm64_sequoia: "6798ca9c08e9ccc59eab53d4665284e48f7f2a997bc519ec0d963c85a12f9db2"
+    sha256 cellar: :any,                 arm64_sonoma:  "4f7d37307826d7a2109acd928b492a5ce909452d34b721580f83f44861875cc7"
+    sha256 cellar: :any,                 arm64_ventura: "5b83488e93d023db298f1e2e045c6a330c1ac7324672b5766b368caeea00b7c5"
+    sha256 cellar: :any,                 sonoma:        "63bf53958290dccffdb8ab55ceaf14491f10f2d8ab8e7225e56d3fa7f79f3c36"
+    sha256 cellar: :any,                 ventura:       "1f7649a5e986c147c1d290c72e1b79d91168266bbba58be9b1005880885293ec"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0d4419c9275044ca9857a4208c2777c100aa6288e7b14febf2d8beab924233a1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "add170cb3bec049265b779eb0bb602dd60d83d011887efdb21c8d47406a75c78"
   end
 
   depends_on "cmake" => :build

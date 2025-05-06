@@ -13,6 +13,7 @@ class Topfew < Formula
     sha256 cellar: :any_skip_relocation, sonoma:         "6fa90b99c1b653a0c80c0f0468930f89ca1c3e50ab5927ddb38ff2f015f4e7b3"
     sha256 cellar: :any_skip_relocation, ventura:        "6fa90b99c1b653a0c80c0f0468930f89ca1c3e50ab5927ddb38ff2f015f4e7b3"
     sha256 cellar: :any_skip_relocation, monterey:       "6fa90b99c1b653a0c80c0f0468930f89ca1c3e50ab5927ddb38ff2f015f4e7b3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "342f33c16251a92b7b5ebf03802f9c005deff56d61c1a00cdcdc7c4b8289c5d0"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "4dec313f97c765887b956f178a9794d411e67040886de5583bf3f7be97a263aa"
   end
 

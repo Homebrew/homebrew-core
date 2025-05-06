@@ -17,6 +17,7 @@ class OpensearchDashboards < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "95d945ea43dec1783d7bdc106aed4b69700c5180d6e9226b83e424d29d13c8d9"
     sha256 cellar: :any_skip_relocation, sonoma:        "69656dbbd31c1c65560db170f3fd53f80600df218b94b49694a6c9e0ef864e7d"
     sha256 cellar: :any_skip_relocation, ventura:       "69656dbbd31c1c65560db170f3fd53f80600df218b94b49694a6c9e0ef864e7d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7b6abff88ff2905b620ba16d9c8040074e8291b92fb71816a7f128eb954fb072"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "5dadc59e74bce5e73e3a3b628b96186912e52bd9f32998d8437441ebeef72258"
   end
 

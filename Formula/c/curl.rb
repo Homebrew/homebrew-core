@@ -3,11 +3,11 @@ class Curl < Formula
   homepage "https://curl.se"
   # Don't forget to update both instances of the version in the GitHub mirror URL.
   # `url` goes below this comment when the `stable` block is removed.
-  url "https://curl.se/download/curl-8.12.1.tar.bz2"
-  mirror "https://github.com/curl/curl/releases/download/curl-8_12_1/curl-8.12.1.tar.bz2"
-  mirror "http://fresh-center.net/linux/www/curl-8.12.1.tar.bz2"
-  mirror "http://fresh-center.net/linux/www/legacy/curl-8.12.1.tar.bz2"
-  sha256 "18681d84e2791183e0e5e4650ccb2a080c1f3a4e57ed2fbc2457228579d68269"
+  url "https://curl.se/download/curl-8.13.0.tar.bz2"
+  mirror "https://github.com/curl/curl/releases/download/curl-8_13_0/curl-8.13.0.tar.bz2"
+  mirror "http://fresh-center.net/linux/www/curl-8.13.0.tar.bz2"
+  mirror "http://fresh-center.net/linux/www/legacy/curl-8.13.0.tar.bz2"
+  sha256 "e0d20499260760f9865cb6308928223f4e5128910310c025112f592a168e1473"
   license "curl"
 
   livecheck do
@@ -17,13 +17,13 @@ class Curl < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia: "75de4d84a396868c3d3d54e46241fb40d7875ef9fc09ad35e718a666167505df"
-    sha256 cellar: :any,                 arm64_sonoma:  "e503e72b7abf7710b3ba4e9b7d7e157e88d3d64291d9cb2b8a3048976a6cd9b7"
-    sha256 cellar: :any,                 arm64_ventura: "f6eb860f4682ca3b7a179900c4dfc26d478a8d6e034037cbff6e720f32868fc1"
-    sha256 cellar: :any,                 sonoma:        "548929dc8ff10764399f0395a68ac7093988e3db91d7a8a489cb14d2190ac550"
-    sha256 cellar: :any,                 ventura:       "bdf9ac1b882c1f1ede2fbd95ed66b6b96b6292b71ae44c758ee94edfbfe2dbdf"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "54ec51183da94719359b83ba3c362658d79253401f7e98508a14df8f0a9bec82"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "000fcb36884bef88b07da1e2ae01370215b746a02d345a9c83d83e203fb2c569"
+    sha256 cellar: :any,                 arm64_sequoia: "71f23540167a8ab38a56ae1ec35b12f726765d6706602e93efdaad31a99bf01d"
+    sha256 cellar: :any,                 arm64_sonoma:  "e0d632af6097f17ca1d10d2cbe63f43fdf2dd58aa1a36a6e8cad11e7f72159a5"
+    sha256 cellar: :any,                 arm64_ventura: "416ee6d14ce87952b11e325f9e320c068b657e3b5099ba50a34e7f5bbc68d634"
+    sha256 cellar: :any,                 sonoma:        "49161bfb410f5a2f585256b452f9252319064f633789109f7f53941b28816b7b"
+    sha256 cellar: :any,                 ventura:       "d6a522ebfb6b2b64f03911465d16ba15d4ce6b1e68d5cb5820c245c4f6ef8f1f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "420cec3c2e6f55105664b0074c49119f736621646ca522fae976cbe759667a8b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9c420f63845b2ed7c29f089cdb84981134173dab3b89b8e6c7b06f22630dcbec"
   end
 
   head do
@@ -46,10 +46,22 @@ class Curl < Formula
 
   uses_from_macos "krb5"
   uses_from_macos "openldap"
-  uses_from_macos "zlib"
+  uses_from_macos "zlib", since: :sierra
 
   on_system :linux, macos: :monterey_or_older do
     depends_on "libidn2"
+  end
+
+  # Fixes failure to download certdata.txt due to a redirect
+  patch do
+    url "https://github.com/curl/curl/commit/eeed87f0563d3ca73ff53813418d1f9f03c81fe5.patch?full_index=1"
+    sha256 "f7461a8042ca8ef86492338458ccd79ee286d17773487513928d7ed6ae25818c"
+  end
+
+  # Fixes build on macOS 10.12 and earlier
+  patch do
+    url "https://github.com/curl/curl/commit/d7914f75aa8ecdd68cdbb130c1351a7432597fe4.patch?full_index=1"
+    sha256 "2ba45be5c9238abc914c2a47cd604cbd08972583b310c9079b7b7909b352001b"
   end
 
   def install

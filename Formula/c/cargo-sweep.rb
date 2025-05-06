@@ -28,8 +28,8 @@ class CargoSweep < Formula
   test do
     assert_equal "cargo-sweep #{version}", shell_output(bin/"cargo-sweep -V").strip
     ENV.prepend_path "PATH", Formula["rustup"].bin
-    system "rustup", "default", "beta"
     system "rustup", "set", "profile", "minimal"
+    system "rustup", "default", "beta"
 
     crate = testpath/"demo-crate"
     mkdir crate do

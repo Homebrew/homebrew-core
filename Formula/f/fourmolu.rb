@@ -12,11 +12,15 @@ class Fourmolu < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "e9441f01027d37ddf2e858a4de858b581c4c5dfc4b2d725b54d6bdc662c38d6f"
     sha256 cellar: :any_skip_relocation, sonoma:        "e781261155de2f1e7380503ff6e11113df11fa570538e653e5c40d8ecb14ccf5"
     sha256 cellar: :any_skip_relocation, ventura:       "4a5f366a75f763b629a4544fa762cabeac3dae37194ab25987e782bd23eb797e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1ae06accc25d07d09c47ce4fdf24f10a7c08ea0a0f6f1b0a2e45cf2dda5c63ab"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "47cee8a9a89a790eddb07bdf4aebe741240a25ac37fed400dbd7c69f94510dec"
   end
 
   depends_on "cabal-install" => :build
   depends_on "ghc" => :build
+  depends_on "gmp"
+
+  uses_from_macos "libffi"
 
   def install
     system "cabal", "v2-update"

@@ -5,14 +5,16 @@ class Healpix < Formula
   version "3.83"
   sha256 "8876c18efc596fd706b2a004ac15f2fb60b795f2db6fbabea9d8ccf549531dda"
   license "GPL-2.0-or-later"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "1039b88665f8c877915742a039d606474b18a227399cfe55d19b1214e8f2c9ec"
-    sha256 cellar: :any,                 arm64_sonoma:  "26499b8b934a6b4325e443c4082ed15bfdc68d6cbc2cb7f68b218e3fc863c56f"
-    sha256 cellar: :any,                 arm64_ventura: "6c0c6ebddf9ff17ee610cbf4329f9d89accc757e0c7fe08e1d145d2bcf366dcf"
-    sha256 cellar: :any,                 sonoma:        "f1152df831ae5306a286090a396399c4925971c524e894e2f547307a69189a4a"
-    sha256 cellar: :any,                 ventura:       "bf98e96be30ec74832e74d9e81e0ba27178072ac4502d5d24995cc5f8c11b900"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "190d793c48305bbaf8bc6f4e340dbd2ae8f7c26e634d81608738f658bfd9f65b"
+    sha256 cellar: :any,                 arm64_sequoia: "00a065c336cdb31ca6f06b99b478f0b287b63a4f1ded2042c3c73520e1fa683b"
+    sha256 cellar: :any,                 arm64_sonoma:  "e1fee5370b52292ae8ac97fff082aa5556b77668a786ee8da2145131ea74095f"
+    sha256 cellar: :any,                 arm64_ventura: "e1f000bb22bda5eaa5646998cc34accd8776a7f5dbc86bce1b84060268210c1e"
+    sha256 cellar: :any,                 sonoma:        "43e79fede218b1b9a0c38a6b385d5eca84e3b641d5baffc0a0b08312712f5531"
+    sha256 cellar: :any,                 ventura:       "982e2549856517eab2db91f0d842b9ee7a869f29e9b2651ac76444810325ef77"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "709088c5a4b411ce2c24096ffe11fe947933eaa30dc253ccf44d4c95802a1a5c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "22ff195a45c8dad505f4db28341c4caa459228bd689cb68700ad0664210af5e7"
   end
 
   depends_on "autoconf" => :build

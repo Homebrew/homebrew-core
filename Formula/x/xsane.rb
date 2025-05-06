@@ -19,6 +19,7 @@ class Xsane < Formula
     sha256 sonoma:         "13df5fed03ac7d42542000ac00160e78ccb95e79877426719f51c27d38d888e4"
     sha256 ventura:        "7f62506c8cdd4ed11beaaa735d3d9d49b034fd9b22595b58c1437bca0fb44390"
     sha256 monterey:       "be01888247a3d7e510e17a484822c170dd3b7159eb97a73c2dd635a017a199be"
+    sha256 arm64_linux:    "7b14c66ec45e121d52e56aa03b84ad17e05537e1b7946f24cd0ea77124b3ef2e"
     sha256 x86_64_linux:   "38f48e2fb08a821089e4419e0b0a6d6994a9e3d1faa009e3319107a4b393af03"
   end
 

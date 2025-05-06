@@ -19,6 +19,7 @@ class GtkVnc < Formula
     sha256 arm64_ventura: "69e94775e32d33f8163d56fd7c07e82dc420a20243a9a43ae1789e6fc85060b1"
     sha256 sonoma:        "0d033e153eda743deb33774cce0ee4c7bc62adac58d207791938c5137b296bb5"
     sha256 ventura:       "fcc58bb4a4cf61e92eae7caece5eb1b6e0cba0810a88e27e9c8a3acdbd38d11b"
+    sha256 arm64_linux:   "f028be663ad772594ce686693d21b3a9db365b9e794ddcb51ef13c8c760d2f99"
     sha256 x86_64_linux:  "24f2a0271895b80c2afacd6b00030879f0d04869b506c773e7688a5c16a12d32"
   end
 

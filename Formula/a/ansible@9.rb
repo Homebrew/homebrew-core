@@ -13,6 +13,7 @@ class AnsibleAT9 < Formula
     sha256 cellar: :any,                 arm64_ventura: "d8eadf2aeaf60993f490210e225f19c6a0a7490434d47a15978c9fb7bb1022a3"
     sha256 cellar: :any,                 sonoma:        "285d0bf9d99011996da135b3b1aa8e48a172552854d67a2d8ba3289d26ee5d11"
     sha256 cellar: :any,                 ventura:       "57a8fdb4346d739444f5799480c9ce0d7b7dd364d274968dd9103d3f051446ac"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e45d22caa74bc699b3bb776e2e77d4f651b3c0a02c7182c777571b8336271342"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "00f6850d17d9fcfd5ba2ce658fcc34eb2e353f72a22fc71837aaaf8f13739b7f"
   end
 
@@ -56,6 +57,12 @@ class AnsibleAT9 < Formula
   resource "apache-libcloud" do
     url "https://files.pythonhosted.org/packages/1b/45/1a239d9789c75899df8ff53a6b198c1657328f3b333f1711194643d53868/apache-libcloud-3.8.0.tar.gz"
     sha256 "75bf4c0b123bc225e24ca95fca1c35be30b19e6bb85feea781404d43c4276c91"
+
+    # Backport newer setuptools/wheel version
+    patch do
+      url "https://github.com/apache/libcloud/commit/a2114923adcaee6b022b43410db59df5d7e53c26.patch?full_index=1"
+      sha256 "b2b07919f7edbc346a16cfe8571ddbfb232e2b33ed32be18bf85e9ac4ec24d30"
+    end
   end
 
   resource "autopage" do

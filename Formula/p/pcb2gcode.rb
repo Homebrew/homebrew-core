@@ -4,16 +4,16 @@ class Pcb2gcode < Formula
   url "https://github.com/pcb2gcode/pcb2gcode/archive/refs/tags/v2.5.0.tar.gz"
   sha256 "96f1b1b4fd58e86f152b691202a15593815949dc9250fab9ab02f2346f5c2c52"
   license "GPL-3.0-or-later"
-  revision 8
+  revision 9
   head "https://github.com/pcb2gcode/pcb2gcode.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:  "c29b1146f609eb8cdd430d11432024ca58f6e1f652a94c22d989ba7f1859751a"
-    sha256 cellar: :any,                 arm64_ventura: "1bd775f10b1fcec13597b9fe2f26858ba9b22df4015bb6f0f633b760c1f52b70"
-    sha256 cellar: :any,                 sonoma:        "c60f05e50ccb6cf55ab4711d22650e036c53d914c73df39d60e65d3bf8245e28"
-    sha256 cellar: :any,                 ventura:       "b8c036923b52057524e833672a896936c0732d564390807c5b21dc7dc0bea8e0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5b96a45a2012e92fcbd9263d3a1e8e1cf7106e98347b3e63b0025fa9df9ab58e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3637e073b135195ec18571de3119125e82dd8027252bb14aa6b01622f1a47544"
+    sha256 cellar: :any,                 arm64_sonoma:  "b0c34ab4eeed7f51c74bda44421ef4a5b56b4c5916498de6253b6bf581a39664"
+    sha256 cellar: :any,                 arm64_ventura: "8fa1390aa15ea9ef167594ca339f0f3687aa1dcce8f91b0eee0cf779a5a1f70f"
+    sha256 cellar: :any,                 sonoma:        "635a5ed1cdbbfe328708eee192e6702403a538065f40eab9db06d77d13a85849"
+    sha256 cellar: :any,                 ventura:       "376e08e44994e602079a27d5253f9b5104486d4396d564a365b26dca7cd92faf"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "32fa3e537d38d72f38ce03f848d8c181fb4fd656f805b3b22fc128a5af658622"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fb3d914b7ec389c946a1f7e22b3ca190895798e029b1438276d9acc59cc917d7"
   end
 
   depends_on "autoconf" => :build

@@ -5,6 +5,7 @@ class Jsonpp < Formula
   sha256 "dde8ea9b270a79cd2b2f40824f89abc5270bd360122d87ab04b4361c0015d941"
   license "MIT"
   revision 1
+  head "https://github.com/jmhodges/jsonpp.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "fee3f13de44648f26cf9c2928e2c0908117749ebed6265109b099c1259d7af2c"
@@ -21,6 +22,7 @@ class Jsonpp < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:    "d81995103192bb58f66d7089939eb6682f117a7044d3a84804db62b4c31a3c81"
     sha256 cellar: :any_skip_relocation, sierra:         "219f8a6bfdf1d0e8435fa1c1fdf0cc22b91cae8ec7d62581d312927fabcf9388"
     sha256 cellar: :any_skip_relocation, el_capitan:     "3161f55711eea589c5036078fbf3a5df47484767f025adda7c0692d4dda5f2b4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "064faa34fd4233b2a5f5cde23b7fb616c52fda23154de729e38cdd71a04bdb13"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "9ce50b5e577a2ed5e00005a6e629b68715d30bbe5a5ea86fb68bcf7702e436eb"
   end
 

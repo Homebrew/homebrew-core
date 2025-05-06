@@ -1,18 +1,18 @@
 class LuckyCommit < Formula
   desc "Customize your git commit hashes!"
   homepage "https://github.com/not-an-aardvark/lucky-commit"
-  url "https://github.com/not-an-aardvark/lucky-commit/archive/refs/tags/v2.2.4.tar.gz"
-  sha256 "48652d8016f9584840783cd7a98f0023134e9e38ec948207271d7f7dbc478f05"
+  url "https://github.com/not-an-aardvark/lucky-commit/archive/refs/tags/v2.2.5.tar.gz"
+  sha256 "cab69b87afac8b2e8db3949397695809977199ccc4894b8af53e59da7f917126"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b9409afd283e5b2003020c3c1ba4835800ed6aeac9086caea545fee380e55514"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c446995ddbb07b918dc1f5740b829fe8a8144a99a5a9202f2d56bfd6a5fecd36"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "e16c7e01ed3ee28ba540cac685fa5841431c3baebbf966a14e4c9ce01c9a04ed"
-    sha256 cellar: :any_skip_relocation, sonoma:        "eadab6dbb7ff27594d7e7f91477d00362807694120914b1f795143c25805d317"
-    sha256 cellar: :any_skip_relocation, ventura:       "4b801b069b937283e115c280e9fba092a45aaaa4412bbb278925900756813b81"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "815cf77c9bad189cbbc7db3c20c8004bf34295cfcea87eaf639c44f2e1f73cc1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "45322d43c334601cd776812b1b3269f6e3ff7cf28f43ca354f199d9e607f9ebc"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c93d4a4678944faa2b8d4a7144081fbb2e58cb2fd90a9738f955f257ad604d1f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4df456578bbb007849607cecb96e916bc4df5201846a2ea5b57cc6cf033c0250"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "eabaed3df8acebb03dfc099f24ab40d7a070346c5b9d926bb9a4cf8afca6987b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "1cad169a029b5a10886af7b82d32f3a353df1ffdb4c253feff12fb99ed3efcbf"
+    sha256 cellar: :any_skip_relocation, ventura:       "ddc33a6a32fa743b4a6137716900a09736fa291bbdff36799637050d625e06d8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1f1b4db17c27f0b29b0aa25395e3849f2869ad538371a813c695b794a4dc4257"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "71e04671feeb1d045a3eb1ddc47ff6f4b765b0f5f4512b6e975a3bb8be79de6a"
   end
 
   depends_on "rust" => :build

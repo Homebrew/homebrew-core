@@ -22,6 +22,7 @@ class Bonniexx < Formula
     sha256 cellar: :any_skip_relocation, big_sur:        "75e1876579c6638c1e4c0509af5c76950ae379b034e6a051d091593cb08c1ddd"
     sha256 cellar: :any_skip_relocation, catalina:       "83df0761686086ae64a3c08433613908d9c39d85daa7f81011b5bd70d2d5eb3d"
     sha256 cellar: :any_skip_relocation, mojave:         "c503806d5f1ad449a6943275fa93a3930fbbd7cd63b31ee873590d0219ded5b9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "d88efefa2ddd179f4ba11870b49a1c4166b44be03930ed9b801c070dd6f86ceb"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "f0418a37628a09a44eeb05aecca9b6fc6149dcfdf40729d4a41f754f030fac51"
   end
 
@@ -35,6 +36,7 @@ class Bonniexx < Formula
   end
 
   def install
+    ENV.cxx11
     system "./configure", "--disable-debug",
                           "--prefix=#{prefix}",
                           "--mandir=#{man}"

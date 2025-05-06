@@ -25,6 +25,7 @@ class Camellia < Formula
     sha256 cellar: :any,                 high_sierra:    "fc8cb8a0f24226fd1f93b32192f290107d44283196e1edb48458b184597aa729"
     sha256 cellar: :any,                 sierra:         "b4783ca8cf782a63d09daa1ff363c2fb4c4ea6dd4e75b8beb29167f536227730"
     sha256 cellar: :any,                 el_capitan:     "a80b2f52fd6811c5c4017bceac418d241c30342c93c1e9ae8911ed5274630e9c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "54fa3c308a4e301534567e1e0cf9a35c303c271ee8f213b9a4321b944d373c8e"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "3eaafd00c8c6f8addff45fa1be46912ec2b411552450c48dbe09795c1ec7e370"
   end
 
@@ -37,8 +38,11 @@ class Camellia < Formula
                 "#include <stdlib.h>\r\n#include <stdio.h>\r\n"
     end
 
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    args = []
+    # Help old config scripts identify arm64 linux
+    args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+
+    system "./configure", *args, *std_configure_args
     system "make", "install"
   end
 

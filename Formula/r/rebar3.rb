@@ -18,6 +18,7 @@ class Rebar3 < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "daaf2e1860ada7bcaff3c59dd161611f4af4298893ee19d6b543523eecc060fd"
     sha256 cellar: :any_skip_relocation, sonoma:        "c53cf3cf89d153a1c22c75077eb23e917806af58aac6ab58053537227a438970"
     sha256 cellar: :any_skip_relocation, ventura:       "96c91363e3a00fc8b4cf1187601941bda4dff426e3e79f06f924225ea6de1c2f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "75743131dcfb3133c3b5e2e18197c749633974b348a082888f007e227c43d8c6"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "33ffd13dc4476f1006a2b10b00fbdc818178f902299d0384a98362c929268954"
   end
 

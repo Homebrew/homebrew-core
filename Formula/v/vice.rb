@@ -17,6 +17,7 @@ class Vice < Formula
     sha256 arm64_ventura: "076944a3a5d61b727aaa53724661d96a975f22092da741c06db0ab0a4d2a8adc"
     sha256 sonoma:        "214a47453e12ef15db2adc4cece96aca944ae2dc4b785166bf5e6dc96323d621"
     sha256 ventura:       "550d23369b47768525c093b7b7e7f7d737488060bef4e69919685a1dfdaf5c56"
+    sha256 arm64_linux:   "ab0b2b09715f4ef67be4be7dbf0eacea5a49211cfa2b7704759c0be64e3b6229"
     sha256 x86_64_linux:  "752515da593a5bbddd5ab728ecba2bab8a5ae79ec449cd5471de3c2854ce893e"
   end
 

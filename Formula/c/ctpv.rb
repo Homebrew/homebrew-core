@@ -15,6 +15,7 @@ class Ctpv < Formula
     sha256 cellar: :any_skip_relocation, ventura:        "885b4e98aa3ba62f36f7924dd6a4006aaf873bed1c5aeb30fc6599413e48ca03"
     sha256 cellar: :any_skip_relocation, monterey:       "7749f4c22614e7fbb0724661417495a36559551debb40f76e5e85cf507d2a86b"
     sha256 cellar: :any_skip_relocation, big_sur:        "13ba1dd46f7dd11e21a82467ed1fd1640308482e789b8236fffe612e0f4280b7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "cc5045108cb40264a0d6870ca7c21f4d32be00b365d47af2d659523a46406f84"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "e8c9583347b626f784679ab68dccf83766e98d58b0fb1357a4852271f92a1161"
   end
 
@@ -27,6 +28,9 @@ class Ctpv < Formula
   end
 
   def install
+    # Workaround for arm64 linux, issue ref: https://github.com/NikitaIvanovV/ctpv/issues/101
+    ENV.append_to_cflags "-fsigned-char" if OS.linux? && Hardware::CPU.arm?
+
     system "make", "PREFIX=#{prefix}", "install"
   end
 

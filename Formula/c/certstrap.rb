@@ -4,6 +4,7 @@ class Certstrap < Formula
   url "https://github.com/square/certstrap/archive/refs/tags/v1.3.0.tar.gz"
   sha256 "4b32289c20dfad7bf8ab653c200954b3b9981fcbf101b699ceb575c6e7661a90"
   license "Apache-2.0"
+  head "https://github.com/square/certstrap.git", branch: "master"
 
   livecheck do
     url :stable

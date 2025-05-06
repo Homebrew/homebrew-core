@@ -25,6 +25,7 @@ class Redstore < Formula
     sha256 cellar: :any,                 high_sierra:    "fbd9814ed5e35fb1c964d6f581edebfc35e7d35cba0b89ea735247131c5559ac"
     sha256 cellar: :any,                 sierra:         "e507eab072e33f0cee1ca08efb51ab06d65cee3a64248ec6badbd4f601f5c674"
     sha256 cellar: :any,                 el_capitan:     "5ae64e4a536011ef3f68d2e8b4253624f60995025064de38f3a38308dd005421"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "67a498c2f25e82a164b7d5191d8824ca398c2ad7f774eb6971de1855a7712122"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "f459a58381dd6067d033bb20eb4101af9136f5260796bd2daee07cf6365c3bde"
   end
 
@@ -39,7 +40,11 @@ class Redstore < Formula
 
     ENV.append "CFLAGS", "-D_GNU_SOURCE" unless OS.mac?
 
-    system "./configure", *std_configure_args.reject { |s| s["--disable-debug"] }
+    args = []
+    # Help old config scripts identify arm64 linux
+    args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+
+    system "./configure", *args, *std_configure_args
     system "make", "install"
   end
 

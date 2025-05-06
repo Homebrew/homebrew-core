@@ -1,8 +1,8 @@
 class PcscLite < Formula
   desc "Middleware to access a smart card using SCard API"
   homepage "https://pcsclite.apdu.fr/"
-  url "https://pcsclite.apdu.fr/files/pcsc-lite-2.3.1.tar.xz"
-  sha256 "a641d44d57affe1edd8365dd75307afc307e7eefb4e7ad839f6f146baa41ed56"
+  url "https://pcsclite.apdu.fr/files/pcsc-lite-2.3.3.tar.xz"
+  sha256 "cdff7d7153a0b37aa74e26dfec89ec7dc5c5286aa21b91b903e38739d227e8e7"
   license all_of: ["BSD-3-Clause", "GPL-3.0-or-later", "ISC"]
 
   livecheck do
@@ -11,13 +11,13 @@ class PcscLite < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia: "3ca118a06f993b4e816cb413ce785e9de04ac644935ef249537ad072f0870a36"
-    sha256 cellar: :any, arm64_sonoma:  "b49c4bd9527a8160c09e3c9484c6b0728517338c69ce4177b17062c2bb7b9491"
-    sha256 cellar: :any, arm64_ventura: "6705e2237d956fc2efb95afde3bfac55ede429a1d3f36566a5e976cbd588de90"
-    sha256 cellar: :any, sonoma:        "2420823643965f84f9b96f98c2892fa4eb4277d573d0a2363ee580fef9182929"
-    sha256 cellar: :any, ventura:       "7773c59109c4cecd12b1bd9cb447254d2e7d8d483117169a6bde6fd8eca8bfbd"
-    sha256               arm64_linux:   "1c54528550e54e071df31835917372baccc5cee6426adca5d3567dcfb8abef56"
-    sha256               x86_64_linux:  "06be6fce142f34e1b661bde9814ce8cbf718300754fa586c5e5ca7a543dc0fa3"
+    sha256 cellar: :any, arm64_sequoia: "f95249f28b4c8f7c3cc0a5e271bacfa26f6e1a496604daad4b08085b6c472bdc"
+    sha256 cellar: :any, arm64_sonoma:  "6a8a48b4a42c96852e25c8cef498c0c69fd81d88870905f843950c046ba27782"
+    sha256 cellar: :any, arm64_ventura: "cd73572b68d633209717cdf8b804b5bbd099a74f36d330e8e96e09286e45430f"
+    sha256 cellar: :any, sonoma:        "6b85920c94e2410027d9e6c32a6c0260ba41bd0edf673e681177c87435650fb7"
+    sha256 cellar: :any, ventura:       "4e5b67b3d0b3cbd84386e8d1c8032c8fb92406e41f9f6a26411028bfa5a831f1"
+    sha256               arm64_linux:   "7b3bce7cfc254db6c5aced0f48a73daae93a0082f01c1db1aadb828f681c8733"
+    sha256               x86_64_linux:  "3264145e978cc211a9c213676ddbe44f8b890296d5aded28c9f8e247bd321c6b"
   end
 
   keg_only :shadowed_by_macos, "macOS provides PCSC.framework"

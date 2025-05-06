@@ -14,6 +14,7 @@ class Shtools < Formula
     sha256 cellar: :any_skip_relocation, sonoma:         "5a5d2f8bd23c91d1108f19d9180df102f7ebac81faf440c4c1e6ded69b7c13f9"
     sha256 cellar: :any_skip_relocation, ventura:        "acebb261a0ceef034d6f243b3b146d29a4ed67de632b8f815b892fa9e276bde8"
     sha256 cellar: :any_skip_relocation, monterey:       "3015528ef552810ad555a4d935b19961efe058ceb057995a42e2e36b59207352"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "8539b8bc1f073942972d36dc4488ddd549d00f2568e965be281e3183eaa74fec"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "5d943e8846fb394abe3b7689588fa59adc91b6ed0b56cf7ce67df70d09a650aa"
   end
 
@@ -26,6 +27,9 @@ class Shtools < Formula
   end
 
   def install
+    # Workaround for arm64 linux, https://github.com/SHTOOLS/SHTOOLS/issues/507
+    inreplace "Makefile", " -m64 ", " " if OS.linux? && Hardware::CPU.arm?
+
     system "make", "fortran"
     system "make", "fortran-mp"
     system "make", "install", "PREFIX=#{prefix}"
@@ -33,10 +37,11 @@ class Shtools < Formula
 
   test do
     cp_r "#{share}/examples/shtools", testpath
+    m64 = "-m64" if Hardware::CPU.intel?
     system "make", "-C", "shtools/fortran",
                    "run-fortran-tests-no-timing",
                    "F95=gfortran",
-                   "F95FLAGS=-m64 -fPIC -O3 -std=gnu -ffast-math",
+                   "F95FLAGS=#{m64} -fPIC -O3 -std=gnu -ffast-math",
                    "MODFLAG=-I#{HOMEBREW_PREFIX}/include",
                    "LIBPATH=#{HOMEBREW_PREFIX}/lib",
                    "LIBNAME=SHTOOLS",

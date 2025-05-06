@@ -15,6 +15,7 @@ class LibvisualProjectm < Formula
     sha256                               ventura:        "d1990c6f162f68c59d59443f0e97de4ca3150bc097d3e964354f74812fb7d76f"
     sha256                               monterey:       "5f4a2bfcb6a2984b30ed79ba3234f11caa02423d0843a748c4b0400daed2dc0e"
     sha256                               big_sur:        "f7a682871eb5ab4e001262bbeda434afe1f8520aa80254146e03963b4ddfd9e8"
+    sha256                               arm64_linux:    "5a716abc4e3a5db0cc94acc29e10ca98abdefc878c3ab5f1c27c6869ff5a84ff"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "3c3a37a24bcd329cb8da341dab08f396654c1ccf7f8e0c7e63adba1626997458"
   end
 

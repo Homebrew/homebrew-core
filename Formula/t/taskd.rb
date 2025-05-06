@@ -16,6 +16,7 @@ class Taskd < Formula
     sha256 cellar: :any,                 sonoma:         "f95e28f8daaea0136706ae30efc5c12afcae319e8ee29de57318977f30d3d118"
     sha256 cellar: :any,                 ventura:        "1654093173dc0c9e2fba9bc9be2a50d28fe437f9332f853b54c4b3cf503b6eae"
     sha256 cellar: :any,                 monterey:       "a0131221a82276fc6feb0bec88b260d6731d346e05c84570b7f8ba376d1714eb"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "1d85ff632c1f5b0eb1bddf79925f0ef64bbb38ecfe4d811d4560ee166c461cc9"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "d81536e57b798ded725ca302e02ff8b57e49445b02346508a5a707c925608a8e"
   end
 

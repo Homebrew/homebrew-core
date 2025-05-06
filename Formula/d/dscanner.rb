@@ -17,6 +17,7 @@ class Dscanner < Formula
     sha256 cellar: :any_skip_relocation, ventura:        "5f9e5546dcccee737c540b09ddc4920c59a52f04f99a35d949ed1a42ec9475f0"
     sha256 cellar: :any_skip_relocation, monterey:       "64a56095f35e980d12527e2b42224755fc15f23f771995c5368db7b0012a694c"
     sha256 cellar: :any_skip_relocation, big_sur:        "ee3d570973017105d7f4803bd22677ed0b16f2e512545c13fec63c5f22581639"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "6ad79f5597ccd3323e4de2a6ecfa9bcdd8e6b6b05e48386154d167f6e37bb81f"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "1216ef19a42105de9617742024eca673eb221d711526bf6dd2204537a70afd34"
   end
 
@@ -32,7 +33,7 @@ class Dscanner < Formula
     # Fix for /usr/bin/ld: obj/dmd/containers/src/containers/ttree.o:
     # relocation R_X86_64_32 against hidden symbol `__stop_minfo'
     # can not be used when making a PIE object
-    ENV.append "DFLAGS", "-fPIC" if OS.linux?
+    ENV.append "DFLAGS", "-fPIC" if OS.linux? && Hardware::CPU.intel?
     system "make", "all", "DC=#{Hardware::CPU.arm? ? "ldc2" : "dmd"}"
     bin.install "bin/dscanner"
   end

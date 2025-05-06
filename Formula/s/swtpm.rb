@@ -1,18 +1,18 @@
 class Swtpm < Formula
   desc "Software TPM Emulator based on libtpms"
   homepage "https://github.com/stefanberger/swtpm"
-  url "https://github.com/stefanberger/swtpm/archive/refs/tags/v0.10.0.tar.gz"
-  sha256 "9f10ae0d3123ab05c3808f8c8d39f633cf1a0cf142d6ac9b87b8364a682ac842"
+  url "https://github.com/stefanberger/swtpm/archive/refs/tags/v0.10.1.tar.gz"
+  sha256 "f8da11cadfed27e26d26c5f58a7b8f2d14d684e691927348906b5891f525c684"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 arm64_sequoia: "4a2c3949e70a95b58041d26f22406573e7f388e66ee586f6ecceb152a7e7bbad"
-    sha256 arm64_sonoma:  "ee23c88ac66faf5af97af08bb8ced8aee8df9303816734f192333e5e283107d4"
-    sha256 arm64_ventura: "7d256e20aa50d3cf67738640fe8f5eb621eebc6227b4276ba29de9a4101e710a"
-    sha256 sonoma:        "b8c0f97829f741d2617009b6a384f8a7a78d7935563a414ba3ebed9e1ec9ad06"
-    sha256 ventura:       "28156039325983eb3a99891663edc2f31f728de2f0a1609fe7ddf6d89206ceda"
-    sha256 arm64_linux:   "317325476099f9e2495234f17172d53d2596fa15f22f23eb003895087ea1f2d8"
-    sha256 x86_64_linux:  "80ea36298803fec03cb1f12daf266f913094ff6a0302ee41395f469d1f321ca7"
+    sha256 arm64_sequoia: "2b32d468bbe362aa59c40e0ca09cd222bff2e7ad0926f254805ff4988c0ee0a8"
+    sha256 arm64_sonoma:  "bde6abef0af8f822719577619263e1f733d66fa8a6da8d5cc32fc08207bfcc0f"
+    sha256 arm64_ventura: "480984d30dc4d4dc8cb88e6c7e7c71061bc4f931a8185465e13857b25129f47b"
+    sha256 sonoma:        "a784a5c3d7c831a4cc8715451633570f55666e9436628a8458b34bf7e2275fd2"
+    sha256 ventura:       "8d49a8ca6833ae9af931a695bda0db32830abf0cdaf0938037efea28557c5952"
+    sha256 arm64_linux:   "ea07d63f7e38a8724096a357f6bbc9cb2c16eb0cb8c3cba501d2bc0c77569370"
+    sha256 x86_64_linux:  "a289daeb82cb654710fbfe43b9bd3d2f80a2eeee1c7f20d7d5481e7a3f1c1d3b"
   end
 
   depends_on "autoconf" => :build

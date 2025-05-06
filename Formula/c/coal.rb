@@ -4,6 +4,7 @@ class Coal < Formula
   url "https://github.com/coal-library/coal/releases/download/v3.0.1/coal-3.0.1.tar.gz"
   sha256 "b9609301baefbbf45b4e0f80865abc2b2dcbb69c323a55b0cd95f141959c478c"
   license "BSD-2-Clause"
+  revision 1
   head "https://github.com/coal-library/coal.git", branch: "devel"
 
   livecheck do
@@ -12,13 +13,13 @@ class Coal < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "4b84ecd016c5f9421cebef052a4c5872dd81c5043857a257ebf534e83de0a40b"
-    sha256 cellar: :any,                 arm64_sonoma:  "4b8864e60a709bcd4a09386230aa3f511308a402d2d66b0294b8bbc18f708704"
-    sha256 cellar: :any,                 arm64_ventura: "4ddc8df90f72a39d67821b7c37e1d44c086b154c582ea11fdaac2571c6e37fc3"
-    sha256 cellar: :any,                 sonoma:        "366f4884e4de18a9efe693880513c00b36be1346dfd4f08561035c31d6c46ef6"
-    sha256 cellar: :any,                 ventura:       "847cece9b925893a6d142ee8c4f463475c3d967df46a2744066d536e86f21082"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "14f1d055a67a32420a3b87f31ff364f0e7926440d8bedf4979c31aecf6ae303d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "14a7ed5e9395d617dc0503196509ab33ac7748d77f53764749c14a283c4ae463"
+    sha256 cellar: :any,                 arm64_sequoia: "e2d87ef2038acd5dcf9756b87f66d478603dcf2e98bc7eba3aa8ed2455a326ad"
+    sha256 cellar: :any,                 arm64_sonoma:  "f2ef50d3e832c5c63512cb927cc5a7a9e8624f9aa045e58a1433b62e54d9b295"
+    sha256 cellar: :any,                 arm64_ventura: "5915881cfc9032d711eba837fdbaa076ab45b23dffce110114778a2e65d6ce2a"
+    sha256 cellar: :any,                 sonoma:        "28b03d78e18bca9541c8a186667a2cd59d9bf00c63011c7128af67451e7cb019"
+    sha256 cellar: :any,                 ventura:       "51a4cd079554920b83c11f3177af2b2e4aa6d8496384dea819ada476163ab09f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f7a0eee745edc2ab275d7e4ae8fa3a7a4f8cf565da49e94c7a51d6aedb6367ab"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d3909470b234c0176b176fc89c8378c2f778450cadadfe96cdf4a604d4534c5f"
   end
 
   depends_on "cmake" => :build

@@ -4,14 +4,15 @@ class Pcl < Formula
   url "https://github.com/PointCloudLibrary/pcl/archive/refs/tags/pcl-1.15.0.tar.gz"
   sha256 "e90c981c21e89c45201c5083db8308e099f34c1782f92fd65a0a4eb0b72c6fbf"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/PointCloudLibrary/pcl.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:  "69f091ad7a4f8777f539522b014056de75d756b946eb5dffbfaee2a2818cef8c"
-    sha256 cellar: :any,                 arm64_ventura: "b21061e713943fb8e9a2bfebe21bafae8dd0a9053b7ec04997b10ed9cfafe149"
-    sha256 cellar: :any,                 sonoma:        "d34d66478625ff875dcfc914ed8fcce21ca0ac6223e2d05532e37c1915cb5a4d"
-    sha256 cellar: :any,                 ventura:       "eb22269812754f940715306a0f54e0dcb225f6d1fab3041c6627a477dc01e83a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d291d884200b909e1f2df2aed9f2bd0bdd4e66a7f449e5e475c434167f05717b"
+    sha256 cellar: :any,                 arm64_sonoma:  "03fde7c94634272d2b7b00d03942edbfd0a522be1dccb79d6cc7c5bbc8a31f42"
+    sha256 cellar: :any,                 arm64_ventura: "747c17ba17c637e726e7bd4016af13867223c979a513705293ca6f912b2db62a"
+    sha256 cellar: :any,                 sonoma:        "43a7b7cb8a0712dc1db29cdb073242ef20200ae6883eca9616c9ada9f0b00367"
+    sha256 cellar: :any,                 ventura:       "174bdea4b9e66ef9e3a8f5887f65dbfa3f9edf7cb3808860b379d2df11cdc25e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a5d708d8ddda9491022bea26195a43f176f7bf4a1d89d1b09a160c5c41a154e2"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -79,7 +80,7 @@ class Pcl < Formula
     assert_match "tiff files", shell_output("#{bin}/pcl_tiff2pcd -h", 255)
     # inspired by https://pointclouds.org/documentation/tutorials/writing_pcd.html
     (testpath/"CMakeLists.txt").write <<~CMAKE
-      cmake_minimum_required(VERSION 2.8 FATAL_ERROR)
+      cmake_minimum_required(VERSION 4.0 FATAL_ERROR)
       project(pcd_write)
       find_package(PCL 1.2 REQUIRED)
       include_directories(${PCL_INCLUDE_DIRS})

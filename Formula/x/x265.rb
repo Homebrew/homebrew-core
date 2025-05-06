@@ -7,19 +7,30 @@ class X265 < Formula
   head "https://bitbucket.org/multicoreware/x265_git.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "b8a5e68579e954f4bfd2917891880f5861537f87c6787caaf72af7419747450f"
-    sha256 cellar: :any,                 arm64_sonoma:  "b778a0d02445f7fdd4e638dc457540e7851be9a3a1662efcec5d031b59e43573"
-    sha256 cellar: :any,                 arm64_ventura: "eaff65e197b22f708f4d44d12b9baf6ed8efeec1439460311ea3ba7722d8d2b3"
-    sha256 cellar: :any,                 sonoma:        "103cc33efc4711d856fa765897140ca1348ebc82e8f8563c5fe3ad3eea3c6d4e"
-    sha256 cellar: :any,                 ventura:       "a274accceee40a1139224b31963b31e15ee22eaab83dc76689035006aa995852"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f0248b90a5003c97961b15e862a94ba591e8a41d7e5ceec88dd0f82e3802b3d7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "113a201d79f39fee805c280eba2dcc786f9153efaf71839ccc0c5d3a69592ce6"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "a2270c67fc2ea5a74824435cd72a9ad1441f9052d8490ab3e56ab5781bd7ad3c"
+    sha256 cellar: :any,                 arm64_sonoma:  "c8d3df545085b8f60e7c00a147ccbd90f4f9cb46a3cd275e2474d8e71648207a"
+    sha256 cellar: :any,                 arm64_ventura: "aa56445287b9782addb79abe348821ecd198170b17ffb6cc74735d7ed60b9bac"
+    sha256 cellar: :any,                 sonoma:        "303948272d75e643cbe4465e5ac39fee0b2f1f38c8b56763b62e6652fa257c1a"
+    sha256 cellar: :any,                 ventura:       "1d120ed18c3c98cefffd108236ffb658f4022827b5dbc434666ffa9568d80ed2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "84411e12f00238bb69bb1e383c6b6959c4cd3a7e417075ab81d7101eebf145de"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5b24399f347c1ad1f1981a711ce9a60cd2f87da01e998f5dcd1d04e62e7fd121"
   end
 
   depends_on "cmake" => :build
 
   on_intel do
     depends_on "nasm" => :build
+  end
+
+  # cmake 4 workaround, remove in next release
+  patch do
+    url "https://api.bitbucket.org/2.0/repositories/multicoreware/x265_git/diff/b354c009a60bcd6d7fc04014e200a1ee9c45c167"
+    sha256 "f7d3ce261c4b0cd461b55ad00de38ffa6a7cc2fa13ae6f034b3e46d8bb3cb6a8"
+  end
+  patch do
+    url "https://api.bitbucket.org/2.0/repositories/multicoreware/x265_git/diff/51ae8e922bcc4586ad4710812072289af91492a8"
+    sha256 "56c78f60cbaac61a44cb6e9889ece3380f9b60d32a4b704e274d9a636a16379d"
   end
 
   def install
@@ -33,11 +44,13 @@ class X265 < Formula
       -DCMAKE_INSTALL_RPATH=#{rpath}
     ]
     args << "-DENABLE_SVE2=OFF" if OS.linux? && Hardware::CPU.arm?
+    args << "-DCMAKE_POLICY_VERSION_MINIMUM=3.5" # FIXME: Workaround for CMake 4.
     high_bit_depth_args = %w[
       -DHIGH_BIT_DEPTH=ON -DEXPORT_C_API=OFF
       -DENABLE_SHARED=OFF -DENABLE_CLI=OFF
     ]
     high_bit_depth_args << "-DENABLE_SVE2=OFF" if OS.linux? && Hardware::CPU.arm?
+    high_bit_depth_args << "-DCMAKE_POLICY_VERSION_MINIMUM=3.5" # FIXME: Workaround for CMake 4.
 
     (buildpath/"8bit").mkpath
     system "cmake", "-S", buildpath/"source", "-B", "10bit",

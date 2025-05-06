@@ -12,6 +12,7 @@ class GnomeBuilder < Formula
     sha256 arm64_ventura: "d6050b679134150db7ba333bf848dbec68d9d726427b50f27949d43f7a308e16"
     sha256 sonoma:        "6f96def97df25a2b8eac97a66042177c1561ae57b80f5e1b278f4cce974be07b"
     sha256 ventura:       "98d8148fb97ee4762113d60bf7bc5bc9a143eb9cc61932c3aa09d9d92f9b0815"
+    sha256 arm64_linux:   "b91cd3072e22acd5cf59612f20d014abfcd246b05b47077038c4e7674ccace16"
     sha256 x86_64_linux:  "082a37dd3a82981428c00a78a6f6c077ee88c3626f7f247531add1f5b6074395"
   end
 

@@ -6,26 +6,28 @@ class Haiti < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "6816ddbb4db2f5c6e84917a0ce56e7e96832aa56a68c4f17a94f529a12c9fe5d"
-    sha256 cellar: :any,                 arm64_sonoma:  "91cce63fd959a495cb4b19f875156d118af052136da584628903fa12841d6e5f"
-    sha256 cellar: :any,                 arm64_ventura: "ac675715ee3d7c718cb64b32dccfbf4c6c59f5903e0d6a6f7a002c826ac786dc"
-    sha256 cellar: :any,                 sonoma:        "fbabec938c677d8c8ccf32ae492ada6db536f2c59ddcda7de55c3673c7ec2471"
-    sha256 cellar: :any,                 ventura:       "dd1d952cd49a64a32e4cc2f825f700aee62cb2e88fcee96cb0cfa047cffe4930"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "7fc264c904ea442c908783b8d8f0630abe8718581f99eaf2e9ae34697559db61"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c8ef3c1a86e06b06935f2cfba4b037d681d37ad589bc2196f4b882d76e933f02"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "437a900ef99a2a9ce151f54852b5ceba54b04b0ae4f7dbdfca33ac96262db51c"
+    sha256 cellar: :any,                 arm64_sonoma:  "d256b2ab7188e82c043c22fc4ca8e5df092d581e4d0c7db6a1feda3110a3054e"
+    sha256 cellar: :any,                 arm64_ventura: "cd3f25be3ff7e82d716d0c04b6703687a104014703d0fca01ef6b743014a1112"
+    sha256 cellar: :any,                 sonoma:        "03b15c6432552b2f1bf9b501292dec5d9981c1b31e48b371c5368248bd3c9498"
+    sha256 cellar: :any,                 ventura:       "eacc0e910d7028495d5ac2dd6fc488fef97f660bd586ab4f4638d90ca9830345"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a7ba6681ea727c139e302ef47608117ceba1ec44781fd0f37ba9eb646cfa3acd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bf1cab0eaadd053425ec6af959b808b9b8c60f12e531791ec6215cf009529e33"
   end
 
-  # Requires Ruby >= 2.7
   depends_on "ruby"
 
   def install
+    ENV["BUNDLE_VERSION"] = "system" # Avoid installing Bundler into the keg
     ENV["GEM_HOME"] = libexec
 
     system "bundle", "config", "set", "without", "development", "test"
     system "bundle", "install"
-    system "gem", "build", "haiti.gemspec"
-    system "gem", "install", "haiti-hash-#{version}.gem"
-    bin.install Dir[libexec/"bin/haiti"]
+    system "gem", "build", "#{name}.gemspec"
+    system "gem", "install", "#{name}-hash-#{version}.gem"
+
+    bin.install Dir[libexec/"bin/#{name}"]
     bin.env_script_all_files(libexec/"bin", GEM_HOME: ENV["GEM_HOME"])
   end
 

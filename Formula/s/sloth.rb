@@ -1,20 +1,23 @@
 class Sloth < Formula
   desc "Prometheus SLO generator"
   homepage "https://sloth.dev/"
-  url "https://github.com/slok/sloth/archive/refs/tags/v0.11.0.tar.gz"
-  sha256 "17f7ce5ebc1ebe29391b0848616c2a9881f70cd72780605db55cfd817a8331af"
+  url "https://github.com/slok/sloth/archive/refs/tags/v0.12.0.tar.gz"
+  sha256 "783689544f1829cb139ab3bbdd5e53cc835469a92c4a187384ff51f08eceb284"
   license "Apache-2.0"
   head "https://github.com/slok/sloth.git", branch: "main"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "ce4ad62a11adf1950981a013b45c2ab33bd59b930046ce35b0d5722a46d100e6"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3d0d882935b6f9e2027ee01c260823b6dda8fb286abbef291f48bbe83b173171"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "af0dcf4b0c575bbce9cee6ebbb080245db9fe886bf55c1d4d77b0bd25f5acda9"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "18b6f8e012e7b22c325124fc7187d90a97282b6ef3087162b1737a733206c512"
-    sha256 cellar: :any_skip_relocation, sonoma:         "ffec5f694bc4278fa7c8a7e1b924b2939b53356c63c1281d8219defbf393e1bb"
-    sha256 cellar: :any_skip_relocation, ventura:        "d73cfeff63c6abff1c31d52b5b5bcdf2b4e7461487ed61d6d4fcc99962da1266"
-    sha256 cellar: :any_skip_relocation, monterey:       "0d06c525a21876a924b2b3c72914f40031ae128ba7ded54b1ca8bd9b1f43322b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "000072a25ece31770c838e9972a227702cc26277f839c692be502a406202267e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "76a59c6254842dd76f9020868f4ec38388e645039ef51077192d1f5f0fe573d9"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6e37e3ca543f2167c514db79724840c8174179f8c465b114a94e8a717d7ff56e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "b93c679c5217405d26f967617e4de9b35fd5ae0c57814a4fc00302481023bd0b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "95fd259914b02afb9489548a2420594eaeafc2afeebbe8d8772e37a5b3101036"
+    sha256 cellar: :any_skip_relocation, ventura:       "1b9c32ba8aa94c9f087fee074c651c7540bd66b11b0d1966d66b79e6fafccc87"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6ee5d6b1c4cb80ee6b90d2f6081a2adc59d952ef3515599b00e8f0a4aa7bb047"
   end
 
   depends_on "go" => :build

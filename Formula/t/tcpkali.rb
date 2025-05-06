@@ -20,6 +20,7 @@ class Tcpkali < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:    "b82b2ea3a3d17d3fd464a5e887c9cce14dce8a82bbcb350df5f7bd321893bfdb"
     sha256 cellar: :any_skip_relocation, sierra:         "f73513ed96b6436085e0941865f0cc4fd2ce1009a1d8770c740e8e97d5173cf1"
     sha256 cellar: :any_skip_relocation, el_capitan:     "2d0075b2fca885fb694660a3914362030be255c8e3dfed407bb8ca96c996bbf7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "a21cdba0e1d2863bb691ab0b2a6b416f801b38236a399a3bd8d6cfc67762f539"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "ae1230bcf9879d1d8f09d5e0a3b80c9baf7f59c2bfa77a296a06ed6a821d5be7"
   end
 
@@ -29,7 +30,14 @@ class Tcpkali < Formula
   uses_from_macos "ncurses"
 
   def install
-    system "./configure", *std_configure_args
+    args = []
+    if OS.linux?
+      inreplace "src/tcpkali_syslimits.c", "<sys/sysctl.h>", "<linux/sysctl.h>"
+      # Help old config scripts identify arm64 linux
+      args << "--build=aarch64-unknown-linux-gnu" if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+    end
+
+    system "./configure", *args, *std_configure_args
     system "make", "install"
   end
 

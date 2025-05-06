@@ -20,6 +20,7 @@ class Libcroco < Formula
     sha256 cellar: :any,                 mojave:         "edf97f493296bfe01b2a8cfe156f1e8052e181bed6ea34cabaf18ed59ef28b17"
     sha256 cellar: :any,                 high_sierra:    "f6e7d7d608dfcf6e57eaad77eef3cca27c15db0746e102f6dc33cccdd5a8a7bc"
     sha256 cellar: :any,                 sierra:         "a95e3733bd72b789cc9a3cb9dfc9a92153939b984c4d1d47b8aa806e99e99552"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "18d8a961f813c3a2b4f52a0e06371dcc7a2344cec1461507fe00446aa7d5e05d"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "e0b5c4b0de56d524a572a2bd8c93f65ed827c80093776bfd7681fd6351df6e13"
   end
 

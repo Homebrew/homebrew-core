@@ -20,6 +20,7 @@ class Psqlodbc < Formula
     sha256 cellar: :any,                 arm64_ventura: "5476eb923b4ebdd7377596ee553139a6f059730b2f0e1917cea60e3bc62ecb1d"
     sha256 cellar: :any,                 sonoma:        "b34391bdbb4a636e9837e209ba178d1660de9ced2d63d033de3f57f39808ebda"
     sha256 cellar: :any,                 ventura:       "b57bbc3a6e580f83e695067836a9eff58fd033ef55b6970cb8c31672429e81b1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5dc7bc2a5663fa87105c9d984d80966dc28ac4e772b3abc381095bea44e53979"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "15dfa1958197323d476238ea26efa630f85955c78eca68eb7b0a54a682660034"
   end
 

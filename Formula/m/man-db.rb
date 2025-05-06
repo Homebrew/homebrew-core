@@ -1,9 +1,9 @@
 class ManDb < Formula
   desc "Unix documentation system"
   homepage "https://man-db.gitlab.io/man-db/"
-  url "https://download.savannah.gnu.org/releases/man-db/man-db-2.13.0.tar.xz"
-  mirror "https://download-mirror.savannah.gnu.org/releases/man-db/man-db-2.13.0.tar.xz"
-  sha256 "82f0739f4f61aab5eb937d234de3b014e777b5538a28cbd31433c45ae09aefb9"
+  url "https://download.savannah.gnu.org/releases/man-db/man-db-2.13.1.tar.xz"
+  mirror "https://download-mirror.savannah.gnu.org/releases/man-db/man-db-2.13.1.tar.xz"
+  sha256 "8afebb6f7eb6bb8542929458841f5c7e6f240e30c86358c1fbcefbea076c87d9"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -12,15 +12,13 @@ class ManDb < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia:  "27ba58e67a2b3deb04118225b9716dd8047a4c64f0969e631738cd322ddbc3c4"
-    sha256 arm64_sonoma:   "2a8803f43ddac8a71bc3450156dde1ab02096cc43afc3e302bcba65eb7b6fc6c"
-    sha256 arm64_ventura:  "ae98eff606a38947f0ad930f8e10cdf6005ae0a44fe1f020c595bf617a283679"
-    sha256 arm64_monterey: "fb47b7738fc85725feedbdf2e51fe57e516da29d666f49b64f77f6738885a3d6"
-    sha256 sonoma:         "1e89fce4c00002c61be615d8ed49dfb684f570697af3e1cea102eddf036fd71b"
-    sha256 ventura:        "4b3a54a8dd4e2523c60f4b4074ea1fe2c635aa809038b9b1633a3640ac7e7278"
-    sha256 monterey:       "113d700db2a88712b08beb40fec84fe89fe0c53b6c708cbfe69e45b0aec0fed0"
-    sha256 arm64_linux:    "9dabdacf019b730290361799d41fc0ec745599be02943405ba990b6d73befc2c"
-    sha256 x86_64_linux:   "e70f9a2750c93a8f2c88a7b843f73d063dd7fbe492d945a464b731a9289c4022"
+    sha256 arm64_sequoia: "814476e3056aff5c88da27acca3153f44e60cd64ec964689998728ec86f074bf"
+    sha256 arm64_sonoma:  "4cdc0506f77895a91bbd2bb3e66841a00ac8fe05826eff469e63e8f73a89cacb"
+    sha256 arm64_ventura: "80dccecdde51608a0007a5b55a68ad152d9df01edb4d20943bdee1d25d59cf07"
+    sha256 sonoma:        "f6c8b05ccbaf7c5834bd1aa3d30b55d5e51d6de8864e829555c060823e09aaea"
+    sha256 ventura:       "da8b0c64287f926108f16d8d41e037af06f01f26778fabf25c531f7aa872e58d"
+    sha256 arm64_linux:   "6bc4fa308acf12f0365268ade917e6dc496b0d75b8a4ffc5ebc80bcfcfb0fd29"
+    sha256 x86_64_linux:  "d337092513af299c568743a128b5ab5aad480e9c42b122cec9f507b00938809f"
   end
 
   depends_on "pkgconf" => :build

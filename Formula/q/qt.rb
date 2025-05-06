@@ -3,6 +3,10 @@ class Qt < Formula
 
   desc "Cross-platform application and UI framework"
   homepage "https://www.qt.io/"
+  url "https://download.qt.io/official_releases/qt/6.9/6.9.0/single/qt-everywhere-src-6.9.0.tar.xz"
+  mirror "https://qt.mirror.constant.com/archive/qt/6.9/6.9.0/single/qt-everywhere-src-6.9.0.tar.xz"
+  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.9/6.9.0/single/qt-everywhere-src-6.9.0.tar.xz"
+  sha256 "4f61e50551d0004a513fefbdb0a410595d94812a48600646fb7341ea0d17e1cb"
   license all_of: [
     "BSD-3-Clause",
     "GFDL-1.3-no-invariants-only",
@@ -10,22 +14,7 @@ class Qt < Formula
     { "GPL-3.0-only" => { with: "Qt-GPL-exception-1.0" } },
     "LGPL-3.0-only",
   ]
-  revision 1
   head "https://code.qt.io/qt/qt5.git", branch: "dev"
-
-  stable do
-    url "https://download.qt.io/official_releases/qt/6.8/6.8.2/single/qt-everywhere-src-6.8.2.tar.xz"
-    mirror "https://qt.mirror.constant.com/archive/qt/6.8/6.8.2/single/qt-everywhere-src-6.8.2.tar.xz"
-    mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.8/6.8.2/single/qt-everywhere-src-6.8.2.tar.xz"
-    sha256 "659d8bb5931afac9ed5d89a78e868e6bd00465a58ab566e2123db02d674be559"
-
-    # Backport support for pkgconfig files on macOS
-    patch do
-      url "https://github.com/qt/qtbase/commit/7a31e402f24ec29c571f825e06bd569477501dfc.patch?full_index=1"
-      sha256 "81b7afb9a5118332545108e94105a0f22023f422d032632043b64ab93fefd06c"
-      directory "qtbase"
-    end
-  end
 
   # The first-party website doesn't make version information readily available,
   # so we check the `head` repository tags instead.
@@ -35,11 +24,11 @@ class Qt < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_sonoma:  "65af9d5df6305632979d328c22adaf2030bb5e4ffc44b640b129d404741aea69"
-    sha256 cellar: :any, arm64_ventura: "ca86525729e3c882eb01076e0534a4ef05c1735df8bc224f18d551d4a997313b"
-    sha256 cellar: :any, sonoma:        "6ba59e540a4d55bdffad6f40e251e6bbe2263f5f30806e4e6839b1352902ffc4"
-    sha256 cellar: :any, ventura:       "53e2c3f6021bd22f4e3e485ffd1a549bb472e97a992b054e9d2c91dd8560c5a1"
-    sha256               x86_64_linux:  "c5045e1d3da2f7775c1524b13565056b78733c4f8bd6df3c6369515d018bcae4"
+    sha256 cellar: :any, arm64_sonoma:  "861acfe809369d19c8cbc923afa94c62f48784f087a150e09d3522e5eeb15f9e"
+    sha256 cellar: :any, arm64_ventura: "f30408e5e2a56aef97597398e4d552da3286b9fb45ba040e405291584009bea8"
+    sha256 cellar: :any, sonoma:        "1cb92af62ec86c41bd6901428356fc8908ab98706a1f4b1e7791f09fd6cad498"
+    sha256 cellar: :any, ventura:       "3f55e107498966094f5b47f6e729728c7cc97d503f9deed8c59d87ca9f69cfa4"
+    sha256               x86_64_linux:  "0f25abc1c0b90ec910b12b3d5c4db85e77e5f0888a2a8446f2d2dc5c973ede78"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -220,6 +209,8 @@ class Qt < Formula
     ]
 
     cmake_args += if OS.mac?
+      ENV["SDKROOT"] = MacOS.sdk_for_formula(self).path
+
       # NOTE: `chromium` should be built with the latest SDK because it uses
       # `___builtin_available` to ensure compatibility.
       #

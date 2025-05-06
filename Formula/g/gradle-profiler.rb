@@ -11,7 +11,8 @@ class GradleProfiler < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "768c3986e2042d8f35fe954ea0951d91a5aa7c53cca1013361f91f78321c0aec"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "4fdec547a78284921b7ccb437e045ec11fa0d0b16cf4959fbd2ddd8081209498"
   end
 
   depends_on "openjdk"
@@ -26,7 +27,7 @@ class GradleProfiler < Formula
   test do
     (testpath/"settings.gradle").write ""
     (testpath/"build.gradle").write 'println "Hello"'
-    output = shell_output("#{bin}/gradle-profiler --gradle-version 8.11 --profile chrome-trace")
+    output = shell_output("#{bin}/gradle-profiler --gradle-version 8.14 --profile chrome-trace")
     assert_includes output, "* Writing results to"
   end
 end

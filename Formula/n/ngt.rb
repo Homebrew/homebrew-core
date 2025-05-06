@@ -1,8 +1,8 @@
 class Ngt < Formula
   desc "Neighborhood graph and tree for indexing high-dimensional data"
   homepage "https://github.com/yahoojapan/NGT"
-  url "https://github.com/yahoojapan/NGT/archive/refs/tags/v2.3.13.tar.gz"
-  sha256 "30f2d954e9ff025d094f097132247ef43cc0f0202a1599ab87d1fdee8f5be6ff"
+  url "https://github.com/yahoojapan/NGT/archive/refs/tags/v2.3.15.tar.gz"
+  sha256 "a44b019e97583bbfce41706c474b9b8c304826445d0ef9471f09f3a8111faae6"
   license "Apache-2.0"
 
   livecheck do
@@ -11,13 +11,13 @@ class Ngt < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "2ba4dc92491dc51a1e20d5ecaf6bd7da7a570cd75e3aa7617d017799b219ff69"
-    sha256 cellar: :any,                 arm64_sonoma:  "319986ae201f7f173d24836250222ede5aab63e27ca16a4075b30995f4fcec26"
-    sha256 cellar: :any,                 arm64_ventura: "39e18667d86049015e0b5e7257565bf733f5941b0b5c33af5c303e8de62910b2"
-    sha256 cellar: :any,                 sonoma:        "73d73cd1fe59b37ca77ab023e2dd723bde7be0d1ace1a42ea30c61d9a88d6241"
-    sha256 cellar: :any,                 ventura:       "86b9bfc22072572fbd6e51fd2bf91519f6690773398c3f8e1c3c300624e4e886"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a8c32c5db4281bdb4b518c441603dc96680d15d1d9991f8ef8b7a59e1d286b33"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c5ed78bbbab2f812a89adde0b07893ff513465c567d7d0349fc56f59b5072927"
+    sha256 cellar: :any,                 arm64_sequoia: "bf7acaa14502f4c21b9fa4ff25d50d321765d0991f5722171064cf58ee71b5f2"
+    sha256 cellar: :any,                 arm64_sonoma:  "4358f3a14fe3015fe7cb6a7c53e61422238286b89d508246440a48c913b42f6a"
+    sha256 cellar: :any,                 arm64_ventura: "a879630fb1595e01e2c5ed8eadee2c15eb127dcf0b85f8aa1977a8a6df70ff57"
+    sha256 cellar: :any,                 sonoma:        "170faadf6f19e2064059a8c55d9a24f5b168f7c28ac9ed4d2a40fed4ab01da6c"
+    sha256 cellar: :any,                 ventura:       "895a69fb8dd9da98186d63206fc78c3736f4eb7d54a3baf62f23581891565eb9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6bc38f7a3cacf66faaef43cb8ab52e098af2b6025784900ebd51b09b3f12dd1f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9776678ad67fa7037676e31bb8ad70f2ca68132b8573b3d95a9537123e538e2c"
   end
 
   depends_on "cmake" => :build
@@ -33,6 +33,7 @@ class Ngt < Formula
   def install
     args = %W[
       -DCMAKE_INSTALL_RPATH=#{rpath}
+      -DCMAKE_POLICY_VERSION_MINIMUM=3.5
       -DNGT_BFLOAT_DISABLED=ON
     ]
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args

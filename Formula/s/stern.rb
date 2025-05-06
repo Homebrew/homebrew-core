@@ -12,6 +12,7 @@ class Stern < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "311436853aa51947a75c24127f2c8d8b9e6847d456f64ef18814036d8d333258"
     sha256 cellar: :any_skip_relocation, sonoma:        "39134cc30a1bdbdc6661c0b5012b43de07f80b04ed6692c4900c9c199fc95268"
     sha256 cellar: :any_skip_relocation, ventura:       "bc54ef4005c453f23962ff4cfe6fe2b6c2d29c025e9b822430a163b06465b80c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2bf9c76970393d3879ab8327c4ab393da590a132b3d0a85df18235d8e5948d58"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "408cdc2e2ad3c0cf59f6f4c10c49a299e2cf387c15f025817ce615b45172f269"
   end
 

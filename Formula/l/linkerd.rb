@@ -5,6 +5,7 @@ class Linkerd < Formula
       tag:      "stable-2.14.10",
       revision: "1ea6b271718f90182bdf747490895784988e980e"
   license "Apache-2.0"
+  head "https://github.com/linkerd/linkerd2.git", branch: "main"
 
   livecheck do
     url :stable
@@ -19,6 +20,7 @@ class Linkerd < Formula
     sha256 cellar: :any_skip_relocation, sonoma:         "a805f780856c04434e1cf56bf9722ff2d72e78ccbd4cd2bfec4b4667dca06084"
     sha256 cellar: :any_skip_relocation, ventura:        "e5c1ac2ba88949aa2e98ca4e39d5532a33d14cfad608d8776bb2f10e47cd4f8e"
     sha256 cellar: :any_skip_relocation, monterey:       "0d982f58ff4958cc8a9cfabb65325d72dceb0c01c3b2c6200473868fb526a650"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "77bc80d5bd80767167b7895ab1afb69da5b45ef309cbd29db4956208ed8af55a"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "c1695ba96f330ebb2cfe3267a5e3cb4e77b092410ac9dac2465a977317d00945"
   end
 

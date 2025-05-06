@@ -1,19 +1,20 @@
 class Passenger < Formula
   desc "Server for Ruby, Python, and Node.js apps via Apache/NGINX"
   homepage "https://www.phusionpassenger.com/"
-  url "https://github.com/phusion/passenger/releases/download/release-6.0.26/passenger-6.0.26.tar.gz"
-  sha256 "c69312230d4467a30d7a8abd25ee04250df3e332432871c6bd561ef5eea3d485"
+  url "https://github.com/phusion/passenger/releases/download/release-6.0.27/passenger-6.0.27.tar.gz"
+  sha256 "82c830aee98feece09e84309c2d0c6bb3f7b22a3c8e33cfe93b5e0d498615d0f"
   license "MIT"
+  revision 1
   head "https://github.com/phusion/passenger.git", branch: "stable-6.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "33f50696f64c695f39c827ab92a7a5d91e57c45b5f4295e6c9a1200a8311e5b4"
-    sha256 cellar: :any,                 arm64_sonoma:  "0fd5c9aed08ab6a9aaaba4d005adbd939b59e1f5d9239cd40964f258188d9ed8"
-    sha256 cellar: :any,                 arm64_ventura: "0f61c3747b30b206fb1407c16538e0e967a8f2abc57d007e68465564f9d1290e"
-    sha256 cellar: :any,                 sonoma:        "364199aeebe300bd34117627bc8810c7ffad9757950042376e86b31b03f98d71"
-    sha256 cellar: :any,                 ventura:       "92f2c49e255621627198d45dc5338511e7989d4c3a80c7c7231856d620f411ae"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6e67aee10ea7230e4e1600cc9769e41e9bfab959a1206958aebee15235b3cc40"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f54d372a5982ddb7f04bd794f2aa7fde2e982a8c1e19a3e6c45667d023aba129"
+    sha256 cellar: :any,                 arm64_sequoia: "fb575dc46a6e6d1d1a85e8ac4c90b3b6b1623e3b28e7b23b1ba0f3b7e44826cf"
+    sha256 cellar: :any,                 arm64_sonoma:  "77fb3c9b9d992a403b279bb45d843220eb99dff0e0bff8a80f9b799d1c8bac30"
+    sha256 cellar: :any,                 arm64_ventura: "635617b7bd47cd784e4593b6618147379147ae4b9c144c4b1da92b0bb56e2ef8"
+    sha256 cellar: :any,                 sonoma:        "44ddd90f8347de1294b9e264c0b27437f770b0a360c0833a0721590bfdb376b7"
+    sha256 cellar: :any,                 ventura:       "bb7139dea38467bacc2720d2ce907c9e9e00cde7190770328fef81df2dcf1187"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "fe4bc221df7cdb0fc10eb7b72a38b78e3ef5d4b404f96a1e2889bf379106270f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8214b7d4f61fba592c54c482cda3fe017b7261defff173a5ab254622b5ec3afd"
   end
 
   depends_on "httpd" => :build # to build the apache2 module

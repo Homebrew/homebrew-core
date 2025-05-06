@@ -1,13 +1,13 @@
 class TomeePlus < Formula
   desc "Everything in TomEE Web Profile and JAX-RS, plus more"
   homepage "https://tomee.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=tomee/tomee-10.0.0/apache-tomee-10.0.0-plus.tar.gz"
-  mirror "https://archive.apache.org/dist/tomee/tomee-10.0.0/apache-tomee-10.0.0-plus.tar.gz"
-  sha256 "5f33aa1d0717d73fb1de84b0013f4b12ab76ba55f0d37ffe9267a20f3fbc4cfd"
+  url "https://www.apache.org/dyn/closer.lua?path=tomee/tomee-10.0.1/apache-tomee-10.0.1-plus.tar.gz"
+  mirror "https://archive.apache.org/dist/tomee/tomee-10.0.1/apache-tomee-10.0.1-plus.tar.gz"
+  sha256 "b4520899aa8d5971d5be49b09b8622daafedf697ff321c8b3573b68a845661cf"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "98b4a55b38d8119fe3da0752d49addb26bbc26471be2a2a03929121fa363045c"
+    sha256 cellar: :any_skip_relocation, all: "86778c7fb3c32585f2e9f3221d1bb7fffe9257553af38dbd9bfaacad36834fc0"
   end
 
   depends_on "openjdk"

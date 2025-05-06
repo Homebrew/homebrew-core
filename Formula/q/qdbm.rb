@@ -11,22 +11,14 @@ class Qdbm < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia:  "9545986c17185d13f69ec77c0b22ccea11c26764720aedbb00d2d2b673a47be9"
-    sha256 cellar: :any,                 arm64_sonoma:   "fb9f9c8620e37ed0dfbbf506adb5c634d3055b503328019eea53afde01547ead"
-    sha256 cellar: :any,                 arm64_ventura:  "e6948ebb305c814ce996e7f26c20eed87531667acb01cfd47888ff002c89d324"
-    sha256 cellar: :any,                 arm64_monterey: "81801d3db8db3a73c8421819684eddd73b84c385c5e0005a9a572de5faf654a9"
-    sha256 cellar: :any,                 arm64_big_sur:  "5b0f851a602c8cb4f0fab49204037f7a6d28bc311a30559c7f08c37c36b66add"
-    sha256 cellar: :any,                 sonoma:         "cc13e898b5702e4412a1ec4c2b66ac4cf46d1072a15c7f7cd2d60a2a35544e78"
-    sha256 cellar: :any,                 ventura:        "a94916c4050a878f94976c479fe1ccc042292676f1abe11f76c2b12f92851b1c"
-    sha256 cellar: :any,                 monterey:       "f14f954b9e525de06afbb324b22df63af903f814ff81c5f2ecf787f9d9a2963f"
-    sha256 cellar: :any,                 big_sur:        "7257a9e22ee3661fc2213d5ff60148b44e5e217781a3af807405c239020b3c6a"
-    sha256 cellar: :any,                 catalina:       "0a0ba32270742fbd821ba60bbc6452e6b6b6a476d72e719bdb33fdf535e316f0"
-    sha256 cellar: :any,                 mojave:         "4861035c21a7fcd02efca60c922d06a45f3078eaffa374784a533932f9efa806"
-    sha256 cellar: :any,                 high_sierra:    "4ec4e60b16efb21fd7835c182fcf5d8f43c4af4329dd8afb07b4900bc1b17f60"
-    sha256 cellar: :any,                 sierra:         "547ecf82252706d276c8359448b7f4e738264999028b06cd3738af34ba58276c"
-    sha256 cellar: :any,                 el_capitan:     "6fd80b953a53cdf048bf686d2ac3620deda19a022a10a1e7cbd7aea073bf9b6a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "52780796d139d8e46d0bb342f4e8cce314fa587fee9932a897626b3a1b58a481"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_sequoia: "93ffe465aedaa92b472c387fcee97ce7c8611b32aba5127cde60558746aed441"
+    sha256 cellar: :any,                 arm64_sonoma:  "5f9e5e025feda86f511d850b0af43d251f52637aa1bfeb3428b5cbd0a23df7eb"
+    sha256 cellar: :any,                 arm64_ventura: "2b37f6d105b64d9320f71ea174c959d8d8df01a70805662be04cf5b54eb73ffa"
+    sha256 cellar: :any,                 sonoma:        "e9f9b7bb82d908e6278be6164b85495237decfab1548b3c65e7856e873bf7c1c"
+    sha256 cellar: :any,                 ventura:       "77d8ac2179ec650753482086110e5907bf9535647f9d3b3dbe911aba0327d292"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b52710b49798647bb9921dedcb31765f7245e53b6c9e858bce89604f679ed610"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d63d9159c7ec417881369e52b6d4da71982b91487b03fb5d73280670296fea90"
   end
 
   uses_from_macos "zlib"
@@ -39,8 +31,17 @@ class Qdbm < Formula
       --enable-iconv
     ]
 
-    # Does not want to build on Linux
-    args << "--enable-bzip" if OS.mac?
+    if OS.mac?
+      # Does not want to build on Linux
+      args << "--enable-bzip"
+    else
+      ENV.append "LDFLAGS", "-L#{Formula["zlib"].opt_lib}"
+    end
+
+    # GCC < 13 with -O2 or higher can cause segmentation faults from loop optimisation bug
+    if ENV.compiler.to_s.start_with?("gcc") && DevelopmentTools.gcc_version("gcc") < 13
+      ENV.append "CPPFLAGS", "-fno-tree-vrp"
+    end
 
     system "./configure", *args
     if OS.mac?

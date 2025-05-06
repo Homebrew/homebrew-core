@@ -13,6 +13,7 @@ class Gojq < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "523520da9c06c9603c8d049432177e302140c217308b421dd9da85cb2a6eea74"
     sha256 cellar: :any_skip_relocation, sonoma:        "b8a965b5a81ec2ed412f0d013080967e8e1156a054258ed9313a1b24135b4991"
     sha256 cellar: :any_skip_relocation, ventura:       "b8a965b5a81ec2ed412f0d013080967e8e1156a054258ed9313a1b24135b4991"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "896f31f71d784c99232d88ab938f219b87e2e8dd7c276f0b3015a89fc91735d5"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "44c7c2f05dbb80299cfbe4798429fd38fb3c24f8e05bb002c6285a1f280be48a"
   end
 

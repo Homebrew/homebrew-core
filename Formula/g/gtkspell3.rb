@@ -14,6 +14,7 @@ class Gtkspell3 < Formula
     sha256 sonoma:         "0db8568fa754d743a6ee0a2e10804a464575a7cb2981599c4fccb0de4ff6fc10"
     sha256 ventura:        "8327e4eb37ec513c654f28d3c4bc1602fe19d0984f46fffae5bae668b526085e"
     sha256 monterey:       "6e04d8a356a3f3dadeef039a3b3e7218f44b7cc53ce720ab4e7273273749b6a2"
+    sha256 arm64_linux:    "2107b9a48ac875459316fe149288cd8d0c48d1069000f009f15b007836a789df"
     sha256 x86_64_linux:   "e59e7ffb60fbef74bbfd6c8191776880cf5b4cb697c5519dfcdf7f1e1a29fccf"
   end
 

@@ -16,6 +16,8 @@ class Strongswan < Formula
     sha256 arm64_ventura: "fa99e2acc5b7dad59ba0c34729ac9962265b3a44471b76ea2ccb3449b091a6d0"
     sha256 sonoma:        "324b1831262b1913c26de58b0062943a9d453fac4ed1b1ebc8448b47457e207f"
     sha256 ventura:       "328816ca28f4d263fc8389a4384b481c86f46a2e1d43f152ba7a1ab6ca10b656"
+    sha256 arm64_linux:   "5933ebc1945502e575568a71fd8f230164aafad1228b0fc41e895c848a25113a"
+    sha256 x86_64_linux:  "5639fc4928b7bf717c6c4eb52db38c58205b332c9a3694f8197195555e24a165"
   end
 
   head do
@@ -34,6 +36,10 @@ class Strongswan < Formula
   uses_from_macos "curl"
 
   def install
+    # Work around RPATH modifications corrupting binary. Upstream patchelf fixed this issue
+    # https://github.com/NixOS/patchelf/issues/315 but it may be missing in patchelf.rb
+    ENV.append_path "HOMEBREW_RPATH_PATHS", libexec if OS.linux?
+
     args = %W[
       --sbindir=#{bin}
       --sysconfdir=#{etc}

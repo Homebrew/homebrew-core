@@ -25,6 +25,7 @@ class Gif2png < Formula
     sha256 cellar: :any_skip_relocation, ventura:        "9f4ba17bffa9f388b4121f66eb11ae7d615a8634f0f9ddf823daebdb15e3e1a0"
     sha256 cellar: :any_skip_relocation, monterey:       "81ed68b6098478c4bd432fa2282ae2bf918363c6886fca15da570dece203d492"
     sha256 cellar: :any_skip_relocation, big_sur:        "647072adee889c3a129dc904532132340e5cee323dc657997879fe8331d5d1b6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "931ff3541cbae346953c4469ba2f229f1f1e3b2e08d9cf7b3499b94675472de5"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "edb1fd446d42cc045ece44370a4e99d62f18862a66a6e95d4ff2718cdeeffb5e"
   end
 

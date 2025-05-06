@@ -1,13 +1,13 @@
 class Latex2rtf < Formula
   desc "Translate LaTeX to RTF"
   homepage "https://latex2rtf.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/latex2rtf/latex2rtf-unix/2.3.18/latex2rtf-2.3.18a.tar.gz"
+  # TODO: Switch to GitHub repo tarballs when upstream does a new release
+  url "https://deb.debian.org/debian/pool/main/l/latex2rtf/latex2rtf_2.3.18a.orig.tar.gz"
   sha256 "338ba2e83360f41ded96a0ceb132db9beaaf15018b36101be2bae8bb239017d9"
   license "GPL-2.0-or-later"
 
   livecheck do
-    url :stable
-    regex(%r{url=.*?/latex2rtf/files/latex2rtf-unix/[^/]+/latex2rtf[._-](\d+(?:[.-]\d+)+[a-z]?)\.t}i)
+    skip "New git repository doesn't have 2.x tags yet"
   end
 
   bottle do
@@ -22,10 +22,21 @@ class Latex2rtf < Formula
     sha256 big_sur:        "fedf28c8cd7113f639a32776b9b55bbbae3ccfa7aa15e142d08004d39cf56d23"
     sha256 catalina:       "a4f536a8f9a6001fe955727e7d9473b5294daf416b422dab70b489067dad35f3"
     sha256 mojave:         "e57496652dd135bddb2d28f88d96e6207b69551f040ac4436cb6d043557e90c3"
+    sha256 arm64_linux:    "8b1a51c757de5ad53a56a566565e86c7e51311927b111d16dcdf9bf15ff04e9c"
     sha256 x86_64_linux:   "4614b529d342e3e532c2c36fc3b6090dd889261c05ba3ea21847a276a063e4c5"
   end
 
+  head do
+    url "https://github.com/latex2rtf/latex2rtf.git", branch: "main"
+
+    on_system :linux, macos: :ventura_or_newer do
+      depends_on "texinfo" => :build
+    end
+  end
+
   def install
+    touch "doc/latex2rtf.pdf" if build.head? # avoid texlive
+
     inreplace "Makefile", "cp -p doc/latex2rtf.html $(DESTDIR)$(SUPPORTDIR)",
                           "cp -p doc/web/* $(DESTDIR)$(SUPPORTDIR)"
     system "make", "DESTDIR=",

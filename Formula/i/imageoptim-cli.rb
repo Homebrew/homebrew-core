@@ -12,20 +12,20 @@ class ImageoptimCli < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, sonoma:   "c2df0a56a557b3ed98d9240aea9c6f2d3edf899b0d0a1c3c8a1e1bd93c6d3595"
-    sha256 cellar: :any_skip_relocation, ventura:  "d2efbaedd1472d061fc4cbd0bb9ca3e93d0070a8f73efaf8131320e91d50a309"
-    sha256 cellar: :any_skip_relocation, monterey: "fb18de0c4c68f50c4239b1ca4374a56a0d6ba981d0e7597d54c4f32de4c0c1ca"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "a773e296348e3eefcf67f3b5101d88df39de5a2cf3746ddc67bb14542620c105"
   end
 
-  depends_on "node" => :build
   depends_on "yarn" => :build
-  depends_on arch: :x86_64 # Installs pre-built x86-64 binaries
   depends_on :macos
+  depends_on "node"
 
   def install
+    # Adjust package.json's bin and add missing shebang to avoid bundling node
+    inreplace "src/imageoptim.ts", "import chalk from 'chalk'", "#!/usr/bin/env node\n\nimport chalk from 'chalk'"
+    system "npm", "pkg", "set", "bin.imageoptim=dist/imageoptim.js"
     system "yarn", "install"
-    system "npm", "run", "build"
+    system "npm", "run", "build:ts"
     system "npm", "install", *std_npm_args
     bin.install_symlink libexec.glob("bin/*")
   end

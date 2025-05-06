@@ -41,6 +41,7 @@ class Macvim < Formula
 
   conflicts_with "ex-vi", because: "both install `vi` and `view` binaries"
   conflicts_with "vim", because: "both install vi* binaries"
+  conflicts_with cask: "macvim"
 
   def install
     # Avoid issues finding Ruby headers

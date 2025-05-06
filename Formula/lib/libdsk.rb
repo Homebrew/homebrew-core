@@ -25,6 +25,7 @@ class Libdsk < Formula
     sha256                               high_sierra:    "b4fa361c1800fd348c804873fd03f8663f7324eed228c3ba2e2d809a58fbbb97"
     sha256                               sierra:         "d46bdf8e9c779b22a2a21c123572c08130aa36b8a817365ee3bd76219478aad3"
     sha256                               el_capitan:     "b14fb001603c2ba33a26c0f49c7b008659ca5aa05ffaa01ab8147bac4da40d46"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "dd9848abd2782502fe79e8883abba6777d83f663d895b347e9c5e8faf5d98019"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "4ca3fd61e03994cc50d7f47ebf27c2ca54b24be84292baee91664ea6d864ab33"
   end
 
@@ -41,8 +42,16 @@ class Libdsk < Formula
     inreplace "Makefile.in", "SUBDIRS = . include lib tools man doc",
                              "SUBDIRS = . include lib tools man"
 
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    args = []
+    if OS.linux?
+      # Help old config scripts identify arm64 linux
+      args << "--build=aarch64-unknown-linux-gnu" if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      # Workaround for undefined reference to `major'. Remove in the next release
+      ENV.append "CFLAGS", "-include sys/sysmacros.h"
+      odie "Remove sys/sysmacros.h workaround!" if version >= "1.5"
+    end
+
+    system "./configure", *args, *std_configure_args
     system "make"
     system "make", "check"
     system "make", "install"

@@ -1,8 +1,8 @@
 class Zmap < Formula
   desc "Network scanner for Internet-wide network studies"
   homepage "https://zmap.io"
-  url "https://github.com/zmap/zmap/archive/refs/tags/v4.3.2.tar.gz"
-  sha256 "2f1e031d07d9c7040bf75aa58e258c311985e2b32dbb9a375e0d1c31bcedbf0a"
+  url "https://github.com/zmap/zmap/archive/refs/tags/v4.3.3.tar.gz"
+  sha256 "1a14b5d560d1c931528104d644ae033f4f874a21f67f9e6d04f7173e413561ec"
   license "Apache-2.0"
   head "https://github.com/zmap/zmap.git", branch: "main"
 
@@ -12,13 +12,14 @@ class Zmap < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "d326a34265c555a0e1fa70ff50d863bd5be082f8108a967129a84aac1c52641a"
-    sha256 arm64_sonoma:  "aefe7a1d975eb0a86737dbfaff6362018b6599795011fd5412940b650bab5e35"
-    sha256 arm64_ventura: "6f6b3a6a443ed8e5e0599b80635df6457d691fd519b7cfb20efe10d5475d84c4"
-    sha256 sonoma:        "4071a54bda62907d58be4a07eac8db28c134be4952f7b3bad0257151785c2298"
-    sha256 ventura:       "20fc280d37b9e11f2d24510ebd0ba8edc3f6e710383973b3e46bc8082bca6036"
-    sha256 arm64_linux:   "f374b19ffb87cba04072a7e2a76d5a72c8fd13d33e05b3d5c2e98910d1a8442d"
-    sha256 x86_64_linux:  "4d0ae017c4e6bcb5d3cb6c076307a989489ab76bfb7cc5f038b8ba55f11f5e12"
+    rebuild 1
+    sha256 arm64_sequoia: "6f46e4e52386e58a63a67a8882fa4bda0e4a78132e60e48c6e3996740ceb9387"
+    sha256 arm64_sonoma:  "1bd4fd2dafafc9e03263cf85b2e07140643c16bdb1aab8ee2283ceeeb716942c"
+    sha256 arm64_ventura: "7141b33f32eabd728c35914900704f7921cc8d9e37b61b8d074d7dcf7b320e8c"
+    sha256 sonoma:        "da2626616b8f96ac3725b2ebd871d815cf6237a591c23c378cf1ec0a7095b45b"
+    sha256 ventura:       "619fc270bcdedeeea2a309573b8201a64eb45fde9cd9f15fd7a9ac278b2f8db1"
+    sha256 arm64_linux:   "88cb07089110183f13032bce79cdbe1646cee5cc60cd3da6378be24abf44eac9"
+    sha256 x86_64_linux:  "f2c331f1a92fe6c1ea445d7bbc1781cde0eb89bb06ff5e7d056c8c5e20d1f5f1"
   end
 
   depends_on "byacc" => :build
@@ -36,6 +37,7 @@ class Zmap < Formula
 
   def install
     inreplace ["conf/zmap.conf", "src/constants.h", "src/zopt.ggo.in"], "/etc", etc
+    inreplace "CMakeLists.txt", "set(ZMAP_VERSION DEVELOPMENT)", "set(ZMAP_VERSION #{version})"
     args = %w[-DENABLE_DEVELOPMENT=OFF -DRESPECT_INSTALL_PREFIX_CONFIG=ON]
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args

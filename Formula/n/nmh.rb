@@ -40,6 +40,7 @@ class Nmh < Formula
 
   on_linux do
     depends_on "gdbm"
+    depends_on "readline"
   end
 
   conflicts_with "ali", because: "both install `ali` binaries"

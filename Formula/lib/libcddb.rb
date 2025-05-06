@@ -19,6 +19,7 @@ class Libcddb < Formula
     sha256 cellar: :any,                 big_sur:        "e19fbf67a440482346f40076ceae29a8b72590ef1376e6c5454d9f7814984e3b"
     sha256 cellar: :any,                 catalina:       "ca3cb9caeed526ef59a167293871d7b739c2ee6271571225dd1640f4af101140"
     sha256 cellar: :any,                 mojave:         "534e9e7afc756a552c414b224d86ffa84c9966bbccf3a7d781a6b55a482e9bdf"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "2f420c361caf0d48657e9f488aab6fcb7abc5929b7c24e05494952b2c24bcb44"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "a96b2ab16f2b983fa13921bc81d7b368a594620efd857d84ee8fb1667a18799d"
   end
 
@@ -26,7 +27,11 @@ class Libcddb < Formula
   depends_on "libcdio"
 
   def install
-    system "./configure", *std_configure_args
+    args = []
+    # Help old config scripts identify arm64 linux
+    args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+
+    system "./configure", *args, *std_configure_args
     system "make", "install"
   end
 

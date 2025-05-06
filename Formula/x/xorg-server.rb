@@ -12,6 +12,7 @@ class XorgServer < Formula
     sha256 arm64_ventura: "725bff18ee85feaa9c758250a57fa14253cd087ab2e25805024a2758fc1c71cf"
     sha256 sonoma:        "07f8f3a4e8e88b19c022a54f3e5512a95ca5984529ed435a0831284867e5b581"
     sha256 ventura:       "a593137347c22716ea4098ecda532c2f9d8082c51d128de11059a78645a8e8cb"
+    sha256 arm64_linux:   "dd9f4e8d0a87b0390cf5c76ab45fec1e543cf6f7d3132dbc9cfab558cd9110e4"
     sha256 x86_64_linux:  "ba290274fa63ac05cfb29e29e31944fe9e9f118ef5ef69b08e1b369c28f1add3"
   end
 

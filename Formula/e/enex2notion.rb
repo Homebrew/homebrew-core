@@ -14,6 +14,7 @@ class Enex2notion < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "682c4d4cc5a2efb3dd5ad50b3cadca10765c9625959e5f8a0e1292f11dbd86a0"
     sha256 cellar: :any_skip_relocation, sonoma:        "1f4d2e88b55e5d21b9ba5d153293bc024d2d50a12ec0089d42c40a6dbe35ffdc"
     sha256 cellar: :any_skip_relocation, ventura:       "f3a215fa05298db89b3e31aee8def51ee33ff7325d2b70aa9c4bcc01a2c314df"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b15dffa9e9bd24e8bdfcd4f69e78f706d766fad635ca8dd0c5e67acebb7f749b"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "e9b1f04b627e7d051ecf15cf7f87e15878e4bcf5355af89c48667029a1d712bb"
   end
 

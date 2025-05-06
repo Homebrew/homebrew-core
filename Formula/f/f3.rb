@@ -1,26 +1,19 @@
 class F3 < Formula
   desc "Test various flash cards"
   homepage "https://fight-flash-fraud.readthedocs.io/en/latest/"
-  url "https://github.com/AltraMayor/f3/archive/refs/tags/v8.0.tar.gz"
-  sha256 "fb5e0f3b0e0b0bff2089a4ea6af53278804dfe0b87992499131445732e311ab4"
+  url "https://github.com/AltraMayor/f3/archive/refs/tags/v9.0.tar.gz"
+  sha256 "569ec069dc3ec1c74d90d6704aa8b7f45240f5998a9dc6f14f1736c917506ecb"
   license "GPL-3.0-only"
   head "https://github.com/AltraMayor/f3.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "13bd89f70864e78494fb73b9120594cd87a1083ca4812ef14def7c7be78146f9"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6626bdd352f2c1e994f3521b9b39a04a35a17fb38f1617a94a31d9ffbd421266"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ed94f2c50af59a629db9f0662729da93afd6e1ecbf0169c84eedbc5a4533e753"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "2b2b9129b2048339b1087ae700292d8d323cfa0f15cbc003c05fd30e7b5e051f"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "dd2510a756c154a088d7b1b10c532a1cd85f4699f52dabb09a340dca20a79d04"
-    sha256 cellar: :any_skip_relocation, sonoma:         "da13742cc61f0040be9c6126c65d4a431695a1fa183151b45fd91da07a11a78e"
-    sha256 cellar: :any_skip_relocation, ventura:        "2f0a54585760470cf81909b26e5a1f21dda6a5e262845a727d8a6c4a952f76d2"
-    sha256 cellar: :any_skip_relocation, monterey:       "c4562c2607b59802e798e69a28f3c455f056304b8f731b097b0ac6d586d02b41"
-    sha256 cellar: :any_skip_relocation, big_sur:        "ecef018e922b79da5bed5e91df0e8798c9240d527af23b6d5a78c65fed0f4e99"
-    sha256 cellar: :any_skip_relocation, catalina:       "198f9b2d578a294fb61e2b9203cc1285c9c0a2fa6048fb1e34130f7d8a2039ff"
-    sha256 cellar: :any_skip_relocation, mojave:         "70d5966a5afb44fe91225d81f54adf80cd7b254ac9253423234d4c99d4a2435d"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "55da39f3758797df44426b7744542b4322ddc84b20fc7a5664e2da672cef0d1a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "1579f3c5b9325a0955e08ac046fd0689a68a77e1d032b60af2e1ee6a538203f9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3bd928c111d89adb6098858ab9a2f4332b1aa86004d3cc7b424312978638e7e9"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ed686149cfd98b9c7a128f67a438f6c81f3152b2cd489c17fe71d40860e16dcf"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cda03bf5e9f24ec222a8e810161fdb6ce221b743c1be7518bc1545381efd0eeb"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "bdf1c3fcb4d780f7d6da97a625764de7a8f9f7b5053cc58e322a6a0a6d4c1610"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d65dce42f18c8a59d8781b2fa2c8cb9670634c15106024389b8b0ca5f198935d"
+    sha256 cellar: :any_skip_relocation, ventura:       "36456dbfc00ea0cac1c8072d91535040fb346a3eaad2f7ed800f0020718c16e0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ab11a198e8d6ebee4516030645f9a453842d7a9fa8340f53f4b04f27b447f57d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fcc0ea6c324939671b57a2f951d616372e6f0b4897d9fb0043128b18225ba36e"
   end
 
   on_macos do

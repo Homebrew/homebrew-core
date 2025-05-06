@@ -1,18 +1,18 @@
 class C4core < Formula
   desc "C++ utilities"
   homepage "https://github.com/biojppm/c4core"
-  url "https://github.com/biojppm/c4core/releases/download/v0.2.5/c4core-0.2.5-src.tgz"
-  sha256 "758f23718cbdc9465f104249561c4028858caf3355a90616b54d1dd937a981b1"
+  url "https://github.com/biojppm/c4core/releases/download/v0.2.6/c4core-0.2.6-src.tgz"
+  sha256 "203a8dbd156b1b5062959627b7757f8953d03ab05a992ecc471fcefe7274194b"
   license all_of: ["MIT", "BSL-1.0"]
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "db1b389a792b0c706e60ca3dc45a91038721ecd3f0b6bfc9a8997cf8564f0c2e"
-    sha256 cellar: :any,                 arm64_sonoma:  "3d406c980d9a46189724a5413f3047a0dd78ea3d254ecbad9ec366bde3cc67e8"
-    sha256 cellar: :any,                 arm64_ventura: "da3f3b490903b89c121305fd112b372e2cff4cf32eae6d1e44c9fb64f10bbe8d"
-    sha256 cellar: :any,                 sonoma:        "cfe600abd4d4d911e2416c8b07d51693db2432238e79d3efcd278b1b02c22028"
-    sha256 cellar: :any,                 ventura:       "8c5b12b46d37916e0b5e5f11bc4b00260467a905ac490858c2d172410d0ac6a3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "31f8652eb1bedbb0df0d6b67eff80a93d42ebb88a1249f127c8b23828e226995"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "069cce0a054094573cdd0338332b80640a38fa412d4d4c0cf3b653297a24ebb9"
+    sha256 cellar: :any,                 arm64_sequoia: "5f2518dbe8f273c8320bcd8f2a632c747578c0f7638cb733aa884e0ae6827eca"
+    sha256 cellar: :any,                 arm64_sonoma:  "a392aee67ab2432ce106b4631661ac9565407a74f380523d1cc2f3cd4539850d"
+    sha256 cellar: :any,                 arm64_ventura: "4bc536148a179f28a9b4bd28f81821084d0fdce24f3aa5e39c75093d0dc7d8f1"
+    sha256 cellar: :any,                 sonoma:        "7799e77cad48cbc3d89bb3ac6f7e908264df34254d496912b8d739ced5aa0386"
+    sha256 cellar: :any,                 ventura:       "05cf45edbe989806426ac81fb605084e5b832f9dddf5f86953885c8708f6b69a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "94e1da9372dd27bf1c64965212c79ae01acf0b3dbd344209f1042b2ab2fff357"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f6260a2a167adcd57264516af9b9119b06b6d03b6dde21572e8d49e04c23e188"
   end
 
   depends_on "cmake" => [:build, :test]

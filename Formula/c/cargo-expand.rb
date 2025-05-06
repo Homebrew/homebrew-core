@@ -1,19 +1,19 @@
 class CargoExpand < Formula
   desc "Show what Rust code looks like with macros expanded"
   homepage "https://github.com/dtolnay/cargo-expand"
-  url "https://github.com/dtolnay/cargo-expand/archive/refs/tags/1.0.103.tar.gz"
-  sha256 "6df090aa631fa447e5e9d441192580867022c12acead74b78ee1e584842fbd9d"
+  url "https://github.com/dtolnay/cargo-expand/archive/refs/tags/1.0.106.tar.gz"
+  sha256 "3917f35b54b4186ac5697648a673a70ab58567bebbee926d5d60cbea5f342471"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/dtolnay/cargo-expand.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ee3990129d757a037152829a090e3579b9f71fe071cda69c7a12c617c1108645"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "09964858ce9cc9e836b5e9022fbd6a1779bbfe851c2e086df92397aa07e05689"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "28a11090a5e2b814e9aceb87c9a9955f61e153a76c1c47193f372dcff6234ced"
-    sha256 cellar: :any_skip_relocation, sonoma:        "2b8b52f7e30ce27c796f824a90434baa3e38174cd7bcc85dea10bd07d676a770"
-    sha256 cellar: :any_skip_relocation, ventura:       "5b78196528e1ff81ece9e90ffc88a4def945025e8adc938f7516fafe9f1080e6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "610478839b867697ac953d58a81d8b5c0b635bb7ea5d7e9a6b5595edabafd797"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "789069f3518a26efd6a3af93b817d6fcce1e610c6fb543bc6334a7fbb2510ec8"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1446baec0e867d5bf0dcf9297cf0ca4376d31d967b9a7f61ba425f3327e3d44d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3add3bb71dadde1dd3ddf53030876f25c9be442c99539b0413eccb0a6fa0cf9b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "d1ec2ba62a11b75d8cbe4bbac17feb1025e12e2f249ba6949ea27c11cbfb888c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "468861d35afd0b0064541cadbc06a7bef61f45fd2f895438125f190eb526cbec"
+    sha256 cellar: :any_skip_relocation, ventura:       "3e112c2726e3ef0b76aced248b37a2e439be4d7978d4cece9e0c671af671d400"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f4e271c5d2e81464db6e4780ea330c2c06ecc0643fcc44ed120bddd6821098ca"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cbea3854e20f659df2d26baa5cd2dc092733b10a89212d0a1485dedfa091fab2"
   end
 
   depends_on "rust" => :build
@@ -25,8 +25,8 @@ class CargoExpand < Formula
 
   test do
     ENV.prepend_path "PATH", Formula["rustup"].bin
-    system "rustup", "default", "stable"
     system "rustup", "set", "profile", "minimal"
+    system "rustup", "default", "stable"
 
     system "cargo", "new", "hello_world", "--lib"
     cd "hello_world" do

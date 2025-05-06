@@ -1,25 +1,22 @@
 class Ifacemaker < Formula
   desc "Generate interfaces from structure methods"
   homepage "https://github.com/vburenin/ifacemaker"
-  url "https://github.com/vburenin/ifacemaker/archive/refs/tags/v1.2.1.tar.gz"
-  sha256 "3bbe9d742995ca5804da15f0f01ed85ff5d68b6b3e22b04c1491492eb703aa54"
+  url "https://github.com/vburenin/ifacemaker/archive/refs/tags/v1.3.0.tar.gz"
+  sha256 "36d1b93300169c2d9d607fc7c082ff62914300e2d20f67250113d0f9acf71457"
   license "Apache-2.0"
   head "https://github.com/vburenin/ifacemaker.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "57e39785ef61701419ebdfc96551278ddf08c465915e07abef86b74671412296"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b8175629d716ad8042861ec71047622534d02542372c48b863fbdfbbfad570ec"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "87408de1f42dcab543551dd12efc8f8616779595ec9d001bac8d5e41272b5fcf"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "87408de1f42dcab543551dd12efc8f8616779595ec9d001bac8d5e41272b5fcf"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "87408de1f42dcab543551dd12efc8f8616779595ec9d001bac8d5e41272b5fcf"
-    sha256 cellar: :any_skip_relocation, sonoma:         "42d0d1897be34f5f897b5b4bbec05fe684eb59218bad65dbc372e85bc11ff813"
-    sha256 cellar: :any_skip_relocation, ventura:        "6e5a0afe3650cf97a62be0c43e830b786c769430dce3cdbe51e7abc4f157861c"
-    sha256 cellar: :any_skip_relocation, monterey:       "6e5a0afe3650cf97a62be0c43e830b786c769430dce3cdbe51e7abc4f157861c"
-    sha256 cellar: :any_skip_relocation, big_sur:        "6e5a0afe3650cf97a62be0c43e830b786c769430dce3cdbe51e7abc4f157861c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e76f770fa867389cf4b882db3ba239a4a35e0902ee5137d2860e975964fb0317"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6154bb922ed27a72a91b0d10e5ec06218ff8b9a49b247fae68a65dbc948621f0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6154bb922ed27a72a91b0d10e5ec06218ff8b9a49b247fae68a65dbc948621f0"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "6154bb922ed27a72a91b0d10e5ec06218ff8b9a49b247fae68a65dbc948621f0"
+    sha256 cellar: :any_skip_relocation, sonoma:        "6bfa1e6a33785aedb8ccdf3cb1289a4401000966fbaeea575f5b40cfd3dca554"
+    sha256 cellar: :any_skip_relocation, ventura:       "6bfa1e6a33785aedb8ccdf3cb1289a4401000966fbaeea575f5b40cfd3dca554"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3965817642d73ac92add1f56c90513f1aea6afb7aa0062554ced5e4811e0f8a7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "25971c5b2fee2f1a24f267bef1f1e9a6070a1f3f5bfa6a693012dc07b2de1d13"
   end
 
-  depends_on "go" => :build
+  depends_on "go"
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w")

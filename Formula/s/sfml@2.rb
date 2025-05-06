@@ -12,6 +12,7 @@ class SfmlAT2 < Formula
     sha256 cellar: :any,                 arm64_ventura: "8d76a3051365d997d2fcbe5b24c3042bb217df18f3f64d25bb0708875cdcbc91"
     sha256 cellar: :any,                 sonoma:        "96b5e8246f95125ed017da1a3b0ebf37ec9006c644efb2587d8e7e6d3fb4a5ec"
     sha256 cellar: :any,                 ventura:       "d7f41e0d4c78d3c6ecd487c9d8ba1f094ec42bf7dbddc3678bccc13e13091ed0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "de95401fa9357605881a1ff217dffa3c0fc7703968ce9f99ee25db3fb16fd2f8"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "83c161b5438b103ca014927de4b1ccba2782c9e6a654cce77e6041e02c91d1f3"
   end
 

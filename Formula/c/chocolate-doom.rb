@@ -19,6 +19,7 @@ class ChocolateDoom < Formula
     sha256 cellar: :any,                 sonoma:         "d0685590e292ca4f4901e523e5a1a2e77031e05da7cc21fd88ff1251bb10e981"
     sha256 cellar: :any,                 ventura:        "5722f18c1e6dfe86f4875ea77ca7c2e8cf70dc8e58ee8a4cfcdc6ad992c75b6f"
     sha256 cellar: :any,                 monterey:       "b47085bdb5cba8a81af6889d21fb725baba8108711428e708cbce4fa10bacacb"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "4e33543d04e8b2f62c7d2b728797db416a1dae9ec69d60d9b8c7dc70079558ef"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "d314bee173f047d52b928d7865e8d8fd10ef6635b34cc89a50259ab9766e2efc"
   end
 

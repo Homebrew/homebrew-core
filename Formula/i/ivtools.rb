@@ -12,6 +12,7 @@ class Ivtools < Formula
     sha256 arm64_ventura: "70ffb6c9ade79c815e2b1e06d8b4e867bcd9babda7b77faa9f1d3919e656621c"
     sha256 sonoma:        "828070545c2e66472fade42f8e22b154f153a7a38023783562b87a05798112f5"
     sha256 ventura:       "aa7085f4e2a50ed9abf9846b9b16ea456abdddf774e0dd20acdcfb3b7d23ca85"
+    sha256 arm64_linux:   "c9098f94cb6fd159321462faa367524b483774f1e21db26a14d0076d79aa6e12"
     sha256 x86_64_linux:  "d09f4ad1563dfd467eeb0991c8289cc5fdda69bb3a749a798d3134f915de3af4"
   end
 
@@ -19,7 +20,20 @@ class Ivtools < Formula
   depends_on "libx11"
   depends_on "libxext"
 
+  on_linux do
+    on_arm do
+      depends_on "automake" => :build
+    end
+  end
+
   def install
+    # Workaround for ancient config files not recognizing aarch64 linux.
+    if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      %w[config.guess config.sub].each do |fn|
+        cp Formula["automake"].share/"automake-#{Formula["automake"].version.major_minor}"/fn, "src/scripts/#{fn}"
+      end
+    end
+
     cp "Makefile.orig", "Makefile"
     ace = Formula["ace"]
     args = %W[--mandir=#{man} --with-ace=#{ace.opt_include} --with-ace-libs=#{ace.opt_lib}]

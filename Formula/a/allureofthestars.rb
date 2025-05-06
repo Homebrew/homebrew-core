@@ -15,15 +15,18 @@ class Allureofthestars < Formula
     sha256 cellar: :any,                 sonoma:         "04408ea5d216f20bf717bff54479860587047d3ba6f461dffb2ad44abdad6ca3"
     sha256 cellar: :any,                 ventura:        "3283e3c2fc6119cdb90fea04630036f3e2db8e614aacb4190910d23afb722d1c"
     sha256 cellar: :any,                 monterey:       "03c79e5c09db8d0a39e66e8f79ed7ef2fb39c5d1a7760ac3b5979a74a309a61c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "3073343041a2759f07e44132a6ac86238e34660549a7b8df8e7b05aa28fa52f4"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "5d9642c0028543fc3452e204831c3d675c121fb756fd7376f9c6f879adbaea5a"
   end
 
   depends_on "cabal-install" => :build
   depends_on "ghc" => :build
   depends_on "pkgconf" => :build
+  depends_on "gmp"
   depends_on "sdl2"
   depends_on "sdl2_ttf"
 
+  uses_from_macos "libffi"
   uses_from_macos "zlib"
 
   # TODO: Remove resource once new release is available or hackage revision (r2+) with

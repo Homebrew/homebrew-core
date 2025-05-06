@@ -5,17 +5,13 @@ class GnupgAT22 < Formula
   sha256 "d1abecd2b6c052749fd5748ba9de7021567e06b573dc6becac8df25cb87500e8"
   license "GPL-3.0-or-later"
 
-  livecheck do
-    url "https://gnupg.org/ftp/gcrypt/gnupg/"
-    regex(/href=.*?gnupg[._-]v?(2\.2(?:\.\d+)+)\.t/i)
-  end
-
   bottle do
     sha256 arm64_sequoia: "8d5d196f730de5750668c544a89072f9b49f4c1e50b789febfef6dfa45737732"
     sha256 arm64_sonoma:  "95e6b4de9833631f8edabe5e884f361064868fdd53cedc77270c44c5cff92fb9"
     sha256 arm64_ventura: "cf4903d0310a509ca89a0006a0829fd43ab0eb6437d25edcd3a8d791415fa18e"
     sha256 sonoma:        "0ab0b520cf2c9fe7dda0fc685e109690ec4cf42c048d99032f153f9e4c57cc9f"
     sha256 ventura:       "669f53703809aeeb18bf20d7412273752a0fe10d1e9c2e7613ce05d530177b94"
+    sha256 arm64_linux:   "8b1e5bb872380adc2e2f51ad64405bdd55cd21c8c0cf6a5d1f1b3027e307b8b5"
     sha256 x86_64_linux:  "53dff7529ced678aceb1d72fad1ece04b9154b9de0b3dcc24f03dab9abed018a"
   end
 

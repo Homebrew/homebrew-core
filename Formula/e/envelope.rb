@@ -12,6 +12,7 @@ class Envelope < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "9e761284f6f67e2191150e13948e0fc6937b443ad2cb068667b652b449704824"
     sha256 cellar: :any_skip_relocation, sonoma:        "962de83a7b02a7b3788e2deedea65e57017e7e7c1111ab57a4cf0c6bde263953"
     sha256 cellar: :any_skip_relocation, ventura:       "7179a447ff32c1b183df3d8874965d4dbbff08c7b6d3276e6b35765c73352626"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c61a0efee93d2871b57e4fcdbd8ce0f9ea5f75536786e6bc974d3e1fa8fcba15"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "3d65cd41287ab72e1ba6d4cda1d79d78c1916099ab31b908d165e89097e70d63"
   end
 

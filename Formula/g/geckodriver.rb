@@ -40,12 +40,12 @@ class Geckodriver < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "7f02fff09b38ba190b4eb51ea41e7a9cffe8251d1891d6fa4fe2a11cfcdab356"
     sha256 cellar: :any_skip_relocation, sonoma:        "de49fdc83e656b413608cfb40bc59425df4a3538d3e53162cb2b8a55466f219e"
     sha256 cellar: :any_skip_relocation, ventura:       "ba081200e60b48da1e935fb572fd28c7583cd070806b86fbb409ac5a9fb704f1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "caea91cd4156e7b148c5328f5a0590cfc0fac5819a8baca8a80938cab96f28a2"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "fa9e1b98be14b7ab9af9a7c1ee458ddc55045f11666e5fe8edcf7c59156fd1d3"
   end
 
   depends_on "rust" => :build
 
-  uses_from_macos "netcat" => :test
   uses_from_macos "unzip"
 
   def install
@@ -68,11 +68,13 @@ class Geckodriver < Formula
 
   test do
     test_port = free_port
-    fork do
-      exec "#{bin}/geckodriver --port #{test_port}"
-    end
+    pid = spawn bin/"geckodriver", "--port", test_port.to_s
     sleep 2
 
-    system "nc", "-z", "localhost", test_port
+    # A functional test requires Firefox so we just make sure HTTP GET has a response
+    assert_equal "HTTP method not allowed", shell_output("curl -s http://localhost:#{test_port}/session")
+  ensure
+    Process.kill "TERM", pid
+    Process.wait pid
   end
 end

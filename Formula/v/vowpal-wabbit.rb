@@ -15,6 +15,7 @@ class VowpalWabbit < Formula
     sha256 cellar: :any,                 sonoma:         "37bd232f15d467da97b3345a617a6dbc797bc6ad8ebf872551b27fb54c5a72cd"
     sha256 cellar: :any,                 ventura:        "3215db836a8d52db6278ffe3e3522295e16a2d55336770210f1c4eb8f9ceb1a9"
     sha256 cellar: :any,                 monterey:       "876c07dabe88389bf4524b3686b05f20a17c4982e1ff13918bc9221e2e3c8829"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "6588a45ffb2630fde15f634aac9248eb1fa0467f227c6312c4a9a63910cbb970"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "24bc424f2e333c4995e596f13ce7b4bda399467dc711098d4fb399fc954bf6bf"
   end
 
@@ -43,6 +44,7 @@ class VowpalWabbit < Formula
       -DVW_EIGEN_SYS_DEP=ON
       -DVW_SSE2NEON_SYS_DEP=ON
       -DVW_INSTALL=ON
+      -DVW_CXX_STANDARD=14
     ]
 
     # The project provides a Makefile, but it is a basic wrapper around cmake

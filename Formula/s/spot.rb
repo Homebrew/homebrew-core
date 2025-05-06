@@ -16,6 +16,7 @@ class Spot < Formula
     sha256 cellar: :any,                 arm64_ventura: "3479c7f105845b206b887e043302f428da3e0324050321461988db1a3a9a5a5e"
     sha256 cellar: :any,                 sonoma:        "b50160f4850825a805e49fb599804c358dd9622d4c2ad65b6d25a52c8912de2b"
     sha256 cellar: :any,                 ventura:       "2926815fb5ec93988f881c5958711fa8474947d948dc3071c3043c377da5786f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "79356cfd8b16223222424cff25e76f93b43c4038feadf3dc3933fcdccbe08675"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "790b0da5e46c005e3848272613832fd3d28563b09df8f4747cc93eabacfeda91"
   end
 

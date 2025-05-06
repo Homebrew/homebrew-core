@@ -14,6 +14,7 @@ class GnuApl < Formula
     sha256 sonoma:         "f846d1e2a5d45180aab7b9d70b09b682ee305ece2f115beaddadd9d197f872f9"
     sha256 ventura:        "35fb69870f69ed42993e2917d539e80d4bc34013b767f486921d28bff333e3a4"
     sha256 monterey:       "3c142ba8082510e217dba2c772bcc2f19cf3c2f07fb13e93dd3672adea6e229e"
+    sha256 arm64_linux:    "43a34760fe0949fcb78d83da6b75d899db63a606869ac53431e86644f76a9898"
     sha256 x86_64_linux:   "6e061bdb88a56797f123cdf50083e1065ba79fa1d3542b30ab1225bd4fd37b10"
   end
 

@@ -1,18 +1,10 @@
 class HaskellLanguageServer < Formula
   desc "Integration point for ghcide and haskell-ide-engine. One IDE to rule them all"
   homepage "https://github.com/haskell/haskell-language-server"
+  url "https://github.com/haskell/haskell-language-server/releases/download/2.10.0.0/haskell-language-server-2.10.0.0-src.tar.gz"
+  sha256 "dd7ba032767e9a955f334617eef8f4b8b12b260191f97ad883545851f498dc0a"
   license "Apache-2.0"
-  revision 1
   head "https://github.com/haskell/haskell-language-server.git", branch: "master"
-
-  stable do
-    url "https://github.com/haskell/haskell-language-server/releases/download/2.9.0.1/haskell-language-server-2.9.0.1-src.tar.gz"
-    sha256 "bdcdca4d4ec2a6208e3a32309ad88f6ebc51bdaef44cc59b3c7c004699d1f7bd"
-
-    # Backport support for newer GHC 9.8
-    # Ref: https://github.com/haskell/haskell-language-server/commit/6d0a6f220226fe6c1cb5b6533177deb55e755b0b
-    patch :DATA
-  end
 
   # we need :github_latest here because otherwise
   # livecheck picks up spurious non-release tags
@@ -22,19 +14,22 @@ class HaskellLanguageServer < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3ca04aceddff878e084ee95e1b350679f6496ef59f3fa8f888022530241e1a8d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8e465529fa959635d64b58f489e565b316530246cdb17fe77caaf9a047958b23"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "a4b7056eb268074e77b59c6cd162a4d56b30a711d7504d9b7fad0068df528e21"
-    sha256 cellar: :any_skip_relocation, sonoma:        "feb62de0788a945aa9effc9cf8309a3af9781c2960311c0d09dc403435611e21"
-    sha256 cellar: :any_skip_relocation, ventura:       "5bd0b38d098fff1453dd0fafb897b23ea908872b90df89ff69594c52b7655ba5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "37b70a3d3a35c2e55e5227d37f13a136cfa2b191e32917b7feaeeeffa999553a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4a49980333b291f0817180be4b6d35818b0d6ab670943623dccb9c9820f8339c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4d23f1a7a36b002d29587f5077262654b80100471200b870bb7987e5d8448cd4"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "61bf5b68dc9cd636f5a2ef3792a8c955a33e461544ce2da87efcb1cb29975358"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d2b798ae2b7c005c05170f7e92f653b939ed51e4f6e907e737ae9b3bf5645923"
+    sha256 cellar: :any_skip_relocation, ventura:       "e04bb44cbacf239ec843f840bc6887a760c4a021abc6996465a5d8d85b88947b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7784b1f454b182e6227b1ead86db9e4a04d5b22cef627bb3743ec4d95645711d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bab5d18cee8d36906dc58806f1c42ef705ad217c2b2521648284ecf900f8d042"
   end
 
   depends_on "cabal-install" => [:build, :test]
+  depends_on "ghc" => [:build, :test]
   depends_on "ghc@9.10" => [:build, :test]
-  depends_on "ghc@9.6" => [:build, :test]
   depends_on "ghc@9.8" => [:build, :test]
+  depends_on "gmp"
 
+  uses_from_macos "libffi"
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
@@ -44,17 +39,15 @@ class HaskellLanguageServer < Formula
   end
 
   def install
-    # Backport newer index-state for GHC 9.8.4 support in ghc-lib-parser.
-    # We use the timestamp of r1 revision to avoid latter part of commit
-    # Ref: https://github.com/haskell/haskell-language-server/commit/25c5d82ce09431a1b53dfa1784a276a709f5e479
-    # Ref: https://hackage.haskell.org/package/ghc-lib-parser-9.8.4.20241130/revisions/
-    # TODO: Remove on the next release
-    inreplace "cabal.project", ": 2024-06-13T17:12:34Z", ": 2024-12-04T16:29:32Z" if build.stable?
+    # Cannot dynamically link when supporting multiple versions of GHC in single formula
+    args = ["--disable-executable-dynamic", "--flags=-dynamic -test-exe"]
+    # Work around failure: ld: B/BL out of range 204883708 (max +/-128MB)
+    args << "--ghc-option=-optl-ld_classic" if DevelopmentTools.clang_build_version == 1500 && Hardware::CPU.arm?
 
     system "cabal", "v2-update"
 
     ghcs.each do |ghc|
-      system "cabal", "v2-install", "--with-compiler=#{ghc.bin}/ghc", "--flags=-dynamic", *std_cabal_v2_args
+      system "cabal", "v2-install", "--with-compiler=#{ghc.bin}/ghc", *args, *std_cabal_v2_args
 
       cmds = ["haskell-language-server", "ghcide-bench"]
       cmds.each do |cmd|
@@ -93,16 +86,3 @@ class HaskellLanguageServer < Formula
     end
   end
 end
-
-__END__
---- a/ghcide/src/Development/IDE/GHC/Compat/Core.hs
-+++ b/ghcide/src/Development/IDE/GHC/Compat/Core.hs
-@@ -674,7 +674,7 @@ initObjLinker env =
- loadDLL :: HscEnv -> String -> IO (Maybe String)
- loadDLL env str = do
-     res <- GHCi.loadDLL (GHCi.hscInterp env) str
--#if MIN_VERSION_ghc(9,11,0)
-+#if MIN_VERSION_ghc(9,11,0) || (MIN_VERSION_ghc(9, 8, 3) && !MIN_VERSION_ghc(9, 9, 0))
-     pure $
-       case res of
-         Left err_msg -> Just err_msg

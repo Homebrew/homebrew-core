@@ -3,21 +3,19 @@ class SolcSelect < Formula
 
   desc "Manage multiple Solidity compiler versions"
   homepage "https://github.com/crytic/solc-select"
-  url "https://files.pythonhosted.org/packages/60/a0/2a2bfbbab1d9bd4e1a24e3604c30b5d6f84219238f3c98f06191faf5d019/solc-select-1.0.4.tar.gz"
-  sha256 "db7b9de009af6de3a5416b80bbe5b6d636bf314703c016319b8c1231e248a6c7"
+  url "https://files.pythonhosted.org/packages/e0/55/55b19b5f6625e7f1a8398e9f19e61843e4c651164cac10673edd412c0678/solc_select-1.1.0.tar.gz"
+  sha256 "94fb6f976ab50ffccc5757d5beaf76417b27cbe15436cfe2b30cdb838f5c7516"
   license "AGPL-3.0-only"
-  revision 2
   head "https://github.com/crytic/solc-select.git", branch: "dev"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5d0661908ba920dc4a4de4ea3eb27914ec0405b8adaf35cfa77bde266a1575f1"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "94b9be9265dbfc2de30db81960d6940539f91820f3367776174221b86d4cc682"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "509c18ea54308f169f3ddb2d0bdba7d6442dc7283502f727ef5711dec262d95d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c6d96ebed3035abd3c66142cbba68a650370d3db324c1d931841f268733fa7aa"
-    sha256 cellar: :any_skip_relocation, ventura:       "7367e876b2ee383d66a91d944aca60b4882d23e835cdc16c9f7d748f14c28717"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "7d10a3240b97ebce12c0dbf0dc1ac2174080f8f5d3e90e7d1b6d10eb248c4852"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "138ad09ef8f2a22eb9b254ae878cad4f3bbd7132dea5b1f1be418365d9ac8390"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ea3957a265f7ca3d516f7c3faefc58c9bce7d53644395922223d2210836c5a3d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "36ea54913d7a7f3d7c1085ffd19833e8be6a40228326afb5a73983557df19c63"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "742ba15309a69e1de2019f7d96a5eff594086049cb29e676111296ac5d85cab7"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8be48b55beeaf881ebcf778dc87ba5f3041337c6c39745a5498eeab6a1ab9dc2"
+    sha256 cellar: :any_skip_relocation, ventura:       "25521bbb2e161e5e4dda3528b8db73492ff8c452b9af2210b94e41ec8eb77a7f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a5dfff3b8b387a2dfdff1752ec12ea03850b75284052b59ba0ec008c48c45acb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "84e29ee66be49ea56f3c7c901b16cbde55f6505572b57a933e92083d3443d986"
   end
 
   depends_on "python@3.13"
@@ -25,13 +23,13 @@ class SolcSelect < Formula
   conflicts_with "solidity", because: "both install `solc` binaries"
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/51/65/50db4dda066951078f0a96cf12f4b9ada6e4b811516bf0262c0f4f7064d4/packaging-24.1.tar.gz"
-    sha256 "026ed72c8ed3fcce5bf8950572258698927fd1dbda10a5e981cdf0ac37f4f002"
+    url "https://files.pythonhosted.org/packages/d0/63/68dbb6eb2de9cb10ee4c9c14a0148804425e13c4fb20d61cce69f53106da/packaging-24.2.tar.gz"
+    sha256 "c228a6dc5e932d346bc5739379109d49e8853dd8223571c7c5b55260edc0b97f"
   end
 
   resource "pycryptodome" do
-    url "https://files.pythonhosted.org/packages/13/52/13b9db4a913eee948152a079fe58d035bd3d1a519584155da8e786f767e6/pycryptodome-3.21.0.tar.gz"
-    sha256 "f7787e0d469bdae763b876174cf2e6c0f7be79808af26b1da96f1a64bcf47297"
+    url "https://files.pythonhosted.org/packages/44/e6/099310419df5ada522ff34ffc2f1a48a11b37fc6a76f51a6854c182dbd3e/pycryptodome-3.22.0.tar.gz"
+    sha256 "fd7ab568b3ad7b77c908d7c3f7e167ec5a8f035c64ff74f10d47a4edd043d723"
   end
 
   def install

@@ -1,8 +1,8 @@
 class Massdriver < Formula
   desc "Manage applications and infrastructure on Massdriver Cloud"
   homepage "https://www.massdriver.cloud/"
-  url "https://github.com/massdriver-cloud/mass/archive/refs/tags/1.10.6.tar.gz"
-  sha256 "ff1cecbaba75ed75fb5f55b14c4d3a8c4ca4301b1592cec0658da4d0c98dc866"
+  url "https://github.com/massdriver-cloud/mass/archive/refs/tags/1.10.7.tar.gz"
+  sha256 "fbaa8281509139d83b64f10a8851630242cd1648a2437b4be38c0e9e39e87775"
   license "Apache-2.0"
   head "https://github.com/massdriver-cloud/mass.git", branch: "main"
 
@@ -15,13 +15,12 @@ class Massdriver < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a2cfdafb9619fefcb66235f7a9485c6712b4bf5f4b4d8282994becf739553e65"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a2cfdafb9619fefcb66235f7a9485c6712b4bf5f4b4d8282994becf739553e65"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "a2cfdafb9619fefcb66235f7a9485c6712b4bf5f4b4d8282994becf739553e65"
-    sha256 cellar: :any_skip_relocation, sonoma:        "4b727bdd1b01c44917e97f1912e43fb8162f86f5fdfc52c3bcdcf28b9626c1c5"
-    sha256 cellar: :any_skip_relocation, ventura:       "4b727bdd1b01c44917e97f1912e43fb8162f86f5fdfc52c3bcdcf28b9626c1c5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "358296ed0e7e0cdbe2b048aefe53e5a7cf0c8b96dc8f19233b59568798701e75"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b7114dc9c2b595a774f1c445a69d51148301c25e33010d4657ac041b2156b56a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b7114dc9c2b595a774f1c445a69d51148301c25e33010d4657ac041b2156b56a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "b7114dc9c2b595a774f1c445a69d51148301c25e33010d4657ac041b2156b56a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "6ee801a50cfa9434d2c50152ac985fdbcb69a0aad4a1786312ed31f08a054609"
+    sha256 cellar: :any_skip_relocation, ventura:       "6ee801a50cfa9434d2c50152ac985fdbcb69a0aad4a1786312ed31f08a054609"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d0a66e63f10ba634f78cce3b411070652425fea60f61965c08aeffa74d1cc353"
   end
 
   depends_on "go" => :build

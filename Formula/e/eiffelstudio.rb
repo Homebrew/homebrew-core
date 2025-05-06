@@ -15,12 +15,14 @@ class Eiffelstudio < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "f53fe709078a0b99df505467ce2ed36139b7bb692e76b51cb66d3c177eb81c1f"
-    sha256 cellar: :any,                 arm64_sonoma:  "756ba74eb55015c9a862e66c71e30b044df6ed6387e4c75804b04f17abe0c565"
-    sha256 cellar: :any,                 arm64_ventura: "edd61003eaccc9f0f98dc887c6446520eac6e5a2201cffb1467cc360f836f0d6"
-    sha256 cellar: :any,                 sonoma:        "ca47472f6ff1d99d2a6f625c8fc29056b5cfba9f01fa967582da0afe6af634a0"
-    sha256 cellar: :any,                 ventura:       "962dd821c1033fccab1662fac98c08d85c784bb249ee892c98ab424ba59e11fd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "08f320ba178cd2a918863d1dbb9bf44a1e9b5ae4c5e0b269c6f2377d17e9d961"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "439bf0adf57faebf0897400e531338efeb4e91e7b9a4470ba94932d3025d3cbb"
+    sha256 cellar: :any,                 arm64_sonoma:  "b42e40979b8e31a2ed84a32b024811b5d50aa97bca7c96ab53300e6de45c7bbb"
+    sha256 cellar: :any,                 arm64_ventura: "1f31d3cd0b9dbfe91cfacda4bced48918f29a6d861f23fe764d3f4d9333ab4cb"
+    sha256 cellar: :any,                 sonoma:        "88bf14ac5fd6270aef08d59b7e74d2d2650a56f2022b07d884901c62db9d7fe1"
+    sha256 cellar: :any,                 ventura:       "0f1a0494b436a30d3cb01c7b982be6e3770200fc3e70badb0c9ab94fcd4e6368"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "319253cc55f63693b4d879ef4b37ef84a80af596d2fe7eb6b9ed6adcb5ddef7e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6d47f2c53bb4b1ac77df03ba2504fdd788d10973bce17d2e5be256184b99bbed"
   end
 
   depends_on "pkgconf" => :build
@@ -40,18 +42,20 @@ class Eiffelstudio < Formula
   end
 
   def install
-    platform = "#{OS.mac? ? "macosx" : OS.kernel_name.downcase}-x86-64"
+    platform = if OS.mac?
+      "macosx-x86-64"
+    else
+      "#{OS.kernel_name.downcase}-#{Hardware::CPU.arch.to_s.tr("_", "-")}"
+    end
 
     # Apply workarounds
     ENV.append_to_cflags "-Wno-incompatible-function-pointer-types" if DevelopmentTools.clang_build_version >= 1500
-    system "tar", "xf", "c.tar.bz2"
-    inreplace "C/CONFIGS/#{platform}" do |s|
-      if OS.mac?
-        # Fix flat namespace usage in C shared library.
-        s.gsub! "-flat_namespace -undefined suppress", "-undefined dynamic_lookup"
-      end
+    if OS.mac?
+      system "tar", "xf", "c.tar.bz2"
+      # Fix flat namespace usage in C shared library.
+      inreplace "C/CONFIGS/#{platform}", "-flat_namespace -undefined suppress", "-undefined dynamic_lookup"
+      system "tar", "cjf", "c.tar.bz2", "C"
     end
-    system "tar", "cjf", "c.tar.bz2", "C"
 
     system "./compile_exes", platform
     system "./make_images", platform

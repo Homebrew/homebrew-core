@@ -19,6 +19,7 @@ class DcosCli < Formula
     sha256 cellar: :any_skip_relocation, big_sur:        "1391a435f38b3a70514d0ef7f0a20f19a2d7027e64cad5c1b413730a89aaec4f"
     sha256 cellar: :any_skip_relocation, catalina:       "3f64db455d356a65dbb8be7bce2346b9b8afec968082bdad1efafb174bbde1b8"
     sha256 cellar: :any_skip_relocation, mojave:         "759770809a74366f84721771b18702a3d27c9e6aa9099f25895200462df17ab8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "82c1abd40c451322835120c0c1ab9a8ffe507b0c7d55c77ffa78d995d9e6086d"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "2ca96957a95df6e3084eeddf3d45cd52a26bdd69446647af7e52f297c6b1f1ce"
   end
 

@@ -1,10 +1,9 @@
 class Cfitsio < Formula
   desc "C access to FITS data files with optional Fortran wrappers"
   homepage "https://heasarc.gsfc.nasa.gov/docs/software/fitsio/fitsio.html"
-  url "https://heasarc.gsfc.nasa.gov/FTP/software/fitsio/c/cfitsio-4.6.0.tar.gz"
-  sha256 "7c372fdb4e6cf530fc12294ae0b7f1fdd0ed85062790277a60aea56c97b0d3e7"
+  url "https://heasarc.gsfc.nasa.gov/FTP/software/fitsio/c/cfitsio-4.6.2.tar.gz"
+  sha256 "66fd078cc0bea896b0d44b120d46d6805421a5361d3a5ad84d9f397b1b5de2cb"
   license "CFITSIO"
-  revision 1
 
   livecheck do
     url :homepage
@@ -12,13 +11,13 @@ class Cfitsio < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "b4840688dc91e1514e9bba00d75ad9e088cc476012d049b05dcea30d7bf2581f"
-    sha256 cellar: :any,                 arm64_sonoma:  "1c7bf77712a66f86836db494facd0cb55e83b594ace4a4d388f299dfbfae748a"
-    sha256 cellar: :any,                 arm64_ventura: "0fa68eef595ebf1ea0eae32355e5cae294871dad772bff5195e0b5442cd70941"
-    sha256 cellar: :any,                 sonoma:        "a465c14b5ea65fca7768f799cc69498cbc31804e399042e9cd240dfd360606bc"
-    sha256 cellar: :any,                 ventura:       "39745c769ea7b54bbddc7295d1f0d5ea02cb1fd91c8c1115eac57cdc9166e9c5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b96aa1cfd42ccbaef7d954af47fd13975599d7a44fc672094357d5fe834f9839"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "95ac322ee873ba55a36b861712b04728f450a9395444969e0cf5f6ec12d2df27"
+    sha256 cellar: :any,                 arm64_sequoia: "5211e3ed2c5d20c27a80a1a60392a0a40ba1124795fcb9a8969dbfc536bf75cc"
+    sha256 cellar: :any,                 arm64_sonoma:  "99f6c0c152eed90cfc797714394de1428abc1e5bc056699bc9f227124fe537e1"
+    sha256 cellar: :any,                 arm64_ventura: "8b92cc30cc355bb0522c74bd91481fedb21e31867812475e867fcb704b1336f6"
+    sha256 cellar: :any,                 sonoma:        "95f8da6e88ef0f411fd4f0769e0ac1651a98760d02ea70e8f3e5df97c2f645e9"
+    sha256 cellar: :any,                 ventura:       "65fb50a8957f974a68ced585b4742f42bc7684d80035499362571d425ccc6edd"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f9cfb371e8d8f3a17bbed2f50db40636c85bc22012725cd8f9a680474fba16e9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5028bfb3c616cfec720d946007f9fe30f0284ad7b348800acb7d8cb9d516cffb"
   end
 
   depends_on "cmake" => :build

@@ -11,7 +11,9 @@ class Libva < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "f09fc392caac089c8689d89ccbfd9bea27689afd747313e84ff59ca21f339b78"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_linux:  "fdff2870c6a9e5dae9d2f34703a55112bbc86ffd0ff8426d7e52b3a3fbae9720"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "159b556ea708ad404ef2716f18c3e135e285b3f55be0ca01905fc4205b48cc24"
   end
 
   depends_on "pkgconf" => [:build, :test]
@@ -31,6 +33,7 @@ class Libva < Formula
                           "--enable-x11",
                           "--disable-glx",
                           "--enable-wayland",
+                          "--with-drivers-path=#{HOMEBREW_PREFIX}/lib/dri",
                           *std_configure_args
     system "make"
     system "make", "install"
@@ -40,10 +43,14 @@ class Libva < Formula
     %w[libva libva-drm libva-wayland libva-x11].each do |name|
       assert_match "-I#{include}", shell_output("pkgconf --cflags #{name}")
     end
+
+    # We cannot run a functional test without a VA-API driver; however, the
+    # drivers have a dependency on `libva` which results in a dependency loop
     (testpath/"test.c").write <<~C
+      #include <stddef.h>
       #include <va/va.h>
       int main(int argc, char *argv[]) {
-        VADisplay display;
+        VADisplay display = NULL;
         vaDisplayIsValid(display);
         return 0;
       }

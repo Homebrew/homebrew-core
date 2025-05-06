@@ -16,6 +16,7 @@ class ClawsMail < Formula
     sha256 arm64_ventura: "bd11011eb704199e5d74c02ec1bc6ba4b33df94fe3d1998c121cd3e6b00b5ac2"
     sha256 sonoma:        "49dee2906de335de26346eed694ef5087d07bee8b4f143f0ceb9e5ba4c314a61"
     sha256 ventura:       "c1477bdb2ea050ab85f3b2dbf71eef8dcd75ce3b5a16856f94fb078e359608f2"
+    sha256 arm64_linux:   "154f375276dabb568e96a0e9a1c83946a48b66908743375a7c1e2326b77f440b"
     sha256 x86_64_linux:  "d9eaeeda84f67ba660d9f70f6011a3e21883ee632b8918cc400f2e806afb28e2"
   end
 

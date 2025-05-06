@@ -4,6 +4,7 @@ class Clipper < Formula
   url "https://github.com/wincent/clipper/archive/refs/tags/2.1.0.tar.gz"
   sha256 "9c13254e418a45c2577bd8a0b61d9736d474eec81947c615f48f53dacf3df756"
   license "BSD-2-Clause"
+  head "https://github.com/wincent/clipper.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "5ba6f81698c0137f48012644d531c866531753698d1401afbf4812ac6afac002"

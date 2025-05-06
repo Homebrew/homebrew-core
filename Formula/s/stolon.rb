@@ -37,19 +37,7 @@ class Stolon < Formula
     end
   end
 
-  def port_open?(ip_address, port, seconds = 1)
-    Timeout.timeout(seconds) do
-      TCPSocket.new(ip_address, port).close
-    end
-    true
-  rescue Errno::ECONNREFUSED, Errno::EHOSTUNREACH, Timeout::Error
-    false
-  end
-
   test do
-    require "socket"
-    require "timeout"
-
     endpoint = "http://127.0.0.1:2379"
     pid = spawn "etcd", "--advertise-client-urls", endpoint, "--listen-client-urls", endpoint
 

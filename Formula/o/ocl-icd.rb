@@ -1,23 +1,19 @@
 class OclIcd < Formula
   desc "OpenCL ICD loader"
   homepage "https://github.com/OCL-dev/ocl-icd/"
-  url "https://github.com/OCL-dev/ocl-icd/archive/refs/tags/v2.3.2.tar.gz"
-  sha256 "ec47d7dcd961ea06695b067e8b7edb82e420ddce03e0081a908c62fd0b8535c5"
+  url "https://github.com/OCL-dev/ocl-icd/archive/refs/tags/v2.3.3.tar.gz"
+  sha256 "8cd8e8e129db3081a64090fc1252bec39dc88cdb7b3f929315e014b75069bd9d"
   license "BSD-2-Clause"
   head "https://github.com/OCL-dev/ocl-icd.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "9ff3e5d0477e86547da714292eb3f7301027038539b299d5b90381a84da824c7"
-    sha256 cellar: :any,                 arm64_sonoma:   "df3cb16228261aa527b898620e55f267201a7a46a0841f36e573136810531a07"
-    sha256 cellar: :any,                 arm64_ventura:  "8fc901e1e752f1902b2121429848130015c185950ba6d95493799e16f4682657"
-    sha256 cellar: :any,                 arm64_monterey: "02b44e5ee419f3b8b41a022cb18686b8228e9d7f25dc2e577ecbc0416dad3826"
-    sha256 cellar: :any,                 arm64_big_sur:  "9c235f1e589eb8bf190044f779cd4dfea39933ad6204d04425e169decacda436"
-    sha256 cellar: :any,                 sonoma:         "d81c26148b1fd2d1af2eb1e194db88a9d8d11c7979fb5e80e0e1b32772e3700a"
-    sha256 cellar: :any,                 ventura:        "a94ce49fa8125e0280560433f7e6dd73fbed00275f63d7ee1128de8c90b02397"
-    sha256 cellar: :any,                 monterey:       "d7f1221c1e6e98a8f83f6e9a73a52156a10d41335ed4cfab2452c4af9fb8442b"
-    sha256 cellar: :any,                 big_sur:        "c2bcc480d4d10eb4b38ebec517ae32b936e272f9c559e6f8e17a2c7efc916dfb"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "0d87def830cdd62436c456633b6bf08d2e31237d63a63ef20455fb5d5568cc22"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "75434ef5697505daea48897d562dc77f1daf9c6d2ff938684d75bf3c5f2fbcc9"
+    sha256 cellar: :any,                 arm64_sequoia: "d7c8afe9e6b8ffe2a22f19d6e5c83308d667b9900ecbbeea099877edd9158eb6"
+    sha256 cellar: :any,                 arm64_sonoma:  "8a01c3947a0c26d9838becad8e921973b537e082a3eeaeaec6fd096451f63aa5"
+    sha256 cellar: :any,                 arm64_ventura: "a1a5c38cc3f5225611ae2bb8d374150bbcb6477df308cda5f2794578f1fa2741"
+    sha256 cellar: :any,                 sonoma:        "ca8f8666d60286deb53df27393f6bd8aaf992189205cc11906252a119d6e2e2d"
+    sha256 cellar: :any,                 ventura:       "fc457f354e908f301613f53f00724dfd2004703095db6cd07e24eb4836e7fb38"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3544838851909491b806b9c6123ec2b86521f98f09100a6613fe6f56d47fcda6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cecdc2cd21d76f3037b0357fbbe8bfbbd5eba87007131cfc71b5cb47177302dc"
   end
 
   keg_only :shadowed_by_macos, "macOS provides OpenCL.framework"

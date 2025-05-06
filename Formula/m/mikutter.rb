@@ -17,6 +17,7 @@ class Mikutter < Formula
     sha256 cellar: :any,                 arm64_ventura: "a4fc84de589aa90a7a78dc4c1d143bf4731f9ae7e251ac360bafffbdaa485db4"
     sha256 cellar: :any,                 sonoma:        "ab93541b1f60859a5d8e524db4e29d532aff212bd97b5e039884bafb3c174861"
     sha256 cellar: :any,                 ventura:       "b778e25fda7cb17ec806e6fb66166de3832d00af03f72f4b19bafb6319d246db"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ef6f1ad4d02a73c31297fbf70f6c5a4c62f670f4ca3301ccbb1d3f14705d2deb"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "f6009cbdabcfa5a3d06991b1b73bcf84412423289174569e276e3beddd419e3a"
   end
 

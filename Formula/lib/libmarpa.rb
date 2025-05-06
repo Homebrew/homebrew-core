@@ -14,6 +14,7 @@ class Libmarpa < Formula
     sha256 cellar: :any,                 sonoma:         "3c91fed9728744bd505e5413ee5207eebef9afd50a0e9e1b194c931280901e24"
     sha256 cellar: :any,                 ventura:        "861da7c3426ab3123f50b7c096862e330884ddfac787573ed73c1333e6b12f86"
     sha256 cellar: :any,                 monterey:       "fc47bf5541ca2ecf4b1f12551d24cba28d54b80e9862d29c3e017a21379e877d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "ad8b523a175cad16e909acbef2ca89e68f1ea457c50e9994c9978f2b94958a7d"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "b080d6a68a430f6436b88d04cfd25831f3f984c0131b571646adea928092bce8"
   end
 

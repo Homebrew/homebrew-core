@@ -1,20 +1,32 @@
 class Kfr < Formula
   desc "Fast, modern C++ DSP framework"
   homepage "https://www.kfrlib.com/"
-  url "https://github.com/kfrlib/kfr/archive/refs/tags/6.1.1.tar.gz"
-  sha256 "71ee9f807e0c6d3cc63740ffee681fa82110ab7eaf524360e9e40ef8e7cda91c"
+  url "https://github.com/kfrlib/kfr/archive/refs/tags/6.2.0.tar.gz"
+  sha256 "bc9507e1dde17a86b68fb045404b66c5c486e61e324d9209468ea1e6cac7173c"
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "7cc6aeb32e1b1ad06f52669ec74436daa6eddb7732bbd3364eba40c27106ecb8"
-    sha256 cellar: :any,                 arm64_sonoma:  "509fe58ecc4ae245c0afd291344fb77a60d37651d0a3c786a2e3d0f697a5c625"
-    sha256 cellar: :any,                 arm64_ventura: "7353e642b188ab2babeb95a7cef3e3497e63c3af057b43ef969e1315f8da7121"
-    sha256 cellar: :any,                 sonoma:        "273b4590a88e6195ffad107feeb0b97fbd2846b015b0d7540c92d9b7c82a0e5f"
-    sha256 cellar: :any,                 ventura:       "93a339ae3ee2bcca825ac1573c6c800963250006326a0482189c6cbbbde704d2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "25212b3b17ae87f4b329609dbc412d1ec72898f7681dba9de78fe18a60365af7"
+    sha256 cellar: :any,                 arm64_sequoia: "49dfce65d905f955ed60d8bad7b38d2620a6bb40bd98723c1be210a4c948e884"
+    sha256 cellar: :any,                 arm64_sonoma:  "e1b3da51969be438e36b97e61d8c3fbf4852f311fa7fbc5e9036fef6372b3979"
+    sha256 cellar: :any,                 arm64_ventura: "16cc7a6ed047cde918b0496f1291cdc6328dcd3c667d88b8a2ef0d037a54486c"
+    sha256 cellar: :any,                 sonoma:        "c2ec1d0472a1920e6e51778354826ba8c7b6af29304f806f72cc6562e093ecbe"
+    sha256 cellar: :any,                 ventura:       "da39d967e80fe3337c02545da188b66ad0d6d2ed0e29bc6d49883b6d2e5e1524"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e7a18abab374376bdaaef8200d8d26e0a13c04d4445d6f4b1391eb7bb00164e0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8cbe7ca4c62fb5258d9433f7b6c690cc02bec561b057b5844e1942e7d0d8a28d"
   end
 
   depends_on "cmake" => :build
+
+  on_arm do
+    # FIXME: `uses_from_macos` is not allowed in `on_arm` block
+    on_linux do
+      depends_on "llvm"
+    end
+
+    fails_with :gcc do
+      cause "ARM builds require Clang compiler"
+    end
+  end
 
   def install
     args = []
@@ -38,6 +50,7 @@ class Kfr < Formula
       }
     CPP
 
+    ENV.clang if OS.linux? && Hardware::CPU.arm?
     system ENV.cxx, "test.cpp", "-std=c++17", "-I#{include}", "-L#{lib}", "-lkfr_io",
                     "-o", "test"
     assert_equal "Hello KFR!", shell_output("./test").chomp

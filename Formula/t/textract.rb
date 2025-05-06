@@ -16,6 +16,7 @@ class Textract < Formula
     sha256 cellar: :any_skip_relocation, sonoma:         "865a9a3abd5252a93757e6654d408a55c53177d4423c59fc8cf71c237341724b"
     sha256 cellar: :any_skip_relocation, ventura:        "320a824421208cab9ea2a6f1b01b66ca19681ed8994f3b79e7d255782be7958f"
     sha256 cellar: :any_skip_relocation, monterey:       "52d8d47213610e4a4b5f7e946ed9c8996b5b8690abe87fbdca439ff459ed7f0d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "03ed2aa65dca0b01d777ddee042f8d7489ac0f35626f02e86b8c0449b8d81b6e"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "c586d18c8d63831319b36c7e0904037b363f6fa74ce0c71f15237e9f98fa7a54"
   end
 

@@ -22,6 +22,7 @@ class Exiftran < Formula
     sha256 cellar: :any,                 ventura:        "5b325ba44ebed23f36442ac9379a33d4d71ca3a8f392997bfec59edd3b47660e"
     sha256 cellar: :any,                 monterey:       "4f5803bd4cca5cca2fdaa1a60acd163e46bfc16eb311c562ed05d2c5d949197c"
     sha256 cellar: :any,                 big_sur:        "64c65cb5b823a3b5b6d341a32bffee78a90d17dfbd1e07a9edef9df828025c63"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "4f296de064b124fe142cf3975b32c59b162325f9dbb177ab13b12e6bd8fecdf8"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "9d32a9b73cd9ea5dca9d5a34ce6e9b6c9684ae38617045fd87b172d5d9ac6a75"
   end
 

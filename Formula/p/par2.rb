@@ -1,8 +1,8 @@
 class Par2 < Formula
   desc "Parchive: Parity Archive Volume Set for data recovery"
   homepage "https://github.com/Parchive/par2cmdline"
-  url "https://github.com/Parchive/par2cmdline/releases/download/v0.8.1/par2cmdline-0.8.1.tar.bz2"
-  sha256 "5fcd712cae2b73002b0bf450c939b211b3d1037f9bb9c3ae52d6d24a0ba075e4"
+  url "https://github.com/Parchive/par2cmdline/releases/download/v1.0.0/par2cmdline-1.0.0.tar.bz2"
+  sha256 "d4ecfd4b6a6fc28cd5b4685efdb6d305139c755d339313925f8728fab7a37cf2"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -11,14 +11,13 @@ class Par2 < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia: "795991988f29eb7e8df0f57048255c00746b50902eccce965ea17da9408f81ef"
-    sha256 cellar: :any,                 arm64_sonoma:  "2f5c0869b28661cea99e5279375b9bdfc8afa2096fcc3581429672b432ce1ca2"
-    sha256 cellar: :any,                 arm64_ventura: "f21d77bd344c16d64f1d44f8b309036fb79ef49e1c99cbf9e2247f24047ccb4b"
-    sha256 cellar: :any,                 sonoma:        "cfc8a814c3b8ba36172906eaa4154a4c005147fc4ae0f8b337a15c13ac76798e"
-    sha256 cellar: :any,                 ventura:       "d15d4e51a0fe805edb56606cca24c5080540e67f310aa768d367f4827f43ddd2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3c646e28b86146698db67de4f9792554f984257c03f95eae86e868f9bf7b5af9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5f150c779b555d4dae48eb29f99551489979909c9db4871ca62c022ec1eb2b6b"
+    sha256 cellar: :any,                 arm64_sequoia: "5ce70b25e1d26d887fca53fa5ab3269e0e94b8964420fb749ef9ecdb01ec3592"
+    sha256 cellar: :any,                 arm64_sonoma:  "263b109002436476cd6f3f1ccf77b1fa7e10562706ba0e5b2dfa2af2538bed64"
+    sha256 cellar: :any,                 arm64_ventura: "c413a56ff51e2d96061ec8c346b9f38d0ef4a346e60636928609b1ca5e8ce222"
+    sha256 cellar: :any,                 sonoma:        "40eb3c43af4903e8efcdf80dcbf04a864af1b6c5b7d0245d445a54ab525b1605"
+    sha256 cellar: :any,                 ventura:       "cd9c7a11d331b367075ec3e767060e8edd71d14b7b56af42431c91d93b38809b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "769bdf5faa546f7ed7b00ac17108839238f549d9a1ec242d7eba95133aadac31"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "699aeaca750dd16232b559e676146c57903adcf96a1cfdf194b19c496fcc22b2"
   end
 
   on_macos do

@@ -22,6 +22,8 @@ class Xsv < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "b2e6982514f6800be13fbbe4d1e2512023baa2f3bb2dc9e4bad87c0699bb911f"
   end
 
+  deprecate! date: "2025-04-27", because: :repo_archived
+
   depends_on "rust" => :build
 
   def install

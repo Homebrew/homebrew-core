@@ -7,16 +7,14 @@ class LtexLs < Formula
   head "https://github.com/valentjn/ltex-ls.git", branch: "develop"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "4006f1248eeaef33acf5505258f67d3426a284a5dbcb8f894a7a609c137b2b1f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b5143777305e63064baf476660aa4f04193481555ec4f6064d7ab162609fae83"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8451d3df1c2c862e0891378804e1b141ebcd796c956d95eb48a5f2da65d790f8"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "05ad45e1d55eff3ad2c3bcbd33b820b75d1c2591b13084a4b0a8fee9618dcbfe"
-    sha256 cellar: :any_skip_relocation, sonoma:         "cc962f2d453e6c73bf0f1212d5c238d5ef19d30fc744d6f785f68ae51ce02a70"
-    sha256 cellar: :any_skip_relocation, ventura:        "be324e4cc1e537cca541f829854e5cc0ccbf6b4e62f31c3e1c5cf870acb7133c"
-    sha256 cellar: :any_skip_relocation, monterey:       "6895ed3a2824794a968d4887408673d84d21de3d877c428c2eac6e3ddcd575aa"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "eaa4ff6ad9232578daa881669ca27fc7a5c088a57623d0a267ee1005b09159ec"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8ecb068a51e5bc4b26f0d64cd60feccf026f6c7b006c34e7a459cd901b1d05ed"
+    rebuild 3
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a1881ebd3e1edfa27cf0c9be1b1855e96dfddcd97a97a5c1110e0872dd223f40"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "dd285ef472ccca59e7ada11920cca1bee19ce80a1da8bf1a67802c7085ece1e9"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "978b9bf4f8cff66fb486159e9c03515dd4c62d3aed644d8a865f92b94dab443e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2863fd23602c84bc942bdc4fdf6a058591364fbf2d49930d85a76d969fc16083"
+    sha256 cellar: :any_skip_relocation, ventura:       "60d86af9722182838c19b87d08bfc3b49905c3d3ff06cd5d050c1e49341f18b8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5737e77d4ca8e5d3cb76090b2f03fa017ec2eefbea97482d2ba7467adefedbc3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ab843f15b78c1675d75099d2edfe7a4f2b0f957ba89f401c2db6f5e101894988"
   end
 
   depends_on "maven" => :build
@@ -45,7 +43,12 @@ class LtexLs < Formula
       libexec.install Dir["ltex-ls-#{version}/*"]
     end
 
-    bin.env_script_all_files libexec/"bin", Language::Java.overridable_java_home_env
+    # Fix run with `openjdk` 24.
+    # Reported upstream at https://github.com/valentjn/ltex-ls/issues/322.
+    envs = Language::Java.overridable_java_home_env.merge({
+      "JAVA_OPTS" => "${JAVA_OPTS:--Djdk.xml.totalEntitySizeLimit=50000000}",
+    })
+    bin.env_script_all_files libexec/"bin", envs
   end
 
   test do

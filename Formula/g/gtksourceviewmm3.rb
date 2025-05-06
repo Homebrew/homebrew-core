@@ -19,6 +19,7 @@ class Gtksourceviewmm3 < Formula
     sha256 cellar: :any,                 sonoma:         "6d967d0889a430e64312a18afbae33554340938c8fae2a90ddd652cd2beb86cd"
     sha256 cellar: :any,                 ventura:        "599a63e233b2cab4497e4266780a1c4a55616aeb6a8dfbdb7fa92c0f443720c6"
     sha256 cellar: :any,                 monterey:       "e47d5fa75c9210450660bdd5bbb0ca206e90beba0a0954e49a7b7596e6bc5a42"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "b71c353cdef6b20cb4b871ad1ec98712271fe7f123d793917ca5738cbe0ce099"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "b6489e67344895dad8ef93a694a47c49fec20dc0735989355b11489cd85fbccd"
   end
 

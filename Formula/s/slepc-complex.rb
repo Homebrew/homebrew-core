@@ -1,8 +1,8 @@
 class SlepcComplex < Formula
   desc "Scalable Library for Eigenvalue Problem Computations (complex)"
   homepage "https://slepc.upv.es"
-  url "https://slepc.upv.es/download/distrib/slepc-3.22.2.tar.gz"
-  sha256 "b60e58b2fa5eb7db05ce5e3a585811b43b1cc7cf89c32266e37b05f0cefd8899"
+  url "https://slepc.upv.es/download/distrib/slepc-3.23.1.tar.gz"
+  sha256 "c2fde066521bbccfbc80aa15182bca69ffaf00a7de648459fd04b81589896238"
   license "BSD-2-Clause"
 
   livecheck do
@@ -10,22 +10,27 @@ class SlepcComplex < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "ab7353a6dabe7d12b44fe9f606178d93ea79319d12f18196ab8eb7ecdb363e5e"
-    sha256 arm64_sonoma:  "8c83602b8ee3da9d3c6037acc701892a06427dcc65196521240f3a28f0d0e425"
-    sha256 arm64_ventura: "2454ec267bb175ee89e152eb83ad919099f4469e49f80ec98da6deba0da1510c"
-    sha256 sonoma:        "1bf269557030623c97a6524ac992f20ccae2337c41cb0027888d042874d2e82a"
-    sha256 ventura:       "74c1ece8bf8ae685f8f9b0817cea8c3b005e949ef8953999c0485af27dd30578"
-    sha256 x86_64_linux:  "29b2f617d5cae86c0a023d2aaea35d053f73b06e40f6e705aeeedbc99e2aadb7"
+    sha256 arm64_sequoia: "9830090d1780c1211954b2b7fd709606554114b9b89f7c8bf8081bbcc514d2cd"
+    sha256 arm64_sonoma:  "857fdfdfe8f7ee48fd6f9c99d162981589c710595c7bcd1b4986054bea57d074"
+    sha256 arm64_ventura: "2773785a5ba69b69818487f395fc074a487a74544bb5e5d82a1909ed5b9c48c8"
+    sha256 sonoma:        "b7de7219d613a3c02be04991a02c7c8721cdecec71a56162955278bcfdc7309e"
+    sha256 ventura:       "b0403a30a90ece73c53f93c120560138a084a61891a9d54f6330f8a250220adb"
+    sha256 arm64_linux:   "1fb5c956465ecfdd394283ca0bd7b05a9cd632e863ed69e69b78cb84c3d06997"
+    sha256 x86_64_linux:  "38de5eacb565a6fb14dd007e5b1c52d5d53048cf2f33f9fde83c89c19a66863e"
   end
 
   depends_on "open-mpi"
   depends_on "openblas"
   depends_on "petsc-complex"
+  depends_on "scalapack"
 
   uses_from_macos "python" => :build
 
   on_macos do
+    depends_on "fftw"
     depends_on "gcc"
+    depends_on "hdf5-mpi"
+    depends_on "metis"
   end
 
   conflicts_with "slepc", because: "slepc must be installed with either real or complex support, not both"
@@ -38,9 +43,6 @@ class SlepcComplex < Formula
     system "./configure", "--prefix=#{prefix}"
     system "make", "all"
     system "make", "install", "PYTHON=#{which("python3")}"
-
-    # Avoid references to Homebrew shims
-    rm(lib/"slepc/conf/configure-hash")
   end
 
   test do

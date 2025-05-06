@@ -4,6 +4,7 @@ class GitSizer < Formula
   url "https://github.com/github/git-sizer/archive/refs/tags/v1.5.0.tar.gz"
   sha256 "07a5ac5f30401a17d164a6be8d52d3d474ee9c3fb7f60fd83a617af9f7e902bb"
   license "MIT"
+  head "https://github.com/github/git-sizer.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "ccae14c242e55c103e138e715a48f7a1c7210ce2c749dc18635a60386ccace44"

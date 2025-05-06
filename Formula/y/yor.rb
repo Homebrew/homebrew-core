@@ -12,6 +12,7 @@ class Yor < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "5292c622765f09f2c292a85bf3a74738aca1f1d39a3ca0f368d18c62803ec2c3"
     sha256 cellar: :any_skip_relocation, sonoma:        "a2d75e2772ffaf1f6f57a6dedf7c535543e373d7dc640e2a9b2cb1c3671504a4"
     sha256 cellar: :any_skip_relocation, ventura:       "a8d04551bd36e0df696da02646ef12f9cf2baecfb15b83a88f191f6a82b8c77e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ae580ba85dee0c2690c2055c86eea3834afe7dcd7fb10795c95218c32bff2874"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "f04dc74ea3f0833efc5b250eec99459aea5d626f7ce9d08845fb30878919fcdc"
   end
 

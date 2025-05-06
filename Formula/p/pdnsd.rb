@@ -30,6 +30,7 @@ class Pdnsd < Formula
   # The upstream urls have been dead since at least 2021.
   # Last release on 2012-03-17
   deprecate! date: "2024-03-31", because: :unmaintained
+  disable! date: "2025-03-31", because: :unmaintained
 
   def install
     system "./configure", "--disable-debug",

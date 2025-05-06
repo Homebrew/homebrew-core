@@ -29,13 +29,16 @@ class Teem < Formula
   depends_on "cmake" => :build
   depends_on "libpng"
 
+  uses_from_macos "zlib"
+
   def install
     # Installs CMake archive files directly into lib, which we discourage.
     # Workaround by adding version to libdir & then symlink into expected structure.
-    system "cmake", *std_cmake_args,
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args,
                     "-DBUILD_SHARED_LIBS:BOOL=ON",
                     "-DTeem_USE_LIB_INSTALL_SUBDIR:BOOL=ON"
-    system "make", "install"
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
 
     lib.install_symlink Dir.glob(lib/"Teem-#{version}/#{shared_library("*")}")
     (lib/"cmake/teem").install_symlink Dir.glob(lib/"Teem-#{version}/*.cmake")

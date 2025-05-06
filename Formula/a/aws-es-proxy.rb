@@ -4,6 +4,7 @@ class AwsEsProxy < Formula
   url "https://github.com/abutaha/aws-es-proxy/archive/refs/tags/v1.5.tar.gz"
   sha256 "ac6dca6cc271f57831ccf4a413e210d175641932e13dcd12c8d6036e8030e3a5"
   license "Apache-2.0"
+  head "https://github.com/abutaha/aws-es-proxy.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "c0415a87ec2804d034902df0cd3ada2a5085706236e2b73f68c45dbf99fdd1e6"

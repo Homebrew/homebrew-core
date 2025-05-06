@@ -1,22 +1,18 @@
 class Smartmontools < Formula
   desc "SMART hard drive monitoring"
   homepage "https://www.smartmontools.org/"
-  url "https://downloads.sourceforge.net/project/smartmontools/smartmontools/7.4/smartmontools-7.4.tar.gz"
-  sha256 "e9a61f641ff96ca95319edfb17948cd297d0cd3342736b2c49c99d4716fb993d"
+  url "https://downloads.sourceforge.net/project/smartmontools/smartmontools/7.5/smartmontools-7.5.tar.gz"
+  sha256 "690b83ca331378da9ea0d9d61008c4b22dde391387b9bbad7f29387f2595f76e"
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 arm64_sequoia:  "0e5d1e5a5d10a828dbab10ff12bf9eb2a47b1400fbbe048acc2e7d8c538cc6e2"
-    sha256 arm64_sonoma:   "44d675190914c3c633fb3c28ccc7da1de5d6957d1c4e0a8a77cda217c3f5111f"
-    sha256 arm64_ventura:  "eadf0136194babe18f8ba718079138758e6c01c2d46fbc2c0b8926e9acbb2bf8"
-    sha256 arm64_monterey: "7f22083ffb3f4e1a58c2ecaa898746d920f088eebb58861576b5a10b5c1ee59d"
-    sha256 arm64_big_sur:  "2fd3b5b51d884f57c8799a413dabd08d5efc2294ef25d2e0ecd45fcb9fbd8559"
-    sha256 sonoma:         "857006bab9215b9d49a579750fe6fe8590d6c06556c3995a99c2677cb19925fa"
-    sha256 ventura:        "28d25bdbce8bee1b4a7688616918bc736b9c77ffd2527c9bfec0753e5abed804"
-    sha256 monterey:       "873861115ecd80333df0d3f5971e15c7341a016b14a612feb0de789da4396aa9"
-    sha256 big_sur:        "a6a467130de3c574637ecf611f9b1747578c46537cdd8ed7b73d7d7faf3146c7"
-    sha256 arm64_linux:    "9b88ba280ccecae3228f41d500b3f86f88f2d502cbb6e1436f54bd5f892670c0"
-    sha256 x86_64_linux:   "0507b353613d5bb2f79dc75405840bf8b36e38551debf418680035e1aa89b775"
+    sha256 arm64_sequoia: "40ae2e7c1fe5a99587149ea92c170bd8a89f97b44cb0b1d616635c45dfac2074"
+    sha256 arm64_sonoma:  "55f5004cb84ed1a3ca63ad5d312dfad8eb85d5fe5adeefb317187729b37af0f6"
+    sha256 arm64_ventura: "43f66ca1752c078cf5a4f9bb7943bcb27e3ddef33ca0479c69c4491c7f567978"
+    sha256 sonoma:        "bcff6e0f0d53730dd07c8847cb83bf28a5164b63d31e88a54ef9d70351548688"
+    sha256 ventura:       "6efc9fd70ae3cc6dfbfb30ef3ab20bd5ca81516d6beaafde3d3b8e3ccd9691a3"
+    sha256 arm64_linux:   "242eb99f15e071df38712e5b55a3b4b7bac49def0e6f08263bfcecb9b3257a99"
+    sha256 x86_64_linux:  "61712e27dc30e3b492fe259a6dbf69f637018f8348abd5dd1be752526abdd811"
   end
 
   def install

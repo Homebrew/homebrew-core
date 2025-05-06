@@ -28,6 +28,7 @@ class Tin < Formula
 
   on_macos do
     depends_on "gettext"
+    depends_on "libunistring"
   end
 
   conflicts_with "mutt", because: "both install mmdf.5 and mbox.5 man pages"

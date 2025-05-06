@@ -4,6 +4,7 @@ class Gotop < Formula
   url "https://github.com/xxxserxxx/gotop/archive/refs/tags/v4.2.0.tar.gz"
   sha256 "e9d9041903acb6bd3ffe94e0a02e69eea53f1128274da1bfe00fe44331ccceb1"
   license "BSD-3-Clause"
+  head "https://github.com/xxxserxxx/gotop.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "5c500e1f45ee743f9628545a7de331e9729a90693be2f5dfea3d297bb7d8772d"

@@ -3,31 +3,34 @@ class Beanquery < Formula
 
   desc "Customizable lightweight SQL query tool"
   homepage "https://github.com/beancount/beanquery"
-  url "https://files.pythonhosted.org/packages/cd/04/8d9f3a48065fbf3f58826e8ea08bff35710ea8d542ed04654e87ec7b7b94/beanquery-0.1.0.tar.gz"
-  sha256 "b69e099b8421b219bbcc3293af77e3c4ccad7ab25bf520fee48788672ffbf64a"
+  url "https://files.pythonhosted.org/packages/7c/90/801eec23a07072dcf8df061cb6f27be6045e08c12a90b287e872ce0a12d3/beanquery-0.2.0.tar.gz"
+  sha256 "2d72b50a39003435c7fed183666572b8ea878b9860499d0f196b38469384cd2c"
   license "GPL-2.0-only"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "524bcd44ee4459540ba85b770352970815ba18f6c08640ed18a72c47af45ee59"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8a0bcc22da5e37256f7ef397b382e85d7342613dafefa6dbeccfc191b91fc75f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "63ddd18ec335a19f6b3f0e5fed1efdbd4c31f72d96ef328aa5c2aba910d0b8d1"
-    sha256 cellar: :any_skip_relocation, sonoma:        "be0d6cbc30bb9ac669951dcfd6186fb8a3541fcb47aae5950588bd9946ec3490"
-    sha256 cellar: :any_skip_relocation, ventura:       "b92693ad9f3c86dd1f1ef62bea2f170bba9fe1b81f1dcc11fc4a905b88ce630a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f2b73f16bc5b5679f3143ab43d3934f946cec6942e90e344dba917bea396308e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5f9b366199597258009dfbab13417889537343c76c7d8db6ec0d35129012844f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5ad89c13a41f3bdc16fa426ba7eebb808e4da0a45ffe551ea6783c7f7843117e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "374503a428b9d2045e122d01d6a3117270cea9381c8eb71dfa0843d19b7328f2"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "ed4a1c6dbf258526c55a81d1d727336cd8d0e6230926a74e84d6f6a3dd66e162"
+    sha256 cellar: :any_skip_relocation, sonoma:        "fb197601ec1c54d9812177b46f8ed7bae8cf0f5ed90a231fe5078f2e5f2aa536"
+    sha256 cellar: :any_skip_relocation, ventura:       "ae876669e91355b0f653c58c4c4770bdf84f4781737896b2c6b311a1f6ec04ff"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ce5374e8a539cadaf0109a8640b886c1b4a0a25c2c8b8d225ed16eadf51540e0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3852ca60b6b08b51a8cc60f9e35c3139183c4d8531d22e3f9977026edbcb0c99"
   end
 
+  depends_on "bison" => :build # for beancount
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "python@3.13"
+
+  uses_from_macos "flex" => :build # for beancount
 
   on_linux do
     depends_on "patchelf" => :build
   end
 
   resource "beancount" do
-    url "https://files.pythonhosted.org/packages/bb/0d/4bfa4e10c1dac42a8cf4bf43a7867b32b7779ff44272639b765a04b8553e/beancount-3.0.0.tar.gz"
-    sha256 "cf6686869c7ea3eefc094ee13ed866bf5f7a2bb0c61e4d4f5df3e35f846cffdf"
+    url "https://files.pythonhosted.org/packages/93/a6/973010277d08f95ba3c6f4685010fe00c6858a136ed357c7e797a0ccbc04/beancount-3.1.0.tar.gz"
+    sha256 "1e70aba21fae648bc069452999d62c94c91edd7567f41697395c951be791ee0b"
   end
 
   resource "click" do
@@ -50,9 +53,9 @@ class Beanquery < Formula
     sha256 "ff70335d468e7eb6ec65b95b99d3a2836546063f63acc5171de367e834932a81"
   end
 
-  resource "tatsu" do
-    url "https://files.pythonhosted.org/packages/09/f6/d53b45ea138e24199486e11deadedf06d0bedc9373911582b57a484f3d59/TatSu-5.7.4.zip"
-    sha256 "ebd8212323328115bc4967db9a40d7f15b627db4663290c64e5ef8fe71dca0ae"
+  resource "tatsu-lts" do
+    url "https://files.pythonhosted.org/packages/4a/40/4bbdba35865ebaf33a192cea87bfafb4f4ca6b4bf45c18b89c6eed086b98/tatsu_lts-5.13.1.tar.gz"
+    sha256 "b9f0d38bf820d92077b5722bad26f68020c8e4ee663f7e35d4a0d95e4ebc5623"
   end
 
   def install

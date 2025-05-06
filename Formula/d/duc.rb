@@ -17,6 +17,7 @@ class Duc < Formula
     sha256 cellar: :any,                 monterey:       "36c158318b3407f306c82914ba1d63d9492c39644ae0ef1ad627ea20ef38351b"
     sha256 cellar: :any,                 big_sur:        "4c95e3a0b2a6222344c157b9a12a26cb9ee78a447788f124a8eb8d9968368779"
     sha256 cellar: :any,                 catalina:       "cc7f8ef4f7d6b1f310786032f0fab27aab42e17d57ee9393098f09e8b019cf50"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "a55a00e1179e4fb37bfff2495752b3c1e4aa13914ae932fd246f20bb1487270b"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "8068dbd6bfa637aa4718113cff03ce8f8b641e65a379f489827b8acd3411f0e8"
   end
 

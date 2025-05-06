@@ -12,12 +12,15 @@ class Mint < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "a00bd6097b4202256a07c898fae04dce40aa51b62b173694b62d431073760fb9"
     sha256 cellar: :any_skip_relocation, sonoma:        "a7052e202732f908080c493de6b0daba9e48ccdd7d19a3846afe951c63009fe0"
     sha256 cellar: :any_skip_relocation, ventura:       "4bee455c6966630660ac785f84b894b1a036e6abff5e3642ecc2a194662bae62"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "50239877c00a44b5b9bddf51944fdc4cfec571ea2e41244e519443b2e9138255"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "5228b1e9dada4c9b4721064ba858ed361778fa7ff36cb2b682c906737ec31b92"
   end
 
   depends_on xcode: ["12.0", :build]
 
   uses_from_macos "swift" => :build
+
+  conflicts_with "mintoolkit", because: "both install `mint` binaries"
 
   def install
     args = if OS.mac?

@@ -15,6 +15,7 @@ class PscPackage < Formula
     sha256 cellar: :any_skip_relocation, sonoma:         "2745b40b2ca64e1a6e369b79ab2c3141ea04c84538d335be866978c594e2bde6"
     sha256 cellar: :any_skip_relocation, ventura:        "34a6d89e4900fadd0f3844622d53df285ab26a54fb2b46c61191bd6b1b835c29"
     sha256 cellar: :any_skip_relocation, monterey:       "c96222df112a5a511469867e560157aab7ffc0fba812261302ac227fc682aebe"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "680bb83343573560dfa3bc8628fcb60ef41ec5f116fba1e0cec88f81f3d0fb40"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "57150c2dfc8edce29db3b116563bb83d58c573b95cf497381a711f960f804378"
   end
 

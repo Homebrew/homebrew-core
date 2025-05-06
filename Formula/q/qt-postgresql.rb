@@ -1,8 +1,8 @@
 class QtPostgresql < Formula
   desc "Qt SQL Database Driver"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/6.8/6.8.2/submodules/qtbase-everywhere-src-6.8.2.tar.xz"
-  sha256 "012043ce6d411e6e8a91fdc4e05e6bedcfa10fcb1347d3c33908f7fdd10dfe05"
+  url "https://download.qt.io/official_releases/qt/6.9/6.9.0/submodules/qtbase-everywhere-src-6.9.0.tar.xz"
+  sha256 "c1800c2ea835801af04a05d4a32321d79a93954ee3ae2172bbeacf13d1f0598c"
   license any_of: ["GPL-2.0-only", "GPL-3.0-only", "LGPL-3.0-only"]
 
   livecheck do
@@ -10,11 +10,11 @@ class QtPostgresql < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:  "60d550005f2e9028fd7e85ea56fde70e3e9643b5d88ee293a2d17964f7599952"
-    sha256 cellar: :any,                 arm64_ventura: "484e43f1a335d43d22dcd106ac3b30e32e5bf4cae6fb29178d54291b1f0b32e1"
-    sha256 cellar: :any,                 sonoma:        "363f93945d9ad39052c79328bb7cda3cac4138fb46ca76788a2aafee61a71d7d"
-    sha256 cellar: :any,                 ventura:       "a54c07f935e89a6e054c660840a482ace2c7360466dfe361a064a8524becf755"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "53f2847741670d5c049d91d60cda067324d4e86ea2c9ca8de17ae3f1f6ef93bc"
+    sha256 cellar: :any,                 arm64_sonoma:  "b2b5248e5f9872d540b3864ea2eef265e9b1e46709734334cec94d32b7bbb77e"
+    sha256 cellar: :any,                 arm64_ventura: "cfd40bd2d36b50323ff75e579ab892f6c5fc14fba69726ef96a186c995b33f47"
+    sha256 cellar: :any,                 sonoma:        "a211562ac2bd5de69cd99b5fc37b0470bf2e80af53f2b97cbc9765dd89644a8c"
+    sha256 cellar: :any,                 ventura:       "39a4ac6b6e25edc41b4f25ff9b3d3ee967207214bf99c8e2f05a7be2205d8579"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dbba9de50eea8ea4c4c8e944e6ea4781b08b7f1fed97adbd4162a6223bca4d00"
   end
 
   depends_on "cmake" => [:build, :test]

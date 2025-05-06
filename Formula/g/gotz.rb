@@ -12,6 +12,7 @@ class Gotz < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "4317835c1730257089a65d977a268a6eba6a834f123d9ef66abf9f58e7a93159"
     sha256 cellar: :any_skip_relocation, sonoma:        "84b6e31be4184df0b1eed709ac11f277ba1364332218b51ed04cf82014cd2d69"
     sha256 cellar: :any_skip_relocation, ventura:       "84b6e31be4184df0b1eed709ac11f277ba1364332218b51ed04cf82014cd2d69"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2f61d161279f1eeba162c82dfe5f4c15d5ba6ab01ca3eb34d099673ef07e1d1a"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "1bd56b05cc1dcc194266bd0c14e305cefbd3861c4c52c04dbddcfecf49b44312"
   end
 

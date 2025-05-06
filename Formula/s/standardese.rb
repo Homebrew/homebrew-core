@@ -3,7 +3,7 @@ class Standardese < Formula
   homepage "https://standardese.github.io"
   # TODO: use resource blocks for vendored deps
   license "MIT"
-  revision 20
+  revision 21
   head "https://github.com/standardese/standardese.git", branch: "master"
 
   # Remove stable block when patch is no longer needed.
@@ -21,13 +21,13 @@ class Standardese < Formula
   end
 
   bottle do
-    sha256                               arm64_sequoia: "83fcba84e5474be69854c2ecd8d59f2e5e2333f4004c93603d8106a1d91748a9"
-    sha256                               arm64_sonoma:  "fc114064e9734f88f666e37d041e138a31e2517d8a2f7c7ea0f9041414e16b60"
-    sha256                               arm64_ventura: "b3e88e943e501323bbf9a717a2e63757283685c5c061ef7c21ba0baff483b3c9"
-    sha256                               sonoma:        "b9a998194e7bfb6b44cfe0f46d7a19640894efe44c122e097c3978a6e1cd3825"
-    sha256                               ventura:       "737f19c5312d5a62a7224ec89440e8f82e5f348510798ed296c79ffd2f5e9a9c"
-    sha256                               arm64_linux:   "8ac26e48c60acfbf05910f1828738ac857b248d5d849a0f75b6ddada03d964fb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5890b84174fe4da58ab252abe20070a09378430b1f7f6d1c6dc138e3aa127df2"
+    sha256                               arm64_sequoia: "0c085a6553e072c5de272972f6ac567de96866d7f1f9e1bce5fbca086c0dc41f"
+    sha256                               arm64_sonoma:  "3f8eecb4c36f352b2e85f937e39a1ffd10191e4947f97db531d441520cb59963"
+    sha256                               arm64_ventura: "2877cca2dec0e5d25a13b0f871f124e6b6f151c820290a3f629b18a6a2fc35e3"
+    sha256                               sonoma:        "d7337d180cbf90b86e5def03d8031d26bea1fa8b9a68e09676f47ba2ddf6663f"
+    sha256                               ventura:       "d0da799b3b0175478642e0fcc104a11d40757f3da3d0c48f694b7372a4de9ee3"
+    sha256                               arm64_linux:   "35dbdc939daa2cc20d576caaa16f4e3a3b60c883f0f641e9c56e953abd6221ba"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "84e681ed07036aeb3b06e8be4d6bd6acecbb6b90840ab72c17e5a2a7eabbd2a5"
   end
 
   depends_on "cmake" => :build
@@ -57,6 +57,7 @@ class Standardese < Formula
     # Disable building test objects because they use an outdated vendored version of catch2.
     system "cmake", "-S", ".", "-B", "build",
                     "-DBUILD_SHARED_LIBS=OFF",
+                    "-DCMAKE_POLICY_VERSION_MINIMUM=3.5",
                     "-DCMARK_LIBRARY=#{Formula["cmark-gfm"].opt_lib/shared_library("libcmark-gfm")}",
                     "-DCMARK_INCLUDE_DIR=#{Formula["cmark-gfm"].opt_include}",
                     "-DFETCHCONTENT_SOURCE_DIR_TYPE_SAFE=#{buildpath}/type_safe",

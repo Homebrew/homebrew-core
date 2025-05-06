@@ -4,6 +4,7 @@ class Gambit < Formula
   url "https://github.com/gambitproject/gambit/archive/refs/tags/v16.3.0.tar.gz"
   sha256 "d72e991ce935a3dc893947c413410348e2c2eb9cd912ec3b083699a4ccae4d77"
   license all_of: ["GPL-2.0-or-later", "Zlib"]
+  revision 1
 
   livecheck do
     url :stable
@@ -11,12 +12,13 @@ class Gambit < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "6256d9e52330844dda1d10774c65a57368f5209548f2d5a9fbeb2bcdb84a91f1"
-    sha256 cellar: :any,                 arm64_sonoma:  "f2895dba2b2a7ded50d39eb905ae51047dece63c9deb659175a3809edf3ded5d"
-    sha256 cellar: :any,                 arm64_ventura: "dd3135d73ac6f13cb70dd512f0e814df73e5147aa9527a5dcc1ef70189a3b62e"
-    sha256 cellar: :any,                 sonoma:        "222ccdc2f9b564c8c25fc3524745201634a892964ad325779661181dfbb28921"
-    sha256 cellar: :any,                 ventura:       "c3a9408f35080bf0962de6843a662b8184d540a19e81f863131014d7923212d7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a87956816c0145f8e347b5a2b65ebb81a51146db66d8b326fd945bfddf48330a"
+    sha256 cellar: :any,                 arm64_sequoia: "5d169d9513ebda3d8fdbd1d0bda57ac1efd0c7782fc4ed0bf17f8d181e516ec9"
+    sha256 cellar: :any,                 arm64_sonoma:  "f4da9b72e58e25666c95f27f3edd1aa11dd9971b37b95acfdda2fa93b5312e5b"
+    sha256 cellar: :any,                 arm64_ventura: "533a277aa08b5f731b6957ff8d00d80b294f2a0e3ec037a0dc1f77fd81ead4d6"
+    sha256 cellar: :any,                 sonoma:        "bdc37ba41b63d856e08bee3f1d6734ac58e56bcc97de32237b463d5fbe5bd54a"
+    sha256 cellar: :any,                 ventura:       "0a6d66fa03abd6e602b323f00a1129e0e3108555d74bb0d7185c3b36632a61c2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "486472d9ca1190ff759962d43c6aaada0c955f0a901ddb54fd4ddd2a4d9388bf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6139ef89bc115c921b542feba6a74d4434c75c3467598461862898563c8459f7"
   end
 
   depends_on "autoconf" => :build

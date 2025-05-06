@@ -11,6 +11,7 @@ class Hypopg < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "336b887e0c2c5cd91097071f09d67bd9d9de7524015e1496e70866c63b1e4d8f"
     sha256 cellar: :any_skip_relocation, sonoma:        "102e97902b5026c63764d4e82c30aebe724f41d73d8bec88c6d3910a49acfb32"
     sha256 cellar: :any_skip_relocation, ventura:       "7fa60d1d35db14d12c9c77a9ada287f3b89bf9126047a85fde1a77d4567f794e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b24987307d13aef5c00b76fe88a171c97037c9e7a40abd84873066479e2bdb2d"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "c86012c904916b59941015fa5f90726c1b968edd014214b52a7c0e3fe13095d8"
   end
 

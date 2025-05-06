@@ -11,6 +11,7 @@ class Walk < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "cce3ab82e4e2280c930d6f3c532440a20749e42175316a90fb64d7f00cea7d1f"
     sha256 cellar: :any_skip_relocation, sonoma:        "9719de03b75d0b1697d97ca68da9481bc29191c5cb3d89e5d899f7ff8c61ef1b"
     sha256 cellar: :any_skip_relocation, ventura:       "9719de03b75d0b1697d97ca68da9481bc29191c5cb3d89e5d899f7ff8c61ef1b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "703f1027bcd2e5546c10901ca9b0a6df4dd76fa20c3647e9eba389fdc0dd592a"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "cfa31d4ff035f46edf2aa77d9b6165e4edb93278f268b059325bed36d3b8e42e"
   end
 

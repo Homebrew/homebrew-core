@@ -3,8 +3,8 @@ class Nginx < Formula
   homepage "https://nginx.org/"
   # Use "mainline" releases only (odd minor version number), not "stable"
   # See https://www.nginx.com/blog/nginx-1-12-1-13-released/ for why
-  url "https://nginx.org/download/nginx-1.27.4.tar.gz"
-  sha256 "294816f879b300e621fa4edd5353dd1ec00badb056399eceb30de7db64b753b2"
+  url "https://nginx.org/download/nginx-1.27.5.tar.gz"
+  sha256 "e96acebb9c2a6db8a000c3dd1b32ecba1b810f0cd586232d4d921e376674dd0e"
   license "BSD-2-Clause"
   head "https://github.com/nginx/nginx.git", branch: "master"
 
@@ -14,13 +14,13 @@ class Nginx < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "8f204c0e74708663afe086aff63df82f5fa9860dfd8c8ce75f2cbc58973219f8"
-    sha256 arm64_sonoma:  "6c37abbd7f5deb7ac94bf203a4aaea0201a1da56047f2be18d81a7a5722dc94a"
-    sha256 arm64_ventura: "74e2108ad301b817950f3bba0a5bbeae4d0e73d66ff14d9e5de38429809c01d6"
-    sha256 sonoma:        "e47e60d2b09fd7ee3a591b0ea110b40e375759842861d33b6ea2dfe36503f16c"
-    sha256 ventura:       "f20cb5d189ed2f7b3feb77da7d8454e41284cff17c8604bb2053476c5b8e10fe"
-    sha256 arm64_linux:   "425ef57069b5f0b11dab08a5500d12616a3ef57f614a13a7d20154b32ed5461e"
-    sha256 x86_64_linux:  "24fdaebb46cf0741b946c57e789e672d3555697d887013b39a74071597f5a170"
+    sha256 arm64_sequoia: "972063bdf74564fca762d847ce7cde789e3b2b195d6cbf6a05927c8fda1f1b1c"
+    sha256 arm64_sonoma:  "6ec8b8438449b35e333d29ff2bf53b525efe7a48d588ace187d75e61596501ab"
+    sha256 arm64_ventura: "adad8ede39f78697c70cba86e96822827a5661692a01f765dad9f47f98c53c3f"
+    sha256 sonoma:        "e901bf7d34765ebf766f3385058da8159c7b7e897392745e4cc787e87a52f167"
+    sha256 ventura:       "c4cc442a7b38cd644ccf0e85f63033109fe677bf66634ec322d958e3adb645d6"
+    sha256 arm64_linux:   "570847468bb0e31f37e7859850ed848a0717d17a2f2d7d16963c3528b002f207"
+    sha256 x86_64_linux:  "a65d15b224f4388f5c11272ffb6c1c83df981cd69838a63e5476e9ce58ffbf8f"
   end
 
   depends_on "openssl@3"

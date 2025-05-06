@@ -5,6 +5,7 @@ class JsonnetBundler < Formula
       tag:      "v0.6.0",
       revision: "ddded59c7066658f3d5abc7fcfc6be2220c92cad"
   license "Apache-2.0"
+  head "https://github.com/jsonnet-bundler/jsonnet-bundler.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "68bb147a2c42552de0ad48ba06125c83402858c56650e29f266443cf9974e11a"
@@ -14,6 +15,7 @@ class JsonnetBundler < Formula
     sha256 cellar: :any_skip_relocation, sonoma:         "c4c52bef64a185727912ff7b00236894042acbc88e5ecd25796eed36b98296a4"
     sha256 cellar: :any_skip_relocation, ventura:        "c4c52bef64a185727912ff7b00236894042acbc88e5ecd25796eed36b98296a4"
     sha256 cellar: :any_skip_relocation, monterey:       "c4c52bef64a185727912ff7b00236894042acbc88e5ecd25796eed36b98296a4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "2399698bd1950f20494f2d50bfb636503c34d404781473749688abbc0e2e09ad"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "2bb12716302170c607b6887c0ba3601668b3855f29c4041588e8228d754fe6bd"
   end
 

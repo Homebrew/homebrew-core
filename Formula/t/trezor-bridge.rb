@@ -15,16 +15,22 @@ class TrezorBridge < Formula
     sha256 cellar: :any_skip_relocation, sonoma:         "55eab81dca886c7fcb19eef1859d7166a3db6a4a24c1bcfae2b49829af8c45f2"
     sha256 cellar: :any_skip_relocation, ventura:        "5f6906f339f0c85c6d048aff26fa7a87adea4e87b8e262f54dd482e7d31231fc"
     sha256 cellar: :any_skip_relocation, monterey:       "3c19a0c1ec5d0ede24e8178c9a8e79fa7777e266ce9a941fdbdc5fc7abd4f6d7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "a1e934f0f4c538d7a228bcdf430b1f97df1c8e469e9cd685f8cfec93dd18334d"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "0039559d527cb2841e04cff9bb7bc59b6db17f6f74f442768af8a81776ccacd9"
   end
 
-  # Use "go" again when https://github.com/trezor/trezord-go/issues/303 is fixed and released
-  depends_on "go@1.23" => :build
+  depends_on "go" => :build
 
   # upstream patch ref, https://github.com/trezor/trezord-go/pull/300
   patch do
     url "https://github.com/trezor/trezord-go/commit/318b01237604256b1a561b2fa57826aa0ebb218d.patch?full_index=1"
     sha256 "b48d0026281814f9a6a8cac48b701db741391d285867593b4ce272e70aff229a"
+  end
+
+  # Fix build with go 1.24
+  patch do
+    url "https://github.com/trezor/trezord-go/commit/8ca9600d176bebf6cd2ad93ee9525a04059ee735.patch?full_index=1"
+    sha256 "3eaa5c4bcc09a931e2c07ca7a6183346ee07ca5cf98e75a0ee237677e3269a7d"
   end
 
   def install

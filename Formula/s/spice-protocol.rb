@@ -1,8 +1,8 @@
 class SpiceProtocol < Formula
   desc "Headers for SPICE protocol"
   homepage "https://www.spice-space.org/"
-  url "https://www.spice-space.org/download/releases/spice-protocol-0.14.4.tar.xz"
-  sha256 "04ffba610d9fd441cfc47dfaa135d70096e60b1046d2119d8db2f8ea0d17d912"
+  url "https://www.spice-space.org/download/releases/spice-protocol-0.14.5.tar.xz"
+  sha256 "baf58449f6e89d19f475899ad5fb9196fdc46c03cc53233f4e39cf2978f9cff7"
   license "BSD-3-Clause"
 
   livecheck do
@@ -11,8 +11,7 @@ class SpiceProtocol < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "bb1ba08888157c151697bfd2e2ea90d5aea69d25d9771032ba6196536bad74e4"
+    sha256 cellar: :any_skip_relocation, all: "b2fc7486dfc635ac1e89eb2f38d7eebeddf5f51d3fcd5e8f52c35c6ecd70ebea"
   end
 
   depends_on "meson" => :build

@@ -30,10 +30,9 @@ class TidyHtml5 < Formula
   depends_on "cmake" => :build
 
   def install
-    cd "build/cmake"
-    system "cmake", "../..", *std_cmake_args
-    system "make"
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "builddir", *std_cmake_args
+    system "cmake", "--build", "builddir"
+    system "cmake", "--install", "builddir"
   end
 
   test do

@@ -17,6 +17,8 @@ class HasteClient < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "dee9ebcf14e0273c14d8e28ceb77984f9fcd521e11cbc65f74762897d0e73cba"
   end
 
+  deprecate! date: "2025-04-18", because: :repo_archived
+
   uses_from_macos "ruby", since: :high_sierra
 
   resource "faraday" do

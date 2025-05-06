@@ -14,6 +14,7 @@ class VueCli < Formula
     sha256 cellar: :any_skip_relocation, sonoma:         "566e867488804efc1ff36499d3abaf6d5d20bae6173f8577f54f8d50b120b6e2"
     sha256 cellar: :any_skip_relocation, ventura:        "566e867488804efc1ff36499d3abaf6d5d20bae6173f8577f54f8d50b120b6e2"
     sha256 cellar: :any_skip_relocation, monterey:       "566e867488804efc1ff36499d3abaf6d5d20bae6173f8577f54f8d50b120b6e2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "0f08dc625a000e5e23fb2ee9286233e8b9e2d3893cb091280423d3276919beba"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "f068d7c069a1dae0ecbba18a4537d4816d55d6357ff9feb4806923ee486e92e9"
   end
 

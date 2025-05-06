@@ -3,8 +3,8 @@ class GraphTool < Formula
 
   desc "Efficient network analysis for Python 3"
   homepage "https://graph-tool.skewed.de/"
-  url "https://downloads.skewed.de/graph-tool/graph-tool-2.92.tar.bz2"
-  sha256 "041b56a56826655f91f0402ee9e44ead57b78ce4c83437e2f4737964cb79af8e"
+  url "https://downloads.skewed.de/graph-tool/graph-tool-2.97.tar.bz2"
+  sha256 "62dd8fb8bbafbefe2235cbfa507cebe654f016445e56d54eff39d20039318ca5"
   license "LGPL-3.0-or-later"
 
   livecheck do
@@ -13,13 +13,12 @@ class GraphTool < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256                               arm64_sequoia: "b39b658ce63acd962686e2daee962eb35f20abcaf85aa4f530d38f68b056c4d1"
-    sha256                               arm64_sonoma:  "503f102f969078cab0502f886776a4a6edd3a7c10e43de300dea59b702a14946"
-    sha256                               arm64_ventura: "b5ab2d5c133a6a9e703f2c5bd0f9e8d994ce5a6f8638f3aac09a16a2fa00d193"
-    sha256                               sonoma:        "1fd067e38d96186ce8344e69df587c436f95b48753dcbdbac48d74e5ae278c30"
-    sha256                               ventura:       "44aabd913da7f08a04f193d2c0867d72f5ec7a8674b109fd38502b152906cddb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "54fd8e3186d5b2b21369eb86d4cfe57fb972e3bd823a5731c7b628fb223170c7"
+    sha256                               arm64_sequoia: "a52f9d3f83aa07683e69c5b418e0a43482ec4e9e4dc6be05815edb2999e88d1c"
+    sha256                               arm64_sonoma:  "b60a463871a170b85d7ccebc7032e72dee6f76794e81ca1abdf19fda4335b778"
+    sha256                               arm64_ventura: "99020025174b382fcbed835a5de6880a1e574811d3e6bc37013eab078f56b075"
+    sha256                               sonoma:        "0a4c99bc90535ef38d1a088d08c66ed1c4ee8fdddeee589c40e4630e07234889"
+    sha256                               ventura:       "a93ec56fbee2af1f5dd2b6ab349065319e0434b14002905d44950158e57cf1d1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "87ba7281c0ad91e69e95bda841be5dfae3c8c785f77dc1213e765c803199d5c9"
   end
 
   depends_on "google-sparsehash" => :build
@@ -55,8 +54,8 @@ class GraphTool < Formula
   end
 
   resource "contourpy" do
-    url "https://files.pythonhosted.org/packages/25/c2/fc7193cc5383637ff390a712e88e4ded0452c9fbcf84abe3de5ea3df1866/contourpy-1.3.1.tar.gz"
-    sha256 "dfd97abd83335045a913e3bcc4a09c0ceadbe66580cf573fe961f4a825efa699"
+    url "https://files.pythonhosted.org/packages/66/54/eb9bfc647b19f2009dd5c7f5ec51c4e6ca831725f1aea7a993034f483147/contourpy-1.3.2.tar.gz"
+    sha256 "b6945942715a034c671b7fc54f9588126b0b8bf23db2696e3ca8328f3ff0ab54"
   end
 
   resource "cycler" do
@@ -65,8 +64,8 @@ class GraphTool < Formula
   end
 
   resource "fonttools" do
-    url "https://files.pythonhosted.org/packages/1c/8c/9ffa2a555af0e5e5d0e2ed7fdd8c9bef474ed676995bb4c57c9cd0014248/fonttools-4.56.0.tar.gz"
-    sha256 "a114d1567e1a1586b7e9e7fc2ff686ca542a82769a296cef131e4c4af51e58f4"
+    url "https://files.pythonhosted.org/packages/03/2d/a9a0b6e3a0cf6bd502e64fc16d894269011930cabfc89aee20d1635b1441/fonttools-4.57.0.tar.gz"
+    sha256 "727ece10e065be2f9dd239d15dd5d60a66e17eac11aea47d447f9f03fdbc42de"
   end
 
   resource "kiwisolver" do
@@ -85,8 +84,8 @@ class GraphTool < Formula
   end
 
   resource "pyparsing" do
-    url "https://files.pythonhosted.org/packages/8b/1a/3544f4f299a47911c2ab3710f534e52fea62a633c96806995da5d25be4b2/pyparsing-3.2.1.tar.gz"
-    sha256 "61980854fd66de3a90028d679a954d5f2623e83144b5afe5ee86f43d762e5f0a"
+    url "https://files.pythonhosted.org/packages/bb/22/f1129e69d94ffff626bdb5c835506b3a5b4f3d070f17ea295e12c2c6f60f/pyparsing-3.2.3.tar.gz"
+    sha256 "b9c13f1ab8b3b542f72e28f634bad4de758ab3ce4546e4301970ad6fa77c38be"
   end
 
   resource "python-dateutil" do
@@ -95,8 +94,8 @@ class GraphTool < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/d1/53/43d99d7687e8cdef5ab5f9ec5eaf2c0423c2b35133a2b7e7bc276fc32b21/setuptools-75.8.2.tar.gz"
-    sha256 "4880473a969e5f23f2a2be3646b2dfd84af9028716d398e46192f84bc36900d2"
+    url "https://files.pythonhosted.org/packages/a9/5a/0db4da3bc908df06e5efae42b44e75c81dd52716e10192ff36d0c1c8e379/setuptools-78.1.0.tar.gz"
+    sha256 "18fd474d4a82a5f83dac888df697af65afa82dec7323d09c3e37d1f14288da54"
   end
 
   resource "six" do

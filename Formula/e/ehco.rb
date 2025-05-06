@@ -24,8 +24,6 @@ class Ehco < Formula
 
   depends_on "go" => :build
 
-  uses_from_macos "netcat" => :test
-
   def install
     ldflags = %W[
       -s -w
@@ -43,16 +41,26 @@ class Ehco < Formula
     version_info = shell_output("#{bin}/ehco -v 2>&1")
     assert_match "Version=#{version}", version_info
 
-    # run nc server
-    nc_port = free_port
-    spawn "nc", "-l", nc_port.to_s
+    # run tcp server
+    server_port = free_port
+    server = TCPServer.new(server_port)
+    server_pid = fork do
+      session = server.accept
+      session.puts "Hello world!"
+      session.close
+    end
     sleep 1
 
     # run ehco server
     listen_port = free_port
-    spawn bin/"ehco", "-l", "localhost:#{listen_port}", "-r", "localhost:#{nc_port}"
+    ehco_pid = spawn bin/"ehco", "-l", "localhost:#{listen_port}", "-r", "localhost:#{server_port}"
     sleep 1
 
-    system "nc", "-z", "localhost", listen_port.to_s
+    TCPSocket.open("localhost", listen_port) do |sock|
+      assert_match "Hello world!", sock.gets
+    end
+  ensure
+    Process.kill "TERM", ehco_pid if ehco_pid
+    Process.kill "TERM", server_pid if server_pid
   end
 end

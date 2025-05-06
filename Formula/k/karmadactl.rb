@@ -1,18 +1,19 @@
 class Karmadactl < Formula
   desc "CLI for Karmada control plane"
   homepage "https://karmada.io/"
-  url "https://github.com/karmada-io/karmada/archive/refs/tags/v1.13.0.tar.gz"
-  sha256 "1e09fec8df5d2f4095013da7fe6b42737e2667fbbb15a79b6e3f27e5024ff814"
+  url "https://github.com/karmada-io/karmada/archive/refs/tags/v1.13.2.tar.gz"
+  sha256 "a5318a196437728b381802bc46237d9b7b6563a3259a19eba85c1e4de03ad425"
   license "Apache-2.0"
   head "https://github.com/karmada-io/karmada.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3aa0be5b9935304291f6ee4a63139a92b812eb00f64568ac838b64eef5a9ecfb"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e150df9a8876c4e73b7d89d147863b864305958803ebe73e6837c2b67256cbab"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "0124637b9d32982431facb0809aa8cd48ba8a8fa36bdf3d31c7b291c7cfa3c3f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "4033e68273f880f1f4842948297b2fb17adb556242a7a52a02795a677d923cd5"
-    sha256 cellar: :any_skip_relocation, ventura:       "6a62a74532493aba2940e75d6d9c3d90bc74c643314f6b61c29dedd49eb17e46"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6c8a09bfde5bb42316bc0f75a5be104ea11281a59fe8a2c2d626a8e1fda5be5a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "33bf7253e7453dc5742c1b7234c365b84e0a1a6e8c2869cb961b47aa21f68a3f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9e8c55cdc92e41c0a71b92eb6358b0eca97ec602bc5859245460e593e2225038"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "26653dd1634b3306c039d057b49fc78e5228793008b34f68d53a594c1af935ab"
+    sha256 cellar: :any_skip_relocation, sonoma:        "ad80360ee1252a9b99de5403bde29d7d75c4559b17ae2d0c9707c1df5fb0204f"
+    sha256 cellar: :any_skip_relocation, ventura:       "4cfade08a6b011814844ad08f6a5eaf8bc0a2beb18608f56015336e684c41ab9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ea7b627988c96f7e68e046543c6c428ae023e332ba074dc150381dc08c4deaf5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b1017bbbf5e977c309b5767d8d037427878bd40fd179adf89d59a161f2f17fce"
   end
 
   depends_on "go" => :build

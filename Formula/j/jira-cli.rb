@@ -1,18 +1,18 @@
 class JiraCli < Formula
   desc "Feature-rich interactive Jira CLI"
   homepage "https://github.com/ankitpokhrel/jira-cli"
-  url "https://github.com/ankitpokhrel/jira-cli/archive/refs/tags/v1.5.2.tar.gz"
-  sha256 "2ac3171537ff7e194ae52fb3257d0a3c967e20d5b7a49a730c131ddc4c5f6ed4"
+  url "https://github.com/ankitpokhrel/jira-cli/archive/refs/tags/v1.6.0.tar.gz"
+  sha256 "89989534ae3f254be7a13dde51bfcf1c58f36cbf26ad3de9e333ead36579c007"
   license "MIT"
   head "https://github.com/ankitpokhrel/jira-cli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7b28ca84cc12b9b5cafe2aedddb853dd68a5f0b43fc8722e6d8b0dce8c9b8d6b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "91860cbd93bab028cdc19f6d0097499049050e18c181e66a3484bad4d1610a55"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "92367821a0020a52765aecd50904a6cb04f095fc163094b39d1321a8e4e083bd"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f8d61858764e4b2a3e88223beca7231048d021ad6e5fd8bb90eff50adfadee0f"
-    sha256 cellar: :any_skip_relocation, ventura:       "46b3447f914e6f26eb0abf2fd35403d956365f2a2495120985e00bd6932f0bef"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d3cbf5f20b5c662e9c70e4f5f8cbaae8ce78f5dfe634d5b084180aa314e5a13f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8250d45b6be6e7f897d704248a10ce708fc0987b499f634b483452046ad4074a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "826e1dd2a64baab107b3447068ec9a61dd59e0f59155a26c5eb85b38d78cf9e8"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "b4355e65a165d7a3266454843f6d94ff14457e3e7206aca7da56ab073759eee8"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2e8948a461c557c4907131efb2f052a215c8e7b205b3294bbc1d148a84eb4e92"
+    sha256 cellar: :any_skip_relocation, ventura:       "59ac40e5f7e4e2b5d53ee7a64c7c3d49e55fff62b26eee766351252e616c2144"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c56844f974a3625d3ecd9ff4fc37aadb196c691511f701e101db611d944f74fd"
   end
 
   depends_on "go" => :build

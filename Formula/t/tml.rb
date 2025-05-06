@@ -12,6 +12,7 @@ class Tml < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "b29c24330dd225c36eca02a8b4ebaf812acea9b2f6fb927e5130cf03261afa32"
     sha256 cellar: :any_skip_relocation, sonoma:        "614aa201d2d108d63b5758ddd9ff35d591bd129f096fbc04c702868422576e6c"
     sha256 cellar: :any_skip_relocation, ventura:       "614aa201d2d108d63b5758ddd9ff35d591bd129f096fbc04c702868422576e6c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5ce7ed2e65514f5e6eaf588dc625153887044642505caa235383785af27ccc23"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "a69543363747967ff8fdc7ff2252bb11ceaafc97fd9374832dd5576485928cd6"
   end
 

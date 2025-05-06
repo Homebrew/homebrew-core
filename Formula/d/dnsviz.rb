@@ -3,19 +3,18 @@ class Dnsviz < Formula
 
   desc "Tools for analyzing and visualizing DNS and DNSSEC behavior"
   homepage "https://github.com/dnsviz/dnsviz/"
-  url "https://files.pythonhosted.org/packages/30/26/57a692b8f913ae22450f5b1dde5c52fe9a262c3e678eb63a4bdc0e464781/dnsviz-0.11.0.tar.gz"
-  sha256 "3e93055950fc7837a40058f06190b0d9d7392332ea1aa0da6f9ff00c3b076d3e"
+  url "https://files.pythonhosted.org/packages/59/91/aa152739fea36d4456fbcc71a26333ffef587526d722c10c281ab12a6a35/dnsviz-0.11.1.tar.gz"
+  sha256 "203b1aa2e3aa09af415a96a0afc98eef4acf845ab8af57bf9f7569bd13161717"
   license "GPL-2.0-or-later"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia: "7c45ee34909c224567abf12553318e640f7571a9bc180d7fa772efc915a5d2dc"
-    sha256 cellar: :any,                 arm64_sonoma:  "2775217da4980d520e017a024d9f0640a5c3dd8d65c8f15134e18edb1d0823fb"
-    sha256 cellar: :any,                 arm64_ventura: "658087f1a301001e35345cc79528fe8c990f0abc0d8b25fe11ee9bad935dc59f"
-    sha256 cellar: :any,                 sonoma:        "95ab3f0f1a91635998ad85cbcd8f2324fea9c29559a201d7b00ed9ed7a0af5ae"
-    sha256 cellar: :any,                 ventura:       "146eea3d7c4dfc1c96cdc0eed1011df849ab3ebfbb6833e0a6a76d43ea7dbbc2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a07fbf9b184504d8086c7ca59cdb0d3645f6858888b1478e0bd71f8a43b4e782"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0f1ed73bf2095d6d7527ed2be53ee8675011a45c96d34f01a4ece50a702604bd"
+    sha256 cellar: :any,                 arm64_sequoia: "00110e902d3a1519334f1226603864e95d9d93c669d43c6fbf37aa27b08915d2"
+    sha256 cellar: :any,                 arm64_sonoma:  "7cd031019ebadc5e47683d83d1d5828b5eb3baaa058ea3d69fb74b1a97906c22"
+    sha256 cellar: :any,                 arm64_ventura: "b2fbd7dcdf0549567e1da7bf6ea52f57be4a2abfc81ecaba08dda9ce5c35bc01"
+    sha256 cellar: :any,                 sonoma:        "0682b0b1bbcd7b5e43d2304c3739f682eb29b6d47a1967f484bd3ba794d96ad6"
+    sha256 cellar: :any,                 ventura:       "d1765ce90cc43961a8592c8abda79368e9cf9c1c0bc000fc536720ca0ab89e5d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1a96068801bd4e01adcc3a7441f41a498b0a6b88cc5b1fe8fbe6d5461975f6f5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8d105d485eb7a835fec8e4c6b7af690ba215c77b540a7d5b3954e2558e799e26"
   end
 
   depends_on "bind" => [:build, :test]
@@ -28,8 +27,8 @@ class Dnsviz < Formula
   depends_on "python@3.13"
 
   resource "dnspython" do
-    url "https://files.pythonhosted.org/packages/37/7d/c871f55054e403fdfd6b8f65fd6d1c4e147ed100d3e9f9ba1fe695403939/dnspython-2.6.1.tar.gz"
-    sha256 "e8f0f9c23a7b7cb99ded64e6c3a6f3e701d78f50c55e002b839dea7225cff7cc"
+    url "https://files.pythonhosted.org/packages/b5/4a/263763cb2ba3816dd94b08ad3a33d5fdae34ecb856678773cc40a3605829/dnspython-2.7.0.tar.gz"
+    sha256 "ce9c432eda0dc91cf618a5cedf1a4e142651196bbcd2c80e89ed5a907e5cfaf1"
   end
 
   resource "pygraphviz" do

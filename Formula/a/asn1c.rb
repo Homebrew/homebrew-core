@@ -17,6 +17,7 @@ class Asn1c < Formula
     sha256 monterey:       "a3999e6443202ae87c2c44823efb4ce4939838124f870cccbf19d8be61a01974"
     sha256 big_sur:        "d3db341a38f139efbea8f9d2f70912af6e80d4f9cd0b472f2f6202bcd31431b3"
     sha256 catalina:       "a7688d139182258a7377b3a30cf57ef3ff95c184940bcb171d0968c2c152f65f"
+    sha256 arm64_linux:    "1cf47d0986b911c566f919454694f2abc20927425eb4b002d1761c2e9c8d714a"
     sha256 x86_64_linux:   "fe7fa5f68ab94a7d748a2af7451d496192c7bc543bd9dc9c660673cb8026bda4"
   end
 
@@ -29,7 +30,12 @@ class Asn1c < Formula
 
   def install
     system "autoreconf", "--force", "--install", "--verbose" if build.head?
-    system "./configure", "--mandir=#{man}", *std_configure_args
+
+    args = []
+    # Help old config scripts identify arm64 linux
+    args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+
+    system "./configure", "--mandir=#{man}", *args, *std_configure_args
     system "make", "install"
   end
 

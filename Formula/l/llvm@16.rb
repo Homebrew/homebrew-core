@@ -35,6 +35,7 @@ class LlvmAT16 < Formula
   depends_on "ninja" => :build
   depends_on "swig" => :build
   depends_on "python@3.12"
+  depends_on "xz"
   depends_on "zstd"
 
   uses_from_macos "libedit"

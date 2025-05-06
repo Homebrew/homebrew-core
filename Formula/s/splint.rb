@@ -28,6 +28,7 @@ class Splint < Formula
     sha256 cellar: :any_skip_relocation, catalina:       "98cc2bfccef60b21ec014ff35e71cc91a85e77435b4e429090e2767d0696bef8"
     sha256 cellar: :any_skip_relocation, mojave:         "abe5a5d75a01fa272839dbc219a5fde2c76c7c7593e7dd365c152e4cb02a2c59"
     sha256 cellar: :any_skip_relocation, high_sierra:    "b95c7e4981cb11c23b686dbb01dcc01c1317909371b5d21ba0aa155e47569eec"
+    sha256                               arm64_linux:    "6003db1cf73e332befaff1d85a5a3c547a094594e014b775cfe55914158dff58"
     sha256                               x86_64_linux:   "fded0340d91cfcbd99ddf5a89b505fd59895e980d86366654196192d6358a97c"
   end
 
@@ -45,6 +46,8 @@ class Splint < Formula
             "--mandir=#{man}"]
 
     args << "LEXLIB=#{Formula["flex"].opt_lib}/libfl.so" if OS.linux?
+    # Help old config scripts identify arm64 linux
+    args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
 
     system "./configure", *args
     system "make"

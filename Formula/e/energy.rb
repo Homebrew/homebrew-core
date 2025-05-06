@@ -4,6 +4,7 @@ class Energy < Formula
   url "https://github.com/energye/energy/archive/refs/tags/v2.5.4.tar.gz"
   sha256 "1349790b2828a66f2f431fc34cfdd0499dc7ab159837e64a09b567c5f32523f6"
   license "Apache-2.0"
+  head "https://github.com/energye/energy.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "b8afbd8ee572eae65d3e17f96eaa191710809f7cd67d0dad4cc82f0d8aa22ab4"

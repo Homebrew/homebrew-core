@@ -1,18 +1,18 @@
 class Zlint < Formula
   desc "X.509 Certificate Linter focused on Web PKI standards and requirements"
   homepage "https://zmap.io/"
-  url "https://github.com/zmap/zlint/archive/refs/tags/v3.6.5.tar.gz"
-  sha256 "ce73c3fb8daaad3b4a41473a970e80425d714477d2ef0a6b91829adc1875197b"
+  url "https://github.com/zmap/zlint/archive/refs/tags/v3.6.6.tar.gz"
+  sha256 "ca1155915d68772566d8be4c4061129b15eb7055ea9aaa939cc92d3966ba10f6"
   license "Apache-2.0"
   head "https://github.com/zmap/zlint.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "29f795e5e0dab8f87d1e796c42cd7b6157ae36b00cc6cfe60e8388c3bcd3e870"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "29f795e5e0dab8f87d1e796c42cd7b6157ae36b00cc6cfe60e8388c3bcd3e870"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "29f795e5e0dab8f87d1e796c42cd7b6157ae36b00cc6cfe60e8388c3bcd3e870"
-    sha256 cellar: :any_skip_relocation, sonoma:        "7c9a3891731c3a651f571acb39ae62024ebeeabc702a71c458a8a193c1e33403"
-    sha256 cellar: :any_skip_relocation, ventura:       "7c9a3891731c3a651f571acb39ae62024ebeeabc702a71c458a8a193c1e33403"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8bcb5c7126db76b93333ab19ad73b22cb5acb6ed0dc900dbe406586e801bb755"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3edaff6afb2185ddc9e3a25da2ae19e88e386f010a57ea13c8cbdd4976cb4ac8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3edaff6afb2185ddc9e3a25da2ae19e88e386f010a57ea13c8cbdd4976cb4ac8"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "3edaff6afb2185ddc9e3a25da2ae19e88e386f010a57ea13c8cbdd4976cb4ac8"
+    sha256 cellar: :any_skip_relocation, sonoma:        "812f893df4a2cce77a54df0cf2d536c7193bb88399379d3d5354415760bb6394"
+    sha256 cellar: :any_skip_relocation, ventura:       "812f893df4a2cce77a54df0cf2d536c7193bb88399379d3d5354415760bb6394"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "558268e135da92e62fc493c7a2a46a7fb93f1c7d499d310c96939d2cd18d8d24"
   end
 
   depends_on "go" => :build

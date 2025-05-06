@@ -20,6 +20,7 @@ class Freeswitch < Formula
     sha256 sonoma:         "4f0b9549fd10a4abcc75f44eedf35087aa575d32ba27b2a53bcd21fd5e6091db"
     sha256 ventura:        "75144d1828662b7606bb74592e0a801899ceb1dd69eead41b3d548fce382ced2"
     sha256 monterey:       "40e6068355e6a3c784fe719cf5a2a50d152e9533797ddf2f3872867aad58e9ee"
+    sha256 arm64_linux:    "282389f39e5b1b3cfbb5b151466ceb1198bb1c63badf20a1c81afe896c7a7bc5"
     sha256 x86_64_linux:   "1f90051761c07c7017ae113a7ebd980dfeb8d5d549e0208c8e258425b41f3d43"
   end
 
@@ -157,6 +158,7 @@ class Freeswitch < Formula
     end
 
     resource("signalwire-c").stage do
+      ENV["CMAKE_POLICY_VERSION_MINIMUM"] = "3.5"
       system "cmake", ".", *std_cmake_args(install_prefix: libexec/"signalwire-c")
       system "cmake", "--build", "."
       system "cmake", "--install", "."

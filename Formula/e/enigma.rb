@@ -17,6 +17,7 @@ class Enigma < Formula
     sha256 arm64_ventura: "72b381ad60a3599e47c1e0a76b74ab074645c75e21fcf007849eb9b3461604ca"
     sha256 sonoma:        "9a282238a0694092cd68cebd03651c6f42f19050adf5957b31d07b784b738fc2"
     sha256 ventura:       "65581f9d70099db6bc6a45d12b1d7ec373bfc50285ffd244d67b06bcd9a82023"
+    sha256 arm64_linux:   "35ff0e6572e4cdc889ff3addde96415c9df3cafe24ea3609bad6541fc15cc119"
     sha256 x86_64_linux:  "b853cd4b2c13e10445b12737298e51293e282319bc5f27ceb424e7746a79adc5"
   end
 

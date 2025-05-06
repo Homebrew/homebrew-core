@@ -1,19 +1,19 @@
 class Vifm < Formula
   desc "Ncurses-based file manager with vi-like keybindings"
   homepage "https://vifm.info/"
-  url "https://github.com/vifm/vifm/releases/download/v0.14/vifm-0.14.tar.bz2"
-  sha256 "2714dd4cef4e53e7a8980ae8445e88279104f815d47f417fa0b8adfe2f3d1bed"
+  url "https://github.com/vifm/vifm/releases/download/v0.14.1/vifm-0.14.1.tar.bz2"
+  sha256 "01f19e114e29f481d20faa6b35a42b883a3f487324ddb2f7107ce1c102c4a496"
   license "GPL-2.0-or-later"
   head "https://github.com/vifm/vifm.git", branch: "master"
 
   bottle do
-    sha256 arm64_sequoia: "27810e8910509e596830ed45a0d5586b2bb559c4cc8f14c1ab3840d4b8cc4aa7"
-    sha256 arm64_sonoma:  "7e645734ff739c91b757c6fbe07d7d07107a23640ef9ab16f1e8bb885730ca5c"
-    sha256 arm64_ventura: "572237eca7ffce7d969291acbd21469d590f5aa867f5c0cd2937ad983feec1a8"
-    sha256 sonoma:        "76ae8ef7d70626c281a9d6742862a8fa2c737c82434aad4f8020365af38f0e92"
-    sha256 ventura:       "09d3e74801f83d194e850fe8186501cfba5ce89cf3d4a75eaeb3931145cea90c"
-    sha256 arm64_linux:   "c759e2c726f4980b60f6dadbd720a7cca58e16a86f51196847e251f97cc4ff54"
-    sha256 x86_64_linux:  "f03f7243697b0524068c3fbd9efdc301d2e5079efbaaba3d5e7ee002d5393642"
+    sha256 arm64_sequoia: "d42bbd65abb6dd248287efa95c048b635da1d6234007ce49c4d6a79805364980"
+    sha256 arm64_sonoma:  "6578e3bd6cd66a91acefdadb102aa8ac732e7b0ce83c60da858379803e04ad72"
+    sha256 arm64_ventura: "af13db929893b961f318f4bbc810495d74eae4f1a287aa3b85eed524e4b7fefb"
+    sha256 sonoma:        "fbb0b81a0d33fa1261bed0aad03873d886d8186607d549ae58f23c436f4cdcff"
+    sha256 ventura:       "09763481c3ae34dca7122f83beb04905cd3603e0678be6673df54836fa2ba681"
+    sha256 arm64_linux:   "eb189220e297f0584aa4659a0364c367857247568139d71b9221c00e5a474919"
+    sha256 x86_64_linux:  "35efcfbcb43d8da80932740a39bfd6c2f84e2f173bd2fee994ba479ba61fc7c1"
   end
 
   depends_on "ncurses"

@@ -11,6 +11,7 @@ class Dillo < Formula
     sha256 arm64_ventura: "91e47bdc6957706b451ad79446f0807b46f7ad3bd52ed9e4b3e7fbf7f68e7656"
     sha256 sonoma:        "eb64b7f51d5fd459bf3dc5ceffebc8f44a8cccf2e5288fd8bd2bc00e076c7d7a"
     sha256 ventura:       "d67a1834f6bdb695b18602e11411bf5e6e723df7a2fe4cb513c392da4ec52561"
+    sha256 arm64_linux:   "c7726b387e90495e472ba084ea9c20fa14414b9f5a13f0ad2547d76dfdf94ef4"
     sha256 x86_64_linux:  "b38cf02dc15d8362d04a62438d62eb0f6b7be342d83fd349f414b0c24f5f4989"
   end
 

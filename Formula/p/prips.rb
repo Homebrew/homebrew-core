@@ -1,28 +1,23 @@
 class Prips < Formula
   desc "Print the IP addresses in a given range"
   homepage "https://devel.ringlet.net/sysutils/prips/"
-  url "https://devel.ringlet.net/files/sys/prips/prips-1.2.0.tar.xz"
-  sha256 "de28d8a5a619a30d0b3c8a76f9c09c3529d197f3e74b04c8aa994096ab8349d4"
+  url "https://devel.ringlet.net/files/sys/prips/prips-1.2.2.tar.xz"
+  sha256 "f9d710ba19ea0d9f68b633b7093092c84f519313ca28ec0632b37c4e5a85a0b2"
   license "GPL-2.0-or-later"
 
   livecheck do
-    url :homepage
-    regex(/current version .*?prips.*?v?(\d+(?:\.\d+)+)/i)
+    url "https://devel.ringlet.net/sysutils/prips/download/"
+    regex(/href=.*?prips[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "53d2cf5aa372cdac9dbba0290b9e7796467762e2fd9a5be201982394fd51d333"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3f83b58387903ebf2bc10852a36d4d48beed06ec0eb0aef6a1967246a66d67fa"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5c4217811128ab612a4433b630d1a3d2c9e4805e1c163bfa22eeec7d03e095b9"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "50a8faf4130d6ad1b281078e788aa0bdd8a34b32fda4f9dbde6247f0dcdbcfdf"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "255619fe70f19aa2f4ce8616a48bcc96892678ddba5c2b40ba0191bee5dfe28d"
-    sha256 cellar: :any_skip_relocation, sonoma:         "8da671059b202979ec0945ff90d2a77bff66dc97f7fadd62f9e9d6ee5d4c20a5"
-    sha256 cellar: :any_skip_relocation, ventura:        "ab6328571f6d30d60848ab91a95fbc3c2f4da337dc8f80ba91a7e43feb80512f"
-    sha256 cellar: :any_skip_relocation, monterey:       "97c8079a862f2f3957c23762eb50034de5b6317c67696a18c5a6792da2b9cfb2"
-    sha256 cellar: :any_skip_relocation, big_sur:        "32e889ecb796175e17ad03eb59ae8e7fea9ca015e228ef2369cbc21db55a7d0e"
-    sha256 cellar: :any_skip_relocation, catalina:       "76f6e8fcbc1f60861023f6e035b04bec61d57fefb3bbfb87fbdeeafb47b68456"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "16e579e6b18a9732d17f35a8e630701933d845c90c20d5424abba8c40852854d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2453199b92afe7e105fd95f698b5c9c7d6897f1d95d624b07c32bbfc65d44d0a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "119d431a378f96585d6d92857c3dbf524cca2bad9e993d81763015f2e876ebf5"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c4824dd5010e37dd1c8dd3689fd00b7a7bc861aa229ce86bb67d14e814832f3a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "154be43d4c20994c4d9dccf42241280a8303ec678d8bc7cd75d8c13eec590809"
+    sha256 cellar: :any_skip_relocation, sonoma:        "128083e5ded105075f9158cf78e8b516aaf6cc909b09bd1e9212d7f2df30f1bc"
+    sha256 cellar: :any_skip_relocation, ventura:       "9503baebbb4bb27ba78205df85c92b120830707544988328f25fc97983cdf2f4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0a1ce4c011174062fa45e6cad1c9535e7cf321e2eb1d5f2a6b40d9f9a322fd99"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c9e565bae503a491ee0e2ecc37889989bfab8cfe96571877a3163cbf28544d61"
   end
 
   def install

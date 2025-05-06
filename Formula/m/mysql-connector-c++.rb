@@ -1,8 +1,8 @@
 class MysqlConnectorCxx < Formula
   desc "MySQL database connector for C++ applications"
-  homepage "https://dev.mysql.com/downloads/connector/cpp/"
-  url "https://dev.mysql.com/get/Downloads/Connector-C++/mysql-connector-c++-9.2.0-src.tar.gz"
-  sha256 "249eac2c77f2e4780e0d61b1c3f671ac93cc6e37eee7c9cb81655930e3a38435"
+  homepage "https://github.com/mysql/mysql-connector-cpp"
+  url "https://cdn.mysql.com/Downloads/Connector-C++/mysql-connector-c++-9.3.0-src.tar.gz"
+  sha256 "268a6f7f4a6cb59f53dde59623be1559f913a29ec1de81bf0ffccbf780d1b416"
   license "GPL-2.0-only" => { with: "Universal-FOSS-exception-1.0" }
 
   livecheck do
@@ -11,12 +11,13 @@ class MysqlConnectorCxx < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "c1294550241b2cc6ccff3782a70408dcd6dfa39f354f9b0a41ffcc68caf7c093"
-    sha256 cellar: :any,                 arm64_sonoma:  "c4bc88549978f21cf52a143a389e982009ef61ae6a9eec6604cb0aac30e2a52d"
-    sha256 cellar: :any,                 arm64_ventura: "8b3803e560a68274050bcec0a6fddd07456f5728ba702a3e270f6d63dce6381a"
-    sha256 cellar: :any,                 sonoma:        "9b4da7849dd498166e14f2d3441b6be67d9e156a3870496db51723625720d368"
-    sha256 cellar: :any,                 ventura:       "74edf08d8a04e56c4a0b9fae3206c2d68254adde919cdd5d2c188933cede1e52"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "63877e2393a6e26f83636ce0f7962bdf0a6446acff8082b61ec283fcbd59d584"
+    sha256 cellar: :any,                 arm64_sequoia: "b9fb2e53db8e66e690169f2f2de4b29ff2075256e9c6a3e6b6b5b726eed64987"
+    sha256 cellar: :any,                 arm64_sonoma:  "ce2e5744046cb1337129d204a5444dd35023a80052caf55da8c49fa7987984e4"
+    sha256 cellar: :any,                 arm64_ventura: "d85ecee591ca559101de9fd260f29577b22ece7f9764003b4f70aaaa221eda1f"
+    sha256 cellar: :any,                 sonoma:        "6b7582900baea050d27da4e7d11c664e6db4fa663b83d0f859b3bd38284aca68"
+    sha256 cellar: :any,                 ventura:       "3813e6d044a752fb35926e88eb4fcb15a7ef17ceb0255aa384f5e8f1ba576f7b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "695e5c79c45aff0ea0f2a7ad5f9d49a6bb8290bacef69e3588e36bf2f8baf4e7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "57bf19bc54526110f1e05873cf1286d9e90195abc44deb45c648a4de80f7c3a2"
   end
 
   depends_on "cmake" => :build
@@ -27,6 +28,8 @@ class MysqlConnectorCxx < Formula
   depends_on "zstd"
 
   def install
+    ENV["CMAKE_POLICY_VERSION_MINIMUM"] = "3.5"
+
     args = %w[lz4 rapidjson zlib zstd].map do |libname|
       rm_r(buildpath/"cdk/extra"/libname)
       "-DWITH_#{libname.upcase}=system"

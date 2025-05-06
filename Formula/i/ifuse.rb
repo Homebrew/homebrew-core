@@ -2,7 +2,7 @@ class Ifuse < Formula
   desc "FUSE module for iOS devices"
   homepage "https://libimobiledevice.org/"
   license "LGPL-2.1-or-later"
-  revision 1
+  revision 2
   head "https://github.com/libimobiledevice/ifuse.git", branch: "master"
 
   stable do
@@ -17,8 +17,8 @@ class Ifuse < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "b3182da5c1d4d56eb06f4edcdc6d375b21f808437f3adfbf044e69d881dc3b7f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:  "734a650c8068975a04496c7efc513167c327b7202a112698745cea919ad75a6d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "1c1e2348ff0c16c8d70685fb9112a77739aec3317e21079527dcb2abb0f99e8e"
   end
 
   depends_on "autoconf" => :build

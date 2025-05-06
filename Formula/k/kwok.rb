@@ -4,6 +4,7 @@ class Kwok < Formula
   url "https://github.com/kubernetes-sigs/kwok/archive/refs/tags/v0.6.1.tar.gz"
   sha256 "cb43f7574205448a7c89b53201c40db6055f1ceebf011051248f092c893fa1cb"
   license "Apache-2.0"
+  head "https://github.com/kubernetes-sigs/kwok.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "96bf4a8c5613e2a57f32ac3929d6817a5fc4bd0f6f8bce0a6c9d397011f00362"

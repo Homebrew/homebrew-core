@@ -16,6 +16,7 @@ class Peco < Formula
     sha256 cellar: :any_skip_relocation, ventura:        "7a91ef4b46bebf8e13308598da973d70b373e30f0d0193e771b1914198120cd2"
     sha256 cellar: :any_skip_relocation, monterey:       "7a91ef4b46bebf8e13308598da973d70b373e30f0d0193e771b1914198120cd2"
     sha256 cellar: :any_skip_relocation, big_sur:        "7a91ef4b46bebf8e13308598da973d70b373e30f0d0193e771b1914198120cd2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "374534cc56672f993900a9d52493162e3a6a610216b0147e97455391a5e8048e"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "b79dea96e98bb408b0b87bd9b2ea4371c035e23b49c1de71ce7c7387f4ffec51"
   end
 

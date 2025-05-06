@@ -1,24 +1,23 @@
 class StylishHaskell < Formula
   desc "Haskell code prettifier"
   homepage "https://github.com/haskell/stylish-haskell"
-  url "https://github.com/haskell/stylish-haskell/archive/refs/tags/v0.14.6.0.tar.gz"
-  sha256 "0c0f34271670c23cc4feec7da04487a169a3cd0fde995721503bb5379755b91a"
+  url "https://github.com/haskell/stylish-haskell/archive/refs/tags/v0.15.1.0.tar.gz"
+  sha256 "0187bb335205f6b5c9c78d3fc27deb59ce7122c7eb7429b88971d8cb25d7be51"
   license "BSD-3-Clause"
   head "https://github.com/haskell/stylish-haskell.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "79589b4fe79b3946c7ac4650c029918b550869a01c7321842f5144f73afebf7d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b021fdde87163cb6d75aab1c0cecd36484309e51823a9aad8951f628d82adb98"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d0d2da6f59fc1a29e6a6545ae586331ca53e6418ffde85a96dc9e94e230f9ec6"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "92a69d8d9bdb376f73cfc90bec09b4d009010496d8eff8ba0ddc8c88db1014f6"
-    sha256 cellar: :any_skip_relocation, sonoma:         "4ad14d6df5d417f7ca72f754950b9653c8f84f9cfc1eaf534bd769935dc328f5"
-    sha256 cellar: :any_skip_relocation, ventura:        "d88200ce18cf61fdced6097fe0cf88df5bcff75a5bf557e19ce83a9cfba64e0c"
-    sha256 cellar: :any_skip_relocation, monterey:       "d7d36832ae99a50e67b3051d648826ee404bc4334d57e61b602ebb10d727c12b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1742bbfd81d2f9ae39b6f52a08144b81d02f1be07c57ccbfc741f66c10c47219"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8617c445f903d5a7e91963f407d839ea01e4ed7e33d48f96696ec2a0dd4a568c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3546de3bd2ec97bd2ce3cef71c838d682991cf156b01b5d9fecb97be186ead46"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "caa3a5292125407b6489eb7f121d45b2f10a41759362d552a54edef87c176fb1"
+    sha256 cellar: :any_skip_relocation, sonoma:        "05d8ff7fa92c64e886dd67007d151292701f7558106143dcd821d1469a2ce74a"
+    sha256 cellar: :any_skip_relocation, ventura:       "af74b98d36e9806edf65cc30fb9dacbaa76cbadabb2ecbd5aa75039e9a1d5760"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ce716b2eec6706796822c8c638969d9156534747a57f68a90e4d929692774bac"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e9386aab06b8ff3f6fa0d670681e2d7176f6250f5546281f4003265d365b9224"
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc@9.8" => :build # GHC 9.10 PR: https://github.com/haskell/stylish-haskell/pull/480
+  depends_on "ghc@9.10" => :build
 
   def install
     system "cabal", "v2-update"

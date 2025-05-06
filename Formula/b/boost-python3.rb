@@ -1,10 +1,9 @@
 class BoostPython3 < Formula
   desc "C++ library for C++/Python3 interoperability"
   homepage "https://www.boost.org/"
-  url "https://github.com/boostorg/boost/releases/download/boost-1.87.0/boost-1.87.0-b2-nodocs.tar.xz"
-  sha256 "3abd7a51118a5dd74673b25e0a3f0a4ab1752d8d618f4b8cea84a603aeecc680"
+  url "https://github.com/boostorg/boost/releases/download/boost-1.88.0/boost-1.88.0-b2-nodocs.tar.xz"
+  sha256 "ad9ce2c91bc0977a7adc92d51558f3b9c53596bb88246a280175ebb475da1762"
   license "BSL-1.0"
-  revision 1
   head "https://github.com/boostorg/boost.git", branch: "master"
 
   livecheck do
@@ -12,13 +11,13 @@ class BoostPython3 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "1bfc8d16e673420c90d440351214aa003dddce5dd1e5d997750ebfe3f10406af"
-    sha256 cellar: :any,                 arm64_sonoma:  "10316d5c37144f3ee869da4350a160b518570b60334e768ddbe9eacf1fcb7be8"
-    sha256 cellar: :any,                 arm64_ventura: "f5a6b1a59f5d1bd5092b6256a2fcbfd7fb4816205de5cc94f95fce3ffe708ac5"
-    sha256 cellar: :any,                 sonoma:        "c269dac8219d15e78659b3b5f48819d3695a5e9f646111bd30187d24d6e11525"
-    sha256 cellar: :any,                 ventura:       "7232f6b6da751626f3f7a9bc22ecd19e26804dde406de41b683615805bcead1a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c8455e778b14c6ef29edfe08c0fe940b0bf14cb2da476d045cc915609cf93e1b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c4dde9942cf842fe1a19c561da2f18880467730858f59ce0feaa6895e8517bbb"
+    sha256 cellar: :any,                 arm64_sequoia: "c14fd4a92ecf59b0cd310d2b40ac374861acda10acc91bf22a60f561eef32327"
+    sha256 cellar: :any,                 arm64_sonoma:  "2a65824b7aa95da392fa6a720bd08ccf7290979f8c93c82de2788e063c9fdb7c"
+    sha256                               arm64_ventura: "9a543bda37bf34385df7652f441f37d617473c673b176395e59bfacd26961139"
+    sha256 cellar: :any,                 sonoma:        "69721dd8b8966e727b9d3472aea41dea558d918c608e1707f5263a1389199000"
+    sha256 cellar: :any,                 ventura:       "98156d65dfdaa46babec13139575e95a6746287ceff3888a70b7479c728c7da7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "eed54059107d80bdef3c5c82293b088c36cba0a4e47c8f4149c565cf78778158"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c0f69d09d2cd72ccaeb2a1cf21280759993ca31090736f55e4b79d07678445b7"
   end
 
   depends_on "numpy" => :build
@@ -86,6 +85,11 @@ class BoostPython3 < Formula
 
     lib.install buildpath.glob("install-python3/lib/*{python,numpy}*")
     (lib/"cmake").install buildpath.glob("install-python3/lib/cmake/*{python,numpy}*")
+
+    # Fix the path to headers installed in `boost` formula
+    cmake_configs = lib.glob("cmake/boost_{python,numpy}*/boost_{python,numpy}-config.cmake")
+    inreplace cmake_configs, '(_BOOST_INCLUDEDIR "${_BOOST_CMAKEDIR}/../../include/" ABSOLUTE)',
+                             "(_BOOST_INCLUDEDIR \"#{Formula["boost"].opt_include}/\" ABSOLUTE)"
   end
 
   test do

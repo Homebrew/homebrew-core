@@ -1,8 +1,8 @@
 class KimApi < Formula
   desc "Knowledgebase of Interatomic Models (KIM) API"
   homepage "https://openkim.org"
-  url "https://s3.openkim.org/kim-api/kim-api-2.4.0.txz"
-  sha256 "0fa030843ce89ae399d27a61e9a075a60328df618868fdad92f24fdf9fd33032"
+  url "https://s3.openkim.org/kim-api/kim-api-2.4.1.txz"
+  sha256 "225e3136d43e416a4424551e9e5f6d92cc6ecfe11389a1b6e97d6dcdfed83d44"
   license "CDDL-1.0"
 
   livecheck do
@@ -11,13 +11,13 @@ class KimApi < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "0a9a82aee329b1ac9049c763053f5b97114bc546fdadd69f830ab7cbf49024e0"
-    sha256 cellar: :any,                 arm64_sonoma:  "1bd044a9580fc0761c012c3c91d7d784ab5d31ad9d0a35e731ec05931a2fdfd0"
-    sha256 cellar: :any,                 arm64_ventura: "1ffa80813a49f7990fee29ec83c4ef03182e92e3cf1ad3e174ff6c6042ed670a"
-    sha256 cellar: :any,                 sonoma:        "6ab3b70a938f7a2b2c1e97f59640c4c12bf34fca9f9bab2f1002ff64f33eb0b4"
-    sha256 cellar: :any,                 ventura:       "e612e98c59c0a7650513e7d775ee45099ba82d8bb563825eb3e3e82b22905cd5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "54f332ed31a02dc3c11776b8c1b555c268843b6e41cc85c25e7389df480490f4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "15501b1a05f5a4f1fd5d3bffaed6d1715d6a1b4964a2ff37add87dca7919bc76"
+    sha256 cellar: :any,                 arm64_sequoia: "c8214b21245469eccfe7693dacb9146bd28a71c0dbcf60f2655cc664e2ae65bc"
+    sha256 cellar: :any,                 arm64_sonoma:  "19feb0d8847607b24f869cb2d82c7378d4196a7c7ae2224e6f33f5d54aa47e3d"
+    sha256 cellar: :any,                 arm64_ventura: "67b165f2b4604391a1fefb0554bbe3a3260ef5ddd789479925f857ee7cb59893"
+    sha256 cellar: :any,                 sonoma:        "238895ca76d8aeb1e2759426a25d726a5e5754cbd77ae48fecc871dfe4aa94e4"
+    sha256 cellar: :any,                 ventura:       "594b5361fb31557732acdb6d373be537aafca3e39731e6eecae5c4d4f63b0f08"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "591e234dddd71d0bbbf44bf0b3c948279f10822b5bfb6d437b53597ab6b030a7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3b9c0aa802b5478594414159c28c7dbe8304ac91d965b176f20ffbd269fc131f"
   end
 
   depends_on "cmake" => :build

@@ -23,6 +23,7 @@ class Mailhog < Formula
   # No support for Go modules and needs deprecated `go_resource` DSL.
   # https://github.com/mailhog/MailHog/issues/442#issuecomment-1493415258
   deprecate! date: "2024-03-27", because: :unmaintained
+  disable! date: "2025-03-31", because: :unmaintained
 
   depends_on "go" => :build
 

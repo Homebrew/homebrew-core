@@ -7,19 +7,21 @@ class Pinot < Formula
   head "https://github.com/apache/pinot.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "ba258d8e7b33eb25c8b492258d22365260bfd4a60494030559e174309c271219"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "dd4c35dab1e00cb76d570424d53e76cb020343111b7be8fc3ed73dee0c6dcc90"
   end
 
-  depends_on "openjdk@11"
+  depends_on "openjdk@21"
 
   def install
+    java_env = Language::Java.java_home_env("21").merge(PATH: "${JAVA_HOME}/bin:${PATH}")
     (var/"lib/pinot/data").mkpath
 
     libexec.install "lib"
     libexec.install "plugins"
 
     prefix.install "bin"
-    bin.env_script_all_files(libexec/"bin", Language::Java.java_home_env("11"))
+    bin.env_script_all_files(libexec/"bin", java_env)
     bin.glob("*.sh").each { |f| mv f, bin/f.basename(".sh") }
   end
 
@@ -43,6 +45,7 @@ class Pinot < Formula
     end
 
     sleep 10
+    sleep 30 if Hardware::CPU.intel?
 
     controller_pid = fork do
       exec "#{opt_bin}/pinot-admin",
@@ -53,7 +56,8 @@ class Pinot < Formula
         controller_port.to_s
     end
 
-    sleep 40
+    sleep 30
+    sleep 30 if Hardware::CPU.intel?
 
     assert_match("HTTP/1.1 200 OK", shell_output("curl -i http://localhost:#{controller_port} 2>&1"))
   ensure

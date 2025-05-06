@@ -11,6 +11,7 @@ class GupnpTools < Formula
     sha256 arm64_ventura: "323caa61cc2fcb5fb594cd8c84f6761530bfb7e48fa160ae77f491ea98d1fe5c"
     sha256 sonoma:        "58c18fa2d0b58685ddb29a4d05064b4b1b76f537a63c943d6ba9db792a40b0d5"
     sha256 ventura:       "e9282722d1cba7a1661fa377fb504f6162350fc45382417172ae4babeab4ba8b"
+    sha256 arm64_linux:   "2de86896f479386cda2f9f02c314f7f30456698873e493e57e96b2ef6c7c1581"
     sha256 x86_64_linux:  "6159c1527a0dfef2c43b726927c57fc69d64b0a51d4ff6a42809dea33ae5221c"
   end
 

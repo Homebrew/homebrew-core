@@ -17,6 +17,8 @@ class Shuttle < Formula
 
   depends_on "go" => :build
 
+  conflicts_with "cargo-shuttle", because: "both install `shuttle` binaries"
+
   def install
     ldflags = %W[
       -s -w

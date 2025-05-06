@@ -4,6 +4,7 @@ class Bombadillo < Formula
   url "https://tildegit.org/sloum/bombadillo/archive/2.4.0.tar.gz"
   sha256 "e0daed1d9d0fe7cbea52bc3e6ecff327749b54e792774e6b985e0d64b7a36437"
   license "GPL-3.0-or-later"
+  head "https://tildegit.org/sloum/bombadillo.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "704af144b953977108282ec76083d51d8d359b2f08402aa71da7822a79491591"

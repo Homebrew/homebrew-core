@@ -25,6 +25,7 @@ class PgTop < Formula
     sha256 cellar: :any,                 monterey:       "6252dc42f3d6e6570b0371f2f10cd146a06bd52b492636bbb35f62ff07239b7a"
     sha256 cellar: :any,                 big_sur:        "7980c5af9dec1de3a76a74fbd4b359ec1a90bdd7223fa7ffc8f4294642042fc8"
     sha256 cellar: :any,                 catalina:       "edf54d452403cf5be9b63a0a744560a00bb9e83ace3885ae33d36d96b0a8c2a4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "fbf1018624db8c4c76d72d83d18a7d079ae6d1fba0d7c65aea8078f9e1c31519"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "65fe3861c5e90a4c9403f4b551892cd8ac85fbbea1cc23f551ee0eda3c9de01d"
   end
 

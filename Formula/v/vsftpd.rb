@@ -12,21 +12,22 @@ class Vsftpd < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_sequoia:  "5ac5faad1e4829126b7931a343b155cadcbdd26fe63b59f7aa38328ba8e35036"
-    sha256 arm64_sonoma:   "10ade18438fd789667c16f0933ce41b8d377a98702c3757f72df91f5661f9e5f"
-    sha256 arm64_ventura:  "27443bc7161d3d6e4576fba4a3a597f56b892c46821f219e7b4ba529f7f26f59"
-    sha256 arm64_monterey: "40040ca15be416c21fc08f8f5cd19d17c273381b8a5a5aa0cbf7c35940c8a7ea"
-    sha256 arm64_big_sur:  "7978d8b0121a19bee82b3b3f923685fd9ea462c35f3a28ab47e8a665116f6ef8"
-    sha256 sonoma:         "8dbf2e695a46d97f8f15780146dc67975de1cb9493db4eb9115a4a4336f65702"
-    sha256 ventura:        "d54b688608f3d4a6e5b6d99470daa65ec3b84d2c6035c18b98ac06eaad1e4edb"
-    sha256 monterey:       "67f3a10c76d5ca48e0e12cc4392e06b63f42c230b186d8a3c3ccd3acf9991b9e"
-    sha256 big_sur:        "e0ef6c46feb52bbe5e970d5ddd357f38837ddc69a7cd34a74a8c33cb3ccfb398"
-    sha256 catalina:       "b5c7f2c2abd7937bcaccb69160701f46003b5167229a124fa1ea22ff463a04d5"
-    sha256 x86_64_linux:   "afab189ea0991cf4d28552707a50fe005d7cb1b18ec249360f0dae7e3db3a17f"
+    rebuild 2
+    sha256 arm64_sequoia: "d878a9c0483cf81228a5301cf5768e613271d731fbf2affa778a475bcea57a09"
+    sha256 arm64_sonoma:  "7547e5fa4936a51a84b4e016545b8088199e1f92fc7299f8619b6b3f5b7ba5bf"
+    sha256 arm64_ventura: "7e015b54e1995a19395d9802116f3f7d0895818260c1aeddd793ca2b2da806aa"
+    sha256 sonoma:        "63fafab3ad2cc9aa1c22643d6b923292a58b0872abbc774fb028b0d79f3febe6"
+    sha256 ventura:       "ac39611af47fe2cb0fa24462a75d835016c9edca1a5904ee112886e223fcc0b8"
+    sha256 arm64_linux:   "a7e48ecdd12b194050395cc3532a82bcc3724a4d19d0f5e43cb0cc62723f3440"
+    sha256 x86_64_linux:  "4443fcbe19aa4dd49e55a9c5fcd7e3c069a07320a4c86b9d252c4020ba7614ee"
   end
 
   uses_from_macos "perl" => :build
+
+  on_linux do
+    depends_on "libcap"
+    depends_on "linux-pam"
+  end
 
   # Patch to remove UTMPX dependency, locate macOS's PAM library, and
   # remove incompatible LDFLAGS. (reported to developer via email)
@@ -47,7 +48,9 @@ class Vsftpd < Formula
     inreplace "defs.h", "/etc/vsftpd.conf", "#{etc}/vsftpd.conf"
     inreplace "tunables.c", "/etc", etc
     inreplace "tunables.c", "/var", var
-    system "make"
+
+    args = OS.linux? ? ["LIBS=-lcap -lpam"] : []
+    system "make", *args
 
     # make install has all the paths hardcoded; this is easier:
     sbin.install "vsftpd"

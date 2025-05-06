@@ -23,6 +23,7 @@ class MariadbAT106 < Formula
     sha256 arm64_ventura: "58f3634df92e8b7c58f30f91295f88472d977577e2b2666342fd04f3f8eb16fd"
     sha256 sonoma:        "81af7a0000ff278c3070ce3db9546af93eb06279def2f79f1087ded07d1123a3"
     sha256 ventura:       "41569c954dd0c2961c84e8ec6fb02041a6fa82e38ac7be909d28cff8638e9bc8"
+    sha256 arm64_linux:   "cedd156e1c90e2d4644064c4c4d5f0fb9348526c114ede82ffc7a821c7c76551"
     sha256 x86_64_linux:  "586cec21d3568a0528d1d222ebdeb5b3bc98503d93794e87b387e786ed4d14b9"
   end
 
@@ -58,7 +59,27 @@ class MariadbAT106 < Formula
     depends_on "readline" # uses libedit on macOS
   end
 
+  # Backport fix for CMake 4.0
+  patch do
+    url "https://github.com/MariaDB/server/commit/2a5a12b227845e03575f1b1eb0f6366dccc3e026.patch?full_index=1"
+    sha256 "f3a4b5871141451edf3936bcad0861e3a38418c3a8c6a69dfeddb8d073ac3253"
+  end
+  patch do
+    url "https://github.com/codership/wsrep-lib/commit/324b01e4315623ce026688dd9da1a5f921ce7084.patch?full_index=1"
+    sha256 "eaa0c3b648b712b3dbab3d37dfca7fef8a072908dc28f2ed383fbe8d217be421"
+    directory "wsrep-lib"
+  end
+
   def install
+    ENV.runtime_cpu_detection
+
+    # Backport fix for CMake 4.0 in columnstore submodule
+    # https://github.com/mariadb-corporation/mariadb-columnstore-engine/commit/726cc3684b4de08934c2b14f347799fd8c3aac9a
+    # https://github.com/mariadb-corporation/mariadb-columnstore-engine/commit/7e17d8825409fb8cc0629bfd052ffac6e542b50e
+    inreplace "storage/columnstore/columnstore/CMakeLists.txt",
+              "CMAKE_MINIMUM_REQUIRED(VERSION 2.8.12)",
+              "CMAKE_MINIMUM_REQUIRED(VERSION 3.10)"
+
     # Set basedir and ldata so that mysql_install_db can find the server
     # without needing an explicit path to be set. This can still
     # be overridden by calling --basedir= when calling.

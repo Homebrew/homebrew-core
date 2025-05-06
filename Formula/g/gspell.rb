@@ -12,6 +12,7 @@ class Gspell < Formula
     sha256 arm64_ventura: "ae7078de1e4777703851e5f72fe339feb3306b55c93ddd5446da1aac4c0fe6b8"
     sha256 sonoma:        "7f0f171e26e6a956b23b54bcfdb47665a763999ac1dade0011899664aafc977f"
     sha256 ventura:       "2dec4a4e7abf1ccd9564cc91b1259a0896f854f809d5cb0271982a77e4b83050"
+    sha256 arm64_linux:   "74ee2677d98ec0caffe66e3989f73977065f2d2ae6ae198c36a2f535bd31ef20"
     sha256 x86_64_linux:  "65b869605e06e7571c5e74776a815949afa4acf36185a0fee15c008db1979f60"
   end
 

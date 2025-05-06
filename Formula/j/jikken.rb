@@ -1,19 +1,19 @@
 class Jikken < Formula
   desc "Powerful, source control friendly REST API testing toolkit"
   homepage "https://jikken.io/"
-  url "https://github.com/jikkenio/jikken/archive/refs/tags/v0.8.1.tar.gz"
-  sha256 "049691f48f13f8b155803df82eb99eb511503b7388d98d74d0db29b73126efd1"
+  url "https://github.com/jikkenio/jikken/archive/refs/tags/v0.8.2.tar.gz"
+  sha256 "c1e8080c238d4aed349bf30a54ee8181661cb4cc846ad9bf16118ede5bd7939c"
   license "MIT"
   head "https://github.com/jikkenio/jikken.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "20ae33ce88425e104939812c56f2619cbda2570431a44e87b4a0e42028997ea0"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b71504d1a5eb8d1509a04a8edfcb98db973fe1fd27d30b69649eb336067414ce"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "d622380e17454f705b66505fd95eb06da9db61087ebd214c629897ae5747855b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "3ba12e70622eb28d3e238caf01757a4d135974aac22afa93cdf179674782fd5d"
-    sha256 cellar: :any_skip_relocation, ventura:       "f67f299b1636e64c251bf71ee05b8cf669e5f63ae9639ffb7a0bc78422350c42"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9c34b45e472855dd186da085c54f0599b0e89eaee23420377a602218da6b95a6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e16712754cad5e86d225ea36efb22b9275f31f46083a426ae4ba4d4b5c03455d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8c2a6084031ab54a84caaa798e46fe8d1cf8ea7a50b8b8c141ceafed2944196d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4dfcac83e5e02f29b3486e03c4c4128e02e6e09a1b6d85b26e5521e515a289ff"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "bf277333fd50c994440977d4302f217f7e607971071c06d0bec1a79cda240bae"
+    sha256 cellar: :any_skip_relocation, sonoma:        "11bd0cf32af6ea9f71290b1d4b286558e6c1844039bcac9c47a717ee635e4d7a"
+    sha256 cellar: :any_skip_relocation, ventura:       "bbc3a2c09c827fa77c5835d2c0fddde53e1f96f32ddfdc34325ee1b868fbc01f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0895649db77b4f15a4ef8486c389c85b3ef24a0299a9080f29a6e6627e68526a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "21a00686c078cf599d5cdd70c453104551c618eb5390025ef30db5c24ad72ffc"
   end
 
   depends_on "pkgconf" => :build

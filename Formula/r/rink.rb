@@ -25,10 +25,6 @@ class Rink < Formula
   end
 
   def install
-    # Ensure that the `openssl` crate picks up the intended library.
-    # https://crates.io/crates/openssl#manual-configuration
-    ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix if OS.linux?
-
     system "cargo", "install", *std_cargo_args(path: "cli")
 
     system "make", "man"

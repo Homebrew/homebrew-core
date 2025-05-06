@@ -12,6 +12,7 @@ class Putty < Formula
     sha256 cellar: :any,                 arm64_ventura: "3e07713c84bc44c06f74d946194006f3f3b3e231ab2a16bd7d55bdd6663eb80b"
     sha256 cellar: :any,                 sonoma:        "4578c6f0f69004373c7e7f99d7a5c11a46884bc361aa3817f02ea89a1a78c4bf"
     sha256 cellar: :any,                 ventura:       "41a0e25f2b1fedad2710a1aceb2f399eb3c0b6ab52f4efb8509d3153c70aad34"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d8ecc1dafeb153935ef7ea554f65257fa91109f67b1a569e92d750f07c4d6445"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "7401a1dd4eeb3dd9d0ff69ac9c60f88a3174cc143bbc321803b604d00249e8e2"
   end
 

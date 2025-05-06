@@ -1,9 +1,8 @@
 class Bazel < Formula
   desc "Google's own build tool"
   homepage "https://bazel.build/"
-  # TODO: Try removing `bazel@7` workaround whenever new release is available
-  url "https://github.com/bazelbuild/bazel/releases/download/8.1.1/bazel-8.1.1-dist.zip"
-  sha256 "4c9487a16f7841150092f07d93a6727d66f2c4133a617d739dca8ec83fb0099c"
+  url "https://github.com/bazelbuild/bazel/releases/download/8.2.1/bazel-8.2.1-dist.zip"
+  sha256 "b12b95cc02cc5ee19ff7a6a7f71f9496631f937c8e13a8f53ee0ff7b7700bc16"
   license "Apache-2.0"
 
   livecheck do
@@ -12,13 +11,13 @@ class Bazel < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e73a9a9b4ab2195bdb7c89e3f90680cf8a77936fa02e1b5f4d8c25959e914a96"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1dae78b28eb7678a07de49d2cc77a6904d7f3e9a8761b34f066d0ce76b5b0a9d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "e062c7074decf3b25486a473d2e026cfa009f7badd6dbe5ec311d46993894395"
-    sha256 cellar: :any_skip_relocation, sonoma:        "86fc00161a0497eef631b551eaebaa2d91a6c58befbb3d003774a45d83efc3f7"
-    sha256 cellar: :any_skip_relocation, ventura:       "38f134f4872a99842202d0cea9c77d6ac46bfdd637f2dcba0ecd1b95673fac6f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "72fabb4b5ae1fa0735356193e88fe083cefd5fd923c9a7aae1dcc9a3d30b9bea"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "83900856ca38e817743b9e92a2e4db87928473a2fa74bf11941ed3adc5887900"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8224a8feb8a996ee168e3ea0827a3c3b03f7548f073ac999c7492bec90083542"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cafc46ac731d4813486d8f2dcca404bd4c26b1a9dd1a7d5e3c969a91c9ec4cca"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "bf0164c7b1827eddeae7a5836b7cef7c7190bf4effaaa8200b4c112376d8b7e3"
+    sha256 cellar: :any_skip_relocation, sonoma:        "741ea67f934716218cccab3f2ef504afc224a7e9ddc8e71eb2b86dcdbbcd934b"
+    sha256 cellar: :any_skip_relocation, ventura:       "413a2f767535186f8111dcd0f99fe45a50d26b9ced44c448d2c37e67b9d3d007"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7a59f868eeb3da45fa932b604f195ee68280a943355f62a22faf1a3f4c5d76c9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "50aaa13f1ad8ae797ba2eb663c5e1d0a92e3321973cedf1f1e62a56fcb0dd265"
   end
 
   depends_on "python@3.13" => :build
@@ -26,19 +25,6 @@ class Bazel < Formula
 
   uses_from_macos "unzip"
   uses_from_macos "zip"
-
-  if DevelopmentTools.clang_build_version >= 1600
-    depends_on "bazel@7" => :build
-
-    resource "bazel-src" do
-      url "https://github.com/bazelbuild/bazel/archive/refs/tags/8.1.1.tar.gz"
-      sha256 "73d7e1eca0d27a52633dfa73db456e981c5d04ef8ffaa9120a664e093e500880"
-
-      livecheck do
-        formula :parent
-      end
-    end
-  end
 
   on_linux do
     on_intel do
@@ -66,6 +52,13 @@ class Bazel < Formula
     # Bazel clears environment variables which breaks superenv shims
     ENV.remove "PATH", Superenv.shims_path
 
+    # Workaround to build zlib < 1.3.1 with Apple Clang 1700
+    # https://releases.llvm.org/18.1.0/tools/clang/docs/ReleaseNotes.html#clang-frontend-potentially-breaking-changes
+    # Issue ref: https://github.com/bazelbuild/bazel/issues/25124
+    if DevelopmentTools.clang_build_version >= 1700
+      extra_bazel_args += %w[--copt=-fno-define-target-os-macros --host_copt=-fno-define-target-os-macros]
+    end
+
     # Set dynamic linker similar to cc shim so that bottle works on older Linux
     if OS.linux? && build.bottle? && ENV["HOMEBREW_DYNAMIC_LINKER"]
       extra_bazel_args << "--linkopt=-Wl,--dynamic-linker=#{ENV["HOMEBREW_DYNAMIC_LINKER"]}"
@@ -75,36 +68,10 @@ class Bazel < Formula
     (buildpath/"sources").install buildpath.children
 
     cd "sources" do
-      if DevelopmentTools.clang_build_version >= 1600
-        # Work around an error which is seen bootstrapping Bazel 8 on newer Clang
-        # from the `-fmodules-strict-decluse` set by `layering_check`:
-        #
-        #   external/abseil-cpp+/absl/container/internal/raw_hash_set.cc:26:10: error:
-        #   module abseil-cpp+//absl/container:raw_hash_set does not depend on a module
-        #   exporting 'absl/base/internal/endian.h'
-        #
-        # TODO: Try removing when newer versions of dependencies (e.g. abseil-cpp >= 20250127.0)
-        # are available in https://github.com/bazelbuild/bazel/blob/#{version}/MODULE.bazel
-
-        # The dist zip lacks some files to build directly with Bazel
-        odie "Resource bazel-src needs to be updated!" if resource("bazel-src").version != version
-        rm_r(Pathname.pwd.children)
-        resource("bazel-src").stage(Pathname.pwd)
-        rm(".bazelversion")
-
-        extra_bazel_args += %W[
-          --compilation_mode=opt
-          --stamp
-          --embed_label=#{ENV["EMBED_LABEL"]}
-        ]
-        system Formula["bazel@7"].bin/"bazel", "build", *extra_bazel_args, "//src:bazel_nojdk"
-        Pathname("output").install "bazel-bin/src/bazel_nojdk" => "bazel"
-      else
-        system "./compile.sh"
-      end
-
+      system "./compile.sh"
       system "./output/bazel", "--output_user_root=#{buildpath}/output_user_root",
                                "build",
+                               *extra_bazel_args,
                                "scripts:bash_completion",
                                "scripts:fish_completion"
 

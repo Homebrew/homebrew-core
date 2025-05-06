@@ -17,6 +17,7 @@ class Risor < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "1bd4dfad3c4c080d9d3c62df315115adb15ea6953285efb2bce2ec7c03344691"
     sha256 cellar: :any_skip_relocation, sonoma:        "7888be33dc5ade02305f3857fd0a176ba3f96ca69a1e06b69055afa6a5b9ae82"
     sha256 cellar: :any_skip_relocation, ventura:       "967d7fa03a9aa306efde26606200aef642624d29c5c7456f6f432be9ec30ec7f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5b7800c2334da4b0f85d34780993289615bf1f69ce1f731eb32f2712ae0f11b8"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "19fbd777f72cc1b135297b1b59b7ce0aa180c1cb2042b86b4a7a7039e5c1ef04"
   end
 

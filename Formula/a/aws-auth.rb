@@ -16,7 +16,7 @@ class AwsAuth < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "a60b04e342a6f7740665def07e9a7851d7214d47e1da66641e4b6692c7b67067"
   end
 
-  deprecate! date: "2025-03-14", because: :repo_removed
+  deprecate! date: "2025-03-14", because: :does_not_build # and :repo_removed
 
   depends_on "node"
 

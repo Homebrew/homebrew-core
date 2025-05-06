@@ -21,6 +21,7 @@ class GoJsonnet < Formula
     sha256 cellar: :any_skip_relocation, ventura:        "0cb7c6f14e4d80552bb290c3f6f9cfe564ca46c37756b14a86adf0ddf671e146"
     sha256 cellar: :any_skip_relocation, monterey:       "ad1d51519e7a45af2b8132258360965ca84d7b9e4a36ea30dc5b708682ef06d8"
     sha256 cellar: :any_skip_relocation, big_sur:        "c11c053543e2d2bae86497ceadb07ebd78949aa4822a7061757604a920ce3e1b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "fc4ef7e6386b78d8ea874f39df40f82b052a9f69ab8a94d808dfa4eb5db88352"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "b6e4b46c874cc4019c247df166cf633df2dbf0dd77e8046aae0cb6594c49cf4b"
   end
 

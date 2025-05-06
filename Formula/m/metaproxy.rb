@@ -1,10 +1,9 @@
 class Metaproxy < Formula
   desc "Z39.50 proxy and router utilizing Yaz toolkit"
   homepage "https://www.indexdata.com/resources/software/metaproxy/"
-  url "https://ftp.indexdata.com/pub/metaproxy/metaproxy-1.21.0.tar.gz"
-  sha256 "874223a820b15ee2626240c378eee71e31a4e6d3498a433c94409c949e654fae"
+  url "https://ftp.indexdata.com/pub/metaproxy/metaproxy-1.22.0.tar.gz"
+  sha256 "0e23e251509451170f26e7adf649fa8cc40bd9ade36cdac24a6045ec9efb93ac"
   license "GPL-2.0-or-later"
-  revision 6
 
   # The homepage doesn't link to the latest source file, so we have to check
   # the directory listing page directly.
@@ -14,13 +13,13 @@ class Metaproxy < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "b1eea2b79dd905c1fcc7b5d1c3daaec3dbb29ae98a36a68ea71128283e0d58b9"
-    sha256 cellar: :any,                 arm64_sonoma:  "0cb4b412383eb9e632b41098897d8c505ad2018afb37155ddcf4cf9e7fe9c680"
-    sha256 cellar: :any,                 arm64_ventura: "0c1a59097b9950126974696be1aabcf0d2c3959708cefba9d2158f97219f6bf3"
-    sha256 cellar: :any,                 sonoma:        "7a1adea81cd7b58bfa798904b4796b53c99fb99ebd8daf14729b3671a81e923f"
-    sha256 cellar: :any,                 ventura:       "94c153a802f50a3b4c5e1e76df4688e7a1ae54ae305623f359e624dca063af29"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c8bdd28180e3c32e327b4acd494a8a79fb418d9947e110cfe597f3566e7b57b8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "eaa7e3c1c3515d207a783e401edce6689990c08c649df23a57c3d7ffb5c1a695"
+    sha256 cellar: :any,                 arm64_sequoia: "7835fb6cae644ed2f39a5664c5666a9e99d0b3c2d933c66d8e409794563973b4"
+    sha256 cellar: :any,                 arm64_sonoma:  "4fbd1191d8611e77b713ea885cfbb4943bc10ff9599c262231c20a0b765a3240"
+    sha256 cellar: :any,                 arm64_ventura: "2ee377cd3bdd574ddccefa39c1684c91d4d05870997166109a0c036c8b10b90c"
+    sha256 cellar: :any,                 sonoma:        "e239d6eb5b4aab05803d2577a9ad2a295608a87b8957158697c20cc87874c38d"
+    sha256 cellar: :any,                 ventura:       "66b591ffa521626a5dfd61409ce25dfef21051920c7298dfaa600dd8fcda5643"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e26a07e78261675b72915ce44711749a706d54601c110db6cd6133bb18c7ea35"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4a5b8efcb37c726dd8284a18f67b95bc304be3c59f1487542ef157990a78eb16"
   end
 
   depends_on "pkgconf" => :build

@@ -14,6 +14,7 @@ class Tracker < Formula
     sha256 arm64_ventura: "3d7d3a10c25bbc2c3161945c5eee127b3b6a0adb40db702cd5a13bed35602ec4"
     sha256 sonoma:        "5d7a0c796901eb167fb888acabff2a609ecf161dba2e8bf8df1066e9a7360cf3"
     sha256 ventura:       "d2f1ea7776a2aeb58a5c9adafe33bfa75c405cbd47059c6c8b86700118006514"
+    sha256 arm64_linux:   "cfb05bf573cc5509b0013ffb1360318797dda5aeb9bb978d5c56bdf092b3d3f0"
     sha256 x86_64_linux:  "11ce63277d3d02cf375c31b84744a10cccac59b65b8227c8c7f08c9dbe377528"
   end
 
@@ -40,9 +41,9 @@ class Tracker < Formula
   end
 
   on_linux do
-    deprecate! date:        "2025-01-18",
-               because:     "was renamed but we cannot formula rename due to macOS build failure",
-               replacement: "tinysparql"
+    deprecate! date:                "2025-01-18",
+               because:             "was renamed but we cannot formula rename due to macOS build failure",
+               replacement_formula: "tinysparql"
   end
 
   conflicts_with "tinysparql", because: "both install the same libraries"

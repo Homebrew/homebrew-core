@@ -18,12 +18,23 @@ class Minigraph < Formula
     sha256 cellar: :any_skip_relocation, sonoma:         "41b0c146e36c565da5aa7b60f21b4ddd2ff463b20ad1f14b155b3f6b66b980ff"
     sha256 cellar: :any_skip_relocation, ventura:        "5bb664d3a2608ad6213e5d60cec28a144f9ce230991ba8c4d9ccb50c57503d84"
     sha256 cellar: :any_skip_relocation, monterey:       "ec305e269ea8fc05307c59757a55b73f8afd8c4b91ff878b91015fe432863c96"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "f8bb2dee04f9410b06916cdcbd208e353e319fd5a928b067af88715d676cb046"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "66fe3ea02850e9c7c043cf189d474d2e866b8c2f3540bf4338864c070a6be913"
   end
 
   uses_from_macos "zlib"
 
   def install
+    sse4 = Hardware::CPU.intel? && ((OS.mac? && MacOS.version.requires_sse4?) ||
+                                    (!build.bottle? && Hardware::CPU.sse4?))
+    unless sse4
+      inreplace "Makefile" do |s|
+        cflags = s.get_make_var("CFLAGS").split
+        cflags.delete("-msse4") { |flag| "Remove inreplace for #{flag}!" }
+        s.change_make_var! "CFLAGS", cflags.join(" ")
+      end
+    end
+
     system "make"
     bin.install "minigraph"
     pkgshare.install "test"

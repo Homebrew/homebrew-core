@@ -2,8 +2,8 @@ class Rubyfmt < Formula
   desc "Ruby autoformatter"
   homepage "https://github.com/fables-tales/rubyfmt"
   url "https://github.com/fables-tales/rubyfmt.git",
-      tag:      "v0.10.0",
-      revision: "e00d2ab89fd4b0b85a7897fac393c1ad987136de"
+      tag:      "v0.11.0",
+      revision: "55f41919cf5779fb9e2c410c04e2f613f7d79f2b"
   license "MIT"
   head "https://github.com/fables-tales/rubyfmt.git", branch: "trunk"
 
@@ -16,15 +16,13 @@ class Rubyfmt < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "8793acc1768054494843921cbf1708faea486a165a21d6f346afc721284057f2"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "53a6870d51b42778724d9f6d051a16e2769701cf3c4946d5b464ac0da0656fe5"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bd0e320c01c7848a26b51e6d06f9d96d2d8d765eb4b943ca570a546bc063d503"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "54ac9bdaab5905b208a7b80f6f8c1f0fd6752636821322d27d33458cd94988fd"
-    sha256 cellar: :any_skip_relocation, sonoma:         "72a7b6f0425b6ff0ad1bd324db39cf6dfca154dbfa71eae087088fd22254e84a"
-    sha256 cellar: :any_skip_relocation, ventura:        "733d2fe74b0a32666b708b5b265302268dcc088c897798380f2c6f677e06c707"
-    sha256 cellar: :any_skip_relocation, monterey:       "00f60ebdde76b0ac30df678b597e2b184b65146021099f8fecde4a36fb7cf4f2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "9e5b607b1f35afa1c99674d9da4f15cbd5aa0300fba3969543f58b3b4d358ead"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3d10a98c28284d130b05f63649d4e89bbdd73b57d1522b0b2fc1ca3f4ddce973"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "96c578513b4ad8026f8c6202855fbbb50d8f22a1f06fa24672e6d4537bebe3cd"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "dd1e916ff9236b322ef2fe242e95ff19b0ba244b7798b637c60458e0f9e72311"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "deb61a20206f73f26f5333e4691e3436648a6d5f63b20b5f8c13ff5813dc7853"
+    sha256 cellar: :any_skip_relocation, sonoma:        "0abd972a5129624c5d8b8410a1fbc14ca32e6cf747948f15bc51a1976fc0b04d"
+    sha256 cellar: :any_skip_relocation, ventura:       "f102e74c060458edffe138f457118d18ba73198c77bdb01969fb19d9e8f648b9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4839872a36a77a8cf8b14e9c28ec240524417855d86f715325c33c400971b1ec"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b05509047cd3d31b41d81781cf1db098939b0a6a52848fc861f3b2a71a180d38"
   end
 
   depends_on "autoconf" => :build

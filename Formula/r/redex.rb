@@ -5,7 +5,7 @@ class Redex < Formula
   desc "Bytecode optimizer for Android apps"
   homepage "https://fbredex.com/"
   license "MIT"
-  revision 18
+  revision 19
   head "https://github.com/facebook/redex.git", branch: "main"
 
   stable do
@@ -39,13 +39,13 @@ class Redex < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "b8f15cf1f0fb935d34d71a6aeab7282390ce8c1c3f0ca6ad9783e89a7f0acc51"
-    sha256 cellar: :any,                 arm64_sonoma:  "255affb5c51a98d0de1325b24b542cb8fc55b130bd5a1c8b22bc4fd615c67a8f"
-    sha256 cellar: :any,                 arm64_ventura: "78165bd960bb67a4f12399aae1553c10f4de1feb5c686bc9110655d3942a814f"
-    sha256 cellar: :any,                 sonoma:        "e5b52de79c81d375970a72d0db41bdd21f7607427b9cde20ba2d98323aa3c94a"
-    sha256 cellar: :any,                 ventura:       "89eb99c2a77acdb426c604797ab86ff3a87a9e171dada98e5661569bf2b76ebb"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2f822c0e327cc8e7d4db4073f214a2cab6e10da5785b600f5cfcb62f8230f921"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0372148b392f5c519aa86c17fc36b942d317190709e721cde2eaceab0f4082cc"
+    sha256 cellar: :any,                 arm64_sequoia: "65347da8f446206921fbb0603b12153dacc92e1eaa161b1b74ebb38576d5ac3c"
+    sha256 cellar: :any,                 arm64_sonoma:  "b658660c4464c283aa5cdf0605713ef2dfc3175a2d1fe3b57469596f784eb2c0"
+    sha256 cellar: :any,                 arm64_ventura: "055c56e57ce9c88ab726e404aeb3340c4362019441d4f1452a492d2137e123db"
+    sha256 cellar: :any,                 sonoma:        "dd78be4ea12bac4c61703901214dd005b018d01b281c0ab165a1ff037fd68c39"
+    sha256 cellar: :any,                 ventura:       "1a3bd9ed872f59a6d1c3ec85b594f3b35efd486aea558aabff2187e10e8dba05"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9eaa938b67836b3dd1dffa66155ab941af8a7f934b96e3ec6966956fb2e46030"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "96e5068164b73fadae8977be7a224314b14f9146c7dad18f911e9ee041a58259"
   end
 
   depends_on "autoconf" => :build

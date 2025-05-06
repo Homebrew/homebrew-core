@@ -1,23 +1,24 @@
 class VulkanTools < Formula
   desc "Vulkan utilities and tools"
   homepage "https://github.com/KhronosGroup/Vulkan-Tools"
-  url "https://github.com/KhronosGroup/Vulkan-Tools/archive/refs/tags/v1.4.311.tar.gz"
-  sha256 "7113bc0c746b45072e269fada0d684b4ae9de609c38d9e764b59793b14120a7b"
+  url "https://github.com/KhronosGroup/Vulkan-Tools/archive/refs/tags/v1.4.314.tar.gz"
+  sha256 "720f10e8e5a8a816e869ab120a094480ba64c5a025822e88c5766c7938a435e0"
   license "Apache-2.0"
   head "https://github.com/KhronosGroup/Vulkan-Tools.git", branch: "main"
+
   livecheck do
     url :stable
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia: "6458828c665ac5979e243bb3e9ce64ed1ca9d603c73381f937e9d100fb076fb3"
-    sha256 cellar: :any, arm64_sonoma:  "fd861e5b6e38adac91fdd7610100475a17070012acb62c5f6809bec214006bae"
-    sha256 cellar: :any, arm64_ventura: "27d6d9c2391c82ce8bbfa869d4c7d03c1e23802f50447795cee8a2b8788757e6"
-    sha256 cellar: :any, sonoma:        "c13f274d98eecc699487a415aac33da49cbe1ba506c9d875e8d5a9e3ce3201ae"
-    sha256 cellar: :any, ventura:       "c121d2c91772dc43b7455c79f7153d46a0f4f3d0b29aae9488db176e1098f51b"
-    sha256               arm64_linux:   "f1d78d7f8b9c10ccfdff74ab4eac2b1bbcd3f893cc5eb43a232c112248633c2c"
-    sha256               x86_64_linux:  "e968bac16776a6cf96ea9043ace2e4d3aa55a18de736783396a0ba7d51242723"
+    sha256               arm64_sequoia: "159f11d327656b13876eb551a7c20e60bca06eb58a61f60d4eba18e6b3f96290"
+    sha256               arm64_sonoma:  "b862668fb437539141141610664949281a721b2258c6f2509c8460f15c3976b0"
+    sha256               arm64_ventura: "dd8f35202428007b8bc3bb30ef47bd8aba5e885a920fca449086c1adabec23ad"
+    sha256 cellar: :any, sonoma:        "431a576a4629ebea5065ec1ea774928f413ef4abe9e72769944701cdad25df6e"
+    sha256 cellar: :any, ventura:       "1e7b81a1e4f7f0f8adbfbc45e2e4cdc14caa1f8cd98f6e78fb0b5f5b61c010d1"
+    sha256               arm64_linux:   "3f27b401e0fda20f1d41288ef8009f64ee238c65f1a839d1918debc4b0f400bf"
+    sha256               x86_64_linux:  "85d1364ded0830331760d27e16252b7b962bded67572888e8e4884817351e8b7"
   end
 
   depends_on "cmake" => :build

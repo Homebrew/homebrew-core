@@ -23,6 +23,7 @@ class KyotoTycoon < Formula
     sha256 big_sur:        "30c5a805f4e4f672814b210a28567424b23af490a8d9555286dae17ee41506c4"
     sha256 catalina:       "575c025f8a4479503833b3d90c8054ed3b67e8f4a14a96978ec585a76bbf7963"
     sha256 mojave:         "aafcc936bd17bade9714e200c0e713ec4cd6ddc8f38a08d258cbf09437adec75"
+    sha256 arm64_linux:    "0e31023e2383c98b9d8bbdb65bc35613522a5c16de2e65d3bd0f2ae95d814be2"
     sha256 x86_64_linux:   "bb1a1af50e64ab1cf5d39182e0ea8ef10869ecf4f995fd7b6fc31969dab97c9b"
   end
 

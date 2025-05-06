@@ -1,19 +1,19 @@
 class Uwsgi < Formula
   desc "Full stack for building hosting services"
   homepage "https://uwsgi-docs.readthedocs.io/en/latest/"
-  url "https://files.pythonhosted.org/packages/24/c2/d58480aadc9a1f420dd96fc43cf0dcd8cb5ededb95cab53743529c23b6cd/uwsgi-2.0.28.tar.gz"
-  sha256 "79ca1891ef2df14508ab0471ee8c0eb94bd2d51d03f32f90c4bbe557ab1e99d0"
+  url "https://files.pythonhosted.org/packages/af/74/34f5411f1c1dc55cbcba3d817d1723b920484d2aeede4663bbaa5be7ee22/uwsgi-2.0.29.tar.gz"
+  sha256 "6bd150ae60d0d9947429ea7dc8e5f868de027e5eb38355fb613b9413732c432f"
   license "GPL-2.0-or-later"
   head "https://github.com/unbit/uwsgi.git", branch: "master"
 
   bottle do
-    sha256 arm64_sequoia: "f57a1a48e3c6a9e34a580a47448ef9b4f7859b307871efcacc7fb30ac80269ff"
-    sha256 arm64_sonoma:  "9a19faaa101548dc4a49f8c9cc187cd7ada753a8752867073af55f1bc1fcbd59"
-    sha256 arm64_ventura: "3ddd8691d4daf943cc326623d205ae7b4b7a751d1199e4119474becc166e6b0d"
-    sha256 sonoma:        "91ac6f68d094cfb448ff535b849ce94461e7f84331d5c53d6de313a93c330648"
-    sha256 ventura:       "8ff239f69cbc9fbb85c9ba4296f4805b96d9b146237b481c11ee82cfb411e2fe"
-    sha256 arm64_linux:   "6dfa3e0accc8e5b69fa659ffbdaaa502b6500b5d871ada354bc653418f692363"
-    sha256 x86_64_linux:  "837e3580174d833939e92f51d97664d092d0cd4e4f1ad167429f743aaeed865b"
+    sha256 arm64_sequoia: "d0de47a93650ac9a647ca1993d544e58594f13ecf44c74be30d82e6c21c6a3ee"
+    sha256 arm64_sonoma:  "63e804aa021c578d63efee146a7de4c14da0c32112a5f9191f9206cdd97c8eea"
+    sha256 arm64_ventura: "d84676d2359811575925b6bdbdd1a27783426d8b5b852deb98377c8e9b51f7a2"
+    sha256 sonoma:        "dc6829ecbb85e22d148e917a616932e6dad93a5be054acacad11e5ecdd806fe9"
+    sha256 ventura:       "87f2ef9402ac05723ff24c4ea1b9594ad959f19f9895b11d8411e197d3df616d"
+    sha256 arm64_linux:   "a5431eded1a13c7f3c02242c7aefa988053db24c02767b81847436f6c5da1137"
+    sha256 x86_64_linux:  "38727ddcb072891b2929e8cc22c87afb78e044e9dc783b532b8353e452f53899"
   end
 
   depends_on "pkgconf" => :build
@@ -99,11 +99,15 @@ class Uwsgi < Formula
     PYTHON
 
     port = free_port
-
-    pid = fork do
-      exec "#{bin}/uwsgi --http-socket 127.0.0.1:#{port} --protocol=http --plugin python3 -w helloworld"
-    end
+    args = %W[
+      --http-socket 127.0.0.1:#{port}
+      --protocol=http
+      --plugin python3
+      -w helloworld
+    ]
+    pid = spawn("#{bin}/uwsgi", *args)
     sleep 4
+    sleep 6 if Hardware::CPU.intel?
 
     begin
       assert_match "Hello World", shell_output("curl localhost:#{port}")

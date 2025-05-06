@@ -1,8 +1,8 @@
 class Xmlsectool < Formula
   desc "Check schema validity and signature of an XML document"
   homepage "https://wiki.shibboleth.net/confluence/display/XSTJ3/xmlsectool+V3+Home"
-  url "https://shibboleth.net/downloads/tools/xmlsectool/3.0.0/xmlsectool-3.0.0-bin.zip"
-  sha256 "5b430dda0bf78df224495b39f83cf043d96c0ab9c8ccaa23fbdb56068c46abbc"
+  url "https://shibboleth.net/downloads/tools/xmlsectool/4.0.0/xmlsectool-4.0.0-bin.zip"
+  sha256 "32a5fd3c92cddb7833249e22c97253fbbf02ae2dc0a385896e6e7ac1d1a77de4"
   license "Apache-2.0"
 
   livecheck do
@@ -11,8 +11,7 @@ class Xmlsectool < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "6c42353cf1c6d33627c02421b5bff7f9ad5527a889ec24801b73fa407fd6d0ca"
+    sha256 cellar: :any_skip_relocation, all: "8c96a42cbce1a2f648e740c9b81d868009eccd90cb83ef3cfd74a2cdcf06c6f3"
   end
 
   depends_on "openjdk"

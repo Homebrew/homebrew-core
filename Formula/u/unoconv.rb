@@ -20,6 +20,8 @@ class Unoconv < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "98d229d5206a98c1b525a0fd707041b499c6dd9cf3a2c9ccbc92f3a18fb36e1b"
   end
 
+  deprecate! date: "2025-04-27", because: :repo_archived, replacement_formula: "unoserver"
+
   depends_on "python@3.13"
 
   resource "setuptools" do

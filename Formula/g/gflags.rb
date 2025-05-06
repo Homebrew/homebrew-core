@@ -22,6 +22,12 @@ class Gflags < Formula
 
   depends_on "cmake" => [:build, :test]
 
+  # cmake 4.0 build patch, upstream pr ref, https://github.com/gflags/gflags/pull/367
+  patch do
+    url "https://github.com/gflags/gflags/commit/b14ff3f106149a0a0076aa232ce545580d6e5269.patch?full_index=1"
+    sha256 "84556b5cdfdbaaa154066d2fdd6b0d1d90991ac255600971c364a2c0f9549f84"
+  end
+
   def install
     args = %w[
       -DBUILD_SHARED_LIBS=ON
@@ -64,7 +70,7 @@ class Gflags < Formula
     assert_match "Foo bar!", shell_output("./test --message='Foo bar!'")
 
     (testpath/"CMakeLists.txt").write <<~CMAKE
-      cmake_minimum_required(VERSION 2.8)
+      cmake_minimum_required(VERSION 4.0)
       project(cmake_test)
       add_executable(${PROJECT_NAME} test.cpp)
       find_package(gflags REQUIRED COMPONENTS static)

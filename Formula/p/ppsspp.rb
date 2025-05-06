@@ -5,10 +5,11 @@ class Ppsspp < Formula
   revision 3
   head "https://github.com/hrydgard/ppsspp.git", branch: "master"
 
+  # TODO: Can remove CMAKE_POLICY_VERSION_MINIMUM when bumping version to 1.18+
+  # https://github.com/hrydgard/ppsspp/commit/fe91f246b2d22a25fcd52deb57211f1e86717c35
   stable do
-    url "https://github.com/hrydgard/ppsspp.git",
-        tag:      "v1.17.1",
-        revision: "d479b74ed9c3e321bc3735da29bc125a2ac3b9b2"
+    url "https://github.com/hrydgard/ppsspp/releases/download/v1.17.1/ppsspp-1.17.1.tar.xz"
+    sha256 "23e0b8649cc8124b0c22a62d4d41b592b6bd4064bce8c09b0d4abce895e132ae"
 
     # miniupnpc 2.2.8 compatibility patch
     patch :DATA
@@ -20,6 +21,7 @@ class Ppsspp < Formula
     sha256 cellar: :any, arm64_ventura: "32cdd20ec459258c4164f679fe9c2e4565d91ac3e38b52a261070e345f2611f1"
     sha256 cellar: :any, sonoma:        "7a107b64aa9e2360810677ddc833e1651cdaed20c1083612110074fc44463283"
     sha256 cellar: :any, ventura:       "83f5f34097a2800f0b52f2b754b90c3624fdcd61acaf8a4372963d8de955d64e"
+    sha256               arm64_linux:   "e60baf589f6ffdc362c9ce45666c2ad54979d4b3f862d45af88c55992e14feb2"
     sha256               x86_64_linux:  "3b2eb05c61f97055537b379b39ccf2154e15f5b099d8f337d78f5a01f02c67ac"
   end
 
@@ -62,16 +64,17 @@ class Ppsspp < Formula
         system "./mac-build.sh"
       else
         rm_r("linux")
-        system "./linux_x86-64.sh"
+        arch = Hardware::CPU.intel? ? "x86-64" : Hardware::CPU.arch
+        system "./linux_#{arch}.sh"
       end
     end
 
     # Replace bundled MoltenVK dylib with symlink to Homebrew-managed dylib
     vulkan_frameworks = buildpath/"ext/vulkan/macOS/Frameworks"
-    rm(vulkan_frameworks/"libMoltenVK.dylib")
     vulkan_frameworks.install_symlink Formula["molten-vk"].opt_lib/"libMoltenVK.dylib"
 
     args = %w[
+      -DCMAKE_POLICY_VERSION_MINIMUM=3.5
       -DUSE_SYSTEM_LIBZIP=ON
       -DUSE_SYSTEM_SNAPPY=ON
       -DUSE_SYSTEM_LIBSDL2=ON

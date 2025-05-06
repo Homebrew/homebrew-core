@@ -11,6 +11,7 @@ class Sixtunnel < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "1a6e10e77b34c4f10e17f389b38fb3c58690c7988e8274bbe2078fdff571d34f"
     sha256 cellar: :any_skip_relocation, sonoma:        "bf1635b9e636c6a40a57db5d56a3e4df68218b23b01be3e5568d573776eb6ad9"
     sha256 cellar: :any_skip_relocation, ventura:       "a0666f067478b4b5141260896b60dccf2a2eaeed3892e229eb267d44a045e0a9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3fa9b18d88f1816365473ae8b9ccc98bfdeb030dd6a0c6d5c3b6f2dc360c639b"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "f38f0ad3d208f1f83ba4d6bc75ddd2e5e02ab5579858ebdfe413da6da7bd3bac"
   end
 
@@ -21,8 +22,6 @@ class Sixtunnel < Formula
     depends_on "automake" => :build
     depends_on "libtool" => :build
   end
-
-  uses_from_macos "netcat" => :test
 
   def install
     system "./autogen.sh" if build.head?
@@ -36,22 +35,21 @@ class Sixtunnel < Formula
     proxy_port = free_port
     server = TCPServer.new dest_port
 
-    fork do
-      loop do
-        session = server.accept
-        session.puts "Hello world!"
-        session.close
-      end
+    server_pid = fork do
+      session = server.accept
+      session.puts "Hello world!"
+      session.close
     end
-
     sleep 1
 
-    fork do
-      exec bin/"6tunnel", "-1", "-4", "-d", proxy_port.to_s, "localhost", dest_port.to_s
-    end
-
+    tunnel_pid = spawn bin/"6tunnel", "-1", "-4", "-d", proxy_port.to_s, "localhost", dest_port.to_s
     sleep 1
 
-    assert_equal "Hello world!", shell_output("nc localhost #{proxy_port}").chomp
+    TCPSocket.open("localhost", proxy_port) do |sock|
+      assert_equal "Hello world!", sock.gets.chomp
+    end
+  ensure
+    Process.kill "TERM", tunnel_pid if tunnel_pid
+    Process.kill "TERM", server_pid if server_pid
   end
 end

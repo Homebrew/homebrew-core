@@ -11,6 +11,7 @@ class Libpanel < Formula
     sha256 arm64_ventura: "33e2e6277da744ef4bcf8a5e6f8c67c420e0ea01fd7a0595d1146aaa679a04ed"
     sha256 sonoma:        "1f26b084e8718cbcf8f291f424708286240481f51523f8564e31585f4f9c6873"
     sha256 ventura:       "572f34729874164856a75bcb154781667ca9752211df336f291d14558fc03e9a"
+    sha256 arm64_linux:   "710b8e8bb9afb70d5ceb2c114858dcf89afd10ba3b2879ff2b052067acf4282c"
     sha256 x86_64_linux:  "11bc6daef14e7687c919e34b2a38da7d98ea0cbf7ea25c1fcd611c6af6066e4c"
   end
 

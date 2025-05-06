@@ -148,7 +148,7 @@ class Openvino < Formula
   end
 
   test do
-    pkg_config_flags = shell_output("pkg-config --cflags --libs openvino").chomp.split
+    pkg_config_flags = shell_output("pkgconf --cflags --libs openvino tbb pugixml").chomp.split
 
     (testpath/"openvino_available_devices.c").write <<~C
       #include <openvino/c/openvino.h>

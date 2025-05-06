@@ -4,6 +4,7 @@ class Gotpm < Formula
   url "https://github.com/google/go-tpm-tools/archive/refs/tags/v0.4.5.tar.gz"
   sha256 "f5cf18c21b985d81a6c96c027723e755c70004f4b6d14b9223b38183ad6f68f5"
   license "Apache-2.0"
+  head "https://github.com/google/go-tpm-tools.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "f377258aa46e54eebae48c3ff7d7cac5a9105b1009a55b95702fbb616788bfe9"

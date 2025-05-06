@@ -17,6 +17,7 @@ class Gpa < Formula
     sha256 arm64_ventura: "aef02be2a1ff1789b39b13a9aeb992f205dad05cc86bb5b49c56bfcb8c574602"
     sha256 sonoma:        "3aebae31685d4eed01681ce32eb85166e4eabb1aa653b113295d9d22539b2f32"
     sha256 ventura:       "ba20f9563e8f329507ebae4de2101385737dc2853134c35b555b1a150e17f101"
+    sha256 arm64_linux:   "9393bde60e35d9ed3b29536c4025744e2d4051c24287d0617b4aa861a5e8cc10"
     sha256 x86_64_linux:  "07d492d6e76e1bfab56580d855828fc133ea535bb83ef7ffa07cbeb31ad8269c"
   end
 

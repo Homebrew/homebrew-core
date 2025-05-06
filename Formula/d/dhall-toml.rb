@@ -12,6 +12,7 @@ class DhallToml < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "b221d5914aad68c046ae8f9f0fee29cd0e74ad55f4db5fd027f334daf71282e2"
     sha256 cellar: :any_skip_relocation, sonoma:        "230e845fc7963e4f421247c6f7733af8a588782ad39232a446f6e1a65fccbb80"
     sha256 cellar: :any_skip_relocation, ventura:       "a118e324119fb58470cf49f4f898f0c3a603fc3975a11b2b3f60d66eeefdabe0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b0a91ba9614f2b28c79379fb9208a6aa25735985b7d79f84f75aeca830133e3b"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "e7a0839d98769280508ea3d559828b88c1a78838f21bbceb64e179f6a7078f07"
   end
 

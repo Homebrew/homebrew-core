@@ -1,8 +1,8 @@
 class Uffizzi < Formula
   desc "Self-serve developer platforms in minutes, not months with k8s virtual clusters"
   homepage "https://uffizzi.com"
-  url "https://github.com/UffizziCloud/uffizzi_cli/archive/refs/tags/v2.4.18.tar.gz"
-  sha256 "4c4d06f0757187fe86d8fc389e0566fa4143cef3b0c9e62d69c2e99681a9a17b"
+  url "https://github.com/UffizziCloud/uffizzi_cli/archive/refs/tags/v2.4.21.tar.gz"
+  sha256 "3f64e26f177fbf26840f0a3a044e26b1744eb139320cd94bc2a2e4e8111d0450"
   license "Apache-2.0"
 
   livecheck do
@@ -11,12 +11,13 @@ class Uffizzi < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "0b0f7e9a9c878bddc39b582f8a861ccd27cc2cc80ce9714ab7598f6bb4314be6"
-    sha256 cellar: :any,                 arm64_sonoma:  "1dbe797958c77acd46175f6eab0d338dba7dae29a76c550ccee5059619d92332"
-    sha256 cellar: :any,                 arm64_ventura: "faa522b32a35839f46f12e65f514ccc74eb2956b9cf6d34a238358bfe7ed90ec"
-    sha256 cellar: :any,                 sonoma:        "c3f67fd5fe5aa9dd248ed3a06ce96dac33ea6221622a51fbb1dfa07ab234ad58"
-    sha256 cellar: :any,                 ventura:       "38f564b969eb8090f2b778c2e9c697c061a911fcf8d4a8d82f023a4eba09e6d3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9f33f31a2ba5cbfa27576a21b08c0329a7f21e0d5b40728c907f0401c81ea459"
+    sha256 cellar: :any,                 arm64_sequoia: "48623cb8888180c827dacca11e41f476d88ac681de19db5e5343db6b059e4e17"
+    sha256 cellar: :any,                 arm64_sonoma:  "f05055a86f37b464e742f14d1e1c2f195cc29e369581eaa3ae1317c78f7b5d78"
+    sha256 cellar: :any,                 arm64_ventura: "286c16729f6c52967267775e4aa023f2d4629adb9b1e9c2ff2e1fdbf200db412"
+    sha256 cellar: :any,                 sonoma:        "1d422ffd54445d9e404fcd73233cdee005808dbd33121a8f2ebbc0d686dec999"
+    sha256 cellar: :any,                 ventura:       "9a7695c432c05597c5cdbce5cbe84573d782b5c5ee3dcbc9181048da49d88a06"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "15fe59302710ebe347b090a31cba8e5ed24b40b34db36d2b96d79d201e520910"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d976bbe6deb261da05d0e050400ff12e5fd9a8f5462925c15e8ac856756e3332"
   end
 
   depends_on "ruby"
@@ -177,8 +178,8 @@ class Uffizzi < Formula
   end
 
   resource "uffizzi-cli" do
-    url "https://rubygems.org/gems/uffizzi-cli-2.4.18.gem"
-    sha256 "3d022e67c669da6f66f23a3a9254e9986dee437763b64b0e4f50769476bd6da6"
+    url "https://rubygems.org/gems/uffizzi-cli-2.4.21.gem"
+    sha256 "3eba41369adaf27bd1f655c21e468b023a7b1ffb1248a2bbb5f27369523a1650"
   end
 
   def install

@@ -3,19 +3,19 @@ class Rbtools < Formula
 
   desc "CLI and API for working with code and document reviews on Review Board"
   homepage "https://www.reviewboard.org/downloads/rbtools/"
-  url "https://files.pythonhosted.org/packages/f8/ca/243e2c69d014c29d77c9160b0d03d9f8fa310944ea4068ed7d4d60986b2f/rbtools-5.1.1.tar.gz"
-  sha256 "b6017ff512547d5c04f9449d8ea42e151dbf255728c12efa24bd93c57df5b3e4"
+  url "https://files.pythonhosted.org/packages/54/0b/47cd58d88cdfc538b99c7c1a9c15b2ea09fd307a993290d8e2f3956e09f2/rbtools-5.2.1.tar.gz"
+  sha256 "f2863515ef6ff1cfcd3905d5f409ab8c4d12878b364d6f805ba848dcaecb97f2"
   license "MIT"
   head "https://github.com/reviewboard/rbtools.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cbadde63ab37a0215f09776f8b1f970c726f181ac52c19cd72be15fc7ac5cda4"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cbadde63ab37a0215f09776f8b1f970c726f181ac52c19cd72be15fc7ac5cda4"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "cbadde63ab37a0215f09776f8b1f970c726f181ac52c19cd72be15fc7ac5cda4"
-    sha256 cellar: :any_skip_relocation, sonoma:        "488247f4474a8a3c2fcfb1f317a80706420bee5afc3c96f74b08abc05b538045"
-    sha256 cellar: :any_skip_relocation, ventura:       "488247f4474a8a3c2fcfb1f317a80706420bee5afc3c96f74b08abc05b538045"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0be1ac4c024ad2256c468c2ed35f593e81a56ee078874a65f27793135d188969"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cbadde63ab37a0215f09776f8b1f970c726f181ac52c19cd72be15fc7ac5cda4"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a62c7635efca81fa9f6fa7c9a32e6d726f9ad633fe7b1b1f297db99fc4f9ba5a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a62c7635efca81fa9f6fa7c9a32e6d726f9ad633fe7b1b1f297db99fc4f9ba5a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "a62c7635efca81fa9f6fa7c9a32e6d726f9ad633fe7b1b1f297db99fc4f9ba5a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "dd18cbd048bcd3881c4d8e19ff4235535282c30e19a183e08370d5740295fc06"
+    sha256 cellar: :any_skip_relocation, ventura:       "dd18cbd048bcd3881c4d8e19ff4235535282c30e19a183e08370d5740295fc06"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a62c7635efca81fa9f6fa7c9a32e6d726f9ad633fe7b1b1f297db99fc4f9ba5a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a62c7635efca81fa9f6fa7c9a32e6d726f9ad633fe7b1b1f297db99fc4f9ba5a"
   end
 
   depends_on "certifi"
@@ -32,18 +32,18 @@ class Rbtools < Formula
   end
 
   resource "importlib-metadata" do
-    url "https://files.pythonhosted.org/packages/cd/12/33e59336dca5be0c398a7482335911a33aa0e20776128f038019f1a95f1b/importlib_metadata-8.5.0.tar.gz"
-    sha256 "71522656f0abace1d072b9e5481a48f07c138e00f079c38c8f883823f9c26bd7"
+    url "https://files.pythonhosted.org/packages/33/08/c1395a292bb23fd03bdf572a1357c5a733d3eecbab877641ceacab23db6e/importlib_metadata-8.6.1.tar.gz"
+    sha256 "310b41d755445d74569f993ccfc22838295d9fe005425094fad953d7f15c8580"
   end
 
   resource "importlib-resources" do
-    url "https://files.pythonhosted.org/packages/98/be/f3e8c6081b684f176b761e6a2fef02a0be939740ed6f54109a2951d806f3/importlib_resources-6.4.5.tar.gz"
-    sha256 "980862a1d16c9e147a59603677fa2aa5fd82b87f223b6cb870695bcfce830065"
+    url "https://files.pythonhosted.org/packages/cf/8c/f834fbf984f691b4f7ff60f50b514cc3de5cc08abfc3295564dd89c5e2e7/importlib_resources-6.5.2.tar.gz"
+    sha256 "185f87adef5bcc288449d98fb4fba07cea78bc036455dd44c5fc4a2fe78fed2c"
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/d0/63/68dbb6eb2de9cb10ee4c9c14a0148804425e13c4fb20d61cce69f53106da/packaging-24.2.tar.gz"
-    sha256 "c228a6dc5e932d346bc5739379109d49e8853dd8223571c7c5b55260edc0b97f"
+    url "https://files.pythonhosted.org/packages/a1/d4/1fc4078c65507b51b96ca8f8c3ba19e6a61c8253c72794544580a7b6c24d/packaging-25.0.tar.gz"
+    sha256 "d443872c98d677bf60f6a1f2f8c1cb748e8fe762d2bf9d3148b5599295b0fc4f"
   end
 
   resource "puremagic" do
@@ -75,8 +75,8 @@ class Rbtools < Formula
   end
 
   resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/df/db/f35a00659bc03fec321ba8bce9420de607a1d37f8342eee1863174c69557/typing_extensions-4.12.2.tar.gz"
-    sha256 "1a7ead55c7e559dd4dee8856e3a88b41225abfe1ce8df57b7c13915fe121ffb8"
+    url "https://files.pythonhosted.org/packages/f6/37/23083fcd6e35492953e8d2aaaa68b860eb422b34627b13f2ce3eb6106061/typing_extensions-4.13.2.tar.gz"
+    sha256 "e6c81219bd689f51865d9e372991c540bda33a0379d5573cddb9a3a23f7caaef"
   end
 
   resource "zipp" do

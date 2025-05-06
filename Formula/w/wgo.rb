@@ -11,6 +11,7 @@ class Wgo < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "a078b99cb9070cef3a7ea6cb635fb0df507265703baf8796876862265d1e1143"
     sha256 cellar: :any_skip_relocation, sonoma:        "6f955a8850bb8e4f19f8acf3712dcb2c70a082854a9f10c0f229a351b630de16"
     sha256 cellar: :any_skip_relocation, ventura:       "6f955a8850bb8e4f19f8acf3712dcb2c70a082854a9f10c0f229a351b630de16"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "be7b9766825d6a3f188eb24e23e076861a3131ccf80cb8653c3d4507a7200956"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "952cccc76bb62762cfda6e256a1baff764172cf33c61b200647ef18a70282049"
   end
 

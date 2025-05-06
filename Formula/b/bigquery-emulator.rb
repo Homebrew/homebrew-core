@@ -18,7 +18,6 @@ class BigqueryEmulator < Formula
   depends_on "go" => :build
 
   uses_from_macos "llvm" => :build
-  uses_from_macos "netcat" => :test
 
   fails_with :gcc
 
@@ -30,15 +29,46 @@ class BigqueryEmulator < Formula
   end
 
   test do
+    # https://github.com/goccy/bigquery-emulator/blob/main/_examples/python/data.yaml
+    (testpath/"data.yaml").write <<~YAML
+      projects:
+      - id: test
+        datasets:
+          - id: dataset1
+            tables:
+              - id: table_a
+                columns:
+                  - name: id
+                    type: INTEGER
+                  - name: name
+                    type: STRING
+                  - name: createdAt
+                    type: TIMESTAMP
+                data:
+                  - id: 1
+                    name: alice
+                    createdAt: "2022-10-21T00:00:00"
+                  - id: 2
+                    name: bob
+                    createdAt: "2022-10-21T00:00:00"
+    YAML
+
     port = free_port
-
-    fork do
-      exec bin/"bigquery-emulator", "--project=test", "--port=#{port}"
-    end
-
+    grpc_port = free_port
+    pid = spawn bin/"bigquery-emulator", "--project=test",
+                                         "--data-from-yaml=./data.yaml",
+                                         "--port=#{port}",
+                                         "--grpc-port=#{grpc_port}"
     sleep 5
-    system "nc", "-z", "localhost", port.to_s
+
+    query = '{"query": "SELECT name FROM dataset1.table_a WHERE id = 2"}'
+    query_url = "http://localhost:#{port}/bigquery/v2/projects/test/queries"
+    response = JSON.parse(shell_output("curl -s -X POST -d '#{query}' #{query_url}"))
+    assert_equal [{ "f" => [{ "v" => "bob" }] }], response["rows"]
 
     assert_match "version: #{version} (Homebrew)", shell_output("#{bin}/bigquery-emulator --version")
+  ensure
+    Process.kill "TERM", pid
+    Process.wait pid
   end
 end

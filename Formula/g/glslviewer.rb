@@ -16,6 +16,7 @@ class Glslviewer < Formula
     sha256 cellar: :any,                 sonoma:         "1470438d1d73005278d1fdfc868e0042478551e80db3ba11160a66a62cd6e960"
     sha256 cellar: :any,                 ventura:        "28439e4620a08f58ce48f437d7787f324c015751ed2564a29ef8c7adaf27d92b"
     sha256 cellar: :any,                 monterey:       "8f335fe983329dbf20e1c5cae75e03c86d21120a1bb8dadcdf4ddb9fe8e9a6fa"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "7cd6dc3ae4771e777d820041109b53c309d212c418c3d626c19f524327d8e067"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "3934d08a398ad07ff9d771fa81df3f8f43f14ecf9b494d04ac9c7dc82f4d1df6"
   end
 
@@ -32,7 +33,7 @@ class Glslviewer < Formula
   end
 
   def install
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build", "-DCMAKE_POLICY_VERSION_MINIMUM=3.5", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 

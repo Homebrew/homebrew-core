@@ -4,6 +4,7 @@ class Kubehound < Formula
   url "https://github.com/DataDog/KubeHound/archive/refs/tags/v1.6.4.tar.gz"
   sha256 "63cb38cc12f33842a255852a45d2c795f8b20cd7de546154af1dc6a7c9fa0441"
   license "Apache-2.0"
+  head "https://github.com/DataDog/KubeHound.git", branch: "main"
 
   livecheck do
     url :stable

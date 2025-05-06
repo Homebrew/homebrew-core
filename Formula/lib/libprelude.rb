@@ -1,7 +1,7 @@
 class Libprelude < Formula
   desc "Universal Security Information & Event Management (SIEM) system"
   homepage "https://www.prelude-siem.org/"
-  url "https://www.prelude-siem.org/attachments/download/1395/libprelude-5.2.0.tar.gz"
+  url "https://deb.debian.org/debian/pool/main/libp/libprelude/libprelude_5.2.0.orig.tar.gz"
   sha256 "187e025a5d51219810123575b32aa0b40037709a073a775bc3e5a65aa6d6a66e"
   license "GPL-2.0-or-later"
   revision 2

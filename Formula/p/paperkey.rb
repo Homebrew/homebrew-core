@@ -24,13 +24,16 @@ class Paperkey < Formula
     sha256 cellar: :any_skip_relocation, mojave:         "894ef3339013be6574f736e316c61cbf54fbc3dcac358df14f1d54b1d7387854"
     sha256 cellar: :any_skip_relocation, high_sierra:    "82e49c6aa559a349ce73521a90881acb74a540de03d355ad7461c177d00bb8e8"
     sha256 cellar: :any_skip_relocation, sierra:         "fecd3e866173f93ddd6d89e91f2850d29c10e8edf27bb969a95de581ec382c56"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "53cfe21caff97562617b491ee78d77e79761907e8e490d739334999ecd89fd77"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "065de554c087ac3f19246e81fdbf2a60b64c2307f420b91029d781ec901b2d94"
   end
 
   def install
-    system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
-    system "make"
-    system "make", "check"
+    args = []
+    # Help old config scripts identify arm64 linux
+    args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+
+    system "./configure", *args, *std_configure_args
     system "make", "install"
   end
 

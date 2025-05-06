@@ -13,6 +13,7 @@ class Lfe < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "e257ff304896fce1182b709f35b56112c28eba8e43ac6a149725b42917a9bab7"
     sha256 cellar: :any_skip_relocation, sonoma:        "ed17738b499109261be99c6cd273acf572c4b4a2ea05828aed6ebeaa076f30ec"
     sha256 cellar: :any_skip_relocation, ventura:       "9e047588e594f9c78f18d8be1966a1987639f98d07e57dcb47f0b2bde46e8199"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a8d62b19bbae7750b68d0c2a91bfb0e6c478e66cd2a5c889048d355bcfeed117"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "9aceec9c08993a9e551d5b1657a2162afae1f8a248054e6eba1fc4eb5781386c"
   end
 

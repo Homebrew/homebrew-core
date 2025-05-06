@@ -3,13 +3,13 @@ class Flit < Formula
 
   desc "Simplified packaging of Python modules"
   homepage "https://github.com/pypa/flit"
-  url "https://files.pythonhosted.org/packages/8b/c1/3482d40966e55808bae4dbd8b158c700146ed5d916cc98f0f5dcb4e23add/flit-3.11.0.tar.gz"
-  sha256 "58d0a07f684c315700c9c54a661a1130995798c3e495db0db53ce6e7d0121825"
+  url "https://files.pythonhosted.org/packages/50/9c/0608c91a5b6c013c63548515ae31cff6399cd9ce891bd9daee8c103da09b/flit-3.12.0.tar.gz"
+  sha256 "1c80f34dd96992e7758b40423d2809f48f640ca285d0b7821825e50745ec3740"
   license "BSD-3-Clause"
   head "https://github.com/pypa/flit.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "d76b337f079e07bb57e59623a2caaab05386b9affcd7549d1615e8e08b338ea0"
+    sha256 cellar: :any_skip_relocation, all: "6945f2d419802861ae50b63d9cf7eee8817dba00e219a909b9d1ba0555c23281"
   end
 
   depends_on "certifi"
@@ -26,8 +26,8 @@ class Flit < Formula
   end
 
   resource "flit-core" do
-    url "https://files.pythonhosted.org/packages/bc/18/b9b81cab2b8f63e6e7f72e1ba2766a0454fcd563e7a77b8299cb917ba805/flit_core-3.11.0.tar.gz"
-    sha256 "6ceeee3219e9d2ea282041f3e027c441597b450b33007cb81168e887b6113a8f"
+    url "https://files.pythonhosted.org/packages/69/59/b6fc2188dfc7ea4f936cd12b49d707f66a1cb7a1d2c16172963534db741b/flit_core-3.12.0.tar.gz"
+    sha256 "18f63100d6f94385c6ed57a72073443e1a71a4acb4339491615d0f16d6ff01b2"
   end
 
   resource "idna" do

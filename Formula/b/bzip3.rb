@@ -1,18 +1,18 @@
 class Bzip3 < Formula
   desc "Better and stronger spiritual successor to BZip2"
   homepage "https://github.com/kspalaiologos/bzip3"
-  url "https://github.com/kspalaiologos/bzip3/releases/download/1.5.1/bzip3-1.5.1.tar.gz"
-  sha256 "cc7cacda6d15f24d3fe73fd87b895d5fd2c0f8b6dd0630ae4993aa45c4853c3b"
+  url "https://github.com/kspalaiologos/bzip3/releases/download/1.5.2/bzip3-1.5.2.tar.gz"
+  sha256 "9d10092a3842378e6d0b16992ee49f711304d88eb4efac80440338184d4b6276"
   license "LGPL-3.0-only"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "5ed6053de87b75cf367a19809465721eb59151b9d19d1d233e441f986fba2676"
-    sha256 cellar: :any,                 arm64_sonoma:  "7507d4f6cd56a8295fee7b742ef150db6b5adb49231eb0df12a1dbd2ced5f781"
-    sha256 cellar: :any,                 arm64_ventura: "6ce0294023fc283a7efe5c4c28b5a1271afd3223b77f15aff990a81ead7c0304"
-    sha256 cellar: :any,                 sonoma:        "8fbe537f230758a97cb16e8e2dd00405cf71e53cd9ec3d355a9ebbc560670e17"
-    sha256 cellar: :any,                 ventura:       "52ac34b6da028c93f8ab6e07c9c569a86b994d2cc7f5de47bc6a88bb9a52dfe5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a9d4037cc97c3544dee1dd9374f2fed96ad552d03c531ae009e7b1557a7a14a8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "31ad18fe3a2701f1bd04fca48ad8690b6049eb33f4cd7b948c06708805828a6b"
+    sha256 cellar: :any,                 arm64_sequoia: "ad8bae59027a6b9d3a3d8aa759c6586a43204e66e23938a51f1ff7f66587b3c7"
+    sha256 cellar: :any,                 arm64_sonoma:  "e2380b06a3a38d6a312d8abbf70ade17cd7127c357055756552213d25195709c"
+    sha256 cellar: :any,                 arm64_ventura: "d20858e93f7d71dbd465b49c25c29b9bd59c3a572846599df1253ee7e7e1729a"
+    sha256 cellar: :any,                 sonoma:        "d2a113243e5510ae45b8080250b844847f1fde3bb1df66373a1cdd658be56cac"
+    sha256 cellar: :any,                 ventura:       "4ab6f2e55319729e67acaf179395228ec7cc191f87d2e78886c0753fc1725880"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b63f8228410a4cf5ae10f594eec3f18d5697b1bfa5f70b57254b8944d9eb79d9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1703e4aa6739acac3188b2d7f3c5881f9fd2562351ee6752f16af96c2efd82cc"
   end
 
   def install

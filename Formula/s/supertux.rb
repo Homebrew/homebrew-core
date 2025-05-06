@@ -4,7 +4,7 @@ class Supertux < Formula
   url "https://github.com/SuperTux/supertux/releases/download/v0.6.3/SuperTux-v0.6.3-Source.tar.gz"
   sha256 "f7940e6009c40226eb34ebab8ffb0e3a894892d891a07b35d0e5762dd41c79f6"
   license "GPL-3.0-or-later"
-  revision 10
+  revision 11
   head "https://github.com/SuperTux/supertux.git", branch: "master"
 
   livecheck do
@@ -13,12 +13,13 @@ class Supertux < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "326f5e0abf6bbd1b2f63ab48333a5632fde9ae8ac8f0e1fee07004e90d3a8b42"
-    sha256 cellar: :any,                 arm64_sonoma:  "bf73163209acf00fe8743f565a6398366872c61046f23766d3d83c5751f81597"
-    sha256 cellar: :any,                 arm64_ventura: "3ef80f4789f23dc9565ebe7175f50020e0709098abffd5368c9306a8e44312ab"
-    sha256 cellar: :any,                 sonoma:        "a0d8f4dd446e4caf9462f3363f472c5ae3232c1c8df465451233eba84df4eed3"
-    sha256 cellar: :any,                 ventura:       "7696d453e5273c69ca2f1703edee2edd461b0f06393900eea403614c5dee5403"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6ff216442006b1a0e4244d1a126d339a36b524eac1c88f35079ec0c58b6b77fa"
+    sha256 cellar: :any,                 arm64_sequoia: "3f63bbb4a3eca63586e1bcb23482fdcdd91936e6b6bd181ca5b6d3f4b57c463e"
+    sha256 cellar: :any,                 arm64_sonoma:  "f44ec03e212e95daaa1cc85363c084e5dc545ac9be24812aa64f6d3a43046791"
+    sha256 cellar: :any,                 arm64_ventura: "06b04d4dd7d3d6b93267084773b6eef6bddf762a7ff8b6c648ed8d356341f959"
+    sha256 cellar: :any,                 sonoma:        "557c18f4f4c2dd4d3b1c987059690602188eda7e1418b7b8c01ccae52386d6d6"
+    sha256 cellar: :any,                 ventura:       "e73a70f1403a6bd2f577c98e400ede1038132bc060b2dbdb748bee766db53967"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6f8daa7588e6d322264e298f32571ef9bce8fe2eb3c967440956cbed60c14668"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "22bdb84ff6294cb2c5bf52ca70ee7b98b5c463b33be62b8e5ef373f859df5729"
   end
 
   depends_on "cmake" => :build
@@ -43,7 +44,7 @@ class Supertux < Formula
   end
 
   def install
-    ENV.cxx11
+    ENV["CMAKE_POLICY_VERSION_MINIMUM"] = "3.5"
 
     args = [
       "-DINSTALL_SUBDIR_BIN=bin",

@@ -1,18 +1,18 @@
 class Fselect < Formula
   desc "Find files with SQL-like queries"
   homepage "https://github.com/jhspetersson/fselect"
-  url "https://github.com/jhspetersson/fselect/archive/refs/tags/0.8.10.tar.gz"
-  sha256 "8dc69266a7dc2b9029b111053ec761388fecb1473f68d0f2241a33cfc2bb296c"
+  url "https://github.com/jhspetersson/fselect/archive/refs/tags/0.8.11.tar.gz"
+  sha256 "aafd7d6463a1d8d699a9d3f80295b66aee1b6dc3748c9409c7b76f5fef9a180c"
   license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "6662c72f2b2733202dc4c9011ee5d7eaa5e4146237e8fc7cab5532186009ea09"
-    sha256 cellar: :any,                 arm64_sonoma:  "24c188bd49927478caa688e4ea073982cd293a4a8d59a6f0f4905a393968562e"
-    sha256 cellar: :any,                 arm64_ventura: "2682b67ecc4b1e8e4538d8b0bd31f2366b8bae94f0437ec490b7a19c98ecae40"
-    sha256 cellar: :any,                 sonoma:        "231220fc27238b4907c2a10f6b54ed88e17ea90fbef02155afb63df4db65ab2d"
-    sha256 cellar: :any,                 ventura:       "c0f9db29c0a746141e6d277177ca34ef4fe76356f1f90f901161d64632be0ae6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c23eede3272e9b289fd34eb55fa3f644202738b7d08713906df4f39bf7bbfc8a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "50b366606b5f2fa65586fb2d6c29c38c91d894fd50d910c75c84135fcc3d891c"
+    sha256 cellar: :any,                 arm64_sequoia: "8753a03ee239694b36731d3de0afa40691f6b92afdc43de1dc7d02a323eb645d"
+    sha256 cellar: :any,                 arm64_sonoma:  "20b9eedcec8726d400c54700008d614e582980c16ed0db76e106fe78dc7d4855"
+    sha256 cellar: :any,                 arm64_ventura: "7480a6afe203eebb01ca385cba2fe35e8888d6bd506ceeac39b3a3e07ddce22d"
+    sha256 cellar: :any,                 sonoma:        "31aa80e99167c000fa8bd996ca9aa7ae418a8bfa7433a779dfc07ea91b36bac0"
+    sha256 cellar: :any,                 ventura:       "e836162794da0366ddb4ac37cebcbe3cc5a5c0e6698a35927082ed300bf1569d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "893747899170c0a9d72fb1c928d279172f4ed19ea591d48457c3c4508963baf2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fb0764eec636d432e88c5abd2b7e21ef4430df6d7e26234605b42bcd84df0f3a"
   end
 
   depends_on "cmake" => :build # for libz-ng-sys

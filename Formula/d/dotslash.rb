@@ -11,6 +11,7 @@ class Dotslash < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "fadffb4eaf0eaf8a3995778a8d17aecfae54d6fbeb81522937b64cc135f8a7f8"
     sha256 cellar: :any_skip_relocation, sonoma:        "74a6777b9f435596814d4787c64134387216428c6c580b4e47cd1f7aaf2145ee"
     sha256 cellar: :any_skip_relocation, ventura:       "33a908670fcb8199bb7cb40522cac0091f8a41e14a8cf0940e7dba839e3a31c5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "dedd5aa3e2a4bd90a4d395f53206f0d6c69540b2bbc9a6f66939f8bf67776d49"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "7d1d5fe8adf4e3778bf619e8e4961203106203e5a155cde245a0caee4351a8fb"
   end
 
@@ -51,6 +52,18 @@ class Dotslash < Formula
             "providers": [
               {
                 "url": "https://nodejs.org/dist/v18.19.0/node-v18.19.0-darwin-x64.tar.gz"
+              }
+            ]
+          },
+          "linux-aarch64": {
+            "size": 44559104,
+            "hash": "blake3",
+            "digest": "bd605f5957f792def0885db18a9595202ba13f64d2e8d92514f95fb8c8ee5de5",
+            "format": "tar.gz",
+            "path": "node-v18.19.0-linux-arm64/bin/node",
+            "providers": [
+              {
+                "url": "https://nodejs.org/dist/v18.19.0/node-v18.19.0-linux-arm64.tar.gz"
               }
             ]
           },

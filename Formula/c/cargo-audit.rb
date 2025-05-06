@@ -12,12 +12,14 @@ class CargoAudit < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1026c4533d050573d5230be68488a2e1eebd86511c1e81875556ab85881a39fe"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "16ec648c09d2370224edb174d362c38328dc785531eb14824ee190cbf84e30fb"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "89259c963f1c699e2772d82def2c258ec0cbb5ef966838c3d75027b4eb98be11"
-    sha256 cellar: :any_skip_relocation, sonoma:        "30e3f669b10268c7b6c28841cfd249296c7c0a16fbc70fd3e60885dc465f313a"
-    sha256 cellar: :any_skip_relocation, ventura:       "36bd51b1a6055e1fbf190e1cf2c746b83056a9f6d32eab537800c0938461572e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c01871584f36e0bfd0da80de286069e9102f34c4098618cb461d7457c6364d63"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "37d7c8d731b959de676423b00493e59db64e57917bb0dc68d07179f2dd056f30"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4531b5306ab7477d604aa5eb69f29f1f78a55af839395781efa6ff299e08e7bc"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "77555fa8e19f69321177e152579c220f879b9cd6b4f03030b9641fc593c230d2"
+    sha256 cellar: :any_skip_relocation, sonoma:        "98ad36681ebb7db57784efcb950cd2905607770706f8b28c5b37c7821a29a500"
+    sha256 cellar: :any_skip_relocation, ventura:       "afbfc3c37db364702cef9ca24de5e540e92e4c7ca63b04868f8cbc27a3a57337"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a6291c84ef0972f444e797f761691f982502514ed9b25bf2dc34b2da82fed41f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e4e7fd69c4d6cfc594f2a5285da7ed6ef174360ebeb0c8f232711617cbd50430"
   end
 
   depends_on "rust" => :build
@@ -32,7 +34,7 @@ class CargoAudit < Formula
   def install
     system "cargo", "install", *std_cargo_args(path: "cargo-audit")
     # test cargo-audit
-    pkgshare.install "cargo-audit/tests/support"
+    pkgshare.install "cargo-audit/tests/support/base64_vuln"
   end
 
   test do
@@ -40,7 +42,7 @@ class CargoAudit < Formula
     assert_path_exists HOMEBREW_CACHE/"cargo_cache/advisory-db"
     assert_match "not found: Couldn't load Cargo.lock", output
 
-    cp_r "#{pkgshare}/support/base64_vuln/.", testpath
+    cp_r "#{pkgshare}/base64_vuln/.", testpath
     assert_match "error: 1 vulnerability found!", shell_output("#{bin}/cargo-audit audit 2>&1", 1)
   end
 end

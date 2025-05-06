@@ -5,6 +5,7 @@ class Ctop < Formula
       tag:      "v0.7.7",
       revision: "11a1cb10f416b4ca5e36c22c1acc2d11dbb24fb4"
   license "MIT"
+  head "https://github.com/bcicen/ctop.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "cd09dd7c11239dd436500639b817a7c935a16033630cfc78b5f6a3acbb763089"
@@ -17,6 +18,7 @@ class Ctop < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "523a700771377a75e6da967df31d5f878d9a8ab52ab4412e10aa294ac183074f"
     sha256 cellar: :any_skip_relocation, big_sur:        "6dc1e0a2f6cb7fe27e7657e3bb0ba2825e8f730f4a1da6e98273f9f88aff0b2b"
     sha256 cellar: :any_skip_relocation, catalina:       "0a358054ae920a6c520fbee9fc3d3d18b5a78d12aa77918240ead37aa56fae1d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "a4a567b1feba7fa72b0a76efbef9d14c8e7de8f3e4329109fa8c0338e058251d"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "30607fe87d023df1ab88efe82c18af28e5276cfb8281de6b51bdedea41b5179e"
   end
 

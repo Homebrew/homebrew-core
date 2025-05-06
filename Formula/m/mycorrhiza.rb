@@ -12,6 +12,7 @@ class Mycorrhiza < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "a6a3e9bf597543fd047bcbd528fb294968626a43913e2b5ecb832e0a65c4f03f"
     sha256 cellar: :any_skip_relocation, sonoma:        "50902c67ef7688b2af218cb42a5e219d8b6ad1dbe73adb8eb5d4f9d7ce7ca1f2"
     sha256 cellar: :any_skip_relocation, ventura:       "babe0cd8e1a5328ee92a0ab611b8b1824e967857ac752295a6cd7ee658bb1ab6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "195738a48e2c1462af8eb894c93c2691e7f4a186b86f0c1e6aaeb5da110a1782"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "e7ac1d896d58f658da09c6590400fe8fe65a4ee61083bbe724a9a4705d0a6745"
   end
 

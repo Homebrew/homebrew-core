@@ -16,6 +16,7 @@ class Bnfc < Formula
     sha256 cellar: :any_skip_relocation, sonoma:         "f70febbdc989129871dae2ad9ac254c8a68e137921854a1e9728a301f4bba2f8"
     sha256 cellar: :any_skip_relocation, ventura:        "d645135dfed8bd688b12de81f12c3496d69dc58b1c6c523b48752c44df64cebe"
     sha256 cellar: :any_skip_relocation, monterey:       "efe525933e08206d108405241096da7f5e4b55c00c5cda02fae546b14e94d7cd"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "9a0f394ee5a67102753f9ba868bfa1763195f44a71d1992980a1409c7da6063a"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "428910364e4bb5f3fb7f79e578298b97d429b75793ed2dd3c91052209a130e2e"
   end
 
@@ -27,6 +28,9 @@ class Bnfc < Formula
   depends_on "bison" => :test
   depends_on "flex" => :test
   depends_on "openjdk" => :test
+  depends_on "gmp"
+
+  uses_from_macos "libffi"
 
   def install
     system "cabal", "v2-update"

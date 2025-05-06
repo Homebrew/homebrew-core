@@ -14,6 +14,7 @@ class Terminator < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "5440ad3063e68abe0e0bf3796021dfbbd4bae5f07c1c013f0265c47e0dcdcace"
     sha256 cellar: :any_skip_relocation, sonoma:        "a18e427816b26610cec97cd87bf1915ee7aec6a86c2af90295a3bf0a5130ddd7"
     sha256 cellar: :any_skip_relocation, ventura:       "60f289ff7f318d749a0523fbcb094c694ec1db2700ad6ee6899774d61dfe3fd4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f308e8367d3813ca6b6ec3d46852877fb293163656b8b5b725ee042602b1480f"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "73119f14b2225e8557fb354ac8d53d1f58579893bbb69e1e74ddbfca62eede9e"
   end
 

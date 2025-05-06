@@ -23,6 +23,7 @@ class OdoDev < Formula
     sha256 cellar: :any_skip_relocation, sonoma:         "70206faecd21320ed843d7dcd0b21db2f94961b2a38c32828d6061bf993c2c4c"
     sha256 cellar: :any_skip_relocation, ventura:        "295deb9fa449f8987e06ea32e480e6c2a253e617db227ea1db03563d515edf66"
     sha256 cellar: :any_skip_relocation, monterey:       "3002c28c9f11304b7e42efd58e26e72b972c94c7fadfd55f0bf7d776fd929a42"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "a0ad1eacca24048e6260470cc6d1addc370681d26cb2b82137c84e02f932e226"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "b9480c0fa8376a3f2b839965f2d7095fd712dd306a975032479e45419f482679"
   end
 

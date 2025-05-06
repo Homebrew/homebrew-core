@@ -4,6 +4,7 @@ class K3d < Formula
   url "https://github.com/k3d-io/k3d/archive/refs/tags/v5.8.3.tar.gz"
   sha256 "2ef51e029f43e70dcda616de98980017ca7de18848265525bf7882d2bd66f9f2"
   license "MIT"
+  head "https://github.com/k3d-io/k3d.git", branch: "main"
 
   livecheck do
     url :stable

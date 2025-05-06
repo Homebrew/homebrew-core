@@ -19,6 +19,7 @@ class Htmlcxx < Formula
     sha256 mojave:         "e910595c43c028e25e0e0a44203e3c95b229162ea89678721b4a7f6e22974aca"
     sha256 high_sierra:    "062a4b1629ab6f28e59ef0ea15c257c8bfd9e3646f3342fbfe14268727be7649"
     sha256 sierra:         "4407cb1a50e8d629db9b93bdbbbf2a0892967611f7e579c49c0d084769f8a5ca"
+    sha256 arm64_linux:    "6302595c7cf05e040aa5cfbfec3b91408e5c6769f4117a2e7d8d0103c9e492a2"
     sha256 x86_64_linux:   "ba29d98077036799d68c6c6dc56e0e7fa28aee700a89f4128a2d10a29d1ab39e"
   end
 
@@ -29,7 +30,9 @@ class Htmlcxx < Formula
   end
 
   def install
-    system "./configure", "--disable-debug", "--disable-dependency-tracking", "--prefix=#{prefix}"
+    ENV.cxx11
+
+    system "./configure", *std_configure_args
     system "make", "install"
   end
 

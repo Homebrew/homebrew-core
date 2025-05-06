@@ -13,6 +13,7 @@ class Krew < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "2612180540b05504e2f9c3aae82cb6335ffa55e88ac9e27f2bdad18390c22dc0"
     sha256 cellar: :any_skip_relocation, sonoma:        "97a497441f46ee46bd7c458d3d369697ca2fe43c75fc58a861db755a2d205ff5"
     sha256 cellar: :any_skip_relocation, ventura:       "97a497441f46ee46bd7c458d3d369697ca2fe43c75fc58a861db755a2d205ff5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6b31068dbe7492c0fd237c55bf3f6be3bdeab2af67074466c700c3c240f45617"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "67e4f1ed2eb1d0d9871d87749e10251448e279bafbfe74ab1e13229cb3151841"
   end
 

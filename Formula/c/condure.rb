@@ -15,13 +15,14 @@ class Condure < Formula
     sha256 cellar: :any,                 sonoma:         "75aa7ff3919f0791a751778e0993d8244dbad023c92bee2a7c03cf2b18fb4751"
     sha256 cellar: :any,                 ventura:        "d5b7fd6e1d9572b673a1e4e2b5662c050009f439c9dcaddf69ed07346b49d231"
     sha256 cellar: :any,                 monterey:       "f44417d181f8cc64156a2d25910ff6ced2829011b6b7e52c36abe8fea9392392"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "fa34dc178dd11de4c03e5a72351aa73b8f82e2ea07d295b41e3403e3a50e2436"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "00527a59f46952f13cb4a1af03af0dcf3d894dd1582828bcb3152ab5b070ac93"
   end
 
   # https://github.com/fanout/condure/commit/d70f63b6ed4b60e85fcbf4284a0eab964c94df38
   # project has been merged into [Pushpin](https://github.com/fastly/pushpin)
   # The `pushpin-connmgr` program can be used as a drop-in substitute.
-  deprecate! date: "2025-01-10", because: :repo_archived, replacement: "pushpin"
+  deprecate! date: "2025-01-10", because: :repo_archived, replacement_formula: "pushpin"
 
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
@@ -41,13 +42,19 @@ class Condure < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/c8/1f/e026746e5885a83e1af99002ae63650b7c577af5c424d4c27edcf729ab44/setuptools-69.1.1.tar.gz"
-    sha256 "5c0806c7d9af348e6dd3777b4f4dbb42c7ad85b190104837488eab9a7c945cf8"
+    url "https://files.pythonhosted.org/packages/a9/5a/0db4da3bc908df06e5efae42b44e75c81dd52716e10192ff36d0c1c8e379/setuptools-78.1.0.tar.gz"
+    sha256 "18fd474d4a82a5f83dac888df697af65afa82dec7323d09c3e37d1f14288da54"
   end
 
   resource "tnetstring3" do
     url "https://files.pythonhosted.org/packages/d9/fd/737a371f539842f6fcece47bb6b941700c9f924e8543cd35c4f3a2e7cc6c/tnetstring3-0.3.1.tar.gz"
     sha256 "5acab57cce3693d119265a8ac019a9bcdc52a9cacb3ba37b5b3a1746a1c14d56"
+  end
+
+  # Apply Debian patch to fix build on arm64 linux
+  patch do
+    url "https://salsa.debian.org/rust-team/debcargo-conf/-/raw/de3f91dfb0ed10587e653ee1f96dca16d710eb5c/src/condure/debian/patches/fix-build-unsigned-char.diff"
+    sha256 "00ce6b20a13086fca07756d0aaa19c3280a411c29abb221cd8233f006bf0496e"
   end
 
   def install

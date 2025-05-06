@@ -17,6 +17,7 @@ class OryHydra < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "b442320d9096b40cd35481016f883df160319e6b6060cf4ef6ec76820e957ea9"
     sha256 cellar: :any_skip_relocation, sonoma:        "1c8d55ca5dce7f630a4b23042ced6f1c35b1c187c55bdddb7ee05cff0a162826"
     sha256 cellar: :any_skip_relocation, ventura:       "6c4d52394e2726bf4c408dc69776d09a497c7456631a666b5115963a99a88803"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "30944f8f85d029dfa84ded9ee820ca4bc9d7d9f865a0a0276a49b0ee2152df42"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "fd7d10f4c7466d31197d3e5a2cf5196fe564f28f84236477b939a84fd7bd7bcb"
   end
 

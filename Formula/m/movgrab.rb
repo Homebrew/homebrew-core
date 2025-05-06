@@ -4,16 +4,16 @@ class Movgrab < Formula
   url "https://github.com/ColumPaget/Movgrab/archive/refs/tags/3.1.2.tar.gz"
   sha256 "30be6057ddbd9ac32f6e3d5456145b09526cc6bd5e3f3fb3999cc05283457529"
   license "GPL-3.0-or-later"
-  revision 8
+  revision 9
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "afb183eb74f1478d968a2305c377fe6c97ba608e5c44d8974a23c4c03a9b1559"
-    sha256 cellar: :any,                 arm64_sonoma:  "4fd44929e4f9da802c6517eae4eccce57f0903a513ade31baf63ac6c5a1d9d4b"
-    sha256 cellar: :any,                 arm64_ventura: "36ee0f40c03cc093c495d70f1665766974a307c8f021b716c30f7bc1570e7550"
-    sha256 cellar: :any,                 sonoma:        "3fd10d07f84f4b0adb19636b805b9db9ad2486fe3d13bc35a2f080bb588f3a2d"
-    sha256 cellar: :any,                 ventura:       "ab2995d794afc29b4195997223f875d6b36e301cbe3243d8c86d9d4c753b51c4"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0f84fa8483e3d055c0ff13bae514115bdc1b8e61858a6b1acddbd88569019f0b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5ddd8b8dffed7bf9c48adf8df108c5de1c8671ee55a7b87c61f862a39264edef"
+    sha256 cellar: :any,                 arm64_sequoia: "eebe35ad85f24d6670b44de90e944d2ec6e7d8b3d678581d765b47a37b5921de"
+    sha256 cellar: :any,                 arm64_sonoma:  "8258f2373e9954cec98e1794809aceb67cb86a67b700534ca8e897399a462c1d"
+    sha256 cellar: :any,                 arm64_ventura: "be7032419023759e5106d77fe86d01c97967ae01cc30947fd6e35df5d6f9b0e5"
+    sha256 cellar: :any,                 sonoma:        "612d50cc540559cd4350504e7e31caa719e5f9bf1b68f6d0930328f4e56c0c17"
+    sha256 cellar: :any,                 ventura:       "44d0c548daababf4c81fd834331066cbfc94ff74b50df78d8689d21d4ab0f5a2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ad5d58b74de4a42085e384ad4e090bd6f43c063119ee56dbba896653d20c1f60"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "471324368d1763fdfac90349087bad2257726ba13eb462803435ed8c37a09131"
   end
 
   depends_on "libressl"

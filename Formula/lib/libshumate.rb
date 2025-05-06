@@ -19,6 +19,7 @@ class Libshumate < Formula
     sha256 cellar: :any, arm64_ventura: "326ee03a217fb356f82ed670d865e10e2529972766a8bd96d795244b635083f8"
     sha256 cellar: :any, sonoma:        "fd7a41758706f61a84c0779e173ddbd5321b1dac57e3412795a5130b3603c8d5"
     sha256 cellar: :any, ventura:       "b5c97ff3a747979999e3545e1bdaca0b3fc3d2e4397b66c7566709d945bba25b"
+    sha256               arm64_linux:   "a51d6cf1dd5e4637380a9677578e5f8d6ba0eac1b612f1bf5a14406fc55c9ac3"
     sha256               x86_64_linux:  "37ea17a35de56d99e74e9cd1cc22dadd604e9e661c1e3555715d65e5098342fe"
   end
 

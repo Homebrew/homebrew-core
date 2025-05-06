@@ -1,18 +1,18 @@
 class JoplinCli < Formula
   desc "Note taking and to-do application with synchronization capabilities"
   homepage "https://joplinapp.org/"
-  url "https://registry.npmjs.org/joplin/-/joplin-3.2.3.tgz"
-  sha256 "7dffd1f21357f306958eed02a79ac1223e69b847ae55ddbd613fb1564f9cf2b4"
+  url "https://registry.npmjs.org/joplin/-/joplin-3.3.1.tgz"
+  sha256 "b0cc8590966d01eaa5a5d60bdec870ed51c342c80b1ebcbfb33eef222a1c4b01"
   license "MIT"
 
   bottle do
-    sha256                               arm64_sequoia: "3a0fb70e37cfacdd16fc7133f4a0339be831a945fed530e5ade41f622c7a8a21"
-    sha256                               arm64_sonoma:  "b9ba88cdbbd8809006f2b8bf0a61d8cb89703213a03b3799ccb9b0b92b99990b"
-    sha256                               arm64_ventura: "8dc693cfcfd51ee835358b03a1fa11db7497689aec6a8e6373b81601c15481fb"
-    sha256                               sonoma:        "e31ded0565672883780bda90b5af4e0a09ade984ec18896d648d411d234719df"
-    sha256                               ventura:       "e14c0abb59664e2e479cc0b98f54706702f3cc52a9ca9854991424c7abc48a58"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f8aa51f82139120230b1666ead67b3f24ccf40f9c339b6500f50b0a83216192a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1d985598b03af1e5f55f80e87931e9d3b9e1d48f153c14693a20f25d7967c53b"
+    sha256                               arm64_sequoia: "76470d9d9c29307d8b35f53a13a7754fc6575d78386de65caaa91ab3ca9f3527"
+    sha256                               arm64_sonoma:  "6f3c853e5d2f9be1bd6f0266fbb64be2c7018cbca3d3577adbd75c1f95ee538a"
+    sha256                               arm64_ventura: "36d5c93be1e4e9db96eb44ea46e3d20ddc68540474e3233e57581cf35fa7b9ff"
+    sha256                               sonoma:        "f18ca7fe37ccf6a4744fa00541bf8fabb95fffcc5907eb9f8403cb9d8ae91d70"
+    sha256                               ventura:       "44a51b383c515b2634a21c66ac5c96d45a39832db7bb55aade89b822b44a6f39"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9fa082d02615325e6393d5d1d559c1f6243fb165240a7f7a396c23a4b235a5db"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b9738157fd59266c3a6622d6444de5446d3c5fdbfb1c1ef0ec983e57b3478659"
   end
 
   depends_on "pkgconf" => :build

@@ -12,6 +12,7 @@ class Biber < Formula
     sha256 cellar: :any,                 arm64_ventura: "b80c954f868b87585d8c3b91494b3a9549d58a6df88d9b7028b4091d6882c230"
     sha256 cellar: :any,                 sonoma:        "f5667829fe7fe597422cbaf2ab17c11fc4a130c6579551908639aec9539bb15d"
     sha256 cellar: :any,                 ventura:       "83dd4a86705a0730f1bb52cb8a0556533efdd03b673d24737c16deabc17cc5d5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "002218b381d6dab70c5ccfa0ff7bf89e8a7a22dc178e922c2469a01a47b89373"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "4038ee28a6d598309e506acc878f6f3554e1af17ab02851282c993e51db8a0cd"
   end
 

@@ -11,6 +11,7 @@ class Czkawka < Formula
     sha256 cellar: :any,                 arm64_ventura: "0e0b5690c9450849adf554fdd0bfb7604160ee8030a3522f038c48d286d86afa"
     sha256 cellar: :any,                 sonoma:        "b962385e937d55de3c73bde9ff005a445060683d1eb1fe935cf4796d729c9baa"
     sha256 cellar: :any,                 ventura:       "4845dcbc5835c39c85987bebc64eaa14f449b6a36a8d669e8f0799bab7c22cb1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "639ef911d5321e575feeb023000967a18e8cd968cdb7e03952e3ddf4bf90d15c"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "df85cb1e5414b32e3026bd639dab932af37063363e1eb9cf58a8b46d0408f8e7"
   end
 

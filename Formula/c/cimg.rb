@@ -1,8 +1,8 @@
 class Cimg < Formula
   desc "C++ toolkit for image processing"
   homepage "https://cimg.eu/"
-  url "https://cimg.eu/files/CImg_3.5.3.zip"
-  sha256 "a9b825366ade0a1cfda784c87b40aa5e65f84f2d5ec562ae48928161880ed01b"
+  url "https://cimg.eu/files/CImg_3.5.4.zip"
+  sha256 "0f397a10402b9710e1c6a9db2b77a922a8d399a51efa6e7bffba73e3bbe5ba48"
   license "CECILL-2.0"
 
   livecheck do
@@ -11,13 +11,13 @@ class Cimg < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "802f049ec2de8d9e442fff040210ee61a9a7fee12cb5db03aa047f40b3979dc0"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "802f049ec2de8d9e442fff040210ee61a9a7fee12cb5db03aa047f40b3979dc0"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "802f049ec2de8d9e442fff040210ee61a9a7fee12cb5db03aa047f40b3979dc0"
-    sha256 cellar: :any_skip_relocation, sonoma:        "dc9c5dc3c55049540f22cc19afec3e7f2716b81984ee64a6bdba2e055e812c28"
-    sha256 cellar: :any_skip_relocation, ventura:       "dc9c5dc3c55049540f22cc19afec3e7f2716b81984ee64a6bdba2e055e812c28"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "802f049ec2de8d9e442fff040210ee61a9a7fee12cb5db03aa047f40b3979dc0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "802f049ec2de8d9e442fff040210ee61a9a7fee12cb5db03aa047f40b3979dc0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "df665899139ebb624be6d695e0c8b4799fcb51bd94edc0d42a7601715b4a8d4e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "df665899139ebb624be6d695e0c8b4799fcb51bd94edc0d42a7601715b4a8d4e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "df665899139ebb624be6d695e0c8b4799fcb51bd94edc0d42a7601715b4a8d4e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "ecc32fd4e5b99acd02277ba09180409c4d8d910e5553f4cbf6261bf01bc0d3ee"
+    sha256 cellar: :any_skip_relocation, ventura:       "ecc32fd4e5b99acd02277ba09180409c4d8d910e5553f4cbf6261bf01bc0d3ee"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "df665899139ebb624be6d695e0c8b4799fcb51bd94edc0d42a7601715b4a8d4e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "df665899139ebb624be6d695e0c8b4799fcb51bd94edc0d42a7601715b4a8d4e"
   end
 
   def install

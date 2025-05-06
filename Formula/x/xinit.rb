@@ -11,6 +11,7 @@ class Xinit < Formula
     sha256 arm64_ventura: "6f5350a1fceed943594b743212e2ae40e37559e1daa82c31e617311a706ee25a"
     sha256 sonoma:        "14ad40b8e7143eb60fd252ecadaa4012428a33d9572920fc7e4968ac52904d38"
     sha256 ventura:       "caf7be003b70bc8a6a0a2c0fd64df3b6f1479ecb437ecbb00b4675660bf15319"
+    sha256 arm64_linux:   "5afccb26823574faa9cc8e322ffa73ba0f5466862dd88ca5a8a4c828ab0d95cc"
     sha256 x86_64_linux:  "8b8186133c32e00a1411809fa7b2569bffacaa9fd2ddbd575605abd3555c6316"
   end
 

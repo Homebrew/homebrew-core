@@ -1,8 +1,8 @@
 class Meli < Formula
   desc "Terminal e-mail client and e-mail client library"
   homepage "https://meli-email.org/"
-  url "https://git.meli-email.org/meli/meli/archive/v0.8.10.tar.gz"
-  sha256 "83573e8f2e8770831e35879c84297e9b353ba251d9a55960615eb1e32b9a1901"
+  url "https://git.meli-email.org/meli/meli/archive/v0.8.12.tar.gz"
+  sha256 "6f03f50b7e3ee29d34716f31d77e75eca72ab651d67ea1de2dffc5813565180f"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -11,14 +11,13 @@ class Meli < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7fdb0e4503db2d806000a92f8ee4744caa71d8535f9a19551c305dfaf2c9c50b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "406b311dace715934695e38f215d77bb44257b76c17a2d85942514f0149fc872"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "4cb979565e6613629d73eb5d95566d7fdb0ebfcd5dc6b6df06d5b9e88574e3bd"
-    sha256 cellar: :any_skip_relocation, sonoma:        "8c67e8d72899564c60d5d33ad34e4001200682711ff5341e3860ac04b17c06d9"
-    sha256 cellar: :any_skip_relocation, ventura:       "19400aeadea6aada5b91035393b61d3223fbb3001ff8b2863fdddfb7815526f8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ed07f4e1ae6464557c049afb3e8cf133a9532358b1fb4fc595c3c99bfbca1983"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5d63a56252e40706e8e15d9e2c543202ef6789dcb4fbd835c8f3acba2eeefb8a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5ae5ed00801662f9da4b1a479344585e6d0480cee748dcacdb883b7ea2bb66e6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "dac2ad7eb3a1e48bda3441a6c9e0c2f63bf2c0d1ea126e88fb75de3d56d31eca"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "393461b613aac77018e34a3fa8f61a5fabb3e8d8cc9d3c05e2ab8e6a5d98e8fc"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e12530beb8d7459163493fa1023db9e935166f2da8462c12d4045cd70634ccef"
+    sha256 cellar: :any_skip_relocation, ventura:       "f9990332e7df125ca426b2365e96e29f58abf8ddef887e0ebf124e22b0683f18"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "10c9adf5564a3dc95ce9739b6b39d6fbba9ea4f41f79378fa26446223505e0d2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "56eff4ef3a14f017e0754562442c901e980c8b7ab10d2be634148dfe36cc9ec6"
   end
 
   depends_on "pkgconf" => :build

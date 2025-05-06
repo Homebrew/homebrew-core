@@ -1,22 +1,18 @@
 class Twm < Formula
   desc "Tab Window Manager for X Window System"
   homepage "https://www.x.org/"
-  url "https://www.x.org/releases/individual/app/twm-1.0.12.tar.xz"
-  sha256 "aaf201d4de04c1bb11eed93de4bee0147217b7bdf61b7b761a56b2fdc276afe4"
+  url "https://www.x.org/releases/individual/app/twm-1.0.13.1.tar.xz"
+  sha256 "a52534755aa8b492c884e52fa988bac84ab4d54641954679b9aaf08e323df2c5"
   license "X11"
 
   bottle do
-    sha256 arm64_sequoia:  "7d372aede60284be434101e34f337807e2986e866bb5b1cdce0afd70e2727a89"
-    sha256 arm64_sonoma:   "af71103ec9bf9cb7fb31d92b2006c97b91d9d494c53dd95347f13f95e9b0bdbf"
-    sha256 arm64_ventura:  "a2c5a282d6a59cc729bbf0bed690e73b586ccffd90042057e43a2682605c896a"
-    sha256 arm64_monterey: "19a684ac826452df3f0df71ab60e5a6a2589ffd8f7aef62e1c056895af2d15e2"
-    sha256 arm64_big_sur:  "20744061e4256be46a8e57e0cb949226485195e6a4f6f0f0c7466ed2c04b53f5"
-    sha256 sonoma:         "d55ff8c7e43cb00530ec6ebf3b0d0dadba3de68399ead40136f41a7b50e3d413"
-    sha256 ventura:        "eb1f904ccccb31aa8f600820fe1bd0baa32f09db0b9a375a3c11ed56ed27058c"
-    sha256 monterey:       "b1b8b441d6903b19543287fefba2abdc9f4cf0e0a7afabb47d5773183047a659"
-    sha256 big_sur:        "2cd7f81e03b5177321253168fd7364b640b93e32397ac0f32c6ddd8418740970"
-    sha256 arm64_linux:    "3ab9ec66db761a3330976e51908f1cb2790d8908ff7c1d23edb114fbc0576da4"
-    sha256 x86_64_linux:   "11f8a44432789065dda5ccfabf83be674ca7cf37232a47005e75033fdb54a130"
+    sha256 arm64_sequoia: "55081cc48b42c43ff5affd9958066960f6e178282d70022d70811ae3c6376d91"
+    sha256 arm64_sonoma:  "1cfdeb205b58d944d90a7a9e46cdb1fb38b2562512b780e951ec746e7da97ea9"
+    sha256 arm64_ventura: "2674ec6c6954c05425a89ebe7833f275defe6ccbd8bdd550c26a78f86159f7af"
+    sha256 sonoma:        "e1caa71427548f73cec6e7e4c43249b4293979ba2f90731c1add941f86c7b4f9"
+    sha256 ventura:       "003cc59faaf5062d86c004e73c46d501b635999f8e743375fd7b6d301b183639"
+    sha256 arm64_linux:   "4371c26596b82bc06d424f527663fd20cee9d63b301b712c38d0fd95d5ea1ab7"
+    sha256 x86_64_linux:  "6993e42ad8cfc6af686eeadf5e0c970b4d23de655c5485562b14f34997c1caee"
   end
 
   depends_on "pkgconf" => :build

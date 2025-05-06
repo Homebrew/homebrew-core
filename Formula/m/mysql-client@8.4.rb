@@ -1,8 +1,10 @@
 class MysqlClientAT84 < Formula
   desc "Open source relational database management system"
-  homepage "https://dev.mysql.com/doc/refman/8.4/en/"
-  url "https://cdn.mysql.com/Downloads/MySQL-8.4/mysql-8.4.4.tar.gz"
-  sha256 "fb290ef748894434085249c31bca52ac71853124446ab218bb3bc502bf0082a5"
+  # FIXME: Actual homepage fails audit due to Homebrew's user-agent
+  # homepage "https://dev.mysql.com/doc/refman/8.4/en/"
+  homepage "https://github.com/mysql/mysql-server"
+  url "https://cdn.mysql.com/Downloads/MySQL-8.4/mysql-8.4.5.tar.gz"
+  sha256 "53639592a720a719fdfadf2c921b947eac86c06e333202e47667852a5781bd1a"
   license "GPL-2.0-only" => { with: "Universal-FOSS-exception-1.0" }
 
   livecheck do
@@ -10,13 +12,14 @@ class MysqlClientAT84 < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "599ea595f393284cead24568d81ec80bd4c6e8d3a3f65149da1f2e5626722b8d"
-    sha256 arm64_sonoma:  "7c7002d267e6e9e58ca7102a9d058b39624858fe53fd01659ca6e6e55e0f2ed9"
-    sha256 arm64_ventura: "9cd7f7d4b32e37b550dfbac68a731049e99b45766905ba3e20f9702dd8de95dd"
-    sha256 sonoma:        "4d88430aea70b98b39ebde69c8b48fb31204485561152b1cef8804677348f3be"
-    sha256 ventura:       "b8799bfd328b28437096172d0e91525bef03ffbfbe86aa2d423dbeae655dd5f0"
-    sha256 arm64_linux:   "ab8894adb0f917cb09f9d76fc2ade4770d200dfb4f25f0803c3c6f759ee93f93"
-    sha256 x86_64_linux:  "085b6fe95a460c34a4d0e66e877d5c741c29612596ee19378ba050af09f7637e"
+    rebuild 1
+    sha256 arm64_sequoia: "64277d6ec414f92e516089a4e2c6ad176fdb6152a607676392995002149a1a17"
+    sha256 arm64_sonoma:  "43b670624ca50f578df25b7a8fa655bd31e283afa27083018f07d759cb43bfdf"
+    sha256 arm64_ventura: "630f42abd4c09710dcd37691ed213e84aac2f1ebd10c56023ba1098265694b36"
+    sha256 sonoma:        "2ff98ae96608ebb56f38ffbdccf9583902bf9bf75357d9ff4535814177f9b3c2"
+    sha256 ventura:       "4b163c87cd423182b1ddfd4da72e81ddc3361994d9edd824c9f942164332681b"
+    sha256 arm64_linux:   "8ba67332d9fb971c345746a9765de11e57b08df6b729c5119ab654df230a86e0"
+    sha256 x86_64_linux:  "3f1027c7649a348bc50137d817aa9d119808ab02408431063fc5d71dd58761e6"
   end
 
   keg_only :versioned_formula
@@ -43,8 +46,6 @@ class MysqlClientAT84 < Formula
     args = %W[
       -DFORCE_INSOURCE_BUILD=1
       -DCOMPILATION_COMMENT=Homebrew
-      -DDEFAULT_CHARSET=utf8mb4
-      -DDEFAULT_COLLATION=utf8mb4_general_ci
       -DINSTALL_DOCDIR=share/doc/#{name}
       -DINSTALL_INCLUDEDIR=include/mysql
       -DINSTALL_INFODIR=share/info

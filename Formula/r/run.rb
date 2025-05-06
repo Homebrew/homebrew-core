@@ -15,6 +15,7 @@ class Run < Formula
     sha256 cellar: :any_skip_relocation, ventura:        "7b9ad23183cb19b835add35b5e65768ea6bd5295181c03d9ab1372996ff75fcb"
     sha256 cellar: :any_skip_relocation, monterey:       "7b9ad23183cb19b835add35b5e65768ea6bd5295181c03d9ab1372996ff75fcb"
     sha256 cellar: :any_skip_relocation, big_sur:        "7b9ad23183cb19b835add35b5e65768ea6bd5295181c03d9ab1372996ff75fcb"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "b2634ba0c62d494f9f77983a80f8e0248c2bfdbb729c49915a52e4f3676b48a6"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "ab579ac93d7c9474a761d9b51e1fb347119b8f990af87d0bcd03043aa388dbe8"
   end
 

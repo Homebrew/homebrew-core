@@ -14,6 +14,7 @@ class Gdl < Formula
     sha256                               sonoma:         "4696c6de941ce9c03db4631ce5bc3a53d83f5edfdbff117b3d9c4cba1af3ca1f"
     sha256                               ventura:        "9485abd2cefbb7793c73f8de136bed12524f5e54452bc89b386bc19274f09b1b"
     sha256                               monterey:       "96f6f072cd160b556e5f3e02eb8ffd5cbbe1d4a77877d8f1f4b0d9d986bdfc19"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "ded0ca92240f97cb5a6b90b5df67e139c5ef4bc6e82e093f8046834d260b2bae"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "83b01e8322122e6bbca3d696cb820b83409a1320a3439ef5aa3f56a2de3e908f"
   end
 

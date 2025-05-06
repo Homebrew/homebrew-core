@@ -7,6 +7,7 @@ class Uftrace < Formula
   head "https://github.com/namhyung/uftrace.git", branch: "master"
 
   bottle do
+    sha256 arm64_linux:  "ec90ba5e7e1e22a853790ebaea9e4e227f71b5cc61785c44d213a7c11ce42458"
     sha256 x86_64_linux: "1403c9e2ac729fcb07b71e4a376d3b2824df0d7017e4266cf8bbd147e58d9160"
   end
 

@@ -1,22 +1,18 @@
 class LibomemoC < Formula
   desc "Implementation of Signal's ratcheting forward secrecy protocol"
   homepage "https://github.com/dino/libomemo-c"
-  url "https://github.com/dino/libomemo-c/archive/refs/tags/v0.5.0.tar.gz"
-  sha256 "03195a24ef7a86c339cdf9069d7f7569ed511feaf55e853bfcb797d2698ba983"
+  url "https://github.com/dino/libomemo-c/archive/refs/tags/v0.5.1.tar.gz"
+  sha256 "d1b65dbf7bccc67523abfd5e429707f540b2532932d128b2982f0246be2b22a0"
   license "GPL-3.0-only"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "706625428f96e1a3a56e49b9841d19ee1e7f64b197bbdcdc50135c40e80be326"
-    sha256 cellar: :any,                 arm64_sonoma:   "73f2267cfaa0656f1f7e70dea6cafc155e08268d5f0b57ffcb34f92bcd53eb87"
-    sha256 cellar: :any,                 arm64_ventura:  "dccc667b31642b280a1ae140c1626efc9a407476f9223008520a78282842478b"
-    sha256 cellar: :any,                 arm64_monterey: "c90a3715e044536c4650463c4a1def1c66b3cd31231cae668d3bfa2e6c616218"
-    sha256 cellar: :any,                 arm64_big_sur:  "ade5ce2ed49545cd401c2f96ef600f36efa1a41701ecd4c3783bed067a66846b"
-    sha256 cellar: :any,                 sonoma:         "3bb3a24d85787cf6a2ee0f55adc655c1b218074ef9b3268a11b6e9de77ad11d9"
-    sha256 cellar: :any,                 ventura:        "91d4e7871b7e7f3cac1352590e5da0f6a0ba2e29194d4f5c37c9f4743c2107ca"
-    sha256 cellar: :any,                 monterey:       "dfdf9c205d14096770df1c4e7ce0b45e857f379c3ce3d23b14f8f7e09c93afad"
-    sha256 cellar: :any,                 big_sur:        "345ad0738741a9d382abd1ac18116128c68f4774785cda97966f9c89fca86693"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "55e3ac5daa752ec098bf0be700cf5107ac16bb71ff6d0420af9e6082949d7bda"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "222d7b3ada83cc778fb993e4706db5e6b03891379ad8c0f8272f6cb5693c01c0"
+    sha256 cellar: :any,                 arm64_sequoia: "10b6d82f6c30e6f9434ed1655ddebda4c01cfb37e1814dc7cbf87b6dbcd683d0"
+    sha256 cellar: :any,                 arm64_sonoma:  "d006d2ce0817b007a29e695a8c819a14b453ca7ec3608a10c294b4767f2279a5"
+    sha256 cellar: :any,                 arm64_ventura: "c838d8370dd068a5a5ae9ea20ce6caa55de0344d35a2bdf8421b8f91c2640b8d"
+    sha256 cellar: :any,                 sonoma:        "b0255f92cf0699734dcc7bc612c8d9936c0d8a49fce2626a95cb366e52c2ee51"
+    sha256 cellar: :any,                 ventura:       "8cef60b4eb059781f053bc8e8f41adcfebffe647eec23a9d74d28d7af10e65d1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2100e33cf8efbc544f7dc76e787b56bd2cd4d058ac36807d008bc480d9a135a4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "025532b47c92f3c63c4f7dda9c99423e3f1d191f03594473d62b83150402b84b"
   end
 
   depends_on "cmake" => :build
@@ -104,7 +100,7 @@ class LibomemoC < Formula
       }
     C
 
-    flags = shell_output("pkgconf --cflags --libs libomemo-c").chomp.split
+    flags = shell_output("pkgconf --cflags --libs libomemo-c libprotobuf-c").chomp.split
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end

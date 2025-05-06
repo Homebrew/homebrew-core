@@ -1,19 +1,19 @@
 class Cotp < Formula
   desc "TOTP/HOTP authenticator app with import functionality"
   homepage "https://github.com/replydev/cotp"
-  url "https://github.com/replydev/cotp/archive/refs/tags/v1.9.2.tar.gz"
-  sha256 "3dca77bf459b34ac92e8a6c84b90e95aa9684e09044c4743b66ac427acb49294"
+  url "https://github.com/replydev/cotp/archive/refs/tags/v1.9.4.tar.gz"
+  sha256 "d992698e9177f7e9e00031c91d3f4857c39fb6cdc988ee5e1b4424ae6b82ea36"
   license "GPL-3.0-only"
   head "https://github.com/replydev/cotp.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7487d8b5a79bea6c9bb223f71cfd58270dbafec545c885f8c40e2cf323fd7e64"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5825f6dedb4729b63881c086d43698bdf99505e9710fe91ae40e9006b4d1058c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "c6994ab3df041f72ccce5ae31740db50ec413e09971dd8dabbf944dae035f4cb"
-    sha256 cellar: :any_skip_relocation, sonoma:        "703c435af047d0df001a82f6b2abdd923ea05d397d66959a4d468f7137fa4ea1"
-    sha256 cellar: :any_skip_relocation, ventura:       "d4e6137b141d511884ee415d3f716df086df24317f6f66ca5d63e1fe0ce0a629"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "47ed8e4c3367e7ce63e7d462513fc12745b2b2daf307d1c75fd000501a9592ff"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "703f91f3bf72b3987cef92fa1a613b051a7246d9fd55b1eff5d3b8f1b937867d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d234fa403ac86f2df536f76e90ab76fe7bf20134694a10c9c08c59ea0d66b9ec"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "429548e6194f6950502696a7ab495e47710dadca94fcc215881a69ec7a697712"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "a8113b265e4caa7e87f07f3086397782e9093eac4f6267765aad25fcb0529ca7"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2b340dc84d3347dfd46305052812c614c6b0a99dcc81b60df2273ad45b36771d"
+    sha256 cellar: :any_skip_relocation, ventura:       "0ff8c664232159a53ecb631f8b0dbff67d29f0d6742d412269943e8e29b657e8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "507729b15f6dacde3ec96ef758825179cadfde8745ec1f916f01c9b5642edf0a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7d696e4a80b0a6b10124e8d4004b6da1a06fb7f4143939cadebe4f3ffb077c4f"
   end
 
   depends_on "rust" => :build

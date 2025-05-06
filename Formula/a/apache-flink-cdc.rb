@@ -5,17 +5,23 @@ class ApacheFlinkCdc < Formula
   mirror "https://archive.apache.org/dist/flink/flink-cdc-3.3.0/flink-cdc-3.3.0-bin.tar.gz"
   sha256 "efb6a5e36bcb85550c367cb39104ee7fcbacfd8124190a2fc3e547ca19446719"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/apache/flink-cdc.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "68208a88aaed1d60d35718e6c47548d1f4939b4a18ea008d857b76c931de0745"
+    sha256 cellar: :any_skip_relocation, all: "1cef7a93c789288ae90f0be233b2891a553f12bdee58bdd2e7ccaedf38da477e"
   end
 
-  depends_on "apache-flink" => :test
+  depends_on "apache-flink@1" => :test
 
+  # See: https://github.com/apache/flink-cdc/blob/master/docs/content/docs/connectors/pipeline-connectors/overview.md#supported-connectors
   resource "mysql-connector" do
     url "https://search.maven.org/remotecontent?filepath=org/apache/flink/flink-cdc-pipeline-connector-mysql/3.3.0/flink-cdc-pipeline-connector-mysql-3.3.0.jar"
     sha256 "6e1af3675279e11c3e0240ca0475910c13bf75ecfd1ab23c0077a5fabc65c44a"
+  end
+  resource "oceanbase-connector" do
+    url "https://search.maven.org/remotecontent?filepath=org/apache/flink/flink-cdc-pipeline-connector-oceanbase/3.3.0/flink-cdc-pipeline-connector-oceanbase-3.3.0.jar"
+    sha256 "1de0ca47dc3f495b585e5f8f63c182f9e2f6c5bb6ed895392a65b2255d7c3c8f"
   end
   resource "paimon-connector" do
     url "https://search.maven.org/remotecontent?filepath=org/apache/flink/flink-cdc-pipeline-connector-paimon/3.3.0/flink-cdc-pipeline-connector-paimon-3.3.0.jar"
@@ -25,9 +31,17 @@ class ApacheFlinkCdc < Formula
     url "https://search.maven.org/remotecontent?filepath=org/apache/flink/flink-cdc-pipeline-connector-kafka/3.3.0/flink-cdc-pipeline-connector-kafka-3.3.0.jar"
     sha256 "988af808ba3c2b1bc2ac7c4e79388615ecd2d0614b5ccba48362b526ae1b98e9"
   end
+  resource "maxcompute-connector" do
+    url "https://search.maven.org/remotecontent?filepath=org/apache/flink/flink-cdc-pipeline-connector-maxcompute/3.3.0/flink-cdc-pipeline-connector-maxcompute-3.3.0.jar"
+    sha256 "f2388915ace24911cb56f32c31e5cc387d968283cfb06333c8e43651108e35a6"
+  end
   resource "doris-connector" do
     url "https://search.maven.org/remotecontent?filepath=org/apache/flink/flink-cdc-pipeline-connector-doris/3.3.0/flink-cdc-pipeline-connector-doris-3.3.0.jar"
     sha256 "112981b8bb216fa08928c12abc0a7ce3d2772f22c06d417e2426884e4f880304"
+  end
+  resource "elasticsearch-connector" do
+    url "https://search.maven.org/remotecontent?filepath=org/apache/flink/flink-cdc-pipeline-connector-elasticsearch/3.3.0/flink-cdc-pipeline-connector-elasticsearch-3.3.0.jar"
+    sha256 "41ca15269df57a57576740fb75e3a00a62bc7e0733b021f3844c50a05bf9610c"
   end
   resource "starrocks-connector" do
     url "https://search.maven.org/remotecontent?filepath=org/apache/flink/flink-cdc-pipeline-connector-starrocks/3.3.0/flink-cdc-pipeline-connector-starrocks-3.3.0.jar"
@@ -78,7 +92,7 @@ class ApacheFlinkCdc < Formula
     YAML
     (testpath/"log").mkpath
     ENV["FLINK_LOG_DIR"] = testpath/"log"
-    flink_home = Formula["apache-flink"].libexec
+    flink_home = Formula["apache-flink@1"].libexec
     system flink_home/"bin/start-cluster.sh"
     output = shell_output "#{bin}/flink-cdc --flink-home #{flink_home} #{testpath}/test-pipeline.yaml"
     assert_match "Pipeline has been submitted to cluster.", output

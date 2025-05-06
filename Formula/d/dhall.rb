@@ -11,6 +11,7 @@ class Dhall < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "f9c27c1448e7ea747a4e43dea0691cfeb1f4b607ce711765a791991ba5213e0c"
     sha256 cellar: :any_skip_relocation, sonoma:        "9a9eacd1dfa079788283348ba238c3afbc66cae36d4af2eb48019d4b945261a1"
     sha256 cellar: :any_skip_relocation, ventura:       "55434b1c01bf6bf9b264fced924a31aa852523884f2c23826e1a69af74c3b83f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "043f28389aef608dafa4085596e02da1c41a671928bf2a32aab9d05307f2f759"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "07be1250410bbcaba21dc5084057529554497b52d942793f4165893a85cabd27"
   end
 

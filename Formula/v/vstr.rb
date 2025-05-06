@@ -25,6 +25,7 @@ class Vstr < Formula
     sha256 cellar: :any,                 high_sierra:    "af6d9cc097c4eb9c1719496b2e29593763b5b17b279ef4c234d681cfe4174b37"
     sha256 cellar: :any,                 sierra:         "07e2b05d9908a847c72950532d3ed12771c856365c8747c8c5917da9a5ea4413"
     sha256 cellar: :any,                 el_capitan:     "d2d5b14e9ac589c782307e058e06815ad2408bbcf418ac721d3fac3be8b832a7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "a7507e113107828ddec905dfb3c2b373d11f676800cc342fdf080a12038df960"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "8346f2277202db06584db705dcf754a00ca364c547791d911e7c3395072b1b6e"
   end
 
@@ -35,8 +36,13 @@ class Vstr < Formula
 
   def install
     ENV.append "CFLAGS", "--std=gnu89"
-    ENV["ac_cv_func_stat64"] = "no" if Hardware::CPU.arm?
-    system "./configure", "--mandir=#{man}", *std_configure_args
+    ENV["ac_cv_func_stat64"] = "no" if OS.mac? && Hardware::CPU.arm?
+
+    args = ["--mandir=#{man}"]
+    # Help old config scripts identify arm64 linux
+    args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+
+    system "./configure", *args, *std_configure_args
     system "make", "install"
   end
 

@@ -25,6 +25,7 @@ class Ogmtools < Formula
     sha256 cellar: :any,                 high_sierra:    "c84b3fe9a525a0f6719bab86a5b919af73b067b48134e9b9ff3225af9b728260"
     sha256 cellar: :any,                 sierra:         "ec07a396ce68d5c646c838e3129dbe6c8ca8ff7ea9126cd31f9844016582d0ec"
     sha256 cellar: :any,                 el_capitan:     "8e0ceae59b3a69647511dff89566a734d25a96a764893c7599ee1ece73890db5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "3608e7bae8ff168511df1e0202734b707d90960e6982c85e65f912b12a5679e7"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "0bd76fd65c8b1627890beef905c7b8eb23119ace422c6618be47a9412862479c"
   end
 
@@ -38,9 +39,10 @@ class Ogmtools < Formula
   end
 
   def install
+    ENV.cxx11
+
     ENV.append "CPPFLAGS", "-I#{Formula["libvorbis"].opt_include}"
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}", "--mandir=#{man}"
+    system "./configure", "--mandir=#{man}", *std_configure_args
 
     system "make", "install", "LIBS=-L#{Formula["libvorbis"].opt_lib} -lvorbis -lvorbisenc"
   end

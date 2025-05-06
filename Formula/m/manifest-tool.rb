@@ -1,17 +1,18 @@
 class ManifestTool < Formula
   desc "Command-line tool to create and query container image manifest list/indexes"
   homepage "https://github.com/estesp/manifest-tool/"
-  url "https://github.com/estesp/manifest-tool/archive/refs/tags/v2.1.9.tar.gz"
-  sha256 "909fa46defbfca664fd05779c7d60e099af87f877ffeea298497e95e3204983d"
+  url "https://github.com/estesp/manifest-tool/archive/refs/tags/v2.2.0.tar.gz"
+  sha256 "a3d770b7fde65d3146c0987e7e7b7be796a2a7a0556476c48b24bd237890cb06"
   license "Apache-2.0"
+  head "https://github.com/estesp/manifest-tool.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f0fa16676503705b0b47fccd329f32d1dfe3ea713de3b5b169599c2dacb91d5e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a26c70492d519db60390b6e1e23f9e955d8733094417a9ede31fe06a5cfbe53f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "e5e2ca74e8db7612d70d251517c2d6aadc57e114c0283e45b6c71b9e085a7709"
-    sha256 cellar: :any_skip_relocation, sonoma:        "94779ecdde3e49fdb93412518e378f4375306b467e2d636b0b10940edfc21855"
-    sha256 cellar: :any_skip_relocation, ventura:       "9ed20c11d7418c6a3a78679865e60d1e002a1e513578f4a5ac191992de1c3c5c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a289ef90b70bbdbdbab4d7dca57db966d2b3d5c3702f4744e2030267b4c08280"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8a037dc929dd0dfb5cad51397794e1a946d788a81bb54225498ecdb903271adb"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "52f7836f4546243d9036b58302d182eae370e2050586e83383bd863e94c4e84a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "04bea67d020b0f2db42ef098245253cda322f46bae79e4b4c235089821cf8a5b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "fc3743f5f152b83dafc3081ef83286b8352280b7f4cda6fd1d04c0b3e0ab48f8"
+    sha256 cellar: :any_skip_relocation, ventura:       "de24ccb775d338266c850e3a72fb5cac0b872f6040a4dde6b6003f9a36286f42"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "784d810a6b808231da1660a46363ef9d55991f12b8edb69e5d5b38eaa2440227"
   end
 
   depends_on "go" => :build

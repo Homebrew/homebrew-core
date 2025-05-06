@@ -1,8 +1,8 @@
 class WasiRuntimes < Formula
   desc "Compiler-RT and libc++ runtimes for WASI"
   homepage "https://wasi.dev"
-  url "https://github.com/llvm/llvm-project/releases/download/llvmorg-19.1.7/llvm-project-19.1.7.src.tar.xz"
-  sha256 "82401fea7b79d0078043f7598b835284d6650a75b93e64b6f761ea7b63097501"
+  url "https://github.com/llvm/llvm-project/releases/download/llvmorg-20.1.4/llvm-project-20.1.4.src.tar.xz"
+  sha256 "a95365b02536ed4aef29b325c205dd89c268cba41503ab2fc05f81418613ab63"
   license "Apache-2.0" => { with: "LLVM-exception" }
   head "https://github.com/llvm/llvm-project.git", branch: "main"
 
@@ -11,13 +11,13 @@ class WasiRuntimes < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a636d634bbd46a100b3c3a7d895133e690d06f06aff206419c44e9a9f56c8b94"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "37889e175dd91764890713a9a0e8d0051c41bf92e79dc21606c2861f1d60dc0d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "b9c10a7fc6e7bedb24dcd47fcbabad34cc088852bb00fa90d8b168428a51d461"
-    sha256 cellar: :any_skip_relocation, sonoma:        "addd5cf4cce8781352cd08afecf44ae3b949def0de067a92125ba154797f2f44"
-    sha256 cellar: :any_skip_relocation, ventura:       "2203da4d16fbadaeb036274ff4d52f8fc8c0b0d530c1e4a9eb9bde0fdb4a8399"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f233577861fd51fe07fd5f77ccda82426f33d983ef36702a941a8c5206d9a2f3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "15cf07fa0c1ae6e4c99d12dd1be002b6d443fd2c26ad9238f04b29ca0680995f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "391ae3eb79a769f9e513a3c6a57031dd25414cfeec9bafd51df86e4aea18f4ca"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "dc9fe8b45f777019d37052127d84992e99b38d5dff60261b8191f8417cbd7e9d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "4d88865762b1e19ad0c1daa2102c1ff3ee9db2e3e987b75d0d249e7029f2b718"
+    sha256 cellar: :any_skip_relocation, sonoma:        "1307e3f9f706b9191fc48c65cc29e1497a82c0de1e28c247f4a3efe0b3c10e71"
+    sha256 cellar: :any_skip_relocation, ventura:       "7462f7df0b2066fe27cbb15a08b156fec402a2524af96b3c18a9ce4f5a637c1d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "efa0d6d2be7f59aa7ad4ce63ddfe8c56dc8c6d96580b368bfb55d5dd0c310faf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f4d64efc2b42fc46a63a994e1e3bd2dfa04916312f2693dbc29074c052ab04cc"
   end
 
   depends_on "cmake" => :build
@@ -61,15 +61,22 @@ class WasiRuntimes < Formula
       -DCMAKE_PROJECT_TOP_LEVEL_INCLUDES=#{HOMEBREW_LIBRARY_PATH}/cmake/trap_fetchcontent_provider.cmake
     ]
     # Compiler flags taken from:
-    # https://github.com/WebAssembly/wasi-sdk/blob/5e04cd81eb749edb5642537d150ab1ab7aedabe9/cmake/wasi-sdk-sysroot.cmake#L65-L75
+    # https://github.com/WebAssembly/wasi-sdk/blob/53551e59438641b25e63bf304869ab4da6d512d9/cmake/wasi-sdk-sysroot.cmake#L71-L88
     compiler_rt_args = %W[
       -DCMAKE_INSTALL_PREFIX=#{pkgshare}
       -DCOMPILER_RT_BAREMETAL_BUILD=ON
       -DCOMPILER_RT_BUILD_XRAY=OFF
       -DCOMPILER_RT_INCLUDE_TESTS=OFF
       -DCOMPILER_RT_HAS_FPIC_FLAG=OFF
-      -DCOMPILER_RT_ENABLE_IOS=OFF
       -DCOMPILER_RT_DEFAULT_TARGET_ONLY=ON
+      -DCOMPILER_RT_BUILD_SANITIZERS=OFF
+      -DCOMPILER_RT_BUILD_XRAY=OFF
+      -DCOMPILER_RT_BUILD_LIBFUZZER=OFF
+      -DCOMPILER_RT_BUILD_PROFILE=OFF
+      -DCOMPILER_RT_BUILD_CTX_PROFILE=OFF
+      -DCOMPILER_RT_BUILD_MEMPROF=OFF
+      -DCOMPILER_RT_BUILD_ORC=OFF
+      -DCOMPILER_RT_BUILD_GWP_ASAN=OFF
       -DCMAKE_C_COMPILER_TARGET=wasm32-wasi
       -DCOMPILER_RT_OS_DIR=wasi
     ]

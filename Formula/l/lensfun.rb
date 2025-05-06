@@ -22,14 +22,14 @@ class Lensfun < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 arm64_sequoia: "bd7e0e0ee91095a654b790be77beaaf678460b7ca5a93761acc7097cbe49c8a4"
-    sha256 arm64_sonoma:  "1b94bfd9c7bd10c9b2a750d636f26d00e631926a82177bc17a602eee34cd5b59"
-    sha256 arm64_ventura: "ddda4af3259759e007b235ef56e81ec47b46210953f267880ed3afe96bbaba71"
-    sha256 sonoma:        "2281557eb46d5d02057d55a99e8709f331ccb48eb953673cc579ab0ecc8256d7"
-    sha256 ventura:       "2682f7ff29e3752b24cbf18b04470fe2f12b2d23c7923ff456fa9f65692728d9"
-    sha256 arm64_linux:   "dc112fc18f0e8f1f3ca8f1501b4a1124f647549a9ba910a016776a67da1b6e91"
-    sha256 x86_64_linux:  "3d243858a098eb0412f6f92c1e0c536e21621bc4982b24a9aca530736e64fd0d"
+    rebuild 4
+    sha256 arm64_sequoia: "19e6455ae24f5deb3f96089c18cf11b77f4fc3d03ca77761e2985d33aeea3e63"
+    sha256 arm64_sonoma:  "06508767287b05cd51b631ea7b6c4d01b3176ba7cbe14412b79df9f3c47dd252"
+    sha256 arm64_ventura: "e54fe0c3f77d0a79a0d9b6850807db5ce3ce136790d4947bda4420e2c4f0596a"
+    sha256 sonoma:        "33b45fe0015b3aa498efbd6d83557352f1646750e6fa137e611d10c56329c14f"
+    sha256 ventura:       "79f780f2be84affa0ec87493db70a520cfd2e675c7c3ecc4f001c16f66bef454"
+    sha256 arm64_linux:   "59a7a77209ba18eb6b81d5965159eb16ff10b83ed6ac49e2afce1118a4b1f2ab"
+    sha256 x86_64_linux:  "c668142f49f3abd0b1dcbfd48d6dbe43ea7faaf69ff2462cb5bbfafba1f060c4"
   end
 
   depends_on "cmake" => :build
@@ -47,13 +47,22 @@ class Lensfun < Formula
   end
 
   def install
+    # Workaround to build with CMake 4
+    ENV["CMAKE_POLICY_VERSION_MINIMUM"] = "3.5"
+
     # Homebrew's python "prefix scheme" patch tries to install into
     # HOMEBREW_PREFIX/lib, which fails due to sandbox. As a workaround,
     # we disable the install step and manually run pip install later.
-    inreplace "apps/CMakeLists.txt", "${PYTHON} ${SETUP_PY} build", "mkdir build"
-    inreplace "apps/CMakeLists.txt", /^\s*INSTALL\(CODE "execute_process\(.*SETUP_PY/, "#\\0"
+    inreplace "apps/CMakeLists.txt" do |s|
+      s.gsub!("${PYTHON} ${SETUP_PY} build", "mkdir build")
+      s.gsub!(/^\s*INSTALL\(CODE "execute_process\(.*SETUP_PY/, "#\\0")
+    end
 
-    system "cmake", "-S", ".", "-B", "build", "-DBUILD_LENSTOOL=ON", *std_cmake_args
+    args = %W[
+      -DBUILD_LENSTOOL=ON
+      -DCMAKE_INSTALL_RPATH=#{rpath}
+    ]
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
     rewrite_shebang detected_python_shebang, *bin.children

@@ -20,6 +20,7 @@ class Cabocha < Formula
     sha256 big_sur:        "1dd5c1474946aaab675326323c8f7e3d101687b50d5542464558f54a8c477cc8"
     sha256 catalina:       "0cf6edea1fa69790984c762aaff33bcea3d6cf5206e06cf489c53e8644cbc9a4"
     sha256 mojave:         "34825bb06bd8cbdb2fe082471044168cccdafc7414eac37eb6550f8a12e0dbe2"
+    sha256 arm64_linux:    "96598b2e47622193fb852eda64753fecff40b088afff67c37538a57f5600e912"
     sha256 x86_64_linux:   "182dfe90c7dcc7c8bf00ece489a1d03b39b1dc66719a58c52efce8f8a8b30b96"
   end
 
@@ -41,6 +42,8 @@ class Cabocha < Formula
       --with-charset=UTF8
       --with-posset=IPA
     ]
+    # Help old config scripts identify arm64 linux
+    args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
 
     system "./configure", *args
     system "make", "install"
@@ -52,7 +55,7 @@ class Cabocha < Formula
     else
       "md5sum"
     end
-    result = pipe_output(md5, pipe_output(bin/"cabocha", "CaboCha はフリーソフトウェアです。"))
+    result = pipe_output(md5, pipe_output(bin/"cabocha", "CaboCha はフリーソフトウェアです。", 0))
     assert_equal "a5b8293e6ebcb3246c54ecd66d6e18ee", result.chomp.split.first
   end
 end

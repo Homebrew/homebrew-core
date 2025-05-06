@@ -4,6 +4,7 @@ class Pdns < Formula
   url "https://downloads.powerdns.com/releases/pdns-4.9.4.tar.bz2"
   sha256 "cac466d7cb056434c60632e554be50543cb0cecd9d3b33bb5785c149b5979fc1"
   license "GPL-2.0-or-later"
+  revision 1
 
   # The first-party download page (https://www.powerdns.com/downloads) isn't
   # always updated for newer versions, so for now we have to check the
@@ -16,13 +17,13 @@ class Pdns < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "120cba37eb991972c895ba744fc9e1bd57ed95d464d4e15e5fdb8b6448b2cfeb"
-    sha256 arm64_sonoma:  "b6b0caa6958bdfc8fcca13f5f2dea9d8fe27e8bea1297592e20b24dde12c3d5d"
-    sha256 arm64_ventura: "95850895c3075b4e8c95bae6177f38d30807874586fbbd027083bbc4760d5172"
-    sha256 sonoma:        "26559eb2c7b5ed81996c53885718f37361b92ca42d32220109af5a3a339535cc"
-    sha256 ventura:       "2020e1497bdea7babd1db4df8307da32a971337b1b483c0d7b05a60a6f366a30"
-    sha256 arm64_linux:   "15d314826ac0d3d92d4071cbbbb67243e15854a35885802964c36e362139141d"
-    sha256 x86_64_linux:  "d1009fdc037db87888ba8e81caca5f4b4698f7799c57dc9e289b3eb195be4420"
+    sha256 arm64_sequoia: "8ac0677fcf305e7d82882bf52287abacc7060e57820303d26d9c2a5c7fa52cb5"
+    sha256 arm64_sonoma:  "d3bb37b574b2b59b00957e0fa77753f04d1e25d73e4a8e91ba3b29aadf517db4"
+    sha256 arm64_ventura: "265d162d41cefcf0ed6db36d1a34cc819fe2238226ba117f6ab634321c76f59c"
+    sha256 sonoma:        "752004f2e6c29770dc8fb5a802f099025e8ec6ab7db044249fb616ac94c13091"
+    sha256 ventura:       "b1b68d140946281177c242f5cc6ba7eef52d6218bf70ac7dcd58d7601718f725"
+    sha256 arm64_linux:   "5f0996791957179f409054cf8c3b5fd3be0b16600c553992a19099f28c00fe3a"
+    sha256 x86_64_linux:  "93a5f5858a20122977141b31485e73eeb5f810d67a24fc86c5911df5c83c1d54"
   end
 
   head do

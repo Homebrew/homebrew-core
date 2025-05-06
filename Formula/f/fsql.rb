@@ -4,6 +4,7 @@ class Fsql < Formula
   url "https://github.com/kashav/fsql/archive/refs/tags/v0.5.2.tar.gz"
   sha256 "21f12261516bfa2ebc4136b7e7e08a23743809e847dfdace3c1f6ac88023277d"
   license "MIT"
+  head "https://github.com/kashav/fsql.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "5ee1ef5c0cb7992fcdab0ab9ea54dd4fe8c5dbef39793a44d7a2d2a74a7bd6a4"

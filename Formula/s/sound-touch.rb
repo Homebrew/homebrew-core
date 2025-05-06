@@ -1,20 +1,18 @@
 class SoundTouch < Formula
   desc "Audio processing library"
   homepage "https://www.surina.net/soundtouch/"
-  url "https://codeberg.org/soundtouch/soundtouch/archive/2.3.3.tar.gz"
-  sha256 "43b23dfac2f64a3aff55d64be096ffc7b73842c3f5665caff44975633a975a99"
+  url "https://codeberg.org/soundtouch/soundtouch/archive/2.4.0.tar.gz"
+  sha256 "3dda3c9ab1e287f15028c010a66ab7145fa855dfa62763538f341e70b4d10abd"
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "13611f86407c3a9c7f4504580c7827389c56000fda7a9fadd930ce7e88be445d"
-    sha256 cellar: :any,                 arm64_sonoma:   "1fe2f2065c864e1da3bac986c5222e9a55b131fadc53275de39f5361c6fd00fe"
-    sha256 cellar: :any,                 arm64_ventura:  "8165de105d4da09709ace4e9bbe43767e9f7151f4cb69455cac3ccd6379cf480"
-    sha256 cellar: :any,                 arm64_monterey: "5736ffb517df2c516cc9d46120888664e3707a797618e20e614bdff935866cc6"
-    sha256 cellar: :any,                 sonoma:         "8c25300640bb261c7b370b5f285d3f296f57c76a71bc04bc4d055f0eae982124"
-    sha256 cellar: :any,                 ventura:        "7c5bdb94f9c5321743ac2db0f520ba0c8c97389729ae96ffbf428cd4fc1f69ad"
-    sha256 cellar: :any,                 monterey:       "c2f6ca0d546e6c96f0eb39cda31822667930c26f06df1eac5ad03119a188ed1e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "dc9bfa95c4bb58f9fee4ef815c18b794e5d110d8c407e0b1ddcd57ee8d0fa8a2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3162dd6ee8f3c0f99ec51c370328e92c4920b3ed4f1d4502d4c79d7733593ed8"
+    sha256 cellar: :any,                 arm64_sequoia: "73661d9ef5c0d165ac98a00a189973b287b38609523d2807ca89edffcfafaa73"
+    sha256 cellar: :any,                 arm64_sonoma:  "b262bd9eaeee94084f75336d6e9d3e3beaa631dd8168a004ced337f36e433828"
+    sha256 cellar: :any,                 arm64_ventura: "c0e31eee1801826eb30ca5a753f35c11ec679b19b802554d00cfb096b494af0f"
+    sha256 cellar: :any,                 sonoma:        "15882d0b1444f3373fbe8440de6fa9b9d561de20a1c2cfad22c40894c3c182d4"
+    sha256 cellar: :any,                 ventura:       "f7b88e434c4ee3c9ac2e9d5676f205fa40da9ddb7d32e89ad2e618aac70b6556"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "351f5272b57863806eae41298ba7658c74fc3974de8b8baf8677203701535b7f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8ded546915e0db8508a66b0883f0385e89a5b5ae88f5c4607d27545c3a5c1697"
   end
 
   depends_on "autoconf" => :build

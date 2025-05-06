@@ -20,14 +20,16 @@ class Bbe < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:    "95cef154264d814bcdb543da64b8947ed8219411c3da20d854f30bd0aeb1332a"
     sha256 cellar: :any_skip_relocation, sierra:         "4f533ae33e0c46a01bc11f1c8b99ef6baba62a376ddee1000de1fa199f18545a"
     sha256 cellar: :any_skip_relocation, el_capitan:     "d9c63d7b9657e6f1c0e53048564f275283177e3513e202a7a9cfc69571bb5008"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "27f2ca2cf847bfde8d9ccba37c4678db988ac753755b97eec3da69f75092ba68"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "b683897c9241114a529a017dafad699e55a4bc3f19f1e3ef9bed408c8ee6c72f"
   end
 
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}"
+    args = []
+    # Help old config scripts identify arm64 linux
+    args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+
+    system "./configure", "--disable-silent-rules", *args, *std_configure_args
     system "make", "install"
   end
 

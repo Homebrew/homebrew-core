@@ -19,6 +19,7 @@ class AmazonEcsCli < Formula
     sha256 cellar: :any_skip_relocation, big_sur:        "66dcb9af8a67215a8a1f4fef00dbf0c16e836cc65985a86d113cb4f208dff50c"
     sha256 cellar: :any_skip_relocation, catalina:       "0bb03d95203b20aebc66ee008946951dfc66a991d6015f38d9158cda3dc36b8c"
     sha256 cellar: :any_skip_relocation, mojave:         "ac8ff57a4b7de517c767f53626f19d134732c9b3a9d68143cac9d4440f01cc2a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "5c02a7a6f0510165209dd1770595340906f5c0165084dd88801ef76916c61270"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "4bfbca5701b37d685a0f5da1a135e736e4a594079e2368262c498396f4446261"
   end
 

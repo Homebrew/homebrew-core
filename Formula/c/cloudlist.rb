@@ -1,18 +1,18 @@
 class Cloudlist < Formula
   desc "Tool for listing assets from multiple cloud providers"
   homepage "https://github.com/projectdiscovery/cloudlist"
-  url "https://github.com/projectdiscovery/cloudlist/archive/refs/tags/v1.2.1.tar.gz"
-  sha256 "8a8737f674105745ac91b430fad2e7c40e35bea289c7c391affae1d4490aa56a"
+  url "https://github.com/projectdiscovery/cloudlist/archive/refs/tags/v1.2.2.tar.gz"
+  sha256 "53efb4bff46b533fab0bbb0003c3fddb5874e64cde8beda977856af3e8fdb064"
   license "MIT"
   head "https://github.com/projectdiscovery/cloudlist.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e1ac865acbd8ff00c59103b7d798f4a6c9cd2d3e043bc10cd36db0e3a03ec911"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e4b85ed63be91cb09cf0f5b38a83a713f793872ba852a6a2fe7da0c841db539a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "6e3fed00e165ff0e68367a443a5b585ffb0ef0d2bea4295a89a1120a196b74fb"
-    sha256 cellar: :any_skip_relocation, sonoma:        "8dec3018726053b46aa1f82bbb25572dec49662d5f8c0b3701a71ecdbf7f94bc"
-    sha256 cellar: :any_skip_relocation, ventura:       "8e182e1c783cf56a357194806f3e06a0f1b52118ca6b30267e45c3e208580818"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d23215052fbdbcc93ce12d17df2df06347bd728c890226a68c12b906e029ad63"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f3eeeff6d7b3312e6bd66a20976b56b8d6ce218432349e0b5c033bef25917bb9"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b3a031f1ad78d063784809b8c086edfb9b92047ddae1c53ae6948debfc7e3e2a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "7a14d6684860a6ef496dc5b65862ef0f29060d49292d96fd5a447ade69f862f0"
+    sha256 cellar: :any_skip_relocation, sonoma:        "432374a4bd4b58a1f7e8fc2b636236cc51629ed2dcd78489733844b5a4f3e632"
+    sha256 cellar: :any_skip_relocation, ventura:       "bc9838edd6c20e8d284902868aa1e88d05199fed36c5726723d263fc21ef5eba"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e3114ba22694e7c5f3b4cd24c016b5556fb2a570c461efe3cad27f27c34a3f63"
   end
 
   depends_on "go" => :build

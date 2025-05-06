@@ -6,20 +6,20 @@ class RubyAT30 < Formula
   license "Ruby"
 
   bottle do
-    sha256 arm64_sonoma:   "03932ac38f421642c799c8370938a5f146b9d186eaed1b93bade9dbe7b6e367c"
-    sha256 arm64_ventura:  "c1364f85ba9f04e12b83c616231cdaa3074fbab02a068291554cd8890ab92f20"
-    sha256 arm64_monterey: "a873955806e5382935e19869ce6932ea346df51d510e5f0d89d954df8d8dc2bf"
-    sha256 sonoma:         "2f067da15c7461fcd89c5844f1d71923fa0fc1a9833be169e86facbe326f5b8f"
-    sha256 ventura:        "6a1dfafc2795a11ec7daccc315cb4b726487b93277f7004568d192aa2da4c758"
-    sha256 monterey:       "b796fe7095b946b1f446e791c5090bb1c7ab2d6d744e45e7c7a51f015a009ff3"
-    sha256 x86_64_linux:   "80af587b8fc9bbaa6af798f114ce75406d460beae0d602c0ea119f3a42f372ce"
+    rebuild 1
+    sha256 arm64_sequoia: "d6c0c2d1eef8d174fb0f72a27d861860da9630b07d7d9adc3d762e7048769b02"
+    sha256 arm64_sonoma:  "5c0e954edf5b76597d96a69550fffd3ab6b4d8d71d0d3bce7a728238c0aa1310"
+    sha256 arm64_ventura: "bb53ca40e06196dd45c889716af020211ee1477da8fbbe1afa2700a891f543c3"
+    sha256 sonoma:        "c62170dac9be26f52fb87691a143c7eba3cf42f6ceef370cc0a817b006f47448"
+    sha256 ventura:       "a8e4b31bebfa062b93199aae9920e4b6e08b6b03f9a469098948a20f72ec3a04"
+    sha256 arm64_linux:   "9498dca4eb73b1f7490207852edd22e18cb8087624ba92585f880840fe185c43"
+    sha256 x86_64_linux:  "82fa93efac645b47c3aea2062908182d521aecc5c6f71521a5077ae238e384d2"
   end
 
   keg_only :versioned_formula
 
   disable! date: "2025-04-23", because: :unmaintained
 
-  depends_on maximum_macos: [:sonoma, :build]
   depends_on "pkgconf" => :build
   depends_on "libyaml"
   depends_on "openssl@3"
@@ -40,6 +40,12 @@ class RubyAT30 < Formula
   resource "openssl" do
     url "https://github.com/ruby/openssl/archive/refs/tags/v3.2.0.tar.gz"
     sha256 "993534b105f5405c2db482ca26bb424d9e47f0ffe7e4b3259a15d95739ff92f9"
+  end
+
+  # Fix compile error in newer compilers.
+  patch do
+    url "https://github.com/ruby/bigdecimal/commit/6d510e47bce2ba4dbff4c48c26ee8d5cd8de1758.patch?full_index=1"
+    sha256 "8ad16dd450031adea22f433c84a61ea4780c99bec6f0f40b1a88e50a597bf54f"
   end
 
   def api_version
@@ -120,9 +126,14 @@ class RubyAT30 < Formula
       (rg_gems_in/"gems").install Dir[buildpath/"vendor_gem/gems/*"]
       (rg_gems_in/"specifications/default").install Dir[buildpath/"vendor_gem/specifications/default/*"]
       bin.install buildpath/"vendor_gem/bin/gem" => "gem"
-      (libexec/"gembin").install buildpath/"vendor_gem/bin/bundle" => "bundle"
-      (libexec/"gembin").install_symlink "bundle" => "bundler"
+      bin.install buildpath/"vendor_gem/bin/bundle" => "bundle"
+      bin.install buildpath/"vendor_gem/bin/bundler" => "bundler"
     end
+
+    # Customize rubygems to look/install in the global gem directory
+    # instead of in the Cellar, making gems last across reinstalls
+    config_file = lib/"ruby/#{api_version}/rubygems/defaults/operating_system.rb"
+    config_file.write rubygems_config
   end
 
   def post_install
@@ -134,21 +145,9 @@ class RubyAT30 < Formula
       #{rubygems_bindir}/bundler
     ].select { |file| File.exist?(file) })
     rm_r(Dir[HOMEBREW_PREFIX/"lib/ruby/gems/#{api_version}/gems/bundler-*"])
-    rubygems_bindir.install_symlink Dir[libexec/"gembin/*"]
-
-    # Customize rubygems to look/install in the global gem directory
-    # instead of in the Cellar, making gems last across reinstalls
-    config_file = lib/"ruby/#{api_version}/rubygems/defaults/operating_system.rb"
-    config_file.unlink if config_file.exist?
-    config_file.write rubygems_config(api_version)
-
-    # Create the sitedir and vendordir that were skipped during install
-    %w[sitearchdir vendorarchdir].each do |dir|
-      mkdir_p `#{bin}/ruby -rrbconfig -e 'print RbConfig::CONFIG["#{dir}"]'`
-    end
   end
 
-  def rubygems_config(api_version)
+  def rubygems_config
     <<~EOS
       module Gem
         class << self
@@ -165,7 +164,7 @@ class RubyAT30 < Formula
             "lib",
             "ruby",
             "gems",
-            "#{api_version}"
+            RbConfig::CONFIG['ruby_version']
           ]
 
           @homebrew_path ||= File.join(*path)

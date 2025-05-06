@@ -17,6 +17,7 @@ class PostgresqlAT13 < Formula
     sha256 arm64_ventura: "6a3099c77f6d89172bf0b146d36098d7ea2ab55bc4ee98e08b05d80bac32dd07"
     sha256 sonoma:        "bd67cbb1340b8eb0f4ce5d6ecfcf2c18384debc8afde679924118d198c710f17"
     sha256 ventura:       "9fa897b5dec76e891d9610ab7527dea50cf3a2e505220e14553d0305813b2bfa"
+    sha256 arm64_linux:   "816a5e4034e5bd2bacf7a5bcbcf43d4248d3826ca24422323c9493c26fd2a24f"
     sha256 x86_64_linux:  "6025805ea0e07ada6b57940029984f9574d191b3753fb3ea1e3aed8ff6621190"
   end
 
@@ -47,6 +48,7 @@ class PostgresqlAT13 < Formula
   end
 
   def install
+    ENV.runtime_cpu_detection
     ENV.delete "PKG_CONFIG_LIBDIR" if OS.mac? && MacOS.version == :catalina
     ENV.prepend "LDFLAGS", "-L#{Formula["openssl@3"].opt_lib} -L#{Formula["readline"].opt_lib}"
     ENV.prepend "CPPFLAGS", "-I#{Formula["openssl@3"].opt_include} -I#{Formula["readline"].opt_include}"

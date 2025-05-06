@@ -12,6 +12,7 @@ class Pickle < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "f639f368ae43bb57ae421bbd3426bab6edc063da8f7ec66f53344c104073f430"
     sha256 cellar: :any_skip_relocation, sonoma:        "91002e34b82efb2b8514339bfc45b0d0a0455dc8ba05c1ccd30fef75841914f7"
     sha256 cellar: :any_skip_relocation, ventura:       "91002e34b82efb2b8514339bfc45b0d0a0455dc8ba05c1ccd30fef75841914f7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "23f1c4215357e0916796420abb44f644c492a3788993b0fcdab6e74a37843b4d"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "f639f368ae43bb57ae421bbd3426bab6edc063da8f7ec66f53344c104073f430"
   end
 

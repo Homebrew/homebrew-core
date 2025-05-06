@@ -1,22 +1,18 @@
 class Rmlint < Formula
   desc "Extremely fast tool to remove dupes and other lint from your filesystem"
   homepage "https://rmlint.readthedocs.io/en/master/"
-  url "https://github.com/sahib/rmlint/archive/refs/tags/v2.10.2.tar.gz"
-  sha256 "0a0233ad517e0fb721f21e188a57cdee5279dd5329b38acb56d5d5312ce46388"
+  url "https://github.com/sahib/rmlint/archive/refs/tags/v2.10.3.tar.gz"
+  sha256 "8ffdbd5d09d15c8717ae55497e90d6fa46f085b45ac1056f2727076da180c33e"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "078bb44e98c88380cea69407a81edbee8f579718ce0610d4dc1c0d194a74909f"
-    sha256 cellar: :any,                 arm64_sonoma:   "e0230b688d4affb228e377a0c26b0d5d32b00ac520c67f8c0a125638be50927d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b150afab45efddb5b6df4ea0e31698447aa772a9ffa4979d3af991723477fa54"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "dd0d1429fee2937667a3bfeefa62afa4d1844295c728e018a6aa73161bba365a"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "89d78b6e1b503c1a3392085e00eff9b757285c1404ae0d48b9152536b40bae48"
-    sha256 cellar: :any,                 sonoma:         "7800b37fe7f0448ac5fe34ebf266e0957b1c42f308c844e42b442b0a9d7b1bd0"
-    sha256 cellar: :any_skip_relocation, ventura:        "6f0ce088122c58e5a26e0d8f11781c08cb8e08eee08562b3a2010b345975a724"
-    sha256 cellar: :any_skip_relocation, monterey:       "d261d543a78134d20476c58bf77c7f8d11523205c238ec128a4bba212ef141bb"
-    sha256 cellar: :any_skip_relocation, big_sur:        "380c6d02cfafea119241c0bd887e147b049179ac16f3b08cc4dc419c882105db"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "69bd13ed738fddcd4017751c9093746ed968fa5891ebd592a440cedbed48cf37"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7f056030634c596f3880dcc9b97e71fea6ebf1a556daad25c1907f2e6ab41eeb"
+    sha256 cellar: :any,                 arm64_sequoia: "271ea48a158868357536e3dfff58e0707e33f2ce3a14a8040b25ac08b6434474"
+    sha256 cellar: :any,                 arm64_sonoma:  "b2d780f8713b5f8e9979f38f4fa9cfa831cbd65b2e1a206d8e760606335b2e78"
+    sha256 cellar: :any,                 arm64_ventura: "ade2340e57e28b4693f73a4eb919f17bf1a18d39ab268f0ae51d984bf0cfeced"
+    sha256 cellar: :any,                 sonoma:        "bfc2a7bbbd018d9fa63b6dc5fcdc312e6811bd713a465da66b9a81f1ae03f72e"
+    sha256 cellar: :any,                 ventura:       "c6a8d12e5c6c75922cb42ebcacfc59b9d659328cd05b566a9ea3b262aed5b79b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e7bbe7f7dd26aa3ca9a053570ab919cf162b723ae2f92fd1e90e98e22a54afdd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0e9369f955ae09325e3c66a511024ea6dd65cb6c5bcca1cba03b7ad3fecc8cfb"
   end
 
   depends_on "gettext" => :build
@@ -48,7 +44,7 @@ class Rmlint < Formula
     system "scons", "config"
     system "scons"
     bin.install "rmlint"
-    man1.install "docs/rmlint.1.gz"
+    man1.install "docs/_build/man/rmlint.1"
   end
 
   test do

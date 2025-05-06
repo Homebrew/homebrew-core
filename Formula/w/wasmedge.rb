@@ -1,20 +1,29 @@
 class Wasmedge < Formula
   desc "Lightweight, high-performance, and extensible WebAssembly runtime"
   homepage "https://WasmEdge.org/"
-  url "https://github.com/WasmEdge/WasmEdge/releases/download/0.14.1/WasmEdge-0.14.1-src.tar.gz"
-  sha256 "e5a944975fb949ecda73d6fe80a86507deb2d0a221b2274338807b63758350b4"
   license "Apache-2.0"
-  revision 1
+  revision 2
   head "https://github.com/WasmEdge/WasmEdge.git", branch: "master"
 
+  stable do
+    url "https://github.com/WasmEdge/WasmEdge/releases/download/0.14.1/WasmEdge-0.14.1-src.tar.gz"
+    sha256 "e5a944975fb949ecda73d6fe80a86507deb2d0a221b2274338807b63758350b4"
+
+    # Backport fix for LLVM 20
+    patch do
+      url "https://github.com/WasmEdge/WasmEdge/commit/b63e201d46452453ee7c2acf07967cd292d7e3da.patch?full_index=1"
+      sha256 "5c7f335ef8c126fc7791c289eb9c53527e1649388eb6e160e524c4d756122eb0"
+    end
+  end
+
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "f6ae6e711e190c45a027eccd05ca4415c55888ea94a00439fbe7bbd0c6a941c8"
-    sha256 cellar: :any,                 arm64_sonoma:  "f08075f0ed49f38c7d55bf912a1b313b1d63578c79d5893712b49a985a8f3003"
-    sha256 cellar: :any,                 arm64_ventura: "c1d79e101c67d214b8801143665250b442159a5fdcc117843b9fb3151678877d"
-    sha256 cellar: :any,                 sonoma:        "ba7e25a126a64a5a9c039e2a814a90f1aa7ae93384d2da5aed5a6eb3b9cf2b1a"
-    sha256 cellar: :any,                 ventura:       "acc7cb9c933d4834accf98d4c6bd8c3a6ab37a161127b4b0e61d1d1e7a5dc690"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b3a0a0f0a26f46592eeb794413b4986dd2963903d8629358b60e62dba4703c1a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e93dc0a0ce969f97bd6bb5c6066d097c3bd7cd322de2293e309ce14defc4ac2d"
+    sha256 cellar: :any,                 arm64_sequoia: "67f798b7219084dfa14096a1c91974f1252b3aa90b774292a4b2b09c9d257da9"
+    sha256 cellar: :any,                 arm64_sonoma:  "e40488c2a5a64616f0abdad4e86056e67b417d46dd253deee1f9e8072a8b1be5"
+    sha256 cellar: :any,                 arm64_ventura: "0cf792cb183a9c9089f4ba8166565eb30d034fa8ec80e533a1121bc16151ff2e"
+    sha256 cellar: :any,                 sonoma:        "f6aef7a20301de5044988aed305a9514758f450919daa23b69d8d6eaf09038ff"
+    sha256 cellar: :any,                 ventura:       "1583bcaef8c69487b45ec5a4e5c0b77161e54a8f8e50cd30ab157d8c155b0520"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "549aa7b97ccf0598a95b28c22515de2eb75f27cd33bafb8d586ba929417becdd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "78bc000a274f42631d0fdedbfa43a93c06522a929bb15ee3008cb460310045ff"
   end
 
   depends_on "cmake" => :build

@@ -3,8 +3,8 @@ class CoreLightning < Formula
 
   desc "Lightning Network implementation focusing on spec compliance and performance"
   homepage "https://github.com/ElementsProject/lightning"
-  url "https://github.com/ElementsProject/lightning/releases/download/v25.02/clightning-v25.02.zip"
-  sha256 "d34706fc391103047f7ccbae2979a5d90022134c82e9395052a5c42db6c33d11"
+  url "https://github.com/ElementsProject/lightning/releases/download/v25.02.1/clightning-v25.02.1.zip"
+  sha256 "d1e44b73f6d1e2c8e73482b38645fdc95080a32a5fd53561a5af3ce269950b9e"
   license "MIT"
   head "https://github.com/ElementsProject/lightning.git", branch: "master"
 
@@ -15,12 +15,13 @@ class CoreLightning < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "be9c3ee38faf131c6d7c126d56836d5f3ccde084570cc05b5cf56468cb7fc654"
-    sha256 arm64_sonoma:  "00fb478eeb22d34d5e33dbae828157b83b799e2a2b38e8914d01fcf198dca637"
-    sha256 arm64_ventura: "ca3c9f32c93decb9e007c95efdc421ebbdaee4b1766e7efefc5ccf496d0a945f"
-    sha256 sonoma:        "1b922f5184455ba135a5ddf27f1e8c3d67393dda6e153e6e93cf6051f8cdd1a8"
-    sha256 ventura:       "f654e1cc81b09d28b1f97aa76738b3e0b6b744d3471b92023ccdc34dcdb85e74"
-    sha256 x86_64_linux:  "df98949e07cd165f09994cada540a03e620f3f181bbaed6683e5803a3c008c0f"
+    sha256 arm64_sequoia: "b49f2814b9ec4357c2ab5db5efbe0b1eba2a109f99aa74ce3b17cec19b03f016"
+    sha256 arm64_sonoma:  "79be98d83c0aac8cd5d489930b4794d1f83659c5e8d1175ba9f5b41ae17e5f98"
+    sha256 arm64_ventura: "bf0160cd78e908de4cf9a1effb96281523a3a6f9fbddf6ef5a92577d7b86508d"
+    sha256 sonoma:        "f79a9e56ff37376cce4f46ef30f51365322529d9f51b999fef77a35288ff9183"
+    sha256 ventura:       "c3de74f46974d05b446abcdd9121bd5df1fb684ec608821c7a3bd75a6e23b9c9"
+    sha256 arm64_linux:   "75bdf892a9e16bd2de28c37f741aba769a787f6d0c2b9392698697be1ea178d3"
+    sha256 x86_64_linux:  "6a24472f3b1f8ebd6b1d4f678ca8b6abc63b9a44dda8c1ae43252585e1bf813a"
   end
 
   depends_on "autoconf" => :build
@@ -30,7 +31,6 @@ class CoreLightning < Formula
   depends_on "lowdown" => :build
   depends_on "pkgconf" => :build
   depends_on "protobuf" => :build
-  depends_on "python-setuptools" => :build
   depends_on "python@3.13" => :build
   depends_on "rust" => :build
   depends_on "bitcoin"
@@ -46,13 +46,18 @@ class CoreLightning < Formula
   end
 
   resource "mako" do
-    url "https://files.pythonhosted.org/packages/5f/d9/8518279534ed7dace1795d5a47e49d5299dd0994eed1053996402a8902f9/mako-1.3.8.tar.gz"
-    sha256 "577b97e414580d3e088d47c2dbbe9594aa7a5146ed2875d4dfa9075af2dd3cc8"
+    url "https://files.pythonhosted.org/packages/62/4f/ddb1965901bc388958db9f0c991255b2c469349a741ae8c9cd8a562d70a6/mako-1.3.9.tar.gz"
+    sha256 "b5d65ff3462870feec922dbccf38f6efb44e5714d7b593a656be86663d8600ac"
   end
 
   resource "markupsafe" do
     url "https://files.pythonhosted.org/packages/b2/97/5d42485e71dfc078108a86d6de8fa46db44a1a9295e89c5d6d4a06e23a62/markupsafe-3.0.2.tar.gz"
     sha256 "ee55d3edf80167e48ea11a923c7386f4669df67d7994554387f84e7d8b0a2bf0"
+  end
+
+  resource "setuptools" do
+    url "https://files.pythonhosted.org/packages/a9/5a/0db4da3bc908df06e5efae42b44e75c81dd52716e10192ff36d0c1c8e379/setuptools-78.1.0.tar.gz"
+    sha256 "18fd474d4a82a5f83dac888df697af65afa82dec7323d09c3e37d1f14288da54"
   end
 
   # Configure script overwrites `PKG_CONFIG_PATH` on macOS

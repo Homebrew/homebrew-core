@@ -1,24 +1,23 @@
 class Nickle < Formula
   desc "Desk calculator language"
   homepage "https://www.nickle.org/"
-  url "https://deb.debian.org/debian/pool/main/n/nickle/nickle_2.102.tar.xz"
-  sha256 "a997f211b47ca53bc000a2fc64a95282dd7eb7671a8e649f8196b58352b643a3"
+  url "https://nickle.org/release/nickle-2.103.tar.xz"
+  sha256 "5ec34861d3888956bcb1d50bb3a917f6a53f228a967b88401afe8a9f0f2f36c0"
   license "MIT"
-  head "https://keithp.com/cgit/nickle.git", branch: "master"
 
   livecheck do
-    url "https://deb.debian.org/debian/pool/main/n/nickle/"
+    url "https://nickle.org/release/"
     regex(/href=.*?nickle[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
-    sha256 arm64_sequoia: "2fdc47d6d5048414dfb052a1435db3384faf66f24aa5676bc44d6103b6566b5e"
-    sha256 arm64_sonoma:  "44a28de3bfd6cbcbd1c3241cc6c159eb6c1d872b66bcda0b9753a9cff6f73829"
-    sha256 arm64_ventura: "43b3243b4a9484fda1eea6f44ce4e0f2e205d4f1a1a089f4d8bfce6c0f8cea52"
-    sha256 sonoma:        "a545c7cf04ec60df69b247257d58305914b4e799604afa959cae74e616debf89"
-    sha256 ventura:       "0c7c8b844b443aed8417bc9e0061cd6d242d6f8fb89d7f7e2efdb6efe70c7080"
-    sha256 arm64_linux:   "ebaef6f179fb144f460b519fe49903498fd4e41e8e1fde1d5ecc708a76db5870"
-    sha256 x86_64_linux:  "714be532767cf1fadc8094350bec6e70459a8dd8e891a8eeba3de01099638dde"
+    sha256 arm64_sequoia: "05fe04bd87e1683f8ade70c6b9ad53b59b958322151516fcbbc41b79fb9f2ad4"
+    sha256 arm64_sonoma:  "c6c317696897c7ec062413e912e0c1826b05c1156bd8d824cd0d304fc66da361"
+    sha256 arm64_ventura: "0fd866fe7d1ce93c062602166bdb78f23d361e2878d21484271d1779491d8151"
+    sha256 sonoma:        "2b5f09ba8a23cebb6a8eeedc8b925b583ffb84dc3adc323be1c7ac97e50abbc3"
+    sha256 ventura:       "97d9d0a48b9cd94f5b740fb2b4a7105807a0c38ace4362c681392fb34ba94ce8"
+    sha256 arm64_linux:   "3ca75636c5293bde54e93fb922b6f3c34b0a9d698cffac1452902e0caff1033f"
+    sha256 x86_64_linux:  "3e484518933728d2e31d47c464f9ae017dd79d06221c1d47aa500010d2a6d42e"
   end
 
   depends_on "autoconf" => :build

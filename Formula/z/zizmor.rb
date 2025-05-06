@@ -1,18 +1,18 @@
 class Zizmor < Formula
   desc "Find security issues in GitHub Actions setups"
   homepage "https://woodruffw.github.io/zizmor/"
-  url "https://github.com/woodruffw/zizmor/archive/refs/tags/v1.5.2.tar.gz"
-  sha256 "9789dca47e36ac8c124be5856c38acfac6169839c7fb3a0ce492776e47f1d880"
+  url "https://github.com/woodruffw/zizmor/archive/refs/tags/v1.6.0.tar.gz"
+  sha256 "17a244ff5a4d5ea58b323e421da2c061bb661c2e533c3827988a83cc1ed79f78"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "44ea65cdc71afa8e5717919be822456172a31a39b8061fb56041ec82d1b1b40e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "45afe3145e67cd329faa3b1be1a7eea8840955881e2afdaa655cbb7d1e91cffd"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "f94f2cc9e5c878c80dd9cacbdf8f249bc574cded3301524ea642557ff2cb8213"
-    sha256 cellar: :any_skip_relocation, sonoma:        "6730852ca2acea48f89324559683c526709f92c9be0e20bba156965f492754bf"
-    sha256 cellar: :any_skip_relocation, ventura:       "83b9c25537c2e30c681eef1796bd55dafc3c86a87d486807f194f78197ecdcd3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a602a257efd83ca95718bd7750701fb6cf0370e4a2555b7e6a7987261ecb87cf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "59c31eed2ba3d1f73b5f106678c548f04daad76b4f54591335d3337fdcdb17b0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "06cdf464e76734631bb7e218623cc20e4a1c79a60c48fe0214e5bf089377edd5"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "627df6dc06fc48c7cd01aca11096ab7b9da8ed3bac34ca31c6c83a1f4e2c4bfb"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "62e651f7551a649a71f228ac0843e737bd88079abf914825fead17114489eab8"
+    sha256 cellar: :any_skip_relocation, sonoma:        "62c2b7d26c945adbd8679498612d5ad2a52b06ba25162edd6bb40eab24dabb36"
+    sha256 cellar: :any_skip_relocation, ventura:       "7ff2e163033021070d0ed7efdaf32331002df1df6b549881e672c201cc61ac02"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "586d9e955b0037151269896184c4e8ca5cd8e15364abd008cfd209d24fd90a73"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1e1e45ec0461b3db2f198652a8f3a00bb227bbfe9ce929580a0e13ab13c94347"
   end
 
   depends_on "pkgconf" => :build

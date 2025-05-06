@@ -1,8 +1,8 @@
 class CloudfoundryCli < Formula
   desc "Official command-line client for Cloud Foundry"
   homepage "https://docs.cloudfoundry.org/cf-cli"
-  url "https://github.com/cloudfoundry/cli/archive/refs/tags/v8.11.0.tar.gz"
-  sha256 "a89826427c0e4dc273c191ae1a459a8a447ba9362ddb8da7d07d97c6e42d6823"
+  url "https://github.com/cloudfoundry/cli/archive/refs/tags/v8.13.0.tar.gz"
+  sha256 "13c344e0add8876de103e536b383a837f679881813441d985f7503e3126f8de4"
   license "Apache-2.0"
   head "https://github.com/cloudfoundry/cli.git", branch: "main"
 
@@ -12,12 +12,12 @@ class CloudfoundryCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7d990370cf12440f35a9305a6339e603609b84442c6ca7d9a1998e09f888aa1b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7d990370cf12440f35a9305a6339e603609b84442c6ca7d9a1998e09f888aa1b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "7d990370cf12440f35a9305a6339e603609b84442c6ca7d9a1998e09f888aa1b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "397226081d3ce1a0bbd85ef28e644726170ebece2033e5a8b0133fbe4781c8d4"
-    sha256 cellar: :any_skip_relocation, ventura:       "397226081d3ce1a0bbd85ef28e644726170ebece2033e5a8b0133fbe4781c8d4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "83d32f1626b307d3c934d2317eda0c0bbafe4bbaeadd002c9a6fd04a25530045"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "227ab5412bb0b0f63ee645b4e40c810e16d6fa7a8a930ab0982548fb3ba2c7f3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "227ab5412bb0b0f63ee645b4e40c810e16d6fa7a8a930ab0982548fb3ba2c7f3"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "227ab5412bb0b0f63ee645b4e40c810e16d6fa7a8a930ab0982548fb3ba2c7f3"
+    sha256 cellar: :any_skip_relocation, sonoma:        "455258ce54c56fe5a6c055c6fedc015be8c1a72c5845078c6c4c7bb399ef5204"
+    sha256 cellar: :any_skip_relocation, ventura:       "455258ce54c56fe5a6c055c6fedc015be8c1a72c5845078c6c4c7bb399ef5204"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9651545bc5f58f839a4b26f585feffb7d6f3852ad5430fcf54aa201f20b850be"
   end
 
   depends_on "go" => :build

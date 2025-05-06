@@ -10,7 +10,7 @@ class PerconaXtrabackupAT80 < Formula
     url "https://www.percona.com/products-api.php", post_form: {
       version: "Percona-XtraBackup-#{version.major_minor}",
     }
-    regex(/value=["']?[^"' >]*?v?(\d+(?:[.-]\d+)+)["' >]/i)
+    regex(/value=["']?[^"' >]*?v?(\d+(?:[.-]\d+)+)[|"' >]/i)
     strategy :page_match do |page, regex|
       page.scan(regex).map do |match|
         # Convert a version like 1.2.3-4.0 to 1.2.3-4 (but leave a version like

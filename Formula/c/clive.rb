@@ -4,6 +4,7 @@ class Clive < Formula
   url "https://github.com/koki-develop/clive/archive/refs/tags/v0.12.9.tar.gz"
   sha256 "39f7c33a05ea1e608c4fa4918bb615b1f75eabbbb848c129436c43484967b74d"
   license "MIT"
+  head "https://github.com/koki-develop/clive.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "d1018d56e8435e55660cddbd5d663eb1842334c7fa1a57f621ef1c12c3290a0e"

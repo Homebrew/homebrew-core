@@ -10,6 +10,8 @@ class ApmBashCompletion < Formula
     sha256 cellar: :any_skip_relocation, all: "f86348dd9abdb4b7a8c6353f29374d7432375920a0281e806f14d50b8673bc1f"
   end
 
+  deprecate! date: "2025-04-27", because: :repo_archived
+
   def install
     bash_completion.install "apm"
   end

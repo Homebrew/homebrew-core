@@ -1,18 +1,18 @@
 class Mqttui < Formula
   desc "Subscribe to a MQTT Topic or publish something quickly from the terminal"
   homepage "https://github.com/EdJoPaTo/mqttui"
-  url "https://github.com/EdJoPaTo/mqttui/archive/refs/tags/v0.22.0.tar.gz"
-  sha256 "49bb8839b8c27d2a879c73bd3a26231c1a69263eca8af0b469365b115fadb3ad"
+  url "https://github.com/EdJoPaTo/mqttui/archive/refs/tags/v0.22.1.tar.gz"
+  sha256 "c8a65a1aef2e96484e09972de50fb6150a868cd30ce16d26df1466fdac1a6c75"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "21c7111d662ab3e1ec89bdf8da9c7e6fa25cbc9c423dbe8383da04af47e02f0a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0380abf2943a31a1e3698548d26c3a70961489f2873304b05b7cf3d8aa262ee8"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "9a31abded39cd0fa66efb8289f430472ad24662d287bcbca66f9fdb67b79dfd1"
-    sha256 cellar: :any_skip_relocation, sonoma:        "16c209141f52cf46bd1dfaebb14a6510d58d374d2094b1f9772f4fd50e358cce"
-    sha256 cellar: :any_skip_relocation, ventura:       "6216299aeabdc5bf0400e9f078c8a0623b3e64a2717eb3c1cca12126ca33f1e5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "77dd0d8bedcbd344d066b13d6f33a6771a0bee65c940a3f68ccd3722323256c0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "906dad6b4a5f3e1587edd4769357095c421023cd58070b05690153bd759d021d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "65186b346d1af06bc34f626f5f5bed22ca0b2eaf458bc1850afb3c07aa3b66cb"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "17e16b8a943e3b1190d5295eedf18ee730dad9a0090e3f5b88af24372410b3f8"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "74704675148861672b2356a54a27113270df8066815ecf4307afd13558f764fa"
+    sha256 cellar: :any_skip_relocation, sonoma:        "77140e798abd551e3da4a845473aa93e5737dcb2900a2605d2810e93c051b5ec"
+    sha256 cellar: :any_skip_relocation, ventura:       "e5827a0c24cf1a4989e249ef9425440dfc2254045945abcfd1481c60393ba195"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "09274a577c3e10a6cb0092a7bb38fccf5d1c1c1fdbf7d5d79783e94b52d1f99b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5cb9b3f506f2cff73d1a6ef21969575a3e24646be804577b179e5735666dbe53"
   end
 
   depends_on "rust" => :build

@@ -4,17 +4,16 @@ class Spek < Formula
   url "https://github.com/alexkay/spek/releases/download/v0.8.5/spek-0.8.5.tar.xz"
   sha256 "1bccf85a14a01af8f2f30476cbad004e8bf6031f500e562bbe5bbd1e5eb16c59"
   license "GPL-3.0-or-later"
-  revision 2
+  revision 3
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "58bc8505cebc07a5e85064476565f3201263f69562a8fff4d180b71e85980143"
-    sha256 cellar: :any,                 arm64_sonoma:   "a434f5f525998ad4de94e89af65453dab86c371546d1b0468a799a77ba22f445"
-    sha256 cellar: :any,                 arm64_ventura:  "4da941a0a603896fd2c7c9bbf6a2fc111fff0378e04471d9ef4d1b6932212790"
-    sha256 cellar: :any,                 arm64_monterey: "09a5c514d629a475c0f27c2899719a27a3e84db8d93304f568a15b8aed03fa0f"
-    sha256 cellar: :any,                 sonoma:         "e4d77fc4a259cf4d864eeb0059cc27e203b49ba2459fb251e237b2f8c7412f30"
-    sha256 cellar: :any,                 ventura:        "0282680357860d5b083421f330ec203c9eb3d223c9d478c53a93818db2c679f7"
-    sha256 cellar: :any,                 monterey:       "b94b801a93e392bc91cc055991fd7cedd92bdd77be291fded38ca9b7317d8f8d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "73d782e38ee8b6b90ed44ad6a7e91e58f2c0f37f8822793888aa1d60870b9df5"
+    sha256 cellar: :any,                 arm64_sequoia: "9a5cf8f9e155491cc75e877decfa35c8c7cd860ed879247333a5c8384660359e"
+    sha256 cellar: :any,                 arm64_sonoma:  "76309f0f2438be4e22807912c1a081674e2d3edee7f976b8eca234cba52bf52d"
+    sha256 cellar: :any,                 arm64_ventura: "c04a1cdad577b8f573c6aa433ec6c2905cc56a51991293453c271aa059dcf09d"
+    sha256 cellar: :any,                 sonoma:        "e1d327c7239a6fdfefaef78aaf1e778975db93898cead17a976f779e48ccf0d9"
+    sha256 cellar: :any,                 ventura:       "3542b9595fabcd839fb1038d1819e2cd47cf429f8cab84ee60bc21daf8285773"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "536cc269ec43894509ba9a294d2c5444648a802d299dececcfe977b0098801fe"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "451a222b2d0b0b7cc2296e017cc3cdedcbc346bea401802df9031693a44df61b"
   end
 
   depends_on "pkgconf" => :build

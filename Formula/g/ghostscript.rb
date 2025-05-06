@@ -1,10 +1,9 @@
 class Ghostscript < Formula
   desc "Interpreter for PostScript and PDF"
   homepage "https://www.ghostscript.com/"
-  url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs10050/ghostpdl-10.05.0.tar.xz"
-  sha256 "f154039345b6e9957b0750f872374d887d76321d52bbcc9d3b85487855e08f02"
+  url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs10051/ghostpdl-10.05.1.tar.xz"
+  sha256 "320d97f46f2f1f0e770a97d2a9ed8699c8770e46987e3a3de127855856696eb9"
   license "AGPL-3.0-or-later"
-  revision 1
 
   # The GitHub tags omit delimiters (e.g. `gs9533` for version 9.53.3). The
   # `head` repository tags are formatted fine (e.g. `ghostpdl-9.53.3`) but a
@@ -12,17 +11,19 @@ class Ghostscript < Formula
   # check the version from the first-party website instead.
   livecheck do
     url "https://www.ghostscript.com/json/settings.json"
-    regex(/["']GS_VER["']:\s*?["']v?(\d+(?:\.\d+)+)["']/i)
+    strategy :json do |json|
+      json["GS_VER"]
+    end
   end
 
   bottle do
-    sha256 arm64_sequoia: "948f72023c7ea36999720a3896e9fe6bd7bca5f729e9542a83898fc466ae5574"
-    sha256 arm64_sonoma:  "92ca4fa430c750da529e54330cf8b4af147d379eed7ec737cfde9d9f1ee2c5a0"
-    sha256 arm64_ventura: "64e79e4bc5ab9cf9f0b53645710a193ef4e1d75e60a8c51e66a846a47a49ad39"
-    sha256 sonoma:        "707b9eea9f80bdf950e12cf7b59537302a33f5707f2e06109b24a17cc384507c"
-    sha256 ventura:       "3dbff2e77ad07b6cfd12cd46caabd589e38bc2fa07c12db491e29579f6af2ab9"
-    sha256 arm64_linux:   "2c35a094d9836470412654c12e5a3ea17c87cfe85063ba8bf99deefe0960d8e2"
-    sha256 x86_64_linux:  "e00b681edbdf22d03d037ed0a62097b01a296e76cbced89d544306622a979d80"
+    sha256 arm64_sequoia: "29a6c1c81a8c04ccc3a1a918b7bb75843318e13c4123cd196bae785466dc572a"
+    sha256 arm64_sonoma:  "f27ecbe17374b336ed1c402eb9b85afde9ab8584e472616595d66f820c38ef15"
+    sha256 arm64_ventura: "186b6ef887ecf25c6391596e5512666f5b0ec9b597ab69dc23079f06a7cddac3"
+    sha256 sonoma:        "d3d6fa441d393c477f19e9ba76603eb1ac087ec981c8d580608dc374fd57e2b5"
+    sha256 ventura:       "af5e17cda31fd12b3060df288a2a81d6887f4f4f338c2c191528b992902eac56"
+    sha256 arm64_linux:   "78257507e8c15192dd279a2332d006bdf2afbd906ea294700b3e2fdc9f7c55ae"
+    sha256 x86_64_linux:  "549c239558aabcb90990f44a9c48cb13899a6d1605c62f20918ed2e5a8481bc0"
   end
 
   head do

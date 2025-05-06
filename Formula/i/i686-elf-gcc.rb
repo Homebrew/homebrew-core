@@ -1,9 +1,9 @@
 class I686ElfGcc < Formula
   desc "GNU compiler collection for i686-elf"
   homepage "https://gcc.gnu.org"
-  url "https://ftp.gnu.org/gnu/gcc/gcc-14.2.0/gcc-14.2.0.tar.xz"
-  mirror "https://ftpmirror.gnu.org/gcc/gcc-14.2.0/gcc-14.2.0.tar.xz"
-  sha256 "a7b39bc69cbf9e25826c5a60ab26477001f7c08d85cec04bc0e29cabed6f3cc9"
+  url "https://ftp.gnu.org/gnu/gcc/gcc-15.1.0/gcc-15.1.0.tar.xz"
+  mirror "https://ftpmirror.gnu.org/gcc/gcc-15.1.0/gcc-15.1.0.tar.xz"
+  sha256 "e2b09ec21660f01fecffb715e0120265216943f038d0e48a9868713e54f06cea"
   license "GPL-3.0-or-later" => { with: "GCC-exception-3.1" }
 
   livecheck do
@@ -11,15 +11,13 @@ class I686ElfGcc < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia:  "ed4f24ab8d5ddfb3ac152bcea2770091f971371e6f12e4d0c52bada32029a886"
-    sha256 arm64_sonoma:   "0a57ba083890cd5c545c7c4a64c951204a9f7fc129125fa12b2849c1f6560f14"
-    sha256 arm64_ventura:  "519150001d183b5cbd146e898583f39bff796dbd6ea573932181c2e7e52f8b87"
-    sha256 arm64_monterey: "afec4b766ffdca1f197b9765d39d1833db026b5dab624b9a0248a185959f4e39"
-    sha256 sonoma:         "f36ee7f782db7f66e6f11206ef5373f3703523fbf26cab16cce574bbc8c241e9"
-    sha256 ventura:        "5119fac4b4c065b990c8dd8319202f7265c3896f0deeeb47c2adc1fb86290295"
-    sha256 monterey:       "36ecef923608bbd2c7bee2956da81eb2b7dc22e96b6966c23d85458b7e77a510"
-    sha256 arm64_linux:    "c81f98a8f35ed4e6d0ca34aaa93924e848ecea03ae57e9da568798bd778cfad5"
-    sha256 x86_64_linux:   "a03e1a866a1d4dc0204011be8ad2466bf34ec96e8e0113201173d57fc4c5b016"
+    sha256 arm64_sequoia: "8e2c4ad88cbeb24b8de4bd588b2295594282738e750a12257b741d62b9554d15"
+    sha256 arm64_sonoma:  "d76a7ca2b5c17dfd8371073bd9403eebbf767778cd29b3b12add0906f1c292c7"
+    sha256 arm64_ventura: "4c06228afceb027d0ce4b34256c6ec0d5cd7dfe7daeec3ed9294cfc30530bd1a"
+    sha256 sonoma:        "1172380d92d25c59e015a58d537e7034ba29bfaf6fe8144100744074829a0ff4"
+    sha256 ventura:       "8a8386bf395ef25bea60ec676e54579ffa3a7f36e9c5559e3f4be9840ad9ff7e"
+    sha256 arm64_linux:   "7dea4d76dd9a20c6f789b0b942843995bbc12cf73f55345e54c3ebd2b986e043"
+    sha256 x86_64_linux:  "311f32728f01c2ee43cc703ed6a12be6b930a0df5f434f4ffeda5bf9e8f2aedc"
   end
 
   depends_on "gmp"
@@ -27,6 +25,8 @@ class I686ElfGcc < Formula
   depends_on "libmpc"
   depends_on "mpfr"
   depends_on "zstd"
+
+  uses_from_macos "zlib"
 
   def install
     target = "i686-elf"
@@ -39,6 +39,7 @@ class I686ElfGcc < Formula
                              "--without-headers",
                              "--with-as=#{Formula["i686-elf-binutils"].bin}/i686-elf-as",
                              "--with-ld=#{Formula["i686-elf-binutils"].bin}/i686-elf-ld",
+                             "--with-system-zlib",
                              "--enable-languages=c,c++"
       system "make", "all-gcc"
       system "make", "install-gcc"

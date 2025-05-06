@@ -22,6 +22,7 @@ class Swift < Formula
     sha256 cellar: :any,                 arm64_ventura: "a1d9ce8a6b96748adab517f9b9f76daed8a713d3f2050b5854525b3f611c6748"
     sha256 cellar: :any,                 sonoma:        "45509e26cf31a30de0e5cf6e31c73d1031a402b2446bd645b0ed192e9b0ad1b7"
     sha256 cellar: :any,                 ventura:       "a440a437121c2e9aaba92681137e3b954cd45d5a03d23cf94d226a78fa937050"
+    sha256                               arm64_linux:   "f91ffa53d6aed66eba8a29f5c082b88f5a0bd54653b123fdd5f80e6fb4044522"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "b990b642f94de06a0e7eed8fa0b36909d582f80ff2f2f93e140836b4d5c9dfcf"
   end
 
@@ -432,14 +433,18 @@ class Swift < Formula
         ENV.remove "PKG_CONFIG_PATH", Formula["sqlite"].opt_lib/"pkgconfig"
       end
       if OS.linux?
+        # List of valid values in class StdlibDeploymentTarget in
+        # utils/swift_build_support/swift_build_support/targets.py
+        arch = (Hardware::CPU.arm? && Hardware::CPU.is_64_bit?) ? "aarch64" : Hardware::CPU.arch
+
         args += %W[
           --libcxx=0
           --foundation
           --libdispatch
           --xctest
 
-          --host-target=linux-#{Hardware::CPU.arch}
-          --stdlib-deployment-targets=linux-#{Hardware::CPU.arch}
+          --host-target=linux-#{arch}
+          --stdlib-deployment-targets=linux-#{arch}
           --build-swift-static-stdlib
           --build-swift-static-sdk-overlay
           --install-foundation

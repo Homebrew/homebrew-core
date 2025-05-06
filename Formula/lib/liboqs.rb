@@ -1,8 +1,8 @@
 class Liboqs < Formula
   desc "Library for quantum-safe cryptography"
   homepage "https://openquantumsafe.org/"
-  url "https://github.com/open-quantum-safe/liboqs/archive/refs/tags/0.12.0.tar.gz"
-  sha256 "df999915204eb1eba311d89e83d1edd3a514d5a07374745d6a9e5b2dd0d59c08"
+  url "https://github.com/open-quantum-safe/liboqs/archive/refs/tags/0.13.0.tar.gz"
+  sha256 "789e9b56bcb6b582467ccaf5cdb5ab85236b0c1007d30c606798fa8905152887"
   license "MIT"
 
   livecheck do
@@ -11,13 +11,13 @@ class Liboqs < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5933c36ee1ae57715e130981f2ce1224686786b2e7f0c7016ec204057b61b79b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9eaf31e61184b48db56d72b601b469229855634e7f558461767c1322ef5d844c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "6164c5d38336d5c42b6aaa13f684e9e1f038711e664dbf97cfef836486d77884"
-    sha256 cellar: :any_skip_relocation, sonoma:        "096ad57418c538b5e9f07d3ce1345ce710d53fcb189d7b21e103f1787048f984"
-    sha256 cellar: :any_skip_relocation, ventura:       "d85399bccbdd4e7bcb10a4cee742151912c02fc4f02f6a34a5e040eb843c5498"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "895e821d5b8f1a1d1cd5a4281afbe8fdecd238be2bb47b1c4dad6d2fa99779fa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7f8a5388084f775a73d08949df3800d9d16b07b12702c084586b079cc1664b23"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0d744db00855ed3160fbde340abfcab59737229e129bafd08935057c0a49813a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0a92276be04c12a3dff2be837e1debd1f9c8be9e5e4e0c084f72afb70cd6e083"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "7da043db1c2204f9f3a32504dbe35e69ad5c377137244a2df5ef4b6b08cb73b5"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d34c219fa4023fc0c6182cd4877be12d8b14c55570bfc54a174ed064c382ef2f"
+    sha256 cellar: :any_skip_relocation, ventura:       "6de8bf61014b4fba88ce3a44665ddc6d673f88a2a1229d598f75636437d2b0ee"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "21421d5b937bfb972d9239c9265ca2efc484692da94d663694164986b34d51de"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2baf046ee42ff6c9aec54dd599c97bc8b6602a86f29c8f5292de05ac41268715"
   end
 
   depends_on "cmake" => :build

@@ -17,6 +17,7 @@ class PostgresqlAT17 < Formula
     sha256 arm64_ventura: "03283666af400133c1c1a564a25663977a87ce5d8eeafcb8e161f5a2a0c59ed3"
     sha256 sonoma:        "b220e193c00e3a5bb58f026c6d547b47575989f2c1c27178a759ca02e460f94c"
     sha256 ventura:       "d0dace103e6589103925f268375c330b707f6e91ef0979718fdc10e013435a56"
+    sha256 arm64_linux:   "c4f01a279bf88a205267c02a7ae0ca8253c5778c8ffdea3ed30184660edfc112"
     sha256 x86_64_linux:  "c987b51b282243e67f1c529007b170fea0455bf6eb94e277870497baa0af7e94"
   end
 
@@ -62,6 +63,7 @@ class PostgresqlAT17 < Formula
     inreplace "src/Makefile.shlib", "-install_name '$(libdir)/", "-install_name '#{lib}/postgresql/"
 
     ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
+    ENV.runtime_cpu_detection
     ENV.delete "PKG_CONFIG_LIBDIR"
     ENV.prepend "LDFLAGS", "-L#{Formula["openssl@3"].opt_lib} -L#{Formula["readline"].opt_lib}"
     ENV.prepend "CPPFLAGS", "-I#{Formula["openssl@3"].opt_include} -I#{Formula["readline"].opt_include}"

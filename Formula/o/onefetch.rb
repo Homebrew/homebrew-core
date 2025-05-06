@@ -1,19 +1,19 @@
 class Onefetch < Formula
   desc "Command-line Git information tool"
   homepage "https://onefetch.dev/"
-  url "https://github.com/o2sh/onefetch/archive/refs/tags/2.23.1.tar.gz"
-  sha256 "72e87f6a62682ad88aa07b02815ee1e2863fe45e04df3bba49026bf3edd10537"
+  url "https://github.com/o2sh/onefetch/archive/refs/tags/2.24.0.tar.gz"
+  sha256 "41f457c9a8145de94980bcae497d84a56cd75c1598a6a9eeb45984947bf4f1f8"
   license "MIT"
   head "https://github.com/o2sh/onefetch.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2d3993a0b6e343544f34263de289c9c5853d7cef5bb89baa8e34007baf5d29ea"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "68ca98926eb7dd75d60b081b4d8ee23a2d0ac6442ab9bbb4b1b1f493d377cd42"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "8197b79c3f38ee59ab1566c8207a18cacaf29b62f0e18e4b3bcc0290042e2271"
-    sha256 cellar: :any_skip_relocation, sonoma:        "75d5a293661170fc68a59e9eec180cd862993a112b890df6baa314ef52c49a88"
-    sha256 cellar: :any_skip_relocation, ventura:       "cb64912fa0eee5b4c21b478b674e7a60f3db7c0c798e64634c4472f74eba92c1"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6a8e4cdacde3ec14bdc77ae1851ed85765e8602d345ca94c9dcbb3861bd865ae"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8eaaca384c0c07d80f8e8364fb651dbb2e95e4b7094634e45c2b951f6b0b2c12"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c79034fef2b28abfb613dab6543eef17e6af769c95757166f1f727d37d5a42e8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c710fccdd294242271b24039e0fa3061a31e5dbbf51284c76f5787cdafc576a8"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "9d5b20ed5411fe25cb11826d296747c450106ec05a39c75f4aaa4c02e4270413"
+    sha256 cellar: :any_skip_relocation, sonoma:        "abaf9ef77c37013d923120998bf635fef83a9306c49a4cef33e6d8b52abb5d8b"
+    sha256 cellar: :any_skip_relocation, ventura:       "282e6231286ee1202b43383ad6fb4c204fe7f74dd8cc8d105e11615f1c455118"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4aa3c84ab3e60e49ef85ba76bb5de32fdf3d9cc0deaf31e8457accdd740d6a98"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8b5b8a5b8b13919f6d912ac00b3ddeeddca5efe0b0a721deabfba8a024b57106"
   end
 
   # `cmake` is used to build `zlib`.

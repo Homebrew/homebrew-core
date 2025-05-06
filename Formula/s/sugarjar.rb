@@ -6,24 +6,29 @@ class Sugarjar < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "65ecd2cb3766d4be72ad9a424cda88fa979f8cddd12f3a2b30a60e4d8461faa4"
-    sha256 cellar: :any,                 arm64_sonoma:  "e6eab020e7abe1cb0965d77b1f1c2a2d04e2d1db36554b2ac9519f0fea76d856"
-    sha256 cellar: :any,                 arm64_ventura: "09fbeeaf8df6d59a5d76fe3e29bda8033dc7fef35c043ed4cf90cf59c9dc1d4b"
-    sha256 cellar: :any,                 sonoma:        "30a3729d83daeed129153ca04149ec548755ba97b4bd09e733093a402bbc4e3a"
-    sha256 cellar: :any,                 ventura:       "49e038185795406e1d605fa7ca8a42eb8d86c78300b368688cb0aee70ebc4abe"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "623d49621a6203cee40d565a9aee6cc078add987fc50aa2dc9245ae411891414"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "1302c342de73848865a19e3787af42f87ce47be169e9814c97674a54b95606e2"
+    sha256 cellar: :any,                 arm64_sonoma:  "d395496268c76a8427c9ebd79f338286f14371acf4645bdf4d0f33e12f68327e"
+    sha256 cellar: :any,                 arm64_ventura: "fec8c7de866860d40c1aa815823a97f65594a8cb013017eb582944e091ae1571"
+    sha256 cellar: :any,                 sonoma:        "19e14dd394330e4563d3412ecf1c4c1182998cd89bcd55f607f13187b6b666a4"
+    sha256 cellar: :any,                 ventura:       "07b6d776bc71f40f660938cc0b7c21bd83e8c3eb15a05afc20f7fb0fa181927b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ce4aa243579bc576d949b309c7bd17cf15d09dd3ebde286fca60b68466fcfafd"
   end
 
   depends_on "gh"
-  # Requires Ruby >= 3.0
   depends_on "ruby"
 
+  uses_from_macos "libffi"
+
   def install
+    ENV["BUNDLE_VERSION"] = "system" # Avoid installing Bundler into the keg
     ENV["GEM_HOME"] = libexec
+
     system "bundle", "config", "set", "without", "development", "test"
     system "bundle", "install"
-    system "gem", "build", "sugarjar.gemspec"
-    system "gem", "install", "--ignore-dependencies", "sugarjar-#{version}.gem"
+    system "gem", "build", "#{name}.gemspec"
+    system "gem", "install", "#{name}-#{version}.gem"
+
     bin.install libexec/"bin/sj"
     bin.env_script_all_files(libexec/"bin", GEM_HOME: ENV["GEM_HOME"])
     bash_completion.install "extras/sugarjar_completion.bash" => "sj"

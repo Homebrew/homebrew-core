@@ -14,6 +14,7 @@ class Gtkdatabox < Formula
     sha256 cellar: :any,                 sonoma:         "bfaacbe85617357013ed6368753b261bc87963366680eac5f73cf85183710f96"
     sha256 cellar: :any,                 ventura:        "7a86f4f2915d37de33ae84232fa05588e576a2e0698321501b3a75e0aedd9ace"
     sha256 cellar: :any,                 monterey:       "abc35085101b1fdde0163eb859927e6dcc35e2d38451d033b78206cb24814fa0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "60cc0df3c42c25bf990182f6a0e7655292bca03dfcf43821421d0e45a7b02b75"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "1585023f5e6799a8eab163fae37ba597262d3352a01f2bee7763359224f94388"
   end
 

@@ -2,8 +2,8 @@ class Tailscale < Formula
   desc "Easiest, most secure way to use WireGuard and 2FA"
   homepage "https://tailscale.com"
   url "https://github.com/tailscale/tailscale.git",
-      tag:      "v1.80.3",
-      revision: "bd762b8274a957fe11c4416c6278ba0682124931"
+      tag:      "v1.82.5",
+      revision: "e4d64c6faf827a308ec20b39651225178e6743c0"
   license "BSD-3-Clause"
 
   livecheck do
@@ -12,15 +12,17 @@ class Tailscale < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0203c994768ae5e2d07701cf2ffb5fce6ba6d95b9e83dc93c80e7f3687ce26ef"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5ca20ab1e09015ef2f1ed66fd8d96dd2252b1d9a2057cd1e077ecd5b80fb88f8"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "c4a4c3f6f09cd4b6fa613b699d80bfe9cd6f47894b444bf2aec1be98b00673ae"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ee5c8c77831d49d92197a7e650febd0ab802e6dd2d2956a42192841917f5d7cc"
-    sha256 cellar: :any_skip_relocation, ventura:       "f00d7ccd6d0c9c4bc9bfc0acd39692a9a07da3f214cdcd20e1e74e230afccd38"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "336b2354ec2185a66bb05e1252c7ce16612fde3d93b1cd029818ca6e639fd595"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5cb9522e6fb472254456d3d3879db2cbb4fee351e5879b4558f2dfec05751003"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "534cbaab1cc979ff683f3931aaa8a201a0115e13e7e5809c8f03b145c6757119"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "7940891b6c77ddd1ca3bc8ef3f53ebff37ae5f57b96a5eb8b76fdb903df6e93d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "cc467f4068ed000de01e618be1988ebcf46c5c7e085748791ebe72e3fac8d5ed"
+    sha256 cellar: :any_skip_relocation, ventura:       "64841fc4262a93c285bd88960341173800327bf01f6a16be9fad7e65c51b82c9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0ef09a917c922fe6d10174957a2255fa77c34e01f2df81c572ca23133b3ec329"
   end
 
   depends_on "go" => :build
+
+  conflicts_with cask: "tailscale"
 
   def install
     vars = Utils.safe_popen_read("./build_dist.sh", "shellvars")

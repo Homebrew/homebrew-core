@@ -1,16 +1,16 @@
 class Pyqt < Formula
   desc "Python bindings for v6 of Qt"
   homepage "https://www.riverbankcomputing.com/software/pyqt/intro"
-  url "https://files.pythonhosted.org/packages/ce/bf/ff284a136b39cb1873c18e4fca4a40a8847c84a1910c5fb38c6a77868968/pyqt6-6.8.1.tar.gz"
-  sha256 "91d937d6166274fafd70f4dee11a8da6dbfdb0da53de05f5d62361ddf775e256"
+  url "https://files.pythonhosted.org/packages/32/de/102e8e66149085acf38bbf01df572a2cd53259bcd99b7d8ecef0d6b36172/pyqt6-6.9.0.tar.gz"
+  sha256 "6a8ff8e3cd18311bb7d937f7d741e787040ae7ff47ce751c28a94c5cddc1b4e6"
   license "GPL-3.0-only"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:  "364815998ca1a7e33573c26be81e2e797a09b7bc7a696594fa0d8cd819460989"
-    sha256 cellar: :any,                 arm64_ventura: "45167e6a3bda13e9bf2a9d318aac66b850827270bb1d73e5773f32566710d090"
-    sha256 cellar: :any,                 sonoma:        "46d7cab9f629cd034730806efa47e2fc0e2027d83253f4b111c67d28687b92a8"
-    sha256 cellar: :any,                 ventura:       "11f15fda8de9695960cd83438599af9094b81ce65a54d47a1b751101ed0ec0a2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f70ee6d285317d7d405e894f898d89609c3a2372a56a92e0b1ddd1b8c068d2ee"
+    sha256 cellar: :any,                 arm64_sonoma:  "9d2e7040345f46c69227e5dd30def0a1c0476514d243e5b5dead7d41d56afa4c"
+    sha256 cellar: :any,                 arm64_ventura: "d9ad0408c1b54060d3de9e2dd1f3e677a294e04731117826c53e3fa439acae4e"
+    sha256 cellar: :any,                 sonoma:        "a32ce76f5d3bfe77347e5cbda5f8e03d078776ab79d2f727745ae6fc6816f562"
+    sha256 cellar: :any,                 ventura:       "221fd42552d92677b357637d303cbe7f62f78ce3263dfb48051fbcbd0ae1189f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "11224506e0d20f285ad01c36b366dda4e6b5b1723056f100c32935bf27a26fa9"
   end
 
   depends_on "pyqt-builder" => :build
@@ -19,23 +19,23 @@ class Pyqt < Formula
 
   # extra components
   resource "pyqt6-3d" do
-    url "https://files.pythonhosted.org/packages/13/15/4eef4a5087e4af01638baee8fd1c22e97fce2eb593e73c7f1cf9f59dffa9/PyQt6_3D-6.8.0.tar.gz"
-    sha256 "f62790a787cfc99fcd84c774fa952b83c877dd2175355a3a6609d37fe1a1c7a3"
+    url "https://files.pythonhosted.org/packages/b3/1a/89e4bbc1c604d3a450111a7600d256b371200bf616157efd48c13f5646d3/pyqt6_3d-6.9.0.tar.gz"
+    sha256 "af4b497e34f30e8dba53da2f2683e82994bc6d6f512fb7a91c3150aa31b6d49a"
   end
 
   resource "pyqt6-charts" do
-    url "https://files.pythonhosted.org/packages/94/51/d37e1527dcf0e2bf5bfdba4200c2297a4224e299d79c4d4cfbe1a363e01b/PyQt6_Charts-6.8.0.tar.gz"
-    sha256 "f86705b8740e3041667ce211aeaa205b750eb6baf4c908f4e3f6dc8c720d10f1"
+    url "https://files.pythonhosted.org/packages/05/2e/d818e649751bd74df5aac3f8cfc7bc96c739ce19ae22fbaee75625a387e0/pyqt6_charts-6.9.0.tar.gz"
+    sha256 "7efbe9bb7e6ad4f9845211a0efe0f91ca5e14f9362ed1ba84d55f2b8515091f7"
   end
 
   resource "pyqt6-datavisualization" do
-    url "https://files.pythonhosted.org/packages/3c/26/9006f1ff80fe800df3ea1b6f26bf61323e19acede5a3e55a115908638689/PyQt6_DataVisualization-6.8.0.tar.gz"
-    sha256 "822a94163b8177b9dd507988aff4da7c79ce26bc47fc5f9780dea6989c531171"
+    url "https://files.pythonhosted.org/packages/0e/64/2fb8f276b6231d9c7a4333279b39834fd05d9e503651db8e94c2c1980d3f/pyqt6_datavisualization-6.9.0.tar.gz"
+    sha256 "1515475f1b2c37275ecf6ac74017a64fae8335d97b87fbbaf14bac3f82cdaa0a"
   end
 
   resource "pyqt6-networkauth" do
-    url "https://files.pythonhosted.org/packages/ee/79/3d67110608e7e6b55c501359699826dd861c21c668ccc9a8fbc99bfc528b/PyQt6_NetworkAuth-6.8.0.tar.gz"
-    sha256 "2a1043ff6d03fc19e7bc87fad4f32d4d7e56d2bf1bb89b2a43287c0161457d59"
+    url "https://files.pythonhosted.org/packages/88/6d/cc1fb6ae4fa7b455dbda92f8e41fefe6393a1081dfa2ebd9ddc7daf28ade/pyqt6_networkauth-6.9.0.tar.gz"
+    sha256 "9acb6e97bd54584bbaeac2aabc40ec17a79d868f7da37a163c7bd4b7a8f04b09"
   end
 
   resource "pyqt6-sip" do
@@ -44,14 +44,8 @@ class Pyqt < Formula
   end
 
   resource "pyqt6-webengine" do
-    url "https://files.pythonhosted.org/packages/cd/c8/cadaa950eaf97f29e48c435e274ea5a81c051e745a3e2f5d9d994b7a6cda/PyQt6_WebEngine-6.8.0.tar.gz"
-    sha256 "64045ea622b6a41882c2b18f55ae9714b8660acff06a54e910eb72822c2f3ff2"
-
-    # Apply Arch Linux patch to fix build
-    patch do
-      url "https://gitlab.archlinux.org/archlinux/packaging/packages/pyqt6-webengine/-/raw/85846264bbfd2628fae66786e2f48ae40fddadca/fix-build.patch"
-      sha256 "14b523cf26fd6e066ed1900fd59e1e6f8d7abc5900a04fc5b9bc9f3cb831045f"
-    end
+    url "https://files.pythonhosted.org/packages/8f/1a/9971af004a7e859347702f816fb71ecd67c3e32b2f0ae8daf1c1ded99f62/pyqt6_webengine-6.9.0.tar.gz"
+    sha256 "6ae537e3bbda06b8e06535e4852297e0bc3b00543c47929541fcc9b11981aa25"
   end
 
   def python3

@@ -13,6 +13,7 @@ class EfmLangserver < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "3fec389284c49ce09101a88899c580d03ead74e23638a30284d903e3f4e5c8a3"
     sha256 cellar: :any_skip_relocation, sonoma:        "1a243107e41b7158b42aaef39c118b8ad6b2e321bedbedbbec267cc55ae1cd40"
     sha256 cellar: :any_skip_relocation, ventura:       "1a243107e41b7158b42aaef39c118b8ad6b2e321bedbedbbec267cc55ae1cd40"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "93769ecdecbd00b0b2c0e6bf77397f307aaea3952a6049741ba9f46eefbfada2"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "84eb67d38a415d8f87456816e0ae24e0c1e000d8836f70ba0d9fa115a423a811"
   end
 

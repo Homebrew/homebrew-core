@@ -1,18 +1,19 @@
 class Ktor < Formula
   desc "Generates Ktor projects through the command-line interface"
   homepage "https://github.com/ktorio/ktor-cli"
-  url "https://github.com/ktorio/ktor-cli/archive/refs/tags/0.4.0.tar.gz"
-  sha256 "2974a54571d410150932fe75c31b272a8716b22005deb08589e66ce8b13e2337"
+  url "https://github.com/ktorio/ktor-cli/archive/refs/tags/0.5.0.tar.gz"
+  sha256 "6bc452b6aa7e4a911649f10359a0c00d0017e8ab3a3c70b0e1412c026794f6a3"
   license "Apache-2.0"
   head "https://github.com/ktorio/ktor-cli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ef29358929e39ab83589b1be6e677ec20dfb362f234502499ab548ed7f2ce1ee"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ef29358929e39ab83589b1be6e677ec20dfb362f234502499ab548ed7f2ce1ee"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "ef29358929e39ab83589b1be6e677ec20dfb362f234502499ab548ed7f2ce1ee"
-    sha256 cellar: :any_skip_relocation, sonoma:        "5a1c07b2b9402f89f51c7b40da8ea66d0080f42dbfcb278fe7240bb9051040e3"
-    sha256 cellar: :any_skip_relocation, ventura:       "5a1c07b2b9402f89f51c7b40da8ea66d0080f42dbfcb278fe7240bb9051040e3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f31416687eee921e9d7c12159ccc834b9e0693375096f904d68c67fe82ce7d74"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ae5827c1b6127ef87c86509969b51b57e264b3a86e2ff7f89f1ae2dd2d61fe7d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "320e97018245a83890d9d43f902bc9d3c15b052ce0168b0156d1046c26df271d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "67e92b3134de86c1f73851c12756d0b60b8d395d62eb599cc0688e2539d92ce4"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b348f62c90905932ac7a0758eddb06ba18f61415034790c0d1cfb867e3512d5e"
+    sha256 cellar: :any_skip_relocation, ventura:       "40853271a7712e7914374bbe56cbf5eba3f14586b5568991a78bff8d46283643"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e3d5add07175e7adaab1079cd90d759fedd35ab162f57268c511a23d388164c1"
   end
 
   depends_on "go" => :build
@@ -20,6 +21,7 @@ class Ktor < Formula
   def install
     ldflags = "-s -w -X main.Version=#{version}"
     system "go", "build", *std_go_args(ldflags:), "./cmd/ktor"
+    generate_completions_from_executable(bin/"ktor", "completions")
   end
 
   test do

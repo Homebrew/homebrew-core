@@ -7,8 +7,11 @@ class Libsigrokdecode < Formula
   revision 1
   head "git://sigrok.org/libsigrokdecode", branch: "master"
 
+  # The upstream website has gone down due to a server failure and the previous
+  # download page is not available, so this checks the directory listing page
+  # where the `stable` archive is found until the download page returns.
   livecheck do
-    url "https://sigrok.org/wiki/Downloads"
+    url "https://sigrok.org/download/source/libsigrokdecode/"
     regex(/href=.*?libsigrokdecode[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 

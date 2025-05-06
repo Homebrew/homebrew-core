@@ -4,6 +4,7 @@ class Grpcui < Formula
   url "https://github.com/fullstorydev/grpcui/archive/refs/tags/v1.4.3.tar.gz"
   sha256 "7fa3039bfa6c06a688c1094177445f759c592be2f04574a234da7a88ab2d0efd"
   license "MIT"
+  head "https://github.com/fullstorydev/grpcui.git", branch: "master"
 
   livecheck do
     url :stable

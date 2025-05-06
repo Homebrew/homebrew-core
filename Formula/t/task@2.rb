@@ -18,6 +18,7 @@ class TaskAT2 < Formula
     sha256                               sonoma:         "d3be3340c35f266904599c9a3927323f02c797cb15c977af12e2f09658c3eb54"
     sha256                               ventura:        "4e3710bd68b073e6bd7053dddeebda5dbbbd263b97314a11bd989cd306ac6fe1"
     sha256                               monterey:       "b7aff94161fa64605d6738d900c671f6d6c56fabdb916669ba2637421b4d8319"
+    sha256                               arm64_linux:    "520281ca177683c84f7fda4f0832c59224fdd0df9e0fa6f82cad87a0c788e8e8"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "6a1030f03e0e5ec13e4111be5eb28369bf81d84df3690614c422c33ca3076ff7"
   end
 

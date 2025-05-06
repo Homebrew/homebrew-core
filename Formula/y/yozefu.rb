@@ -1,25 +1,27 @@
 class Yozefu < Formula
   desc "TUI for exploring data in a Kafka cluster"
   homepage "https://github.com/MAIF/yozefu"
-  url "https://github.com/MAIF/yozefu/archive/refs/tags/v0.0.9.tar.gz"
-  sha256 "18f69f35960cc2600a7acbbbba7e5613a3aa3b63dd3ae9600714efc853bfb943"
+  url "https://github.com/MAIF/yozefu/archive/refs/tags/v0.0.10.tar.gz"
+  sha256 "c3053428ad866de6afc930f77260f96023906d496ef6acb9f70bd1fe2a25b2ce"
   license "Apache-2.0"
   head "https://github.com/MAIF/yozefu.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "f36a9a5cc54a539066f3d45909b8ee1fc797883d64d272f8daadc013d8c6c4e0"
-    sha256 cellar: :any,                 arm64_sonoma:  "40ed31e180b98575e58de31e17b81a16f6b31f4a256e28f87df4f964d51a58c5"
-    sha256 cellar: :any,                 arm64_ventura: "a5ddc196c6949bbe563bfe896eae521f21ad350562c0436fc0d406e2767e2279"
-    sha256 cellar: :any,                 sonoma:        "6e0679a11f0e7ed93b6b1ac4836134f887eb1af6b2fb3e4fc629dca1a9a2f37c"
-    sha256 cellar: :any,                 ventura:       "92a4cab4d5806b84181f277ab66dcf79c44f3967a04aa551676ddc0475a84567"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "dd216108a92634bd5e64a6f0820bbbbc98416da2f1a906de4f06364487073771"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "afc8e34d5ac7994d82228ba43437f90911fb6e4155c4a5d5d1aa574889b64373"
+    sha256 cellar: :any,                 arm64_sequoia: "fc717462ccce575ec562056e16cca27fb817d6969615686f4fdaad40b719c3a4"
+    sha256 cellar: :any,                 arm64_sonoma:  "210c643f2f0a543b400c0c9261fccf23a7a7942812ebba562bf1befee72dfbb5"
+    sha256 cellar: :any,                 arm64_ventura: "1145c163a5d6b89365e06512f96ac2dce1a496640023f5af88c15b4f9fbe1690"
+    sha256 cellar: :any,                 sonoma:        "faff7f463cab86e79e8e2f657640165301a10f27c7524b1d715a8db515c8c2bc"
+    sha256 cellar: :any,                 ventura:       "9d85b0066ccd4b3674b63d11825f3ef45e427b1d7d7722c5f44fe52d97845f0f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "caaafe270f4dc06ec01789c9961d5263c5d2315f20d4daa422c22ae0950657a8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8841a48a34ebf180ed3bf63a799a38ab831e10aa39a93cc2ee077550a750259d"
   end
 
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
   depends_on "openssl@3"
+
+  uses_from_macos "llvm" => :build # for libclang
 
   def install
     # Ensure that the `openssl` crate picks up the intended library.

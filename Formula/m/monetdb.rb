@@ -1,8 +1,8 @@
 class Monetdb < Formula
   desc "Column-store database"
   homepage "https://www.monetdb.org/"
-  url "https://www.monetdb.org/downloads/sources/Aug2024-SP2/MonetDB-11.51.7.tar.xz"
-  sha256 "98fd6512858911b0e6e3a0f62432f4ac7acb34ca8b6adc882db6e3315fc297c6"
+  url "https://www.monetdb.org/downloads/sources/Mar2025/MonetDB-11.53.3.tar.xz"
+  sha256 "23e1f6a73ac721298f9b611f18930b8ceda34c6f497a4e458034b7131660c070"
   license "MPL-2.0"
   head "https://dev.monetdb.org/hg/MonetDB", using: :hg
 
@@ -12,13 +12,13 @@ class Monetdb < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "3009b9b02155c2ac62e6fb747cf989222eb0b27360c7de286b332f0efdfe86c8"
-    sha256 arm64_sonoma:  "536cfdd1b67f37b85418bcf88b7a7c353662f23ce1497958f4aae4aa598482c3"
-    sha256 arm64_ventura: "8dff397a6cd6919941bc677d5565358ad2140234949cc8ab17249d9d8ad6f71c"
-    sha256 sonoma:        "d1865385c7eee772a7c81eaf3dac6c9c37f5513a8e098dcde414dc5c1195c266"
-    sha256 ventura:       "f5e1327e061fe9246a0d9cbaeeae8eaa31cfd057021e1061df354d20fdfb44df"
-    sha256 arm64_linux:   "cacba9fa3e9d40f029e18bbbfdf151adf00365a20f75a363ae78f16c4cc9d46a"
-    sha256 x86_64_linux:  "79e53c9d3b5860df89ba17b444f4169c4daa4b4e9579e8888691b722dfc55971"
+    sha256 arm64_sequoia: "92579b5419866811ca88e4ee4d03dac2850756ca79de954dea65c9d859f1b8ee"
+    sha256 arm64_sonoma:  "76c21dace99d0c7183e29a23e22347b2bd58d5e0538cab00dd94681ffd68d9c1"
+    sha256 arm64_ventura: "ddd6364ddb2ee11232a1d4e166b3fa068a02738fc615378ff6e2b5540a6ec887"
+    sha256 sonoma:        "d6066e9bd909f4afa9a98f4230bcdf0c7d62a5aa702d2017877cb4de7fdf986f"
+    sha256 ventura:       "f347fb8324a90053e83520a520fcd91995cc8a426a54485d8a9f5140e642760a"
+    sha256 arm64_linux:   "493a56abb54f14e25905f9d73fa276af7ca8afd9953c5a236ba513b544b3518b"
+    sha256 x86_64_linux:  "9245ff70b7bbfee8da7c1607154aaa930b5d34a4dd89a9216c6f0842b3813d21"
   end
 
   depends_on "bison" => :build # macOS bison is too old
@@ -55,6 +55,9 @@ class Monetdb < Formula
                     "-DWITH_OPENSSL=ON",
                     "-DWITH_PCRE=ON",
                     "-DWITH_PROJ=OFF",
+                    "-DWITH_RTREE=OFF",
+                    "-DWITH_SQLPARSE=OFF",
+                    "-DWITH_VALGRIND=OFF",
                     "-DWITH_XML2=ON",
                     "-DWITH_ZLIB=ON",
                     *std_cmake_args

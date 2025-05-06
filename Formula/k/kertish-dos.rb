@@ -13,6 +13,7 @@ class KertishDos < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "66e15349b37cc6586d55d102d5941565aa0db46e4a5c1cbaa87f5c45b946180d"
     sha256 cellar: :any_skip_relocation, sonoma:        "58bf87f97fb1e1399d1a09a0de3d9db3ba783c821343ef8de762ba835417b6fe"
     sha256 cellar: :any_skip_relocation, ventura:       "bfd2942609310c775b5ae27df2a982300f03603edd8745856c3ab0c2d544b3eb"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "35615629ee3146399af7190ed267eacbad3123c2b0515a91c35b518d41c9dea7"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "bbca4d722bae4b3f940401a080bdf08f664411b93c161dba75f06686c52e2c94"
   end
 

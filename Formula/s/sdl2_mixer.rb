@@ -17,6 +17,7 @@ class Sdl2Mixer < Formula
     sha256 cellar: :any,                 arm64_ventura: "bc6a8a9f8e3b8f145873f2f18d428549286923304887c75eae9e0c6153b9f8cd"
     sha256 cellar: :any,                 sonoma:        "2a0833b4e5b3d6b5e650e6260ea32fe5f07a9fa4ed66a8f4343d5d9c65c26f9e"
     sha256 cellar: :any,                 ventura:       "721f0f56d5b954e4e5cc484fa4046712b2099aafa4849091772aae71afb19145"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1179824f595c247ae0bd213a9af93d973f17b068fdcac3017ec2431196eba023"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "e7022d2cdf02890e277cf56cfa6e15e5940a000886b92991027b8efbf8332927"
   end
 

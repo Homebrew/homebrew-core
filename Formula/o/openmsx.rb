@@ -23,6 +23,7 @@ class Openmsx < Formula
     sha256 cellar: :any, arm64_ventura: "89b5d4a1cb8f3c248549e45542e47d15030eac7246d2f59162da2c9f4e162fcd"
     sha256 cellar: :any, sonoma:        "9362583e5d32849d94162a48cfc68d4294d01dd20d2fe968e54a2684590584cb"
     sha256 cellar: :any, ventura:       "66143d111af9938f34491c5e892c5884ddd501b5d10ca73fcd6665548f0fa7d5"
+    sha256               arm64_linux:   "b28d983fd5fb53554e68e953bf0545ef30c7e5c3a61873f5bfc9b4d5591a7ab8"
     sha256               x86_64_linux:  "ab58976a39c13c22ef52e773f9faf6ea1f489e61164b4ff41d71e28376d4f30a"
   end
 

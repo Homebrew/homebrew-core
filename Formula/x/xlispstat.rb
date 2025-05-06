@@ -28,6 +28,7 @@ class Xlispstat < Formula
     sha256 cellar: :any,                 catalina:       "d2e8f57e8dc13c6b1aaa38af29d291b5974b642626599cf478f3997e2981643a"
     sha256 cellar: :any,                 mojave:         "2ad96a0eaeadb61b6eae731c7f8caf19ce6a202b4fab65d474e135c0731b8022"
     sha256 cellar: :any,                 high_sierra:    "66e03a45aad7571b1a51c5196236099f11884ee055e7b45fcbdb19d4ae682e90"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "f9ce0920180e4cab96fc3e9b55a0fe5e95bee6b4de40a7ca7121f2068daaea2b"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "45f4149aaf05fa78c789492de2867074891abc4816a5b6abbf04d06433c135d6"
   end
 
@@ -37,7 +38,11 @@ class Xlispstat < Formula
     # Fix compile with newer Clang
     ENV.append "CC", "-Wno-implicit-int -Wno-int-conversion" if DevelopmentTools.clang_build_version >= 1403
 
-    system "./configure", *std_configure_args
+    args = []
+    # Help old config scripts identify arm64 linux
+    args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+
+    system "./configure", *args, *std_configure_args
     ENV.deparallelize # Or make fails bytecompiling lisp code
     system "make"
     system "make", "install"

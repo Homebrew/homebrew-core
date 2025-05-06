@@ -1,18 +1,18 @@
 class AwsCMqtt < Formula
   desc "C99 implementation of the MQTT 3.1.1 specification"
   homepage "https://github.com/awslabs/aws-c-mqtt"
-  url "https://github.com/awslabs/aws-c-mqtt/archive/refs/tags/v0.12.2.tar.gz"
-  sha256 "5707e8ddb536bc6dfc65fb16e4db8f3b9510aa187a8c5b5d59824f8a9ead7a63"
+  url "https://github.com/awslabs/aws-c-mqtt/archive/refs/tags/v0.13.0.tar.gz"
+  sha256 "8aa9e5b8f90a6aecdb85e83786b3543afa2a414738049447fd3ba5d1afef519b"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "54af6d13f69a12be9729b8c358e657cb3ae5c6f6eba54b42b68344e0a99aa91f"
-    sha256 cellar: :any,                 arm64_sonoma:  "130a4d1612f44eed3313c611e49c7cbf60ebd1371ccafe77f5458b7e7bb93447"
-    sha256 cellar: :any,                 arm64_ventura: "f036f8277eb5f5577df89294db4f0de994f2eaa74e95fcbdb2537f4acec9aab9"
-    sha256 cellar: :any,                 sonoma:        "d1622fe95e0acfe83645f115d3831707bf28a1894b5605e171fe317cda225a86"
-    sha256 cellar: :any,                 ventura:       "75b8f029ddfa9f2ace08719aa7e341b00a26deed61fec470c0a71b4b3929b5f0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "92e1e8bb6f820c1a5183daa72315ad901435a73e59f65c2ce300ee4f3ad7aca7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6d956b20c6471723393c8e442abd1b74f3a5e5418fc2647ed8b35249b585a625"
+    sha256 cellar: :any,                 arm64_sequoia: "67dd4fb63aaa44517a0cd5e239fd735812ab09b611a12ab7346278ea578615a6"
+    sha256 cellar: :any,                 arm64_sonoma:  "d7bfff91cb2a3462dd93531265b2e7a95119cd5f623db95e6942ca16a85c89cd"
+    sha256 cellar: :any,                 arm64_ventura: "6525b026355512b3fe07e8c46cffa03c2d06c00cd228446a288398f750028119"
+    sha256 cellar: :any,                 sonoma:        "aa0e9510b7481c84a7d029a527e872accd48054962ce9a40e65dd4f5eb034fe0"
+    sha256 cellar: :any,                 ventura:       "7adc49880f296aadde444b76aece62e0b2889b2db932e3102f8ae65d43d0b06c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7d6446660156fede7509431a1d735df39f870f4a79251a727dd263e807f69567"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7288c750bf652b87b4a78638fa09835ff355dd40e053b4216b08a5445dc202cd"
   end
 
   depends_on "cmake" => :build

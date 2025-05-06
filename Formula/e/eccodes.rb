@@ -1,10 +1,9 @@
 class Eccodes < Formula
   desc "Decode and encode messages in the GRIB 1/2 and BUFR 3/4 formats"
   homepage "https://confluence.ecmwf.int/display/ECC"
-  url "https://confluence.ecmwf.int/download/attachments/45757960/eccodes-2.40.0-Source.tar.gz"
-  sha256 "f58d5d7390fce86c62b26d76b9bc3c4d7d9a6cf2e5f8145d1d598089195e51ff"
+  url "https://confluence.ecmwf.int/download/attachments/45757960/eccodes-2.41.0-Source.tar.gz"
+  sha256 "a1467842e11ed7f62a2f5cc1982e04eec62398f4962e6ba03ace7646f32cf270"
   license "Apache-2.0"
-  revision 1
 
   livecheck do
     url "https://confluence.ecmwf.int/display/ECC/Releases"
@@ -12,13 +11,13 @@ class Eccodes < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "0643fe3aa66edf998b80f393ab200934d2b055c3eb497da46458d8aaba7860ab"
-    sha256 arm64_sonoma:  "e5586c52a0f8d08201f0d83f9f7d3a6df4d707512c2f2bfdbff5138e7847e02b"
-    sha256 arm64_ventura: "d119abb244cf287d71c062655d2833c82b717575a14cec8c72c927c4202ee39f"
-    sha256 sonoma:        "f9113e5a8427be24b469da5794ad46f67143fc127c2255b2c96f972d52a90faa"
-    sha256 ventura:       "bda65f7d3788109e09e48ac2f7c704c105a0c3d83f2682db4e3637cbb9272dd1"
-    sha256 arm64_linux:   "d850a4f42c58c2b16ba5bac48a04f59b2194fa5179f97d431b3f8f9954280419"
-    sha256 x86_64_linux:  "9fb1affd973a32a59c3472384e611e36ff51b9b2d32d0243ab0dab35ab4c1c4a"
+    sha256 arm64_sequoia: "3dee9ba650deb490a8c1dc28a9f4a4d8ed7b613e82d6b94f27333c2a8dc58f6d"
+    sha256 arm64_sonoma:  "d0979389091aad166577991ca34245f661e4c103fb0501505e9d8e2fbb31f471"
+    sha256 arm64_ventura: "909ce2ee8a04c627e87dd2ac425a50262621f8d7d08062d826d8095bc2c81ca7"
+    sha256 sonoma:        "926d2786b0963ae4ea7970c8ee4d8b7ab0146707e776a4ce4d388ec148f89ac0"
+    sha256 ventura:       "01eccbc10aa5bd328313dcae5458a50190adcdb636d6aa87c047ef37faa398b4"
+    sha256 arm64_linux:   "9dc4ce6547b50f676b64f2fd50b180485fe76267b9e052c246f24f2cc05fef4d"
+    sha256 x86_64_linux:  "d97dcd615771d1ea7a55c62d760de3153183475fb7d2350b5eab23ca13545f3f"
   end
 
   depends_on "cmake" => :build

@@ -2,16 +2,15 @@ class Gstreamer < Formula
   desc "Development framework for multimedia applications"
   homepage "https://gstreamer.freedesktop.org/"
   license all_of: ["LGPL-2.0-or-later", "LGPL-2.1-or-later", "MIT"]
-  revision 1
 
   stable do
-    url "https://gitlab.freedesktop.org/gstreamer/gstreamer/-/archive/1.26.0/gstreamer-1.26.0.tar.bz2"
-    sha256 "a0fa96f7fa7fc4d37db08c5a8a2007ef3baf7cc554ba54e9165bd37099182916"
+    url "https://gitlab.freedesktop.org/gstreamer/gstreamer/-/archive/1.26.1/gstreamer-1.26.1.tar.bz2"
+    sha256 "4ef9885d3e1e366ba6400e5bbc39228cf1ee3619cbc5c17295b86901879c105f"
 
     # When updating this resource, use the tag that matches the GStreamer version.
     resource "rs" do
-      url "https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs/-/archive/gstreamer-1.26.0/gst-plugins-rs-gstreamer-1.26.0.tar.bz2"
-      sha256 "808d8baa2d556117d3fea28cc461260739866383241318daf18353a6007162c6"
+      url "https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs/-/archive/gstreamer-1.26.1/gst-plugins-rs-gstreamer-1.26.1.tar.bz2"
+      sha256 "a3a65363cb5addc87918eb56e837740f077842ef95d0db2296159a0cad3523f8"
 
       livecheck do
         formula :parent
@@ -25,12 +24,13 @@ class Gstreamer < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "7e18f752513ca81c68eff702835fb45083981cf6071b9b112ff0334990c1f4de"
-    sha256 arm64_sonoma:  "e25af93637d8369afd65f99e6b84045bd6f9e0db8e0cc478376803f1e5735a51"
-    sha256 arm64_ventura: "fea9ea83b55c988d765c4cde4a915a6a3dc23d9c9e906a404cd41a1a0ad66e08"
-    sha256 sonoma:        "aca3a5dd465ffda6b589af6d352893fcc710f5ae918998769c0f94ea2094ef4b"
-    sha256 ventura:       "6758d86d42e322440025a7584fe7ef88be178aeeb39c0c011ff58474f7573436"
-    sha256 x86_64_linux:  "ca6ede529ee26e2a4db43849a3753d4125240be3305401571258cbc26f79ed4b"
+    sha256 arm64_sequoia: "ed81e3cb4bc2dc80f6cd7e0200df0a9de9c6ff610ceec01bef615a4813d47fb2"
+    sha256 arm64_sonoma:  "ac317c901604ed40ff2c366ad0072dd17146273af06d5246b4fb12f5ae9c71f7"
+    sha256 arm64_ventura: "f6f7249e9298afab0c420b9d508fb057eda61e444666adec2153cbd94af3d57d"
+    sha256 sonoma:        "b66228ea4e50d15ee1767a59ef374bdeff5aadb5806669dfae5b00a6205d105f"
+    sha256 ventura:       "6bf802620b0b5d00379407b695fad4bb61c1f14449a9c8cd16cd3d9742be84c4"
+    sha256 arm64_linux:   "83b6b8e873f8218902efe7b67a0e2153df109879762774d8e66a860cfd92072e"
+    sha256 x86_64_linux:  "69ab9ecce839e04132c3903022de3372763474182f198a70b677b7a64f373d8f"
   end
 
   head do

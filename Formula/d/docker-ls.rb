@@ -5,6 +5,7 @@ class DockerLs < Formula
       tag:      "v0.5.1",
       revision: "ae0856513066feff2ee6269efa5d665145709d2e"
   license "MIT"
+  head "https://github.com/mayflower/docker-ls.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "a5a6ebec1d000be676a4cd9e57ee15c4fb7e42a70aa7e03e32d83cfea4afdf4f"

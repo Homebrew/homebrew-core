@@ -1,21 +1,22 @@
 class CfnFormat < Formula
   desc "Command-line tool for formatting AWS CloudFormation templates"
   homepage "https://github.com/aws-cloudformation/rain"
-  url "https://github.com/aws-cloudformation/rain/archive/refs/tags/v1.21.0.tar.gz"
-  sha256 "1bf031347ff0e3f51b16575639c6e6fc64fd2e7979a4f7678bfeb313fb5a2c7a"
+  url "https://github.com/aws-cloudformation/rain/archive/refs/tags/v1.23.0.tar.gz"
+  sha256 "820724a0cde1066345982b81b42921af86906966d0e51151ed24a6e3c1f08740"
   license "Apache-2.0"
+  head "https://github.com/aws-cloudformation/rain.git", branch: "main"
 
   livecheck do
     formula "rain"
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c1943f596de0243ccedaa86623f07a9e71d140b75128f7cfd7e3105ca5ec0aef"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c1943f596de0243ccedaa86623f07a9e71d140b75128f7cfd7e3105ca5ec0aef"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "c1943f596de0243ccedaa86623f07a9e71d140b75128f7cfd7e3105ca5ec0aef"
-    sha256 cellar: :any_skip_relocation, sonoma:        "fe5051fb94a5a51ba7d893cc727f2a3693ad13a9d8ab5532b03cff051b2cd690"
-    sha256 cellar: :any_skip_relocation, ventura:       "fe5051fb94a5a51ba7d893cc727f2a3693ad13a9d8ab5532b03cff051b2cd690"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "03f359e039edbf0a71a22798d309f2bc1f288d58bd0175df266fcffd6a18732e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bb031518510da595fc6b288c746f5bdd0a596165263ec1a31fc6d6c32af06e4c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "bb031518510da595fc6b288c746f5bdd0a596165263ec1a31fc6d6c32af06e4c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "bb031518510da595fc6b288c746f5bdd0a596165263ec1a31fc6d6c32af06e4c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "4cb0a1b65f14bde6c80049d1199e42595cc7048a2d0c56952c157ece444ec2ee"
+    sha256 cellar: :any_skip_relocation, ventura:       "4cb0a1b65f14bde6c80049d1199e42595cc7048a2d0c56952c157ece444ec2ee"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ef702e496fa4266fa1128612eb4ba705fb92dee528462993a9fcf9d044cb603e"
   end
 
   depends_on "go" => :build

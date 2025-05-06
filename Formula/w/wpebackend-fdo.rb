@@ -12,6 +12,7 @@ class WpebackendFdo < Formula
   end
 
   bottle do
+    sha256 arm64_linux:  "3ee140a8b47dcd6cd4e3b108a26efbabe73721258518d8f6725d97e03786a277"
     sha256 x86_64_linux: "a1a62d1c3651a0e4cc927c5277c6174702776116108f42d6691507e7bdca6e75"
   end
 

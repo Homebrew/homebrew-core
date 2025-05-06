@@ -14,6 +14,7 @@ class CrunchyCli < Formula
     sha256 cellar: :any_skip_relocation, sonoma:         "fcd5a79d345f349e356ce9dcb3946a9bc3285e05fd1dac90d10480639afa7e05"
     sha256 cellar: :any_skip_relocation, ventura:        "e22153bc82c7d620d0b974c7028a3600730146ec5cd001dbca81267a38ad7199"
     sha256 cellar: :any_skip_relocation, monterey:       "2da874bb0fa697266a2575eae4f75602575f9e3a6137719dd535ec5fd72c28a2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "526cbfcb29933de4562ca839a7b009505f7a5092a2c1c83902c4c669f935594d"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "2bfb8108c92d7926879b6c3067632692db81b020f9d52166f17e788a6b64b391"
   end
 

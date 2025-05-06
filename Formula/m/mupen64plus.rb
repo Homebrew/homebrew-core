@@ -16,6 +16,7 @@ class Mupen64plus < Formula
     sha256 arm64_ventura: "5a9308e8d1a6356bbef3f5f6009fb06c1d190d59fd3e85565c4f9e1123cf3ff1"
     sha256 sonoma:        "26e73f4712a1bf42221a86efe322010a2f9b521f58c9b24611881522967b790f"
     sha256 ventura:       "788e3150ef2a190f730edd401a47c46b548f978994fdcd5497f2ed7ec1db433c"
+    sha256 arm64_linux:   "c97d64ce1bfe545d8d9e25100ab24dd6a75c660683473db88417db2015ccecda"
     sha256 x86_64_linux:  "6b1e569e22ff2c8f5ef5b343f93a684b6a866e12df7b5e1dd615b79c4e361b75"
   end
 

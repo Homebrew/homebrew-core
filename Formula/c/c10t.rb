@@ -4,16 +4,16 @@ class C10t < Formula
   url "https://github.com/udoprog/c10t/archive/refs/tags/1.7.tar.gz"
   sha256 "0e5779d517105bfdd14944c849a395e1a8670bedba5bdab281a0165c3eb077dc"
   license "BSD-3-Clause"
-  revision 10
+  revision 11
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "70ab94023e384a3ab08cfd9e0af0e0a44c83dbca6093465d5723049050243b39"
-    sha256 cellar: :any,                 arm64_sonoma:  "95e91b204b1e1a40ffd9a6a2a4bef1fb572612210980e52bc5c6f6eb9d29fe67"
-    sha256 cellar: :any,                 arm64_ventura: "7bac068da2879d7f2909fcb2a09d2d5962f1a9be7bed12ec7bb49def6246b83a"
-    sha256 cellar: :any,                 sonoma:        "630ca35c4c72f49320d8e11fe2901868b2ad4d82bc247afb875d81e7e8cd1fb7"
-    sha256 cellar: :any,                 ventura:       "e81cbae89815db03fc8f84cbdb8a87abc1000eeecbb9ce79ada9e7e968a7b859"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1751819c971059dbbe07865fab1304474f73145631fcc2ca8081ea5a3f45b7ab"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8fb0e64ba0f4146416e66bb79fd0972d6ca5af6a6ef087fa519764355f91b14b"
+    sha256 cellar: :any,                 arm64_sequoia: "b9cdeef70745ce25fb83a076585191b65f44a937075ed8f165e092c974550f96"
+    sha256 cellar: :any,                 arm64_sonoma:  "56bce6a79dc3ee8b07a0441e2b299dcb8ce0ba98d86e37af244519b8617914bc"
+    sha256 cellar: :any,                 arm64_ventura: "ba333295a388f76a8626f6c68548a02efa8262552aa9e88b4c66c6e1be556e67"
+    sha256 cellar: :any,                 sonoma:        "603ba928df95c77be7960e908145afb1a432174f953e366cacb584721b76158c"
+    sha256 cellar: :any,                 ventura:       "22ae09c19e427bfc4aa514a0de60dc3b6fb1013f6b862422539357e118b3f4e0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "de79ed48a54bef77ca5a116f2adce08f91af261900d11fc4a38250b014ed1cac"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4c4e4c6894ab5e4ab909a70fb123f6b788730806b1d388a59577ba8e2111e8e3"
   end
 
   depends_on "cmake" => :build
@@ -49,9 +49,7 @@ class C10t < Formula
   patch :DATA
 
   def install
-    ENV.cxx11
-
-    args = []
+    args = ["-DCMAKE_CXX_STANDARD=11", "-DCMAKE_POLICY_VERSION_MINIMUM=3.5"]
     unless OS.mac?
       args += %W[
         -DCMAKE_LINK_WHAT_YOU_USE=ON

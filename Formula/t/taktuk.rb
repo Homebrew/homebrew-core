@@ -25,6 +25,7 @@ class Taktuk < Formula
     sha256 cellar: :any,                 high_sierra:    "9cc466f8a75eea1974143fedecd42547eb14401d772e527776f387aec4832f77"
     sha256 cellar: :any,                 sierra:         "0ffc0bb09703bbf32afbcd302850803f94ecbb311eaa77353275e7dcb1549f62"
     sha256 cellar: :any,                 el_capitan:     "4a731d243e6915729240deb75dc99cfee513bb7d0f69169981623b14ce6601c1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "20bbcdc066c8754651d49a124fd7f922c782677c04a6ad6eff95caab8e25ab72"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "f799a4468de4f14fdccde850591ac6c2a213725a0fb8b8e8c427d63eae27d703"
   end
 
@@ -40,7 +41,7 @@ class Taktuk < Formula
     system "./configure", "--prefix=#{prefix}"
     system "make"
     ENV.deparallelize
-    system "make", "install"
+    system "make", "install", "INSTALLSITEMAN3DIR=#{man3}"
   end
 
   test do

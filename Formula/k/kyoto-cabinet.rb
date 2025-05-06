@@ -20,6 +20,7 @@ class KyotoCabinet < Formula
     sha256 ventura:        "90c2584ed35710ac0d4827dd373f533e313b1c562057aa76a727d2c1d963f772"
     sha256 monterey:       "362b63259bb9f6d81d8320f741b8d4238cfbd1800bb7c4b1a7653abdba172bcb"
     sha256 big_sur:        "c6572ef13f91e704d480f0a4ad4353168160a3b8d33d05b299e97c4c9f5399b7"
+    sha256 arm64_linux:    "d8b85343a89770b3b65f6179c3ebd12e261cf51980faf78ee4b2ae9e4edca85e"
     sha256 x86_64_linux:   "e5da4592e6cd893f7c1955a3d07b28e1ab97fc39ef1a41ea0550cdd4f84d3d0f"
   end
 
@@ -28,8 +29,12 @@ class KyotoCabinet < Formula
   patch :DATA
 
   def install
+    if OS.linux?
+      ENV.append_to_cflags "-I#{Formula["zlib"].opt_include}"
+      ENV.append "LDFLAGS", "-L#{Formula["zlib"].opt_lib}"
+    end
     ENV.cxx11
-    system "./configure", "--disable-debug", "--prefix=#{prefix}"
+    system "./configure", *std_configure_args
     system "make" # Separate steps required
     system "make", "install"
   end

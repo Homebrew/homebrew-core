@@ -4,6 +4,7 @@ class Cortex < Formula
   url "https://github.com/cortexproject/cortex/archive/refs/tags/v1.19.0.tar.gz"
   sha256 "7cb6b312f67263e40fef3a99afb7d12bce69fe035e7b787b9c1efb4bf7a693bc"
   license "Apache-2.0"
+  head "https://github.com/cortexproject/cortex.git", branch: "master"
 
   livecheck do
     url :stable

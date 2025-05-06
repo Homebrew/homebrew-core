@@ -16,6 +16,7 @@ class Gitql < Formula
     sha256 cellar: :any_skip_relocation, ventura:        "1afa4269aa54b3f990d4061b7fe21424c9aeb509ba86a6af4a6b7cdfd5d6daf6"
     sha256 cellar: :any_skip_relocation, monterey:       "211d0bb817e59169943c5e12a9b6b147cb74a409eb59af501e774eedf30d7f4f"
     sha256 cellar: :any_skip_relocation, big_sur:        "1d03ac14a4d11bd7f0c09694b68b04b679eb6fc1feb5b292b1c289417e46ce26"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "d0357e2209734c9b1f78e67b4826b529eb010d787eea301987609e60eecbc729"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "39d4bb77007f584d4ebfb5f3b6e1d40e1c6794fb728f7e32877b75d6ca3f17cd"
   end
 

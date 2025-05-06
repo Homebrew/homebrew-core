@@ -4,6 +4,7 @@ class Obfs4proxy < Formula
   url "https://gitlab.com/yawning/obfs4/-/archive/obfs4proxy-0.0.14/obfs4-obfs4proxy-0.0.14.tar.gz"
   sha256 "a4b7520e732b0f168832f6f2fdf1be57f3e2cce0612e743d3f6b51341a740903"
   license "BSD-2-Clause"
+  head "https://gitlab.com/yawning/obfs4.git", branch: "master"
 
   livecheck do
     url :stable

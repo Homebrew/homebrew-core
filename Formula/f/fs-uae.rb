@@ -21,6 +21,7 @@ class FsUae < Formula
     sha256 cellar: :any,                 monterey:       "e73f955c331c42ddcbada8c15dcaaba7aa3c4c1f2471b6303ca920d90977b6c8"
     sha256 cellar: :any,                 big_sur:        "7d0fa0057f0d4e76d802554b9a29666b556f0bae8520430e73244abfbfcbbd72"
     sha256 cellar: :any,                 catalina:       "7a373d3e50a22619466b27bfad1576df98e2bae34433f5bf2d8ae370e2858e87"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "a1d34f687954601c0ad8e4822df6aa0293d0647bc07ef9824c0937b4bdecd551"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "3e7f4005c34030d2c8902fee844ff96ac8acd45d368c7cf28ba7c682fcc97ac5"
   end
 

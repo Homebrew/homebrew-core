@@ -12,6 +12,7 @@ class Bup < Formula
     sha256 cellar: :any,                 arm64_ventura: "bf776628703118c1778d0d65a7e63d916afd13db57645d65747933e33c3f2390"
     sha256 cellar: :any,                 sonoma:        "75c558710f3d49f210a251824ffd22ff52c786bcea59cb95849b10ec1263f201"
     sha256 cellar: :any,                 ventura:       "2f88d8a0073a46e7ae72300251ef2c504823f09a96ac7cb353d97b4ccb2dbd96"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9a403d35dc2c5d4d5f466bcbc45e9d302f7727ee089efa324f347ffb29cf5892"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "31d618a8be5d4085a9e72e429e9e3156e1467944be7a49f83e491e258b9d9f0f"
   end
 

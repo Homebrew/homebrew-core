@@ -21,6 +21,7 @@ class Gabedit < Formula
     sha256 cellar: :any,                 sonoma:         "2b8c19f613ff297dc96f47ccfa68910c4b883e7c4b130e1c49428cde20ec58f9"
     sha256 cellar: :any,                 ventura:        "8acd0846dd0cb1d925b104d87ceb402fe0663fa8bfc1b1ca85d4c3ac719b6c1e"
     sha256 cellar: :any,                 monterey:       "e813fee190a63752c14c08a43dd17616e40d69c56b490dd0c6bb9c933cf1d04f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "0b1e20276076f99f0b8662ee3c6a84eacf7bf10d5ce122c42ca0a8063dae9b2d"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "85b9f31c8d4f0b7daf320543f5da7d50a20212535bf1c753eca37aaa579c737d"
   end
 

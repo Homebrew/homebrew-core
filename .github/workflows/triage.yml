@@ -105,7 +105,7 @@ jobs:
               path: Formula/.+
               content: \n  bottle do\n
               missing_content:
-                - '\n    sha256.* x86_64_linux: +"[a-fA-F0-9]+"\n'
+                - '\n    sha256.* (x86_64|arm64)_linux: +"[a-fA-F0-9]+"\n'
                 - '\n    sha256.* all: +"[a-fA-F0-9]+"\n'
                 - depends_on :macos
 
@@ -145,6 +145,10 @@ jobs:
               path: Formula/.+
               content: depends_on "ffmpeg(@[0-9.]+)?"
 
+            - label: erlang
+              path: Formula/.+
+              content: depends_on "erlang(@[0-9.]+)?"
+
             - label: go
               path: Formula/.+
               content: depends_on "go(@[0-9.]+)?"
@@ -168,6 +172,10 @@ jobs:
             - label: macos-only
               path: Formula/.+
               content: depends_on :macos
+
+            - label: meson
+              path: Formula/.+
+              content: depends_on "meson"
 
             - label: lua
               path: Formula/.+
@@ -227,6 +235,7 @@ jobs:
                 emscripten|\
                 envoy|\
                 gcc|\
+                gdb|\
                 ghc|\
                 graph-tool|\
                 gstreamer|\
@@ -239,8 +248,10 @@ jobs:
                 node|\
                 octave|\
                 opencascade|\
+                openfast|\
                 openvino|\
                 pcl|\
+                percona-server|\
                 ponyc|\
                 pytorch|\
                 qt|\
@@ -263,9 +274,11 @@ jobs:
                 boost|\
                 brotli|\
                 c-ares|\
+                cabal-install|\
                 dav1d|\
                 freetype|\
                 gcc|\
+                gettext|\
                 ghc|\
                 glib|\
                 gsettings-desktop-schemas|\
@@ -301,6 +314,7 @@ jobs:
                 python@3.13|\
                 rav1e|\
                 rust|\
+                sdl2|\
                 shared-mime-info|\
                 suite-sparse|\
                 qt|\
@@ -357,4 +371,8 @@ jobs:
 
             - label: autobump
               path: \.github/autobump\.txt
+              allow_any_match: true
+
+            - label: alias
+              path: Aliases/.+
               allow_any_match: true

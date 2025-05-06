@@ -14,6 +14,7 @@ class Sqlfmt < Formula
     sha256 cellar: :any_skip_relocation, sonoma:         "cf05930ebc73ec4e027c7463a3e8ceb327492d32d2e32ad7c571f381fa9e9bc6"
     sha256 cellar: :any_skip_relocation, ventura:        "f6b9b8a8849278f597ef6b98f8cc6868b0dbda0122207dfb127600aa36a4e60c"
     sha256 cellar: :any_skip_relocation, monterey:       "18c12379256a1d5d2e659824951ed74e49c73417fea49b58a5c0814cb74c78c6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "4d7b6e3172634e1e59220fc0d57360ad2e99fac2073ffa45552736a7cff9eb21"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "a3d79be793a67b641b58cee79ed6da1320b6d4ed2cd007d500e5e9ad26e70378"
   end
 

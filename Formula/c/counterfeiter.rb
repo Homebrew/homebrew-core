@@ -17,6 +17,7 @@ class Counterfeiter < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "f5b1ce50092552ea9b705730a0a111a80e0e3cfa6ab38155f20a4bb2159080d5"
     sha256 cellar: :any_skip_relocation, sonoma:        "1bb3461edc31c61bcdd5cf69d3e4973ea98e6d51e3d82d26c22963e1d0128e16"
     sha256 cellar: :any_skip_relocation, ventura:       "1bb3461edc31c61bcdd5cf69d3e4973ea98e6d51e3d82d26c22963e1d0128e16"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5452b37a98cacbe9ce1a2dd08fa7872f18eee49cfdc26d692650317c6e05c969"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "d2459c5b2c06488e4387b4fa51f438e22210fe5c6a4ca8a33a45a015ae0e4ed3"
   end
 

@@ -1,17 +1,18 @@
 class GoParquetTools < Formula
   desc "Utility to deal with Parquet data"
   homepage "https://github.com/hangxie/parquet-tools"
-  url "https://github.com/hangxie/parquet-tools/archive/refs/tags/v1.26.1.tar.gz"
-  sha256 "51a950d6c779fec2efe65eeabfdef5fd9dc252cfb0cb9cfef915bcc41c867fdc"
+  url "https://github.com/hangxie/parquet-tools/archive/refs/tags/v1.28.3.tar.gz"
+  sha256 "d71530927d732460f9ea4f7696c7bb51334ce2e7024c5b77ac14d9baa090198b"
   license "BSD-3-Clause"
+  head "https://github.com/hangxie/parquet-tools.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c295a89822e0a3f458267ea41abee2ea472cc37a460cc57abef1d6683f379d7f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c295a89822e0a3f458267ea41abee2ea472cc37a460cc57abef1d6683f379d7f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "c295a89822e0a3f458267ea41abee2ea472cc37a460cc57abef1d6683f379d7f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "75b254bdfc99492993df8f0ffe4e8ad659a0eb11ade9445411a6f55a98857e0f"
-    sha256 cellar: :any_skip_relocation, ventura:       "75b254bdfc99492993df8f0ffe4e8ad659a0eb11ade9445411a6f55a98857e0f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "baebb4667af1521d5e670e271e9cf12168ac49dc62bc6f7afec6518190de52ba"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1e202ec9f273af9ecba0159e3c8f82ab11f3f4dde657f38fc26e846ab1c59ecc"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1e202ec9f273af9ecba0159e3c8f82ab11f3f4dde657f38fc26e846ab1c59ecc"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "1e202ec9f273af9ecba0159e3c8f82ab11f3f4dde657f38fc26e846ab1c59ecc"
+    sha256 cellar: :any_skip_relocation, sonoma:        "cc4eef88fbb93fc3ecf371e6bc15e739d261599d826c4121a41b7f48c3f49984"
+    sha256 cellar: :any_skip_relocation, ventura:       "cc4eef88fbb93fc3ecf371e6bc15e739d261599d826c4121a41b7f48c3f49984"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ae48db02e01376961e43a83331de42f7c6677422db8490bb19b178b09b9c7ec3"
   end
 
   depends_on "go" => :build

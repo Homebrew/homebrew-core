@@ -1,8 +1,8 @@
 class Debianutils < Formula
   desc "Miscellaneous utilities specific to Debian"
   homepage "https://tracker.debian.org/pkg/debianutils"
-  url "https://deb.debian.org/debian/pool/main/d/debianutils/debianutils_5.21.tar.xz"
-  sha256 "0053dcfd89e5c7dbfb2632450c00af6b8a646eeaaf185bbc8f2915488f994fe5"
+  url "https://deb.debian.org/debian/pool/main/d/debianutils/debianutils_5.22.tar.xz"
+  sha256 "043569241cdd893cc45e00f917c94c123d0c24143895d91c4d08c6c567e35155"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -11,13 +11,13 @@ class Debianutils < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ff7dbcabe95b2f1fb816e7beb7899636809b0209b45d99b1d88661dcb929fb8e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fa867345e076321638da926c7c5c339d404a20861077095918c404ebef0e0cd1"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "0a501f8de9b1a2654efa102a049dd181cfab7fd3a91cdbb86d4ed33219cfcd6e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "cb0c2f9e9219767f62d6bf7743e4dccf930fe062c59a4ea13e40031ddd4c239e"
-    sha256 cellar: :any_skip_relocation, ventura:       "26a45771021e5520b95eaff418ae8217ea26a052e90ae0c66b2a53af75653b35"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c17ef8a4479158fb2b7b0965f5f6a702154b3cbbd19526eae6fcea4b37084bf6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "eedf40ac046afc99b2c62f565dbdc97e85e6ec68378ea12fdbb1edcf547b9900"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6b424a595625fd72f16ca4a64a6b3c76628eb368b4caf3d46f3fd3ed679a0b85"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "beb55c1b5ff723041ecb4b4547217f64b9333a0a588a7578238a33fbff45c193"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "f44d04b0b597f2da95967a4b2be1e106f111357a558b5661ef3bf8b89abca6f6"
+    sha256 cellar: :any_skip_relocation, sonoma:        "5de2cda2b72681b31d1bead67e307bae581f67f9045389edeb2e0cf064ac6895"
+    sha256 cellar: :any_skip_relocation, ventura:       "dfdbd0132eff2547406593c94239b74011d3a9c614123435e62fe437a382f0d8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d13d8bded021ec8694b6d1921d142c1b26745e9d3dda9a512441d01db8833199"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "df8cd2bb8e760398a01c3fc5e25eef69a37193ab063fd32d95a7f99f989f2b32"
   end
 
   depends_on "autoconf" => :build

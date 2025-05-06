@@ -3,19 +3,18 @@ class Sceptre < Formula
 
   desc "Build better AWS infrastructure"
   homepage "https://docs.sceptre-project.org/"
-  url "https://files.pythonhosted.org/packages/61/24/f82727943652a4f1be61bc2e08c1af2c562fe35343168bbe9c794511af9e/sceptre-4.5.2.tar.gz"
-  sha256 "94cbafb90a1048a18893788d441f3f8ec5a009a656c53013806e006ab0f49e94"
+  url "https://files.pythonhosted.org/packages/32/0b/e3249a42ab6cab8cf9e2c5261a95740daa0b74edf1aaecf5c17293e67784/sceptre-4.5.3.tar.gz"
+  sha256 "84ebc52b59e980b5d25926bbe7116edfbe428dd34ef47014e7f3b200136dc7a0"
   license "Apache-2.0"
-  revision 2
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "77530f9e654b682de37851e3ba867cce2142c2a6a44a30d9981613ab030672e7"
-    sha256 cellar: :any,                 arm64_sonoma:  "96869df4f3be9a5eadc838a53be0ef07c93a3d7f42a91e94f1f0a7ac3db4801a"
-    sha256 cellar: :any,                 arm64_ventura: "fba571afd5d75ad2931818dc3f10af7388c38adb6d558f0c8f8ed1b68ca656d7"
-    sha256 cellar: :any,                 sonoma:        "e39784d5475fbc3e5da31d1b051f32d03f3528b6926f3c25adea66041194794b"
-    sha256 cellar: :any,                 ventura:       "a466ca444cac533dd801809af1d94ca15281df39f5ccd74778c3fad4c1e83073"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f1125671dba9a1eb7275958f592121d27f0d92e56ebd03e1658bfbf06d0ef6ef"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bf625f788f80179ccf39468cba15d2ea7848bf8badc9becc9bf59df94693a82c"
+    sha256 cellar: :any,                 arm64_sequoia: "cec0aac8aa2e27a01417df11fde831d8f4a4c2085cf4f78355271fe53dfd986c"
+    sha256 cellar: :any,                 arm64_sonoma:  "6b7411723b6c0d0cd5b725d0151a61b27b2e03272049f30a8039d453231f75a3"
+    sha256 cellar: :any,                 arm64_ventura: "98aebe51e4714e56d21a2c07e1f52700e60c22bc85b71eb961b99ba142bb9ef7"
+    sha256 cellar: :any,                 sonoma:        "979884d2a5cd1df91768da33c39b99961cffbfe27cc18d459aa8dde5d20e3262"
+    sha256 cellar: :any,                 ventura:       "49675d31adedb4e98227befbbd1cc73d24cac05ac607e168a460e8e287e0498b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b1741cf554fa1e9020d1036b98b2acb632515ffbd82f31ed0cb0ae427ce63925"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e91a4257f912f371a33d0ba02d8c1d410e2f54d259ec82ac2befb76af5ec70d4"
   end
 
   depends_on "certifi"
@@ -23,18 +22,18 @@ class Sceptre < Formula
   depends_on "python@3.13"
 
   resource "attrs" do
-    url "https://files.pythonhosted.org/packages/49/7c/fdf464bcc51d23881d110abd74b512a42b3d5d376a55a831b44c603ae17f/attrs-25.1.0.tar.gz"
-    sha256 "1c97078a80c814273a76b2a298a932eb681c87415c11dee0a6921de7f1b02c3e"
+    url "https://files.pythonhosted.org/packages/5a/b0/1367933a8532ee6ff8d63537de4f1177af4bff9f3e829baf7331f595bb24/attrs-25.3.0.tar.gz"
+    sha256 "75d7cefc7fb576747b2c81b4442d4d4a1ce0900973527c011d1030fd3bf4af1b"
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/6b/e6/40f8c1fb52c02adad1c104c4c4ac0488bf8f2b1397f24db07779322e420b/boto3-1.37.7.tar.gz"
-    sha256 "ac2e022edcd6a94a2adbb21f0ad373a16557ec14a8910366bee0bbc7138fc72a"
+    url "https://files.pythonhosted.org/packages/65/81/fcaf72cf86c4b3f1a4efa3500e08c97d2a98966a35760acfaed79100c6a0/boto3-1.37.23.tar.gz"
+    sha256 "82f4599a34f5eb66e916b9ac8547394f6e5899c19580e74b60237db04cf66d1e"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/53/4b/096b2fac3ba92ace94f69f238eea9948af568b487c3898e9a8881bfe506b/botocore-1.37.7.tar.gz"
-    sha256 "2faeac11766db912bc444669b04359080b7b83b2f57a3906c77c8105b70ce1e8"
+    url "https://files.pythonhosted.org/packages/0e/34/9becaddf187353e1449a3bfa08ee7b069398f51e3d600cffdb0a63789e34/botocore-1.37.23.tar.gz"
+    sha256 "3a249c950cef9ee9ed7b2278500ad83a4ad6456bc433a43abd1864d1b61b2acb"
   end
 
   resource "cfn-flip" do
@@ -58,8 +57,8 @@ class Sceptre < Formula
   end
 
   resource "deepdiff" do
-    url "https://files.pythonhosted.org/packages/0f/ca/caead2949fbb824c7142e3774fa841aa853bb4d4331b440da8c8514dfc6f/deepdiff-5.8.1.tar.gz"
-    sha256 "8d4eb2c4e6cbc80b811266419cb71dd95a157094a3947ccf937a94d44943c7b8"
+    url "https://files.pythonhosted.org/packages/7f/2f/232a9f6d88a59526347cb483ec601d878ad41ab30ee4f2fba4aca1d5a10e/deepdiff-8.4.2.tar.gz"
+    sha256 "5c741c0867ebc7fcb83950ad5ed958369c17f424e14dee32a11c56073f4ee92a"
   end
 
   resource "deprecation" do
@@ -97,9 +96,9 @@ class Sceptre < Formula
     sha256 "c0946ed31d71f1b732b5aaa6da5a0388a345019af232ce2f49c766e2d6795c51"
   end
 
-  resource "ordered-set" do
-    url "https://files.pythonhosted.org/packages/4c/ca/bfac8bc689799bcca4157e0e0ced07e70ce125193fc2e166d2e685b7e2fe/ordered-set-4.1.0.tar.gz"
-    sha256 "694a8e44c87657c59292ede72891eb91d34131f6531463aab3009191c77364a8"
+  resource "orderly-set" do
+    url "https://files.pythonhosted.org/packages/e7/0e/ef328b512c2595831304e51f25e9287697b7bf13be0527ca9592a2659c16/orderly_set-5.3.0.tar.gz"
+    sha256 "80b3d8fdd3d39004d9aad389eaa0eab02c71f0a0511ba3a6d54a935a6c6a0acc"
   end
 
   resource "packaging" do
@@ -143,8 +142,8 @@ class Sceptre < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/d1/53/43d99d7687e8cdef5ab5f9ec5eaf2c0423c2b35133a2b7e7bc276fc32b21/setuptools-75.8.2.tar.gz"
-    sha256 "4880473a969e5f23f2a2be3646b2dfd84af9028716d398e46192f84bc36900d2"
+    url "https://files.pythonhosted.org/packages/a9/5a/0db4da3bc908df06e5efae42b44e75c81dd52716e10192ff36d0c1c8e379/setuptools-78.1.0.tar.gz"
+    sha256 "18fd474d4a82a5f83dac888df697af65afa82dec7323d09c3e37d1f14288da54"
   end
 
   resource "six" do
@@ -158,6 +157,9 @@ class Sceptre < Formula
   end
 
   def install
+    # The source doesn't have a valid SOURCE_DATE_EPOCH, so here we set default.
+    ENV["SOURCE_DATE_EPOCH"] = "1451574000"
+
     # Avoid issue if `numpy` is installed, https://github.com/Sceptre/sceptre/issues/1541
     virtualenv_install_with_resources(system_site_packages: false)
 

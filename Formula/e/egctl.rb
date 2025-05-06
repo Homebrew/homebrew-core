@@ -12,6 +12,7 @@ class Egctl < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "22d207191baca56905f98fbfd5a651b59636f2ad59d99543742cd8e557787551"
     sha256 cellar: :any_skip_relocation, sonoma:        "5a680df48cb020c0ee16d7423e982d70a3f19ea528c706e70004f9c99ad3919a"
     sha256 cellar: :any_skip_relocation, ventura:       "f6ac33f54771bc77d01e442c50f6bcf5c10eed8560b8d7fd8555c69114be51f0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f046f29b0f56d837ecb68df4d4c2eec966b52965702bcfbd7e4df5c0a7c63b59"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "9d9bf62cb82f28990ab8879d34fc782b8dda9ff261f1095f30b0ea7f84b5c2ac"
   end
 

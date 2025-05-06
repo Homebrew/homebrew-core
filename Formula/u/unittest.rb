@@ -25,12 +25,13 @@ class Unittest < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:    "b34ab2aa983e33bf86eda07a58af410a769da7e969620e479c6f7e965de2c397"
     sha256 cellar: :any_skip_relocation, sierra:         "c997c9ce2d6984607af24a6dc7dc21ddefc0570a15d2fb61192b3a361120a83d"
     sha256 cellar: :any_skip_relocation, el_capitan:     "501b61d05de70cfb53116c66daf380cb35a1665eeecf34dfc6b27ab945458f43"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "fc7cca539bea1e17f6eb787a2061ee632cbde672e48ddb1f551a5802eab80b01"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "253282b6d8bd11e9b124dea0b9356211b422502f0e809cd2f043f791275d7459"
   end
 
   def install
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    ENV.append "CXX", "-std=c++03"
+    system "./configure", *std_configure_args
     system "make", "install"
     pkgshare.install "test/unittesttest"
   end

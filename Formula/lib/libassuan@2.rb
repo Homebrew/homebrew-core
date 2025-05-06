@@ -19,6 +19,7 @@ class LibassuanAT2 < Formula
     sha256 cellar: :any,                 sonoma:         "bbe02b3b1091f71a05a2849bc67427e99073dcdede197a16bd18b679306d65c9"
     sha256 cellar: :any,                 ventura:        "f74779f1dc1d827a4a57186d83e2398c524ff4b82abdefd4e5f7148b7fd46612"
     sha256 cellar: :any,                 monterey:       "8827e9ad490c7273044aef10a0342cd85c0d72c6407f515b38445d53e4cc2605"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "67dc8df4e57fde8c74851d163d6a1716eb9fdebbc884b8a2be0a2363f92f1b82"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "9a769126855958b4ffa4793c21b0d5e6f8281459dbd42d9931adfb9768b0350d"
   end
 

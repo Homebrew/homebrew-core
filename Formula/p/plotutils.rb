@@ -23,13 +23,17 @@ class Plotutils < Formula
     sha256 cellar: :any,                 high_sierra:    "00796c7f6aa36203eb0fd919ef4f096c6016d3c5973b2032328c95c87b354d92"
     sha256 cellar: :any,                 sierra:         "b63f4f051452f8fd9b5ddb50f9d574122c2277c9778e1a56c3f2d59e55c3da73"
     sha256 cellar: :any,                 el_capitan:     "b734cdcbc7ce11c4a716bc96ee7671f3883a5d41dadceac28d994ad2c20292f9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "7f042f52c72e85c663689b220172d739a64e95948fc2c3b6175696c513fca1cc"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "74b0edefd4bc7eb703cf1579159b7d746502c77538f58b981405c1cf9ba6d042"
   end
 
   depends_on "libpng"
 
   on_linux do
+    depends_on "libx11"
     depends_on "libxaw"
+    depends_on "libxext"
+    depends_on "libxt"
   end
 
   def install
@@ -39,17 +43,16 @@ class Plotutils < Formula
     # Avoid `-flat_namespace` flag.
     ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version.to_s if OS.mac?
 
-    args = %W[
-      --disable-debug
-      --disable-dependency-tracking
+    args = %w[
       --disable-silent-rules
-      --prefix=#{prefix}
       --enable-libplotter
     ]
     # Prevent opportunistic linkage to X11
     args << "--without-x" if OS.mac?
+    # Help old config scripts identify arm64 linux
+    args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
 
-    system "./configure", *args
+    system "./configure", *args, *std_configure_args
     system "make"
     system "make", "install"
   end

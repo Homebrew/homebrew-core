@@ -1,17 +1,17 @@
 class XcodeKotlin < Formula
   desc "Kotlin Native Xcode Plugin"
   homepage "https://github.com/touchlab/xcode-kotlin"
-  url "https://github.com/touchlab/xcode-kotlin/archive/refs/tags/2.1.0.tar.gz"
-  sha256 "840fb10e05e0f5e9a75620bc3f05a1a6fc16025db8da58c34a053f4d97c3b14f"
+  url "https://github.com/touchlab/xcode-kotlin/archive/refs/tags/2.2.1.tar.gz"
+  sha256 "3789d886022509cb232616679835a7dd67e4adb4983a24f1ce268aa244978aa8"
   license "Apache-2.0"
   head "https://github.com/touchlab/xcode-kotlin.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "258566d0b50dc04657c8a9c737f4adf331a450e9a87fbc49343a2f045a11a431"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ac0118eb40f7b30e8c5b38964a867239923c91da3e2f972577dd82358fc9fe3a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "4b6d91ba83529e71b3f1904e3c7bbc111e620b35bba3c2a1f3b08d1779293f2d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f45df4b3e80f1c8336cd9839fe608668d46c38f6abe6efeac1ea0820ac4ea838"
-    sha256 cellar: :any_skip_relocation, ventura:       "33a3da5c279a5d0e17d6911bbebdcbdefcd882e2e07c960f736b58233735f80b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7d3b032937ee2f5e72a80cff85d9bb0b257178e6498b050f3f45919910c7bc77"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e21566ddcf5a53e5f3320fe660a0b6c67d70a6ed3e6fc5ca82b72087ed80d7db"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "693d8c42c635a9560ceb4ca9e6a9512123fbada905b3068deef8e38f4340a355"
+    sha256 cellar: :any_skip_relocation, sonoma:        "95af928c785a49d772eef8755d4854e7a89f5f8179a65dd0a5b2e512c63d0eb6"
+    sha256 cellar: :any_skip_relocation, ventura:       "2386514c4fbb8166b6e9ed4f016abecef6a69a8684ad84d890db0f9b66b36021"
   end
 
   depends_on "gradle" => :build
@@ -27,7 +27,7 @@ class XcodeKotlin < Formula
 
   test do
     output = shell_output(bin/"xcode-kotlin info --only")
-    assert_match "Bundled plugin version:\t\t#{version}", output
+    assert_match(/Bundled plugin version:\s*#{version}/, output)
     assert_match(/Installed plugin version:\s*(?:(?:\d+)\.(?:\d+)\.(?:\d+)|none)/, output)
     assert_match(/Language spec installed:\s*(?:Yes|No)/, output)
     assert_match(/LLDB init installed:\s*(?:Yes|No)/, output)

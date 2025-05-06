@@ -21,11 +21,21 @@ class Netcat < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:    "879d9c32f09e9ef31cb672983707f9d95341f6639bb8a4db54d7a6ea0878b946"
     sha256 cellar: :any_skip_relocation, sierra:         "9027fd429d5407fba0b3206bd0cd198c669f4744155efcf8e0dbdd6ba69b6d34"
     sha256 cellar: :any_skip_relocation, el_capitan:     "1f346605e0236ea7880258da2abf0bde1d7d8d8735a07d6d32feaf12425ff6da"
+    sha256                               arm64_linux:    "eb080e6267d9f70f673e5069f58180210cabe7241fd1d3789415d72be31d9ada"
     sha256                               x86_64_linux:   "713b509412561ffe59ef45f828278384180ffc219547d9495409908ba421e259"
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
+
+  # Fix running on Linux ARM64, using patch from Arch Linux ARM.
+  # https://sourceforge.net/p/netcat/bugs/51/
+  patch do
+    on_arm do
+      url "https://raw.githubusercontent.com/archlinuxarm/PKGBUILDs/05ebc1439262e7622ba4ab0c15c2a3bad1ac64c4/extra/gnu-netcat/gnu-netcat-flagcount.patch"
+      sha256 "63ffd690c586b164ec2f80723f5bcc46d009ffd5e0dd78bbe56fd1b770fd0788"
+    end
+  end
 
   def install
     # Regenerate configure script for arm64/Apple Silicon support.

@@ -16,7 +16,14 @@ class Grantlee < Formula
     sha256 ventura:        "afe7f2fb56c25ea01712c69806e5e6c91bfbc495604f254ff10443ceafe46334"
     sha256 monterey:       "ac395abc45412eca0aa6e5292127b6655f45ff4785d8d69457bc9f124f87f222"
     sha256 big_sur:        "cb83e418903303323e40af6f902331b1365ecb31382fc7f7407753a1533d0a0b"
+    sha256 x86_64_linux:   "9fa1fc4626d293531c6a3823ed4124b114a5f823a58753731cdc4fd3c008271b"
   end
+
+  # From https://steveire.wordpress.com/2022/11/11/grantlee-version-5-3-1-now-available/
+  # > The continuation of Grantlee for Qt 6 is happening as KTextTemplate
+  #
+  # Just deprecating with replacement message due to incompatible API.
+  deprecate! date: "2025-04-03", because: :unmaintained, replacement_formula: "ktexttemplate"
 
   depends_on "cmake" => [:build, :test]
   depends_on "doxygen" => :build

@@ -16,6 +16,7 @@ class SpatialiteTools < Formula
     sha256 cellar: :any,                 arm64_ventura: "d7fbe72eae1741ce20b5fe2dcd06b257af9cb642cf706f2012a0c42e007d8b73"
     sha256 cellar: :any,                 sonoma:        "fe5c356ae405535cfb7bb9f1ac262b7e6d7178ca84396c4b34a7eb1b8778606b"
     sha256 cellar: :any,                 ventura:       "c6ac73412b33855140008c7a03d8216532f3cb91455c779d653d8c6926ea19a1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f102739c6d45f16910fa2e1e31cef488345424601fdd0bd31cf42851adb48eba"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "670d92603126025a4964546cc86588142cb7211dbbfb9cd43a6c09e1d83fd411"
   end
 
@@ -45,7 +46,11 @@ class SpatialiteTools < Formula
     ENV.prepend "LDFLAGS", "-L#{sqlite.opt_lib} -lsqlite3"
     ENV.prepend "CFLAGS", "-I#{sqlite.opt_include}"
 
-    system "./configure", *std_configure_args
+    args = []
+    # Help old config scripts identify arm64 linux
+    args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+
+    system "./configure", *args, *std_configure_args
     system "make", "install"
   end
 

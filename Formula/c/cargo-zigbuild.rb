@@ -1,19 +1,19 @@
 class CargoZigbuild < Formula
   desc "Compile Cargo project with zig as linker"
   homepage "https://github.com/rust-cross/cargo-zigbuild"
-  url "https://github.com/rust-cross/cargo-zigbuild/archive/refs/tags/v0.19.8.tar.gz"
-  sha256 "a838ca39e3b4ee0e12b360af9a17f39365d3725200b43766dd983a6baf9ba117"
+  url "https://github.com/rust-cross/cargo-zigbuild/archive/refs/tags/v0.20.0.tar.gz"
+  sha256 "515fc1e815b21132fa82abfd5d9c8a0ee24fa18a1b63b454976a2cec2768836f"
   license "MIT"
   head "https://github.com/rust-cross/cargo-zigbuild.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "411d88f0edd193b0c36f716f1dca39ab61bc2c97b58cfc734e6bd1d3c73761fc"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f2e07c00e05317a9781cdb3915a6f0deda35cccd6230ec555f1ca3a42a4bbf52"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "2d767a707c22abd57cdd76d23bfa5e9e55f7f5f7f4785a3ac1324d5462408d1e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "d3eb7ab944d6e4c89a62ebe2c8e85897985672e1803e160b59f8c2ada308bbc4"
-    sha256 cellar: :any_skip_relocation, ventura:       "80bab7f865eed60093dd1d7cf37f0e2008a1df446f306e85cb4512b3fa7ec252"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6a09b2e93db49b695fe93b6e351c7883f1be0705d99d70eb0facb5b11265c753"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "42451fe7f2b41adee9e90ef8753f490f81c9664523658c165a2216c6d1d3a5e7"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "11124f1b7bc4089f1918c1f68a8fb0c6b224ac7ccbd2938aab80c4455cb4ef46"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "285a2f10af384726336effed66e13b5067e886ae028b3d81e1134ff8d7b5c2f7"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "5a344763915c8778a85d5499e99c7c76f235cb32ff7f4e2634198d48bb50d639"
+    sha256 cellar: :any_skip_relocation, sonoma:        "473ecf36aca0dd4eedb0a72ef5119c29f695413ad06849c6ff9a5ddf03886429"
+    sha256 cellar: :any_skip_relocation, ventura:       "0170524446d1a27fa6adcfba79a119fde3142e16ee858808d1b43262820e62cf"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e78355307ef2f77e73215a2d72e945b06c36ab13f6fb4327c85d111f010ab06f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "535ea9d8f507e5e53e33423ebc1d7ac351f630a119e47c5f8911bd0f4e2f4725"
   end
 
   depends_on "rust" => :build
@@ -31,8 +31,8 @@ class CargoZigbuild < Formula
     ENV.delete "RUSTFLAGS"
 
     ENV.prepend_path "PATH", Formula["rustup"].bin
-    system "rustup", "default", "beta"
     system "rustup", "set", "profile", "minimal"
+    system "rustup", "default", "beta"
     system "rustup", "target", "add", "aarch64-unknown-linux-gnu"
 
     system "cargo", "new", "hello_world", "--bin"

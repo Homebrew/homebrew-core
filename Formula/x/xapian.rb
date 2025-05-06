@@ -1,8 +1,8 @@
 class Xapian < Formula
   desc "C++ search engine library"
   homepage "https://xapian.org/"
-  url "https://oligarchy.co.uk/xapian/1.4.27/xapian-core-1.4.27.tar.xz"
-  sha256 "bcbc99cfbf16080119c2571fc296794f539bd542ca3926f17c2999600830ab61"
+  url "https://oligarchy.co.uk/xapian/1.4.29/xapian-core-1.4.29.tar.xz"
+  sha256 "c55c9bc8613ad3ec2c218eafca088c218ab7cddcba7ef08f3af0e542f4e521bc"
   license "GPL-2.0-or-later"
   version_scheme 1
 
@@ -12,13 +12,13 @@ class Xapian < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "fbb0be7be62378361f90292bc53d05d58811ad23501e8dccd026f2aedb51b9fc"
-    sha256 cellar: :any,                 arm64_sonoma:  "3c657fafac679443c1c69a9409a7dfbc281d3d29fb6f54989c3736bd0a3d227c"
-    sha256 cellar: :any,                 arm64_ventura: "7e2ae9e288f52938deff37d44c64c34071048cb86f7f4bee09c2061f0a5a0b7b"
-    sha256 cellar: :any,                 sonoma:        "c0f1ac0afa541a55adf7bacd15a107c92835cc3e131949f8553ccf767978aa3e"
-    sha256 cellar: :any,                 ventura:       "648ff983c9da6b823efef34fd26df56bc3eda5b3f8331bec01195f96807269ca"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "271eef32741e4a19228be3e0ee7330f86b77fe291c2a8f676523c7eb04973082"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "429452ca722ec4a435962d38d1309989b1c0df4b76900fcfa1ff106081513a1a"
+    sha256 cellar: :any,                 arm64_sequoia: "1eae8800f5f28c7231afd2bee2818d2065e5fed8e7d307c2fe1d797c8d8fbf4e"
+    sha256 cellar: :any,                 arm64_sonoma:  "95c8bb4a5a73ef642ab6e6d2ee6b59cf21217fa102333ced9696a14cff7f4da3"
+    sha256 cellar: :any,                 arm64_ventura: "d8b9b13a47f436a74438663123b567d95512cc7d91fe60c11eac10bca5555f55"
+    sha256 cellar: :any,                 sonoma:        "a1b006c534ecc66fea932078de4221d0d385b3391d20aea13a3bace640fa047c"
+    sha256 cellar: :any,                 ventura:       "19a9b99a6088ec521d2af29a14afc8f86b5674cd08330698e2d3a30caa1dfb19"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4e45335d6b4555bd6fd7a6a85bfe6a1a9b635a4418cc9b43e7de957301d3c1d5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f87d97371ec436679abfd002d828ff14a00b4e4355faeef1e385f67a2c25412d"
   end
 
   depends_on "python@3.13" => [:build, :test]
@@ -33,8 +33,8 @@ class Xapian < Formula
   skip_clean :la
 
   resource "bindings" do
-    url "https://oligarchy.co.uk/xapian/1.4.27/xapian-bindings-1.4.27.tar.xz"
-    sha256 "ba3b5e10809e579acd11bd165779ce3fd29a8904ea37968ef5b57ad97c3618ba"
+    url "https://oligarchy.co.uk/xapian/1.4.29/xapian-bindings-1.4.29.tar.xz"
+    sha256 "1740e927bb6850ef67d99a0b808a1b7c9af3f16c15577e0261bbd3fc016fc8ce"
 
     livecheck do
       formula :parent

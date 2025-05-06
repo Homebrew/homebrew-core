@@ -12,6 +12,7 @@ class Anyquery < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "44bbaf4e254068d5e88da2bfefff78fd29e45fa7311a51282bee8ab42ebaa03b"
     sha256 cellar: :any_skip_relocation, sonoma:        "627ac11a9ad4c6c243e4a6306ff5f53b6f1d37355c23a4fae3e7fcccf1ea3636"
     sha256 cellar: :any_skip_relocation, ventura:       "83bccaa1b8a214c6e371bef27b982757f21d9c1bad4cf59bf010b80c74749ed8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f1c6b705f45ce8dee3bd1a1c0dc01b22768a462e71ab3f4d8539471c8772715e"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "1bc174f34b9a509d9876d2d4902b2f5ea3ca5643b29af184f73fdcb5bd280a9a"
   end
 

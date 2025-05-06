@@ -16,6 +16,7 @@ class Marcli < Formula
     sha256 cellar: :any_skip_relocation, ventura:        "32844aa6393c6be96fd00321d3fbe18a19118465f79d20a1a5679c2d911629b1"
     sha256 cellar: :any_skip_relocation, monterey:       "32844aa6393c6be96fd00321d3fbe18a19118465f79d20a1a5679c2d911629b1"
     sha256 cellar: :any_skip_relocation, big_sur:        "32844aa6393c6be96fd00321d3fbe18a19118465f79d20a1a5679c2d911629b1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "3ca994301e263816c19b728caed6039baea24ccab2fa76c64d83976f2438bc3d"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "ae3a60b0df4513c2b475d17a2515a5f1c6357fa2b398e28546e988ff32941ddb"
   end
 

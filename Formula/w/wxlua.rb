@@ -4,23 +4,26 @@ class Wxlua < Formula
   url "https://github.com/pkulchenko/wxlua/archive/refs/tags/v3.2.0.2.tar.gz"
   sha256 "62abe571803a9748e19e86e39cb0e254fd90a5925dc5f0e35669e693cbdb129e"
   license "LGPL-2.0-or-later" => { with: "WxWindows-exception-3.1" }
+  revision 1
   head "https://github.com/pkulchenko/wxlua.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia:  "eb6bd23314e5fae0077a40d2b2e749ccb5961a4d54c1271c08ecd35d7c90741f"
-    sha256 cellar: :any, arm64_sonoma:   "9b88dcbd675bd41b9587b2756e9723ff7773c8352d32716c6635977cf8e2928c"
-    sha256 cellar: :any, arm64_ventura:  "8323cdc3eb417a827b0573b09ec1ac9174363c34391aab08400ebb441a315136"
-    sha256 cellar: :any, arm64_monterey: "275d472881910487ba3690284d876e350cd9bb0de114d721e025615226a8a370"
-    sha256 cellar: :any, arm64_big_sur:  "24446df354b9fdeff4c0029e14ceecfce69d92489f14487332ac13a78f0944f7"
-    sha256 cellar: :any, sonoma:         "37568c2f9d8c6bfce5878ba307a181e72aa14f9b2ba4f61dc246699260dc4af9"
-    sha256 cellar: :any, ventura:        "abb35ae9d330fac24f731b2e5ce0e2bf9821bb96411d810991432c04de96ae24"
-    sha256 cellar: :any, monterey:       "85fa21b8ff57b2e09b939aa9cdddb4de18499bc88d8ce52f65d248e70aef62b9"
-    sha256 cellar: :any, big_sur:        "5aecd415ce2705001e6ff73cabc0e40f35979e52b4c7962c302779af7d4dd408"
+    sha256 cellar: :any,                 arm64_sequoia: "5ab53a21ffd382cb7d53a884b4eb09df5484c36d106c452f03c75f8841726d5c"
+    sha256 cellar: :any,                 arm64_sonoma:  "c00c2ef44ed734d26861a29d800555455f86c7fd8d846f12ecc6b4f0d151bd37"
+    sha256 cellar: :any,                 arm64_ventura: "e4c38bdfbbd990e273116a570fe63200cc78fbd6fa1e1b051b45d5a699060168"
+    sha256 cellar: :any,                 sonoma:        "3f5fd12035ae6a1f09efbefc9e5c7658898a48c228c5383a836d6d975833cced"
+    sha256 cellar: :any,                 ventura:       "debb18bebc1fe2d3ef3fd6ca8810c141ecb94cd6d0d1666112366e604a396307"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2e29b1f1b1629fb2324d601f1e7d8054da3fbbc0050b841d9da48db9857bae5e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3e6c83b3e941528b906e9007ec23d4fec5506953aa6b77dc5877037ab2ec229e"
   end
 
   depends_on "cmake" => :build
   depends_on "lua"
   depends_on "wxwidgets"
+
+  on_linux do
+    depends_on "xorg-server" => :test
+  end
 
   def install
     lua = Formula["lua"]
@@ -28,12 +31,17 @@ class Wxlua < Formula
     lua_version = lua.version.major_minor
 
     args = %W[
+      -DCMAKE_POLICY_VERSION_MINIMUM=3.5
       -DwxLua_LUA_LIBRARY_VERSION=#{lua_version}
       -DwxLua_LUA_INCLUDE_DIR=#{lua.opt_include}/lua
       -DwxLua_LUA_LIBRARY=#{lua.opt_lib/shared_library("liblua")}
       -DwxWidgets_CONFIG_EXECUTABLE=#{wxwidgets.opt_bin}/wx-config
       -DwxLua_LUA_LIBRARY_USE_BUILTIN=FALSE
     ]
+    # Some components are not enabled in brew `wxwidgets`:
+    # * webview - needs `webkitgtk` dependency
+    # * media   - needs `gstreamer` dependency
+    args << "-DwxWidgets_COMPONENTS=gl;stc;xrc;richtext;propgrid;html;aui;adv;core;xml;net;base" if OS.linux?
 
     system "cmake", "-S", "wxLua", "-B", "build-wxlua", *args, *std_cmake_args
     system "cmake", "--build", "build-wxlua"
@@ -49,6 +57,14 @@ class Wxlua < Formula
       print(wxlua.wxLUA_VERSION_STRING)
     LUA
 
+    if OS.linux?
+      xvfb_pid = spawn Formula["xorg-server"].bin/"Xvfb", ":1"
+      ENV["DISPLAY"] = ":1"
+      sleep 10
+    end
+
     assert_match "wxLua #{version}", shell_output("lua example.wx.lua")
+  ensure
+    Process.kill("TERM", xvfb_pid) if xvfb_pid
   end
 end

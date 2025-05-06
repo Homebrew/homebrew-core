@@ -6,16 +6,17 @@ class Yewtube < Formula
   url "https://github.com/mps-youtube/yewtube/archive/refs/tags/v2.12.1.tar.gz"
   sha256 "012c1a8a185dd4ef81074631bca91e327ac4e634b36301a50ffbcd67838b847f"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://github.com/mps-youtube/yewtube.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9477d632857de9e13621ad1c9b2f369874c7bb74caca08d45e53f51abe29d4ac"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9477d632857de9e13621ad1c9b2f369874c7bb74caca08d45e53f51abe29d4ac"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "9477d632857de9e13621ad1c9b2f369874c7bb74caca08d45e53f51abe29d4ac"
-    sha256 cellar: :any_skip_relocation, sonoma:        "9477d632857de9e13621ad1c9b2f369874c7bb74caca08d45e53f51abe29d4ac"
-    sha256 cellar: :any_skip_relocation, ventura:       "9477d632857de9e13621ad1c9b2f369874c7bb74caca08d45e53f51abe29d4ac"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "922ffd859452373bf9520d2ed9b26cf20dbd7c0896b4ee31a918c86888680171"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fec46483845301e4dd34ac349e3af02ffe535f25332d64de7c52ffda3b378837"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ecec9eb9f3b3ff69d2c7d51999298e0989402fe43feece16a25f05904ac4989d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ecec9eb9f3b3ff69d2c7d51999298e0989402fe43feece16a25f05904ac4989d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "ecec9eb9f3b3ff69d2c7d51999298e0989402fe43feece16a25f05904ac4989d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "ecec9eb9f3b3ff69d2c7d51999298e0989402fe43feece16a25f05904ac4989d"
+    sha256 cellar: :any_skip_relocation, ventura:       "ecec9eb9f3b3ff69d2c7d51999298e0989402fe43feece16a25f05904ac4989d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5dfef9c8bed35a9cd280b2ee20f9c29b60ada0b95c536d7bdd6759bcc3c9e609"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5dfef9c8bed35a9cd280b2ee20f9c29b60ada0b95c536d7bdd6759bcc3c9e609"
   end
 
   depends_on "certifi"
@@ -24,8 +25,8 @@ class Yewtube < Formula
   depends_on "python@3.13"
 
   resource "anyio" do
-    url "https://files.pythonhosted.org/packages/a3/73/199a98fc2dae33535d6b8e8e6ec01f8c1d76c9adb096c6b7d64823038cde/anyio-4.8.0.tar.gz"
-    sha256 "1d9fe889df5212298c0c0723fa20479d1b94883a2df44bd3897aa91083316f7a"
+    url "https://files.pythonhosted.org/packages/95/7d/4c1bd541d4dffa1b52bd83fb8527089e097a106fc90b467a7313b105f840/anyio-4.9.0.tar.gz"
+    sha256 "673c0c244e15788651a4ff38710fea9675823028a6f08a5eda409e0c9840a028"
   end
 
   resource "charset-normalizer" do
@@ -34,13 +35,13 @@ class Yewtube < Formula
   end
 
   resource "h11" do
-    url "https://files.pythonhosted.org/packages/f5/38/3af3d3633a34a3316095b39c8e8fb4853a28a536e55d347bd8d8e9a14b03/h11-0.14.0.tar.gz"
-    sha256 "8f19fbbe99e72420ff35c00b27a34cb9937e902a8b810e2c88300c6f0a3b699d"
+    url "https://files.pythonhosted.org/packages/01/ee/02a2c011bdab74c6fb3c75474d40b3052059d95df7e73351460c8588d963/h11-0.16.0.tar.gz"
+    sha256 "4e35b956cf45792e4caa5885e69fba00bdbc6ffafbfa020300e549b208ee5ff1"
   end
 
   resource "httpcore" do
-    url "https://files.pythonhosted.org/packages/6a/41/d7d0a89eb493922c37d343b607bc1b5da7f5be7e383740b4753ad8943e90/httpcore-1.0.7.tar.gz"
-    sha256 "8551cb62a169ec7162ac7be8d4817d561f60e08eaa485234898414bb5a8a0b4c"
+    url "https://files.pythonhosted.org/packages/06/94/82699a10bca87a5556c9c59b5963f2d039dbd239f25bc2a63907a05a14cb/httpcore-1.0.9.tar.gz"
+    sha256 "6e34463af53fd2ab5d807f399a9b45ea31c3dfa2276f15a2c3f00afff6e176e8"
   end
 
   resource "httpx" do
@@ -54,8 +55,8 @@ class Yewtube < Formula
   end
 
   resource "pylast" do
-    url "https://files.pythonhosted.org/packages/bf/f2/84e992deea30c5195f7166387295049bd6b29f23a6a1a03ff8c16f59436f/pylast-5.3.0.tar.gz"
-    sha256 "637943b1b0e6045dd85ed7389db6071a1fea45cc7ff90dc6126fd509ca6fae2f"
+    url "https://files.pythonhosted.org/packages/44/f1/bfd2cc8d67fcc0870e729e1e223fe0359ef94c9b9b98fdb78710d523464c/pylast-5.5.0.tar.gz"
+    sha256 "b6e95cf11fb99779cd451afd5dd68c4036c44f88733cf2346ba27317c1869da4"
   end
 
   resource "pyperclip" do
@@ -74,8 +75,8 @@ class Yewtube < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/aa/63/e53da845320b757bf29ef6a9062f5c669fe997973f966045cb019c3f4b66/urllib3-2.3.0.tar.gz"
-    sha256 "f8c5449b3cf0861679ce7e0503c7b44b5ec981bec0d1d3795a07f1ba96f0204d"
+    url "https://files.pythonhosted.org/packages/8a/78/16493d9c386d8e60e442a35feac5e00f0913c0f4b7c217c11e8ec2ff53e0/urllib3-2.4.0.tar.gz"
+    sha256 "414bc6535b787febd7567804cc015fee39daab8ad86268f1310a9250697de466"
   end
 
   resource "youtube-search-python" do
@@ -84,8 +85,8 @@ class Yewtube < Formula
   end
 
   resource "yt-dlp" do
-    url "https://files.pythonhosted.org/packages/88/ea/f30e5925c5b9109d2f8e47b87bb7e7feac1a6c496b5324deb352c2002cf4/yt_dlp-2024.12.23.tar.gz"
-    sha256 "ac0e72b5a9017ba104b4258546201a7cedc38e8bd20727e0c63b77c829b425e9"
+    url "https://files.pythonhosted.org/packages/a2/11/333d16f88b1515d4c601e1dfbf1028e6798f0b2a8ff1dc5aaa7b797aa9e8/yt_dlp-2025.3.31.tar.gz"
+    sha256 "1bfe0e660d1a70a09e27b2d58f92e30b1e2e362cc487829f2f824346ae49fb91"
   end
 
   def install

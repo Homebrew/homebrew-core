@@ -34,6 +34,7 @@ class Kytea < Formula
     sha256 high_sierra:    "bcdb450698d5065cf82b7726d6dc21381632c41352237dc547c05cc62e4b7e59"
     sha256 sierra:         "d29c61f74da5f4d88f09d8b540943599ce8b6e5062af88b7d5725ea84fb4c603"
     sha256 el_capitan:     "3e0c66a7efb34ddb8e4f80d9b95562779e224271b8d63d38f9bc8176103427e2"
+    sha256 arm64_linux:    "17f10a2914f947e7ddb494eaae7e76d3d6e36887db809a894f9d824776a47aa3"
     sha256 x86_64_linux:   "91e9f57d0c837e62f789d7189349120d1925eca4fa05479072f89b4f617c2ffd"
   end
 
@@ -46,11 +47,16 @@ class Kytea < Formula
 
   def install
     system "autoreconf", "--force", "--install", "--verbose" if build.head?
-    system "./configure", *std_configure_args
+
+    args = []
+    # Help old config scripts identify arm64 linux
+    args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+
+    system "./configure", *args, *std_configure_args
     system "make", "install"
   end
 
   test do
-    system bin/"kytea", "--version"
+    assert_match version.to_s, shell_output("#{bin}/kytea --version 2>&1")
   end
 end

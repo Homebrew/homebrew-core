@@ -1,8 +1,8 @@
 class Bwfmetaedit < Formula
   desc "Tool for embedding, validating, and exporting BWF file metadata"
   homepage "https://mediaarea.net/BWFMetaEdit"
-  url "https://mediaarea.net/download/binary/bwfmetaedit/25.03/BWFMetaEdit_CLI_25.03_GNU_FromSource.tar.xz"
-  sha256 "c48b6de1037951b44051c4217038f2b6c6a169fa9fd86aaea78dc22ac11cb9f4"
+  url "https://mediaarea.net/download/binary/bwfmetaedit/25.04/BWFMetaEdit_CLI_25.04_GNU_FromSource.tar.xz"
+  sha256 "4e7f4606bc83829a9ac1742c10d0e5d730da2189cfcb8cab9b739211e094ce75"
   license "0BSD"
 
   livecheck do
@@ -11,13 +11,13 @@ class Bwfmetaedit < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ce0354cf96e37536f7c1c73142e7da7bcc5271a9cf24a69aa46f9a6b0d7c15b9"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d9e3c97b9d2e869fda29305f101d923f1bc1f8611d4ba9f32895631086d4c9f7"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "ea1bda591966ce23cfad2827f52190b74cd3f1c3beb9e5430848d3bfa1a14eee"
-    sha256 cellar: :any_skip_relocation, sonoma:        "a92e5daf4cd9bb128c343c120397eff72ddbe10636a610b3ced1bf91a1af2eb7"
-    sha256 cellar: :any_skip_relocation, ventura:       "52028cdff6de53c1a891d9125423696eb0c65de65d8c0627224ae6671a6431f8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "bb4c95064de0633b9c894447dce1f8ae030d058daaeeff21e9fb9ce8443bbd3f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "28dea660744b206b0bb01ceeb9ad5778d1fb25b0684b83bd6f34d9c2c4624646"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ada25a119a8c8c7e44971889d228b77bc2f09062eb5dcdc6671dbb8cd0ee5a8c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f1d559f8aa1a0134eb6be9263845ca2ce2e0e1b5be84d8eb99a3bb684a74b4be"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "b46ff3c597d15626a9b43b0e7ee92426e9cb4e9c68422f98d6ad7f8e8f35e071"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d39509378a55eb0278668436faaac2274a9d702488180300c8ed17880335f362"
+    sha256 cellar: :any_skip_relocation, ventura:       "f7e1e0fe0fd5c8982325e0208d55b0cb2f68235d4ed4cf01c47ecb93b138dfad"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8abba81e78de3d8dc5512552bec11d7d5fead6598266f7f8a4f9a3469343999b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "66f8c9ff2de246093fd6829c4a80d56ad06e6d3e5ef5381949b50f1248fd36d7"
   end
 
   def install

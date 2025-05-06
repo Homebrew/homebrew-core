@@ -4,6 +4,7 @@ class Mods < Formula
   url "https://github.com/charmbracelet/mods/archive/refs/tags/v1.7.0.tar.gz"
   sha256 "44e15c13d70d74369467df4d18b0a5ad9d977b344e76a39898002a04712271ca"
   license "MIT"
+  head "https://github.com/charmbracelet/mods.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "ef4507075257b543ce0352b27723e0b70310221b5af17ee5ad2e45e660d39fb8"

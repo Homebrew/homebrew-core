@@ -4,11 +4,11 @@ class Xmount < Formula
   url "https://code.sits.lu/foss/xmount/-/archive/1.2.0/xmount-1.2.0.tar.bz2"
   sha256 "07c261e54e1e4cbcd4f7eaaf4f62efcbbbc68c76797ddca704592d99ebed3d10"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
-    rebuild 1
-    sha256 arm64_linux:  "cdf5ec6b85ce5815f1c09664c2a5b4dcb948e36980b61c731639a22b8a66db5e"
-    sha256 x86_64_linux: "eb88a9f07d863af3e661ab1be49b32353d8a5890d2081f9feefcef0e79af504c"
+    sha256 arm64_linux:  "1de5d61365c208673d84f059724faff5d1930c9807579ac6b05627546717bc8f"
+    sha256 x86_64_linux: "1b6e3ef254b9fb27d176d6af4ecebda6c9b44f3b02244e543295a03d20831d97"
   end
 
   depends_on "cmake" => :build
@@ -20,7 +20,7 @@ class Xmount < Formula
   depends_on "zlib"
 
   def install
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build", "-DCMAKE_POLICY_VERSION_MINIMUM=3.5", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end

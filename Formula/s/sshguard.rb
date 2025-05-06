@@ -1,23 +1,19 @@
 class Sshguard < Formula
   desc "Protect from brute force attacks against SSH"
   homepage "https://www.sshguard.net/"
-  url "https://downloads.sourceforge.net/project/sshguard/sshguard/2.4.3/sshguard-2.4.3.tar.gz"
-  sha256 "64029deff6de90fdeefb1f497d414f0e4045076693a91da1a70eb7595e97efeb"
+  url "https://downloads.sourceforge.net/project/sshguard/sshguard/2.5.1/sshguard-2.5.1.tar.gz"
+  sha256 "997a1e0ec2b2165b4757c42f8948162eb534183946af52efc406885d97cb89fc"
   license "ISC"
   version_scheme 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "fd0900630a5e35aa577fb6e00f9333814c4fbf63731e4265d7f5e3bff5d3a202"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "dfcd69dfa51b4976cfbd022ba196c47e5e2d78059ffe90db19dd3c66c72eb3d9"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d1f7f154a01ba3ba3e1ef3862f0ea18c2460184686dce1129b1ccc0b6dd6231e"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "0ad5eef11b004af2258151a03ee2b9802267be357da3c14e0c4cf104294d1085"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d3662f3a27292d8a40abb8645eed33d17ee718c877d419c61e3f44020a49a712"
-    sha256 cellar: :any_skip_relocation, sonoma:         "723b522af26e5582a342587180df22e7ee0d131250569ddb155c71c937bd9b08"
-    sha256 cellar: :any_skip_relocation, ventura:        "65fce1b8916c1e589e329fd991de5d55abf25dabcd87ae6cd444a458bb4ac3f0"
-    sha256 cellar: :any_skip_relocation, monterey:       "cb3e4ad746aa9eb9d840fd332a98fe60fd71632fdf28f90e21f643dd3d92bb03"
-    sha256 cellar: :any_skip_relocation, big_sur:        "8fe1ac17002be39b5b190d1d98822ce397740e032cdaee6994ded17af59c954a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "2b0133e35831ffd7b3d62dc2345e039e865bf6491a0e17ce1f8dea386a851e4b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "293288f8ed572eadf951168a526824663f6a4193d1a04d6b487fd41478b0ace5"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a0f56a4e44504c78bf201cbb62b0d01d1ab2fcf1149e6dcc6e7562fb41c0ac99"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "11ef33ea3f5e54e448b493db07993839407bd6e62fd50ed3b7feaae74f0419f0"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "1d3904d7dfa3b416126cd6f3088fd21eea79ac94af8cf5c6c787af6a27f8ba1e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8c22c01d6e11c18443e9d3a12b5e858f5468c8da4f0aba9f716b054267a631de"
+    sha256 cellar: :any_skip_relocation, ventura:       "8c7e0ca50223efc082c428aad1e0d62fda73f55d9cf280f7255f7228093917a2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "28355a7f475cfaa5092312e781333f17718098181707052e90fc97f2dea8deff"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "22338d5f5ba21e11cbccca5dc0e2bc860d39d5f7822c5e1e3e43835e722456a2"
   end
 
   head do

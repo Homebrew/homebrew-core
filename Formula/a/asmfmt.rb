@@ -14,6 +14,7 @@ class Asmfmt < Formula
     sha256 cellar: :any_skip_relocation, sonoma:         "4b08dbe6fc5d733483491891fc9e12fded3a10210f58b401e6b89a0f78105b67"
     sha256 cellar: :any_skip_relocation, ventura:        "4b08dbe6fc5d733483491891fc9e12fded3a10210f58b401e6b89a0f78105b67"
     sha256 cellar: :any_skip_relocation, monterey:       "4b08dbe6fc5d733483491891fc9e12fded3a10210f58b401e6b89a0f78105b67"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "70ff5db6eb55382884b589fcd59e631d46266e97e7ebc2ee3890a4686dbdaef8"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "b813ba80300f7211d6fde13f39ad1faa0e0b41002a5691a42ed2dcf40b58318b"
   end
 

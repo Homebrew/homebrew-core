@@ -18,6 +18,7 @@ class Streamripper < Formula
     sha256 cellar: :any,                 arm64_ventura: "e00ae4c681568844df42dc75ee116a92763644a041542480b8224beda1acc35d"
     sha256 cellar: :any,                 sonoma:        "b193b872eaa4c70fa51fd38c22c378e0143a275a268ddcfcb5721045b2637235"
     sha256 cellar: :any,                 ventura:       "d5c5fcdcfc5cdb06479e7bbfc95de83614ccdfe67b50d30bfbeb89d8ee46e11b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "987a8725e3adbfb98f1b5916f7fe4eb5727e61bea35d5265a038473616ceae83"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "0e98a61e5ba076e3a325d7df46e9ec8d90104f15acc1ac302d6307ba984eb053"
   end
 
@@ -43,7 +44,11 @@ class Streamripper < Formula
 
     chmod 0755, "./install-sh" # or "make install" fails
 
-    system "./configure", *std_configure_args
+    args = []
+    # Help old config scripts identify arm64 linux
+    args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+
+    system "./configure", *args, *std_configure_args
     system "make", "install"
   end
 

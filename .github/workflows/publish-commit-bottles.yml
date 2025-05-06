@@ -53,6 +53,9 @@ env:
   ORG_FORK_MESSAGE: >-
     :no_entry: It looks like @BrewTestBot cannot push to your PR branch. Please open
     future pull requests from a non-organization fork to simplify the merge process.
+  BOTTLE_COMMIT_PUSH_MESSAGE: >-
+    Please **do not** push to this PR branch before the bottle commits have been pushed, as this results in a state that is difficult to recover from.
+    If you need to resolve a merge conflict, please use a merge commit. Do not force-push to this PR branch.
 
 jobs:
   check:
@@ -279,8 +282,14 @@ jobs:
         with:
           token: ${{secrets.GITHUB_TOKEN}}
           issue: ${{inputs.pull_request}}
-          body: ":shipit: @${{github.actor}} has [requested bottles to be published to this PR](${{env.RUN_URL}})."
-          bot_body: ":robot: An automated task has [requested bottles to be published to this PR](${{env.RUN_URL}})."
+          body: |
+            :shipit: @${{github.actor}} has [requested bottles to be published to this PR](${{env.RUN_URL}}).
+
+            ${{env.BOTTLE_COMMIT_PUSH_MESSAGE}}
+          bot_body: |
+            :robot: An automated task has [requested bottles to be published to this PR](${{env.RUN_URL}}).
+
+            ${{env.BOTTLE_COMMIT_PUSH_MESSAGE}}
           bot: github-actions[bot]
 
       - name: Set up Homebrew
@@ -354,7 +363,7 @@ jobs:
             "$PR"
 
       - name: Generate build provenance
-        uses: actions/attest-build-provenance@c074443f1aee8d4aeeae555aebba3282517141b2 # v2.2.3
+        uses: actions/attest-build-provenance@db473fddc028af60658334401dc6fa3ffd8669fd # v2.3.0
         with:
           subject-path: '${{steps.pr-pull.outputs.bottle_path}}/*.tar.gz'
 
@@ -436,7 +445,7 @@ jobs:
           done
 
           # One last check...
-          if [[ -z "$success" ]] && [[ "$EXPECTED_SHA" != "$(git ls-remote origin "pull/$PR/head" | cut -f1)" ]]
+          if [[ -z "${success:-}" ]] && [[ "$EXPECTED_SHA" != "$(git ls-remote origin "pull/$PR/head" | cut -f1)" ]]
           then
             echo "::error ::No attempts remaining. Giving up."
             exit 1

@@ -1,8 +1,8 @@
 class Sleuthkit < Formula
   desc "Forensic toolkit"
   homepage "https://www.sleuthkit.org/"
-  url "https://github.com/sleuthkit/sleuthkit/releases/download/sleuthkit-4.13.0/sleuthkit-4.13.0.tar.gz"
-  sha256 "f1490de8487df8708a4287c0d03bf0cb2153a799db98c584ab60def5c55c68f2"
+  url "https://github.com/sleuthkit/sleuthkit/releases/download/sleuthkit-4.14.0/sleuthkit-4.14.0.tar.gz"
+  sha256 "fb6ea1801bcfc4c7d3a283d7592c6bd65add655411749513b5c429b86541e9a9"
   license all_of: ["IPL-1.0", "CPL-1.0", "GPL-2.0-or-later"]
 
   livecheck do
@@ -12,12 +12,13 @@ class Sleuthkit < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "ad83ccab278a2bde2b9de481aa4d7f52b95eba0d7887107534e0faf3276db984"
-    sha256 cellar: :any,                 arm64_sonoma:  "ef3811813c2bf8cab4058c530e89e1d41a8f282d50f9ef9a05b227545d6860fa"
-    sha256 cellar: :any,                 arm64_ventura: "e1719ef61afa765f11603529ded27e3c14cd5094f9944a536881e1fcc071229b"
-    sha256 cellar: :any,                 sonoma:        "59b9624df6e1a9fa7a2f5b0b48fbd193f07ad7ad535f13baf7a6fe52451897a3"
-    sha256 cellar: :any,                 ventura:       "586885369c5a5b13e4e431a8c033f51175d21ae472b2af7bfe39b5bcdd4a44c6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2863754f9fa716414d744f145f5e8d22ce1f3d5638557313138d8aa6c08a170f"
+    sha256 cellar: :any,                 arm64_sequoia: "4618433aefde7d203834d43f15b6a100f233c3e4173ef2fd1fe708d0fed22988"
+    sha256 cellar: :any,                 arm64_sonoma:  "73615ba817ae871688f19a26e23d1751019862f4df4543af2f7d5b9006907c1b"
+    sha256 cellar: :any,                 arm64_ventura: "ccb252574fbfa02e92dd5c708392d05ee5c4603e40162e03ea2129acb1ef4a86"
+    sha256 cellar: :any,                 sonoma:        "bca1bf151256fcddcd5a8c0597e42bd2df0bca96f6a440c6dbe1f70de9326a52"
+    sha256 cellar: :any,                 ventura:       "3e478aa0baea538d7343c5786f6b15358a114e3ca81a3d36d3ed44e7d63525d0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e73d02460dc9c1eafee2ad805c562db85fcd4519c04d1c5845d50eb36a9ac288"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c24edf33851639af78901322c231f25100791200e4f8ad644078bc54cb3f425a"
   end
 
   depends_on "ant" => :build

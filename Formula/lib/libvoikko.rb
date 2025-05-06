@@ -20,6 +20,7 @@ class Libvoikko < Formula
     sha256 cellar: :any,                 ventura:        "9f0e09cb95209e847f281cbfcaec7375637a726c36df6ff2d29d9954225b8846"
     sha256 cellar: :any,                 monterey:       "121c5c56e2d25d74e01d3d9ae1d3ddc885dcf1336fabf9b75bfa4f191e8bd9b7"
     sha256 cellar: :any,                 big_sur:        "8b613d992e6e2d7311447d13a07b02a9c8ac42f60634c60c4be798b2fd872b9d"
+    sha256                               arm64_linux:    "10b52c16eb1d4789c71c520e31492c024e085717a1eb85e7fa000896a6626241"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "3867449e1d923fd8c032734cf0e211f8b02e2afaa7e8d20797e4d700d2291931"
   end
 

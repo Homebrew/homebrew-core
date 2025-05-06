@@ -14,12 +14,13 @@ class Insect < Formula
     sha256 cellar: :any_skip_relocation, sonoma:         "8077869bde22d8f4f44fb25ba149c47c7b39d80b1f5b0ad0e364a477be7c829b"
     sha256 cellar: :any_skip_relocation, ventura:        "8077869bde22d8f4f44fb25ba149c47c7b39d80b1f5b0ad0e364a477be7c829b"
     sha256 cellar: :any_skip_relocation, monterey:       "8077869bde22d8f4f44fb25ba149c47c7b39d80b1f5b0ad0e364a477be7c829b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "fb8ac696b796232cb024ce2bd9186fcafe1e2acf4b46b9c4df803e5a40cd7a1a"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "8988d5e206cae71f827f36d7085acc298f39c3d30c92abda00610f3e01151dac"
   end
 
   # deprecated in favor of `numbat` formula, https://github.com/sharkdp/insect/commit/6c7dea10a491b55250acede0bd740e72177d8945
   # see https://github.com/sharkdp/numbat/blob/master/assets/reasons-for-rewriting-in-rust.md
-  deprecate! date: "2024-12-28", because: :unmaintained, replacement: "numbat"
+  deprecate! date: "2024-12-28", because: :unmaintained, replacement_formula: "numbat"
 
   depends_on "node"
 

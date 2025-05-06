@@ -11,6 +11,7 @@ class Popeye < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "95a5e69a47e586959e8fa11c1ffbd011bcaebbe9b27bb967380812cff73b8ed7"
     sha256 cellar: :any_skip_relocation, sonoma:        "7c2b6d822b30777d3fd02b65cd00595c8e6b8642f57468f423c1a998dfaa91be"
     sha256 cellar: :any_skip_relocation, ventura:       "df324d577d9723ecf63f7f9aa6e32c6018b30bc71a0cc505095a8c0a5e54f7f6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "98c0311e4e966a6b7d956ecac5d5394a577cf22f899337d92eb43faa3872e74b"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "4a29bddbc8b4d01dc7c21663db65b1d22f740f0f33544e89ba900f5a0674dd06"
   end
 

@@ -12,6 +12,7 @@ class PayloadDumperGo < Formula
     sha256 cellar: :any,                 arm64_ventura: "adc25ef9cc348ff0f4e72aee84a8d73d4eecc77ec8228b8ef451a1ba52947a3c"
     sha256 cellar: :any,                 sonoma:        "43c27225c84681b696cc133dd3027dcdb8a99434eaaae57adf9d24b10a761b09"
     sha256 cellar: :any,                 ventura:       "9a7fe312cc474f61625712007bb096a34ec93fb165afe887cd2786c7fbd71ee1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f89b0e2f2ffb8fc2ec9c58f91aa50ea18243bbb2c15c4682df72931fda29c21c"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "dec1676646bcf9b015900ac1d9c7f5f1912671bdd034e511235b38c95e63cc3c"
   end
 

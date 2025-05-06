@@ -4,6 +4,7 @@ class Ghz < Formula
   url "https://github.com/bojand/ghz/archive/refs/tags/v0.120.0.tar.gz"
   sha256 "e058b1dc3aa09ca7594a79f92bad3b481c4193a0db31b2ac310b54ad802b2580"
   license "Apache-2.0"
+  head "https://github.com/bojand/ghz.git", branch: "master"
 
   livecheck do
     url :stable

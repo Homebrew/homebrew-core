@@ -4,6 +4,7 @@ class Keptn < Formula
   url "https://github.com/keptn/keptn/archive/refs/tags/1.4.5.tar.gz"
   sha256 "2b767fedf0ac9581b914bb6c89720749023cf102d154c283697a653103a3318c"
   license "Apache-2.0"
+  head "https://github.com/keptn/keptn.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "6890b7bf9d1147ffb7b3399b83f07fe7302594687bdc560e61ff94bcbcd01483"

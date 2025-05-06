@@ -12,6 +12,7 @@ class Ingress2gateway < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "6eef8e59f45e555634acea8f44f91845d3e52c57a807aeeabf5ec4f114c3b75b"
     sha256 cellar: :any_skip_relocation, sonoma:        "b532ae021e34552d352eed71e599c80dae9d6037dba5153b433ce30d0b2b73d8"
     sha256 cellar: :any_skip_relocation, ventura:       "c23960ce300c4aa2ea510e24e7c480eb510cc2dfc9365109f0a2d6c7f130b1a8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c26492ccbce780760a7ddf26595463229e745b7cba5d453d48fa71692842e909"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "3a76215216004e804caad4063551e07f7ccba6cf55f44d7e5f97cbc6678f34ef"
   end
 

@@ -16,6 +16,7 @@ class Scheme48 < Formula
     sha256 arm64_ventura: "28ed573df3796dd14ca4380097dc117173104e860b44c414c065c047cefce4a1"
     sha256 sonoma:        "6fe0332fee2ab61f724c9494c00e2519721e4d0cf482c74b5d70d2a68caa044f"
     sha256 ventura:       "8ba60cefaf8708f4c554e1a1e1b619d6330e28f6aabdb2b7fd623e902cc9d853"
+    sha256 arm64_linux:   "5f34e3f7fb0b982a57c1bc67fb6d5f18d608716833d1a0dc3a4617e8186fbf24"
     sha256 x86_64_linux:  "cb14bb2342582715834a1ea6dcf22b5c70292396b42b946182c0af189ad989ff"
   end
 
@@ -28,7 +29,11 @@ class Scheme48 < Formula
     # Workaround for newer Clang
     ENV.append_to_cflags "-Wno-implicit-int" if DevelopmentTools.clang_build_version >= 1403
 
-    system "./configure", "--prefix=#{prefix}", "--enable-gc=bibop"
+    args = []
+    # Help old config scripts identify arm64 linux
+    args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+
+    system "./configure", "--enable-gc=bibop", *args, *std_configure_args
     system "make"
     system "make", "install"
   end

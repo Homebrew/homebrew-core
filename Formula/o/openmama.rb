@@ -5,6 +5,11 @@ class Openmama < Formula
   sha256 "5c09b5c73467c4122fe275c0f880c70e4b9f6f8d1ecbaa1aeeac7d8195d9ffef"
   license "LGPL-2.1-only"
 
+  livecheck do
+    url :stable
+    regex(/^OpenMAMA[._-]v?(\d+(?:\.\d+)+)(?:-release)?$/i)
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "786b187f472ddd357f105cffc281cf4f8382b46ae31c5b428a5f1d8038c812ae"
     sha256 cellar: :any,                 arm64_sonoma:   "7b9ff5f5a5bacec5396c90a71d3f473c917aa5bf33cd403cc6f5eb4259f5f8b5"

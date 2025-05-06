@@ -20,6 +20,7 @@ class Opensubdiv < Formula
     sha256 cellar: :any,                 ventura:        "bc2da69a8b23d92d1e7101a48cc807064fd41a14cd6a8da1c940ae906106d048"
     sha256 cellar: :any,                 monterey:       "4f62d8949eeac18135b8e8a4de554a46dea88476283633085330856c8e034a7f"
     sha256 cellar: :any,                 big_sur:        "e895c57930e63805ce8493a73b83a3aaf92269fc5e9755234868a3aab2532cea"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "4e571546749c5a3bbd1b04aad99b75518e10d645e3829d2d392a5d3d16e0a183"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "8ce1c6ebb77690c1f20e601272430e50f0dbc21d7a8a8952a8f1b6ed0dffbd6c"
   end
 

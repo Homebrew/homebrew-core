@@ -13,6 +13,7 @@ class Sniffer < Formula
     sha256 cellar: :any_skip_relocation, sonoma:         "0039e5ac0e23ec4990badeae4d3adc5d244de339060b7c92991716751b1d1239"
     sha256 cellar: :any_skip_relocation, ventura:        "257d8ea96ca570d8040cb01613c103836f6620cd0e07759e93cf7df891a40f6f"
     sha256 cellar: :any_skip_relocation, monterey:       "721dde5fd616c6255cafbf6fb65d27459579829b92dc7d59c3b2638e6e9394d5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "9380e8bab28258abc9fba37619c04a54c2a9e6b91d847d2ab5a643a1a47e2f2a"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "b01bfd9aa799259150ec8dd50050d4787b6410377ba2c62b93b0dc157c182f5b"
   end
 

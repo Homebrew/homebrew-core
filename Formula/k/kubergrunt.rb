@@ -4,6 +4,7 @@ class Kubergrunt < Formula
   url "https://github.com/gruntwork-io/kubergrunt/archive/refs/tags/v0.17.2.tar.gz"
   sha256 "6f8c2130687eb0d54bc5fdf33bb6f639fa888f73a03bafa54e67d1f7f3af6d68"
   license "Apache-2.0"
+  head "https://github.com/gruntwork-io/kubergrunt.git", branch: "main"
 
   # Upstream appears to use GitHub releases to indicate that a version is
   # released (and some tagged versions don't end up as a release), so it's

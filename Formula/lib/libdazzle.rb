@@ -14,6 +14,7 @@ class Libdazzle < Formula
     sha256 sonoma:         "2fca358ca672c44ed32595ce7769e77d777e3c62073ed4c445210614d030280a"
     sha256 ventura:        "2e8a40dcec28ed8a7cdae08bb4d1c1844b9d0dfff1c2da917d75e9259b42cff7"
     sha256 monterey:       "648477570e7a597bc703e6cfa2ee418aba691ec253e7f40c79c33b3b2e95b8b9"
+    sha256 arm64_linux:    "6f85bbfc14f0f732331e2e93c24df2ebd97bf9e3356189f4eb6777735d411a15"
     sha256 x86_64_linux:   "7a8395fdb2257d54ffc90ebcb1a95796c87fba132b602c14ed0c42e384bb90e8"
   end
 

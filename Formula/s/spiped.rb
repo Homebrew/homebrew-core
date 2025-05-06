@@ -1,8 +1,8 @@
 class Spiped < Formula
   desc "Secure pipe daemon"
   homepage "https://www.tarsnap.com/spiped.html"
-  url "https://www.tarsnap.com/spiped/spiped-1.6.3.tgz"
-  sha256 "70c53070dbbb10d1442754aeafb01b08ec829203d41023647dbf1a1435ee4a65"
+  url "https://www.tarsnap.com/spiped/spiped-1.6.4.tgz"
+  sha256 "424fb4d3769d912b04de43d21cc32748cdfd3121c4f1d26d549992a54678e06a"
   license "BSD-2-Clause"
 
   livecheck do
@@ -11,13 +11,13 @@ class Spiped < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "5c31907657edcfb9dec521b0ca330612a8b0a2a6a9f6f79331044cdd0baec77f"
-    sha256 cellar: :any,                 arm64_sonoma:  "252282f9a5384400771e8854713143189eb7fb061947d930fda82efe822dddb9"
-    sha256 cellar: :any,                 arm64_ventura: "7f546c81a7e7c012ad855cbc1a7055e3acf46fcd2aaf973b017201d163974295"
-    sha256 cellar: :any,                 sonoma:        "aed8dbc299b2a6502228e4d63e75fc593a5c750a43461f0c12ee982ddd372ff5"
-    sha256 cellar: :any,                 ventura:       "00e199c37e2d219b7972f2a11b2c8db2880e1a964bfa6e01b6dcd07c6aca1e97"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ddcc69a7fb7364a57af8c58452ccb1dacad53bbcd612b4279a3f77dda98bcb9d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "de32ad6acb5f5220209bfa0a42d34e32af122eb5b07c02833ca04d35b637dfb2"
+    sha256 cellar: :any,                 arm64_sequoia: "469c7104799be35f718cab24e9370e0acd2b77a15141d75efd2e7e552bf74fa5"
+    sha256 cellar: :any,                 arm64_sonoma:  "87c3d7eda651e267a339e0655d05cac5678f71a4658e8d9bd985e32f0555e0bc"
+    sha256 cellar: :any,                 arm64_ventura: "f547c50d187df541feb087d3e1534e5537e39dcb73fbbfeea606c3659626b7c3"
+    sha256 cellar: :any,                 sonoma:        "3e77a24d828c58a06b59df85b986b43ebcc14c762920f2999c9cbed7fc729761"
+    sha256 cellar: :any,                 ventura:       "8d286f9e2a3568683b839d0e64aa80ec588d547dbb83ee2ad21a41c7a28c4f4a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "06712747809b962a2faedfc00759e579b9212514dcf17d11afbf08e73aff0626"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "667cc6e283e75c64c91638c8b2c667b4239ae12bcb1957cdb0e14c4dd45a1ed9"
   end
 
   depends_on "openssl@3"

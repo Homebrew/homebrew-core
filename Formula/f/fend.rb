@@ -17,6 +17,7 @@ class Fend < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "271a6f570e6ec40b06c12cb6f2dbcf1e01961536987c0452072a19f26762fbd8"
     sha256 cellar: :any_skip_relocation, sonoma:        "dacd98981654283ab774d6b8416fa89e4fdb6bb295b6c3b96f261dc139e160aa"
     sha256 cellar: :any_skip_relocation, ventura:       "862a1e66943aba47eeff5fe1fd0f40a81274a65257f5e96e2cd241a5fa34ebd2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "396045a07977865d85345b0dc48d1a68423ab136c72659d36b39029cf71d9877"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "c81f0535e457eacdccce74da78ffffad71b71ead698172b7d0d1696100d6a2e9"
   end
 

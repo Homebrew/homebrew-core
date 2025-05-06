@@ -1,10 +1,10 @@
 class Ompl < Formula
   desc "Open Motion Planning Library consists of many motion planning algorithms"
   homepage "https://ompl.kavrakilab.org/"
-  url "https://github.com/ompl/ompl/archive/refs/tags/1.6.0.tar.gz"
-  sha256 "f03daa95d2bbf1c21e91a38786242c245f4740f16aa9e9adbf7c7e0236e3c625"
+  url "https://github.com/ompl/ompl/archive/refs/tags/1.7.0.tar.gz"
+  sha256 "e2e2700dfb0b4c2d86e216736754dd1b316bd6a46cc8818e1ffcbce4a388aca9"
   license "BSD-3-Clause"
-  revision 9
+  revision 1
   head "https://github.com/ompl/ompl.git", branch: "main"
 
   # We check the first-party download page because the "latest" GitHub release
@@ -15,13 +15,13 @@ class Ompl < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "8ac8f978f87e2733b89b277cd2635146ebd688f9010f4378172752edd46bb56f"
-    sha256 cellar: :any,                 arm64_sonoma:  "552362506b178328e541716299039aa939188ed34b88313ae70f8791fbf5abdf"
-    sha256 cellar: :any,                 arm64_ventura: "0227accc2594bfb6fb47b413c2c8d16dea914b6aad1142ba0daa2d4d1b635198"
-    sha256 cellar: :any,                 sonoma:        "2858c1d0e1acefdf78f51477487d05c7f8764bd139b1a377fc21f6127d76b379"
-    sha256 cellar: :any,                 ventura:       "c41347171a28c989d5aee1b9ebac6cadce7d8ec42a8e76df25369cd33bd32c93"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ab0f89002cd4e69079e85d89bce29fc99321a22ca8a2e7fb8c240d397be31faa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2e8f87556b7fe33bfbe322043ee7db8a6cc1de2076bc43cdeda6f357c9d312ad"
+    sha256 cellar: :any,                 arm64_sequoia: "041e10c377511ea45af40e962fa9ce470616dae2cde49c01333731dfe38f4b56"
+    sha256 cellar: :any,                 arm64_sonoma:  "b821378e7302d00b6f8aadc22dd606392bda600b236ce744ab04a90617029477"
+    sha256 cellar: :any,                 arm64_ventura: "44393bc2559ef2cb1064943fdd2858cd6086b78a04cc0f98dcf19ec53f01bcb1"
+    sha256 cellar: :any,                 sonoma:        "7cba8c475175ae9ad1824cb05b8dacf2605092883cb99a0d8fea2f73c21d939f"
+    sha256 cellar: :any,                 ventura:       "7aa7fdf5d6d5e83483ce4a3ae8c923f8c212cef486896bba4b3bbfecd125a5eb"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "36d4e4c8ae8e76a01f710f8af160e47e2e995633b8e53c09e8c67509ed64e79c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f0800e3f94cdbf5727e2f79e6a90fa1a80ac182519e4557d2245d63346d5cbf4"
   end
 
   depends_on "cmake" => :build

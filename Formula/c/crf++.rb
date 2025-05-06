@@ -29,6 +29,7 @@ class Crfxx < Formula
     sha256 cellar: :any,                 big_sur:        "fcf0862271c392bc7b69a4e02a74dd9bd85615b6be0273009e7611bb78298f61"
     sha256 cellar: :any,                 catalina:       "6706e1cb8b242ed58885402da7b41cd1552f206407fc18c200907f3c64a7b9c5"
     sha256 cellar: :any,                 mojave:         "814479e15702bd1ef9afba98ff5030bbf7cd90810f2561863d1b9085a230ee8f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "e1b5ccbfaf09a9ce9fbb265f798cb224a2237dc4728b7348a304a0fe3d412602"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "3cc105b0deaa5661ba6cde2ac18b289ef676aacfad93f569e659d1ce6035127f"
   end
 
@@ -39,7 +40,11 @@ class Crfxx < Formula
   end
 
   def install
-    system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
+    args = []
+    # Help old config scripts identify arm64 linux
+    args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+
+    system "./configure", *args, *std_configure_args
     system "make", "CXXFLAGS=#{ENV.cflags}", "install"
   end
 

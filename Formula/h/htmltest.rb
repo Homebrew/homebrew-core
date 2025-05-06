@@ -4,6 +4,7 @@ class Htmltest < Formula
   url "https://github.com/wjdp/htmltest/archive/refs/tags/v0.17.0.tar.gz"
   sha256 "2c89e56c837f4d715db9816942e007c973ba58de53d249abc80430c4b7e72f88"
   license "MIT"
+  head "https://github.com/wjdp/htmltest.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "ada8e26674de531245f8110ab62f73f5f89600f133b22765077d14a0ff06f3e7"

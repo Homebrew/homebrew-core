@@ -14,6 +14,7 @@ class Grsync < Formula
     sha256 sonoma:         "17172832ac98aded38af454786303dc8f9d3b61e90470a4330a7774ae5885dd4"
     sha256 ventura:        "2049a7ee4bb92a609351d65b0c16adc5bee3f81cdfa580ade205dfcef48d8b4d"
     sha256 monterey:       "e6eb367af3e6e6cd9d08aeb7089bf2842422c9c727df241f11fce7a2239a3d64"
+    sha256 arm64_linux:    "855b9f2180841ac05b112906346852effcaf37d1e0ccdfc11b6561f947da4a85"
     sha256 x86_64_linux:   "e69fa72c81515369642531c0e5fc7febe6953d082721eb5b1e839c0f7a72a597"
   end
 

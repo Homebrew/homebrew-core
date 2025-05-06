@@ -1,19 +1,19 @@
 class Tio < Formula
   desc "Simple TTY terminal I/O application"
   homepage "https://tio.github.io"
-  url "https://github.com/tio/tio/releases/download/v3.8/tio-3.8.tar.xz"
-  sha256 "a24c69e59b53cf72a147db2566b6ff3b6a018579684caa4b16ce36614b2b68d4"
+  url "https://github.com/tio/tio/releases/download/v3.9/tio-3.9.tar.xz"
+  sha256 "06fe0c22e3e75274643c017928fbc85e86589bc1acd515d92f98eecd4bbab11b"
   license "GPL-2.0-or-later"
   head "https://github.com/tio/tio.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia: "38f4f70905451183fad4051c989e0413566236dde34909fd695d64b52d333c7f"
-    sha256 cellar: :any, arm64_sonoma:  "430ac18ea09829b2d4936a8745ff8f283ffd024cfa2a82c07579150eaec395b8"
-    sha256 cellar: :any, arm64_ventura: "85f54e24ddc2ffa80e50318e185468ec0149719b1fb9abf804e1c972c4dd5cb1"
-    sha256 cellar: :any, sonoma:        "4abf71b12f17dbe57c4ec145228c54bf0478a5bc599579e0885def3a583dca29"
-    sha256 cellar: :any, ventura:       "b41d2c80312869927a8b692cf88e280d953d0d63b0d3bdb9890040a3daebd66b"
-    sha256               arm64_linux:   "e3e95d23f25f0b206621f578022e0888f11a1b27be99111f03f00b56b2ba979e"
-    sha256               x86_64_linux:  "73f6272f22e12b44d89f7966cfdbca29110131cebc9e9d76e826d9a05fcdf930"
+    sha256 cellar: :any, arm64_sequoia: "d859f7a3951e0cf44e33cef1cd9fe1cf1f5ea2027e8a0f2f7241d802f6345528"
+    sha256 cellar: :any, arm64_sonoma:  "815733f3d33d84e6b6f16a616dd4c1ee1dfea19d1310842579796c86c80d78d2"
+    sha256 cellar: :any, arm64_ventura: "ef6cda9f15f7419c8786fde48e36050b8e0527d1ac9b7da60c701cd8be29893f"
+    sha256 cellar: :any, sonoma:        "eff6132fd0c5bc4d35e5f44a97e8b7538881f3d35c75d45bb5ce58c7116fa024"
+    sha256 cellar: :any, ventura:       "af299fc0c5b32da363167450793ca0ae78f40605353db850da9f9c684d384ffe"
+    sha256               arm64_linux:   "42266b46a3364e7b85daec0a33922996016880c7905707dc23aead6a8baa3c9a"
+    sha256               x86_64_linux:  "2a5457998f6b942835c7bcfdb22fb9673abaecf9dce98eb65c3ab67a18529aa9"
   end
 
   depends_on "meson" => :build

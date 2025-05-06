@@ -3,19 +3,18 @@ class Molecule < Formula
 
   desc "Automated testing for Ansible roles"
   homepage "https://molecule.readthedocs.io"
-  url "https://files.pythonhosted.org/packages/d6/fe/de492105b3d8973c82231bad57a6468c8ca4d1eaae2a2a93edd7725fbc1b/molecule-25.3.1.tar.gz"
-  sha256 "c8766907c8b8bfec88d7d1a5df1232bd4606a0c53d9cb95d38e84b455a6993a6"
+  url "https://files.pythonhosted.org/packages/13/48/fd6d948ab1ab6aa60ea26fec77366a732a19d7db4bb0efe130b647024ad9/molecule-25.4.0.tar.gz"
+  sha256 "c531e2a1051f827f3878dcd7d40d6d6868da066d461ef28b5e8fedea5e93f0f9"
   license "MIT"
-  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "61ac7224837244e881493b521228d6c50fa596e812e8e455926b86be826babe1"
-    sha256 cellar: :any,                 arm64_sonoma:  "1f9b6e41b4401b9f97be132e321ea3bb53afa0598a60815de073e2adb4b7f583"
-    sha256 cellar: :any,                 arm64_ventura: "9911b16f88e15c0c82277ee812153378cf700b55ccc835b6f054b24c44176f08"
-    sha256 cellar: :any,                 sonoma:        "92d6f767497d619575fe61a95dd9e4ea5c1eadaadaedc2733461308bb5a03656"
-    sha256 cellar: :any,                 ventura:       "2b21d04ef5760ad0d083c2a188efe1384c92d29ea0aa30f5770a5e9b98d24207"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "087ad7d06a1423a0fdc94055533d2cb3004f29c1ac32e0ff1fee1c84daa1dbb7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "65b64d6a433547ed1ee0acdfcd2a62f239fe28e8b158e512d967a282ac4daabe"
+    sha256 cellar: :any,                 arm64_sequoia: "ed13a6a442814b0d4250b459845b57000b29530f0029d66acab0e3a21a366daa"
+    sha256 cellar: :any,                 arm64_sonoma:  "da756af8b3b12b24fccd1ac93bb3ff4177d7bfe95b45d05173f6e67f5ea410cb"
+    sha256 cellar: :any,                 arm64_ventura: "93d37c01816fd2faa0fbf752b10f67d77789007964d5ab3cac0920fc9159c185"
+    sha256 cellar: :any,                 sonoma:        "10193238dbf0163f0166671840e736e5d2bc927c88186f80a640e9b31df8f54b"
+    sha256 cellar: :any,                 ventura:       "caa149049a7ca2ea664b87a3c1f1d406575d62620c0b5a1efa745e49c17b9344"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "98066dc81f221d85f25fad10395b0c6bdaac3edb522d421981dbfad33ad1635b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "79f2fd80152a6576cb39f8af85b7f82d07d3e11cdcb7d032eb725c90e9da258a"
   end
 
   depends_on "rust" => :build
@@ -37,13 +36,13 @@ class Molecule < Formula
   end
 
   resource "ansible-core" do
-    url "https://files.pythonhosted.org/packages/39/26/409259cf95b0ef3471f45837cfda01ae87bcced66dfef7691715184550cf/ansible_core-2.18.3.tar.gz"
-    sha256 "8c4eaca40845238e2601b9bc9dbfbd4f6ed3502cb8b2632789f75ce478abfdee"
+    url "https://files.pythonhosted.org/packages/9c/cc/ffab05d33cb327001cd5b48209cbf4312608b09c8604286eab3da1263912/ansible_core-2.18.4.tar.gz"
+    sha256 "e1f8f5c33546362b0ee933e0969a3ba364b486515a6fa1bc25ebb5d95f8ec5f4"
   end
 
   resource "attrs" do
-    url "https://files.pythonhosted.org/packages/49/7c/fdf464bcc51d23881d110abd74b512a42b3d5d376a55a831b44c603ae17f/attrs-25.1.0.tar.gz"
-    sha256 "1c97078a80c814273a76b2a298a932eb681c87415c11dee0a6921de7f1b02c3e"
+    url "https://files.pythonhosted.org/packages/5a/b0/1367933a8532ee6ff8d63537de4f1177af4bff9f3e829baf7331f595bb24/attrs-25.3.0.tar.gz"
+    sha256 "75d7cefc7fb576747b2c81b4442d4d4a1ce0900973527c011d1030fd3bf4af1b"
   end
 
   resource "bracex" do
@@ -167,13 +166,13 @@ class Molecule < Formula
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/ab/3a/0316b28d0761c6734d6bc14e770d85506c986c85ffb239e688eeaab2c2bc/rich-13.9.4.tar.gz"
-    sha256 "439594978a49a09530cff7ebc4b5c7103ef57baf48d5ea3184f21d9a2befa098"
+    url "https://files.pythonhosted.org/packages/a1/53/830aa4c3066a8ab0ae9a9955976fb770fe9c6102117c8ec4ab3ea62d89e8/rich-14.0.0.tar.gz"
+    sha256 "82f1bc23a6a21ebca4ae0c45af9bdbc492ed20231dcb63f297d6d1021a9d5725"
   end
 
   resource "rpds-py" do
-    url "https://files.pythonhosted.org/packages/0a/79/2ce611b18c4fd83d9e3aecb5cba93e1917c050f556db39842889fa69b79f/rpds_py-0.23.1.tar.gz"
-    sha256 "7f3240dcfa14d198dba24b8b9cb3b108c06b68d45b7babd9eefc1038fdf7e707"
+    url "https://files.pythonhosted.org/packages/0b/b3/52b213298a0ba7097c7ea96bee95e1947aa84cc816d48cebb539770cdf41/rpds_py-0.24.0.tar.gz"
+    sha256 "772cc1b2cd963e7e17e6cc55fe0371fb9c704d63e44cacec7b9b7f523b78919e"
   end
 
   resource "selinux" do

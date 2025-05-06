@@ -59,6 +59,10 @@
   "apprise": {
     "exclude_packages": ["certifi"]
   },
+  "arcade-learning-environment": {
+    "exclude_packages": ["numpy"],
+    "extra_packages": ["gymnasium"]
+  },
   "arjun": {
     "exclude_packages": ["certifi"]
   },
@@ -307,8 +311,7 @@
     "exclude_packages": ["cryptography"]
   },
   "evernote-backup": {
-    "exclude_packages": ["certifi"],
-    "extra_packages": ["oauth2", "setuptools"]
+    "exclude_packages": ["certifi"]
   },
   "fabric": {
     "extra_packages": ["decorator"],
@@ -356,6 +359,9 @@
   "gcalcli": {
     "exclude_packages": ["certifi"]
   },
+  "gdown": {
+    "exclude_packages": ["certifi"]
+  },
   "ggshield": {
     "exclude_packages": ["certifi", "cryptography"]
   },
@@ -370,15 +376,12 @@
     "exclude_packages": ["certifi"]
   },
   "glances": {
-    "package_name": "glances[web]",
-    "exclude_packages": ["certifi"]
-  },
-  "glib": {
-    "package_name": "",
-    "extra_packages": ["packaging"]
+    "package_name": "glances[all]",
+    "exclude_packages": ["certifi", "cffi", "cryptography", "pycparser", "six"]
   },
   "gnuradio": {
     "package_name": "",
+    "exclude_packages": ["rpds-py"],
     "extra_packages": [
       "click", "jsonschema", "lxml", "mako",
       "packaging", "pygccxml", "pyyaml", "setuptools"
@@ -447,6 +450,7 @@
     "exclude_packages": ["certifi"]
   },
   "huggingface-cli": {
+    "package_name": "huggingface_hub[cli]",
     "exclude_packages": ["certifi"]
   },
   "icloudpd": {
@@ -629,6 +633,9 @@
   "osc-cli": {
     "exclude_packages": ["certifi"]
   },
+  "otterdog": {
+    "exclude_packages": ["certifi", "cryptography"]
+  },
   "parliament": {
     "extra_packages": ["setuptools"]
   },
@@ -762,6 +769,9 @@
   "rbtools": {
     "exclude_packages": ["certifi"]
   },
+  "rdiff-backup": {
+    "extra_packages": ["pyxattr"]
+  },
   "recon-ng": {
     "package_name": "",
     "exclude_packages": ["certifi"],
@@ -783,6 +793,9 @@
   },
   "ruff-lsp": {
     "exclude_packages": ["ruff"]
+  },
+  "sacad": {
+    "exclude_packages": ["pillow"]
   },
   "safety": {
     "exclude_packages": ["certifi", "cryptography"]
@@ -860,9 +873,6 @@
   },
   "ssh-mitm": {
     "exclude_packages": ["cryptography"]
-  },
-  "sslyze": {
-    "exclude_packages": ["typing-extensions", "pycparser"]
   },
   "streamlink": {
     "exclude_packages": ["certifi"]
@@ -964,7 +974,7 @@
     "exclude_packages": ["certifi"]
   },
   "wxpython": {
-    "exclude_packages": ["numpy", "pillow", "six"]
+    "exclude_packages": ["numpy", "pillow"]
   },
   "xdot": {
     "exclude_packages": ["numpy", "pygobject"],

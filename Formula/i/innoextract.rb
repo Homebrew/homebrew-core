@@ -1,11 +1,20 @@
 class Innoextract < Formula
   desc "Tool to unpack installers created by Inno Setup"
   homepage "https://constexpr.org/innoextract/"
-  url "https://constexpr.org/innoextract/files/innoextract-1.9.tar.gz"
-  sha256 "6344a69fc1ed847d4ed3e272e0da5998948c6b828cb7af39c6321aba6cf88126"
   license "Zlib"
-  revision 10
+  revision 11
   head "https://github.com/dscharrer/innoextract.git", branch: "master"
+
+  stable do
+    url "https://constexpr.org/innoextract/files/innoextract-1.9.tar.gz"
+    sha256 "6344a69fc1ed847d4ed3e272e0da5998948c6b828cb7af39c6321aba6cf88126"
+
+    # Backport commit to fix build with CMake 4
+    patch do
+      url "https://github.com/dscharrer/innoextract/commit/83d0bf4365b09ddd17dddb400ba5d262ddf16fb8.patch?full_index=1"
+      sha256 "fe5299d1fdea5c66287aef2f70fee41d86aedc460c5b165da621d699353db07d"
+    end
+  end
 
   livecheck do
     url :homepage
@@ -13,13 +22,13 @@ class Innoextract < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "653948d44a91bfc4b452db5ff09f022967bee5fb6fcf2b9368e9d7b2ca61d676"
-    sha256 cellar: :any,                 arm64_sonoma:  "5658b594392eabdf27cb01b08b8c70d0ad4d415e8df226c7a851f026b96db2ff"
-    sha256 cellar: :any,                 arm64_ventura: "9d5d41064e579dc82059762171e6d11be09e09de1a04f2d14cc9f714c8b8e0d0"
-    sha256 cellar: :any,                 sonoma:        "ebf2344eeb9e6be6f8cf2cdcdd7ae9226d4500c63f1e18aeb32fdb20655b11f8"
-    sha256 cellar: :any,                 ventura:       "0b6bc1f911b58b61398f21afd839843cdd1502d2728f0e906d79dd5b74398f3d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e549b003391b65591c063ef0f0f476b923b2cb83b44de1d3e89443277da5843a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "494cfd4d754e4eecf0b7b7d2097878fb2cfb3d3a45567f286ef79527b77cc37c"
+    sha256 cellar: :any,                 arm64_sequoia: "a6ecba6f9571ac08021cee5007d4ce46bc1c8af96f996dd58397fe2f2466d9c7"
+    sha256 cellar: :any,                 arm64_sonoma:  "8bcb1acc92f2b71ba74dbd9989858cb4c97c673ea4165d9a917005e3ae20ee0d"
+    sha256 cellar: :any,                 arm64_ventura: "078863c79c61eaa1bf3b34960334582c52c8cf6932d279f460fce2718a6ee852"
+    sha256 cellar: :any,                 sonoma:        "13374c0149963a68d215be71fee1e3be6ad3bc94793b582ec0545fc850a6186b"
+    sha256 cellar: :any,                 ventura:       "2d06f2828524c9790714130e550fe7aad4b157005b39652633500dbe35aaacb8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1a14135ee0ef9142fd550768cf198305ba67081514b03fe6ff1c36c3b0e1247b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f307fcdedb067bd399862b2640f25a92c31cd1ce5ab6d00ab113bfcb6a88f62d"
   end
 
   depends_on "cmake" => :build

@@ -1,8 +1,8 @@
 class Copilot < Formula
   desc "CLI tool for Amazon ECS and AWS Fargate"
   homepage "https://aws.github.io/copilot-cli/"
-  url "https://github.com/aws/copilot-cli/archive/refs/tags/v1.34.0.tar.gz"
-  sha256 "accc579f16a4a3ce59376d98bffdde206c849004834ad5f953b0bef1c4a4ed11"
+  url "https://github.com/aws/copilot-cli/archive/refs/tags/v1.34.1.tar.gz"
+  sha256 "42f37960360063a9a277d40d9e1c0b284bc49a12dbf996696551154737d94475"
   license "Apache-2.0"
   head "https://github.com/aws/copilot-cli.git", branch: "mainline"
 
@@ -12,14 +12,13 @@ class Copilot < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "39fb8244acdd1b8140247ef573ddc650b5511b62d3faa87d644a8e215593b53c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8fc475e69d0ded4336e64ef5a2fd1ed4e529395855e6a9793396fdcd63490419"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "03c0787759692dac390026739780ce95bb7d620506e40c3cc97b6a16aefb62b1"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "fbe01c17821a9a69ef225f3f1d8ecd6be8603899e0faea082296a75448567c6f"
-    sha256 cellar: :any_skip_relocation, sonoma:         "bc263d1431a6f039c7598c58a4bc8108d5fed4ea36b5711614d35cf98c805389"
-    sha256 cellar: :any_skip_relocation, ventura:        "b9e512e1f5e911b80712ac57ab2ea88aafa618802d56e12a841edebfb0c1399f"
-    sha256 cellar: :any_skip_relocation, monterey:       "a469bb0b4f8faaa68cd01f530a6875e6128075c00810a5f8431034a530dd8e36"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fa605d9516c08d36db9a01a42bc304f5e6a81a51af2edd77ac90228a1e87d28c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "13faf4886169d8f186deaf7635b8c970f23155a7cc871f1b002ff7cd6c4c3cad"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "612ed50072ab9efa44768a26c50204ae34f6239eaebf4943420f3974346e5099"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "6386f436762921c82276a71a96f3cb039c19feb6686cd1f0425ead33221ad52f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f6bd3082d39efbe86dda980e542f93186871646ec9ac23b951f7683d3422f6c9"
+    sha256 cellar: :any_skip_relocation, ventura:       "1ec11fa87d97cc7efe7093979126094c6f67ca0f4834df821d60431a2d92e91a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c72c7b0fdb9e03d19111e4eb6b77e4146779cd18a42a2820666fd5f73e6c4d0e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fbed548a000b6f038d80263542e7f794a6ceaae95ecfd3c2cc321bcf9d89d5bf"
   end
 
   depends_on "go" => :build

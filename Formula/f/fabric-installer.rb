@@ -1,8 +1,8 @@
 class FabricInstaller < Formula
   desc "Installer for Fabric for the vanilla launcher"
   homepage "https://fabricmc.net/"
-  url "https://maven.fabricmc.net/net/fabricmc/fabric-installer/1.0.1/fabric-installer-1.0.1.jar"
-  sha256 "62edf170bdcc41edea85d33acf3eb85474258699b3d41f9418d286c836cb088d"
+  url "https://maven.fabricmc.net/net/fabricmc/fabric-installer/1.0.3/fabric-installer-1.0.3.jar"
+  sha256 "38aa82ab1ef829b7aa3f2143fcc93bba706a8e18835be731d0fdf231d274b07f"
   license "Apache-2.0"
 
   # The first-party download page (https://fabricmc.net/use/) uses JavaScript
@@ -19,7 +19,7 @@ class FabricInstaller < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "5417e368ad080b296504ee2193dbcf6ab29b48fe829aea628b34b5136d3e22a3"
+    sha256 cellar: :any_skip_relocation, all: "d11dda83fc820062d1bf50f4c2df042c2aa5dfbe8092735b24733010e7a140c4"
   end
 
   depends_on "openjdk"

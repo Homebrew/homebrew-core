@@ -13,6 +13,7 @@ class Instead < Formula
     sha256 sonoma:         "b923b24f39f86b55e4ea5e85570c83927dbc0fa96fa0edab5a2fcf0ca77c3c9a"
     sha256 ventura:        "33d4f677954750c9bb4f4bf48cd36720bc80ae91e9a1be16c766cc1d9629f3b6"
     sha256 monterey:       "b3bd5654c3d4e24858569437b6aad9dea3c568bf014abb94202e2f4e73f0d9dd"
+    sha256 arm64_linux:    "88fcd069cad40be6a02b4b34c859f9132bc5961fcbf22e522aeac5017b412cf6"
     sha256 x86_64_linux:   "06bea67b1d7d82de33cf429134b9f001bfd1a788ad10bbf61d666f10a1a18e1f"
   end
 
@@ -39,6 +40,7 @@ class Instead < Formula
 
   def install
     system "cmake", "-S", ".", "-B", "build",
+                    "-DCMAKE_POLICY_VERSION_MINIMUM=3.5",
                     "-DWITH_GTK2=OFF",
                     "-DWITH_LUAJIT=ON",
                     *std_cmake_args

@@ -10,7 +10,7 @@ class PerconaServer < Formula
     url "https://www.percona.com/products-api.php", post_form: {
       version: "Percona-Server-#{version.major_minor}",
     }
-    regex(/value=["']?[^"' >]*?v?(\d+(?:[.-]\d+)+)["' >]/i)
+    regex(/value=["']?[^"' >]*?v?(\d+(?:[.-]\d+)+)[|"' >]/i)
     strategy :page_match do |page, regex|
       page.scan(regex).map do |match|
         # Convert a version like 1.2.3-4.0 to 1.2.3-4 (but leave a version like
@@ -26,6 +26,7 @@ class PerconaServer < Formula
     sha256 arm64_ventura: "7737f1363d22039a2128e182d972582b70d7c7f9857b6b9ae499a41a8b211291"
     sha256 sonoma:        "5834d901d5a515e4c87d7ca1202039e59d5ce4a305cef02975b32d2ab04d7104"
     sha256 ventura:       "bdafc8bba5adc53febfa71285d0afd280c5dc2d5d4cea6b02010d201bcca5edf"
+    sha256 arm64_linux:   "051f0ebc2f4ec908ea0303b61153be100ab92e68767951368eeea48f978a13eb"
     sha256 x86_64_linux:  "ba6a6a6afb166a0de797496fd1cea7ff7114b5a6b594b06f61bb2ac5ff8c79ef"
   end
 
@@ -64,6 +65,13 @@ class PerconaServer < Formula
   fails_with :gcc do
     version "9"
     cause "Requires GCC 10 or newer"
+  end
+
+  # Backport fix for CMake 4.0
+  patch do
+    url "https://github.com/Percona-Lab/coredumper/commit/715fa9da1d7958e39d69e9b959c7a23fec8650ab.patch?full_index=1"
+    sha256 "632a6aff4091d9cbe010ed600eeb548ae7762ac7e822113f9c93e3fef9aafb4f"
+    directory "extra/coredumper"
   end
 
   # Patch out check for Homebrew `boost`.
@@ -121,9 +129,10 @@ class PerconaServer < Formula
       -DWITH_ZSTD=system
       -DWITH_UNIT_TESTS=OFF
       -DROCKSDB_BUILD_ARCH=#{ENV.effective_arch}
+      -DALLOW_NO_ARMV81A_CRYPTO=ON
+      -DALLOW_NO_SSE42=ON
     ]
     args << "-DROCKSDB_DISABLE_AVX2=ON" if build.bottle?
-    args << "-DALLOW_NO_SSE42=ON" if Hardware::CPU.intel? && (!OS.mac? || !MacOS.version.requires_sse42?)
     args << "-DWITH_KERBEROS=system" unless OS.mac?
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args

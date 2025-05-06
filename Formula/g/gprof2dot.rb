@@ -3,14 +3,13 @@ class Gprof2dot < Formula
 
   desc "Convert the output from many profilers into a Graphviz dot graph"
   homepage "https://github.com/jrfonseca/gprof2dot"
-  url "https://files.pythonhosted.org/packages/32/11/16fc5b985741378812223f2c6213b0a95cda333b797def622ac702d28e81/gprof2dot-2024.6.6.tar.gz"
-  sha256 "fa1420c60025a9eb7734f65225b4da02a10fc6dd741b37fa129bc6b41951e5ab"
+  url "https://files.pythonhosted.org/packages/bb/fd/cad13fa1f7a463a607176432c4affa33ea162f02f58cc36de1d40d3e6b48/gprof2dot-2025.4.14.tar.gz"
+  sha256 "35743e2d2ca027bf48fa7cba37021aaf4a27beeae1ae8e05a50b55f1f921a6ce"
   license "LGPL-3.0-or-later"
   head "https://github.com/jrfonseca/gprof2dot.git", branch: "master"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, all: "d184e68d282b694cdae5bebaed6a501705f2576974de0991823a506296db1c67"
+    sha256 cellar: :any_skip_relocation, all: "eacd9d62a4611085b9a19bec9fc9450992f2d67fbb3d22d8b2ca90ed1aebfa27"
   end
 
   depends_on "graphviz"

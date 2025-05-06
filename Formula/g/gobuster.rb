@@ -4,6 +4,7 @@ class Gobuster < Formula
   url "https://github.com/OJ/gobuster/archive/refs/tags/v3.6.0.tar.gz"
   sha256 "509b16ca713de02f8fcdc7b33d97e7e18b687bb99634dde076be38297d4b401b"
   license "Apache-2.0"
+  head "https://github.com/OJ/gobuster.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "da882bae38256fa273b80071e504340c008df9fce87ddd80fb9a6f00b20c00bd"

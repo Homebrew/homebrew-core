@@ -1,24 +1,19 @@
 class Datamash < Formula
   desc "Tool to perform numerical, textual & statistical operations"
   homepage "https://www.gnu.org/software/datamash/"
-  url "https://ftp.gnu.org/gnu/datamash/datamash-1.8.tar.gz"
-  mirror "https://ftpmirror.gnu.org/datamash/datamash-1.8.tar.gz"
-  sha256 "7ad97e8c7ef616dd03aa5bd67ae24c488272db3e7d1f5774161c18b75f29f6fd"
+  url "https://ftp.gnu.org/gnu/datamash/datamash-1.9.tar.gz"
+  mirror "https://ftpmirror.gnu.org/datamash/datamash-1.9.tar.gz"
+  sha256 "f382ebda03650dd679161f758f9c0a6cc9293213438d4a77a8eda325aacb87d2"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "b491271300c50bf305b356b02ed40939191f137e2963a6603410b00210c9ab07"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "521ebd6e3d990405d32e4bdd6ea07c257358f7f780889060df38d18acabe9bc7"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d86e8ba5201844e37dd11c372a4c48154876fc667cfb9c80be616f2a92274cd8"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "89b84e0e7e30808894613161483b8bb6005561d652522cdc399f1e6d1d00e34a"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "16e17344961038b0a719392d53f7968053df3680674554c862b0b4f36f4f86c8"
-    sha256 cellar: :any_skip_relocation, sonoma:         "cd5fd4c830c5ec57572d40a6221088ce3915ec53d273325fa44443c84d21d051"
-    sha256 cellar: :any_skip_relocation, ventura:        "fc4d5134556554c64c14314007087e52810d1ec1c9b1761536da9115333e170a"
-    sha256 cellar: :any_skip_relocation, monterey:       "efb5a8e92a90b49d4784875aff3d2bbeaddf708633a1f7533730979d81354bf8"
-    sha256 cellar: :any_skip_relocation, big_sur:        "6bf80adfcba648b010674056c1abd3cca17a71bd717f81aed0c0d15fbf11abea"
-    sha256 cellar: :any_skip_relocation, catalina:       "ffadf24c7def1e77a197952a3e31edbfbb4fc246d373b78c3c0671839d86b422"
-    sha256                               arm64_linux:    "fb6047d8c06cac307381db79ac97463209b50059d5068ff033fceb77c8a2507a"
-    sha256                               x86_64_linux:   "d6937a2c3ab4e5d40b9994e93c8449d2b7231d58b4a7bce60a4866acf946a212"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c8cf2d4dc46574a42e8602a933b68fedf07cf904e14fc08f945d615df872ae42"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2d6e596a1a0d53bcc0f2e44085d0e64ef58fc9938e053674655043ee5e1bf328"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "1e3e7fd79737698b216342e9907bad5c7d15663c49fd00c8c4a7a7f8247c7f3a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "9d5449a221d1ace4e0fff4dd2667c6252607d2485354cd5c6e51fbfe36edeaa4"
+    sha256 cellar: :any_skip_relocation, ventura:       "55bac91ad338c873452f9b72c1a931f576cdb7868a71d67a959dc43e45150cac"
+    sha256                               arm64_linux:   "0637020b7f156bd493ce38b8f948ef5f200511d7aeba5496f8f7ec598d29d756"
+    sha256                               x86_64_linux:  "ed1618d4b6571bddde83d2d6a00f5f730a0448355e75e1ecc9d44cf00759b509"
   end
 
   head do

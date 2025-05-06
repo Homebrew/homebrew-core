@@ -1,8 +1,8 @@
 class Dnsdist < Formula
   desc "Highly DNS-, DoS- and abuse-aware loadbalancer"
   homepage "https://www.dnsdist.org/"
-  url "https://downloads.powerdns.com/releases/dnsdist-1.9.8.tar.bz2"
-  sha256 "f664f73a96a8d7343d32696accb70fd8b1ed4328d73cdb0a627a561d6e2fd99e"
+  url "https://downloads.powerdns.com/releases/dnsdist-1.9.9.tar.bz2"
+  sha256 "e86bc636d4d2dc8bac180ec8cdafbfe5f35229b6005ec15d7510fb6f58b49f5a"
   license "GPL-2.0-only"
 
   livecheck do
@@ -11,13 +11,13 @@ class Dnsdist < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "37a81f1a7902b38db901460d51e372a2c2e78f90b14faf87f6f649928c82abd9"
-    sha256 cellar: :any,                 arm64_sonoma:  "42b0a9a71b26f98825ee82d5292b81ec78439db91c646f47887fb4a56f368d67"
-    sha256 cellar: :any,                 arm64_ventura: "c25bce9c1cd32bd92ff7298c6e4702b2ebb39772859fb3653c151b7e0da53242"
-    sha256 cellar: :any,                 sonoma:        "bbb9ee6cdc27310c15fbdfaa1804a405f76fc8a3d9e9e49af90c547f4f75d311"
-    sha256 cellar: :any,                 ventura:       "f3ebdd73c4d92ed6af63a66df23d67f3bd08655b6887845d5f39717579c8cb43"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ac3f18c9cc3fe483c6eb3b19d293db60154039599653feb69adba16830e5a10c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "befe41fe1ca151f63a3ff433a29a7f59958dcf054238a23e6a07b2b21938c001"
+    sha256 cellar: :any,                 arm64_sequoia: "a73dc1b7b52577e052279e557fa6518c49463939fc166cbd36cd8b4b9353e801"
+    sha256 cellar: :any,                 arm64_sonoma:  "61ecb524ae7eb13da09003ba59f303ac187c0f618863db1017d55afc2d2c9c04"
+    sha256 cellar: :any,                 arm64_ventura: "bb3a7bbbd5fbf16d754418dc368b029c407cbbc620d22af809747be807d314e1"
+    sha256 cellar: :any,                 sonoma:        "62c7166340f3fce2a10d11a85b82f08f61f6b9c59307790663b3d2ede21c8c8b"
+    sha256 cellar: :any,                 ventura:       "e0fd1cbde4a31acb149bbf155dcd7b832f61edae6a7da1dc69acf4c196bd3483"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "976fd9d3f2689b8988f52953343ffe9cb9c83e57b86ecf84c7b42a5955277e32"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "42dbdf2e4312b61ace402dac35be28e93f7339e3a587fd0c866dddb73bd708b6"
   end
 
   depends_on "boost" => :build

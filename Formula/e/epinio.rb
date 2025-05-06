@@ -20,6 +20,7 @@ class Epinio < Formula
     sha256 cellar: :any_skip_relocation, sonoma:         "97f65c59a709ef78f944b05414271a2038562291ffcd7c3a62d1690b35383e99"
     sha256 cellar: :any_skip_relocation, ventura:        "622444239281063b9ea2fc3f7cb24d10179cc042fc5d169f69c2103c29d194c7"
     sha256 cellar: :any_skip_relocation, monterey:       "a23ff8736f9b2503b8f16102df34759eccc3b0c0104ab214fb5ecc2123be455f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "fb86346bc669151f33d6f82182808bd9f42dce017829449a79900c41abd51cda"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "1796bc25f20a13613f626417dae775c8410aa5c257be48065f3e645a4b6829ed"
   end
 

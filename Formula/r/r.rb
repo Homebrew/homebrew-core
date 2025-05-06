@@ -1,10 +1,9 @@
 class R < Formula
   desc "Software environment for statistical computing"
   homepage "https://www.r-project.org/"
-  url "https://cran.r-project.org/src/base/R-4/R-4.4.3.tar.gz"
-  sha256 "0d93d224442dea253c2b086f088db6d0d3cfd9b592cd5496e8cb2143e90fc9e8"
+  url "https://cran.r-project.org/src/base/R-4/R-4.5.0.tar.gz"
+  sha256 "3b33ea113e0d1ddc9793874d5949cec2c7386f66e4abfb1cef9aec22846c3ce1"
   license "GPL-2.0-or-later"
-  revision 1
 
   livecheck do
     url "https://cran.rstudio.com/banner.shtml"
@@ -12,13 +11,13 @@ class R < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "6db06adb8cef11de86401d3426e54f89037676b48432aa072cb03cf3ef7ea109"
-    sha256 arm64_sonoma:  "76eb6fb50dab28a414ce6fdbf54b620b105298f0692b81d75c62f106bf56cd4e"
-    sha256 arm64_ventura: "fbcc2d7f8151c50f43124504b2e5e51f741311f785581184eeccb28f9e4cfe45"
-    sha256 sonoma:        "85a90fa83e598a0a061401e7ddbe1a78d2a141fd14543c5e6bf85650f979ef02"
-    sha256 ventura:       "80b5bc276df4be9daedb8b9723dceb8c182bfdbfc8f963f88f5f984ca9605ba2"
-    sha256 arm64_linux:   "2ff1c59eadad6fda2b182a5e8ae68058e8cdbf49c41efa91a5a3b2f18e33112f"
-    sha256 x86_64_linux:  "c4a1fdfccdd2aa0a3b0e888326f8a0e7bc60930632ef98b7973808321d7b4fc8"
+    sha256 arm64_sequoia: "48e4817e21ff16cd70fe7a3bd11ffb6b117f43b4a6a710d7bbb3c70bb374e239"
+    sha256 arm64_sonoma:  "f2f3b9c3ea83b6a6418ef6d277b46cbaaf58da22fb1bf98bd40ceb4be5bc3bd3"
+    sha256 arm64_ventura: "b4eeb8e81c83ee1d4d2c3e346c06abb71cfcb173f26cf351011edf5304cf660b"
+    sha256 sonoma:        "87bde25906088da3adaec6dfe8526b8e6992532ffcadfa76039d215cd8dcef72"
+    sha256 ventura:       "6af721dd46ae2605802e8b4719f20d9a8be745da7a8742ad06d9dc40a9bf9316"
+    sha256 arm64_linux:   "d21463fdd1a28126e092e84c3ff604dfc51d21c8a612c5aa4de89b986a070b37"
+    sha256 x86_64_linux:  "030a0cc88f27535c502c31118d10cae6d8398c519df565b275c15dea3d1b9379"
   end
 
   depends_on "pkgconf" => :build
@@ -33,6 +32,7 @@ class R < Formula
   depends_on "readline"
   depends_on "tcl-tk@8"
   depends_on "xz"
+  depends_on "zstd"
 
   uses_from_macos "bzip2"
   uses_from_macos "curl"

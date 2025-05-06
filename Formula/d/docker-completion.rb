@@ -1,8 +1,8 @@
 class DockerCompletion < Formula
   desc "Bash, Zsh and Fish completion for Docker"
   homepage "https://www.docker.com/"
-  url "https://github.com/docker/cli/archive/refs/tags/v28.0.2.tar.gz"
-  sha256 "70ded7462897bab0b7d7e5716ffc787391ff5f2b483d7eb590a37bf6512bd3e4"
+  url "https://github.com/docker/cli/archive/refs/tags/v28.1.1.tar.gz"
+  sha256 "98b305725d453b6802a4df1e4c8184b66cf8d74e9050bbf3d92b2804621cb9f6"
   license "Apache-2.0"
   head "https://github.com/docker/cli.git", branch: "master"
 
@@ -11,8 +11,10 @@ class DockerCompletion < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "404a8406c026634db0a625b5daeef5a4d873e2362f612b09c6cee39f988d4833"
+    sha256 cellar: :any_skip_relocation, all: "bec711e769cdf55d0f8ffa4e470d1e0e361a3eede07f23dc10833697030aae1b"
   end
+
+  conflicts_with cask: "docker"
 
   # These used to also be provided by the `docker` formula.
   link_overwrite "etc/bash_completion.d/docker"

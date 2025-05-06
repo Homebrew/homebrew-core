@@ -1,8 +1,8 @@
 class Goaccess < Formula
   desc "Log analyzer and interactive viewer for the Apache Webserver"
   homepage "https://goaccess.io/"
-  url "https://tar.goaccess.io/goaccess-1.9.3.tar.gz"
-  sha256 "49f0ee49e3c4a95f5f75f6806b0406746fcbf2f9ad971cae23e2ea95d3ec7837"
+  url "https://tar.goaccess.io/goaccess-1.9.4.tar.gz"
+  sha256 "107d5a3cb186e6e7a8ac684a88d21a17884f128cb0bc4a4a53696145bb39373d"
   license "MIT"
   head "https://github.com/allinurl/goaccess.git", branch: "master"
 
@@ -12,15 +12,13 @@ class Goaccess < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia:  "5891b85cee0e98725ca30c235a738068a5162b47f85c868c503456fae8a5d8a5"
-    sha256 arm64_sonoma:   "87aa707dacbd55256870c04738ba57e253767e167c16bcd391f9fca89164931b"
-    sha256 arm64_ventura:  "fab59a784e6221780e73de49fb5b7b20b8be593a0fab28d07f031b5b1433a8e0"
-    sha256 arm64_monterey: "7cc09da579a2685826fec756cce8bf87fb868120ff09f680203fa172ad1d3af3"
-    sha256 sonoma:         "1b64c1206f019b712ed90724342e12ed9962e48e33d4f6ef0cb3dbebc184454f"
-    sha256 ventura:        "d0dde1b682b280570fcfe938d46c0ab44f8d79c30fbb0b167c203ecc0e93446a"
-    sha256 monterey:       "40999cea57bc1fca15720fc2d11304db6801b2ac1a89d9da74910fd049944d28"
-    sha256 arm64_linux:    "df22c3cb3ff0033cb1bcb384c2a579755a60789bf9b5dac8dd41804138655b02"
-    sha256 x86_64_linux:   "a3ee515f40ffb70cf7db643c7150156a19558ec33a1426a792bad4b4434aa42a"
+    sha256 arm64_sequoia: "1200da514dcbbd2b67d05ed0a8a8484d436ab58d7b7a28fcfabdcfe1fa326023"
+    sha256 arm64_sonoma:  "236c28e7d1bdf5b29f780c2397fcee03e8f4673b33a8c30df4ac384d94bd62de"
+    sha256 arm64_ventura: "2bbda818439ff95642ad87925871ebba8f6e62b26d31d6ea1d3a791245f720bd"
+    sha256 sonoma:        "ab7c21de0f83fb6d09ca2ffedd49b996d8c7e3d80c122e9e1271e8cc5c06bf6e"
+    sha256 ventura:       "b730ca1b7fc30ec8c73af8ec2f6f9a60cc409b068f1aacac22d64cb4b7f38e7d"
+    sha256 arm64_linux:   "70900505dd30cd579e7d4d4703251142ccc7ab664d54760a88da9e7026cc09d2"
+    sha256 x86_64_linux:  "3b8b7b44e55f4f4e5a138ae1bf601478753a15eb0f173baab2271c68723c73c7"
   end
 
   depends_on "autoconf" => :build

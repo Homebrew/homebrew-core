@@ -13,6 +13,7 @@ class Jvgrep < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "b09906823a2d2bd6a90b0fcf9881cadfadf72693749f7431c787c910d74fb106"
     sha256 cellar: :any_skip_relocation, sonoma:        "3bf79835ac8078c953f7f86e12bed6dc332e268a22455349531945b2ca3414d1"
     sha256 cellar: :any_skip_relocation, ventura:       "3bf79835ac8078c953f7f86e12bed6dc332e268a22455349531945b2ca3414d1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "783f014d41c4fd1ed3dc1ada0024f9b8b62677e05218f2c83535d99b3ce1469e"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "d60b337f4a9d97f4107e04eaa49ca7cdca98cb44a158df7664b55a33724639ed"
   end
 

@@ -39,6 +39,7 @@ class Ekg2 < Formula
     sha256 ventura:        "cf60041384bf67e252fbe27d60baceb48ea590d22184854c1990072c3948df71"
     sha256 monterey:       "6c4d6e4a126cb31c7dda87f6080a11911ca1f153c44d26ee86ce11147f8667b3"
     sha256 big_sur:        "d5f9ac13e6ef527cf44f51bad2461976f7a0007bdbc5ded0515720793771cb57"
+    sha256 arm64_linux:    "1de1e7288c6372ed38a94ebbd54b473b8d65d99ec39dbd67dab8b51be91d3b5c"
     sha256 x86_64_linux:   "b4bc5fe81b146a00416646862a5e723eae0d0c218a9373d28e9794a4f3accf16"
   end
 
@@ -75,8 +76,12 @@ class Ekg2 < Formula
       --without-perl
       --without-python
     ]
-    # Newer ncurses has opaque structures so old plugin code no longer works
-    args << "--without-ncurses" unless OS.mac?
+    if OS.linux?
+      # Newer ncurses has opaque structures so old plugin code no longer works
+      args << "--without-ncurses"
+      # Help old config scripts identify arm64 linux
+      args << "--build=aarch64-unknown-linux-gnu" if Hardware::CPU.arm? && Hardware::CPU.is_64_bit? && build.stable?
+    end
 
     configure = build.head? ? "./autogen.sh" : "./configure"
     system configure, *args, *std_configure_args

@@ -14,6 +14,7 @@ class Typstfmt < Formula
     sha256 cellar: :any_skip_relocation, sonoma:         "f676e54a7b0e56cce946b8da875e5c991490b6d9e25dbd573ce58dc788a0139f"
     sha256 cellar: :any_skip_relocation, ventura:        "73843c71221c4b6ac172f2a3f62f0549841074a7b09ef5ef4794b9c88fd0be3e"
     sha256 cellar: :any_skip_relocation, monterey:       "8bd83b378a237b4be80690c7ad71e7c5609e3b85c6179f0d5a5806179ee1321a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "86165016420a35d4c382d1d96242e158279d866754c561f27ff2a853349a8147"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "560dc8c7913216f620d70b2322c5c384a756eee645d4db0369d798660fd0feef"
   end
 

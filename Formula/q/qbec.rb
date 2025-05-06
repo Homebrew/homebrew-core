@@ -12,6 +12,7 @@ class Qbec < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "4d943895d5ab80e6a17ea36217a092f79cd107f10c4e12aaf0462d9742e7d54f"
     sha256 cellar: :any_skip_relocation, sonoma:        "026af3dda4133c5fbc36e7c2ae7665dd4b701fb01f4f4619b64c37e88778ef8b"
     sha256 cellar: :any_skip_relocation, ventura:       "02f0fcba10301230efdec142e29c9b3c09286e1ebf133d3a00cac08ce27aac62"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "92f342e9bdf53d997f34eba29e635263ba0741935b5110c4d1e7152d3227c6e2"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "78a97847c98ce06a3a868af4e5bb008e16dd24d86a219c2ef6607637bdfbc7a0"
   end
 

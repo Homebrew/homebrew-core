@@ -18,6 +18,7 @@ class Homebank < Formula
     sha256 arm64_ventura: "f7a05e75f18dedecb7a07fa78a1f862b8967274018824829ff33c8efe88aaf70"
     sha256 sonoma:        "8c979f17c79bf993edbb449c5f2be3f6d2a8123321125cb64744ca1bd15b35e3"
     sha256 ventura:       "7e8692240976b9a05c7e36ea7fd9f5e0b4af9a41e79918d2a0bb63967bcff906"
+    sha256 arm64_linux:   "3f0ae5cd4b908fbcbae49b32b219fc61c712020a982209e0707881c077cfd2b1"
     sha256 x86_64_linux:  "096747e583c538a312c20b541fc8c7388001d86ed9cabb01a0e949d55c3e187c"
   end
 

@@ -1,24 +1,19 @@
 class GitBug < Formula
   desc "Distributed, offline-first bug tracker embedded in git, with bridges"
-  homepage "https://github.com/MichaelMure/git-bug"
-  url "https://github.com/MichaelMure/git-bug.git",
-      tag:      "v0.8.0",
-      revision: "a3fa445a9c76631c4cd16f93e1c1c68a954adef7"
+  homepage "https://github.com/git-bug/git-bug"
+  url "https://github.com/git-bug/git-bug.git",
+      tag:      "v0.8.1",
+      revision: "96c7a111a3cb075b5ce485f709c3eb82da121a50"
   license "GPL-3.0-or-later"
-  head "https://github.com/MichaelMure/git-bug.git", branch: "master"
+  head "https://github.com/git-bug/git-bug.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "d84ee9c53e3b44bd7a46a4723a70ea7f80070f5c2d77482afab6fcadaf063f99"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "51c0e3dab2333e1efdd7e072b5887ab00c6b082ef987a517a07fcb88ed42bab7"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "be920be6f96dbd7da1c1054238ce09eca5b50c3402f8eedb7a603869ea00e6f1"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "1240cbfd96aefb7b6db471836b3cd67a622ad265bab6482c6998243177326cca"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fe0a8f7fae9cf1519ae096f7a65e1752ec80dcb72f371673766fc31229d1aacb"
-    sha256 cellar: :any_skip_relocation, sonoma:         "c20cd9f98bbda5f36ac6f60dd9aa258c325b8c7751cfd0807f937476eb0492d7"
-    sha256 cellar: :any_skip_relocation, ventura:        "cf66ca73898446e52c7231dbc4dba8f1d765a456c3ef8214b9ed167dea26db4f"
-    sha256 cellar: :any_skip_relocation, monterey:       "c1c29f2a9a1ff994644ab1bb42778c6ec8d7bae2589689ee7efbf5200c626c76"
-    sha256 cellar: :any_skip_relocation, big_sur:        "1a76c51936c483ccfdeead7e119751fc70989f3387e0bc5e93d8252005a2183e"
-    sha256 cellar: :any_skip_relocation, catalina:       "553181a157cfed0dc321bc90dd789256177ca86df0d4aef8a75c787642d4434a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bc86c9ec48daf126f20298325c4d9b2d269025d6d0612eab3d4831a1402abfe7"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "aace4173880bff60e66e06833fcb5acbe4e4c1d8f86051ff89fb9566cb6b4a65"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "33fe5500a265b98d4af1445c3e428c15b7a61a206d707a109a3610b3e169a850"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "a15b100034db1c38161c6b02a7cfc3fc38b6f680ef4aacd1468031bc28c286d6"
+    sha256 cellar: :any_skip_relocation, sonoma:        "444acfa855ed5379698bfeb4b99075b564b173ec5f1bc3fa141abe0a144858a6"
+    sha256 cellar: :any_skip_relocation, ventura:       "ab1f4c9cd703a55094d10b36c038f95c289de4c30ffb66fb5a18ddb18f2bd04f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "636b5364c54e97dec3062870c780f54b2ffed5a4dc9c3e9c880e98191de502d7"
   end
 
   depends_on "go" => :build
@@ -42,15 +37,15 @@ class GitBug < Formula
     assert_match version.to_s, shell_output("git bug version")
 
     mkdir testpath/"git-repo" do
-      system "git", "init"
+      system "git", "init", "--initial-branch=main"
       system "git", "config", "user.name", "homebrew"
       system "git", "config", "user.email", "a@a.com"
-      system "yes 'a b http://www/www' | git bug user create"
-      system "git", "bug", "add", "-t", "Issue 1", "-m", "Issue body"
-      system "git", "bug", "add", "-t", "Issue 2", "-m", "Issue body"
-      system "git", "bug", "add", "-t", "Issue 3", "-m", "Issue body"
+      system "yes 'a b http://www/www' | git bug user new"
+      system "git", "bug", "bug", "new", "-t", "Issue 1", "-m", "Issue body"
+      system "git", "bug", "bug", "new", "-t", "Issue 2", "-m", "Issue body"
+      system "git", "bug", "bug", "new", "-t", "Issue 3", "-m", "Issue body"
 
-      assert_match "Issue 2", shell_output("git bug ls")
+      assert_match "Issue 2", shell_output("git bug bug 'Issue 2'")
     end
   end
 end

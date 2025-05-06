@@ -4,6 +4,7 @@ class Kompose < Formula
   url "https://github.com/kubernetes/kompose/archive/refs/tags/v1.35.0.tar.gz"
   sha256 "62c29b8f57e20335bea5c129d56a7dafc50ddca334ede6f44e6f46f5fe676e4a"
   license "Apache-2.0"
+  head "https://github.com/kubernetes/kompose.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "8a1f7efbb5e2682fac567d6c79fefda78afd2dbda5ff5bf43bfb11deed27226e"

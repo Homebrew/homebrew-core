@@ -33,6 +33,7 @@ class Klee < Formula
 
   on_macos do
     depends_on "cryptominisat"
+    depends_on "gmp"
     depends_on "minisat"
   end
 

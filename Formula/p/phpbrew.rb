@@ -14,6 +14,7 @@ class Phpbrew < Formula
     sha256 cellar: :any_skip_relocation, sonoma:         "593e3afb0ab7517aba5f5576cb14b11ef5c1f58de3d6707688d1d6a751835b3f"
     sha256 cellar: :any_skip_relocation, ventura:        "593e3afb0ab7517aba5f5576cb14b11ef5c1f58de3d6707688d1d6a751835b3f"
     sha256 cellar: :any_skip_relocation, monterey:       "593e3afb0ab7517aba5f5576cb14b11ef5c1f58de3d6707688d1d6a751835b3f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "0c5e5c1e76f1d5740e8c5ab834f5ee227809cb868f3c05709ae24caff8df9bd3"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "5313331a47dc3d43289333b1a1345dd53fcfd6b1cff99db2ee2483302288b1d8"
   end
 

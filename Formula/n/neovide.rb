@@ -1,19 +1,19 @@
 class Neovide < Formula
   desc "No Nonsense Neovim Client in Rust"
   homepage "https://neovide.dev/"
-  url "https://github.com/neovide/neovide/archive/refs/tags/0.14.1.tar.gz"
-  sha256 "ca89ddd63b2a321ff0b7fb2afbaa33d125c207ed6b8663e5fb6d6f665329b899"
+  url "https://github.com/neovide/neovide/archive/refs/tags/0.15.0.tar.gz"
+  sha256 "89900673314f4dba66a1716197aca3b51f01365d9f8351563c3dc5604b3e48ab"
   license "MIT"
-  revision 1
   head "https://github.com/neovide/neovide.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f6fe6421436c0452f8fada6d8d27b8cdf8035bcca3369949d0573cef8cd377ce"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d809b5451c96327c4c574097ed0432d37307733fa816ce2ae821341be29744d4"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "b125091a42af4296ee697e7286f692a0181aca313a05aff63206109582953a01"
-    sha256 cellar: :any_skip_relocation, sonoma:        "1176698a9e5736a4b687eda38e0428d61441fd443fbf1963bd5eedf5109416b9"
-    sha256 cellar: :any_skip_relocation, ventura:       "f03febcf44a281ebd18b93d6bc8b1805f9ae0adfaa3eefe49418ad22d538d90a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d615931f3e1f8c12fb29257c41e349d6fd08cf5bb701178d023986a14ae7f2d7"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "beadfba290080cf999c7cec2415e8e2000b6d3d2cd8d43be6acd235a97c57482"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6db047e1f2a6180d2bdf1341448f9f64c5414371fa5c33c664258d23bd803b11"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "71903190f94bd7018ecf017d70bc02e1dabdf795391cb2921831437ca58f3876"
+    sha256 cellar: :any_skip_relocation, sonoma:        "20f05f6186c0cb44b9f67c0968117cc157a081cbc8aefb24bfb6ec19c99ce63b"
+    sha256 cellar: :any_skip_relocation, ventura:       "f89ba563de5b80e997b90c80e8efe1d03d4813de13ef0b70af325ac1392afc51"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "441334ea72a94f2eb7fa628194f9730e15c38778001568b9afc00eab460ed7af"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2473d65387128d4bb25a636fee7200ef68cbf875cb0ba135cb54f7fe25a2cdae"
   end
 
   depends_on "ninja" => :build

@@ -19,7 +19,7 @@ class Utf8cpp < Formula
 
   test do
     (testpath/"CMakeLists.txt").write <<~CMAKE
-      cmake_minimum_required(VERSION 3.0.2 FATAL_ERROR)
+      cmake_minimum_required(VERSION 4.0 FATAL_ERROR)
       project(utf8_append LANGUAGES CXX)
       find_package(utf8cpp REQUIRED CONFIG)
       add_executable(utf8_append utf8_append.cpp)

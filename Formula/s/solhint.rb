@@ -1,18 +1,18 @@
 class Solhint < Formula
   desc "Linter for Solidity code"
   homepage "https://protofire.github.io/solhint/"
-  url "https://registry.npmjs.org/solhint/-/solhint-5.0.5.tgz"
-  sha256 "dacb00c5a84b65b65370b8531480b1d25171dc97b45a246cf943ca8b4f91488d"
+  url "https://registry.npmjs.org/solhint/-/solhint-5.1.0.tgz"
+  sha256 "a81a2bdbefa6f9b4918b5211a955ba37219db06474345dbfa2bb0a8fc47b43c0"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5495db9fed240f30a1f879f597c6e4303ba3e69faa87da786bd88b3802bf74e1"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5495db9fed240f30a1f879f597c6e4303ba3e69faa87da786bd88b3802bf74e1"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "5495db9fed240f30a1f879f597c6e4303ba3e69faa87da786bd88b3802bf74e1"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f4f9024768d2cc9eaf52adf7a42d602f4cc4405a40814ca1c6c35b2cca5f6bd5"
-    sha256 cellar: :any_skip_relocation, ventura:       "f4f9024768d2cc9eaf52adf7a42d602f4cc4405a40814ca1c6c35b2cca5f6bd5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "4d1b43945432e5a7dc1ba0bb460b29b3eee3c45f1043dd76935f35f145dc27bc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5495db9fed240f30a1f879f597c6e4303ba3e69faa87da786bd88b3802bf74e1"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8838c345b0300720adcae400fd4c0cffb0e6845de7fa615230901e86131e9f6c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8838c345b0300720adcae400fd4c0cffb0e6845de7fa615230901e86131e9f6c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "8838c345b0300720adcae400fd4c0cffb0e6845de7fa615230901e86131e9f6c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "1008a9f0bf0241dc5077bfb864f543f348e530bd15f92fe80f52a42442190c63"
+    sha256 cellar: :any_skip_relocation, ventura:       "1008a9f0bf0241dc5077bfb864f543f348e530bd15f92fe80f52a42442190c63"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8838c345b0300720adcae400fd4c0cffb0e6845de7fa615230901e86131e9f6c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8838c345b0300720adcae400fd4c0cffb0e6845de7fa615230901e86131e9f6c"
   end
 
   depends_on "node"

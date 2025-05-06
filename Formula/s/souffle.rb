@@ -1,19 +1,18 @@
 class Souffle < Formula
   desc "Logic Defined Static Analysis"
   homepage "https://souffle-lang.github.io"
-  url "https://github.com/souffle-lang/souffle/archive/refs/tags/2.4.1.tar.gz"
-  sha256 "08d9b19cb4a8f570ac75dea73016b6a326d87ac28fccd4afeba217ace2071587"
+  url "https://github.com/souffle-lang/souffle/archive/refs/tags/2.5.tar.gz"
+  sha256 "5d009ad6c74ccec10207d865c059716afac625759bff7c8070e529bd80385067"
   license "UPL-1.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "afd929227d4b2b7a6424186c7ae61838e105eee0c1d3ef6aa8d47c9c995bb6b2"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "57c853a352feed0ea976729ac5e299b2422e122f42a9f29e264339586ee8e5a8"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "91fa45ba6431efada4dd59f7876f3ddbc7ccc6e320f1f71104f5c6be6eb97e7d"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9c23a5cca7622755bea778b9c42645b2ffd747bb385f16e4397d359a6acdd357"
-    sha256 cellar: :any_skip_relocation, sonoma:         "eb94390d08fcf1eeaecab9000dd2bfbbec9c079d6dc5df593acdab40d39d1649"
-    sha256 cellar: :any_skip_relocation, ventura:        "c02a77b4ec1e0c746c6d0e59aa33664110d07ed3a6a07d5cbe03cb861d854615"
-    sha256 cellar: :any_skip_relocation, monterey:       "2992254dd9a9e5c8fca4f7cd3050907a26dd37eb646aa9fff28d0f2eafe5b98f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "59037bee47f85f284d68fc8c57ee8703d1d79e34c6c2ffeaa004d81cf61230e1"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b2bc7684a7337a00f830ce5d496f15b06e3870a2416737cbd791cb50e399d9c3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c1df31eac00a747cd74fd31aff745ab4164362cbc737d53264d2b40178a3c2cb"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "29f023e79b7d2fe1310378dcad026608895475880f80bc050131ea48842a93da"
+    sha256 cellar: :any_skip_relocation, sonoma:        "732925d732bd977ad72315894d0f2deadb35a2ac092b4dcc615b699ed3e0e243"
+    sha256 cellar: :any_skip_relocation, ventura:       "4287f9391ad73a50eb0c6e578955529a2b36d517f43e60d2e1553114d7ef56b2"
+    sha256                               arm64_linux:   "4189ff925d166433ce98ab437c26c913bd62c81e706fa3e82a2858f9ff0ce60f"
+    sha256                               x86_64_linux:  "5fd9b1a03f7400bbe208d30058cf4850a03e2c768918f5918a549f277966e9ba"
   end
 
   depends_on "bison" => :build # Bison included in macOS is out of date.

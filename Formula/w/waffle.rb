@@ -14,6 +14,7 @@ class Waffle < Formula
     sha256 cellar: :any, sonoma:         "a59ee0f3ad1c4f4a47c07661e1439f4156dd10b88038115765ef51173282d597"
     sha256 cellar: :any, ventura:        "be09dc2b2af894dd48245599720c93135c7edd32fa01d5cc80bbd9fbfc0aec43"
     sha256 cellar: :any, monterey:       "445f768e3b9d4bb8a5e53741cb57acafe5a64d01d3454528326dafdacda4ca34"
+    sha256               arm64_linux:    "2cdfe7169a64ad8138255aca48128fdc8d23b9885224cddac2a23bcdb3ceabc1"
     sha256               x86_64_linux:   "e66ab6325cd9b5b39752985ee80e3724e9affd46a75d1d2c7b764f6fbbe87b9b"
   end
 

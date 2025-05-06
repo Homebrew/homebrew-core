@@ -12,6 +12,7 @@ class Redka < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "8be640a9fe22bb2c23b00fbd7932235ed62dc3aad5fe1dabb1bcc9c9f0ae4e17"
     sha256 cellar: :any_skip_relocation, sonoma:        "41ce5588bf143a988a41ef0ee17c6e4d581a8e326372c74accd54bcebe1529b1"
     sha256 cellar: :any_skip_relocation, ventura:       "bb78c4e52d6177cebaf0f1d1afabaf3da46c85841b6feb0e312a605123035d82"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8043e1f6e3e88f408e482c41fd195db76126720f546449358728eff9ef6ddc57"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "a518059a8ea13f550bc38204414142a839adba3458eb31808b17e1a438a59d0e"
   end
 

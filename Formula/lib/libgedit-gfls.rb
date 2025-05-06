@@ -12,6 +12,7 @@ class LibgeditGfls < Formula
     sha256 cellar: :any, arm64_ventura: "910ff5cc9d9f6bf34bc028886291f5b865830872e538115c3610d5a62a15b570"
     sha256 cellar: :any, sonoma:        "db720dd55a7f2c887fef60c79036d93d65d439c7f8e159f339ccb3c2ef66ba32"
     sha256 cellar: :any, ventura:       "4eb809e0498a4a2844c2afa2d2255cdb5d7827b9d1925d7d561540b58bbcc248"
+    sha256               arm64_linux:   "4414cd365718587e2ba528a90fa5615678b4f8e5f6e7b881be663dac820a45ae"
     sha256               x86_64_linux:  "56b8e1b605aa397988beb3cb33cc9d394a83413468c7e68d22e78daab6d174fd"
   end
 

@@ -3,19 +3,19 @@ class Liquidctl < Formula
 
   desc "Cross-platform tool and drivers for liquid coolers and other devices"
   homepage "https://github.com/liquidctl/liquidctl"
-  url "https://files.pythonhosted.org/packages/d9/86/6c5f842642b88166fb21ab5218a1af47e567f684a564db77eeca2235c7d1/liquidctl-1.14.0.tar.gz"
-  sha256 "a90e3f36a13adbaf2f463adf0051f30107fd3d0edecac89f46a5bd931b2b54f2"
+  url "https://files.pythonhosted.org/packages/1d/87/8b80a72696a906fde5ead01398291c4ae67353d8d445b3828af4217b7d2c/liquidctl-1.15.0.tar.gz"
+  sha256 "82243acf320c2686b274c13e804e8dd56ec97eaa0a9347d4107974428fb548d1"
   license "GPL-3.0-or-later"
   head "https://github.com/liquidctl/liquidctl.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "a3f5fe7aa7882e86492bd878ee846acbbfd4bd4d4c1309f7ac57416f434ac829"
-    sha256 cellar: :any,                 arm64_sonoma:  "a6a8e6694b8615e1b2b38c9156188ff882f53d4d485faec6248581546ed859d6"
-    sha256 cellar: :any,                 arm64_ventura: "49576ad8d9c9de8468e5f4ea799e6a5fef805e6f2f8e8329e9e6610ad3a7976b"
-    sha256 cellar: :any,                 sonoma:        "f4663a574207d29d9572596f1e00752227f7c29145429eacfa6c4033975f6610"
-    sha256 cellar: :any,                 ventura:       "533cb471eb11fdb4b83e364a53f0d3fe0a344c079a208938143b77058fa62d23"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5c524334dfc78d01f3f7a8d53089ea784e4db3472d13cac8d940741f7e015e19"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4f1dd3a4be076e0773742b7daded5e8c16cb5c86b1efeb0ee29b75d67b8397cf"
+    sha256 cellar: :any,                 arm64_sequoia: "d510764a83983ce82305ca97ae0d5b7937829925bd64bb994be24bf7f0f0136c"
+    sha256 cellar: :any,                 arm64_sonoma:  "c80266cf95b59a392b3ba9d6eaefd1c54c7e26781e9f644080bf488ca334dfb4"
+    sha256 cellar: :any,                 arm64_ventura: "2df40c607570625a1e9df040d40d9591508367f43bd0d505059a79b47b6faf81"
+    sha256 cellar: :any,                 sonoma:        "f3aea3bc6615019e4e161c517ec821d8172a16306acc388b4bcf8e1e07ab893d"
+    sha256 cellar: :any,                 ventura:       "e548f1e3d0a29346377db2ce72f320ae08905ba1fe14d339d0ccf2dcdc9e346a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "07653b2aedc53c8f7d76a79ab2fb11f13dcd80205e58e76fb510fddc45893670"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e6bfb0f85eabaada1792f71d1a2852a777ffb9ba95da8f6cafaa1178e6ca0852"
   end
 
   depends_on "pkgconf" => :build
@@ -49,13 +49,20 @@ class Liquidctl < Formula
   end
 
   resource "pyusb" do
-    url "https://files.pythonhosted.org/packages/e9/63/1dead067e1d6478e1ca6ccf882ade4132f713975739b64cedccf9f33bfc7/pyusb-1.3.0.tar.gz"
-    sha256 "7e6de8ef79e164ced020d8131cd17d45a3cdeefb7afdaf41d7a2cbf2378828c3"
+    url "https://files.pythonhosted.org/packages/00/6b/ce3727395e52b7b76dfcf0c665e37d223b680b9becc60710d4bc08b7b7cb/pyusb-1.3.1.tar.gz"
+    sha256 "3af070b607467c1c164f49d5b0caabe8ac78dbed9298d703a8dbf9df4052d17e"
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/43/54/292f26c208734e9a7f067aea4a7e282c080750c4546559b58e2e45413ca0/setuptools-75.6.0.tar.gz"
-    sha256 "8199222558df7c86216af4f84c30e9b34a61d8ba19366cc914424cdbd28252f6"
+    url "https://files.pythonhosted.org/packages/a9/5a/0db4da3bc908df06e5efae42b44e75c81dd52716e10192ff36d0c1c8e379/setuptools-78.1.0.tar.gz"
+    sha256 "18fd474d4a82a5f83dac888df697af65afa82dec7323d09c3e37d1f14288da54"
+  end
+
+  resource "smbus" do
+    on_linux do
+      url "https://files.pythonhosted.org/packages/4d/5c/70e14aa4f0c586efc017e1d1aa6e2f7921eefc7602fc2d03368ff912aa91/smbus-1.1.post2.tar.gz"
+      sha256 "f96d345e0aa10053a8a4917634f1dc37ba1f656fa5cace7629b71777e90855c6"
+    end
   end
 
   def install

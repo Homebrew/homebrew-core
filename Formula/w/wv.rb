@@ -18,6 +18,7 @@ class Wv < Formula
     sha256 arm64_ventura: "c121d0e251c7b6a83cef08a85ec05cb2a0c9afc2ea72adc9b70a0bb9f399417c"
     sha256 sonoma:        "d6cae767da3de4f93a2e601054882abfa09899cb71ba6d6cb3e1735e29a36fd9"
     sha256 ventura:       "40c5aabe6aa0fd8f5e9f91050d788ece1dfa777e0359f652b2c085edf8d60bb5"
+    sha256 arm64_linux:   "15690cfa4f200e96488ba2bbeb4186f0b9776b402011668a974abf6bf16416c9"
     sha256 x86_64_linux:  "2ea81d55829b98259a212af78e40fb74d6ab9a83be165a3d7f2c6e6cc91f753d"
   end
 
@@ -40,7 +41,11 @@ class Wv < Formula
       ENV.append_to_cflags "-Wno-incompatible-function-pointer-types -Wno-int-conversion"
     end
 
-    system "./configure", "--mandir=#{man}", *std_configure_args
+    args = ["--mandir=#{man}"]
+    # Help old config scripts identify arm64 linux
+    args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+
+    system "./configure", *args, *std_configure_args
     system "make"
     ENV.deparallelize
     # the makefile generated does not create the file structure when installing

@@ -12,6 +12,7 @@ class Infracost < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "06de717bd785bcd624c997a14590ff47a188e31536d2fd5117b4d316c0dc6904"
     sha256 cellar: :any_skip_relocation, sonoma:        "bdc82112097b2a1b05b8f578896e64a96374658385768a791330c74f42f125a7"
     sha256 cellar: :any_skip_relocation, ventura:       "bdc82112097b2a1b05b8f578896e64a96374658385768a791330c74f42f125a7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "40a7f0284e9b3122b93b89771f00b0c5cea7ecef05d75e7231718242f5e548bd"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "d521fdfce102614f8bd7d7e9e2adcd59ff807f46bfe24fe767e44de5415f03e0"
   end
 

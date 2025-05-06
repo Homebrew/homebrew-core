@@ -1,8 +1,8 @@
 class Prometheus < Formula
   desc "Service monitoring system and time series database"
   homepage "https://prometheus.io/"
-  url "https://github.com/prometheus/prometheus/archive/refs/tags/v3.2.1.tar.gz"
-  sha256 "9e6308f48077b93daed1a39650784fc02805a518632b9c5b00e9c778ef88eac5"
+  url "https://github.com/prometheus/prometheus/archive/refs/tags/v3.3.1.tar.gz"
+  sha256 "2d4a71efb7c662f265c7af5f7db3367b2a7d3981fdc8860103909148b9a82846"
   license "Apache-2.0"
 
   # There can be a notable gap between when a version is tagged and a
@@ -14,12 +14,13 @@ class Prometheus < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3594b19d99f83ab85e35178bb8f9d3603efd473270881bf70d1b3273ce3a54fe"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "471f086febbd80b85f1b14fc561ddf6acc88021072e8be89a4d04b6fae9e0ae0"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "6c0230e0ea47123db2b3907d07a08a9418472420d51728d9b038587c0afbea61"
-    sha256 cellar: :any_skip_relocation, sonoma:        "8a31e3756ddebe6d334cb94eb9fdb52a27a0255c4b55315fa79299a4189e8a16"
-    sha256 cellar: :any_skip_relocation, ventura:       "22bc949812ba979d02882ad516bb94a3283357b363a34c2741849c930f9d6a73"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7c51ea49a42091295b4d1d19bc0d6a54fb720863ccd91f3f38922c84d5285d9d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1530554821070f6a0a8113caca211ed5f9ebf575505786bd22125d73a7758b74"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ede17aaaaa817827a0b151e73fae139cd252d3b9d804ac701aab4b0d66605359"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "d325517ee5b7166fc029cb1e8ca5a208dfeb210ecdee80f7de63a474d2a773ba"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8e432e017596f207db19b748643b10583bfc3ab20a1230bf569386c9d5727b78"
+    sha256 cellar: :any_skip_relocation, ventura:       "69f858faddcadb7fb651cba924423dee8bc2f73dcbdd56a5d5ac96d29058e7b1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "393241c19c2222cdbc853c703a902fa685684f8e3bd19e313b1f066291212904"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "590756e5c7f42fc959e922f2c4b740fadb422da6117f88c931935cf5d6eaa158"
   end
 
   depends_on "gnu-tar" => :build

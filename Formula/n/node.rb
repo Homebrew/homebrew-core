@@ -1,10 +1,9 @@
 class Node < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v23.10.0/node-v23.10.0.tar.xz"
-  sha256 "b39e5fbd3debb8318ddea6af3e89b07dafb891421fb7ca99fbe19c99adabe5fd"
+  url "https://nodejs.org/dist/v23.11.0/node-v23.11.0.tar.xz"
+  sha256 "f2c5db21fc5d3c3d78c7e8823bff770cef0da8078c3b5ac4fa6d17d5a41be99d"
   license "MIT"
-  revision 1
   head "https://github.com/nodejs/node.git", branch: "main"
 
   livecheck do
@@ -13,13 +12,14 @@ class Node < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "bef7730ca87fb725b93d319b193d7839c4af337c59ca7996b384b4673f88031b"
-    sha256 arm64_sonoma:  "f389e3e035df6e3101ad2b1262f3cca1ea988ae4a730f0f7f05a088afa091ae6"
-    sha256 arm64_ventura: "67657af6984a81015ddcb538012097b1b52ff617f283ff21dd0c7d15b5a2caa6"
-    sha256 sonoma:        "6abb406a70df7da11f945c6467fb9013ef4ca787a8d449b5153f858a9ed1c41d"
-    sha256 ventura:       "4c89fdc0c9e5bc72dbe8edeca9135d4d915307f0480711bf0683ad471cb3adba"
-    sha256 arm64_linux:   "49f39043611b44c09b35b11ad6f8a2dff9333448aaea335d79b134c7bda2b0bb"
-    sha256 x86_64_linux:  "4cdd55c14faa8ae39e34a313dda01f0d11b1437a8efded89720ccebecf876472"
+    rebuild 1
+    sha256 arm64_sequoia: "5e18e143193267631cacdb1b349af222a4e0354461a844840b8f74e1096ee187"
+    sha256 arm64_sonoma:  "9bbd828006bd4a3beacca4c5c4169921c0652f71c5f329a6d41dfac23c36a0bd"
+    sha256 arm64_ventura: "9be149abb8ce827d580ea1557c6be8a71222fa38cb785af0cb879694bd0db28d"
+    sha256 sonoma:        "31eb61b74270e89351c557b688948fe90a50f9838ca1870fe304c19816e6a7af"
+    sha256 ventura:       "815de04f73bb36c3d71799b1f44601a2d7b10b56bc16fee1fac1d8c39c7c2c75"
+    sha256 arm64_linux:   "f82e24cf67c6b2d58da09272dda33d760834aabed910267847c09265b2320f71"
+    sha256 x86_64_linux:  "2cee5b721e8a6f1dd08dd9117222ddc3353d368153e5ecbeff2cb3e21eb76da7"
   end
 
   depends_on "pkgconf" => :build
@@ -121,8 +121,13 @@ class Node < Formula
     # in `cached_download` npm resource, which breaks `npm -g outdated npm`.
     # This copies back over the vanilla `package.json` to fix this issue.
     cp bootstrap/"package.json", libexec/"lib/node_modules/npm"
+
     # These symlinks are never used & they've caused issues in the past.
     rm_r libexec/"share" if (libexec/"share").exist?
+
+    # Create temporary npm and npx symlinks until post_install is done.
+    ln_s libexec/"lib/node_modules/npm/bin/npm-cli.js", bin/"npm"
+    ln_s libexec/"lib/node_modules/npm/bin/npx-cli.js", bin/"npx"
 
     bash_completion.install bootstrap/"lib/utils/completion.sh" => "npm"
   end
@@ -130,7 +135,7 @@ class Node < Formula
   def post_install
     node_modules = HOMEBREW_PREFIX/"lib/node_modules"
     node_modules.mkpath
-    # Kill npm but preserve all other modules across node updates/upgrades.
+    # Remove npm but preserve all other modules across node updates/upgrades.
     rm_r node_modules/"npm" if (node_modules/"npm").exist?
 
     cp_r libexec/"lib/node_modules/npm", node_modules

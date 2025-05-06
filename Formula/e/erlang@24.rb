@@ -13,6 +13,7 @@ class ErlangAT24 < Formula
     sha256 cellar: :any,                 arm64_ventura: "57b237d5803642973cb653d25c8934a34edbf72ee1b1624ae328d6928ba3144e"
     sha256 cellar: :any,                 sonoma:        "e3a714e6cb9575535d9f42a82e21757285a1cfd9141055f4924392768bdde52f"
     sha256 cellar: :any,                 ventura:       "bd2eb3ff1de20d55737b6de2d6fe806f557ed3e1c25ac1c9aa875e50396db8e5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "35c345a8de635902b798111366a269f48cbe5940eb4c12934f857327ec448c25"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "1d7b48ce5b43fe07e78116d0c40ead3da8c54876a94aba05f7e4f893954e76a0"
   end
 

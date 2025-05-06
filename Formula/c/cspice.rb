@@ -24,6 +24,7 @@ class Cspice < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "b6317d5408e0c56164299671a459ed55c3581a219b4e0b7c699c08fe6abbcb3d"
     sha256 cellar: :any_skip_relocation, big_sur:        "081d234c0862319ab53275de9eb9f6e006d53afe43c63d53425bd089ea9b493c"
     sha256 cellar: :any_skip_relocation, catalina:       "900cfe839cf53dc03c1e227332d24849e55209a606dba515412ae74a955144f9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "eab82a1e15614b89d2873ae64760df4da1053990b6f7e288d97a618a2d0c4ab2"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "5c49763f72469907d773eef66b54ae8dce74c3df9f2f5dee29468de3ea9f0953"
   end
 
@@ -38,8 +39,9 @@ class Cspice < Formula
   def install
     # Use brewed csh on Linux because it is not installed in CI.
     unless OS.mac?
-      Dir["src/*/*.csh"].each do |file|
-        inreplace file, "/bin/csh", Formula["tcsh"].opt_bin/"csh"
+      inreplace Dir["src/*/*.csh"] do |s|
+        s.gsub! "/bin/csh", Formula["tcsh"].opt_bin/"csh"
+        s.gsub! '= "-m64 ', '= "' if Hardware::CPU.arm?
       end
     end
 

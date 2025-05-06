@@ -12,6 +12,7 @@ class Nebula < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "9be5d6d3107b432e480fee5d8de763b7a635f8405e89dc18d03e2eb87280c519"
     sha256 cellar: :any_skip_relocation, sonoma:        "f99c5d8ee04af63d8b66d8621a7fdade99320a79d40c858e41ae9d63b3afbb07"
     sha256 cellar: :any_skip_relocation, ventura:       "f99c5d8ee04af63d8b66d8621a7fdade99320a79d40c858e41ae9d63b3afbb07"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "12e43169ea6e398f43373feead4749abe76ca79a4ecf0bc515527d625c8b6350"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "261454c498815640ce24b1e470de31ec0edc17a37818b07f08c7c3037cc8d716"
   end
 

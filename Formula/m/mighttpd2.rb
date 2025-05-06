@@ -12,12 +12,15 @@ class Mighttpd2 < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "594c27cc4bb9feec025e53492bd863f03a622beb0ed5efab87e0d35d3e02f129"
     sha256 cellar: :any_skip_relocation, sonoma:        "f614b9817495f3a71a5bd712bf6d72668e13f0ede9bc682e25c85eebb2372f4d"
     sha256 cellar: :any_skip_relocation, ventura:       "04e1a56bce1760a82b6845e1ed2b864d984182d8015c3c641a32e6e3262f7d80"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "64e3f7e55d5ec5f611e61e6e8e15d542b5e6af80d363306479adff36682e5ae1"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "686df4669d80d3e379576984ffe0dfbe07197f286dc944045d7bab7ee6e26137"
   end
 
   depends_on "cabal-install" => :build
   depends_on "ghc" => :build
+  depends_on "gmp"
 
+  uses_from_macos "libffi"
   uses_from_macos "zlib"
 
   def install

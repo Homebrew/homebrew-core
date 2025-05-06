@@ -1,8 +1,8 @@
 class Flint < Formula
   desc "C library for number theory"
   homepage "https://flintlib.org/"
-  url "https://github.com/flintlib/flint/releases/download/v3.2.1/flint-3.2.1.tar.gz"
-  sha256 "ca7be46d77972277eb6fe0c4f767548432f56bb534aa17d6dba2d7cce15cd23f"
+  url "https://github.com/flintlib/flint/releases/download/v3.2.2/flint-3.2.2.tar.gz"
+  sha256 "577d7729e4c2e79ca1e894ad2ce34bc73516a92f623d42562694817f888a17eb"
   license "LGPL-3.0-or-later"
 
   livecheck do
@@ -12,12 +12,13 @@ class Flint < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "5d715de5272e80063dd98da69a86bc4cdd0d6d69bc42361a81be32171dfb77f9"
-    sha256 cellar: :any,                 arm64_sonoma:  "662879fcfbb601e3f2be9a13d517ca9ef438569c2b0af828f9c97b9ef814f8f0"
-    sha256 cellar: :any,                 arm64_ventura: "6ca5ea66e8b50398757e7444d621c19e26e1c5e747f716e9b6c10390471068d8"
-    sha256 cellar: :any,                 sonoma:        "84876c70546dd71f2cc77640bcae5fc6cbe028bea892fbd1daa7ac6eaa32de24"
-    sha256 cellar: :any,                 ventura:       "0f36a9fb023bee735056ccaf445a54e42f506fc70241e8116d0986909924dc4b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "43caf9afd90b88354f9e1f8a2fdee0053e30abc350f2072a03f8e5205c5fae2c"
+    sha256 cellar: :any,                 arm64_sequoia: "4343db1e506cf7681b89d9fcc9230816cd4d7bf2de0d785d6d7391bb74b5ef80"
+    sha256 cellar: :any,                 arm64_sonoma:  "18ddb9646c0378d703abe8421ff1de28fc818843274976d1c54e23b938d35945"
+    sha256 cellar: :any,                 arm64_ventura: "8f6311ab790eb9d0de362a7fa648cef527f0f70b415cfb03874cddb4f5cc3f45"
+    sha256 cellar: :any,                 sonoma:        "f78a8b4f5b0ff5fc9161239acf9d103b07dc2ab59a59cac8f0c25576892f9a42"
+    sha256 cellar: :any,                 ventura:       "d25eb9965d322ab870062cc56e89fc13681ade1e36c6f611788bf8d90d32b2fa"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "daa13f6bf91f9ae87934c0e2b2ceec695793919fe14201f063850b09b9446768"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d247954807d7b273e126f655b68a5c1146f2888ad7e99b7b2df214f3a5ea0534"
   end
 
   head do
@@ -26,11 +27,12 @@ class Flint < Formula
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
-    uses_from_macos "m4" => :build
   end
 
   depends_on "gmp"
   depends_on "mpfr"
+
+  uses_from_macos "m4" => :build
 
   def install
     # to build against NTL

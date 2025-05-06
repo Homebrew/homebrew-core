@@ -1,8 +1,8 @@
 class BtrfsProgs < Formula
   desc "Userspace utilities to manage btrfs filesystems"
   homepage "https://btrfs.readthedocs.io/en/latest/"
-  url "https://mirrors.edge.kernel.org/pub/linux/kernel/people/kdave/btrfs-progs/btrfs-progs-v6.13.tar.xz"
-  sha256 "65b3f21117a594f80013b432620eecc6a7e2b0c05eab97136ff506c74d73ee9a"
+  url "https://mirrors.edge.kernel.org/pub/linux/kernel/people/kdave/btrfs-progs/btrfs-progs-v6.14.tar.xz"
+  sha256 "df5ab804fcb36e291c42ad8361f801ad1e10241b43bd304fe50ce3df9e7e3da1"
   license all_of: [
     "GPL-2.0-only",
     "LGPL-2.1-or-later", # libbtrfsutil
@@ -14,8 +14,8 @@ class BtrfsProgs < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_linux:  "bc30ad41d53cd614d94e38f84eed61729d577ef867ac9e23a43f6602e823b5a9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "8f4a7cead76c3e93c855a5936921e7b48c40a5f2613239666105b17ee20ccb35"
+    sha256 cellar: :any_skip_relocation, arm64_linux:  "ea074d46c9fd6b3b35240ed9e3ad45026a0eed804941a491bb9245d59b46dc4f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "d6ba4dc9e3f31fe8b913337314c86f491211e2a46c36169e6644df1a68c8843f"
   end
 
   depends_on "pkgconf" => :build

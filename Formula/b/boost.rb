@@ -1,10 +1,9 @@
 class Boost < Formula
   desc "Collection of portable C++ source libraries"
   homepage "https://www.boost.org/"
-  url "https://github.com/boostorg/boost/releases/download/boost-1.87.0/boost-1.87.0-b2-nodocs.tar.xz"
-  sha256 "3abd7a51118a5dd74673b25e0a3f0a4ab1752d8d618f4b8cea84a603aeecc680"
+  url "https://github.com/boostorg/boost/releases/download/boost-1.88.0/boost-1.88.0-b2-nodocs.tar.xz"
+  sha256 "ad9ce2c91bc0977a7adc92d51558f3b9c53596bb88246a280175ebb475da1762"
   license "BSL-1.0"
-  revision 1
   head "https://github.com/boostorg/boost.git", branch: "master"
 
   livecheck do
@@ -16,13 +15,13 @@ class Boost < Formula
   end
 
   bottle do
-    sha256                               arm64_sequoia: "c827b28d0de5539243a36a04da69f1b67048647446b54cab341681855d222127"
-    sha256                               arm64_sonoma:  "6fc5abc3c3fada8158a4a73da562d09c04e71a0c816d98a7474ba6d10d0c592f"
-    sha256                               arm64_ventura: "6e81371cb46da9ec042933efb7425a8582c32fb67cd31e137611ff91351497d5"
-    sha256 cellar: :any,                 sonoma:        "7f8992a5964f0400a706d39a81b58dd3698c2256476a7234c36dfe8b9d358606"
-    sha256 cellar: :any,                 ventura:       "d2db29b27b0c7cd1e2ebd7119cad88973131406c6cce0345968be949a2f934a7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5bd986ae47cc1c408766cddf0b1dc583070844d7bc2f7a4af8ee46602062c17f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a85d38911f532a83fba3707729b080f5d6ba29ffe366bd792d07f1413ac6954a"
+    sha256                               arm64_sequoia: "40110dc77bd85db9b7bfc5c23d1cbd58f8ef501ba355484419f9d11ccabaefc1"
+    sha256                               arm64_sonoma:  "446d5acbee94708f31ed1dc16b877a33467c981ff471aa11896db9434524b3d7"
+    sha256                               arm64_ventura: "65d89e7f5967afe2c313b99fc201b23ec8a73150f36275d5e4a0fec8335585b8"
+    sha256 cellar: :any,                 sonoma:        "373c36b25cc300e2c6810828ec70fc62a93d71974bff942933b4393daa362f23"
+    sha256 cellar: :any,                 ventura:       "88a3652fee2834c1442a2ad84e0592a7ba9765a2e09bc95f7b0f15d869def01f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b267d0f250bf5087207ef37b6b5e7b04e7f111c64c8af87fe00d2156d32b61f8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "02268bb361c2145e96cc8337600e38f3cab9cfdde57d91a671e319aac010dc7f"
   end
 
   depends_on "icu4c@77"
@@ -31,6 +30,13 @@ class Boost < Formula
 
   uses_from_macos "bzip2"
   uses_from_macos "zlib"
+
+  # Fix for `ncmpcpp`, pr ref: https://github.com/boostorg/range/pull/157
+  patch :p3 do
+    url "https://github.com/boostorg/range/commit/9ac89e9936b826c13e90611cb9a81a7aa0508d20.patch?full_index=1"
+    sha256 "914464ffa1d53b3bf56ee0ff1a78c25799170c99c9a1cda075e6298f730236ad"
+    directory "boost"
+  end
 
   def install
     # Force boost to compile with the desired compiler

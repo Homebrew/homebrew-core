@@ -18,6 +18,7 @@ class Prestd < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "21c93a08c0034b94acb228e73af97e4e86f3d659b6ddd77c4ce8695208150dc4"
     sha256 cellar: :any_skip_relocation, sonoma:        "6a8079afe0412aee14b9fe226f92b6a8170c7e982110439b34dbfa0f91da9b49"
     sha256 cellar: :any_skip_relocation, ventura:       "9f772bf14cb42300aa8bd426651df3f628898bbd50418260fc3dec288af47f6b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6154aa99c1ee993ecb5f5c38a1e22b84554bf0d3c6ac7cb387fc789f85c7e0fa"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "53b738570b9680eab675d95dcb91a8498b7c14a98beff05602330f52034889f3"
   end
 

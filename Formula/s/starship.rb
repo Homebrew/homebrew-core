@@ -1,19 +1,19 @@
 class Starship < Formula
   desc "Cross-shell prompt for astronauts"
   homepage "https://starship.rs/"
-  url "https://github.com/starship/starship/archive/refs/tags/v1.22.1.tar.gz"
-  sha256 "5434a3d1ca16987a1dd30146c36aaa4371dbe1c7f1a7995c0cf12ab3eb9326d7"
+  url "https://github.com/starship/starship/archive/refs/tags/v1.23.0.tar.gz"
+  sha256 "be3ba025a64bd808899dce256e1511145b55cc5eefc5fca82bf5537cd8e09c72"
   license "ISC"
   head "https://github.com/starship/starship.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c707e68e71ce0e6bbd721f40d3a6d4d413952640a85e2b4057c354181b2a7416"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "18c06aa1ecc92e736f0cf18ef476eefe95bd0515110aa885506da3d3282af522"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "df88c2c2b3976851cacfab457cc693887b63f09fb3c270d992f7fd75290f9429"
-    sha256 cellar: :any_skip_relocation, sonoma:        "480793d14d7014c6f3de40dac80fe11f64f225a82bddef5f92d0510d87d85417"
-    sha256 cellar: :any_skip_relocation, ventura:       "5bf4c974cdcccf64dfe197a531a047290e7f3f849ddc4dcfa5fb24cbf51508e5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d50d10db6b745044318c40db0895c948a05fcffdcce5e38ab9823aa1de1bb786"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8815fb22c318600592fa236cf612e5892adbab219ae26b007d2df2838a1e711d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e0f085c4ec44508be2fda1fd8d89ef9d7cc2207026e7db1da5a9d922d7046498"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c8a074bbded5edb346475e4bf3c6faecc13b15486cd75ffd7dc102c65369adad"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "75d22389bb70b46e23553898ce23d583a4cfb5a3b6de712952da815f980c5511"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f0df06b16b67cb040c0f139dddd7df3df7985ccd8be93ac31a17e9dbb8a354b2"
+    sha256 cellar: :any_skip_relocation, ventura:       "18594cec9c012f3bc91272d79a5d0edf6143a64122f8c1f99b6b253c12b8483b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2eaa4272f26775db67f3ed107e97a4392d96adcfcbdf5141e5ba696987e23051"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "80cfca3624de24391aa69ce0c357a669e793384410cbc3b9facd982c0f1b437d"
   end
 
   depends_on "cmake" => :build

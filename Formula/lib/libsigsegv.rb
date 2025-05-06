@@ -1,24 +1,19 @@
 class Libsigsegv < Formula
   desc "Library for handling page faults in user mode"
   homepage "https://www.gnu.org/software/libsigsegv/"
-  url "https://ftp.gnu.org/gnu/libsigsegv/libsigsegv-2.14.tar.gz"
-  mirror "https://ftpmirror.gnu.org/libsigsegv/libsigsegv-2.14.tar.gz"
-  sha256 "cdac3941803364cf81a908499beb79c200ead60b6b5b40cad124fd1e06caa295"
+  url "https://ftp.gnu.org/gnu/libsigsegv/libsigsegv-2.15.tar.gz"
+  mirror "https://ftpmirror.gnu.org/libsigsegv/libsigsegv-2.15.tar.gz"
+  sha256 "036855660225cb3817a190fc00e6764ce7836051bacb48d35e26444b8c1729d9"
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "16a1585583f11d4c40adf7ae16c750c506349b40c4d8ead824dd553cdacf8c2c"
-    sha256 cellar: :any,                 arm64_sonoma:   "fef1842ef744948241c8362ea8f3f2fc63651fea3756ccd1ea21d851a132b964"
-    sha256 cellar: :any,                 arm64_ventura:  "22818cb45d09dd84f4fc68ecf1eee1484cb9a98b75fa72b89913206cf46bf19c"
-    sha256 cellar: :any,                 arm64_monterey: "e8cae8734eafabb8c3bcfeba2449b1d6e309cea6ca0647ca7bdf62aca7e331db"
-    sha256 cellar: :any,                 arm64_big_sur:  "f37ac4bf1b939f0703029b5143fca0dc8c77ff77f2b860800a5e0028e5fdfea8"
-    sha256 cellar: :any,                 sonoma:         "a0aa5eb995de11924adaf693e32af4293969651b4ab284c5bd914b60accf28d9"
-    sha256 cellar: :any,                 ventura:        "930a0d57f321ebb101bd7a62baff95295f08e4dad421435226877f2e0d58fda2"
-    sha256 cellar: :any,                 monterey:       "3ceaebb4bf32ec972aa786360dd55fc115fb2890d16da6b2ddaa9ff199160e2c"
-    sha256 cellar: :any,                 big_sur:        "6cefa3529425fcbd306c53d975bc0a727b34d8a3c636c664a1785f67202b2377"
-    sha256 cellar: :any,                 catalina:       "585d16ba5f3b6b2136704ff16e58c620ee2aac3b1f7f9eb15b883efecb1ba6b4"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "da280781d9b05341c480764a8ba3469ccb124a482e40aed6c3b999b696ee1336"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a221904699cd8cefa4d70e72f59bab5282065bc0739428286278898a147b571d"
+    sha256 cellar: :any,                 arm64_sequoia: "109f995641898a6ada63b7f070483a589a4f5a243a34ef44630ae25afa8191f9"
+    sha256 cellar: :any,                 arm64_sonoma:  "3fab0c06f901ea4957e99d6e39992d8569278d426413546576d7bd5c843dcee0"
+    sha256 cellar: :any,                 arm64_ventura: "1b56220b905ce813aae9891e7007cda1c147070662ee2f30b6cd99b14c996431"
+    sha256 cellar: :any,                 sonoma:        "baa53f3c9919907d490efbdf703e7c2c8418169aa125a919151ecea253c960e1"
+    sha256 cellar: :any,                 ventura:       "ef39b7c25ad4d9ba5b4c821341461328cea7b09b782acc2e0dde7e5f90340175"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c320840a4390cfe47fc07554df379d4636428b8d910e411b188db01c2c98d5a7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8c64896be0e57b66fdc9086d93835beaf01f269826d3beaae2d6e4ec14ae2eb3"
   end
 
   head do

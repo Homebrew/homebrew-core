@@ -3,16 +3,22 @@ class DvrScan < Formula
 
   desc "Extract scenes with motion from videos"
   homepage "https://www.dvr-scan.com/"
-  url "https://github.com/Breakthrough/DVR-Scan/archive/refs/tags/v1.7-release.tar.gz"
-  sha256 "7e1d291df6184dab8fbd79e2639c90f8b2fe4f8c5c73265ed39f03f79b3167dd"
+  url "https://github.com/Breakthrough/DVR-Scan/archive/refs/tags/v1.7.0.1-release.tar.gz"
+  sha256 "c0bdb1d1963a1df38d30ba6ded04bc37013b143c551360a177fdde4fe33e7fc9"
   license "BSD-2-Clause"
 
+  # All release versions end with `-release` suffix
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)-release$/i)
+  end
+
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "83911a64fc655e2326960f5f9c7e5a0606c706d73ebd2cb909e7473d3bcdcddd"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "c2d29d7f050b083386ec3e363fbc134ef02d8579498577b57d7edecb2c145e41"
-    sha256 cellar: :any_skip_relocation, sonoma:        "cac79911dd503f51e7e6e33987e5e4a8e791aa16f603743a133b3772c98c5579"
-    sha256 cellar: :any_skip_relocation, ventura:       "d01411ccdb13c2b34d99b5b35ed27ab316c771e0b94a4b2f575202a7701a515e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4aa475bd319341a32720e2589256ae7a76390640e25eec4b6cf01bcb88273343"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "986102fcac41135a62884a15d909914ae48e9f2a5932164386800763dad551a1"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "8b3b52d9b93bfd31ab99d6cc94d335c4b06449aeb32dc2e592b629d76e658979"
+    sha256 cellar: :any_skip_relocation, sonoma:        "a8225c786db4e4b76944d871a97872d1f69cddc5dd81d6fb8e3458697f227a44"
+    sha256 cellar: :any_skip_relocation, ventura:       "f9455478612e42c382db2216da511f8b680eb5304c4cfddd87ccb7698aec9949"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aeece253f4474e20ffa1b16386bf88b76b7cd0aa2862dfa83e1f88e4768a8b53"
   end
 
   depends_on "cmake" => :build
@@ -45,13 +51,13 @@ class DvrScan < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/13/fc/128cc9cb8f03208bdbf93d3aa862e16d376844a14f9a0ce5cf4507372de4/platformdirs-4.3.6.tar.gz"
-    sha256 "357fb2acbc885b0419afd3ce3ed34564c13c9b95c89360cd9563f73aa5e2b907"
+    url "https://files.pythonhosted.org/packages/b6/2d/7d512a3913d60623e7eb945c6d1b4f0bddf1d0b7ada5225274c87e5b53d1/platformdirs-4.3.7.tar.gz"
+    sha256 "eb437d586b6a0986388f0d6f74aa0cde27b48d0e3d66843640bfb6bdcdb6e351"
   end
 
   resource "scenedetect" do
-    url "https://files.pythonhosted.org/packages/ef/4e/2f20c616b3dc8420dcc456fd1a0efee35e34f3e499843e22a2661e11f73d/scenedetect-0.6.5.2.tar.gz"
-    sha256 "cf1af517409ac7b98905d8962de4fbefad01684355d12b5ccb992cbc6c4f8a52"
+    url "https://files.pythonhosted.org/packages/59/36/1e29ac958e2d2b5e4365fb7de03f94a98b9949c46267e682bcfe22460812/scenedetect-0.6.6.tar.gz"
+    sha256 "4b50946abca886bd623e7a304e30da197f0e7e69cd65d80115d551538261c35b"
   end
 
   resource "screeninfo" do

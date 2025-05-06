@@ -25,14 +25,18 @@ class Zxcc < Formula
     sha256 high_sierra:    "0b6a6d166b5b4822b46d8a53b0a2b850619882d9d13080ecdad8b0ae492a5cc0"
     sha256 sierra:         "79aa0631d52d2d69ae554319db0027ffd59f2baa3d1c35473925f72a5c1965e3"
     sha256 el_capitan:     "11bd1697b8a6b5a3a77ce417d35ad7e1da9e6df18a36ebccfa18a47ce470d3cb"
+    sha256 arm64_linux:    "f03ecace625722887a14453a0a0d9c8901b0eb83e5f61e2f8f774a2002f0c225"
     sha256 x86_64_linux:   "8a5baf11b9060b7aedcf4f25afca690fbad80df406a66a70389ddd32fe2c6075"
   end
 
   uses_from_macos "ncurses"
 
   def install
-    system "./configure", *std_configure_args
-    system "make"
+    args = []
+    # Help old config scripts identify arm64 linux
+    args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+
+    system "./configure", *args, *std_configure_args
     system "make", "install"
   end
 

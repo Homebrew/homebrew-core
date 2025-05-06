@@ -1,9 +1,9 @@
 class ArmNoneEabiGcc < Formula
   desc "GNU compiler collection for arm-none-eabi"
   homepage "https://gcc.gnu.org"
-  url "https://ftp.gnu.org/gnu/gcc/gcc-14.2.0/gcc-14.2.0.tar.xz"
-  mirror "https://ftpmirror.gnu.org/gcc/gcc-14.2.0/gcc-14.2.0.tar.xz"
-  sha256 "a7b39bc69cbf9e25826c5a60ab26477001f7c08d85cec04bc0e29cabed6f3cc9"
+  url "https://ftp.gnu.org/gnu/gcc/gcc-15.1.0/gcc-15.1.0.tar.xz"
+  mirror "https://ftpmirror.gnu.org/gcc/gcc-15.1.0/gcc-15.1.0.tar.xz"
+  sha256 "e2b09ec21660f01fecffb715e0120265216943f038d0e48a9868713e54f06cea"
   license "GPL-3.0-or-later" => { with: "GCC-exception-3.1" }
 
   livecheck do
@@ -11,14 +11,13 @@ class ArmNoneEabiGcc < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_sequoia: "8e305ee8c0e20c1b564fccfc99323299cc6ffddaf11580d76147652877b9427a"
-    sha256 arm64_sonoma:  "ba090c0e1edf67f4c296b0736f846e91a88fd5f025a36d6c591318335ab3c5d3"
-    sha256 arm64_ventura: "c4781a8220513ae8349f095aafc98c0888c87e4a30ffec6b612db060925ab463"
-    sha256 sonoma:        "fb64dd7fe3f1649ebc44fd3c07cc037c82d5bd4912bc589da57a3aef68038744"
-    sha256 ventura:       "d9c0d10771917347fe966f9cb521ad475680edb26c8e44f2dd69c3b216d50e7d"
-    sha256 arm64_linux:   "2450008d3d5dc5320892dbf058bc99c8117db590ff8ef7cd69e1dbc4e6f712af"
-    sha256 x86_64_linux:  "ef2a69f1cd4ece9bed1eabafd85cdae65bd5d7bdf165cd6ca6cbb8e967ca845b"
+    sha256 arm64_sequoia: "950ae88a2bb16979dfa0139e7476eb2fc80bc692ad880bbf092d0d6bcf0cc3a9"
+    sha256 arm64_sonoma:  "47b7f8ed2c0cd6acc7ee8d1366a52a607a632e80a477cd6da44b10e7cf5a8fcd"
+    sha256 arm64_ventura: "05bc9cc7feae5565e586d4325c7bc6ca13dee9b19c1bcf4f5ba4f8a818156154"
+    sha256 sonoma:        "8102ba85c7ceb1e6f605148f68669bd81236a82b08606a6da7dd2d69ec931295"
+    sha256 ventura:       "b8e540b02d053d17c6e1352e51fb8aa5e54b11d0058ae8a6ef7a8806a1e09614"
+    sha256 arm64_linux:   "cb6c669ab813b488687953d87444b9058865ab06104bf8414a6ad5658058618d"
+    sha256 x86_64_linux:  "d3de23e3829393072a929e402287b15ad48bf56962ebbdf57a933d288781e6da"
   end
 
   depends_on "arm-none-eabi-binutils"

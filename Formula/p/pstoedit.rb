@@ -11,6 +11,7 @@ class Pstoedit < Formula
     sha256 arm64_ventura: "355cc44f552bd82c5cf39915449de0a4051eb2f9efba352323b87eb0403f15db"
     sha256 sonoma:        "6353b2d9287a6e0524047a32cafb61f8c09d4d476d1bc13d40b73289aace060c"
     sha256 ventura:       "bd4b577c2ed8b2f4c1b9ded0ed953365f445b29bff62e262caef589cb49d049c"
+    sha256 arm64_linux:   "ae82c51bc2186d4b32fa75d8b8bceff7bec7f2da0bf20c4cf51d669d0c5a4cec"
     sha256 x86_64_linux:  "c2c8d0315852f2dca193e34433526f2635f9a8b3b6fd02ccca85646f92cbf56a"
   end
 

@@ -1,20 +1,30 @@
 class ApacheArrow < Formula
   desc "Columnar in-memory analytics layer designed to accelerate big data"
   homepage "https://arrow.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=arrow/arrow-19.0.1/apache-arrow-19.0.1.tar.gz"
-  mirror "https://archive.apache.org/dist/arrow/arrow-19.0.1/apache-arrow-19.0.1.tar.gz"
-  sha256 "acb76266e8b0c2fbb7eb15d542fbb462a73b3fd1e32b80fad6c2fafd95a51160"
   license "Apache-2.0"
-  revision 1
+  revision 4
   head "https://github.com/apache/arrow.git", branch: "main"
 
+  stable do
+    url "https://www.apache.org/dyn/closer.lua?path=arrow/arrow-19.0.1/apache-arrow-19.0.1.tar.gz"
+    mirror "https://archive.apache.org/dist/arrow/arrow-19.0.1/apache-arrow-19.0.1.tar.gz"
+    sha256 "acb76266e8b0c2fbb7eb15d542fbb462a73b3fd1e32b80fad6c2fafd95a51160"
+
+    # Backport support for LLVM 20
+    patch do
+      url "https://github.com/apache/arrow/commit/c124bb55d993daca93742ce896869ab3101dccbb.patch?full_index=1"
+      sha256 "249ec9d7bf33136080992cda4d47790d3b00cdf24caa3b0e3f95d4a4bb9fba3e"
+    end
+  end
+
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "dd5fc4a9adf55a6b87e0b0210e1bb32955d2d73e6a6262813f3c9589fe49f13a"
-    sha256 cellar: :any,                 arm64_sonoma:  "44f76218ec58d3b616ab343a1dc0731a2f730a56db13379d64c649a80657e43f"
-    sha256 cellar: :any,                 arm64_ventura: "cb9e1037a0bac95de9ee1b137465be60ee959e88f1d2095a0682ab155563fde5"
-    sha256 cellar: :any,                 sonoma:        "6b5b4c3cb3dcbfbd8c30731fbdc8106023e7a07be5c8833b7c9a4dadd7b7bb5b"
-    sha256 cellar: :any,                 ventura:       "db81fd0ceb86a75f5b7bb406c6e432bc9738f40e622870487a494e4f5ea55957"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3ae828c3e15e18c2ca32d5c625d1d24ead07b7215ed10a877fd8d42b879bea12"
+    sha256 cellar: :any,                 arm64_sequoia: "0bb2de8f6fa8682c3f3eb0be78f5c3a81f2b59303d2b23068cef97fd038efc95"
+    sha256 cellar: :any,                 arm64_sonoma:  "6eb32046a7e8b7fe28a1b49ee28029e6fdfeca3261f15078dad69019eb6af253"
+    sha256 cellar: :any,                 arm64_ventura: "64a818e21d7f9d4cff3e6acda1cf6f8562c08523a8a04a21d4579c480f194f01"
+    sha256 cellar: :any,                 sonoma:        "fb20d95aef830402f36dacf5e44cf0d1bc350527d96171c06032a89a4495e803"
+    sha256 cellar: :any,                 ventura:       "1618799329bcd8dc5020bafd8815725479e2d67db35202a9c5f8af1d19c745d0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "602e4f1a0b19af559b54c4d991dc12e8c058281b3fcc26c988a6f572d428fccd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e2fe1adb7d7f785d5a6a973defe86f12ec2a1ebc25d18d86be3befe46b20c5e6"
   end
 
   depends_on "boost" => :build
@@ -50,6 +60,10 @@ class ApacheArrow < Formula
   def install
     ENV.llvm_clang if OS.linux?
 
+    # upstream pr ref, https://github.com/apache/arrow/pull/44989
+    odie "Remove CMAKE_POLICY_VERSION_MINIMUM workaround!" if build.stable? && version > "19.0.1"
+    ENV["CMAKE_POLICY_VERSION_MINIMUM"] = "3.5"
+
     # We set `ARROW_ORC=OFF` because it fails to build with Protobuf 27.0
     args = %W[
       -DCMAKE_INSTALL_RPATH=#{rpath}
@@ -78,6 +92,7 @@ class ApacheArrow < Formula
       -DARROW_WITH_UTF8PROC=ON
       -DARROW_INSTALL_NAME_RPATH=OFF
       -DPARQUET_BUILD_EXECUTABLES=ON
+      -DCMAKE_POLICY_VERSION_MINIMUM=3.5
     ]
     args << "-DARROW_MIMALLOC=ON" unless Hardware::CPU.arm?
     # Reduce overlinking. Can remove on Linux if GCC 11 issue is fixed

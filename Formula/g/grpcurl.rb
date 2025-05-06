@@ -4,6 +4,7 @@ class Grpcurl < Formula
   url "https://github.com/fullstorydev/grpcurl/archive/refs/tags/v1.9.3.tar.gz"
   sha256 "bb555087f279af156159c86d4d3d5dd3f2991129e4cd6b09114e6851a679340d"
   license "MIT"
+  head "https://github.com/fullstorydev/grpcurl.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "0b6be18c234287de07dc328bcf18ab337dc9b89a477e20110546d7615bd31815"

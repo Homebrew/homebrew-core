@@ -12,6 +12,7 @@ class Pivit < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "fff9b3eb6c37d38e7dac30a5845b4dbe31ebfecec201a8136e82b364c21c8505"
     sha256 cellar: :any_skip_relocation, sonoma:        "6340b6f017c995c72b72924dc0744e4ea787c517b4f944c80883c26d1ce3f76c"
     sha256 cellar: :any_skip_relocation, ventura:       "dc2dbaf0b6e87774aa069b10fe6714a7f5f8a2d54c11248c585afa8c8dbfd450"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f8cfbf2adeb50c1950bc699a38810b5d6f7cc9e6c4dc76dbf65eb9fbd7da249a"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "df76cbe5172a33ea40688700ffc719af53244bb94043cb83f62bfd05fcfb5405"
   end
 

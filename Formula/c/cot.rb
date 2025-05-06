@@ -1,18 +1,18 @@
 class Cot < Formula
   desc "Rust web framework for lazy developers"
   homepage "https://cot.rs"
-  url "https://github.com/cot-rs/cot/archive/refs/tags/cot-v0.1.4.tar.gz"
-  sha256 "cf2dade71a6fcb4bfdc03c1db423b45eb325a9a048c933afd506f49d55fe6831"
+  url "https://github.com/cot-rs/cot/archive/refs/tags/cot-v0.2.2.tar.gz"
+  sha256 "e0bb713221cbc294a6b51477d2ca54cb9aeb381f43de34244c03107b162771bc"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1583c490b6f0988137ce032a0487633f090f9c9e2b4ed95b392e0b1f84478886"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1dc27fe705b3440cafb09c61556ac5c83dc0825bf1c82e36dbd76fafe1842d94"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "44f9a45e468f918b34e7f6e5208b932156f15f5d264839988880352b4fac855a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "bde6597ac6cc5c57ac0bf7dd27bef8c6af387e2fada8caa364c4b3bc6c966ea3"
-    sha256 cellar: :any_skip_relocation, ventura:       "34cb44ff4f6d074dd97504f7b983535398f42d6e50e539dcf896d7f54e3e5492"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "76443125e0689e3e7f679da8020681c15ce867b1f1f8b6e3dfef77e1b8b0201f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7de8aff79ca421554cc9c09681da0ef559dd404abf0aa8326721324241d73d0b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "51667d2ec75320b17f9115f6fe39f4b7af19bb8a27d2ce213bf4271d130b5275"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e74bde63d349de1e09489c0609296f955538bd36b2e80d746817359eefc099f8"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "a5126ede263141e425a9ff2f873a8a8c72b661a3f2251431ba19da1e36782a6b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "3a6dbd24762d373ba27583b736e3fde6ee61af45267844305f0c894c40e02a37"
+    sha256 cellar: :any_skip_relocation, ventura:       "15572f7ed85601d2b73125f9ac719b73c32d8e1ba0b429b80ecd134c18d01ac3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1b2d1bc3df69a33aeee9bc3e980345fe567fb0833e99927b431a23bc6f6556d1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e47ec43adbc1a6cc0945e11fad5cf4ee5f8b1a325578803a93ee0f778f5e9e33"
   end
 
   depends_on "rust" => :build
@@ -22,7 +22,7 @@ class Cot < Formula
   end
 
   test do
-    assert_match "cot-cli #{version}", shell_output("#{bin}/cot --version")
+    assert_match version.to_s, shell_output("#{bin}/cot --version")
 
     system bin/"cot", "new", "test-project"
     assert_path_exists testpath/"test-project/Cargo.toml"

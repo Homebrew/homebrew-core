@@ -3,18 +3,18 @@ class Gersemi < Formula
 
   desc "Formatter to make your CMake code the real treasure"
   homepage "https://github.com/BlankSpruce/gersemi"
-  url "https://files.pythonhosted.org/packages/28/fa/65880ccdaf9711da590b8f1906aaf279788d51ac2e117840cd4207fbd742/gersemi-0.19.2.tar.gz"
-  sha256 "bc31021b7f7a6d30360e6600ed1c6621a02c627a7b5d8f237cbcc8adcc7b1201"
+  url "https://files.pythonhosted.org/packages/a2/45/52cef3aaf43d30a72fb939975cb96d911a742e0bd840c73eb37b208eead6/gersemi-0.19.3.tar.gz"
+  sha256 "4e0c0d0b3655e3bf285392b9abf42d101d5bb0df079e0bfd56e7a7022872f7a9"
   license "MPL-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "90d259be0309a3fca14d476f3d24a2401394eefc4966d8db7dae4748bcf43dc7"
-    sha256 cellar: :any,                 arm64_sonoma:  "38b492705da575b3b0785e48dd1e887eb53acaec827abf4be9534150a2219f15"
-    sha256 cellar: :any,                 arm64_ventura: "891f6adfc231a1628ccfdb681f979e97faa186fde0e853b92ea06ed14462128d"
-    sha256 cellar: :any,                 sonoma:        "e472584d092eae19c3f4372e8af7958d2efbc75e60245c39e12e619b6899bf38"
-    sha256 cellar: :any,                 ventura:       "f1ff3ac0e4a54d1c7c26e9542cc3edc74c65077daa61ec243aa8a2b71aff751c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6c9192f8641b2e4f69a76e3a7a4b09bb0c324cc4a02bfd80aa07fe24d7ec6fec"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "74f49f3fd8be09dacea1724fc86d55e96dfbccb8caa5dfd09d8e1d6edc1725fd"
+    sha256 cellar: :any,                 arm64_sequoia: "0a95ee3dcb7eac4412ca443eebc8315916fa7db054422312cd6000be3977c6b3"
+    sha256 cellar: :any,                 arm64_sonoma:  "d157ef2d80b91cab433e2ceae39cdcfa734894dc246531db42a998c079bcc696"
+    sha256 cellar: :any,                 arm64_ventura: "20fe5450643f6977ea5f5934e7dcccfccaeb52159c47afedb61e2d96a1cfd801"
+    sha256 cellar: :any,                 sonoma:        "62f90922f416f44531ab0372cbd98479dab0e7d61df691e6424f38c909d9449a"
+    sha256 cellar: :any,                 ventura:       "24c2f6fe2a5d6f3ece8a3acfc9188fe00237093f93b2846fcf00d5c2c116e38f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "cc4295b14f16be210309ee6a6e5f34692a0dab55c1c2c826380eb93c5d8e0e78"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7fa4d0e84282e9343ecadce6d4061aec2aa25e12efaa35fe04be3fe508b76dd8"
   end
 
   depends_on "libyaml"

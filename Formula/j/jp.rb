@@ -4,6 +4,7 @@ class Jp < Formula
   url "https://github.com/sgreben/jp/archive/refs/tags/1.1.12.tar.gz"
   sha256 "8c9cddf8b9d9bfae72be448218ca0e18d24e755d36c915842b12398fefdc7a64"
   license "MIT"
+  head "https://github.com/sgreben/jp.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "01da1efbfd32691e7a34fa8e13108bfd327d52cc9b76a349a900df7f3a6411c6"
@@ -19,6 +20,7 @@ class Jp < Formula
     sha256 cellar: :any_skip_relocation, mojave:         "53127a663b20c7c0ac893d991330ca862a6eaa8f235586019e1b8ac33159bcf3"
     sha256 cellar: :any_skip_relocation, high_sierra:    "51045489ba9e8790a83a2a366709bd941d3a9e7c190f6c184bcf308b888496b3"
     sha256 cellar: :any_skip_relocation, sierra:         "b75e4ab3a48e2212babba26a4258645ae55eefa50a9ccac463991b05ce4c08d6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "475d898241d31bf3a521ebd1dceec1c13d9772fe049d60bab9efab3bd450f7ea"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "3b35ee0680b137a2202b4ce685bbfa80ccd9dca2ec2e7ab550b2f3384b2b8f68"
   end
 

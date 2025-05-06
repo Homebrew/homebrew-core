@@ -2,18 +2,18 @@ class Cbmc < Formula
   desc "C Bounded Model Checker"
   homepage "https://www.cprover.org/cbmc/"
   url "https://github.com/diffblue/cbmc.git",
-      tag:      "cbmc-6.5.0",
-      revision: "32143ddf8ae93e6bd0f52189de509662348c2373"
+      tag:      "cbmc-6.6.0",
+      revision: "3c915ebe35448a20555c1ef55d51540b52c5c34a"
   license "BSD-4-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a7e1eefabafa781371095d8d78ed92702d26857e2e1675272fbbb5d83629518c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "dd02ef83fa3cfafca939cac520a4ba06175146efdbed6d60b5633f88c8f4b12e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "05670fc3a4c5c1caefa6ecb4be19906892af3ca991fca6a1fac802440499fc7f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ee54b24f56dca3a3bbca4b358948ac8df910a170b5cd40c076ca9bc34f7e5b27"
-    sha256 cellar: :any_skip_relocation, ventura:       "812ce22c462a6aa53241dc798ddfe456cb8d4586db4be63959cd7d451b3e0968"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "548d27755c45f823798a7fac8cd089bd245040f88377edafc3e0a6954dcd0b35"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a71e79f13a3cea1c404b29d27e5ac7715ab7480e141b3d58ee96e32bd70a01f6"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "619e622f250caa0d40ca68371a7d7316275b705a823f43e3cabc89863bf8e34b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "81fd93129dad62a45ee0816001956f822358ca8b80af50ef8265c78563e953d8"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "990dbaefff6e71286ed2409705c511aa0dbc2ba51aebbd064ca7720140014d8e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "69fb5b4876132ce6980a2801faf5d5b6e7a32071ea539feedb9840179856053c"
+    sha256 cellar: :any_skip_relocation, ventura:       "b27e1306aa88d98c38077a6457fa5debaaaeaa0de0747b93a3fa24d3173e5a0d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "26d417c3c3b654e02ccbe0a272b45c48f4195befaa37367b64b16c7a743e7907"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ea0a38ee6db636d7f1867eb0b26f2a475b936767c63d425311698d837cda9369"
   end
 
   depends_on "cmake" => :build

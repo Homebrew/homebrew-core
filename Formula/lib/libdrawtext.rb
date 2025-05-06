@@ -7,15 +7,17 @@ class Libdrawtext < Formula
   head "https://github.com/jtsiomb/libdrawtext.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia:  "4aead494f4798e4f16eaec6f6c8c251c8de2604995969537295e9d4d0447f2a3"
-    sha256 cellar: :any, arm64_sonoma:   "8a58fb6c5c3b800f97788698dde639a9fd99cf3beb4bd8bb56f781ca816ab5cd"
-    sha256 cellar: :any, arm64_ventura:  "4b01f03d8831ce1af64b7ee299948ebcbc719f07482925519a6ee53ce283ff9e"
-    sha256 cellar: :any, arm64_monterey: "ab6261d82ad121caeeb5945709def507dcef52d04afd1162f1473e973bc97a90"
-    sha256 cellar: :any, arm64_big_sur:  "c61a83f7c2be18d086863edd67880e588dd16fee1154367aa25eb4c0537f14f5"
-    sha256 cellar: :any, sonoma:         "4262d5949883ebe79316117398c332490f435c4da74a8ccaf195a6d0479ce4f8"
-    sha256 cellar: :any, ventura:        "74941e09f6cb06ab0fa44b92cd40e37e340d51f8781c61ed8f7d086093d470ce"
-    sha256 cellar: :any, monterey:       "6588852f6f1c6fb9585c4c0cb16d9fe2d503fd68c94d08f982a7de5d0af87adf"
-    sha256 cellar: :any, big_sur:        "2f01264e3b9729a123e24c71078c5b7b5c2189c2a2ed2a8481763080ed213ce1"
+    sha256 cellar: :any,                 arm64_sequoia:  "4aead494f4798e4f16eaec6f6c8c251c8de2604995969537295e9d4d0447f2a3"
+    sha256 cellar: :any,                 arm64_sonoma:   "8a58fb6c5c3b800f97788698dde639a9fd99cf3beb4bd8bb56f781ca816ab5cd"
+    sha256 cellar: :any,                 arm64_ventura:  "4b01f03d8831ce1af64b7ee299948ebcbc719f07482925519a6ee53ce283ff9e"
+    sha256 cellar: :any,                 arm64_monterey: "ab6261d82ad121caeeb5945709def507dcef52d04afd1162f1473e973bc97a90"
+    sha256 cellar: :any,                 arm64_big_sur:  "c61a83f7c2be18d086863edd67880e588dd16fee1154367aa25eb4c0537f14f5"
+    sha256 cellar: :any,                 sonoma:         "4262d5949883ebe79316117398c332490f435c4da74a8ccaf195a6d0479ce4f8"
+    sha256 cellar: :any,                 ventura:        "74941e09f6cb06ab0fa44b92cd40e37e340d51f8781c61ed8f7d086093d470ce"
+    sha256 cellar: :any,                 monterey:       "6588852f6f1c6fb9585c4c0cb16d9fe2d503fd68c94d08f982a7de5d0af87adf"
+    sha256 cellar: :any,                 big_sur:        "2f01264e3b9729a123e24c71078c5b7b5c2189c2a2ed2a8481763080ed213ce1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "e4c5a798ccb89fb7d2872b427347e85d6d7239bd2c3a46563dab045fa7c63b10"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1a5d0e7c72c57d294d27e5f80dfd4371c7b3d37be3645f77103b7233025d366e"
   end
 
   depends_on "pkgconf" => :build

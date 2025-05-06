@@ -1,8 +1,8 @@
 class Feishu2md < Formula
   desc "Convert feishu/larksuite documents to markdown"
   homepage "https://github.com/Wsine/feishu2md"
-  url "https://github.com/Wsine/feishu2md/archive/refs/tags/v2.4.4.tar.gz"
-  sha256 "ba4efca5bda10f46ca243e961e314f80532ad8533caf742521250e1bc677f74a"
+  url "https://github.com/Wsine/feishu2md/archive/refs/tags/v2.4.5.tar.gz"
+  sha256 "938feb85d798732ed53b1e15b5cb94dc892b79c4eea5bc897750d00f6fcf012f"
   license "MIT"
   head "https://github.com/Wsine/feishu2md.git", branch: "main"
 
@@ -15,12 +15,12 @@ class Feishu2md < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "82204b6c9dd00fb608a7614dc617780425daa713056ef59387d3d870e23d65a9"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "82204b6c9dd00fb608a7614dc617780425daa713056ef59387d3d870e23d65a9"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "82204b6c9dd00fb608a7614dc617780425daa713056ef59387d3d870e23d65a9"
-    sha256 cellar: :any_skip_relocation, sonoma:        "0a95e2b53c60de61472fc0f76ad47213d90385c104f9c6d89ad8d029d7f9e08d"
-    sha256 cellar: :any_skip_relocation, ventura:       "0a95e2b53c60de61472fc0f76ad47213d90385c104f9c6d89ad8d029d7f9e08d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "db49c3b5b879ef0e64fc72bda13d1c15429e54eae26754a7891b10e8940d1f8c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b4c812d090212b6e7eabb66e2d279ce5efc65c8da48b08f8c7681d5a4c4f8f99"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b4c812d090212b6e7eabb66e2d279ce5efc65c8da48b08f8c7681d5a4c4f8f99"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "b4c812d090212b6e7eabb66e2d279ce5efc65c8da48b08f8c7681d5a4c4f8f99"
+    sha256 cellar: :any_skip_relocation, sonoma:        "3c35747c3979260aecda237aa32d26a43af9c2c1000829cda553b258e69aebd7"
+    sha256 cellar: :any_skip_relocation, ventura:       "3c35747c3979260aecda237aa32d26a43af9c2c1000829cda553b258e69aebd7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0251b8e957eb435d263ad80c9ea9b0e879959c9bb234bbb9169bbfc4937ef065"
   end
 
   depends_on "go" => :build

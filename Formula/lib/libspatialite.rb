@@ -30,6 +30,7 @@ class Libspatialite < Formula
     sha256 cellar: :any,                 sonoma:         "1f29fd1ce9216f960a3e22279b67cd0411ca3694160f6c5c0c769524dfa57567"
     sha256 cellar: :any,                 ventura:        "a45dd6acc0e93aa02176b73e0ff7ed57ac6c020e6a72538d16cbdd67c19a4012"
     sha256 cellar: :any,                 monterey:       "1bff63a0b2139edfa2d2df74870f98d6dba930d840973b6b523c1405e33c0279"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "d86a5e1a777cceebc9eb059098c75d53d2fc0597c6b0e09799c9a66fc9ff4f74"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "a5fbfff96039dfc137d483a59d19c45d97c57c461570073f7005c602edf8f356"
   end
 
@@ -72,6 +73,9 @@ class Libspatialite < Formula
       --enable-geocallbacks
       --enable-rttopo=yes
     ]
+
+    # Help old config scripts identify arm64 linux
+    args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
 
     system "./configure", *args, *std_configure_args
     system "make", "install"

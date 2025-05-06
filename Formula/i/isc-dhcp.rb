@@ -20,7 +20,7 @@ class IscDhcp < Formula
   end
 
   # see https://www.isc.org/blogs/isc-dhcp-eol/
-  disable! date: "2025-01-16", because: :deprecated_upstream, replacement: "kea"
+  disable! date: "2025-01-16", because: :deprecated_upstream, replacement_formula: "kea"
 
   def install
     # use one dir under var for all runtime state.

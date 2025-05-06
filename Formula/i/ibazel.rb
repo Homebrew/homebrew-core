@@ -4,6 +4,7 @@ class Ibazel < Formula
   url "https://github.com/bazelbuild/bazel-watcher/archive/refs/tags/v0.25.3.tar.gz"
   sha256 "064e313f2e2fa39ebd71a8f6b5eb44e7c832b713c0fc4077811d88830aa2e68e"
   license "Apache-2.0"
+  head "https://github.com/bazelbuild/bazel-watcher.git", branch: "master"
 
   bottle do
     rebuild 1
@@ -12,6 +13,7 @@ class Ibazel < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "3244d3623fc940b32da49370e3b4d78edae09fa66fc336a80dc5a2a6bfca08d1"
     sha256 cellar: :any_skip_relocation, sonoma:        "a2a7ca0a10912f7e99064fa84f76e4c05a0d1e1aefc026572187c66064872f37"
     sha256 cellar: :any_skip_relocation, ventura:       "74d628872158223d2254232f97bc08654db611958b4269ed5b60aa91d8c3ec50"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f218a79d9f3d14172c346ef78f621bfb3dd03f9e5e0e0b9f0199fbb5f6cc6e1d"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "1dd9fbcb138b56677b3123f7194cb5d13675a5cdd6f8dcfd9a41f218b3b67828"
   end
 

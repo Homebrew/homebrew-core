@@ -16,6 +16,7 @@ class Wiredtiger < Formula
     sha256 cellar: :any,                 arm64_ventura: "0333748feb3a4d7939b945a6e24dda5a73f7a9fcc7497e21b8af17ce6197e666"
     sha256 cellar: :any,                 sonoma:        "2c6472b714776076789ecdab468016f3c4b25ebcd84695ca70a67d463537c4a6"
     sha256 cellar: :any,                 ventura:       "4085e3bbb32627b3dac06760f86dfb6e28a7d580dfa9cbeaab94a3126a4f11da"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "18d06663d840ca7f85f41444dc1ffce4571bed81429217d3937e6990c22287ff"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "100e4051caa78dbd63c57f3e0a3be5f0272676e187c191d040068cbaf5c67aa4"
   end
 
@@ -30,6 +31,9 @@ class Wiredtiger < Formula
   uses_from_macos "zlib"
 
   def install
+    # CRC32 hardware detection: https://github.com/wiredtiger/wiredtiger/tree/develop/src/checksum
+    ENV.runtime_cpu_detection
+
     args = %W[
       -DHAVE_BUILTIN_EXTENSION_SNAPPY=1
       -DHAVE_BUILTIN_EXTENSION_ZLIB=1

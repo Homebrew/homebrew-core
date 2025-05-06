@@ -1,8 +1,8 @@
 class Stockfish < Formula
   desc "Strong open-source chess engine"
   homepage "https://stockfishchess.org/"
-  url "https://github.com/official-stockfish/Stockfish/archive/refs/tags/sf_17.tar.gz"
-  sha256 "8f9b52285c3348c065b7cb58410626df16d7416a2e60a3b04f3ec7c038e67ad1"
+  url "https://github.com/official-stockfish/Stockfish/archive/refs/tags/sf_17.1.tar.gz"
+  sha256 "0cfd9396438798cc68f5c0d5fa0bb458bb8ffff7de06add841aaeace86bec1f1"
   license "GPL-3.0-only"
   head "https://github.com/official-stockfish/Stockfish.git", branch: "master"
 
@@ -12,18 +12,27 @@ class Stockfish < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "a5f6a739d346d51452584203e1ee9d4073a23bede03f57a2be353cbd9e414d1f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "912b422a2d146ee732c4cde82393546be33ebc530061277b76af0d0520dd31ec"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "21f84fd184baf6d59bd0bb2181b9757cd7e0eefb902b8aee1caa773aaa50ff67"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "18b5450bae791e55f07994c3fc5cf1b355df928e4c08e3e122d4616167de4cc4"
-    sha256 cellar: :any_skip_relocation, sonoma:         "710b857f281feefa4d483092a4ec85a603ec346712dfd53b4116ad7b4f80f8a0"
-    sha256 cellar: :any_skip_relocation, ventura:        "00a1a04692ce42912e4c965d6d4825bcf7e78bd998c18eb5df74f8d82903e772"
-    sha256 cellar: :any_skip_relocation, monterey:       "6a1e9587ef0018e5490ab8a610d52eae4cf9abf9c55e49c08305234a7d9add16"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "64e5258684ddb0eba1731a862ea563030fa502849c970022678e2bab5e3fb8d6"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1f29f5e67075aa8ce69609853e6e9fd44bf6a51104b38fa2b63b265ed9295eef"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0ae4b4a92ca51af55b0533ee78f1571fb3e3116bb1c8a66e0efb0d2c7697159b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "817c688cfc9d4222e1d8b7b825eaef6050deeb047023454fbc0c883d946e3be3"
+    sha256 cellar: :any_skip_relocation, sonoma:        "0747984f92b6ad9f16502e626b04f9acc22f5db93b15b23361f6afe430d719c3"
+    sha256 cellar: :any_skip_relocation, ventura:       "5bdbb215c398e2eff9da2a249e81765b0ed403ff6ee75be84274aaf79b8728e2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "927330b6c83490eec6fbce9767fb3a48c9f18d9f2851084c8abe0d32940931c5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4a9d4a3b90c9997b46ca4d7c70fbb0511c2922a51e8f6e9648cc876d0c296a3f"
   end
 
   def install
-    arch = Hardware::CPU.arm? ? "apple-silicon" : "x86-64-modern"
+    arch = if !build.bottle?
+      "native"
+    elsif Hardware::CPU.arm? && OS.mac?
+      "apple-silicon"
+    elsif Hardware::CPU.arm?
+      "armv8"
+    elsif OS.mac? && MacOS.version.requires_sse41?
+      "x86-64-sse41-popcnt"
+    else
+      "x86-64-ssse3"
+    end
 
     system "make", "-C", "src", "build", "ARCH=#{arch}"
     bin.install "src/stockfish"

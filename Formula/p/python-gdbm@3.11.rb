@@ -1,8 +1,8 @@
 class PythonGdbmAT311 < Formula
   desc "Python interface to gdbm"
   homepage "https://www.python.org/"
-  url "https://www.python.org/ftp/python/3.11.11/Python-3.11.11.tgz"
-  sha256 "883bddee3c92fcb91cf9c09c5343196953cbb9ced826213545849693970868ed"
+  url "https://www.python.org/ftp/python/3.11.12/Python-3.11.12.tgz"
+  sha256 "379c9929a989a9d65a1f5d854e011f4872b142259f4fc0a8c4062d2815ed7fba"
   license "Python-2.0"
 
   livecheck do
@@ -10,13 +10,13 @@ class PythonGdbmAT311 < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia: "2a65a2d5291bd8004927681de2d40b5c808dc59b676434905bdc721e33eb07d7"
-    sha256 cellar: :any, arm64_sonoma:  "50dcb7d0f00f696f5ce121232a489cf8e9846a25396172633c292de3ffbfcac0"
-    sha256 cellar: :any, arm64_ventura: "a54e95c6f4f0af716022af4ed36c8eb0e694d63c84c597d48de9b3071d8030a8"
-    sha256 cellar: :any, sonoma:        "1e5208d7cadccbe5bce97f85a656abd6a4da6547bc9fa03b8ea6c2e943e7e0b0"
-    sha256 cellar: :any, ventura:       "3406b9a2d5249180456d792d055e44bfcc242dd79e98ef21dd8ade6dbfd6fe79"
-    sha256               arm64_linux:   "012eed00236a5f153fa76a8a0ae19f3d7ec3811646a115fc8dafec47d713a1b9"
-    sha256               x86_64_linux:  "9185fe89d9dc446e83650b27e4d7a8f3f6622a39e8ab5378198ac56ce7516e5b"
+    sha256 cellar: :any, arm64_sequoia: "2b7c4d7ee9c2f8b6ce40037744162a7d082ac85aaac788bfb84b75e22eecf950"
+    sha256 cellar: :any, arm64_sonoma:  "a4365561edde1e9348922a82fbc241e153e48b54a273e5078d10024227f76f9c"
+    sha256 cellar: :any, arm64_ventura: "06685a9c327490fb54c0fc7812f4b72bb4be58da4f088aa99d52aae2fbab4644"
+    sha256 cellar: :any, sonoma:        "6a3f1fbd69a02dd0678b770ed15a2115961eaee3cd4e8f6e2281498eb074eb70"
+    sha256 cellar: :any, ventura:       "d94e887af451811b87ec461c85f50606f29d8985d92dfc2719e6fc81467841df"
+    sha256               arm64_linux:   "788c449cda242d125479d70279b280337af1056cf5c57685372756f2907ee7c8"
+    sha256               x86_64_linux:  "bdfbc550557657b083c1e0f9a1f91d49b79a8563548f126ee1e8c8dbfa8cbcd5"
   end
 
   depends_on "gdbm"

@@ -13,6 +13,7 @@ class Sshportal < Formula
     sha256 cellar: :any_skip_relocation, sonoma:         "d4a1076a63578d51bb79f4d6f7c35432771c479d6baf00d2d96556436da6dfd8"
     sha256 cellar: :any_skip_relocation, ventura:        "67da5adbff8a32e081440bb5f2ec8992448dcf7839faa2c8ea236ef596f00f17"
     sha256 cellar: :any_skip_relocation, monterey:       "83612694df61dc4caee75ad516e29c65a1ad024a6008b21188e34bac4d98d985"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "dcaa3b282c7d701cc33799bb3d7c754b545d1278367a08421e366e8e330ba374"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "5184e0795bf5e6e3c1d785919a77d4473c9edbb12bc1e3fc4714c48887b2d178"
   end
 

@@ -13,6 +13,7 @@ class Gssdp < Formula
     sha256 cellar: :any, sonoma:         "6d12bf3d48221158ae35d8f121ecf5a6ab1a255ce7cd8db2c212c99da44d4f17"
     sha256 cellar: :any, ventura:        "e26411028be8edf072f647c9c8dd4fb7929c2aea8aa46940d70c36bb26f71d21"
     sha256 cellar: :any, monterey:       "dc149d84e33f123c18e0a11858b16672f802bdef637d6f27322e310a23d7f237"
+    sha256               arm64_linux:    "64ce3b6210ac63feee5c6f88f773afa9f2c1b7bd7ce4b2e819affa74a61c2bc0"
     sha256               x86_64_linux:   "1fdb4562ada9ffb0252f97fe765ce023d2530ff2528e4237cace63a29f75688a"
   end
 

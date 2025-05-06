@@ -3,19 +3,18 @@ class Glib < Formula
 
   desc "Core application library for C"
   homepage "https://docs.gtk.org/glib/"
-  url "https://download.gnome.org/sources/glib/2.84/glib-2.84.0.tar.xz"
-  sha256 "f8823600cb85425e2815cfad82ea20fdaa538482ab74e7293d58b3f64a5aff6a"
+  url "https://download.gnome.org/sources/glib/2.84/glib-2.84.1.tar.xz"
+  sha256 "2b4bc2ec49611a5fc35f86aca855f2ed0196e69e53092bab6bb73396bf30789a"
   license "LGPL-2.1-or-later"
 
   bottle do
-    rebuild 1
-    sha256 arm64_sequoia: "420f2762df64908e59b6052c41580bd03ed980eabbc6b6203c3b4eaa6658ade6"
-    sha256 arm64_sonoma:  "cb1ba6ea1a2e751508329e84a0c6a5787611c02c346c4f0a0e5f58f72e173c1b"
-    sha256 arm64_ventura: "67780cccb994a6864c561eb2e7a4f4744d48ffdf3b48731668ab35a02c871469"
-    sha256 sonoma:        "a4f443dd989b7ea9d7a6bc3ed45e77e904a5e753025094350130168f2407e685"
-    sha256 ventura:       "4647e5269bb706b3c22ddc1123fa007ee232981ebbe0d9d74f8ce88756bbfe7f"
-    sha256 arm64_linux:   "c3bd9c297f485ff3ef08a6cca72b6c847b5c7802f7d46e2ba4dc44974562e54b"
-    sha256 x86_64_linux:  "6ecc4ef1d72d1f6bc3a5635452f30ae30483928b834ae1b906d1b793004d2c3f"
+    sha256 arm64_sequoia: "d9185ea25f133c7b2cb36185bb02b49ef98bb044045389d5bbfb9f9525170a0f"
+    sha256 arm64_sonoma:  "8a68416c9b7540371f6d53d3514cf606ee86d972cd43f08fd658228fc8e44b03"
+    sha256 arm64_ventura: "0fef37ae04012219f282795191bcc882f84e5227c3d4ecd53920b6b45f9a20a5"
+    sha256 sonoma:        "1a04ce6a17530d60ad2902b978de98364dd3f3864d2d20321bef73bbe12d7e11"
+    sha256 ventura:       "f38810a94dff8b305a7e48273d813e556471facb41196e61a3a3642a0df27dfd"
+    sha256 arm64_linux:   "7c004817688205ec1c806bd76669d1db2ac89563325363cf02b131e07b47dec7"
+    sha256 x86_64_linux:  "cc836270f80b9e4ba832c27276e819aef70c864dfc9736dfe761ad813d608310"
   end
 
   depends_on "bison" => :build # for gobject-introspection
@@ -51,8 +50,12 @@ class Glib < Formula
                  "share/gir-1.0/GObject-2.0.gir", "share/gir-1.0/Gio-2.0.gir"
 
   resource "gobject-introspection" do
-    url "https://download.gnome.org/sources/gobject-introspection/1.82/gobject-introspection-1.82.0.tar.xz"
-    sha256 "0f5a4c1908424bf26bc41e9361168c363685080fbdb87a196c891c8401ca2f09"
+    url "https://download.gnome.org/sources/gobject-introspection/1.84/gobject-introspection-1.84.0.tar.xz"
+    sha256 "945b57da7ec262e5c266b89e091d14be800cc424277d82a02872b7d794a84779"
+
+    livecheck do
+      formula "gobject-introspection"
+    end
   end
 
   # replace several hardcoded paths with homebrew counterparts

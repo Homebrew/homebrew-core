@@ -5,17 +5,17 @@ class Ncmpcpp < Formula
   url "https://github.com/ncmpcpp/ncmpcpp/archive/refs/tags/0.10.1.tar.gz"
   sha256 "ddc89da86595d272282ae8726cc7913867b9517eec6e765e66e6da860b58e2f9"
   license "GPL-2.0-or-later"
-  revision 3
+  revision 4
   head "https://github.com/ncmpcpp/ncmpcpp.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "0d3952dd1fe33dfdaed148c9c2760d248a1e38ad2e0489cd016efa1e40e1fedd"
-    sha256 cellar: :any,                 arm64_sonoma:  "9abdee3a1db5887e8a2abfffa20d239b63bdccbc1ba21ea8c9308f970d249a26"
-    sha256 cellar: :any,                 arm64_ventura: "d838e95e3232cb04000e9b6008a7c37ff4b6cc4b4eb256cc8f81d6e1b68b123e"
-    sha256 cellar: :any,                 sonoma:        "d8456d9b61e01f683c22e1ff17ee2f1faa876ef5c4481292bc13f9b7b7da4cd2"
-    sha256 cellar: :any,                 ventura:       "c89a3bac72e436f4418dcaba5aa1c1a98f927c0492de322c23899c81b05ba846"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "920744f73ce58f8823b6dbca950d1092df19ee795fb34f3842a32ae4581bd3dc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a78173a6f36df653878347947f0a93b9a3da9969ba385be92186e62c300cbce3"
+    sha256 cellar: :any,                 arm64_sequoia: "85bce87b0b6063cdbf8be5b857c8a2d411a645d11f37f12d66dc99431bf7b034"
+    sha256 cellar: :any,                 arm64_sonoma:  "ac040b1f822500333c9193ebab20bd7910598c23a8e6aaada597ade970137a91"
+    sha256 cellar: :any,                 arm64_ventura: "317dbae909e32339ebf1134a8ae55bf0f609d04c5050a183cd644fcf2c301c10"
+    sha256 cellar: :any,                 sonoma:        "f6d94110dc3839f47f1011b489eb4aaf82d7afa2e8bd55484baeae6d178c41c3"
+    sha256 cellar: :any,                 ventura:       "0651a6f3101ce2af14a7e4af064bc6a765244966db3fe9afa6da2adf0fcc8c4b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "08416eed22effd6c038ac64dfa1a7955df0ed74633fc8bb105b64207c22047c5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fad7efcda3ef45c061a14d4b0517d8b4eed7ba186085e7abc6ad559167bc4873"
   end
 
   depends_on "autoconf" => :build

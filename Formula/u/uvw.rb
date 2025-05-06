@@ -39,7 +39,7 @@ class Uvw < Formula
 
   test do
     (testpath/"CMakeLists.txt").write <<~CMAKE
-      cmake_minimum_required(VERSION 3.0)
+      cmake_minimum_required(VERSION 4.0)
       project(test_uvw)
 
       set(CMAKE_CXX_STANDARD 17)

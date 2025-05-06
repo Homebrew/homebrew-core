@@ -1,20 +1,19 @@
 class Cryptol < Formula
   desc "Domain-specific language for specifying cryptographic algorithms"
   homepage "https://www.cryptol.net/"
-  url "https://hackage.haskell.org/package/cryptol-3.2.0/cryptol-3.2.0.tar.gz"
-  sha256 "ed078965bd7d2468eb403c698374d9525bc2314f9fc53fc7683a7cab5d2ba25b"
+  url "https://hackage.haskell.org/package/cryptol-3.3.0/cryptol-3.3.0.tar.gz"
+  sha256 "3ba3d1083c3aacd6c5ad5bbe4fddb9d9519717af4d3c6fe05d9c0c698fb737b0"
   license "BSD-3-Clause"
   head "https://github.com/GaloisInc/cryptol.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "a3cd1bc981bbce314d249fcb8ce40de3428e982fef1ec81c442ed53b912352f6"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "053c643e95edb0e8aed995a5e7909047ceebeb4f53e412aa61e06bc0976d458b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "92d6857f01b3e2150a6a00c8893a0c85fada1f7ed00184a17a560b471b8f5b09"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f95a9fb6b26ac635b0a3d4542f726ed1a5bae87d1d9b171835ce045ff036765b"
-    sha256 cellar: :any_skip_relocation, sonoma:         "304b43329699d57c39fd693b03e7a03f98fbd8a4770d8c3c5419e767ca9db550"
-    sha256 cellar: :any_skip_relocation, ventura:        "ee70e56720b01975fd9efde49d877c6948304948277edca15b1cf7e3800717e1"
-    sha256 cellar: :any_skip_relocation, monterey:       "17a68673a6921f80e75186a76110027909d99ec92f4e43a2310859cd9b6cb595"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f302f1661f45a19b763d4e112ca16f398f4f6be79959ab1501ac65ed52e580c4"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "036f1699ef23e07d214b12ecd13e2a3f874e8546150628e03ab09d1cc4cdecfe"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "29d817b9266776e61b772285651066d2ac1d4c7184b7361abce9a383eeaa7bb6"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "9035c6aa3b4bbc1e9f9731f92db90843d1e74dbb59d99930c737cc8510dccf59"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f26c5cc0f8e1d29455ffdf7d0875a1014b8b08929c62cbf6979e54eb24d1f816"
+    sha256 cellar: :any_skip_relocation, ventura:       "9d37ae517d04c7def64d26f0451d8ac964c41e7d025dc204a01c68069920b386"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ab55afae719399479d3b8f9ca9499f9fa7d26a5c8e5c985484d287d9234165b8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7d20522798fa5c6f11bc1bfab9506e4805bcc6b0eb675ccdc6e310c975809257"
   end
 
   depends_on "cabal-install" => :build

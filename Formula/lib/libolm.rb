@@ -13,6 +13,7 @@ class Libolm < Formula
     sha256 cellar: :any,                 sonoma:         "ed06e4f79c3f1651dd77425482b55bb9876ead8c80adaacc7aaccd6def7f4f76"
     sha256 cellar: :any,                 ventura:        "dfcc8778b58afac8e598e6f83fbefd6a18d2c34a2c23b23e332c4618847f4476"
     sha256 cellar: :any,                 monterey:       "71019cfeedbd48f15b86c6249bcd4db630fc6aae5754ee2e6f0162615bf55fae"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "7ddb8f63f2928d77bf29529f78977f4a1c7a4666d94d049264af99a3ec9b8ea1"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "f116c980f972a0fe05051d0bedae1cd42392051566d51c9f25989639d6b05a37"
   end
 

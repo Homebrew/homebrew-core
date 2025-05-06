@@ -13,6 +13,7 @@ class Gossip < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "e16ee0487520298ce54b97437576af2fea08c177c436126734109125f74b00a6"
     sha256 cellar: :any_skip_relocation, sonoma:        "bba898419ef93f501fef1bc643215d94f7b0fc2d335798cdb14ac222f300698d"
     sha256 cellar: :any_skip_relocation, ventura:       "3b547d284bcaf51552faa323dc36f67a1b0e70a7ba8fe925f557794adb67f233"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "cf6f593ed8a27f441c52b38ad115ed7dd7e683c249dedad561f727ec871d2bd3"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "96696a0e96b1d6726003ed559c0a659df7925d310dcd3af9fc2623f5b48b3ba2"
   end
 

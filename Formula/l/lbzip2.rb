@@ -20,6 +20,7 @@ class Lbzip2 < Formula
     sha256 cellar: :any_skip_relocation, catalina:       "6643ba1c0f17a13e742383c69112df62c1d6bce80e6833d717df4e112922deb5"
     sha256 cellar: :any_skip_relocation, mojave:         "5f7f053aac95586cdcacb2528fe4540bd16522707e9d7bbbf8e6d38012378e06"
     sha256 cellar: :any_skip_relocation, high_sierra:    "3d4e0de242b81f83ba2addd163688647288fb17f3a3ae3ccd37a2e62f20871d4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "6dd348d4b4186cbf9268a4467b0d364ad90d364284862ed58b9d2ccc246bdbaa"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "88137d3cccfc08f362d926aeaad73312aa4d5265dd89fc92c881b1da20097f6f"
   end
 
@@ -31,10 +32,14 @@ class Lbzip2 < Formula
     sha256 "5b931e071e511a9c56e529278c249d7b2c82bbc3deda3dd9b739b3bd67d3d969"
   end
 
-  def install
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+  # Apply Arch Linux fix for newer glibc
+  patch do
+    url "https://gitlab.archlinux.org/archlinux/packaging/packages/lbzip2/-/raw/e707d24e8b5681f9d824e1141e41323ccd0a714d/lbzip2-gnulib-build-fix.patch"
+    sha256 "5eca4665b147655ce99f9ae5eff50e7db2714ba957e41e20b50d80533aeb6bef"
+  end
 
+  def install
+    system "./configure", *std_configure_args
     system "make", "install"
   end
 

@@ -1,8 +1,8 @@
 class PythonTkAT310 < Formula
   desc "Python interface to Tcl/Tk"
   homepage "https://www.python.org/"
-  url "https://www.python.org/ftp/python/3.10.16/Python-3.10.16.tgz"
-  sha256 "f2e22ed965a93cfeb642378ed6e6cdbc127682664b24123679f3d013fafe9cd0"
+  url "https://www.python.org/ftp/python/3.10.17/Python-3.10.17.tgz"
+  sha256 "8fcda0fbdc131859a4a4223abb925fd522a77e3fb3b52c46cea5f3bc2ae0cd9f"
   license "Python-2.0"
 
   livecheck do
@@ -10,13 +10,13 @@ class PythonTkAT310 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "68b53352f7459667a68d2e2723e6725ddc959ac29dcad81b81be71a3bd5217b5"
-    sha256 cellar: :any,                 arm64_sonoma:  "af5c33f6acdbca5647aec3d7cd970ef27f886826d65bc9f8ddc12f7e75736133"
-    sha256 cellar: :any,                 arm64_ventura: "f535d3a5b6750eb99547e9009f867beb1382b6c0c8b34c2f15154f8caef50ca4"
-    sha256 cellar: :any,                 sonoma:        "ff419e01411af9b9704180232c998269c6ab33756705301ccd341cd4c5ce5d28"
-    sha256 cellar: :any,                 ventura:       "0cb43e607c7335bffb65a04c72ac2fe7cf371bd7cd240f1c75b4a534088a2baf"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "7ba02569ab9a8573ae15a8627954a652a6ce31d2754beaa64613fa1fab527431"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "133d60721b40d030951ae481e497ae9fadf515911a18311a245d643239d82212"
+    sha256 cellar: :any,                 arm64_sequoia: "4a01d642ccdc00918edf1d1d7b98ed2f16cfe51d33b7e71c32fec64563bb5879"
+    sha256 cellar: :any,                 arm64_sonoma:  "620622c1b79a62e6b44917024469937e773f99ac7c4f6386de3a1036e27ef749"
+    sha256 cellar: :any,                 arm64_ventura: "c6bc2fa3384949b69cfc44a4e3b0db03717e3ff319b06145ff2ce631ad66a1d9"
+    sha256 cellar: :any,                 sonoma:        "29de8774c5638894b20592447ca8812b0982c0eae4e2abaeda961223711f459f"
+    sha256 cellar: :any,                 ventura:       "26c2e7c3e1f958bc89a3bedbc6011aa20d8bfff502d8a88b973ff7363baae17c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d039a25172dfd16b51a49eb019a9710cf537255cf4f194d68b83e684ee067724"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2a8c2852664e43e4ea79488192dbd32d22aae7f9304c77d59f366ef57bbf891a"
   end
 
   keg_only :versioned_formula

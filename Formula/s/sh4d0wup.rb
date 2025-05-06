@@ -1,18 +1,18 @@
 class Sh4d0wup < Formula
   desc "Signing-key abuse and update exploitation framework"
   homepage "https://github.com/kpcyrd/sh4d0wup"
-  url "https://github.com/kpcyrd/sh4d0wup/archive/refs/tags/v0.10.0.tar.gz"
-  sha256 "63662f386302ceb06470cab62a36924a1a2efcb51602913f8cf6e2a5a2a34acc"
+  url "https://github.com/kpcyrd/sh4d0wup/archive/refs/tags/v0.11.0.tar.gz"
+  sha256 "cfc1c38f89d35de6a1822469679a73e5bcb7d5b9f6f8519bee1c3f2948c227f3"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "6540738f0265efb9e3f511af4b63dc9cbb91a6179c701309a269a3eeaa2f3b0a"
-    sha256 cellar: :any,                 arm64_sonoma:  "07bba11a7500ccdfe6359bb0a2e5bc96decd4ea8b53d9d86f8d3844532bb752e"
-    sha256 cellar: :any,                 arm64_ventura: "c19a90aee8ec95180f4383d4e4199ef106dbe0140ce50506319cf85acaace739"
-    sha256 cellar: :any,                 sonoma:        "be07c857f0b5a7ed98808891806c05d9c2363519207e3180f7bb61ed619f4963"
-    sha256 cellar: :any,                 ventura:       "bf9730529911ca723d3422e19653c3458f18566c8484531cf695fd16a7c0b88c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2e76ae38df57874be9258064f709557b0a1e9deb100724e971817ac49454b144"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4f5737e1328718e96a6f737b7f994099d552d27a74dd3424698d5426fde8a06e"
+    sha256 cellar: :any,                 arm64_sequoia: "61e657e991b147d09961e7a31cb8519a0a7d5da5c7549381cc093e6c0f09b865"
+    sha256 cellar: :any,                 arm64_sonoma:  "c6a718415c847755a24e462bdbfcbbfbad1c0c4c5d5346917121bb7b2b817192"
+    sha256 cellar: :any,                 arm64_ventura: "4ad860189d7456e964cb5bf9ca83d58fa42826749fe687f3b7a188df76a84cec"
+    sha256 cellar: :any,                 sonoma:        "5f916dd0b4809e160f6d44f5536d4eec43f75d4dade3b3023dc0667062b73254"
+    sha256 cellar: :any,                 ventura:       "88c8352a703fe178771071b45781127a76a84476104afc1ef1f7042dd0ce9ac4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "37e09448fc27e25b451c296e0849affe15ee491ebbbaf080756818da61bb6085"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "12ed1c91190821ba799e038cb7723ce0af1ef207b45b74fcc732e8adb233d017"
   end
 
   depends_on "llvm" => :build
@@ -20,14 +20,10 @@ class Sh4d0wup < Formula
   depends_on "rust" => :build
   depends_on "pgpdump" => :test
 
-  depends_on "gmp"
-  depends_on "nettle"
   depends_on "openssl@3"
   depends_on "pcsc-lite"
   depends_on "xz"
   depends_on "zstd"
-
-  uses_from_macos "bzip2"
 
   def install
     # Work around an Xcode 15 linker issue which causes linkage against LLVM's

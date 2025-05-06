@@ -12,6 +12,7 @@ class Pdftilecut < Formula
     sha256 cellar: :any,                 arm64_ventura: "954e44ab18431e84903ee37a9e08730458c0fc2ff3be83bb71bf54ad8aa5184f"
     sha256 cellar: :any,                 sonoma:        "02a045c5f5f1ea061b661c5f34fc9f557fa12a8a2ac47ba9ca5c240c0fe60433"
     sha256 cellar: :any,                 ventura:       "c76c17100539c6ba2aee77fd1cfad42a9464d15fd2e41edc51419308a85a1f41"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "cd6a82f54be78a6a4a939ff44e7364993048d76f20c9063764b61ab7b21d5473"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "ad6f8074acd3375047c5419afcd65722aae5949982d6611e95becfa6ee0cfc37"
   end
 

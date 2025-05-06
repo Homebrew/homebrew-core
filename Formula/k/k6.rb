@@ -1,17 +1,18 @@
 class K6 < Formula
   desc "Modern load testing tool, using Go and JavaScript"
   homepage "https://k6.io"
-  url "https://github.com/grafana/k6/archive/refs/tags/v0.57.0.tar.gz"
-  sha256 "75ccb3f7a9d3c2045d71b9bbb37d8a5e1b482b374d5c3deedac4523700a5bf05"
+  url "https://github.com/grafana/k6/archive/refs/tags/v1.0.0.tar.gz"
+  sha256 "790e8a1d1171262095edbd5df5a74f18406d11ea88098560d0f18b7614c8b880"
   license "AGPL-3.0-or-later"
+  head "https://github.com/grafana/k6.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2fa3ba542358442f674abadf5311b3df139b231ef936d22ec1353f892c68d8d7"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2fa3ba542358442f674abadf5311b3df139b231ef936d22ec1353f892c68d8d7"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "2fa3ba542358442f674abadf5311b3df139b231ef936d22ec1353f892c68d8d7"
-    sha256 cellar: :any_skip_relocation, sonoma:        "4fa3ca23db747428df4052d2b63e7feceb63a6e75f8a4b279c8772e7841c4157"
-    sha256 cellar: :any_skip_relocation, ventura:       "4fa3ca23db747428df4052d2b63e7feceb63a6e75f8a4b279c8772e7841c4157"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "24567bec8c95d994fe68af10802d02fee986c31d95c8e00643f31d8c07453da0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "38ad23f362dcc33ac2b99cc9c5c50a2f8bd46bea7bd79ca32818584f381776b0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "38ad23f362dcc33ac2b99cc9c5c50a2f8bd46bea7bd79ca32818584f381776b0"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "38ad23f362dcc33ac2b99cc9c5c50a2f8bd46bea7bd79ca32818584f381776b0"
+    sha256 cellar: :any_skip_relocation, sonoma:        "cf258efa6b268478028b8e1cf2bdc902dafb3d32079fb47602897256a74b72cb"
+    sha256 cellar: :any_skip_relocation, ventura:       "cf258efa6b268478028b8e1cf2bdc902dafb3d32079fb47602897256a74b72cb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a23290c9ad12400f796b7a0028190c78938b932610204c3d7d33ad1002850610"
   end
 
   depends_on "go" => :build
@@ -30,6 +31,7 @@ class K6 < Formula
     JS
 
     assert_match "whatever", shell_output("#{bin}/k6 run whatever.js 2>&1")
+
     assert_match version.to_s, shell_output("#{bin}/k6 version")
   end
 end

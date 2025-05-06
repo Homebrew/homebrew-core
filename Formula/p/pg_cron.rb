@@ -11,6 +11,7 @@ class PgCron < Formula
     sha256 cellar: :any,                 arm64_ventura: "8617379afc5a21586ac1558c3320d82aaddb8078382fe51e7eb034c2d1772cfa"
     sha256 cellar: :any,                 sonoma:        "5160bb9284524342df8e0c8140d5715b420c26cf3ff874a9d6462530313c6adf"
     sha256 cellar: :any,                 ventura:       "44132449e3e3733f9d7342a5e12c23d571402bea3bb7074a23b197b605fca091"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8babbb9f6137aded2381013aadc7f8a238163910e7c8a6b32d12cd689ef36d82"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "45b413c1332572e44d2e73a04f0d90a932bb34ad1ac7aee78541f9176ecf7b65"
   end
 

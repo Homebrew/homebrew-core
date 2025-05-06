@@ -1,18 +1,18 @@
 class Tgpt < Formula
   desc "AI Chatbots in terminal without needing API keys"
   homepage "https://github.com/aandrew-me/tgpt"
-  url "https://github.com/aandrew-me/tgpt/archive/refs/tags/v2.9.2.tar.gz"
-  sha256 "8ad477e8089b2b2b98f8d0fc9dcf367f1ef12e2a0abf427151fb2adfe10ebb5a"
+  url "https://github.com/aandrew-me/tgpt/archive/refs/tags/v2.9.6.tar.gz"
+  sha256 "6800b06059de1f5bab2aa3bbf61c3d43ec63498a9dccb7a4918e7f8790c04bd8"
   license "GPL-3.0-only"
   head "https://github.com/aandrew-me/tgpt.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f5a563fe2d9ba268541a0cef460f7cf2078e244dfd95f4604463f69369eda541"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f5a563fe2d9ba268541a0cef460f7cf2078e244dfd95f4604463f69369eda541"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "f5a563fe2d9ba268541a0cef460f7cf2078e244dfd95f4604463f69369eda541"
-    sha256 cellar: :any_skip_relocation, sonoma:        "b93a4502723ce9a4cc043e571af57789a787267fec4c4eacc02b3d350e6619a2"
-    sha256 cellar: :any_skip_relocation, ventura:       "b93a4502723ce9a4cc043e571af57789a787267fec4c4eacc02b3d350e6619a2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a16a73e2753d143f50145323db94d00b38fe05bc468c6f0d991c768567f5d9f6"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "163aa59bc4dd9c67e3ce54511a684e320a601918eb72d8f472d1eea2aba8b119"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "163aa59bc4dd9c67e3ce54511a684e320a601918eb72d8f472d1eea2aba8b119"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "163aa59bc4dd9c67e3ce54511a684e320a601918eb72d8f472d1eea2aba8b119"
+    sha256 cellar: :any_skip_relocation, sonoma:        "4c38b7cb01d247c012fdb613946a14aa4b7131a6e159f9e58c198938e898e831"
+    sha256 cellar: :any_skip_relocation, ventura:       "4c38b7cb01d247c012fdb613946a14aa4b7131a6e159f9e58c198938e898e831"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2593ebb991c8ee46269554aea50ec20af8fd15c2465a08a2570e792d9afaa948"
   end
 
   depends_on "go" => :build
@@ -24,7 +24,7 @@ class Tgpt < Formula
   test do
     assert_match version.to_s, shell_output("#{bin}/tgpt --version")
 
-    output = shell_output("#{bin}/tgpt --provider duckduckgo \"What is 1+1\"")
+    output = shell_output("#{bin}/tgpt --provider pollinations \"What is 1+1\"")
     assert_match "1 + 1 equals 2.", output
   end
 end

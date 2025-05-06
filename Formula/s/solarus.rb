@@ -2,10 +2,9 @@ class Solarus < Formula
   desc "Action-RPG game engine"
   homepage "https://www.solarus-games.org/"
   url "https://gitlab.com/solarus-games/solarus.git",
-      tag:      "v1.6.5",
-      revision: "3aec70b0556a8d7aed7903d1a3e4d9a18c5d1649"
+      tag:      "v2.0.0",
+      revision: "1c69f3d7ec133eaff28c22d756170eba69a520b0"
   license "GPL-3.0-or-later"
-  revision 2
 
   livecheck do
     url :stable
@@ -13,18 +12,13 @@ class Solarus < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia:  "7a1ba3cba1fb09278c607e4a5864dcd8d71d7ec44b43835661185195d3b23c24"
-    sha256 cellar: :any,                 arm64_sonoma:   "f26e691c890948a299006ddc3677442e381252d77ba46efb5685e0215600a515"
-    sha256 cellar: :any,                 arm64_ventura:  "20fbf5ecc4020956d8d4938b8e02e0451030e504fe2f0a3493044b55e53763ef"
-    sha256 cellar: :any,                 arm64_monterey: "1df04c516d36ec062f0ad18d10495aa879081a3564210dd264dd36e381410d23"
-    sha256 cellar: :any,                 arm64_big_sur:  "1f9369c5a18363ef3c9fae788c8834f22e501b3edc69c9559747386107a058e3"
-    sha256 cellar: :any,                 sonoma:         "7ca49a0c4ce7d2ce720eec066d4058946e663d147d5a429e96fb0cecfdd1bb43"
-    sha256 cellar: :any,                 ventura:        "16c9bbe34ef0d45488c4406b2a94182784281810f54682dc5b08781476b2fbdb"
-    sha256 cellar: :any,                 monterey:       "6c33e0972e80bac278d3d4e2b2584032a20ca92256231b27c99fb9cb1ab61bb8"
-    sha256 cellar: :any,                 big_sur:        "a0c0902c8ec2ee91d806ac6f65526c76478cae5309dd335ef4fb47ef8d98b651"
-    sha256 cellar: :any,                 catalina:       "a2e50fcb5ead429c8f72c5a484dc45d1089f94f6d2e58420c9fd544057516226"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "08b76ceebc80b02c8ae22dadf8d4b0f22827e8dca8254567951669575360c20f"
+    sha256                               arm64_sequoia: "85a7c6dfc13c8c421fa74d19b342a233cd44033cbf77cbb68ad09eaedc718dad"
+    sha256                               arm64_sonoma:  "05499edb58e7a13a8967b7a6fbf809f51794cc5f53ce1495ee6bfe048a1bd2c1"
+    sha256                               arm64_ventura: "010d2aa833ddfaa4bed2f231858589d37cf667b75e85bae1dbfed9e00cba7209"
+    sha256                               sonoma:        "ef4bed02bcff7a4c5ef11bf7c2b8975a96e125b937f5326e3c45f52132563cb8"
+    sha256                               ventura:       "83234601f53be7a2a3137671d73e94000b47316e77547332f066e70770469e20"
+    sha256                               arm64_linux:   "c4bc34e892827477f7dc3c599df51d44e2b9f714bfda46c54e238e0d46e22923"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "04d4e184b09908722468e977d425e4a1e441eb8dfe576d662445de67b659f73a"
   end
 
   depends_on "cmake" => :build
@@ -33,6 +27,9 @@ class Solarus < Formula
   depends_on "libogg"
   depends_on "libvorbis"
   depends_on "luajit"
+  # Upstream only supports OpenAL Soft and not macOS OpenAL.framework
+  # https://gitlab.com/solarus-games/solarus/-/blob/dev/cmake/modules/FindOpenAL.cmake?ref_type=heads#L38
+  depends_on "openal-soft"
   depends_on "physfs"
   depends_on "sdl2"
   depends_on "sdl2_image"
@@ -40,13 +37,6 @@ class Solarus < Formula
 
   on_linux do
     depends_on "mesa"
-    depends_on "openal-soft"
-  end
-
-  # Backport fix for error: GLM: GLM_GTX_matrix_transform_2d is an experimental extension
-  patch do
-    url "https://gitlab.com/solarus-games/solarus/-/commit/2200e0ccc8e2850d2a265cace96c3f548d988f2d.diff"
-    sha256 "dee33b7f334be09d358b1c6534d3230cb66038095f9d77f87d9bc285082f6393"
   end
 
   def install

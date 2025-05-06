@@ -12,6 +12,7 @@ class Activemq < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "2aea4834f9c0175822102d8e8c4029f3af0345a536f66e67234e3e997077fd32"
     sha256 cellar: :any_skip_relocation, sonoma:        "8a1d7e1b0ecb2f26c6eed93b479b18d20e4a9471d200ccdad309770577431cff"
     sha256 cellar: :any_skip_relocation, ventura:       "806867bc7cbff9079f42e885d8765b4869ed257ea9f066d857c2303c4b910430"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8b95a03e459a9190375bd22a7806fac2372aa1c7893a61c38cb6acb91e8bf3c6"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "ec9ab276b52229846bc56192b0fd45ad573e57738818b880c3a9149eedfd306c"
   end
 
@@ -19,12 +20,21 @@ class Activemq < Formula
   depends_on "openjdk"
 
   def install
-    useless = OS.mac? ? "linux" : "{macosx,linux-x86-32}"
-    buildpath.glob("bin/#{useless}*").map(&:rmtree)
+    if OS.mac?
+      wrapper_dir = "macosx"
+    else
+      # https://github.com/apache/activemq/blob/main/assembly/src/release/bin/linux-x86-64/activemq#L176-L183
+      arch = Hardware::CPU.intel? ? "x86" : Utils.safe_popen_read("uname", "-p").downcase.strip
+      wrapper_dir = "#{OS.kernel_name.downcase}-#{arch}-#{Hardware::CPU.bits}"
+      odie "Remove workaround for arm64 linux!" unless buildpath.glob("bin/linux-{arm,aarch}*").empty?
+      mv "bin/linux-x86-64", "bin/#{wrapper_dir}" unless Hardware::CPU.intel?
+    end
+
+    useless = OS.mac? ? "linux" : "macosx"
+    rm_r buildpath.glob("bin/#{useless}*")
+    rm buildpath.glob("bin/#{wrapper_dir}/{wrapper,libwrapper.{so,jnilib}}")
 
     libexec.install buildpath.children
-    wrapper_dir = OS.mac? ? "macosx" : "#{OS.kernel_name.downcase}-#{Hardware::CPU.arch}".tr("_", "-")
-    libexec.glob("bin/#{wrapper_dir}/{wrapper,libwrapper.{so,jnilib}}").map(&:unlink)
     (bin/"activemq").write_env_script libexec/"bin/activemq", Language::Java.overridable_java_home_env
 
     wrapper = Formula["java-service-wrapper"].opt_libexec

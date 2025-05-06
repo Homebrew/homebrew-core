@@ -17,6 +17,7 @@ class Librealsense < Formula
     sha256 cellar: :any,                 arm64_ventura: "5a513c1af7e9709eef2cea30f39021e3158e5635680f956d83b36b66646e127d"
     sha256 cellar: :any,                 sonoma:        "d940b9e56d353878c839a10ca9a2298e84ee374778a34b97dc59f635875ec2a2"
     sha256 cellar: :any,                 ventura:       "703d25a4b7c1f12aaec0f0a5669e5f026bcf38fbb37cc4203be67e9a838c65ab"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "58ce2d5939e264461211133da3b64393539cbe5097117038a036605df2a88558"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "3b22dcd8cd361829146e951c7b81efe906c500c440367052d90985d8996b4ef1"
   end
 

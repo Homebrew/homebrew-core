@@ -4,6 +4,7 @@ class Capnp < Formula
   url "https://capnproto.org/capnproto-c++-1.1.0.tar.gz"
   sha256 "07167580e563f5e821e3b2af1c238c16ec7181612650c5901330fa9a0da50939"
   license "MIT"
+  revision 1
   head "https://github.com/capnproto/capnproto.git", branch: "master"
 
   livecheck do
@@ -12,13 +13,13 @@ class Capnp < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "d9c069b00a7d514a0479a638ad6d5c5a31e5f1c2a172e4820413b68ef630d838"
-    sha256 arm64_sonoma:  "8213fcde4b39138fe675fb404b2a3a56b0f3df5b1e58ec8a43c54d87241334d3"
-    sha256 arm64_ventura: "481f16c787189d3babc0d320c9dfd07f60b381ef35487e1b0df0ecda5cd9c8a4"
-    sha256 sonoma:        "8b29c4389427cf527999a97b16f508d4723c31a50686198d45603ba145f62f0d"
-    sha256 ventura:       "f28667f07053f9af41d35fb79628022a94fa579a4293b9cbbb80b47eede69152"
-    sha256 arm64_linux:   "79a54b697a15d3f887705d1e9ca175ceaa2d55db7e1fa7c9f6170db27fd2dc7a"
-    sha256 x86_64_linux:  "3c52c40705e01854de18acfafcc13fa70d3744cc43fbd10bb8da981b88966144"
+    sha256 arm64_sequoia: "da943b772529cbb7c2440eb94cd2f10f46c6c8581ff71955c91eb525f02ef77c"
+    sha256 arm64_sonoma:  "65f9b719ce1f34ad4ecf701c4746a8171373f6823cb49092240a72873a236e26"
+    sha256 arm64_ventura: "a189e48e415f6c948dc65316273d4e3ef61c382afc8e87b3e0f9ff39de1a756b"
+    sha256 sonoma:        "b10e583f8c1e19e55799c99976bdcf1a72525159d1dafbbf34ce81e0e23e27f6"
+    sha256 ventura:       "5b7db9d3f90102f106d9fb4c4f9a940d6c3f41ec88d37b43448935e98cd0d8c8"
+    sha256 arm64_linux:   "c1e25a52e5c2c575e99556aaf4f201e62ee6bda6f9c4ad126e6f92a1a4949a0d"
+    sha256 x86_64_linux:  "565ef7ec4280086a04817c3b66eacff9fb21bb572e83a29a9aba77535bce0d8b"
   end
 
   depends_on "cmake" => :build
@@ -31,6 +32,7 @@ class Capnp < Formula
   def install
     # Build shared library
     system "cmake", "-S", ".", "-B", "build_shared",
+                    "-DCMAKE_CXX_STANDARD=20", # compile coroutine support, remove with 2.0 update
                     "-DBUILD_SHARED_LIBS=ON",
                     "-DCMAKE_POSITION_INDEPENDENT_CODE=ON",
                     "-DCMAKE_INSTALL_RPATH=#{rpath}",
@@ -41,6 +43,7 @@ class Capnp < Formula
 
     # Build static library
     system "cmake", "-S", ".", "-B", "build_static",
+                    "-DCMAKE_CXX_STANDARD=20", # compile coroutine support, remove with 2.0 update
                     "-DBUILD_SHARED_LIBS=OFF",
                     "-DCMAKE_POSITION_INDEPENDENT_CODE=ON",
                     "-DCMAKE_CXX_FLAGS=-fPIC",

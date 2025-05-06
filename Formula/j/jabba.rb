@@ -15,6 +15,7 @@ class Jabba < Formula
     sha256 cellar: :any_skip_relocation, sonoma:         "beb282b92dc05fdbc6547d8abb9c1adcb4af6baf23182faa40272090b6fd1d29"
     sha256 cellar: :any_skip_relocation, ventura:        "030068b5dbb9d739d9020d94f038bdfa0263fc7b96d6c1986a93322d9ff6972d"
     sha256 cellar: :any_skip_relocation, monterey:       "bdd8ffb05d7136a668b135865e4ec2e3a3d76d04fd89352113ad94664c7de909"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "3245fe15e6e1f23e23ac3a4dcd94634399e0c0ed5898550a3784c11f2c0fcee8"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "7c3d858b92c8729670829b405334bcdec1a46e375133996510e0a318afa5f9dc"
   end
 

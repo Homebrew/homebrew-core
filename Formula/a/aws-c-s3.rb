@@ -1,17 +1,18 @@
 class AwsCS3 < Formula
   desc "C99 library implementation for communicating with the S3 service"
   homepage "https://github.com/awslabs/aws-c-s3"
-  url "https://github.com/awslabs/aws-c-s3/archive/refs/tags/v0.7.13.tar.gz"
-  sha256 "b8aeb26072995f2fd4764c788a09a4498002c3e506ef4c2797c559ab018ae0d3"
+  url "https://github.com/awslabs/aws-c-s3/archive/refs/tags/v0.7.16.tar.gz"
+  sha256 "04c7edffd0210f8b0fd20be843ad74a350cb2edb37b47f99131136ec24a20e59"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "d7195ae87ee6e26eb67fcf33ad76fe023fce167fb1151036af29622d95d3fa6a"
-    sha256 cellar: :any,                 arm64_sonoma:  "3b1aba2bb1217f38ee279ae2ab77d5a10f1f993c7c20a0201beaaba0d717b43c"
-    sha256 cellar: :any,                 arm64_ventura: "50cf4b8629f56a904e55df6ce373bc4e507d1b43bbfa2cf85eeb886deb56e819"
-    sha256 cellar: :any,                 sonoma:        "ebbdee082f2c056c52f1a12c93998ef7f1512171eb7b23ba54e3354b64ca9dbc"
-    sha256 cellar: :any,                 ventura:       "d1de6afe0129c64aeeaa329b92a435d079c04028b64260df2e1f22f77be7ce6a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dd5f53e9bc9f2e17ac05e91f254b010ac45bed015569ee019c624c107b94c4f0"
+    sha256 cellar: :any,                 arm64_sequoia: "01fd8aae5750f3f0c1d5231f21cca99b048833ce20311aba92c82b3856c3b60a"
+    sha256 cellar: :any,                 arm64_sonoma:  "aab944aa7282d9d452a6f1fc6879044ab7a2c9ab0f4bac732ecbc13ae1bbfd71"
+    sha256 cellar: :any,                 arm64_ventura: "dc873ef3d045f00dd418e74250bfb07bccf2a95bc69adfcd849dbe8b2a1298b5"
+    sha256 cellar: :any,                 sonoma:        "8369744f5afa8576e36d97387b7cd2f945c24425f9a191747d695f78e57dbe82"
+    sha256 cellar: :any,                 ventura:       "f0c3d1ae8fd8410c04b172ac1db9775f75fd217992c79abcbd859e817b7cd4c7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c93cca1e1e19fd806c639701dd133140a92b673f2fc3ee38ee2418e76f5474f2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2240f83079b922843c71c5e751439b50f563baa986f71e9cb83ff8952405c6fc"
   end
 
   depends_on "cmake" => :build

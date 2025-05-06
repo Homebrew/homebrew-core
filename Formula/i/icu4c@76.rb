@@ -7,14 +7,6 @@ class Icu4cAT76 < Formula
   license "ICU"
   revision 2
 
-  livecheck do
-    url :stable
-    regex(/^release[._-]v?(76(?:[.-]\d+)+)$/i)
-    strategy :git do |tags, regex|
-      tags.filter_map { |tag| tag[regex, 1]&.tr("-", ".") }
-    end
-  end
-
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "36740927f8bdb436e6a4fa4066ac13d32edaaf4125ba3f20ca12e18d7eecbd6f"
     sha256 cellar: :any,                 arm64_sonoma:  "75dc3baf41567d78c356904dd11c66d4a052dc81fc8f06b574d169a10f373b94"
@@ -26,6 +18,9 @@ class Icu4cAT76 < Formula
   end
 
   keg_only :versioned_formula
+
+  # Deprecated with ICU 77.1 release
+  deprecate! date: "2025-03-29", because: :versioned_formula
 
   def install
     args = %w[

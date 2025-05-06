@@ -1,20 +1,18 @@
 class ReginaRexx < Formula
   desc "Interpreter for Rexx"
   homepage "https://regina-rexx.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/regina-rexx/regina-rexx/3.9.6/regina-rexx-3.9.6.tar.gz"
-  sha256 "ed98c7a7f1d5a4148b02fef1b16aee4a6a6d8658d01a80cf5c503015ef01afa5"
+  url "https://downloads.sourceforge.net/project/regina-rexx/regina-rexx/3.9.7/regina-rexx-3.9.7.tar.gz"
+  sha256 "27f47cf54f67ca0df04603cce6567bc8f4682f605cfafec2d6de9d1ba96ac429"
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 arm64_sequoia:  "79accedd5ee5e49f1a5f480dcc126702d604ba5c018a4c15502ff31a772121ff"
-    sha256 arm64_sonoma:   "c66acc278833ab29504dea15de9e0982fe5e138e2d10452429721a2e69925c71"
-    sha256 arm64_ventura:  "0f6d600a409156119c45453232d6d020023cb9aee2c063bfa30841d835e72521"
-    sha256 arm64_monterey: "cf0cfee8e56e38403ac472aed56cde78850121b7b5adbd52ccc27387d763af5a"
-    sha256 sonoma:         "96b18ac7771715b1655532e50a80d53652270297ba98f543818392a9f55fe850"
-    sha256 ventura:        "dbace070503339b00048f858b5e84dda450c15954d1e58b7141a8ea47eec0f39"
-    sha256 monterey:       "2a03b38f8aadc69740e1fcf98425fa4e978f9549f65b7cbab31c64bca431be9b"
-    sha256 arm64_linux:    "4d5d6bb35d491404ddf15d08c3924c48f22cae84e7825f99910d3a19e230763e"
-    sha256 x86_64_linux:   "3b18e755fb8d0f75a5782a91ca4f36dd6be9cba68e24575af20dc7c271d99381"
+    sha256 arm64_sequoia: "d513d8b3dd19132b2b9f10b29ee3c7e7bebb9f1c970fdbe56e52ef061b25b4d6"
+    sha256 arm64_sonoma:  "f6305fc97baa0dbf21a313a8e02864d41b745c8c6f0cdb4a74d51e4f1e603f4e"
+    sha256 arm64_ventura: "e803318a602b95ecbc33d9275d1790702ebb7461595eee0c9e2cee36521c8696"
+    sha256 sonoma:        "9557066ae878d7582c732334bedd607ff987b668db841b27f0e32c9855153d46"
+    sha256 ventura:       "07b0fbb0fe1bbefda3db096cabf9e2db7b66cf59b57222520eb91e61972b590f"
+    sha256 arm64_linux:   "1df3d2120fdc1f7c016aaa5001ffbbbb288cfde30d72e8ee3c25bcce5de70e9e"
+    sha256 x86_64_linux:  "808eeafe4cb1da835f4374f9d316219b8e9dcef1c9d725b7fe446961e98403ca"
   end
 
   uses_from_macos "libxcrypt"

@@ -1,8 +1,8 @@
 class Poppler < Formula
   desc "PDF rendering library (based on the xpdf-3.0 code base)"
   homepage "https://poppler.freedesktop.org/"
-  url "https://poppler.freedesktop.org/poppler-25.03.0.tar.xz"
-  sha256 "97da4ff88517a6bbd729529f195f85c8d7a0c3bb4a3d57cb0c685cbb052fe837"
+  url "https://poppler.freedesktop.org/poppler-25.05.0.tar.xz"
+  sha256 "9b1627c5b76816ac5e4052a03f5b605ba40b45cf06b02cadd0479620b499ab38"
   license "GPL-2.0-only"
   head "https://gitlab.freedesktop.org/poppler/poppler.git", branch: "master"
 
@@ -12,13 +12,13 @@ class Poppler < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "b01bb7c9e277a3e201791fe79db584c2935eb484d195ddafd5657d9da8540834"
-    sha256 arm64_sonoma:  "f5c4b2bdb9c42267e5a5f6c6da763841189a9f5e419f35046c1882b570d22859"
-    sha256 arm64_ventura: "8bdb09637f614b4f7653bb289fd69316f7c2cc04353f3582022455d622ca8ed4"
-    sha256 sonoma:        "f2b20e757f893aeac67526e09c2023bfd87164f9345222c655b0c8023ee6fec5"
-    sha256 ventura:       "8913f80245f015b971370fea0c36e23cfbf85b2d4d556872f78b3dd4afcd82e9"
-    sha256 arm64_linux:   "1e2861e553c43f6560a54ca22f1416528a1f4289e032d8356a463e07eaa7b273"
-    sha256 x86_64_linux:  "bf716ebaafb88daa03149c1ac8e9b5e35d74f912e8de74ed2ce94c8ba0d7152e"
+    sha256 arm64_sequoia: "6c6526104230e40d95e50b7657eb567fc2a1fef0c117670a6f1b659aa86052bc"
+    sha256 arm64_sonoma:  "6056a3bc79fd3c1a85578ce8d26b570fec0592dc54bc10e02c979ac09efcb4c0"
+    sha256 arm64_ventura: "284d9f68f0ff027cce10f938193a750943a48b28a9fd561b50b58b1e72567e16"
+    sha256 sonoma:        "54ccf1788b4003b73d0c61449e1b67de5b395148336b10cfdbd1044e2991a544"
+    sha256 ventura:       "3f615edf94c296970f264ad47f8be82fc352d2bb6a0c2a89d6065a5b71ce02da"
+    sha256 arm64_linux:   "51582af2fe6a1e72fceae50f66b8f5719063cc052db83930685435c115c09d04"
+    sha256 x86_64_linux:  "a2852f19befc38347002466d6ee35d20088c0d3eef3055181712eff1ac1fcf09"
   end
 
   depends_on "cmake" => :build

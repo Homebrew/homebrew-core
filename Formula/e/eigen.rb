@@ -19,8 +19,6 @@ class Eigen < Formula
 
   depends_on "cmake" => :build
 
-  conflicts_with "freeling", because: "freeling ships its own copy of eigen"
-
   def install
     system "cmake", "-S", ".", "-B", "eigen-build", "-Dpkg_config_libdir=#{lib}", *std_cmake_args
     system "cmake", "--install", "eigen-build"

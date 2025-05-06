@@ -4,7 +4,7 @@ class Fuego < Formula
   url "https://svn.code.sf.net/p/fuego/code/trunk", revision: "1981"
   version "1.1"
   license any_of: ["GPL-3.0-only", "LGPL-3.0-only"]
-  revision 13
+  revision 14
   version_scheme 1
   head "https://svn.code.sf.net/p/fuego/code/trunk"
 
@@ -14,13 +14,13 @@ class Fuego < Formula
   end
 
   bottle do
-    sha256                               arm64_sequoia: "13e5216438f83d46c8ee563d374ce2d1779d939e3685ddfb8dbadc4e80973603"
-    sha256                               arm64_sonoma:  "6e990c366d2f9336021ece74d5e1631138494956102841e5e604a6b191c1f835"
-    sha256                               arm64_ventura: "e46f29878cd3da3bd37ea45ed0b059d6107614db694ab42cdae6aab8e9300fb7"
-    sha256                               sonoma:        "e386d89a79e0a445169ad537a6c0355470cc627eb8dff028e63683fdb87faf4c"
-    sha256                               ventura:       "17498a162c38903e19def645d699200834edd0257faaffa506f4270bc53628b0"
-    sha256                               arm64_linux:   "5014bfbd64a81d13298f1decf84d916fc2e8251aceca8978ba87783fd6ecc25f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a636b9b22b178bf38ad82e3c488b5decc87d7124c254e3f7a16cc37bfc642cf1"
+    sha256                               arm64_sequoia: "93d2ddf5cfa10cbe4c169d575233cbb5a70a19ce9f35c8d9564f2c73109d5d46"
+    sha256                               arm64_sonoma:  "3a5678963983758b8313726c5d0dfbff571034bef93268d66e9c6563587f2854"
+    sha256                               arm64_ventura: "89334b62eb393f5eac331ae536d28edca845cfd3f45db569f12f66c2db1e39f9"
+    sha256                               sonoma:        "577ff959269a98802a0ef45f93434f52e8190788f0735187b15522f43a00bfb8"
+    sha256                               ventura:       "4396270f30be34d07fc13b3295e37652aa33b078e6b85d68960995fc73bba5fe"
+    sha256                               arm64_linux:   "2419b0d365e205a121f81b071e9598436ad2090efe0b7168048a84a991b7bd81"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "085f90f29e048c4f70a995c2c17d9b972649f7375b15f29b5d1b94efeededae8"
   end
 
   depends_on "autoconf" => :build

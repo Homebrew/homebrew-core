@@ -11,13 +11,14 @@ class Newt < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "55c3fff9cb1b7ecc4d79bf8d424722951ae868232a23e0d052f1075b48f8bd90"
-    sha256 cellar: :any,                 arm64_sonoma:  "2ba4e9d33882026f010c930fbc36e47158e1ef840a5a4fff21543a9a8c3199ff"
-    sha256 cellar: :any,                 arm64_ventura: "9b26e7c2f6783d465fb10251fe5ace9ca123935fd8d62405b0cdafc09b239421"
-    sha256 cellar: :any,                 sonoma:        "0070ed88421803c94c0e9dc89b28893de88485c3d96d044a52371f1d3f1973f2"
-    sha256 cellar: :any,                 ventura:       "2e7bed21a287498a91d39efa5a5efc0ef17fd5f521640d761510118a8be03876"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6a9515fef0512123eebd0874312be1279113bd24efa49f5a703b71a9d820ce29"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fc5fc54cd40c63896f983126433758a86bc3435c39188ae3c3e45569759f2170"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "ea9696a197929f238a1b30a02fefcf818e3b858d8203822c941c9a687609c1fc"
+    sha256 cellar: :any,                 arm64_sonoma:  "5ca2f04f2776a526ef75eb1021bc62b913014533e6ba23aa7698f55ab04c2a6d"
+    sha256 cellar: :any,                 arm64_ventura: "effe0810ddce425071a2977345c49b817169da634debc65495804edf6f8aa479"
+    sha256 cellar: :any,                 sonoma:        "66fa052a1ffa07040d784b9673cd691378e3511567899b0912156023cf1540d4"
+    sha256 cellar: :any,                 ventura:       "4e2d05a8b49ac5145b7d2cc12912ee1cb4d95af69455556f3cb2c890c6b1f8ea"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "686377c6653387d4c4099330479420648f484a0846d817bf8be4f81b1261919f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7dd7eb05b5dce0dad968eceac5f75d67354cb1cf8f1421dafa2e6dbb1e81b2bb"
   end
 
   depends_on "popt"
@@ -33,8 +34,8 @@ class Newt < Formula
   end
 
   def install
-    if OS.mac?
-      inreplace "Makefile.in" do |s|
+    inreplace "Makefile.in" do |s|
+      if OS.mac?
         # name libraries correctly
         # https://bugzilla.redhat.com/show_bug.cgi?id=1192285
         s.gsub! "libnewt.$(SOEXT).$(SONAME)", "libnewt.$(SONAME).dylib"
@@ -44,10 +45,11 @@ class Newt < Formula
         # causes https://github.com/Homebrew/homebrew/issues/30252
         # https://bugzilla.redhat.com/show_bug.cgi?id=1192286
         s.gsub! "`$$pyconfig --ldflags --embed || $$pyconfig --ldflags`", '"-undefined dynamic_lookup"'
-
-        s.gsub! "`$$ver -c \"import sysconfig; print(sysconfig.get_path('platlib'))\"`",
-                "#{lib}/python3.13/site-packages"
       end
+
+      # install python modules in Cellar rather than global site-packages
+      s.gsub! "`$$ver -c \"import sysconfig; print(sysconfig.get_path('platlib'))\"`",
+              "#{lib}/python3.13/site-packages"
     end
 
     system "./configure", "--prefix=#{prefix}", "--without-tcl", "--with-python=#{python3}"

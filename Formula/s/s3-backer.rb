@@ -17,13 +17,18 @@ class S3Backer < Formula
   depends_on "libfuse@2"
   depends_on :linux # on macOS, requires closed-source macFUSE
   depends_on "openssl@3"
+  depends_on "zlib"
+  depends_on "zstd"
 
   def install
-    system "./configure", "--disable-silent-rules", *std_configure_args
+    system "./configure", "--disable-silent-rules",
+            *std_configure_args.reject { |s| s["--disable-debug"] }
     system "make", "install"
   end
 
   test do
-    system bin/"s3backer", "--version"
+    assert_match version.to_s, shell_output("#{bin}/s3backer --version 2>&1")
+
+    assert_match "no S3 bucket specified", shell_output("#{bin}/s3backer 2>&1", 1)
   end
 end

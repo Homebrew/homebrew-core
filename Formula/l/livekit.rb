@@ -20,6 +20,7 @@ class Livekit < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "17290cbafc8372a9bde48ff0bc2c25ad4b704ed23624fed7ee97cc9e5301ae6b"
     sha256 cellar: :any_skip_relocation, sonoma:        "d99f165e20d63341da6610299223e86b198e8f54cc119e543e68e101b37d0a3b"
     sha256 cellar: :any_skip_relocation, ventura:       "5cb46dad2113e234e365fdb6ee29c43064e6ba485dedadf81e68fdc7f7d7f9fc"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2f57e6e5585699ced285f226bd879f8c6846c6b3dc97299991537a423de62488"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "6b4945600f64b103b53f77d28bc891d482788efbccdc4db5eda55894a5cec3ab"
   end
 

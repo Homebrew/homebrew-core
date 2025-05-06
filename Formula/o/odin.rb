@@ -2,22 +2,24 @@ class Odin < Formula
   desc "Programming language with focus on simplicity, performance and modern systems"
   homepage "https://odin-lang.org/"
   url "https://github.com/odin-lang/Odin.git",
-      tag:      "dev-2025-03",
-      revision: "951bef4ade595e5fa7e8f0d0681e4e34ab1ca9d3"
-  version "2025-03"
+      tag:      "dev-2025-04",
+      revision: "d9f990d42e2a1bccf3e7be8ba02efa6504e9af9b"
+  version "2025-04"
   license "BSD-3-Clause"
   head "https://github.com/odin-lang/Odin.git", branch: "master"
 
   bottle do
-    sha256                               arm64_sequoia: "89b40c3b71830dcc8cb4ae44fba4b0f7ab2a7f760a262ec92768f946834b21f0"
-    sha256                               arm64_sonoma:  "32c2d47d4a8f0c3cdadee039feccca4a01f1bd098e561fcff4cbf3704060469c"
-    sha256                               arm64_ventura: "c37ca002090d2b6fc177870fc8c713aba96fbc1b8ed5aea6004d3ff92d26a647"
-    sha256 cellar: :any,                 sonoma:        "ed9e94ec79594275e983649728cd2f7369bd70b39f22bc4457d166d7a3dd7ec5"
-    sha256 cellar: :any,                 ventura:       "66f1867b718fa84fe25e5a216b00fbe3ab8f2096736e2a921be0e6ccddd16b59"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c6c50287712e2c32204fa12bd11abaa58e0c12d614ec70e86742bab9d40a4f04"
+    sha256                               arm64_sequoia: "7db718db30a1550b4a257bf38a8c4760444fe690e79823bec57ef72531e19453"
+    sha256                               arm64_sonoma:  "29b07670d0f84f2d3cbf5e44797246913f1408e25633c2842b18d13edc5aab2c"
+    sha256                               arm64_ventura: "a1c4e779f3e0f4eeef5c06c5190b576c451efbe7db4bf7e4048e05c4084d09eb"
+    sha256 cellar: :any,                 sonoma:        "a57b5002a4131c081be1d99ad99d319ac271406704b5e1a817c39da4bb6deb0d"
+    sha256 cellar: :any,                 ventura:       "9f92112d2995381ea558c36c2f93605c452d9cdba7d215a26ae648539c4a7c66"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "69c5405ef06d38cb1bd97a307fd108ba79b7bdb3cf2d31632726b6ad13bba14b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ff99f77d215a0919e14ee0c7241979b07e8f36f372e4ea99cee3042b787251f0"
   end
 
   depends_on "glfw"
+  depends_on "lld"
   depends_on "llvm"
   depends_on "raylib"
 
@@ -29,6 +31,7 @@ class Odin < Formula
   def install
     llvm = deps.map(&:to_formula).find { |f| f.name.match?(/^llvm(@\d+(\.\d+)*)?$/) }
     ENV["LLVM_CONFIG"] = (llvm.opt_bin/"llvm-config").to_s
+    ENV.append "LDFLAGS", "-Wl,-rpath,#{llvm.opt_lib}" if OS.linux?
 
     # Delete pre-compiled binaries which brew does not allow.
     buildpath.glob("vendor/**/*.{lib,dll,a,dylib,so,so.*}").map(&:unlink)

@@ -1,18 +1,18 @@
 class Libformfactor < Formula
   desc "C++ library for the efficient computation of scattering form factors"
   homepage "https://jugit.fz-juelich.de/mlz/libformfactor"
-  url "https://jugit.fz-juelich.de/mlz/libformfactor/-/archive/v0.3.1/libformfactor-v0.3.1.tar.bz2"
-  sha256 "fc629a3e843e920b250393b0072f6673e26783b0776e8f08523534875950f298"
+  url "https://jugit.fz-juelich.de/mlz/libformfactor/-/archive/v0.3.2/libformfactor-v0.3.2.tar.bz2"
+  sha256 "b5cdb57fcbde6b39e314d7a040466a863f25625f112057e6d369a9ea5049dc1f"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "0edd1114acfbb59c600a6806da9b9e7c063e0c0e2da3f2891d342a0520f65704"
-    sha256 cellar: :any,                 arm64_sonoma:  "d39dd6a853be907d4a51bd0df32b2e03b05874953f66d9506e6f72568d91a727"
-    sha256 cellar: :any,                 arm64_ventura: "5e2697c2750eb779fae247e8c036bd1ef4ea24dce6838e0cc8a4105a54b51add"
-    sha256 cellar: :any,                 sonoma:        "f667e9915fd8f41658cd766c48b2474cda8a3b63a167602bb3bcae1c82d5b458"
-    sha256 cellar: :any,                 ventura:       "50b9dcbf09251833119e43094d579b2e4f1afeb298e92acbd7567c5f3cd51b84"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f36e5a920f775af8b21c3bcc8f60060a67c619aaa3afef918f0260b1199b6673"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "990e748955e89c33aeced770f50ea1ea985ef4526b19472fcbeae6cac1299a16"
+    sha256 cellar: :any,                 arm64_sequoia: "fb97d04d8d908e6c984e441f0a24356b1ce5693041245d48cdf06ef77e7ce28a"
+    sha256 cellar: :any,                 arm64_sonoma:  "06e3adc03557c8b8111e7c23406cfcbac96b2a8037aa35d1e5f5c7525bf44bab"
+    sha256 cellar: :any,                 arm64_ventura: "20e9a3db52b38f4e8645bd4a3af04e05b1ffd06115e038bf66f7ae8cfb23d6be"
+    sha256 cellar: :any,                 sonoma:        "c6b8de734ab738d9d954932e1c717c530435806fe98ebe7b51914ba70751ab99"
+    sha256 cellar: :any,                 ventura:       "f77a4e09e46d58072891abb9a8a24ffb3b699b7468f0c51052f1b1e6c218ec52"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "fb7155f05e1a721fd97a1136e91a7c136d98e92f3ab363f02e8f12c627727766"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "60f902e487db84a1d1dd8a8c2e29c4ffcecd6a635d3c2404515ecefe7f1402c5"
   end
 
   depends_on "cmake" => :build

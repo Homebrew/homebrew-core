@@ -1,8 +1,8 @@
 class Grap < Formula
   desc "Language for typesetting graphs"
   homepage "https://www.lunabase.org/~faber/Vault/software/grap/"
-  url "https://www.lunabase.org/~faber/Vault/software/grap/grap-1.48.tar.gz"
-  sha256 "89a1b02b162fbb4ad9827ebfe97a2b31f3923bf06996381a9e5f806d350584b9"
+  url "https://www.lunabase.org/~faber/Vault/software/grap/grap-1.49.tar.gz"
+  sha256 "f0bc7f09641a5ec42f019da64b0b2420d95c223b91b3778ae73cb68acfdf4e23"
   license "BSD-2-Clause"
 
   livecheck do
@@ -11,15 +11,13 @@ class Grap < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia:  "b788c5d7bff50a5e551f67f8ff38481e42057d0123a02aae466ec38a2e01febe"
-    sha256 arm64_sonoma:   "aee0fb925a7b696bf99148451165a0ca69ecf103f8643ca99b268059b19fcec1"
-    sha256 arm64_ventura:  "cc5a9165ecc68e108f25c9137d1d0a97f77ab1bf98dae4e8c061ef784292655d"
-    sha256 arm64_monterey: "6be5b79b4875ae0cf474928cef30768193449bebf139672328ad5a81ce152e9e"
-    sha256 sonoma:         "86976bbb29c4d47f3bf59c5a0065b6dd9905ba24377862f58d94847743e1835d"
-    sha256 ventura:        "d6c281e795d7afc04167a13a6e903461c2dd319aa62240ee7361c82b3ab3c248"
-    sha256 monterey:       "73c7bde75b91da23b0e29acad4e10f39e5bc9347f2107f535698a8ac07e9fcdd"
-    sha256 arm64_linux:    "4218a6b4c1302548d193fb8d3c9575f55e4dd570a9cf405368dac3aaec30d373"
-    sha256 x86_64_linux:   "464831eb93ac8007e97497163960ba9c91b6c17dba21f2178ea26863080a8d1e"
+    sha256 arm64_sequoia: "7847dda0c19b96bed615ddf354dd379ce1954df1ee54f8fbd2c19c43152dbec8"
+    sha256 arm64_sonoma:  "dc6ca606b2d6dfa9844fa39f2b93369fd5a275e76177b491125f50af44108cde"
+    sha256 arm64_ventura: "eae74133e7bc44b9056719289af7c55c9e4445a3979431718a4286836ce3d679"
+    sha256 sonoma:        "de789bd8018007ae3c23bc17ecc0adf2e5f9d72f6ccf2898fb8e86ec6066cdce"
+    sha256 ventura:       "41074c98b53d60b6cdbed6f9a90335cc5b4e23e0353cc960e8f25b7a3f2e42e6"
+    sha256 arm64_linux:   "10db4a042d10701644180a0dcf58c55a60a8ca6003af590fa134bd67607ccacc"
+    sha256 x86_64_linux:  "523b5f43f7e49ca1ac6c35bb1ced2a1c1fdca3852a80568494a4de497696ab67"
   end
 
   uses_from_macos "bison" => :build

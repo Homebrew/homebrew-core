@@ -1,8 +1,8 @@
 class Mono < Formula
   desc "Cross platform, open source .NET development framework"
   homepage "https://www.mono-project.com/"
-  url "https://dl.winehq.org/mono/sources/mono/mono-6.14.0.tar.xz"
-  sha256 "6dd64b3900f5e5d5f55016d89ccf7635c8739cbb33cdb81c1c3b61622e91d510"
+  url "https://dl.winehq.org/mono/sources/mono/mono-6.14.1.tar.xz"
+  sha256 "3024c97c0bc8cbcd611c401d5f994528704108ceb31f31b28dea4783004d0820"
   license "Apache-2.0"
   head "https://gitlab.winehq.org/mono/mono.git", branch: "main"
 
@@ -12,13 +12,13 @@ class Mono < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "6dcc659b8e846bf23593467a53dba803b4bc9c6d6ba6c7a829189b4f88fce1ec"
-    sha256 arm64_sonoma:  "3cf381c1a2caf6b4fbdb2c8368581154b7963a7b983dee2cddb0d3ea2b3a308b"
-    sha256 arm64_ventura: "7bfdf436e04babe67322882e1b1d46b9a09a5cadcf5a112dd2aa48ed033e5405"
-    sha256 sonoma:        "e77d236bbebc33d8f87eada3fc1262fc371a3bfa0095941dd58189ffae156bf1"
-    sha256 ventura:       "c4f2bdfaefd9082b2d259cf1bc69d88bbc1a47533fee125db9ebd1ae858add27"
-    sha256 arm64_linux:   "dca4990020cc66aaf5c079e681b38d695b2bd48a7f1014fe369af4336b536e6f"
-    sha256 x86_64_linux:  "12bf3847064f958e41be8d6c2ee6b7853bbb9fc7d2c0526bc4dfcb494389eb77"
+    sha256 arm64_sequoia: "41128a9161b2880c1ff0da606a970a610255f46426ea970ac505c7f7cc77c817"
+    sha256 arm64_sonoma:  "2207ce97c51add48bdb178771a7e6496da62c099a8a740c976772a4f69ff2cd4"
+    sha256 arm64_ventura: "a98870bf0b93c31318f1edbf9b441c24ecb805ef32e0c2e92654b457dd27346a"
+    sha256 sonoma:        "3a024c3814922097b3b8b08d9a80b7ce81100e1da46b137857507eb0565bd63e"
+    sha256 ventura:       "90b8a3c1bb6caea2325c4fc796890c8d0256a8ffc9058699fdc6917538f187c3"
+    sha256 arm64_linux:   "acbf40ca28dfb5b841e215db980aea60894545ce8104864b78b3e447467dc70e"
+    sha256 x86_64_linux:  "e444b5cd477167205ef6e5fcb7ecddf09781ea3edc2ce53ea0879511fcc2055b"
   end
 
   depends_on "autoconf" => :build
@@ -34,7 +34,7 @@ class Mono < Formula
   uses_from_macos "zlib"
 
   on_macos do
-    if DevelopmentTools.clang_build_version == 1600
+    if DevelopmentTools.clang_build_version >= 1600
       depends_on "llvm" => :build
 
       fails_with :clang do
@@ -65,7 +65,7 @@ class Mono < Formula
   link_overwrite "lib/cli"
 
   def install
-    ENV.llvm_clang if DevelopmentTools.clang_build_version == 1600
+    ENV.llvm_clang if DevelopmentTools.clang_build_version >= 1600
 
     # Replace hardcoded /usr/share directory. Paths like /usr/share/.mono,
     # /usr/share/.isolatedstorage, and /usr/share/template are referenced in code.

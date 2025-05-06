@@ -1,21 +1,19 @@
 class Fdupes < Formula
   desc "Identify or delete duplicate files"
   homepage "https://github.com/adrianlopezroche/fdupes"
-  url "https://github.com/adrianlopezroche/fdupes/releases/download/v2.3.2/fdupes-2.3.2.tar.gz"
-  sha256 "808d8decbe7fa41cab407ae4b7c14bfc27b8cb62227540c3dcb6caf980592ac7"
+  url "https://github.com/adrianlopezroche/fdupes/releases/download/v2.4.0/fdupes-2.4.0.tar.gz"
+  sha256 "527b27a39d031dcbe1d29a220b3423228c28366c2412887eb72c25473d7b1736"
   license "MIT"
   version_scheme 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "4b36f431443bb485436062a901736cf32d5300ad54a727a8686344b98a0439c3"
-    sha256 cellar: :any,                 arm64_sonoma:   "3e61741f1fad31c0d9a30944d32a8097474bfb50b8cfcb892dea68252a9d5799"
-    sha256 cellar: :any,                 arm64_ventura:  "16f9f0943dd140f6c91acfae645b3d911aba4526613a130c21fa275f9be4ce06"
-    sha256 cellar: :any,                 arm64_monterey: "dea22eee9147298c50e3e41d930c869effc6a99b9a2e20d25b270e069ff58f41"
-    sha256 cellar: :any,                 sonoma:         "43a2ae20a78911bff4710314601bb5369bc6f615f46efb2d6013b518937eb926"
-    sha256 cellar: :any,                 ventura:        "933ac3a985ebbfcfc34402d6579cf8f1694b93395192e953a618173027f4fa58"
-    sha256 cellar: :any,                 monterey:       "13c75942d279704a1556dbc9f3bbe8052594a7c3cdd09fd6deae4e68f0342f3b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "45b001b59fcda4baccf7b5e26089bbef2f0368b40899152d6e9829c4e79d0ebb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "52b7e8485e9933e6d3154d07908b0f433d8dd3b611f6b078d7fdf077b18a6350"
+    sha256 cellar: :any,                 arm64_sequoia: "b54e8a104cb80b26e7f00a6dc9cf338184c1649f4f0b21184d80a14c929e4cd7"
+    sha256 cellar: :any,                 arm64_sonoma:  "119d17b7629a8a93cd3a8df4705dace6ff5aa48aa579335c39388ceb429876ab"
+    sha256 cellar: :any,                 arm64_ventura: "1aacfa4639b04ac0818c34e93f90ea27d4088b1ea565754f0df2d1d288be3b2d"
+    sha256 cellar: :any,                 sonoma:        "8c26915d4b44002eee78f4e086321179cc64df583861a2aeb8ad231d8871a431"
+    sha256 cellar: :any,                 ventura:       "284f3172305b2a50293c69bd760d65007611557e771a5980a6e5bef3da419a9f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f60e326d0f15119154f435b3b9108bfe5c84f1fe3b117fa540c970b69b5d264e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "01d6962c47feccfa20d92e25b33081ee93c121042e98898fdf73081551239cc9"
   end
 
   depends_on "pcre2"

@@ -17,6 +17,7 @@ class Hivemind < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "eaedb2b4739dc4e668ae9bf563750e1bb54fea1f16e800f6bf496226dc1daff0"
     sha256 cellar: :any_skip_relocation, big_sur:        "eaedb2b4739dc4e668ae9bf563750e1bb54fea1f16e800f6bf496226dc1daff0"
     sha256 cellar: :any_skip_relocation, catalina:       "eaedb2b4739dc4e668ae9bf563750e1bb54fea1f16e800f6bf496226dc1daff0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "59ded5a99d5aa39ca906ae688d9d57ef5407316329f662f2299ade76cec93e6b"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "c702f980c6b3a024c20bd50af65de981ab55b360e10013b22aa6797d834f7c85"
   end
 

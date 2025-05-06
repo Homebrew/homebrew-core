@@ -11,6 +11,7 @@ class LxiTools < Formula
     sha256 cellar: :any, arm64_ventura: "2d6da719bc67d07ecaa3c90eba4adfb710287f1a658dc6f430c7218ca47a5cfe"
     sha256 cellar: :any, sonoma:        "2072bc9693447a72bf3fa53f4b7fe44e1eaae6d86c7f451b51005a5613b20182"
     sha256 cellar: :any, ventura:       "1007e5d715fa7d3dd46a13354eb0403e21de7062914650da8ebd4b0d58011678"
+    sha256               arm64_linux:   "339c24ce23a508409b7ecf4a42e7581742e9b4a12be98dadc33efc7ce5a26070"
     sha256               x86_64_linux:  "ec4ad53dd83db6db87bae92862f289e2e098aabaf94a2c1f056562e9b8b6293f"
   end
 

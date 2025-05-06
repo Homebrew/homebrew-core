@@ -2,24 +2,23 @@ class Heartbeat < Formula
   desc "Lightweight Shipper for Uptime Monitoring"
   homepage "https://www.elastic.co/beats/heartbeat"
   url "https://github.com/elastic/beats.git",
-      tag:      "v8.17.3",
-      revision: "3747d0eb6c26247477dd62ca51535cff8d6338b7"
+      tag:      "v9.0.0",
+      revision: "42a721c925857c0d1f4160c977eb5f188e46d425"
   license "Apache-2.0"
   head "https://github.com/elastic/beats.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9db4a3bcbfd8feb7fe9456558189d2a88ee92780e3b460f7ae2acbdf05939eb3"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d1617dc568da085a407e4baee5b68fe4e652545b709a1d1ab537a80b3e7f3a8d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "6eddd259ec25374ba17af5b320f332b343ac9cd70e5d2cf6293a7919fcb07fbc"
-    sha256 cellar: :any_skip_relocation, sonoma:        "4e0325f6e7df0b602178819a6654d7840c1877b028d69bf32d7584cb5f1cb808"
-    sha256 cellar: :any_skip_relocation, ventura:       "60f51c08d5fc7e88245ce6482aae1d824c9d513f8b6840ea0ee36c7a551a9d2c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "56f41ae7656def174fc1cb2f8ee2d268b5f33507b6d0754eb5c8b6d9af34706b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "43b0778eab3196cfbe039f66b522bc7831b887d59e5536e98dd0c990513898f6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1abf68c3a2596e110557d26f623b753eaf4c3f8c3736deb3bf0e1bc1f58eea8d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "0888969d278cbf3cac8cb01e1693da7d9af05b76a7e3b49f0c268179f5aa568d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "295d0e949a5d7ee6a57507687dff5d0e313c9aae0af84d1c867e7b44ccd2880c"
+    sha256 cellar: :any_skip_relocation, ventura:       "916aa84a80b85a4efe79e2d15a92785b129f4601daf04751b57a6d66aef0d83d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "70879b561f8fdc0b4f747c628148380a3425d5d020111a6fcb1ce3c74fb7c1dd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "06ec9bfa1651e23eca306189c20658772875973bea28d12fd157e4be653125e1"
   end
 
   depends_on "go" => :build
   depends_on "mage" => :build
-
-  uses_from_macos "netcat" => :test
 
   def install
     # remove non open source files
@@ -86,10 +85,12 @@ class Heartbeat < Formula
       YAML
 
       pid = spawn bin/"heartbeat", "--path.config", testpath/"config", "--path.data", testpath/"data"
-      sleep 5
-      sleep 5 if OS.mac? && Hardware::CPU.intel?
-      assert_match "hello", pipe_output("nc -l #{port}", "goodbye\n", 0)
-      sleep 5
+      TCPServer.open(port) do |server|
+        session = server.accept
+        assert_equal "hello", session.gets.chomp
+        session.puts "goodbye"
+        session.close
+      end
 
       output = JSON.parse((testpath/"data/meta.json").read)
       assert_includes output, "first_start"

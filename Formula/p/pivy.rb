@@ -1,26 +1,17 @@
 class Pivy < Formula
   desc "Python bindings to coin3d"
   homepage "https://github.com/coin3d/pivy"
+  url "https://github.com/coin3d/pivy/archive/refs/tags/0.6.10.tar.gz"
+  sha256 "7b409816c9fad84cf94f93659281f9dd2501d285eb2fc609e9401a3d004ce723"
   license "ISC"
   head "https://github.com/coin3d/pivy.git", branch: "master"
 
-  stable do
-    url "https://github.com/coin3d/pivy/archive/refs/tags/0.6.9.tar.gz"
-    sha256 "c207f5ed73089b2281356da4a504c38faaab90900b95639c80772d9d25ba0bbc"
-
-    # Backport fix for Qt6 QtOpenGLWidgets
-    patch do
-      url "https://github.com/coin3d/pivy/commit/e81c5f32538891c740b90b5d2eb77fa6a9e1cb43.patch?full_index=1"
-      sha256 "c54b660f09957ad7673d29328fb1cbe77b9eb4b090f2371b6e16b4c333e679c4"
-    end
-  end
-
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:  "49312c6ceb49fc4e4141430afe844ed52fb2f828445497fb74a695dd1c7c23dc"
-    sha256 cellar: :any,                 arm64_ventura: "37951e1aeb75c56bcb13e495dc15a70b7658c75bdc2ae782cdec2adf5b4180e4"
-    sha256 cellar: :any,                 sonoma:        "4aef1788e33fd3bed8094c79592e374525d579068517e7e4a6c66f4f36669343"
-    sha256 cellar: :any,                 ventura:       "73554f28642f20a5c770d7dd948f6cc44c140f0a0ce142f4754de42621d02f5b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "773ce675502fc88dd841d625e99b748d03b7519a962a3deb7239d456810491cf"
+    sha256 cellar: :any,                 arm64_sonoma:  "8b87dac25665d8517854cb34f96c4e9237495781555a4eb8c8de59a1c6476037"
+    sha256 cellar: :any,                 arm64_ventura: "0378b486fef297474f82175e844633a21a00772f523acc0f84ccf97e368ce143"
+    sha256 cellar: :any,                 sonoma:        "d9f23884af3e774e654ee22911feeed221e02f3d829f94d8f95582fb2997b9b1"
+    sha256 cellar: :any,                 ventura:       "73bc75f176e815f882879135054ac7e018482292250f8101a9206b12156bb7f4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f0f07d2aca7c37e78d292ef734d91d07bd5fad4adf46359a0a86123fd82fabbd"
   end
 
   depends_on "cmake" => :build

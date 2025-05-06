@@ -19,6 +19,8 @@ class Driftwood < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "f23e0f3345fb5ee170a3572e9c02243b531c471ff5691ca9e6121454f93594b2"
   end
 
+  deprecate! date: "2025-04-27", because: :repo_archived, replacement_formula: "trufflehog"
+
   depends_on "go" => :build
 
   def install

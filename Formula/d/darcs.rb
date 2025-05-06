@@ -11,6 +11,7 @@ class Darcs < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "22caed7f5b40475b198b0474c056c477f8d6b6cbbb980b14a813829d362d9261"
     sha256 cellar: :any_skip_relocation, sonoma:        "d73fa876ba56773601ad0aba9d459a14bd08f9678a1c1ef412b099b2f10bb11f"
     sha256 cellar: :any_skip_relocation, ventura:       "22ad293dec66d2b02d524e7f2b2f7a41d667af225130a832d26023cad73088a0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7aa0e49c8fb1a0af523aba68346a85b97441475d0e415c7d4d22487ef96adf88"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "caaab41754cacb2f6265623542eae257e1c2dfd5ef0d585632ca1dcad59cfc91"
   end
 

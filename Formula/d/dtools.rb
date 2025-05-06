@@ -1,19 +1,20 @@
 class Dtools < Formula
   desc "D programming language tools"
   homepage "https://dlang.org/"
-  url "https://github.com/dlang/tools/archive/refs/tags/v2.110.0.tar.gz"
-  sha256 "2f1c1b29da3317321f0cf0776bdc39a682e4ef8b8bb5a919899c9a2d26e9d211"
+  url "https://github.com/dlang/tools/archive/refs/tags/v2.111.0.tar.gz"
+  sha256 "4c391349e929f73b7ffe97da7b98fbbdb04effda3e6389d9d46dc9d9938ece3b"
   license "BSL-1.0"
+  revision 1
   head "https://github.com/dlang/tools.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c583c2f992c3c332b760340d2baf4a6aa6cb004eddb6b2da61960b7a48fc7fdc"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a5350f732bacaad93af5c18147b7b21cef6ca34a8641193ea2fecd32d4134195"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "dab53f360a3dfa2047bb2f186ed9f41a35dbfa4efe6f871d1619676fdb765c9f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c695c100c2274bd1303bb1e1fd8664689a16a62bce54c9deed538de8263df05d"
-    sha256 cellar: :any_skip_relocation, ventura:       "d32eed31d7f7e167a636ba88473a66d8121e128a2024d2e2c009e58ba3ce94cd"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6834b4dfd0879647dd07df03720393befd73aac4c617025415362d25cea600d7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7313add8db2da9fc4d1d08fef4bc9039a79ac54cb6f0fe83c7191a0787d56aeb"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e0f6645e51b5da22628b3b64b43acafc4ac335b98afbe8cbee3d10ef88fdaec9"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2e3f2aed17e75ef0632e0ec36b9dfb3db9566af400d3e2ec027aa89bf1699234"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "4ffb209a7cc7a4e05c90771030c6c91941be35dd9884fe58f9dd14ef82c5fce1"
+    sha256 cellar: :any_skip_relocation, sonoma:        "6b01da4e8af6781c0a9333fc0e27fbcd2b758e0e9a99fc49a6a3123f0a1725d2"
+    sha256 cellar: :any_skip_relocation, ventura:       "7fbe7a851ed67642ac50e8a196ac216278eb7528f4c150360c9d4a219be3d30f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9d8fd7789bb36d3a8577f925224336d7bc6cd2b891b9065a81d91b6e97b7b73b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6eb2ded59c5d481a4ef6d450a65ac15bdf527b9d56ab89bc293fbd68f9c6a180"
   end
 
   depends_on "dub" => :build

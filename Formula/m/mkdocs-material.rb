@@ -2,18 +2,18 @@ class MkdocsMaterial < Formula
   include Language::Python::Virtualenv
   desc "Material Design theme for MkDocs"
   homepage "https://squidfunk.github.io/mkdocs-material/"
-  url "https://files.pythonhosted.org/packages/11/cb/6dd3b6a7925429c0229738098ee874dbf7fa02db55558adb2c5bf86077b2/mkdocs_material-9.6.9.tar.gz"
-  sha256 "a4872139715a1f27b2aa3f3dc31a9794b7bbf36333c0ba4607cf04786c94f89c"
+  url "https://files.pythonhosted.org/packages/2d/ef/25fc10dbbb8faeeeb10ed7734d84a347cd2ec5d7200733f11c5553c02608/mkdocs_material-9.6.12.tar.gz"
+  sha256 "add6a6337b29f9ea7912cb1efc661de2c369060b040eb5119855d794ea85b473"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "51cbf6a91ab161623d50d33cb88e592703f1fce8191117d573920f11dea62b80"
-    sha256 cellar: :any,                 arm64_sonoma:  "7f9d0efe639505b87dc0b575acbf30421579f62e1edebb13d5327cb8e05f86ae"
-    sha256 cellar: :any,                 arm64_ventura: "ca2e5b80ff4b57130629af84a80a42eccec02ca362be073ad7a77c7d9761e2e6"
-    sha256 cellar: :any,                 sonoma:        "bc15147a1d17e1100a8e29b65d20e4fbcc13726ea69229beefe449c5919c14a7"
-    sha256 cellar: :any,                 ventura:       "d44a8b33cd6a101141414fe65d7376ee9a8517a7026b374a962a784707193e21"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f2bfaf7968c34fa88e3853a131dd6c5568416338e6a156fbeabdb349ce8f448b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "702eca6f1d447032d482ce6b786f796fa2c5fe8da8c9db5e342b69b0498a56cd"
+    sha256 cellar: :any,                 arm64_sequoia: "2e3e87d5368052333e0fc82d6c63a52d5f5bc350e64fe11b505797c9eeef5506"
+    sha256 cellar: :any,                 arm64_sonoma:  "d12c0dc527439a0a9fbc4010cdcbbeb52ae8a58d38b0b893c2d1316b7ec2afc3"
+    sha256 cellar: :any,                 arm64_ventura: "ee79aa6d72d95e233fe215d07552f318a3428a2d5b0d1a7cafbbee77d2bf6538"
+    sha256 cellar: :any,                 sonoma:        "eb43cffcee9ec4345dd48e64e3bff90e8a08fdae84a5d2188010652503d72beb"
+    sha256 cellar: :any,                 ventura:       "004b32d533a1ba9043f1d2c3b6573d636dfe5358a9327358daae97af9966df45"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "003cc82c4ab728eefe3e6573983a0a8f4daf84188e3992957b57b12e9f2256d6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "25f0db9716e9bc15aa3ba89a8ce2d121393ad9d62aee332533862980d89278b6"
   end
 
   depends_on "libyaml"
@@ -67,8 +67,8 @@ class MkdocsMaterial < Formula
   end
 
   resource "markdown" do
-    url "https://files.pythonhosted.org/packages/54/28/3af612670f82f4c056911fbbbb42760255801b3068c48de792d354ff4472/markdown-3.7.tar.gz"
-    sha256 "2ae2471477cfd02dbbf038d5d9bc226d40def84b4fe2986e49b59b6b472bbed2"
+    url "https://files.pythonhosted.org/packages/2f/15/222b423b0b88689c266d9eac4e61396fe2cc53464459d6a37618ac863b24/markdown-3.8.tar.gz"
+    sha256 "7df81e63f0df5c4b24b7d156eb81e4690595239b7d70937d0409f1b0de319c6f"
   end
 
   resource "markupsafe" do
@@ -112,8 +112,8 @@ class MkdocsMaterial < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/13/fc/128cc9cb8f03208bdbf93d3aa862e16d376844a14f9a0ce5cf4507372de4/platformdirs-4.3.6.tar.gz"
-    sha256 "357fb2acbc885b0419afd3ce3ed34564c13c9b95c89360cd9563f73aa5e2b907"
+    url "https://files.pythonhosted.org/packages/b6/2d/7d512a3913d60623e7eb945c6d1b4f0bddf1d0b7ada5225274c87e5b53d1/platformdirs-4.3.7.tar.gz"
+    sha256 "eb437d586b6a0986388f0d6f74aa0cde27b48d0e3d66843640bfb6bdcdb6e351"
   end
 
   resource "pygments" do
@@ -152,8 +152,8 @@ class MkdocsMaterial < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/aa/63/e53da845320b757bf29ef6a9062f5c669fe997973f966045cb019c3f4b66/urllib3-2.3.0.tar.gz"
-    sha256 "f8c5449b3cf0861679ce7e0503c7b44b5ec981bec0d1d3795a07f1ba96f0204d"
+    url "https://files.pythonhosted.org/packages/8a/78/16493d9c386d8e60e442a35feac5e00f0913c0f4b7c217c11e8ec2ff53e0/urllib3-2.4.0.tar.gz"
+    sha256 "414bc6535b787febd7567804cc015fee39daab8ad86268f1310a9250697de466"
   end
 
   resource "watchdog" do

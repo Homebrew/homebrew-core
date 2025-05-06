@@ -1,8 +1,8 @@
 class Libabigail < Formula
   desc "ABI Generic Analysis and Instrumentation Library"
   homepage "https://sourceware.org/libabigail/"
-  url "https://mirrors.kernel.org/sourceware/libabigail/libabigail-2.6.tar.xz"
-  sha256 "3bfa8ba753ff27722baa7f73b15a475f8a4599355e47439108423d1912bb5469"
+  url "https://mirrors.kernel.org/sourceware/libabigail/libabigail-2.7.tar.xz"
+  sha256 "467c5b91b655fe82c54f92b35a7c2155e0dd9f5f052a4e4e21caf245e092c2ca"
   license "Apache-2.0" => { with: "LLVM-exception" }
 
   livecheck do
@@ -11,8 +11,8 @@ class Libabigail < Formula
   end
 
   bottle do
-    sha256 arm64_linux:  "ce24e91aa88f6787d8cbe126381cd8972e679328b7cbdaf64d9b57d80dd6ac0b"
-    sha256 x86_64_linux: "39bfad0c9e5cbb11821b3ee99ae6e599d84a20343eb8ae49294c88d2514da12a"
+    sha256 arm64_linux:  "7de8d14d00c8437fa48029c8b8ba3a4cdd7e9d7730d30f130b57d98f1ba77f76"
+    sha256 x86_64_linux: "c285f7fac9ec608cbde9846f968103f6c8df6a94c786399ee2c66e270d1fb631"
   end
 
   head do
@@ -28,6 +28,7 @@ class Libabigail < Formula
   depends_on "libxml2"
   depends_on :linux
   depends_on "xxhash"
+  depends_on "xz"
 
   def install
     system "autoreconf", "--force", "--install", "--verbose" if build.head?

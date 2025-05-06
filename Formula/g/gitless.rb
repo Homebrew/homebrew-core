@@ -15,6 +15,7 @@ class Gitless < Formula
     sha256 cellar: :any,                 arm64_ventura: "e8fbf4d8f756335b3561196b5719f8423976b856eccd9947e9516dd0aaa242f6"
     sha256 cellar: :any,                 sonoma:        "4ec5cff232a3f893b45b29764e50c274ef294acae3ae67e39a8794f3a1f87e1e"
     sha256 cellar: :any,                 ventura:       "42dbacc0c5716aaf7a7670bbbb3aaf56b1dfd35322e79ebe354da998f70d663f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c12fac140e28d8dde8bd59cca0f7c6297e229e5c4a4b31bdde816ec53e0411f9"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "622c76bbb49845b2917a374693a0f6d0043fdb6f2d83b29e8a79bd2678ab90b5"
   end
 

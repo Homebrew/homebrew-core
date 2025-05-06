@@ -21,6 +21,7 @@ class XmlCoreutils < Formula
     sha256 cellar: :any,                 high_sierra:    "83023841339cb02ad53de64e30aa0c491e4acd4ae4602bd84847aca42ac02e00"
     sha256 cellar: :any,                 sierra:         "5f7519c9be40f731b0dca6238b3bedf4070f0663fc47ab8e4b0eff02d187718c"
     sha256 cellar: :any,                 el_capitan:     "19bdcacd49657e78f82fd7743a50266ff4945e644b069ac2c39a8787a57911a5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "2af316536161edd2476615f846b91b467e30f0bc5abcec74f0f71516b3c79202"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "e62450955a07231a3334f3972e3ea93e622ca55c54ca3e0eae04db5df6d8fc69"
   end
 
@@ -30,7 +31,11 @@ class XmlCoreutils < Formula
   uses_from_macos "ncurses"
 
   def install
-    system "./configure", *std_configure_args
+    args = []
+    # Help old config scripts identify arm64 linux
+    args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+
+    system "./configure", *args, *std_configure_args
     system "make", "install"
   end
 

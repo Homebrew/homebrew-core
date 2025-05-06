@@ -3,20 +3,18 @@ class Notifiers < Formula
 
   desc "Easy way to send notifications"
   homepage "https://pypi.org/project/notifiers/"
-  url "https://files.pythonhosted.org/packages/54/fc/aa5de032cc8d9ee41ceba7bbea98e2ed7090d7d95465dfe0179eb937146f/notifiers-1.3.3.tar.gz"
-  sha256 "9fd8d95ab1ebcd3852423755aa90cbb0f72a805ca77af0d8c9ad7af445f58399"
+  url "https://files.pythonhosted.org/packages/51/c2/1e36b5774b3ccbcb5f63133bf3fade097cd58fbdd9947248ab43777f705a/notifiers-1.3.5.tar.gz"
+  sha256 "bae24057f4dcb85563712c57bb1439dd96aeb0794df6697dff77c17efbc4dd43"
   license "MIT"
-  revision 6
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_sequoia: "300a45400582879b760961cd9f525b80ed441b32c521d0906507908e3048aa68"
-    sha256 cellar: :any,                 arm64_sonoma:  "96e52beab3b7f4f970ab35b0503960e5dfdcebafa3328e8d0e59cdf994d6c947"
-    sha256 cellar: :any,                 arm64_ventura: "457f3a729ded33ed9beb948a57adee6fbd7602fa969d415bbf526455ea1bf043"
-    sha256 cellar: :any,                 sonoma:        "c96537d4fb246ed71c41bfe6c61fd5f9a29eae517fb368b11a2c9313c2fbcf36"
-    sha256 cellar: :any,                 ventura:       "2024eaac6704991a447f683b6df66129055273e49d9edcfeb4c80a3aeef2bc96"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5af85ebe0bad3d18355ae10cabab6648750552c422f58f6d385cda62a7804dfc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "87b54598ebff943a76750851764c55942cc308c3fc1f0f7d6a672d97465ddd08"
+    sha256 cellar: :any,                 arm64_sequoia: "11ebab39c6d85a806a6e9fc9f1b72adf92f8993783f8a75312bb1a5794e83c5f"
+    sha256 cellar: :any,                 arm64_sonoma:  "c615419b970c4dcfd8728efe90253909e8211054cb92d8980afd9b44462df506"
+    sha256 cellar: :any,                 arm64_ventura: "9e9f4b2e767226a0817e045f475f589c9bdda8fc34538cd37ef25b6d49012034"
+    sha256 cellar: :any,                 sonoma:        "c23986b48ab53a2b654b61c02dde1ef9f107f3155f1625c25e3f6e71b36a2bc5"
+    sha256 cellar: :any,                 ventura:       "cba2fdef7b1f6da1ba6584d6d4656c25222aacdb00a2cf51e77d2bd78a1aee8b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "90abd812f4f5d7d295cb4187b26842221edc9f0fa8a124e1eb0e5acf85da08db"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "88ae7c98d8435e74025269957c336a44b975dbffe26eba29e1b192bb55cb9807"
   end
 
   depends_on "rust" => :build # for rpds-py
@@ -24,18 +22,18 @@ class Notifiers < Formula
   depends_on "python@3.13"
 
   resource "attrs" do
-    url "https://files.pythonhosted.org/packages/fc/0f/aafca9af9315aee06a89ffde799a10a582fe8de76c563ee80bbcdc08b3fb/attrs-24.2.0.tar.gz"
-    sha256 "5cfb1b9148b5b086569baec03f20d7b6bf3bcacc9a42bebf87ffaaca362f6346"
+    url "https://files.pythonhosted.org/packages/5a/b0/1367933a8532ee6ff8d63537de4f1177af4bff9f3e829baf7331f595bb24/attrs-25.3.0.tar.gz"
+    sha256 "75d7cefc7fb576747b2c81b4442d4d4a1ce0900973527c011d1030fd3bf4af1b"
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/f2/4f/e1808dc01273379acc506d18f1504eb2d299bd4131743b9fc54d7be4df1e/charset_normalizer-3.4.0.tar.gz"
-    sha256 "223217c3d4f82c3ac5e29032b3f1c2eb0fb591b72161f86d93f5719079dae93e"
+    url "https://files.pythonhosted.org/packages/16/b0/572805e227f01586461c80e0fd25d65a2115599cc9dad142fee4b747c357/charset_normalizer-3.4.1.tar.gz"
+    sha256 "44251f18cd68a75b56585dd00dae26183e102cd5e0f9f1466e6df5da2ed64ea3"
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/96/d3/f04c7bfcf5c1862a2a5b845c6b2b360488cf47af55dfa79c98f6a6bf98b5/click-8.1.7.tar.gz"
-    sha256 "ca9853ad459e787e2192211578cc907e7594e294c7ccc834310722b41b9ca6de"
+    url "https://files.pythonhosted.org/packages/b9/2e/0090cbf739cee7d23781ad4b89a9894a41538e4fcf4c31dcdd705b78eb8b/click-8.1.8.tar.gz"
+    sha256 "ed53c9d8990d83c2a27deae68e4ee337473f6330c040a31d4225c9574d16096a"
   end
 
   resource "idna" do
@@ -54,8 +52,8 @@ class Notifiers < Formula
   end
 
   resource "referencing" do
-    url "https://files.pythonhosted.org/packages/99/5b/73ca1f8e72fff6fa52119dbd185f73a907b1989428917b24cff660129b6d/referencing-0.35.1.tar.gz"
-    sha256 "25b42124a6c8b632a425174f24087783efb348a6f1e0008e63cd4466fedf703c"
+    url "https://files.pythonhosted.org/packages/2f/db/98b5c277be99dd18bfd91dd04e1b759cad18d1a338188c936e92f921c7e2/referencing-0.36.2.tar.gz"
+    sha256 "df2e89862cd09deabbdba16944cc3f10feb6b3e6f18e902f7cc25609a34775aa"
   end
 
   resource "requests" do
@@ -64,17 +62,14 @@ class Notifiers < Formula
   end
 
   resource "rpds-py" do
-    url "https://files.pythonhosted.org/packages/55/64/b693f262791b818880d17268f3f8181ef799b0d187f6f731b1772e05a29a/rpds_py-0.20.0.tar.gz"
-    sha256 "d72a210824facfdaf8768cf2d7ca25a042c30320b3020de2fa04640920d4e121"
+    url "https://files.pythonhosted.org/packages/0b/b3/52b213298a0ba7097c7ea96bee95e1947aa84cc816d48cebb539770cdf41/rpds_py-0.24.0.tar.gz"
+    sha256 "772cc1b2cd963e7e17e6cc55fe0371fb9c704d63e44cacec7b9b7f523b78919e"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/ed/63/22ba4ebfe7430b76388e7cd448d5478814d3032121827c12a2cc287e2260/urllib3-2.2.3.tar.gz"
-    sha256 "e7d814a81dad81e6caf2ec9fdedb284ecc9c73076b62654547cc64ccdcae26e9"
+    url "https://files.pythonhosted.org/packages/aa/63/e53da845320b757bf29ef6a9062f5c669fe997973f966045cb019c3f4b66/urllib3-2.3.0.tar.gz"
+    sha256 "f8c5449b3cf0861679ce7e0503c7b44b5ec981bec0d1d3795a07f1ba96f0204d"
   end
-
-  # Drop setuptools dep: https://github.com/liiight/notifiers/pull/470
-  patch :DATA
 
   def install
     virtualenv_install_with_resources
@@ -86,24 +81,3 @@ class Notifiers < Formula
     assert_match "notifiers", shell_output("#{bin}/notifiers --help")
   end
 end
-
-__END__
-diff --git a/notifiers/utils/helpers.py b/notifiers/utils/helpers.py
-index e351956..9981a0e 100644
---- a/notifiers/utils/helpers.py
-+++ b/notifiers/utils/helpers.py
-@@ -1,6 +1,5 @@
- import logging
- import os
--from distutils.util import strtobool
- from pathlib import Path
-
- log = logging.getLogger("notifiers")
-@@ -13,7 +12,7 @@ def text_to_bool(value: str) -> bool:
-     :param value: Value to check
-     """
-     try:
--        return bool(strtobool(value))
-+        return value.lower() in {"y", "yes", "t", "true", "on", "1"}
-     except (ValueError, AttributeError):
-         return value is not None

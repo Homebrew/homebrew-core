@@ -13,6 +13,7 @@ class GnomeRecipes < Formula
     sha256 arm64_ventura: "f6034dd729fdcb7445b1e41d873d4bf19fad4e8ecd756bef137981ae3337e15c"
     sha256 sonoma:        "2adb5d5d5318f31ec63b8b76e3d220a2762dcb7ee47e66e64f97099ec10509a0"
     sha256 ventura:       "80caac371964f0b21498fdc59ffd60b82896b2e8bbb640acb049ec200fd01c39"
+    sha256 arm64_linux:   "baf6811bce172b08ab17bf70be6d20075df33db91cd8a0b3476529d590f120a9"
     sha256 x86_64_linux:  "a1dae0cbe0ba46499542cd211ce00a349115b3493b918585813d648509300274"
   end
 

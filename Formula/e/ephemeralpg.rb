@@ -16,6 +16,7 @@ class Ephemeralpg < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "a6eb787bc5394b64ccfe181e402594d0d2b5576d296eed60383027014e41bf3f"
     sha256 cellar: :any_skip_relocation, sonoma:        "a6b7fcbabd02a03bab68f74d523936a34a7461e69e499022985316b6bb16cbbe"
     sha256 cellar: :any_skip_relocation, ventura:       "8399f66362e20f4a34d3e69163eef9ef4d11d08bf21f48151f281beee1eaf816"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5b88cad663f4d20303d0b4e0f5f4fb62a78a7cbfaab950925eb1536f33564519"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "05c7d1aabdd8c6703627c23d63e5ef52e611046fab89e8a81030623b58f82095"
   end
 

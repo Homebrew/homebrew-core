@@ -17,6 +17,7 @@ class SevenKingdoms < Formula
     sha256 arm64_ventura: "5cfe334ad3d1727e92bc7c5cd43da8bd89f64b33212ee903bd3bb88946ae6b6b"
     sha256 sonoma:        "190571e9d1291c690b91c25523469fb56448e458d9271b5927b5f6298a3901be"
     sha256 ventura:       "0e4c24744884c459603a2fef964656acd72f417d20eb66582c58ad2c73b87cd7"
+    sha256 arm64_linux:   "fb3a76000690803f166042bc610804309c8cef5873a8e45005c4c84a529343c9"
     sha256 x86_64_linux:  "2309306fa67efdf1de1e05fd01bb50448f9f1ca9b6688ed9ede4cd826fca877f"
   end
 
@@ -51,7 +52,10 @@ class SevenKingdoms < Formula
   end
 
   def install
-    system "./configure", "--disable-silent-rules", *std_configure_args
+    args = ["--disable-silent-rules"]
+    args += ["--disable-curl", "--disable-enet", "--disable-multiplayer"] unless Hardware::CPU.intel?
+
+    system "./configure", *args, *std_configure_args
     system "make"
     system "make", "install"
   end

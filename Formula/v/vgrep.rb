@@ -26,15 +26,16 @@ class Vgrep < Formula
     sha256 cellar: :any_skip_relocation, sonoma:         "7a2adca7bf767eb1385fb51fbbbab3ec42b048ec1d4e839fea1f8c9248a07a9f"
     sha256 cellar: :any_skip_relocation, ventura:        "98268b0618e3050e2082400d38ff4ae366804775eca808f01984036611e4f3d5"
     sha256 cellar: :any_skip_relocation, monterey:       "ae3ceae715d522bfedb2ddb04f15e80b4049b8e55d4c08290ab4fa6272c0ab96"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "c7051f4493387b915de7035c592383bc6795aa91af876dc2873994b9c879bae0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d5cf84272a6a20e77a2c2e198bdaa103204b0b104a00b6fa7f16a026455b7225"
   end
 
   depends_on "go" => :build
   depends_on "go-md2man" => :build
 
   def install
-    system "make", "release"
-    mkdir bin
-    system "make", "install", "PREFIX=#{prefix}"
+    system "go", "build", *std_go_args(ldflags: "-s -w -X main.version=#{version}")
+    system "make", "install-docs", "PREFIX=#{prefix}"
   end
 
   test do

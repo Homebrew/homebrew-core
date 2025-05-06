@@ -16,6 +16,7 @@ class Cmockery < Formula
     sha256 cellar: :any,                 sonoma:         "4131cb44e21e3d538d40dfe05a22e74ecb606f6d62824033a16f8c16500425a7"
     sha256 cellar: :any,                 ventura:        "794e2b0c95e15b2afdfb0c4d2a2cd958a44010ca8af935106859f12d12d2c505"
     sha256 cellar: :any,                 monterey:       "cfab88dcbb19db85f57560657a7658e4eb6353ca0ca104ffa27b78c4bf877b95"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "bc649e007cdf15b3e39dd4c06b20e7910c4732b09e67a13c18c567fad0f9e444"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "55dae4a89d4badbbe3628527d765ac03feb8a344607af7ddf7b7d6396cf78a29"
   end
 
@@ -40,11 +41,15 @@ class Cmockery < Formula
     # workaround for Xcode 14.3
     ENV.append "CFLAGS", "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
 
+    args = []
+    # Help old config scripts identify arm64 linux
+    args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+
     # Fix -flat_namespace being used on Big Sur and later.
     # Need to regenerate configure since existing patches don't apply.
     system "autoreconf", "--force", "--install", "--verbose" if OS.mac?
 
-    system "./configure", "--prefix=#{prefix}"
+    system "./configure", *args, *std_configure_args
     system "make", "install"
   end
 end

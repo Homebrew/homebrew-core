@@ -3,8 +3,8 @@ class Osc < Formula
 
   desc "Command-line interface to work with an Open Build Service"
   homepage "https://openbuildservice.org"
-  url "https://github.com/openSUSE/osc/archive/refs/tags/1.14.0.tar.gz"
-  sha256 "0f2e7dad5d4377530cd5839a6563889302048316ae403acb1a1e05c75aaa1486"
+  url "https://github.com/openSUSE/osc/archive/refs/tags/1.15.1.tar.gz"
+  sha256 "730f8729fb7d29425d852c99d0359e94c5ba77575be9fe0521ff39b219910d67"
   license "GPL-2.0-or-later"
   head "https://github.com/openSUSE/osc.git", branch: "master"
 
@@ -14,13 +14,13 @@ class Osc < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2fd52b44b0118e525e96fdd0315062f70e2efb4a7bbc3adfb1d5724f4dad3077"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2fd52b44b0118e525e96fdd0315062f70e2efb4a7bbc3adfb1d5724f4dad3077"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "2fd52b44b0118e525e96fdd0315062f70e2efb4a7bbc3adfb1d5724f4dad3077"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e720725830ea34a621e6bbbf2f5c64ef86b36687735b587f5cf44079609a85a9"
-    sha256 cellar: :any_skip_relocation, ventura:       "e720725830ea34a621e6bbbf2f5c64ef86b36687735b587f5cf44079609a85a9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2fd52b44b0118e525e96fdd0315062f70e2efb4a7bbc3adfb1d5724f4dad3077"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2fd52b44b0118e525e96fdd0315062f70e2efb4a7bbc3adfb1d5724f4dad3077"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7950e723a879d0c054e41bfe2c7b41749f766723e9114f7a266df18f3f8df678"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7950e723a879d0c054e41bfe2c7b41749f766723e9114f7a266df18f3f8df678"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "7950e723a879d0c054e41bfe2c7b41749f766723e9114f7a266df18f3f8df678"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b3d2244d69cb01ede8df9142651dbc0357ea0b20778944df540b91a9f1bcaa01"
+    sha256 cellar: :any_skip_relocation, ventura:       "b3d2244d69cb01ede8df9142651dbc0357ea0b20778944df540b91a9f1bcaa01"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7950e723a879d0c054e41bfe2c7b41749f766723e9114f7a266df18f3f8df678"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7950e723a879d0c054e41bfe2c7b41749f766723e9114f7a266df18f3f8df678"
   end
 
   depends_on "cryptography"

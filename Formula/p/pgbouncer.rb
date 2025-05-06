@@ -1,8 +1,8 @@
 class Pgbouncer < Formula
   desc "Lightweight connection pooler for PostgreSQL"
   homepage "https://www.pgbouncer.org/"
-  url "https://www.pgbouncer.org/downloads/files/1.24.0/pgbouncer-1.24.0.tar.gz"
-  sha256 "e76adf941a3191a416e223c0b2cdbf73159eef80a2a32314af6fbd82e41a1d41"
+  url "https://www.pgbouncer.org/downloads/files/1.24.1/pgbouncer-1.24.1.tar.gz"
+  sha256 "da72a3aba13072876d055a3e58dd4aba4a5de4ed6148e73033185245598fd3e0"
   license "ISC"
 
   livecheck do
@@ -11,13 +11,13 @@ class Pgbouncer < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "87aa1ebe4c4245e0864976983b532be084388ed482fc9795a2503a5d874e27f8"
-    sha256 cellar: :any,                 arm64_sonoma:  "43a76e841d08d4e0448795dffa6c9f69dfc86b2375a9e0557952d5ae5ed8605d"
-    sha256 cellar: :any,                 arm64_ventura: "1f405a92d760c6af0756ba2b32966d73ce9d4cffce462ac332b3d98f1b3b5f48"
-    sha256 cellar: :any,                 sonoma:        "262b7ed2c5749f2921add6f3065d367be16fc721f65c5bd48d04b3a08045a494"
-    sha256 cellar: :any,                 ventura:       "bcede5ab58af987fa0e16e4dd44ba4bb0356671459859783c2112d67856efbe1"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2430cf966d79fdebe1c13ace7d81d60fcc31cbcf43b4cb4cb29b156b492aa6e9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "81d527e71fdf0028f6c281340e00462adfa848939d20abe32a6c94ecb65a9be3"
+    sha256 cellar: :any,                 arm64_sequoia: "c520e5665bb21b6ab7d77518d49d1b2979f631fd87bd8e3f9c262bb350916048"
+    sha256 cellar: :any,                 arm64_sonoma:  "8d48d6942ec879fa455056cc92fc75a090bae0e0acab0aa101139891bbd6a6ce"
+    sha256 cellar: :any,                 arm64_ventura: "7de7551aac5f589fb691bcc55f4bae5ebbb68da3434751fe1be14203a6186aa2"
+    sha256 cellar: :any,                 sonoma:        "75a3afc5fac5c466ab0e103a8844f09d78c5347127bd90769d240a72b6383554"
+    sha256 cellar: :any,                 ventura:       "680d9567e322ca0a079bd281aa54e442cec5f61b2014cd48f5b41c3e5f541c13"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b9fe8b6575f317bd25b10f302ea651246a0a5b986998a6a4e33a34f771be992b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4d06c2e9d58c439b5c19d7a402b66c76d3434ff8a7d44a8e4fd390057e7bd430"
   end
 
   head do

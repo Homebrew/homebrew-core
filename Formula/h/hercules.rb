@@ -1,21 +1,19 @@
 class Hercules < Formula
   desc "System/370, ESA/390 and z/Architecture Emulator"
   homepage "https://sdl-hercules-390.github.io/html/"
-  url "https://github.com/SDL-Hercules-390/hyperion/archive/refs/tags/Release_4.7.tar.gz"
-  sha256 "74c747773e0b5639164f6f69ce9220e1bd1d4853c5c4f18329da21c03aebe388"
+  url "https://github.com/SDL-Hercules-390/hyperion/archive/refs/tags/Release_4.8.tar.gz"
+  sha256 "91ac45a1cce8196f32a7d7918db6f935c29a891cd0baedeec70f9290bce91de9"
   license "QPL-1.0"
   head "https://github.com/SDL-Hercules-390/hyperion.git", branch: "master"
 
   bottle do
-    sha256 arm64_sequoia:  "78ca0a33df7c8ffc07c41708f6222835e1d7819b180d2a182030fa35d0a0be72"
-    sha256 arm64_sonoma:   "6335c4dd89a1abb2951183b3ec1b0b08fb67a31c40f037a79c55621670343f74"
-    sha256 arm64_ventura:  "5329211fef90aff4b3eee6b92b28f00aec11d8d1c4de0f6b0fd3f785e735b64e"
-    sha256 arm64_monterey: "4fc79b7305696102ac6f2adc908434782ab242b87594fcd018fb03beb5c39095"
-    sha256 sonoma:         "01855e3533a3e48c482ba771afb025da4c822ad8813405597717487d7b8ffad6"
-    sha256 ventura:        "6594a7b9c695403ca67c60f8408e66403a0b56169d87b038b3d7389e3368f43f"
-    sha256 monterey:       "ca05b47ad3e18223fb77535ad13ec131767a631a71ab3de1d4cb3b146b4f34f0"
-    sha256 arm64_linux:    "ae8964a2f9d7a47537cec10486a0d62a4b40541d71f48536d9d129b43098c788"
-    sha256 x86_64_linux:   "7ef16d12587bb8a87a978599062d4fb6a8c23394da485664650e60234ef36c81"
+    sha256 arm64_sequoia: "99d22a70c57b1ef09d2af6f4f1f1836dac37bb9f6a5d4bbb516b78f902bdf770"
+    sha256 arm64_sonoma:  "eb8da1cb1281e2d9ba2ca7260d86c28c1b75f79711b6f9f2ec8c956c5556b8c3"
+    sha256 arm64_ventura: "4cd0f333e7fb17a5d3e746c7ed3bc6126f2969c9841f7d094afaaa8ac93d6b98"
+    sha256 sonoma:        "1551d8fef170befe95c125cd4fb745dc7e694a579d6d7f3d089d0ce50645d77f"
+    sha256 ventura:       "1613524057720b523c065d4f8ad567dd0a71414e6dbc59666d65ca341338f518"
+    sha256 arm64_linux:   "897a20cdbd2fa6664163911d8a2a47fb972c5879070c83230a268dc6c7390db6"
+    sha256 x86_64_linux:  "48bb0bff466cc2f739e49ff0f2eba752986354df6f2848130973e53ad81559a8"
   end
 
   depends_on "autoconf" => :build
@@ -23,6 +21,7 @@ class Hercules < Formula
   depends_on "cmake" => :build
   depends_on "gnu-sed" => :build
   depends_on "libtool" => :build
+
   uses_from_macos "zlib"
 
   resource "crypto" do
@@ -36,8 +35,8 @@ class Hercules < Formula
   end
 
   resource "SoftFloat" do
-    url "https://github.com/SDL-Hercules-390/SoftFloat/archive/4b0c326008e174610969c92e69178939ed80653d.tar.gz"
-    sha256 "46a141a183cb1ad8de937612d134ad51e8ff100931bcf6d4a62874baadf18e69"
+    url "https://github.com/SDL-Hercules-390/SoftFloat/archive/c114c53e672d92671e0971cfbf8fe2bed3d5ae9e.tar.gz"
+    sha256 "3dfbd1c1dc2ee6b1dcc6d67fa831d0590982c28f518ef207363950125d36aa47"
   end
 
   resource "telnet" do

@@ -21,6 +21,7 @@ class Librasterlite2 < Formula
     sha256 cellar: :any,                 ventura:        "385aeaee7f4a7e565b6368e2577a73ba58f75d7161bbbe480cc1a6eebc12552f"
     sha256 cellar: :any,                 monterey:       "fcc1aba7b865bd46d2986e77c9d9bf3d8dca6641b9c9fb7ebbbeca409692153e"
     sha256 cellar: :any,                 big_sur:        "642c88a5013468fbc96058720beadc6f6aacbb3a47b60530c434b9df4081aa86"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "4fe6861c1f7886a5bdf6cc9782613e8182704503fed2ffb1e088ea08e7081ea3"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "0e91e0eafa3ab9941d7e7b9610089e8398b3259e40951711bc9a70f34c76d0e9"
   end
 

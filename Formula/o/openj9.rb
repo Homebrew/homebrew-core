@@ -23,6 +23,8 @@ class Openj9 < Formula
     sha256 cellar: :any, arm64_ventura: "2ce146ac5d3dd24c2128a3a415ccd7cbde196fba5886a9cfe9b17456f23acef4"
     sha256 cellar: :any, sonoma:        "556ef126e9179af15826e7eb1877b6733b951990808b4ae5b8875d3ca0927119"
     sha256 cellar: :any, ventura:       "6ebb3a8c650f109ec0c0769e8d8da7217852fb26099908abd7446a81c0244132"
+    sha256               arm64_linux:   "bb9d01b54445f63cb3ae6d6fe095e08b9c3442bcc15f2dac9858cc34d951409b"
+    sha256               x86_64_linux:  "4a236476593a25dd692c85fc8ded426ddb7d5e63995b42e6c5aa8632a13934d2"
   end
 
   keg_only :shadowed_by_macos
@@ -78,8 +80,14 @@ class Openj9 < Formula
       end
     end
     on_linux do
-      url "https://github.com/AdoptOpenJDK/semeru22-binaries/releases/download/jdk-22.0.1%2B8_openj9-0.45.0/ibm-semeru-open-jdk_x64_linux_22.0.1_8_openj9-0.45.0.tar.gz"
-      sha256 "6e54d984bc0c058ffb7a604810dfffba210d79e12855e5c61e9295fedeff32db"
+      on_arm do
+        url "https://github.com/AdoptOpenJDK/semeru22-binaries/releases/download/jdk-22.0.1%2B8_openj9-0.45.0/ibm-semeru-open-jdk_aarch64_linux_22.0.1_8_openj9-0.45.0.tar.gz"
+        sha256 "feb2734b519990d730c577254df5a97f7110bb851994ce775977894a9fdc22c7"
+      end
+      on_intel do
+        url "https://github.com/AdoptOpenJDK/semeru22-binaries/releases/download/jdk-22.0.1%2B8_openj9-0.45.0/ibm-semeru-open-jdk_x64_linux_22.0.1_8_openj9-0.45.0.tar.gz"
+        sha256 "6e54d984bc0c058ffb7a604810dfffba210d79e12855e5c61e9295fedeff32db"
+      end
     end
   end
 
@@ -161,6 +169,7 @@ class Openj9 < Formula
     config_args << "--with-noncompressedrefs" if OS.mac? && Hardware::CPU.arm?
 
     ENV["CMAKE_CONFIG_TYPE"] = "Release"
+    ENV["CMAKE_POLICY_VERSION_MINIMUM"] = "3.5"
 
     system "bash", "./configure", *config_args
     system "make", "all", "-j"
@@ -169,11 +178,11 @@ class Openj9 < Formula
     if OS.mac?
       libexec.install Dir["build/*/images/jdk-bundle/*"].first => "openj9.jdk"
       jdk /= "openj9.jdk/Contents/Home"
-      rm jdk/"lib/src.zip"
-      rm_r(jdk.glob("**/*.dSYM"))
     else
-      libexec.install Dir["build/linux-x86_64-server-release/images/jdk/*"]
+      libexec.install Dir["build/linux-*-server-release/images/jdk/*"]
     end
+    rm jdk/"lib/src.zip"
+    rm_r(jdk.glob("**/*.{dSYM,debuginfo}"))
 
     bin.install_symlink Dir[jdk/"bin/*"]
     include.install_symlink Dir[jdk/"include/*.h"]

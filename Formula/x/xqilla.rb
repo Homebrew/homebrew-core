@@ -17,6 +17,7 @@ class Xqilla < Formula
     sha256 cellar: :any,                 arm64_ventura: "f84208fd263e7d62474d60496b0476bd1b6cd11c79192353a32cfb6561fc0e90"
     sha256 cellar: :any,                 sonoma:        "a7f37c4ddffd21e21c56b485ae2cb8be6b7e67c994299f44cf9f0ad8220ac464"
     sha256 cellar: :any,                 ventura:       "b06f8a2ebcdddce0def3f89ab47d8c76667e79aaca0768501c0fb4f6ef43fdcb"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ebb978097af7e4608586c10076f7e4431bdf19d727c4652ffbfa2fad6249e6d6"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "9cb7468c61618269082f2d77bb318e021fac14df13e818019fb1ea4e87cef35d"
   end
 
@@ -27,9 +28,11 @@ class Xqilla < Formula
   def install
     ENV.cxx11
 
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                          "--with-xerces=#{HOMEBREW_PREFIX}",
-                          "--prefix=#{prefix}"
+    args = []
+    # Help old config scripts identify arm64 linux
+    args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+
+    system "./configure", "--with-xerces=#{HOMEBREW_PREFIX}", *args, *std_configure_args
     system "make", "install"
   end
 

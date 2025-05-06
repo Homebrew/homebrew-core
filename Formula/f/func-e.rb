@@ -4,6 +4,7 @@ class FuncE < Formula
   url "https://github.com/tetratelabs/func-e/archive/refs/tags/v1.1.4.tar.gz"
   sha256 "f8829bde3201960edbea764002c16ade4d68e0a7ddc453d042cd1fb5bba3f6d5"
   license "Apache-2.0"
+  head "https://github.com/tetratelabs/func-e.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "e97dd0ffc4db5a6ea9e1a95397f5166a25ecc99d71c5dd1d72c88de73af87b50"

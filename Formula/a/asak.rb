@@ -7,14 +7,14 @@ class Asak < Formula
   head "https://github.com/chaosprint/asak.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "79e247315c14b0a29016ba9856f673d877229af3a7aa4755cc9887ea110b2b20"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "01a324c75ba86d32ba07a3184d83921bf05824aaf2c327a5e6c423498969f1c4"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "feb576b39f6c74a6876b14a0fa28f5560e1dad477831965465f44a68d465ed5e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "4755f43dda07d16847f7a153ea3c6832c0b6de12c4ebf0dfa53d52bc5e48bfee"
-    sha256 cellar: :any_skip_relocation, ventura:       "2d605e4e59e4c111c890547a42f9634fe4781b4b025cd2e8a61f645fafec0d4e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6dfd687258d70054b436bf2d8e8b8240ff9b897a4e7579e586a830341c1e6e06"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1a7dc3b8e3729bc5d1d9cd7e35a701187334e6da2f80e02eece663b1d4ec6c9d"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fc34ad17c5c94e3a205d72d5cd89d632e9e77478b863c704711d57813174458c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "22662e9e6284f51656b1e9b2ff845d1020891ad01f8ff39085f23f2b94063710"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "0ecbcbea3ea060f02617de9c3d5a80477e014b2b789c7330bf95e31ce70d5365"
+    sha256 cellar: :any_skip_relocation, sonoma:        "971aa9cc9f4caad9bea64347102ffa2ac2ebc89de06aa6e1b1fc7c486fd21ac4"
+    sha256 cellar: :any_skip_relocation, ventura:       "ac44eeb109efb1b9ce9e787e24e1c9ee917c8a0b889f2dff2576717644f6531f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "df0d9919f8e49aea1800986f43644c84e3b0000b04de81ba7e2aeae1072320b2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "47670f65f8c158c2a27772c5ad9de162b9f11234c5b5bf110a87f3434d14bb78"
   end
 
   depends_on "pkgconf" => :build
@@ -29,7 +29,7 @@ class Asak < Formula
     system "cargo", "install", *std_cargo_args
 
     bash_completion.install "target/completions/asak.bash" => "asak"
-    fish_completion.install "target/completions/asak.fish" => "asak"
+    fish_completion.install "target/completions/asak.fish"
     zsh_completion.install "target/completions/_asak" => "_asak"
     man1.install "target/man/asak.1"
   end

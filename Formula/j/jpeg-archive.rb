@@ -19,12 +19,18 @@ class JpegArchive < Formula
     sha256 cellar: :any_skip_relocation, catalina:       "222d7258f63f000794693bc5912c88ce42d0a33473a8acbbc585821655c9b8dd"
     sha256 cellar: :any_skip_relocation, mojave:         "2df1b3a007b7553addc977582d0c38d5007892f9e8a866a4fc9cda9b8f3b2af2"
     sha256 cellar: :any_skip_relocation, high_sierra:    "6f873847a8c7ad6420fe7700219ae13be39d12075c92921b364cb059ed5bf552"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "df29c9474117299a63359908e72c5693102a56fd57245a9d60f844427473a28b"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "620b18311f4e6b970b2b9ae2c2cd6ee5625a791f158b3c2f219e617920d94796"
   end
 
   depends_on "mozjpeg"
 
   def install
+    # Work around failure from GCC 10+ using default of `-fno-common`
+    # multiple definition of `progname'; /tmp/ccMJX1Ay.o:(.bss+0x0): first defined here
+    # multiple definition of `VERSION'; /tmp/ccMJX1Ay.o:(.bss+0x8): first defined here
+    ENV.append_to_cflags "-fcommon" if OS.linux?
+
     system "make", "install", "PREFIX=#{prefix}", "MOZJPEG_PREFIX=#{Formula["mozjpeg"].opt_prefix}"
   end
 

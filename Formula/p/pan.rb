@@ -11,6 +11,7 @@ class Pan < Formula
     sha256 arm64_ventura: "874072ee564ccd310d01af2f7975fa9d4bd3de07070f201e82e4c6c75b365b48"
     sha256 sonoma:        "8bf0fdba14f34573e28ea4c186071827dd7e48e682eb1414ccf13ab0fc0cb21f"
     sha256 ventura:       "9e262aca5d840b964d81ea871a56bf80096e7af7c25feef09e5cbd644ec35878"
+    sha256 arm64_linux:   "9ac64caa1826df8797d08c20e3a7c88fe7b8fadc70872c2c610501aab0a9d040"
     sha256 x86_64_linux:  "7b6334b42d03f519f8bbbc6e97c4ce20de77a18fde5ae5dc1df3d0cadcfc1019"
   end
 

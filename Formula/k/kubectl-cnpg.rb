@@ -13,6 +13,7 @@ class KubectlCnpg < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "655ed874d5339f320386c7f72f4fa695c73a999384ed26972edeb2dba05b8f0d"
     sha256 cellar: :any_skip_relocation, sonoma:        "366ab715e16ca498fdf42c74dff96d6b27866c58e4382e3d8fcf6c7d1bf5ac92"
     sha256 cellar: :any_skip_relocation, ventura:       "39ede94e7eb67365e4405dc6e02f937c955b21615e010316dee16b67141b3357"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ad28fc9e4d7c06afae38b2ce371c56d41516456abb2931f1509dc75608c804ac"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "844c03ae717e2cdbfc127e39e8d97d8560dedc708f8ba8af8471262a950152cb"
   end
 

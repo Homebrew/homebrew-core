@@ -3,19 +3,19 @@ class Conan < Formula
 
   desc "Distributed, open source, package manager for C/C++"
   homepage "https://conan.io"
-  url "https://files.pythonhosted.org/packages/68/e1/e20c51873d477aae9b29d3197e9d78503c620624e946b7b13aab7c603020/conan-2.14.0.tar.gz"
-  sha256 "54bcddb2ac1f25451f36f5b86c7084dc49322b5c10842cbba2323e12c6c80bca"
+  url "https://files.pythonhosted.org/packages/fb/59/c53bd6aef9a7a3c29e2966b121a00bbee0f7f3c5702a9bdd25c15cfe9691/conan-2.16.1.tar.gz"
+  sha256 "e5b2aac9dab4f23e95f62a7c62dfb33c5f4522fab34332120c8be6eca11f5bec"
   license "MIT"
   head "https://github.com/conan-io/conan.git", branch: "develop"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "5bb83abe953991301c0019e6c662cf1f59d130ea030c288b807a758012f95462"
-    sha256 cellar: :any,                 arm64_sonoma:  "d1d690154938fefef96216a68f1f066779d992bd867b4c31c222a287826dab9e"
-    sha256 cellar: :any,                 arm64_ventura: "df1c7aa7ac57d784245a2e57b7427cf18b74b21f3dfd91235a51fc35bb6e0456"
-    sha256 cellar: :any,                 sonoma:        "075379c5e2287c1938875ef9642a310761742aad9cd9e56e51b17c7bf19666ea"
-    sha256 cellar: :any,                 ventura:       "604fe2e1cc38c4bfba2cd780cdeb82954c8b21490d2d43ec7a8ada2d527345d5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "70b67526ad9f7831b4edab9af92f792e87510d504c2f25c0750b29f740bbf145"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "195516ec71e4428d6d615f4d147008291c5b67a431b275684af1713de5af2eb2"
+    sha256 cellar: :any,                 arm64_sequoia: "81682fd11adbe683853c6495147f7110af106bcfe8b2ec929d92aa6738a2d868"
+    sha256 cellar: :any,                 arm64_sonoma:  "c8a0d81d67ed6fd3e54670cc3e311cc7ebe5954629386f83387e597e1a6f1f6b"
+    sha256 cellar: :any,                 arm64_ventura: "70eb5f275455e7b417fd6455b12e73514ef3faa9dbca70b0f545be7ec5202ce9"
+    sha256 cellar: :any,                 sonoma:        "726761ea2bdfed63e5511a4b72af229af41dfc45161a1347094a13b3d4ee6038"
+    sha256 cellar: :any,                 ventura:       "2260de6a8861b39e26b71a19f9aec908091a93567936b0059256cf7c93d0b23e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "75df57d483ee21aaf222a0f3fb62f2c060097e7f3fbaa386e41a683e4fc3cd3e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3494473163e05b57aefbd72635cce45f0e994ccafd5755eb0cd8981756471cab"
   end
 
   depends_on "pkgconf" => :build
@@ -95,10 +95,10 @@ class Conan < Formula
 
   test do
     system bin/"conan", "profile", "detect"
-    system bin/"conan", "install", "--requires=zlib/1.2.11",
+    system bin/"conan", "install", "--requires=zlib/1.3.1",
                                    "--build=missing",
                                    "--lockfile-out=conan.lock"
     lockfile = JSON.parse(File.read("conan.lock", mode: "r"))
-    refute_predicate lockfile["requires"].select { |req| req.start_with?("zlib/1.2.11") }, :empty?
+    refute_predicate lockfile["requires"].select { |req| req.start_with?("zlib/1.3.1") }, :empty?
   end
 end

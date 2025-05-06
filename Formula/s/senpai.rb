@@ -1,17 +1,18 @@
 class Senpai < Formula
   desc "Modern terminal IRC client"
   homepage "https://sr.ht/~delthas/senpai/"
-  url "https://git.sr.ht/~delthas/senpai/archive/v0.4.0.tar.gz"
-  sha256 "ff5697bc09a133b73a93db17302309b81d6d11281ea85d80157f1977e8b1a1e2"
+  url "https://git.sr.ht/~delthas/senpai/archive/v0.4.1.tar.gz"
+  sha256 "ab786b7b3cffce69d080c3b58061e14792d9065ba8831f745838c850acfeab24"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "33a66487e2355b56acee1ffec16ed16f308a977b3c1abd2d9db9570e7b658865"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9ac79b7d2f6c2606508ea901e09fbe56fd38397e129341d70ab0868b18b8bd0d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "dcec36ef850698f5e64f3ebb7cf50c2b5b348fc5fc360c90be5a6af17ef2cd71"
-    sha256 cellar: :any_skip_relocation, sonoma:        "141ce7474d65491002192e687b9024e57d52e0ad7088bb8b0dd238e060b005b6"
-    sha256 cellar: :any_skip_relocation, ventura:       "a74821305335966d463581a4f0da5d1c3378c089b1d8e7084bc0dd44b598090b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "247b7f95552167eb3f3aa9c7c6f19560c305ff6edc115a63c5aa8235b8fb8750"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "25e62cb0dbef74b43914cfe94dc91d975c97ed53d9042d9be3fc422ef4a37dcb"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4cbb49d7aa9a8343dead0ad9638e7fc738a723b5ce652d041b52364a3cba7f7a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "6828b6aa784aebd607c3d536d946f764385a0b80d67edfff5978e6026ca56c99"
+    sha256 cellar: :any_skip_relocation, sonoma:        "6fdd32340fc297f5d1eef67bfd938089a2c0d07ce57d49bde8d7447adff97c32"
+    sha256 cellar: :any_skip_relocation, ventura:       "817074dd4e63738680fb92c3746221928a4c95312d4c70b8c42e5d97ff16d123"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7f9b02ed34a5b67f8641080d8df39172a50382982dd08f8663f9c7ce8678d469"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5e40211b47b193298d47b6aed526b5ac662f6e5ff3fe39dc71c7e6f7dbf187c8"
   end
 
   depends_on "go" => :build

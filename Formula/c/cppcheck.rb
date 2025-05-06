@@ -4,7 +4,7 @@ class Cppcheck < Formula
   url "https://github.com/danmar/cppcheck/archive/refs/tags/2.17.1.tar.gz"
   sha256 "bfd681868248ec03855ca7c2aea7bcb1f39b8b18860d76aec805a92a967b966c"
   license "GPL-3.0-or-later"
-  revision 1
+  revision 2
   head "https://github.com/danmar/cppcheck.git", branch: "main"
 
   # There can be a notable gap between when a version is tagged and a
@@ -16,13 +16,13 @@ class Cppcheck < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "ec502cce12b5cbc573788773a08893844fc2320ab8340dca7d3f70bf3f25db97"
-    sha256 arm64_sonoma:  "7f6a9c806b85dfa61ef9eae8d85d1592117fc54bf7dc1dfa3d6cf8e963221b80"
-    sha256 arm64_ventura: "ef6c31e2c6048790a3ebba74b79a624267d53371b4701e96d164fd991f27abb5"
-    sha256 sonoma:        "042af3302c0cf0ce060f8d52ceaa8217915ba96738bcfd2bc0eff817e263f60d"
-    sha256 ventura:       "ecba5998fbfe4e801e7fb2b6c7378cdd35048eecba61cc51b3fae620bf0b2b01"
-    sha256 arm64_linux:   "1083912202feccf3777bc1e293be496b81e0d5444b91e0cd5ac31e53c47d8f02"
-    sha256 x86_64_linux:  "1c5b977ee79e17bee1f8eed177c7c6dc93d1c20bfe9fa0806e4354e50f77de90"
+    sha256 arm64_sequoia: "3102544868411c345f7bb673595f0226163fe9e6d220ff4715c7af038751a9b7"
+    sha256 arm64_sonoma:  "77ac696a0ef87246ca35816c0dfb0c094bdee504bb987d1ba1658414743a6fa6"
+    sha256 arm64_ventura: "023da7be5d3eb3d13f4609eeb23601bd95b7a261dcb2cd545c7aa7a0d25494e3"
+    sha256 sonoma:        "8d5db1a37f58fa1313ff48bd119d3bd7fbf9b1604f6a2d51c0e167581b548f81"
+    sha256 ventura:       "28b99b71be9372234be2e688217a65675bb7270f9c851c48e6dd825ec4d9b29a"
+    sha256 arm64_linux:   "40e4409e2397ae1d69d2c4643cb57887ee81bb96cea754f04439dcc8d8975390"
+    sha256 x86_64_linux:  "3ce75b931157c6e05a6d3e016fefd6d5c3357e2c3975440dac2b916b118c8c90"
   end
 
   depends_on "cmake" => :build

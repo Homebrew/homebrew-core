@@ -1,8 +1,8 @@
 class CargoC < Formula
   desc "Helper program to build and install c-like libraries"
   homepage "https://github.com/lu-zero/cargo-c"
-  url "https://github.com/lu-zero/cargo-c/archive/refs/tags/v0.10.11.tar.gz"
-  sha256 "8a6d6dc589d6d70bd7eb95971e3c608240e1f9c938dd5b54a049977333b59f05"
+  url "https://github.com/lu-zero/cargo-c/archive/refs/tags/v0.10.12.tar.gz"
+  sha256 "ae118882067e1e7dcd8106933329cf018ddc6ea56cabfea7642a7699d6ce700f"
   license "MIT"
 
   livecheck do
@@ -11,18 +11,18 @@ class CargoC < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "72922f9c6392a632e273f4c5ccb3fcfcd244a40be53c86c3b6db568e41843c6d"
-    sha256 cellar: :any,                 arm64_sonoma:  "2f7695eb2b1076b9300adfde23ea2fe15227500823687969a7f9eb4390616abb"
-    sha256 cellar: :any,                 arm64_ventura: "6d31ed9a27a0d2609bf55af6c6a01671bdeab5e45b79b1a3be17c19633a6a2b0"
-    sha256 cellar: :any,                 sonoma:        "762a8cea56c31c21404c17cada0a25ab162c2bb6a8296be4dd337efc5ff79bf5"
-    sha256 cellar: :any,                 ventura:       "1cf30254d83901dbfa27cbf8585cc0d027d0cf15e725c08c585302c206d1e30b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a03db41e6652d8e8bc621632789976b06eb093a60b5a12df87e4367b1a41ed7e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "836cb915f1bfa3ed234d56b364027f8dc00f0c80916bace72688bbd2376abeb3"
+    sha256 cellar: :any,                 arm64_sequoia: "93eabec8c07314b2ffa10da04e1c5a8680811b52746cc003d1f692c369f68363"
+    sha256 cellar: :any,                 arm64_sonoma:  "f6a450122898ab833029022d1304918e8d5e8ed0776f662b1e2b56d467080d3f"
+    sha256 cellar: :any,                 arm64_ventura: "81448628a286cc6b30d9374103706490600e50fb2500316d8e1aafb5eb5805a3"
+    sha256 cellar: :any,                 sonoma:        "61ce2d2c5cb0a8072cc4258b09f4b8d3a8864d3c8c1a6c64c2e750b6d2c9164a"
+    sha256 cellar: :any,                 ventura:       "29dded3c27c5c6e011f9fe530b63e6c1aa539ec62a948cccc467610d3c17ddeb"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c7ad0460d3c55f96057e1560cfcb58a1596b9b23eedfa5ae250bffaf550b4768"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b6e540ac5f80fc34832486811dc88991bd5d59e181f20c3d76220dfcba1333d3"
   end
 
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
-  depends_on "libgit2@1.8" # needs https://github.com/rust-lang/git2-rs/issues/1109 to support libgit2 1.9
+  depends_on "libgit2"
   depends_on "libssh2"
   depends_on "openssl@3"
 
@@ -50,7 +50,7 @@ class CargoC < Formula
     assert_match cargo_error, shell_output("#{bin}/cargo-cbuild cbuild 2>&1", 1)
 
     [
-      Formula["libgit2@1.8"].opt_lib/shared_library("libgit2"),
+      Formula["libgit2"].opt_lib/shared_library("libgit2"),
       Formula["libssh2"].opt_lib/shared_library("libssh2"),
       Formula["openssl@3"].opt_lib/shared_library("libssl"),
       Formula["openssl@3"].opt_lib/shared_library("libcrypto"),

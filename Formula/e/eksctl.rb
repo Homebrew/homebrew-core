@@ -2,18 +2,19 @@ class Eksctl < Formula
   desc "Simple command-line tool for creating clusters on Amazon EKS"
   homepage "https://eksctl.io"
   url "https://github.com/eksctl-io/eksctl.git",
-      tag:      "0.206.0",
-      revision: "238b7355608373c27700de5bb0d2d57238ab37c0"
+      tag:      "0.207.0",
+      revision: "87e1d6e6eabc73115c92f29edc03785d9a398a7d"
   license "Apache-2.0"
   head "https://github.com/eksctl-io/eksctl.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3e87e31b7281091045bdf84078217fbfd380d86918de19d21f1399f1d65f6d86"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d891dd420949dddd087e96e3a023d0cf1a0b80c41eddee63bfba32ee21bdd935"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "73b041f01a6c84a56dd18ff6e682e375dee319c9d089cd3058f536d9e22c708e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c3596d395c1f6710cd80e03553015c115e7ecfc284401882950bbaa05cddb012"
-    sha256 cellar: :any_skip_relocation, ventura:       "d708f321fa2704c741714011f807087b5c99093c12dfe10a515649adcbc0ac29"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e5764d7b515b8c13e7ddbd80806acc686434031fc0b54efb428ba76add6fbb87"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "021338619fe5fc1224f8a123a3612fc5f701a7420d4d5495437baba66253d381"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9c8196b9d93aaaf79287df6d74f1f536922f80c8225e692e8fd6329720f5079e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "8e65b16309e2640e0a02fe13e38c3bc9405f389af3edc2a35193888aef32fc22"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d5fc9cb18b7b2a82f8a34e9b5e5e0af9c239d48da4cc17d988ea2d479d38c28e"
+    sha256 cellar: :any_skip_relocation, ventura:       "b7db237992c5b65551fb02bbcda11373fd5bac895432ad2271a3df3f41fde09e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "33c7d893d1c8eecb4d5ec5ae443410433d1607aec43adcba5d7a2e36453962d0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0e756a10fc54ffff4b541b9efbdc5259ec6a8c63589bb1167c5a0b5781274fd2"
   end
 
   depends_on "go" => :build

@@ -1,10 +1,10 @@
 class Xz < Formula
   desc "General-purpose data compression with high compression ratio"
   homepage "https://tukaani.org/xz/"
-  url "https://github.com/tukaani-project/xz/releases/download/v5.6.4/xz-5.6.4.tar.gz"
-  mirror "https://downloads.sourceforge.net/project/lzmautils/xz-5.6.4.tar.gz"
-  mirror "http://downloads.sourceforge.net/project/lzmautils/xz-5.6.4.tar.gz"
-  sha256 "269e3f2e512cbd3314849982014dc199a7b2148cf5c91cedc6db629acdf5e09b"
+  url "https://github.com/tukaani-project/xz/releases/download/v5.8.1/xz-5.8.1.tar.gz"
+  mirror "https://downloads.sourceforge.net/project/lzmautils/xz-5.8.1.tar.gz"
+  mirror "http://downloads.sourceforge.net/project/lzmautils/xz-5.8.1.tar.gz"
+  sha256 "507825b599356c10dca1cd720c9d0d0c9d5400b9de300af00e4d1ea150795543"
   license all_of: [
     "0BSD",
     "GPL-2.0-or-later",
@@ -12,15 +12,14 @@ class Xz < Formula
   version_scheme 1
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia: "51c0ca6cfcb507fa9b45136c49d204316a387671753f2b8de1392461b18a44ba"
-    sha256 cellar: :any,                 arm64_sonoma:  "6206718ef4a56b67651a96d220688deada5727ac67e5e9c23012acc99e0bc4a8"
-    sha256 cellar: :any,                 arm64_ventura: "1693b66ae6c6f48618443bd9d512d06f2ec5681970b2a168484d99a9cd2bc2d6"
-    sha256 cellar: :any,                 sequoia:       "e26b9b870c54ffc8ef21503ce0209265e23dbf2f89ea5b539d463169426b0b33"
-    sha256 cellar: :any,                 sonoma:        "887964ef0fbc415c0d96288072f2d5dc62800b3c10c177b673c7136b51830a9b"
-    sha256 cellar: :any,                 ventura:       "6d366675f1db2034ed30fa9cb2edebf7ca8c52a5ef5e067bff5394ca7b1514b1"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2e84ab04b837b01fc24f489cbb90731911840f37df55df2938c90200fa24d5b8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d26feb517c927f362970b7aead6b0e7756119a0ebfd1ed1201a7fa193fa96b18"
+    sha256 cellar: :any,                 arm64_sequoia: "dcd7823f2624cbcd08f55c232097a79300c7d76ab5969004db1a4785c6c0cd87"
+    sha256 cellar: :any,                 arm64_sonoma:  "3bcdfeaa8b5bd910ac1cf1e7aec7e0fd82fd69f2f09c6ac682eca92725ad9e6c"
+    sha256 cellar: :any,                 arm64_ventura: "82fef9b66eea967b55cd0f26fd7356d60a0b926c5d9eaaf9c300a46f21391af5"
+    sha256 cellar: :any,                 sequoia:       "6558e19cb2f13893677ec1fe075d268a69ce242a064ce1dc53940234da4b2c5f"
+    sha256 cellar: :any,                 sonoma:        "87c3638621021437d470c7f650336da533fa41222dfe54b94473bbea2acf6bbd"
+    sha256 cellar: :any,                 ventura:       "c0aedd30a078e08c7e67107506c61348d8259a2dce40697b77ff76f8c0dfc6d8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b246348ec4cc8643918e3c13b9f554e5ddede3d07e7e1c60eaba5b97120d473a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9ee1ff38fcc213fdefd262be65a06669f3e0118a2bd5fb387147ebe884f94413"
   end
 
   deny_network_access! [:build, :postinstall]

@@ -20,14 +20,16 @@ class Advancescan < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:    "d0a8416434aa03573dcbadebd135fbcfa6f4829934622ab8afe68aa496ec5e48"
     sha256 cellar: :any_skip_relocation, sierra:         "0bc4290c65271b84aec455adbaf85795857b19102e6efb152a64623420ae5757"
     sha256 cellar: :any_skip_relocation, el_capitan:     "e4295866cda2370aa37cb1144ff1269ada4df6b76145a25efaf072d7a6b09b5c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "8e27855b2b171f2bedb2bf89d28c2ea3f1178951fdfe1b7ec2540fdca51f1439"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "3a42de6a209af1dd02c8544621f7da76afabd415d46265b548b3e35b7667b45d"
   end
 
   uses_from_macos "zlib"
 
   def install
-    system "./configure", "--disable-silent-rules",
-                          "--prefix=#{prefix}"
+    ENV.cxx11
+
+    system "./configure", "--disable-silent-rules", *std_configure_args
     system "make", "install"
   end
 

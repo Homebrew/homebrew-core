@@ -1,8 +1,8 @@
 class Clazy < Formula
   desc "Qt oriented static code analyzer"
   homepage "https://www.kdab.com/"
-  url "https://download.kde.org/stable/clazy/1.13/src/clazy-1.13.tar.xz"
-  sha256 "6d36da0c9d4d2f8602fb52910bde34bf27501ff758f6182b1a46fa0a91779ef4"
+  url "https://download.kde.org/stable/clazy/1.14/src/clazy-1.14.tar.xz"
+  sha256 "993f786dac668c29c4f357cb95c8a6ddca555ebbb94854efb9b570f683ad4d43"
   license "LGPL-2.0-or-later"
   head "https://invent.kde.org/sdk/clazy.git", branch: "master"
 
@@ -12,19 +12,18 @@ class Clazy < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia: "befed9e3e396380d703605d0c951c3906ec5132eaa00e7331913521d168b0683"
-    sha256 cellar: :any,                 arm64_sonoma:  "17c7fddf8588b5eb3036e694e47e0bacb9e1cc4c72cb7e41df27ac7549a8e07b"
-    sha256 cellar: :any,                 arm64_ventura: "2857ba1a5e9e7d03d342acecbce06ad1bc0d9ca74df84960529ae28205f9887b"
-    sha256 cellar: :any,                 sonoma:        "bb07ed1692e2565c9b0c4ee901b0249b335141e8292d3882dd9fc19d54e59cb6"
-    sha256 cellar: :any,                 ventura:       "83f55f60617d1be46cf987cd6c90d8456372fc76a113b497645eafc709d35910"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "82caf7f18cc0624a9772df4c8d4cf219cbb10dc1b46ac040d19dd555bd8876be"
+    sha256 cellar: :any,                 arm64_sequoia: "f77da44dd6c29e34637aa0d1ffe5bd4c208a769191592e7e883e2640788b4276"
+    sha256 cellar: :any,                 arm64_sonoma:  "d0f0990494babab458cbc91cee206598fbe98e303761c49e43a8924fe9f4fff0"
+    sha256 cellar: :any,                 arm64_ventura: "9cbecaf7b22a02e178294518a281bfbf87be09a2de877144a6b273759f4e32ca"
+    sha256 cellar: :any,                 sonoma:        "2a822345e7ca596102229fe92e6352e1595749ad1ac3a5822f647b18b70d027c"
+    sha256 cellar: :any,                 ventura:       "8dd499299e6a778461782447004253825cea74c4702858946ae986c1ff120ffa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c73a9e02fd2c35ad10d89ca686830fef3e25af2b0aa2d0fdde508eb69217454e"
   end
 
   depends_on "cmake" => [:build, :test]
   depends_on "qt" => :test
   depends_on "coreutils"
-  depends_on "llvm"
+  depends_on "llvm@19" # LLVM 20 issue: https://invent.kde.org/sdk/clazy/-/issues/27
 
   uses_from_macos "libxml2"
   uses_from_macos "ncurses"

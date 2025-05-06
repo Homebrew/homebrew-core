@@ -34,6 +34,7 @@ class Wrangler < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "1bd08eb2e81427427c19961ea491968529f2a9a083329effc81763d75cb53978"
     sha256 cellar: :any_skip_relocation, sonoma:        "123c4474665a332b371cf4e1b0277ab632424d7d2a3ca5a78dc23a27aa2387c9"
     sha256 cellar: :any_skip_relocation, ventura:       "23bcf0e9f30302473b550eb90ab8ac96d4b1f5afd51a1da33ccd0902cca4e044"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "272b96bf2e4ef8cfb303bc93246b839f18557c3633584c509353f952ae4de13c"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "309087fe8204a4c9ba1a954a159e81c5a89f6538f228068b27c36b8de4f1f97f"
   end
 

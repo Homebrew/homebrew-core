@@ -1,17 +1,17 @@
 class Statesmith < Formula
   desc "State machine code generation tool suitable for bare metal, embedded and more"
   homepage "https://github.com/StateSmith/StateSmith"
-  url "https://github.com/StateSmith/StateSmith/archive/refs/tags/cli-v0.17.5.tar.gz"
-  sha256 "185fc6c05c8c950153bb871ffdad6de47ebf2db18c4607cd4005662d5d9f79b6"
+  url "https://github.com/StateSmith/StateSmith/archive/refs/tags/cli-v0.18.2.tar.gz"
+  sha256 "f6823b7734b431bd567a59258549b3a77662d1b561dc33093ea503f904be25ce"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "06a75aa770bfbe5736191b850192f3018d60de182fb55dbb3a84dba2b4a7c90c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "926fafa1d15bcca00d6372824d26c6bbd55a59b0a6cf5cf34ec338c7462321e4"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "0a11d4baa36bad4b9781afeda8e6767a5e6883e800cfbda179755c41f0344f13"
-    sha256 cellar: :any_skip_relocation, ventura:       "0a52242c5fc55c753a125e12de944672d59ca660c5f7852b7e8809996380b0b6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3ea33392880ca8706e3013cd7d491be55f24ac755a0f0907956d07932937cf37"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9cccfa195619b84f8094ad0a86f8b6ec9b6f11d6c137bbedca6e7f10d06c3c2c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "86f698f5d2d76c8eb1f778e499ea4e557a6279992bdb974311b1231853fef6de"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7542a876bf8a924ce082cc0de8a1f7fe5e6b3c9660340a6cf7cd0d446371bdeb"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "eff01365f5cca9d476f49b3833ff71be77bbcd16e7b57795a3410f806af8be26"
+    sha256 cellar: :any_skip_relocation, ventura:       "e18105ffcabae10501200f28a10b641afca02bb924b75ea22d1e44faf2474cca"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0f0d47885851de435d1ec58e52e5c7493ab5fcc1158bc973ebdb9119c68f17aa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "43fb000e7287ae4ae3b6fe53a88024f7d81ec1d35955975fb7ce01997f241ca7"
   end
 
   depends_on "dotnet"

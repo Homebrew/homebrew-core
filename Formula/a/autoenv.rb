@@ -1,15 +1,16 @@
 class Autoenv < Formula
   desc "Per-project, per-directory shell environments"
   homepage "https://github.com/hyperupcall/autoenv"
-  url "https://github.com/hyperupcall/autoenv/archive/refs/tags/v0.3.0.tar.gz"
-  sha256 "1194322a0fd95e271bbfeb39e725ee33627154f80eb76620cf0cd01e0d5e3520"
+  url "https://github.com/hyperupcall/autoenv/archive/refs/tags/v0.4.0.tar.gz"
+  sha256 "baf91afe2e93b071dbf3da0c9ad294c1858efd9c8de4b0845f7fb2f31520b252"
   license "MIT"
   head "https://github.com/hyperupcall/autoenv.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "7336af16659bda14e0ee3e36fca9cd526236c4261b9b801950cc2dcdf617a2d7"
+    sha256 cellar: :any_skip_relocation, all: "7d291627ba82fc28ef378728ea6969eb3cebed1e8b2c17b9655cf05745102362"
   end
+
+  depends_on "bash"
 
   def install
     prefix.install "activate.sh"

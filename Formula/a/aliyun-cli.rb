@@ -2,23 +2,24 @@ class AliyunCli < Formula
   desc "Universal Command-Line Interface for Alibaba Cloud"
   homepage "https://github.com/aliyun/aliyun-cli"
   url "https://github.com/aliyun/aliyun-cli.git",
-      tag:      "v3.0.260",
-      revision: "adc4b23f7ed9aa020a545a2e8b8b4038716dcd14"
+      tag:      "v3.0.272",
+      revision: "9b12013d828f86ff32e0a1939acc856f8fd47134"
   license "Apache-2.0"
+  head "https://github.com/aliyun/aliyun-cli.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "820cad891ae414bca725d1d7b7339dc92c82896869dbe0d3873dcf2cd06ad9d0"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "820cad891ae414bca725d1d7b7339dc92c82896869dbe0d3873dcf2cd06ad9d0"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "820cad891ae414bca725d1d7b7339dc92c82896869dbe0d3873dcf2cd06ad9d0"
-    sha256 cellar: :any_skip_relocation, sonoma:        "6b87c9c5095d573a87411fc4118c60606d5aa0e624d31383b6548451cf488268"
-    sha256 cellar: :any_skip_relocation, ventura:       "6b87c9c5095d573a87411fc4118c60606d5aa0e624d31383b6548451cf488268"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "985b11eb328d5e5e17d8ec3ab4ee8d60d063eab18d72adf9210992de71458b7f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7c87397f63a497b05367d667986f53fdc1a904315b8f63b40696233e257e501a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7c87397f63a497b05367d667986f53fdc1a904315b8f63b40696233e257e501a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "7c87397f63a497b05367d667986f53fdc1a904315b8f63b40696233e257e501a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "6c42e933e7104feb9f125b51cb942ffb1bfe4ebb11755007493acc26c8bf71aa"
+    sha256 cellar: :any_skip_relocation, ventura:       "6c42e933e7104feb9f125b51cb942ffb1bfe4ebb11755007493acc26c8bf71aa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "68f3138275cab8a4042385d44c41c01aa163cfbd390b892bdb4b3a238348e624"
   end
 
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X github.com/aliyun/aliyun-cli/cli.Version=#{version}"
+    ldflags = "-s -w -X github.com/aliyun/aliyun-cli/v#{version.major}/cli.Version=#{version}"
     system "go", "build", *std_go_args(output: bin/"aliyun", ldflags:), "main/main.go"
   end
 

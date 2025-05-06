@@ -1,38 +1,12 @@
 class Llvm < Formula
   desc "Next-gen compiler infrastructure"
   homepage "https://llvm.org/"
+  # TODO: Rebase `clang-cl` patch.
+  url "https://github.com/llvm/llvm-project/releases/download/llvmorg-20.1.4/llvm-project-20.1.4.src.tar.xz"
+  sha256 "a95365b02536ed4aef29b325c205dd89c268cba41503ab2fc05f81418613ab63"
   # The LLVM Project is under the Apache License v2.0 with LLVM Exceptions
   license "Apache-2.0" => { with: "LLVM-exception" }
-  revision 1
   head "https://github.com/llvm/llvm-project.git", branch: "main"
-
-  stable do
-    url "https://github.com/llvm/llvm-project/releases/download/llvmorg-19.1.7/llvm-project-19.1.7.src.tar.xz"
-    sha256 "82401fea7b79d0078043f7598b835284d6650a75b93e64b6f761ea7b63097501"
-
-    # Remove the following patches in LLVM 20.
-
-    # Backport relative `CLANG_CONFIG_FILE_SYSTEM_DIR` patch.
-    # https://github.com/llvm/llvm-project/pull/110962
-    patch do
-      url "https://github.com/llvm/llvm-project/commit/1682c99a8877364f1d847395cef501e813804caa.patch?full_index=1"
-      sha256 "2d0a185e27ff2bc46531fc2c18c61ffab521ae8ece2db5b5bed498a15f3f3758"
-    end
-
-    # Support simplified triples in version config files.
-    # https://github.com/llvm/llvm-project/pull/111387
-    patch do
-      url "https://github.com/llvm/llvm-project/commit/88dd0d33147a7f46a3c9df4aed28ad4e47ef597c.patch?full_index=1"
-      sha256 "0acaa80042055ad194306abb9843a94da24f53ee2bb819583d624391a6329b90"
-    end
-
-    # Fix triple config loading for clang-cl
-    # https://github.com/llvm/llvm-project/pull/111397
-    patch do
-      url "https://github.com/llvm/llvm-project/commit/a3e8b860788934d7cc1489f850f00dcfd9d8b595.patch?full_index=1"
-      sha256 "6d8403fec7be55004e94de90b074c2c166811903ad4921fd76274498c5a60a23"
-    end
-  end
 
   livecheck do
     url :stable
@@ -40,13 +14,13 @@ class Llvm < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "2bfa1ded659b3a1647e9718af2e8baa895da228af148d3c0d5f55273dca50b54"
-    sha256 cellar: :any,                 arm64_sonoma:  "59fccc302e31b030a3ffa6ba75441a902dea8e1c2d069f3fc1e38445187ab335"
-    sha256 cellar: :any,                 arm64_ventura: "4c471348ebb70d36a8840f36aeadf5fe5f229ed23ef49e99778054b6bdc6ea56"
-    sha256 cellar: :any,                 sonoma:        "eab56bb7092bb23a667808915dc4aad048140395194b955bbc743cb65ef65697"
-    sha256 cellar: :any,                 ventura:       "f33aecd068fcdc3c8c646ddef416942cf29f66277372cd32e22565d90356113b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "cf008643cf539c960aa62896d4ac780b7c4bbb89b644349063221b05a62b63de"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a4eb62edbba509c7cf907647f91f50367a5cdfff48c50a13d2109ea773cfceed"
+    sha256 cellar: :any,                 arm64_sequoia: "eeaff9d74040678eeb76850a1bb742b189f2a7a939860a9c512bf0526f49d81d"
+    sha256 cellar: :any,                 arm64_sonoma:  "6e4270a68f16ffbf75214045fbf6c83ad1d7b28fe558c5f42aada7ade9ec8ac3"
+    sha256 cellar: :any,                 arm64_ventura: "bba82ae04eda007c8971ea4bceebee3b9ef1cadc222e1d77ef0eebad218c9af5"
+    sha256 cellar: :any,                 sonoma:        "9ed2acd04961a914d8197ab999056c4a8889881051597926ee9215fc2e83e6e9"
+    sha256 cellar: :any,                 ventura:       "7808e12ba6a9fe416a969989a2a191ab1869d677fc0d3280f3e47fb348d09c6c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "31d2343b44f1baddeb4b549d782f413427ed55461aa69d8c62f777f80f06186f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f10fad6fca57ea531467227b02c7e4daea257d7b4ae0c264e3d3dad7bc8aff2a"
   end
 
   keg_only :provided_by_macos
@@ -114,6 +88,11 @@ class Llvm < Formula
                              .map { |py| py.delete_prefix("python@") }
     site_packages = Language::Python.site_packages(python3).delete_prefix("lib/")
 
+    # Work around build failure (maybe from CMake 4 update) by using environment
+    # variable for https://cmake.org/cmake/help/latest/variable/CMAKE_OSX_SYSROOT.html
+    # TODO: Consider if this should be handled in superenv as impacts other formulae
+    ENV["SDKROOT"] = MacOS.sdk_for_formula(self).path if OS.mac? && MacOS.sdk_root_needed?
+
     # Apple's libstdc++ is too old to build LLVM
     ENV.libcxx if ENV.compiler == :clang
 
@@ -133,7 +112,7 @@ class Llvm < Formula
       -DLLVM_POLLY_LINK_INTO_TOOLS=ON
       -DLLVM_BUILD_EXTERNAL_COMPILER_RT=ON
       -DLLVM_LINK_LLVM_DYLIB=ON
-      -DLLVM_ENABLE_EH=ON
+      -DLLVM_ENABLE_EH=OFF
       -DLLVM_ENABLE_FFI=ON
       -DLLVM_ENABLE_RTTI=ON
       -DLLVM_INCLUDE_DOCS=OFF
@@ -536,9 +515,6 @@ class Llvm < Formula
 
       LLD is now provided in a separate formula:
         brew install lld
-
-      We plan to build LLVM 20 with `LLVM_ENABLE_EH=OFF`. Please see:
-        https://github.com/orgs/Homebrew/discussions/5654
     EOS
 
     on_macos do

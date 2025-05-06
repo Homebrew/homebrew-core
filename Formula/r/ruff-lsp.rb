@@ -17,7 +17,7 @@ class RuffLsp < Formula
     sha256 cellar: :any_skip_relocation, all: "3eb98e50688bf67252e5779a8948914ae7d063ba511672001fb12d2f498d5316"
   end
 
-  deprecate! date: "2025-02-06", because: :deprecated_upstream, replacement: "ruff"
+  deprecate! date: "2025-02-06", because: :deprecated_upstream, replacement_formula: "ruff"
 
   depends_on "python@3.13"
   depends_on "ruff"

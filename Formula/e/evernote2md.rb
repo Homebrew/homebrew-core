@@ -4,6 +4,7 @@ class Evernote2md < Formula
   url "https://github.com/wormi4ok/evernote2md/archive/refs/tags/v0.21.1.tar.gz"
   sha256 "524669d942ee8600211d3886a5bf18e578b13d8a3a5fb870bbc9f415523246ad"
   license "MIT"
+  head "https://github.com/wormi4ok/evernote2md.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "20aa5f0579e02309ed70360a6ac0c5c64b23aa3eed44d95701080b617b36755c"

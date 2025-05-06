@@ -13,16 +13,17 @@ class Allegro < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "3b43e0f8503452a10313f09425c881b2904307185834e264d169902ec2211e38"
-    sha256 cellar: :any,                 arm64_sonoma:  "d9485d8eb15902bf533254101a297e5f04d44b8fdb3c86bd70cda6d609bdde8d"
-    sha256 cellar: :any,                 arm64_ventura: "559055fd2e03e6cd292370bb4a72b838e89f2917a17e152cc1e00a1567232efe"
-    sha256 cellar: :any,                 sonoma:        "0a8120e62d0f2f95d57db7d238348b02cf5ba6e23f707d26fb982348c2f49603"
-    sha256 cellar: :any,                 ventura:       "4c6e94c6ab57cad68876ed6fc2ddfe02dddfe8499199bfc21542b479762435dc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "13e7ac2228a2a3f2b975bd5da105c7c63a15b88b76582f5e47510f54f6ad92a0"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "db24d012cd88b23d8587898aceab3203169a995e7bc874e0db849942459ececa"
+    sha256 cellar: :any,                 arm64_sonoma:  "871af04f1451b1064666dc3b696f810cb105fa4f0245125a61007d11d3210442"
+    sha256 cellar: :any,                 arm64_ventura: "cc0ab101b41137fa5ea75ca65427c21e51164ad3ddd0af841816d068e932de97"
+    sha256 cellar: :any,                 sonoma:        "0285e3c404d3351c218ed93958d982001a32092a6be106454772e5b981eebddb"
+    sha256 cellar: :any,                 ventura:       "4b0d776e4d1539a4826a9e6eb721a9c769110cd33d20657d5ca1c870ff47c4da"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7b00b980e261ff3cab81d54a8952e7e46868c55c03bce69da9a38b0314d21298"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "77d8fa148090e9335b24c1bcd37d711c5206657ac0124c6dc7275e7c8f3e8da2"
   end
 
   depends_on "cmake" => :build
-  depends_on "dumb"
   depends_on "flac"
   depends_on "freetype"
   depends_on "libogg"
@@ -51,12 +52,14 @@ class Allegro < Formula
   end
 
   def install
-    cmake_args = std_cmake_args + %W[
+    cmake_args = %W[
       -DWANT_DOCS=OFF
+      -DWANT_DUMB=OFF
       -DCMAKE_INSTALL_RPATH=#{rpath}
+      -DCMAKE_POLICY_VERSION_MINIMUM=3.5
     ]
 
-    system "cmake", "-S", ".", "-B", "build", *cmake_args
+    system "cmake", "-S", ".", "-B", "build", *cmake_args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end

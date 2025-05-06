@@ -3,8 +3,8 @@ class Cups < Formula
   homepage "https://github.com/OpenPrinting/cups"
   # This is the author's fork of CUPS. Debian have switched to this fork:
   # https://lists.debian.org/debian-printing/2020/12/msg00006.html
-  url "https://github.com/OpenPrinting/cups/releases/download/v2.4.11/cups-2.4.11-source.tar.gz"
-  sha256 "9a88fe1da3a29a917c3fc67ce6eb3178399d68e1a548c6d86c70d9b13651fd71"
+  url "https://github.com/OpenPrinting/cups/releases/download/v2.4.12/cups-2.4.12-source.tar.gz"
+  sha256 "b1dde191a4ae2760c47220c82ca6155a28c382701e6c1a0159d1054990231d59"
   license "Apache-2.0"
   head "https://github.com/OpenPrinting/cups.git", branch: "master"
 
@@ -14,13 +14,13 @@ class Cups < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "9ce97cb2305aa0b8fb73d5f104b47a5d0e22ea9583d1b15b8e9091962fbcd48c"
-    sha256 arm64_sonoma:  "da9bb8ae69dc9c9b741d06cc4c3143961d2c084367ec60e50360e67a0c89be43"
-    sha256 arm64_ventura: "e8b56d92ae803cbce09b2390b90705c520a3475607fb9c61ec6d2b9095000f3e"
-    sha256 sonoma:        "bfdb13e6164cc005e1387d8d53df0e3aa5fb21c85546ff36e2838bf22a2a4102"
-    sha256 ventura:       "0d1726c5edfcdba47a6ab127d39e8cbfa72c000746692db8f3fdc0213dbbfaf2"
-    sha256 arm64_linux:   "00c8f9ae51d1df790c1f5ccaa85e6262eb34e185ba3dc1d94ecbd9ad1e47975f"
-    sha256 x86_64_linux:  "450c1b750daf7df268f6107c5bd585c9a1d20fe20914ff9f038e9f5bbf028380"
+    sha256 arm64_sequoia: "705e803a739ead8c04537615685fedf880afc88a536315d939571a98911f7936"
+    sha256 arm64_sonoma:  "dc4da71981a402f2cdf66008cec93ab1480826254633a815e835d442b32c8536"
+    sha256 arm64_ventura: "1cfe5a32e6973737ae86e1f16b8cc104b5b5ac57243b8b787356adf687785c35"
+    sha256 sonoma:        "38bf81dc15a0dca73492c12fc6912926bac447bd71fe4b3d0e7c5b6245dbd985"
+    sha256 ventura:       "fd22e936b6d275b404c3a0b094624950b9dc27eb9924be1592792eec4e955c50"
+    sha256 arm64_linux:   "ac4a05c8d6c069d1e486948aceee4edd97d8ff765b3282e077c69ca2d122580c"
+    sha256 x86_64_linux:  "bf9ed3c684e203a1809506737ca7d167dbc4911019344298663f02792fb4fcaa"
   end
 
   keg_only :provided_by_macos
@@ -45,6 +45,7 @@ class Cups < Formula
 
     begin
       sleep 2
+      sleep 2 if OS.mac? && Hardware::CPU.intel?
       assert_match("Homebrew Test Printer", shell_output("curl localhost:#{port}"))
     ensure
       Process.kill("TERM", pid)

@@ -1,18 +1,18 @@
 class Monolith < Formula
   desc "CLI tool for saving complete web pages as a single HTML file"
   homepage "https://github.com/Y2Z/monolith"
-  url "https://github.com/Y2Z/monolith/archive/refs/tags/v2.9.0.tar.gz"
-  sha256 "c923af01abfde33328d48418af49d4a80143ad1070838f2b9d2a197bb1d66724"
+  url "https://github.com/Y2Z/monolith/archive/refs/tags/v2.10.1.tar.gz"
+  sha256 "1afafc94ba693597f591206938e998fcf2c78fd6695e7dfd8c19e91061f7b44a"
   license "CC0-1.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "67c39bcacb8fd40a440306cdc847647657ce9c102ef8d1b03f3cf4f0ce700c47"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6bea0dd0d37054a3d1f9f38d5bdc1094834b79f9644697148fa9923098549600"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "a19396e38ff6e34154216c315248c0e994f24dcd609c5250c3a29cdec943491a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "248fb18abf3f9d06bc9512d25a46f2feb21c9e98a904b1e196bfa29ba8475254"
-    sha256 cellar: :any_skip_relocation, ventura:       "ff63b53277eb79f24154500f1da05c8fb282bd0634c6668df3d950de70409844"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0c32c977ebb18ffcbb545668bc0543f63f3db8891ca704c4655f380ecff569d9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "99296d1923a60c554940dd73274257fd00041d0d6f17772b5e908228c65fcad4"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "92826aa3a7f4ca6eac24d7c1b1aee3fd75b3502338cf8c284c99613364d373e6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "44f84b6ccacd950b953340af3a7b46d743626fb44eac00ea27eee1fc1a87afa6"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "628d8282e77e55dddf76981418a0f92d6aa96cd01ee7adf0b2874eb8288d7f8f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "81364ea28028bc6a147edbd0c0613db6baef11078f14555330e438a0e2159e5d"
+    sha256 cellar: :any_skip_relocation, ventura:       "e2168d625c8330f2462e1f8c6da8c97db0aa2e42443c6045b194fdd9b885722e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e2915bebfb7b5a0a116d1922987969e9be94236917e54c7389a5ee964a20198f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "66d1a5ae8947717fad4f322fa95c6fe603ea543a07a8188eaab279cf0ea01a56"
   end
 
   depends_on "pkgconf" => :build

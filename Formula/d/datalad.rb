@@ -13,6 +13,7 @@ class Datalad < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "8816fa2f8951a949c619f7322e0d7b8b3ac22b1d746e81317f6019eef28d89a4"
     sha256 cellar: :any_skip_relocation, sonoma:        "373ad02b9ccab0cefcb8261d3e37979f32a0824d64a9a6de2c9525d0391fa8d8"
     sha256 cellar: :any_skip_relocation, ventura:       "98a6d7f6e4c231609e2b6f76221f636b5dcb7dd2215be5281444e369ebcf70f0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "320fa25995ffb376e62f6109096be01d1b85e701bd68714ad646b32cdd6b6906"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "e9666a2a0f5ab4284c9d9cea0e9e5d717823bfbe1769d4c09b8d806c8bf3b7de"
   end
 

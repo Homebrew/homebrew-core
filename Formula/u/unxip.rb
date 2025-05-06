@@ -10,6 +10,7 @@ class Unxip < Formula
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "abf884e88603357d56ed83f95f8d1bc6f366e3542578d823beb6414c97240d58"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6b25d509ece5113ddc99bb39e0ce031b578be3a6d146ecce3105e208da6f214c"
     sha256 cellar: :any_skip_relocation, sonoma:        "e7f685faaad5e16412bce583d9420617136a7b3b04d2b399b6c25492afcddd54"
+    sha256                               arm64_linux:   "2307c9e9f92bd26c481d2754d2026470a8c9197af2ac0fba2b2da1081366a713"
     sha256                               x86_64_linux:  "e8ce3607ab1d6aeb51833fc2862c38e28068d172d00b865a89cd2d305ebf69a3"
   end
 

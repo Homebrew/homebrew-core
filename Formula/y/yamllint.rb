@@ -3,19 +3,19 @@ class Yamllint < Formula
 
   desc "Linter for YAML files"
   homepage "https://github.com/adrienverge/yamllint"
-  url "https://files.pythonhosted.org/packages/4e/82/b2b6fa4c3e24df501d14eff23100b37e6d9f80cbed80644de4d1260ff402/yamllint-1.37.0.tar.gz"
-  sha256 "ead81921d4d87216b2528b7a055664708f9fb8267beb0c427cb706ac6ab93580"
+  url "https://files.pythonhosted.org/packages/46/f2/cd8b7584a48ee83f0bc94f8a32fea38734cefcdc6f7324c4d3bfc699457b/yamllint-1.37.1.tar.gz"
+  sha256 "81f7c0c5559becc8049470d86046b36e96113637bcbe4753ecef06977c00245d"
   license "GPL-3.0-or-later"
   head "https://github.com/adrienverge/yamllint.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "ca8c91dda9670df3d4c0d19ee505cbd705ad1bba0d91345bcd86061ebbfcfbc0"
-    sha256 cellar: :any,                 arm64_sonoma:  "127df47ee3ad4dc2bd4035b05137baf43214b2ea3b90f5368d6f955c5acf39a3"
-    sha256 cellar: :any,                 arm64_ventura: "2f43d0b636a8b1ef3b0d86f44e5d7c5019d343249eabb41ca8b585dd732f519a"
-    sha256 cellar: :any,                 sonoma:        "450facf1da1044b6e5c9e2b114b8fb47e02f89c5bb79cd42b7ad65ab0b47ad90"
-    sha256 cellar: :any,                 ventura:       "3e7893f7f1ba19439cac81de5111e8ad6ff651315cd1dfec1abac197a016f6f7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8aa8f195bdf53b883395dc33df7731e113985af5830f72f993a7652519d6e037"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "412ee67c482e368cdebdbf58c7ac51b050a81c91ffab778668558ca6c4a31e6b"
+    sha256 cellar: :any,                 arm64_sequoia: "4241606602e0cab66eeec59f791c2a65fc6f46d9d83b903418c16892facba5be"
+    sha256 cellar: :any,                 arm64_sonoma:  "f98d6db2e13c8ba481acd4d15df4bb6a2a861a7af3e3bb64facfa45863d5424c"
+    sha256 cellar: :any,                 arm64_ventura: "306d5cdfa177ef0e748beacbafb5aa19883978f18ef6fdf937a7f21aed35c8fc"
+    sha256 cellar: :any,                 sonoma:        "f140abc3afa4e130c96fb66db179374b0c196ce62159e97aaf8321450f8a69cf"
+    sha256 cellar: :any,                 ventura:       "0abcd51823ae770c1f1e02ae64c36eaa593d5b3b9a4b634c112e731161821b55"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "bbb3caa7cb9e282692efaede364d93f2c725402252dd7f87c28baca3f7848c9a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ce938787e6e7d11348544aad521f22cc82b22f332b6842e92003dd75d662e7c8"
   end
 
   depends_on "libyaml"

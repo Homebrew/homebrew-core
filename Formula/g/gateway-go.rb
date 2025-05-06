@@ -1,18 +1,18 @@
 class GatewayGo < Formula
   desc "GateWay Client for OpenIoTHub"
   homepage "https://github.com/OpenIoTHub"
-  url "https://github.com/OpenIoTHub/gateway-go/archive/refs/tags/v0.3.18.tar.gz"
-  sha256 "8b679df2600a6fca097b6ece84a825c4d0586e2b66d853a9cc4d58fabc474395"
+  url "https://github.com/OpenIoTHub/gateway-go/archive/refs/tags/v0.3.20.tar.gz"
+  sha256 "c813c7054eb495451f55200a2f9e35817144d11953b1bcef0aeb2ada0185c469"
   license "MIT"
   head "https://github.com/OpenIoTHub/gateway-go.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8c7855b3a83ed76363e05a260cdcf57ae9db30b2cb65f5d82b2bc2d0645c4149"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "be4e2122ad85552a7f41c845e1b06c34ce440b13c9bee5c0a27c9d900e01bddb"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "52da06ab1cc1c773859b65b8bc205866eb0046b7cba48034538cb005d54eaa73"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ea30696c5e66419e0cacf0efa110bcd8011be9dab271e4a53b192061b960f4ba"
-    sha256 cellar: :any_skip_relocation, ventura:       "22fb81947598bdfde54db43c5736dd7c6ee367528bae33a97b88151c6f8ba84c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "22446bdb108cedea9b9e03cc6f7e50cac3a9ca55759afd88b0e7787dff4629b3"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cd7bb0bbfe98f11c8c808a9df2694a4e228c13111107a6ad73b7bbf2c9c3bf20"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2c2c34966d71beffff420235ad7a1d99a899b927cb5cb85e3d0a1e75ad5c9e8a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "cd7bb0bbfe98f11c8c808a9df2694a4e228c13111107a6ad73b7bbf2c9c3bf20"
+    sha256 cellar: :any_skip_relocation, sonoma:        "cafc14744e603d10418fd53124d33e3e8b3d80c66e1d66a2abf8b8f202580622"
+    sha256 cellar: :any_skip_relocation, ventura:       "77977104153cd170f005bf4a5779a2458ab191008395241753f277cf19c6ec0b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "51d8614b9639580e365b35d38ddaa35836ef3559efed0db3df10145af863d6e2"
   end
 
   depends_on "go" => :build

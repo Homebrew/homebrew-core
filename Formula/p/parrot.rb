@@ -37,6 +37,7 @@ class Parrot < Formula
     sha256 high_sierra:    "c3ce1d1fe24e6f5172629cd092cc03db16b957649865af052ee6a72d75fa10e6"
     sha256 sierra:         "e8c50fee6a2111412b5f6ac31292f3ff7d3e4dd2be9a02cc94a890026588ae63"
     sha256 el_capitan:     "3b78be029276ca642cb2bc705888ed0cd7745c0398cf90bf67031190191c76a8"
+    sha256 arm64_linux:    "840cf36f41c1737e76b81b2964b844ea15554ce31d6e7513750facd69eff5d6b"
     sha256 x86_64_linux:   "26b301714008aa6c10ecd25b10d01bf361ed4772b90af0a9d50936d2108f9013"
   end
 

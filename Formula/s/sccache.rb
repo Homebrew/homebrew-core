@@ -21,6 +21,7 @@ class Sccache < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "b53ed3e9f8745cbfa1e5a6b018225f7e30326af3fecd6701887acc580f1254c6"
   end
 
+  depends_on "pkgconf" => :build
   depends_on "rust" => :build
 
   on_linux do
@@ -28,10 +29,6 @@ class Sccache < Formula
   end
 
   def install
-    # Ensure that the `openssl` crate picks up the intended library.
-    # https://crates.io/crates/openssl#manual-configuration
-    ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix if OS.linux?
-
     system "cargo", "install", "--features", "all", *std_cargo_args
   end
 

@@ -16,12 +16,20 @@ class Gobo < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "930a459b40e131dc3076dc1f4aafaa3e58dcc7173134e7f162145040ee4bfd68"
     sha256 cellar: :any_skip_relocation, big_sur:        "a26f0cf33aebe2dca17fc9ad9b1741530e789d9ab4e289245fe8886fcddf65ef"
     sha256 cellar: :any_skip_relocation, catalina:       "c8eea87acca4311c744bcd7aa7444d41728e157d778b12a6c24923173ebab77e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "4aa5e395b8372353400c7bfdecabc0a8293d61cc04a8c645c75f88c2ac4255ef"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "ff95ec6c9c2a1785e6ff593ca1fcd658f2b46e080bd956bd7ece4a01db6e3ac9"
   end
 
   depends_on "eiffelstudio" => :test
 
   def install
+    # Workaround to support arm64 linux as upstream is based on an older Eiffel.
+    # EiffelStduio 23.09 was first open-source version to support arm64 linux.
+    if OS.linux? && Hardware::CPU.arm?
+      inreplace "tool/gec/bootstrap/gec8.c", 'GE_ms8("linux-x86-64", 12);', 'GE_ms8("linux-arm64", 11);'
+      inreplace "library/tools/src/support/et_ise_variables.e", ':= "linux-x86-64"', ':= "linux-arm64"'
+    end
+
     ENV["GOBO"] = buildpath
     ENV.prepend_path "PATH", buildpath/"bin"
     # The value for compiler needs to be an unversioned name, but it will still use
@@ -37,7 +45,7 @@ class Gobo < Formula
   end
 
   test do
-    (testpath/"build.eant").write <<~EOS
+    (testpath/"build.eant").write <<~XML
       <?xml version="1.0" encoding="UTF-8"?>
       <project name="hello" default="help">
         <description>
@@ -53,8 +61,8 @@ class Gobo < Formula
           <set name="system_dir" value="#{testpath}" />
         </target>
       </project>
-    EOS
-    (testpath/"system.ecf").write <<~EOS
+    XML
+    (testpath/"system.ecf").write <<~XML
       <?xml version="1.0" encoding="UTF-8"?>
       <system
           xmlns="http://www.eiffel.com/developers/xml/configuration-1-20-0"
@@ -84,7 +92,7 @@ class Gobo < Formula
           </capability>
         </target>
       </system>
-    EOS
+    XML
     mkdir "src" do
       (testpath/"hello.e").write <<~EOS
         note

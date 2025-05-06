@@ -23,6 +23,7 @@ class Dirac < Formula
     sha256 cellar: :any,                 high_sierra:    "9413ec8e068d4c8e30d679a62af9779a09de385e2287acebacf9e5c56e80a50a"
     sha256 cellar: :any,                 sierra:         "09b846fe4069e971ec6d10668d97ac599cb555e5799f3ba3076d0d088e1f78cf"
     sha256 cellar: :any,                 el_capitan:     "8f4414614755f863d3ba0f43d6415684fbc00976ae24c7e45c88fe736be918d2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "c02ecb26cb2992df035ad54868de88e9706b0abecf9f949413bc584b9eea8a4f"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "96695c27a2cd1fbabc1281d052e798b4da85d75ba1a92c6b072808d0a59c62bb"
   end
 
@@ -49,8 +50,11 @@ class Dirac < Formula
     # BSD cp doesn't have '-d'
     inreplace "doc/Makefile.in", "cp -dR", "cp -R"
 
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    args = []
+    # Help old config scripts identify arm64 linux
+    args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+
+    system "./configure", *args, *std_configure_args
     system "make", "install"
   end
 end

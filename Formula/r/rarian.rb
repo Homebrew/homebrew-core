@@ -4,6 +4,7 @@ class Rarian < Formula
   url "https://gitlab.freedesktop.org/rarian/rarian/-/releases/0.8.6/downloads/assets/rarian-0.8.6.tar.bz2"
   sha256 "9d4f7873009d2e31b8b1ec762606b12bee5526e1fe75de48e9495382bfef2bea"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url :homepage
@@ -11,13 +12,13 @@ class Rarian < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "d28b342406dadc412d136c1c08c9b97613b668131f813d542d07ffe379b17db0"
-    sha256 arm64_sonoma:  "2d901dd0b530c413b30ab3eb0327c02596590c685928ef896bdfc13b9fac1df2"
-    sha256 arm64_ventura: "ec32e06c27f85d273f6ca90b78031f4b0ce6e190b9f160fed55f0cf1797f35a4"
-    sha256 sonoma:        "82ff77a27b3ed671542d4c066f945a45c5fce1777df9d77bdc8cfabc38bc219d"
-    sha256 ventura:       "1c10f34f9b76eba56f95ef5b1af592e6f51aaadd88e42cecb93864bbab8f41f6"
-    sha256 arm64_linux:   "702b5afe5343df30111af93021f112b58c543bd04f8ac0c6290a9dad24856a74"
-    sha256 x86_64_linux:  "1db54c3f633551261b40b7dc69e6b7a6e18649c681f7eb4f01703f35e565abec"
+    sha256 arm64_sequoia: "0c5d1dc2a38bdba34aee85a1704dd7fe8c4a5d8165888fd96d6844bbd9b6dfc9"
+    sha256 arm64_sonoma:  "8050a6ad473152290f964a8a51eb661d41595c75f0e0286d01a38764c77283e5"
+    sha256 arm64_ventura: "385dbc09752299c2b0cfcb4da0bf18e6a799d891c3cc4939748bbd57e8cce98f"
+    sha256 sonoma:        "ed569b70aaf6ecb11c8e6c77306b9514c27ca2013c3ec6583e735935ad593962"
+    sha256 ventura:       "a6707c1941c3e76d099eb2d1a780bfd01ce45980f2446b81f16204d781e37bfa"
+    sha256 arm64_linux:   "71527d1afc769fb36f87f00e635acdf53f7b74f74cbe3448c00108ca368ad18e"
+    sha256 x86_64_linux:  "289b7f0d276337b070e632d435f8f85f96462c8982d2597cd90f552aac4d14cf"
   end
 
   depends_on "autoconf" => :build

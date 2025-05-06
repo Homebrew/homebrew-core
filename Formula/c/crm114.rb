@@ -20,6 +20,7 @@ class Crm114 < Formula
     sha256 cellar: :any,                 high_sierra:    "1871f19d45d9d9d5f84663acde3f7e9177fd9a44bfe50532ed123314e360f690"
     sha256 cellar: :any,                 sierra:         "5e22ac9266e49f8281f3afbd613b3f16eb76113fc1f1e2256206513ab6220d42"
     sha256 cellar: :any,                 el_capitan:     "d48449acfcd105d07e11c0ac7c47fdb21b88d3346c0b51377b9e44b8c8726073"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "56e301508f1430b1797bed7cce7c08b449b8b6064a8e73fc1f6f238688a2b49b"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "159ba6e29e2da48573b2305e5d8afa7e6cb5806337fa6e2dc4375f8f77d781ca"
   end
 
