@@ -1,10 +1,9 @@
 class Nmap < Formula
   desc "Port scanning utility for large networks"
   homepage "https://nmap.org/"
-  url "https://nmap.org/dist/nmap-7.95.tar.bz2"
-  sha256 "e14ab530e47b5afd88f1c8a2bac7f89cd8fe6b478e22d255c5b9bddb7a1c5778"
+  url "https://nmap.org/dist/nmap-7.96.tar.bz2"
+  sha256 "98ae7a4f2fb66c1a3d482af8f00137283b917223446b46e7a20b06eabedf8c8a"
   license :cannot_represent
-  revision 1
   head "https://svn.nmap.org/nmap/"
 
   livecheck do
@@ -40,6 +39,9 @@ class Nmap < Formula
   conflicts_with cask: "zenmap", because: "both install `nmap` binaries"
 
   def install
+    # Fix to missing VERSION file
+    mv "libpcap/VERSION.txt", "libpcap/VERSION"
+
     ENV.deparallelize
 
     libpcap_path = if OS.mac?
