@@ -35,6 +35,7 @@
   "postgresql@16",
   "postgresql@17",
   "qt",
+  "qt-webengine",
   "spades",
   "spidermonkey",
   "svt-av1",
