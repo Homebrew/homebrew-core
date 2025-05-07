@@ -74,11 +74,14 @@ class Mvfst < Formula
     Open3.popen3(
       "./build/echo", "--mode", "client",
                 "--host", "127.0.0.1", "--port", server_port.to_s
-    ) do |stdin, _, stderr|
+    ) do |stdin, stdout, stderr|
       stdin.write "Hello world!\n"
       Timeout.timeout(60) do
+        stdout.each do |line|
+          ohai "in stdout", line
+        end
         stderr.each do |line|
-          break if line.include? "Got len=12 eof=1 total=12 data=Hello world!"
+          ohai "in stderr", line
         end
       end
       stdin.close
