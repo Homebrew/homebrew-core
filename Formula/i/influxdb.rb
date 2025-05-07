@@ -29,69 +29,12 @@ class Influxdb < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "dce1ad38f5b09ae95904350471e1d3dd7dd9eb1558e07c52e9dda1db2dd8ab2a"
   end
 
-  depends_on "breezy" => :build
-  depends_on "go" => :build
   depends_on "pkgconf" => :build
   depends_on "protobuf" => :build
   depends_on "rust" => :build
 
-  # NOTE: The version here is specified in the go.mod of influxdb.
-  # If you're upgrading to a newer influxdb version, check to see if this needs upgraded too.
-  resource "pkg-config-wrapper" do
-    url "https://github.com/influxdata/pkg-config/archive/refs/tags/v0.2.11.tar.gz"
-    sha256 "52b22c151163dfb051fd44e7d103fc4cde6ae8ff852ffc13adeef19d21c36682"
-
-    livecheck do
-      url "https://raw.githubusercontent.com/influxdata/influxdb/v#{LATEST_VERSION}/go.mod"
-      regex(/pkg-config\s+v?(\d+(?:\.\d+)+)/i)
-    end
-  end
-
-  # NOTE: The version/URL here is specified in scripts/fetch-ui-assets.sh in influxdb.
-  # If you're upgrading to a newer influxdb version, check to see if this needs upgraded too.
-  resource "ui-assets" do
-    url "https://github.com/influxdata/ui/releases/download/OSS-2.7.8/build.tar.gz"
-    sha256 "28ace1df37b7860b011e5c1b8c74830b0ec584d2f86c24e58a7c855c168f58a8"
-
-    livecheck do
-      url "https://raw.githubusercontent.com/influxdata/influxdb/v#{LATEST_VERSION}/scripts/fetch-ui-assets.sh"
-      regex(/UI_RELEASE=["']?OSS[._-]v?(\d+(?:\.\d+)+)["']?$/i)
-    end
-  end
-
-  # rust 1.83 build patch, upstream pr ref, https://github.com/influxdata/flux/pull/5516
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/a188defd190459f5d1faa8c8f9e253e8f83ca161/influxdb/2.7.11-rust-1.83.patch"
-    sha256 "15fa09ae18389b21b8d93792934abcf85855a666ddd8faeaeca6890452fd5bd4"
-  end
-
   def install
-    # Set up the influxdata pkg-config wrapper to enable just-in-time compilation & linking
-    # of the Rust components in the server.
-    resource("pkg-config-wrapper").stage do
-      system "go", "build", *std_go_args(output: buildpath/"bootstrap/pkg-config")
-    end
-    ENV.prepend_path "PATH", buildpath/"bootstrap"
-
-    # Extract pre-build UI resources to the location expected by go-bindata.
-    resource("ui-assets").stage(buildpath/"static/data/build")
-    # Embed UI files into the Go source code.
-    system "make", "generate-web-assets"
-
-    # Build the server.
-    ldflags = %W[
-      -s -w
-      -X main.version=#{version}
-      -X main.commit=#{Utils.git_short_head(length: 10)}
-      -X main.date=#{time.iso8601}
-    ]
-    tags = %w[
-      assets
-      sqlite_foreign_keys
-      sqlite_json
-    ]
-
-    system "go", "build", *std_go_args(output: bin/"influxd", ldflags:, tags:), "./cmd/influxd"
+    system "cargo", "install", *std_cargo_args
 
     data = var/"lib/influxdb2"
     data.mkpath
@@ -101,10 +44,10 @@ class Influxdb < Formula
     config.write Utils.safe_popen_read(bin/"influxd", "print-config",
                                        "--bolt-path=#{data}/influxdb.bolt",
                                        "--engine-path=#{data}/engine")
-    (etc/"influxdb2").install config
+    (etc/"influxdb3").install config
 
     # Create directory for DB stdout+stderr logs.
-    (var/"log/influxdb2").mkpath
+    (var/"log/influxdb3").mkpath
   end
 
   def caveats
