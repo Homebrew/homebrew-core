@@ -5,6 +5,7 @@ class Opencascade < Formula
   version "7.9.0"
   sha256 "ff118a524ec451867e8f0ac3b631522c98f2b4353c7dbf2786bf239589909ec6"
   license "LGPL-2.1-only"
+  revision 1
 
   # The first-party download page (https://dev.opencascade.org/release)
   # references version 7.5.0 and hasn't been updated for later maintenance
