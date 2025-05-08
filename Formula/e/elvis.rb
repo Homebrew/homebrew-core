@@ -8,13 +8,13 @@ class Elvis < Formula
   head "https://github.com/inaka/elvis.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "869ab7edf1230befdc9f7dc7cfd3c5b9374dcc95950301d52f194b941685aafd"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c2591e0e85e7fc9b629bc1ff228c87d978e048b1b9bc2de01cce733ae3ca9e0e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "c45f857aad49e4a6566251d7fc18cbaf98574111f5bf77d13e28307b1cac606c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "73bcdae25b799793a1087f545caa5074e432361dd97b69604ebdaaf56742da31"
-    sha256 cellar: :any_skip_relocation, ventura:       "f82822d583ea81ce907916f7ac5d67c6d6787c160406bf097a56675f53779416"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1b39aa4ed566bc02c07f350ff9d0a54ab040003ced3318b06d0a52f17ac27f0b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "640e7e5f6211bb72b71e5acb3c2bc4b34dc96c5e1e11c739955ce82f097bee24"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7e4dba522149c736bbc8c34e5781fe88e6106bd52e5bf9c7407b9b7601d95e45"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6a46b817c87c987b2b89727e147eee163de8a8abce66aa1fefccde776f996280"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "7c2d63a6bec20b6f56016896e0a82ad728aad29b7947b5fa8ba0dc8a591dc516"
+    sha256 cellar: :any_skip_relocation, sonoma:        "1b4c1157fc7c78ba4162ad253e1efe248ecb6db28d0de4d4686612b5577a009f"
+    sha256 cellar: :any_skip_relocation, ventura:       "847802a72846f3f28bd9becbdd1ca71ab6e3cdb9fbd9ca71ff0720434ff0a848"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b22f7fa8863daa1f9e00b1673d64b82a6669eaaca85e9478648e5dd6a7ba2c3a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cbe85e89a5e28c9539d2702d486f630749b4e7f61a6fb99edc0cfedbe4ad11a0"
   end
 
   depends_on "rebar3" => :build
