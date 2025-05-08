@@ -28,6 +28,8 @@ class PixiPack < Formula
 
   def install
     system "cargo", "install", *std_cargo_args
+
+    generate_completions_from_executable(bin/"pixi-pack", "completion", "-s")
   end
 
   test do
