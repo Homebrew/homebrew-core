@@ -1,0 +1,19 @@
+@@ -713,6 +713,10 @@
+     # using inotify. This is not available on macOS, so we set it to a
+     # non-zero value which disables inotify.
+     # `AttributeError: dlsym(0x3173ca988, inotify_init1): symbol not found`
++    #
++    # Set OMP_NUM_THREADS to 1 on macOS because of
++    #  https://github.com/NixOS/nixpkgs/issues/240591
++    #  https://github.com/NixOS/nixpkgs/pull/299008
+     (buildpath/"paperless.conf").write <<~SH
+       PAPERLESS_CONFIGURATION_PATH="#{etc}/paperless-ngx/paperless.conf"
+       PAPERLESS_CONSUMPTION_DIR="#{var}/paperless-ngx/consume"
+@@ -721,6 +725,7 @@
+       PAPERLESS_NLTK_DIR="#{var}/paperless-ngx/nltk_data"
+       PAPERLESS_STATICDIR="#{static_dir}"
+       #{"PAPERLESS_CONSUMER_POLLING=10" if OS.mac?}
++      #{"OMP_NUM_THREADS=1" if OS.mac?}
+     SH
+     (etc/"paperless-ngx").install "paperless.conf"
+ 
