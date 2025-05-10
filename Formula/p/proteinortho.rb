@@ -17,18 +17,23 @@ class Proteinortho < Formula
   end
 
   depends_on "diamond"
+  depends_on "gcc"
   depends_on "libomp"
   depends_on "openblas"
 
   def install
     ENV.cxx11
-
+    gcc_major_ver = Formula["gcc"].any_installed_version.major
     bin.mkpath
-    system "make", "install", "PREFIX=#{bin}"
+    system "make", "install", "CXX=#{Formula["gcc"].opt_bin}/g++-#{gcc_major_ver}", "PREFIX=#{bin}"
+    pkgshare.install "test"
     doc.install "manual.html"
   end
 
   test do
+    cp_r pkgshare/"test", testpath
+    files = Dir[testpath/"test/*.faa"]
+    system bin/"proteinortho", *files
     system bin/"proteinortho", "-test"
     system bin/"proteinortho_clustering", "-test"
   end
