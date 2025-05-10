@@ -1,8 +1,8 @@
 class Openttd < Formula
   desc "Simulation game based upon Transport Tycoon Deluxe"
   homepage "https://www.openttd.org/"
-  url "https://cdn.openttd.org/openttd-releases/14.1/openttd-14.1-source.tar.xz"
-  sha256 "2c14c8f01f44148c4f2c88c169a30abcdb002eb128a92b9adb76baa76b013494"
+  url "https://github.com/OpenTTD/OpenTTD/archive/refs/tags/15.0-beta2.tar.gz"
+  sha256 "53a70d45b2adb8212a251671be54c636c894aee76421c5af3a50b93f22196a3a"
   license "GPL-2.0-only"
   head "https://github.com/OpenTTD/OpenTTD.git", branch: "master"
 
@@ -36,12 +36,21 @@ class Openttd < Formula
 
   uses_from_macos "zlib"
 
+  on_macos do
+    depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1500
+  end
+
   on_linux do
     depends_on "fluid-synth"
     depends_on "fontconfig"
     depends_on "freetype"
     depends_on "mesa" # no linkage as dynamically loaded by SDL2
     depends_on "sdl2"
+  end
+
+  fails_with :clang do
+    build 1500
+    cause "Requires C++20 support"
   end
 
   resource "opengfx" do
@@ -93,6 +102,8 @@ class Openttd < Formula
   end
 
   def install
+    ENV.llvm_clang if OS.mac? && DevelopmentTools.clang_build_version <= 1500
+
     # Disable CMake fixup_bundle to prevent copying dylibs
     inreplace "cmake/PackageBundle.cmake", "fixup_bundle(", "# \\0"
     # Have CMake use our FIND_FRAMEWORK setting
