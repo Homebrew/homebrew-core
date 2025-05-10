@@ -6,6 +6,7 @@ class Streamlink < Formula
   url "https://files.pythonhosted.org/packages/0e/ba/cd25043ddaa6253cdbac234e00702eb6fcaec41c317284ed74f53fbde1b6/streamlink-7.3.0.tar.gz"
   sha256 "1e20d624451f26156a38b9dae5bdfcc6640a8bdf27922370edec8abe237abb08"
   license "BSD-2-Clause"
+  revision 1
   head "https://github.com/streamlink/streamlink.git", branch: "master"
 
   bottle do

@@ -4,7 +4,7 @@ class ScIm < Formula
   url "https://github.com/andmarti1424/sc-im/archive/refs/tags/v0.8.4.tar.gz"
   sha256 "ebb1f10006fe49f964a356494f96d86a4f06eb018659e3b9bde63b25c03abdf0"
   license "BSD-4-Clause"
-  revision 2
+  revision 3
   head "https://github.com/andmarti1424/sc-im.git", branch: "main"
 
   bottle do
