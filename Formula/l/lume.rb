@@ -16,9 +16,10 @@ class Lume < Formula
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1b629c3c3d1389578de26ca4805f83adfa7bf7fbd136583c50c3a237c507c8be"
   end
 
-  depends_on xcode: ["16.0", :build]
-  depends_on arch: :arm64 # For Swift 6.0
+  depends_on arch: :arm64
   depends_on :macos
+
+  uses_from_macos "swift" => :build, since: :sequoia
 
   def install
     cd "libs/lume" do
