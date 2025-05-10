@@ -9,6 +9,7 @@
   "gcc@11",
   "gcc@12",
   "gcc@13",
+  "gcc@14",
   "glibmm@2.66",
   "gnupg@1.4",
   "icu4c@77",
