@@ -1,8 +1,8 @@
 class Geeqie < Formula
   desc "Lightweight Gtk+ based image viewer"
   homepage "https://www.geeqie.org/"
-  url "https://github.com/BestImageViewer/geeqie/releases/download/v2.5/geeqie-2.5.tar.xz"
-  sha256 "cc991c9d4c78c58668105a15f7ece953bfc21b6b78cedc26ccbaaee6a12b8952"
+  url "https://github.com/BestImageViewer/geeqie/releases/download/v2.6/geeqie-2.6.tar.xz"
+  sha256 "f666ae628f07042c47a8021522d5a38600490b08ad1ffdbd64fabff24d51063d"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -53,6 +53,7 @@ class Geeqie < Formula
   depends_on "webp"
   depends_on "webp-pixbuf-loader" # for webp support
 
+  uses_from_macos "libxslt" => :build # for xsltproc
   uses_from_macos "python" => :build
   uses_from_macos "vim" => :build # for xxd
 
@@ -62,6 +63,8 @@ class Geeqie < Formula
   end
 
   def install
+    ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
+
     system "meson", "setup", "build", "-Dlua=disabled", *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"
     system "meson", "install", "-C", "build"
