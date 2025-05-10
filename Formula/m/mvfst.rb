@@ -1,8 +1,8 @@
 class Mvfst < Formula
   desc "QUIC transport protocol implementation"
   homepage "https://github.com/facebook/mvfst"
-  url "https://github.com/facebook/mvfst/archive/refs/tags/v2025.04.28.00.tar.gz"
-  sha256 "10f47a23f96dfbe14587666821b5a8f06eb38972c5ef403a1bfb2135fae8976a"
+  url "https://github.com/facebook/mvfst/archive/refs/tags/v2025.05.05.00.tar.gz"
+  sha256 "8a93da1819356974ab2fedad0ed766f90f64829cd5ace92e2812318d127a8362"
   license "MIT"
   head "https://github.com/facebook/mvfst.git", branch: "main"
 
@@ -74,11 +74,14 @@ class Mvfst < Formula
     Open3.popen3(
       "./build/echo", "--mode", "client",
                 "--host", "127.0.0.1", "--port", server_port.to_s
-    ) do |stdin, _, stderr|
+    ) do |stdin, stdout, stderr|
       stdin.write "Hello world!\n"
       Timeout.timeout(60) do
+        stdout.each do |line|
+          ohai "in stdout", line
+        end
         stderr.each do |line|
-          break if line.include? "Client received data=echo Hello world!"
+          ohai "in stderr", line
         end
       end
       stdin.close
