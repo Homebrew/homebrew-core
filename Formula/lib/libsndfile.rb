@@ -40,10 +40,12 @@ class Libsndfile < Formula
       -DPYTHON_EXECUTABLE=#{which("python3")}
     ]
 
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DBUILD_SHARED_LIBS=ON", *args
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args, \
+      "-DBUILD_SHARED_LIBS=ON", "-DCMAKE_POLICY_VERSION_MINIMUM=3.5", *args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
-    system "cmake", "-S", ".", "-B", "static", *std_cmake_args, "-DBUILD_SHARED_LIBS=OFF", *args
+    system "cmake", "-S", ".", "-B", "static", *std_cmake_args, \
+      "-DBUILD_SHARED_LIBS=OFF", "-DCMAKE_POLICY_VERSION_MINIMUM=3.5", *args
     system "cmake", "--build", "static"
     lib.install "static/libsndfile.a"
   end
