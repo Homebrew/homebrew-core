@@ -5,10 +5,9 @@ class S3ql < Formula
   homepage "https://github.com/s3ql/s3ql"
   # TODO: Try to remove `cython` and corresponding build_cython in the next release.
   # check if `python3 setup.py build_cython` is still needed in https://github.com/s3ql/s3ql/blob/master/.github/workflows/pr-ci.yml#L34
-  url "https://github.com/s3ql/s3ql/releases/download/s3ql-5.2.3/s3ql-5.2.3.tar.gz"
-  sha256 "892acf8a479fc837256100d820408bc5e2c27c0ba9ee2b5f8aa114d593b5af87"
+  url "https://github.com/s3ql/s3ql/releases/download/s3ql-5.3.0/s3ql-5.3.0.tar.gz"
+  sha256 "f16e3aa218de86a7ec48002bbcb75c857f72f63d86e5e3c891b31a78c138d13c"
   license "GPL-3.0-only"
-  revision 1
 
   livecheck do
     url :stable
