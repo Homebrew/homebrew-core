@@ -1,8 +1,8 @@
 class Knot < Formula
   desc "High-performance authoritative-only DNS server"
   homepage "https://www.knot-dns.cz/"
-  url "https://knot-dns.nic.cz/release/knot-3.4.5.tar.xz"
-  sha256 "359af70afafa7ccaa18439a7c1eb35270ff9eece81d0756ae4ca716b1433cb4b"
+  url "https://knot-dns.nic.cz/release/knot-3.4.6.tar.xz"
+  sha256 "d19c5a1ff94b4f26027d635de108dbfc88f5652be86ccb3ba9a44ee9be0e5839"
   license all_of: ["GPL-3.0-or-later", "0BSD", "BSD-3-Clause", "LGPL-2.0-or-later", "MIT"]
 
   livecheck do
@@ -40,10 +40,15 @@ class Knot < Formula
 
   uses_from_macos "libedit"
 
-  def install
-    # https://gitlab.nic.cz/knot/knot-dns/-/blob/master/src/knot/modules/rrl/kru-avx2.c
-    ENV.runtime_cpu_detection if Hardware::CPU.intel?
+  # Fix 'knot/modules/rrl/./kru.inc.c:250:7: error: always_inline function' on macOS 13 and 14,
+  # see https://github.com/Homebrew/homebrew-core/pull/219163.
+  # Remove in next release.
+  patch do
+    url "https://gitlab.nic.cz/knot/knot-dns/-/commit/509d9d82b51c58ea572dccb09f4fdbe1a3c2571e.diff"
+    sha256 "c9b0d2dd5dddbe3d2fc0b817bbc3171f34fb73d0b099bf2b52cf101f4d0239ff"
+  end
 
+  def install
     system "autoreconf", "--force", "--install", "--verbose" if build.head?
     system "./configure", "--disable-silent-rules",
                           "--with-configdir=#{etc}",
