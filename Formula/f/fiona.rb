@@ -6,6 +6,7 @@ class Fiona < Formula
   url "https://files.pythonhosted.org/packages/51/e0/71b63839cc609e1d62cea2fc9774aa605ece7ea78af823ff7a8f1c560e72/fiona-1.10.1.tar.gz"
   sha256 "b00ae357669460c6491caba29c2022ff0acfcbde86a95361ea8ff5cd14a86b68"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "4788e6cf99582a5fcf1e4abce4daf43ff504482a19193e84804aab2a55b252f9"

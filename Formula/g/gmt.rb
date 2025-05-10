@@ -2,7 +2,7 @@ class Gmt < Formula
   desc "Tools for manipulating and plotting geographic and Cartesian data"
   homepage "https://www.generic-mapping-tools.org/"
   license "LGPL-3.0-or-later"
-  revision 4
+  revision 5
   head "https://github.com/GenericMappingTools/gmt.git", branch: "master"
 
   stable do

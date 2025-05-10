@@ -1,10 +1,9 @@
 class Gdal < Formula
   desc "Geospatial Data Abstraction Library"
   homepage "https://gdal.org/en/stable/"
-  url "https://github.com/OSGeo/gdal/releases/download/v3.10.3/gdal-3.10.3.tar.gz"
-  sha256 "e4bf7f104acbcb3e2d16c97fd1af2b92b28d0ba59d17d976e3ef08b794f4153b"
+  url "https://github.com/OSGeo/gdal/releases/download/v3.11.0/gdal-3.11.0.tar.gz"
+  sha256 "723d7b04e0f094be2636128d15165b45059ac5e53f143cbbd93280af0b347abd"
   license "MIT"
-  revision 1
 
   livecheck do
     url "https://download.osgeo.org/gdal/CURRENT/"
@@ -88,13 +87,6 @@ class Gdal < Formula
 
   conflicts_with "avce00", because: "both install a cpl_conv.h header"
   conflicts_with "cpl", because: "both install cpl_error.h"
-
-  # Fix for Poppler 25.05.0, remove in next release
-  # ref: https://github.com/OSGeo/gdal/issues/12269
-  patch do
-    url "https://github.com/OSGeo/gdal/commit/a689e2189ff0a464f3150ed8b2dd5a3cc1194012.patch?full_index=1"
-    sha256 "b3eefe691d6f74c9128aed4c558b8c5d2122a56a93acbf5b424ca67e743c4fb9"
-  end
 
   def python3
     "python3.13"
