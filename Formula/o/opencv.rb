@@ -2,7 +2,7 @@ class Opencv < Formula
   desc "Open source computer vision library"
   homepage "https://opencv.org/"
   license "Apache-2.0"
-  revision 1
+  revision 2
 
   stable do
     url "https://github.com/opencv/opencv/archive/refs/tags/4.11.0.tar.gz"
@@ -87,6 +87,9 @@ class Opencv < Formula
 
   def install
     resource("contrib").stage buildpath/"opencv_contrib"
+
+    # cmake 4 build patch
+    ENV["CMAKE_POLICY_VERSION_MINIMUM"] = "3.5"
 
     # Avoid Accelerate.framework
     ENV["OpenBLAS_HOME"] = Formula["openblas"].opt_prefix
