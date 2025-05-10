@@ -5,7 +5,7 @@ class Alive2 < Formula
       tag:      "v20.0",
       revision: "c0f5434f402ad91714ee0952f686cd0f524920ad"
   license "MIT"
-  revision 1
+  revision 2
   head "https://github.com/AliveToolkit/alive2.git", branch: "master"
 
   bottle do
