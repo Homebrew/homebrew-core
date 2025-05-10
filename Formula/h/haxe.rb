@@ -1,24 +1,15 @@
 class Haxe < Formula
   desc "Multi-platform programming language"
   homepage "https://haxe.org/"
+  # TODO: Remove `extlib==1.7.9` pin when upstream fixes https://github.com/HaxeFoundation/haxe/issues/11787
+  # TODO: Remove `ctypes==0.21.1` pin when build fails from pointer mismatch (i.e. `luv >= 0.5.13`)
+  # Ref: https://github.com/HaxeFoundation/haxe/commit/e646e6f182c920694968ba7a28ad01ddfee4519a
+  # Ref: https://github.com/HaxeFoundation/haxe/commit/0866067940256afc9227a75f96baee6ec64ee373
+  url "https://github.com/HaxeFoundation/haxe.git",
+      tag:      "4.3.7",
+      revision: "e0b355c6be312c1b17382603f018cf52522ec651"
   license all_of: ["GPL-2.0-or-later", "MIT"]
   head "https://github.com/HaxeFoundation/haxe.git", branch: "development"
-
-  stable do
-    # TODO: Remove `extlib==1.7.9` pin when upstream fixes https://github.com/HaxeFoundation/haxe/issues/11787
-    # TODO: Remove `ctypes==0.21.1` pin when build fails from pointer mismatch (i.e. `luv >= 0.5.13`)
-    # Ref: https://github.com/HaxeFoundation/haxe/commit/e646e6f182c920694968ba7a28ad01ddfee4519a
-    # Ref: https://github.com/HaxeFoundation/haxe/commit/0866067940256afc9227a75f96baee6ec64ee373
-    url "https://github.com/HaxeFoundation/haxe.git",
-        tag:      "4.3.6",
-        revision: "760c0dd9972abadceba4e72edb1db13b2a4fb315"
-
-    # Backport support for mbedtls 3.x
-    patch do
-      url "https://github.com/HaxeFoundation/haxe/commit/c3258892c3c829ddd9faddcc0167108e62c84390.patch?full_index=1"
-      sha256 "d92fa85053ed4303f147e784e528380f6a0f6f08d35b5d93fbdfbf072ca7ed3e"
-    end
-  end
 
   livecheck do
     url :stable
