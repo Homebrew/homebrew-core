@@ -1,8 +1,8 @@
 class Envoy < Formula
   desc "Cloud-native high-performance edge/middle/service proxy"
   homepage "https://www.envoyproxy.io/index.html"
-  url "https://github.com/envoyproxy/envoy/archive/refs/tags/v1.33.2.tar.gz"
-  sha256 "e54d444a8d4197c1dca56e7f6e7bc3b7d83c1695197f5699f62e250ecbece169"
+  url "https://github.com/envoyproxy/envoy/archive/refs/tags/v1.34.1.tar.gz"
+  sha256 "f272eb4dadcd3e76b7183cf40fd0b01690492f82b16d32f395e12652ab03cccb"
   license "Apache-2.0"
   head "https://github.com/envoyproxy/envoy.git", branch: "main"
 
@@ -39,6 +39,7 @@ class Envoy < Formula
 
   on_linux do
     depends_on "lld" => :build
+    depends_on "llvm@18" => :build
   end
 
   # https://github.com/envoyproxy/envoy/tree/main/bazel#supported-compiler-versions
@@ -47,6 +48,12 @@ class Envoy < Formula
 
   def install
     env_path = "#{HOMEBREW_PREFIX}/bin:/usr/bin:/bin"
+
+    if OS.linux?
+      # Override the default clang to use the one from llvm@18 in PATH in Linux
+      env_path = "#{Formula["llvm@18"].opt_bin}:" + env_path
+    end
+
     args = %W[
       --compilation_mode=opt
       --curses=no
@@ -54,16 +61,19 @@ class Envoy < Formula
       --action_env=PATH=#{env_path}
       --host_action_env=PATH=#{env_path}
       --define=wasm=disabled
+      --config=clang
+      --copt=-Wno-thread-safety-reference-return
     ]
 
     if OS.linux?
-      # GCC/ld.gold had some issues while building envoy so use clang/lld instead
-      args << "--config=clang"
+      # Use LLVM 18 for the build for Linux
+      # Override the default clang to use the one from llvm@18 in Linux
+      args << "--action_env=CC=#{Formula["llvm@18"].opt_bin}/clang"
+      args << "--action_env=CXX=#{Formula["llvm@18"].opt_bin}/clang++"
+      args << "--action_env=BAZEL_USE_CPP_ONLY_TOOLCHAIN=1"
+    end
 
-      # clang 18 introduced stricter thread safety analysis. Remove once release that supports clang 18
-      # https://github.com/envoyproxy/envoy/issues/37911
-      args << "--copt=-Wno-thread-safety-reference-return"
-
+    if OS.mac?
       # Workaround to build with Clang 19 until envoy uses newer tcmalloc
       # https://github.com/google/tcmalloc/commit/a37da0243b83bd2a7b1b53c187efd4fbf46e6e38
       args << "--copt=-Wno-unused-but-set-variable"
