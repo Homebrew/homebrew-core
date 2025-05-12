@@ -1,8 +1,8 @@
 class Gromacs < Formula
   desc "Versatile package for molecular dynamics calculations"
   homepage "https://www.gromacs.org/"
-  url "https://ftp.gromacs.org/pub/gromacs/gromacs-2025.1.tar.gz"
-  sha256 "0adf621a80fd8043f8defec84ce02811c0cdf42a052232890932d81f25c4d28a"
+  url "https://ftp.gromacs.org/pub/gromacs/gromacs-2025.2.tar.gz"
+  sha256 "0df09f9d45a99ef00e66b9baa9493a27e906813763a3b6c7672217c66b43ea11"
   license "LGPL-2.1-or-later"
 
   livecheck do
@@ -84,6 +84,8 @@ class Gromacs < Formula
         "SSE2"
       end
       args << "-DGMX_SIMD=#{gmx_simd}"
+    elsif OS.linux?
+      args << "-DGMX_SIMD=ARM_SVE"
     end
 
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args, *args
