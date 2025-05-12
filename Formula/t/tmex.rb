@@ -1,18 +1,18 @@
 class Tmex < Formula
   desc "Minimalist tmux layout manager"
   homepage "https://github.com/evnp/tmex"
-  url "https://github.com/evnp/tmex/archive/refs/tags/v2.0.3.tar.gz"
-  sha256 "98cd4046421b6dad611628261932243481d2454c09e6670b3f7c09f48483c81d"
+  url "https://github.com/evnp/tmex/archive/refs/tags/v2.0.4.tar.gz"
+  sha256 "d1907435f607993b0dc2da90166ea6d2804b73f94cffdb52a7ca40e6bee63632"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5e00c8b7bb9fa42a09334ce2d42d77842952f13d62a1483eec2247d82e144d18"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5e00c8b7bb9fa42a09334ce2d42d77842952f13d62a1483eec2247d82e144d18"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "5e00c8b7bb9fa42a09334ce2d42d77842952f13d62a1483eec2247d82e144d18"
-    sha256 cellar: :any_skip_relocation, sonoma:        "b8d600fd78cb7cb06e754aed87bdc33ad80b9c835a39528909192bb08f57b383"
-    sha256 cellar: :any_skip_relocation, ventura:       "b8d600fd78cb7cb06e754aed87bdc33ad80b9c835a39528909192bb08f57b383"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b8d600fd78cb7cb06e754aed87bdc33ad80b9c835a39528909192bb08f57b383"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b8d600fd78cb7cb06e754aed87bdc33ad80b9c835a39528909192bb08f57b383"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3c6494934f2e31caf6457d71405d8f7fa13fcbed8489a20d1e66c2c910665ada"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3c6494934f2e31caf6457d71405d8f7fa13fcbed8489a20d1e66c2c910665ada"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "3c6494934f2e31caf6457d71405d8f7fa13fcbed8489a20d1e66c2c910665ada"
+    sha256 cellar: :any_skip_relocation, sonoma:        "1ffdcd4b358aa710a2bf465baf932722f1e1a4e0eccff83165cb52efcece2526"
+    sha256 cellar: :any_skip_relocation, ventura:       "1ffdcd4b358aa710a2bf465baf932722f1e1a4e0eccff83165cb52efcece2526"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1ffdcd4b358aa710a2bf465baf932722f1e1a4e0eccff83165cb52efcece2526"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1ffdcd4b358aa710a2bf465baf932722f1e1a4e0eccff83165cb52efcece2526"
   end
 
   depends_on "tmux"
