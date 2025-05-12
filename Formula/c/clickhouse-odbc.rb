@@ -5,7 +5,7 @@ class ClickhouseOdbc < Formula
   url "https://github.com/ClickHouse/clickhouse-odbc/archive/refs/tags/v1.2.1.20220905.tar.gz"
   sha256 "ca8666cbc7af9e5d4670cd05c9515152c34543e4f45e2bc8fa94bee90d724f1b"
   license "Apache-2.0"
-  revision 9
+  revision 10
   head "https://github.com/ClickHouse/clickhouse-odbc.git", branch: "master"
 
   livecheck do
