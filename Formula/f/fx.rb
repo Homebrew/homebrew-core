@@ -18,7 +18,6 @@ class Fx < Formula
   end
 
   depends_on "go" => :build
-  depends_on "node"
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w")
