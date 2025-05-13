@@ -34,7 +34,7 @@ class Node < Formula
   uses_from_macos "zlib"
 
   on_macos do
-    depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1699
+    depends_on "llvm" if DevelopmentTools.clang_build_version <= 1699
   end
 
   on_linux do
@@ -63,7 +63,22 @@ class Node < Formula
   end
 
   def install
-    ENV.llvm_clang if OS.mac? && DevelopmentTools.clang_build_version <= 1699
+    if OS.mac? && DevelopmentTools.clang_build_version <= 1699
+      ENV.llvm_clang
+      ENV.append "LDFLAGS", "-L#{Formula["llvm"].opt_lib}/unwind -lunwind"
+      # Work around failure mixing newer `llvm` headers with older Xcode's libc++:
+      # Undefined symbols for architecture x86_64:
+      #   "std::__1::__libcpp_verbose_abort(char const*, ...)", referenced from:
+      #       std::__1::__throw_length_error[abi:nn200100](char const*) in js2c.o
+      #       std::__throw_bad_array_new_length[abi:nn200100]() in js2c.o
+      #       std::__1::__throw_out_of_range[abi:nn200100](char const*) in js2c.o
+      #       std::__1::__throw_bad_function_call[abi:nn200100]() in js2c.o
+      #       std::__1::__throw_length_error[abi:nn200100](char const*) in embedded_data.o
+      #       std::__1::__throw_length_error[abi:nn200100](char const*) in libsimdutf.a(simdutf.o)
+      # When using Homebrew's superenv shims, we need to use HOMEBREW_LIBRARY_PATHS
+      # rather than LDFLAGS for libc++ in order to correctly link to LLVM's libc++.
+      ENV.prepend_path "HOMEBREW_LIBRARY_PATHS", "#{Formula["llvm"].opt_lib}/c++"
+    end
 
     # The new linker crashed during LTO due to high memory usage.
     ENV.append "LDFLAGS", "-Wl,-ld_classic" if DevelopmentTools.clang_build_version >= 1500
