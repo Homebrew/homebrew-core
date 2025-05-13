@@ -42,6 +42,7 @@ class Qt < Formula
   depends_on xcode: :build
 
   depends_on "assimp"
+  depends_on "at-spi2-core"
   depends_on "brotli"
   depends_on "dbus"
   depends_on "double-conversion"
@@ -77,7 +78,6 @@ class Qt < Formula
 
   on_linux do
     depends_on "alsa-lib"
-    depends_on "at-spi2-core"
     # TODO: depends_on "bluez"
     depends_on "expat"
     depends_on "ffmpeg"
@@ -217,6 +217,8 @@ class Qt < Formula
       # Chromium needs Xcode 15.3+ and using LLVM Clang is not supported on macOS
       # See https://bugreports.qt.io/browse/QTBUG-130922
       cmake_args << "-DBUILD_qtwebengine=OFF" if MacOS::Xcode.version < "15.3"
+
+      cmake_args << "-DQT_FORCE_WARN_APPLE_SDK_AND_XCODE_CHECK=ON" if MacOS.version <= :monterey
 
       %W[
         -DCMAKE_OSX_DEPLOYMENT_TARGET=#{MacOS.version}.0
