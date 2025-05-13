@@ -24,7 +24,31 @@ class Cppinsights < Formula
   end
 
   def install
-    ENV.llvm_clang if OS.mac? && DevelopmentTools.clang_build_version <= 1500
+    if OS.mac? && DevelopmentTools.clang_build_version <= 1500
+      ENV.llvm_clang
+      ENV["CXXFLAGS"] = "--warning-suppression-mappings=#{buildpath}/suppression_mappings.txt"
+      (buildpath/"suppression_mappings.txt").write <<~EOF
+        [old-style-cast]
+        src:#{Formula["llvm"].opt_include.realpath}/*
+        [unused-parameter]
+        src:#{Formula["llvm"].opt_include.realpath}/*
+      EOF
+      ENV.append "LDFLAGS", "-L#{Formula["llvm"].opt_lib}/unwind -lunwind"
+      # Work around failure mixing newer `llvm` headers with older Xcode's libc++:
+      # Undefined symbols for architecture x86_64:
+      #   "std::__1::__libcpp_verbose_abort(char const*, ...)", referenced from:
+      #       std::__1::__throw_length_error[abi:nn200100](char const*) in ASTHelpers.cpp.o
+      #       std::__throw_bad_array_new_length[abi:nn200100]() in ASTHelpers.cpp.o
+      #       std::__1::__throw_length_error[abi:nn200100](char const*) in CodeGenerator.cpp.o
+      #       std::__throw_bad_array_new_length[abi:nn200100]() in CodeGenerator.cpp.o
+      #       std::__1::__throw_bad_optional_access[abi:nn200100]() in CodeGenerator.cpp.o
+      #       std::__1::__throw_bad_function_call[abi:nn200100]() in CodeGenerator.cpp.o
+      #       std::__1::__throw_length_error[abi:nn200100](char const*) in CfrontCodeGenerator.cpp.o
+      #       ...
+      # When using Homebrew's superenv shims, we need to use HOMEBREW_LIBRARY_PATHS
+      # rather than LDFLAGS for libc++ in order to correctly link to LLVM's libc++.
+      ENV.prepend_path "HOMEBREW_LIBRARY_PATHS", "#{Formula["llvm"].opt_lib}/c++"
+    end
 
     args = %W[
       -DINSIGHTS_LLVM_CONFIG=#{Formula["llvm"].opt_bin}/llvm-config
