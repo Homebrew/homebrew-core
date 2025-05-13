@@ -1,8 +1,8 @@
 class Fx < Formula
   desc "Terminal JSON viewer"
   homepage "https://fx.wtf"
-  url "https://github.com/antonmedv/fx/archive/refs/tags/35.0.0.tar.gz"
-  sha256 "5ab642bb91ad9c1948de1add2d62acec22d82398e420957c191c1549999eb351"
+  url "https://github.com/antonmedv/fx/archive/refs/tags/36.0.0.tar.gz"
+  sha256 "7a75741e5c5c041e9e70d98b571c66117b4901b9c2f49d18c183eacf18707c95"
   license "MIT"
   head "https://github.com/antonmedv/fx.git", branch: "master"
 
@@ -18,7 +18,6 @@ class Fx < Formula
   end
 
   depends_on "go" => :build
-  depends_on "node"
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w")
@@ -26,6 +25,7 @@ class Fx < Formula
   end
 
   test do
+    assert_match version.to_s, shell_output("#{bin}/fx --version")
     assert_equal "42", pipe_output("#{bin}/fx .", "42").strip
   end
 end
