@@ -257,6 +257,7 @@ class V8 < Formula
         gn_args[:fatal_linker_warnings] = false
         inreplace "build/config/mac/BUILD.gn", "[ \"-Wl,-ObjC\" ]",
                                                "[ \"-Wl,-ObjC\", \"-L#{Formula["llvm"].opt_lib}/c++\" ]"
+        inreplace "build/config/compiler/BUILD.gn", /.*\[ "-Wl,-no_warn_duplicate_libraries" \]/, "#\\0"
       end
     end
 
