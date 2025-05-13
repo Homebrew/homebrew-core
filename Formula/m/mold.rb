@@ -31,7 +31,7 @@ class Mold < Formula
   uses_from_macos "zlib"
 
   on_macos do
-    depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1500
+    depends_on "llvm" if DevelopmentTools.clang_build_version <= 1500
   end
 
   on_linux do
@@ -49,7 +49,24 @@ class Mold < Formula
   end
 
   def install
-    ENV.llvm_clang if OS.mac? && (DevelopmentTools.clang_build_version <= 1500)
+    if OS.mac? && (DevelopmentTools.clang_build_version <= 1500)
+      ENV.llvm_clang
+      ENV.append "LDFLAGS", "-L#{Formula["llvm"].opt_lib}/unwind -lunwind"
+      # Work around failure mixing newer `llvm` headers with older Xcode's libc++:
+      # Undefined symbols for architecture x86_64:
+      #   "std::__1::__libcpp_verbose_abort(char const*, ...)", referenced from:
+      #       std::__1::__throw_length_error[abi:nn200100](char const*) in lto.o
+      #       std::__throw_bad_array_new_length[abi:nn200100]() in lto.o
+      #       void std::__1::__throw_regex_error[abi:nn200100]<(std::__1::regex_constants::error_type)17>() in lto.o
+      #       void std::__1::__throw_regex_error[abi:nn200100]<(std::__1::regex_constants::error_type)14>() in lto.o
+      #       void std::__1::__throw_regex_error[abi:nn200100]<(std::__1::regex_constants::error_type)6>() in lto.o
+      #       void std::__1::__throw_regex_error[abi:nn200100]<(std::__1::regex_constants::error_type)12>() in lto.o
+      #       void std::__1::__throw_regex_error[abi:nn200100]<(std::__1::regex_constants::error_type)16>() in lto.o
+      #       ...
+      # When using Homebrew's superenv shims, we need to use HOMEBREW_LIBRARY_PATHS
+      # rather than LDFLAGS for libc++ in order to correctly link to LLVM's libc++.
+      ENV.prepend_path "HOMEBREW_LIBRARY_PATHS", "#{Formula["llvm"].opt_lib}/c++"
+    end
 
     # Avoid embedding libdir in the binary.
     # This helps make the bottle relocatable.
@@ -78,6 +95,9 @@ class Mold < Formula
   end
 
   test do
+    # Make sure <= Ventura does not have `CC=llvm_clang`.
+    ENV.clang if OS.mac?
+
     (testpath/"test.c").write <<~C
       int main(void) { return 0; }
     C
