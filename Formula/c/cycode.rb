@@ -3,8 +3,8 @@ class Cycode < Formula
 
   desc "Boost security in your dev lifecycle via SAST, SCA, Secrets & IaC scanning"
   homepage "https://github.com/cycodehq/cycode-cli"
-  url "https://files.pythonhosted.org/packages/27/3d/74aee82496a0b5015f7def09aa74449d534aaf24ff5cc2caf804eb54cf63/cycode-2.4.0.tar.gz"
-  sha256 "9c7ca025e4c8086c9d75588bf2eb43e02e551ea8d896f15fe86bd846097036b4"
+  url "https://files.pythonhosted.org/packages/c0/06/4d303a9ac9ff9efaa20559f8c1386ec053b5ae8eb96428a2a53505b99f66/cycode-3.0.0.tar.gz"
+  sha256 "9184bbe5d3ca63a8eb98d06e630b870fd29a07e0bbcf10b8e3555fa623a480e9"
   license "MIT"
 
   bottle do
@@ -37,8 +37,8 @@ class Cycode < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/16/b0/572805e227f01586461c80e0fd25d65a2115599cc9dad142fee4b747c357/charset_normalizer-3.4.1.tar.gz"
-    sha256 "44251f18cd68a75b56585dd00dae26183e102cd5e0f9f1466e6df5da2ed64ea3"
+    url "https://files.pythonhosted.org/packages/e4/33/89c2ced2b67d1c2a61c19c6751aa8902d46ce3dacb23600a283619f5a12d/charset_normalizer-3.4.2.tar.gz"
+    sha256 "5baececa9ecba31eff645232d59845c07aa030f0c81ee70184a90d35099a0e63"
   end
 
   resource "click" do
@@ -122,8 +122,13 @@ class Cycode < Formula
   end
 
   resource "sentry-sdk" do
-    url "https://files.pythonhosted.org/packages/cf/b6/a92ae6fa6d7e6e536bc586776b1669b84fb724dfe21b8ff08297f2d7c969/sentry_sdk-2.27.0.tar.gz"
-    sha256 "90f4f883f9eff294aff59af3d58c2d1b64e3927b28d5ada2b9b41f5aeda47daf"
+    url "https://files.pythonhosted.org/packages/5e/bb/6a41b2e0e9121bed4d2ec68d50568ab95c49f4744156a9bbb789c866c66d/sentry_sdk-2.28.0.tar.gz"
+    sha256 "14d2b73bc93afaf2a9412490329099e6217761cbab13b6ee8bc0e82927e1504e"
+  end
+
+  resource "shellingham" do
+    url "https://files.pythonhosted.org/packages/58/15/8b3609fd3830ef7b27b655beb4b4e9c62313a4e8da8c676e142cc210d58e/shellingham-1.5.4.tar.gz"
+    sha256 "8dbca0739d487e5bd35ab3ca4b36e11c4078f3a234bfce294b0a0291363404de"
   end
 
   resource "six" do
@@ -136,14 +141,24 @@ class Cycode < Formula
     sha256 "26ea65a03958fa0c8a1c7e8c7a58fdc77221b8910f6be2131affade476898ad5"
   end
 
-  resource "texttable" do
-    url "https://files.pythonhosted.org/packages/1c/dc/0aff23d6036a4d3bf4f1d8c8204c5c79c4437e25e0ae94ffe4bbb55ee3c2/texttable-1.7.0.tar.gz"
-    sha256 "2d2068fb55115807d3ac77a4ca68fa48803e84ebb0ee2340f858107a36522638"
+  resource "tenacity" do
+    url "https://files.pythonhosted.org/packages/cd/94/91fccdb4b8110642462e653d5dcb27e7b674742ad68efd146367da7bdb10/tenacity-9.0.0.tar.gz"
+    sha256 "807f37ca97d62aa361264d497b0e31e92b8027044942bfa756160d908320d73b"
+  end
+
+  resource "typer" do
+    url "https://files.pythonhosted.org/packages/6c/89/c527e6c848739be8ceb5c44eb8208c52ea3515c6cf6406aa61932887bf58/typer-0.15.4.tar.gz"
+    sha256 "89507b104f9b6a0730354f27c39fae5b63ccd0c95b1ce1f1a6ba0cfd329997c3"
   end
 
   resource "types-python-dateutil" do
     url "https://files.pythonhosted.org/packages/a9/60/47d92293d9bc521cd2301e423a358abfac0ad409b3a1606d8fbae1321961/types_python_dateutil-2.9.0.20241206.tar.gz"
     sha256 "18f493414c26ffba692a72369fea7a154c502646301ebfe3d56a04b3767284cb"
+  end
+
+  resource "typing-extensions" do
+    url "https://files.pythonhosted.org/packages/f6/37/23083fcd6e35492953e8d2aaaa68b860eb422b34627b13f2ce3eb6106061/typing_extensions-4.13.2.tar.gz"
+    sha256 "e6c81219bd689f51865d9e372991c540bda33a0379d5573cddb9a3a23f7caaef"
   end
 
   resource "urllib3" do
@@ -152,17 +167,21 @@ class Cycode < Formula
   end
 
   def install
-    virtualenv_install_with_resources
-
-    generate_completions_from_executable(bin/"cycode", shells: [:fish, :zsh], shell_parameter_format: :click)
+    # `shellingham` auto-detection doesn't work in Homebrew CI build environment so
+    # defer installation to allow `typer` to use argument as shell for completions
+    # Ref: https://typer.tiangolo.com/features/#user-friendly-cli-apps
+    venv = virtualenv_install_with_resources without: "shellingham"
+    generate_completions_from_executable(bin/"cycode", "--show-completion", shells: [:fish, :zsh])
+    venv.pip_install resource("shellingham")
   end
 
   test do
-    assert_match "Error: Ignore by type is missing", shell_output("#{bin}/cycode ignore 2>&1", 1)
-    assert_match "Error: Cycode client id needed.", shell_output("#{bin}/cycode scan path 2>&1", 1)
+    status = shell_output("#{bin}/cycode status")
+    assert_match version.to_s, status
+    assert_match "Is authenticated: False", status
+    assert_match "Ignore by type is missing", shell_output("#{bin}/cycode ignore 2>&1", 1)
+    assert_match "Cycode client id needed.", shell_output("#{bin}/cycode scan path 2>&1", 1)
     output = shell_output("#{bin}/cycode scan -t test 2>&1", 2)
-    assert_match "Error: Invalid value for '--scan-type' / '-t'", output
-    assert_equal "Cycode authentication failed", shell_output("#{bin}/cycode auth check").strip
-    assert_match version.to_s, shell_output("#{bin}/cycode version")
+    assert_match "Invalid value for '--scan-type' / '-t'", output
   end
 end
