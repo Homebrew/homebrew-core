@@ -13,8 +13,8 @@
 class Ocaml < Formula
   desc "General purpose programming language in the ML family"
   homepage "https://ocaml.org/"
-  url "https://caml.inria.fr/pub/distrib/ocaml-5.2/ocaml-5.2.1.tar.xz"
-  sha256 "06cda7a23d79c1d3b36b3aa7283a5ed58798ddd871f2c269712611dc69f573b2"
+  url "https://caml.inria.fr/pub/distrib/ocaml-5.3/ocaml-5.3.0.tar.xz"
+  sha256 "b0229336d9ebe0af905954bcd1ae5b293306bbcb08c01ead03500d9e5bc90164"
   license "LGPL-2.1-only" => { with: "OCaml-LGPL-linking-exception" }
   head "https://github.com/ocaml/ocaml.git", branch: "trunk"
 
@@ -36,6 +36,10 @@ class Ocaml < Formula
   # The ocaml compilers embed prefix information in weird ways that the default
   # brew detection doesn't find, and so needs to be explicitly blocked.
   pour_bottle? only_if: :default_prefix
+
+  on_macos do
+    depends_on "gpatch" => :build
+  end
 
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
