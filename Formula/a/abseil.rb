@@ -1,8 +1,8 @@
 class Abseil < Formula
   desc "C++ Common Libraries"
   homepage "https://abseil.io"
-  url "https://github.com/abseil/abseil-cpp/archive/refs/tags/20240722.1.tar.gz"
-  sha256 "40cee67604060a7c8794d931538cb55f4d444073e556980c88b6c49bb9b19bb7"
+  url "https://github.com/abseil/abseil-cpp/archive/refs/tags/20250512.0.tar.gz"
+  sha256 "7262daa7c1711406248c10f41026d685e88223bc92817d16fb93c19adb57f669"
   license "Apache-2.0"
   head "https://github.com/abseil/abseil-cpp.git", branch: "master"
 
@@ -21,13 +21,6 @@ class Abseil < Formula
 
   on_macos do
     depends_on "googletest" => :build # For test helpers
-  end
-
-  # Fix shell option group handling in pkgconfig files
-  # https://github.com/abseil/abseil-cpp/pull/1738
-  patch do
-    url "https://github.com/abseil/abseil-cpp/commit/9dfde0e30a2ce41077758e9c0bb3ff736d7c4e00.patch?full_index=1"
-    sha256 "94a9b4dc980794b3fba0a5e4ae88ef52261240da59a787e35b207102ba4ebfcd"
   end
 
   def install
