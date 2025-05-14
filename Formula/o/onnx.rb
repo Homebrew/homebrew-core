@@ -1,10 +1,9 @@
 class Onnx < Formula
   desc "Open standard for machine learning interoperability"
   homepage "https://onnx.ai/"
-  url "https://github.com/onnx/onnx/archive/refs/tags/v1.17.0.tar.gz"
-  sha256 "8d5e983c36037003615e5a02d36b18fc286541bf52de1a78f6cf9f32005a820e"
+  url "https://github.com/onnx/onnx/archive/refs/tags/v1.18.0.tar.gz"
+  sha256 "b466af96fd8d9f485d1bb14f9bbdd2dfb8421bc5544583f014088fb941a1d21e"
   license "Apache-2.0"
-  revision 2
 
   bottle do
     rebuild 1
@@ -18,6 +17,7 @@ class Onnx < Formula
   end
 
   depends_on "cmake" => [:build, :test]
+  depends_on "googletest" => :test
   depends_on "abseil"
   depends_on "protobuf"
 
@@ -38,16 +38,18 @@ class Onnx < Formula
 
   test do
     # https://github.com/onnx/onnx/blob/main/onnx/test/cpp/ir_test.cc
-    (testpath/"test.cpp").write <<~CPP
-      #include <cassert>
-      #include <cctype>
-      #include <memory>
-      #include <string>
-      #include <onnx/common/ir.h>
-      #include <onnx/common/ir_pb_converter.h>
-      using namespace onnx;
+    (testpath/"ir_test.cpp").write <<~CPP
+      #include <iostream>
 
-      bool IsValidIdentifier(const std::string& name) {
+      #include "gtest/gtest.h"
+      #include "onnx/common/ir.h"
+      #include "onnx/common/ir_pb_converter.h"
+      #include "onnx/defs/printer.h"
+
+      namespace ONNX_NAMESPACE {
+      namespace Test {
+
+      static bool IsValidIdentifier(const std::string& name) {
         if (name.empty()) {
           return false;
         }
@@ -62,12 +64,12 @@ class Onnx < Formula
         return true;
       }
 
-      int main() {
+      TEST(IR, ValidIdentifierTest) {
         Graph* g = new Graph();
         g->setName("test");
         Value* x = g->addInput();
         x->setUniqueName("x");
-        x->setElemType(TensorProto_DataType_FLOAT);
+        x->setElemType(ONNX_NAMESPACE::TensorProto_DataType_FLOAT);
         x->setSizes({Dimension("M"), Dimension("N")});
         Node* node1 = g->create(kNeg, 1);
         node1->addInput(x);
@@ -84,19 +86,24 @@ class Onnx < Formula
 
         for (auto& node : model.graph().node()) {
           for (auto& name : node.output()) {
-            assert(IsValidIdentifier(name));
+            EXPECT_TRUE(IsValidIdentifier(name));
           }
         }
-        return 0;
       }
+
+      } // namespace Test
+      } // namespace ONNX_NAMESPACE
     CPP
 
     (testpath/"CMakeLists.txt").write <<~CMAKE
       cmake_minimum_required(VERSION 3.10)
-      project(test LANGUAGES CXX)
+      project(ir_test LANGUAGES CXX)
       find_package(ONNX CONFIG REQUIRED)
-      add_executable(test test.cpp)
-      target_link_libraries(test ONNX::onnx)
+      find_package(GTest REQUIRED)
+      add_executable(ir_test ir_test.cpp)
+      target_link_libraries(ir_test PRIVATE ONNX::onnx gtest gtest_main)
+      enable_testing()
+      add_test(NAME IRValidIdentifierTest COMMAND ir_test)
     CMAKE
 
     ENV.delete "CPATH"
