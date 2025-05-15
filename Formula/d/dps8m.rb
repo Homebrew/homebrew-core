@@ -1,8 +1,8 @@
 class Dps8m < Formula
   desc "Simulator of the 36-bit GE/Honeywell/Bull 600/6000-series mainframe computers"
   homepage "https://dps8m.gitlab.io/"
-  url "https://dps8m.gitlab.io/dps8m-r3.0.1-archive/R3.0.1/dps8m-r3.0.1-src.tar.gz"
-  sha256 "4c7daf668021204b83dde43504396d80ddc36259fd80f3b9f810d6db83b29b28"
+  url "https://dps8m.gitlab.io/dps8m-r3.1.0-archive/R3.1.0/dps8m-r3.1.0-src.tar.lz"
+  sha256 "8aa504c58f4d76c0cc9a23b497e04b5f601817d2fe456d2f505b8c771aa956f7"
   license "ICU"
   head "https://gitlab.com/dps8m/dps8m.git", branch: "master"
 
@@ -10,6 +10,8 @@ class Dps8m < Formula
     url "https://dps8m.gitlab.io/dps8m/Releases/"
     regex(/href=.*?dps8m[._-]r?(\d+(?:\.\d+)+)[._-]src\.t/i)
   end
+
+  no_autobump! because: :incompatible_version_format
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "662b0842c1799d9a5321c24202d9769a4684ecf49fccb399c22f5602b278f401"
@@ -28,8 +30,8 @@ class Dps8m < Formula
   depends_on "libuv"
 
   def install
+    system "make" # `make install` requires to build binaries first
     system "make", "install", "PREFIX=#{prefix}"
-    bin.install %w[src/punutil/punutil src/prt2pdf/prt2pdf]
   end
 
   test do
