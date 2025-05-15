@@ -79,7 +79,12 @@ class MysqlClient < Formula
         extra/protobuf/protobuf-*/cmake/protoc.cmake
         router/cmake/Plugin.cmake
       ].flat_map { |p| buildpath.glob(p) }
-      inreplace cmake_files, /\bTARGET_LINK_OPTIONS *\(.*\bLINKER:-no_warn_duplicate_libraries\)$/i, "#\\0"
+      inreplace cmake_files do |s|
+        s.gsub!(
+          /\b(TARGET_LINK_OPTIONS\s*)(\(\s*)([^\s]+\s+)([^\s]+\s+)(LINKER:-no_warn_duplicate_libraries\s*)(\)\s*)$/im,
+          '#\1#\2#\3#\4#\5#\6',
+        )
+      end
     end
 
     # -DINSTALL_* are relative to `CMAKE_INSTALL_PREFIX` (`prefix`)
