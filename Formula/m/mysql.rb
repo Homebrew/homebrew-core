@@ -96,7 +96,12 @@ class Mysql < Formula
         extra/protobuf/protobuf-*/cmake/protoc.cmake
         router/cmake/Plugin.cmake
       ].flat_map { |p| buildpath.glob(p) }
-      inreplace cmake_files, /\bTARGET_LINK_OPTIONS *\(.*\bLINKER:-no_warn_duplicate_libraries\)$/i, "#\\0"
+      inreplace cmake_files do |s|
+        s.gsub!(
+          /\b(TARGET_LINK_OPTIONS\s*)(\(\s*)([^\s]+\s+)([^\s]+\s+)(LINKER:-no_warn_duplicate_libraries\s*)(\)\s*)$/im,
+          '#\1#\2#\3#\4#\5#\6',
+        )
+      end
     end
 
     icu4c = deps.find { |dep| dep.name.match?(/^icu4c(@\d+)?$/) }
