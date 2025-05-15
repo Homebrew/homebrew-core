@@ -1,8 +1,8 @@
 class WasmMicroRuntime < Formula
   desc "WebAssembly Micro Runtime (WAMR)"
   homepage "https://github.com/bytecodealliance/wasm-micro-runtime"
-  url "https://github.com/bytecodealliance/wasm-micro-runtime/archive/refs/tags/WAMR-2.2.0.tar.gz"
-  sha256 "93b6ba03f681e061967106046b1908631ee705312b9a6410f3baee7af7c6aac9"
+  url "https://github.com/bytecodealliance/wasm-micro-runtime/archive/refs/tags/WAMR-2.3.0.tar.gz"
+  sha256 "542bdc941fd88b125057d5337e14e3abb8690223069d9503110ecbd2dbdc1ea6"
   license "Apache-2.0" => { with: "LLVM-exception" }
   head "https://github.com/bytecodealliance/wasm-micro-runtime.git", branch: "main"
 
@@ -25,6 +25,7 @@ class WasmMicroRuntime < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "simde" => :build
 
   def install
     # Prevent CMake from downloading and building things on its own.
