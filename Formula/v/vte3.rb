@@ -94,6 +94,9 @@ class Vte3 < Formula
   end
 
   test do
+    # Make sure <= Ventura does not have `CC=llvm_clang`.
+    ENV.clang if OS.mac?
+
     (testpath/"test.c").write <<~C
       #include <vte/vte.h>
 
