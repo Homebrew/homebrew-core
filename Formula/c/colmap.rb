@@ -4,7 +4,7 @@ class Colmap < Formula
   url "https://github.com/colmap/colmap/archive/refs/tags/3.11.1.tar.gz"
   sha256 "d2c20729ab5b1198e17725b720128f304f4cfae5c0a8c20d75c0e9c5bdee5860"
   license "BSD-3-Clause"
-  revision 2
+  revision 3
 
   bottle do
     sha256 cellar: :any, arm64_sequoia: "a10d84ff5e6e26782f2043ea71657f741f6ad2a84870b15126d52dd75216fab8"
@@ -42,6 +42,12 @@ class Colmap < Formula
 
   on_linux do
     depends_on "mesa"
+  end
+
+  # Backport build fix. Remove in the next release
+  patch do
+    url "https://github.com/colmap/colmap/commit/a586e7cb223cc86c609105246ecd3a10e0c55131.patch?full_index=1"
+    sha256 "9d8a1699c87d7989a78820ba82717a7222761f329639e45ace23e6f84df973c4"
   end
 
   def install
