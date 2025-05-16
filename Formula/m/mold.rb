@@ -95,7 +95,8 @@ class Mold < Formula
   end
 
   test do
-    ENV["CC"] = Formula["llvm"].opt_bin/"clang" if OS.mac? && (DevelopmentTools.clang_build_version <= 1500)
+    # Make sure <= Ventura does not have `CC=llvm_clang`.
+    ENV.clang if OS.mac?
 
     (testpath/"test.c").write <<~C
       int main(void) { return 0; }
