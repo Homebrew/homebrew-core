@@ -1,23 +1,10 @@
 class Qrencode < Formula
   desc "QR Code generation"
   homepage "https://fukuchi.org/works/qrencode/index.html.en"
+  url "https://github.com/fukuchi/libqrencode/archive/refs/tags/v4.1.1.tar.gz"
+  sha256 "5385bc1b8c2f20f3b91d258bf8ccc8cf62023935df2d2676b5b67049f31a049c"
   license "LGPL-2.1-or-later"
-
-  stable do
-    url "https://fukuchi.org/works/qrencode/qrencode-4.1.1.tar.gz"
-    sha256 "da448ed4f52aba6bcb0cd48cac0dd51b8692bccc4cd127431402fca6f8171e8e"
-
-    # Fix -flat_namespace being used on Big Sur and later.
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
-      sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
-    end
-  end
-
-  livecheck do
-    url "https://fukuchi.org/works/qrencode/"
-    regex(/href=.*?qrencode[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
+  head "https://github.com/fukuchi/libqrencode.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "cecf1e7ce43e8748061ac53002415715527fa1f3edb8ae27d0cb406c988a2185"
@@ -36,19 +23,18 @@ class Qrencode < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "97aa13d3b6314c8a5d03edffa65c43f2f63b894a91a350de52a45367fe8f862f"
   end
 
-  head do
-    url "https://github.com/fukuchi/libqrencode.git", branch: "master"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-  end
-
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
   depends_on "pkgconf" => :build
   depends_on "libpng"
 
+  # Addresses `qrencode.c:932:9: error: use of undeclared identifier 'VERSION'`
+  # error when building.
+  patch :DATA
+
   def install
-    system "./autogen.sh" if build.head?
+    system "./autogen.sh"
     system "./configure", *std_configure_args
     system "make"
     system "make", "install"
@@ -58,3 +44,25 @@ class Qrencode < Formula
     system bin/"qrencode", "123456789", "-o", "test.png"
   end
 end
+
+__END__
+diff --git a/configure.ac b/configure.ac
+index c4ef27ab388f032e5d30578530d438e9669be643..0aae247bbf35ff5f187b15b751b5130107522e60 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -4,12 +4,15 @@ m4_define([__MICRO_VERSION], [1])dnl
+ m4_define([__VERSION], [__MAJOR_VERSION.__MINOR_VERSION.__MICRO_VERSION])dnl
+ AC_INIT(QRencode, __VERSION)
+ 
++VERSION=__VERSION
+ MAJOR_VERSION=__MAJOR_VERSION
+ MINOR_VERSION=__MINOR_VERSION
+ MICRO_VERSION=__MICRO_VERSION
++AC_SUBST(VERSION)
+ AC_SUBST(MAJOR_VERSION)
+ AC_SUBST(MINOR_VERSION)
+ AC_SUBST(MICRO_VERSION)
++AC_DEFINE_UNQUOTED([VERSION], [$VERSION], [Version number])
+ AC_DEFINE_UNQUOTED([MAJOR_VERSION], [$MAJOR_VERSION], [Major version number])
+ AC_DEFINE_UNQUOTED([MINOR_VERSION], [$MINOR_VERSION], [Minor version number])
+ AC_DEFINE_UNQUOTED([MICRO_VERSION], [$MICRO_VERSION], [Micro version number])
