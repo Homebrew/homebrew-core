@@ -4,7 +4,7 @@ class Onnx < Formula
   url "https://github.com/onnx/onnx/archive/refs/tags/v1.17.0.tar.gz"
   sha256 "8d5e983c36037003615e5a02d36b18fc286541bf52de1a78f6cf9f32005a820e"
   license "Apache-2.0"
-  revision 2
+  revision 3
 
   bottle do
     rebuild 1
@@ -18,8 +18,7 @@ class Onnx < Formula
   end
 
   depends_on "cmake" => [:build, :test]
-  depends_on "abseil"
-  depends_on "protobuf"
+  depends_on "protobuf@29"
 
   uses_from_macos "python" => :build
 
