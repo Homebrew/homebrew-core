@@ -644,7 +644,6 @@ cookiecutter
 copa
 copier
 copilot
-coq
 core-lightning
 coredns
 coreutils
@@ -3132,6 +3131,7 @@ robin-map
 roblox-ts
 robot-framework
 rocksdb
+rocq
 rogcat
 rojo
 rollup
