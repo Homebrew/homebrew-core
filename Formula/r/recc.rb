@@ -4,7 +4,7 @@ class Recc < Formula
   url "https://gitlab.com/BuildGrid/buildbox/buildbox/-/archive/1.3.11/buildbox-1.3.11.tar.gz"
   sha256 "dfebf2b8a25ce9ed21bc3d5c4720279baf21e56dd7fb944ea9d30763a245bf59"
   license "Apache-2.0"
-  revision 1
+  revision 2
   head "https://gitlab.com/BuildGrid/buildbox/buildbox.git", branch: "master"
 
   bottle do
