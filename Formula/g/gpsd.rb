@@ -1,9 +1,9 @@
 class Gpsd < Formula
   desc "Global Positioning System (GPS) daemon"
   homepage "https://gpsd.gitlab.io/gpsd/"
-  url "https://download.savannah.gnu.org/releases/gpsd/gpsd-3.25.tar.xz"
-  mirror "https://download-mirror.savannah.gnu.org/releases/gpsd/gpsd-3.25.tar.xz"
-  sha256 "7e5e53e5ab157dce560a2f22e20322ef1136d3ebde99162def833a3306de01e5"
+  url "https://download.savannah.gnu.org/releases/gpsd/gpsd-3.26.tar.xz"
+  mirror "https://download-mirror.savannah.gnu.org/releases/gpsd/gpsd-3.26.tar.xz"
+  sha256 "dd8c1b7b9a7bb174099373c4e98dac67c3845fbe4833e07829e0c8dbe594cf06"
   license "BSD-2-Clause"
   head "https://gitlab.com/gpsd/gpsd.git", branch: "master"
 
@@ -30,13 +30,10 @@ class Gpsd < Formula
 
   uses_from_macos "ncurses"
 
-  # Replace setuptools in SConscript for python 3.12+
-  patch do
-    url "https://gitlab.com/gpsd/gpsd/-/commit/9157b1282d392b2cc220bafa44b656d6dac311df.diff"
-    sha256 "b2961524c4cd59858eb204fb04a8119a8554560a693093f1a37662d6f15326f9"
-  end
-
   def install
+    # By default scons uses system ncurses
+    ENV.append "CXXFLAGS", "-I#{Formula["ncurses"].opt_include}"
+    ENV.append "LDFLAGS", "-L#{Formula["ncurses"].opt_lib}"
     system "scons", "chrpath=False", "python=False", "strip=False", "prefix=#{prefix}/"
     system "scons", "install"
   end
