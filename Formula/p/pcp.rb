@@ -22,6 +22,8 @@ class Pcp < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "be128448d96fd7005c9cbda1c1ba2c71e7f7a58468c1c5bb3ec7a1f75c5109c5"
   end
 
+  deprecate! date: "2025-05-17", because: :repo_archived
+
   depends_on "go" => :build
 
   def install
