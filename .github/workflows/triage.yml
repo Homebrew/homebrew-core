@@ -316,6 +316,7 @@ jobs:
                 rust|\
                 sdl2|\
                 shared-mime-info|\
+                sqlite|\
                 suite-sparse|\
                 qt|\
                 readline|\
@@ -337,6 +338,7 @@ jobs:
             - label: CI-skip-recursive-dependents
               path: Formula/.+/(ca-certificates|curl|gettext|openssl@3|sqlite|systemd).rb
               keep_if_no_match: true
+              allow_any_match: true
 
             - label: CI-linux-self-hosted
               path: "Formula/.+/(\
