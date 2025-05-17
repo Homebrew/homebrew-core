@@ -1,8 +1,8 @@
 class Dps8m < Formula
   desc "Simulator of the 36-bit GE/Honeywell/Bull 600/6000-series mainframe computers"
   homepage "https://dps8m.gitlab.io/"
-  url "https://dps8m.gitlab.io/dps8m-r3.0.1-archive/R3.0.1/dps8m-r3.0.1-src.tar.gz"
-  sha256 "4c7daf668021204b83dde43504396d80ddc36259fd80f3b9f810d6db83b29b28"
+  url "https://dps8m.gitlab.io/dps8m-r3.1.0-archive/R3.1.0/dps8m-r3.1.0-src.tar.gz"
+  sha256 "4f09cb3e0106f39864617f17f3858e15cca1e9588fd50dde9bc736808f89e26b"
   license "ICU"
   head "https://gitlab.com/dps8m/dps8m.git", branch: "master"
 
@@ -25,11 +25,26 @@ class Dps8m < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "2607bb961e0b28e82e64392f258f472ccc84335785c703bad7de6b5ebeb1b236"
   end
 
+  depends_on "lld" => :build
+  depends_on "llvm" => :build
   depends_on "libuv"
 
+  uses_from_macos "bash"
+
   def install
+    if OS.mac? && MacOS.version < :sonoma
+      system "make"
+    else
+      # Upstream issue: https://gitlab.com/dps8m/dps8m/-/issues/293
+      inreplace "src/pgo/Build.PGO.Homebrew.Clang.sh", "exit 1", ""
+      inreplace "src/pgo/Build.PGO.Homebrew.Clang.sh", "$(brew --prefix llvm)", "$BREW_LLVM_PATH"
+      ENV["BREW_LLVM_PATH"] = Formula["llvm"].opt_prefix
+      ENV["NO_PGO_LIBUV"] = "1"
+      ENV.append "LDFLAGS", "-Wl,-rpath,\"#{Formula["libuv"].opt_lib}\" -L\"#{Formula["libuv"].opt_lib}\" -luv"
+      ENV.append "CFLAGS", "-I\"#{Formula["libuv"].opt_include}\""
+      system "./src/pgo/Build.PGO.Homebrew.Clang.sh", "LIBUV="
+    end
     system "make", "install", "PREFIX=#{prefix}"
-    bin.install %w[src/punutil/punutil src/prt2pdf/prt2pdf]
   end
 
   test do
