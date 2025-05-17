@@ -4,6 +4,7 @@ class ProtobufAT29 < Formula
   url "https://github.com/protocolbuffers/protobuf/releases/download/v29.4/protobuf-29.4.tar.gz"
   sha256 "6bd9dcc91b17ef25c26adf86db71c67ec02431dc92e9589eaf82e22889230496"
   license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     url :stable
@@ -27,13 +28,18 @@ class ProtobufAT29 < Formula
   deprecate! date: "2026-03-31", because: :versioned_formula
 
   depends_on "cmake" => :build
-  depends_on "abseil"
   uses_from_macos "zlib"
 
   on_macos do
     # We currently only run tests on macOS.
     # Running them on Linux requires rebuilding googletest with `-fPIC`.
     depends_on "googletest" => :build
+  end
+
+  # Pin to the compatible version of abseil-cpp
+  resource "abseil" do
+    url "https://github.com/abseil/abseil-cpp/archive/refs/tags/20240722.1.tar.gz"
+    sha256 "40cee67604060a7c8794d931538cb55f4d444073e556980c88b6c49bb9b19bb7"
   end
 
   # Backport to expose java-related symbols
@@ -43,6 +49,8 @@ class ProtobufAT29 < Formula
   end
 
   def install
+    resource("abseil").stage(buildpath/"third_party/abseil-cpp")
+
     # Keep `CMAKE_CXX_STANDARD` in sync with the same variable in `abseil.rb`.
     abseil_cxx_standard = 17
     cmake_args = %W[
@@ -53,7 +61,7 @@ class ProtobufAT29 < Formula
       -Dprotobuf_INSTALL_EXAMPLES=ON
       -Dprotobuf_BUILD_TESTS=#{OS.mac? ? "ON" : "OFF"}
       -Dprotobuf_USE_EXTERNAL_GTEST=ON
-      -Dprotobuf_ABSL_PROVIDER=package
+      -Dprotobuf_ABSL_PROVIDER=module
       -Dprotobuf_JSONCPP_PROVIDER=package
     ]
 
