@@ -6,6 +6,7 @@ class Openvino < Formula
   url "https://github.com/openvinotoolkit/openvino/archive/refs/tags/2025.0.0.tar.gz"
   sha256 "d2cbff5a0ac1bc738c33ba103569f8daf20d3a17d3db94da11ae207ffb9e4395"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/openvinotoolkit/openvino.git", branch: "master"
 
   livecheck do
@@ -28,10 +29,9 @@ class Openvino < Formula
   depends_on "pybind11" => :build
   depends_on "python-setuptools" => :build
   depends_on "python@3.13" => [:build, :test]
-  depends_on "abseil"
   depends_on "numpy"
   depends_on "onnx"
-  depends_on "protobuf"
+  depends_on "protobuf@29"
   depends_on "pugixml"
   depends_on "snappy"
   depends_on "tbb"
@@ -86,6 +86,9 @@ class Openvino < Formula
   end
 
   def install
+    # cmake 4 build patch
+    ENV["CMAKE_POLICY_VERSION_MINIMUM"] = "3.5"
+
     # Remove git cloned 3rd party to make sure formula dependencies are used
     dependencies = %w[thirdparty/ocl
                       thirdparty/xbyak thirdparty/gflags
