@@ -4,6 +4,7 @@ class Securefs < Formula
   url "https://github.com/netheril96/securefs/archive/refs/tags/v1.1.0.tar.gz"
   sha256 "3b1d75c8716abafebd45466ddde33dba0ba93371d75ff2b8594e7822d29bd1f9"
   license "MIT"
+  revision 1
   head "https://github.com/netheril96/securefs.git", branch: "master"
 
   livecheck do
