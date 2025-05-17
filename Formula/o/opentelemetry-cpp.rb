@@ -4,7 +4,7 @@ class OpentelemetryCpp < Formula
   url "https://github.com/open-telemetry/opentelemetry-cpp/archive/refs/tags/v1.20.0.tar.gz"
   sha256 "4b6eeb852f075133c21b95948017f13a3e21740e55b921d27e42970a47314297"
   license "Apache-2.0"
-  revision 1
+  revision 2
   head "https://github.com/open-telemetry/opentelemetry-cpp.git", branch: "main"
 
   bottle do
