@@ -2,7 +2,7 @@ class Opencv < Formula
   desc "Open source computer vision library"
   homepage "https://opencv.org/"
   license "Apache-2.0"
-  revision 1
+  revision 2
 
   stable do
     url "https://github.com/opencv/opencv/archive/refs/tags/4.11.0.tar.gz"
@@ -42,7 +42,6 @@ class Opencv < Formula
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
   depends_on "python-setuptools" => :build
-  depends_on "abseil"
   depends_on "ceres-solver"
   depends_on "eigen"
   depends_on "ffmpeg"
@@ -59,7 +58,7 @@ class Opencv < Formula
   depends_on "openexr"
   depends_on "openjpeg"
   depends_on "openvino"
-  depends_on "protobuf"
+  depends_on "protobuf@29"
   depends_on "python@3.13"
   depends_on "tbb"
   depends_on "tesseract"
