@@ -1,10 +1,9 @@
 class Mgis < Formula
   desc "Provide tools to handle MFront generic interface behaviours"
   homepage "https://thelfer.github.io/mgis/web/index.html"
-  url "https://github.com/thelfer/MFrontGenericInterfaceSupport/archive/refs/tags/MFrontGenericInterfaceSupport-3.0.tar.gz"
-  sha256 "dae915201fd20848b69745dabda1a334eb242d823af600825b8b010ddc597640"
+  url "https://github.com/thelfer/MFrontGenericInterfaceSupport/archive/refs/tags/MFrontGenericInterfaceSupport-3.0.1.tar.gz"
+  sha256 "fb9a7f5008a43c70bdb1c4b80f32f7fd3e4274c912b93c36af7011d3c4f93039"
   license any_of: ["LGPL-3.0-only", "CECILL-1.0"]
-  revision 1
   head "https://github.com/thelfer/MFrontGenericInterfaceSupport.git", branch: "master"
 
   bottle do
@@ -32,17 +31,15 @@ class Mgis < Formula
     args = [
       "-Denable-portable-build=ON",
       "-Denable-website=OFF",
-      "-Denable-enable-doxygen-doc=OFF",
       "-Denable-c-bindings=ON",
       "-Denable-fortran-bindings=ON",
       "-Denable-python-bindings=ON",  # requires boost-python
       "-Denable-fenics-bindings=OFF", # experimental and very limited
       "-Denable-julia-bindings=OFF",  # requires CxxWrap library
-      "-Denable-enable-static=OFF",
       "-Ddisable_python_library_linking=ON",
       "-DCMAKE_INSTALL_RPATH=#{rpath}",
-      "-DCMAKE_POLICY_VERSION_MINIMUM=3.5",
       "-DPython_ADDITIONAL_VERSIONS=#{Language::Python.major_minor_version python3}",
+      "-DCMAKE_INCLUDE_PATH=#{Formula["python@3.13"].opt_include}",
     ]
 
     if OS.mac?
