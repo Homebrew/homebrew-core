@@ -87,6 +87,9 @@ class Openvino < Formula
   end
 
   def install
+    # cmake 4 build patch
+    ENV["CMAKE_POLICY_VERSION_MINIMUM"] = "3.5"
+
     # Remove git cloned 3rd party to make sure formula dependencies are used
     dependencies = %w[thirdparty/ocl
                       thirdparty/xbyak thirdparty/gflags
