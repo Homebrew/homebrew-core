@@ -1,10 +1,11 @@
 class Nmap < Formula
+  include Language::Python::Virtualenv
+
   desc "Port scanning utility for large networks"
   homepage "https://nmap.org/"
-  url "https://nmap.org/dist/nmap-7.95.tar.bz2"
-  sha256 "e14ab530e47b5afd88f1c8a2bac7f89cd8fe6b478e22d255c5b9bddb7a1c5778"
+  url "https://nmap.org/dist/nmap-7.97.tar.bz2"
+  sha256 "af98f27925c670c257dd96a9ddf2724e06cb79b2fd1e0d08c9206316be1645c0"
   license :cannot_represent
-  revision 1
   head "https://svn.nmap.org/nmap/"
 
   livecheck do
@@ -23,6 +24,7 @@ class Nmap < Formula
     sha256 x86_64_linux:  "6d61d459f9d25a07da0695b7c6be96392fcb8f662babb6bedb64b371575da6d5"
   end
 
+  depends_on "python@3.13" => :build
   depends_on "liblinear"
   depends_on "libssh2"
   # Check supported Lua version at https://github.com/nmap/nmap/tree/master/liblua.
@@ -39,7 +41,25 @@ class Nmap < Formula
   conflicts_with "nping", because: "both install `nping` binaries"
   conflicts_with cask: "zenmap", because: "both install `nmap` binaries"
 
+  resource "build" do
+    url "https://files.pythonhosted.org/packages/7d/46/aeab111f8e06793e4f0e421fcad593d547fb8313b50990f31681ee2fb1ad/build-1.2.2.post1.tar.gz"
+    sha256 "b36993e92ca9375a219c99e606a122ff365a760a2d4bba0caa09bd5278b608b7"
+  end
+
+  resource "pyproject-hooks" do
+    url "https://files.pythonhosted.org/packages/e7/82/28175b2414effca1cdac8dc99f76d660e7a4fb0ceefa4b4ab8f5f6742925/pyproject_hooks-1.2.0.tar.gz"
+    sha256 "1e859bd5c40fae9448642dd871adf459e5e2084186e8d2c2a79a824c970da1f8"
+  end
+
   def install
+    python3 = "python3.13"
+    venv = virtualenv_create(buildpath/"venv", python3)
+    venv.pip_install resources
+    ENV["PYTHON"] = buildpath/"venv/bin/python"
+    # Fix to missing VERSION file
+    # https://github.com/nmap/nmap/pull/3111
+    mv "libpcap/VERSION.txt", "libpcap/VERSION"
+
     ENV.deparallelize
 
     libpcap_path = if OS.mac?
