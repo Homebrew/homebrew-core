@@ -6,6 +6,7 @@ class Mysql < Formula
   url "https://cdn.mysql.com/Downloads/MySQL-9.3/mysql-9.3.0.tar.gz"
   sha256 "1a3ee236f1daac5ef897c6325c9b0e0aae486389be1b8001deb3ff77ce682d60"
   license "GPL-2.0-only" => { with: "Universal-FOSS-exception-1.0" }
+  revision 1
 
   livecheck do
     url "https://dev.mysql.com/downloads/mysql/?tpl=files&os=src"
@@ -25,7 +26,6 @@ class Mysql < Formula
   depends_on "bison" => :build
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
-  depends_on "abseil"
   depends_on "icu4c@77"
   depends_on "lz4"
   depends_on "openssl@3"
