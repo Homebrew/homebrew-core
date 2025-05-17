@@ -5,6 +5,7 @@ class Onnxruntime < Formula
       tag:      "v1.22.0",
       revision: "f217402897f40ebba457e2421bc0a4702771968e"
   license "MIT"
+  revision 1
 
   livecheck do
     url :stable
@@ -29,10 +30,9 @@ class Onnxruntime < Formula
   depends_on "nlohmann-json" => :build
   depends_on "python@3.13" => :build
   depends_on "safeint" => :build
-  depends_on "abseil"
   depends_on "nsync"
   depends_on "onnx"
-  depends_on "protobuf"
+  depends_on "protobuf@29"
   depends_on "re2"
 
   # Need newer than stable `eigen` after https://github.com/microsoft/onnxruntime/pull/21492
