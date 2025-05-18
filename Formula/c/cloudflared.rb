@@ -18,11 +18,17 @@ class Cloudflared < Formula
   depends_on "go" => :build
 
   def install
+    # https://github.com/cloudflare/cloudflared/issues/1460
+    # build with newer Go version to pick up the backported "-B gobuildid" flag
+    inreplace ".teamcity/install-cloudflare-go.sh",
+      "af19da5605ca11f85776ef7af3384a02a315a52b",
+      "37bc41c6ff79507200a315b72834fce6ca427a7e"
     system "make", "install",
       "VERSION=#{version}",
       "DATE=#{time.iso8601}",
       "PACKAGE_MANAGER=#{tap.user}",
-      "PREFIX=#{prefix}"
+      "PREFIX=#{prefix}",
+      "LDFLAGS=-ldflags='-B gobuildid -X \"main.Version=#{version}\" -X \"main.BuildTime=#{time.iso8601}\" -X \"github.com/cloudflare/cloudflared/cmd/cloudflared/updater.BuiltForPackageManager=#{tap.user}\"'"
   end
 
   service do
