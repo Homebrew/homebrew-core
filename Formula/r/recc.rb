@@ -1,10 +1,9 @@
 class Recc < Formula
   desc "Remote Execution Caching Compiler"
   homepage "https://buildgrid.gitlab.io/recc"
-  url "https://gitlab.com/BuildGrid/buildbox/buildbox/-/archive/1.3.11/buildbox-1.3.11.tar.gz"
-  sha256 "dfebf2b8a25ce9ed21bc3d5c4720279baf21e56dd7fb944ea9d30763a245bf59"
+  url "https://gitlab.com/BuildGrid/buildbox/buildbox/-/archive/1.3.16/buildbox-1.3.16.tar.gz"
+  sha256 "d09bd2da79986e644b698d787883a8c8ad9c97971875aa96cd15fc09fd03a29f"
   license "Apache-2.0"
-  revision 1
   head "https://gitlab.com/BuildGrid/buildbox/buildbox.git", branch: "master"
 
   bottle do
@@ -36,6 +35,13 @@ class Recc < Formula
   on_linux do
     depends_on "pkgconf" => :build
     depends_on "util-linux"
+  end
+
+  # Fix to build on macos 13
+  # PR ref: https://gitlab.com/BuildGrid/buildbox/buildbox/-/merge_requests/952
+  patch do
+    url "https://gitlab.com/BuildGrid/buildbox/buildbox/-/commit/2113466ea997c6fd4ce813af19373db24666269c.diff"
+    sha256 "264f2532e42bba836639c133a84747575c489096ce5b1aea4741c902fe49c3ec"
   end
 
   def install
