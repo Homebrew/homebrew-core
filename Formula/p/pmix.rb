@@ -4,8 +4,8 @@ class Pmix < Formula
   license "BSD-3-Clause"
 
   stable do
-    url "https://github.com/openpmix/openpmix/releases/download/v5.0.8/pmix-5.0.8.tar.bz2"
-    sha256 "bf5f0a341d0ec7f465627a7570f4dcda3b931bc859256428a35f6c72f13462d0"
+    url "https://github.com/openpmix/openpmix/releases/download/v6.0.0/pmix-6.0.0.tar.bz2"
+    sha256 "bfe969966d0ce82e032739cac286239bd5ad74a831d7adae013284919f125318"
 
     # Fix -flat_namespace being used on Big Sur and later.
     patch do
