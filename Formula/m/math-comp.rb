@@ -1,10 +1,9 @@
 class MathComp < Formula
   desc "Mathematical Components for the Coq proof assistant"
   homepage "https://math-comp.github.io/math-comp/"
-  url "https://github.com/math-comp/math-comp/archive/refs/tags/mathcomp-1.19.0.tar.gz"
-  sha256 "786db902d904347f2108ffceae15ba29037ff8e63a6c58b87928f08671456394"
+  url "https://github.com/math-comp/math-comp/archive/refs/tags/mathcomp-2.3.0.tar.gz"
+  sha256 "19e13c8765007f95b4656d8902bc66e10b072ab94ab51031c5efb860827d05ec"
   license "CECILL-B"
-  revision 6
   head "https://github.com/math-comp/math-comp.git", branch: "master"
 
   bottle do
@@ -19,37 +18,28 @@ class MathComp < Formula
 
   depends_on "ocaml" => :build
   depends_on "ocaml-findlib" => :build
-  depends_on "coq"
+  depends_on "coq-hierarchy-builder"
+  depends_on "rocq"
+  depends_on "rocq-elpi"
 
   def install
-    # Work around for https://github.com/Homebrew/homebrew-test-bot/issues/805
-    if ENV["HOMEBREW_GITHUB_ACTIONS"] && !(Formula["ocaml-findlib"].etc/"findlib.conf").exist?
-      ENV["OCAMLFIND_CONF"] = Formula["ocaml-findlib"].opt_libexec/"findlib.conf"
-    end
+    ENV["OCAMLFIND_CONF"] = Formula["rocq-elpi"].libexec/"lib/findlib.conf"
 
-    coqlib = "#{lib}/coq/"
-
-    (buildpath/"mathcomp/Makefile.coq.local").write <<~EOS
-      COQLIB=#{coqlib}
-    EOS
-
-    cd "mathcomp" do
-      system "make", "Makefile.coq"
-      system "make", "-f", "Makefile.coq", "MAKEFLAGS=#{ENV["MAKEFLAGS"]}"
-      system "make", "install", "MAKEFLAGS=#{ENV["MAKEFLAGS"]}"
-
+    args = []
+    if build.stable?
+      args += %w[-C mathcomp]
+      (buildpath/"mathcomp/Makefile.coq.local").write "COQLIB=#{lib}/ocaml/coq\n"
+      elisp.install "mathcomp/ssreflect/pg-ssr.el"
+    else
+      (buildpath/"Makefile.coq.local").append_lines "COQLIB=#{lib}/ocaml/coq\n"
       elisp.install "ssreflect/pg-ssr.el"
     end
 
-    doc.install Dir["docs/*"]
+    system "make", *args
+    system "make", *args, "install"
   end
 
   test do
-    # Work around for https://github.com/Homebrew/homebrew-test-bot/issues/805
-    if ENV["HOMEBREW_GITHUB_ACTIONS"] && !(Formula["ocaml-findlib"].etc/"findlib.conf").exist?
-      ENV["OCAMLFIND_CONF"] = Formula["ocaml-findlib"].opt_libexec/"findlib.conf"
-    end
-
     (testpath/"testing.v").write <<~EOS
       From mathcomp Require Import ssreflect seq.
 
@@ -60,8 +50,7 @@ class MathComp < Formula
       Check test.
     EOS
 
-    coqc = Formula["coq"].opt_bin/"coqc"
-    cmd = "#{coqc} -R #{lib}/coq/user-contrib/mathcomp mathcomp testing.v"
-    assert_match(/\Atest\s+: forall/, shell_output(cmd))
+    ENV["OCAMLFIND_CONF"] = Formula["rocq-elpi"].libexec/"lib/findlib.conf"
+    assert_match(/\Atest\s+: forall/, shell_output("#{Formula["rocq"].bin}/rocq compile testing.v"))
   end
 end
