@@ -1,14 +1,13 @@
 class FalcosecurityLibs < Formula
   desc "Core libraries for Falco and Sysdig"
   homepage "https://falcosecurity.github.io/libs/"
-  url "https://github.com/falcosecurity/libs/archive/refs/tags/0.20.0.tar.gz"
-  sha256 "4ae6ddb42a1012bacd88c63abdaa7bd27ca0143c4721338a22c45597e63bc99d"
+  url "https://github.com/falcosecurity/libs/archive/refs/tags/0.21.0.tar.gz"
+  sha256 "9e977001dd42586df42a5dc7e7a948c297124865a233402e44bdec68839d322a"
   license all_of: [
     "Apache-2.0",
     { any_of: ["GPL-2.0-only", "MIT"] }, # driver/
     { "GPL-2.0-only" => { with: "Linux-syscall-note" } }, # userspace/libscap/compat/
   ]
-  revision 1
 
   livecheck do
     url :stable
@@ -55,10 +54,6 @@ class FalcosecurityLibs < Formula
       -DFALCOSECURITY_LIBS_VERSION=#{version}
       -DUSE_BUNDLED_DEPS=OFF
     ]
-    # TODO: remove on next release which has dropped option
-    # https://github.com/falcosecurity/libs/commit/d45d53a1e0e397658d23b216c3c1716a68481554
-    args << "-DMINIMAL_BUILD=ON" if OS.mac?
-
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
@@ -70,7 +65,7 @@ class FalcosecurityLibs < Formula
     system ENV.cxx, "-std=c++17", pkgshare/"scap_event.cpp", "-o", "test",
                     "-I#{include}/falcosecurity",
                     "-L#{Formula["googletest"].lib}", "-L#{lib}",
-                    "-lgtest", "-lgtest_main", "-lsinsp"
+                    "-lgtest", "-lgtest_main", "-lsinsp", "-lscap_event_schema"
     system "./test"
   end
 end
