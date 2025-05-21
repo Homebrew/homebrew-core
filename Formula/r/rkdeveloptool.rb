@@ -26,6 +26,7 @@ class Rkdeveloptool < Formula
   # and cannot be tested in a standard CI environment.
   # However, we can check if the version command works.
   test do
+    assert_match "not found any devices!", shell_output("#{bin}/rkdeveloptool ld", 1)
     assert_match version.to_s, shell_output("#{bin}/rkdeveloptool -v")
   end
 end
