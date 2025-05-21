@@ -22,9 +22,9 @@ class Rkdeveloptool < Formula
     bin.install "rkdeveloptool"
   end
 
-  # This program requires an external device for proper testing
-  # and cannot be tested in a standard CI environment.
-  # However, we can check if the version command works.
+  # The test will check if the tool can be executed and
+  # if it returns the expected error message when no devices are connected.
+  # It will also check if the version is correctly displayed.
   test do
     assert_match "not found any devices!", shell_output("#{bin}/rkdeveloptool ld", 1)
     assert_match version.to_s, shell_output("#{bin}/rkdeveloptool -v")
