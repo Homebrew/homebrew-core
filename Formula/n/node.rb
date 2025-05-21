@@ -1,8 +1,8 @@
 class Node < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v23.11.0/node-v23.11.0.tar.xz"
-  sha256 "f2c5db21fc5d3c3d78c7e8823bff770cef0da8078c3b5ac4fa6d17d5a41be99d"
+  url "https://nodejs.org/dist/v24.1.0/node-v24.1.0.tar.xz"
+  sha256 "c8171b2aeccb28c8c5347f273a25adae172fb2a65bc8c975bc22ec58949d0eaf"
   license "MIT"
   head "https://github.com/nodejs/node.git", branch: "main"
 
@@ -35,7 +35,7 @@ class Node < Formula
   uses_from_macos "zlib"
 
   on_macos do
-    depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1500
+    depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1699
   end
 
   on_linux do
@@ -43,10 +43,10 @@ class Node < Formula
     depends_on "gcc@12" => :build if DevelopmentTools.gcc_version("/usr/bin/gcc") < 12
   end
 
-  # https://github.com/swiftlang/llvm-project/commit/94461822c75d5080bf648f86552f7a59b76905c9
+  # https://github.com/swiftlang/llvm-project/commit/078651b6de4b767b91e3e6a51e5df11a06d7bc4f
   fails_with :clang do
-    build 1500
-    cause "needs std::ranges::elements_view"
+    build 1699
+    cause "needs SFINAE-friendly std::pointer_traits"
   end
 
   # https://github.com/nodejs/node/blob/main/BUILDING.md#supported-toolchains
@@ -59,12 +59,12 @@ class Node < Formula
   # We track major/minor from upstream Node releases.
   # We will accept *important* npm patch releases when necessary.
   resource "npm" do
-    url "https://registry.npmjs.org/npm/-/npm-10.9.2.tgz"
-    sha256 "5cd1e5ab971ea6333f910bc2d50700167c5ef4e66da279b2a3efc874c6b116e4"
+    url "https://registry.npmjs.org/npm/-/npm-11.3.0.tgz"
+    sha256 "1c2dd63f96799ed4bf92b7806d8509302a0f8da68ca452aae27f24388bb41df4"
   end
 
   def install
-    ENV.llvm_clang if OS.mac? && DevelopmentTools.clang_build_version <= 1500
+    ENV.llvm_clang if OS.mac? && DevelopmentTools.clang_build_version <= 1699
 
     # The new linker crashed during LTO due to high memory usage.
     ENV.append "LDFLAGS", "-Wl,-ld_classic" if DevelopmentTools.clang_build_version >= 1500
