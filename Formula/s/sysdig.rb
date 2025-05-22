@@ -4,6 +4,7 @@ class Sysdig < Formula
   url "https://github.com/draios/sysdig/archive/refs/tags/0.40.1.tar.gz"
   sha256 "f4d465847ba8e814958b5f5818f637595f3d78ce93dbc3b8ff3ee65a80a9b90f"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/draios/sysdig.git", branch: "dev"
 
   livecheck do
