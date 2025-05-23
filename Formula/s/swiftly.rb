@@ -19,14 +19,11 @@ class Swiftly < Formula
   # TODO: someone who cares: submit a PR to fix this!
   depends_on :macos
 
-  depends_on macos: :ventura
-  depends_on xcode: "8.0"
-
   uses_from_macos "swift" => :build, since: :sonoma # swift 5.10+
   uses_from_macos "zlib"
 
-  on_linux do
-    depends_on "libarchive"
+  on_sonoma :or_older do
+    depends_on xcode: ["15.0", :build]
   end
 
   def install
