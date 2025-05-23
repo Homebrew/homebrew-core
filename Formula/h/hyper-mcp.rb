@@ -1,23 +1,61 @@
 class HyperMcp < Formula
   desc "MCP server that extends its capabilities through WebAssembly plugins"
   homepage "https://github.com/tuananh/hyper-mcp"
-  url "https://github.com/tuananh/hyper-mcp/archive/refs/tags/v0.1.1.tar.gz"
-  sha256 "b628478ff47a79bccc36864f301a489540f10bd5e4794723d6435a2d8e74bb3e"
+  url "https://github.com/tuananh/hyper-mcp/archive/refs/tags/v0.1.2.tar.gz"
+  sha256 "6799b40afc55f2c7f7eb76450b130f4f11ff1005974a8e4a8ccb0fa7e61afa7f"
   license "Apache-2.0"
   head "https://github.com/tuananh/hyper-mcp.git", branch: "main"
 
   depends_on "rust" => :build
-  depends_on "openssl@3"
+
+  on_linux do
+    depends_on "pkgconf" => :build
+    depends_on "openssl@3"
+  end
 
   def install
-    # Ensure that the `openssl` crate picks up the intended library.
-    ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
-    ENV["OPENSSL_NO_VENDOR"] = "1"
-
     system "cargo", "install", *std_cargo_args
   end
 
   test do
-    assert_match "hyper-mcp", shell_output("#{bin}/hyper-mcp --version")
+    (testpath/"config.json").write <<~JSON
+      {
+        "plugins": []
+      }
+    JSON
+
+    init_json = <<~JSON
+      {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "initialize",
+        "params": {
+          "protocolVersion": "2024-11-05",
+          "capabilities": {
+            "roots": {},
+            "sampling": {},
+            "experimental": {}
+          },
+          "clientInfo": {
+            "name": "hyper-mcp",
+            "version": "#{version}"
+          }
+        }
+      }
+    JSON
+
+    require "open3"
+    Open3.popen3(bin/"hyper-mcp", "--config-file", testpath/"config.json") do |stdin, stdout, _, w|
+      sleep 2
+      stdin.puts JSON.generate(init_json)
+      Timeout.timeout(10) do
+        stdout.each do |line|
+          break if line.include? "\"version\":\"#{version}\""
+        end
+      end
+      stdin.close
+    ensure
+      Process.kill "TERM", w.pid
+    end
   end
 end
