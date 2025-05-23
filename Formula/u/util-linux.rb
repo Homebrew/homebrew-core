@@ -90,7 +90,7 @@ class UtilLinux < Formula
     end
 
     system "./configure", *args, *std_configure_args
-    system "make", "install"
+    system "make", "install", "LDFLAGS=\"-lm\""
   end
 
   def caveats
