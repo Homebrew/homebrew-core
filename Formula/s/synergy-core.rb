@@ -1,9 +1,8 @@
 class SynergyCore < Formula
   desc "Synergy, the keyboard and mouse sharing tool"
   homepage "https://symless.com/synergy"
-  url "https://github.com/symless/synergy/archive/refs/tags/1.15.1+r1.tar.gz"
-  version "1.15.1"
-  sha256 "42fbf26c634d2947c7efc45da8c9a153387bcdcb19c1102a4f7c4e95aad5c708"
+  url "https://github.com/symless/synergy/archive/refs/tags/v1.17.1.tar.gz"
+  sha256 "73bc058abe19a02979c1cf77e3e7ac6ea9b74a50779c3b4655617ddabe90c26b"
 
   # The synergy-core/LICENSE file contains the following preamble:
   #   This program is released under the GPL with the additional exemption
@@ -19,17 +18,7 @@ class SynergyCore < Formula
   #   audit_exceptions/permitted_formula_license_mismatches.json
   # That exception can be removed if the nonfree GitHub Licenses API is fixed.
   license :cannot_represent
-  head "https://github.com/symless/synergy-core.git", branch: "master"
-
-  # This repository contains old 2.0.0 tags, one of which uses a stable tag
-  # format (`v2.0.0-stable`), despite being marked as "pre-release" on GitHub.
-  # The `GithubLatest` strategy is used to avoid these old tags without having
-  # to worry about missing a new 2.0.0 version in the future.
-  livecheck do
-    url :stable
-    regex(/[^"' >]*?v?(\d+(?:\.\d+)+)[^"' >]*?/i)
-    strategy :github_latest
-  end
+  head "https://github.com/symless/synergy.git", branch: "master"
 
   bottle do
     sha256                               arm64_sonoma:   "b51e183a0c07609d4b5f81e194251ce29c93fc220b8989d50e7a7ee58ac49021"
@@ -67,6 +56,25 @@ class SynergyCore < Formula
   fails_with :clang do
     build 1402
     cause "needs `std::ranges::find`"
+  end
+
+  # Use upstream code style (prerequisite to Qt 6.9 build fix below)
+  patch do
+    url "https://github.com/symless/synergy/commit/e3ba83d2a0370dd59d499678aeeab3d5733b331c.patch?full_index=1"
+    sha256 "653e1f18eebccfbd81f637a17223bf71be32725baf6d59db4ffd6dafdc8eb522"
+  end
+  # fix: build issue on Qt 6.9
+  # PR ref: https://github.com/symless/synergy/pull/15
+  patch do
+    url "https://github.com/symless/synergy/commit/b7a476dddc723acac05753bcbd148cc146b953f1.patch?full_index=1"
+    sha256 "7fab9d376eb0aad7cf1718edd7d5e65757866aa5d738d4c766a4d735aac7a0c1"
+  end
+
+  # Resolve `deprecated-enum-float-conversion` compiler warnings
+  # PR ref: https://github.com/symless/synergy/pull/55
+  patch do
+    url "https://github.com/symless/synergy/commit/34648fc70f5b78ec985eee6e6609921d34ff99e7.patch?full_index=1"
+    sha256 "3f5b9b9149263f92246b2bef3b683883ef70c61867ef36a1d4fd32727b64995d"
   end
 
   def install
@@ -145,15 +153,22 @@ class SynergyCore < Formula
   end
 
   test do
-    assert_match(/synergys: no configuration available\n$/,
-                 shell_output("#{opt_bin}/synergys 2>&1", 4))
-    assert_match(/synergyc: a server address or name is required$/,
-                 shell_output("#{opt_bin}/synergyc 2>&1", 3).split("\n")[0])
+    if OS.mac?
+      server = "#{prefix}/bundle/Deskflow.app/Contents/MacOS/deskflow-server"
+      client = "#{prefix}/bundle/Deskflow.app/Contents/MacOS/deskflow-client"
+    else
+      server = "#{opt_bin}/synergys"
+      client = "#{opt_bin}/synergyc"
+    end
+    assert_match(%r{(?:synergys|deskflow-server): failed to load config: /},
+                 shell_output("#{server} 2>&1", 4))
+    assert_match(/(?:synergyc|deskflow-client): a server address or name is required$/,
+                 shell_output("#{client} 2>&1", 3).split("\n")[0])
 
     version_string = Regexp.quote(version.major_minor_patch)
-    assert_match(/synergys v#{version_string}[-.0-9a-z]*, protocol v/,
-                 shell_output("#{opt_bin}/synergys --version").lines.first)
-    assert_match(/synergyc v#{version_string}[-.0-9a-z]*, protocol v/,
-                 shell_output("#{opt_bin}/synergyc --version").lines.first)
+    assert_match(/(?:synergys|deskflow-server) v#{version_string}[-.0-9a-z]*, protocol v/,
+                 shell_output("#{server} --version").lines.first)
+    assert_match(/(?:synergyc|deskflow-client) v#{version_string}[-.0-9a-z]*, protocol v/,
+                 shell_output("#{client} --version").lines.first)
   end
 end
