@@ -56,12 +56,35 @@ class MysqlClient < Formula
     cause "Requires C++20"
   end
 
+  # Patch out check for Homebrew `boost`.
+  # This should not be necessary when building inside `brew`.
+  # https://github.com/Homebrew/homebrew-test-bot/pull/820
+  patch :DATA
+
   def install
     if OS.linux?
       # Disable ABI checking
       inreplace "cmake/abi_check.cmake", "RUN_ABI_CHECK 1", "RUN_ABI_CHECK 0"
     elsif MacOS.version <= :ventura
       ENV.llvm_clang
+      # avoid error `ld: unknown option: -no_warn_duplicate_libraries` (see: Bug#37065301 Silence warnings on macOS)
+      cmake_files = %w[
+        cmake/component.cmake
+        cmake/libutils.cmake
+        cmake/mysql_add_executable.cmake
+        cmake/plugin.cmake
+        extra/protobuf/protobuf-*/cmake/libprotobuf-lite.cmake
+        extra/protobuf/protobuf-*/cmake/libprotobuf.cmake
+        extra/protobuf/protobuf-*/cmake/libprotoc.cmake
+        extra/protobuf/protobuf-*/cmake/protoc.cmake
+        router/cmake/Plugin.cmake
+      ].flat_map { |p| buildpath.glob(p) }
+      inreplace cmake_files do |s|
+        s.gsub!(
+          /\b(TARGET_LINK_OPTIONS\s*)(\(\s*)([^\s]+\s+)([^\s]+\s+)(LINKER:-no_warn_duplicate_libraries\s*)(\)\s*)$/im,
+          '#\1#\2#\3#\4#\5#\6',
+        )
+      end
     end
 
     # -DINSTALL_* are relative to `CMAKE_INSTALL_PREFIX` (`prefix`)
@@ -91,3 +114,41 @@ class MysqlClient < Formula
     assert_match version.to_s, shell_output("#{bin}/mysql --version")
   end
 end
+
+__END__
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 438dff720c5..47863c17e23 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -1948,31 +1948,6 @@ MYSQL_CHECK_RAPIDJSON()
+ MYSQL_CHECK_FIDO()
+ MYSQL_CHECK_FIDO_DLLS()
+
+-IF(APPLE)
+-  GET_FILENAME_COMPONENT(HOMEBREW_BASE ${HOMEBREW_HOME} DIRECTORY)
+-  IF(EXISTS ${HOMEBREW_BASE}/include/boost)
+-    FOREACH(SYSTEM_LIB ICU LZ4 PROTOBUF ZSTD FIDO)
+-      IF(WITH_${SYSTEM_LIB} STREQUAL "system")
+-        MESSAGE(FATAL_ERROR
+-          "WITH_${SYSTEM_LIB}=system is not compatible with Homebrew boost\n"
+-          "MySQL depends on ${BOOST_PACKAGE_NAME} with a set of patches.\n"
+-          "Including headers from ${HOMEBREW_BASE}/include "
+-          "will break the build.\n"
+-          "Please use WITH_${SYSTEM_LIB}=bundled\n"
+-          "or do 'brew uninstall boost' or 'brew unlink boost'"
+-          )
+-      ENDIF()
+-    ENDFOREACH()
+-  ENDIF()
+-  # Ensure that we look in /usr/local/include or /opt/homebrew/include
+-  FOREACH(SYSTEM_LIB ICU LZ4 PROTOBUF ZSTD FIDO)
+-    IF(WITH_${SYSTEM_LIB} STREQUAL "system")
+-      INCLUDE_DIRECTORIES(SYSTEM ${HOMEBREW_BASE}/include)
+-      BREAK()
+-    ENDIF()
+-  ENDFOREACH()
+-ENDIF()
+-
+ IF(WITH_AUTHENTICATION_WEBAUTHN OR
+   WITH_AUTHENTICATION_CLIENT_PLUGINS)
+   IF(WITH_FIDO STREQUAL "system" AND
