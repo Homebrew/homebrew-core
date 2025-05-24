@@ -1,9 +1,11 @@
 class Perceptualdiff < Formula
   desc "Perceptual image comparison tool"
   homepage "https://pdiff.sourceforge.net/"
+  # TODO: Remove CMAKE_POLICY_VERSION_MINIMUM in next release
   url "https://github.com/myint/perceptualdiff/archive/refs/tags/v2.1.tar.gz"
   sha256 "0dea51046601e4d23dc45a3ec342f1a305baf3bf3328e9ccdae115fe1942f041"
   license "GPL-2.0-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "69f5e86989148e15fdca126111c1070bb23777eabadd346f8e735b6cedc86f5a"
@@ -17,8 +19,15 @@ class Perceptualdiff < Formula
   depends_on "cmake" => :build
   depends_on "freeimage"
 
+  on_macos do
+    depends_on "libomp"
+  end
+
   def install
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    args = ["-DCMAKE_POLICY_VERSION_MINIMUM=3.5"]
+    args << "-DCMAKE_EXE_LINKER_FLAGS=-lomp" if OS.mac?
+
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
