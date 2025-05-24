@@ -1,8 +1,8 @@
 class Zigmod < Formula
   desc "Package manager for the Zig programming language"
   homepage "https://nektro.github.io/zigmod/"
-  url "https://github.com/nektro/zigmod/archive/refs/tags/r94.tar.gz"
-  sha256 "139e990afccff7ab33b864ea479dad1217c293355583c8ad864571f77764b7a2"
+  url "https://github.com/nektro/zigmod/archive/refs/tags/r97.tar.gz"
+  sha256 "2363a9b748ab25f4dbbc0092404874d8904f267c4b798a22bf21c2921a1fd496"
   license "MIT"
 
   livecheck do
