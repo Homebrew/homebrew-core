@@ -4,6 +4,7 @@ class JsonFortran < Formula
   url "https://github.com/jacobwilliams/json-fortran/archive/refs/tags/9.0.3.tar.gz"
   sha256 "ea6e02ab4873d43e2059d51d8392422d6f746a7a9ea0fb18ab28a3beb4fef13c"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/jacobwilliams/json-fortran.git", branch: "master"
 
   bottle do
@@ -19,6 +20,11 @@ class JsonFortran < Formula
   depends_on "cmake" => :build
   depends_on "ford" => :build
   depends_on "gcc" # for gfortran
+
+  on_linux do
+    # Make sure we pick up the correct binutils when testing
+    depends_on "binutils"
+  end
 
   def install
     args = %w[

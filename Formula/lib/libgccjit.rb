@@ -2,19 +2,20 @@ class Libgccjit < Formula
   desc "JIT library for the GNU compiler collection"
   homepage "https://gcc.gnu.org/"
   license "GPL-3.0-or-later" => { with: "GCC-exception-3.1" }
-  revision 1
   head "https://gcc.gnu.org/git/gcc.git", branch: "master"
 
   stable do
-    url "https://ftp.gnu.org/gnu/gcc/gcc-14.2.0/gcc-14.2.0.tar.xz"
-    mirror "https://ftpmirror.gnu.org/gcc/gcc-14.2.0/gcc-14.2.0.tar.xz"
-    sha256 "a7b39bc69cbf9e25826c5a60ab26477001f7c08d85cec04bc0e29cabed6f3cc9"
+    url "https://ftp.gnu.org/gnu/gcc/gcc-15.1.0/gcc-15.1.0.tar.xz"
+    mirror "https://ftpmirror.gnu.org/gcc/gcc-15.1.0/gcc-15.1.0.tar.xz"
+    sha256 "e2b09ec21660f01fecffb715e0120265216943f038d0e48a9868713e54f06cea"
 
     # Branch from the Darwin maintainer of GCC, with a few generic fixes and
     # Apple Silicon support, located at https://github.com/iains/gcc-14-branch
     patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/f30c309442a60cfb926e780eae5d70571f8ab2cb/gcc/gcc-14.2.0-r2.diff"
-      sha256 "6c0a4708f35ccf2275e6401197a491e3ad77f9f0f9ef5761860768fa6da14d3d"
+      on_macos do
+        url "https://raw.githubusercontent.com/Homebrew/formula-patches/575ffcaed6d3112916fed77d271dd3799a7255c4/gcc/gcc-15.1.0.diff"
+        sha256 "360fba75cd3ab840c2cd3b04207f745c418df44502298ab156db81d41edf3594"
+      end
     end
   end
 
@@ -86,7 +87,10 @@ class Libgccjit < Formula
       sdk = MacOS.sdk_path_if_needed
       args << "--with-sysroot=#{sdk}" if sdk
 
-      []
+      # Avoid this semi-random failure:
+      # "Error: Failed changing install name"
+      # "Updated load commands do not fit in the header"
+      %w[BOOT_LDFLAGS=-Wl,-headerpad_max_install_names]
     else
       # Fix cc1: error while loading shared libraries: libisl.so.15
       args << "--with-boot-ldflags=-static-libstdc++ -static-libgcc #{ENV.ldflags}"

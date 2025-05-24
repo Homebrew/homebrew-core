@@ -6,6 +6,7 @@ class Pythran < Formula
   url "https://files.pythonhosted.org/packages/94/0a/95a72f09f25dae48f41e367959075ed4c7a0ff02dd3f54eec111501d648a/pythran-0.18.0.tar.gz"
   sha256 "5c003e8cbedf6dbb68c2869c49fc110ce8b5e8982993078a4a819f1dadc4fc6a"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/serge-sans-paille/pythran.git", branch: "master"
 
   bottle do
