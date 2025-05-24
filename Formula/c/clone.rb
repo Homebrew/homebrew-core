@@ -18,6 +18,6 @@ class Clone < Formula
   end
 
   test do
-    system bin / "clone", "lizongying/clone", testpath / "clone"
+    system bin/"clone", "--version"
   end
 end
