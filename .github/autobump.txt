@@ -18,6 +18,7 @@ ada-url
 adapterremoval
 adaptivecpp
 adb-enhanced
+addons-linter
 adios2
 adns
 adplug
