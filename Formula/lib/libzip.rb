@@ -1,14 +1,16 @@
 class Libzip < Formula
   desc "C library for reading, creating, and modifying zip archives"
   homepage "https://libzip.org/"
-  url "https://libzip.org/download/libzip-1.11.3.tar.xz"
-  sha256 "9509d878ba788271c8b5abca9cfde1720f075335686237b7e9a9e7210fe67c1b"
+  url "https://libzip.org/download/libzip-1.11.4.tar.xz"
+  sha256 "8a247f57d1e3e6f6d11413b12a6f28a9d388de110adc0ec608d893180ed7097b"
   license "BSD-3-Clause"
 
   livecheck do
     url "https://libzip.org/download/"
     regex(/href=.*?libzip[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
+
+  no_autobump! because: "unable to get versions"
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "d047ed69c28d812b43092cdc11a95ebfb10c260294088b10c9e5c4013f8f7729"
