@@ -21,6 +21,11 @@ class JsonFortran < Formula
   depends_on "ford" => :build
   depends_on "gcc" # for gfortran
 
+  on_linux do
+    # Make sure we pick up the correct binutils when testing
+    depends_on "binutils"
+  end
+
   def install
     args = %w[
       -DUSE_GNU_INSTALL_CONVENTION:BOOL=TRUE
