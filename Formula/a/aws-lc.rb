@@ -1,9 +1,14 @@
 class AwsLc < Formula
   desc "General-purpose cryptographic library"
   homepage "https://github.com/aws/aws-lc"
-  url "https://github.com/aws/aws-lc/archive/refs/tags/v1.51.2.tar.gz"
-  sha256 "7df65427f92a4c3cd3db6923e1d395014e41b1fcc38671806c1e342cb6fa02f6"
+  url "https://github.com/aws/aws-lc/archive/refs/tags/v1.52.0.tar.gz"
+  sha256 "f8e948a23eba174cc5cd07f86983bace3828cc870214d3a4d1ea7111112394e4"
   license all_of: ["Apache-2.0", "ISC", "OpenSSL", "MIT", "BSD-3-Clause"]
+
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "57ab5f6de511aba27d2a98f53cadce543ea0a1278c496ce87c594769699ac348"
