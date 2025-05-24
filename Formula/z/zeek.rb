@@ -1,8 +1,8 @@
 class Zeek < Formula
   desc "Network security monitor"
   homepage "https://zeek.org/"
-  url "https://github.com/zeek/zeek/releases/download/v7.1.1/zeek-7.1.1.tar.gz"
-  sha256 "f7974900c44c322b8bee5f502d683b3dcc478687b5ac75b23e2f8a049457d683"
+  url "https://github.com/zeek/zeek/releases/download/v7.2.1/zeek-7.2.1.tar.gz"
+  sha256 "9dbab6e531aafc7b9b4df032b31b951d4df8c69dc0909a7cc811c1db4165502d"
   license "BSD-3-Clause"
   head "https://github.com/zeek/zeek.git", branch: "master"
 
@@ -46,6 +46,27 @@ class Zeek < Formula
 
     # Avoid references to the Homebrew shims directory
     inreplace "auxil/spicy/hilti/toolchain/src/config.cc.in", "${CMAKE_CXX_COMPILER}", ENV.cxx
+
+    # Benchmarks are not installed, but building them on Linux breaks in the
+    # bundled google-benchmark dependency. Exclude the benchmark targets and
+    # their library dependencies.
+    #
+    # TODO: Revisit this for the next release including
+    # https://github.com/zeek/spicy/pull/2068. With that patch we should be
+    # able to disable test and benchmark binaries with a CMake flag.
+    inreplace "auxil/spicy/hilti/runtime/CMakeLists.txt",
+      "add_executable(hilti-rt-fiber-benchmark src/benchmarks/fiber.cc)",
+      "add_executable(hilti-rt-fiber-benchmark EXCLUDE_FROM_ALL src/benchmarks/fiber.cc)"
+    inreplace "auxil/spicy/spicy/runtime/tests/benchmarks/CMakeLists.txt",
+      "add_executable(spicy-rt-parsing-benchmark parsing.cc ${_generated_sources})",
+      "add_executable(spicy-rt-parsing-benchmark EXCLUDE_FROM_ALL parsing.cc ${_generated_sources})"
+    inreplace "auxil/spicy/3rdparty/justrx/src/tests/CMakeLists.txt",
+      "add_executable(bench benchmark.cc)",
+      "add_executable(bench EXCLUDE_FROM_ALL benchmark.cc)"
+    (buildpath/"auxil/spicy/3rdparty/CMakeLists.txt").append_lines <<~CMAKE
+      set_target_properties(benchmark PROPERTIES EXCLUDE_FROM_ALL ON)
+      set_target_properties(benchmark_main PROPERTIES EXCLUDE_FROM_ALL ON)
+    CMAKE
 
     system "cmake", "-S", ".", "-B", "build",
                     "-DBROKER_DISABLE_TESTS=on",
