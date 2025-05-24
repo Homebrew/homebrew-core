@@ -3,9 +3,9 @@ class Exiftool < Formula
   homepage "https://exiftool.org"
   # Ensure release is tagged production before submitting.
   # https://exiftool.org/history.html
-  url "https://cpan.metacpan.org/authors/id/E/EX/EXIFTOOL/Image-ExifTool-13.25.tar.gz"
-  mirror "https://exiftool.org/Image-ExifTool-13.25.tar.gz"
-  sha256 "1cd555144846a28298783bebf3ab452235273c78358410813e3d4e93c653b1fa"
+  url "https://cpan.metacpan.org/authors/id/E/EX/EXIFTOOL/Image-ExifTool-13.30.tar.gz"
+  mirror "https://exiftool.org/Image-ExifTool-13.30.tar.gz"
+  sha256 "885afd06c4efcc60d1df703cc88ba7ddc3bb6fed854cfbaa9e6cd72adfbe8da9"
   license any_of: ["Artistic-1.0-Perl", "GPL-1.0-or-later"]
 
   livecheck do
@@ -38,8 +38,8 @@ class Exiftool < Formula
   end
 
   resource "Capture::Tiny" do
-    url "https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/Capture-Tiny-0.48.tar.gz"
-    sha256 "6c23113e87bad393308c90a207013e505f659274736638d8c79bac9c67cc3e19"
+    url "https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/Capture-Tiny-0.50.tar.gz"
+    sha256 "ca6e8d7ce7471c2be54e1009f64c367d7ee233a2894cacf52ebe6f53b04e81e5"
   end
 
   resource "File::chdir" do
@@ -48,8 +48,8 @@ class Exiftool < Formula
   end
 
   resource "Path::Tiny" do
-    url "https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/Path-Tiny-0.144.tar.gz"
-    sha256 "f6ea094ece845c952a02c2789332579354de8d410a707f9b7045bd241206487d"
+    url "https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/Path-Tiny-0.148.tar.gz"
+    sha256 "818aed754b74f399e42c238bea738e20a52af89a6e3feb58bec9d0130eea4746"
   end
 
   resource "Alien::Build" do
@@ -68,8 +68,8 @@ class Exiftool < Formula
   end
 
   resource "Alien::cmake3" do
-    url "https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/Alien-cmake3-0.08.tar.gz"
-    sha256 "93dfb1146f0053ec1ed59558f5f6d8f85d87b822a8433c6485d419c4f0182f1f"
+    url "https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/Alien-cmake3-0.09.tar.gz"
+    sha256 "6d4b33c4eaa7b42d54aabdfca934af063e030ebcff834a3083cda1a7ab7ca3c0"
   end
 
   resource "File::Slurper" do
