@@ -1,31 +1,23 @@
 class Clone < Formula
-  desc "Download only a specific branch or tag without downloading the entire history"
-  homepage "https://github.com/lizongying/ungit"
-  version "0.1.6"
+  desc "Download repository only a specific branch or tag without the entire history"
+  homepage "https://github.com/lizongying/clone"
+  url "https://github.com/lizongying/clone/archive/refs/tags/v0.1.6.tar.gz"
+  sha256 "0595397d0ec16e958ce132cde4c7652f276a75fc2e846a7e697cbc9f14389feb"
   license "MIT"
-  head "https://github.com/lizongying/ungit.git", branch: "main"
+  head "https://github.com/lizongying/clone.git", branch: "main"
 
-  on_arm do
-    url "https://github.com/lizongying/ungit/releases/download/v0.1.6/ungit_aarch64-apple-darwin"
-    sha256 "bfc0aa642ee803f324aa4c05112da3158970cc88fe744d7f2deccde8ee0d4b41"
+  bottle do
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma: "ab027f92294742df796186586b7395cd06064c01b177fa5ffb9f6d5fa4f4c456"
   end
-  on_intel do
-    url "https://github.com/lizongying/ungit/releases/download/v0.1.6/ungit_x86_64-apple-darwin"
-    sha256 "ed92cbd3e9726d2b92d44ad53712df4df8eb219d908590f466290f2db7d3ae16"
-  end
+
+  depends_on "rust" => :build
 
   def install
-    binary_name = if Hardware::CPU.arm?
-      "ungit_aarch64-apple-darwin"
-    else
-      "ungit_x86_64-apple-darwin"
-    end
-
-    bin.install binary_name => "clone"
-    chmod 0755, bin/"clone"
+    system "cargo", "install", *std_cargo_args
   end
 
   test do
-    system bin/"clone", "lizongying/ungit", testpath/"ungit"
+    system bin / "clone", "lizongying/clone", testpath / "clone"
   end
 end
