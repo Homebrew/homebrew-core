@@ -2,12 +2,11 @@ class Pocl < Formula
   desc "Portable Computing Language"
   homepage "https://portablecl.org/"
   license "MIT"
-  revision 1
 
   stable do
     # TODO: Update to newer LLVM on next release
-    url "https://github.com/pocl/pocl/archive/refs/tags/v6.0.tar.gz"
-    sha256 "de9710223fc1855f833dbbf42ea2681e06aa8ec0464f0201104dc80a74dfd1f2"
+    url "https://github.com/pocl/pocl/archive/refs/tags/v7.0.tar.gz"
+    sha256 "f55caba8c3ce12bec7b683ce55104c7555e19457fc2ac72c6f035201e362be08"
 
     depends_on "llvm@18" # LLVM 19: https://github.com/pocl/pocl/commit/802d347bd09921d5e6333ad9dd2c99c35004f398
   end
