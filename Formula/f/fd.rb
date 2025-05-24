@@ -24,7 +24,7 @@ class Fd < Formula
   def install
     system "cargo", "install", *std_cargo_args
 
-    generate_completions_from_executable(bin/"fd", "--gen-completions", shells: [:bash, :fish])
+    generate_completions_from_executable(bin/"fd", "--gen-completions", shells: [:bash, :fish, :pwsh])
     zsh_completion.install "contrib/completion/_fd"
     man1.install "doc/fd.1"
   end
