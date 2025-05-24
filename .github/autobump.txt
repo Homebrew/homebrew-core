@@ -3045,6 +3045,7 @@ qrcp
 qrtool
 qshell
 qsv
+qt@5
 qthreads
 qtkeychain
 quantlib
