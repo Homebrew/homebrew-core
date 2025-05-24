@@ -14,6 +14,14 @@ class ClaudeCode < Formula
   end
 
   test do
-    assert_match "#{version.to_s} (Claude Code)", shell_output("#{bin}/claude --version")
+    require "expect"
+    require "pty"
+
+    timeout = 10
+    PTY.spawn(bin/"claude", "doctor") do |r, w, _pid|
+      refute_nil r.expect("Press Enter to continue…", timeout), "Expected asking for confirmation"
+      w.write "\r"
+      assert_match "npm permissions: OK", r.read
+    end
   end
 end
