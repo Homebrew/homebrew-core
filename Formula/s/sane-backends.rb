@@ -1,14 +1,16 @@
 class SaneBackends < Formula
   desc "Backends for scanner access"
   homepage "http://www.sane-project.org/"
-  url "https://gitlab.com/sane-project/backends/uploads/83bdbb6c9a115184c2d48f1fdc6847db/sane-backends-1.3.1.tar.gz"
-  sha256 "aa82f76f409b88f8ea9793d4771fce01254d9b6549ec84d6295b8f59a3879a0c"
+  url "https://gitlab.com/-/project/429008/uploads/843c156420e211859e974f78f64c3ea3/sane-backends-1.4.0.tar.gz"
+  sha256 "f99205c903dfe2fb8990f0c531232c9a00ec9c2c66ac7cb0ce50b4af9f407a72"
   license "GPL-2.0-or-later"
 
   livecheck do
     url :head
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
+
+  no_autobump! because: :incompatible_version_format
 
   bottle do
     rebuild 1
@@ -45,13 +47,6 @@ class SaneBackends < Formula
 
   on_linux do
     depends_on "systemd"
-  end
-
-  # Fix compilation failure with clang 16, remove in next version
-  # https://gitlab.com/sane-project/backends/-/issues/774
-  patch do
-    url "https://gitlab.com/sane-project/backends/-/commit/e45ba84b665e3ac339e27e594d8651ee1577d638.diff"
-    sha256 "4cdb099c77cf94aad013f8b8c4e064c5d009629a84da5b67947ce2c7b0829c3d"
   end
 
   def install
