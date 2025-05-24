@@ -1,9 +1,19 @@
 class Zigup < Formula
   desc "Download and manage zig compilers"
   homepage "https://github.com/marler8997/zigup"
-  url "https://github.com/marler8997/zigup/archive/refs/tags/v2025_04_20.tar.gz"
-  sha256 "3fabc75f05c7a80a9a19f7d79f3529c208db6303ffd1b3b0328e070fc6703654"
+  url "https://github.com/marler8997/zigup/archive/refs/tags/v2025_05_24.tar.gz"
+  sha256 "d88e6d9c9629c88aba78c3bae2fb89ae4bea11f2818911f6d5559e7e79bcae69"
   license "MIT-0"
+
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:[._]\d+)+)$/i)
+    strategy :git do |tags, regex|
+      tags.filter_map { |tag| tag[regex, 1]&.tr("_", ".") }
+    end
+  end
+
+  no_autobump! because: :incompatible_version_format
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "8fbbb4b50999dc78dca0c38195270ccb205272e8d24a47aa342faadf4caa758a"
