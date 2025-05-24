@@ -1,10 +1,9 @@
 class Vineyard < Formula
   desc "In-memory immutable data manager. (Project under CNCF)"
   homepage "https://v6d.io"
-  url "https://github.com/v6d-io/v6d/releases/download/v0.24.2/v6d-0.24.2.tar.gz"
-  sha256 "a3acf9a9332bf5cce99712f9fd00a271b4330add302a5a8bbfd388e696a795c8"
+  url "https://github.com/v6d-io/v6d/releases/download/v0.24.4/v6d-0.24.4.tar.gz"
+  sha256 "055bab09ca67542ccb13229de8c176b7875b4ba8c8a818e942218dccc32a6bae"
   license "Apache-2.0"
-  revision 2
 
   bottle do
     sha256                               arm64_sequoia: "e5fefb6b4cf166c97d1fbe080cc238b2eb3ca965be76f6da9f89ffcb68e09239"
@@ -28,7 +27,6 @@ class Vineyard < Formula
   depends_on "etcd-cpp-apiv3"
   depends_on "gflags"
   depends_on "glog"
-  depends_on "libgrape-lite"
   depends_on "open-mpi"
 
   on_linux do
@@ -37,7 +35,26 @@ class Vineyard < Formula
     depends_on "libtool" => :build
   end
 
+  # TODO: replace with `libgrape-lite` formula when 0.3.5 comes out
+  resource "libgrape-lite" do
+    url "https://github.com/alibaba/libgrape-lite/archive/refs/tags/v0.3.4.tar.gz"
+    sha256 "4d7c08560d56fde4a407566fea5ea348cf8ea7df5dbcc3285dcbfe6d9e5d6ff7"
+
+    patch do
+      url "https://github.com/alibaba/libgrape-lite/compare/5f0ac21..35d0893.patch?full_index=1"
+      sha256 "4bdf3924fe700198aca5e13482b0d5079eac64a5667bff6674447fb2b3b42b1f"
+    end
+  end
+
   def install
+    # Install libgrape in libexec
+    resource("libgrape-lite").stage do
+      system "cmake", "-S", ".", "-B", "build",
+        "-DCMAKE_POLICY_VERSION_MINIMUM=3.5", *std_cmake_args(install_prefix: libexec)
+      system "cmake", "--build", "build"
+      system "cmake", "--install", "build"
+    end
+
     # Workaround to support Boost 1.87.0+ until upstream fix for https://github.com/v6d-io/v6d/issues/2041
     boost_asio_post_files = %w[
       src/server/async/socket_server.cc
@@ -79,7 +96,8 @@ class Vineyard < Formula
       "-DCMAKE_CXX_STANDARD_REQUIRED=TRUE",
       "-DCMAKE_FIND_PACKAGE_PREFER_CONFIG=ON", # for newer protobuf
       "-DCMAKE_POLICY_VERSION_MINIMUM=3.5",
-      "-DLIBGRAPELITE_INCLUDE_DIRS=#{Formula["libgrape-lite"].opt_include}",
+      # "-DLIBGRAPELITE_INCLUDE_DIRS=#{Formula["libgrape-lite"].opt_include}",
+      "-DLIBGRAPELITE_INCLUDE_DIRS=#{libexec/"include"}",
       "-DOPENSSL_ROOT_DIR=#{Formula["openssl@3"].opt_prefix}",
       "-DPYTHON_EXECUTABLE=#{which(python3)}",
       "-DUSE_EXTERNAL_ETCD_LIBS=ON",
