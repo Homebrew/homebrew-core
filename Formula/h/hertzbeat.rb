@@ -2,7 +2,7 @@ class Hertzbeat < Formula
     desc "Apache HertzBeat(incubating) is a real-time monitoring system with agentless, performance cluster, prometheus-compatible, custom monitoring and status page building capabilities."
     homepage "https://hertzbeat.apache.org/"
     url "https://www.apache.org/dyn/closer.lua/incubator/hertzbeat/1.7.0/apache-hertzbeat-1.7.0-incubating-bin.tar.gz"
-    sha512 "efe8a8e8c57ec51070a58e40a06276bd12fc18852b913c4e220bb8063feea0d921b85dd01e7bc769d1bde43ce96bfa2398e31d1858d8553efdd706d8d0743c5f"
+    sha256 "c593aa8f3e1ae74f2b093bffe60167f5b5780a21a35dde95ed243f1c9bd2e46b"
     license "Apache-2.0"
 
     depends_on "openjdk@17"
