@@ -1,8 +1,8 @@
 class Libfaketime < Formula
   desc "Report faked system time to programs"
   homepage "https://github.com/wolfcw/libfaketime"
-  url "https://github.com/wolfcw/libfaketime/archive/refs/tags/v0.9.10.tar.gz"
-  sha256 "729ad33b9c750a50d9c68e97b90499680a74afd1568d859c574c0fe56fe7947f"
+  url "https://github.com/wolfcw/libfaketime/archive/refs/tags/v0.9.11.tar.gz"
+  sha256 "5912d8b4179402058d3847c0ad389e688630ea38898847b1190e636e12c33e44"
   license "GPL-2.0-only"
   head "https://github.com/wolfcw/libfaketime.git", branch: "master"
 

@@ -1963,6 +1963,7 @@ libetonyek
 libewf
 libexif
 libfabric
+libfaketime
 libffcall
 libffi
 libfido2
