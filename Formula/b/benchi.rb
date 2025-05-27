@@ -14,7 +14,8 @@ class Benchi < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args, "./cmd/benchi"
+    ldflags = "-X main.version=#{version}"
+    system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/benchi"
   end
 
   test do
