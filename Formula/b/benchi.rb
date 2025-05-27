@@ -18,6 +18,6 @@ class Benchi < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/benchi --version")
+    assert_match version.to_s, shell_output("#{bin}/benchi -v")
   end
 end
