@@ -1,9 +1,9 @@
 class SpidermonkeyAT115 < Formula
   desc "JavaScript-C Engine"
   homepage "https://spidermonkey.dev"
-  url "https://archive.mozilla.org/pub/firefox/releases/115.22.0esr/source/firefox-115.22.0esr.source.tar.xz"
-  version "115.22.0"
-  sha256 "f57b6507ab1db52183df2aadb1fd81d9f0108b185226d1bac6205b7d7d3005b3"
+  url "https://archive.mozilla.org/pub/firefox/releases/115.24.0esr/source/firefox-115.24.0esr.source.tar.xz"
+  version "115.24.0"
+  sha256 "81b95a58160afbae72b45c58f818c6ce992f53547e5ea78efbb2c59e864e4200"
   license "MPL-2.0"
 
   # Spidermonkey versions use the same versions as Firefox, so we simply check
@@ -54,6 +54,11 @@ class SpidermonkeyAT115 < Formula
       sha256 "a772f39e5370d263fd7e182effb1b2b990cae8c63783f5a6673f16737ff91573"
     end
   end
+
+  # 1. Fix to find linker on macos-15, abusing LD_PRINT_OPTIONS is not working
+  # 2. Fix to error: reference to non-static member function must be called
+  # Issue ref: https://hg-edge.mozilla.org/integration/autoland/rev/223087fdc29f
+  patch :DATA
 
   def install
     # Workaround for ICU 76+
@@ -110,3 +115,43 @@ class SpidermonkeyAT115 < Formula
     assert_equal "hello", shell_output("#{bin}/js#{version.major} #{path}").strip
   end
 end
+
+__END__
+diff --git a/build/moz.configure/toolchain.configure b/build/moz.configure/toolchain.configure
+index 3f91d71..0133a67 100644
+--- a/build/moz.configure/toolchain.configure
++++ b/build/moz.configure/toolchain.configure
+@@ -1783,7 +1783,16 @@ def select_linker_tmpl(host_or_target):
+                 kind = "ld64"
+
+             elif retcode != 0:
+-                return None
++                # macOS 15 fallback: try `-Wl,-v` if --version failed
++                if target.kernel == "Darwin":
++                    fallback_cmd = cmd_base + linker_flag + ["-Wl,-v"]
++                    retcode2, stdout2, stderr2 = get_cmd_output(*fallback_cmd, env=env)
++                    if retcode2 == 0 and "@(#)PROGRAM:ld" in stderr2:
++                        kind = "ld64"
++                    else:
++                        return None
++                else:
++                    return None
+
+             elif "mold" in stdout:
+                 kind = "mold"
+diff --git a/js/src/threading/ExclusiveData.h b/js/src/threading/ExclusiveData.h
+index 38e89f10a..2d8ca831b 100644
+--- a/js/src/threading/ExclusiveData.h
++++ b/js/src/threading/ExclusiveData.h
+@@ -109,11 +109,6 @@ class ExclusiveData {
+  explicit ExclusiveData(const MutexId& id, Args&&... args)
+      : lock_(id), value_(std::forward<Args>(args)...) {}
+
+-  ExclusiveData(ExclusiveData&& rhs)
+-      : lock_(std::move(rhs.lock)), value_(std::move(rhs.value_)) {
+-    MOZ_ASSERT(&rhs != this, "self-move disallowed!");
+-  }
+-
+  ExclusiveData& operator=(ExclusiveData&& rhs) {
+    this->~ExclusiveData();
+    new (mozilla::KnownNotNull, this) ExclusiveData(std::move(rhs));
