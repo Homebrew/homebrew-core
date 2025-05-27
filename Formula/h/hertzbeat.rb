@@ -5,7 +5,7 @@ class Hertzbeat < Formula
   sha256 "c593aa8f3e1ae74f2b093bffe60167f5b5780a21a35dde95ed243f1c9bd2e46b"
   license "Apache-2.0"
 
-  depends_on "openjdk@17"
+  depends_on "openjdk"
 
   def install
     libexec.install Dir["*"]
@@ -25,7 +25,7 @@ class Hertzbeat < Formula
 
     chmod 0755, libexec/"bin/brew-startup.sh"
 
-    (bin/"hertzbeat").write_env_script libexec/"bin/brew-startup.sh", Language::Java.overridable_java_home_env("17")
+    (bin/"hertzbeat").write_env_script libexec/"bin/brew-startup.sh", Language::Java.overridable_java_home_env
 
     (var/"hertzbeat").mkpath
     (var/"log/hertzbeat").mkpath
@@ -34,11 +34,31 @@ class Hertzbeat < Formula
     ln_sf var/"log/hertzbeat", libexec/"logs"
   end
 
+  def post_install
+    (var/"hertzbeat").mkpath
+    (var/"log/hertzbeat").mkpath
+    chmod 0775, var/"hertzbeat"
+    chmod 0775, var/"log/hertzbeat"
+    if Dir["#{var}/hertzbeat/config"].empty?
+      cp_r "#{libexec}/config", "#{var}/hertzbeat/"
+      chmod_R 0775, var/"hertzbeat/config"
+    end
+    %w[cache data].each do |dir|
+      if Dir.exist?("#{libexec}/#{dir}") && Dir["#{var}/hertzbeat/#{dir}"].empty?
+        cp_r "#{libexec}/#{dir}", "#{var}/hertzbeat/"
+        chmod_R 0775, var/"hertzbeat/#{dir}"
+      end
+    end
+  end
+
   service do
     run opt_bin/"hertzbeat"
     keep_alive true
-    log_path var/"log/hertzbeat.log"
-    error_log_path var/"log/hertzbeat.log"
+    log_path var/"log/hertzbeat/hertzbeat.log"
+    error_log_path var/"log/hertzbeat/hertzbeat.log"
+    working_dir opt_libexec
+    environment_variables JAVA_HOME:      Formula["openjdk"].opt_prefix,
+                          HERTZBEAT_HOME: opt_libexec.to_s
   end
 
   test do
