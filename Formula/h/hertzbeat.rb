@@ -16,9 +16,12 @@ class Hertzbeat < Formula
 
       JVM_OPTS="-Duser.timezone=Asia/Shanghai -Doracle.jdbc.timezoneAsRegion=false -server -XX:SurvivorRatio=6 -XX:+UseParallelGC -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=logs"
 
+      # Add H2 database specific options to prevent permission issues
+      H2_OPTS="-Dh2.bindAddress=127.0.0.1 -Dh2.directory=data -Dh2.allowedClasses=* -Dh2.serverCachedObjects=3000"
+
       LOG_OPTS="-Dlogging.path=logs -Dlogging.config=config/logback-spring.xml -Dspring.config.location=config/"
 
-      export JAVA_OPTS="$JVM_OPTS $LOG_OPTS"
+      export JAVA_OPTS="$JVM_OPTS $H2_OPTS $LOG_OPTS"
 
       exec java $JAVA_OPTS -cp apache-hertzbeat-1.7.0.jar:ext-lib/* org.apache.hertzbeat.manager.Manager
     EOS
@@ -47,6 +50,15 @@ class Hertzbeat < Formula
       if Dir.exist?("#{libexec}/#{dir}") && Dir["#{var}/hertzbeat/#{dir}"].empty?
         cp_r "#{libexec}/#{dir}", "#{var}/hertzbeat/"
         chmod_R 0775, var/"hertzbeat/#{dir}"
+      end
+    end
+    # Pre-create H2 database files with correct permissions
+    # This prevents permission issues when the service tries to create these files
+    %w[hertzbeat.mv.db hertzbeat.trace.db].each do |db_file|
+      db_path = "#{var}/hertzbeat/#{db_file}"
+      unless File.exist?(db_path)
+        touch db_path
+        chmod 0664, db_path
       end
     end
   end
