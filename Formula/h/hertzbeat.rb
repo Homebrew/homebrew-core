@@ -10,7 +10,7 @@ class Hertzbeat < Formula
   def install
     libexec.install Dir["*"]
 
-    (libexec/"bin/custom-startup.sh").write <<~EOS
+    (libexec/"bin/brew-startup.sh").write <<~EOS
       #!/bin/bash
       cd "$(dirname "$0")"/.. || exit
 
@@ -23,19 +23,9 @@ class Hertzbeat < Formula
       exec java $JAVA_OPTS -cp apache-hertzbeat-1.7.0.jar:ext-lib/* org.apache.hertzbeat.manager.Manager
     EOS
 
-    (libexec/"bin/custom-shutdown.sh").write <<~EOS
-      #!/bin/bash
-      cd "$(dirname "$0")"/.. || exit
-      ./bin/shutdown.sh
-    EOS
+    chmod 0755, libexec/"bin/brew-startup.sh"
 
-    chmod 0755, libexec/"bin/custom-startup.sh"
-    chmod 0755, libexec/"bin/custom-shutdown.sh"
-
-    (bin/"hertzbeat").write_env_script libexec/"bin/custom-startup.sh",
-                                        Language::Java.overridable_java_home_env("17")
-    (bin/"hertzbeat-shutdown").write_env_script libexec/"bin/custom-shutdown.sh",
-                                                Language::Java.overridable_java_home_env("17")
+    (bin/"hertzbeat").write_env_script libexec/"bin/brew-startup.sh", Language::Java.overridable_java_home_env("17")
 
     (var/"hertzbeat").mkpath
     (var/"log/hertzbeat").mkpath
@@ -44,62 +34,21 @@ class Hertzbeat < Formula
     ln_sf var/"log/hertzbeat", libexec/"logs"
   end
 
-  def post_install
-    (var/"hertzbeat").mkpath
-    (var/"log/hertzbeat").mkpath
-
-    chmod 0755, var/"hertzbeat"
-    chmod 0755, var/"log/hertzbeat"
-
-    cp_r "#{libexec}/config", "#{var}/hertzbeat/" if Dir["#{var}/hertzbeat/config"].empty?
-
-    %w[cache data].each do |dir|
-      if Dir.exist?("#{libexec}/#{dir}") && Dir["#{var}/hertzbeat/#{dir}"].empty?
-        cp_r "#{libexec}/#{dir}", "#{var}/hertzbeat/"
-      end
-    end
-  end
-
-  def caveats
-    <<~EOS
-      HertzBeat has been installed.
-
-      Data directory: #{var}/hertzbeat
-      Logs directory: #{var}/log/hertzbeat
-
-      To start HertzBeat manually:
-        hertzbeat
-
-      To stop HertzBeat manually:
-        hertzbeat-shutdown
-
-      To access HertzBeat web interface:
-        http://localhost:1157
-
-      Default login credentials:
-        Username: admin
-        Password: hertzbeat
-    EOS
-  end
-
   service do
     run opt_bin/"hertzbeat"
     keep_alive true
-    log_path var/"log/hertzbeat/hertzbeat.log"
-    error_log_path var/"log/hertzbeat/hertzbeat.log"
-    working_dir opt_libexec
-    environment_variables JAVA_HOME:      Formula["openjdk@17"].opt_prefix,
-                          HERTZBEAT_HOME: opt_libexec.to_s
+    log_path var/"log/hertzbeat.log"
+    error_log_path var/"log/hertzbeat.log"
   end
 
   test do
-    system Formula["openjdk@17"].opt_bin/"java", "-version"
-    jar_file = "#{libexec}/apache-hertzbeat-1.7.0.jar"
-    assert_path_exists jar_file
-    assert_match "HertzBeat", shell_output("#{Formula["openjdk@17"].opt_bin}/java -jar #{jar_file} --version 2>&1", 1)
-    %w[bin config lib].each do |dir|
-      assert_path_exists libexec/dir
-    end
-    assert_path_exists libexec/"config/application.yml"
+    port = 1157
+    ENV["QUERY_PORT"] = port.to_s
+
+    spawn bin/"hertzbeat"
+    sleep 20
+
+    response = shell_output("curl -s -u 'admin:hertzbeat' 127.0.0.1:#{port}/actuator/health")
+    assert_equal '{"status":"UP"}', response.strip
   end
 end
