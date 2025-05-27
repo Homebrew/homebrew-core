@@ -16,7 +16,8 @@ class Hertzbeat < Formula
 
       JVM_OPTS="-Duser.timezone=Asia/Shanghai -Doracle.jdbc.timezoneAsRegion=false -server -XX:SurvivorRatio=6 -XX:+UseParallelGC -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=logs"
 
-      H2_OPTS="-Dh2.traceLevel=OFF"
+      # Add H2 database specific options to prevent permission issues
+      H2_OPTS="-Dh2.bindAddress=127.0.0.1 -Dh2.directory=data -Dh2.allowedClasses=* -Dh2.serverCachedObjects=3000 -Dh2.traceLevel=OFF -Djava.io.tmpdir=data"
 
       LOG_OPTS="-Dlogging.path=logs -Dlogging.config=config/logback-spring.xml -Dspring.config.location=config/"
 
@@ -34,6 +35,43 @@ class Hertzbeat < Formula
 
     ln_sf var/"hertzbeat", libexec/"data"
     ln_sf var/"log/hertzbeat", libexec/"logs"
+  end
+
+  def post_install
+    (var/"hertzbeat").mkpath
+    (var/"log/hertzbeat").mkpath
+
+    # Ensure parent directories have right permissions
+    chmod 0775, var/"hertzbeat"
+    chmod 0775, var/"log/hertzbeat"
+
+    if Dir["#{var}/hertzbeat/config"].empty?
+      cp_r "#{libexec}/config", "#{var}/hertzbeat/"
+      chmod_R 0775, var/"hertzbeat/config"
+    end
+
+    %w[cache data].each do |dir|
+      if Dir.exist?("#{libexec}/#{dir}") && Dir["#{var}/hertzbeat/#{dir}"].empty?
+        cp_r "#{libexec}/#{dir}", "#{var}/hertzbeat/"
+        chmod_R 0775, var/"hertzbeat/#{dir}"
+      end
+    end
+
+    # Pre-create H2 database files with correct permissions
+    # This prevents permission issues when the service tries to create these files
+    %w[hertzbeat.mv.db hertzbeat.trace.db].each do |db_file|
+      db_path = "#{var}/hertzbeat/#{db_file}"
+      touch db_path unless File.exist?(db_path)
+      chmod 0666, db_path
+      chmod 0666, db_path
+    end
+
+    # Create a writable tmp directory in the data location
+    tmp_dir = "#{var}/hertzbeat/tmp"
+    unless Dir.exist?(tmp_dir)
+      mkdir_p tmp_dir
+      chmod 0777, tmp_dir # Full permissions for temp directory
+    end
   end
 
   service do
