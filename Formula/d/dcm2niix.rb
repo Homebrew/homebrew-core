@@ -1,8 +1,8 @@
 class Dcm2niix < Formula
   desc "DICOM to NIfTI converter"
   homepage "https://www.nitrc.org/plugins/mwiki/index.php/dcm2nii:MainPage"
-  url "https://github.com/rordenlab/dcm2niix/archive/refs/tags/v1.0.20241211.tar.gz"
-  sha256 "3c7643ac6a1cd9517209eb06f430ad5e2b39583e6a35364f015e5ec3380f9ee2"
+  url "https://github.com/rordenlab/dcm2niix/archive/refs/tags/v1.0.20250505.tar.gz"
+  sha256 "3750e719596d310798722468a763d90e6a5d9edb720d321ca233926a0a508e32"
   license "BSD-3-Clause"
   version_scheme 1
   head "https://github.com/rordenlab/dcm2niix.git", branch: "master"
@@ -13,18 +13,21 @@ class Dcm2niix < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4f0b06a5b2894702dc46bc9f7de01dffc4287da7a94b1a586c2113d872b85c54"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8b89aa18f86588bff4689bb3592493b2c299df30338cc8cc1ceefb2bc085be2d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "2f848dbc3fcc8eb421c5a32fa0c159afe1601cf7111f95bb6cda721bd9e12d25"
-    sha256 cellar: :any_skip_relocation, sonoma:        "0c716538917b7ab79080a7b64647e2e7fb1312b6a622e3882c8ff084c944d70d"
-    sha256 cellar: :any_skip_relocation, ventura:       "f30ff1f7cdba4bbee0e9dbc71cd8097c5f758a1d037de1e518281c4b8183223c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "4a10cbb413a652bd211a3bbc66ba8bbc002c4527b75a62537bd10d1797443563"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "13baad586219be6dd44afd6992c7cf33bacd2b51abdb819a713ed3a0658b7df3"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5aafa3077e9b091f3794393cb261df879354d5e601dc6de66247361900ad24f3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e00f4172fa0e74a4a8c962a0989276ccb3220cab7c694dba275ff98271c67af5"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "e6d093932363eee682d6875916944672fd2ba8393e14318e1a746c26f3933730"
+    sha256 cellar: :any_skip_relocation, sonoma:        "02e8f2faa36c8c6e262c2c00e7ae54a9c35c5e57061513fa25469d26ecabd32e"
+    sha256 cellar: :any_skip_relocation, ventura:       "60b7dcddebdb73c35be26a2ebf73a928ed4135764637f24d6a2d44a56c99abfc"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4367a8327072a9769ec29464e996cbbe36cb97c50f53036816a410e1eeee8d7c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "130292490d094cd918bec552ec8460536699b0ff9c08e5ef5c5f271829d953f9"
   end
 
   depends_on "cmake" => :build
 
   def install
+    # Workaround to build with CMake 4
+    ENV["CMAKE_POLICY_VERSION_MINIMUM"] = "3.5"
+
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"

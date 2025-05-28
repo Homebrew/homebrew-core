@@ -12,6 +12,7 @@ class HyperMcp < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "d1cae9171ecf44e4af0685fb6b33300bf4be6aa66392903e83672d84578a7315"
     sha256 cellar: :any_skip_relocation, sonoma:        "54ab3644c4c208c07084484366629734e2eea3fc969bbe840b92213571a0675c"
     sha256 cellar: :any_skip_relocation, ventura:       "10086f91485d4a86d7688d8b77a8c2145a2ac67fb799c3d45d4d365852989268"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e35f8ba102fa85f79279a21802ce8b0484fbc1119c59420b20f2f48aef88920b"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "e6bece954e8e2edbe6cd19a2a8817dc3776c1d3db12157f7d1dce12998daace8"
   end
 

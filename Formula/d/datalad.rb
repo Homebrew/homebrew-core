@@ -6,6 +6,7 @@ class Datalad < Formula
   url "https://files.pythonhosted.org/packages/06/09/1cafa5d584ca92fe9e9381282103e2d92944aae2997085ca1aee111c5c1c/datalad-1.2.0.tar.gz"
   sha256 "4ea32977ee8dabc277fb08bdee375885427177768330b4e2f51c0c1502400a80"
   license "MIT"
+  head "https://github.com/datalad/datalad.git", branch: "maint"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "22ce84563f77166529b3d3be9d1840a84630a9aa18d4dcb70a85dc850b442e91"
@@ -194,18 +195,7 @@ class Datalad < Formula
   end
 
   def install
-    without = %w[python-dateutil requests]
-    venv = virtualenv_install_with_resources(without:)
-
-    # Fix compatability with setuptools 72+: https://github.com/dateutil/dateutil/pull/1376
-    without.each do |r|
-      resource(r).stage do
-        inreplace "setup.py", "from setuptools.command.test import test as TestCommand",
-                              "TestCommand = object"
-        venv.pip_install Pathname.pwd
-      end
-    end
-
+    virtualenv_install_with_resources
     generate_completions_from_executable(libexec/"bin/register-python-argcomplete", "datalad", "--shell")
   end
 

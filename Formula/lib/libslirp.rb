@@ -1,18 +1,18 @@
 class Libslirp < Formula
   desc "General purpose TCP-IP emulator"
   homepage "https://gitlab.freedesktop.org/slirp/libslirp"
-  url "https://gitlab.freedesktop.org/slirp/libslirp/-/archive/v4.9.0/libslirp-v4.9.0.tar.gz"
-  sha256 "e744a32767668fe80e3cb3bd75d10d501f981e98c26a1f318154a97e99cdac22"
+  url "https://gitlab.freedesktop.org/slirp/libslirp/-/archive/v4.9.1/libslirp-v4.9.1.tar.gz"
+  sha256 "3970542143b7c11e6a09a4d2b50f30a133473c41f15ed0bdcc3b7a1c450d9a5c"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "41489d3292fc00e715930b65980adb384d23d248904c2a3ea126d6ef62c3328e"
-    sha256 cellar: :any,                 arm64_sonoma:  "06992c7d810c3352be4d465c5551f37275063b9f927496c88754a4ed70075bea"
-    sha256 cellar: :any,                 arm64_ventura: "d67c02807eab2c67b0fa0b6d60bcf945decbd1ec62d9586287d7966d34fb95ec"
-    sha256 cellar: :any,                 sonoma:        "8729bdd5d982f8b5f61bd9ff63a9f6916040d28fd65a407ed1bc5d8891d0ecf5"
-    sha256 cellar: :any,                 ventura:       "5a119322dedd978d5d6e269850bf5098d048a150a3689c9024561575a51368c0"
-    sha256                               arm64_linux:   "5facd6fada8958aac92e7bff91f897f42f10169c834ff90d964e4bc53a68b6ca"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "80aef1df64bdf83980438cf320d2c8af65fc395d94a5ada48b97fa81f1a23f41"
+    sha256 cellar: :any, arm64_sequoia: "12a9e671b10f09a59a51c9eb9010baa5d5a787f8404ff7a3ed709444ccd6c1c6"
+    sha256 cellar: :any, arm64_sonoma:  "9f5be8a2ff62099f8eedcb100f94ba8d0738f6ac4b0f2008672f61115c0a73c4"
+    sha256 cellar: :any, arm64_ventura: "4fc26d7834da55420b1c52fc3485af3a5b9185011c4f279890fb191450acf359"
+    sha256 cellar: :any, sonoma:        "ff2054700a614d655e435078c3893cff4af6df3ac42790ed47ffb2e32c266e44"
+    sha256 cellar: :any, ventura:       "0697734d15f13ff118f98ed958203810b089b67e0e3e2495b253e8cd8158eb77"
+    sha256               arm64_linux:   "15990492fa251d8234d1e03dca795409da45482cc49ffce227922c1287de1b5a"
+    sha256               x86_64_linux:  "ffa7400789bef355d7d42bf479655ca8de737e514f8ae261a6669b128404903a"
   end
 
   depends_on "meson" => :build

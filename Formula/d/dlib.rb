@@ -1,8 +1,8 @@
 class Dlib < Formula
   desc "C++ library for machine learning"
-  homepage "http://dlib.net/"
-  url "https://github.com/davisking/dlib/archive/refs/tags/v19.24.9.tar.gz"
-  sha256 "65ff8debc3ffea84430bdd4992982082caf505404e16d986b7493c00f96f44e9"
+  homepage "https://dlib.net/"
+  url "https://github.com/davisking/dlib/archive/refs/tags/v20.0.tar.gz"
+  sha256 "705749801c7896f5c19c253b6be639f4cef2c1831a9606955f01b600b3d86d80"
   license "BSL-1.0"
   head "https://github.com/davisking/dlib.git", branch: "master"
 
@@ -12,13 +12,13 @@ class Dlib < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "d837ecfb66b6f9dcf3e3da883b3e0f1ba898dcc98d9a7ca1ec466b4e3574cd43"
-    sha256 cellar: :any,                 arm64_sonoma:  "4e0d8452b3aefab4c2aa2b1aa86cca6527d8b2273bc9ece1c7f30e8f72098be3"
-    sha256 cellar: :any,                 arm64_ventura: "267c714e2e908103d442163f2a9c1c3e07b5026bed843c20ac18376c12bf2071"
-    sha256 cellar: :any,                 sonoma:        "17d127462b3a90968452527f849804c9d1f9793496bac0cff3baea46e96a0340"
-    sha256 cellar: :any,                 ventura:       "15efa5a0d0cf21ea1f5593be6371731cab3ea7457e2dd98716114deb13f6d1ea"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c901a7c6e4001e0a455c88c99fac88f4041a474b599f64cd76daa756948b59d5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f81a4a177a3c24c9e26bc7c4b21348774eb2813897f76d56115e9a790d984756"
+    sha256 cellar: :any,                 arm64_sequoia: "7494ec3521c2c39b522ba30cab0a2e2d380c5222f31775f2bea98585ddea741f"
+    sha256 cellar: :any,                 arm64_sonoma:  "b636c93546d2692d574ab5b3f7013f18ca3568cef1408938ccecd7306c49ef02"
+    sha256 cellar: :any,                 arm64_ventura: "d246a77b6d001806652429c4680f717836788055a82a015a75232402eb90730c"
+    sha256 cellar: :any,                 sonoma:        "959777d3009abe7fefed086c20bfa72dc5badd28cef86e35cf7ac1c910b0f550"
+    sha256 cellar: :any,                 ventura:       "33dab9fb08341c856080b0c834145b10fc66347b1c9b28ea3387948d9fa47765"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "389aac4f5901a6c86112302d131c2df645bca1cb5001092bd946e8da2ac5d705"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "82c6dfb7fc2ebfdcfd6c1bf6b83445e9729621962cefa5ba608b810b54f9e014"
   end
 
   depends_on "cmake" => :build

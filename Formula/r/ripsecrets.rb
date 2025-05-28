@@ -1,19 +1,19 @@
 class Ripsecrets < Formula
   desc "Prevent committing secret keys into your source code"
   homepage "https://github.com/sirwart/ripsecrets"
-  url "https://github.com/sirwart/ripsecrets/archive/refs/tags/v0.1.10.tar.gz"
-  sha256 "379c189e7834e9a9db4e8cf1a7f09765356ca617ef1b70f6d8371d288bdd5ac7"
+  url "https://github.com/sirwart/ripsecrets/archive/refs/tags/v0.1.11.tar.gz"
+  sha256 "786c1b7555c1f9562d7eb3994d932445ab869791be65bc77b8bd1fbbae3890b8"
   license "MIT"
   head "https://github.com/sirwart/ripsecrets.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d24e8e746b554047afae26ffe5c263095e18162ca461c77805b8c7ea1b66f338"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e9cbb8da1f4eaf4c059803b870f39ef7d632a10dce9f152c0388513124f9a3e5"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "7e48364535dee58682e1eca9fcaa07bebb9be981436f544682df8ba332d91de1"
-    sha256 cellar: :any_skip_relocation, sonoma:        "8c84d3c02830f60ee6fe1f19633bac46dd586fbf07607072ece33b1f609f1a48"
-    sha256 cellar: :any_skip_relocation, ventura:       "b386766395ed06b864e9970e5aa91b7bcb0f7e4027625b5bc39361e443780fa7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e13826ae579b577c0dd07859560cb507a1417827395df93838902af32c451f82"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ab0ae451a6744962ab29372dbbfe142bd603cfc5e2bcac090c2dbd027a3bca74"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2be229f02f517c7c9f809999ab00daee0b4650f7bf6eab3e31132c4dacc7c1db"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "da96cf200c77669126e46472b94098c5e14cad9d75eb648a6fc05feafb754946"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "7b7c30db103b32ff7a4b8ed285a9aa61dd648cd0fb8d2fd30b165930ffa193b6"
+    sha256 cellar: :any_skip_relocation, sonoma:        "58ce1e4409a7648607e32cfb9a1a43b5b25656f83d9570dc66137bd97a7971ef"
+    sha256 cellar: :any_skip_relocation, ventura:       "5d8a3bf678aa0016c6c28511bd19b7689248dca8291169bc2e2fbe97cfe486ae"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0b5fcd9d6cb13c93553bdca9e23f0b1b2c0d5de7dbcbe082ab1537edf610bd78"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7fb68c8ad22e92b64ce40f6380978572e9857d8e13fdba1e9efbbb0c8a0e004a"
   end
 
   depends_on "rust" => :build

@@ -1,8 +1,8 @@
 class Redis < Formula
   desc "Persistent key-value database, with built-in net interface"
   homepage "https://redis.io/"
-  url "https://download.redis.io/releases/redis-8.0.1.tar.gz"
-  sha256 "d3a11d6ababf44cb98d23f23cee39ae75d17867dcd64aac4add808e21ed36e0c"
+  url "https://download.redis.io/releases/redis-8.0.2.tar.gz"
+  sha256 "e9296b67b54c91befbcca046d67071c780a1f7c9f9e1ae5ed94773c3bb9b542f"
   license all_of: [
     "AGPL-3.0-only",
     "BSD-2-Clause", # deps/jemalloc, deps/linenoise, src/lzf*
@@ -19,13 +19,13 @@ class Redis < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "7f257283869f97ce45045f0f049c27e2a79b686d0ac58458360b6a00c2d75f34"
-    sha256 cellar: :any,                 arm64_sonoma:  "07deb17bfdf5a0668972ed574e36ae4d66cc613b3cbec6edff7c893adb331767"
-    sha256 cellar: :any,                 arm64_ventura: "b02cc3ee192fbcb6c1b8cc7437e1352c15d517304d05415586444d00fd9617b4"
-    sha256 cellar: :any,                 sonoma:        "73ec7300890dc545e73bba6986cce8709cbc274c3d20b2c3e35ba5660318c603"
-    sha256 cellar: :any,                 ventura:       "4d00b36d282062de2c494e61ae2431ff404d93e641c22d52cfe19b1bf7512181"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "78795b13b7e57f9acd185d2db76a135d0e7f182da92d643e69598c2abd1577e9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a43fc666a8b8551036c82f6a7e10f84acfc7024a70e7ea542c244768c6397041"
+    sha256 cellar: :any,                 arm64_sequoia: "d53e4244ae3ee2f4d6c1642aa1602d3bdd1a6d1d68fd8d588da0a78a8788a4ce"
+    sha256 cellar: :any,                 arm64_sonoma:  "688203be10f59797b3c6a8dcf4a538b88b60b7702b93eeff9b584657a46212f4"
+    sha256 cellar: :any,                 arm64_ventura: "532d5bd5a388b5c75a0a127d41f58711c0bbd0e74c294cf3c968f8b2ad69d2e1"
+    sha256 cellar: :any,                 sonoma:        "36fdb69dc75fd6449815349d5543bb3e129e80a72afc6c32be5f8345e32c0028"
+    sha256 cellar: :any,                 ventura:       "61766b32e1720a5d8f97a755e1ef8d99bbf3fa586172fbc0bcfa347e7548dbc9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "19dc64db8d98fbdecd21ea028a9bc4099d7ee25bfb71e2848273a56f14b6624c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e4d15db28e87c238c3ebc39b43d0a7bcd2785bf4e41b4f1a864a047830ed8468"
   end
 
   depends_on "openssl@3"

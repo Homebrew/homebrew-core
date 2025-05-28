@@ -2363,6 +2363,7 @@ mimirtool
 minder
 minica
 minicom
+miniflux
 minigraph
 minijinja-cli
 minikube

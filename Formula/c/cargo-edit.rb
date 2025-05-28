@@ -1,18 +1,18 @@
 class CargoEdit < Formula
   desc "Utility for managing cargo dependencies from the command-line"
   homepage "https://killercup.github.io/cargo-edit/"
-  url "https://github.com/killercup/cargo-edit/archive/refs/tags/v0.13.4.tar.gz"
-  sha256 "afcf319c43bc1ca025c7607e7a2ddd429ff8fd65026acc4e1864c7853ccefb5b"
+  url "https://github.com/killercup/cargo-edit/archive/refs/tags/v0.13.6.tar.gz"
+  sha256 "325975345522decc9089635bb19b61c30942254a34b570925049fb56672d400d"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fc75aa0aea555ef185487163cadf6be4866fd70070f082196d3b2ea3a9a3e2f8"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5a0c502eb246b65d9b03044c10d81322ab2620c3a079aaee41f140f60eb58116"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "b663208ea57a084f3639e4c86ed88eeadc025d9f36567abbc95c982ff839be24"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c65290bb99961818bd4d171286ffb3c2139662fc1ab41a0e3537eb55a24908bf"
-    sha256 cellar: :any_skip_relocation, ventura:       "bf751186034030f204157b263a7635d003e9cec188c46680c4a2f52f2b04df29"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "757345eb13f3bbcb8308def799492ffbff4dc41dd49739c35e27c7524a3e4313"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4ef9f1924afcba2ba4591ee5954a3994abfa51e044f1f28695754447e96a3eab"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f1a90ec96d74925779b5cc9ed1e9e4075ad9b6c2f9e6cfd82584070713e4b7bc"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "39cf574d3cb563c13d7f2b8316233841d2a1a2d6b966a1bd426aaacb2c508ee8"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "fb65f2789b5acccd57238887df0b7697ce19f972e8a3110a91968e1645cf7064"
+    sha256 cellar: :any_skip_relocation, sonoma:        "a4ea244762719cbbc605f752526c072a4366b386eb8bc42d7c6cc5be81345ed7"
+    sha256 cellar: :any_skip_relocation, ventura:       "838b11bfba83732ed849baa9b12881f3853498a91ecf3231f19a9a08b1ec1a14"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0e3416d3b3b736cb8bb936334b05847ad440279f786a325c17aad5f9ec4c02b8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4e5f730df10ffae88ebe4e5289c91bb19f9d85d34b32857f0cbc0a29d4f480c6"
   end
 
   depends_on "pkgconf" => :build

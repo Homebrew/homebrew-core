@@ -1,18 +1,18 @@
 class Topiary < Formula
   desc "Uniform formatter for simple languages, as part of the Tree-sitter ecosystem"
   homepage "https://topiary.tweag.io/"
-  url "https://github.com/tweag/topiary/archive/refs/tags/v0.6.0.tar.gz"
-  sha256 "d0cc71693a1d889e6031eb9b0ad453f50bfde4a9bbe58a2294b9d2c88449a06c"
+  url "https://github.com/tweag/topiary/archive/refs/tags/v0.6.1.tar.gz"
+  sha256 "e2bbac9cb46a3743cc41ca55245026580308722242c9df84bc0ef3cbb989aa81"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fcfc0bfe103d0d3e81e1696a08833af5923f210c6d2c7fa53b8ee6c1785e3ab8"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3beca3775fe629b69aa19f013feec5fec4ef33b30d18f07860db0aaf0c52df50"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "079b20943df3e5b1249e5284b45b68428ff72395588f11752431971096733d4a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "456c3f5f7f5d89543b0031c66a03aefea0e92200153e6f35c1707da99d0fbbfc"
-    sha256 cellar: :any_skip_relocation, ventura:       "f90b9b49e3bcb191a13a7875d74c162e0d2e9068d8951a8b9482a9201ee8dfdb"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "464120b0a9d2820bc675d360474be410021f25dce2c9b385c397773f10f738a1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b2b83fc86ee8cd29d1109c005d7eb76e90a0807f404085b2d194e5131ff65880"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1ff6e9f5f0ba1896fed926e9f708b6963c1e5340067a32300fad8837d63a9861"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3fab50ec587b88dc7aae8a6749dc27e5b71101059a6055dde8b6e142d8e6a751"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "f891576edc8f8c888ddec6065c05c1bf1c7d85638ea7040b5a4616ecfdd6c5c1"
+    sha256 cellar: :any_skip_relocation, sonoma:        "4e332169f12e5ce6bca20a04bcef4f43da972455a1b8957e6f860916667b1939"
+    sha256 cellar: :any_skip_relocation, ventura:       "6ff37a98ed98b3572c53dfa85ce8ef34c2a2d92a9a31be38d032b07ee1d48f7d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2222cab84529fa6b8043d52d4c0e6f6d06473a988d0b0d4de7a29c7f52083885"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d5aa363b87cdb615b19b242655d855caed29388a8c93a85db2b5946a2a979752"
   end
 
   depends_on "rust" => :build

@@ -1,8 +1,8 @@
 class Psqlodbc < Formula
   desc "Official PostgreSQL ODBC driver"
   homepage "https://odbc.postgresql.org"
-  url "https://github.com/postgresql-interfaces/psqlodbc/archive/refs/tags/REL-17_00_0004.tar.gz"
-  sha256 "6d15bc4f49a0c9e0d263ff30b042d4d49ef4ead745c2dd1f0d0d9c3d2a98b4fc"
+  url "https://github.com/postgresql-interfaces/psqlodbc/archive/refs/tags/REL-17_00_0005.tar.gz"
+  sha256 "290a5bd5f01baf1a011da5ede15e829fc880bc2540d39b7bbf95face86722688"
   license "LGPL-2.0-or-later"
   head "https://github.com/postgresql-interfaces/psqlodbc.git", branch: "main"
 
@@ -15,13 +15,13 @@ class Psqlodbc < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "9e49dfa5be7d586220140bb26762cf8c05a65dba887e3a09c1500bd7fb5b186b"
-    sha256 cellar: :any,                 arm64_sonoma:  "bed65e967f687e24a56f233b8def6503ba7a6edcae118b978e429e515a466ccb"
-    sha256 cellar: :any,                 arm64_ventura: "5476eb923b4ebdd7377596ee553139a6f059730b2f0e1917cea60e3bc62ecb1d"
-    sha256 cellar: :any,                 sonoma:        "b34391bdbb4a636e9837e209ba178d1660de9ced2d63d033de3f57f39808ebda"
-    sha256 cellar: :any,                 ventura:       "b57bbc3a6e580f83e695067836a9eff58fd033ef55b6970cb8c31672429e81b1"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5dc7bc2a5663fa87105c9d984d80966dc28ac4e772b3abc381095bea44e53979"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "15dfa1958197323d476238ea26efa630f85955c78eca68eb7b0a54a682660034"
+    sha256 cellar: :any,                 arm64_sequoia: "7301df560fe98f539315f6236b45b308afc94748ff8aa2b5b0e0cdb2d0900354"
+    sha256 cellar: :any,                 arm64_sonoma:  "990accc6923fb034bc1ebbf5b7a5d820b9a85807c9a3e90c581f986a26215f46"
+    sha256 cellar: :any,                 arm64_ventura: "ee44e2546f6ccb55b794d60d9883bdc6ae7095c171362da451988a7dde5ba545"
+    sha256 cellar: :any,                 sonoma:        "96858de4ba34c85cbd12cf2c4ba028d93df8daaba4dd0a48785caad483eb4096"
+    sha256 cellar: :any,                 ventura:       "73c5c8dc78b9cf9afc173a7dca7279a8012bbb6a5f5e59a9c0e5587c1a6ae3d2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "140eaf0458d4fa234aa8505488ff9af1f2ba2301cd9c338003fd2abfbfc1fbcb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d563442d2470bbe7519e5a3e72b62bcfa2028b8e6b84536e192b33cc54de220a"
   end
 
   depends_on "autoconf" => :build

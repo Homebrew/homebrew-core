@@ -1,19 +1,19 @@
 class SentryCli < Formula
   desc "Command-line utility to interact with Sentry"
   homepage "https://docs.sentry.io/cli/"
-  url "https://github.com/getsentry/sentry-cli/archive/refs/tags/2.45.0.tar.gz"
-  sha256 "c83b42079e38d1a1fc9696adac278d36bc604c41d5fd5c2c1f7692729022ca51"
+  url "https://github.com/getsentry/sentry-cli/archive/refs/tags/2.46.0.tar.gz"
+  sha256 "eb7ab4f8ea6338582baf9335fef5d9e5340f918e8ac41116f9f83559b7c4d344"
   license "BSD-3-Clause"
   head "https://github.com/getsentry/sentry-cli.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d0531da10742174f8fe4f361683388014af1cb3f385143cccceffed404c0624e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "386f184952454934a6632022dc2be024b3421a6574ed8d1243441e2d5de884df"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "03192423b4aaf5243a965a85be32ddb7620bd94a04d4495296a10742a2aa6c77"
-    sha256 cellar: :any_skip_relocation, sonoma:        "6e64b1cb0e39a166935fb012a15837a509894a3b493b518a84c320faab982437"
-    sha256 cellar: :any_skip_relocation, ventura:       "def424a22fb4be0212fab93ae3f5e326b3277b4c1c6a51a5603bfcce7c083f0d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ce2ab090c71ad89c209e98e5b997e1e43080219dec97aaa98322f445bc411813"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "16fe9a34b877aed1d123e4f750711312314019b61520da134ec4ef0e32a4efe8"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7da89ac606667a40338012b27cf303f4f9c4354752386ad5d2eb55596ff574cd"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "81a2c48146be930e3afff6163c4bec471076645d66a14d837832012e6d428db4"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "a511db75c5b7cc7a4b3fae779cd1e00b33555b4a973c113ab63c46bb45621979"
+    sha256 cellar: :any_skip_relocation, sonoma:        "4006029304324cf229de6b674ae287ccc5f51cae7d938eea730c8599b808edfa"
+    sha256 cellar: :any_skip_relocation, ventura:       "4b8ea2d4efc000e1f21626ce1ce23519b6376e5704c769d479319c773d25724b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a2ce7bab6e424741909ba67d7d6e2d6d4b347fdce8f114dff77c49c55a7d66f8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e11439501e145c7bdd4af4abb3827e18da777f07df9e4f9abe25b8230b2e07b6"
   end
 
   depends_on "pkgconf" => :build
