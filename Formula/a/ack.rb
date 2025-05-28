@@ -1,4 +1,8 @@
+require "language/perl"
+
 class Ack < Formula
+  include Language::Perl::Shebang
+
   desc "Search tool like grep, but optimized for programmers"
   homepage "https://beyondgrep.com/"
   url "https://beyondgrep.com/ack-v3.9.0"
@@ -47,6 +51,7 @@ class Ack < Formula
       man1.install "blib/man1/ack.1"
     else
       bin.install "ack-v#{version.to_s.tr("-", "_")}" => "ack"
+      rewrite_shebang detected_perl_shebang, bin/"ack"
       system "#{Formula["pod2man"].opt_bin}/pod2man", bin/"ack", "ack.1", "--release=ack v#{version}"
       man1.install "ack.1"
     end
