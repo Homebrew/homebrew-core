@@ -1,8 +1,8 @@
 class Envoy < Formula
   desc "Cloud-native high-performance edge/middle/service proxy"
   homepage "https://www.envoyproxy.io/index.html"
-  url "https://github.com/envoyproxy/envoy/archive/refs/tags/v1.33.2.tar.gz"
-  sha256 "e54d444a8d4197c1dca56e7f6e7bc3b7d83c1695197f5699f62e250ecbece169"
+  url "https://github.com/envoyproxy/envoy/archive/refs/tags/v1.34.3.tar.gz"
+  sha256 "66caf57052eba45a929df82998cc0b6256ba7f11af1b93fa9eaca149014d93d8"
   license "Apache-2.0"
   head "https://github.com/envoyproxy/envoy.git", branch: "main"
 
@@ -39,6 +39,10 @@ class Envoy < Formula
 
   on_linux do
     depends_on "lld" => :build
+    # Use llvm@18 in Linux to avoid problems with latest llvm
+    # eg. https://github.com/fmtlib/fmt/issues/2455
+    # On mac, this does not happen with Apple Clang
+    depends_on "llvm@18" => :build
   end
 
   # https://github.com/envoyproxy/envoy/tree/main/bazel#supported-compiler-versions
@@ -46,31 +50,49 @@ class Envoy < Formula
   fails_with :gcc
 
   def install
-    env_path = "#{HOMEBREW_PREFIX}/bin:/usr/bin:/bin"
-    args = %W[
+    args = %w[
       --compilation_mode=opt
       --curses=no
       --verbose_failures
-      --action_env=PATH=#{env_path}
-      --host_action_env=PATH=#{env_path}
       --define=wasm=disabled
+      --copt=-Wno-unused-but-set-variable
     ]
 
     if OS.linux?
-      # GCC/ld.gold had some issues while building envoy so use clang/lld instead
-      args << "--config=clang"
+      # Setup path for Bazel to find the correct tools
+      env_path = "#{HOMEBREW_PREFIX}/bin:/usr/bin:/bin"
+      args += %W[
+        --action_env=PATH=#{env_path}
+        --host_action_env=PATH=#{env_path}
+      ]
 
-      # clang 18 introduced stricter thread safety analysis. Remove once release that supports clang 18
-      # https://github.com/envoyproxy/envoy/issues/37911
-      args << "--copt=-Wno-thread-safety-reference-return"
+      # Setup the environment for building with LLVM 18
+      llvm = Formula["llvm@18"]
+      clang_bin = llvm.opt_bin/"clang"
+      clangxx_bin = llvm.opt_bin/"clang++"
 
-      # Workaround to build with Clang 19 until envoy uses newer tcmalloc
-      # https://github.com/google/tcmalloc/commit/a37da0243b83bd2a7b1b53c187efd4fbf46e6e38
-      args << "--copt=-Wno-unused-but-set-variable"
+      ENV["CC"] = clang_bin
+      ENV["CXX"] = clangxx_bin
 
-      # Workaround to build with Clang 19 until envoy uses newer grpc
-      # https://github.com/grpc/grpc/commit/e55f69cedd0ef7344e0bcb64b5ec9205e6aa4f04
-      args << "--copt=-Wno-missing-template-arg-list-after-template-kw"
+      args += %W[
+        --config=clang
+        --action_env=CC=#{clang_bin}
+        --action_env=CXX=#{clangxx_bin}
+        --host_action_env=CC=#{clang_bin}
+        --host_action_env=CXX=#{clangxx_bin}
+      ]
+    end
+
+    if OS.mac?
+      # Detect Clang version
+      clang_version_output = `clang --version`
+      clang_major = clang_version_output[/clang version (\d+)/, 1].to_i
+
+      if clang_major >= 17
+        # Starting with Clang 17, the warning for missing template argument
+        # list after 'template' is enabled by default
+        args << "--copt=-Wno-missing-template-arg-list-after-template-kw"
+      end
     end
 
     # Write the current version SOURCE_VERSION.
