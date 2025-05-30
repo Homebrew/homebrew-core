@@ -5,6 +5,8 @@ class Ddate < Formula
   sha256 "d53c3f0af845045f39d6d633d295fd4efbe2a792fd0d04d25d44725d11c678ad"
   license :public_domain
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "12ef0c2a08ae6e73c6cf73a94e662c513cd9d8cb46ed1567653236d5ca5e7b4a"

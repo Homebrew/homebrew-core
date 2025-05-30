@@ -11,6 +11,8 @@ class Dcmtk < Formula
     regex(/href=.*?dcmtk[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 arm64_sequoia: "6349ba68f65ba257caa778ea8ab86fbf2b70141baf5a0a8f7bfa3759765c42a8"
     sha256 arm64_sonoma:  "86d3578d795ba30a2a75a9c3d5fa8c5f692bc54c38ed5c2a901cdd10c8e15023"

@@ -10,6 +10,8 @@ class Djvu2pdf < Formula
     regex(/href=.*?djvu2pdf[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "9fdbe69a5415de2630d2a2934f513f985db8d4917b5451ef0241fd125e1096fc"

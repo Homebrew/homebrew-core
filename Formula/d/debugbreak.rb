@@ -5,6 +5,8 @@ class Debugbreak < Formula
   sha256 "62089680cc1cd0857519e2865b274ed7534bfa7ddfce19d72ffee41d4921ae2f"
   license "BSD-2-Clause"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "c3d74ba626694bb1db1d81d3efac9b1a9ca9c71521212bb937bfd897d677272f"

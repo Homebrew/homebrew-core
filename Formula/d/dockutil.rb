@@ -6,6 +6,8 @@ class Dockutil < Formula
   license "Apache-2.0"
   head "https://github.com/kcrawford/dockutil.git", branch: "main"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "b316cca52f1d2d41b358aae807d3d64996bd1dd6ff44852ac193075fd8eacd73"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7e0fb8383a52ed1459e9811a121cc5c4105afc61d11d757564e148f72d4b28ce"

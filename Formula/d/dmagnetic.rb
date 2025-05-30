@@ -10,6 +10,8 @@ class Dmagnetic < Formula
     regex(/href=.*?dMagnetic[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 arm64_sequoia:  "9f840a9ccf56d119e074527daa5b430d0670bd1425a44efa2882459e279ba40c"
     sha256 arm64_sonoma:   "4a2cb2a7d9d5334b230ec1f3e475239b3b780aa686d3ccacc8a1d5a014332ca0"

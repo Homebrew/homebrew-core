@@ -12,6 +12,8 @@ class DeviceMapper < Formula
     strategy :page_match
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_linux:  "5d6d6a6fee244534f059ddbab95839ca2fd64c432198e6734dc0f97e1a59c9f3"
     sha256 cellar: :any_skip_relocation, x86_64_linux: "14be86a855300b9f834dedf4c0986fca07b810854cc5b98c935fd1408615ea34"

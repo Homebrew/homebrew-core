@@ -5,6 +5,8 @@ class DockerClean < Formula
   sha256 "4b636fd7391358b60c05b65ba7e89d27eaf8dd56cc516f3c786b59cadac52740"
   license "MIT"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "8534cd2757101cb7ea6fc68d2175147769009a5b6bbab15d87bd5b83f46a06d6"

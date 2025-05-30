@@ -5,6 +5,8 @@ class Dory < Formula
   sha256 "8c385d898aed2de82f7d0ab5c776561ffe801dd4b222a07e25e5837953355b81"
   license "MIT"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "e75ebd666b1c2b3d1ff21d0cdc9d8f820935e41e32c12533a544ccc4563f44db"

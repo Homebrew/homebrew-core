@@ -5,6 +5,8 @@ class Docx2txt < Formula
   sha256 "b297752910a404c1435e703d5aedb4571222bd759fa316c86ad8c8bbe58c6d1b"
   license "GPL-3.0-or-later"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, all: "9c8866a49e04bb1b2a4797c4c911e5aee4df8c3a86701a6a792e55415ac10a7b"

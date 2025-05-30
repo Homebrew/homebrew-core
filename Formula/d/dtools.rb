@@ -7,6 +7,8 @@ class Dtools < Formula
   revision 1
   head "https://github.com/dlang/tools.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "e0f6645e51b5da22628b3b64b43acafc4ac335b98afbe8cbee3d10ef88fdaec9"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2e3f2aed17e75ef0632e0ec36b9dfb3db9566af400d3e2ec027aa89bf1699234"

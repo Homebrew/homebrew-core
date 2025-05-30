@@ -6,6 +6,8 @@ class DbgMacro < Formula
   license "MIT"
   head "https://github.com/sharkdp/dbg-macro.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, all: "45a4f08e47ff977a2979b29715ffe68e0dc3654a33697bcbaf53bae69b6846e5"
   end

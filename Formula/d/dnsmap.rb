@@ -8,6 +8,8 @@ class Dnsmap < Formula
   license all_of: ["GPL-2.0-or-later", "GPL-3.0-or-later"]
   head "https://github.com/resurrecting-open-source-projects/dnsmap.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "61337c7ece0f713abedf4081d0519dc7979872a5f0142467a419d892332dcaff"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3f4f7d4275680826270912ddd68aa2c5e69e83a620004465a412815695388d47"

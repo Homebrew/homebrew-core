@@ -6,6 +6,8 @@ class DiffSoFancy < Formula
   license "MIT"
   head "https://github.com/so-fancy/diff-so-fancy.git", branch: "next"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "f88300e5b0347ad6b6ef31ecb78e593bda7a96552900b3e2ef1323f10d90bd8b"

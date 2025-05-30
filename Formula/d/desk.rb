@@ -5,6 +5,8 @@ class Desk < Formula
   sha256 "620bfba5b285d4d445e3ff9e399864063d7b0e500ef9c70d887fb7b157576c45"
   license "MIT"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "95e0acae98be5f6f5d3105ff2c6236d3e9648b8bbc1ab350e7735ed3935db8fe"

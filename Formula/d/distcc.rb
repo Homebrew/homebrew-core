@@ -14,6 +14,8 @@ class Distcc < Formula
     strategy :github_latest
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 3
     sha256 arm64_sequoia: "49f0073a59339ec44150cdafd79c3d4ca807780e5e55df49a7030c179025c636"

@@ -6,6 +6,8 @@ class Drafter < Formula
   license "MIT"
   head "https://github.com/apiaryio/drafter.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "ee2d1f0c252123ab1df0568f94c453dba3bb13a461a48ace73c9a2da3231d22e"
     sha256 cellar: :any,                 arm64_sonoma:   "ae6e70fa4ef8bf01705bb0fa8ea0fda39063b718f9b8e6d2bd2ef7923fbe9ab8"

@@ -6,6 +6,8 @@ class Ditaa < Formula
   license "LGPL-3.0-or-later"
   revision 1
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "4e03eed43d92f5622e98144174fcd5f40dfb2b0bbdcb819aa5b59ec61d5fb632"

@@ -6,6 +6,8 @@ class Dutree < Formula
   license "GPL-3.0-only"
   head "https://github.com/nachoparker/dutree.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "793482f753b7365d719641115e8e55714a4fc272385b7e387c4e68c4791991a4"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "235807c35ae72d2b7c0ce81eba444d8fa0db6dcc657deb5de876b58037dde646"

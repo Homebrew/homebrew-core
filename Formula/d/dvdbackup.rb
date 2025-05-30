@@ -6,6 +6,8 @@ class Dvdbackup < Formula
   license "GPL-3.0-or-later"
   revision 3
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any, arm64_sequoia:  "5689e478b50f13da8f0b4c4176281df944c3c8a095344e7f3fd6b2073cb7f937"
     sha256 cellar: :any, arm64_sonoma:   "bbca14aeee4082533a71f5e48ed2bc6e56ea02420179dfb09e11242e92f2fbe2"

@@ -13,6 +13,8 @@ class DvrScan < Formula
     regex(/^v?(\d+(?:\.\d+)+)-release$/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "986102fcac41135a62884a15d909914ae48e9f2a5932164386800763dad551a1"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "8b3b52d9b93bfd31ab99d6cc94d335c4b06449aeb32dc2e592b629d76e658979"

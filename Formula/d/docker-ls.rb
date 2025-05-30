@@ -7,6 +7,8 @@ class DockerLs < Formula
   license "MIT"
   head "https://github.com/mayflower/docker-ls.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "a5a6ebec1d000be676a4cd9e57ee15c4fb7e42a70aa7e03e32d83cfea4afdf4f"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "06347d89230140c033d404a279c49dd2d344dec5acb83b918ea6179e1a03f0d1"

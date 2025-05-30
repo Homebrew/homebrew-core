@@ -6,6 +6,8 @@ class Dud < Formula
   license "BSD-3-Clause"
   head "https://github.com/kevin-hanselman/dud.git", branch: "main"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "e40fc688de77f2aa11aaf87d123516aa14883010c37e6ba1bc8e035dc6ee1dfb"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e40fc688de77f2aa11aaf87d123516aa14883010c37e6ba1bc8e035dc6ee1dfb"

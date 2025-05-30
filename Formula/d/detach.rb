@@ -10,6 +10,8 @@ class Detach < Formula
     regex(/href=.*?detach[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "f7d0f80127112fcf6691ce7b4b90aa1fc5ee9ddee51d755b1a895f47419f2455"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c5ad00a2d77cb8c391aea1df731916286b2a9758b6948397e4943f10baec5269"

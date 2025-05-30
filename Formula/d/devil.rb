@@ -32,6 +32,8 @@ class Devil < Formula
     end
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "06f0d3689766e92e01e492d9abbceeac345df99fa96a018cf74963ff4b6c9cca"
     sha256 cellar: :any,                 arm64_sonoma:   "80cb4184d2621711c7ebfce994578930a3f8dce0c1f9e0c1115b1de2ea1fa174"

@@ -11,6 +11,8 @@ class Dash < Formula
     regex(/href=.*?dash[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "0a20260fdd5e1e0906fe213cbd842e2240e885ef1b29b0e848f7c8667d91eccd"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "bc85379f2d9ff74f8e1afcf0d0cda498bd3ca785c911f0ae06e5486c7d5463f0"

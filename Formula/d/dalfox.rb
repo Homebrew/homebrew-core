@@ -6,6 +6,8 @@ class Dalfox < Formula
   license "MIT"
   head "https://github.com/hahwul/dalfox.git", branch: "main"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "91f55801c696f298971522b7ce6d824a9a1df13b047916ae74f0ab5316ee3d64"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "91f55801c696f298971522b7ce6d824a9a1df13b047916ae74f0ab5316ee3d64"

@@ -5,6 +5,8 @@ class Doxymacs < Formula
   sha256 "a23fd833bc3c21ee5387c62597610941e987f9d4372916f996bf6249cc495afa"
   license "GPL-2.0-or-later"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "d6f35d29f2d9bf0ab3a13916922b7fb4506e133d83fe26c10b00fe0c6c27be17"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2aa03231378a72916d1f1bdb3c63d47751fd1891d9d92daa680b44cbf80e3ce2"

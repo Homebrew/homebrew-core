@@ -6,6 +6,8 @@ class Dromeaudio < Formula
   license "BSD-2-Clause"
   head "https://github.com/joshb/dromeaudio.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "955eefdfe1d3fe73315f0f9c2eb9c90a08444658caf30b5c9235aa27337980bb"

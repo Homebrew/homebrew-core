@@ -10,6 +10,8 @@ class DitaOt < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "68f93968fe8b2a9750f00cf366ebd2a6857035f1fa05d1fe57ca947568783eaf"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "68f93968fe8b2a9750f00cf366ebd2a6857035f1fa05d1fe57ca947568783eaf"

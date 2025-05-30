@@ -6,6 +6,8 @@ class Driftwood < Formula
   license "Apache-2.0"
   head "https://github.com/trufflesecurity/driftwood.git", branch: "main"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "248ffb3e4e1f77251d56f7a9c0a0ed6be2b90c4d31e151ad0ea96a1914f47403"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "05adc63ca02329151e5f5b07639f7dec8de81608b3806ee9dbe3319798bfda5d"

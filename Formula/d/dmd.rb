@@ -17,6 +17,8 @@ class Dmd < Formula
     end
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 sonoma:       "58cc3b27e8e385cefb7105d6943a0ae6dec8718ca504901a165b6074bdf3d9d5"
     sha256 ventura:      "dca27059dbaa82f6785ccf0255a5409ba0975d4ef525cd11945d78e82f3c4328"

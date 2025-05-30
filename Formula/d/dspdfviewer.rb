@@ -7,6 +7,8 @@ class Dspdfviewer < Formula
   revision 24
   head "https://github.com/dannyedel/dspdfviewer.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "1e3e58ee1b8f07f27875503f799f27a43005828e3e952a7796ff3ba0e7348ed6"
     sha256 cellar: :any,                 arm64_sonoma:  "9d5d2f9eba46d09ca76df8877045f43cd5fe09c3f941be53db33a874e967451a"

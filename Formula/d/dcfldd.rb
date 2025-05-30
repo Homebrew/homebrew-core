@@ -5,6 +5,8 @@ class Dcfldd < Formula
   sha256 "52468122e915273eaffde94cb0b962adaefe260b8af74e98e1282e2177f01194"
   license "GPL-2.0-or-later"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "e637feaefa3854ecdd910334ae5da97d68614e8e29a369fa93f6aaab9329a173"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1fb762dc8ff64b3829c069c5d65b33af13b1f0610bcdcaa8d6fa2de18d6e28dc"

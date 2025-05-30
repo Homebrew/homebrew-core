@@ -5,6 +5,8 @@ class DarkskyWeather < Formula
   sha256 "e5efd17d40d4246998293de6191e39954aee59c5a0f917f319b493a8dc335edb"
   license "MIT"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "478916227ceed88c3c7a55485f8c1edbd1e610e36949fb333e659b84a71c6f2e"

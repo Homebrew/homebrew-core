@@ -11,6 +11,8 @@ class Djvulibre < Formula
     regex(%r{url=.*?/djvulibre[._-]v?(\d+(?:\.\d+)+)\.t}i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 arm64_sequoia:  "251aeb1ba6581281a3742cac327422498cc251097f79c56e4b262a4a32f178b3"
     sha256 arm64_sonoma:   "509e80c15c07de6b03d1bf3d729537d0abb30849c55b4aac092f6d760391ad8d"

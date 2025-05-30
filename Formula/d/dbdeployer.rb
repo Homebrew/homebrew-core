@@ -6,6 +6,8 @@ class Dbdeployer < Formula
   license "Apache-2.0"
   head "https://github.com/datacharmer/dbdeployer.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "bf76138da81b0cf596eef9743794f933c0d086f034c2589148c2a89bbb8a8acb"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "5b23f66521f0f730865d23d9305990ba11807eb1d539ba90394bbb4f282bcdf7"

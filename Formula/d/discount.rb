@@ -11,6 +11,8 @@ class Discount < Formula
     regex(/href=.*?discount[._-]v?(\d+(?:\.\d+)+[a-z]?)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "a570a68edd737474736b516db39db9a072785ff13735f226d0cd8ea056648311"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "14e2177eb0728e9d8690a7e6854250f174f5d988a046dd3f071c9beecf930540"

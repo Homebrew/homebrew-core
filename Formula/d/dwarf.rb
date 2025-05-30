@@ -6,6 +6,8 @@ class Dwarf < Formula
   license "GPL-2.0-or-later"
   revision 1
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "18e5a2ac12431c5fd538a6c1101b53b8fb2c45652d0c6c9c84b30c36534293e9"
     sha256 cellar: :any,                 arm64_sonoma:   "2178e68ea91b6f9482ba9370ff84700d32689188cdcdf0de7eddacd650a42b66"

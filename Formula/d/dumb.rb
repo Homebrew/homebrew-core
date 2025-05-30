@@ -11,6 +11,8 @@ class Dumb < Formula
     skip "No longer developed or maintained"
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "7158a40eed75a578dd615fdf83840be91a4fd565b0ce5170c4e91d494e0a0a16"
     sha256 cellar: :any,                 arm64_sonoma:   "f9510e55b969457e77567594f6963a7a6470f86dac7f252ed3c01757314c44dd"

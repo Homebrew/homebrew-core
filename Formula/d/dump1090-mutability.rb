@@ -7,6 +7,8 @@ class Dump1090Mutability < Formula
   license "GPL-2.0-or-later"
   revision 3
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "efa32621a9a3d6334c711608e079d435f6af49eb4879442ab499cde1b6d3699d"
     sha256 cellar: :any,                 arm64_sonoma:   "e58f730410669a3d0cebde197feec0c661b6b868518f6bd503f8474fd507c180"

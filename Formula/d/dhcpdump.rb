@@ -10,6 +10,8 @@ class Dhcpdump < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "388478d6f5fa4261e7adb8c0ba1718d9a5bc50b25d50b7e30d7588bb290af79e"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ab4719be570abc658b8f8f46de37bad273e2b2389b0d1816bf38b7f1e28c0f47"

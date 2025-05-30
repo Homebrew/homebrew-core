@@ -11,6 +11,8 @@ class Daemontools < Formula
     regex(/href=.*?daemontools[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "1caba2a88c37b416bf48c950f376693b1412a06f54bc62c815a6e8679f30b41d"

@@ -5,6 +5,8 @@ class Dafny < Formula
   sha256 "bd643ae9cd5b697505ca3682fa4d15238c6746701eaa1eeba4c541006674da40"
   license "MIT"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "b0379afe58205e4e147a773cfe4e45102e4b6bda9a2a40e862641730e23381b6"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8e361b9620dab3bc75b0f55c708fac271c5da152a11aade9873838b52af43c9c"

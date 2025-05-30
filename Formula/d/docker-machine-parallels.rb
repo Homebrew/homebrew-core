@@ -7,6 +7,8 @@ class DockerMachineParallels < Formula
   license "MIT"
   head "https://github.com/Parallels/docker-machine-parallels.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "6ce0f85c64a896c155ffdd93fe2b55d085384af3b04779c03a4b672b8f2339c2"

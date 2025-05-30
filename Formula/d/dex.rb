@@ -6,6 +6,8 @@ class Dex < Formula
   license "GPL-2.0-only"
   head "https://github.com/tihirvon/dex.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 arm64_sequoia:  "961f06389b30d15e9464ece560955feff630b3b025d5e02fcc41e8778ced1597"

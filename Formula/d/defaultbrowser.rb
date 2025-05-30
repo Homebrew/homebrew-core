@@ -5,6 +5,8 @@ class Defaultbrowser < Formula
   sha256 "56249f05da912bbe828153d775dc4f497f5a8b453210c2788d6a439418ac2ea3"
   license "MIT"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "d7921f729c6afa9a924ffc175918d74e9767059e645491af9cae1df09fa80bfa"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "babed0d9771439d08249d6ca58d8c468a2f646074a44ba3f8f1b90505054ad7f"

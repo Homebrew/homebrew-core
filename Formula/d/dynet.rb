@@ -5,6 +5,8 @@ class Dynet < Formula
   sha256 "014505dc3da2001db54f4b8f3a7a6e7a1bb9f33a18b6081b2a4044e082dab9c8"
   license "Apache-2.0"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "13425cf394c191250670db43c3090541143f76d156e06a11f2cba7294333926e"
     sha256 cellar: :any,                 arm64_sonoma:   "f64ed80ea96d473dd96800bdd9928eaa1b4fbe56cef809daf8d5241d3fb936e7"

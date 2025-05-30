@@ -6,6 +6,8 @@ class DmtxUtils < Formula
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
   revision 8
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "266e690457d4ad1f3844c37e52e3228121803ab16f5df2a8441ac8f0380a2b12"
     sha256 cellar: :any,                 arm64_sonoma:  "1ed0bf91ff69184917d25840c46c8b1a390e116b468dba2bfebcfca4688326f4"

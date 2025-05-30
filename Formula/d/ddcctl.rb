@@ -5,6 +5,8 @@ class Ddcctl < Formula
   sha256 "1b6eddd0bc20594d55d58832f2d2419ee899e74ffc79c389dcdac55617aebb90"
   license "GPL-3.0-only"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "b0badc9ed3ff51d2791d383be14e194131ad46573340e4c6bd2723207c624482"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6572e1da056641ec5b483f2b5a77eb188753ccb3c9001936733c8c6ceb9ae8b4"

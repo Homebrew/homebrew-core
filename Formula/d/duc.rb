@@ -6,6 +6,8 @@ class Duc < Formula
   license "LGPL-3.0-only"
   head "https://github.com/zevv/duc.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "36a33e4afc9997df0f15d7c8a9090054d213c243abd19ec2bb25cc7ddc157615"
     sha256 cellar: :any,                 arm64_sonoma:   "df0c4ee04b4b588ebd6c627e769773354c8c990bd62dcb1d5a2cd4d7d8f7eaa8"

@@ -7,6 +7,8 @@ class DnscryptWrapper < Formula
   revision 2
   head "https://github.com/Cofyc/dnscrypt-wrapper.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 sonoma:       "bc437509b36ffd78cb7e5f560ae00ebcefe8c63790ce6cebe11e739d985a1729"
     sha256 cellar: :any,                 ventura:      "1aeb1619be4bfddebbe11aae4cd7763e045e76f7002426291c2b3d41b2d4db68"

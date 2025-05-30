@@ -11,6 +11,8 @@ class Djview4 < Formula
     regex(%r{url=.*?/djview[._-]v?(\d+(?:\.\d+)+)\.t}i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "50f358049ae7371431b1640620050d40f9075e998695efc69e3cfc228955d189"
     sha256 cellar: :any,                 arm64_sonoma:   "aeec9249493e568780d0760a7c11d597c51e9a89835d9d7be3a3512510dd6e09"

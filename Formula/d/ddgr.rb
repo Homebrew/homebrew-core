@@ -7,6 +7,8 @@ class Ddgr < Formula
   sha256 "a858e0477ea339b64ae0427743ebe798a577c4d942737d8b3460bce52ac52524"
   license "GPL-3.0-or-later"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, all: "fe1e5b35a67ae65335a46b0cc9fa8d362f9196aa64a527f7f73210d95fd97848"

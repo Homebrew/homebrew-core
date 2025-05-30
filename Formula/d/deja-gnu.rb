@@ -6,6 +6,8 @@ class DejaGnu < Formula
   sha256 "87daefacd7958b4a69f88c6856dbd1634261963c414079d0c371f589cd66a2e3"
   license "GPL-3.0-or-later"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "267d87a1d746750a3797ad46513431e790f9a454c3d6d6d46e0e6b8cdb644702"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ada72df0280151e894c2d132b423a69cce43ffd27de25cf94439f78aa4df4da3"

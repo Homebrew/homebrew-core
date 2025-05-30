@@ -10,6 +10,8 @@ class Dovecot < Formula
     regex(/href=.*?dovecot[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 arm64_sequoia: "09ffefff96a42aeb4368075229fcd8439842729c3275211dc45bfb810e0fd046"

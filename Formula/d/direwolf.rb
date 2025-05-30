@@ -10,6 +10,8 @@ class Direwolf < Formula
   ]
   head "https://github.com/wb2osz/direwolf.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256                               arm64_sequoia:  "fb3b2a272641595f3ea481b05ac39409f75466cdf50fc9592b3cdddeca1b3d20"
     sha256                               arm64_sonoma:   "f15cf78ea350bac7d0daf8663e54242eed663f577400de7630f8225c4e08e340"

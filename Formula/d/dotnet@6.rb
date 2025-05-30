@@ -8,6 +8,8 @@ class DotnetAT6 < Formula
   license "MIT"
   revision 1
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "17a1b695a3859a75a1379c9ff5aa044a1e0d4517d27454ab699a88992ed4054c"
     sha256 cellar: :any,                 arm64_sonoma:  "3842fe4efbd79ee741fddf3e27f33e9d3a14533c4a7a8b27ebc9fa6423906cf7"

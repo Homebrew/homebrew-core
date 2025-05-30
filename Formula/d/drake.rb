@@ -6,6 +6,8 @@ class Drake < Formula
   license "EPL-1.0"
   head "https://github.com/Factual/drake.git", branch: "develop"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "98db9a4ae8a9345944f0b5388a35036c9a2384137f7a7db044ebc59cb5ebc117"

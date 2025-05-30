@@ -6,6 +6,8 @@ class Distribution < Formula
   license "GPL-2.0-only"
   head "https://github.com/time-less-ness/distribution.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "fb43e41f635c1b01bc7f1d518d871c3f9462cbfebadbb526a484bac260da213a"

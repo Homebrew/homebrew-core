@@ -10,6 +10,8 @@ class Dnstop < Formula
     regex(/href=.*?dnstop[._-]v?(\d+(?:\.\d+)*)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "feab927b414e7fad8995bfb647c2b019bee68c8aa535b5b9cccdd12e048c81fe"

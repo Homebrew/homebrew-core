@@ -10,6 +10,8 @@ class Dynamips < Formula
     strategy :github_latest
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "4bc0583f71947ce92c88e24ad659542886af0698ef9601e6432ddb3c925c208e"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3db4b7a6d2140635eae5d91a96810fbbef58144dcad5f7ed77743f930df696d3"

@@ -7,6 +7,8 @@ class Dashing < Formula
   revision 1
   head "https://github.com/technosophos/dashing.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "44a8c08c0183e0bd8a4981e81213332334e5c818a26008c90ca6bf6a5895f206"

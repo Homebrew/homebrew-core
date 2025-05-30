@@ -5,6 +5,8 @@ class DropboxUploader < Formula
   sha256 "8c9be8bd38fb3b0f0b4d1a863132ad38c8299ac62ecfbd1e818addf32b48d84c"
   license "GPL-3.0-or-later"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "7c75671b625c28098f9e47ca1290b976943c041666e1250798f2a0cc5d73135d"

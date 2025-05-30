@@ -12,6 +12,8 @@ class Ddd < Formula
     "MIT-open-group", # ddd/athena_ddd/PannerM.C
   ]
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 arm64_sequoia:  "3c31137211b8185a0b8e3ceffce6474c803cf8790348211ad0690162697a1613"
     sha256 arm64_sonoma:   "73e84236c870313e5a43e936998545961609c5f43104e6b57cd693a03dc52a5d"

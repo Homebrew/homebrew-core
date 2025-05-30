@@ -7,6 +7,8 @@ class Dirac < Formula
   sha256 "816b16f18d235ff8ccd40d95fc5b4fad61ae47583e86607932929d70bf1f00fd"
   license any_of: ["MPL-1.1", "GPL-2.0-only", "LGPL-2.1-only"]
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_sequoia:  "53157665a3a8ba4676115ebedef7b7428ea51424674d1af294383cc94c9572ff"

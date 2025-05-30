@@ -5,6 +5,8 @@ class Dasht < Formula
   sha256 "5ea43b0f7461e124d46b991892dedc8dcf506ccd5e9dc94324f7bdf6e580ff73"
   license "ISC"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "14af08c8719ce7e688faa8b061141624a912960bc57d53499161428f08820b21"

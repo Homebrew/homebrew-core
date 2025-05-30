@@ -6,6 +6,8 @@ class Doubledown < Formula
   license "BSD-2-Clause"
   head "https://github.com/devstructure/doubledown.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "7e93ea6b6323a89639c314a3f44364e2aa3ab4e5d7017d6b352c8761e5f13fa5"

@@ -5,6 +5,8 @@ class Daemonize < Formula
   sha256 "20c4fc9925371d1ddf1b57947f8fb93e2036eb9ccc3b43a1e3678ea8471c4c60"
   license "BSD-3-Clause"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "ac1001a5e4588bc098b708492cf6c90fe91b88ae7c28be94038fa25d1d15aaea"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "36f15dfa0b033d4e984a19e769caae8a42a3e4facf10d87f54f68ec275ae10ce"

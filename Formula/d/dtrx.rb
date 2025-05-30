@@ -7,6 +7,8 @@ class Dtrx < Formula
   sha256 "eec67869b85068fac8406f5018d781aee5b55422f3b7698bfea43468b2cec67c"
   license "GPL-3.0-or-later"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "a1c04af670ced811950bb65e3ad904f2fe306b495e9ce1ebc1f0c816d016c088"

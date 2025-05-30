@@ -11,6 +11,8 @@ class Disktype < Formula
     regex(%r{url=.*?/disktype[._-]v?(\d+(?:\.\d+)*)\.t}i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "cc0c898196ec806c92c56cda1d1edce496eb6dea79d614ab746021f2e315ec4c"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "867972214905edb51443e921e727b9916eb9ff528ee18aac77e205d43a80ed9e"

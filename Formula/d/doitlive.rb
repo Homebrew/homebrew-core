@@ -9,6 +9,8 @@ class Doitlive < Formula
   revision 3
   head "https://github.com/sloria/doitlive.git", branch: "dev"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "dd433d05b749832e59cc133360f6a038b2d9ae472fcb05982074a334d675e884"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e9132e01287a9fa33d7d541e59353728366c56430e07adab7bd42663b013f08f"

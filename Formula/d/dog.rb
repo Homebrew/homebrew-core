@@ -6,6 +6,8 @@ class Dog < Formula
   license "EUPL-1.2"
   head "https://github.com/ogham/dog.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1d10a7859edcb1fefd50359a1d5104817eaca4a22ba8272ef610f4e392409ee9"

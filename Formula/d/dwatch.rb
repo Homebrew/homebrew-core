@@ -10,6 +10,8 @@ class Dwatch < Formula
     regex(/href=.*?dwatch[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 2
     sha256 arm64_sequoia:  "5a80233a94231468b47d75de46c5687c8c274771ead2c2131634c7acc224390f"

@@ -6,6 +6,8 @@ class Dvorak7min < Formula
   sha256 "4cdef8e4c8c74c28dacd185d1062bfa752a58447772627aded9ac0c87a3b8797"
   license "GPL-2.0-or-later"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "f3a4344484d832af72a35d2759a70018fce691d9269a6c4161a7da74bae7fea0"

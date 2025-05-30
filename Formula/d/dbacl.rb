@@ -5,6 +5,8 @@ class Dbacl < Formula
   sha256 "ff0dfb67682e863b1c3250acc441ce77c033b9b21d8e8793e55b622e42005abd"
   license "GPL-3.0-or-later"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "9caea8b960e8ffc974ad321a472a70e46f5cb401dacfbef096309743c49e2c9d"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "239b148299a11f7847b2ee32de7d24cd4cdc2f4f0dfbb36c61b57a18a6332142"

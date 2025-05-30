@@ -10,6 +10,8 @@ class Dvanalyzer < Formula
     regex(/href=.*?dvanalyzer[._-]?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "a3b6fd3f4af125d1e85f299d7c7c30475a429a7f5d627426e77f5eeddc3d27b2"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "cd458167da95107a9a0e3c31bf676a44d1fa64789f92d9ed2c7aeeea8cdef306"

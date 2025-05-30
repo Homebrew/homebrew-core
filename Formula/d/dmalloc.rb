@@ -10,6 +10,8 @@ class Dmalloc < Formula
     regex(/href=.*?dmalloc[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "2406c340e3935d9f228d695c270eb5fd74abef38bafa84f10bded7826c8e8c80"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5326a45ed099179ae2f05299e3bf0e90b2f7b037594cf175da72830963687acf"

@@ -5,6 +5,8 @@ class Devdash < Formula
   sha256 "633a0a599a230a93b7c4eeacdf79a91a2bb672058ef3d5aacce5121167df8d28"
   license "Apache-2.0"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "d275e7fb55d70d47793d2e40e040eaef193055925a4174eed2606a45552b996a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "fdd9cb3b397734f91eed17ff9a4e401c7ba15e559a5f74cccf294f08f0f9a92b"

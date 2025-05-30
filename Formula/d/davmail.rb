@@ -11,6 +11,8 @@ class Davmail < Formula
     regex(%r{url=.*?/davmail[._-]v?(\d+(?:\.\d+)+)(?:-\d+)?\.(?:t|zip)}i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, all: "c48497283b8ffca924a12cbaa5227d0653b3c37990540eeb01593cf7fa7b93fa"
   end

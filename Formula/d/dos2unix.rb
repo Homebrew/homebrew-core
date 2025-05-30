@@ -11,6 +11,8 @@ class Dos2unix < Formula
     regex(/href=.*?dos2unix[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "6782d0760a276f44db668e01a49edd85986d20a08fbd35fd1e72346591a37be3"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "34b49544a0f299d1b2b0c391927b7c07201274a2c8bf682c0991ced19209501d"

@@ -5,6 +5,8 @@ class Dateutils < Formula
   sha256 "b8fea0b09714bbadf202b9b3434cce6b59c282e7869268d0c08b85880fdbb446"
   license "BSD-3-Clause"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 arm64_sequoia:  "bbfe40e57ba5e294c140bde89dd3d4de4bc40d2c00a791a4a644c0f41b95327e"
     sha256 arm64_sonoma:   "c75426bef62674c457efcf5fcdd60503ea93af78ab5f6de87482368f7242027a"

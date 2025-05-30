@@ -10,6 +10,8 @@ class Duktape < Formula
     strategy :github_latest
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "3d744482873a3e4aee3ba9a4471a7d75c1065519466e1730169b2d47a6ef8a18"
     sha256 cellar: :any,                 arm64_sonoma:   "8afe806970354b4fafeb1e390d3823964c2fe969d5ae9498612a1c0422cea24f"

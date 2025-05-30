@@ -5,6 +5,8 @@ class Dpic < Formula
   sha256 "a69d8f5937bb400f53dd8188bc91c6f90c5fdb94287715fa2d8222b482288243"
   license "BSD-2-Clause"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "59d99f3d68b5d5f6cdd1442f68ea5a9284026d569fc4e6419330631922cfacaa"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1359cf82e6b9997e0543b51fe66e278c3f00104064c7757fc6d53a6d5da8363c"

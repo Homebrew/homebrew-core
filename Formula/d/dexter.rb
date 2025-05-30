@@ -5,6 +5,8 @@ class Dexter < Formula
   sha256 "f2bebde21f8f06f726e6c16cd932afa8fe42714012f3ce53b4e0355b7cb91628"
   license "MIT"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "37a406d94e604468c6bd45f08225600fc3a929c38cdafbbcb6b0d1e73f833873"
     sha256 cellar: :any,                 arm64_sonoma:  "096fe52ac18aab6b6c77f98cd4b0ce92a9501b5759095a1d85a06394c8590531"

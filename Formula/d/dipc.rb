@@ -5,6 +5,8 @@ class Dipc < Formula
   sha256 "dd98bf2eea8e97dfaeb8d4e0a991a732e35bf71e1b9bdf0045fdad80e0c0d319"
   license any_of: ["MIT", "Apache-2.0"]
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "182b6056ad68e867829727c6112022f45c207fe32312193a5ed3c7c69c4a1a6a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e38cd4ab7323ef745a39bb70fd7bb62ff158aaefa17ad9195ece908f6de633c4"

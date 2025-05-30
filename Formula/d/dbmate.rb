@@ -6,6 +6,8 @@ class Dbmate < Formula
   license "MIT"
   head "https://github.com/amacneil/dbmate.git", branch: "main"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "c072c757e73fcb6407671cce10cad20dc8c9c936e2705d260a0885b35f0f3411"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "dc88071e93cd4dd7a7b4f07424e03b0b8b368f82afbb9cb3f4a1286241577e7b"

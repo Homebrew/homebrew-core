@@ -6,6 +6,8 @@ class Davix < Formula
   license "LGPL-2.1-or-later"
   head "https://github.com/cern-fts/davix.git", branch: "devel"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "da21e84d94a79ee04801da53369791a3150a7b2d258f0157b2d93340d24652d6"
     sha256 cellar: :any,                 arm64_sonoma:  "05c4246253f683448f3ede09b02520e196a33b4e69a312cbdc9f10b526adbfa2"
