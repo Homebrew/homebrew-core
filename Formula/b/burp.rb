@@ -19,6 +19,8 @@ class Burp < Formula
     regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >].*?:\s*Stable}i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 arm64_sequoia:  "2e9356b11a8e46c3be3414b7a2f88dc01974d49a9b18372f5e92e5654d59144b"
     sha256 arm64_sonoma:   "839b8941718ab30883533b6cdaf415cb0b6aa085a2dfc53a5439c3cdd6c8e563"

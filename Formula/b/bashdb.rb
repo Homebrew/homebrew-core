@@ -15,6 +15,8 @@ class Bashdb < Formula
     strategy :page_match
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "8f2ec4abf07b97ccf17dd28f503864ff00ea05049a9b844de637612b85478aa7"

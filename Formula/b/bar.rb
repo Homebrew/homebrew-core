@@ -10,6 +10,8 @@ class Bar < Formula
     regex(/href=.*?bar[._-]v?(\d+(?:\.\d+)+)[._-]src\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "fa55cacca64ca91bdb24888d6ad36cff103aac0a461a8d2f32ae5b6e69d47980"

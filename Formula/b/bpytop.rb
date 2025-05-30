@@ -8,6 +8,8 @@ class Bpytop < Formula
   sha256 "3a936f8899efb66246e82bbcab33249bf94aabcefbe410e56f045a1ce3c9949f"
   license "Apache-2.0"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 5
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "5c219f70ea941a5ba7c779f632de5aa2f19d80fc330ab0edd7eca6beffd62886"

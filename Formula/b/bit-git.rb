@@ -6,6 +6,8 @@ class BitGit < Formula
   license "Apache-2.0"
   head "https://github.com/chriswalz/bit.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "512fae594f8692aea23014f35c5ef02d23c49c2ce28b2f772cffaeadc55b2c9d"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a28f8da02e22757fa2d836e5767926918410ab8f85f7e46ea330d5d5255b937a"

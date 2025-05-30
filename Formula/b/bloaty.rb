@@ -6,6 +6,8 @@ class Bloaty < Formula
   license "Apache-2.0"
   revision 36
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "dd24996db87e0756384539d8c2598aa55d0349c12b5b6147fd247dee1be37af5"
     sha256 cellar: :any,                 arm64_sonoma:  "d53ee453c66dac7c2224878716db04dd061042d6db76d8677805500adb2ac1a3"

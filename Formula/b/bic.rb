@@ -18,6 +18,8 @@ class Bic < Formula
     end
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 sonoma:       "4f122a009440f01cdaa97ac0fdf69e7aa8a0b31082e7fc8fb7d08b5c8ecf2307"
     sha256 cellar: :any,                 ventura:      "b2949645cf730b7d5b1a9286c5134775190c8353a9e8dbc28af7414b97f63253"

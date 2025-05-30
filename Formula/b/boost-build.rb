@@ -12,6 +12,8 @@ class BoostBuild < Formula
     regex(/^boost[._-]v?(\d+(?:\.\d+)+)$/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "ad72a5f9a660259b97a0165a5df1e1a37a1cf5bc9c66ce453629711ab47df7db"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ecfcbe45e2a501634fe259f01668ba5f05f1910a8ff1e726cb752ffc725136b8"

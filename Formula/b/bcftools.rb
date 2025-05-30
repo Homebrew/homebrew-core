@@ -12,6 +12,8 @@ class Bcftools < Formula
     strategy :github_latest
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 arm64_sequoia:  "24923a0c1f5695cebd051f338ae43f532183f086afb5be6284a2a28b26aa3296"
     sha256 arm64_sonoma:   "c3f336afc9026b9b782a955e4105d208bab0ec6f8f1701171d3093bff70487e0"

@@ -11,6 +11,8 @@ class Bitlbee < Formula
     regex(/href=.*?bitlbee[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 arm64_sequoia:  "b657d232b9e5c995bad586bebabccbf58cab67a71f81dcc20ef65ba7685c7c5c"

@@ -12,6 +12,8 @@ class Befunge93 < Formula
     regex(/href=.*?befunge-93[._-]v?(\d+(?:\.\d+)+)\.zip/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "d7cb92a7855edef8e243b3279f39eab303d89733524b215aeef9def5bb4273a6"

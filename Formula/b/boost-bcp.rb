@@ -10,6 +10,8 @@ class BoostBcp < Formula
     formula "boost"
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "a8e002a55974a472bc3a578fbaa1fd915d7a13f0065444ebcf153b6fe479320a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3ddbe2024ec99f3d5a53ff5f98cbc6773b5d3eb5421d8683739cdc6d95300a00"

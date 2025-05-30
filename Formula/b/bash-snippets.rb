@@ -5,6 +5,8 @@ class BashSnippets < Formula
   sha256 "59b784e714ba34a847b6a6844ae1703f46db6f0a804c3e5f2de994bbe8ebe146"
   license "MIT"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "3d9c146c0d2b5d4e6ec135939558a9a61f40f416c9087be9bcc968f09a156998"

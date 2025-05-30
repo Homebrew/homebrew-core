@@ -6,6 +6,8 @@ class Bmon < Formula
   license "BSD-2-Clause"
   revision 2
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_sequoia:  "f32d98f5dbf21deda940949e6b11a722ad0d69a7acfc1841d2779ce5b3af12ed"

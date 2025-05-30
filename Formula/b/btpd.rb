@@ -6,6 +6,8 @@ class Btpd < Formula
   license "BSD-2-Clause"
   revision 2
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_sequoia:  "29e7c1076df7e76f28cd672d7fd4e9c87ddf6d21ddca353cf1014906b9fa594d"

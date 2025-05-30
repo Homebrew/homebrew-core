@@ -6,6 +6,8 @@ class Bsdconv < Formula
   license "BSD-2-Clause"
   head "https://github.com/buganini/bsdconv.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 arm64_sequoia:  "eb27911fad713a1d8d36146105cb0abffcf7a6c78bdd358c09e5ff64c207e3fd"
     sha256 arm64_sonoma:   "d5f2086f8915426931817985ce3a3b379b4cac7ba2c31ea1b8ba69f46a51ebb2"

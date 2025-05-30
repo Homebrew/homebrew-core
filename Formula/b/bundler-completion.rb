@@ -11,6 +11,8 @@ class BundlerCompletion < Formula
     formula "ruby-completion"
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, all: "eba47de2a5fee4ae57cc2e1eec146d6b8602819de68ab8865a092cfbfe8aa2e8"
   end

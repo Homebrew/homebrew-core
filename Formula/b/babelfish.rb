@@ -6,6 +6,8 @@ class Babelfish < Formula
   license "MIT"
   head "https://github.com/bouk/babelfish.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "7f8115802286fe41309a1b8b9291312e08f2b0ebdb65c4d928d59b8189bae38c"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7f8115802286fe41309a1b8b9291312e08f2b0ebdb65c4d928d59b8189bae38c"

@@ -5,6 +5,8 @@ class Briss < Formula
   sha256 "45dd668a9ceb9cd59529a9fefe422a002ee1554a61be07e6fc8b3baf33d733d9"
   license "GPL-3.0-or-later"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, all: "3aa9a79afde1e2530551aa220ea217676898bc939ac9341574079e126f4eaa83"

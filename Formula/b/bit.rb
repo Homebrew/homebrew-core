@@ -7,6 +7,8 @@ class Bit < Formula
   revision 1
   head "https://github.com/teambit/bit.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256                               arm64_sequoia:  "591d452238af32826df679aa962d6ce755294473c450bc5118dfac9e50a552f8"

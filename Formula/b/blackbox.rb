@@ -11,6 +11,8 @@ class Blackbox < Formula
     regex(/^v?(\d+(?:\.\d+)*\.\d{6,8}(?:\.\d+)*)$/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "55abf9c858ccaf04d8ab764718fa5810f09adb66c150ae3a9f263622a1cae753"

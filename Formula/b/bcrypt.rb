@@ -10,6 +10,8 @@ class Bcrypt < Formula
     regex(/href=.*?bcrypt[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "ea8bb418fb65a4cded15e0a83c3fecfb5081b435211e832df5c663af5d3007ef"

@@ -7,6 +7,8 @@ class Bsc < Formula
   license "BSD-3-Clause"
   head "https://github.com/B-Lang-org/bsc.git", branch: "main"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "023b416fedba9f986345a7b06763995b843fedf2fc45d0428d0f6410fedb8b12"
     sha256 cellar: :any,                 arm64_sonoma:  "bb8dea8de8ae93ed8c76cbb488ea19645acc76e8aebc3560063024fa381c026a"

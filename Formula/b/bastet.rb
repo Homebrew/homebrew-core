@@ -6,6 +6,8 @@ class Bastet < Formula
   license "GPL-3.0-or-later"
   revision 11
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 arm64_sequoia: "4f2a75e89523a611c43e835885e8a88ce1969c829d53285815338ee3b6870274"
     sha256 arm64_sonoma:  "36d7d9ed8c1661e91989775501e2fb37f93e7293adaed83b10d816ab85a8d6dd"

@@ -6,6 +6,8 @@ class Blahtexml < Formula
   license "BSD-3-Clause"
   revision 1
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "60f47cf24ae5bd4f52cf4aa2030b663593416a2af1a4cb8777eb62c9c372b6f6"
     sha256 cellar: :any,                 arm64_sonoma:  "e82e2cc31b503539d5db79bd19954cbfe6f7fbcfaea9ba16a28a57b83289f68a"

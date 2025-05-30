@@ -11,6 +11,8 @@ class BbftpClient < Formula
     regex(/href=.*?bbftp-client[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "f705530c05b923cc4de503817876fc96cf776f351aae554a64b144aef23c729a"

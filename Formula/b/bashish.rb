@@ -5,6 +5,8 @@ class Bashish < Formula
   sha256 "3de48bc1aa69ec73dafc7436070e688015d794f22f6e74d5c78a0b09c938204b"
   license "GPL-2.0-or-later"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "59c20f75c252012ce33ccf199fdd626e569343d5af03a9ccd890b43d760e04cf"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6c3b9d7c65a09230d87d35fbc141576dc991932032e990ebdfec261ecf6c8c94"

@@ -5,6 +5,8 @@ class Benerator < Formula
   sha256 "5d1b3de2344f0c2a1719eed5ab8154a75597a5d7693c373734e0603a45e5f96d"
   license "Apache-2.0"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "a73bf659d5c7c62f8048aae669bd74c7da97f750ce0ecb1d8009f94ba32e77fd"

@@ -6,6 +6,8 @@ class Blogc < Formula
   license "BSD-3-Clause"
   head "https://github.com/blogc/blogc.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "1550db3be9b6c9bd21d1a522550644fbf0d524f51126ed55560c2e3d01b4444f"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4e277f0a14ca6504906fee7b93a4f08a9191694afa1a8eb6748a0f2bebd37bef"

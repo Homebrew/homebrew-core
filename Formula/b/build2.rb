@@ -10,6 +10,8 @@ class Build2 < Formula
     regex(/^# (\d+\.\d+\.\d+)(?:\+\d+)?$/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 arm64_sequoia:  "70ffd3523f4b4d74bd22b1374963bbefc8308140252481c2fd97972360757619"
     sha256 arm64_sonoma:   "0e7160137ee4ed4148b5b7219224029a1120d0429425602711d3a175f743bcb2"

@@ -10,6 +10,8 @@ class Base64 < Formula
     regex(/href=.*?base64[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "17aef54e36b9c3ce2cd832c59d4cacbac0584a1a9db7af45e1728d6fceeb760e"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a8d7991eaf3b922668f4da81929e574d1ce879acf372ffc8a24679da63e83967"

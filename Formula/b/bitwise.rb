@@ -5,6 +5,8 @@ class Bitwise < Formula
   sha256 "806271fa5bf31de0600315e8720004a8f529954480e991ca84a9868dc1cae97e"
   license "GPL-3.0-or-later"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "d7659a60e6cad87bc0dd72921475005c50340e66d7a6ba822a5769a67df1b91d"
     sha256 cellar: :any,                 arm64_sonoma:   "923c4828ff104f940038b9d6969759b08d90a3d2c89cb1c0e31b913a2d38769e"

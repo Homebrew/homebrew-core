@@ -14,6 +14,8 @@ class Binkd < Formula
     end
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "363282ef02c77db08c0963460807439902cc81ec6bf480f1fb2714fd2f0211f8"

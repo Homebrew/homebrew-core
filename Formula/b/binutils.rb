@@ -6,6 +6,8 @@ class Binutils < Formula
   sha256 "f66390a661faa117d00fab2e79cf2dc9d097b42cc296bf3f8677d1e7b452dc3a"
   license all_of: ["GPL-2.0-or-later", "GPL-3.0-or-later", "LGPL-2.0-or-later", "LGPL-3.0-only"]
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256                               arm64_sequoia: "d536a93de1561cffb928d198ac1fb48a786baa6ed61cc8e2d0fdc6af5bf72801"
     sha256                               arm64_sonoma:  "72cfbc33daaba41277600107997beb41274f2725ee06e1d335c42209d000aa63"

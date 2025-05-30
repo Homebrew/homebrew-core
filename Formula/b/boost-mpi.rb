@@ -10,6 +10,8 @@ class BoostMpi < Formula
     formula "boost"
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256                               arm64_sequoia: "c214ac20967386a38a1de487e0c20bbdc466e459065b970887eaf35371e54402"
     sha256                               arm64_sonoma:  "ed980f9505b4403dc52d9a091f07cc0e118f4185dc1d9ef17cd2b8ae542a5429"

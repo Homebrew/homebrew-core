@@ -6,6 +6,8 @@ class Bgrep < Formula
   license "BSD-2-Clause"
   head "https://github.com/tmbinc/bgrep.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "e9084b991c90bd70740bce59c399d55365789b5226d8883067f552d2601fa0b2"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e2246a9bc12ae07c1c2403b4efb0023bc96c22867bff0ad41d1d7381ef5b694a"

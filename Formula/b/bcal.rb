@@ -10,6 +10,8 @@ class Bcal < Formula
     strategy :github_latest
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "43837bc1f22892876291a80a28d09583d6e3a5ca91eb5604682a7bbc1e85289e"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7ed08fabab9e6e7b2dfcdeb4a3e7b6945077b9a3b3922c436a7b9f38807e1137"

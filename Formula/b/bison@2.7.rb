@@ -7,6 +7,8 @@ class BisonAT27 < Formula
   license "GPL-3.0-or-later"
   revision 1
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 arm64_sequoia:  "12eb0c1ab891b05dee98b3f748396e1efa2698ae63c40f84acbf73a3eb6959bf"
     sha256 arm64_sonoma:   "472d73bf7ba67981ae3246014105d2c150a5d62293b5c5e2e9726fea022c29f0"

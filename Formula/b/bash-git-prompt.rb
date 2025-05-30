@@ -6,6 +6,8 @@ class BashGitPrompt < Formula
   license "BSD-2-Clause"
   head "https://github.com/magicmonty/bash-git-prompt.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "5049efb01e5ceb83df920dfe1c5dd23595401e3c700064fee74afbf9949d4f8f"

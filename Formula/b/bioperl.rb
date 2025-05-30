@@ -16,6 +16,8 @@ class Bioperl < Formula
     regex(/href=["']?BioPerl[._-]v?(\d+\.\d+\.\d+)(?:\.?_\d+)?\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "2908dce831726ddab69edcb252b8b45b1d9b4ba2995bbefc6410dea49a6b230e"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d44c606e7a067575bfe21428d84fcd57c7e45daa8b2af2a2cf7b6ae766611b0c"

@@ -8,6 +8,8 @@ class Bison < Formula
   license "GPL-3.0-or-later"
   version_scheme 1
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "d45a8c193646a25d281a6d3fd62d6f756d4e392cc2948e605a62f3d88ccbf188"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d4c06638f63876867e8fc485129ea6683487a249f0b2bc98bfaa6f1dab4ff6a4"

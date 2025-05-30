@@ -5,6 +5,8 @@ class Bento < Formula
   sha256 "0b8eb6e4695a3f716e392e93d21f91e98c439ea2c257596e22e42c620f690011"
   license "MIT"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "feea11f28ae911337a3ff0713d84c29ebc5fdbe23dca0df36cf983d57ebb6fa3"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "46ebbae99da9d29c2bf8899f4ec218beeab12f9ceac8a878d791a8e8a2d9dad7"

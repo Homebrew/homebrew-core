@@ -14,6 +14,8 @@ class BrewGem < Formula
     regex(/^v(\d+(?:\.\d+)+)$/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, all: "e11e8436e3bc9f8580b2e29da9b07e023ab594b1c928bf600fac5274a35e543d"
   end

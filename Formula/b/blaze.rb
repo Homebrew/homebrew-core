@@ -6,6 +6,8 @@ class Blaze < Formula
   license "BSD-3-Clause"
   head "https://bitbucket.org/blaze-lib/blaze.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "a80081c26f45e68615e6ef2dcde4f354ee8dc05cf2744d20d75efee48f7e7864"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "808bf2b3fe945e77161aa0878ab93310708d2c1417a437940f4b3fb72f729822"

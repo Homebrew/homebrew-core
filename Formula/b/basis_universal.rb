@@ -13,6 +13,8 @@ class BasisUniversal < Formula
     end
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "96434e6249de92e5397c362a061db58527d27934d0c6eb0c8dfca00a0e713a79"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d0e189d41590b8af1cbf3dc09edad394432df308cfff3fd3ec2b7f59364229f7"

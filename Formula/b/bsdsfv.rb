@@ -5,6 +5,8 @@ class Bsdsfv < Formula
   sha256 "577245da123d1ea95266c1628e66a6cf87b8046e1a902ddd408671baecf88495"
   license "BSD-3-Clause"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "524701069b0a0b5434b2cead350b18ef4bb2b394d7a82cc73c3fab9baed107ce"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e645fb99bfc780d0de8de68c504d7d10eba8337d3dc4108409171211a902239e"

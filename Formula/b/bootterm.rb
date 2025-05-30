@@ -6,6 +6,8 @@ class Bootterm < Formula
   license "MIT"
   head "https://github.com/wtarreau/bootterm.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "2a229cac60be2ea2f7c899a3b314daa4e561fa2d5a84e1b7c5e921ccec2f693b"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a550becf9ccf4fec6f1de2f16834a85807328de531f45a576ee141018d1f7478"

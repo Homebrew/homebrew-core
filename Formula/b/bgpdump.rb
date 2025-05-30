@@ -10,6 +10,8 @@ class Bgpdump < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "58a05ac326e701a6417482c33a5660c4cac2ad9a3995e64dd064bc088e9e8a8f"
     sha256 cellar: :any,                 arm64_sonoma:   "9845446b9c11faac51f1180ad9493fcc523ce44bc5f8179fd2ab4a985323e360"

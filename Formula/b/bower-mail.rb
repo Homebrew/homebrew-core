@@ -6,6 +6,8 @@ class BowerMail < Formula
   license "GPL-3.0-or-later"
   head "https://github.com/wangp/bower.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "317e78580fd4f956a1c6c525ce836dd8b8b6ff5af0864d0fb363402033a44438"
     sha256 cellar: :any,                 arm64_sonoma:  "7fd3cc425ab9943f8242d8d0930911d44ac5b900d1dbba9fd62d870152e9dba2"

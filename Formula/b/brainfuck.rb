@@ -6,6 +6,8 @@ class Brainfuck < Formula
   license "Apache-2.0"
   head "https://github.com/fabianishere/brainfuck.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "4e316f33095c63723b7cc707d1c3c484d2049292606c673e99053a2364ce2a0e"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "44592a40d38925f1bd3093e343168d66e20f642883cbf5f00cf705b05aa9dbf2"

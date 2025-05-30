@@ -6,6 +6,8 @@ class Brightness < Formula
   license "BSD-2-Clause"
   head "https://github.com/nriley/brightness.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "92e87e26e1e82ded8087e37e6e94624f80af2b1d84248fb70653da8c86688396"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7b58db49a33ceb05f73c15c3a138bf6f9c0c20902fc77395ebe980be328c3418"

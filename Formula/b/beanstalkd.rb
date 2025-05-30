@@ -5,6 +5,8 @@ class Beanstalkd < Formula
   sha256 "26292dcdc0a7011d2f8ad968612f2cd8b2ef07687224876015399ae85e9e5263"
   license "MIT"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "74b984c41b74f63386b6125681be1f37529341179a754f0556ed9d2d621b9088"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0c0cd544f3007bc3fc55d863ddacab823698188bd12e8a5b15e71aa81d071f50"

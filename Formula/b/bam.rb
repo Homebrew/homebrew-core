@@ -6,6 +6,8 @@ class Bam < Formula
   license "Zlib"
   head "https://github.com/matricks/bam.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "adebb626ddcef7b484f65ffa378f7b8301106618b360871f442da91f2944a410"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3f96e777038d7de85e3cc3d52b30692f7980c1da78c82fa19447a1c0610c3e46"

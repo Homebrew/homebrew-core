@@ -11,6 +11,8 @@ class B43Fwcutter < Formula
     regex(/href=.*?b43-fwcutter[._-]v?(\d+(?:\.\d+)*)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "feebcb5d44b93e56fb3057568f06a25214d0c0aa2b03c48c0e8a068ecf5a1986"

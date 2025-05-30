@@ -12,6 +12,8 @@ class Bsdiff < Formula
     regex(/href=.*?bsdiff[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "5aa138e7ada53aa574d2bf31f2cfa65cd53692001a1d7e5ad6240fc72975d6b3"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5dac6fb313e1df3f6c05870f8accc2f65615924124b9b24b481dc0c4e5f77193"

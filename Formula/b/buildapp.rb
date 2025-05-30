@@ -7,6 +7,8 @@ class Buildapp < Formula
   revision 3
   head "https://github.com/xach/buildapp.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 2
     sha256 arm64_sequoia:  "25eba8ba9388bbf422a7a5f14e2db9f1ea8d9e9add5cd58aecb3ea6a97f7eb83"

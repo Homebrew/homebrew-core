@@ -10,6 +10,8 @@ class BoostPython3 < Formula
     formula "boost"
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "c14fd4a92ecf59b0cd310d2b40ac374861acda10acc91bf22a60f561eef32327"
     sha256 cellar: :any,                 arm64_sonoma:  "2a65824b7aa95da392fa6a720bd08ccf7290979f8c93c82de2788e063c9fdb7c"

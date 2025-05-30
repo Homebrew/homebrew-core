@@ -10,6 +10,8 @@ class Bozohttpd < Formula
     regex(/href=.*?bozohttpd[._-]v?(\d+(?:\.\d+)*)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "f91adb497f96847759c3427e7b14b81889547273bc078266abdcc0087e6f1c8f"
     sha256 cellar: :any,                 arm64_sonoma:  "ad727b862019134b028cc9d5ee6893755dc001ab87ebc3625eca39779be2d65a"

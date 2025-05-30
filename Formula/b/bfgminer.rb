@@ -6,6 +6,8 @@ class Bfgminer < Formula
   license "GPL-3.0-or-later"
   head "https://github.com/luke-jr/bfgminer.git", branch: "bfgminer"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 arm64_sonoma:   "e3d88bfc64abc6a6e41f8d96d5d6b099b7c93c5829f17f1ec134a3b0e0aad44d"
     sha256 arm64_ventura:  "b45669226e0d2a3155e437d643ef700ff143ce071dd3c4affce7a80ef24ab568"

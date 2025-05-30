@@ -6,6 +6,8 @@ class Bombadillo < Formula
   license "GPL-3.0-or-later"
   head "https://tildegit.org/sloum/bombadillo.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "704af144b953977108282ec76083d51d8d359b2f08402aa71da7822a79491591"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "48693234c0c87251efbb8f2d4cf5c23a4d4585c9b6ba00907122dbc59a6a5add"

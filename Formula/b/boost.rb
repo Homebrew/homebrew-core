@@ -14,6 +14,8 @@ class Boost < Formula
     end
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256                               arm64_sequoia: "40110dc77bd85db9b7bfc5c23d1cbd58f8ef501ba355484419f9d11ccabaefc1"
     sha256                               arm64_sonoma:  "446d5acbee94708f31ed1dc16b877a33467c981ff471aa11896db9434524b3d7"

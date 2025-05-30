@@ -5,6 +5,8 @@ class Bedtools < Formula
   sha256 "79a1ba318d309f4e74bfa74258b73ef578dccb1045e270998d7fe9da9f43a50e"
   license "MIT"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "2e84cd0c3fa3bfe3fe5c55304cb4d53edfbffba792c40e98fc5a2c057d8e81b1"
     sha256 cellar: :any,                 arm64_sonoma:   "6b96362dc4065246cfd8a311991b81b13d1901feb8edd5db27c2911b47432f00"

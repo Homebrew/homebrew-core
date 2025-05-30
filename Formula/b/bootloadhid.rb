@@ -10,6 +10,8 @@ class Bootloadhid < Formula
     regex(/href=.*?bootloadHID[._-]v?(\d{4}-\d{1,2}-\d{1,2})\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "0c8755c106cb46118e33efda3ce06c507bc13949530ee87f10b4807c8cbcc55a"
     sha256 cellar: :any,                 arm64_sonoma:   "b7ff675ef48886f1dade51bab419acf430f6b0d19df5e3789231096bc15ebece"

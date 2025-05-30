@@ -6,6 +6,8 @@ class Bluetoothconnector < Formula
   license "MIT"
   head "https://github.com/lapfelix/BluetoothConnector.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "8e8786893183eba145ea2282b69540bd3c5b331decd4587090e94ac8b828e050"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4fe88b3f3feca2d6bc8c39cb06af98f81ee42a04fac836873f80b06d87cc37d8"

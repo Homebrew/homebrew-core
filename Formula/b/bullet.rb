@@ -6,6 +6,8 @@ class Bullet < Formula
   license "Zlib"
   head "https://github.com/bulletphysics/bullet3.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 3
     sha256 cellar: :any,                 arm64_sequoia: "97aeccf39592bcf03e7dd07b5339ec03b11345137a8e0872288bb8deff702c6b"

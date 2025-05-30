@@ -8,6 +8,8 @@ class Bashate < Formula
   license "Apache-2.0"
   revision 1
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "007ce884bf1ba757929d119f792b3b414b4ce3d46b842c43e270941cf1fb7b3c"

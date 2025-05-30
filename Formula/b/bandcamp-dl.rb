@@ -8,6 +8,8 @@ class BandcampDl < Formula
   license "Unlicense"
   head "https://github.com/iheanyi/bandcamp-dl.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, all: "d9efd68207c36b160b6c6baa3aa4d86c8058c7b55c06e59bcddee0d17a977715"
   end

@@ -6,6 +6,8 @@ class Bossa < Formula
   license "BSD-3-Clause"
   head "https://github.com/shumatech/BOSSA.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "72aece3647237751f8f18d1cc9af56dfecbc84652321ef43137eec8c47fd7922"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d7ca492e595832676559c6b646e3d702ddd46dcb0610bf8d03c225b49c6d4624"

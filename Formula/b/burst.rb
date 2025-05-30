@@ -6,6 +6,8 @@ class Burst < Formula
   license "BSL-1.0"
   head "https://github.com/izvolov/burst.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "aba413390562e5c52f5ebfc88bc53280094805ae1440081e2d3bcf54267c4586"

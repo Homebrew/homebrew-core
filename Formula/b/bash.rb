@@ -93,6 +93,8 @@ class Bash < Formula
         versions << "#{newest_version.major_minor}.#{match[0]}"
       end
 
+      no_autobump! because: :requires_manual_review
+
       versions
     end
   end

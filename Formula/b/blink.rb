@@ -6,6 +6,8 @@ class Blink < Formula
   license "ISC"
   head "https://github.com/jart/blink.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "bcc500f8fe348d17be88e78813f689ad5f27a065db6112f5fa7e867e7c7f0139"

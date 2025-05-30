@@ -23,6 +23,8 @@ class Bitchx < Formula
     patch :DATA
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 arm64_sequoia:  "bb2902a6bb21cd1b2d5765652a7ef8c5b72a9ec645bab961d3d560320a96adb2"

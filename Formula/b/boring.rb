@@ -6,6 +6,8 @@ class Boring < Formula
   license "MIT"
   head "https://github.com/alebeck/boring.git", branch: "main"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "ebf05f99bd43f16fdd89a8884b3c6be5b3cd86097ea9a73f746221cd277043a2"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ebf05f99bd43f16fdd89a8884b3c6be5b3cd86097ea9a73f746221cd277043a2"

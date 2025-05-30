@@ -5,6 +5,8 @@ class BerkeleyDbAT4 < Formula
   sha256 "e0491a07cdb21fb9aa82773bbbedaeb7639cbd0e7f96147ab46141e0045db72a"
   license "Sleepycat"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 2
     sha256 cellar: :any,                 arm64_sequoia:  "de4afa55a39dde81bdc017b071d7ce98271d88bc440aecc89c21d426e27486e6"

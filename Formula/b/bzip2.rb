@@ -10,6 +10,8 @@ class Bzip2 < Formula
     regex(/href=.*?bzip2[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "dddec821ca1677a0b509f565a4ad1e28d8df8ce8e26e48aa2efb7d2c37cf5d12"

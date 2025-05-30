@@ -8,6 +8,8 @@ class Bpython < Formula
   license "MIT"
   head "https://github.com/bpython/bpython.git", branch: "main"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "06bf6629f26910b0566487146288f2bfb1a22f2d4475fd8edfa40b846f999a70"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c859efd5a00b94aa9a44b5220ef48454b6f8ec2144334f56c04613bac6ad5471"

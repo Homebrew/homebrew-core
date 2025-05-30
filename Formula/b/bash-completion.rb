@@ -12,6 +12,8 @@ class BashCompletion < Formula
     skip "1.x versions are no longer developed"
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "6727e6e418e740531b75aebedaac6ceece0a0865f4f46dd0351d265035b497e9"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "60e79daad9283c5e9f4c814eed837c86aab0b5172c633e7171cbbf26a434bcff"

@@ -6,6 +6,8 @@ class BotanAT2 < Formula
   license "BSD-2-Clause"
   head "https://github.com/randombit/botan.git", branch: "release-2"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 arm64_sequoia: "1104641a2c34fa2c1212ad9002fc1a2089a75be4c9fb66ad655a1680c8428ad0"

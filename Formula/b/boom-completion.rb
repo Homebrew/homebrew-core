@@ -6,6 +6,8 @@ class BoomCompletion < Formula
   license "MIT"
   head "https://github.com/holman/boom.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "05b587e612fdff3439b6618c062c1f7b5f13332e3b8e7645d80cf5d5f023d276"

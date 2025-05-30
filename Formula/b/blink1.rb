@@ -7,6 +7,8 @@ class Blink1 < Formula
   license "CC-BY-SA-3.0"
   head "https://github.com/todbot/blink1-tool.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "2b04cc8a396b2f1d9ac01c7558fc56fc27b72792cb148f686e87298c638f29d8"
     sha256 cellar: :any,                 arm64_sonoma:   "6087adc4630ab9c242a9e2c89ce806ba069b9668fa2d19b270a94fd8f9c448fe"

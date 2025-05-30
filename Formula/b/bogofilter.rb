@@ -9,6 +9,8 @@ class Bogofilter < Formula
     url "https://sourceforge.net/projects/bogofilter/rss?path=/bogofilter-stable"
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "9cdd5e3131e6b0880369ac2070e25880f55225b18eb6750bbcf997ffe7864555"

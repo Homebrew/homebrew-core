@@ -5,6 +5,8 @@ class Boolector < Formula
   sha256 "249c6dbf4e52ea6e8df1ddf7965d47f5c30f2c14905dce9b8f411756b05878bf"
   license "MIT"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "c36e9fe92bb625ab45e83a8b889a4f29264b4a6dca0b5da3e72c133724b6ddd2"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "eb34a8aa518c75108be45137f5f72401f2a429d5c2aa5485e4addf5f9b7e2397"

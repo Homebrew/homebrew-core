@@ -7,6 +7,8 @@ class Bnfc < Formula
   revision 1
   head "https://github.com/BNFC/bnfc.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "8d9baadeda06fc25d982632ced8e240e3d92d27c3d1668f00334138cdaf527f7"

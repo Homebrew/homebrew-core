@@ -21,6 +21,8 @@ class Beast < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "1ec7cd636c5eb6427da2a75bb75976143fbae45c8d91e572d6dadb98913ac181"
