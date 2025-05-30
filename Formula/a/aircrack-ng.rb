@@ -16,6 +16,8 @@ class AircrackNg < Formula
     regex(/href=.*?aircrack-ng[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256                               arm64_sequoia:  "52dbe4ce295e97351a0ec2dfbb986abf37b2665a1775aa580fb70b45e806cbe2"
     sha256                               arm64_sonoma:   "fe96a817b4755ca8a498ad1cd45666a04238d3ed1a7bd3ce97f27f0fd68ae2ef"

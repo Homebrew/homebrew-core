@@ -10,6 +10,8 @@ class Aarch64ElfBinutils < Formula
     formula "binutils"
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 arm64_sequoia: "ff613c2c092e98c1ed1fab397d4f31c02d4d011bf45fdddad77f42f40ea8aa17"
     sha256 arm64_sonoma:  "04d64d11771d85fc9b94fe1b998f7093f80ef073a80b60a49459db90ab5ef727"

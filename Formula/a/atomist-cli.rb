@@ -6,6 +6,8 @@ class AtomistCli < Formula
   license "Apache-2.0"
   revision 1
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256                               arm64_sequoia:  "54a93f92a1ab76bd418aea3c87bede2490e9db5605238ba1b501717dd54377d4"

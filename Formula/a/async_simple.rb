@@ -6,6 +6,8 @@ class AsyncSimple < Formula
   license "Apache-2.0"
   head "https://github.com/alibaba/async_simple.git", branch: "main"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "755cd0582500b20090528bb4192041eb7a57e2b1ba4fb87ecfe1082926c77415"
     sha256 cellar: :any,                 arm64_sonoma:  "e89443db479ff1e8aabc39e482f1c4cb72b3214a485588c0d461a21342fa9197"

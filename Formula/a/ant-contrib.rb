@@ -10,6 +10,8 @@ class AntContrib < Formula
     regex(%r{url=.*?/ant-contrib[._-]v?(\d+(?:\.\d+)+(?:[a-z]\d+)?)-bin\.t}i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "11f6456cf47128a33054e067467dd8186dfd6db33c85cf60bb8620e4a269fced"

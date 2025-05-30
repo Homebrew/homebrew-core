@@ -10,6 +10,8 @@ class Aldo < Formula
     regex(/href=.*?aldo[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_sequoia:  "85ae21042606044840664aafe2df3fdcdbc6b00274ef715522d1e14964e51643"

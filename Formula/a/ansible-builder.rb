@@ -7,6 +7,8 @@ class AnsibleBuilder < Formula
   sha256 "d2dc573e26a7bd5095e98aeb37ee9b00bc9f5005abea7147d74229c0f3426fcb"
   license "Apache-2.0"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "579c9ad083782a2e50605b47820f573e1f7ae3d74f78ae7ef6fdfdb752581e22"
     sha256 cellar: :any,                 arm64_sonoma:  "c92bc3474f4736687413164573d5c0ac47ddaf1824634ec1e7877caab3877dea"

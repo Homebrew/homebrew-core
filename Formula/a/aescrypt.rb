@@ -10,6 +10,8 @@ class Aescrypt < Formula
     regex(/href=.*?aescrypt[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "b4ec90c9ff44239c6cf43b35377e7ff709983c1b76577ea84cd8dbc638d763ee"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c7cb68631e925aa19e1e1c3cc513dab638b264b078d69a4033789e011876207b"

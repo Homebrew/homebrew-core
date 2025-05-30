@@ -11,6 +11,8 @@ class Autossh < Formula
     regex(/href=.*?autossh[._-]v?(\d+(?:\.\d+)+[a-z]?)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "66600f6f9ea804ec6342ea35c6bd26c068802f31dce3eb09ec161eb67fde8415"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d6adeb0a9a13c4e256e4f585524fcb8c7ec49878d876f3d66ecbc9ec62474d16"

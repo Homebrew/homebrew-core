@@ -7,6 +7,8 @@ class Augustus < Formula
   revision 10
   head "https://github.com/Gaius-Augustus/Augustus.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "f47cdb45ef4200baba259b2121c4ff8a891718d1fdb05d2dde50bf05cff4c6e9"
     sha256 cellar: :any,                 arm64_sonoma:  "f1aebc2cc4d9edea554a9d6c8d97fe7a9cc1c5472f4fce02a52ef24bdafb39b3"

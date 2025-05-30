@@ -5,6 +5,8 @@ class Alass < Formula
   sha256 "ce88f92c7a427b623edcabb1b64e80be70cca2777f3da4b96702820a6cdf1e26"
   license "GPL-3.0-or-later"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "efa1a388ee9ecf5193edd9c9003af0f035ed138bf6a79b45e6b22654c32888e4"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4f42a7b7ef244c6018d9d16f3979f14758ca54a50a568b269011f9ccdcae5f39"

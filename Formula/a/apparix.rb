@@ -9,6 +9,8 @@ class Apparix < Formula
     skip "No version information available"
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "c47c60a9ddde3d173404c7337080bf1cbd8c8d314b78092f02068a3fa5a689e0"

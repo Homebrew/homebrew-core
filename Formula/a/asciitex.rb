@@ -5,6 +5,8 @@ class Asciitex < Formula
   sha256 "abf964818833d8b256815eb107fb0de391d808fe131040fb13005988ff92a48d"
   license "GPL-2.0-only"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "d70918544a7191e90ce55d8b2cc02b5602ef6210dc6f0269e9667bdc0fce8a26"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "001ef3790d111bdafbaf5ab24d20a2c62c09fe3278a05d8115ec382c91b86a89"

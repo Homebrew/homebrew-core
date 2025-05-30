@@ -5,6 +5,8 @@ class ActionDocs < Formula
   sha256 "f7d93433a6d3e532b30b3fc068fa263d16f7c38da91422450507b469bd36a64a"
   license "MIT"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, all: "89a129206e1fd2a3bb48e3f7923ba2bbb98c3533d28332c2511c6ff093807f51"
   end

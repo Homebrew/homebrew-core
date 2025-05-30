@@ -6,6 +6,8 @@ class AntAT19 < Formula
   sha256 "57ceb0b249708cb28d081a72045657ab067fc4bc4a0d1e4af252496be44c2e66"
   license "Apache-2.0"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "a881e6229607ce27db2cf3686cc2f28deeb04d2e3a0e6f0967438dd123516eab"

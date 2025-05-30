@@ -9,6 +9,8 @@ class AnimeDownloader < Formula
   revision 3
   head "https://github.com/anime-dl/anime-downloader.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 3
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7258b2045bc048226c995e5a38991a34711fbab809c2f79295d842d31dc1932d"

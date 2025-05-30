@@ -13,6 +13,8 @@ class Aalib < Formula
     regex(%r{url=.*?/aalib[._-]v?(\d+(?:\.\d+)+.*?)\.t}i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "404c97537d65ca0b75c389e7d439dcefb9b56f34d3b98017669eda0d0501add7"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a4890d380658f2e1ebef37698c874b8711acfe9c0685313d8c93dbe2e9e08bbf"

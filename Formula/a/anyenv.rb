@@ -5,6 +5,8 @@ class Anyenv < Formula
   sha256 "ed086fb8f5ee6bd8136364c94a9a76a24c65e0a950bb015e1b83389879a56ba8"
   license "MIT"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "be1c3998ca482ca2cf3377f5db6690f1c74877e5cdfc4266d62c5cc1627caacd"

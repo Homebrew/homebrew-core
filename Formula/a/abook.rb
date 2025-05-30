@@ -19,6 +19,8 @@ class Abook < Formula
     patch :DATA
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 arm64_sequoia: "b0113dcc3ee161e37ed8c9fbdab0175486bf04c3a5e802b46dde3b015fe67cac"
     sha256 arm64_sonoma:  "bbdac04e9da720845e5ee41ba19af9541a62d953c4c9929170400c84dcad3e32"

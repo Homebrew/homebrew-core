@@ -7,6 +7,8 @@ class Archey4 < Formula
   sha256 "1cf158ab799fa8a5d15deab0a48df306d2788c81de44d0242c3ab1dfa84865ac"
   license "GPL-3.0-or-later"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "67a20d46c2fe1dbb51cb872d3d4ebb5342aabfda48a7cfbe915c17ad948969e4"

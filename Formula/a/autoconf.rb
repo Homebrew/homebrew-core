@@ -9,6 +9,8 @@ class Autoconf < Formula
     "GPL-3.0-or-later" => { with: "Autoconf-exception-3.0" },
   ]
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "b1d110e2efd457a5e56c4469f2d6741109d542801a401fe08b750d0614581a9a"

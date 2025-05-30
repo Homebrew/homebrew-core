@@ -10,6 +10,8 @@ class Angband < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 arm64_sequoia: "56b2ccd6f86112f7f3c8b97100252d4d39d49be6a659dabbaffd9e393c1d4db1"

@@ -8,6 +8,8 @@ class Athenacli < Formula
   license "BSD-3-Clause"
   revision 6
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "24bd2caf184bd92d6750107fd8e234adf75aa78bedc755972c488ba76f8daae4"

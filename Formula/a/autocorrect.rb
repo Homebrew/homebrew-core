@@ -6,6 +6,8 @@ class Autocorrect < Formula
   license "MIT"
   head "https://github.com/huacnlee/autocorrect.git", branch: "main"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "ca7f521e32cb23ddce0780b9ad08ffbb282cb0fb397ae8b90f39ac6804464992"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "beda25be453e44c6e9bccfba0b39488e022ecb14c5525770378e33496db74fd1"

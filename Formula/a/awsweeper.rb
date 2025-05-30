@@ -6,6 +6,8 @@ class Awsweeper < Formula
   license "MPL-2.0"
   head "https://github.com/jckuester/awsweeper.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "f22735ca83b553b980c8c4c965b82c74661f63b05b42535f1cf182c6e80d6eb4"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b5010b86841f22dddef64df08c14003a9f8b67be8799a2fd2c25f123b4d87404"

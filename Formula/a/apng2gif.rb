@@ -5,6 +5,8 @@ class Apng2gif < Formula
   sha256 "9a07e386017dc696573cd7bc7b46b2575c06da0bc68c3c4f1c24a4b39cdedd4d"
   license all_of: ["libpng-2.0", "Zlib"]
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_sequoia:  "0f86e3508b3328f66e3ada01096160126c5ef87912d0a6a187a0200293d0d93f"

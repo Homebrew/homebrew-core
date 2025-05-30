@@ -9,6 +9,8 @@ class Amfora < Formula
   ]
   head "https://github.com/makew0rld/amfora.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "d5ca2d3a6e2ceff7b959b5dbcb46fce4ae8fc906ad17d6ae3c56dca81c52cf44"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f5ec84d2286802f8cb76b710ced58fe9d19569a77e52f42390fac1d1ecc89b48"

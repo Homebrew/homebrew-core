@@ -10,6 +10,8 @@ class AtkmmAT228 < Formula
     regex(/atkmm-(2\.28(?:\.\d+)*)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any, arm64_sequoia:  "666a7ab1c48c5013fe80065747861be3df354221fd8f2dc4fa6fc312961f3edc"
     sha256 cellar: :any, arm64_sonoma:   "f456190b4929828e7786823167e1b49e017314b86018a02d5730921db647b61f"

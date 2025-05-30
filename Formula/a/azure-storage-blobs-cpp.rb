@@ -11,6 +11,8 @@ class AzureStorageBlobsCpp < Formula
     regex(/^azure-storage-blobs[._-]v?(\d+(?:\.\d+)+)$/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "03efdfcab8216711665119c6d285eb344fa2dabcf5414e59108f857b0d6ce636"
     sha256 cellar: :any,                 arm64_sonoma:  "6ab8bc412b7a2c671305f6d8b000f03ba93587e7857b202d8f042718b74964a2"

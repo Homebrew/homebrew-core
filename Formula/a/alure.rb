@@ -6,6 +6,8 @@ class Alure < Formula
   license "MIT"
   revision 1
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_sequoia:  "5a83dde3ee767c2d722500d07ed8868c671c2d560b932953cfd52fdcf835eef1"

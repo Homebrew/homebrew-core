@@ -13,6 +13,8 @@ class Abcl < Formula
     regex(/href=.*?abcl-src[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "d3b54e12b38b7736c33fe43c677c4d396337617e4f0647a2d5522bde43e31fc0"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6cde97a77b73cdec4bb00bbec261b1486d8f742e50e166edd4b64a65b5c725dd"

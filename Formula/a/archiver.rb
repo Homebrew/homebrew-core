@@ -6,6 +6,8 @@ class Archiver < Formula
   license "MIT"
   head "https://github.com/mholt/archiver.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "5b6c238c7e684837a57ff1038a05b92a89b1db0311443ff3f66da556eeeb873a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "247cc8a86532c7e40d47ee84872895a7790a87c0c732cb1d4dfd19a25e8b724f"

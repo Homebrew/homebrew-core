@@ -11,6 +11,8 @@ class Acme < Formula
     strategy :page_match
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "789ffc7764ec07db6142518896bff4aa1940980929b977fabb084ef12d1d4ea7"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2c48aa0b38e6597799d22ec3c0ad8c8868c753918a92adb4f60ab7f9eabe945b"

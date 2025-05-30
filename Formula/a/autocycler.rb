@@ -6,6 +6,8 @@ class Autocycler < Formula
   license "GPL-3.0-or-later"
   head "https://github.com/rrwick/Autocycler.git", branch: "main"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "85ccc0eb7168ad90a9a199d5ce858b53967ee484cbf02ef6f67deca592a37835"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0969f41334ef0e8de7f958b7ab09143ec334c5a3edac84c211ad7abfd5fd3486"

@@ -7,6 +7,8 @@ class Autojump < Formula
   revision 3
   head "https://github.com/wting/autojump.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 6
     sha256 cellar: :any_skip_relocation, all: "b172a04f1d109b558ed126cc14250e41e804adecbdcf9f1ef68941825613b283"

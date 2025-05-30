@@ -10,6 +10,8 @@ class ArxLibertatis < Formula
     regex(%r{href=["']?arx-libertatis[._-]v?(\d+(?:\.\d+)+)/?["' >]}i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 arm64_sequoia:  "e60d7ed4b0a7ff3b132efb97907d8203a0e501f292866d17ab9b2773376b44cd"
     sha256 arm64_sonoma:   "2c520ea9e3ce0eb1066cd47fd192e73bda08a3e27b39b1efa6b5dcef7614dedf"

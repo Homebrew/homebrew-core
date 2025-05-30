@@ -6,6 +6,8 @@ class AmazonEcsCli < Formula
   license "Apache-2.0"
   head "https://github.com/aws/amazon-ecs-cli.git", branch: "mainline"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "946c2dea923a3f6ce1247becebbe353802a74bf44b5142d0ad0d5548e8fc1ea5"

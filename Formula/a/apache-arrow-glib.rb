@@ -11,6 +11,8 @@ class ApacheArrowGlib < Formula
     formula "apache-arrow"
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any, arm64_sequoia: "8294049b1709df4be53384fdafbec4e87a2a6ddc118a9f3e2867c67efcc9b02a"
     sha256 cellar: :any, arm64_sonoma:  "ccde01a3671cac00aab2015fed3e35a5b74ebcd270c79e994fa48955dc08eb73"

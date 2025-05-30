@@ -11,6 +11,8 @@ class Ats2Postiats < Formula
     regex(%r{url=.*?/ATS2-Postiats[._-]v?(\d+(?:\.\d+)+)\.t}i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "32296b820ff276f1de0eed59460f9dd48ca47132a77fdee78ee19fed9ba46923"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "53cc8a637f0375080c8071792bef06c870579bab915aa44f7525ae580e9fd8f2"

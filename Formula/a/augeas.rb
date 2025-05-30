@@ -21,6 +21,8 @@ class Augeas < Formula
     strategy :github_latest
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 arm64_sequoia:  "235513308423f52fd6d049cf16b5e0c31b0862bce0d8aa6afb11ce2e8208020a"

@@ -10,6 +10,8 @@ class Alloy < Formula
     regex(%r{<version>(\d+(?:\.\d+)+)</version>}i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, all: "e82b9d3a9c9882398cf30d603d668cfd94b774ddc19ba83e627529e611d64c5d"
   end

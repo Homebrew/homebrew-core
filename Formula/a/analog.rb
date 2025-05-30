@@ -6,6 +6,8 @@ class Analog < Formula
   license "GPL-2.0-only"
   head "https://github.com/c-amie/analog-ce.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 arm64_sequoia: "cf6b6b5922287fd9aad880021dbc161e361b3e1a485ae29ebba5a205085c9bd1"
     sha256 arm64_sonoma:  "566c70a3d0443d7072dd51cacc8d0717fbc0d39d34c7a5ea2283b85238e565b5"

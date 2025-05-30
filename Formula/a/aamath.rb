@@ -10,6 +10,8 @@ class Aamath < Formula
     regex(/href=.*?aamath[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "c62dab89088d46d52193768e3dd863939963ca8fbcf2eb67ecfd52c928117dfd"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "38e8b1fcd51f2be7c3b27818ffddf2b4fbf3de14da75b884e57bdbc8b4a3819b"

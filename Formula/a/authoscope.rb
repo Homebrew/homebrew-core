@@ -5,6 +5,8 @@ class Authoscope < Formula
   sha256 "fd70d3d86421ac791362bf8d1063a1d5cd4f5410b0b8f5871c42cb48c8cc411a"
   license "GPL-3.0-or-later"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "cd181040954b9cb22040c9bbd7ba32fa2a22814968046bedac1da48eede489a2"

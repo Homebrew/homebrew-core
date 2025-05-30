@@ -10,6 +10,8 @@ class Apgdiff < Formula
     regex(/^release[._-]v?(\d+(?:\.\d+)+)$/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "22236801bcf19f2b8beb312287dc2b3a8d9ebdef2ee0fa56779ed0abc3e44fc4"

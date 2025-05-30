@@ -5,6 +5,8 @@ class Autocode < Formula
   sha256 "952364766e645d4ddae30f9d6cc106fdb74d05afc4028066f75eeeb17c4b0247"
   license "Apache-2.0"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "b77a0c5a2addfbdb49c0c77c50d5ef04b56462c3882588527dba9bbb81feefd8"

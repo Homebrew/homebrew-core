@@ -5,6 +5,8 @@ class Afuse < Formula
   sha256 "87284e3f7973f5a61eea4a37880512c01f0b8bf1d37a8988447efbe806ec3414"
   license "GPL-2.0-only"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_linux:  "22032cf3dd5fe4a2aa623d7bc1f542eebd796f749a63e62907bf1006b2f42d26"

@@ -7,6 +7,8 @@ class Afio < Formula
   license :cannot_represent
   head "https://github.com/kholtman/afio.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "d2aff60d7ee0309043a8a16fcc08fa31e97f926e891e0cba31fe0f68968f2ae5"

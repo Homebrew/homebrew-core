@@ -6,6 +6,8 @@ class Authz0 < Formula
   license "MIT"
   head "https://github.com/hahwul/authz0.git", branch: "main"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "76f92010b14aae9dae0ead727ef643ce0b0edc8a5361530ffdfd549b9895e2ae"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "14381da4ed533631835222d21cd916381953a087c3b1335bb4d30a8c26acd382"

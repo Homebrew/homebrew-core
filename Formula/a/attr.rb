@@ -11,6 +11,8 @@ class Attr < Formula
     regex(/href=.*?attr[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 2
     sha256 arm64_linux:  "6d22ffeb1ac124b47032e96cfc44264b228f3fcabe9746a426e46a5f7db45c3a"

@@ -11,6 +11,8 @@ class Atari800 < Formula
     strategy :github_latest
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "82df74e82551f83d67d3a7fcba873d4bd62a0084bc96371fbcc16e760a80aac4"
     sha256 cellar: :any,                 arm64_sonoma:   "800ce7fc88004e578e5b69d573b4a3701245de0174fbd4a4494d37ad79c0f3d0"

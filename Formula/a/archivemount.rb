@@ -10,6 +10,8 @@ class Archivemount < Formula
     regex(/\*\s+v?(\d+(?:\.\d+)+)\s+/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, arm64_linux:  "955c633971c03c810ea51de75c517e68fc10b1dc69b129039ab3fd4a8419cffe"

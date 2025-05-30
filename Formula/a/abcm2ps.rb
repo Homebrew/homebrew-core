@@ -10,6 +10,8 @@ class Abcm2ps < Formula
     regex(%r{"tagDsp">v?(\d+(?:\.\d+)+)</span>}i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 arm64_sequoia: "3d17a30a50dec0a222b5affc869944133110d26183456da63dd0e53ed05dced0"
     sha256 arm64_sonoma:  "1285f979079ab7e11a7b9695ca1a50e558bd1e98ea77fc7b0eade685bd339e78"

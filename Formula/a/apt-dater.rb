@@ -7,6 +7,8 @@ class AptDater < Formula
   revision 1
   version_scheme 1
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 arm64_sequoia:  "e89784e139fbbe28d5b78275b2242171bac80c2ef9499613154b3e7811c08468"

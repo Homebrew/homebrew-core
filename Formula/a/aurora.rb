@@ -6,6 +6,8 @@ class Aurora < Formula
   license "MIT"
   head "https://github.com/xuri/aurora.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "4cb522a01c06cf788476d58b83b367c4c753f7fc6ced76b18881586eefd8c188"

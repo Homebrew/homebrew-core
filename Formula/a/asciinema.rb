@@ -8,6 +8,8 @@ class Asciinema < Formula
   license "GPL-3.0-only"
   head "https://github.com/asciinema/asciinema.git", branch: "develop"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 3
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "0f5ecbcebc62f27a2078b240921060282cef4507a007db5aabfc850c36aea51a"

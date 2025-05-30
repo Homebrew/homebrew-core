@@ -10,6 +10,8 @@ class A52dec < Formula
     regex(/href=.*?a52dec[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "bb6e3408f39a404770529cfce548dc2666e861077acd173825cb3138c27c205a"
     sha256 cellar: :any,                 arm64_sonoma:   "9619e592adb641635b8bc648e92149822e6564203088f33570c2da72283ba918"

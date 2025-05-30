@@ -5,6 +5,8 @@ class AsTree < Formula
   sha256 "2af03a2b200041ac5c7a20aa1cea0dcc21fb83ac9fe9a1cd63cb02adab299456"
   license "BlueOak-1.0.0"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "5059a4f64cd775588b4f57a258964415373c09346d65f121f9e61464bbc6789a"

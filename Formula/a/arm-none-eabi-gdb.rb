@@ -11,6 +11,8 @@ class ArmNoneEabiGdb < Formula
     formula "gdb"
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 arm64_sequoia: "54bb4fd38fdd0c2e6b322d6ea7f05a9e101509e774b906a2048cc5a0a6df5b84"
     sha256 arm64_sonoma:  "fb92c479ff811cc52de43c83059cbfddbcdc397e39c6e79bcdafd8ac3034ef34"

@@ -17,6 +17,8 @@ class Arabica < Formula
     end
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "5448f9dfdd462014fca6f549d3d8e42a8831e7af763ec90ec55d5f9de259a171"
     sha256 cellar: :any,                 arm64_sonoma:   "d066bb2e2067e8487d5e161c2c0d438ac331f377b4103833ee4859c6d680540a"

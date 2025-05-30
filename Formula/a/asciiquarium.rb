@@ -11,6 +11,8 @@ class Asciiquarium < Formula
     regex(/href=.*?asciiquarium[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_sequoia:  "080079f96aa210857f68ea0e376ce057dca85875e94df0a2da695559d37d08e9"

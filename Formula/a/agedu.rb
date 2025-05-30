@@ -12,6 +12,8 @@ class Agedu < Formula
     regex(/href=.*?agedu[._-]v?(\d+(?:\.\d+)*)(?:[._-][\da-z]+)?\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "d779cddebf2f281e0ac4ae36def487c0068283d2be92002709f23fd6f81d9d44"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d1a1e5993b600a5ed4625628cd50e19cb46f8761e374d4d6b28be5d4f021c873"

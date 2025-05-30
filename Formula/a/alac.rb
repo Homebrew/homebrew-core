@@ -5,6 +5,8 @@ class Alac < Formula
   sha256 "7f8f978a5619e6dfa03dc140994fd7255008d788af848ba6acf9cfbaa3e4122f"
   license "MIT"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "726f02f4e73857ebafaf7d5d554e6c659b4795ef682aa0ce46c3ee21ffef952c"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "78ed3a6e07c6093f26c14a5f0a468369a4b2822f456101c0539386e2aeb2c4ad"

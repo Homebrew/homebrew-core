@@ -5,6 +5,8 @@ class Asn1c < Formula
   sha256 "8007440b647ef2dd9fb73d931c33ac11764e6afb2437dbe638bb4e5fc82386b9"
   license "BSD-2-Clause"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 arm64_sequoia:  "92cbad00b77b014b9fc957b1fe1c3ceafe01c367355dbbce6b92321aa5dcacda"

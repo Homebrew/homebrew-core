@@ -6,6 +6,8 @@ class Ali < Formula
   license "MIT"
   head "https://github.com/nakabonne/ali.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "1fa319e59e535c54935058ab8a8ffdf177bec32fac05003168bd9c15021da164"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0e26d87beadff780ef72f728cef8042f6ef0f8224e9e5745b35c74653fa5a47a"

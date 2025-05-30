@@ -10,6 +10,8 @@ class Avimetaedit < Formula
     regex(/href=.*?avimetaedit[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "d4a0e40875df5de8808e670967741dfbf1587d033d3262754e99ab43213f63d0"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d4f66c36f77f301329187605c19b423905190a8856052516b6921dcf766bf1f3"

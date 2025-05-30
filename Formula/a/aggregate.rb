@@ -5,6 +5,8 @@ class Aggregate < Formula
   sha256 "166503005cd8722c730e530cc90652ddfa198a25624914c65dffc3eb87ba5482"
   license "ISC"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "acc66660e03c2394db8381da8ad5200a6a6f02fce14b1de748dd555f0f98ffa6"

@@ -5,6 +5,8 @@ class AwsKeychain < Formula
   sha256 "3c9882d3b516b629303ca9a045fc50f6eb75fda25cd2452f10c47eda205e051f"
   license "MIT"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "07b563b515bc0baa71f648ce63989009e50160d6ef87bd821e045be451cffb53"

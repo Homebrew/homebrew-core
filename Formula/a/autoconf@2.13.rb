@@ -6,6 +6,8 @@ class AutoconfAT213 < Formula
   sha256 "f0611136bee505811e9ca11ca7ac188ef5323a8e2ef19cffd3edb3cf08fd791e"
   license "GPL-2.0-or-later"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "f5871980126b7e1f4135fbbdc0d00932c4c670de6f7b1e095698d3c326e5c4b1"

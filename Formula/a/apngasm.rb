@@ -7,6 +7,8 @@ class Apngasm < Formula
   revision 17
   head "https://github.com/apngasm/apngasm.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256                               arm64_sequoia: "9f9562c52caf37166d3771a0e370250319750ce9fa016ca099ee231ba4ae88d3"
     sha256                               arm64_sonoma:  "f0791efcfc25b7001706e2e2bdcb1f9120d8cf5fd1c34a1fefdfb09056b492dc"

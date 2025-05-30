@@ -5,6 +5,8 @@ class AnsibleLanguageServer < Formula
   sha256 "3182960a35f229f453d520cfb6c9624ca18104653457eca99dc1406690fa5aa2"
   license "MIT"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "f77d8d03dd3d1c02a29ba66785d2628274f5478363f8fce75a41ca3e6febcc32"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ea600142aba89658a7896fa5c65ce40a2648b61f8535d569c552416ba38cd5c8"

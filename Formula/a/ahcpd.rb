@@ -10,6 +10,8 @@ class Ahcpd < Formula
     regex(/href=.*?ahcpd[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "4963298b5a52bcbef584be986fe4a4223a30aefffd2ab6f8372c63c6f8edf075"

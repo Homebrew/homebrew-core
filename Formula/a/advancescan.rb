@@ -5,6 +5,8 @@ class Advancescan < Formula
   sha256 "8c346c6578a1486ca01774f30c3e678058b9b8b02f265119776d523358d24672"
   license "GPL-2.0-or-later"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "8665f9344bd59d8d1ca29f033abc8db6616078e57fe991e781771c6e43f7113a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "53a0ab6f94d0b7bbafada815a25b5159ac3d0fed4073714526bbd4350ec5df63"

@@ -13,6 +13,8 @@ class Alpine < Formula
     regex(/href=.*?alpine[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 2
     sha256 arm64_sequoia:  "0299b3f80c9193359059909396ebf74078a263d0e0987e086741398bac68d566"

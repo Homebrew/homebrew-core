@@ -7,6 +7,8 @@ class Aws2Wrap < Formula
   sha256 "77613ae13423a6407e79760bdd35843ddd128612672a0ad3a934ecade76aa7fc"
   license "GPL-3.0-only"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "d80eae08463ca93b1d39861c28412fb9547db8a86d5041e338a72da501f969fd"

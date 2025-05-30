@@ -6,6 +6,8 @@ class Atasm < Formula
   sha256 "dbab21870dabdf419920fcfa4b5adfe9d38b291a60a4bc2ba824595f7fbc3ef0"
   license "GPL-2.0-or-later"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "f9402a817b9438f3ba44ecf8ef38e70dcfe070a43251f9d62fe0785212b2d0e9"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7c4910e7d916c52776028f38d6b61858f7d0a4bc85bb46571f08bdcfbc6418df"

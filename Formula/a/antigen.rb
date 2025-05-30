@@ -6,6 +6,8 @@ class Antigen < Formula
   license "MIT"
   head "https://github.com/zsh-users/antigen.git", branch: "develop"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "c5b90cbbac10593d4cdc737303340894b65b0598a564cc9eafe1466f33936503"

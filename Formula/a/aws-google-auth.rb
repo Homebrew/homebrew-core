@@ -9,6 +9,8 @@ class AwsGoogleAuth < Formula
   revision 12
   head "https://github.com/cevoaustralia/aws-google-auth.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "7d83df21489d783dd82daf5a8d34af0e370808d8fc6181850f68b4f518408b19"

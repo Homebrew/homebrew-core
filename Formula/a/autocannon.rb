@@ -5,6 +5,8 @@ class Autocannon < Formula
   sha256 "470ac762b261d8eca3d8069be8776b25fc111e4caa962bc144a85e9631fd07fa"
   license "MIT"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, all: "802f0328259fdee67f34d0f613897abf2d1a665654a7b26fcd5dca49b053c103"
   end

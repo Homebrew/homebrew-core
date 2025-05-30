@@ -6,6 +6,8 @@ class Apib < Formula
   license "Apache-2.0"
   head "https://github.com/apigee/apib.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_sequoia:  "16bdbdc8c1157d81ef431aa3c9065d08a8986f6f9863d6d1d9ec7b9bf9ba1a4c"

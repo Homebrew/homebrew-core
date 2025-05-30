@@ -7,6 +7,8 @@ class Argon2 < Formula
   revision 1
   head "https://github.com/P-H-C/phc-winner-argon2.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "4fe5808e09d5c48eac1991bb19bca51ac39517ae46d8e9f696580dc004c0bd08"
     sha256 cellar: :any,                 arm64_sonoma:   "c503692d2a7d5538d5cb241b69c283d998bde91b38e3065c01bc79fdbe8cd197"

@@ -5,6 +5,8 @@ class Aoeui < Formula
   sha256 "0655c3ca945b75b1204c5f25722ac0a07e89dd44bbf33aca068e918e9ef2a825"
   license "GPL-2.0-only"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "d884318d049fd6851389c8c37f7c0eb1042fbeb00c7cf7d0829ce6ab3d45d81d"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7a151b75fa791fe09b9b8e76783aeb89afdaafef9cd14e70208bde09334dfd84"

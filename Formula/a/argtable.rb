@@ -6,6 +6,8 @@ class Argtable < Formula
   sha256 "8f77e8a7ced5301af6e22f47302fdbc3b1ff41f2b83c43c77ae5ca041771ddbf"
   license "LGPL-2.0-or-later"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "ac1c99cc90796da54dcfa48415939944d6608a1284d6c1eb2650d43717a4d622"
     sha256 cellar: :any,                 arm64_sonoma:   "0f2a92f017739cf52ff30229bbbb87fed5e9d818ae9655685227d5f72a94825a"

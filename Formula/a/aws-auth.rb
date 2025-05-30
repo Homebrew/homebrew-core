@@ -5,6 +5,8 @@ class AwsAuth < Formula
   sha256 "79fd9c77a389e275f6a8e8bc08e5245c9699779da5621abd929a475322698146"
   license "MIT"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "d586f7428e369586475c9ee9f3b4865aa181191a54bbf60f62e99e29d0cf369f"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a60b04e342a6f7740665def07e9a7851d7214d47e1da66641e4b6692c7b67067"

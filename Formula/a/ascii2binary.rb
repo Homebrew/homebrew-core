@@ -10,6 +10,8 @@ class Ascii2binary < Formula
     regex(/href=.*?ascii2binary[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "5fa97a3db89565045338e7d0a725a0dfe87995651b8987d271bfb5eeb07e7728"
     sha256 cellar: :any,                 arm64_sonoma:   "fa4789ecc58d9510294d6ceb7e88865abecf9b50237def8dde810cea6a9a8477"

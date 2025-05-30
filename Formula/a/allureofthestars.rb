@@ -7,6 +7,8 @@ class Allureofthestars < Formula
   revision 6
   head "https://github.com/AllureOfTheStars/Allure.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "bdcf533595e5ae4f13cde425c0e06c515257045288acddad4b9530ce3c949394"
     sha256 cellar: :any,                 arm64_sonoma:   "f2798a7e39c570fb3f16f223658233ed9d4f273bfb079851d5b23ad7ee3279c4"

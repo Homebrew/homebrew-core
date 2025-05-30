@@ -12,6 +12,8 @@ class Abcde < Formula
     regex(/href=.*?abcde[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "48c8a99c5cf28e44096fe46c62f5dc826a90282769b895fb50807cca0f5383b0"
     sha256 cellar: :any,                 arm64_sonoma:   "5e728aa1561686b5cfb5fe14f2fec3f4a106a7403a9ccaee4c9fd3c1eca530e1"

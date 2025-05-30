@@ -10,6 +10,8 @@ class ArmNoneEabiBinutils < Formula
     formula "binutils"
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 arm64_sequoia: "06af07de6ca093b334bd87f2de88a263448611f253d0d0c31bd557ec386bec36"
     sha256 arm64_sonoma:  "932c45d6ec8c2449242f9b32f4cc75ec90b295c1af2cdc02d3a2bfa1a79e7156"

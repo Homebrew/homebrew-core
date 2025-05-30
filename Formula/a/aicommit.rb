@@ -6,6 +6,8 @@ class Aicommit < Formula
   license "CC0-1.0"
   head "https://github.com/coder/aicommit.git", branch: "main"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "7a7c316f47dae0539e95407a1d404c7ccbb37f771f6a9049e3abc6dc6421484c"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7a7c316f47dae0539e95407a1d404c7ccbb37f771f6a9049e3abc6dc6421484c"

@@ -6,6 +6,8 @@ class AdamstarkAudiofile < Formula
   license "MIT"
   head "https://github.com/adamstark/AudioFile.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, all: "ab031793961063448870b09b5bd997671df66cd2eeeb98d4daebeb389fadeb59"
   end

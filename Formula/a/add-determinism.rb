@@ -5,6 +5,8 @@ class AddDeterminism < Formula
   sha256 "289e3586bc9234fc3612a7f7c521b75511fa27f5dcba8b04825249ca03880f80"
   license "GPL-3.0-or-later"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_linux:  "3cc67f0631eb00dd69bf152dfc64d4d97d690c1f164eb821af61b3e22864212c"
     sha256 cellar: :any_skip_relocation, x86_64_linux: "0e31f9976fa0c9dcb2d0606af4d84512a9b65392d4f66d208590f2a3c1e4c8ec"

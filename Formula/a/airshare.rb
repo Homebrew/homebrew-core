@@ -8,6 +8,8 @@ class Airshare < Formula
   license "MIT"
   revision 15
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "e4b550bf1cf350929dcc4c64edd0df91db3b9b800ee418721d1705e33d33215a"

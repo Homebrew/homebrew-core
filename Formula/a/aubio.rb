@@ -11,6 +11,8 @@ class Aubio < Formula
     regex(/href=.*?aubio[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 arm64_sequoia: "cdd72e2e045a52832a9050ce2695b6f922813854df1dd410c38c7ed8d0b94882"

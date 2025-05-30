@@ -12,6 +12,8 @@ class Alot < Formula
   revision 1
   head "https://github.com/pazz/alot.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "0b0b23d34625ee35bdf19c6f5092d08aacd2e664df666c6fe4ddde34cde674a9"

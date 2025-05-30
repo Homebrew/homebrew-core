@@ -6,6 +6,8 @@ class Abduco < Formula
   license "ISC"
   head "https://github.com/martanne/abduco.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "216c0c4a4ac3e537b0846cb998b36ea986de0d42fb3b2c50b0dfdd4da38a7418"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6db16f93fb69cad1e8ef83fcbe67783e9dce80f5cf2e36caa56b85d81cf3938b"

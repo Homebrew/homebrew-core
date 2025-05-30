@@ -6,6 +6,8 @@ class Amass < Formula
   license "Apache-2.0"
   head "https://github.com/owasp-amass/amass.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "db5368b64cf5b63604ae151e8a4e0c115c3901ae1ca3d9adf859da46dcbb494c"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f50a72e211dbd6ad730f2b288656f74ae46e25c07448c3c37dceceb2b45edc4c"

@@ -6,6 +6,8 @@ class Avahi < Formula
   license "LGPL-2.1-or-later"
   revision 2
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 arm64_linux:  "4167489c0fe787b170d0646faab665700577fcc05ab10e3a0a556112df77d6fc"
