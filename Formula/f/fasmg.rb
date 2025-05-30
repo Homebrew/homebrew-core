@@ -1,9 +1,9 @@
 class Fasmg < Formula
   desc "New assembly engine designed as a successor of the one used by flat assembler 1"
   homepage "https://flatassembler.net"
-  url "https://flatassembler.net/fasmg.kp60.zip"
-  version "kp60"
-  sha256 "cd18f546c04007226fe0ce5bea874d14382911ed4f5a1995f6bde913e7e4e751"
+  url "https://flatassembler.net/fasmg.ktge.zip"
+  version "g.ktge"
+  sha256 "09af376d49c786d11788584687d479652584e8d48a26e04cadb6ec0ad3fe1deb"
   license "BSD-3-Clause"
   head "https://github.com/tgrysztar/fasmg.git", branch: "master"
 
