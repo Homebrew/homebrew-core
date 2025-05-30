@@ -5,6 +5,8 @@ class Cloog < Formula
   sha256 "d370cf9990d2be24bfb24750e355bac26110051248cabf2add61f9b3867fb1d7"
   license "LGPL-2.1-or-later"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "a094bf71fc868a36e66ae12b4a3de5ad0c887f9f92278a473722273bad35fd64"
     sha256 cellar: :any,                 arm64_sonoma:   "ead03f190330ee52bead39f8d29fdb67667882b5acecaa490f6d63c2bc750cac"

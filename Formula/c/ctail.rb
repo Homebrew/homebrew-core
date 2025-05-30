@@ -5,6 +5,8 @@ class Ctail < Formula
   sha256 "864efb235a5d076167277c9f7812ad5678b477ff9a2e927549ffc19ed95fa911"
   license "Apache-2.0"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_sequoia:  "21800dfc7f1557473cc6fe1b4e0716d4fb100c86acbd6bbfe3751b36b02a37f6"

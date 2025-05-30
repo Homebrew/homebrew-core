@@ -6,6 +6,8 @@ class Cayley < Formula
       revision: "dcf764fef381f19ee49fad186b4e00024709f148"
   license "Apache-2.0"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "1886c195583c5d68c87f6e2cc50a52801990ea7bf973f2b8a61e2228e931adcf"

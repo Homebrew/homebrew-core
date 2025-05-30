@@ -11,6 +11,8 @@ class Cutter < Formula
     regex(%r{value=["'][^"']*?/rel/cutter/v?(\d+(?:\.\d+)+)["']}i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 arm64_sequoia:  "64e7611a4932840b48802b8f628f0d1e8cbb7b639f774def7ab734679d35e1d4"
     sha256 arm64_sonoma:   "16bad5398ee66928c15164f769470028aca2912c9b634b45c11cd708f05de11f"

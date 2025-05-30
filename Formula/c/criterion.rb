@@ -7,6 +7,8 @@ class Criterion < Formula
   revision 2
   head "https://github.com/Snaipe/Criterion.git", branch: "bleeding"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any, arm64_sequoia: "87e4b6050b97f8c93ffa634a013392a08dd9ca6ccde834ab0b38ef960bdbbb3c"
     sha256 cellar: :any, arm64_sonoma:  "cd2f6e03ef7b2bf9e3ba7e6620fc3f7971a98bba90ada27302ac84e1e0019ac4"

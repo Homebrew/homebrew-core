@@ -6,6 +6,8 @@ class Cronolog < Formula
   sha256 "65e91607643e5aa5b336f17636fa474eb6669acc89288e72feb2f54a27edb88e"
   license "Apache-1.0"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "c35ef462c37f02fcb214571fe0b5a4cee014a21c01f996526468a29479bd2f30"

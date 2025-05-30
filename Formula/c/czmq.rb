@@ -22,6 +22,8 @@ class Czmq < Formula
     end
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_sequoia:  "563fccc28279b87f02a5545f8e041090ead4e42f04f5df7e50b421abbb88f1eb"

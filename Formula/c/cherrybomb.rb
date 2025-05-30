@@ -7,6 +7,8 @@ class Cherrybomb < Formula
   license "Apache-2.0"
   head "https://github.com/blst-security/cherrybomb.git", branch: "main"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "cd0341b2c6a53b6c4e0f42a79e3f1e5bf5a25e2d0c00f317b8fc18254de72951"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "d3ccf56d17a1d0c267ee4d674bc3106f6693a27ed618768ba85f2390e1d4cfc0"

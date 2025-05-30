@@ -11,6 +11,8 @@ class ChocolateDoom < Formula
     regex(/^chocolate-doom[._-]v?(\d+(?:\.\d+)+)$/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "4f000383f25ecf073d230153d43208298586091496c89fffe550b1ac3ceec679"
     sha256 cellar: :any,                 arm64_sonoma:   "d48d6cab180c6b15c33208fb7147b3f60b8817d81d8cd3a02da366f84b04d9fe"

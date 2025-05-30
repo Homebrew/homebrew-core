@@ -10,6 +10,8 @@ class Cdb < Formula
     regex(/href=.*?cdb[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "8ea510b1e7233cd4f071d380ee73c44e72ea5d220798faa58ee7ac41280350f6"

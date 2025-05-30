@@ -13,6 +13,8 @@ class Cspice < Formula
     regex(/current SPICE Toolkit version is (?:<[^>]+?>)?N0*(\d+)/im)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "c978ab6a4a6d85e200924e49a41e2da477561637bbd46f49d150614777d8d1ec"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2e57b6904ce0cce29f3b74d3ca47e289dbdfd0eea10cf8762720986bad78fe5b"

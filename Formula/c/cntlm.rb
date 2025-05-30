@@ -10,6 +10,8 @@ class Cntlm < Formula
     regex(%r{url=.*?/cntlm[._-]v?(\d+(?:\.\d+)+)\.t}i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 2
     sha256 arm64_sequoia:  "ac09c6fb2f75321560a0fedd69a9d520f9a62ee176cd7b8a03d8ea5964385f1a"

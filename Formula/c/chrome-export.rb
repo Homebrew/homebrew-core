@@ -8,6 +8,8 @@ class ChromeExport < Formula
   license "ISC"
   revision 1
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "4eb537cddb8040188b19d7e91771f1e85f31760b36b053f57d606e2356110f2a"

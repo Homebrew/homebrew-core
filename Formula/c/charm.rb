@@ -6,6 +6,8 @@ class Charm < Formula
   license "GPL-3.0-only"
   head "https://github.com/juju/charmstore-client.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "e6863b87f5141d695d361b1b0b7c68d9ab4edf710935a82d1839e0d7890cd2e3"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "76693903d37a9dc93095fd09c496c21d0651a71f39b1abbce782519ea2859f6c"

@@ -9,6 +9,8 @@ class Chapel < Formula
   revision 2
   head "https://github.com/chapel-lang/chapel.git", branch: "main"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 arm64_sequoia: "ae45c935d3a083686ffc20b62e84b0faae9d5a9701322f338ff29bcb6e377c68"
     sha256 arm64_sonoma:  "386cffb16177a8d299f5f4bff38e15a90c2fa7c076c92fb9fc258ecc968b0a43"

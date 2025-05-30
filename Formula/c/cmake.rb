@@ -16,6 +16,8 @@ class Cmake < Formula
     regex(/href=.*?cmake[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "7bd4605b03b0dbf10d547e2ffa34166acd8e77f8f76dac0485d5376715829130"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0fd627884d0c2819a5c1c100ca7352247c40ca0bd811237139fb50606d78db23"

@@ -5,6 +5,8 @@ class Cppzmq < Formula
   sha256 "c81c81bba8a7644c84932225f018b5088743a22999c6d82a2b5f5cd1e6942b74"
   license "MIT"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "1be9fecbad4da621c4f608f0395efd58f1252f1898ea64620bdaf82a1b6fdc1e"

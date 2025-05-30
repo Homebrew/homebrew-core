@@ -6,6 +6,8 @@ class Cgoban < Formula
   license "GPL-2.0-or-later"
   revision 1
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "a775648cbc6f12427ef0a6b83a920bf6b565e3b70b60ce75974d926eba786595"
     sha256 cellar: :any,                 arm64_sonoma:   "22f4fb53b56e19bad2463577a3b74aafa0728e5b09946077cd997694d80f3fb4"

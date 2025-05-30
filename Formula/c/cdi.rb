@@ -10,6 +10,8 @@ class Cdi < Formula
     regex(/href=.*?cdi[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "8ba79bdfd5b3ae2ee2c1761091adec216dd87fcd07dfd50cfebaa4eb95ff5cc5"
     sha256 cellar: :any,                 arm64_sonoma:  "7c4791aa173ee41b0f3769d41252379a538cc4eb815adfe455f2371411a07cb0"

@@ -18,6 +18,8 @@ class Ctl < Formula
     end
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "9d2f566d3e81d03f0df20a22cafe1a0ffec738af1b3b8d8fb804c66bc57f1e42"
     sha256 cellar: :any,                 arm64_sonoma:  "6e5fa4335bc1b37de8c3fc53d05b4e6f6d1f98292d7f37101e58b4434b61e3e2"

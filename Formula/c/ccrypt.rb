@@ -5,6 +5,8 @@ class Ccrypt < Formula
   sha256 "b19c47500a96ee5fbd820f704c912f6efcc42b638c0a6aa7a4e3dc0a6b51a44f"
   license "GPL-2.0-or-later"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 arm64_sequoia:  "030055fedb7e4f4136631b6cb57863d19dfbc34c422410ef246422471f6ee0b9"
     sha256 arm64_sonoma:   "6494f1e4ac165f00a8f1cadecc17a33175e0bc2e13d2c6111c4c0825416a43c2"

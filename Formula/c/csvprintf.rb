@@ -5,6 +5,8 @@ class Csvprintf < Formula
   sha256 "df034c676b512081f92727f4f36ad38e4d5d91d20a4a9abd52f10885b6c475e7"
   license "Apache-2.0"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "68dca765189cde9bb909b876cb833c3fe9f0e6cd98c7dddf470511374a4b1900"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "63b05c840d8e8778e8852c48c86f9d016a5836d166be5ea1e903139447df6e2d"

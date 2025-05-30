@@ -16,6 +16,8 @@ class Cereal < Formula
     end
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, all: "dc981dc92c83e4642a9ae88b2f9c19df8eed192e09c458ff80d4ad7216c71f25"
   end

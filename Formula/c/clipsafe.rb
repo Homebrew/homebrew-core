@@ -11,6 +11,8 @@ class Clipsafe < Formula
     regex(/href=.*?clipsafe[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "6f89dd5bba339827c6fe702e1bb88c77ef5bd58e30b464129c7ff2e6b72d2120"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d5ae9bff8d772fa615a3e159c320a243211726b81664e11def14db996a23d6e8"

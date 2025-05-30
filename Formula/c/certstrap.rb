@@ -11,6 +11,8 @@ class Certstrap < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "d9bf9827e91f136d8e5b85211375f3130beabfd11963c8a7f6145f8870856816"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c49235a2ea7bfbf33766c4434aa3ad53321d02387bff504f963317f3f8c9797f"

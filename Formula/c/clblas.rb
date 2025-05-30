@@ -6,6 +6,8 @@ class Clblas < Formula
   license "Apache-2.0"
   revision 1
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "e01b9a3b09dc996c6feb5b474e99f463b4079417aa0c24c69d5ace2cb896b036"
     sha256 cellar: :any,                 arm64_sonoma:   "932e8b3b551e5d7e9bd274802aed00a7de5844a2fa3ead6b52647ffb7e2bdbed"

@@ -9,6 +9,8 @@ class Credstash < Formula
   revision 11
   head "https://github.com/fugue/credstash.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "7e6b3ebdf98c6b6b822df0535c9c2b88f6aa118a4a431373eb49818705b72298"

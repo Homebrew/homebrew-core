@@ -7,6 +7,8 @@ class CreateApi < Formula
   revision 1
   head "https://github.com/CreateAPI/CreateAPI.git", branch: "main"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "3704ccee2566fbffef69ba830037391340cf4211d7ba722735175c8d97de27c6"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "630e2912f2280aeb27c2646cb6af920de7d9c2c5a8c01029bd6d9bfc61ccf823"

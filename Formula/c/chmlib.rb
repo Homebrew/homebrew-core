@@ -10,6 +10,8 @@ class Chmlib < Formula
     regex(/href=.*?chmlib[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 2
     sha256 cellar: :any,                 arm64_sequoia:  "035ec89221398776eb098d776c5f451a7d065e3f0ceaf665742c7c9bf9568f16"

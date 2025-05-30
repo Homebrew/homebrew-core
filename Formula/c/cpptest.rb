@@ -6,6 +6,8 @@ class Cpptest < Formula
   sha256 "7c258936a407bcd1635a9b7719fbdcd6c6e044b5d32f53bbf6fbf6f205e5e429"
   license "LGPL-2.1-or-later"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "2e9bd9882a2be0879ed9c30b86dda312e9fdaf6f0913d1e52960e0c057454857"
     sha256 cellar: :any,                 arm64_sonoma:   "02e96560cb00bb0e4a31cbeb0e1af8fe4d24071dc8693551a444a8ca899f64de"

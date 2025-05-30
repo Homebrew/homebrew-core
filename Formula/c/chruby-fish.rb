@@ -6,6 +6,8 @@ class ChrubyFish < Formula
   license "MIT"
   head "https://github.com/JeanMertz/chruby-fish.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "c4fc2b36d5552646f11abaef2bf3c8f18a3de7c6126e2c1d3ff653c83f095825"

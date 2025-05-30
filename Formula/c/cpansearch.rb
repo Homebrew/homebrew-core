@@ -6,6 +6,8 @@ class Cpansearch < Formula
   revision 1
   head "https://github.com/c9s/cpansearch.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_sonoma:   "6f99905d8bca0790ecf1d11a25cc00e5057f9a552afc1a051530dc9a6271c93c"

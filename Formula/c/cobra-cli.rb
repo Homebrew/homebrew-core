@@ -6,6 +6,8 @@ class CobraCli < Formula
   license "Apache-2.0"
   head "https://github.com/spf13/cobra-cli.git", branch: "main"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "d05baad8dd6bcebac5c184b14d30a29ac84e15c8f5cb74a19f604c87d4a42869"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d05baad8dd6bcebac5c184b14d30a29ac84e15c8f5cb74a19f604c87d4a42869"

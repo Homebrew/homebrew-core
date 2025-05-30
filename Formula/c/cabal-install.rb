@@ -6,6 +6,8 @@ class CabalInstall < Formula
   license "BSD-3-Clause"
   head "https://github.com/haskell/cabal.git", branch: "3.14"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "cb4c5b451162c33c333592e952278831d2db5f4dbf62658d5860c1745a2ad710"
     sha256 cellar: :any,                 arm64_sonoma:  "d01fea15c88a36df7f7d0212160718d1ccf4edaee43ce7d813e886dc5ab6dc1d"

@@ -16,6 +16,8 @@ class Crfxx < Formula
     regex(/CRF\+\+ v?(\d+(?:\.\d+)+)[\s<]/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 3
     sha256 cellar: :any,                 arm64_sequoia:  "af1f4415e133ec77e5dddfd4d967b16069928b8da16a49ee2fa27c77cb3ef616"

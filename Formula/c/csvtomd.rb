@@ -8,6 +8,8 @@ class Csvtomd < Formula
   license "MIT"
   revision 3
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 6
     sha256 cellar: :any_skip_relocation, all: "db9a5f1d08b328f96733905f1b05215a8fe89ff95834ebc873a94d3197e16477"

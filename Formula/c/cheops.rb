@@ -11,6 +11,8 @@ class Cheops < Formula
     regex(/href=.*?cheops[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "a19ba4057d685a8f61ecc2d198d517ae6859cf4a0479a153f3959ef832d45e20"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1de166d2e9dde915555db3c19377561aaea388583f255b84819ed8a0e0c1aeae"

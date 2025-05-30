@@ -7,6 +7,8 @@ class Cmt < Formula
   revision 1
   head "https://github.com/smallhadroncollider/cmt.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "7c4312c62896766f5c5de69f30689cec1baea9b91154ed2f980e0d20265c66ae"

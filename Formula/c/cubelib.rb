@@ -10,6 +10,8 @@ class Cubelib < Formula
     regex(/href=.*?cubelib[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 arm64_sequoia: "066378b05ed9eb15c6bbf9202e641a932e72e5c4e24ed5071a8df8b95f36fbe3"
     sha256 arm64_sonoma:  "0e1252ac62492b97973bbd9194104d68094c7b0c2fe66238a009e7883b027ad1"

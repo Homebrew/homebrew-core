@@ -6,6 +6,8 @@ class CargoAllFeatures < Formula
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/frewsxcv/cargo-all-features.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "a3230194ce2a1aaf67cf633477a254f8bea2e1661c6849598c31e1e9dee4866a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b12a3968ae8ee10062526525c6cc07c5d288529204b51696e9f3ea104dffb1f3"

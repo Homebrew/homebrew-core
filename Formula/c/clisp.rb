@@ -22,6 +22,8 @@ class Clisp < Formula
     strategy :page_match
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any, arm64_sequoia:  "a01927a4f8f0c88f8aca8aa3ca0d52745d17bd352239651719042e414f5c8f90"
     sha256 cellar: :any, arm64_sonoma:   "e94752975afb5181821d2eff44c22247d224fabf1961ada3e0091cca6352d067"

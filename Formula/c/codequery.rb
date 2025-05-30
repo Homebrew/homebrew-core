@@ -5,6 +5,8 @@ class Codequery < Formula
   sha256 "b0776adeae2963f197e3b9a57eb7ca405542da5f6413e06063e8d68f8246baa8"
   license "MPL-2.0"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "4e4fb0e6e4d1171bff615afc316580b9fa839da228349d9ceae861da9f184004"
     sha256 cellar: :any,                 arm64_ventura:  "7f2b375faf1d458989b42e8b03a4aa57599f54038e941752f50e18925ae4c43b"

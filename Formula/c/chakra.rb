@@ -36,6 +36,8 @@ class Chakra < Formula
     end
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 sonoma:       "7b16aa6c8b2677f2dba55987d78f4cc867d357aeba2b6b3d97e76e42c6c69c4b"
     sha256 cellar: :any,                 ventura:      "dc7589f199baf02f63525cd1b5adb4e971d87b9c2369eb3e031dd4234acefac6"

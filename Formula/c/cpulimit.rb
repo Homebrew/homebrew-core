@@ -6,6 +6,8 @@ class Cpulimit < Formula
   license "GPL-2.0-or-later"
   head "https://github.com/opsengine/cpulimit.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "7eca714845ccc7a47497489a5075812b50700960acc1eb7eeefbfd5921851a76"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8dab4e4b11b19e8c01a57593d15ec399ab4f25b8ccdc72299e3f67092d1beaf8"

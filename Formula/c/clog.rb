@@ -11,6 +11,8 @@ class Clog < Formula
     regex(/href=.*?clog[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "324768db7056ee6258ee9bc6a19b15e325061e637a4074201e299f110979f81b"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ca002e0ad80711f5ca0edc944efd4ab5c0eb5698eecce8913f53e961d7040a90"

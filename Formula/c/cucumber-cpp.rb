@@ -6,6 +6,8 @@ class CucumberCpp < Formula
       revision: "ceb025fb720f59b3c8d98ab0de02925e7eab225c"
   license "MIT"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "ebd1f734db83ae5e745b5a870609430170ac0a4db66d0a982054f17f9c11df23"

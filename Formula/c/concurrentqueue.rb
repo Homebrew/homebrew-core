@@ -8,6 +8,8 @@ class Concurrentqueue < Formula
     "Zlib",
   ]
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, all: "64a380746e2547d26f64b5ce8945cc4af4e0169a2dffdc89ebbb534dc5e0061e"
   end

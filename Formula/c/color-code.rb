@@ -10,6 +10,8 @@ class ColorCode < Formula
     regex(/href=.*?ColorCode[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "eca15102195ecbf35b9b5db261ad63a1e7849f68048a9872757c99a300af2198"
     sha256 cellar: :any,                 arm64_sonoma:   "5279b770c1208847aa8bc485ffe5d60a457a22867ba8ae3b9b72a6ccb10b9cee"

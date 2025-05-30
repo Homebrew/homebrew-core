@@ -34,6 +34,8 @@ class Csound < Formula
     strategy :github_latest
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 arm64_sequoia: "61be90827875be2da1ff759baea46c74e0c0ccd7344bc8ab949efe3b05260106"
     sha256 arm64_sonoma:  "71adfde634382610bffb31c3fbf3aeacf25773de90e06b5158e09b18e4d205e9"

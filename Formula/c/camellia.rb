@@ -10,6 +10,8 @@ class Camellia < Formula
     regex(%r{url=.*?/CamelliaLib[._-]v?(\d+(?:\.\d+)+)\.t}i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "0679b21bf4e69b52af575fc7c30370b2fe0e70d2639b6fa550f3b4b3a3dfa392"
     sha256 cellar: :any,                 arm64_sonoma:   "c635eb57ac492aa11db11d6f08cfeee90951308007401fa2a20152db16cd57e1"

@@ -6,6 +6,8 @@ class Cbmbasic < Formula
   license "BSD-2-Clause"
   head "https://github.com/mist64/cbmbasic.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "12b112458c348c5267a9dd565cd6eb627e77e5f7601aa8262192ef0547f5c824"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6009d0ea2c22b727d92fa669b8d2d2207caf0cd9651d74a771c2dd35f24596aa"

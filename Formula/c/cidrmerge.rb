@@ -5,6 +5,8 @@ class Cidrmerge < Formula
   sha256 "21b36fc8004d4fc4edae71dfaf1209d3b7c8f8f282d1a582771c43522d84f088"
   license "GPL-2.0-or-later"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "37c60d84cb5235c7e6f49d9be574b422aad1c9bcd2767a1ac54f037d068a1635"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3fe9d3fcede14ef8846b83305b225df17a92af3f0430277e47a93042abca5487"

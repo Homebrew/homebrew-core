@@ -6,6 +6,8 @@ class Clamz < Formula
   license "GPL-3.0-or-later"
   revision 1
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "60807a8f262d22bbae1e13db11d9a7d9765896cc3c0e08ab919194f94e114705"
     sha256 cellar: :any,                 arm64_sonoma:   "5a7a2bdd3815fdb9fd2647df980edcb43919b173cde53f5fd298b381b231d943"

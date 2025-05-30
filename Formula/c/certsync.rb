@@ -7,6 +7,8 @@ class Certsync < Formula
   sha256 "bbfffd10f36edcb8c4d2d5033f2a2e1e7d641e41d6c5bd11069e7b0827fa1c8d"
   license "MIT"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "8d38c1280c4ffa266263cf6dea0afd81658364172868df8fb342242f9438547c"

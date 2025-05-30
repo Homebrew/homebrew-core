@@ -6,6 +6,8 @@ class Cdargs < Formula
   license "GPL-2.0-or-later"
   head "https://github.com/cbxbiker61/cdargs.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "5be93566bc13d241d79bfa4c097b9a460750d889864bab0ee4276bd021a10f90"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "fed4d372bf68ed5208d3ea9a33934d90089839d309da6600377430af6682c2a3"

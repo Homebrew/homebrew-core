@@ -12,6 +12,8 @@ class Cubeb < Formula
     depends_on "libtool" => :build
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "82458e11a000c10cb1268c1e9118c0d0e447fc40d49bb6e0426288ea87d05e1b"
     sha256 cellar: :any,                 arm64_sonoma:   "478c0b66412477519eeb295fe7788436e843af7f98e10df61de6f8a942235772"

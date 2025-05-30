@@ -9,6 +9,8 @@ class Choose < Formula
   revision 4
   head "https://github.com/geier/choose.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 3
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "b4cd084aeff66d38306336992370937b0f8473abd64f70c8561145df065581ac"

@@ -10,6 +10,8 @@ class Cppunit < Formula
     regex(/href=["']?cppunit[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "081175312ba1bb288369cb84ff8a8e3bf11cf9c451b80dac6cedc211590d020a"
     sha256 cellar: :any,                 arm64_sonoma:   "192272d9c0a8a984f6efd69def9b47c5f3eda974f27daebb448362501b8e81d2"

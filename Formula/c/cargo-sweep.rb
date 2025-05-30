@@ -6,6 +6,8 @@ class CargoSweep < Formula
   license "MIT"
   head "https://github.com/holmgr/cargo-sweep.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "477189d7f3a6a53e8866b74d466a8bb7312f680b3b72c6dd83dafc610799a2fe"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4d93a4d29347ff53114bfa71000c0bd6f1975601572eea35a167e14c2790110a"

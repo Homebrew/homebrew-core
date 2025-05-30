@@ -6,6 +6,8 @@ class Counts < Formula
   license "Unlicense"
   head "https://github.com/nnethercote/counts.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "82fa9ab01c22a6ee0df0a94c77008b58371646ff586f9298381d4231b06ac090"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "bb7bb551f6987542cace13619dbab2bce843a0c54b0add2090894e7f24b47623"

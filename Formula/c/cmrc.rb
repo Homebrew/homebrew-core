@@ -15,6 +15,8 @@ class Cmrc < Formula
     end
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, all: "bccb869a3fb9486fbd2594d68a8be7fb57819f27764bbf9b3888cdc54d746ce7"

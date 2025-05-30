@@ -6,6 +6,8 @@ class CppLazy < Formula
   license "MIT"
   head "https://github.com/Kaaserne/cpp-lazy.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, all: "e28490a02ee004b28f274c2bf585135b73cd5f4c92bf2d7e51cf17f6175d2ec7"
   end

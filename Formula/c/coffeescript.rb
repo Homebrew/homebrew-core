@@ -6,6 +6,8 @@ class Coffeescript < Formula
   license "MIT"
   head "https://github.com/jashkenas/coffeescript.git", branch: "main"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, all: "8b60f70c34df82c6fb506f905b11ecf0cda8421c03fb775e19ac0a2e9f348edf"

@@ -10,6 +10,8 @@ class Cuba < Formula
     regex(/href=.*?Cuba[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "5d9f2c34f9e6c4b4e8216db0ccaea18f75b925714037f9893da4aaf54de2b785"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "126460773e9096dfca2a9f028be96d8218e7bf3e8bfddd940477763b8b04b49f"

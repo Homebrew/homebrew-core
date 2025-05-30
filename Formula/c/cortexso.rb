@@ -6,6 +6,8 @@ class Cortexso < Formula
   license "Apache-2.0"
   head "https://github.com/janhq/cortex.git", branch: "dev"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 2
     sha256                               arm64_sequoia: "fade5cc5bf426b17bf2f05dcd3e00d1973abff9916fdca7c1083f330a5354538"

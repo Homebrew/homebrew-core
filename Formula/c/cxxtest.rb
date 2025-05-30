@@ -9,6 +9,8 @@ class Cxxtest < Formula
   license "LGPL-3.0-only"
   revision 3
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 5
     sha256 cellar: :any_skip_relocation, all: "643d46c6ac246d2b736860fd8e318a1a25fb4c2b659a18fead5db9fbe6dc9298"

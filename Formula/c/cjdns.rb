@@ -6,6 +6,8 @@ class Cjdns < Formula
   license all_of: ["GPL-3.0-or-later", "GPL-2.0-or-later", "BSD-3-Clause", "MIT"]
   head "https://github.com/cjdelisle/cjdns.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "dad7a92383088d864b11ebfbef03b9ea181c3e89d0c38c804d895035de1a9b74"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b7c7ed9f1030ae11d154c8b56ecbf1960fe592c0b40ea624bd27ac593ffeead3"

@@ -5,6 +5,8 @@ class Cdrdao < Formula
   sha256 "b347189ab550ae5bd1a19d323cdfd8928039853c23aa5e33d7273ab8c750692a"
   license "GPL-2.0-or-later"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 arm64_sequoia:  "e743e2ad68e18dab5d0c92398fe17efabfe6a0bdc3ff070680446b6cb40ab6e9"
     sha256 arm64_sonoma:   "e4d1ccc44373ea37015384940c9bdfef60f847aa866cbb4406e7e39e50251b46"

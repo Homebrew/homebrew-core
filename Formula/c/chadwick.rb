@@ -10,6 +10,8 @@ class Chadwick < Formula
     regex(%r{url=.*?/chadwick[._-]v?(\d+(?:\.\d+)+)\.t}i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "ea8f3deb32e7ade5b361904026269eab8b02b7fd47a85f68742949a28b33c9bb"
     sha256 cellar: :any,                 arm64_sonoma:   "855a048e94a4e914cede20351ea1984f9d70dbfeddcd8e91977c7258e3a320ce"

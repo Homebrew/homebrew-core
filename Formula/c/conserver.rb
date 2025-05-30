@@ -11,6 +11,8 @@ class Conserver < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "1d058954be5b4a37f181a78bcff594873c263c8173ba390161dd1a26be990260"
     sha256 cellar: :any,                 arm64_sonoma:   "6070a08f377c33c31c8aea3edabfdeb4c9bdf830c6d4a6586ee44b0444d47eda"

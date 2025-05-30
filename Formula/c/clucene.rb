@@ -6,6 +6,8 @@ class Clucene < Formula
   license any_of: ["Apache-2.0", "LGPL-2.1-only"]
   head "https://git.code.sf.net/p/clucene/code.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 2
     sha256 cellar: :any,                 arm64_sequoia:  "a72d28c7e47cae2af5817ed8f2765308aa0b4eac7eafb7fa46451cd8cb6eb039"

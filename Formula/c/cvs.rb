@@ -16,6 +16,8 @@ class Cvs < Formula
     regex(%r{href=.*?v?(\d+(?:\.\d+)+)/}i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "395bcc270613244fc0be159a5cc843cff6696397961958634363d4b1a2241454"
     sha256 cellar: :any,                 arm64_sonoma:   "e561f130192a57e7fe98eab345f97fd548bdabb62e78a9131a91c3c87f0a4429"

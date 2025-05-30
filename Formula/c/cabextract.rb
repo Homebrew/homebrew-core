@@ -10,6 +10,8 @@ class Cabextract < Formula
     regex(/href=.*?cabextract[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "8101eb79dccd718a2568420757be4c4f191ee6e11a8c8107a000f1691b081456"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "624bed1dfb0c77ecba2f8d6bd3deb022caae6d47af7d4edc314008aa001b036b"

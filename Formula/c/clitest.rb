@@ -6,6 +6,8 @@ class Clitest < Formula
   license "MIT"
   head "https://github.com/aureliojargas/clitest.git", branch: "main"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "f1cbfc94748a8712ab8a8845fd800d0009519c4d5ffbbcf03efce267406b91e5"

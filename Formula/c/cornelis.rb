@@ -6,6 +6,8 @@ class Cornelis < Formula
   license "BSD-3-Clause"
   head "https://github.com/agda/cornelis.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "5469975994b43e45788ff4b27058dc3284fa90f63be85001603abc5228dd76d3"
     sha256 cellar: :any,                 arm64_sonoma:  "845f96549a6d6c2937bedf9fb4031107f57b6b101275566702185b1625cfb733"

@@ -5,6 +5,8 @@ class Cbonsai < Formula
   sha256 "62aa7e0eaf3098b7a6a2787146bd2531437df6ad0e604b0f9176128797efd8f9"
   license "GPL-3.0-or-later"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "b7f0d998d2d9d8c57df4af660020fad67ca426ad8ede10842301f0cdf4ced6e2"
     sha256 cellar: :any,                 arm64_sonoma:   "d751d0aff3de34a8d5f64a063a16d632fcf4aeb3decd78eccc89e50de7363057"

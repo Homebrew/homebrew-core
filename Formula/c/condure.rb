@@ -7,6 +7,8 @@ class Condure < Formula
   sha256 "eb2df8e1a80d9fe4f66c41d2e9fbcd1205d8239ccd9b6cd914de5567356b7c70"
   license "Apache-2.0"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "5dbd83cd3a803509a0cc5b3d0cdc7d3dbe09cc47ea085d2576e35852aa13f40e"
     sha256 cellar: :any,                 arm64_sonoma:   "b61e13bb29181ff457ce6a5b1b9156d370a31fabfd61767f94dfbef580469c7a"

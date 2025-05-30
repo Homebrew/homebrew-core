@@ -12,6 +12,8 @@ class CmakeDocs < Formula
     formula "cmake"
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "18befc0d468df5072a1cacd64d34e0a8ec2ab515e3c7303712d50819538af840"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "18befc0d468df5072a1cacd64d34e0a8ec2ab515e3c7303712d50819538af840"

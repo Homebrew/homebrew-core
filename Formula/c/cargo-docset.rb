@@ -6,6 +6,8 @@ class CargoDocset < Formula
   license "Apache-2.0"
   head "https://github.com/Robzz/cargo-docset.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "5c4351f68e1d7fb4997246d0a1ff54e85b3aae4524bcb0cdc0bac379a88ecf54"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5d3967143668a150164b116c2f82996ed07bf150f8c2418d913fce73c0414cb4"

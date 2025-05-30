@@ -10,6 +10,8 @@ class CenterIm < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 arm64_sonoma:   "65761f72dce3b59dfa0b058aa2eff754ffb132b9c61e9cf36d595f9ad12b3054"
     sha256 arm64_ventura:  "aeaea7b73d4df68699def112fc0b0108d22af0680a9f8bc1d323b9c605044091"

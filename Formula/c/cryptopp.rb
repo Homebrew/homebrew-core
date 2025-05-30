@@ -16,6 +16,8 @@ class Cryptopp < Formula
     end
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 2
     sha256 cellar: :any,                 arm64_sequoia: "bdd7bfce252e592dc412d8b735a4fac2c9d5868607abbf9253a581c288c21dd9"

@@ -6,6 +6,8 @@ class CargoWatch < Formula
   license "CC0-1.0"
   head "https://github.com/watchexec/cargo-watch.git", branch: "main"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "3e89525ad4d4dcff0e84930435fafab04934a7ed2cf2701e5747a9d953c9e9b3"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d767cc28d20886e772e0ba5ea5b32be862b609d79ddaf8f8dd7dfde4e1cbb8a6"

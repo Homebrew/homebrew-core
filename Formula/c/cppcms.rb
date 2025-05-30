@@ -13,6 +13,8 @@ class Cppcms < Formula
     regex(%r{url=.*?/cppcms[._-]v?(\d+(?:\.\d+)+)\.t}i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 2
     sha256 cellar: :any,                 arm64_sequoia: "15a16c5b5f573a43871ff8c74cc01c314fb0e4972d4c70ca7f168c662bf20ef5"

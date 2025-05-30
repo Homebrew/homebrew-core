@@ -6,6 +6,8 @@ class Catimg < Formula
   license "MIT"
   head "https://github.com/posva/catimg.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "e9760742a6ba00bbdef67c27c773d24b546c5060ef8be91965a6a3ae4f8b1d1a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "edf6de7eb7ba34dd5fc9387bfb41aae9a5f2f76eedaeeb01e644320d6465180f"

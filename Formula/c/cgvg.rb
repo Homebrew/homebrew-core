@@ -10,6 +10,8 @@ class Cgvg < Formula
     regex(/href=.*?cgvg[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, all: "06ba6e4b8f27a86f39d20fa7d6b0b456d584d9973f15c5a7916145ae46c4d989"

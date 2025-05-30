@@ -13,6 +13,8 @@ class CKermit < Formula
     regex(/The current C-Kermit release is v?(\d+(?:\.\d+)+) /i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "cea3196c019d7d08ec77210cc9ce17c3339c84d5255f914bf773e5186ae709bc"

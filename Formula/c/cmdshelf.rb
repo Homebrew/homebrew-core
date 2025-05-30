@@ -5,6 +5,8 @@ class Cmdshelf < Formula
   sha256 "dea2ea567cfa67196664629ceda5bc775040b472c25e96944c19c74892d69539"
   license any_of: ["Apache-2.0", "MIT"]
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 4
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "b9774fb5ac602f84fb7b56c0409d688e0d70d810a36336a4ecdfb3a61cf5e40c"

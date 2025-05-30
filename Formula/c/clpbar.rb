@@ -5,6 +5,8 @@ class Clpbar < Formula
   sha256 "fa0f5ec5c8400316c2f4debdc6cdcb80e186e668c2e4471df4fec7bfcd626503"
   license "GPL-2.0-or-later"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "b0b9fe17e86d7a2f3af256a5a55343351fb8d8affe328a5293290ba83fc4d5ba"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6475090688882a9c4e55d754641a2739da88bad7cc68b3b5825c0454e8bcf89a"

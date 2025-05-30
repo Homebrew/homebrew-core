@@ -5,6 +5,8 @@ class Crackpkcs < Formula
   sha256 "9cfd0aa1160545810404fff60234c7b6372ce7fcf9df392a7944366cae3fbf25"
   license "GPL-3.0-or-later"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "0b89c0ab5d87df237985c9b1c638457eda5e1fb3d3ce2beda99c4b8ee7f0d1b0"
     sha256 cellar: :any,                 arm64_ventura:  "941c264ba6fed6fb691c2bae290d4a47bf68b62d8fbbbf3cd3f5767ad6b437c7"

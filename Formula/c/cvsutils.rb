@@ -10,6 +10,8 @@ class Cvsutils < Formula
     regex(/href=.*?cvsutils[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "9efd138b85d862065f5a5d36e02a4ec04c40b6f669bfe7feb09a08f233991d50"

@@ -5,6 +5,8 @@ class Clash < Formula
   sha256 "139794f50d3d94f438bab31a993cf25d7cbdf8ca8e034f3071e0dd0014069692"
   license "GPL-3.0-only"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b1c44c3dbd296cdcbe3b6d0a579244bea03111e8d6c4e9f509f513a6482bb082"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "cdc16caed4749ba51377dcc1862b5d78fde86c93e1d5b03d9930855a8e419d12"

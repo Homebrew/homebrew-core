@@ -5,6 +5,8 @@ class CargoFuzz < Formula
   sha256 "d7c5a4589b8b5db3d49113e733553c286ed8b50800cbdb327b71a1c1f7c648f0"
   license all_of: ["Apache-2.0", "MIT"]
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "a235fde06fab9e783557067a97c7703cdcbe6e8cbca04202c59552807b10aed7"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1d200bc751221a19ccf9146ba1a3f8e4e32a01586a937a509244219771a6b133"

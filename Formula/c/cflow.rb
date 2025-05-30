@@ -6,6 +6,8 @@ class Cflow < Formula
   sha256 "d01146caf9001e266133417c2a8258a64b5fc16fcb082a14f6528204d0c97086"
   license "GPL-3.0-or-later"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "751d7b1a86af9855a051cffe36b2569ce962146f5f56c09529ea4276140fa500"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f30589e4b49dc5e2bfa37e58a614977d6ac4f8afb11615e4e2a6ad3b9519705e"

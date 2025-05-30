@@ -7,6 +7,8 @@ class Chardet < Formula
   sha256 "1b3b6ff479a8c414bc3fa2c0852995695c4a026dcd6d0633b2dd092ca39c1cf7"
   license "LGPL-2.1-or-later"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, all: "5abd9f3f6191b67dd5c0a9912225873d1aea2371883c7aee8fcc3077e414dc96"

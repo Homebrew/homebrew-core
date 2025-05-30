@@ -5,6 +5,8 @@ class CreateDmg < Formula
   sha256 "18e8dd7db06c9d6fb590c7877e1714b79b709f17d1d138bd65e4910cc82391bc"
   license "MIT"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, all: "ed92cefd6df282057e6c1a162eb453d4c8d3b34a4a8637bf292813817badef81"
   end

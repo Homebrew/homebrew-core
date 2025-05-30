@@ -7,6 +7,8 @@ class Cabocha < Formula
   sha256 "9db896d7f9d83fc3ae34908b788ae514ae19531eb89052e25f061232f6165992"
   license any_of: ["BSD-3-Clause", "LGPL-2.1-or-later"]
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 arm64_sequoia:  "10a190b7fea68a71d42b2b95bbae271c6e9c86792c46023b85d8197d9fc1b1f5"

@@ -9,6 +9,8 @@ class Ccm < Formula
   revision 5
   head "https://github.com/apache/cassandra-ccm.git", branch: "trunk"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "eb6c2ab38ac79ff2b3718e344517f07ebb2c9391227676a507d721337981b5cc"
     sha256 cellar: :any,                 arm64_sonoma:  "ef958862ebdc0d3203850a3055913742f0a784e339cbdede518f5582f9806185"

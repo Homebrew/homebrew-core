@@ -6,6 +6,8 @@ class Cddlib < Formula
   license "GPL-2.0-or-later"
   version_scheme 1
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "2660439f6e26917107af0a3e236d4ca2a9985b93f07dab226edcf7c2b16d5f01"
     sha256 cellar: :any,                 arm64_sonoma:   "b0eb2d856bc499714e6eba84ef8d853d4d4d422513a8b877e4419405fee643d1"

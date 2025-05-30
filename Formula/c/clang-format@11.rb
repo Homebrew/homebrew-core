@@ -5,6 +5,8 @@ class ClangFormatAT11 < Formula
   sha256 "ce8508e318a01a63d4e8b3090ab2ded3c598a50258cc49e2625b9120d4c03ea5"
   license "Apache-2.0"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "6042bc3d6961fbe848bedd13b7e0f45a351d0e843091e14235e616622d128b00"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d680a9a2a892531dfd38de0cd43dee55268a7eafea7ab72f21b00f06705a04fd"

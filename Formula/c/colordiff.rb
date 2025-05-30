@@ -10,6 +10,8 @@ class Colordiff < Formula
     regex(/href=.*?colordiff[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "5a83886f7e7aacfc46cc6a759f91dd8b80a068cf0bb6b4fa4815c4b310ecefd8"

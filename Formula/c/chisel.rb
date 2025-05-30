@@ -6,6 +6,8 @@ class Chisel < Formula
   license "MIT"
   head "https://github.com/facebook/chisel.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any, arm64_sequoia:  "92fa2160807b42dd0d79091402d8b8023722679230ed86dd5c2243704e7040cc"
     sha256 cellar: :any, arm64_sonoma:   "89a8bed56025f46a5c032e263df373455be3117b3f0dee5c3fd1acdbc01def32"

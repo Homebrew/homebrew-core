@@ -6,6 +6,8 @@ class Colfer < Formula
   license "CC0-1.0"
   head "https://github.com/pascaldekloe/colfer.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "46194d5083a34ae3e54cdd690610c1dd5fa385e2311cb1bd61e852029a53ec85"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a8310235bd0dec3a5cb4464aa1cd9c2ece726e5ef0100c9fb80f6443507e273c"

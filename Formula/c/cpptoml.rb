@@ -7,6 +7,8 @@ class Cpptoml < Formula
   revision 1
   head "https://github.com/skystrife/cpptoml.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "c7277d9959d90daba22c6e5e464e5d9877c6dce18d25932a5a7d53feac061139"

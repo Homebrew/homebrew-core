@@ -8,6 +8,8 @@ class Certbot < Formula
   license "Apache-2.0"
   head "https://github.com/certbot/certbot.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "ebb58721365d9eb126a45edb91c53793adf27cb07eeb1bf96cb39af4e7e122cb"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ebb58721365d9eb126a45edb91c53793adf27cb07eeb1bf96cb39af4e7e122cb"

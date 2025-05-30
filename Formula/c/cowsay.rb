@@ -6,6 +6,8 @@ class Cowsay < Formula
   license "GPL-3.0-only"
   head "https://github.com/cowsay-org/cowsay.git", branch: "main"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, all: "345e99255a69e9cb188a5a8e6bd8e6f50c334830c8a72877fc6b504c95e5cbd1"
   end

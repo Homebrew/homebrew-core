@@ -6,6 +6,8 @@ class ConsulBackinator < Formula
   license "MPL-2.0"
   head "https://github.com/myENA/consul-backinator.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "8839abd4d9ee77b2e2378c281bb982e4af742ea32996c592cbd70e39f882a131"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8dd6cbcb9488966e0c5452941ff2568e991cef265c705f3e20a465bb1346c238"

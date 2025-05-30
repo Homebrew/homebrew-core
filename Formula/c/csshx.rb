@@ -8,6 +8,8 @@ class Csshx < Formula
   license any_of: ["Artistic-1.0-Perl", "GPL-1.0-or-later"]
   head "https://github.com/brockgr/csshx.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "b8bdc972870bbf205b870ecd86251a2975d517f0da679aecdc0299b9472ef338"

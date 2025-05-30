@@ -5,6 +5,8 @@ class Cqlkit < Formula
   sha256 "0574b4b6fe893078e993a80f95a183b89955129ab8929f5032b7faacf611952c"
   license "Apache-2.0"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, all: "d046672e2ea78accbef7eb841a473b6074a2b42f683d6c9b4e07979f63c60c29"

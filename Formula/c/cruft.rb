@@ -9,6 +9,8 @@ class Cruft < Formula
   revision 1
   head "https://github.com/cruft/cruft.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "e5e41d578ada45a0151ce9c8e2b738bca0676d5a2ae8a9b59a385c67b7a5a182"
     sha256 cellar: :any,                 arm64_sonoma:  "d35f7ca0f3a67330cde228787fcfd800089ba5bae39aed787f83f7f658ee9998"

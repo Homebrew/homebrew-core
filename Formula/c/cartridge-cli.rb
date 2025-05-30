@@ -7,6 +7,8 @@ class CartridgeCli < Formula
   license "BSD-2-Clause"
   head "https://github.com/tarantool/cartridge-cli.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "c347030987d8638b17325dedf3ecd8a8271de8f1333aa086f7cfb0777c0ff8ae"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "bec51f07e6312f149f7d4dfadbbb9475de7dba2cae02d65f3ad4c5cc07b4305b"

@@ -10,6 +10,8 @@ class Cpmtools < Formula
     regex(/href=.*?cpmtools[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 arm64_sequoia:  "e689ad1b8bec7b7fb8b2f39ddccca66072998a172b7ef8788eeb6e54d06c4395"
     sha256 arm64_sonoma:   "229e3ca8bb433a8ca06a17c2d7b433648e9705c56bdfdc8d8084440d8244a3e1"

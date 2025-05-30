@@ -6,6 +6,8 @@ class Cloudpan189Go < Formula
   license "Apache-2.0"
   head "https://github.com/tickstep/cloudpan189-go.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "793542588a08328d55060fc0faeb3808bde9656eee00e8df0b9ca98ad70ed9b0"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c66a3ce0426a356d4b5c05fe95fc6213ed4c867048157ebbc862ca9196af857e"

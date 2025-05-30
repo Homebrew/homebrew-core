@@ -19,6 +19,8 @@ class Cattle < Formula
     regex(/href=.*?cattle[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256                               arm64_sequoia:  "502399f17e0777926e50b1a067eff9ff5520bcbf5457fb73156376891726d411"
     sha256                               arm64_sonoma:   "2e8272b2652bd83dda6c28b3b13464ef9adbd7f905bfa6a604e89bad92b5f652"

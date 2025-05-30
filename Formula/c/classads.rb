@@ -10,6 +10,8 @@ class Classads < Formula
     regex(/href=.*?classads[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 2
     sha256 cellar: :any,                 arm64_sequoia:  "5ed81428780f7cec908f7100cf6acaa0e6dc048636e9b0154c50b45ac4373e13"

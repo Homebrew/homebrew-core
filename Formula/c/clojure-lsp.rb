@@ -13,6 +13,8 @@ class ClojureLsp < Formula
     regex(/^v?(\d{4}(?:[.-]\d+)+)$/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, all: "3d619401724cbfdd92f76cd94d934055b4bc3c94878d8f34ada1bb77bef9b649"
   end

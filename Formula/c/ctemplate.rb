@@ -7,6 +7,8 @@ class Ctemplate < Formula
   revision 1
   head "https://github.com/olafvdspek/ctemplate.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 3
     sha256 cellar: :any,                 arm64_sequoia:  "acd3dba90331797c66b476e02edfb172fc67566fa46866d4b6c72605bb331030"

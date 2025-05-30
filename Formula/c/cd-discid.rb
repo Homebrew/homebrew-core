@@ -23,6 +23,8 @@ class CdDiscid < Formula
     regex(/href=.*?cd-discid[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "9956c0cddca69b3a816e8bc553c0455adac71f67ee30041a9065ac7c4384c219"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6714fb89edba30f77536f171b99da060ec3fa80a419a0f27f5ab2b9a26f2a266"

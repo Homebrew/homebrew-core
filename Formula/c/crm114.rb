@@ -5,6 +5,8 @@ class Crm114 < Formula
   sha256 "fb626472eca43ac2bc03526d49151c5f76b46b92327ab9ee9c9455210b938c2b"
   license "GPL-3.0-only"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "bdadfd33ce2fbca99f2c353e6a59651f68de4353cf8ba8ec319986a39531e3d5"
     sha256 cellar: :any,                 arm64_sonoma:   "02293e7f49287e46515f25f788207339c207a9caed0b57c31853b691a9e0358c"

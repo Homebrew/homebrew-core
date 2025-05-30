@@ -6,6 +6,8 @@ class CouchdbLucene < Formula
   license "Apache-2.0"
   revision 2
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "e51dc09d265658f719623e8e19ae3500b9e798fddb6baacbfe17f31d5ed41dfd"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f739d9de763e66d5ccfbfb3d14034352e0d9e0c4e37799aca78487b395f029a2"

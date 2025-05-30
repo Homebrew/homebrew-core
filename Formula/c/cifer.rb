@@ -5,6 +5,8 @@ class Cifer < Formula
   sha256 "436816c1f9112b8b80cf974596095648d60ffd47eca8eb91fdeb19d3538ea793"
   license "GPL-3.0-or-later"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "8d9f5339ed8c92d74cc50214716df2c6082a559fdf26b004ff69e0468e3faf0e"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7b6a222301feeb2df2db2337c86c5c5e0223e17d5df33bab506f5be9b9d7cd62"

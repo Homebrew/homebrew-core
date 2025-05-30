@@ -7,6 +7,8 @@ class Carthage < Formula
   license "MIT"
   head "https://github.com/Carthage/Carthage.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "1ab671fcc4b39986c412e44002456ec71e5ee23ac9574bcbe653f2c7f1e0c3c8"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "01fa70c2d94efb0b4da3c593708f931e383f99a93e8461fda85804d08564815d"

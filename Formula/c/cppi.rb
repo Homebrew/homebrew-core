@@ -6,6 +6,8 @@ class Cppi < Formula
   sha256 "12a505b98863f6c5cf1f749f9080be3b42b3eac5a35b59630e67bea7241364ca"
   license "GPL-3.0-or-later"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "ad3274881902eed64b3d3a8d0c846e7dcb09e13d6dd972551de0cc2fa09f89a0"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "60bcb5a1dba625e152384d1dfbcebbec2bfc552a6744a42ac8c9131a50d22f51"

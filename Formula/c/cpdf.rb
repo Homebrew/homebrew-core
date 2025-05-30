@@ -5,6 +5,8 @@ class Cpdf < Formula
   sha256 "bdd7caf1e5e55e65e4ece96eeeb3e5894c195ca5a9a274ddc27ac50a321d5c75"
   license "AGPL-3.0-only"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "e97a2d112914e6eac5e522a8663deb1771ef04e8296fdf34db39558a0dadca23"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8b36ddb34c391665d5337de6b63118487263285b5917528d4c52847510af548d"

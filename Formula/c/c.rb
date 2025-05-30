@@ -6,6 +6,8 @@ class C < Formula
   license "MIT"
   head "https://github.com/ryanmjacobs/c.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "eebb1128fae6df85637e7549c813991361c29fe62b02d4b003ebf2b5d37404ca"

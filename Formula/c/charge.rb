@@ -6,6 +6,8 @@ class Charge < Formula
   license "MIT"
   head "https://github.com/brandonweiss/charge.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f26cdaf761fc50ccd7782b3cc3912d0a8dc93e0acf0bc24da2c7d842ceea4121"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "83bf10a43c6321be09aecf20dcc0c80daa76f96847840edef4964eea9fcac492"

@@ -6,6 +6,8 @@ class Certgraph < Formula
   license "GPL-2.0-or-later"
   head "https://github.com/lanrat/certgraph.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "bb875c3150d6b112b81aa2e8fdec0393f8d1c62a052ccd53b4349550559307c0"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "87984362d6fa214b3adad55d4ee28ecf6f102e5fc3dc62f0f85b186210824518"

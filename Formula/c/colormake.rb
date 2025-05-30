@@ -6,6 +6,8 @@ class Colormake < Formula
   license "GPL-2.0-or-later"
   head "https://github.com/pagekite/Colormake.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "a628cc6cde2a938abc044ae867405b3232bc9c999b10729652fbe3088535da44"

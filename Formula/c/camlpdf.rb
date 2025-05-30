@@ -5,6 +5,8 @@ class Camlpdf < Formula
   sha256 "148994c70016f1b02fee1f5548ff7d36ba7d0a5716e03f95011160fcc495657b"
   license "LGPL-2.1-only" => { with: "OCaml-LGPL-linking-exception" }
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "34f2db85bff44fd2a7b00704e099a76106d85431dcb8f122a74ad530e585407d"
     sha256 cellar: :any,                 arm64_sonoma:  "22e65fe30f42615d8711c07c4d9df5fe61942f4e315575725d274d9572b13bd3"

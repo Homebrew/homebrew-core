@@ -10,6 +10,8 @@ class Cvsync < Formula
     regex(/href=.*?cvsync[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 3
     sha256 cellar: :any,                 arm64_sequoia:  "c5f77cf63c61c0042ebacea31bc3d2e7548afc08ec738fd6f0a8baf3180b4795"

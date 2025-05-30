@@ -5,6 +5,8 @@ class Clens < Formula
   sha256 "0cc18155c2c98077cb90f07f6ad8334314606c4be0b6ffc13d6996171c7dc09d"
   license "ISC"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "27badceb51069c0b5dcc5673744b149caa21eaf48719005480dbc0b6dcd8a153"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2c2082a66bc51ab50ef09640e4a4526111455a6545a21e9907c62469ea686d82"

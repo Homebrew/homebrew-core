@@ -5,6 +5,8 @@ class Crfsuite < Formula
   sha256 "ab83084ed5d4532ec772d96c3e964104d689f2c295915e80299ea3c315335b00"
   license "BSD-3-Clause"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "a927557fa509ed7f639826d4ba8c469eb580b53dcceeab6268a6519fc1b41813"
     sha256 cellar: :any,                 arm64_sonoma:   "80a144cb4f7425ae6d43e321080cbaad697626aba0356c787ab62a53514a5804"

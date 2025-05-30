@@ -13,6 +13,8 @@ class Cdrtools < Formula
     regex(%r{url=.*?/cdrtools[._-]v?(\d+(?:\.\d+)+(a\d\d)?)\.t}i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 arm64_sequoia:  "12e1334974f92d034d839c30e8d1c4ff5d8a5e7341ae9d2f4013cc6bd1b73859"
     sha256 arm64_sonoma:   "ed19c02f2ca445c89d139595e826a29bcfd41dba4c8e67c461b86deaa277af14"

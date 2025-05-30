@@ -12,6 +12,8 @@ class Chipmunk < Formula
     regex(/>\s*Chipmunk2D\s+v?(\d+(?:\.\d+)+)\s*</i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "97effc6e461bf5caddcf2b7c219b694f45468cae26870becc75f66e5d1c89076"
     sha256 cellar: :any,                 arm64_sonoma:   "da4db92c9a17fdc20990b5e994a3034c89506fe0ce2800275bcfeb128be6d1e8"

@@ -6,6 +6,8 @@ class CamlpStreams < Formula
   license "LGPL-2.1-only" => { with: "OCaml-LGPL-linking-exception" }
   revision 3
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "9c01e19dbc10f3a4af763dc523057b9d9ed8a228bfe112f95750b9c8b3bfc2e4"
     sha256 cellar: :any,                 arm64_sonoma:  "8c5b166642bda73a4b0cec82e26841cf04037cb1b95c491e2a38d32e3655e823"

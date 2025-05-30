@@ -7,6 +7,8 @@ class Cmockery < Formula
   # TODO: Change license to Apache-2.0 on next version as COPYING was replaced by LICENSE.txt
   license all_of: ["BSD-3-Clause", "Apache-2.0"]
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_sequoia:  "8c4679ab8e8779a11746c1d18156b83b3446ff6d332b06e6548585b84fc51101"

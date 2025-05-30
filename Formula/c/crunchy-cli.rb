@@ -6,6 +6,8 @@ class CrunchyCli < Formula
   license "MIT"
   head "https://github.com/crunchy-labs/crunchy-cli.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "a1e9883dac18b6296214f9145e6ff940b68cdb9fba356cb1437081956a92f0d7"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "eff25dab580ce0fab83a7bd145c4135f60bc7a33ea7dc2beff2ff1dcec221238"
