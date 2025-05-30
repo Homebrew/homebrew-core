@@ -21,11 +21,16 @@ class Fasmg < Formula
     elsif OS.mac?
       os = "macos"
       fasmg = "./source/#{os}/x64/fasmg"
+    else
+      odie "Unsupported operating system"
     end
 
+    cd "core" if build.head?
     chmod "+x", fasmg
+
     system fasmg, "./source/#{os}/x64/fasmg.asm", "./fasmg"
     chmod "+x", "fasmg"
+
     bin.install "fasmg"
     doc.install Dir["docs/*"]
     (pkgshare/"examples").install Dir["examples/*"]
@@ -33,60 +38,52 @@ class Fasmg < Formula
 
   test do
     ENV["INCLUDE"] = pkgshare/"examples/x86/include"
-
-    if OS.mac?
-      (testpath/"hello.asm").write <<~EOS
-        include 'format/format.inc'
-        format MachO64
-        public _main
-
-        segment '__TEXT' readable executable
-
-        section '__cstring' align 1
-        message db 'Hello, world!', 0x0A
-        message_len = $ - message
-
-        section '__text' align 16
-        _main:
-          mov rax, 0x2000004
-          mov rdi, 1
-          lea rsi, [message]
-          mov rdx, message_len
-          syscall
-          mov rax, 0x2000001
-          xor rdi, rdi
-          syscall
-          ret
-      EOS
-      system bin/"fasmg", "hello.asm", "hello.o"
-      assert_path_exists testpath/"hello.o"
-      system ENV.cc, "hello.o", "-o", "hello"
-    elsif OS.linux?
-      (testpath/"hello.asm").write <<~EOS
-        include 'format/format.inc'
-        format ELF64 executable 3
-        entry _start
-
-        segment readable executable
-        _start:
-          mov rax, 1
-          mov rdi, 1
-          mov rsi, message
-          mov rdx, message_len
-          syscall
-          mov rax, 60
-          xor rdi, rdi
-          syscall
-
-        segment readable
-          message db 'Hello, world!', 0x0A
-          message_len = $ - message
-      EOS
-      system bin/"fasmg", "hello.asm", "hello"
+    format = OS.mac? ? "MachO64" : "ELF64"
+    entry = OS.mac? ? "_main" : "_start"
+    strings_section = OS.mac? ? "section '__cstring' align 1" : "segment readable"
+    text_section = OS.mac? ? "section '__text' align 16" : "segment readable executable"
+    prelude = if OS.mac?
+      # On modern macOS, all executable must be dynamically linked.
+      # Populate an entry in the dynamic symbol table for dyld to work properly.
+      <<~EOF
+        import libc.printf, '_printf'
+        interpreter '/usr/lib/dyld'
+        uses '/usr/lib/libSystem.B.dylib'
+      EOF
+    else
+      ""
     end
 
+    (testpath/"hello.asm").write <<~EOS
+      include 'format/format.inc'
+      format #{format} executable
+      entry #{entry}
+
+      #{prelude}
+
+      SYS_write = #{OS.mac? ? "0x2000004" : "1"}
+      SYS_exit = #{OS.mac? ? "0x2000001" : "60"}
+
+      #{OS.mac? ? "segment '__TEXT' readable executable" : ""}
+      #{strings_section}
+      message db 'Hello, world!', 0x0A
+      message_len = $ - message
+
+      #{text_section}
+      #{entry}:
+        mov rax, SYS_write
+        mov rdi, 1
+        lea rsi, [message]
+        mov rdx, message_len
+        syscall
+        mov rax, SYS_exit
+        xor rdi, rdi
+        syscall
+        ret
+    EOS
+
+    system bin/"fasmg", "hello.asm", "hello"
     chmod "+x", "hello"
-    assert_path_exists testpath/"hello"
     assert_equal "Hello, world!\n", shell_output("./hello")
   end
 end
