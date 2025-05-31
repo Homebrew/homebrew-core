@@ -3,8 +3,8 @@ class ArcadeLearningEnvironment < Formula
 
   desc "Platform for AI research"
   homepage "https://github.com/Farama-Foundation/Arcade-Learning-Environment"
-  url "https://github.com/Farama-Foundation/Arcade-Learning-Environment/archive/refs/tags/v0.11.0.tar.gz"
-  sha256 "300717009d18c784bf4b407f608e269d7c87e40769c277206230011352e65b97"
+  url "https://github.com/Farama-Foundation/Arcade-Learning-Environment/archive/refs/tags/v0.11.1.tar.gz"
+  sha256 "2b878ae1b7febb498c7ab5351791c6d9838dc214b4825eec0df1b53b58b6aaa3"
   license "GPL-2.0-only"
   head "https://github.com/Farama-Foundation/Arcade-Learning-Environment.git", branch: "master"
 
@@ -40,13 +40,20 @@ class ArcadeLearningEnvironment < Formula
     sha256 "8bd9ea9bdef32c950a444ff36afc785e1d81051ec32d30435058953c20d2456d"
   end
 
+  resource "jax" do
+    url "https://files.pythonhosted.org/packages/a3/b9/6d3d88fbab17696d00824ecac3d67feea1ff0abe12d3ebe64166a311ac04/jax-0.6.1.tar.gz"
+    sha256 "c4dcb93e1d34f80cf7adfa81f3fdab62a5068b69107b7a6117f8742ab37b6779"
+  end
+
   def python3
     "python3.13"
   end
 
   def install
-    resource("gymnasium").stage do
-      system python3, "-m", "pip", "install", *std_pip_args(build_isolation: true), "."
+    ["gymnasium", "jax"].each do |r|
+      resource(r).stage do
+        system python3, "-m", "pip", "install", *std_pip_args(build_isolation: true), "."
+      end
     end
 
     system "cmake", "-S", ".", "-B", "build",
