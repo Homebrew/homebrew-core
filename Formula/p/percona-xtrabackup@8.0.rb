@@ -1,10 +1,9 @@
 class PerconaXtrabackupAT80 < Formula
   desc "Open source hot backup tool for InnoDB and XtraDB databases"
   homepage "https://www.percona.com/software/mysql-database/percona-xtrabackup"
-  url "https://downloads.percona.com/downloads/Percona-XtraBackup-8.0/Percona-XtraBackup-8.0.35-32/source/tarball/percona-xtrabackup-8.0.35-32.tar.gz"
-  sha256 "04982a36e36d0e9dfb8487afa77329dd0d2d38da163a205f0179635ceea1aff1"
+  url "https://downloads.percona.com/downloads/Percona-XtraBackup-8.0/Percona-XtraBackup-8.4.0-3/source/tarball/percona-xtrabackup-8.4.0-3.tar.gz"
+  sha256 "0d0538a615031e31eecf9de9ae1daa332ca8707b0901f8ca41f595f0f29798a8"
   license "GPL-2.0-only"
-  revision 1
 
   livecheck do
     url "https://www.percona.com/products-api.php", post_form: {
@@ -69,12 +68,6 @@ class PerconaXtrabackupAT80 < Formula
       url "https://raw.githubusercontent.com/percona/percona-xtrabackup/refs/tags/percona-xtrabackup-#{LATEST_VERSION}/cmake/boost.cmake"
       regex(%r{/release/v?(\d+(?:\.\d+)+)/}i)
     end
-  end
-
-  # Apply fix for newer protobuf from MySQL repo. Remove once Percona syncs with MySQL 8.0.40
-  patch do
-    url "https://github.com/mysql/mysql-server/commit/269abc0409b22bb87ec88bd4d53dfb7a1403eace.patch?full_index=1"
-    sha256 "ffcee32804e7e1237907432adb3590fcbf30c625eea836df6760c05a312a84e1"
   end
 
   # Patch out check for Homebrew `boost`.
