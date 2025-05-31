@@ -1,6 +1,6 @@
 class Healpix < Formula
   desc "Hierarchical Equal Area isoLatitude Pixelization of a sphere"
-  homepage "https://healpix.jpl.nasa.gov"
+  homepage "https://healpix.sourceforge.io"
   url "https://downloads.sourceforge.net/project/healpix/Healpix_3.83/Healpix_3.83_2024Nov13.tar.gz"
   version "3.83"
   sha256 "8876c18efc596fd706b2a004ac15f2fb60b795f2db6fbabea9d8ccf549531dda"
