@@ -62,14 +62,15 @@ class Curl < Formula
     depends_on "libidn2"
   end
 
-  conflicts_with "wcurl", because: "both install `wcurl` binary"
-
   def install
     tag_name = "curl-#{version.to_s.tr(".", "_")}"
     if build.stable? && stable.mirrors.grep(/github\.com/).first.exclude?(tag_name)
       odie "Tag name #{tag_name} is not found in the GitHub mirror URL! " \
            "Please make sure the URL is correct."
     end
+
+    # Use our `curl` formula with `wcurl`
+    inreplace "scripts/wcurl", "CMD=\"curl \"", "CMD=\"#{Formula["curl"].opt_bin}/curl\""
 
     system "autoreconf", "--force", "--install", "--verbose" if build.head?
 

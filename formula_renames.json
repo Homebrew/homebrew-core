@@ -164,6 +164,7 @@
   "trust-dns": "hickory-dns",
   "twine-pypi": "twine",
   "usbmuxd": "libusbmuxd",
+  "wcurl": "curl",
   "weboob": "woob",
   "wires": "geckodriver",
   "wpcli-completion": "wp-cli-completion",
