@@ -1,8 +1,8 @@
 class BitwardenCli < Formula
   desc "Secure and free password manager for all of your devices"
   homepage "https://bitwarden.com/"
-  url "https://github.com/bitwarden/clients/archive/refs/tags/cli-v2025.2.0.tar.gz"
-  sha256 "2c31f8f66e197d5bcbc656c258d4556c97e49a940cabad3ec76ff3742b5252c7"
+  url "https://github.com/bitwarden/clients/archive/refs/tags/cli-v2025.5.0.tar.gz"
+  sha256 "247ca881c8a9f407c494977f7e8555fe11beff017d0cfda6a6d437ec0c0978d6"
   license "GPL-3.0-only"
 
   livecheck do
@@ -23,6 +23,7 @@ class BitwardenCli < Formula
   depends_on "node"
 
   def install
+    system "npm", "install", "semver", *std_npm_args
     system "npm", "ci", "--ignore-scripts"
 
     cd buildpath/"apps/cli" do
@@ -37,10 +38,13 @@ class BitwardenCli < Formula
     # Remove incompatible pre-built `argon2` binaries
     os = OS.kernel_name.downcase
     arch = Hardware::CPU.intel? ? "x64" : Hardware::CPU.arch.to_s
-    node_modules = libexec/"lib/node_modules/@bitwarden/cli/node_modules"
-    (node_modules/"argon2/prebuilds/linux-arm64/argon2.armv8.musl.node").unlink
-    (node_modules/"argon2/prebuilds/linux-x64/argon2.musl.node").unlink
-    (node_modules/"argon2/prebuilds").each_child { |dir| rm_r(dir) if dir.basename.to_s != "#{os}-#{arch}" }
+    base = (libexec/"lib/node_modules/@bitwarden")
+    universals = "{@microsoft/signalr/node_modules/utf-8-validate,bufferutil,utf-8-validate}"
+    base.glob("clients/node_modules/#{universals}/prebuilds/darwin-x64+arm64/*.node").each(&:unlink)
+    base.glob("{cli,clients}/node_modules/argon2/prebuilds") do |path|
+      path.glob("**/*.musl.node").each(&:unlink)
+      path.children.each { |dir| rm_r(dir) if dir.directory? && dir.basename.to_s != "#{os}-#{arch}" }
+    end
 
     generate_completions_from_executable(bin/"bw", "completion", shells: [:zsh], shell_parameter_format: :arg)
   end
