@@ -1,8 +1,8 @@
 class Podofo < Formula
   desc "Library to work with the PDF file format"
   homepage "https://github.com/podofo/podofo"
-  url "https://github.com/podofo/podofo/archive/refs/tags/0.10.4.tar.gz"
-  sha256 "6b1b13cdfb2ba5e8bbc549df507023dd4873bc946211bc6942183b8496986904"
+  url "https://github.com/podofo/podofo/archive/refs/tags/1.0.0.tar.gz"
+  sha256 "e44276d927838034b51c4c79001e7ae5c3fef90b6844824004c77f160c1a22ea"
   license all_of: ["LGPL-2.0-only", "GPL-2.0-only"]
   head "https://github.com/podofo/podofo.git", branch: "master"
 
@@ -35,15 +35,29 @@ class Podofo < Formula
   uses_from_macos "libxml2"
   uses_from_macos "zlib"
 
+  on_ventura :or_older do
+    depends_on "llvm" => :build
+
+    fails_with :clang do
+      cause "error: 'to_chars' is unavailable: introduced in macOS 13.3"
+    end
+  end
+
   def install
+    if OS.mac? && MacOS.version <= :ventura
+      ENV.llvm_clang
+      ENV.append "LDFLAGS", "-L#{Formula["llvm"].opt_lib}/unwind -lunwind"
+      # When using Homebrew's superenv shims, we need to use HOMEBREW_LIBRARY_PATHS
+      # rather than LDFLAGS for libc++ in order to correctly link to LLVM's libc++.
+      ENV.prepend_path "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib/"c++"
+      # Workaround for error: call to 'from_chars' is ambiguous
+      inreplace "src/podofo/private/charconv_compat.h", "#define WANT_FROM_CHARS", ""
+    end
+
     args = %W[
       -DCMAKE_INSTALL_NAME_DIR=#{opt_lib}
       -DCMAKE_BUILD_WITH_INSTALL_NAME_DIR=ON
-      -DCMAKE_DISABLE_FIND_PACKAGE_CppUnit=ON
-      -DCMAKE_DISABLE_FIND_PACKAGE_LUA=ON
-      -DPODOFO_BUILD_TOOLS=TRUE
-      -DFREETYPE_INCLUDE_DIR_FT2BUILD=#{Formula["freetype"].opt_include}/freetype2
-      -DFREETYPE_INCLUDE_DIR_FTHEADER=#{Formula["freetype"].opt_include}/freetype2/config/
+      -DPODOFO_BUILD_UNSUPPORTED_TOOLS=TRUE
     ]
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
