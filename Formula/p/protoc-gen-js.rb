@@ -4,7 +4,7 @@ class ProtocGenJs < Formula
   url "https://github.com/protocolbuffers/protobuf-javascript/archive/refs/tags/v3.21.4.tar.gz"
   sha256 "8cef92b4c803429af0c11c4090a76b6a931f82d21e0830760a17f9c6cb358150"
   license "BSD-3-Clause"
-  revision 9
+  revision 10
   head "https://github.com/protocolbuffers/protobuf-javascript.git", branch: "main"
 
   bottle do
