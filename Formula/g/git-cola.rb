@@ -16,6 +16,7 @@ class GitCola < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "49f8f56b4d1035b4f68ca5f1513bd1b6b472439909656cb42ac4953c95bdda4b"
   end
 
+  depends_on "git-gui"
   depends_on "pyqt"
   depends_on "python@3.13"
 
