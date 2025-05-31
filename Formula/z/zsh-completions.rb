@@ -49,8 +49,8 @@ class ZshCompletions < Formula
       Additionally, if you receive "zsh compinit: insecure directories" warnings when attempting
       to load these completions, you may need to run these commands:
 
-        chmod go-w '#{HOMEBREW_PREFIX}/share'
-        chmod -R go-w '#{HOMEBREW_PREFIX}/share/zsh'
+        chmod go-w "#{HOMEBREW_PREFIX}/share"
+        chmod -R go-w "#{HOMEBREW_PREFIX}/share/zsh"
     EOS
   end
 
