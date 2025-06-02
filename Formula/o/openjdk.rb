@@ -1,8 +1,8 @@
 class Openjdk < Formula
   desc "Development kit for the Java programming language"
   homepage "https://openjdk.java.net/"
-  url "https://github.com/openjdk/jdk23u/archive/refs/tags/jdk-23.0.2-ga.tar.gz"
-  sha256 "0812e2e4d51ab1d752c1d532150297a56bd47557db67f8e2b298199e7f65db1c"
+  url "https://github.com/openjdk/jdk24u/archive/refs/tags/jdk-24.0.1-ga.tar.gz"
+  sha256 "2ccaaf7c5f03b6f689347df99e6e34cd6d3b30bc56af815c8c152a6eeb6a6c25"
   license "GPL-2.0-only" => { with: "Classpath-exception-2.0" }
 
   livecheck do
@@ -10,6 +10,7 @@ class Openjdk < Formula
     regex(/^jdk[._-]v?(\d+(?:\.\d+)*)-ga$/i)
   end
 
+  # block updated by BrewTestBot
   bottle do
     sha256 cellar: :any, arm64_sequoia: "1285eadf2b5998cda49e4470ee3875e855b0be199765401ad77dc38aea573f49"
     sha256 cellar: :any, arm64_sonoma:  "1cccc8bb39130612a61ff9d18a208ec232b86a21d646748a7af3f3f693eab804"
@@ -50,26 +51,26 @@ class Openjdk < Formula
     depends_on "libxtst"
   end
 
-  # From https://jdk.java.net/archive/
+  # From https://jdk.java.net/24/
   resource "boot-jdk" do
     on_macos do
       on_arm do
-        url "https://download.java.net/java/GA/jdk23.0.1/c28985cbf10d4e648e4004050f8781aa/11/GPL/openjdk-23.0.1_macos-aarch64_bin.tar.gz"
-        sha256 "cd626e636fdd7e68467a9ca27d71107a27bd500c33ab40a91b57317c0c0f949f"
+        url "https://download.java.net/java/GA/jdk24.0.1/24a58e0e276943138bf3e963e6291ac2/9/GPL/openjdk-24.0.1_macos-aarch64_bin.tar.gz"
+        sha256 "3d3d5930b3244f09f73c160dff0194af45097a94476976e5d9ccc1d31a860d0f"
       end
       on_intel do
-        url "https://download.java.net/java/GA/jdk23.0.1/c28985cbf10d4e648e4004050f8781aa/11/GPL/openjdk-23.0.1_macos-x64_bin.tar.gz"
-        sha256 "3661d387ea2f1248364bc384a1e36197b3633f63dde7fd1f61b296e89eb0f768"
+        url "https://download.java.net/java/GA/jdk24.0.1/24a58e0e276943138bf3e963e6291ac2/9/GPL/openjdk-24.0.1_macos-x64_bin.tar.gz"
+        sha256 "093a1c80b2c3c4b4bfa2a93d6f8298c2564a799ff915703a65346d82c03c1409"
       end
     end
     on_linux do
       on_arm do
-        url "https://download.java.net/java/GA/jdk23.0.1/c28985cbf10d4e648e4004050f8781aa/11/GPL/openjdk-23.0.1_linux-aarch64_bin.tar.gz"
-        sha256 "94586630f70f1e87d90c252a6a2a202655399d1358c9b226834179e8bcf800e9"
+        url "https://download.java.net/java/GA/jdk24.0.1/24a58e0e276943138bf3e963e6291ac2/9/GPL/openjdk-24.0.1_linux-aarch64_bin.tar.gz"
+        sha256 "378c37c2e095518558d000f094f63bc17a301603243c446f2fe9e93c95bbc753"
       end
       on_intel do
-        url "https://download.java.net/java/GA/jdk23.0.1/c28985cbf10d4e648e4004050f8781aa/11/GPL/openjdk-23.0.1_linux-x64_bin.tar.gz"
-        sha256 "dc9b6adc1550afd95e30e131c1c38044925cb656923f92f6dbf0fbd8c1405629"
+        url "https://download.java.net/java/GA/jdk24.0.1/24a58e0e276943138bf3e963e6291ac2/9/GPL/openjdk-24.0.1_linux-x64_bin.tar.gz"
+        sha256 "5d78a1c35dc36b5435addd908f5bc8d714368635b5adc6fd0ea6784d4d00db83"
       end
     end
   end
