@@ -19,6 +19,7 @@ class WhisperkitCli < Formula
   uses_from_macos "swift"
 
   def install
+    ENV["BUILD_ALL"] = "1"
     system "swift", "build", "-c", "release", "--product", "whisperkit-cli", "--disable-sandbox"
     bin.install ".build/release/whisperkit-cli"
   end
