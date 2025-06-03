@@ -5,8 +5,8 @@ class Citus < Formula
   head "https://github.com/citusdata/citus.git", branch: "main"
 
   stable do
-    url "https://github.com/citusdata/citus/archive/refs/tags/v13.0.1.tar.gz"
-    sha256 "b7fdc3ad6eca9dd6a1066e897a249fdca289e96d81921d4c7bf98cb4302ce817"
+    url "https://github.com/citusdata/citus/archive/refs/tags/v13.0.4.tar.gz"
+    sha256 "92ad963546d754f4a7b3ac9e1b937ee533130e71efa72869ed893131c28c9593"
 
     # Backport DLSUFFIX usage to fix extension on macOS
     patch do
