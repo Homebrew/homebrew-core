@@ -1,8 +1,8 @@
 class Infisical < Formula
   desc "CLI for Infisical"
   homepage "https://infisical.com/docs/cli/overview"
-  url "https://github.com/Infisical/infisical/archive/refs/tags/infisical-cli/v0.41.5.tar.gz"
-  sha256 "a8cb24c0ff750504cbe1683a2962d0c8114d3a3c12f266c0b811e0b151877995"
+  url "https://github.com/Infisical/infisical/archive/refs/tags/infisical-cli/v0.41.6.tar.gz"
+  sha256 "5b060df9200c7b267fb88b3e5413fae2f2755078561fb983bdbc91fcca0f22e2"
   license "MIT"
   head "https://github.com/Infisical/infisical.git", branch: "main"
 
@@ -39,6 +39,6 @@ class Infisical < Formula
     assert_match "Reset successful", output
 
     output = shell_output("#{bin}/infisical init 2>&1", 1)
-    assert_match "You must be logged in to run this command.", output
+    assert_match "No valid login session found, triggering login flow", output
   end
 end
