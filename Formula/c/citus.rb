@@ -1,19 +1,10 @@
 class Citus < Formula
   desc "PostgreSQL-based distributed RDBMS"
   homepage "https://www.citusdata.com"
+  url "https://github.com/citusdata/citus/archive/refs/tags/v13.0.4.tar.gz"
+  sha256 "92ad963546d754f4a7b3ac9e1b937ee533130e71efa72869ed893131c28c9593"
   license "AGPL-3.0-only"
   head "https://github.com/citusdata/citus.git", branch: "main"
-
-  stable do
-    url "https://github.com/citusdata/citus/archive/refs/tags/v13.0.4.tar.gz"
-    sha256 "92ad963546d754f4a7b3ac9e1b937ee533130e71efa72869ed893131c28c9593"
-
-    # Backport DLSUFFIX usage to fix extension on macOS
-    patch do
-      url "https://github.com/citusdata/citus/commit/0f28a69f12418d211ffba5f7ddd222fd0c47daeb.patch?full_index=1"
-      sha256 "b8a350538d75523ecc171ea8f10fc1d0a2f97bd7ac6116169d773b0b5714215e"
-    end
-  end
 
   # There can be a notable gap between when a version is tagged and a
   # corresponding release is created, so we check the "latest" release instead
