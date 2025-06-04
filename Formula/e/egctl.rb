@@ -1,8 +1,8 @@
 class Egctl < Formula
   desc "Command-line utility for operating Envoy Gateway"
   homepage "https://gateway.envoyproxy.io/"
-  url "https://github.com/envoyproxy/gateway/archive/refs/tags/v1.4.0.tar.gz"
-  sha256 "546dade7aaabb8a853eb2c9101929c3098abbf67d9525ecd69507d33769a5a4a"
+  url "https://github.com/envoyproxy/gateway/archive/refs/tags/v1.4.1.tar.gz"
+  sha256 "e5fc9b96494434f1b30a5837e31081a58da42d276b6b78bb207d816bfef867e6"
   license "Apache-2.0"
   head "https://github.com/envoyproxy/gateway.git", branch: "main"
 
@@ -20,12 +20,6 @@ class Egctl < Formula
 
   on_linux do
     depends_on "btrfs-progs"
-  end
-
-  # bump purego to build against go 1.24.3, upstream pr ref, https://github.com/envoyproxy/gateway/pull/6075
-  patch do
-    url "https://github.com/envoyproxy/gateway/commit/8aaee41dde53411a03d71c0808d4ed502455195d.patch?full_index=1"
-    sha256 "37fac3a17bc8876e07df799d6dd7a614411c9fceb63988654c1e3d18c6b28a45"
   end
 
   def install
