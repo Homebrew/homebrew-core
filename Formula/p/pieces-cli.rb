@@ -3,8 +3,8 @@ class PiecesCli < Formula
 
   desc "Command-line tool for Pieces.app"
   homepage "https://pieces.app/"
-  url "https://storage.googleapis.com/app-releases-production/pieces_cli/release/pieces_cli-1.14.0.tar.gz"
-  sha256 "f3cb1116d1d939aa6795fcbea8d91886a3c5e11c5dae350a547dfa52f6d4da22"
+  url "https://storage.googleapis.com/app-releases-production/pieces_cli/release/pieces_cli-1.15.0.tar.gz"
+  sha256 "80beca5467d9748a9c5fc751207f87656c7e9e9e60a05bb7bc116f59c775ed44"
 
   license "MIT"
 
