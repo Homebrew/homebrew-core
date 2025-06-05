@@ -1,5 +1,5 @@
 class Edit < Formula
-  desc "A simple text editor with clickable interface"
+  desc "Simple text editor with clickable interface"
   homepage "https://github.com/microsoft/edit"
   url "https://github.com/microsoft/edit/archive/refs/tags/v1.1.0.tar.gz"
   sha256 "d91205513b245bf4ed1127c35d148cac4f7dafd22b071fe3443d080bbda4b9ef"
