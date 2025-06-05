@@ -1,8 +1,8 @@
 class Lighthouse < Formula
   desc "Rust Ethereum 2.0 Client"
   homepage "https://lighthouse.sigmaprime.io/"
-  url "https://github.com/sigp/lighthouse/archive/refs/tags/v6.0.1.tar.gz"
-  sha256 "8a8f43f099bed624318aaabbf3811e78a0171c7fb4e5e30f7e66ab70bbe40a1c"
+  url "https://github.com/sigp/lighthouse/archive/refs/tags/v7.0.1.tar.gz"
+  sha256 "e2432feb02d6dd86faec3831731a88993c428a87df1fa6a43efd576bdf01f259"
   license "Apache-2.0"
 
   livecheck do
@@ -36,6 +36,8 @@ class Lighthouse < Formula
     # Ensure that the `openssl` crate picks up the intended library.
     ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
     ENV["OPENSSL_NO_VENDOR"] = "1"
+    # Use correct compiler to prevent blst from enabling AVX support on macOS
+    ENV["CC"] = Formula["llvm"].opt_bin/"clang" if Hardware::CPU.mac?
 
     system "cargo", "install", "--no-default-features", *std_cargo_args(path: "./lighthouse")
   end
