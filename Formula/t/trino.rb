@@ -3,8 +3,8 @@ class Trino < Formula
 
   desc "Distributed SQL query engine for big data"
   homepage "https://trino.io"
-  url "https://search.maven.org/remotecontent?filepath=io/trino/trino-server/475/trino-server-475.tar.gz"
-  sha256 "e0abe7af2599003a23302af13bd74e69db45d3ba701899fa809e4cf8edbc01d4"
+  url "https://search.maven.org/remotecontent?filepath=io/trino/trino-server/476/trino-server-476.tar.gz"
+  sha256 "cfd5accde17e8ebd251eeeb78aed1f490e77bb3a164d95a0f454bf8a7c1cbd3f"
   license "Apache-2.0"
 
   livecheck do
@@ -25,8 +25,8 @@ class Trino < Formula
   depends_on "openjdk"
 
   resource "trino-src" do
-    url "https://github.com/trinodb/trino/archive/refs/tags/475.tar.gz"
-    sha256 "cc358932b557e0748f3109d0d79a92d6261034423013d8f77f2905d902880069"
+    url "https://github.com/trinodb/trino/archive/refs/tags/476.tar.gz"
+    sha256 "5a288d90f02858131387a93e9c221bed77849073fb107e6cdf0a74945ee33cbe"
 
     livecheck do
       formula :parent
@@ -34,8 +34,8 @@ class Trino < Formula
   end
 
   resource "trino-cli" do
-    url "https://search.maven.org/remotecontent?filepath=io/trino/trino-cli/475/trino-cli-475-executable.jar"
-    sha256 "3467e8b834d2935339d6912441b0c2cc51827b78e965dffc158186c81cec02b2"
+    url "https://search.maven.org/remotecontent?filepath=io/trino/trino-cli/476/trino-cli-476-executable.jar"
+    sha256 "fe4e9c7fb569cd67673afa1622945f6308e1e59bdb825419352b80887661757b"
 
     livecheck do
       formula :parent
@@ -46,8 +46,8 @@ class Trino < Formula
   # getting airbase version at https://github.com/trinodb/trino/blob/#{version}/pom.xml#L8 and then
   # dep.launcher.version at https://github.com/airlift/airbase/blob/<airbase-version>/airbase/pom.xml#L225
   resource "launcher" do
-    url "https://github.com/airlift/launcher/archive/refs/tags/303.tar.gz"
-    sha256 "14e6ecbcbee3f0d24b9de1f7be6f3a220153ea17d3fc88d05bbb12292b3dd52c"
+    url "https://github.com/airlift/launcher/archive/refs/tags/304.tar.gz"
+    sha256 "4afd1ed339c64bccab54421c01317665364a5e71dec20fb6b7b2f60281f1b344"
 
     livecheck do
       url "https://raw.githubusercontent.com/trinodb/trino/refs/tags/#{LATEST_VERSION}/pom.xml"
