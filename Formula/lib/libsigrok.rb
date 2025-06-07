@@ -49,6 +49,8 @@ class Libsigrok < Formula
     regex(/href=.*?libsigrok[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256                               arm64_sequoia: "22e5e2db64f98452def0ed20f6896caa15fda7c38c71454adbd6c4261591eb43"

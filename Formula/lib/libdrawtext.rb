@@ -6,6 +6,8 @@ class Libdrawtext < Formula
   license "LGPL-3.0-or-later"
   head "https://github.com/jtsiomb/libdrawtext.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "4aead494f4798e4f16eaec6f6c8c251c8de2604995969537295e9d4d0447f2a3"
     sha256 cellar: :any,                 arm64_sonoma:   "8a58fb6c5c3b800f97788698dde639a9fd99cf3beb4bd8bb56f781ca816ab5cd"

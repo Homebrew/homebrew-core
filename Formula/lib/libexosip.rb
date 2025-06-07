@@ -11,6 +11,8 @@ class Libexosip < Formula
     regex(/href=.*?libexosip2[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_sequoia:  "642cdbf3c7e2c28d59ba0bfa578465767fcc52a0640153ae68efea87e928243a"

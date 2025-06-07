@@ -5,6 +5,8 @@ class Libid3tag < Formula
   sha256 "0561009778513a95d91dac33cee8418d6622f710450a7cb56a74636d53b588cb"
   license "GPL-2.0-only"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_sequoia:  "511a214c725978fd5596e7bb1a4c1b9846d3f95a59c1da05aa49ac687d997d07"

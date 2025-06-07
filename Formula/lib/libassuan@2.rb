@@ -11,6 +11,8 @@ class LibassuanAT2 < Formula
     "FSFULLR", # libassuan-config, libassuan.m4
   ]
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "24910ee0977d721b85bd2df1372698beaa6d11716b81e7a49512ccc9c79ba4da"
     sha256 cellar: :any,                 arm64_sonoma:   "0d4fd656fbf3db20892da64bec2eb966842de215a23c2008ecdf9198a68d5211"

@@ -16,6 +16,8 @@ class Libbladerf < Formula
     strategy :github_latest
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "2651db296521b2728bc29c789eeb500044d640a0a9a8483c089412154577701e"
     sha256 cellar: :any,                 arm64_sonoma:   "a1f53b13340f34c10cd6472165c539b94c6b99ccfc2dd0e0b010ae989276223e"

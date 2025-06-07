@@ -12,6 +12,8 @@ class Libogg < Formula
     regex(%r{href=(?:["']?|.*?/)libogg[._-]v?(\d+(?:\.\d+)+)\.t}i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 2
     sha256 cellar: :any,                 arm64_sequoia:  "13592df33977148bd6ca571b333892b42b1d988289a47f4efd3979fd48964b3e"

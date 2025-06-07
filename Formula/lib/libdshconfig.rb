@@ -10,6 +10,8 @@ class Libdshconfig < Formula
     regex(/href=.*?libdshconfig[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_sequoia:  "97fa8df11dd460eff2f15e043cd7529eae0fbbedb5f06419c1f05471381505eb"

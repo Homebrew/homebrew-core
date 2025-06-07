@@ -5,6 +5,8 @@ class Liblo < Formula
   sha256 "5df05f2a0395fc5ac90f6b538b8c82bb21941406fd1a70a765c7336a47d70208"
   license "LGPL-2.1-or-later"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "8373256cd53294a3a06252d55c8cc93d6c6a6f8c3b235084cab456931e67e1b3"
     sha256 cellar: :any,                 arm64_sonoma:   "c379d421a02f1afa3c6105e527dc71b5271450f2964f31b6f6117fd826c8f783"

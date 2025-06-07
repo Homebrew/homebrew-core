@@ -5,6 +5,8 @@ class Libtomcrypt < Formula
   sha256 "d870fad1e31cb787c85161a8894abb9d7283c2a654a9d3d4c6d45a1eba59952c"
   license "Unlicense"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 2
     sha256 cellar: :any,                 arm64_sequoia:  "3572bea96ce1e844e910c3e5ec392de56a789a581dfb1860169c7c30d94359fb"

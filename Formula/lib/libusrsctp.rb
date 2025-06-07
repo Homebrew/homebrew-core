@@ -7,6 +7,8 @@ class Libusrsctp < Formula
   revision 1
   head "https://github.com/sctplab/usrsctp.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "26779b22a8b35e70131a4fb010839955453e8d703f682d77b411c5900d2543ab"
     sha256 cellar: :any,                 arm64_sonoma:   "d87af9c75847214b4101934141dd53dc3e5992304bd8f97aace95c683a2fa435"

@@ -10,6 +10,8 @@ class Libnice < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any, arm64_sequoia: "e1f4f8532d745a6555e861c342f56ec7a0d0b827f13b4e80c4d6218857b3ae2f"

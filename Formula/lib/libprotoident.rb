@@ -5,6 +5,8 @@ class Libprotoident < Formula
   sha256 "2b43a492fe1d7ada2e7b7b164c8e35220b35bf816bd971c7f77decc74b69801e"
   license "LGPL-3.0-or-later"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "411cc8c16803983d058bcff78dfda085396c97551e1cc1b70e0774e1278650c3"
     sha256 cellar: :any,                 arm64_sonoma:   "f79ee7ff4e6f80d27d5137297a908e5d03ef51b4acffb080725e869a6e56ce09"

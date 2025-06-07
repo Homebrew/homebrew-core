@@ -11,6 +11,8 @@ class Libmatroska < Formula
     regex(/href=.*?libmatroska[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "59abce74d2eef80b0ec6751dd6d9357c2c130d9d8d11dce0ef9d0f47fbe7007a"
     sha256 cellar: :any,                 arm64_sonoma:   "297b69d493d6b09441e452745dee037ed4c211642a30ab4acfb3f229423e9995"

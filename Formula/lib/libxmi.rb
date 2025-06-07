@@ -6,6 +6,8 @@ class Libxmi < Formula
   sha256 "9d56af6d6c41468ca658eb6c4ba33ff7967a388b606dc503cd68d024e08ca40d"
   license "GPL-2.0-only"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 2
     sha256 cellar: :any,                 arm64_sequoia:  "02dd0c4d25870675c7609b021e7030213aeb55b2799eb0c4d981842637ec29f3"

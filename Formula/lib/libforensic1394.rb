@@ -11,6 +11,8 @@ class Libforensic1394 < Formula
     regex(/href=.*?libforensic1394[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "a3ae5e839007a8f6cfa3ca2e176285a889085333678c2b5edc095d22326e8aa6"
     sha256 cellar: :any,                 arm64_sonoma:   "466e7d42777a5f74b206d6dfec30b026f6d61ad6a2c0c7e382ab21f9f09b4973"

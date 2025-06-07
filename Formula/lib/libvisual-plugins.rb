@@ -5,6 +5,8 @@ class LibvisualPlugins < Formula
   sha256 "55988403682b180d0de5e6082f804f3cf066d9a08e887b10eb6a315eb40d9f87"
   license all_of: ["GPL-2.0-or-later", "GPL-3.0-or-later", "LGPL-2.1-or-later"]
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 arm64_sequoia:  "0203c2ea44c5978e092b682a966a72ec4099bca267a56814bdcb1d350ffac738"
     sha256 arm64_sonoma:   "2f8be28190eb7037ae6b9d2022e52b97f9fd16f0b7ce663f12725fec703951de"

@@ -6,6 +6,8 @@ class Libextractor < Formula
   sha256 "bb8f312c51d202572243f113c6b62d8210301ab30cbaee604f9837d878cdf755"
   license "GPL-3.0-or-later"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 arm64_sequoia:  "3dc057f34f3a021d0485a2f04b581c8b77f118e6c12337717e200de09146f560"
     sha256 arm64_sonoma:   "e011f7851397a725c19c5774f33fd92a880476a8ae37c5c9f23a5d4aad084cac"

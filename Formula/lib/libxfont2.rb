@@ -5,6 +5,8 @@ class Libxfont2 < Formula
   sha256 "90b331c2fd2d0420767c4652e007d054c97a3f03a88c55e3b986bd3acfd7e338"
   license "MIT"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "692143371069bb49c4db0055757354b42f2475b34339c0617ec4f1fa92db8e73"
     sha256 cellar: :any,                 arm64_sonoma:   "e33dc088fa4e022dd975f35be2e3f9c6d6f431e8d7b8aa17b6f7e3f2b5db1448"

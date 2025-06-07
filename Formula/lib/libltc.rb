@@ -5,6 +5,8 @@ class Libltc < Formula
   sha256 "0a6d42cd6c21e925a27fa560dc45ac80057d275f23342102825909c02d3b1249"
   license "LGPL-3.0-or-later"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "db162961bf9b4cb7fab2db612ffff0b70ab59470d382712417f1868d63500524"
     sha256 cellar: :any,                 arm64_sonoma:   "51fbcf835713464c3adc121dfce5dc240a9364a9c1d597df408fa787c6caeaa7"

@@ -11,6 +11,8 @@ class Libsmi < Formula
     regex(/href=.*?libsmi[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256               arm64_sequoia:  "87f549d798e971b862119e43a800b4e647a9e9dd9eab7c6effe0a17277da3acb"

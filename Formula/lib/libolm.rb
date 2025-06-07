@@ -5,6 +5,8 @@ class Libolm < Formula
   sha256 "1e90f9891009965fd064be747616da46b232086fe270b77605ec9bda34272a68"
   license "Apache-2.0"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "2456df3a539bccba5a28804f4e63d73ca23a6f0fc5960f2132289d86cfda08a9"
     sha256 cellar: :any,                 arm64_sonoma:   "2dd9100bb3f29d104f285aa65085e786e4649709dbc66b057237085b3be32111"

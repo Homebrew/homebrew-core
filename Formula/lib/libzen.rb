@@ -7,6 +7,8 @@ class Libzen < Formula
   revision 1
   head "https://github.com/MediaArea/ZenLib.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "de3f0317ed82fd66a7bf6d5a4e876693c932b1a32f2974b02c4abf7b9ab79221"
     sha256 cellar: :any,                 arm64_sonoma:   "c12e982c8e86f4c1fd8b5aeb9e2f29a5f9d4f83c106b0ba68383e43e67fdec5f"

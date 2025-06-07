@@ -6,6 +6,8 @@ class LibbitcoinNetwork < Formula
   license "AGPL-3.0-or-later"
   revision 1
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "5102e0cf354692cdc217fd8ef1e07a8a1d1b75e3e317b77426cc9149e6a10a2e"
     sha256 cellar: :any,                 arm64_sonoma:   "8f97c5b13b85764dd830ddf34945a61bee5ea9e3f75e19abc8651ce710c7120f"

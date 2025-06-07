@@ -5,6 +5,8 @@ class Librcsc < Formula
   sha256 "81a3f86c9727420178dd936deb2994d764c7cd4888a2150627812ab1b813531b"
   license "LGPL-3.0-or-later"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_sequoia: "3d9d528cd8cfa66f49e6a5a371a4f93a2ceac383985a9189627bfd901006b9c7"

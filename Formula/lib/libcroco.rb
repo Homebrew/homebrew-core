@@ -6,6 +6,8 @@ class Libcroco < Formula
   license "LGPL-2.1-or-later"
   revision 1
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "3e12a1334fe355c94acfe3f0bb286825a508b50164619031f7cd3ade763b303c"
     sha256 cellar: :any,                 arm64_sonoma:   "7b0586fbf8a45f772b65aad663dd6c6331657ede394f58bc789bf42f15c26c4e"

@@ -5,6 +5,8 @@ class Libxpresent < Formula
   sha256 "b964df9e5a066daa5e08d2dc82692c57ca27d00b8cc257e8e960c9f1cf26231b"
   license "MIT"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "7e63498b20190e5cafd0a9adfe036c47a39bcc561518f856d01d168fb801997a"
     sha256 cellar: :any,                 arm64_sonoma:   "5154234d565eec07b6546e1bc9eba8b561dff0200e128f637eff35bda1b52a16"

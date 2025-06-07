@@ -11,6 +11,8 @@ class LibatomicOps < Formula
     strategy :github_latest
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_sequoia:  "27c948cb8ca7db52ae09a76402fd1180ca110ece2ba7a20c88b16902967980f4"

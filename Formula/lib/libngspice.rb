@@ -9,6 +9,8 @@ class Libngspice < Formula
     formula "ngspice"
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "5a4bc846e0ffc9fa23d9c15509b5cf041de5c5dadcf476ffb167302b84f5bf75"
     sha256 cellar: :any,                 arm64_sonoma:  "be3d94c10d2554bcc43c71f7e6061005280929a551a6c96e3735dcd6060391d5"

@@ -19,6 +19,8 @@ class Libdvdread < Formula
     regex(%r{href=["']?v?(\d+(?:\.\d+)+)/?["' >]}i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "6aaf06a46650503ddadff95be7584a8fc86ee6e2d3c357475d26566cfda2b10c"
     sha256 cellar: :any,                 arm64_sonoma:   "6d2583d6d35a5b71d45cfbfc63e3e76dd9757c85973752b1583c4af9502d723c"

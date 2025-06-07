@@ -22,6 +22,8 @@ class Libspatialite < Formula
     regex(/href=.*?libspatialite[._-]v?(\d+(?:\.\d+)+[a-z]?)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "cd162e7a36e33bc982374bc2e8efced6d1669810852c6bef404967dc7507eefa"
     sha256 cellar: :any,                 arm64_sonoma:   "efd80614ae13d20ae2af905b7b6a673455d5d281e14e75e6511d1d4a1fdeda8d"

@@ -5,6 +5,8 @@ class LibvisualProjectm < Formula
   sha256 "eb8269c2a923546600d3f40ff90c011f03a215847215ee8bef44bfae305b4dd7"
   license "GPL-3.0-or-later"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256                               arm64_sequoia:  "e1413357ae5900e2662f197184b631759a12af9015317566a99db4d70bdc6ffe"
     sha256                               arm64_sonoma:   "b14e174621f4a80eaab94df8972bc26ec2a834a8d84bf66485deceb4b77e0a85"

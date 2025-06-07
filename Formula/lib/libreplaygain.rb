@@ -11,6 +11,8 @@ class Libreplaygain < Formula
     regex(/href=.*?libreplaygain[._-](r\d+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_sequoia:  "72f8e66bd85dbe08e01f9aad98d73a4788a030f34a3f8e40e940c6a62a7fbfc7"

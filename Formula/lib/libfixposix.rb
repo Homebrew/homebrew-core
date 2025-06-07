@@ -6,6 +6,8 @@ class Libfixposix < Formula
   license "BSL-1.0"
   head "https://github.com/sionescu/libfixposix.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "23db0bbb66f78f226e8f1c3391e6f098be1410f1e914367ef4efbf2322870e16"
     sha256 cellar: :any,                 arm64_sonoma:   "17e8781690ca305f8a30593f08d99358d99b1e8963e713aeb18a2c06d8e0a7e9"

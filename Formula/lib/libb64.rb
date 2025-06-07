@@ -6,6 +6,8 @@ class Libb64 < Formula
   license "CC-PDDC"
   revision 1
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "210e5acb036ffda3a85af650cdcbda27c8ca804cb099d556a1dfd4779ec17fb7"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a7471a04a5dd363f1ee8f2ee6c215cb99760698a34c73a5a6ce0dbefd519a66a"

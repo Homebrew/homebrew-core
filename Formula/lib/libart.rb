@@ -12,6 +12,8 @@ class Libart < Formula
     regex(/libart_lgpl[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "3a01d5d537487e82c16a96a58e50cbfc189c6e2312fc9b93ce3d0ae110585a00"
     sha256 cellar: :any,                 arm64_sonoma:   "b966bb5a144183755880f3256404abc104d91444d10620c9cafd847bcc76265d"

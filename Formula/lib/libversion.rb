@@ -5,6 +5,8 @@ class Libversion < Formula
   sha256 "bb49d745a0c8e692007af6d928046d1ab6b9189f8dbba834cdf3c1d251c94a1d"
   license "MIT"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "f392a811f7f8c33d3215c42acc3162b8e4eb969ef2035b9cd1848b565a4aaa3c"
     sha256 cellar: :any,                 arm64_sonoma:   "71d067178dfa687afa51f634d5b95c5e8c7207de51ef57625bf4de2e64f7b7a8"

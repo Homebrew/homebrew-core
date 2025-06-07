@@ -11,6 +11,8 @@ class Libmpdclient < Formula
     regex(/href=.*?libmpdclient[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "16973541660ff3601f6ea87f1553bac63e63cef2cce49a83d078293b0c66d56f"
     sha256 cellar: :any,                 arm64_sonoma:   "3920adaed9ddbc3361b4f47aa15bd3f3fca316238b22b52ba22df4402f1482f9"

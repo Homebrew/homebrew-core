@@ -10,6 +10,8 @@ class Libretls < Formula
     regex(/href=.*?libretls[._-]v?(\d+(?:\.\d+)+(?:p\d+)?)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "19bba1bc2787f51fb0415c0af6cd57a2428318ce53c5abcf2076a5763a5e738b"
     sha256 cellar: :any,                 arm64_sonoma:   "45109b58836fd475c43f0d0dc84c01651c4f6da03732dc7e8c75d6bef69f1a0a"

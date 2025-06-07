@@ -6,6 +6,8 @@ class LibspellingAT02 < Formula
   license "LGPL-2.1-or-later"
   revision 2
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any, arm64_sequoia: "2743f798c8a8ab3afa19842bdddb996e868736ec1d95b324e18994b987625773"
     sha256 cellar: :any, arm64_sonoma:  "87bcb552532a3c890664a0b16a858ff766f49fc595ced5b8a5c387da2e3c4ce3"

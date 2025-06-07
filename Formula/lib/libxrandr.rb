@@ -5,6 +5,8 @@ class Libxrandr < Formula
   sha256 "1ad5b065375f4a85915aa60611cc6407c060492a214d7f9daf214be752c3b4d3"
   license "MIT"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "e29fec5331c2d36188093a2331d0f2f426c9cb18d21e5335931ee0d0e22e5ec9"
     sha256 cellar: :any,                 arm64_sonoma:   "7775fef1d482d55d108a57bd2cc32c3177eea7270956a2fb648b3683acd54049"

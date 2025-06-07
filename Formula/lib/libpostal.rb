@@ -6,6 +6,8 @@ class Libpostal < Formula
   license "MIT"
   head "https://github.com/openvenues/libpostal.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 arm64_sequoia: "977117dd4cbadd9c7a54b1a98cbf8a4cf5d76435d3fb2a4bd7219777b7ddac8c"
     sha256 arm64_sonoma:  "814ede166ebe7352cc9850527f29e9395eea6a2248a16ad450d0606216923e25"

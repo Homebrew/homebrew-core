@@ -10,6 +10,8 @@ class Libgfshare < Formula
     regex(/href=.*?libgfshare[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "cb19a495ba9032a4bd0e0c5e52bf818c8283af8b29dcb25a0a2f9bb0338c2880"
     sha256 cellar: :any,                 arm64_sonoma:   "661368852f131d75f48672074dd635d04c95f30f61f1adae25c26db2cdc45dcc"

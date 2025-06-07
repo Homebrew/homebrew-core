@@ -5,6 +5,8 @@ class Libxres < Formula
   sha256 "9a7446f3484b9b7538ac5ee30d2c1ce9e5b7fbbaf1440e02f6cca186a1fa745f"
   license "MIT"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "e7f72b305f5c62fa3bd025cb437a533e0d5fd903bbf165d8b86f0e19e163474a"
     sha256 cellar: :any,                 arm64_sonoma:   "d75dbe208195822aa95957e8037d80dec8c5c86c60a5669afb7ec2187210d64b"

@@ -10,6 +10,8 @@ class Libyubikey < Formula
     regex(/href=.*?libyubikey[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "1402744ea6becf5fc6caf82c61b90530180bc7b7c025952ab5f47db813d9dd81"
     sha256 cellar: :any,                 arm64_sonoma:   "9963f3715eff70ebf4bbe725e8bf6e3bb112cb3476798b7d8705090dc3049ed0"

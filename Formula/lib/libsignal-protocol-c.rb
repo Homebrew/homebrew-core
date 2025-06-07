@@ -5,6 +5,8 @@ class LibsignalProtocolC < Formula
   sha256 "c22e7690546e24d46210ca92dd808f17c3102e1344cd2f9a370136a96d22319d"
   license "GPL-3.0-only"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "9a8ecae4c6099cd0732fddcd94730e7e8dc361e9f625fab00279792700e64130"
     sha256 cellar: :any,                 arm64_sonoma:   "5ea0c5c2b3ae7de38ab640492eb6e0627d1bd329413a18520c93c0699309f29d"

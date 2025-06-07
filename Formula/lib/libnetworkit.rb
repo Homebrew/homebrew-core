@@ -9,6 +9,8 @@ class Libnetworkit < Formula
     formula "networkit"
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "5d0045a902e874098c38bf7c3eba789e8d1d36343f1a58b874c5ae002e771216"
     sha256 cellar: :any,                 arm64_sonoma:  "9bc6b2bb82c01385f9270daaf103455cc879931b6565ff813501763885d74e9b"

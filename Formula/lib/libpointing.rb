@@ -5,6 +5,8 @@ class Libpointing < Formula
   sha256 "697581d27101c9816f1b19715e7ace85a5345857d65e4eaa82840cf2051435d6"
   license "GPL-2.0-or-later"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "fc963b2d475b92c4a7fd7a525d0ae301cedad7c825d50bd47f1e174be955ab51"
     sha256 cellar: :any,                 arm64_sonoma:   "2d7abf099808b966f2e79ff4ee050ae9ba2dcaa009577575a8ceceeb657e3cda"

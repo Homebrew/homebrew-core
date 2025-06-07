@@ -6,6 +6,8 @@ class LibpgQuery < Formula
   sha256 "a3dc0e4084a23da35128d4e9809ff27241c29a44fde74ba40a378b33d2cdefe2"
   license all_of: ["BSD-3-Clause", "PostgreSQL"]
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "e8c80546510c8a0d0ee781bfcd508d628cb09f303027e740309b073b059659ce"
     sha256 cellar: :any,                 arm64_sonoma:  "62beb770cce1d083f1860515f7a4a553e403bfb23b37bb25581b1c61594da94b"

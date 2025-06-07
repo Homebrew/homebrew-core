@@ -5,6 +5,8 @@ class Libsigcxx < Formula
   sha256 "c3d23b37dfd6e39f2e09f091b77b1541fbfa17c4f0b6bf5c89baef7229080e17"
   license "LGPL-3.0-or-later"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "e481f54a00978ae4fdd3c377bacfb99fb5f890ff914791151a514ce7a6ebfadb"
     sha256 cellar: :any,                 arm64_sonoma:   "1dafdacabb0f20c0f95af6338147c4ffb65d4e516670786b995091364fa9c110"

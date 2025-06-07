@@ -5,6 +5,8 @@ class Libghthash < Formula
   sha256 "e7e5f77df3e2a9152e0805f279ac048af9e572b83e60d29257cc754f8f9c22d6"
   license "LGPL-2.0-or-later"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "83b25e095be2d03fda04742c1c917ff6d5603d4c5ec2e6070f0e555f03e7b701"
     sha256 cellar: :any,                 arm64_sonoma:   "5339394b36965f5152703a4bc84c1303c6966114c3bd053ed9dd265951ad5b6e"

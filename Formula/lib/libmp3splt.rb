@@ -14,6 +14,8 @@ class Libmp3splt < Formula
     strategy :page_match
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 arm64_sequoia: "7ab04ee463178da4c4319a3e795ad0f18d09aff98450a5f8eacdf206fdb059ff"
     sha256 arm64_sonoma:  "8ac44f180edcd601f4fd078a49742f91387466489c3336d534772702ca8d3e61"

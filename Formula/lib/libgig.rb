@@ -10,6 +10,8 @@ class Libgig < Formula
     regex(/href=.*?libgig[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "f85773d19792519d3d19e73b0275a23b9ef84e68e3e57644615a488e4f324af2"
     sha256 cellar: :any,                 arm64_sonoma:  "e4081ce14559fbd6f48102d7dfc1b513e37cee4afbd7121c74cea1e8d53ffff4"

@@ -5,6 +5,8 @@ class LibsigcxxAT2 < Formula
   sha256 "235a40bec7346c7b82b6a8caae0456353dc06e71f14bc414bcc858af1838719a"
   license "LGPL-3.0-or-later"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "60b84e4af2ddcceecaed25095c2dd11efd191c3a96d7c39b08552fcfaeca82ad"
     sha256 cellar: :any,                 arm64_sonoma:   "d84c23bbe72a865f26ed4426a029b5a4a2ae9f4410a446737469e463be28f353"

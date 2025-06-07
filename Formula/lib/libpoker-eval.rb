@@ -6,6 +6,8 @@ class LibpokerEval < Formula
   sha256 "92659e4a90f6856ebd768bad942e9894bd70122dab56f3b23dd2c4c61bdbcf68"
   license "GPL-3.0-or-later"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_sequoia:  "becb0628bede0bab265c5fdd06c91ae705b1d53be58db78fc2edfdd4b79f1776"

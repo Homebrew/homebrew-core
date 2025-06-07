@@ -11,6 +11,8 @@ class Libmediainfo < Formula
     regex(/href=.*?libmediainfo[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "c7a6a63c51275d03a196ba46853d9f9b643b3619b23ee28cc90f5b37c11fdda9"
     sha256 cellar: :any,                 arm64_sonoma:  "a9ee33756021ae82ab8e208efe7e84b9ad73f2a7b991c175349d9e7486a14eee"

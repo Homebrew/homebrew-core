@@ -10,6 +10,8 @@ class Libmd < Formula
     regex(/href=.*?libmd[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "bbca49fa49f17de525e710aa6e8ae6cca1da2253e6b9eab21dc655389a5a81db"
     sha256 cellar: :any,                 arm64_sonoma:   "98337df7be937bfe745b53b62522cf81160032f945d744d879713a729acc8ab6"

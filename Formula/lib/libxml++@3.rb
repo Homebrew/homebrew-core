@@ -10,6 +10,8 @@ class LibxmlxxAT3 < Formula
     regex(/libxml\+\+[._-]v?(3\.([0-8]\d*?)?[02468](?:\.\d+)*?)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any, arm64_sequoia: "a44be374982b3a3b7adb3c13f31c97feb882b6268b85fb337b3a30980f0a9531"

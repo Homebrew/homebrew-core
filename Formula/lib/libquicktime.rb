@@ -6,6 +6,8 @@ class Libquicktime < Formula
   license "LGPL-2.1-or-later"
   revision 5
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 arm64_sequoia:  "2d881bd765e84918db5865c5657a0399edb7908b5ee152cbe9cbe0fae4e3e83c"
     sha256 arm64_sonoma:   "97c76d5834a9f3d1279ac572e16ed5d0eb914c01562bd9c54c55e885ac88711d"

@@ -5,6 +5,8 @@ class Libemf2svg < Formula
   sha256 "ad48d2de9d1f4172aca475d9220bbd152b7280f98642db561ee6688faf50cd1e"
   license "GPL-2.0-only"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "c769ed043dc565d050ee360ed38753a5f09db7fb39987c295c3d08b3eba16834"
     sha256 cellar: :any,                 arm64_sonoma:   "46974d67b425299521f648acc2561051646afbb51e47d45ff954277df5b32334"

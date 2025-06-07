@@ -5,6 +5,8 @@ class Libcdio < Formula
   sha256 "1b6c58137f71721ddb78773432d26252ee6500d92d227d4c4892631c30ea7abb"
   license "GPL-3.0-or-later"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "04bc4ddb58d98fa51c6fa0a8eed1b943b7d503432232c87ff3543d9f4377950a"
     sha256 cellar: :any,                 arm64_sonoma:  "df4a0ca43f3cb7081a13dd27af54539628259a55b00903d33c57e025d9674ee7"

@@ -11,6 +11,8 @@ class Libcutl < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "085cbb14470957513c5a48765d1f0f924cd6646b7cb6e5070863b3fe756f54d2"
     sha256 cellar: :any,                 arm64_sonoma:  "e20cc790ca579e8ae7ab5f69774ad67bd58f1eb6343f1fd87db494beb7cfb3ba"

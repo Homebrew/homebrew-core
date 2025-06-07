@@ -10,6 +10,8 @@ class Libnatpmp < Formula
     regex(/href=.*?libnatpmp[._-]v?(\d{6,8})\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_sequoia:  "9844848d49763a4d8d511a4168997b0f33e1e761a54f6b71b93c322bfd99238f"

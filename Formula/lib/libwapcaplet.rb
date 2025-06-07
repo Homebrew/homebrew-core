@@ -6,6 +6,8 @@ class Libwapcaplet < Formula
   license "MIT"
   head "https://git.netsurf-browser.org/libwapcaplet.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "c751d28cd839b73ae650342148ec11c12f0c74a02c74228e5a455012a9753dec"
     sha256 cellar: :any,                 arm64_sonoma:   "5610a67ece4b5be886260e784b100c438ec7c083c7043a4684aabf8bda19feac"

@@ -10,6 +10,8 @@ class Libtcod < Formula
     { any_of: ["MIT", "Unlicense"] }, # src/vendor/stb_truetype.h
   ]
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "fdf83b0198f348818e794ebc1e0d4532f8c1cce635984534ebdc4891f4261aa0"
     sha256 cellar: :any,                 arm64_sonoma:  "2a4da5bd870a27621a99008356229ae7df8779e78f8ea2112651a6d4aca31445"

@@ -5,6 +5,8 @@ class Libxfixes < Formula
   sha256 "b695f93cd2499421ab02d22744458e650ccc88c1d4c8130d60200213abc02d58"
   license "MIT"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "d8cf5f8d0134815b458eeaf44dd0e18357322bfeba750b4a79c7619ce24568a8"
     sha256 cellar: :any,                 arm64_sonoma:   "50d2927a1b3705cccad6057873681f1605786646c2dbd8af9bac2dcfbd1b49d6"

@@ -10,6 +10,8 @@ class Libotr < Formula
     regex(/href=.*?libotr[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_sequoia:  "5e6fdf2cd7cc293066a7875b10c684b7058b553ad85ff949e18045d0aca47b6d"

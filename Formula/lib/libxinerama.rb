@@ -5,6 +5,8 @@ class Libxinerama < Formula
   sha256 "5094d1f0fcc1828cb1696d0d39d9e866ae32520c54d01f618f1a3c1e30c2085c"
   license "MIT"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "16a20793dd7f5af12c877b836d798ae0b22e8cd392a7d29b7f35ecf3d9cea19d"
     sha256 cellar: :any,                 arm64_sonoma:   "62f42418dfb296c2e21748bd9902aec2e59acde89316b6340a0fdebe01a934b8"

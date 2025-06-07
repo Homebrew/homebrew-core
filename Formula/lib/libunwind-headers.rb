@@ -5,6 +5,8 @@ class LibunwindHeaders < Formula
   sha256 "bbe469bd8778ba5a3e420823b9bf96ae98757a250f198893dee4628e0a432899"
   license "APSL-2.0"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "24ed849a21c0cb1b8eda429fb00a9c9ecdc2483195d84de351f5806071ce19fb"

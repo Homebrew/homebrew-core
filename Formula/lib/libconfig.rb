@@ -6,6 +6,8 @@ class Libconfig < Formula
   license "LGPL-2.1-or-later"
   head "https://github.com/hyperrealm/libconfig.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "a7f4c911aed6b617d9b54898d2db28752beb4ae8c6fedc542e078d7153393b8d"
     sha256 cellar: :any,                 arm64_sonoma:  "cf947b246c6fa471c84bdabc72cd0b9cc308cf8c5c73ecf3c31a584e86e07c56"

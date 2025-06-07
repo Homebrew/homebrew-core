@@ -10,6 +10,8 @@ class LibvirtGlib < Formula
     regex(/href=.*?libvirt-glib[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 arm64_sequoia:  "2c02eafd5e6cde6f4bc893e635687e3faeb75cd043ad4a779c6a0e3b8a52de67"
     sha256 arm64_sonoma:   "21ae7fd8db1783b08631d8e44055cd7cc60eb4e4bf688df5cdead90fb7fc841a"

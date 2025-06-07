@@ -12,6 +12,8 @@ class Libsass < Formula
     strategy :github_latest
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "d5f0835bddfab893cf537c1cb10f42a6abbaa04100954223de905a7f3879a581"
     sha256 cellar: :any,                 arm64_sonoma:   "a5262b92c5ef6c48e579002e9705e33a4e69c47ba9004ac9b13843506f314e8f"

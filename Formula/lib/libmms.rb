@@ -5,6 +5,8 @@ class Libmms < Formula
   sha256 "3c05e05aebcbfcc044d9e8c2d4646cd8359be39a3f0ba8ce4e72a9094bee704f"
   license "LGPL-2.1-or-later"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 2
     sha256 cellar: :any,                 arm64_sequoia:  "3bb78466780c6a9b24cf16bb0c333e5e62e8aca7b7f27a1175dcce96d369dd92"

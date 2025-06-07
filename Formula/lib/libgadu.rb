@@ -5,6 +5,8 @@ class Libgadu < Formula
   sha256 "28e70fb3d56ed01c01eb3a4c099cc84315d2255869ecf08e9af32c41d4cbbf5d"
   license "LGPL-2.1-only"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "f4f5668e14d2fb3565732fb50bb526d106a8a26d396b3d54eeff627658a159ab"
     sha256 cellar: :any,                 arm64_sonoma:   "c0a47f65b2950adc32a349c14f576ce66da2f34b2fc342c1f37b11dfb8ab28ed"

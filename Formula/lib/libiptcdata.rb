@@ -6,6 +6,8 @@ class Libiptcdata < Formula
   license "LGPL-2.0-only"
   revision 1
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 arm64_sequoia:  "ccdaa3847cffb9073eba5796d92eb08f1dd1c9b1bcda21f45d64a654f0dcfdac"
     sha256 arm64_sonoma:   "e7b09d218f871a5252b465841f6001896d867247175f228c3d50164cd9fefa1a"

@@ -10,6 +10,8 @@ class Libgnt < Formula
     regex(%r{href=["']?[^"' >]*?/rev/v?(\d+(?:\.\d+)+)["' >]}i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any, arm64_sequoia: "83d17065c582bdcf162513a0523c19c44db30b00842cda416a2d335b7abc0eb9"
     sha256 cellar: :any, arm64_sonoma:  "40ab4a1893fe00347a02fb7b4cdf258598e1ae27e1594a1c4dff5461633f1a8a"

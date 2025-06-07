@@ -5,6 +5,8 @@ class LibreadlineJava < Formula
   sha256 "57d46274b9fd18bfc5fc8b3ab751e963386144629bcfd6c66b4fae04bbf8c89f"
   license "LGPL-2.1-or-later"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "69be2c1c7e2604d6c01ef986fd8f1107976d4e1cec7784eaf971d7e2e69cb301"
     sha256 cellar: :any,                 arm64_sonoma:   "d4329ed0409bc232ed32b32af891e7eb7c1ec29945a58acdbb0f8ad2d0d7130d"

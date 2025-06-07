@@ -10,6 +10,8 @@ class Libpcl < Formula
     regex(/href=.*?pcl[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 2
     sha256 cellar: :any,                 sonoma:       "c2f937aca27092e775dc6c4262a318129560b1e079de3f077a307756ec31a417"

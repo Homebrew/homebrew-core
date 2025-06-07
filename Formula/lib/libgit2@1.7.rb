@@ -5,6 +5,8 @@ class Libgit2AT17 < Formula
   sha256 "de384e29d7efc9330c6cdb126ebf88342b5025d920dcb7c645defad85195ea7f"
   license "GPL-2.0-only" => { with: "GCC-exception-2.0" }
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "4194c7a41da5f78c05b33988fa28d163c60dc7146fdc964d82ed9b132c90ed3d"
     sha256 cellar: :any,                 arm64_sonoma:   "0cad95e1f543ee0a6af1472c5a17e8f5bf09dafab3862ed08bd46e8f44cb0575"

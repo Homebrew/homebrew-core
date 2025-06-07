@@ -11,6 +11,8 @@ class Libdivecomputer < Formula
     regex(/href=.*?libdivecomputer[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "2d1fcffb41e208dda7721558578c6c6f212d758b9782449ce1f800d89e05c1cb"
     sha256 cellar: :any,                 arm64_sonoma:   "8dd4c53baa97fba521444635e28477af5651cb22ab242ce6a6cb3725175b7056"

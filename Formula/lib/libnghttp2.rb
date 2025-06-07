@@ -13,6 +13,8 @@ class Libnghttp2 < Formula
     formula "nghttp2"
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "492e4dadaeb76e53e56b15180eb4ab33d8e726d5766f258f94d3628382e7a8e2"
     sha256 cellar: :any,                 arm64_sonoma:  "fa2ef36dadacb754e7233697f80a8929010e249b35dff577c86d1cf88f0ece49"

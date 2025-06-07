@@ -10,6 +10,8 @@ class Libbtbb < Formula
   revision 1
   head "https://github.com/greatscottgadgets/libbtbb.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 3
     sha256 cellar: :any,                 arm64_sequoia: "64901cfb8edd8d6ccbb685335ef735d0de585d4e2d82b246a9e720fde31a60cb"

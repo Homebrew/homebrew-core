@@ -11,6 +11,8 @@ class LibsvgCairo < Formula
     regex(/href=.*?libsvg-cairo[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "fb922d8f987fcfbf1a37e34cb527ce24345328d188e2fc453a5c70de848dbd41"
     sha256 cellar: :any,                 arm64_sonoma:   "2c255fb61d16b9fd5aee60ed29a000d3eb27028b7e7641d7dd4d1cc11928de1a"

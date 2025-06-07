@@ -5,6 +5,8 @@ class Libxscrnsaver < Formula
   sha256 "75cd2859f38e207a090cac980d76bc71e9da99d48d09703584e00585abc920fe"
   license "MIT"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "0b3b6f538e4e11629f54b74f0603e9fca13439e3ab37ff3899c9081d4dc80258"
     sha256 cellar: :any,                 arm64_sonoma:   "b2b4a894b7f7ee7f077af223b68814ab6c4a4e8d41de227642fbd373de36e0f7"

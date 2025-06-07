@@ -10,6 +10,8 @@ class Libbluray < Formula
     regex(%r{href=["']?v?(\d+(?:\.\d+)+)/?["' >]}i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "82b771563b1348e8121ceb5156d5457207147e8ac851aea9d70d31c058f8a98e"
     sha256 cellar: :any,                 arm64_sonoma:   "385b5460b56cb7c811c661a39509c62436d7a60f388bd960782f23192ade074a"

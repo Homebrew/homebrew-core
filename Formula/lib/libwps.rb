@@ -10,6 +10,8 @@ class Libwps < Formula
     regex(%r{url=.*?/libwps(?:/|[._-])v?(\d+(?:\.\d+)+)\.t}i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "1fcecd4b70835db56d8ee1e19e7fb07ab34cd1f43d64dce1900baa57a59b2949"
     sha256 cellar: :any,                 arm64_sonoma:   "53e4b189ac3f6a5707904498385226b759f0c8a222378682cad4303c0169b83e"

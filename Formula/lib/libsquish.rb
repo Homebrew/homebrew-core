@@ -6,6 +6,8 @@ class Libsquish < Formula
   license "MIT"
   revision 1
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "e8c9dcc536fed98d8b68dc6187b2ccbd47dd3fc08d4590811ca605c4ff6c6a39"
     sha256 cellar: :any,                 arm64_sonoma:   "0beb47e5cedce2bc7f35e15f7e5c87033abdf5e03967c9501b2ecb3c736aacb3"

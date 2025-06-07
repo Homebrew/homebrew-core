@@ -5,6 +5,8 @@ class Libdc1394 < Formula
   sha256 "537ceb78dd3cef271a183f4a176191d1cecf85f025520e6bd3758b0e19e6609f"
   license "LGPL-2.1-or-later"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "78ede809109f1cdc74263480e2088879534546d1a2ef2e85abe793d9bb053546"
     sha256 cellar: :any,                 arm64_sonoma:   "36f71e3ace8c9a94a732f397eda9e2c703c8ea45f02cd9ce3a87ca5b9d961770"

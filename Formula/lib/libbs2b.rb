@@ -5,6 +5,8 @@ class Libbs2b < Formula
   sha256 "6aaafd81aae3898ee40148dd1349aab348db9bfae9767d0e66e0b07ddd4b2528"
   license "MIT"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_sequoia:  "45676722780a091419361b9966b69511a1f0c7c6d9703ab72d7178711fbf749a"

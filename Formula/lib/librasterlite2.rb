@@ -11,6 +11,8 @@ class Librasterlite2 < Formula
     regex(/href=.*?librasterlite2[._-]v?(\d+(?:\.\d+)+[^.]*?)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "1c3ebad3c0e8d461961ff6e1ea785d762a411493caa8dc0df62f85cc2fd039d8"
     sha256 cellar: :any,                 arm64_sonoma:   "d31a806dc93f565780c5704c3d4ac4d4925f02f3682a1638ee85f384470ceae3"

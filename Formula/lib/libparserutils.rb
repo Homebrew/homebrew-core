@@ -6,6 +6,8 @@ class Libparserutils < Formula
   license "MIT"
   head "https://git.netsurf-browser.org/libparserutils.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "e35b156576ddb9a5048e030e4bade56807a40b535d424c2d80fdbd9a322b761b"
     sha256 cellar: :any,                 arm64_sonoma:  "05df8ce204b79a682be32434c7e6a6e917cff35e1960ee23de39984722878f24"

@@ -10,6 +10,8 @@ class Libgphoto2 < Formula
     regex(%r{url=.*?/libgphoto2[._-]v?(\d+(?:\.\d+)+)\.t}i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 arm64_sequoia:  "3fb2e9bda06e7f94540e798c31fca1f06d8028039eb2e558e501e4e85e68402f"
     sha256 arm64_sonoma:   "a755497f42fd0a62182de3d1ba2956af248282fc6b3462e700b8f9a5713110a4"

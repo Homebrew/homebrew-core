@@ -14,6 +14,8 @@ class Libcaca < Formula
     end
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "5352a2e3f1f3e752955b499071b1b38521b7dcce378f51c8c20d5a6a3c9a57b7"
     sha256 cellar: :any,                 arm64_sonoma:   "b61b6d0e7c9d1d7faf96997ce20a046aa71915c3a1132fb5a8f32cbdccd5e6ce"

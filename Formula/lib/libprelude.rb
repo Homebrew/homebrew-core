@@ -6,6 +6,8 @@ class Libprelude < Formula
   license "GPL-2.0-or-later"
   revision 2
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 2
     sha256 arm64_sequoia:  "85b094bb36c75510e7cae400478972591a03082b8164e7b183fd0b014fffcec2"

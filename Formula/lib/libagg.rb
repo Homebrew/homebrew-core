@@ -16,6 +16,8 @@ class Libagg < Formula
     skip "No longer developed/maintained"
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "057104fa9a817af5b41e424b9faa49446cc8c40b4d61c41186afd3a71e7e2e2c"
     sha256 cellar: :any,                 arm64_sonoma:   "eabb00483a8c5c955cc4f4b6351692d4c97709c7a1a14cf465767c7d52c132a7"

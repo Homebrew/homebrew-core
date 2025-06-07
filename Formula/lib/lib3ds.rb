@@ -5,6 +5,8 @@ class Lib3ds < Formula
   sha256 "f5b00c302955a67fa5fb1f2d3f2583767cdc61fdbc6fd843c0c7c9d95c5629e3"
   license "LGPL-2.1-or-later"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_sequoia:  "7cac898d78de339d70d5aba02ebdfc2703b341f251206f8cb1ebb6c35eac984d"

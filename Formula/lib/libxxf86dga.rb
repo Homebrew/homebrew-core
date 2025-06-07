@@ -5,6 +5,8 @@ class Libxxf86dga < Formula
   sha256 "be44427579808fe3a217d59f51cae756a26913eb6e4c8738ccab65ff56d7980f"
   license "MIT"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "eb23f74c86d0455fea55619165dc67a91596a64f46e2b1575941612eb763319c"
     sha256 cellar: :any,                 arm64_sonoma:   "aabd31abe4a5de30d5c7e5597d1375c90620aacfc65e29973ef08afc2a8cea15"

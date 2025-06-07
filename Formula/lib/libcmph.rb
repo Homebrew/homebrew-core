@@ -5,6 +5,8 @@ class Libcmph < Formula
   sha256 "365f1e8056400d460f1ee7bfafdbf37d5ee6c78e8f4723bf4b3c081c89733f1e"
   license any_of: ["LGPL-2.1-only", "MPL-1.1"]
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "43f6a25f51d2e29fc992882901b8fae82353d80efe71305bc6acf5bd852ff6c7"
     sha256 cellar: :any,                 arm64_sonoma:   "72be852d28eec60c8526c263938023f4eb33dfd58edbbcd77b33d1e319816f82"

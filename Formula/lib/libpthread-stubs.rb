@@ -5,6 +5,8 @@ class LibpthreadStubs < Formula
   sha256 "59da566decceba7c2a7970a4a03b48d9905f1262ff94410a649224e33d2442bc"
   license "MIT"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "303b8c21fc1b9322b6bd8f24e75a4e53a1c331d09b4f6271f75eba743d119819"

@@ -6,6 +6,8 @@ class Libiscsi < Formula
   license all_of: [:public_domain, "LGPL-2.1-or-later", "GPL-2.0-or-later"]
   head "https://github.com/sahlberg/libiscsi.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "356c93d6460c560bde748339a32b9c55da3f12f87456b92ad2b66fa18b97a1ad"
     sha256 cellar: :any,                 arm64_sonoma:  "511dfedb43e4f60a8eecf8c7b4be234b8eefd7562e75e40315fcc26d7bb9845e"

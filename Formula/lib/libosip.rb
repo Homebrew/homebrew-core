@@ -11,6 +11,8 @@ class Libosip < Formula
     regex(/href=.*?libosip2[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "751eaf3b56ce1d3f5ad7e076909391f1cef386f430cd96719ff8a97bcc76bd03"
     sha256 cellar: :any,                 arm64_sonoma:   "ae8d66cfe67d8dc40a0299db6cfb154cbc28c8c6a7af0229d4577e70e7d54ca5"

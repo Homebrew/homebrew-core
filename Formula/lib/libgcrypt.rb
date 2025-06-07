@@ -10,6 +10,8 @@ class Libgcrypt < Formula
     regex(/href=.*?libgcrypt[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "be268e1e718212df254fb8b678adbcef8bad3994deb995566b8fdd7743e0b482"
     sha256 cellar: :any,                 arm64_sonoma:  "531de63827be5ab57b3b82dff1107af39bc50da502c38c3a504e864d11996c75"

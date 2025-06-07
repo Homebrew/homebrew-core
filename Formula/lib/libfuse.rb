@@ -6,6 +6,8 @@ class Libfuse < Formula
   license any_of: ["LGPL-2.1-only", "GPL-2.0-only"]
   head "https://github.com/libfuse/libfuse.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 arm64_linux:  "447962f98f38e97d6235096dbc5cd7453345c893ea5cf3f9099fe8115dec707e"
     sha256 x86_64_linux: "11f5d2472fd50b34f28e07e94ddf10b8bfca48e6b8725724e8260ebc0b0fbb1d"

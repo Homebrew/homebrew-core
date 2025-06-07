@@ -10,6 +10,8 @@ class Libpagemaker < Formula
     regex(/href=["']?libpagemaker[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "8b12308a14b296bf195cae2a64b4242efb1dfa589903d3312d1543a4e3891bfb"
     sha256 cellar: :any,                 arm64_sonoma:   "405ba95d6cd51308c1cd722631bb34f78702b5c40e8a70aac0422d551c6e1bcc"

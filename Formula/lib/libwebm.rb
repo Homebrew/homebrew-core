@@ -5,6 +5,8 @@ class Libwebm < Formula
   sha256 "616cfdca1c869222dc60d5a49d112c1464040390e3876afca4d385347c6ce55e"
   license "BSD-3-Clause"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "49e659cf7620ec30ffecd7654da70d28120cd409ae68d7a48a646d2e57bcba1b"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "bdcfe9ac4d4a025957c618aee58539cad66931b0d74e17f05b049337cbebe651"

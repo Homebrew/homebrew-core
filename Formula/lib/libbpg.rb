@@ -6,6 +6,8 @@ class Libbpg < Formula
   license all_of: ["MIT", "BSD-3-Clause", "LGPL-2.1-or-later", "GPL-2.0-or-later"]
   revision 1
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any, arm64_sequoia:  "8141450054340a9cab2a9a349c2a8445eb31e7312a918f90e20c9b06d60754fd"
     sha256 cellar: :any, arm64_sonoma:   "bf5d06c9fc78777d99c50c65585e3f295046d2619adcaa0c93c5349e1a650d15"

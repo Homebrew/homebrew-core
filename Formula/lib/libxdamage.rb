@@ -5,6 +5,8 @@ class Libxdamage < Formula
   sha256 "52733c1f5262fca35f64e7d5060c6fcd81a880ba8e1e65c9621cf0727afb5d11"
   license "MIT"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "4378ada6b14fdbf06d82825d2d81465fb0be5d80684c0c46b73ec6bf8b1009e9"
     sha256 cellar: :any,                 arm64_sonoma:   "3c19b70d6cd2fd2720b9b52be6c21ba5032da5e94fd3584126a5b73c725e18ba"

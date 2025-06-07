@@ -7,6 +7,8 @@ class LibjsonRpcCpp < Formula
   revision 4
   head "https://github.com/cinemast/libjson-rpc-cpp.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "437e579e259460e182a7a265ab31eda753c85860623d95fae1585c831ed26046"
     sha256 cellar: :any,                 arm64_sonoma:  "3c31da615d72e5b0b7fa8563a2f20ba614ae2149eedbdcc5e7b1bbf2ec4cf485"

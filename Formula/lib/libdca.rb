@@ -10,6 +10,8 @@ class Libdca < Formula
     regex(%r{href=.*?v?(\d+(?:\.\d+)+)[/"'>]}i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "0737b7bd914efce32ae323ecbb5fca30b14b39ef31d704a482883598303518b5"
     sha256 cellar: :any,                 arm64_sonoma:   "f8040bc44c93b05569e5f2cbce08e3b2377bd2445c4f305c2fb49f63a22850be"

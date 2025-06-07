@@ -11,6 +11,8 @@ class Libmspub < Formula
     regex(/href=["']?libmspub[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "1847309881161a713cb9c37bec7a23c452cdc44bf87c28c016f449c101b57b84"
     sha256 cellar: :any,                 arm64_sonoma:  "249d78a5299e65bd9ef5df4ea21d70aae17f40c3f075f34e04923b3880fb0257"

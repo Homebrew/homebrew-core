@@ -6,6 +6,8 @@ class Libmarpa < Formula
   license "MIT"
   head "https://github.com/jeffreykegler/libmarpa.git", branch: "tested"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "34dbf51117d4ac3e153c94f33b9484b45456bef0acac4bf40b0b65a41c76a935"
     sha256 cellar: :any,                 arm64_sonoma:   "fb4bb4ed2f54fe81cafed6f6a768edf2360cd0cf00f9e78be219848e968e5ebd"

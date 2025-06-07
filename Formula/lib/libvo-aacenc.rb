@@ -10,6 +10,8 @@ class LibvoAacenc < Formula
     regex(%r{url=.*?/vo-aacenc[._-]v?(\d+(?:\.\d+)+)\.t}i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "364ec1b50f38e6b1b0dc5e1ea7b12b624e249aea41810491669c9356ff96feac"
     sha256 cellar: :any,                 arm64_sonoma:   "1e337ddc61248e2bba763f27de3fd1f3699a68e03fdf369e95ef39fd3dd5fac2"

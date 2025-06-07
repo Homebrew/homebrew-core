@@ -10,6 +10,8 @@ class LibxmlxxAT5 < Formula
     regex(/libxml\+\+[._-]v?(5\.([0-8]\d*?)?[02468](?:\.\d+)*?)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "8b1741fec20807f621a0565fad5b10fff46bdb5e092f7545ccbe7c776d394b5b"
     sha256 cellar: :any,                 arm64_sonoma:   "5437f74e7361d06081dc6da97cd8f7726a0ae705e8157e1a0fc631214904eb37"

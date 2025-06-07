@@ -12,6 +12,8 @@ class Liboil < Formula
     regex(/href=.*?liboil[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_sequoia:  "884af7577129d0a2cf1418f838a9d8057e4f158911797fc6e7ba4e2217ce0182"

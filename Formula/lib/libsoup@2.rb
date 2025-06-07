@@ -5,6 +5,8 @@ class LibsoupAT2 < Formula
   sha256 "e4b77c41cfc4c8c5a035fcdc320c7bc6cfb75ef7c5a034153df1413fa1d92f13"
   license "LGPL-2.0-or-later"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 arm64_sequoia: "93cc36e0aca55d8d3ad613e40d4c4f870792d544472236eaa4e2007e8bdccdd7"
     sha256 arm64_sonoma:  "30cc853c0df1b294a5bb54f4224c01892dd8a227eef2b2f9db4525ee5660dda3"

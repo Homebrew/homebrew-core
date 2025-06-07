@@ -5,6 +5,8 @@ class LibfuseAT2 < Formula
   sha256 "d0e69d5d608cc22ff4843791ad097f554dd32540ddc9bed7638cc6fea7c1b4b5"
   license any_of: ["LGPL-2.1-only", "GPL-2.0-only"]
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 arm64_linux:  "df8b668765d688eb5a516eaa67a73d1750b5ce6bab91b1924def3b7fd0d85aac"

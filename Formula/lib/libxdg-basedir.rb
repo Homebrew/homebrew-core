@@ -5,6 +5,8 @@ class LibxdgBasedir < Formula
   sha256 "ff30c60161f7043df4dcc6e7cdea8e064e382aa06c73dcc3d1885c7d2c77451d"
   license "MIT"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "830d1609d4a60b66a7de159c17476bd63834bfae62aafb38a37c7c6aac24575f"
     sha256 cellar: :any,                 arm64_sonoma:   "6fb0160f5b6cd2579d154b9a97c459aef54ca27470db7d8fe9dded2e2f208a2e"

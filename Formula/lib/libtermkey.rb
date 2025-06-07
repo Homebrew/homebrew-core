@@ -10,6 +10,8 @@ class Libtermkey < Formula
     regex(/href=.*?libtermkey[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_sequoia:  "8c57ec64138dc53f48eb64c8dcfb06c3da89bd5cf9cdd2c6187adb2d7b09c3d4"

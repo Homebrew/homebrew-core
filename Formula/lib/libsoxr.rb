@@ -10,6 +10,8 @@ class Libsoxr < Formula
     regex(%r{url=.*?/soxr[._-]v?(\d+(?:\.\d+)+)(?:-Source)?\.t}i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_sequoia:  "164c5e70f213a0cdd5b9a764da773e79bc35753efc54d46e0710aee172de3640"

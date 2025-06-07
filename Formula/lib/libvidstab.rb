@@ -5,6 +5,8 @@ class Libvidstab < Formula
   sha256 "9001b6df73933555e56deac19a0f225aae152abbc0e97dc70034814a1943f3d4"
   license "GPL-2.0-or-later"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "f76b62fb9580b75861cc5a6d639500d095823d32bef7aa6f636fee2d87b724e9"
     sha256 cellar: :any,                 arm64_sonoma:   "f006d60e59a43562474571f2a7e2be72273cc9bd7b2df04d0c21da861ebfcab8"

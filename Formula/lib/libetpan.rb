@@ -13,6 +13,7 @@ class Libetpan < Formula
       url "https://github.com/dinhvh/libetpan/commit/1002a0121a8f5a9aee25357769807f2c519fa50b.patch?full_index=1"
       sha256 "824408a4d4b59b8e395260908b230232d4f764645b014fbe6e9660ad1137251e"
     end
+
     patch do
       url "https://github.com/dinhvh/libetpan/commit/298460a2adaabd2f28f417a0f106cb3b68d27df9.patch?full_index=1"
       sha256 "f5e62879eb90d83d06c4b0caada365a7ea53d4426199a650a7cc303cc0f66751"
@@ -24,6 +25,8 @@ class Libetpan < Formula
       sha256 "33e23548526588b0620033be67988e458806632efe950a62bd3e5808e2c628d1"
     end
   end
+
+  no_autobump! because: :requires_manual_review
 
   bottle do
     rebuild 1

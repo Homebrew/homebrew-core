@@ -6,6 +6,8 @@ class Libimobiledevice < Formula
   license "LGPL-2.1-or-later"
   revision 3
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_sequoia: "9bc550fcfb5ee4613073831691cda4cc54a88180e833a0f754886f1a34af4134"

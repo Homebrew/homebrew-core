@@ -6,6 +6,8 @@ class Libtins < Formula
   license "BSD-2-Clause"
   head "https://github.com/mfontanini/libtins.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "5cb848c245b9b880eb92a07133a8ec40238f08cc88ab9707805368efcc4bdf9d"
     sha256 cellar: :any,                 arm64_sonoma:   "12126120e038b274429c55f65891dd2eef0bdcb96cf728de5f3fb80b863896f4"

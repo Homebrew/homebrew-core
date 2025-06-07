@@ -11,6 +11,8 @@ class Libu2fServer < Formula
     regex(/href=.*?libu2f-server[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_sequoia:  "ba4f595c0638e3c766d45b0bae4ae189482ef6e14611073cee2c805d8ff947aa"

@@ -11,6 +11,8 @@ class Libftdi < Formula
     regex(/href=.*?libftdi1[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "c53870c2c84cf0918cbf27dfa0f62b3dc331072846980ef86243f506e1752f7a"
     sha256 cellar: :any,                 arm64_sonoma:   "63ffb0285cabb32fb40e7f609ba8e63da9c0452e30400bd9261218bd3e393b9f"

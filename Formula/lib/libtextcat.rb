@@ -6,6 +6,8 @@ class Libtextcat < Formula
   sha256 "5677badffc48a8d332e345ea4fe225e3577f53fc95deeec8306000b256829655"
   license "BSD-3-Clause"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_sequoia:  "b470b7355ee704a07a4768b12909b0c80501f241c57f257d4639147b0fda41eb"

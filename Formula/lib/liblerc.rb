@@ -10,6 +10,8 @@ class Liblerc < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "1f20f8fbf3268c2851793fd8f1215cd7a6f3fb55f97753314fad5fe57aaa678c"
     sha256 cellar: :any,                 arm64_sonoma:   "0850343f6c9467738b9f5bc143d140fababcf53e0bd0cc6ebbe0952e3a524b5b"

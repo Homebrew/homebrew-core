@@ -7,6 +7,8 @@ class Libserdes < Formula
   license "Apache-2.0"
   head "https://github.com/confluentinc/libserdes.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "9cb58d9f9f6a564d219bd9a76ccde9e11b22ccb07bbad4e62e2f22f4cd7baff1"
     sha256 cellar: :any,                 arm64_sonoma:   "a335b839fa4fb5d79f5008bd8a277e5579f250cfe6adb48abeec4aa4b4fd759a"

@@ -23,6 +23,8 @@ class Libgccjit < Formula
     formula "gcc"
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 arm64_sequoia: "76bcb930ece20a2661c706bac2f2ce4faf790b3af0554b86a8967677fcab03ce"
     sha256 arm64_sonoma:  "cb3db229fd88a28d6583fffd1ee487b0351851b377900d8976c5b70b37585c56"

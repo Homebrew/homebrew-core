@@ -11,6 +11,8 @@ class Libquantum < Formula
     regex(/href=.*?libquantum[._-]v?(\d+\.[02468](?:\.\d+)*)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "1104c2f6a72d4e1576077b6bb549f7e579ccd5d0869ff4e7ea7753655dd5c370"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "cbea5e8c46c96ca5adb46cd719b625261e63965deb8884f0fa71814edf2d589e"

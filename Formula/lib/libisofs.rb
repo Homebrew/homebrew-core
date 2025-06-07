@@ -11,6 +11,8 @@ class Libisofs < Formula
     regex(/href=.*?libisofs[._-]v?(\d+(?:\.\d+)+)(?:[._-]pl\d+)?\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "c4321671d1170bb88b23b8bf3e14dd9046d025341fb428a640c705cf5f8934ee"
     sha256 cellar: :any,                 arm64_sonoma:   "34b5564fd603417946cc498df54e7b8b59380b08259728709446efd2be7680c5"

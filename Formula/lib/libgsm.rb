@@ -10,6 +10,8 @@ class Libgsm < Formula
     regex(/href=.*?gsm[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_sequoia: "73ab84857bda140ae2dbf8dcbba53376739db92a4943fa2aa5e9939ebe7365ba"

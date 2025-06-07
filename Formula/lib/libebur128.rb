@@ -5,6 +5,8 @@ class Libebur128 < Formula
   sha256 "baa7fc293a3d4651e244d8022ad03ab797ca3c2ad8442c43199afe8059faa613"
   license "MIT"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "2112e1314f1796a63c7a5477ef24fbdeb91ca32b4d8ff57d5e6527e69a829d9f"
     sha256 cellar: :any,                 arm64_sonoma:   "91ca5b466a5bf36b1f9d9a1d7cd3f870d1d519fbce52b790192e3f5998976193"

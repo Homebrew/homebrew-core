@@ -6,6 +6,8 @@ class LibbitcoinServer < Formula
   license "AGPL-3.0-or-later"
   revision 2
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 arm64_sequoia:  "92810fc107acf9da79c29882ef3e0e68ce4579d8de73870d110be12e28c08f6b"
     sha256 arm64_sonoma:   "fd1942df520a583e95d6ad957bfa1e22922ea7c5716e5ca6ab3bb5194bb8c8ea"

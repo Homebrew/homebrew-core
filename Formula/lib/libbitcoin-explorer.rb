@@ -6,6 +6,8 @@ class LibbitcoinExplorer < Formula
   license "AGPL-3.0-or-later"
   revision 2
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 arm64_sequoia:  "92fd7ff6e8e5caaaf8da563fc8c024fd9d29501a3b46a52eb2275370a9ccfa6f"
     sha256 arm64_sonoma:   "7ce16a07286ba0403891fe6db304e4d2db29d5358b1d8b8b8eb827e6568756bb"

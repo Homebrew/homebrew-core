@@ -11,6 +11,8 @@ class Libhdhomerun < Formula
     strategy :header_match
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "b5e3c2ecfd8f80433a08d6cb12b312cc7ba251a0ddf1ca97580a10f4c598e69c"
     sha256 cellar: :any,                 arm64_sonoma:  "d4e45edcb85bc4fd9a91e31ab8746fbd4b266c96dd20f93ace422219a1b2d397"

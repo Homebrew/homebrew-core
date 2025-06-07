@@ -9,6 +9,8 @@ class Libmagic < Formula
     formula "file-formula"
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 arm64_sequoia: "72bb18819cf63d14cdc3c830d586bd93e542f5cf2cdbbc579bfcd5170017fff1"
     sha256 arm64_sonoma:  "6c1bf60aeb9742e5c8c6973cbcc6ac970fbed9e255e6bbd479bd2f77513c0b46"

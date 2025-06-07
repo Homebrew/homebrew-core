@@ -6,6 +6,8 @@ class Libgtop < Formula
   license "GPL-2.0-or-later"
   revision 1
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 2
     sha256 arm64_sequoia:  "558ead5d7327e92a4997128e3c0f48679ed64aedc06868e508b54ad054e4aeea"

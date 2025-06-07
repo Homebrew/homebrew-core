@@ -11,6 +11,8 @@ class Libdvbpsi < Formula
     regex(%r{href=["']?v?(\d+(?:\.\d+)+)/?["' >]}i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_sequoia:  "cdb91a9f85c8f2f255cc0269d01bff6ccd1952f4895a6d26c6cb26e7e5bcb2f7"

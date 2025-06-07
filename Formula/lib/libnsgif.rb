@@ -11,6 +11,8 @@ class Libnsgif < Formula
     regex(/href=.*?libnsgif[._-]v?(\d+(?:\.\d+)+)[._-]src\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "1b496d526be94479c22a33a721be3f7c5afe6ec2c0c62d2a9be03b04cce5cb19"
     sha256 cellar: :any,                 arm64_sonoma:   "fb3bd5d0ed63cb47edc86bded832614216985a5f020d4d3e9acf28c05a7d0d8b"

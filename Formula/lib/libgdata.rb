@@ -6,6 +6,8 @@ class Libgdata < Formula
   license "LGPL-2.1-or-later"
   revision 1
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any, arm64_sequoia:  "36b90319012266b453dbafde5737f7a9a0d0570494af7fd9f71c9ac836445d51"

@@ -16,6 +16,8 @@ class Libpgm < Formula
     end
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "0f2266ecabc1128e3a70ff8e31864e6cd556bd20b66cc2c74fd32011b2646dc4"
     sha256 cellar: :any,                 arm64_sonoma:   "6764decaa99670740309808e8be1ac3d75dbb9b8b8f8037d10c6dbe2932e0290"

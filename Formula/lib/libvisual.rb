@@ -5,6 +5,8 @@ class Libvisual < Formula
   sha256 "63085fd9835c42c9399ea6bb13a7ebd4b1547ace75c4595ce8e9759512bd998a"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any, arm64_sequoia:  "a3cf1f8ac6ed58fce5959717d16802adeb1920abfe6c421145de66eff2e9a51a"
     sha256 cellar: :any, arm64_sonoma:   "c56b6225bce042d7c7984074c9c508e2ab4d4c17491f941d72dbfc0cee0c3caa"

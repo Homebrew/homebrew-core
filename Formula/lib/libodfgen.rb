@@ -11,6 +11,8 @@ class Libodfgen < Formula
     regex(/href=["']?libodfgen[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "7f42c8f3db9efee29ccd3acfdbb58e401cff658eb20c77284acdcd1220770249"
     sha256 cellar: :any,                 arm64_sonoma:   "f8c8b108ac222308245eef3d268c4eeeb84b2a73f2410c45568f304a142471e0"

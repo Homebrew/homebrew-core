@@ -7,6 +7,8 @@ class LibcdioParanoia < Formula
   sha256 "99488b8b678f497cb2e2f4a1a9ab4a6329c7e2537a366d5e4fef47df52907ff6"
   license "GPL-3.0-only"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "fb138d8a79b5fa0eecf89a7ca0bcd3b294120aeb05200767558b61d3e4e51533"
     sha256 cellar: :any,                 arm64_sonoma:  "d91bce7e9b1ecda7021bea7ede886f35e7414f691f06e7f5ca76ffce1d8693f3"

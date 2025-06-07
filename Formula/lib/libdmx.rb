@@ -5,6 +5,8 @@ class Libdmx < Formula
   sha256 "35a4e26a8b0b2b4fe36441dca463645c3fa52d282ac3520501a38ea942cbf74f"
   license "MIT"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "e5034cca46b4ff523130888f6d8bf0d75937e0f1b490a0cf0c0c175f32d8be2d"
     sha256 cellar: :any,                 arm64_sonoma:   "f9beee8dec503a6ecc7479eaec0f9f567d03d38076e4b0237e75969155df0006"

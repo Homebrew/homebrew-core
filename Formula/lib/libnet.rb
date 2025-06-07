@@ -5,6 +5,8 @@ class Libnet < Formula
   sha256 "ad1e2dd9b500c58ee462acd839d0a0ea9a2b9248a1287840bc601e774fb6b28f"
   license "BSD-2-Clause"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "e1aa2022d333a395e5add872c8f9facfdb1811b28bb2706bff2ce97923e671b9"
     sha256 cellar: :any,                 arm64_sonoma:   "9a0e1d5eb30194a4309588c383cc4e179804e88314b280e2d04c96069ebef867"

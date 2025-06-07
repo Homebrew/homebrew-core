@@ -6,6 +6,8 @@ class Libaribcaption < Formula
   license "MIT"
   head "https://github.com/xqq/libaribcaption.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "ee6159957adc5a0d51c97ea3ff269abb39c5eafb0a8bddf7c14033827f22a6d0"
     sha256 cellar: :any,                 arm64_sonoma:   "350944da4a91c77f3a44925b3f563b97b763f71c9a3ca42d0a6a47d064f27a8c"

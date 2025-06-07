@@ -11,6 +11,8 @@ class Libfreehand < Formula
     regex(/href=["']?libfreehand[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "9eeb0bbec76d98ba004514dad9c9dc345a66fde115e25cada3fc837efcb764c7"
     sha256 cellar: :any,                 arm64_sonoma:   "10f6c8c203685f706e8290abc6a8c6833203142083d267f2ef271d34e998497b"

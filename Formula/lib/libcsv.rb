@@ -5,6 +5,8 @@ class Libcsv < Formula
   sha256 "d9c0431cb803ceb9896ce74f683e6e5a0954e96ae1d9e4028d6e0f967bebd7e4"
   license "LGPL-2.1-or-later"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 2
     sha256 cellar: :any,                 arm64_sequoia:  "c515471cacac39d4bdb089b73f0ca8f2405a7c90b7973203fda68ab10c28a630"

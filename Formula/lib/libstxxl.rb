@@ -5,6 +5,8 @@ class Libstxxl < Formula
   sha256 "92789d60cd6eca5c37536235eefae06ad3714781ab5e7eec7794b1c10ace67ac"
   license "BSL-1.0"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "30d099063deeb524f2ebe459a34fccb9236780abee29b1a8487f131922b015b3"

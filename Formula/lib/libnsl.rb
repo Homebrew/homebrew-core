@@ -5,6 +5,8 @@ class Libnsl < Formula
   sha256 "5c9e470b232a7acd3433491ac5221b4832f0c71318618dc6aa04dd05ffcd8fd9"
   license "LGPL-2.1-or-later"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_linux:  "b5f2c97b5782dfde6d350ebe54cacf87db18a1626afcf91998aaa8d6c5930890"

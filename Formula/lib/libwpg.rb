@@ -10,6 +10,8 @@ class Libwpg < Formula
     regex(/href=["']?libwpg[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "a062020deb99f826a9d7db555d3205c8fb56f431d19e916f7b17319641b9a00a"
     sha256 cellar: :any,                 arm64_sonoma:   "d2b1e6eed68f342f9a97a9059d84880c33316fbc4efaa011562b852432e6dd11"

@@ -5,6 +5,8 @@ class LibgrapeLite < Formula
   sha256 "77b7f08ad10b26ec7e6f60bf90ab8281208758702a9e8d9dd00b1cd6f5560f39"
   license "Apache-2.0"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "a0f27854c66b84ff7b9457c056464ed04cd44f6bbcbbe2c194589a10906a9ff5"
     sha256 cellar: :any,                 arm64_sonoma:  "4ed7d1abaeff94d789b82eb98be06f932fe14fd2a226c1b9b9070fb9e859bf3a"

@@ -5,6 +5,8 @@ class Libxpm < Formula
   sha256 "959466c7dfcfcaa8a65055bfc311f74d4c43d9257900f85ab042604d286df0c6"
   license "MIT"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "a78b3654640de7665b01b2b6e61420a85bba28185aeb13c71677690c558c8c42"
     sha256 cellar: :any,                 arm64_sonoma:   "4e515c10ad6f503a64cbc95c7bded77018f3f9ff5c7edd27f6a1eead7f7152b5"

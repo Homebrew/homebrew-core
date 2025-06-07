@@ -14,6 +14,8 @@ class Liblzf < Formula
     regex(/href=.*?liblzf[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "7c85befbd00a98a67ac1cc0b265f220bec476aef8f011b9fda2ee5aea9cd29b5"

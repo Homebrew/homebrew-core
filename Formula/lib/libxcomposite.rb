@@ -5,6 +5,8 @@ class Libxcomposite < Formula
   sha256 "fe40bcf0ae1a09070eba24088a5eb9810efe57453779ec1e20a55080c6dc2c87"
   license "MIT"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "da32d7ca9d60bea76c4c75ac3ac601601794a44689b7e7ecd0bb076730516202"
     sha256 cellar: :any,                 arm64_sonoma:   "5bb05841f68025cbe9d0db5f308f1065025a1ee118a6f8b9796774f936a518e1"

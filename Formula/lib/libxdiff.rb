@@ -10,6 +10,8 @@ class Libxdiff < Formula
     regex(/href=.*?libxdiff[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_sequoia:  "044f8ca7045a788d7096478af46442537dd601d92b6d73c8808f6c2337d0990c"

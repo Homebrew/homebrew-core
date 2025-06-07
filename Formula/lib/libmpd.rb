@@ -11,6 +11,8 @@ class Libmpd < Formula
     regex(%r{href=["']?v?(\d+(?:\.\d+)+)/?["' >]}i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "18186d5954681b7a246a5349ec9ba4a236266e8532850b8e5a6f06692981669e"
     sha256 cellar: :any,                 arm64_sonoma:   "270b80aef8af0403f00a17400e8c18bc79ccbfd30976e1e981338a93c6f2d9c6"

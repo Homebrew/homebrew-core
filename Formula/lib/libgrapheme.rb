@@ -10,6 +10,8 @@ class Libgrapheme < Formula
     url "git://git.suckless.org/libgrapheme"
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "15463cba352ca4de4ebd865ae7aeee520871711b7c0dca0cceebfba78dbe88c5"
     sha256 cellar: :any,                 arm64_sonoma:   "961545ff7d4e1825ee195a79d6522ba7ae226c401d72b655410d8a132933eb2e"

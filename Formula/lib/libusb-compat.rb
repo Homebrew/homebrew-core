@@ -13,6 +13,8 @@ class LibusbCompat < Formula
     regex(%r{url=.*?/libusb-compat[._-]v?(\d+(?:\.\d+)+)\.t}i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_sequoia:  "db9c3980772b1debe48a65b951a7b6ac27ccfacd26afc6b96b49fa1a60c34339"

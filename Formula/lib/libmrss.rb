@@ -6,6 +6,8 @@ class Libmrss < Formula
   license "LGPL-2.1-or-later"
   head "https://github.com/bakulf/libmrss.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "183934eb440639c9d4506bcc74cc7c86da915e1bc65d041d79ebbc6eff5f6f1b"
     sha256 cellar: :any,                 arm64_sonoma:   "b28e679db851fa12e08db6e3c5061cd7dc8daa31b8d39686ae4fc40f6e5164a7"

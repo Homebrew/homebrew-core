@@ -10,6 +10,8 @@ class LibnetfilterQueue < Formula
     regex(/href=.*?libnetfilter_queue[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_linux:  "0d88b35944420ead47b296ddc1e8a374591138b640c4aeede86e02b0104de7c4"

@@ -5,6 +5,8 @@ class LibxsdFrontend < Formula
   sha256 "98321b9c2307d7c4e1eba49da6a522ffa81bdf61f7e3605e469aa85bfcab90b1"
   license "GPL-2.0-only"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "3631cb5e92f7b2d727f1fe7039482a1a5cd1d81e317674fa418795e4691d60fe"
     sha256 cellar: :any,                 arm64_sonoma:  "cc7523a561914a469ed374865f6135e9756d7c08b8d3fd16a79d405523c5e338"

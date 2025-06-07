@@ -10,6 +10,8 @@ class Libresample < Formula
     regex(/href=.*?libresample[._-]v?(\d+(?:\.\d+)+)\.orig\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "79e7e1ab8736164c5c9c6ceb299995ec9771f0cbc3be4d692799595a5ae844bf"
