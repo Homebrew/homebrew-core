@@ -38,7 +38,7 @@ class SpatialiteGui < Formula
   depends_on "sqlite"
   depends_on "virtualpg"
   depends_on "webp"
-  depends_on "wxwidgets"
+  depends_on "wxwidgets@3.2"
   depends_on "xz"
   depends_on "zstd"
 

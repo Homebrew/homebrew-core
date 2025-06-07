@@ -4,7 +4,7 @@ class Spek < Formula
   url "https://github.com/alexkay/spek/releases/download/v0.8.5/spek-0.8.5.tar.xz"
   sha256 "1bccf85a14a01af8f2f30476cbad004e8bf6031f500e562bbe5bbd1e5eb16c59"
   license "GPL-3.0-or-later"
-  revision 3
+  revision 4
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "9a5cf8f9e155491cc75e877decfa35c8c7cd860ed879247333a5c8384660359e"

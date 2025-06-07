@@ -19,7 +19,7 @@ class Wxlua < Formula
 
   depends_on "cmake" => :build
   depends_on "lua"
-  depends_on "wxwidgets"
+  depends_on "wxwidgets@3.2"
 
   on_linux do
     depends_on "xorg-server" => :test
