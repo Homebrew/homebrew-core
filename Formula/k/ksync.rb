@@ -7,6 +7,8 @@ class Ksync < Formula
   license "Apache-2.0"
   head "https://github.com/ksync/ksync.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "1620949d8da595167314a38d77d648496ae8f643d95b41020ac84618cbc341a2"

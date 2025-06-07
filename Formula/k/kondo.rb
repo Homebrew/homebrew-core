@@ -5,6 +5,8 @@ class Kondo < Formula
   sha256 "4054c90e679a379a735b3166df4633fb86a33725175ebe23d7b659dcb7155b26"
   license "MIT"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "7f7ed792db60c8e6dab1cd65a717e23443a509f37fc9a5c3fc2c5b2be86fdf65"

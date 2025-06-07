@@ -11,6 +11,8 @@ class KosliCli < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "67f4b68715bda0101d061a07d0e68f926b6a9f4acbc1366cfb863faabe6add69"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6d6bab1ce5b0829d17a1854d3f9bda0af9d5af6ca7bce89a17ef665f0a0c9ed5"

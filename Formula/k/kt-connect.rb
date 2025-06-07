@@ -6,6 +6,8 @@ class KtConnect < Formula
   license "GPL-3.0-or-later"
   head "https://github.com/alibaba/kt-connect.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "dee23d253f401d36476a08a6150c453eb9ad696f2523cd71f3bc35a35159dd88"

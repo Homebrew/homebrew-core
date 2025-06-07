@@ -6,6 +6,8 @@ class Khiva < Formula
       revision: "c2c72474f98ce3547cbde5f934deabb1b4eda1c9"
   license "MPL-2.0"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 2
     sha256 cellar: :any,                 arm64_ventura:  "79129c3668a37ad0c60c3225717337bd43e5bd453d8ada10ca36edc3eb0a6efd"

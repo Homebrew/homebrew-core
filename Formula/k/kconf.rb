@@ -6,6 +6,8 @@ class Kconf < Formula
   license "MIT"
   head "https://github.com/particledecay/kconf.git", branch: "main"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "c7ff80bea648574258dd8824d20fba4332346ddb89dc566b6286a674a3a730a6"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ed57d62a2cfcb32f238460071f886311c492f9587ab87cfa3f23eb524e1ef490"

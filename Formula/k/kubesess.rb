@@ -5,6 +5,8 @@ class Kubesess < Formula
   sha256 "a5cfbf0637968124d9655109a44222de49b97a882831b56ccf3f11360872dfcd"
   license "MIT"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "344f52b08299ed4b08e8af8ae17d5d75ab56cd8c8f2bb017ded8ef2de861eb44"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3da56f2c3569d78ebba5c172eed393c45c528a6dd08562317496b152ba114481"

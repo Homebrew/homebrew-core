@@ -11,6 +11,8 @@ class Kore < Formula
     regex(/href=.*?kore[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 arm64_sequoia:  "b25dd99e236b7cf5cdfec8d1128dfb125d271400aef79e29a6877fd47f86a4a2"

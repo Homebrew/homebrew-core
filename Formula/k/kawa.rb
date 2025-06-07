@@ -12,6 +12,8 @@ class Kawa < Formula
     regex(/href=.*?kawa[._-]v?(\d+(?:\.\d+)+)\.(?:t|zip)/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "c7ea8432d31f2ae8fdcf5307d328016c728f51db2bc2c76f10161d7c40fcb962"

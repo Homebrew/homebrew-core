@@ -10,6 +10,8 @@ class Kanif < Formula
     regex(/href=.*?kanif[._-]v?(\d+(?:\.\d+)+)\.orig\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "f8e0c833384c4479f288c31b55223157190f271ca6489bbcc47cfb8c9c2042e8"

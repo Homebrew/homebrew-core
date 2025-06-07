@@ -8,6 +8,8 @@ class KeepkeyAgent < Formula
   license "LGPL-3.0-only"
   revision 10
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "fe5abb6df497d25c25cf54b6cf0c05fdeb0b2e817c61369f9346a6b933ea21a6"
     sha256 cellar: :any,                 arm64_sonoma:  "c94113694b5d5a191955f05d762bd0732725dc22dfaae7f068ed38ffbd537511"

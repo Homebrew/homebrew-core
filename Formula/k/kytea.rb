@@ -19,6 +19,8 @@ class Kytea < Formula
     regex(/href=.*?kytea[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 arm64_sequoia:  "0afb996003e2ad0e1443b6a260fcebf6ae349022a1e082ae467bc96d77000b1f"
     sha256 arm64_sonoma:   "80b6a9d85ab58a17b68cf889c413a5bae57c27839ec5e77a787a2a4ae7753c71"

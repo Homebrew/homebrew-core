@@ -6,6 +6,8 @@ class Kuzco < Formula
   license "Apache-2.0"
   head "https://github.com/RoseSecurity/Kuzco.git", branch: "main"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "843597dc532c472bbc088673a68e60a58902e9084dbdc2c115ad29cf45a48e2a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "843597dc532c472bbc088673a68e60a58902e9084dbdc2c115ad29cf45a48e2a"

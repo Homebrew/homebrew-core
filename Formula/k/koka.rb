@@ -26,6 +26,8 @@ class Koka < Formula
     strategy :github_latest
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "d47eb2b41f0cd8cdb0d07acbbd4382b6ddb89cd4497af5b51d556bf8bab62b06"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7506daa434b459eaa217e10e77c4307fc598661ee4d9545a4c48916c0a0dda56"

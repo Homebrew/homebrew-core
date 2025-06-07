@@ -6,6 +6,8 @@ class Kubectx < Formula
   license "Apache-2.0"
   head "https://github.com/ahmetb/kubectx.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, all: "6552e91e68ff8abda73be837c80539b47e3aadc73e5f8bab57cbb3bf0356c682"

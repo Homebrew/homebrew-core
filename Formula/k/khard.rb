@@ -8,6 +8,8 @@ class Khard < Formula
   license "GPL-3.0-only"
   revision 1
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "fb20881e405b6a35eb802c83225d7099e6ca99c8979ab2dac3159412318aa1b5"

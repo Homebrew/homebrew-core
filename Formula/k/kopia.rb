@@ -6,6 +6,8 @@ class Kopia < Formula
       revision: "1ee24977ceb09c02329eaebac718ec5a950c5d83"
   license "Apache-2.0"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "fef8724dc38183165b2d95d432d734a40b228d299615c5c2358ef6429b23f1d8"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d1d69afba3a1d9046cb623472825ed7931a392b95355dad08ed6bfe06cbfd8de"

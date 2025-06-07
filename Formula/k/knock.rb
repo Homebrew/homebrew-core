@@ -10,6 +10,8 @@ class Knock < Formula
     strategy :github_latest
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "6918a15821559b226ee8e3844a439277a1cf6b4dcd6fa503fd71531fe541fe8d"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c0705f9179784dc82526bc20a47df2b3a39b1b5e476cca49d4406c9c0e3f1ea1"

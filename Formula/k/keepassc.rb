@@ -8,6 +8,8 @@ class Keepassc < Formula
   license "ISC"
   revision 5
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "2447d5f8a051b1d15efec850c60e58bd372e871270fe494c9a4882309783fc11"

@@ -11,6 +11,8 @@ class Klavaro < Formula
     regex(%r{url=.*?/klavaro[._-]v?(\d+(?:\.\d+)+)\.t}i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 arm64_sequoia:  "f51c0783c7004a02723e01896663c837923fe3ef5efc576821e68deb3383387c"
     sha256 arm64_sonoma:   "da78d9074c10ef13c0c188880d8c66d72aa130734a240d696a5ff67676f1557c"

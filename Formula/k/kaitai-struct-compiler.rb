@@ -11,6 +11,8 @@ class KaitaiStructCompiler < Formula
     regex(/href=.*?kaitai-struct-compiler[._-]v?(\d+(?:\.\d+)+)\.zip/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "7e88fea45af08e6beb052d86e17199f3a459673089185dbd25904024f430aa6b"

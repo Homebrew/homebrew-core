@@ -10,6 +10,8 @@ class Kimwituxx < Formula
     regex(/href=.*?kimwitu\+\+[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "3861ff2b9ae3eacfcb277bc50b6a3b1e16c608c807ff082ea2b2fe6d739f6608"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "35b17dd52015ae03a53788fc887c4b4943ab78b18f16fa6194b697e16fc69c3c"

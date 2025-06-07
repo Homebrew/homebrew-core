@@ -6,6 +6,8 @@ class Keystone < Formula
   license "GPL-2.0-only"
   head "https://github.com/keystone-engine/keystone.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "5ccd260480e31343df08f282b31c71ba54088029cccf2e210afd58ef404a64be"

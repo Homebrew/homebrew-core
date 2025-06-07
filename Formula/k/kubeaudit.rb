@@ -6,6 +6,8 @@ class Kubeaudit < Formula
   license "MIT"
   head "https://github.com/Shopify/kubeaudit.git", branch: "main"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "0e3522037f91f1ec9aaff02d095c6c9da7cd4b1b13fa88f7531d7be68f880432"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "009138418c76bbb04d6a36a782c0c5723716f96490d97d97787de7d86862a4a5"

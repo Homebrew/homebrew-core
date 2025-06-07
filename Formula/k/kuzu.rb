@@ -6,6 +6,8 @@ class Kuzu < Formula
   license "MIT"
   head "https://github.com/kuzudb/kuzu.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "bb7aa1820a91f16e0bdeb5f7c53712283bd554ae81620d1ba88fe42659ba463d"
     sha256 cellar: :any,                 arm64_sonoma:  "98c6ea68a10e431295b2462087c3708c9d2bc20f0692183cd6a20afd742a3e87"
