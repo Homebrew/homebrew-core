@@ -1,8 +1,8 @@
 class Ares < Formula
   desc "Automated decoding of encrypted text"
   homepage "https://github.com/bee-san/Ares"
-  url "https://github.com/bee-san/Ares/archive/refs/tags/v0.10.0.tar.gz"
-  sha256 "d951302b572ed0786c366762b430d0d37479be8649b16122548ece1ea0a28900"
+  url "https://github.com/bee-san/Ares/archive/refs/tags/0.11.0.tar.gz"
+  sha256 "fd8751de6c46eb523d62d4ca52018b9127b9fa5fbd4a372b7f22e0f9957f030f"
   license "MIT"
 
   livecheck do
@@ -34,8 +34,11 @@ class Ares < Formula
   end
 
   test do
-    input_string = "U0dWc2JHOGdabkp2YlNCSWIyMWxZbkpsZHc9PQ=="
+    # base64 encoded string for "Hello from Homebrew"
+    input_string = "SGVsbG8gZnJvbSBIb21lYnJldw=="
     expected_text = "Hello from Homebrew"
-    assert_includes shell_output("#{bin}/ares -d -t #{input_string}"), expected_text
+    # Disable custom color scheme
+    output = pipe_output("#{bin}/ares -d -t #{input_string}", "N", 0)
+    assert_match expected_text, output
   end
 end
