@@ -242,10 +242,10 @@ jobs:
           bottles-directory: ${{ env.BOTTLES_DIR }}
           cleanup: false
 
-      - name: Setup tmate session
-        uses: mxschmitt/action-tmate@v3
-        with:
-          detached: true
+#      - name: Setup tmate session
+#        uses: mxschmitt/action-tmate@v3
+#        with:
+#          detached: true
 
       - name: Test formulae
         id: brew-test-bot-formulae
