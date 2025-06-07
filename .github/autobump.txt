@@ -1225,6 +1225,7 @@ gauge
 gawk
 gaze
 gcalcli
+gcc@13
 gcem
 gci
 gcli
