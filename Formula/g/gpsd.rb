@@ -1,9 +1,9 @@
 class Gpsd < Formula
   desc "Global Positioning System (GPS) daemon"
   homepage "https://gpsd.gitlab.io/gpsd/"
-  url "https://download.savannah.gnu.org/releases/gpsd/gpsd-3.25.tar.xz"
-  mirror "https://download-mirror.savannah.gnu.org/releases/gpsd/gpsd-3.25.tar.xz"
-  sha256 "7e5e53e5ab157dce560a2f22e20322ef1136d3ebde99162def833a3306de01e5"
+  url "https://download.savannah.gnu.org/releases/gpsd/gpsd-3.26.1.tar.xz"
+  mirror "https://download-mirror.savannah.gnu.org/releases/gpsd/gpsd-3.26.1.tar.xz"
+  sha256 "45c0d4779324bd59a47cfcb7ac57180d2dbdf418603d398a079392dabf1f740c"
   license "BSD-2-Clause"
   head "https://gitlab.com/gpsd/gpsd.git", branch: "master"
 
@@ -29,12 +29,6 @@ class Gpsd < Formula
   depends_on "scons" => :build
 
   uses_from_macos "ncurses"
-
-  # Replace setuptools in SConscript for python 3.12+
-  patch do
-    url "https://gitlab.com/gpsd/gpsd/-/commit/9157b1282d392b2cc220bafa44b656d6dac311df.diff"
-    sha256 "b2961524c4cd59858eb204fb04a8119a8554560a693093f1a37662d6f15326f9"
-  end
 
   def install
     system "scons", "chrpath=False", "python=False", "strip=False", "prefix=#{prefix}/"
