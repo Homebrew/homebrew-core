@@ -6,8 +6,8 @@ class Kapacitor < Formula
 
   stable do
     url "https://github.com/influxdata/kapacitor.git",
-        tag:      "v1.7.6",
-        revision: "3347c7d9aec8e031a3eb05f501461fb106c20529"
+        tag:      "v1.7.7",
+        revision: "f59b0b1f0c0681f37a7aa62d79600009d2f168c8"
 
     # TODO: Remove when release uses flux >= 0.195.0 to get following fix for rust >= 1.78
     # Ref: https://github.com/influxdata/flux/commit/68c831c40b396f0274f6a9f97d77707c39970b02
