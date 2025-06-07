@@ -1,8 +1,8 @@
 class SignalCli < Formula
   desc "CLI and dbus interface for WhisperSystems/libsignal-service-java"
   homepage "https://github.com/AsamK/signal-cli"
-  url "https://github.com/AsamK/signal-cli/archive/refs/tags/v0.13.14.tar.gz"
-  sha256 "7d44e71a8c4f2087057e8ce401d416d963a62b9819a75884f3c426b28af8a947"
+  url "https://github.com/AsamK/signal-cli/archive/refs/tags/v0.13.16.tar.gz"
+  sha256 "e95713d193d6641afa89bdf563f0474290d7c303b1efce1eb18eb47393476486"
   license "GPL-3.0-or-later"
 
   bottle do
@@ -25,13 +25,17 @@ class SignalCli < Formula
   uses_from_macos "llvm" => :build # For `libclang`, used by `boring-sys` crate
   uses_from_macos "zip" => :build
 
+  on_linux do
+    depends_on arch: :x86_64 # `:libsignal-cli:test` failure, https://github.com/AsamK/signal-cli/issues/1787
+  end
+
   # https://github.com/AsamK/signal-cli/wiki/Provide-native-lib-for-libsignal#determine-the-required-libsignal-client-version
   # To check the version of `libsignal-client`, run:
   # url=https://github.com/AsamK/signal-cli/releases/download/v$version/signal-cli-$version.tar.gz
   # curl -fsSL $url | tar -tz | grep libsignal-client
   resource "libsignal-client" do
-    url "https://github.com/signalapp/libsignal/archive/refs/tags/v0.68.1.tar.gz"
-    sha256 "bc5b78d6c4cd5e2c47d24ea9c41b1047cdead0d315c6a48a1daece03eb449eb5"
+    url "https://github.com/signalapp/libsignal/archive/refs/tags/v0.73.2.tar.gz"
+    sha256 "22c3ff39e07bf913f2ae3f49a75b56ed6d36576d394b9d44ef837e05e052b3e0"
   end
 
   def install
