@@ -10,6 +10,8 @@ class Gifsicle < Formula
     regex(/href=.*?gifsicle[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "75b564ba2a3671f341b02b63b0a8429ea02db301a6ecf1ab346a31d158f44139"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "90eddb31b7d51d074eb66c11a6f7dcbb39e086adf5fa37465e3d6c53f7eb9790"

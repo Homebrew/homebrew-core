@@ -6,6 +6,8 @@ class Gobuster < Formula
   license "Apache-2.0"
   head "https://github.com/OJ/gobuster.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "da882bae38256fa273b80071e504340c008df9fce87ddd80fb9a6f00b20c00bd"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "52048ab65b5ae408a1e86fc546f7b32b3361324c7a5e46b0ebedfa15e436ef20"

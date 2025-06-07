@@ -5,6 +5,8 @@ class GitMediate < Formula
   sha256 "f8bacc2d041d1bef9288bebdb20ab2ee6fbd7d37d4e23c84f8dda27ff5b8ba59"
   license "GPL-2.0-only"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "9c8be0d8c2ccb6e709e05b0744a8ae7485692993d492d3dbcac2ff7312bfb56a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f5fea46d5954c87f70437d452dc81625aacd6d8538649d7a5b535771d9822026"

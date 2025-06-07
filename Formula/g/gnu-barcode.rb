@@ -6,6 +6,8 @@ class GnuBarcode < Formula
   sha256 "7c031cf3eb811242f53664379aebbdd9fae0b7b26b5e5d584c31a9f338154b64"
   license "GPL-3.0-or-later"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "30ba34d1c972ec24c6f5ccd484585cd114456d7a6523f16f31dcf58c81089663"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d037ed37810d7bd12b7e915857ec6789445d67ac197ba328102099ce8e00e781"

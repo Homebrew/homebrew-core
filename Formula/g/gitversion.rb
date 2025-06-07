@@ -5,6 +5,8 @@ class Gitversion < Formula
   sha256 "b2bc7fef4236722a08ea7441ffe4f5f9214bd24c159d1551d272b875948cd23b"
   license "MIT"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "6826ebded9022c6493fb78231e4b223ad0cf7110170fc16b557d30ca632f7de3"
     sha256 cellar: :any,                 arm64_sonoma:  "e2c0a800f6633fe996eca0224a9e97c50fda63d128c8e489886f39317d8242a9"

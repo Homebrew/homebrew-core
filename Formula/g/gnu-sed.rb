@@ -6,6 +6,8 @@ class GnuSed < Formula
   sha256 "6e226b732e1cd739464ad6862bd1a1aba42d7982922da7a53519631d24975181"
   license "GPL-3.0-or-later"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 3
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "70edbfd4aa9ec24bd48e21353d18433741c13ec10c9903d5c93349eabb83bebb"

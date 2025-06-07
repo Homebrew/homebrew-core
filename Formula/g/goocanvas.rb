@@ -6,6 +6,8 @@ class Goocanvas < Formula
   license "LGPL-2.0-only"
   revision 1
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256                               arm64_sequoia:  "8bd21a150d98f2abed5d68ac690487f1d2311e509bc54087d8b577a294bd6711"
     sha256                               arm64_sonoma:   "e700e5fb6f0f6454c9cc42975dae876c53f62ec1e6f5db3acadfea35232b72c5"

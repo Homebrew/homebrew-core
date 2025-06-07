@@ -8,6 +8,8 @@ class Gdtoolkit < Formula
   license "MIT"
   revision 1
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "bf4f396f05200cb9b9acc892694f4bf4e5969420d21c1efa6d0509c5707854d2"
     sha256 cellar: :any,                 arm64_sonoma:  "3d1ca6707157c01f628e1f335750a29ddb1638d15b7b1b846b9e32ae02a6916b"

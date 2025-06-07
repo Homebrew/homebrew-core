@@ -6,6 +6,8 @@ class Gqlplus < Formula
   license "GPL-2.0-only"
   revision 2
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "655578c016ff8dadbc3acec3696e90fb7fbab95af8a0f749ec4d2384ab977221"
     sha256 cellar: :any,                 arm64_sonoma:   "c4534648d55a23ab49c6fd1e3a4c3c66ee928c7b4ab4cb1c10b9e132134a81f7"

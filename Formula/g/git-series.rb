@@ -6,6 +6,8 @@ class GitSeries < Formula
   license "MIT"
   revision 13
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "bbf088fcb4b5ef9f6a32dec074b9aa98b3e53dc0b990361b6497a504aad42787"
     sha256 cellar: :any,                 arm64_sonoma:  "4d0310b6b5dce374dbc590d9c16e65b2a7b20b70ed2c568213a940799bcb623d"

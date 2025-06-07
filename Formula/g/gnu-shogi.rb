@@ -6,6 +6,8 @@ class GnuShogi < Formula
   sha256 "1ecc48a866303c63652552b325d685e7ef5e9893244080291a61d96505d52b29"
   license "GPL-3.0-or-later"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256                               arm64_sequoia:  "af1b6d676a20358883f12095fc36af7379e69c8438cc1c3096116b0748952485"
     sha256                               arm64_sonoma:   "0702ff59b956256f5452b9581f38659d15820e201f91fa571eb97f814118fea1"

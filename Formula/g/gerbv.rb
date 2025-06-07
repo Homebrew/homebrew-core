@@ -6,6 +6,8 @@ class Gerbv < Formula
   license "GPL-2.0-or-later"
   revision 1
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 arm64_sonoma:   "f0033cf40029771a108a543761225a8cf7f76a93978c64d5fe06b77e1d212ecf"
     sha256 arm64_ventura:  "78372c7e31bacbc5f95a5741ccdbd2a2c1c45709c63cf1dda4df2e1e11e9df79"

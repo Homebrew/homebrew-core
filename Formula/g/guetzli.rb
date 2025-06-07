@@ -6,6 +6,8 @@ class Guetzli < Formula
   license "Apache-2.0"
   head "https://github.com/google/guetzli.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "a9d736ee968abfde99d6ccc42c9ca5793ea9d7b1e52b7127314a1f8fcfcf32fc"
     sha256 cellar: :any,                 arm64_sonoma:   "48791444d83a6bff9ff37b33b55422cebcca2c162e0d6c8daf3bbdaf62cc5bc7"

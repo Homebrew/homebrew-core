@@ -12,6 +12,8 @@ class Gplugin < Formula
     url "https://sourceforge.net/projects/pidgin/rss?path=/gplugin"
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 arm64_sequoia: "09e5e444bf267a554d99cbc4c49ae715f4394d394a89262198d5b9235adf0eb4"
     sha256 arm64_sonoma:  "4bd6796d1074b0eed0f3e246359c0b2987da4bd4b1f9f3925276b0691a64c6b5"

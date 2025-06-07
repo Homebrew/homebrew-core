@@ -5,6 +5,8 @@ class GitAnnexRemoteRclone < Formula
   sha256 "6da12f46d46613cc5a539057052be7d8aa5259bd973ddff2d6ee460d34cd096c"
   license "GPL-3.0-only"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "60ec135de845b97d8eafb3de716f93fda72c9c69a99c58e6b9669eec71006cfc"

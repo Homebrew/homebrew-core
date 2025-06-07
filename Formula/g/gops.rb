@@ -6,6 +6,8 @@ class Gops < Formula
   license "BSD-3-Clause"
   head "https://github.com/google/gops.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "6e6424f29a0624aa928ab6604ea0bfebd30fbf1359343c94a827deb39dc32561"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9705e404ae430eef52e18a9bd0efcd7aba007de76ef17d967a1da2c949e73130"

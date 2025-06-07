@@ -6,6 +6,8 @@ class Ggh < Formula
   license "Apache-2.0"
   head "https://github.com/byawitz/ggh.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "b5c76f29ddf4e03a9c39f54fb7c71314821e88a59b631f9a50a0cff0e951ab79"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b5c76f29ddf4e03a9c39f54fb7c71314821e88a59b631f9a50a0cff0e951ab79"

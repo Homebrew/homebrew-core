@@ -5,6 +5,8 @@ class Gws < Formula
   sha256 "f92b7693179c2522c57edd578abdb90b08f6e2075ed27abd4af56c1283deab1a"
   license "MIT"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "0d31f65a9ff26f5e0d80055636889fe835445ffcdcccb144333e042ae2b771aa"

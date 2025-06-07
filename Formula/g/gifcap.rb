@@ -6,6 +6,8 @@ class Gifcap < Formula
   license "MIT"
   head "https://github.com/outlook/gifcap.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "444ff7c3428195689d64e4d9700488e04ae1837e87cc93c71a42a0d1e8a8a9ea"

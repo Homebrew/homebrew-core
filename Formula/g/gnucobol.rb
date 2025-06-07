@@ -11,6 +11,8 @@ class Gnucobol < Formula
     regex(/href=.*?gnucobol[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 arm64_sequoia:  "bd9d5d2f036d25fd97126fb46f72a33b30b2dca448e2fb6b1b351b6cd9c9de94"
     sha256 arm64_sonoma:   "35b99190f38a4ce4f20096a3fcc9e258eae128303f7651c1b0502376577e1ab0"

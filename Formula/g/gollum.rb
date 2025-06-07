@@ -6,6 +6,8 @@ class Gollum < Formula
   license "Apache-2.0"
   head "https://github.com/trivago/gollum.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "1a14fd87fbe28f9b6d56c0db996208418e6410e00385899f2d381a9602f7b8f8"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "50cf6d3f9112bc08aa3f73561600db725179266bab393b0e3f7f891d6b4f6a7a"

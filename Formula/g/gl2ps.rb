@@ -10,6 +10,8 @@ class Gl2ps < Formula
     regex(/href=.*?gl2ps[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "37edb5bfe08b0943cc9edf1418be8ab73c680074942be25048b3e72af2980f90"
     sha256 cellar: :any,                 arm64_sonoma:   "7c29529c685fb40aa712dc427ff463ac2823b0a2d93a062be9382bdf3ef449e1"

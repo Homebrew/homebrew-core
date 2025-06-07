@@ -22,6 +22,8 @@ class GitFlow < Formula
     end
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, all: "053355d898d7f3c171eec04b984fb2f4e06588b7ef58dd8f6024c5300933d27a"

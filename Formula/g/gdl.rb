@@ -6,6 +6,8 @@ class Gdl < Formula
   license "LGPL-2.0-or-later"
   revision 1
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256                               arm64_sequoia:  "2e9f8f552db78335d815e67a085b8d26e42002308d0b138ec1dbdf9aba2b232f"
     sha256                               arm64_sonoma:   "1cfd6543098b8fbd77e7fd87c1c16f37d6f486c50323e39bf2d52605409b0f11"

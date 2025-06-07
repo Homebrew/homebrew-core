@@ -5,6 +5,8 @@ class GitterCli < Formula
   sha256 "c4e335620fc1be50569f3b7543c28ba2c6121b1c7e6d041464b29a31b3d84c25"
   license "MIT"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "59b7c17753a1b4e92a83ed41e22b7ff595cc2d2165d1fa95f0808109605f45c1"

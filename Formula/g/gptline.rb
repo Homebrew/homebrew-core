@@ -9,6 +9,8 @@ class Gptline < Formula
   revision 6
   head "https://github.com/gnachman/gptline.git", branch: "main"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "cbef12dac5db64be969f4ea0f09eddb1bc71dadcf30bd995f65020420aa312da"
     sha256 cellar: :any,                 arm64_sonoma:  "b71669d19c26beb9fb83ef2cba3fd43d11b50d523cad19617689ba4da93711e5"

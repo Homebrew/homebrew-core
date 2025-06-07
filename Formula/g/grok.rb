@@ -20,6 +20,8 @@ class Grok < Formula
     skip "No longer developed or maintained"
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_sequoia:  "b74690719200cd67624f98e63ed4df5bd400ddc82ab728da9ce152b2bb4f0250"

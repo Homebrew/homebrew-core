@@ -11,6 +11,8 @@ class Gphoto2 < Formula
     regex(%r{url=.*?/gphoto2[._-]v?(\d+(?:\.\d+)+)\.t}i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 arm64_sequoia:  "5ae6c7be0e9948d7fd7d0f473a4fcb0f62d37d8961c5e9ff33f42095fbc17463"
     sha256 arm64_sonoma:   "2c504b69c81e8ffa8b85422f2e253f728670335465411812dbdac5264cb721ec"

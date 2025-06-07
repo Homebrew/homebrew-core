@@ -6,6 +6,8 @@ class Glui < Formula
   license "Zlib"
   revision 1
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "304a5d0296be83a23e90e4e2364c63f85ce4c2bcb6548cdc9b58a0cc03fe77dd"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "88a3c782310cf2ba070f8bef4991da04770a86df4c48d0a6d47f71065116fcac"

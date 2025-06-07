@@ -6,6 +6,8 @@ class GnuComplexity < Formula
   sha256 "80a625a87ee7c17fed02fb39482a7946fc757f10d8a4ffddc5372b4c4b739e67"
   license "GPL-3.0-or-later"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "cd060b26ae921fe515fb597c86e07eb82c0cad595d8eab8547cd421db5a249e3"
     sha256 cellar: :any,                 arm64_sonoma:   "8e32f6384e57c2e21cce940fc39b2be2257b0a200367a48f85aee626988a9863"

@@ -14,6 +14,8 @@ class GitIf < Formula
     regex(/href=.*?git[._-]v?\d+(?:\.\d+)*\.(?:t|zip).+?Git\s+v?(\d+(?:\.\d+)+)/im)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "2918859c7196c31d059c74c800d7207bb77aa90b6b1ee67f07348a8d9871151a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "bfcee8f4eaa935d5d9ae04a218a2c6e23b3a61dc28efcc07c6e2324951270f52"

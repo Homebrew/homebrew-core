@@ -21,6 +21,8 @@ class GitBranchless < Formula
     strategy :github_latest
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "3efab33fd1452f9b179eb701f2f0b3ad59b836245d6466172a5ce5bacd54bb78"
     sha256 cellar: :any,                 arm64_sonoma:  "f3713da56ed61e4ba98216df90e57bde5dba088d9d54cc48b396e42bda4e87b7"

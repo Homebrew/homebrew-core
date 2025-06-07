@@ -7,6 +7,8 @@ class Gel < Formula
   revision 1
   head "https://github.com/gel-rb/gel.git", branch: "main"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "898572d813d48ead8bc112c19eab9964c5ba560062fe57e40f138840a35ee5da"

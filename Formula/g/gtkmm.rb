@@ -11,6 +11,8 @@ class Gtkmm < Formula
     regex(/gtkmm[._-]v?(2\.([0-8]\d*?)?[02468](?:\.\d+)*?)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "600f066eb0843c1af59bce66aa578afde52aa3a5754c42ed7b04445db839f837"
     sha256 cellar: :any,                 arm64_ventura:  "d664e40ad1a7d3e5dbb9dc05cb36d73f97e5bc4ab71747bf1b08c7d73abeae02"

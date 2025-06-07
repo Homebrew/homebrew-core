@@ -6,6 +6,8 @@ class GithubRelease < Formula
   license "MIT"
   head "https://github.com/github-release/github-release.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "0b20b25f60ec51bb4b9a017a9f3e4895d9a8e0a7d8998d54ec15c0e077e365d4"

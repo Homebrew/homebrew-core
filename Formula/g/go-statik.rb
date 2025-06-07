@@ -6,6 +6,8 @@ class GoStatik < Formula
   license "Apache-2.0"
   head "https://github.com/rakyll/statik.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "95aa24d379a2bbd53eef6bcac8f69bb4813aef3d5957ccf022ba5f34ba7e5281"

@@ -7,6 +7,8 @@ class Glew < Formula
   revision 1
   head "https://github.com/nigels-com/glew.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 2
     sha256 cellar: :any,                 arm64_sequoia:  "4ac8264612c4af3b6864eed07564e14ddf81c25a050aa2bc91953966d12e73e4"

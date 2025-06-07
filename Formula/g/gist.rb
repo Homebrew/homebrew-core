@@ -6,6 +6,8 @@ class Gist < Formula
   license "MIT"
   head "https://github.com/defunkt/gist.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, all: "8efc350b478d929ecf6de1f41afa0763fccf1efdeed3c16384deb5b4fb8bf66a"

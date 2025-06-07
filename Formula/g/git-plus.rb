@@ -8,6 +8,8 @@ class GitPlus < Formula
   license "Apache-2.0"
   head "https://github.com/tkrajina/git-plus.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 4
     sha256 cellar: :any_skip_relocation, all: "87c0f95adbf84385ecf889a2efec12ffc43aa494baa99d7581d616db13e65306"

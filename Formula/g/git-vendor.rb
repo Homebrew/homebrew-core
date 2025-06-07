@@ -6,6 +6,8 @@ class GitVendor < Formula
   license "MIT"
   head "https://github.com/brettlangdon/git-vendor.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "787b5a6895706acdec2ad5cc6dade2cef8dbdfcd0d0352b6fbc45a6a40489f0e"

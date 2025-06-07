@@ -13,6 +13,8 @@ class GtkVnc < Formula
     regex(/gtk-vnc[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 arm64_sequoia: "fcad7b12178c5357a8f917117a61c27b626a5adb7808a01eb87c2c68706734c5"
     sha256 arm64_sonoma:  "25240b02f2fb63bd13b44cc1e368a5fd67fc9e5cd607648de5382e3e6ddb531a"

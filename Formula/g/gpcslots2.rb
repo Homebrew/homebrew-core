@@ -11,6 +11,8 @@ class Gpcslots2 < Formula
     regex(%r{url=.*?/gpcslots2[._-]v?(\d+(?:[._-]\d+)+[a-z]?)}i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "929c7fc634b2f18293d05562d73850df33ac33ff14e1d43bb62ccb42a4ab778b"

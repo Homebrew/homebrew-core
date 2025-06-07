@@ -13,6 +13,8 @@ class GraphqlCli < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "5b3b93d8d2e8b80bd3ebc5918dcde22171f00e81042c287c722ca10abda75034"

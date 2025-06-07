@@ -6,6 +6,8 @@ class Grantlee < Formula
   license "LGPL-2.1-or-later"
   head "https://github.com/steveire/grantlee.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 arm64_sonoma:   "7821ba762af4dd4005b8c82ef9f2d3cbb9b03ad5ad67823ef92c9c6e8b249d48"

@@ -5,6 +5,8 @@ class Gobo < Formula
   sha256 "ed2d82ce3c271e60914a42bde1d1c99446df8902ae1b62fd0e4dca2b99de8068"
   license "MIT"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "5c1bb4e89735e55958734cc7f0c3659fdf718518726437f8dacc1a2ff97d63b5"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b446b9e9a0589618cfe849f251df510d77a5f169f71bcf0798ea6d771713fea8"

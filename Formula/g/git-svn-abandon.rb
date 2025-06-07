@@ -6,6 +6,8 @@ class GitSvnAbandon < Formula
   license "MIT"
   head "https://github.com/nothingmuch/git-svn-abandon.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "020e0d7161a9de4a0b7aedb1d73305db3f7914ff645b46ea8b0dbd7c7d7ba94e"

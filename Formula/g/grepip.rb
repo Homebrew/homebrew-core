@@ -11,6 +11,8 @@ class Grepip < Formula
     regex(/^grepip[._-]v?(\d+(?:\.\d+)+)$/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "ef333d42f469784211e7520c89ac8ac07014ca9e56a7ef3a87a29749ddae30dd"

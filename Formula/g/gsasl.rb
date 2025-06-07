@@ -6,6 +6,8 @@ class Gsasl < Formula
   sha256 "41e8e442648eccaf6459d9ad93d4b18530b96c8eaf50e3f342532ef275eff3ba"
   license "GPL-3.0-or-later"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 arm64_sequoia: "f7ec07e3b1add0e32af563452c3f8ebf2317b3acad6b6a48b029dd72491354ab"
     sha256 arm64_sonoma:  "be4ad77df9264e1dbcd61df831870348ef3f0f7033f59c201f60ca78b8f5b608"

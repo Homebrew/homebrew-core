@@ -12,6 +12,8 @@ class GnupgAT14 < Formula
     regex(/href=.*?gnupg[._-]v?(1\.4(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 arm64_sequoia:  "3feee712ec2e654beb69d4d4270faa84490981094c1592d2fad3793229a4dfcb"
     sha256 arm64_sonoma:   "bc3e33a439e34c3e1e39a6e3d38c507d000f6cbc241ea0aa92977ffcc5eda72e"

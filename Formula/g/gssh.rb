@@ -5,6 +5,8 @@ class Gssh < Formula
   sha256 "b2ce4ddc0d208e90ab4e986a1b1d759955783bdf3fe046f770eba98e6e6a13a9"
   license "Apache-2.0"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "6811a36ed6d1d50a0128cfcbe2d49d1e58e42f5f8f19a77f7e01dc559f6da7a8"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e78ac9c48bc0993ba4f7f668a3843bfc68156857267809e14b6536ddcb389fde"

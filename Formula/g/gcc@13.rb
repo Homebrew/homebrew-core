@@ -11,6 +11,8 @@ class GccAT13 < Formula
     regex(%r{href=["']?gcc[._-]v?(13(?:\.\d+)+)(?:/?["' >]|\.t)}i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256                               arm64_sequoia:  "cc01c9f4c79053bc25807069b3b9e8da3acc1b9828a623668c9917a143776ebc"
     sha256                               arm64_sonoma:   "ff56bc82f41d769ff59131299f9d576df8b4a1162ef44acc3a1c45ffbbaa6f9c"

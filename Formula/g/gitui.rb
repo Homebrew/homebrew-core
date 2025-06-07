@@ -6,6 +6,8 @@ class Gitui < Formula
   license "MIT"
   head "https://github.com/gitui-org/gitui.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "2b153db2c3519ec2f197cd128b34732ec2e2b90355d7f05e46629853060e5a9d"
     sha256 cellar: :any,                 arm64_sonoma:  "f5eae626dfbdd29bf9a00bb67f070a08d85b95f1affdae32adc0ba8f9851019a"

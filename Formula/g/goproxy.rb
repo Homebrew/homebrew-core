@@ -6,6 +6,8 @@ class Goproxy < Formula
   license "MIT"
   head "https://github.com/goproxyio/goproxy.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "4628f23dc61779b619443f499de2c7c9c59af86728a04b0c87f6e6230d99ba0b"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "908b96ecd4bb860988e68fa7072067bd4d20b1ed8ee2d4a0e2ed1d5a27b6b06b"

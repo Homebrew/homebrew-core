@@ -5,6 +5,8 @@ class Gitslave < Formula
   sha256 "8aa3dcb1b50418cc9cee9bee86bb4b279c1c5a34b7adc846697205057d4826f0"
   license "LGPL-2.1-only"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "85f25f52b43ce52b80c082c154dba23fda5ab3c98e58fdd40699158fa971f3f3"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a6f454af3b08f47b018ca54327b09c82ddc2706217cfd5d7164f4b58f73d244f"

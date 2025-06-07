@@ -12,6 +12,8 @@ class Goenv < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "0d9d051ae421da92d16d267d6490059f0c1a34bac0269fdaadf495fcdbd5a17c"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0d9d051ae421da92d16d267d6490059f0c1a34bac0269fdaadf495fcdbd5a17c"

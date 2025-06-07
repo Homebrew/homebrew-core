@@ -6,6 +6,8 @@ class GitGerrit < Formula
   license "BSD-3-Clause"
   head "https://github.com/fbzhong/git-gerrit.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "ae518d315b919c27305591d1cc24773926b1a947da589b0e50146c98ff138997"

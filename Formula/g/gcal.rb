@@ -6,6 +6,8 @@ class Gcal < Formula
   sha256 "91b56c40b93eee9bda27ec63e95a6316d848e3ee047b5880ed71e5e8e60f61ab"
   license "GPL-3.0-or-later"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6bed6280c29bc0e46bfbc4c1a3c48e2199713bfd4e51ca2f831d4a9c353d0f6c"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1fc45b8d1ab6ce7bf8b771d7745eaa1dacd95f9782966b25e8296bc8639b9e67"

@@ -11,6 +11,8 @@ class Gmssl < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "352a3e4a2a51ef7a60363f8c2edc6d780132b8b24cef552449c5e3ec0e0c7184"
     sha256 cellar: :any,                 arm64_sonoma:   "33e55c6a9023a0e8a7868b466131f94078ad80547ce2ce5d97b64d1a5df4890b"

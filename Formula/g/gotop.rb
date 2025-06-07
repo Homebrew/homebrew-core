@@ -6,6 +6,8 @@ class Gotop < Formula
   license "BSD-3-Clause"
   head "https://github.com/xxxserxxx/gotop.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "5c500e1f45ee743f9628545a7de331e9729a90693be2f5dfea3d297bb7d8772d"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2ca9e4643126c9f07e728798d9c784b613d03bb6a947b7641b7e6e702f39a94e"

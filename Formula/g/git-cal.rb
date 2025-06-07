@@ -12,6 +12,8 @@ class GitCal < Formula
     strategy :github_latest
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "e1c5fa0db903b82620858fb7e5913e9de7d21e75f697b1cfc889b1fc0f0227ed"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3c7c3ba94ee664f9c479f64ed4ade96645c824c2820f738581ced5dbb3f2d423"

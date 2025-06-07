@@ -5,6 +5,8 @@ class Garmintools < Formula
   sha256 "ffd50b7f963fa9b8ded3223c4786b07906c887ed900de64581a24ff201444cee"
   license "GPL-2.0-or-later"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "20a6201dcffaf971164afa65223ba7eb6ef53dca3c1a092e303dda0654f109d8"
     sha256 cellar: :any,                 arm64_sonoma:   "da0e5ffaf6e1b8477d92247072fcf400f9b16368bd93db8a05e9c3106efdb2c7"

@@ -15,6 +15,8 @@ class Gmt < Formula
     patch :DATA
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 arm64_sequoia: "5099eeaa5088b8f8d4e5b95f00f229c7c8d5829f38c0827ca9dc587be4085162"
     sha256 arm64_sonoma:  "92c4b8906c8e4f2c7c244190eeeaccdae01f61d4b9d76c8d3b14bfe1bd1b938a"

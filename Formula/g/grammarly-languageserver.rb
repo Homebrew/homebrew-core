@@ -6,6 +6,8 @@ class GrammarlyLanguageserver < Formula
   license "MIT"
   revision 1
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, all: "78d49db050951e7d62fd3773c446298ed08ecd2df7e064250c552cf134957816"

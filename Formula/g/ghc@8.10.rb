@@ -10,6 +10,8 @@ class GhcAT810 < Formula
     any_of: ["LGPL-3.0-or-later", "GPL-2.0-or-later"], # GMP
   ]
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "5af941f345ced100c706b50beb3c1dfc0d88882aaa5dec2c403561f15def895f"
     sha256 cellar: :any,                 arm64_big_sur:  "57662ecdde5b435ad10fa13730d176d84f056ab81ca42f016dd1b1d4da625636"

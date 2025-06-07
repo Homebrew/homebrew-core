@@ -6,6 +6,8 @@ class Glade < Formula
   license "LGPL-2.1-or-later"
   revision 1
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 arm64_sequoia:  "e162366f083df623dd7cd1854a781cdf3d520bfde698588abc9296ab33fd8804"
     sha256 arm64_sonoma:   "271ff90536f47461687153dc97dd25d5ba9ad4f22c1a087e303fc52f54646dda"

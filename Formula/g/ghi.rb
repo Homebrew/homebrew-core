@@ -6,6 +6,8 @@ class Ghi < Formula
   license "MIT"
   head "https://github.com/drazisil/ghi.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "0574be1c2bb4fe60f4c7e9add399b4c90cb65ea4f822aeddd6233213f83ee10a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8d1a0a48ba1c295cef475eb7ebfdb13ab669619f53374a80abcf405bca5db766"

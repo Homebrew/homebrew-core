@@ -12,6 +12,8 @@ class Gcab < Formula
     regex(/gcab[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 arm64_sequoia:  "e6e1d52d928e85cb2fbbea1220fb224c61dae65fe1525959ae6fb61f7f77b013"
     sha256 arm64_sonoma:   "7191f605413c808ef98d36eb37021fc8b038692ace3b8429b2d1b7e1c49b941e"

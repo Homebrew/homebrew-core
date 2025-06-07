@@ -6,6 +6,8 @@ class Gistit < Formula
   license "MIT"
   head "https://github.com/jrbasso/gistit.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "512dd9f0ab0f762ef21cadb25d38e40bac914c1d7fdbc9210eb086427b555dd8"
     sha256 cellar: :any,                 arm64_sonoma:   "aa07e24a4a15c38c3859fad46d9e9d481b82779c3935ee0417167995b85d7938"

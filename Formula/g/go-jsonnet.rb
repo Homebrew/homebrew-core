@@ -11,6 +11,8 @@ class GoJsonnet < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "1da0bff35201dd30f0992b3a4d2be4dcf4081a8ece97e8841cdc56202ce9f5f4"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1da0bff35201dd30f0992b3a4d2be4dcf4081a8ece97e8841cdc56202ce9f5f4"

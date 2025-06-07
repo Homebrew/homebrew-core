@@ -6,6 +6,8 @@ class Geoip < Formula
   license "LGPL-2.1-or-later"
   head "https://github.com/maxmind/geoip-api-c.git", branch: "main"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 2
     sha256 cellar: :any,                 arm64_sequoia:  "5ecf048e55f55fd13e12a4a818f5ecb4147f1cce670463b933983972dd9399f6"

@@ -6,6 +6,8 @@ class Gauth < Formula
   license "ISC"
   head "https://github.com/pcarrier/gauth.git", branch: "main"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "0d91ac9029a1df98f1c2a3b5318f364c4b826c3f267e8d420fa389b5fc536dd1"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0d91ac9029a1df98f1c2a3b5318f364c4b826c3f267e8d420fa389b5fc536dd1"

@@ -8,6 +8,8 @@ class Glslviewer < Formula
   revision 2
   head "https://github.com/patriciogonzalezvivo/glslViewer.git", branch: "main"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "57c914915214b7507c84f9721d15ec80f626f41a10afb4474172eee9a564d518"
     sha256 cellar: :any,                 arm64_sonoma:   "cc73eebe09ee3b60bc5ce16ad6a782f1b0c5cfc697679b5dfbab18bcc202861d"

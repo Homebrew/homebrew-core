@@ -5,6 +5,8 @@ class GitRecent < Formula
   sha256 "ab9c3f5da92747f7b53f1a301b22433116ee8d204562cc8f0364f70f4a79d318"
   license "MIT"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, all: "ca4cc371dd0b4803702c639e6685352b028f2275a1c0115299c12c6a85430cf3"
   end

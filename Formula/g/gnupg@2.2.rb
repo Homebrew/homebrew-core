@@ -5,6 +5,8 @@ class GnupgAT22 < Formula
   sha256 "d1abecd2b6c052749fd5748ba9de7021567e06b573dc6becac8df25cb87500e8"
   license "GPL-3.0-or-later"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 arm64_sequoia: "8d5d196f730de5750668c544a89072f9b49f4c1e50b789febfef6dfa45737732"
     sha256 arm64_sonoma:  "95e6b4de9833631f8edabe5e884f361064868fdd53cedc77270c44c5cff92fb9"

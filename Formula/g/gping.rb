@@ -15,6 +15,8 @@ class Gping < Formula
     regex(/^gping[._-]v?(\d+(?:\.\d+)+)$/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "39f6fb5ff80ebed71185f01e1228f50390ed76c40451fc7696bd6b426c81d177"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d9ce0bca1083744caba3de2d937aa00a1106913c93ebc2a16a1e40bc9006c329"

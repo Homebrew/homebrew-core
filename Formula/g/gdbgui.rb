@@ -8,6 +8,8 @@ class Gdbgui < Formula
   license "GPL-3.0-only"
   revision 1
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, sonoma:       "98297f04a9bfa7028485e946f78e8fd3b3626f86976457c6d2115cd343a67288"
     sha256 cellar: :any_skip_relocation, ventura:      "9050299328bdf5d618bf88f6035dbf87ba9a78eeb30e7d6aaac7f89fd22d4593"

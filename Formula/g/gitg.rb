@@ -11,6 +11,8 @@ class Gitg < Formula
     regex(/gitg[._-]v?(\d+(?:\.\d+)*)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 arm64_sequoia: "7573250dd5a9b53bda64fff6ed25f3f8afc4cc2edd0304565c8bc1e2efb71246"
     sha256 arm64_sonoma:  "3442fb4ac5d87a0acf1ec56e7cb356ae01a94eb1449a8d8fc987843b6971a8e1"

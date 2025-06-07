@@ -17,6 +17,8 @@ class GnuSmalltalk < Formula
     end
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 2
     sha256 arm64_sequoia: "fa42deb9637324919358ee25610a53e01088fb726c82f4128f9472da1311935c"

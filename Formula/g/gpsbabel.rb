@@ -10,6 +10,8 @@ class Gpsbabel < Formula
     regex(/^gpsbabel[._-]v?(\d+(?:[._]\d+)+)$/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:  "2fdf2224f180cf49634c7262ae03f435dc5a6717bba6b780e8b56d3901d00ffd"
     sha256 cellar: :any,                 arm64_ventura: "f33d3021cb041af672e04d337d783eda512ac37e2f1c53eb7b86341d6f13e332"

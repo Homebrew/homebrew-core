@@ -6,6 +6,8 @@ class Gotags < Formula
   license "MIT"
   head "https://github.com/jstemmer/gotags.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "f52b68fbe9bb332e8897c64df4b8843de5290cfd2160f1b1854b6939c1475d8e"

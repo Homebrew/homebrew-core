@@ -12,6 +12,8 @@ class Gpsd < Formula
     regex(/href=.*?gpsd[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_sequoia:  "9a3bb3d5594e1b63686b3d40b42f1d8dedf396b03c952a6a758d74d374c08452"

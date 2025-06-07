@@ -12,6 +12,8 @@ class Gom < Formula
     regex(/gom[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any, arm64_sequoia: "653c39bbf08707dc8fc4204ce7b2317ff5304cf9050910df166292b34b68abdc"
     sha256 cellar: :any, arm64_sonoma:  "5a91a0b28b4eb4621c687882d85be9d61fb9055affb380a9975ea884bbc56956"

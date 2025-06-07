@@ -10,6 +10,8 @@ class Girara < Formula
     regex(/girara[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 arm64_sequoia: "be06762224f503f78a683cce58ebb79c29b1debe98b6b6c65100119ffb559444"
     sha256 arm64_sonoma:  "c59225a3fb9db2fdfaf89c19a755bd7d4426a659a83db5330820835b37597bdc"

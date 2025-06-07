@@ -6,6 +6,8 @@ class GitHooksGo < Formula
   license "MIT"
   head "https://github.com/git-hooks/git-hooks.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "76b874212624080d528a0f1cb2d966ff7872ba2d2f7f3c04c7f7e98c30848f3c"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8f8ba5517228a5d259c8ef7df2651c15f19a6e4b03308e536bbfdf41ed87cdb4"

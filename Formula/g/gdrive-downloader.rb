@@ -6,6 +6,8 @@ class GdriveDownloader < Formula
   license "Unlicense"
   head "https://github.com/Akianonymus/gdrive-downloader.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "7cef83ba18bc63e10eaa4ce67a439bdbd80c9248c9f123470aaef37b7d1f9000"

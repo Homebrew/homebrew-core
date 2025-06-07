@@ -6,6 +6,8 @@ class Grsync < Formula
   license "GPL-2.0-only"
   revision 1
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 arm64_sequoia:  "7acba4db4f6cd2ad09e1cffff1f7c0d24c46cbc611c8ed9c7e78a604b746b2cf"
     sha256 arm64_sonoma:   "abf6159ff6f8b96053d162b2022ed8609af8c059c79348ae5557c28afeecc562"

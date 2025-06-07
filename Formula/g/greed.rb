@@ -7,6 +7,8 @@ class Greed < Formula
   license "BSD-2-Clause"
   head "https://gitlab.com/esr/greed.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "7dd0a88d2965272e5c99454d0d94cb651ddb8379167b8ab7c796d4e94d146926"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7a3e7b7239960308e29bf2dfe2e74e0c8d8f668eba481d83b64235180f96efbb"

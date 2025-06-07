@@ -6,6 +6,8 @@ class Gost < Formula
   license "MIT"
   head "https://github.com/ginuerzh/gost.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "57e454b905ac17f21519f34ed868db709413efb45f53fe37edeb9bd0e9da0259"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "86b48c89f4ea3d4edaaa3cec855981de9ac0fc36cc82f50b166bf6bf688c8997"

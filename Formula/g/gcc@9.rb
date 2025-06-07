@@ -11,6 +11,8 @@ class GccAT9 < Formula
     skip "No longer developed or maintained"
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256                               monterey:     "9aa22339b3002ae9b3bde3ed9034238d80b07cff4a5c3c60f3f3653f52c55ce3"
     sha256                               big_sur:      "ea000947da4131b653f137e3e275c061b34d7faa6b961896ecabc3717009df32"

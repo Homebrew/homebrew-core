@@ -6,6 +6,8 @@ class GnuIndent < Formula
   sha256 "9e64634fc4ce6797b204bcb8897ce14fdd0ab48ca57696f78767c59cae578095"
   license "GPL-3.0-or-later"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 arm64_sequoia:  "bd0bd4400bed0df025ba9e73add09aaa2c2e4ac341dfcc59d69f1cd4c6394f6a"

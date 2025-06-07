@@ -5,6 +5,8 @@ class GitNumber < Formula
   sha256 "1b9e691bd2c16321a8b83b65f2393af1707ece77e05dab73b14b04f51e9f9a56"
   license "ISC"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "f006192cf61d5d3c178201835e847dff5c2c351578d90f183f7ef7363d1a1255"

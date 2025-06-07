@@ -5,6 +5,8 @@ class GitWorkspace < Formula
   sha256 "d5e2a5a0a568c46b408f82f981ea3672066d4496755fc14837e553e451c69f2d"
   license "MIT"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_sequoia: "9e68614e31ed33fb7426fbe05bb570d6fef5c156bc78a19c483e9962c5da2297"

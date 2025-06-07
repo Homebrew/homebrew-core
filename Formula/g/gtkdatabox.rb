@@ -6,6 +6,8 @@ class Gtkdatabox < Formula
   license "LGPL-2.1-or-later"
   revision 1
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "5754a6b703bfc85c30adfe1f78b4f5e3416a4d9f04d9531d1c43fb584e136307"
     sha256 cellar: :any,                 arm64_sonoma:   "c4c95de47b74f0a924c88543dfbfc01999cf3491ce8bac5e77b0db2a265bb0e9"

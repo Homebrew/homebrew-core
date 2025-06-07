@@ -11,6 +11,8 @@ class Gammu < Formula
     regex(/href=.*?gammu[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 arm64_sequoia:  "328d278f52762b77bb0bc0061afc898e413c2e8cbae9af19c0043ebd2b61ab5d"
     sha256 arm64_sonoma:   "69cbe22c74e7c7456df798bd70fe89c77502d7793f1b3073b0e0cc5f7d919323"

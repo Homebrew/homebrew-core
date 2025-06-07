@@ -5,6 +5,8 @@ class Gvp < Formula
   sha256 "e1fccefa76495293350d47d197352a63cae6a014d8d28ebdedb785d4304ee338"
   license "MIT"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, all: "7570737e59ef17b2cde9b25b56a9f148a839924b0e0bc9b9a91e30ee95b6a3e6"

@@ -10,6 +10,8 @@ class GitCredentialLibsecret < Formula
     formula "git"
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "1e223f37a57a8e577b74f364695b2d0c9cd6f7525046cef4b2bc1a1e7fb85913"
     sha256 cellar: :any,                 arm64_sonoma:  "6fbfe94965969bfe72d9a628b66d48d4fd989c89776fae5937fa3e9413b82440"

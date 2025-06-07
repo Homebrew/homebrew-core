@@ -5,6 +5,8 @@ class Genext2fs < Formula
   sha256 "d3861e4fe89131bd21fbd25cf0b683b727b5c030c4c336fadcd738ada830aab0"
   license "GPL-2.0-or-later"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "cc9fdd7364d47e9a525a63f18f8556678f95c84785aafa586cfd3ccf22ae29cf"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "77fe02e5ebd064e2a70deb8e2a69dbc105f5f7535c7a01cf599575856b02940e"

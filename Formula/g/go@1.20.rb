@@ -6,6 +6,8 @@ class GoAT120 < Formula
   sha256 "1aef321a0e3e38b7e91d2d7eb64040666cabdcc77d383de3c9522d0d69b67f4e"
   license "BSD-3-Clause"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "6fa23aea0aeed267195266f0242cd459f5027339d5485aa6eae3073736608e4c"

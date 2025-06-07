@@ -6,6 +6,8 @@ class GnomeRecipes < Formula
   license "GPL-3.0-or-later"
   revision 3
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 arm64_sequoia: "3bdeeed9601b21231a0681c228ad2c69aeec741c8a03e254927a6563691b8ec3"

@@ -10,6 +10,8 @@ class Giflib < Formula
     regex(%r{url=.*?/giflib[._-]v?(\d+(?:\.\d+)+)\.t}i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "bf188a3d3e386e0b100831ca92173118c74645b033b56b4a7c148a91c2cfecb5"
     sha256 cellar: :any,                 arm64_sonoma:   "c6b05aecad00588daf749dbde717fb6a03ce83fb9723b15f5786e7b974ef4c02"

@@ -5,6 +5,8 @@ class Gravity < Formula
   sha256 "5ef70c940cd1f3fec5ca908fb10af60731750d62ba39bee08cb4711b72917e1d"
   license "MIT"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "3b9deeeaa076effc41b7d65f16d152e75895327bb4692061afc8b86acc5c25fa"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1938bccfa92b1139af3b20ffd2acab61f7860bfaa0a08ddb233b365db300e59c"

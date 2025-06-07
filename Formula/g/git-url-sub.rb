@@ -6,6 +6,8 @@ class GitUrlSub < Formula
   license "MIT"
   head "https://github.com/gosuri/git-url-sub.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "055dea89e85d2f7947a37817d5d25f502f40416d0e35ccede1bfeb7795891be0"

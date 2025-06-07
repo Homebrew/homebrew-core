@@ -6,6 +6,8 @@ class GitStandup < Formula
   license "MIT"
   head "https://github.com/kamranahmedse/git-standup.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, all: "592920ec8fc670fd61e01e6526d4e016e9cbfd7585fed0803c418e62705696d8"

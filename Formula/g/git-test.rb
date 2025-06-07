@@ -5,6 +5,8 @@ class GitTest < Formula
   sha256 "7c2331c8dc3c815e440ffa1a4dc7a9ff8a28a0a8cbfd195282f53c3e4cb2ee00"
   license "Apache-2.0"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "175c118c1dc9752f40074b529c3d184a8949b222f03c9db5e75a520b76e8842e"

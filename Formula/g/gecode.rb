@@ -6,6 +6,8 @@ class Gecode < Formula
   license "MIT"
   revision 1
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 3
     sha256 cellar: :any,                 arm64_sonoma:  "1ac6be371a0a82f7edd1a5468d8d5931b1a3cd1afb86550496017516a62299e9"

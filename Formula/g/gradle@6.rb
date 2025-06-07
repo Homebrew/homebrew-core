@@ -5,6 +5,8 @@ class GradleAT6 < Formula
   sha256 "84b50e7b380e9dc9bbc81e30a8eb45371527010cf670199596c86875f774b8b0"
   license "Apache-2.0"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "26f425b0db255ccba20afda007fc2157720580605fab130693c8e536af362556"

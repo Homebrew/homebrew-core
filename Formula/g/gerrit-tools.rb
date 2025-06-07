@@ -6,6 +6,8 @@ class GerritTools < Formula
   license "Apache-2.0"
   head "https://github.com/indirect/gerrit-tools.git", branch: "main"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "352ba04205d7ed543a550c973dbc68d07df3cac43760c11d8ca9c702525703c1"

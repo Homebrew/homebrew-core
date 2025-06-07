@@ -23,6 +23,8 @@ class GitNow < Formula
     end
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, all: "3ab8b27aefe8c9e0580cffc3c996028dbfcbca7f9c0c90a9141585d682f816b4"

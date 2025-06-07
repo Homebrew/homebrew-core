@@ -13,6 +13,8 @@ class Gedit < Formula
     regex(/gedit[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 arm64_sequoia: "ec5719d26fed80776a4fb1777662122d2e7b434d1492fada3a8cdaacf748e6ef"
     sha256 arm64_sonoma:  "dd25c3dad8b9a1fe25f124f51124753017104adadc18f149ea773c7ba6133eb2"

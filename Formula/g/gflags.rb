@@ -5,6 +5,8 @@ class Gflags < Formula
   sha256 "34af2f15cf7367513b352bdcd2493ab14ce43692d2dcd9dfc499492966c64dcf"
   license "BSD-3-Clause"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 2
     sha256 cellar: :any,                 arm64_sequoia:  "5a17163fb7c8fb712f7bee2776e6304e54bb4e7116fe3abb6d2689b1042f8a60"

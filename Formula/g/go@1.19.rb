@@ -6,6 +6,8 @@ class GoAT119 < Formula
   sha256 "ccf36b53fb0024a017353c3ddb22c1f00bc7a8073c6aac79042da24ee34434d3"
   license "BSD-3-Clause"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "32c7123bcc814d8ed1f54c072ab06e4128f82378feee8a3fa78e8475ceb5b55a"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "cf10aa203445ad09fcb6e97e91ee75cb41215b3d9b84e1c25e6e24ba45454dbc"

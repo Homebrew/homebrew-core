@@ -6,6 +6,8 @@ class GitSecret < Formula
   license "MIT"
   head "https://github.com/sobolevn/git-secret.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "312e53ea34e56c911631589636df17f4f8cd00488f4dd1f8eee19896d588ec25"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3229d4fb0a2237d1d4594b7e65706f68bc0d434e7d5e6d2b7ba445b1c6155c55"

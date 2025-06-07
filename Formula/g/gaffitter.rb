@@ -5,6 +5,8 @@ class Gaffitter < Formula
   sha256 "c85d33bdc6c0875a7144b540a7cce3e78e7c23d2ead0489327625549c3ab23ee"
   license "GPL-3.0-or-later"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "99ba8c060b64df92ba624ecdf846c053658ff42c15d92221a79e705e664057bd"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9db231f5fd261b380cc7ef6840714a66e286bb3ad67c9643942d1d62eb79798d"

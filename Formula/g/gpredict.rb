@@ -30,6 +30,8 @@ class Gpredict < Formula
     strategy :github_latest
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 arm64_sequoia:  "4403289b0462934585554618873510ff96c04fde9853e6aeb3ddc048fd98ba31"
     sha256 arm64_sonoma:   "a2f0896b69d12cc6fcefff733bb0c1f8dad89309125453ad660b3bca6d6bfb1d"

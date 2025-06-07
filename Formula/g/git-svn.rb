@@ -11,6 +11,8 @@ class GitSvn < Formula
     formula "git"
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "f312449a9465a70cf2e7035595d0fb32b3a9e157422686bc1fbf78bc51e8414a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f312449a9465a70cf2e7035595d0fb32b3a9e157422686bc1fbf78bc51e8414a"

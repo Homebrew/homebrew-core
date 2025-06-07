@@ -6,6 +6,8 @@ class GitFixup < Formula
   license "ISC"
   head "https://github.com/keis/git-fixup.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, all: "d9e677b598f75ff4cd9fb7c34b1787dc2e798061f32ce8dc6c3e953e6313aec9"
   end

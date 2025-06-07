@@ -8,6 +8,8 @@ class GitArchiveAll < Formula
   license "MIT"
   head "https://github.com/Kentzo/git-archive-all.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 4
     sha256 cellar: :any_skip_relocation, all: "9e7f58cc0dc34cb76ca99a53da3fb41fc10efb8eff7514a95b48e1033848cc0b"

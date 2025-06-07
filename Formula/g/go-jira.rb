@@ -11,6 +11,8 @@ class GoJira < Formula
     strategy :github_latest
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "71657b7b31e15f29675a246bb6a900dd5ae8d7156bbfe7aea9c2f07f460da220"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "887196c990be21bd4cf00789fb18849eac19a704e2b4962a4de933aec8da9dc2"

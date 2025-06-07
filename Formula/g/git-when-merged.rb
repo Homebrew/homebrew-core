@@ -8,6 +8,8 @@ class GitWhenMerged < Formula
   license "GPL-2.0-only"
   head "https://github.com/mhagger/git-when-merged.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 5
     sha256 cellar: :any_skip_relocation, all: "8c5accfbda69a2a247dcfbd78b1122f6cd9456b24f4b19830dbb81441c95d6ee"

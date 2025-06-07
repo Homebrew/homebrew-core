@@ -5,6 +5,8 @@ class GmailBackup < Formula
   sha256 "caf7cb40ea580e506f90a6029a64fedaf1234093c729ca7e6e36efbd709deb93"
   license "GPL-3.0-or-later"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, all: "703dee3013e347c963346798e62df84450d0036b4567f598c7111fb431a8f50a"
   end

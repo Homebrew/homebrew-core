@@ -16,6 +16,8 @@ class Gtkx < Formula
     skip "GTK 2 was declared end of life in 2020-12"
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 arm64_sonoma:   "659b62a2677b7e945221ab78abfab6919d7a4ac7c635de52417ab96eb4970a92"
     sha256 arm64_ventura:  "140729098a62031c80b8e43c29314f84a5d0152b1348612f83d01331251ba02c"

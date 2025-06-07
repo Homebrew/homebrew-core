@@ -11,6 +11,8 @@ class Getxbook < Formula
     regex(/href=.*?getxbook[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_sequoia:  "a85ed5a0d8897a0fbffbc97e23dff2575241b3a620ecb2f274d757f1812621cb"

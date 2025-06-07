@@ -10,6 +10,8 @@ class GitGui < Formula
     formula "git"
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, all: "b23434b9e20e8d7d5ecd4fc68f398606c2077575ef7718ce6470fa5d4bbce1c2"
   end

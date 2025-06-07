@@ -8,6 +8,8 @@ class GitRevise < Formula
   license "MIT"
   head "https://github.com/mystor/git-revise.git", branch: "main"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 5
     sha256 cellar: :any_skip_relocation, all: "60d72785f3a41be712e088e432f33aaf774461f8ba07e46bcb95af9cdcbdf358"

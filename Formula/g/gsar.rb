@@ -14,6 +14,8 @@ class Gsar < Formula
     regex(/gsar v?(\d+(?:\.\d+)+) released/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "b42feea06c9d194323f2917165a2dd23e1100cd27e51194f379bbf3920c5d0ed"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5dd43f9ab3392a433d2fccb9c9a45e75f76b5bcb2e68b57d5e6145630bcdff8e"

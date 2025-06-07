@@ -11,6 +11,8 @@ class Geographiclib < Formula
     regex(/^r(\d+(?:\.\d+)+)$/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "467cd9d17e3c199e4820960b4b0a063aa2983867b74652371daa2c0d7a19b58b"
     sha256 cellar: :any,                 arm64_sonoma:  "dd1633f4ab6ddbbcb696f5b71b7d50b3079a92d3a264cf15891beb55d2f81cd5"

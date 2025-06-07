@@ -6,6 +6,8 @@ class Golines < Formula
   license "MIT"
   head "https://github.com/segmentio/golines.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "0253679e4f9c75f4481d25f95b06b22c67f7436b62120053fff951fe895be818"

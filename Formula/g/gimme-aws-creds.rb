@@ -8,6 +8,8 @@ class GimmeAwsCreds < Formula
   license "Apache-2.0"
   revision 5
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "c6aa5dc5030ac0f3f460f9a309c751dfdb4804d4303d865cfada04dca2074c80"
     sha256 cellar: :any,                 arm64_sonoma:  "122e128c04a5b3e0ca7dbfdfbff50614716b9f3b1e25a32ed6fb6e93a1d0a992"

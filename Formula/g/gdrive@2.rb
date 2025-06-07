@@ -5,6 +5,8 @@ class GdriveAT2 < Formula
   sha256 "9092cb356acf58f2938954784605911e146497a18681199d0c0edc65b833a672"
   license "MIT"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "0de9006717faf05041e145b7412c2b088aa858df265e08bccd4de81234984819"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0ad935c13ec41e8b5876ee821995bd6a853b67b38e17626b9a636c9e8680db60"

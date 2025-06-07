@@ -5,6 +5,8 @@ class GruntCli < Formula
   sha256 "4f7f52cf9f3bc62ebc7ae60d2db5c7f896cb0915ad1202dab9285d6117d7536d"
   license "MIT"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "6623c9c49be25c0d046324eae90919e3360542d69f9cf921b3cc47a44573c984"

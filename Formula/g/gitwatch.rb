@@ -6,6 +6,8 @@ class Gitwatch < Formula
   license "GPL-3.0-or-later"
   head "https://github.com/gitwatch/gitwatch.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "1e9e09c605119ebd8b800d20fd044357916da5e458c5624fa83cfeac13971b72"

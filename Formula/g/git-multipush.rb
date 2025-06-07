@@ -6,6 +6,8 @@ class GitMultipush < Formula
   license "GPL-3.0-or-later"
   head "https://github.com/gavinbeatty/git-multipush.git", branch: "main"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, all: "74cbae277a623c4ffc3d8b597734d05741cc549a2021de8c25eef4fc9ac4aa25"

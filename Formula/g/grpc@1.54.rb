@@ -8,6 +8,8 @@ class GrpcAT154 < Formula
   license "Apache-2.0"
   revision 1
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "cf92a1cc58e01fea2cc5344d1bf56cc4599a621a19221afefb973b8b54c8c324"
     sha256 cellar: :any,                 arm64_ventura:  "0631cf6a63fca83abd8ff53b0a41811957c8efaf7a422a9f1987f5ee2fa4f88e"

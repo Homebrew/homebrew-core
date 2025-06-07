@@ -6,6 +6,8 @@ class Gnirehtet < Formula
   license "Apache-2.0"
   head "https://github.com/Genymobile/gnirehtet.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "5f0e5fbe1add7c5624e860f5301ff482236f9730fd5d9fa3d563a961bc54e22b"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ab10ed478b79d0bd8877a477d1f8bdecf2ca129755cbc3a8270d99e11d911c97"

@@ -11,6 +11,8 @@ class GitCrypt < Formula
     regex(/href=.*?git-crypt[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "2183efc250bd46ddc922be9a3be21a8843699267bd2a2f12e5cfd04a3af99478"
     sha256 cellar: :any,                 arm64_sonoma:   "a9e4eda2135a14c3a3a87fa5b3812858185361d5c4f04bf6d8c8603cc1700fdd"

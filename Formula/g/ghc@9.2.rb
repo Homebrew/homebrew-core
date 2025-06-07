@@ -10,6 +10,8 @@ class GhcAT92 < Formula
     any_of: ["LGPL-3.0-or-later", "GPL-2.0-or-later"], # GMP
   ]
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_sonoma:   "655bbab689b52ce774c6d02a43eb33ce53592b06440a088cedcee758876c50a7"

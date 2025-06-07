@@ -6,6 +6,8 @@ class Gts < Formula
   license "LGPL-2.0-or-later"
   revision 3
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "b93bb9f091fbf2d25c99437f8ef0dc0e40f680fe445b968cf952d2d067417ebb"
     sha256 cellar: :any,                 arm64_sonoma:   "45ce1fc7fc4da58e808c6d11bd19a17c35bed97719b63e2572b22ff6bd417aac"

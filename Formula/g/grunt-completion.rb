@@ -6,6 +6,8 @@ class GruntCompletion < Formula
   license "MIT"
   head "https://github.com/gruntjs/grunt-cli.git", branch: "main"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, all: "4b46d9b78c7353cfdc7dcea3a0009d9799ac6281b32484fca512db71258a23e5"
   end

@@ -7,6 +7,8 @@ class Genometools < Formula
   license "ISC"
   head "https://github.com/genometools/genometools.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 2
     sha256 cellar: :any,                 arm64_sequoia: "c1a9595a2911398dab4d2b22c2b0182e1cf5b83f5c648ba3e61787ac9a2f9250"

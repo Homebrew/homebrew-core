@@ -6,6 +6,8 @@ class Globe < Formula
   sha256 "5507a4caaf3e3318fd895ab1f8edfa5887c9f64547cad70cff3249350caa6c86"
   license "BSD-2-Clause"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "87a814940b862f27a09f5d541049e915294f68ee18e10b2149e007e8b411d6bd"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9a2871805874a01d7197dcfec9a4bee19ec0b66717f8c06329ebf1777b684019"

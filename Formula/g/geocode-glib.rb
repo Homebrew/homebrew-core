@@ -6,6 +6,8 @@ class GeocodeGlib < Formula
   license "GPL-2.0-or-later"
   revision 1
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any, arm64_sequoia:  "1afc937edacc9e447525801a51fb59580cbee67a30f995999cd8a9be08a39eff"
     sha256 cellar: :any, arm64_sonoma:   "8708a046c31e0b0695c6f3624f890ae37ae17ce0c6a41e9dce8c60da9b9069c0"

@@ -12,6 +12,8 @@ class Glulxe < Formula
     regex(/href=.*?glulxe[._-]v?\d+(?:\.\d+)*\.t[^>]+?>\s*Glulxe\s+v?(\d+(?:\.\d+)+)\s*</im)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "bdc5dcc5eba9d4e5417b56c4cdee27958bd6ba76e5cecc60e46fff7aa4b754ef"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6605dc4b713cf75ff1e2082b4e515bbb3ec36dbb2846da6786538e1449fcef8b"

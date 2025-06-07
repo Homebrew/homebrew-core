@@ -6,6 +6,8 @@ class Geometry < Formula
   license "ISC"
   head "https://github.com/geometry-zsh/geometry.git", branch: "main"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "fa0842885c350c64f807ccda07244f74d44825b7bcb12077f9fb803a3b1dddff"

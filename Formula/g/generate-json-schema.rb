@@ -6,6 +6,8 @@ class GenerateJsonSchema < Formula
   license "MIT"
   head "https://github.com/Nijikokun/generate-schema.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 3
     sha256 cellar: :any_skip_relocation, all: "455469fbc5354030c4c7e62fcaba25fb9610bd32078ced0b95502195f9b6972a"

@@ -13,6 +13,8 @@ class Gauche < Formula
     end
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 arm64_sequoia:  "34e7cab7687a3fad3c7a4e24cc869f71db411c4b9b83ca93daab9b3f205ae828"
     sha256 arm64_sonoma:   "090ea0130482168c2f2c8ba1bce87c9b3e2c6cb5066dd89d311848a8d5b9a742"

@@ -6,6 +6,8 @@ class Galen < Formula
   license "Apache-2.0"
   revision 1
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "1a79c5f2fde4af91e79d29b711b7966e63c07c0d59f97ad4845cd49bac3e54d8"

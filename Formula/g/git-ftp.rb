@@ -7,6 +7,8 @@ class GitFtp < Formula
   revision 1
   head "https://github.com/git-ftp/git-ftp.git", branch: "develop"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "74119c0541aae24192ccff0a849869feb988a02de848a93476da5d1c1ad46fba"

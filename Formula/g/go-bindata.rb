@@ -6,6 +6,8 @@ class GoBindata < Formula
   license "BSD-2-Clause"
   head "https://github.com/kevinburke/go-bindata.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "1f977a8bca6e460e124842d67240dbc2001b9fc0fd5fbb4399918609d17503dd"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e84dc7d2a78aad296659dbe0d476a943eccf5493274e4c0ca6a75470b3c4beaf"

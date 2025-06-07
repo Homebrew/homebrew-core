@@ -6,6 +6,8 @@ class GnomeThemesExtra < Formula
   license "LGPL-2.1-or-later"
   revision 1
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "bc49731aec4652327aac34ead43265575048800ac75e769fb8effc8e975f6bad"
     sha256 cellar: :any,                 arm64_ventura:  "291bd9c91143fd2dac260a4ae70c37e77fb3da2e92d3fecd66f88c23cc95d320"

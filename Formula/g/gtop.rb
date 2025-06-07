@@ -5,6 +5,8 @@ class Gtop < Formula
   sha256 "a8e90b828e33160c6a0ac4fb11231f292496e8049c0dac814e46fdd0c90817c1"
   license "MIT"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "19886395a17a873daab79bd8e8970e7a9606d4389586123e68d875c2fd192c0f"

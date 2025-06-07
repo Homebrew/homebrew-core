@@ -11,6 +11,8 @@ class GerbilScheme < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 arm64_sequoia:  "dec01c0ea7481d9d9d04be4d4ba2dee210ddad512dee22dd4c4842fcdd66eaaf"
     sha256 arm64_sonoma:   "d14934e41e373d08361070ee4ae92941c5933eb9afea231d289a9c66c1726067"

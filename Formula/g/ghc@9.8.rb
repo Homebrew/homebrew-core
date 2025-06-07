@@ -15,6 +15,8 @@ class GhcAT98 < Formula
     regex(/href=.*?download[._-]ghc[._-][^"' >]+?\.html[^>]*?>\s*?v?(9\.8(?:\.\d+)+)\s*?</i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "77cf644f73bd7942775f30101b61c4425c9c3d45d8ba5c3af80e6b3c5e689f4a"
     sha256 cellar: :any,                 arm64_sonoma:  "1a10ae542525f70b3c308122da20a293f26a80ddb9e60df6d4ce3dc7aa1fa0f7"

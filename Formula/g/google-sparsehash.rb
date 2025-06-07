@@ -6,6 +6,8 @@ class GoogleSparsehash < Formula
   license "BSD-3-Clause"
   head "https://github.com/sparsehash/sparsehash.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "172ff956a189cea419801e2ce07c5fd7c80f1e7a2372d1c02270a392e272204c"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5fe99f9acb9ab292d249f8c1bc05382687e8a24399447f135f707da6f402ef11"

@@ -6,6 +6,8 @@ class GitIntegration < Formula
   license "GPL-2.0-only"
   head "https://github.com/johnkeeping/git-integration.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 3
     sha256 cellar: :any_skip_relocation, all: "33e61576b92c02c7c8fc37b244cddecd0b1c065ba954e85d5ab860f318636df5"

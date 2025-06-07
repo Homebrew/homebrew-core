@@ -8,6 +8,8 @@ class GitTools < Formula
   license "GPL-3.0-or-later"
   head "https://github.com/MestreLion/git-tools.git", branch: "main"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "e366dc448c4d69062807a793bc8fdd6ae66a17a0a785b71a1f36f661eb7fbd35"

@@ -6,6 +6,8 @@ class Gpx < Formula
   license "GPL-2.0-or-later"
   head "https://github.com/markwal/GPX.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "4cce4b9145a373c3c34a20ebf23371a7927d0de776d583dca2b9e711ca07e30d"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "61e0254f04e3d84c686ebdc03b55e1e8cfdbf8763a562d7bebb098e9a350216d"

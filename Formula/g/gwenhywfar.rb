@@ -10,6 +10,8 @@ class Gwenhywfar < Formula
     regex(/href=.*?gwenhywfar[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 arm64_sequoia: "36e7bb5dd979060e85491ba7abad1220aeb8b69b00340cf6c162edf7bb9ab63d"
     sha256 arm64_sonoma:  "1dd92fec7f8e3ab7426077ca39df0ee64c989378a71bd8a0926d85f08d349495"

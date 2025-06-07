@@ -6,6 +6,8 @@ class GetIplayer < Formula
   license "GPL-3.0-or-later"
   head "https://github.com/get-iplayer/get_iplayer.git", branch: "develop"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "fe0570e670e29b55c71caff7f76158b197edde3bf04ca4a566ff5134c3505892"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fe0570e670e29b55c71caff7f76158b197edde3bf04ca4a566ff5134c3505892"

@@ -7,6 +7,8 @@ class GitBigPicture < Formula
   sha256 "cccbd3e35dfe6d0ce86d06079e80cf9219cb25f887c7a782e2808e740dc23c3a"
   license "GPL-3.0-or-later"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 3
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "0427911937b4a1b43a56835c6a4d80f1c3513d32cfe571739f56f12979620851"

@@ -11,6 +11,8 @@ class GemCompletion < Formula
     formula "ruby-completion"
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, all: "ae8a1951beb43f5f63f4a3961545d3a325e8ccdbf9da708c5175673012a5757a"
   end

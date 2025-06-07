@@ -5,6 +5,8 @@ class Gptfdisk < Formula
   sha256 "2abed61bc6d2b9ec498973c0440b8b804b7a72d7144069b5a9209b2ad693a282"
   license "GPL-2.0-or-later"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "ba4643273f140cbd13365868699724cf632eb57dd3e5557d416437f84462b0c1"
     sha256 cellar: :any,                 arm64_sonoma:   "09a2999c7d63ed2b2b1d1653b8b0eefc58e6a34f44deea18621b8c0137fc3382"

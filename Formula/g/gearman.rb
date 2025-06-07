@@ -6,6 +6,8 @@ class Gearman < Formula
   license "BSD-3-Clause"
   revision 5
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "060faa3a9871dcbbaeef57333b7fa75f078ff5494649708b9dbefa88ae73f163"
     sha256 cellar: :any,                 arm64_sonoma:  "df3265ff5e08cd1e45980fce280622cc1f193928bc01032af8ee26513b6fef76"

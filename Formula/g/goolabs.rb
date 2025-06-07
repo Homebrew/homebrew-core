@@ -8,6 +8,8 @@ class Goolabs < Formula
   license "MIT"
   revision 11
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, all: "4e66fc7b3ab4145371793377910c4410cc8ad73e428019417dbdaf4c15e45db8"

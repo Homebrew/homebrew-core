@@ -5,6 +5,8 @@ class Graphqlviz < Formula
   sha256 "1ede0553fe61ca6f59876b31a7d86f8f9aa692456255c1acf91c204feb2e1ef3"
   license "MIT"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, all: "4db2299d2acc437a3c3603bd69bca3baceade220abde52ae69b2146c9746cdd9"
