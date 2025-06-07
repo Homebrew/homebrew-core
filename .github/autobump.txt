@@ -945,6 +945,7 @@ earthly
 easeprobe
 easy-rsa
 easyengine
+easyrpg-player
 eccodes
 ecflow-ui
 echidna
@@ -2024,6 +2025,7 @@ libjwt
 libkeccak
 libksba
 liblc3
+liblcf
 liblinear
 liblouis
 liblqr
