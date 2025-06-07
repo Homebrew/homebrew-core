@@ -42,7 +42,7 @@ class AsyncProfiler < Formula
       "System.out.println(System.getProperty(\"java.io.tmpdir\"))",
     )
 
-    pid = spawn Formula["openjdk"].bin/"java", "-XX:+StartAttachListener", testpath/"Main.java", "8"
+    pid = spawn Formula["openjdk"].bin/"java", "-XX:+StartAttachListener", testpath/"Main.java", "100"
     begin
       ohai shell_output("bash -c 'lsof -p #{pid}'")
       sleep 1
