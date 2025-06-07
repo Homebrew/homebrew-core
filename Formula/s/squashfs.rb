@@ -1,10 +1,19 @@
 class Squashfs < Formula
   desc "Compressed read-only file system for Linux"
   homepage "https://github.com/plougher/squashfs-tools"
-  url "https://github.com/plougher/squashfs-tools/archive/refs/tags/4.6.1.tar.gz"
-  sha256 "94201754b36121a9f022a190c75f718441df15402df32c2b520ca331a107511c"
   license "GPL-2.0-or-later"
   head "https://github.com/plougher/squashfs-tools.git", branch: "master"
+
+  stable do
+    url "https://github.com/plougher/squashfs-tools/archive/refs/tags/4.7.tar.gz"
+    sha256 "f1605ef720aa0b23939a49ef4491f6e734333ccc4bda4324d330da647e105328"
+
+    # add the missing pthread.h header, upstream pr ref, https://github.com/plougher/squashfs-tools/pull/312
+    patch do
+      url "https://github.com/plougher/squashfs-tools/commit/8b9288365fa0a0d80d8be82a3a6b42ea1c12629a.patch?full_index=1"
+      sha256 "cc3007de92a90c8caefb378b8405cde29c7acf570646d0bbc2bd0dcac1113a24"
+    end
+  end
 
   # Tags like `4.4-git.1` are not release versions and the regex omits these
   livecheck do
@@ -38,7 +47,7 @@ class Squashfs < Formula
 
   def install
     args = %W[
-      EXTRA_CFLAGS=-std=gnu89
+      EXTRA_CFLAGS=-std=gnu99
       LZ4_DIR=#{Formula["lz4"].opt_prefix}
       LZ4_SUPPORT=1
       LZO_DIR=#{Formula["lzo"].opt_prefix}
@@ -60,21 +69,13 @@ class Squashfs < Formula
 
     ENV.prepend_path "PATH", Formula["gnu-sed"].opt_libexec/"gnubin"
     mkdir_p man1
-    cd "generate-manpages" do
+    cd "squashfs-tools/generate-manpages" do
       commands.each do |command|
         system "./#{command}-manpage.sh", bin, man1/"#{command}.1"
       end
     end
 
-    doc.install %W[
-      README-#{version}
-      USAGE-#{version.major_minor}
-      USAGE-MKSQUASHFS-#{version.major_minor}
-      USAGE-SQFSCAT-#{version.major_minor}
-      USAGE-SQFSTAR-#{version.major_minor}
-      USAGE-UNSQUASHFS-#{version.major_minor}
-      COPYING
-    ]
+    doc.install Dir["Documentation/#{version.major_minor}/*"]
   end
 
   test do
