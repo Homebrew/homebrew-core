@@ -4,6 +4,7 @@ class Qwt < Formula
   url "https://downloads.sourceforge.net/project/qwt/qwt/6.3.0/qwt-6.3.0.tar.bz2"
   sha256 "dcb085896c28aaec5518cbc08c0ee2b4e60ada7ac929d82639f6189851a6129a"
   license "LGPL-2.1-only" => { with: "Qwt-exception-1.0" }
+  revision 1
 
   livecheck do
     url :stable
@@ -42,6 +43,11 @@ class Qwt < Formula
     system "qmake", "-config", "release", "-spec", "#{os}-#{compiler}"
     system "make"
     system "make", "install"
+
+    pc = lib/"pkgconfig"/"Qt6Qwt6.pc"
+    inreplace pc do |s|
+      s.gsub!(/^Cflags:(.*)$/, "Cflags:\\1 -I${libdir}/qwt.framework/Headers")
+    end
 
     # Backwards compatibility symlinks. Remove in a future release
     odie "Remove backwards compatibility symlinks!" if version >= 7
