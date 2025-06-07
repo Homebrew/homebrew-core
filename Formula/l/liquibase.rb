@@ -10,6 +10,8 @@ class Liquibase < Formula
     regex(/href=.*?liquibase[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "41c94aa6826f3ffb843e01817c8b60b79ea54e9c61536539524b8611254d2a66"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "41c94aa6826f3ffb843e01817c8b60b79ea54e9c61536539524b8611254d2a66"

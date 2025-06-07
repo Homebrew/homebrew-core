@@ -5,6 +5,8 @@ class Lsyncd < Formula
   sha256 "fc19a77b2258dc6dbb16a74f023de7cd62451c26984cedbec63e20ff22bcbdd8"
   license "GPL-2.0-or-later"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_sequoia:  "b1de715ecf63cc59a9f4725b7800e039d417d297dbaf6a8f3643d95979dc1cfd"

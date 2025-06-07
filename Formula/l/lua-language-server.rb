@@ -8,6 +8,8 @@ class LuaLanguageServer < Formula
   license "MIT"
   head "https://github.com/LuaLS/lua-language-server.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "c24a86f8a6cf59821965f398d5c3d4654a714cfdd0544b6523408eff61b7f14e"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6bcbb78953a2688a19c58da05b82ce658f551b44c2c729555582ee4c55d353cf"

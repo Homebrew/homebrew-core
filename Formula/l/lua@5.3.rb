@@ -5,6 +5,8 @@ class LuaAT53 < Formula
   sha256 "fc5fd69bb8736323f026672b1b7235da613d7177e72558893a0bdcd320466d60"
   license "MIT"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 2
     sha256 cellar: :any,                 arm64_sequoia:  "5ff953a8fbc268b3b142fe27c9f33166412f4abb9e3270e37466ab11da65727d"

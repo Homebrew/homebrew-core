@@ -6,6 +6,8 @@ class LtexLs < Formula
   license "MPL-2.0"
   head "https://github.com/valentjn/ltex-ls.git", branch: "develop"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 3
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "a1881ebd3e1edfa27cf0c9be1b1855e96dfddcd97a97a5c1110e0872dd223f40"

@@ -6,6 +6,8 @@ class Lunchy < Formula
       revision: "c78e554b60e408449937893b3054338411af273f"
   license "MIT"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "0c17a734e1506ea38877dc23b77d843b7975ab2502a459716c1252eb5569d2a4"

@@ -5,6 +5,8 @@ class Lzfse < Formula
   sha256 "cf85f373f09e9177c0b21dbfbb427efaedc02d035d2aade65eb58a3cbf9ad267"
   license "BSD-3-Clause"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "4ece33c62d9b2e19ea17089e85b380c3e124413d45fab40e307231c6defec609"
     sha256 cellar: :any,                 arm64_sonoma:   "a10f2fce7192b49ddf9b0c34370dfd50d2a12264104342f36c731a9d6a69941b"

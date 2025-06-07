@@ -5,6 +5,8 @@ class LpSolve < Formula
   sha256 "6d4abff5cc6aaa933ae8e6c17a226df0fc0b671c438f69715d41d09fe81f902f"
   license "LGPL-2.1-or-later"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_sequoia:  "749a0bf9100c0d7ae567f6c119bec2320764c8a898300ffb352c0810e8c1886c"

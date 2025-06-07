@@ -6,6 +6,8 @@ class Limesuite < Formula
   license "Apache-2.0"
   revision 1
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:  "412a1287101507e62517f810b903e5dfd619fd0ccac3c23c6fe5e8580221b0b1"
     sha256 cellar: :any,                 arm64_ventura: "26c22dc6a7143e5006e5d5ccf28ce807b5e77c4a66648aec9b7afc529c38f1ae"

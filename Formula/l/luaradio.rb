@@ -6,6 +6,8 @@ class Luaradio < Formula
   license "MIT"
   head "https://github.com/vsergeev/luaradio.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "c0760817c9d2a148d351f6a4c054ec481610487fe82571551622e5bcc6a65b68"
     sha256 cellar: :any,                 arm64_sonoma:   "f3c7d2ea4db37fc295db8a6643fb14b44b3e45c2716a113c546039b8c69e50e5"

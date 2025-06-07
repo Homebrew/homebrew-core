@@ -7,6 +7,8 @@ class Lbzip2 < Formula
   license "GPL-3.0-or-later"
   revision 1
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "f4e8b2e54ff8947f156f0d1bf226b86e6d0b205aacdca7becb7082e4c0ca39d6"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "abab60638d8631dbc39b92e1a9061c2b5d2e6ef40259efe4173eae99de6668e2"

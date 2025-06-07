@@ -11,6 +11,8 @@ class LcdfTypetools < Formula
     regex(/href=.*?lcdf-typetools[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 arm64_sequoia:  "5e354428d6719b3944d45a3836a61964221ae31b65a35cdc04d92a89c72bcd10"
     sha256 arm64_sonoma:   "adebc013b9cd122099069d78f3da8eca8c86f585e2e08476f4fafe852acc6414"

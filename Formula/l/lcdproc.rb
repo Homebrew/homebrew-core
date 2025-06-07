@@ -6,6 +6,8 @@ class Lcdproc < Formula
   license "GPL-2.0-or-later"
   revision 2
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 sonoma:       "16efc1c9a35bf0563aa2c66a8f653c56e1ef4694956533c31acc722af6834f86"
     sha256 ventura:      "ff2675dfa714a9de7e8d5a9f40c214cf5547c85c402337e7376a54631f43020a"

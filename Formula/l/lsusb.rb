@@ -5,6 +5,8 @@ class Lsusb < Formula
   sha256 "68cfa4a820360ecf3bbd2a24a58f287d41f66c62ada99468c36d5bf33f9a3b94"
   license "MIT"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, all: "2bb1064f475b6066dde9e1ad55789b66bbc7335765f22ccd7e5961d20af59508"

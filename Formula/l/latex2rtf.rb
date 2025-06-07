@@ -10,6 +10,8 @@ class Latex2rtf < Formula
     skip "New git repository doesn't have 2.x tags yet"
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 arm64_sequoia:  "1401d5794081fccd0385a9a5fbbb53428c2e5a6e0ea52faf745d3b08223f5ae1"
     sha256 arm64_sonoma:   "0b89a54487cfef6b584b706ed87e270fcbf3a36a840a7f349b2352e82ee0588c"

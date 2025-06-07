@@ -6,6 +6,8 @@ class Lemmeknow < Formula
   license "MIT"
   head "https://github.com/swanandx/lemmeknow.git", branch: "main"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "03fae36a6ddc5d004cc3eaadbf554dacfb3a5d968835708de4b595e9acdbc90f"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c283216680e3331f7630e128ae29070f4710ee6175b237f8449cde10482a9d0b"

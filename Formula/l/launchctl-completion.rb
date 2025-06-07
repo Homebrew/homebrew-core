@@ -5,6 +5,8 @@ class LaunchctlCompletion < Formula
   sha256 "b21c39031fa41576d695720b295dce57358c320964f25d19a427798d0f0df7a0"
   license "MIT"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "2a7e390f88b9c9af6385e775f96d855d40ebe4bf821a3f14de9903d8f30bad7c"

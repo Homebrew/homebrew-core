@@ -6,6 +6,8 @@ class Logstalgia < Formula
   license "GPL-3.0-or-later"
   revision 7
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 arm64_sequoia: "768960af5482c74e6126145fa692ff49292fb22d0648a9851dbb5100d23a3147"
     sha256 arm64_sonoma:  "0c14a3f043b5c93602f4c95fcd20db618161a14f6f8ccb2c2cef7be97e54295f"

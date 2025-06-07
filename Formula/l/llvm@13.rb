@@ -7,6 +7,8 @@ class LlvmAT13 < Formula
   license "Apache-2.0" => { with: "LLVM-exception" }
   revision 2
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 3
     sha256 cellar: :any,                 arm64_sonoma:   "db9efb0df5d75d654e23e0699cc26c0ccd2b873e2f4b806c9009f499e2f451da"

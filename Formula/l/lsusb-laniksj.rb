@@ -5,6 +5,8 @@ class LsusbLaniksj < Formula
   sha256 "14eb90962515c4f63aacc56750d0d221e57a5bb7cf12577193de6bc261e70be6"
   license "MIT"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, all: "478e380b7221d17b4ec6d9de9c843f500032e00ec521bfd539805927e1141914"
   end

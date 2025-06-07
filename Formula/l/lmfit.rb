@@ -5,6 +5,8 @@ class Lmfit < Formula
   sha256 "773d8c9f8755727e70cb3e6b70069e3e0b7a3cb163183e44f2cff6dc1ea503fb"
   license "BSD-2-Clause"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "678ab0ff988a722324b6fb23e6504914de679a9b19c5ee9ff97f025d5057d0a8"
     sha256 cellar: :any,                 arm64_sonoma:   "7fbb6f1db8f3fddf49cdfcdab7c35f3ac4b1e42ee8eb86c251bdf4d78b267f64"

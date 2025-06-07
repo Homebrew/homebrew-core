@@ -13,6 +13,8 @@ class Lasso < Formula
     regex(/href=.*?lasso[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "d11f5c5002eea8bf352df2eb6d3e903a25cf985c624d764d908646b7193d7787"
     sha256 cellar: :any,                 arm64_sonoma:   "bae175f8483fcb721716c04489109384cf80f7b1b3e2dfddfe2bbb785e0cbddf"

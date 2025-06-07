@@ -10,6 +10,8 @@ class Log4shib < Formula
     regex(/href=.*?log4shib[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "8f3ca9cfd6b2cdc5d7487bcba05d48704e32a91a976addec41677d45525522a6"
     sha256 cellar: :any,                 arm64_sonoma:   "b4e8f90a884b5a2afc47ee2fb0a1d13a4731b4e03df4d3f5d432bf6b5ae41196"

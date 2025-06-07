@@ -14,6 +14,8 @@ class Launch4j < Formula
     end
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, sonoma:   "bc152d6a1c145f2f6242ebcd9e772809e739e23b13b241f2a995d118a7199251"
     sha256 cellar: :any_skip_relocation, ventura:  "15f9a731ba37cfd7cf90365c98f8d59ac5c5e482d2caf7561c83adccb81e8f16"

@@ -6,6 +6,8 @@ class Licensor < Formula
   license "MIT"
   head "https://github.com/raftario/licensor.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "ac1e3430727502de790d4320731f6108f02d5514a81e9577f963ce4f8294d39c"

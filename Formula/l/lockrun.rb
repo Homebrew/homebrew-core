@@ -13,6 +13,8 @@ class Lockrun < Formula
     regex(%r{v?(\d+(?:\.\d+)+)\s+\d{4}[/-]\d{2}[/-]\d{2}}i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "fa9f904cbb5c509a1aeef7afb173599b212352054380f017c9ff657a90aa866c"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "60567111dd2a82dc49b2c4687b16cf29a21543d68f533e2ec8b34e4f1da2bd77"

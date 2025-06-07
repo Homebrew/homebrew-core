@@ -6,6 +6,8 @@ class LtcTools < Formula
   license "GPL-2.0-or-later"
   head "https://github.com/x42/ltc-tools.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "50128bae6264b3239c9d2e8e0f9952e72c364349438382c36f35252c35eedcaa"
     sha256 cellar: :any,                 arm64_sonoma:   "539c3a74d0e1da9b7680063d41e735d3240bd2bb8454b2e93a7c42118b73c147"

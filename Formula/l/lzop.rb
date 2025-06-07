@@ -10,6 +10,8 @@ class Lzop < Formula
     regex(/href=.*?lzop[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "e29c398855c02fe9980a6365c4285c941988a3baa6fae5357dde1ae2ffed178e"
     sha256 cellar: :any,                 arm64_sonoma:   "3cb9969e29778a627ab2a0c634bc43f30c73ffff9960c51fa27f6eb1945b3ea1"

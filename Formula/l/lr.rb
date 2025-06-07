@@ -6,6 +6,8 @@ class Lr < Formula
   license "MIT"
   head "https://github.com/leahneukirchen/lr.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "bcb50db8cfcc644da655e8b676a18d7bc7345a98e0ed1fb6fea7ab59079ff6f5"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4f6e26a4e87af89c61b15d5b15dd275393b411153c40a35cd3e5e79bf9ccc10a"

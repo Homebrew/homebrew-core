@@ -13,6 +13,8 @@ class Ltl2ba < Formula
     regex(/href=.*?ltl2ba[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "18b178bd47a42ca3c5ab755e80cb5ec5a087807c1bef4fc064aa97a3ff18d76a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5527191de9afab610f9d220b2c62ceed062df2e5e2c99b1743381c57067b9535"

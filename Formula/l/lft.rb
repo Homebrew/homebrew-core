@@ -10,6 +10,8 @@ class Lft < Formula
     regex(/value=.*?lft[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "a4af876936c86efc3ca9b7be19fb9092f3b948548fd0692cc5bc305254ccfb19"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1a390234c6e3a17e0739170ed9ebff073fdad5507c7a77f31be0effd72b16538"

@@ -6,6 +6,8 @@ class Lean < Formula
   license "Apache-2.0"
   head "https://github.com/leanprover-community/lean.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_sonoma:   "a5568b994d186b0a5e50a10dcfaa7e7ada0106308a8f80412eea4e71662729cf"

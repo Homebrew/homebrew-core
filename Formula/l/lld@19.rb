@@ -10,6 +10,8 @@ class LldAT19 < Formula
     formula "llvm@19"
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "e8e71f728007bf1d4b8941fd08e8f80ba22c4828671145bd59c6358c750cb92f"
     sha256 cellar: :any,                 arm64_sonoma:  "083f908ec5c6b6d667a5c43cb737d2a826a83be781dda8856640e372ac4c0b2b"

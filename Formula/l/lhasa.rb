@@ -6,6 +6,8 @@ class Lhasa < Formula
   license "ISC"
   head "https://github.com/fragglet/lhasa.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "7091b3e54583531d962d3d632496d8bb7d0fb5ee9904dda89504910ba9a1cdd4"
     sha256 cellar: :any,                 arm64_sonoma:   "ba490379926bcfe5bbff0186c4a65a0a6b5c7da25bd4b7f02ed37691466b0aed"

@@ -8,6 +8,8 @@ class Litani < Formula
       revision: "8002c240ef4f424039ed3cc32e076c0234d01768"
   license "Apache-2.0"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 3
     sha256 cellar: :any,                 arm64_sonoma:  "783a2098086de5ae5bd6da1c2861405a9f9e6c81d39b610a588303b35afa5d32"

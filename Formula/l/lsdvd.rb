@@ -6,6 +6,8 @@ class Lsdvd < Formula
   license "GPL-2.0-only"
   revision 4
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "f9de3cf67cf812897d4afa2c329e1d9677a3f86977c4d8f359b9a2c259da2ca4"
     sha256 cellar: :any,                 arm64_sonoma:   "f1cd3a4917d6825315999218d37b76414eef62bf994f959250f0f95ca97d4659"

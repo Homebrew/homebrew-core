@@ -5,6 +5,8 @@ class Localtunnel < Formula
   sha256 "6fb76f0ac6b92989669a5b7bb519361e07301965ea1f5a04d813ed59ab2e0c34"
   license "MIT"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, all: "b5425789666cab50aa13978b6bec08b978f7be5d53e13b9e447ed712dc2b3c60"

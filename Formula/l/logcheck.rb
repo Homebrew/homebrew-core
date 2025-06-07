@@ -10,6 +10,8 @@ class Logcheck < Formula
     regex(/href=.*?logcheck[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, all: "ded893b2d0d1835e7dbb571986d842ebd1135ceac94c902bf5ce57beb4466fcc"
   end

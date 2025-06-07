@@ -6,6 +6,8 @@ class Lpc21isp < Formula
   sha256 "9f7d80382e4b70bfa4200233466f29f73a36fea7dc604e32f05b9aa69ef591dc"
   license "LGPL-3.0-or-later"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "dc0f9ced6f8764ed8c4b7502ea6a4643621c3a4694530fbb9cfa02378b5ac760"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d7c6c595025ea9682779d982ece6f0bd5038a5e1284724aba37f93274ef35077"

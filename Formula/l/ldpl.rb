@@ -5,6 +5,8 @@ class Ldpl < Formula
   sha256 "c34fb7d67d45050c7198f83ec9bb0b7790f78df8c6d99506c37141ccd2ac9ff1"
   license "Apache-2.0"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "6e33c979551ec86b80944f16b45b337ff39010f021aea26a1e150156abbbbeea"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8e793d5e90093676f1a1f9fe3d4919d50602c91d078e567af2b17deb6ebcc7f5"

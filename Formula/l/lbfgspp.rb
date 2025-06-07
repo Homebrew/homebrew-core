@@ -6,6 +6,8 @@ class Lbfgspp < Formula
   license "MIT"
   head "https://github.com/yixuan/LBFGSpp.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, all: "915d14792b76cd42afb89064bd50c8119dcf4ba0f500d3d06032c6126a349011"
   end

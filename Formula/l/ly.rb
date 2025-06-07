@@ -5,6 +5,8 @@ class Ly < Formula
   sha256 "cf1780fe53d367efc1f2642cb77c57246106ea7517f8c2d1126f0a36ee26567a"
   license "GPL-2.0-or-later"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, all: "9a28dcdb3270423db13b9b8eb52ef1b65beffa23cd684672e6ebfa8b992cd413"
   end

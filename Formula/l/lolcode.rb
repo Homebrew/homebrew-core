@@ -8,6 +8,8 @@ class Lolcode < Formula
   license "GPL-3.0-or-later"
   head "https://github.com/justinmeza/lci.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "8c4074b5d6a8c5412c5be4a9cfc5c2ee4ab4e5ac12338fdd05141d98fbcea538"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "41bf236e028b388c85213b0e45f10fa83aea6c4b283c96f86426313646424a52"

@@ -7,6 +7,8 @@ class Lasi < Formula
   revision 2
   head "https://svn.code.sf.net/p/lasi/code/trunk"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 2
     sha256 cellar: :any,                 arm64_sequoia:  "cacfb48c1b73960804bf1471d86942b79e306cbf737242f31456fd41588798c0"

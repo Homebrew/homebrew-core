@@ -7,6 +7,8 @@ class Lv < Formula
   license "GPL-2.0-or-later"
   head "https://salsa.debian.org/debian/lv.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256                               arm64_sequoia: "d8fff4f49ad72ed22fe3b335d3a780a6ecc7e97d14e49d9a0cfdb459ab40fc77"
     sha256                               arm64_sonoma:  "103c91e238509bcb1862409cb3483b12311309b98dc0bccd3cdb485866ca6d73"

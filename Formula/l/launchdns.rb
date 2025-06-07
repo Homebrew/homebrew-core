@@ -7,6 +7,8 @@ class Launchdns < Formula
   revision 2
   head "https://github.com/josh/launchdns.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "17fe53b3739164de794cbd74b1b7ef2f7c0272a364b3d6f76de1ba9a2d4d8941"

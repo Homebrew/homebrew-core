@@ -6,6 +6,8 @@ class LimaAdditionalGuestagents < Formula
   license "Apache-2.0"
   head "https://github.com/lima-vm/lima.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "8e21b3e7d70b997b1dd6e7d996d903edffb6055339a1b6c15911f5282efd1cea"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fd6d9cda49a969422b199c4f40f8e30a1fc5d725a03ae4004c694dfcd3826076"

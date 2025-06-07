@@ -27,6 +27,8 @@ class Luajit < Formula
     end
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "e421f2d921ac3c97a952d10826b2606ba60c67640bb1c2f96543d490914b53d3"
     sha256 cellar: :any,                 arm64_sonoma:  "cbfaf00dd8af7cceda825ca98788f4fc82011a7a0c73be24c2f5019c5a4cf780"

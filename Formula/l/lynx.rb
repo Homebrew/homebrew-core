@@ -11,6 +11,8 @@ class Lynx < Formula
     regex(/href=.*?lynx[._-]?v?(\d+(?:\.\d+)+(?:rel\.?\d+)?)\.t/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 arm64_sequoia: "d19f769a462343c54bade40fe15b7a3a6ea52a927dd1e3494ea1b2301fe63b81"
     sha256 arm64_sonoma:  "4bf5b522776f2578692e8a19f113007fd9849131731782e9b681a6317103b945"
