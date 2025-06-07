@@ -204,34 +204,43 @@ jobs:
         id: determine-runners
         run: brew determine-test-runners "$TESTING_FORMULAE" "$DELETED_FORMULAE"
 
+
+#  {
+#    "name": "macOS 13-arm64",
+#    "runner": "13-arm64-14841654080",
+#    "timeout": 60,
+#    "cleanup": false,
+#    "testing_formulae": "async-profiler"
+#  },
+
   tests:
     needs: [tap_syntax, formulae_detect, setup_tests, setup_runners]
     if: >
       github.event_name == 'pull_request' &&
       !fromJson(needs.setup_tests.outputs.syntax-only) &&
       fromJson(needs.setup_runners.outputs.runners_present)
-    strategy:
-      matrix:
-        include: ${{fromJson(needs.setup_runners.outputs.runners)}}
-      fail-fast: ${{fromJson(needs.setup_tests.outputs.fail-fast)}}
-    name: ${{matrix.name}}
-    runs-on: ${{matrix.runner}}
-    container: ${{matrix.container}}
-    timeout-minutes: ${{ matrix.timeout }}
+#    strategy:
+#      matrix:
+#        include: ${{fromJson(needs.setup_runners.outputs.runners)}}
+#      fail-fast: ${{fromJson(needs.setup_tests.outputs.fail-fast)}}
+    name: "macOS 13-arm64"
+    runs-on: "13-arm64-14841654080"
+    # container: ${{matrix.container}}
+    timeout-minutes: 60
     defaults:
       run:
         shell: /bin/bash -xeuo pipefail {0}
-        working-directory: ${{matrix.workdir || github.workspace}}
+        working-directory: ${{github.workspace}}
     env:
       GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
       HOMEBREW_GITHUB_API_TOKEN: ${{secrets.GITHUB_TOKEN}}
-      BOTTLES_DIR: ${{matrix.workdir || github.workspace}}/bottles
+      BOTTLES_DIR: ${{github.workspace}}/bottles
     steps:
       - name: Pre-test steps
         uses: Homebrew/actions/pre-build@master
         with:
           bottles-directory: ${{ env.BOTTLES_DIR }}
-          cleanup: ${{ matrix.cleanup }}
+          cleanup: false
 
       - name: Test formulae
         id: brew-test-bot-formulae
@@ -252,8 +261,8 @@ jobs:
         if: always()
         uses: Homebrew/actions/post-build@master
         with:
-          runner: ${{ matrix.runner }}
-          cleanup: ${{ matrix.cleanup }}
+          runner: "13-arm64-14841654080"
+          cleanup: false
           bottles-directory: ${{ env.BOTTLES_DIR }}
           logs-directory: ${{ format('{0}/logs', env.BOTTLES_DIR) }}
 
