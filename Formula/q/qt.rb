@@ -42,6 +42,7 @@ class Qt < Formula
   depends_on xcode: :build
 
   depends_on "assimp"
+  depends_on "at-spi2-core"
   depends_on "brotli"
   depends_on "dbus"
   depends_on "double-conversion"
@@ -77,7 +78,6 @@ class Qt < Formula
 
   on_linux do
     depends_on "alsa-lib"
-    depends_on "at-spi2-core"
     # TODO: depends_on "bluez"
     depends_on "expat"
     depends_on "ffmpeg"
@@ -136,6 +136,10 @@ class Qt < Formula
     url "https://files.pythonhosted.org/packages/0b/02/ae6ceac1baeda530866a85075641cec12989bd8d31af6d5ab4a3e8c92f47/webencodings-0.5.1.tar.gz"
     sha256 "b36a1c245f2d304965eb4e0a82848379241dc04b865afcc4aab16748587e1923"
   end
+
+  # Fix for `invalid use of attribute 'fallthrough'` with GCC <= 12 and gperf >= 3.2
+  # https://bugreports.qt.io/browse/QTBUG-137278 (fixed in 6.9.2)
+  patch :DATA
 
   def install
     python3 = "python3.13"
@@ -217,6 +221,8 @@ class Qt < Formula
       # Chromium needs Xcode 15.3+ and using LLVM Clang is not supported on macOS
       # See https://bugreports.qt.io/browse/QTBUG-130922
       cmake_args << "-DBUILD_qtwebengine=OFF" if MacOS::Xcode.version < "15.3"
+
+      cmake_args << "-DQT_FORCE_WARN_APPLE_SDK_AND_XCODE_CHECK=ON" if MacOS.version <= :monterey
 
       %W[
         -DCMAKE_OSX_DEPLOYMENT_TARGET=#{MacOS.version}.0
@@ -410,3 +416,22 @@ class Qt < Formula
     assert_equal HOMEBREW_PREFIX.to_s, shell_output("#{bin}/qmake -query QT_INSTALL_PREFIX").chomp
   end
 end
+__END__
+--- a/qtwebengine/src/3rdparty/chromium/third_party/blink/renderer/build/scripts/gperf.py	2025-05-29 21:23:49.565413007 +0000
++++ b/qtwebengine/src/3rdparty/chromium/third_party/blink/renderer/build/scripts/gperf.py	2025-05-29 21:24:07.164764001 +0000
+@@ -35,8 +35,11 @@
+         # https://savannah.gnu.org/bugs/index.php?53028
+         gperf_output = re.sub(r'\bregister ', '', gperf_output)
+         # -Wimplicit-fallthrough needs an explicit fallthrough statement,
+-        # so replace gperf's /*FALLTHROUGH*/ comment with the statement.
+-        # https://savannah.gnu.org/bugs/index.php?53029
+-        gperf_output = gperf_output.replace('/*FALLTHROUGH*/',
+-                                            '  [[fallthrough]];')
++        # so replace gperf 3.1's /*FALLTHROUGH*/ comment with the statement.
++        # https://savannah.gnu.org/bugs/index.php?53029 (fixed in 3.2)
++        if re.search(
++                r'/\* C\+\+ code produced by gperf version 3\.[01](\.\d+)? \*/',
++                gperf_output):
++            gperf_output = gperf_output.replace('/*FALLTHROUGH*/',
++                                                '  [[fallthrough]];')
+         # -Wpointer-to-int-cast warns about casting pointers to smaller ints
