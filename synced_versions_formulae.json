@@ -29,7 +29,6 @@
   ["dbhash", "lemon", "sqldiff", "sqlite", "sqlite-analyzer"],
   ["dmd", "dtools"],
   ["docker", "docker-completion"],
-  ["easyrpg-player", "liblcf"],
   ["etl", "synfig"],
   ["file-formula", "libmagic"],
   ["edencommon", "fb303", "fbthrift", "fizz", "folly", "mvfst", "proxygen", "wangle", "watchman"],
