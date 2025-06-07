@@ -1,10 +1,9 @@
 class Micromamba < Formula
   desc "Fast Cross-Platform Package Manager"
   homepage "https://github.com/mamba-org/mamba"
-  url "https://github.com/mamba-org/mamba/archive/refs/tags/2.1.1.tar.gz"
-  sha256 "789d3d89fe8ca9f06344da21797e3d949ad1ff0ae4c633dc242a333e0ee37485"
+  url "https://github.com/mamba-org/mamba/archive/refs/tags/2.2.0.tar.gz"
+  sha256 "b489d997bb288ada1c9988ed2fe2f8b6e49527487d9f1acf7cd4dd8e965bf32b"
   license "BSD-3-Clause"
-  revision 1
   head "https://github.com/mamba-org/mamba.git", branch: "main"
 
   livecheck do
@@ -26,6 +25,7 @@ class Micromamba < Formula
 
   depends_on "cli11" => :build
   depends_on "cmake" => :build
+  # error: invalid operands to binary expression `<=>`
   depends_on "nlohmann-json" => :build
   depends_on "pkgconf" => :build
   depends_on "spdlog" => :build
@@ -34,6 +34,7 @@ class Micromamba < Formula
   depends_on "fmt"
   depends_on "libarchive"
   depends_on "libsolv"
+  depends_on "llvm" if OS.mac? && DevelopmentTools.clang_build_version <= 1500
   depends_on "lz4"
   depends_on "openssl@3"
   depends_on "reproc"
@@ -49,6 +50,11 @@ class Micromamba < Formula
   uses_from_macos "zlib"
 
   def install
+    if OS.mac? && DevelopmentTools.clang_build_version <= 1500
+      ENV.llvm_clang
+      ENV.append "LDFLAGS", "-L#{Formula["llvm"].opt_lib}/c++ -L#{Formula["llvm"].opt_lib}/unwind -lunwind"
+    end
+
     args = %W[
       -DBUILD_LIBMAMBA=ON
       -DBUILD_SHARED=ON
