@@ -29,7 +29,7 @@ class Sextractor < Formula
            "--disable-silent-rules",
            "--enable-openblas",
            "--with-openblas-libdir=#{openblas.lib}",
-           "--with-openblas-incdir=#{openblas.include}"
+           "--with-openblas-incdir=#{openblas.include}/openblas"
     system "make", "install"
     # Remove references to Homebrew shims
     rm Dir["tests/Makefile*"]
