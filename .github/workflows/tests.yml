@@ -206,6 +206,20 @@ jobs:
 
 
 #  {
+#    "name": "macOS 15-arm64",
+#    "runner": "15-arm64-14833693346",
+#    "timeout": 60,
+#    "cleanup": false,
+#    "testing_formulae": "async-profiler"
+#  },
+#  {
+#    "name": "macOS 14-arm64",
+#    "runner": "14-arm64-14833693346",
+#    "timeout": 60,
+#    "cleanup": false,
+#    "testing_formulae": "async-profiler"
+#  },
+#  {
 #    "name": "macOS 13-arm64",
 #    "runner": "13-arm64-14841654080",
 #    "timeout": 60,
@@ -223,8 +237,8 @@ jobs:
 #      matrix:
 #        include: ${{fromJson(needs.setup_runners.outputs.runners)}}
 #      fail-fast: ${{fromJson(needs.setup_tests.outputs.fail-fast)}}
-    name: "macOS 13-arm64"
-    runs-on: "13-arm64-14841654080"
+    name: "macOS 15-arm64"
+    runs-on: "15-arm64-14833693346"
     # container: ${{matrix.container}}
     timeout-minutes: 60
     defaults:
@@ -241,11 +255,6 @@ jobs:
         with:
           bottles-directory: ${{ env.BOTTLES_DIR }}
           cleanup: false
-
-#      - name: Setup tmate session
-#        uses: mxschmitt/action-tmate@v3
-#        with:
-#          detached: true
 
       - name: Test formulae
         id: brew-test-bot-formulae
