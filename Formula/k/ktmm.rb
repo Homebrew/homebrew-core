@@ -23,5 +23,4 @@ class Ktmm < Formula
   test do
     assert_match "ktmm 0.5.1", shell_output("#{bin}/ktmm --version")
   end
-
 end
