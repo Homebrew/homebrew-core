@@ -1,6 +1,3 @@
-# Documentation: https://docs.brew.sh/Formula-Cookbook
-#                https://rubydoc.brew.sh/Formula
-# PLEASE REMOVE ALL GENERATED COMMENTS BEFORE SUBMITTING YOUR PULL REQUEST!
 class CedraCli < Formula
   desc "CLI for a Cedra blockchain"
   homepage "https://github.com/Username/homebrew-cedra-cli"
