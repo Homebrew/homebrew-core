@@ -238,7 +238,7 @@ jobs:
 #        include: ${{fromJson(needs.setup_runners.outputs.runners)}}
 #      fail-fast: ${{fromJson(needs.setup_tests.outputs.fail-fast)}}
     name: "macOS 15-arm64"
-    runs-on: "15-arm64-14833693346"
+    runs-on: "15-arm64-15539075192"
     # container: ${{matrix.container}}
     timeout-minutes: 60
     defaults:
