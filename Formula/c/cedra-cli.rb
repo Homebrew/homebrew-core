@@ -1,4 +1,4 @@
-class CedraCLI < Formula
+class CedraCli < Formula
   desc "CLI tool for Cedra Labs"
   homepage "https://cedra.network/"
   url "https://github.com/cedra-labs/cedra/archive/refs/tags/cedra-cli-v7.3.1.tar.gz"
