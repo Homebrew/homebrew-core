@@ -2,7 +2,7 @@ class CedraCli < Formula
   desc "Layer 1 blockchain built to support fair access to decentralized assets for all"
   homepage "https://cedra.network/"
   url "https://github.com/cedra-labs/cedra/archive/refs/tags/cedra-cli-v7.3.1.tar.gz"
-  sha256 "9044008e39f4c10f8a4cfa76783c917914c547c4fb3744a291bfaedcdf3f839e"
+  sha256 "904d46a492d47eaaedd3085ae939b9e5fade0d999702cbb826ed295b65f9952e"
   license "Apache-2.0"
   head "https://github.com/cedra-labs/cedra.git", branch: "testnet"
 
