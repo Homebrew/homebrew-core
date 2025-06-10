@@ -21,6 +21,8 @@ class G3log < Formula
 
   depends_on "cmake" => :build
 
+  conflicts_with "googletest", because: "both install `libgmock.a` and `libgtest.a` libraries"
+
   def install
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"
