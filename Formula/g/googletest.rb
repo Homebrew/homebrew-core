@@ -18,6 +18,8 @@ class Googletest < Formula
 
   depends_on "cmake" => :build
 
+  conflicts_with "g3log", because: "both install `libgmock.a` and `libgtest.a` libraries"
+
   def install
     system "cmake", "-S", ".", "-B", "build",
       "-DCMAKE_CXX_STANDARD=17", *std_cmake_args
