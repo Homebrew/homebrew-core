@@ -2407,6 +2407,7 @@ mint
 mintoolkit
 minuit2
 mise
+mistral-rs
 mist-cli
 mk-configure
 mkdocs
