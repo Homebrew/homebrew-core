@@ -1,8 +1,8 @@
 class Flint < Formula
   desc "C library for number theory"
   homepage "https://flintlib.org/"
-  url "https://github.com/flintlib/flint/releases/download/v3.2.2/flint-3.2.2.tar.gz"
-  sha256 "577d7729e4c2e79ca1e894ad2ce34bc73516a92f623d42562694817f888a17eb"
+  url "https://github.com/flintlib/flint/releases/download/v3.3.0/flint-3.3.0.tar.gz"
+  sha256 "d9ae0f1318253727068270dbfa3c4b55155e3f4b7be6ca9c056e58f2838f15b3"
   license "LGPL-3.0-or-later"
 
   livecheck do
