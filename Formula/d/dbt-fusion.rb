@@ -1,6 +1,3 @@
-# typed: false
-# frozen_string_literal: true
-
 class DbtFusion < Formula
   desc "Rust-based command-line tool from dbt Labs that replaces dbt Core"
   homepage "https://github.com/dbt-labs/dbt-fusion"
