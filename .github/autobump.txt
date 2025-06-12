@@ -1184,6 +1184,7 @@ freetds
 freetype
 freexl
 frei0r
+frep
 fribidi
 frizbee
 frotz
