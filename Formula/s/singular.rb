@@ -4,6 +4,7 @@ class Singular < Formula
   url "https://www.singular.uni-kl.de/ftp/pub/Math/Singular/SOURCES/4-4-1/singular-4.4.1.tar.gz"
   sha256 "6a4fbaaed05b89c35bff3b1c5e124344a088097f81affe129c9ae619b282b49b"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url "https://www.singular.uni-kl.de/ftp/pub/Math/Singular/SOURCES/"
@@ -60,12 +61,18 @@ class Singular < Formula
   depends_on "python@3.13"
   depends_on "readline"
 
+  # flint 3.3.0 patch
+  patch do
+    url "https://github.com/Singular/Singular/commit/05f5116e13c8a4f5f820c78c35944dd6d197d442.patch?full_index=1"
+    sha256 "20d4472a394fbb6559fdf07113b6a4693aa225e8ac484df72c3badbcd405c318"
+  end
+
   def install
     system "./autogen.sh" if build.head?
-    system "./configure", *std_configure_args,
-                          "--disable-silent-rules",
+    system "./configure", "--disable-silent-rules",
                           "--with-python=#{which("python3.13")}",
-                          "CXXFLAGS=-std=c++11"
+                          "CXXFLAGS=-std=c++11",
+                          *std_configure_args
     system "make", "install"
   end
 
