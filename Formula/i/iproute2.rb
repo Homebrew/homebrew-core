@@ -28,6 +28,8 @@ class Iproute2 < Formula
   depends_on :linux
 
   def install
+    odie "iproute2 requires linux. Try using iproute2mac" if OS.mac?
+
     system "make"
     system "make", "install",
            "PREFIX=#{prefix}",
