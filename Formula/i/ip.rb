@@ -31,6 +31,5 @@ class Ip < Formula
 
     output = shell_output("#{bin}/ip 2>&1")
     assert_match(/\d+\.\d+\.\d+\.\d+/, output)
-    assert_equal 0, $CHILD_STATUS.exitstatus
   end
 end
