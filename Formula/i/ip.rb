@@ -6,7 +6,7 @@ class Ip < Formula
   license "MIT"
   head "https://github.com/StarkChristmas/ipget.git", branch: "main"
 
-  depends_on "go" => [:build, ">= 1.18"]
+  depends_on "go" => :build
 
   on_macos do
     def install
