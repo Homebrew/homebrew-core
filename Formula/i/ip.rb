@@ -34,4 +34,3 @@ class Ip < Formula
     assert_equal 0, $CHILD_STATUS.exitstatus
   end
 end
-
