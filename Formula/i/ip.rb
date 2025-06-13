@@ -5,30 +5,12 @@ class Ip < Formula
   sha256 "0f1e6099eb568f3027db981177a1062c84036171cb13b697c38c992a81339ba0"
   license "MIT"
   head "https://github.com/StarkChristmas/ipget.git", branch: "main"
-
+  
+  depends_on :macOS
   depends_on "go" => :build
-
-  on_macos do
-    def install
-      system "go", "build", *std_go_args, "./main.go"
-    end
-
-    def caveats
-      <<~EOS
-        This formula is only supported on macOS.
-      EOS
-    end
-  end
-
-  on_linux do
-    def install
-      odie "This formula is not supported on Linux."
-    end
-  end
 
   test do
     return unless OS.mac?
-
     output = shell_output("#{bin}/ip 2>&1")
     assert_match(/\d+\.\d+\.\d+\.\d+/, output)
   end
