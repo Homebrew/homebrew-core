@@ -6,17 +6,11 @@ class Ip < Formula
   license "MIT"
   head "https://github.com/StarkChristmas/ipget.git", branch: "main"
 
-  depends_on "go" => :build
+  depends_on "go" => [:build, ">= 1.18"]
 
   on_macos do
     def install
-      system "go", "build", *std_go_args, "."
-    end
-
-    test do
-      output = shell_output("#{bin}/ip 2>&1")
-      assert_match(/\d+\.\d+\.\d+\.\d+/, output)
-      assert_equal 0, $CHILD_STATUS.exitstatus
+      system "go", "build", *std_go_args, "./main.go"
     end
 
     def caveats
@@ -24,6 +18,20 @@ class Ip < Formula
         This formula is only supported on macOS.
       EOS
     end
+  end
+
+  on_linux do
+    def install
+      odie "This formula is not supported on Linux."
+    end
+  end
+
+  test do
+    return unless OS.mac?
+
+    output = shell_output("#{bin}/ip 2>&1")
+    assert_match(/\d+\.\d+\.\d+\.\d+/, output)
+    assert_equal 0, $CHILD_STATUS.exitstatus
   end
 end
 
