@@ -601,6 +601,8 @@ clp
 clusterawsadm
 clusterctl
 clzip
+cmake
+cmake-docs
 cmake-language-server
 cmake-lint
 cmark

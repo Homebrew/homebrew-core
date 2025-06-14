@@ -1,18 +1,16 @@
 class CmakeDocs < Formula
   desc "Documentation for CMake"
   homepage "https://www.cmake.org/"
-  url "https://github.com/Kitware/CMake/releases/download/v4.0.2/cmake-4.0.2.tar.gz"
-  mirror "http://fresh-center.net/linux/misc/cmake-4.0.2.tar.gz"
-  mirror "http://fresh-center.net/linux/misc/legacy/cmake-4.0.2.tar.gz"
-  sha256 "1c3a82c8ca7cf12e0b17178f9d0c32f7ac773bd5651a98fcfd80fbf4977f8d48"
+  url "https://github.com/Kitware/CMake/releases/download/v4.0.3/cmake-4.0.3.tar.gz"
+  mirror "http://fresh-center.net/linux/misc/cmake-4.0.3.tar.gz"
+  mirror "http://fresh-center.net/linux/misc/legacy/cmake-4.0.3.tar.gz"
+  sha256 "8d3537b7b7732660ea247398f166be892fe6131d63cc291944b45b91279f3ffb"
   license "BSD-3-Clause"
   head "https://gitlab.kitware.com/cmake/cmake.git", branch: "master"
 
   livecheck do
     formula "cmake"
   end
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "18befc0d468df5072a1cacd64d34e0a8ec2ab515e3c7303712d50819538af840"
