@@ -45,6 +45,7 @@ class Picotool < Formula
     resource("pico-sdk").stage buildpath/"pico-sdk"
 
     args = %W[-DPICO_SDK_PATH=#{buildpath}/pico-sdk]
+    args << "-DCMAKE_POLICY_VERSION_MINIMUM=3.5" if build.head?
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
