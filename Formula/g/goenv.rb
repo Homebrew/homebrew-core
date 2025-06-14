@@ -1,8 +1,8 @@
 class Goenv < Formula
   desc "Go version management"
   homepage "https://github.com/go-nv/goenv"
-  url "https://github.com/go-nv/goenv/archive/refs/tags/2.2.24.tar.gz"
-  sha256 "6b6584d78d8d23020487739b4de0c56e9ff8e95c60a9fc1b11d52d1de50a00a9"
+  url "https://github.com/go-nv/goenv/archive/refs/tags/2.2.25.tar.gz"
+  sha256 "c2c49ee706629f0dcc85ded7290f65536325364bf47b606ec76255ddbb3132a5"
   license "MIT"
   version_scheme 1
   head "https://github.com/go-nv/goenv.git", branch: "master"
@@ -11,8 +11,6 @@ class Goenv < Formula
     url :stable
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "0d9d051ae421da92d16d267d6490059f0c1a34bac0269fdaadf495fcdbd5a17c"
