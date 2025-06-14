@@ -6,6 +6,8 @@ class Trimal < Formula
   license "GPL-3.0-only"
   head "https://github.com/inab/trimal.git", branch: "trimAl"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "7601f4fa41f4b2c49221fcfd10680dae2d7ba2ecf7b118ada2626df50b3dfe56"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0d9046969829e57b325ddb627977fccaf33ec9b3b9dd17fdd1acec4c45af0ed7"
