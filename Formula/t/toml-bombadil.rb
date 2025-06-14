@@ -6,6 +6,8 @@ class TomlBombadil < Formula
   license "MIT"
   head "https://github.com/oknozor/toml-bombadil.git", branch: "main"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_sequoia: "905ddd0270646b44ff488fb84dfb605629359c4d3621f6ad4539b8965116dbef"
