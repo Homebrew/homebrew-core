@@ -5,8 +5,6 @@ class Libtpms < Formula
   sha256 "ebc24f3191d90f6cf0b4d4200cd876db4bd224b3c565708bbea0a82ee275e0fb"
   license "BSD-2-Clause"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "15359aca8b873a6965f40e824368108637c9f8cf48b28fba6323f9752071023c"
     sha256 cellar: :any,                 arm64_sonoma:  "42a7c3f06554cb88deeff3b7b79ab082ed8eff5180ce06a0612a6f2b1191de95"
