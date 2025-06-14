@@ -1,8 +1,8 @@
 class CargoBundle < Formula
   desc "Wrap rust executables in OS-specific app bundles"
   homepage "https://github.com/burtonageo/cargo-bundle"
-  url "https://github.com/burtonageo/cargo-bundle/archive/refs/tags/v0.6.1.tar.gz"
-  sha256 "18270c983636582c7723b2b6447c76330d8372feb53140eec693f6c2db5e7e81"
+  url "https://github.com/burtonageo/cargo-bundle/archive/refs/tags/v0.7.0.tar.gz"
+  sha256 "0655b249c7c31047d2d0cb2e9b4923a2fb394e7a09a2300fc533de4e38d68d03"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/burtonageo/cargo-bundle.git", branch: "master"
 
@@ -18,8 +18,13 @@ class CargoBundle < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "65d1c04a423a5f9d8c17dc4cd83d7a2673c45f23f727e64a45f50dde0cdd0aa4"
   end
 
+  depends_on "pkgconf" => :build
   depends_on "rust" => :build
   depends_on "rustup" => :test
+
+  on_linux do
+    depends_on "openssl@3"
+  end
 
   def install
     system "cargo", "install", *std_cargo_args
