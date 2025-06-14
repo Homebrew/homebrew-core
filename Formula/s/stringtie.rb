@@ -6,6 +6,8 @@ class Stringtie < Formula
   license "MIT"
   head "https://github.com/gpertea/stringtie.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "b8635ef5a2c5bb7d9badbab1fc0cebd6251eb37b2e86b7e3a49398946c77db10"
     sha256 cellar: :any,                 arm64_sonoma:  "e0cfafab884859f6f119ad427f41383c5db78602e17d0125e83855f8574388ad"
