@@ -1,21 +1,21 @@
 class Octobuild < Formula
   desc "Compiler cache for Unreal Engine"
   homepage "https://github.com/octobuild/octobuild"
-  url "https://github.com/octobuild/octobuild/archive/refs/tags/1.8.0.tar.gz"
-  sha256 "97d1bf564535c8ad503caf1851aff4e232cbaaaee933d373c6c5f88249d55504"
+  url "https://github.com/octobuild/octobuild/archive/refs/tags/1.8.1.tar.gz"
+  sha256 "5638c8759899bfc7a5658d44d8cfcf091f0afc001fdcaa5d305a03f6aa668475"
   license "MIT"
   head "https://github.com/octobuild/octobuild.git", branch: "master"
 
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5310e5c897311a32efd76ca20f2368cccb984671d165e36ec5e560486a35392b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7d069f88b2e44059974eec886685c3f7c0bc41ea078ace5d06a8842320f885e4"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "79961f6eccd84162dbeba8bde89dd1f50d68c2131c009181cb94f1c6f7a43329"
-    sha256 cellar: :any_skip_relocation, sonoma:        "db49813cedbeec94eef5eb32a772bdc1b3c3966639968326c815be429f72f02f"
-    sha256 cellar: :any_skip_relocation, ventura:       "ddc5573014f92718017d1b5a8e48b2065732bc7671d53675142aec60a5e05378"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "669ddce48a0bf416055272ec208403dcad70056ffeae37a1a7d2daf1ea2cec4e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cd8b61fab648be327bd6ede7d06663e695b2d1e00fb61b2cb4325d3a3fe91d8b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "476cd1bbe57d73e981ac7d93033892ce3a70e507dd4538bbcb3da11d615997f3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "84c845b11b998c5eba0e275305a19b9c7db52ffefac17b07f8de5253c52bd92b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "9de6ad46ac2f152cde3007ab589650442cc5ce9da7d74399c888534bab8dd7bf"
+    sha256 cellar: :any_skip_relocation, sonoma:        "58d75af4d61aa6ade3e137c414c4b355949e63835c731db228f939b0e3e20c7c"
+    sha256 cellar: :any_skip_relocation, ventura:       "fb996f3b6c85217689dbc99bf94cb1646effb6bc203b5eacf864f862d20046b6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "32cd6cd48bb96e40477d91f1b0519c30ddf8b26654c0620060a107e931cd999a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "252412dd4df54aa83cfe00168e09b16c2404a1269ce0ae86da3cbdff8d88fbab"
   end
 
   depends_on "pkgconf" => :build

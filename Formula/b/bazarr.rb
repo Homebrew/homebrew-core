@@ -6,7 +6,7 @@ class Bazarr < Formula
   url "https://github.com/morpheus65535/bazarr/releases/download/v1.5.2/bazarr.zip"
   sha256 "63519d9855e5b84c947b18d72fa36dfa9341a040879d1079bfde2fabfe8ab30e"
   license "GPL-3.0-or-later"
-  head "https://github.com/morpheus65535/bazarr.git", branch: "master"
+  head "https://github.com/morpheus65535/bazarr.git", branch: "development"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "8a970f6f5dc0730e20ca59176874c7ec1abe7a8433a897bd0e642eba8a951c00"

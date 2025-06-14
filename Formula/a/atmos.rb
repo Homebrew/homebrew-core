@@ -6,6 +6,11 @@ class Atmos < Formula
   license "Apache-2.0"
   head "https://github.com/cloudposse/atmos.git", branch: "main"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   no_autobump! because: :bumped_by_upstream
 
   bottle do

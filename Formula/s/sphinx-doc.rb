@@ -6,16 +6,16 @@ class SphinxDoc < Formula
   url "https://files.pythonhosted.org/packages/38/ad/4360e50ed56cb483667b8e6dadf2d3fda62359593faabbe749a27c4eaca6/sphinx-8.2.3.tar.gz"
   sha256 "398ad29dee7f63a75888314e9424d40f52ce5a6a87ae88e7071e80af296ec348"
   license "BSD-2-Clause"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "691cd69cca4a6d522bd06cf691cd7b450d27a0dc235112728739dc016c2b44c0"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f3a734c24c10a65149d9f89105cb1bdbb4711069b7efa64fc68f7c8e7dca08d8"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "2fad580adc896cde5f8105f9d3924ee0ca04561598dff4f391ee22ae33da5b8c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "09d1c77c4f771137e6e41ac634ecfaccd1c36a0a55a6e07656cc7e414c73b2ce"
-    sha256 cellar: :any_skip_relocation, ventura:       "eabce5bedad52520c84e39d39322d0ad97e574c68c665e1eabe6e122aadaa48c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "160e4ef2c3d8c2fd927314880937480263ae1a79f66f76f98ebec81b8dd28541"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "014b492b36572f23a4c95795f9a7cfccdf54da714c2841e35064443a32b58e85"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0327e610dfb142ad68cbcf3abb6c6c33a8423c7535587d7c034cacee66c5b595"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cd336a4b6ab42eccf230e964fa733c4dda083541f076886e0071c2b846e2d71b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "a51861eff5cb5083595b84f612b6341a475e740d56c480704d782788eb1f1fd2"
+    sha256 cellar: :any_skip_relocation, sonoma:        "45d13f735371849075197d1ce1f7e620ab083ce1c9654997733214c2f88c422c"
+    sha256 cellar: :any_skip_relocation, ventura:       "d399905436750931809413ac80190e243a556067d06eb24910fcde73ec7e9857"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e7169e0520f16bf817fd05d21728220b07fdc5dc543b4fca1bbf54019a7b3765"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "81bf315cd81d59fe3291bda84d5ea24e397c8bfc8067abade268671947ad43e6"
   end
 
   depends_on "certifi"
@@ -32,8 +32,8 @@ class SphinxDoc < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/16/b0/572805e227f01586461c80e0fd25d65a2115599cc9dad142fee4b747c357/charset_normalizer-3.4.1.tar.gz"
-    sha256 "44251f18cd68a75b56585dd00dae26183e102cd5e0f9f1466e6df5da2ed64ea3"
+    url "https://files.pythonhosted.org/packages/e4/33/89c2ced2b67d1c2a61c19c6751aa8902d46ce3dacb23600a283619f5a12d/charset_normalizer-3.4.2.tar.gz"
+    sha256 "5baececa9ecba31eff645232d59845c07aa030f0c81ee70184a90d35099a0e63"
   end
 
   resource "docutils" do
@@ -67,8 +67,8 @@ class SphinxDoc < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/d0/63/68dbb6eb2de9cb10ee4c9c14a0148804425e13c4fb20d61cce69f53106da/packaging-24.2.tar.gz"
-    sha256 "c228a6dc5e932d346bc5739379109d49e8853dd8223571c7c5b55260edc0b97f"
+    url "https://files.pythonhosted.org/packages/a1/d4/1fc4078c65507b51b96ca8f8c3ba19e6a61c8253c72794544580a7b6c24d/packaging-25.0.tar.gz"
+    sha256 "d443872c98d677bf60f6a1f2f8c1cb748e8fe762d2bf9d3148b5599295b0fc4f"
   end
 
   resource "pygments" do
@@ -77,8 +77,8 @@ class SphinxDoc < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/63/70/2bf7780ad2d390a8d301ad0b550f1581eadbd9a20f896afe06353c2a2913/requests-2.32.3.tar.gz"
-    sha256 "55365417734eb18255590a9ff9eb97e9e1da868d4ccd6402399eaf68af20a760"
+    url "https://files.pythonhosted.org/packages/e1/0a/929373653770d8a0d7ea76c37de6e41f11eb07559b103b1c02cafb3f7cf8/requests-2.32.4.tar.gz"
+    sha256 "27d0316682c8a29834d3264820024b62a36942083d52caf2f14c0591336d3422"
   end
 
   resource "roman-numerals-py" do
@@ -87,8 +87,8 @@ class SphinxDoc < Formula
   end
 
   resource "snowballstemmer" do
-    url "https://files.pythonhosted.org/packages/44/7b/af302bebf22c749c56c9c3e8ae13190b5b5db37a33d9068652e8f73b7089/snowballstemmer-2.2.0.tar.gz"
-    sha256 "09b16deb8547d3412ad7b590689584cd0fe25ec8db3be37788be3810cbf19cb1"
+    url "https://files.pythonhosted.org/packages/75/a7/9810d872919697c9d01295633f5d574fb416d47e535f258272ca1f01f447/snowballstemmer-3.0.1.tar.gz"
+    sha256 "6d5eeeec8e9f84d4d56b847692bacf79bc2c8e90c7f80ca4444ff8b6f2e52895"
   end
 
   resource "sphinxcontrib-applehelp" do
@@ -127,8 +127,8 @@ class SphinxDoc < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/aa/63/e53da845320b757bf29ef6a9062f5c669fe997973f966045cb019c3f4b66/urllib3-2.3.0.tar.gz"
-    sha256 "f8c5449b3cf0861679ce7e0503c7b44b5ec981bec0d1d3795a07f1ba96f0204d"
+    url "https://files.pythonhosted.org/packages/8a/78/16493d9c386d8e60e442a35feac5e00f0913c0f4b7c217c11e8ec2ff53e0/urllib3-2.4.0.tar.gz"
+    sha256 "414bc6535b787febd7567804cc015fee39daab8ad86268f1310a9250697de466"
   end
 
   def install

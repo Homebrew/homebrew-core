@@ -1,12 +1,12 @@
 class Lammps < Formula
   desc "Molecular Dynamics Simulator"
   homepage "https://docs.lammps.org/"
-  url "https://github.com/lammps/lammps/archive/refs/tags/stable_29Aug2024_update2.tar.gz"
+  url "https://github.com/lammps/lammps/archive/refs/tags/stable_29Aug2024_update3.tar.gz"
   # lammps releases are named after their release date. We transform it to
   # YYYY-MM-DD (year-month-day) so that we get a sane version numbering.
   # We only track stable releases as announced on the LAMMPS homepage.
-  version "20240829-update2"
-  sha256 "f8ca3f021a819ced8658055f7750e235c51b4937ddb621cf1bd7bee08e0b6266"
+  version "20240829-update3"
+  sha256 "75a9fb55d3c10f44cbc7b30313351ce9b12ab3003c1400147fa3590b6d651c73"
   license "GPL-2.0-only"
 
   # The `strategy` block below is used to massage upstream tags into the
@@ -26,17 +26,16 @@ class Lammps < Formula
     end
   end
 
-  no_autobump! because: :requires_manual_review
+  no_autobump! because: :incompatible_version_format
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia: "68dadea5323f428530fce56d1ee3f59f1c198d781e7460a22ec4cc9f3f3f96a8"
-    sha256 cellar: :any,                 arm64_sonoma:  "724c532f8d3f41e5ecf955d9afd5a06dabe5b244bf953cc3877b668e7f7573fd"
-    sha256 cellar: :any,                 arm64_ventura: "af826f4ddd364978c779bc4d85d74ab47e19de0aad783c1f98cbf2c0085f5bbc"
-    sha256 cellar: :any,                 sonoma:        "e12baae2c10968d8eba18ea3e5db1b3de2fbac84cf6174add5628b8231a3b99e"
-    sha256 cellar: :any,                 ventura:       "6ee483146f85ba818c42f9fde3d019d90e2bbefea837878eade1251d97132286"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "706eeb925bed4dc64a9d6c0b1b2de2292c54eabbd0fa7174f6323fda5add0c22"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "96fae09fc6dbb95cfa7c4506565cdcc9873ea710e3ddf38fc0361fc5cd18806b"
+    sha256 cellar: :any,                 arm64_sequoia: "c0f0744411c072487a3b240eaccdf53955e8cc77addec1b31c5800e5f001ae28"
+    sha256 cellar: :any,                 arm64_sonoma:  "7a0eddf487eb75a008791d0b5231be1b309216b318dac620227bb7018de85d53"
+    sha256 cellar: :any,                 arm64_ventura: "1a95a236eee5cad31b938d5174ca4cb9b8f69265efa07a3c5b099296d05db3eb"
+    sha256 cellar: :any,                 sonoma:        "a01cd389ea3c365864d9e07f664c8dc5ad7e1c5c2edfeecf8e4377f887989d27"
+    sha256 cellar: :any,                 ventura:       "2de3cbb38140a54c651e07f0a057576e0891764f9deacee22dc25b50ac6de985"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "158bfb19cb3ef3be7f6bfc51c897061b815d2d0e78d07b62b426ce5004d3210a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "190c2ed85b3f9c09855dd75b8b79bb9aa537de81d7d641ad78769b76279f8877"
   end
 
   depends_on "cmake" => :build

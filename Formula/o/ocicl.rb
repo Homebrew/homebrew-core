@@ -1,19 +1,18 @@
 class Ocicl < Formula
   desc "OCI-based ASDF system distribution and management tool for Common Lisp"
   homepage "https://github.com/ocicl/ocicl"
-  url "https://github.com/ocicl/ocicl/archive/refs/tags/v2.5.24.tar.gz"
-  sha256 "2a3c6b8c5d3e4fcb0da3f5796143a35aeb202215b56e7b7d7c2755f994d29377"
+  url "https://github.com/ocicl/ocicl/archive/refs/tags/v2.6.0.tar.gz"
+  sha256 "3310802143004b784bd229f67c1c264788e9e537fc4ea787bdeb186eb017f5bc"
   license "MIT"
-  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a06f8f6b722e51f7cd09a9500ed6092e09c690e2c6d5e347ca6d32b5a4f5a115"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "df30f690994546b91ccf886db5a91f314b1c5499ed50f1b534307c7c6f7ea798"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "f49435d7cfcef4d789346a1fdb42f6dfa81e4d7fe5c0fbf1b5bf9c8fb601d508"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e3ffc9b6b1895c613400f1855009439968acb2f8ba370ba83c26e089df952dbb"
-    sha256 cellar: :any_skip_relocation, ventura:       "b0e2a6dfba7f65bd09cdc5d9098f33603db6a9e8f765322845f82c702a630df4"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "cc7f54e836c1097d1a7950c7e39b21624146a056f055d59380717b4b64db79c6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "69c590b1efcd1e986a39053023f181607f2447be6455374421626f8cbd47669e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b43497043d6f5b5ef74dd18a715d15387b83de89d0ffe4251d36693c119c042c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1429f64417f1563fea2ebf7943a08d72c8f403274130b56e2028c4127df642ae"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "f2fc2c63d5d44b4b82cde10b3a0859d94f8d427a6fdc0f6fb68e7a2055659903"
+    sha256 cellar: :any_skip_relocation, sonoma:        "62e5273058c59db327f23ebd1c17b4c3c0a83f281e3c3c79dd77ae696f8e0618"
+    sha256 cellar: :any_skip_relocation, ventura:       "06a1249400562929f96fddf7f1204f9e1b1f279b793a27710f5a1957f281384f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e80ce157b212971af137b5f69a7b293d0fae43cf529cf8ad0623bd9085224010"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4b702c18680bf105a49d38536941e0f47db16ec341868fc94a4115fa46ecb5ea"
   end
 
   depends_on "sbcl"

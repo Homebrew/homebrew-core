@@ -6,15 +6,16 @@ class Urlwatch < Formula
   url "https://files.pythonhosted.org/packages/76/a3/e3bc54a669fa3ec440ea9d8db64590e761343b02b6ae9fcfcdc05c28d9ea/urlwatch-2.29.tar.gz"
   sha256 "f317ca8b123b15af510ec9e08bf885d8a8b574f502253e5ded200d757366da98"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "de60e6a087b935b6bac97bc69ec1ca1c107fdf05a838f015e0cadc2e048f3f9d"
-    sha256 cellar: :any,                 arm64_sonoma:  "fbe02184a2cde0d42d534169e6a99e61a82245e5b479624e4a3fdf60763c5da5"
-    sha256 cellar: :any,                 arm64_ventura: "e347ee6bec4a7acc257dc0a33e44eb0d6b7157788de95d952d2bc92f86740a9f"
-    sha256 cellar: :any,                 sonoma:        "a65ad820cba9da748602dd03ba112ccf49242972d5361ee90f9ffbb9d9f06ae4"
-    sha256 cellar: :any,                 ventura:       "0fd7db4f82a22ee9a0b4a9a58dfe46c63a09c41d06cce7e0be940b60c682b788"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "cb939b185391a35771255a41b0f3c855de8e2ad72ea4a26ad2140f0dfbb11765"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d8d869ce99654e22a28d552abdf8dec3e5ed07ea0327ae787a97e7bf3c5f6471"
+    sha256 cellar: :any,                 arm64_sequoia: "c12fede92c94a73a4c005858e1c8db0d12f5d579f4c552d383d8b513954c9122"
+    sha256 cellar: :any,                 arm64_sonoma:  "76365d3da38d6c3beceecc4245890a8b69970ce6cb70e2e3045dcb4cc6ea419f"
+    sha256 cellar: :any,                 arm64_ventura: "ee4dfa6d3c9e4745c149cb3b1b8f7d04f53ba089b408df4006034cf92f1db99a"
+    sha256 cellar: :any,                 sonoma:        "9451dfe8d9b0810ff944e74464cc251716a8249aaf34506e0b03d83dce7e1b9a"
+    sha256 cellar: :any,                 ventura:       "13b3504f10fd6d537260cad2632ff4db449abd0a0ee890f4adfbe9635642897e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "80ef89d3689a7ed41eb0c077f629a9c2bd678d560771ca763614b2c9052a7847"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ac75856a7f6a299a04f668d27ecde44e9d0202fb491c06fb7b5c9950a9449362"
   end
 
   depends_on "certifi"
@@ -25,13 +26,13 @@ class Urlwatch < Formula
   uses_from_macos "libxslt"
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/f2/4f/e1808dc01273379acc506d18f1504eb2d299bd4131743b9fc54d7be4df1e/charset_normalizer-3.4.0.tar.gz"
-    sha256 "223217c3d4f82c3ac5e29032b3f1c2eb0fb591b72161f86d93f5719079dae93e"
+    url "https://files.pythonhosted.org/packages/e4/33/89c2ced2b67d1c2a61c19c6751aa8902d46ce3dacb23600a283619f5a12d/charset_normalizer-3.4.2.tar.gz"
+    sha256 "5baececa9ecba31eff645232d59845c07aa030f0c81ee70184a90d35099a0e63"
   end
 
   resource "cssselect" do
-    url "https://files.pythonhosted.org/packages/d1/91/d51202cc41fbfca7fa332f43a5adac4b253962588c7cc5a54824b019081c/cssselect-1.2.0.tar.gz"
-    sha256 "666b19839cfaddb9ce9d36bfe4c969132c647b92fc9088c4e23f786b30f1b3dc"
+    url "https://files.pythonhosted.org/packages/72/0a/c3ea9573b1dc2e151abfe88c7fe0c26d1892fe6ed02d0cdb30f0d57029d5/cssselect-1.3.0.tar.gz"
+    sha256 "57f8a99424cfab289a1b6a816a43075a4b00948c86b4dcf3ef4ee7e15f7ab0c7"
   end
 
   resource "idna" do
@@ -55,13 +56,13 @@ class Urlwatch < Formula
   end
 
   resource "keyring" do
-    url "https://files.pythonhosted.org/packages/f6/24/64447b13df6a0e2797b586dad715766d756c932ce8ace7f67bd384d76ae0/keyring-25.5.0.tar.gz"
-    sha256 "4c753b3ec91717fe713c4edd522d625889d8973a349b0e582622f49766de58e6"
+    url "https://files.pythonhosted.org/packages/70/09/d904a6e96f76ff214be59e7aa6ef7190008f52a0ab6689760a98de0bf37d/keyring-25.6.0.tar.gz"
+    sha256 "0b39998aa941431eb3d9b0d4b2460bc773b9df6fed7621c2dfb291a7e0187a66"
   end
 
   resource "lxml" do
-    url "https://files.pythonhosted.org/packages/e7/6b/20c3a4b24751377aaa6307eb230b66701024012c29dd374999cc92983269/lxml-5.3.0.tar.gz"
-    sha256 "4e109ca30d1edec1ac60cdbe341905dc3b8f55b16855e03a54aaf59e51ec8c6f"
+    url "https://files.pythonhosted.org/packages/76/3d/14e82fc7c8fb1b7761f7e748fd47e2ec8276d137b6acfe5a4bb73853e08f/lxml-5.4.0.tar.gz"
+    sha256 "d12832e1dbea4be280b22fd0ea7c9b87f0d8fc51ba06e92dc62d52f804f78ebd"
   end
 
   resource "minidb" do
@@ -70,13 +71,13 @@ class Urlwatch < Formula
   end
 
   resource "more-itertools" do
-    url "https://files.pythonhosted.org/packages/51/78/65922308c4248e0eb08ebcbe67c95d48615cc6f27854b6f2e57143e9178f/more-itertools-10.5.0.tar.gz"
-    sha256 "5482bfef7849c25dc3c6dd53a6173ae4795da2a41a80faea6700d9f5846c5da6"
+    url "https://files.pythonhosted.org/packages/ce/a0/834b0cebabbfc7e311f30b46c8188790a37f89fc8d756660346fe5abfd09/more_itertools-10.7.0.tar.gz"
+    sha256 "9fddd5403be01a94b204faadcff459ec3568cf110265d3c54323e1e866ad29d3"
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/13/fc/128cc9cb8f03208bdbf93d3aa862e16d376844a14f9a0ce5cf4507372de4/platformdirs-4.3.6.tar.gz"
-    sha256 "357fb2acbc885b0419afd3ce3ed34564c13c9b95c89360cd9563f73aa5e2b907"
+    url "https://files.pythonhosted.org/packages/fe/8b/3c73abc9c759ecd3f1f7ceff6685840859e8070c4d947c93fae71f6a0bf2/platformdirs-4.3.8.tar.gz"
+    sha256 "3d512d96e16bcb959a814c9f348431070822a6496326a4be0911c40b5a74c2bc"
   end
 
   resource "pyyaml" do
@@ -85,13 +86,13 @@ class Urlwatch < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/63/70/2bf7780ad2d390a8d301ad0b550f1581eadbd9a20f896afe06353c2a2913/requests-2.32.3.tar.gz"
-    sha256 "55365417734eb18255590a9ff9eb97e9e1da868d4ccd6402399eaf68af20a760"
+    url "https://files.pythonhosted.org/packages/e1/0a/929373653770d8a0d7ea76c37de6e41f11eb07559b103b1c02cafb3f7cf8/requests-2.32.4.tar.gz"
+    sha256 "27d0316682c8a29834d3264820024b62a36942083d52caf2f14c0591336d3422"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/ed/63/22ba4ebfe7430b76388e7cd448d5478814d3032121827c12a2cc287e2260/urllib3-2.2.3.tar.gz"
-    sha256 "e7d814a81dad81e6caf2ec9fdedb284ecc9c73076b62654547cc64ccdcae26e9"
+    url "https://files.pythonhosted.org/packages/8a/78/16493d9c386d8e60e442a35feac5e00f0913c0f4b7c217c11e8ec2ff53e0/urllib3-2.4.0.tar.gz"
+    sha256 "414bc6535b787febd7567804cc015fee39daab8ad86268f1310a9250697de466"
   end
 
   def install

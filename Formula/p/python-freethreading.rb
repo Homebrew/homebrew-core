@@ -1,8 +1,8 @@
 class PythonFreethreading < Formula
   desc "Interpreted, interactive, object-oriented programming language"
   homepage "https://www.python.org/"
-  url "https://www.python.org/ftp/python/3.13.4/Python-3.13.4.tgz"
-  sha256 "2666038f1521b7a8ec34bf2997b363778118d6f3979282c93723e872bcd464e0"
+  url "https://www.python.org/ftp/python/3.13.5/Python-3.13.5.tgz"
+  sha256 "e6190f52699b534ee203d9f417bdbca05a92f23e35c19c691a50ed2942835385"
   license "Python-2.0"
 
   livecheck do
@@ -12,14 +12,14 @@ class PythonFreethreading < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 arm64_sequoia: "2a0192d70dc032d339c6b05171781cd7a079c7683e7844ed90816cf322a092fa"
-    sha256 arm64_sonoma:  "6d1aa7475a69cd2535f50183a8c88e7de88e236c3114dbc47d5fc9d2cb1eed56"
-    sha256 arm64_ventura: "cf7a7c6625063f06eeab3c0d6284d679e744b8875b19082928552c5193fd6045"
-    sha256 sequoia:       "b95145764f3e7151adc12bb8d7fc8f83499332cb8a0ef2baaddb16c0e7882037"
-    sha256 sonoma:        "9205737f679e46ab7edcbcce9cf3b329abf140b6244a0b90d9524d4c9ba68c9d"
-    sha256 ventura:       "28832bc4c6ed6d6d26a573bef303ce8da4f7df60e0ca86e1119fec11d7650b64"
-    sha256 arm64_linux:   "f31e1370aaf26eb99d8ff8a0a5ced9ca5f83a00f77e65169df6bdba3c7f882c7"
-    sha256 x86_64_linux:  "e100aecf0610961bf31e5f05bc8300060455909802e7fc40900533245389f48e"
+    sha256 arm64_sequoia: "b9c0c3dc0a2d7c1046de2882358dbe6cfe22ca8307b3a99d90731c66bb5c4c97"
+    sha256 arm64_sonoma:  "e328895cb1bc0c8226fd1f821278bb5cd2e98472ad18baccca1cc0e39de69090"
+    sha256 arm64_ventura: "9f08e025e60eed7a068ce64fc2e7c833db1c691ec0b0a3767856378f1f1734d5"
+    sha256 sequoia:       "c5e8398d27194f97c51bb744f3bf7182ad03a7b62129b661abd34056a1712869"
+    sha256 sonoma:        "765d9d6a86a004185ea5965457d34b2f0304b523f226a7b14e358086d4dd96b8"
+    sha256 ventura:       "ebcb7c2ee423ca32a51fcff7f4c9f282c3be0dfc01a9172c6da66169807c3d48"
+    sha256 arm64_linux:   "f91e6b35fa3a699eab0340629d60064a0589277330faa623d22eeb1eb204f8df"
+    sha256 x86_64_linux:  "88d8b56d861e4e3a2fb735919d07fc2a302220c34bc18edbf32327f897f57944"
   end
 
   depends_on "pkgconf" => :build

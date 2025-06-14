@@ -3,20 +3,19 @@ class Doc8 < Formula
 
   desc "Style checker for Sphinx documentation"
   homepage "https://github.com/PyCQA/doc8"
-  url "https://files.pythonhosted.org/packages/11/28/b0a576233730b756ca1ebb422bc6199a761b826b86e93e5196dfa85331ea/doc8-1.1.2.tar.gz"
-  sha256 "1225f30144e1cc97e388dbaf7fe3e996d2897473a53a6dae268ddde21c354b98"
+  url "https://files.pythonhosted.org/packages/92/91/88bb55225046a2ee9c2243d47346c78d2ed861c769168f451568625ad670/doc8-2.0.0.tar.gz"
+  sha256 "1267ad32758971fbcf991442417a3935c7bc9e52550e73622e0e56ba55ea1d40"
   license "Apache-2.0"
   head "https://github.com/PyCQA/doc8.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c3b10a7def5a70553f390474664fa3dbdfe53bcb207536fa28459dbf0482e222"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c3b10a7def5a70553f390474664fa3dbdfe53bcb207536fa28459dbf0482e222"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "c3b10a7def5a70553f390474664fa3dbdfe53bcb207536fa28459dbf0482e222"
-    sha256 cellar: :any_skip_relocation, sonoma:        "fc866ff039478a505cb59eb61e6150a4b0aa50c12a6aa9c9c31c6a9ed7b4e5b6"
-    sha256 cellar: :any_skip_relocation, ventura:       "fc866ff039478a505cb59eb61e6150a4b0aa50c12a6aa9c9c31c6a9ed7b4e5b6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "91dca4d2cf20ac5bfcd98748cff5c0bf1df44253affc1cba3b5cd4aee1f3a334"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c3b10a7def5a70553f390474664fa3dbdfe53bcb207536fa28459dbf0482e222"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ea5ecd047b0f0a808eaa97c58b46d254a6d4b92738542c204262db7573fc95b5"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ea5ecd047b0f0a808eaa97c58b46d254a6d4b92738542c204262db7573fc95b5"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "ea5ecd047b0f0a808eaa97c58b46d254a6d4b92738542c204262db7573fc95b5"
+    sha256 cellar: :any_skip_relocation, sonoma:        "1a8a1336329a659d6aa33f2876097010f0b8405a2305ec15de51b31e2510a0e4"
+    sha256 cellar: :any_skip_relocation, ventura:       "1a8a1336329a659d6aa33f2876097010f0b8405a2305ec15de51b31e2510a0e4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "90c14c67e6b2965fb8a9e793573256cb9ebcdedd08cc7ca305eb41d5c916a465"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "90c14c67e6b2965fb8a9e793573256cb9ebcdedd08cc7ca305eb41d5c916a465"
   end
 
   depends_on "python@3.13"
@@ -27,13 +26,13 @@ class Doc8 < Formula
   end
 
   resource "pbr" do
-    url "https://files.pythonhosted.org/packages/b2/35/80cf8f6a4f34017a7fe28242dc45161a1baa55c41563c354d8147e8358b2/pbr-6.1.0.tar.gz"
-    sha256 "788183e382e3d1d7707db08978239965e8b9e4e5ed42669bf4758186734d5f24"
+    url "https://files.pythonhosted.org/packages/01/d2/510cc0d218e753ba62a1bc1434651db3cd797a9716a0a66cc714cb4f0935/pbr-6.1.1.tar.gz"
+    sha256 "93ea72ce6989eb2eed99d0f75721474f69ad88128afdef5ac377eb797c4bf76b"
   end
 
   resource "pygments" do
-    url "https://files.pythonhosted.org/packages/8e/62/8336eff65bcbc8e4cb5d05b55faf041285951b6e80f33e2bff2024788f31/pygments-2.18.0.tar.gz"
-    sha256 "786ff802f32e91311bff3889f6e9a86e81505fe99f2735bb6d60ae0c5004f199"
+    url "https://files.pythonhosted.org/packages/7c/2d/c3338d48ea6cc0feb8446d8e6937e1408088a72a39937982cc6111d17f84/pygments-2.19.1.tar.gz"
+    sha256 "61c16d2a8576dc0649d9f39e089b5f02bcd27fba10d8fb4dcc28173f7a45151f"
   end
 
   resource "restructuredtext-lint" do
@@ -41,9 +40,14 @@ class Doc8 < Formula
     sha256 "1b235c0c922341ab6c530390892eb9e92f90b9b75046063e047cacfb0f050c45"
   end
 
+  resource "setuptools" do
+    url "https://files.pythonhosted.org/packages/18/5d/3bf57dcd21979b887f014ea83c24ae194cfcd12b9e0fda66b957c69d1fca/setuptools-80.9.0.tar.gz"
+    sha256 "f36b47402ecde768dbfafc46e8e4207b4360c654f1f3bb84475f0a28628fb19c"
+  end
+
   resource "stevedore" do
-    url "https://files.pythonhosted.org/packages/c4/59/f8aefa21020054f553bf7e3b405caec7f8d1f432d9cb47e34aaa244d8d03/stevedore-5.3.0.tar.gz"
-    sha256 "9a64265f4060312828151c204efbe9b7a9852a0d9228756344dbc7e4023e375a"
+    url "https://files.pythonhosted.org/packages/28/3f/13cacea96900bbd31bb05c6b74135f85d15564fc583802be56976c940470/stevedore-5.4.1.tar.gz"
+    sha256 "3135b5ae50fe12816ef291baff420acb727fcd356106e3e9cbfa9e5985cd6f4b"
   end
 
   def install

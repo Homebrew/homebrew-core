@@ -1,8 +1,8 @@
 class PythonAT313 < Formula
   desc "Interpreted, interactive, object-oriented programming language"
   homepage "https://www.python.org/"
-  url "https://www.python.org/ftp/python/3.13.4/Python-3.13.4.tgz"
-  sha256 "2666038f1521b7a8ec34bf2997b363778118d6f3979282c93723e872bcd464e0"
+  url "https://www.python.org/ftp/python/3.13.5/Python-3.13.5.tgz"
+  sha256 "e6190f52699b534ee203d9f417bdbca05a92f23e35c19c691a50ed2942835385"
   license "Python-2.0"
 
   livecheck do
@@ -13,14 +13,14 @@ class PythonAT313 < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 arm64_sequoia: "bee3f11e18d79d6b97a8c330b55c83baf6c398da877ca139289d9cac64aa75bc"
-    sha256 arm64_sonoma:  "b471071e74985630c85140a64ba2a2c808bb3e583aa88c6947e1274cab2cee48"
-    sha256 arm64_ventura: "3607808e64eeb62e17e95c8f8376d4703f24bbc41e59676f81243e4871ba9f57"
-    sha256 sequoia:       "87aeb15e30308f83f5f708f4af75584aab62657bbad1edbcfe511ddd1dbe67e2"
-    sha256 sonoma:        "b418780bac99eaed462fdb2f4c7cf12ab124d7bedf38b8f43970fc9d0bdd246f"
-    sha256 ventura:       "e18c3bbf4442fa4271cc2d15a4ff43125027a3388cdb1944af0cd32534c7555f"
-    sha256 arm64_linux:   "528001fa417d92474586e0af9fcf6e8298db04246bd7a774d22bc8369022ad19"
-    sha256 x86_64_linux:  "07e4714f79391b1b2d551374c16c66ad1c19e5d89a100655a960f09e8d01a806"
+    sha256 arm64_sequoia: "969e945c1395d108d37bfac36b97362af0f178a2d8bd1d50c78dee513641d790"
+    sha256 arm64_sonoma:  "127b07661e52959bda9f83bfc06842d716ba14d5e9392a9e57c8b45ab02cb88e"
+    sha256 arm64_ventura: "cfa5b86eb3af3de8a9f8d888594782c47f4100aaf89c6fca0ca7b5bba3274e50"
+    sha256 sequoia:       "ec5409ff39fd160ba5e20b0116563a45e97efaeb78b069b086b073147dcc76bc"
+    sha256 sonoma:        "5f3cbf44236f40b2606d1b51697a1096746e40ab932b1e4490857339bf2d0409"
+    sha256 ventura:       "9a8ce602a47de2c8211b6b4d7966ffb0187e6fcadc02efce4c66c88ef1c98c40"
+    sha256 arm64_linux:   "706afae0bbbf9c29474a4f8e408fdf880245021dafa603fdbab9d9529f4d6252"
+    sha256 x86_64_linux:  "2ba66dd4896497954b0bb6e83fabd03680f15a505b4113d6a8f3fdc5d612be58"
   end
 
   depends_on "pkgconf" => :build

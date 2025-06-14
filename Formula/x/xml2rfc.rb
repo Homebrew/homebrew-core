@@ -6,18 +6,19 @@ class Xml2rfc < Formula
   url "https://files.pythonhosted.org/packages/19/5a/4e4cbd0d669ff6bd368ba185bfbad3fb91ac4d500374398d2e245ddc5394/xml2rfc-3.28.1.tar.gz"
   sha256 "76201b28f5b5d4c466dad74d972b3260013db0f462c76ebc633ea1c7fcd87194"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/ietf-tools/xml2rfc.git", branch: "main"
 
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "edf0d2a76759f3a8a6c9459c2c05e4442b889e66d7fadbedf0d841dceb1b151e"
-    sha256 cellar: :any,                 arm64_sonoma:  "d93dea3b5ef178c6b10fd8b5bc76faee5310be43e6dadc30134b0a4e4864125b"
-    sha256 cellar: :any,                 arm64_ventura: "200d6b1f33b1936898fdcfcd92434171d140fe4987b6224d3bee32003a3105f9"
-    sha256 cellar: :any,                 sonoma:        "fffae6f1d3be9df52221047be7a43ffda10b45c2f5b91e58222ea715dfa29356"
-    sha256 cellar: :any,                 ventura:       "9f2dddcf991e8d75c0313d7874baa2c94fd80617790d7bbd6786d4a79c47a0f5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "4557209e3e4dbb9d0f6d4b7a4140f601495dc36f95523e2d4104f505013bebc7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "476e0bec1830d5ab810bcef54231012ef1697eeb0968f2f644a991255fb36979"
+    sha256 cellar: :any,                 arm64_sequoia: "72d9a1d05a2329cfabb2419c9b474b820f90f7d7e88385af98464524fe7feb50"
+    sha256 cellar: :any,                 arm64_sonoma:  "e0f31f2356080c4d80383fbd277f94346689b5a7829b784798c5a855d275e596"
+    sha256 cellar: :any,                 arm64_ventura: "0abca83a636ce8cd7f8ce4018110709b7cd93239bc7388128c1496c8477db371"
+    sha256 cellar: :any,                 sonoma:        "9e521feba3843e67c9c28fe5ee760801701cbe9374c02c17c0fa8ded3b6c61c8"
+    sha256 cellar: :any,                 ventura:       "66925bf7079f050de6396467c29c64d549bb8e67c6ce0f879cf5282bfb6d1a25"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "463fd069e52db06294ce3ee246e2f2d0e02cc7af986faac0f770f3835ca94860"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "121e579c8b4fb6f65661ef794a3f6fc6f7e1f7eb51bc75aa5289d585d13b2d06"
   end
 
   depends_on "libyaml"
@@ -40,8 +41,8 @@ class Xml2rfc < Formula
   end
 
   resource "configargparse" do
-    url "https://files.pythonhosted.org/packages/70/8a/73f1008adfad01cb923255b924b1528727b8270e67cb4ef41eabdc7d783e/ConfigArgParse-1.7.tar.gz"
-    sha256 "e7067471884de5478c58a511e529f0f9bd1c66bfef1dea90935438d6c23306d1"
+    url "https://files.pythonhosted.org/packages/85/4d/6c9ef746dfcc2a32e26f3860bb4a011c008c392b83eabdfb598d1a8bbe5d/configargparse-1.7.1.tar.gz"
+    sha256 "79c2ddae836a1e5914b71d58e4b9adbd9f7779d4e6351a637b7d2d9b6c46d3d9"
   end
 
   resource "google-i18n-address" do
@@ -90,13 +91,13 @@ class Xml2rfc < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/63/70/2bf7780ad2d390a8d301ad0b550f1581eadbd9a20f896afe06353c2a2913/requests-2.32.3.tar.gz"
-    sha256 "55365417734eb18255590a9ff9eb97e9e1da868d4ccd6402399eaf68af20a760"
+    url "https://files.pythonhosted.org/packages/e1/0a/929373653770d8a0d7ea76c37de6e41f11eb07559b103b1c02cafb3f7cf8/requests-2.32.4.tar.gz"
+    sha256 "27d0316682c8a29834d3264820024b62a36942083d52caf2f14c0591336d3422"
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/9e/8b/dc1773e8e5d07fd27c1632c45c1de856ac3dbf09c0147f782ca6d990cf15/setuptools-80.7.1.tar.gz"
-    sha256 "f6ffc5f0142b1bd8d0ca94ee91b30c0ca862ffd50826da1ea85258a06fd94552"
+    url "https://files.pythonhosted.org/packages/18/5d/3bf57dcd21979b887f014ea83c24ae194cfcd12b9e0fda66b957c69d1fca/setuptools-80.9.0.tar.gz"
+    sha256 "f36b47402ecde768dbfafc46e8e4207b4360c654f1f3bb84475f0a28628fb19c"
   end
 
   resource "sortedcontainers" do

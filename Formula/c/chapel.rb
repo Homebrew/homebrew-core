@@ -3,29 +3,28 @@ class Chapel < Formula
 
   desc "Programming language for productive parallel computing at scale"
   homepage "https://chapel-lang.org/"
-  url "https://github.com/chapel-lang/chapel/releases/download/2.4.0/chapel-2.4.0.tar.gz"
-  sha256 "a51a472488290df12d1657db2e7118ab519743094f33650f910d92b54c56f315"
+  url "https://github.com/chapel-lang/chapel/releases/download/2.5.0/chapel-2.5.0.tar.gz"
+  sha256 "020220ca9bf52b9f416e9a029bdc465bb1f635c1e274c6ca3c18d1f83e41fce1"
   license "Apache-2.0"
-  revision 2
   head "https://github.com/chapel-lang/chapel.git", branch: "main"
 
-  no_autobump! because: :requires_manual_review
+  no_autobump! because: :bumped_by_upstream
 
   bottle do
-    sha256 arm64_sequoia: "ae45c935d3a083686ffc20b62e84b0faae9d5a9701322f338ff29bcb6e377c68"
-    sha256 arm64_sonoma:  "386cffb16177a8d299f5f4bff38e15a90c2fa7c076c92fb9fc258ecc968b0a43"
-    sha256 arm64_ventura: "f7e776bdf704ff263140b01842811bcee6d553876243be35f3d12cc169b2088b"
-    sha256 sonoma:        "9ea3c09df45a048ea89d80eef45631a30c9075f1f325c6d2485893304f8e60bc"
-    sha256 ventura:       "31436bc68ae8d8ba2efe0326cfcf36f42f291be14249163bbedef1b6f9363154"
-    sha256 arm64_linux:   "acf21794e41a00f9b1e0073c5ce8eb2a00bcf5f57266345d06d8fc7aa467ce5e"
-    sha256 x86_64_linux:  "04c1f4dab972ad1296acf69e8a68e8f85d6b43f3c1e5a940dd0894c4613dc53f"
+    sha256 arm64_sequoia: "a5a93684662e89ab9bd90ae07a4c9a58ad81ec04259c7c81a9cfad561f67da0b"
+    sha256 arm64_sonoma:  "68b76ffbc83f9e5a7bd12092339d44b3ea14e6dca0be102de3feb00eff507dfc"
+    sha256 arm64_ventura: "cc3bf308763816d2da9a7a195f386aafde8df3b3ac8d5291171484273a12d18d"
+    sha256 sonoma:        "5aa538418e487a2e0962b12462c8f4d9bd4cd8b7a3e13395e4b938ea650a657a"
+    sha256 ventura:       "262872aa45e49d3829b9c08305573325bbed47e6a9bae88662ba6d5c3555fa7e"
+    sha256 arm64_linux:   "bcd47a3df6d01f14709be8036d1f7984eecfb37b32713869e535c32f4e829ea1"
+    sha256 x86_64_linux:  "baaa4df00345e3dc085e17754379f709b72f186bf00e6c68418baafa1ec59e3f"
   end
 
   depends_on "cmake"
   depends_on "gmp"
   depends_on "hwloc"
   depends_on "jemalloc"
-  depends_on "llvm@19"
+  depends_on "llvm"
   depends_on "pkgconf"
   depends_on "python@3.13"
 

@@ -1,8 +1,8 @@
 class Aqua < Formula
   desc "Declarative CLI Version manager"
   homepage "https://aquaproj.github.io/"
-  url "https://github.com/aquaproj/aqua/archive/refs/tags/v2.53.1.tar.gz"
-  sha256 "cb86d77f442a88844696c773364205a99cc543ecbbb1790540fac494b06218f5"
+  url "https://github.com/aquaproj/aqua/archive/refs/tags/v2.53.2.tar.gz"
+  sha256 "88f129148c94e3b5377e9b34888851d247db3b1c655a9c38ec6aef9a516cd932"
   license "MIT"
   head "https://github.com/aquaproj/aqua.git", branch: "main"
 
@@ -12,12 +12,12 @@ class Aqua < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "255ac172ad237a60fa8319d1a9452f3aeba4226e2d404e4b72ba9f47950c6340"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "255ac172ad237a60fa8319d1a9452f3aeba4226e2d404e4b72ba9f47950c6340"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "255ac172ad237a60fa8319d1a9452f3aeba4226e2d404e4b72ba9f47950c6340"
-    sha256 cellar: :any_skip_relocation, sonoma:        "51551f70cfdb92e1d31176a02c70dadd402c702abb5cb43d91cc48b5f5b8c871"
-    sha256 cellar: :any_skip_relocation, ventura:       "51551f70cfdb92e1d31176a02c70dadd402c702abb5cb43d91cc48b5f5b8c871"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b938cd075ce3a87bad5868f0e0ae3500afa66fc3741289564f99de4f8389f267"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ddc06948539a8d19d1c5c4bd3c4f4fe296d929a35876f89ba554b9a01808e7de"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ddc06948539a8d19d1c5c4bd3c4f4fe296d929a35876f89ba554b9a01808e7de"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "ddc06948539a8d19d1c5c4bd3c4f4fe296d929a35876f89ba554b9a01808e7de"
+    sha256 cellar: :any_skip_relocation, sonoma:        "1cdcb0e1a28020b058d3d4530c95e07dfe86a25e1f1a005feee5d4893e71380f"
+    sha256 cellar: :any_skip_relocation, ventura:       "1cdcb0e1a28020b058d3d4530c95e07dfe86a25e1f1a005feee5d4893e71380f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b37a6f8790cee25ac93aa4bb45e0727e1aae83f9ee55951bb721fd6c96cdfc59"
   end
 
   depends_on "go" => :build

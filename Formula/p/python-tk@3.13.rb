@@ -1,8 +1,8 @@
 class PythonTkAT313 < Formula
   desc "Python interface to Tcl/Tk"
   homepage "https://www.python.org/"
-  url "https://www.python.org/ftp/python/3.13.4/Python-3.13.4.tgz"
-  sha256 "2666038f1521b7a8ec34bf2997b363778118d6f3979282c93723e872bcd464e0"
+  url "https://www.python.org/ftp/python/3.13.5/Python-3.13.5.tgz"
+  sha256 "e6190f52699b534ee203d9f417bdbca05a92f23e35c19c691a50ed2942835385"
   license "Python-2.0"
 
   livecheck do
@@ -12,13 +12,13 @@ class PythonTkAT313 < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia: "5e6807439625285dd5a53a045d7a4b65d7cd82ad66bc87809258902f4a9bb1dc"
-    sha256 cellar: :any, arm64_sonoma:  "c10bfa46bbfcde6551a5991d10fc2b03600ddf5371a84972e6f9eecc1fda9974"
-    sha256 cellar: :any, arm64_ventura: "ea32e90251da993a7e61a4cef2bd453ff26ff7102020b10cf9fb915cabde2c2c"
-    sha256 cellar: :any, sonoma:        "88d0aee2a6d625f7ffb25efbcdde15a2e1b883bb64b3c38203ec29fdecc4f5b7"
-    sha256 cellar: :any, ventura:       "f01a7794e659ceb4208de288aeacc46fc7dcc143675d6b0a4119b0f909fc0f6e"
-    sha256               arm64_linux:   "be636493c1d38b83d7e95f61a315de8ba61072d6c7515b41c36214e3c82dabec"
-    sha256               x86_64_linux:  "d0d66790343518e42f86bbdf73c83513830e69061cf9b38987ec7da0ab54e840"
+    sha256 cellar: :any, arm64_sequoia: "83547b1424b6a70e116cb761800b4502898ea8be846d3ef8bcad54a4129fdd04"
+    sha256 cellar: :any, arm64_sonoma:  "58acda48b0f432fe31931953f55a82d80bfee62b9341d11d9c2b673ee28dc99f"
+    sha256 cellar: :any, arm64_ventura: "21a879b81708afd40ada4dab8f65dd150b57192d2a89cb7bb742288a61de30b9"
+    sha256 cellar: :any, sonoma:        "84579a29c8fd2a89a5a85c7a6494f92fbb0b68573ee99d54dac98bd198519064"
+    sha256 cellar: :any, ventura:       "35c078268ee6446634a8edb7f41dc7dbbbd2f5dd8e981c22142b0a5423a7188b"
+    sha256               arm64_linux:   "ed3e2b416992f5d6dd9c8925bbf5d8ee7c09ed90193f918b0bf87e22a4daa7f2"
+    sha256               x86_64_linux:  "347951c192bdfdcb9eae023768b7a65d59af3fc4c55c62fe67fd449ab69d2843"
   end
 
   depends_on "python@3.13"

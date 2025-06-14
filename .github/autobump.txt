@@ -478,6 +478,7 @@ cdxgen
 cekit
 censys
 cern-ndiff
+certbot
 certifi
 certigo
 cf
@@ -1007,6 +1008,7 @@ erlang
 erlang_ls
 erlang@25
 erlang@26
+erlfmt
 erofs-utils
 esbuild
 eslint
@@ -3604,6 +3606,7 @@ swift-format
 swift-protobuf
 swift-sh
 swiftformat
+swiftly
 swiftplantuml
 swig
 swtpm

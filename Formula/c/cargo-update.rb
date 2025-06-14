@@ -1,19 +1,19 @@
 class CargoUpdate < Formula
   desc "Cargo subcommand for checking and applying updates to installed executables"
   homepage "https://github.com/nabijaczleweli/cargo-update"
-  url "https://github.com/nabijaczleweli/cargo-update/archive/refs/tags/v16.3.1.tar.gz"
-  sha256 "0fe05d1dee8fcc1f5ec589a6a16f746d8504c5a9b3a3e5d9d8f0730a87900cc9"
+  url "https://github.com/nabijaczleweli/cargo-update/archive/refs/tags/v16.3.2.tar.gz"
+  sha256 "49e016c8189b779af4663c62c2b304f770e5a4358ed5348ae61e68bf3034a689"
   license "MIT"
   head "https://github.com/nabijaczleweli/cargo-update.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "a3e7608f5c1ac07b79f67493cb88d2f15180c4537f6b7daad48e82aad6d58b7f"
-    sha256 cellar: :any,                 arm64_sonoma:  "6153ccb667f191c235f0c5b04d012c459c3fdab1750b86c07aa431cd7b2f5874"
-    sha256 cellar: :any,                 arm64_ventura: "49462621dfeeffd2fa2587867877b455c3b0d325bbe4a984a13d4014ca38d15e"
-    sha256 cellar: :any,                 sonoma:        "3bd8eb71d4cefc0e855a3fc4753bb6aef133185b8591264e27930a10316da762"
-    sha256 cellar: :any,                 ventura:       "5464ffc38395e863379a2789c79e760a89d3505f425b775fc526d3965ccd145e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b81dcd1a969efb8ef685a30d981e4d962d934d09eb9f3d4cb53cd494155779fa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "173bbefb2e1b54a98b7035041692db929c1d404deb6c85eb9071126f11ee9728"
+    sha256 cellar: :any,                 arm64_sequoia: "279ba819692bbfb26927cb66eaea9ee94c3a1c2dbecce9b31d8886023a59202e"
+    sha256 cellar: :any,                 arm64_sonoma:  "35d889b76f13d363f79fc26dbefe6b69220ff73f6de1ecf18b0f294c2a24d10c"
+    sha256 cellar: :any,                 arm64_ventura: "5f5b973073dd127c5a98e3219aa54195323425a12b31ce7213f95c6b1486eedc"
+    sha256 cellar: :any,                 sonoma:        "485de0cde1bb32d78ab7f225398400299710422cae890afbea146f0f267faa9c"
+    sha256 cellar: :any,                 ventura:       "55911c64684590ec97f4e3920a44a5d74fe0ed7b73fe058c0c166423a0926356"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7bac1f8e213a8d54f9c50e2368e964ca8c33496522dadcaa8b6787f893e5426f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fd8311fec35573a77ed073b3f824f8c954d85008cb9e19e4d6e4cf0e2329e46a"
   end
 
   depends_on "pkgconf" => :build

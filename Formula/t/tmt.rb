@@ -6,15 +6,16 @@ class Tmt < Formula
   url "https://files.pythonhosted.org/packages/98/43/e230f183ef0b5d34deff051b62153b4bb53495c60e46717c3ac940a7bff5/tmt-1.50.0.tar.gz"
   sha256 "2ebecd1995a39a2e20b333931c6e2952f11a5a3c202a36a0f9084246ce42f5c4"
   license "MIT"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "b2865dbf449b56e47c3499b6e6808cb44e5edee68c6cd9376b228fe947c37ca5"
-    sha256 cellar: :any,                 arm64_sonoma:  "faf2ccc938efc226a10c895abcb5ceda3b4e564d722ca287f24281e392846c32"
-    sha256 cellar: :any,                 arm64_ventura: "7cae068290560fa811246e6189533cd60e3a9eb0af841c8b1a1d5630a03a0f21"
-    sha256 cellar: :any,                 sonoma:        "b6f880948e883e314ceed7c66f43c0e99b43cb3c5393570621d469a2b4fb40d3"
-    sha256 cellar: :any,                 ventura:       "422f9e1757b60fb485279bccfb72ae455f6c1b79e940a60f230d1c919e7eafb3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "dce59a4dbb3401f063d858bfeee63df06782159ded884f62d4b9eaaac4791099"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3df1c316b8ab8ed3d4b5dca14b6f691ef9b79c1760d15cb48081cfe7ad629ba9"
+    sha256 cellar: :any,                 arm64_sequoia: "6185b54a53143059a4ed1b4d31785ae84fd590285a3e078b26786eb7ff62f48c"
+    sha256 cellar: :any,                 arm64_sonoma:  "1719f6f7b72bd9be1bddf268881028269721fcbc93fd8e9df2ff1982b4179765"
+    sha256 cellar: :any,                 arm64_ventura: "af6c0c3f55f199f98aabff8a13b1200e5ef651776d5182fda5baffb19237cdfc"
+    sha256 cellar: :any,                 sonoma:        "5c2de862f3fe9cd721cbd3912b2e560d93c2ab9cb678580a811dbea148ec01fe"
+    sha256 cellar: :any,                 ventura:       "9908549886d659100d7ec72239c593f669047d523858d87836a75c3312d879ef"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a87fa95e33b65959a061eb42e6abb959c67aa742046eddc776219c6eecb0ae02"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6bad3fb50b096c749d0bf61953a68c16a5bdf7f1db7fe1a0c31b21c9be6fcd7d"
   end
 
   depends_on "rust" => :build # for rpds-py
@@ -128,8 +129,8 @@ class Tmt < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/63/70/2bf7780ad2d390a8d301ad0b550f1581eadbd9a20f896afe06353c2a2913/requests-2.32.3.tar.gz"
-    sha256 "55365417734eb18255590a9ff9eb97e9e1da868d4ccd6402399eaf68af20a760"
+    url "https://files.pythonhosted.org/packages/e1/0a/929373653770d8a0d7ea76c37de6e41f11eb07559b103b1c02cafb3f7cf8/requests-2.32.4.tar.gz"
+    sha256 "27d0316682c8a29834d3264820024b62a36942083d52caf2f14c0591336d3422"
   end
 
   resource "rpds-py" do
@@ -138,8 +139,8 @@ class Tmt < Formula
   end
 
   resource "ruamel-yaml" do
-    url "https://files.pythonhosted.org/packages/56/2f/5a4dd48a259cb72d6f972abb728d3b219b50980fe3b7c548e0be7c5f56aa/ruamel.yaml-0.18.12.tar.gz"
-    sha256 "5a38fd5ce39d223bebb9e3a6779e86b9427a03fb0bf9f270060f8b149cffe5e2"
+    url "https://files.pythonhosted.org/packages/39/87/6da0df742a4684263261c253f00edd5829e6aca970fff69e75028cccc547/ruamel.yaml-0.18.14.tar.gz"
+    sha256 "7227b76aaec364df15936730efbf7d72b30c0b79b1d578bbb8e3dcb2d81f52b7"
   end
 
   resource "ruamel-yaml-clib" do
