@@ -6,8 +6,6 @@ class Liblcf < Formula
   license "MIT"
   head "https://github.com/EasyRPG/liblcf.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "3b50d8d26ad9ae4223f2b32c6e6339286076967625db097d6f59e51e301839ef"
     sha256 cellar: :any,                 arm64_sonoma:  "b46ebee74b740c0c6fab8ed2c4d54126a190cb2f16d9c6528e9900e3dc51fb0e"
