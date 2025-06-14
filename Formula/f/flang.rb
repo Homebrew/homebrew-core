@@ -1,8 +1,8 @@
 class Flang < Formula
   desc "LLVM Fortran Frontend"
   homepage "https://flang.llvm.org/"
-  url "https://github.com/llvm/llvm-project/releases/download/llvmorg-20.1.6/llvm-project-20.1.6.src.tar.xz"
-  sha256 "5c70549d524284c184fe9fbff862c3d2d7a61b787570611b5a30e5cc345f145e"
+  url "https://github.com/llvm/llvm-project/releases/download/llvmorg-20.1.7/llvm-project-20.1.7.src.tar.xz"
+  sha256 "cd8fd55d97ad3e360b1d5aaf98388d1f70dfffb7df36beee478be3b839ff9008"
   # The LLVM Project is under the Apache License v2.0 with LLVM Exceptions
   license "Apache-2.0" => { with: "LLVM-exception" }
   head "https://github.com/llvm/llvm-project.git", branch: "main"
