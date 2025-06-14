@@ -5,6 +5,8 @@ class Nx < Formula
   sha256 "187250adb2505d659caebf8644e9c47b185a4f7efba508d75b97ce0e515e2cca"
   license "MIT"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "3d69ab9b9ca6e037ee3cd91b7ac7105fa4b706b2301b38d48d5cd120186b1de8"
     sha256 cellar: :any,                 arm64_sonoma:  "3d69ab9b9ca6e037ee3cd91b7ac7105fa4b706b2301b38d48d5cd120186b1de8"
