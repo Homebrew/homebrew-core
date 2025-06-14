@@ -4,8 +4,8 @@ class Px < Formula
   desc "Ps and top for human beings (px / ptop)"
   homepage "https://github.com/walles/px"
   url "https://github.com/walles/px.git",
-      tag:      "3.6.11",
-      revision: "a9cc788aa58c5de19506bc9950b7d47adc690919"
+      tag:      "3.6.12",
+      revision: "922a9038272661371bce15b1d13c47bc84926845"
   license "MIT"
 
   no_autobump! because: :bumped_by_upstream
