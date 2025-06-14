@@ -7,13 +7,13 @@ class Kubevpn < Formula
   head "https://github.com/kubenetworks/kubevpn.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cfb37ea67951c33234a4df2f100c6999a63a802206862e6558ee6e113802fdfa"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7f44a2e0f966173ccf3fa4397769c4eb69ca1ae5b391005edf7f191bec78e235"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "03507ff2075ce02e5893d6ce15712e4609d246ed233c8de2827faa27255b4ceb"
-    sha256 cellar: :any_skip_relocation, sonoma:        "b56eaeeb76ef7a7b4e8a630b920fbe533117be0a710ad54095c6d8325c92eeee"
-    sha256 cellar: :any_skip_relocation, ventura:       "8a2141e39817265ef34922d68366399c17d8c37854971500a1c47fd69df62024"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f1d51c8247b97453fbcfb281ea8e965003403bae8e4400f0db586141069b828d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2451ba147d6e3b124e24957abc56a28682d64ce72bdee99743619854ab411d8b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4cbffdd8a8e6a922e5a2497a8d1fda056937e0877d1cd69de4b07eb142e98896"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b7eb150140a4d77c67a1e3f00442aeec0803727cd241dab19e813e4b885a04ec"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "9da23bb7a405580eef1c72bbc766e11a53fab50fc59d12908725526432de59c6"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b1f1ce87e72da3a014fb91229dd3e742ba53d2c85a618963db213a5f708d8452"
+    sha256 cellar: :any_skip_relocation, ventura:       "2b13235846da1e81a5fa049ba525ace3351955951da3797d7231661e5b05547c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4aa8f4e6c8b03d52d4c4b05dfe52686d5fd8251ab3b08dbf85e5a1e443aeb421"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "79015b550731e4a0e5bdfcfafe6a703674f6cc60395cad2dc230771d2104e833"
   end
 
   depends_on "go" => :build
