@@ -17,10 +17,10 @@ class Blastem < Formula
 
         match[1]
       end
-
-      no_autobump! because: :requires_manual_review
     end
   end
+
+  no_autobump! because: :requires_manual_review
 
   bottle do
     rebuild 2
