@@ -1,8 +1,8 @@
 class Yalantinglibs < Formula
   desc "Collection of modern C++ libraries"
   homepage "https://alibaba.github.io/yalantinglibs/en/"
-  url "https://github.com/alibaba/yalantinglibs/archive/refs/tags/lts1.1.1.tar.gz"
-  sha256 "0aca363801b004f4f679daea0122f76ace147299770d91f44c3a49d753664afa"
+  url "https://github.com/alibaba/yalantinglibs/archive/refs/tags/lts1.2.0.tar.gz"
+  sha256 "1b541ae108bd10962244e2aeea0bbd58952e728d8b32eef7a439a888a1eddcee"
   license "Apache-2.0"
   head "https://github.com/alibaba/yalantinglibs.git", branch: "main"
 
