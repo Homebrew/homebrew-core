@@ -11,8 +11,6 @@ class Poppler < Formula
     regex(/href=.*?poppler[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 arm64_sequoia: "171cb4923ee967042878eaf4056aa0b7abe625f2ca90f4d8735ce88c0d748696"
     sha256 arm64_sonoma:  "04bdaa029f26a0bd70f8faa59d3e6ddb4434cbfaa2abcc8e14c42302e158f5ec"
