@@ -37,7 +37,8 @@ class Container < Formula
 
   test do
     system bin/"container", "system", "start"
-    container_id = shell_output("#{bin}/container container run -it --m -d python:slim sh -c \"echo 'Hello, world!' › index.html ; python3 -m http.server 88 --bind 0.0.0.0\"")
-    system bin/"container", "ls"
+    container_cmd = "\"echo 'Hello, world!' › index.html ; python3 -m http.server 88 --bind 0.0.0.0\""
+    container_id = shell_output("#{bin}/container container run -it --m -d python:slim sh -c #{container_cmd}")
+    assert_match(container_id, shell_output("#{bin}/container ls"))
   end
 end
