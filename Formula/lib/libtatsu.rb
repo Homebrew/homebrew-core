@@ -6,8 +6,6 @@ class Libtatsu < Formula
   license "LGPL-2.1-or-later"
   head "https://github.com/libimobiledevice/libtatsu.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "e729a89bd9fba8be9355e7c4dd4dfc89cb039f6c063ffcd1adb102d3dfec75d5"
     sha256 cellar: :any,                 arm64_sonoma:  "efb9b3d41f8e825551a9047fd46788477ee53b3fa40f1c032bb74297be7ca21b"
