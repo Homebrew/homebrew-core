@@ -8,6 +8,8 @@ class Flye < Formula
   license all_of: ["BSD-3-Clause", "Apache-2.0", "BSD-2-Clause", "BSL-1.0", "MIT"]
   head "https://github.com/mikolmogorov/Flye.git", branch: "flye"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "f6ff4135fbbe3045cf3bf6f1660be67fe941b86504248a8168a0d0f6b31480e2"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "810af69fce87083de1a03681770ff518870625396b869d73f56940437682bc04"
