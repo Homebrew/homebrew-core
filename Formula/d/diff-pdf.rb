@@ -26,7 +26,7 @@ class DiffPdf < Formula
   depends_on "cairo"
   depends_on "glib"
   depends_on "poppler"
-  depends_on "wxwidgets"
+  depends_on "wxwidgets@3.2"
 
   on_macos do
     depends_on "gettext"

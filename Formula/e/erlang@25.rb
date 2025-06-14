@@ -5,6 +5,7 @@ class ErlangAT25 < Formula
   url "https://github.com/erlang/otp/releases/download/OTP-25.3.2.21/otp_src_25.3.2.21.tar.gz"
   sha256 "99296fcd97a2053c5fcde7dc0ded2ba261a3baf1491c745fca71bd9804d51443"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url :stable
