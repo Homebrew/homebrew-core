@@ -10,20 +10,10 @@ class Ip < Formula
   depends_on :macos
 
   def install
-    return unless OS.mac?
-
     system "go", "build", *std_go_args, "./main.go"
   end
 
-  def caveats
-    <<~EOS
-      This formula is only supported on macOS.
-    EOS
-  end
-
   test do
-    return unless OS.mac?
-
     output = shell_output("#{bin}/ip 2>&1")
     assert_match(/\d+\.\d+\.\d+\.\d+/, output)
   end
