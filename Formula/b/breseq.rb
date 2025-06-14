@@ -6,6 +6,8 @@ class Breseq < Formula
   license all_of: ["GPL-2.0-or-later", "MIT", "BSD-3-Clause"]
   head "https://github.com/barricklab/breseq.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "f22120bae403eb392bec70333093e7176e565853bf5108b51ed37b82a8b39d54"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a5d0b6591968d4b5747cf81d8f377560da5e8b2633d401d5e60f36e954655e49"
