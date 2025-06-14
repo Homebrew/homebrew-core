@@ -6,6 +6,8 @@ class JwtHack < Formula
   license "MIT"
   head "https://github.com/hahwul/jwt-hack.git", branch: "main"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "a873fbf22a7fdda5a65150c817257cefc89ccd562286ede59d01e4a970e74847"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ccc825f3b87b0bfe0e309e217cac7f8a10c2d9a5e6bfb103c47818ace888eeef"
