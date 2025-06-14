@@ -23,6 +23,13 @@ class Openstackclient < Formula
   depends_on "libyaml"
   depends_on "python@3.13"
 
+  resource "gnureadline" do
+    on_macos do
+      url "https://files.pythonhosted.org/packages/cb/92/20723aa239b9a8024e6f8358c789df8859ab1085a1ae106e5071727ad20f/gnureadline-8.2.13.tar.gz"
+      sha256 "c9b9e1e7ba99a80bb50c12027d6ce692574f77a65bf57bc97041cf81c0f49bd1"
+    end
+  end
+
   resource "pyinotify" do
     on_linux do
       url "https://files.pythonhosted.org/packages/e3/c0/fd5b18dde17c1249658521f69598f3252f11d9d7a980c5be8619970646e1/pyinotify-0.9.6.tar.gz"
@@ -391,7 +398,17 @@ class Openstackclient < Formula
   end
 
   def install
-    virtualenv_install_with_resources
+    if OS.mac?
+      ENV["CC"] = ENV.cc
+      python3 = "python3.13"
+      # pip install does not build readline from it's source, so we need to install it manually
+      resource("gnureadline").stage do
+        system python3, "-m", "pip", "install", *std_pip_args(prefix: libexec, build_isolation: true), "."
+      end
+      virtualenv_install_with_resources without: "gnureadline"
+    else
+      virtualenv_install_with_resources
+    end
   end
 
   test do
