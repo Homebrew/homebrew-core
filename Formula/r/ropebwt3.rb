@@ -6,6 +6,8 @@ class Ropebwt3 < Formula
   license all_of: ["MIT", "Apache-2.0"]
   head "https://github.com/lh3/ropebwt3.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "bd66115bce6f069c5b16a3c87fba2a4e3e0a158965a4062ebba86e2f2598d0a5"
     sha256 cellar: :any,                 arm64_sonoma:  "9f099ff6a4f3cff8d08cda4f651550cc8a8767f264133aba3e1052381619da6e"
