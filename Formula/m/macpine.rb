@@ -17,10 +17,10 @@ class Macpine < Formula
         # Naively convert tags like `v.01` to `0.1`
         tag.match?(/^v\.?\d+$/i) ? version.chars.join(".") : version
       end
-
-      no_autobump! because: :requires_manual_review
     end
   end
+
+  no_autobump! because: :requires_manual_review
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "2e93c3ad2fff32d4d7010b2d1fda57f8b82abc315ad3254ae6594f26675957ca"
