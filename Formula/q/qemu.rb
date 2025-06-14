@@ -27,6 +27,7 @@ class Qemu < Formula
   depends_on "pkgconf" => :build
   depends_on "python@3.13" => :build # keep aligned with meson
   depends_on "spice-protocol" => :build
+  depends_on "spice-server" => :build
 
   depends_on "capstone"
   depends_on "dtc"
@@ -84,6 +85,7 @@ class Qemu < Formula
       --enable-curses
       --enable-fdt=system
       --enable-libssh
+      --enable-spice
       --enable-vde
       --enable-virtfs
       --enable-zstd
