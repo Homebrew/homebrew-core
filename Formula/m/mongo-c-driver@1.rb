@@ -10,6 +10,8 @@ class MongoCDriverAT1 < Formula
     regex(/^v?(1(?:\.\d+)+)$/i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "11ec4903de5e8816f1e3670644995240062bf6fb7f55a17c76a571b9b0576f51"
     sha256 cellar: :any,                 arm64_sonoma:  "679d591289a2da855fb9091c41518207af700dd1ea888be468707960c228f705"
