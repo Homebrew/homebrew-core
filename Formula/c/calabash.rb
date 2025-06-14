@@ -24,10 +24,10 @@ class Calabash < Formula
 
         match[1] if match[1].end_with?(saxon_suffix)
       end
-
-      no_autobump! because: :requires_manual_review
     end
   end
+
+  no_autobump! because: :requires_manual_review
 
   bottle do
     rebuild 1
