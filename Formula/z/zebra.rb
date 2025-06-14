@@ -10,8 +10,6 @@ class Zebra < Formula
     regex(/href=.*?idzebra[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 arm64_sequoia: "2aa244713add7f2e0e9e28955dc2403c08b79097cbb85fae1ee7d414324eec39"
     sha256 arm64_sonoma:  "28d8199235458e3a14f907308dfd9c61c1573ce9567d00e15c5d6cd874647660"
