@@ -6,8 +6,6 @@ class Maeparser < Formula
   license "MIT"
   head "https://github.com/schrodinger/maeparser.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "fbcc6b87403bf3ee4ceae13512659743cc3393caececa0f7837a6848e60237b3"
     sha256 cellar: :any,                 arm64_sonoma:  "65bea7147115cac9532e7a76903519dbe14cf0b3e2059ebb1de6f37932d5c54a"
