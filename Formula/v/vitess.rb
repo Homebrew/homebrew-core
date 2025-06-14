@@ -26,30 +26,36 @@ class Vitess < Formula
   end
 
   test do
-    ENV["ETCDCTL_API"] = "2"
+    ENV["ETCDCTL_API"] = "3"
     etcd_server = "localhost:#{free_port}"
+    peer_port = free_port
     cell = "testcell"
 
     fork do
-      exec Formula["etcd"].opt_bin/"etcd", "--enable-v2=true",
-                                           "--data-dir=#{testpath}/etcd",
-                                           "--listen-client-urls=http://#{etcd_server}",
-                                           "--advertise-client-urls=http://#{etcd_server}"
+      exec Formula["etcd"].opt_bin/"etcd",
+           "--name=vitess_test",
+           "--data-dir=#{testpath}/etcd",
+           "--listen-client-urls=http://#{etcd_server}",
+           "--advertise-client-urls=http://#{etcd_server}",
+           "--listen-peer-urls=http://localhost:#{peer_port}",
+           "--initial-advertise-peer-urls=http://localhost:#{peer_port}",
+           "--initial-cluster=vitess_test=http://localhost:#{peer_port}",
+           "--auto-compaction-retention=1"
     end
+
     sleep 3
 
-    fork do
-      exec Formula["etcd"].opt_bin/"etcdctl", "--endpoints", "http://#{etcd_server}",
-                                    "mkdir", testpath/"global"
-    end
-    sleep 1
+    # Test etcd is responding before continuing
+    system Formula["etcd"].opt_bin/"etcdctl", "--endpoints", "http://#{etcd_server}", "endpoint", "health"
 
-    fork do
-      exec Formula["etcd"].opt_bin/"etcdctl", "--endpoints", "http://#{etcd_server}",
-                                    "mkdir", testpath/cell
-    end
-    sleep 1
+    # Create necessary directory structure using etcd v3 API
+    system Formula["etcd"].opt_bin/"etcdctl", "--endpoints", "http://#{etcd_server}",
+           "put", "/vitess/global", ""
 
+    system Formula["etcd"].opt_bin/"etcdctl", "--endpoints", "http://#{etcd_server}",
+           "put", "/vitess/#{cell}", ""
+
+    # Run vtctl with etcd2 implementation but using etcd v3 API
     fork do
       exec bin/"vtctl", "--topo_implementation", "etcd2",
                         "--topo_global_server_address", etcd_server,
