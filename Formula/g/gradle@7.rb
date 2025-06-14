@@ -10,8 +10,6 @@ class GradleAT7 < Formula
     regex(/href=.*?gradle[._-]v?(7(?:\.\d+)+)-all\.(?:zip|t)/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, all: "06d7151adcd4d1affc762de7ff751c7a9c7e79f0187b66f27a54684f34aad1f9"
   end
