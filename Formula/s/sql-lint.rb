@@ -5,8 +5,6 @@ class SqlLint < Formula
   sha256 "17575266273fe3f762595fe404f49ff5fbd4c360f605cda0718cb62d65ad82b8"
   license "MIT"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "cc63ba9d01196aa966e93b34c8e644c0c6c3471f6c4c3b91e5166e358352945e"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cc63ba9d01196aa966e93b34c8e644c0c6c3471f6c4c3b91e5166e358352945e"
