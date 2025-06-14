@@ -10,13 +10,13 @@ class Libblastrampoline < Formula
   ]
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "a41f25d661d33658eec04d2a320c20e885db2ad5bcdbcb30ef62e7c41d534ceb"
-    sha256 cellar: :any,                 arm64_sonoma:  "e3816dc15789f1b23444a81fa39e2f143de139244c42df036df1bdf713df4ca3"
-    sha256 cellar: :any,                 arm64_ventura: "1cdd282eb257880f3b04ae12ac6715bc4407bf49b14dc4ae4a190755840f4de9"
-    sha256 cellar: :any,                 sonoma:        "b8eb22f07216cfc835aad8f48ac29fdb19ed2dfb162f5c2559f56bbe15c46ce3"
-    sha256 cellar: :any,                 ventura:       "ee9c185e49e8f405ba2335f661593d3838130b6a20415143a7984f0d0af21f1b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5bd84148c9d508220b588ef6eaf80e82dbf1ede283221de412b1c9fac52824b0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8df6fd7523f579b6110937096f0b9d21d430fffc0924cdc1f742364c94d88a84"
+    sha256 cellar: :any,                 arm64_sequoia: "43ccaf3f8b60d62df19f7aa6cb2147524dbcad2b743391629e8afcc807e2ed08"
+    sha256 cellar: :any,                 arm64_sonoma:  "e17e7d1aafc744c300df2543e2f7791f659feb4bcc191a869145617e799bf94f"
+    sha256 cellar: :any,                 arm64_ventura: "9817ded0c469cc89c533e77acaff0312c8cf43505225b4c38103121dbfd29b52"
+    sha256 cellar: :any,                 sonoma:        "6d059e97c5c3ee668c153b304162f053ff46e30557beaac3204950d07e17984b"
+    sha256 cellar: :any,                 ventura:       "7358510d10d8ec9e53496fe0e74a8197db0c7dfeaa6b2346f56a53fb6587c42f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "97935472f38aa55f201b5fb5065dd432f6f7efe15b1dc08159d37d9446186db6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0b68aeb24b65b535907b939721660d166275cd14046758f77853518e7b513510"
   end
 
   depends_on "openblas" => :test
