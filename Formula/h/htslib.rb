@@ -10,8 +10,6 @@ class Htslib < Formula
     strategy :github_latest
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "3f2f3384d807cf96d55f5d9ee31b073b289fb4c64ba9a11f8fb3242d8dc1858e"
     sha256 cellar: :any,                 arm64_sonoma:  "3c77b5d9fd49d47b2b564b8ee27fc49e9edd26823acd90f9404e20a9e2475fe8"
