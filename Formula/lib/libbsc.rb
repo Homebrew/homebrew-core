@@ -5,6 +5,8 @@ class Libbsc < Formula
   sha256 "d287535feaf18a05c3ffc9ccba3ee4eacd7604224b4648121d7388727160f107"
   license "Apache-2.0"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "c7ed848197e074d4ffbf597c051dcc37399d2d589c6ada3a15f90fd049859470"
     sha256 cellar: :any,                 arm64_sonoma:  "e9f13fa761075788e61ac51a14ab27649231f3355f7f7fe3d56d848c74714e96"
