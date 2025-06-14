@@ -40,6 +40,9 @@ class ServiceWeaver < Formula
     end
   end
 
+  # upstream announcement, https://github.com/ServiceWeaver/weaver/pull/804
+  deprecate! date: "2025-06-14", because: :unmaintained
+
   depends_on "go" => :build
 
   conflicts_with "weaver", because: "both install a `weaver` binary"
