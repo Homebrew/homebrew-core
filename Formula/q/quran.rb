@@ -29,7 +29,9 @@ class Quran < Formula
   end
 
   test do
-    op = shell_output("#{bin}/quran 1:1").strip
-    assert_equal "In the Name of Allah—the Most Compassionate, Most Merciful.", op
+    assert_match "Saheeh International", shell_output("#{bin}/quran ls-translations")
+
+    op = shell_output("#{bin}/quran -trans 20 1:1").strip
+    assert_equal "In the name of Allāh, the Entirely Merciful, the Especially Merciful.", op
   end
 end
