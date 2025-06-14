@@ -6,6 +6,8 @@ class Polypolish < Formula
   license "GPL-3.0-or-later"
   head "https://github.com/rrwick/Polypolish.git", branch: "main"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "c1422d344c3b60428cf5e201ecbe405edad60e3f0404ce8029e3d713846220ae"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0b90a3ac3ed81082d4da52cf6a596dfe61a397dac3a4e994bbea5ca3417f6476"
