@@ -10,8 +10,6 @@ class Jq < Formula
     regex(/^(?:jq[._-])?v?(\d+(?:\.\d+)+)$/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "5911dafda561f792305dbc34b1f2ca5265bede9d7e60c655d9390511b560df4e"
     sha256 cellar: :any,                 arm64_sonoma:  "de8dbc03158683f974e8ef52f886abe1d6d6250dba92e2b0e5c7758eb1a5168c"
