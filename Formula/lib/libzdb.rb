@@ -10,8 +10,6 @@ class Libzdb < Formula
     regex(%r{href=.*?dist/libzdb[._-]v?(\d+(?:\.\d+)+)\.t}i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "7ada18691b69fb2fe14cbc26b6e37acc064386f8126d94ce2ee52bc1a33d1aa4"
     sha256 cellar: :any,                 arm64_sonoma:  "ca0e3601cb111cc6c2bd04831af5c9d18a8ae39297bc89f16d53c0678c1cad51"
