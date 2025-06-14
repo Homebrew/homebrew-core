@@ -6,6 +6,8 @@ class Pangene < Formula
   license "MIT"
   head "https://github.com/lh3/pangene.git", branch: "main"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "08730dae3029ce76ebbf0bef953e839242f80bfd64f4ba430b7c94bf89b20a3c"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b448acf9c369e6a67524e8d7c68fb781c5f526a3c41a74679a251965c8a5de3b"
