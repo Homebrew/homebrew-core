@@ -88,6 +88,18 @@ class PythonAT313 < Formula
     sha256 "e1c2699cf3e39731a19207ed69400a67336cda7767aa08f6f46029f26b1d733b"
   end
 
+  # Fix os.getlogin for users with longer usernames on macOS.
+  # Change accepted upstream and backported, remove on next release.
+  # https://github.com/Homebrew/homebrew-core/issues/226857
+  # https://github.com/python/cpython/issues/135497
+  # https://github.com/python/cpython/pull/135508
+  # https://github.com/python/cpython/pull/135517
+  # https://github.com/python/cpython/pull/135516
+  patch do
+    url "https://github.com/python/cpython/commit/15340775f8ded517e98604fb416e6f758d21f635.patch?full_index=1"
+    sha256 "921de8bbbf20cebb8b695279bfaf138999460bc39ff8320d1495b61f67ae2e65"
+  end
+
   def lib_cellar
     on_macos do
       return frameworks/"Python.framework/Versions"/version.major_minor/"lib/python#{version.major_minor}"
