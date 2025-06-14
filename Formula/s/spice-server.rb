@@ -12,6 +12,7 @@ class SpiceServer < Formula
     sha256 cellar: :any,                 arm64_ventura: "027a196515564119dae4fcc9ce048890ce71f1f947904cc1b3a96f6ba82b4086"
     sha256 cellar: :any,                 sonoma:        "1f1413376cdd65d268fd79dbc130f24b8a6fca760a98734bc7c2bb016e0c64a8"
     sha256 cellar: :any,                 ventura:       "959df8679b8553cc1b5d700f374e5f3be12ac4b7928cb977aff4f65f8fc4a768"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "18e8ad43cb6cb02a62beffeef8010f0187733862ef9ed53edb6a18affa06ce71"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "8689579c9750ad3907b15c94f46b758b6eac7dcc38384e5606585036e0ef6172"
   end
 
