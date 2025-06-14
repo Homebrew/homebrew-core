@@ -8,6 +8,8 @@ class Btcli < Formula
   license "MIT"
   head "https://github.com/opentensor/btcli.git", branch: "main"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "7a855c3b77bc12b92d18e3bb279885368adbc44d137109d0e7cb7289a926197b"
     sha256 cellar: :any,                 arm64_sonoma:  "c2a6d8207d25da2ea01199c9b2772bc0c1e130eccf3513c3f464e70280c715dd"
