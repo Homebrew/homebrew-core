@@ -6,6 +6,8 @@ class Kraken2 < Formula
   license "MIT"
   head "https://github.com/DerrickWood/kraken2.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "3ee275caf279a788ea6a7bce93190ab31165bbdc79fd1dc812ba120336a1918f"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fb22cec35e13ee86ec66e1f65f90a4b6454e418da5df13bf786e48a1dc846e8b"
