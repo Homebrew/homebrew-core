@@ -11,13 +11,13 @@ class Tgui < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "9de6a742a67b9060fe72d9fce6bbb5a0c7b9b36bb3b758d81b8654e9b632f96f"
-    sha256 cellar: :any,                 arm64_sonoma:  "c59815ec11d8d68a337c19ec94ef57f31a26bb1abf3383cc32c5f4e30cb34a31"
-    sha256 cellar: :any,                 arm64_ventura: "6140cd223e0cdc575fe6753846f3f9373802bff1d1bc8316b27d732e11d735ec"
-    sha256 cellar: :any,                 sonoma:        "42b27869e89eda046f0af2c9a47b8df667dc76cfa1bf945c09cc598836f17442"
-    sha256 cellar: :any,                 ventura:       "4574c8f7dcb63e4b8635100ec2e92b2738b48bf586675aed1f381c7a3bd53c1c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "77683c26c5a9f470456e5a2ce74f360255d4cf4af3f996ca2afc6564d1a092dc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "834a0f6457dd8a66bd060b50c419da0d765fc292fab6679d250a14a404ffd894"
+    sha256 cellar: :any,                 arm64_sequoia: "f6f46caab2a2b966f68e41d0bf192a6dba8fa0bc5b1d10f6bf45befd33587b28"
+    sha256 cellar: :any,                 arm64_sonoma:  "5b9ac5c064671a3502e0379714e5d3e46b1ab0200c34cc3733f97b5d940327b1"
+    sha256 cellar: :any,                 arm64_ventura: "65448ad581173ffa023bbca10808ba9adf50a1ffea0ea2b380a2463ec938b2e4"
+    sha256 cellar: :any,                 sonoma:        "1a1129e84d3719786533488b8c53836c7a2a7d98e19a548515136ff77fefb689"
+    sha256 cellar: :any,                 ventura:       "3dc2665391f4062de7f23e0e5ab573d3c3a0cbde3fdb011efcd2d5d1d350462f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "05b2b8f955b300de27bd05acacb48a18a8bbbce384d778e06460dc73b5cde284"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4e347c7220989635107b88192baf013d465cdb8ca6e7e9ea218d4b1abe2e0f36"
   end
 
   depends_on "cmake" => :build
