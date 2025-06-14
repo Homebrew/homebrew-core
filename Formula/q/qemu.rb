@@ -4,6 +4,7 @@ class Qemu < Formula
   url "https://download.qemu.org/qemu-10.0.2.tar.xz"
   sha256 "ef786f2398cb5184600f69aef4d5d691efd44576a3cff4126d38d4c6fec87759"
   license "GPL-2.0-only"
+  revision 1
   head "https://gitlab.com/qemu-project/qemu.git", branch: "master"
 
   livecheck do
@@ -26,7 +27,6 @@ class Qemu < Formula
   depends_on "ninja" => :build
   depends_on "pkgconf" => :build
   depends_on "python@3.13" => :build # keep aligned with meson
-  depends_on "spice-protocol" => :build
 
   depends_on "capstone"
   depends_on "dtc"
@@ -42,6 +42,8 @@ class Qemu < Formula
   depends_on "nettle"
   depends_on "pixman"
   depends_on "snappy"
+  depends_on "spice-protocol"
+  depends_on "spice-server"
   depends_on "vde"
   depends_on "zstd"
 
@@ -51,8 +53,11 @@ class Qemu < Formula
   uses_from_macos "zlib"
 
   on_linux do
+    depends_on "alsa-lib"
     depends_on "attr"
     depends_on "cairo"
+    depends_on "curl"
+    depends_on "cyrus-sasl"
     depends_on "elfutils"
     depends_on "gdk-pixbuf"
     depends_on "gtk+3"
@@ -61,6 +66,7 @@ class Qemu < Formula
     depends_on "libx11"
     depends_on "libxkbcommon"
     depends_on "mesa"
+    depends_on "pulseaudio"
     depends_on "systemd"
   end
 
@@ -84,6 +90,7 @@ class Qemu < Formula
       --enable-curses
       --enable-fdt=system
       --enable-libssh
+      --enable-spice
       --enable-vde
       --enable-virtfs
       --enable-zstd
