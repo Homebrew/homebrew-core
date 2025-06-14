@@ -6,6 +6,8 @@ class ClangIncludeGraph < Formula
   license "Apache-2.0"
   head "https://github.com/bkryza/clang-include-graph.git", branch: "main"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "3480c320bbd4af88fc4d12d612c55f4b5f79a9cf4e2479dcc4d9d38ca483acc4"
     sha256 cellar: :any,                 arm64_sonoma:  "2906d24fb1455310992f9003714951dcd9cf2a4f82bdad3bbe454e6e57807fd1"
