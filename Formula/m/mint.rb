@@ -5,8 +5,6 @@ class Mint < Formula
   sha256 "e99c0a351cf7452451d72180c8ccd18e1da710dc55d036502809a0db52779a99"
   license "MIT"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "03f825e0fd5918402a464d928e1e8ae91622c95cf62098858bd2b40424716e94"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "89bc9449b108a6cae523b0435820043a1834654662067582543304aab7f32290"
