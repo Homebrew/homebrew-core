@@ -5,6 +5,8 @@ class Elf2uf2Rs < Formula
   sha256 "c6845f696112193bbe6517ab0c9b9fc85dff1083911557212412e07c506ccd7c"
   license "0BSD"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "b2502c3b12665d304fc3f016c68eef40119b4b529867d67cc26fb641e844b5de"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4cd37371cbeb7dd6be732e6db993b226dea3dc7fbbd2c321e81665c68c6de036"
