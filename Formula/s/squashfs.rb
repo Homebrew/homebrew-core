@@ -21,8 +21,6 @@ class Squashfs < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "17a8eef6f5e4f1651dffacbf86ab7431b1b2141cc6c607f2512f505c7396d048"
     sha256 cellar: :any,                 arm64_sonoma:  "9072950634ac3014a50e01ec2654f20441f493ff701273e4266be1538f4b81f3"
