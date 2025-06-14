@@ -6,8 +6,6 @@ class Tea < Formula
   license "MIT"
   head "https://gitea.com/gitea/tea.git", branch: "main"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "1e5dcc9c1edc11e0b9a0aa340d3b90169b1b4d9f4c2d30713761f7ac87390d68"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1e5dcc9c1edc11e0b9a0aa340d3b90169b1b4d9f4c2d30713761f7ac87390d68"
