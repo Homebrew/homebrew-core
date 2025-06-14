@@ -7,6 +7,8 @@ class BlueprintCompiler < Formula
   license "LGPL-3.0-or-later"
   head "https://gitlab.gnome.org/GNOME/blueprint-compiler.git", branch: "main"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "934e915f724789737e2aff49d9607966366342257941e1f44ee5d03c358d331a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "934e915f724789737e2aff49d9607966366342257941e1f44ee5d03c358d331a"
