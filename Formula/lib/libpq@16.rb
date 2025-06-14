@@ -10,6 +10,8 @@ class LibpqAT16 < Formula
     regex(%r{href=["']?v?(16(?:\.\d+)+)/?["' >]}i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 arm64_sequoia: "67a3882334f2448796238f87a74a594218dbf8cf19ab4161d7de7b0ca6146415"
     sha256 arm64_sonoma:  "25b4ea9f563b4d7098da7aec89f0891af7f4c60bd2fec6cc914b6791266c882d"
