@@ -6,6 +6,8 @@ class FoxgloveCli < Formula
   license "MIT"
   head "https://github.com/foxglove/foxglove-cli.git", branch: "main"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "5f868121298b783e4e1927a784877025ba11502f91f49914959b1f07b6851a66"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2bb87cd65e811de27dfcbb9ace613a8f604b808fa78524dd6739b058b8b610b0"
