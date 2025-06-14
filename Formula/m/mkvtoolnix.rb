@@ -1,9 +1,9 @@
 class Mkvtoolnix < Formula
   desc "Matroska media files manipulation tools"
   homepage "https://mkvtoolnix.download/"
-  url "https://mkvtoolnix.download/sources/mkvtoolnix-92.0.tar.xz"
-  mirror "https://fossies.org/linux/misc/mkvtoolnix-92.0.tar.xz"
-  sha256 "657c1aa1c176510e57de12716492ca9d0b59ba5f17ace2f76ffe77c592c88929"
+  url "https://mkvtoolnix.download/sources/mkvtoolnix-93.0.tar.xz"
+  mirror "https://fossies.org/linux/misc/mkvtoolnix-93.0.tar.xz"
+  sha256 "9510a6682a2e0b79a7420c30aac3c49fd6fa1bbc5e2131a89c52259d88835f78"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -20,7 +20,7 @@ class Mkvtoolnix < Formula
   end
 
   head do
-    url "https://gitlab.com/mbunkus/mkvtoolnix.git", branch: "main"
+    url "https://codeberg.org/mbunkus/mkvtoolnix.git", branch: "main"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
