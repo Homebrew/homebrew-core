@@ -6,6 +6,8 @@ class Abpoa < Formula
   license "MIT"
   head "https://github.com/yangao07/abPOA.git", branch: "main"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "8d23123224da086f407a2026aed50483642b6cb1cd773a95677e8823a7d203f7"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c32ab54105465ce6413049fa3e0b61751b4380ecd7f9cb8e871d7aaa4fd0fefa"
