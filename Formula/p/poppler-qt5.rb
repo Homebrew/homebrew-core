@@ -10,8 +10,6 @@ class PopplerQt5 < Formula
     formula "poppler"
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 arm64_sequoia: "abc46a084ffe74832cfd9ccac1f432bcb700829cee87c276f4d114c8637bf74f"
     sha256 arm64_sonoma:  "31da5336eb89d5bcfa8e1910d767528b27de0815f8ab9ca4eb8abc58e842ced9"
