@@ -5,6 +5,8 @@ class Urx < Formula
   sha256 "5e501198e6d910b39d0800266c32a22a17845e6b6324dbc16c5725525b8aec9a"
   license "MIT"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "949b36c006a4c88b7561392129ae672695b18605211d622b2cebe72f74630d35"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e36f20d458d20ad6113bf1fe16fb01a33fdba4c791c6317e6a23ceaa574f468e"
