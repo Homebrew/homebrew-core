@@ -10,6 +10,8 @@ class Fastk < Formula
   ]
   head "https://github.com/thegenemyers/FASTK.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "3353729044c15f3346d333ce0193e5b44a1acb6930dd366dcfc6866ded0799eb"
     sha256 cellar: :any,                 arm64_sonoma:  "9c4a36e6d522b8f31f730f540d0b1e6965670f3ff255614b775f846a4da52f9a"
