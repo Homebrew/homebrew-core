@@ -1,11 +1,9 @@
 class GitRecent < Formula
-  desc "See your latest local git branches, formatted real fancy"
+  desc "Browse your latest git branches, formatted real fancy"
   homepage "https://github.com/paulirish/git-recent"
-  url "https://github.com/paulirish/git-recent/archive/refs/tags/v2.0.1.tar.gz"
-  sha256 "ab9c3f5da92747f7b53f1a301b22433116ee8d204562cc8f0364f70f4a79d318"
+  url "https://github.com/paulirish/git-recent/archive/refs/tags/v2.0.2.tar.gz"
+  sha256 "44c117f04f2ed2ac2c9146b0f11b3140cd7f1d82845eca43ed6f7155e929b052"
   license "MIT"
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     sha256 cellar: :any_skip_relocation, all: "ca4cc371dd0b4803702c639e6685352b028f2275a1c0115299c12c6a85430cf3"
@@ -28,12 +26,25 @@ class GitRecent < Formula
 
   test do
     system "git", "init", "--initial-branch=main"
-    # We are using git-recent-og, since git-recent requires user input.
     system "git", "recent-og"
     # User will be 'BrewTestBot' on CI, needs to be set here to work locally
     system "git", "config", "user.name", "BrewTestBot"
     system "git", "config", "user.email", "brew@test.bot"
     system "git", "commit", "--allow-empty", "-m", "test_commit"
+    system "git", "checkout", "-b", "feature-x-branch"
+    system "git", "commit", "--allow-empty", "-m", "commit on feature branch"
+    system "git", "checkout", "-b", "another-branch"
+    system "git", "commit", "--allow-empty", "-m", "commit on another branch"
+    system "git", "checkout", "main"
+
+    # Test git-recent-og
     assert_match(/.*main.*seconds? ago.*BrewTestBot.*test_commit/, shell_output("git recent-og"))
+
+    # Test git-recent
+    # This should select "feature-x-branch" and the script will check it out.
+    with_env "GIT_RECENT_QUERY" => "x" do
+      shell_output("#{bin}/git-recent")
+    end
+    assert_equal "feature-x-branch", shell_output("git rev-parse --abbrev-ref HEAD").strip
   end
 end
