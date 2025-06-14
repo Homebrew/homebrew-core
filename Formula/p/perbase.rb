@@ -6,6 +6,8 @@ class Perbase < Formula
   license "MIT"
   head "https://github.com/sstadick/perbase.git", branch: "master"
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "7e10cf0a82a532a75ceefcbbbd3f57966848dfc051b17adb69ef89331cc3caad"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "36518d86e409d3fa652505da67ce0496dbdaf0d77e3a71ec554e29513d0b66fc"
