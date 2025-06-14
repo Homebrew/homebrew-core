@@ -5,6 +5,8 @@ class Lzsa < Formula
   sha256 "c65ca1e6a43696f4ca5edc2c98229fba1044806bd21bc2a8ce4b867dc9cfc45c"
   license all_of: ["Zlib", "CC0-1.0"]
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "d7eaaf3697f803f186818868d7559275d20ea9ec91226108fe89ef69473956bc"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6084774e138106256a64ac04b7982215238030aeaa01683b27e18b49dcf38e2f"
