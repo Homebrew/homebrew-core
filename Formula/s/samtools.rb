@@ -5,8 +5,6 @@ class Samtools < Formula
   sha256 "4911d01720f246cb97855870b410bbe4d2c2fd7fbf823ea0f7daf0f32545819d"
   license "MIT"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "220446fda87460adab2eb115c4544317ac4efbd4fde226b912910500953de9f1"
     sha256 cellar: :any,                 arm64_sonoma:  "2e5e85e52f71cc46f3a13deb0f1846fb878f24aec58f820d92f0ceb7214b6a11"
