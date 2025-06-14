@@ -11,13 +11,13 @@ class Mimalloc < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "89240a2e31cee0b79ba3a4fb8cb78b10ef845bf40c7b70cbc8806b5666e045b2"
-    sha256 cellar: :any,                 arm64_sonoma:  "148859c5e90af9564b39395169d6272659b9d3ecb0865bcb4c4c2edb43229f86"
-    sha256 cellar: :any,                 arm64_ventura: "26d060ff1be7e7ccceab0d06c40ee8f4a783001ad6e56babfc6ca61e4081b180"
-    sha256 cellar: :any,                 sonoma:        "3faf4a00a950b7a9ca0ff2fb0b6f2cb1eaa31fd1a6b76489ec8f58b3fe6c988f"
-    sha256 cellar: :any,                 ventura:       "b54295e1c094c20fecabec2f79b1f2774b86d7196d17315f5c58b87a74039f84"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ea0f73965cd06d118e9a59a8de81b92c5b09f1067932ce65314ea8d4f3e8e87a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "898ebf78da50a5aac02b9ab4c9bfd15ba99ef92c8ece46a38b9c4a1839b3e1d2"
+    sha256 cellar: :any,                 arm64_sequoia: "a78d24b6319552c5fe4a5d35fcc220323bf3444a14442fba3e6daf3f3eb4229a"
+    sha256 cellar: :any,                 arm64_sonoma:  "87831a2e64cf404071b0a1975a0ba104c2149fe7dd4c1c04b1a36781bab63e48"
+    sha256 cellar: :any,                 arm64_ventura: "13ff3e501f31a5eab5674930dea31ae4bebaed70ba17f7dc6a05442d15a5ce1e"
+    sha256 cellar: :any,                 sonoma:        "e22c58771015099a1b1db1feaf3b243a181dc78de09c791a2a796fe77d7c99b3"
+    sha256 cellar: :any,                 ventura:       "e5fa2eb61ae09ac8ef2effc66927e8546b9eb267469b3e530f8453e1690f7d9e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f4b913ad10a6af5beb4728c4b0b02aead0427122e917d49e9f7d504bee8ea032"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e0c5c5e10bd186bc8fc0ac85f3b97d784ed3255bf683e786a8ae28fddeb394e7"
   end
 
   depends_on "cmake" => :build
