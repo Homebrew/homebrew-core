@@ -1,10 +1,10 @@
 class GerbilScheme < Formula
   desc "Opinionated dialect of Scheme designed for Systems Programming"
   homepage "https://cons.io"
-  url "https://github.com/vyzo/gerbil/archive/refs/tags/v0.17.tar.gz"
-  sha256 "1e81265aba7e9022432649eb26b2e5c85a2bb631a315e4fa840b14cf336b2483"
+  url "https://github.com/vyzo/gerbil.git",
+    tag:      "v0.18.1",
+    revision: "23c30a6062cd7e63f9d85300ce01585bb9035d2d"
   license any_of: ["LGPL-2.1-or-later", "Apache-2.0"]
-  revision 3
 
   livecheck do
     url :stable
@@ -27,13 +27,11 @@ class GerbilScheme < Formula
     sha256 x86_64_linux:   "878b862448fe401b00980688c6c880ef4344cc88272bb29ed6c1ddb1ce14460f"
   end
 
-  depends_on "gambit-scheme"
-  depends_on "leveldb"
-  depends_on "libyaml"
-  depends_on "lmdb"
+  depends_on "coreutils" => :build
+  depends_on "pkgconf" => :build
+
   depends_on "openssl@3"
 
-  uses_from_macos "libxml2"
   uses_from_macos "sqlite"
   uses_from_macos "zlib"
 
@@ -41,23 +39,31 @@ class GerbilScheme < Formula
     depends_on "gcc"
   end
 
+  conflicts_with "gambit-scheme", because: "both install `gsc` binary"
+  conflicts_with "ghostscript", because: "both install `gsc` binary"
+
   fails_with :clang do
     cause "gambit-scheme is built with GCC"
   end
 
   def install
-    cd "src" do
-      system "./configure", "--prefix=#{prefix}",
-                            "--with-gambit=#{Formula["gambit-scheme"].opt_prefix}",
-                            "--enable-leveldb",
-                            "--enable-libxml",
-                            "--enable-libyaml",
-                            "--enable-lmdb"
-      system "./build.sh"
-      system "./install"
+    system "./configure", "--prefix=#{prefix}", "--enable-march="
+    system "make"
+    system "make", "install"
 
-      mv "#{share}/emacs/site-lisp/gerbil", "#{share}/emacs/site-lisp/gerbil-scheme"
+    # `make install` command creates a directory `v#{version}` with `bin`, `include`, `lib`, and other directories
+    # then in creates symlinks in root prefix directory
+
+    # 1. Remove all symlinks
+    %w[bin current include lib share src].each do |symlink|
+      rm prefix/symlink
     end
+
+    # 2. Install files manually
+    bin.install Dir.glob("#{prefix}/v#{version}/bin/*")
+    include.install Dir.glob("#{prefix}/v#{version}/include/*")
+    lib.install Dir.glob("#{prefix}/v#{version}/lib/*")
+    elisp.install Dir.glob("#{prefix}/v#{version}/share/emacs/site-lisp/*")
   end
 
   test do
