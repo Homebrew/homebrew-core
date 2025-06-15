@@ -86,6 +86,24 @@ class Mysql < Formula
       # When using Homebrew's superenv shims, we need to use HOMEBREW_LIBRARY_PATHS
       # rather than LDFLAGS for libc++ in order to correctly link to LLVM's libc++.
       ENV.prepend_path "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib/"c++"
+      # avoid error `ld: unknown option: -no_warn_duplicate_libraries` (see: Bug#37065301 Silence warnings on macOS)
+      cmake_files = %w[
+        cmake/component.cmake
+        cmake/libutils.cmake
+        cmake/mysql_add_executable.cmake
+        cmake/plugin.cmake
+        extra/protobuf/protobuf-*/cmake/libprotobuf-lite.cmake
+        extra/protobuf/protobuf-*/cmake/libprotobuf.cmake
+        extra/protobuf/protobuf-*/cmake/libprotoc.cmake
+        extra/protobuf/protobuf-*/cmake/protoc.cmake
+        router/cmake/Plugin.cmake
+      ].flat_map { |p| buildpath.glob(p) }
+      inreplace cmake_files do |s|
+        s.gsub!(
+          /\b(TARGET_LINK_OPTIONS\s*)(\(\s*)([^\s]+\s+)([^\s]+\s+)(LINKER:-no_warn_duplicate_libraries\s*)(\)\s*)$/im,
+          '#\1#\2#\3#\4#\5#\6',
+        )
+      end
     end
 
     icu4c = deps.find { |dep| dep.name.match?(/^icu4c(@\d+)?$/) }
