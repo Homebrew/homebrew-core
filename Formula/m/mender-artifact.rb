@@ -25,6 +25,9 @@ class MenderArtifact < Formula
 
   depends_on "go" => :build
   depends_on "pkgconf" => :build
+  depends_on "dosfstools" # fsck.vfat for vfat file systems in artifacts
+  depends_on "e2fsprogs" # manipulation of ext4 file systems in artifacts
+  depends_on "mtools" # manipulation of vfat file systems in artifacts
   depends_on "openssl@3"
 
   def install
