@@ -4,7 +4,7 @@ class Homeworlds < Formula
   url "https://github.com/Quuxplusone/Homeworlds/archive/refs/tags/v1.1.0.tar.gz"
   sha256 "3ffbad58943127850047ef144a572f6cc84fd1ec2d29dad1f118db75419bf600"
   license "BSD-2-Clause"
-  revision 1
+  revision 2
   version_scheme 1
 
   no_autobump! because: :requires_manual_review
