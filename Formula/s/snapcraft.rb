@@ -5,8 +5,8 @@ class Snapcraft < Formula
   homepage "https://snapcraft.io/"
   # Use git checkout so setuptools-scm and update-python-resources works
   url "https://github.com/canonical/snapcraft.git",
-      tag:      "8.9.2",
-      revision: "abd5db829c7c60226e2f7d5e0aa99952c19ac7de"
+      tag:      "8.9.4",
+      revision: "b701455c788486936c1c59b47f1a72653dc59f9a"
   license "GPL-3.0-only"
   revision 1
   head "https://github.com/canonical/snapcraft.git", branch: "main"
@@ -17,12 +17,12 @@ class Snapcraft < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "1e8bf58c08fcb2c2b92693780bfec38de56458e40da816d2a50409add7ae31a9"
-    sha256 cellar: :any,                 arm64_sonoma:  "2a087a41df5771bcb91783438e891bcc357a8288e9df7bb912e3e8130b650840"
-    sha256 cellar: :any,                 arm64_ventura: "f015ea98c1cc14be50b987b14fc4768da86b81b55aab8c8591a0a284ba9aeb5a"
-    sha256 cellar: :any,                 sonoma:        "9ee745c9391ca3ded2036052957d30e5c454e5bc074da363969cff69b28593d4"
-    sha256 cellar: :any,                 ventura:       "e9cadd72868c2ead7d4ea231bf1ddea7b8dc07eb992e17783b10e548c0074999"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e3baf8fce773f4bbeacea622cc29613a0811f64205643b2cdcaa4a56ee14fa3c"
+    sha256 cellar: :any,                 arm64_sequoia: "8b0d454f27be2c829ddb835720578ef306ffaef6a6fdb8759c71501b17129709"
+    sha256 cellar: :any,                 arm64_sonoma:  "56a8e7aaa8eaf1d0e3d85eaba2640837ffe90f9f4ebc2d6d270aba1ea5d6ec81"
+    sha256 cellar: :any,                 arm64_ventura: "95ebdf9a4038a31d654649bd708e18344302d422189d6a3f170724c8c5ca8e9b"
+    sha256 cellar: :any,                 sonoma:        "ce37821e17043c5b13536858a5f9bacde0544d6bbe7e4c318b7c43c106d91625"
+    sha256 cellar: :any,                 ventura:       "7f3a66a721682609dfcfb21543ec4ee3d3390a162c462c50a1ea37149a38446c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "17e48be6cc3548a2309b3a065328642f58268224a26ea27655d9c3d753dedeea"
   end
 
   depends_on "rust" => :build # for pydantic_core
