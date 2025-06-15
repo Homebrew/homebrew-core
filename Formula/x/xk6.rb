@@ -21,6 +21,8 @@ class Xk6 < Formula
   end
 
   depends_on "go"
+  depends_on "gosec"
+  depends_on "govulncheck"
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w -X go.k6.io/xk6/internal/cmd.version=#{version}")
@@ -29,5 +31,9 @@ class Xk6 < Formula
   test do
     assert_match "xk6 version #{version}", shell_output("#{bin}/xk6 version")
     assert_match "xk6 has now produced a new k6 binary", shell_output("#{bin}/xk6 build")
+    lint_cmd = "#{bin}/xk6 new github.com/grafana/xk6-testing && cd xk6-testing && #{bin}/xk6 lint"
+    lint_output = shell_output("bash -c \"#{lint_cmd}\"")
+    assert_match "✔ security", lint_output
+    assert_match "✔ vulnerability", lint_output
   end
 end
