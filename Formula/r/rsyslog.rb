@@ -1,8 +1,8 @@
 class Rsyslog < Formula
   desc "Enhanced, multi-threaded syslogd"
   homepage "https://www.rsyslog.com/"
-  url "https://www.rsyslog.com/files/download/rsyslog/rsyslog-8.2412.0.tar.gz"
-  sha256 "8cdfa5a077cba576bdd6b1841cc2848b774e663b2e44a39512bb820174174802"
+  url "https://www.rsyslog.com/files/download/rsyslog/rsyslog-8.2506.0.tar.gz"
+  sha256 "6d6fd0257c95e756765d4d585a833d54dd3a0e5eeb8308b862a81b368a74bb7b"
   license all_of: ["Apache-2.0", "GPL-3.0-or-later", "LGPL-3.0-or-later"]
 
   livecheck do
@@ -27,6 +27,10 @@ class Rsyslog < Formula
 
   uses_from_macos "curl"
   uses_from_macos "zlib"
+
+  # Fix to error: too many arguments to function call, expected 1, have 2 for `pthread_setname_np`
+  # Issue ref: https://github.com/rsyslog/rsyslog/issues/5629
+  patch :DATA
 
   def install
     system "./configure", "--enable-imfile",
@@ -64,3 +68,23 @@ class Rsyslog < Formula
     assert_match "End of config validation run", result
   end
 end
+
+__END__
+diff --git a/runtime/tcpsrv.c b/runtime/tcpsrv.c
+index 2355ec6..0710713 100644
+--- a/runtime/tcpsrv.c
++++ b/runtime/tcpsrv.c
+@@ -1212,7 +1212,13 @@ wrkr(void *arg)
+ 		DBGPRINTF("prctl failed, not setting thread name for '%s'\n", thrdName);
+ 	}
+ #	elif defined(HAVE_PTHREAD_SETNAME_NP)
++#	if defined(__NetBSD__)
++	int r = pthread_setname_np(pthread_self(), "%s", (char*) shortThrdName);
++#	elif defined(__APPLE__)
++	int r = pthread_setname_np((char*) shortThrdName);
++#	else
+ 	int r = pthread_setname_np(pthread_self(), (char*) shortThrdName);
++#	endif
+ 	if(r != 0) {
+ 		DBGPRINTF("pthread_setname_np failed, not setting thread name for '%s'\n", thrdName);
+ 	}
