@@ -277,6 +277,8 @@ jobs:
                 brotli|\
                 c-ares|\
                 cabal-install|\
+                cmake|\
+                cryptography|\
                 dav1d|\
                 freetype|\
                 gcc|\
