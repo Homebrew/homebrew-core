@@ -241,6 +241,8 @@ jobs:
                 gstreamer|\
                 haskell-language-server|\
                 libtensorflow|\
+                llvm@19|\
+                llvm|\
                 mame|\
                 metashell|\
                 mlkit|\
