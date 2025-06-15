@@ -4,6 +4,7 @@ class Pioneer < Formula
   url "https://github.com/pioneerspacesim/pioneer/archive/refs/tags/20250501.tar.gz"
   sha256 "959902d98a79536bd44f25bd7b29e48da94aeac597228776b0f91635877f362e"
   license "GPL-3.0-only"
+  revision 1
   head "https://github.com/pioneerspacesim/pioneer.git", branch: "master"
 
   bottle do
