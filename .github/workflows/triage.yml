@@ -241,6 +241,8 @@ jobs:
                 gstreamer|\
                 haskell-language-server|\
                 libtensorflow|\
+                llvm@19|\
+                llvm|\
                 mame|\
                 metashell|\
                 mlkit|\
@@ -275,6 +277,8 @@ jobs:
                 brotli|\
                 c-ares|\
                 cabal-install|\
+                cmake|\
+                cryptography|\
                 dav1d|\
                 freetype|\
                 gcc|\
@@ -336,7 +340,18 @@ jobs:
               allow_any_match: true
 
             - label: CI-skip-recursive-dependents
-              path: Formula/.+/(ca-certificates|curl|gettext|openssl@3|sqlite|systemd).rb
+              path: "Formula/.+/(\
+                ca-certificates|\
+                certifi|\
+                cmake|\
+                curl|\
+                gettext|\
+                glib|\
+                openssl@3|\
+                wayland-protocols|\
+                sqlite|\
+                systemd\
+                ).rb"
               keep_if_no_match: true
               allow_any_match: true
 
