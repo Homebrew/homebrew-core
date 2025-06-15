@@ -12,10 +12,14 @@ class Manticoresearch < Formula
   version_scheme 1
   head "https://github.com/manticoresoftware/manticoresearch.git", branch: "master"
 
-  # Only even patch versions are stable releases
+  # There can be a notable gap between when a version is tagged and a
+  # corresponding release is created, so we check the "latest" release instead
+  # of the Git tags. The upstream version scheme uses an even-numbered patch to
+  # indicate stable versions.
   livecheck do
     url :stable
     regex(/^v?(\d+(?:\.\d+)+\.\d*[02468])$/i)
+    strategy :github_latest
   end
 
   bottle do
