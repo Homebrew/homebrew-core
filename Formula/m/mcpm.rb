@@ -3,10 +3,9 @@ class Mcpm < Formula
 
   desc "Open source, community-driven MCP server and client manager"
   homepage "https://mcpm.sh/"
-  url "https://files.pythonhosted.org/packages/b2/49/de0bc54f708907d70e563e46b9028793b9fccfbd546932a17c0b38ab82e9/mcpm-1.13.4.tar.gz"
-  sha256 "fa03bcf76e18e0663b1ebe04c9a1dc364847be0760fe9996aeba25745a9a51af"
+  url "https://files.pythonhosted.org/packages/72/a7/c2b9f9e65e7d0a6b51d70e0903c7c2d055fce5f6661064d6d359e4441d3c/mcpm-1.13.5.tar.gz"
+  sha256 "1528af5e209af23dd44c4e6b1e0dc2394ce98a9f54b514086864db7ce2278bdf"
   license "MIT"
-  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "c89885738239f33aee1f080a01747495c93d38206236972a5cd711b3cd18bdeb"
@@ -32,8 +31,8 @@ class Mcpm < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/e8/9e/c05b3920a3b7d20d3d3310465f50348e5b3694f4f88c6daf736eef3024c4/certifi-2025.4.26.tar.gz"
-    sha256 "0a816057ea3cdefcef70270d2c515e4506bbc954f417fa5ade2021213bb8f0c6"
+    url "https://files.pythonhosted.org/packages/73/f7/f14b46d4bcd21092d7d3ccef689615220d8a08fb25e564b65d20738e672e/certifi-2025.6.15.tar.gz"
+    sha256 "d747aa5a8b9bbbb1bb8c22bb13e22bd1f18e9796defa16bab421f7f7a317323b"
   end
 
   resource "charset-normalizer" do
@@ -87,8 +86,8 @@ class Mcpm < Formula
   end
 
   resource "mcp" do
-    url "https://files.pythonhosted.org/packages/f2/df/8fefc0c6c7a5c66914763e3ff3893f9a03435628f6625d5e3b0dc45d73db/mcp-1.9.3.tar.gz"
-    sha256 "587ba38448e81885e5d1b84055cfcc0ca56d35cd0c58f50941cab01109405388"
+    url "https://files.pythonhosted.org/packages/06/f2/dc2450e566eeccf92d89a00c3e813234ad58e2ba1e31d11467a09ac4f3b9/mcp-1.9.4.tar.gz"
+    sha256 "cfb0bcd1a9535b42edaef89947b9e18a8feb49362e1cc059d6e7fc636f2cb09f"
   end
 
   resource "mdurl" do
@@ -107,8 +106,8 @@ class Mcpm < Formula
   end
 
   resource "pydantic" do
-    url "https://files.pythonhosted.org/packages/f0/86/8ce9040065e8f924d642c58e4a344e33163a07f6b57f836d0d734e0ad3fb/pydantic-2.11.5.tar.gz"
-    sha256 "7f853db3d0ce78ce8bbb148c401c2cdd6431b3473c0cdff2755c7690952a7b7a"
+    url "https://files.pythonhosted.org/packages/00/dd/4325abf92c39ba8623b5af936ddb36ffcfe0beae70405d456ab1fb2f5b8c/pydantic-2.11.7.tar.gz"
+    sha256 "d989c3c6cb79469287b1569f7447a17848c998458d49ebe294e975b9baf0f0db"
   end
 
   resource "pydantic-core" do
@@ -192,8 +191,8 @@ class Mcpm < Formula
   end
 
   resource "watchfiles" do
-    url "https://files.pythonhosted.org/packages/03/e2/8ed598c42057de7aa5d97c472254af4906ff0a59a66699d426fc9ef795d7/watchfiles-1.0.5.tar.gz"
-    sha256 "b7529b5dcc114679d43827d8c35a07c493ad6f083633d573d81c660abc5979e9"
+    url "https://files.pythonhosted.org/packages/2a/9a/d451fcc97d029f5812e898fd30a53fd8c15c7bbd058fd75cfc6beb9bd761/watchfiles-1.1.0.tar.gz"
+    sha256 "693ed7ec72cbfcee399e92c895362b6e66d63dac6b91e2c11ae03d10d503e575"
   end
 
   resource "wcwidth" do
