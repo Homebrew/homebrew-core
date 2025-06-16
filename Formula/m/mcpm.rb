@@ -8,13 +8,13 @@ class Mcpm < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "c89885738239f33aee1f080a01747495c93d38206236972a5cd711b3cd18bdeb"
-    sha256 cellar: :any,                 arm64_sonoma:  "1cb507d48ed31d9109ea6b2e3d3325b446df12acb1f4e30f2661c379bb98a02d"
-    sha256 cellar: :any,                 arm64_ventura: "5fcaa6cac4b95f7252bba39c7d28a5a277ba93ef8b2847544ee42217079437c6"
-    sha256 cellar: :any,                 sonoma:        "41cc1f27ff453477281ee01cf1055a92962cc8298f5c81079c53adcb89745267"
-    sha256 cellar: :any,                 ventura:       "ed746961360b202ca3b6f2e9f65b8e8a10236ab500d802c0463155b411cce989"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "be5311272b8f51e39f73ea3d1e820e5bc02d4ff59a4edc404e3d34ca3601952e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0b6dfb79b58f35818486c90e91c930b477e5d47b62e34256eb6a73871dad468b"
+    sha256 cellar: :any,                 arm64_sequoia: "f26faf127b17d59b9f0add0ddb6ee6e0056594aec8324897b4649ee7c2613a30"
+    sha256 cellar: :any,                 arm64_sonoma:  "e2cf36d41c7835560c4aad6d4dfe29d1fd190e5f0c3602ea8428e07403eff93d"
+    sha256 cellar: :any,                 arm64_ventura: "c45c350684557b809e854caa7da8147750d300df3377c72ecb3b2bf6c58082e8"
+    sha256 cellar: :any,                 sonoma:        "55ae038c94517c99eef9c80c325c400b8a8bb916a404c5ad825bdab121dfdc97"
+    sha256 cellar: :any,                 ventura:       "138b4b473eea6568cd386d8183e8baf7918434372fe8995b24c6044e91ca3d90"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f880f5797a1aedd83e3789155e6e22434e4166c8b31d679514717a38dc3b3a61"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bb1e4bd2adcb4f96fb6ae0809afcbe16668ea6238feee8862e04771fe5c04c9b"
   end
 
   depends_on "rust" => :build
