@@ -8,13 +8,13 @@ class Miniprot < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "39c0415c8c794f2af761f7cb95624f6c78506a5de34377e267a1050669b2c33e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "df2ff4d7eb51a65a47c7dff85b7f7c1cd43f797ff305c5193ae0895af298f7db"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "f39904ebe6936462b9085da494f0b34ae5d1fad683cceaf3bf00c4ccb13a4858"
-    sha256 cellar: :any_skip_relocation, sonoma:        "4b28c82f409c10bdb36c3c13c6099dcd3403d0bbf412d9baa3c355f79f257a6c"
-    sha256 cellar: :any_skip_relocation, ventura:       "b01af7870345d5431c97f341c6a3b85b1d0251b1a555dd517dd8d1ecab4ab2e8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8ebe5daf8b63da151acc89253bb7b39aa5ed97631350285cee29c3e24b985c17"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f11874854e4cbbcf2ab76855067feeb33321cd860a3ef46068ce070aa7758d60"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b9fdb99ed4c69aa105f0a39f5d204dd70df9f509cfa75821c8a7cefd9708d9bb"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f19e488427dfb8e2f89216bfb7ef047a8ad6dc00aaef26ccfeeb173b90104438"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "c289a3481809603ca712b7eddff0a8fc648cd2093bcf720e347a2964c898517a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "5fc06af21625d5b4d0aff8ff5b88a520b8e7b3cf4afb10bc57b07fcf324c7b39"
+    sha256 cellar: :any_skip_relocation, ventura:       "4214193c715bc024cd0bcd183cc1321f52bdf6b87a82ad53cc3525a8aca696af"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a52932fbaa69027401413502c8528bc87b910a15d4344052fe20794fac812634"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "67576a73c5730d04ac0ddaee5f743accc7893e710230674223e5a342b4a3a0d5"
   end
 
   uses_from_macos "zlib"
