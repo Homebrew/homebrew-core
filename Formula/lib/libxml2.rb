@@ -4,8 +4,8 @@ class Libxml2 < Formula
   license "MIT"
 
   stable do
-    url "https://download.gnome.org/sources/libxml2/2.13/libxml2-2.13.8.tar.xz"
-    sha256 "277294cb33119ab71b2bc81f2f445e9bc9435b893ad15bb2cd2b0e859a0ee84a"
+    url "https://download.gnome.org/sources/libxml2/2.14/libxml2-2.14.4.tar.xz"
+    sha256 "24175ec30a97cfa86bdf9befb7ccf4613f8f4b2713c5103e0dd0bc9c711a2773"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
