@@ -11,6 +11,7 @@ class McpInspector < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura: "fa93a4d876de1b7bde8c45aeaf1159405e23deb2183db982a875b1cb1bc056d3"
     sha256 cellar: :any_skip_relocation, sonoma:        "8ad16f2437079a09ce26f0ef5cd39fc05f3dfc05f68e7449033154a1ce096f3f"
     sha256 cellar: :any_skip_relocation, ventura:       "8ad16f2437079a09ce26f0ef5cd39fc05f3dfc05f68e7449033154a1ce096f3f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "fa93a4d876de1b7bde8c45aeaf1159405e23deb2183db982a875b1cb1bc056d3"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "fa93a4d876de1b7bde8c45aeaf1159405e23deb2183db982a875b1cb1bc056d3"
   end
 
