@@ -1,8 +1,8 @@
 class ExcalidrawConverter < Formula
   desc "Command-line tool for porting Excalidraw diagrams to Gliffy"
   homepage "https://github.com/sindrel/excalidraw-converter"
-  url "https://github.com/sindrel/excalidraw-converter/archive/refs/tags/v1.5.1.tar.gz"
-  sha256 "3bd151708755baed423e83d2875f3007ed065ba8acf5bf581b0157a88ce7c7bb"
+  url "https://github.com/sindrel/excalidraw-converter/archive/refs/tags/v1.5.2.tar.gz"
+  sha256 "826087fecbfd48c5e0d832a342ba66c2cb74c06e5736218e199a2f531f1aebb9"
   license "MIT"
   head "https://github.com/sindrel/excalidraw-converter.git", branch: "master"
 
