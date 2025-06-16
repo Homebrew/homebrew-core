@@ -1,10 +1,19 @@
 class EnpassCli < Formula
   desc "Enpass command-line client"
   homepage "https://github.com/hazcod/enpass-cli"
-  url "https://github.com/hazcod/enpass-cli/archive/refs/tags/v1.6.3.tar.gz"
-  sha256 "59f1bb98017f3e5ea13d7b82fbf7f975e9da038b97f65375e0a44164ad66be7e"
   license "MIT"
   head "https://github.com/hazcod/enpass-cli.git", branch: "master"
+
+  stable do
+    url "https://github.com/hazcod/enpass-cli/archive/refs/tags/v1.6.4.tar.gz"
+    sha256 "fc340d3a8010d825c73108da01041483b963de7d0ad92eb84f1c94778cfc35fc"
+
+    # go.mod patch, upstream pr ref, https://github.com/hazcod/enpass-cli/pull/149
+    patch do
+      url "https://github.com/hazcod/enpass-cli/commit/5a05082040232baad0d76c32f24095307944255f.patch?full_index=1"
+      sha256 "1d19226d307cda611a22d55b5bfdbc082df42d54ecf0490d72f5da42e6e0e437"
+    end
+  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "880a2e628a2ed9f9647e85584c5d4acdf8065514989622830cced35316df2c2b"
