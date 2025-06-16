@@ -3,10 +3,9 @@ class Snakemake < Formula
 
   desc "Pythonic workflow system"
   homepage "https://snakemake.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/bc/32/13663b412501ed32fbab35a69278888a96918f2bf1a4259964d4d10fcdca/snakemake-9.5.1.tar.gz"
-  sha256 "480367b560b7c643eb8575274b4537b20e3cba23f2502b4d221a10e88703f6bd"
+  url "https://files.pythonhosted.org/packages/01/59/b3e9d89c09af0710fc45f51a9032d5d4f56e4442327c72a3585e39a0688d/snakemake-9.6.0.tar.gz"
+  sha256 "df7c24dd278d2420d04f15f14189427d0d4dae8ab55ca7094f53f92f1930b37c"
   license "MIT"
-  revision 2
   head "https://github.com/snakemake/snakemake.git", branch: "main"
 
   bottle do
@@ -151,8 +150,8 @@ class Snakemake < Formula
   end
 
   resource "pulp" do
-    url "https://files.pythonhosted.org/packages/fb/92/bf4b947ec8aac629b835b588e70664c1d0150a8369f798b6c5adb32e39ba/pulp-3.1.1.tar.gz"
-    sha256 "300a330e917c9ca9ac7fda6f5849bbf30d489c368117f197a3e3fd0bc1966d95"
+    url "https://files.pythonhosted.org/packages/2f/cd/cb1308632ad5b092ebbfe64d0cd0b9906caec6e52bff88f54ddd3d434694/pulp-3.2.1.tar.gz"
+    sha256 "fc6c02c47c06342c586b175924add753cad7638ff6149b3b43e87ac6709ac469"
   end
 
   resource "pyyaml" do
