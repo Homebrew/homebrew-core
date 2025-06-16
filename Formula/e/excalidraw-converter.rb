@@ -7,12 +7,12 @@ class ExcalidrawConverter < Formula
   head "https://github.com/sindrel/excalidraw-converter.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "448cfb1341c199b0af316f3aacf70df35e6591c62998ca8c69887a9928d8519e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "448cfb1341c199b0af316f3aacf70df35e6591c62998ca8c69887a9928d8519e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "448cfb1341c199b0af316f3aacf70df35e6591c62998ca8c69887a9928d8519e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "27be56ebef4c224799182b98f021c49bf51e5dcc91ae077c1ff30240ded6d79e"
-    sha256 cellar: :any_skip_relocation, ventura:       "27be56ebef4c224799182b98f021c49bf51e5dcc91ae077c1ff30240ded6d79e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "676e903891c0aee8a518fb16670d105c460b639c1c9d5ddbf1bc5856923f37b3"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "63190c78be2ad83ec102ce1ef9172e6d7833557bc0e03dc754dab59f9a18f8dd"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "63190c78be2ad83ec102ce1ef9172e6d7833557bc0e03dc754dab59f9a18f8dd"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "63190c78be2ad83ec102ce1ef9172e6d7833557bc0e03dc754dab59f9a18f8dd"
+    sha256 cellar: :any_skip_relocation, sonoma:        "782bbc476a600ac2d9de367f9523d9c1d5db68ab6d0c6f8b2045e80670714eef"
+    sha256 cellar: :any_skip_relocation, ventura:       "782bbc476a600ac2d9de367f9523d9c1d5db68ab6d0c6f8b2045e80670714eef"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2539667eb80a0c88d3366d2c65dd7c0d3d505d8bc38ef6724ef5d6eec8f3f074"
   end
 
   depends_on "go" => :build
