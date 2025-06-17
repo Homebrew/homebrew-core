@@ -1,7 +1,7 @@
 class Aurras < Formula
   include Language::Python::Virtualenv
 
-  desc "High-end command line music player"
+  desc "High-end command-line music player"
   homepage "https://github.com/vedant-asati03/Aurras"
   url "https://files.pythonhosted.org/packages/source/a/aurras/aurras-2.0.2.tar.gz"
   sha256 "29d44100e708d0f087150ed3cfb98592865a5763034d93268209f18a6eb7165d"
@@ -18,10 +18,10 @@ class Aurras < Formula
   test do
     assert_match version.to_s, shell_output("#{bin}/aurras --version 2>&1")
 
-    output = shell_output("#{bin}/aurras theme minimal 2>&1", 0)
-    assert_match "Theme set to Minimal", output
+    output = shell_output("#{bin}/aurras theme minimal 2>&1")
+    assert_match "Theme set to Minimal and saved as default", output
 
-    settings_output = shell_output("#{bin}/aurras settings 2>&1", 0)
-    assert_match "settings", settings_output.downcase
+    settings_output = shell_output("#{bin}/aurras settings --set appearance-setting.display-lyrics no 2>&1")
+    assert_match "Setting 'appearance-setting.display-lyrics' updated to 'no'", settings_output
   end
 end
