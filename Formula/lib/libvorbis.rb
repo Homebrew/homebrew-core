@@ -39,11 +39,6 @@ class Libvorbis < Formula
   depends_on "pkgconf" => :build
   depends_on "libogg"
 
-  resource("oggfile") do
-    url "https://upload.wikimedia.org/wikipedia/commons/c/c8/Example.ogg"
-    sha256 "f57b56d8aae4c847cf01224fb45293610d801cfdac43d932b5eeab1cd318182a"
-  end
-
   def install
     system "./autogen.sh" if build.head?
     inreplace "configure", " -force_cpusubtype_ALL", ""
@@ -52,6 +47,11 @@ class Libvorbis < Formula
   end
 
   test do
+    resource "oggfile" do
+      url "https://upload.wikimedia.org/wikipedia/commons/c/c8/Example.ogg"
+      sha256 "f57b56d8aae4c847cf01224fb45293610d801cfdac43d932b5eeab1cd318182a"
+    end
+
     (testpath/"test.c").write <<~C
       #include <stdio.h>
       #include <assert.h>
@@ -65,10 +65,11 @@ class Libvorbis < Formula
         return 0;
       }
     C
+
     testpath.install resource("oggfile")
     system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lvorbisfile",
                    "-o", "test"
-    assert_match "2 channel, 44100Hz\nEncoded by: Lavf59.27.100",
-                 shell_output("./test < Example.ogg")
+    output = pipe_output("./test", (testpath/"Example.ogg").read, 0)
+    assert_match "2 channel, 44100Hz\nEncoded by: Lavf59.27.100", output
   end
 end
