@@ -6,9 +6,12 @@ class Container < Formula
   license "Apache-2.0"
   head "https://github.com/apple/container.git", branch: "main"
 
-  depends_on xcode: ["26.0", :build]
   depends_on macos: :sequoia
   uses_from_macos "swift" => :build
+
+  on_system :linux, macos: :sequoia_or_older do
+    depends_on xcode: ["26.0", :build]
+  end
 
   def install
     if build.head?
