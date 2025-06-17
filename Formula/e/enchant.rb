@@ -1,8 +1,8 @@
 class Enchant < Formula
   desc "Spellchecker wrapping library"
   homepage "https://rrthomas.github.io/enchant/"
-  url "https://github.com/rrthomas/enchant/releases/download/v2.8.6/enchant-2.8.6.tar.gz"
-  sha256 "c4cd0889d8aff8248fc3913de5a83907013962f0e1895030a3836468cd40af5b"
+  url "https://github.com/rrthomas/enchant/releases/download/v2.8.8/enchant-2.8.8.tar.gz"
+  sha256 "f08ba728f29419807608f4abd1d5babe4852b0e07da0c70e5aef311febe33771"
   license "LGPL-2.1-or-later"
 
   bottle do
@@ -27,6 +27,12 @@ class Enchant < Formula
 
   on_system :linux, macos: :ventura_or_newer do
     depends_on "groff" => :build
+  end
+
+  # Fix segmentation fault in aspell provider list_dicts, upstream pr ref, https://github.com/rrthomas/enchant/pull/422
+  patch do
+    url "https://github.com/rrthomas/enchant/commit/23647b4fc7de3a01d44e1a16500adcbebc5a7d76.patch?full_index=1"
+    sha256 "77c17fe5fb9e138243f8a9cd5749efe438b431e98d082b10ff501b86d0435aac"
   end
 
   def install
