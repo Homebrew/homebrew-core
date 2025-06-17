@@ -1,8 +1,8 @@
 class Gobackup < Formula
   desc "CLI tool for backup your databases, files to cloud storages"
   homepage "https://gobackup.github.io"
-  url "https://github.com/gobackup/gobackup/archive/refs/tags/v2.15.1.tar.gz"
-  sha256 "ed98caafe426954b81c58164d1c3712b150a0e14ce041f717f134c4b64226412"
+  url "https://github.com/gobackup/gobackup/archive/refs/tags/v2.15.2.tar.gz"
+  sha256 "29055101709ce22d9a31c33e64f23e895017f6170f83cec0cd92131528ccf207"
   license "MIT"
   head "https://github.com/gobackup/gobackup.git", branch: "main"
 
@@ -38,6 +38,8 @@ class Gobackup < Formula
     config_file.write <<~YAML
       models:
         test:
+          compress_with:
+            type: tgz
           storages:
             local:
               type: local
