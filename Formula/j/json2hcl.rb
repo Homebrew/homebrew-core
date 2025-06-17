@@ -31,12 +31,13 @@ class Json2hcl < Formula
       }
     JSON
 
-    assert_equal "\"hello\" = \"world\"", shell_output("#{bin}/json2hcl < input.json")
+    assert_equal "\"hello\" = \"world\"", pipe_output("#{bin}/json2hcl", (testpath/"input.json").read, 0)
 
     (testpath/"input.tf").write <<~HCL
       hello = "world"
     HCL
 
-    assert_equal "{\n  \"hello\": \"world\"\n}", shell_output("#{bin}/json2hcl -reverse < input.tf").chomp
+    output = pipe_output("#{bin}/json2hcl -reverse", (testpath/"input.tf").read, 0).chomp
+    assert_equal "{\n  \"hello\": \"world\"\n}", output
   end
 end
