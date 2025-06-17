@@ -16,8 +16,7 @@ class Aurras < Formula
   end
 
   test do
-    system bin/"aurras", "--help"
-    assert_match "2.0.2", shell_output("#{bin}/aurras --version 2>&1")
+    assert_match version.to_s, shell_output("#{bin}/aurras --version 2>&1")
 
     output = shell_output("#{bin}/aurras theme minimal 2>&1", 0)
     assert_match "Theme set to Minimal", output
