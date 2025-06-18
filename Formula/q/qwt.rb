@@ -4,7 +4,6 @@ class Qwt < Formula
   url "https://downloads.sourceforge.net/project/qwt/qwt/6.3.0/qwt-6.3.0.tar.bz2"
   sha256 "dcb085896c28aaec5518cbc08c0ee2b4e60ada7ac929d82639f6189851a6129a"
   license "LGPL-2.1-only" => { with: "Qwt-exception-1.0" }
-  revision 1
 
   livecheck do
     url :stable
