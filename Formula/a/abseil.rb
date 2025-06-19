@@ -23,13 +23,6 @@ class Abseil < Formula
     depends_on "googletest" => :build # For test helpers
   end
 
-  # Fix shell option group handling in pkgconfig files
-  # https://github.com/abseil/abseil-cpp/pull/1738
-  patch do
-    url "https://github.com/abseil/abseil-cpp/commit/9dfde0e30a2ce41077758e9c0bb3ff736d7c4e00.patch?full_index=1"
-    sha256 "94a9b4dc980794b3fba0a5e4ae88ef52261240da59a787e35b207102ba4ebfcd"
-  end
-
   def install
     ENV.runtime_cpu_detection
 
