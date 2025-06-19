@@ -1,8 +1,8 @@
 class Infat < Formula
   desc "Tool to set default openers for file formats and url schemes on MacOS"
   homepage "https://github.com/philocalyst/infat"
-  url "https://github.com/philocalyst/infat/archive/refs/tags/v2.4.0.tar.gz"
-  sha256 "b0c0cad9dd995aff389fce829d62a61629fe8e07e7dd4a412ae010124c4cdb0d"
+  url "https://github.com/philocalyst/infat/archive/refs/tags/v2.5.0.tar.gz"
+  sha256 "59b059c5bee76c2a60962ebd8ca43b8a78f39fd9e3b106f9456f6ef41b876795"
   license "MIT"
 
   bottle do
@@ -15,12 +15,6 @@ class Infat < Formula
 
   depends_on :macos
   uses_from_macos "swift" => :build
-
-  # fix swift syntax error, upstream pr ref, https://github.com/philocalyst/infat/pull/25
-  patch do
-    url "https://github.com/philocalyst/infat/commit/dd050ef6f3891fe683a4f2f430c415cf0460fa2c.patch?full_index=1"
-    sha256 "4efa99053e2455a39e9aa89221172a5c687f34511a4ebadeab2e136d974d3afa"
-  end
 
   def install
     system "swift", "build", "--disable-sandbox", "-c", "release", "--static-swift-stdlib"
