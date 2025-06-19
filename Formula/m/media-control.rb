@@ -8,8 +8,6 @@ class MediaControl < Formula
   license "BSD-3-Clause"
   head "https://github.com/ungive/media-control.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   depends_on "cmake" => :build
   depends_on :macos
 
