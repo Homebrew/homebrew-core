@@ -11,14 +11,13 @@ class Sail < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_sequoia: "64c4f621752f55d5c49fce2d2e7226f2ed76d6a66b7ad2c3b8dbd780a2d0262a"
-    sha256 cellar: :any,                 arm64_sonoma:  "cd7d6008737eb0e6f98147b14a5bd0cecf5d680af2342bf5b635e0c35ddb8d01"
-    sha256 cellar: :any,                 arm64_ventura: "c1bb8bf3cf10182d318d4fc986da4430fef370bee7e857ad1fd4716103f8b2bf"
-    sha256 cellar: :any,                 sonoma:        "88510b600c23437d54ee747f9a92a1492c7f2372c7e3350f95d488c415e43c98"
-    sha256 cellar: :any,                 ventura:       "32acc34eb90ddb5277fa4740588825c9ef0d01925a6398556870229494caf7aa"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "99c9b5dda4a0dd6e921babdb0ddcd35cbb163ee9d2fe9ded023a96bb0c88cc93"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9905f463b19c8c4f7885e8871fbb808785279e0c14e32b881f90723cb09b46f5"
+    sha256 cellar: :any,                 arm64_sequoia: "e9e5943c6f42f1fd2edbb9a09bc78d4b2df7328ed4e3591ec744eada3a9e886a"
+    sha256 cellar: :any,                 arm64_sonoma:  "0dcdee4bf5d8974310488fbd80137f419f032a5814b60a94ce2f94dbcd630f63"
+    sha256 cellar: :any,                 arm64_ventura: "4a87f1c0cd5d878b37c10c5c3e8a37f6a70c59cca9ea1c5dcc8c09140e2bc194"
+    sha256 cellar: :any,                 sonoma:        "292237d8539621d929d2ef8711e1ee9fd44884d346c19363f44a9e25a2646658"
+    sha256 cellar: :any,                 ventura:       "ba31b8c79d877f4e206e00945d02dfcf7887c2984be47c03b53ca5dea0a57cc8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "49e463474d1c03a05727ced97a4d9747d8a9eac2a4a939bf091e5a7da9ffc3ba"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "13efa98f4a9d42352730dac0d4a8fbac39a70f567399a924f703ba38987bfde8"
   end
 
   depends_on "rust" => :build
