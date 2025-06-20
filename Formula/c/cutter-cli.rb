@@ -1,4 +1,4 @@
-class Cutter < Formula
+class CutterCli < Formula
   desc "Unit Testing Framework for C and C++"
   homepage "https://github.com/clear-code/cutter"
   url "https://osdn.mirror.constant.com/cutter/73761/cutter-1.2.8.tar.gz"

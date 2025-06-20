@@ -1,4 +1,4 @@
-class Todoist < Formula
+class TodoistCli < Formula
   desc "CLI for Todoist"
   homepage "https://github.com/sachaos/todoist"
   url "https://github.com/sachaos/todoist/archive/refs/tags/v0.22.0.tar.gz"

@@ -1,4 +1,4 @@
-class Onedrive < Formula
+class OnedriveCli < Formula
   desc "Folder synchronization with OneDrive"
   homepage "https://github.com/abraunegg/onedrive"
   url "https://github.com/abraunegg/onedrive/archive/refs/tags/v2.5.6.tar.gz"

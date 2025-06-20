@@ -1,4 +1,4 @@
-class Rio < Formula
+class RioTerminal < Formula
   desc "Hardware-accelerated GPU terminal emulator powered by WebGPU"
   homepage "https://raphamorim.io/rio/"
   url "https://github.com/raphamorim/rio/archive/refs/tags/v0.2.20.tar.gz"

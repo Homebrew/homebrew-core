@@ -1,4 +1,4 @@
-class Dash < Formula
+class DashShell < Formula
   desc "POSIX-compliant descendant of NetBSD's ash (the Almquist SHell)"
   homepage "http://gondor.apana.org.au/~herbert/dash/"
   url "http://gondor.apana.org.au/~herbert/dash/files/dash-0.5.12.tar.gz"

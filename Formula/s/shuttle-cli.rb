@@ -1,4 +1,4 @@
-class Shuttle < Formula
+class ShuttleCli < Formula
   desc "CLI for handling shared build and deploy tools between many projects"
   homepage "https://github.com/lunarway/shuttle"
   url "https://github.com/lunarway/shuttle/archive/refs/tags/v0.24.3.tar.gz"
