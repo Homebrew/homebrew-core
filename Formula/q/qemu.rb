@@ -4,7 +4,6 @@ class Qemu < Formula
   url "https://download.qemu.org/qemu-10.0.2.tar.xz"
   sha256 "ef786f2398cb5184600f69aef4d5d691efd44576a3cff4126d38d4c6fec87759"
   license "GPL-2.0-only"
-  revision 1
   head "https://gitlab.com/qemu-project/qemu.git", branch: "master"
 
   livecheck do
@@ -13,13 +12,13 @@ class Qemu < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "fa1fc965e360177fab68eb784759a8f481c7c695bc70ec9cb988bc56184a1b93"
-    sha256 arm64_sonoma:  "6c8d997801ce51a754e903cce76dff73641dbad5d47cf53185ce03d0bef1c301"
-    sha256 arm64_ventura: "129c97a6fcadf4fdae7ea3aba22c6f1c43d43c6ff683739c44558f9319793767"
-    sha256 sonoma:        "18142439594ef786d3b6994fecee1ca01bd43b68afc75118327529693ca41209"
-    sha256 ventura:       "e16854c8774fc9e103f5632e885b03e4ff457009b36e9b35bb7c6018d494a908"
-    sha256 arm64_linux:   "770017fb8589e3133891e37d0437d7efcf66311ced261b4d4f0236875370c751"
-    sha256 x86_64_linux:  "ba0572cb865851066e23d09f22b3816d51fd64c3cf75c9ea3dff5bcef9daa560"
+    sha256 arm64_sequoia: "2fbb46507db3640256480542b89188c6c0ffbea79331ad74af6d1aece2a957c0"
+    sha256 arm64_sonoma:  "7bffbc3fca962f111f452e8b9f019c77f8611a1d77d09f90cbd69b1234b90619"
+    sha256 arm64_ventura: "9a4ab208884863423fe321d33411f0db53fd90a85c5e546a03485faf2732a3b4"
+    sha256 sonoma:        "19570a46c5d9ecfc29e7f55c5d5940a08dd7ccb270dc4e86124268827550dd31"
+    sha256 ventura:       "696f8a73d537069b1d4d808b4b02fd96d73ba9d66913201698610a082c671910"
+    sha256 arm64_linux:   "b74ed8c16cf4a9002f9727b7ef34a76fd1553786f0acb2eb22fb4a87a79b1acf"
+    sha256 x86_64_linux:  "b79fd2eae50f89ab74184a678291ffe671a7f0d66dfe9145eef615dab2d6e7e2"
   end
 
   depends_on "libtool" => :build
@@ -43,19 +42,15 @@ class Qemu < Formula
   depends_on "nettle"
   depends_on "pixman"
   depends_on "snappy"
-  depends_on "spice-server"
   depends_on "vde"
   depends_on "zstd"
 
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
   uses_from_macos "bzip2"
-  uses_from_macos "curl"
-  uses_from_macos "cyrus-sasl"
   uses_from_macos "zlib"
 
   on_linux do
-    depends_on "alsa-lib"
     depends_on "attr"
     depends_on "cairo"
     depends_on "elfutils"
@@ -66,7 +61,6 @@ class Qemu < Formula
     depends_on "libx11"
     depends_on "libxkbcommon"
     depends_on "mesa"
-    depends_on "pulseaudio"
     depends_on "systemd"
   end
 
@@ -90,7 +84,6 @@ class Qemu < Formula
       --enable-curses
       --enable-fdt=system
       --enable-libssh
-      --enable-spice
       --enable-vde
       --enable-virtfs
       --enable-zstd
