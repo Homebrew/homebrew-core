@@ -1,8 +1,8 @@
 class Camlp5 < Formula
   desc "Preprocessor and pretty-printer for OCaml"
   homepage "https://camlp5.github.io/"
-  url "https://github.com/camlp5/camlp5/archive/refs/tags/8.03.01.tar.gz"
-  sha256 "057b8e06590cf29a1bd22b6c83aa5daa816d5cbb2ba2548409d474d7dc10c5b8"
+  url "https://github.com/camlp5/camlp5/archive/refs/tags/8.03.05.tar.gz"
+  sha256 "792fa5df2b04428a53405087d3895d9ab30d20cf9c1509d48186620a7e68a34b"
   license "BSD-3-Clause"
   head "https://github.com/camlp5/camlp5.git", branch: "master"
 
@@ -23,8 +23,10 @@ class Camlp5 < Formula
 
   depends_on "ocaml-findlib" => :build
   depends_on "opam" => :build
+  depends_on "pkgconf" => :build
   depends_on "camlp-streams"
   depends_on "ocaml"
+  depends_on "pcre2"
 
   uses_from_macos "m4" => :build
 
