@@ -1446,6 +1446,7 @@ gperftools
 gpg-tui
 gpgme
 gprof2dot
+gpsd
 gpsim
 gptme
 gptscript
