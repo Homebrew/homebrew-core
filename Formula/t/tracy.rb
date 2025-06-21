@@ -1,8 +1,8 @@
 class Tracy < Formula
   desc "Real-time, nanosecond resolution frame profiler"
   homepage "https://github.com/wolfpld/tracy"
-  url "https://github.com/wolfpld/tracy/archive/refs/tags/v0.11.1.tar.gz"
-  sha256 "2c11ca816f2b756be2730f86b0092920419f3dabc7a7173829ffd897d91888a1"
+  url "https://github.com/wolfpld/tracy/archive/refs/tags/v0.12.1.tar.gz"
+  sha256 "03580b01df3c435f74eec165193d6557cdbf3a84d39582ca30969ef5354560aa"
   license "BSD-3-Clause"
 
   bottle do
@@ -21,6 +21,7 @@ class Tracy < Formula
   depends_on "pkgconf" => :build
   depends_on "capstone"
   depends_on "freetype"
+  depends_on "zstd"
 
   on_macos do
     depends_on "glfw"
@@ -37,6 +38,13 @@ class Tracy < Formula
 
   def install
     args = %w[CAPSTONE GLFW FREETYPE].map { |arg| "-DDOWNLOAD_#{arg}=OFF" }
+    args += %w[
+      -DHOMEBREW_ALLOW_FETCHCONTENT=ON
+      -DFETCHCONTENT_FULLY_DISCONNECTED=ON
+      -DFETCHCONTENT_TRY_FIND_PACKAGE_MODE=ALWAYS
+      -DCPM_DONT_UPDATE_MODULE_PATH=ON
+      -DCPM_LOCAL_PACKAGES_ONLY=ON
+    ]
 
     buildpath.each_child do |child|
       next unless child.directory?
