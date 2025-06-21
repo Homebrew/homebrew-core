@@ -1,4 +1,4 @@
-class Nova < Formula
+class NovaFairwinds < Formula
   desc "Find outdated or deprecated Helm charts running in your cluster"
   homepage "https://github.com/FairwindsOps/nova"
   url "https://github.com/FairwindsOps/nova/archive/refs/tags/v3.11.4.tar.gz"

@@ -1,4 +1,4 @@
-class Sloth < Formula
+class SlothCli < Formula
   desc "Prometheus SLO generator"
   homepage "https://sloth.dev/"
   url "https://github.com/slok/sloth/archive/refs/tags/v0.12.0.tar.gz"

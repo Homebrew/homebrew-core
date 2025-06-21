@@ -30,7 +30,7 @@ class Rasterio < Formula
     depends_on "patchelf" => :build
   end
 
-  conflicts_with "rio", because: "both install `rio` binaries"
+  conflicts_with "rio-terminal", because: "both install `rio` binaries"
   conflicts_with cask: "rio", because: "both install `rio` binaries"
 
   resource "affine" do

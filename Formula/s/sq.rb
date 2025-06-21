@@ -19,7 +19,7 @@ class Sq < Formula
 
   uses_from_macos "sqlite" => :test
 
-  conflicts_with "squirrel", because: "both install `sq` binaries"
+  conflicts_with "squirrel-lang", because: "both install `sq` binaries"
 
   def install
     pkg = "github.com/neilotoole/sq/cli/buildinfo"

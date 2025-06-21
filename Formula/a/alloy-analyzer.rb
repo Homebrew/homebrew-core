@@ -1,4 +1,4 @@
-class Alloy < Formula
+class AlloyAnalyzer < Formula
   desc "Open-source language and analyzer for software modeling"
   homepage "https://alloytools.org"
   url "https://search.maven.org/remotecontent?filepath=org/alloytools/org.alloytools.alloy.dist/6.2.0/org.alloytools.alloy.dist-6.2.0.jar"
