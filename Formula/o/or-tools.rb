@@ -1,10 +1,9 @@
 class OrTools < Formula
   desc "Google's Operations Research tools"
   homepage "https://developers.google.com/optimization/"
-  url "https://github.com/google/or-tools/archive/refs/tags/v9.11.tar.gz"
-  sha256 "f6a0bd5b9f3058aa1a814b798db5d393c31ec9cbb6103486728997b49ab127bc"
+  url "https://github.com/google/or-tools/archive/refs/tags/v9.13.tar.gz"
+  sha256 "95617d8b023cb0a80cad1fa144a96e51ca0e219c6b0784ae1d1c381b55dbb83d"
   license "Apache-2.0"
-  revision 7
   head "https://github.com/google/or-tools.git", branch: "stable"
 
   livecheck do
@@ -36,13 +35,6 @@ class OrTools < Formula
   depends_on "re2"
   depends_on "scip"
   uses_from_macos "zlib"
-
-  # Add missing `#include`s to fix incompatibility with `abseil` 20240722.0.
-  # https://github.com/google/or-tools/pull/4339
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/bb1af4bcb2ac8b2af4de4411d1ce8a6876ed9c15/or-tools/abseil-vlog-is-on.patch"
-    sha256 "0f8f28e7363a36c6bafb9b60dc6da880b39d5b56d8ead350f27c8cb1e275f6b6"
-  end
 
   def install
     # FIXME: Upstream enabled Highs support in their binary distribution, but our build fails with it.
