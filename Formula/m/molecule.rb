@@ -70,9 +70,9 @@ class Molecule < Formula
     sha256 "2fa77c6fd8940f116ee1d6b94a2f90b13b5ea8d019b98bc8bafdcabcdd9bdbed"
   end
 
-  resource "docker-py" do
-    url "https://files.pythonhosted.org/packages/fa/2d/906afc44a833901fc6fed1a89c228e5c88fbfc6bd2f3d2f0497fdfb9c525/docker-py-1.10.6.tar.gz"
-    sha256 "4c2a75875764d38d67f87bc7d03f7443a3895704efc57962bdf6500b8d4bc415"
+  resource "docker" do
+    url "https://files.pythonhosted.org/packages/91/9b/4a2ea29aeba62471211598dac5d96825bb49348fa07e906ea930394a83ce/docker-7.1.0.tar.gz"
+    sha256 "ad8c70e6e3f8926cb8a92619b832b4ea5299e2831c14284663184e200546fa6c"
   end
 
   resource "docker-pycreds" do
@@ -120,9 +120,9 @@ class Molecule < Formula
     sha256 "bb413d29f5eea38f31dd4754dd7377d4465116fb207585f97bf925588687c1ba"
   end
 
-  resource "molecule-vagrant" do
-    url "https://files.pythonhosted.org/packages/c9/ad/0ed60a69cd6887622ff03d67beacbc54183f9d6fa45978c37dc35a315b30/molecule-vagrant-2.0.0.tar.gz"
-    sha256 "bb27f4ec482d0f68231f31136bfba328fc8ef7d81341874284bdd71295e278d5"
+  resource "molecule-plugins" do
+    url "https://files.pythonhosted.org/packages/a4/b0/127d0831d95dca90dc24a6cb25237c0c59f0448a67e52c0513846970c424/molecule_plugins-23.7.0.tar.gz"
+    sha256 "c28b08e25c91fcc679e65d9d18d2b4bb33712aaed2fefdea72b6253c6bd19635"
   end
 
   resource "packaging" do
