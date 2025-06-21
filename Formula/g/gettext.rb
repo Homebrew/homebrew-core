@@ -6,6 +6,7 @@ class Gettext < Formula
   mirror "http://ftp.gnu.org/gnu/gettext/gettext-0.25.tar.gz"
   sha256 "aee02dab79d9138fdcc7226b67ec985121bce6007edebe30d0e39d42f69a340e"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
     sha256 arm64_sequoia: "8dba9424a9409d3ba085acccfd8c88c196e31e31944c32c1d811cfdd6aae8280"

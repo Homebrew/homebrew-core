@@ -4,6 +4,7 @@ class Nip4 < Formula
   url "https://github.com/jcupitt/nip4/releases/download/v9.0.9-2/nip4-9.0.9-2.tar.xz"
   sha256 "ed3cc21ae581b1b0725c68632ca6a97c21c5cd5169c24c71119daa0b8b026e38"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/jcupitt/nip4.git", branch: "main"
 
   no_autobump! because: :requires_manual_review

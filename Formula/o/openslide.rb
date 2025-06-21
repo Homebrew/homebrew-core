@@ -4,6 +4,7 @@ class Openslide < Formula
   url "https://github.com/openslide/openslide/releases/download/v4.0.0/openslide-4.0.0.tar.xz"
   sha256 "cc227c44316abb65fb28f1c967706eb7254f91dbfab31e9ae6a48db6cf4ae562"
   license "LGPL-2.1-only"
+  revision 1
 
   no_autobump! because: :requires_manual_review
 
