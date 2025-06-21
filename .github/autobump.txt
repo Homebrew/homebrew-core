@@ -2066,6 +2066,7 @@ libmxml
 libnetfilter_conntrack
 libnfs
 libnftnl
+libnghttp2
 libnghttp3
 libnotify
 libntlm
@@ -2588,6 +2589,7 @@ nexttrace
 nfdump
 nfpm
 nftables
+nghttp2
 nginx
 ngs
 ngt
