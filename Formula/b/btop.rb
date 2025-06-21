@@ -4,6 +4,7 @@ class Btop < Formula
   url "https://github.com/aristocratos/btop/archive/refs/tags/v1.4.3.tar.gz"
   sha256 "81b133e59699a7fd89c5c54806e16452232f6452be9c14b3a634122e3ebed592"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/aristocratos/btop.git", branch: "main"
 
   bottle do
@@ -16,7 +17,9 @@ class Btop < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "97214938f020732369eb717dd8f967519d2131903f3cc10dd0041e6d1c0e1773"
   end
 
+  depends_on "cmake" => :build
   depends_on "lowdown" => :build
+  depends_on "ninja" => :build
 
   on_macos do
     depends_on "coreutils" => :build
@@ -28,6 +31,13 @@ class Btop < Formula
     depends_on "llvm" => :build
   end
 
+  on_linux do
+    depends_on "llvm" => :build
+    resource "rocm_smi_lib" do
+      url "https://github.com/rocm/rocm_smi_lib.git", revision: "rocm-6.3.3"
+    end
+  end
+
   # -ftree-loop-vectorize -flto=12 -s
   # Needs Clang 16 / Xcode 15+
   fails_with :clang do
@@ -36,14 +46,32 @@ class Btop < Formula
   end
 
   fails_with :gcc do
-    version "9"
-    cause "requires GCC 10+"
+    version "10"
+    cause "requires GCC 11+"
   end
 
   def install
-    ENV.llvm_clang if OS.mac? && (DevelopmentTools.clang_build_version <= 1499 || MacOS.version == :ventura)
-    system "make", "CXX=#{ENV.cxx}", "STRIP=true"
-    system "make", "PREFIX=#{prefix}", "install"
+    rsmi_static = OS.linux? ? "ON" : "OFF"
+    gpu = OS.linux? ? "ON" : "OFF"
+
+    if OS.linux?
+      ENV["CC"] = Formula["llvm"].opt_bin/"clang"
+      ENV["CXX"] = Formula["llvm"].opt_bin/"clang++"
+      resource("rocm_smi_lib").stage buildpath/"lib/rocm_smi_lib"
+    elsif OS.mac?
+      ENV.llvm_clang if DevelopmentTools.clang_build_version <= 1499 || MacOS.version == :ventura
+    end
+
+    system "cmake", "-B", "build", "-G", "Ninja",
+           "-DCMAKE_BUILD_TYPE=Release",
+           "-DCMAKE_INSTALL_PREFIX=#{prefix}",
+           "-DCMAKE_EXE_LINKER_FLAGS=-s",
+           "-DBTOP_GPU=#{gpu}",
+           "-DBTOP_RSMI_STATIC=#{rsmi_static}",
+           "-DCMAKE_CXX_COMPILER=#{ENV.cxx}"
+
+    system "cmake", "--build", "build", "--verbose"
+    system "cmake", "--install", "build"
   end
 
   test do
