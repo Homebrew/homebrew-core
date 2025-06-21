@@ -1385,7 +1385,7 @@ go-md2man
 go-parquet-tools
 go-size-analyzer
 go-task
-go@1.23
+go@1.24
 goaccess
 goawk
 gobject-introspection
