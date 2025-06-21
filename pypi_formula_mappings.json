@@ -544,7 +544,7 @@
     "exclude_packages": ["pillow", "numpy", "scipy"]
   },
   "mapproxy": {
-    "exclude_packages": ["certifi", "pillow"],
+    "exclude_packages": ["certifi", "numpy", "pillow"],
     "extra_packages": ["pyproj"]
   },
   "mat2": {

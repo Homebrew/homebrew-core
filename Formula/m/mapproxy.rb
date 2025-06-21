@@ -2,10 +2,9 @@ class Mapproxy < Formula
   include Language::Python::Virtualenv
 
   desc "Accelerating web map proxy"
-  # `mapproxy.org` is 404, upstream bug report, https://github.com/mapproxy/mapproxy/issues/983
-  homepage "https://github.com/mapproxy/mapproxy"
-  url "https://files.pythonhosted.org/packages/bc/45/7c1317f12ba83c61e368a1710c4df1b0486c19c91adf195283312e3c7537/mapproxy-4.1.2.tar.gz"
-  sha256 "637854b593ebb85a82e968c88dff5901d2c26e180559503be7c721e08020417b"
+  homepage "https://mapproxy.org/"
+  url "https://files.pythonhosted.org/packages/34/64/3883ba519fd547f2f3bd376a1d72137f26ccd7cfea098368d0c180fd2c1a/mapproxy-5.0.0.tar.gz"
+  sha256 "c6d11ace3fd416320b5a872c8d0d45c488d093cf17af27e499ea25197bba6bde"
   license "Apache-2.0"
 
   bottle do
@@ -18,12 +17,22 @@ class Mapproxy < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "630fb5e66fc85241899f06a7e3d79ae85610428969de3ae2c1d50733582f75f3"
   end
 
+  depends_on "pkgconf" => :build
   depends_on "rust" => :build # for rpds-py
   depends_on "certifi"
+  depends_on "geos" # for shapely
   depends_on "libyaml"
+  depends_on "numpy" # for shapely
   depends_on "pillow"
   depends_on "proj"
   depends_on "python@3.13"
+
+  uses_from_macos "libxml2", since: :ventura
+  uses_from_macos "libxslt"
+
+  on_linux do
+    depends_on "patchelf" => :build # for shapely
+  end
 
   resource "attrs" do
     url "https://files.pythonhosted.org/packages/5a/b0/1367933a8532ee6ff8d63537de4f1177af4bff9f3e829baf7331f595bb24/attrs-25.3.0.tar.gz"
@@ -43,6 +52,11 @@ class Mapproxy < Formula
   resource "jsonschema-specifications" do
     url "https://files.pythonhosted.org/packages/bf/ce/46fbd9c8119cfc3581ee5643ea49464d168028cfb5caff5fc0596d0cf914/jsonschema_specifications-2025.4.1.tar.gz"
     sha256 "630159c9f4dbea161a6a2205c3011cc4f18ff381b189fff48bb39b9bf26ae608"
+  end
+
+  resource "lxml" do
+    url "https://files.pythonhosted.org/packages/76/3d/14e82fc7c8fb1b7761f7e748fd47e2ec8276d137b6acfe5a4bb73853e08f/lxml-5.4.0.tar.gz"
+    sha256 "d12832e1dbea4be280b22fd0ea7c9b87f0d8fc51ba06e92dc62d52f804f78ebd"
   end
 
   resource "markupsafe" do
@@ -70,12 +84,28 @@ class Mapproxy < Formula
     sha256 "8960b6dac09b62dac26e75d7e2c4a22efb835d827a7278c34f72b2b84fa160e3"
   end
 
+  resource "shapely" do
+    url "https://files.pythonhosted.org/packages/ca/3c/2da625233f4e605155926566c0e7ea8dda361877f48e8b1655e53456f252/shapely-2.1.1.tar.gz"
+    sha256 "500621967f2ffe9642454808009044c21e5b35db89ce69f8a2042c2ffd0e2772"
+  end
+
   resource "werkzeug" do
     url "https://files.pythonhosted.org/packages/9f/69/83029f1f6300c5fb2471d621ab06f6ec6b3324685a2ce0f9777fd4a8b71e/werkzeug-3.1.3.tar.gz"
     sha256 "60723ce945c19328679790e3282cc758aa4a6040e4bb330f53d30fa546d44746"
   end
 
+  def python3
+    "python3.13"
+  end
+
   def install
+    numpy_include = Formula["numpy"].opt_lib/Language::Python.site_packages(python3)/"numpy/_core/include"
+    geos_include = Formula["geos"].opt_include
+    geos_lib = Formula["geos"].opt_lib
+
+    ENV.prepend "CFLAGS", "-I#{numpy_include} -I#{geos_include}"
+    ENV.prepend "LDFLAGS", "-L#{geos_lib}"
+
     virtualenv_install_with_resources
   end
 
