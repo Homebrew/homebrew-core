@@ -3112,6 +3112,13 @@ qrcp
 qrtool
 qshell
 qsv
+qt
+qt-libiodbc
+qt-mariadb
+qt-mysql
+qt-percona-server
+qt-postgresql
+qt-unixodbc
 qthreads
 qtkeychain
 quantlib
