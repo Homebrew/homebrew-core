@@ -23,6 +23,7 @@ class Molecule < Formula
   depends_on "cryptography"
   depends_on "libyaml"
   depends_on "python@3.13"
+  depends_on "python-setuptools"
 
   uses_from_macos "libffi"
 
@@ -85,6 +86,126 @@ class Molecule < Formula
     sha256 "0a2ab0d2931dff8947012602d1234d2a3ee002d9a355b5d70be6bf5466008893"
   end
 
+  # dependency of molecule-plugins[gce]
+  resource "google-auth" do
+    url "https://files.pythonhosted.org/packages/9e/9b/e92ef23b84fa10a64ce4831390b7a4c2e53c0132568d99d4ae61d04c8855/google_auth-2.40.3.tar.gz"
+    sha256 "500c3a29adedeb36ea9cf24b8d10858e152f2412e3ca37829b3fa18e33d63b77"
+  end
+
+  # dependency of molecule-plugins[gce]
+  resource "cachetools" do
+    url "https://files.pythonhosted.org/packages/6c/81/3747dad6b14fa2cf53fcf10548cf5aea6913e96fab41a3c198676f8948a5/cachetools-5.5.2.tar.gz"
+    sha256 "1a661caa9175d26759571b2e19580f9d6393969e5dfca11fdb1f947a23e640d4"
+  end
+
+  # dependency of molecule-plugins[gce]
+  resource "pyasn1-modules" do
+    url "https://files.pythonhosted.org/packages/e9/e6/78ebbb10a8c8e4b61a59249394a4a594c1a7af95593dc933a349c8d00964/pyasn1_modules-0.4.2.tar.gz"
+    sha256 "677091de870a80aae844b1ca6134f54652fa2c8c5a52aa396440ac3106e941e6"
+  end
+
+  # dependency of molecule-plugins[gce]
+  resource "pyasn1" do
+    url "https://files.pythonhosted.org/packages/ba/e9/01f1a64245b89f039897cb0130016d79f77d52669aae6ee7b159a6c4c018/pyasn1-0.6.1.tar.gz"
+    sha256 "6f580d2bdd84365380830acf45550f2511469f673cb4a5ae3857a3170128b034"
+  end
+
+  # dependency of molecule-plugins[gce]
+  resource "rsa" do
+    url "https://files.pythonhosted.org/packages/da/8a/22b7beea3ee0d44b1916c0c1cb0ee3af23b700b6da9f04991899d0c555d4/rsa-4.9.1.tar.gz"
+    sha256 "e7bdbfdb5497da4c07dfd35530e1a902659db6ff241e39d9953cad06ebd0ae75"
+  end
+
+  # dependency of molecule-plugins[openstack]
+  resource "openstacksdk" do
+    url "https://files.pythonhosted.org/packages/52/7a/07813f7501792e6bd7e79a75cd94a5bbce20c7fd2679822d44397201b00a/openstacksdk-4.6.0.tar.gz"
+    sha256 "e47e166c4732e9aea65228e618d490e4be5df06526a1b95e2d5995d7d0977d3d"
+  end
+
+  # dependency of molecule-plugins[openstack]
+  resource "decorator" do
+    url "https://files.pythonhosted.org/packages/43/fa/6d96a0978d19e17b68d634497769987b16c8f4cd0a7a05048bec693caa6b/decorator-5.2.1.tar.gz"
+    sha256 "65f266143752f734b0a7cc83c46f4618af75b8c5911b00ccb61d0ac9b6da0360"
+  end
+
+  # dependency of molecule-plugins[openstack]
+  resource "dogpile.cache" do
+    url "https://files.pythonhosted.org/packages/e8/07/2257f13f9cd77e71f62076d220b7b59e1f11a70b90eb1e3ef8bdf0f14b34/dogpile_cache-1.4.0.tar.gz"
+    sha256 "b00a9e2f409cf9bf48c2e7a3e3e68dac5fa75913acbf1a62f827c812d35f3d09"
+  end
+
+  # dependency of molecule-plugins[openstack]
+  resource "stevedore" do
+    url "https://files.pythonhosted.org/packages/28/3f/13cacea96900bbd31bb05c6b74135f85d15564fc583802be56976c940470/stevedore-5.4.1.tar.gz"
+    sha256 "3135b5ae50fe12816ef291baff420acb727fcd356106e3e9cbfa9e5985cd6f4b"
+  end
+
+  # dependency of molecule-plugins[openstack]
+  resource "jmespath" do
+    url "https://files.pythonhosted.org/packages/00/2a/e867e8531cf3e36b41201936b7fa7ba7b5702dbef42922193f05c8976cd6/jmespath-1.0.1.tar.gz"
+    sha256 "90261b206d6defd58fdd5e85f478bf633a2901798906be2ad389150c5c60edbe"
+  end
+
+  # dependency of molecule-plugins[openstack]
+  resource "jsonpatch" do
+    url "https://files.pythonhosted.org/packages/42/78/18813351fe5d63acad16aec57f94ec2b70a09e53ca98145589e185423873/jsonpatch-1.33.tar.gz"
+    sha256 "9fcd4009c41e6d12348b4a0ff2563ba56a2923a7dfee731d004e212e1ee5030c"
+  end
+
+  # dependency of molecule-plugins[openstack]
+  resource "jsonpointer" do
+    url "https://files.pythonhosted.org/packages/6a/0a/eebeb1fa92507ea94016a2a790b93c2ae41a7e18778f85471dc54475ed25/jsonpointer-3.0.0.tar.gz"
+    sha256 "2b2d729f2091522d61c3b31f82e11870f60b68f43fbc705cb76bf4b832af59ef"
+  end
+
+  # dependency of molecule-plugins[openstack]
+  resource "keystoneauth1" do
+    url "https://files.pythonhosted.org/packages/8f/ba/faa527d4db6ce2d2840c2a04d26152fa9fa47808299ebd23ff8e716503c8/keystoneauth1-5.11.1.tar.gz"
+    sha256 "806f12c49b7f4b2cad3f5a460f7bdd81e4247c81b6042596a7fea8575f6591f3"
+  end
+
+  # dependency of molecule-plugins[openstack]
+  resource "iso8601" do
+    url "https://files.pythonhosted.org/packages/b9/f3/ef59cee614d5e0accf6fd0cbba025b93b272e626ca89fb70a3e9187c5d15/iso8601-2.1.0.tar.gz"
+    sha256 "6b1d3829ee8921c4301998c909f7829fa9ed3cbdac0d3b16af2d743aed1ba8df"
+  end
+
+  # dependency of molecule-plugins[openstack]
+  resource "typing-extensions" do
+    url "https://files.pythonhosted.org/packages/d1/bc/51647cd02527e87d05cb083ccc402f93e441606ff1f01739a62c8ad09ba5/typing_extensions-4.14.0.tar.gz"
+    sha256 "8676b788e32f02ab42d9e7c61324048ae4c6d844a399eebace3d4979d75ceef4"
+  end
+
+  # dependency of molecule-plugins[openstack]
+  resource "os-service-types" do
+    url "https://files.pythonhosted.org/packages/58/3f/09e93eb484b69d2a0d31361962fb667591a850630c8ce47bb177324910ec/os-service-types-1.7.0.tar.gz"
+    sha256 "31800299a82239363995b91f1ebf9106ac7758542a1e4ef6dc737a5932878c6c"
+  end
+
+  # dependency of molecule-plugins[openstack]
+  resource "pbr" do
+    url "https://files.pythonhosted.org/packages/01/d2/510cc0d218e753ba62a1bc1434651db3cd797a9716a0a66cc714cb4f0935/pbr-6.1.1.tar.gz"
+    sha256 "93ea72ce6989eb2eed99d0f75721474f69ad88128afdef5ac377eb797c4bf76b"
+  end
+
+  # dependency of molecule-plugins[openstack]
+  resource "platformdirs" do
+    url "https://files.pythonhosted.org/packages/fe/8b/3c73abc9c759ecd3f1f7ceff6685840859e8070c4d947c93fae71f6a0bf2/platformdirs-4.3.8.tar.gz"
+    sha256 "3d512d96e16bcb959a814c9f348431070822a6496326a4be0911c40b5a74c2bc"
+  end
+
+  # dependency of molecule-plugins[openstack]
+  resource "psutil" do
+    url "https://files.pythonhosted.org/packages/2a/80/336820c1ad9286a4ded7e845b2eccfcb27851ab8ac6abece774a6ff4d3de/psutil-7.0.0.tar.gz"
+    sha256 "7be9c3eba38beccb6495ea33afd982a44074b78f28c434a1f51cc07fd315c456"
+  end
+
+  # dependency of molecule-plugins[openstack]
+  resource "requestsexceptions" do
+    url "https://files.pythonhosted.org/packages/82/ed/61b9652d3256503c99b0b8f145d9c8aa24c514caff6efc229989505937c1/requestsexceptions-1.4.0.tar.gz"
+    sha256 "b095cbc77618f066d459a02b137b020c37da9f46d9b057704019c9f77dba3065"
+  end
+
   resource "idna" do
     url "https://files.pythonhosted.org/packages/f1/70/7703c29685631f5a7590aa73f1f1d3fa9a380e654b86af429e0934a32f7d/idna-3.10.tar.gz"
     sha256 "12f65c9b470abda6dc35cf8e63cc574b1c52b11df2c86030af0ac09b01b13ea9"
@@ -140,6 +261,7 @@ class Molecule < Formula
     sha256 "61c16d2a8576dc0649d9f39e089b5f02bcd27fba10d8fb4dcc28173f7a45151f"
   end
 
+  # dependency of molecule-plugins[vagrant]
   resource "python-vagrant" do
     url "https://files.pythonhosted.org/packages/2b/3f/2e42a44c9705d72d9925fe8daf00f31bcf82e8b84ec5a752a8a1357c3ef8/python-vagrant-1.0.0.tar.gz"
     sha256 "a8fe93ccf2ff37ecc95ec2f49ea74a91a6ce73a4db4a16a98dd26d397cfd09e5"
