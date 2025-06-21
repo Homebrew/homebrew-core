@@ -24,7 +24,7 @@ class Wxmaxima < Formula
   depends_on "ninja" => :build
 
   depends_on "maxima"
-  depends_on "wxwidgets"
+  depends_on "wxwidgets@3.2"
 
   on_macos do
     depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1300
