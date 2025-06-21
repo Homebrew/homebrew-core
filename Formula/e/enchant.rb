@@ -1,8 +1,8 @@
 class Enchant < Formula
   desc "Spellchecker wrapping library"
   homepage "https://rrthomas.github.io/enchant/"
-  url "https://github.com/rrthomas/enchant/releases/download/v2.8.9/enchant-2.8.9.tar.gz"
-  sha256 "a1ea39b3f7dcd4a4149fd8c406183339eaad717bdb0ed1b4b274bc282cca0e62"
+  url "https://github.com/rrthomas/enchant/releases/download/v2.8.10/enchant-2.8.10.tar.gz"
+  sha256 "6db791265ace652c63a6d24f376f4c562b742284d70d3ccb9e1ce8be45b288c9"
   license "LGPL-2.1-or-later"
 
   bottle do
