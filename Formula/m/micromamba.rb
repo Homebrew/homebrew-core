@@ -1,10 +1,9 @@
 class Micromamba < Formula
   desc "Fast Cross-Platform Package Manager"
   homepage "https://github.com/mamba-org/mamba"
-  url "https://github.com/mamba-org/mamba/archive/refs/tags/2.1.1.tar.gz"
-  sha256 "789d3d89fe8ca9f06344da21797e3d949ad1ff0ae4c633dc242a333e0ee37485"
+  url "https://github.com/mamba-org/mamba/archive/refs/tags/2.3.0.tar.gz"
+  sha256 "671432a2b64719baba54c9efda3662d321a1cc9ff3eba49047b83ffda9acf661"
   license "BSD-3-Clause"
-  revision 1
   head "https://github.com/mamba-org/mamba.git", branch: "main"
 
   livecheck do
@@ -48,7 +47,25 @@ class Micromamba < Formula
   uses_from_macos "krb5"
   uses_from_macos "zlib"
 
+  on_macos do
+    depends_on "llvm" if DevelopmentTools.clang_build_version <= 1600
+  end
+
+  fails_with :clang do
+    build 1600
+    cause "Requires C++23 support for `std::ranges::views::join`"
+  end
+
   def install
+    if OS.mac? && DevelopmentTools.clang_build_version <= 1600
+      ENV.llvm_clang
+
+      # Needed in order to find the C++ standard library
+      # See: https://github.com/Homebrew/homebrew-core/issues/178435
+      ENV.prepend "LDFLAGS", "-L#{Formula["llvm"].opt_lib}/unwind -lunwind"
+      ENV.prepend_path "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib/"c++"
+    end
+
     args = %W[
       -DBUILD_LIBMAMBA=ON
       -DBUILD_SHARED=ON
@@ -75,6 +92,9 @@ class Micromamba < Formula
 
   test do
     ENV["MAMBA_ROOT_PREFIX"] = testpath.to_s
+    ENV["CONDA_SAFETY_CHECKS"] = "disabled"
+    ENV["CONDA_EXTRA_SAFETY_CHECKS"] = "no"
+
     assert_match version.to_s, shell_output("#{bin}/mamba --version").strip
     assert_match version.to_s, shell_output("#{bin}/micromamba --version").strip
 
