@@ -1,8 +1,8 @@
 class TsnetServe < Formula
   desc "Expose HTTP applications to a Tailscale Tailnet network"
   homepage "https://github.com/shayne/tsnet-serve"
-  url "https://github.com/shayne/tsnet-serve/archive/refs/tags/v1.2.3.tar.gz"
-  sha256 "74eb6bc77187dc96fa0ca5a615347314ad3016887942fc4b66445250a0cf50ab"
+  url "https://github.com/shayne/tsnet-serve/archive/refs/tags/v1.3.0.tar.gz"
+  sha256 "9c385247863f2f75a14acd8d9c758022104099bb3786af815002035746aeb56d"
   license "MIT"
   head "https://github.com/shayne/tsnet-serve.git", branch: "main"
 
