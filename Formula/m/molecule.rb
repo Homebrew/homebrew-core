@@ -334,6 +334,19 @@ class Molecule < Formula
   def install
     virtualenv_install_with_resources
 
+    resource("molecule-plugins").stage do
+
+      # Workaround since https://github.com/ansible-community/molecule-plugins/pull/314 was merged
+      Dir["src/molecule_plugins/vagrant/playbooks/**/*.{yml,yaml}"].each do |file|
+        rel_path = Pathname.new(file).relative_path_from(Pathname.new("src"))
+        dest_dir = libexec/"lib/#{python3}/site-packages"/rel_path.dirname
+        content = File.read(file)
+        content.gsub!(/^(\s*)vagrant:/, '\1community.vagrant.vagrant:')
+        File.write(dest_dir/rel_path.basename, content)
+        
+      end
+    end
+
     generate_completions_from_executable(bin/"molecule", shells: [:fish, :zsh], shell_parameter_format: :click)
   end
 
