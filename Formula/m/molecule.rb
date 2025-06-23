@@ -246,6 +246,11 @@ class Molecule < Formula
     sha256 "c28b08e25c91fcc679e65d9d18d2b4bb33712aaed2fefdea72b6253c6bd19635"
   end
 
+  resource "molecule-plugins-galaxy-collections" do
+    url "https://raw.githubusercontent.com/ansible-community/molecule-plugins/v23.7.0/requirements.yml"
+    sha256 "13f166902d04795431531f1e4c13685d1c856b38dd96537df5bc4e608724bf94"
+  end
+  
   resource "packaging" do
     url "https://files.pythonhosted.org/packages/a1/d4/1fc4078c65507b51b96ca8f8c3ba19e6a61c8253c72794544580a7b6c24d/packaging-25.0.tar.gz"
     sha256 "d443872c98d677bf60f6a1f2f8c1cb748e8fe762d2bf9d3148b5599295b0fc4f"
@@ -332,7 +337,7 @@ class Molecule < Formula
   end
 
   def install
-    virtualenv_install_with_resources
+    virtualenv_install_with_resources without: "molecule-plugins-galaxy-collections"
 
     resource("molecule-plugins").stage do
 
@@ -343,11 +348,41 @@ class Molecule < Formula
         content = File.read(file)
         content.gsub!(/^(\s*)vagrant:/, '\1community.vagrant.vagrant:')
         File.write(dest_dir/rel_path.basename, content)
-        
+
       end
     end
 
+    resource("molecule-plugins-galaxy-collections").stage do
+
+      (share).install "requirements.yml"
+
+      requirements_content = File.read(share/"requirements.yml")
+      requirements_content.gsub!(
+        /^(\s*)- name: community\.vagrant/,
+        <<~EOS.chomp
+          \\1# Workaround since https://github.com/ansible-community/molecule-plugins/issues/301#issuecomment-2675066085 is fixed
+          \\1# - name: community.vagrant
+          \\1- git+https://github.com/apatard/community.vagrant.git,initial-import
+        EOS
+      )
+      File.write(share/"requirements.yml", requirements_content)
+
+    end
+
     generate_completions_from_executable(bin/"molecule", shells: [:fish, :zsh], shell_parameter_format: :click)
+  end
+
+  def caveats
+    <<~EOS
+      Molecule requires additional plugins to function for certain drivers (e.g. vagrant, docker).
+      You must install them manually using Ansible Galaxy.
+
+      To install the recommended Ansible collections for molecule execute:
+
+        ansible-galaxy collection install -r #{share}/requirements.yml
+
+      ...
+    EOS
   end
 
   test do
