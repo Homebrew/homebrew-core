@@ -17,7 +17,7 @@ class LanggraphCli < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "f90ae17f8ef6a8c54a7a3d030c499ed97f693fdf1ce37474d59847e169d5956f"
   end
 
-  depends_on "rust" => :build # for orjson
+  depends_on "maturin" => :build # for orjson
   depends_on "python@3.13"
 
   resource "anyio" do
@@ -71,6 +71,9 @@ class LanggraphCli < Formula
   end
 
   def install
+    # Prevent maturin from automatically installing Rust toolchains
+    ENV["MATURIN_NO_INSTALL_RUST"] = "1"
+
     virtualenv_install_with_resources
 
     generate_completions_from_executable(bin/"langgraph", shells: [:fish, :zsh], shell_parameter_format: :click)
