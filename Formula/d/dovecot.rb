@@ -1,13 +1,14 @@
 class Dovecot < Formula
   desc "IMAP/POP3 server"
   homepage "https://dovecot.org/"
-  url "https://dovecot.org/releases/2.4/dovecot-2.4.0.tar.gz"
-  sha256 "e90e49f8c31b09a508249a4fee8605faa65fe320819bfcadaf2524126253d5ae"
+  url "https://dovecot.org/releases/2.4/dovecot-2.4.1-4.tar.gz"
+  version "2.4.1"
+  sha256 "fb188603f419ed7aaa07794a8692098c3ec2660bb9c67d0efe24948cbb32ae00"
   license all_of: ["BSD-3-Clause", "LGPL-2.1-or-later", "MIT", "Unicode-DFS-2016", :public_domain]
 
   livecheck do
-    url "https://www.dovecot.org/download/"
-    regex(/href=.*?dovecot[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    url :homepage
+    regex(/Dovecot\s*v?(\d+(?:[._-]\d+)+)\s*released/i)
   end
 
   no_autobump! because: :requires_manual_review
@@ -41,8 +42,8 @@ class Dovecot < Formula
   end
 
   resource "pigeonhole" do
-    url "https://pigeonhole.dovecot.org/releases/2.4/dovecot-pigeonhole-2.4.0.tar.gz"
-    sha256 "0ed08ae163ac39a9447200fbb42d7b3b05d35e91d99818dd0f4afd7ad1dbc753"
+    url "https://pigeonhole.dovecot.org/releases/2.4/dovecot-pigeonhole-2.4.1-4.tar.gz"
+    sha256 "b016b79503543f1d6047e7bc93ef6d2fb5bfc3d697cab1418c5dc488b1974e0e"
   end
 
   # `uoff_t` and `plugins/var-expand-crypt` patches, upstream pr ref, https://github.com/dovecot/core/pull/232
@@ -103,8 +104,8 @@ class Dovecot < Formula
     cp_r share/"doc/dovecot/example-config", testpath/"example"
     (testpath/"example/dovecot.conf").write <<~EOS
       # required in 2.4
-      dovecot_config_version = 2.4.0
-      dovecot_storage_version = 2.4.0
+      dovecot_config_version = #{version}
+      dovecot_storage_version = #{version}
 
       base_dir = #{testpath}
       listen = *
