@@ -6,7 +6,7 @@ class Pytorch < Formula
   url "https://github.com/pytorch/pytorch/releases/download/v2.5.1/pytorch-v2.5.1.tar.gz"
   sha256 "740eb5fff95e33cfe699bad43be83523f569c7cc7f9c285c2a255416443dd266"
   license "BSD-3-Clause"
-  revision 4
+  revision 5
 
   livecheck do
     url :stable
@@ -99,6 +99,9 @@ class Pytorch < Formula
   end
 
   def install
+    # Support cmake 4
+    ENV["CMAKE_POLICY_VERSION_MINIMUM"] = "3.5"
+
     python3 = "python3.13"
 
     # Avoid building AVX512 code

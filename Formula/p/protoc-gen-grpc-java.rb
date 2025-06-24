@@ -4,6 +4,7 @@ class ProtocGenGrpcJava < Formula
   url "https://github.com/grpc/grpc-java/archive/refs/tags/v1.73.0.tar.gz"
   sha256 "eca44a9f3eb341daf7a01482b96016dfa7d91baee495a697746c4724868a06db"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "7dceeffe15dc656a5435fbe90d14a4bcf88f2c862b5e275542535b0bff9e9545"

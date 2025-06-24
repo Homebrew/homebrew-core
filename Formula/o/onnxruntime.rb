@@ -5,6 +5,7 @@ class Onnxruntime < Formula
       tag:      "v1.22.0",
       revision: "f217402897f40ebba457e2421bc0a4702771968e"
   license "MIT"
+  revision 1
 
   livecheck do
     url :stable
