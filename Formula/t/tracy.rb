@@ -1,8 +1,8 @@
 class Tracy < Formula
   desc "Real-time, nanosecond resolution frame profiler"
   homepage "https://github.com/wolfpld/tracy"
-  url "https://github.com/wolfpld/tracy/archive/refs/tags/v0.11.1.tar.gz"
-  sha256 "2c11ca816f2b756be2730f86b0092920419f3dabc7a7173829ffd897d91888a1"
+  url "https://github.com/wolfpld/tracy/archive/refs/tags/v0.12.2.tar.gz"
+  sha256 "09617765ba5ff1aa6da128d9ba3c608166c5ef05ac28e2bb77f791269d444952"
   license "BSD-3-Clause"
 
   bottle do
@@ -36,7 +36,23 @@ class Tracy < Formula
   end
 
   def install
+    # Workaround to use homebrew `capstone` rather than capstone v6-alpha
+    cflags = %w[
+      -Daarch64=arm64
+      -DCS_ARCH_AARCH64=CS_ARCH_ARM64
+      -DAARCH64_OP_IMM=ARM64_OP_IMM
+      -DAARCH64_OP_REG=ARM64_OP_REG
+      -DAARCH64_OP_MEM=ARM64_OP_MEM
+    ]
+    ENV.append_to_cflags cflags.join(" ")
+
     args = %w[CAPSTONE GLFW FREETYPE].map { |arg| "-DDOWNLOAD_#{arg}=OFF" }
+
+    # FIXME: Packages should be depends on homebrew ones
+    args += %w[
+      -DFETCHCONTENT_FULLY_DISCONNECTED=OFF
+      -DHOMEBREW_ALLOW_FETCHCONTENT=ON
+    ]
 
     buildpath.each_child do |child|
       next unless child.directory?
