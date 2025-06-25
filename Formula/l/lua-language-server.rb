@@ -3,8 +3,8 @@ class LuaLanguageServer < Formula
   homepage "https://github.com/LuaLS/lua-language-server"
   # pull from git tag to get submodules
   url "https://github.com/LuaLS/lua-language-server.git",
-      tag:      "3.14.0",
-      revision: "485835e2a89004e1ffc5feb4484dc798a12af69e"
+      tag:      "3.15.0",
+      revision: "32fec3cc99af8b9a1e45c2455a8c3bd0d3e38f66"
   license "MIT"
   head "https://github.com/LuaLS/lua-language-server.git", branch: "master"
 
@@ -24,6 +24,12 @@ class LuaLanguageServer < Formula
 
   def install
     ENV.cxx11
+
+    # add `<algorithm>` for `std::copy`
+    # upstream PR to bump bee.lua version, https://github.com/LuaLS/lua-language-server/pull/3210
+    inreplace "3rd/bee.lua/3rd/fmt/fmt/color.h",
+        "#include \"format.h\"",
+        "#include \"format.h\"\n#include <algorithm>"
 
     # disable all tests by build script (fail in build environment)
     inreplace buildpath.glob("**/3rd/bee.lua/test/test.lua"),
