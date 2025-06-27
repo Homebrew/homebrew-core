@@ -21,14 +21,16 @@ class Elixir < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "d20440fd271698c9f737a0a8fecde327f0a737abb600facc1f104b3c6f566a77"
   end
 
-  depends_on "erlang"
+  depends_on "erlang@27"
 
   def install
+    ENV.prepend_path "PATH", Formula["erlang@27"].opt_bin
     # Set `Q=` for verbose `make` output
     system "make", "Q=", "PREFIX=#{prefix}", "install"
   end
 
   test do
+    ENV.prepend_path "PATH", Formula["erlang@27"].opt_bin
     assert_match(%r{(compiled with Erlang/OTP \d+)}, shell_output("#{bin}/elixir -v"))
   end
 end
