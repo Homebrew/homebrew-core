@@ -5,6 +5,7 @@ class Aom < Formula
       tag:      "v3.12.1",
       revision: "10aece4157eb79315da205f39e19bf6ab3ee30d0"
   license "BSD-2-Clause"
+  head "https://aomedia.googlesource.com/aom.git", branch: "main"
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "7187a5accf9da7614d96b6fb07df1c0b144cfb096d920e9936fa78b6fba18c4a"
