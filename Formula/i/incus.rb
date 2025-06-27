@@ -1,8 +1,8 @@
 class Incus < Formula
   desc "CLI client for interacting with Incus"
   homepage "https://linuxcontainers.org/incus"
-  url "https://linuxcontainers.org/downloads/incus/incus-6.13.tar.xz"
-  sha256 "531f4c38546bfa75c6dbbaebb8d609961d2c1738b06dfc12641dc26ba08ef17b"
+  url "https://linuxcontainers.org/downloads/incus/incus-6.14.tar.xz"
+  sha256 "9a4392ab12e56e75440b0b88dfe6db1f96bd7b7050305e8cf135848d8af99c21"
   license "Apache-2.0"
   head "https://github.com/lxc/incus.git", branch: "main"
 
