@@ -4,7 +4,7 @@ class Ffmpeg2theora < Formula
   url "https://gitlab.xiph.org/xiph/ffmpeg2theora/-/archive/0.30/ffmpeg2theora-0.30.tar.gz"
   sha256 "9bc69b7c3430184e8e74d648e39bd8a35a8bb10e9e6d6d5750f334c4feaca8d6"
   license "GPL-2.0-or-later"
-  revision 11
+  revision 12
   head "https://gitlab.xiph.org/xiph/ffmpeg2theora.git", branch: "master"
 
   no_autobump! because: :requires_manual_review
