@@ -15,8 +15,8 @@ class DeviceMapper < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_linux:  "5d6d6a6fee244534f059ddbab95839ca2fd64c432198e6734dc0f97e1a59c9f3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "14be86a855300b9f834dedf4c0986fca07b810854cc5b98c935fd1408615ea34"
+    sha256 cellar: :any_skip_relocation, arm64_linux:  "a1bc5723264be2dc3a03f00dd3631d11cf4b00d9fb288f4c780105d5393e7520"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "d1adcaaf88ad909f57585789eec2d6b4e1c593e5e0f38b0efcea5bcc2b517e5e"
   end
 
   depends_on "pkgconf" => :build
