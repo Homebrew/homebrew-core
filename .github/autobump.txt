@@ -1327,6 +1327,7 @@ gitlab-gem
 gitlab-runner
 gitleaks
 gitmoji
+gitmux
 gitoxide
 gitql
 gitsign
