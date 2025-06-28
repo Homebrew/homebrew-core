@@ -1,9 +1,10 @@
 class Handbrake < Formula
   desc "Open-source video transcoder available for Linux, Mac, and Windows"
   homepage "https://handbrake.fr/"
-  url "https://github.com/HandBrake/HandBrake/releases/download/1.9.2/HandBrake-1.9.2-source.tar.bz2"
-  sha256 "f56696b9863a6c926c0eabdcb980cece9aa222c650278d455ac6873d3220ce49"
+  url "https://github.com/HandBrake/HandBrake/releases/download/1.10.0/HandBrake-1.10.0-source.tar.bz2"
+  sha256 "f931012ee251113d996b61aceaaef57165efcc5ea5a2705efffc4265f6b53d26"
   license "GPL-2.0-only"
+  revision 1
   head "https://github.com/HandBrake/HandBrake.git", branch: "master"
 
   no_autobump! because: :requires_manual_review
@@ -58,9 +59,9 @@ class Handbrake < Formula
 
     ENV.append "CFLAGS", "-I#{Formula["libxml2"].opt_include}/libxml2" if OS.linux?
 
-    system "./configure", "--prefix=#{prefix}",
-                          "--disable-xcode",
-                          "--disable-gtk"
+    system "./configure", "--disable-xcode",
+                          "--disable-gtk",
+                          *std_configure_args
     system "make", "-C", "build"
     system "make", "-C", "build", "install"
   end
