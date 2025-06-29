@@ -45,6 +45,12 @@ class Qwt < Formula
     system "make"
     system "make", "install"
 
+    # reported at https://sourceforge.net/p/qwt/bugs/382/
+    pc = lib/"pkgconfig"/"Qt6Qwt6.pc"
+    inreplace pc do |s|
+      s.gsub!(/^Cflags:(.*)$/, "Cflags:\\1 -I${libdir}/qwt.framework/Headers")
+    end
+
     # Backwards compatibility symlinks. Remove in a future release
     odie "Remove backwards compatibility symlinks!" if version >= 7
     prefix.install_symlink share/"qt/mkspecs/features"
