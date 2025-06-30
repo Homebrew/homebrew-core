@@ -23,14 +23,17 @@ class I386ElfGdb < Formula
     sha256 x86_64_linux:  "3f2f5cd65a663532604928725a87b015fd9f596ae92b647a4ee6b4fb9c61fd97"
   end
 
+  depends_on "pkgconf" => :build
   depends_on "i686-elf-gcc" => :test
   depends_on "gmp"
   depends_on "mpfr"
+  depends_on "ncurses" # https://github.com/Homebrew/homebrew-core/issues/224294
   depends_on "python@3.13"
+  depends_on "readline"
   depends_on "xz" # required for lzma support
+  depends_on "zstd"
 
   uses_from_macos "expat", since: :sequoia # minimum macOS due to python
-  uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
   # Workaround for https://github.com/Homebrew/brew/issues/19315
@@ -52,10 +55,16 @@ class I386ElfGdb < Formula
       --includedir=#{include}/#{target}
       --infodir=#{info}/#{target}
       --mandir=#{man}
+      --disable-binutils
+      --disable-nls
+      --enable-tui
+      --with-curses
+      --with-expat
       --with-lzma
       --with-python=#{which("python3.13")}
+      --with-system-readline
       --with-system-zlib
-      --disable-binutils
+      --with-zstd
     ]
 
     mkdir "build" do
