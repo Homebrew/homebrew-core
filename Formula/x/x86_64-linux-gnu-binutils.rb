@@ -28,6 +28,7 @@ class X8664LinuxGnuBinutils < Formula
   depends_on macos: :ventura
   depends_on "zstd"
 
+  uses_from_macos "llvm" => :test
   uses_from_macos "zlib"
 
   on_system :linux, macos: :ventura_or_newer do
@@ -35,7 +36,9 @@ class X8664LinuxGnuBinutils < Formula
   end
 
   on_linux do
-    keg_only "it conflicts with `binutils`"
+    on_intel do
+      keg_only "it conflicts with `binutils`"
+    end
   end
 
   def install
@@ -71,7 +74,6 @@ class X8664LinuxGnuBinutils < Formula
     end
 
     assert_match "f()", shell_output("#{bin}/x86_64-linux-gnu-c++filt _Z1fv")
-    return if OS.linux?
 
     (testpath/"sysroot").install resource("homebrew-sysroot")
     (testpath/"hello.c").write <<~C
@@ -79,13 +81,16 @@ class X8664LinuxGnuBinutils < Formula
       int main() { printf("hello!\\n"); }
     C
 
-    ENV.remove_macosxsdk
+    ENV.clang
+    ENV.remove_macosxsdk if OS.mac?
     system ENV.cc, "-v", "--target=x86_64-pc-linux-gnu", "--sysroot=#{testpath}/sysroot", "-c", "hello.c"
     assert_match "main", shell_output("#{bin}/x86_64-linux-gnu-nm hello.o")
 
     system ENV.cc, "-v", "--target=x86_64-pc-linux-gnu", "--sysroot=#{testpath}/sysroot",
                    "-fuse-ld=#{bin}/x86_64-linux-gnu-ld", "hello.o", "-o", "hello"
-    assert_match "ELF", shell_output("file ./hello")
+    file_output = shell_output("file ./hello")
+    assert_match "ELF", file_output
+    assert_match "x86-64", file_output
     assert_match "libc.so", shell_output("#{bin}/x86_64-linux-gnu-readelf -d ./hello")
     system bin/"x86_64-linux-gnu-strip", "./hello"
   end
