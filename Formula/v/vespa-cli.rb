@@ -14,12 +14,12 @@ class VespaCli < Formula
   no_autobump! because: :bumped_by_upstream
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "98b924646a8a4d43dc90b03676f63facc86be64ff3acd4f20e000a7f3e3f3e9a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "318c92d4d2cd9d7f0c7653a88206ec16f08b0aad1209e1ff6705f1f384745769"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "93a1f8f8787de56f14cea83ff61fa28ea97173d0b6433284e5a0b1a8d6d564b4"
-    sha256 cellar: :any_skip_relocation, sonoma:        "56077f0d4f2068acd7370952fd4807e7a77f31fa067aea1b72c912c217228f1c"
-    sha256 cellar: :any_skip_relocation, ventura:       "975e7593793b11e951a29b0402828976dae8b8a935b62c65e6f03c332c5d9482"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "35d3004c0f94cbc05331ef49c5ef4247232c10bb7c1a83b4ffc2cfc4e2154266"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "30c4bfc014f8e3e0c46204cdb351b2a012917d21e5475f7b60b18374d31facc6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "837eba130450931582042d546c2a5beee370c37d07bc6b3106494735605114a8"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "4296399e309db2f9cc529f442e584f448bd97a51ab4832533e0eac7a57a130be"
+    sha256 cellar: :any_skip_relocation, sonoma:        "5d58a40de99d334f0f8fd527c44e41120d1ff25fbe66bb6639c788020386697e"
+    sha256 cellar: :any_skip_relocation, ventura:       "2998a027dfe853aba83e62c2117e7fa45de8bca45b2b9b030e0da35caff80db1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "22ad5e37760094f3f18ac67648277fa99f56551c35c1ad8256bd883b09a3c4a6"
   end
 
   depends_on "go" => :build
