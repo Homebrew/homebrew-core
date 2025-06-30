@@ -3,19 +3,19 @@ class Pdm < Formula
 
   desc "Modern Python package and dependency manager supporting the latest PEP standards"
   homepage "https://pdm-project.org"
-  url "https://files.pythonhosted.org/packages/bb/39/c90ab9757b546cdc14f38d2622881972a581956087be225a1091bcdf64fe/pdm-2.25.3.tar.gz"
-  sha256 "6d0820f805dacf64d55a7fe56777e7d8349a2ee35efc3006f29b4573d1311c84"
+  url "https://files.pythonhosted.org/packages/49/c7/2c406c0e0bb4e3384298eb0078b9332da54916dc6e128397a860570eb23f/pdm-2.25.4.tar.gz"
+  sha256 "bd655d789429928d6e27ff6693c19c82bc81aa75ba51d7b1c6102d039c8f211c"
   license "MIT"
   head "https://github.com/pdm-project/pdm.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c2e471b561605a8b3fd8f1664ae8e669290290df9308205a5e59c62550c48fdf"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c2e471b561605a8b3fd8f1664ae8e669290290df9308205a5e59c62550c48fdf"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "c2e471b561605a8b3fd8f1664ae8e669290290df9308205a5e59c62550c48fdf"
-    sha256 cellar: :any_skip_relocation, sonoma:        "65f935318b2908503be4a3821b21e3d3aea687cc59f422ab0247b2b24cd0f676"
-    sha256 cellar: :any_skip_relocation, ventura:       "65f935318b2908503be4a3821b21e3d3aea687cc59f422ab0247b2b24cd0f676"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0c61db7788668c0bdf8a28cf7d41748c95125d3fafd239c9dcb1f5d01448ee94"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0c61db7788668c0bdf8a28cf7d41748c95125d3fafd239c9dcb1f5d01448ee94"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "45e4237c7ec17d997ee8cd377858bfe305c0cce306399b664a83525497762be6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "45e4237c7ec17d997ee8cd377858bfe305c0cce306399b664a83525497762be6"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "45e4237c7ec17d997ee8cd377858bfe305c0cce306399b664a83525497762be6"
+    sha256 cellar: :any_skip_relocation, sonoma:        "19f0c019f070fb8a9cd20660186476dbbae7e46e39be3c995611739a00c50562"
+    sha256 cellar: :any_skip_relocation, ventura:       "19f0c019f070fb8a9cd20660186476dbbae7e46e39be3c995611739a00c50562"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "bdc4539f3565365ed29fb2ef69ddcaae2854042aec83e67a97bdda4913f4e488"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bdc4539f3565365ed29fb2ef69ddcaae2854042aec83e67a97bdda4913f4e488"
   end
 
   depends_on "certifi"
@@ -107,8 +107,8 @@ class Pdm < Formula
   end
 
   resource "pbs-installer" do
-    url "https://files.pythonhosted.org/packages/2f/02/bd162be66772b5dbdfd719d4ced63e14730d8260417db1c43ac8017e2b3e/pbs_installer-2025.6.12.tar.gz"
-    sha256 "ae2d3990848652dca699a680b00ea8e19b970cb6172967cb00539bfeed5a7465"
+    url "https://files.pythonhosted.org/packages/b9/f6/a870e6c05c90e11cacd61afeb69d056304fb6801a8a30b84bd365f9685ab/pbs_installer-2025.6.26.tar.gz"
+    sha256 "e0a0995f6245dd38fcf178bfd8ee7253627cdbe52e46361228b91a173b7ea0de"
   end
 
   resource "platformdirs" do
@@ -127,8 +127,8 @@ class Pdm < Formula
   end
 
   resource "python-dotenv" do
-    url "https://files.pythonhosted.org/packages/88/2c/7bb1416c5620485aa793f2de31d3df393d3686aa8a8506d11e10e13c5baf/python_dotenv-1.1.0.tar.gz"
-    sha256 "41f90bc6f5f177fb41f53e87666db362025010eb28f60a01c9143bfa33a2b2d5"
+    url "https://files.pythonhosted.org/packages/f6/b0/4bc07ccd3572a2f9df7e6782f52b0c6c90dcbb803ac4a167702d7d0dfe1e/python_dotenv-1.1.1.tar.gz"
+    sha256 "a8a6399716257f45be6a007360200409fce5cda2661e3dec71d23dc15f6189ab"
   end
 
   resource "requests" do
@@ -137,8 +137,8 @@ class Pdm < Formula
   end
 
   resource "resolvelib" do
-    url "https://files.pythonhosted.org/packages/79/e6/53dc936ddd11353967e5cb7361f537042914745fccfcaa3475505c9ac596/resolvelib-1.1.0.tar.gz"
-    sha256 "b68591ef748f58c1e2a2ac28d0961b3586ae8b25f60b0ba9a5e4f3d87c1d6a79"
+    url "https://files.pythonhosted.org/packages/05/57/c5c178e21968123cf2aa90501b5fc14a48e342612695863333f4b70510ad/resolvelib-1.2.0.tar.gz"
+    sha256 "c27fbb5098acd7dfc01fb2be3724bd0881168edc2bd3b4dc876ca3f46b8e4a3d"
   end
 
   resource "rich" do
