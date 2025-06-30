@@ -4,6 +4,7 @@ class Handbrake < Formula
   url "https://github.com/HandBrake/HandBrake/releases/download/1.9.2/HandBrake-1.9.2-source.tar.bz2"
   sha256 "f56696b9863a6c926c0eabdcb980cece9aa222c650278d455ac6873d3220ce49"
   license "GPL-2.0-only"
+  revision 1
   head "https://github.com/HandBrake/HandBrake.git", branch: "master"
 
   no_autobump! because: :requires_manual_review
@@ -50,6 +51,10 @@ class Handbrake < Formula
   end
 
   def install
+    # Support cmake 4, https://github.com/HandBrake/HandBrake/issues/6855
+    ENV["CMAKE_POLICY_VERSION_MINIMUM"] = "3.5"
+    odie "Remove cmake 4 build patch" if build.stable? && version >= "1.10.0"
+
     # Several vendored dependencies, including x265 and svt-av1, attempt detection
     # of supported CPU features in the compiler via -march flags.
     ENV.runtime_cpu_detection

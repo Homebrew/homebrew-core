@@ -5,7 +5,7 @@ class Libshout < Formula
   mirror "https://mirror.csclub.uwaterloo.ca/xiph/releases/libshout/libshout-2.4.6.tar.gz"
   sha256 "39cbd4f0efdfddc9755d88217e47f8f2d7108fa767f9d58a2ba26a16d8f7c910"
   license "LGPL-2.0-or-later"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://ftp.osuosl.org/pub/xiph/releases/libshout/?C=M&O=D"
