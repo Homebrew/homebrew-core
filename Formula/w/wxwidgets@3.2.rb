@@ -1,14 +1,13 @@
-class Wxwidgets < Formula
+class WxwidgetsAT32 < Formula
   desc "Cross-platform C++ GUI toolkit"
   homepage "https://www.wxwidgets.org"
-  url "https://github.com/wxWidgets/wxWidgets/releases/download/v3.3.0/wxWidgets-3.3.0.tar.bz2"
-  sha256 "492f5eb8a58715f2602f31025c3eaa20d71a3ec8e052c7a9d33153966b4badca"
+  url "https://github.com/wxWidgets/wxWidgets/releases/download/v3.2.8.1/wxWidgets-3.2.8.1.tar.bz2"
+  sha256 "ad0cf6c18815dcf1a6a89ad3c3d21a306cd7b5d99a602f77372ef1d92cb7d756"
   license "LGPL-2.0-or-later" => { with: "WxWindows-exception-3.1" }
-  head "https://github.com/wxWidgets/wxWidgets.git", branch: "master"
 
   livecheck do
     url :stable
-    strategy :github_latest
+    regex(/^v?(3\.2(?:\.\d+)+)$/i)
   end
 
   bottle do
@@ -21,12 +20,13 @@ class Wxwidgets < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "40a393ed11e8f3dee0153c52441eec44b185c197a2c2175a7d592105aa0df5b9"
   end
 
+  keg_only :versioned_formula
+
   depends_on "pkgconf" => :build
   depends_on "jpeg-turbo"
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "pcre2"
-  depends_on "webp"
 
   uses_from_macos "expat"
   uses_from_macos "zlib"
@@ -50,7 +50,7 @@ class Wxwidgets < Formula
 
   def install
     # Remove all bundled libraries excluding `nanosvg` which isn't available as formula
-    %w[catch pcre libwebp].each { |l| rm_r(buildpath/"3rdparty"/l) }
+    %w[catch pcre].each { |l| rm_r(buildpath/"3rdparty"/l) }
     %w[expat jpeg png tiff zlib].each { |l| rm_r(buildpath/"src"/l) }
 
     args = [
@@ -60,13 +60,14 @@ class Wxwidgets < Formula
       "--enable-display",
       "--enable-dnd",
       "--enable-graphics_ctx",
+      "--enable-std_string",
       "--enable-svg",
+      "--enable-unicode",
       "--enable-webviewwebkit",
       "--with-expat",
       "--with-libjpeg",
       "--with-libpng",
       "--with-libtiff",
-      "--with-libwebp",
       "--with-opengl",
       "--with-zlib",
       "--disable-tests",
