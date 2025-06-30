@@ -2,7 +2,7 @@ class Opencv < Formula
   desc "Open source computer vision library"
   homepage "https://opencv.org/"
   license "Apache-2.0"
-  revision 1
+  revision 2
 
   stable do
     url "https://github.com/opencv/opencv/archive/refs/tags/4.11.0.tar.gz"
@@ -88,6 +88,10 @@ class Opencv < Formula
   end
 
   def install
+    # Support cmake 4
+    ENV["CMAKE_POLICY_VERSION_MINIMUM"] = "3.5"
+    odie "Remove cmake 4 workaround" if build.stable? && version > "4.11.0"
+
     resource("contrib").stage buildpath/"opencv_contrib"
 
     # Avoid Accelerate.framework

@@ -1,10 +1,9 @@
 class Vtk < Formula
   desc "Toolkit for 3D computer graphics, image processing, and visualization"
   homepage "https://www.vtk.org/"
-  url "https://www.vtk.org/files/release/9.4/VTK-9.4.2.tar.gz"
-  sha256 "36c98e0da96bb12a30fe53708097aa9492e7b66d5c3b366e1c8dc251e2856a02"
+  url "https://www.vtk.org/files/release/9.5/VTK-9.5.0.tar.gz"
+  sha256 "04ae86246b9557c6b61afbc534a6df099244fbc8f3937f82e6bc0570953af87d"
   license "BSD-3-Clause"
-  revision 1
   head "https://gitlab.kitware.com/vtk/vtk.git", branch: "master"
 
   bottle do
@@ -52,13 +51,6 @@ class Vtk < Formula
     depends_on "libx11"
     depends_on "libxcursor"
     depends_on "mesa"
-  end
-
-  # Apply Arch Linux patch to fix build with netcdf 4.9.3+
-  # Issue ref: https://gitlab.kitware.com/vtk/vtk/-/issues/19616
-  patch do
-    url "https://gitlab.archlinux.org/archlinux/packaging/packages/vtk/-/raw/b4d07bd7ee5917e2c32f7f056cf78472bcf1cec2/netcdf-4.9.3.patch"
-    sha256 "87535578bbb0023ede506fd64afae95cdf4fb698c543f9735e6267730634afbc"
   end
 
   def install
