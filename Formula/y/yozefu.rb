@@ -24,6 +24,10 @@ class Yozefu < Formula
   uses_from_macos "llvm" => :build # for libclang
 
   def install
+    # cmake 4 support, remove when https://github.com/fede1024/rust-rdkafka/pull/766 is released
+    # upstream issue, https://github.com/MAIF/yozefu/issues/83
+    ENV["CMAKE_POLICY_VERSION_MINIMUM"] = "3.5"
+
     # Ensure that the `openssl` crate picks up the intended library.
     ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
     ENV["OPENSSL_NO_VENDOR"] = "1"
