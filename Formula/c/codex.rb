@@ -1,9 +1,11 @@
 class Codex < Formula
   desc "OpenAI's coding agent that runs in your terminal"
   homepage "https://github.com/openai/codex"
-  url "https://registry.npmjs.org/@openai/codex/-/codex-0.1.2505291658.tgz"
-  sha256 "066a11322e815d680799330cf360bc9601deb0a40d907546c2cda9eb22cca86a"
+  url "https://github.com/openai/codex/archive/2925136536b06a324551627468d17e959afa18d4.tar.gz"
+  version "0.2.0-alpha.2"
+  sha256 "314bbd1c705e2262d146d4924bc864fc3e61293b5cb27bbb94306e1c64c4e6f4"
   license "Apache-2.0"
+  head "https://github.com/openai/codex.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "754cf31c59ec4bffde64e85e00a5e4de09400cb29aac35bf86003922e764b987"
@@ -15,17 +17,14 @@ class Codex < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "754cf31c59ec4bffde64e85e00a5e4de09400cb29aac35bf86003922e764b987"
   end
 
-  depends_on "node"
+  depends_on "rust" => :build
+  depends_on "openssl@3"
 
   def install
-    system "npm", "install", *std_npm_args
-    bin.install_symlink Dir["#{libexec}/bin/*"]
+    ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
+    ENV["OPENSSL_NO_VENDOR"] = "1"
 
-    # Remove incompatible pre-built binaries
-    libexec.glob("lib/node_modules/@openai/codex/bin/*")
-           .each { |f| rm_r(f) if f.extname != ".js" }
-
-    generate_completions_from_executable(bin/"codex", "completion")
+    system "cargo", "install", "--bin", "codex", *std_cargo_args(path: "codex-rs/cli")
   end
 
   test do
