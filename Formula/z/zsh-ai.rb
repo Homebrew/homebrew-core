@@ -26,4 +26,3 @@ class ZshAi < Formula
     assert_path_exists pkgshare/"lib"
   end
 end
-
