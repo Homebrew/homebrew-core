@@ -5,12 +5,12 @@ class Unisonlang < Formula
 
   stable do
     url "https://github.com/unisonweb/unison.git",
-        tag:      "release/0.5.41",
-        revision: "b3a897b08561b767e16b1752a852b84ddf461c70"
+        tag:      "release/0.5.42",
+        revision: "53b7d6cb20a4b7bda2dc23e96c969372a0c75c75"
 
     resource "local-ui" do
-      url "https://github.com/unisonweb/unison-local-ui/archive/refs/tags/release/0.5.41.tar.gz"
-      sha256 "f7643f1c060bbe8c6f132144be810596212506b292d2777d5ee7f403195c12d0"
+      url "https://github.com/unisonweb/unison-local-ui/archive/refs/tags/release/0.5.42.tar.gz"
+      sha256 "536e130981abe6c598b48d35a6c3999b631774cf51cd2b0d20b53aa81f1e020c"
 
       livecheck do
         formula :parent
@@ -49,8 +49,13 @@ class Unisonlang < Formula
   uses_from_macos "xz" => :build
   uses_from_macos "zlib"
 
+  on_macos do
+    depends_on "elm-format" => :build
+  end
+
   on_linux do
     depends_on "ncurses"
+    depends_on "vips"
   end
 
   def install
