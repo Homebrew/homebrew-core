@@ -2,15 +2,14 @@ class Opencv < Formula
   desc "Open source computer vision library"
   homepage "https://opencv.org/"
   license "Apache-2.0"
-  revision 1
 
   stable do
-    url "https://github.com/opencv/opencv/archive/refs/tags/4.11.0.tar.gz"
-    sha256 "9a7c11f924eff5f8d8070e297b322ee68b9227e003fd600d4b8122198091665f"
+    url "https://github.com/opencv/opencv/archive/refs/tags/4.12.0.tar.gz"
+    sha256 "44c106d5bb47efec04e531fd93008b3fcd1d27138985c5baf4eafac0e1ec9e9d"
 
     resource "contrib" do
-      url "https://github.com/opencv/opencv_contrib/archive/refs/tags/4.11.0.tar.gz"
-      sha256 "2dfc5957201de2aa785064711125af6abb2e80a64e2dc246aca4119b19687041"
+      url "https://github.com/opencv/opencv_contrib/archive/refs/tags/4.12.0.tar.gz"
+      sha256 "4197722b4c5ed42b476d42e29beb29a52b6b25c34ec7b4d589c3ae5145fee98e"
 
       livecheck do
         formula :parent
