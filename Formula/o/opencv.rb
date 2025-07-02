@@ -2,15 +2,14 @@ class Opencv < Formula
   desc "Open source computer vision library"
   homepage "https://opencv.org/"
   license "Apache-2.0"
-  revision 1
 
   stable do
-    url "https://github.com/opencv/opencv/archive/refs/tags/4.11.0.tar.gz"
-    sha256 "9a7c11f924eff5f8d8070e297b322ee68b9227e003fd600d4b8122198091665f"
+    url "https://github.com/opencv/opencv/archive/refs/tags/4.12.0.tar.gz"
+    sha256 "44c106d5bb47efec04e531fd93008b3fcd1d27138985c5baf4eafac0e1ec9e9d"
 
     resource "contrib" do
-      url "https://github.com/opencv/opencv_contrib/archive/refs/tags/4.11.0.tar.gz"
-      sha256 "2dfc5957201de2aa785064711125af6abb2e80a64e2dc246aca4119b19687041"
+      url "https://github.com/opencv/opencv_contrib/archive/refs/tags/4.12.0.tar.gz"
+      sha256 "4197722b4c5ed42b476d42e29beb29a52b6b25c34ec7b4d589c3ae5145fee98e"
 
       livecheck do
         formula :parent
@@ -94,7 +93,8 @@ class Opencv < Formula
     ENV["OpenBLAS_HOME"] = Formula["openblas"].opt_prefix
 
     # Remove bundled libraries to make sure formula dependencies are used
-    libdirs = %w[ffmpeg libjasper libjpeg libjpeg-turbo libpng libtiff libwebp openexr openjpeg protobuf tbb zlib]
+    libdirs = %w[ffmpeg libjasper libjpeg libjpeg-turbo libpng libtiff libwebp openexr openjpeg tbb zlib]
+    libdirs += ["protobuf"] if OS.mac?
     libdirs.each { |l| rm_r(buildpath/"3rdparty"/l) }
 
     args = %W[
@@ -106,7 +106,6 @@ class Opencv < Formula
       -DBUILD_OPENJPEG=OFF
       -DBUILD_PERF_TESTS=OFF
       -DBUILD_PNG=OFF
-      -DBUILD_PROTOBUF=OFF
       -DBUILD_TBB=OFF
       -DBUILD_TESTS=OFF
       -DBUILD_TIFF=OFF
@@ -118,7 +117,6 @@ class Opencv < Formula
       -DOPENCV_ENABLE_NONFREE=ON
       -DOPENCV_EXTRA_MODULES_PATH=#{buildpath}/opencv_contrib/modules
       -DOPENCV_GENERATE_PKGCONFIG=ON
-      -DPROTOBUF_UPDATE_FILES=ON
       -DWITH_1394=OFF
       -DWITH_CUDA=OFF
       -DWITH_EIGEN=ON
@@ -139,7 +137,7 @@ class Opencv < Formula
 
     args += if OS.mac?
       # Requires closed-source, pre-built Orbbec SDK on macOS
-      ["-DWITH_OBSENSOR=OFF"]
+      ["-DWITH_OBSENSOR=OFF", "-DBUILD_PROTOBUF=OFF", "-DPROTOBUF_UPDATE_FILES=ON"]
     else
       # Disable precompiled headers and force opencv to use brewed libraries on Linux
       %W[
@@ -149,7 +147,6 @@ class Opencv < Formula
         -DOPENEXR_ILMIMF_LIBRARY=#{Formula["openexr"].opt_lib}/libIlmImf.so
         -DOPENEXR_ILMTHREAD_LIBRARY=#{Formula["openexr"].opt_lib}/libIlmThread.so
         -DPNG_LIBRARY=#{Formula["libpng"].opt_lib}/libpng.so
-        -DPROTOBUF_LIBRARY=#{Formula["protobuf"].opt_lib}/libprotobuf.so
         -DTIFF_LIBRARY=#{Formula["libtiff"].opt_lib}/libtiff.so
         -DWITH_V4L=OFF
         -DZLIB_LIBRARY=#{Formula["zlib"].opt_lib}/libz.so
@@ -175,6 +172,16 @@ class Opencv < Formula
     system "cmake", "-S", ".", "-B", "build_static", *args, *std_cmake_args, "-DBUILD_SHARED_LIBS=OFF"
     inreplace "build_static/modules/core/version_string.inc", "#{Superenv.shims_path}/", ""
     system "cmake", "--build", "build_static"
+
+    # Copy the files needed to install opencv into a Python virtual environment
+    if Dir.exist?("build_static/python_loader")
+      cp_r "build_static/python_loader", libexec
+    elsif Dir.exist?("build_shared/python_loader")
+      cp_r "build_shared/python_loader", libexec
+    else
+      odie "Unable to locate python_loader in build output"
+    end
+
     lib.install buildpath.glob("build_static/{lib,3rdparty/**}/*.a")
 
     # Prevent dependents from using fragile Cellar paths
@@ -201,7 +208,17 @@ class Opencv < Formula
                     "-L#{lib}", "-lopencv_core", "-lopencv_imgcodecs"
     assert_equal version.to_s, shell_output("./test").strip
 
-    output = shell_output("#{python3} -c 'import cv2; print(cv2.__version__)'")
+    # Create virtual environment for running Python tests on Linux
+    python = python3
+    unless OS.mac?
+      system python3, "-m", "venv", testpath/"testvenv"
+      python = testpath/"testvenv/bin/python"
+      system python, "-m", "pip", "install", "protobuf==3.19.1"
+      system python, "-m", "pip", "install", "numpy"
+      system python, "-m", "pip", "install", libexec/"python_loader"
+    end
+
+    output = shell_output("#{python} -c 'import cv2; print(cv2.__version__)'")
     assert_equal version.to_s, output.chomp
   end
 end
