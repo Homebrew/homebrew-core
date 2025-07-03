@@ -2,7 +2,7 @@ class Docker < Formula
   desc "Pack, ship and run any application as a lightweight container"
   homepage "https://www.docker.com/"
   url "https://github.com/docker/cli.git",
-      tag:      "v28.3.0",
+      tag:      "v28.3.1",
       revision: "38b7060a218775811da953650d8df7d492653f8f"
   license "Apache-2.0"
   head "https://github.com/docker/cli.git", branch: "master"
@@ -11,8 +11,6 @@ class Docker < Formula
     url :stable
     regex(/^v?(\d+(?:\.\d+)+)(?:[._-]ce)?$/i)
   end
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "c95fb6f394791abf5157830f11dfbb9c2fc11633a908b962eddcba036e78ac8b"
@@ -27,7 +25,7 @@ class Docker < Formula
   depends_on "go-md2man" => :build
   depends_on "docker-completion"
 
-  conflicts_with cask: "docker"
+  conflicts_with cask: "docker-desktop"
 
   def install
     # TODO: Drop GOPATH when merged/released: https://github.com/docker/cli/pull/4116
