@@ -8,13 +8,13 @@ class Mongosh < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256                               arm64_sequoia: "c320ba5bb477bcaca201ba183fdab797cc2c97f54f84256615b5efc350167567"
-    sha256                               arm64_sonoma:  "e20b4f5d4d7e3242bd4c2ae36194d05d549785f833d73f69d8ab54bc17fc2d61"
-    sha256                               arm64_ventura: "0138679cbe59247f35a72949127893ec7d6f0891de0a69f2d2a4473b8732e8c5"
-    sha256                               sonoma:        "bcd35016ee684bd90cd359db1311413f133aa1a510a6c90c40ba875ebecd4fc5"
-    sha256                               ventura:       "3726c01776a118586380de595d75e50ad456b0504db944ad18901e8d24b9cc05"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "046f467214c0521d5d21ea65444ccdb32c20f5d341fff92bd83a5718d5b623a3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fdb91a9626f26ec62c5b215481df313ee2c620caee32d157e60235aeabcd561c"
+    sha256                               arm64_sequoia: "bd60e71de52d731d7d266bcca01d15a256b836255301c2140817581a97948395"
+    sha256                               arm64_sonoma:  "962f207efac2990680658bac03e4c3eed0127a3915142d929cd5e77454a11bcb"
+    sha256                               arm64_ventura: "f828ef2be94bbf018738ec80ef1606d4d52a01200111054b665bcbc73a6f7ed2"
+    sha256                               sonoma:        "9c98f323d9610538df8bcfd203718bba280990fe1003944002fdd6e9ff68cda6"
+    sha256                               ventura:       "9a91e56a2877cd4036921826bc2cab71d6418b040cefcd6c2f988a4690e75683"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e8d0efaadbaf874c0497f06828401961ffd482a7eda63bd128a4779e96e8f30d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b1259592579c1a856fb8d1ebc526a9a37ba78ddfdb9df37ed549f4f85020fabf"
   end
 
   depends_on "node"
