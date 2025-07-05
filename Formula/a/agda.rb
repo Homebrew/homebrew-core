@@ -4,11 +4,10 @@ class Agda < Formula
   # agda2hs.cabal specifies BSD-3-Clause but it installs an MIT LICENSE file.
   # Everything else specifies MIT license and installs corresponding file.
   license all_of: ["MIT", "BSD-3-Clause"]
-  revision 2
 
   stable do
-    url "https://github.com/agda/agda/archive/refs/tags/v2.7.0.1.tar.gz"
-    sha256 "4a2c0a76c55368e1b70b157b3d35a82e073a0df8f587efa1e9aa8be3f89235be"
+    url "https://github.com/agda/agda/archive/refs/tags/v2.8.0.tar.gz"
+    sha256 "5794f19d8eafbc6bb1aa4654a9ec4c8cba430801ea12f2a44f6762ede90a3526"
 
     resource "stdlib" do
       url "https://github.com/agda/agda-stdlib/archive/refs/tags/v2.2.tar.gz"
