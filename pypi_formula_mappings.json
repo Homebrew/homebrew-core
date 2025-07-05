@@ -383,7 +383,7 @@
   },
   "glances": {
     "package_name": "glances[all]",
-    "exclude_packages": ["certifi", "cryptography"]
+    "exclude_packages": ["certifi", "cryptography", "psycopg-binary"]
   },
   "gnuradio": {
     "package_name": "",
