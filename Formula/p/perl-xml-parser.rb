@@ -4,6 +4,7 @@ class PerlXmlParser < Formula
   url "https://cpan.metacpan.org/authors/id/T/TO/TODDR/XML-Parser-2.47.tar.gz"
   sha256 "ad4aae643ec784f489b956abe952432871a622d4e2b5c619e8855accbfc4d1d8"
   license "Artistic-2.0"
+  revision 1
   head "https://github.com/cpan-authors/XML-Parser.git", branch: "master"
 
   no_autobump! because: :requires_manual_review

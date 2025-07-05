@@ -4,6 +4,7 @@ class Mhonarc < Formula
   url "https://cpan.metacpan.org/authors/id/L/LD/LDIDRY/MHonArc-2.6.24.tar.gz"
   sha256 "457dc7374ee59cb75a0729e51cef2f2c52b48180f739d8fd956ea19882815f33"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/sympa-community/mhonarc.git", branch: "master"
 
   no_autobump! because: :requires_manual_review
