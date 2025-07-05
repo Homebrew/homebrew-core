@@ -1,26 +1,15 @@
 class Theora < Formula
   desc "Open video compression format"
   homepage "https://www.theora.org/"
+  url "https://ftp.osuosl.org/pub/xiph/releases/theora/libtheora-1.2.0.tar.gz"
+  mirror "https://mirror.csclub.uwaterloo.ca/xiph/releases/theora/libtheora-1.2.0.tar.gz"
+  sha256 "279327339903b544c28a92aeada7d0dcfd0397b59c2f368cc698ac56f515906e"
   license "BSD-3-Clause"
-
-  stable do
-    url "https://ftp.osuosl.org/pub/xiph/releases/theora/libtheora-1.1.1.tar.bz2"
-    mirror "https://mirror.csclub.uwaterloo.ca/xiph/releases/theora/libtheora-1.1.1.tar.bz2"
-    sha256 "b6ae1ee2fa3d42ac489287d3ec34c5885730b1296f0801ae577a35193d3affbc"
-
-    # Fix -flat_namespace being used on Big Sur and later.
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-pre-0.4.2.418-big_sur.diff"
-      sha256 "83af02f2aa2b746bb7225872cab29a253264be49db0ecebb12f841562d9a2923"
-    end
-  end
 
   livecheck do
     url "https://ftp.osuosl.org/pub/xiph/releases/theora/?C=M&O=D"
     regex(%r{href=(?:["']?|.*?/)libtheora[._-]v?(\d+(?:\.\d+)+)\.t}i)
   end
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     rebuild 4
@@ -46,13 +35,11 @@ class Theora < Formula
     depends_on "automake" => :build
   end
 
-  depends_on "libtool" => :build
   depends_on "pkgconf" => :build
   depends_on "libogg"
   depends_on "libvorbis"
 
   def install
-    cp Dir["#{Formula["libtool"].opt_share}/libtool/*/config.{guess,sub}"], buildpath
     system "./autogen.sh" if build.head?
 
     args = %w[
@@ -60,7 +47,6 @@ class Theora < Formula
       --disable-vorbistest
       --disable-examples
     ]
-
     args << "--disable-asm" if build.head?
 
     system "./configure", *args, *std_configure_args
