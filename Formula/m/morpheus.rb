@@ -1,10 +1,9 @@
 class Morpheus < Formula
   desc "Modeling environment for multi-cellular systems biology"
   homepage "https://morpheus.gitlab.io/"
-  url "https://gitlab.com/morpheus.lab/morpheus/-/archive/v2.3.9/morpheus-v2.3.9.tar.gz"
-  sha256 "d27b7c2b5ecf503fd11777b3a75d4658a6926bfd9ae78ef97abf5e9540a6fb29"
+  url "https://gitlab.com/morpheus.lab/morpheus/-/archive/v2.3.10/morpheus-v2.3.10.tar.gz"
+  sha256 "59a7729223f80d60085deeaf61a651782ee2f8507ad93a920ef599b6af6aa279"
   license "BSD-3-Clause"
-  revision 1
 
   livecheck do
     url :stable
@@ -35,6 +34,13 @@ class Morpheus < Formula
 
   on_macos do
     depends_on "libomp"
+  end
+
+  # Suppress clang build error for `missing-template-arg-list-after-template-kw`
+  # upstream pr ref, https://gitlab.com/morpheus.lab/morpheus/-/merge_requests/162
+  patch do
+    url "https://gitlab.com/morpheus.lab/morpheus/-/commit/f725c3061c2f762f239c4c6e365e908c0f2816e7.diff"
+    sha256 "3464785550fe4f143eb3de601ee6e169421b2fbbaad5d1c2a594700bc05e21e4"
   end
 
   def install
