@@ -37,7 +37,12 @@ class AdaUrl < Formula
   def install
     ENV.llvm_clang if OS.mac? && DevelopmentTools.clang_build_version <= 1500
 
-    system "cmake", "-S", ".", "-B", "build", "-DBUILD_SHARED_LIBS=ON", *std_cmake_args
+    args = %w[
+      -DBUILD_SHARED_LIBS=ON
+      -DADA_TOOLS=ON
+    ]
+
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
@@ -60,5 +65,7 @@ class AdaUrl < Formula
     system ENV.cxx, "test.cpp", "-std=c++20",
            "-I#{include}", "-L#{lib}", "-lada", "-o", "test"
     assert_equal "http:", shell_output("./test").chomp
+
+    assert_match "Usage: adaparse", shell_output("#{bin}/adaparse --help")
   end
 end
