@@ -1,13 +1,13 @@
 class Dovecot < Formula
   desc "IMAP/POP3 server"
   homepage "https://dovecot.org/"
-  url "https://dovecot.org/releases/2.4/dovecot-2.4.0.tar.gz"
-  sha256 "e90e49f8c31b09a508249a4fee8605faa65fe320819bfcadaf2524126253d5ae"
+  url "https://dovecot.org/releases/2.4/dovecot-2.4.1-4.tar.gz"
+  sha256 "fb188603f419ed7aaa07794a8692098c3ec2660bb9c67d0efe24948cbb32ae00"
   license all_of: ["BSD-3-Clause", "LGPL-2.1-or-later", "MIT", "Unicode-DFS-2016", :public_domain]
 
   livecheck do
     url "https://www.dovecot.org/download/"
-    regex(/href=.*?dovecot[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    regex(/href=.*?dovecot[._-]v?(\d+(?:[._-]\d+)+)\.t/i)
   end
 
   no_autobump! because: :requires_manual_review
@@ -103,8 +103,8 @@ class Dovecot < Formula
     cp_r share/"doc/dovecot/example-config", testpath/"example"
     (testpath/"example/dovecot.conf").write <<~EOS
       # required in 2.4
-      dovecot_config_version = 2.4.0
-      dovecot_storage_version = 2.4.0
+      dovecot_config_version = #{version}
+      dovecot_storage_version = #{version}
 
       base_dir = #{testpath}
       listen = *
