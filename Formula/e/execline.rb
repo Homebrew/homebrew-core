@@ -4,8 +4,7 @@ class Execline < Formula
   url "https://skarnet.org/software/execline/execline-2.9.7.0.tar.gz"
   sha256 "73c9160efc994078d8ea5480f9161bfd1b3cf0b61f7faab704ab1898517d0207"
   license "ISC"
-
-  no_autobump! because: :requires_manual_review
+  head "git://git.skarnet.org/execline", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "e8bbbad617bb8ac9e26e9631efdf913a74a06b7f5a88b06363dd1d29aa7b2dac"
