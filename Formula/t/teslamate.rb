@@ -17,7 +17,6 @@ class Teslamate < Formula
   depends_on "node" => :build
   depends_on "postgresql@17" => :test
   depends_on "elixir"
-  depends_on "erlang"
   depends_on "openssl@3"
 
   uses_from_macos "ncurses"
