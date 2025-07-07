@@ -1,10 +1,9 @@
 class OcamlNum < Formula
   desc "OCaml legacy Num library for arbitrary-precision arithmetic"
   homepage "https://github.com/ocaml/num"
-  url "https://github.com/ocaml/num/archive/refs/tags/v1.5.tar.gz"
-  sha256 "7ae07c8f5601e2dfc5008a62dcaf2719912ae596a19365c5d7bdf2230515959a"
+  url "https://github.com/ocaml/num/archive/refs/tags/v1.6.tar.gz"
+  sha256 "b5cce325449aac746d5ca963d84688a627cca5b38d41e636cf71c68b60495b3e"
   license "LGPL-2.1-only" => { with: "OCaml-LGPL-linking-exception" }
-  revision 2
 
   no_autobump! because: :requires_manual_review
 
