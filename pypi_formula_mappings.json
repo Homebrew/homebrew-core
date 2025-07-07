@@ -556,6 +556,9 @@
   "mathlibtools": {
     "exclude_packages": ["certifi", "cryptography"]
   },
+  "mcpm": {
+    "exclude_packages": ["certifi", "cffi", "cryptography"]
+  },
   "mdv": "mdv[yaml]",
   "mentat": {
     "exclude_packages": ["certifi", "numpy", "pillow"]
