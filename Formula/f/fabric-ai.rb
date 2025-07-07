@@ -16,6 +16,7 @@ class FabricAi < Formula
   end
 
   depends_on "go" => :build
+  depends_on "yt-dlp" => :runtime
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w")
