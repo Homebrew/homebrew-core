@@ -28,7 +28,7 @@ class Television < Formula
   test do
     assert_match version.to_s, shell_output("#{bin}/tv -V")
 
-    output = shell_output("#{bin}/tv list-channels")
-    assert_match "Builtin channels", output
+    output = shell_output("#{bin}/tv help")
+    assert_match "Cross-platform", output
   end
 end
