@@ -30,10 +30,12 @@ class SentryCli < Formula
     depends_on "openssl@3"
   end
 
+  # Allow setting environment variable to disable swift sandbox.
+  # Upstreamed at https://github.com/getsentry/sentry-cli/pull/2587.
+  patch :DATA
+
   def install
-    # Disable the nested sandbox to avoid errors when building in our own sandbox.
-    # TODO: Upstream a way to optionally include `--disable-sandbox` in the `swift` invocation.
-    inreplace "apple-catalog-parsing/build.rs", '"build",', '"build", "--disable-sandbox",'
+    ENV["SWIFT_DISABLE_SANDBOX"] = "1"
     system "cargo", "install", *std_cargo_args
 
     generate_completions_from_executable(bin/"sentry-cli", "completions")
@@ -47,3 +49,51 @@ class SentryCli < Formula
     assert_match "Auth token is required for this request.", output
   end
 end
+
+__END__
+diff --git i/apple-catalog-parsing/build.rs w/apple-catalog-parsing/build.rs
+index a381d4c8..2a1027be 100644
+--- i/apple-catalog-parsing/build.rs
++++ w/apple-catalog-parsing/build.rs
+@@ -22,19 +22,30 @@ fn main() {
+ 
+     let out_dir = env::var("OUT_DIR").expect("OUT_DIR is set for build scripts");
+ 
++    let scratch_path = format!("{out_dir}/swift-scratch");
++    let triple = format!("{arch}-apple-macosx10.12");
++    let mut args = vec![
++        "build",
++        "-c",
++        "release",
++        "--package-path",
++        "native/swift/AssetCatalogParser",
++        "--scratch-path",
++        &scratch_path,
++        "--triple",
++        &triple,
++    ];
++
++    // Allow swift to be run with `--disable-sandbox` in case cargo has been invoked inside a
++    // sandbox already. Nested sandboxes are not allowed on Darwin.
++    println!("cargo:rerun-if-env-changed=SWIFT_DISABLE_SANDBOX");
++    if std::env::var_os("SWIFT_DISABLE_SANDBOX").map_or(false, |s| s != "0") {
++        args.push("--disable-sandbox");
++    }
++
+     // Compile Swift code
+     let status = Command::new("swift")
+-        .args([
+-            "build",
+-            "-c",
+-            "release",
+-            "--package-path",
+-            "native/swift/AssetCatalogParser",
+-            "--scratch-path",
+-            &format!("{out_dir}/swift-scratch"),
+-            "--triple",
+-            &format!("{arch}-apple-macosx10.12"),
+-        ])
++        .args(&args)
+         .status()
+         .expect("Failed to compile SPM");
+ 
