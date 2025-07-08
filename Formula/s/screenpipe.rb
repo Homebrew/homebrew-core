@@ -4,6 +4,7 @@ class Screenpipe < Formula
   url "https://github.com/mediar-ai/screenpipe/archive/refs/tags/v0.2.13.tar.gz"
   sha256 "eb3599daabc1312b5c1a7799c1ec8ab715aa02d9216a6aa42d930039c84a70c9"
   license "MIT"
+  head "https://github.com/mediar-ai/screenpipe.git", branch: "main"
 
   no_autobump! because: :requires_manual_review
 
@@ -32,6 +33,8 @@ class Screenpipe < Formula
   end
 
   def install
+    # Support cmake 4, remove after https://github.com/Prior99/libsamplerate-sys/issues/21
+    ENV["CMAKE_POLICY_VERSION_MINIMUM"] = "3.5"
     features = ["--features", "metal,pipes"] if OS.mac? && Hardware::CPU.arm?
     system "cargo", "install", *features, *std_cargo_args(path: "screenpipe-server")
     lib.install "screenpipe-vision/lib/libscreenpipe_#{Hardware::CPU.arch}.dylib" if OS.mac?
