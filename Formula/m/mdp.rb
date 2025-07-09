@@ -18,12 +18,6 @@ class Mdp < Formula
 
   uses_from_macos "ncurses"
 
-  # version patch, upstream pr ref, https://github.com/visit1985/mdp/pull/172
-  patch do
-    url "https://github.com/visit1985/mdp/commit/c680ce83e668771baab25185eaf42f077656088e.patch?full_index=1"
-    sha256 "c5bdff5c11b534009281fda41f1be74183a6c259dbec22c5fd798e0c61e5c8a6"
-  end
-
   def install
     system "make"
     system "make", "install", "PREFIX=#{prefix}"
