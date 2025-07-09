@@ -12,7 +12,7 @@ class Ack < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "8d040693538ad8d489770cf4186a47364fc2bbe4d47e863c491b863e04b4df30"
+    sha256 cellar: :any_skip_relocation, all: "0000000000000000000000000000000000000000000000000000000000000000"
   end
 
   head do
