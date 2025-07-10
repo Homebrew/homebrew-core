@@ -342,7 +342,7 @@ class Semgrep < Formula
     venv.pip_install_and_link buildpath/"cli"
 
     generate_completions_from_executable(bin/"semgrep", "--legacy",
-                                         shells:                 [:fish, :zsh],
+                                         shells:                 [:bash, :fish, :zsh],
                                          shell_parameter_format: :click)
   end
 
