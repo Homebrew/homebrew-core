@@ -11,11 +11,12 @@ class Gnuplot < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:  "b7cc6a9005b433016d1a299b7d043f366ad2bee264c8535daffe6c2b1d06a605"
-    sha256 arm64_ventura: "822e4d22b9df476fd361a1ed7484262fe563b0d054767c4ba1f0cb46c5244a83"
-    sha256 sonoma:        "21c6df11dfcc4a8c37c638b6a5309a3dd21521a450a2cd50a3f8a75d32044de6"
-    sha256 ventura:       "8705988645194796eb3492c98d96665c06d1fd371dd71ffbf670f25646fdc80f"
-    sha256 x86_64_linux:  "90fb58d1b3fad449a5ad9b729420c5f42126ae1a3c1b66204dd4eb43d3d05c9a"
+    rebuild 1
+    sha256 arm64_sonoma:  "4f2052aecbd2f736e1b2318acce36c0cb233af6be0935deddcf998bd822b1013"
+    sha256 arm64_ventura: "644cb48402329094a8de79741d5798c3720682f22c11330621d348e69bbb968b"
+    sha256 sonoma:        "e347e5938f393d37b8d2f5e3b0bca7954d6829174af3c7768c13ac0c49874bf4"
+    sha256 ventura:       "f8827be16a188c2388f7ad2ff9ccf5eda60152fc98a8fd64df6bbec7227c7011"
+    sha256 x86_64_linux:  "ab0c9ee561bf5ad5c80c772b0210dc905319ac694e6867cef09dbce7d4c63508"
   end
 
   head do
