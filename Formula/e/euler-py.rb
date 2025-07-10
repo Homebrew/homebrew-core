@@ -28,7 +28,7 @@ class EulerPy < Formula
     inreplace "requirements.txt", "click==4.0", "click"
     virtualenv_install_with_resources
 
-    generate_completions_from_executable(bin/"euler", shells: [:fish, :zsh], shell_parameter_format: :click)
+    generate_completions_from_executable(bin/"euler", shells: [:bash, :fish, :zsh], shell_parameter_format: :click)
   end
 
   test do
