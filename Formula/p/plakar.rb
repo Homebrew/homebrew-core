@@ -26,6 +26,11 @@ class Plakar < Formula
     system "go", "build", *std_go_args(ldflags: "-s -w")
   end
 
+  service do
+    run [opt_bin/"plakar", "agent", "-foreground"]
+    keep_alive true
+  end
+
   test do
     assert_match version.to_s, shell_output(bin/"plakar version")
 
