@@ -147,7 +147,7 @@ class CheckJsonschema < Formula
 
     generate_completions_from_executable(
       bin/"check-jsonschema",
-      shells:                 [:fish, :zsh],
+      shells:                 [:bash, :fish, :zsh],
       shell_parameter_format: :click,
     )
   end
