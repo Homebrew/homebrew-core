@@ -220,7 +220,7 @@ class Manim < Formula
     end
     virtualenv_install_with_resources(without:)
 
-    generate_completions_from_executable(bin/"manim", shells: [:fish, :zsh], shell_parameter_format: :click)
+    generate_completions_from_executable(bin/"manim", shells: [:bash, :fish, :zsh], shell_parameter_format: :click)
   end
 
   test do
