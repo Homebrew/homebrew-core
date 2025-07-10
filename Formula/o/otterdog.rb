@@ -265,7 +265,7 @@ class Otterdog < Formula
     ENV["SETUPTOOLS_SCM_PRETEND_VERSION_FOR_PLAYWRIGHT"] = resource("playwright").version
     virtualenv_install_with_resources
 
-    generate_completions_from_executable(bin/"otterdog", shell_parameter_format: :click, shells: [:bash, :zsh])
+    generate_completions_from_executable(bin/"otterdog", shell_parameter_format: :click, shells: [:bash, :bash, :zsh])
   end
 
   test do
