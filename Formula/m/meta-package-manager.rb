@@ -307,7 +307,7 @@ class MetaPackageManager < Formula
     rewrite_shebang detected_python_shebang, "meta_package_manager/bar_plugin.py"
     virtualenv_install_with_resources
 
-    generate_completions_from_executable(bin/"mpm", shells: [:fish, :zsh], shell_parameter_format: :click)
+    generate_completions_from_executable(bin/"mpm", shells: [:bash, :fish, :zsh], shell_parameter_format: :click)
   end
 
   test do
