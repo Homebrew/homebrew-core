@@ -57,7 +57,7 @@ class Pipenv < Formula
   def install
     virtualenv_install_with_resources
 
-    generate_completions_from_executable(libexec/"bin/pipenv", shells:                 [:fish, :zsh],
+    generate_completions_from_executable(libexec/"bin/pipenv", shells:                 [:bash, :fish, :zsh],
                                                                shell_parameter_format: :click)
   end
 
