@@ -104,7 +104,7 @@ class OciCli < Formula
       venv.pip_install_and_link Pathname.pwd
     end
 
-    generate_completions_from_executable(bin/"oci", shells: [:fish, :zsh], shell_parameter_format: :click)
+    generate_completions_from_executable(bin/"oci", shells: [:bash, :fish, :zsh], shell_parameter_format: :click)
   end
 
   test do
