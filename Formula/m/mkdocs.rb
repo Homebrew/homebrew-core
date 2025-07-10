@@ -102,7 +102,7 @@ class Mkdocs < Formula
     ENV["PIP_USE_PEP517"] = "1"
     virtualenv_install_with_resources
 
-    generate_completions_from_executable(bin/"mkdocs", shells: [:fish, :zsh], shell_parameter_format: :click)
+    generate_completions_from_executable(bin/"mkdocs", shells: [:bash, :fish, :zsh], shell_parameter_format: :click)
   end
 
   test do
