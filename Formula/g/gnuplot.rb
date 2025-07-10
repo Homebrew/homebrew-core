@@ -2,7 +2,7 @@ class Gnuplot < Formula
   desc "Command-driven, interactive function plotting"
   homepage "http://www.gnuplot.info/"
   url "https://downloads.sourceforge.net/project/gnuplot/gnuplot/6.0.3/gnuplot-6.0.3.tar.gz"
-  sha256 "2344e78bc78b296f66636a5d9e561b709b61d360185b718583c97a329f7ace5e"
+  sha256 "ec52e3af8c4083d4538152b3f13db47f6d29929a3f6ecec5365c834e77f251ab"
   license "gnuplot"
 
   livecheck do
