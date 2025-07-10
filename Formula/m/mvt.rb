@@ -216,7 +216,7 @@ class Mvt < Formula
     end
 
     %w[mvt-android mvt-ios].each do |script|
-      generate_completions_from_executable(bin/script, shells: [:fish, :zsh], shell_parameter_format: :click)
+      generate_completions_from_executable(bin/script, shells: [:bash, :fish, :zsh], shell_parameter_format: :click)
     end
   end
 
