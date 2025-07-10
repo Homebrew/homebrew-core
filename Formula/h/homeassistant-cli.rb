@@ -176,7 +176,7 @@ class HomeassistantCli < Formula
 
   def install
     virtualenv_install_with_resources
-    generate_completions_from_executable(bin/"hass-cli", shells:                 [:fish, :zsh],
+    generate_completions_from_executable(bin/"hass-cli", shells:                 [:bash, :fish, :zsh],
                                                          shell_parameter_format: :click)
   end
 
