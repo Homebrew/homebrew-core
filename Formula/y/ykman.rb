@@ -92,7 +92,7 @@ class Ykman < Formula
     man1.install "man/ykman.1"
 
     # Click doesn't support generating completions for Bash versions older than 4.4
-    generate_completions_from_executable(bin/"ykman", shells: [:fish, :zsh], shell_parameter_format: :click)
+    generate_completions_from_executable(bin/"ykman", shells: [:bash, :fish, :zsh], shell_parameter_format: :click)
   end
 
   test do
