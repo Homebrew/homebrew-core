@@ -90,7 +90,7 @@ class Pgcli < Formula
       venv.pip_install Pathname.pwd
     end
 
-    generate_completions_from_executable(bin/"pgcli", shells: [:fish, :zsh], shell_parameter_format: :click)
+    generate_completions_from_executable(bin/"pgcli", shells: [:bash, :fish, :zsh], shell_parameter_format: :click)
   end
 
   test do
