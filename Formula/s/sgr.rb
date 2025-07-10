@@ -221,7 +221,7 @@ class Sgr < Formula
     inreplace "pyproject.toml", 'version = "==3.4"', 'version = ">=3.4"'
 
     virtualenv_install_with_resources start_with: "setuptools"
-    generate_completions_from_executable(bin/"sgr", shells: [:fish, :zsh], shell_parameter_format: :click)
+    generate_completions_from_executable(bin/"sgr", shells: [:bash, :fish, :zsh], shell_parameter_format: :click)
   end
 
   test do
