@@ -91,7 +91,7 @@ class ShallowBackup < Formula
 
     generate_completions_from_executable(
       bin/"shallow-backup",
-      shells:                 [:fish, :zsh],
+      shells:                 [:bash, :fish, :zsh],
       shell_parameter_format: :click,
     )
   end
