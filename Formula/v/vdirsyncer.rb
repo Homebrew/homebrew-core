@@ -116,7 +116,8 @@ class Vdirsyncer < Formula
   def install
     virtualenv_install_with_resources
 
-    generate_completions_from_executable(bin/"vdirsyncer", shells: [:fish, :zsh], shell_parameter_format: :click)
+    generate_completions_from_executable(bin/"vdirsyncer",
+                                         shells: [:bash, :fish, :zsh], shell_parameter_format: :click)
   end
 
   service do
