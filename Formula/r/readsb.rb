@@ -6,13 +6,13 @@ class Readsb < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "dcda0bafed38ddf033f5837f378b32bb14d50a008251b7b207678f827cc0df8c"
-    sha256 cellar: :any,                 arm64_sonoma:  "289b95107543be057c3efbb1596bd69fa8737e36f84d1a8b9e696297d45d5dcf"
-    sha256 cellar: :any,                 arm64_ventura: "e359a361a814731521cbedead451fc008e90c87570d9673e4fe8cc9ab2c5f7d2"
-    sha256 cellar: :any,                 sonoma:        "9a13ac38442b6cc806dc5000320a267923cdaa1399caa5a1fe4b8403541f7d6d"
-    sha256 cellar: :any,                 ventura:       "bde7baddf57110dace81644cb4e86871661013e75feabbe80be1e75c7327dd6a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "fa13bf1743308491b638de900a2b72d90f12abc0f400c26245daae93c1bdf5ed"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "547ce5826ac76d141f1beb696a10d711ce4a48a200d4b39307b5d36255b8727a"
+    sha256 cellar: :any,                 arm64_sequoia: "1296c1f7566858f2bc1f9e00cd609a4f4062b45592dfb8a8a574cdb6d8d93c0b"
+    sha256 cellar: :any,                 arm64_sonoma:  "ef225a8f68d818fa578637951a1cbc8d366884741f6fbf6f403447da7605a9c6"
+    sha256 cellar: :any,                 arm64_ventura: "24c2837e8a6e021a0016774abbbe2c32acd0a664301a2ff5c812de1629e7feae"
+    sha256 cellar: :any,                 sonoma:        "b13757d867e7464e69adc4daab47085032830c9308ec205dd923ffc5a190973f"
+    sha256 cellar: :any,                 ventura:       "c07d3625c7c8cde248626d1228470f81f2efb14580d924ae20be2d860f479c7a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a758e7775a4cf9815fef2c94f3ed0d65e8867171f000c47645cf142b09eca573"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3a19b24958df3baee13b75da1eb98ddc4b24007cccc0fe9a2003801477d235a5"
   end
 
   depends_on "pkgconf" => :build
