@@ -7,13 +7,13 @@ class Nelm < Formula
   head "https://github.com/werf/nelm.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "114d7ae5eb0d6cabd0b1d89ea15f64cea0159bddd99a2abea9c309d004e26f1c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ae09210d2bef24bab72811716b07d6c7b1f1393565135f9a1f63c3352136ef54"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "0a8e7ca3961df638d115e9bca64d3abe9de9f8a75ecd960578c93421ccc91164"
-    sha256 cellar: :any_skip_relocation, sonoma:        "1b12d511cc01bd1edd252f74c3eeb79f9cf767da0491c00e0925f499f5e8b52f"
-    sha256 cellar: :any_skip_relocation, ventura:       "3a15fb4ddacbe32b4a967350898e2e392e53cae2b8472e268005153eac5743a7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "edc3faa3fb40d0d4d87219bbcad45dc8c9d31e8bfc47de00b046f2faa43cce43"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "87736f4c40b8a3f392b5189617e4e065e781f7bdb562a0eca4fffeda191f846e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "67c142ea17945d9873218ef4865c093b5992595af5cc27828bff3c3643643c8d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3a5aa7b5e52e29eeb903cf222e917a86ab8ce9a40036c63f26bf73eaf547ec5c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "0dd7e38f114a8ab14ca73f8e7dcd007b8de02c517e103709267f3fa3ebb889c2"
+    sha256 cellar: :any_skip_relocation, sonoma:        "78e58d6c03921b90f766c38193d73a0cdf185be0a2aa4db362a2a671f9db8570"
+    sha256 cellar: :any_skip_relocation, ventura:       "5bf8b6c02d55edc6387d287f40a7b42c1f69bdae8c0f0ae7fa8745d10b1aa442"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d2e0e43a12fed5731f325b844f3d0e0037801a67b126cc71050fdb1f45276046"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ba24989141866dc948ad3410402ae6c5f11d95db0474947bc8c20c50ebf73f14"
   end
 
   depends_on "go" => :build
