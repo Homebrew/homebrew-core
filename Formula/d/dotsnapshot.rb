@@ -6,7 +6,7 @@ class Dotsnapshot < Formula
   license "MIT"
   head "https://github.com/tomerlichtash/dotsnapshot.git", branch: "main"
 
-  depends_on "bash" => :recommended
+  depends_on "bash"
 
   def install
     # Install the main script
