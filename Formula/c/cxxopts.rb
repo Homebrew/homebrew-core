@@ -19,13 +19,16 @@ class Cxxopts < Formula
   depends_on "cmake" => :build
 
   def install
+    # set `CXXOPTS_CMAKE_DIR` and `CMAKE_INSTALL_LIBDIR_ARCHIND` to create an `:all` bottle.
     args = %w[
+      -DCMAKE_INSTALL_LIBDIR_ARCHIND=share
       -DCXXOPTS_BUILD_EXAMPLES=OFF
       -DCXXOPTS_BUILD_TESTS=OFF
+      -DCXXOPTS_CMAKE_DIR=share/cmake/cxxopts
     ]
 
+    # We don't need to run `cmake --build` because this is header-only.
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
-    system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
 
