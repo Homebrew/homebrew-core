@@ -2,7 +2,7 @@ class Dotsnapshot < Formula
   desc "Comprehensive dotfile and system configuration snapshot tool"
   homepage "https://github.com/tomerlichtash/dotsnapshot"
   url "https://github.com/tomerlichtash/dotsnapshot/archive/refs/tags/v1.0.0.tar.gz"
-  sha256 "YOUR_SHA256_HERE"  # You'll need to calculate this after creating the release
+  sha256 "0019dfc4b32d63c1392aa264aed2253c1e0c2fb09216f8e2cc269bbfb8bb49b5"
   license "MIT"
   head "https://github.com/tomerlichtash/dotsnapshot.git", branch: "main"
 
@@ -115,4 +115,4 @@ class Dotsnapshot < Formula
     # Test list command
     assert_match "Available snapshot generators:", shell_output("#{bin}/dotsnapshot --list")
   end
-end 
+end
