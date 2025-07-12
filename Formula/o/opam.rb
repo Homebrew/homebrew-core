@@ -4,6 +4,7 @@ class Opam < Formula
   url "https://github.com/ocaml/opam/releases/download/2.3.0/opam-full-2.3.0.tar.gz"
   sha256 "506ba76865dc315b67df9aa89e7abd5c1a897a7f0a92d7b2694974fdc532b346"
   license "LGPL-2.1-only"
+  revision 1
   head "https://github.com/ocaml/opam.git", branch: "master"
 
   # Upstream sometimes publishes tarballs with a version suffix (e.g. 2.2.0-2)
@@ -36,6 +37,10 @@ class Opam < Formula
 
   uses_from_macos "unzip"
 
+  # Fix compilation on macOS with ocaml >= 5.3. Remove in the next release.
+  # Ref https://github.com/ocaml/opam/pull/6192
+  patch :DATA
+
   def install
     ENV.deparallelize
 
@@ -61,3 +66,20 @@ class Opam < Formula
     system bin/"opam", "list"
   end
 end
+
+__END__
+diff --git a/src_ext/Makefile.sources b/src_ext/Makefile.sources
+index 4a82329168ce496697d42845a048a9ae5e4b50a7..01edf1a2989a87019dad20a9880d43a6b37cc38d 100644
+--- a/src_ext/Makefile.sources
++++ b/src_ext/Makefile.sources
+@@ -22,8 +22,8 @@ MD5_cudf = ed8fea314d0c6dc0d8811ccf860c53dd
+ URL_dose3 = https://gitlab.com/irill/dose3/-/archive/7.0.0/dose3-7.0.0.tar.gz
+ MD5_dose3 = bc99cbcea8fca29dca3ebbee54be45e1
+
+-URL_mccs = https://github.com/ocaml-opam/ocaml-mccs/releases/download/1.1+18/mccs-1.1+18.tar.gz
+-MD5_mccs = 3fd6f609a02f3357f57570750fcacde0
++URL_mccs = https://github.com/ocaml-opam/ocaml-mccs/releases/download/1.1+19/mccs-1.1+19.tar.gz
++MD5_mccs = f852da188bf7de20e64be2fce0e48e0a
+
+ URL_opam-0install-cudf = https://github.com/ocaml-opam/opam-0install-cudf/releases/download/v0.5.0/opam-0install-cudf-0.5.0.tar.gz
+ MD5_opam-0install-cudf = 75419722aa839f518a25cae1b3c6efd4
