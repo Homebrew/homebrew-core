@@ -27,6 +27,8 @@ class Yutu < Formula
                  -X #{mod}.Commit=#{Utils.git_short_head(length: 7)}
                  -X #{mod}.CommitDate=#{time.iso8601}]
     system "go", "build", *std_go_args(ldflags:), "."
+
+    generate_completions_from_executable(bin/"yutu", "completion", shells: [:bash, :zsh, :fish, :pwsh])
   end
 
   test do
