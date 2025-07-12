@@ -1,8 +1,8 @@
 class Qsv < Formula
   desc "Ultra-fast CSV data-wrangling toolkit"
   homepage "https://qsv.dathere.com/"
-  url "https://github.com/dathere/qsv/archive/refs/tags/6.0.0.tar.gz"
-  sha256 "7e63eebc78aedf1b3cd1452b631a8255099feafebd5242bb700e2b6e1b311b0e"
+  url "https://github.com/dathere/qsv/archive/refs/tags/6.0.1.tar.gz"
+  sha256 "d4a4dafad7cec344a927e92a1d42b4da210ea83061b9de8094da9d06f0d1427f"
   license any_of: ["MIT", "Unlicense"]
   head "https://github.com/dathere/qsv.git", branch: "master"
 
@@ -41,6 +41,7 @@ class Qsv < Formula
     bash_completion.install "contrib/completions/examples/qsv.bash" => "qsv"
     fish_completion.install "contrib/completions/examples/qsv.fish"
     zsh_completion.install "contrib/completions/examples/qsv.zsh" => "_qsv"
+    pwsh_completion.install "contrib/completions/examples/qsv.ps1" => "qsv"
   end
 
   test do
