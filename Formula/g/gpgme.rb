@@ -1,8 +1,8 @@
 class Gpgme < Formula
   desc "Library access to GnuPG"
   homepage "https://www.gnupg.org/related_software/gpgme/"
-  url "https://www.gnupg.org/ftp/gcrypt/gpgme/gpgme-1.24.3.tar.bz2"
-  sha256 "bfc17f5bd1b178c8649fdd918956d277080f33df006a2dc40acdecdce68c50dd"
+  url "https://www.gnupg.org/ftp/gcrypt/gpgme/gpgme-2.0.0.tar.bz2"
+  sha256 "ddf161d3c41ff6a3fcbaf4be6c6e305ca4ef1cc3f1ecdfce0c8c2a167c0cc36d"
   license "LGPL-2.1-or-later"
 
   livecheck do
@@ -20,49 +20,55 @@ class Gpgme < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "fb901798817b1ffebf06359bcf72f1fd4cc31d8f008b8ff8ae79d015823058f9"
   end
 
-  depends_on "python-setuptools" => :build
-  depends_on "python@3.13" => [:build, :test]
-  depends_on "swig" => :build
   depends_on "gnupg"
   depends_on "libassuan"
   depends_on "libgpg-error"
 
-  def python3
-    "python3.13"
-  end
-
   def install
-    ENV["PYTHON"] = python3
-    # HACK: Stop build from ignoring our PYTHON input. As python versions are
-    # hardcoded, the Arch Linux patch that changed 3.9 to 3.10 can't detect 3.11
-    inreplace "configure", /# Reset everything.*\n\s*unset PYTHON$/, ""
-
-    # Uses generic lambdas.
-    # error: 'auto' not allowed in lambda parameter
-    ENV.append "CXXFLAGS", "-std=c++14"
-
-    # Use pip over executing setup.py, which installs a deprecated egg distribution
-    # https://dev.gnupg.org/T6784
-    inreplace "lang/python/Makefile.in",
-              /^\s*\$\$PYTHON setup\.py\s*\\/,
-              "$$PYTHON -m pip install --use-pep517 #{std_pip_args.join(" ")} . && : \\"
-
     system "./configure", "--disable-silent-rules",
                           "--enable-static",
                           *std_configure_args
     system "make"
     system "make", "install"
 
-    # avoid triggering mandatory rebuilds of software that hard-codes this path
-    inreplace bin/"gpgme-config", prefix, opt_prefix
-
-    # replace libassuan Cellar paths to avoid breakage on libassuan version/revision bumps
-    dep_cellar_path_files = [bin/"gpgme-config", lib/"cmake/Gpgmepp/GpgmeppConfig.cmake"]
-    inreplace dep_cellar_path_files, Formula["libassuan"].prefix.realpath, Formula["libassuan"].opt_prefix
+    inreplace bin/"gpgme-config" do |s|
+      # avoid triggering mandatory rebuilds of software that hard-codes this path
+      s.gsub! prefix, opt_prefix
+      # replace libassuan Cellar paths to avoid breakage on libassuan version/revision bumps
+      s.gsub! Formula["libassuan"].prefix.realpath, Formula["libassuan"].opt_prefix
+    end
   end
 
   test do
     assert_match version.to_s, shell_output("#{bin}/gpgme-tool --lib-version")
-    system python3, "-c", "import gpg; print(gpg.version.versionstr)"
+
+    (testpath/"test.c").write <<~C
+      #include <gpgme.h>
+      #include <locale.h>
+      #include <stdio.h>
+
+      void init_gpgme(void) {
+        setlocale(LC_ALL, "");
+        gpgme_check_version(NULL);
+        gpgme_set_locale(NULL, LC_CTYPE, setlocale(LC_CTYPE, NULL));
+      }
+
+      int main() {
+        init_gpgme();
+
+        gpgme_ctx_t ctx;
+        gpgme_error_t err = gpgme_new(&ctx);
+        if (err) {
+            fprintf(stderr, "gpgme_new error: %s\\n", gpgme_strerror(err));
+            return 1;
+        }
+
+        printf("GPGME context created!\\n");
+        gpgme_release(ctx);
+        return 0;
+      }
+    C
+    system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lgpgme", "-o", "test"
+    system "./test"
   end
 end
