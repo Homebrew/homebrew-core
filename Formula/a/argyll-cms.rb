@@ -1,8 +1,8 @@
 class ArgyllCms < Formula
   desc "ICC compatible color management system"
   homepage "https://www.argyllcms.com/"
-  url "https://www.argyllcms.com/Argyll_V3.3.0_src.zip"
-  sha256 "69db1c9ef66f8cacbbbab4ed9910147de6100c3afd17a0a8c12e6525b778e8ce"
+  url "https://www.argyllcms.com/Argyll_V3.4.0_src.zip"
+  sha256 "946b096ae25d67819626f6992e9f7fb1c65f512ac9484697771b2cda5a16d3b3"
   license "AGPL-3.0-only"
 
   livecheck do
@@ -104,6 +104,7 @@ class ArgyllCms < Formula
     system "sh", "makeall.sh"
     system "./makeinstall.sh"
     rm "bin/License.txt"
+    rm "bin/com.argyllcms.metainfo.xml"
     prefix.install "bin", "ref", "doc"
   end
 
