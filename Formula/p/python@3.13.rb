@@ -439,6 +439,17 @@ class PythonAT313 < Formula
           split_prefix = f"#{HOMEBREW_PREFIX}/opt/python-{split_module}@#{version.major_minor}/libexec"
           if os.path.isdir(split_prefix):
               sys.path.append(split_prefix)
+      # Chainload venv-local sitecustomize.py if it exists
+      # (only if we're in a venv and haven't already done so)
+      if sys.prefix != sys.base_prefix and not os.environ.get("_HOMEBREW_CHAINLOADED_SITECUSTOMIZE"):
+          os.environ["_HOMEBREW_CHAINLOADED_SITECUSTOMIZE"] = "1"
+          venv_sitecustomize = f"{sys.prefix}/lib/python{sys.version_info.major}.{sys.version_info.minor}/site-packages/sitecustomize.py"
+          if os.path.isfile(venv_sitecustomize):
+              import importlib.util
+              spec = importlib.util.spec_from_file_location("venv_sitecustomize", venv_sitecustomize)
+              if spec and spec.loader:
+                  module = importlib.util.module_from_spec(spec)
+                  spec.loader.exec_module(module)
     PYTHON
   end
 
