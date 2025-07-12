@@ -6,6 +6,11 @@ class Chaoskube < Formula
   license "MIT"
   head "https://github.com/linki/chaoskube.git", branch: "master"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "175ff90eee624e0fe6bb640a4645133925935cda6f0de21380af7c91bc5153e1"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "72495e8d18d66656fad0d18f29a88e8f55d3ef37e89aa56bac24eafda7cf7f14"
