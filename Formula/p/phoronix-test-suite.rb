@@ -32,6 +32,18 @@ class PhoronixTestSuite < Formula
     system "./install-sh", prefix
     prefix.install (buildpath/"dest/#{prefix}").children
     bash_completion.install "dest/#{prefix}/../etc/bash_completion.d/phoronix-test-suite"
+
+    # build an `:all` bottle.
+    inreplace_files = [
+      bin/"phoronix-test-suite",
+      *pkgshare.glob("ob-cache/test-profiles/pts/*/install.sh"),
+      pkgshare/"pts-core/external-test-dependencies/xml/dragonfly-packages.xml",
+      pkgshare/"pts-core/objects/client/pts_client.php",
+      pkgshare/"pts-core/objects/client/pts_external_dependencies.php",
+      pkgshare/"pts-core/objects/phodevi/components/phodevi_system.php",
+      pkgshare/"pts-core/pts-core.php",
+    ]
+    inreplace inreplace_files, "/usr/local", HOMEBREW_PREFIX, audit_result: false
   end
 
   test do
