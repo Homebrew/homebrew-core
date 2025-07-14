@@ -1,8 +1,8 @@
 class Youtubeuploader < Formula
   desc "Scripted uploads to Youtube"
   homepage "https://github.com/porjo/youtubeuploader"
-  url "https://github.com/porjo/youtubeuploader/archive/refs/tags/v1.25.1.tar.gz"
-  sha256 "729d3cb5a6ff6a09742d9d9371a9c84fc21961d972c24694abed3b048c3d1b83"
+  url "https://github.com/porjo/youtubeuploader/archive/refs/tags/v1.25.2.tar.gz"
+  sha256 "00f0f24e670ae3728129796fd1491bfa7f545f30522aaef6b70c9c7a1aca2bdb"
   license "Apache-2.0"
   version_scheme 1
   head "https://github.com/porjo/youtubeuploader.git", branch: "master"
@@ -26,6 +26,12 @@ class Youtubeuploader < Formula
   end
 
   depends_on "go" => :build
+
+  # Fix to show version correcly, remove in next release
+  patch do
+    url "https://github.com/porjo/youtubeuploader/commit/e6eb110637256688ab0b4b979cee0a427a52463f.patch?full_index=1"
+    sha256 "dca2bd73ab5ebafa7765048079311244ed3e8e9fcab9728594d9e3b6f40bab5d"
+  end
 
   def install
     ldflags = "-s -X main.appVersion=#{version}"
@@ -62,6 +68,6 @@ class Youtubeuploader < Formula
     JSON
 
     output = shell_output("#{bin}/youtubeuploader -filename #{test_fixtures("test.m4a")} 2>&1", 1)
-    assert_match 'oauth2: "invalid_client" "The OAuth client was not found."', output
+    assert_match 'oauth2: \"invalid_client\" \"The OAuth client was not found.\"', output
   end
 end
