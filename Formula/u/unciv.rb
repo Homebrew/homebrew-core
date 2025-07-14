@@ -1,0 +1,30 @@
+class Unciv < Formula
+  desc "Open-source Android/Desktop remake of Civ V"
+  homepage "https://github.com/yairm210/Unciv"
+  url "https://github.com/yairm210/Unciv/releases/download/4.17.4/Unciv.jar"
+  sha256 "818de0e741dd5995de1377215e17d3a1e13f5f165581866922b7ea72a564db60"
+  license "MPL-2.0"
+
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+(?:[._-]?patch\d*)?)$/i)
+  end
+
+  no_autobump! because: :requires_manual_review
+
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "7f682768230f853a12d8f018aa28a54fe43ad84b02185ef8bcf721dcc59032e6"
+  end
+
+  depends_on "openjdk"
+
+  def install
+    libexec.install "Unciv.jar"
+    bin.write_jar_script libexec/"Unciv.jar", "unciv"
+  end
+
+  test do
+    # Unciv is a GUI application, so there is no cli functionality to test
+    assert_match version.to_str, shell_output("#{bin}/unciv --version")
+  end
+end
