@@ -5,7 +5,7 @@ class Preston < Formula
   sha256 "19d70853f3cc1146f7dccef34dad7525c37bd26e6e9a38d980718fddcc7c7100"
   license "MIT"
 
-  depends_on "openjdk@21"
+  depends_on "openjdk"
 
   def install
     libexec.install "lib/preston.jar"
