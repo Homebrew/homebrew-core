@@ -13,7 +13,7 @@ class Preston < Formula
   end
 
   test do
-    output = shell_output("echo 'testing123' | #{bin}/preston track")
+    output = pipe_output("#{bin}/preston track", "testing123")
     assert_match "d3e54e9d6814999b722fcf9fce64511c16558825fff8d344cb177cafae6e87a3", output
   end
 end
