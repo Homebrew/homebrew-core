@@ -146,23 +146,3 @@ class Libxml2 < Formula
     end
   end
 end
-
-__END__
-diff --git a/configure.ac b/configure.ac
-index c6dc93d58f84f21c4528753d2ee1bc1d50e67ced..e7bad24d8f1aa7659e1aa4e2ad1986cc2167483b 100644
---- a/configure.ac
-+++ b/configure.ac
-@@ -984,10 +984,10 @@ if test "$with_icu" != "no" && test "$with_icu" != "" ; then
-
-     # Try pkg-config first so that static linking works.
-     # If this succeeeds, we ignore the WITH_ICU directory.
--    PKG_CHECK_MODULES([ICU], [icu-i18n], [
--        WITH_ICU=1; XML_PC_REQUIRES="${XML_PC_REQUIRES} icu-i18n"
-+    PKG_CHECK_MODULES([ICU], [icu-uc], [
-+        WITH_ICU=1; XML_PC_REQUIRES="${XML_PC_REQUIRES} icu-uc"
-         m4_ifdef([PKG_CHECK_VAR],
--            [PKG_CHECK_VAR([ICU_DEFS], [icu-i18n], [DEFS])])
-+            [PKG_CHECK_VAR([ICU_DEFS], [icu-uc], [DEFS])])
-         if test "x$ICU_DEFS" != "x"; then
-             ICU_CFLAGS="$ICU_CFLAGS $ICU_DEFS"
-         fi],[:])
