@@ -1,23 +1,9 @@
 class Libxml2 < Formula
   desc "GNOME XML library"
   homepage "http://xmlsoft.org/"
+  url "https://download.gnome.org/sources/libxml2/2.14/libxml2-2.14.5.tar.xz"
+  sha256 "03d006f3537616833c16c53addcdc32a0eb20e55443cba4038307e3fa7d8d44b"
   license "MIT"
-
-  stable do
-    url "https://download.gnome.org/sources/libxml2/2.14/libxml2-2.14.5.tar.xz"
-    sha256 "03d006f3537616833c16c53addcdc32a0eb20e55443cba4038307e3fa7d8d44b"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-
-    # Fix pkg-config checks for libicuuc. Patch taken from:
-    # https://gitlab.gnome.org/GNOME/libxml2/-/commit/b57e022d75425ef8b617a1c3153198ee0a941da8
-    # When the patch is no longer needed, remove along with the `stable` block
-    # and the autotools dependencies above. Also uncomment `if build.head?`
-    # condition in the `install` block.
-    patch :DATA
-  end
 
   # We use a common regex because libxml2 doesn't use GNOME's "even-numbered
   # minor is stable" version scheme.
@@ -73,7 +59,7 @@ class Libxml2 < Formula
     # nanohttp.c:1019:42: error: invalid use of undefined type 'struct addrinfo'
     ENV.append "CFLAGS", "-std=gnu11" if OS.linux?
 
-    system "autoreconf", "--force", "--install", "--verbose" # if build.head?
+    system "autoreconf", "--force", "--install", "--verbose" if build.head?
     system "./configure", "--disable-silent-rules",
                           "--sysconfdir=#{etc}",
                           "--with-history",
