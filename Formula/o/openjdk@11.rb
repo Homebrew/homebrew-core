@@ -1,8 +1,8 @@
 class OpenjdkAT11 < Formula
   desc "Development kit for the Java programming language"
   homepage "https://openjdk.java.net/"
-  url "https://github.com/openjdk/jdk11u/archive/refs/tags/jdk-11.0.27-ga.tar.gz"
-  sha256 "eb1d802f854824261d7babac917179ce21c608a39675cf6e78f2ab19121cc7d0"
+  url "https://github.com/openjdk/jdk11u/archive/refs/tags/jdk-11.0.28-ga.tar.gz"
+  sha256 "c051b84b55a826ff90ac601ff7501449fb6a578a89357bbc7550990a78bb5f1b"
   license "GPL-2.0-only"
 
   livecheck do
