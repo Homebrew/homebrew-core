@@ -61,6 +61,13 @@ class Openblas < Formula
 
     lib.install_symlink shared_library("libopenblas") => shared_library("libblas")
     lib.install_symlink shared_library("libopenblas") => shared_library("liblapack")
+
+    # Fix pkg-config file on macOS to remove unsupported -fopenmp flag
+    if OS.mac?
+      pkgconfig_file = lib/"pkgconfig/openblas.pc"
+      pkgconfig_content = pkgconfig_file.read
+      pkgconfig_file.write pkgconfig_content.gsub(/^omp_opt=-fopenmp$/, "omp_opt=")
+    end
   end
 
   test do
