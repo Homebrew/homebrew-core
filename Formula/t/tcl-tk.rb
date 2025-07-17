@@ -136,6 +136,8 @@ class TclTk < Formula
     resource("tcltls").stage do
       system "./configure", "--with-openssl-dir=#{Formula["openssl@3"].opt_prefix}",
                             "--prefix=#{prefix}",
+                            "--with-tcl=#{lib}",
+                            "--with-tclinclude=#{include}/tcl-tk",
                             "--mandir=#{man}"
       system "make", "install"
     end
