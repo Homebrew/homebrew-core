@@ -3,8 +3,6 @@ class Mesa < Formula
 
   desc "Graphics Library"
   homepage "https://www.mesa3d.org/"
-  url "https://archive.mesa3d.org/mesa-25.1.6.tar.xz"
-  sha256 "9f2b69eb39d2d8717d30a9868fdda3e0c0d3708ba32778bbac8ddb044538ce84"
   license all_of: [
     "MIT",
     "Apache-2.0", # include/{EGL,GLES*,vk_video,vulkan}, src/egl/generate/egl.xml, src/mapi/glapi/registry/gl.xml
@@ -21,6 +19,29 @@ class Mesa < Formula
     { "GPL-2.0-only" => { with: "Linux-syscall-note" } }, # include/drm-uapi/{d3dkmthk.h,dma-buf.h,etnaviv_drm.h}
   ]
   head "https://gitlab.freedesktop.org/mesa/mesa.git", branch: "main"
+
+  stable do
+    url "https://archive.mesa3d.org/mesa-25.2.0-rc3.tar.xz"
+    sha256 "822fd601eeed76c964f57fea828d4fd94c5c2ba548528aa1f584d4c8bc67c1cc"
+
+    on_macos do
+      # The following 3 patches are fixing macOS regressions and come from this MR https://gitlab.freedesktop.org/mesa/mesa/-/merge_requests/36495
+      patch do
+        url "https://gitlab.freedesktop.org/mesa/mesa/-/commit/c5ff1088e04eef617f379e554df518908ccfcb9c.diff"
+        sha256 "581521fe4d12965eee7e6c194f6e1af3ff1ca7f20e7ebc0d5895e174ab43cc1f"
+      end
+
+      patch do
+        url "https://gitlab.freedesktop.org/mesa/mesa/-/commit/ea67db08b31afe1af7963e4bb44a62d34da16989.diff"
+        sha256 "7d237e37c4c32a70445dbba4d0076ca3618d216a18f5c343f795a0ca409333cf"
+      end
+
+      patch do
+        url "https://gitlab.freedesktop.org/mesa/mesa/-/commit/b635652941110c9621aff10fa7bc102b32cea637.diff"
+        sha256 "2b76652c697c8274cd4d46bc90a03bc034f85a2635dcd406a155d5acde00ef76"
+      end
+    end
+  end
 
   bottle do
     sha256 arm64_sequoia: "e68026fed60bfe45cc49032020773229711644cf00e624e2a1b81bd7aef1ff72"
@@ -157,10 +178,8 @@ class Mesa < Formula
         -Degl=enabled
         -Dgallium-drivers=auto
         -Dgallium-extra-hud=true
-        -Dgallium-nine=true
         -Dgallium-va=enabled
         -Dgallium-vdpau=enabled
-        -Dgallium-xa=enabled
         -Dgbm=enabled
         -Dgles1=enabled
         -Dgles2=enabled
@@ -169,12 +188,11 @@ class Mesa < Formula
         -Dlmsensors=enabled
         -Dmicrosoft-clc=disabled
         -Dplatforms=x11,wayland
-        -Dshared-glapi=enabled
         -Dtools=drm-shim,dlclose-skip,etnaviv,freedreno,glsl,intel,lima,nir,nouveau,asahi,imagination
         -Dvalgrind=enabled
         -Dvulkan-drivers=auto
         -Dvulkan-layers=device-select,intel-nullhw,overlay,screenshot
-        --force-fallback-for=indexmap,paste,pest_generator,roxmltree,syn
+        --force-fallback-for=indexmap,paste,pest_generator,roxmltree,rustc-hash,syn
       ]
     end
 
