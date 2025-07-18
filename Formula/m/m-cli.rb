@@ -1,8 +1,7 @@
 class MCli < Formula
-  version "2.0.4"
   desc "Swiss Army Knife for macOS"
   homepage "https://github.com/rgcr/m-cli"
-  url "https://github.com/rgcr/m-cli/archive/refs/tags/v#{version}.tar.gz"
+  url "https://github.com/rgcr/m-cli/archive/refs/tags/v2.0.4.tar.gz"
   sha256 "03da227d3627811dcc037c184cf338af2fa4b60461ee7bf10ab94effd38132a0"
   license "MIT"
   head "https://github.com/rgcr/m-cli.git", branch: "main"
@@ -32,9 +31,12 @@ class MCli < Formula
       # Use absolute rather than relative path to plugins.
       s.sub!(/^MCLI_PATH=.+$/, "MCLI_PATH=#{prefix}")
       # Disable options "update" && "uninstall", they must be handled by brew
-      s.sub!(/^\s*update_mcli\s*&&.*/, 'printf "\'m-cli\' was installed by brew, try: brew update && brew upgrade m-cli\n" && exit 0')
-      s.sub!(/^\s*uninstall_mcli\s*&&.*/, 'printf "\'m-cli\' was installed by brew, try: brew uninstall m-cli\n" && exit 0')
-      s.sub!(/^\s*get_version\s*&&.*/, "printf \"m-cli version: v#{version}\\n\" && exit 0")
+      s.sub!(/^\s*update_mcli\s*&&.*/,
+             'printf "\'m-cli\' was installed by brew, try: brew update && brew upgrade m-cli\n" && exit 0')
+      s.sub!(/^\s*uninstall_mcli\s*&&.*/,
+             'printf "\'m-cli\' was installed by brew, try: brew uninstall m-cli\n" && exit 0')
+      s.sub!(/^\s*get_version\s*&&.*/,
+             "printf \"m-cli version: v2.0.4\\n\" && exit 0")
     end
 
     inreplace prefix/"completions/bash/m" do |s|
@@ -49,7 +51,8 @@ class MCli < Formula
 
     inreplace prefix/"completions/fish/m.fish" do |s|
       # Use absolute brew path for fish completion
-      s.gsub!(/^\s*set plugins_dir "\$script_dir\/plugins"$/, "set plugins_dir \"#{prefix}/plugins\"")
+      s.gsub!(/^\s*set plugins_dir "\$script_dir\/plugins"$/,
+              "set plugins_dir \"#{prefix}/plugins\"")
     end
 
     (prefix/"install.sh").unlink if (prefix/"install.sh").exist?
