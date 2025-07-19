@@ -1,10 +1,9 @@
 class Opencoarrays < Formula
   desc "Open-source coarray Fortran ABI, API, and compiler wrapper"
   homepage "http://www.opencoarrays.org"
-  url "https://github.com/sourceryinstitute/OpenCoarrays/releases/download/2.10.2/OpenCoarrays-2.10.2.tar.gz"
-  sha256 "e13f0dc54b966b0113deed7f407514d131990982ad0fe4dea6b986911d26890c"
+  url "https://github.com/sourceryinstitute/OpenCoarrays/archive/refs/tags/2.10.3.tar.gz"
+  sha256 "50c8c2a99fecbd33e6be126d33bb43543d5aa035df9d6e31e323e5398a1029e3"
   license "BSD-3-Clause"
-  revision 5
   head "https://github.com/sourceryinstitute/opencoarrays.git", branch: "main"
 
   no_autobump! because: :requires_manual_review
