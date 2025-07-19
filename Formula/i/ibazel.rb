@@ -1,10 +1,10 @@
 class Ibazel < Formula
   desc "Tools for building Bazel targets when source files change"
   homepage "https://github.com/bazelbuild/bazel-watcher"
-  url "https://github.com/bazelbuild/bazel-watcher/archive/refs/tags/V0.26.4.tar.gz"
-  sha256 "343d0b2d125a34244ff208722b8beb504dd0c97feb9c57107ae6064299a2a9bb"
+  url "https://github.com/bazelbuild/bazel-watcher/archive/refs/tags/v0.26.5.tar.gz"
+  sha256 "bebb299fc32660934dc5db9e7794b58b94e638e486dad4b5b03786875c4ff2f9"
   license "Apache-2.0"
-  head "https://github.com/bazelbuild/bazel-watcher.git", branch: "master"
+  head "https://github.com/bazelbuild/bazel-watcher.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "4290b8456803eb3998aa377f4bd8c141cc5ca7237eb7f28db3f6ee83778ecd7d"
@@ -29,10 +29,8 @@ class Ibazel < Formula
     (testpath/"MODULE.bazel").write <<~STARLARK
       bazel_dep(name = "rules_go", version = "0.55.1")
 
-      # Register the Go SDK extension properly
+      # Register brewed go
       go_sdk = use_extension("@rules_go//go:extensions.bzl", "go_sdk")
-
-      # Register the Go SDK installed on the host.
       go_sdk.host()
     STARLARK
 
