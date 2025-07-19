@@ -27,8 +27,11 @@ class Node < Formula
   depends_on "c-ares"
   depends_on "icu4c@77"
   depends_on "libnghttp2"
+  depends_on "libnghttp3"
+  depends_on "libngtcp2"
   depends_on "libuv"
   depends_on "openssl@3"
+  depends_on "simdjson"
 
   uses_from_macos "python", since: :catalina
   uses_from_macos "zlib"
@@ -79,22 +82,31 @@ class Node < Formula
       --prefix=#{prefix}
       --without-npm
       --with-intl=system-icu
-      --shared-libuv
-      --shared-nghttp2
-      --shared-openssl
-      --shared-zlib
       --shared-brotli
       --shared-cares
-      --shared-libuv-includes=#{Formula["libuv"].include}
-      --shared-libuv-libpath=#{Formula["libuv"].lib}
-      --shared-nghttp2-includes=#{Formula["libnghttp2"].include}
-      --shared-nghttp2-libpath=#{Formula["libnghttp2"].lib}
-      --shared-openssl-includes=#{Formula["openssl@3"].include}
-      --shared-openssl-libpath=#{Formula["openssl@3"].lib}
+      --shared-libuv
+      --shared-nghttp2
+      --shared-nghttp3
+      --shared-ngtcp2
+      --shared-openssl
+      --shared-simdjson
+      --shared-zlib
       --shared-brotli-includes=#{Formula["brotli"].include}
       --shared-brotli-libpath=#{Formula["brotli"].lib}
       --shared-cares-includes=#{Formula["c-ares"].include}
       --shared-cares-libpath=#{Formula["c-ares"].lib}
+      --shared-libuv-includes=#{Formula["libuv"].include}
+      --shared-libuv-libpath=#{Formula["libuv"].lib}
+      --shared-nghttp2-includes=#{Formula["libnghttp2"].include}
+      --shared-nghttp2-libpath=#{Formula["libnghttp2"].lib}
+      --shared-nghttp3-includes=#{Formula["libnghttp3"].include}
+      --shared-nghttp3-libpath=#{Formula["libnghttp3"].lib}
+      --shared-ngtcp2-includes=#{Formula["libngtcp2"].include}
+      --shared-ngtcp2-libpath=#{Formula["libngtcp2"].lib}
+      --shared-openssl-includes=#{Formula["openssl@3"].include}
+      --shared-openssl-libpath=#{Formula["openssl@3"].lib}
+      --shared-simdjson-includes=#{Formula["simdjson"].include}
+      --shared-simdjson-libpath=#{Formula["simdjson"].lib}
       --openssl-use-def-ca-store
     ]
     args << "--tag=head" if build.head?
