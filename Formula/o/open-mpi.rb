@@ -37,6 +37,10 @@ class OpenMpi < Formula
 
   def install
     ENV.runtime_cpu_detection
+    # Force use of Homebrew's default GCC
+    gcc = Formula["gcc"]
+    ENV["CC"]  = gcc.opt_bin/"gcc-#{gcc.version.major}"
+    ENV["CXX"] = gcc.opt_bin/"g++-#{gcc.version.major}"
 
     # Otherwise libmpi_usempi_ignore_tkr gets built as a static library
     ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version if OS.mac?
@@ -50,8 +54,8 @@ class OpenMpi < Formula
       ompi/tools/ompi_info/param.c
       oshmem/tools/oshmem_info/param.c
     ]
-    cxx = OS.linux? ? "g++" : ENV.cxx
-    cc = OS.linux? ? "gcc" : ENV.cc
+    cxx = ENV.cxx
+    cc = ENV.cc
     inreplace inreplace_files, "OMPI_CXX_ABSOLUTE", "\"#{cxx}\""
     inreplace inreplace_files, "OPAL_CC_ABSOLUTE", "\"#{cc}\""
     inreplace "3rd-party/prrte/src/tools/prte_info/param.c", "PRTE_CC_ABSOLUTE", "\"#{cc}\""
@@ -74,6 +78,7 @@ class OpenMpi < Formula
 
     system "./configure", *args, *std_configure_args
     system "make", "all"
+
     system "make", "check"
     system "make", "install"
 
