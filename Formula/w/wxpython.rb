@@ -21,7 +21,7 @@ class Wxpython < Formula
   depends_on "numpy"
   depends_on "pillow"
   depends_on "python@3.13"
-  depends_on "wxwidgets"
+  depends_on "wxwidgets@3.2"
 
   on_linux do
     depends_on "pkgconf" => :build

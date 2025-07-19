@@ -4,6 +4,7 @@ class Iccmax < Formula
   url "https://github.com/InternationalColorConsortium/DemoIccMAX/archive/refs/tags/v2.2.6.tar.gz"
   sha256 "dcb66f84016f6abe6033e71e2206e662b40e581dce9d208c9c7d60515f185dfe"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "848ee717590c4281070e64950f3bb50448876eb5eb9e0befa3281e551d796c59"
