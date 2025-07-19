@@ -29,6 +29,8 @@ class Tfenv < Formula
 
   def install
     prefix.install %w[bin lib libexec share]
+    bin.env_script_all_files prefix/"realbin",
+                             TFENV_CONFIG_DIR: "${TFENV_CONFIG_DIR:-${XDG_CONFIG_HOME:-${HOME}/.config}/tfenv}"
   end
 
   test do
