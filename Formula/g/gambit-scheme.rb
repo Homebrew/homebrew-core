@@ -1,8 +1,8 @@
 class GambitScheme < Formula
   desc "Implementation of the Scheme Language"
   homepage "https://gambitscheme.org/"
-  url "https://github.com/gambit/gambit/archive/refs/tags/v4.9.5.tar.gz"
-  sha256 "758da7b4afe6411e9c4fed14b0cc5ada39b5f1393c1edd4d3dd9c9a06127c310"
+  url "https://github.com/gambit/gambit/archive/refs/tags/v4.9.7.tar.gz"
+  sha256 "0da7c9772a2186dab1fba6bf6c777afe7424f40beacadf1b117d5cc825fe2db3"
   license "Apache-2.0"
 
   livecheck do
@@ -32,6 +32,7 @@ class GambitScheme < Formula
     depends_on "gcc"
   end
 
+  conflicts_with "gerbil-scheme", because: "both install `gsc` binary"
   conflicts_with "ghostscript", because: "both install `gsc` binary"
   conflicts_with "scheme48", because: "both install `scheme-r5rs` binaries"
 
