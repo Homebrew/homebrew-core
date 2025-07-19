@@ -37,6 +37,8 @@ class Curl < Formula
   depends_on "pkgconf" => [:build, :test]
   depends_on "brotli"
   depends_on "libnghttp2"
+  depends_on "libnghttp3"
+  depends_on "libngtcp2"
   depends_on "libssh2"
   depends_on "openssl@3"
   depends_on "rtmpdump"
@@ -68,10 +70,11 @@ class Curl < Formula
       --without-ca-bundle
       --without-ca-path
       --with-ca-fallback
-      --with-secure-transport
       --with-default-ssl-backend=openssl
       --with-librtmp
       --with-libssh2
+      --with-nghttp3
+      --with-ngtcp2
       --without-libpsl
       --with-zsh-functions-dir=#{zsh_completion}
       --with-fish-functions-dir=#{fish_completion}
@@ -108,9 +111,12 @@ class Curl < Formula
     system bin/"curl", "-L", stable.url, "-o", filename
     filename.verify_checksum stable.checksum
 
+    # Verify QUIC and HTTP3 support
+    system bin/"curl", "--verbose", "--http3-only", "--head", "https://cloudflare-quic.com"
+
     # Check dependencies linked correctly
     curl_features = shell_output("#{bin}/curl-config --features").split("\n")
-    %w[brotli GSS-API HTTP2 IDN libz SSL zstd].each do |feature|
+    %w[brotli GSS-API HTTP2 HTTP3 IDN libz SSL zstd].each do |feature|
       assert_includes curl_features, feature
     end
     curl_protocols = shell_output("#{bin}/curl-config --protocols").split("\n")
