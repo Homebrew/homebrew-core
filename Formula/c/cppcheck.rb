@@ -1,10 +1,9 @@
 class Cppcheck < Formula
   desc "Static analysis of C and C++ code"
   homepage "https://sourceforge.net/projects/cppcheck/"
-  url "https://github.com/danmar/cppcheck/archive/refs/tags/2.17.1.tar.gz"
-  sha256 "bfd681868248ec03855ca7c2aea7bcb1f39b8b18860d76aec805a92a967b966c"
+  url "https://github.com/danmar/cppcheck/archive/refs/tags/2.18.0.tar.gz"
+  sha256 "dc74e300ac59f2ef9f9c05c21d48ae4c8dd1ce17f08914dd30c738ff482e748f"
   license "GPL-3.0-or-later"
-  revision 2
   head "https://github.com/danmar/cppcheck.git", branch: "main"
 
   # There can be a notable gap between when a version is tagged and a
