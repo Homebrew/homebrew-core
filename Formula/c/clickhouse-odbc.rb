@@ -2,10 +2,9 @@ class ClickhouseOdbc < Formula
   desc "Official ODBC driver implementation for accessing ClickHouse as a data source"
   homepage "https://github.com/ClickHouse/clickhouse-odbc"
   # Git modules are all for bundled libraries so can use tarball without them
-  url "https://github.com/ClickHouse/clickhouse-odbc/archive/refs/tags/v1.2.1.20220905.tar.gz"
-  sha256 "ca8666cbc7af9e5d4670cd05c9515152c34543e4f45e2bc8fa94bee90d724f1b"
+  url "https://github.com/ClickHouse/clickhouse-odbc/archive/refs/tags/1.4.2.20250618.tar.gz"
+  sha256 "9259eea26b4894dd139eb233781f9343f565ce6ebf5e8271948eb39f9fef1dcc"
   license "Apache-2.0"
-  revision 9
   head "https://github.com/ClickHouse/clickhouse-odbc.git", branch: "master"
 
   livecheck do
@@ -26,44 +25,31 @@ class ClickhouseOdbc < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "folly" => :build
   depends_on "pkgconf" => :build
   depends_on "icu4c@77"
   depends_on "openssl@3"
   depends_on "poco"
+  depends_on "unixodbc"
+  depends_on "unixodbc"
   depends_on "utf8proc"
 
   on_macos do
-    depends_on "libiodbc"
     depends_on "pcre2"
-  end
-
-  on_linux do
-    depends_on "unixodbc"
-  end
-
-  # build patch for utf8proc, no needed for newer version, as folly got removed per https://github.com/ClickHouse/clickhouse-odbc/pull/456
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/c76519fcbfa664cd37a8901deb76403b1af1bec1/clickhouse-odbc/1.2.1.20220905-Utf8Proc.patch"
-    sha256 "29f3aeaa05609d53b942903868cb52ddcfcb3b35d32e8075d152cd2ca0ff5242"
   end
 
   def install
     # Remove bundled libraries
-    %w[folly googletest nanodbc poco ssl].each { |l| rm_r(buildpath/"contrib"/l) }
+    %w[folly googletest nanodbc poco openssl].each { |l| rm_r(buildpath/"contrib"/l) }
 
     icu4c_dep = deps.find { |dep| dep.name.match?(/^icu4c(@\d+)?$/) }
     args = %W[
       -DCH_ODBC_PREFER_BUNDLED_THIRD_PARTIES=OFF
       -DCH_ODBC_THIRD_PARTY_LINK_STATIC=OFF
       -DICU_ROOT=#{icu4c_dep.to_formula.opt_prefix}
+      -DODBC_PROVIDER=UnixODBC
+      -DODBC_DIR=#{Formula["unixodbc"].opt_prefix}
       -DOPENSSL_ROOT_DIR=#{Formula["openssl@3"].opt_prefix}
     ]
-    args += if OS.mac?
-      ["-DODBC_PROVIDER=iODBC", "-DODBC_DIR=#{Formula["libiodbc"].opt_prefix}"]
-    else
-      ["-DODBC_PROVIDER=UnixODBC", "-DODBC_DIR=#{Formula["unixodbc"].opt_prefix}"]
-    end
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
