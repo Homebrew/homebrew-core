@@ -40,7 +40,7 @@ class LlamaCpp < Formula
     args = %W[
       -DBUILD_SHARED_LIBS=ON
       -DCMAKE_INSTALL_RPATH=#{rpath}
-      -DGGML_ACCELLERATE=#{OS.mac? ? "ON" : "OFF"}
+      -DGGML_ACCELERATE=#{OS.mac? ? "ON" : "OFF"}
       -DGGML_ALL_WARNINGS=OFF
       -DGGML_BLAS=ON
       -DGGML_BLAS_VENDOR=#{OS.mac? ? "Apple" : "OpenBLAS"}
