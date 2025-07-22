@@ -5,6 +5,7 @@ class OathToolkit < Formula
   mirror "https://fossies.org/linux/privat/oath-toolkit-2.6.12.tar.gz"
   sha256 "cafdf739b1ec4b276441c6aedae6411434bbd870071f66154b909cc6e2d9e8ba"
   license all_of: ["GPL-3.0-or-later", "LGPL-2.1-or-later"]
+  revision 1
 
   livecheck do
     url "https://download.savannah.gnu.org/releases/oath-toolkit/"
