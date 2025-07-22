@@ -1,8 +1,8 @@
 class SentryCli < Formula
   desc "Command-line utility to interact with Sentry"
   homepage "https://docs.sentry.io/cli/"
-  url "https://github.com/getsentry/sentry-cli/archive/refs/tags/2.50.0.tar.gz"
-  sha256 "f04e09990a18bae8c737fe48a03f05c047e2eb6b9f6423c16507684c4a78fb7d"
+  url "https://github.com/getsentry/sentry-cli/archive/refs/tags/2.50.1.tar.gz"
+  sha256 "1f08454212cda3bfd71a51c06371c9c8b2a09aa862b553fa94ed0ca8d840ed9c"
   license "BSD-3-Clause"
   head "https://github.com/getsentry/sentry-cli.git", branch: "master"
 
@@ -31,6 +31,7 @@ class SentryCli < Formula
   end
 
   def install
+    ENV["SWIFT_DISABLE_SANDBOX"] = "1"
     system "cargo", "install", *std_cargo_args
 
     generate_completions_from_executable(bin/"sentry-cli", "completions")
