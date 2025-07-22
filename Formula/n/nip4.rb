@@ -4,6 +4,7 @@ class Nip4 < Formula
   url "https://github.com/jcupitt/nip4/releases/download/v9.0.11/nip4-9.0.11.tar.xz"
   sha256 "6a4ea40987fbb79fe21207c0945114214d235995ed80d50ac54b479eaf0959e9"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/jcupitt/nip4.git", branch: "main"
 
   bottle do
