@@ -1,10 +1,10 @@
 cask "supercorners" do
-  version "1.2.0"
-  sha256 "272bbd46754497813f3eeb905ef3d257dee033f6d53098b4d1ceab9b9b8bab1c"
+  version "1.3.0"
+  sha256 "06221f6c8a78cdad24abff9183cc4485c2e5d7853df65ddd4a7d0c6c3b1d0f79"
 
   url "https://github.com/daniyalmaster693/SuperCorners/releases/download/#{version}/SuperCorners.zip"
   name "SuperCorners"
-  desc "Make Your Mac's Corners Useful Again"
+  desc "Supercharge your Mac's Corners"
   homepage "https://github.com/daniyalmaster693/SuperCorners"
 
   livecheck do
