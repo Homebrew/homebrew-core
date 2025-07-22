@@ -14,8 +14,6 @@ class Nexus < Formula
     regex(/^(?:release[._-])?v?(\d+(?:[.-]\d+)+)$/i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "c8a3fd80c8008fd25205fb318ee06ae801a7d74d969b1d6f06bf5e7c2fb62b4c"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "41d2feb6e85f4df82192cf62afdb21e93bf5ea79b8fc163f9d297d4a440f8c39"
@@ -29,7 +27,7 @@ class Nexus < Formula
   depends_on "maven" => :build
   depends_on "node" => :build
   depends_on "yarn" => :build
-  depends_on "openjdk@17"
+  depends_on "openjdk@21"
 
   uses_from_macos "unzip" => :build
 
@@ -44,7 +42,7 @@ class Nexus < Formula
               '"@sonatype/nexus-ui-plugin": "workspace:*"',
               '"@sonatype/nexus-ui-plugin": "*"'
 
-    java_version = "17"
+    java_version = "21"
     ENV["JAVA_HOME"] = Language::Java.java_home(java_version)
     java_env = Language::Java.overridable_java_home_env(java_version)
     java_env.merge!(KARAF_DATA: "${NEXUS_KARAF_DATA:-#{var}/nexus}",
