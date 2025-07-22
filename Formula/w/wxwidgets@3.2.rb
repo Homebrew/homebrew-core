@@ -11,13 +11,14 @@ class WxwidgetsAT32 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "ec45e3e5e02d16a6537e0f33418d2e8ad40dbd0b1d20525e29fc1a5f2bdd4f48"
-    sha256 cellar: :any,                 arm64_sonoma:  "3c2b1903ba956493d1b5a9a7a9f79ebbf8968170ee8640b5436d654a9d8a06f2"
-    sha256 cellar: :any,                 arm64_ventura: "ebb596139692e2e9c6047b3ba1268a602edff349ee4c4ff923e6a594c0b17cb5"
-    sha256 cellar: :any,                 sonoma:        "72f5dce2843bcb25beec6ebf4d8e55b9325015b9e8c702083cfcdf684981da9b"
-    sha256 cellar: :any,                 ventura:       "0d09b38a290cf6798efbd00f82ed1b513b8db600c02047bd264d2cc01d5b49de"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "83fe2c541bbf30248e0bf59b63c46f4a2e2330fc41e048a9cfe57cb5faf8fc52"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f6b195d22757c5f52750e8a891e489570340749c0d5c9206292e4ab1ae1e2eb5"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "c11bad8fce2b1b905e6b9e9dd67738f4576931725e5b15a35efea59f6134cd82"
+    sha256 cellar: :any,                 arm64_sonoma:  "df003b80251db48b7a37f47c36fae426ebdbdaf167709eea66cf77b497a14739"
+    sha256 cellar: :any,                 arm64_ventura: "bef52303b87c67ce3dc08b5f4493f31e0b00137df6f9bacf8bbd952d37ee6915"
+    sha256 cellar: :any,                 sonoma:        "8fc6ebee377f04e35bf3f31b1c03fe7560d5044ad600e85a1250a3c293c5b67a"
+    sha256 cellar: :any,                 ventura:       "e9c85776e9917d705f8cd0d6eae928baca1afcf9c603b9b8ab5ce1dd049952c5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "010072339b9063e6a92be9001c330606dfe520e9671a7c9f4dba0582532241b3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "be9ecb99906f780193393b15622fb1fe5d13b941dbbfe4676d0a8a7750d9957a"
   end
 
   depends_on "pkgconf" => :build
@@ -79,10 +80,6 @@ class WxwidgetsAT32 < Formula
       args << "--with-macosx-version-min=#{MacOS.version}"
       args << "--with-osx_cocoa"
       args << "--with-libiconv"
-
-      # Work around deprecated Carbon API, see
-      # https://github.com/wxWidgets/wxWidgets/issues/24724
-      inreplace "src/osx/carbon/dcscreen.cpp", "#if !wxOSX_USE_IPHONE", "#if 0" if MacOS.version >= :sequoia
     end
 
     system "./configure", *args, *std_configure_args

@@ -1,8 +1,8 @@
 class Scw < Formula
   desc "Command-line Interface for Scaleway"
   homepage "https://www.scaleway.com/en/cli/"
-  url "https://github.com/scaleway/scaleway-cli/archive/refs/tags/v2.41.0.tar.gz"
-  sha256 "ba056eacd5a012a55789421d0d7579ee002ae298ca9a04a1d9a88eefb0d13ae7"
+  url "https://github.com/scaleway/scaleway-cli/archive/refs/tags/v2.42.0.tar.gz"
+  sha256 "40cafbdedc8b956a4b7da331bae7c6ec26f891a40e789348d36bcddea9c88ee3"
   license "Apache-2.0"
 
   livecheck do
@@ -11,12 +11,12 @@ class Scw < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3c15047638fd6749cc5e8d963ed170df70012251fedda3f45f0fc8d7fcab2170"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3c15047638fd6749cc5e8d963ed170df70012251fedda3f45f0fc8d7fcab2170"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "3c15047638fd6749cc5e8d963ed170df70012251fedda3f45f0fc8d7fcab2170"
-    sha256 cellar: :any_skip_relocation, sonoma:        "99b7cc0a2ded7fa8a0d9eaf996e8c9bbdabc3beddfb14b7d4658315eef06b702"
-    sha256 cellar: :any_skip_relocation, ventura:       "99b7cc0a2ded7fa8a0d9eaf996e8c9bbdabc3beddfb14b7d4658315eef06b702"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1cb18f1190ab194a51b6c57790844e6dc81ac621bee4e24fd11c4b0c358c052c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6dc79e30247d27ba01f9e05df2eb24e87b0b5d912e90fc5fb5c99dc4291dc937"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6dc79e30247d27ba01f9e05df2eb24e87b0b5d912e90fc5fb5c99dc4291dc937"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "6dc79e30247d27ba01f9e05df2eb24e87b0b5d912e90fc5fb5c99dc4291dc937"
+    sha256 cellar: :any_skip_relocation, sonoma:        "83199586064565fe25826b78a51a017516fdc58d00c295bd5b20d10b65b73c57"
+    sha256 cellar: :any_skip_relocation, ventura:       "83199586064565fe25826b78a51a017516fdc58d00c295bd5b20d10b65b73c57"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "43d401dab22332e8e8aee3559b9c8615aab80bf726f1bfb43dbd7f5b3a61935c"
   end
 
   depends_on "go" => :build
