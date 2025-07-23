@@ -3,8 +3,8 @@ class MysqlAT80 < Formula
   # FIXME: Actual homepage fails audit due to Homebrew's user-agent
   # homepage "https://dev.mysql.com/doc/refman/8.0/en/"
   homepage "https://github.com/mysql/mysql-server"
-  url "https://cdn.mysql.com/Downloads/MySQL-8.0/mysql-boost-8.0.42.tar.gz"
-  sha256 "c2aa67c618edfa1bc379107fe819ca8e94cba5d85f156d1053b8fedc88cc5f8f"
+  url "https://cdn.mysql.com/Downloads/MySQL-8.0/mysql-boost-8.0.43.tar.gz"
+  sha256 "85fd5c3ac88884dc5ac4522ce54ad9c11a91f9396fecaa27152c757a3e6e936f"
   license "GPL-2.0-only" => { with: "Universal-FOSS-exception-1.0" }
 
   livecheck do
@@ -103,6 +103,8 @@ class MysqlAT80 < Formula
 
     cd prefix/"mysql-test" do
       system "./mysql-test-run.pl", "status", "--vardir=#{buildpath}/mysql-test-vardir"
+    ensure
+      logs.install buildpath/"mysql-test-vardir/log/main.status/status.log"
     end
 
     # Remove the tests directory
