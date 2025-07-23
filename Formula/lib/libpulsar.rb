@@ -5,7 +5,7 @@ class Libpulsar < Formula
   mirror "https://archive.apache.org/dist/pulsar/pulsar-client-cpp-3.7.0/apache-pulsar-client-cpp-3.7.0.tar.gz"
   sha256 "3223cfeda484ab7b580f4a8768b5a85739cc064005c765c06cde67c3238639c9"
   license "Apache-2.0"
-  revision 2
+  revision 3
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "17409dae5bc4dfeae755a2e7ebc4d0e255a56f12f6c8d658a8f631cdbfe35bec"
@@ -17,7 +17,6 @@ class Libpulsar < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "2438a72ed70e421eae87a6e3fa2c4db58d3f4e7ec8b1bce6893421546c533d95"
   end
 
-  depends_on "asio" => :build # FIXME: Not compatible with Boost.Asio 1.87+
   depends_on "boost" => :build
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
@@ -32,11 +31,12 @@ class Libpulsar < Formula
   uses_from_macos "zlib"
 
   def install
+    # TODO: reenable asio after fixing https://github.com/Homebrew/homebrew-core/pull/211365#issuecomment-3106909521
     args = %W[
       -DBUILD_TESTS=OFF
       -DCMAKE_CXX_STANDARD=17
       -DOPENSSL_ROOT_DIR=#{Formula["openssl@3"].opt_prefix}
-      -DUSE_ASIO=ON
+      -DUSE_ASIO=OFF
     ]
 
     system "cmake", "-S", ".", "build", *args, *std_cmake_args
