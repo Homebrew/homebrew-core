@@ -101,6 +101,9 @@ class Pytorch < Formula
     # Avoid building AVX512 code
     inreplace "cmake/Modules/FindAVX.cmake", /^CHECK_SSE\(CXX "AVX512"/, "#\\0"
 
+    # avoid checking out disabled submodules
+    inreplace "tools/build_pytorch_libs.py", "  checkout_nccl()", ""
+
     ENV["ATEN_NO_TEST"] = "ON"
     ENV["BLAS"] = "OpenBLAS"
     ENV["BUILD_CUSTOM_PROTOBUF"] = "OFF"
