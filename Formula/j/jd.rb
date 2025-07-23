@@ -18,6 +18,7 @@ class Jd < Formula
   depends_on "go" => :build
 
   def install
+    Dir.chdir('v2/jd')
     system "go", "build", *std_go_args(ldflags: "-s -w")
   end
 
