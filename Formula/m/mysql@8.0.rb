@@ -95,6 +95,7 @@ class MysqlAT80 < Formula
       -DWITH_ZSTD=system
       -DWITH_UNIT_TESTS=OFF
       -DWITH_INNODB_MEMCACHED=ON
+      -DWITH_DEBUG=ON
     ]
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
@@ -102,7 +103,7 @@ class MysqlAT80 < Formula
     system "cmake", "--install", "build"
 
     cd prefix/"mysql-test" do
-      system "./mysql-test-run.pl", "status", "--vardir=#{buildpath}/mysql-test-vardir"
+      system "./mysql-test-run.pl", "status", "--debug", "--vardir=#{buildpath}/mysql-test-vardir"
     ensure
       logs.install buildpath/"mysql-test-vardir/log/main.status/status.log"
     end
