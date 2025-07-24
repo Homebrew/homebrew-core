@@ -159,6 +159,39 @@ class Pidgin < Formula
 
   def post_install
     system Formula["glib"].opt_bin/"glib-compile-schemas", HOMEBREW_PREFIX/"share/glib-2.0/schemas" if build.head?
+
+    # Create an App to display in Launchpad
+    if OS.mac?
+      Dir.mkdir "#{HOMEBREW_PREFIX}/Cellar/pidgin/2.14.14/Pidgin.app"
+      Dir.mkdir "#{HOMEBREW_PREFIX}/Cellar/pidgin/2.14.14/Pidgin.app/Contents"
+      Dir.mkdir "#{HOMEBREW_PREFIX}/Cellar/pidgin/2.14.14/Pidgin.app/Contents/MacOS"
+      Dir.mkdir "#{HOMEBREW_PREFIX}/Cellar/pidgin/2.14.14/Pidgin.app/Contents/Resources"
+      File.open("#{HOMEBREW_PREFIX}/Cellar/pidgin/2.14.14/Pidgin.app/Contents/MacOS/Pidgin", "w") do |file|
+        file.puts "#!/bin/bash"
+        file.puts "#{HOMEBREW_PREFIX}/bin/pidgin"
+      end
+      File.open("#{HOMEBREW_PREFIX}/Cellar/pidgin/2.14.14/Pidgin.app/Contents/Info.plist", "w") do |file|
+        file.puts '<?xml version="1.0" encoding="UTF-8" standalone="no"?><plist version="1.0">'
+        file.puts "  <dict>"
+        file.puts "    <key>CFBundleExecutable</key>"
+        file.puts "    <string>Pidgin</string>"
+        file.puts "    <key>CFBundleIconFile</key>"
+        file.puts "    <string>icon.icns</string>"
+        file.puts "  </dict>"
+        file.puts "</plist>"
+      end
+      cp "#{HOMEBREW_PREFIX}/Cellar/pidgin/2.14.14/share/icons/hicolor/48x48/apps/pidgin.png",
+        "#{HOMEBREW_PREFIX}/Cellar/pidgin/2.14.14/Pidgin.app/Contents/Resources/icon.icns"
+      chmod "a+x", "#{HOMEBREW_PREFIX}/Cellar/pidgin/2.14.14/Pidgin.app/Contents/MacOS/Pidgin"
+    end
+  end
+
+  def caveats
+    <<~EOS
+      On MacOS, if you want Pidgin to appear in Launchpad run
+      `ln -s "#{HOMEBREW_PREFIX}/Cellar/pidgin/2.14.14/Pidgin.app" "/Applications/Pidgin.app"`
+      Root privileges may be required.
+    EOS
   end
 
   test do
