@@ -45,7 +45,7 @@ class Vte3 < Formula
   end
 
   on_ventura :or_older do
-    depends_on "llvm" => :build
+    depends_on "llvm"
 
     fails_with :clang do
       cause "error: 'to_chars' is unavailable: introduced in macOS 13.3"
@@ -63,10 +63,22 @@ class Vte3 < Formula
   end
 
   # submitted upstream as https://gitlab.gnome.org/tschoonj/vte/merge_requests/1
+  # suggested fix for GtkDoc issue https://gitlab.gnome.org/GNOME/vte/-/issues/2879#note_2439689
   patch :DATA
 
   def install
-    ENV.llvm_clang if OS.mac? && MacOS.version <= :ventura
+    if OS.mac? && MacOS.version <= :ventura
+      ENV.llvm_clang
+      ENV.append "LDFLAGS", "-L#{Formula["llvm"].opt_lib}/unwind -lunwind"
+      # Work around failure mixing newer `llvm` headers with older Xcode's libc++:
+      # Undefined symbols for architecture x86_64:
+      #   "std::__1::to_chars(char*, char*, double, std::__1::chars_format)", referenced from:
+      #       vte::terminal::unparse_termprop_value(vte::terminal::TermpropType, ...) in termprops-test.cc.o
+      #       void assert_termprop_parse_value<double>(vte::terminal::TermpropType, ...) in termprops-test.cc.o
+      # When using Homebrew's superenv shims, we need to use HOMEBREW_LIBRARY_PATHS
+      # rather than LDFLAGS for libc++ in order to correctly link to LLVM's libc++.
+      ENV.prepend_path "HOMEBREW_LIBRARY_PATHS", "#{Formula["llvm"].opt_lib}/c++"
+    end
 
     ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
 
@@ -82,6 +94,9 @@ class Vte3 < Formula
   end
 
   test do
+    # Make sure <= Ventura does not have `CC=llvm_clang`.
+    ENV.clang if OS.mac?
+
     (testpath/"test.c").write <<~C
       #include <vte/vte.h>
 
@@ -102,10 +117,10 @@ end
 
 __END__
 diff --git a/meson.build b/meson.build
-index e2200a75..df98872f 100644
+index cf87706..b698956 100644
 --- a/meson.build
 +++ b/meson.build
-@@ -78,6 +78,8 @@ lt_age = vte_minor_version * 100 + vte_micro_version - lt_revision
+@@ -88,6 +88,8 @@ lt_age = vte_minor_version * 100 + vte_micro_version - lt_revision
  lt_current = vte_major_version + lt_age
 
  libvte_gtk3_soversion = '@0@.@1@.@2@'.format(libvte_soversion, lt_current, lt_revision)
@@ -115,10 +130,10 @@ index e2200a75..df98872f 100644
 
  # i18n
 diff --git a/src/meson.build b/src/meson.build
-index 79d4a702..0495dea8 100644
+index bae7eca..4d75213 100644
 --- a/src/meson.build
 +++ b/src/meson.build
-@@ -224,6 +224,7 @@ if get_option('gtk3')
+@@ -373,6 +373,7 @@ if get_option('gtk3')
      vte_gtk3_api_name,
      sources: libvte_gtk3_sources,
      version: libvte_gtk3_soversion,
@@ -126,3 +141,17 @@ index 79d4a702..0495dea8 100644
      include_directories: incs,
      dependencies: libvte_gtk3_deps,
      cpp_args: libvte_gtk3_cppflags,
+diff --git a/src/vtegtk.cc b/src/vtegtk.cc
+index dd3b17c..6a7dfaa 100644
+--- a/src/vtegtk.cc
++++ b/src/vtegtk.cc
+@@ -3077,7 +3077,8 @@ vte_terminal_class_init(VteTerminalClass *klass)
+ /* public API */
+
+ /**
+- * SECTION: Terminal properties
++ * SECTION: TerminalProperties
++ * @title: Terminal properties
+  * @short_description:
+  *
+  * A terminal property ("termprop") is a variable in #VteTerminal.  It can be
