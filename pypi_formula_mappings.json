@@ -445,6 +445,10 @@
   "hatch": {
     "exclude_packages": ["certifi", "cryptography", "uv"]
   },
+  "hf": {
+    "package_name": "huggingface_hub[cli]",
+    "exclude_packages": ["certifi"]
+  },
   "howdoi": {
     "exclude_packages": ["certifi", "cryptography"]
   },
@@ -453,10 +457,6 @@
   },
   "httpie": {
     "package_name": "httpie",
-    "exclude_packages": ["certifi"]
-  },
-  "huggingface-cli": {
-    "package_name": "huggingface_hub[cli]",
     "exclude_packages": ["certifi"]
   },
   "icloudpd": {
