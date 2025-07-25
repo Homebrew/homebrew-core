@@ -1,8 +1,8 @@
 class Teleport < Formula
   desc "Modern SSH server for teams managing distributed infrastructure"
   homepage "https://goteleport.com/"
-  url "https://github.com/gravitational/teleport/archive/refs/tags/v18.0.0.tar.gz"
-  sha256 "1d88debdf5ed0387bf8a3793001d81165fe999c00e60b74d7dac439b5717574a"
+  url "https://github.com/gravitational/teleport/archive/refs/tags/v18.1.0.tar.gz"
+  sha256 "14b9cb7ab386ede24e5448c73c758ba293c45f2071cb8a53e72a8f572ba75f7a"
   license all_of: ["AGPL-3.0-or-later", "Apache-2.0"]
   head "https://github.com/gravitational/teleport.git", branch: "master"
 
@@ -28,6 +28,7 @@ class Teleport < Formula
   end
 
   depends_on "go" => :build
+  depends_on "node@22" => :build
   depends_on "pkgconf" => :build
   depends_on "pnpm" => :build
   depends_on "rust" => :build
@@ -35,7 +36,6 @@ class Teleport < Formula
   depends_on "rustup" => :build
   depends_on "wasm-pack" => :build
   depends_on "libfido2"
-  depends_on "node"
   depends_on "openssl@3"
 
   uses_from_macos "zip"
