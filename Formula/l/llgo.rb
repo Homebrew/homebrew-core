@@ -1,10 +1,10 @@
 class Llgo < Formula
   desc "Go compiler based on LLVM integrate with the C ecosystem and Python"
-  homepage "https://github.com/goplus/llgo"
-  url "https://github.com/goplus/llgo/archive/refs/tags/v0.11.5.tar.gz"
-  sha256 "e025993d12c1f5e49e5b8dcb31c0e8b349efe56970d1a23d6c089ebd10928c6b"
+  homepage "https://github.com/luoliwoshang/llgo"
+  url "https://github.com/luoliwoshang/llgo/archive/refs/tags/v0.12.3.tar.gz"
+  sha256 "128d945d351f0998d447c8610f0866d84be3ff25e9bab13a0af4b3dd0aabbcab"
   license "Apache-2.0"
-  head "https://github.com/goplus/llgo.git", branch: "main"
+  head "https://github.com/luoliwoshang/llgo.git", branch: "internal/build/rpath"
 
   livecheck do
     url :stable
@@ -29,10 +29,6 @@ class Llgo < Formula
   depends_on "openssl@3"
   depends_on "pkgconf"
   uses_from_macos "zlib"
-
-  on_linux do
-    depends_on "libunwind"
-  end
 
   def find_dep(name)
     deps.map(&:to_formula).find { |f| f.name.match?(/^#{name}(@\d+)?$/) }
@@ -66,9 +62,8 @@ class Llgo < Formula
     script_env = { PATH: "#{path_deps.join(":")}:$PATH" }
 
     if OS.linux?
-      libunwind = find_dep("libunwind")
-      script_env[:CFLAGS] = "-I#{libunwind.opt_include} $CFLAGS"
-      script_env[:LDFLAGS] = "-L#{libunwind.opt_lib} -rpath #{libunwind.opt_lib} $LDFLAGS"
+      script_env[:CFLAGS] = "-I#{llvm.opt_include} $CFLAGS"
+      script_env[:LDFLAGS] = "-L#{llvm.opt_lib} -rpath #{llvm.opt_lib} $LDFLAGS"
     end
 
     (libexec/"bin").children.each do |f|
@@ -96,6 +91,7 @@ class Llgo < Formula
           "fmt"
 
           "github.com/goplus/lib/c"
+          "github.com/goplus/lib/cpp/std"
       )
 
       func Foo() string {
@@ -105,6 +101,7 @@ class Llgo < Formula
       func main() {
         fmt.Println("Hello LLGO by fmt.Println")
         c.Printf(c.Str("Hello LLGO by c.Printf\\n"))
+        c.Printf(std.Str("Hello LLGO by cpp/std.Str\\n").CStr())
       }
     GO
     (testpath/"hello_test.go").write <<~GO
@@ -126,12 +123,14 @@ class Llgo < Formula
     system "go", "get", "github.com/goplus/lib"
     # Test llgo run
     assert_equal "Hello LLGO by fmt.Println\n" \
-                 "Hello LLGO by c.Printf\n",
+                 "Hello LLGO by c.Printf\n" \
+                 "Hello LLGO by cpp/std.Str\n",
                  shell_output("#{bin}/llgo run .")
     # Test llgo build
     system bin/"llgo", "build", "-o", "hello", "."
     assert_equal "Hello LLGO by fmt.Println\n" \
-                 "Hello LLGO by c.Printf\n",
+                 "Hello LLGO by c.Printf\n" \
+                 "Hello LLGO by cpp/std.Str\n",
                  shell_output("./hello")
     # Test llgo test
     assert_match "PASS", shell_output("#{bin}/llgo test .")
