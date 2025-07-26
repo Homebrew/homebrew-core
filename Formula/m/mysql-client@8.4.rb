@@ -3,15 +3,15 @@ class MysqlClientAT84 < Formula
   # FIXME: Actual homepage fails audit due to Homebrew's user-agent
   # homepage "https://dev.mysql.com/doc/refman/8.4/en/"
   homepage "https://github.com/mysql/mysql-server"
-  url "https://cdn.mysql.com/Downloads/MySQL-8.4/mysql-8.4.5.tar.gz"
-  sha256 "53639592a720a719fdfadf2c921b947eac86c06e333202e47667852a5781bd1a"
+  url "https://cdn.mysql.com/Downloads/MySQL-8.4/mysql-8.4.6.tar.gz"
+  sha256 "a1e523dc8be96d18a5ade106998661285ca01b6f5b46c08b2654110e40df2fb7"
   license "GPL-2.0-only" => { with: "Universal-FOSS-exception-1.0" }
 
   livecheck do
     formula "mysql@8.4"
   end
 
-  no_autobump! because: :requires_manual_review
+  no_autobump! because: :incompatible_version_format
 
   bottle do
     rebuild 1
