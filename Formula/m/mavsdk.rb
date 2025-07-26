@@ -2,10 +2,9 @@ class Mavsdk < Formula
   desc "API and library for MAVLink compatible systems written in C++17"
   homepage "https://mavsdk.mavlink.io"
   url "https://github.com/mavlink/MAVSDK.git",
-      tag:      "v3.7.2",
-      revision: "faf36edc6fda478a2c013698c78a42dfc663ef23"
+      tag:      "v3.8.1",
+      revision: "f5d517ef3d34fd0f7e5b2f791160f5aa5f3b60e7"
   license "BSD-3-Clause"
-  revision 1
 
   livecheck do
     url :stable
@@ -57,6 +56,23 @@ class Mavsdk < Formula
         revision: "5e3a42b8f3f53038f2779f9f69bd64767b913bb8"
   end
 
+  # ver={version} && \
+  # curl -s https://raw.githubusercontent.com/mavlink/MAVSDK/v$ver/third_party/picosha2/CMakeLists.txt \
+  # | grep -A 2 GIT_REPOSITORY
+  resource "picosha2" do
+    url "https://github.com/julianoes/PicoSHA2.git",
+        branch:   "cmake-install-support",
+        revision: "1bf940d8a03bb752604fbb366d47b97b50b9e6ce"
+  end
+
+  # ver={version} && \
+  # curl -s https://raw.githubusercontent.com/mavlink/MAVSDK/v$ver/third_party/libmavlike/CMakeLists.txt \
+  # | grep -A 2 GIT_REPOSITORY
+  resource "libmavlike" do
+    url "https://github.com/julianoes/libmavlike.git",
+        revision: "ccc3addc341ae907de7a2937ebf51c6ff2cd30fa"
+  end
+
   def install
     ENV.llvm_clang if OS.mac? && (DevelopmentTools.clang_build_version <= 1100)
 
@@ -70,6 +86,24 @@ class Mavsdk < Formula
       system "cmake", "-S", ".", "-B", "build",
                       "-DPython_EXECUTABLE=#{which("python3.13")}",
                       *std_cmake_args(install_prefix: libexec)
+      system "cmake", "--build", "build"
+      system "cmake", "--install", "build"
+      # TEST
+      (libexec/"include/mavlink/message_definitions/v1.0/").install Dir["message_definitions/v1.0/*"]
+    end
+
+    resource("picosha2").stage do
+      system "cmake", "-S", ".", "-B", "build", *std_cmake_args(install_prefix: libexec)
+      system "cmake", "--build", "build"
+      system "cmake", "--install", "build"
+    end
+
+    resource("libmavlike").stage do
+      args = %w[
+        -DBUILD_SHARED_LIBS=OFF
+        -DBUILD_TESTING=OFF
+      ]
+      system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args(install_prefix: libexec)
       system "cmake", "--build", "build"
       system "cmake", "--install", "build"
     end
