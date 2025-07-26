@@ -1,10 +1,10 @@
 class CabalInstall < Formula
   desc "Command-line interface for Cabal and Hackage"
   homepage "https://www.haskell.org/cabal/"
-  url "https://hackage.haskell.org/package/cabal-install-3.14.2.0/cabal-install-3.14.2.0.tar.gz"
-  sha256 "e8a13d7542040aad321465a576514267a753d02808a98ab17751243c131c7bdb"
+  url "https://hackage.haskell.org/package/cabal-install-3.16.0.0/cabal-install-3.16.0.0.tar.gz"
+  sha256 "282a499fe3beeee0a2a50dc1adf264c204a090873679e2753e0355d6cf6c561a"
   license "BSD-3-Clause"
-  head "https://github.com/haskell/cabal.git", branch: "3.14"
+  head "https://github.com/haskell/cabal.git", branch: "3.16"
 
   no_autobump! because: :requires_manual_review
 
