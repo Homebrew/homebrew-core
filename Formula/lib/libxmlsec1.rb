@@ -2,8 +2,10 @@ class Libxmlsec1 < Formula
   desc "XML security library"
   homepage "https://www.aleksey.com/xmlsec/"
   url "https://www.aleksey.com/xmlsec/download/xmlsec1-1.3.7.tar.gz"
+  mirror "https://github.com/lsh123/xmlsec/releases/download/1.3.7/xmlsec1-1.3.7.tar.gz"
   sha256 "d82e93b69b8aa205a616b62917a269322bf63a3eaafb3775014e61752b2013ea"
   license "MIT"
+  revision 1
 
   livecheck do
     url "https://www.aleksey.com/xmlsec/download/"

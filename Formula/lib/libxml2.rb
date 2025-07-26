@@ -1,23 +1,9 @@
 class Libxml2 < Formula
   desc "GNOME XML library"
   homepage "http://xmlsoft.org/"
+  url "https://download.gnome.org/sources/libxml2/2.14/libxml2-2.14.5.tar.xz"
+  sha256 "03d006f3537616833c16c53addcdc32a0eb20e55443cba4038307e3fa7d8d44b"
   license "MIT"
-
-  stable do
-    url "https://download.gnome.org/sources/libxml2/2.13/libxml2-2.13.8.tar.xz"
-    sha256 "277294cb33119ab71b2bc81f2f445e9bc9435b893ad15bb2cd2b0e859a0ee84a"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-
-    # Fix pkg-config checks for libicuuc. Patch taken from:
-    # https://gitlab.gnome.org/GNOME/libxml2/-/commit/b57e022d75425ef8b617a1c3153198ee0a941da8
-    # When the patch is no longer needed, remove along with the `stable` block
-    # and the autotools dependencies above. Also uncomment `if build.head?`
-    # condition in the `install` block.
-    patch :DATA
-  end
 
   # We use a common regex because libxml2 doesn't use GNOME's "even-numbered
   # minor is stable" version scheme.
@@ -73,7 +59,7 @@ class Libxml2 < Formula
     # nanohttp.c:1019:42: error: invalid use of undefined type 'struct addrinfo'
     ENV.append "CFLAGS", "-std=gnu11" if OS.linux?
 
-    system "autoreconf", "--force", "--install", "--verbose" # if build.head?
+    system "autoreconf", "--force", "--install", "--verbose" if build.head?
     system "./configure", "--disable-silent-rules",
                           "--sysconfdir=#{etc}",
                           "--with-history",
@@ -160,23 +146,3 @@ class Libxml2 < Formula
     end
   end
 end
-
-__END__
-diff --git a/configure.ac b/configure.ac
-index c6dc93d58f84f21c4528753d2ee1bc1d50e67ced..e7bad24d8f1aa7659e1aa4e2ad1986cc2167483b 100644
---- a/configure.ac
-+++ b/configure.ac
-@@ -984,10 +984,10 @@ if test "$with_icu" != "no" && test "$with_icu" != "" ; then
-
-     # Try pkg-config first so that static linking works.
-     # If this succeeeds, we ignore the WITH_ICU directory.
--    PKG_CHECK_MODULES([ICU], [icu-i18n], [
--        WITH_ICU=1; XML_PC_REQUIRES="${XML_PC_REQUIRES} icu-i18n"
-+    PKG_CHECK_MODULES([ICU], [icu-uc], [
-+        WITH_ICU=1; XML_PC_REQUIRES="${XML_PC_REQUIRES} icu-uc"
-         m4_ifdef([PKG_CHECK_VAR],
--            [PKG_CHECK_VAR([ICU_DEFS], [icu-i18n], [DEFS])])
-+            [PKG_CHECK_VAR([ICU_DEFS], [icu-uc], [DEFS])])
-         if test "x$ICU_DEFS" != "x"; then
-             ICU_CFLAGS="$ICU_CFLAGS $ICU_DEFS"
-         fi],[:])
