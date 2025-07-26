@@ -21,11 +21,14 @@ class Elixir < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "d20440fd271698c9f737a0a8fecde327f0a737abb600facc1f104b3c6f566a77"
   end
 
-  depends_on "erlang"
+  depends_on "erlang@27"
 
   def install
     # Set `Q=` for verbose `make` output
-    system "make", "Q=", "PREFIX=#{prefix}", "install"
+    system "make", "Q=", "PREFIX=#{libexec}", "install"
+    (libexec/"bin").each_child do |f|
+      (bin/f.basename).write_env_script f, PATH: "#{Formula["erlang@27"].opt_bin}:$PATH"
+    end
   end
 
   test do
