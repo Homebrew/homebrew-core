@@ -1,10 +1,9 @@
 class OrTools < Formula
   desc "Google's Operations Research tools"
   homepage "https://developers.google.com/optimization/"
-  url "https://github.com/google/or-tools/archive/refs/tags/v9.11.tar.gz"
-  sha256 "f6a0bd5b9f3058aa1a814b798db5d393c31ec9cbb6103486728997b49ab127bc"
+  url "https://github.com/google/or-tools/archive/refs/tags/v9.14.tar.gz"
+  sha256 "9019facf316b54ee72bb58827efc875df4cfbb328fbf2b367615bf2226dd94ca"
   license "Apache-2.0"
-  revision 7
   head "https://github.com/google/or-tools.git", branch: "stable"
 
   livecheck do
@@ -35,22 +34,18 @@ class OrTools < Formula
   depends_on "protobuf"
   depends_on "re2"
   depends_on "scip"
+  uses_from_macos "bzip2"
   uses_from_macos "zlib"
-
-  # Add missing `#include`s to fix incompatibility with `abseil` 20240722.0.
-  # https://github.com/google/or-tools/pull/4339
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/bb1af4bcb2ac8b2af4de4411d1ce8a6876ed9c15/or-tools/abseil-vlog-is-on.patch"
-    sha256 "0f8f28e7363a36c6bafb9b60dc6da880b39d5b56d8ead350f27c8cb1e275f6b6"
-  end
 
   def install
     # FIXME: Upstream enabled Highs support in their binary distribution, but our build fails with it.
+    # FIXME: turned off SCIP, otherwise or-tools fails to build with "Target SCIP::libscip not available."
     args = %w[
       -DUSE_HIGHS=OFF
       -DBUILD_DEPS=OFF
       -DBUILD_SAMPLES=OFF
       -DBUILD_EXAMPLES=OFF
+      -DUSE_SCIP=OFF
     ]
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
@@ -86,14 +81,22 @@ class OrTools < Formula
     # Routing Solver
     system ENV.cxx, "-std=c++17", pkgshare/"simple_routing_program.cc",
                     "-I#{include}", "-L#{lib}", "-lortools",
+                    "-DOR_PROTO_DLL=", "-DPROTOBUF_USE_DLLS",
                     *shell_output("pkg-config --cflags --libs absl_check absl_log").chomp.split,
                     "-o", "simple_routing_program"
     system "./simple_routing_program"
 
     # Sat Solver
+    absl_libs = %w[
+      absl_check
+      absl_log_initialize
+      absl_flags
+      absl_flags_parse
+    ]
     system ENV.cxx, "-std=c++17", pkgshare/"simple_sat_program.cc",
                     "-I#{include}", "-L#{lib}", "-lortools",
-                    *shell_output("pkg-config --cflags --libs absl_check absl_log absl_raw_hash_set").chomp.split,
+                    "-DOR_PROTO_DLL=", "-DPROTOBUF_USE_DLLS",
+                    *shell_output("pkg-config --cflags --libs #{absl_libs.join(" ")}").chomp.split,
                     "-o", "simple_sat_program"
     system "./simple_sat_program"
   end
