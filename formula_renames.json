@@ -78,6 +78,7 @@
   "ht-rust": "xh",
   "htop-osx": "htop",
   "httpd24": "httpd",
+  "huggingface-cli": "hf",
   "i386-elf-binutils": "x86_64-elf-binutils",
   "i386-elf-gcc": "x86_64-elf-gcc",
   "interactive-rebase-tool": "git-interactive-rebase-tool",

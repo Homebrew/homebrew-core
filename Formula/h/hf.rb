@@ -1,20 +1,11 @@
-class HuggingfaceCli < Formula
+class Hf < Formula
   include Language::Python::Virtualenv
 
-  desc "Client library for huggingface.co hub"
+  desc "CLI for huggingface.co hub"
   homepage "https://huggingface.co/docs/huggingface_hub/guides/cli"
   url "https://files.pythonhosted.org/packages/22/cd/841bc8e0550d69f632a15cdd70004e95ba92cd0fbe13087d6669e2bb5f44/huggingface_hub-0.34.1.tar.gz"
   sha256 "6978ed89ef981de3c78b75bab100a214843be1cc9d24f8e9c0dc4971808ef1b1"
   license "Apache-2.0"
-
-  bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "03d72a3e38eb08081f25dc958e13155abb397143842d79176014987455937756"
-    sha256 cellar: :any,                 arm64_sonoma:  "433210d58f757b1262a3fbb861d981a87f87ad6a192d68d69294ddcea7619cad"
-    sha256 cellar: :any,                 arm64_ventura: "57e4fb06fa7a92ad4cb4e8f09920697dc4784b2332f4b28520ae6e6dd7a6f341"
-    sha256 cellar: :any,                 sonoma:        "207ad04c0a8865d6b9c1cf6e448350965e0c3d6548370cf0926a572aeb3defb1"
-    sha256 cellar: :any,                 ventura:       "46092324b73e329f44e2a9e34bd4f385a81db9f3c9eec0331cc1040d626e74b6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "26e3a539318efa405ea8b77483659d366e2343d9a6d1827e004dd5182bb0fac3"
-  end
 
   depends_on "pkgconf" => :build
   depends_on "rust" => :build # for `hf-xet`
@@ -108,13 +99,13 @@ class HuggingfaceCli < Formula
   end
 
   test do
-    whoami_output = shell_output("#{bin}/huggingface-cli whoami")
+    whoami_output = shell_output("#{bin}/hf auth whoami")
     assert_match "Not logged in", whoami_output
     test_cache = testpath/"cache"
     test_cache.mkdir
-    ENV["HUGGINGFACE_HUB_CACHE"] = test_cache.to_s
+    ENV["HF_HUB_CACHE"] = test_cache.to_s
     ENV["NO_COLOR"] = "1"
-    scan_output = shell_output("#{bin}/huggingface-cli scan-cache")
+    scan_output = shell_output("#{bin}/hf cache scan")
     assert_match "Done in 0.0s. Scanned 0 repo(s) for a total of 0.0.", scan_output
   end
 end
