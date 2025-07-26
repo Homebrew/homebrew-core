@@ -28,14 +28,6 @@ class Ghostscript < Formula
     sha256 x86_64_linux:  "549c239558aabcb90990f44a9c48cb13899a6d1605c62f20918ed2e5a8481bc0"
   end
 
-  head do
-    url "https://git.ghostscript.com/ghostpdl.git", branch: "master"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-  end
-
   depends_on "pkgconf" => :build
   depends_on "fontconfig"
   depends_on "freetype"
@@ -54,6 +46,7 @@ class Ghostscript < Formula
   uses_from_macos "zlib"
 
   conflicts_with "gambit-scheme", because: "both install `gsc` binary"
+  conflicts_with "gerbil-scheme", because: "both install `gsc` binary"
   conflicts_with "git-spice", because: "both install `gs` binary"
 
   # https://sourceforge.net/projects/gs-fonts/
@@ -67,8 +60,6 @@ class Ghostscript < Formula
     libs = %w[expat freetype jbig2dec jpeg lcms2mt leptonica libpng openjpeg tesseract tiff zlib]
     libs.each { |l| rm_r(buildpath/l) }
 
-    configure = build.head? ? "./autogen.sh" : "./configure"
-
     args = %w[--disable-compile-inits
               --disable-cups
               --disable-gtk
@@ -78,7 +69,7 @@ class Ghostscript < Formula
 
     # Set the correct library install names so that `brew` doesn't need to fix them up later.
     ENV["DARWIN_LDFLAGS_SO_PREFIX"] = "#{opt_lib}/"
-    system configure, *args, *std_configure_args
+    system "./configure", *args, *std_configure_args
 
     # Install binaries and libraries
     system "make", "install"
@@ -87,11 +78,9 @@ class Ghostscript < Formula
     (pkgshare/"fonts").install resource("fonts")
 
     # Temporary backwards compatibility symlinks
-    if build.stable?
-      odie "Remove backwards compatibility symlink and caveat!" if version >= "10.07"
-      pkgshare.install_symlink pkgshare => version.to_s
-      doc.install_symlink doc => version.to_s
-    end
+    odie "Remove backwards compatibility symlink and caveat!" if version >= "10.07"
+    pkgshare.install_symlink pkgshare => version.to_s
+    doc.install_symlink doc => version.to_s
   end
 
   def caveats
