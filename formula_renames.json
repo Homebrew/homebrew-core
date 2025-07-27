@@ -27,6 +27,7 @@
   "cppformat": "fmt",
   "crystal-lang": "crystal",
   "cutter": "cutter-cli",
+  "curlftpfs": "another-name",
   "curl-openssl": "curl",
   "cv": "progress",
   "cyassl": "wolfssl",
