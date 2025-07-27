@@ -8,7 +8,7 @@ class FzfZshPlugin < Formula
   head "https://github.com/unixorn/fzf-zsh-plugin.git", branch: "main"
 
   depends_on "fzf"
-  uses_from_macos "zsh" => :run
+  uses_from_macos "zsh"
 
   def install
     pkgshare.install "fzf-zsh-plugin.plugin.zsh"
