@@ -22,6 +22,8 @@ class Oniguruma < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "49eb885ab9a80ce30edc0aaa5f531fc0079a17e5cf41c2b6c34be0e53e763993"
   end
 
+  deprecate! date: "2025-04-24", because: :repo_archived
+
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
