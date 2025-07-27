@@ -11,7 +11,7 @@ class FzfZshPlugin < Formula
     sha256 cellar: :any_skip_relocation, all: "f04a66b87365132a7b2abb5ac24b8b382f8989a26e1b8661acb6a0f159d3e4ea"
   end
 
-  uses_from_macos "fzf" => :run
+  depends_on "fzf"
   uses_from_macos "zsh" => :run
 
   def install
