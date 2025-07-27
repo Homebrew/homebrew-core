@@ -1,8 +1,8 @@
 class Endlessh < Formula
   desc "SSH tarpit that slowly sends an endless banner"
   homepage "https://github.com/skeeto/endlessh"
-  url "https://github.com/skeeto/endlessh/releases/download/1.0/endlessh-1.0.tar.xz"
-  sha256 "b3e03d7342f2b8f33644f66388f484cdfead45cabed7a9a93f8be50f8bc91a42"
+  url "https://github.com/skeeto/endlessh/archive/refs/tags/1.1.tar.gz"
+  sha256 "786cea9e2c8e0a37d3d4ecd984ca4a0ae0b2d6e2b8da37e3cdbb9d49ccdecbf0"
   license "Unlicense"
   head "https://github.com/skeeto/endlessh.git", branch: "master"
 
