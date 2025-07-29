@@ -4,12 +4,12 @@ class Picotool < Formula
   license "BSD-3-Clause"
 
   stable do
-    url "https://github.com/raspberrypi/picotool/archive/refs/tags/2.1.1.tar.gz"
-    sha256 "19200c6dc4be5acd6fb53de3d7f35c826af596c18879d56f214b795300100260"
+    url "https://github.com/raspberrypi/picotool/archive/refs/tags/2.2.0.tar.gz"
+    sha256 "aab3d82fb1e576d97156ddcb962ae7cf290518a5f20d9002ac27e628dc657620"
 
     resource "pico-sdk" do
-      url "https://github.com/raspberrypi/pico-sdk/archive/refs/tags/2.1.1.tar.gz"
-      sha256 "179c5531e75ac7f82d0679e70b6e8881f871738dc0ef17baf3b4ff4679291c41"
+      url "https://github.com/raspberrypi/pico-sdk/archive/refs/tags/2.2.0.tar.gz"
+      sha256 "dbd8db79015aced4ef35cbaa88051b0d451775010d20202e1c7d2bee69c25b35"
 
       livecheck do
         formula :parent
