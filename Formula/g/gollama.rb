@@ -4,6 +4,7 @@ class Gollama < Formula
   url "https://github.com/sammcj/gollama/archive/refs/tags/v1.35.1.tar.gz"
   sha256 "a2b57d378d8a2741e7b6eaa762b14e6d263a9a7c3edc171be32482a491516441"
   license "MIT"
+  revision 1
   head "https://github.com/sammcj/gollama.git", branch: "main"
 
   bottle do
