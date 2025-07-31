@@ -149,6 +149,11 @@ class MagicWormhole < Formula
     sha256 "8b49f1a3d1ee4cdaf5b32d2e738362c7f5e40ac8b46dd7d1a65e82a4872728fe"
   end
 
+  patch do
+    url "https://github.com/magic-wormhole/magic-wormhole/commit/cc3867fe140ec487b2dc6fc1644662baff3e4679.diff?full_index=1"
+    sha256 "e505fbc2acc83a9fdf3d46257a3c5c5218594427ed9567f862805a65f58f8c19"
+  end
+  
   def install
     virtualenv_install_with_resources
     man1.install "docs/wormhole.1"
