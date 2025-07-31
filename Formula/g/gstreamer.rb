@@ -123,6 +123,8 @@ class Gstreamer < Formula
 
   on_linux do
     depends_on "alsa-lib"
+    depends_on "fontconfig"
+    depends_on "freetype"
     depends_on "libdrm"
     depends_on "libva"
     depends_on "libxdamage"
@@ -279,7 +281,7 @@ class Gstreamer < Formula
     skip_plugins = OS.mac? && Hardware::CPU.intel? && ENV["HOMEBREW_GITHUB_ACTIONS"]
     ENV["GST_PLUGIN_SYSTEM_PATH"] = testpath if skip_plugins
 
-    assert_match(/^Total count: \d+ plugin/, shell_output(bin/"gst-inspect-1.0"))
+    assert_match(/^Total count: \d+ plugin/, shell_output("#{bin}/gst-inspect-1.0"))
     return if skip_plugins
 
     system bin/"ges-launch-1.0", "--ges-version"
