@@ -150,8 +150,8 @@ class MagicWormhole < Formula
   end
 
   patch do
-    url "https://github.com/magic-wormhole/magic-wormhole/commit/cc3867fe140ec487b2dc6fc1644662baff3e4679.diff?full_index=1"
-    sha256 "e505fbc2acc83a9fdf3d46257a3c5c5218594427ed9567f862805a65f58f8c19"
+    url "https://github.com/magic-wormhole/magic-wormhole/commit/cc3867fe140ec487b2dc6fc1644662baff3e4679.patch?full_index=1"
+    sha256 "53b2449dfe3c6b6809c9c25d5d1080b28d66ed91db336e70e6f00cd1cec86bea"
   end
   
   def install
