@@ -8,11 +8,21 @@ class Dui < Formula
 
   depends_on "rust" => :build
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   def install
     system "cargo", "install", *std_cargo_args
   end
 
   test do
-    system "#{bin}/dui", "--help"
+    # Test that the binary works and provides help
+    assert_match "USAGE:", shell_output("#{bin}/dui --help")
+    
+    # Test that it can list containers (even if none exist)
+    assert_match "containers", shell_output("#{bin}/dui containers --help")
   end
 end
+
