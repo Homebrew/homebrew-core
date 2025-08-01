@@ -52,6 +52,14 @@ class Tracy < Formula
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
     bin.install_symlink "tracy-profiler" => "tracy"
+    inreplace share/"Tracy/TracyTargets.cmake",
+      'add_library(Tracy::TracyClient SHARED IMPORTED)',
+      <<~EOS.chomp
+        add_library(Tracy::TracyClient SHARED IMPORTED)
+        set_target_properties(Tracy::TracyClient PROPERTIES
+          IMPORTED_LOCATION "#{lib}/libTracyClient.dylib"
+        )
+      EOS
   end
 
   test do
