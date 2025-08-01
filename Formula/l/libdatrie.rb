@@ -4,7 +4,7 @@ class Libdatrie < Formula
   url "https://github.com/tlwg/libdatrie/releases/download/v0.2.13/libdatrie-0.2.13.tar.xz"
   sha256 "12231bb2be2581a7f0fb9904092d24b0ed2a271a16835071ed97bed65267f4be"
   license "LGPL-2.1"
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
 
   def install
     system "./configure", "--disable-debug",
