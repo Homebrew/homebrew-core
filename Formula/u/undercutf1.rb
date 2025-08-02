@@ -1,8 +1,8 @@
 class Undercutf1 < Formula
   desc "F1 Live Timing TUI for all F1 sessions with variable delay to sync to your TV"
   homepage "https://github.com/JustAman62/undercut-f1"
-  url "https://github.com/JustAman62/undercut-f1/archive/refs/tags/v3.1.96.tar.gz"
-  sha256 "ff377e4bf8403510dcbe29dfbe6a9b2056234ca762dd96094943eba47618b744"
+  url "https://github.com/JustAman62/undercut-f1/archive/refs/tags/v3.2.tar.gz"
+  sha256 "916852daa9a68af9408e7c7c89da549f4984023c67ae1d6ef72a0028af47efa1"
   license "GPL-3.0-only"
   head "https://github.com/JustAman62/undercut-f1.git", branch: "master"
 
