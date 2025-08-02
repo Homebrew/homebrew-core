@@ -1,12 +1,10 @@
 class Tmuxinator < Formula
   desc "Manage complex tmux sessions easily"
   homepage "https://github.com/tmuxinator/tmuxinator"
-  url "https://github.com/tmuxinator/tmuxinator/archive/refs/tags/v3.3.4.tar.gz"
-  sha256 "a923c48127e0d63d0b5397f6297842ed51cf5a5762c348e1db0efd59506c58bd"
+  url "https://github.com/tmuxinator/tmuxinator/archive/refs/tags/v3.3.5.tar.gz"
+  sha256 "56dc5ca39d11bad38f7fb602ce412a0f564dc0757765ad105a2cccbe84fcd2ca"
   license "MIT"
   head "https://github.com/tmuxinator/tmuxinator.git", branch: "master"
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     sha256 cellar: :any_skip_relocation, all: "6d3d903bd93f7555c16d092f8bd85d972f4c726d2670340f53f8df3682b93934"
