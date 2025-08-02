@@ -4,6 +4,7 @@ class Handbrake < Formula
   url "https://github.com/HandBrake/HandBrake/releases/download/1.9.2/HandBrake-1.9.2-source.tar.bz2"
   sha256 "f56696b9863a6c926c0eabdcb980cece9aa222c650278d455ac6873d3220ce49"
   license "GPL-2.0-only"
+  revision 1
   head "https://github.com/HandBrake/HandBrake.git", branch: "master"
 
   no_autobump! because: :requires_manual_review
@@ -49,7 +50,17 @@ class Handbrake < Formula
     depends_on "xz"
   end
 
+  # Update `x265` to build successfully with cmake 4
+  patch do
+    url "https://github.com/HandBrake/HandBrake/commit/a53d20a48bfca3c7dbf4f50710505c65e4334c89.patch?full_index=1"
+    sha256 "062833f42d4782de40d6989fe9438d8833a93a0c5530979137b8f22fe5534ba1"
+  end
+
   def install
+    # Support cmake 4, https://github.com/HandBrake/HandBrake/issues/6855
+    ENV["CMAKE_POLICY_VERSION_MINIMUM"] = "3.5"
+    odie "Remove cmake 4 build patch" if build.stable? && version >= "1.10.0"
+
     # Several vendored dependencies, including x265 and svt-av1, attempt detection
     # of supported CPU features in the compiler via -march flags.
     ENV.runtime_cpu_detection
@@ -58,9 +69,9 @@ class Handbrake < Formula
 
     ENV.append "CFLAGS", "-I#{Formula["libxml2"].opt_include}/libxml2" if OS.linux?
 
-    system "./configure", "--prefix=#{prefix}",
-                          "--disable-xcode",
-                          "--disable-gtk"
+    system "./configure", "--disable-xcode",
+                          "--disable-gtk",
+                          *std_configure_args
     system "make", "-C", "build"
     system "make", "-C", "build", "install"
   end
