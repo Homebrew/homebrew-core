@@ -76,7 +76,7 @@ class Wxmaxima < Formula
     # Error: Unable to initialize GTK+, is DISPLAY set properly
     return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
 
-    assert_equal "wxMaxima #{version}", shell_output(bin/"wxmaxima --version 2>&1").chomp
+    assert_equal "wxMaxima #{version}", shell_output("#{bin}/wxmaxima --version 2>&1").chomp
     assert_match "extra Maxima arguments", shell_output("#{bin}/wxmaxima --help 2>&1", 1)
   end
 end
