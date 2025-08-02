@@ -83,16 +83,22 @@ class Unzip < Formula
       -DUTF8_MAYBE_NATIVE
       -DNO_WORKING_ISPRINT
     ]
+    cflags = ENV.cflags.to_s.split
+    cflags << "-DNO_LCHMOD" unless OS.mac?
     args = %W[
       CC=#{ENV.cc}
+      CFLAGS=#{cflags.join(" ")}
       LOC=#{loc_macros.join(" ")}
       D_USE_BZ2=-DUSE_BZIP2
       L_BZ2=-lbz2
-      macosx
     ]
-    args << "LFLAGS1=-liconv" if OS.mac?
+    if OS.mac?
+      args << "LFLAGS1=-liconv" << "macosx"
+    else
+      args << "unzips"
+    end
     system "make", "-f", "unix/Makefile", *args
-    system "make", "prefix=#{prefix}", "MANDIR=#{man1}", "install"
+    system "make", "-f", "unix/Makefile", "prefix=#{prefix}", "MANDIR=#{man1}", "install"
   end
 
   test do
