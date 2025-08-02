@@ -1,12 +1,16 @@
 class Certgraph < Formula
   desc "Crawl the graph of certificate Alternate Names"
-  homepage "https://lanrat.github.io/certgraph/"
-  url "https://github.com/lanrat/certgraph/archive/refs/tags/20220513.tar.gz"
-  sha256 "739c7a7d29de354814a8799d6c5ce4ba2236aee16ab7be980203bc7780769b47"
+  homepage "https://github.com/lanrat/certgraph"
+  url "https://github.com/lanrat/certgraph/archive/refs/tags/v0.1.1.tar.gz"
+  sha256 "2749ee2fa102019e847e316b1cbb25d7cd5cd8b5e49969cef290972019187452"
   license "GPL-2.0-or-later"
-  head "https://github.com/lanrat/certgraph.git", branch: "master"
+  version_scheme 1
+  head "https://github.com/lanrat/certgraph.git", branch: "main"
 
-  no_autobump! because: :requires_manual_review
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "bb875c3150d6b112b81aa2e8fdec0393f8d1c62a052ccd53b4349550559307c0"
@@ -22,8 +26,7 @@ class Certgraph < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X main.gitDate=#{Time.now.iso8601} -X main.gitHash=#{version}"
-    system "go", "build", *std_go_args(ldflags:)
+    system "go", "build", *std_go_args(ldflags: "-s -w -X main.version=#{version}")
   end
 
   test do
