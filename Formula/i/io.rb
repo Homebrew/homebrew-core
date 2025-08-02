@@ -47,7 +47,7 @@ class Io < Formula
 
     inreplace "CMakeLists.txt" do |s|
       # Turn off all add-ons in main cmake file
-      s.gsub! "add_subdirectory(addons)", "#add_subdirectory(addons)" unless build.head?
+      s.gsub! "add_subdirectory(addons)", "#add_subdirectory(addons)" if build.stable?
       # Allow building on non-x86_64 platforms
       # Ref: https://github.com/IoLanguage/io/issues/450 / https://github.com/IoLanguage/io/issues/474
       s.gsub! 'SET(CMAKE_C_FLAGS "-msse2")', "" unless Hardware::CPU.intel?

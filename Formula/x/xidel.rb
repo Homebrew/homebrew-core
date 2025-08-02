@@ -45,7 +45,7 @@ class Xidel < Formula
       r.stage buildpath/"import"/r.name
     end
 
-    cd "programs/internet/xidel" unless build.head?
+    cd "programs/internet/xidel" if build.stable?
     inreplace "build.sh", "$fpc ", "$fpc -k-rpath -k#{sh_quote Formula["openssl@3"].opt_lib.to_s} "
     system "./build.sh"
     bin.install "xidel"

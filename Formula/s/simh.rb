@@ -29,7 +29,7 @@ class Simh < Formula
   uses_from_macos "zlib"
 
   def install
-    ENV.deparallelize unless build.head?
+    ENV.deparallelize if build.stable?
     ENV.append_to_cflags "-Os -fcommon"
     inreplace "makefile" do |s|
       s.gsub! "+= /usr/lib/", "+= /usr/lib/ #{HOMEBREW_PREFIX}/lib/" if OS.linux?

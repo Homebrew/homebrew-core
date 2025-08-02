@@ -47,7 +47,7 @@ class Zeek < Formula
     # Avoid references to the Homebrew shims directory
     inreplace "auxil/spicy/hilti/toolchain/src/config.cc.in", "${CMAKE_CXX_COMPILER}", ENV.cxx
 
-    unless build.head?
+    if build.stable?
       # Benchmarks are not installed, but building them on Linux breaks in the
       # bundled google-benchmark dependency. Exclude the benchmark targets and
       # their library dependencies.

@@ -51,7 +51,7 @@ class Geckodriver < Formula
   uses_from_macos "unzip"
 
   def install
-    unless build.head?
+    if build.stable?
       # we need to do this, because all archives are containing a top level testing directory
       %w[webdriver mozbase].each do |r|
         (buildpath/"staging").install resource(r)

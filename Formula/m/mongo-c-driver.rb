@@ -29,7 +29,7 @@ class MongoCDriver < Formula
   uses_from_macos "zlib"
 
   def install
-    File.write "VERSION_CURRENT", version.to_s unless build.head?
+    File.write "VERSION_CURRENT", version.to_s if build.stable?
     inreplace "src/libmongoc/src/mongoc/mongoc-config.h.in", "@MONGOC_CC@", ENV.cc
 
     system "cmake", "-S", ".", "-B", "build", "-DCMAKE_INSTALL_RPATH=#{rpath}", *std_cmake_args

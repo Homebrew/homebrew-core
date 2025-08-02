@@ -27,7 +27,7 @@ class Luv < Formula
   end
 
   def install
-    resource("lua-compat-5.3").stage buildpath/"deps/lua-compat-5.3" unless build.head?
+    resource("lua-compat-5.3").stage buildpath/"deps/lua-compat-5.3" if build.stable?
 
     args = %W[
       -DWITH_SHARED_LIBUV=ON

@@ -112,7 +112,7 @@ class Odin < Formula
 
     # Keep version number consistent and reproducible for tagged releases.
     args = []
-    args << "ODIN_VERSION=dev-#{version}" unless build.head?
+    args << "ODIN_VERSION=dev-#{version}" if build.stable?
     system "make", "release", *args
     libexec.install "odin", "core", "shared", "base", "vendor"
     (bin/"odin").write <<~BASH

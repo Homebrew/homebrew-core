@@ -44,7 +44,7 @@ class Wrk < Formula
       WITH_LUAJIT=#{Formula["luajit"].opt_prefix}
       WITH_OPENSSL=#{Formula["openssl@3"].opt_prefix}
     ]
-    args << "VER=#{version}" unless build.head?
+    args << "VER=#{version}" if build.stable?
     system "make", *args
     bin.install "wrk"
   end

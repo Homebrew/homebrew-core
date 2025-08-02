@@ -138,7 +138,7 @@ class Ruby < Formula
       end
     end
 
-    unless build.head? # Use bundled RubyGems for --HEAD (will be newer)
+    if build.stable? # Use bundled RubyGems for --HEAD (will be newer)
       # This is easier than trying to keep both current & versioned Ruby
       # formulae repeatedly updated with Rubygem patches.
       resource("rubygems").stage do

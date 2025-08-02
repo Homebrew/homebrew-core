@@ -25,7 +25,7 @@ class Revive < Formula
       -X github.com/mgechev/revive/cli.date=#{time.iso8601}
       -X github.com/mgechev/revive/cli.builtBy=#{tap.user}
     ]
-    ldflags << "-X github.com/mgechev/revive/cli.version=#{version}" unless build.head?
+    ldflags << "-X github.com/mgechev/revive/cli.version=#{version}" if build.stable?
 
     system "go", "build", *std_go_args(ldflags:)
   end

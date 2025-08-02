@@ -41,7 +41,7 @@ class Soapysdr < Formula
       -DSOAPY_SDR_ROOT=#{HOMEBREW_PREFIX}
       -DCMAKE_INSTALL_RPATH=#{rpath}
     ]
-    args << "-DSOAPY_SDR_EXTVER=release" unless build.head?
+    args << "-DSOAPY_SDR_EXTVER=release" if build.stable?
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"

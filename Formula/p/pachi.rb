@@ -32,7 +32,7 @@ class Pachi < Formula
 
     # https://github.com/pasky/pachi/issues/78
     inreplace "Makefile" do |s|
-      unless build.head?
+      if build.stable?
         s.gsub! "build.h: build.h.git", "build.h:"
         s.gsub! "@cp build.h.git", "echo '#define PACHI_GIT_BRANCH \"\"\\n#define PACHI_GIT_HASH \"\"' >>"
       end

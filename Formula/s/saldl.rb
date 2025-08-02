@@ -49,7 +49,7 @@ class Saldl < Formula
     args = ["--prefix=#{prefix}"]
 
     # head uses git describe to acquire a version
-    args << "--saldl-version=v#{version}" unless build.head?
+    args << "--saldl-version=v#{version}" if build.stable?
 
     buildpath.install resource("waf")
     system "python3", "./waf", "configure", *args
