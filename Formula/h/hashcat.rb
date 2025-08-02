@@ -1,15 +1,14 @@
 class Hashcat < Formula
   desc "World's fastest and most advanced password recovery utility"
   homepage "https://hashcat.net/hashcat/"
-  url "https://hashcat.net/files/hashcat-6.2.6.tar.gz"
-  mirror "https://github.com/hashcat/hashcat/archive/refs/tags/v6.2.6.tar.gz"
-  sha256 "b25e1077bcf34908cc8f18c1a69a2ec98b047b2cbcf0f51144dcf3ba1e0b7b2a"
+  url "https://hashcat.net/files/hashcat-7.0.0.tar.gz"
+  mirror "https://github.com/hashcat/hashcat/archive/refs/tags/v7.0.0.tar.gz"
+  sha256 "842b71d0d34b02000588247aae9fec9a0fc13277f2cd3a6a4925b0f09b33bf75"
   license all_of: [
     "MIT",
     "LZMA-SDK-9.22", # deps/LZMA-SDK/
     :public_domain,  # include/sort_r.h
   ]
-  revision 1
   version_scheme 1
   head "https://github.com/hashcat/hashcat.git", branch: "master"
 
@@ -17,8 +16,6 @@ class Hashcat < Formula
     url :homepage
     regex(/href=.*?hashcat[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     rebuild 1
@@ -48,11 +45,6 @@ class Hashcat < Formula
     depends_on "opencl-icd-loader"
     depends_on "pocl"
   end
-
-  # Fix 'failed to create metal library' on macos
-  # extract from hashcat version 66b22fa, remove this patch when version released after 66b22fa
-  # hashcat 66b22fa link: https://github.com/hashcat/hashcat/commit/66b22fa64472b4d809743c35fb05fc3c993a5cd2#diff-1eece723a1d42fd48f0fc4f829ebbb4a67bd13cb3499f49196f801ee9143ee83R15
-  patch :DATA
 
   def install
     # Remove all bundled dependencies other than LZMA-SDK (https://www.7-zip.org/sdk.html)
@@ -100,18 +92,3 @@ class Hashcat < Formula
     assert_equal "v#{version}", shell_output("#{bin}/hashcat_bin --version").chomp
   end
 end
-
-__END__
-diff --git a/OpenCL/inc_vendor.h b/OpenCL/inc_vendor.h
-index c39fce952..0916a30b3 100644
---- a/OpenCL/inc_vendor.h
-+++ b/OpenCL/inc_vendor.h
-@@ -12,7 +12,7 @@
- #define IS_CUDA
- #elif defined __HIPCC__
- #define IS_HIP
--#elif defined __METAL_MACOS__
-+#elif defined __METAL__
- #define IS_METAL
- #else
- #define IS_OPENCL
