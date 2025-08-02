@@ -25,6 +25,8 @@ class YtAutoDl < Formula
   end
 
   test do
-    assert_match "Usage", shell_output("#{bin}/dla --help", 1)
+    assert_match "dlv", shell_output("#{bin}/dlv --help")
+    assert_match "dla", shell_output("#{bin}/dla --help")
   end
 end
+  
