@@ -1,11 +1,10 @@
 class Opencoarrays < Formula
   desc "Open-source coarray Fortran ABI, API, and compiler wrapper"
   homepage "http://www.opencoarrays.org"
-  url "https://github.com/sourceryinstitute/OpenCoarrays/releases/download/2.10.2/OpenCoarrays-2.10.2.tar.gz"
-  sha256 "e13f0dc54b966b0113deed7f407514d131990982ad0fe4dea6b986911d26890c"
+  url "https://github.com/sourceryinstitute/OpenCoarrays/archive/refs/tags/2.10.3.tar.gz"
+  sha256 "50c8c2a99fecbd33e6be126d33bb43543d5aa035df9d6e31e323e5398a1029e3"
   license "BSD-3-Clause"
-  revision 5
-  head "https://github.com/sourceryinstitute/opencoarrays.git", branch: "main"
+  head "https://github.com/sourceryinstitute/OpenCoarrays.git", branch: "main"
 
   no_autobump! because: :requires_manual_review
 
@@ -21,18 +20,23 @@ class Opencoarrays < Formula
 
   depends_on "cmake" => :build
   depends_on "gcc"
-  depends_on "open-mpi"
+  depends_on "mpich"
+
+  # skip unit tests patch, upstream pr ref, https://github.com/sourceryinstitute/OpenCoarrays/pull/798
+  patch do
+    url "https://github.com/sourceryinstitute/OpenCoarrays/commit/01fb2e6267684ddadc0a0edac1edbf0ae0488812.patch?full_index=1"
+    sha256 "9b85f0289f46c14848cf178ea27473ebdb9be0539b185a884cb557a047165aa7"
+  end
 
   def install
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
-    # Replace `open-mpi` Cellar path that breaks on `open-mpi` version/revision bumps.
-    # CMake FindMPI uses REALPATH so there isn't a clean way to handle during generation.
-    openmpi = Formula["open-mpi"]
+    # Replace `mpich` Cellar path that breaks on version bumps
+    mpi = Formula["mpich"]
     inreplace_files = [bin/"caf", lib/"cmake/opencoarrays/OpenCoarraysTargets.cmake"]
-    inreplace inreplace_files, openmpi.prefix.realpath, openmpi.opt_prefix
+    inreplace inreplace_files, mpi.prefix.realpath, mpi.opt_prefix
   end
 
   test do
@@ -57,7 +61,7 @@ class Opencoarrays < Formula
       end program
     FORTRAN
     system bin/"caf", "tally.f90", "-o", "tally"
-    system bin/"cafrun", "-np", "3", "--oversubscribe", "./tally"
-    assert_match Formula["open-mpi"].opt_lib.to_s, shell_output("#{bin}/caf --show")
+    system bin/"cafrun", "-np", "3", "./tally"
+    assert_match Formula["mpich"].opt_lib.to_s, shell_output("#{bin}/caf --show")
   end
 end
