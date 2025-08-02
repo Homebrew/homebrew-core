@@ -20,6 +20,7 @@ class Prefligit < Formula
 
   def install
     system "cargo", "install", *std_cargo_args
+    generate_completions_from_executable(bin/"prefligit", "generate-shell-completion")
   end
 
   test do
