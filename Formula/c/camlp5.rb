@@ -4,6 +4,7 @@ class Camlp5 < Formula
   url "https://github.com/camlp5/camlp5/archive/refs/tags/8.03.01.tar.gz"
   sha256 "057b8e06590cf29a1bd22b6c83aa5daa816d5cbb2ba2548409d474d7dc10c5b8"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/camlp5/camlp5.git", branch: "master"
 
   livecheck do

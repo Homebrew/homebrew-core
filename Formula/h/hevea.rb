@@ -7,6 +7,7 @@ class Hevea < Formula
     "QPL-1.0", # source files
     "GPL-2.0-only", # binaries
   ]
+  revision 1
 
   livecheck do
     url "https://hevea.inria.fr/old/"
