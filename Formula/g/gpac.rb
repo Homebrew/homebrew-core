@@ -1,18 +1,37 @@
-# Installs a relatively minimalist version of the GPAC tools. The
-# most commonly used tool in this package is the MP4Box metadata
-# interleaver, which has relatively few dependencies.
-#
-# The challenge with building everything is that Gpac depends on
-# a much older version of FFMpeg and WxWidgets than the version
-# that Brew installs
-
 class Gpac < Formula
   desc "Multimedia framework for research and academic purposes"
   homepage "https://gpac.io/"
-  url "https://github.com/gpac/gpac/archive/refs/tags/v2.4.0.tar.gz"
-  sha256 "99c8c994d5364b963d18eff24af2576b38d38b3460df27d451248982ea16157a"
   license "LGPL-2.1-or-later"
+  revision 1
   head "https://github.com/gpac/gpac.git", branch: "master"
+
+  stable do
+    url "https://github.com/gpac/gpac/archive/refs/tags/v2.4.0.tar.gz"
+    sha256 "99c8c994d5364b963d18eff24af2576b38d38b3460df27d451248982ea16157a"
+
+    # Backport fix for macOS 15+ (Sequoia and later)
+    patch do # Fixed in v2.5 but not yet published
+      url "https://github.com/gpac/gpac/commit/866784948c02ddfba750999ec212cb206ecc094d.patch?full_index=1"
+      sha256 "a7e71a3dcf3daf52faf9f8e9c00e5d9ad2695020f6120f16195c3ffc70598215"
+    end
+
+    # Backport fix for detecting xvid correctly
+    patch do # Fixed in v2.5 but not yet published
+      url "https://github.com/gpac/gpac/commit/a005fd6eb7a9ede4d3356630cae3d6516c91b73e.patch?full_index=1"
+      sha256 "dd4ad3079f07378753abf39bf66e615af15d7168cd4bc07d8db2960eaff36fed"
+    end
+
+    # Backport fix for the build issues with FFmpeg 7.0+
+    patch do # Fixed in v2.5 but not yet published
+      url "https://github.com/gpac/gpac/commit/18863aa2176e423dae2a6d7e39ff6ed6a37b2b78.patch?full_index=1"
+      sha256 "c4b4e90f6e42ee977d5f0b4f06a0d04fc2925e9bb2695f1119df8d8a839468cb"
+    end
+    patch :DATA
+    patch do
+      url "https://github.com/gpac/gpac/commit/1bce910fb2409fdfaa67736c1c5ef6a2e89eddc1.patch?full_index=1"
+      sha256 "32785d99d600c7c59031e2867d1ebb7b921dce3aca8917c66270372d35df41e1"
+    end
+  end
 
   livecheck do
     url :stable
@@ -32,17 +51,47 @@ class Gpac < Formula
   end
 
   depends_on "pkgconf" => :build
+  depends_on "a52dec"
+  depends_on "aom"
+  depends_on "curl"
+  depends_on "faad2"
+  depends_on "ffmpeg"
+  depends_on "freetype"
+  depends_on "jack"
+  depends_on "jpeg"
+  depends_on "jpeg-turbo"
+  depends_on "libcaca"
+  depends_on "libcaption"
+  depends_on "libnghttp2"
+  depends_on "libpng"
+  depends_on "libvorbis"
+  depends_on "libx11"
+  depends_on "libxext"
+  depends_on "libxv"
+  depends_on "lzip"
+  depends_on "mad"
+  depends_on "openjpeg"
   depends_on "openssl@3"
+  depends_on "pulseaudio"
+  depends_on "sdl2"
+  depends_on "theora"
+  depends_on "xz"
 
   uses_from_macos "zlib"
 
+  on_macos do
+    depends_on "libogg"
+  end
+
+  on_linux do
+    depends_on "alsa-lib"
+    depends_on "xvid"
+  end
+
   def install
     args = %W[
-      --disable-wx
-      --disable-pulseaudio
       --prefix=#{prefix}
       --mandir=#{man}
-      --disable-x11
     ]
 
     system "./configure", *args
@@ -51,7 +100,26 @@ class Gpac < Formula
   end
 
   test do
-    system bin/"MP4Box", "-add", test_fixtures("test.mp3"), testpath/"out.mp4"
-    assert_path_exists testpath/"out.mp4"
+    system bin/"MP4Box", "-add", test_fixtures("test.mp3"), testpath/"mp4box.mp4"
+    assert_path_exists testpath/"mp4box.mp4"
+
+    system bin/"gpac", "-i", test_fixtures("test.mp3"), "-o", testpath/"gpac.mp4"
+    assert_path_exists testpath/"gpac.mp4"
+
+    assert_match "ft_font", shell_output("#{bin}/gpac -h modules")
   end
 end
+__END__
+diff --git a/src/filters/ff_common.c b/src/filters/ff_common.c
+index 605abd88..f1fa12f1 100644
+--- a/src/filters/ff_common.c
++++ b/src/filters/ff_common.c
+@@ -922,7 +922,7 @@ GF_FilterArgs ffmpeg_arg_translate(const struct AVOption *opt)
+ 		break;
+ #endif
+ 	default:
+-		GF_LOG(GF_LOG_WARNING, GF_LOG_MEDIA, ("[FFMPEG] Unknown ffmpeg option type %d\n", opt->type));
++		GF_LOG(GF_LOG_WARNING, GF_LOG_MEDIA, ("[FFmpeg] Unknown ffmpeg option type %d\n", opt->type));
+ 		break;
+ 	}
+ 	return arg;

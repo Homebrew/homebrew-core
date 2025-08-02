@@ -20,7 +20,11 @@ class Libcaption < Formula
 
   def install
     ENV["CMAKE_POLICY_VERSION_MINIMUM"] = "3.5"
-    system "cmake", "-S", ".", "-B", "build", "-DBUILD_EXAMPLES=OFF", *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build",
+                  "-DBUILD_EXAMPLES=OFF",
+                  "-DCMAKE_POSITION_INDEPENDENT_CODE=ON",
+                  "-DBUILD_SHARED_LIBS=ON",
+                  *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
