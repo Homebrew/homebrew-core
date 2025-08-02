@@ -21,6 +21,7 @@ class Xterm < Formula
     sha256 x86_64_linux:  "b952f72582ea5a7b85016a697d08bbaedb113cbcb693acfdfa9c4b3f80ea04d1"
   end
 
+  depends_on "pkgconf" => :build
   depends_on "fontconfig"
   depends_on "freetype"
   depends_on "libice"
