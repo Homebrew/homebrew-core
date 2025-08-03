@@ -5,8 +5,8 @@ class Ghidra < Formula
   sha256 "8a3f955f04f4a2945afc571a70f1c2140052cdd230fbab99615b1de8480ce4f0"
   license "Apache-2.0"
 
+
   depends_on "gradle" => :build
-  depends_on "make" => :build
   depends_on "python@3.13" => :build
   depends_on "openjdk"
 
@@ -17,17 +17,13 @@ class Ghidra < Formula
     system "gradle", "buildNatives"
     system "gradle", "assembleAll", "-x", "FileFormats:extractSevenZipNativeLibs"
 
-    prefix.install Dir["build/dist/ghidra_#{version}_PUBLIC/*"]
-    bin.install_symlink prefix/"ghidraRun"
-  end
+    libexec.install (buildpath/"build/dist/ghidra_#{version}_PUBLIC").children
+    bin.write_env_script libexec/"bin/ghidraRun", Language::Java.overridable_java_home_env("21+")
 
   test do
-    openjdk = Formula["openjdk"]
-    ENV.prepend_path "PATH", openjdk.opt_bin
-
+    ENV["JAVA_HOME"] = Language::Java.java_home("21+")
     (testpath/"project").mkpath
-    mkdir("#{HOMEBREW_CACHE}/java_cache")
-    system "#{prefix}/support/analyzeHeadless", "#{testpath}/project", "HomebrewTest", "-import", "/bin/bash",
+    system libexec/"support/analyzeHeadless", testpath/"project", "HomebrewTest", "-import", "/bin/bash",
 "-noanalysis"
     assert_path_exists testpath/"project/HomebrewTest.rep"
   end
