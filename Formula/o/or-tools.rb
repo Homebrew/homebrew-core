@@ -32,7 +32,7 @@ class OrTools < Formula
   depends_on "eigen"
   depends_on "openblas"
   depends_on "osi"
-  depends_on "protobuf"
+  depends_on "protobuf@29"
   depends_on "re2"
   depends_on "scip"
   uses_from_macos "zlib"
@@ -61,40 +61,25 @@ class OrTools < Formula
   end
 
   test do
+    common_flags = [
+      "-std=c++17",
+      "-I#{include}",
+      "-I#{Formula["protobuf@29"].opt_include}",
+      "-L#{lib}",
+      "-L#{Formula["protobuf@29"].opt_lib}",
+      "-lortools",
+      "-lprotobuf",
+      *shell_output("pkg-config --cflags --libs absl_check absl_log absl_raw_hash_set").chomp.split,
+    ]
     # Linear Solver & Glop Solver
-    (testpath/"CMakeLists.txt").write <<~CMAKE
-      cmake_minimum_required(VERSION 3.14)
-      project(test LANGUAGES CXX)
-      find_package(ortools CONFIG REQUIRED)
-      add_executable(simple_lp_program #{pkgshare}/simple_lp_program.cc)
-      target_compile_features(simple_lp_program PUBLIC cxx_std_17)
-      target_link_libraries(simple_lp_program PRIVATE ortools::ortools)
-    CMAKE
-    cmake_args = []
-    build_env = {}
-    if OS.mac?
-      build_env["CPATH"] = nil
-    else
-      cmake_args << "-DCMAKE_BUILD_RPATH=#{lib};#{HOMEBREW_PREFIX}/lib"
-    end
-    with_env(build_env) do
-      system "cmake", "-S", ".", "-B", ".", *cmake_args, *std_cmake_args
-      system "cmake", "--build", "."
-    end
+    system ENV.cxx, pkgshare/"simple_lp_program.cc", *common_flags, "-o", "simple_lp_program"
     system "./simple_lp_program"
 
     # Routing Solver
-    system ENV.cxx, "-std=c++17", pkgshare/"simple_routing_program.cc",
-                    "-I#{include}", "-L#{lib}", "-lortools",
-                    *shell_output("pkg-config --cflags --libs absl_check absl_log").chomp.split,
-                    "-o", "simple_routing_program"
+    system ENV.cxx, pkgshare/"simple_routing_program.cc", *common_flags, "-o", "simple_routing_program"
     system "./simple_routing_program"
 
     # Sat Solver
-    system ENV.cxx, "-std=c++17", pkgshare/"simple_sat_program.cc",
-                    "-I#{include}", "-L#{lib}", "-lortools",
-                    *shell_output("pkg-config --cflags --libs absl_check absl_log absl_raw_hash_set").chomp.split,
-                    "-o", "simple_sat_program"
-    system "./simple_sat_program"
+    system ENV.cxx, pkgshare/"simple_sat_program.cc", *common_flags, "-o", "simple_sat_program"
   end
 end
