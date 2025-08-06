@@ -34,7 +34,7 @@ class Spotbugs < Formula
       libexec.install Dir["*"]
       chmod 0755, "#{libexec}/bin/spotbugs"
     end
-    (bin/"spotbugs").write_env_script "#{libexec}/bin/spotbugs", Language::Java.overridable_java_home_env
+    (bin/"spotbugs").write_env_script libexec/"bin/spotbugs", Language::Java.overridable_java_home_env
   end
 
   test do
