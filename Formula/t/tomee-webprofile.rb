@@ -21,7 +21,7 @@ class TomeeWebprofile < Formula
     # Install files
     prefix.install %w[NOTICE LICENSE RELEASE-NOTES RUNNING.txt]
     libexec.install Dir["*"]
-    (bin/"tomee-webprofile-startup").write_env_script "#{libexec}/bin/startup.sh",
+    (bin/"tomee-webprofile-startup").write_env_script libexec/"bin/startup.sh",
                                                       Language::Java.overridable_java_home_env
   end
 
