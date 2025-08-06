@@ -28,7 +28,7 @@ class Umlet < Formula
 
     chmod 0755, "#{libexec}/umlet.sh"
 
-    (bin/"umlet-#{version}").write_env_script "#{libexec}/umlet.sh", JAVA_HOME: Formula["openjdk"].opt_prefix
+    (bin/"umlet-#{version}").write_env_script libexec/"umlet.sh", JAVA_HOME: Formula["openjdk"].opt_prefix
     bin.install_symlink "umlet-#{version}" => "umlet"
   end
 
