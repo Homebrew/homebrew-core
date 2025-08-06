@@ -20,7 +20,7 @@ class OpenlibertyWebprofile8 < Formula
     rm_r(Dir["bin/**/*.bat"])
 
     libexec.install Dir["*"]
-    (bin/"openliberty-webprofile8").write_env_script "#{libexec}/bin/server",
+    (bin/"openliberty-webprofile8").write_env_script libexec/"bin/server",
                                                      Language::Java.overridable_java_home_env
   end
 
