@@ -25,7 +25,7 @@ class DjlServing < Formula
     libexec.install Dir["*"]
     env = { MODEL_SERVER_HOME: "${MODEL_SERVER_HOME:-#{var}}" }
     env.merge!(Language::Java.overridable_java_home_env)
-    (bin/"djl-serving").write_env_script "#{libexec}/bin/djl-serving", env
+    (bin/"djl-serving").write_env_script libexec/"bin/djl-serving", env
   end
 
   service do
