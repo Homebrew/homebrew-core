@@ -3,8 +3,8 @@ class Mesa < Formula
 
   desc "Graphics Library"
   homepage "https://www.mesa3d.org/"
-  url "https://archive.mesa3d.org/mesa-25.1.7.tar.xz"
-  sha256 "4afd26a3cc93c3dd27183d4c4845f1ca7d683f6343900b54995809b3271ebed6"
+  url "https://archive.mesa3d.org/mesa-25.2.0.tar.xz"
+  sha256 "7c726b21c074d14d31d253d638b741422f3c0a497ce7f1b4aaaa917d10bd8d4f"
   license all_of: [
     "MIT",
     "Apache-2.0", # include/{EGL,GLES*,vk_video,vulkan}, src/egl/generate/egl.xml, src/mapi/glapi/registry/gl.xml
@@ -157,10 +157,8 @@ class Mesa < Formula
         -Degl=enabled
         -Dgallium-drivers=auto
         -Dgallium-extra-hud=true
-        -Dgallium-nine=true
         -Dgallium-va=enabled
         -Dgallium-vdpau=enabled
-        -Dgallium-xa=enabled
         -Dgbm=enabled
         -Dgles1=enabled
         -Dgles2=enabled
@@ -169,7 +167,6 @@ class Mesa < Formula
         -Dlmsensors=enabled
         -Dmicrosoft-clc=disabled
         -Dplatforms=x11,wayland
-        -Dshared-glapi=enabled
         -Dtools=drm-shim,dlclose-skip,etnaviv,freedreno,glsl,intel,lima,nir,nouveau,asahi,imagination
         -Dvalgrind=enabled
         -Dvulkan-drivers=auto
