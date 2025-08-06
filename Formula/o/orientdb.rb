@@ -40,9 +40,9 @@ class Orientdb < Formula
     inreplace "#{libexec}/bin/orientdb.sh", 'su $ORIENTDB_USER -c "cd \"$ORIENTDB_DIR/bin\";', ""
     inreplace "#{libexec}/bin/orientdb.sh", '&"', "&"
 
-    (bin/"orientdb").write_env_script "#{libexec}/bin/orientdb.sh", JAVA_HOME: Formula["openjdk"].opt_prefix
-    (bin/"orientdb-console").write_env_script "#{libexec}/bin/console.sh", JAVA_HOME: Formula["openjdk"].opt_prefix
-    (bin/"orientdb-gremlin").write_env_script "#{libexec}/bin/gremlin.sh", JAVA_HOME: Formula["openjdk"].opt_prefix
+    (bin/"orientdb").write_env_script libexec/"bin/orientdb.sh", JAVA_HOME: Formula["openjdk"].opt_prefix
+    (bin/"orientdb-console").write_env_script libexec/"bin/console.sh", JAVA_HOME: Formula["openjdk"].opt_prefix
+    (bin/"orientdb-gremlin").write_env_script libexec/"bin/gremlin.sh", JAVA_HOME: Formula["openjdk"].opt_prefix
   end
 
   def post_install
