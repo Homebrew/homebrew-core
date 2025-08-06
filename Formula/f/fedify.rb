@@ -1,8 +1,8 @@
 class Fedify < Formula
   desc "CLI toolchain for Fedify"
   homepage "https://fedify.dev/cli"
-  url "https://github.com/fedify-dev/fedify/archive/refs/tags/1.7.8.tar.gz"
-  sha256 "0e7d7281a3b6d0e9c0f204286eade8d06ac8d3d5b7c063a2f78184cba8833165"
+  url "https://github.com/fedify-dev/fedify/archive/refs/tags/1.8.3.tar.gz"
+  sha256 "d413744e48e1e62bc2de91e0a8ba4e5a6a3c3d2371509ad63d6017583389a61d"
   license "MIT"
   head "https://github.com/fedify-dev/fedify.git", branch: "main"
 
@@ -20,7 +20,7 @@ class Fedify < Formula
 
   def install
     system "deno", "task", "codegen"
-    system "deno", "compile", "--allow-all", "--output=#{bin/"fedify"}", "cli/mod.ts"
+    system "deno", "compile", "--allow-all", "--output=#{bin/"fedify"}", "packages/cli/src/mod.ts"
     generate_completions_from_executable(bin/"fedify", "completions")
   end
 
