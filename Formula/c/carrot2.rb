@@ -45,7 +45,7 @@ class Carrot2 < Formula
       libexec.install Dir["*"]
     end
 
-    (bin/"carrot2").write_env_script "#{libexec}/dcs/dcs",
+    (bin/"carrot2").write_env_script libexec/"dcs/dcs",
       JAVA_CMD:    "exec '#{Formula["openjdk@21"].opt_bin}/java'",
       SCRIPT_HOME: libexec/"dcs"
   end
