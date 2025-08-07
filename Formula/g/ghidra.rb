@@ -17,7 +17,7 @@ class Ghidra < Formula
     system "gradle", "assembleAll", "-x", "FileFormats:extractSevenZipNativeLibs"
 
     libexec.install (buildpath/"build/dist/ghidra_#{version}_PUBLIC").children
-    (bin/"ghidraRun").write_env_script libexec/"bin/ghidraRun", Language::Java.overridable_java_home_env("21+")
+    (bin/"ghidraRun").write_env_script libexec/"ghidraRun", Language::Java.overridable_java_home_env("21+")
   end
   test do
     ENV["JAVA_HOME"] = Language::Java.java_home("21+")
