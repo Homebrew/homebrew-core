@@ -1,8 +1,8 @@
 class Imath < Formula
   desc "Library of 2D and 3D vector, matrix, and math operations"
   homepage "https://imath.readthedocs.io/en/latest/"
-  url "https://github.com/AcademySoftwareFoundation/Imath/archive/refs/tags/v3.1.12.tar.gz"
-  sha256 "8a1bc258f3149b5729c2f4f8ffd337c0e57f09096e4ba9784329f40c4a9035da"
+  url "https://github.com/AcademySoftwareFoundation/Imath/archive/refs/tags/v3.2.0.tar.gz"
+  sha256 "f3c0c4210b5e6fe17d90cd7ebbe9638eea9fb458421d00eddb4d1a9d5ad47b36"
   license "BSD-3-Clause"
 
   bottle do
