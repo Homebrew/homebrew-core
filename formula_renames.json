@@ -135,6 +135,7 @@
   "poac": "cabin",
   "polarssl": "mbedtls",
   "postgresql": "postgresql@14",
+  "prefligit": "prek",
   "prest": "prestd",
   "presto": "prestodb",
   "prestosql": "trino",
