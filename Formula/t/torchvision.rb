@@ -3,17 +3,14 @@ class Torchvision < Formula
 
   desc "Datasets, transforms, and models for computer vision"
   homepage "https://pytorch.org/vision/stable/index.html"
-  url "https://github.com/pytorch/vision/archive/refs/tags/v0.20.1.tar.gz"
-  sha256 "7e08c7f56e2c89859310e53d898f72bccc4987cd83e08cfd6303513da15a9e71"
+  url "https://github.com/pytorch/vision/archive/refs/tags/v0.22.1.tar.gz"
+  sha256 "fa1b0a58e13c08329bcff8d52607b4e25944fd074c01dee1b501c8158fadcdec"
   license "BSD-3-Clause"
-  revision 3
 
   livecheck do
     url :stable
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     rebuild 1
