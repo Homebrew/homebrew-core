@@ -5,7 +5,7 @@ class Ghidra < Formula
   sha256 "8a3f955f04f4a2945afc571a70f1c2140052cdd230fbab99615b1de8480ce4f0"
   license "Apache-2.0"
 
-  depends_on "gradle" => :build
+  depends_on "gradle@8" => :build # Ghidra will support gradle@9 from the release after 11.4.1
   depends_on "python@3.13" => :build
   depends_on "openjdk"
 
