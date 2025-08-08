@@ -4,6 +4,7 @@ class Openexr < Formula
   url "https://github.com/AcademySoftwareFoundation/openexr/archive/refs/tags/v3.3.5.tar.gz"
   sha256 "cb0c88710c906c9bfc59027eb147e780d508c7be1a90b43af3ec9e3c2987b70d"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "f12f6e8a339ab66b6269da2b6376d49fec5a8b5bdeae7c0ebe89cd2b0b5a69a1"
