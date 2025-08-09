@@ -30,7 +30,7 @@ class Icemon < Formula
 
   depends_on "icecream"
   depends_on "lzo"
-  depends_on "qt@5"
+  depends_on "qt"
   depends_on "zstd"
 
   on_macos do
@@ -41,7 +41,23 @@ class Icemon < Formula
     depends_on "libcap-ng"
   end
 
+  # Backport fix for CMake 4
+  patch do
+    url "https://github.com/icecc/icemon/commit/b07bf3eb0c28ac5cd527d3ab675d2273d1866b48.patch?full_index=1"
+    sha256 "015098bad42e0b020dfefa2fbc8287fa1eb054576ab642b85818ac36cd0755de"
+  end
+
+  # Backport support for Qt 6
+  patch do
+    url "https://github.com/icecc/icemon/commit/d0969453c7d4467e22dcff0f218b31e81136afbe.patch?full_index=1"
+    sha256 "ea808f5daba80a6c92c45f661a53c67742df513cfee430fe724819daab8d551a"
+  end
+
   def install
+    # Workaround for std::unary_function usage
+    # Issue ref: https://github.com/icecc/icemon/issues/80
+    ENV.append "CXXFLAGS", "-D_LIBCPP_ENABLE_CXX17_REMOVED_UNARY_BINARY_FUNCTION" if ENV.compiler == :clang
+
     args = ["-DECM_DIR=#{Formula["extra-cmake-modules"].opt_share}/ECM/cmake"]
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
