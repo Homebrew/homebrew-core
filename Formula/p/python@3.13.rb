@@ -1,8 +1,8 @@
 class PythonAT313 < Formula
   desc "Interpreted, interactive, object-oriented programming language"
   homepage "https://www.python.org/"
-  url "https://www.python.org/ftp/python/3.13.5/Python-3.13.5.tgz"
-  sha256 "e6190f52699b534ee203d9f417bdbca05a92f23e35c19c691a50ed2942835385"
+  url "https://www.python.org/ftp/python/3.13.6/Python-3.13.6.tgz"
+  sha256 "6cf50672cc03928488817d45af24bc927a48f910fe7893d6f388130e59ba98d7"
   license "Python-2.0"
 
   livecheck do
@@ -67,8 +67,8 @@ class PythonAT313 < Formula
   end
 
   resource "pip" do
-    url "https://files.pythonhosted.org/packages/59/de/241caa0ca606f2ec5fe0c1f4261b0465df78d786a38da693864a116c37f4/pip-25.1.1.tar.gz"
-    sha256 "3de45d411d308d5054c2168185d8da7f9a2cd753dbac8acbfa88a8909ecd9077"
+    url "https://files.pythonhosted.org/packages/20/16/650289cd3f43d5a2fadfd98c68bd1e1e7f2550a1a5326768cddfbcedb2c5/pip-25.2.tar.gz"
+    sha256 "578283f006390f85bb6282dffb876454593d637f5d1be494b5202ce4877e71f2"
   end
 
   resource "setuptools" do
@@ -87,18 +87,6 @@ class PythonAT313 < Formula
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/8b5bcbb262d1ea4e572bba55043bf7d2341a6821/python/3.13-sysconfig.diff"
     sha256 "e1c2699cf3e39731a19207ed69400a67336cda7767aa08f6f46029f26b1d733b"
-  end
-
-  # Fix os.getlogin for users with longer usernames on macOS.
-  # Change accepted upstream and backported, remove on next release.
-  # https://github.com/Homebrew/homebrew-core/issues/226857
-  # https://github.com/python/cpython/issues/135497
-  # https://github.com/python/cpython/pull/135508
-  # https://github.com/python/cpython/pull/135517
-  # https://github.com/python/cpython/pull/135516
-  patch do
-    url "https://github.com/python/cpython/commit/15340775f8ded517e98604fb416e6f758d21f635.patch?full_index=1"
-    sha256 "921de8bbbf20cebb8b695279bfaf138999460bc39ff8320d1495b61f67ae2e65"
   end
 
   def lib_cellar
