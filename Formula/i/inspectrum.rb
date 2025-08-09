@@ -24,7 +24,7 @@ class Inspectrum < Formula
 
   depends_on "fftw"
   depends_on "liquid-dsp"
-  depends_on "qt@5"
+  depends_on "qt@5" # Qt6 issue: https://github.com/miek/inspectrum/issues/240
 
   def install
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
