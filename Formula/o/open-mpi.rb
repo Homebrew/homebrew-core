@@ -29,6 +29,7 @@ class OpenMpi < Formula
   end
 
   depends_on "gcc" # for gfortran
+  fails_with :clang
   depends_on "hwloc"
   depends_on "libevent"
   depends_on "pmix"
@@ -50,8 +51,8 @@ class OpenMpi < Formula
       ompi/tools/ompi_info/param.c
       oshmem/tools/oshmem_info/param.c
     ]
-    cxx = OS.linux? ? "g++" : ENV.cxx
-    cc = OS.linux? ? "gcc" : ENV.cc
+    cxx = ENV.cxx
+    cc = ENV.cc
     inreplace inreplace_files, "OMPI_CXX_ABSOLUTE", "\"#{cxx}\""
     inreplace inreplace_files, "OPAL_CC_ABSOLUTE", "\"#{cc}\""
     inreplace "3rd-party/prrte/src/tools/prte_info/param.c", "PRTE_CC_ABSOLUTE", "\"#{cc}\""
@@ -74,6 +75,7 @@ class OpenMpi < Formula
 
     system "./configure", *args, *std_configure_args
     system "make", "all"
+
     system "make", "check"
     system "make", "install"
 
