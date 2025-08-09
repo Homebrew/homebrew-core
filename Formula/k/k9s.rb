@@ -3,7 +3,7 @@ class K9s < Formula
   homepage "https://k9scli.io/"
   url "https://github.com/derailed/k9s.git",
       tag:      "v0.50.9",
-      revision: "ff62f621158b8d701279f9900437021bcfa369c2"
+      revision: "ffdc7b70f044e1f26c2f6fbb93b5495e4ebdb1ad"
   license "Apache-2.0"
   head "https://github.com/derailed/k9s.git", branch: "master"
 
