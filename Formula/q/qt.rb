@@ -41,7 +41,7 @@ class Qt < Formula
   depends_on "vulkan-loader" => [:build, :test]
   depends_on xcode: :build
 
-  depends_on "assimp@5"
+  depends_on "assimp"
   depends_on "brotli"
   depends_on "dbus"
   depends_on "double-conversion"
@@ -149,6 +149,19 @@ class Qt < Formula
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/e013656cb06ab4a1a54ca6fd9269647d4bf530bc/qt/6.9.1-unique_lock.patch"
     sha256 "6bca73d693e8fc24a5b30109e8d652f666a7b5b0fe1f5ae76202f14044eda02c"
+  end
+
+  # Apply Arch Linux patches for assimp 6 support
+  # Issue ref: https://bugreports.qt.io/browse/QTBUG-139028 / https://bugreports.qt.io/browse/QTBUG-139029
+  patch do
+    url "https://gitlab.archlinux.org/archlinux/packaging/packages/qt6-3d/-/raw/811dd8b18b4042f7120722b63953499830b51ddd/assimp-6.patch"
+    sha256 "244589b0a353da757d61ce6b86d4fcf2fc8c11e9c0d9c5b109180cec9273055a"
+    directory "qt3d"
+  end
+  patch do
+    url "https://gitlab.archlinux.org/archlinux/packaging/packages/qt6-quick3d/-/raw/2c6f918ee81adb61290cf56453c2d67e5dce259f/assimp-6.patch"
+    sha256 "573f00cdad90d77786fba80066d61d5ee97fc56a8b11d0896949acd16bda8e91"
+    directory "qtquick3d"
   end
 
   def install

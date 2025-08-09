@@ -23,7 +23,7 @@ class F3d < Formula
 
   depends_on "cmake" => :build
   depends_on "alembic"
-  depends_on "assimp@5"
+  depends_on "assimp"
   depends_on "glew"
   depends_on "jsoncpp"
   depends_on "opencascade"
