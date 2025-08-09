@@ -4,7 +4,7 @@ class PerconaXtrabackupAT80 < Formula
   url "https://downloads.percona.com/downloads/Percona-XtraBackup-8.0/Percona-XtraBackup-8.0.35-32/source/tarball/percona-xtrabackup-8.0.35-32.tar.gz"
   sha256 "04982a36e36d0e9dfb8487afa77329dd0d2d38da163a205f0179635ceea1aff1"
   license "GPL-2.0-only"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://www.percona.com/products-api.php", post_form: {
@@ -125,6 +125,9 @@ class PerconaXtrabackupAT80 < Formula
     ]
     # Reduce overlinking on macOS
     cmake_args += %w[EXE MODULE].map { |type| "-DCMAKE_#{type}_LINKER_FLAGS=-Wl,-dead_strip_dylibs" } if OS.mac?
+
+    # FIXME: workaround for CMake 4+.
+    cmake_args << "-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
 
     # Remove conflicting manpages
     rm (Dir["man/*"] - ["man/CMakeLists.txt"])

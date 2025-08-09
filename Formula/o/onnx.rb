@@ -4,7 +4,7 @@ class Onnx < Formula
   url "https://github.com/onnx/onnx/archive/refs/tags/v1.17.0.tar.gz"
   sha256 "8d5e983c36037003615e5a02d36b18fc286541bf52de1a78f6cf9f32005a820e"
   license "Apache-2.0"
-  revision 3
+  revision 4
 
   no_autobump! because: :requires_manual_review
 

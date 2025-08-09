@@ -1,8 +1,8 @@
 class Abseil < Formula
   desc "C++ Common Libraries"
   homepage "https://abseil.io"
-  url "https://github.com/abseil/abseil-cpp/archive/refs/tags/20250127.1.tar.gz"
-  sha256 "b396401fd29e2e679cace77867481d388c807671dc2acc602a0259eeb79b7811"
+  url "https://github.com/abseil/abseil-cpp/archive/refs/tags/20250512.1.tar.gz"
+  sha256 "9b7a064305e9fd94d124ffa6cc358592eb42b5da588fb4e07d09254aa40086db"
   license "Apache-2.0"
   head "https://github.com/abseil/abseil-cpp.git", branch: "master"
 
@@ -17,20 +17,15 @@ class Abseil < Formula
   end
 
   depends_on "cmake" => [:build, :test]
-
-  on_macos do
-    depends_on "googletest" => :build # For test helpers
-  end
+  depends_on "googletest" => :build # For test helpers
 
   def install
     ENV.runtime_cpu_detection
 
-    # Install test helpers. Doing this on Linux requires rebuilding `googltest` with `-fPIC`.
-    extra_cmake_args = if OS.mac?
-      %w[ABSL_BUILD_TEST_HELPERS ABSL_USE_EXTERNAL_GOOGLETEST ABSL_FIND_GOOGLETEST].map do |arg|
-        "-D#{arg}=ON"
-      end
-    end.to_a
+    # Install test helpers.
+    extra_cmake_args = %w[ABSL_BUILD_TEST_HELPERS ABSL_USE_EXTERNAL_GOOGLETEST ABSL_FIND_GOOGLETEST].map do |arg|
+      "-D#{arg}=ON"
+    end
 
     system "cmake", "-S", ".", "-B", "build",
                     "-DCMAKE_INSTALL_RPATH=#{rpath}",
