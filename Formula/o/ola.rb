@@ -83,6 +83,17 @@ class Ola < Formula
     sha256 "4d3ed12a41d4c2717cfbb3fa790ddf115b084c1d3566a4d2f0e52a8ab25053ef"
   end
 
+  # The next two patches fix build with newer clang.
+  patch do
+    url "https://github.com/OpenLightingProject/ola/commit/321731ce73be4ea79adb2174591ce94695d3e85b.patch?full_index=1"
+    sha256 "ff73898ea3ef8504a85892d909f712e798a43963f20c30b8ba5a34512bdece26"
+  end
+
+  patch do
+    url "https://github.com/OpenLightingProject/ola/commit/4006f2129f0a6061d59fe5892a2a17c53699a31a.patch?full_index=1"
+    sha256 "c5049ae57a2cf580e2a651ecda06e49d4bc697209d6964fe5b5dfdd76966bc28"
+  end
+
   def python3
     "python3.13"
   end
@@ -110,6 +121,7 @@ class Ola < Formula
     venv.pip_install resources
 
     args = %W[
+      --disable-examples
       --disable-fatal-warnings
       --disable-silent-rules
       --enable-unittests
