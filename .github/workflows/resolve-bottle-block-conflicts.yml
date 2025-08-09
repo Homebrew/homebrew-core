@@ -1,0 +1,139 @@
+name: Resolve bottle block conflicts
+run-name: "Resolve bottle block conflicts for PR #${{ inputs.pull_request }}"
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.inputs.pull_request }}
+  cancel-in-progress: false
+
+on:
+  workflow_dispatch:
+    inputs:
+      pull_request:
+        description: Pull request number
+        type: number
+        required: true
+
+defaults:
+  run:
+    shell: bash -xeuo pipefail {0}
+
+permissions:
+  contents: read
+  pull-requests: write
+
+env:
+  GH_NO_UPDATE_NOTIFIER: 1
+  GH_PROMPT_DISABLED: 1
+  GH_REPO: ${{ github.repository }}
+  PR: ${{ inputs.pull_request }}
+  RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/homebrew/ubuntu22.04:main
+    steps:
+      - name: Set up Homebrew
+        id: set-up-homebrew
+        uses: Homebrew/actions/setup-homebrew@main
+        with:
+          core: true
+          cask: false
+          test-bot: false
+
+      - name: Configure Git user
+        uses: Homebrew/actions/git-user-config@main
+
+      - name: Checkout PR branch
+        id: checkout
+        working-directory: ${{ steps.set-up-homebrew.outputs.repository-path }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh pr checkout "${PR}"
+          head_ref="$(git symbolic-ref --quiet HEAD)"
+          branch="${head_ref#refs/heads/}"
+          remote="$(git config --local "branch.${branch}.pushRemote")"
+
+          echo "branch=${branch}" >>"${GITHUB_OUTPUT}"
+          echo "remote=${remote}" >>"${GITHUB_OUTPUT}"
+
+      - name: Check for merge conflict
+        id: merge
+        working-directory: ${{ steps.set-up-homebrew.outputs.repository-path }}
+        run: |
+          conflict=false
+          if ! git merge --no-commit --no-ff "${GITHUB_REF#refs/heads/}"
+          then
+            conflict=true
+          fi
+          echo "conflict=${conflict}" >>"${GITHUB_OUTPUT}"
+
+      - name: Check conflicting hunk
+        id: check
+        if: fromJSON(steps.merge.outputs.conflict)
+        working-directory: ${{ steps.set-up-homebrew.outputs.repository-path }}
+        env:
+          BOTTLE_LINE_REGEX: '^\s?\+\s*sha256.*:\s+"[a-f0-9]{64}"'
+          AWK_SCRIPT: |
+            /^\+\+<<<<<<< / {inconflict=1; next}
+            /^\+\+=======/ {next}
+            /^\+\+>>>>>>> / {inconflict=0; next}
+            /^diff --cc / {inconflict=0}
+            inconflict
+        run: |
+          GIT_DIFF="$(git diff | tee conflict.diff)"
+          CONFLICT_HUNKS_WITHOUT_CONFLICT_MARKERS="$(awk "${AWK_SCRIPT}" <<<"${GIT_DIFF}")"
+
+          resolvable=false
+          if ! grep --extended-regexp --invert-match --quiet "${BOTTLE_LINE_REGEX}" <<<"${CONFLICT_HUNKS_WITHOUT_CONFLICT_MARKERS}"
+          then
+            resolvable=true
+          fi
+          echo "resolvable=${resolvable}" >>"${GITHUB_OUTPUT}"
+
+      - name: Set up commit signing
+        if: fromJSON(steps.merge.outputs.conflict) && fromJSON(steps.check.outputs.resolvable)
+        uses: Homebrew/actions/setup-commit-signing@main
+        with:
+          signing_key: ${{ secrets.BREWTESTBOT_SSH_SIGNING_KEY }}
+
+      - name: Resolve merge conflict
+        if: fromJSON(steps.merge.outputs.conflict) && fromJSON(steps.check.outputs.resolvable)
+        working-directory: ${{ steps.set-up-homebrew.outputs.repository-path }}
+        env:
+          BRANCH: ${{ steps.checkout.outputs.branch }}
+          GIT_COMMITTER_NAME: BrewTestBot
+          GIT_COMMITTER_EMAIL: 1589480+BrewTestBot@users.noreply.github.com
+        run: |
+          git merge --abort
+          git merge --strategy=ort --strategy-option=ours "${BRANCH}"
+
+      - name: Push merge commit
+        if: fromJSON(steps.merge.outputs.conflict) && fromJSON(steps.check.outputs.resolvable)
+        uses: Homebrew/actions/git-try-push@main
+        with:
+          token: ${{ secrets.HOMEBREW_GITHUB_PUBLIC_REPO_TOKEN }}
+          directory: ${{ steps.set-up-homebrew.outputs.repository-path }}
+          remote: ${{ steps.checkout.outputs.remote }}
+          branch: ${{ steps.checkout.outputs.branch }}
+
+      - name: Post comment
+        if: fromJSON(steps.merge.outputs.conflict) && fromJSON(steps.check.outputs.resolvable)
+        working-directory: ${{ steps.set-up-homebrew.outputs.repository-path }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+          COMMENT_PREFIX: |-
+            I've resolved the conflicts here for you, @${{ github.actor }}. Please review this PR carefully to make sure I've done this correctly.
+
+            You can review the result of the workflow where I've done this [here](${{ env.RUN_URL }}).
+
+            Here are the conflicting hunks for your reference:
+
+            ```diff
+        run: |
+          echo "${COMMENT_PREFIX}" >temp.md
+          cat temp.md conflict.diff >comment.md
+          echo '```' >>comment.md
+          gh pr comment "${PR}" --body-file comment.md --repo "${GITHUB_REPOSITORY}"
