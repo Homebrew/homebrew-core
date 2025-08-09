@@ -4,6 +4,7 @@ class Ctl < Formula
   url "https://github.com/ampas/CTL/archive/refs/tags/ctl-1.5.4.tar.gz"
   sha256 "fb84925320d053827fce965d7aeea5bb8690d7093bb083c8e3915d7a600e25fc"
   license "AMPAS"
+  revision 1
   head "https://github.com/ampas/CTL.git", branch: "master"
 
   bottle do
