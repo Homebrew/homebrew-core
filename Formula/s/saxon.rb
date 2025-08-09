@@ -28,6 +28,11 @@ class Saxon < Formula
   def install
     libexec.install Dir["*.jar", "doc", "lib", "notices"]
     bin.write_jar_script libexec/"saxon-he-#{version.major_minor}.jar", "saxon"
+    (bin/"gizmo").write <<~EOS
+      #!/bin/bash
+      export JAVA_HOME="#{Language::Java.overridable_java_home_env("11+")[:JAVA_HOME]}"
+      exec "${JAVA_HOME}/bin/java" -cp "#{libexec}/saxon-he-#{version.major_minor}.jar" net.sf.saxon.Gizmo "$@"
+    EOS
   end
 
   test do
@@ -53,5 +58,15 @@ class Saxon < Formula
          </body>
       </html>
     HTML
+
+    (testpath/"test-gizmo.txt").write "show\n"
+
+    # Run the command and capture output
+    output = shell_output("#{bin}/gizmo -s:test.xml -q:test-gizmo.txt")
+
+    # Split output into lines
+    lines = output.lines.map(&:chomp)
+
+    assert_equal "<test>It works!</test>", lines[1]
   end
 end
