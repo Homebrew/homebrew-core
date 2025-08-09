@@ -27,7 +27,7 @@ class Dprint < Formula
   end
 
   def install
-    ENV.append "RUSTFLAGS", "-C link-arg=-Wl,-undefined,dynamic_lookup" if OS.mac?
+    ENV.append_to_rustflags "-C link-arg=-Wl,-undefined,dynamic_lookup" if OS.mac?
 
     system "cargo", "install", *std_cargo_args(path: "crates/dprint")
     generate_completions_from_executable(bin/"dprint", "completions")

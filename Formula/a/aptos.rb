@@ -37,10 +37,6 @@ class Aptos < Formula
   end
 
   def install
-    # FIXME: Look into a different way to specify extra RUSTFLAGS in superenv as they override .cargo/config.toml
-    # Ref: https://github.com/Homebrew/brew/blob/master/Library/Homebrew/extend/ENV/super.rb#L65
-    ENV.append "RUSTFLAGS", "--cfg tokio_unstable -C force-frame-pointers=yes -C force-unwind-tables=yes"
-
     # Use correct compiler to prevent blst from enabling AVX support on macOS
     # upstream issue report, https://github.com/supranational/blst/issues/253
     ENV["CC"] = Formula["llvm"].opt_bin/"clang" if OS.mac?

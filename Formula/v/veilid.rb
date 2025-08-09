@@ -21,7 +21,7 @@ class Veilid < Formula
 
   def install
     ENV["SDKROOT"] = MacOS.sdk_path if OS.mac?
-    ENV["RUSTFLAGS"] = "--cfg tokio_unstable"
+    ENV.append_to_rustflags "--cfg tokio_unstable"
     system "cargo", "install", *std_cargo_args(path: "veilid-cli")
     system "cargo", "install", *std_cargo_args(path: "veilid-server")
   end

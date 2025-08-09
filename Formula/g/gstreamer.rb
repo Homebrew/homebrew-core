@@ -214,7 +214,7 @@ class Gstreamer < Formula
     # https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs/-/issues/279
     plugin_dir = lib/"gstreamer-1.0"
     rpath_args = [loader_path, rpath(source: plugin_dir)].map { |path| "-rpath,#{path}" }
-    ENV.append "RUSTFLAGS", "--codegen link-args=-Wl,#{rpath_args.join(",")}"
+    ENV.append_to_rustflags "--codegen link-args=-Wl,#{rpath_args.join(",")}"
 
     # On Linux, adjust processing of RUSTFLAGS to avoid using shlex, which may mangle our
     # RPATH-related flags, due to the presence of `$` in $ORIGIN.

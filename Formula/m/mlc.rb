@@ -26,7 +26,7 @@ class Mlc < Formula
   def install
     # Explicitly set linker to avoid Cargo defaulting to
     # incorrect or outdated linker (e.g. x86_64-apple-darwin14-clang)
-    ENV["RUSTFLAGS"] = "-C linker=#{ENV.cc}"
+    ENV.append_to_rustflags "-C linker=#{ENV.cc}"
 
     ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
     ENV["OPENSSL_NO_VENDOR"] = "1"

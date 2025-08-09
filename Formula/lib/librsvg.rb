@@ -48,7 +48,7 @@ class Librsvg < Formula
   def install
     # Set `RPATH` since `cargo-c` doesn't seem to.
     rpath_flags = [rpath, rpath(source: lib/"gdk-pixbuf-2.0/2.10.0/loaders")].map { |rp| "-rpath,#{rp}" }
-    ENV.append "RUSTFLAGS", "--codegen link-args=-Wl,#{rpath_flags.join(",")}" if OS.mac?
+    ENV.append_to_rustflags "--codegen link-args=-Wl,#{rpath_flags.join(",")}" if OS.mac?
 
     # disable updating gdk-pixbuf cache, we will do this manually in post_install
     # https://github.com/Homebrew/homebrew/issues/40833

@@ -24,7 +24,7 @@ class Libsql < Formula
   depends_on "rust" => :build
 
   def install
-    ENV["RUSTFLAGS"] = "--cfg tokio_unstable"
+    ENV.append_to_rustflags "--cfg tokio_unstable"
     system "cargo", "install", *std_cargo_args(path: "libsql-server")
   end
 

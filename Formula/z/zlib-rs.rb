@@ -22,7 +22,7 @@ class ZlibRs < Formula
 
   def install
     # https://github.com/trifectatechfoundation/zlib-rs/tree/main/libz-rs-sys-cdylib#-cllvm-args-enable-dfa-jump-thread
-    ENV.append "RUSTFLAGS", "-Cllvm-args=-enable-dfa-jump-thread"
+    ENV.append_to_rustflags "-Cllvm-args=-enable-dfa-jump-thread"
     cd "libz-rs-sys-cdylib" do
       system "cargo", "cinstall", "--jobs", ENV.make_jobs.to_s, "--prefix", prefix, "--libdir", lib, "--release"
     end
