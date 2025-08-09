@@ -17,13 +17,13 @@ class Ghidra < Formula
     system "gradle", "assembleAll", "-x", "FileFormats:extractSevenZipNativeLibs"
 
     libexec.install (buildpath/"build/dist/ghidra_#{version}_PUBLIC").children
-    (bin/"ghidraRun").write_env_script libexec/"ghidraRun", Language::Java.overridable_java_home_env("21+")
+    (bin/"ghidraRun").write_env_script libexec/"ghidraRun", Language::Java.overridable_java_home_env
   end
   test do
-    ENV["JAVA_HOME"] = Language::Java.java_home("21+")
+    ENV["JAVA_HOME"] = Language::Java.java_home
     (testpath/"project").mkpath
-    system libexec/"support/analyzeHeadless", testpath/"project", "HomebrewTest", "-import", "/bin/bash",
-"-noanalysis"
+    system libexec/"support/analyzeHeadless", testpath/"project",
+           "HomebrewTest", "-import", "/bin/bash", "-noanalysis"
     assert_path_exists testpath/"project/HomebrewTest.rep"
   end
 end
