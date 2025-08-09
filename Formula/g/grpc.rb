@@ -5,6 +5,7 @@ class Grpc < Formula
       tag:      "v1.74.1",
       revision: "893bdadd56dbb75fb156175afdaa2b0d47e1c15b"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/grpc/grpc.git", branch: "master"
 
   # There can be a notable gap between when a version is tagged and a
@@ -73,6 +74,10 @@ class Grpc < Formula
     system "cmake", "--build", "_build"
     system "cmake", "--install", "_build"
 
+    # `grpc_cli` fails to build on Linux. In any case, it looks like it isn't meant to be be installed.
+    # TODO: consider dropping this on macOS too.
+    return unless OS.mac?
+
     # The following are installed manually, so need to use CMAKE_*_LINKER_FLAGS
     # TODO: `grpc_cli` is a huge pain to install. Consider removing it.
     linker_flags += %W[-rpath #{rpath} -rpath #{rpath(target: HOMEBREW_PREFIX/"lib")}]
@@ -107,6 +112,9 @@ class Grpc < Formula
     flags = shell_output("pkgconf --cflags --libs libcares protobuf re2 grpc++").chomp.split
     system ENV.cc, "test.cpp", "-L#{Formula["abseil"].opt_lib}", *flags, "-o", "test"
     system "./test"
+
+    # We don't build `grpc_cli` on Linux.
+    return unless OS.mac?
 
     output = shell_output("#{bin}/grpc_cli ls localhost:#{free_port} 2>&1", 1)
     assert_match "Received an error when querying services endpoint.", output
