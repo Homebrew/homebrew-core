@@ -4,7 +4,7 @@ class Gearman < Formula
   url "https://github.com/gearman/gearmand/releases/download/1.1.21/gearmand-1.1.21.tar.gz"
   sha256 "2688b83e48f26fdcd4fbaef2413ff1a76c9ecb067d1621d0e0986196efecd308"
   license "BSD-3-Clause"
-  revision 5
+  revision 6
 
   no_autobump! because: :requires_manual_review
 
