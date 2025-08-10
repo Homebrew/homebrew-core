@@ -4,7 +4,7 @@ class LibtorrentRasterbar < Formula
   url "https://github.com/arvidn/libtorrent/releases/download/v2.0.11/libtorrent-rasterbar-2.0.11.tar.gz"
   sha256 "f0db58580f4f29ade6cc40fa4ba80e2c9a70c90265cd77332d3cdec37ecf1e6d"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
   head "https://github.com/arvidn/libtorrent.git", branch: "RC_2_0"
 
   livecheck do
@@ -53,7 +53,6 @@ class LibtorrentRasterbar < Formula
       "-I#{include}",
       "-L#{lib}",
       "-lpthread",
-      "-lboost_system",
       "-ltorrent-rasterbar",
     ]
 
