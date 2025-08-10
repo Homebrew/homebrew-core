@@ -4,6 +4,7 @@ class Folly < Formula
   url "https://github.com/facebook/folly/archive/refs/tags/v2025.08.11.00.tar.gz"
   sha256 "a5cdbf0e8b5198a0f0e863e9f9e3c35b30a78b189c2cd2f300d2d3ca67c0aa3f"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/facebook/folly.git", branch: "main"
 
   bottle do
@@ -48,6 +49,10 @@ class Folly < Formula
     EOS
   end
 
+  # Workaround for Boost 1.89.0 until upstream fix.
+  # Issue ref: https://github.com/facebook/folly/issues/2489
+  patch :DATA
+
   def install
     ENV.llvm_clang if OS.mac? && (DevelopmentTools.clang_build_version <= 1100)
 
@@ -91,3 +96,29 @@ class Folly < Formula
     system "./test"
   end
 end
+
+__END__
+diff --git a/CMake/folly-config.cmake.in b/CMake/folly-config.cmake.in
+index 0b96f0a10..800a3d90b 100644
+--- a/CMake/folly-config.cmake.in
++++ b/CMake/folly-config.cmake.in
+@@ -38,7 +38,6 @@ find_dependency(Boost 1.51.0 MODULE
+     filesystem
+     program_options
+     regex
+-    system
+     thread
+   REQUIRED
+ )
+diff --git a/CMake/folly-deps.cmake b/CMake/folly-deps.cmake
+index 7dafece7d..eaf8c2379 100644
+--- a/CMake/folly-deps.cmake
++++ b/CMake/folly-deps.cmake
+@@ -41,7 +41,6 @@ find_package(Boost 1.51.0 MODULE
+     filesystem
+     program_options
+     regex
+-    system
+     thread
+   REQUIRED
+ )
