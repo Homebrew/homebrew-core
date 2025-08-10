@@ -5,6 +5,7 @@ class AvroCpp < Formula
   mirror "https://archive.apache.org/dist/avro/avro-1.12.0/cpp/avro-cpp-1.12.0.tar.gz"
   sha256 "f2edf77126a75b0ec1ad166772be058351cea3d74448be7e2cef20050c0f98ab"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     rebuild 1
@@ -25,6 +26,7 @@ class AvroCpp < Formula
   # Fix compatibility with `fmt` 11, https://github.com/apache/avro/pull/3444
   # Fix to use system installed `fmt`, https://github.com/apache/avro/pull/3447
   # Both patches are not applicable to the source splitted tarball
+  # Also add workaround for Boost 1.89.0 until next release that drops Boost dep
   patch :DATA
 
   def install
@@ -62,13 +64,15 @@ end
 
 __END__
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 19059a4..ba95df6 100644
+index 19059a4..afdfdf5 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -82,15 +82,18 @@ endif ()
- find_package (Boost 1.38 REQUIRED
-     COMPONENTS filesystem iostreams program_options regex system)
+@@ -80,17 +80,20 @@ endif ()
  
+ 
+ find_package (Boost 1.38 REQUIRED
+-    COMPONENTS filesystem iostreams program_options regex system)
+-
 -include(FetchContent)
 -FetchContent_Declare(
 -        fmt
@@ -78,6 +82,8 @@ index 19059a4..ba95df6 100644
 -        USES_TERMINAL_DOWNLOAD TRUE
 -)
 -FetchContent_MakeAvailable(fmt)
++    COMPONENTS filesystem iostreams program_options regex)
++
 +find_package(fmt)
 +if (NOT fmt_FOUND)
 +    include(FetchContent)
