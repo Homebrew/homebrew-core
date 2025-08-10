@@ -4,7 +4,7 @@ class Logstalgia < Formula
   url "https://github.com/acaudwell/Logstalgia/releases/download/logstalgia-1.1.4/logstalgia-1.1.4.tar.gz"
   sha256 "c049eff405e924035222edb26bcc6c7b5f00a08926abdb7b467e2449242790a9"
   license "GPL-3.0-or-later"
-  revision 7
+  revision 8
 
   no_autobump! because: :requires_manual_review
 
@@ -44,6 +44,13 @@ class Logstalgia < Formula
 
   def install
     ENV.cxx11 # to build with boost>=1.85
+
+    # Workaround for Boost 1.89.0 as upstream commit requires regenerating configure
+    # https://github.com/acaudwell/Logstalgia/commit/823a1a4dbdba8f682e2d31851c11e369e50aa0f7
+    if build.stable?
+      odie "Remove workaround for Boost 1.89.0" if version > "1.1.4"
+      ENV["with_boost_system"] = "no"
+    end
 
     system "autoreconf", "--force", "--install", "--verbose" if build.head?
     system "./configure", "--disable-silent-rules",
