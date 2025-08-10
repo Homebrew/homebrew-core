@@ -4,7 +4,7 @@ class Apngasm < Formula
   url "https://github.com/apngasm/apngasm/archive/refs/tags/3.1.10.tar.gz"
   sha256 "8171e2c1d37ab231a2061320cb1e5d15cee37642e3ce78e8ab0b8dfc45b80f6c"
   license "Zlib"
-  revision 17
+  revision 18
   head "https://github.com/apngasm/apngasm.git", branch: "master"
 
   no_autobump! because: :requires_manual_review
@@ -31,6 +31,12 @@ class Apngasm < Formula
   fails_with :gcc do
     version "7"
     cause "Requires C++17 filesystem"
+  end
+
+  # Fix build with Boost 1.89.0, pr ref: https://github.com/apngasm/apngasm/pull/111
+  patch do
+    url "https://github.com/apngasm/apngasm/commit/7bf77bdefd348c629f650e2a5102a26ab6bee7b8.patch?full_index=1"
+    sha256 "cbb9d679c5d46424bb00962481903f12b8b0e943dfdc98910ad05af7c7dacf5b"
   end
 
   def install
