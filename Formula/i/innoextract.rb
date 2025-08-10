@@ -2,7 +2,7 @@ class Innoextract < Formula
   desc "Tool to unpack installers created by Inno Setup"
   homepage "https://constexpr.org/innoextract/"
   license "Zlib"
-  revision 11
+  revision 12
   head "https://github.com/dscharrer/innoextract.git", branch: "master"
 
   stable do
@@ -42,6 +42,13 @@ class Innoextract < Formula
   patch do
     url "https://github.com/dscharrer/innoextract/commit/264c2fe6b84f90f6290c670e5f676660ec7b2387.patch?full_index=1"
     sha256 "f968a9c0521083dd4076ce5eed56127099a9c9888113fc50f476b914396045cc"
+  end
+
+  # Fix build with `boost` 1.89.0 using open PR
+  # PR ref: https://github.com/dscharrer/innoextract/pull/199
+  patch do
+    url "https://github.com/dscharrer/innoextract/commit/882796e0e9b134b02deeaae4bbfe92920adb6fe2.patch?full_index=1"
+    sha256 "d5af3e86eb2b74bff559885440d330678e5dbb028ce165bb836ddb14224af201"
   end
 
   def install
