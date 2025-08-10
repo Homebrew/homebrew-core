@@ -2,7 +2,7 @@ class Ledger < Formula
   desc "Command-line, double-entry accounting tool"
   homepage "https://ledger-cli.org/"
   license "BSD-3-Clause"
-  revision 9
+  revision 10
   head "https://github.com/ledger/ledger.git", branch: "master"
 
   stable do
@@ -87,11 +87,16 @@ class Ledger < Formula
   end
 
   def install
-    # Workaround until next release as commit doesn't apply
-    # https://github.com/ledger/ledger/commit/956d8ea37247b34a5300c9d55abc7c75324fff33
     if build.stable?
-      inreplace "CMakeLists.txt", "cmake_minimum_required(VERSION 3.0)",
-                                  "cmake_minimum_required(VERSION 3.5)"
+      inreplace "CMakeLists.txt" do |s|
+        # Workaround until next release as commit doesn't apply
+        # https://github.com/ledger/ledger/commit/956d8ea37247b34a5300c9d55abc7c75324fff33
+        s.gsub! "cmake_minimum_required(VERSION 3.0)", "cmake_minimum_required(VERSION 3.5)"
+
+        # Workaround to build with Boost 1.89.0 until release with fix
+        # PR for HEAD: https://github.com/ledger/ledger/pull/2430
+        s.gsub! "REQUIRED date_time filesystem system ", "REQUIRED date_time filesystem "
+      end
     end
 
     ENV.prepend_path "PATH", Formula["python@3.13"].opt_libexec/"bin"
