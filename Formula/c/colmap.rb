@@ -4,7 +4,7 @@ class Colmap < Formula
   url "https://github.com/colmap/colmap/archive/refs/tags/3.12.4.tar.gz"
   sha256 "320cb5a411cd0aa713adc05e208ec34067638e776260efd8098271342d408997"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any, arm64_sequoia: "e42be278b60bbdc3906ae2c3ba6a6dd3cb3755613d4f57aa531586020d5dd715"
@@ -43,6 +43,12 @@ class Colmap < Formula
 
   on_linux do
     depends_on "mesa"
+  end
+
+  # Fix build with Boost 1.89.0, pr ref: https://github.com/colmap/colmap/pull/3553
+  patch do
+    url "https://github.com/colmap/colmap/commit/4995ee6ab747fa34372359f1e12f85908bae88b1.patch?full_index=1"
+    sha256 "e6112f87997213aabf5a24be8e76a7368b72eee4e96dcd23a28659c5d4292be1"
   end
 
   def install
