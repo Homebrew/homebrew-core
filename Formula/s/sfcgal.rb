@@ -4,6 +4,7 @@ class Sfcgal < Formula
   url "https://gitlab.com/sfcgal/SFCGAL/-/archive/v2.2.0/SFCGAL-v2.2.0.tar.gz"
   sha256 "bb6bb77ddb58523d8c229764de23699f99c1a7011d873419afd2a67df85602a2"
   license "LGPL-2.0-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "fb8f72224910fce0b00af1710504412ea68e7b3bfb3380d16e6122efab224dbb"
@@ -21,6 +22,10 @@ class Sfcgal < Formula
   depends_on "mpfr"
 
   def install
+    # Workaround for Boost 1.89.0 until fixed upstream
+    # Issue ref: https://gitlab.com/sfcgal/SFCGAL/-/issues/306
+    inreplace "CMakeLists.txt", " SFCGAL_Boost_COMPONENTS thread system ", " SFCGAL_Boost_COMPONENTS thread "
+
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
