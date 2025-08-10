@@ -4,6 +4,7 @@ class Solidity < Formula
   url "https://github.com/ethereum/solidity/releases/download/v0.8.30/solidity_0.8.30.tar.gz"
   sha256 "5e8d58dff551a18205e325c22f1a3b194058efbdc128853afd75d31b0568216d"
   license all_of: ["GPL-3.0-or-later", "MIT", "BSD-3-Clause", "Apache-2.0", "CC0-1.0"]
+  revision 1
 
   livecheck do
     url :stable
@@ -30,6 +31,12 @@ class Solidity < Formula
   depends_on "z3"
 
   conflicts_with "solc-select", because: "both install `solc` binaries"
+
+  # Fix build with Boost 1.89.0, pr ref: https://github.com/ethereum/solidity/pull/16163
+  patch do
+    url "https://github.com/ethereum/solidity/commit/1c6000917619c69feaa9fd14fe69c0445cc05f20.patch?full_index=1"
+    sha256 "bf839570085ccd9baa227f30f91456f3ff72e9754d63019d33b34449bbb4c34e"
+  end
 
   def install
     rm_r("deps")
