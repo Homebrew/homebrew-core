@@ -4,6 +4,7 @@ class F3d < Formula
   url "https://github.com/f3d-app/f3d/archive/refs/tags/v3.2.0.tar.gz"
   sha256 "2a3cff123821be41d99489e080a7153812e58a86598fa9f4988099660bf6a947"
   license "BSD-3-Clause"
+  revision 1
 
   # Upstream creates releases that use a stable tag (e.g., `v1.2.3`) but are
   # labeled as "pre-release" on GitHub before the version is released, so it's
