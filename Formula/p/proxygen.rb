@@ -4,6 +4,7 @@ class Proxygen < Formula
   url "https://github.com/facebook/proxygen/releases/download/v2025.08.11.00/proxygen-v2025.08.11.00.tar.gz"
   sha256 "adcb875fda718aa62fe47dc9b25c45c65632ccec583452f302624619a164e44f"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/facebook/proxygen.git", branch: "main"
 
   bottle do
@@ -42,6 +43,12 @@ class Proxygen < Formula
       mirror "https://ftp.gnu.org/gnu/gperf/gperf-3.1.tar.gz"
       sha256 "588546b945bba4b70b6a3a616e80b4ab466e3f33024a352fc2198112cdbb3ae2"
     end
+  end
+
+  # Fix build with Boost 1.89.0, pr ref: https://github.com/facebook/proxygen/pull/570
+  patch do
+    url "https://github.com/facebook/proxygen/commit/d69f521bc0c7201ced9326aabe7ba0ca590621bf.patch?full_index=1"
+    sha256 "2b51cbce006750d70e6807bb186d4b06f9ec1c40f7109d0f0b8a8910581a39a3"
   end
 
   def install
