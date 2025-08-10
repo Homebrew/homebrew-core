@@ -6,6 +6,7 @@ class Mapnik < Formula
       tag:      "v4.1.2",
       revision: "83c1f6b1a2f45a825e9d5764b9a6d33c907c4bad"
   license "LGPL-2.1-or-later"
+  revision 1
   head "https://github.com/mapnik/mapnik.git", branch: "master"
 
   livecheck do
