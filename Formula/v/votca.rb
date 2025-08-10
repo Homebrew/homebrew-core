@@ -4,7 +4,7 @@ class Votca < Formula
   url "https://github.com/votca/votca/archive/refs/tags/v2025.tar.gz"
   sha256 "ee2ac59c858ee41ef3ecf636b263464cac5895c0ee9c8f97b1aafca4b8b76350"
   license "Apache-2.0"
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "bd9cec0759bbce5f2a08aff4c75c3ee5179070cb057bb67509d73131c697f1b8"
@@ -32,6 +32,12 @@ class Votca < Formula
 
   on_macos do
     depends_on "libomp"
+  end
+
+  # Fix build with Boost 1.89.0, pr ref: https://github.com/votca/votca/pull/1183
+  patch do
+    url "https://github.com/votca/votca/commit/427352421ac0b541805d383ebecad2bfc37957d1.patch?full_index=1"
+    sha256 "489583bd951d9395a80b872c2889eddd588f819708244a7dab017f02a99c0a68"
   end
 
   def install
