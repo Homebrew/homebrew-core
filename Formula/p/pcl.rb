@@ -1,11 +1,20 @@
 class Pcl < Formula
   desc "Library for 2D/3D image and point cloud processing"
   homepage "https://pointclouds.org/"
-  url "https://github.com/PointCloudLibrary/pcl/archive/refs/tags/pcl-1.15.0.tar.gz"
-  sha256 "e90c981c21e89c45201c5083db8308e099f34c1782f92fd65a0a4eb0b72c6fbf"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
   head "https://github.com/PointCloudLibrary/pcl.git", branch: "master"
+
+  stable do
+    url "https://github.com/PointCloudLibrary/pcl/archive/refs/tags/pcl-1.15.0.tar.gz"
+    sha256 "e90c981c21e89c45201c5083db8308e099f34c1782f92fd65a0a4eb0b72c6fbf"
+
+    # Backport fix for Boost 1.89.0
+    patch do
+      url "https://github.com/PointCloudLibrary/pcl/commit/564074b5e4911bd659c1abb8b29cc4d433b2d8f1.patch?full_index=1"
+      sha256 "5d84fd6ccdce6440c06d15b441dbeb9b2ab83ab4718d7c03964d55c9b91228a6"
+    end
+  end
 
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:  "03fde7c94634272d2b7b00d03942edbfd0a522be1dccb79d6cc7c5bbc8a31f42"
