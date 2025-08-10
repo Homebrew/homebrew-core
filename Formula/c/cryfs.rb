@@ -6,7 +6,7 @@ class Cryfs < Formula
   url "https://github.com/cryfs/cryfs/releases/download/1.0.1/cryfs-1.0.1.tar.gz"
   sha256 "5383cd77c4ef606bb44568e9130c35a996f1075ee1bdfb68471ab8bc8229e711"
   license "LGPL-3.0-or-later"
-  revision 2
+  revision 3
   head "https://github.com/cryfs/cryfs.git", branch: "develop"
 
   bottle do
@@ -25,9 +25,17 @@ class Cryfs < Formula
   depends_on :linux # on macOS, requires closed-source macFUSE
   depends_on "spdlog"
 
-  # Update for changes in Boost.Process 1.88.0+.
-  # PR ref: https://github.com/cryfs/cryfs/pull/494
-  patch :DATA
+  # Backport fix for Boost.Process 1.88.0+. Remove in the next release
+  patch do
+    url "https://github.com/cryfs/cryfs/commit/91e2c9b8fd5f7a1b0e57ad1310534606ce70c338.patch?full_index=1"
+    sha256 "50551c3d73502a9e9796d95f751969e9865a03e6d7429123388ae1f52eb47131"
+  end
+
+  # Fix build with Boost 1.89.0, pr ref: https://github.com/cryfs/cryfs/pull/500
+  patch do
+    url "https://github.com/cryfs/cryfs/commit/f2f3c19979545c4789647e648cc1480ce647f42a.patch?full_index=1"
+    sha256 "35491d35bb341c8651bac6c7348b4d8d42df19304a09824d0eb94206180231d6"
+  end
 
   def install
     ENV.runtime_cpu_detection # for bundled cryptopp
@@ -54,28 +62,3 @@ class Cryfs < Formula
     assert_match expected_output, pipe_output("#{bin}/cryfs -f basedir mountdir 2>&1", "password")
   end
 end
-
-__END__
-diff --git a/src/cpp-utils/process/subprocess.cpp b/src/cpp-utils/process/subprocess.cpp
-index 479bfe87..396ae09e 100644
---- a/src/cpp-utils/process/subprocess.cpp
-+++ b/src/cpp-utils/process/subprocess.cpp
-@@ -1,7 +1,18 @@
- #include "subprocess.h"
- #include <array>
- #include <boost/asio.hpp>
-+#include <boost/version.hpp>
-+#if BOOST_VERSION < 108800
- #include <boost/process.hpp>
-+#else
-+#define BOOST_PROCESS_VERSION 1
-+#include <boost/process/v1/args.hpp>
-+#include <boost/process/v1/async_pipe.hpp>
-+#include <boost/process/v1/child.hpp>
-+#include <boost/process/v1/exe.hpp>
-+#include <boost/process/v1/io.hpp>
-+#include <boost/process/v1/search_path.hpp>
-+#endif
- #include <cerrno>
- #include <cstddef>
- #include <cstdio>
