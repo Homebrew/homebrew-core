@@ -4,7 +4,7 @@ class ColladaDom < Formula
   url "https://github.com/rdiankov/collada-dom/archive/refs/tags/v2.5.0.tar.gz"
   sha256 "3be672407a7aef60b64ce4b39704b32816b0b28f61ebffd4fbd02c8012901e0d"
   license "MIT"
-  revision 12
+  revision 13
   head "https://github.com/rdiankov/collada-dom.git", branch: "master"
 
   no_autobump! because: :requires_manual_review
@@ -27,7 +27,7 @@ class ColladaDom < Formula
 
   uses_from_macos "libxml2"
 
-  # Fix build failure with `boost` 1.85.0.
+  # Fix build failure with `boost` 1.85.0 and 1.89.0.
   # Issue ref: https://github.com/rdiankov/collada-dom/issues/42
   patch :DATA
 
@@ -105,3 +105,16 @@ index da2a344..2550000 100644
 
      const std::string& randomSegment = cdom::getRandomFileName();
      std::string tmpDir = dir + cdom::getFileSeparator() + randomSegment + cdom::getFileSeparator();
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 20635b2..adcc250 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -159,7 +159,7 @@ endif()
+ if( NOT $ENV{BOOST_LIBRARYDIR} STREQUAL "" )
+   set(Boost_LIBRARY_DIRS $ENV{BOOST_LIBRARYDIR})
+ endif()
+-find_package(Boost COMPONENTS filesystem system REQUIRED)
++find_package(Boost COMPONENTS filesystem REQUIRED)
+ 
+ message(STATUS "found boost version: ${Boost_VERSION}")
+ 
