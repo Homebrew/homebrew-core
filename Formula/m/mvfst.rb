@@ -4,6 +4,7 @@ class Mvfst < Formula
   url "https://github.com/facebook/mvfst/archive/refs/tags/v2025.08.11.00.tar.gz"
   sha256 "9d475c425e658e7d2d55911856b47acf6c5cde9bf64ee4d9b380b1363a4c2f8b"
   license "MIT"
+  revision 1
   head "https://github.com/facebook/mvfst.git", branch: "main"
 
   bottle do
@@ -26,6 +27,12 @@ class Mvfst < Formula
   depends_on "glog"
   depends_on "libsodium"
   depends_on "openssl@3"
+
+  # Fix build with Boost 1.89.0, pr ref: https://github.com/facebook/mvfst/pull/405
+  patch do
+    url "https://github.com/facebook/mvfst/commit/77dfed2a86bd2d065b826c667ae7a26e642a61d9.patch?full_index=1"
+    sha256 "182e642819242a9afe130480fc7eaee5a7f63927efa700b33c0714339e33735c"
+  end
 
   def install
     shared_args = ["-DBUILD_SHARED_LIBS=ON", "-DCMAKE_INSTALL_RPATH=#{rpath}"]
