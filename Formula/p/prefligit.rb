@@ -1,8 +1,8 @@
 class Prefligit < Formula
   desc "Pre-commit re-implemented in Rust"
   homepage "https://github.com/j178/prefligit"
-  url "https://github.com/j178/prefligit/archive/refs/tags/v0.0.21.tar.gz"
-  sha256 "e4122150b44d39f7693ca8c2676fe07fa1f2607cf42302c8b8447619aafa311e"
+  url "https://github.com/j178/prefligit/archive/refs/tags/v0.0.24.tar.gz"
+  sha256 "f47105cfa938896b59e5afce0fac862e2eb00989c9d93d1e3625cf9fe6cc2cc2"
   license "MIT"
   head "https://github.com/j178/prefligit.git", branch: "master"
 
