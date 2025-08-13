@@ -1,8 +1,8 @@
 class Qxmpp < Formula
   desc "Cross-platform C++ XMPP client and server library"
   homepage "https://invent.kde.org/libraries/qxmpp"
-  url "https://invent.kde.org/libraries/qxmpp/-/archive/v1.10.4/qxmpp-v1.10.4.tar.bz2"
-  sha256 "92d7e491be736598b2ef20250b5a5e387df584f4a61e0b5d34a3536fa99b3e72"
+  url "https://invent.kde.org/libraries/qxmpp/-/archive/v1.11.1/qxmpp-v1.11.1.tar.bz2"
+  sha256 "a427dafd23ce3b4c5447886558fdaebfbc4fb70974bdf82984b75ad59674126b"
   license "LGPL-2.1-or-later"
 
   bottle do
@@ -14,25 +14,26 @@ class Qxmpp < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "pkgconf" => :build
   depends_on xcode: :build
   depends_on "qt"
 
   on_macos do
-    depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1400
+    depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1500
   end
 
   fails_with :clang do
-    build 1400
+    build 1500
     cause "Requires C++20"
   end
 
   fails_with :gcc do
-    version "9"
+    version "11"
     cause "Requires C++20"
   end
 
   def install
-    ENV.llvm_clang if OS.mac? && DevelopmentTools.clang_build_version <= 1400
+    ENV.llvm_clang if OS.mac? && DevelopmentTools.clang_build_version <= 1500
 
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"
@@ -40,8 +41,27 @@ class Qxmpp < Formula
   end
 
   test do
+    rpath_dirs = [lib]
+    # FIXME: This links with GCC's libstdc++ (as a recursive dependency)
+    dot_pro_preamble = if OS.linux?
+      gcc = Formula["gcc"]
+      rpath_dirs << (gcc.opt_lib/"gcc/current") if OS.linux?
+
+      qmake_cc = gcc.opt_bin/"gcc-#{gcc.version.major}"
+      qmake_cxx = gcc.opt_bin/"g++-#{gcc.version.major}"
+
+      ENV["CC"] = qmake_cc
+      ENV["CXX"] = qmake_cxx
+
+      <<~EOS
+        QMAKE_CC =  #{qmake_cc}
+        QMAKE_CXX = #{qmake_cxx}
+      EOS
+    end
+
     ENV.delete "CPATH"
     (testpath/"test.pro").write <<~EOS
+      #{dot_pro_preamble}
       TEMPLATE     = app
       CONFIG      += console
       CONFIG      -= app_bundle
@@ -51,7 +71,7 @@ class Qxmpp < Formula
       INCLUDEPATH += #{include}
       LIBPATH     += #{lib}
       LIBS        += -lQXmppQt6
-      QMAKE_RPATHDIR += #{lib}
+      QMAKE_RPATHDIR += #{rpath_dirs.join(" ")}
     EOS
 
     (testpath/"test.cpp").write <<~CPP
