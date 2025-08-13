@@ -4,6 +4,7 @@ class DamaskGrid < Formula
   url "https://damask-multiphysics.org/download/damask-3.0.2.tar.xz"
   sha256 "82f9b3aefde87193c12a7c908f42b711b278438f6cad650918989e37fb6dbde4"
   license "AGPL-3.0-only"
+  revision 1
 
   # The first-party website doesn't always reflect the newest version, so we
   # check GitHub releases for now.
@@ -23,7 +24,14 @@ class DamaskGrid < Formula
 
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
+  depends_on "fftw"
+  depends_on "gcc"
+  depends_on "hdf5-mpi"
+  depends_on "metis"
+  depends_on "open-mpi"
+  depends_on "openblas"
   depends_on "petsc"
+  depends_on "scalapack"
 
   uses_from_macos "zlib"
 
