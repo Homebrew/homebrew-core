@@ -1,12 +1,10 @@
 class Tinysearch < Formula
   desc "Tiny, full-text search engine for static websites built with Rust and Wasm"
   homepage "https://github.com/tinysearch/tinysearch"
-  url "https://github.com/tinysearch/tinysearch/archive/refs/tags/v0.8.2.tar.gz"
-  sha256 "103214d77f0624bbb7e396667136156fdb8c8c7abeb6860adb231bf2a00b256d"
+  url "https://github.com/tinysearch/tinysearch/archive/refs/tags/v0.9.0.tar.gz"
+  sha256 "90b035d0d41fe166e5a5ce18668d1c3098a7e64c17fcb8bfc7a3ba11c24019a4"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/tinysearch/tinysearch.git", branch: "master"
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "604da29b5763cbd83ee3851adf412ebc0683a39f82c4f6fb5db430c21e5804b8"
