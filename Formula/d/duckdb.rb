@@ -16,7 +16,7 @@ class Duckdb < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "797a43be18afd83479b4d97589b68a32307da540de046cf5edb675c328266b5d"
   end
 
-  depends_on "cmake" => :build
+  depends_on "cmake" => [:build, :test]
   uses_from_macos "python" => :build
 
   def install
@@ -33,8 +33,6 @@ class Duckdb < Formula
     # The cli tool was renamed (0.1.8 -> 0.1.9)
     # Create a symlink to not break compatibility
     bin.install_symlink bin/"duckdb" => "duckdb_cli"
-
-    rm lib.glob("*.a")
   end
 
   test do
@@ -54,5 +52,32 @@ class Duckdb < Formula
     EOS
 
     assert_equal expected_output, pipe_output(bin/"duckdb_cli", sql_commands)
+
+    (testpath/"test.cpp").write <<~CPP
+      #include "duckdb.hpp"
+      #include <iostream>
+      using namespace duckdb;
+      int main() {
+        DuckDB db(nullptr);
+        Connection con(db);
+        con.Query("CREATE TABLE weather (temp INTEGER)");
+        con.Query("INSERT INTO weather (temp) VALUES (40), (45), (50)");
+        auto result = con.Query("SELECT AVG(temp) FROM weather");
+        std::cout << result->Fetch()->GetValue(0, 0).ToString();
+      }
+    CPP
+
+    (testpath/"CMakeLists.txt").write <<~CMAKE
+      cmake_minimum_required(VERSION 3.10)
+      project(test_duckdb)
+      set(CMAKE_CXX_STANDARD 11)
+      find_package(DuckDB REQUIRED)
+      add_executable(test test.cpp)
+      target_link_libraries(test duckdb)
+    CMAKE
+
+    system "cmake", testpath
+    system "cmake", "--build", "."
+    assert_equal "45.0", shell_output(testpath/"test")
   end
 end
