@@ -4,9 +4,9 @@ class Urlview < Formula
   # TODO: Consider switching to new Debian maintainer's fork if it is adopted
   # by other repositories as allowed by our documented policy. Alternatively,
   # we could introduce the fork as `urlview-ng` and deprecate this formula.
-  url "https://deb.debian.org/debian/pool/main/u/urlview/urlview_0.9.orig.tar.gz"
-  version "0.9-23.1"
-  sha256 "746ff540ccf601645f500ee7743f443caf987d6380e61e5249fc15f7a455ed42"
+  url "https://deb.debian.org/debian/pool/main/u/urlview/urlview_1e.orig.tar.gz"
+  version "1e-1"
+  sha256 "8522c5a560def04a022faad66a1b4be5c895ecab9a93dc63c49969febcc8d571"
   license "GPL-2.0-or-later"
 
   # Since this formula incorporates patches and uses a version like `0.9-21`,
@@ -33,16 +33,6 @@ class Urlview < Formula
 
   on_linux do
     depends_on "automake"
-  end
-
-  patch do
-    url "http://ftp.debian.org/debian/pool/main/u/urlview/urlview_0.9-23.1.debian.tar.xz"
-    sha256 "bdb3b403b165ff1fe7d1a7c05275b6c865e4740d9ed46fd9c81495be1fbe2b9f"
-    apply "patches/debian.patch",
-          "patches/Fix-warning-about-implicit-declaration-of-function.patch",
-          "patches/invoke-AM_INIT_AUTOMAKE-with-foreign.patch",
-          "patches/Link-against-libncursesw-setlocale-LC_ALL.patch",
-          "patches/Allow-dumping-URLs-to-stdout.patch"
   end
 
   def install
