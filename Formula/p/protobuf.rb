@@ -1,8 +1,8 @@
 class Protobuf < Formula
   desc "Protocol buffers (Google's data interchange format)"
   homepage "https://protobuf.dev/"
-  url "https://github.com/protocolbuffers/protobuf/releases/download/v31.1/protobuf-31.1.tar.gz"
-  sha256 "12bfd76d27b9ac3d65c00966901609e020481b9474ef75c7ff4601ac06fa0b82"
+  url "https://github.com/protocolbuffers/protobuf/releases/download/v32.0/protobuf-32.0.tar.gz"
+  sha256 "9dfdf08129f025a6c5802613b8ee1395044fecb71d38210ca59ecad283ef68bb"
   license "BSD-3-Clause"
 
   livecheck do
@@ -24,6 +24,9 @@ class Protobuf < Formula
   depends_on "googletest" => :build
   depends_on "abseil"
   uses_from_macos "zlib"
+
+  # Test fix for AArch64 Linux.
+  patch :DATA
 
   def install
     # Keep `CMAKE_CXX_STANDARD` in sync with the same variable in `abseil.rb`.
@@ -63,3 +66,31 @@ class Protobuf < Formula
     system bin/"protoc", "test.proto", "--cpp_out=."
   end
 end
+
+__END__
+diff --git c/src/google/protobuf/port.h w/src/google/protobuf/port.h
+index 10667c69b..b04ea1b6a 100644
+--- c/src/google/protobuf/port.h
++++ w/src/google/protobuf/port.h
+@@ -23,6 +23,10 @@
+ #include <type_traits>
+ #include <typeinfo>
+ 
++#if defined(__ARM_FEATURE_CRC32)
++#include <arm_acle.h>
++#endif
++
+ #include "absl/base/optimization.h"
+ 
+ 
+@@ -802,9 +806,7 @@ inline uint32_t Crc32(uint32_t crc, uint64_t v) {
+ #elif defined(__ARM_FEATURE_CRC32)
+ 
+ constexpr bool HasCrc32() { return true; }
+-inline uint32_t Crc32(uint32_t crc, uint64_t v) {
+-  return __builtin_arm_crc32cd(crc, v);
+-}
++inline uint32_t Crc32(uint32_t crc, uint64_t v) { return __crc32cd(crc, v); }
+ 
+ #else
+ 
