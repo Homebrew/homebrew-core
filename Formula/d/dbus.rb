@@ -6,7 +6,8 @@ class Dbus < Formula
   mirror "https://deb.debian.org/debian/pool/main/d/dbus/dbus_1.16.2.orig.tar.xz"
   sha256 "0ba2a1a4b16afe7bceb2c07e9ce99a8c2c3508e5dec290dbb643384bd6beb7e2"
   license any_of: ["AFL-2.1", "GPL-2.0-or-later"]
-  head "https://gitlab.freedesktop.org/dbus/dbus.git", branch: "master"
+  revision 1
+  head "https://gitlab.freedesktop.org/dbus/dbus.git", branch: "main"
 
   livecheck do
     url "https://dbus.freedesktop.org/releases/dbus/"
@@ -34,6 +35,10 @@ class Dbus < Formula
   uses_from_macos "python" => :build
   uses_from_macos "expat"
 
+  # Remove deprecated keys from launchd plist.
+  # PR ref: https://gitlab.freedesktop.org/dbus/dbus/-/merge_requests/179
+  patch :DATA
+
   def install
     # Fix the TMPDIR to one D-Bus doesn't reject due to odd symbols
     ENV["TMPDIR"] = "/tmp"
@@ -47,7 +52,8 @@ class Dbus < Formula
       -Dmodular_tests=disabled
     ]
 
-    args << "-Dlaunchd_agent_dir=#{lib}/Library/LaunchAgents" if OS.mac?
+    args << "-Dlaunchd_agent_dir=#{prefix}" << "-Ddbus_user=daemon" if OS.mac?
+    inreplace "bus/org.freedesktop.dbus-session.plist.in", "@DBUS_DAEMONDIR@", opt_bin
 
     # rpath is not set for meson build
     ENV.append "LDFLAGS", "-Wl,-rpath,#{lib}"
@@ -55,6 +61,11 @@ class Dbus < Formula
     system "meson", "setup", "build", *args, *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"
     system "meson", "install", "-C", "build"
+
+    # Manually create plist for system bus service
+    (prefix/"org.freedesktop.dbus-system.plist").write system_plist if OS.mac?
+    mkdir etc/"dbus-1/system.d"
+    mkdir etc/"dbus-1/session.d"
   end
 
   def post_install
@@ -65,17 +76,18 @@ class Dbus < Formula
   def caveats
     on_macos do
       <<~EOS
-        To load #{name} at startup, activate the included Launch Agent:
+        To start the session bus now and at login:
 
-          sudo cp #{lib}/Library/LaunchAgents/org.freedesktop.dbus-session.plist /Library/LaunchAgents
-          sudo chmod 644 /Library/LaunchAgents/org.freedesktop.dbus-session.plist
-          sudo launchctl load -w /Library/LaunchAgents/org.freedesktop.dbus-session.plist
+          brew services start dbus
 
-        If this is an upgrade and you already have the Launch Agent loaded, you
-        have to unload the Launch Agent before reinstalling it:
+        To start the system bus now and on boot, install and activate the included daemon:
 
-          sudo launchctl unload -w /Library/LaunchAgents/org.freedesktop.dbus-session.plist
-          sudo rm /Library/LaunchAgents/org.freedesktop.dbus-session.plist
+          sudo cp -f $(brew --prefix dbus)/org.freedesktop.dbus-system.plist /Library/LaunchDaemons
+          sudo launchctl bootstrap system /Library/LaunchDaemons/org.freedesktop.dbus-system.plist
+
+        If the daemon is already installed and running, restart it:
+
+          sudo launchctl kickstart -k system/org.freedesktop.dbus-system
       EOS
     end
   end
@@ -84,7 +96,64 @@ class Dbus < Formula
     name macos: "org.freedesktop.dbus-session"
   end
 
+  def system_plist
+    <<~PLIST
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+      <dict>
+        <key>Label</key>
+        <string>org.freedesktop.dbus-system</string>
+        <key>KeepAlive</key>
+        <dict>
+          <key>SuccessfulExit</key>
+          <false/>
+        </dict>
+        <key>ProgramArguments</key>
+        <array>
+          <string>#{opt_bin}/dbus-daemon</string>
+          <string>--nofork</string>
+          <string>--system</string>
+          <string>--nopidfile</string>
+        </array>
+        <key>Sockets</key>
+        <dict>
+          <key>unix_domain_listener</key>
+          <dict>
+            <key>SockPathName</key>
+            <string>#{var}/run/dbus/system_bus_socket</string>
+            <key>SockPathMode</key>
+            <integer>511</integer>
+          </dict>
+        </dict>
+      </dict>
+      </plist>
+    PLIST
+  end
+
   test do
-    system bin/"dbus-daemon", "--version"
+    assert_match version.to_s, shell_output("#{bin}/dbus-daemon --version")
   end
 end
+
+__END__
+diff --git a/bus/org.freedesktop.dbus-session.plist.in b/bus/org.freedesktop.dbus-session.plist.in
+index 40ff370..3c77fa9 100644
+--- a/bus/org.freedesktop.dbus-session.plist.in
++++ b/bus/org.freedesktop.dbus-session.plist.in
+@@ -5,15 +5,6 @@
+ 	<key>Label</key>
+ 	<string>org.freedesktop.dbus-session</string>
+ 
+-	<key>ServiceIPC</key>
+-	<true/>
+-
+-	<!-- Please uncomment on 10.4; OnDemand doesn't work properly there. -->
+-	<!--
+-	<key>OnDemand</key>
+-	<false />
+-	-->
+-
+ 	<key>ProgramArguments</key>
+ 	<array>
+ 		<string>@DBUS_DAEMONDIR@/dbus-daemon</string>
