@@ -2,8 +2,8 @@ class Libmsquic < Formula
   desc "Cross-platform, C implementation of the IETF QUIC protocol"
   homepage "https://github.com/microsoft/msquic"
   url "https://github.com/microsoft/msquic.git",
-      tag:      "v2.4.14",
-      revision: "4922536a9b0b5d1d5c14f907eb3bd0977201123d"
+      tag:      "v2.5.3",
+      revision: "879837a0f3f7f2cd1f240d10d3c0c648fad82613"
   license "MIT"
 
   livecheck do
@@ -26,7 +26,7 @@ class Libmsquic < Formula
 
   def install
     args = %w[
-      -DQUIC_TLS=openssl3
+      -DQUIC_TLS_LIB=openssl
       -DQUIC_USE_SYSTEM_LIBCRYPTO=true
       -DQUIC_BUILD_PERF=OFF
       -DQUIC_BUILD_TOOLS=OFF
