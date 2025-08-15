@@ -1,16 +1,14 @@
 class Jdupes < Formula
   desc "Duplicate file finder and an enhanced fork of 'fdupes'"
   homepage "https://codeberg.org/jbruchon/jdupes"
-  url "https://codeberg.org/jbruchon/jdupes/archive/v1.28.0.tar.gz"
-  sha256 "a8f21c04fff5e3ff0a92e8ac76114b2195ed43dc32b84bf343f5256e7ba9cb04"
+  url "https://codeberg.org/jbruchon/jdupes/archive/v1.29.0.tar.gz"
+  sha256 "4475a97e515713c99d12920d3807f06ba6fdff07f84a6ce9f7a1174793ad5950"
   license "MIT"
 
   livecheck do
     url :stable
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "be36bdaad3510fc56343d42b0fc7038d9341c4ae9e0ce27cc51f6a793abf5b3a"
@@ -27,9 +25,8 @@ class Jdupes < Formula
   depends_on macos: :catalina # requires aligned_alloc
 
   resource "libjodycode" do
-    url "https://codeberg.org/jbruchon/libjodycode.git",
-        tag:      "v3.1.1",
-        revision: "0dc008e8d95c4899c9fc66fdb3ee5fc029df0470"
+    url "https://codeberg.org/jbruchon/libjodycode/archive/v4.0.tar.gz"
+    sha256 "46db5897307ac3be92bb048c62f1beb93793dd101dd4cf6c1787688eaf58c094"
   end
 
   def install
@@ -41,7 +38,9 @@ class Jdupes < Formula
       system "make", "install", "PREFIX=#{prefix}"
     end
 
-    system "make", "ENABLE_DEDUPE=1"
+    args = ["ENABLE_DEDUPE=1"]
+    args << "static_jc" if OS.linux?
+    system "make", *args
     system "make", "install", "PREFIX=#{prefix}"
   end
 
