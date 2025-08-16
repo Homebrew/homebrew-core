@@ -24,7 +24,7 @@ class InfluxdbCli < Formula
   end
 
   depends_on "go" => :build
-  depends_on "influxdb" => :test
+  depends_on "influxdb@2" => :test
 
   def install
     ldflags = %W[
