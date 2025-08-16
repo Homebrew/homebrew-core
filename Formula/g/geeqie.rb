@@ -4,6 +4,7 @@ class Geeqie < Formula
   url "https://github.com/BestImageViewer/geeqie/releases/download/v2.6.1/geeqie-2.6.1.tar.xz"
   sha256 "164b768b8a387edf654112428adb8fd88c265c76b7bc84a490158e6923da3a55"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url :stable
@@ -22,9 +23,7 @@ class Geeqie < Formula
 
   depends_on "meson" => :build
   depends_on "ninja" => :build
-  depends_on "pandoc" => :build # for README.html
   depends_on "pkgconf" => :build
-  depends_on "yelp-tools" => :build # for help files
 
   depends_on "adwaita-icon-theme"
   depends_on "at-spi2-core"
@@ -65,7 +64,8 @@ class Geeqie < Formula
   end
 
   def install
-    system "meson", "setup", "build", "-Dlua=disabled", *std_meson_args
+    args = %w[-Dlua=disabled -Dyelp-build=disabled]
+    system "meson", "setup", "build", *args, *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"
     system "meson", "install", "-C", "build"
   end
