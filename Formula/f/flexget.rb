@@ -21,6 +21,7 @@ class Flexget < Formula
   depends_on "certifi"
   depends_on "cffi"
   depends_on "cryptography"
+  depends_on "libsodium" # for pynacl
   depends_on "libyaml"
   depends_on "pillow"
   depends_on "pycparser"
