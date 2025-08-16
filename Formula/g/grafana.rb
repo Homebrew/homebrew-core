@@ -1,8 +1,8 @@
 class Grafana < Formula
   desc "Gorgeous metric visualizations and dashboards for timeseries databases"
   homepage "https://grafana.com"
-  url "https://github.com/grafana/grafana/archive/refs/tags/v12.1.0.tar.gz"
-  sha256 "9e2f3f11eff01f8b86c2c232c6a3c3a32fa303589ea9829538ffc867684a4436"
+  url "https://github.com/grafana/grafana/archive/refs/tags/v12.1.1.tar.gz"
+  sha256 "ff9bb988385c47b5b9429c9dd928d7084def8b950815d96badc9ded495361519"
   license "AGPL-3.0-only"
   head "https://github.com/grafana/grafana.git", branch: "main"
 
@@ -20,7 +20,7 @@ class Grafana < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "a4e4d396d5276b1b1482cbea776462f399e78a58c437111b3889bbc82dc11972"
   end
 
-  depends_on "go" => :build
+  depends_on "go@1.24" => :build
   depends_on "node@22" => :build
   depends_on "yarn" => :build
 
