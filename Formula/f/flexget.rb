@@ -22,6 +22,8 @@ class Flexget < Formula
   depends_on "cffi"
   depends_on "cryptography"
   depends_on "libyaml"
+  depends_on "pillow"
+  depends_on "pycparser"
   depends_on "python@3.13"
   depends_on "zstd"
 
@@ -618,7 +620,7 @@ class Flexget < Formula
           filesystem:
             path:
               - '{? media_folder ?}'
-            regexp: '.*\.(avi|mkv|mp4)$'
+            regexp: '.*.(avi|mkv|mp4)$'
             recursive: yes
           accept_all: yes
           periscope:
