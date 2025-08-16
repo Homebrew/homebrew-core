@@ -37,7 +37,15 @@ class Aptos < Formula
   def install
     # Use correct compiler to prevent blst from enabling AVX support on macOS
     # upstream issue report, https://github.com/supranational/blst/issues/253
-    ENV["CC"] = Formula["llvm"].opt_bin/"clang" if OS.mac?
+    ENV.llvm_clang if OS.mac?
+
+    if OS.mac? && Hardware::CPU.intel?
+      # Avoid building the assembly and use C fallback only instead in blst crate to avoid build failures.
+      # TODO: See if this workaround can be removed at version bump.
+      ENV.append "CFLAGS", "-D__BLST_PORTABLE__"
+      ENV.append "CFLAGS_x86_64_apple_darwin", "-D__BLST_PORTABLE__"
+      odie "Try to remove `CFLAGS` workaround!" if build.stable? && version > "7.7.0"
+    end
 
     system "cargo", "install", *std_cargo_args(path: "crates/aptos"), "--profile=cli"
   end
