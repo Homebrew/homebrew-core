@@ -1,8 +1,8 @@
 class Crossplane < Formula
   desc "Build control planes without needing to write code"
   homepage "https://github.com/crossplane/crossplane"
-  url "https://github.com/crossplane/crossplane/archive/refs/tags/v1.20.1.tar.gz"
-  sha256 "57d471912b89b812d85f8f04dfddb545610cf3c8eb53263826678bcd60200f6c"
+  url "https://github.com/crossplane/crossplane/archive/refs/tags/v2.0.2.tar.gz"
+  sha256 "dcdd06b770a6b697c8b9ba25ea7a96e4c8dd1fd4938a659ba49561f027cb38f7"
   license "Apache-2.0"
   head "https://github.com/crossplane/crossplane.git", branch: "main"
 
@@ -23,7 +23,11 @@ class Crossplane < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w -X github.com/crossplane/crossplane/internal/version.version=v#{version}"), "./cmd/crank"
+    ldflags = %W[
+      -s -w
+      -X github.com/crossplane/crossplane/v#{version.major}/internal/version.version=v#{version}
+    ]
+    system "go", "build", *std_go_args(ldflags:), "./cmd/crank"
   end
 
   test do
