@@ -27,9 +27,6 @@ class OsrmBackend < Formula
   depends_on "pkgconf" => :build
 
   depends_on "boost"
-  depends_on "libstxxl"
-  depends_on "libxml2"
-  depends_on "libzip"
   depends_on "lua"
   depends_on "tbb"
 
@@ -38,7 +35,7 @@ class OsrmBackend < Formula
   uses_from_macos "zlib"
 
   on_linux do
-    depends_on "gcc@12" if DevelopmentTools.gcc_version("gcc") < 12
+    depends_on "gcc"
 
     fails_with :gcc do
       version "11"
@@ -52,31 +49,37 @@ class OsrmBackend < Formula
   conflicts_with "flatbuffers", because: "both install flatbuffers headers"
 
   def install
-    # Work around build failure: duplicate symbol 'boost::phoenix::placeholders::uarg9'
-    # Issue ref: https://github.com/boostorg/phoenix/issues/111
-    ENV.append_to_cflags "-DBOOST_PHOENIX_STL_TUPLE_H_"
-    # Work around build failure on Linux:
-    # /tmp/osrm-backend-20221105-7617-1itecwd/osrm-backend-5.27.1/src/osrm/osrm.cpp:83:1:
-    # /usr/include/c++/11/ext/new_allocator.h:145:26: error: 'void operator delete(void*, std::size_t)'
-    # called on unallocated object 'result' [-Werror=free-nonheap-object]
-    ENV.append_to_cflags "-Wno-free-nonheap-object" if OS.linux?
-
     lua = Formula["lua"]
     luaversion = lua.version.major_minor
 
+    # TODO: Add `-DBUILD_SHARED_LIBS=ON` on macOS (but not Linux unless GCC 12+ is default)
+    # after upstream issue https://github.com/Project-OSRM/osrm-backend/issues/6954 is fixed
     system "cmake", "-S", ".", "-B", "build",
                     "-DENABLE_CCACHE:BOOL=OFF",
                     "-DLUA_INCLUDE_DIR=#{lua.opt_include}/lua#{luaversion}",
                     "-DLUA_LIBRARY=#{lua.opt_lib/shared_library("liblua", luaversion.to_s)}",
-                    "-DENABLE_GOLD_LINKER=OFF",
                     *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
     pkgshare.install "profiles"
+
+    # Remove C++ libraries from Linux bottle. Can consider restoring once GCC 12 is default
+    rm_r([include, lib]) if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
+  end
+
+  def caveats
+    on_linux do
+      <<~CAVEATS
+        The bottle does not include C++ libraries as core formulae are
+        not allowed to have a Linux-only GCC dependency for libraries.
+      CAVEATS
+    end
   end
 
   test do
+    refute_path_exists lib if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
+
     node1 = 'visible="true" version="1" changeset="676636" timestamp="2008-09-21T21:37:45Z"'
     node2 = 'visible="true" version="1" changeset="323878" timestamp="2008-05-03T13:39:23Z"'
     node3 = 'visible="true" version="1" changeset="323878" timestamp="2008-05-03T13:39:23Z"'
