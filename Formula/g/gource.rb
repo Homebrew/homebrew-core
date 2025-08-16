@@ -4,7 +4,7 @@ class Gource < Formula
   url "https://github.com/acaudwell/Gource/releases/download/gource-0.55/gource-0.55.tar.gz"
   sha256 "c8239212d28b07508d9e477619976802681628fc25eb3e04f6671177013c0142"
   license "GPL-3.0-or-later"
-  revision 3
+  revision 4
 
   bottle do
     sha256 arm64_sequoia: "eaf4ff31b1f3bc0ad7780621d818a52c122457a0acd3f8cc7981a4e991ed5d00"
@@ -42,6 +42,13 @@ class Gource < Formula
 
   def install
     ENV.cxx11
+
+    # Workaround for Boost 1.89.0 as upstream commit requires regenerating configure
+    # https://github.com/acaudwell/Gource/commit/1b4e37d71506e6ad19f15190907852978507fc6a
+    if build.stable?
+      odie "Remove workaround for Boost 1.89.0" if version > "0.55"
+      ENV["with_boost_system"] = "no"
+    end
 
     # clang on Mt. Lion will try to build against libstdc++,
     # despite -std=gnu++0x

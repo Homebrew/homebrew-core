@@ -4,7 +4,7 @@ class Lgogdownloader < Formula
   url "https://github.com/Sude-/lgogdownloader/releases/download/v3.17/lgogdownloader-3.17.tar.gz"
   sha256 "fefda26206ebb1e2a6d734b76f6f07977da150064141f29ed1f90450daf4e69e"
   license "WTFPL"
-  revision 3
+  revision 4
   head "https://github.com/Sude-/lgogdownloader.git", branch: "master"
 
   livecheck do
@@ -33,6 +33,12 @@ class Lgogdownloader < Formula
   depends_on "tinyxml2"
 
   uses_from_macos "curl"
+
+  # Fix build with Boost 1.89.0, pr ref: https://github.com/Sude-/lgogdownloader/pull/296
+  patch do
+    url "https://github.com/Sude-/lgogdownloader/commit/7ba719a7a53d6025cd82f8b1c86e765285ed802b.patch?full_index=1"
+    sha256 "189b1f589b887d3086a42e96b93fe5b1b70c875091e98136c6f0ceff48c879e9"
+  end
 
   def install
     args = %W[

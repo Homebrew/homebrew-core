@@ -4,6 +4,7 @@ class Pdnsrec < Formula
   url "https://downloads.powerdns.com/releases/pdns-recursor-5.2.5.tar.bz2"
   sha256 "a8a657a7abd6e9d237cdd26753f7dcf5ccd5b8c48ac8120b08d2b8d57a1d856a"
   license "GPL-2.0-only" => { with: "openvpn-openssl-exception" }
+  revision 1
 
   livecheck do
     url "https://downloads.powerdns.com/releases/"
@@ -41,6 +42,10 @@ class Pdnsrec < Formula
   end
 
   def install
+    # Workaround for Boost 1.89.0 until fixed upstream.
+    # Issue ref: https://github.com/PowerDNS/pdns/issues/15972
+    ENV["boost_cv_lib_system"] = "yes"
+
     ENV.cxx11
     ENV.llvm_clang if OS.mac? && (DevelopmentTools.clang_build_version <= 1100)
 

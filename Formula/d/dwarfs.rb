@@ -4,6 +4,7 @@ class Dwarfs < Formula
   url "https://github.com/mhx/dwarfs/releases/download/v0.12.4/dwarfs-0.12.4.tar.xz"
   sha256 "352d13a3c7d9416e0a7d0d959306a25908b58d1ff47fb97e30a7c8490fcff259"
   license "GPL-3.0-or-later"
+  revision 1
 
   livecheck do
     url :stable
@@ -64,6 +65,10 @@ class Dwarfs < Formula
     sha256 "14a584c4f0a166d065d45eb691c23306289a5287960806261b605946166de590"
     directory "folly"
   end
+
+  # Workaround for Boost 1.89.0 until upstream Folly fix.
+  # Issue ref: https://github.com/facebook/folly/issues/2489
+  patch :DATA
 
   def install
     args = %W[
@@ -137,3 +142,25 @@ class Dwarfs < Formula
     assert_equal version.to_s, shell_output("./test").chomp
   end
 end
+
+__END__
+--- a/folly/CMake/folly-config.cmake.in
++++ b/folly/CMake/folly-config.cmake.in
+@@ -38,7 +38,6 @@ find_dependency(Boost 1.51.0 MODULE
+     filesystem
+     program_options
+     regex
+-    system
+     thread
+   REQUIRED
+ )
+--- a/folly/CMake/folly-deps.cmake
++++ b/folly/CMake/folly-deps.cmake
+@@ -41,7 +41,6 @@ find_package(Boost 1.51.0 MODULE
+     filesystem
+     program_options
+     regex
+-    system
+     thread
+   REQUIRED
+ )

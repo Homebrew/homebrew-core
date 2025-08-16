@@ -1,11 +1,19 @@
 class Supertux < Formula
   desc "Classic 2D jump'n run sidescroller game"
   homepage "https://www.supertux.org/"
-  url "https://github.com/SuperTux/supertux/releases/download/v0.6.3/SuperTux-v0.6.3-Source.tar.gz"
-  sha256 "f7940e6009c40226eb34ebab8ffb0e3a894892d891a07b35d0e5762dd41c79f6"
   license "GPL-3.0-or-later"
-  revision 11
-  head "https://github.com/SuperTux/supertux.git", branch: "master"
+  revision 12
+
+  stable do
+    url "https://github.com/SuperTux/supertux/releases/download/v0.6.3/SuperTux-v0.6.3-Source.tar.gz"
+    sha256 "f7940e6009c40226eb34ebab8ffb0e3a894892d891a07b35d0e5762dd41c79f6"
+
+    depends_on "boost"
+
+    # Workaround to build with Boost 1.89.0 until new release that drops Boost dependency
+    # https://github.com/SuperTux/supertux/commit/5333cebf629eb20621b284fc96b494257f3314bb
+    patch :DATA
+  end
 
   livecheck do
     url :stable
@@ -24,9 +32,15 @@ class Supertux < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "22bdb84ff6294cb2c5bf52ca70ee7b98b5c463b33be62b8e5ef373f859df5729"
   end
 
+  head do
+    url "https://github.com/SuperTux/supertux.git", branch: "master"
+
+    depends_on "fmt"
+    depends_on "openal-soft"
+  end
+
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
-  depends_on "boost"
   depends_on "freetype"
   depends_on "glew"
   depends_on "glm"
@@ -55,6 +69,7 @@ class Supertux < Formula
       # Without the following option, Cmake intend to use the library of MONO framework.
       "-DPNG_PNG_INCLUDE_DIR=#{Formula["libpng"].opt_include}",
     ]
+    args << "-DCMAKE_INSTALL_RPATH=#{rpath}" if build.head?
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
@@ -71,3 +86,18 @@ class Supertux < Formula
     assert_equal "supertux2 v#{version}", shell_output("#{bin}/supertux2 --userdir #{testpath} --version").chomp
   end
 end
+
+__END__
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index b77029c0a..1842b4943 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -171,7 +171,7 @@ if(ENABLE_BOOST_STATIC_LIBS)
+ else(ENABLE_BOOST_STATIC_LIBS)
+   set(Boost_USE_STATIC_LIBS FALSE)
+ endif(ENABLE_BOOST_STATIC_LIBS)
+-find_package(Boost REQUIRED COMPONENTS filesystem system date_time locale)
++find_package(Boost REQUIRED COMPONENTS filesystem date_time locale)
+ include_directories(SYSTEM ${Boost_INCLUDE_DIR})
+ link_directories(${Boost_LIBRARY_DIRS})
+ 

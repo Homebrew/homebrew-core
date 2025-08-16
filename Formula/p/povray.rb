@@ -2,7 +2,7 @@ class Povray < Formula
   desc "Persistence Of Vision RAYtracer (POVRAY)"
   homepage "https://www.povray.org/"
   license "AGPL-3.0-or-later"
-  revision 13
+  revision 14
   head "https://github.com/POV-Ray/povray.git", branch: "master"
 
   stable do

@@ -6,7 +6,7 @@ class Gnuradio < Formula
   url "https://github.com/gnuradio/gnuradio/archive/refs/tags/v3.10.12.0.tar.gz"
   sha256 "fe78ad9f74c8ebf93d5c8ad6fa2c13236af330f3c67149d91a0647b3dc6f3958"
   license "GPL-3.0-or-later"
-  revision 1
+  revision 2
   head "https://github.com/gnuradio/gnuradio.git", branch: "main"
 
   livecheck do
@@ -134,6 +134,12 @@ class Gnuradio < Formula
     sha256 "18fd474d4a82a5f83dac888df697af65afa82dec7323d09c3e37d1f14288da54"
   end
 
+  # Fix build with Boost 1.89.0, pr ref: https://github.com/gnuradio/gnuradio/pull/7904
+  patch do
+    url "https://github.com/gnuradio/gnuradio/commit/02aa698a05935fe350fb1772226e29605abd335e.patch?full_index=1"
+    sha256 "246d540bdd2025b3ad2ffc84adea84b378ea0d640e73809e3f0e48f9bb6d3881"
+  end
+
   def python3
     "python3.13"
   end
@@ -242,7 +248,6 @@ class Gnuradio < Formula
     boost = Formula["boost"]
     system ENV.cxx, testpath/"test.c++", "-std=c++17", "-I#{boost.opt_include}", "-L#{lib}",
                     "-lgnuradio-blocks", "-lgnuradio-runtime", "-lgnuradio-pmt",
-                    "-L#{boost.opt_lib}", "-lboost_system",
                     "-L#{Formula["fmt"].opt_lib}", "-lfmt",
                     "-o", testpath/"test"
     system "./test"

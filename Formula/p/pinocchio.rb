@@ -4,7 +4,7 @@ class Pinocchio < Formula
   url "https://github.com/stack-of-tasks/pinocchio/releases/download/v3.7.0/pinocchio-3.7.0.tar.gz"
   sha256 "c14c2ac9e5943af9acca9730c31d66c59b57a9407960d5b66d200f50b39a70a1"
   license "BSD-2-Clause"
-  revision 1
+  revision 2
   head "https://github.com/stack-of-tasks/pinocchio.git", branch: "master"
 
   livecheck do
@@ -39,6 +39,10 @@ class Pinocchio < Formula
     depends_on "octomap"
   end
 
+  # Workaround for Boost 1.89.0
+  # TODO: Report upstream
+  patch :DATA
+
   def python3
     "python3.13"
   end
@@ -67,3 +71,18 @@ class Pinocchio < Formula
     PYTHON
   end
 end
+
+__END__
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 67dd06db..5fbe52be 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -286,7 +286,7 @@ if(BUILD_WITH_EXTRA_SUPPORT)
+   message(STATUS "Found Qhull.")
+ endif()
+ 
+-set(BOOST_REQUIRED_COMPONENTS filesystem serialization system)
++set(BOOST_REQUIRED_COMPONENTS filesystem serialization)
+ 
+ set_boost_default_options()
+ export_boost_default_options()

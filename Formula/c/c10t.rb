@@ -4,7 +4,7 @@ class C10t < Formula
   url "https://github.com/udoprog/c10t/archive/refs/tags/1.7.tar.gz"
   sha256 "0e5779d517105bfdd14944c849a395e1a8670bedba5bdab281a0165c3eb077dc"
   license "BSD-3-Clause"
-  revision 11
+  revision 12
 
   no_autobump! because: :requires_manual_review
 
@@ -46,8 +46,8 @@ class C10t < Formula
     sha256 "c7a37f866b42ff352bb58720ad6c672cde940e1b8ab79de4b6fa0be968b97b66"
   end
 
-  # Fix build with Boost 1.85.0.
-  # Issue ref: https://github.com/udoprog/c10t/issues/313
+  # Fix build with Boost 1.85.0, issue ref: https://github.com/udoprog/c10t/issues/313
+  # Fix build with Boost 1.89.0, issue ref: https://github.com/udoprog/c10t/issues/315
   patch :DATA
 
   def install
@@ -162,3 +162,16 @@ index 21b0883..b4afef6 100644
    pos_c(0), xPos(0), yPos(0), zPos(0)
  {
    nbt::Parser<player> parser(this);
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 3f1531a..280cb2b 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -23,7 +23,7 @@ find_package(ZLIB REQUIRED)
+ find_package(PNG REQUIRED)
+ find_package(FreeType REQUIRED)
+ find_package(Threads REQUIRED)
+-find_package(Boost COMPONENTS thread filesystem system REQUIRED)
++find_package(Boost COMPONENTS thread filesystem REQUIRED)
+ 
+ include_directories(${ZLIB_INCLUDE_DIR})
+ include_directories(${PNG_INCLUDE_DIR})

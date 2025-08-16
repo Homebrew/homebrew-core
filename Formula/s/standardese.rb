@@ -3,7 +3,7 @@ class Standardese < Formula
   homepage "https://standardese.github.io"
   # TODO: use resource blocks for vendored deps
   license "MIT"
-  revision 21
+  revision 22
   head "https://github.com/standardese/standardese.git", branch: "master"
 
   # Remove stable block when patch is no longer needed.
@@ -17,6 +17,13 @@ class Standardese < Formula
     patch do
       url "https://github.com/standardese/standardese/commit/15e05be2301fe43d1e209b2f749c99a95c356e04.patch?full_index=1"
       sha256 "e5f03ea321572dd52b9241c2a01838dfe7e6df7e363a8d19bfeac5861baf5d3f"
+    end
+
+    # Fix build with `boost` 1.85.0. Remove in the next release.
+    # PR ref: https://github.com/standardese/standardese/pull/247
+    patch do
+      url "https://github.com/standardese/standardese/commit/0593c8fbaee48ffac022e2ea95865d808cc149ce.patch?full_index=1"
+      sha256 "4b204256b97a4058b88c7b2350941d2c59a6c38aeb91e4112e1d267fdd092d03"
     end
   end
 
@@ -41,13 +48,18 @@ class Standardese < Formula
   resource "type_safe" do
     url "https://github.com/foonathan/type_safe/archive/refs/tags/v0.2.4.tar.gz"
     sha256 "a631d03c18c65726b3d1b7d41ac5806e9121367afe10dd2f408a2d75e144b734"
+
+    # Backport fix for newer Clang
+    patch do
+      url "https://github.com/foonathan/type_safe/commit/cdf334cd8e5fcb5e21ab470decdfcbd190ef7347.patch?full_index=1"
+      sha256 "f9ab60828058f133c726f77ce8358714c6aa994c9cce29b703cf7a5fbdb2ae00"
+    end
   end
 
-  # Fix build with `boost` 1.85.0 using open PR.
-  # PR ref: https://github.com/standardese/standardese/pull/247
+  # Fix build with Boost 1.89.0, pr ref: https://github.com/standardese/standardese/pull/249
   patch do
-    url "https://github.com/standardese/standardese/commit/0593c8fbaee48ffac022e2ea95865d808cc149ce.patch?full_index=1"
-    sha256 "4b204256b97a4058b88c7b2350941d2c59a6c38aeb91e4112e1d267fdd092d03"
+    url "https://github.com/standardese/standardese/commit/d0c2073f9f13d26abd1be872b809e089ed20c9f6.patch?full_index=1"
+    sha256 "506c3cd1d2654aee37e200c57b9095c9bbad09de1d7a27efc545ea7c092cd4f0"
   end
 
   def install

@@ -4,7 +4,7 @@ class Coal < Formula
   url "https://github.com/coal-library/coal/releases/download/v3.0.1/coal-3.0.1.tar.gz"
   sha256 "b9609301baefbbf45b4e0f80865abc2b2dcbb69c323a55b0cd95f141959c478c"
   license "BSD-2-Clause"
-  revision 2
+  revision 3
   head "https://github.com/coal-library/coal.git", branch: "devel"
 
   livecheck do
@@ -32,6 +32,10 @@ class Coal < Formula
   depends_on "eigenpy"
   depends_on "octomap"
   depends_on "python@3.13"
+
+  # Workaround for Boost 1.89.0 until upstream fix.
+  # Issue ref: https://github.com/coal-library/coal/issues/743
+  patch :DATA
 
   def python3
     "python3.13"
@@ -65,3 +69,31 @@ class Coal < Formula
     end
   end
 end
+
+__END__
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 4036e3c1..11b6b8d8 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -151,7 +151,7 @@ if (COAL_ENABLE_LOGGING)
+   ADD_PROJECT_DEPENDENCY(Boost REQUIRED log)
+ endif()
+ if(BUILD_PYTHON_INTERFACE)
+-  find_package(Boost REQUIRED COMPONENTS system)
++  find_package(Boost REQUIRED)
+ endif(BUILD_PYTHON_INTERFACE)
+ 
+ if(Boost_VERSION_STRING VERSION_LESS 1.81)
+diff --git a/python/CMakeLists.txt b/python/CMakeLists.txt
+index 38b98031..8107bf7d 100644
+--- a/python/CMakeLists.txt
++++ b/python/CMakeLists.txt
+@@ -143,7 +143,7 @@ ENDIF()
+ TARGET_LINK_LIBRARIES(${PYTHON_LIB_NAME} PUBLIC
+   ${PROJECT_NAME}
+   eigenpy::eigenpy
+-  Boost::system)
++  )
+ 
+ SET_TARGET_PROPERTIES(${PYTHON_LIB_NAME} PROPERTIES
+   PREFIX ""

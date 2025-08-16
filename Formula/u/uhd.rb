@@ -6,7 +6,7 @@ class Uhd < Formula
   url "https://github.com/EttusResearch/uhd/archive/refs/tags/v4.8.0.0.tar.gz"
   sha256 "a2159491949477dca67f5a9b05f5a80d8c2b32e91b95dd7fac8ddd3893e36d09"
   license all_of: ["GPL-3.0-or-later", "LGPL-3.0-or-later", "MIT", "BSD-3-Clause", "Apache-2.0"]
-  revision 1
+  revision 2
   head "https://github.com/EttusResearch/uhd.git", branch: "master"
 
   livecheck do
@@ -57,6 +57,10 @@ class Uhd < Formula
     sha256 "0dc5cf491ca2037819e894fdb21b8b98230eb8ca2aee0d2312889e365da961e8"
   end
 
+  # Workaround for Boost 1.89.0 until fixed upstream.
+  # Issue ref: https://github.com/EttusResearch/uhd/issues/869
+  patch :DATA
+
   def python3
     "python3.13"
   end
@@ -78,3 +82,28 @@ class Uhd < Formula
     assert_match version.to_s, shell_output("#{bin}/uhd_config_info --version")
   end
 end
+
+__END__
+diff --git a/host/CMakeLists.txt b/host/CMakeLists.txt
+index 746a977bd..815c2a2c8 100644
+--- a/host/CMakeLists.txt
++++ b/host/CMakeLists.txt
+@@ -306,7 +306,6 @@ set(UHD_BOOST_REQUIRED_COMPONENTS
+     date_time
+     filesystem
+     program_options
+-    system
+     serialization
+     thread
+     unit_test_framework
+diff --git a/host/uhd.pc.in b/host/uhd.pc.in
+index 4a5f67c96..e1a8115a9 100644
+--- a/host/uhd.pc.in
++++ b/host/uhd.pc.in
+@@ -11,5 +11,5 @@ Requires:
+ Requires.private: @UHD_PC_REQUIRES@
+ Conflicts:
+ Cflags: -I${includedir} @UHD_PC_CFLAGS@
+-Libs: -L${libdir} -luhd -lboost_system
++Libs: -L${libdir} -luhd
+ Libs.private: @UHD_PC_LIBS@

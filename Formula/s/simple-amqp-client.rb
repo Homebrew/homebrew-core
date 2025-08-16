@@ -4,7 +4,7 @@ class SimpleAmqpClient < Formula
   url "https://github.com/alanxz/SimpleAmqpClient/archive/refs/tags/v2.5.1.tar.gz"
   sha256 "057c56b29390ec7659de1527f9ccbadb602e3e73048de79594521b3141ab586d"
   license "MIT"
-  revision 11
+  revision 12
   head "https://github.com/alanxz/SimpleAmqpClient.git", branch: "master"
 
   no_autobump! because: :requires_manual_review
@@ -23,6 +23,12 @@ class SimpleAmqpClient < Formula
   depends_on "doxygen" => :build
   depends_on "boost"
   depends_on "rabbitmq-c"
+
+  # Fix build with Boost 1.89.0, pr ref: https://github.com/alanxz/SimpleAmqpClient/pull/356
+  patch do
+    url "https://github.com/alanxz/SimpleAmqpClient/commit/3d3c669608b0dc3ae54e9caae6244bdcc38ca054.patch?full_index=1"
+    sha256 "652aad326ace036498e2f990f6fecaa9d2472e04885f581d773fb1fbf3809e9c"
+  end
 
   def install
     # Remove hard-coded CMAKE_CXX_STANDARD

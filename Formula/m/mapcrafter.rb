@@ -4,7 +4,7 @@ class Mapcrafter < Formula
   url "https://github.com/mapcrafter/mapcrafter/archive/refs/tags/v.2.4.tar.gz"
   sha256 "f3b698d34c02c2da0c4d2b7f4e251bcba058d0d1e4479c0418eeba264d1c8dae"
   license "GPL-3.0-or-later"
-  revision 14
+  revision 15
 
   no_autobump! because: :requires_manual_review
 
@@ -28,6 +28,13 @@ class Mapcrafter < Formula
   patch do
     url "https://github.com/mapcrafter/mapcrafter/commit/28dbc86803650eb487782e937cbb4513dbd0a650.patch?full_index=1"
     sha256 "55edc91aee2fbe0727282d8b3e967ac654455e7fb4ca424c490caf7556eca179"
+  end
+
+  # Fix build with `boost` 1.89.0 using open PR.
+  # PR ref: https://github.com/mapcrafter/mapcrafter/pull/395
+  patch do
+    url "https://github.com/mapcrafter/mapcrafter/commit/f804a574cbf5b098439698f6f92e1a39244371f1.patch?full_index=1"
+    sha256 "d9e9da9cbdb4bb961edd371265304c3999e5322d110f6d72e8580820b2ac2edc"
   end
 
   def install

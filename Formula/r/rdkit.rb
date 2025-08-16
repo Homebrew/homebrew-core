@@ -5,6 +5,7 @@ class Rdkit < Formula
   url "https://github.com/rdkit/rdkit/archive/refs/tags/Release_2025_03_5.tar.gz"
   sha256 "8bdb3c774ed4ae9e2727b6ce005004191447d630d8e857d36839cd8f1bca55b5"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/rdkit/rdkit.git", branch: "master"
 
   livecheck do
@@ -45,6 +46,12 @@ class Rdkit < Formula
   resource "better_enums" do
     url "https://github.com/aantron/better-enums/archive/refs/tags/0.11.3.tar.gz"
     sha256 "1b1597f0aa5452b971a94ab13d8de3b59cce17d9c43c8081aa62f42b3376df96"
+  end
+
+  # Fix build with Boost 1.89.0, pr ref: https://github.com/rdkit/rdkit/pull/8694
+  patch do
+    url "https://github.com/rdkit/rdkit/commit/ee6abc196954a4e8a9e8517e451a21277eac6e6a.patch?full_index=1"
+    sha256 "811da1b8bd4655728c8c9f615dd1e5d8ba8baa4d29258f43717e25d3677735e8"
   end
 
   def python3

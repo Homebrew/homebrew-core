@@ -5,7 +5,7 @@ class Cpprestsdk < Formula
   url "https://github.com/microsoft/cpprestsdk/archive/refs/tags/v2.10.19.tar.gz"
   sha256 "4b0d14e5bfe77ce419affd253366e861968ae6ef2c35ae293727c1415bd145c8"
   license "MIT"
-  revision 2
+  revision 3
   head "https://github.com/microsoft/cpprestsdk.git", branch: "master"
 
   no_autobump! because: :requires_manual_review
@@ -56,6 +56,9 @@ class Cpprestsdk < Formula
     sha256 "8fa4377a86afb4cdb5eb2331b5fb09fd7323dc2de90eb2af2b46bb3585a8022e"
   end
 
+  # Workaround to build with Boost 1.89.0
+  patch :DATA
+
   def install
     system "cmake", "-S", "Release", "-B", "build",
                     "-DBUILD_SAMPLES=OFF",
@@ -83,8 +86,47 @@ class Cpprestsdk < Formula
                     "-I#{boost.include}", "-I#{Formula["openssl@3"].include}", "-I#{include}",
                     "-L#{boost.lib}", "-L#{Formula["openssl@3"].lib}", "-L#{lib}",
                     "-lssl", "-lcrypto", "-lboost_random", "-lboost_chrono", "-lboost_thread",
-                    "-lboost_system", "-lboost_filesystem", "-lcpprest",
+                    "-lboost_filesystem", "-lcpprest",
                     "-o", "test_cpprest"
     assert_match "The Missing Package Manager for macOS (or Linux)", shell_output("./test_cpprest")
   end
 end
+
+__END__
+diff --git a/Release/cmake/cpprest_find_boost.cmake b/Release/cmake/cpprest_find_boost.cmake
+index 3c857baf..60158173 100644
+--- a/Release/cmake/cpprest_find_boost.cmake
++++ b/Release/cmake/cpprest_find_boost.cmake
+@@ -46,7 +46,7 @@ function(cpprest_find_boost)
+     endif()
+     cpprestsdk_find_boost_android_package(Boost ${BOOST_VERSION} EXACT REQUIRED COMPONENTS random system thread filesystem chrono atomic)
+   elseif(UNIX)
+-    find_package(Boost REQUIRED COMPONENTS random system thread filesystem chrono atomic date_time regex)
++    find_package(Boost REQUIRED COMPONENTS random thread filesystem chrono atomic date_time regex)
+   else()
+     find_package(Boost REQUIRED COMPONENTS system date_time regex)
+   endif()
+@@ -88,7 +88,6 @@ function(cpprest_find_boost)
+       target_link_libraries(cpprestsdk_boost_internal INTERFACE
+         Boost::boost
+         Boost::random
+-        Boost::system
+         Boost::thread
+         Boost::filesystem
+         Boost::chrono
+diff --git a/Release/cmake/cpprestsdk-config.in.cmake b/Release/cmake/cpprestsdk-config.in.cmake
+index 72476b06..811e79ac 100644
+--- a/Release/cmake/cpprestsdk-config.in.cmake
++++ b/Release/cmake/cpprestsdk-config.in.cmake
+@@ -17,9 +17,9 @@ endif()
+ 
+ if(@CPPREST_USES_BOOST@)
+   if(UNIX)
+-    find_dependency(Boost COMPONENTS random system thread filesystem chrono atomic date_time regex)
++    find_dependency(Boost COMPONENTS random thread filesystem chrono atomic date_time regex)
+   else()
+-    find_dependency(Boost COMPONENTS system date_time regex)
++    find_dependency(Boost COMPONENTS date_time regex)
+   endif()
+ endif()
+ include("${CMAKE_CURRENT_LIST_DIR}/cpprestsdk-targets.cmake")

@@ -5,7 +5,7 @@ class Ncmpcpp < Formula
   url "https://github.com/ncmpcpp/ncmpcpp/archive/refs/tags/0.10.1.tar.gz"
   sha256 "ddc89da86595d272282ae8726cc7913867b9517eec6e765e66e6da860b58e2f9"
   license "GPL-2.0-or-later"
-  revision 4
+  revision 5
   head "https://github.com/ncmpcpp/ncmpcpp.git", branch: "master"
 
   bottle do
@@ -33,6 +33,10 @@ class Ncmpcpp < Formula
   uses_from_macos "curl"
 
   def install
+    # Workaround for Boost 1.89.0 until fixed upstream.
+    # Issue ref: https://github.com/ncmpcpp/ncmpcpp/issues/633
+    ENV["boost_cv_lib_system"] = "yes"
+
     ENV.append "LDFLAGS", "-liconv" if OS.mac?
     ENV.prepend "LDFLAGS", "-L#{Formula["readline"].opt_lib}"
     ENV.prepend "CPPFLAGS", "-I#{Formula["readline"].opt_include}"
