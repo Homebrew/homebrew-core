@@ -22,6 +22,7 @@ class Xcresultparser < Formula
     system "swift", "build", "--disable-sandbox", "--configuration", "release"
     bin.install ".build/release/xcresultparser"
     pkgshare.install "Tests/XcresultparserTests/TestAssets/test.xcresult"
+    generate_completions_from_executable(bin/"xcresultparser", "--generate-completion-script")
   end
 
   test do

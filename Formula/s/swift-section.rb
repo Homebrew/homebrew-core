@@ -20,6 +20,7 @@ class SwiftSection < Formula
   def install
     system "swift", "build", "--disable-sandbox", "-c", "release"
     bin.install ".build/release/swift-section"
+    generate_completions_from_executable(bin/"swift-section", "--generate-completion-script")
   end
 
   test do

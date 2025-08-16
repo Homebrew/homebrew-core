@@ -28,6 +28,7 @@ class Periphery < Formula
     end
     system "swift", "build", *args, "--configuration", "release", "--product", "periphery"
     bin.install ".build/release/periphery"
+    generate_completions_from_executable(bin/"periphery", "--generate-completion-script")
   end
 
   test do

@@ -32,6 +32,7 @@ class CreateApi < Formula
     system "swift", "build", *args, "--configuration", "release"
     bin.install ".build/release/create-api"
     pkgshare.install "Tests/Support/Specs/cookpad.json" => "test-spec.json"
+    generate_completions_from_executable(bin/"create-api", "--generate-completion-script")
   end
 
   test do

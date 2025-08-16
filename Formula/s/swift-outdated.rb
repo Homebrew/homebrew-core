@@ -26,6 +26,7 @@ class SwiftOutdated < Formula
     end
     system "swift", "build", *args, "-c", "release"
     bin.install ".build/release/swift-outdated"
+    generate_completions_from_executable(bin/"swift-outdated", "--generate-completion-script")
   end
 
   test do

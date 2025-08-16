@@ -24,6 +24,7 @@ class Xcdiff < Formula
     system "make", "update_hash"
     system "swift", "build", "--disable-sandbox", "--configuration", "release"
     bin.install ".build/release/xcdiff"
+    generate_completions_from_executable(bin/"xcdiff", "--generate-completion-script")
   end
 
   test do

@@ -22,6 +22,7 @@ class MistCli < Formula
   def install
     system "swift", "build", "--disable-sandbox", "--configuration", "release"
     bin.install ".build/release/mist"
+    generate_completions_from_executable(bin/"mist", "--generate-completion-script")
   end
 
   test do

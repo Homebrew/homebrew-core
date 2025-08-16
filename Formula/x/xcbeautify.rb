@@ -30,6 +30,7 @@ class Xcbeautify < Formula
     end
     system "swift", "build", *args, "--configuration", "release"
     bin.install ".build/release/xcbeautify"
+    generate_completions_from_executable(bin/"xcbeautify", "--generate-completion-script")
   end
 
   test do

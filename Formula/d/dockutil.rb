@@ -25,6 +25,7 @@ class Dockutil < Formula
   def install
     system "swift", "build", "--disable-sandbox", "--configuration", "release"
     bin.install ".build/release/dockutil"
+    generate_completions_from_executable(bin/"dockutil", "--generate-completion-script")
   end
 
   test do

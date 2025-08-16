@@ -25,6 +25,7 @@ class Mockolo < Formula
     end
     system "swift", "build", *args, "-c", "release", "--product", "mockolo"
     bin.install ".build/release/mockolo"
+    generate_completions_from_executable(bin/"mockolo", "--generate-completion-script")
   end
 
   test do

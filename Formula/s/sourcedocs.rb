@@ -56,6 +56,7 @@ class Sourcedocs < Formula
 
     system "swift", "build", *args
     bin.install ".build/release/sourcedocs"
+    generate_completions_from_executable(bin/"sourcedocs", "--generate-completion-script")
   end
 
   test do

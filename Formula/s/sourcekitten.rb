@@ -24,6 +24,7 @@ class Sourcekitten < Formula
 
   def install
     system "make", "prefix_install", "PREFIX=#{prefix}", "TEMPORARY_FOLDER=#{buildpath}/SourceKitten.dst"
+    generate_completions_from_executable(bin/"sourcekitten", "--generate-completion-script")
   end
 
   test do

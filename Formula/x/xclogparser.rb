@@ -33,6 +33,7 @@ class Xclogparser < Formula
     end
     system "swift", "build", *args, "--configuration", "release"
     bin.install ".build/release/xclogparser"
+    generate_completions_from_executable(bin/"xclogparser", "--generate-completion-script")
   end
 
   test do

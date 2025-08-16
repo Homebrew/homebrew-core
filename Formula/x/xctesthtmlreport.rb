@@ -21,6 +21,7 @@ class Xctesthtmlreport < Formula
   def install
     system "swift", "build", "--disable-sandbox", "-c", "release"
     bin.install ".build/release/xchtmlreport"
+    generate_completions_from_executable(bin/"xchtmlreport", "--generate-completion-script")
   end
 
   test do

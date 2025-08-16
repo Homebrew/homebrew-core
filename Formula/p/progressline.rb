@@ -28,6 +28,7 @@ class Progressline < Formula
     end
     system "swift", "build", *args, "--configuration", "release"
     bin.install ".build/release/progressline"
+    generate_completions_from_executable(bin/"progressline", "--generate-completion-script")
   end
 
   test do
