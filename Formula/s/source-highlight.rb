@@ -24,7 +24,7 @@ class SourceHighlight < Formula
     sha256 x86_64_linux:  "09c0f664ede1dd50549c8cae4dd1a57b587c81da49a3f03b5d0b78e33f15a935"
   end
 
-  depends_on "boost"
+  depends_on "boost" => :build
 
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
@@ -34,9 +34,10 @@ class SourceHighlight < Formula
 
   def install
     ENV.cxx11
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--with-boost=#{Formula["boost"].opt_prefix}"
+    # Avoid linkage to Boost.Regex on macOS
+    ENV.append "LDFLAGS", "-Wl,-dead_strip_dylibs" if OS.mac?
+
+    system "./configure", "--with-boost=#{Formula["boost"].opt_prefix}", *std_configure_args
     system "make", "install"
 
     bash_completion.install "completion/source-highlight"
