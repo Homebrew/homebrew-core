@@ -23,6 +23,8 @@ class Pgrouting < Formula
   depends_on "boost" => :build
   depends_on "cmake" => :build
   depends_on "postgresql@14" => [:build, :test]
+  depends_on "postgresql@15" => [:build, :test]
+  depends_on "postgresql@16" => [:build, :test]
   depends_on "postgresql@17" => [:build, :test]
   depends_on "postgis"
 
