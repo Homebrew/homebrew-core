@@ -17,8 +17,9 @@ class Adaptivecpp < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "boost"
-  depends_on "llvm"
+  depends_on "boost" # needed to use collective_execution_engine.hpp
+
+  uses_from_macos "llvm"
   uses_from_macos "python"
 
   on_macos do
