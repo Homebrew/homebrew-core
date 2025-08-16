@@ -30,6 +30,8 @@ class F3d < Formula
   depends_on "opencascade"
   depends_on "vtk"
 
+  uses_from_macos "zlib"
+
   on_macos do
     depends_on "freeimage"
     depends_on "freetype"
