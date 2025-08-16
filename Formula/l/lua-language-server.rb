@@ -41,7 +41,7 @@ class LuaLanguageServer < Formula
     # Make sure `lua-language-server` does not need to write into the Cellar.
     (bin/"lua-language-server").write <<~BASH
       #!/bin/bash
-      exec -a lua-language-server #{libexec}/bin/lua-language-server \
+      exec -a "${0}" #{libexec}/bin/lua-language-server \
         --logpath="${XDG_CACHE_HOME:-${HOME}/.cache}/lua-language-server/log" \
         --metapath="${XDG_CACHE_HOME:-${HOME}/.cache}/lua-language-server/meta" \
         "$@"
