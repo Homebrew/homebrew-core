@@ -23,7 +23,6 @@ class Docker < Formula
 
   depends_on "go" => :build
   depends_on "go-md2man" => :build
-  depends_on "docker-completion"
 
   conflicts_with cask: "docker-desktop"
 
@@ -51,6 +50,8 @@ class Docker < Formula
       (man/"man#{section}").mkpath
       system "go-md2man", "-in=#{md}", "-out=#{man}/man#{section}/#{md.stem}"
     end
+
+    generate_completions_from_executable(bin/"docker", "completion", shells: [:bash, :fish, :pwsh, :zsh])
   end
 
   test do
