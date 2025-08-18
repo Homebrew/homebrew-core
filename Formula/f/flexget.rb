@@ -554,13 +554,18 @@ class Flexget < Formula
   end
 
   def install
+    ENV['BUNDLE_WEBUI']="true"
     venv = virtualenv_install_with_resources without: "pyzstd"
+    cd venv.site_packages do
+      system venv.root/"bin/python", buildpath/"scripts/bundle_webui.py"
+    end
     # We need to build separately to link to our `zstd`.
     resource("pyzstd").stage do
       system_zstd = "--config-settings=--build-option=--dynamic-link-zstd"
       system venv.root/"bin/python", "-m", "pip", "install", system_zstd,
-                                           *std_pip_args(prefix: false, build_isolation: true), ".[all]"
+                                           *std_pip_args(prefix: false, build_isolation: true), "."
     end
+    system venv.root/"bin/python", "-m", "pip", "install", "--group=all", "."
   end
 
   service do
