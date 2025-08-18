@@ -1,8 +1,8 @@
 class Zeek < Formula
   desc "Network security monitor"
   homepage "https://zeek.org/"
-  url "https://github.com/zeek/zeek/releases/download/v7.2.2/zeek-7.2.2.tar.gz"
-  sha256 "2b1df248f94199a1684e1c460d64cf1c5e49d7471c2b562f942ac5fbe9805893"
+  url "https://github.com/zeek/zeek/releases/download/v8.0.0/zeek-8.0.0.tar.gz"
+  sha256 "385150bf06d6434a510c15b6643febe8599b3c2d7b5158fd2d1c302eeed9ae78"
   license "BSD-3-Clause"
   head "https://github.com/zeek/zeek.git", branch: "master"
 
@@ -30,6 +30,7 @@ class Zeek < Formula
   depends_on macos: :mojave
   depends_on "openssl@3"
   depends_on "python@3.13"
+  depends_on "zeromq"
 
   uses_from_macos "krb5"
   uses_from_macos "libpcap"
@@ -42,32 +43,6 @@ class Zeek < Formula
     inreplace "cmake_templates/zeek-config.in" do |s|
       s.gsub! "@ZEEK_CONFIG_PCAP_INCLUDE_DIR@", ""
       s.gsub! "@ZEEK_CONFIG_ZLIB_INCLUDE_DIR@", ""
-    end
-
-    # Avoid references to the Homebrew shims directory
-    inreplace "auxil/spicy/hilti/toolchain/src/config.cc.in", "${CMAKE_CXX_COMPILER}", ENV.cxx
-
-    if build.stable?
-      # Benchmarks are not installed, but building them on Linux breaks in the
-      # bundled google-benchmark dependency. Exclude the benchmark targets and
-      # their library dependencies.
-      #
-      # This is fixed on Zeek's `master` branch and will be available with
-      # zeek-8.0. There there is a CMake variable `SPICY_ENABLE_TESTS` which
-      # defaults to `OFF`.
-      inreplace "auxil/spicy/hilti/runtime/CMakeLists.txt",
-        "add_executable(hilti-rt-fiber-benchmark src/benchmarks/fiber.cc)",
-        "add_executable(hilti-rt-fiber-benchmark EXCLUDE_FROM_ALL src/benchmarks/fiber.cc)"
-      inreplace "auxil/spicy/spicy/runtime/tests/benchmarks/CMakeLists.txt",
-        "add_executable(spicy-rt-parsing-benchmark parsing.cc ${_generated_sources})",
-        "add_executable(spicy-rt-parsing-benchmark EXCLUDE_FROM_ALL parsing.cc ${_generated_sources})"
-      inreplace "auxil/spicy/3rdparty/justrx/src/tests/CMakeLists.txt",
-        "add_executable(bench benchmark.cc)",
-        "add_executable(bench EXCLUDE_FROM_ALL benchmark.cc)"
-      (buildpath/"auxil/spicy/3rdparty/CMakeLists.txt").append_lines <<~CMAKE
-        set_target_properties(benchmark PROPERTIES EXCLUDE_FROM_ALL ON)
-        set_target_properties(benchmark_main PROPERTIES EXCLUDE_FROM_ALL ON)
-      CMAKE
     end
 
     system "cmake", "-S", ".", "-B", "build",
