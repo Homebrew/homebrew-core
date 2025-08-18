@@ -554,7 +554,7 @@ class Flexget < Formula
   end
 
   def install
-    ENV['BUNDLE_WEBUI']="true"
+    ENV['BUNDLE_WEBUI']='true'
     venv = virtualenv_install_with_resources without: "pyzstd"
     cd venv.site_packages do
       system venv.root/"bin/python", buildpath/"scripts/bundle_webui.py"
