@@ -5,8 +5,8 @@ class Squashfs < Formula
   head "https://github.com/plougher/squashfs-tools.git", branch: "master"
 
   stable do
-    url "https://github.com/plougher/squashfs-tools/archive/refs/tags/4.7.tar.gz"
-    sha256 "f1605ef720aa0b23939a49ef4491f6e734333ccc4bda4324d330da647e105328"
+    url "https://github.com/plougher/squashfs-tools/archive/refs/tags/4.7.2.tar.gz"
+    sha256 "4672b5c47d9418d3a5ae5b243defc6d9eae8275b9771022247c6a6082c815914"
 
     # add the missing pthread.h header, upstream pr ref, https://github.com/plougher/squashfs-tools/pull/312
     patch do
