@@ -6,7 +6,7 @@ class Pytorch < Formula
   url "https://github.com/pytorch/pytorch/releases/download/v2.8.0/pytorch-v2.8.0.tar.gz"
   sha256 "c70a2c9488f6f6e8af5982a10d1cc2c37b7df5e6506d839daa5d5e250953d7b5"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
 
   livecheck do
     url :stable
@@ -104,6 +104,9 @@ class Pytorch < Formula
 
     # Avoid building AVX512 code
     inreplace "cmake/Modules/FindAVX.cmake", /^CHECK_SSE\(CXX "AVX512"/, "#\\0"
+
+    # Avoid bundling libomp
+    inreplace "setup.py", /^\s*if IS_DARWIN:\s*self\._embed_libomp\(\)$/, ""
 
     ENV["ATEN_NO_TEST"] = "ON"
     ENV["BLAS"] = "OpenBLAS"
