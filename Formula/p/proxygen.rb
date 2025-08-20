@@ -1,9 +1,10 @@
 class Proxygen < Formula
   desc "Collection of C++ HTTP libraries"
   homepage "https://github.com/facebook/proxygen"
-  url "https://github.com/facebook/proxygen/releases/download/v2025.08.18.00/proxygen-v2025.08.18.00.tar.gz"
-  sha256 "01286d48007a578b3b9964e2f065a07f296de50d8ddac2fdc6fe54bb2145fbba"
+  url "https://github.com/facebook/proxygen/releases/download/v2025.08.11.00/proxygen-v2025.08.11.00.tar.gz"
+  sha256 "adcb875fda718aa62fe47dc9b25c45c65632ccec583452f302624619a164e44f"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/facebook/proxygen.git", branch: "main"
 
   bottle do
@@ -29,11 +30,20 @@ class Proxygen < Formula
   depends_on "wangle"
   depends_on "zstd"
 
-  uses_from_macos "gperf" => :build
+  # TODO: uses_from_macos "gperf" => :build
   uses_from_macos "python" => :build
   uses_from_macos "zlib"
 
   conflicts_with "hq", because: "both install `hq` binaries"
+
+  # FIXME: Build script is not compatible with gperf 3.2
+  resource "gperf" do
+    on_linux do
+      url "https://ftpmirror.gnu.org/gnu/gperf/gperf-3.1.tar.gz"
+      mirror "https://ftp.gnu.org/gnu/gperf/gperf-3.1.tar.gz"
+      sha256 "588546b945bba4b70b6a3a616e80b4ab466e3f33024a352fc2198112cdbb3ae2"
+    end
+  end
 
   # Fix build with Boost 1.89.0, pr ref: https://github.com/facebook/proxygen/pull/570
   patch do
@@ -42,6 +52,14 @@ class Proxygen < Formula
   end
 
   def install
+    if OS.linux?
+      resource("gperf").stage do
+        system "./configure", *std_configure_args(prefix: buildpath/"gperf")
+        system "make", "install"
+        ENV.prepend_path "PATH", buildpath/"gperf/bin"
+      end
+    end
+
     args = ["-DBUILD_SHARED_LIBS=ON", "-DCMAKE_INSTALL_RPATH=#{rpath}"]
     if OS.mac?
       args += [

@@ -1,9 +1,10 @@
 class Wangle < Formula
   desc "Modular, composable client/server abstractions framework"
   homepage "https://github.com/facebook/wangle"
-  url "https://github.com/facebook/wangle/archive/refs/tags/v2025.08.18.00.tar.gz"
-  sha256 "f2fa29f52fb4810b211d2f6f5321e3c706118b8e46e977501fda414cd7e2b70c"
+  url "https://github.com/facebook/wangle/archive/refs/tags/v2025.08.11.00.tar.gz"
+  sha256 "42d51131ec0b6ec5bc96a43e81a4e85daaabba357f1e3b4d9f2c9f254b01b517"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/facebook/wangle.git", branch: "main"
 
   bottle do
@@ -47,12 +48,18 @@ class Wangle < Formula
   end
 
   test do
+    # libsodium has no CMake file but fizz runs `find_dependency(Sodium)` so fetch a copy from mvfst
+    resource "FindSodium.cmake" do
+      url "https://raw.githubusercontent.com/facebook/mvfst/v2024.09.02.00/cmake/FindSodium.cmake"
+      sha256 "39710ab4525cf7538a66163232dd828af121672da820e1c4809ee704011f4224"
+    end
+    (testpath/"cmake").install resource("FindSodium.cmake")
+
     (testpath/"CMakeLists.txt").write <<~CMAKE
       cmake_minimum_required(VERSION 3.5)
       project(Echo LANGUAGES CXX)
       set(CMAKE_CXX_STANDARD 17)
 
-      list(APPEND CMAKE_MODULE_PATH "#{Formula["fizz"].opt_libexec}/cmake")
       find_package(gflags REQUIRED)
       find_package(folly CONFIG REQUIRED)
       find_package(fizz CONFIG REQUIRED)
