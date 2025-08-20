@@ -56,6 +56,6 @@ class Automysqlbackup < Formula
   end
 
   test do
-    system "#{sbin}/automysqlbackup", "--help"
+    system sbin/"automysqlbackup", "--help"
   end
 end
