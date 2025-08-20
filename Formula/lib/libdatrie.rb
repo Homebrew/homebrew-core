@@ -11,6 +11,7 @@ class Libdatrie < Formula
     sha256 cellar: :any,                 arm64_ventura: "541b03e5526b7ff6814697f7d343827d120cbeb42e83b441e4264b5f72bc8f1a"
     sha256 cellar: :any,                 sonoma:        "cae5e0af929b08ab076d3669675a659a974ae1a860d6a57cce0f75728c22037d"
     sha256 cellar: :any,                 ventura:       "83b886b9fc24c2f45cd98584c91ab3eeb14c3838c456026216886d9151811f93"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ae11f18d74cc186bb00d4e126df8c71eac6b8f82e38bb30058a3cc3f9ada5423"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "1a04b4f1c659bb58c95db895643c02d3b197439c3ae2b0530bde75ea898a7d4b"
   end
 
