@@ -1,8 +1,8 @@
 class Flang < Formula
   desc "LLVM Fortran Frontend"
   homepage "https://flang.llvm.org/"
-  url "https://github.com/llvm/llvm-project/releases/download/llvmorg-20.1.8/llvm-project-20.1.8.src.tar.xz"
-  sha256 "6898f963c8e938981e6c4a302e83ec5beb4630147c7311183cf61069af16333d"
+  url "https://github.com/llvm/llvm-project/releases/download/llvmorg-21.1.0-rc3/llvm-project-21.1.0-rc3.src.tar.xz"
+  sha256 "7c61598f3902e61499b4a8d0302087ed2421c75bf504d084f2e6fa5450ab94d7"
   # The LLVM Project is under the Apache License v2.0 with LLVM Exceptions
   license "Apache-2.0" => { with: "LLVM-exception" }
   head "https://github.com/llvm/llvm-project.git", branch: "main"
@@ -24,6 +24,9 @@ class Flang < Formula
   depends_on "cmake" => :build
   depends_on "llvm"
 
+  # Keep broken symlink if `llvm` has been unlinked on Linux.
+  skip_clean "lib/LLVMgold.so"
+
   # Building with GCC fails at linking with an obscure error.
   fails_with :gcc
 
@@ -32,68 +35,70 @@ class Flang < Formula
   end
 
   def install
-    # Generate omp_lib.h and omp_lib.F90 to be used by flang build
-    system "cmake", "-S", "openmp", "-B", "build/projects/openmp", *std_cmake_args
+    resource_dir = Pathname(Utils.safe_popen_read(llvm.opt_bin/"clang", "-print-resource-dir").chomp)
+    relative_resource_dir = resource_dir.relative_path_from(llvm.prefix.realpath)
 
-    args = %W[
+    common_args = %W[
+      -DBUILD_SHARED_LIBS=ON
+      -DLLVM_DIR=#{llvm.opt_lib}/cmake/llvm
+      -DLLVM_ENABLE_FATLTO=ON
+      -DLLVM_ENABLE_LTO=ON
+    ]
+
+    flang_args = %W[
       -DCLANG_DIR=#{llvm.opt_lib}/cmake/clang
       -DFLANG_INCLUDE_TESTS=OFF
       -DFLANG_REPOSITORY_STRING=#{tap&.issues_url}
       -DFLANG_VENDOR=#{tap&.user}
-      -DLLVM_DIR=#{llvm.opt_lib}/cmake/llvm
-      -DLLVM_ENABLE_FATLTO=ON
-      -DLLVM_ENABLE_LTO=ON
       -DLLVM_TOOL_OPENMP_BUILD=ON
       -DLLVM_USE_SYMLINKS=ON
       -DMLIR_DIR=#{llvm.opt_lib}/cmake/mlir
       -DMLIR_LINK_MLIR_DYLIB=ON
     ]
-    args << "-DFLANG_VENDOR_UTI=sh.brew.flang" if tap&.official?
-    # FIXME: Setting `BUILD_SHARED_LIBS=ON` causes the just-built flang to throw ICE on macOS
-    args << "-DBUILD_SHARED_LIBS=ON" if OS.linux?
+    flang_args << "-DFLANG_VENDOR_UTI=sh.brew.flang" if tap&.official?
 
-    system "cmake", "-S", "flang", "-B", "build", *args, *std_cmake_args
+    flang_rt_args = %W[
+      -DCMAKE_Fortran_COMPILER_WORKS=ON
+      -DCMAKE_Fortran_COMPILER=#{bin}/flang
+      -DFLANG_RT_ENABLE_SHARED=ON
+      -DFLANG_RT_ENABLE_STATIC=OFF
+      -DFLANG_RT_INCLUDE_TESTS=OFF
+      -DLLVM_BINARY_DIR=#{llvm.opt_prefix}
+      -DLLVM_ENABLE_RUNTIMES=flang-rt
+    ]
+
+    # Generate omp_lib.h and omp_lib.F90 to be used by flang build
+    system "cmake", "-S", "openmp", "-B", "build/projects/openmp", *std_cmake_args
+
+    system "cmake", "-S", "flang", "-B", "build", *flang_args, *common_args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
-    return if OS.linux?
+
+    system "cmake", "-S", "runtimes", "-B", "build-rt", *flang_rt_args, *common_args, *std_cmake_args
+    system "cmake", "--build", "build-rt"
+    system "cmake", "--install", "build-rt"
+
+    # Add symlink for runtime library as it won't be found when resource-dir is
+    # overridden by flang.cfg. This also allows shared `flang-rt` on Linux to
+    # avoid extra RPATH. See if the upstream provides a better way of handling:
+    # https://github.com/llvm/llvm-project/blob/main/flang-rt/CMakeLists.txt#L120-L130
+    lib.install_symlink (prefix/relative_resource_dir).glob("**/#{shared_library("*")}")
+
+    if OS.linux?
+      # Allow flang -flto to work on Linux as it expects library relative to driver.
+      # The HOMEBREW_PREFIX path is used so that `brew link` skips creating a symlink.
+      lib.install_symlink HOMEBREW_PREFIX/"lib/LLVMgold.so"
+      return
+    end
 
     libexec.install bin.children
     bin.install_symlink libexec.children
 
     # Help `flang` driver find `libLTO.dylib` and runtime libraries
-    resource_dir = Utils.safe_popen_read(llvm.opt_bin/"clang", "-print-resource-dir").chomp
-    resource_dir.gsub!(llvm.prefix.realpath, llvm.opt_prefix)
     (libexec/"flang.cfg").atomic_write <<~CONFIG
       -Wl,-lto_library,#{llvm.opt_lib}/libLTO.dylib
-      -resource-dir=#{resource_dir}
+      -resource-dir=#{llvm.opt_prefix/relative_resource_dir}
     CONFIG
-
-    # Convert LTO-generated bitcode in our static archives to MachO.
-    # Not needed on Linux because of `-ffat-lto-objects`
-    # See equivalent code in `llvm.rb`.
-    lib.glob("*.a").each do |static_archive|
-      mktemp do
-        system llvm.opt_bin/"llvm-ar", "x", static_archive
-        rebuilt_files = []
-
-        Pathname.glob("*.o").each do |bc_file|
-          file_type = Utils.safe_popen_read("file", "--brief", bc_file)
-          next unless file_type.match?(/^LLVM (IR )?bitcode/)
-
-          rebuilt_files << bc_file
-          system ENV.cc, "-fno-lto", "-Wno-unused-command-line-argument",
-                         "-x", "ir", bc_file, "-c", "-o", bc_file
-        end
-
-        system llvm.opt_bin/"llvm-ar", "r", static_archive, *rebuilt_files if rebuilt_files.present?
-      end
-    end
-  end
-
-  def post_install
-    # Allow flang -flto to work on Linux as it expects library relative to driver.
-    # The HOMEBREW_PREFIX path is used so that `brew link` skips creating a symlink.
-    lib.install_symlink HOMEBREW_PREFIX/"lib/LLVMgold.so" if OS.linux?
   end
 
   test do
@@ -159,13 +164,9 @@ class Flang < Formula
     system bin/"flang", "-v", "runtimes.f90"
 
     return if OS.linux?
+    return unless (etc/"clang").exist? # https://github.com/Homebrew/homebrew-test-bot/issues/805
 
     assert_match %r{^Configuration file: #{Regexp.escape(etc)}/clang/.*\.cfg$}i,
                  shell_output("#{bin}/flang --version")
-
-    system "ar", "x", lib/"libFortranCommon.a"
-    testpath.glob("*.o").each do |object_file|
-      refute_match(/LLVM (IR )?bitcode/, shell_output("file --brief #{object_file}"))
-    end
   end
 end
