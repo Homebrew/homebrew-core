@@ -1,8 +1,8 @@
 class Lld < Formula
   desc "LLVM Project Linker"
   homepage "https://lld.llvm.org/"
-  url "https://github.com/llvm/llvm-project/releases/download/llvmorg-20.1.8/llvm-project-20.1.8.src.tar.xz"
-  sha256 "6898f963c8e938981e6c4a302e83ec5beb4630147c7311183cf61069af16333d"
+  url "https://github.com/llvm/llvm-project/releases/download/llvmorg-21.1.0-rc3/llvm-project-21.1.0-rc3.src.tar.xz"
+  sha256 "7c61598f3902e61499b4a8d0302087ed2421c75bf504d084f2e6fa5450ab94d7"
   # The LLVM Project is under the Apache License v2.0 with LLVM Exceptions
   license "Apache-2.0" => { with: "LLVM-exception" }
   head "https://github.com/llvm/llvm-project.git", branch: "main"
