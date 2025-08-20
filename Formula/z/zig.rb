@@ -1,8 +1,8 @@
 class Zig < Formula
   desc "Programming language designed for robustness, optimality, and clarity"
   homepage "https://ziglang.org/"
-  url "https://ziglang.org/download/0.14.1/zig-0.14.1.tar.xz"
-  sha256 "237f8abcc8c3fd68c70c66cdbf63dce4fb5ad4a2e6225ac925e3d5b4c388f203"
+  url "https://ziglang.org/download/0.15.1/zig-0.15.1.tar.xz"
+  sha256 "816c0303ab313f59766ce2097658c9fff7fafd1504f61f80f9507cd11652865f"
   license "MIT"
 
   livecheck do
