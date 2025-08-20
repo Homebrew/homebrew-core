@@ -6,8 +6,8 @@ class Llvm < Formula
   head "https://github.com/llvm/llvm-project.git", branch: "main"
 
   stable do
-    url "https://github.com/llvm/llvm-project/releases/download/llvmorg-20.1.8/llvm-project-20.1.8.src.tar.xz"
-    sha256 "6898f963c8e938981e6c4a302e83ec5beb4630147c7311183cf61069af16333d"
+    url "https://github.com/llvm/llvm-project/releases/download/llvmorg-21.1.0-rc3/llvm-project-21.1.0-rc3.src.tar.xz"
+    sha256 "7c61598f3902e61499b4a8d0302087ed2421c75bf504d084f2e6fa5450ab94d7"
 
     # Fix triple config loading for clang-cl
     # https://github.com/llvm/llvm-project/pull/111397
@@ -64,6 +64,14 @@ class Llvm < Formula
   end
 
   def install
+    # Work around OOM error on arm64 linux runner by reducing number of jobs
+    github_arm64_linux = OS.linux? && Hardware::CPU.arm? &&
+                         ENV["HOMEBREW_GITHUB_ACTIONS"].present? &&
+                         ENV["GITHUB_ACTIONS_HOMEBREW_SELF_HOSTED"].blank?
+    if github_arm64_linux && (jobs = ENV.make_jobs - 1).positive?
+      ENV["CMAKE_BUILD_PARALLEL_LEVEL"] = ENV["HOMEBREW_MAKE_JOBS"] = jobs.to_s
+    end
+
     # The clang bindings need a little help finding our libclang.
     inreplace "clang/bindings/python/clang/cindex.py",
               /^(\s*library_path\s*=\s*)None$/,
@@ -80,7 +88,6 @@ class Llvm < Formula
       libcxx
       libcxxabi
       libunwind
-      pstl
     ]
 
     unless versioned_formula?
@@ -192,6 +199,7 @@ class Llvm < Formula
       args << "-DLLVM_BINUTILS_INCDIR=#{Formula["binutils"].opt_include}"
       # Parts of Polly fail to correctly build with PIC when being used for DSOs.
       args << "-DCMAKE_POSITION_INDEPENDENT_CODE=ON"
+
       runtimes_cmake_args += %w[
         -DLLVM_ENABLE_PER_TARGET_RUNTIME_DIR=OFF
         -DCMAKE_POSITION_INDEPENDENT_CODE=ON
