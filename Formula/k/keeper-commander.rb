@@ -24,18 +24,12 @@ class KeeperCommander < Formula
   depends_on "certifi"
   depends_on "cryptography"
   depends_on "ffmpeg"
-  depends_on "freetype"
-  depends_on "jpeg-turbo"
-  depends_on "libtiff"
   depends_on "libvpx"
   depends_on "libyaml"
-  depends_on "little-cms2"
   depends_on "opus"
+  depends_on "pillow"
   depends_on "python@3.13"
   depends_on "srtp"
-  depends_on "webp"
-
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "openssl@3"
@@ -199,11 +193,6 @@ class KeeperCommander < Formula
   resource "packaging" do
     url "https://files.pythonhosted.org/packages/a1/d4/1fc4078c65507b51b96ca8f8c3ba19e6a61c8253c72794544580a7b6c24d/packaging-25.0.tar.gz"
     sha256 "d443872c98d677bf60f6a1f2f8c1cb748e8fe762d2bf9d3148b5599295b0fc4f"
-  end
-
-  resource "pillow" do
-    url "https://files.pythonhosted.org/packages/f3/0d/d0d6dea55cd152ce3d6767bb38a8fc10e33796ba4ba210cbab9354b6d238/pillow-11.3.0.tar.gz"
-    sha256 "3828ee7586cd0b2091b6209e5ad53e20d0649bbe87164a459d0676e035e8f523"
   end
 
   resource "prompt-toolkit" do
