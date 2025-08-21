@@ -21,7 +21,7 @@ class BashCompletionAT2 < Formula
   end
 
   head do
-    url "https://github.com/scop/bash-completion.git", branch: "master"
+    url "https://github.com/scop/bash-completion.git", branch: "main"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
@@ -29,8 +29,7 @@ class BashCompletionAT2 < Formula
 
   depends_on "bash"
 
-  conflicts_with "bash-completion",
-    because: "each are different versions of the same formula"
+  conflicts_with "bash-completion", because: "each are different versions of the same formula"
 
   def install
     inreplace "bash_completion" do |s|
