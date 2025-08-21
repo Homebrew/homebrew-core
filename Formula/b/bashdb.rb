@@ -55,7 +55,7 @@ __END__
  bash_5_or_greater=no
  case "${bash_major}.${bash_minor}" in
 -  'OK_BASH_VERS' | '5.0')
-+  'OK_BASH_VERS' | '5.0' | '5.1' | '5.2')
++  'OK_BASH_VERS' | '5.0' | '5.1' | '5.2' | '5.3')
      bash_5_or_greater=yes
      ;;
    *)
