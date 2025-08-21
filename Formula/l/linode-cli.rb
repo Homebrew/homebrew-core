@@ -6,7 +6,7 @@ class LinodeCli < Formula
   url "https://files.pythonhosted.org/packages/e8/aa/6be3aadaba64be06cb354b1c7e1a567e77630bce8af7bae2eadfbcc158f7/linode_cli-5.61.0.tar.gz"
   sha256 "702ebcd91b7035c705113edf4e04646028719794cb82b423ad6ed953e3fd8ff3"
   license "BSD-3-Clause"
-  head "https://github.com/linode/linode-cli.git", branch: "main"
+  head "https://github.com/linode/linode-cli.git", branch: "dev"
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "18b7fe3bf7f9013354e12959f6ecb20974d60f6a5454095b58ff27b81b31ff08"
