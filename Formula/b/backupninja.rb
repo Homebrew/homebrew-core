@@ -33,11 +33,13 @@ class Backupninja < Formula
   skip_clean "etc/backup.d"
 
   def install
-    system "./configure", *std_configure_args,
-                          "--disable-silent-rules",
-                          "--sysconfdir=#{etc}",
-                          "--localstatedir=#{var}",
-                          "BASH=#{Formula["bash"].opt_bin}/bash"
+    args = %W[
+      --disable-silent-rules
+      --sysconfdir=#{etc}
+      --localstatedir=#{var}
+      BASH=#{Formula["bash"].opt_bin}/bash
+    ]
+    system "./configure", *args, *std_configure_args
     system "make", "install", "SED=sed"
   end
 
