@@ -4,7 +4,7 @@ class Chromaprint < Formula
   url "https://github.com/acoustid/chromaprint/releases/download/v1.5.1/chromaprint-1.5.1.tar.gz"
   sha256 "a1aad8fa3b8b18b78d3755b3767faff9abb67242e01b478ec9a64e190f335e1c"
   license "LGPL-2.1-or-later"
-  revision 2
+  revision 3
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "ecb32f5039c199a8f9f81329c5a09390f3c5307c3c012e10849aedadc835cf4a"
@@ -19,7 +19,7 @@ class Chromaprint < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "ffmpeg"
+  depends_on "ffmpeg@7"
 
   # Backport support for FFmpeg 5+. Remove in the next release
   patch do
