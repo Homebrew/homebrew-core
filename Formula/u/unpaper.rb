@@ -4,7 +4,7 @@ class Unpaper < Formula
   url "https://www.flameeyes.com/files/unpaper-7.0.0.tar.xz"
   sha256 "2575fbbf26c22719d1cb882b59602c9900c7f747118ac130883f63419be46a80"
   license "GPL-2.0-or-later"
-  revision 2
+  revision 3
   head "https://github.com/unpaper/unpaper.git", branch: "main"
 
   no_autobump! because: :requires_manual_review
