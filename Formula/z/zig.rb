@@ -1,9 +1,10 @@
 class Zig < Formula
   desc "Programming language designed for robustness, optimality, and clarity"
   homepage "https://ziglang.org/"
-  url "https://ziglang.org/download/0.14.1/zig-0.14.1.tar.xz"
-  sha256 "237f8abcc8c3fd68c70c66cdbf63dce4fb5ad4a2e6225ac925e3d5b4c388f203"
+  url "https://ziglang.org/download/0.15.1/zig-0.15.1.tar.xz"
+  sha256 "816c0303ab313f59766ce2097658c9fff7fafd1504f61f80f9507cd11652865f"
   license "MIT"
+  revision 1
 
   livecheck do
     url "https://ziglang.org/download/"
@@ -21,8 +22,8 @@ class Zig < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "lld@19"
-  depends_on "llvm@19"
+  depends_on "lld"
+  depends_on "llvm"
   depends_on macos: :big_sur # https://github.com/ziglang/zig/issues/13313
 
   # NOTE: `z3` should be macOS-only dependency whenever we need to re-add
@@ -74,8 +75,7 @@ class Zig < Formula
     (testpath/"hello.zig").write <<~ZIG
       const std = @import("std");
       pub fn main() !void {
-          const stdout = std.io.getStdOut().writer();
-          try stdout.print("Hello, world!", .{});
+          try std.fs.File.stdout().writeAll("Hello, world!");
       }
     ZIG
     system bin/"zig", "build-exe", "hello.zig"
@@ -150,7 +150,7 @@ index 15762f0ae881..ea729f408f74 100644
 +                if (static or !std.zig.system.darwin.isSdkInstalled(b.allocator)) {
 +                    mod.link_libcpp = true;
 +                } else {
-+                    const sdk = std.zig.system.darwin.getSdk(b.allocator, b.graph.host.result) orelse return error.SdkDetectFailed;
++                    const sdk = std.zig.system.darwin.getSdk(b.allocator, target) orelse return error.SdkDetectFailed;
 +                    const @"libc++" = b.pathJoin(&.{ sdk, "usr/lib/libc++.tbd" });
 +                    exe.root_module.addObjectFile(.{ .cwd_relative = @"libc++" });
 +                }
