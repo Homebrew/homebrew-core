@@ -2,7 +2,7 @@ class Opencv < Formula
   desc "Open source computer vision library"
   homepage "https://opencv.org/"
   license "Apache-2.0"
-  revision 5
+  revision 6
 
   stable do
     url "https://github.com/opencv/opencv/archive/refs/tags/4.12.0.tar.gz"
@@ -47,7 +47,7 @@ class Opencv < Formula
   depends_on "abseil"
   depends_on "ceres-solver"
   depends_on "eigen"
-  depends_on "ffmpeg"
+  depends_on "ffmpeg@7"
   depends_on "freetype"
   depends_on "gflags"
   depends_on "glog"
