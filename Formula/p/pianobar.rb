@@ -4,6 +4,7 @@ class Pianobar < Formula
   url "https://6xq.net/pianobar/pianobar-2024.12.21.tar.bz2"
   sha256 "16f4dd2d64da38690946a9670e59bc72a789cf6a323f792e159bb3a39cf4a7f5"
   license "MIT"
+  revision 1
   head "https://github.com/PromyLOPh/pianobar.git", branch: "master"
 
   livecheck do
