@@ -20,6 +20,7 @@ class Mesa < Formula
     { "GPL-1.0-or-later" => { with: "Linux-syscall-note" } }, # include/drm-uapi/sync_file.h
     { "GPL-2.0-only" => { with: "Linux-syscall-note" } }, # include/drm-uapi/{d3dkmthk.h,dma-buf.h,etnaviv_drm.h}
   ]
+  revision 1
   head "https://gitlab.freedesktop.org/mesa/mesa.git", branch: "main"
 
   bottle do
@@ -141,6 +142,9 @@ class Mesa < Formula
       -Dvideo-codecs=all
     ]
     args += if OS.mac?
+      # Work around .../rusticl_system_bindings.h:1:10: fatal error: 'stdio.h' file not found
+      ENV["SDKROOT"] = MacOS.sdk_for_formula(self).path
+
       %W[
         -Dgallium-drivers=llvmpipe,zink
         -Dmoltenvk-dir=#{Formula["molten-vk"].prefix}
@@ -149,8 +153,13 @@ class Mesa < Formula
         -Dvulkan-layers=intel-nullhw,overlay,screenshot,vram-report-limit
       ]
     else
-      %w[
+      # Not all supported drivers are being auto-enabled on x86 Linux.
+      # TODO: Determine the explicit drivers list for ARM Linux.
+      drivers = Hardware::CPU.intel? ? "all" : "auto"
+
+      %W[
         -Degl=enabled
+        -Dgallium-drivers=#{drivers}
         -Dgallium-extra-hud=true
         -Dgallium-va=enabled
         -Dgallium-vdpau=enabled
@@ -164,25 +173,10 @@ class Mesa < Formula
         -Dplatforms=x11,wayland
         -Dtools=drm-shim,etnaviv,freedreno,glsl,intel,nir,nouveau,lima,panfrost,asahi,imagination,dlclose-skip
         -Dvalgrind=enabled
+        -Dvulkan-drivers=#{drivers}
         -Dvulkan-layers=device-select,intel-nullhw,overlay,screenshot,vram-report-limit
         --force-fallback-for=indexmap,paste,pest_generator,roxmltree,rustc-hash,syn
       ]
-    end
-
-    # Not all supported drivers are being auto-enabled on x86 Linux.
-    # TODO: Determine the explicit drivers list for ARM Linux.
-    if OS.linux?
-      args += if Hardware::CPU.intel?
-        %w[
-          -Dgallium-drivers=all
-          -Dvulkan-drivers=all
-        ]
-      else
-        %w[
-          -Dgallium-drivers=auto
-          -Dvulkan-drivers=auto
-        ]
-      end
     end
 
     system "meson", "setup", "build", *args, *std_meson_args
