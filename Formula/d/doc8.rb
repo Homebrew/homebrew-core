@@ -26,13 +26,13 @@ class Doc8 < Formula
   end
 
   resource "pbr" do
-    url "https://files.pythonhosted.org/packages/01/d2/510cc0d218e753ba62a1bc1434651db3cd797a9716a0a66cc714cb4f0935/pbr-6.1.1.tar.gz"
-    sha256 "93ea72ce6989eb2eed99d0f75721474f69ad88128afdef5ac377eb797c4bf76b"
+    url "https://files.pythonhosted.org/packages/ad/8d/23253ab92d4731eb34383a69b39568ca63a1685bec1e9946e91a32fc87ad/pbr-7.0.1.tar.gz"
+    sha256 "3ecbcb11d2b8551588ec816b3756b1eb4394186c3b689b17e04850dfc20f7e57"
   end
 
   resource "pygments" do
-    url "https://files.pythonhosted.org/packages/7c/2d/c3338d48ea6cc0feb8446d8e6937e1408088a72a39937982cc6111d17f84/pygments-2.19.1.tar.gz"
-    sha256 "61c16d2a8576dc0649d9f39e089b5f02bcd27fba10d8fb4dcc28173f7a45151f"
+    url "https://files.pythonhosted.org/packages/b0/77/a5b8c569bf593b0140bde72ea885a803b82086995367bf2037de0159d924/pygments-2.19.2.tar.gz"
+    sha256 "636cb2477cec7f8952536970bc533bc43743542f70392ae026374600add5b887"
   end
 
   resource "restructuredtext-lint" do
@@ -52,6 +52,20 @@ class Doc8 < Formula
 
   def install
     virtualenv_install_with_resources
+
+    # Build an `:all` bottle
+    prefix = libexec/Language::Python.site_packages("python3")
+    opt_homebrew_file = "setuptools/_vendor/platformdirs/macos.py"
+    inreplace prefix/opt_homebrew_file, "/opt/homebrew", HOMEBREW_PREFIX
+
+    usr_local_files = %w[
+      pbr/hooks/files.py
+      setuptools/_vendor/platformdirs/unix.py
+      setuptools/_vendor/platformdirs-*.dist-info/METADATA
+    ]
+    usr_local_files.each do |file|
+      inreplace prefix.glob(file), "/usr/local", HOMEBREW_PREFIX
+    end
   end
 
   test do
