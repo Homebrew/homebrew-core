@@ -24,6 +24,8 @@ class Cspell < Formula
   end
 
   test do
+    assert_match version.to_s, shell_output("#{bin}/cspell --version")
+
     (testpath/"test.rb").write("misspell_worrd = 1")
     output = shell_output("#{bin}/cspell test.rb", 1)
     assert_match "test.rb:1:10 - Unknown word (worrd)", output
