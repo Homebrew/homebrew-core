@@ -5,7 +5,7 @@ class Glslviewer < Formula
       tag:      "v3.10.1",
       revision: "2671e0f0b362bfd94ea5160f2ecb7f7363d4991d"
   license "BSD-3-Clause"
-  revision 2
+  revision 3
   head "https://github.com/patriciogonzalezvivo/glslViewer.git", branch: "main"
 
   no_autobump! because: :requires_manual_review
@@ -25,7 +25,7 @@ class Glslviewer < Formula
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
 
-  depends_on "ffmpeg"
+  depends_on "ffmpeg@7"
   depends_on "glfw"
 
   uses_from_macos "ncurses"
