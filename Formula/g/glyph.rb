@@ -4,6 +4,7 @@ class Glyph < Formula
   url "https://github.com/seatedro/glyph/archive/refs/tags/v1.0.11.tar.gz"
   sha256 "7de7936a13b92b18240134bef64c006ab73988850a8776a1b276e22b73377f15"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "dace7314cab8589f003791387c994758716a5137382f202e20335bf5bcb11625"
@@ -17,7 +18,7 @@ class Glyph < Formula
 
   depends_on "pkgconf" => :build
   depends_on "zig" => :build
-  depends_on "ffmpeg"
+  depends_on "ffmpeg@7"
 
   def install
     # Fix illegal instruction errors when using bottles on older CPUs.
