@@ -63,6 +63,11 @@ jobs:
           key: style-cache-${{ matrix.stable && 'stable-' || 'main-' }}${{ github.sha }}
           restore-keys: style-cache-${{ matrix.stable && 'stable-' || 'main-' }}
 
+      # FIXME: Workaround for `Error: Unknown command: brew test-bot`
+      # https://github.com/Homebrew/homebrew-core/actions/runs/17153399857/job/48664592829#step:5:22
+      - run: brew tap homebrew/test-bot
+        if: matrix.stable
+
       - run: brew test-bot --only-tap-syntax ${{ matrix.stable && '--stable' || '' }}
 
   formulae_detect:
