@@ -7,7 +7,7 @@ class Ffms2 < Formula
   # The FFMS2 source is licensed under the MIT license, but its binaries
   # are licensed under the GPL because GPL components of FFmpeg are used.
   license "GPL-2.0-or-later"
-  revision 1
+  revision 2
   head "https://github.com/FFMS/ffms2.git", branch: "master"
 
   livecheck do
@@ -31,7 +31,7 @@ class Ffms2 < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkgconf" => :build
-  depends_on "ffmpeg"
+  depends_on "ffmpeg@7" # Works with FFmpeg 8, but siril (a dependent) doesn't.
 
   uses_from_macos "zlib"
 
