@@ -24,6 +24,7 @@ class Hexyl < Formula
     system "pandoc", "-s", "-f", "markdown", "-t", "man",
                      "doc/hexyl.1.md", "-o", "hexyl.1"
     man1.install "hexyl.1"
+    generate_completions_from_executable(bin/"hexyl", "--shell-completion")
   end
 
   test do
