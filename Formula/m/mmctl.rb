@@ -1,8 +1,8 @@
 class Mmctl < Formula
   desc "Remote CLI tool for Mattermost server"
   homepage "https://github.com/mattermost/mattermost"
-  url "https://github.com/mattermost/mattermost/archive/refs/tags/v10.10.2.tar.gz"
-  sha256 "71a04aceff34af3a7f7a56ea602f54000ce87045430b36991c83bc4094e07f70"
+  url "https://github.com/mattermost/mattermost/archive/refs/tags/v10.11.2.tar.gz"
+  sha256 "17aa396db23d949ee74703be8056c3c1c645e7f4ecd1e3433190e4be0c18750c"
   license all_of: ["AGPL-3.0-only", "Apache-2.0"]
   head "https://github.com/mattermost/mattermost.git", branch: "master"
 
