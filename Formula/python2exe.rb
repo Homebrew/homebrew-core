@@ -6,7 +6,7 @@ class Python2exe < Formula
   license "MIT"
   head "https://github.com/planetminguez/Python2ExeInC.git", branch: "main"
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   def install
     system "make", "CC=#{ENV.cc}", "PREFIX=#{prefix}", "PYTHON_EXECUTABLE=#{Formula["python@3.12"].opt_bin}/python3"
