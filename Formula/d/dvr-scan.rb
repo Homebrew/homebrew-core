@@ -3,9 +3,8 @@ class DvrScan < Formula
 
   desc "Extract scenes with motion from videos"
   homepage "https://www.dvr-scan.com/"
-  url "https://files.pythonhosted.org/packages/8c/9e/b4772f3c942a00a1ea7cce8055958e503292d314bff51feda1429a271f7a/dvr_scan-1.7.tar.gz"
-  version "1.7.0.1"
-  sha256 "f7036f8e679cd14bb61417266b1f8cff4f365a00227bff3d6ed75200f33e5c53"
+  url "https://files.pythonhosted.org/packages/8b/03/843dc883fbb3ad6900b2f2aa1fd59b28c6af42eedb7d1a40917e40fec04b/dvr_scan-1.8.tar.gz"
+  sha256 "21c013906f1f8213394dafff763be8d75fd7ce6482d9a5dd3dc5e27a0cf25caa"
   license "BSD-2-Clause"
   head "https://github.com/Breakthrough/DVR-Scan.git", branch: "main"
 
@@ -29,14 +28,33 @@ class DvrScan < Formula
     depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1699
   end
 
+  on_linux do
+    depends_on "patchelf" => :build
+  end
+
   resource "click" do
     url "https://files.pythonhosted.org/packages/60/6c/8ca2efa64cf75a977a0d7fac081354553ebe483345c734fb6b6515d96bbc/click-8.2.1.tar.gz"
     sha256 "27c491cc05d968d271d5a1db13e3b5a184636d9d930f148c50b038f0d0646202"
   end
 
   resource "cython" do
-    url "https://files.pythonhosted.org/packages/18/40/7b17cd866158238db704965da1b5849af261dbad393ea3ac966f934b2d39/cython-3.1.2.tar.gz"
-    sha256 "6bbf7a953fa6762dfecdec015e3b054ba51c0121a45ad851fa130f63f5331381"
+    url "https://files.pythonhosted.org/packages/18/ab/915337fb39ab4f4539a313df38fc69938df3bf14141b90d61dfd5c2919de/cython-3.1.3.tar.gz"
+    sha256 "10ee785e42328924b78f75a74f66a813cb956b4a9bc91c44816d089d5934c089"
+  end
+
+  resource "opencv-contrib-python" do
+    url "https://files.pythonhosted.org/packages/e0/b4/30fb53c33da02626b66dd40ad58dd4aa01eef834e422e098dfc056ed0873/opencv-contrib-python-4.12.0.88.tar.gz"
+    sha256 "0f1e22823aace09067b9a0e8e2b4ba6d7a1ef08807d6cebea315f3133f419a0e"
+  end
+
+  resource "opencv-python" do
+    url "https://files.pythonhosted.org/packages/ac/71/25c98e634b6bdeca4727c7f6d6927b056080668c5008ad3c8fc9e7f8f6ec/opencv-python-4.12.0.88.tar.gz"
+    sha256 "8b738389cede219405f6f3880b851efa3415ccd674752219377353f017d2994d"
+  end
+
+  resource "pillow" do
+    url "https://files.pythonhosted.org/packages/f3/0d/d0d6dea55cd152ce3d6767bb38a8fc10e33796ba4ba210cbab9354b6d238/pillow-11.3.0.tar.gz"
+    sha256 "3828ee7586cd0b2091b6209e5ad53e20d0649bbe87164a459d0676e035e8f523"
   end
 
   resource "platformdirs" do
