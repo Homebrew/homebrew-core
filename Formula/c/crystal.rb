@@ -2,6 +2,7 @@ class Crystal < Formula
   desc "Fast and statically typed, compiled language with Ruby-like syntax"
   homepage "https://crystal-lang.org/"
   license "Apache-2.0"
+  revision 1
 
   stable do
     # TODO: Replace arm64 linux bootstrap with official when available
@@ -11,6 +12,12 @@ class Crystal < Formula
     resource "shards" do
       url "https://github.com/crystal-lang/shards/archive/refs/tags/v0.19.1.tar.gz"
       sha256 "2a49e7ffa4025e0b3e8774620fa8dbc227d3d1e476211fefa2e8166dcabf82b5"
+    end
+
+    # Backport support for LLVM 21
+    patch do
+      url "https://github.com/crystal-lang/crystal/commit/0e3757edcf7f18c238841e2f2aa659ac302fee4a.patch?full_index=1"
+      sha256 "8f5f9682990a74405f7bbae3b20afcf6bd11f65826204fee77b52b69d0c34925"
     end
   end
 
