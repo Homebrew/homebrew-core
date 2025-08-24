@@ -27,12 +27,8 @@ class Ndenv < Formula
   depends_on "node-build"
 
   def install
-    inreplace "libexec/ndenv" do |s|
-      if HOMEBREW_PREFIX.to_s != "/usr/local"
-        s.gsub! ":/usr/local/etc/ndenv.d",
-            ":#{HOMEBREW_PREFIX}/etc/ndenv.d\\0"
-      end
-    end
+    # Build an `:all` bottle to change the PATH for `ndenv.d`
+    inreplace "libexec/ndenv", ":/usr/local/etc/ndenv.d", ":#{HOMEBREW_PREFIX}/etc/ndenv.d"
 
     if build.head?
       inreplace "libexec/rbenv---version", /^(version=)"([^"]+)"/, \
