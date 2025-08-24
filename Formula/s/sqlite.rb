@@ -5,6 +5,7 @@ class Sqlite < Formula
   version "3.50.4"
   sha256 "a3db587a1b92ee5ddac2f66b3edb41b26f9c867275782d46c3a088977d6a5b18"
   license "blessing"
+  revision 1
 
   livecheck do
     url :homepage
