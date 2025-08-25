@@ -4,7 +4,7 @@ class Siril < Formula
   url "https://free-astro.org/download/siril-1.2.6.tar.bz2"
   sha256 "312f82e78599f796d163a6d1c90589df1ed920b9ff2bb7ab5b808e43872817fa"
   license "GPL-3.0-or-later"
-  revision 1
+  revision 2
   head "https://gitlab.com/free-astro/siril.git", branch: "master"
 
   livecheck do
@@ -29,7 +29,7 @@ class Siril < Formula
   depends_on "cairo"
   depends_on "cfitsio"
   depends_on "exiv2"
-  depends_on "ffmpeg"
+  depends_on "ffmpeg@7"
   depends_on "ffms2"
   depends_on "fftw"
   depends_on "gdk-pixbuf"

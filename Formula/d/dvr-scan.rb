@@ -7,6 +7,7 @@ class DvrScan < Formula
   version "1.7.0.1"
   sha256 "f7036f8e679cd14bb61417266b1f8cff4f365a00227bff3d6ed75200f33e5c53"
   license "BSD-2-Clause"
+  revision 1
   head "https://github.com/Breakthrough/DVR-Scan.git", branch: "main"
 
   bottle do
@@ -20,7 +21,7 @@ class DvrScan < Formula
 
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
-  depends_on "ffmpeg"
+  depends_on "ffmpeg@7"
   depends_on "numpy"
   depends_on "opencv"
   depends_on "python@3.13"

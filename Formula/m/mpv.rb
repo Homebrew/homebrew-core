@@ -4,7 +4,7 @@ class Mpv < Formula
   url "https://github.com/mpv-player/mpv/archive/refs/tags/v0.40.0.tar.gz"
   sha256 "10a0f4654f62140a6dd4d380dcf0bbdbdcf6e697556863dc499c296182f081a3"
   license :cannot_represent
-  revision 3
+  revision 4
   head "https://github.com/mpv-player/mpv.git", branch: "master"
 
   bottle do
@@ -22,7 +22,7 @@ class Mpv < Formula
   depends_on "ninja" => :build
   depends_on "pkgconf" => [:build, :test]
   depends_on xcode: :build
-  depends_on "ffmpeg"
+  depends_on "ffmpeg@7"
   depends_on "jpeg-turbo"
   depends_on "libarchive"
   depends_on "libass"

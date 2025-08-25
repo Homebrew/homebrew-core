@@ -13,7 +13,7 @@ class Musikcube < Formula
     "bcrypt-Solar-Designer", # src/3rdparty/{include,src}/md5.*
     "blessing", # src/3rdparty/{include,src}/sqlite/sqlite3*
   ]
-  revision 1
+  revision 2
   head "https://github.com/clangen/musikcube.git", branch: "master"
 
   livecheck do
@@ -35,7 +35,7 @@ class Musikcube < Formula
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
 
-  depends_on "ffmpeg"
+  depends_on "ffmpeg@7"
   depends_on "game-music-emu"
   depends_on "lame"
   depends_on "libev"

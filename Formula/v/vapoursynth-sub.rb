@@ -4,7 +4,7 @@ class VapoursynthSub < Formula
   url "https://github.com/vapoursynth/subtext/archive/refs/tags/R5.tar.gz"
   sha256 "d1e4649c5417e671679753840ae0931cdbd353a862333129d7bd600770fd3db8"
   license "MIT"
-  revision 1
+  revision 2
   version_scheme 1
   head "https://github.com/vapoursynth/subtext.git", branch: "master"
 
@@ -25,7 +25,7 @@ class VapoursynthSub < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkgconf" => :build
-  depends_on "ffmpeg"
+  depends_on "ffmpeg@7"
   depends_on "libass"
   depends_on "vapoursynth"
 

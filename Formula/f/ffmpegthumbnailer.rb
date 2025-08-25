@@ -4,6 +4,7 @@ class Ffmpegthumbnailer < Formula
   url "https://github.com/dirkvdb/ffmpegthumbnailer/archive/refs/tags/2.2.3.tar.gz"
   sha256 "8c9b9057c6cc8bce9d11701af224c8139c940f734c439a595525e073b09d19b8"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/dirkvdb/ffmpegthumbnailer.git", branch: "master"
 
   bottle do
@@ -18,7 +19,7 @@ class Ffmpegthumbnailer < Formula
 
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
-  depends_on "ffmpeg"
+  depends_on "ffmpeg@7"
   depends_on "jpeg-turbo"
   depends_on "libpng"
 
@@ -34,10 +35,10 @@ class Ffmpegthumbnailer < Formula
   end
 
   test do
-    f = Formula["ffmpeg"].opt_bin/"ffmpeg"
+    ffmpeg = Formula["ffmpeg@7"].opt_bin/"ffmpeg"
     png = test_fixtures("test.png")
-    system f.to_s, "-loop", "1", "-i", png.to_s, "-c:v", "libx264", "-t", "30",
-                   "-pix_fmt", "yuv420p", "v.mp4"
+    system ffmpeg.to_s, "-loop", "1", "-i", png.to_s, "-c:v", "libx264", "-t", "30",
+                        "-pix_fmt", "yuv420p", "v.mp4"
     assert_path_exists testpath/"v.mp4", "Failed to generate source video!"
     system bin/"ffmpegthumbnailer", "-i", "v.mp4", "-o", "out.jpg"
     assert_path_exists testpath/"out.jpg", "Failed to create thumbnail!"

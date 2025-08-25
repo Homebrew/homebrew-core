@@ -4,6 +4,7 @@ class Qmmp < Formula
   url "https://qmmp.ylsoftware.com/files/qmmp/2.2/qmmp-2.2.8.tar.bz2"
   sha256 "730a97a063a498eb37da9e2f8198dfe570693e6a6c7f2b210d581bd87dbb938a"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url "https://qmmp.ylsoftware.com/downloads.php"

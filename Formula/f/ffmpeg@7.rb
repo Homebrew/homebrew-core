@@ -1,27 +1,18 @@
-class Ffmpeg < Formula
+class FfmpegAT7 < Formula
   desc "Play, record, convert, and stream audio and video"
   homepage "https://ffmpeg.org/"
-  url "https://ffmpeg.org/releases/ffmpeg-8.0.tar.xz"
-  sha256 "b2751fccb6cc4c77708113cd78b561059b6fa904b24162fa0be2d60273d27b8e"
+  url "https://ffmpeg.org/releases/ffmpeg-7.1.1.tar.xz"
+  sha256 "733984395e0dbbe5c046abda2dc49a5544e7e0e1e2366bba849222ae9e3a03b1"
   # None of these parts are used by default, you have to explicitly pass `--enable-gpl`
   # to configure to activate them. In this case, FFmpeg's license changes to GPL v2+.
   license "GPL-2.0-or-later"
-  head "https://github.com/FFmpeg/FFmpeg.git", branch: "master"
 
   livecheck do
     url "https://ffmpeg.org/download.html"
-    regex(/href=.*?ffmpeg[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    regex(/href=.*?ffmpeg[._-]v?(7\.(?:\.\d+)+)\.t/i)
   end
 
-  bottle do
-    sha256 arm64_sequoia: "721d9dc1e805b3e6a6ba10262c2780c2b18f1e71d9eb625fd563a6f38cd31ce3"
-    sha256 arm64_sonoma:  "a1ceebda4bfafda166680b82db820285f9685fdb6d28c2595b212883d219b879"
-    sha256 arm64_ventura: "e72aa58bdbfc1632cafd89d3a078fbdc56d21079ba32db6d8487cfa4d4368725"
-    sha256 sonoma:        "d95a9d5b291b5058470d388db660951b9ea2da270eb7912002960d6c0b79f3a2"
-    sha256 ventura:       "62b872b80be68c8b006dffd2a003ade2e7a4827165f9f27acafe3d50f491d06b"
-    sha256 arm64_linux:   "2d45408fdcb3e2a237397f9ec4c3de15378350dab9f337f1afc5873ed6dff253"
-    sha256 x86_64_linux:  "6239b6da895491f564960043da7fe6918e98ffd1ac0c172c7869949e823714db"
-  end
+  keg_only :versioned_formula
 
   depends_on "pkgconf" => :build
   depends_on "aom"
@@ -83,6 +74,12 @@ class Ffmpeg < Formula
 
   on_intel do
     depends_on "nasm" => :build
+  end
+
+  # Backport support for recent svt-av1 (3.0.0)
+  patch do
+    url "https://github.com/FFmpeg/FFmpeg/commit/d1ed5c06e3edc5f2b5f3664c80121fa55b0baa95.patch?full_index=1"
+    sha256 "0eb23ab90c0e5904590731dd3b81c86a4127785bc2b367267d77723990fb94a2"
   end
 
   # Fix for QtWebEngine, do not remove

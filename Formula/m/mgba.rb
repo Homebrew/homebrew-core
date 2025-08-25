@@ -4,6 +4,7 @@ class Mgba < Formula
   url "https://github.com/mgba-emu/mgba/archive/refs/tags/0.10.5.tar.gz"
   sha256 "91d6fbd32abcbdf030d58d3f562de25ebbc9d56040d513ff8e5c19bee9dacf14"
   license "MPL-2.0"
+  revision 1
   head "https://github.com/mgba-emu/mgba.git", branch: "master"
 
   livecheck do
@@ -23,7 +24,7 @@ class Mgba < Formula
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
 
-  depends_on "ffmpeg"
+  depends_on "ffmpeg@7"
   depends_on "libepoxy"
   depends_on "libpng"
   depends_on "libsamplerate"

@@ -4,6 +4,7 @@ class Mpd < Formula
   url "https://github.com/MusicPlayerDaemon/MPD/archive/refs/tags/v0.24.5.tar.gz"
   sha256 "ab7f9a2315eff97cc47dff5da9b9c675b1764cd50f161dc295b8a0d1956a6244"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/MusicPlayerDaemon/MPD.git", branch: "master"
 
   bottle do
@@ -24,7 +25,7 @@ class Mpd < Formula
   depends_on "chromaprint"
   depends_on "expat"
   depends_on "faad2"
-  depends_on "ffmpeg"
+  depends_on "ffmpeg@7"
   depends_on "flac"
   depends_on "fluid-synth"
   depends_on "fmt"

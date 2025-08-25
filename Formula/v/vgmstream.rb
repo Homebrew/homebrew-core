@@ -6,6 +6,7 @@ class Vgmstream < Formula
       revision: "f96812ead1560b43ef56d1d388a5f01ed92a8cc0"
   version "r2023"
   license "ISC"
+  revision 1
   version_scheme 1
   head "https://github.com/vgmstream/vgmstream.git", branch: "master"
 
@@ -31,7 +32,7 @@ class Vgmstream < Formula
   depends_on "libtool" => :build
   depends_on "pkgconf" => :build
 
-  depends_on "ffmpeg"
+  depends_on "ffmpeg@7"
   depends_on "jansson"
   depends_on "libao"
   depends_on "libvorbis"

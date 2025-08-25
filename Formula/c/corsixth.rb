@@ -4,6 +4,7 @@ class Corsixth < Formula
   url "https://github.com/CorsixTH/CorsixTH/archive/refs/tags/v0.69.1.tar.gz"
   sha256 "08eec141bdd8adf265f341a8452601f844a3eaab0378535b2655198fd373a7f8"
   license "MIT"
+  revision 1
   head "https://github.com/CorsixTH/CorsixTH.git", branch: "master"
 
   # Upstream uses GitHub releases to indicate that a version is released

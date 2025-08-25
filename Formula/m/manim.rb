@@ -6,6 +6,7 @@ class Manim < Formula
   url "https://files.pythonhosted.org/packages/52/79/29f287beebcf52464c2cfd88015720992515062dd373bd37c2ed34955cdd/manim-0.19.0.tar.gz"
   sha256 "748115ffc1dea24940fd6d7a3edcae0ccedc3e1874ebc1f5d7e5c6d69a4f4505"
   license "MIT"
+  revision 1
   head "https://github.com/manimCommunity/manim.git", branch: "main"
 
   bottle do
@@ -23,7 +24,7 @@ class Manim < Formula
   depends_on "ninja" => :build
   depends_on "pkgconf" => :build
   depends_on "cairo" # for cairo.h
-  depends_on "ffmpeg"
+  depends_on "ffmpeg@7"
   depends_on "fontconfig"
   depends_on "freetype"
   depends_on "glib"
