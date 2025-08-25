@@ -2,7 +2,7 @@ class C3c < Formula
   desc "Compiler for the C3 language"
   homepage "https://github.com/c3lang/c3c"
   url "https://github.com/c3lang/c3c/archive/refs/tags/v0.7.4.tar.gz"
-  sha256 "65bd76c5b418382ccccde468d5cc0a1331ca3bad27f1e1828a43f078d87dcdc0"
+  sha256 "410267a3d771ac4b4d6bcc29be0faf30d4959c24b31f9d1bd00661656072dc2b"
   license "LGPL-3.0-only"
   head "https://github.com/c3lang/c3c.git", branch: "master"
 
@@ -30,32 +30,30 @@ class C3c < Formula
   deprecate! date: "2025-08-25", because: :checksum_mismatch
 
   depends_on "cmake" => :build
-  depends_on "lld"
-  depends_on "llvm"
-  depends_on "zstd"
+  depends_on "lld@20"
+  depends_on "llvm@20"
 
   uses_from_macos "curl"
-  uses_from_macos "zlib"
-
-  # Linking dynamically with LLVM fails with GCC.
-  fails_with :gcc
 
   def install
+    lld = Formula["lld@20"]
+    llvm = Formula["llvm@20"]
+
     args = [
       "-DC3_LINK_DYNAMIC=ON",
       "-DC3_USE_MIMALLOC=OFF",
       "-DC3_USE_TB=OFF",
       "-DCMAKE_POSITION_INDEPENDENT_CODE=ON",
-      "-DLLVM=#{Formula["llvm"].opt_lib/shared_library("libLLVM")}",
-      "-DLLD_COFF=#{Formula["lld"].opt_lib/shared_library("liblldCOFF")}",
-      "-DLLD_COMMON=#{Formula["lld"].opt_lib/shared_library("liblldCommon")}",
-      "-DLLD_ELF=#{Formula["lld"].opt_lib/shared_library("liblldELF")}",
-      "-DLLD_MACHO=#{Formula["lld"].opt_lib/shared_library("liblldMachO")}",
-      "-DLLD_MINGW=#{Formula["lld"].opt_lib/shared_library("liblldMinGW")}",
-      "-DLLD_WASM=#{Formula["lld"].opt_lib/shared_library("liblldWasm")}",
+      "-DLLVM=#{llvm.opt_lib/shared_library("libLLVM")}",
+      "-DLLD_COFF=#{lld.opt_lib/shared_library("liblldCOFF")}",
+      "-DLLD_COMMON=#{lld.opt_lib/shared_library("liblldCommon")}",
+      "-DLLD_ELF=#{lld.opt_lib/shared_library("liblldELF")}",
+      "-DLLD_MACHO=#{lld.opt_lib/shared_library("liblldMachO")}",
+      "-DLLD_MINGW=#{lld.opt_lib/shared_library("liblldMinGW")}",
+      "-DLLD_WASM=#{lld.opt_lib/shared_library("liblldWasm")}",
     ]
+    args << "-DCMAKE_BUILD_WITH_INSTALL_RPATH=ON" if OS.linux?
 
-    ENV.append "LDFLAGS", "-lzstd -lz"
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
@@ -67,7 +65,6 @@ class C3c < Formula
     libexec.install bin.children
     bin.install_symlink libexec.children.select { |child| child.file? && child.executable? }
     rm_r libexec/"c3c_rt"
-    llvm = Formula["llvm"]
     libexec.install_symlink llvm.opt_lib/"clang"/llvm.version.major/"lib/darwin" => "c3c_rt"
   end
 
