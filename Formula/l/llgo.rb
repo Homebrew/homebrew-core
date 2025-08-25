@@ -103,7 +103,7 @@ class Llgo < Formula
       )
 
       func Foo() string {
-        return "Hello LLGO by Foo"
+        return "Hello LLGO by Fooo"
       }
 
       func main() {
