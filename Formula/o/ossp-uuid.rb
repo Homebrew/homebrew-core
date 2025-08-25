@@ -1,17 +1,17 @@
 class OsspUuid < Formula
   desc "ISO-C API and CLI for generating UUIDs"
-  homepage "http://www.ossp.org/pkg/lib/uuid/"
-  url "https://deb.debian.org/debian/pool/main/o/ossp-uuid/ossp-uuid_1.6.2.orig.tar.gz"
-  sha256 "11a615225baa5f8bb686824423f50e4427acd3f70d394765bdff32801f0fd5b0"
+  homepage "https://git.sr.ht/~nabijaczleweli/ossp-uuid"
+  url "https://git.sr.ht/~nabijaczleweli/ossp-uuid/archive/UUID_1_6_4.tar.gz"
+  sha256 "7331f7a47bafaa4ffad23b4635a4c532f55e400280c1560fe1acbe09862bcd88"
   license "BSD-1-Clause"
-  revision 2
 
   livecheck do
-    url "https://deb.debian.org/debian/pool/main/o/ossp-uuid/"
-    regex(/href=["']?ossp-uuid[._-]v?(\d+(?:\.\d+)+)\.orig\.t/i)
+    url :stable
+    regex(/^UUID[._-]v?(\d+(?:[._]\d+)+)$/i)
+    strategy :git do |tags, regex|
+      tags.map { |tag| tag[regex, 1]&.tr("_", ".") }
+    end
   end
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia:  "54fe9ac592343b06d7ce62e286cf0afd06f90be6c9aebd779102403c51cd55ea"
@@ -32,31 +32,26 @@ class OsspUuid < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "ec70863fae3001fc9281f76cef9ac231bd6dbb957c6382457a5848312ee1f1b0"
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
+
+  depends_on "libmd"
+
   on_linux do
     conflicts_with "util-linux", because: "both install `uuid.3` file"
   end
 
-  # Fix -flat_namespace being used on Big Sur and later.
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-pre-0.4.2.418-big_sur.diff"
-    sha256 "83af02f2aa2b746bb7225872cab29a253264be49db0ecebb12f841562d9a2923"
-  end
+  # macOS compilation errors
+  # https://todo.sr.ht/~nabijaczleweli/ossp/221
+  patch :DATA
 
   def install
-    # upstream ticket: http://cvs.ossp.org/tktview?tn=200
-    # pkg-config --cflags uuid returns the wrong directory since we override the
-    # default, but uuid.pc.in does not use it
-    inreplace "uuid.pc.in" do |s|
-      s.gsub!(/^(exec_prefix)=\$\{prefix\}$/, '\1=@\1@')
-      s.gsub! %r{^(includedir)=\$\{prefix\}/include$}, '\1=@\1@'
-      s.gsub! %r{^(libdir)=\$\{exec_prefix\}/lib$}, '\1=@\1@'
-    end
+    system "autoreconf", "--force", "--install", "--verbose"
 
     args = %W[
       --includedir=#{include}/ossp
       --without-perl
-      --without-php
-      --without-pgsql
     ]
     # Help old config scripts identify arm64 linux
     args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
@@ -67,6 +62,79 @@ class OsspUuid < Formula
   end
 
   test do
-    system bin/"uuid-config", "--version"
+    assert_match version.to_s, shell_output("#{bin}/uuid-config --version")
+    assert_match(/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/, shell_output("#{bin}/uuid -n 1"))
   end
 end
+
+__END__
+diff --git a/Makefile.in b/Makefile.in
+index df8d119..e5551e2 100644
+--- a/Makefile.in
++++ b/Makefile.in
+@@ -64,10 +64,17 @@ all:    c @WITH_DCE@ @WITH_CXX@ @WITH_PERL@
+ .c.lo:
+ 	$(LIBTOOL) --tag CC  --mode=compile $(CC)  $(CPPFLAGS) $(CFLAGS)   -c $<
+ 
++OS := $(shell uname)
++
++ifeq ($(OS),Darwin)
++  LIBRARY_FLAGS = -Wl,-exported_symbols_list,$(S)/libuuid_mac.ver
++else
++  LIBRARY_FLAGS = -Wl,--version-script=$(S)/libuuid.ver
++endif
+ 
+ c: lib@libname@.la libtest uuid
+ lib@libname@.la: uuid.lo uuid_mac.lo libuuid.ver
+-	$(LIBTOOL) --tag CC  --mode=link    $(CC)  $(LDFLAGS) -o lib@libname@.la uuid.lo uuid_mac.lo  $(LIBS) -rpath $(libdir) -version-info @UUID_VERSION_LIBTOOL@ -Wl,--version-script=$(S)/libuuid.ver
++	$(LIBTOOL) --tag CC  --mode=link    $(CC)  $(LDFLAGS) -o lib@libname@.la uuid.lo uuid_mac.lo  $(LIBS) -rpath $(libdir) -version-info @UUID_VERSION_LIBTOOL@ $(LIBRARY_FLAGS)
+ 
+ libtest: libtest.o lib@libname@.la
+ 	$(LIBTOOL) --tag CC  --mode=link    $(CC)  $(LDFLAGS) -o libtest         libtest.o lib@libname@.la
+diff --git a/libuuid.ver b/libuuid.ver
+index 1f7857b..29dfb65 100644
+--- a/libuuid.ver
++++ b/libuuid.ver
+@@ -15,7 +15,7 @@
+ #   uuid_error()
+ #   uuid_version()
+ 
+-OSSP_UUID_1.6.3 {
++OSSP_UUID_1.6.4 {
+ 	uuid_ismax;
+ 	# uuid_load() also understands "max"
+ 	# uuid_make() also understands UUID_MAKE_V6 and UUID_MAKE_V7
+diff --git a/libuuid_mac.ver b/libuuid_mac.ver
+new file mode 100644
+index 0000000..373fdcc
+--- /dev/null
++++ b/libuuid_mac.ver
+@@ -0,0 +1,14 @@
++_uuid_create
++_uuid_destroy
++_uuid_clone
++_uuid_load
++_uuid_make
++_uuid_isnil
++_uuid_compare
++_uuid_import
++_uuid_export
++_uuid_error
++_uuid_version
++_uuid_ismax
++_uuid_load
++_uuid_make
+diff --git a/uuid_random.h b/uuid_random.h
+index 3a6c3ab..74ddb82 100644
+--- a/uuid_random.h
++++ b/uuid_random.h
+@@ -12,6 +12,9 @@
+ #include <Windows.h>
+ #include <bcrypt.h>
+ #endif
++#ifdef __APPLE__
++#include <sys/random.h>
++#endif
+ 
+ 
+ typedef struct {
