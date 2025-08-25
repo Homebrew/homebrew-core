@@ -22,6 +22,12 @@ class Tmex < Formula
   def install
     bin.install "tmex"
     man1.install "man/tmex.1"
+
+    # Build an `:all` bottle
+    inreplace man1/"tmex.1" do |s|
+      s.gsub! "/opt/homebrew", HOMEBREW_PREFIX
+      s.gsub! prefix, opt_prefix
+    end
   end
 
   test do
