@@ -5,6 +5,7 @@ class Alive2 < Formula
       tag:      "v21.0",
       revision: "913e1556032ee70a9ebf147b5a0c7e10086b7490"
   license "MIT"
+  revision 1
   head "https://github.com/AliveToolkit/alive2.git", branch: "master"
 
   bottle do
@@ -28,7 +29,12 @@ class Alive2 < Formula
   def install
     # Work around ir/state.cpp:730:40: error: reference to local binding
     # 'src_data' declared in enclosing function 'IR::State::copyUBFromBB'
-    ENV.llvm_clang if OS.mac? && MacOS.version <= :ventura
+    if OS.mac? && MacOS.version <= :ventura
+      ENV.llvm_clang
+      # Also link to LLVM libc++ due to `std::__hash_memory` availability in newer header
+      # https://github.com/llvm/llvm-project/commit/17d05695388128353662fbb80bbb7a13d172b41d
+      ENV.prepend "LDFLAGS", "-L#{Formula["llvm"].opt_lib}/c++ -L#{Formula["llvm"].opt_lib}/unwind -lunwind"
+    end
 
     system "cmake", "-S", ".", "-B", "build", "-DBUILD_LLVM_UTILS=ON", "-DBUILD_TV=ON", *std_cmake_args
     system "cmake", "--build", "build"
