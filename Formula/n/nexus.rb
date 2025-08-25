@@ -2,8 +2,8 @@ class Nexus < Formula
   desc "Repository manager for binary software components"
   homepage "https://www.sonatype.com/"
   url "https://github.com/sonatype/nexus-public.git",
-      tag:      "release-3.80.0-06",
-      revision: "74aa87dcd43439ef2b69d0a5e49d5522b7944261"
+      tag:      "release-3.83.1-03",
+      revision: "128d742a954a52c18b261f47bd7b2ba81e19b0d2"
   license "EPL-1.0"
 
   # As of writing, upstream is publishing both v2 and v3 releases. The "latest"
@@ -40,7 +40,7 @@ class Nexus < Formula
     # Workaround build error: Couldn't find package "@sonatype/nexus-ui-plugin@workspace:*"
     # Ref: https://github.com/sonatype/nexus-public/issues/417
     # Ref: https://github.com/sonatype/nexus-public/issues/432#issuecomment-2663250153
-    inreplace ["components/nexus-rapture/package.json", "plugins/nexus-coreui-plugin/package.json"],
+    inreplace "plugins/nexus-coreui-plugin/package.json",
               '"@sonatype/nexus-ui-plugin": "workspace:*"',
               '"@sonatype/nexus-ui-plugin": "*"'
 
