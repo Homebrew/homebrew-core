@@ -26,6 +26,13 @@ class Pgbadger < Formula
     else
       "man/man1"
     end
+
+    # Build an `:all` bottle
+    inreplace "usr/local/#{man_dir}/pgbadger.1p" do |s|
+      s.gsub! "PGBADGER 1", "PGBADGER 1p" if OS.mac?
+      s.gsub!(/perl\s+v?\d(?:\.\d+)+/, "perl") # remove version info
+    end
+
     bin.install "usr/local/bin/pgbadger"
     man1.install "usr/local/#{man_dir}/pgbadger.1p"
   end
