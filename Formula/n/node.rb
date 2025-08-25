@@ -71,6 +71,13 @@ class Node < Formula
     sha256 "f4c82fbff74154f73bd5ce5a2b749700d55eaddebda97b16076bf7033040de34"
   end
 
+  # Ensure vendored uvwasi is never built.
+  # https://github.com/nodejs/node/pull/59622
+  patch do
+    url "https://github.com/nodejs/node/commit/8025e1cfb95184d2191a46f2986b42630c0908f1.patch?full_index=1"
+    sha256 "f9cc06ba9ac2dcb98d67c89cac119a005da12b4b24e30b4f689e60041b5b94aa"
+  end
+
   def install
     ENV.llvm_clang if OS.mac? && DevelopmentTools.clang_build_version <= 1699
 
@@ -79,6 +86,11 @@ class Node < Formula
 
     # make sure subprocesses spawned by make are using our Python 3
     ENV["PYTHON"] = which("python3.13")
+
+    # Ensure Homebrew deps are used
+    %w[brotli icu-small nghttp2 ngtcp2 npm simdjson sqlite uvwasi zstd].each do |dep|
+      rm_r buildpath/"deps"/dep
+    end
 
     # Never install the bundled "npm", always prefer our
     # installation from tarball for better packaging control.
