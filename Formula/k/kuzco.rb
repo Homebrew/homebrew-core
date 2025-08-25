@@ -1,12 +1,12 @@
 class Kuzco < Formula
   desc "Reviews Terraform and OpenTofu resources and uses AI to suggest improvements"
   homepage "https://github.com/RoseSecurity/Kuzco"
-  url "https://github.com/RoseSecurity/Kuzco/archive/refs/tags/v1.4.1.tar.gz"
-  sha256 "65523690293b640bc2196d0276f31f264d0e8499d074dd7aecc893c9769260d2"
+  url "https://github.com/RoseSecurity/Kuzco/archive/refs/tags/v1.4.2.tar.gz"
+  sha256 "4a3287d64f6298553214d0bd6a37de8eb45b55264350e50235ad118aa2a802c5"
   license "Apache-2.0"
   head "https://github.com/RoseSecurity/Kuzco.git", branch: "main"
 
-  no_autobump! because: :requires_manual_review
+  no_autobump! because: :bumped_by_upstream
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "26eece27906eb49889a1b76d70603f685477b22a2495775a404dc22d09d2ca5c"
@@ -43,7 +43,7 @@ class Kuzco < Formula
     EOS
 
     output = shell_output("#{bin}/kuzco recommend -t opentofu -f #{test_file} --dry-run")
-    assert_match "version block", output
+    assert_match "Unused attributes", output
 
     assert_match version.to_s, shell_output("#{bin}/kuzco version")
   end
