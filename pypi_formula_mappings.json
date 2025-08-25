@@ -805,7 +805,7 @@
     "exclude_packages": ["numpy", "pillow"]
   },
   "pythran": {
-    "exclude_packages": ["numpy"]
+    "exclude_packages": ["numpy", "setuptools"]
   },
   "pytorch": {
     "package_name": "torch[opt-einsum]",
