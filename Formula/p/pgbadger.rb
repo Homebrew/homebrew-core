@@ -21,13 +21,15 @@ class Pgbadger < Formula
     system "make"
     system "make", "install"
 
-    man_dir = if OS.mac?
-      "share/man/man1"
+    man1_dir = "share/man/man1"
+    if OS.mac?
+      mv "usr/local/share/man/man1" man1_dir
     else
-      "man/man1"
+      mv "usr/local/man/man1" man1_dir
     end
+
     bin.install "usr/local/bin/pgbadger"
-    man1.install "usr/local/#{man_dir}/pgbadger.1p"
+    man1.install man1_dir/"pgbadger.1p"
   end
 
   def caveats
