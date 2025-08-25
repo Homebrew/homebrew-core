@@ -16,7 +16,10 @@ class FancyCat < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "89f9903b3c1441a1fbe3b19488f197660f62a108cb05fe5c08bf9ff3832b076b"
   end
 
-  depends_on "zig" => :build
+  # Aligned to `zig@0.14` formula. Can be removed if upstream updates to newer Zig.
+  deprecate! date: "2026-02-19", because: "does not build with Zig >= 0.15"
+
+  depends_on "zig@0.14" => :build # https://github.com/freref/fancy-cat/issues/95
   depends_on "mupdf"
 
   def install
