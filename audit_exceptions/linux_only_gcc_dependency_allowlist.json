@@ -1,4 +1,5 @@
 [
   "cabin",
-  "nghttp2"
+  "nghttp2",
+  "osrm-backend"
 ]
