@@ -4,7 +4,7 @@ class Dynare < Formula
   url "https://www.dynare.org/release/source/dynare-6.4.tar.xz"
   sha256 "9865e2e7f6b3705155538d5fb1fb0b01bc9decf07250b3b054d3555d651c3843"
   license "GPL-3.0-or-later"
-  revision 1
+  revision 2
   head "https://git.dynare.org/Dynare/dynare.git", branch: "master"
 
   livecheck do
@@ -36,6 +36,10 @@ class Dynare < Formula
   depends_on "octave"
   depends_on "openblas"
   depends_on "suite-sparse"
+
+  on_macos do
+    depends_on "libomp"
+  end
 
   fails_with :clang do
     cause <<~EOS
@@ -71,6 +75,12 @@ class Dynare < Formula
     # Help meson find `suite-sparse` and `slicot`
     ENV.append_path "LIBRARY_PATH", Formula["suite-sparse"].opt_lib
     ENV.append_path "LIBRARY_PATH", buildpath/"slicot/lib"
+
+    # Workaround to unofficially link to LLVM OpenMP (libomp) with GCC
+    if OS.mac?
+      inreplace "meson.build", "openmp_dep = dependency('openmp')",
+                               "openmp_dep = declare_dependency(compile_args : '-fopenmp', link_args : '-lomp')"
+    end
 
     system "meson", "setup", "build", "-Dbuild_for=octave", *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"
