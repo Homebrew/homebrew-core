@@ -33,6 +33,8 @@ class GitAnnex < Formula
     system "cabal", "v2-update"
     system "cabal", "v2-install", *std_cabal_v2_args, "--flags=+S3 +Servant"
     bin.install_symlink "git-annex" => "git-annex-shell"
+    bin.install_symlink "git-annex" => "git-remote-annex"
+    bin.install_symlink "git-annex" => "git-remote-tor-annex"
   end
 
   service do
