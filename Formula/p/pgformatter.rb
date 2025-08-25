@@ -29,6 +29,21 @@ class Pgformatter < Formula
     (libexec/"lib").install "blib/lib/pgFormatter"
     libexec.install bin/"pg_format"
     bin.install_symlink libexec/"pg_format"
+
+    # Build an `:all` bottle
+    rm_r share/"perl" if OS.linux?
+    %w[bin share share/man share/man/man1 share/man/man3].each { |d| chmod 0755, prefix/d } # permissions match
+    inreplace share/"man/man1/pg_format.1", "PG_FORMAT 1", "PG_FORMAT 1p" if OS.mac?
+    %w[
+      pgFormatter::Beautify
+      pgFormatter::CGI
+      pgFormatter::CLI
+    ].each do |f|
+      inreplace share/"man/man3/#{f}.3pm" do |s|
+        s.gsub!("#{f} 3", "#{f} 3pm") if OS.mac?
+        s.gsub!(/perl\s+v?\d(?:\.\d+)+/, "perl") # remove version info
+      end
+    end
   end
 
   test do
