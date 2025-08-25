@@ -26,5 +26,6 @@ class PactCli < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/#{name} version")
+    assert_match "Connection refused", shell_output("#{bin}/#{name} list-pacticipants --broker-base-url=https://localhost 2>&1", 1)
   end
 end
