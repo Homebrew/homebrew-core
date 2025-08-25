@@ -1,8 +1,8 @@
 class Glfw < Formula
   desc "Multi-platform library for OpenGL applications"
   homepage "https://www.glfw.org/"
-  url "https://github.com/glfw/glfw/archive/refs/tags/3.4.tar.gz"
-  sha256 "c038d34200234d071fae9345bc455e4a8f2f544ab60150765d7704e08f3dac01"
+  url "https://github.com/glfw/glfw/archive/refs/tags/3.5.0.tar.gz"
+  sha256 "1abba4007c81bb3c21dad0f1cfff65cf71a5f92d1421016ce7eb236c7458ba9f"
   license "Zlib"
   head "https://github.com/glfw/glfw.git", branch: "master"
 
@@ -28,13 +28,13 @@ class Glfw < Formula
   end
 
   def install
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
-    system "cmake", "--build", "build"
-    lib.install "build/src/libglfw3.a"
+    system "cmake", "-S", ".", "-B", "build-static", "-DGLFW_LIBRARY_TYPE=STATIC", *std_cmake_args
+    system "cmake", "--build", "build-static"
+    lib.install "build-static/src/libglfw3.a"
 
-    system "cmake", "-S", ".", "-B", "build", "-DBUILD_SHARED_LIBS=TRUE", *std_cmake_args
-    system "cmake", "--build", "build"
-    system "cmake", "--install", "build"
+    system "cmake", "-S", ".", "-B", "build-shared", "-DGLFW_LIBRARY_TYPE=SHARED", *std_cmake_args
+    system "cmake", "--build", "build-shared"
+    system "cmake", "--install", "build-shared"
   end
 
   test do
