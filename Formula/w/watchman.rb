@@ -3,10 +3,9 @@ class Watchman < Formula
 
   desc "Watch files and take action when they change"
   homepage "https://github.com/facebook/watchman"
-  url "https://github.com/facebook/watchman/archive/refs/tags/v2025.08.18.00.tar.gz"
-  sha256 "71a4208ed35dc655199580ed1acb2908033bb512f9c3a9714681fb9b644c61f5"
+  url "https://github.com/facebook/watchman/archive/refs/tags/v2025.08.25.00.tar.gz"
+  sha256 "a46de84ca115a094afd99943c0384bcb0aa01525e2730b7df512c93bba5cd3b6"
   license "MIT"
-  revision 1
   head "https://github.com/facebook/watchman.git", branch: "main"
 
   bottle do
@@ -41,14 +40,6 @@ class Watchman < Formula
   on_linux do
     depends_on "boost"
     depends_on "libunwind"
-  end
-
-  # Fix incorrectly dropped includes, resulting in watchman becoming unusable
-  # https://github.com/facebook/watchman/issues/1298
-  # https://github.com/facebook/watchman/pull/1300
-  patch do
-    url "https://github.com/facebook/watchman/commit/d97b7fcace5723fd293ae65a59300bf27bc44f1f.patch?full_index=1"
-    sha256 "83f4d6186712410762d44129e969a0616a8442037d7c5ade40741c83648b7944"
   end
 
   def install

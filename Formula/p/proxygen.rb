@@ -1,8 +1,8 @@
 class Proxygen < Formula
   desc "Collection of C++ HTTP libraries"
   homepage "https://github.com/facebook/proxygen"
-  url "https://github.com/facebook/proxygen/releases/download/v2025.08.18.00/proxygen-v2025.08.18.00.tar.gz"
-  sha256 "01286d48007a578b3b9964e2f065a07f296de50d8ddac2fdc6fe54bb2145fbba"
+  url "https://github.com/facebook/proxygen/releases/download/v2025.08.25.00/proxygen-v2025.08.25.00.tar.gz"
+  sha256 "e7397cbe93bb8567438f033bc5b1e407b074061c72783d3f55388e416b63fcf0"
   license "BSD-3-Clause"
   head "https://github.com/facebook/proxygen.git", branch: "main"
 
@@ -18,6 +18,7 @@ class Proxygen < Formula
 
   depends_on "cmake" => :build
   depends_on "boost"
+  depends_on "c-ares"
   depends_on "double-conversion"
   depends_on "fizz"
   depends_on "fmt"
@@ -37,8 +38,8 @@ class Proxygen < Formula
 
   # Fix build with Boost 1.89.0, pr ref: https://github.com/facebook/proxygen/pull/570
   patch do
-    url "https://github.com/facebook/proxygen/commit/d69f521bc0c7201ced9326aabe7ba0ca590621bf.patch?full_index=1"
-    sha256 "2b51cbce006750d70e6807bb186d4b06f9ec1c40f7109d0f0b8a8910581a39a3"
+    url "https://github.com/facebook/proxygen/commit/10af948d7ff29bc8601e83127a9d9ab1c441fc58.patch?full_index=1"
+    sha256 "161937c94727ab34976d5f2f602e6b7fcaecc7c86236ce0f6cbd809a5f852379"
   end
 
   def install
