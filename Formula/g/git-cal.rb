@@ -34,6 +34,17 @@ class GitCal < Formula
     system "perl", "Makefile.PL", "INSTALL_BASE=#{prefix}", "INSTALLSITEMAN1DIR=#{man1}"
     system "make"
     system "make", "install"
+
+    # Build an `:all` bottle
+    %w[bin share share/man share/man/man1].each { |d| chmod 0755, prefix/d } # permissions match
+    mv share/"man/man1/git-cal.1", share/"man/man1/git-cal.1p" if OS.mac?
+    inreplace share/"man/man1/git-cal.1p" do |s|
+      s.gsub! "GIT-CAL 1", "GIT-CAL 1p" if OS.mac?
+      # remove version info
+      s.gsub!(/Pod::Man\s+v?\d(?:\.\d+)+/, "Pod::Man")
+      s.gsub!(/Pod::Simple\s+v?\d(?:\.\d+)+/, "Pod::Simple")
+      s.gsub!(/perl\s+v?\d(?:\.\d+)+/, "perl")
+    end
   end
 
   test do
