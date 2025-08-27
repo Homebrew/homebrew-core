@@ -5,6 +5,12 @@ class Easytier < Formula
   sha256 "5b1a33b55103e30c3762b6cbcc390a55f4a1a588b2e1cc6c3a687cb2195df7bc"
   license "LGPL-3.0-only"
   depends_on "rust" => :build
+
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   def install
     system "cargo", "install", *std_cargo_args
   end
