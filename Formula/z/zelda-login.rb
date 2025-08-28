@@ -4,9 +4,7 @@ class ZeldaLogin < Formula
   url "https://github.com/quitequinn/ZeldaLogin/archive/v2.1.0.tar.gz"
   sha256 "bc679cdbcd49dfa4f1e678b175798cbe3cde7f60d605cf823c266603998a70b6"
   license "MIT"
-  head "https://github.com/quitequinn/ZeldaLogin.git", branch: "master"
-
-  depends_on "curl"
+  head "https://github.com/quitequinn/ZeldaLogin.git", branch: "main"
 
   def install
     # Install the audio file to share directory
@@ -19,7 +17,7 @@ class ZeldaLogin < Formula
     (share/"zelda-login/configs").install Dir["configs/*"]
     
     # Install documentation
-    (share/"doc/zelda-login").install "README.md", "PACKAGE_MANAGERS.md"
+    (share/"doc/zelda-login").install "README.md", "PACKAGE_MANAGERS.md" if (buildpath/"README.md").exist?
   end
 
   def caveats
@@ -48,10 +46,10 @@ class ZeldaLogin < Formula
     # Test that the audio file exists
     assert_predicate share/"zelda-login/zelda-secret.mp3", :exist?
     
-    # Test that the installer script is executable
+    # Test that the installer script is executable  
     assert_predicate bin/"zelda-login-install", :executable?
     
     # Test that we can run the installer with --version
-    system bin/"zelda-login-install", "--version"
+    assert_match version.to_s, shell_output("#{bin}/zelda-login-install --version")
   end
 end
