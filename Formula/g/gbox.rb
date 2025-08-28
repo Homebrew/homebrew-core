@@ -17,12 +17,26 @@ class Gbox < Formula
   depends_on "go" => :build
   depends_on "rsync" => :build
   depends_on "yq"
+  depends_on "carvel-dev/carvel/ytt"
+  depends_on "carvel-dev/carvel/kapp"
+  depends_on "kind"
+  depends_on "jq"
+  depends_on "node"
+  depends_on "frpc"
 
   uses_from_macos "jq"
 
   def install
     system "make", "install", "prefix=#{prefix}", "VERSION=#{version}", "COMMIT_ID=#{File.read("COMMIT")}", "BUILD_TIME=#{time.iso8601}"
     generate_completions_from_executable(bin/"gbox", "completion")
+  end
+
+  def caveats
+    <<~EOS
+      This formula requires android-platform-tools cask to be installed.
+      If you haven't installed it yet, run:
+        brew install --cask android-platform-tools
+    EOS
   end
 
   test do
