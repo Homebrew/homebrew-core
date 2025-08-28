@@ -14,15 +14,15 @@ class Gbox < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "8cb7a657f247ffab923a084c9fa90ebdb44b384ee80cc8c7bbd52e0c77469c8e"
   end
 
+  depends_on "frpc"
   depends_on "go" => :build
+  depends_on "jq"
+  depends_on "kapp"
+  depends_on "kind"
+  depends_on "node"
   depends_on "rsync" => :build
   depends_on "yq"
-  depends_on "carvel-dev/carvel/ytt"
-  depends_on "carvel-dev/carvel/kapp"
-  depends_on "kind"
-  depends_on "jq"
-  depends_on "node"
-  depends_on "frpc"
+  depends_on "ytt"
 
   uses_from_macos "jq"
 
