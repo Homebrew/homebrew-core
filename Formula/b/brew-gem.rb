@@ -1,8 +1,8 @@
 class BrewGem < Formula
   desc "Install RubyGems as Homebrew formulae"
   homepage "https://github.com/sportngin/brew-gem"
-  url "https://github.com/sportngin/brew-gem/archive/refs/tags/v1.2.1.tar.gz"
-  sha256 "522e6db649f67950e78850a371c53fb974aee1636bc21da4310905b2b28cc122"
+  url "https://github.com/sportngin/brew-gem/archive/refs/tags/v1.2.2.tar.gz"
+  sha256 "3c9ccf00e687bf911a0b4f3f5873d9eb734908f49e150980e933ff26d2c80050"
   license "MIT"
   head "https://github.com/sportngin/brew-gem.git", branch: "master"
 
