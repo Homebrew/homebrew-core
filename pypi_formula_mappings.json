@@ -936,6 +936,9 @@
   "ssh-mitm": {
     "exclude_packages": ["cryptography"]
   },
+  "standardebooks": {
+    "exclude_packages": ["certifi", "cffi", "pillow", "pycairo"]
+  },
   "streamlink": {
     "exclude_packages": ["certifi"]
   },

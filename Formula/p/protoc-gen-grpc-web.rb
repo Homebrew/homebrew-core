@@ -69,7 +69,7 @@ class ProtocGenGrpcWeb < Formula
       import {Test, TestResult} from './test_pb';
     TYPESCRIPT
     system "npm", "install", *std_npm_args(prefix: false), "grpc-web", "@types/google-protobuf"
-    # Specify including lib for `tsc` since `es6` is required for `@types/google-protobuf`.
-    system "tsc", "--lib", "es6", "test.ts"
+    # Include DOM for AbortSignal used by grpc-web 2.x typings; ES level also satisfies @types/google-protobuf.
+    system "tsc", "--lib", "es2021,dom", "test.ts"
   end
 end
