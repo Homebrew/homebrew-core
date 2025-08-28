@@ -14,15 +14,29 @@ class Gbox < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "8cb7a657f247ffab923a084c9fa90ebdb44b384ee80cc8c7bbd52e0c77469c8e"
   end
 
+  depends_on "frpc"
   depends_on "go" => :build
+  depends_on "jq"
+  depends_on "kapp"
+  depends_on "kind"
+  depends_on "node"
   depends_on "rsync" => :build
   depends_on "yq"
+  depends_on "ytt"
 
   uses_from_macos "jq"
 
   def install
     system "make", "install", "prefix=#{prefix}", "VERSION=#{version}", "COMMIT_ID=#{File.read("COMMIT")}", "BUILD_TIME=#{time.iso8601}"
     generate_completions_from_executable(bin/"gbox", "completion")
+  end
+
+  def caveats
+    <<~EOS
+      This formula requires android-platform-tools cask to be installed.
+      If you haven't installed it yet, run:
+        brew install --cask android-platform-tools
+    EOS
   end
 
   test do
