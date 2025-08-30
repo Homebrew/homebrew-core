@@ -1,8 +1,8 @@
 class Libcbor < Formula
   desc "CBOR protocol implementation for C and others"
   homepage "https://github.com/PJK/libcbor"
-  url "https://github.com/PJK/libcbor/archive/refs/tags/v0.12.0.tar.gz"
-  sha256 "5368add109db559f546d7ed10f440f39a273b073daa8da4abffc83815069fa7f"
+  url "https://github.com/PJK/libcbor/archive/refs/tags/v0.13.0.tar.gz"
+  sha256 "95a7f0dd333fd1dce3e4f92691ca8be38227b27887599b21cd3c4f6d6a7abb10"
   license "MIT"
 
   bottle do
@@ -16,13 +16,6 @@ class Libcbor < Formula
   end
 
   depends_on "cmake" => :build
-
-  # Fix to cmake 4 compatibility
-  # PR ref: https://github.com/PJK/libcbor/pull/355
-  patch do
-    url "https://github.com/PJK/libcbor/commit/1183292d4695300785b272532c1e02d68840e4b8.patch?full_index=1"
-    sha256 "54c1984fa401a4bf85e9d9cfd1500bfd1f3106cf39e1f72cfdf762dd30643098"
-  end
 
   def install
     args = %w[
