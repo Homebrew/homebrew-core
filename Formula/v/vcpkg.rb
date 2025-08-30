@@ -1,9 +1,9 @@
 class Vcpkg < Formula
   desc "C++ Library Manager"
   homepage "https://github.com/microsoft/vcpkg"
-  url "https://github.com/microsoft/vcpkg-tool/archive/refs/tags/2025-07-21.tar.gz"
-  version "2025.07.21"
-  sha256 "b7c54a8bbeb99c9ea5f2a385102851d95c20e572a872c7240fc690d8d83162d3"
+  url "https://github.com/microsoft/vcpkg-tool/archive/refs/tags/2025-08-29.tar.gz"
+  version "2025.08.29"
+  sha256 "017df4120fbd237d66381418631ec041ecec1f31dde50163878bd40ab41ee1b9"
   license "MIT"
   head "https://github.com/microsoft/vcpkg-tool.git", branch: "main"
 
