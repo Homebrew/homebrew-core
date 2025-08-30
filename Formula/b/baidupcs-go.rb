@@ -6,6 +6,11 @@ class BaidupcsGo < Formula
   license "Apache-2.0"
   head "https://github.com/qjfoidnh/BaiduPCS-Go.git", branch: "main"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "1b77e253a7b66b408d3396cc5d26ed330454fd9c268e1d2b6ec5968591b783b8"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1b77e253a7b66b408d3396cc5d26ed330454fd9c268e1d2b6ec5968591b783b8"
