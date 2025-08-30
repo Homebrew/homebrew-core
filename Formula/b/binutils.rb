@@ -63,6 +63,11 @@ class Binutils < Formula
     end
   end
 
+  def post_install
+    # Allow ld to find brew glibc when installed on systems that need it
+    (prefix/"etc").install_symlink etc/"ld.so.conf" if (etc/"ld.so.conf").exist?
+  end
+
   test do
     assert_match "Usage:", shell_output("#{bin}/strings #{bin}/strings")
   end
