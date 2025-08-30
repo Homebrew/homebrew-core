@@ -1,12 +1,10 @@
 class Toml2json < Formula
   desc "Convert TOML to JSON"
   homepage "https://github.com/woodruffw/toml2json"
-  url "https://github.com/woodruffw/toml2json/archive/refs/tags/v1.3.1.tar.gz"
-  sha256 "d32aceb8387553a25bec45747cdb45ce6a079935a03eb13d3477f68cc1fecaaa"
+  url "https://github.com/woodruffw/toml2json/archive/refs/tags/v1.3.2.tar.gz"
+  sha256 "7cca2cf9339458c603729a3985211d164d07eeb1d40af4a59116aa21e25ef3ed"
   license "MIT"
   head "https://github.com/woodruffw/toml2json.git", branch: "main"
-
-  no_autobump! because: :requires_manual_review
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "c236bae5e89882b86de4a4432cd45c265e52b120cfb92f5df4668a7d5d5ae28e"
