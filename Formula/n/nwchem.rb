@@ -5,7 +5,7 @@ class Nwchem < Formula
   version "7.2.3"
   sha256 "7788e6af9be8681e6384b8df4df5ac57d010b2c7aa50842d735c562d92f94c25"
   license "ECL-2.0"
-  revision 1
+  revision 2
 
   livecheck do
     url :stable
@@ -36,6 +36,10 @@ class Nwchem < Formula
 
   uses_from_macos "libxcrypt"
 
+  on_macos do
+    depends_on "libomp"
+  end
+
   # fix download url in build_dftd3a.sh, upstream pr ref, https://github.com/nwchemgit/nwchem/pull/1054
   patch do
     url "https://github.com/nwchemgit/nwchem/commit/65ce7726d9fa418f7c01665bebfc1e2181f15adf.patch?full_index=1"
@@ -46,6 +50,9 @@ class Nwchem < Formula
     pkgshare.install "QA"
 
     cd "src" do
+      # Workaround to link to LLVM OpenMP (libomp) with gfortran
+      inreplace "config/makefile.h", /(\bLDOPTIONS *\+= *)-fopenmp$/, "\\1-lomp" if OS.mac?
+
       (prefix/"etc").mkdir
       (prefix/"etc/nwchemrc").write <<~EOS
         nwchem_basis_library #{pkgshare}/libraries/
