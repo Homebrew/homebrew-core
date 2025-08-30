@@ -1,10 +1,10 @@
 class Llgo < Formula
   desc "Go compiler based on LLVM integrate with the C ecosystem and Python"
-  homepage "https://github.com/goplus/llgo"
-  url "https://github.com/goplus/llgo/archive/refs/tags/v0.11.5.tar.gz"
-  sha256 "e025993d12c1f5e49e5b8dcb31c0e8b349efe56970d1a23d6c089ebd10928c6b"
+  homepage "https://github.com/luoliwoshang/llgo"
+  url "https://github.com/luoliwoshang/llgo/archive/refs/tags/v0.12.12.tar.gz"
+  sha256 "20c1c968c955dcc3157445c788804ecbd85dbcac248c99c8dfd27bcc3b09e61d"
   license "Apache-2.0"
-  head "https://github.com/goplus/llgo.git", branch: "main"
+  head "https://github.com/luoliwoshang/llgo.git", branch: "main"
 
   livecheck do
     url :stable
@@ -25,14 +25,31 @@ class Llgo < Formula
   depends_on "go@1.24"
   depends_on "libffi"
   depends_on "libuv"
-  depends_on "lld@19"
-  depends_on "llvm@19"
   depends_on "openssl@3"
   depends_on "pkgconf"
   uses_from_macos "zlib"
 
-  on_linux do
-    depends_on "libunwind"
+  resource "espressif-llvm" do
+    on_macos do
+      on_arm do
+        url "https://github.com/goplus/espressif-llvm-project-prebuilt/releases/download/19.1.2_20250820/clang-esp-19.1.2_20250820-aarch64-apple-darwin.tar.xz"
+        sha256 "447a8c4ebcb4d69b9a2ad24974fa48cb57c46b1eb21202bd62169281bbb37f56"
+      end
+      on_intel do
+        url "https://github.com/goplus/espressif-llvm-project-prebuilt/releases/download/19.1.2_20250820/clang-esp-19.1.2_20250820-x86_64-apple-darwin.tar.xz"
+        sha256 "05fb85702c3ae7623d950dbd5ca7305b7c22026568981bce1c6a4ff566b42b2d"
+      end
+    end
+    on_linux do
+      on_arm do
+        url "https://github.com/goplus/espressif-llvm-project-prebuilt/releases/download/19.1.2_20250820/clang-esp-19.1.2_20250820-aarch64-linux-gnu.tar.xz"
+        sha256 "a7153ee9a0541151faf7b6fb9eddb0974716a84da37cb0338b027b585443984a"
+      end
+      on_intel do
+        url "https://github.com/goplus/espressif-llvm-project-prebuilt/releases/download/19.1.2_20250820/clang-esp-19.1.2_20250820-x86_64-linux-gnu.tar.xz"
+        sha256 "f830174e86860c68f6a91e92846be194ca674e205e02b1b739ed29cc952af4f6"
+      end
+    end
   end
 
   def find_dep(name)
@@ -41,37 +58,58 @@ class Llgo < Formula
   end
 
   def install
-    llvm = find_dep("llvm")
+    ohai "Platform: #{OS.mac? ? "macOS" : "Linux"} #{Hardware::CPU.arch}"
+    ohai "Installing ESP32 toolchain..."
+    resource("espressif-llvm").stage do
+      ohai "llvm downloaded to: #{Dir.pwd}"
+      ohai "Downloaded contents: #{Dir.glob("*").join(", ")}"
+
+      (libexec/"crosscompile/clang").mkpath
+
+      cp_r Dir["*"], libexec/"crosscompile/clang"
+
+      ohai "Toolchain installed to: #{libexec}/crosscompile/clang"
+    end
+
+    local_llvm_config = libexec/"crosscompile/clang/bin/llvm-config"
+
     ldflags = %W[
       -s -w
       -X github.com/goplus/llgo/internal/env.buildVersion=v#{version}
       -X github.com/goplus/llgo/internal/env.buildTime=#{time.iso8601}
-      -X github.com/goplus/llgo/xtool/env/llvm.ldLLVMConfigBin=#{llvm.opt_bin/"llvm-config"}
+      -X github.com/goplus/llgo/xtool/env/llvm.ldLLVMConfigBin=#{local_llvm_config}
     ]
     tags = nil
     if OS.linux?
+      local_llvm_include = libexec/"crosscompile/clang/include"
+      local_llvm_lib = libexec/"crosscompile/clang/lib"
+
       ENV.prepend "CGO_CPPFLAGS",
-        "-I#{llvm.opt_include} " \
+        "-I#{local_llvm_include} " \
         "-D_GNU_SOURCE " \
         "-D__STDC_CONSTANT_MACROS " \
         "-D__STDC_FORMAT_MACROS " \
         "-D__STDC_LIMIT_MACROS"
-      ENV.prepend "CGO_LDFLAGS", "-L#{llvm.opt_lib} -lLLVM"
+      ENV.prepend "CGO_LDFLAGS", "-L#{local_llvm_lib} -lLLVM"
       tags = "byollvm"
+
+      ohai "Linux CGO setup - Include: #{local_llvm_include}, Lib: #{local_llvm_lib}"
     end
 
+    ohai "Building LLGO..."
     system "go", "build", *std_go_args(ldflags:, tags:), "-o", libexec/"bin/", "./cmd/llgo"
 
     libexec.install "LICENSE", "README.md", "go.mod", "go.sum", "runtime"
 
-    path_deps = %w[lld go pkgconf].map { |name| find_dep(name).opt_bin }
-    path_deps << llvm.opt_bin
+    path_deps = %w[go pkgconf].map { |name| find_dep(name).opt_bin }
+    path_deps << (libexec/"crosscompile/clang/bin")
     script_env = { PATH: "#{path_deps.join(":")}:$PATH" }
 
     if OS.linux?
-      libunwind = find_dep("libunwind")
-      script_env[:CFLAGS] = "-I#{libunwind.opt_include} $CFLAGS"
-      script_env[:LDFLAGS] = "-L#{libunwind.opt_lib} -rpath #{libunwind.opt_lib} $LDFLAGS"
+      local_llvm_include = libexec/"crosscompile/clang/include"
+      local_llvm_lib = libexec/"crosscompile/clang/lib"
+      script_env[:CFLAGS] = "-I#{local_llvm_include} $CFLAGS"
+      script_env[:LDFLAGS] = "-L#{local_llvm_lib} -rpath #{local_llvm_lib} $LDFLAGS"
     end
 
     (libexec/"bin").children.each do |f|
@@ -100,6 +138,7 @@ class Llgo < Formula
           "fmt"
 
           "github.com/goplus/lib/c"
+          "github.com/goplus/lib/cpp/std"
       )
 
       func Foo() string {
@@ -109,6 +148,7 @@ class Llgo < Formula
       func main() {
         fmt.Println("Hello LLGo by fmt.Println")
         c.Printf(c.Str("Hello LLGo by c.Printf\\n"))
+        c.Printf(std.Str("Hello LLGo by cpp/std.Str\\n").CStr())
       }
     GO
     (testpath/"hello_test.go").write <<~GO
@@ -130,12 +170,14 @@ class Llgo < Formula
     system go.opt_bin/"go", "get", "github.com/goplus/lib"
     # Test llgo run
     assert_equal "Hello LLGo by fmt.Println\n" \
-                 "Hello LLGo by c.Printf\n",
+                 "Hello LLGo by c.Printf\n" \
+                 "Hello LLGo by cpp/std.Str\n",
                  shell_output("#{bin}/llgo run .")
     # Test llgo build
     system bin/"llgo", "build", "-o", "hello", "."
     assert_equal "Hello LLGo by fmt.Println\n" \
-                 "Hello LLGo by c.Printf\n",
+                 "Hello LLGo by c.Printf\n" \
+                 "Hello LLGo by cpp/std.Str\n",
                  shell_output("./hello")
     # Test llgo test
     assert_match "PASS", shell_output("#{bin}/llgo test .")
