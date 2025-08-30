@@ -2,7 +2,7 @@ class Rust < Formula
   desc "Safe, concurrent, practical language"
   homepage "https://www.rust-lang.org/"
   license any_of: ["Apache-2.0", "MIT"]
-  revision 1
+  revision 2
 
   stable do
     url "https://static.rust-lang.org/dist/rustc-1.89.0-src.tar.gz"
@@ -35,7 +35,9 @@ class Rust < Formula
 
   depends_on "libgit2"
   depends_on "libssh2"
-  depends_on "llvm"
+  # Don't bump to LLVM 21 until this is fixed:
+  # https://github.com/llvm/llvm-project/issues/155998
+  depends_on "llvm@20"
   depends_on macos: :sierra
   depends_on "openssl@3"
   depends_on "pkgconf"
@@ -124,7 +126,7 @@ class Rust < Formula
   end
 
   def llvm
-    Formula["llvm"]
+    Formula["llvm@20"]
   end
 
   def install
