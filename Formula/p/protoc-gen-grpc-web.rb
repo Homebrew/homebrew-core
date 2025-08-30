@@ -25,7 +25,7 @@ class ProtocGenGrpcWeb < Formula
   depends_on "node" => :test
   depends_on "typescript" => :test
   depends_on "abseil"
-  depends_on "protobuf@29"
+  depends_on "protobuf"
   depends_on "protoc-gen-js"
 
   def install
@@ -57,7 +57,7 @@ class ProtocGenGrpcWeb < Formula
         rpc RunTest(Test) returns (TestResult);
       }
     PROTO
-    protoc = Formula["protobuf@29"].bin/"protoc"
+    protoc = Formula["protobuf"].bin/"protoc"
     system protoc, "test.proto", "--plugin=#{bin}/protoc-gen-grpc-web",
                    "--js_out=import_style=commonjs:.",
                    "--grpc-web_out=import_style=typescript,mode=grpcwebtext:."
