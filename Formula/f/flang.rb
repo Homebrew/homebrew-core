@@ -21,6 +21,7 @@ class Flang < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "ninja" => :build
   depends_on "llvm"
 
   # Keep broken symlink if `llvm` has been unlinked on Linux.
@@ -38,10 +39,13 @@ class Flang < Formula
     relative_resource_dir = resource_dir.relative_path_from(llvm.prefix.realpath)
 
     common_args = %W[
+      -GNinja
       -DBUILD_SHARED_LIBS=ON
       -DLLVM_DIR=#{llvm.opt_lib}/cmake/llvm
       -DLLVM_ENABLE_FATLTO=ON
       -DLLVM_ENABLE_LTO=ON
+      -DLLVM_RAM_PER_COMPILE_JOB=5000
+      -DLLVM_RAM_PER_LINK_JOB=10000
     ]
 
     flang_args = %W[
@@ -83,21 +87,18 @@ class Flang < Formula
     # https://github.com/llvm/llvm-project/blob/main/flang-rt/CMakeLists.txt#L120-L130
     lib.install_symlink (prefix/relative_resource_dir).glob("**/#{shared_library("*")}")
 
-    if OS.linux?
-      # Allow flang -flto to work on Linux as it expects library relative to driver.
-      # The HOMEBREW_PREFIX path is used so that `brew link` skips creating a symlink.
-      lib.install_symlink HOMEBREW_PREFIX/"lib/LLVMgold.so"
-      return
-    end
+    # Allow flang -flto to work on Linux as it expects library relative to driver.
+    # The HOMEBREW_PREFIX path is used so that `brew link` skips creating a symlink.
+    lib.install_symlink HOMEBREW_PREFIX/"lib/LLVMgold.so" if OS.linux?
 
     libexec.install bin.children
     bin.install_symlink libexec.children
 
     # Help `flang` driver find `libLTO.dylib` and runtime libraries
-    (libexec/"flang.cfg").atomic_write <<~CONFIG
-      -Wl,-lto_library,#{llvm.opt_lib}/libLTO.dylib
-      -resource-dir=#{llvm.opt_prefix/relative_resource_dir}
-    CONFIG
+    # TODO: Try using CLANG_RESOURCE_DIR when building `llvm`
+    configs = ["-resource-dir=#{llvm.opt_prefix/relative_resource_dir}"]
+    configs << "-Wl,-lto_library,#{llvm.opt_lib}/libLTO.dylib" if OS.mac?
+    (libexec/"flang.cfg").atomic_write "#{configs.join("\n")}\n"
   end
 
   test do
