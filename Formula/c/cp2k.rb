@@ -43,24 +43,42 @@ class Cp2k < Formula
 
   def install
     resource("libint").stage do
-      system "./configure", "--enable-fortran", "--with-pic", *std_configure_args(prefix: libexec)
+      # Work around failure: ld: Assertion failed: (slot < _sideTableBuffer.size()), function addAtom
+      if DevelopmentTools.clang_build_version == 1500 && Hardware::CPU.arm?
+        inreplace "Makefile.in", "$(LTLINKLIBOPTS)", "\\0 -Wl,-ld_classic"
+      end
+
+      system "./configure", "--disable-static",
+                            "--enable-shared",
+                            "--enable-fortran",
+                            "--with-pic",
+                            *std_configure_args(prefix: libexec)
       system "make"
       ENV.deparallelize { system "make", "install" }
       ENV.prepend_path "PKG_CONFIG_PATH", libexec/"lib/pkgconfig"
     end
 
+    # TODO: Add workaround to link to LLVM OpenMP (libomp) with gfortran after migrating OpenBLAS
+    omp_args = []
+    # if OS.mac?
+    #   omp_args << "-DOpenMP_Fortran_LIB_NAMES=omp"
+    #   omp_args << "-DOpenMP_omp_LIBRARY=#{Formula["libomp"].opt_lib}/libomp.dylib"
+    # end
+
     # TODO: Remove dbcsr build along with corresponding CMAKE_PREFIX_PATH
     # and add -DCP2K_BUILD_DBCSR=ON once `cp2k` build supports this option.
     system "cmake", "-S", "exts/dbcsr", "-B", "build_psmp/dbcsr",
+                    "-DBUILD_SHARED_LIBS=ON",
+                    "-DCMAKE_INSTALL_RPATH=#{rpath}",
                     "-DWITH_EXAMPLES=OFF",
-                    *std_cmake_args(install_prefix: libexec)
+                    *omp_args, *std_cmake_args(install_prefix: libexec)
     system "cmake", "--build", "build_psmp/dbcsr"
     system "cmake", "--install", "build_psmp/dbcsr"
     # Need to build another copy for non-MPI variant.
     system "cmake", "-S", "exts/dbcsr", "-B", "build_ssmp/dbcsr",
                     "-DUSE_MPI=OFF",
                     "-DWITH_EXAMPLES=OFF",
-                    *std_cmake_args(install_prefix: buildpath/"dbcsr")
+                    *omp_args, *std_cmake_args(install_prefix: buildpath/"dbcsr")
     system "cmake", "--build", "build_ssmp/dbcsr"
     system "cmake", "--install", "build_ssmp/dbcsr"
 
@@ -68,15 +86,15 @@ class Cp2k < Formula
     ENV.append "FFLAGS", "-D__NO_STATM_ACCESS" if OS.mac?
 
     # Set -lstdc++ to allow gfortran to link libint
-    cp2k_cmake_args = %w[
+    cp2k_cmake_args = %W[
       -DCMAKE_SHARED_LINKER_FLAGS=-lstdc++
+      -DCMAKE_INSTALL_RPATH=#{rpath};#{rpath(target: libexec/"lib")}
       -DCP2K_BLAS_VENDOR=OpenBLAS
       -DCP2K_USE_LIBINT2=ON
       -DCP2K_USE_LIBXC=ON
-    ] + std_cmake_args
+    ] + omp_args + std_cmake_args
 
     system "cmake", "-S", ".", "-B", "build_psmp/cp2k",
-                    "-DCMAKE_INSTALL_RPATH=#{rpath}",
                     "-DCMAKE_PREFIX_PATH=#{libexec}",
                     *cp2k_cmake_args
     system "cmake", "--build", "build_psmp/cp2k"
