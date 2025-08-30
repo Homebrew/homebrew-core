@@ -19,11 +19,12 @@ class OpenaiWhisper < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "11f8ae38e585df14c4aa677b49377d397d4d0acce45e0719277c611cfe68e9f6"
   end
 
+  depends_on "cmake" => :build
   depends_on "pkgconf" => :build
   depends_on "rust" => :build # for tiktoken
   depends_on "certifi"
   depends_on "ffmpeg"
-  depends_on "llvm@16" # LLVM 20 PR: https://github.com/numba/llvmlite/pull/1092
+  depends_on "llvm@20"
   depends_on "numpy"
   depends_on "python@3.13"
   depends_on "pytorch"
@@ -39,8 +40,8 @@ class OpenaiWhisper < Formula
   end
 
   resource "llvmlite" do
-    url "https://files.pythonhosted.org/packages/89/6a/95a3d3610d5c75293d5dbbb2a76480d5d4eeba641557b69fe90af6c5b84e/llvmlite-0.44.0.tar.gz"
-    sha256 "07667d66a5d150abed9157ab6c0b9393c9356f229784a4385c02f99e94fc94d4"
+    url "https://files.pythonhosted.org/packages/83/03/d105adb0f3da3d92c92311e3fdbe6279e9499dd73950cdde2d43bcf1b5e7/llvmlite-0.45.0rc1.tar.gz"
+    sha256 "bec0a4c729848a4e7f6355fdbd98f2ee9471189d0a5aeb03a3cd19f672327fef"
   end
 
   resource "more-itertools" do
@@ -49,11 +50,8 @@ class OpenaiWhisper < Formula
   end
 
   resource "numba" do
-    url "https://files.pythonhosted.org/packages/1c/a0/e21f57604304aa03ebb8e098429222722ad99176a4f979d34af1d1ee80da/numba-0.61.2.tar.gz"
-    sha256 "8750ee147940a6637b80ecf7f95062185ad8726c8c28a2295b8ec1160a196f7d"
-
-    # Support numpy 2.3, upstream issue, https://github.com/numba/numba/issues/10105
-    patch :DATA
+    url "https://files.pythonhosted.org/packages/f2/f8/cc3ab334e5589a5d29bd4f88bc8ba09d47ec5dbbb9ccc89b981b0a33073e/numba-0.62.0rc1.tar.gz"
+    sha256 "f136e06c201c560cc18bfdf5f2459ed1ab5e66d14fb69f0ed35f811d1eae5b7b"
   end
 
   resource "regex" do
@@ -82,7 +80,7 @@ class OpenaiWhisper < Formula
   end
 
   def install
-    ENV["LLVM_CONFIG"] = Formula["llvm@16"].opt_bin/"llvm-config"
+    ENV["LLVMLITE_SHARED"] = "1"
     venv = virtualenv_install_with_resources without: "numba"
 
     # We depend on pytorch, but that's a separate formula, so install a `.pth` file to link them.
@@ -93,6 +91,10 @@ class OpenaiWhisper < Formula
 
     # We install `numba` separately without build isolation to avoid building another `numpy`
     venv.pip_install(resource("numba"), build_isolation: false)
+
+    # TODO: remove
+    system libexec/"bin/python", "-m", "llvmlite.tests"
+    system libexec/"bin/python", "-m", "numba.runtests", "-m"
   end
 
   test do
@@ -116,32 +118,3 @@ class OpenaiWhisper < Formula
     EOS
   end
 end
-
-__END__
-diff --git a/numba/__init__.py b/numba/__init__.py
-index ab1081d..44fe64a 100644
---- a/numba/__init__.py
-+++ b/numba/__init__.py
-@@ -39,8 +39,8 @@ def _ensure_critical_deps():
-                f"{numpy_version[0]}.{numpy_version[1]}.")
-         raise ImportError(msg)
-
--    if numpy_version > (2, 2):
--        msg = (f"Numba needs NumPy 2.2 or less. Got NumPy "
-+    if numpy_version > (2, 3):
-+        msg = (f"Numba needs NumPy 2.3 or less. Got NumPy "
-                f"{numpy_version[0]}.{numpy_version[1]}.")
-         raise ImportError(msg)
-
-diff --git a/setup.py b/setup.py
-index d40c84c..3d407c1 100644
---- a/setup.py
-+++ b/setup.py
-@@ -23,7 +23,7 @@ min_python_version = "3.10"
- max_python_version = "3.14"  # exclusive
- min_numpy_build_version = "2.0.0rc1"
- min_numpy_run_version = "1.24"
--max_numpy_run_version = "2.3"
-+max_numpy_run_version = "2.4"
- min_llvmlite_version = "0.44.0dev0"
- max_llvmlite_version = "0.45"
