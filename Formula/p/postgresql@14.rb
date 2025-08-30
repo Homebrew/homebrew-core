@@ -20,8 +20,10 @@ class PostgresqlAT14 < Formula
     sha256 x86_64_linux:  "a8e7b54928c579f30935cf611e3468138ec3a4fc9686dfeb7489e76929775dd2"
   end
 
-  # https://www.postgresql.org/support/versioning/
-  deprecate! date: "2026-11-12", because: :unsupported
+  # deprecating one year before the last release,
+  # see: https://www.postgresql.org/support/versioning/
+  deprecate! date: "2025-11-12", because: :unsupported
+  disable! date: "2026-11-12", because: :unsupported
 
   depends_on "pkgconf" => :build
   depends_on "icu4c@77"
