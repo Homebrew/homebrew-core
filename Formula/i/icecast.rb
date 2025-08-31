@@ -1,11 +1,10 @@
 class Icecast < Formula
   desc "Streaming MP3 audio server"
   homepage "https://icecast.org/"
-  url "https://ftp.osuosl.org/pub/xiph/releases/icecast/icecast-2.4.4.tar.gz"
-  mirror "https://mirror.csclub.uwaterloo.ca/xiph/releases/icecast/icecast-2.4.4.tar.gz"
-  sha256 "49b5979f9f614140b6a38046154203ee28218d8fc549888596a683ad604e4d44"
+  url "https://ftp.osuosl.org/pub/xiph/releases/icecast/icecast-2.4.999.1.tar.gz"
+  mirror "https://mirror.csclub.uwaterloo.ca/xiph/releases/icecast/icecast-2.4.999.1.tar.gz"
+  sha256 "31a1cf68a79319438e7490996e36b41f0d5133208302df578e47adb8566764c1"
   license "GPL-2.0-only"
-  revision 2
 
   livecheck do
     url "https://ftp.osuosl.org/pub/xiph/releases/icecast/?C=M&O=D"
