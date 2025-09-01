@@ -1,8 +1,8 @@
 class Cgal < Formula
   desc "Computational Geometry Algorithms Library"
   homepage "https://www.cgal.org/"
-  url "https://github.com/CGAL/cgal/releases/download/v6.0.2/CGAL-6.0.2.tar.xz"
-  sha256 "f30c5be7c25a2a3ea24bccbaab5cf63fafda63c0279f34d7e7f8b3212821fed6"
+  url "https://github.com/CGAL/cgal/releases/download/v6.1-beta2/CGAL-6.1-beta2-library.tar.xz"
+  sha256 "cd5e4a9cdcf396f7ff2dc6ba04aaa8df28564194fb3b85ce3c7bdbf964ad8867"
   license "GPL-3.0-or-later"
 
   bottle do
@@ -24,6 +24,19 @@ class Cgal < Formula
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
+
+    # Ensure that the various `Find*` modules look in HOMEBREW_PREFIX.
+    # This also helps guarantee uniform bottles.
+    inreplace_files = %w[
+      CGAL_Common.cmake
+      FindESBTL.cmake
+      FindGLPK.cmake
+      FindIPE.cmake
+      FindLASLIB.cmake
+      FindMKL.cmake
+      FindOSQP.cmake
+    ]
+    inreplace inreplace_files.map { |file| lib/"cmake/CGAL"/file }, "/usr/local", HOMEBREW_PREFIX
 
     # These cause different bottles to be built between macOS and Linux for some reason.
     %w[README.md readme.md].each { |file| (buildpath/file).unlink if (buildpath/file).exist? }
