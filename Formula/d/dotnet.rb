@@ -2,6 +2,7 @@ class Dotnet < Formula
   desc ".NET Core"
   homepage "https://dotnet.microsoft.com/"
   license "MIT"
+  version "9.0.8"
   version_scheme 1
   head "https://github.com/dotnet/dotnet.git", branch: "main"
 
