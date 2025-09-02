@@ -1,8 +1,8 @@
 class Postgis < Formula
   desc "Adds support for geographic objects to PostgreSQL"
   homepage "https://postgis.net/"
-  url "https://download.osgeo.org/postgis/source/postgis-3.5.3.tar.gz"
-  sha256 "650e44de788d38175e3719df1d2ca4356bd987f54fe3d2030808de76464a2a06"
+  url "https://download.osgeo.org/postgis/source/postgis-3.6.0.tar.gz"
+  sha256 "8caffef4b457ed70d5328bf4e5a21f9306b06c271662e03e1a65d30090e5f25f"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -11,12 +11,12 @@ class Postgis < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "4d77e55e3a992c86b7fb55f78ad0d5661735680d55162f7555ba375d6a9ae2b9"
-    sha256 cellar: :any,                 arm64_sonoma:  "d5eddc168c4a7158110015064b89ca1076e9345c02639b5665292894f8874d09"
-    sha256 cellar: :any,                 arm64_ventura: "55ac1beb155c3aa9f2fb13d2a0caa37e984171ba338588693caa890a7c97cd47"
-    sha256 cellar: :any,                 sonoma:        "73251c8a848a26bed7ab684a942e34b2dfb958ab0fbb36716b0c82f5da3af6ec"
-    sha256 cellar: :any,                 ventura:       "6c632fed3fe0d90c558c4d94650159a0162e894f56af1aff34f2a1870c8142bc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "acdcb64101e9ef22b5d91bb1f3129c8052676908dcc51e9a0f1b87ed2c3a9ac2"
+    sha256 cellar: :any,                 arm64_sequoia: "35b1d86a5ac4dea6594c5c67fb72e09cb2704cfa258733db2d0bc4d38b11fc67"
+    sha256 cellar: :any,                 arm64_sonoma:  "2dd9280503bda0eb56904637d66ae582290ece6c9db6f0db2294b8c307cb7c61"
+    sha256 cellar: :any,                 arm64_ventura: "72993a0b8b3820ee52fcc8a3a929332e3e4de1e70e5c2bee63720d489c339796"
+    sha256 cellar: :any,                 sonoma:        "a284f0f5f15998ea9173c5035c87efeb3c123624141036ebb9122f9ab86780a5"
+    sha256 cellar: :any,                 ventura:       "41d888377f765111bdc1a32825e322d29cb0444c28dfd5b360978a4880fe877a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f4fcaa64330866bdfd815c06a06b1149965a9740ee75dc2dc9ab6a3aacf819e9"
   end
 
   head do

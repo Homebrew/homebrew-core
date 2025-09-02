@@ -1,24 +1,18 @@
 class Libxfixes < Formula
   desc "X.Org: Header files for the XFIXES extension"
   homepage "https://www.x.org/"
-  url "https://www.x.org/archive/individual/lib/libXfixes-6.0.1.tar.xz"
-  sha256 "b695f93cd2499421ab02d22744458e650ccc88c1d4c8130d60200213abc02d58"
+  url "https://www.x.org/archive/individual/lib/libXfixes-6.0.2.tar.xz"
+  sha256 "39f115d72d9c5f8111e4684164d3d68cc1fd21f9b27ff2401b08fddfc0f409ba"
   license "MIT"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "d8cf5f8d0134815b458eeaf44dd0e18357322bfeba750b4a79c7619ce24568a8"
-    sha256 cellar: :any,                 arm64_sonoma:   "50d2927a1b3705cccad6057873681f1605786646c2dbd8af9bac2dcfbd1b49d6"
-    sha256 cellar: :any,                 arm64_ventura:  "b087b60e125d6e348292f14f9d692693a0dca7894975002fa29f754c25395bbc"
-    sha256 cellar: :any,                 arm64_monterey: "515bbc38f06c142ff7cdb65b9f1401fe187241b64186b0670f4809787e288c2a"
-    sha256 cellar: :any,                 arm64_big_sur:  "5f5221e3a5687ea308dd4e0200617cbba63289476df92e6addc3928597033c3b"
-    sha256 cellar: :any,                 sonoma:         "883bed610e677c56484e31d6a1f79f06693927f004f94e01cc24a83b49df41be"
-    sha256 cellar: :any,                 ventura:        "ade02ac4b73db0272d8bdb95bd05f8c8c11683daa944c66a10f1e72740bac364"
-    sha256 cellar: :any,                 monterey:       "bae672517d9d8a3af7481ecb71dc13d835231b51917b6848d069550a725a09f9"
-    sha256 cellar: :any,                 big_sur:        "5fb3942149518881721a07646cb045b3dd0478e6333617409d3cf25a8254740e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "4d72cccea52617216275c3aecbe6fa1435673735507bf7e8f61f2f9ab6f454d3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dd98561e1f625057b34be07c81541d7759f29756d5d7272b59bd9e86af0d7d22"
+    sha256 cellar: :any,                 arm64_sequoia: "20bde00fb1c5b48ad54118acc702fd226efd28585e058c7ecdbff8ce8b6fb34a"
+    sha256 cellar: :any,                 arm64_sonoma:  "bc6bf094a7a89a825fdd959e32df3fba8988f421b6dde86d63dc847d795becfd"
+    sha256 cellar: :any,                 arm64_ventura: "c5efe52ba7a12a6c71a5706eeb9370ba5e8dd6b6b9bafb7877c0d1b9217a2ba1"
+    sha256 cellar: :any,                 sonoma:        "6a4994ef8113aee2ac68b5de54b64b9b9496eafb6c30bfd9e17ed7c268e4d4d2"
+    sha256 cellar: :any,                 ventura:       "c26de60861947cb51d180af89ece4acc3c807e7797ca8029e76c60bb4ed7c51c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "bd877255bd00d407fa7b6652d9d34abcbedff76a2c192a32e63c94add2f0b8c2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6f33e8a88f01a7afb5a784155e4c81051fea75570635b89ddb4b3b48d2825acf"
   end
 
   depends_on "pkgconf" => :build

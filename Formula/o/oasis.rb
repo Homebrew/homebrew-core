@@ -1,19 +1,19 @@
 class Oasis < Formula
   desc "CLI for interacting with the Oasis Protocol network"
   homepage "https://github.com/oasisprotocol/cli"
-  url "https://github.com/oasisprotocol/cli/archive/refs/tags/v0.15.2.tar.gz"
-  sha256 "cf8745c1db11f4ce39f39481d71c0c9cc8aba7c97fa537f31947fb9beb68b443"
+  url "https://github.com/oasisprotocol/cli/archive/refs/tags/v0.15.3.tar.gz"
+  sha256 "4d24b39765c54ab7e93d0241721f7b8fd8f9a39c6a6ce6503f58c40838af6d04"
   license "Apache-2.0"
   head "https://github.com/oasisprotocol/cli.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fb2b27cab2c4c3ad2818cd58fd74d3da4123ce13518cbedd6e081f51e1a9c29c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d198501e9cfe6563dc5c917a7f444511ca71f574c6479aa0b5dfb4c872af50d6"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "4305920acbf830411ab4c713b00f77b42688bdb16504e550359e35bcb2c44330"
-    sha256 cellar: :any_skip_relocation, sonoma:        "8707d79fbcd2a951898e3433e672c7af0bb7d2430888f1492ecf6b525ae29ffa"
-    sha256 cellar: :any_skip_relocation, ventura:       "a939282ee31567abd68f4b44efc5f0ce3fdeca07bf4c88f1c9de547b4f05e8da"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "82e5fa01776c794888e67ef5eb54869540995b048f9fced0696c948185db4a1c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9227437f63370257264c060aa89790094c2f673e6f7e03d58807c19252fd5fda"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "653077cf2adb781c944f60b97a703a77f2505546d4739d549b42b76aec8a680c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "838bf24410468a3a21588ff2881ee12a3bb5bcb25b5cb370603729ef805cf325"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "d100abe934cb8b413d28d6361921b93bd324624499052361aebd33a3def1c6cf"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d9aca8525f934a5e46dd7faa9f2b0e3cea2053295f4a24e26ae02751ebbdc22a"
+    sha256 cellar: :any_skip_relocation, ventura:       "a5ee34a965cbbee31a9421f55d234357773b89aa9ce7e843078a7e06e4207904"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ad824e98ff5d2c72911d161688266ff0f8cfa1f4ba034f575aa4a7fd9be4985c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "989965af1ba7226442096d4df7f286c5e0ba04f4e19f0ffcf8ef2855a0eb970e"
   end
 
   depends_on "go" => :build
