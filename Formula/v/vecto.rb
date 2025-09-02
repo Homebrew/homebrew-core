@@ -1,5 +1,5 @@
 class Vecto < Formula
-  desc "A powerful personal note management system with semantic search capabilities"
+  desc "Powerful personal note management system with semantic search capabilities"
   homepage "https://github.com/yswa-var/Vectoria"
   url "https://github.com/yswa-var/Vectoria/archive/refs/tags/v0.1.0.tar.gz"
   sha256 "ef85f4570b5c1a0d9569794c6cbc35e3acc652f010327d9d771f6037fb6e2087"
@@ -13,8 +13,7 @@ class Vecto < Formula
   end
 
   test do
-    system "#{bin}/vecto", "--version"
+    system bin/"vecto", "--version"
   end
 end
-
 
