@@ -2,12 +2,12 @@ class Dotnet < Formula
   desc ".NET Core"
   homepage "https://dotnet.microsoft.com/"
   license "MIT"
-  version "9.0.8"
   version_scheme 1
   head "https://github.com/dotnet/dotnet.git", branch: "main"
 
   stable do
     # Source-build tag announced at https://github.com/dotnet/source-build/discussions
+    version "9.0.8"
     url "https://github.com/dotnet/dotnet/archive/refs/tags/v9.0.109.tar.gz"
     sha256 "42fdfe3733884a3f6ceb3b428ff346ccb92f95010c447e27f3b164f70145730c"
 
