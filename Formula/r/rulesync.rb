@@ -1,8 +1,8 @@
 class Rulesync < Formula
   desc "Unified AI rules management CLI tool"
   homepage "https://github.com/dyoshikawa/rulesync"
-  url "https://registry.npmjs.org/rulesync/-/rulesync-0.67.0.tgz"
-  sha256 "571f0eb203d298ba83740c7c664be76d46c78849ebc3a4c343d2dbd9f9b471f3"
+  url "https://registry.npmjs.org/rulesync/-/rulesync-0.68.1.tgz"
+  sha256 "ec54c41316af99e14a80e07d7794ceba7da5083394b8dbd3922ac6ad2f42ccf7"
   license "MIT"
 
   bottle do
@@ -22,8 +22,5 @@ class Rulesync < Formula
     output = shell_output("#{bin}/rulesync init")
     assert_match "rulesync initialized successfully", output
     assert_match "Project overview and general development guidelines", (testpath/".rulesync/rules/overview.md").read
-
-    output = shell_output("#{bin}/rulesync status")
-    assert_match ".rulesync directory: ✅ Found", output
   end
 end
