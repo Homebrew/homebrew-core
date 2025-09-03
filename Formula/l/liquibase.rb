@@ -1,7 +1,7 @@
 class Liquibase < Formula
   desc "Library for database change tracking"
   homepage "https://www.liquibase.org/"
-  url "https://github.com/liquibase/liquibase/releases/download/v4.32.0/liquibase-4.32.0.tar.gz"
+  url "https://package.liquibase.com/downloads/liquibase/homebrew/liquibase-4.33.0.tar.gz"
   sha256 "10910d42ae9990c95a4ac8f0a3665a24bd40d08fb264055d78b923a512774d54"
   license "Apache-2.0"
 
