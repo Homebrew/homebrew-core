@@ -2,7 +2,7 @@ class Opencv < Formula
   desc "Open source computer vision library"
   homepage "https://opencv.org/"
   license "Apache-2.0"
-  revision 8
+  revision 9
 
   stable do
     url "https://github.com/opencv/opencv/archive/refs/tags/4.12.0.tar.gz"
@@ -32,11 +32,11 @@ class Opencv < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 arm64_sonoma:  "75727153194d53eb9bba65a15c65c183c3e4cb986bef20e0b2b26ec45f720007"
-    sha256 arm64_ventura: "4c572edfb6959e9300a6e7a889c7b30225c85cb1b399827a626c0b8cd90ae02f"
-    sha256 sonoma:        "2a463978ba9f475d8b15708b975084e3cdab3254803e35954317fa9cba4209c0"
-    sha256 ventura:       "770ea61fd99ccaa9e56d0c6df0e8bdb182141bc30450e033d4b0b544a2897975"
-    sha256 x86_64_linux:  "ba735d6b8e0dad28e2ec34426104f683074da738814f1a72ababb8dd415cda4f"
+    sha256 arm64_sonoma:  "cf8d7a86ea020d5824c4ef0253aee998edd973d81e4ed108c3f5c24acd95b426"
+    sha256 arm64_ventura: "f31fa216051e53763579dca12931ed4bbb30e243dc7b07c6ed30e6e8148e7f89"
+    sha256 sonoma:        "36b492895571ab5db9da0ffd2fe2896a5c163653693b1aa8801c912cfd4b671d"
+    sha256 ventura:       "8b5d14e644fd2b86251bd455a1fee89b46bc7e9321e75200b808f29fec8b00fd"
+    sha256 x86_64_linux:  "86093877c802805a7b8d98d8c960b34cb1eda1e62d4ed33737bd88d4f6b86fc4"
   end
 
   head do
@@ -66,6 +66,7 @@ class Opencv < Formula
   depends_on "openblas"
   depends_on "openexr"
   depends_on "openjpeg"
+  depends_on "openvino"
   depends_on "protobuf"
   depends_on "python@3.13"
   depends_on "tbb"
@@ -102,7 +103,6 @@ class Opencv < Formula
     libdirs = %w[ffmpeg libjasper libjpeg libjpeg-turbo libpng libtiff libwebp openexr openjpeg protobuf tbb zlib]
     libdirs.each { |l| rm_r(buildpath/"3rdparty"/l) }
 
-    # FIXME: `openvino` seems to break often and is difficult to update, so we disable it here for now.
     args = %W[
       -DCMAKE_CXX_STANDARD=17
       -DCMAKE_OSX_DEPLOYMENT_TARGET=
@@ -134,7 +134,7 @@ class Opencv < Formula
       -DWITH_JASPER=OFF
       -DWITH_OPENEXR=ON
       -DWITH_OPENGL=OFF
-      -DWITH_OPENVINO=OFF
+      -DWITH_OPENVINO=ON
       -DWITH_QT=OFF
       -DWITH_TBB=ON
       -DWITH_VTK=ON

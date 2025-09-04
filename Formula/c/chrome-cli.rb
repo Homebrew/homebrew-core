@@ -1,17 +1,17 @@
 class ChromeCli < Formula
   desc "Control Google Chrome from the command-line"
   homepage "https://github.com/prasmussen/chrome-cli"
-  url "https://github.com/prasmussen/chrome-cli/archive/refs/tags/1.10.3.tar.gz"
-  sha256 "3ab0cb9ffa898bacd64937431791775af6711bffd7fa8b5660a1aa108bb46a0f"
+  url "https://github.com/prasmussen/chrome-cli/archive/refs/tags/1.11.0.tar.gz"
+  sha256 "e719cf5342f907cb06811c39c7a6ca087e584d08d1185e2eded9953dd218d918"
   license "MIT"
   head "https://github.com/prasmussen/chrome-cli.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fae77de16dfdd91be87e6dda905231a8891089e8ff3db5492a051dc5bffcfc4c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "aeabd9e39b248e509bc92fd6666123a43900666eb2daa93fc4033019c62629ce"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "ba05833609b8245999aa0f8a3f3c79d2748325b88bdce97c3349b38f18355e6f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "6fe783bbe744c5e1931b400bd13b7c7af0a59275ee62b70205edd083b805901d"
-    sha256 cellar: :any_skip_relocation, ventura:       "063f7a6dc767f44ce574e26d5f3e38fb2ae93a6d884bb4d58c72cbaf3c1c7983"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "628f12ae25a466c35328cd1578c6428ece0942416f07e5df663919edf68d1c6c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "807ae024d63682ce4573ea99c27172c606f370b96a21cff8a4626ba3aee8018b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "d06011bc7b3936bbcb44f2f4ab49b4749000af5c325d29afd85090148c8481ad"
+    sha256 cellar: :any_skip_relocation, sonoma:        "390e82e1ed87e9d5882ae863c68f7cdc2baad2cde72f862fc5efca511a4743c9"
+    sha256 cellar: :any_skip_relocation, ventura:       "46815e7636eaca21c421825509183052781caf166ba76957eb13aa74c6e8fc5d"
   end
 
   depends_on xcode: :build

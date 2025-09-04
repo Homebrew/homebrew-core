@@ -3,8 +3,8 @@ class Mesa < Formula
 
   desc "Graphics Library"
   homepage "https://www.mesa3d.org/"
-  url "https://archive.mesa3d.org/mesa-25.2.1.tar.xz"
-  sha256 "c124372189d35f48e049ee503029171c68962c580971cb86d968a6771c965ba4"
+  url "https://archive.mesa3d.org/mesa-25.2.2.tar.xz"
+  sha256 "43d7abcd4aa8049d8fd75538344a374104765e81e17b4a6314cee2c0160e4412"
   license all_of: [
     "MIT",
     "Apache-2.0", # include/{EGL,GLES*,vk_video,vulkan}, src/egl/generate/egl.xml, src/mapi/glapi/registry/gl.xml
@@ -20,17 +20,16 @@ class Mesa < Formula
     { "GPL-1.0-or-later" => { with: "Linux-syscall-note" } }, # include/drm-uapi/sync_file.h
     { "GPL-2.0-only" => { with: "Linux-syscall-note" } }, # include/drm-uapi/{d3dkmthk.h,dma-buf.h,etnaviv_drm.h}
   ]
-  revision 1
   head "https://gitlab.freedesktop.org/mesa/mesa.git", branch: "main"
 
   bottle do
-    sha256 arm64_sequoia: "15f4b8190ca487f1abb1efda11b15fc0203ed0d179bf326103c38290b7306090"
-    sha256 arm64_sonoma:  "c667a02764129fdc163b8de2c1e98b04afd04bff2304c067a023a2e8833bda81"
-    sha256 arm64_ventura: "9acc045e2110cc22e1849752443c2f8d6076aa4c3eb09d8d87d872618d8a5160"
-    sha256 sonoma:        "6891c09508d71968ff54fb44bea368b5b8ea0cc9b3e47cb8ac2011d820bcc656"
-    sha256 ventura:       "9e2a9f3cdada57344ee5ac090636b458256538115db3a9580a4a4510ee8a63df"
-    sha256 arm64_linux:   "e711b6887fd7ff68d2109291d2fd3a571ec3eee5156cee34ef60cdd5508f9283"
-    sha256 x86_64_linux:  "07b946927b6c98ef900a1955181b35d6cb9441a7c29031e5d9a558cd50b0f1bd"
+    sha256 arm64_sequoia: "ee75d1a053f5748c28fe71fe89d148b0adf4d66ab81d88de1299a56e33208b77"
+    sha256 arm64_sonoma:  "6a68f0f99eeeffc90a284cbe396b8d255ce2e9e791d3d66372538b94fdd07246"
+    sha256 arm64_ventura: "9ecce82cb6cb694486d9159ee57487b2c18caca7a7be6848c252d12cbd64c46b"
+    sha256 sonoma:        "a3428cac77e0a4b9e6f3d887500575a6eab27fae871652f78f6d08513c3201a3"
+    sha256 ventura:       "add3433515098359bfea225bb26bd086ac8b1770c666570bb951216653abd0ad"
+    sha256 arm64_linux:   "576158b4a7135827ce51f55103fe54a87a136ec3b12a9ec58890ac6b1bf8c8d5"
+    sha256 x86_64_linux:  "0ce1b8b57ab55eecffd0299e1775d8aedcb776b7cdf4c473a06cc21d20860ff6"
   end
 
   depends_on "bindgen" => :build

@@ -1,8 +1,8 @@
 class Envoy < Formula
   desc "Cloud-native high-performance edge/middle/service proxy"
   homepage "https://www.envoyproxy.io/index.html"
-  url "https://github.com/envoyproxy/envoy/archive/refs/tags/v1.35.1.tar.gz"
-  sha256 "bdd9d646b30a3d048f1ff6b2719f81b9e14c0e187950ea8f4812bf5207f42bfc"
+  url "https://github.com/envoyproxy/envoy/archive/refs/tags/v1.35.2.tar.gz"
+  sha256 "eaaa169ef5ce15c5448d1a73eda3ef50c71c5c77cc6ff152426d84a3cea3f791"
   license "Apache-2.0"
   head "https://github.com/envoyproxy/envoy.git", branch: "main"
 
@@ -12,12 +12,12 @@ class Envoy < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cc4c484d8913a88d5036a25613ef80835e3817a23d5b7458b6532713d259d8c2"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "934778c2d7d7796c3c312ed2163ae97366dd7977054e1a5d31d81dbdcb9fc260"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "7b7e98ccfe84f4373ae3e53a2debd76e12d71cb8db41cbb5264803daf1ffbd75"
-    sha256 cellar: :any_skip_relocation, sonoma:        "bf89b41a6db2dad33020a8e8974fd1c646424667dd6ebde5f9c887ee7b19704d"
-    sha256 cellar: :any_skip_relocation, ventura:       "5193aee05fe54295e29def10d997f9854edcd4455683b011c5ea234a49fa16ec"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f420ac4cca2f1956d3556d74012ced602df25cf1e8cfa6eb0f51366d0e38d132"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cb40ffa5e71399dbc43ed0e485f62f280b782c5b20d0c72f4381dc0f046a0892"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "36f899e9296d2fc4869ea86291be483585bcae9d293c758ec8f94c0397645fe3"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "65c00855759cfcee097e9ffeed90b48d820fa7c79a3ed94aa44b7a214e5f9161"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f2758ce92ba0d750e67870d2171eea34ad91067cf33df772b65ec92421a211d7"
+    sha256 cellar: :any_skip_relocation, ventura:       "619b85017d4668440564cc340b1a02667508af6b536f21bf4dac5be4df50441a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "47b623c77ce5e3e9149dad4886109144e7ea280eb06c74c587e6be186744e09d"
   end
 
   depends_on "automake" => :build

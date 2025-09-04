@@ -3,18 +3,18 @@ class Flexget < Formula
 
   desc "Multipurpose automation tool for content"
   homepage "https://www.flexget.com"
-  url "https://files.pythonhosted.org/packages/10/78/f890ec6ca84e32a69aae49ba1910c9c803ed43b9fbd7e0ed0f5892f6e562/flexget-3.18.3.tar.gz"
-  sha256 "070859c42e7dbd5e2ef8d5745fec6bf74454b3648cdb1be372b65e86f6d6413a"
+  url "https://files.pythonhosted.org/packages/b5/9c/68698e4ced2963945e059922a5f9bec34ffbb4b8e11d0683446e5fa2e8f0/flexget-3.18.4.tar.gz"
+  sha256 "c97818f35ae536bb1470daacdb0c9bec866652001b04a1fea2056bea65c8d82f"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "53a2a51c32a408a8f8ec4d29bbf13dd6b0be7be3964ca8fbdf5e643a83fdb979"
-    sha256 cellar: :any,                 arm64_sonoma:  "75a9441e327f009d7409ffd7415b98c24c2f6cc5503d72f6b5855d436ff391bf"
-    sha256 cellar: :any,                 arm64_ventura: "558c8ba0d3301d5324d9400f5366bdcb5fa314e5de93d04cd10b8e2d59fd2a20"
-    sha256 cellar: :any,                 sonoma:        "6f0a814adc10130ac3f3e315437a6f033f0e4abe1c92e7bf2ddc48c46f90d367"
-    sha256 cellar: :any,                 ventura:       "ad2e8b768ae5761b4dc6a57923bd0369d3915cfd6a770eecfb017e407df8b548"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b23b7b1a428777c80c44168137fa29e63ac44ac672d03716d5dc96f970acb83e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a3f40945f150b7dc2862371d9d1f85d0aba5f45cde5177def1efbb3957beeb4f"
+    sha256 cellar: :any,                 arm64_sequoia: "9e22dc51745eeed8cc127387cdbe114f90a3fb995d0a065d3a7ea3f0b03fa8e9"
+    sha256 cellar: :any,                 arm64_sonoma:  "603fdb760443b80dba687aa4fb7294a757e711c67d91a250d0055b4520cadcab"
+    sha256 cellar: :any,                 arm64_ventura: "849abd3a863a0ccae9068e439be249b5b1466d0a48304e47c099f9a010ce175f"
+    sha256 cellar: :any,                 sonoma:        "d9569d149187054bb52be82cf6a06c4ad9a1b787081af6a09b05ebfcdd979c2a"
+    sha256 cellar: :any,                 ventura:       "3a8994b3225008b33c65cead192c4fdf9d04b7551f4fab880aced87be5b6c846"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "cbbdd5c2d97c33d9dc83a9d55d657b6c959a2b63b3af58728ac9a07a63b7cf61"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "348dd9a770437288356a6d176aee104f04682e3f4e4c028b72171838509ee1ff"
   end
 
   depends_on "rust" => :build

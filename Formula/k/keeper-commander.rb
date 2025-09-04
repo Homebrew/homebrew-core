@@ -3,19 +3,19 @@ class KeeperCommander < Formula
 
   desc "Command-line and SDK interface to Keeper Password Manager"
   homepage "https://docs.keeper.io/en/privileged-access-manager/commander-cli/overview"
-  url "https://files.pythonhosted.org/packages/8e/df/dce2e2046e72dd4cbd11af8edc6329fcc14f04005e6fea9ff08f2e8d9ac0/keepercommander-17.1.7.tar.gz"
-  sha256 "2070e1b657f55a154a1b7f6787b297d82f4f5e97f17103e065c0c5ca0270af5c"
+  url "https://files.pythonhosted.org/packages/ee/40/1b57c26f77f58c9e4e174812b64f8806585aeebd2cebf716d6adcb698e8a/keepercommander-17.1.8.tar.gz"
+  sha256 "a8b136217b6fa0edf699e5bad1630bda0ec2b1138243ebadfc6d98ffc9625740"
   license "MIT"
   head "https://github.com/Keeper-Security/Commander.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "27d6e06189d9a109e8158fdb2585c33e41dd631c1490706cce4a7efac7d19749"
-    sha256 cellar: :any,                 arm64_sonoma:  "ac2ddf9f934a18cfc3162c0145deabfe413c367d33394a7a3fe6170070f7af4b"
-    sha256 cellar: :any,                 arm64_ventura: "a90212a856c8d091cf21b98d8c3bb576ccfb3e0bf86dc0363a069dba3c2b1272"
-    sha256 cellar: :any,                 sonoma:        "b1c1296a7f7f03e6eaa960548c99dbe86907f72aa3aa32a2e254008281e47614"
-    sha256 cellar: :any,                 ventura:       "debd3869a2b7ffe2368604a443e4705ee42464da690dc99866692adff9057960"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d402cd4d3d439b3406599492fd595166ab353824498ba0605347c42bd97cc0ac"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "90b011117b016d23fb649a5a84961e0342cdcfe1417457b07e120dbd06347703"
+    sha256 cellar: :any,                 arm64_sequoia: "75c5cc6af281ea2a8a38c954f04957b8d63789c99167be1fc0312a0a2ace7671"
+    sha256 cellar: :any,                 arm64_sonoma:  "0de7865ee1d369a64b36f0456e11b41b2dc230579412b1f85aeb953a7014ca80"
+    sha256 cellar: :any,                 arm64_ventura: "6511305c915a9dac969a0cf6ae8ae1b03fa00e66ca56d03e36893a2936375d72"
+    sha256 cellar: :any,                 sonoma:        "c3894ff13ef8afa1766a04d74d4e290b6133e1502c7d14bf7b792678b13fdde6"
+    sha256 cellar: :any,                 ventura:       "80d0cc1e79e1aa05f3e0b360d197ad02bf79d9a7792cb4a667a2b215494bff21"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6f8872c914c59443236331811b85137cd8f2c34535fce4b4c93daad29f6a9178"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "45452ed5cf08f82857683a4adbf2fe771fe79ab1a56408140f3b187b04266cca"
   end
 
   depends_on "pkgconf" => :build

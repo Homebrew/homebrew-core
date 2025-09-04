@@ -4,8 +4,8 @@ class Semgrep < Formula
   desc "Easily detect and prevent bugs and anti-patterns in your codebase"
   homepage "https://semgrep.dev"
   url "https://github.com/semgrep/semgrep.git",
-      tag:      "v1.134.0",
-      revision: "32f65fd7e3c1dce0422dce8b24749bb83c53a05d"
+      tag:      "v1.135.0",
+      revision: "a81e68df6d561c708cb80ecda1190f66547159e0"
   license "LGPL-2.1-only"
   head "https://github.com/semgrep/semgrep.git", branch: "develop"
 
@@ -15,13 +15,13 @@ class Semgrep < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia: "99b84acbdbdd78bd681ef8c54f41f271c64231dbba357c35fdfa8a66b70d8b60"
-    sha256 cellar: :any, arm64_sonoma:  "72b4c6da532aba5b749b1e2080b1f31c8bccc3dbc2481e78fa23d2b0371fe0ec"
-    sha256 cellar: :any, arm64_ventura: "3d7f171874907c8da11d2429de9fbb24a7d09d4239a00861d733af8ca1c10715"
-    sha256 cellar: :any, sonoma:        "2c1302da1d4635796a306907fbb77c5534a6e73505fa76b539ec39bbfd774e82"
-    sha256 cellar: :any, ventura:       "39fb1f386f9ee3b703ad87c8da0221b8fb984b47d9666de2ab85c4c3ae19bf17"
-    sha256               arm64_linux:   "95a781bd79d3dadd61568b02b64eefe685115e16d9e358a2af2c09fa79d30373"
-    sha256               x86_64_linux:  "89b07f5da19b83e90b9c951317f83ea8db041c545641cd2833f50ebb4a43c641"
+    sha256 cellar: :any, arm64_sequoia: "c90c6d5e98f918277df53d6bf52b73b785529cc12ee6d07272fa4b704f5f352f"
+    sha256 cellar: :any, arm64_sonoma:  "746e636b452fcb8d0cf430e7bec937c7da6b584b958b0c666b100ecac758c3a0"
+    sha256 cellar: :any, arm64_ventura: "e22b09cf3c2783a4aeca0a15f948809f91d643aba9c8c3db7af9ea6b2c1c29d0"
+    sha256 cellar: :any, sonoma:        "65d23c23acbbc5d70bcd8ee9e1c9aba56a42dd99d28cecc522c676e60f30c317"
+    sha256 cellar: :any, ventura:       "1c2bac3c13be5af8d338f636a57ea02a4b86cae9e9b9c5d8a27244ce38c3f6d6"
+    sha256               arm64_linux:   "b24e188ade1586ce34fa3c156b001d540e167e9c6f5be481628858c51a4e9b82"
+    sha256               x86_64_linux:  "326b8d1e955fdeb5d5aeddbb7ce86b8981e101a1236129295133bf8fd9b18e05"
   end
 
   depends_on "autoconf" => :build

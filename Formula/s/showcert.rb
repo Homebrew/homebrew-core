@@ -3,19 +3,19 @@ class Showcert < Formula
 
   desc "X.509 TLS certificate reader and creator"
   homepage "https://github.com/yaroslaff/showcert"
-  url "https://files.pythonhosted.org/packages/e8/89/d8d4a604543eb56e302dac2cb1832c930fb57c7e5dcb56321220054e7a7e/showcert-0.4.6.tar.gz"
-  sha256 "6b945324abfe79ef6f045e74b5b54c2bb9a1bba33f104fc18eb421f45c670f31"
+  url "https://files.pythonhosted.org/packages/3e/4e/848aeb332a64ff400210e80f6e7cb86340aa88142300885b3d8f58b9da8f/showcert-0.4.7.tar.gz"
+  sha256 "42e2ccb1349c81dcb6f6c67e16cc37c58ffe6af6ff18f72df9414277e3f8ba4b"
   license "MIT"
   head "https://github.com/yaroslaff/showcert.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9a5427c1639548cf0b47fdc72f3518ff1ca96d6834952f68906b3588f0f8e2d6"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9a5427c1639548cf0b47fdc72f3518ff1ca96d6834952f68906b3588f0f8e2d6"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "9a5427c1639548cf0b47fdc72f3518ff1ca96d6834952f68906b3588f0f8e2d6"
-    sha256 cellar: :any_skip_relocation, sonoma:        "b68cb62f39b4e29fb7a97e2d4ff56c81b5ef8381ffefa7c69eb3083db5984e32"
-    sha256 cellar: :any_skip_relocation, ventura:       "b68cb62f39b4e29fb7a97e2d4ff56c81b5ef8381ffefa7c69eb3083db5984e32"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2755c1946bd0f2940ddf204d8ccab3e57a4f01121fddbfbbec483bd6cedc9631"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2755c1946bd0f2940ddf204d8ccab3e57a4f01121fddbfbbec483bd6cedc9631"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e7db65d5003888d91d5882209b1cd9b0bf6dee69b8e125454c56ffbfc766c2ee"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e7db65d5003888d91d5882209b1cd9b0bf6dee69b8e125454c56ffbfc766c2ee"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "e7db65d5003888d91d5882209b1cd9b0bf6dee69b8e125454c56ffbfc766c2ee"
+    sha256 cellar: :any_skip_relocation, sonoma:        "6aad6faee5150e4a343d9ca196f1b25970053c7938d80b897a86df9e23f206b9"
+    sha256 cellar: :any_skip_relocation, ventura:       "6aad6faee5150e4a343d9ca196f1b25970053c7938d80b897a86df9e23f206b9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2643a5f9d6dd150b412ac9f2135c12f04bb49013e5d03d0e7c4707db8cdcfa82"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2643a5f9d6dd150b412ac9f2135c12f04bb49013e5d03d0e7c4707db8cdcfa82"
   end
 
   depends_on "certifi"

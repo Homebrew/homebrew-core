@@ -26,14 +26,15 @@ class Libgccjit < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 arm64_sequoia: "76bcb930ece20a2661c706bac2f2ce4faf790b3af0554b86a8967677fcab03ce"
-    sha256 arm64_sonoma:  "cb3db229fd88a28d6583fffd1ee487b0351851b377900d8976c5b70b37585c56"
-    sha256 arm64_ventura: "95f990b545ceae9a01f1e012ab2d7950dc5207d06cefe7796cf783b19a177b92"
-    sha256 sequoia:       "0a212155fa554028b11389062636c750a7b08d37d2c84b3ff739f6dedff476db"
-    sha256 sonoma:        "09cd9fe841f73b81e91e3bd36a911737f5eb07dddf0111eee53bb513113e4eb2"
-    sha256 ventura:       "71229a70381ea76eeb9af7d146332b44329d85d631ca20d3935f49a348700fc5"
-    sha256 arm64_linux:   "952b111d72702f44b432646b02f6ccdfb6d5c3deffa38cdb0d718b5b2d07d4d6"
-    sha256 x86_64_linux:  "aa9f48a7a846126612a53530b7ec91bc0089d56049b59ed8c9055ee379ad9082"
+    rebuild 1
+    sha256 arm64_sequoia: "04adeecfca5beafcb7964f2138093b90908b5b04aa066e15cd7e5c76428b2ac8"
+    sha256 arm64_sonoma:  "86fa84fb07098a91ff9a8cc82982ba74dcd1357bb6b807dabecd2c078e7950c3"
+    sha256 arm64_ventura: "3e2ba2afd658bafda72aa3a4e86b49f6d973f3779b222675a3a9d2905c23a7ed"
+    sha256 sequoia:       "c66b7245b953b1de3d9519789397e879ae0ca311e4f7e80ff4e50eabc24a19d4"
+    sha256 sonoma:        "bc109320edce03d46fa5a4322e8c5a9c43b9531f0321f6137883c5df0b996660"
+    sha256 ventura:       "9095eb6c8ec935270bb81ec510b2867885144eb4a0efa9d87d94976dc762cc9e"
+    sha256 arm64_linux:   "4f45551e36c7171a4242446993d30b35189b3fe255a287c4148e1215a28c0bfc"
+    sha256 x86_64_linux:  "0b0e73bb044bb3988e3ddc28b19b8da64bed6e95ade603d49fee748f1f086d06"
   end
 
   # The bottles are built on systems with the CLT installed, and do not work
@@ -81,7 +82,7 @@ class Libgccjit < Formula
       --with-system-zlib
     ]
 
-    make_args = if OS.mac?
+    if OS.mac?
       cpu = Hardware::CPU.arm? ? "aarch64" : "x86_64"
       args << "--build=#{cpu}-apple-darwin#{OS.kernel_version.major}"
 
@@ -92,22 +93,18 @@ class Libgccjit < Formula
       # Avoid this semi-random failure:
       # "Error: Failed changing install name"
       # "Updated load commands do not fit in the header"
-      %w[BOOT_LDFLAGS=-Wl,-headerpad_max_install_names]
+      make_args = %w[BOOT_LDFLAGS=-Wl,-headerpad_max_install_names]
     else
-      # Fix cc1: error while loading shared libraries: libisl.so.15
-      args << "--with-boot-ldflags=-static-libstdc++ -static-libgcc #{ENV.ldflags}"
-
       # Fix Linux error: gnu/stubs-32.h: No such file or directory.
       args << "--disable-multilib"
 
       # Change the default directory name for 64-bit libraries to `lib`
       # https://stackoverflow.com/a/54038769
       inreplace "gcc/config/i386/t-linux64", "m64=../lib64", "m64="
+      inreplace "gcc/config/aarch64/t-aarch64-linux", "lp64=../lib64", "lp64="
 
-      %W[
-        BOOT_CFLAGS=-I#{Formula["zlib"].opt_include}
-        BOOT_LDFLAGS=-I#{Formula["zlib"].opt_lib}
-      ]
+      ENV.append_path "CPATH", Formula["zlib"].opt_include
+      ENV.append_path "LIBRARY_PATH", Formula["zlib"].opt_lib
     end
 
     # Building jit needs --enable-host-shared, which slows down the compiler.

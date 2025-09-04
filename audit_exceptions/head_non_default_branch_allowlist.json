@@ -1,6 +1,9 @@
 {
   "awscli": "v2",
   "botan@2": "release-2",
+  "libngspice": "master",
+  "ngspice": "master",
   "sdl2": "SDL2",
-  "squid": "v6"
+  "squid": "v6",
+  "opencv": "master"
 }

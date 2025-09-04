@@ -3,10 +3,9 @@ class Openvino < Formula
 
   desc "Open Visual Inference And Optimization toolkit for AI inference"
   homepage "https://docs.openvino.ai"
-  url "https://github.com/openvinotoolkit/openvino/archive/refs/tags/2025.2.0.tar.gz"
-  sha256 "15cd5c9beb320a8feadd18bcae40970608de154d5057277281dc53dd7023e383"
+  url "https://github.com/openvinotoolkit/openvino/archive/refs/tags/2025.3.0.tar.gz"
+  sha256 "969a1b881ad0103dd522b5b09738434261d1158ebb23acb000eafef55268f7be"
   license "Apache-2.0"
-  revision 3
   head "https://github.com/openvinotoolkit/openvino.git", branch: "master"
 
   livecheck do
@@ -15,13 +14,13 @@ class Openvino < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia: "7a49c564ead1cde5b61e44f47d175693678494711a1315848527401b8ea260dc"
-    sha256 cellar: :any, arm64_sonoma:  "ccbdd0defacbc68539614344a75aa153f3961ae9af36c1afb0593a4ec6ac9fcb"
-    sha256 cellar: :any, arm64_ventura: "0d18a86d3a49d947e976127bb2d15ac82627c42d500ceccab27e51cfa03377e4"
-    sha256 cellar: :any, sonoma:        "5ed46e78264ec191549c9e5f88ddfd0b5e8b220d1056948570a8897e7bae55b3"
-    sha256 cellar: :any, ventura:       "c61634c4b6cd5afe8f923a394cbbab31309d6cec9f62ef426e1e37215895d63e"
-    sha256               arm64_linux:   "44e59660fba1c7831bf51b17510204a5894843e320b0bf5d0c8c0e08127a9fe4"
-    sha256               x86_64_linux:  "3edf864514d74a3d4d15b34076a53428cf9744e3ae0e3995ff3de01cc425680c"
+    sha256 cellar: :any, arm64_sequoia: "70293ca3a7f8f4f5f93d916b0956506eeba4d107dc40a3e756c3b419f91e4e65"
+    sha256 cellar: :any, arm64_sonoma:  "3f40bc439633b005fe5bfd3b92a153e136bd216e508c2ed19ae44ee126f33dc9"
+    sha256 cellar: :any, arm64_ventura: "95843247b4bd772fa76fa9551d7ca306ed781b02252f8109d02a80bb883fb0d0"
+    sha256 cellar: :any, sonoma:        "fcccafaa9738e8db47dba4fe06dbf201d2a86ed1a2b20f8104e294107a3f0223"
+    sha256 cellar: :any, ventura:       "f47b798a82b7d6738288f179fe702ba51d3f97496e71e395ecf91c3225bc1055"
+    sha256               arm64_linux:   "c73260bab30758501e8ebf31b23842e5de8c2017c0f08d47cc38af95329f41e5"
+    sha256               x86_64_linux:  "87fc95bbcff2a94e75160343e17a3b17989aa2d26e8e6c45398c12a6191afa65"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -47,8 +46,8 @@ class Openvino < Formula
     depends_on "opencl-icd-loader"
 
     resource "onednn_gpu" do
-      url "https://github.com/uxlfoundation/oneDNN/archive/c7d59a12849295c8bdf6401b8ea3968f4346ee0c.tar.gz"
-      sha256 "05bc693ee788768f18397bd235ad40f55261e4336a683469a50072bfddbf9f98"
+      url "https://github.com/uxlfoundation/oneDNN/archive/8edf6bb60fdaa2769f3cebf44bd2ee94da00744c.tar.gz"
+      sha256 "c943ab6e9cc6c382de48e76cb62ba075554a89b438876d945e5355e22588e06d"
     end
   end
 
@@ -83,8 +82,8 @@ class Openvino < Formula
   end
 
   resource "onednn_cpu" do
-    url "https://github.com/openvinotoolkit/oneDNN/archive/793dd02883483385fb7ee3b1af1e4273ce833444.tar.gz"
-    sha256 "f6ae708f5b78361cab2c544a976d66bd7ccd74b4b6df7710d4d86a383f6916f9"
+    url "https://github.com/openvinotoolkit/oneDNN/archive/3d7a6f1d068d8ae08f189aa4baa93d177bc07507.tar.gz"
+    sha256 "354fa9c44a6feaea06230082e1b9f53ea853836a29e4030320ba8e480357614b"
   end
 
   resource "openvino-telemetry" do
@@ -99,13 +98,6 @@ class Openvino < Formula
 
   def python3
     "python3.13"
-  end
-
-  # Fix to add adhoc sign back for Homebrew.
-  # Remove patch when available in release.
-  patch do
-    url "https://github.com/openvinotoolkit/openvino/commit/f89181e38b64eee8296623c1caf9870164beff89.patch?full_index=1"
-    sha256 "6483957f1ed1ad41bb50e699b177c69991380c2b44fae3567180dfa4d82e3374"
   end
 
   def install
@@ -165,6 +157,7 @@ class Openvino < Formula
       -DENABLE_SYSTEM_FLATBUFFERS=ON
       -DENABLE_SYSTEM_SNAPPY=ON
       -DProtobuf_USE_STATIC_LIBS=OFF
+      -DOV_FORCE_ADHOC_SIGN=ON
     ]
     if OS.mac?
       cmake_args << "-DCMAKE_OSX_DEPLOYMENT_TARGET=#{MacOS.version}.0"

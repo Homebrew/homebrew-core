@@ -27,7 +27,7 @@ class Ibazel < Formula
 
     # Write MODULE.bazel with Bazel module dependencies
     (testpath/"MODULE.bazel").write <<~STARLARK
-      bazel_dep(name = "rules_go", version = "0.55.1")
+      bazel_dep(name = "rules_go", version = "0.57.0")
 
       # Register brewed go
       go_sdk = use_extension("@rules_go//go:extensions.bzl", "go_sdk")

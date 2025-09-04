@@ -11,9 +11,11 @@ class Gyb < Formula
   license "Apache-2.0"
   head "https://github.com/GAM-team/got-your-back.git", branch: "main"
 
+  # This regex limits the length of the major version to avoid a date-based tag
+  # (20250831.221201).
   livecheck do
     url :stable
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
+    regex(/^v?(\d{,3}(?:\.\d+)+)$/i)
   end
 
   bottle do

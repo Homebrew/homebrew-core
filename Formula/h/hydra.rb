@@ -1,22 +1,19 @@
 class Hydra < Formula
   desc "Network logon cracker which supports many services"
   homepage "https://github.com/vanhauser-thc/thc-hydra"
-  url "https://github.com/vanhauser-thc/thc-hydra/archive/refs/tags/v9.5.tar.gz"
-  sha256 "9dd193b011fdb3c52a17b0da61a38a4148ffcad731557696819d4721d1bee76b"
+  url "https://github.com/vanhauser-thc/thc-hydra/archive/refs/tags/v9.6.tar.gz"
+  sha256 "c839e5c64ef60185c69a07a9a59831bd2cfe9ac2eac0c4d9e87fdf38dbf04c40"
   license "AGPL-3.0-only"
-  revision 5
   head "https://github.com/vanhauser-thc/thc-hydra.git", branch: "master"
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "4f52a4dd8c6ee9b1819f64a688cd7f2677873250a515b2269acac1758bafc1c8"
-    sha256 cellar: :any,                 arm64_sonoma:  "3ecca5dbd9fc6e4770e0c302cb183b65b9eb107ed4a49bea7991905e7635cdaa"
-    sha256 cellar: :any,                 arm64_ventura: "ddfa012421a719f0299339726f34303ac70cfc84bb8be9f60faee15c9c670ac2"
-    sha256 cellar: :any,                 sonoma:        "8e7d6db10c76332a98db7be88357089ad50d984fa057382f1513aaed157f1bfd"
-    sha256 cellar: :any,                 ventura:       "0cf381bd263ece00b7174f9cf025055616688e77774bf9c9bf7a298a0876a33d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3d8c55399e4bbb56fb9e2f50f99f894d7d729582cdc53e8cd2682f0593928f80"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b289ab00cf96e4b7a327102991a0d1787756dcdca1af594828c05ecc4e86e075"
+    sha256 cellar: :any,                 arm64_sequoia: "59462731671d23a67a26c61731967a0997cf97be55b47241bb7bc8773315d5b7"
+    sha256 cellar: :any,                 arm64_sonoma:  "1587d19830a37949d7997933c8c2e0aabaef9d13ff054e588ae2c0461fd1b15b"
+    sha256 cellar: :any,                 arm64_ventura: "e9ec5262f77f8f099f7d1fcf0a4c35d8cc66f71af7dd9629f4b662dfb4bbe125"
+    sha256 cellar: :any,                 sonoma:        "32ae8946b3891da2b56df93f7de828243be8498ddbca4e4a20b3864c9f052dd4"
+    sha256 cellar: :any,                 ventura:       "7ce1e368623e1a98fa4594879774604d871b56eedea4127c4bdafb59369e1e8c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "564ffb41b6e522fd8a13fc3ae634aa888144c66216198a96dd81d61ee2ba6205"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e062f5c8583970cd8fff70e7f4ae8ead1b2514c8e4d0fac47422990aa21940ae"
   end
 
   depends_on "pkgconf" => :build

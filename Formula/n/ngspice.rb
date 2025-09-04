@@ -1,8 +1,8 @@
 class Ngspice < Formula
   desc "Spice circuit simulator"
   homepage "https://ngspice.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/ngspice/ng-spice-rework/44.2/ngspice-44.2.tar.gz"
-  sha256 "e7dadfb7bd5474fd22409c1e5a67acdec19f77e597df68e17c5549bc1390d7fd"
+  url "https://downloads.sourceforge.net/project/ngspice/ng-spice-rework/45/ngspice-45.tar.gz"
+  sha256 "f1aad8abac2828a7b71da66411de8e406524e75f3066e46755439c490442d734"
   license :cannot_represent
 
   livecheck do
@@ -10,16 +10,14 @@ class Ngspice < Formula
     regex(%r{url=.*?/ngspice[._-]v?(\d+(?:\.\d+)*)\.t}i)
   end
 
-  no_autobump! because: :requires_manual_review
-
   bottle do
-    sha256 arm64_sequoia: "1ffc6582d286ba7c1055977a97500cd471eb9f9841c25367fcd1d95732236ef8"
-    sha256 arm64_sonoma:  "9552d93ee2085bf77d77231dc028067699663683f109f5ed2c946f54f2d407f6"
-    sha256 arm64_ventura: "a2da2fd8087760d6dad8e20002165dca3b131d3905376eaedf70b6d681abc9b6"
-    sha256 sonoma:        "f624fb44bf82600cdda20654e6ba1f4fd1b9e5f14f424771fe248160da3a77d1"
-    sha256 ventura:       "94a359bbe2d18e22422fbff5d654404e99b1aad7ba98854c9ae686cfe6e0636e"
-    sha256 arm64_linux:   "2e59dddfbbbedb1a710590ede896261865481cce64e3e551a3d67850e2a77348"
-    sha256 x86_64_linux:  "516b7806491d2da1e788ec6d0fc7074716171ee10d04fdddc004f6cdb7e05ab8"
+    sha256 arm64_sequoia: "e1fbc716699bedd11ac0040cafb2d54fc7765d164f432f99e9a5b32751934330"
+    sha256 arm64_sonoma:  "696062f1262576c544cc2946d8297a467019e7fbc3209289ab380718ac83a9d0"
+    sha256 arm64_ventura: "16f6bdf8892dbf381e4821c695b9cd3e29c102b167fec621f71009a31def195b"
+    sha256 sonoma:        "1f1d40b5cf95971d18d44d64de9422d493a7defc5eef7600daa2de3bd7af304a"
+    sha256 ventura:       "e918e90c17a14c699bbd5985d69fa1a56f916aacba200bc82fe298e52df45268"
+    sha256 arm64_linux:   "959ef6bd9de4cef70e5dd50111aa46864c7101832bd1e5db86a408f630af4d24"
+    sha256 x86_64_linux:  "b39aff234f3c3b2f7520ed58837b70778c619dba4a56b9d4f29c3157bb99f482"
   end
 
   head do

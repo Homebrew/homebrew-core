@@ -1,17 +1,17 @@
 class Gbox < Formula
   desc "Provides environments for AI Agents to operate computer and mobile devices"
   homepage "https://gbox.ai"
-  url "https://github.com/babelcloud/gbox/releases/download/v0.1.11/gbox-v0.1.11.tar.gz"
-  sha256 "d2c74d1376460fe22318fbed0b53f3b2dfcdb405e64a25f5d87de2e90cb869dd"
+  url "https://github.com/babelcloud/gbox/releases/download/v0.1.12/gbox-v0.1.12.tar.gz"
+  sha256 "66c1d3bb4b6772a06a54b4e071f78522a2b329880378a5df8ed1f8bdb5139727"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "caafcb49ec793dd5a5f83e8600fbf19bd50d3a15d8560faa8838f760112fee6c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "dcd6e8bb9924806aeef839ad773f93d037ff081fd1745d2ba912f8b081f18c96"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "17bde24eb520bab6d13d991848467e1001c5068370266a038d5a7de9a161c87d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "28baf54eddba7f34a75c05a3160aca782a993f48776612082ba59bd4cddc7dbe"
-    sha256 cellar: :any_skip_relocation, ventura:       "9f01ad2bfa4e1a765a083fd791e87ac53a6f6940a1c125ad6a001574404f5377"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "19408263260f7741f3fa70b9b3c7cabba391b245ebd081617f56d6306e9a0785"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d5a268325bf77251c4e32f17a065803336fbe55496f203089149f9a20b978715"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "16cd9e6f00804fde96ffbbbea5e0d71aaad00a090e5431357fcd718490ebcfb6"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "3d9c418d5448c7328eacb03c307c287b59edc672c58567b76a7e23dc8a7364a6"
+    sha256 cellar: :any_skip_relocation, sonoma:        "297f7e36484e46d821891144f7f3ae8bd7478197622e9cb25e37e8c3a6985b5b"
+    sha256 cellar: :any_skip_relocation, ventura:       "59c1e97c129204fec935fd84e1806492131fc9b17d9d8681e0ad4de38be63bc4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7d4a3d999714d55a3c6b5275d7062b2fd19cb96e21ef1e8317dfbaeab9694e2d"
   end
 
   depends_on "go" => :build
