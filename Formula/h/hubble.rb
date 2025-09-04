@@ -35,5 +35,6 @@ class Hubble < Formula
 
   test do
     assert_match(/tls-allow-insecure:/, shell_output("#{bin}/hubble config get"))
+    assert_match version.to_s, shell_output("#{bin}/hubble version")
   end
 end
