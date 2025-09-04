@@ -3,14 +3,12 @@ class Abi3audit < Formula
 
   desc "Scans Python packages for abi3 violations and inconsistencies"
   homepage "https://github.com/pypa/abi3audit"
-  url "https://files.pythonhosted.org/packages/df/83/c2ba9ad764c3f432651ce396468b99995fb3fe97c29f7549d1c3cfb05112/abi3audit-0.0.21.tar.gz"
-  sha256 "78f6155dfcf089657764bf194ddeac987111a5648eba54fcd6b486968db4d3fa"
+  url "https://files.pythonhosted.org/packages/3f/c4/c87c370ba5c9e0821da2946bb8fd6ccf95c1c2869ef78368702d932e17ff/abi3audit-0.0.22.tar.gz"
+  sha256 "60d2c7a0556e98316a5a0e18e3b232e3b047011353762126d7af0db5a7f10da0"
   license "MIT"
-  revision 2
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, all: "ba80700ed97cf6e236751a223f264a9f2859be90e1d175c3426732bac7b03546"
+    sha256 cellar: :any_skip_relocation, all: "6e56de56e3e060bb818b4b9e3b493946d26f10cf181917d1199de68ec9497f84"
   end
 
   depends_on "cmake" => :build
@@ -33,8 +31,8 @@ class Abi3audit < Formula
   end
 
   resource "cattrs" do
-    url "https://files.pythonhosted.org/packages/57/2b/561d78f488dcc303da4639e02021311728fb7fda8006dd2835550cddd9ed/cattrs-25.1.1.tar.gz"
-    sha256 "c914b734e0f2d59e5b720d145ee010f1fd9a13ee93900922a2f3f9d593b8382c"
+    url "https://files.pythonhosted.org/packages/e3/42/988b3a667967e9d2d32346e7ed7edee540ef1cee829b53ef80aa8d4a0222/cattrs-25.2.0.tar.gz"
+    sha256 "f46c918e955db0177be6aa559068390f71988e877c603ae2e56c71827165cc06"
   end
 
   resource "charset-normalizer" do
@@ -63,8 +61,8 @@ class Abi3audit < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/d0/63/68dbb6eb2de9cb10ee4c9c14a0148804425e13c4fb20d61cce69f53106da/packaging-24.2.tar.gz"
-    sha256 "c228a6dc5e932d346bc5739379109d49e8853dd8223571c7c5b55260edc0b97f"
+    url "https://files.pythonhosted.org/packages/a1/d4/1fc4078c65507b51b96ca8f8c3ba19e6a61c8253c72794544580a7b6c24d/packaging-25.0.tar.gz"
+    sha256 "d443872c98d677bf60f6a1f2f8c1cb748e8fe762d2bf9d3148b5599295b0fc4f"
   end
 
   resource "pefile" do
@@ -98,8 +96,8 @@ class Abi3audit < Formula
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/ab/3a/0316b28d0761c6734d6bc14e770d85506c986c85ffb239e688eeaab2c2bc/rich-13.9.4.tar.gz"
-    sha256 "439594978a49a09530cff7ebc4b5c7103ef57baf48d5ea3184f21d9a2befa098"
+    url "https://files.pythonhosted.org/packages/fe/75/af448d8e52bf1d8fa6a9d089ca6c07ff4453d86c65c145d0a300bb073b9b/rich-14.1.0.tar.gz"
+    sha256 "e497a48b844b0320d45007cdebfeaeed8db2a4f4bcf49f15e455cfc4af11eaa8"
   end
 
   resource "typing-extensions" do
