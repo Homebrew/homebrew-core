@@ -23,7 +23,6 @@ class Mpd < Formula
   depends_on "pkgconf" => :build
 
   depends_on "chromaprint"
-  depends_on "expat"
   depends_on "faad2"
   depends_on "ffmpeg"
   depends_on "flac"
@@ -53,6 +52,7 @@ class Mpd < Formula
 
   uses_from_macos "bzip2"
   uses_from_macos "curl"
+  uses_from_macos "expat"
   uses_from_macos "zlib"
 
   on_ventura :or_older do
@@ -72,8 +72,18 @@ class Mpd < Formula
     depends_on "systemd"
   end
 
+  # Work around superenv to avoid mixing `expat` usage in libraries across dependency tree.
+  # Brew `expat` usage in Python has low impact as it isn't loaded unless pyexpat is used.
+  # TODO: Consider adding a DSL for this or change how we handle Python's `expat` dependency
+  def remove_brew_expat
+    env_vars = %w[CMAKE_PREFIX_PATH HOMEBREW_INCLUDE_PATHS HOMEBREW_LIBRARY_PATHS PATH PKG_CONFIG_PATH]
+    ENV.remove env_vars, /(^|:)#{Regexp.escape(Formula["expat"].opt_prefix)}[^:]*/
+    ENV.remove "HOMEBREW_DEPENDENCIES", "expat"
+  end
+
   def install
     if OS.mac? && MacOS.version <= :ventura
+      remove_brew_expat
       ENV.llvm_clang
       ENV.append "LDFLAGS", "-L#{Formula["llvm"].opt_lib}/unwind -lunwind"
       # When using Homebrew's superenv shims, we need to use HOMEBREW_LIBRARY_PATHS
