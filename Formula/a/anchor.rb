@@ -14,8 +14,9 @@ class Anchor < Formula
   end
 
   test do
-    system "#{bin}/anchor", "init", "test_project"
-    assert_predicate testpath/"test_project/Cargo.toml", :exist?
-    assert_predicate testpath/"test_project/Anchor.toml", :exist?
+    assert_match "anchor-cli #{version}", shell_output("#{bin}/anchor --version")
+    system bin/"anchor", "init", "test_project"
+    assert_path_exists testpath/"test_project/Cargo.toml"
+    assert_path_exists testpath/"test_project/Anchor.toml"
   end
 end
