@@ -1,10 +1,9 @@
 class ShibbolethSp < Formula
   desc "Shibboleth 2 Service Provider daemon"
   homepage "https://wiki.shibboleth.net/confluence/display/SHIB2"
-  url "https://shibboleth.net/downloads/service-provider/3.5.0/shibboleth-sp-3.5.0.tar.bz2"
-  sha256 "f301604bd17ee4d94a66e6dd7ad1c3f0917949a4a12176d55614483d78fefe58"
+  url "https://shibboleth.net/downloads/service-provider/3.5.1/shibboleth-sp-3.5.1.tar.bz2"
+  sha256 "05da3a09d76c3ba1a5ddd7f919fd942be2d87025f214aba139c2b64b804f9a99"
   license "Apache-2.0"
-  revision 2
 
   livecheck do
     url "https://shibboleth.net/downloads/service-provider/latest/"
