@@ -33,7 +33,6 @@ class Keepassc < Formula
 
   def install
     virtualenv_install_with_resources
-    man1.install_symlink libexec.glob("share/man/man1/*.1")
   end
 
   test do
