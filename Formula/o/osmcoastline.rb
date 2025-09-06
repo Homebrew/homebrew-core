@@ -20,25 +20,27 @@ class Osmcoastline < Formula
   depends_on "cmake" => :build
   depends_on "libosmium" => :build
   depends_on "protozero" => :build
-  depends_on "expat"
   depends_on "gdal"
   depends_on "geos"
   depends_on "libspatialite"
   depends_on "lz4"
 
   uses_from_macos "bzip2"
+  uses_from_macos "expat"
   uses_from_macos "sqlite"
   uses_from_macos "zlib"
 
+  # Work around superenv to avoid mixing `expat` usage in libraries across dependency tree.
+  # Brew `expat` usage in Python has low impact as it isn't loaded unless pyexpat is used.
+  # TODO: Consider adding a DSL for this or change how we handle Python's `expat` dependency
+  def remove_brew_expat
+    env_vars = %w[CMAKE_PREFIX_PATH HOMEBREW_INCLUDE_PATHS HOMEBREW_LIBRARY_PATHS PATH PKG_CONFIG_PATH]
+    ENV.remove env_vars, /(^|:)#{Regexp.escape(Formula["expat"].opt_prefix)}[^:]*/
+    ENV.remove "HOMEBREW_DEPENDENCIES", "expat"
+  end
+
   def install
-    # Work around an Xcode 15 linker issue which causes linkage against LLVM's
-    # libunwind due to it being present in a library search path.
-    if DevelopmentTools.clang_build_version >= 1500
-      recursive_dependencies
-        .select { |d| d.name.match?(/^llvm(@\d+)?$/) }
-        .map { |llvm_dep| llvm_dep.to_formula.opt_lib }
-        .each { |llvm_lib| ENV.remove "HOMEBREW_LIBRARY_PATHS", llvm_lib }
-    end
+    remove_brew_expat if OS.mac? && MacOS.version < :sequoia
 
     protozero = Formula["protozero"].opt_include
     args = %W[
@@ -50,13 +52,13 @@ class Osmcoastline < Formula
   end
 
   test do
-    (testpath/"input.opl").write <<~EOS
+    (testpath/"input.opl").write <<~OPL
       n100 v1 x1.01 y1.01
       n101 v1 x1.04 y1.01
       n102 v1 x1.04 y1.04
       n103 v1 x1.01 y1.04
       w200 v1 Tnatural=coastline Nn100,n101,n102,n103,n100
-    EOS
+    OPL
     system bin/"osmcoastline", "-v", "-o", "output.db", "input.opl"
   end
 end
