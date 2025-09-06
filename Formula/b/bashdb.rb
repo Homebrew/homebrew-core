@@ -1,9 +1,9 @@
 class Bashdb < Formula
   desc "Bash shell debugger"
   homepage "https://bashdb.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/bashdb/bashdb/5.0-1.1.2/bashdb-5.0-1.1.2.tar.bz2"
-  version "5.0-1.1.2"
-  sha256 "30176d2ad28c5b00b2e2d21c5ea1aef8fbaf40a8f9d9f723c67c60531f3b7330"
+  url "https://downloads.sourceforge.net/project/bashdb/bashdb/5.2-1.2.0/bashdb-5.2-1.2.0.tar.bz2"
+  version "5.2-1.2.0"
+  sha256 "96fe0c8ffc12bc478c9dc41bb349ae85135da71b692069b8b7f62b27967ce534"
   license "GPL-2.0-or-later"
 
   # We check the "bashdb" directory page because the bashdb project contains
@@ -48,9 +48,11 @@ class Bashdb < Formula
 end
 
 __END__
+diff --git a/configure.ac b/configure.ac
+index a7866f8..9fb80f5 100644
 --- a/configure.ac
 +++ b/configure.ac
-@@ -107,7 +107,7 @@
+@@ -107,7 +107,7 @@ bash_version=`$SH_PROG --version`
  [bash_minor=`$SH_PROG -c 'echo ${BASH_VERSINFO[1]}'`]
  bash_5_or_greater=no
  case "${bash_major}.${bash_minor}" in
@@ -59,13 +61,13 @@ __END__
      bash_5_or_greater=yes
      ;;
    *)
-@@ -118,7 +118,8 @@
-
+@@ -118,7 +118,8 @@ esac
+ 
  AC_ARG_WITH(dbg-main, AC_HELP_STRING([--with-dbg-main],
                    [location of dbg-main.sh]),
 -		  DBGR_MAIN=$withval)
 +		  [DBGR_MAIN=$withval]
 +		  [DBGR_MAIN=${ac_default_prefix/prefix}/bashdb/bashdb-main.inc])
  AC_SUBST(DBGR_MAIN)
-
+ 
  mydir=$(dirname $0)
