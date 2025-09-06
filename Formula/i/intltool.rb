@@ -24,7 +24,6 @@ class Intltool < Formula
   uses_from_macos "perl"
 
   on_linux do
-    depends_on "expat"
     depends_on "perl-xml-parser"
   end
 
