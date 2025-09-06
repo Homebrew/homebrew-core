@@ -4,6 +4,7 @@ class Gromacs < Formula
   url "https://ftp.gromacs.org/pub/gromacs/gromacs-2025.3.tar.gz"
   sha256 "8bdfca0268f3f10a7ca3c06e59b62f73ea02420c67211c0ff3912f32d7833c65"
   license "LGPL-2.1-or-later"
+  revision 1
 
   livecheck do
     url "https://ftp.gromacs.org/pub/gromacs/"
@@ -23,21 +24,15 @@ class Gromacs < Formula
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
   depends_on "fftw"
-  depends_on "gcc" # for OpenMP
   depends_on "lmfit"
+  depends_on "muparser"
   depends_on "openblas"
 
   uses_from_macos "zlib"
 
   on_macos do
-    conflicts_with "muparser", because: "gromacs ships its own copy of muparser"
+    depends_on "libomp"
   end
-
-  on_linux do
-    depends_on "muparser"
-  end
-
-  fails_with :clang
 
   def install
     # Non-executable GMXRC files should be installed in DATADIR
@@ -45,9 +40,9 @@ class Gromacs < Formula
                                         "CMAKE_INSTALL_DATADIR"
 
     # Avoid superenv shim reference
-    gcc = Formula["gcc"]
-    cc = gcc.opt_bin/"gcc-#{gcc.any_installed_version.major}"
-    cxx = gcc.opt_bin/"g++-#{gcc.any_installed_version.major}"
+    cc = DevelopmentTools.locate(ENV.cc)
+    cxx = DevelopmentTools.locate(ENV.cxx)
+
     inreplace "src/gromacs/gromacs-hints.in.cmake" do |s|
       s.gsub! "@CMAKE_LINKER@", "/usr/bin/ld"
       s.gsub! "@CMAKE_C_COMPILER@", cc
@@ -75,15 +70,9 @@ class Gromacs < Formula
       -DGMX_INSTALL_LEGACY_API=ON
       -DGMX_EXTERNAL_ZLIB=ON
       -DGMX_USE_LMFIT=EXTERNAL
+      -DGMX_USE_MUPARSER=EXTERNAL
       -DGMX_SIMD=#{gmx_simd}
     ]
-    args << if OS.mac?
-      # Use bundled `muparser` as brew formula is linked to libc++ on macOS but we need libstdc++.
-      # TODO: Try switching `gromacs` and its dependency tree to use Apple Clang + `libomp`
-      "-DFETCHCONTENT_SOURCE_DIR_MUPARSER=#{buildpath}/src/external/muparser"
-    else
-      "-DGMX_USE_MUPARSER=EXTERNAL"
-    end
 
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args, *args
     system "cmake", "--build", "build"

@@ -4,6 +4,7 @@ class Cp2k < Formula
   url "https://github.com/cp2k/cp2k/releases/download/v2025.1/cp2k-2025.1.tar.bz2"
   sha256 "65c8ad5488897b0f995919b9fa77f2aba4b61677ba1e3c19bb093d5c08a8ce1d"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url :stable
@@ -32,8 +33,8 @@ class Cp2k < Formula
   depends_on "openblas"
   depends_on "scalapack"
 
-  fails_with :clang do
-    cause "needs OpenMP support for C/C++ and Fortran"
+  on_macos do
+    depends_on "libomp"
   end
 
   resource "libint" do
@@ -58,12 +59,12 @@ class Cp2k < Formula
       ENV.prepend_path "PKG_CONFIG_PATH", libexec/"lib/pkgconfig"
     end
 
-    # TODO: Add workaround to link to LLVM OpenMP (libomp) with gfortran after migrating OpenBLAS
+    # Workaround to link to LLVM OpenMP (libomp) with gfortran
     omp_args = []
-    # if OS.mac?
-    #   omp_args << "-DOpenMP_Fortran_LIB_NAMES=omp"
-    #   omp_args << "-DOpenMP_omp_LIBRARY=#{Formula["libomp"].opt_lib}/libomp.dylib"
-    # end
+    if OS.mac?
+      omp_args << "-DOpenMP_Fortran_LIB_NAMES=omp"
+      omp_args << "-DOpenMP_omp_LIBRARY=#{Formula["libomp"].opt_lib}/libomp.dylib"
+    end
 
     # TODO: Remove dbcsr build along with corresponding CMAKE_PREFIX_PATH
     # and add -DCP2K_BUILD_DBCSR=ON once `cp2k` build supports this option.
@@ -85,9 +86,7 @@ class Cp2k < Formula
     # Avoid trying to access /proc/self/statm on macOS
     ENV.append "FFLAGS", "-D__NO_STATM_ACCESS" if OS.mac?
 
-    # Set -lstdc++ to allow gfortran to link libint
     cp2k_cmake_args = %W[
-      -DCMAKE_SHARED_LINKER_FLAGS=-lstdc++
       -DCMAKE_INSTALL_RPATH=#{rpath};#{rpath(target: libexec/"lib")}
       -DCP2K_BLAS_VENDOR=OpenBLAS
       -DCP2K_USE_LIBINT2=ON
