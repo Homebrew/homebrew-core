@@ -51,6 +51,7 @@ class Fontconfig < Formula
     end
 
     args = %W[
+      --default-library=both
       --localstatedir=#{var}
       --sysconfdir=#{etc}
       -Ddoc=disabled
