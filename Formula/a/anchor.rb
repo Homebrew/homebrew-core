@@ -5,9 +5,9 @@ class Anchor < Formula
   sha256 "0c9b1e3e1f14e78cb00271171b1cfac177c7c887814b022196bcbf7e2389e089"
   license "Apache-2.0"
 
-  depends_on "node"
-  depends_on "rust"
-  depends_on "yarn"
+  depends_on "rust" => :build
+  depends_on "node" => :test
+  depends_on "yarn" => :test
 
   def install
     system "cargo", "install", "--no-default-features", *std_cargo_args(path: "cli")
