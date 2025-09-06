@@ -33,7 +33,20 @@ class Xeol < Formula
   test do
     assert_match version.to_s, shell_output("#{bin}/xeol version")
 
-    output = shell_output("#{bin}/xeol alpine:latest")
+    # output = shell_output("#{bin}/xeol db delete 2>&1")
+    # assert_match "EOL database deleted", output
+
+    # output = shell_output("#{bin}/xeol db check 2>&1")
+    # assert_match "Update available!", output
+    # assert_match(%r{Updated DB URL: https://data\.xeol\.io/xeol/databases/xeol-db_v[-._0-9:T]*\.tar\.xz}, output)
+
+    output = shell_output("#{bin}/xeol db update 2>&1")
+    assert_match "EOL database updated to latest version!", output
+
+    output = shell_output("#{bin}/xeol db status 2>&1")
+    assert_match "Status:    valid", output
+
+    output = shell_output("#{bin}/xeol alpine:latest 2>&1")
     assert_match "no EOL software has been found", output
   end
 end
