@@ -25,10 +25,10 @@ class Openldap < Formula
 
   keg_only :provided_by_macos
 
-  depends_on "cyrus-sasl"
   depends_on "openssl@3"
 
   uses_from_macos "mandoc" => :build
+  uses_from_macos "cyrus-sasl"
 
   on_linux do
     depends_on "util-linux"
