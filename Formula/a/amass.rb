@@ -1,8 +1,8 @@
 class Amass < Formula
   desc "In-depth attack surface mapping and asset discovery"
   homepage "https://owasp.org/www-project-amass/"
-  url "https://github.com/owasp-amass/amass/archive/refs/tags/v5.0.0.tar.gz"
-  sha256 "38ec3964141c54099a2ca44c7add920e7a24101ca8eaa9a369d395541d28fe32"
+  url "https://github.com/owasp-amass/amass/archive/refs/tags/v5.0.1.tar.gz"
+  sha256 "975b23891423a29767d9d83c4d4d501e5ae524288be424b0052e61a9fe8a2869"
   license "Apache-2.0"
   head "https://github.com/owasp-amass/amass.git", branch: "main"
 
