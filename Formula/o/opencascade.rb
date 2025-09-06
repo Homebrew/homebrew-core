@@ -5,6 +5,7 @@ class Opencascade < Formula
   version "7.9.1"
   sha256 "e70b8c08c74f9693cbc91baa48610f1f5448ad167425fb8b957cf5a8f2cafed5"
   license "LGPL-2.1-only"
+  revision 1
 
   # The first-party download page (https://dev.opencascade.org/release)
   # references version 7.5.0 and hasn't been updated for later maintenance
@@ -37,7 +38,7 @@ class Opencascade < Formula
   depends_on "freeimage"
   depends_on "freetype"
   depends_on "tbb"
-  depends_on "tcl-tk@8" # TCL 9 issue: https://tracker.dev.opencascade.org/view.php?id=33725
+  depends_on "tcl-tk"
 
   on_linux do
     depends_on "libx11"
@@ -45,7 +46,7 @@ class Opencascade < Formula
   end
 
   def install
-    tcltk = Formula["tcl-tk@8"]
+    tcltk = Formula["tcl-tk"]
     libtcl = tcltk.opt_lib/shared_library("libtcl#{tcltk.version.major_minor}")
     libtk = tcltk.opt_lib/shared_library("libtk#{tcltk.version.major_minor}")
 
