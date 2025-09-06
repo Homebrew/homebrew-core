@@ -44,6 +44,7 @@ class Cairo < Formula
 
   def install
     args = %w[
+      --default-library=both
       -Dfontconfig=enabled
       -Dfreetype=enabled
       -Dpng=enabled
