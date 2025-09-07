@@ -4,7 +4,7 @@ class Fftw < Formula
   url "https://fftw.org/fftw-3.3.10.tar.gz"
   sha256 "56c932549852cddcfafdab3820b0200c7742675be92179e59e6215b340e26467"
   license all_of: ["GPL-2.0-or-later", "BSD-2-Clause"]
-  revision 2
+  revision 3
 
   livecheck do
     url :homepage
@@ -27,10 +27,8 @@ class Fftw < Formula
   depends_on "open-mpi"
 
   on_macos do
-    depends_on "gcc"
+    depends_on "libomp"
   end
-
-  fails_with :clang
 
   # Fix the cmake config file when configured with autotools, upstream pr ref, https://github.com/FFTW/fftw3/pull/338
   patch do
@@ -40,6 +38,11 @@ class Fftw < Formula
 
   def install
     ENV.runtime_cpu_detection
+
+    if OS.mac?
+      ENV["OPENMP_CFLAGS"] = "-Xpreprocessor -fopenmp"
+      ENV.append "LIBS", "-lomp"
+    end
 
     args = [
       "--enable-shared",
