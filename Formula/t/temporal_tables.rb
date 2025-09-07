@@ -24,7 +24,7 @@ class TemporalTables < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "3fc466f8f161e0a625d123f989a6aeb91b8ef1bb29dd489c4ae55a967a46582f"
   end
 
-  depends_on "postgresql@14" => [:build, :test]
+  depends_on "postgresql@15" => [:build, :test]
   depends_on "postgresql@17" => [:build, :test]
 
   def postgresqls
