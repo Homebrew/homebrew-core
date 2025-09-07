@@ -17,7 +17,7 @@ class PostgresqlHll < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "87c9b558987de3f251c0339c3427bf6e0c8172b887a697048b13b7cb0710e4de"
   end
 
-  depends_on "postgresql@14" => [:build, :test]
+  depends_on "postgresql@15" => [:build, :test]
   depends_on "postgresql@17" => [:build, :test]
 
   def postgresqls
