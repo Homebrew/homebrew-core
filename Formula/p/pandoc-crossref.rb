@@ -4,6 +4,7 @@ class PandocCrossref < Formula
   url "https://github.com/lierdakil/pandoc-crossref/archive/refs/tags/v0.3.20.tar.gz"
   sha256 "935d66e4b52323aba625b2bfa90abfea774816ccf4feb959e8271beac6d9b453"
   license "GPL-2.0-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "74d51e468d495edd3e4c095a3622e9061cdac17c821f6dd7413c1d164b417ae1"
@@ -21,6 +22,9 @@ class PandocCrossref < Formula
 
   uses_from_macos "unzip" => :build
   uses_from_macos "zlib"
+
+  # upstream bug report, https://github.com/lierdakil/pandoc-crossref/issues/482
+  patch :DATA
 
   def install
     rm("cabal.project.freeze")
@@ -42,3 +46,76 @@ class PandocCrossref < Formula
     refute_match "WARNING: pandoc-crossref was compiled", output
   end
 end
+
+__END__
+diff --git a/package.yaml b/package.yaml
+index eae4b5a..c7455c0 100644
+--- a/package.yaml
++++ b/package.yaml
+@@ -30,7 +30,7 @@ data-files:
+ dependencies:
+   base: ">=4.16 && <5"
+   text: ">=1.2.2 && <2.2"
+-  pandoc: ">=3.7.0.2 && < 3.8"
++  pandoc: ">=3.7.0.2 && < 3.9"
+   pandoc-types: ">= 1.23 && < 1.24"
+ _deps:
+   containers: &containers { containers: ">=0.1 && <0.7" }
+diff --git a/pandoc-crossref.cabal b/pandoc-crossref.cabal
+index 5270aa1..48a796f 100644
+--- a/pandoc-crossref.cabal
++++ b/pandoc-crossref.cabal
+@@ -169,7 +169,7 @@ library
+     , microlens >=0.4.12.0 && <0.5.0.0
+     , microlens-mtl >=0.2.0.1 && <0.3.0.0
+     , mtl >=1.1 && <2.4
+-    , pandoc >=3.7.0.2 && <3.8
++    , pandoc >=3.7.0.2 && <3.9
+     , pandoc-crossref-internal
+     , pandoc-types ==1.23.*
+     , text >=1.2.2 && <2.2
+@@ -223,7 +223,7 @@ library pandoc-crossref-internal
+     , microlens-mtl >=0.2.0.1 && <0.3.0.0
+     , microlens-th >=0.4.3.10 && <0.5.0.0
+     , mtl >=1.1 && <2.4
+-    , pandoc >=3.7.0.2 && <3.8
++    , pandoc >=3.7.0.2 && <3.9
+     , pandoc-types ==1.23.*
+     , syb >=0.4 && <0.8
+     , template-haskell >=2.7.0.0 && <3.0.0.0
+@@ -253,7 +253,7 @@ executable pandoc-crossref
+     , gitrev >=1.3.1 && <1.4
+     , open-browser ==0.2.*
+     , optparse-applicative >=0.13 && <0.19
+-    , pandoc >=3.7.0.2 && <3.8
++    , pandoc >=3.7.0.2 && <3.9
+     , pandoc-crossref
+     , pandoc-types ==1.23.*
+     , template-haskell >=2.7.0.0 && <3.0.0.0
+@@ -283,7 +283,7 @@ test-suite test-integrative
+     , directory >=1 && <1.4
+     , filepath >=1.1 && <1.6
+     , hspec >=2.4.4 && <3
+-    , pandoc >=3.7.0.2 && <3.8
++    , pandoc >=3.7.0.2 && <3.9
+     , pandoc-crossref
+     , pandoc-types ==1.23.*
+     , text >=1.2.2 && <2.2
+@@ -319,7 +319,7 @@ test-suite test-pandoc-crossref
+     , microlens >=0.4.12.0 && <0.5.0.0
+     , microlens-mtl >=0.2.0.1 && <0.3.0.0
+     , mtl >=1.1 && <2.4
+-    , pandoc >=3.7.0.2 && <3.8
++    , pandoc >=3.7.0.2 && <3.9
+     , pandoc-crossref
+     , pandoc-crossref-internal
+     , pandoc-types ==1.23.*
+@@ -348,7 +348,7 @@ benchmark simple
+   build-depends:
+       base >=4.16 && <5
+     , criterion >=1.5.9.0 && <1.7
+-    , pandoc >=3.7.0.2 && <3.8
++    , pandoc >=3.7.0.2 && <3.9
+     , pandoc-crossref
+     , pandoc-types ==1.23.*
+     , text >=1.2.2 && <2.2
