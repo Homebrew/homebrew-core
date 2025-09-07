@@ -12,14 +12,14 @@ class MaccleanupRust < Formula
       system "cargo", "install", "--locked", "--root", prefix, "--path", "."
     end
 
-    test do
-      # Test that the binary exists and shows help
-      assert_match "Mac Cleanup Tool (Rust Edition) By Gappa", shell_output("#{bin}/maccleanup-rust --help")
+test do
+    # Test that the binary exists and shows help
+    assert_match "🧹 Mac Cleanup Tool (Rust Edition) By Gappa", shell_output("#{bin}/maccleanup-rust --help")
 
-      # Test dry run mode works without errors
-      assert_match "DRY RUN mode", shell_output("#{bin}/maccleanup-rust --dry-run")
+    # Test dry run mode works without errors
+    assert_match "DRY RUN mode", shell_output("#{bin}/maccleanup-rust --dry-run")
 
-      # Test version information
-      system bin/"maccleanup-rust", "--help"
+    # Test version information
+    system bin/"maccleanup-rust", "--help"
     end
   end
