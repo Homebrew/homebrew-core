@@ -28,7 +28,7 @@ class Postgis < Formula
   end
 
   depends_on "pkgconf" => :build
-  depends_on "postgresql@14" => [:build, :test]
+  depends_on "postgresql@15" => [:build, :test]
   depends_on "postgresql@17" => [:build, :test]
 
   depends_on "gdal"
