@@ -15,7 +15,7 @@ class PgCron < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "c7206a1fa1242bbed6b486da83c12b373da497bf3ccaa72d81ba0d0dd6db55b5"
   end
 
-  depends_on "postgresql@14" => [:build, :test]
+  depends_on "postgresql@15" => [:build, :test]
   depends_on "postgresql@17" => [:build, :test]
   depends_on "libpq"
 
