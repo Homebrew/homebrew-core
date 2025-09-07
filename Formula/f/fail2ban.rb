@@ -47,7 +47,7 @@ class Fail2ban < Formula
 
     # Replace hardcoded paths
     inreplace_etc_var(Pathname.glob("config/{action,filter}.d/**/*").select(&:file?), audit_result: false)
-    inreplace_etc_var(["config/fail2ban.conf", "config/paths-common.conf", "doc/run-rootless.txt"])
+    inreplace_etc_var(["config/fail2ban.conf", "config/paths-common.conf"])
     inreplace_etc_var(Pathname.glob("fail2ban/**/*").select(&:file?), audit_result: false)
     inreplace_etc_var(Pathname.glob("man/*"), audit_result: false)
 
@@ -73,6 +73,11 @@ class Fail2ban < Formula
 
     # Install into `bash-completion@2` path as not compatible with `bash-completion`
     (share/"bash-completion/completions").install "files/bash-completion" => "fail2ban"
+
+    # Build an `:all` bottle
+    rm_r prefix/"#{Language::Python.site_packages("python3")}/fail2ban/tests"
+    ## Homebrew service requires root and so rootless doc is not needed
+    rm share/"doc/fail2ban/run-rootless.txt"
   end
 
   def inreplace_etc_var(targets, audit_result: true)
