@@ -20,7 +20,7 @@ class Hypopg < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "21cc0571fc75444925050a5856e02b3100ca1e5698adcaddf21b6dde1f269d42"
   end
 
-  depends_on "postgresql@14" => [:build, :test]
+  depends_on "postgresql@15" => [:build, :test]
   depends_on "postgresql@17" => [:build, :test]
 
   def postgresqls
