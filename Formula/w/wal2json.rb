@@ -24,7 +24,7 @@ class Wal2json < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "44d6b43deefc69fbd0cb1df19957d8f827d74f49693d43ddd2df058ebb3bfb1f"
   end
 
-  depends_on "postgresql@14" => [:build, :test]
+  depends_on "postgresql@15" => [:build, :test]
   depends_on "postgresql@17" => [:build, :test]
 
   def postgresqls
