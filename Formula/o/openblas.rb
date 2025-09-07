@@ -9,6 +9,7 @@ class Openblas < Formula
   # 3. interface/{gemmt.c,sbgemmt.c} is BSD-2-Clause
   # 4. relapack/ is MIT but license is omitted as it is not enabled
   license all_of: ["BSD-3-Clause", "BSD-2-Clause-Views", "BSD-3-Clause-Open-MPI", "BSD-2-Clause"]
+  revision 1
   head "https://github.com/OpenMathLib/OpenBLAS.git", branch: "develop"
 
   livecheck do
@@ -28,10 +29,27 @@ class Openblas < Formula
 
   keg_only :shadowed_by_macos, "macOS provides BLAS in Accelerate.framework"
 
+  depends_on "pkgconf" => :test
   depends_on "gcc" # for gfortran
-  fails_with :clang
+
+  on_macos do
+    depends_on "libomp"
+  end
 
   def install
+    # Workaround to use Apple Clang and link to `libomp`
+    if ENV.compiler == :clang
+      inreplace "Makefile.system" do |s|
+        s.gsub! "+= -fopenmp", "+= -Xpreprocessor -fopenmp"
+        # Also add GCC path to pkgconfig file as we don't symlink libgfortran to HOMEBREW_PREFIX/lib
+        s.gsub! "+= -lgfortran", "+= -L#{Formula["gcc"].opt_lib}/gcc/current -lgfortran"
+      end
+      inreplace "Makefile.install" do |s|
+        s.gsub! ":= -fopenmp", ":= -I#{Formula["libomp"].opt_include} -Xpreprocessor -fopenmp"
+        s.gsub! "+= -lgomp", "+= -L#{Formula["libomp"].opt_lib} -lomp"
+      end
+    end
+
     ENV.runtime_cpu_detection
     ENV.deparallelize # build is parallel by default, but setting -j confuses it
 
@@ -61,6 +79,7 @@ class Openblas < Formula
 
     lib.install_symlink shared_library("libopenblas") => shared_library("libblas")
     lib.install_symlink shared_library("libopenblas") => shared_library("liblapack")
+    pkgshare.install "cpp_thread_test"
   end
 
   test do
@@ -88,5 +107,24 @@ class Openblas < Formula
     system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lopenblas",
                    "-o", "test"
     system "./test"
+
+    cp_r pkgshare/"cpp_thread_test/.", testpath
+    ENV.prepend_path "PKG_CONFIG_PATH", lib/"pkgconfig"
+    flags = shell_output("pkgconf --cflags --libs --static openblas").chomp.split
+    ["dgemm_thread_safety", "dgemv_thread_safety"].each do |test|
+      inreplace "#{test}.cpp", '"../cblas.h"', '"cblas.h"'
+      system ENV.cxx, "#{test}.cpp", "-o", test, *flags
+      system "./#{test}"
+    end
+
+    return unless OS.mac?
+
+    # Check linkage uses correct OpenMP
+    require "utils/linkage"
+    libopenblas = lib/shared_library("libopenblas")
+    libomp = Formula["libomp"].opt_lib/shared_library("libomp")
+    libgomp = Formula["gcc"].opt_lib/"gcc/current"/shared_library("libgomp")
+    assert Utils.binary_linked_to_library?(libopenblas, libomp), "No linkage with #{libomp.basename}!"
+    refute Utils.binary_linked_to_library?(libopenblas, libgomp), "Unwanted linkage with #{libgomp.basename}!"
   end
 end
