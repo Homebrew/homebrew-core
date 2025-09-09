@@ -34,6 +34,7 @@ class TclTk < Formula
     depends_on "libxext"
   end
 
+  conflicts_with "libretls", because: "both install `tls` C header"
   conflicts_with "page", because: "both install `page` binaries"
   conflicts_with "the_platinum_searcher", because: "both install `pt` binaries"
 
