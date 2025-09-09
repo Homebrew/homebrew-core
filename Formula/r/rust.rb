@@ -183,7 +183,6 @@ class Rust < Formula
       --disable-cargo-native-static
       --disable-docs
       --disable-lld
-      --set=rust.jemalloc
       --release-description=#{tap.user}
     ]
     if build.head?
