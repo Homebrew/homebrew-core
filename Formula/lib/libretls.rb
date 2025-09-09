@@ -26,6 +26,8 @@ class Libretls < Formula
 
   depends_on "openssl@3"
 
+  conflicts_with "tcl-tk", because: "both install `tls` C header"
+
   def install
     system "./configure", *std_configure_args,
                           "--disable-silent-rules",
