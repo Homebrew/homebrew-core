@@ -18,14 +18,19 @@ class Regal < Formula
   depends_on "go" => :build
 
   def install
-    odie "Update ldflags" if build.stable? && version > "0.35.1"
-
+    # the source repo for this project has changed from styrainc/regal to
+    # open-policy-agent/regal. This is needed to do the correct assignments for
+    # all versions.
     ldflags = %W[
       -s -w
       -X github.com/styrainc/regal/pkg/version.Version=#{version}
       -X github.com/styrainc/regal/pkg/version.Commit=#{tap.user}
       -X github.com/styrainc/regal/pkg/version.Timestamp=#{time.iso8601}
       -X github.com/styrainc/regal/pkg/version.Hostname=#{tap.user}
+      -X github.com/open-policy-agent/regal/pkg/version.Version=#{version}
+      -X github.com/open-policy-agent/regal/pkg/version.Commit=#{tap.user}
+      -X github.com/open-policy-agent/regal/pkg/version.Timestamp=#{time.iso8601}
+      -X github.com/open-policy-agent/regal/pkg/version.Hostname=#{tap.user}
     ]
     system "go", "build", *std_go_args(ldflags:)
 
