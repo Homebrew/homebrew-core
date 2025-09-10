@@ -1,8 +1,8 @@
 class Node < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v24.7.0/node-v24.7.0.tar.xz"
-  sha256 "cf74a77753b629ffebd2e38fb153a21001b2b7a3c365c0ec7332b120b98c7251"
+  url "https://nodejs.org/dist/v24.8.0/node-v24.8.0.tar.xz"
+  sha256 "1c03b362ebf4740d4758b9a3d3087e3de989f54823650ec80b47090ef414b2e0"
   license "MIT"
   head "https://github.com/nodejs/node.git", branch: "main"
 
@@ -66,15 +66,8 @@ class Node < Formula
   # We track major/minor from upstream Node releases.
   # We will accept *important* npm patch releases when necessary.
   resource "npm" do
-    url "https://registry.npmjs.org/npm/-/npm-11.5.1.tgz"
-    sha256 "f4c82fbff74154f73bd5ce5a2b749700d55eaddebda97b16076bf7033040de34"
-  end
-
-  # Ensure vendored uvwasi is never built.
-  # https://github.com/nodejs/node/pull/59622
-  patch do
-    url "https://github.com/nodejs/node/commit/8025e1cfb95184d2191a46f2986b42630c0908f1.patch?full_index=1"
-    sha256 "f9cc06ba9ac2dcb98d67c89cac119a005da12b4b24e30b4f689e60041b5b94aa"
+    url "https://registry.npmjs.org/npm/-/npm-11.6.0.tgz"
+    sha256 "ddf7e6e42ae5b9e28d84945d1c37188f9a741af492507b513b3e80af5aeba4f1"
   end
 
   def install
