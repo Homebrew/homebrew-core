@@ -37,23 +37,24 @@ class GambitScheme < Formula
   fails_with :clang
 
   def install
+    ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
+    # -O1 is recommended over -O2 by upstream using recent GCC versions[^1].
+    # Similar tests on macOS 15 show -O1 outperforming both -Os and -O2.
+    # [^1]: https://github.com/gambit/gambit/blob/v4.9.7/INSTALL.txt#L99-L101
+    ENV.O1
+
     args = %W[
       --prefix=#{prefix}
       --docdir=#{doc}
       --infodir=#{info}
-      --enable-single-host
       --enable-default-runtime-options=f8,-8,t8
+      --enable-dynamic-clib
       --enable-openssl
+      --enable-single-host
+      --enable-trust-c-tco
     ]
 
     system "./configure", *args
-
-    # Fixed in gambit HEAD, but they haven't cut a release
-    inreplace "config.status" do |s|
-      s.gsub! %r{/usr/local/opt/openssl(@\d(\.\d)?)?}, Formula["openssl@3"].opt_prefix
-    end
-    system "./config.status"
-
     system "make"
     ENV.deparallelize
     system "make", "install"
