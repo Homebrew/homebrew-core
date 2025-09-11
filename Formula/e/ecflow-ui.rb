@@ -25,6 +25,12 @@ class EcflowUi < Formula
 
   uses_from_macos "libxcrypt"
 
+  # Replace boost::asio::deadline_timer since it was removed in Boost 1.89.0
+  patch do
+    url "https://raw.githubusercontent.com/ecmwf/ecflow/refs/heads/brew/patch-5.15.0/releng/brew/patches/5.15.0.patch"
+    sha256 "87c53a3cc96a36a00589ff0ea3bc44b62e56dd4539fda81155d72b5cf84db2a3"
+  end
+
   def install
     args = %w[
       -DECBUILD_LOG_LEVEL=DEBUG
