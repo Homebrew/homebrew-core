@@ -1,12 +1,12 @@
 class LiquibaseSecure < Formula
   desc "Database change management tool (Secure)"
-  homepage "https://www.liquibase.org/"
+  homepage "https://www.liquibase.com/"
   url "https://package.liquibase.com/downloads/secure/homebrew/liquibase-secure-5.0.0.tar.gz"
   sha256 "689acfcdc97bad0d4c150d1efab9c851e251b398cb3d6326f75e8aafe40ed578"
   license "Apache-2.0"
 
   livecheck do
-    url "https://repo.liquibase.com/releases/secure/"
+    url "https://package.liquibase.com/downloads/secure/homebrew/"
     regex(/href=.*?v?(\d+(?:\.\d+)+)\/?"/i)
   end
 
