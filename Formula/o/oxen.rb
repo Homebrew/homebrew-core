@@ -1,8 +1,8 @@
 class Oxen < Formula
   desc "Data VCS for structured and unstructured machine learning datasets"
   homepage "https://www.oxen.ai/"
-  url "https://github.com/Oxen-AI/Oxen/archive/refs/tags/v0.37.0.tar.gz"
-  sha256 "bcbfb67838ce2b065dc968963431f2d18a3cab002613f7bd2ab0b670577e4d4b"
+  url "https://github.com/Oxen-AI/Oxen/archive/refs/tags/v0.37.1.tar.gz"
+  sha256 "28524f207ed257fe4e75573068182c70ea8d6d62d1ec2bb0b33af96b7f6bd4ab"
   license "Apache-2.0"
   head "https://github.com/Oxen-AI/Oxen.git", branch: "main"
 
@@ -36,9 +36,6 @@ class Oxen < Formula
     depends_on "openssl@3"
   end
 
-  # upstream bug report, https://github.com/Oxen-AI/Oxen/issues/139
-  patch :DATA
-
   def install
     cd "oxen-rust" do
       system "cargo", "install", *std_cargo_args(path: "src/cli")
@@ -52,29 +49,3 @@ class Oxen < Formula
     assert_match "default_host = \"hub.oxen.ai\"", (testpath/".config/oxen/auth_config.toml").read
   end
 end
-
-__END__
-diff --git a/oxen-rust/Cargo.lock b/oxen-rust/Cargo.lock
-index 3f6c3af..d9f34d2 100644
---- a/oxen-rust/Cargo.lock
-+++ b/oxen-rust/Cargo.lock
-@@ -4429,6 +4429,7 @@ version = "0.37.0"
- dependencies = [
-  "async-trait",
-  "bytesize",
-+ "chrono",
-  "clap",
-  "colored 2.2.0",
-  "dialoguer",
-diff --git a/oxen-rust/src/cli/Cargo.toml b/oxen-rust/src/cli/Cargo.toml
-index e716b57..ab1e39c 100644
---- a/oxen-rust/src/cli/Cargo.toml
-+++ b/oxen-rust/src/cli/Cargo.toml
-@@ -6,6 +6,7 @@ edition = "2021"
- [dependencies]
- async-trait = "0.1.80"
- bytesize = "1.3.0"
-+chrono = "0.4.30"
- clap = { version = "4.2.7", features = ["cargo", "derive"] }
- colored = "2.0.0"
- dialoguer = "0.11.0"
