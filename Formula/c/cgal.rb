@@ -1,8 +1,8 @@
 class Cgal < Formula
   desc "Computational Geometry Algorithms Library"
   homepage "https://www.cgal.org/"
-  url "https://github.com/CGAL/cgal/releases/download/v6.0.1/CGAL-6.0.1.tar.xz"
-  sha256 "0acdfbf317c556630dd526f3253780f29b6ec9713ee92903e81b5c93c0f59b7f"
+  url "https://github.com/CGAL/cgal/releases/download/v6.1-beta1/CGAL-6.1-beta1-library.tar.xz"
+  sha256 "20ce3bd87ec1f405991e757999893d7a02d979c326f92d76008c3ee71962e2f9"
   license "GPL-3.0-or-later"
 
   bottle do
@@ -35,7 +35,6 @@ class Cgal < Formula
       FindLASLIB.cmake
       FindMKL.cmake
       FindOSQP.cmake
-      FindSuiteSparse.cmake
     ]
     inreplace inreplace_files.map { |file| lib/"cmake/CGAL"/file }, "/usr/local", HOMEBREW_PREFIX
 
