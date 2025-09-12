@@ -4,6 +4,7 @@ class Librsvg < Formula
   url "https://download.gnome.org/sources/librsvg/2.61/librsvg-2.61.1.tar.xz"
   sha256 "bc1bbcd419120b098db28bea55335d9de2470d4e6a9f6ee97207b410fc15867d"
   license "LGPL-2.1-or-later"
+  revision 1
 
   # librsvg doesn't use GNOME's "even-numbered minor is stable" version scheme.
   # This regex matches any version that doesn't have a 90+ patch version, as
