@@ -1,27 +1,27 @@
 class GrpcClient < Formula
   desc "Homebrew Package for a GRPC client to query the server with integrated React UI"
   homepage "https://bhagwati-web.github.io/homebrew-grpc-client"
-  
   version "0.0.1"
-  @@server_port = "50051"
-  @@server_url = "http://localhost:#{@@server_port}"
+  license "MIT"
+  
+  @server_port = "50051"
+  @server_url = "http://localhost:#{@server_port}"
 
   on_macos do
-    if Hardware::CPU.intel?
-      url "https://github.com/bhagwati-web/homebrew-grpc-client/releases/download/#{version}/grpc-client-darwin-amd64"
+    on_intel do
+      url "https://github.com/bhagwati-web/grpc-client/archive/refs/tags/v#{version}.tar.gz"
       sha256 "5869e638b4453c79a0ca057706df1c0811073e005c5f2c0d9c786ae95e7ab812"
-    else
-      url "https://github.com/bhagwati-web/homebrew-grpc-client/releases/download/#{version}/grpc-client-darwin-arm64"
+    end
+    on_arm do
+      url "https://github.com/bhagwati-web/grpc-client/archive/refs/tags/v#{version}.tar.gz"
       sha256 "3c316e74c35c7407645c0f44eb782483a4e40c90bf2415a20cd63f712b9f1623"
     end
   end
 
   on_linux do
-    url "https://github.com/bhagwati-web/homebrew-grpc-client/releases/download/#{version}/grpc-client-linux-amd64"
+    url "https://github.com/bhagwati-web/grpc-client/archive/refs/tags/v#{version}.tar.gz"
     sha256 "92b8dd1f88c3a855288b22aefe76fa51e4e380141aea8901429018dac6c33add"
   end
-
-  license "MIT"
 
   # Go binary has no external dependencies - works without Go installed!
 
@@ -30,9 +30,7 @@ class GrpcClient < Formula
     system "echo 'Checking for running GRPC Client processes...'"
     
     # Try to stop using the standard grpcstop command if it exists
-    if File.exist?("#{HOMEBREW_PREFIX}/bin/grpcstop")
-      system "#{HOMEBREW_PREFIX}/bin/grpcstop 2>/dev/null || true"
-    end
+    system "#{HOMEBREW_PREFIX}/bin/grpcstop 2>/dev/null || true" if File.exist?("#{HOMEBREW_PREFIX}/bin/grpcstop")
     
     # Kill any processes using the PID file
     if File.exist?(File.expand_path("~/.grpc-client.pid"))
@@ -42,7 +40,7 @@ class GrpcClient < Formula
     end
     
     # Kill any processes using the port as fallback
-    system "lsof -t -i:#{@@server_port} 2>/dev/null | xargs kill -9 2>/dev/null || true"
+    system "lsof -t -i:#{@server_port} 2>/dev/null | xargs kill -9 2>/dev/null || true"
     
     # Kill any grpc-client processes by name
     system "pkill -f grpc-client 2>/dev/null || true"
@@ -68,8 +66,8 @@ class GrpcClient < Formula
       sleep 3
 
       echo "GRPC Client Server started successfully!"
-      echo "Server is running on #{@@server_url}"
-      echo "React UI is available at #{@@server_url}"
+      echo "Server is running on #{@server_url}"
+      echo "React UI is available at #{@server_url}"
       echo "Use 'grpcstop' to stop the server"
 
       # Open the default browser with the server URL
@@ -97,9 +95,9 @@ class GrpcClient < Formula
       fi
       
       # Fallback: kill any process using the port
-      if lsof -t -i:#{@@server_port} > /dev/null 2>&1; then
-        lsof -t -i:#{@@server_port} | xargs kill -9
-        echo "Killed any remaining processes on port #{@@server_port}"
+      if lsof -t -i:#{@server_port} > /dev/null 2>&1; then
+        lsof -t -i:#{@server_port} | xargs kill -9
+        echo "Killed any remaining processes on port #{@server_port}"
       fi
       
       echo "GRPC Client Server stopped successfully!"
@@ -123,7 +121,7 @@ class GrpcClient < Formula
     puts "🚀 Start server:    grpcstart"
     puts "🛑 Stop server:     grpcstop"
     puts ""
-    puts "Server will be available at: #{@@server_url}"
+    puts "Server will be available at: #{@server_url}"
     puts "================================================"
     puts ""
     puts "🎉 Starting GRPC Client Server automatically..."
