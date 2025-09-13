@@ -557,6 +557,22 @@ class Flexget < Formula
     venv = virtualenv_install_with_resources without: "pyzstd"
     cd venv.site_packages do
       system venv.root/"bin/python", buildpath/"scripts/bundle_webui.py"
+      directories = [
+        "Crypto/Cypher",
+        "Crypto/Hash",
+        "Crypto/Protocol",
+        "Crypto/PublicKey",
+        "Crypto/Util"
+      ]
+      directories.each do |dir|
+        pattern = File.join(dir, "_*.so")
+        files_to_delete = Dir.glob(pattern)
+        if files_to_delete
+          files_to_delete.each do |file|
+            FileUtils.rm(file)
+          end
+        end
+      end
     end
     # We need to build separately to link to our `zstd`.
     resource("pyzstd").stage do
