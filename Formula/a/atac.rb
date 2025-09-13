@@ -1,8 +1,8 @@
 class Atac < Formula
   desc "Simple API client (Postman-like) in your terminal"
   homepage "https://atac.julien-cpsn.com/"
-  url "https://github.com/Julien-cpsn/ATAC/archive/refs/tags/v0.20.2.tar.gz"
-  sha256 "d2f8163a8df224c7dd07e5aa2db6c000938102fe5b637e583e2a123a731c1ea5"
+  url "https://github.com/Julien-cpsn/ATAC/archive/refs/tags/v0.22.0.tar.gz"
+  sha256 "018036b8e079b5a8397e81ee0027f956f991e084e275caf5da878137804b0834"
   license "MIT"
   head "https://github.com/Julien-cpsn/ATAC.git", branch: "main"
 
