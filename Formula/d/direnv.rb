@@ -19,10 +19,19 @@ class Direnv < Formula
   depends_on "bash"
 
   def install
+    ENV["CGO_ENABLED"] = OS.mac? ? "1" : "0"
     system "make", "install", "PREFIX=#{prefix}", "BASH_PATH=#{Formula["bash"].opt_bin}/bash"
   end
 
   test do
-    system bin/"direnv", "status"
+    assert_match "No .envrc or .env found", shell_output("#{bin}/direnv status")
+
+    ENV["TEST"] = "failed"
+    (testpath/".envrc").write "export TEST=passed"
+
+    assert_match "No .envrc or .env loaded", shell_output("#{bin}/direnv status")
+    system bin/"direnv", "allow"
+
+    assert_match "passed", shell_output("#{bin}/direnv exec . sh -c 'echo $TEST'")
   end
 end
