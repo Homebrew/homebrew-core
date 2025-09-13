@@ -9,6 +9,7 @@ class FseventWatch < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "1a3847d25e0203b6edf1b64e5f05f463df21da98dda45a0ef07ad3c05b2ca82c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "0a96b52b8e7a56b8ee8c83f18d8bf32c1413a79a6f22192cd11d011e8f84c392"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b52aa2f7b37774ad1250f27ea993c494de0e338a1e27be12c16773c41a9a69e7"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "d22101fa98bbaa37a0b7926e3ea7b0c46b55888543b06d3ad3fe3126623058bd"
