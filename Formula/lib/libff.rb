@@ -36,12 +36,17 @@ class Libff < Formula
     # build libff dynamically. The project only builds statically by default
     inreplace "libff/CMakeLists.txt", "STATIC", "SHARED"
 
-    system "cmake", "-S", ".", "-B", "build",
-                    "-DWITH_PROCPS=OFF",
-                    "-DCURVE=#{curve}",
-                    "-DOPENSSL_ROOT_DIR=#{Formula["openssl@3"].opt_prefix}",
-                    "-DCMAKE_POSITION_INDEPENDENT_CODE=ON",
-                    *std_cmake_args
+    args = %W[
+      -DWITH_PROCPS=OFF
+      -DCURVE=#{curve}
+      -DOPENSSL_ROOT_DIR=#{Formula["openssl@3"].opt_prefix}
+      -DCMAKE_CXX_STANDARD=17
+      -DCMAKE_POSITION_INDEPENDENT_CODE=ON
+    ]
+    # Workaround to build with CMake 4
+    args << "-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
+
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
