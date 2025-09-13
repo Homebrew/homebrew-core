@@ -1,11 +1,24 @@
 class Bsc < Formula
   desc "Bluespec Compiler (BSC)"
   homepage "https://github.com/B-Lang-org/bsc"
-  url "https://github.com/B-Lang-org/bsc.git",
-    tag:      "2025.01.1",
-    revision: "65e3a87a17f6b9cf38cbb7b6ad7a4473f025c098"
   license "BSD-3-Clause"
   head "https://github.com/B-Lang-org/bsc.git", branch: "main"
+
+  stable do
+    url "https://github.com/B-Lang-org/bsc.git",
+        tag:      "2025.01.1",
+        revision: "65e3a87a17f6b9cf38cbb7b6ad7a4473f025c098"
+
+    # Backport support for TCL 9
+    patch do
+      url "https://github.com/B-Lang-org/bsc/commit/8dbe999224a5d7d644e11274e696ea3536026683.patch?full_index=1"
+      sha256 "2a17f251216fbf874804ff7664ffd863767969f9b7a7cfe6858b322b1acc027e"
+    end
+    patch do
+      url "https://github.com/B-Lang-org/bsc/commit/36da7029be8ae11e8889db9a312f514663e44b96.patch?full_index=1"
+      sha256 "ba76094403b68d16c47ee4fae124dec4cb2664e4391dc37a06082bde1a23bf72"
+    end
+  end
 
   no_autobump! because: :requires_manual_review
 
@@ -28,7 +41,7 @@ class Bsc < Formula
   depends_on "pkgconf" => :build
   depends_on "gmp"
   depends_on "icarus-verilog"
-  depends_on "tcl-tk@8"
+  depends_on "tcl-tk"
 
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
@@ -36,6 +49,10 @@ class Bsc < Formula
   uses_from_macos "perl"
 
   conflicts_with "libbsc", because: "both install `bsc` binaries"
+
+  # Workaround to use brew `tcl-tk` until upstream adds support
+  # https://github.com/B-Lang-org/bsc/issues/504#issuecomment-1286287406
+  patch :DATA
 
   def install
     system "cabal", "v2-update"
@@ -123,3 +140,34 @@ class Bsc < Formula
     assert_equal expected_output, shell_output("./mkFibOne.bexe")
   end
 end
+
+__END__
+--- a/platform.sh
++++ b/platform.sh
+@@ -78,7 +78,7 @@ fi
+ ## =========================
+ ## Find the TCL shell command
+ 
+-if [ ${OSTYPE} = "Darwin" ] ; then
++if [ ${OSTYPE} = "SKIP" ] ; then
+     # Have Makefile avoid Homebrew's install of tcl on Mac
+     TCLSH=/usr/bin/tclsh
+ else
+@@ -106,7 +106,7 @@ TCL_ALT_SUFFIX=$(echo ${TCL_SUFFIX} | sed 's/\.//')
+ 
+ if [ "$1" = "tclinc" ] ; then
+     # Avoid Homebrew's install of Tcl on Mac
+-    if [ ${OSTYPE} = "Darwin" ] ; then
++    if [ ${OSTYPE} = "SKIP" ] ; then
+ 	# no flags needed
+ 	exit 0
+     fi
+@@ -146,7 +146,7 @@ fi
+ 
+ if [ "$1" = "tcllibs" ] ; then
+     # Avoid Homebrew's install of Tcl on Mac
+-    if [ ${OSTYPE} = "Darwin" ] ; then
++    if [ ${OSTYPE} = "SKIP" ] ; then
+ 	echo -ltcl${TCL_SUFFIX}
+ 	exit 0
+     fi
