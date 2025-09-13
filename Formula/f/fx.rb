@@ -7,6 +7,7 @@ class Fx < Formula
   head "https://github.com/antonmedv/fx.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0f1d48477373e40e38a38f931a13ca7627da1036179b954c379bcd6d1937642e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "0f1d48477373e40e38a38f931a13ca7627da1036179b954c379bcd6d1937642e"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0f1d48477373e40e38a38f931a13ca7627da1036179b954c379bcd6d1937642e"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "0f1d48477373e40e38a38f931a13ca7627da1036179b954c379bcd6d1937642e"
