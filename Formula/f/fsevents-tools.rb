@@ -13,6 +13,7 @@ class FseventsTools < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "e9c957de83e07813d6363e58bf6d8e1c9ade1592ce6a965817d57a0b824fd165"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "69d137adc9cbcce94aa7160b76705454f3f04fc0598f2146264887fc0a278c2e"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "665d116f18811af91513b9cd670e8504cc765bebc6e114fbf815930bd48386f7"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "862af188ba8ede21f7810c642424284d257e2ffdb88ae8652d0eff0ce519d270"
