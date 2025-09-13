@@ -50,6 +50,10 @@ class Supermodel < Formula
     if build.stable?
       inreplace makefile_dir do |s|
         if OS.mac?
+          # Remove deprecated AGL framework
+          # https://developer.apple.com/documentation/macos-release-notes/macos-26-release-notes#AGL
+          s.gsub! "-framework AGL", "" if DevelopmentTools.clang_build_version >= 1700
+
           # Set up SDL library correctly
           s.gsub! "-framework SDL", "`sdl-config --libs`"
           s.gsub!(/(\$\(COMPILER_FLAGS\))/, "\\1 -I#{Formula["sdl12-compat"].opt_prefix}/include")
