@@ -562,15 +562,15 @@ class Flexget < Formula
         "Crypto/Hash",
         "Crypto/Protocol",
         "Crypto/PublicKey",
-        "Crypto/Util"
+        "Crypto/Util",
       ]
       directories.each do |dir|
         pattern = File.join(dir, "_*.so")
         files_to_delete = Dir.glob(pattern)
-        if files_to_delete
-          files_to_delete.each do |file|
-            FileUtils.rm(file)
-          end
+        next unless files_to_delete
+
+        files_to_delete.each do |file|
+          rm(file)
         end
       end
     end
