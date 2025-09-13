@@ -4,6 +4,7 @@ class Goffice < Formula
   url "https://download.gnome.org/sources/goffice/0.10/goffice-0.10.59.tar.xz"
   sha256 "b08f7173325594b71fbbea476a30b5b3120c3dadff5c0a26d140e4e524916622"
   license any_of: ["GPL-3.0-only", "GPL-2.0-only"]
+  revision 1
 
   bottle do
     sha256 arm64_sequoia: "f9d3ab0788e1062443680621dc3c842ac1feb8a43f64f833e4444af8d6a2338e"
