@@ -25,6 +25,6 @@ class MediaControl < Formula
   end
 
   test do
-    system bin/"media-control", "get"
+    system bin/"media-control", "test"
   end
 end
