@@ -124,6 +124,8 @@ class Openjdk < Formula
         --with-freetype-include=#{Formula["freetype"].opt_include}
         --with-freetype-lib=#{Formula["freetype"].opt_lib}
         --with-sysroot=#{MacOS.sdk_path}
+        METAL=#{MacOS::Xcode.toolchain_path/"usr/bin/metal"}
+        METALLIB=#{MacOS::Xcode.toolchain_path/"usr/bin/metal"}
       ]
     else
       %W[
