@@ -7,6 +7,7 @@ class ChiselTunnel < Formula
   head "https://github.com/jpillora/chisel.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1049f3436fb444ec030a3a72bd683e4b1f4b5b03792614f4fcc1e8c0102f97fa"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "1049f3436fb444ec030a3a72bd683e4b1f4b5b03792614f4fcc1e8c0102f97fa"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1049f3436fb444ec030a3a72bd683e4b1f4b5b03792614f4fcc1e8c0102f97fa"
     sha256 cellar: :any_skip_relocation, sonoma:        "59ba4b6702799362ee29fc43ff40979b5b8ee6c3836836140030c58a9a4c0f57"
