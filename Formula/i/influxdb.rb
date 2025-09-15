@@ -2,8 +2,8 @@ class Influxdb < Formula
   desc "Time series, events, and metrics database"
   homepage "https://influxdata.com/time-series-platform/influxdb/"
   url "https://github.com/influxdata/influxdb.git",
-      tag:      "v3.3.0",
-      revision: "02d7ee1e6fec5b62debbe862881562e451624de6"
+      tag:      "v3.4.2",
+      revision: "571299afed3644c69811df9a71816446af64dec0"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/influxdata/influxdb.git", branch: "main"
 
@@ -50,10 +50,19 @@ class Influxdb < Formula
     end
 
     system "cargo", "install", *std_cargo_args(path: "influxdb3")
+
+    # Create data, plugin, and log directories
+    (var/"lib/influxdb3").mkpath
+    (var/"lib/influxdb3/plugins").mkpath
+    (var/"log/influxdb3").mkpath
   end
 
   service do
-    run opt_bin/"influxdb3"
+    run [opt_bin/"influxdb3", "serve",
+         "--node-id", "node0",
+         "--object-store", "file",
+         "--data-dir", var/"lib/influxdb3",
+         "--plugin-dir", var/"lib/influxdb3/plugins"]
     keep_alive true
     working_dir HOMEBREW_PREFIX
     log_path var/"log/influxdb3/influxd_output.log"
@@ -64,7 +73,7 @@ class Influxdb < Formula
     port = free_port
     host = "http://localhost:#{port}"
     pid = spawn bin/"influxdb3", "serve",
-                          "--node-id", "node1",
+                          "--node-id", "node0",
                           "--object-store", "file",
                           "--data-dir", testpath/"influxdb_data",
                           "--http-bind", "0.0.0.0:#{port}"
