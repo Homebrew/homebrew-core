@@ -8,8 +8,7 @@ class Ctrld < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", "-o", "ctrld", "./cmd/ctrld"
-    bin.install "ctrld"
+    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/ctrld"
   end
 
   test do
