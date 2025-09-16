@@ -33,11 +33,7 @@ class Inetutils < Formula
 
   def noshadow
     # List of binaries that do not shadow macOS utils
-    list = %w[dnsdomainname rcp rexec rlogin rsh]
-    on_high_sierra :or_newer do
-      list += %w[ftp telnet]
-    end
-    list
+    %w[dnsdomainname rcp rexec rlogin rsh ftp telnet]
   end
 
   def linux_conflicts
@@ -50,10 +46,10 @@ class Inetutils < Formula
   end
 
   def install
-    system "./configure", *std_configure_args,
-                          "--disable-silent-rules",
+    system "./configure", "--disable-silent-rules",
                           "--with-idn",
-                          "--program-prefix=g"
+                          "--program-prefix=g",
+                          *std_configure_args
     system "make", "SUIDMODE=", "install"
 
     no_conflict = OS.mac? ? noshadow : []
