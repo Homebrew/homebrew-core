@@ -305,7 +305,7 @@
     "exclude_packages": ["certifi", "cryptography", "numpy", "pygit2"]
   },
   "dvr-scan": {
-    "exclude_packages": ["numpy"],
+    "exclude_packages": ["numpy", "opencv-python", "pillow"],
     "extra_packages": ["pyobjc-framework-cocoa"]
   },
   "dxpy": {

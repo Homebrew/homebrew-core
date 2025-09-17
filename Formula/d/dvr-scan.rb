@@ -3,11 +3,9 @@ class DvrScan < Formula
 
   desc "Extract scenes with motion from videos"
   homepage "https://www.dvr-scan.com/"
-  url "https://files.pythonhosted.org/packages/8c/9e/b4772f3c942a00a1ea7cce8055958e503292d314bff51feda1429a271f7a/dvr_scan-1.7.tar.gz"
-  version "1.7.0.1"
-  sha256 "f7036f8e679cd14bb61417266b1f8cff4f365a00227bff3d6ed75200f33e5c53"
+  url "https://files.pythonhosted.org/packages/d5/21/1076956f89acea7b040d14ed6178e42d03b83b41e1954d4156a18df80333/dvr_scan-1.8.1.tar.gz"
+  sha256 "3ac0c94e68f23cdd73f6433a9a3102e00b0409c5c4e6c654fc69650c719fa3c7"
   license "BSD-2-Clause"
-  revision 2
   head "https://github.com/Breakthrough/DVR-Scan.git", branch: "main"
 
   bottle do
@@ -25,11 +23,8 @@ class DvrScan < Formula
   depends_on "ffmpeg"
   depends_on "numpy"
   depends_on "opencv"
+  depends_on "pillow"
   depends_on "python@3.13"
-
-  on_macos do
-    depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1699
-  end
 
   resource "click" do
     url "https://files.pythonhosted.org/packages/60/6c/8ca2efa64cf75a977a0d7fac081354553ebe483345c734fb6b6515d96bbc/click-8.2.1.tar.gz"
@@ -37,13 +32,18 @@ class DvrScan < Formula
   end
 
   resource "cython" do
-    url "https://files.pythonhosted.org/packages/18/40/7b17cd866158238db704965da1b5849af261dbad393ea3ac966f934b2d39/cython-3.1.2.tar.gz"
-    sha256 "6bbf7a953fa6762dfecdec015e3b054ba51c0121a45ad851fa130f63f5331381"
+    url "https://files.pythonhosted.org/packages/a7/f6/d762df1f436a0618455d37f4e4c4872a7cd0dcfc8dec3022ee99e4389c69/cython-3.1.4.tar.gz"
+    sha256 "9aefefe831331e2d66ab31799814eae4d0f8a2d246cbaaaa14d1be29ef777683"
+  end
+
+  resource "opencv-contrib-python" do
+    url "https://files.pythonhosted.org/packages/e0/b4/30fb53c33da02626b66dd40ad58dd4aa01eef834e422e098dfc056ed0873/opencv-contrib-python-4.12.0.88.tar.gz"
+    sha256 "0f1e22823aace09067b9a0e8e2b4ba6d7a1ef08807d6cebea315f3133f419a0e"
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/fe/8b/3c73abc9c759ecd3f1f7ceff6685840859e8070c4d947c93fae71f6a0bf2/platformdirs-4.3.8.tar.gz"
-    sha256 "3d512d96e16bcb959a814c9f348431070822a6496326a4be0911c40b5a74c2bc"
+    url "https://files.pythonhosted.org/packages/23/e8/21db9c9987b0e728855bd57bff6984f67952bea55d6f75e055c46b5383e8/platformdirs-4.4.0.tar.gz"
+    sha256 "ca753cf4d81dc309bc67b0ea38fd15dc97bc30ce419a7f58d13eb3bf14c4febf"
   end
 
   resource "pyobjc-core" do
@@ -57,8 +57,8 @@ class DvrScan < Formula
   end
 
   resource "scenedetect" do
-    url "https://files.pythonhosted.org/packages/59/36/1e29ac958e2d2b5e4365fb7de03f94a98b9949c46267e682bcfe22460812/scenedetect-0.6.6.tar.gz"
-    sha256 "4b50946abca886bd623e7a304e30da197f0e7e69cd65d80115d551538261c35b"
+    url "https://files.pythonhosted.org/packages/bd/b1/800d4c1d4da24cd673b921c0b5ffd5bbdcaa2a7f4f4dd86dd2c202a673c6/scenedetect-0.6.7.tar.gz"
+    sha256 "1a2c73b57de2e1656f7896edc8523de7217f361179a8966e947f79d33e40830f"
   end
 
   resource "screeninfo" do
@@ -74,8 +74,6 @@ class DvrScan < Formula
   def install
     # Help `pyobjc-framework-cocoa` pick correct SDK after removing -isysroot from Python formula
     ENV.append_to_cflags "-isysroot #{MacOS.sdk_path}" if OS.mac?
-    # pyobjc-core uses "-fdisable-block-signature-string" introduced in clang 17
-    ENV.llvm_clang if DevelopmentTools.clang_build_version <= 1699
 
     without = %w[pyobjc-core pyobjc-framework-cocoa] unless OS.mac?
     virtualenv_install_with_resources without:
