@@ -3,9 +3,14 @@ require "language/node"
 class Lazycommit < Formula
   desc "Writes your git commit messages for you with AI using Groq"
   homepage "https://github.com/KartikLabhshetwar/lazycommit"
-  url "https://registry.npmjs.org/lazycommitt/-/lazycommitt-1.0.8.tgz"
-  sha256 "a1b0e0e82a0f1ec557329ea7382759587acf6d0c0c901f8905f1b40fdeb1f311"
+  url "https://registry.npmjs.org/lazycommitt/-/lazycommitt-1.0.10.tgz"
+  sha256 "a7f888b386988d4eaf6b070cbab33f0690945b6011e01d1a0005544c0450f363"
   license "Apache-2.0"
+
+  livecheck do
+    url :stable
+    strategy :npm
+  end
 
   depends_on "node"
 
@@ -15,6 +20,6 @@ class Lazycommit < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/lazycommit --version")
+    assert_match "lazycommit", shell_output("#{bin}/lazycommit --help")
   end
 end
