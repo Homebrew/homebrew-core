@@ -1,4 +1,4 @@
-require "language/node"
+require "language/node" 
 
 class Lazycommit < Formula
   desc "Writes your git commit messages for you with AI using Groq"
