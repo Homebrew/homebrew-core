@@ -8,6 +8,7 @@ class Pgsync < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "1f6a6e2b970a24e8d4de77f9c1e9adfd8285fbab0bfcf279e66b99b833a03530"
     sha256 cellar: :any,                 arm64_sequoia: "4cdc2bb0bfcfc0f306696026ed00a5025c11d34a04e6787541782ca0b47dd543"
     sha256 cellar: :any,                 arm64_sonoma:  "ce5c0f2b05b9f7380714773e17635bf35327defda51c519e751832eeff86cb76"
     sha256 cellar: :any,                 sonoma:        "25aa2a324078445ed8e7089b0f990804b6f403a31a6e8f0be2608c777f9ea0cd"

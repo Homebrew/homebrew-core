@@ -14,6 +14,7 @@ class Ncompress < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "fb300d3e1ef4dc25fab6344cc7e6010bd55f0fa66403c3371f8d6b3f449d7645"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "f7e39b3e6471d9335023fcc1434352de41fe4521adff432f237c4167c7de71fc"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f28dac0e82ae6c3642abb0648dbc64959c1822ca44f2b73a1afce7fb1335328a"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f5a549a65439192ba3656d246d95c57979228f95d5c9ccfe26be0fd9744dae1d"

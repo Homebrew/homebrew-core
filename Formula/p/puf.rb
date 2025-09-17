@@ -8,6 +8,7 @@ class Puf < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "ec01e1392c1d20a55a38aa3f02102a9687184966b760254a2fb280c37f48da73"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "148adff9f4f307fc6b8a94bf5a5baa2c66dd8f3aee810c349a4cc3a356517d90"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "cb2dd937eb2ae17b8c5abb9df4e2a8639c02dfce8ae5d6a78f26a51ec5104d44"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "1ba1fc9eecb1a5920c6eadb88fe5c2142bafd356d420356f15afb0a923ef5b3b"

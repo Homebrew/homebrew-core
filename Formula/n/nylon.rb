@@ -11,6 +11,7 @@ class Nylon < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "fc061e1bd83501bfd964f4d38d83a650157e2c4933843c8b0423fa70c6f97732"
     sha256 cellar: :any,                 arm64_sequoia:  "9d68b83a58d01d235ccc302690fddd22413603e42beae2b8b909eaca8caab83b"
     sha256 cellar: :any,                 arm64_sonoma:   "ab39d342239cf90b5fd6395e5deec9e5664312a8b76d481973f61d7604c1d39b"
     sha256 cellar: :any,                 arm64_ventura:  "be2cc327743e9011455a4f318ea045968c6eb10632ebe6452194342e3a9fbb39"

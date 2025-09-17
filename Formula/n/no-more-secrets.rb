@@ -8,6 +8,7 @@ class NoMoreSecrets < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "78c23f5552c5d2437a61d3fbb592912b97668316aea647d3191542b37e93178d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "49db28f730a1161803aea7fc495500e939e07c5b424491c8e55263a3d099a505"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8e5b8371902771d0fc72ecc7d5e85ebdbcc4cd84269b5397c6c7e87ad6e13e0b"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "3bdce162d45e3059543b396e4eda6481e47ec9dc3b44e9a8d439262bdcd8fb20"

@@ -8,6 +8,7 @@ class Ps2eps < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "07c8fdeb6cd50b5a03d6cd29b80a45cddb0c40149d3e739ab56d8ac33f0ccd45"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "0cd7a84b33465e03768eb2c76ec181b730c775f18e57eeb282df636ee1a8e10f"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "09d6e7f0fbbec5bd6e494715028e9730c32ddb1284261d5593734d1bd35c79da"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "0993f1da048518572c4388a4eab1e7c37151c97859eec0802b639ef803d71eca"

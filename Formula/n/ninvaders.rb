@@ -8,6 +8,7 @@ class Ninvaders < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "67f7a9ab2212b5b2ddd49e6bf8cbe915606186a4b1d0ff2523d23bd87ad59372"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "89cd69d1df23bd848757897116b0dbbb8a0535d65264cf8956e5323bae0fac4e"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "61f4aa067bfda98318e230bca8a456f18b6d05ad875dba74b05a93b4d63e0d96"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "b5086f1e6f104b199763ec9feedd2a3ee64340abf584d3dc2ea2fc50201ecb3e"

@@ -22,7 +22,6 @@ class Terminalimageviewer < Formula
   end
 
   depends_on "imagemagick"
-  depends_on macos: :catalina
 
   def install
     cd "src" do

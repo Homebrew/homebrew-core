@@ -1,19 +1,17 @@
 class Openapi < Formula
   desc "CLI tools for working with OpenAPI, Arazzo and Overlay specifications"
   homepage "https://github.com/speakeasy-api/openapi"
-  url "https://github.com/speakeasy-api/openapi/archive/refs/tags/v1.6.5.tar.gz"
-  sha256 "d6655ab1979e87e61d0c14f7e1a8608327922c28a518c5725ff1b83b56c07210"
+  url "https://github.com/speakeasy-api/openapi/archive/refs/tags/v1.7.1.tar.gz"
+  sha256 "06ee551a1835ea19f55fb499727bcf436a8b88e12aeedf4104b7fbdbe72be502"
   license "MIT"
   head "https://github.com/speakeasy-api/openapi.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "73caf015378bd5a0c58bbfc077097e9f08931aad8f7264e28319e56e641bd9d1"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "73caf015378bd5a0c58bbfc077097e9f08931aad8f7264e28319e56e641bd9d1"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "73caf015378bd5a0c58bbfc077097e9f08931aad8f7264e28319e56e641bd9d1"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "73caf015378bd5a0c58bbfc077097e9f08931aad8f7264e28319e56e641bd9d1"
-    sha256 cellar: :any_skip_relocation, sonoma:        "6a48ca54f19cec817f76e21b5ee064dfce2fb349ebf6e7cf6ee8c7e4c9dfbd2b"
-    sha256 cellar: :any_skip_relocation, ventura:       "6a48ca54f19cec817f76e21b5ee064dfce2fb349ebf6e7cf6ee8c7e4c9dfbd2b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4ccf24389c86c980278497d0d63bb05665ae74881102d8dce412422c25416dc8"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "dc1035a42c516259459aa33c2279f90ca27087fd721f54c4ad9f79def74dd73f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "dc1035a42c516259459aa33c2279f90ca27087fd721f54c4ad9f79def74dd73f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "dc1035a42c516259459aa33c2279f90ca27087fd721f54c4ad9f79def74dd73f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e689a7600b3f20e414e5c5fc9529f501572d9df3f6708d4f0851ec6ff4feeeb1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "289a30853567916bc55b23a9fdc8e73cbf0a9cce9cb81d318057296d0fab571b"
   end
 
   depends_on "go" => :build

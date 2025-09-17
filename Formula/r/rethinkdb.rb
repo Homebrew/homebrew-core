@@ -41,8 +41,7 @@ class Rethinkdb < Formula
 
   def install
     ENV.cxx11
-    # Can use system Python 2 for older macOS. See https://rethinkdb.com/docs/build
-    ENV["PYTHON"] = which("python3") if !OS.mac? || MacOS.version >= :catalina
+    ENV["PYTHON"] = which("python3")
 
     args = %W[
       --prefix=#{prefix}

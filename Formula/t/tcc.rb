@@ -27,6 +27,10 @@ class Tcc < Formula
     sha256 x86_64_linux: "053f79a5752554e18ecba168184e48481bce8a2db418a3f9b0de094f9e6d0e4d"
   end
 
+  # Last release on 2017-12-17 and currently only builds on single runner (x86_64 linux).
+  # The HEAD mob branch unmoderated so not ideal to use an arbitrary commit.
+  deprecate! date: "2025-09-16", because: :unsupported
+
   def install
     # Add appropriate include paths for macOS or Linux.
     os_include_path = if OS.mac?

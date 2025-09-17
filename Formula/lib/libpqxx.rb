@@ -19,9 +19,8 @@ class Libpqxx < Formula
   depends_on "pkgconf" => :build
   depends_on "xmlto" => :build
   depends_on "libpq"
-  depends_on macos: :catalina # requires std::filesystem
 
-  uses_from_macos "python" => :build, since: :catalina
+  uses_from_macos "python" => :build
 
   def install
     ENV.append "CXXFLAGS", "-std=c++17"

@@ -16,6 +16,7 @@ class Pmccabe < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "d6009f8f139c0e42442a816ca33c1bfdfc37139431948350fdc107d35d24c7cf"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "0e638bf96079e2650e33e91114ab8b2559fbc1d9b998e6afa5eae06a6e1d4eca"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "910d1bd786def57f3f61e080e1d8918f8dbebd42d0474fd273c93949b169d154"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "3f712276e9c471ef5ebb6de8c2849ca16372b9a5328e742c3c63a23b3106b84d"

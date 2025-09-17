@@ -11,6 +11,7 @@ class Nextflow < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "93cdc2a01bee09458e4c7321abeeba61ffb078370b535fbf2f4c5b2e72b8a55b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "f73522dd924f7f30ae3c0ab929c0004444bfc6936f749eb748750c93ba81534e"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b3c7682b4a6a29b452089ad7876d124df96eba48f320aab1b1bfcbafe94fec08"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "dd5594c626cf7f152bc96d505fe531acaa4a7fc19565b4a131e37fbb695a5582"

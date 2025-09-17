@@ -52,7 +52,7 @@ class Ttfautohint < Formula
 
   test do
     if OS.mac?
-      font_name = (MacOS.version >= :catalina) ? "Arial Unicode.ttf" : "Arial.ttf"
+      font_name = "Arial Unicode.ttf"
       font_dir = "/Library/Fonts"
     else
       font_name = "DejaVuSans.ttf"

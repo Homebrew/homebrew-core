@@ -7,6 +7,7 @@ class Terrahub < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "f55d63174552fd453e84e74afdb9c3d7d76cf070ee8171f84f2a509ae1fb3e39"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "338bea3d5cf73bd46b3c98463c61454328de8bd281762ee4e504408e851622c6"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c1c3889a86c9e36878ef3e3e9695c1033e06ba5843c58a9dc852684f0ee9911b"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "c1c3889a86c9e36878ef3e3e9695c1033e06ba5843c58a9dc852684f0ee9911b"

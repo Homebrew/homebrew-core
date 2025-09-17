@@ -8,6 +8,7 @@ class Nuitka < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "81a74cb8e127839acdad3211bd1cecf4c2e122e46441c5c8536e1a0cca5672a8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "4569e10bf571c9cc4c0364d29b3d4e4fcdf193ab7d82a5e4a5649b53749bdfe4"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c60cd7e39fbcf8504f8be4134969b36e5c02b78a326df2a490098e0011db9329"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "55eff93a7a9eb385341432c06567731606a2753ef4e6bd7ca7d53f722ae95a46"

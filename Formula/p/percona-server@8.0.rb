@@ -23,6 +23,7 @@ class PerconaServerAT80 < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:   "04f33cef72a0383b11561bfde6117334c1ea6b225f161420bc1eb1ca62eaf102"
     sha256 arm64_sequoia: "3eed8303b8842a9387d698b7e28b7fed5030a0f26d1ef48fbd1c2db998dc3e78"
     sha256 arm64_sonoma:  "efe604f23093e3b617ecfb843c9b1eef30dfcd9cdbb56807f759a2bc711ab23c"
     sha256 arm64_ventura: "3f6e7796a2836f1acae4f19d146c89e81d84b1fa2b373136742408f9f580084d"

@@ -7,6 +7,7 @@ class Pluto < Formula
   head "https://github.com/FairwindsOps/pluto.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f2ce8542f9844379316b832ffdf2be851fcbda2b71d6e902c9acb9026c56be3f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "a7e0f503c5794de3102e4a5c76f8dc68fc0b49c15b7e3f7c9084077cc62acb84"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a7e0f503c5794de3102e4a5c76f8dc68fc0b49c15b7e3f7c9084077cc62acb84"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "a7e0f503c5794de3102e4a5c76f8dc68fc0b49c15b7e3f7c9084077cc62acb84"

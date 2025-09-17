@@ -6,6 +6,7 @@ class Tcpkali < Formula
   license "BSD-2-Clause"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "b35b2a69212122e9fe05744632f7e9d4fb424881dc430216559df87f797d4239"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "d3356d233dace7efe54b216d5ba97ed31a4ad7e800bb94ad5bc078dcdda8e7a0"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e39e3dddac6717a918e86cb86f552ccc71c2a828b361599083a0d36fa3e79780"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "a4e360c9b9f4e392e429075847cf3d4f02d0318668d19d5745a7f0108c381330"

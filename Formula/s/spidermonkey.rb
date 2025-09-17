@@ -56,10 +56,6 @@ class Spidermonkey < Formula
     end
   end
 
-  # Fix to find linker on macos-15, abusing LD_PRINT_OPTIONS is not working
-  # Issue ref: https://bugzilla.mozilla.org/show_bug.cgi?id=1964280
-  patch :DATA
-
   def install
     # Workaround for ICU 76+
     # Issue ref: https://bugzilla.mozilla.org/show_bug.cgi?id=1927380
@@ -70,6 +66,7 @@ class Spidermonkey < Formula
     if OS.mac?
       inreplace "build/moz.configure/toolchain.configure" do |s|
         # Help the build script detect ld64 as it expects logs from LD_PRINT_OPTIONS=1 with -Wl,-version
+        # Issue ref: https://bugzilla.mozilla.org/show_bug.cgi?id=1844694
         s.sub! '"-Wl,--version"', '"-Wl,-ld_classic,-v"' if DevelopmentTools.clang_build_version >= 1500
         # Allow using brew libraries on macOS (not officially supported)
         s.sub!(/^(\s*def no_system_lib_in_sysroot\(.*\n\s*if )bootstrapped and value:/, "\\1False:")
@@ -119,27 +116,3 @@ class Spidermonkey < Formula
     assert_equal "hello", shell_output("#{bin}/js #{path}").strip
   end
 end
-
-__END__
-diff --git a/build/moz.configure/toolchain.configure b/build/moz.configure/toolchain.configure
-index 264027e..2e073a3 100644
---- a/build/moz.configure/toolchain.configure
-+++ b/build/moz.configure/toolchain.configure
-@@ -1906,7 +1906,16 @@ def select_linker_tmpl(host_or_target):
-                 kind = "ld64"
- 
-             elif retcode != 0:
--                return None
-+                # macOS 15 fallback: try `-Wl,-v` if --version failed
-+                if target.kernel == "Darwin":
-+                    fallback_cmd = cmd_base + linker_flag + ["-Wl,-v"]
-+                    retcode2, stdout2, stderr2 = get_cmd_output(*fallback_cmd, env=env)
-+                    if retcode2 == 0 and "@(#)PROGRAM:ld" in stderr2:
-+                        kind = "ld64"
-+                    else:
-+                        return None
-+                else:
-+                    return None
- 
-             elif "mold" in stdout:
-                 kind = "mold"

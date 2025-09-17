@@ -11,6 +11,7 @@ class Ngt < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "00a70c66e53987f62692fb48ea750afe6344663f653a229541736607181ed836"
     sha256 cellar: :any,                 arm64_sequoia: "ca6328b8842370642575edf299320134ff4aae8407af90a4dfd36ec3f4fa1602"
     sha256 cellar: :any,                 arm64_sonoma:  "06ef432570e37242816977cc9214051f40697641960d279e9ee2c38744920292"
     sha256 cellar: :any,                 arm64_ventura: "0405420d040dde5f267c8f78542471500de7411a69ccba386d9947287688edca"

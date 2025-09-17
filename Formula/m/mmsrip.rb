@@ -7,6 +7,7 @@ class Mmsrip < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "5216ece2171a711b50b797f04f7fea905f9e0cdd580d8c3d98df8619573060b9"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "ba19c7e871dd33876bdbd931af577e633a3c2eeb1f0fb25c9d3ade606a0b8c1f"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "55daa14e690e02d12277a19443906bfbf3fa4bd20a4415a8cc362fa954eead44"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "bd7b148f1a0c9017f7a141493d40fd0c4e764fe34a458f151ccb5925bcbc2a13"

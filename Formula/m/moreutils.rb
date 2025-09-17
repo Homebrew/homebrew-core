@@ -17,6 +17,7 @@ class Moreutils < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "bb9c8584114eafbe7eab4f89b0502d72688b7ea7d1dea6fd485a1bd5e5541149"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "4d054e5d66851413c272c39e156a48467f39959e89c84f91c1de41cd690c6b78"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fe0990b48df79c064ba76b72360019bea03328e6fcbd99a866ab9d6a1a37e95f"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "52bc03dcf5828555287e4f2ddd22da821a332a07f73118449dfd7fb9b86bf2dc"
@@ -65,6 +66,9 @@ class Moreutils < Formula
       s.gsub! "/usr/share/xml/docbook/stylesheet/docbook-xsl",
               "#{Formula["docbook-xsl"].opt_prefix}/docbook-xsl"
     end
+    # Find our docbook catalog
+    ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
+
     system "make", "all"
     system "make", "install", "PREFIX=#{prefix}"
     bin.env_script_all_files(libexec/"bin", PERL5LIB: ENV["PERL5LIB"])

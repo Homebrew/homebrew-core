@@ -7,6 +7,7 @@ class Neovide < Formula
   head "https://github.com/neovide/neovide.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8a353bf0c06e9848e02714039184884029f383e42ff4d84a63e59267b5772a46"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "c08fd54b4c43582bd0f6e043ca65f227a1de29a81208ca3507f8a86f7199c629"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "21d06535abaf109688ff50870ef514838a2d7fa800a239bc5af5285c6aa1043e"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "42d229838f126c492755560d495cd18dc78d817c8fb421a54896da2e6e5dd7d2"
@@ -68,6 +69,7 @@ class Neovide < Formula
     # https://github.com/burtonageo/cargo-bundle/issues/118
     with_env(TERM: "xterm") { system "cargo", "bundle", "--release" }
     prefix.install "target/release/bundle/osx/Neovide.app"
+    rm bin/"neovide" # Remove the original binary first
     bin.write_exec_script prefix/"Neovide.app/Contents/MacOS/neovide"
   end
 

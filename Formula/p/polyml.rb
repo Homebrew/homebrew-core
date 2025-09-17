@@ -8,6 +8,7 @@ class Polyml < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_tahoe:   "2e1a65ca5584fbed5d8809d26b612abdedd723df506daa33d82bdd2144a8c8f7"
     sha256 arm64_sequoia: "73159083107e398682b609d20c700a909a15e9cf8ccb95fc6311c567cc39a9a1"
     sha256 arm64_sonoma:  "e2f1500bcbb66c6ac5ff92627229efba5c6c3702f22d17bfd7a5648801a22125"
     sha256 sonoma:        "ebfa52db23d6ce50906a8c66957230db9ba791429c5e1e5cbc96bd2ad3eed16c"

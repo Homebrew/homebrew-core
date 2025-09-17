@@ -1,19 +1,17 @@
 class Ignite < Formula
   desc "Build, launch, and maintain any crypto application with Ignite CLI"
   homepage "https://docs.ignite.com/"
-  url "https://github.com/ignite/cli/archive/refs/tags/v29.3.1.tar.gz"
-  sha256 "f501ad2737cb24c1d761905caf5592728a2d0b2440e2dde39ef90a082273b8ad"
+  url "https://github.com/ignite/cli/archive/refs/tags/v29.4.0.tar.gz"
+  sha256 "c489fcf1905db1038a1d8b3a3ad6811a5ad6ed2f5807cdd16da8e5abe5924829"
   license "Apache-2.0"
   head "https://github.com/ignite/cli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "631b69732431837e8d64dd62d05c8e7a13ee0cc2d64dc57469caf2b5d7a354fd"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "09e37bf37fe54f64d51de3078a3ebfde3c1474f566e2b0087d4ab109a47692ec"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c30b4d2d4c221326ffd6a506d6ab63d636d9b3972427244a1cf1f688c34626ae"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "45b34f9f06fa6488b4b0f1ff198f7a382d4d1651ed794e94dc04e621d52def2a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "03baf493774b97e582c543cf457113d851789aefe5ba1a3e03ed601ca445ed77"
-    sha256 cellar: :any_skip_relocation, ventura:       "065e961abfaf91b299fbdacc26213a90ef88112cbac4d920fbd4f1cd1fff5bfd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e44aa860b5f3a226414f4ee884f28ff3cc64d147c0cfda92797fd4f3a9878dcf"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3fe41e640e6ce1c160b57fadb2a15ec27cb583ecbc9368bb6bf771c9aafb298f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9f5803810d8fae6a7c75ad6c51035926dc011f907d11e2029e97c41d5e5a4fe4"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d8cc6394d55081f1e3f612bd9353a48b08ccba7644a2f5610816e540a160f5aa"
+    sha256 cellar: :any_skip_relocation, sonoma:        "4dc287001d30393bbdb86d789ae4afd8248f645b3f4e5f80903427fd22de532b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f2354a861f73b7103e17117f3df44d6d9887c912ecc99317963303f2da36f64b"
   end
 
   depends_on "go"

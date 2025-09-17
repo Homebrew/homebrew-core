@@ -18,6 +18,7 @@ class Pulsarctl < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "83e1958c3566ef1876e91d8405cb268d1e1c65e0387d7761c4bb7dfe1152c4e1"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "9c05cc856dd8c563e18efb08e75656064c6297c9056f439659088c2cfa9d06a8"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6996eafd1c35e6620a4b2603414471383aa5779264568cfaa27725c77272b629"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "ac631d62517ac72556972c629793be40e0cff72b8dc11740cd107bba85e7b813"

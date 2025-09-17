@@ -8,6 +8,7 @@ class Plutoprint < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "39d7e6236e8fab5b83d58f24874d508823e27738501e655f3f734adc362d35b2"
     sha256 cellar: :any,                 arm64_sequoia: "2e5fe4a2e39568447835f6101bfac77dd0484bee2d07c8ba3069fc1c7e24338b"
     sha256 cellar: :any,                 arm64_sonoma:  "39d677acbdbfa3748a998038dfd685579644866de6dfdcbb37827425ba4b677e"
     sha256 cellar: :any,                 arm64_ventura: "fbdbdade14cd1893a1e19f4cfcd2d4d3c63407ed0aa084d22f31bcfeb657438f"

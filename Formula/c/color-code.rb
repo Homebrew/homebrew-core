@@ -13,6 +13,7 @@ class ColorCode < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "ad3f82efc9695c34bf0108765bd03a823567321fb844bbd2dfed5ed7b679ba4d"
     sha256 cellar: :any,                 arm64_sequoia:  "eca15102195ecbf35b9b5db261ad63a1e7849f68048a9872757c99a300af2198"
     sha256 cellar: :any,                 arm64_sonoma:   "5279b770c1208847aa8bc485ffe5d60a457a22867ba8ae3b9b72a6ccb10b9cee"
     sha256 cellar: :any,                 arm64_ventura:  "656617a979b49e4b6cb0ea002e6d2a5d715a042bbbab3d4d4c0524f0b0b93845"

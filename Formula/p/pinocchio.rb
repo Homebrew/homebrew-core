@@ -13,6 +13,7 @@ class Pinocchio < Formula
   end
 
   bottle do
+    sha256                               arm64_tahoe:   "a8dd393229e351e87b15d89185b9a1cdc18054d6b897fea58f6682b18d787d2f"
     sha256                               arm64_sequoia: "eda82cd8f0c0386776d08a58bee6cab180ce611e6c5cb1a2865f84ec3293b8bc"
     sha256                               arm64_sonoma:  "27f25f5d0317089c25e91e32fe6198518f959894797ee38a810a80330b8ae8d8"
     sha256                               arm64_ventura: "cf5349e00902bd01dc2a4f940aa548c11d7132f8a01754b1dbb2e84537bd3972"

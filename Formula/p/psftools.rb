@@ -20,6 +20,7 @@ class Psftools < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "06f275a8b9d1fe1537d8456c91ee2e58b90d514bfc721f2d89a4ef1f56f6f17d"
     sha256 cellar: :any,                 arm64_sequoia:  "12640a4b3994e97fca6c888cdd660d554598bf8bcbb308ceeb9b84215e7d8fb3"
     sha256 cellar: :any,                 arm64_sonoma:   "7b3c2ecfcbac182eeb598a944eb04ae8506330cd0ae1b058a96679f52dad028b"
     sha256 cellar: :any,                 arm64_ventura:  "6d1a0f368538d9943d29048cc34f0db13a9df55d2c100f831dd2a66f987fa32d"

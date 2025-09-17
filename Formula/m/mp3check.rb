@@ -8,6 +8,7 @@ class Mp3check < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "7b728bb5db4fb551bba2fe2ca58a59ae28df476caa8457d4b9ee5d04811d77ac"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "5cd5050fc0ece72900fdee9f06144599fd519f2f62fa3ec3f8ed0af1e4805301"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "42c1f2ae16cad1568599d24fbf5ad30f8fab865e9c00dab2fc73eb32eba401d7"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "17d0d21d24eae65edccb72577dbc578d89d1660a7c95eda9c521c2ac27636f6a"
@@ -22,12 +23,10 @@ class Mp3check < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "72769405fb206a5851bac35ea59bc0d4b7663c57a62cdc8bfa172fa21379130e"
   end
 
-  # Apply Debian patch to fix build with newer GCC
+  # Apply Debian patch to fix build with newer C++ standards
   patch do
-    on_linux do
-      url "https://salsa.debian.org/reichel/mp3check/-/raw/2154e6fcb25189ab45c3ae6f787adc8526ad1377/debian/patches/fix_ftbfs_with_gcc_9"
-      sha256 "00c90ab89e181cbbfe8ac54280acd17cfe6a1d3f4844685aca0426b9291f932f"
-    end
+    url "https://salsa.debian.org/reichel/mp3check/-/raw/2154e6fcb25189ab45c3ae6f787adc8526ad1377/debian/patches/fix_ftbfs_with_gcc_9"
+    sha256 "00c90ab89e181cbbfe8ac54280acd17cfe6a1d3f4844685aca0426b9291f932f"
   end
 
   def install

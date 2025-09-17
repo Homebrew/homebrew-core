@@ -7,6 +7,7 @@ class Proxsuite < Formula
   head "https://github.com/Simple-Robotics/proxsuite.git", branch: "devel"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "dca5f42fae6d2b57ea50ee5a8f41c169ee59baf241e9759c04bae23541bae59e"
     sha256 cellar: :any,                 arm64_sequoia: "55eeaba27c0759020f1af4fee87c57cd7f06250654985fcb314aafd65bd94bc2"
     sha256 cellar: :any,                 arm64_sonoma:  "039089b526b129afda357462b2c41773e3a711ba40cfd5570cdfa97265e3bd8e"
     sha256 cellar: :any,                 arm64_ventura: "bd8a4c2c6c377eddc448910028a0afde9db6185a77c4bcf600191384c6529eb6"

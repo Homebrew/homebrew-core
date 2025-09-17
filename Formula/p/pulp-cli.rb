@@ -8,6 +8,7 @@ class PulpCli < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "70bee84cde5f41f012f3f20adbe663d1ca3064141985171889b7d012bf7b3e18"
     sha256 cellar: :any,                 arm64_sequoia: "a541d3b1434eb9c01d4d87fd7dee1abd934f10d034079aa0a22f6dbb38779178"
     sha256 cellar: :any,                 arm64_sonoma:  "935c3ee12f46129e537691d8e14e8a89d21e1507f6b9e34fb6583798465bfdca"
     sha256 cellar: :any,                 arm64_ventura: "e6ea4509d7a87d0eb1a54d24fd5689a6a40b2a101fb94ac3e87111a1b21401c6"

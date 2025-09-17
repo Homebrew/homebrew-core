@@ -6,6 +6,7 @@ class Pie < Formula
   license "BSD-3-Clause"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f92f04f969d77f970faa6c6463a70dbb758778d159feaa3b9606d1a17a9026ca"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "f92f04f969d77f970faa6c6463a70dbb758778d159feaa3b9606d1a17a9026ca"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f92f04f969d77f970faa6c6463a70dbb758778d159feaa3b9606d1a17a9026ca"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "f92f04f969d77f970faa6c6463a70dbb758778d159feaa3b9606d1a17a9026ca"

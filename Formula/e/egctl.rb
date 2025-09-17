@@ -1,20 +1,18 @@
 class Egctl < Formula
   desc "Command-line utility for operating Envoy Gateway"
   homepage "https://gateway.envoyproxy.io/"
-  url "https://github.com/envoyproxy/gateway/archive/refs/tags/v1.5.0.tar.gz"
-  sha256 "67898a015065fcbd053bda13df2e69c0d0db0b10c549164745f1f326b1cfb9d8"
+  url "https://github.com/envoyproxy/gateway/archive/refs/tags/v1.5.1.tar.gz"
+  sha256 "79d5f3c5da1a5b0d467ebb792b7d11882ddfaf5ebef38c03b98f16b3b5125403"
   license "Apache-2.0"
   head "https://github.com/envoyproxy/gateway.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2c5dcf7629e0ccdd249087031c9e9276021f784f351d87064aefa5c1fc525379"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9fff11916f560dabcf372dabd96e332a2e6af113510e81c79e6e85cb4b2a5f19"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "773361a7ec53a858716bea91db8fcf8c4685ce346a614f141b9400145cdc34d2"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "763d8c9d12992782127162bbb0ca0acc267e567cf31dce173a8bcccc5a1ca702"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c1d82e859f6017428d540e406b5a32109385d6062b1fd4d79fe1ad10defa81b9"
-    sha256 cellar: :any_skip_relocation, ventura:       "cc06f34558467dfecf95e6ba8dc63b50c9068795366abfdb4c7a6f699be7bf87"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d40016bbdee6365701a655999cecfc5cbec5f280b28fd5f3ff797fd0ddf8e38b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "881ea0c651aed89fbd9ac856330b9162c1b84ff1e8e74e9a986b77932c78861e"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "cfb29b197a94f7f5ccb28d6e4657956378b4cc7d43b6e897e9748b18945c81ca"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bea05addd2cddf5af5359d64f477370a3b1a1e8f953e65ece4f70b863ed8c359"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1cc0599544269737552edf795f231577ea9c8e1d09db7ce5344b0dbdf79c248a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "6810f8330c7e9135b9d08ac2eca85b15b8d327f5f2bb606ccc6b504ac3c5e44f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b9833aaffef40852120561e2f48d90505a7aa1b781793bc5131e4dccf8cf87eb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2516083e2a7e41701538a9aa3fc896de55b6ea8d89fdbfe3ac0a7c6a42115376"
   end
 
   depends_on "go" => :build

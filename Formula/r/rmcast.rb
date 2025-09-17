@@ -1,18 +1,12 @@
 class Rmcast < Formula
   desc "IP Multicast library"
-  homepage "https://www.land.ufrj.br/tools/rmcast/rmcast.html"
-  url "https://www.land.ufrj.br/tools/rmcast/download/rmcast-2.0.0.tar.gz"
+  homepage "https://web.archive.org/web/20250722003825/https://www.land.ufrj.br/tools/rmcast/rmcast.html"
+  url "https://web.archive.org/web/20250621130503/https://www.land.ufrj.br/tools/rmcast/download/rmcast-2.0.0.tar.gz"
   sha256 "79ccbdbe4a299fd122521574eaf9b3e2d524dd5e074d9bc3eb521f1d934a59b1"
   license "QPL-1.0"
 
-  livecheck do
-    url :homepage
-    regex(/href=.*?rmcast[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
-
-  no_autobump! because: :requires_manual_review
-
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "de8e1fc85f602d20604c3e0a44e08c3dfc3e424f6faee2e65a0fed714646da3e"
     sha256 cellar: :any,                 arm64_sequoia:  "2550872c1731058ae467f82b6258659ace4cc86e091fa54f827daa61cd5677fc"
     sha256 cellar: :any,                 arm64_sonoma:   "d82904f97cda3eb5874bfca8ac452568a04efeadd88524fc2b1e03cb594ecca9"
     sha256 cellar: :any,                 arm64_ventura:  "07939c86d1018aeb45c483ea2e96514f24cc92fcca30f5ffe3ebdaa8f1a53b9d"

@@ -9,6 +9,7 @@ class Pelikan < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "64704f442e8c9c1bd917a94f37d152513fe8c4691ae6aecf24599bac242975cb"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "cf1eea879a3b1eb8ec2d34616519f383cadea119d9dfec32ef89f93c5de3f248"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6074fdbebf10e608f76145fc4d41cf9be62d3b3ac67cf6b50ab1a1c21c0da76f"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "395c03af1bab96be9a15937c4e3c997b8755a53abda5ab1f53227ebbc2cc6f7a"
@@ -30,7 +31,9 @@ class Pelikan < Formula
     # multiple definition of `signals'; ../buffer/cc_buf.c.o:(.bss+0x20): first defined here
     ENV.append_to_cflags "-fcommon" if OS.linux?
 
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    # Workaround to build with CMake 4
+    args = %w[-DCMAKE_POLICY_VERSION_MINIMUM=3.5]
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end

@@ -10,6 +10,7 @@ class PegMarkdown < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "ec72ce7ad492b44c05950b2ac9421ed3e410f1eec51e2c64b6215edced456df7"
     sha256 cellar: :any,                 arm64_sequoia:  "bd7f5543b909228fcad9af4e3173b8ca657d92ca17233c99c8415716c7a575a5"
     sha256 cellar: :any,                 arm64_sonoma:   "a98a5d30c50275c60315ca49c9a5e9f8db427bf8e14dd76eed44f5d59af8b354"
     sha256 cellar: :any,                 arm64_ventura:  "b86b3203ed481c4afb9bcbd489a4803b3f1fd204c27bbed16dc42e45e16790fb"

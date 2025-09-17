@@ -17,6 +17,7 @@ class Pktanon < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "d90ddd6a6904fe38ba56eb87fc3b31c29cf19e4f67f3251245cb8ca8aa072c8e"
     sha256 cellar: :any,                 arm64_sequoia: "44134c55be8a09ccfa54203ccf2ce297df8c8a76e4ef3c94040a523c0bf50cda"
     sha256 cellar: :any,                 arm64_sonoma:  "2cbb5ed4c7c0e22a3de3025fe12860026c7b8264a08374c4f662467ab91187f3"
     sha256 cellar: :any,                 arm64_ventura: "0016600c5e396a07b502fe6060b8e83ad0659479a433e4baf7b0d1a3afba27eb"

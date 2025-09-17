@@ -9,6 +9,7 @@ class Pget < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "6cc7cd05524fed05854389575505915428d98b973b8c3c392ea5869fbae72c04"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "d0cbbdf49e2ddf9f6c53982a891dff83b332e5cc760fb2bae4a5c8e2e2d738c8"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "48b2b055afe66da789fc85f5f613bb9ea1af341f799c5ef540e9bfa889fad9ce"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "e12737e48d675f8246fad2a72a0f79504d141de7eec04fc9f9490344770f542e"

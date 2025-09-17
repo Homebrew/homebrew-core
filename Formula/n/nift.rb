@@ -8,6 +8,7 @@ class Nift < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "cffde6265d86b958248a1f0acbb45874f3319a9fed29b5bac84afc5bd1f9799e"
     sha256 cellar: :any,                 arm64_sequoia:  "ec431ecc4b58ffa4a1a11fee47560dacd95b7868b4a49510d760e63c5d509d69"
     sha256 cellar: :any,                 arm64_sonoma:   "d956ac86be1b6ba12faa5fd44203b5528e7449118bf10529ccc92b9e99870cdd"
     sha256 cellar: :any,                 arm64_ventura:  "a7b8a8bb2bae90045ea083bb172b1209c3a9afb6cd7c23dcb9daaacb33a8a5e3"
@@ -27,6 +28,13 @@ class Nift < Formula
   patch do
     url "https://github.com/nifty-site-manager/nsm/commit/00b3ef1ea5ffe2dedc501f0603d16a9a4d57d395.patch?full_index=1"
     sha256 "c05f0381feef577c493d3b160fc964cee6aeb3a444bc6bde70fda4abc96be8bf"
+  end
+
+  # Fix to error: a template argument list is expected after a name prefixed by the template keyword
+  # PR ref: https://github.com/nifty-site-manager/nsm/pull/38
+  patch do
+    url "https://github.com/nifty-site-manager/nsm/commit/d8a54c08a218d6f6823a4e76472708bdc94d1128.patch?full_index=1"
+    sha256 "534871043624b409c60d17e08a5e9917ad55ef245df6286d6ea00cc706b3e09f"
   end
 
   def install

@@ -9,6 +9,7 @@ class Pympress < Formula
   head "https://github.com/Cimbali/pympress.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "503ea89e1919ffc9d059aca3deffcc8a04a704e8753575d502290fcc3f7f78db"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "64f35865fbde010d4e3de039977eec6bc1bbe6dabb19fca1f9c3f9da709e1593"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ad170caf12af4322d5b0f819cdf13616af3d389de0400f157ac7638cce10fcff"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "3ec3fed16c5ce89078a32c6b63d2f1c14753463ccfc5ec2a15d2d04f133714fc"

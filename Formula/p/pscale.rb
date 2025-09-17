@@ -7,6 +7,7 @@ class Pscale < Formula
   head "https://github.com/planetscale/cli.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "da40136aba611ac15d057d2f4388839dd5f24b08ccb933aadafe9a1c52d9c278"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "2269352699e7d61273b63b8c741c2b405b78037ef3ed87ea438d35665c232955"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c3db1ba4793021b3110f9f80c28eb22795534136fb72e9fc39623e1c4394cb10"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "f0f7a6395256ae20d9cab0f3466898becc6acd19472b9f4cf0f3f38288fe812b"

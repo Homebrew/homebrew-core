@@ -6,6 +6,7 @@ class Newsraft < Formula
   license "ISC"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "2409740a3d16d3de3710672a5b2ad5c543d39dd3cf5d6d61fe90362563a9529d"
     sha256 cellar: :any,                 arm64_sequoia: "aef5996f4f43703a4bf853f3c1bfffac22c4f26adafb56fc60febe38560e25f1"
     sha256 cellar: :any,                 arm64_sonoma:  "05376dd0ebeadf2d1be377c276e1b8239e2a6889c43a7cf111eea322a41575ee"
     sha256 cellar: :any,                 arm64_ventura: "4e9037da7751f16b74832954eb41c79e14db50f600f9e49daf149dbea3873559"

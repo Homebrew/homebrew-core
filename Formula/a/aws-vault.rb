@@ -1,8 +1,8 @@
 class AwsVault < Formula
   desc "Securely store and access AWS credentials in development environments"
   homepage "https://github.com/ByteNess/aws-vault"
-  url "https://github.com/ByteNess/aws-vault/archive/refs/tags/v7.6.3.tar.gz"
-  sha256 "70827deca1aaced333f9c01b3bc34a761072ee059ea79958b938e82cbf5b1cc8"
+  url "https://github.com/ByteNess/aws-vault/archive/refs/tags/v7.6.4.tar.gz"
+  sha256 "dd2b46d06890f77cfd7e9dc64f58d227290af05b0415a14bf637f47bf04aaecd"
   license "MIT"
   head "https://github.com/ByteNess/aws-vault.git", branch: "main"
 
@@ -12,11 +12,11 @@ class AwsVault < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "51db87bf3a178a9a6d84adba206335fff9d73e574d49a77ad9271e379da1c0f3"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a814c9f5c4e561fce3dbec50f154187ca3f8d209f60cbbd7caa03620aba4cf18"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1eab4a8e7dd0acff7a8779fb64055b0f916dee4950dd0c3bd98f7b1fa8667bba"
-    sha256 cellar: :any_skip_relocation, sonoma:        "0bfac13d6d189e9a77075628b8730c2bc25bba2e7ba22a937ba64805765f8ff5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "706fdc646e347935808398e9bcc636e026b175fe46a166fa2dfa1b325c27f20c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2637b3348e0e398f4bc961996e9fc82063174f82ffb20bbac76a3fdda1c15761"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c247ccd44a21c917b73dd0b2ca09a39cae058bed7283fc52fd1beac0c9e1c177"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a9c4d7b312125da2530eba267a71504b15ea661c3ed741408cb94cdf369e318a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "de8a03c21c9e979ec97f1ade9f9688e75833f75c8b17c7cb72a8c691a5c91991"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "eff338d150e24408e5b03c9db8da3a139c5d79a3ff2fcef74933a4eb8207ee8e"
   end
 
   depends_on "go" => :build

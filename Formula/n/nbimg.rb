@@ -8,6 +8,7 @@ class Nbimg < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "dd7fbd304d9f838074d2fac94129b5fb2e88622619c76011e57f12c50c560923"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "dcfafb2e1abf197f98f3452c53375aa0f72b9ebef04cb0b7f37d131181551330"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "246aad3351ee67b9e20c9c78a8ecc60e8bcfc7f0fb5ef544b07322af8206e4bf"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "5062c7ecff47f50b55169fb91b19b100237535ce3fff3796f273617b59df58aa"

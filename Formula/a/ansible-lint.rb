@@ -3,20 +3,17 @@ class AnsibleLint < Formula
 
   desc "Checks ansible playbooks for practices and behaviour"
   homepage "https://ansible-lint.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/60/93/2c344f3eeaf15fee5ee99a30ebe77f316a65f09d290034e4290fdb114cb4/ansible_lint-25.8.2.tar.gz"
-  sha256 "35dd3ddd12d8063876915bf2f06b9a1b80fd27a7cb1ca4ce51c8cebb84690922"
+  url "https://files.pythonhosted.org/packages/06/9e/8a86c0b05a05c3a2c8690eb5fcd4b3c248c821a45f595fa0e7565ac1e048/ansible_lint-25.9.0.tar.gz"
+  sha256 "b8fe138a1257c6e58a755febd726b3186820f6dcb23a5bb062538c939a7277bb"
   license all_of: ["MIT", "GPL-3.0-or-later"]
-  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "8070ccf4cf7660b191e9d35bb49c5aaf3134a3cbdba2b808c994b99ae642ba05"
-    sha256 cellar: :any,                 arm64_sequoia: "a050c4af351190caa317e4f58fa08af7a1738811f116f1bb30b586370332b399"
-    sha256 cellar: :any,                 arm64_sonoma:  "b96459377ceadcddde1e9afca5afc041c67ca7e07a556cd07b731f3c512f4d0b"
-    sha256 cellar: :any,                 arm64_ventura: "140f828a2d3213ff117a55e1be74cada3572eab2892060d0c43f9dd4137c04c1"
-    sha256 cellar: :any,                 sonoma:        "e358144e1d1f68ac9c7c24a93e24dad2035a27ec64b4c36a5f31fa2f14039ff8"
-    sha256 cellar: :any,                 ventura:       "c3d3df4d5c0de411532b09bb8db629ae33a126263d7adea1dab4201951b772b1"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c1040e134c67de2b7368ca4f037008c063a239d340f4e28d27e37aa0f4c4aeab"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7c2da3630cee21e5268850d7d4ef8a0818a08e2400606d45435cdb85691fb1be"
+    sha256 cellar: :any,                 arm64_tahoe:   "edf827d97d9762dea7d278d2e71d75f2f7a3308d8ac5e19b96e9cbcaa1662627"
+    sha256 cellar: :any,                 arm64_sequoia: "87d830723c2e841bac74fac89d26670ab011163f9517d9abe9c84eba7b2ba787"
+    sha256 cellar: :any,                 arm64_sonoma:  "63979e776d8c6c69c453293df241a909106bec17c5ef2c21dac714defaec8c15"
+    sha256 cellar: :any,                 sonoma:        "6ee74555aff96c004290e465c393afbe3eddca19e239918d0e3ca8b32750a67b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0918a6ef0a40ee31542a4801d0b9533690cdfd1362460d3c233d2af395bbac46"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cc58349918231eac36a2f4e4f6a7caf9e7cdeabcde51a32409e7343717c68497"
   end
 
   depends_on "pkgconf" => :build
@@ -54,6 +51,11 @@ class AnsibleLint < Formula
   resource "click" do
     url "https://files.pythonhosted.org/packages/60/6c/8ca2efa64cf75a977a0d7fac081354553ebe483345c734fb6b6515d96bbc/click-8.2.1.tar.gz"
     sha256 "27c491cc05d968d271d5a1db13e3b5a184636d9d930f148c50b038f0d0646202"
+  end
+
+  resource "distro" do
+    url "https://files.pythonhosted.org/packages/fc/f8/98eea607f65de6527f8a2e8885fc8015d3e6f5775df186e443e0964a11c3/distro-1.9.0.tar.gz"
+    sha256 "2fa77c6fd8940f116ee1d6b94a2f90b13b5ea8d019b98bc8bafdcabcdd9bdbed"
   end
 
   resource "filelock" do

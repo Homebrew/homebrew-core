@@ -11,6 +11,7 @@ class Pv < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "40fd0126c46a5f60d00704fdafaaea2d9756a45fc4607e1e4e8ace3aabc4e919"
     sha256 arm64_sequoia: "5178545d9bf9cb5595521fe23f3d81cef9dc1616abeb34a4a470cee04c3d3115"
     sha256 arm64_sonoma:  "da8655acc575c9267e41b941d62649dc5a8ca061da6ba14734e511dd7647a0f0"
     sha256 arm64_ventura: "7cfa691067062a8bbdde607ba85a62dcecaeba9adf3e1f502d9d206230a26dad"

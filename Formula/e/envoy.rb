@@ -29,7 +29,6 @@ class Envoy < Formula
   # Starting with 1.21, envoy requires a full Xcode installation, not just
   # command-line tools. See envoyproxy/envoy#16482
   depends_on xcode: :build
-  depends_on macos: :catalina
 
   uses_from_macos "llvm" => :build
   uses_from_macos "python" => :build

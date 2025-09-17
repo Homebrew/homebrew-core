@@ -13,6 +13,7 @@ class Ndiff < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "cdab0b2f97b5b9256157324af89023d7e61e7a3789a30d0ffd39064fc71fe219"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "a23ac16ac1bda1aa63ff7e64c8a101bc5a1bb1dfda6ee25ad6e6aac1eae3e2b9"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4b4c46a18f21ebab95fba30b75734e9cc3e9e392909961e8901e43624faf2f74"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "731436f80a687a2e5d2a2d2a53bd338164bbcf828cd01297e14683caf4c93e22"

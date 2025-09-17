@@ -6,6 +6,7 @@ class Libsoundio < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "7fa51b262723750c0393660e45d6fa7e3c049f903e17d75f5814cfb5a8bbf5ef"
     sha256 cellar: :any,                 arm64_sequoia:  "120bc6b9f88b42a4bd852c1ebe9d236d94d40edae13e06cec4906905347580ee"
     sha256 cellar: :any,                 arm64_sonoma:   "74d5dc6d43cb2ef587a861a8b784ec6134c86f73149645c653b5542c3a0941b6"
     sha256 cellar: :any,                 arm64_ventura:  "700fd8255a363e2e28aa5b801c4e3218bab3a78f0c37f16dfa60f0e2337146a1"
@@ -20,7 +21,12 @@ class Libsoundio < Formula
   depends_on "cmake" => :build
 
   def install
-    system "cmake", "-S", ".", "-B", "build", "-DCMAKE_INSTALL_RPATH=#{rpath}", *std_cmake_args
+    args = %W[
+      -DCMAKE_INSTALL_RPATH=#{rpath}
+    ]
+    # Workaround to build with CMake 4
+    args << "-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end

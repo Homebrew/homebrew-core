@@ -8,6 +8,7 @@ class Pwgen < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "7b3297c6e36caa295415af3c677a5ef056f824ae8280d7eb5023a693848a0dd5"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "78e78f3269e5a571f309e859d1765104c3a85a227bc12292efe437ca838696bb"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b8d6d5e6fb87ca3906b04af23e27464f3ae52100e9f0c98ed3cbbc9701e47a1f"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "ae06c8a28b9126b1eb4ce8e02d88b761d76ed35499de2c71881b51b247e9d612"

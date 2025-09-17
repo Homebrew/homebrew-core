@@ -3,19 +3,17 @@ class Bbot < Formula
 
   desc "OSINT automation tool"
   homepage "https://github.com/blacklanternsecurity/bbot"
-  url "https://files.pythonhosted.org/packages/41/f8/207e7f806900fac625c6ff78dca02ffe09ee9b64c84a1e17792c1416fdff/bbot-2.7.0.tar.gz"
-  sha256 "575efdb178610b5ea6ea12d216d4721694f94b5dd9f55682605a6e8c1dc2d834"
+  url "https://files.pythonhosted.org/packages/ca/dd/bfcd82e0bc320c0e21880c8d6fafb7ab4e086ef2ff0591dccee9aa857027/bbot-2.7.1.tar.gz"
+  sha256 "180e51ba30740d0717256c2cb1037f636966d5aec478f1fad885ee016f71ac82"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "e37e17d2ecebe87b5b9a08307c497aeaf9497c0bbf228d5f8b470b10367dada3"
-    sha256 cellar: :any,                 arm64_sequoia: "8e08c2282bd38f8fee507b90c5cff82e717ae79ffc754d2594e9d2a0b6759c08"
-    sha256 cellar: :any,                 arm64_sonoma:  "6c2e96aab6104f84f399dbbb38a20b783d007ebd1d4cfced8f06a7cc85aea908"
-    sha256 cellar: :any,                 arm64_ventura: "bdb55e62dea4206040291390ebe76647f65c01f13755b3c7ace1ebaf840ef41a"
-    sha256 cellar: :any,                 sonoma:        "1072db369957f00509a2841729c368df1f20fcab43b4d719887f6dcc6aaff01a"
-    sha256 cellar: :any,                 ventura:       "41c68095cc80b3026bdff58cfefa2b33d3d3137eda2b533ad47964ac73fde1d9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "147daf6cf63f388a9bea7e4e295c65ba31173980dd3884ea4234dbdac65a66df"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fa97509850f260b51831e9cbc33f767d15658225fc1d6f3c443c40c45f409d8a"
+    sha256 cellar: :any,                 arm64_tahoe:   "ebd0b50918a4c443340865e2eeca9176359aaf74c2a2913022af2a5d89c83f89"
+    sha256 cellar: :any,                 arm64_sequoia: "904d251eb4c5c43c73e33b43b5dca566cb9f0a156461939802b8addea5b62fee"
+    sha256 cellar: :any,                 arm64_sonoma:  "aaaff78cb84895f4ba7201a70d5e39b74b969956a2c5edce6e5ace1914861d65"
+    sha256 cellar: :any,                 sonoma:        "2cddcc2ea8103c12bdccb6e256e4918385bc2e3c0067267909e728b907446c2e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "59fae606bb32fabc1c08b8441313b2887c1fd9cef237c8bdc570214833efe332"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dd87de7ebec15adce786af301bc687045c6201a135a09fa90454518bc0aa0458"
   end
 
   depends_on "cmake" => :build
@@ -84,8 +82,8 @@ class Bbot < Formula
   end
 
   resource "dnspython" do
-    url "https://files.pythonhosted.org/packages/8c/8b/57666417c0f90f08bcafa776861060426765fdb422eb10212086fb811d26/dnspython-2.8.0.tar.gz"
-    sha256 "181d3c6996452cb1189c4046c61599b84a5a86e099562ffde77d26984ff26d0f"
+    url "https://files.pythonhosted.org/packages/b5/4a/263763cb2ba3816dd94b08ad3a33d5fdae34ecb856678773cc40a3605829/dnspython-2.7.0.tar.gz"
+    sha256 "ce9c432eda0dc91cf618a5cedf1a4e142651196bbcd2c80e89ed5a907e5cfaf1"
   end
 
   resource "filelock" do
@@ -184,8 +182,8 @@ class Bbot < Formula
   end
 
   resource "pydantic" do
-    url "https://files.pythonhosted.org/packages/00/dd/4325abf92c39ba8623b5af936ddb36ffcfe0beae70405d456ab1fb2f5b8c/pydantic-2.11.7.tar.gz"
-    sha256 "d989c3c6cb79469287b1569f7447a17848c998458d49ebe294e975b9baf0f0db"
+    url "https://files.pythonhosted.org/packages/ff/5d/09a551ba512d7ca404d785072700d3f6727a02f6f3c24ecfd081c7cf0aa8/pydantic-2.11.9.tar.gz"
+    sha256 "6b8ffda597a14812a7975c90b82a8a2e777d9257aba3453f973acd3c032a18e2"
   end
 
   resource "pydantic-core" do

@@ -18,6 +18,7 @@ class Abcl < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "3231aead5669b78ca3b23ad314c5bc1135178182fcab8ec84da66ecdef470350"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "d3b54e12b38b7736c33fe43c677c4d396337617e4f0647a2d5522bde43e31fc0"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6cde97a77b73cdec4bb00bbec261b1486d8f742e50e166edd4b64a65b5c725dd"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "71c365f98413ab1f6e6e88a59dfd662e975855b8583e04b4945e1c0900eb2f85"

@@ -20,6 +20,7 @@ class QtAT5 < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "114f6e5d992eb6e0ccc4228165021fd7dfa737b7546753159b8cb4f215c3c0d0"
     sha256 cellar: :any,                 arm64_sequoia: "71e99646e19f6bbfb49bef4ce5fb144967158846b6c63819f24f3769dba01570"
     sha256 cellar: :any,                 arm64_sonoma:  "37b737c30cd357390362d8b732b87a665f6f3d35b06d31951251e6e3616a37a9"
     sha256 cellar: :any,                 arm64_ventura: "7149d97837f5cecc2a773f32e855f059e7d92b1fe2502a142c97f777acb4fe66"

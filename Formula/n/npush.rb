@@ -9,6 +9,7 @@ class Npush < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "43a5b01bbdaac0c5112a4a7b61e737534968dada416f3ab6fe47b4ad907a1eff"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "52bb1bf2c16219188637e18260db7c52d8eead9d02dd9f65bb9d7cfb7adf6520"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "58edd27febec742ef46cf8e1b6fca1bf8053a99c953fbd53743a6b12387d924c"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "ee910410e365aa4d509068cb68d14bf871b9a679cfff678db620bbb6603838fc"

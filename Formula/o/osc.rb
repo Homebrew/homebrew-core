@@ -3,20 +3,18 @@ class Osc < Formula
 
   desc "Command-line interface to work with an Open Build Service"
   homepage "https://openbuildservice.org"
-  url "https://files.pythonhosted.org/packages/a2/70/274b4097d5b32540607a56c0527a06048007a35bcd7bb1e2b5e0c88f48c9/osc-1.19.1.tar.gz"
-  sha256 "81b8da13d1b4ca32fb6e9f73dfad4fa52b393a7e29bac0cc4e536471a741240d"
+  url "https://files.pythonhosted.org/packages/a8/54/f8f8fe028883d7ebe78912d001ca23147199ad116d078e4872d914fd98a2/osc-1.20.0.tar.gz"
+  sha256 "c35375e3ceb382dd771c286f20ccbbde0d94454c0a8c04985bfb27832a9a1cc7"
   license "GPL-2.0-or-later"
   head "https://github.com/openSUSE/osc.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "dbe3f738a1dd7d91b6edf445e9e0dee654256905c9fd35bb3b0df7b738a0792c"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d57387af026a72b95694381b3b019d130c989fda1d4502626e8da4a8343b378f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "758f75779b3723115c16e5b62e97cf986a3d4cd2a510a5e7644f5b893079c8c3"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "e60c47c61481723867a43258980257046c13bd74e6dc39406c96575674d85535"
-    sha256 cellar: :any_skip_relocation, sonoma:        "84aed3b197a8623d34c3cca517140cfb50411364d60f19f4ba265ac99753a08e"
-    sha256 cellar: :any_skip_relocation, ventura:       "f5304858b6b47375ae06e0b7e3df2bc2ac2600b3373531bba14c6a95ac102f44"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "be32b1df3efbf5b739f4101816e2a8f950b2f49de3918c8b28b0004a512d8667"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "058e22b91034b003a709407b047a561c7c756f5dbba84c4ee28999860f7f42a8"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e71d7cfcef06aac44e5d84e6d91e6ea1ff187c2192883a97a1b4fcaf73bf1365"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f92d2c5fa9ab0ec53c293f4ec2fee6dcbbd2af6c14155eb81d6578224ab40f01"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0e690081890bfd47dabebe02abd7cf767a45a987c41aae56cc9b499c98240ca7"
+    sha256 cellar: :any_skip_relocation, sonoma:        "5984f0c3d0d42aeb36fc3ee60e7a12114514c5b5f8746bff96a3de18ce781e21"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "faa3b85bd510805d2cbcb125f63c0c8cc95f5801fdf866ecdce933a96234913a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b066269c7b833c4e0357c302b885fe16096e9b5518a90ffcf8d5314ca9f70cf9"
   end
 
   depends_on "cryptography"
@@ -31,8 +29,8 @@ class Osc < Formula
   end
 
   resource "ruamel-yaml" do
-    url "https://files.pythonhosted.org/packages/39/87/6da0df742a4684263261c253f00edd5829e6aca970fff69e75028cccc547/ruamel.yaml-0.18.14.tar.gz"
-    sha256 "7227b76aaec364df15936730efbf7d72b30c0b79b1d578bbb8e3dcb2d81f52b7"
+    url "https://files.pythonhosted.org/packages/3e/db/f3950f5e5031b618aae9f423a39bf81a55c148aecd15a34527898e752cf4/ruamel.yaml-0.18.15.tar.gz"
+    sha256 "dbfca74b018c4c3fba0b9cc9ee33e53c371194a9000e694995e620490fd40700"
   end
 
   resource "ruamel-yaml-clib" do

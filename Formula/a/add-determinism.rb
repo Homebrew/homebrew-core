@@ -1,13 +1,13 @@
 class AddDeterminism < Formula
   desc "Build postprocessor to reset metadata fields for build reproducibility"
   homepage "https://github.com/keszybz/add-determinism"
-  url "https://github.com/keszybz/add-determinism/archive/refs/tags/v0.7.1.tar.gz"
-  sha256 "20995b79d8bef3238e480f23e7a9b248ef3526a67b1b28b89e57954ed2999560"
+  url "https://github.com/keszybz/add-determinism/archive/refs/tags/v0.7.2.tar.gz"
+  sha256 "232c4f9fdc482dee5e6d38ef45a2c983b88283fe23d6ff4bcb26164b4c9a2dcb"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_linux:  "156a326176b8dcbc4c3969437aac756a6dcb34f783e645b75cd7024f93677d4d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "767dc6d4f1508e275358111572148658c5e6a2c1cf43a4eac965c3d659d2ef4e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:  "8320195d668c1822ed3c0d9a9be244f7e022be0812d318339cbcba1009125cc6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "dcd9b16144899992dbafb28d162ad3796002fe605749650292c46057c7952ced"
   end
 
   depends_on "llvm" => :build

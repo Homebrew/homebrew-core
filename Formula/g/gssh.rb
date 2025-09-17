@@ -6,6 +6,7 @@ class Gssh < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7a553584f7cf8db8128678eb9cfaa533d5ded948f46ebc7ca9ed4fc0a0f52731"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "6811a36ed6d1d50a0128cfcbe2d49d1e58e42f5f8f19a77f7e01dc559f6da7a8"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e78ac9c48bc0993ba4f7f668a3843bfc68156857267809e14b6536ddcb389fde"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "827e8749626bd62fe6bbaefd247dffe3ccdc6562898a921af2f5839d4b842477"
@@ -17,7 +18,7 @@ class Gssh < Formula
 
   deprecate! date: "2025-05-25", because: :repo_archived
 
-  depends_on "gradle" => :build
+  depends_on "gradle@8" => :build
   depends_on "openjdk@21"
 
   def install

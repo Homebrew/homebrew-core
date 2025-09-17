@@ -1,8 +1,8 @@
 class Spack < Formula
   desc "Package manager that builds multiple versions and configurations of software"
   homepage "https://spack.io"
-  url "https://github.com/spack/spack/archive/refs/tags/v1.0.1.tar.gz"
-  sha256 "dd1345427dbc9281f359bdb6d0d53cb38edb94fd2ebee3256fda441c8242205e"
+  url "https://github.com/spack/spack/archive/refs/tags/v1.0.2.tar.gz"
+  sha256 "c0d4f142ba45160b7cb3fa0c6bb23633734cef689a4a193eb91d08c233ba1f1b"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/spack/spack.git", branch: "develop"
 
@@ -12,8 +12,7 @@ class Spack < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, all: "7ac4187c520f5429bdd8e5c407188fbfbd778795bb4437a8e762934619bc5d9d"
+    sha256 cellar: :any_skip_relocation, all: "99cb7e77f82f67d76e50ef5b5c4cd1806cfc85d2c31083a5861ac134c944b8c2"
   end
 
   uses_from_macos "python"

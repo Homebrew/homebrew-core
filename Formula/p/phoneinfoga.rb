@@ -9,6 +9,7 @@ class Phoneinfoga < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "b7316887d8845053c38148a82d7958524d9f9f4ccf0d3016ce7f92c11387c410"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "7753aee0c8aa77f686eff25f3c74b9f53d620dee4f7be890afc31bddb631c95d"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d56737c84d3cbb5cf5e4545e77d5b5f2ddc9c589305b68bc929187381dfa0bff"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f08a417535abb3f01a6515580727b1f903ab3da8b4245f9c9cc4653fba8ec124"

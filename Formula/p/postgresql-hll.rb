@@ -8,6 +8,7 @@ class PostgresqlHll < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8513d2e8cbc044030d8c601a0feb76db6b908f7418376262a2f1fe9aeba40f35"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "27480a860a6ad43655bbc46261a3802ea26252038b3c0ada7900d7727654248d"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7c452476e1fa061eff0b1e1ed08ded91385d0ea266b47173ecac203e009ddcc4"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "7eff2df8ade96abbf8b6ea92b187994a875ef21491f57628b67b3e17524a896b"

@@ -7,6 +7,7 @@ class Ncmdump < Formula
   head "https://github.com/taurusxin/ncmdump.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "425b61f486fc1bd4b3e56c088d741176c5d7f16eb8357504a3d6ccdca01e1ab4"
     sha256 cellar: :any,                 arm64_sequoia: "9b8b18693e23e28c86536d252255072708216e857cd2e8e7102551dbbd07e4ea"
     sha256 cellar: :any,                 arm64_sonoma:  "6cc0adacd3083f40ad30cf8ea914f508c23e1720d23020775d914011615dffc3"
     sha256 cellar: :any,                 arm64_ventura: "50fe70048df8144284e69b364daa834e073dddae300321bfec326d076d7f4733"

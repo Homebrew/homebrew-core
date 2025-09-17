@@ -10,6 +10,7 @@ class Nutcracker < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "abf045b842b325b9beae4b4081057f70d458359c2fae9b4792a4130d74120943"
     sha256 cellar: :any,                 arm64_sequoia:  "9858288de204b1ebddc2500149b07ad6cc6c08f92f37936d0055b5f4820bbb03"
     sha256 cellar: :any,                 arm64_sonoma:   "878651e4b64cf8af3146bee562a15dcd18bb880a65ede75b61c7232c982db60e"
     sha256 cellar: :any,                 arm64_ventura:  "72e440a578846be30b99237a05ac9251ad0859aa19fb4603e73671c61add0e66"

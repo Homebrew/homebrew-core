@@ -1,8 +1,8 @@
 class Duck < Formula
   desc "Command-line interface for Cyberduck (a multi-protocol file transfer tool)"
   homepage "https://duck.sh/"
-  url "https://dist.duck.sh/duck-src-9.1.6.43284.tar.gz"
-  sha256 "e2619e3386877db4f703d90af9b86476230b0404c8bd0726771d937a5728016e"
+  url "https://dist.duck.sh/duck-src-9.2.4.43667.tar.gz"
+  sha256 "690e6248638f9fea903345de96e3c6b63754ba8f510ba74397ecd487a6a84637"
   license "GPL-3.0-only"
   head "https://github.com/iterate-ch/cyberduck.git", branch: "master"
 
@@ -12,14 +12,12 @@ class Duck < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "ee934e3720fc037e1237614b2f63f20ffceb5719bc37b016eb33890a3b694738"
-    sha256 cellar: :any, arm64_sequoia: "22fbb71f82f50e9b7be9ab9bd8560c5d9785868d1d26f54c83a54898801271ce"
-    sha256 cellar: :any, arm64_sonoma:  "3eb0320f9bbe309dfe9042a0f17a3be2cf9370ca2aaa524f252cb97d8af1dccc"
-    sha256 cellar: :any, arm64_ventura: "d8168f1d5e856b9360ee4e5a4c293cc500776795b30c31d00bac0f68373ee6f3"
-    sha256 cellar: :any, sonoma:        "06b08c6e24e60afecb0aabb367350774c2f6409f9cc7afab07875c970cfe978e"
-    sha256 cellar: :any, ventura:       "7e3079ff69e78e88b6f417ce12f7a145a894e946d8858270d70fda8cdef1f791"
-    sha256               arm64_linux:   "2dac6266c8f2f6a7b26037f5cad626000c0b07b94a206ef264bbec1527479a7c"
-    sha256               x86_64_linux:  "9c609ac526a03bb5b0cdbd50e477cb819479d8c95ca571c4f26619ad07d4c3ee"
+    sha256 cellar: :any,                 arm64_tahoe:   "1812459174a458a88e6b19e74c98e470d11ca66a3e8fe51b9ef940f27144c18a"
+    sha256 cellar: :any,                 arm64_sequoia: "90fd52cfbb685bb5236647ba95172aa0f4ae71b179e49517852f1b197ecfd954"
+    sha256 cellar: :any,                 arm64_sonoma:  "db28ad374157b347461e56beb371b6917644b636b0eb5bd043297349a35dd244"
+    sha256 cellar: :any,                 sonoma:        "7990688542beca48a2069f8535a94baffb2fc00b67161d36672a9cd6a2b902a8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8344a1a60e28940500f00371debeea7dcb1400aa507dea307df788fea9af2eef"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c68e9347fa707f0fb54c437e40094a12a3d794af865c90ec5f95f3a244dadbe4"
   end
 
   depends_on "ant" => :build

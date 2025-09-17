@@ -13,6 +13,7 @@ class FsUae < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "a3c4a1d90ae429eb3b3b9c1ecf250ee4b851fde20966963e05849254622ddbab"
     sha256 cellar: :any,                 arm64_sequoia:  "5a73ce64da67c0d1997c5350c97d38a9549853ef97f20d824a74a6d1f9ed31c2"
     sha256 cellar: :any,                 arm64_sonoma:   "9a2fbee9c1775354923db18f96abbd547af702a295b74754efe801addb1559bc"
     sha256 cellar: :any,                 arm64_ventura:  "796be0965c3ac6791c1dc8b2a55ced73b935ce5d74ed1406a2561ae1269bc59b"

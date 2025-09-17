@@ -12,6 +12,7 @@ class PythonGdbmAT312 < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any, arm64_tahoe:   "bc1d7e008bfc369847275d6695b6dc7edcf40d194686ae3908a0088506d3a0d5"
     sha256 cellar: :any, arm64_sequoia: "e9dfb0a8a1c5c3d32e8a0e32f98acd0727a4c595baa9208b4ec248f1861b863a"
     sha256 cellar: :any, arm64_sonoma:  "6b52029d5aad2e4540c870d36b104464599d645bd7f6517fcca289247a147b3a"
     sha256 cellar: :any, arm64_ventura: "07c8cd8a2de571b010ce425c75ef0ef597c15a0ed09387aa998f3aba86ec69b8"

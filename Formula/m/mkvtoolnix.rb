@@ -40,8 +40,6 @@ class Mkvtoolnix < Formula
   depends_on "libmatroska"
   depends_on "libogg"
   depends_on "libvorbis"
-  # https://mkvtoolnix.download/downloads.html#macosx
-  depends_on macos: :catalina # C++17
   depends_on "pugixml"
   depends_on "qt"
 

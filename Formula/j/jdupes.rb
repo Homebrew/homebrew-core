@@ -24,7 +24,6 @@ class Jdupes < Formula
   end
 
   depends_on "libjodycode"
-  depends_on macos: :catalina # requires aligned_alloc
 
   def install
     # error: no member named 'st_mtim' in 'struct stat'

@@ -12,6 +12,7 @@ class KubernetesCliAT131 < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "116fdff9fb9a741821e7044aa49ae5f59fbf04db4df423a52f498b0bbd2b9539"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "276316f94599cbb5938260a0565d863d82b32fd40a5e33c2bf6cef49944a8111"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "01faf029bf52e8b1176216bf11d1d6cd9bb5db08c01f393e47c7562a87e06cef"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "a01453fb1f2ddac8f7ec50f2cd60221541838a492933b94f6172c47c565a750b"

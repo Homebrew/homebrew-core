@@ -9,6 +9,7 @@ class Pdfpc < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:   "b76907d094e032d1c6d6f67be0b1774b0ceaaad44ec21102fcb82084ae8c94c2"
     sha256 arm64_sequoia: "76900b6a726ed5f8c747a89957da0b81dd8b18c8b5bda6765f7b1ac4de0c26de"
     sha256 arm64_sonoma:  "bfbfbdcfb242b5ca2c26764e5175596609bed8b681692a07cc3cf80e1a351de9"
     sha256 arm64_ventura: "102466bc213e5b6a13b8285441a3c3a22b80f73f47f197481cf20ea4331b6e71"

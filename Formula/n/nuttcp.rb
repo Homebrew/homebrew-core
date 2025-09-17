@@ -13,6 +13,7 @@ class Nuttcp < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "d600108d6b3d7e8b8b91dfa5a7a9b842e7c6b36553c6e6eea10b4c0172e1dc00"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "fa943ef3dca4e0414ccb634ed8246fa800eeb01f563c7578217bd4c9e156649d"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3307110d7f6cb527152b3f3e70bdec5f80a89b5be55c27bada5b35d549d51714"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "7ac8108263034cac96c76efb07222a474c603fee130f0751dd9957bd52111280"

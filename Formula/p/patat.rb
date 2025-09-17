@@ -7,6 +7,7 @@ class Patat < Formula
   head "https://github.com/jaspervdj/patat.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "00aa976ca5fdacc86e38303a701c6b39f69c66dc71df0737d797222981f377f5"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "90b7a9394554857c0a8535126c47949d931a7f659e4e70026cc7c3de14d3feb9"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cd312988933bf91ab8ed3c458ddfc17d084a37347f18021ce5633c53980435fa"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "d92ea4a497a9bfa9f1697058c421881cb94f8dea121b676d0dbdd3e158351aaa"

@@ -13,6 +13,7 @@ class PhoronixTestSuite < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "71a7a32f236bc22d0990168e1fceb1d8811748295c064741177f9bdba6f905fb"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "71a7a32f236bc22d0990168e1fceb1d8811748295c064741177f9bdba6f905fb"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "71a7a32f236bc22d0990168e1fceb1d8811748295c064741177f9bdba6f905fb"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "71a7a32f236bc22d0990168e1fceb1d8811748295c064741177f9bdba6f905fb"

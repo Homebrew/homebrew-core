@@ -12,6 +12,7 @@ class Pike < Formula
   end
 
   bottle do
+    sha256 arm64_tahoe:   "0c0dbf05213979a83add31b2d9c0983fbaeda715b9d644886ae523e6da58524f"
     sha256 arm64_sequoia: "1f3675eb394156e536145ea57151f73999675893f4827358673338d31e5dd044"
     sha256 arm64_sonoma:  "86a5d508ea7ef36bc6c160adce3672556ca34b0f636227cc78fb69b1ebe69579"
     sha256 arm64_ventura: "6b6f4b66d20a1d4f0d12955f939280a02635e8c459d803ae90ba900d9b3d2401"
@@ -51,6 +52,9 @@ class Pike < Formula
     # sed: RE error: illegal byte sequence
     # Reported upstream here: https://git.lysator.liu.se/pikelang/pike/-/issues/10082.
     ENV.prepend_path "PATH", Formula["gnu-sed"].libexec/"gnubin" if OS.mac?
+
+    # clang: error: unsupported option '-mrdrnd' for target 'arm64-apple-darwin25.0.0'
+    ENV["pike_cv_option_opt_rdrnd"] = "no" if Hardware::CPU.arm?
 
     configure_args = %W[
       --prefix=#{libexec}

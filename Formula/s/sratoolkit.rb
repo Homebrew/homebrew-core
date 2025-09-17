@@ -23,6 +23,7 @@ class Sratoolkit < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "3915f52ef559a82d3b6947c64ea62793ce0089a29ba79ad032c87c602abc4ceb"
     sha256 cellar: :any,                 arm64_sequoia: "3f638492e68e21c284a4aeee221d5e169b1984a75adf1648fa33d8481dd354f9"
     sha256 cellar: :any,                 arm64_sonoma:  "5eb9c8506a1ad99e5f5b929314e807018e7e0ad2562cee2bfe55f6fe3a9f49f7"
     sha256 cellar: :any,                 arm64_ventura: "111636d770e9da3b1b0cd652f0cb46b7fb48e283e553859fb04aebc6078d7b3f"
@@ -42,7 +43,6 @@ class Sratoolkit < Formula
 
   depends_on "cmake" => :build
   depends_on "hdf5"
-  depends_on macos: :catalina
 
   uses_from_macos "libxml2"
 

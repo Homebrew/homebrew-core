@@ -7,6 +7,7 @@ class Nsq < Formula
   head "https://github.com/nsqio/nsq.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "d50a1c5f27cc5ea79197980f99ac801a1d01cf55d19d493620584b43629cdcae"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "b7075d5ab5ff5090f350c30db2215f62ae04e8ae77754178546817297f58c91e"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "996305c886d786e601f5252e6a0d95845bb2160bf9f2a5c5fb27bf801f302d01"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "708b357c95856ee8d0598beb7db172ebdef492f6754cb7cbdd09db30772d6d46"

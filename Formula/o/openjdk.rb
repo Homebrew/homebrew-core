@@ -32,7 +32,6 @@ class Openjdk < Formula
   depends_on "jpeg-turbo"
   depends_on "libpng"
   depends_on "little-cms2"
-  depends_on macos: :catalina
 
   uses_from_macos "cups"
   uses_from_macos "unzip"

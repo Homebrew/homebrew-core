@@ -9,6 +9,7 @@ class Nesc < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "8ef4438f308a2fd9e143b70da8b9b53a0ca033c4d5a57182af79a2ad81e4fee3"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "ec7337c2f3b0ce8274e7ccc367aa35ba8930972f946e3e6d30fbd2dcfb728a09"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "586795d905da2511be52a64d753b1085c73149ee3b5f720aa19416f148b8cd8e"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "8a5476ebb9ff86e8aa35abe101f26893f3be3dc6cd709fd30d0012c778699a20"

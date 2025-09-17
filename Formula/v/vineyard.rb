@@ -31,6 +31,13 @@ class Vineyard < Formula
   depends_on "libgrape-lite"
   depends_on "open-mpi"
 
+  on_tahoe do
+    fails_with :clang do
+      build 1700
+      cause "https://github.com/llvm/llvm-project/issues/142118"
+    end
+  end
+
   on_linux do
     depends_on "autoconf" => :build
     depends_on "automake" => :build
@@ -45,6 +52,9 @@ class Vineyard < Formula
   end
 
   def install
+    # TODO: Remove after https://github.com/Homebrew/brew/pull/20696
+    ENV.llvm_clang if OS.mac? && MacOS.version == :tahoe && DevelopmentTools.clang_build_version == 1700
+
     # Workaround to support Boost 1.87.0+ until upstream fix for https://github.com/v6d-io/v6d/issues/2041
     boost_asio_post_files = %w[
       src/server/async/socket_server.cc

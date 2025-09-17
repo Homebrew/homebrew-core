@@ -9,6 +9,7 @@ class Precomp < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "37a2fbc9d8ef7f210168e5c4f2a3ce13944482c26207fb06ed6cec0138464395"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "e17e36888fa003ff01ce0af6dd634576f21c2f303cea989f507730c95af6f827"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ac582dec76b87c1affdf3a0065385f587b7fb47a3c7bdecd391a0e067fbcbf1c"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "33c0801e82dd120a4300a93190e59d99da46d28acb0cef6f6946ec9a75cad1e0"

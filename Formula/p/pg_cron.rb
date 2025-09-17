@@ -6,6 +6,7 @@ class PgCron < Formula
   license "PostgreSQL"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "db8a7bfe281044697f5f7b0835b95052e1ed0fb3688c673b6d65efbf1f047d78"
     sha256 cellar: :any,                 arm64_sequoia: "937e5bc2845b6ccf62c19823c03b39678ece0efd0c2834d81aa56795b0ba7199"
     sha256 cellar: :any,                 arm64_sonoma:  "a14743988807d045690aa9cfbc58d58b2f2f431e1951ddfa41547a55296043e8"
     sha256 cellar: :any,                 arm64_ventura: "8de0b4c5f4177977f2de2db6ab5fb3047d38d4233836b98a5ade1a45427436ef"

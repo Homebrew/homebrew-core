@@ -8,6 +8,7 @@ class Pgdbf < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "be260fe3bed2656f7950f0715feee61893dc672cd737a1752896310c70b44b0b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "a1747cf572e94ce2d46311dc5f7d13f736e22f0b1be93a3abd0fb8e1c3d781ac"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "35cd208c6ab173a31b1732a64b19ae4a9f34d127ec6dbfed163452e5227c6e50"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "c2ecba3b5b9e4803f45f71afbaf66d85333ec329f74513123dbfdc9822b803c6"

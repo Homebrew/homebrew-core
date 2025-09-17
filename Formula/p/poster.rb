@@ -8,6 +8,7 @@ class Poster < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "34f60256105b4965b85f65e6dafaba94f046ce0bc39dd94b9ccbdef4721b756a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "e1d75eca414c1495f824f18e6b8007e5352233f9afb9c63d2b588f15f0a44cf8"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9391507786944573699dca31e2089215514fbc3785b8cac70bf3576db33328fc"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "3502b06b6c852fa6ba935acf4a862b72987beff8658b37a11f40cf349acbafde"

@@ -10,6 +10,7 @@ class Qjson < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:    "0e477768711d2b9e0aca6455293f497e860e54455b2eb4fbf7fbfec1ad3754ba"
     sha256 cellar: :any,                 arm64_sequoia:  "d2d3a43592241e2217ea2508fa0ac418058d95d774f5d9fac89cbfe6ec031af0"
     sha256 cellar: :any,                 arm64_sonoma:   "c38d82d6a5e21a82d588066f62825febd4710d2826349ac5bddbe517f22d60a3"
     sha256 cellar: :any,                 arm64_ventura:  "7b927cd12810ef0c8bca41a65c906af9021ef100fcfd1a4686e81607c213fc7e"
@@ -27,7 +28,11 @@ class Qjson < Formula
   depends_on "qt@5"
 
   def install
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    # Workaround to build with CMake 4
+    args = %w[-DCMAKE_POLICY_VERSION_MINIMUM=3.5]
+    inreplace "CMakeLists.txt", "cmake_policy(SET CMP0020 OLD)", ""
+
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end

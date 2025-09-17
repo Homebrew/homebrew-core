@@ -7,6 +7,7 @@ class Nzbget < Formula
   head "https://github.com/nzbgetcom/nzbget.git", branch: "develop"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "bc750b166f6f51a0d64f84a0b08400cf4e6f7251e429dee17ab559254c7ff15e"
     sha256 cellar: :any,                 arm64_sequoia: "8d387a7d880402135a9b13bebf091594bbb56a25856a420d729fb9aeae826d28"
     sha256 cellar: :any,                 arm64_sonoma:  "5de1bac6efe1d3fa1b22a35890b67dbded144acbb30629baba72f5e430de61a4"
     sha256 cellar: :any,                 arm64_ventura: "ae1cc06180e289a4aa35165d251526dc43cab504e7e4bafc9822dcc2e7d3edc6"

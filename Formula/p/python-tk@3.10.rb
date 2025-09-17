@@ -12,6 +12,7 @@ class PythonTkAT310 < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "928d64245a0383e1cca15eef1e6b62f820281b99420542028bc13be37382c42d"
     sha256 cellar: :any,                 arm64_sequoia: "1f71b66d08ecc36332a7c98a093c13ba771584256859cd2a7b4dd609cbd2f62a"
     sha256 cellar: :any,                 arm64_sonoma:  "597d8fdc4278dd17026d5f190c779d17fd5afff09f297902e98350371f37ff97"
     sha256 cellar: :any,                 arm64_ventura: "47517511a709811f900ef3659698be6c2fd17af904878f2091304f257c13cdd5"

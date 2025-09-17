@@ -9,6 +9,7 @@ class AnsibleAT9 < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "5407f32109c3ec6f67d5e36ee2214320c9e9b462938f1ffc3e45879af63c2880"
     sha256 cellar: :any,                 arm64_sequoia: "3724755cf085d1f0fb7e6a453c1668494bfa9da897aad0551680645710466134"
     sha256 cellar: :any,                 arm64_sonoma:  "74b38329ac2ebdd120da51b69815917b398b0326818ba6481dd606fbad36abf5"
     sha256 cellar: :any,                 arm64_ventura: "8ef65f7ef64a597753ab4de4736550cb8a1d7e2e12f85ecc42b480fe992cc6c2"

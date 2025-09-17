@@ -7,6 +7,7 @@ class Ngs < Formula
   head "https://github.com/ngs-lang/ngs.git", branch: "master"
 
   bottle do
+    sha256 arm64_tahoe:   "feba0ec17eac5b598935a376ed97b160837728ea1dce7368ab984e48134ac80b"
     sha256 arm64_sequoia: "e7f8a694f90c7451ed9abda3ca69e35d1dbab001ede6afcc97b37f8042524c69"
     sha256 arm64_sonoma:  "d173769e2e4ee2b4882e64afd3ba3496ab82a17fd8d127b4ebbcf86b54e8d535"
     sha256 arm64_ventura: "871cc1ebb9efa92af51e3287dd5ba4bc421f27992cc10c5a948462d272996857"

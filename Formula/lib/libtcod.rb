@@ -23,7 +23,6 @@ class Libtcod < Formula
 
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
-  depends_on macos: :catalina
   depends_on "sdl3"
 
   uses_from_macos "zlib"

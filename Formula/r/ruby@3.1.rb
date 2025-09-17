@@ -7,6 +7,7 @@ class RubyAT31 < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_tahoe:   "dc72852c7a776cf641d2e16f772472598d8a0f35b5ebc3858efb335fb286fd55"
     sha256 arm64_sequoia: "0b2c994b56cc016e46c5897105ec0c68ce7a84dc755e2ffab9fbcbca55997998"
     sha256 arm64_sonoma:  "3198d30fb1e0727f1a68f20378d7a91be4de039fb2f0ef6fe818e0be1122e36f"
     sha256 arm64_ventura: "ccb66ea8882437d80774ca761207d8207d061958615fc5869f8a4e717950d45a"

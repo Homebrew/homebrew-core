@@ -9,6 +9,7 @@ class Nbsdgames < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "7e6bf700f1b8b33e34ae73df1f19cc45b7be8451723adbaddea87ff03607a1d5"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "94204000ca22ca12b9419ab644c95487348c2b8f6ab7ba6b75a35f262a45f853"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "354dccba0566a0c557da42b0bbcb70c83c6cc27414ee50d208fa51e99a62718a"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f2fea6eb184a26268e400bccb2f730badd3562d92444e639a1c4cda2d49dd222"

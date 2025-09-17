@@ -13,6 +13,7 @@ class Pngcheck < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "450096a7464e3698c4c42388293c1a21ee77c377b1e63fad1beb1c852258b8cb"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "b2a29178b3ecfedf6214021f290ebb12464f76b1b2179aa7aea7ae22be605b34"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "bd889a6e98aced57897687ed9c5235a5b6d617bb7a4e92c8c81f0d68c5b8662c"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "2bf9bb55a086b248952b1c262fe8f97dbd69b59fa01009775003867a2a891262"

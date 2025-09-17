@@ -11,6 +11,7 @@ class Biosig < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "70d70680271747ac17d076fc94b26449cca89b8c5f3c361488857a9e56dac07a"
     sha256 cellar: :any,                 arm64_sequoia: "152be2d169a73dbd8afcbb4e5060d547f7a0d439ed64626c6ccc969974d94e18"
     sha256 cellar: :any,                 arm64_sonoma:  "4d28f7a3f4ce3494c4557958c730b07bd08b19b8dbb056f7282f8e5fc396d918"
     sha256 cellar: :any,                 arm64_ventura: "738017ce88f7c9d43596aeeddc99ce04c6a6896ab02922da8c056ea24f3d0e6b"
@@ -27,6 +28,9 @@ class Biosig < Formula
 
   def install
     ENV.append "CXX", "-std=gnu++17"
+
+    # Work around header include order causing issues with `#ifndef isfinite`
+    ENV.append "CXXFLAGS", "-include cmath" if DevelopmentTools.clang_build_version >= 1700
 
     # Fix compile with newer Clang
     ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403

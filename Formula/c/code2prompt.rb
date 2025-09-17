@@ -1,20 +1,18 @@
 class Code2prompt < Formula
   desc "CLI tool to convert your codebase into a single LLM prompt"
   homepage "https://code2prompt.dev/"
-  url "https://github.com/mufeedvh/code2prompt/archive/refs/tags/v3.0.2.tar.gz"
-  sha256 "08e45407b71bf5e5fb89930043b085cf8965a008dc5004d4aa4ac64db0e447e0"
+  url "https://github.com/mufeedvh/code2prompt/archive/refs/tags/v4.0.0.tar.gz"
+  sha256 "8d5958a7ad8f906c6643bdf541404c008d89be6f26102a29f2c4f485a42b911d"
   license "MIT"
   head "https://github.com/mufeedvh/code2prompt.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "dea67d4480a27498f8b81ba5f5c5949b7b83e819bc8761654983410c356a277e"
-    sha256 cellar: :any,                 arm64_sequoia: "ffb0a37cd1c18cfce0671d5f12893bf3e76861adeed8aebd0877bb0e297722aa"
-    sha256 cellar: :any,                 arm64_sonoma:  "bf804355c19b6f6be322938ed43f0cc80201f1b530a5fa26ef0f155326f19f5c"
-    sha256 cellar: :any,                 arm64_ventura: "2c8ece110e8e9691417400d8e011ed0954a9b7f3b160a3d0988632219cf0c5e3"
-    sha256 cellar: :any,                 sonoma:        "a9a016853a6abfd026b1ab3db2205faf4da346be2fec686a5504b7eac87071a2"
-    sha256 cellar: :any,                 ventura:       "7429f9f5fa52f3d55ce31b80a92feacbcf2d8dcd5a5a13ec5b3da1f50ff362a0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "61242b4adb9b40caf4e07985b0f3e8296574322f18b60cf459812cf6e8197e09"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ef85b418af9acc67de01f42ac222b996933588a6f8d02cd7b162346aae8084ff"
+    sha256 cellar: :any,                 arm64_tahoe:   "37fa9bb30d4a91b9dd4f6df0ab2195f46d7d4c46899b9a7464b129ca3fbfc66f"
+    sha256 cellar: :any,                 arm64_sequoia: "009975fe56d00c4fe9971398f237d43fb808bbe5af442f64e78e366acaced0d6"
+    sha256 cellar: :any,                 arm64_sonoma:  "6a272bc9d14e3f08ebbeeb7252ab74ada3e3b9ff0910dd8df2f984ad37837325"
+    sha256 cellar: :any,                 sonoma:        "167da1a869c15dd2a634c3904cace612126d0d8cb86d38b52d66aeecb4dd6101"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c46693d8f26cfb4c311a8e0b1e547b9e41ebec852a2047531a5494cd532990f8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "509b18b70a5c674ec72d4e2bf31002b36c27b8313ea1508410162b5fe9d1b825"
   end
 
   depends_on "pkgconf" => :build

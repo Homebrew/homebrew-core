@@ -69,10 +69,8 @@ class CaCertificates < Formula
         -l -L
         -c #{tmpfile.path}
         -p ssl
+        -R offline
       ]
-      on_high_sierra :or_newer do
-        verify_args << "-R" << "offline"
-      end
 
       valid_certificates.select do |certificate|
         tmpfile.rewind

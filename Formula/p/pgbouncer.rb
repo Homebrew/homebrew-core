@@ -11,6 +11,7 @@ class Pgbouncer < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "b106491a75031ce42111776b2acc0cf72690e2e248292e81829f2564a07c40a4"
     sha256 cellar: :any,                 arm64_sequoia: "c520e5665bb21b6ab7d77518d49d1b2979f631fd87bd8e3f9c262bb350916048"
     sha256 cellar: :any,                 arm64_sonoma:  "8d48d6942ec879fa455056cc92fc75a090bae0e0acab0aa101139891bbd6a6ce"
     sha256 cellar: :any,                 arm64_ventura: "7de7551aac5f589fb691bcc55f4bae5ebbb68da3434751fe1be14203a6186aa2"

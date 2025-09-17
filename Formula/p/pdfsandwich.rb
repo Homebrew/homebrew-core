@@ -10,6 +10,7 @@ class Pdfsandwich < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "16c76bd4f3d4fd4a22a1b23737aedd8d017cc0a51cc5aea380e6879b958184ed"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "8f02d04e6517c0a842df56f9e7e381a2c3520f20669507f9fe52412c462baa6d"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0f7cd2c1676f390f9e5951408248c6b8d8682d4b70835ce67af1b89b2acefd74"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "93a40fb73e99c341323d434d2d03b7db027dd7b931aec4c2aed61f640f649b08"

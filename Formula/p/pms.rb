@@ -9,6 +9,7 @@ class Pms < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "9ea144b1cf1481050e378149ef8731963f537878c38d74faa182a687e85d64a0"
     sha256 cellar: :any,                 arm64_sequoia:  "24de40d237ca53721190a990da548b37b777fa60e7599c9c0c0dcf289333bbeb"
     sha256 cellar: :any,                 arm64_sonoma:   "2992d520cbc631a4764f7387d6f37efbb9dc5d75a387993217fb83204fa17a50"
     sha256 cellar: :any,                 arm64_ventura:  "b5b477e377dcf2b781a503e8eb00673d7218e43d788fa56b70b960fad91c26f9"

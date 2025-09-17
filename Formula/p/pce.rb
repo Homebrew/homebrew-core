@@ -39,11 +39,8 @@ class Pce < Formula
     depends_on "sdl2"
   end
 
+  depends_on "nasm" => :build
   depends_on "readline"
-
-  on_high_sierra :or_newer do
-    depends_on "nasm" => :build
-  end
 
   def install
     # Work around failure from GCC 10+ using default of `-fno-common`
@@ -51,9 +48,9 @@ class Pce < Formula
     # TODO: Remove in the next release.
     ENV.append_to_cflags "-fcommon" if OS.linux? && build.stable?
 
-    system "./configure", *std_configure_args,
+    system "./configure", "--enable-readline",
                           "--without-x",
-                          "--enable-readline"
+                          *std_configure_args
     system "make"
 
     # We need to run 'make install' without parallelization, because

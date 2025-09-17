@@ -8,6 +8,7 @@ class Pcp < Formula
   head "https://github.com/dennis-tra/pcp.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "04541e8deed7d35083d097a27b11789caacd0807c092a924bcfb20f926c08a1e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "b70326a9568fb548f3ce008619104436192af8cd247f06eb722057d8188e828d"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1aaac9b306226ce54909757ccdb10996d84803605c1e01f6f08e907ba7b30ec0"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "b1bfa73d57867b1d14809dca455e97ebcb4cb36c67080f64f8a44b242719cf79"

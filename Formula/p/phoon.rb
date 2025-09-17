@@ -23,6 +23,7 @@ class Phoon < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "636b515de152863a3694ddd5cab6745302e40fc8d649cd14bcf2b1debc5c2ba6"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "eea7e8ab443ec3e74f55f9b0572fc1fdb041d4a484f05c523820d3c9c510d646"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4b1fb75a7e0219b4f893f0ffc74791a27e82e95e127e6f8c66680b046d6f8a72"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "dd15d230ce1c25ac23caf064b0468fcbb779b3c0ba264410f59f3d8796c9f0c6"

@@ -33,11 +33,7 @@ class Inetutils < Formula
 
   def noshadow
     # List of binaries that do not shadow macOS utils
-    list = %w[dnsdomainname rcp rexec rlogin rsh]
-    on_high_sierra :or_newer do
-      list += %w[ftp telnet]
-    end
-    list
+    %w[dnsdomainname ftp rcp rexec rlogin rsh telnet]
   end
 
   def linux_conflicts

@@ -7,6 +7,7 @@ class Nx < Formula
   version_scheme 1
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "aea8f2ca275ddc9416a8ab281103c4fe095cf361ebedfff8155909870b1945a1"
     sha256 cellar: :any,                 arm64_sequoia: "37c8a6ca7fd27f5a9b911ce7f841897e2c5ef0ebfa83244675efb98e5e8c7061"
     sha256 cellar: :any,                 arm64_sonoma:  "37c8a6ca7fd27f5a9b911ce7f841897e2c5ef0ebfa83244675efb98e5e8c7061"
     sha256 cellar: :any,                 arm64_ventura: "37c8a6ca7fd27f5a9b911ce7f841897e2c5ef0ebfa83244675efb98e5e8c7061"

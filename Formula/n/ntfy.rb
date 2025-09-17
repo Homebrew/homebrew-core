@@ -7,6 +7,7 @@ class Ntfy < Formula
   head "https://github.com/binwiederhier/ntfy.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "bbd508965b636d79b8b11cfbe6d18ba9031ba615fa01d1748b32faaf4982bd9b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "4a0e6ef987e43fa3fa4427c556b13e0a045b1b3c7541836b5296e873ab3722cb"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4a0e6ef987e43fa3fa4427c556b13e0a045b1b3c7541836b5296e873ab3722cb"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "4a0e6ef987e43fa3fa4427c556b13e0a045b1b3c7541836b5296e873ab3722cb"

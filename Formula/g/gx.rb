@@ -7,6 +7,7 @@ class Gx < Formula
   head "https://github.com/whyrusleeping/gx.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "6c57e7d66f64ec58ad228784be3b5a410e830e702ed701debb188b22d7c12177"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "2f163d19c275918bb2de9aed07722dda266c010469bcb562bfbd65666d32b64c"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "54ee0e7162c46736a63a8587f315b69d2090386bac3c46b0da3a9fcbfda5258f"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "a49ac2040542b71f63e9c30592e102b07fc10561a79b99014773f7c88ffe7c47"

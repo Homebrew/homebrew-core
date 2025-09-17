@@ -2,7 +2,7 @@ class Pnetcdf < Formula
   desc "Parallel netCDF library for scientific data using the OpenMPI library"
   homepage "https://parallel-netcdf.github.io/index.html"
   url "https://parallel-netcdf.github.io/Release/pnetcdf-1.14.1.tar.gz"
-  sha256 "ffb5ee9bb40e4e5f09f1ed6b2eaa94c4e4810ce00111c29b5024cf91486d3fed"
+  sha256 "6f0f7221006c211fce9ddd2c008796b8c69dd717b2ad1be0b4027fc328fd3220"
   license "NetCDF"
 
   livecheck do
@@ -11,12 +11,12 @@ class Pnetcdf < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "7c40c27fb8668ad2e0aeba8a0a8c88ad7b62585af1e28d395b0a0fe2869728fb"
-    sha256 arm64_sonoma:  "6aa771fed2f799f7f3f7754344570cbdd0e2fb06019d03ade0979279da7a67b4"
-    sha256 arm64_ventura: "b55307d959eb56298ae7582355547ad148f3ebed3785eb29b309375452721128"
-    sha256 sonoma:        "3c2995b0e78ea6ee429308bcf2f5b30963c105d4ee9cc45a32a43a610d02ea0e"
-    sha256 ventura:       "0a20d95e7a6ba0181221d08838c550c63126f2ba9455319205e4ac01960e695e"
-    sha256 x86_64_linux:  "efe3836973413970bcd6e065d38972abf8c4dccdac993fa91fc40ede744d0112"
+    rebuild 1
+    sha256 arm64_tahoe:   "bf7af9e280e7cd4ed65b1224c5162e438019e694acaddf3879fb762df70b9613"
+    sha256 arm64_sequoia: "ec1741e4908ba779f792995be4683b91815886f71a064e528e386ad4a0f6da25"
+    sha256 arm64_sonoma:  "574fb8c333ad1b5c41f411214c8aafc8c16bba0fdae87adab77e0f156c14bc3b"
+    sha256 sonoma:        "b81de914fd1a1240034c507f426aa28b0cf959abd106824cf39fd7e030a1481a"
+    sha256 x86_64_linux:  "8a3e4533fbc8a1a5d1267dfe81cb3a1ab389ac4b0971de4eb6ade996bc2cc7a6"
   end
 
   depends_on "gcc"

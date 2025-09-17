@@ -11,7 +11,6 @@ class Quill < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on macos: :catalina
 
   def install
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args

@@ -9,6 +9,7 @@ class Pdf2image < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 arm64_tahoe:    "3441323b63b2667e68a90b70633c40813b10f0597933aadd8a46ff7a36413f8a"
     sha256 arm64_sequoia:  "412c25b88af18ef42fc4c705a409449b38f3fab9a792b40067ce2c510e524903"
     sha256 arm64_sonoma:   "caf804519e1009c069f081987d8cf3a9052649c7fa2359bf9749df195bbdbb21"
     sha256 arm64_ventura:  "fd39ba0dc18b50fd76f8be5b8d85335cc2b7fc40ab14e3a096890ed60f6f50b1"

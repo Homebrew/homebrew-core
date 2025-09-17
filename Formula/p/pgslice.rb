@@ -6,6 +6,7 @@ class Pgslice < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "4b804ee8c22a1b234028f9119170e2172641c89fb39adf7c46ffcbb420aff89f"
     sha256 cellar: :any,                 arm64_sequoia: "39bfa33730c49b770aac11c0659096db74326789d732c4cb3290c3e3096008a0"
     sha256 cellar: :any,                 arm64_sonoma:  "817e87e1feb86c845b152b516b473731d58a456092631dcc0e2a98f5189ba201"
     sha256 cellar: :any,                 arm64_ventura: "bfa5d84ec12e40fc019bfb21f0e821d29943cfb37667bb811617924ad5b43adb"

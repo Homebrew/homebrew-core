@@ -14,6 +14,7 @@ class PhpAT82 < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_tahoe:   "5f9b6752e46dd806b61c583840091e66477fe7520306e6ee21e054200d2c2c4a"
     sha256 arm64_sequoia: "7576aec65c4ac7ab192e487e3942ce2e769db1b52da0d9a620f22f0cbe70af6d"
     sha256 arm64_sonoma:  "e12c26df9115adb17c624e6284cc95a83cdd0306d3e9facf5ef54aa8162ee91b"
     sha256 arm64_ventura: "302ac8f571039ceac4bbd0c6785067d27a2974dd785c9ea0c62cad52af9b00c5"

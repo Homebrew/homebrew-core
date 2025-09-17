@@ -6,6 +6,7 @@ class Psysh < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d43a18dee47ac4018167d10d7014d73ae48f2f3962449e4921893ac6fdb405f5"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "d43a18dee47ac4018167d10d7014d73ae48f2f3962449e4921893ac6fdb405f5"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d43a18dee47ac4018167d10d7014d73ae48f2f3962449e4921893ac6fdb405f5"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "d43a18dee47ac4018167d10d7014d73ae48f2f3962449e4921893ac6fdb405f5"

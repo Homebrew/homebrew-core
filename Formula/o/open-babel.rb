@@ -20,6 +20,7 @@ class OpenBabel < Formula
 
   bottle do
     rebuild 4
+    sha256                               arm64_tahoe:   "8dca8602006c747d7f897ecddfd923abe05d55f4976636200e32bafbcb2b3c1a"
     sha256                               arm64_sequoia: "6e65ad2651937d58c9c4c023948ef066fb47d80c1add72a46478dc068a3b8889"
     sha256                               arm64_sonoma:  "4dae715c5d682d7dbc2629f8942de25888cb0a17ecf7097d0e4b0b5293f6a599"
     sha256                               arm64_ventura: "74af59afb37e1a715f5993d8f2003c2a4b9cfcd8c0d25706658318ca8e0bfe4b"
@@ -49,14 +50,20 @@ class OpenBabel < Formula
   conflicts_with "surelog", because: "both install `roundtrip` binaries"
 
   def install
-    system "cmake", "-S", ".", "-B", "build",
-                    "-DINCHI_INCLUDE_DIR=#{Formula["inchi"].opt_include}/inchi",
-                    "-DOPENBABEL_USE_SYSTEM_INCHI=ON",
-                    "-DRUN_SWIG=ON",
-                    "-DPYTHON_BINDINGS=ON",
-                    "-DPYTHON_EXECUTABLE=#{which(python3)}",
-                    "-DPYTHON_INSTDIR=#{prefix/Language::Python.site_packages(python3)}",
-                    *std_cmake_args
+    args = %W[
+      -DINCHI_INCLUDE_DIR=#{Formula["inchi"].opt_include}/inchi
+      -DOPENBABEL_USE_SYSTEM_INCHI=ON
+      -DRUN_SWIG=ON
+      -DPYTHON_BINDINGS=ON
+      -DPYTHON_EXECUTABLE=#{which(python3)}
+      -DPYTHON_INSTDIR=#{prefix/Language::Python.site_packages(python3)}
+    ]
+
+    # Workaround to build with CMake 4
+    args << "-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
+    inreplace "CMakeLists.txt", "cmake_policy(SET CMP0042 OLD)",
+                                "cmake_policy(SET CMP0042 NEW)"
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end

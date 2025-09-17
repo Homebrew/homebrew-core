@@ -8,6 +8,7 @@ class Ns3 < Formula
   license "GPL-2.0-only"
 
   bottle do
+    sha256                               arm64_tahoe:   "eee2b492d4a45aeb4c11f73a5abc55436ce2a91d6e96adbb329944d46e94aa3c"
     sha256                               arm64_sequoia: "16a5e5c3ad224f1bfcb9e2820eba18c0b8c173efc439134d6bb0518875623ab6"
     sha256                               arm64_sonoma:  "62126a9fdd2c9c8add1f3afe4a07711aa54c48200f48f7b675618f0ec1555505"
     sha256                               arm64_ventura: "57b9753395cea0ab0519dc036783373e5d533fa09957c9f2768a79afabec86e0"

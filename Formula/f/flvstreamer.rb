@@ -7,6 +7,7 @@ class Flvstreamer < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "c55b7127c5b5b17a88d10808cd4056b2a1ceb2e8fa8a5477c6bc4318a3c43207"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "dcbbbb87db99f0140c73453fd12af2023b37d44c42302d99156335b0cd69891d"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "116c69614242e07bfb2be2d34177335c12a19ef86c8ab5a70e2b3157695f3368"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "3de5f4ef4be5bd145b783b309b8be860215f308abbd3134d6def0734861ae63d"

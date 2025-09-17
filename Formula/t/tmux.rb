@@ -35,14 +35,9 @@ class Tmux < Formula
   depends_on "pkgconf" => :build
   depends_on "libevent"
   depends_on "ncurses"
+  depends_on "utf8proc"
 
   uses_from_macos "bison" => :build # for yacc
-
-  # Old versions of macOS libc disagree with utf8proc character widths.
-  # https://github.com/tmux/tmux/issues/2223
-  on_system :linux, macos: :sierra_or_newer do
-    depends_on "utf8proc"
-  end
 
   resource "completion" do
     url "https://raw.githubusercontent.com/imomaliev/tmux-bash-completion/8da7f797245970659b259b85e5409f197b8afddd/completions/tmux"
@@ -55,6 +50,7 @@ class Tmux < Formula
     args = %W[
       --enable-sixel
       --sysconfdir=#{etc}
+      --enable-utf8proc
     ]
 
     # tmux finds the `tmux-256color` terminfo provided by our ncurses
@@ -62,7 +58,6 @@ class Tmux < Formula
     # tools that link with the very old ncurses provided by macOS.
     # https://github.com/Homebrew/homebrew-core/issues/102748
     args << "--with-TERM=screen-256color" if OS.mac? && MacOS.version < :sonoma
-    args << "--enable-utf8proc" if OS.linux? || MacOS.version >= :high_sierra
 
     ENV.append "LDFLAGS", "-lresolv"
     system "./configure", *args, *std_configure_args

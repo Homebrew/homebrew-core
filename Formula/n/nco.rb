@@ -6,6 +6,7 @@ class Nco < Formula
   license "BSD-3-Clause"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "6a386e33e68de65ade5df0eb68cea69db50bfef75ec9738e2a7792757e3bdd9b"
     sha256 cellar: :any,                 arm64_sequoia: "02353f717e8ed2035866788430a1d0ba3a1d5b42116cf6e6e1dfae9aa3f2d684"
     sha256 cellar: :any,                 arm64_sonoma:  "d6be5813bad218baf0b2ede0da1841afd8e2274564a91e069c54b243a3461671"
     sha256 cellar: :any,                 arm64_ventura: "3cc3c1d2ee8d9c1995669a7e06415240bfc4a4845de33adca2c56599866279f2"
@@ -68,7 +69,7 @@ class Nco < Formula
 
   test do
     resource "homebrew-example_nc" do
-      url "https://www.unidata.ucar.edu/software/netcdf/examples/WMI_Lear.nc"
+      url "https://archive.unidata.ucar.edu/software/netcdf/examples/WMI_Lear.nc"
       sha256 "e37527146376716ef335d01d68efc8d0142bdebf8d9d7f4e8cbe6f880807bdef"
     end
 

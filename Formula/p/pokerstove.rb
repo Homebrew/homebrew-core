@@ -9,6 +9,7 @@ class Pokerstove < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:   "9813ded756c83d5f0ec4e42648a3de6ac4f572f8593a17c6e64943e20f4e27da"
     sha256 cellar: :any,                 arm64_sequoia: "f7130808f62e33bc114d8485bdd8448020f06a6c00449f6ef73cfcc6ce6eb6ee"
     sha256 cellar: :any,                 arm64_sonoma:  "85e003ac98afcd71cd83cfb7c406eed5bfb8e27a7fe0e9a38587dbe70a3f2337"
     sha256 cellar: :any,                 arm64_ventura: "c34a21407e69e70f400fb9c2fd7c1834606498ff027dad0a86e8a198c123e48f"

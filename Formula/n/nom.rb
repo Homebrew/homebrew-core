@@ -7,6 +7,7 @@ class Nom < Formula
   head "https://github.com/guyfedwards/nom.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b20c805ce43c3a22720e1fed1a8abf2341c144b60d1076f9d298cdcec2e52a50"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "f08b63f2ed3f7b9f4a99edecd9afb3a38bddaba9aadee8050f13b8fff69994a8"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "437f1292938b070066bc61cb09e366140a49dee6e20d3fff785c8346572f1a0b"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "84655f5d92aeb6029bcf33e77e3d3eb3c36211ea437ba2ecde9a34da33fcab15"

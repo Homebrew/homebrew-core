@@ -6,6 +6,7 @@ class Swfmill < Formula
   license "GPL-2.0-only"
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "f72fbfa8ade5ccfd50e5166466e4bcc69adda17fe49bf1b6a1f2fee1f104b0d6"
     sha256 cellar: :any,                 arm64_sequoia:  "627251dcb91c98bea4455fb35da262880aae7f2f5897162616f62135f1fe9234"
     sha256 cellar: :any,                 arm64_sonoma:   "a9e8c77577b790f0e88eec48aa1e8091c7df0708731aab2d5b61f5379c4ee0ee"
     sha256 cellar: :any,                 arm64_ventura:  "0963f879f2401a1174f2d1536a1dbbec0cfea0ca85978943f5f00e9d98c7b62e"

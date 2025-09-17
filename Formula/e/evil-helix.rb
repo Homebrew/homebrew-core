@@ -1,19 +1,18 @@
 class EvilHelix < Formula
   desc "Soft fork of the helix editor"
   homepage "https://github.com/usagi-flow/evil-helix"
-  url "https://github.com/usagi-flow/evil-helix/archive/refs/tags/release-20250823.tar.gz"
-  sha256 "a06ca03fb7726cd22728593c641fcae5c4bc3c05a1dfb809352e471c4679a0c3"
+  url "https://github.com/usagi-flow/evil-helix/archive/refs/tags/release-20250915.tar.gz"
+  sha256 "1a5dc826890eede336b2f2cabbb1bb19b3e25ebbc0c42ac09eb7d9348bbf27cc"
   license "MPL-2.0"
   head "https://github.com/usagi-flow/evil-helix.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "bd9e375d5af199078bc4c72711db7a521f2b5b3a97ef52fca95c2a5c20020464"
-    sha256 cellar: :any,                 arm64_sequoia: "e791d92c0c841e7ae072ba4d968fe134e027e57085d684ff1b16423f43c2d956"
-    sha256 cellar: :any,                 arm64_sonoma:  "ef3d09e17e23e71775b36e905045665d5019bc5f43734306bdcbe690e6e59c5b"
-    sha256 cellar: :any,                 sonoma:        "d65baae18537d61a3dfa818eab13ed9fda5afd9dc707a77bab3c2a9f07dda5db"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "669efd02cadae489188de4da6d28656fd136e196ab412cc9e61ce33f1584b34b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "83c58153ceaea968ab8f90bc7c651193bafcc73f8df93e12eb3d5b594a10cc2b"
+    sha256 cellar: :any,                 arm64_tahoe:   "088ce87991fec98ca0f5d28f7a781841cbe12259b24fb938f3082999e9b6ba83"
+    sha256 cellar: :any,                 arm64_sequoia: "aa1c077d84f8167f6603695b83b2818138e65e91a42ef39791eaac40d4a6815e"
+    sha256 cellar: :any,                 arm64_sonoma:  "28f7341d9919b9f9ac2ca92626620ee991239c6cf5790cffe08f77423e241e67"
+    sha256 cellar: :any,                 sonoma:        "3827312aed2b160a604b9afa49ba2180af52f64782fd30317ef93b8c85ea0797"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b1b10ec389c6c35d93edb3068ddb9b903745a0c57de1c672ae384c4b16fca17d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c13f92143ffc80c200cf99fab67afd167cb9c0dcf64b559c48db9b27734d3b1a"
   end
 
   depends_on "rust" => :build

@@ -30,7 +30,7 @@ class Ttf2eot < Formula
 
   test do
     if OS.mac?
-      font_name = (MacOS.version >= :catalina) ? "Arial Unicode" : "Arial"
+      font_name = "Arial Unicode"
       font_dir = "/Library/Fonts"
     else
       font_name = "DejaVuSans"

@@ -6,6 +6,7 @@ class Nping < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "154efe4e2a7876ef5f07f75bee5a1d9430902095cab62374556b049be064f0d2"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "20862eab2cbcfc10caf8e4727406345b8c0963da8d9b11cf77e1e8b481bfdbf5"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d8c8a3c70304a5d2f9ef2d989964bed57ebc73eb522cc47d8f339d1674f03e4e"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "976671ce122a9ce7f2b835acd39c58299ddf25e5fa6ec331160c68ff37b27a1f"

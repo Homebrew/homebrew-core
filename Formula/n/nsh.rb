@@ -10,6 +10,7 @@ class Nsh < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "8de98d7c1f703f719f7cab7cd55a8f633543319cb60c8fd05bd6bdc95bf83ac7"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "2ef8db75b69ddc2fa1c2a917190320078a4d050906e8695cd6ce86ba7a311790"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c014a7d6e2c282fd56a1c4059f3cfb03edfc6dcb508e1976c46da859d7b386aa"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "ed0302eb6517ce8ab878bf1dce1954a16242a2dbc211d266f9773590aa1822e1"

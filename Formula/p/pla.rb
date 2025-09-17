@@ -8,6 +8,7 @@ class Pla < Formula
   no_autobump! because: :requires_manual_review
 
   bottle do
+    sha256 cellar: :any,                 arm64_tahoe:    "daa4f5dec64b4beba34a971523cc108879bc605eb20d0f69cbb9bbcea837b424"
     sha256 cellar: :any,                 arm64_sequoia:  "bb80455464cd182092c87cc0c242eda1050fdb3579ac6204338934741c5af632"
     sha256 cellar: :any,                 arm64_sonoma:   "34622b25b182676b0af0bcb5832d47a7d72672d3ad6e972036efdb551011fa7e"
     sha256 cellar: :any,                 arm64_ventura:  "7be71e6a234104ac6da8b3fdbf000f04345d08c4e1ba933bf736833628e1c415"
