@@ -24,9 +24,16 @@ class Container < Formula
     bin.install release_dir/"container"
     bin.install release_dir/"container-apiserver"
 
-    (libexec/"plugins/container-core-images/bin").install release_dir/"container-core-images"
-    (libexec/"plugins/container-network-vmnet/bin").install release_dir/"container-network-vmnet"
-    (libexec/"plugins/container-runtime-linux/bin").install release_dir/"container-runtime-linux"
+    (libexec/"container/plugins/container-core-images/bin").install release_dir/"container-core-images"
+    (libexec/"container/plugins/container-network-vmnet/bin").install release_dir/"container-network-vmnet"
+    (libexec/"container/plugins/container-runtime-linux/bin").install release_dir/"container-runtime-linux"
+  end
+
+  # container APIs aren't guaranteed to be backward compatible,
+  # so we stop the system service to ensure no components are out of sync.
+  # Ref: https://github.com/apple/container/issues/551#issuecomment-3246928923
+  def post_install
+    system bin/"container", "system", "stop"
   end
 
   service do
