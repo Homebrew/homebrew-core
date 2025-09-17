@@ -40,6 +40,18 @@ class Bazel < Formula
     libexec/"bin/bazel-real"
   end
 
+  # The following patches fix a `missing LC_UUID load command` error from dyld.
+  # 1. Remove xcode_locator's no_uuid and codesigning workarounds
+  #    https://github.com/bazelbuild/bazel/pull/27014
+  patch do
+    url "https://github.com/bazelbuild/bazel/commit/fa574ecffd8dc69df654bc27cd5e149351c2f5e8.patch?full_index=1"
+    sha256 "8a76251f40fce9c4616e741fbc4766cf95827ee89e5402f3e35f4bc5621a588e"
+  end
+  # 2. Update apple_support dependency to pick up the following commit that
+  #    fixes the same issue:
+  #    https://github.com/bazelbuild/apple_support/commit/44c43c715aa58d16dc713ec0daa0a4373c39245a
+  patch :DATA
+
   def install
     java_home_env = Language::Java.java_home_env("21")
 
@@ -144,3 +156,18 @@ class Bazel < Formula
     assert_equal "bazel #{version}-homebrew\n", shell_output("#{bin}/bazel-#{version} --version")
   end
 end
+
+__END__
+diff --git a/MODULE.bazel b/MODULE.bazel
+index 4dbb1bf3b7..029f4c9181 100644
+--- a/MODULE.bazel
++++ b/MODULE.bazel
+@@ -38,7 +38,7 @@ bazel_dep(name = "chicory", version = "1.1.0")
+
+ # Depend on apple_support first and then rules_cc so that the Xcode toolchain
+ # from apple_support wins over the generic Unix toolchain from rules_cc.
+-bazel_dep(name = "apple_support", version = "1.18.1")
++bazel_dep(name = "apple_support", version = "1.23.1")
+ bazel_dep(name = "rules_cc", version = "0.1.1")
+
+ # repo_name needs to be used, until WORKSPACE mode is to be supported in bazel_tools
