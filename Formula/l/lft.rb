@@ -28,6 +28,9 @@ class Lft < Formula
 
   uses_from_macos "libpcap"
 
+  # Fixes an undefined macro SLIST_ENTRY
+  patch :DATA
+
   def install
     args = []
     # Help old config scripts identify arm64 linux
@@ -41,3 +44,16 @@ class Lft < Formula
     assert_match "isn't available to LFT", shell_output("#{bin}/lft -S -d 443 brew.sh 2>&1")
   end
 end
+
+__END__
+--- a/lft_types.h
++++ b/lft_types.h
+@@ -120,7 +120,7 @@ typedef signed long n_time;
+ #include "lft_lsrr.h"
+ #include "whois.h"
+
+-#if defined(__FreeBSD__)
++#if defined(__FreeBSD__) || defined(DARWIN)
+ #include <sys/queue.h>
+ #elif !defined(DARWIN) && !defined(NETBSD)
+ #include "lft_queue.h"
