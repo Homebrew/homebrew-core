@@ -41,18 +41,19 @@ class GambitScheme < Formula
     # -O1 is recommended over -O2 by upstream using recent GCC versions[^1].
     # Similar tests on macOS 15 show -O1 outperforming both -Os and -O2.
     # [^1]: https://github.com/gambit/gambit/blob/v4.9.7/INSTALL.txt#L99-L101
-    ENV.O1
+    # ENV.O1
 
     args = %W[
       --prefix=#{prefix}
       --docdir=#{doc}
       --infodir=#{info}
       --enable-default-runtime-options=f8,-8,t8
-      --enable-dynamic-clib
       --enable-openssl
       --enable-single-host
-      --enable-trust-c-tco
     ]
+    # TODO: test following
+    # --enable-dynamic-clib
+    # --enable-trust-c-tco
 
     system "./configure", *args
     system "make"
