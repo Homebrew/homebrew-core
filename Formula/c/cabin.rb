@@ -4,6 +4,7 @@ class Cabin < Formula
   url "https://github.com/cabinpkg/cabin/archive/refs/tags/0.13.0.tar.gz"
   sha256 "f9115bb0566800beedb41106e00f44a7eaf1dea0fa6528281e31de5f80864177"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/cabinpkg/cabin.git", branch: "main"
 
   bottle do
