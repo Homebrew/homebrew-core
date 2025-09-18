@@ -8,14 +8,13 @@ class Sourcery < Formula
   head "https://github.com/krzysztofzablocki/Sourcery.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d1858c459535b0d6d55b33a4e749e3bbabffbe3d3cd6dd683f0a8a12e39b564b"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "492ed39e90b1fa57dfd06fe1232473e57d9b5b7f110453d04387db5a76f19192"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4cef0fe60955af53805a58f3da3d80e6b0849835a8892d7cd31e885ff98afc3f"
-    sha256 cellar: :any,                 arm64_ventura: "7bad173e863423cf66b082d6f1f9e7f34a73fe121aabb3ca29a81be10ed7e707"
-    sha256 cellar: :any_skip_relocation, sonoma:        "8d82c40e46e20b5e60908144e8d58e440798c802a545a2b3d3fbd2db70b87b74"
-    sha256 cellar: :any,                 ventura:       "e621c3cc046ef8c5336b796ad72c36ee2d608b518b5bc746f78d04170c46d2aa"
-    sha256                               arm64_linux:   "5bafe848b77836b034a0c8f0c3c411267feac36e5ee758f184ce7c38197d446d"
-    sha256                               x86_64_linux:  "f0818110b2abe047e9055f761a77c7321f69e5e6563187213461bea738fa46fd"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2db665495e6e9e63509568597e743b36396b21cc7fefeffec7d1d072472fd1a4"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3ee395a1f1a6730ded82e4f64220678623762843b18bc805cdf237befe47bb44"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e138df107b97d3b7ae13f15a0e619678ec524137bc7920aa1645145a30d8671b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d4dc17a8cf542441964dcbd44553434630ab2a9dd2f3ce0c7d575ad35a2f83d1"
+    sha256                               arm64_linux:   "160bd4a8ab8be3f425995ca39b341e4fe4d6ef57502bc26594c570c516eb9b3c"
+    sha256                               x86_64_linux:  "c7aa992a3b853f63df789798f86737f4cd71cbba40dbbcc167d8ed62495607f0"
   end
 
   depends_on xcode: "14.3"
