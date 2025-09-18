@@ -1,8 +1,8 @@
 class Sourcery < Formula
   desc "Meta-programming for Swift, stop writing boilerplate code"
   homepage "https://github.com/krzysztofzablocki/Sourcery"
-  url "https://github.com/krzysztofzablocki/Sourcery/archive/refs/tags/2.2.7.tar.gz"
-  sha256 "e543ba8c3f05d9c8ce6b9dc0460d2084893f345d4f5984aabe31a40849a5c0e0"
+  url "https://github.com/krzysztofzablocki/Sourcery/archive/refs/tags/2.3.0.tar.gz"
+  sha256 "097aa2628cfbba2f8c2d412c57f7179c96082ab034fc6b2a2e905a0d344269e6"
   license "MIT"
   version_scheme 1
   head "https://github.com/krzysztofzablocki/Sourcery.git", branch: "master"
@@ -27,18 +27,6 @@ class Sourcery < Formula
   uses_from_macos "ncurses"
   uses_from_macos "sqlite"
   uses_from_macos "swift"
-
-  # Fix compiling with Xcode 26
-  # PR ref: https://github.com/krzysztofzablocki/Sourcery/pull/1428
-  patch do
-    url "https://github.com/krzysztofzablocki/Sourcery/commit/b0754d08c5ed5bf37cbda7892b42675f993c2251.patch?full_index=1"
-    sha256 "daf3c9365870548e9cf0a209ba57643c37fb23c5853e8057db269cf0fd92bbfc"
-  end
-  # PR ref: https://github.com/krzysztofzablocki/Sourcery/pull/1434
-  patch do
-    url "https://github.com/krzysztofzablocki/Sourcery/commit/4d2ce5976af07b43a56a64a1ddbce7137b65f9f9.patch?full_index=1"
-    sha256 "1a82f39d469278a16cca34292d6424bb3506ad2b76b621980b9dea9e49106d02"
-  end
 
   def install
     # Build script is unfortunately not customisable.
